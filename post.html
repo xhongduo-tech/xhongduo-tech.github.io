@@ -11,7 +11,8 @@
   <script>
     // 初始化主题（避免闪白）
     (function() {
-      var t = localStorage.getItem('theme') || 'dark';
+      var saved = localStorage.getItem('theme');
+      var t = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>

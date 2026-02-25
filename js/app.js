@@ -25,8 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 初始化 hljs 主题
-  syncHljsTheme(localStorage.getItem('theme') || 'dark');
+  // 初始化 hljs 主题（跟随系统色，若无手动设置）
+  const savedTheme = localStorage.getItem('theme')
+    || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  syncHljsTheme(savedTheme);
 
   // 代码块 copy 按钮（事件委托）
   document.addEventListener('click', e => {
