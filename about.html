@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>about · xhd.log</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">
+          <span class="prompt">&gt;</span>xhd
+        </a>
+        <div class="nav-links">
+          <a href="index.html">posts</a>
+          <a href="about.html" class="active">about</a>
+          <button id="theme-toggle" class="theme-btn" aria-label="切换主题">[light]</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="post-article about-page">
+      <section class="hero">
+        <div class="hero-cmd">
+          <span class="prompt">$</span> cat about.md
+        </div>
+        <h1>关于我<span class="blink">_</span></h1>
+      </section>
+
+      <div class="post-body">
+        <p>
+          我是 xhd，专注于大模型、智能体与 AGI 的研究与工程实践。
+          目前的核心工作围绕 LLM 推理、Agent 系统设计与认知架构展开。
+        </p>
+
+        <h2>核心观点</h2>
+        <blockquote>
+          大模型是基于语言的模型，而语言是思维的一种解析与外化。
+          当下的 LLM 本质上是在对「思维的投影」建模，而非思维本身。
+          真正的 AGI 之路，不在于把语言模型做得更大——
+          而在于找到思维的原始结构，并直接对其建模。
+        </blockquote>
+        <p>
+          语言是思维压缩后的有损编码：歧义、文化偏差、表达瓶颈，
+          都是这层编码引入的噪声。Scale 可以逼近极限，但无法突破信息论的边界。
+          我相信，下一代范式的突破口在于<strong>认知表示</strong>，
+          而不是更长的上下文窗口。
+        </p>
+
+        <h2>关注领域</h2>
+        <ul>
+          <li>大模型推理与对齐（reasoning、RLHF、CoT 机制）</li>
+          <li>智能体系统设计（planning、memory、tool use、multi-agent）</li>
+          <li>认知架构与 AGI 理论（symbol grounding、思维建模）</li>
+          <li>LLM 工程化与推理加速（量化、KV cache、serving 优化）</li>
+          <li>系统设计与分布式基础设施</li>
+        </ul>
+
+        <h2>联系</h2>
+        <ul>
+          <li>GitHub：<a href="https://github.com/xuhongduo" target="_blank" rel="noopener">@xuhongduo</a></li>
+          <li>Email：your@email.com</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

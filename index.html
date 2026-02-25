@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xhd.log</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
+  <script>
+    // 初始化主题（避免闪白）
+    (function() {
+      var t = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">
+          <span class="prompt">&gt;</span>xhd
+        </a>
+        <div class="nav-links">
+          <a href="index.html" class="active">posts</a>
+          <a href="about.html">about</a>
+          <button id="theme-toggle" class="theme-btn" aria-label="切换主题">[light]</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-cmd">
+        <span class="prompt">$</span> cat xhd.log
+      </div>
+      <h1>技术随笔<span class="blink">_</span></h1>
+      <p class="hero-sub">// 记录代码、架构与思考碎片</p>
+    </section>
+
+    <!-- 搜索 & 标签过滤 -->
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <input type="text" id="search-input" placeholder="搜索文章..." class="search-input" />
+      </div>
+      <div id="tag-filter" class="tag-filter"></div>
+    </div>
+
+    <!-- 文章列表 -->
+    <div id="post-list" class="post-list">
+      <div class="loading">加载中</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
