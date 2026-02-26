@@ -194,27 +194,27 @@ async function initPostPage() {
   // 页面标题
   document.title = `${post.title} · xhd.log`;
 
-  // 配置 marked
+  // 配置 marked（用 plain object renderer，避免 new marked.Renderer() 兼容问题）
   if (typeof marked !== 'undefined') {
     marked.setOptions({ breaks: true, gfm: true });
 
-    const renderer = new marked.Renderer();
+    marked.use({
+      renderer: {
+        // 代码块：添加语言标签 + copy 按钮
+        code({ text, lang }) {
+          let highlighted = escapeHtml(text);
+          let language    = 'plaintext';
 
-    // 代码块：添加语言标签 + copy 按钮
-    renderer.code = ({ text, lang }) => {
-      let highlighted = escapeHtml(text);
-      let language    = 'plaintext';
+          if (typeof hljs !== 'undefined') {
+            language    = hljs.getLanguage(lang) ? lang : 'plaintext';
+            highlighted = hljs.highlight(text, { language }).value;
+          }
 
-      if (typeof hljs !== 'undefined') {
-        language    = hljs.getLanguage(lang) ? lang : 'plaintext';
-        highlighted = hljs.highlight(text, { language }).value;
-      }
+          const langLabel = language !== 'plaintext'
+            ? `<span class="code-lang">${language}</span>`
+            : `<span class="code-lang">text</span>`;
 
-      const langLabel = language !== 'plaintext'
-        ? `<span class="code-lang">${language}</span>`
-        : `<span class="code-lang">text</span>`;
-
-      return `
+          return `
         <div class="code-wrapper">
           <div class="code-header">
             ${langLabel}
@@ -222,9 +222,9 @@ async function initPostPage() {
           </div>
           <pre><code class="hljs language-${language}">${highlighted}</code></pre>
         </div>`;
-    };
-
-    marked.use({ renderer });
+        }
+      }
+    });
   }
 
   // 阅读时长（中文按字符，英文按单词）
@@ -237,27 +237,35 @@ async function initPostPage() {
 
   // 保护数学公式不被 marked 处理，渲染后替换为 KaTeX HTML
   let bodyHtml;
-  if (typeof marked !== 'undefined') {
-    const mathStore = [];
-    const protectedMd = mdText
-      .replace(/\$\$([\s\S]+?)\$\$/g, (_, math) => {
-        mathStore.push({ display: true, math });
-        return `<!--KMATH${mathStore.length - 1}-->`;
-      })
-      .replace(/\$([^$\n]+?)\$/g, (_, math) => {
-        mathStore.push({ display: false, math });
-        return `<!--KMATH${mathStore.length - 1}-->`;
-      });
-    let html = marked.parse(protectedMd);
-    if (typeof katex !== 'undefined' && mathStore.length > 0) {
-      html = html.replace(/<!--KMATH(\d+)-->/g, (_, i) => {
-        const { display, math } = mathStore[Number(i)];
-        return katex.renderToString(math, { throwOnError: false, displayMode: display });
-      });
+  try {
+    if (typeof marked !== 'undefined') {
+      const mathStore = [];
+      const protectedMd = mdText
+        .replace(/\$\$([\s\S]+?)\$\$/g, (_, math) => {
+          mathStore.push({ display: true, math });
+          return `<!--KMATH${mathStore.length - 1}-->`;
+        })
+        .replace(/\$([^$\n]+?)\$/g, (_, math) => {
+          mathStore.push({ display: false, math });
+          return `<!--KMATH${mathStore.length - 1}-->`;
+        });
+      // await 兼容 marked 在某些配置下返回 Promise<string> 的情况
+      let html = await Promise.resolve(marked.parse(protectedMd));
+      if (typeof katex !== 'undefined' && mathStore.length > 0) {
+        html = html.replace(/<!--KMATH(\d+)-->/g, (_, i) => {
+          const { display, math } = mathStore[Number(i)];
+          return katex.renderToString(math, { throwOnError: false, displayMode: display });
+        });
+      }
+      bodyHtml = html;
+    } else {
+      bodyHtml = `<pre>${escapeHtml(mdText)}</pre>`;
     }
-    bodyHtml = html;
-  } else {
-    bodyHtml = `<pre>${escapeHtml(mdText)}</pre>`;
+  } catch (e) {
+    // 降级：不渲染数学公式，但文章内容正常显示
+    bodyHtml = typeof marked !== 'undefined'
+      ? await Promise.resolve(marked.parse(mdText))
+      : `<pre>${escapeHtml(mdText)}</pre>`;
   }
 
   contentEl.innerHTML = `
