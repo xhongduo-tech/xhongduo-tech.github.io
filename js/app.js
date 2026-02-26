@@ -235,9 +235,30 @@ async function initPostPage() {
     .map(t => `<span class="tag">${escapeHtml(t)}</span>`)
     .join('');
 
-  const bodyHtml = typeof marked !== 'undefined'
-    ? marked.parse(mdText)
-    : `<pre>${escapeHtml(mdText)}</pre>`;
+  // 保护数学公式不被 marked 处理，渲染后替换为 KaTeX HTML
+  let bodyHtml;
+  if (typeof marked !== 'undefined') {
+    const mathStore = [];
+    const protectedMd = mdText
+      .replace(/\$\$([\s\S]+?)\$\$/g, (_, math) => {
+        mathStore.push({ display: true, math });
+        return `<!--KMATH${mathStore.length - 1}-->`;
+      })
+      .replace(/\$([^$\n]+?)\$/g, (_, math) => {
+        mathStore.push({ display: false, math });
+        return `<!--KMATH${mathStore.length - 1}-->`;
+      });
+    let html = marked.parse(protectedMd);
+    if (typeof katex !== 'undefined' && mathStore.length > 0) {
+      html = html.replace(/<!--KMATH(\d+)-->/g, (_, i) => {
+        const { display, math } = mathStore[Number(i)];
+        return katex.renderToString(math, { throwOnError: false, displayMode: display });
+      });
+    }
+    bodyHtml = html;
+  } else {
+    bodyHtml = `<pre>${escapeHtml(mdText)}</pre>`;
+  }
 
   contentEl.innerHTML = `
     <header class="post-header">
