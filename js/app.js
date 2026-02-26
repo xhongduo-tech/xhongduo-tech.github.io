@@ -201,7 +201,7 @@ async function initPostPage() {
     marked.use({
       renderer: {
         // 代码块：添加语言标签 + copy 按钮
-        code({ text, lang }) {
+        code(text, lang) {
           let highlighted = escapeHtml(text);
           let language    = 'plaintext';
 
