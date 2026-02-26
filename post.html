@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>xhd.log</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" id="hljs-theme"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+  <link rel="stylesheet" id="hljs-theme" href="" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
   <script>
-    // 初始化主题（避免闪白）
+    // 初始化主题（避免闪白）+ 同步加载正确的 hljs 主题 CSS
     (function() {
       var saved = localStorage.getItem('theme');
       var t = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', t);
+      var base = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/';
+      document.getElementById('hljs-theme').href = t === 'light'
+        ? base + 'github.min.css'
+        : base + 'atom-one-dark.min.css';
     })();
   </script>
 </head>
