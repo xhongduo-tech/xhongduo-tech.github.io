@@ -205,8 +205,8 @@ async function initPostPage() {
           let highlighted = escapeHtml(text);
           let language    = 'plaintext';
 
-          if (typeof hljs !== 'undefined') {
-            language    = hljs.getLanguage(lang) ? lang : 'plaintext';
+          if (typeof hljs !== 'undefined' && hljs.getLanguage(lang)) {
+            language    = lang;
             highlighted = hljs.highlight(text, { language }).value;
           }
 
@@ -263,9 +263,13 @@ async function initPostPage() {
     }
   } catch (e) {
     // 降级：不渲染数学公式，但文章内容正常显示
-    bodyHtml = typeof marked !== 'undefined'
-      ? await Promise.resolve(marked.parse(mdText))
-      : `<pre>${escapeHtml(mdText)}</pre>`;
+    try {
+      bodyHtml = typeof marked !== 'undefined'
+        ? await Promise.resolve(marked.parse(mdText))
+        : `<pre>${escapeHtml(mdText)}</pre>`;
+    } catch (_) {
+      bodyHtml = `<pre>${escapeHtml(mdText)}</pre>`;
+    }
   }
 
   contentEl.innerHTML = `
