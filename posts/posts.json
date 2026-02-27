@@ -1,5 +1,12 @@
 [
   {
+    "title":   "归一化全解：从成绩单到 RMSNorm，搞懂大模型训练稳定性的关键",
+    "slug":    "normalization",
+    "date":    "2026-02-27",
+    "tags":    ["LLM", "深度学习", "归一化", "架构", "RMSNorm"],
+    "summary": "从 Z-score 出发，逐层讲透 BatchNorm、LayerNorm、RMSNorm 的原理与公式，解释为什么现代大模型（LLaMA、DeepSeek、Qwen）全部选择 RMSNorm + Pre-Norm，附完整数值计算示例与各方法对比图。"
+  },
+  {
     "title":   "OpenClaw 全解：从副业项目到 OpenAI 收购，一个 AI Agent 框架的崛起",
     "slug":    "openclaw",
     "date":    "2026-02-26",
