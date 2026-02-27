@@ -24,7 +24,7 @@ OpenClaw 做的事情不复杂：把**工具调用、持久记忆、可扩展技
 用户发消息 → AI 生成文字 → 结束
 ```
 
-每次无状态，不记得上次，不能主动找你，不能真正执行任何操作。
+每次无状态，不记得上次，不能主动找你，无法自主规划多步骤任务、持续操作外部系统。
 
 **AI 代理（Agent）**：
 
@@ -52,7 +52,7 @@ OpenClaw 支持多个模型提供商，选择主要看**能力 vs 成本**的权
 
 | 提供商 | 推荐模型 | 输入价格 | 输出价格 | 适合场景 |
 |--------|---------|---------|---------|---------|
-| **Anthropic** | Claude Sonnet 4.5 | $3/M | $15/M | **推荐：能力与成本最均衡** |
+| **Anthropic** | Claude Sonnet 4.6 | $3/M | $15/M | **推荐：能力与成本最均衡** |
 | Anthropic | Claude Haiku 4.5 | $0.80/M | $4/M | 高频简单任务（提醒、快速回答） |
 | Anthropic | Claude Opus 4.6 | $30/M | $30/M | 复杂分析、研究，成本高 |
 | **OpenAI** | GPT-4o | $15/M | $60/M | 响应速度快（1-2s），工具调用稳定 |
@@ -62,7 +62,7 @@ OpenClaw 支持多个模型提供商，选择主要看**能力 vs 成本**的权
 **怎么选：**
 
 - 刚开始探索，想控制成本 → **DeepSeek V3**（价格是 Claude Sonnet 的 1/10）
-- 日常使用，想要稳定质量 → **Claude Sonnet 4.5**（大多数人的最终选择）
+- 日常使用，想要稳定质量 → **Claude Sonnet 4.6**（大多数人的最终选择）
 - 高频简单交互为主 → **Claude Haiku 4.5** 或 **Gemini Flash-Lite**
 - 对响应速度要求高 → **GPT-4o**
 
@@ -72,7 +72,7 @@ OpenClaw 支持多个模型提供商，选择主要看**能力 vs 成本**的权
 {
   "agents": {
     "defaults": {
-      "model": "anthropic/claude-sonnet-4-5"
+      "model": "anthropic/claude-sonnet-4-6"
     },
     "routing": {
       "simple": "anthropic/claude-haiku-4-5",
@@ -274,7 +274,7 @@ openclaw doctor --fix
   },
   "agents": {
     "defaults": {
-      "model": "anthropic/claude-sonnet-4-5"   // 默认模型
+      "model": "anthropic/claude-sonnet-4-6"   // 默认模型
     }
   },
   "channels": {
@@ -863,7 +863,7 @@ clawd skill run github-pr-review --dry-run
 │        │           ┌─────▼──────┐                       │
 │   WhatsApp         │   Tools    │    ┌──────────────┐   │
 │   Telegram  ◀───── │（工具执行） │───▶│    Memory    │   │
-│   Discord          └─────▲──────┘    │  ~/clawd/    │   │
+│   Discord          └─────▲──────┘    │ ~/.openclaw/ │   │
 │   Signal                 │           └──────────────┘   │
 │                    ┌─────┴──────┐                       │
 │                    │   Skills   │    ┌──────────────┐   │
