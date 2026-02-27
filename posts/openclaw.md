@@ -1,66 +1,855 @@
-## 引言：一个副业项目，震动了整个 AI 行业
+## 引言
 
-2025 年 11 月，奥地利独立开发者 Peter Steinberger 发布了一个叫 **Clawdbot** 的小项目，自称"playground project"。
-
-两个月后，它以 **OpenClaw** 的名字在 GitHub 上拥有 **14 万 Star、2 万 Fork**，并且 OpenAI CEO Sam Altman 亲自发推宣布：Steinberger 加入 OpenAI，专注下一代个人智能体研发。
+2025 年 11 月，奥地利开发者 Peter Steinberger 发布了 **Clawdbot**，自称"副业玩具"。两个月后它以 **OpenClaw** 的名字拿到 14 万 GitHub Star，OpenAI CEO Sam Altman 亲自宣布 Steinberger 加入 OpenAI。
 
 | 时间 | 事件 |
 |------|------|
 | 2025 年 11 月 | Steinberger 发布 **Clawdbot** |
 | 2026 年 1 月 27 日 | Anthropic 商标投诉 → 改名 **Moltbot** |
-| 2026 年 1 月 30 日 | "Moltbot 念起来不顺口" → 改名 **OpenClaw** |
-| 2026 年 2 月 2 日 | GitHub 140,000 ★，20,000 Fork |
-| 2026 年 2 月 14 日 | Steinberger 宣布加入 OpenAI |
-| 2026 年 2 月 15 日 | Sam Altman 公开确认，OpenClaw 移交独立基金会，OpenAI 赞助 |
+| 2026 年 1 月 30 日 | "念起来不顺口" → 改名 **OpenClaw** |
+| 2026 年 2 月 2 日 | 140,000 ★，20,000 Fork |
+| 2026 年 2 月 15 日 | Sam Altman 宣布 Steinberger 加入 OpenAI，项目移交独立基金会 |
 
-为什么能做到这一点？不是因为用了什么别人没有的技术，而是因为它第一次把几个早已存在却相互孤立的能力——**工具调用、持久记忆、可扩展技能、消息平台集成、主动触发**——整合进一个足够简单、足够开放的框架。
+OpenClaw 做的事情不复杂：把**工具调用、持久记忆、可扩展技能、消息平台集成、定时主动触发**整合进一个 Node.js 单进程，让任何开发者都能在自己的机器上跑起一个真正能自主干活的 AI 代理。
 
-这篇文章从架构、Skills 系统、权限配置、部署环境到实战指南，全面拆解 OpenClaw。
-
----
-
-## 先厘清：什么是"真正的 AI 代理"
-
-普通 AI 助手（ChatGPT 网页、Claude 网页）的工作模式：
-
-```
-用户发消息 → AI 生成回复 → 对话结束
-```
-
-每次对话**无状态**。AI 不记得上次说过什么，不会主动联系你，不能操作你的文件或执行代码。
-
-AI 代理（Agent）的工作模式：
-
-```
-触发（用户消息 / 定时任务 / 外部事件）
-        ↓
-  加载记忆与上下文
-        ↓
-  LLM 思考 → 选择工具 → 执行工具 → 观察结果
-        ↓（循环，直到任务完成）
-  生成回复 → 保存记忆
-        ↓
-       等待下一次触发
-```
-
-Agent 是**有状态、可主动、能行动**的。OpenClaw 是后者的一个具体实现，核心差距如下：
-
-|  | 传统 AI 助手 | OpenClaw |
-|--|-------------|----------|
-| **状态** | 无状态（会话内有效） | 有状态（持久记忆） |
-| **触发** | 被动等待 | 主动 + 被动（Heartbeat + 消息） |
-| **工具** | 有限沙盒 | 真实工具（文件、API、代码执行） |
-| **扩展** | 无法扩展 | Skills 系统（社区 2,857+ 技能） |
-| **运行位置** | 供应商服务器 | 你的机器 / VPS |
-| **数据主权** | 供应商持有 | 完全本地 |
+这篇文章从"装好并跑起来"出发，覆盖安装流程中的每一个选择、Skills 系统的工作原理、权限配置，以及各种部署环境的取舍。
 
 ---
 
-## 核心架构：六个组件，一个进程
+## 先搞清楚：AI 代理和 AI 助手的区别
 
-OpenClaw 的工程哲学极度简单：**没有数据库，没有微服务，没有供应商锁定**。
+普通 AI 助手（ChatGPT、Claude 网页）：
 
-整个系统是运行在你本地或 VPS 上的 **Node.js 单进程**，默认监听 `127.0.0.1:18789`。
+```
+用户发消息 → AI 生成文字 → 结束
+```
+
+每次无状态，不记得上次，不能主动找你，不能真正执行任何操作。
+
+**AI 代理（Agent）**：
+
+```
+触发（消息 / 定时 / 外部事件）
+      ↓
+加载历史记忆 + 组装上下文
+      ↓
+LLM 思考 → 选择工具 → 执行工具 → 观察结果
+      ↓（循环，直到完成）
+回复 → 保存记忆 → 等待下次触发
+```
+
+有状态、能主动行动、能真正执行工具（写文件、调 API、跑代码）。OpenClaw 是这个模式的具体实现。
+
+---
+
+## 安装前：三个先决定的问题
+
+安装 OpenClaw 之前，需要先决定三件事。选错了之后会很麻烦。
+
+### 决策一：用哪个 LLM？
+
+OpenClaw 支持多个模型提供商，选择主要看**能力 vs 成本**的权衡：
+
+| 提供商 | 推荐模型 | 输入价格 | 输出价格 | 适合场景 |
+|--------|---------|---------|---------|---------|
+| **Anthropic** | Claude Sonnet 4.5 | $3/M | $15/M | **推荐：能力与成本最均衡** |
+| Anthropic | Claude Haiku 4.5 | $0.80/M | $4/M | 高频简单任务（提醒、快速回答） |
+| Anthropic | Claude Opus 4.6 | $30/M | $30/M | 复杂分析、研究，成本高 |
+| **OpenAI** | GPT-4o | $15/M | $60/M | 响应速度快（1-2s），工具调用稳定 |
+| **DeepSeek** | V3 | $0.27/M | $1.10/M | **最便宜**，但复杂推理较弱 |
+| Google | Gemini Flash-Lite | $0.05/M | $0.20/M | 极低成本，速度最快 |
+
+**怎么选：**
+
+- 刚开始探索，想控制成本 → **DeepSeek V3**（价格是 Claude Sonnet 的 1/10）
+- 日常使用，想要稳定质量 → **Claude Sonnet 4.5**（大多数人的最终选择）
+- 高频简单交互为主 → **Claude Haiku 4.5** 或 **Gemini Flash-Lite**
+- 对响应速度要求高 → **GPT-4o**
+
+进阶用法：在 `openclaw.json` 里配置**多模型策略**，简单任务用便宜模型，复杂任务自动切换到 Opus：
+
+```json
+{
+  "agents": {
+    "defaults": {
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "routing": {
+      "simple": "anthropic/claude-haiku-4-5",
+      "complex": "anthropic/claude-opus-4-6"
+    }
+  }
+}
+```
+
+拿到 API Key 的方式：
+- Claude：[console.anthropic.com](https://console.anthropic.com)
+- OpenAI：[platform.openai.com](https://platform.openai.com)
+- DeepSeek：[platform.deepseek.com](https://platform.deepseek.com)
+
+---
+
+### 决策二：用哪个消息平台？
+
+OpenClaw 通过消息平台和你交互。四个选项差异很大：
+
+**Telegram（推荐所有人首选）**
+
+使用官方 Bot API + 长轮询。**无需公网 IP、域名、SSL 证书**，家庭宽带直接可用。功能最完整，社区 Skill 优先支持，新手体验最好。
+
+**WhatsApp（手机用户）**
+
+使用 Baileys 库逆向 WhatsApp Web 协议，扫码连接。如果你日常就在 WhatsApp，这是最自然的选择。但有两个注意点：
+1. Baileys 是**非官方实现**，WhatsApp 协议更新时可能短暂失效
+2. 强烈建议用**专用号码**（备用机/eSIM），不要用主号——一旦被封不影响个人账号
+
+**Signal（隐私优先）**
+
+端对端加密，元数据最少。配置复杂，需要命令行和加密密钥管理。除非有明确隐私需求，不推荐新手起步时选。
+
+**Discord（团队 / 社区）**
+
+适合多人共享同一个 Agent，有基于 Guild 的权限管理。适合部署给团队用的共享助手。
+
+| | Telegram | WhatsApp | Signal | Discord |
+|--|---------|---------|--------|---------|
+| **配置难度** | ⭐（最简单） | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
+| **稳定性** | 高 | 中 | 高 | 高 |
+| **隐私** | 中 | 低 | 最高 | 中 |
+| **多人支持** | 有限 | 有限 | 有限 | 原生 |
+| **推荐程度** | 首选 | 手机用户 | 特殊需求 | 团队场景 |
+
+---
+
+### 决策三：部署在哪里？
+
+部署环境决定了 OpenClaw 的能力边界，这是最关键的决策。
+
+OpenClaw 需要**持续运行**——它维持着和消息平台的 WebSocket 长连接，以及定时心跳任务。机器睡眠或关机，连接就断。
+
+**选项 A：本地 Mac（探索阶段）**
+
+零成本，立刻可用。最大问题是 Mac 休眠会断连。需要在系统设置里关掉自动睡眠（System Settings → Battery → Prevent sleep）。
+
+唯一能原生支持 **iMessage** 的选项——如果你需要用 iMessage 接入 Agent，必须选这条路。
+
+**适合：** 刚开始学，或者确实需要 iMessage。
+
+**选项 B：Mac Mini 长开服务器（个人深度用）**
+
+功耗约 10W，7×24 常开电费约 ¥10/月，一次性硬件投入约 ¥4,000–8,000。支持 iMessage + 本地文件访问 + 可选本地 LLM（Ollama）。
+
+**适合：** 重度个人用户，需要 iMessage 且想要稳定在线。
+
+**选项 C：VPS 云服务器（生产推荐）**
+
+数据中心级稳定性，真正 24/7 在线。Agent 与个人桌面隔离，安全边界清晰。**不支持 iMessage**（需要 macOS 环境）。
+
+最低配置：1 核 1GB RAM 可以跑，但建议 2 核 2GB。起步价约 ¥25–150/月（DigitalOcean、Vultr、搬瓦工等）。
+
+**适合：** 需要稳定可靠，不在乎 iMessage，可以接受月租。
+
+**选项 D：混合架构（最终形态）**
+
+VPS 跑 Gateway（公网接口、Telegram/WhatsApp Bot），Mac Mini 跑 Worker（iMessage、本地文件），两者通过 Tailscale 加密隧道通信。兼顾稳定性和本地能力。
+
+**适合：** 对稳定性和能力都有要求的用户。
+
+| | 本地 Mac | Mac Mini | VPS | 混合 |
+|--|---------|---------|-----|------|
+| **iMessage** | ✅ | ✅ | ❌ | ✅ |
+| **24/7 在线** | ❌ | ✅ | ✅ | ✅ |
+| **月租** | ¥0 | ~¥10 电费 | ¥25–150 | ¥25–150 |
+| **一次性** | ¥0 | ¥4,000–8,000 | ¥0 | ¥4,000–8,000 |
+| **安全隔离** | 低 | 中 | 高 | 高 |
+| **推荐阶段** | 探索 | 个人深度 | 生产 | 终态 |
+
+官方推荐路径：**第 1 月本地跑 → 第 2 月 Docker 化 → 第 3 月迁移 VPS**。
+
+---
+
+## 安装流程
+
+### 第零步：检查 Node.js 版本
+
+OpenClaw **需要 Node.js 22 或以上**，18 和 20 会报语法错误。
+
+```bash
+node --version
+# 输出示例：v22.13.0
+```
+
+如果版本不对：
+
+```bash
+# 使用 nvm 安装（推荐）
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+source ~/.bashrc   # 或 source ~/.zshrc
+
+nvm install 22
+nvm use 22
+nvm alias default 22   # 设为默认版本
+
+node --version   # 确认：v22.x.x
+```
+
+---
+
+### 第一步：安装 OpenClaw
+
+```bash
+npm install -g openclaw@latest
+```
+
+安装完成后验证：
+
+```bash
+openclaw --version
+```
+
+如果报 `openclaw: command not found`：
+
+```bash
+# 查找 npm 全局安装路径
+npm config get prefix
+
+# 把该路径下的 bin 目录加入 PATH
+# 在 ~/.zshrc 或 ~/.bashrc 末尾加上：
+export PATH="$PATH:$(npm config get prefix)/bin"
+
+# 重载
+source ~/.zshrc
+
+# 再试
+openclaw --version
+```
+
+如果 `npm install -g` 报权限错误（不要用 sudo，治标不治本）：
+
+```bash
+# 修复 npm 目录所有权
+sudo chown -R $USER:$(id -gn $USER) ~/.npm
+sudo chown -R $USER:$(id -gn $USER) /usr/local/lib/node_modules
+
+# 然后重新安装（不需要 sudo）
+npm install -g openclaw@latest
+```
+
+---
+
+### 第二步：运行初始化向导
+
+```bash
+openclaw onboard --install-daemon
+```
+
+向导会引导你完成：
+1. 选择 LLM 提供商和填入 API Key
+2. 选择消息平台
+3. 配置基本权限策略
+4. 安装系统服务（daemon，让 OpenClaw 开机自启）
+
+完成后验证配置是否正确：
+
+```bash
+openclaw doctor
+# 全绿说明配置没问题
+
+openclaw doctor --fix
+# 有问题会尝试自动修复
+```
+
+---
+
+### 第三步：配置 .env 和 openclaw.json
+
+向导生成的配置在 `~/.openclaw/openclaw.json`。关键字段说明：
+
+```json
+{
+  "gateway": {
+    "port": 18789,
+    "host": "127.0.0.1",   // 只绑定本地，不暴露公网
+    "mode": "local"
+  },
+  "agents": {
+    "defaults": {
+      "model": "anthropic/claude-sonnet-4-5"   // 默认模型
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_BOT_TOKEN}",   // 引用环境变量
+      "dmPolicy": "pairing"   // 陌生人需要审批才能使用
+    }
+  }
+}
+```
+
+敏感信息（API Key、Bot Token）放在 `~/.openclaw/.env` 而不是 JSON 文件里：
+
+```bash
+# ~/.openclaw/.env
+ANTHROPIC_API_KEY=sk-ant-...
+TELEGRAM_BOT_TOKEN=123456:ABC-DEF...
+OPENCLAW_GATEWAY_TOKEN=你生成的随机长字符串
+
+# 限制文件权限
+chmod 600 ~/.openclaw/.env
+```
+
+生成安全的 Gateway Token：
+
+```bash
+openssl rand -hex 32
+```
+
+---
+
+### 第四步：连接消息平台
+
+#### Telegram 配置（推荐）
+
+**第 1 步：创建 Bot**
+
+1. 打开 Telegram，搜索 `@BotFather`
+2. 发送 `/newbot`
+3. 输入显示名称（如 "My AI"）
+4. 输入用户名（必须以 `bot` 结尾，如 `my_ai_helper_bot`）
+5. BotFather 返回 Token，格式类似：`123456789:AAF-xxxxxxxxxxxxxxxxxxx`
+
+**第 2 步：配置隐私模式（如果要在群组用）**
+
+在 BotFather 发送：
+```
+/setprivacy
+选择你的 Bot
+选择 DISABLED
+```
+
+默认的 "Enabled" 模式下 Bot 只能看到 @ 它的消息，Disabled 后能看到所有消息。**个人私聊不受影响，只有群组才需要这一步。**
+
+**第 3 步：填入配置**
+
+```bash
+# 方式一：环境变量（推荐）
+echo "TELEGRAM_BOT_TOKEN=123456789:AAF-xxx" >> ~/.openclaw/.env
+
+# 方式二：直接写进 openclaw.json
+openclaw config set channels.telegram.botToken "123456789:AAF-xxx"
+```
+
+**第 4 步：启动并完成配对**
+
+```bash
+openclaw gateway
+```
+
+在 Telegram 向你的 Bot 发送 `/start`，Bot 会返回一个配对码。在终端确认：
+
+```bash
+openclaw pairing approve telegram <配对码>
+```
+
+配对完成后，这台设备就绑定到了你的 Gateway，后续直接对话即可。
+
+---
+
+#### WhatsApp 配置
+
+```bash
+# 在配置里启用 WhatsApp
+openclaw config set channels.whatsapp.enabled true
+```
+
+```json
+// openclaw.json 里的 whatsapp 配置
+{
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "allowFrom": ["+你自己的手机号"]
+    }
+  }
+}
+```
+
+扫码连接：
+
+```bash
+openclaw channels login --channel whatsapp
+```
+
+终端显示 QR 码后，立即用手机扫描：
+
+> 打开 WhatsApp → 设置 → 已关联的设备 → 关联新设备 → 扫码
+
+看到 `device linked / session saved` 即成功。
+
+**关于号码选择：**
+
+- **首选**：用备用手机或 eSIM 的专用号码注册一个新 WhatsApp 账号——即使被封也不影响主号
+- **备选**：用主号，但 Bot 的消息会出现在你"给自己发消息"的对话里，体验有点奇怪
+
+**常见问题：**
+
+- QR 码过期 → 太慢了，重跑命令立刻扫
+- "Can't link new devices" → WhatsApp 在限流，等 24–48 小时
+- 会话频繁掉线 → 确认 Gateway 真正在持续运行，不是跑完就退了
+
+---
+
+### 第五步：配置 AGENTS.md（定义 Agent 人格）
+
+```bash
+nano ~/.openclaw/AGENTS.md
+```
+
+```markdown
+# My Assistant
+
+You are my personal productivity assistant. Core rules:
+
+1. **简洁**：回答简短，除非我要求详细
+2. **记忆**：重要决策和信息存到 ~/.openclaw/memory/
+3. **语言**：默认中文，我用英文时英文回复
+4. **主动**：Heartbeat 时检查重要邮件，有紧急情况主动通知
+
+## 我的关注点
+
+- 软件工程项目（TypeScript、Python）
+- LLM 领域最新进展
+- 日程和会议准备
+
+## 禁止事项
+
+- 不要在未经确认的情况下删除文件
+- 不要向第三方分享我的私人信息
+```
+
+---
+
+### 第六步：设置 Heartbeat（主动触发）
+
+```bash
+crontab -e
+```
+
+添加以下两条：
+
+```bash
+# 每天早 8 点：触发晨报 Skill（日历摘要、优先任务）
+0 8 * * * curl -s http://127.0.0.1:18789/heartbeat
+
+# 每 30 分钟：常规心跳（邮件检查、服务监控）
+*/30 * * * * curl -s http://127.0.0.1:18789/heartbeat
+```
+
+---
+
+### 第七步：安装 Skills
+
+```bash
+# 查看可安装的 Skill
+clawhub search daily-digest
+
+# 安装推荐的三个入门 Skill
+clawhub install daily-digest      # 每日简报
+clawhub install github-monitor    # GitHub PR/Issue 监控
+clawhub install smart-reminders   # 智能提醒
+
+# 安装完需要重启 Gateway（Skill 在启动时快照）
+openclaw gateway restart
+```
+
+验证 Skill 已被识别——在 Telegram 发给 Bot：
+
+```text
+你现在有哪些 Skills？
+```
+
+---
+
+### VPS 部署（生产环境）
+
+如果选择 VPS，还需要额外的安全加固步骤。
+
+**基础安全配置：**
+
+```bash
+# 1. 创建专用非 root 用户
+sudo useradd -m -s /bin/bash openclaw
+sudo usermod -aG sudo openclaw
+sudo -u openclaw ssh-keygen -t ed25519
+
+# 2. 禁止 root 登录
+sudo nano /etc/ssh/sshd_config
+# 修改：PermitRootLogin no
+# 修改：PasswordAuthentication no
+sudo systemctl restart sshd
+
+# 3. 防火墙配置
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 22/tcp     # SSH（或改成自定义端口）
+# 注意：18789 不要开放给公网，通过 SSH 隧道访问
+
+# 4. 确认 Gateway 只绑定本地
+# openclaw.json 里：
+# "host": "127.0.0.1"  ← 正确
+# "host": "0.0.0.0"   ← 危险，不要这样
+```
+
+**Docker 部署（推荐用于 VPS）：**
+
+```bash
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+
+# 设置必要的环境变量
+export ANTHROPIC_API_KEY="sk-ant-..."
+export TELEGRAM_BOT_TOKEN="123456:..."
+export OPENCLAW_GATEWAY_TOKEN=$(openssl rand -hex 32)
+
+# 生成 docker-compose.yml
+./docker-setup.sh
+```
+
+生成的 `docker-compose.yml` 核心结构：
+
+```yaml
+services:
+  openclaw-gateway:
+    image: openclaw:local
+    ports:
+      - "127.0.0.1:18789:18789"   # 只绑本地
+    restart: unless-stopped
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
+    volumes:
+      - ~/.openclaw:/home/node/.openclaw   # 持久化配置和记忆
+    user: "node:node"   # 非 root 运行
+```
+
+```bash
+# 启动
+docker compose up -d
+
+# 查看日志
+docker compose logs -f
+
+# 重启
+docker compose restart
+```
+
+**从本地远程访问 VPS 上的 Dashboard（不暴露端口）：**
+
+```bash
+ssh -L 18789:127.0.0.1:18789 user@你的vps-ip
+# 然后在本地浏览器打开 http://localhost:18789
+```
+
+---
+
+### 验证安装是否成功
+
+```bash
+openclaw --version      # 有版本号输出 ✓
+openclaw doctor         # 全绿 ✓
+openclaw status         # 显示 Gateway: running ✓
+```
+
+打开 Dashboard：`http://localhost:18789`
+
+- 模型下拉菜单能选到你配置的模型 ✓
+- 消息平台状态显示绿色（connected） ✓
+- 在 Telegram/WhatsApp 发一条测试消息，5 秒内收到回复 ✓
+
+---
+
+## Skills 深度拆解
+
+### Skills 到底是什么
+
+**一个 Skill = 一个目录 + 一个 `SKILL.md` 文件**，可选附带 `scripts/` 和 `references/`。
+
+```
+~/.openclaw/skills/
+├── github-pr-review/
+│   ├── SKILL.md          ← 必须
+│   ├── scripts/
+│   │   └── fetch-pr.sh
+│   └── references/
+│       └── style-guide.md
+├── morning-brief/
+│   └── SKILL.md
+└── smart-alerts/
+    └── SKILL.md
+```
+
+`SKILL.md` 完整结构：
+
+```markdown
+---
+name: github-pr-review
+description: Review GitHub pull requests and post structured comments
+           with security, logic, and style analysis
+version: 1.0.0
+author: you
+requiredPermissions:
+  - read:github
+  - write:github_comments
+---
+
+# GitHub PR Review
+
+When the user asks to review a PR:
+
+1. Extract repo and PR number from the message
+2. Use `github_api` tool to fetch the diff
+3. Analyze for: security issues, logic errors, code style
+4. Post a review comment with three sections:
+   🔴 Critical | 🟡 Suggestions | ✅ Looks Good
+
+## When to activate this skill
+
+- "Review PR #42"
+- "Check the latest pull request in myrepo/backend"
+- Any message mentioning "pull request", "PR", "code review"
+
+## Tools used
+
+- `github_api` — fetch PR content, post comments
+- `bash` — optional local diff processing
+```
+
+### 选择性注入：description 是激活的关键
+
+OpenClaw 不会把所有 Skill 的完整内容塞进每次的系统提示词——100 个 Skill 的完整内容会消耗数万 token。
+
+实际策略分两步：
+
+```
+每次请求：
+  把所有 Skill 的「name + description」列表注入 prompt（~300 token）
+        ↓
+模型读列表，判断哪个 Skill 和当前任务相关
+        ↓
+主动 read() 该 SKILL.md 的完整内容，加载后继续推理
+```
+
+**`description` 字段是模型决定"要不要读这个 Skill"的唯一依据。**写得不清晰，Skill 永远不会被激活。好的 description 要包含：这个 Skill 做什么、什么场景触发、有没有关键词。
+
+### 自己写一个 Skill：完整示例
+
+以"每天早 8 点总结日历并推送到 Telegram"为例：
+
+```bash
+mkdir -p ~/.openclaw/skills/morning-brief
+```
+
+新建 `~/.openclaw/skills/morning-brief/SKILL.md`：
+
+```markdown
+---
+name: morning-brief
+description: Every morning at 08:00, generate a briefing with today's
+           calendar events and top 3 priorities, then send to Telegram.
+           Triggered automatically by Heartbeat.
+version: 1.0.0
+requiredPermissions:
+  - read:calendar
+  - send:telegram
+---
+
+# Morning Brief
+
+**Triggered by**: Heartbeat at 08:00
+
+**Steps**:
+1. Fetch today's calendar events using `google_calendar` tool
+2. Check ~/my-notes/priorities.md for standing priorities
+3. Format a clean digest
+4. Send via `telegram_send`
+
+## Output format
+
+> 📅 **Morning Brief — {date}**
+>
+> **Today**
+> - 10:00 Team standup (30 min)
+> - 14:00 Product review (1 hr)
+>
+> **Top priorities**
+> 1. Deploy before 14:00 review
+> 2. Reply to pending PRs
+
+## Heartbeat config
+
+Run during every 08:00 Heartbeat trigger.
+```
+
+```bash
+# 重启 Gateway 让 Skill 生效
+openclaw gateway restart
+
+# 验证已被识别
+# 在 Telegram 问：你现在有哪些 Skills？
+```
+
+### clawhub 常用命令
+
+```bash
+clawhub search <关键词>       # 搜索可用 Skill
+clawhub install <skill-name> # 安装
+clawhub list                 # 查看已安装的 Skill
+clawhub update <skill-name>  # 更新某个 Skill
+clawhub uninstall <skill-name> # 卸载
+clawhub info <skill-name>    # 查看详情
+clawhub sync                 # 扫描目录重新同步
+```
+
+---
+
+## 权限系统：精确控制 Agent 能做什么
+
+### 三类核心权限
+
+**文件权限**：配置在 `~/.openclaw/policies/global.json`
+
+```json
+{
+  "file": {
+    "read":  ["~/.openclaw/**", "~/Documents/work/**"],
+    "write": ["~/.openclaw/**", "~/Documents/work/**"],
+    "deny":  ["~/.ssh/**", "~/.aws/**", "/etc/**", "~/.config/**"]
+  }
+}
+```
+
+**Shell 执行权限**：三种模式
+
+```json
+{
+  "exec": {
+    "mode": "ask",
+    "allowlist": [
+      "git *",
+      "npm *",
+      "python3 ~/.openclaw/scripts/**"
+    ],
+    "denylist": [
+      "rm -rf *",
+      "curl * | bash",
+      "sudo *",
+      "chmod 777 *"
+    ]
+  }
+}
+```
+
+- `allow`：全部放行（只在完全信任环境用）
+- `ask`：每次执行前通过 Telegram/WhatsApp 推一条确认消息给你（**生产推荐**）
+- `deny`：全部拒绝 Shell 操作
+
+**网络权限**：限制能访问哪些外部服务
+
+```json
+{
+  "network": {
+    "allowedHosts": [
+      "api.github.com",
+      "api.anthropic.com",
+      "calendar.google.com"
+    ],
+    "blockHosts": [
+      "169.254.*",
+      "*.local"
+    ]
+  }
+}
+```
+
+### 设备令牌：不同设备不同权限
+
+```json
+// ~/.openclaw/devices.json
+{
+  "devices": {
+    "phone-personal": {
+      "scopes": ["read:calendar", "send:telegram", "read:files"],
+      "deny":   ["exec:shell", "write:files"]
+    },
+    "mac-work": {
+      "scopes": ["*"],
+      "deny":   ["delete:files"]
+    },
+    "ipad-readonly": {
+      "scopes": ["read:*"],
+      "deny":   ["write:*", "exec:*"]
+    }
+  }
+}
+```
+
+手机只能读和发消息，即使有人拿到你的手机发指令，也无法让 Agent 执行危险操作。
+
+### 七层权限优先级
+
+后面的配置覆盖前面的：
+
+```
+Skill 声明的默认权限（最低）
+     ↓
+LLM 提供商层面限制
+     ↓
+Global Policy（~/.openclaw/policies/global.json）
+     ↓
+Provider Policy（针对特定 LLM）
+     ↓
+Agent Policy（针对特定 Agent）
+     ↓
+Group Policy（多用户场景）
+     ↓
+Sandbox Policy（最高，强制限制）
+```
+
+大多数个人用户只需要关注：Skill 声明 → Global Policy → Agent Policy 三层。
+
+### 常见权限错误及修复
+
+**`EACCES: permission denied`**（文件系统层面）
+
+```bash
+# 用 dry-run 看 Skill 需要什么权限
+clawd skill run github-pr-review --dry-run
+
+# 把缺少的路径加入 file.read/write 白名单
+```
+
+**`missing scope: operator.read`**（Policy 层面）
+
+```json
+// ~/.openclaw/policies/agent.json 里补上缺少的 scope
+{
+  "additionalScopes": ["operator.read"]
+}
+```
+
+**`EPERM: operation not permitted`**（Policy 层面，不是文件权限）
+
+检查 `exec.mode` 是否为 `deny`，或操作命令是否在 `denylist` 里。
+
+---
+
+## 架构简览：六个组件
+
+前面已经完整走完了安装流程，这里给出完整的架构图作为参考：
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -68,8 +857,8 @@ OpenClaw 的工程哲学极度简单：**没有数据库，没有微服务，没
 │                                                         │
 │  ┌───────────┐    ┌───────────────┐   ┌──────────────┐  │
 │  │  Gateway  │──▶│  Agent Loop   │──▶│     LLM      │  │
-│  │（消息路由）│    │（核心处理循环）│   │ Claude / GPT │  │
-│  └───────────┘    └──────┬────────┘   │  / DeepSeek  │  │
+│  │（消息路由）│    │（核心处理循环）│   │ Claude/GPT/  │  │
+│  └───────────┘    └──────┬────────┘   │  DeepSeek    │  │
 │        ▲                 │            └──────────────┘  │
 │        │           ┌─────▼──────┐                       │
 │   WhatsApp         │   Tools    │    ┌──────────────┐   │
@@ -84,577 +873,22 @@ OpenClaw 的工程哲学极度简单：**没有数据库，没有微服务，没
 └─────────────────────────────────────────────────────────┘
 ```
 
-**Gateway** 通过 WebSocket 协议同时管理所有消息平台连接，负责身份验证、消息路由和安全执行。核心价值是**平台无关性**：你可以在 Telegram 发出指令，在 WhatsApp 收到结果。
+**Agent Loop** 是核心引擎：消息进来后，认证 → 加载记忆 → 组装上下文 → LLM 调用 → 工具执行 → 循环直到完成 → 保存记忆。工具调用循环让模型能真正执行并观察结果，而不只是生成文字。
 
-**Agent Loop** 是引擎：消息进入后，认证 → 加载记忆 → 组装上下文 → LLM 调用 → 工具执行 → 循环直到完成 → 保存记忆。工具调用循环让模型不只生成文字，而是真正执行并观察结果。
+**持久化记忆** 以 Markdown 文件存储在 `~/.openclaw/`，可以 `git init` 做版本控制，回滚任意时间点的状态。
 
-**持久化记忆** 以 Markdown 文件存储在 `~/clawd/`，整个目录可以 `git init` 做版本控制，可随时回滚任意时间点的 Agent 状态。
-
-**Heartbeat** 是 cron 定时任务（默认每 30 分钟），让 Agent 无需用户消息即可主动执行——先用确定性脚本判断是否有值得处理的变化，有才调用 LLM，成本近乎为零。
+**Heartbeat** 是 cron 定时任务：先用确定性脚本判断是否有值得处理的变化，有才调用 LLM——大多数心跳周期不消耗任何 token。
 
 ---
 
-## Skills 系统：深度拆解
+## OpenAI 收购：读什么信号
 
-Skills 是 OpenClaw 最具工程美感的设计，也是它能快速积累社区生态的核心原因。
-
-### Skills 是什么
-
-**一个 Skill = 一个目录 + 一个 `SKILL.md` 文件**（可选附带 `scripts/` 和 `references/` 子目录）。
-
-```
-~/clawd/skills/
-├── github-pr-review/
-│   ├── SKILL.md          ← 必须
-│   ├── scripts/
-│   │   └── fetch-pr.sh   ← 可选
-│   └── references/
-│       └── style-guide.md ← 可选
-├── daily-digest/
-│   └── SKILL.md
-└── smart-alerts/
-    └── SKILL.md
-```
-
-`SKILL.md` 的完整结构：
-
-```markdown
----
-name: github-pr-review
-description: Review GitHub pull requests and post structured comments with security, logic, and style analysis
-version: 1.0.0
-author: openclaw-community
-requiredPermissions:
-  - read:github
-  - write:github_comments
----
-
-# GitHub PR Review
-
-When the user asks to review a PR, do the following:
-
-1. Extract the repo and PR number from the message
-2. Call `github_api` to fetch the diff
-3. Analyze for: security vulnerabilities, logic errors, code style issues
-4. Post a comment with three sections: 🔴 Critical / 🟡 Suggestions / ✅ Looks Good
-
-## When to activate this skill
-
-- "Review PR #42"
-- "Check the latest pull request in myrepo/backend"
-- Any message mentioning "pull request", "PR", or "code review"
-
-## Tools used
-
-- `github_api` — fetch PR content and post comments
-- `bash` — optional local diff processing
-
-## Example output
-
-> **PR #42 Review**
-> 🔴 Critical: SQL query on line 47 is vulnerable to injection
-> 🟡 Suggestion: Extract magic number 3600 to a named constant
-> ✅ Looks Good: Error handling and test coverage are solid
-```
-
-这就是 Skill 的全部——纯自然语言，无需写一行代码即可扩展 Agent 能力。
-
-### 选择性注入：为什么 Skill 不会撑爆 prompt
-
-这是 Skills 系统最关键的工程细节。OpenClaw 不会把所有 Skill 的完整内容塞进每次的系统提示词——如果你安装了 100 个 Skill，那样会消耗数万 token，严重拖慢速度和质量。
-
-实际的两步策略：
-
-```
-第一步（每次请求都执行）：
-  把所有可用 Skill 的「名称 + description 字段」列表注入 prompt
-  格式紧凑，通常 200–400 token
-
-       ↓
-
-第二步（按需触发）：
-  模型读取列表，判断当前任务与哪个 Skill 相关
-  主动 read() 该 Skill 的 SKILL.md 完整内容
-  加载后继续推理并执行
-```
-
-这是**按需加载**：模型先看目录，有需要再翻书。**`description` 字段因此极为关键**——它是模型判断"要不要读这个 Skill"的唯一依据，写得不清晰，Skill 就永远不会被激活。
-
-### 自己写一个 Skill：15 分钟入门
-
-以写一个"每天早 8 点总结今日日历并推送到 Telegram"为例：
-
-```bash
-# 1. 创建目录
-mkdir -p ~/clawd/skills/morning-brief
-cd ~/clawd/skills/morning-brief
-```
-
-新建 `SKILL.md`：
-
-```markdown
----
-name: morning-brief
-description: Generate a morning briefing with today's calendar events and top priorities, sent automatically at 08:00
-version: 1.0.0
-requiredPermissions:
-  - read:calendar
-  - send:telegram
----
-
-# Morning Brief
-
-Every day at 08:00 (triggered by Heartbeat), generate a morning briefing:
-
-1. Fetch today's calendar events via `google_calendar` tool
-2. Identify the top 3 priorities based on event urgency and my notes in ~/clawd/priorities.md
-3. Format as a clean digest and send via `telegram_send`
-
-## Format
-
-> 📅 **Morning Brief — {date}**
->
-> **Today's events:**
-> - 10:00 Team standup (30 min)
-> - 14:00 Product review (1 hr)
->
-> **Top priorities:**
-> 1. Finish the deployment before the 14:00 review
-> 2. Reply to the pending PR reviews
-> 3. Update project roadmap doc
-
-## Heartbeat trigger
-
-Run this skill during every 08:00 Heartbeat check.
-```
-
-```bash
-# 2. 重启 Gateway（Skill 在启动时快照）
-npm restart
-
-# 3. 验证 Skill 已被识别
-# 在 Telegram 向 Agent 发送：
-# "What skills do you have?"
-# 应该能看到 morning-brief 出现在列表中
-```
-
-### 安装社区 Skill
-
-```bash
-# 从 ClawHub 安装（官方 CLI）
-clawhub install github-pr-review
-clawhub install daily-digest
-clawhub install smart-reminders
-
-# 或者手动克隆
-git clone https://github.com/VoltAgent/awesome-openclaw-skills ~/clawd/skills/community
-```
-
-ClawHub 目前收录 **2,857+ 社区技能**，涵盖代码审查、邮件处理、日历管理、DevOps 监控、数据库查询等。
-
----
-
-## 权限系统：如何精确控制 Agent 能做什么
-
-OpenClaw 的安全设计建立在一个假设上：**LLM 是不可完全信任的**——Prompt Injection、模型幻觉，都可能让 Agent 做出危险操作。因此权限是多层叠加的。
-
-### 七层权限优先级
-
-从低到高（后面的配置会覆盖前面的）：
-
-```
-Tool Profile          ← Skill 声明的默认权限
-Provider Profile      ← LLM 提供商层面的限制
-Global Policy         ← ~/.clawd/policies/global.json
-Provider Policy       ← 针对特定 LLM 的策略
-Agent Policy          ← 针对特定 Agent 的策略
-Group Policy          ← 多用户场景下的群组策略
-Sandbox Policy        ← 最高优先级，沙盒强制限制
-```
-
-大多数个人用户只需关注三层：Skill 声明权限 → Global Policy → Agent Policy。
-
-### 三类核心权限
-
-**文件权限**：控制 Agent 能读写哪些路径。
-
-```json
-// ~/.clawd/policies/global.json
-{
-  "file": {
-    "read": ["~/clawd/**", "~/Documents/work/**"],
-    "write": ["~/clawd/**"],
-    "deny": ["~/.ssh/**", "~/.aws/**", "/etc/**"]
-  }
-}
-```
-
-**Shell 命令权限**：控制能执行哪些命令，三种模式：
-
-```json
-{
-  "exec": {
-    "mode": "ask",          // "allow" | "ask" | "deny"
-    "allowlist": [
-      "git *",
-      "npm *",
-      "python3 ~/clawd/scripts/**"
-    ],
-    "denylist": [
-      "rm -rf *",
-      "curl * | bash",
-      "sudo *"
-    ]
-  }
-}
-```
-
-- `allow`：全部放行（危险，不推荐）
-- `ask`：每次执行前推送确认消息给你（推荐生产环境）
-- `deny`：全部拒绝
-
-**网络权限**：控制能访问哪些外部 API。
-
-```json
-{
-  "network": {
-    "allowedHosts": [
-      "api.github.com",
-      "api.anthropic.com",
-      "calendar.google.com"
-    ],
-    "blockHosts": [
-      "*.local",
-      "169.254.*"    // 阻止访问 AWS metadata 服务
-    ]
-  }
-}
-```
-
-### 设备令牌：不同设备不同权限
-
-每个接入设备（你的手机、工作电脑、家里的 iPad）都有独立的设备令牌，可以设置不同的权限范围：
-
-```json
-// ~/.clawd/devices.json
-{
-  "devices": {
-    "phone-personal": {
-      "scopes": ["read:calendar", "send:telegram", "read:files"],
-      "deny": ["exec:shell", "write:files"]
-    },
-    "mac-work": {
-      "scopes": ["*"],   // 工作机全权限
-      "deny": ["delete:files"]
-    }
-  }
-}
-```
-
-这个设计的价值：你的手机只能读日历和收消息，即使有人拿到你的手机发出指令，也无法让 Agent 执行危险命令。
-
-### 常见权限报错及修复
-
-**`EACCES: permission denied`** — 文件系统层面，检查路径是否在 `file.read/write` 白名单内。
-
-```bash
-# 快速诊断：用 dry-run 模式列出 Skill 需要的权限
-clawd skill run github-pr-review --dry-run
-```
-
-**`missing scope: operator.read`** — Skill 声明了某个权限但当前 policy 没有授权，按最小原则补充：
-
-```json
-// ~/.clawd/policies/agent.json
-{
-  "additionalScopes": ["operator.read"]
-}
-```
-
-**`EPERM: operation not permitted`** — Policy 层面限制，不是文件权限问题。检查 `exec.mode` 是否为 `deny`，或命令是否在 `denylist` 里。
-
----
-
-## 部署环境：四种选择的完整对比
-
-这是最常被忽视却最重要的决策之一。不同环境的能力边界差距极大。
-
-### 方案一：本地 Mac（开发调试首选）
-
-**优势：**
-- 零额外成本，立刻上手
-- 支持 **iMessage**（仅 macOS 原生环境可用）
-- 本地文件访问最便捷，无需配置隧道
-- 支持本地 LLM 推理（Ollama + LLaMA）
-
-**劣势：**
-- 电脑休眠时 WebSocket 断线，WhatsApp/Telegram 连接中断
-- 需要在系统设置里**关闭自动睡眠**（System Settings → Battery → Prevent sleep）
-- 家庭网络不稳定会影响可靠性
-- 不适合生产使用
-
-**适合谁：** 刚开始探索、只需 iMessage、不在乎 24/7 在线。
-
-### 方案二：Mac Mini（全能本地服务器）
-
-**优势：**
-- 支持 iMessage + 本地推理的唯一"完美方案"
-- 功耗低（约 10W），7×24 常开成本极低（约 ¥10/月电费）
-- 本地网络内全速访问文件系统
-- 一次性投入约 ¥4,000–8,000，无月租
-
-**劣势：**
-- 依赖家庭网络稳定性
-- 远程访问需要配置端口转发或 Tailscale
-- 硬件故障需要自行处理
-
-**适合谁：** 重度个人使用者，想要 iMessage 集成，接受一次性硬件投入。
-
-```bash
-# Mac Mini 防睡眠设置
-sudo pmset -a sleep 0
-sudo pmset -a disablesleep 1
-
-# 用 Tailscale 暴露给外部访问（无需公网 IP）
-brew install tailscale
-sudo tailscale up
-```
-
-### 方案三：VPS 云服务器（生产推荐）
-
-**优势：**
-- 数据中心级稳定性，真正的 24/7 在线
-- Agent 与你的个人桌面隔离，安全边界清晰
-- 可选就近节点降低延迟
-- 起步价约 ¥25–150/月（DigitalOcean、Vultr、Linode 等）
-
-**劣势：**
-- **不支持 iMessage**（需要 macOS 环境）
-- 文件访问需要提前同步或挂载
-- 有持续月租成本
-
-**最低配置推荐：** 1 核 1GB RAM 足够跑单用户 OpenClaw，但如果要跑本地模型需要更多资源。
-
-```bash
-# Ubuntu 22.04 VPS 快速部署
-curl -fsSL https://get.docker.com | bash
-git clone https://github.com/openclaw/openclaw && cd openclaw
-cp .env.example .env && vim .env   # 填入 API Key
-docker compose up -d
-
-# 查看日志
-docker compose logs -f
-```
-
-**适合谁：** 想要稳定 24/7 服务、不需要 iMessage、愿意接受月租的用户。
-
-### 方案四：混合架构（最优解）
-
-OpenClaw 官方架构图里有一种混合方案，综合了以上优点：
-
-```
-VPS（Gateway 层）
-  ├── 运行公网 Telegram/WhatsApp Bot
-  ├── 处理认证和路由
-  └── 通过 Tailscale 隧道连接 ↓
-
-Mac Mini（Worker 层）
-  ├── iMessage 集成
-  ├── 本地文件访问
-  └── 本地 LLM 推理（可选）
-```
-
-VPS 暴露公网接口，Mac Mini 处理本地特权操作，两者通过加密隧道通信。这是对稳定性和能力都有要求的用户的最终形态。
-
-### 四种方案一览
-
-| | 本地 Mac | Mac Mini | VPS | 混合 |
-|--|---------|---------|-----|------|
-| **iMessage** | ✅ | ✅ | ❌ | ✅ |
-| **24/7 在线** | ❌ | ✅ | ✅ | ✅ |
-| **月租成本** | ¥0 | ~¥10 电费 | ¥25–150 | ¥25–150 |
-| **一次性成本** | ¥0 | ¥4,000–8,000 | ¥0 | ¥4,000–8,000 |
-| **安全隔离** | 低 | 中 | 高 | 高 |
-| **适合阶段** | 探索 | 个人深度用 | 生产 | 终态 |
-
-官方推荐路径：**第 1 月本地跑 → 第 2 月 Docker 化 → 第 3 月迁移 VPS**。
-
----
-
-## 消息平台：选哪个连接
-
-不同消息平台的技术实现差异巨大，直接影响可靠性和功能完整性。
-
-### Telegram（入门首选）
-
-使用官方 Bot API + 长轮询，**无需公网 IP、域名或 SSL 证书**，家庭宽带直接可用。功能最完整，社区支持最好。
-
-```bash
-# 1. 在 Telegram 找 @BotFather，新建 Bot，获取 token
-# 2. 在 .env 里配置
-TELEGRAM_BOT_TOKEN=your_bot_token_here
-```
-
-几乎所有文档和社区 Skill 都优先支持 Telegram，**推荐所有人从这里开始**。
-
-### WhatsApp（手机用户首选）
-
-使用 Baileys 库逆向 WhatsApp Web 协议，扫码连接：
-
-```bash
-# 在 .env 里启用 WhatsApp
-WHATSAPP_ENABLED=true
-
-# 启动后访问 http://localhost:18789/connect/whatsapp
-# 用手机扫码（设置 → 已关联的设备 → 关联新设备）
-```
-
-**注意**：Baileys 是非官方实现，WhatsApp 协议更新时可能短暂失效。**使用专用号码而非主号**，避免被封号风险。
-
-### Signal（隐私优先）
-
-端对端加密，元数据收集最少，但配置最复杂，需要命令行工具和加密密钥管理。除非有明确隐私需求，不推荐作为入门选择。
-
-### Discord（团队 / 社区场景）
-
-适合多人共享同一个 Agent，有基于 Guild 的权限管理，支持 Webhook。如果你想部署一个给团队用的 AI 助手，Discord 是最合适的平台。
-
-| | Telegram | WhatsApp | Signal | Discord |
-|--|---------|---------|--------|---------|
-| **配置难度** | 最简单 | 中等 | 最复杂 | 简单 |
-| **稳定性** | 高 | 中（非官方库） | 高 | 高 |
-| **隐私** | 中 | 低 | 最高 | 中 |
-| **多人支持** | 有限 | 有限 | 有限 | 原生 |
-| **推荐场景** | 所有人入门 | 手机优先 | 隐私需求 | 团队共用 |
-
----
-
-## 实战：从零到第一个有用的 Agent
-
-### 第一步：安装与启动
-
-```bash
-git clone https://github.com/openclaw/openclaw
-cd openclaw
-npm install
-
-cp .env.example .env
-```
-
-编辑 `.env`，最少只需要填两个字段：
-
-```bash
-# 选择你的 LLM（三选一）
-ANTHROPIC_API_KEY=sk-ant-...     # Claude（推荐）
-OPENAI_API_KEY=sk-...            # GPT
-DEEPSEEK_API_KEY=sk-...          # DeepSeek（最便宜）
-
-TELEGRAM_BOT_TOKEN=...           # 从 @BotFather 获取
-```
-
-```bash
-npm start
-# 看到 "Gateway listening on 127.0.0.1:18789" 即启动成功
-```
-
-### 第二步：配置 Agent 人格（AGENTS.md）
-
-```markdown
-# My Assistant
-
-You are my personal productivity assistant. Core rules:
-
-1. **Brevity**: Keep answers short unless I ask for detail
-2. **Memory**: Log important info and decisions to ~/clawd/memory/
-3. **Proactive**: During heartbeat, check for urgent emails and alert me
-4. **Language**: Reply in Chinese unless I write in English
-
-## What I care about
-
-- Software engineering projects (TypeScript, Python)
-- Stay informed on LLM research papers
-- Daily schedule and meeting prep
-```
-
-### 第三步：安装三个入门 Skill
-
-```bash
-# 每日简报
-clawhub install daily-digest
-
-# GitHub 监控（需要配置 GITHUB_TOKEN）
-clawhub install github-monitor
-
-# 智能提醒
-clawhub install smart-reminders
-
-# 重启使 Skill 生效
-npm restart
-```
-
-### 第四步：测试几个真实对话
-
-在 Telegram 发送：
-
-```text
-你好，帮我列一下今天还没完成的任务
-```
-
-```text
-帮我 review 一下 github.com/myorg/backend 最新的 PR
-```
-
-```text
-我现在开始一个新项目，帮我在 ~/clawd/projects/ 下建一个叫
-api-gateway 的项目文件夹，记录下项目目标和技术栈
-```
-
-第三条指令会触发文件写入权限确认（如果 `exec.mode = "ask"`），你会在 Telegram 收到一条确认消息，回复"确认"即执行。
-
-### 第五步：设置 Heartbeat 定时任务
-
-```bash
-# 编辑 crontab
-crontab -e
-
-# 每天 8:00 触发 morning-brief skill
-0 8 * * * curl -s http://127.0.0.1:18789/heartbeat
-
-# 每 30 分钟常规心跳（邮件检查、服务监控等）
-*/30 * * * * curl -s http://127.0.0.1:18789/heartbeat
-```
-
----
-
-## OpenAI 收购：行业读什么信号
-
-2026 年 2 月 15 日，Sam Altman 在 X 上写道：
+Sam Altman 在公告里说：
 
 > "Peter Steinberger is joining OpenAI to drive the next generation of personal agents. He is a genius with a lot of amazing ideas about the future of very smart agents interacting with each other to do very useful things for people."
 
-几个值得解读的信号：
+OpenAI 没有关闭 OpenClaw，而是移交独立基金会并继续赞助。技术方向上，本地运行、跨平台、持久记忆的 agent 框架和 OpenAI 正在推进的 GPT Actions、Operator 产品线高度吻合。
 
-**开源承诺而非收购关闭**：OpenAI 选择把 OpenClaw 移交独立基金会并赞助，表明他们理解社区生态的价值，不想重蹈"收购即扼杀"的覆辙。
+更深的信号：**从"问答助手"到"自主代理"，是 AI 应用形态的下一次范式转移**。OpenClaw 用最简单的工程实现证明了这个转移的可行性——没有数据库，没有微服务，一个 Node.js 进程，一个 Markdown 文件作为插件系统。
 
-**技术方向高度吻合**：本地运行、跨平台、持久记忆的 agent 框架，与 OpenAI 正在推进的 GPT Actions、Custom GPTs 和更长期的 Operator 产品线直接相关。
-
-**竞争格局的信号**：Google 有 Project Astra，Anthropic 有 Claude Computer Use，Microsoft 有 Copilot agent。OpenAI 招揽最热门开源 agent 框架的核心作者，是在抢占**个人 agent 赛道**的定义权。
-
-VentureBeat 的评论标题直接：*"OpenAI's acquisition of OpenClaw signals the beginning of the end of the ChatGPT era"*。
-
-逻辑是清晰的：**从"问答助手"到"自主代理"，是 AI 应用形态的下一次范式转移**。OpenClaw 证明了这个转移可以用极度简单的工程实现，让每个开发者都能参与。
-
----
-
-## 总结：简单是最深刻的工程洞见
-
-OpenClaw 的成功，技术层面的答案很简单：
-
-- 没有数据库 → 文件系统
-- 没有插件框架 → 一个 Markdown 文件
-- 没有复杂调度 → 一个 cron job
-- 没有微服务 → 一个 Node.js 进程
-
-每个选择都在最大化**可理解性**和**可修改性**，而不是工程上的最优解。这让每一个普通开发者都能读懂、改动、并在此之上构建。这才是 14 万 Star 的真正原因。
-
-OpenAI 收购的，不只是一个代码仓库，而是这个关于 AI agent 应该怎么做的**第一性原理答案**。
+这让每一个普通开发者都能参与，也正是 14 万 Star 的真正原因。
