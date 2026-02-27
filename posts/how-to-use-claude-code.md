@@ -1,6 +1,6 @@
 ## 什么是 Claude Code？
 
-如果你用过 ChatGPT 或 Claude 网页版，你大概知道"和 AI 聊天"是什么感觉。但那种交互有两个本质局限：**AI 无法主动概览你的整个项目**（无论粘贴代码还是上传文件，它只能看到你手动提供的片段，而非完整代码库的全貌）；**也没法在你的机器上执行任何命令**。
+如果你用过 ChatGPT 或 Claude 网页版，你大概知道"和 AI 聊天"是什么感觉。但那种交互有两个本质局限：**AI 无法主动概览你的整个项目**；**也没法在你的机器上执行任何命令**。
 
 Claude Code 是完全不同的东西。
 
@@ -47,30 +47,33 @@ claude
 
 首次启动会引导你在浏览器里完成登录授权。授权完成后回到终端，就可以开始了。
 
-**想用 Kimi、GLM 等国内模型？**
+**没有 Anthropic 账号？想用国内模型？**
 
-Claude Code 内部基于 Anthropic API 格式，无法直接接入 OpenAI 兼容接口。但可以通过 [LiteLLM](https://github.com/BerriAI/litellm) 搭建一个本地代理，将 Kimi / GLM 等模型的接口转换成 Claude Code 能识别的格式：
+以火山引擎 ARK 平台为例（支持接入多种模型），无需搭建代理，修改两个配置文件即可：
 
-```bash
-# 安装 LiteLLM
-pip install litellm
-
-# 启动代理（以 Kimi 为例，替换成你的 API Key）
-MOONSHOT_API_KEY=your-key litellm --model moonshot/moonshot-v1-8k --port 4000
-```
-
-然后在 `~/.claude/settings.json` 里指向本地代理：
+**第一步**：编辑 `~/.claude/settings.json`（Windows：`C:\Users\<用户名>\.claude\settings.json`），填入平台 API Key 和模型名称：
 
 ```json
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "http://localhost:4000",
-    "ANTHROPIC_API_KEY": "placeholder"
+    "ANTHROPIC_AUTH_TOKEN": "<ARK_API_KEY>",
+    "ANTHROPIC_BASE_URL": "https://ark.cn-beijing.volces.com/api/coding",
+    "ANTHROPIC_MODEL": "<Model_Name>"
   }
 }
 ```
 
-> 注意：第三方模型对 Claude Code 工具调用格式的支持程度不一，实际使用体验可能不如官方模型流畅。
+**第二步**：编辑 `~/.claude.json`（Windows：`C:\Users\<用户名>\.claude.json`），将 `hasCompletedOnboarding` 设为 `true`，跳过首次登录引导：
+
+```json
+{
+  "hasCompletedOnboarding": true
+}
+```
+
+保存后重新打开终端，运行 `claude` 即可。
+
+> 注意：不同平台对 Claude Code 工具调用格式的支持程度不一，实际体验可能与官方模型有差距。
 
 ---
 
