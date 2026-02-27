@@ -127,6 +127,14 @@ $$y_i = \gamma \cdot \hat{x}_i + \beta$$
 
 其中 $\gamma$（scale，缩放）和 $\beta$（bias，偏移）是**可学习的参数**，由网络训练时自动学习。$\epsilon$ 是一个极小值（通常取 $10^{-5}$），防止方差为零时出现除以零的数值错误。
 
+**为什么需要 $\gamma$ 和 $\beta$？**
+
+你可能会想：已经归一化了，为什么还要再加一个缩放和偏移？
+
+原因是：归一化是**强制性**的——无论原始分布是什么，它都会把激活值统一拉到均值 0、方差 1。但这个特定分布未必是网络最需要的，某些层的最优输出可能是均值 2、方差 0.5。没有 $\gamma$ 和 $\beta$，网络就被锁定在这个固定分布里，表达能力受限。
+
+$\gamma$ 和 $\beta$ 给了网络"反悔"的能力：归一化之后，网络可以通过学习这两个参数，把分布调整到任何它认为最优的位置和尺度。训练开始时通常初始化 $\gamma = 1,\, \beta = 0$（相当于不做额外调整），之后由梯度下降自动优化。
+
 完整公式写在一起：
 
 $$y = \gamma \cdot \frac{x - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}} + \beta$$
@@ -251,11 +259,9 @@ $$\text{RMS}(x) = \sqrt{\frac{1}{D} \sum_{i=1}^{D} x_i^2}$$
 
 ### RMSNorm 公式
 
-$$\text{RMSNorm}(x) = \frac{x}{\text{RMS}(x) + \epsilon} \cdot \gamma$$
-
-展开写：
-
 $$y_i = \frac{x_i}{\sqrt{\dfrac{1}{D}\displaystyle\sum_{j=1}^{D} x_j^2 + \epsilon}} \cdot \gamma_i$$
+
+分母：把 $D$ 个特征值各自平方、取均值、加上防除零的微小量 $\epsilon$（通常 $10^{-6}$），再开根号。注意 $\epsilon$ 在根号**内部**——这样在向量趋近全零时依然安全。
 
 和 LayerNorm 对比：
 
@@ -275,7 +281,7 @@ LayerNorm 需要**两遍**扫描特征向量：
 RMSNorm 只需要**一遍**：
 1. 直接计算 $\sum x_i^2$，得到 RMS
 
-在模型很大的情况下（比如 LLaMA-3 有 8 千亿参数），这个差异积累起来相当可观。实测 RMSNorm 比 LayerNorm 快 **7–15%**，在某些架构上甚至能快 30% 以上。
+在模型很大的情况下（比如 LLaMA-3 70B 有 700 亿参数），这个差异积累起来相当可观。实测 RMSNorm 比 LayerNorm 快约 **7–15%**。
 
 ### 效果验证
 
@@ -423,9 +429,9 @@ $$\mu = \frac{1}{D}\sum_{i=1}^D x_i \quad \sigma^2 = \frac{1}{D}\sum_{i=1}^D(x_i
 
 **RMSNorm**（去均值，只做重缩放）：
 
-$$y = \gamma \cdot \frac{x}{\text{RMS}(x) + \epsilon}$$
+$$y = \gamma \cdot \frac{x}{\text{RMS}(x)}$$
 
-$$\text{RMS}(x) = \sqrt{\frac{1}{D}\sum_{i=1}^D x_i^2}$$
+$$\text{RMS}(x) = \sqrt{\frac{1}{D}\sum_{i=1}^D x_i^2 + \epsilon}$$
 
 三者的核心差异只在两个维度：
 1. **归一化的范围**：批量维度 vs 特征维度
