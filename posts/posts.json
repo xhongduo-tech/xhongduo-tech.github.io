@@ -1,5 +1,12 @@
 [
   {
+    "title":   "残差连接：一个加法，打开深度的天花板",
+    "slug":    "residual-connections",
+    "date":    "2026-02-27",
+    "tags":    ["深度学习", "ResNet", "Transformer", "架构", "LLM"],
+    "summary": "从 2014 年"56 层网络比 20 层更差"的反常现象出发，讲透梯度消失的根源，推导残差连接为何只靠一个加法就能解决问题，包含 +1 梯度分析、ResNet 实验数据、Transformer 结构图，以及"集成学习"视角。"
+  },
+  {
     "title":   "归一化全解：从成绩单到 RMSNorm，搞懂大模型训练稳定性的关键",
     "slug":    "normalization",
     "date":    "2026-02-27",
