@@ -1,5 +1,12 @@
 [
   {
+    "title":   "GLM-5 深度解析：幻觉率降 56%、SWE-bench 77.8% 的背后",
+    "slug":    "glm5-analysis",
+    "date":    "2026-02-28",
+    "tags":    ["大模型", "模型架构", "GLM", "深度学习"],
+    "summary": "智谱 AI 发布 GLM-5：744B MoE 参数全程在华为昇腾芯片上训练，MIT 开源。拆解 GLM 空白填充架构原理、Slime 异步 RL 框架、三阶段 Agentic RL 训练流水线，解释 SWE-bench 77.8% 和幻觉率降低 56% 背后的具体技术原因。"
+  },
+  {
     "title":   "Trae 使用指南：字节跳动的免费 AI IDE",
     "slug":    "trae-ide",
     "date":    "2026-02-28",
