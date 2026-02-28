@@ -1,5 +1,12 @@
 [
   {
+    "title":   "Docker 从零到实践：容器化技术完全指南",
+    "slug":    "docker-from-zero-to-practice",
+    "date":    "2026-03-01",
+    "tags":    ["工程实践", "Docker", "容器化", "DevOps"],
+    "summary": "从「在我机器上能跑」的噩梦出发，讲透容器 vs 虚拟机的本质差异，覆盖镜像、容器、Dockerfile、Volume、Docker Compose 全链路，附多阶段构建、非 root 运行等生产级最佳实践，适合零基础入门。"
+  },
+  {
     "title":   "GLM-5 深度解析：幻觉率降 56%、SWE-bench 77.8% 的背后",
     "slug":    "glm5-analysis",
     "date":    "2026-02-28",
