@@ -1,5 +1,12 @@
 [
   {
+    "title":   "Trae 使用指南：字节跳动的免费 AI IDE",
+    "slug":    "trae-ide",
+    "date":    "2026-02-28",
+    "tags":    ["AI工具", "开发工具", "Trae"],
+    "summary": "字节跳动推出的免费 AI IDE，内置 Claude 3.7 Sonnet、GPT-4o、DeepSeek-R1 等顶级模型。讲透三种核心模式（Chat / Builder / SOLO）、.rules 上下文系统、自定义 Agent，附实战工作流与数据隐私风险评估。"
+  },
+  {
     "title":   "Embedding 全解：从 Word2Vec 到 MRL，语义向量的进化史",
     "slug":    "embedding-models",
     "date":    "2026-02-28",
