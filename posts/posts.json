@@ -1,5 +1,12 @@
 [
   {
+    "title":   "Embedding 全解：从 Word2Vec 到 MRL，语义向量的进化史",
+    "slug":    "embedding-models",
+    "date":    "2026-02-28",
+    "tags":    ["深度学习", "模型架构", "Embedding", "对比学习"],
+    "summary": "从词袋模型到 Word2Vec，从 BERT 到 Sentence-BERT，从对比学习到 Matryoshka 套娃向量——系统梳理 Embedding 技术十年进化史，附 InfoNCE 损失推导、双编码器原理、MRL 机制，以及现代主流模型横向对比。"
+  },
+  {
     "title":   "残差连接：一个加法，打开深度的天花板",
     "slug":    "residual-connections",
     "date":    "2026-02-27",
