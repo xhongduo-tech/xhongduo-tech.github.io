@@ -72,7 +72,7 @@ function syncHljsTheme(theme) {
    首页：文章列表
    =================================================== */
 async function initIndexPage() {
-  const CATEGORY_ORDER = ['深度学习', '大模型', 'AI Agent', 'AI工具'];
+  const CATEGORY_ORDER = ['底层原理', '模型解析', '智能体', '工程实践'];
 
   let posts = [];
   try {
@@ -364,6 +364,115 @@ async function initPostPage() {
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
   }
+
+  setupFeedback(post);
+}
+
+/* ===================================================
+   纠错反馈
+   =================================================== */
+function setupFeedback(post) {
+  const navEl = document.getElementById('post-nav');
+  if (!navEl) return;
+
+  // 纠错按钮
+  const section = document.createElement('div');
+  section.className = 'feedback-section';
+  section.innerHTML = `<button class="feedback-btn">[ 纠错反馈 ]</button>`;
+  navEl.insertAdjacentElement('afterend', section);
+
+  // Modal
+  const modal = document.createElement('div');
+  modal.className = 'feedback-modal';
+  modal.setAttribute('aria-hidden', 'true');
+  modal.innerHTML = `
+    <div class="feedback-panel">
+      <div class="feedback-title">// 纠错反馈</div>
+      <div class="feedback-hint">输入 <kbd>@</kbd> 可引用文章章节</div>
+      <div class="mention-dropdown" id="mention-dropdown"></div>
+      <textarea class="feedback-textarea" id="feedback-textarea"
+        placeholder="描述具体错误，例如：@第二章 公式推导有误，正确结果应为..."></textarea>
+      <div class="feedback-actions">
+        <button class="feedback-cancel">取消</button>
+        <button class="feedback-submit">提交到 GitHub Issues →</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const textarea    = modal.querySelector('#feedback-textarea');
+  const dropdown    = modal.querySelector('#mention-dropdown');
+  const submitBtn   = modal.querySelector('.feedback-submit');
+  const cancelBtn   = modal.querySelector('.feedback-cancel');
+
+  // 收集标题
+  function getHeadings() {
+    return [...document.querySelectorAll('.post-body h2, .post-body h3')]
+      .map(h => h.textContent.trim());
+  }
+
+  // 显示/隐藏 modal
+  function openModal() {
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('open');
+    textarea.focus();
+  }
+  function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
+    modal.classList.remove('open');
+    dropdown.innerHTML = '';
+    dropdown.style.display = 'none';
+  }
+
+  section.querySelector('.feedback-btn').addEventListener('click', openModal);
+  cancelBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // @ 触发下拉
+  let mentionStart = -1;
+  textarea.addEventListener('input', () => {
+    const val    = textarea.value;
+    const cursor = textarea.selectionStart;
+    const before = val.slice(0, cursor);
+    const atIdx  = before.lastIndexOf('@');
+
+    if (atIdx === -1) { dropdown.style.display = 'none'; mentionStart = -1; return; }
+
+    const query = before.slice(atIdx + 1).toLowerCase();
+    const headings = getHeadings().filter(h => h.toLowerCase().includes(query));
+
+    if (headings.length === 0) { dropdown.style.display = 'none'; mentionStart = -1; return; }
+
+    mentionStart = atIdx;
+    dropdown.style.display = 'block';
+    dropdown.innerHTML = headings.map(h =>
+      `<div class="mention-item" data-heading="${escapeHtml(h)}">${escapeHtml(h)}</div>`
+    ).join('');
+  });
+
+  dropdown.addEventListener('click', e => {
+    const item = e.target.closest('.mention-item');
+    if (!item || mentionStart === -1) return;
+    const heading = item.dataset.heading;
+    const val     = textarea.value;
+    const cursor  = textarea.selectionStart;
+    textarea.value = val.slice(0, mentionStart) + '@[' + heading + ']' + val.slice(cursor);
+    textarea.focus();
+    dropdown.style.display = 'none';
+    mentionStart = -1;
+  });
+
+  // 提交
+  submitBtn.addEventListener('click', () => {
+    const body = textarea.value.trim();
+    if (!body) { textarea.focus(); return; }
+    const title  = encodeURIComponent('[纠错] ' + post.title);
+    const labels = encodeURIComponent('error-report');
+    const bodyEnc = encodeURIComponent(body + '\n\n---\n文章：' + post.slug);
+    const url = `https://github.com/xhongduo-tech/xhongduo-tech.github.io/issues/new?title=${title}&labels=${labels}&body=${bodyEnc}`;
+    window.open(url, '_blank', 'noopener');
+    closeModal();
+  });
 }
 
 /* ===== 工具函数 ===== */

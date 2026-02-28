@@ -3,56 +3,56 @@
     "title":   "GLM-5 深度解析：幻觉率降 56%、SWE-bench 77.8% 的背后",
     "slug":    "glm5-analysis",
     "date":    "2026-02-28",
-    "tags":    ["大模型", "模型架构", "GLM", "深度学习"],
+    "tags":    ["模型解析", "开源模型", "GLM"],
     "summary": "智谱 AI 发布 GLM-5：744B MoE 参数全程在华为昇腾芯片上训练，MIT 开源。拆解 GLM 空白填充架构原理、Slime 异步 RL 框架、三阶段 Agentic RL 训练流水线，解释 SWE-bench 77.8% 和幻觉率降低 56% 背后的具体技术原因。"
   },
   {
     "title":   "Trae 使用指南：字节跳动的免费 AI IDE",
     "slug":    "trae-ide",
     "date":    "2026-02-28",
-    "tags":    ["AI工具", "开发工具", "Trae"],
+    "tags":    ["工程实践", "开发工具", "Trae"],
     "summary": "字节跳动推出的免费 AI IDE，内置 Claude 3.7 Sonnet、GPT-4o、DeepSeek-R1 等顶级模型。讲透三种核心模式（Chat / Builder / SOLO）、.rules 上下文系统、自定义 Agent，附实战工作流与数据隐私风险评估。"
   },
   {
     "title":   "Embedding 全解：从 Word2Vec 到 MRL，语义向量的进化史",
     "slug":    "embedding-models",
     "date":    "2026-02-28",
-    "tags":    ["深度学习", "模型架构", "Embedding", "对比学习"],
+    "tags":    ["底层原理", "表示学习", "Embedding", "对比学习"],
     "summary": "从词袋模型到 Word2Vec，从 BERT 到 Sentence-BERT，从对比学习到 Matryoshka 套娃向量——系统梳理 Embedding 技术十年进化史，附 InfoNCE 损失推导、双编码器原理、MRL 机制，以及现代主流模型横向对比。"
   },
   {
     "title":   "残差连接：一个加法，打开深度的天花板",
     "slug":    "residual-connections",
     "date":    "2026-02-27",
-    "tags":    ["深度学习", "模型架构", "ResNet", "Transformer"],
+    "tags":    ["底层原理", "模型架构", "ResNet", "Transformer"],
     "summary": "从 2014 年「56 层网络比 20 层更差」的反常现象出发，讲透梯度消失的根源，推导残差连接为何只靠一个加法就能解决问题，包含 +1 梯度分析、ResNet 实验数据、Transformer 结构图，以及「集成学习」视角。"
   },
   {
     "title":   "归一化全解：从成绩单到 RMSNorm，搞懂大模型训练稳定性的关键",
     "slug":    "normalization",
     "date":    "2026-02-27",
-    "tags":    ["深度学习", "训练技巧", "归一化", "RMSNorm"],
+    "tags":    ["底层原理", "训练优化", "归一化", "RMSNorm"],
     "summary": "从 Z-score 出发，逐层讲透 BatchNorm、LayerNorm、RMSNorm 的原理与公式，解释为什么现代大模型（LLaMA、DeepSeek、Qwen）全部选择 RMSNorm + Pre-Norm，附完整数值计算示例与各方法对比图。"
   },
   {
     "title":   "OpenClaw 全解：从副业项目到 OpenAI 收购，一个 AI Agent 框架的崛起",
     "slug":    "openclaw",
     "date":    "2026-02-26",
-    "tags":    ["AI Agent", "开源框架", "OpenClaw"],
+    "tags":    ["智能体", "开源框架", "OpenClaw"],
     "summary": "两个月内从副业项目到 14 万 Star，再到 OpenAI 收购。拆解 OpenClaw 的六大核心组件：Gateway、Agent Loop、持久化记忆、Skills 系统、Heartbeat 心跳与安全模型，以及它对 AI Agent 范式转移的深层含义。"
   },
   {
     "title":   "Claude Code 安装使用指南",
     "slug":    "how-to-use-claude-code",
     "date":    "2026-02-26",
-    "tags":    ["AI工具", "开发工具", "Claude Code"],
+    "tags":    ["工程实践", "开发工具", "Claude Code"],
     "summary": "面向零基础用户的 Claude Code 实战指南：安装配置、核心命令、深度思考模式、多智能体团队、CLAUDE.md 记忆系统，附完整工作流示例。"
   },
   {
     "title":   "混合专家模型 MoE：从直觉到数学",
     "slug":    "mixture-of-experts",
     "date":    "2026-02-26",
-    "tags":    ["大模型", "模型架构", "MoE", "深度学习"],
+    "tags":    ["底层原理", "模型架构", "MoE", "深度学习"],
     "summary": "从分诊台比喻到稀疏门控数学推导，从 1991 年的起源到 DeepSeek-V3 的 671B 实践，系统梳理混合专家模型的原理、关键论文与工程挑战。"
   }
 ]
