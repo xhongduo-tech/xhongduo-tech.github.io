@@ -346,6 +346,18 @@ main.container {
 
 .post-read-time::before { content: '·'; margin-right: 14px; }
 
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+.post-author svg { flex-shrink: 0; }
+
 /* ===== Markdown body ===== */
 .post-body { line-height: 1.85; font-size: 1rem; }
 

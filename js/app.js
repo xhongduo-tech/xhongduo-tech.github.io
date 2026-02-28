@@ -329,6 +329,19 @@ async function initPostPage() {
         <span class="post-read-time">约 ${readTime} 分钟阅读</span>
         <div class="post-tags">${tagsHtml}</div>
       </div>
+      <div class="post-author">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="15" height="15" aria-label="Claude">
+          <defs>
+            <linearGradient id="claude-icon-grad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E8905F"/>
+              <stop offset="100%" stop-color="#C75F2A"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="47" fill="url(#claude-icon-grad)"/>
+          <path d="M67 35C57 24,37 26,28 44C20 61,29 80,48 82C59 84,68 78,73 67" stroke="white" stroke-width="12" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span>Claude Code &amp; xuhongduo</span>
+      </div>
     </header>
     <div class="post-body">${bodyHtml}</div>
   `;
