@@ -72,8 +72,9 @@ function syncHljsTheme(theme) {
    首页：文章列表
    =================================================== */
 async function initIndexPage() {
-  let posts = [];
+  const CATEGORY_ORDER = ['深度学习', '大模型', 'AI Agent', 'AI工具'];
 
+  let posts = [];
   try {
     const res = await fetch('posts/posts.json');
     if (!res.ok) throw new Error('fetch failed');
@@ -87,12 +88,34 @@ async function initIndexPage() {
   // 按日期降序
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // 收集所有标签
-  const allTags = [...new Set(posts.flatMap(p => p.tags || []))].sort();
-  let activeTag  = null;
-  let searchQuery = '';
+  // State
+  let activeCategory = 'all';
+  let activeTag      = null;
+  let searchQuery    = '';
 
-  // 渲染标签过滤器
+  // 渲染分类 Tab
+  const categoryTabsEl = document.getElementById('category-tabs');
+  ['all', ...CATEGORY_ORDER].forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className   = 'cat-tab' + (cat === 'all' ? ' active' : '');
+    btn.dataset.cat = cat;
+    btn.textContent = cat === 'all' ? '全部' : cat;
+    categoryTabsEl.appendChild(btn);
+  });
+  categoryTabsEl.addEventListener('click', e => {
+    const btn = e.target.closest('.cat-tab');
+    if (!btn) return;
+    activeCategory = btn.dataset.cat;
+    categoryTabsEl.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // 切换分类时重置 tag 筛选
+    activeTag = null;
+    tagFilter.querySelectorAll('.tag').forEach(b => b.classList.remove('active'));
+    renderList();
+  });
+
+  // 收集所有标签，渲染过滤器
+  const allTags = [...new Set(posts.flatMap(p => p.tags || []))].sort();
   const tagFilter = document.getElementById('tag-filter');
   allTags.forEach(tag => {
     const btn = document.createElement('button');
@@ -100,7 +123,7 @@ async function initIndexPage() {
     btn.textContent = tag;
     btn.addEventListener('click', () => {
       activeTag = activeTag === tag ? null : tag;
-      document.querySelectorAll('.tag-filter .tag').forEach(b => b.classList.remove('active'));
+      tagFilter.querySelectorAll('.tag').forEach(b => b.classList.remove('active'));
       if (activeTag) btn.classList.add('active');
       renderList();
     });
@@ -114,24 +137,8 @@ async function initIndexPage() {
     renderList();
   });
 
-  function renderList() {
-    const filtered = posts.filter(p => {
-      const matchTag = !activeTag || (p.tags && p.tags.includes(activeTag));
-      const q = searchQuery;
-      const matchSearch = !q ||
-        p.title.toLowerCase().includes(q) ||
-        (p.summary || '').toLowerCase().includes(q) ||
-        (p.tags  || []).some(t => t.toLowerCase().includes(q));
-      return matchTag && matchSearch;
-    });
-
-    const list = document.getElementById('post-list');
-    if (filtered.length === 0) {
-      list.innerHTML = '<p class="no-result">// 没有找到相关文章</p>';
-      return;
-    }
-
-    list.innerHTML = filtered.map(p => `
+  function postCardHtml(p) {
+    return `
       <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
         <div class="post-card-meta">
           <span class="post-date">${p.date}</span>
@@ -141,8 +148,50 @@ async function initIndexPage() {
         </div>
         <div class="post-card-title">${escapeHtml(p.title)}</div>
         ${p.summary ? `<div class="post-card-summary">${escapeHtml(p.summary)}</div>` : ''}
-      </a>
-    `).join('');
+      </a>`;
+  }
+
+  function renderList() {
+    const filtered = posts.filter(p => {
+      const matchCat    = activeCategory === 'all' || (p.tags && p.tags[0] === activeCategory);
+      const matchTag    = !activeTag || (p.tags && p.tags.includes(activeTag));
+      const q           = searchQuery;
+      const matchSearch = !q ||
+        p.title.toLowerCase().includes(q) ||
+        (p.summary || '').toLowerCase().includes(q) ||
+        (p.tags || []).some(t => t.toLowerCase().includes(q));
+      return matchCat && matchTag && matchSearch;
+    });
+
+    const list = document.getElementById('post-list');
+    if (filtered.length === 0) {
+      list.innerHTML = '<p class="no-result">// 没有找到相关文章</p>';
+      return;
+    }
+
+    // 「全部」且无任何筛选时：按分类分组展示
+    if (activeCategory === 'all' && !activeTag && !searchQuery) {
+      const groups = {};
+      CATEGORY_ORDER.forEach(cat => { groups[cat] = []; });
+      filtered.forEach(p => {
+        const cat = p.tags?.[0];
+        if (cat && groups[cat]) groups[cat].push(p);
+      });
+      list.innerHTML = CATEGORY_ORDER
+        .filter(cat => groups[cat].length > 0)
+        .map(cat => `
+          <div class="post-section">
+            <div class="post-section-header">
+              <span class="section-label">// ${cat}</span>
+              <span class="section-count">${groups[cat].length}</span>
+            </div>
+            ${groups[cat].map(postCardHtml).join('')}
+          </div>`)
+        .join('');
+    } else {
+      // 分类 / 标签 / 搜索筛选时：平铺展示
+      list.innerHTML = filtered.map(postCardHtml).join('');
+    }
   }
 
   renderList();
