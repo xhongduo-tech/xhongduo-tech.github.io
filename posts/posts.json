@@ -1,5 +1,12 @@
 [
   {
+    "title":   "反向传播全解：神经网络如何从错误中学习",
+    "slug":    "backpropagation-deep-dive",
+    "date":    "2026-03-01",
+    "tags":    ["底层原理", "训练优化", "反向传播", "深度学习"],
+    "summary": "从 1969 年的信度分配难题出发，手推链式法则、逐步拆解计算图，含完整数值手算示例、手写自动微分引擎（60 行 Python）、NumPy MLP 实现、梯度检验，以及梯度消失/爆炸/死亡 ReLU 的根因分析与解法。"
+  },
+  {
     "title":   "Docker 从零到实践：容器化技术完全指南",
     "slug":    "docker-from-zero-to-practice",
     "date":    "2026-03-01",
