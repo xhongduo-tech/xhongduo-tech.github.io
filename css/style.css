@@ -667,7 +667,7 @@ main.container {
 .feedback-modal.open { display: flex; }
 .feedback-panel {
   position: relative;
-  background: var(--bg-secondary);
+  background: var(--bg-3);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1.5rem;
@@ -703,13 +703,25 @@ main.container {
   overflow-y: auto;
 }
 .mention-item {
-  padding: 0.5rem 0.75rem;
+  padding: 0.45rem 0.75rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   cursor: pointer;
   color: var(--text);
+  line-height: 1.4;
+  border-bottom: 1px solid var(--border-dim);
 }
-.mention-item:hover { background: var(--bg-secondary); color: var(--accent); }
+.mention-item:last-child { border-bottom: none; }
+.mention-item:hover { background: var(--bg-2); color: var(--accent); }
+.mention-item:hover .mention-crumb { color: var(--accent-dim); opacity: 0.7; }
+.mention-label { display: block; }
+.mention-crumb {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+  letter-spacing: 0.01em;
+}
 .feedback-textarea {
   width: 100%;
   min-height: 120px;

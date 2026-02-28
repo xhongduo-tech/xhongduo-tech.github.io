@@ -401,7 +401,7 @@ function setupFeedback(post) {
   modal.innerHTML = `
     <div class="feedback-panel">
       <div class="feedback-title">// 纠错反馈</div>
-      <div class="feedback-hint">输入 <kbd>@</kbd> 可引用文章章节</div>
+      <div class="feedback-hint">输入 <kbd>@</kbd> 可搜索文章中的标题与段落</div>
       <div class="mention-dropdown" id="mention-dropdown"></div>
       <textarea class="feedback-textarea" id="feedback-textarea"
         placeholder="描述具体错误，例如：@第二章 公式推导有误，正确结果应为..."></textarea>
@@ -417,10 +417,36 @@ function setupFeedback(post) {
   const submitBtn   = modal.querySelector('.feedback-submit');
   const cancelBtn   = modal.querySelector('.feedback-cancel');
 
-  // 收集标题
-  function getHeadings() {
-    return [...document.querySelectorAll('.post-body h2, .post-body h3')]
-      .map(h => h.textContent.trim());
+  // 收集文章中所有可引用内容（标题 + 段落首句）
+  function getSearchItems() {
+    const items = [];
+    let h2Text = '';
+    let h3Text = '';
+    document.querySelectorAll('.post-body h2, .post-body h3, .post-body h4, .post-body p, .post-body li')
+      .forEach(el => {
+        const text = el.textContent.trim();
+        if (!text) return;
+        if (el.tagName === 'H2') {
+          h2Text = text; h3Text = '';
+          items.push({ label: text, ref: text, crumb: '' });
+        } else if (el.tagName === 'H3') {
+          h3Text = text;
+          items.push({ label: text, ref: text, crumb: h2Text });
+        } else if (el.tagName === 'H4') {
+          items.push({ label: text, ref: text, crumb: h3Text || h2Text });
+        } else if (el.tagName === 'P' && text.length > 20) {
+          // 段落：截取首句（句号/问号/感叹号前）
+          const sentence = text.split(/[。？！.?!]/)[0].slice(0, 50);
+          if (sentence.length > 10) {
+            const crumb = h3Text || h2Text;
+            items.push({ label: sentence + '…', ref: sentence, crumb });
+          }
+        } else if (el.tagName === 'LI' && text.length > 10 && text.length < 80) {
+          const crumb = h3Text || h2Text;
+          items.push({ label: text.slice(0, 50) + (text.length > 50 ? '…' : ''), ref: text.slice(0, 50), crumb });
+        }
+      });
+    return items;
   }
 
   // 显示/隐藏 modal
@@ -443,6 +469,13 @@ function setupFeedback(post) {
 
   // @ 触发下拉
   let mentionStart = -1;
+  // 缓存，避免每次输入都重新遍历 DOM
+  let _searchCache = null;
+  function getCachedItems() {
+    if (!_searchCache) _searchCache = getSearchItems();
+    return _searchCache;
+  }
+
   textarea.addEventListener('input', () => {
     const val    = textarea.value;
     const cursor = textarea.selectionStart;
@@ -451,25 +484,38 @@ function setupFeedback(post) {
 
     if (atIdx === -1) { dropdown.style.display = 'none'; mentionStart = -1; return; }
 
-    const query = before.slice(atIdx + 1).toLowerCase();
-    const headings = getHeadings().filter(h => h.toLowerCase().includes(query));
+    // 如果 @ 后面已经有空格（说明引用已完成），不弹出
+    const afterAt = before.slice(atIdx + 1);
+    if (afterAt.includes(' ') && afterAt.length > 10) {
+      dropdown.style.display = 'none'; mentionStart = -1; return;
+    }
 
-    if (headings.length === 0) { dropdown.style.display = 'none'; mentionStart = -1; return; }
+    const query   = afterAt.toLowerCase();
+    const matched = getCachedItems().filter(item =>
+      item.label.toLowerCase().includes(query) ||
+      item.crumb.toLowerCase().includes(query)
+    ).slice(0, 8); // 最多展示 8 条
+
+    if (matched.length === 0) { dropdown.style.display = 'none'; mentionStart = -1; return; }
 
     mentionStart = atIdx;
     dropdown.style.display = 'block';
-    dropdown.innerHTML = headings.map(h =>
-      `<div class="mention-item" data-heading="${escapeHtml(h)}">${escapeHtml(h)}</div>`
+    dropdown.innerHTML = matched.map(item => `
+      <div class="mention-item" data-ref="${escapeHtml(item.ref)}">
+        <span class="mention-label">${escapeHtml(item.label)}</span>
+        ${item.crumb ? `<span class="mention-crumb">↳ ${escapeHtml(item.crumb)}</span>` : ''}
+      </div>`
     ).join('');
   });
 
   dropdown.addEventListener('click', e => {
     const item = e.target.closest('.mention-item');
     if (!item || mentionStart === -1) return;
-    const heading = item.dataset.heading;
-    const val     = textarea.value;
-    const cursor  = textarea.selectionStart;
-    textarea.value = val.slice(0, mentionStart) + '@[' + heading + ']' + val.slice(cursor);
+    const ref    = item.dataset.ref;
+    const val    = textarea.value;
+    const cursor = textarea.selectionStart;
+    textarea.value = val.slice(0, mentionStart) + '@[' + ref + '] ' + val.slice(cursor);
+    textarea.selectionStart = textarea.selectionEnd = mentionStart + ref.length + 4;
     textarea.focus();
     dropdown.style.display = 'none';
     mentionStart = -1;
