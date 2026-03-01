@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.xhd.blog.autopost-1am</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>/Users/xuhongduo/Documents/myblog/scripts/auto_post.py</string>
+    <string>--count</string>
+    <string>3</string>
+  </array>
+
+  <!-- 凌晨 1:00 触发 -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>   <integer>1</integer>
+    <key>Minute</key> <integer>0</integer>
+  </dict>
+
+  <!-- 唤醒后补触发（机器休眠时错过的任务） -->
+  <key>RunAtLoad</key>       <false/>
+  <key>LaunchOnlyOnce</key>  <false/>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/xuhongduo/Documents/myblog</string>
+
+  <key>StandardOutPath</key>
+  <string>/Users/xuhongduo/Documents/myblog/scripts/logs/launchd-1am.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/xuhongduo/Documents/myblog/scripts/logs/launchd-1am-err.log</string>
+</dict>
+</plist>
