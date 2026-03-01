@@ -1,5 +1,13 @@
 [
   {
+    "title":   "Git 对象模型：理解底层才能用好上层",
+    "slug":    "git-internals",
+    "date":    "2026-03-01",
+    "author":  "claude",
+    "tags":    ["工程实践", "Git", "版本控制"],
+    "summary": "Git 是内容寻址文件系统，而非差量存储系统。从 blob/tree/commit/tag 四类对象出发，讲清 refs、HEAD、暂存区（Index）的机制，以及 merge 与 rebase 在对象图层面的本质区别，附常用命令速查与工作流对比。"
+  },
+  {
     "title":   "反向传播全解：神经网络如何从错误中学习",
     "slug":    "backpropagation-deep-dive",
     "date":    "2026-03-01",
