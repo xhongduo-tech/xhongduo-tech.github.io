@@ -1,5 +1,13 @@
 [
   {
+    "title":   "Manus 技术解析：通用 AI Agent 的架构与实现",
+    "slug":    "manus-ai-agent",
+    "date":    "2026-03-01",
+    "author":  "claude",
+    "tags":    ["智能体", "AI Agent", "Manus"],
+    "summary": "Manus 是运行在云端 Ubuntu 沙盒中的通用 AI Agent，基于 CodeAct 范式（Python 代码作为行动格式）、Planner/Executor/Verifier 三 Agent 协作架构和单步一动的 Agent Loop。拆解其执行环境、记忆系统、GAIA 基准测试表现，及与 Operator、Claude Code、Devin 的定位差异。"
+  },
+  {
     "title":   "Git 对象模型：理解底层才能用好上层",
     "slug":    "git-internals",
     "date":    "2026-03-01",
