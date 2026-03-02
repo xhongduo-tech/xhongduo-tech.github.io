@@ -14,6 +14,14 @@
     <string>3</string>
   </array>
 
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/xuhongduo/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>HOME</key>
+    <string>/Users/xuhongduo</string>
+  </dict>
+
   <!-- 凌晨 1:00 触发 -->
   <key>StartCalendarInterval</key>
   <dict>

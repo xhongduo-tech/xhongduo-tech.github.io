@@ -8,8 +8,8 @@ auto_post.py — 自动生成技术博文并推送到 GitHub Pages
   python3 scripts/auto_post.py --dry-run    # 打印将要写的主题，不实际生成
 
 依赖：
-  pip3 install anthropic
-  设置环境变量 ANTHROPIC_API_KEY 或在 scripts/.env 写入
+  Claude Code CLI（claude）已安装并完成登录
+  PATH 需包含 claude 所在目录（/Users/xuhongduo/.local/bin）
 """
 
 import json
@@ -22,8 +22,6 @@ import logging
 from datetime import date, datetime
 from pathlib import Path
 
-import anthropic
-
 # ── 路径配置 ───────────────────────────────────────────────────────────────────
 REPO_ROOT   = Path(__file__).parent.parent
 SCRIPTS_DIR = REPO_ROOT / "scripts"
@@ -33,17 +31,10 @@ POSTS_JSON  = POSTS_DIR / "posts.json"
 LOGS_DIR    = SCRIPTS_DIR / "logs"
 FAILED_LOG  = LOGS_DIR / "failed_push.log"
 LOCK_FILE   = SCRIPTS_DIR / ".auto_post.lock"
-ENV_FILE    = SCRIPTS_DIR / ".env"
 
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
-# ── 读取 .env（供 launchd 使用，shell 启动时不加载 .zshrc）────────────────────
-if ENV_FILE.exists():
-    for raw in ENV_FILE.read_text().splitlines():
-        raw = raw.strip()
-        if raw and not raw.startswith("#") and "=" in raw:
-            k, v = raw.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip())
+CLAUDE_BIN = "/Users/xuhongduo/.local/bin/claude"
 
 # ── 日志 ──────────────────────────────────────────────────────────────────────
 log_file = LOGS_DIR / f"auto_post_{datetime.now().strftime('%Y%m%d')}.log"
@@ -121,33 +112,37 @@ def write_posts(posts: list[dict]) -> None:
 
 # ── 文章生成 ───────────────────────────────────────────────────────────────────
 
-def generate_article(client: anthropic.Anthropic, topic: dict) -> tuple[str, str]:
-    """调用 claude-opus-4-6 + extended thinking 生成文章，返回 (markdown, summary)。"""
-    user_prompt = (
+def generate_article(topic: dict) -> tuple[str, str]:
+    """调用 claude -p 生成文章，返回 (markdown, summary)。"""
+    full_prompt = (
+        f"{SYSTEM_PROMPT}\n\n"
         f"请写一篇技术博文，主题如下：\n\n"
         f"标题：{topic['title']}\n"
         f"核心要点：{topic['brief']}\n"
         f"深度方向：{topic.get('depth_hint', '深入原理，包含数学推导和可运行代码示例')}\n\n"
-        "请严格遵循系统提示的风格规范，在文章末尾输出 summary JSON。"
+        "请严格遵循以上风格规范，在文章末尾输出 summary JSON。"
     )
 
     log.info(f"  正在生成：{topic['title']}")
 
-    response = client.messages.create(
-        model="claude-opus-4-6",
-        max_tokens=16000,
-        thinking={
-            "type": "enabled",
-            "budget_tokens": 10000,
-        },
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_prompt}],
+    env = os.environ.copy()
+    env.pop("CLAUDECODE", None)          # 允许在 Claude Code 会话内手动测试
+    env.pop("CLAUDE_CODE_ENTRYPOINT", None)
+    result = subprocess.run(
+        [CLAUDE_BIN, "-p", full_prompt, "--model", "claude-opus-4-6"],
+        capture_output=True,
+        text=True,
+        timeout=600,
+        cwd=str(REPO_ROOT),
+        env=env,
     )
 
-    # 只取 text block，忽略 thinking block
-    full_text = "".join(
-        block.text for block in response.content if block.type == "text"
-    ).strip()
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"claude 调用失败（exit {result.returncode}）: {result.stderr.strip()}"
+        )
+
+    full_text = result.stdout.strip()
 
     # 解析尾部 summary JSON
     summary = topic["title"]  # fallback
@@ -157,7 +152,6 @@ def generate_article(client: anthropic.Anthropic, topic: dict) -> tuple[str, str
         if stripped.startswith('{"summary":'):
             try:
                 summary = json.loads(stripped)["summary"]
-                # 从正文中移除这行
                 idx = full_text.rfind(stripped)
                 full_text = full_text[:idx].rstrip()
             except Exception:
@@ -206,7 +200,6 @@ def git_push(slugs: list[str]) -> bool:
             ["git", "add"] + files,
             cwd=REPO_ROOT, check=True, capture_output=True,
         )
-        # 检查是否有内容可 commit
         status = subprocess.run(
             ["git", "diff", "--cached", "--quiet"],
             cwd=REPO_ROOT, capture_output=True,
@@ -279,8 +272,6 @@ def retry_failed_pushes() -> None:
 # ── 主流程 ─────────────────────────────────────────────────────────────────────
 
 def run(count: int) -> None:
-    client = anthropic.Anthropic()  # 自动读取 ANTHROPIC_API_KEY
-
     queue = read_queue()
     pending = [t for t in queue if t.get("status") == "pending"]
     if not pending:
@@ -293,7 +284,7 @@ def run(count: int) -> None:
     published_slugs = []
     for topic in batch:
         try:
-            markdown, summary = generate_article(client, topic)
+            markdown, summary = generate_article(topic)
             publish_article(topic, markdown, summary)
             for t in queue:
                 if t["slug"] == topic["slug"]:
