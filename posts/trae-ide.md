@@ -1,6 +1,6 @@
 ## Trae 是什么
 
-Trae 是**字节跳动**于 2025 年 1 月推出的 AI 原生集成开发环境（IDE），基于 VSCode 内核构建。与多数 AI 编程工具采用的**副驾驶（Copilot）**模式不同——用户编写代码、AI 提供建议——Trae 定位于**自动驾驶（Autopilot）**模式：用户描述需求，AI 自主完成规划、实现和测试。
+Trae 是**字节跳动**于 2025 年 1 月推出的 AI 原生集成开发环境（IDE），基于 VSCode 内核构建。与多数 AI 编程工具采用的 **副驾驶（Copilot）** 模式不同——用户编写代码、AI 提供建议——Trae 定位于 **自动驾驶（Autopilot）** 模式：用户描述需求，AI 自主完成规划、实现和测试。
 
 Trae 对个人开发者免费，内置 Claude 3.7 Sonnet、GPT-4o、DeepSeek-R1 等主流模型，无需自行配置 API Key。目前最直接的竞争对手是 Cursor（$20/月）。
 
