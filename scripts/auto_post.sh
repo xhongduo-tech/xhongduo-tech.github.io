@@ -15,7 +15,7 @@ POSTS_DIR="$REPO_ROOT/posts"
 QUEUE_FILE="$SCRIPTS_DIR/topic_queue.json"
 POSTS_JSON="$POSTS_DIR/posts.json"
 LOGS_DIR="$SCRIPTS_DIR/logs"
-CLAUDE_BIN="/Users/xuhongduo/.local/bin/claude"
+CLAUDE_BIN="/opt/homebrew/bin/claude"
 RATE_LIMIT_WAIT=14400  # 4 小时（秒）
 
 mkdir -p "$LOGS_DIR"
@@ -217,18 +217,10 @@ while true; do
     rc=0
     output=$(generate_article "$title" "$brief" "$depth_hint") || rc=$?
 
-    if [[ "$rc" -eq 2 ]]; then
-        log "触发速率限制，等待 4 小时后重试..."
-        log "预计恢复时间：$(date -v+4H '+%Y-%m-%d %H:%M:%S' 2>/dev/null || date -d '+4 hours' '+%Y-%m-%d %H:%M:%S')"
-        sleep $RATE_LIMIT_WAIT
-        log "恢复，继续生成：${title}"
-        continue
-    fi
-
     if [[ "$rc" -ne 0 ]]; then
-        warn "生成失败，标记 error，继续下一篇：${title}"
-        mark_queue "$slug" "error"
-        continue
+        err "生成失败（退出码 ${rc}），标记回 pending 并停止：${title}"
+        mark_queue "$slug" "pending"
+        exit 1
     fi
 
     publish_article "$slug" "$title" "$tags_json" "$output"
