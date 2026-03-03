@@ -10,7 +10,8 @@
     ],
     "brief": "神经网络的每一层都是矩阵乘法加非线性变换。讲清向量的内积、L2 范数、余弦相似度；矩阵乘法的维度规则（m×n 乘 n×p 得 m×p）；转置、逆矩阵的计算意义；以及为什么 GPU 擅长矩阵运算（SIMD 并行）。",
     "depth_hint": "包含维度变换的具体数值示例，用 NumPy 代码验证每个操作",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T15:42:35"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     ],
     "brief": "从单变量导数推广到多变量偏导数和梯度向量。链式法则 dz/dx = dz/dy × dy/dx 是反向传播的核心。讲清方向导数、梯度下降的几何意义（梯度指向最陡上升方向），以及计算图中每条边对应一次链式法则应用。",
     "depth_hint": "手推一个三层网络的链式求导过程，包含具体数值",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T15:51:58"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     ],
     "brief": "随机变量、概率分布（伯努利、高斯、多项分布）、期望与方差的定义。贝叶斯定理 P(θ|X) ∝ P(X|θ)P(θ)。最大似然估计（MLE）：为什么交叉熵损失等价于对数似然最大化——这是分类任务损失函数选择的理论基础。",
     "depth_hint": "推导高斯分布的 MLE 得到样本均值和方差，推导分类交叉熵的 MLE 来源",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
     ],
     "brief": "香农熵 H(p) = -Σ p(x) log p(x) 衡量分布的不确定性。交叉熵 H(p,q) = -Σ p(x) log q(x) 衡量用 q 编码真实分布 p 的额外代价。KL 散度 KL(p||q) = H(p,q) - H(p)，非对称性及其含义。为什么分类任务用交叉熵而非 MSE：梯度行为的对比分析。",
     "depth_hint": "包含二分类交叉熵和 MSE 在 sigmoid 输出上的梯度对比计算",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     ],
     "brief": "Softmax(z_i) = exp(z_i) / Σ exp(z_j)，将任意实数向量映射为概率分布。数值稳定性问题：exp 溢出与 log-sum-exp 技巧。温度参数 τ：Softmax(z/τ) 在 τ→0 时趋向 argmax，τ→∞ 时趋向均匀分布。在注意力机制中 τ=√d_k 的作用。",
     "depth_hint": "展示 exp 溢出的数值示例，实现数值稳定版 Softmax，对比不同温度下的输出分布",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@
     ],
     "brief": "1958 年 Rosenblatt 感知机：y = sign(w·x + b)，线性可分的几何意义。XOR 问题证明单层感知机的局限。MLP 通过隐藏层引入非线性，Universal Approximation Theorem：两层 MLP 可以以任意精度逼近任意连续函数（但不说明需要多少神经元）。前向传播的矩阵形式。",
     "depth_hint": "手工实现一个解决 XOR 问题的两层 MLP，展示权重矩阵维度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 7,
@@ -88,7 +94,8 @@
     ],
     "brief": "Sigmoid σ(x) = 1/(1+e^{-x})：饱和区梯度 <0.25，10 层后梯度缩小 100 万倍。ReLU max(0,x)：梯度直通，稀疏激活，但 Dead ReLU 问题（负区梯度恒零）。GELU x·Φ(x)（Φ 为标准正态 CDF）：平滑近似 ReLU，BERT/GPT 的默认选择。SwiGLU = Swish(xW) ⊙ (xV)：LLaMA 系列的 FFN 激活。",
     "depth_hint": "绘制每种激活函数的函数值与导数曲线，分析梯度消失的具体数值",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 8,
@@ -101,7 +108,8 @@
     ],
     "brief": "内部协变量偏移（Internal Covariate Shift）：每层输入分布随参数更新而变化，导致后层需要不断适应。BatchNorm 对 mini-batch 内每个特征维度做 z-score 归一化，再用可学习的 γ、β 缩放偏移。推理时用训练集的运行均值/方差（不是 batch 统计量）。局限：小 batch size 时不稳定，RNN/Transformer 中不适用。",
     "depth_hint": "展示 BN 的前向与反向传播公式，分析为什么 batch size=1 时 BN 退化",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 9,
@@ -114,7 +122,8 @@
     ],
     "brief": "Full-batch GD：精确梯度，但内存无法放下全部数据，且鞍点难以逃脱。SGD：高方差梯度带来随机性，有助于逃脱局部极小，但收敛震荡。Mini-batch：权衡两者，batch size 影响梯度噪声与计算效率。线性缩放规则：batch size ×k 时学习率 ×k（适用范围与限制）。",
     "depth_hint": "对比三种形态在凸/非凸函数上的收敛轨迹可视化描述，给出线性缩放规则的证明",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 10,
@@ -127,7 +136,8 @@
     ],
     "brief": "Adam = Momentum + RMSProp。m_t = β_1 m_{t-1} + (1-β_1)g_t（一阶矩，方向）；v_t = β_2 v_{t-1} + (1-β_2)g_t²（二阶矩，幅度）；偏差修正 m̂_t = m_t/(1-β_1^t)；更新 θ -= α·m̂_t/(√v̂_t + ε)。默认超参 β_1=0.9, β_2=0.999, ε=1e-8 的选择依据。AdamW：将权重衰减从梯度更新中解耦的必要性。",
     "depth_hint": "推导偏差修正项的来源（初始化为零导致的冷启动偏差），对比 Adam 与 SGD+Momentum 的参数更新轨迹",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:13"
   },
   {
     "id": 11,
@@ -140,7 +150,8 @@
     ],
     "brief": "全零初始化的对称性问题：所有神经元计算相同梯度，层永远等价。随机初始化需要控制方差：太大→激活值爆炸，太小→梯度消失。Xavier 初始化 Var(W) = 2/(n_in + n_out) 适用于 Tanh（对称激活）。He 初始化 Var(W) = 2/n_in 适用于 ReLU（正半轴激活，有效扇入减半）。",
     "depth_hint": "从信号方差在前向传播中的保持条件出发，推导 Xavier 公式",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 12,
@@ -153,7 +164,8 @@
     ],
     "brief": "固定学习率的问题：初期过大导致不稳定，后期过大无法收敛到极小。Warmup 阶段：前 N 步线性增大学习率，让 Adam 的二阶矩估计稳定后再走大步。余弦退火：lr(t) = lr_min + 0.5(lr_max-lr_min)(1+cos(πt/T))。Warmup + 余弦退火是 Transformer 训练的标准配置，Transformer 原始论文的 lr = d_model^{-0.5} · min(step^{-0.5}, step·warmup^{-1.5})。",
     "depth_hint": "实现 Transformer 原始论文的学习率公式，绘制训练步数-学习率曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 13,
@@ -166,7 +178,8 @@
     ],
     "brief": "词袋模型将文本表示为词频向量，丢失词序和语义关系。TF-IDF = TF(t,d) × IDF(t) = (词频/文档总词数) × log(总文档数/含该词文档数)，降低高频无信息词（the/的）的权重。维度诅咒：10 万词汇表的稀疏向量在余弦相似度计算上的效率问题。这些局限直接驱动了 Word2Vec 的诞生。",
     "depth_hint": "计算一个具体文档集的 TF-IDF 矩阵，分析稀疏性问题",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 14,
@@ -179,7 +192,8 @@
     ],
     "brief": "CBOW 模型：给定窗口内的上下文词，预测中心词。架构：上下文词 one-hot → 嵌入层（取均值）→ 线性层 → Softmax → 预测中心词。目标函数：最大化 log P(w_t | w_{t-c:t+c})。嵌入矩阵 W（V×d）是参数，训练完后每行是一个词向量。窗口大小的影响：小窗口捕捉句法关系，大窗口捕捉语义关系。",
     "depth_hint": "推导 CBOW 的反向传播，分析嵌入层参数更新的稀疏性",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 15,
@@ -192,7 +206,8 @@
     ],
     "brief": "Skip-gram：给定中心词，预测上下文词。原始 Softmax 对整个词表计算分母，V=10万时代价极高。Negative Sampling 近似：对每个正样本采样 k 个负样本（按词频^(3/4)的分布采样），将多类分类转为 k+1 个二分类。目标函数：log σ(v_c·v_o) + Σ_k E[log σ(-v_c·v_k)]。k=5-20 在实践中与全 Softmax 效果接近。",
     "depth_hint": "推导负采样目标函数的梯度，解释词频^(3/4)采样分布的设计原理",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 16,
@@ -205,7 +220,8 @@
     ],
     "brief": "Byte Pair Encoding 原是数据压缩算法，被 Sennrich 2016 引入 NLP。算法：从字符级词表出发，反复合并出现频率最高的相邻符号对，直到达到目标词表大小。优势：有效处理 OOV（Out-of-Vocabulary），在词表大小与覆盖率之间取得平衡。GPT-2 使用字节级 BPE（Byte-level BPE），将 UTF-8 字节作为基本单元，词表永远不会有 OOV。",
     "depth_hint": "逐步演示 BPE 在一个小语料上的合并过程，分析 vocab_size=50k vs 100k 的覆盖率差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 17,
@@ -218,7 +234,8 @@
     ],
     "brief": "RNN 隐状态 h_t = tanh(W_h h_{t-1} + W_x x_t)，梯度需经 T 步反向传播（BPTT）。∂h_t/∂h_k = Π_{i=k+1}^{t} ∂h_i/∂h_{i-1}，每步乘一次 W_h^T 和激活函数导数。tanh 导数最大 1，W_h 的谱范数若 <1 则梯度消失，>1 则梯度爆炸。100 步序列上的梯度幅值变化：|λ|^100 的数值分析。",
     "depth_hint": "计算谱范数为 0.9 时 100 步序列的梯度幅值，用代码验证 BPTT 的指数衰减",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 18,
@@ -231,7 +248,8 @@
     ],
     "brief": "LSTM 引入细胞状态 C_t 作为信息高速公路。四个门：遗忘门 f_t=σ(W_f·[h_{t-1},x_t]+b_f)，输入门 i_t，候选细胞 C̃_t，输出门 o_t。关键：C_t = f_t⊙C_{t-1} + i_t⊙C̃_t，梯度可以通过加法直接反向传播（恒定误差传送带）。与 RNN 的参数量对比：LSTM 参数量是 RNN 的 4 倍。",
     "depth_hint": "完整写出 LSTM 的前向传播方程，推导细胞状态梯度不消失的条件",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 19,
@@ -244,7 +262,8 @@
     ],
     "brief": "机器翻译的 Seq2Seq：编码器将源序列压缩为固定维度上下文向量 c，解码器以 c 为初始状态自回归生成目标序列。信息瓶颈问题：无论源序列长度如何，c 的维度固定，长序列信息必然损失。实验数据：BLEU 分数随句子长度增加而下降的趋势。这直接驱动了注意力机制的发明。",
     "depth_hint": "分析不同源序列长度下信息压缩率的变化，展示长序列翻译质量下降的实验数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 20,
@@ -257,7 +276,8 @@
     ],
     "brief": "Bahdanau 2015：不再用单一上下文向量，而是为每个解码步 t 计算动态上下文 c_t = Σ α_{t,i} h_i。对齐分数 e_{t,i} = v^T tanh(W_1 s_{t-1} + W_2 h_i)，softmax 归一化得 α_{t,i}。α 矩阵可视化：英法翻译中源词与目标词的对齐热图。注意力的计算复杂度：O(T_x × T_y)。",
     "depth_hint": "展示注意力权重矩阵的可视化，推导加性注意力的参数量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 21,
@@ -270,7 +290,8 @@
     ],
     "brief": "Self-Attention 用同一序列的元素同时充当查询（Q）、键（K）、值（V）。Q = XW^Q，K = XW^K，V = XW^V。注意力矩阵 A = softmax(QK^T/√d_k)V。与 Seq2Seq 注意力的区别：这里 Q 和 K/V 来自同一序列。√d_k 缩放：d_k 维度下 QK^T 的方差为 d_k，不缩放时 softmax 进入饱和区，梯度趋近于零。",
     "depth_hint": "推导 QK^T 方差为 d_k 的数学过程，用 PyTorch 实现 Self-Attention",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 22,
@@ -283,7 +304,8 @@
     ],
     "brief": "Multi-Head Attention：将 d_model 维拆分为 h 个 d_k=d_model/h 维的子空间，在每个子空间独立计算注意力。head_i = Attention(QW_i^Q, KW_i^K, VW_i^V)；MHA = Concat(head_1,...,head_h)W^O。不同 head 可以捕捉不同类型的依赖：句法关系、语义关系、共指关系等（基于 Transformer 可解释性研究）。参数量 = 4 × d_model²（Q/K/V/O 四个矩阵）。",
     "depth_hint": "计算 BERT-base（h=12, d_model=768）的 MHA 参数量，展示 head 专化的实验证据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 23,
@@ -296,7 +318,8 @@
     ],
     "brief": "Self-Attention 本身是排列等变的（置换输入顺序不影响输出），必须注入位置信息。Transformer 原始论文的方案：PE(pos, 2i) = sin(pos/10000^{2i/d_model})，PE(pos, 2i+1) = cos(...)。设计原理：不同维度对应不同频率，相对位置 PE(pos+k) 可以表示为 PE(pos) 的线性变换（旋转矩阵）。可学习位置编码（BERT）与固定编码（GPT）的比较。",
     "depth_hint": "推导相对位置的线性变换性质，比较不同位置数 seq_len=512 时各维度的编码值",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:14"
   },
   {
     "id": 24,
@@ -309,7 +332,8 @@
     ],
     "brief": "Transformer Encoder 层 = LayerNorm + MHA + 残差 + LayerNorm + FFN + 残差。FFN = max(0, xW_1+b_1)W_2+b_2，中间维度 d_ff=4×d_model（e.g., 768→3072→768），参数量是 MHA 的两倍。FFN 被认为存储键值对记忆（Geva 2021）。残差连接 x + Sublayer(x) 保证梯度下界为 1，Pre-Norm（先 LN 再 sublayer）比 Post-Norm 训练更稳定。",
     "depth_hint": "对比 Pre-Norm 和 Post-Norm 在梯度流上的差异，计算 BERT-base 的 FFN 参数量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 25,
@@ -322,7 +346,8 @@
     ],
     "brief": "GPT 使用仅解码器（Decoder-only）架构，每个 token 只能看到自身及之前的 token（因果掩码）。预训练目标：最大化 Σ log P(x_t|x_1,...,x_{t-1})（自回归语言模型）。因果掩码实现：注意力矩阵 QK^T 上三角置为 -∞，softmax 后对应位置权重为 0。GPT-1 → GPT-2 → GPT-3 的规模演进：参数量、数据量、能力涌现（in-context learning）。",
     "depth_hint": "实现因果掩码的代码，分析参数量从 117M（GPT-1）到 175B（GPT-3）的计算量变化",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 26,
@@ -335,7 +360,8 @@
     ],
     "brief": "BERT 使用 Encoder-only 架构，预训练任务：MLM（随机遮盖 15% token，其中 80% 替换为 [MASK]，10% 随机词，10% 不变）和 NSP（下句预测，后被证明无用）。双向上下文：每个 token 的表示融合了左右两侧信息。BERT 不能直接用于生成（因为是双向注意力），适合分类、NER、QA 等判别任务。[CLS] token 的表示用于句子级分类。",
     "depth_hint": "分析 MLM 15% 遮盖率的选择依据，对比 BERT 与 GPT 在不同下游任务上的表现差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 27,
@@ -348,7 +374,8 @@
     ],
     "brief": "一次前向传播的 FLOP 计算：注意力层 QKV 投影 3×2×n×d²，注意力矩阵 2×n²×d，输出投影 2×n×d²；FFN 两次矩阵乘法 2×2×n×d×4d = 16nd²。总 FLOP ≈ 24nd² + 4n²d（n 为序列长度，d 为模型维度）。序列长度 n 较小时 FFN 占主导（n≪d），n 较大时注意力项 4n²d 开始显著。训练 FLOP ≈ 6×参数量×token 数（来自 Kaplan 2020）。",
     "depth_hint": "计算 GPT-3（175B，seq_len=2048，d=12288）单次前向传播的 FLOP",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 28,
@@ -361,7 +388,8 @@
     ],
     "brief": "Kaplan 2020：验证集 loss 与模型参数量 N、数据集大小 D、计算量 C 呈幂律关系 L(N) ∝ N^{-α}（α≈0.076）。Chinchilla 2022 修正：Kaplan 低估了数据量的重要性，最优配置是 N_opt ∝ C^{0.5}（计算量等分给模型和数据）。实践含义：训练 70B 模型的最优 token 数约为 1.4T（20:1 比例）。",
     "depth_hint": "推导 Chinchilla 最优分配公式，计算 LLaMA-2 70B 的实际训练配置与 Chinchilla 最优值的对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 29,
@@ -374,7 +402,8 @@
     ],
     "brief": "大规模预训练数据的处理流程：Common Crawl 原始抓取 → 语言识别（fastText）→ 规则过滤（最短/最长文本、特殊字符比例）→ 内容过滤（去除 NSFW）→ 去重（URL 级、段落级、文档级）→ 质量过滤（分类器过滤低质量文本）。MinHash LSH 近似去重：k-gram 特征的局部敏感哈希，n²→nk 的复杂度。数据混合比例：The Pile、SlimPajama、FineWeb 的配比策略。",
     "depth_hint": "计算 1T token 数据集中 MinHash 去重的计算代价，对比精确去重与近似去重的效果",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 30,
@@ -387,7 +416,8 @@
     ],
     "brief": "FP32（1+8+23 位）vs FP16（1+5+10 位）vs BF16（1+8+7 位）：BF16 与 FP32 指数位相同，动态范围一致，但精度更低（尾数位只有 7 位）。混合精度策略：前向/后向用 FP16/BF16，梯度更新和优化器状态保留 FP32 master copy。梯度缩放（Gradient Scaling）：将 loss 乘以 scale factor，防止 FP16 梯度下溢（值 <6×10^{-5} 时变为 0）。",
     "depth_hint": "展示不同精度下的数值范围，用代码演示梯度下溢问题及 GradScaler 的解决方案",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 31,
@@ -400,7 +430,8 @@
     ],
     "brief": "自回归生成时，每步需要用到所有历史 token 的 K 和 V（前缀不变）。不缓存：每步重新计算所有 K、V，复杂度 O(T²)。KV Cache：缓存历史 K、V 矩阵，每步只计算新 token 的 K、V 并追加，复杂度降为 O(T)。内存代价：batch_size × seq_len × n_layers × n_heads × d_head × 2（K+V）× bytes。以 LLaMA-2 70B 为例：seq_len=4096 时 KV Cache 约 80GB。",
     "depth_hint": "计算 LLaMA-2 70B 在 batch_size=1、seq_len=4096 时 KV Cache 的精确内存占用",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 32,
@@ -413,7 +444,8 @@
     ],
     "brief": "RoPE（Su 2021）：将位置信息编码为旋转矩阵，作用于 Q 和 K（不作用于 V）。核心性质：<f_q(x_m, m), f_k(x_n, n)> 只依赖于相对位置 m-n，而非绝对位置。实现：将 d 维向量视为 d/2 个复数，每个复数乘以 e^{imθ_i}（θ_i = 1/10000^{2i/d}）。为什么比正弦编码更好：在外推（训练长度之外）上表现更好，且对注意力计算天然友好。",
     "depth_hint": "用复数乘法推导 RoPE 的内积公式，证明内积只依赖相对位置",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 33,
@@ -426,7 +458,8 @@
     ],
     "brief": "标准注意力的瓶颈：注意力矩阵 S=QK^T（n×n）需要写入 HBM（GPU 高带宽内存），再读回做 softmax，再写回，再读回乘 V——4 次 HBM 读写，内存访问是瓶颈而非计算。Flash Attention（Dao 2022）：Tiling 分块技术，在 SRAM（片上缓存）内完成分块的 softmax 和加权求和，只读写 O(n) HBM。速度提升：A100 上比标准注意力快 2-4 倍，内存占用从 O(n²) 降至 O(n)。",
     "depth_hint": "解释分块 softmax 的 online normalization 算法，计算不同序列长度下的 HBM 读写量对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 34,
@@ -439,7 +472,8 @@
     ],
     "brief": "量化：用低精度整数替代浮点权重。对称量化：W_q = round(W / scale)，scale = max(|W|) / 127（INT8）。量化误差来源：四舍五入误差 + 截断误差（超出范围的值）。逐张量 vs 逐通道量化：逐通道 scale 更精确但实现复杂。GPTQ（Frantar 2022）：基于二阶 Hessian 信息的逐层量化，用未量化权重的误差补偿已量化权重，4-bit 精度损失极小。",
     "depth_hint": "推导 GPTQ 的 OBQ（Optimal Brain Quantization）框架，计算量化前后的困惑度变化",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 35,
@@ -452,7 +486,8 @@
     ],
     "brief": "自回归生成的瓶颈：每步只生成 1 个 token，GPU 利用率极低（memory-bound 而非 compute-bound）。Speculative Decoding（Leviathan 2023）：用小模型（draft）快速生成 k 个 token 草稿，大模型（target）并行验证所有草稿。接受概率 α = min(1, p_target/p_draft)。期望加速比：1/(1-α^k) 倍。条件：draft 模型分布与 target 接近（不影响输出分布的证明）。",
     "depth_hint": "推导投机采样的接受概率公式，证明其与 target 模型等价（无偏），计算不同接受率下的加速比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 36,
@@ -465,7 +500,8 @@
     ],
     "brief": "KV Cache 的内存碎片问题：请求长度不确定，预分配导致大量内存浪费（实测 20-40% 碎片率）。PagedAttention（Kwon 2023，vLLM 基础）：借鉴操作系统分页内存管理，将 KV Cache 切分为固定大小 block（如 16 token/block），按需分配。优势：几乎消除内存碎片，支持 prefix sharing（相同前缀的请求共享 KV Cache block）。吞吐量对比：vLLM 比 HuggingFace Transformers 推理吞吐量高 2-4 倍。",
     "depth_hint": "用具体数字说明 padding-based 方法与 PagedAttention 的内存利用率对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:15"
   },
   {
     "id": 37,
@@ -478,7 +514,8 @@
     ],
     "brief": "预训练 LLM 只能续写文本，不能执行指令。指令微调（Wei 2022，FLAN）：在 (instruction, output) 对上做有监督微调，让模型学会遵循自然语言指令。数据格式：System prompt + User instruction + Assistant response。关键发现：任务数量比任务内的数据量更重要（FLAN 用 60+ 任务 vs 1 任务）。InstructGPT 的三阶段：SFT → 奖励模型 → PPO，vs 纯 SFT 的 FLAN。",
     "depth_hint": "对比 FLAN 和 InstructGPT 在不同任务上的表现，分析对话格式设计对模型行为的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 38,
@@ -491,7 +528,8 @@
     ],
     "brief": "RLHF 第二阶段：训练奖励模型 R(x, y)，输入 (prompt, response) 对，输出标量分数。训练数据：人类标注员对同一 prompt 的两个响应进行偏好比较 (y_w ≻ y_l)。损失函数：-E[log σ(R(x,y_w) - R(x,y_l))]（Bradley-Terry 模型）。奖励模型通常以预训练 LLM 为初始化，替换最后一层为标量输出。奖励黑客（reward hacking）：模型学会欺骗奖励模型，而非真正改善质量。",
     "depth_hint": "推导 Bradley-Terry 偏好模型，分析奖励模型的数据规模对最终对齐质量的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 39,
@@ -504,7 +542,8 @@
     ],
     "brief": "RLHF 第三阶段：用 PPO 最大化奖励模型分数，同时用 KL 散度约束偏离 SFT 模型不能太远。目标：max E[R(x,y)] - β·KL(π_θ || π_ref)，β 控制对齐强度与能力保留的权衡。PPO 的 Clip 机制：限制策略更新步长，防止梯度爆炸。LLM 中的挑战：超长序列的 credit assignment，响应级别（非 token 级别）的稀疏奖励。",
     "depth_hint": "给出 LLM RLHF 中 PPO 的实现伪代码，分析 β 系数选择对模型行为的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 40,
@@ -517,7 +556,8 @@
     ],
     "brief": "DPO（Rafailov 2023）：从 RLHF 的 KL 约束优化目标出发，数学推导表明最优策略可以直接用参考模型表示，无需显式训练奖励模型。损失函数：-E[log σ(β log(π_θ(y_w|x)/π_ref(y_w|x)) - β log(π_θ(y_l|x)/π_ref(y_l|x)))]。优势：训练稳定，无需 PPO 的复杂超参调整。限制：对数据质量敏感，offline 数据分布与模型分布的 gap 会导致训练不稳定。",
     "depth_hint": "推导 DPO 损失函数从 RLHF 最优解的推导过程，对比 DPO 与 PPO 在相同数据上的效果",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 41,
@@ -530,7 +570,8 @@
     ],
     "brief": "LoRA（Hu 2021）：预训练权重 W₀ 冻结，微调时只训练低秩分解 ΔW = BA（B: d×r，A: r×k，r≪min(d,k)）。推理时合并：W = W₀ + BA，无额外推理开销。关键超参：秩 r（通常 4-64），α（缩放系数，实际学习率 = α/r），应用层（QKV 矩阵、FFN 矩阵）。参数效率：BERT-base 全参数 110M，r=8 时 LoRA 只需约 300K 参数（<0.3%）。",
     "depth_hint": "分析 LoRA 秩 r 的选择对下游任务性能的影响，展示 LoRA 权重合并前后推理速度对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 42,
@@ -543,7 +584,8 @@
     ],
     "brief": "QLoRA（Dettmers 2023）：用 NF4（Normal Float 4-bit）量化基础模型权重（减少 ~75% 显存），在量化基础上训练 BF16 精度的 LoRA 适配器。技术细节：NF4 是信息论最优的 4-bit 数据类型（均匀分布在标准正态分位数上）。Double Quantization：对量化常数本身再量化，节省约 0.5 bit/参数。Paged Optimizer：用 NVIDIA 统一内存管理优化器状态，防止 OOM。实现：65B 模型在单张 48GB GPU 上可微调。",
     "depth_hint": "计算 65B 模型全参数微调 vs QLoRA 的显存需求对比，分析 NF4 的信息论最优性",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 43,
@@ -556,7 +598,8 @@
     ],
     "brief": "LayerNorm（Ba 2016）：对单个样本的所有特征维度做归一化，而非 BatchNorm 的跨样本归一化。LN(x) = γ(x-μ)/σ + β，其中 μ 和 σ 在特征维度上计算。不依赖 batch size，适合序列模型（batch size 可以是 1）。Pre-LN vs Post-LN：Pre-LN 把 LN 放在 sublayer 之前（梯度更稳定），Post-LN 放在残差之后（BERT 原始设计）。RMSNorm：去掉均值中心化，只做方差归一化，LLaMA/Qwen/Mistral 的选择。",
     "depth_hint": "对比 Pre-LN 与 Post-LN 的梯度流差异，推导 RMSNorm 简化为何足够",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 44,
@@ -569,7 +612,8 @@
     ],
     "brief": "标准 MHA：h 个 Q 头 + h 个 K 头 + h 个 V 头，KV Cache 内存 ∝ h。MQA（Shazeer 2019）：所有 Q 头共享同一组 K 和 V，KV Cache 减少 h 倍，但精度略降。GQA（Ainslie 2023）：G 组 K/V，每组 h/G 个 Q 头共享，权衡精度与内存。LLaMA-2 70B 使用 GQA（h=64 个 Q 头，8 个 KV 头），KV Cache 减少 8 倍。升级已有模型：MHA → GQA 可通过合并 KV 头的均值来实现（无需重训练）。",
     "depth_hint": "计算 LLaMA-2 70B 在 GQA vs MHA 配置下 KV Cache 的内存差异，分析精度损失",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 45,
@@ -582,7 +626,8 @@
     ],
     "brief": "传统静态批处理：等所有序列生成完毕才处理下一批，短序列等待长序列导致 GPU 利用率低。Continuous Batching（Orca，Yu 2022）：每步迭代后检查已完成序列，立即将新请求插入 batch，而不等待整批完成。实现细节：需要处理不同序列长度（使用 padding 或 ragged tensor）。结合 PagedAttention：完整的现代 LLM serving 系统（vLLM）的核心机制。吞吐量提升：对长短请求混合的工作负载提升 2-4 倍。",
     "depth_hint": "对比静态批处理与连续批处理的时间线图，计算典型混合工作负载的 GPU 利用率差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 46,
@@ -595,7 +640,8 @@
     ],
     "brief": "贪心解码：每步选 argmax，速度最快，但次优（局部最优不等于全局最优）。Beam Search：维护 k 个最高概率路径，翻译任务的标准方案，但倾向于生成通用/重复文本。Top-k 采样：只从概率最高的 k 个 token 中采样，但 k 固定无法适应分布形状变化。Top-p（Nucleus）采样：选择概率累积 ≥ p 的最小 token 集合，分布尖峰时 k 小，平坦时 k 大。Temperature：采样前将 logits 除以 T，T<1 更确定，T>1 更多样。",
     "depth_hint": "对比不同解码策略在相同 prompt 下的输出多样性与质量，分析 Beam Search 的重复惩罚机制",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 47,
@@ -608,7 +654,8 @@
     ],
     "brief": "困惑度 PPL = exp(-1/N Σ log P(x_t|x_1,...,x_{t-1}))，即每个 token 的平均负对数似然的指数。直觉：PPL=10 表示模型平均在 10 个候选中等概率选择。PPL 对词表大小敏感（大词表 PPL 天然更低），跨模型比较需控制分词器。PPL 的局限：不直接反映下游任务性能（GPT-3 PPL 优但 few-shot 不一定胜 BERT）。Bits-per-character（BPC）：与分词无关的困惑度变体。",
     "depth_hint": "计算相同文本在不同分词器（字符级 vs BPE）下的困惑度差异，分析 PPL 的局限性",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 48,
@@ -621,7 +668,8 @@
     ],
     "brief": "Wei 2022：某些能力在小模型上几乎不存在，超过某个参数量阈值后突然出现（非线性跳跃）。典型例子：算术推理（<10B 接近随机，>60B 接近人类）、多步推理、上下文学习（in-context learning）。涌现的争议（Schaeffer 2023）：可能是评测指标的非线性（如 exact match）造成的假象，换用连续指标后涌现消失。Chain-of-Thought：大模型上生效（>100B），小模型上有害。",
     "depth_hint": "分析涌现能力的评测方法，对比 exact match 与 continuous metric 下的能力曲线差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:16"
   },
   {
     "id": 49,
@@ -634,7 +682,8 @@
     ],
     "brief": "ICL：在推理时给出 k 个示例（k-shot），模型无需梯度更新即可适应新任务。示例格式：[x_1, y_1], [x_2, y_2], ..., [x_k, y_k], [x_query, ?]。理论理解：模型在预训练时隐式学习了\"任务推断\"元学习能力（Garg 2022，Transformer 可以实现梯度下降）。示例顺序的影响：不同顺序导致差异高达 30% 的准确率波动（Brown 2020）。标签格式：即使错误标签，ICL 也能保持较好性能（Liu 2022）。",
     "depth_hint": "分析 ICL 的理论机制（meta-learning 视角），设计实验验证示例顺序对性能的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 50,
@@ -647,7 +696,8 @@
     ],
     "brief": "CoT（Wei 2022）：在 few-shot 示例中加入中间推理步骤，模型在推理时自然生成推理链，复杂推理任务性能大幅提升。Zero-shot CoT（Kojima 2022）：仅加\"Let's think step by step\"，无需示例。触发条件：仅在 >100B 参数模型上有效，小模型 CoT 性能反而下降。理论解释：token 预算假说——中间 token 相当于草稿纸，扩展了模型的有效计算深度。Self-Consistency：生成多条推理链后取多数投票，进一步提升 5-10%。",
     "depth_hint": "分析 CoT 在不同规模模型上的效果曲线，推导 token 预算如何扩展模型的计算能力",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 51,
@@ -660,7 +710,8 @@
     ],
     "brief": "RAG（Lewis 2020）：不依赖参数记忆，实时检索外部知识库，将检索结果拼入上下文。基本流程：用户查询 → 查询向量化（Embedding 模型）→ 向量数据库近似最近邻搜索 → Top-k 文档 → 与查询拼接 → LLM 生成。优势：知识可更新、可追溯来源、无幻觉（引用直接来自文档）。关键指标：检索召回率、精确率，最终答案的忠实度（Faithfulness）与相关度（Relevance）。",
     "depth_hint": "对比 RAG 与参数化知识在实时信息、长尾知识、引用来源三个维度上的差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 52,
@@ -673,7 +724,8 @@
     ],
     "brief": "精确最近邻搜索：复杂度 O(nd)，n=百万向量时不可用。HNSW（Hierarchical NSW，Malkov 2018）：多层图索引，上层稀疏（长程跳跃），下层密集（精确邻居）。插入：从最高层开始贪心搜索，确定每层的邻居后插入。查询：同样从最高层贪心导航到底层，返回 ef 个候选。参数：M（每节点最大邻居数）、ef_construction（构建时搜索宽度）、ef_search（查询宽度）。Recall@k vs 查询延迟的 trade-off。",
     "depth_hint": "对比暴力搜索、LSH、HNSW 在百万级向量上的查询延迟与 Recall@10 的对比实验",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 53,
@@ -686,7 +738,8 @@
     ],
     "brief": "MoE：将 FFN 替换为 N 个专家 FFN，每次只激活 top-k 个（通常 k=2）。门控网络 G(x) = TopK(softmax(xW_g))。计算量：虽然参数量 ×N，但每次激活参数量不变，计算 FLOP 与稠密模型相同。负载均衡损失：防止所有 token 路由到同一专家，辅助损失 = α × Σ f_i · P_i（f_i 为专家实际使用率，P_i 为路由概率均值）。DeepSeek-V3 671B：256 个专家，每次激活 8 个，实际计算量等效 37B 稠密模型。",
     "depth_hint": "推导负载均衡损失的梯度，分析专家崩塌（Expert Collapse）问题的成因与解决方案",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 54,
@@ -699,7 +752,8 @@
     ],
     "brief": "Hinton 2015 知识蒸馏：学生模型不仅学 hard label（one-hot），还学教师模型的 soft label（Softmax 输出）。软标签携带类间相似度信息（如 cat 与 dog 的相似度高于 cat 与 car）。蒸馏损失 = α·CE(hard) + (1-α)·KL(p_teacher || p_student)×T²，温度 T>1 平滑软标签。LLM 蒸馏：中间层特征对齐（特征蒸馏），注意力矩阵对齐（注意力蒸馏）。DistilBERT：BERT 的 40% 参数，97% 性能。",
     "depth_hint": "推导蒸馏损失中 T² 系数的来源，分析中间层蒸馏与最终层蒸馏的效果差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 55,
@@ -712,7 +766,8 @@
     ],
     "brief": "标准注意力 O(n²) 的长序列局限。状态空间模型（SSM）：y_t = C·h_t，h_t = A·h_{t-1} + B·x_t，线性复杂度，但固定 A/B/C 表达能力受限。Mamba（Gu 2023）的关键创新：选择性 SSM，A/B/C 依赖输入 x（token-dependent），突破固定动态系统的局限。硬件感知的并行扫描算法：训练时用 parallel scan（O(n log n)），推理时用 RNN（O(1)/步）。在语言建模 PPL 上与 Transformer 相当，但推理速度更快。",
     "depth_hint": "对比传统 SSM 与 Mamba 的选择性机制，推导 parallel scan 的计算复杂度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 56,
@@ -725,7 +780,8 @@
     ],
     "brief": "模型合并：在参数空间而非特征空间组合多个微调模型，无需重训练。线性合并（权重平均）：W_merge = (W_1+W_2)/2，效果差（不同微调方向的干扰）。SLERP（球面线性插值）：沿单位超球面的测地线插值，保持参数向量的范数。Task Arithmetic（Ilharco 2022）：任务向量 τ = W_ft - W_base，W_merge = W_base + λ(τ_1+τ_2+...)，任务向量加减实现能力增删。TIES-merging：解决任务向量符号冲突问题。",
     "depth_hint": "推导 SLERP 公式，分析任务向量加法中符号冲突的产生原因与 TIES 的解决方案",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 57,
@@ -738,7 +794,8 @@
     ],
     "brief": "单 GPU 放不下大模型时的解决方案。张量并行（Megatron-LM，Shoeybi 2019）：沿特定维度切分权重矩阵，每个 GPU 持有部分权重。MHA 的列并行：Q/K/V 矩阵按列切分，每头在一个 GPU 上；输出矩阵按行切分，AllReduce 汇聚。FFN 的列-行并行：第一层按列切分（每 GPU 独立计算 GELU），第二层按行切分后 AllReduce。通信量：每层 2 次 AllReduce，通信量 = 2×batch×seq×d（与模型大小无关）。",
     "depth_hint": "绘制 MHA 在 4 卡张量并行下的矩阵切分图，计算通信量与计算量之比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 58,
@@ -751,7 +808,8 @@
     ],
     "brief": "流水线并行：不同层分配到不同设备，数据依次流经各设备。朴素流水线：设备 1 处理完才激活设备 2，其他设备空闲（气泡率接近 1）。Gpipe 微批次：将 mini-batch 切为 m 个 micro-batch，流水线效率 = 1 - (p-1)/(p-1+m)，m≫p 时气泡率趋近于 0。1F1B 调度（PipeDream）：前向-反向交替，减少内存占用。激活检查点（activation checkpointing）：减少中间激活内存，代价是重新计算一次前向。",
     "depth_hint": "计算不同 m 和 p 下的流水线气泡率，对比 GPipe 与 1F1B 的内存占用",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:17"
   },
   {
     "id": 59,
@@ -764,7 +822,8 @@
     ],
     "brief": "混合精度训练的显存占用：fp16 参数 2 bytes，fp16 梯度 2 bytes，fp32 master weights 4 bytes，fp32 Adam 一阶矩 4 bytes + 二阶矩 4 bytes，总计 16 bytes/参数。ZeRO-1：将优化器状态（8 bytes）分片到 N 卡，每卡显存节省 8/N bytes。ZeRO-2：加上梯度分片（2 bytes）。ZeRO-3：加上参数分片（2 bytes），每卡显存降低 16/N 倍，代价是每次前向/反向需 AllGather 参数。",
     "depth_hint": "计算 ZeRO-3 在 64 卡下训练 70B 模型的显存需求，对比 ZeRO 各阶段的通信量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 60,
@@ -777,7 +836,8 @@
     ],
     "brief": "幻觉类型：事实错误（声称不存在的信息）、矛盾（与上文或世界知识矛盾）、无中生有（合理但错误的细节）。成因分析：1. 参数化知识不完整（长尾知识覆盖不足）；2. 训练数据中的噪声和错误；3. 自回归生成的曝光偏差（exposure bias）；4. 强化学习阶段的奖励黑客。缓解方案：RAG（用外部知识替代参数记忆）、自反射（让模型质疑自己的输出）、不确定性估计（输出置信度）。Truthfulness 基准（TruthfulQA）。",
     "depth_hint": "分析不同类型幻觉的产生机制，对比 RAG 与参数记忆在知识密集型任务上的幻觉率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 61,
@@ -790,7 +850,8 @@
     ],
     "brief": "RoPE 的外推问题：训练时 max_seq=4096，推理时 seq>4096 时 RoPE 角频率超出训练分布，注意力分数崩溃。位置插值（Chen 2023）：将位置索引缩放到训练范围内（下采样），牺牲短文本精度换长文本泛化。YaRN（Peng 2023）：非均匀缩放，低频维度不缩放，高频维度强缩放，保持短文本性能。NTK-aware 插值：基于神经切线核的频率调整。实践中通常结合少量长文本继续训练（context window extension fine-tuning）。",
     "depth_hint": "分析 RoPE 不同频率维度的外推能力差异，推导 YaRN 的非均匀缩放系数",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 62,
@@ -803,7 +864,8 @@
     ],
     "brief": "ReAct（Yao 2022）：Reasoning + Acting 的交替循环。格式：Thought: [推理步骤] → Action: [工具调用] → Observation: [工具返回] → Thought: ... → Final Answer。与 Chain-of-Thought 的区别：CoT 只推理不行动，ReAct 将推理与工具调用交织。优势：推理步骤可以利用工具的实时信息修正，减少幻觉；行动步骤有推理理由支撑，更可解释。局限：需要模型具备足够强的指令遵循能力。",
     "depth_hint": "展示 ReAct 在 HotpotQA 多跳问题上的完整推理链，分析与纯 CoT 的性能差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 63,
@@ -816,7 +878,8 @@
     ],
     "brief": "LLM 与外部系统交互的标准化接口。OpenAI API 格式：JSON Schema 定义工具（名称、描述、参数类型），模型返回工具调用请求，系统执行后将结果作为 tool message 返回。并行调用：一次响应中触发多个工具调用（减少延迟）。工具描述的重要性：描述越精确，正确路由率越高。JSON 强制输出：Constrained Decoding / Grammar Sampling 确保输出合法 JSON（不依赖模型对 JSON 格式的记忆）。",
     "depth_hint": "分析 JSON Schema 定义对模型路由准确率的影响，对比不同 Constrained Decoding 方案的延迟开销",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 64,
@@ -829,7 +892,8 @@
     ],
     "brief": "CLIP（Radford 2021）：用 4 亿图文对训练，对比学习对齐视觉编码器和语言编码器。训练目标：n×n 批次中，n 个正样本对（图像_i，文本_i）相似度最大化，n²-n 个负样本对相似度最小化。InfoNCE 损失：-E[log exp(sim(z_i,z_j)/τ) / Σ_k exp(sim(z_i,z_k)/τ)]。Zero-shot 分类：将类别名称编码为文本，与图像向量计算余弦相似度排名。为什么有效：互联网图文对天然包含语义对齐信息（文章配图、社交媒体帖子）。",
     "depth_hint": "推导 CLIP 的 InfoNCE 损失，计算 batch_size=32768 时正负样本比例对训练的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 65,
@@ -842,7 +906,8 @@
     ],
     "brief": "LLaVA（Liu 2023）：用线性投影层将 CLIP 视觉编码器的输出对齐到语言模型的嵌入空间，数据量极小（665K 样本）却效果优秀。两阶段训练：1. 预训练阶段只训练投影层（冻结视觉编码器和 LLM），对齐视觉特征与文本空间；2. 指令微调阶段解冻 LLM，全参数训练视觉对话能力。数据构建：用 GPT-4 将图像描述转化为对话格式（因为当时 GPT-4 不能接受图像输入，用描述代替）。",
     "depth_hint": "分析视觉 token 数量对 LLaVA 上下文长度和性能的影响，比较不同投影层设计（线性/MLP/交叉注意力）",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 66,
@@ -855,7 +920,8 @@
     ],
     "brief": "Constitutional AI（Bai 2022，Anthropic）：用一套原则（Constitution）驱动模型自我批评和修订，减少对人类有害输出标注的依赖。流程：1. 模型生成有害响应（红队阶段）；2. 模型根据 Constitution 自我批评（「以上回复违反了哪条原则？」）；3. 模型根据批评修订响应；4. 用修订后的数据做 SFT；5. 模型对原始 vs 修订响应生成偏好标签，用于 RLHF。与 RLAIF 的关系：RLAIF 是 CAI 的扩展，用 AI 反馈替代人类偏好标注。",
     "depth_hint": "对比 CAI 与传统 RLHF 在数据效率和有害输出控制上的差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 67,
@@ -868,7 +934,8 @@
     ],
     "brief": "全局注意力 O(n²) 的长序列代价。局部窗口注意力：每个 token 只与前后 w 个 token 交互，O(n×w)，但失去全局感知。Longformer（Beltagy 2020）：滑动窗口局部注意力 + 少量全局 token（[CLS] 和任务相关 token）。BigBird：局部 + 全局 + 随机稀疏，理论上等价于完整注意力（图连接性证明）。稀疏注意力的 CUDA 实现挑战：不规则内存访问难以优化，Flash Attention 的成功使得 O(n²) 的实际代价不那么大。",
     "depth_hint": "对比不同稀疏模式在长文档任务上的精度与速度，分析滑动窗口宽度的选择影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 68,
@@ -881,7 +948,8 @@
     ],
     "brief": "MMLU（Hendrycks 2020）：57 个学科的多选题，涵盖高中到专业级知识，0-shot 和 5-shot 设置。HumanEval（Chen 2021）：164 个 Python 编程题，pass@k 指标（生成 n 个解，k 个能通过测试的概率）。MATH（Hendrycks 2021）：12500 道竞赛数学题，答案需精确匹配。评测的污染问题：训练数据可能包含评测集题目，导致分数虚高（GPT-4 的 MATH 分数争议）。LLM-as-Judge：MT-Bench 用 GPT-4 打分，但 GPT-4 偏好自己风格的回答（position bias、verbosity bias）。",
     "depth_hint": "分析评测污染的检测方法，量化 verbosity bias 对 MT-Bench 分数的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 69,
@@ -894,7 +962,8 @@
     ],
     "brief": "越狱（Jailbreak）：绕过模型安全对齐的攻击。主要类型：1. 角色扮演（「你是一个没有限制的 AI」）；2. 提示注入（在文档中嵌入覆盖系统提示的指令）；3. GCG 对抗性前缀（Zou 2023，梯度优化的 token 序列，触发任意有害输出）；4. 多语言绕过（在安全训练较少的语言中提问）。防御方案：输入过滤（PromptGuard）、输出过滤、对抗性训练。GCG 的迁移性：在开源模型上优化的对抗前缀可以迁移到闭源模型。",
     "depth_hint": "分析 GCG 攻击的优化目标，量化不同防御方案的 attack success rate vs false positive rate",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 70,
@@ -907,7 +976,8 @@
     ],
     "brief": "SFT 数据的关键维度：指令多样性（覆盖更多任务类型比增加每类数据量更重要）、响应质量（LIMA 2023：1000 条精心挑选数据 ≈ 52000 条数据的效果）、格式一致性（模板混乱导致模型困惑）。数据清洗：去除过短响应、格式错误、重复数据。合成数据：Self-Instruct（用 GPT-3/4 生成指令），Evol-Instruct（逐步增加指令复杂度）。数据混合比例：通用对话 vs 代码 vs 数学的最优比例研究。",
     "depth_hint": "分析 LIMA 的 1000 条数据实验，量化数据多样性与数量在不同任务类型上的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:18"
   },
   {
     "id": 71,
@@ -920,7 +990,8 @@
     ],
     "brief": "Hard Prompt（人工撰写的离散 token 提示）的局限：搜索空间离散，难以优化。Prefix Tuning（Li 2021）：在每层注意力的 K、V 前拼接可训练的连续向量（prefix），只训练这些向量（参数量 ~0.1%）。Prompt Tuning（Lester 2021）：只在输入层加 soft token，比 Prefix Tuning 更简单，超大模型上效果接近全参数微调。P-tuning v2：在每层都加 soft token（类似 Prefix Tuning），改善中等规模模型效果。",
     "depth_hint": "对比 Prefix Tuning、LoRA、全参数微调在不同规模模型上的参数效率与性能",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 72,
@@ -933,7 +1004,8 @@
     ],
     "brief": "LLM 对齐用到 RL，需要理解基础概念。MDP 框架：状态 s（context），动作 a（下一个 token），奖励 r（仅在句子结束时非零），策略 π（LLM 本身）。REINFORCE：∇J(θ) = E[G_t ∇log π_θ(a_t|s_t)]，高方差问题（用基线 baseline 缓解）。Actor-Critic：Actor 学策略，Critic 估计值函数（减少方差）。PPO：使用 Clip 限制策略更新幅度，是目前 LLM RLHF 的主流算法。",
     "depth_hint": "推导 REINFORCE 的策略梯度公式，分析基线选择对方差的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 73,
@@ -946,7 +1018,8 @@
     ],
     "brief": "ViT（Dosovitskiy 2020）：将图像切分为固定大小 patch（16×16），每个 patch 线性映射为 token，然后输入标准 Transformer Encoder。位置编码：1D 或 2D 可学习位置编码。[CLS] token 的全局表示用于分类。与 CNN 的根本区别：没有局部感受野和平移等变性，需要更多训练数据（在 ImageNet 上不如 ResNet，在 JFT-300M 上超越）。DeiT：纯 ImageNet 上通过知识蒸馏训练 ViT，教师模型是 CNN（蒸馏 token）。",
     "depth_hint": "计算 ViT-B/16（224×224 输入）的序列长度、patch 数量和参数量，分析 patch size 对计算量的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 74,
@@ -959,7 +1032,8 @@
     ],
     "brief": "Adapter（Houlsby 2019）：在每个 Transformer 层的 MHA 和 FFN 之后插入小型瓶颈网络（Down-project → 非线性 → Up-project），参数量约 1-3%。残差设计：适配器输出与输入相加，初始化为接近恒等变换（Up-project 初始化为 0），避免训练初期破坏预训练权重。与 LoRA 的比较：Adapter 在推理时有额外层（轻微延迟），LoRA 可合并到原始权重（零额外延迟）。MAM Adapter：MHA 用 Prefix Tuning，FFN 用 Adapter 的混合方案。",
     "depth_hint": "对比 Adapter 与 LoRA 在推理延迟和参数效率上的量化差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 75,
@@ -972,7 +1046,8 @@
     ],
     "brief": "非结构化剪枝（权重置零）难以在 GPU 上加速（稀疏矩阵乘法效率低）。结构化剪枝：整块移除注意力头、FFN 中间层神经元，移除后模型可以正常密集推理。重要性估计：基于梯度（|w ∂L/∂w|）、基于激活（神经元激活频率）、基于 Taylor 展开（二阶近似）。LLM-Pruner（Ma 2023）：基于梯度的依赖图剪枝，移除 20% 参数后 PPL 增加约 5%。压缩后通常需要 LoRA 微调恢复性能。",
     "depth_hint": "推导 Taylor 展开重要性分数，量化剪枝 20%/30%/50% 时的性能与速度变化",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 76,
@@ -985,7 +1060,8 @@
     ],
     "brief": "训练时计算扩展（Scaling Laws）在一定规模后收益递减。Test-Time Compute（Snell 2024）：在推理阶段增加计算（更长的 CoT、更多候选答案、搜索树）可以提升性能。Self-Consistency：生成 N 条推理链，多数投票，性能随 N 增加（但有上界）。Best-of-N：生成 N 个答案，用奖励模型选最好的，性能 ∝ log N。MCTS for LLMs：蒙特卡洛树搜索，中间步骤有过程奖励模型打分（OpenAI o1 的猜测机制）。",
     "depth_hint": "绘制 Best-of-N 性能随 N 的对数增长曲线，分析何时 TTC 比训练更大模型更高效",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 77,
@@ -998,7 +1074,8 @@
     ],
     "brief": "结果奖励（ORM）：只评估最终答案对错。稀疏奖励导致信用分配困难。过程奖励（PRM，Lightman 2023）：对每个推理步骤打分，提供密集监督。数据标注：人工标注每步是否正确（成本高），或用 MC 采样估计（从该步出发生成 N 个解，正确率作为分数）。PRM 在 MATH 上：将 GPT-4 的 pass@1 从 69% 提升到 78%（Best-of-N + PRM 选择）。与 RLHF 的关系：PRM 可以替代 ORM 作为 PPO 的奖励信号，提供更密集的梯度。",
     "depth_hint": "对比 ORM 与 PRM 在多步数学推理上的奖励信号密度与训练效果",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 78,
@@ -1011,7 +1088,8 @@
     ],
     "brief": "红队测试：系统性地探测模型漏洞，分手动红队（人工创意攻击）和自动红队（用另一个 LLM 生成攻击）。攻击类别：有害内容生成、隐私信息泄露、偏见歧视、错误信息。Anthropic/Google 的 AI 安全评估框架（RSP）：设定能力触发点（如 CBRN 知识、网络攻击能力），超过阈值触发额外安全措施。安全-能力权衡：Anthropic 研究表明对齐训练会轻微降低某些能力（alignment tax），但量化因模型而异。",
     "depth_hint": "分析自动红队与手动红队在攻击覆盖率和成功率上的对比，量化 alignment tax 的具体表现",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 79,
@@ -1024,7 +1102,8 @@
     ],
     "brief": "Qwen2.5 系列（阿里通义）的架构选择：GQA（节省 KV Cache）、RoPE 位置编码（支持上下文扩展）、SwiGLU 激活函数、Pre-RMSNorm（训练稳定性）。词表大小 151643（覆盖多语言）。上下文扩展到 128K：YaRN 插值 + 长文本继续训练。代码和数学能力：在预训练数据中大幅增加代码和数学比例。MoE 变体：Qwen2-57B-A14B（57B 参数，每次激活 14B）。",
     "depth_hint": "对比 Qwen2.5-72B 与 LLaMA-3-70B 在架构细节上的差异，分析词表大小对多语言任务的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 80,
@@ -1037,7 +1116,8 @@
     ],
     "brief": "LLaMA-3 技术报告（Meta 2024）关键设计：GQA（8 个 KV 头）、RoPE（θ=500000，提升外推能力）、128K 词表（tiktoken BPE）、SwiGLU FFN。训练数据：15T token（主要是英文和代码）。指令版本：RLHF 流程使用 SFT + DPO + PPO 多阶段。工具调用：原生支持 JSON Schema 格式函数调用。与 Qwen2.5/Mistral 的定位对比：Meta 以开放权重为战略重点。",
     "depth_hint": "计算 LLaMA-3 70B 的 KV Cache 内存占用（batch=1，seq=8192），对比 GQA 与 MHA 的差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 81,
@@ -1050,7 +1130,8 @@
     ],
     "brief": "GPTQ 的问题：逐层量化，忽略激活分布。AWQ（Lin 2023）的关键发现：并非所有权重同等重要，对应激活值较大的权重通道更重要（量化这些通道误差更大）。解决方案：对重要通道的权重乘以缩放系数 s（放大权重、缩小激活），使量化精度更高，量化后再除以 s（合并到下一层）。AWQ 不需要反向传播，只需校准数据的前向传播（~128 样本）。4-bit AWQ 困惑度接近 FP16，优于 GPTQ 4-bit。",
     "depth_hint": "推导 AWQ 的缩放系数搜索目标函数，对比 AWQ 与 GPTQ 在不同量化位宽下的精度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 82,
@@ -1063,7 +1144,8 @@
     ],
     "brief": "为什么需要水印：区分人类写作与 AI 生成内容。绿色 token 水印（Kirchenbauer 2023）：将词表分为绿色集合（G）和红色集合（R），生成时软性偏向绿色 token（logits += δ）。检测：计算文本中绿色 token 的比例，超过阈值则为 AI 生成。关键性质：无法被不知道密钥的人绕过（密钥决定 G/R 划分）；但知道水印存在者可以通过改写绕过。语义不变性问题：水印不能嵌入到语义层面（翻译后消失）。",
     "depth_hint": "分析绿色 token 水印的统计检验方法，计算 FPR=1% 时所需的最短文本长度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:19"
   },
   {
     "id": 83,
@@ -1076,7 +1158,8 @@
     ],
     "brief": "RLHF 的瓶颈：人类标注成本高、一致性差（不同标注员偏好不同）。RLAIF（Bai 2022，Lee 2023）：用更强的 LLM（如 Claude）评判两个响应的优劣，替代人类偏好标注。技术细节：Prompt 设计对 AI 判断质量至关重要（Chain-of-thought 后再给出偏好判断）。Constitutional AI：RLAIF 的扩展，用原则列表指导 AI 判断。局限：AI 标注员会继承训练 LLM 的偏见；无法超越标注 LLM 的能力上界。",
     "depth_hint": "对比 RLAIF 与人类标注的一致性（Kappa 系数），分析 AI 标注员的偏见来源",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 84,
@@ -1089,7 +1172,8 @@
     ],
     "brief": "数据并行：每个 GPU 持有完整模型副本，处理不同数据，梯度同步后参数更新相同。参数服务器（PS）架构：中心化参数存储，Worker 拉取参数、推送梯度，PS 成为通信瓶颈。AllReduce（Ring-AllReduce）：无中心节点，每个 GPU 既发送又接收，通信量 = 2(N-1)/N × 参数量（N 为 GPU 数），接近最优。PyTorch DDP：NCCL 后端 AllReduce，梯度通信与反向传播重叠（Backward Hook 触发通信）。通信量估算：175B 模型每步通信 ~350GB 梯度（FP16）。",
     "depth_hint": "推导 Ring-AllReduce 的通信复杂度公式，计算 8 卡 DDP 训练 7B 模型的通信效率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 85,
@@ -1102,7 +1186,8 @@
     ],
     "brief": "标准 RAG 的问题：LLM 没有学会从文档中提取关键信息（只靠上下文学习，不够稳定）。RAFT（Zhang 2024）：在 SFT 数据中混合带有干扰文档的 QA 对，训练模型学会忽略无关文档、引用相关内容作答（CoT 格式）。训练数据构建：80% 含相关文档的正样本 + 20% 只含干扰文档的负样本（增强鲁棒性）。与 RAG 对比：RAFT 在领域专业任务（医疗、法律）上显著优于纯 RAG，因为模型学会了领域内的信息提取模式。",
     "depth_hint": "对比 RAFT 与标准 RAG 在领域专业问答中的引用准确率差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 86,
@@ -1115,7 +1200,8 @@
     ],
     "brief": "原始 Speculative Decoding 的局限：需要独立的草稿模型（维护成本高，且加速比依赖草稿模型质量）。Medusa（Cai 2024）：在原始 LLM 之上添加多个预测头，每个头预测 k 步之后的 token，无需独立草稿模型，平均加速 2-3 倍。Eagle（Li 2024）：用 1 层 Transformer 作为草稿模型，输入 LLM 最后一层的隐藏状态，接受率更高（加速 3 倍）。Lookahead：n-gram 草稿，无需额外模型。",
     "depth_hint": "对比 Medusa、Eagle、原始 Speculative Decoding 在 LLaMA-2 70B 上的加速比与硬件要求",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 87,
@@ -1128,7 +1214,8 @@
     ],
     "brief": "多轮对话的上下文长度随轮次线性增长，最终超出模型上下文窗口。截断策略：先进先出（丢失重要的早期信息）、保留系统提示+最近 N 轮。摘要压缩：用 LLM 定期将早期对话压缩为摘要（内存损失 vs 长度节省）。KV Cache 复用：对话中不变的前缀（system prompt）可以预计算并缓存 KV，节省推理开销。Prompt Caching（Anthropic）：最长前缀匹配的 KV Cache 服务端复用，API 调用中重复前缀享受折扣。",
     "depth_hint": "计算不同截断策略下 100 轮对话的信息保留率，分析 KV Cache 前缀复用的成本节省",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 88,
@@ -1141,7 +1228,8 @@
     ],
     "brief": "SWE-bench（Jimenez 2023）：从 GitHub 真实 issue 中收集 2294 个任务，要求模型修改代码库解决 issue 并通过测试。难度：需要理解大型代码库（平均 39K LOC），定位问题、修改多文件、不破坏现有测试。Lite 版本（300 tasks）用于快速评估。评测方法：自动化测试（Docker 隔离环境），无需人工评判。代表性系统：Devin（13.86%）、SWE-agent（12.47%）、OpenHands（41%，2024 年最新）。分析为何难：需要多步工具调用、上下文理解和工程判断。",
     "depth_hint": "分析 SWE-bench 的难点分布（单文件 vs 多文件修改），对比不同 Agent 架构在任务类型上的优劣",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 89,
@@ -1154,7 +1242,8 @@
     ],
     "brief": "流形假设（Manifold Hypothesis）：高维数据（图像、文本）实际分布在低维流形上。神经网络的作用：学习将流形展开（unfolding）为线性可分空间。Embedding 空间的几何性质：线性插值语义连续性（词类比关系的向量加减）、语义聚类结构。表示空间的各向异性问题：BERT 的 token 嵌入分布呈锥形（各向异性），余弦相似度失去意义（SimCSE 2021 解决了这一问题）。对比学习如何解决各向异性：均匀分布在超球面上。",
     "depth_hint": "分析 BERT 嵌入的各向异性问题，推导 SimCSE 的对比学习目标如何改善分布",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 90,
@@ -1167,7 +1256,8 @@
     ],
     "brief": "Test-Time Training（TTT）：在推理时对当前输入进行短暂梯度更新，动态适应分布偏移（TTT-RNN 将内存编码进模型权重）。World Models：LLM 是否学到了世界的因果结构，还是只是模式匹配（Bengio 的争论）。组合泛化（Compositional Generalization）：模型是否真正理解概念，还是只记忆了训练中的组合。长文本理解的质量：RULER 等基准测试显示模型在超长文本中存在注意力漂移。持续学习：如何在不灾难性遗忘的情况下更新知识。",
     "depth_hint": "分析当前 LLM 在组合泛化和因果推理上的失败案例，讨论 TTT 的理论基础与实际限制",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 91,
@@ -1180,7 +1270,8 @@
     ],
     "brief": "核心要点：FlashAttention 将 Q/K/V 按 SRAM 容量分块（典型块大小 Bc=M/(4d)），通过在线 softmax 算法避免 O(N²) 的 HBM 读写。分析 A100 上 SRAM(192KB) vs HBM(80GB) 的带宽差异（19TB/s vs 2TB/s），推导分块后 IO 复杂度从 O(N²d) 降至 O(N²d²/M)。",
     "depth_hint": "需推导在线 softmax 的数值稳定性修正公式，给出不同序列长度下的 FLOPs vs IO 瓶颈分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 92,
@@ -1193,7 +1284,8 @@
     ],
     "brief": "核心要点：FlashAttention-2 将外层循环从 K/V 改为 Q 维度，使每个 warp 独立计算完整的 attention 输出，消除 warp 间同步。非因果 mask 下达到理论 FLOPs 的 72%（A100），因果 mask 通过跳过空块进一步提速约 1.7x。",
     "depth_hint": "需对比 FA1 和 FA2 的循环结构差异，给出 warp 级别的工作分配图和实测吞吐量对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:20"
   },
   {
     "id": 93,
@@ -1206,7 +1298,8 @@
     ],
     "brief": "核心要点：FlashAttention-3 利用 H100 的 WGMMA 指令和 TMA 异步数据搬运，实现 GEMM 与 softmax 的流水线重叠。通过 FP8 量化路径支持 E4M3 格式，在保持精度的前提下将 H100 利用率提升至 75%，峰值达 740 TFLOPs。",
     "depth_hint": "需解释 WGMMA 与 HMMA 的差异、ping-pong 调度策略，给出 FP16/FP8 精度对比数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 94,
@@ -1219,7 +1312,8 @@
     ],
     "brief": "核心要点：Attention 的算术强度(AI)为 O(N)，随序列增长从 memory-bound 转为 compute-bound。A100 的 roofline 模型显示临界点约 N≈1024（FP16）。分析 SRAM/L2/HBM 三级存储对 kernel 设计的约束，解释为何标准 attention 在短序列时也慢。",
     "depth_hint": "需画 roofline 模型图，计算不同 N 和 d 下的算术强度，标注 memory-bound 与 compute-bound 区间",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 95,
@@ -1232,7 +1326,8 @@
     ],
     "brief": "核心要点：在线 softmax（Milakov & Gimelshein, 2018）在单次遍历中同步维护最大值 m 和指数和 l，避免三遍扫描。FlashAttention 将其扩展到分块矩阵乘，通过 rescaling 因子 e^(m_old - m_new) 合并不同块的 partial softmax 结果。",
     "depth_hint": "需给出三遍 softmax vs 在线 softmax 的伪代码对比，推导分块合并时的修正因子",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 96,
@@ -1245,7 +1340,8 @@
     ],
     "brief": "核心要点：FlashAttention 反向传播不存储 O(N²) 的 attention 矩阵 P，而是仅保存 O(N) 的 logsumexp 值 L，反向时从 Q/K/V 重计算 P。这将内存从 O(N²) 降至 O(N)，而重计算的额外 FLOPs 被 HBM 读写减少所补偿。",
     "depth_hint": "需推导反向传播中 dQ/dK/dV 的分块计算公式，分析重计算 vs 存储的 IO-FLOPs 权衡",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 97,
@@ -1258,7 +1354,8 @@
     ],
     "brief": "核心要点：Longformer 将 O(N²) attention 分解为滑动窗口局部注意力（窗口大小 w=512）和少量全局 token 注意力。总复杂度 O(Nw + Ng·N)，其中 Ng 为全局 token 数。在 4096 长度下内存减少 8x，通过扩张滑窗（dilation=1）扩大感受野。",
     "depth_hint": "需给出稀疏注意力矩阵的可视化模式，对比不同窗口大小对下游任务（QA/分类）的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 98,
@@ -1271,7 +1368,8 @@
     ],
     "brief": "核心要点：BigBird 结合局部窗口（w）、全局 token（g）和随机连接（r）三种稀疏模式。论文证明当 r=Ω(1) 时稀疏图是 O(N/w) 阶扩展图，保证信息在 O(N/w) 层内全局传播。理论上是 Turing 完备的，与稠密 attention 等价。",
     "depth_hint": "需解释 Erdős-Rényi 随机图的连通性引理，给出三种模式对 attention 矩阵稀疏率的量化分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 99,
@@ -1284,7 +1382,8 @@
     ],
     "brief": "核心要点：Triton 的块稀疏 kernel 将稀疏模式编码为 block mask（块大小 64×64），通过 gather/scatter 操作仅计算非零块的 QK^T。相比 dense attention，在 N=4096 时加速 2-3x，但在短序列时因索引开销反而更慢。",
     "depth_hint": "需给出块稀疏 attention 的 Triton 伪代码，对比 cuSPARSE 与自定义 kernel 的性能",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 100,
@@ -1297,7 +1396,8 @@
     ],
     "brief": "核心要点：Performer 用随机特征映射 φ(x) = exp(ωᵀx - ||x||²/2)/√m 近似 softmax kernel，将 Attention 分解为 φ(Q)(φ(K)ᵀV)，复杂度从 O(N²d) 降至 O(Nmd)。正交随机特征（FAVOR+）将方差降低 O(1/m) 到 O(exp(-m))。",
     "depth_hint": "需推导 softmax kernel 的随机特征展开，对比正交 vs iid 特征的方差界，给出近似误差实验",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 101,
@@ -1310,7 +1410,8 @@
     ],
     "brief": "核心要点：去掉 softmax 后，因果注意力可写成递推 S_t = S_{t-1} + φ(k_t)v_tᵀ，输出 o_t = φ(q_t)ᵀS_t / φ(q_t)ᵀz_t。S 是 d×d 的状态矩阵，推理复杂度 O(d²) per step，与 RNN 等价但可并行训练。这是 SSM 与 attention 统一视角的关键。",
     "depth_hint": "需推导从双向注意力到因果递推的变换过程，对比 chunk-wise 并行与逐步递推的效率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 102,
@@ -1323,7 +1424,8 @@
     ],
     "brief": "核心要点：Mamba 使 S4 的参数（Δ, B, C）成为输入依赖的，通过选择性扫描让模型能动态过滤无关信息。离散化 Ā=exp(ΔA), B̄=ΔB 后执行并行前缀扫描（scan），硬件上通过 kernel fusion 避免 O(N) 中间状态的 HBM 读写。",
     "depth_hint": "需给出 S4 → Mamba 的参数化变化对比表，推导选择性扫描的并行前缀和实现",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 103,
@@ -1336,7 +1438,8 @@
     ],
     "brief": "核心要点：S4 使用 HiPPO 矩阵 A_nk = -(2n+1)^{1/2}(2k+1)^{1/2}（n>k 时），使状态压缩历史输入在 Legendre 多项式基上的最优投影。该初始化解决了 SSM 的长程依赖问题，在 Path-X（16K 长度）任务上首次超过随机水平。",
     "depth_hint": "需推导 HiPPO-LegS 的连续时间 ODE，解释对角化后的频域卷积加速",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 104,
@@ -1349,7 +1452,8 @@
     ],
     "brief": "核心要点：Mamba-2 证明选择性 SSM 等价于半可分矩阵（semiseparable matrix）乘法，将 SSM 与线性 attention 统一到结构化矩阵框架下。SSD 层支持 chunk-wise 并行：chunk 内用矩阵乘，chunk 间用递推，在 A100 上比 Mamba-1 快 2-8x。",
     "depth_hint": "需推导半可分矩阵的定义及其与因果线性注意力的等价关系，给出 chunk 大小对速度的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:21"
   },
   {
     "id": 105,
@@ -1362,7 +1466,8 @@
     ],
     "brief": "核心要点：GLA 在线性注意力递推中加入标量门控 g_t ∈ (0,1)，状态更新为 S_t = g_t·S_{t-1} + k_t v_tᵀ。通过 chunk-wise 并行和 materialization 技巧，在 Triton 中实现高效 kernel，训练吞吐量接近 FlashAttention-2 的 Transformer。",
     "depth_hint": "需对比 GLA/RetNet/Mamba 的门控机制差异，给出 chunk-wise 算法的伪代码",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 106,
@@ -1375,7 +1480,8 @@
     ],
     "brief": "核心要点：RetNet 将衰减因子 γ 引入线性注意力，retention(Q,K,V) = (QKᵀ ⊙ D)V，其中 D_nm = γ^(n-m)。多头使用不同 γ 值形成多尺度记忆。支持并行（训练，O(N²)）、递推（推理，O(1) 内存）和 chunk-wise（混合）三种模式。",
     "depth_hint": "需推导三种计算模式的等价性，给出不同 γ 值对记忆长度的影响分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 107,
@@ -1388,7 +1494,8 @@
     ],
     "brief": "核心要点：GQA 将 K/V 头数减少至 Q 头的 1/G（如 G=8），FlashAttention 通过共享 K/V 的分块 tile 减少 HBM 读取。在 Llama-2 70B（GQA, G=8）上，KV cache 减少 8x，FlashDecoding 将 batch decode 在长序列时加速 2-4x。",
     "depth_hint": "需对比 MHA/MQA/GQA 的 IO 开销公式，给出 FlashDecoding 的 split-K 并行策略",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 108,
@@ -1401,7 +1508,8 @@
     ],
     "brief": "核心要点：vLLM 的 PagedAttention 将 KV cache 按固定大小（如 16 tokens）分页存储，通过块表（block table）映射逻辑位置到物理地址。内存碎片从平均 60% 降至 <4%，批处理吞吐量提升 2-4x。支持 copy-on-write 实现 beam search 的 KV 共享。",
     "depth_hint": "需画出块表映射示意图，对比连续分配 vs 分页分配的内存利用率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 109,
@@ -1414,7 +1522,8 @@
     ],
     "brief": "核心要点：Ring Attention 将长序列切分到多设备，每设备持有局部 Q 块，K/V 块通过环形通信轮转。当 FLOP 时间 ≥ 通信时间（即 block_size·d ≥ bandwidth），通信完全被计算掩盖。理论上可处理 device_num × single_device_length 的序列。",
     "depth_hint": "需推导通信-计算重叠的条件，给出 8 卡 A100 上不同序列长度的实测加速比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 110,
@@ -1427,7 +1536,8 @@
     ],
     "brief": "核心要点：attention 矩阵的熵 H(A) 反映信息集中度，实证发现深层 attention 更稀疏（H 更低）。稀疏化相当于 top-k 截断，信息损失可用 KL(A_full || A_sparse) 量化。理论表明保留 O(N·log N) 个连接即可以 1-δ 概率保持 attention 输出的 ε-近似。",
     "depth_hint": "需给出 attention 熵随层深变化的实测曲线，推导 top-k 近似的误差界",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 111,
@@ -1440,7 +1550,8 @@
     ],
     "brief": "核心要点：线性注意力等价于 d×d 状态的线性 RNN，状态容量有限，无法精确执行 copying/retrieval 等需要 O(N) 状态的任务。Based（2024）通过 Taylor 展开近似 softmax 提升短程表达力，HGRN2 通过外积状态扩展解决部分容量问题。",
     "depth_hint": "需构造线性注意力失败的 synthetic 任务示例，对比不同修补方案的 associative recall 准确率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 112,
@@ -1453,7 +1564,8 @@
     ],
     "brief": "核心要点：MLA 将 K/V 投影到低秩潜在空间 c_t = W_DKV·x_t（维度 d_c << n_h·d_h），推理时仅缓存 c_t。DeepSeek-V2 用 d_c=512 替代 128 头×128 维的 KV，cache 减少 93.3%。通过吸收矩阵合并避免显式还原 K/V。",
     "depth_hint": "需推导 MLA 的矩阵吸收技巧，对比 MLA/GQA/MQA 的 KV cache 大小和精度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 113,
@@ -1466,7 +1578,8 @@
     ],
     "brief": "核心要点：FAVOR+ 使用正交随机矩阵替代 iid 高斯矩阵生成特征映射，估计量方差从 O(1/m) 指数级降至 O(exp(-m/d))。通过 Gram-Schmidt 或 QR 分解获得正交基，每 d 个特征为一组正交块。当 m≥64 时近似误差已接近 float32 精度极限。",
     "depth_hint": "需推导正交 vs iid 特征的方差界对比，给出不同 m 值下 softmax 近似的 MSE 曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 114,
@@ -1479,7 +1592,8 @@
     ],
     "brief": "核心要点：离散化 SSM 等价于因果卷积 y = K * x，卷积核 K_t = C·Ā^t·B̄。训练时用 FFT 在 O(N log N) 内完成，推理时切换为递推形式。S4 通过对角化 A 将卷积核计算从 O(N·d²) 降至 O(N·d)，DSS 进一步简化为纯对角 SSM。",
     "depth_hint": "需推导 SSM → 卷积的变换过程，对比时域递推与频域卷积的数值稳定性",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 115,
@@ -1492,7 +1606,8 @@
     ],
     "brief": "核心要点：LongNet 的 Dilated Attention 以指数级增长的间隔采样注意力位置（dilation rate 1,2,4,...），不同头使用不同 dilation 覆盖多尺度依赖。总复杂度 O(N·log N)，理论上支持 1B token 序列。实质是 attention 版的空洞卷积。",
     "depth_hint": "需给出多头 dilation 分配策略的示意图，分析不同 dilation 组合对长程依赖捕获的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 116,
@@ -1505,7 +1620,8 @@
     ],
     "brief": "核心要点：Reformer 用 LSH（局部敏感哈希）将 Q/K 映射到相同桶中，仅在桶内计算注意力。每轮哈希复杂度 O(N·log N)，多轮（n_rounds=8）降低碰撞遗漏概率。可逆残差网络进一步将激活内存从 O(N·L) 降至 O(N)。",
     "depth_hint": "需解释 angular LSH 的哈希函数设计，推导碰撞概率与 attention 权重的关系",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 117,
@@ -1518,7 +1634,8 @@
     ],
     "brief": "核心要点：FlashAttention 通过 block mask 支持任意稀疏模式（滑动窗口、因果、固定模式），对全零块直接跳过 GEMM 计算。FlexAttention（PyTorch 2.5）将 mask 函数 JIT 编译为自定义 kernel，用户可组合任意稀疏模式而无需手写 CUDA。",
     "depth_hint": "需给出 FlexAttention 的 score_mod/mask_mod API 示例，对比手写稀疏 kernel 的性能差距",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:22"
   },
   {
     "id": 118,
@@ -1531,7 +1648,8 @@
     ],
     "brief": "核心要点：RWKV 将 attention 替换为 WKV 算子：wkv_t = Σ e^{-(t-i)w+k_i}·v_i / Σ e^{-(t-i)w+k_i}，其中 w 是可学习的衰减率。Token shift（时间混合）r_t = μ·x_t + (1-μ)·x_{t-1} 引入局部上下文。RWKV-6 进一步支持数据依赖的衰减。",
     "depth_hint": "需推导 WKV 递推计算的数值稳定技巧，对比 RWKV-5/6 与 Mamba 在 language modeling 上的 perplexity",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 119,
@@ -1544,7 +1662,8 @@
     ],
     "brief": "核心要点：LLM 推理时前几个 token 获得异常高的 attention 权重（attention sink），即使它们语义无关。StreamingLLM 保留开头 4 个 sink token + 滑动窗口（如 1024），实现无限长度流式推理，perplexity 稳定在窗口大小对应水平，而纯滑窗方案在窗口外立即崩溃。",
     "depth_hint": "需可视化 attention sink 在不同模型（Llama/Mistral）中的分布，分析 sink token 数量对 PPL 的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 120,
@@ -1557,7 +1676,8 @@
     ],
     "brief": "核心要点：将 MoE 思想应用于注意力头，每个 token 通过 router 选择 k 个活跃头（如 k=2/8），非活跃头跳过计算。SwitchHead（2024）在保持质量的前提下将 attention 计算减少 4x。路由策略包括 token-level 和 query-level 两种粒度。",
     "depth_hint": "需对比 token-level vs query-level 路由的 load balancing 策略，给出头选择频率分布",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 121,
@@ -1570,7 +1690,8 @@
     ],
     "brief": "核心要点：MoE 层中 Top-k 路由的完整数学描述，包括门控函数 G(x)=Softmax(W_g·x) 的 Top-k 截断、专家输出的加权求和 y=ΣG_i(x)·E_i(x)，以及 k=1 与 k=2 对模型容量和训练稳定性的影响。分析 token-to-expert 的分配矩阵性质。",
     "depth_hint": "推导 Top-1 与 Top-2 路由的梯度传播差异，给出门控稀疏化的具体数值实验",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 122,
@@ -1583,7 +1704,8 @@
     ],
     "brief": "核心要点：辅助负载均衡损失 L_aux=α·N·Σf_i·P_i 的推导，其中 f_i 是专家 i 实际接收的 token 比例，P_i 是路由概率均值。分析 α 系数从 0.01 到 1.0 对训练稳定性的影响，以及过大 α 导致路由退化为均匀分布的问题。",
     "depth_hint": "给出不同 α 值下专家利用率和模型 loss 的对比实验数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 123,
@@ -1596,7 +1718,8 @@
     ],
     "brief": "核心要点：Switch Transformer 将 Top-2 简化为 Top-1 路由，每个 token 只发送到一个专家，减少计算和通信开销。分析其容量因子 CF 的定义 CF=(tokens_per_expert)/(total_tokens/N)，CF=1.0~1.25 的选择对溢出 token 丢弃率的影响。",
     "depth_hint": "复现 Switch-Base 128 专家 vs T5-Base 的预训练加速比和下游任务对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 124,
@@ -1609,7 +1732,8 @@
     ],
     "brief": "核心要点：Mixtral 8x7B 的具体架构——每层 8 个 FFN 专家、Top-2 路由、总参数 46.7B 但每 token 仅激活 12.9B。分析其与 Mistral 7B 共享的注意力层设计，以及专家 FFN 的 SwiGLU 结构。对比同等激活参数的 dense 模型性能。",
     "depth_hint": "拆解 Mixtral 各层参数量计算，给出推理时显存占用与 dense 模型的对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 125,
@@ -1622,7 +1746,8 @@
     ],
     "brief": "核心要点：MoE 训练中常见的专家坍缩现象——少数专家接收大部分 token，其余专家权重停止更新。分析正反馈循环机制：高频专家梯度更大→参数更优→吸引更多 token。介绍 dropout、噪声注入、专家并行初始化等缓解方案。",
     "depth_hint": "可视化训练过程中专家负载分布的演变，给出坍缩检测指标",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 126,
@@ -1635,7 +1760,8 @@
     ],
     "brief": "核心要点：Shazeer 等人提出的噪声门控 H(x)=W_g·x + N·Softplus(W_noise·x)，其中 N~N(0,1)。噪声项在训练时鼓励探索不同专家，推理时关闭。分析噪声幅度对路由多样性和训练收敛速度的权衡，以及与 ε-greedy 探索策略的对比。",
     "depth_hint": "推导噪声门控的梯度估计，对比有无噪声时的专家利用率曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 127,
@@ -1648,7 +1774,8 @@
     ],
     "brief": "核心要点：MoE 中专家容量 C=CF·(T/N) 的设定，当某专家接收 token 超过 C 时多余 token 被丢弃（通过残差连接跳过该层）。分析 CF 过小导致信息丢失、CF 过大导致计算浪费的权衡。ST-MoE 中动态容量调整的改进方案。",
     "depth_hint": "统计不同 CF 值下的 token 丢弃率及其对下游任务 accuracy 的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 128,
@@ -1661,7 +1788,8 @@
     ],
     "brief": "核心要点：GShard 将 MoE 层的专家分布到不同设备上，实现 Expert Parallelism。分析 All-to-All 通信原语在 token 分发和结果收集中的开销，以及 GShard 的 random routing 辅助策略——Top-2 中第二专家按概率随机选择以改善负载均衡。",
     "depth_hint": "给出 All-to-All 通信量公式，对比不同设备数下的通信/计算比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 129,
@@ -1674,7 +1802,8 @@
     ],
     "brief": "核心要点：Expert Parallelism 中每个 MoE 层需要两次 All-to-All 通信（分发 token 和收集结果），通信量为 O(B·S·d/P) 其中 P 为设备数。分析 NVLink vs InfiniBand 带宽对 MoE 扩展性的限制，以及通信与计算的 overlap 策略。",
     "depth_hint": "计算 8/16/64 GPU 下 All-to-All 延迟占比，给出 overlap pipeline 设计",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:23"
   },
   {
     "id": 130,
@@ -1687,7 +1816,8 @@
     ],
     "brief": "核心要点：ST-MoE 论文总结了 MoE 训练不稳定的系统性原因和解决方案。关键技术：Router z-loss L_z=1/B·Σ(log Σexp(x_i))² 惩罚门控 logit 过大、辅助损失权重调度、精度敏感层使用 float32。分析这些改进如何将训练失败率从 >30% 降至接近 0%。",
     "depth_hint": "推导 router z-loss 的梯度形式，给出训练稳定性前后的 loss 曲线对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 131,
@@ -1700,7 +1830,8 @@
     ],
     "brief": "核心要点：Base Layer 将 token-to-expert 分配建模为线性分配问题（匈牙利算法），保证每个专家精确接收相同数量的 token，彻底消除负载不均。分析其 O(n³) 复杂度的实际可行性（在 token 数较少时），以及与 Top-k 路由在质量上的对比。",
     "depth_hint": "给出线性分配的对偶形式和 Sinkhorn 近似算法的迭代收敛分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 132,
@@ -1713,7 +1844,8 @@
     ],
     "brief": "核心要点：Expert Choice 反转了传统路由方向——由专家选择 Top-k 个 token 而非 token 选择专家。每个专家固定处理 k=T·CF/N 个 token，天然实现完美负载均衡。分析这种设计下单个 token 可能被 0 或多个专家处理的异质性及其对模型表达力的影响。",
     "depth_hint": "对比 Expert Choice 与 Token Choice 在相同参数量下的训练 loss 和下游任务指标",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 133,
@@ -1726,7 +1858,8 @@
     ],
     "brief": "核心要点：Hash Layer 使用确定性哈希函数（如对 token ID 取模）将 token 映射到专家，完全消除可学习路由器。分析其优势（零路由开销、完美负载均衡、无训练不稳定）和劣势（无法根据语义调整分配），以及在不同规模下与学习型路由的性能差距。",
     "depth_hint": "实验对比 Hash 路由与 Top-2 路由在 8/64/128 专家下的困惑度差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 134,
@@ -1739,7 +1872,8 @@
     ],
     "brief": "核心要点：Soft MoE（Google 2023）用可微分的 Softmax 分配替代离散 Top-k 路由。每个专家接收所有 token 的加权组合 x̃_j=Σ D_{ij}·x_i，D 为分配矩阵。消除了 token 丢弃和负载不均问题，但增加了计算量。分析其与标准 MoE 在视觉任务中的对比。",
     "depth_hint": "推导 Soft MoE 的前向计算复杂度，对比离散路由的理论计算量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 135,
@@ -1752,7 +1886,8 @@
     ],
     "brief": "核心要点：分析训练后 MoE 各专家的功能分化现象——某些专家偏好处理特定语言、特定词性或特定语义领域的 token。通过统计各专家实际接收的 token 分布，揭示路由器学到的隐式聚类模式。探讨分化程度与模型性能的关系。",
     "depth_hint": "可视化不同层不同专家的 token 类型分布热力图，量化专家间的 KL 散度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 136,
@@ -1765,7 +1900,8 @@
     ],
     "brief": "核心要点：深入分析 Mixtral 8x7B 各层的路由行为——浅层路由偏向语法特征（词性、位置），深层路由偏向语义特征（主题、实体类型）。统计各层的专家利用率方差、路由熵以及跨层路由一致性。揭示不同层对专家多样性的需求差异。",
     "depth_hint": "计算 Mixtral 各层的路由熵 H=-Σp_i·log(p_i)，绘制逐层变化曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 137,
@@ -1778,7 +1914,8 @@
     ],
     "brief": "核心要点：DeepSeek-MoE 将传统 MoE 的 N 个大专家拆分为 mN 个小专家（m=细粒度因子），增加组合灵活性。同时引入共享专家（始终激活）处理通用知识。分析 16B 总参数/2.8B 激活参数配置下，细粒度分割对专家利用率和性能的提升。",
     "depth_hint": "对比不同细粒度因子 m=1,2,4 下的专家激活频率分布和下游任务指标",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 138,
@@ -1791,7 +1928,8 @@
     ],
     "brief": "核心要点：DeepSeek-MoE 和 DeepSeek-V2 引入的共享专家（shared expert）始终参与计算，不受路由控制。其作用是捕获所有 token 共有的通用表示，减少路由专家间的知识冗余。分析共享专家数量（1~4个）对模型容量和训练效率的影响。",
     "depth_hint": "对比有无共享专家时路由专家的激活模式差异和整体 loss 变化",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 139,
@@ -1804,7 +1942,8 @@
     ],
     "brief": "核心要点：MoE 模型推理时所有专家权重需驻留显存（如 Mixtral 8x7B 需约 90GB），远超实际激活量。分析 expert offloading 策略——将非活跃专家卸载到 CPU/SSD，按路由预测预取即将使用的专家。LRU 缓存的命中率与推理延迟的权衡分析。",
     "depth_hint": "测量不同缓存大小（2/4/6 专家驻留 GPU）下的推理吞吐量和延迟",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 140,
@@ -1817,7 +1956,8 @@
     ],
     "brief": "核心要点：MoE 中不同专家的重要性不同（高频专家对精度更敏感），可对不同专家使用不同位宽的量化。分析 QMoE 等方法将高频专家保持 FP16 而低频专家压缩至 2-bit 的策略，以及 Mixtral 在 GPTQ/AWQ 量化下的精度-显存权衡。",
     "depth_hint": "给出 Mixtral 8x7B 在 4-bit/3-bit/2-bit 量化下的困惑度和显存占用数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 141,
@@ -1830,7 +1970,8 @@
     ],
     "brief": "核心要点：V-MoE 将 MoE 应用于 Vision Transformer，在 ViT 的 FFN 层引入条件计算。分析视觉 token（patch）的路由模式——不同专家倾向处理不同空间位置或纹理特征的 patch。Batch Priority Routing（BPR）确保高优先级 token 不被丢弃。",
     "depth_hint": "可视化 V-MoE 各专家对图像不同区域 patch 的偏好热力图",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 142,
@@ -1843,7 +1984,8 @@
     ],
     "brief": "核心要点：MoE 层的放置策略对性能影响显著——每层都用 MoE vs 每隔一层使用 MoE vs 仅在特定层使用。分析 Switch Transformer 的每隔一层策略、Mixtral 的全层策略、以及 ST-MoE 发现的最优放置模式。讨论 MoE 层密度与模型质量/效率的关系。",
     "depth_hint": "对比每 1/2/4 层使用 MoE 时的参数效率和预训练困惑度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:24"
   },
   {
     "id": 143,
@@ -1856,7 +1998,8 @@
     ],
     "brief": "核心要点：系统梳理 MoE 辅助损失的演进：Importance Loss（惩罚路由概率的变异系数 CV）、Load Loss（惩罚实际分配的不均衡）、二者联合使用、以及 ST-MoE 的 router z-loss。分析各损失函数的梯度行为和对路由器学习动态的不同影响。",
     "depth_hint": "推导各辅助损失对门控 logit 的梯度表达式，对比其正则化效果",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 144,
@@ -1869,7 +2012,8 @@
     ],
     "brief": "核心要点：Megablocks 使用 block-sparse 矩阵运算替代传统 MoE 的 token-permutation + batched-matmul 实现，消除 padding 浪费。分析 dMoE（dropless MoE）如何在不丢弃 token 的前提下保持高 GPU 利用率，以及 block-sparse GEMM 的 Triton 内核设计。",
     "depth_hint": "对比 Megablocks 与 Tutel/FastMoE 在不同专家数下的训练吞吐量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 145,
@@ -1882,7 +2026,8 @@
     ],
     "brief": "核心要点：传统 MoE（Switch/GShard）使用容量因子丢弃溢出 token，而 dropless MoE（Megablocks/Expert Choice）通过不同机制避免丢弃。对比两种范式在训练稳定性、推理延迟可预测性、以及最终模型质量上的差异。分析 token 丢弃对长序列任务的特殊影响。",
     "depth_hint": "设计对照实验，测量 token 丢弃率 0%/5%/10% 对翻译和摘要任务 BLEU/ROUGE 的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 146,
@@ -1895,7 +2040,8 @@
     ],
     "brief": "核心要点：MoE upcycling 将预训练好的 dense 模型转换为 MoE 模型——复制 FFN 层参数初始化多个专家，然后继续训练。分析 Sparse Upcycling 论文中的关键发现：初始化后路由器随机化的重要性、继续训练的 token 预算需求、以及与从头训练 MoE 的性能对比。",
     "depth_hint": "给出 upcycling T5-Base 为 8 专家 MoE 的训练曲线和计算量对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 147,
@@ -1908,7 +2054,8 @@
     ],
     "brief": "核心要点：将 token-to-expert 分配建模为最优传输问题，使用 Sinkhorn 算法迭代求解双随机矩阵。与 Top-k 路由 + 辅助损失的方式不同，Sinkhorn 路由在约束满足的前提下最大化分配质量。分析 Sinkhorn 迭代次数与路由质量的关系，以及其计算开销。",
     "depth_hint": "推导 Sinkhorn 迭代的矩阵更新公式，给出 5/10/20 次迭代的收敛精度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 148,
@@ -1921,7 +2068,8 @@
     ],
     "brief": "核心要点：MoE 的 scaling 行为不同于 dense 模型——增加专家数量的收益随规模递减。分析 Clark et al. 和 Switch Transformer 论文中的发现：专家数从 8→128 带来显著提升，但 128→512 收益趋缓。讨论 granularity（专家大小 vs 专家数量）对 scaling 的影响。",
     "depth_hint": "拟合专家数-困惑度的 power law 曲线，给出不同计算预算下的最优专家数",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 149,
@@ -1934,7 +2082,8 @@
     ],
     "brief": "核心要点：Mixture-of-Depths（MoD）将 MoE 的路由思想从「选择哪个专家」推广到「是否经过该层」。每层通过路由器决定 token 是走完整计算还是跳过（残差直连），实现计算量的动态分配。分析 Top-k 容量控制和训练时的 straight-through 估计器设计。",
     "depth_hint": "对比 MoD 与标准 Transformer 在相同 FLOPs 下的性能，给出层跳过率统计",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 150,
@@ -1947,7 +2096,8 @@
     ],
     "brief": "核心要点：将 Mixture of Experts（FFN 级路由）和 Mixture of Attention Heads（注意力头级路由）纳入统一框架——条件计算的粒度从整层、子层（FFN/Attn）、到单个头/专家。分析不同粒度下的路由开销、负载均衡难度和表达力，以及 MoE+MoA 联合使用的架构设计。",
     "depth_hint": "设计消融实验，对比 FFN-only MoE、Attn-only MoA、联合 MoE+MoA 的效果",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 151,
@@ -1960,7 +2110,8 @@
     ],
     "brief": "核心要点：Tensor Parallel 将矩阵乘法 Y=XA 按列或行切分到多卡，列切分时每卡计算 Y_i=XA_i 无需通信，行切分需 AllReduce 聚合。分析 MLP 层的 Column-then-Row 切分策略，每层仅需 2 次 AllReduce，通信量为 2bsh，与隐藏维度无关。",
     "depth_hint": "推导列切分和行切分的通信量公式，画出 MLP 层的张量切分示意图",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 152,
@@ -1973,7 +2124,8 @@
     ],
     "brief": "核心要点：多头注意力天然支持按 head 维度切分，每卡独立计算 h/p 个 head 的 QKV 投影和注意力，输出投影采用行切分后 AllReduce。GQA/MQA 场景下 KV head 数少于 TP 度时需广播或复制，分析不同注意力变体的 TP 效率差异。",
     "depth_hint": "对比 MHA/GQA/MQA 三种模式下 TP 切分的通信量和负载均衡",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 153,
@@ -1986,7 +2138,8 @@
     ],
     "brief": "核心要点：Pipeline Parallel 将模型按层切分到不同设备，朴素实现 bubble 率为 (p-1)/m，其中 p 为流水线级数、m 为微批次数。GPipe 采用同步调度，所有微批次前向完成后统一反向；bubble 时间占比约 (p-1)/(m+p-1)，当 m≥4p 时 bubble 率低于 6%。",
     "depth_hint": "画出 GPipe 的时间线图，推导 bubble 率公式，给出不同 m/p 比值下的效率表格",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:25"
   },
   {
     "id": 154,
@@ -1999,7 +2152,8 @@
     ],
     "brief": "核心要点：PipeDream 的 1F1B（One Forward One Backward）调度在稳态阶段交替执行前向和反向，峰值激活内存从 GPipe 的 O(m) 降至 O(p)。分析 warmup 阶段的填充策略、权重版本管理问题，以及与同步训练语义的差异。",
     "depth_hint": "对比 GPipe 和 1F1B 的内存曲线，分析权重不一致对收敛的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 155,
@@ -2012,7 +2166,8 @@
     ],
     "brief": "核心要点：Megatron-LM 将每个设备分配多个非连续层（虚拟阶段），将 bubble 率从 (p-1)/m 降至 (p-1)/(vm)，v 为虚拟阶段数。代价是通信量增加 v 倍，因为每个微批次需要在设备间多次传输。当 v=L/p 时 bubble 趋近于零但通信开销最大。",
     "depth_hint": "推导 interleaved schedule 的 bubble 率和通信量，给出 v 的最优选择分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 156,
@@ -2025,7 +2180,8 @@
     ],
     "brief": "核心要点：Adam 优化器对每个参数维护 fp32 参数副本、一阶动量和二阶动量，总计 12 字节/参数。ZeRO Stage 1 将优化器状态按参数组均匀分片到 N 个 GPU，每卡仅存 12Ψ/N 字节。反向传播后通过 Reduce-Scatter 聚合梯度，各卡独立更新分片参数后 AllGather 同步。",
     "depth_hint": "计算 7B 模型在不同 GPU 数下的优化器内存，对比 DDP 基线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 157,
@@ -2038,7 +2194,8 @@
     ],
     "brief": "核心要点：Stage 2 在 Stage 1 基础上将梯度也分片，每卡仅保留对应优化器分片的梯度，显存节省从 4Ψ+12Ψ/N 降至 2Ψ+(2+12)Ψ/N。关键在于反向传播时使用 Reduce-Scatter 替代 AllReduce，通信量保持 2Ψ 不变，与标准 DDP 等价。",
     "depth_hint": "推导 Stage 2 的通信量等价于 AllReduce，画出梯度分片的数据流",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 158,
@@ -2051,7 +2208,8 @@
     ],
     "brief": "核心要点：Stage 3 将模型参数也分片，每卡仅存 (2+2+12)Ψ/N 字节。前向和反向时通过 AllGather 临时收集完整参数，用完即释放。通信量增至 3Ψ（前向 AllGather Ψ + 反向 AllGather Ψ + 梯度 Reduce-Scatter Ψ），比 DDP 多 50%。",
     "depth_hint": "推导三个 Stage 的显存和通信量公式，制表对比，分析适用场景",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 159,
@@ -2064,7 +2222,8 @@
     ],
     "brief": "核心要点：ZeRO-Offload 将优化器状态和梯度计算卸载到 CPU，GPU 仅执行前向和反向。数据流设计为单向环路：GPU 计算梯度→PCIe 传至 CPU→CPU 执行 Adam 更新→更新后参数传回 GPU。CPU 计算与 GPU 计算重叠，PCIe 3.0 x16 带宽 16GB/s 成为瓶颈。",
     "depth_hint": "分析 PCIe 带宽对训练吞吐的影响，给出不同模型大小下的效率曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 160,
@@ -2077,7 +2236,8 @@
     ],
     "brief": "核心要点：ZeRO-Infinity 将 ZeRO-Offload 扩展到 NVMe SSD，支持万亿参数模型训练。采用 infinity offload engine 管理 GPU-CPU-NVMe 三级存储，通过预取和流水线化隐藏 I/O 延迟。NVMe 带宽 3-6 GB/s，需要精心设计 prefetch 策略使 I/O 与计算重叠。",
     "depth_hint": "分析三级存储的带宽层次，推导 prefetch window 大小的选择策略",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 161,
@@ -2090,7 +2250,8 @@
     ],
     "brief": "核心要点：Megatron-LM 组合 TP（张量并行）、PP（流水线并行）和 DP（数据并行）形成 3D 并行。在 DGX A100 集群上，TP 限制在单节点 8 卡（NVLink 600GB/s），PP 跨节点（IB 200Gb/s），DP 覆盖剩余维度。总 GPU 数 = tp × pp × dp，三个维度的映射决定通信效率。",
     "depth_hint": "给出 3D 并行在不同集群拓扑下的最优配置，分析通信瓶颈",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 162,
@@ -2103,7 +2264,8 @@
     ],
     "brief": "核心要点：Megatron-LM 的序列并行将 LayerNorm 和 Dropout 沿序列维度切分，与 Tensor Parallel 互补。TP 区域（Attention、MLP）按 hidden 维度切分，非 TP 区域按 sequence 维度切分，两者之间通过 AllGather/Reduce-Scatter 转换。激活内存从 O(sbh) 降至 O(sbh/t)。",
     "depth_hint": "画出序列并行与张量并行的切换点，推导激活内存节省量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 163,
@@ -2116,7 +2278,8 @@
     ],
     "brief": "核心要点：TP 层的前向和反向分别需要不同的通信原语。Column Parallel 前向用 Identity+AllReduce（或 AllGather+split），反向则相反。分析 f 和 g 共轭算子的设计：前向 AllReduce 对应反向 Identity，前向 split 对应反向 AllGather。通信与计算的重叠策略。",
     "depth_hint": "推导 f/g 共轭算子的反向传播规则，对比 AllReduce 与 ReduceScatter+AllGather",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 164,
@@ -2129,7 +2292,8 @@
     ],
     "brief": "核心要点：以 GPT-3 175B 为例，纯 TP 需要 350GB 优化器状态（8 卡每卡 43.75GB），ZeRO-3 在 64 卡上每卡仅 33GB。但 ZeRO-3 通信量是 TP 的 1.5 倍。分析两种方案在不同网络带宽下的吞吐量交叉点，以及混合使用的最佳策略。",
     "depth_hint": "制表对比 TP、ZeRO Stage 1/2/3 在不同模型大小下的显存和通信量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 165,
@@ -2142,7 +2306,8 @@
     ],
     "brief": "核心要点：流水线并行中微批次数 m 既影响 bubble 率又等效于梯度累积步数。全局批次大小 = dp × m × micro_batch_size。增大 m 降低 bubble 但增大等效 batch size，可能影响收敛。分析 m 的选择与学习率调度的关系，以及 gradient clipping 在 PP 中的实现细节。",
     "depth_hint": "推导 m 对有效学习率的影响，给出 bubble 率与收敛速度的权衡公式",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:26"
   },
   {
     "id": 166,
@@ -2155,7 +2320,8 @@
     ],
     "brief": "核心要点：Megatron-LM 提供 full 和 selective 两种激活重计算。Full 重计算每层仅保存输入激活，反向时重算所有中间值，显存降至 O(L·sbh) 但增加 33% 计算。Selective 仅重算占显存大但计算轻的部分（如 Softmax、Dropout），节省 60-70% 激活内存仅增加 5% 计算。",
     "depth_hint": "列出 Transformer 层各算子的显存/计算比，推导 selective 策略的最优选择",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 167,
@@ -2168,7 +2334,8 @@
     ],
     "brief": "核心要点：异步流水线（PipeDream）中不同微批次使用不同版本权重，导致 weight stashing 问题。PipeDream-2BW 仅维护 2 个权重版本，在 bubble 期间同步。PipeDream-Flush 采用同步语义，牺牲部分吞吐保证收敛一致性。分析权重版本差异对梯度方差的定量影响。",
     "depth_hint": "推导异步权重更新的梯度偏差上界，对比同步和异步方案的收敛曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 168,
@@ -2181,7 +2348,8 @@
     ],
     "brief": "核心要点：TP 通信频率高（每层 2 次 AllReduce），延迟敏感。NVLink 带宽 600-900 GB/s、延迟 ~1μs，适合节点内 TP。IB HDR 200Gb/s（25GB/s）、延迟 ~1μs，跨节点 TP 吞吐下降 40-60%。分析 hidden_size 对通信计算比的影响，以及何时跨节点 TP 仍然合理。",
     "depth_hint": "计算不同 hidden_size 下 TP 的通信计算比，给出 NVLink vs IB 的效率对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 169,
@@ -2194,7 +2362,8 @@
     ],
     "brief": "核心要点：ZeRO++ 引入三项优化：qwZ（量化权重 AllGather，INT8 替代 FP16 减半通信）、qgZ（量化梯度 Reduce-Scatter）、hpZ（二级分区将跨节点通信替换为节点内通信）。INT8 量化对模型质量影响可控，loss 差异 <0.1%。总通信量降低 4 倍。",
     "depth_hint": "分析 INT8 量化误差的理论上界，实验对比量化前后的训练 loss 曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 170,
@@ -2207,7 +2376,8 @@
     ],
     "brief": "核心要点：PyTorch FSDP 是 ZeRO Stage 3 的原生实现，但细节有差异。FSDP 以 FlatParameter 为单位分片，支持混合精度和 backward prefetch。与 DeepSpeed ZeRO-3 对比：FSDP 支持 torch.compile、不依赖外部库，但缺少 ZeRO-Offload 等高级功能。两者在 128 卡规模性能差距 <5%。",
     "depth_hint": "代码对比 FSDP 和 DeepSpeed ZeRO-3 的配置，benchmark 不同规模的吞吐量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 171,
@@ -2220,7 +2390,8 @@
     ],
     "brief": "核心要点：Megatron-LM 初始化时创建多个进程组：tensor_model_parallel_group、pipeline_model_parallel_group、data_parallel_group。以 tp=4、pp=2、dp=4 共 32 卡为例，进程组的 rank 映射遵循 TP 连续、PP 其次、DP 最外层的规则。初始化顺序影响 NCCL 通信效率。",
     "depth_hint": "画出 32 卡的进程组映射矩阵，代码展示 initialize_model_parallel 的核心逻辑",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 172,
@@ -2233,7 +2404,8 @@
     ],
     "brief": "核心要点：词表 Embedding 按 vocab 维度切分到 TP 组，每卡存 V/t 行。前向时各卡查表得到局部结果（非本卡词汇填零），AllReduce 合并。输出层（LM Head）与 Embedding 权重共享时，采用列切分后 AllGather 收集 logits。分析大词表（如 128K）下的内存和通信开销。",
     "depth_hint": "推导 Embedding TP 的通信量，对比列切分和行切分两种方案",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 173,
@@ -2246,7 +2418,8 @@
     ],
     "brief": "核心要点：Transformer 各层计算量近似相等，但首尾阶段额外承担 Embedding 和 LM Head。Megatron-LM 默认均匀分层，可手动指定每级层数。不均匀分配需 profiling 各层延迟，使最慢阶段时间最小化。V 模型（首尾阶段少分层）比均匀分配提升 5-10% 吞吐。",
     "depth_hint": "建立流水线负载均衡的优化模型，给出不同模型结构的最优分层策略",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 174,
@@ -2259,7 +2432,8 @@
     ],
     "brief": "核心要点：ZeRO-R 优化残差内存（Residual Memory），包括激活内存分片、临时 buffer 定额管理和碎片优化。激活分片将检查点激活通过 AllGather 分布到 DP 组，每卡仅存 1/N。对于 batch_size=1 场景，可将激活 offload 到 CPU。与激活重计算正交，可组合使用。",
     "depth_hint": "推导激活分片的通信开销，对比单独使用重计算与组合使用的显存曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 175,
@@ -2272,7 +2446,8 @@
     ],
     "brief": "核心要点：大规模 MoE 模型中，EP 将不同专家分配到不同设备，TP 将单个专家内部切分。Mixtral 8x7B 的 8 个专家可 EP=8 各卡一个，或 EP=4+TP=2 每专家跨 2 卡。All-to-All 通信实现 token 到专家的路由，通信量为 2bsh·(ep-1)/ep。两种并行的通信模式不同，需要独立进程组。",
     "depth_hint": "分析 EP 和 TP 组合下的通信量公式，给出不同专家数和卡数的最优配置",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 176,
@@ -2285,7 +2460,8 @@
     ],
     "brief": "核心要点：1-bit Adam/LAMB 将梯度压缩为符号位+误差补偿，通信量降至 1/16。压缩分两阶段：warmup 期用标准 AllReduce（约 15-20% 步数），之后切换为 1-bit 压缩。误差补偿保证收敛：本轮残差加入下轮梯度。在 256 卡上通信时间减少 5 倍，端到端加速 2-3 倍。",
     "depth_hint": "推导误差补偿的收敛保证，实验对比不同压缩率的训练曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 177,
@@ -2298,7 +2474,8 @@
     ],
     "brief": "核心要点：Context Parallel（CP）将序列均匀切分到多卡，每卡处理 s/cp 长度的子序列。注意力计算需要 Ring Attention：Q 本地保留，KV 在环形拓扑上传递，每步计算一个 chunk 的注意力后传递 KV 到下一卡。通信量 O(bsh·cp)，可与 TP/PP/DP 正交组合，支持百万级序列。",
     "depth_hint": "画出 Ring Attention 的数据流图，推导 CP 与 TP 组合时的通信量",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 178,
@@ -2311,7 +2488,8 @@
     ],
     "brief": "核心要点：实际集群常混合 A100/H100 或不同网络拓扑，均匀并行策略导致木桶效应。AMP（Adaptive Model Parallelism）根据设备计算能力和互联带宽动态调整 TP/PP/DP 维度。慢节点分配更少层或更小 micro-batch，通过异步流水线容忍延迟差异。吞吐比均匀策略提升 20-30%。",
     "depth_hint": "建立异构集群的性能模型，推导自适应并行度的优化目标函数",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:27"
   },
   {
     "id": 179,
@@ -2324,7 +2502,8 @@
     ],
     "brief": "核心要点：DeepSpeed-Ulysses 沿 head 维度切分 QKV，通过 All-to-All 通信重新分布序列维度，每卡执行完整注意力但仅处理部分 head。Ring Attention 沿序列维度切分，通信为 KV 环形传递。Ulysses 通信量 O(bsh) 与序列长度无关，但受限于 head 数；Ring 可扩展到任意序列长度。",
     "depth_hint": "推导两种方法的通信量和延迟公式，给出不同 seq_len/num_heads 下的选择建议",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 180,
@@ -2337,7 +2516,8 @@
     ],
     "brief": "核心要点：标准 DDP 将反向传播产生的梯度分桶（bucket），每个 bucket 填满后立即启动 AllReduce，与后续层的反向计算重叠。桶大小（默认 25MB）影响重叠效率：过小增加通信次数，过大延迟启动时机。PyTorch DDP 的 gradient_as_bucket_view 优化避免梯度拷贝，节省 peak memory。",
     "depth_hint": "分析不同 bucket size 对通信重叠比例的影响，实验测量不同配置的端到端性能",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 181,
@@ -2350,7 +2530,8 @@
     ],
     "brief": "核心要点：Kaplan et al. (2020) 提出的幂律关系 L(N) ∝ N^{-α}，损失与参数量、数据量、计算量的三变量拟合。详解指数 α≈0.076（参数）和 α≈0.095（数据）的来源，以及 L(N,D) = L₀ + A/N^α + B/D^β 的联合公式推导过程。",
     "depth_hint": "需要复现三变量幂律拟合过程，给出 R² 拟合优度分析，对比不同拟合假设的差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 182,
@@ -2363,7 +2544,8 @@
     ],
     "brief": "核心要点：Hoffmann et al. (2022) 的核心结论——最优训练 token 数与参数量线性增长 D_opt ∝ N。对比 Kaplan 的 N^{0.74} 结论，分析三种拟合方法（固定N变D、固定FLOPs包络线、参数化损失函数）如何得到 a=0.50, b=0.50 的指数，以及 70B 参数对应 1.4T token 的具体数值。",
     "depth_hint": "推导 IsoFLOP 曲线上的最优点求解过程，复现表9的预测 vs 实际损失对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 183,
@@ -2376,7 +2558,8 @@
     ],
     "brief": "核心要点：幂律公式中的常数项 L₀ 代表数据分布的内在熵，是任何模型都无法突破的下界。分析自然语言的信息熵估计（Shannon 游戏约 1.0-1.3 bits/char），以及 L₀ 在不同数据集（C4、The Pile、RedPajama）上的差异如何反映数据质量。",
     "depth_hint": "需要对比不同数据集的 L₀ 估计值，分析数据去重对 L₀ 的影响量级",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 184,
@@ -2389,7 +2572,8 @@
     ],
     "brief": "核心要点：预训练损失的幂律关系能否迁移到下游任务？分析 Downstream Scaling Law 的形式 Acc(L) 与 L(N,D) 的复合关系。Gadre et al. (2024) 发现不同任务的 scaling 斜率差异显著，部分任务存在 broken scaling（精度突然跃升），与 Emergent Abilities 的讨论直接相关。",
     "depth_hint": "给出 MMLU、HellaSwag 等基准的 scaling 曲线对比，标注 broken 区间",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 185,
@@ -2402,7 +2586,8 @@
     ],
     "brief": "核心要点：Chinchilla 最优只考虑训练 FLOPs，但实际部署时推理成本与参数量 N 成正比。Sardana & Frankle (2023) 提出推理感知 Scaling Law，引入推理 token 总量 T_inf，最优模型应过训练（D >> D_chinchilla）以缩小 N。LLaMA 系列正是此策略的实践。",
     "depth_hint": "推导训练+推理总成本 C_total = 6ND + 2NT_inf 的最优解，对比 Chinchilla 与 LLaMA 的配比差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 186,
@@ -2415,7 +2600,8 @@
     ],
     "brief": "核心要点：Muennighoff et al. (2023) 研究数据重复对 Scaling Law 的影响。当唯一 token 数 U 不足时，重复 R 次后损失衰减变慢：有效数据量 D_eff = U(1 - e^{-R})。4 epoch 重复仅相当于约 2.8 倍数据，超过 16 epoch 后收益几乎为零。",
     "depth_hint": "需要给出 D_eff 公式推导和不同重复次数下的实际损失曲线数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 187,
@@ -2428,7 +2614,8 @@
     ],
     "brief": "核心要点：参数量 N 相同时，宽度 d_model 与深度 n_layers 的最优比例是什么？Levine et al. (2020) 从表达力角度给出 d ∝ n^{2/3} 的理论最优，而实践中 GPT-3、LLaMA 的宽深比约为 128:1。分析过宽（过拟合）和过深（梯度退化）的具体机制。",
     "depth_hint": "对比 GPT-3 各档位的宽深比，结合 μP 参数化分析最优比例的实验验证",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 188,
@@ -2441,7 +2628,8 @@
     ],
     "brief": "核心要点：Wei et al. (2022) 定义涌现能力为'小模型中不存在、大模型中突然出现'的能力。但 Schaeffer et al. (2023) 指出这可能是评测指标的伪影——将连续的对数线性改进用非线性指标（如精确匹配）度量会产生假阶跃。两方观点的核心分歧在于'能力'的度量方式。",
     "depth_hint": "用具体数值复现 BIG-bench 上的涌现曲线，展示更换指标后阶跃消失的过程",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 189,
@@ -2454,7 +2642,8 @@
     ],
     "brief": "核心要点：Schaeffer et al. (2023) 的核心论证——多位数加法任务中，token 级准确率平滑上升，但序列级精确匹配呈阶跃。一个 5 位数加法需要所有 5 位正确，P(全对) = p^5，当 p 从 0.8→0.95 时精确匹配从 33%→77%，产生视觉上的'涌现'。这是统计伪影还是真实现象？",
     "depth_hint": "推导 p^k 的阈值效应公式，用模拟数据生成不同 k 值下的涌现假象图",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 190,
@@ -2467,7 +2656,8 @@
     ],
     "brief": "核心要点：将涌现类比为物理相变：模型规模 N 对应温度，能力对应序参量。Arora & Goyal (2023) 从统计力学角度分析，loss landscape 的对称性破缺可能导致真实的不连续相变。与 Ising 模型的临界指数类比，讨论涌现的普适类（universality class）是否存在。",
     "depth_hint": "给出二维 Ising 模型的相变类比图示，分析临界指数与模型规模指数的对应关系",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:28"
   },
   {
     "id": 191,
@@ -2480,7 +2670,8 @@
     ],
     "brief": "核心要点：CoT 推理能力在约 100B 参数时涌现（Wei et al., 2022）。小模型的 CoT 反而降低性能，因为中间步骤的错误会累积。分析 CoT 涌现的两个必要条件：(1) 单步推理准确率超过阈值 p > 1/k；(2) 上下文窗口中的工作记忆容量足够保持多步状态。",
     "depth_hint": "推导多步推理中错误累积的概率模型 P(n步全对) = p^n，分析临界 p 值",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 192,
@@ -2493,7 +2684,8 @@
     ],
     "brief": "核心要点：Power et al. (2022) 发现模型在训练集上过拟合很久之后，测试集性能突然跃升，称为 Grokking。在模运算任务中，训练损失在 10³ 步到达 0，但测试精度在 10⁵ 步才突然从随机涨到 95%+。与涌现能力的联系：都是非线性的能力获取过程。",
     "depth_hint": "复现模运算任务的训练曲线，分析权重范数与正则化强度对 grokking 时间点的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 193,
@@ -2506,7 +2698,8 @@
     ],
     "brief": "核心要点：Inverse Scaling Prize 发现部分任务（如 Hindsight Neglect、Memo Trap）中大模型表现反而更差。McKenzie et al. (2023) 分析原因：大模型更倾向于模仿训练数据中的虚假相关，但超大模型（>100B）会再次纠正，形成 U 形曲线。这对涌现的定义提出了修正。",
     "depth_hint": "给出具体任务的 U 形 Scaling 曲线数据，分析模仿学习与推理能力的竞争机制",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 194,
@@ -2519,7 +2712,8 @@
     ],
     "brief": "核心要点：ICL 可以用互信息 I(Y;X|C) 来理解——上下文 C（示例）提供了 X→Y 映射的信息，降低了预测 Y 的不确定性。Xie et al. (2022) 证明 Transformer 在 ICL 中隐式执行贝叶斯推断，上下文示例用于推断隐含的生成概念 θ，等价于 p(y|x) = ∫p(y|x,θ)p(θ|C)dθ。",
     "depth_hint": "推导贝叶斯推断公式在 ICL 中的对应关系，用 HMM 生成数据验证理论",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 195,
@@ -2532,7 +2726,8 @@
     ],
     "brief": "核心要点：Von Oswald et al. (2023) 和 Akyürek et al. (2023) 证明线性 Attention 层的前向传播等价于一步梯度下降。给定上下文示例 {(xᵢ, yᵢ)}，Self-Attention 计算出的输出等价于在示例上做最小二乘回归的梯度更新 W ← W - η∇L。多层 Transformer 对应多步梯度下降。",
     "depth_hint": "推导线性 Attention 与梯度下降的等价关系，给出权重矩阵的闭式解对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 196,
@@ -2545,7 +2740,8 @@
     ],
     "brief": "核心要点：Pan et al. (2023) 将 ICL 分解为两个独立机制：任务识别（从示例中识别出'这是情感分类'）和任务学习（学习输入到输出的映射）。实验证据：(1) 随机标签仍能维持部分性能（任务识别起作用）；(2) 更多示例主要提升任务学习而非识别。两个机制在不同层中实现。",
     "depth_hint": "设计随机标签实验对比正常标签，量化两种机制的贡献比例",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 197,
@@ -2558,7 +2754,8 @@
     ],
     "brief": "核心要点：Olsson et al. (2022) 发现 ICL 依赖一种特定的注意力电路——归纳头（Induction Head）。两层电路：第一层的 previous-token head 将信息从位置 i 复制到 i+1，第二层的 induction head 在当前位置匹配相同前缀并复制后续 token。这个电路在训练中突然形成，对应 loss 的阶跃下降。",
     "depth_hint": "给出 Induction Head 的 QKV 参数结构分析，复现其在训练中形成的时间点",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 198,
@@ -2571,7 +2768,8 @@
     ],
     "brief": "核心要点：ICL 性能对示例选择高度敏感。Liu et al. (2022) 发现与测试输入语义最近的示例效果最好（kNN 检索），但顺序也很重要——最相关的示例放在最后（近因效应）可提升 10%+。此外，示例的多样性与相关性存在权衡，Coverage-based 选择优于纯相似度。",
     "depth_hint": "对比随机/kNN/多样性三种选择策略的定量实验结果，分析示例顺序的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 199,
@@ -2584,7 +2782,8 @@
     ],
     "brief": "核心要点：Min et al. (2022) 发现 ICL 中标签是否正确影响不大，但标签空间（使用哪些标签词）、输入分布和格式影响显著。将'positive/negative'换成'foo/bar'会大幅降低性能，因为模型依赖预训练中标签词的语义先验。这揭示了 ICL 更多是'格式学习'而非'任务学习'。",
     "depth_hint": "复现标签替换实验的定量结果，分析不同标签词的困惑度与 ICL 性能的相关性",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 200,
@@ -2597,7 +2796,8 @@
     ],
     "brief": "核心要点：Agarwal et al. (2024) 利用长上下文窗口（100K+）进行数百到数千个示例的 ICL。实验表明 Many-Shot ICL 在多个任务上逼近甚至超过微调性能。但存在边际递减效应：前 100 个示例贡献最大，之后收益按 O(log n) 衰减。同时发现 Reinforced ICL（用模型生成的 rationale 替代人工示例）可进一步提升。",
     "depth_hint": "给出示例数量 vs 性能的对数曲线，分析不同任务的饱和点",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 201,
@@ -2610,7 +2810,8 @@
     ],
     "brief": "核心要点：Scaling Law 的幂律指数 α 与目标函数的内在维度有关。Sharma & Kaplan (2022) 从神经网络逼近论推导：如果数据流形的内在维度为 d，则 L(N) ∝ N^{-4/d}。自然语言的有效维度约 50-100，对应 α ≈ 0.04-0.08，与实验观测一致。",
     "depth_hint": "推导逼近论中的幂律指数与流形维度的关系式，对比不同数据集的维度估计",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 202,
@@ -2623,7 +2824,8 @@
     ],
     "brief": "核心要点：Caballero et al. (2023) 提出 BNSL 公式，用分段幂律替代单一幂律：在某个临界点 N_c 处斜率发生变化，形成 S 形曲线。这能更好地拟合下游任务的 scaling 行为，解释为什么某些任务出现'涌现'——实际上是幂律斜率的突变而非阶跃。BNSL 在 100+ 任务上的拟合 R² > 0.99。",
     "depth_hint": "给出 BNSL 的数学形式和参数拟合方法，对比标准幂律在 break point 附近的拟合误差",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:29"
   },
   {
     "id": 203,
@@ -2636,7 +2838,8 @@
     ],
     "brief": "核心要点：Aghajanyan et al. (2023) 研究文本+图像联合训练的 Scaling Law。多模态训练的有效计算量不等于各模态之和——图文交叉注意力带来的增益遵循 L(N,D_t,D_i) 的三变量幂律，且图像 token 的'兑换比'约为 1 图像 token ≈ 0.3 文本 token。模态比例也存在最优配比。",
     "depth_hint": "给出多模态幂律的联合公式，分析图文比例 vs 损失的等高线图数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 204,
@@ -2649,7 +2852,8 @@
     ],
     "brief": "核心要点：随着模型规模增大，训练不稳定性（loss spike）的频率和幅度增加。Chowdhery et al. (2022, PaLM) 记录了 540B 模型中约 20 次 loss spike。原因分析：(1) 梯度范数的方差与 N 正相关；(2) Attention logits 的量级随 d_model 增长为 O(√d)；(3) 学习率的最优值随 N 下降。μP 参数化可部分解决。",
     "depth_hint": "给出 PaLM 训练中 loss spike 的时间分布数据，分析 Attention logits 缩放的数学推导",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 205,
@@ -2662,7 +2866,8 @@
     ],
     "brief": "核心要点：Yang et al. (2022) 提出 Maximal Update Parameterization (μP)，通过特定的初始化和学习率缩放规则，使得小模型的最优超参数可以直接迁移到大模型。核心思想：让每层的激活更新量 Δh/h 在不同宽度下保持恒定。具体规则：lr ∝ 1/width（输出层），lr 恒定（隐藏层），init ∝ 1/√width。",
     "depth_hint": "推导 μP 的缩放规则表，对比标准参数化（SP）下超参数迁移的失败案例",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 206,
@@ -2675,7 +2880,8 @@
     ],
     "brief": "核心要点：Transformer 不同层在 ICL 中承担不同角色。浅层（1-8层）进行词汇和格式匹配，中层（9-20层）进行语义对齐，深层（21+层）进行任务特定的推理。Bansal et al. (2023) 通过逐层冻结实验量化各层贡献：移除中层对 ICL 性能影响最大（下降 30%+），而移除浅层影响较小。",
     "depth_hint": "给出逐层消融实验的定量数据，可视化不同层的注意力模式差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 207,
@@ -2688,7 +2894,8 @@
     ],
     "brief": "核心要点：ICL 的有效示例数量受限于上下文窗口中的'工作记忆'容量，而非窗口长度本身。Bertsch et al. (2024) 发现即使窗口足够长，模型对超过一定数量示例后的信息利用效率急剧下降。有效容量约为 O(d_model/d_head) 个独立'概念槽'，与注意力头数成正比。",
     "depth_hint": "分析有效容量与模型维度的关系式，给出不同规模模型的实测容量对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 208,
@@ -2701,7 +2908,8 @@
     ],
     "brief": "核心要点：涌现能力是否真的不可预测？Wei et al. (2024) 从 Scaling Law 角度分析：如果使用连续指标（如 Brier Score）替代离散指标，多数'涌现'可以被小模型的 scaling 趋势预测。但仍存在少数任务（如 BigBench 中的 navigate）的 scaling 行为确实非光滑，可能涉及内部表示的相变。",
     "depth_hint": "对比 Brier Score 与精确匹配的 scaling 曲线差异，标注无法被平滑拟合的异常任务",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 209,
@@ -2714,7 +2922,8 @@
     ],
     "brief": "核心要点：Hernandez et al. (2022) 发现重复数据对 Scaling Law 的破坏效应可以量化——100 次重复的数据等效于仅约 3.4 次的新数据（有效倍率 ≈ 0.034）。更关键的是，重复不均匀分布在不同 domain 中，高重复 domain（如 Common Crawl 中的模板页面）会系统性偏移模型的能力分布。",
     "depth_hint": "给出重复次数 vs 有效数据量的定量关系曲线，分析不同 domain 的重复率分布",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 210,
@@ -2727,7 +2936,8 @@
     ],
     "brief": "核心要点：Dai et al. (2023) 从对偶优化角度证明 ICL 和微调是同一优化问题的两种求解方式。ICL 通过 Attention 在前向传播中动态构建'虚拟梯度'，微调通过反向传播更新参数。两者收敛到相似但不完全相同的解：ICL 受限于 Attention 的表达力，相当于一阶优化；微调可以达到高阶最优。",
     "depth_hint": "推导 ICL 的虚拟梯度公式与标准 SGD 梯度的等价条件，给出两者性能差距的上界",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 211,
@@ -2740,7 +2950,8 @@
     ],
     "brief": "核心要点：Constitutional AI (CAI) 通过两阶段训练实现自我对齐——先用 LLM 自身按宪法原则修订有害回答（SL-CAI），再对修订后的数据做 RLHF（RL-CAI）。相比纯 RLHF，CAI 将人类反馈从逐条标注转为原则制定，标注成本降低数个数量级。",
     "depth_hint": "需拆解 critique-revision 循环的具体 prompt 结构，对比 CAI 与标准 RLHF 的 helpfulness/harmlessness 得分",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 212,
@@ -2753,7 +2964,8 @@
     ],
     "brief": "核心要点：RLAIF 用 AI 生成的偏好标签替代人类标注训练奖励模型。Anthropic 实验表明 RLAIF 在 helpfulness 上与 RLHF 表现相当（胜率约 50%），但在 harmlessness 上 RLAIF 的 AI 反馈更一致。关键在于 chain-of-thought 提示显著提升 AI 标注质量。",
     "depth_hint": "需给出 RLAIF 与 RLHF 的人类评估胜率数据，分析 CoT 对标注准确率的提升幅度",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 213,
@@ -2766,7 +2978,8 @@
     ],
     "brief": "核心要点：Helpful、Honest、Harmless 三目标之间存在张力——过度追求 harmless 导致拒绝合理请求（过度拒绝），过度 helpful 又可能输出有害内容。Claude 通过 Constitutional AI 的原则层级来平衡三者，其中 harmlessness 在涉及严重伤害时具有最高优先级。",
     "depth_hint": "需分析三目标冲突的具体场景分类，给出 Anthropic 论文中的 Pareto 前沿示意",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 214,
@@ -2779,7 +2992,8 @@
     ],
     "brief": "核心要点：CAI 的 SL 阶段通过多轮 critique-revision 循环提升回答质量。每轮随机采样一条宪法原则，让模型自我批评并修订。实验显示 4 轮修订后 harmlessness 评分提升约 30%，但超过 4 轮后边际收益递减且 helpfulness 开始下降。",
     "depth_hint": "需给出多轮修订的 prompt 模板结构，展示不同轮次的质量变化曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:30"
   },
   {
     "id": 215,
@@ -2792,7 +3006,8 @@
     ],
     "brief": "核心要点：Claude 的宪法原则从最初 16 条基础规则（涵盖 UN 人权宣言、非歧视、真实性等）逐步扩展。原则设计需平衡覆盖度与一致性——过于宽泛导致模型行为不可预测，过于具体则无法泛化。原则之间的优先级通过训练数据中的出现频率隐式编码。",
     "depth_hint": "需列举关键宪法原则的原文及分类，分析原则冲突时的裁决逻辑",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 216,
@@ -2805,7 +3020,8 @@
     ],
     "brief": "核心要点：Claude 系列从 52B 参数的 Claude 1 演进到多模态的 Claude 3 家族（Haiku/Sonnet/Opus）。关键变化包括：上下文窗口从 9K→200K、引入视觉能力、从纯 RLHF 转向 CAI+RLHF 混合训练。Claude 3 Opus 在 MMLU 上达到 86.8%，首次超越 GPT-4。",
     "depth_hint": "需整理各版本的参数规模、上下文长度、基准得分对比表",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 217,
@@ -2818,7 +3034,8 @@
     ],
     "brief": "核心要点：Claude 3 支持 200K token 上下文窗口，在 Needle-in-a-Haystack 测试中准确率超过 99%。长上下文处理的关键技术包括位置编码外推（RoPE 的 NTK-aware 缩放）、注意力稀疏化，以及训练时逐步扩展上下文长度的阶段式策略。",
     "depth_hint": "需分析 RoPE 缩放的数学形式，给出 NIAH 测试在不同文档长度下的准确率数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 218,
@@ -2831,7 +3048,8 @@
     ],
     "brief": "核心要点：Claude 3 通过视觉编码器（ViT 变体）将图像转化为 token 序列，与文本 token 共享 Transformer 的注意力层。图像分辨率自适应分片，最大支持约 1568×1568 像素。在 MMMU 基准上 Claude 3 Opus 达到 59.4%，显示出强视觉推理能力。",
     "depth_hint": "需分析图像 token 化的分辨率-token 数映射关系，对比主流多模态架构方案",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 219,
@@ -2844,7 +3062,8 @@
     ],
     "brief": "核心要点：Claude 的奖励模型（PM）基于 Bradley-Terry 模型，使用人类偏好对和 AI 生成偏好对联合训练。PM 的损失函数为 -log σ(r_w - r_l)，其中 r 为标量奖励。关键挑战是奖励黑客（reward hacking）：策略模型学会利用 PM 漏洞获得高分但质量下降。",
     "depth_hint": "需给出 Bradley-Terry 模型的概率公式，分析奖励黑客的典型表现和缓解策略",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 220,
@@ -2857,7 +3076,8 @@
     ],
     "brief": "核心要点：Claude 使用 PPO 算法进行 RL 微调，关键超参数包括 clip ratio ε=0.2、KL 惩罚系数 β。训练中常见的不稳定现象包括奖励崩塌、KL 散度爆炸、模式坍缩。Anthropic 采用自适应 KL 控制和早停策略来维持训练稳定性。",
     "depth_hint": "需给出 PPO 的 clipped objective 公式，分析 KL 惩罚项的动态调节机制",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 221,
@@ -2870,7 +3090,8 @@
     ],
     "brief": "核心要点：Anthropic 采用人类红队和自动化红队结合的方式测试 Claude 的安全边界。自动化红队使用另一个 LLM 生成攻击 prompt，按毒性分类器得分筛选有效攻击。实验显示 CAI 训练后的模型在红队攻击成功率上降低约 50%，但仍存在越狱漏洞。",
     "depth_hint": "需分类红队攻击的类型层级，给出攻击成功率随模型规模和训练方法的变化数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 222,
@@ -2883,7 +3104,8 @@
     ],
     "brief": "核心要点：过度安全对齐导致 Claude 拒绝合理请求（如医学咨询、创意写作中的冲突场景）。过度拒绝率在早期版本中约 15-20%。缓解方法包括：细化宪法原则、增加 borderline 场景的训练数据、引入 helpfulness 与 harmlessness 的显式权衡机制。",
     "depth_hint": "需定义过度拒绝的评估标准，分析不同版本的拒绝率变化趋势",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 223,
@@ -2896,7 +3118,8 @@
     ],
     "brief": "核心要点：System prompt 在 Claude 的注意力机制中占据特殊位置——它作为前缀 context 影响后续所有生成。Claude 对 system prompt 的遵循度通过专门的指令跟随训练强化，包括多轮对话中的一致性保持。system prompt 与用户指令冲突时，Claude 倾向于遵循 system prompt。",
     "depth_hint": "需分析 system prompt 在注意力层中的影响模式，给出指令冲突场景的处理优先级",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 224,
@@ -2909,7 +3132,8 @@
     ],
     "brief": "核心要点：CAI 可形式化为约束优化问题：max E[r_helpful] s.t. E[r_harmful] < ε，其中 r 为对应奖励函数。SL-CAI 阶段等价于带拒绝采样的蒸馏，RL-CAI 阶段等价于在宪法约束下的 PPO。Lagrange 对偶性连接了约束优化与 KL 正则化的 RL 目标。",
     "depth_hint": "需推导约束优化到 Lagrange 形式的变换，给出 KL 正则化系数的物理含义",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 225,
@@ -2922,7 +3146,8 @@
     ],
     "brief": "核心要点：Claude 支持 temperature、top-p、top-k 等采样参数。temperature=0 时使用贪心解码，temperature=1 时为原始分布采样。Claude 的默认 temperature 约 0.7，在创造性与一致性之间取得平衡。nucleus sampling (top-p=0.9) 通过动态截断词表避免长尾噪声。",
     "depth_hint": "需给出 softmax temperature 的数学定义，分析不同采样策略对输出多样性和质量的影响",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 226,
@@ -2935,7 +3160,8 @@
     ],
     "brief": "核心要点：Claude 3.5 Sonnet 在性能上接近 Claude 3 Opus，但推理速度快 2 倍、成本降低 80%。效率提升来源于：更优的模型架构（可能采用 GQA 或 MQA 减少 KV cache）、更高效的训练数据配比、以及推理端的投机解码等加速技术。",
     "depth_hint": "需对比 MHA/GQA/MQA 的计算复杂度差异，分析 KV cache 的内存节省比例",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 227,
@@ -2948,7 +3174,8 @@
     ],
     "brief": "核心要点：Claude 在多轮对话中通过 KV cache 复用实现状态延续。随对话轮次增加，早期轮次的信息在注意力分布中逐渐稀释（attention sink 现象）。Claude 通过位置编码和训练策略缓解远距离信息丢失，但实测显示超过 20 轮后指令遵循度下降约 10%。",
     "depth_hint": "需分析注意力分布随对话轮次的变化模式，给出 KV cache 的内存增长公式",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:31"
   },
   {
     "id": 228,
@@ -2961,7 +3188,8 @@
     ],
     "brief": "核心要点：Anthropic 使用稀疏自编码器（SAE）从 Claude 3 Sonnet 的 MLP 层中提取出数百万个可解释特征。每个特征对应一个语义概念（如'Golden Gate Bridge'），激活值反映概念的相关度。SAE 的训练目标是最小化重建误差同时保持稀疏性：L = ||x - D·z||² + λ||z||₁。",
     "depth_hint": "需给出 SAE 的训练目标公式，展示典型特征的激活模式和语义标签",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 229,
@@ -2974,7 +3202,8 @@
     ],
     "brief": "核心要点：Superposition 指神经网络用 N 维空间表示远超 N 个特征的现象。Anthropic 的 toy model 实验表明，当特征稀疏度 S < 1/N 时，模型倾向于将特征以近似正交的方向编码，牺牲少量干扰换取更大的表示容量。这是 Claude 内部表示的核心组织原则。",
     "depth_hint": "需推导 superposition 的容量-干扰权衡公式，给出不同稀疏度下的最优表示策略",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 230,
@@ -2987,7 +3216,8 @@
     ],
     "brief": "核心要点：通过 SAE 提取的特征可用于干预 Claude 的行为——放大'Golden Gate Bridge'特征使模型在所有回答中提及金门大桥。这种激活工程提供了比 prompt 更精细的行为控制。技术实现是在推理时对残差流添加特征方向的偏移向量 x' = x + α·f。",
     "depth_hint": "需给出激活干预的向量运算公式，分析干预强度 α 与行为变化的非线性关系",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 231,
@@ -3000,7 +3230,8 @@
     ],
     "brief": "核心要点：Claude 的安全系统分为四层：预训练数据过滤、Constitutional AI 对齐训练、system prompt 级约束、输出过滤器。每层防御不同类型的攻击——数据过滤防训练污染，CAI 防基本有害请求，system prompt 防角色突破，输出过滤防漏网之鱼。",
     "depth_hint": "需绘制四层防御的覆盖范围矩阵，分析每层的典型失效模式",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 232,
@@ -3013,7 +3244,8 @@
     ],
     "brief": "核心要点：针对 Claude 的越狱攻击可分为：角色扮演型（DAN）、编码绕过型（Base64/ROT13）、渐进诱导型（多轮渐进突破）、逻辑悖论型（制造伦理困境）。CAI 对直接攻击防御率>95%，但对多轮渐进攻击和编码绕过仍有约 5-10% 的成功率。",
     "depth_hint": "需分类各攻击类型的机制和示例模式，给出不同防御版本的攻击成功率对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 233,
@@ -3026,7 +3258,8 @@
     ],
     "brief": "核心要点：Claude 通过 CAI 中'诚实性'原则训练来表达认知不确定性，包括承认知识边界、区分事实与推测、给出置信度修饰语。内部机制上，模型的 logit 分布熵与其输出中不确定性表达的相关性约 0.3-0.5，表明模型对自身不确定性有一定感知能力。",
     "depth_hint": "需分析 logit 熵与不确定性表达的相关性实验，给出校准曲线数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 234,
@@ -3039,7 +3272,8 @@
     ],
     "brief": "核心要点：Claude 的指令遵循存在隐式层级：宪法原则 > 安全训练 > system prompt > 用户指令。当低层级指令与高层级冲突时，模型倾向于拒绝低层级指令。这种层级通过训练中的数据配比和奖励信号强度编码，而非硬编码规则实现。",
     "depth_hint": "需分析各指令层级的冲突解决实验结果，给出不同冲突场景的遵循率数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 235,
@@ -3052,7 +3286,8 @@
     ],
     "brief": "核心要点：Anthropic 发现模型能力与安全性的 Scaling 并非同步——更大的模型更擅长遵循有害指令（能力提升），但 CAI 训练后的安全对齐也更有效（可控性提升）。关键发现是对齐税（alignment tax）随模型规模增大而降低：大模型同时做到安全和有用更容易。",
     "depth_hint": "需给出对齐税的定义公式，分析不同模型规模下 helpfulness-harmlessness 的 Pareto 曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 236,
@@ -3065,7 +3300,8 @@
     ],
     "brief": "核心要点：Claude 的 prompt 敏感性源于自回归 Transformer 的条件生成本质：P(output|prompt) 高度依赖 prompt 的 token 序列。有效 prompt 的关键原则包括：明确角色设定、结构化输出格式、XML 标签分段、思维链引导。Claude 对 prompt 格式的敏感性低于 GPT-4。",
     "depth_hint": "需对比不同 prompt 格式对 Claude 输出质量的影响实验数据，分析 XML 标签的作用机制",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 237,
@@ -3078,7 +3314,8 @@
     ],
     "brief": "核心要点：Claude 的 CoT 能力通过 RLHF 和 CAI 训练强化——模型学会在回答复杂问题前展开中间推理步骤。CoT 在数学推理上提升约 20-30%（GSM8K），在逻辑推理上提升约 15%。Claude 3.5 Sonnet 在 extended thinking 模式下进一步支持更长的推理链。",
     "depth_hint": "需对比有无 CoT 在多个基准上的性能差异，分析推理链长度与准确率的关系",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 238,
@@ -3091,7 +3328,8 @@
     ],
     "brief": "核心要点：Claude 的工具使用（function calling）通过专门的微调数据训练，使模型学会将自然语言请求映射到结构化函数调用。训练数据包含工具定义 schema、调用示例和多步编排场景。Claude 3.5 在工具使用基准上达到 90%+ 准确率，支持并行调用和嵌套调用。",
     "depth_hint": "需分析工具调用的 JSON schema 解析机制，给出工具选择准确率的基准测试数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 239,
@@ -3104,7 +3342,8 @@
     ],
     "brief": "核心要点：Claude 3 家族（Haiku/Sonnet/Opus）的三个规模档位可能通过知识蒸馏关联——大模型的输出分布作为小模型的软标签进行训练。蒸馏的关键是 temperature scaling：KL(P_teacher^(1/T) || P_student^(1/T))，T>1 时软标签包含更多暗知识。",
     "depth_hint": "需给出知识蒸馏的损失函数和 temperature 参数的作用推导，对比蒸馏前后的性能差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 240,
@@ -3117,7 +3356,8 @@
     ],
     "brief": "核心要点：Claude 通过 CAI 中的诚实性原则减少幻觉——训练模型在不确定时说'我不确定'而非编造答案。幻觉类型分为事实性幻觉（错误事实）和忠实性幻觉（与输入矛盾）。Claude 3 在 TruthfulQA 上的得分约 85%，高于多数竞品，但长文本生成中幻觉率仍约 5-8%。",
     "depth_hint": "需分类幻觉类型和检测方法，给出 TruthfulQA 和长文本幻觉率的实验数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:32"
   },
   {
     "id": 241,
@@ -3130,7 +3370,8 @@
     ],
     "brief": "核心要点：Gemini 1.0 采用稀疏混合专家架构，通过 Top-K 路由机制在推理时仅激活部分参数。分析其专家数量、路由策略、负载均衡损失函数设计，以及与 dense Transformer 在相同 FLOPs 下的性能对比",
     "depth_hint": "需包含路由函数公式、负载均衡辅助损失推导、专家利用率分布图",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 242,
@@ -3143,7 +3384,8 @@
     ],
     "brief": "核心要点：Gemini 从预训练阶段即联合训练文本、图像、音频、视频，区别于 LLaVA 等后接适配器的方案。分析其统一 tokenizer 设计、跨模态注意力机制、多模态数据配比策略及其对涌现能力的影响",
     "depth_hint": "需对比 native multimodal 与 adapter-based 方案的损失曲线差异、数据配比实验",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 243,
@@ -3156,7 +3398,8 @@
     ],
     "brief": "核心要点：Gemini 使用定制化 ViT 变体作为视觉编码器，支持动态分辨率输入。分析 patch embedding 策略、位置编码方案（2D RoPE 扩展）、视觉 token 与文本 token 的对齐机制及分辨率-性能权衡",
     "depth_hint": "需包含 2D 位置编码公式、不同分辨率下的 benchmark 数据、token 数量计算",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 244,
@@ -3169,7 +3412,8 @@
     ],
     "brief": "核心要点：Gemini 1.5 Pro 支持 1M token 上下文，实际测试可达 10M。分析其基于 RingAttention 思想的分布式注意力计算、KV cache 压缩策略、长序列位置编码外推方法及 Needle-in-a-Haystack 测试表现",
     "depth_hint": "需包含注意力计算的内存复杂度公式、NIAH 不同深度的召回率数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 245,
@@ -3182,7 +3426,8 @@
     ],
     "brief": "核心要点：Gemini 1.5 Pro 在总参数量级显著提升的同时保持推理成本可控。分析其 MoE 层的专家粒度选择、共享专家设计、激活参数比例优化，以及与 Mixtral 8x7B 在效率指标上的对比",
     "depth_hint": "需包含激活参数/总参数比、每 token FLOPs 计算、吞吐量基准对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 246,
@@ -3195,7 +3440,8 @@
     ],
     "brief": "核心要点：Ring Attention 将序列分片到多设备并通过环形通信重叠计算与传输，实现近线性序列长度扩展。分析其 blockwise attention 分解、通信隐藏策略、因果掩码处理及与 sequence parallelism 的关系",
     "depth_hint": "需包含通信复杂度分析、block 大小选择对效率的影响公式、设备间同步图",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 247,
@@ -3208,7 +3454,8 @@
     ],
     "brief": "核心要点：Gemini 原生支持音频输入，可处理语音、音乐和环境声。分析其音频 tokenizer（基于 USM/Whisper 风格编码器）、音频-文本交叉注意力设计、采样率与 token 粒度的权衡及 ASR 任务表现",
     "depth_hint": "需包含音频特征提取流程图、mel-spectrogram 到 token 的映射参数、WER 对比数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 248,
@@ -3221,7 +3468,8 @@
     ],
     "brief": "核心要点：Gemini 通过帧采样与时序注意力实现长视频理解，支持小时级视频输入。分析其关键帧选择策略、时序 token 压缩（temporal pooling）、视频 QA 中的因果推理机制及与 VideoLLaMA 的性能对比",
     "depth_hint": "需包含帧采样率与 token 数关系式、时序 pooling 具体方案、视频 benchmark 数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 249,
@@ -3234,7 +3482,8 @@
     ],
     "brief": "核心要点：多模态模型需要处理文本（1D）、图像（2D）、视频（3D）的位置信息。系统分析 RoPE 的多维扩展、跨模态位置编码对齐方案、频率基数选择对不同模态分辨率的影响",
     "depth_hint": "需包含 N-D RoPE 数学推导、频率参数与分辨率关系公式、消融实验结论",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 250,
@@ -3247,7 +3496,8 @@
     ],
     "brief": "核心要点：百万级上下文推理中 KV cache 占用可达数百 GB。分析 GQA、MQA、Sliding Window、H2O（Heavy Hitter Oracle）、SnapKV 等压缩方案的原理、压缩比与精度损失权衡",
     "depth_hint": "需包含各方案内存占用公式、压缩比-perplexity 曲线、Gemini 可能采用的组合策略",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:33"
   },
   {
     "id": 251,
@@ -3260,7 +3510,8 @@
     ],
     "brief": "核心要点：Gemini 2.0 Flash 在多模态能力持平 1.5 Pro 的同时大幅降低延迟和成本。分析其可能采用的知识蒸馏策略、架构简化方案、量化友好设计及 speculative decoding 集成",
     "depth_hint": "需包含 Flash 与 Pro 的延迟/吞吐量对比数据、蒸馏损失函数设计",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 252,
@@ -3273,7 +3524,8 @@
     ],
     "brief": "核心要点：多模态融合有 early fusion、late fusion、cross-attention 等方案。分析 Gemini 的 early fusion 设计选择、不同模态 token 在自注意力中的交互模式、模态间信息流动的层级分布",
     "depth_hint": "需包含注意力权重的跨模态分布可视化描述、各融合方案的计算复杂度对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 253,
@@ -3286,7 +3538,8 @@
     ],
     "brief": "核心要点：超长序列中注意力分布高度稀疏，大部分 token 对间注意力权重接近零。分析 attention sink 现象、局部注意力模式、稀疏注意力的理论保证及 Gemini 1.5 利用稀疏性提速的可能方案",
     "depth_hint": "需包含注意力熵的统计分析、稀疏度与序列长度关系、StreamingLLM 对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 254,
@@ -3299,7 +3552,8 @@
     ],
     "brief": "核心要点：多模态模型面临图像/音频注入攻击等新安全挑战。分析 Gemini 的多模态 RLHF、视觉安全分类器、跨模态对抗样本防御、以及 Google DeepMind 的 Red Teaming 框架",
     "depth_hint": "需包含多模态攻击分类体系、视觉对抗扰动检测方法、安全评估 benchmark 数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 255,
@@ -3312,7 +3566,8 @@
     ],
     "brief": "核心要点：Gemini 可直接理解数学公式图片和几何图形并进行推理。分析其视觉数学 OCR 精度、符号接地机制、CoT 在多模态数学中的应用及 MathVista 等 benchmark 表现",
     "depth_hint": "需包含 MathVista/MATH 分项得分对比、视觉符号到 LaTeX 的转换准确率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 256,
@@ -3325,7 +3580,8 @@
     ],
     "brief": "核心要点：Gemini 2.0 支持原生代码执行（code execution tool），可在推理过程中运行 Python。分析其沙箱设计、代码-推理交替机制、与 AlphaCode 2 的关系及 HumanEval/MBPP 表现",
     "depth_hint": "需包含代码执行流程架构图、tool-use 格式规范、编程 benchmark 得分对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 257,
@@ -3338,7 +3594,8 @@
     ],
     "brief": "核心要点：Google 提出的 Infini-Attention 将压缩记忆与标准注意力结合，在固定内存下处理无限长序列。分析其 compressive memory 更新规则、linear attention 作为检索机制、与 segment-level recurrence 的融合",
     "depth_hint": "需包含 memory update 数学公式、门控融合机制推导、passkey retrieval 实验数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 258,
@@ -3351,7 +3608,8 @@
     ],
     "brief": "核心要点：Gemini 原生集成 Google Search grounding，可在推理中调用搜索引擎获取实时信息。分析其 grounding 触发条件、检索结果融合机制、引用归因设计及与传统 RAG 的架构差异",
     "depth_hint": "需包含 grounding API 调用流程、置信度阈值设计、事实性评估数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 259,
@@ -3364,7 +3622,8 @@
     ],
     "brief": "核心要点：Grouped Query Attention 通过共享 KV head 将 KV cache 压缩为 MHA 的 1/N。分析 GQA 的数学等价性、head 分组策略对质量的影响、从 MHA 到 GQA 的 uptrain 方法及在 Gemini 中的应用",
     "depth_hint": "需包含 GQA 注意力公式、不同分组数的 perplexity 对比、KV cache 节省量计算",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 260,
@@ -3377,7 +3636,8 @@
     ],
     "brief": "核心要点：Gemini 需要将文本、图像、音频、视频统一编码为 token 序列。分析其 SentencePiece 文本分词、视觉 patch tokenization、音频帧分词及跨模态特殊 token 设计",
     "depth_hint": "需包含各模态的 token 数量计算公式、词表大小与覆盖率、特殊 token 列表",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 261,
@@ -3390,7 +3650,8 @@
     ],
     "brief": "核心要点：YaRN 通过分频段调节 RoPE 频率实现高效的上下文窗口扩展，无需全量重训练。分析其 NTK-aware 插值策略、attention scale 修正、temperature 参数设计及与 NTK-ALiBi 的对比",
     "depth_hint": "需包含频率分段公式、scale factor 推导、不同扩展倍数的 perplexity 对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 262,
@@ -3403,7 +3664,8 @@
     ],
     "brief": "核心要点：系统对比 Gemini Ultra/Pro 与 GPT-4V 在视觉理解、文档分析、多模态推理等任务上的表现差异。分析架构设计差异（native 与 adapter）如何影响各项能力及各自优势领域",
     "depth_hint": "需包含 MMMU/MMBench/DocVQA 分项得分对比表、架构差异对性能影响分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:34"
   },
   {
     "id": 263,
@@ -3416,7 +3678,8 @@
     ],
     "brief": "核心要点：Gemini 的 function calling 支持声明式工具定义与并行调用。分析其 schema 解析机制、参数提取准确率、multi-turn tool use 的状态管理及与 OpenAI function calling 的协议差异",
     "depth_hint": "需包含 function declaration JSON 格式、调用流程时序图、BFCL benchmark 数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 264,
@@ -3429,7 +3692,8 @@
     ],
     "brief": "核心要点：Needle-in-a-Haystack 过于简单，无法区分真正的长程理解能力。分析 RULER、LongBench、InfiniteBench 等评估框架的设计理念、任务分类及 Gemini 1.5 在各维度的表现",
     "depth_hint": "需包含各 benchmark 的任务分类表、Gemini 1.5 Pro 在不同长度区间的得分曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 265,
@@ -3442,7 +3706,8 @@
     ],
     "brief": "核心要点：Gemini 2.0 Flash Thinking 在输出前生成内部推理链。分析其 thinking token 的生成机制、推理预算控制、与 OpenAI o1 的技术路线差异及在数学/编程任务上的推理增益",
     "depth_hint": "需包含 thinking token 长度与准确率关系、推理任务 benchmark 对比、token 效率分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 266,
@@ -3455,7 +3720,8 @@
     ],
     "brief": "核心要点：SigLIP 用 sigmoid 损失替代 CLIP 的 softmax 对比损失，解除了对全局 batch 通信的依赖。分析其损失函数改进、训练效率提升、在 Gemini/PaLI 视觉编码器中的应用",
     "depth_hint": "需包含 CLIP 与 SigLIP 损失函数公式对比、batch size 影响实验、zero-shot 性能对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 267,
@@ -3468,7 +3734,8 @@
     ],
     "brief": "核心要点：Gemini API 支持 context caching，将长 prefix 的 KV cache 持久化以降低重复计算成本。分析其缓存粒度、TTL 策略、prefix matching 算法及与 prompt caching 的技术差异",
     "depth_hint": "需包含缓存命中率与成本节省计算公式、缓存存储开销分析、适用场景决策树",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 268,
@@ -3481,7 +3748,8 @@
     ],
     "brief": "核心要点：Gemini 的不同模态在统一 embedding 空间中的分布与对齐质量直接影响跨模态理解。分析模态间的语义对齐度量、模态 gap 现象、层级表征的模态特异性变化",
     "depth_hint": "需包含 CKA 相似度分析方法、模态 gap 的量化指标、不同层的表征分布可视化描述",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 269,
@@ -3494,7 +3762,8 @@
     ],
     "brief": "核心要点：长上下文模型需要同时利用稀疏注意力降低复杂度和 FlashAttention 优化 IO。分析 blockwise sparse attention 与 FlashAttention-2 的融合方案、稀疏模式选择（local+global）及在 TPU 上的适配",
     "depth_hint": "需包含 IO 复杂度分析公式、SRAM/HBM 数据流图、不同稀疏比例的速度-质量曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 270,
@@ -3507,7 +3776,8 @@
     ],
     "brief": "核心要点：多模态模型的 RLHF 需要处理图文混合输出的偏好标注。分析 Gemini 的多模态奖励模型设计、视觉安全约束的 reward shaping、多目标优化（有用性 vs 安全性）的 Pareto 策略",
     "depth_hint": "需包含多模态 reward model 架构、多目标损失函数、安全-有用性 Pareto 前沿图描述",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 271,
@@ -3520,7 +3790,8 @@
     ],
     "brief": "核心要点：DeepSeek-V1（67B）的Dense架构选择，采用Pre-Norm + RMSNorm + SwiGLU组合，训练数据2T tokens的配比策略，与LLaMA 2架构的关键差异（GQA头数、FFN维度比），以及在代码和数学基准上的表现分析",
     "depth_hint": "需包含与LLaMA 2-70B的架构参数对比表，训练超参数设置，loss曲线分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 272,
@@ -3533,7 +3804,8 @@
     ],
     "brief": "核心要点：Multi-head Latent Attention将KV缓存压缩至原始MHA的5-13%，通过低秩联合压缩将K和V投影到低维潜在空间（d_c=512），再解压恢复多头表示，相比GQA/MQA在保持性能的同时大幅降低推理显存",
     "depth_hint": "需推导KV压缩的矩阵分解公式，对比MHA/GQA/MQA/MLA的缓存量计算",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 273,
@@ -3546,7 +3818,8 @@
     ],
     "brief": "核心要点：DeepSeekMoE采用细粒度专家分割（160个路由专家+2个共享专家），每token激活6个路由专家，总参数236B但激活仅21B。共享专家捕获通用知识，路由专家实现专业化分工，相比GShard的粗粒度MoE提升2-6%",
     "depth_hint": "需包含专家数量与粒度的消融实验数据，负载均衡loss的具体公式",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 274,
@@ -3559,7 +3832,8 @@
     ],
     "brief": "核心要点：V3提出auxiliary-loss-free负载均衡策略，用动态偏置项b_i替代传统辅助损失函数。当专家负载过高时自动降低偏置、过低时提升，避免辅助损失与主损失的梯度冲突。实验表明该方法在保持均衡的同时提升0.3-0.5%的下游性能",
     "depth_hint": "需推导偏置更新规则，对比传统负载均衡loss的梯度干扰问题",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:35"
   },
   {
     "id": 275,
@@ -3572,7 +3846,8 @@
     ],
     "brief": "核心要点：V3引入MTP模块，每个位置同时预测后续D个token（D=2），使用D个顺序连接的Transformer层作为预测头，共享主模型embedding。MTP作为训练信号密度增强手段，训练完成后可丢弃额外头，也可用于speculative decoding加速推理",
     "depth_hint": "需包含MTP loss的加权公式，speculative decoding的接受率数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 276,
@@ -3585,7 +3860,8 @@
     ],
     "brief": "核心要点：V3在671B参数规模首次成功应用FP8训练，采用细粒度量化（tile-wise scaling）而非tensor-wise，将GEMM操作在E4M3格式下完成，累加器使用FP32保持精度。FP8训练使显存降低约40%，训练成本仅557万美元（2048 H800，约2个月）",
     "depth_hint": "需对比FP8/BF16训练的loss曲线差异，tile-wise量化的分块策略细节",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 277,
@@ -3598,7 +3874,8 @@
     ],
     "brief": "核心要点：R1采用纯RL训练路线（GRPO算法），不依赖监督微调的思维链数据。奖励模型仅基于结果正确性（数学验证/代码测试），模型自发涌现出反思、验证、回溯等推理行为。R1在AIME 2024达到79.8%，MATH-500达到97.3%",
     "depth_hint": "需包含GRPO的目标函数推导，与PPO的关键差异对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 278,
@@ -3611,7 +3888,8 @@
     ],
     "brief": "核心要点：R1-Zero直接在基础模型上做RL，无SFT冷启动，观察到推理行为的自然涌现：思维链长度从数百token增长到数千token，出现自我验证和回溯修正。但也存在可读性差、语言混杂等问题，揭示了RL训练中reasoning的本质特征",
     "depth_hint": "需展示训练过程中思维链长度变化曲线，涌现行为的具体case分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 279,
@@ -3624,7 +3902,8 @@
     ],
     "brief": "核心要点：GRPO移除PPO中的Critic模型，对同一问题采样G个回答组成群组，用组内相对奖励排名替代价值函数估计baseline。优势函数A_i=(r_i-mean)/std，大幅减少训练显存（省去与Policy同等规模的Critic），训练吞吐提升约50%",
     "depth_hint": "需完整推导GRPO的目标函数，与PPO/REINFORCE/RLOO的梯度估计方差对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 280,
@@ -3637,7 +3916,8 @@
     ],
     "brief": "核心要点：R1将671B模型的长思维链能力蒸馏到1.5B-70B的Qwen和LLaMA系列。蒸馏数据约80万条R1生成的推理轨迹，仅做SFT即获得显著推理提升。R1-Distill-Qwen-32B在AIME上达72.6%，超越OpenAI o1-mini，证明小模型可习得长链推理",
     "depth_hint": "需包含各蒸馏模型的基准对比表，蒸馏数据筛选标准",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 281,
@@ -3650,7 +3930,8 @@
     ],
     "brief": "核心要点：MoE路由从Token-Choice（每token选K个专家）演进到Expert-Choice（每专家选固定数token）。Token-Choice存在负载不均和token丢弃问题，Expert-Choice通过转置选择矩阵实现完美均衡，但引入因果性问题（未来token信息泄露），需要特殊处理",
     "depth_hint": "需对比两种路由的数学公式，讨论Expert-Choice在自回归中的因果mask方案",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 282,
@@ -3663,7 +3944,8 @@
     ],
     "brief": "核心要点：MoE训练中路由器易收敛到仅使用少数专家的退化状态（专家崩塌）。解决方案包括：辅助均衡损失（L_balance）、随机路由噪声（Noisy Top-K）、专家容量因子（capacity factor）、Z-loss正则化。各方法在均衡效果与模型性能间存在权衡",
     "depth_hint": "需推导L_balance和Z-loss的具体公式，展示崩塌时的专家利用率分布",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 283,
@@ -3676,7 +3958,8 @@
     ],
     "brief": "核心要点：DeepSeekMoE引入共享专家（Shared Expert）捕获跨领域通用知识，避免路由专家重复学习公共特征。共享专家始终激活，与路由专家的输出相加。实验表明2个共享专家+128个路由专家优于纯160路由专家配置，通用知识与专业知识的解耦提升参数效率",
     "depth_hint": "需包含有无共享专家的消融实验数据，专家激活模式的可视化分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 284,
@@ -3689,7 +3972,8 @@
     ],
     "brief": "核心要点：DeepSeekMoE将传统粗粒度专家（如16个大专家）拆分为更多细粒度专家（如256个小专家），每个专家FFN维度缩小但数量增多，激活组合更灵活。在总参数和激活参数不变的情况下，细粒度分割使专家组合数从C(16,2)增至C(256,8)，表达能力指数级提升",
     "depth_hint": "需计算不同粒度下的组合数对比，展示专家利用率分布变化",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 285,
@@ -3702,7 +3986,8 @@
     ],
     "brief": "核心要点：MLA中的低秩压缩与RoPE的位置相关性存在冲突——RoPE作用于Q/K后无法被压缩矩阵吸收。V2的解决方案是将Q/K各分出一小部分维度（d_r=64）专门携带RoPE，其余维度走压缩路径，两部分拼接后做注意力，兼顾位置感知与缓存压缩",
     "depth_hint": "需推导RoPE与低秩压缩不兼容的数学原因，解耦后的注意力计算公式",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 286,
@@ -3715,7 +4000,8 @@
     ],
     "brief": "核心要点：V3提出DualPipe流水线并行，将前向和反向计算与All-to-All通信双向重叠。通过将micro-batch从两端同时注入流水线，计算与通信的重叠率接近100%，pipeline bubble降至接近零。在2048卡H800集群上实现单卡180 TFLOPS的MFU",
     "depth_hint": "需画出DualPipe的时序调度图，对比1F1B/ZeroBubble的bubble率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 287,
@@ -3728,7 +4014,8 @@
     ],
     "brief": "核心要点：DeepSeek-Coder在2T tokens上训练（87%代码+13%自然语言），采用repo-level代码组织和FIM（Fill-in-the-Middle）训练。仓库级上下文通过依赖拓扑排序文件顺序，FIM以PSM模式（Prefix-Suffix-Middle）训练，使模型具备代码补全和跨文件理解能力",
     "depth_hint": "需包含FIM的三种模式对比，仓库级拓扑排序的具体算法",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:36"
   },
   {
     "id": 288,
@@ -3741,7 +4028,8 @@
     ],
     "brief": "核心要点：DeepSeek-Math从Common Crawl中提取120B高质量数学语料，使用fastText分类器筛选。RL阶段采用GRPO在MATH和GSM8K上训练，引入过程奖励和结果奖励的混合信号。7B模型在MATH上达51.7%（超越GPT-4早期），验证了数据质量>数据规模的假设",
     "depth_hint": "需描述数学语料筛选pipeline，展示过程奖励vs结果奖励的消融实验",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 289,
@@ -3754,7 +4042,8 @@
     ],
     "brief": "核心要点：MoE的Expert Parallelism需要All-to-All通信将token分发到对应专家所在的GPU。通信量为O(B×d×E/N)，成为MoE扩展瓶颈。优化手段包括：分层All-to-All（节点内NVLINK+节点间IB）、通信-计算重叠、token压缩传输（FP8量化）",
     "depth_hint": "需计算不同规模下的通信量，DeepSeek-V3的节点内外通信分层策略",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 290,
@@ -3767,7 +4056,8 @@
     ],
     "brief": "核心要点：V3预训练14.8T tokens，两阶段数据配方：第一阶段以通用文本为主，第二阶段提升数学、代码、STEM占比并引入长文本（最长128K）。数据质量控制包括去重（MinHash+精确匹配）、毒性过滤、质量分类器打分，开源数据占比约60%",
     "depth_hint": "需包含两阶段数据配比的具体比例，质量筛选pipeline的各阶段保留率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 291,
@@ -3780,7 +4070,8 @@
     ],
     "brief": "核心要点：推理RL的奖励设计分为结果奖励（ORM）和过程奖励（PRM）。ORM仅看最终答案正确性，实现简单但奖励稀疏；PRM对每步推理打分，信号密集但标注成本高。R1证明纯ORM配合GRPO即可涌现推理，而PRM+MCTS路线（如AlphaProof）在数学竞赛更强",
     "depth_hint": "需对比ORM/PRM的数学形式，讨论奖励hack现象及其缓解",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 292,
@@ -3793,7 +4084,8 @@
     ],
     "brief": "核心要点：MoE模型总参数量大但每token仅激活少数专家，推理时可将不活跃专家卸载到CPU/NVMe。关键是路由预测——利用前一层路由结果预测下一层激活专家并预取到GPU。DeepSeek-V3的671B参数在单节点8卡上可通过专家缓存+预取实现可用推理速度",
     "depth_hint": "需包含专家缓存命中率与推理速度的关系曲线，预取策略的延迟隐藏分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 293,
@@ -3806,7 +4098,8 @@
     ],
     "brief": "核心要点：R1（非Zero版本）使用数千条高质量长思维链数据做SFT冷启动，再接RL训练。冷启动数据包含详细推理步骤、自我反思和验证，格式为<think>...</think>标签包裹。冷启动解决了R1-Zero的可读性和语言混杂问题，同时保留了RL涌现推理的优势",
     "depth_hint": "需描述冷启动数据的具体格式规范，与R1-Zero在可读性指标上的对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 294,
@@ -3819,7 +4112,8 @@
     ],
     "brief": "核心要点：Switch Transformer（2021）首次将MoE扩展到Top-1路由，简化实现但牺牲表达力。V-MoE（2022）将MoE引入ViT并提出优先路由（priority routing），按token重要性分配专家容量。从GShard的Top-2到Switch的Top-1再到V-MoE的自适应，路由策略持续演进",
     "depth_hint": "需对比三者的路由公式和容量因子设计，展示训练稳定性差异",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 295,
@@ -3832,7 +4126,8 @@
     ],
     "brief": "核心要点：Mixtral采用标准Top-2路由+8个粗粒度专家（46.7B总参/12.9B激活），DeepSeekMoE采用Top-6路由+160细粒度专家+2共享专家。在相近激活参数下，DeepSeekMoE通过细粒度分割和共享专家获得更好的专家利用效率，但通信开销更大",
     "depth_hint": "需列出两者的完整架构参数对比表，在MMLU/GSM8K等基准的性能对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 296,
@@ -3845,7 +4140,8 @@
     ],
     "brief": "核心要点：推理模型通过增加测试时计算（更长思维链、多次采样）提升性能，形成test-time compute scaling law。R1在AIME上pass@1=79.8%，但maj@64可达90%+，揭示推理任务中测试时计算的scaling指数约0.3-0.5。与预训练scaling law形成互补的两条曲线",
     "depth_hint": "需画出test-time compute的scaling曲线，对比预训练FLOPs与推理FLOPs的边际收益",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 297,
@@ -3858,7 +4154,8 @@
     ],
     "brief": "核心要点：V3通过两阶段扩展上下文至128K：第一阶段用YaRN调整RoPE基频从10K到100K（在4K→32K数据上训练），第二阶段在32K→128K数据上继续训练。MLA中仅对解耦的RoPE维度（d_r=64）做频率调整，压缩维度不受影响，简化了长上下文适配",
     "depth_hint": "需包含YaRN频率调整的具体参数，Needle-in-a-Haystack在128K的准确率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 298,
@@ -3871,7 +4168,8 @@
     ],
     "brief": "核心要点：R1的完整训练流水线：SFT冷启动→RL推理训练→拒绝采样生成80万条数据→全场景SFT→全场景RL。拒绝采样从RL checkpoint生成多个回答，按正确性和格式筛选，将推理能力扩展到写作、翻译等非推理任务，实现通用能力与推理能力的统一",
     "depth_hint": "需详细描述四阶段pipeline，拒绝采样的筛选标准和通过率",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 299,
@@ -3884,7 +4182,8 @@
     ],
     "brief": "核心要点：Upcycling将已训练的Dense模型转换为MoE：复制FFN层N次作为N个专家的初始化，路由器随机初始化。相比从头训练MoE，Upcycling节省50-70%训练计算量。关键问题是初始路由崩塌（所有专家相同导致梯度相同），需加入噪声或差异化初始化打破对称性",
     "depth_hint": "需对比Upcycling与从头训练的loss收敛曲线，对称性打破的具体方法",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:37"
   },
   {
     "id": 300,
@@ -3897,7 +4196,8 @@
     ],
     "brief": "核心要点：OpenAI Codex 基于 GPT-3 12B 参数微调，使用 159GB GitHub 代码数据。分析其从自然语言到代码的微调策略、Docstring-to-Code 的训练目标设计，以及 pass@k 评估指标的统计方法（k=1 时 HumanEval 达 28.8%）",
     "depth_hint": "需包含 pass@k 的无偏估计公式推导、温度参数对采样多样性的影响实验数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 301,
@@ -3910,7 +4210,8 @@
     ],
     "brief": "核心要点：CodeLlama 基于 Llama 2 进行 500B token 代码续训，支持 100K 上下文。解析其长上下文微调（LCFT）阶段将 RoPE 基频从 10000 修改为 1000000 的外推策略，以及 Fill-in-the-Middle（FIM）训练中 PSM/SPM 两种格式的效果对比",
     "depth_hint": "需包含 RoPE 频率修改的数学推导、FIM 训练中 PSM 与 SPM 的 pass@1 对比数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 302,
@@ -3923,7 +4224,8 @@
     ],
     "brief": "核心要点：DeepSeek-Coder-V2 采用 236B 总参数/21B 激活参数的 MoE 架构，支持 338 种编程语言和 128K 上下文。分析其从 Dense 到 MoE 的代码模型演进、额外 6T token 的续训策略，以及在 HumanEval/MBPP 等基准上超越 GPT-4 Turbo 的关键因素",
     "depth_hint": "需包含与 CodeLlama-70B、GPT-4 Turbo 的多基准对比表、MoE 专家在代码任务中的激活模式分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 303,
@@ -3936,7 +4238,8 @@
     ],
     "brief": "核心要点：StarCoder 15.5B 参数，在 The Stack v1 的 80+ 编程语言上训练 1T token。分析其数据去重与 PII 过滤流程、Multi-Query Attention 的推理加速效果（约 1.5x），以及 Fill-in-the-Middle 训练对代码补全任务的增益",
     "depth_hint": "需包含 The Stack 数据处理流水线细节、MQA vs MHA 的推理吞吐对比数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 304,
@@ -3949,7 +4252,8 @@
     ],
     "brief": "核心要点：StarCoder2 提供 3B/7B/15B 三个规模，在 The Stack v2（3.3-4.3T token）上训练。分析其分阶段数据配方（代码→高质量代码→指令数据）、Grouped-Query Attention 的引入，以及 15B 模型在 HumanEval 上达到 46.3% 的训练细节",
     "depth_hint": "需包含三阶段训练的数据配比表、不同规模模型的 scaling 效果对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 305,
@@ -3962,7 +4266,8 @@
     ],
     "brief": "核心要点：CodeGemma 基于 Gemma 2B/7B 进行 500B token 代码续训，其中 80% 为代码、20% 为自然语言与数学数据。分析代码与数学数据联合训练对逻辑推理能力的协同增益，以及 FIM 训练中 token 级别填充 vs 行级别填充的效果差异",
     "depth_hint": "需包含数学数据占比对 GSM8K 得分的消融实验、FIM 粒度对比数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 306,
@@ -3975,7 +4280,8 @@
     ],
     "brief": "核心要点：WizardCoder 将 Evol-Instruct 方法适配到代码领域，通过增加约束、深化需求、并发需求、替换算法、增加推理步骤五种进化算子，从 20K 种子指令进化出 78K 代码指令。15B 模型在 HumanEval 达 57.3%，超越闭源模型",
     "depth_hint": "需包含五种进化算子的具体示例、进化轮次对指令质量的影响曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 307,
@@ -3988,7 +4294,8 @@
     ],
     "brief": "核心要点：SantaCoder 1.1B 参数在 Python/Java/JavaScript 上训练，系统研究了 Fill-in-the-Middle 训练。对比 Prefix-Suffix-Middle（PSM）与 Suffix-Prefix-Middle（SPM）两种格式，发现 SPM 在 single-line infilling 上更优。FIM rate 从 0% 到 100% 的消融实验显示 50% 为最优",
     "depth_hint": "需包含 PSM/SPM 的 token 排列公式、FIM rate 消融曲线及最优值分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 308,
@@ -4001,7 +4308,8 @@
     ],
     "brief": "核心要点：AlphaCode 在 Codeforces 竞赛中达到 top 54% 水平。核心策略：每题生成百万级代码样本，通过测试用例过滤、聚类去重将候选解压缩到 10 个提交。分析其 41B 参数 Encoder-Decoder 架构选择、GOLD 训练目标（离线强化学习）、以及基于执行结果的聚类方法",
     "depth_hint": "需包含 GOLD 损失函数公式、采样-过滤-聚类流水线的数量级变化数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 309,
@@ -4014,7 +4322,8 @@
     ],
     "brief": "核心要点：AlphaCode 2 基于 Gemini Pro 微调，在 Codeforces 达到 top 15% 水平。分析其两阶段策略：先用微调模型大规模采样生成代码，再用 Gemini 评分模型对候选解排序。评分模型的 token-level 似然评分 vs 解的正确性之间的对齐机制",
     "depth_hint": "需包含与 AlphaCode 1 的性能对比表、评分模型训练数据构造方法",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 310,
@@ -4027,7 +4336,8 @@
     ],
     "brief": "核心要点：CodeT 同时生成代码解和测试用例，通过交叉执行进行双重验证。对于每个代码解，统计其通过的测试用例数量进行排序，HumanEval pass@1 从 65.8% 提升至 85.2%。分析 Dual Execution Agreement 机制的理论基础及其与 self-consistency 的区别",
     "depth_hint": "需包含排序评分函数的形式化定义、不同采样数量下的性能增益曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 311,
@@ -4040,7 +4350,8 @@
     ],
     "brief": "核心要点：Qwen2.5-Coder 在 5.5T token 代码数据上训练，覆盖 92 种编程语言。分析其多阶段数据清洗流水线（文件级去重→仓库级去重→质量过滤→依赖排序）、代码与文本的最优混合比例实验（代码占比 70%），以及 32B 模型在 HumanEval+ 上达 73.2% 的关键因素",
     "depth_hint": "需包含数据清洗各阶段的过滤率统计、代码/文本混合比例消融实验数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 312,
@@ -4053,7 +4364,8 @@
     ],
     "brief": "核心要点：对比 RepoCoder、RepoFusion、CrossCodeEval 等仓库级代码补全方法。分析如何从跨文件依赖图中检索相关上下文、BM25 vs Dense Retrieval 在代码检索中的效果差异，以及 Repository-level FIM 训练如何提升跨文件补全准确率（相对提升 15-30%）",
     "depth_hint": "需包含跨文件依赖图构建算法、检索增强 vs 长上下文两种方案的对比实验",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:38"
   },
   {
     "id": 313,
@@ -4066,7 +4378,8 @@
     ],
     "brief": "核心要点：对比 Codex（GPT BPE）、CodeLlama（SentencePiece）、StarCoder（Hugging Face BPE）的分词策略差异。分析空白符编码（空格 vs 制表符压缩）、编程语言特殊 token 设计、词表大小对代码任务的影响（32K vs 49K vs 100K），以及多语言代码分词的公平性问题",
     "depth_hint": "需包含不同 Tokenizer 在 Python/C++/Rust 上的 token 效率对比表",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 314,
@@ -4079,7 +4392,8 @@
     ],
     "brief": "核心要点：BLOOM 176B 参数，在 ROOTS 语料库（46 种自然语言 + 13 种编程语言，1.6T token）上训练。分析其语言采样策略：高资源语言降采样（α=0.3 的温度采样），低资源语言上采样，以及这种平衡对各语言性能的非线性影响",
     "depth_hint": "需包含温度采样公式 p_i^(1/α)/Σp_j^(1/α)、不同 α 值下各语言困惑度变化",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 315,
@@ -4092,7 +4406,8 @@
     ],
     "brief": "核心要点：mGPT 1.3B 在 60 种语言上训练，发现 few-shot 跨语言迁移的涌现现象：模型未经对齐训练即可将英语 few-shot 示例的推理模式迁移到低资源语言。分析共享子词重叠率、语系距离与迁移效果的相关性，以及「意外跨语言泛化」的成因假说",
     "depth_hint": "需包含跨语言迁移矩阵（源语言→目标语言准确率）、子词重叠率与迁移效果的回归分析",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 316,
@@ -4105,7 +4420,8 @@
     ],
     "brief": "核心要点：Aya 模型覆盖 101 种语言，使用人工标注的 Aya Dataset（204K 条跨语言指令）微调。分析其数据收集的社区驱动模式、模板化翻译 vs 原生标注的质量差异，以及在低资源语言上相对 mT5/BLOOMZ 最高 25% 的性能提升",
     "depth_hint": "需包含各语言数据量分布图、翻译数据 vs 原生数据的人工评估对比",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 317,
@@ -4118,7 +4434,8 @@
     ],
     "brief": "核心要点：Meta NLLB-200 支持 200 种语言互译，使用 54.5B 参数 MoE 架构。分析其 Conditional Computation（语言路由的 MoE）设计、LASER3 跨语言嵌入用于平行语料挖掘、以及针对极低资源语言（<1M 句对）的回译数据增强策略",
     "depth_hint": "需包含 MoE 路由的语言聚类可视化、回译增强对低资源语言 BLEU 的提升数据",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 318,
@@ -4131,7 +4448,8 @@
     ],
     "brief": "核心要点：多语言模型的 BPE/SentencePiece 词表在不同语言间存在严重不公平：同义句在中文需要的 token 数量是英文的 1.5-3 倍。分析 XLM-R、mT5、BLOOM 的词表分配策略差异，以及 token 效率不均衡对模型性能和推理成本的影响",
     "depth_hint": "需包含多语言 fertility 指标定义及对比表、词表大小与公平性的 trade-off 曲线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 319,
@@ -4144,7 +4462,8 @@
     ],
     "brief": "核心要点：GLM-4 在中英双语场景下实现接近 GPT-4 的性能。分析其预训练数据中中英比例的动态调整策略、中英文 SFT 数据的交叉对齐方法、以及如何在 RLHF 阶段保持双语能力不退化的正则化技巧",
     "depth_hint": "需包含中英基准（MMLU/C-Eval）的交叉对比表、双语 RLHF 的奖励模型设计",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 320,
@@ -4157,7 +4476,8 @@
     ],
     "brief": "核心要点：Google Minerva 基于 PaLM 540B 在 38.5B token 数学数据（arXiv + 网页数学内容）上续训。分析其 LaTeX 公式归一化处理、数学特有 token 的引入，以及在 MATH 基准上达到 50.3% 的多数投票（maj@k）策略",
     "depth_hint": "需包含 maj@k 评估公式、不同 k 值下准确率变化曲线、数学数据预处理流水线",
-    "status": "pending"
+    "status": "pending",
+    "done_at": "2026-03-03T00:49:39"
   },
   {
     "id": 321,
