@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# auto_post.sh — 按队列顺序逐篇生成博文并推送
+# auto_post.sh — 每次随机取 10 篇，生成后逐篇推送
 #
 # 用法：
-#   bash scripts/auto_post.sh            # 运行直到队列清空
-#   bash scripts/auto_post.sh --dry-run  # 预览下一篇，不实际生成
-#
-# 触发速率限制时自动等待 4 小时后继续。
+#   bash scripts/auto_post.sh            # 随机取 10 篇生成并推送
+#   bash scripts/auto_post.sh --dry-run  # 预览将生成的 10 篇，不实际生成
 
 set -euo pipefail
 
@@ -16,7 +14,7 @@ QUEUE_FILE="$SCRIPTS_DIR/topic_queue.json"
 POSTS_JSON="$POSTS_DIR/posts.json"
 LOGS_DIR="$SCRIPTS_DIR/logs"
 CLAUDE_BIN="/opt/homebrew/bin/claude"
-RATE_LIMIT_WAIT=14400  # 4 小时（秒）
+BATCH_SIZE=10
 
 mkdir -p "$LOGS_DIR"
 LOG_FILE="$LOGS_DIR/auto_post_$(date +%Y%m%d_%H%M%S).log"
@@ -31,48 +29,68 @@ DRY_RUN=false
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
 # ── 系统提示 ───────────────────────────────────────────────────────────────────
-SYSTEM_PROMPT='你是一位专注于 AI / 大模型技术的技术博客作者。
+SYSTEM_PROMPT='你是一位专注于 AI / 大模型技术的顶级技术博客作者，文章面向有扎实工程背景的读者。
 
 【目标读者】
-有基础编程经验（会写 Python），但刚开始接触 AI/ML 的开发者。
-目标：让初学者真正看懂，同时让有经验的读者也能学到深度内容。做到"入门友好，深度不妥协"。
+熟悉 Python 与深度学习基础，希望深入理解 AI/ML 系统内部机制的工程师或研究者。
+目标：技术准确、推导严密、工程细节充分。做到"原理透彻，工程可落地"。
 
 【写作规范】
 
-1. 开篇先用 1-2 句话建立直觉：说清楚"这是什么、解决什么问题"，可以用类比辅助，
-   但类比之后必须立刻给出精确定义，不能停留在比喻层面。
-   例：KV Cache 是推理时的备忘录——避免重复计算已经处理过的 token。
-       数学上，它缓存的是每层 Attention 的 K、V 矩阵：K ∈ ℝ^{t×d_k}，V ∈ ℝ^{t×d_v}。
+1. 开篇直接给出精确定义与核心问题，1-2 句建立直觉（类比可用，但必须紧接精确表述）。
+   例：KV Cache 以空间换时间——避免自回归解码中重复计算历史 token 的注意力。
+       数学上，第 l 层缓存 K^l ∈ ℝ^{t×d_k}，V^l ∈ ℝ^{t×d_v}，解码第 t+1 步时直接拼接。
 
-2. 推进顺序：直觉 → 精确定义 → 数学公式 → 代码示例 → 工程细节。
-   每一步承接上一步，读者能跟上推进节奏。
+2. 推进顺序：动机与问题 → 精确定义 → 完整数学推导 → 代码实现 → 工程细节与 trade-off。
+   每节有实质内容，不写过渡性废话。
 
-3. 数学公式必须解释每个符号：含义、维度、取值范围。
-   不写"其中各参数含义如上"之类的省略。
+3. 数学推导要完整：写出每步变换，标注每个符号的含义、维度与取值范围。
+   公式后紧跟直觉解释——"这意味着……"。
 
-4. 代码示例用 Python，注释说明关键步骤，代码应当可以直接运行或稍加修改可运行。
+4. 代码用 Python，要求：可运行（或极小修改可运行）、关键行有注释、展示核心逻辑而非调包。
+   复杂实现可分段讲解，先写核心片段再给完整版。
 
-5. 每个 ## 大节之间用 --- 分隔。单段落不超过 5 行。
+5. 每个 ## 大节之间用 --- 分隔。段落不超过 5 行。表格优先替代冗长列举。
 
-6. 禁止：感叹号、"非常重要/令人惊讶"等夸张词、空洞过渡句（"接下来我们看看……"）、
-   无内容的总结段（"本文介绍了……希望对你有帮助"）。
+6. 禁止：感叹号、夸张形容词、空洞过渡句、无内容总结段。
+   不写"接下来我们看看"、"本文介绍了……希望对你有帮助"之类。
 
-7. 指出局限性和工程注意事项（坑点、性能 trade-off、适用范围）。
+7. 必须覆盖：局限性、工程坑点、性能 trade-off、适用边界。
+   不回避复杂性，不为了"易懂"牺牲准确性。
 
-8. 文章末尾附参考资料（arXiv 链接或官方文档），不少于 2 条。
+8. 参考资料不少于 3 条（arXiv / 官方文档 / 权威博客），附在文末。
 
 【格式要求】
-- 从 ## 开始写正文，不写 # 标题（系统会自动渲染标题）
+- 从 ## 开始写正文，不写 # 标题
 - 数学公式：行内 $...$，块级 $$...$$
 - 代码块注明语言：```python
-- 目标长度：2000-4000 字，内容为主，不凑字数
+- 目标长度：3000-6000 字，以内容深度为准，不凑字数
 
 【输出格式】
 正文结束后另起一行输出（不放在代码块内）：
-{"summary": "一两句摘要，不超过60字，说明文章核心内容"}'
+{"summary": "一两句摘要，不超过80字，说明文章核心内容与技术要点"}'
+
+# ── 随机取 N 个 pending 主题的 slug 列表 ───────────────────────────────────────
+pick_random_slugs() {
+    python3 - "$QUEUE_FILE" "$BATCH_SIZE" << 'PYEOF'
+import json, random, sys
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+pending = [d['slug'] for d in data if d.get('status') == 'pending']
+random.shuffle(pending)
+for s in pending[:int(sys.argv[2])]:
+    print(s)
+PYEOF
+}
+
+# ── 根据 slug 获取完整 topic JSON ──────────────────────────────────────────────
+get_topic() {
+    local slug="$1"
+    jq --arg s "$slug" 'first(.[] | select(.slug == $s))' "$QUEUE_FILE"
+}
 
 # ── 生成文章 ──────────────────────────────────────────────────────────────────
-# 返回值：0=成功，1=失败，2=速率限制
+# 返回值：0=成功，非0=失败
 generate_article() {
     local title="$1" brief="$2" depth_hint="$3"
     local tmp_out tmp_err
@@ -98,13 +116,6 @@ generate_article() {
     local stderr_content
     stderr_content=$(cat "$tmp_err")
     rm -f "$tmp_err"
-
-    # 检测速率限制
-    if [[ "$exit_code" -ne 0 ]] && \
-       echo "$stderr_content" | grep -qiE "rate.limit|too many|429|quota|overload|exceeded|please wait"; then
-        rm -f "$tmp_out"
-        return 2
-    fi
 
     if [[ "$exit_code" -ne 0 ]]; then
         err "  claude 退出码 ${exit_code}: $(echo "$stderr_content" | head -3)"
@@ -167,47 +178,48 @@ git_commit_push() {
     log "  ✓ 已推送：${slug}"
 }
 
-# ── 更新队列状态 ───────────────────────────────────────────────────────────────
+# ── 更新队列状态（无时间戳）──────────────────────────────────────────────────
 mark_queue() {
     local slug="$1" status="$2"
-    jq --arg slug "$slug" --arg s "$status" --arg ts "$(date -u +%Y-%m-%dT%H:%M:%S)" \
-        'map(if .slug == $slug then .status = $s | .done_at = $ts else . end)' \
+    jq --arg slug "$slug" --arg s "$status" \
+        'map(if .slug == $slug then .status = $s else . end)' \
         "$QUEUE_FILE" > /tmp/queue_tmp_$$ && mv /tmp/queue_tmp_$$ "$QUEUE_FILE"
 }
 
 # ── Dry-run ───────────────────────────────────────────────────────────────────
 if $DRY_RUN; then
-    next=$(jq 'first(.[] | select(.status == "pending")) // empty' "$QUEUE_FILE")
-    if [[ -z "$next" ]]; then
-        echo "队列为空，所有主题已完成。"
-    else
-        echo "下一篇将生成："
-        echo "$next" | jq -r '"  标题：\(.title)\n  slug： \(.slug)\n  分类：\(.tags[0])\n  brief：\(.brief[:100])..."'
-    fi
+    echo "本次将随机生成以下 ${BATCH_SIZE} 篇："
+    echo ""
+    mapfile -t slugs < <(pick_random_slugs)
+    for slug in "${slugs[@]}"; do
+        topic=$(get_topic "$slug")
+        echo "$topic" | jq -r '"  [\(.tags[0])] \(.title)\n  slug: \(.slug)\n"'
+    done
     pending_count=$(jq '[.[] | select(.status == "pending")] | length' "$QUEUE_FILE")
     done_count=$(jq '[.[] | select(.status == "done")] | length' "$QUEUE_FILE")
-    echo ""
     echo "  待生成：${pending_count}  已完成：${done_count}"
     exit 0
 fi
 
-# ── 主循环 ────────────────────────────────────────────────────────────────────
-log "=== auto_post.sh 启动，逐篇生成直到队列清空 ==="
+# ── 主逻辑 ────────────────────────────────────────────────────────────────────
+log "=== auto_post.sh 启动，随机取 ${BATCH_SIZE} 篇生成 ==="
 
-while true; do
-    # 取第一个 pending 主题
-    topic=$(jq 'first(.[] | select(.status == "pending")) // empty' "$QUEUE_FILE")
+# 取本批次 slug 列表
+mapfile -t slugs < <(pick_random_slugs)
 
-    if [[ -z "$topic" ]]; then
-        log "所有主题已生成完毕！"
-        break
-    fi
+if [[ "${#slugs[@]}" -eq 0 ]]; then
+    log "队列为空，所有主题已完成。"
+    exit 0
+fi
 
-    slug=$(      jq -r '.slug'                                                  <<< "$topic")
-    title=$(     jq -r '.title'                                                 <<< "$topic")
-    brief=$(     jq -r '.brief'                                                 <<< "$topic")
-    depth_hint=$(jq -r '.depth_hint // "从基础概念到工程实践，包含数学推导和可运行代码"' <<< "$topic")
-    tags_json=$( jq    '.tags'                                                  <<< "$topic")
+log "本批次共 ${#slugs[@]} 篇：$(IFS=', '; echo "${slugs[*]}")"
+
+for slug in "${slugs[@]}"; do
+    topic=$(get_topic "$slug")
+    title=$(     jq -r '.title'                                                  <<< "$topic")
+    brief=$(     jq -r '.brief'                                                  <<< "$topic")
+    depth_hint=$(jq -r '.depth_hint // "从基础原理到工程实现，包含完整数学推导和可运行代码"' <<< "$topic")
+    tags_json=$( jq    '.tags'                                                   <<< "$topic")
 
     log "──────────────────────────────────────────"
     log "生成中：${title}"
@@ -218,8 +230,7 @@ while true; do
     output=$(generate_article "$title" "$brief" "$depth_hint") || rc=$?
 
     if [[ "$rc" -ne 0 ]]; then
-        err "生成失败（退出码 ${rc}），标记回 pending 并停止：${title}"
-        mark_queue "$slug" "pending"
+        err "生成失败，立即停止。已完成主题已标记为 done。"
         exit 1
     fi
 
@@ -227,8 +238,7 @@ while true; do
     mark_queue "$slug" "done"
     git_commit_push "$slug"
 
-    # 避免请求过于密集
     sleep 3
 done
 
-log "=== 全部完成 ==="
+log "=== 本批次 ${#slugs[@]} 篇全部完成 ==="

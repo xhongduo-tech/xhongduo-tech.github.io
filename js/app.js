@@ -72,7 +72,7 @@ function syncHljsTheme(theme) {
    首页：文章列表
    =================================================== */
 async function initIndexPage() {
-  const CATEGORY_ORDER = ['底层原理', '模型解析', '智能体', '工程实践'];
+  const CATEGORY_ORDER = ['理论基础', '前沿追踪', '模型训练', '模型微调', '模型部署', '智能体', '系统基础', '工程实践'];
 
   let posts = [];
   try {
