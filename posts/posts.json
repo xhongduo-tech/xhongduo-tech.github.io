@@ -1,5 +1,17 @@
 [
   {
+    "title": "感知机到多层感知机：深度学习的起点",
+    "slug": "perceptron-to-mlp",
+    "date": "2026-03-04",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "神经网络",
+      "MLP"
+    ],
+    "summary": "感知机到多层感知机：深度学习的起点"
+  },
+  {
     "title": "Softmax 函数：多分类输出的概率化",
     "slug": "softmax-function",
     "date": "2026-03-04",
