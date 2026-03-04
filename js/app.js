@@ -124,8 +124,8 @@ async function initIndexPage() {
     renderList();
   });
 
-  // 收集所有标签，渲染过滤器
-  const allTags = [...new Set(posts.flatMap(p => p.tags || []))].sort();
+  // 每篇文章取 tags[1]（第一个非分类次级 tag），去重后渲染过滤器
+  const allTags = [...new Set(posts.map(p => (p.tags || [])[1]).filter(Boolean))].sort();
   const tagFilter = document.getElementById('tag-filter');
   allTags.forEach(tag => {
     const btn = document.createElement('button');
@@ -148,16 +148,19 @@ async function initIndexPage() {
   });
 
   function postCardHtml(p) {
-    const keyTag  = (p.tags || [])[0] || '';
-    const catCls  = CATEGORY_CLASS[keyTag] || '';
+    const tags = p.tags || [];
+    const tagsHtml = tags.map((t, i) => {
+      const catCls = i === 0 ? (CATEGORY_CLASS[t] || '') : '';
+      return `<span class="tag ${catCls}">${escapeHtml(t)}</span>`;
+    }).join('');
     return `
       <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
         <div class="post-card-meta">
           <span class="post-date">${p.date}</span>
+          <div class="post-tags">${tagsHtml}</div>
         </div>
         <div class="post-card-title">${escapeHtml(p.title)}</div>
         ${p.summary ? `<div class="post-card-summary">${escapeHtml(p.summary)}</div>` : ''}
-        ${keyTag ? `<span class="tag-primary ${catCls}">${escapeHtml(keyTag)}</span>` : ''}
       </a>`;
   }
 

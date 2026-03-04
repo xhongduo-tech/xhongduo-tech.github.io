@@ -611,37 +611,25 @@ main.container {
 }
 [data-theme="light"] .cat-tab.active { color: #ffffff; }
 
-/* ===== 分类颜色（用于文章卡片主标签）===== */
-.tag-primary {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 2px 7px;
-  border-radius: var(--radius);
-  background: var(--cat-bg, var(--tag-bg));
-  color: var(--cat-color, var(--tag-color));
-  border: 1px solid color-mix(in srgb, var(--cat-color, var(--tag-color)) 30%, transparent);
-  letter-spacing: 0.04em;
-  display: inline-block;
-  margin-top: 9px;
-}
+/* ===== 分类颜色（文章卡片的分类 tag 着色）===== */
+/* 覆盖 .tag 使用的 CSS 变量，无需额外样式 */
+.tag.cat-theory      { --tag-bg: #1e1035; --tag-color: #a78bfa; }
+.tag.cat-frontier    { --tag-bg: #271e05; --tag-color: #fbbf24; }
+.tag.cat-training    { --tag-bg: #2a1505; --tag-color: #fb923c; }
+.tag.cat-finetune    { --tag-bg: #2a0a1e; --tag-color: #f472b6; }
+.tag.cat-deploy      { --tag-bg: #052a1e; --tag-color: #34d399; }
+.tag.cat-agent       { --tag-bg: #091e38; --tag-color: #60a5fa; }
+.tag.cat-systems     { --tag-bg: #2a0909; --tag-color: #f87171; }
+.tag.cat-engineering { --tag-bg: #162008; --tag-color: #a3e635; }
 
-.cat-theory      { --cat-bg: #1e1035; --cat-color: #a78bfa; }
-.cat-frontier    { --cat-bg: #271e05; --cat-color: #fbbf24; }
-.cat-training    { --cat-bg: #2a1505; --cat-color: #fb923c; }
-.cat-finetune    { --cat-bg: #2a0a1e; --cat-color: #f472b6; }
-.cat-deploy      { --cat-bg: #052a1e; --cat-color: #34d399; }
-.cat-agent       { --cat-bg: #091e38; --cat-color: #60a5fa; }
-.cat-systems     { --cat-bg: #2a0909; --cat-color: #f87171; }
-.cat-engineering { --cat-bg: #162008; --cat-color: #a3e635; }
-
-[data-theme="light"] .cat-theory      { --cat-bg: #ede9fe; --cat-color: #7c3aed; }
-[data-theme="light"] .cat-frontier    { --cat-bg: #fef3c7; --cat-color: #b45309; }
-[data-theme="light"] .cat-training    { --cat-bg: #ffedd5; --cat-color: #c2410c; }
-[data-theme="light"] .cat-finetune    { --cat-bg: #fce7f3; --cat-color: #9d174d; }
-[data-theme="light"] .cat-deploy      { --cat-bg: #d1fae5; --cat-color: #065f46; }
-[data-theme="light"] .cat-agent       { --cat-bg: #dbeafe; --cat-color: #1d4ed8; }
-[data-theme="light"] .cat-systems     { --cat-bg: #fee2e2; --cat-color: #991b1b; }
-[data-theme="light"] .cat-engineering { --cat-bg: #ecfccb; --cat-color: #4d7c0f; }
+[data-theme="light"] .tag.cat-theory      { --tag-bg: #ede9fe; --tag-color: #7c3aed; }
+[data-theme="light"] .tag.cat-frontier    { --tag-bg: #fef3c7; --tag-color: #b45309; }
+[data-theme="light"] .tag.cat-training    { --tag-bg: #ffedd5; --tag-color: #c2410c; }
+[data-theme="light"] .tag.cat-finetune    { --tag-bg: #fce7f3; --tag-color: #9d174d; }
+[data-theme="light"] .tag.cat-deploy      { --tag-bg: #d1fae5; --tag-color: #065f46; }
+[data-theme="light"] .tag.cat-agent       { --tag-bg: #dbeafe; --tag-color: #1d4ed8; }
+[data-theme="light"] .tag.cat-systems     { --tag-bg: #fee2e2; --tag-color: #991b1b; }
+[data-theme="light"] .tag.cat-engineering { --tag-bg: #ecfccb; --tag-color: #4d7c0f; }
 
 /* ===== 分组视图 ===== */
 .post-section + .post-section { margin-top: 2.25rem; }
