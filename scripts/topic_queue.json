@@ -10112,5 +10112,5225 @@
     "depth_hint": "分析 Redis 数据结构的源码实现",
     "status": "pending",
     "id": 786
+  },
+  {
+    "id": 787,
+    "title": "向量空间与线性无关",
+    "slug": "math-la-vector-space-linear-independence",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "线性代数理论中向量空间的定义、基、维数。线性无关的判定与证明。子空间的交与和。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 788,
+    "title": "线性变换与矩阵表示",
+    "slug": "math-la-linear-transformation-matrix",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "线性变换的定义，不同基下的矩阵表示。相似矩阵与特征值。变换的核与像。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 789,
+    "title": "特征值与特征向量",
+    "slug": "math-la-eigenvalue-eigenvector",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "特征方程的求解，特征值的几何意义。对角化条件。对称矩阵的正交对角化。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 790,
+    "title": "奇异值分解SVD",
+    "slug": "math-la-singular-value-decomposition",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "SVD的几何解释。低秩近似与数据压缩。伪逆与最小二乘。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 791,
+    "title": "矩阵的QR分解",
+    "slug": "math-la-matrix-qr-decomposition",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "Gram-Schmidt正交化。Householder变换。QR分解求解线性方程组。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 792,
+    "title": "Jordan标准型",
+    "slug": "math-la-jordan-canonical-form",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "Jordan块的结构。不可对角化矩阵的处理。最小多项式与特征多项式。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 793,
+    "title": "正定矩阵与半正定矩阵",
+    "slug": "math-la-positive-definite-matrix",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "正定性的判定。二次型优化。协方差矩阵的性质。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 794,
+    "title": "矩阵范数",
+    "slug": "math-la-matrix-norms",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "算子范数、Frobenius范数、谱范数。范数的等价性与应用。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 795,
+    "title": "张量与张量分解",
+    "slug": "math-la-tensor-decomposition",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "高阶张量的定义。CP分解与Tucker分解。在深度学习中的应用。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 796,
+    "title": "稀疏矩阵与压缩存储",
+    "slug": "math-la-sparse-matrix-storage",
+    "tags": [
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "COO、CSR、CSC格式。稀疏矩阵运算优化。在大模型中的应用。",
+    "depth_hint": "推导证明+数值示例+Python实现",
+    "status": "pending"
+  },
+  {
+    "id": 797,
+    "title": "概率公理与条件概率",
+    "slug": "math-prob-probability-axioms-conditional",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "Kolmogorov公理体系。条件概率与乘法公式。全概率公式与贝叶斯公式。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 798,
+    "title": "随机变量的变换",
+    "slug": "math-prob-random-variable-transformation",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "单变量变换的PDF推导。多变量变换与Jacobian。采样变换技术。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 799,
+    "title": "多维随机变量与协方差",
+    "slug": "math-prob-multivariate-random-variables",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "联合分布与边缘分布。协方差矩阵。相关系数与独立性。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 800,
+    "title": "大数定律",
+    "slug": "math-prob-law-of-large-numbers",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "弱大数定律与强大数定律。收敛类型：依概率收敛vs几乎必然收敛。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 801,
+    "title": "中心极限定理",
+    "slug": "math-prob-central-limit-theorem",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "CLT的多种形式。Lindeberg条件。Berry-Esseen界限。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 802,
+    "title": "蒙特卡洛方法",
+    "slug": "math-prob-monte-carlo-methods",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "MC积分估计。重要性采样。方差缩减技术。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 803,
+    "title": "马尔可夫不等式与切比雪夫不等式",
+    "slug": "math-prob-markov-chebyshev-inequalities",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "概率界的推导与应用。集中不等式在机器学习中的使用。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 804,
+    "title": "指数族分布",
+    "slug": "math-prob-exponential-family-distributions",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "指数族的标准形式。自然参数与充分统计量。最大熵推导。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 805,
+    "title": "共轭先验",
+    "slug": "math-prob-conjugate-priors",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "共轭分布的定义与意义。Beta-Binomial、Gamma-Poisson等常见共轭对。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 806,
+    "title": "变分推断的数学基础",
+    "slug": "math-prob-variational-inference-math",
+    "tags": [
+      "数学基础",
+      "概率论"
+    ],
+    "brief": "KL散度的性质。ELBO的推导。平均场近似。",
+    "depth_hint": "数学推导+直观解释+代码验证",
+    "status": "pending"
+  },
+  {
+    "id": 807,
+    "title": "凸集与凸函数",
+    "slug": "math-opt-convex-set-function",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "凸集的定义与性质。凸函数的判定条件。凸优化的重要性。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 808,
+    "title": "拉格朗日对偶",
+    "slug": "math-opt-lagrangian-duality",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "对偶问题的构造。强对偶性与KKT条件。对偶间隙。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 809,
+    "title": "梯度下降的收敛性分析",
+    "slug": "math-opt-gradient-descent-convergence",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "Lipschitz连续梯度下的收敛率。步长选择策略。非凸情况的分析。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 810,
+    "title": "随机梯度下降的收敛性",
+    "slug": "math-opt-sgd-convergence-analysis",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "SGD的收敛率分析。方差的影响。小批量大小的选择。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 811,
+    "title": "动量方法的加速机制",
+    "slug": "math-opt-momentum-acceleration",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "Polyak动量与Nesterov加速。加速收敛率的理论保证。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 812,
+    "title": "牛顿法与拟牛顿法",
+    "slug": "math-opt-newton-quasi-newton",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "牛顿法的二阶收敛。BFGS与L-BFGS的原理。计算复杂度分析。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 813,
+    "title": "近端梯度法",
+    "slug": "math-opt-proximal-gradient-method",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "近端算子的定义。L1正则化的求解。FISTA加速。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 814,
+    "title": "ADMM算法",
+    "slug": "math-opt-admm-algorithm",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "交替方向乘子法。分解协调思想。分布式优化应用。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 815,
+    "title": "次梯度与次梯度法",
+    "slug": "math-opt-subgradient-methods",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "不可微函数的优化。次梯度的定义。收敛性分析。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 816,
+    "title": "自然梯度与Fisher信息矩阵",
+    "slug": "math-opt-natural-gradient-fisher",
+    "tags": [
+      "数学基础",
+      "优化理论"
+    ],
+    "brief": "参数空间的黎曼几何。自然梯度的定义。在策略优化中的应用。",
+    "depth_hint": "理论推导+算法实现+收敛性证明",
+    "status": "pending"
+  },
+  {
+    "id": 817,
+    "title": "香农熵的数学性质",
+    "slug": "math-info-shannon-entropy-properties",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "熵的链式法则。联合熵与条件熵。互信息的定义与性质。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 818,
+    "title": "KL散度的信息论解释",
+    "slug": "math-info-kl-divergence-information",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "KL散度的非对称性。与前向/反向KL的关系。在VAE中的应用。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 819,
+    "title": "互信息与特征选择",
+    "slug": "math-info-mutual-information-feature-selection",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "互信息最大化原理。特征选择的MI准则。神经网络中的互信息估计。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 820,
+    "title": "率失真理论",
+    "slug": "math-info-rate-distortion-theory",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "率失真函数的定义。有损压缩的理论极限。在模型压缩中的应用。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 821,
+    "title": "信息瓶颈理论",
+    "slug": "math-info-information-bottleneck",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "IB原理的数学表述。深度学习中的信息瓶颈解释。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 822,
+    "title": "信道容量与编码定理",
+    "slug": "math-info-channel-capacity-coding",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "信道容量的计算。香农编码定理。在可靠通信中的意义。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 823,
+    "title": "交叉熵与困惑度",
+    "slug": "math-info-cross-entropy-perplexity",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "困惑度的信息论含义。语言模型评估中的使用。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 824,
+    "title": "数据处理的KL视角",
+    "slug": "math-info-data-processing-kl-view",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "数据处理的KL散度解释。随机过程的信息单调性。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 825,
+    "title": "信息论与泛化误差",
+    "slug": "math-info-information-theory-generalization",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "信息论泛化界。互信息与过拟合的关系。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 826,
+    "title": "信息论在对比学习中的应用",
+    "slug": "math-info-info-theory-contrastive-learning",
+    "tags": [
+      "数学基础",
+      "信息论"
+    ],
+    "brief": "InfoNCE与互信息估计。对比学习的信息论分析。",
+    "depth_hint": "理论推导+直观解释+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 827,
+    "title": "多元函数的极限与连续",
+    "slug": "math-calc-multivariate-limits-continuity",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "多元极限的定义与计算。连续性的判定。路径依赖性。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 828,
+    "title": "偏导数与全微分",
+    "slug": "math-calc-partial-derivative-total-differential",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "偏导数的几何意义。可微性条件。梯度与方向导数。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 829,
+    "title": "雅可比矩阵与隐函数定理",
+    "slug": "math-calc-jacobian-implicit-function",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "雅可比矩阵的应用。隐函数定理的陈述与证明思路。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 830,
+    "title": "泰勒展开与误差估计",
+    "slug": "math-calc-taylor-expansion-error",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "多元泰勒公式。余项估计。在优化中的应用。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 831,
+    "title": "重积分与变量代换",
+    "slug": "math-calc-multiple-integrals-change-variables",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "重积分的几何意义。Jacobian在积分变换中的作用。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 832,
+    "title": "曲线积分与曲面积分",
+    "slug": "math-calc-line-surface-integrals",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "第一类与第二类积分。Green、Stokes、Gauss公式。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 833,
+    "title": "常微分方程基础",
+    "slug": "math-calc-ode-basics",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "一阶ODE的求解。存在唯一性定理。数值解法。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 834,
+    "title": "傅里叶级数与变换",
+    "slug": "math-calc-fourier-series-transform",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "傅里叶级数展开。傅里叶变换的性质。在信号处理中的应用。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 835,
+    "title": "拉普拉斯变换",
+    "slug": "math-calc-laplace-transform",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "拉普拉斯变换的定义与性质。求解ODE的应用。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 836,
+    "title": "复变函数与留数定理",
+    "slug": "math-calc-complex-analysis-residue",
+    "tags": [
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "解析函数。柯西积分定理。留数计算。",
+    "depth_hint": "数学推导+几何直观+应用实例",
+    "status": "pending"
+  },
+  {
+    "id": 837,
+    "title": "Transformer的完整前向传播",
+    "slug": "arch-transformer-transformer-forward-pass-complete",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "从输入到输出的完整数据流。每个模块的维度变化。批处理与掩码。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 838,
+    "title": "Pre-Norm vs Post-Norm的梯度流分析",
+    "slug": "arch-transformer-prenorm-postnorm-gradient-flow",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "两种归一化顺序的梯度传播差异。训练稳定性的对比。深层网络的Pre-Norm优势。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 839,
+    "title": "Transformer的参数量计算",
+    "slug": "arch-transformer-transformer-parameter-count",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "Embedding层、注意力层、FFN层的参数量。总参数量的精确公式。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 840,
+    "title": "Transformer的FLOP计算",
+    "slug": "arch-transformer-transformer-flop-calculation",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "前向传播的计算量分解。注意力复杂度O(n²d)的来源。KV Cache对计算的影响。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 841,
+    "title": "注意力机制的尺度缩放",
+    "slug": "arch-transformer-attention-scale-factor",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "除以√d_k的原因。softmax梯度的数值稳定性。不同缩放策略的比较。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 842,
+    "title": "因果掩码的实现与优化",
+    "slug": "arch-transformer-causal-mask-implementation",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "上三角掩码的实现。Flash Attention中的掩码处理。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 843,
+    "title": "Embedding层的实现细节",
+    "slug": "arch-transformer-embedding-layer-details",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "Token Embedding与Position Embedding。权重共享策略。梯度稀疏性。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 844,
+    "title": "Transformer中的LayerNorm",
+    "slug": "arch-transformer-transformer-layernorm",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "LayerNorm的计算公式。RMSNorm的简化与优势。训练与推理的差异。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 845,
+    "title": "Transformer的Dropout策略",
+    "slug": "arch-transformer-transformer-dropout-strategies",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "Attention Dropout、Embedding Dropout、Residual Dropout。DropPath。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 846,
+    "title": "Transformer的残差连接设计",
+    "slug": "arch-transformer-transformer-residual-design",
+    "tags": [
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "残差连接的梯度传播。Pre-Norm与残差的关系。梯度流的可视化。",
+    "depth_hint": "架构图解+代码实现+数值验证",
+    "status": "pending"
+  },
+  {
+    "id": 847,
+    "title": "Multi-Query Attention (MQA)",
+    "slug": "arch-attention-multi-query-attention",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "MQA的KV头共享机制。参数量与KV Cache的节省。性能影响分析。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 848,
+    "title": "Grouped-Query Attention (GQA)",
+    "slug": "arch-attention-grouped-query-attention",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "GQA在MHA与MQA之间的平衡。分组策略的设计。LLaMA2的应用。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 849,
+    "title": "Sliding Window Attention",
+    "slug": "arch-attention-sliding-window-attention",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "滑动窗口的局部注意力。复杂度从O(n²)降到O(nw)。长序列建模。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 850,
+    "title": "Dilated Attention",
+    "slug": "arch-attention-dilated-attention",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "膨胀注意力的设计。多尺度上下文捕获。与卷积的联系。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 851,
+    "title": "Longformer的局部+全局注意力",
+    "slug": "arch-attention-longformer-local-global",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "局部窗口注意力与全局token的结合。长文档处理。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 852,
+    "title": "BigBird的块稀疏注意力",
+    "slug": "arch-attention-bigbird-block-sparse",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "随机、局部、全局注意力的组合。理论复杂度分析。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 853,
+    "title": "Linformer的低秩投影",
+    "slug": "arch-attention-linformer-low-rank-projection",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "键值投影到低维。线性复杂度的实现。精度损失分析。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 854,
+    "title": "Performer的随机特征方法",
+    "slug": "arch-attention-performer-random-features",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "核函数的随机特征近似。FAVOR+算法。无偏估计的证明。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 855,
+    "title": "Linear Attention的矩阵分解",
+    "slug": "arch-attention-linear-attention-matrix",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "softmax(QK^T)V = Q(K^TV)的分解。线性复杂度的条件。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 856,
+    "title": "Flash Attention 2的优化",
+    "slug": "arch-attention-flash-attention-2-optimization",
+    "tags": [
+      "模型架构",
+      "注意力机制"
+    ],
+    "brief": "相比v1的改进。并行化策略。不同GPU的适配。",
+    "depth_hint": "原理讲解+实现对比+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 857,
+    "title": "MoE的基础架构",
+    "slug": "arch-moe-moe-basic-architecture",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "专家网络与路由器的设计。稀疏激活的原理。计算效率分析。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 858,
+    "title": "Top-K路由策略",
+    "slug": "arch-moe-moe-topk-routing",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "Top-K专家选择的实现。负载均衡问题。辅助损失函数。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 859,
+    "title": "MoE的负载均衡",
+    "slug": "arch-moe-moe-load-balancing",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "专家负载不均的原因。辅助损失的设计。路由器温度调节。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 860,
+    "title": "Switch Transformer",
+    "slug": "arch-moe-switch-transformer",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "单专家路由的简化。参数效率。扩展到万亿参数。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 861,
+    "title": "Expert Choice Routing",
+    "slug": "arch-moe-expert-choice-routing",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "专家选择token的反向路由。完美的负载均衡。实现复杂度。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 862,
+    "title": "MoE的训练稳定性",
+    "slug": "arch-moe-moe-training-stability",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "梯度裁剪、专家初始化、路由器噪声。Router z-loss。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 863,
+    "title": "DeepSeek-MoE的架构创新",
+    "slug": "arch-moe-deepseek-moe-architecture",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "细粒度专家分割。共享专家隔离。2.4B激活的67B模型。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 864,
+    "title": "Mixtral 8x7B的架构分析",
+    "slug": "arch-moe-mixtral-8x7b-analysis",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "8专家2激活的设计。与稠密模型的对比。推理效率。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 865,
+    "title": "MoE的推理优化",
+    "slug": "arch-moe-moe-inference-optimization",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "专家的offloading。动态加载策略。批处理优化。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 866,
+    "title": "MoE的量化挑战",
+    "slug": "arch-moe-moe-quantization-challenges",
+    "tags": [
+      "模型架构",
+      "MoE"
+    ],
+    "brief": "专家权重的量化。路由器的精度敏感。稀疏激活与量化。",
+    "depth_hint": "架构分析+实现+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 867,
+    "title": "ALiBi位置编码",
+    "slug": "arch-pos-alibi-position-encoding",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "线性偏置注意力。外推能力分析。训练长度之外的推理。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 868,
+    "title": "相对位置编码",
+    "slug": "arch-pos-relative-position-encoding",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "相对位置偏差的学习。与绝对位置的对比。T5的实现。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 869,
+    "title": "旋转位置编码RoPE深入",
+    "slug": "arch-pos-rope-deep-dive",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "复数域的旋转操作。2D旋转的推广。NTK-aware scaling。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 870,
+    "title": "YaRN长度外推",
+    "slug": "arch-pos-yarn-length-extrapolation",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "YaRN的外推策略。温度缩放与NTK的结合。实验验证。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 871,
+    "title": "可学习位置编码的局限",
+    "slug": "arch-pos-learnable-pos-encoding-limits",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "训练长度的限制。外推能力的缺失。与固定编码的对比。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 872,
+    "title": "位置编码的消融实验",
+    "slug": "arch-pos-position-encoding-ablation",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "不同位置编码的对比实验。任务敏感性与位置编码选择。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 873,
+    "title": "长上下文的位置编码策略",
+    "slug": "arch-pos-long-context-pos-encoding",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "位置插值PI。NTK-aware。YaRN与LongRoPE。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 874,
+    "title": "2D位置编码",
+    "slug": "arch-pos-2d-position-encoding",
+    "tags": [
+      "模型架构",
+      "位置编码"
+    ],
+    "brief": "图像的位置编码。2D RoPE。多模态位置编码。",
+    "depth_hint": "数学推导+实现+外推测试",
+    "status": "pending"
+  },
+  {
+    "id": 875,
+    "title": "Encoder-only架构详解",
+    "slug": "arch-variant-encoder-only-architecture",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "BERT系列的设计。双向注意力的优势。判别任务的最佳选择。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 876,
+    "title": "Decoder-only架构详解",
+    "slug": "arch-variant-decoder-only-architecture",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "GPT系列的设计。因果掩码的作用。生成任务的标准架构。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 877,
+    "title": "Encoder-Decoder架构详解",
+    "slug": "arch-variant-encoder-decoder-architecture",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "T5的设计。编码器双向+解码器单向。翻译任务。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 878,
+    "title": "Prefix LM架构",
+    "slug": "arch-variant-prefix-lm-architecture",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "部分双向+部分因果。文档理解+生成的统一。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 879,
+    "title": "UL2的统一预训练目标",
+    "slug": "arch-variant-ul2-unified-pretraining",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "统一多种去噪目标。Span corruption与prefix LM的结合。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 880,
+    "title": "PaLM的架构选择",
+    "slug": "arch-variant-palm-architecture-choices",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "Parallel attention+FFN。SwiGLU激活。多查询注意力。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 881,
+    "title": "LLaMA的架构细节",
+    "slug": "arch-variant-llama-architecture-details",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "RMSNorm、SwiGLU、RoPE的组合。GQA的引入。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 882,
+    "title": "Mistral的架构设计",
+    "slug": "arch-variant-mistral-architecture-design",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "Sliding window attention。GQA。Rolling buffer cache。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 883,
+    "title": "Qwen的架构特点",
+    "slug": "arch-variant-qwen-architecture-features",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "动态NTK scaling。RoPE的变体。多模态扩展。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 884,
+    "title": "Gemma的架构分析",
+    "slug": "arch-variant-gemma-architecture-analysis",
+    "tags": [
+      "模型架构",
+      "架构变体"
+    ],
+    "brief": "与LLaMA的差异。GeGLU激活。多查询注意力。",
+    "depth_hint": "架构对比+设计决策+性能影响",
+    "status": "pending"
+  },
+  {
+    "id": 885,
+    "title": "BPE算法的完整实现",
+    "slug": "nlp-token-bpe-algorithm-implementation",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "字节对编码的合并规则。词表构建过程。Python实现。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 886,
+    "title": "WordPiece分词算法",
+    "slug": "nlp-token-wordpiece-tokenization",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "与BPE的差异。似然最大化目标。BERT的分词选择。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 887,
+    "title": "Unigram Language Model分词",
+    "slug": "nlp-token-unigram-lm-tokenization",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "概率化分词。Viterbi解码。SentencePiece的实现。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 888,
+    "title": "SentencePiece的设计理念",
+    "slug": "nlp-token-sentencepiece-design",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "语言无关的分词。Unicode处理。子词正则化。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 889,
+    "title": "字节级BPE",
+    "slug": "nlp-token-byte-level-bpe",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "以字节为基本单元。无OOV的设计。GPT-2的选择。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 890,
+    "title": "分词器的训练数据影响",
+    "slug": "nlp-token-tokenizer-training-data",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "词表大小与覆盖率。领域适应。多语言分词。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 891,
+    "title": "特殊Token的设计",
+    "slug": "nlp-token-special-tokens-design",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "[CLS]、[SEP]等的设计。功能Token的添加。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 892,
+    "title": "分词与模型性能的关系",
+    "slug": "nlp-token-tokenization-model-performance",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "词表大小对性能的影响。压缩效率与语义粒度。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 893,
+    "title": "中文分词的特殊处理",
+    "slug": "nlp-token-chinese-tokenization",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "字级vs词级分词。混合策略。中文预训练的分词选择。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 894,
+    "title": "多语言统一分词",
+    "slug": "nlp-token-multilingual-unified-tokenization",
+    "tags": [
+      "NLP基础",
+      "分词"
+    ],
+    "brief": "多语言词表设计。语言覆盖率平衡。XLM-R的分词。",
+    "depth_hint": "算法实现+实验对比+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 895,
+    "title": "Word2Vec的神经网络视角",
+    "slug": "nlp-emb-word2vec-neural-view",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "输入层-隐藏层-输出层的结构。嵌入矩阵的几何意义。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 896,
+    "title": "GloVe的全局共现矩阵",
+    "slug": "nlp-emb-glove-global-cooccurrence",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "共现矩阵的构建。矩阵分解视角。与Word2Vec的对比。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 897,
+    "title": "FastText的子词嵌入",
+    "slug": "nlp-emb-fasttext-subword-embedding",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "字符n-gram的嵌入。OOV词的表示。多语言扩展。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 898,
+    "title": "上下文嵌入vs静态嵌入",
+    "slug": "nlp-emb-contextual-vs-static-embedding",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "ELMo/BERT与Word2Vec的根本差异。一词多义的处理。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 899,
+    "title": "BERT的词片嵌入",
+    "slug": "nlp-emb-bert-wordpiece-embedding",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "WordPiece与位置嵌入的结合。[CLS]和[SEP]的角色。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 900,
+    "title": "Sentence-BERT的句子嵌入",
+    "slug": "nlp-emb-sentence-bert-embedding",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "句子级的对比学习。SBERT的训练策略。语义相似度。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 901,
+    "title": "SimCSE的无监督句子嵌入",
+    "slug": "nlp-emb-simcse-unsupervised-embedding",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "Dropout作为数据增强。对比学习的应用。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 902,
+    "title": "E5的文本嵌入训练",
+    "slug": "nlp-emb-e5-text-embedding-training",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "弱监督+强监督的多阶段训练。指令微调。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 903,
+    "title": "BGE的中文嵌入模型",
+    "slug": "nlp-emb-bge-chinese-embedding",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "中文语义嵌入。RAG检索的应用。模型选择指南。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 904,
+    "title": "嵌入空间的几何分析",
+    "slug": "nlp-emb-embedding-space-geometry",
+    "tags": [
+      "NLP基础",
+      "嵌入"
+    ],
+    "brief": "嵌入的聚类结构。各向异性的问题。白化与均匀化。",
+    "depth_hint": "算法讲解+训练策略+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 905,
+    "title": "N-gram语言模型",
+    "slug": "nlp-lm-ngram-language-model",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "马尔可夫假设。平滑技术（Good-Turing、Kneser-Ney）。困惑度计算。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 906,
+    "title": "神经语言模型的前身",
+    "slug": "nlp-lm-neural-lm-predecessors",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "Bengio 2003的NNLM。前馈网络的语言模型。训练挑战。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 907,
+    "title": "循环神经网络语言模型",
+    "slug": "nlp-lm-rnn-language-model",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "RNN-LM的架构。长距离依赖的挑战。训练技巧。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 908,
+    "title": "LSTM语言模型",
+    "slug": "nlp-lm-lstm-language-model",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "LSTM的记忆机制。语言建模中的应用。与RNN的对比。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 909,
+    "title": "自回归语言模型的数学定义",
+    "slug": "nlp-lm-autoregressive-lm-math",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "P(x) = ∏P(x_t|x_<t)。链式法则与自回归分解。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 910,
+    "title": "掩码语言模型的目标函数",
+    "slug": "nlp-lm-masked-lm-objective",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "MLM的训练目标。15%遮盖率的设计。80-10-10规则。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 911,
+    "title": "因果语言模型与自回归",
+    "slug": "nlp-lm-causal-lm-autoregressive",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "因果掩码的实现。与BERT MLM的对比。生成能力。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 912,
+    "title": "语言模型的困惑度",
+    "slug": "nlp-lm-language-model-perplexity",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "困惑度的定义与计算。与交叉熵的关系。评估实践。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 913,
+    "title": "语言模型的生成策略",
+    "slug": "nlp-lm-lm-generation-strategies",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "贪婪解码、束搜索、采样策略。温度与top-p。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 914,
+    "title": "语言模型的校准问题",
+    "slug": "nlp-lm-lm-calibration",
+    "tags": [
+      "NLP基础",
+      "语言模型"
+    ],
+    "brief": "概率输出的可靠性。校准方法。ETS与温度缩放。",
+    "depth_hint": "理论基础+实现+评估",
+    "status": "pending"
+  },
+  {
+    "id": 915,
+    "title": "SGD with Momentum的实现",
+    "slug": "train-opt-sgd-momentum-implementation",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "动量项的更新公式。速度变量的维护。Nesterov变体。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 916,
+    "title": "Adam的完整实现",
+    "slug": "train-opt-adam-complete-implementation",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "一阶矩与二阶矩的更新。偏差修正。默认超参的选择。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 917,
+    "title": "AdamW的权重衰减解耦",
+    "slug": "train-opt-adamw-weight-decay-decoupled",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "L2正则化与权重衰减的区别。解耦的重要性。实现细节。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 918,
+    "title": "LAMB优化器",
+    "slug": "train-opt-lamb-optimizer",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "大批量训练的适应层。信任比率。与LARS的关系。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 919,
+    "title": "Lion优化器",
+    "slug": "train-opt-lion-optimizer",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "符号梯度的使用。内存效率。与Adam的对比。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 920,
+    "title": "Shampoo优化器",
+    "slug": "train-opt-shampoo-optimizer",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "二阶信息的使用。矩阵逆的近似。计算复杂度。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 921,
+    "title": "Adafactor优化器",
+    "slug": "train-opt-adafactor-optimizer",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "无矩的二阶估计。内存节省。T5的选择。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 922,
+    "title": "Sophia优化器",
+    "slug": "train-opt-sophia-optimizer",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "Hessian对角估计。裁剪策略。LLM训练的应用。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 923,
+    "title": "Muon优化器",
+    "slug": "train-opt-muon-optimizer",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "最新优化器的原理。与Adam的差异。性能对比。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 924,
+    "title": "8-bit优化器",
+    "slug": "train-opt-8bit-optimizers",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "brief": "动态量化。向量级量化。Bitsandbytes的实现。",
+    "depth_hint": "算法推导+代码实现+训练对比",
+    "status": "pending"
+  },
+  {
+    "id": 925,
+    "title": "数据并行的实现",
+    "slug": "train-dist-data-parallel-implementation",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "All-Reduce的同步。梯度聚合。PyTorch DDP。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 926,
+    "title": "分布式数据并行DDP",
+    "slug": "train-dist-distributed-data-parallel",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "DDP的通信优化。梯度bucket化。与DP的对比。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 927,
+    "title": "模型并行的基本概念",
+    "slug": "train-dist-model-parallel-basics",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "张量并行与流水线并行。模型太大无法放入单卡。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 928,
+    "title": "张量并行Megatron-LM",
+    "slug": "train-dist-tensor-parallel-megatron",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "列并行与行并行。QKV的切分。通信开销分析。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 929,
+    "title": "流水线并行",
+    "slug": "train-dist-pipeline-parallelism",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "GPipe与PipeDream。微批次调度。气泡率分析。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 930,
+    "title": "ZeRO优化器状态切分",
+    "slug": "train-dist-zero-optimizer-state-sharding",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "ZeRO-1/2/3的划分。内存节省计算。DeepSpeed实现。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 931,
+    "title": "ZeRO-Offload",
+    "slug": "train-dist-zero-offload",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "CPU offload策略。CPU优化器。混合精度offload。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 932,
+    "title": "FSDP完全分片数据并行",
+    "slug": "train-dist-fsdp-fully-sharded",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "PyTorch FSDP的设计。与ZeRO的对比。配置选项。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 933,
+    "title": "3D并行",
+    "slug": "train-dist-3d-parallelism",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "数据×张量×流水线的组合。通信拓扑。规模扩展。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 934,
+    "title": "序列并行",
+    "slug": "train-dist-sequence-parallelism",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "brief": "长序列的切分。Ring Attention。上下文扩展。",
+    "depth_hint": "原理讲解+实现代码+性能分析",
+    "status": "pending"
+  },
+  {
+    "id": 935,
+    "title": "训练Loss突刺的诊断",
+    "slug": "train-stab-training-loss-spike-diagnosis",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "Loss突刺的常见原因。梯度异常检测。恢复策略。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 936,
+    "title": "梯度裁剪的策略",
+    "slug": "train-stab-gradient-clipping-strategies",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "全局裁剪vs逐层裁剪。裁剪阈值的选择。影响分析。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 937,
+    "title": "权重初始化对训练的影响",
+    "slug": "train-stab-weight-initialization-training-impact",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "初始化不良的症状。初始化策略选择。DeepNorm。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 938,
+    "title": "LayerScale的训练稳定",
+    "slug": "train-stab-layerscale-training-stability",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "可学习的层缩放。深层ViT的训练。实现细节。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 939,
+    "title": "μP (Maximal Update Parametrization)",
+    "slug": "train-stab-mup-maximal-update",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "超参数迁移的理论框架。宽度无关的学习率。实现。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 940,
+    "title": "训练中的梯度NaN诊断",
+    "slug": "train-stab-gradient-nan-diagnosis",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "NaN的常见来源。逐层梯度检查。数值稳定性修复。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 941,
+    "title": "学习率过大的症状",
+    "slug": "train-stab-learning-rate-too-large-symptoms",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "训练早期的震荡。损失发散的模式。调整策略。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 942,
+    "title": "批量大小的缩放规则",
+    "slug": "train-stab-batch-size-scaling-rules",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "brief": "线性缩放规则。平方根缩放。临界批量的概念。",
+    "depth_hint": "问题诊断+解决方案+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 943,
+    "title": "预训练数据的去重策略",
+    "slug": "train-data-pretraining-deduplication",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "精确去重与近似去重。MinHash LSH。去重率选择。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 944,
+    "title": "数据质量过滤",
+    "slug": "train-data-data-quality-filtering",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "启发式规则过滤。分类器过滤。质量评分。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 945,
+    "title": "数据混合策略",
+    "slug": "train-data-data-mixing-strategies",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "领域配比设计。DoReMi的动态配比。实验分析。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 946,
+    "title": "课程学习在LLM中的应用",
+    "slug": "train-data-curriculum-learning-llm",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "从易到难的数据排序。领域渐进。效果分析。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 947,
+    "title": "数据增强的NLP实践",
+    "slug": "train-data-data-augmentation-nlp",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "回译、同义词替换、EDA。在大模型预训练中的局限。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 948,
+    "title": "合成数据的使用",
+    "slug": "train-data-synthetic-data-usage",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "LLM生成的训练数据。质量过滤。自我训练。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 949,
+    "title": "指令数据的构建",
+    "slug": "train-data-instruction-data-construction",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "Self-Instruct流程。人工标注与自动生成。质量控制。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 950,
+    "title": "多语言数据平衡",
+    "slug": "train-data-multilingual-data-balancing",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "brief": "语言采样策略。温度采样。低资源语言的处理。",
+    "depth_hint": "流程设计+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 951,
+    "title": "RAG的检索-生成联合优化",
+    "slug": "agent-rag-rag-retrieval-generation-joint",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "端到端训练的挑战。检索器的梯度传播。联合训练策略。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 952,
+    "title": "Dense Retrieval的索引构建",
+    "slug": "agent-rag-dense-retrieval-indexing",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "向量数据库的构建。索引类型（IVF、HNSW）。构建参数选择。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 953,
+    "title": "Sparse Retrieval BM25实现",
+    "slug": "agent-rag-sparse-retrieval-bm25",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "BM25的完整公式。参数调优。与Dense的混合。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 954,
+    "title": "Hybrid检索策略",
+    "slug": "agent-rag-hybrid-retrieval-strategies",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "Dense+Sparse的融合。Reciprocal Rank Fusion。权重调优。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 955,
+    "title": "RAG的Chunk策略",
+    "slug": "agent-rag-rag-chunking-strategies",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "固定大小vs语义分块。重叠窗口。小块检索大块生成。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 956,
+    "title": "RAG的重排序",
+    "slug": "agent-rag-rag-reranking",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "Cross-Encoder重排。LLM重排。重排模型选择。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 957,
+    "title": "RAG的查询扩展",
+    "slug": "agent-rag-rag-query-expansion",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "多查询生成。Query2Doc。HyDE假设文档嵌入。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 958,
+    "title": "RAG的上下文压缩",
+    "slug": "agent-rag-rag-context-compression",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "LLM压缩。过滤无关句子。上下文窗口优化。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 959,
+    "title": "GraphRAG的图检索",
+    "slug": "agent-rag-graphrag-graph-retrieval",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "知识图谱与向量检索的结合。图遍历策略。实体链接。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 960,
+    "title": "RAG的记忆机制",
+    "slug": "agent-rag-rag-memory-mechanism",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "brief": "对话历史的检索。记忆压缩。长期记忆管理。",
+    "depth_hint": "架构设计+代码实现+评估方法",
+    "status": "pending"
+  },
+  {
+    "id": 961,
+    "title": "ReAct的推理-行动循环",
+    "slug": "agent-arch-react-reasoning-action-loop",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "Thought-Action-Observation循环。推理链的构建。实现细节。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 962,
+    "title": "Plan-and-Execute架构",
+    "slug": "agent-arch-plan-execute-architecture",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "规划器与执行器的分离。任务分解。并行执行。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 963,
+    "title": "Self-Reflection的自我修正",
+    "slug": "agent-arch-self-reflection-correction",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "反思步骤的设计。错误检测。迭代改进。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 964,
+    "title": "Agent的工具学习",
+    "slug": "agent-arch-agent-tool-learning",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "工具使用的训练。工具描述的理解。错误处理。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 965,
+    "title": "Multi-Agent协作模式",
+    "slug": "agent-arch-multi-agent-collaboration-patterns",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "顺序、并行、层次协作。通信协议。冲突解决。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 966,
+    "title": "Agent的记忆架构",
+    "slug": "agent-arch-agent-memory-architecture",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "短期记忆与长期记忆。记忆检索与更新。遗忘机制。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 967,
+    "title": "Agent的规划算法",
+    "slug": "agent-arch-agent-planning-algorithms",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "目标分解。规划空间搜索。动态重规划。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 968,
+    "title": "Agent的执行监控",
+    "slug": "agent-arch-agent-execution-monitoring",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "进度跟踪。异常检测。回滚与恢复。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 969,
+    "title": "Function Calling的实现",
+    "slug": "agent-arch-function-calling-implementation",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "JSON Schema定义。参数解析。错误处理。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 970,
+    "title": "Code Interpreter的沙箱",
+    "slug": "agent-arch-code-interpreter-sandbox",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "brief": "安全执行环境。资源限制。输出捕获。",
+    "depth_hint": "架构设计+实现代码+案例演示",
+    "status": "pending"
+  },
+  {
+    "id": 971,
+    "title": "构建代码助手Agent",
+    "slug": "agent-app-build-code-assistant-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "代码理解、生成、调试的Agent设计。IDE集成。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 972,
+    "title": "构建数据分析Agent",
+    "slug": "agent-app-build-data-analysis-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "SQL生成、数据分析、可视化的Agent。报告生成。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 973,
+    "title": "构建研究助手Agent",
+    "slug": "agent-app-build-research-assistant-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "文献检索、摘要、综合的Agent。知识管理。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 974,
+    "title": "构建客服Agent",
+    "slug": "agent-app-build-customer-service-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "多轮对话、知识库、工单系统的集成。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 975,
+    "title": "构建写作助手Agent",
+    "slug": "agent-app-build-writing-assistant-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "大纲生成、内容扩展、风格调整的Agent。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 976,
+    "title": "构建游戏AI Agent",
+    "slug": "agent-app-build-game-ai-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "游戏理解、策略规划、实时决策的Agent。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 977,
+    "title": "构建自动化测试Agent",
+    "slug": "agent-app-build-test-automation-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "测试用例生成、执行、报告的Agent。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 978,
+    "title": "构建DevOps Agent",
+    "slug": "agent-app-build-devops-agent",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "brief": "部署、监控、故障排查的自动化Agent。",
+    "depth_hint": "需求分析+架构设计+完整实现",
+    "status": "pending"
+  },
+  {
+    "id": 979,
+    "title": "ViT的图像分块嵌入",
+    "slug": "mm-vision-vit-image-patch-embedding",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "图像切分为patches。线性投影为tokens。位置编码。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 980,
+    "title": "ViT的注意力模式分析",
+    "slug": "mm-vision-vit-attention-pattern-analysis",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "图像patch之间的注意力。全局感受野。与CNN的对比。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 981,
+    "title": "CLIP的对比学习",
+    "slug": "mm-vision-clip-contrastive-learning",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "图像-文本对的对比损失。批量内负样本。温度参数。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 982,
+    "title": "CLIP的零样本分类",
+    "slug": "mm-vision-clip-zero-shot-classification",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "Prompt工程。类别描述。分类器自由推理。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 983,
+    "title": "SigLIP的Sigmoid损失",
+    "slug": "mm-vision-siglip-sigmoid-loss",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "与CLIP的Softmax损失对比。训练稳定性。性能提升。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 984,
+    "title": "EVA-CLIP的大规模预训练",
+    "slug": "mm-vision-eva-clip-pretraining",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "更大数据集。训练策略。性能对比。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 985,
+    "title": "视觉编码器的分辨率适应",
+    "slug": "mm-vision-vision-encoder-resolution",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "动态分辨率处理。位置编码插值。性能影响。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 986,
+    "title": "视觉编码器的特征金字塔",
+    "slug": "mm-vision-vision-feature-pyramid",
+    "tags": [
+      "多模态",
+      "视觉编码"
+    ],
+    "brief": "多尺度特征提取。与LLM的适配。检测任务。",
+    "depth_hint": "架构分析+代码实现+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 987,
+    "title": "LLaVA的视觉指令微调",
+    "slug": "mm-vlm-llava-visual-instruction-tuning",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "GPT-4生成的指令数据。两阶段训练。数据构建。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 988,
+    "title": "LLaVA的Projector设计",
+    "slug": "mm-vlm-llava-projector-design",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "线性投影vs MLP。Q-Former。 Cross-Attention。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 989,
+    "title": "InternVL的架构设计",
+    "slug": "mm-vlm-internvl-architecture",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "ViT-6B与LLM的结合。渐进式对齐。多任务预训练。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 990,
+    "title": "Qwen-VL的动态分辨率",
+    "slug": "mm-vlm-qwen-vl-dynamic-resolution",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "任意分辨率输入。NaViT机制。位置编码。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 991,
+    "title": "MiniGPT-4的训练策略",
+    "slug": "mm-vlm-minigpt4-training",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "两阶段训练。指令数据的构建。与LLaVA的对比。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 992,
+    "title": "InstructBLIP的指令感知检索",
+    "slug": "mm-vlm-instructblip-instruction-aware",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "Q-Former的指令条件。检索优化。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 993,
+    "title": "BLIP-2的Q-Former",
+    "slug": "mm-vlm-blip2-qformer",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "桥接视觉与语言的查询变换器。两阶段预训练。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 994,
+    "title": "Fuyu的纯Decoder架构",
+    "slug": "mm-vlm-fuyu-pure-decoder",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "无专门视觉编码器。直接处理图像patch。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 995,
+    "title": "CogVLM的视觉专家模块",
+    "slug": "mm-vlm-cogvlm-visual-expert",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "可训练的视觉专家。深度视觉-语言融合。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 996,
+    "title": "Yi-VL的双语视觉语言模型",
+    "slug": "mm-vlm-yi-vl-bilingual",
+    "tags": [
+      "多模态",
+      "视觉语言"
+    ],
+    "brief": "中英双语VLM。数据构建。训练策略。",
+    "depth_hint": "架构详解+训练策略+实验对比",
+    "status": "pending"
+  },
+  {
+    "id": 997,
+    "title": "扩散模型的数学基础",
+    "slug": "mm-imgen-diffusion-model-math-basics",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "前向扩散过程。逆向去噪。Score Matching。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 998,
+    "title": "DDPM的训练目标",
+    "slug": "mm-imgen-ddpm-training-objective",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "噪声预测网络。训练损失。采样过程。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 999,
+    "title": "DDIM的确定性采样",
+    "slug": "mm-imgen-ddim-deterministic-sampling",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "非马尔可夫采样。加速生成。可控性。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1000,
+    "title": "Stable Diffusion的潜在空间",
+    "slug": "mm-imgen-stable-diffusion-latent-space",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "VAE的编码器-解码器。潜扩散的优势。计算效率。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1001,
+    "title": "Stable Diffusion的U-Net",
+    "slug": "mm-imgen-stable-diffusion-unet",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "时间嵌入。Cross-Attention条件。架构细节。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1002,
+    "title": "ControlNet的条件控制",
+    "slug": "mm-imgen-controlnet-conditioning",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "额外控制条件的注入。Zero Convolution。训练策略。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1003,
+    "title": "LoRA在图像生成中的应用",
+    "slug": "mm-imgen-lora-image-generation",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "风格LoRA。角色LoRA。训练实践。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1004,
+    "title": "IP-Adapter的图像提示",
+    "slug": "mm-imgen-ip-adapter-image-prompt",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "参考图像作为条件。解耦Cross-Attention。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1005,
+    "title": "Flux的整流流架构",
+    "slug": "mm-imgen-flux-rectified-flow",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "与扩散的区别。Flow Matching。架构创新。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1006,
+    "title": "SD3的MMDiT架构",
+    "slug": "mm-imgen-sd3-mmdit",
+    "tags": [
+      "多模态",
+      "图像生成"
+    ],
+    "brief": "多模态Diffusion Transformer。融合设计。",
+    "depth_hint": "数学推导+架构分析+代码实现",
+    "status": "pending"
+  },
+  {
+    "id": 1007,
+    "title": "Whisper的架构分析",
+    "slug": "mm-speech-whisper-architecture-analysis",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "Encoder-Decoder结构。多语言多任务。弱监督训练。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1008,
+    "title": "Whisper的鲁棒性分析",
+    "slug": "mm-speech-whisper-robustness-analysis",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "噪声、口音、语速的鲁棒性。数据规模的影响。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1009,
+    "title": "语音识别的CTC解码",
+    "slug": "mm-speech-asr-ctc-decoding",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "贪婪解码vs束搜索。语言模型融合。外置LM。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1010,
+    "title": "端到端语音识别的注意力机制",
+    "slug": "mm-speech-e2e-asr-attention",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "Listen Attend Spell。注意力对齐。序列到序列。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1011,
+    "title": "Conformer的卷积-注意力混合",
+    "slug": "mm-speech-conformer-conv-attention",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "卷积的局部建模。注意力的全局建模。架构设计。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1012,
+    "title": "TTS的文本到频谱生成",
+    "slug": "mm-speech-tts-text-to-spectrogram",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "Tacotron架构。注意力对齐。Mel频谱生成。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1013,
+    "title": "神经声码器",
+    "slug": "mm-speech-neural-vocoder",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "WaveNet的自回归。HiFi-GAN的并行生成。质量对比。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1014,
+    "title": "语音大模型的统一建模",
+    "slug": "mm-speech-speech-lm-unified",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "语音token化。与文本的统一表示。多任务学习。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1015,
+    "title": "语音克隆的零样本学习",
+    "slug": "mm-speech-voice-cloning-zero-shot",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "说话人嵌入。条件生成。参考编码器。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1016,
+    "title": "实时语音识别的流式处理",
+    "slug": "mm-speech-realtime-asr-streaming",
+    "tags": [
+      "多模态",
+      "语音处理"
+    ],
+    "brief": "分块处理。延迟优化。在线解码。",
+    "depth_hint": "架构分析+实现细节+性能评估",
+    "status": "pending"
+  },
+  {
+    "id": 1017,
+    "title": "MDP与POMDP的区别",
+    "slug": "rl-basic-mdp-pomdp-difference",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "部分可观测马尔可夫决策过程。状态vs观测。Belief State。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1018,
+    "title": "贝尔曼方程的推导",
+    "slug": "rl-basic-bellman-equation-derivation",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "值函数的递归定义。最优性原理。方程求解。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1019,
+    "title": "策略迭代算法",
+    "slug": "rl-basic-policy-iteration-algorithm",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "策略评估与策略改进的交替。收敛性分析。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1020,
+    "title": "价值迭代算法",
+    "slug": "rl-basic-value-iteration-algorithm",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "贝尔曼最优算子的迭代。与策略迭代的关系。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1021,
+    "title": "蒙特卡洛策略评估",
+    "slug": "rl-basic-monte-carlo-policy-evaluation",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "首次访问vs每次访问。无偏估计。方差分析。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1022,
+    "title": "TD学习的偏差-方差权衡",
+    "slug": "rl-basic-td-learning-bias-variance",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "Bootstrap的偏差。采样方差。λ参数的选择。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1023,
+    "title": "资格迹Eligibility Traces",
+    "slug": "rl-basic-eligibility-traces",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "TD(λ)的前向与后向视角。迹的衰减。实现细节。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1024,
+    "title": "探索策略的设计",
+    "slug": "rl-basic-exploration-strategies",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "ε-greedy、UCB、Thompson Sampling。探索-利用权衡。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1025,
+    "title": "Model-based RL的规划",
+    "slug": "rl-basic-model-based-rl-planning",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "环境模型的学习。模拟规划。Dyna架构。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1026,
+    "title": "离线强化学习",
+    "slug": "rl-basic-offline-reinforcement-learning",
+    "tags": [
+      "强化学习",
+      "RL基础"
+    ],
+    "brief": "从固定数据集学习。分布偏移问题。约束策略。",
+    "depth_hint": "数学推导+算法实现+收敛分析",
+    "status": "pending"
+  },
+  {
+    "id": 1027,
+    "title": "DQN的经验回放",
+    "slug": "rl-deep-dqn-experience-replay",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "打破样本相关性。回放缓冲区设计。优先级回放。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1028,
+    "title": "DQN的目标网络",
+    "slug": "rl-deep-dqn-target-network",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "稳定训练的目标值。更新频率。过估计问题。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1029,
+    "title": "Double DQN的过估计消除",
+    "slug": "rl-deep-double-dqn-overestimation",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "两个网络的选择与评估。Q值偏差分析。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1030,
+    "title": "Dueling DQN的网络架构",
+    "slug": "rl-deep-dueling-dqn-architecture",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "状态价值与动作优势的分离。组合策略。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1031,
+    "title": "Noisy Nets的探索",
+    "slug": "rl-deep-noisy-nets-exploration",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "参数噪声。学习型探索。与ε-greedy的对比。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1032,
+    "title": "C51的分布式价值函数",
+    "slug": "rl-deep-c51-distributed-value",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "价值分布的表示。Categorical投影。分布RL。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1033,
+    "title": "Rainbow的集成改进",
+    "slug": "rl-deep-rainbow-integration",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "多项DQN改进的集成。消融分析。实现细节。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1034,
+    "title": "REINFORCE的方差分析",
+    "slug": "rl-deep-reinforce-variance-analysis",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "蒙特卡洛策略梯度的方差。基线的作用。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1035,
+    "title": "A2C的同步并行",
+    "slug": "rl-deep-a2c-synchronous-parallel",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "多环境并行采样。梯度聚合。实现效率。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1036,
+    "title": "A3C的异步并行",
+    "slug": "rl-deep-a3c-asynchronous-parallel",
+    "tags": [
+      "强化学习",
+      "深度RL"
+    ],
+    "brief": "异步梯度更新。探索多样性。分布式实现。",
+    "depth_hint": "算法讲解+实现代码+实验分析",
+    "status": "pending"
+  },
+  {
+    "id": 1037,
+    "title": "RLHF的三阶段训练",
+    "slug": "rl-rlhf-rlhf-three-stages",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "SFT→RM→PPO的完整流程。各阶段目标。衔接策略。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1038,
+    "title": "奖励模型的数据构建",
+    "slug": "rl-rlhf-reward-model-data-construction",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "偏好对比数据的收集。标注指南。数据质量。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1039,
+    "title": "奖励模型的过拟合防护",
+    "slug": "rl-rlhf-reward-model-overfitting",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "早停策略。正则化。泛化能力评估。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1040,
+    "title": "PPO的KL散度约束",
+    "slug": "rl-rlhf-ppo-kl-constraint",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "KL惩罚的系数调整。自适应KL。目标函数分析。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1041,
+    "title": "奖励黑客的检测与防护",
+    "slug": "rl-rlhf-reward-hacking-detection",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "过度优化奖励模型的症状。解决方案。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1042,
+    "title": "DPO的直接偏好优化",
+    "slug": "rl-rlhf-dpo-direct-preference-optimization",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "跳过奖励模型的优化。数学推导。实现细节。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1043,
+    "title": "IPO的KL正则化",
+    "slug": "rl-rlhf-ipo-kl-regularization",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "DPO的变体。KL约束的理论基础。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1044,
+    "title": "KTO的Kahneman-Tversky优化",
+    "slug": "rl-rlhf-kto-kahneman-tversky",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "前景理论的应用。损失规避建模。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1045,
+    "title": "ORPO的 odds ratio优化",
+    "slug": "rl-rlhf-orpo-odds-ratio",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "无需参考模型。单阶段训练。效率对比。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1046,
+    "title": "RLAIF的AI反馈训练",
+    "slug": "rl-rlhf-rlaif-ai-feedback",
+    "tags": [
+      "强化学习",
+      "RLHF"
+    ],
+    "brief": "用LLM生成偏好数据。 Constitutional AI。",
+    "depth_hint": "理论推导+实现代码+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1047,
+    "title": "LoRA的矩阵分解原理",
+    "slug": "ft-peft-lora-matrix-factorization",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "低秩分解A×B。秩的选择。初始化策略。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1048,
+    "title": "LoRA的合并与部署",
+    "slug": "ft-peft-lora-merging-deployment",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "权重合并的数学。部署时的零开销。多LoRA切换。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1049,
+    "title": "AdaLoRA的自适应秩",
+    "slug": "ft-peft-adalora-adaptive-rank",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "重要性评分。动态秩分配。裁剪策略。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1050,
+    "title": "QLoRA的4-bit量化",
+    "slug": "ft-peft-qlora-4bit-quantization",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "NormalFloat量化。双重量化。Paged Optimizer。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1051,
+    "title": "Prefix Tuning的虚拟Token",
+    "slug": "ft-peft-prefix-tuning-virtual-tokens",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "任务特定的前缀。MLP重参数化。训练策略。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1052,
+    "title": "Prompt Tuning的软提示",
+    "slug": "ft-peft-prompt-tuning-soft-prompts",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "可学习的连续提示。与硬提示的对比。初始化。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1053,
+    "title": "P-Tuning的编码器设计",
+    "slug": "ft-peft-p-tuning-encoder",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "LSTM编码器。提示嵌入。与Prompt Tuning的差异。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1054,
+    "title": "IA³的缩放向量",
+    "slug": "ft-peft-ia3-scaling-vectors",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "激活、注意力、FFN的缩放。参数效率。性能对比。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1055,
+    "title": "Adapter的结构设计",
+    "slug": "ft-peft-adapter-structure-design",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "瓶颈架构。插入位置。与LoRA的对比。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1056,
+    "title": "LLaMA-Adapter的早期层注入",
+    "slug": "ft-peft-llama-adapter-early-layer",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "brief": "知识注入的位置。门控机制。训练效率。",
+    "depth_hint": "原理讲解+实现代码+性能对比",
+    "status": "pending"
+  },
+  {
+    "id": 1057,
+    "title": "指令数据的格式设计",
+    "slug": "ft-sft-instruction-data-format",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "System/User/Assistant格式。多轮对话格式。特殊Token。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1058,
+    "title": "指令数据的多样性",
+    "slug": "ft-sft-instruction-data-diversity",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "任务类型的覆盖。指令风格的变化。重要性采样。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1059,
+    "title": "Self-Instruct的自动生成",
+    "slug": "ft-sft-self-instruct-auto-generation",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "用LLM生成指令。过滤策略。质量评估。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1060,
+    "title": "Alpaca的数据构建",
+    "slug": "ft-sft-alpaca-data-construction",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "175条种子指令。GPT-4生成。数据清洗。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1061,
+    "title": "WizardLM的演进指令",
+    "slug": "ft-sft-wizardlm-evol-instruct",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "指令复杂度的演进。组合与对比。多样性增强。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1062,
+    "title": "指令微调的超参选择",
+    "slug": "ft-sft-sft-hyperparameter-selection",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "学习率、轮数、批次大小。过拟合防护。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1063,
+    "title": "指令微调的数据规模",
+    "slug": "ft-sft-sft-data-scale",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "数据量与性能的关系。质量vs数量。最优规模。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1064,
+    "title": "指令微调的灾难遗忘",
+    "slug": "ft-sft-sft-catastrophic-forgetting",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "brief": "SFT后的预训练能力损失。混合训练。正则化。",
+    "depth_hint": "数据构建+训练策略+效果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1065,
+    "title": "KV Cache的内存计算",
+    "slug": "deploy-infer-kv-cache-memory-calculation",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "精确的内存占用公式。batch×seq×layer×head×dim×2×bytes。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1066,
+    "title": "PagedAttention的内存池",
+    "slug": "deploy-infer-pagedattention-memory-pool",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "Block分配策略。内存碎片消除。共享机制。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1067,
+    "title": "vLLM的连续批处理",
+    "slug": "deploy-infer-vllm-continuous-batching",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "Iteration-level调度。动态批大小。吞吐优化。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1068,
+    "title": "TensorRT-LLM的图优化",
+    "slug": "deploy-infer-tensorrt-llm-graph-optimization",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "算子融合。Kernel自动调优。精度选择。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1069,
+    "title": "TGI的部署架构",
+    "slug": "deploy-infer-tgi-deployment-architecture",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "服务化设计。批处理策略。API设计。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1070,
+    "title": "流式输出的实现",
+    "slug": "deploy-infer-streaming-output-implementation",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "SSE协议。Token级流式。客户端处理。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1071,
+    "title": "投机采样的加速原理",
+    "slug": "deploy-infer-speculative-decoding-acceleration",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "草稿-验证流程。接受率分析。加速比计算。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1072,
+    "title": "Medusa的多头解码",
+    "slug": "deploy-infer-medusa-multi-head-decoding",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "并行生成多token。训练策略。加速效果。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1073,
+    "title": "Lookahead Decoding的前瞻解码",
+    "slug": "deploy-infer-lookahead-decoding",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "n-gram猜测。并行验证。无额外模型。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1074,
+    "title": "推理的异步处理",
+    "slug": "deploy-infer-inference-async-processing",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "brief": "请求队列。异步调度。并发控制。",
+    "depth_hint": "原理讲解+实现代码+性能测试",
+    "status": "pending"
+  },
+  {
+    "id": 1075,
+    "title": "INT8量化的精度分析",
+    "slug": "deploy-quant-int8-quantization-accuracy",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "量化误差的来源。精度损失评估。适用场景。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1076,
+    "title": "INT4量化的挑战",
+    "slug": "deploy-quant-int4-quantization-challenges",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "低精度的精度损失。激活异常值问题。解决方案。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1077,
+    "title": "GPTQ的逐层量化",
+    "slug": "deploy-quant-gptq-layerwise-quantization",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "OBQ框架。Hessian信息。误差补偿。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1078,
+    "title": "AWQ的激活感知量化",
+    "slug": "deploy-quant-awq-activation-aware",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "重要通道的保护。缩放因子优化。实现细节。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1079,
+    "title": "GGUF的文件格式",
+    "slug": "deploy-quant-gguf-file-format",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "量化权重的存储。元数据设计。跨平台加载。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1080,
+    "title": "llama.cpp的CPU推理",
+    "slug": "deploy-quant-llamacpp-cpu-inference",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "量化模型在CPU上的运行。SIMD优化。内存管理。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1081,
+    "title": "SmoothQuant的平滑量化",
+    "slug": "deploy-quant-smoothquant-smooth-quantization",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "激活的平滑变换。等价缩放。精度保持。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1082,
+    "title": "SpQR的稀疏量化",
+    "slug": "deploy-quant-spqr-sparse-quantization",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "异常值的稀疏保留。压缩与精度平衡。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1083,
+    "title": "QuIP#的向量量化",
+    "slug": "deploy-quant-quip-hash-vector-quantization",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "随机码本。非线性量化。理论分析。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1084,
+    "title": "混合精度量化策略",
+    "slug": "deploy-quant-mixed-precision-quantization",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "brief": "逐层精度选择。敏感层分析。自动搜索。",
+    "depth_hint": "算法原理+实现+精度对比",
+    "status": "pending"
+  },
+  {
+    "id": 1085,
+    "title": "向量召回的ANN索引",
+    "slug": "rec-recall-vector-recall-ann-index",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "HNSW、IVF、PQ的原理与选择。索引参数调优。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1086,
+    "title": "图召回的邻域扩展",
+    "slug": "rec-recall-graph-recall-neighborhood",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "用户-物品图的随机游走。邻居聚合。与Embedding召回的结合。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1087,
+    "title": "多路召回的融合策略",
+    "slug": "rec-recall-multi-channel-recall-fusion",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "召回通道设计。分数归一化。去重策略。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1088,
+    "title": "召回层的效果评估",
+    "slug": "rec-recall-recall-evaluation",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "召回率@K。命中率。多样性指标。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1089,
+    "title": "实时召回的架构设计",
+    "slug": "rec-recall-realtime-recall-architecture",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "在线向量检索。增量索引。延迟优化。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1090,
+    "title": "冷启动的召回策略",
+    "slug": "rec-recall-cold-start-recall-strategy",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "内容召回。规则召回。探索策略。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1091,
+    "title": "长尾物品的召回增强",
+    "slug": "rec-recall-long-tail-recall-enhancement",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "曝光偏差的校正。逆倾向加权。采样策略。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1092,
+    "title": "召回层的负采样",
+    "slug": "rec-recall-recall-negative-sampling",
+    "tags": [
+      "推荐系统",
+      "召回"
+    ],
+    "brief": "批内负采样。混合负采样。样本不平衡处理。",
+    "depth_hint": "算法设计+实现代码+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1093,
+    "title": "排序模型的特征工程",
+    "slug": "rec-rank-ranking-feature-engineering",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "用户特征、物品特征、交叉特征。特征重要性。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1094,
+    "title": "排序模型的训练目标",
+    "slug": "rec-rank-ranking-training-objective",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "Pointwise、Pairwise、Listwise的对比。损失函数选择。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1095,
+    "title": "LTR的Lambda梯度",
+    "slug": "rec-rank-ltr-lambda-gradient",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "NDCG导数的近似。LambdaRank的设计。实现细节。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1096,
+    "title": "排序模型的位置感知",
+    "slug": "rec-rank-ranking-position-aware",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "位置偏差建模。训练时的位置特征。推理时处理。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1097,
+    "title": "多目标排序的融合",
+    "slug": "rec-rank-multi-objective-ranking-fusion",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "点击、转化、时长的权衡。权重学习。帕累托最优。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1098,
+    "title": "排序模型的延迟约束",
+    "slug": "rec-rank-ranking-latency-constraint",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "模型复杂度与延迟的平衡。知识蒸馏。模型压缩。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1099,
+    "title": "在线学习排序",
+    "slug": "rec-rank-online-learning-ranking",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "实时反馈的学习。数据分布漂移。增量更新。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1100,
+    "title": "排序模型的校准",
+    "slug": "rec-rank-ranking-model-calibration",
+    "tags": [
+      "推荐系统",
+      "排序"
+    ],
+    "brief": "预测概率与真实概率的对齐。Platt Scaling。Isotonic。",
+    "depth_hint": "模型设计+特征工程+效果评估",
+    "status": "pending"
+  },
+  {
+    "id": 1101,
+    "title": "实体链接的候选生成",
+    "slug": "kg-entity-linking-candidate-generation",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "别名词典。表面形式匹配。上下文消歧。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1102,
+    "title": "关系抽取的远程监督",
+    "slug": "kg-relation-extraction-distant",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "知识库对齐。噪声标签。多实例学习。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1103,
+    "title": "事件抽取的结构化",
+    "slug": "kg-event-extraction-structuring",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "事件触发词。论元角色。事件关系。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1104,
+    "title": "知识图谱的推理路径",
+    "slug": "kg-kg-reasoning-paths",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "多跳推理。路径排序。神经符号结合。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1105,
+    "title": "知识图谱的表示学习",
+    "slug": "kg-kg-representation-learning",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "Trans系列、RotatE、ConvE的演进。复杂关系建模。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1106,
+    "title": "知识图谱的链接预测",
+    "slug": "kg-kg-link-prediction",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "头实体预测、尾实体预测。评估指标。负采样策略。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1107,
+    "title": "知识图谱与LLM的结合",
+    "slug": "kg-kg-llm-integration",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "结构化知识的注入。检索增强。图谱作为工具。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1108,
+    "title": "知识图谱的构建流水线",
+    "slug": "kg-kg-construction-pipeline",
+    "tags": [
+      "知识图谱",
+      "信息抽取"
+    ],
+    "brief": "从文本到图谱的完整流程。质量评估。增量更新。",
+    "depth_hint": "算法设计+实现+应用案例",
+    "status": "pending"
+  },
+  {
+    "id": 1109,
+    "title": "Prompt注入攻击的原理",
+    "slug": "sec-prompt-injection-attack",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "恶意指令的注入。越界访问。防护策略。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1110,
+    "title": "越狱攻击的分类",
+    "slug": "sec-jailbreak-attack-classification",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "角色扮演、编码绕过、多轮诱导。攻击案例。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1111,
+    "title": "对抗样本的生成",
+    "slug": "sec-adversarial-example-generation",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "FGSM、PGD在NLP中的应用。离散优化的挑战。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1112,
+    "title": "模型窃取攻击",
+    "slug": "sec-model-stealing-attack",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "API查询的提取。水印防护。蒸馏攻击。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1113,
+    "title": "成员推断攻击",
+    "slug": "sec-membership-inference-attack",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "训练数据的隐私泄露。防御策略。差分隐私。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1114,
+    "title": "数据投毒攻击",
+    "slug": "sec-data-poisoning-attack",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "训练数据的恶意修改。后门植入。检测方法。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1115,
+    "title": "LLM的内容安全过滤",
+    "slug": "sec-llm-content-safety-filtering",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "输入输出审核。敏感词检测。多模态审核。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1116,
+    "title": "红队测试的实践",
+    "slug": "sec-red-teaming-practice",
+    "tags": [
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "brief": "自动化攻击生成。人工评估。漏洞修复。",
+    "depth_hint": "攻击原理+防御策略+实验验证",
+    "status": "pending"
+  },
+  {
+    "id": 1117,
+    "title": "MMLU的评测设计",
+    "slug": "eval-mmlu-evaluation-design",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "57个学科的多选题。知识覆盖。评测方法。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1118,
+    "title": "GSM8K的数学推理评测",
+    "slug": "eval-gsm8k-math-reasoning",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "小学数学应用题。CoT提示。评分标准。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1119,
+    "title": "HumanEval的代码评测",
+    "slug": "eval-humaneval-code-evaluation",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "164道Python题。Pass@k指标。执行验证。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1120,
+    "title": "MATH的竞赛数学评测",
+    "slug": "eval-math-competition-evaluation",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "高难度数学题。LaTeX解析。答案匹配。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1121,
+    "title": "GPQA的研究生级评测",
+    "slug": "eval-gpqa-graduate-evaluation",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "生物、物理、化学。专家级问题。难度分析。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1122,
+    "title": "IFEval的指令遵循评测",
+    "slug": "eval-ifeval-instruction-following",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "可验证的指令。约束检查。评测框架。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1123,
+    "title": "BFCL的函数调用评测",
+    "slug": "eval-bfcl-function-calling",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "工具使用能力。多轮对话。复杂指令。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1124,
+    "title": "MMMU的多模态评测",
+    "slug": "eval-mmmu-multimodal-evaluation",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "图像+文本问题。学科覆盖。难度层次。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1125,
+    "title": "长上下文评测LongBench",
+    "slug": "eval-longbench-long-context",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "长文档理解。检索能力。摘要生成。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1126,
+    "title": "评测污染的检测",
+    "slug": "eval-evaluation-contamination-detection",
+    "tags": [
+      "评测与基准",
+      "能力评测"
+    ],
+    "brief": "数据泄露的识别。N-gram重叠。成员推断。",
+    "depth_hint": "评测设计+执行方法+结果分析",
+    "status": "pending"
+  },
+  {
+    "id": 1127,
+    "title": "大规模数据的ETL流程",
+    "slug": "data-eng-large-scale-etl-pipeline",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "数据抽取、转换、加载的设计。分布式处理。容错机制。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1128,
+    "title": "数据清洗的质量规则",
+    "slug": "data-eng-data-cleaning-quality-rules",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "缺失值处理、异常值检测、一致性校验。自动化规则。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1129,
+    "title": "文本数据的预处理流水线",
+    "slug": "data-eng-text-preprocessing-pipeline",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "编码检测、格式转换、噪声过滤、标准化。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1130,
+    "title": "数据标注的众包平台",
+    "slug": "data-eng-data-annotation-crowdsourcing",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "标注任务设计、质量控制、标注者管理。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1131,
+    "title": "主动学习的数据选择",
+    "slug": "data-eng-active-learning-data-selection",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "信息量采样、不确定性估计、多样性保证。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1132,
+    "title": "数据增强的自动化",
+    "slug": "data-eng-data-augmentation-automation",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "规则生成、模型生成、多样性控制。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1133,
+    "title": "合成数据的生成与验证",
+    "slug": "data-eng-synthetic-data-generation-validation",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "LLM生成数据、质量过滤、分布匹配。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1134,
+    "title": "数据版本管理",
+    "slug": "data-eng-data-version-control",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "DVC的设计、数据血缘、可复现性。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1135,
+    "title": "数据血缘追踪",
+    "slug": "data-eng-data-lineage-tracking",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "数据来源、变换历史、依赖关系。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1136,
+    "title": "特征存储的设计",
+    "slug": "data-eng-feature-store-design",
+    "tags": [
+      "数据工程",
+      "数据处理"
+    ],
+    "brief": "特征计算、存储、服务的架构。实时与批处理。",
+    "depth_hint": "架构设计+实现代码+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1137,
+    "title": "PyTorch的自动求导机制",
+    "slug": "eng-fw-pytorch-autograd-mechanism",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "计算图的构建、反向传播、梯度累加。动态图优势。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1138,
+    "title": "PyTorch的分布式训练",
+    "slug": "eng-fw-pytorch-distributed-training",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "DDP、FSDP、RPC的原理与使用。通信原语。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1139,
+    "title": "HuggingFace Transformers的使用",
+    "slug": "eng-fw-hf-transformers-usage",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "模型加载、分词、训练、推理的完整流程。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1140,
+    "title": "HuggingFace Datasets的流式加载",
+    "slug": "eng-fw-hf-datasets-streaming",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "大规模数据集的流式处理。内存映射。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1141,
+    "title": "Accelerate库的分布式抽象",
+    "slug": "eng-fw-accelerate-distributed-abstraction",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "统一的分布式API。多后端支持。配置管理。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1142,
+    "title": "DeepSpeed的ZeRO实现",
+    "slug": "eng-fw-deepspeed-zero-implementation",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "ZeRO-1/2/3的配置。优化器切分。Offload策略。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1143,
+    "title": "Megatron-LM的张量并行",
+    "slug": "eng-fw-megatron-tensor-parallel",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "张量并行的实现。通信模式。与ZeRO的结合。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1144,
+    "title": "vLLM的高吞吐推理",
+    "slug": "eng-fw-vllm-high-throughput-inference",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "PagedAttention、连续批处理。API使用。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1145,
+    "title": "LangChain的链式调用",
+    "slug": "eng-fw-langchain-chain-calls",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "Chain的设计模式。Prompt模板。记忆管理。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1146,
+    "title": "LlamaIndex的索引构建",
+    "slug": "eng-fw-llamaindex-index-construction",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "brief": "向量索引、知识图谱索引。混合检索。",
+    "depth_hint": "原理讲解+使用示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1147,
+    "title": "构建私有ChatGPT",
+    "slug": "eng-proj-build-private-chatgpt",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "模型选择、部署架构、前端集成。完整实现。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1148,
+    "title": "构建企业知识库问答",
+    "slug": "eng-proj-build-enterprise-knowledge-qa",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "文档处理、RAG系统、权限控制。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1149,
+    "title": "构建智能客服系统",
+    "slug": "eng-proj-build-intelligent-customer-service",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "多轮对话、意图识别、工单集成。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1150,
+    "title": "构建代码补全服务",
+    "slug": "eng-proj-build-code-completion-service",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "代码模型、上下文提取、延迟优化。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1151,
+    "title": "构建文档摘要系统",
+    "slug": "eng-proj-build-document-summarization",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "长文档处理、分块摘要、融合策略。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1152,
+    "title": "构建翻译服务",
+    "slug": "eng-proj-build-translation-service",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "多语言模型、领域适应、质量评估。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1153,
+    "title": "构建内容审核系统",
+    "slug": "eng-proj-build-content-moderation",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "多维度审核、规则+模型、人工审核。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1154,
+    "title": "构建语音助手",
+    "slug": "eng-proj-build-voice-assistant",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "ASR+LLM+TTS的集成、延迟优化。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1155,
+    "title": "构建数据分析平台",
+    "slug": "eng-proj-build-data-analysis-platform",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "自然语言查询、可视化生成、报告输出。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1156,
+    "title": "构建代码审查助手",
+    "slug": "eng-proj-build-code-review-assistant",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "brief": "代码理解、问题检测、建议生成。",
+    "depth_hint": "需求分析+架构设计+完整代码",
+    "status": "pending"
+  },
+  {
+    "id": 1157,
+    "title": "LLM应用的提示工程",
+    "slug": "eng-bp-llm-prompt-engineering",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "Prompt设计原则、模板库、迭代优化。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1158,
+    "title": "LLM应用的错误处理",
+    "slug": "eng-bp-llm-error-handling",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "超时、限流、格式错误的处理策略。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1159,
+    "title": "LLM应用的缓存策略",
+    "slug": "eng-bp-llm-caching-strategies",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "语义缓存、精确缓存、缓存失效。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1160,
+    "title": "LLM应用的成本优化",
+    "slug": "eng-bp-llm-cost-optimization",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "模型选择、请求优化、批量处理。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1161,
+    "title": "LLM应用的延迟优化",
+    "slug": "eng-bp-llm-latency-optimization",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "流式输出、并行请求、预热策略。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1162,
+    "title": "LLM应用的可观测性",
+    "slug": "eng-bp-llm-observability",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "日志、追踪、指标的完整方案。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1163,
+    "title": "LLM应用的安全防护",
+    "slug": "eng-bp-llm-security-protection",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "输入过滤、输出审核、访问控制。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1164,
+    "title": "LLM应用的测试策略",
+    "slug": "eng-bp-llm-testing-strategies",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "brief": "单元测试、集成测试、回归测试。",
+    "depth_hint": "问题分析+解决方案+代码示例",
+    "status": "pending"
+  },
+  {
+    "id": 1165,
+    "title": "Linux进程调度原理",
+    "slug": "sys-linux-linux-process-scheduling",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "CFS调度器、优先级、时间片。调度策略。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1166,
+    "title": "Linux内存管理",
+    "slug": "sys-linux-linux-memory-management",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "虚拟内存、页表、缺页中断。OOM Killer。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1167,
+    "title": "Linux文件系统",
+    "slug": "sys-linux-linux-filesystem",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "Ext4结构、inode、日志。文件IO优化。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1168,
+    "title": "Linux网络协议栈",
+    "slug": "sys-linux-linux-network-stack",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "Socket、TCP/IP、epoll。网络性能调优。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1169,
+    "title": "Linux性能分析工具",
+    "slug": "sys-linux-linux-performance-tools",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "perf、strace、eBPF。性能瓶颈定位。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1170,
+    "title": "Linux安全机制",
+    "slug": "sys-linux-linux-security-mechanisms",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "权限模型、SELinux、capabilities。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1171,
+    "title": "Shell脚本编程",
+    "slug": "sys-linux-shell-scripting",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "变量、流程控制、函数。脚本最佳实践。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1172,
+    "title": "Linux定时任务",
+    "slug": "sys-linux-linux-cron-jobs",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "brief": "Cron表达式、任务管理、日志处理。",
+    "depth_hint": "原理讲解+命令示例+实践案例",
+    "status": "pending"
+  },
+  {
+    "id": 1173,
+    "title": "Docker镜像构建优化",
+    "slug": "sys-container-docker-image-optimization",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "多阶段构建、层缓存、镜像瘦身。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1174,
+    "title": "Docker网络模式",
+    "slug": "sys-container-docker-network-modes",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "Bridge、Host、Overlay的原理与选择。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1175,
+    "title": "Docker存储驱动",
+    "slug": "sys-container-docker-storage-drivers",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "Overlay2、AUFS、Device Mapper。性能对比。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1176,
+    "title": "Kubernetes Pod设计",
+    "slug": "sys-container-kubernetes-pod-design",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "多容器模式、资源限制、健康检查。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1177,
+    "title": "Kubernetes Service与Ingress",
+    "slug": "sys-container-kubernetes-service-ingress",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "服务发现、负载均衡、流量路由。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1178,
+    "title": "Kubernetes ConfigMap与Secret",
+    "slug": "sys-container-kubernetes-configmap-secret",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "配置管理、敏感信息、更新策略。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1179,
+    "title": "Kubernetes调度策略",
+    "slug": "sys-container-kubernetes-scheduling",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "节点选择、亲和性、污点容忍。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1180,
+    "title": "Helm Chart的编写",
+    "slug": "sys-container-helm-chart-writing",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "brief": "模板语法、值管理、发布流程。",
+    "depth_hint": "原理讲解+配置示例+最佳实践",
+    "status": "pending"
+  },
+  {
+    "id": 1181,
+    "title": "CAP定理与BASE理论",
+    "slug": "sys-dist-cap-base-theorem",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "一致性、可用性、分区容错的权衡。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1182,
+    "title": "分布式一致性协议",
+    "slug": "sys-dist-distributed-consensus",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "Paxos、Raft、ZAB的原理与对比。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1183,
+    "title": "分布式锁的实现",
+    "slug": "sys-dist-distributed-lock-implementation",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "Redis、ZooKeeper、etcd的锁实现。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1184,
+    "title": "分布式事务",
+    "slug": "sys-dist-distributed-transactions",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "2PC、3PC、Saga、TCC。场景选择。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1185,
+    "title": "分布式ID生成",
+    "slug": "sys-dist-distributed-id-generation",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "Snowflake、UUID、数据库序列。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1186,
+    "title": "消息队列的设计",
+    "slug": "sys-dist-message-queue-design",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "Kafka、RabbitMQ、RocketMQ的对比。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1187,
+    "title": "微服务架构模式",
+    "slug": "sys-dist-microservice-patterns",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "服务拆分、通信、治理。设计原则。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1188,
+    "title": "API网关设计",
+    "slug": "sys-dist-api-gateway-design",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "brief": "路由、限流、认证、日志。实现选择。",
+    "depth_hint": "理论讲解+架构设计+实现示例",
+    "status": "pending"
+  },
+  {
+    "id": 1189,
+    "title": "MySQL索引优化",
+    "slug": "sys-db-mysql-index-optimization",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "B+树索引、覆盖索引、索引选择。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1190,
+    "title": "MySQL事务与锁",
+    "slug": "sys-db-mysql-transaction-lock",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "隔离级别、MVCC、锁机制。死锁处理。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1191,
+    "title": "PostgreSQL的高级特性",
+    "slug": "sys-db-postgresql-advanced-features",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "JSON支持、全文搜索、扩展机制。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1192,
+    "title": "Redis的数据结构与应用",
+    "slug": "sys-db-redis-data-structures",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "String、Hash、ZSet、Stream。场景选择。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1193,
+    "title": "MongoDB的文档设计",
+    "slug": "sys-db-mongodb-document-design",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "嵌套vs引用、索引策略、分片设计。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1194,
+    "title": "Elasticsearch的搜索优化",
+    "slug": "sys-db-elasticsearch-search-optimization",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "倒排索引、分词、相关性调优。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1195,
+    "title": "向量数据库的设计",
+    "slug": "sys-db-vector-database-design",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "ANN索引、距离度量、分布式架构。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1196,
+    "title": "数据库连接池",
+    "slug": "sys-db-database-connection-pool",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "brief": "池化原理、配置优化、监控指标。",
+    "depth_hint": "原理讲解+配置示例+性能调优",
+    "status": "pending"
+  },
+  {
+    "id": 1197,
+    "title": "GPT-4的技术分析",
+    "slug": "frontier-model-gpt4-technical-analysis",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "已知的技术细节、能力边界、应用场景。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1198,
+    "title": "GPT-4o的多模态能力",
+    "slug": "frontier-model-gpt4o-multimodal-capability",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "原生多模态、语音能力、延迟优化。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1199,
+    "title": "Claude 3.5 Sonnet的技术特点",
+    "slug": "frontier-model-claude35-sonnet-features",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "长上下文、工具使用、推理能力。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1200,
+    "title": "Claude 3.7 Sonnet的Extended Thinking",
+    "slug": "frontier-model-claude37-extended-thinking",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "思考模式、推理深度、应用场景。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1201,
+    "title": "Gemini 1.5 Pro的长上下文",
+    "slug": "frontier-model-gemini15-pro-long-context",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "100万token上下文、多模态、记忆能力。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1202,
+    "title": "Gemini 2.0的原生多模态输出",
+    "slug": "frontier-model-gemini20-native-multimodal",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "图像生成、音频输出、实时交互。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1203,
+    "title": "Llama 3.1的405B模型",
+    "slug": "frontier-model-llama31-405b",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "开源最大模型、训练细节、性能评估。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1204,
+    "title": "Llama 3.2的多模态版本",
+    "slug": "frontier-model-llama32-multimodal",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "视觉理解、边缘部署、性能对比。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1205,
+    "title": "Mistral Large 2的架构",
+    "slug": "frontier-model-mistral-large2-architecture",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "123B参数、多语言、代码能力。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1206,
+    "title": "DeepSeek V3的MoE架构",
+    "slug": "frontier-model-deepseek-v3-moe",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "671B总参数、37B激活、训练成本。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1207,
+    "title": "Qwen2.5的技术报告分析",
+    "slug": "frontier-model-qwen25-technical-report",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "模型系列、训练数据、能力评估。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1208,
+    "title": "Qwen2.5-Math的数学能力",
+    "slug": "frontier-model-qwen25-math-capability",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "数学推理、竞赛级别、训练方法。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1209,
+    "title": "Yi-Lightning的推理加速",
+    "slug": "frontier-model-yi-lightning-inference",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "推理优化、延迟降低、技术方案。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1210,
+    "title": "Grok-1的开源分析",
+    "slug": "frontier-model-grok1-open-source",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "314B参数、架构细节、能力评估。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1211,
+    "title": "Command R+的RAG能力",
+    "slug": "frontier-model-command-r-plus-rag",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "brief": "检索增强、工具使用、长上下文。",
+    "depth_hint": "技术分析+能力评估+应用建议",
+    "status": "pending"
+  },
+  {
+    "id": 1212,
+    "title": "推理时计算Scaling",
+    "slug": "frontier-tech-inference-time-compute-scaling",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "o1的思考模式、计算与性能的权衡。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1213,
+    "title": "思维链的进化",
+    "slug": "frontier-tech-chain-of-thought-evolution",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "Zero-shot CoT、Few-shot CoT、Tree of Thoughts。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1214,
+    "title": "自我修正与反思",
+    "slug": "frontier-tech-self-correction-reflection",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "Reflexion、CRITIC、错误检测与修正。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1215,
+    "title": "多智能体协作的前沿",
+    "slug": "frontier-tech-multi-agent-frontiers",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "AutoGen、MetaGPT、协作模式的演进。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1216,
+    "title": "长上下文的最新突破",
+    "slug": "frontier-tech-long-context-breakthroughs",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "1M+ context的技术方案、性能影响。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1217,
+    "title": "端侧模型的发展",
+    "slug": "frontier-tech-on-device-model-development",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "手机、IoT上的LLM部署。压缩与优化。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1218,
+    "title": "多模态融合的新范式",
+    "slug": "frontier-tech-multimodal-fusion-paradigms",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "原生多模态vs组合多模态。架构演进。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1219,
+    "title": "视频理解的最新进展",
+    "slug": "frontier-tech-video-understanding-advances",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "长视频、时空建模、实时处理。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1220,
+    "title": "世界模型的发展",
+    "slug": "frontier-tech-world-model-development",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "Sora、Genie、物理世界建模。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
+  },
+  {
+    "id": 1221,
+    "title": "AI Agent的生产化",
+    "slug": "frontier-tech-ai-agent-production",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "brief": "可靠性、可观测性、成本控制。",
+    "depth_hint": "技术分析+发展趋势+应用前景",
+    "status": "pending"
   }
 ]
