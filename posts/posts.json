@@ -1,5 +1,17 @@
 [
   {
+    "title": "信息熵与交叉熵：损失函数的信息论基础",
+    "slug": "entropy-cross-entropy",
+    "date": "2026-03-04",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "信息熵与交叉熵：损失函数的信息论基础"
+  },
+  {
     "title": "Claude Code 安装使用指南",
     "slug": "how-to-use-claude-code",
     "date": "2026-02-26",
