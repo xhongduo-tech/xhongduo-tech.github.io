@@ -73,6 +73,16 @@ function syncHljsTheme(theme) {
    =================================================== */
 async function initIndexPage() {
   const CATEGORY_ORDER = ['理论基础', '前沿追踪', '模型训练', '模型微调', '模型部署', '智能体', '系统基础', '工程实践'];
+  const CATEGORY_CLASS = {
+    '理论基础': 'cat-theory',
+    '前沿追踪': 'cat-frontier',
+    '模型训练': 'cat-training',
+    '模型微调': 'cat-finetune',
+    '模型部署': 'cat-deploy',
+    '智能体':   'cat-agent',
+    '系统基础': 'cat-systems',
+    '工程实践': 'cat-engineering',
+  };
 
   let posts = [];
   try {
@@ -138,16 +148,16 @@ async function initIndexPage() {
   });
 
   function postCardHtml(p) {
+    const keyTag  = (p.tags || [])[0] || '';
+    const catCls  = CATEGORY_CLASS[keyTag] || '';
     return `
       <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
         <div class="post-card-meta">
           <span class="post-date">${p.date}</span>
-          <div class="post-tags">
-            ${(p.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
-          </div>
         </div>
         <div class="post-card-title">${escapeHtml(p.title)}</div>
         ${p.summary ? `<div class="post-card-summary">${escapeHtml(p.summary)}</div>` : ''}
+        ${keyTag ? `<span class="tag-primary ${catCls}">${escapeHtml(keyTag)}</span>` : ''}
       </a>`;
   }
 
