@@ -49,7 +49,7 @@
     ],
     "brief": "香农熵 H(p) = -Σ p(x) log p(x) 衡量分布的不确定性。交叉熵 H(p,q) = -Σ p(x) log q(x) 衡量用 q 编码真实分布 p 的额外代价。KL 散度 KL(p||q) = H(p,q) - H(p)，非对称性及其含义。为什么分类任务用交叉熵而非 MSE：梯度行为的对比分析。",
     "depth_hint": "包含二分类交叉熵和 MSE 在 sigmoid 输出上的梯度对比计算",
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": 5,
@@ -62,7 +62,7 @@
     ],
     "brief": "Softmax(z_i) = exp(z_i) / Σ exp(z_j)，将任意实数向量映射为概率分布。数值稳定性问题：exp 溢出与 log-sum-exp 技巧。温度参数 τ：Softmax(z/τ) 在 τ→0 时趋向 argmax，τ→∞ 时趋向均匀分布。在注意力机制中 τ=√d_k 的作用。",
     "depth_hint": "展示 exp 溢出的数值示例，实现数值稳定版 Softmax，对比不同温度下的输出分布",
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": 6,
@@ -75,7 +75,7 @@
     ],
     "brief": "1958 年 Rosenblatt 感知机：y = sign(w·x + b)，线性可分的几何意义。XOR 问题证明单层感知机的局限。MLP 通过隐藏层引入非线性，Universal Approximation Theorem：两层 MLP 可以以任意精度逼近任意连续函数（但不说明需要多少神经元）。前向传播的矩阵形式。",
     "depth_hint": "手工实现一个解决 XOR 问题的两层 MLP，展示权重矩阵维度",
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": 7,
@@ -88,7 +88,7 @@
     ],
     "brief": "Sigmoid σ(x) = 1/(1+e^{-x})：饱和区梯度 <0.25，10 层后梯度缩小 100 万倍。ReLU max(0,x)：梯度直通，稀疏激活，但 Dead ReLU 问题（负区梯度恒零）。GELU x·Φ(x)（Φ 为标准正态 CDF）：平滑近似 ReLU，BERT/GPT 的默认选择。SwiGLU = Swish(xW) ⊙ (xV)：LLaMA 系列的 FFN 激活。",
     "depth_hint": "绘制每种激活函数的函数值与导数曲线，分析梯度消失的具体数值",
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": 8,
@@ -101,7 +101,7 @@
     ],
     "brief": "内部协变量偏移（Internal Covariate Shift）：每层输入分布随参数更新而变化，导致后层需要不断适应。BatchNorm 对 mini-batch 内每个特征维度做 z-score 归一化，再用可学习的 γ、β 缩放偏移。推理时用训练集的运行均值/方差（不是 batch 统计量）。局限：小 batch size 时不稳定，RNN/Transformer 中不适用。",
     "depth_hint": "展示 BN 的前向与反向传播公式，分析为什么 batch size=1 时 BN 退化",
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": 9,
@@ -114,7 +114,7 @@
     ],
     "brief": "Full-batch GD：精确梯度，但内存无法放下全部数据，且鞍点难以逃脱。SGD：高方差梯度带来随机性，有助于逃脱局部极小，但收敛震荡。Mini-batch：权衡两者，batch size 影响梯度噪声与计算效率。线性缩放规则：batch size ×k 时学习率 ×k（适用范围与限制）。",
     "depth_hint": "对比三种形态在凸/非凸函数上的收敛轨迹可视化描述，给出线性缩放规则的证明",
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": 10,
@@ -127,7 +127,7 @@
     ],
     "brief": "Adam = Momentum + RMSProp。m_t = β_1 m_{t-1} + (1-β_1)g_t（一阶矩，方向）；v_t = β_2 v_{t-1} + (1-β_2)g_t²（二阶矩，幅度）；偏差修正 m̂_t = m_t/(1-β_1^t)；更新 θ -= α·m̂_t/(√v̂_t + ε)。默认超参 β_1=0.9, β_2=0.999, ε=1e-8 的选择依据。AdamW：将权重衰减从梯度更新中解耦的必要性。",
     "depth_hint": "推导偏差修正项的来源（初始化为零导致的冷启动偏差），对比 Adam 与 SGD+Momentum 的参数更新轨迹",
-    "status": "pending"
+    "status": "done"
   },
   {
     "id": 11,
@@ -9189,5 +9189,928 @@
     "brief": "LLM 同时理解与生成图像的技术路径：离散视觉 Token（自回归）vs 连续特征 + 扩散头（混合）。Chameleon（Meta）的统一 Token 序列方法。Emu3 的纯自回归多模态生成。与 Janus 解耦方法的对比。未来走向：原生多模态 vs 模态专用系统集成。",
     "depth_hint": "对比 Chameleon 与 Janus 在图像生成质量（FID）与理解准确率上的 Pareto 效率",
     "status": "pending"
+  },
+  {
+    "title": "协同过滤：User-CF 与 Item-CF 的相似度计算",
+    "slug": "collaborative-filtering-basics",
+    "tags": [
+      "推荐系统",
+      "召回",
+      "协同过滤"
+    ],
+    "brief": "User-CF 基于用户相似度推荐，Item-CF 基于物品相似度推荐。核心是相似度计算（余弦、皮尔逊、Jaccard）。稀疏矩阵的高效存储与计算。预测评分的计算公式与归一化。",
+    "depth_hint": "实现 User-CF 和 Item-CF，在 MovieLens 数据集上对比效果",
+    "status": "pending",
+    "id": 716
+  },
+  {
+    "title": "矩阵分解：SVD 与 ALS 的隐因子模型",
+    "slug": "matrix-factorization-svd-als",
+    "tags": [
+      "推荐系统",
+      "召回",
+      "矩阵分解"
+    ],
+    "brief": "评分矩阵 R ≈ U × V^T。SVD 的完整分解与截断 SVD。ALS 交替最小二乘：固定 U 求 V，固定 V 求 U。隐因子维度 k 的选择。正则化防止过拟合。",
+    "depth_hint": "实现 ALS，分析隐因子维度对效果的影响",
+    "status": "pending",
+    "id": 717
+  },
+  {
+    "title": "Word2Vec 在推荐中的应用：Item2Vec",
+    "slug": "item2vec-recommendation",
+    "tags": [
+      "推荐系统",
+      "召回",
+      "Embedding"
+    ],
+    "brief": "将用户行为序列视为句子，物品视为词。用 Skip-gram 学习物品嵌入。物品嵌入的相似度用于召回。与协同过滤的关系与区别。",
+    "depth_hint": "实现 Item2Vec，在电商数据上验证相似物品推荐效果",
+    "status": "pending",
+    "id": 718
+  },
+  {
+    "title": "深度协同过滤：NCF 的神经网络架构",
+    "slug": "neural-collaborative-filtering",
+    "tags": [
+      "推荐系统",
+      "召回",
+      "深度学习"
+    ],
+    "brief": "GMF（广义矩阵分解）+ MLP 的融合架构。GMF 学习线性交互，MLP 学习非线性交互。输出层的加权融合。相比传统 MF 的优势。",
+    "depth_hint": "实现 NCF，与传统 MF 对比效果",
+    "status": "pending",
+    "id": 719
+  },
+  {
+    "title": "Wide & Deep：记忆与泛化的平衡",
+    "slug": "wide-and-deep",
+    "tags": [
+      "推荐系统",
+      "排序",
+      "深度学习"
+    ],
+    "brief": "Wide 侧：线性模型 + 特征交叉，学习历史规则（记忆）。Deep 侧：DNN 学习泛化能力。联合训练让两者互补。Google Play 商店的生产应用。",
+    "depth_hint": "实现 Wide & Deep，分析 Wide 和 Deep 各自的贡献",
+    "status": "pending",
+    "id": 720
+  },
+  {
+    "title": "DeepFM：因子分解机的端到端学习",
+    "slug": "deepfm",
+    "tags": [
+      "推荐系统",
+      "排序",
+      "深度学习"
+    ],
+    "brief": "FM 组件学习二阶特征交叉。Deep 组件学习高阶特征交叉。两组件共享输入嵌入。相比 Wide & Deep 不需要人工特征工程。",
+    "depth_hint": "实现 DeepFM，与 Wide & Deep 对比",
+    "status": "pending",
+    "id": 721
+  },
+  {
+    "title": "DIN（Deep Interest Network）：注意力加权用户行为",
+    "slug": "deep-interest-network",
+    "tags": [
+      "推荐系统",
+      "排序",
+      "注意力"
+    ],
+    "brief": "用户历史行为不是简单求和，而是用注意力机制加权。与候选物品相关的历史行为权重更高。兴趣的动态激活。Dice 激活函数的设计。",
+    "depth_hint": "实现 DIN 的注意力机制，可视化不同候选物品的注意力分布",
+    "status": "pending",
+    "id": 722
+  },
+  {
+    "title": "序列推荐：SASRec 的自注意力建模",
+    "slug": "sasrec-sequential-recommendation",
+    "tags": [
+      "推荐系统",
+      "召回",
+      "Transformer"
+    ],
+    "brief": "用户行为序列用 Transformer 编码。Self-Attention 捕捉长距离依赖。因果掩码保证只看历史。位置编码捕捉行为顺序。",
+    "depth_hint": "实现 SASRec，与 RNN-based 序列推荐对比",
+    "status": "pending",
+    "id": 723
+  },
+  {
+    "title": "图神经网络推荐：LightGCN 的消息传递",
+    "slug": "lightgcn-recommendation",
+    "tags": [
+      "推荐系统",
+      "召回",
+      "GNN"
+    ],
+    "brief": "用户-物品二部图的 GNN。LightGCN 简化了 NGCF，去掉了特征变换和非线性激活。只有消息传递和归一化。效果更好且训练更快。",
+    "depth_hint": "实现 LightGCN，分析层数对效果的影响",
+    "status": "pending",
+    "id": 724
+  },
+  {
+    "title": "双塔模型：DSSM 的召回架构",
+    "slug": "two-tower-dssm",
+    "tags": [
+      "推荐系统",
+      "召回",
+      "Embedding"
+    ],
+    "brief": "用户塔和物品塔独立编码。内积计算相似度。训练时负采样。推理时物品塔可离线计算，用户塔在线计算。召回的核心架构。",
+    "depth_hint": "实现双塔模型，分析负采样策略对效果的影响",
+    "status": "pending",
+    "id": 725
+  },
+  {
+    "title": "多目标优化：ESMM 的多任务学习",
+    "slug": "esmm-multi-task",
+    "tags": [
+      "推荐系统",
+      "排序",
+      "多任务学习"
+    ],
+    "brief": "CTR（点击率）和 CVR（转化率）的联合建模。CVR 的样本选择偏差问题。ESMM：pCTCVR = pCTR × pCVR。共享嵌入，独立塔头。",
+    "depth_hint": "实现 ESMM，分析与传统独立训练的差异",
+    "status": "pending",
+    "id": 726
+  },
+  {
+    "title": "排序模型：LambdaRank/LambdaMART 的梯度提升",
+    "slug": "lambdarank-lambdamart",
+    "tags": [
+      "推荐系统",
+      "排序",
+      "Learning to Rank"
+    ],
+    "brief": "Learning to Rank 的三种范式：pointwise、pairwise、listwise。LambdaRank 定义了交换任意两个文档的 NDCG 增益作为梯度。LambdaMART 是 LambdaRank + GBDT。",
+    "depth_hint": "实现 LambdaRank，分析 pairwise loss 与 listwise loss 的区别",
+    "status": "pending",
+    "id": 727
+  },
+  {
+    "title": "负采样策略：Easy Negative vs Hard Negative",
+    "slug": "negative-sampling-strategies",
+    "tags": [
+      "推荐系统",
+      "训练",
+      "采样"
+    ],
+    "brief": "随机负采样简单但效率低。Hard Negative Mining 选取难区分的负样本。混合负采样：Easy + Hard 的比例。批内负采样 vs 批外负采样。",
+    "depth_hint": "实现不同的负采样策略，对比训练效率和模型效果",
+    "status": "pending",
+    "id": 728
+  },
+  {
+    "title": "推荐系统的冷启动问题",
+    "slug": "cold-start-recommendation",
+    "tags": [
+      "推荐系统",
+      "策略",
+      "冷启动"
+    ],
+    "brief": "新用户：基于人口统计学、注册信息、探索策略。新物品：基于内容特征、元数据。EE 策略的平衡。迁移学习的应用。",
+    "depth_hint": "设计冷启动策略，分析不同场景下的效果",
+    "status": "pending",
+    "id": 729
+  },
+  {
+    "title": "推荐系统的位置偏差与校准",
+    "slug": "position-bias-calibration",
+    "tags": [
+      "推荐系统",
+      "偏差",
+      "校准"
+    ],
+    "brief": "位置偏差：用户更倾向点击靠前的物品。选择偏差：只观测到曝光的交互。IPW（逆倾向加权）的去偏方法。在线校准 pCTR 与真实 CTR 对齐。",
+    "depth_hint": "实现位置偏差估计与去偏，对比校准前后效果",
+    "status": "pending",
+    "id": 730
+  },
+  {
+    "title": "实时推荐架构：特征工程与在线推理",
+    "slug": "realtime-recommendation-architecture",
+    "tags": [
+      "推荐系统",
+      "工程",
+      "架构"
+    ],
+    "brief": "离线特征 vs 实时特征。特征穿越问题：训练时不可用的特征。特征服务的设计。在线推理的延迟要求（<100ms）。特征存储与检索。",
+    "depth_hint": "设计实时特征服务架构，分析延迟瓶颈",
+    "status": "pending",
+    "id": 731
+  },
+  {
+    "title": "多模态推荐：图文特征融合",
+    "slug": "multimodal-recommendation",
+    "tags": [
+      "推荐系统",
+      "多模态",
+      "特征融合"
+    ],
+    "brief": "视觉特征：用预训练 CNN/ViT 提取。文本特征：用预训练语言模型提取。行为特征与内容特征的融合策略。模态缺失的处理。",
+    "depth_hint": "实现多模态推荐，分析不同模态的贡献",
+    "status": "pending",
+    "id": 732
+  },
+  {
+    "title": "推荐系统评测：离线指标与在线 A/B",
+    "slug": "recommendation-evaluation",
+    "tags": [
+      "推荐系统",
+      "评测",
+      "A/B测试"
+    ],
+    "brief": "离线指标：AUC、GAUC、NDCG、MRR、Hit Rate。在线指标：CTR、CVR、GMV、用户停留时长。离线与在线指标的差距分析。A/B 测试的设计与显著性检验。",
+    "depth_hint": "设计评测实验，分析离线指标与在线效果的相关性",
+    "status": "pending",
+    "id": 733
+  },
+  {
+    "title": "探索与利用（E&E）：Bandit 算法在推荐中的应用",
+    "slug": "bandit-algorithms-recommendation",
+    "tags": [
+      "推荐系统",
+      "策略",
+      "Bandit"
+    ],
+    "brief": "ε-Greedy：以 ε 概率探索，1-ε 概率利用。UCB：置信上界，不确定性高的物品更倾向探索。Thompson Sampling：贝叶斯采样。在冷启动和内容探索中的应用。",
+    "depth_hint": "实现三种 Bandit 算法，对比累积遗憾",
+    "status": "pending",
+    "id": 734
+  },
+  {
+    "title": "推荐系统的可解释性",
+    "slug": "recommendation-explainability",
+    "tags": [
+      "推荐系统",
+      "可解释性",
+      "用户信任"
+    ],
+    "brief": "为什么推荐这个物品？基于特征的重要性解释。基于路径的解释（用户行为链路）。生成自然语言解释。可解释性与推荐精度的权衡。",
+    "depth_hint": "实现推荐解释生成，分析用户满意度",
+    "status": "pending",
+    "id": 735
+  },
+  {
+    "title": "音频特征提取：MFCC 与 Mel 频谱",
+    "slug": "audio-feature-extraction-mfcc",
+    "tags": [
+      "语音处理",
+      "特征工程",
+      "信号处理"
+    ],
+    "brief": "短时傅里叶变换（STFT）：分帧、加窗、FFT。Mel 滤波器组：模拟人耳对频率的感知。MFCC：Mel 频谱 + DCT。Log-Mel 频谱：现代深度学习的首选。",
+    "depth_hint": "实现 MFCC 和 Log-Mel 特征提取，可视化对比",
+    "status": "pending",
+    "id": 736
+  },
+  {
+    "title": "CTC 损失函数：对齐无关的序列学习",
+    "slug": "ctc-loss-alignment-free",
+    "tags": [
+      "语音处理",
+      "损失函数",
+      "序列学习"
+    ],
+    "brief": "序列标注的困难：帧与标签不对齐。CTC 引入 blank 符号，所有可能对齐的边缘化。前向-后向算法高效计算。解码策略：贪婪解码、束搜索。",
+    "depth_hint": "推导 CTC 损失的前向-后向算法，实现束搜索解码",
+    "status": "pending",
+    "id": 737
+  },
+  {
+    "title": "Conformer：卷积与注意力的混合架构",
+    "slug": "conformer-architecture",
+    "tags": [
+      "语音处理",
+      "模型架构",
+      "Transformer"
+    ],
+    "brief": "Conformer 块 = FFN + MHSA + Conv + FFN。卷积捕捉局部特征，注意力捕捉全局依赖。相对位置编码。CTC + Attention 联合解码。",
+    "depth_hint": "实现 Conformer 块，分析 Conv 和 Attention 的贡献",
+    "status": "pending",
+    "id": 738
+  },
+  {
+    "title": "Whisper：弱监督大规模语音识别",
+    "slug": "whisper-asr",
+    "tags": [
+      "语音处理",
+      "ASR",
+      "OpenAI"
+    ],
+    "brief": "68 万小时多语言多任务训练数据。任务提示（语言、任务类型）作为条件输入。多任务：转录、翻译、语音检测、语言识别。弱监督与鲁棒性。",
+    "depth_hint": "分析 Whisper 的训练数据构成，测试不同语言的识别效果",
+    "status": "pending",
+    "id": 739
+  },
+  {
+    "title": "语音合成基础：Tacotron 的端到端 TTS",
+    "slug": "tacotron-end-to-end-tts",
+    "tags": [
+      "语音处理",
+      "TTS",
+      "端到端"
+    ],
+    "brief": "文本 → 字符嵌入 → CBHG 编码器 → 注意力 → 解码器 → Mel 频谱。注意力机制对齐文本与声学帧。Griffin-Lim 算法从频谱重建波形。",
+    "depth_hint": "实现 Tacotron 注意力机制，可视化对齐矩阵",
+    "status": "pending",
+    "id": 740
+  },
+  {
+    "title": "Vocoder：WaveNet 到 HiFi-GAN",
+    "slug": "neural-vocoder-wavenet-hifigan",
+    "tags": [
+      "语音处理",
+      "TTS",
+      "声码器"
+    ],
+    "brief": "WaveNet：膨胀因果卷积，自回归生成波形，高质量但慢。WaveGlow：基于流的并行生成。HiFi-GAN：GAN 生成，质量高且快。Mel 频谱到波形的映射。",
+    "depth_hint": "对比三种 Vocoder 的生成质量和速度",
+    "status": "pending",
+    "id": 741
+  },
+  {
+    "title": "FastSpeech：非自回归 TTS",
+    "slug": "fastspeech-non-autoregressive-tts",
+    "tags": [
+      "语音处理",
+      "TTS",
+      "非自回归"
+    ],
+    "brief": "自回归 TTS 的推理瓶颈。FastSpeech 并行生成所有帧。长度调节器：音素到 Mel 帧的映射。从教师模型提取对齐信息。速度提升 10 倍以上。",
+    "depth_hint": "实现 FastSpeech 的长度调节器，对比 AR/NAR 推理速度",
+    "status": "pending",
+    "id": 742
+  },
+  {
+    "title": "语音大模型：SALMONN 与 Qwen-Audio",
+    "slug": "speech-language-models",
+    "tags": [
+      "语音处理",
+      "多模态",
+      "大模型"
+    ],
+    "brief": "语音编码器（Whisper/BEATs）+ LLM。模态适配器对齐语音与文本空间。语音理解与生成。多任务能力：ASR、翻译、问答。",
+    "depth_hint": "分析语音大模型的架构设计，对比不同语音编码器",
+    "status": "pending",
+    "id": 743
+  },
+  {
+    "title": "知识图谱基础：实体、关系、三元组",
+    "slug": "knowledge-graph-basics",
+    "tags": [
+      "知识图谱",
+      "基础",
+      "表示"
+    ],
+    "brief": "知识图谱 = (头实体, 关系, 尾实体) 三元组集合。本体（Ontology）定义概念和关系。RDF、OWL 表示语言。知识图谱的构建流程。常见知识图谱：Freebase、Wikidata、CN-DBpedia。",
+    "depth_hint": "构建一个小型领域知识图谱，设计本体",
+    "status": "pending",
+    "id": 744
+  },
+  {
+    "title": "命名实体识别（NER）：BiLSTM-CRF",
+    "slug": "ner-bilstm-crf",
+    "tags": [
+      "知识图谱",
+      "信息抽取",
+      "序列标注"
+    ],
+    "brief": "NER 任务：识别文本中的实体（人名、地名、机构等）。BiLSTM 编码上下文。CRF 解码最优标签序列。BIO/BIOES 标注体系。转移矩阵学习标签约束。",
+    "depth_hint": "实现 BiLSTM-CRF，推导 CRF 的 Viterbi 解码",
+    "status": "pending",
+    "id": 745
+  },
+  {
+    "title": "关系抽取：远程监督与噪声标签",
+    "slug": "relation-extraction-distant-supervision",
+    "tags": [
+      "知识图谱",
+      "信息抽取",
+      "远程监督"
+    ],
+    "brief": "关系抽取：判断两个实体之间的关系。远程监督：知识库对齐文本自动标注，引入噪声。多实例学习降噪。PCNN（分段卷积神经网络）。",
+    "depth_hint": "实现远程监督的关系抽取，分析噪声对效果的影响",
+    "status": "pending",
+    "id": 746
+  },
+  {
+    "title": "知识图谱嵌入：TransE/TransR/RotatE",
+    "slug": "knowledge-graph-embeddings",
+    "tags": [
+      "知识图谱",
+      "嵌入",
+      "表示学习"
+    ],
+    "brief": "TransE：h + r ≈ t，平移模型，适合一对一关系。TransR：投影到关系空间再平移，处理多对多。RotatE：复数域旋转，建模对称/反对称关系。损失函数：负采样 + Margin Ranking。",
+    "depth_hint": "实现三种嵌入模型，分析不同关系类型的建模能力",
+    "status": "pending",
+    "id": 747
+  },
+  {
+    "title": "RAG + 知识图谱：结构化检索增强",
+    "slug": "rag-knowledge-graph",
+    "tags": [
+      "知识图谱",
+      "RAG",
+      "检索增强"
+    ],
+    "brief": "向量检索的局限：难以精确匹配结构化关系。知识图谱检索：基于实体和关系的精确查询。混合检索：向量 + 图的融合策略。图谱推理增强答案。",
+    "depth_hint": "实现 RAG + KG 的混合检索，对比纯向量检索效果",
+    "status": "pending",
+    "id": 748
+  },
+  {
+    "title": "RL 基础：MDP、策略、价值函数",
+    "slug": "rl-basics-mdp-policy-value",
+    "tags": [
+      "强化学习",
+      "基础",
+      "MDP"
+    ],
+    "brief": "MDP 五元组 (S, A, P, R, γ)。策略 π(a|s) 状态到动作的映射。价值函数 V^π(s) 状态的期望累积奖励。动作价值函数 Q^π(s,a)。Bellman 方程的递归定义。",
+    "depth_hint": "推导 Bellman 方程，用网格世界验证",
+    "status": "pending",
+    "id": 749
+  },
+  {
+    "title": "Q-Learning：off-policy 的价值学习",
+    "slug": "q-learning-off-policy",
+    "tags": [
+      "强化学习",
+      "价值学习",
+      "无模型"
+    ],
+    "brief": "Q 表格存储所有 (s,a) 的价值。更新规则：Q(s,a) ← Q(s,a) + α[r + γ max Q(s',a') - Q(s,a)]。ε-greedy 探索策略。off-policy：学习策略与行为策略不同。",
+    "depth_hint": "实现 Q-Learning 解 FrozenLake，分析 ε 对学习的影响",
+    "status": "pending",
+    "id": 750
+  },
+  {
+    "title": "DQN：深度 Q 网络",
+    "slug": "dqn-deep-q-network",
+    "tags": [
+      "强化学习",
+      "深度学习",
+      "价值学习"
+    ],
+    "brief": "Q 表格无法处理连续/大状态空间。用神经网络近似 Q(s,a;θ)。经验回放：打破样本相关性。目标网络：稳定训练。DQN 的不稳定性与改进。",
+    "depth_hint": "实现 DQN 玩 Atari，分析经验回放的作用",
+    "status": "pending",
+    "id": 751
+  },
+  {
+    "title": "Policy Gradient：REINFORCE",
+    "slug": "policy-gradient-reinforce",
+    "tags": [
+      "强化学习",
+      "策略梯度",
+      "无模型"
+    ],
+    "brief": "直接优化策略参数 θ。目标函数 J(θ) = E[Σ r_t]。梯度 ∇J = E[∇log π(a|s) · G_t]。REINFORCE 用蒙特卡洛采样估计 G_t。高方差问题。基线的方差缩减。",
+    "depth_hint": "推导策略梯度公式，实现 REINFORCE",
+    "status": "pending",
+    "id": 752
+  },
+  {
+    "title": "Actor-Critic：价值引导的策略更新",
+    "slug": "actor-critic",
+    "tags": [
+      "强化学习",
+      "策略梯度",
+      "价值学习"
+    ],
+    "brief": "Actor 用策略梯度更新策略，Critic 估计价值函数。Critic 用 TD 误差训练。优势函数 A(s,a) = Q(s,a) - V(s) 减少方差。A2C/A3C 的同步与异步。",
+    "depth_hint": "实现 Actor-Critic，对比纯策略梯度的方差",
+    "status": "pending",
+    "id": 753
+  },
+  {
+    "title": "PPO：近端策略优化",
+    "slug": "ppo-proximal-policy-optimization",
+    "tags": [
+      "强化学习",
+      "策略梯度",
+      "优化"
+    ],
+    "brief": "策略更新的信任域问题：步子太大导致崩溃。TRPO 的二阶优化复杂。PPO 用裁剪目标函数近似信任域：L = min(rA, clip(r, 1-ε, 1+ε)A)。简单高效，RLHF 的默认选择。",
+    "depth_hint": "实现 PPO，分析 clip 参数对训练稳定性的影响",
+    "status": "pending",
+    "id": 754
+  },
+  {
+    "title": "SAC：Soft Actor-Critic",
+    "slug": "sac-soft-actor-critic",
+    "tags": [
+      "强化学习",
+      "策略梯度",
+      "最大熵"
+    ],
+    "brief": "最大熵 RL：在最大化奖励的同时最大化策略熵。目标函数 J = E[Σ(r + αH(π))]。熵系数 α 的自适应调整。连续动作空间的高效采样。",
+    "depth_hint": "实现 SAC，分析熵正则化对探索的影响",
+    "status": "pending",
+    "id": 755
+  },
+  {
+    "title": "损失函数总览：分类、回归、排序",
+    "slug": "loss-functions-overview",
+    "tags": [
+      "损失函数",
+      "基础",
+      "选择指南"
+    ],
+    "brief": "分类：交叉熵、Focal Loss、Label Smoothing。回归：MSE、MAE、Huber Loss。排序：Triplet Loss、Contrastive Loss。选择依据：任务类型、数据分布、优化难度。",
+    "depth_hint": "总结各类任务的损失函数选择决策树",
+    "status": "pending",
+    "id": 756
+  },
+  {
+    "title": "Focal Loss：难样本的加权",
+    "slug": "focal-loss-hard-examples",
+    "tags": [
+      "损失函数",
+      "分类",
+      "类别不平衡"
+    ],
+    "brief": "类别不平衡问题：简单样本主导梯度。Focal Loss：FL(p) = -α(1-p)^γ log(p)。γ 控制难样本的聚焦程度。α 平衡类别权重。RetinaNet 的成功应用。",
+    "depth_hint": "推导 Focal Loss 的梯度，分析 γ 参数的效果",
+    "status": "pending",
+    "id": 757
+  },
+  {
+    "title": "对比损失：SimCLR 的 InfoNCE",
+    "slug": "contrastive-loss-infonce",
+    "tags": [
+      "损失函数",
+      "对比学习",
+      "自监督"
+    ],
+    "brief": "对比学习：拉近正样本，推远负样本。InfoNCE：-log(exp(sim(z_i,z_j)/τ) / Σ exp(sim(z_i,z_k)/τ))。温度 τ 控制分布锐度。负样本数量对效果的影响。",
+    "depth_hint": "推导 InfoNCE 与交叉熵的关系，分析温度参数",
+    "status": "pending",
+    "id": 758
+  },
+  {
+    "title": "Triplet Loss：三元组学习",
+    "slug": "triplet-loss-metric-learning",
+    "tags": [
+      "损失函数",
+      "度量学习",
+      "嵌入"
+    ],
+    "brief": "三元组 (anchor, positive, negative)。目标：d(a,p) + margin < d(a,n)。困难负样本挖掘策略。在人脸识别、行人重识别中的应用。与对比损失的比较。",
+    "depth_hint": "实现 Triplet Loss，分析不同负采样策略的效果",
+    "status": "pending",
+    "id": 759
+  },
+  {
+    "title": "L1/L2 正则化：稀疏性与权重衰减",
+    "slug": "l1-l2-regularization",
+    "tags": [
+      "正则化",
+      "权重衰减",
+      "稀疏性"
+    ],
+    "brief": "L2 正则化：||W||² 惩罚大权重，贝叶斯视角的高斯先验。L1 正则化：||W||₁ 诱导稀疏性，贝叶斯视角的拉普拉斯先验。弹性网络：L1 + L2 的组合。权重衰减与 Adam 的交互（AdamW）。",
+    "depth_hint": "推导 L1 的次梯度，对比 L1/L2 的稀疏性效果",
+    "status": "pending",
+    "id": 760
+  },
+  {
+    "title": "Dropout：随机失活的贝叶斯解释",
+    "slug": "dropout-regularization",
+    "tags": [
+      "正则化",
+      "训练",
+      "集成学习"
+    ],
+    "brief": "训练时以概率 p 随机失活神经元。推理时缩放权重或使用期望。贝叶斯解释：Dropout 近似高斯过程的贝叶斯推断。DropConnect、Spatial Dropout 变体。p 的选择策略。",
+    "depth_hint": "分析不同 dropout rate 对过拟合的影响",
+    "status": "pending",
+    "id": 761
+  },
+  {
+    "title": "数据增强：图像、文本、语音",
+    "slug": "data-augmentation",
+    "tags": [
+      "正则化",
+      "训练",
+      "数据"
+    ],
+    "brief": "图像：翻转、旋转、裁剪、颜色抖动、Mixup、CutMix。文本：同义词替换、回译、EDA。语音：速度扰动、音高偏移、噪声注入。增强的强度与效果的关系。",
+    "depth_hint": "实现各类数据增强，分析增强策略对模型泛化的影响",
+    "status": "pending",
+    "id": 762
+  },
+  {
+    "title": "从零构建 RAG 系统：完整代码实现",
+    "slug": "build-rag-system-from-scratch",
+    "tags": [
+      "工程实践",
+      "RAG",
+      "实战"
+    ],
+    "brief": "完整 RAG 系统：文档加载 → 分块 → 嵌入 → 向量存储 → 检索 → LLM 生成。使用 LangChain/LlamaIndex 或纯 Python 实现。包括评估与优化策略。",
+    "depth_hint": "提供完整可运行的代码，包含所有组件",
+    "status": "pending",
+    "id": 763
+  },
+  {
+    "title": "LLM API 调用的最佳实践",
+    "slug": "llm-api-best-practices",
+    "tags": [
+      "工程实践",
+      "API",
+      "可靠性"
+    ],
+    "brief": "重试策略：指数退避、抖动。超时设置与取消。流式输出的处理。响应缓存策略。错误处理与降级。Token 计数与预算控制。",
+    "depth_hint": "实现健壮的 LLM API 调用封装",
+    "status": "pending",
+    "id": 764
+  },
+  {
+    "title": "Prompt 工程模板库",
+    "slug": "prompt-engineering-templates",
+    "tags": [
+      "工程实践",
+      "Prompt",
+      "模板"
+    ],
+    "brief": "分类任务模板：结构化输出格式。抽取任务模板：实体与关系抽取。生成任务模板：风格控制。推理任务模板：思维链。安全与注入防护。",
+    "depth_hint": "提供各类任务的 Prompt 模板集合",
+    "status": "pending",
+    "id": 765
+  },
+  {
+    "title": "构建多轮对话系统",
+    "slug": "build-conversational-system",
+    "tags": [
+      "工程实践",
+      "对话系统",
+      "实战"
+    ],
+    "brief": "上下文管理：滑动窗口、摘要压缩。槽位填充：实体追踪。对话状态管理。多轮一致性保证。用户意图识别与槽位提取的联合模型。",
+    "depth_hint": "实现完整的多轮对话系统",
+    "status": "pending",
+    "id": 766
+  },
+  {
+    "title": "LLM 应用的可观测性",
+    "slug": "llm-observability",
+    "tags": [
+      "工程实践",
+      "监控",
+      "可观测性"
+    ],
+    "brief": "日志：请求/响应、Token 使用、延迟。追踪：请求链路、组件耗时。指标：QPS、P99 延迟、错误率、成本。工具：LangSmith、W&B、自建仪表盘。",
+    "depth_hint": "设计 LLM 应用的可观测性架构",
+    "status": "pending",
+    "id": 767
+  },
+  {
+    "title": "模型服务的灰度发布",
+    "slug": "model-deployment-canary",
+    "tags": [
+      "工程实践",
+      "部署",
+      "灰度"
+    ],
+    "brief": "流量切分策略：百分比、用户分桶。回滚机制。A/B 测试的统计显著性。灰度指标：准确率、用户满意度、成本。蓝绿部署与金丝雀发布。",
+    "depth_hint": "设计模型灰度发布的完整流程",
+    "status": "pending",
+    "id": 768
+  },
+  {
+    "title": "构建私有知识库 RAG",
+    "slug": "build-private-knowledge-rag",
+    "tags": [
+      "工程实践",
+      "RAG",
+      "企业"
+    ],
+    "brief": "文档处理：PDF 解析、表格提取、图片 OCR。分块策略：语义分块、滑动窗口。嵌入模型选择：开源 vs 商业。增量更新与版本管理。权限控制。",
+    "depth_hint": "实现企业级知识库 RAG 系统",
+    "status": "pending",
+    "id": 769
+  },
+  {
+    "title": "Agent 的工具定义规范",
+    "slug": "agent-tool-definition-spec",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "工具"
+    ],
+    "brief": "工具 Schema：JSON Schema 定义输入输出。参数验证与类型转换。错误处理与重试。工具描述的最佳实践。工具组合与编排。",
+    "depth_hint": "设计 Agent 工具的标准化接口",
+    "status": "pending",
+    "id": 770
+  },
+  {
+    "title": "多 Agent 协作模式实战",
+    "slug": "multi-agent-collaboration",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "多Agent"
+    ],
+    "brief": "协作模式：顺序、并行、层次。通信机制：消息传递、共享记忆。冲突解决策略。任务分解与分配。实例：代码评审 Agent、研究助手 Agent。",
+    "depth_hint": "实现多 Agent 协作系统",
+    "status": "pending",
+    "id": 771
+  },
+  {
+    "title": "LLM 应用的安全防护",
+    "slug": "llm-security-protection",
+    "tags": [
+      "工程实践",
+      "安全",
+      "防护"
+    ],
+    "brief": "输入过滤：Prompt 注入检测、敏感词过滤。输出审核：内容安全检测。越狱攻击防护。速率限制与滥用防护。日志审计与合规。",
+    "depth_hint": "实现 LLM 应用的安全防护层",
+    "status": "pending",
+    "id": 772
+  },
+  {
+    "title": "LangChain 核心组件源码分析",
+    "slug": "langchain-core-components-analysis",
+    "tags": [
+      "工程实践",
+      "LangChain",
+      "源码"
+    ],
+    "brief": "Chain 组件：顺序执行与分支。Agent 组件：决策循环与工具调用。Memory 组件：对话历史管理。Callback 系统：日志与监控。自定义扩展点。",
+    "depth_hint": "阅读 LangChain 源码，分析核心设计模式",
+    "status": "pending",
+    "id": 773
+  },
+  {
+    "title": "LlamaIndex 索引策略",
+    "slug": "llamaindex-indexing-strategies",
+    "tags": [
+      "工程实践",
+      "LlamaIndex",
+      "索引"
+    ],
+    "brief": "向量索引：FAISS、Pinecone 集成。知识图谱索引：自动三元组抽取。树状索引：层次化摘要。关键词索引：BM25 结合。混合索引策略。",
+    "depth_hint": "对比不同索引策略的效果与性能",
+    "status": "pending",
+    "id": 774
+  },
+  {
+    "title": "构建代码生成 Agent",
+    "slug": "build-code-generation-agent",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "代码生成"
+    ],
+    "brief": "代码生成流程：需求理解 → 代码生成 → 执行验证 → 修复迭代。安全执行：沙箱隔离。AST 解析与代码理解。测试驱动的代码生成。",
+    "depth_hint": "实现代码生成 Agent",
+    "status": "pending",
+    "id": 775
+  },
+  {
+    "title": "构建数据分析 Agent",
+    "slug": "build-data-analysis-agent",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "数据分析"
+    ],
+    "brief": "数据分析流程：数据理解 → 问题分解 → SQL/代码生成 → 可视化。自然语言转 SQL。数据洞察生成。报告自动生成。",
+    "depth_hint": "实现数据分析 Agent",
+    "status": "pending",
+    "id": 776
+  },
+  {
+    "title": "LLM 应用的压测与调优",
+    "slug": "llm-load-testing-optimization",
+    "tags": [
+      "工程实践",
+      "性能",
+      "调优"
+    ],
+    "brief": "压测工具：Locust、k6。关键指标：QPS、延迟分布、错误率。瓶颈分析：模型推理、网络、数据库。调优策略：批处理、缓存、异步。",
+    "depth_hint": "设计 LLM 应用的压测方案",
+    "status": "pending",
+    "id": 777
+  },
+  {
+    "title": "梯度累积：大 batch size 的显存优化",
+    "slug": "gradient-accumulation",
+    "tags": [
+      "模型训练",
+      "优化",
+      "显存"
+    ],
+    "brief": "小显存无法放下大 batch。梯度累积：多次前向后向，累积梯度，一次更新。等效 batch size = batch_size × accumulation_steps。与 BatchNorm 的交互。",
+    "depth_hint": "分析梯度累积与真实大 batch 的效果差异",
+    "status": "pending",
+    "id": 778
+  },
+  {
+    "title": "梯度裁剪：防止梯度爆炸",
+    "slug": "gradient-clipping",
+    "tags": [
+      "模型训练",
+      "优化",
+      "稳定性"
+    ],
+    "brief": "RNN/Transformer 训练中的梯度爆炸。按值裁剪：clip(g, -c, c)。按范数裁剪：g × c / ||g||。裁剪阈值的选择。对训练动态的影响。",
+    "depth_hint": "分析梯度裁剪对训练稳定性的影响",
+    "status": "pending",
+    "id": 779
+  },
+  {
+    "title": "梯度检查点（Gradient Checkpointing）",
+    "slug": "gradient-checkpointing",
+    "tags": [
+      "模型训练",
+      "优化",
+      "显存"
+    ],
+    "brief": "训练显存 = 激活值 + 梯度 + 优化器状态。检查点：只保存部分中间激活，反向时重新计算。时间换空间：计算量增加约 33%，显存节省 O(√n)。在长序列训练中的必要性。",
+    "depth_hint": "分析检查点策略的显存/时间权衡",
+    "status": "pending",
+    "id": 780
+  },
+  {
+    "title": "模型服务框架对比：vLLM、TGI、TensorRT-LLM",
+    "slug": "model-serving-frameworks-comparison",
+    "tags": [
+      "模型部署",
+      "推理",
+      "框架"
+    ],
+    "brief": "vLLM：PagedAttention，高吞吐。TGI：HuggingFace 生态，易用。TensorRT-LLM：NVIDIA 优化，极致性能。功能对比：流式、批处理、量化。性能基准测试。",
+    "depth_hint": "对比三种框架在相同模型上的性能",
+    "status": "pending",
+    "id": 781
+  },
+  {
+    "title": "批处理策略：动态 Batching",
+    "slug": "dynamic-batching-inference",
+    "tags": [
+      "模型部署",
+      "推理",
+      "批处理"
+    ],
+    "brief": "静态批处理：等待固定 batch size。动态批处理：等待超时或达到 batch size。连续批处理：vLLM 的 iteration-level scheduling。延迟与吞吐的权衡。",
+    "depth_hint": "实现动态批处理策略",
+    "status": "pending",
+    "id": 782
+  },
+  {
+    "title": "Linux 网络编程：Socket、epoll",
+    "slug": "linux-network-socket-epoll",
+    "tags": [
+      "系统基础",
+      "网络",
+      "Linux"
+    ],
+    "brief": "Socket 编程：TCP 连接建立、数据收发。阻塞 vs 非阻塞 IO。select/poll/epoll 的演进。epoll 的边缘触发与水平触发。高并发服务器设计模式。",
+    "depth_hint": "实现基于 epoll 的高并发服务器",
+    "status": "pending",
+    "id": 783
+  },
+  {
+    "title": "TCP/IP 协议栈详解",
+    "slug": "tcp-ip-protocol-stack",
+    "tags": [
+      "系统基础",
+      "网络",
+      "协议"
+    ],
+    "brief": "TCP 三次握手与四次挥手。滑动窗口与流量控制。拥塞控制算法：慢启动、拥塞避免、快重传。TIME_WAIT 状态的问题与解决。TCP 与 UDP 的选择。",
+    "depth_hint": "用 tcpdump 分析 TCP 连接过程",
+    "status": "pending",
+    "id": 784
+  },
+  {
+    "title": "数据库原理：B+ 树与 LSM 树",
+    "slug": "database-internals-btree-lsm",
+    "tags": [
+      "系统基础",
+      "存储",
+      "数据库"
+    ],
+    "brief": "B+ 树：聚簇索引、非聚簇索引、范围查询优化。LSM 树：写入优化、MemTable、SSTable、Compaction。读放大、写放大、空间放大。不同工作负载的选择。",
+    "depth_hint": "实现简化版 B+ 树和 LSM 树",
+    "status": "pending",
+    "id": 785
+  },
+  {
+    "title": "Redis 核心数据结构",
+    "slug": "redis-data-structures",
+    "tags": [
+      "系统基础",
+      "存储",
+      "Redis"
+    ],
+    "brief": "SDS（简单动态字符串）、链表、字典、跳跃表、整数集合、压缩列表。各数据结构的时间复杂度。内存优化策略。持久化：RDB 与 AOF。",
+    "depth_hint": "分析 Redis 数据结构的源码实现",
+    "status": "pending",
+    "id": 786
   }
 ]
