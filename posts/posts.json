@@ -1,5 +1,17 @@
 [
   {
+    "title": "激活函数全景：Sigmoid、ReLU、GELU 的数学性质与选择",
+    "slug": "activation-functions",
+    "date": "2026-03-04",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "神经网络",
+      "激活函数"
+    ],
+    "summary": "激活函数全景：Sigmoid、ReLU、GELU 的数学性质与选择"
+  },
+  {
     "title": "感知机到多层感知机：深度学习的起点",
     "slug": "perceptron-to-mlp",
     "date": "2026-03-04",
