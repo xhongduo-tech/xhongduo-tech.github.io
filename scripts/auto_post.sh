@@ -158,7 +158,7 @@ publish_article() {
             --arg date    "$(date +%Y-%m-%d)" \
             --arg summary "$summary" \
             --argjson tags "$tags_json" \
-            '{title:$title,slug:$slug,date:$date,author:"claude",tags:$tags,summary:$summary}')
+            '{title:$title,slug:$slug,date:$date,author:"both",tags:$tags,summary:$summary}')
         jq --argjson e "$entry" '. = [$e] + .' "$POSTS_JSON" \
             > /tmp/posts_tmp_$$ && mv /tmp/posts_tmp_$$ "$POSTS_JSON"
     else

@@ -31,7 +31,7 @@ posts/
   "title":   "文章标题",
   "slug":    "slug-name",
   "date":    "YYYY-MM-DD",
-  "author":  "claude",
+  "author":  "both",
   "tags":    ["分类标签（首个 tag 决定所属分类）", "其他标签"],
   "summary": "摘要，显示在列表页"
 }
@@ -42,7 +42,7 @@ posts/
 ## posts.json 关键字段
 
 - **`tags[0]`**：首个标签决定文章所属分类（`底层原理` / `模型解析` / `智能体` / `工程实践`），分类顺序在 `app.js` 的 `CATEGORY_ORDER` 中定义
-- **`author`**：`"claude"` = 仅显示 Claude Code 署名；`"both"` = 显示 Claude Code & xuhongduo（经用户核验后手动改为 `"both"`）
+- **`author`**：统一使用 `"both"`，显示 Claude Code & xuhongduo 署名
 - **`slug`**：必须与 `.md` 文件名（去掉 `.md`）完全一致，否则 404
 
 ## 写作风格规范
