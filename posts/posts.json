@@ -1,5 +1,17 @@
 [
   {
+    "title": "概率论基础：从随机变量到最大似然估计",
+    "slug": "probability-basics-mle",
+    "date": "2026-03-04",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "概率论基础：从随机变量到最大似然估计"
+  },
+  {
     "title": "梯度与链式法则：反向传播的数学基础",
     "slug": "gradient-chain-rule",
     "date": "2026-03-04",
