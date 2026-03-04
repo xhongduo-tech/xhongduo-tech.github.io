@@ -190,7 +190,8 @@ mark_queue() {
 if $DRY_RUN; then
     echo "本次将随机生成以下 ${BATCH_SIZE} 篇："
     echo ""
-    mapfile -t slugs < <(pick_random_slugs)
+    slugs=()
+    while IFS= read -r line; do slugs+=("$line"); done < <(pick_random_slugs)
     for slug in "${slugs[@]}"; do
         topic=$(get_topic "$slug")
         echo "$topic" | jq -r '"  [\(.tags[0])] \(.title)\n  slug: \(.slug)\n"'
@@ -205,7 +206,8 @@ fi
 log "=== auto_post.sh 启动，随机取 ${BATCH_SIZE} 篇生成 ==="
 
 # 取本批次 slug 列表
-mapfile -t slugs < <(pick_random_slugs)
+slugs=()
+while IFS= read -r line; do slugs+=("$line"); done < <(pick_random_slugs)
 
 if [[ "${#slugs[@]}" -eq 0 ]]; then
     log "队列为空，所有主题已完成。"
