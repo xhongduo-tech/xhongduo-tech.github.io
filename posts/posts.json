@@ -1,5 +1,65 @@
 [
   {
+    "title": "向量与矩阵：神经网络计算的数学基础",
+    "slug": "vectors-and-matrices-ml",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "从向量、内积、范数到矩阵乘法、转置与 GPU 并行，系统解释神经网络前向计算为何本质上是线性代数。"
+  },
+  {
+    "title": "梯度与链式法则：反向传播的数学基础",
+    "slug": "gradient-chain-rule",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "从导数、偏导、梯度讲到链式法则与两层 MLP 手算反向传播，解释自动求导背后的核心逻辑。"
+  },
+  {
+    "title": "概率论基础：从随机变量到最大似然估计",
+    "slug": "probability-basics-mle",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "建立随机变量、分布、期望与方差的最小概率框架，并推导高斯分布 MLE 与分类交叉熵的来源。"
+  },
+  {
+    "title": "信息熵与交叉熵：损失函数的信息论基础",
+    "slug": "entropy-cross-entropy",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "从编码代价出发解释熵、交叉熵与 KL 散度，并用梯度对比说明分类任务为何通常选择交叉熵而不是 MSE。"
+  },
+  {
+    "title": "Softmax 函数：多分类输出的概率化",
+    "slug": "softmax-function",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "激活函数"
+    ],
+    "summary": "解释 Softmax 如何把 logits 变成概率分布，并系统覆盖数值稳定性、温度参数、梯度结构与注意力缩放。"
+  },
+  {
     "title": "Claude Code 安装使用指南",
     "slug": "how-to-use-claude-code",
     "date": "2026-02-26",
