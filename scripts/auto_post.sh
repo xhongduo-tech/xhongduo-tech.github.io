@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# auto_post.sh — 每次随机取 10 篇，生成后逐篇推送
+# auto_post.sh — 每次按顺序取前 N 篇 pending，先生成，再统一完善并推送
 #
 # 用法：
-#   bash scripts/auto_post.sh            # 随机取 10 篇生成并推送
-#   bash scripts/auto_post.sh --dry-run  # 预览将生成的 10 篇，不实际生成
+#   bash scripts/auto_post.sh            # 按顺序取前 10 篇，生成后统一完善并推送
+#   BATCH_SIZE=1 bash scripts/auto_post.sh
+#   bash scripts/auto_post.sh --dry-run  # 预览将生成的前 10 篇，不实际生成
 
 set -euo pipefail
 
@@ -13,10 +14,17 @@ POSTS_DIR="$REPO_ROOT/posts"
 QUEUE_FILE="$SCRIPTS_DIR/topic_queue.json"
 POSTS_JSON="$POSTS_DIR/posts.json"
 LOGS_DIR="$SCRIPTS_DIR/logs"
-CLAUDE_BIN="/opt/homebrew/bin/claude"
-BATCH_SIZE=10
+FAILED_OUTPUT_DIR="$POSTS_DIR/_failed"
+CLAUDE_BIN="${CLAUDE_BIN:-$(command -v claude 2>/dev/null || true)}"
+CODEX_BIN="${CODEX_BIN:-$(command -v codex 2>/dev/null || true)}"
+[[ -z "$CODEX_BIN" ]] && CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex"
+CLAUDE_MODEL="${CLAUDE_MODEL:-claude-opus-4-6}"
+CLAUDE_EFFORT="${CLAUDE_EFFORT:-high}"
+CODEX_MODEL="${CODEX_MODEL:-gpt-5.4}"
+CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-xhigh}"
+BATCH_SIZE="${BATCH_SIZE:-10}"
 
-mkdir -p "$LOGS_DIR"
+mkdir -p "$LOGS_DIR" "$FAILED_OUTPUT_DIR"
 LOG_FILE="$LOGS_DIR/auto_post_$(date +%Y%m%d_%H%M%S).log"
 
 # ── 日志 ──────────────────────────────────────────────────────────────────────
@@ -82,6 +90,7 @@ SYSTEM_PROMPT=$(cat <<'EOF'
 
 ## 参考资料
 至少 3 条，优先论文 / 官方文档 / 源码 / 高质量技术博客；每条都说明推荐理由。
+格式要求：每条参考资料单独成行，尽量使用 `1. [标题](链接) - 推荐理由`。
 
 强制质量门槛：
 - 至少一个完整 `python` 代码块
@@ -102,7 +111,7 @@ EOF
 # ── 按技术依赖顺序取 N 个 pending 主题的 slug 列表 ────────────────────────────
 # 队列 topic_queue.json 已按技术依赖关系由浅入深排序（ID 越小越基础）。
 # 策略：从最前面的 pending 主题中取前 N 个，确保基础技术优先覆盖。
-pick_random_slugs() {
+pick_next_slugs() {
     python3 - "$QUEUE_FILE" "$BATCH_SIZE" << 'PYEOF'
 import json, sys
 with open(sys.argv[1]) as f:
@@ -112,6 +121,17 @@ pending = [d['slug'] for d in data if d.get('status') == 'pending']
 for s in pending[:int(sys.argv[2])]:
     print(s)
 PYEOF
+}
+
+# ── 保存失败稿，避免内容丢失 ──────────────────────────────────────────────────
+save_failed_article() {
+    local slug="$1" stage="$2" output="$3"
+    local failed_file="$FAILED_OUTPUT_DIR/${slug}.${stage}.md"
+
+    [[ -z "${output//[[:space:]]/}" ]] && return 0
+
+    printf '%s\n' "$output" > "$failed_file"
+    warn "  已保存失败稿：$failed_file"
 }
 
 # ── 根据 slug 获取完整 topic JSON ──────────────────────────────────────────────
@@ -134,17 +154,26 @@ resolve_prereq_titles() {
     ' "$QUEUE_FILE"
 }
 
-# ── 调用 Claude ───────────────────────────────────────────────────────────────
+# ── 调用 Claude 生成正文 ───────────────────────────────────────────────────────
 run_claude_prompt() {
     local prompt="$1"
     local tmp_out tmp_err
     tmp_out=$(mktemp /tmp/auto_post_out_XXXXXX)
     tmp_err=$(mktemp /tmp/auto_post_err_XXXXXX)
 
+    if [[ ! -x "$CLAUDE_BIN" ]]; then
+        err "未找到可执行的 claude CLI: $CLAUDE_BIN"
+        rm -f "$tmp_out" "$tmp_err"
+        return 1
+    fi
+
     unset CLAUDECODE CLAUDE_CODE_ENTRYPOINT 2>/dev/null || true
 
     local exit_code=0
-    "$CLAUDE_BIN" -p "$prompt" --model claude-opus-4-6 \
+    "$CLAUDE_BIN" -p \
+        --model "$CLAUDE_MODEL" \
+        --effort "$CLAUDE_EFFORT" \
+        "$prompt" \
         > "$tmp_out" 2>"$tmp_err" || exit_code=$?
 
     local stderr_content
@@ -205,12 +234,13 @@ ${draft}
 
 # ── 质量校验 ──────────────────────────────────────────────────────────────────
 validate_article_output() {
-    local article_file="$1"
-    python3 - "$article_file" <<'PYEOF'
+    local article_file="$1" require_summary="${2:-1}"
+    python3 - "$article_file" "$require_summary" <<'PYEOF'
 import json, re, sys
 from pathlib import Path
 
 text = Path(sys.argv[1]).read_text()
+require_summary = sys.argv[2] == "1"
 issues = []
 required_sections = [
     "## 核心结论",
@@ -232,26 +262,44 @@ if "|" not in text:
     issues.append("缺少 Markdown 表格")
 if "$$" not in text and not re.search(r"\$[^$\n]+\$", text):
     issues.append("缺少公式或数学记号")
-if len(re.findall(r"^\d+\.\s+\[", text, flags=re.M)) < 3:
+
+refs_body = ""
+refs_match = re.search(r"^## 参考资料\s*$([\s\S]*)", text, flags=re.M)
+if refs_match:
+    refs_body = refs_match.group(1)
+    refs_lines = []
+    for raw_line in refs_body.splitlines():
+        line = raw_line.strip()
+        if line.startswith('{"summary"'):
+            break
+        refs_lines.append(raw_line)
+    refs_body = "\n".join(refs_lines).strip()
+
+list_items = re.findall(r"^\s*(?:\d+\.\s+|[-*]\s+).+", refs_body, flags=re.M)
+markdown_links = re.findall(r"\[[^\]]+\]\((https?://[^)]+)\)", refs_body)
+bare_urls = re.findall(r"https?://\S+", refs_body)
+ref_count = max(len(list_items), len(set(markdown_links)), len(set(bare_urls)))
+if ref_count < 3:
     issues.append("参考资料少于 3 条")
 
-summary_ok = False
-for line in reversed(text.splitlines()):
-    line = line.strip()
-    if not line:
-        continue
-    if not line.startswith("{"):
-        break
-    try:
-        obj = json.loads(line)
-    except Exception:
-        break
-    summary = obj.get("summary", "")
-    if isinstance(summary, str) and summary.strip():
-        summary_ok = True
-        break
-if not summary_ok:
-    issues.append("缺少末尾 summary JSON")
+if require_summary:
+    summary_ok = False
+    for line in reversed(text.splitlines()):
+        line = line.strip()
+        if not line:
+            continue
+        if not line.startswith("{"):
+            break
+        try:
+            obj = json.loads(line)
+        except Exception:
+            break
+        summary = obj.get("summary", "")
+        if isinstance(summary, str) and summary.strip():
+            summary_ok = True
+            break
+    if not summary_ok:
+        issues.append("缺少末尾 summary JSON")
 
 if issues:
     print("\n".join(issues))
@@ -313,38 +361,129 @@ else:
 
     # 写 .md
     printf '%s\n' "$content" > "$POSTS_DIR/${slug}.md"
+    log "  已写入正文：$POSTS_DIR/${slug}.md"
 
-    # 更新 posts.json（若 slug 已存在则跳过）
-    local exists
-    exists=$(jq --arg s "$slug" '[.[] | select(.slug==$s)] | length' "$POSTS_JSON")
-    if [[ "$exists" -eq 0 ]]; then
-        local entry
-        entry=$(jq -n \
-            --arg title   "$title" \
-            --arg slug    "$slug" \
-            --arg date    "$(date +%Y-%m-%d)" \
-            --arg summary "$summary" \
-            --argjson tags "$tags_json" \
-            '{title:$title,slug:$slug,date:$date,author:"both",tags:$tags,summary:$summary}')
-        jq --argjson e "$entry" '. = [$e] + .' "$POSTS_JSON" \
+    # 更新 posts.json（已存在则覆盖，不存在则插入）
+    local entry exists
+    entry=$(jq -n \
+        --arg title   "$title" \
+        --arg slug    "$slug" \
+        --arg date    "$(date +%Y-%m-%d)" \
+        --arg summary "$summary" \
+        --argjson tags "$tags_json" \
+        '{title:$title,slug:$slug,date:$date,author:"both",tags:$tags,summary:$summary}')
+    exists=$(jq --arg s "$slug" 'any(.[]; .slug == $s)' "$POSTS_JSON")
+    if [[ "$exists" == "true" ]]; then
+        jq --argjson e "$entry" 'map(if .slug == $e.slug then $e else . end)' "$POSTS_JSON" \
             > /tmp/posts_tmp_$$ && mv /tmp/posts_tmp_$$ "$POSTS_JSON"
     else
-        warn "  posts.json 中 ${slug} 已存在，跳过插入"
+        jq --argjson e "$entry" '. = [$e] + .' "$POSTS_JSON" \
+            > /tmp/posts_tmp_$$ && mv /tmp/posts_tmp_$$ "$POSTS_JSON"
     fi
 }
 
+validate_posts_json_entries() {
+    local slug count
+    if ! jq empty "$POSTS_JSON" >/dev/null 2>&1; then
+        err "posts/posts.json 不是合法 JSON"
+        return 1
+    fi
+
+    for slug in "$@"; do
+        count=$(jq --arg s "$slug" '[.[] | select(.slug == $s)] | length' "$POSTS_JSON")
+        if [[ "$count" -ne 1 ]]; then
+            err "posts/posts.json 中 slug=${slug} 的条目数量异常：${count}"
+            return 1
+        fi
+    done
+}
+
+# ── 调用 Codex 批量完善 ───────────────────────────────────────────────────────
+refine_batch_with_codex() {
+    local -a batch_slugs=("$@")
+    local tmp_out tmp_err prompt file_refs slug
+    tmp_out=$(mktemp /tmp/auto_post_codex_out_XXXXXX)
+    tmp_err=$(mktemp /tmp/auto_post_codex_err_XXXXXX)
+
+    if [[ ! -x "$CODEX_BIN" ]]; then
+        err "未找到可执行的 codex CLI: $CODEX_BIN"
+        rm -f "$tmp_out" "$tmp_err"
+        return 1
+    fi
+
+    file_refs="- posts/posts.json"
+    for slug in "${batch_slugs[@]}"; do
+        file_refs="${file_refs}
+- posts/${slug}.md"
+    done
+
+    prompt=$(cat <<EOF
+请整体完善本批次刚生成的技术博客，并直接在工作区原地修改文件。
+
+只允许修改以下文件：
+${file_refs}
+
+任务要求：
+- 提升技术准确性、结构衔接、术语一致性、running example 一致性、代码可运行性和表达精度
+- 保持每篇文章的标题、slug、主题边界、章节顺序和主要结论不变
+- 不要删除必须章节，不要新增与主题无关的内容，不要改动未列出的文件
+- 不要在 markdown 文件末尾重新添加 summary JSON 行
+- 如果正文改动导致摘要不再准确，同步更新 posts/posts.json 中这些 slug 对应条目的 summary
+- 不要修改 posts/posts.json 中这些条目的 slug、date、author、tags
+
+完成后只输出一句简短中文说明。
+EOF
+)
+
+    local exit_code=0
+    "$CODEX_BIN" exec \
+        --model "$CODEX_MODEL" \
+        -c "model_reasoning_effort=\"${CODEX_REASONING_EFFORT}\"" \
+        --skip-git-repo-check \
+        --color never \
+        -s workspace-write \
+        -o "$tmp_out" \
+        -C "$REPO_ROOT" \
+        "$prompt" \
+        > /dev/null 2>"$tmp_err" || exit_code=$?
+
+    local stderr_content
+    stderr_content=$(cat "$tmp_err")
+    rm -f "$tmp_err"
+
+    if [[ "$exit_code" -ne 0 ]]; then
+        err "  codex 退出码 ${exit_code}: $(echo "$stderr_content" | head -3)"
+        rm -f "$tmp_out"
+        return 1
+    fi
+
+    cat "$tmp_out"
+    rm -f "$tmp_out"
+}
+
 # ── Git 提交推送 ───────────────────────────────────────────────────────────────
-git_commit_push() {
-    local slug="$1"
+git_commit_push_batch() {
+    local -a batch_slugs=("$@")
     cd "$REPO_ROOT"
-    git add "posts/${slug}.md" posts/posts.json
+    git add posts/posts.json scripts/topic_queue.json
+    local slug
+    for slug in "${batch_slugs[@]}"; do
+        git add "posts/${slug}.md"
+    done
     if git diff --cached --quiet; then
         warn "  无暂存变更，跳过 commit"
         return 0
     fi
-    git commit -m "$(printf 'post: %s\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>' "$slug")"
+    {
+        printf 'post: batch %s (%d articles)\n\n' "$(date +%Y-%m-%d)" "${#batch_slugs[@]}"
+        printf 'Generated with Claude Code and refined with Codex.\n\n'
+        printf 'Articles:\n'
+        printf '%s\n' "${batch_slugs[@]}"
+        printf '\nCo-Authored-By: Claude Code <noreply@anthropic.com>\n'
+        printf 'Co-Authored-By: Codex GPT-5.4 <noreply@openai.com>\n'
+    } | git commit -F -
     git push origin main
-    log "  ✓ 已推送：${slug}"
+    log "  ✓ 已推送本批次 ${#batch_slugs[@]} 篇文章"
 }
 
 # ── 更新队列状态（无时间戳）──────────────────────────────────────────────────
@@ -355,12 +494,21 @@ mark_queue() {
         "$QUEUE_FILE" > /tmp/queue_tmp_$$ && mv /tmp/queue_tmp_$$ "$QUEUE_FILE"
 }
 
+mark_queue_batch() {
+    local status="$1"
+    shift
+    local slug
+    for slug in "$@"; do
+        mark_queue "$slug" "$status"
+    done
+}
+
 # ── Dry-run ───────────────────────────────────────────────────────────────────
 if $DRY_RUN; then
-    echo "本次将随机生成以下 ${BATCH_SIZE} 篇："
+    echo "本次将按顺序生成以下 ${BATCH_SIZE} 篇："
     echo ""
     slugs=()
-    while IFS= read -r line; do slugs+=("$line"); done < <(pick_random_slugs)
+    while IFS= read -r line; do slugs+=("$line"); done < <(pick_next_slugs)
     for slug in "${slugs[@]}"; do
         topic=$(get_topic "$slug")
         echo "$topic" | jq -r '"  [\(.tags[0])] \(.title)\n  slug: \(.slug)\n"'
@@ -372,11 +520,11 @@ if $DRY_RUN; then
 fi
 
 # ── 主逻辑 ────────────────────────────────────────────────────────────────────
-log "=== auto_post.sh 启动，随机取 ${BATCH_SIZE} 篇生成 ==="
+log "=== auto_post.sh 启动，按顺序取前 ${BATCH_SIZE} 篇生成 ==="
 
 # 取本批次 slug 列表
 slugs=()
-while IFS= read -r line; do slugs+=("$line"); done < <(pick_random_slugs)
+while IFS= read -r line; do slugs+=("$line"); done < <(pick_next_slugs)
 
 if [[ "${#slugs[@]}" -eq 0 ]]; then
     log "队列为空，所有主题已完成。"
@@ -384,6 +532,8 @@ if [[ "${#slugs[@]}" -eq 0 ]]; then
 fi
 
 log "本批次共 ${#slugs[@]} 篇：$(IFS=', '; echo "${slugs[*]}")"
+
+generated_slugs=()
 
 for slug in "${slugs[@]}"; do
     topic=$(get_topic "$slug")
@@ -421,14 +571,15 @@ EOF
     output=$(generate_article "$article_context") || rc=$?
 
     if [[ "$rc" -ne 0 ]]; then
-        err "生成失败，立即停止。已完成主题已标记为 done。"
+        save_failed_article "$slug" "generation-error" "$output"
+        err "生成失败，立即停止。本批次已生成内容会保留在本地，且不会推送 git。"
         exit 1
     fi
 
     validate_file=$(mktemp /tmp/auto_post_validate_XXXXXX)
     printf '%s' "$output" > "$validate_file"
     validation_failed=false
-    issues=$(validate_article_output "$validate_file") || validation_failed=true
+    issues=$(validate_article_output "$validate_file" 1) || validation_failed=true
 
     if $validation_failed; then
         warn "  首轮生成未通过质量门槛，执行一次修订"
@@ -440,15 +591,17 @@ EOF
         output=$(repair_article "$article_context" "$output" "$issues") || rc=$?
         if [[ "$rc" -ne 0 ]]; then
             rm -f "$validate_file"
+            save_failed_article "$slug" "repair-error" "$output"
             err "修订失败，立即停止。"
             exit 1
         fi
 
         printf '%s' "$output" > "$validate_file"
         validation_failed=false
-        issues=$(validate_article_output "$validate_file") || validation_failed=true
+        issues=$(validate_article_output "$validate_file" 1) || validation_failed=true
         if $validation_failed; then
             rm -f "$validate_file"
+            save_failed_article "$slug" "validation-failed" "$output"
             err "修订后仍未通过质量门槛："
             while IFS= read -r issue; do
                 [[ -n "$issue" ]] && err "  - $issue"
@@ -459,10 +612,37 @@ EOF
     rm -f "$validate_file"
 
     publish_article "$slug" "$title" "$tags_json" "$output"
-    mark_queue "$slug" "done"
-    git_commit_push "$slug"
+    generated_slugs+=("$slug")
 
     sleep 3
 done
 
-log "=== 本批次 ${#slugs[@]} 篇全部完成 ==="
+log "Claude 生成完成，开始调用 Codex 整体完善本批次 ${#generated_slugs[@]} 篇文章"
+
+codex_result=""
+rc=0
+codex_result=$(refine_batch_with_codex "${generated_slugs[@]}") || rc=$?
+if [[ "$rc" -ne 0 ]]; then
+    err "Codex 批量完善失败，已保留生成稿，未推送 git。"
+    exit 1
+fi
+[[ -n "${codex_result//[[:space:]]/}" ]] && log "Codex：$(echo "$codex_result" | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g')"
+
+for slug in "${generated_slugs[@]}"; do
+    validation_failed=false
+    issues=$(validate_article_output "$POSTS_DIR/${slug}.md" 0) || validation_failed=true
+    if $validation_failed; then
+        err "Codex 完善后文章校验失败：${slug}"
+        while IFS= read -r issue; do
+            [[ -n "$issue" ]] && err "  - $issue"
+        done <<< "$issues"
+        exit 1
+    fi
+done
+
+validate_posts_json_entries "${generated_slugs[@]}" || exit 1
+
+mark_queue_batch "done" "${generated_slugs[@]}"
+git_commit_push_batch "${generated_slugs[@]}"
+
+log "=== 本批次 ${#generated_slugs[@]} 篇全部完成 ==="
