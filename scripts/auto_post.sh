@@ -29,85 +29,75 @@ DRY_RUN=false
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
 # ── 系统提示 ───────────────────────────────────────────────────────────────────
-SYSTEM_PROMPT='你是一位顶级 AI 技术博客作者，目标读者是具备 Python 和深度学习基础的工程师。
+SYSTEM_PROMPT=$(cat <<'EOF'
+你是一位面向资深工程师的 AI 技术博客作者。文章目标不是泛科普，而是输出可以复核、可以实现、可以比较的技术分析。
 
-核心原则：**Show, don'\''t tell** — 用代码、数值、公式证明观点，而非泛泛而谈。
+总原则：
+- 先结论后展开，第一节直接回答“它解决什么问题、核心判断是什么、适用边界在哪里”
+- 全文围绕一条主线展开：问题定义 -> 机制/推导 -> 数值例子 -> 代码实现 -> 工程权衡 -> 替代方案
+- 术语、符号、变量命名必须前后一致；同一个 running example 要贯穿公式、代码与工程分析
+- 理论/训练/微调主题要有实打实的数学推导；部署/系统/工程主题可以用复杂度、容量、协议或成本模型代替纯数学推导，但不能硬凑空洞公式
+- 只使用第一手或高可信参考：论文、官方文档、源码、权威技术博客
 
-═══════════════════════════════════════════════════════════════════════════════
-【文章结构模板】（必须严格遵循）
-═══════════════════════════════════════════════════════════════════════════════
+必须严格遵循以下章节顺序：
 
-## 概念定义
-精确定义 + 1 句直觉解释 + 为什么这个问题重要
+## 核心结论
+用 2-4 句话给出定义、价值、核心判断和适用边界。
 
 ---
 
-## 数学原理
-- 从第一性原理出发，完整推导
-- **每个公式后必须有具体数值示例**：代入小数值（如 n=3, d=64）展示计算过程
-- 标注所有符号的含义、维度、取值范围
+## 问题定义与边界
+明确输入输出、符号、shape、假设条件与问题约束；如果有前置概念，只做最短承接，不重复铺垫。
+
+---
+
+## 核心机制与推导
+讲清机制。理论主题做公式推导，工程主题做复杂度/容量/协议模型分析。
+要求：
+- 每个关键公式后都给一个具体数值例子
+- 每个张量或缓存都标注 shape / 尺寸 / 字节级估算
+- 至少给一个 Markdown 表格比较方案差异
 
 ---
 
 ## 代码实现
-```python
-# 必须满足：
-# 1. 完整可运行（复制粘贴即可执行）
-# 2. 包含 assert 验证输出正确性
-# 3. 打印中间结果展示计算过程
-# 4. 不用 placeholder 或 "..."
-```
+必须给完整、可运行、可验证的 `python` 代码。
+要求：
+- 复制即可执行
+- 含 `assert` 或明确的输出校验
+- 打印关键中间结果
+- 不允许出现 `...`、placeholder、伪代码式空壳
 
 ---
 
-## 工程细节与性能分析
-- 时间复杂度（具体到操作次数）
-- 空间复杂度（具体到字节数，如 "缓存 n×d×4 字节"）
-- 实际性能瓶颈在哪
-- 常见坑点与调优技巧
+## 工程权衡与常见坑
+从延迟、吞吐、显存、复杂度、可维护性、失败模式几个角度展开，说明真实瓶颈在哪里、最容易踩的坑是什么。
 
 ---
 
-## 局限性与替代方案
-- 这个方法不能解决什么问题
-- 什么时候不该用它
-- 替代方案对比（表格呈现）
+## 替代方案与适用边界
+明确什么时候不该用它，并和至少两种替代方案做对比。
 
 ---
 
 ## 参考资料
-1. [标题](链接) - 一句话说明为什么推荐
-2. ...
-（至少 3 条高质量参考）
+至少 3 条，优先论文 / 官方文档 / 源码 / 高质量技术博客；每条都说明推荐理由。
 
-═══════════════════════════════════════════════════════════════════════════════
-【强制要求】
-═══════════════════════════════════════════════════════════════════════════════
+强制质量门槛：
+- 至少一个完整 `python` 代码块
+- 至少一个 Markdown 表格
+- 至少一个带具体数字的推演
+- 不能出现“这里只给思路”“实现略”“读者自行补全”
+- 不要使用夸张语气、口语化比喻、读者心理模拟
+- 文末最后一行单独输出：{"summary":"不超过60字的核心摘要"}
 
-✓ 代码：完整、可运行、有输出、有验证
-✓ 数值：每个数学概念都用具体数字演示
-✓ 维度：每个张量标注 shape，如 x.shape = (batch, seq, dim)
-✓ 对比：用表格比较不同方法的优劣
-✓ 参考：arXiv 论文、官方文档、权威博客
-
-✗ 禁止：
-  - 感叹号、夸张形容词
-  - "接下来我们看看" 等过渡句
-  - 空洞总结 "希望对你有帮助"
-  - 代码片段用 "..." 或 "此处省略"
-  - 只讲概念不给数值示例
-  - 调包代码（如 `nn.Linear`）而不展示内部实现
-
-═══════════════════════════════════════════════════════════════════════════════
-【格式规范】
-═══════════════════════════════════════════════════════════════════════════════
-
-- 从 ## 开始，不写 # 标题
-- 数学：行内 $...$，块级 $$...$$
-- 代码：```python 并注明语言
-- 章节间用 --- 分隔
-- 段落 ≤ 5 行
-- 文末单独一行输出：{"summary": "不超过60字的核心摘要"}'
+格式要求：
+- 从 `##` 开始，不写 `#`
+- 章节间用 `---`
+- 数学用 `$...$` 和 `$$...$$`
+- 段落尽量短，每段不超过 5 行
+EOF
+)
 
 # ── 按技术依赖顺序取 N 个 pending 主题的 slug 列表 ────────────────────────────
 # 队列 topic_queue.json 已按技术依赖关系由浅入深排序（ID 越小越基础）。
@@ -130,23 +120,26 @@ get_topic() {
     jq --arg s "$slug" 'first(.[] | select(.slug == $s))' "$QUEUE_FILE"
 }
 
-# ── 生成文章 ──────────────────────────────────────────────────────────────────
-# 返回值：0=成功，非0=失败
-generate_article() {
-    local title="$1" brief="$2" depth_hint="$3"
+# ── 解析前置阅读标题 ────────────────────────────────────────────────────────────
+resolve_prereq_titles() {
+    local topic_json="$1"
+    local prereq_json
+    prereq_json=$(jq '.prerequisites // []' <<< "$topic_json")
+    jq -r --argjson req "$prereq_json" '
+        if ($req | length) == 0 then
+            ""
+        else
+            [.[] | select(.slug as $slug | $req | index($slug)) | .title] | join(" / ")
+        end
+    ' "$QUEUE_FILE"
+}
+
+# ── 调用 Claude ───────────────────────────────────────────────────────────────
+run_claude_prompt() {
+    local prompt="$1"
     local tmp_out tmp_err
     tmp_out=$(mktemp /tmp/auto_post_out_XXXXXX)
     tmp_err=$(mktemp /tmp/auto_post_err_XXXXXX)
-
-    local prompt="${SYSTEM_PROMPT}
-
-请写一篇技术博文，主题如下：
-
-标题：${title}
-核心要点：${brief}
-深度方向：${depth_hint}
-
-请严格遵循写作规范，在文章末尾单独输出 summary JSON。"
 
     unset CLAUDECODE CLAUDE_CODE_ENTRYPOINT 2>/dev/null || true
 
@@ -168,20 +161,155 @@ generate_article() {
     rm -f "$tmp_out"
 }
 
+# ── 生成文章 ──────────────────────────────────────────────────────────────────
+generate_article() {
+    local article_context="$1"
+    local prompt="${SYSTEM_PROMPT}
+
+请写一篇技术博文，写作上下文如下：
+
+${article_context}
+
+额外要求：
+- 默认读者已经掌握“前置阅读”里的内容，不要重复讲基础定义；只在必要处用 1-2 句承接
+- 用同一个 running example 贯穿公式、代码和工程分析
+- 如果是工程或部署主题，不要伪造学术化推导；请用复杂度、容量、调度或协议模型解释
+- 如果是理论、训练或微调主题，公式必须可推导、符号必须可复核
+- 最后一行必须单独输出 summary JSON
+"
+
+    run_claude_prompt "$prompt"
+}
+
+# ── 修订文章 ──────────────────────────────────────────────────────────────────
+repair_article() {
+    local article_context="$1" draft="$2" issues="$3"
+    local prompt="${SYSTEM_PROMPT}
+
+下面是一篇技术博客初稿，但它未通过质量门槛。请根据缺失项直接重写为合格的完整终稿。
+
+写作上下文：
+${article_context}
+
+未通过项：
+${issues}
+
+初稿如下：
+${draft}
+
+请只输出修订后的完整正文，保持章节顺序不变，最后一行继续输出 summary JSON，不要解释修改过程。
+"
+
+    run_claude_prompt "$prompt"
+}
+
+# ── 质量校验 ──────────────────────────────────────────────────────────────────
+validate_article_output() {
+    local article_file="$1"
+    python3 - "$article_file" <<'PYEOF'
+import json, re, sys
+from pathlib import Path
+
+text = Path(sys.argv[1]).read_text()
+issues = []
+required_sections = [
+    "## 核心结论",
+    "## 问题定义与边界",
+    "## 核心机制与推导",
+    "## 代码实现",
+    "## 工程权衡与常见坑",
+    "## 替代方案与适用边界",
+    "## 参考资料",
+]
+
+for section in required_sections:
+    if section not in text:
+        issues.append(f"缺少章节：{section}")
+
+if "```python" not in text:
+    issues.append("缺少可运行的 python 代码块")
+if "|" not in text:
+    issues.append("缺少 Markdown 表格")
+if "$$" not in text and not re.search(r"\$[^$\n]+\$", text):
+    issues.append("缺少公式或数学记号")
+if len(re.findall(r"^\d+\.\s+\[", text, flags=re.M)) < 3:
+    issues.append("参考资料少于 3 条")
+
+summary_ok = False
+for line in reversed(text.splitlines()):
+    line = line.strip()
+    if not line:
+        continue
+    if not line.startswith("{"):
+        break
+    try:
+        obj = json.loads(line)
+    except Exception:
+        break
+    summary = obj.get("summary", "")
+    if isinstance(summary, str) and summary.strip():
+        summary_ok = True
+        break
+if not summary_ok:
+    issues.append("缺少末尾 summary JSON")
+
+if issues:
+    print("\n".join(issues))
+    sys.exit(1)
+PYEOF
+}
+
 # ── 写入文件 + 更新 posts.json ─────────────────────────────────────────────────
 publish_article() {
     local slug="$1" title="$2" tags_json="$3" output="$4"
 
-    # 提取 summary（最后一行 {"summary":...}）
+    # 提取 summary（末尾 JSON 行）
     local summary
-    summary=$(printf '%s' "$output" \
-        | grep -o '{"summary":"[^"]*"}' | tail -1 \
-        | jq -r '.summary // empty' 2>/dev/null || true)
+    summary=$(printf '%s' "$output" | python3 -c '
+import json, sys
+lines = sys.stdin.read().splitlines()
+for line in reversed(lines):
+    line = line.strip()
+    if not line:
+        continue
+    if not line.startswith("{"):
+        break
+    try:
+        obj = json.loads(line)
+    except Exception:
+        break
+    summary = obj.get("summary", "")
+    if isinstance(summary, str) and summary.strip():
+        print(summary.strip())
+        break
+')
     [[ -z "$summary" ]] && summary="$title"
 
     # 去掉 summary 行，保留正文
     local content
-    content=$(printf '%s' "$output" | grep -v '^{"summary":')
+    content=$(printf '%s' "$output" | python3 -c '
+import json, sys
+lines = sys.stdin.read().splitlines()
+drop_idx = None
+for idx in range(len(lines) - 1, -1, -1):
+    line = lines[idx].strip()
+    if not line:
+        continue
+    if not line.startswith("{"):
+        break
+    try:
+        obj = json.loads(line)
+    except Exception:
+        break
+    if isinstance(obj.get("summary"), str):
+        drop_idx = idx
+        break
+
+if drop_idx is None:
+    print("\n".join(lines))
+else:
+    print("\n".join(lines[:drop_idx] + lines[drop_idx + 1:]))
+')
 
     # 写 .md
     printf '%s\n' "$content" > "$POSTS_DIR/${slug}.md"
@@ -262,20 +390,73 @@ for slug in "${slugs[@]}"; do
     title=$(     jq -r '.title'                                                  <<< "$topic")
     brief=$(     jq -r '.brief'                                                  <<< "$topic")
     depth_hint=$(jq -r '.depth_hint // "从基础原理到工程实现，包含完整数学推导和可运行代码"' <<< "$topic")
-    tags_json=$( jq    '.tags'                                                   <<< "$topic")
+    blog_category=$(jq -r '.blog_category // (.tags[0] // "工程实践")'           <<< "$topic")
+    tags_text=$(   jq -r '(.tags // []) | join(" / ")'                           <<< "$topic")
+    prereq_titles=$(resolve_prereq_titles "$topic")
+    tags_json=$( jq '
+        if .blog_category then
+            ([.blog_category] + (.tags // []))
+            | reduce .[] as $tag ([]; if index($tag) then . else . + [$tag] end)
+        else
+            (.tags // [])
+        end
+    ' <<< "$topic")
+    article_context=$(cat <<EOF
+标题：${title}
+博客分类：${blog_category}
+主题标签：${tags_text}
+前置阅读：${prereq_titles:-无}
+核心要点：${brief}
+深度方向：${depth_hint}
+EOF
+)
 
     log "──────────────────────────────────────────"
     log "生成中：${title}"
     log "slug  ：${slug}"
+    log "分类  ：${blog_category}"
 
     output=""
     rc=0
-    output=$(generate_article "$title" "$brief" "$depth_hint") || rc=$?
+    output=$(generate_article "$article_context") || rc=$?
 
     if [[ "$rc" -ne 0 ]]; then
         err "生成失败，立即停止。已完成主题已标记为 done。"
         exit 1
     fi
+
+    validate_file=$(mktemp /tmp/auto_post_validate_XXXXXX)
+    printf '%s' "$output" > "$validate_file"
+    validation_failed=false
+    issues=$(validate_article_output "$validate_file") || validation_failed=true
+
+    if $validation_failed; then
+        warn "  首轮生成未通过质量门槛，执行一次修订"
+        while IFS= read -r issue; do
+            [[ -n "$issue" ]] && warn "    - $issue"
+        done <<< "$issues"
+
+        rc=0
+        output=$(repair_article "$article_context" "$output" "$issues") || rc=$?
+        if [[ "$rc" -ne 0 ]]; then
+            rm -f "$validate_file"
+            err "修订失败，立即停止。"
+            exit 1
+        fi
+
+        printf '%s' "$output" > "$validate_file"
+        validation_failed=false
+        issues=$(validate_article_output "$validate_file") || validation_failed=true
+        if $validation_failed; then
+            rm -f "$validate_file"
+            err "修订后仍未通过质量门槛："
+            while IFS= read -r issue; do
+                [[ -n "$issue" ]] && err "  - $issue"
+            done <<< "$issues"
+            exit 1
+        fi
+    fi
+    rm -f "$validate_file"
 
     publish_article "$slug" "$title" "$tags_json" "$output"
     mark_queue "$slug" "done"
