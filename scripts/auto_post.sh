@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# auto_post.sh — 每次按顺序取前 N 篇 pending，先生成，再统一完善并推送
+# auto_post.sh — 每次按顺序取前 N 篇 pending，Claude 生成，Codex 校验改写后推送
 #
 # 用法：
-#   bash scripts/auto_post.sh            # 按顺序取前 10 篇，生成后统一完善并推送
+#   bash scripts/auto_post.sh            # 按顺序取前 10 篇，Claude 生成后由 Codex 校验改写并推送
 #   BATCH_SIZE=1 bash scripts/auto_post.sh
 #   bash scripts/auto_post.sh --dry-run  # 预览将生成的前 10 篇，不实际生成
 
@@ -19,13 +19,15 @@ CLAUDE_BIN="${CLAUDE_BIN:-$(command -v claude 2>/dev/null || true)}"
 CODEX_BIN="${CODEX_BIN:-$(command -v codex 2>/dev/null || true)}"
 [[ -z "$CODEX_BIN" ]] && CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex"
 CLAUDE_MODEL="${CLAUDE_MODEL:-claude-opus-4-6}"
-CLAUDE_EFFORT="${CLAUDE_EFFORT:-high}"
+CLAUDE_EFFORT="${CLAUDE_EFFORT:-medium}"
 CODEX_MODEL="${CODEX_MODEL:-gpt-5.4}"
-CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-xhigh}"
+CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-medium}"
 BATCH_SIZE="${BATCH_SIZE:-10}"
 
 mkdir -p "$LOGS_DIR" "$FAILED_OUTPUT_DIR"
 LOG_FILE="$LOGS_DIR/auto_post_$(date +%Y%m%d_%H%M%S).log"
+RUN_DRAFT_DIR="$(mktemp -d /tmp/auto_post_drafts_XXXXXX)"
+trap 'rm -rf "$RUN_DRAFT_DIR"' EXIT
 
 # ── 日志 ──────────────────────────────────────────────────────────────────────
 log()  { echo "$(date '+%Y-%m-%d %H:%M:%S') [INFO]  $*" | tee -a "$LOG_FILE"; }
@@ -38,73 +40,28 @@ DRY_RUN=false
 
 # ── 系统提示 ───────────────────────────────────────────────────────────────────
 SYSTEM_PROMPT=$(cat <<'EOF'
-你是一位面向资深工程师的 AI 技术博客作者。文章目标不是泛科普，而是输出可以复核、可以实现、可以比较的技术分析。
+你是一位面向资深工程师的 AI 技术博客作者。输出要可复核、可运行、可比较，避免空话。
 
-总原则：
-- 先结论后展开，第一节直接回答“它解决什么问题、核心判断是什么、适用边界在哪里”
-- 全文围绕一条主线展开：问题定义 -> 机制/推导 -> 数值例子 -> 代码实现 -> 工程权衡 -> 替代方案
-- 术语、符号、变量命名必须前后一致；同一个 running example 要贯穿公式、代码与工程分析
-- 理论/训练/微调主题要有实打实的数学推导；部署/系统/工程主题可以用复杂度、容量、协议或成本模型代替纯数学推导，但不能硬凑空洞公式
-- 只使用第一手或高可信参考：论文、官方文档、源码、权威技术博客
+只输出文章正文，不要输出任何前言、说明、道歉、执行过程、权限/文件/工具/网络状态描述。
 
-必须严格遵循以下章节顺序：
-
+严格使用以下章节顺序：
 ## 核心结论
-用 2-4 句话给出定义、价值、核心判断和适用边界。
-
----
-
 ## 问题定义与边界
-明确输入输出、符号、shape、假设条件与问题约束；如果有前置概念，只做最短承接，不重复铺垫。
-
----
-
 ## 核心机制与推导
-讲清机制。理论主题做公式推导，工程主题做复杂度/容量/协议模型分析。
-要求：
-- 每个关键公式后都给一个具体数值例子
-- 每个张量或缓存都标注 shape / 尺寸 / 字节级估算
-- 至少给一个 Markdown 表格比较方案差异
-
----
-
 ## 代码实现
-必须给完整、可运行、可验证的 `python` 代码。
-要求：
-- 复制即可执行
-- 含 `assert` 或明确的输出校验
-- 打印关键中间结果
-- 不允许出现 `...`、placeholder、伪代码式空壳
-
----
-
 ## 工程权衡与常见坑
-从延迟、吞吐、显存、复杂度、可维护性、失败模式几个角度展开，说明真实瓶颈在哪里、最容易踩的坑是什么。
-
----
-
 ## 替代方案与适用边界
-明确什么时候不该用它，并和至少两种替代方案做对比。
-
----
-
 ## 参考资料
-至少 3 条，优先论文 / 官方文档 / 源码 / 高质量技术博客；每条都说明推荐理由。
-格式要求：每条参考资料单独成行，尽量使用 `1. [标题](链接) - 推荐理由`。
 
-强制质量门槛：
-- 至少一个完整 `python` 代码块
-- 至少一个 Markdown 表格
-- 至少一个带具体数字的推演
-- 不能出现“这里只给思路”“实现略”“读者自行补全”
-- 不要使用夸张语气、口语化比喻、读者心理模拟
-- 文末最后一行单独输出：{"summary":"不超过60字的核心摘要"}
-
-格式要求：
+要求：
 - 从 `##` 开始，不写 `#`
-- 章节间用 `---`
-- 数学用 `$...$` 和 `$$...$$`
-- 段落尽量短，每段不超过 5 行
+- 章节之间使用 `---`
+- 至少包含一个可运行的 `python` 代码块，代码里有 `assert` 或明确校验输出
+- 至少包含一个 Markdown 表格
+- 至少包含一个带具体数字的推演或容量估算
+- 使用统一的 running example 贯穿机制、代码和工程分析
+- 优先引用论文、官方文档、源码或高质量技术博客
+- 文末最后一行单独输出：{"summary":"不超过60字的核心摘要"}
 EOF
 )
 
@@ -132,6 +89,26 @@ save_failed_article() {
 
     printf '%s\n' "$output" > "$failed_file"
     warn "  已保存失败稿：$failed_file"
+}
+
+draft_file_for_slug() {
+    local slug="$1"
+    printf '%s/%s.md' "$RUN_DRAFT_DIR" "$slug"
+}
+
+render_progress() {
+    local current="$1" total="$2" label="$3"
+    local width=24 filled empty bar
+    filled=$(( current * width / total ))
+    empty=$(( width - filled ))
+    printf -v bar '%*s' "$filled" ''
+    bar=${bar// /#}
+    printf -v pad '%*s' "$empty" ''
+    pad=${pad// /-}
+    printf '\r进度 [%s%s] %d/%d %s' "$bar" "$pad" "$current" "$total" "$label"
+    if [[ "$current" -ge "$total" ]]; then
+        printf '\n'
+    fi
 }
 
 # ── 根据 slug 获取完整 topic JSON ──────────────────────────────────────────────
@@ -195,7 +172,7 @@ generate_article() {
     local article_context="$1"
     local prompt="${SYSTEM_PROMPT}
 
-请写一篇技术博文，写作上下文如下：
+请直接写出合格终稿，写作上下文如下：
 
 ${article_context}
 
@@ -204,32 +181,59 @@ ${article_context}
 - 用同一个 running example 贯穿公式、代码和工程分析
 - 如果是工程或部署主题，不要伪造学术化推导；请用复杂度、容量、调度或协议模型解释
 - 如果是理论、训练或微调主题，公式必须可推导、符号必须可复核
+- 如果工具、文件、权限、网络有任何异常，都不要写进正文
 - 最后一行必须单独输出 summary JSON
 "
 
     run_claude_prompt "$prompt"
 }
 
-# ── 修订文章 ──────────────────────────────────────────────────────────────────
-repair_article() {
-    local article_context="$1" draft="$2" issues="$3"
-    local prompt="${SYSTEM_PROMPT}
+sanitize_article_output() {
+    local article_file="$1"
+    python3 - "$article_file" <<'PYEOF'
+from pathlib import Path
+import re
+import sys
 
-下面是一篇技术博客初稿，但它未通过质量门槛。请根据缺失项直接重写为合格的完整终稿。
+path = Path(sys.argv[1])
+text = path.read_text()
+lines = text.splitlines()
 
-写作上下文：
-${article_context}
+start = None
+for idx, line in enumerate(lines):
+    if line.strip().startswith("## "):
+        start = idx
+        break
 
-未通过项：
-${issues}
+if start is not None:
+    lines = lines[start:]
 
-初稿如下：
-${draft}
+noise_patterns = [
+    r"看起来.*权限.*",
+    r".*权限被拒绝.*",
+    r".*文件读取.*",
+    r".*无法读取文件.*",
+    r".*tool.*failed.*",
+    r".*network.*error.*",
+]
 
-请只输出修订后的完整正文，保持章节顺序不变，最后一行继续输出 summary JSON，不要解释修改过程。
-"
+cleaned = []
+for line in lines:
+    stripped = line.strip()
+    if stripped and any(re.search(pattern, stripped, flags=re.I) for pattern in noise_patterns):
+        continue
+    cleaned.append(line)
 
-    run_claude_prompt "$prompt"
+path.write_text("\n".join(cleaned).strip() + "\n")
+PYEOF
+}
+
+stage_draft_article() {
+    local slug="$1" output="$2"
+    local draft_file
+    draft_file=$(draft_file_for_slug "$slug")
+    printf '%s\n' "$output" > "$draft_file"
+    sanitize_article_output "$draft_file"
 }
 
 # ── 质量校验 ──────────────────────────────────────────────────────────────────
@@ -398,12 +402,13 @@ validate_posts_json_entries() {
     done
 }
 
-# ── 调用 Codex 批量完善 ───────────────────────────────────────────────────────
+# ── 调用 Codex 批量校验并改写草稿 ──────────────────────────────────────────────
 refine_batch_with_codex() {
     local -a batch_slugs=("$@")
     local tmp_out tmp_err prompt file_refs slug
     tmp_out=$(mktemp /tmp/auto_post_codex_out_XXXXXX)
     tmp_err=$(mktemp /tmp/auto_post_codex_err_XXXXXX)
+    file_refs=""
 
     if [[ ! -x "$CODEX_BIN" ]]; then
         err "未找到可执行的 codex CLI: $CODEX_BIN"
@@ -411,25 +416,24 @@ refine_batch_with_codex() {
         return 1
     fi
 
-    file_refs="- posts/posts.json"
     for slug in "${batch_slugs[@]}"; do
         file_refs="${file_refs}
-- posts/${slug}.md"
+- ${RUN_DRAFT_DIR}/${slug}.md"
     done
 
     prompt=$(cat <<EOF
-请整体完善本批次刚生成的技术博客，并直接在工作区原地修改文件。
+请对本批次技术博客草稿逐篇执行“校验 + 改写润色”，并直接在工作区原地修改草稿文件。
 
 只允许修改以下文件：
 ${file_refs}
 
 任务要求：
-- 提升技术准确性、结构衔接、术语一致性、running example 一致性、代码可运行性和表达精度
+- 你需要先自行检查章节完整性、表格、公式/数学记号、代码可运行性、参考资料数量、summary JSON，再按缺陷直接改写到合格
+- 在保持主题、章节顺序、核心结论和整体篇幅级别基本稳定的前提下，润色表达并修正技术问题
 - 保持每篇文章的标题、slug、主题边界、章节顺序和主要结论不变
 - 不要删除必须章节，不要新增与主题无关的内容，不要改动未列出的文件
-- 不要在 markdown 文件末尾重新添加 summary JSON 行
-- 如果正文改动导致摘要不再准确，同步更新 posts/posts.json 中这些 slug 对应条目的 summary
-- 不要修改 posts/posts.json 中这些条目的 slug、date、author、tags
+- 不要写任何关于权限、文件访问、工具调用、网络环境的描述
+- 每篇草稿末尾必须保留 summary JSON，供后续发布脚本提取摘要
 
 完成后只输出一句简短中文说明。
 EOF
@@ -442,7 +446,7 @@ EOF
         --skip-git-repo-check \
         --color never \
         -s workspace-write \
-        -o "$tmp_out" \
+        --output-last-message "$tmp_out" \
         -C "$REPO_ROOT" \
         "$prompt" \
         > /dev/null 2>"$tmp_err" || exit_code=$?
@@ -452,7 +456,11 @@ EOF
     rm -f "$tmp_err"
 
     if [[ "$exit_code" -ne 0 ]]; then
-        err "  codex 退出码 ${exit_code}: $(echo "$stderr_content" | head -3)"
+        if grep -Eiq 'permission|readonly|Operation not permitted|websocket|shell_snapshot|state_db' <<< "$stderr_content"; then
+            err "  codex 调用失败（环境噪声已省略），请检查 codex 登录状态或网络连接。"
+        else
+            err "  codex 退出码 ${exit_code}: $(echo "$stderr_content" | head -3)"
+        fi
         rm -f "$tmp_out"
         return 1
     fi
@@ -476,7 +484,7 @@ git_commit_push_batch() {
     fi
     {
         printf 'post: batch %s (%d articles)\n\n' "$(date +%Y-%m-%d)" "${#batch_slugs[@]}"
-        printf 'Generated with Claude Code and refined with Codex.\n\n'
+        printf 'Generated with Claude Code and validated/polished with Codex.\n\n'
         printf 'Articles:\n'
         printf '%s\n' "${batch_slugs[@]}"
         printf '\nCo-Authored-By: Claude Code <noreply@anthropic.com>\n'
@@ -534,6 +542,9 @@ fi
 log "本批次共 ${#slugs[@]} 篇：$(IFS=', '; echo "${slugs[*]}")"
 
 generated_slugs=()
+total_articles="${#slugs[@]}"
+total_steps=$(( total_articles * 2 + 1 ))
+progress_step=0
 
 for slug in "${slugs[@]}"; do
     topic=$(get_topic "$slug")
@@ -565,6 +576,8 @@ EOF
     log "生成中：${title}"
     log "slug  ：${slug}"
     log "分类  ：${blog_category}"
+    progress_step=$((progress_step + 1))
+    render_progress "$progress_step" "$total_steps" "生成 ${slug}"
 
     output=""
     rc=0
@@ -576,63 +589,64 @@ EOF
         exit 1
     fi
 
-    validate_file=$(mktemp /tmp/auto_post_validate_XXXXXX)
-    printf '%s' "$output" > "$validate_file"
-    validation_failed=false
-    issues=$(validate_article_output "$validate_file" 1) || validation_failed=true
-
-    if $validation_failed; then
-        warn "  首轮生成未通过质量门槛，执行一次修订"
-        while IFS= read -r issue; do
-            [[ -n "$issue" ]] && warn "    - $issue"
-        done <<< "$issues"
-
-        rc=0
-        output=$(repair_article "$article_context" "$output" "$issues") || rc=$?
-        if [[ "$rc" -ne 0 ]]; then
-            rm -f "$validate_file"
-            save_failed_article "$slug" "repair-error" "$output"
-            err "修订失败，立即停止。"
-            exit 1
-        fi
-
-        printf '%s' "$output" > "$validate_file"
-        validation_failed=false
-        issues=$(validate_article_output "$validate_file" 1) || validation_failed=true
-        if $validation_failed; then
-            rm -f "$validate_file"
-            save_failed_article "$slug" "validation-failed" "$output"
-            err "修订后仍未通过质量门槛："
-            while IFS= read -r issue; do
-                [[ -n "$issue" ]] && err "  - $issue"
-            done <<< "$issues"
-            exit 1
-        fi
+    stage_draft_article "$slug" "$output"
+    draft_file=$(draft_file_for_slug "$slug")
+    if [[ ! -s "$draft_file" ]]; then
+        save_failed_article "$slug" "empty-draft" "$output"
+        err "Claude 生成的草稿为空，立即停止。"
+        exit 1
     fi
-    rm -f "$validate_file"
 
-    publish_article "$slug" "$title" "$tags_json" "$output"
     generated_slugs+=("$slug")
 
     sleep 3
 done
 
-log "Claude 生成完成，开始调用 Codex 整体完善本批次 ${#generated_slugs[@]} 篇文章"
+log "Claude 草稿生成完成，开始调用 Codex 逐篇校验并改写本批次 ${#generated_slugs[@]} 篇文章"
+progress_step=$((progress_step + 1))
+render_progress "$progress_step" "$total_steps" "Codex 校验改写"
 
 codex_result=""
 rc=0
 codex_result=$(refine_batch_with_codex "${generated_slugs[@]}") || rc=$?
 if [[ "$rc" -ne 0 ]]; then
-    err "Codex 批量完善失败，已保留生成稿，未推送 git。"
+    err "Codex 批量校验改写失败，已保留草稿，未推送 git。"
     exit 1
 fi
 [[ -n "${codex_result//[[:space:]]/}" ]] && log "Codex：$(echo "$codex_result" | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g')"
 
 for slug in "${generated_slugs[@]}"; do
+    draft_file=$(draft_file_for_slug "$slug")
+    progress_step=$((progress_step + 1))
+    render_progress "$progress_step" "$total_steps" "发布 ${slug}"
+    sanitize_article_output "$draft_file"
+    validation_failed=false
+    issues=$(validate_article_output "$draft_file" 1) || validation_failed=true
+    if $validation_failed; then
+        save_failed_article "$slug" "codex-validation-failed" "$(cat "$draft_file")"
+        err "Codex 改写后文章校验失败：${slug}"
+        while IFS= read -r issue; do
+            [[ -n "$issue" ]] && err "  - $issue"
+        done <<< "$issues"
+        exit 1
+    fi
+
+    output=$(cat "$draft_file")
+    topic=$(get_topic "$slug")
+    title=$(     jq -r '.title'                                        <<< "$topic")
+    tags_json=$( jq '
+        if .blog_category then
+            ([.blog_category] + (.tags // []))
+            | reduce .[] as $tag ([]; if index($tag) then . else . + [$tag] end)
+        else
+            (.tags // [])
+        end
+    ' <<< "$topic")
+    publish_article "$slug" "$title" "$tags_json" "$output"
     validation_failed=false
     issues=$(validate_article_output "$POSTS_DIR/${slug}.md" 0) || validation_failed=true
     if $validation_failed; then
-        err "Codex 完善后文章校验失败：${slug}"
+        err "发布后的正文校验失败：${slug}"
         while IFS= read -r issue; do
             [[ -n "$issue" ]] && err "  - $issue"
         done <<< "$issues"
