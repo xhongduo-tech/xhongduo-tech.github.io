@@ -17861,7 +17861,7 @@
       "DPO"
     ],
     "brief": "MM-DPO 将 DPO 应用于多模态模型，使用图文混合的偏好数据。偏好数据包含视觉准确性和描述质量两方面。分析视觉条件下的 reference 策略设计、DPO vs RLHF 在多模态的效率对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "视觉语言模型的 KV Cache 优化",

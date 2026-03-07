@@ -1,5 +1,18 @@
 [
   {
+    "title": "MM-DPO：多模态直接偏好优化",
+    "slug": "mm-dpo-multimodal-direct-preference",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "对齐",
+      "DPO"
+    ],
+    "summary": "mDPO 在 DPO 上补入图像条件偏好与锚点奖励，核心价值是降低多模态幻觉。"
+  },
+  {
     "title": "LLaVA-RLHF：视觉语言模型的人类反馈对齐",
     "slug": "llava-rlhf-human-feedback-alignment",
     "date": "2026-03-08",
