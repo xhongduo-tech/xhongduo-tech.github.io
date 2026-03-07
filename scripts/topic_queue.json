@@ -1102,7 +1102,7 @@
       "综述"
     ],
     "brief": "Test-Time Training（TTT）：在推理时对当前输入进行短暂梯度更新，动态适应分布偏移（TTT-RNN 将内存编码进模型权重）。World Models：LLM 是否学到了世界的因果结构，还是只是模式匹配（Bengio 的争论）。组合泛化（Compositional Generalization）：模型是否真正理解概念，还是只记忆了训练中的组合。长文本理解的质量：RULER 等基准测试显示模型在超长文本中存在注意力漂移。持续学习：如何在不灾难性遗忘的情况下更新知识。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention 的 IO 感知分块策略",

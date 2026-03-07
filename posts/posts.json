@@ -1,5 +1,17 @@
 [
   {
+    "title": "未来方向：Test-Time Training、World Models 与 LLM 开放问题",
+    "slug": "llm-future-directions",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "前沿研究",
+      "综述"
+    ],
+    "summary": "未来大模型的关键不只是更大，而是能否在推理中学习、在长上下文中稳住状态并持续更新知识"
+  },
+  {
     "title": "神经网络的几何视角：流形假设与嵌入空间",
     "slug": "neural-network-geometry",
     "date": "2026-03-08",
