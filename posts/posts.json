@@ -1,5 +1,17 @@
 [
   {
+    "title": "Word2Vec CBOW：从上下文预测中心词",
+    "slug": "word2vec-cbow",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "文本表示",
+      "Embedding"
+    ],
+    "summary": "CBOW通过平均上下文词向量预测中心词，适合高效训练静态词向量。"
+  },
+  {
     "title": "词袋模型与 TF-IDF：统计语义的局限",
     "slug": "bag-of-words-tfidf",
     "date": "2026-03-07",

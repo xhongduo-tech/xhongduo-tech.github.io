@@ -165,7 +165,7 @@
       "Embedding"
     ],
     "brief": "CBOW 模型：给定窗口内的上下文词，预测中心词。架构：上下文词 one-hot → 嵌入层（取均值）→ 线性层 → Softmax → 预测中心词。目标函数：最大化 log P(w_t | w_{t-c:t+c})。嵌入矩阵 W（V×d）是参数，训练完后每行是一个词向量。窗口大小的影响：小窗口捕捉句法关系，大窗口捕捉语义关系。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Word2Vec Skip-gram：负采样的数学原理",
