@@ -1198,7 +1198,7 @@
       "理论分析"
     ],
     "brief": "核心要点：BigBird 结合局部窗口（w）、全局 token（g）和随机连接（r）三种稀疏模式。论文证明当 r=Ω(1) 时稀疏图是 O(N/w) 阶扩展图，保证信息在 O(N/w) 层内全局传播。理论上是 Turing 完备的，与稠密 attention 等价。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "稀疏注意力的 CUDA 实现：块稀疏矩阵乘",

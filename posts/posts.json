@@ -1,5 +1,17 @@
 [
   {
+    "title": "BigBird 的随机注意力与图连通性证明",
+    "slug": "bigbird-random-attention-graph-connectivity",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "理论分析"
+    ],
+    "summary": "BigBird 用局部、全局和随机边把稀疏注意力做成低直径图，在近线性复杂度下保住全局传播能力；其中随机边不是装饰，而…"
+  },
+  {
     "title": "Longformer 的滑动窗口与全局注意力",
     "slug": "longformer-sliding-window-global-attention",
     "date": "2026-03-08",
