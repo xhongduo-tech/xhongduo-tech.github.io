@@ -28386,7 +28386,7 @@
       "Transformer"
     ],
     "brief": "位置编码的发展历程：正弦位置编码（绝对）、相对位置编码（Shaw 2018）、ALiBi（线性偏置）、RoPE（旋转编码）。分析每种方案的优缺点、外推能力、计算效率。不同位置编码对模型性能的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "混合精度与模型架构：FP16/BF16 对 Transformer 的影响",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "位置编码的演变：从绝对到相对再到旋转",
+    "slug": "positional-encoding-absolute-relative-rope-evolution",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码",
+      "Transformer"
+    ],
+    "summary": "位置编码从绝对编号演进到相对距离与旋转几何，核心是在效果、外推与成本间取平衡"
+  },
+  {
     "title": "注意力头的专化现象与解释性",
     "slug": "attention-head-specialization",
     "date": "2026-03-08",
