@@ -1,5 +1,17 @@
 [
   {
+    "title": "多图理解：VLM 处理多图像输入的架构设计",
+    "slug": "multi-image-understanding-vlm",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "多图理解"
+    ],
+    "summary": "多图理解的关键是输入交错、跨图对齐，以及在上下文限制下做可控压缩"
+  },
+  {
     "title": "区域级视觉理解：Visual Grounding 与 Referring Expression",
     "slug": "visual-grounding-referring-expression",
     "date": "2026-03-08",
