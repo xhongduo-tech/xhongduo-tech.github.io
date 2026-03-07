@@ -1,5 +1,18 @@
 [
   {
+    "title": "Visual Instruction Tuning：视觉指令微调的数据构建",
+    "slug": "visual-instruction-tuning-data",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "指令微调",
+      "数据构建"
+    ],
+    "summary": "视觉指令微调的关键，不是接入图像，而是高质量构造可验证的指令-回答数据。"
+  },
+  {
     "title": "多模态模型的量化：视觉编码器 vs 语言模型",
     "slug": "multimodal-quantization-vision-language",
     "date": "2026-03-08",

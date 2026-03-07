@@ -17896,7 +17896,7 @@
       "数据构建"
     ],
     "brief": "LLaVA 开创的 Visual Instruction Tuning 使用 GPT-4 生成指令-响应数据。数据类型包括描述、复杂推理、对话。分析不同类型数据的配比、Prompt 模板设计、数据质量控制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态思维链：Visual CoT 的实现与分析",
