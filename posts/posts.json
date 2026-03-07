@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩阵的Cholesky分解",
+    "slug": "math-la-cholesky-decomposition",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "Cholesky把对称正定矩阵写成LL^T，分解更快，适合解方程组与高斯采样。"
+  },
+  {
     "title": "矩阵求逆的数值方法",
     "slug": "math-la-matrix-inversion-numerical",
     "date": "2026-03-08",
