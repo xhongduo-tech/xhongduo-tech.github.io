@@ -93,7 +93,7 @@
       "归一化"
     ],
     "brief": "内部协变量偏移（Internal Covariate Shift）：每层输入分布随参数更新而变化，导致后层需要不断适应。BatchNorm 对 mini-batch 内每个特征维度做 z-score 归一化，再用可学习的 γ、β 缩放偏移。推理时用训练集的运行均值/方差（不是 batch 统计量）。局限：小 batch size 时不稳定，RNN/Transformer 中不适用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度下降三形态：SGD、Mini-batch、Full-batch 的收敛分析",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "批归一化（BatchNorm）：内部协变量偏移的定义与解法",
+    "slug": "batch-normalization",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练优化",
+      "归一化"
+    ],
+    "summary": "BatchNorm用批统计稳定训练，用运行统计稳定推理，但小batch和序列模型常应换LayerNorm或GroupN…"
+  },
+  {
     "title": "激活函数全景：Sigmoid、ReLU、GELU 的数学性质与选择",
     "slug": "activation-functions",
     "date": "2026-03-07",
