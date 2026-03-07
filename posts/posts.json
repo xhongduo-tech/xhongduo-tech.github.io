@@ -1,5 +1,17 @@
 [
   {
+    "title": "连续批处理（Continuous Batching）：提升 LLM 推理吞吐量",
+    "slug": "continuous-batching",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "批处理"
+    ],
+    "summary": "Continuous Batching把整批等待改成逐轮补位，是现代LLM高吞吐推理的核心调度机制"
+  },
+  {
     "title": "GQA 与 MQA：减少 KV 头数的注意力变体",
     "slug": "gqa-mqa",
     "date": "2026-03-07",

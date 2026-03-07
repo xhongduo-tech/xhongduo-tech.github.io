@@ -546,7 +546,7 @@
       "批处理"
     ],
     "brief": "传统静态批处理：等所有序列生成完毕才处理下一批，短序列等待长序列导致 GPU 利用率低。Continuous Batching（Orca，Yu 2022）：每步迭代后检查已完成序列，立即将新请求插入 batch，而不等待整批完成。实现细节：需要处理不同序列长度（使用 padding 或 ragged tensor）。结合 PagedAttention：完整的现代 LLM serving 系统（vLLM）的核心机制。吞吐量提升：对长短请求混合的工作负载提升 2-4 倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "解码策略：贪心、Beam Search、Top-p、Top-k 的对比",
