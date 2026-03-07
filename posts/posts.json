@@ -1,5 +1,17 @@
 [
   {
+    "title": "过程奖励模型（PRM）：步骤级别的推理质量评估",
+    "slug": "process-reward-model",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "推理",
+      "对齐"
+    ],
+    "summary": "PRM按步骤打分，用密集监督替代终局奖励，能更好评估推理质量。"
+  },
+  {
     "title": "Test-Time Compute：推理时计算扩展的收益",
     "slug": "test-time-compute",
     "date": "2026-03-08",
