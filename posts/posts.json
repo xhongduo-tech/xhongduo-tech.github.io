@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩阵的Schur分解与三角化",
+    "slug": "math-la-schur-decomposition",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "Schur分解把任意方阵稳定地三角化，特征值落在对角或2×2块中。"
+  },
+  {
     "title": "矩阵的Cholesky分解",
     "slug": "math-la-cholesky-decomposition",
     "date": "2026-03-08",

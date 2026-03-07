@@ -18047,7 +18047,7 @@
       "线性代数"
     ],
     "brief": "Schur分解定理：任意方阵A=QTQ^H，T为上三角。实Schur分解与复Schur分解。在特征值计算中的意义。与QR算法的关系。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "广义特征值问题",
