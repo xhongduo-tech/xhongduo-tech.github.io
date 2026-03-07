@@ -965,7 +965,7 @@
       "Qwen"
     ],
     "brief": "Qwen2.5 系列（阿里通义）的架构选择：GQA（节省 KV Cache）、RoPE 位置编码（支持上下文扩展）、SwiGLU 激活函数、Pre-RMSNorm（训练稳定性）。词表大小 151643（覆盖多语言）。上下文扩展到 128K：YaRN 插值 + 长文本继续训练。代码和数学能力：在预训练数据中大幅增加代码和数学比例。MoE 变体：Qwen2-57B-A14B（57B 参数，每次激活 14B）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaMA-3 架构解析：Meta 开源旗舰模型的技术细节",
