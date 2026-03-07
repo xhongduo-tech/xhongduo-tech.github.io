@@ -189,7 +189,7 @@
       "Tokenization"
     ],
     "brief": "Byte Pair Encoding 原是数据压缩算法，被 Sennrich 2016 引入 NLP。算法：从字符级词表出发，反复合并出现频率最高的相邻符号对，直到达到目标词表大小。优势：有效处理 OOV（Out-of-Vocabulary），在词表大小与覆盖率之间取得平衡。GPT-2 使用字节级 BPE（Byte-level BPE），将 UTF-8 字节作为基本单元，词表永远不会有 OOV。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RNN 与梯度消失：BPTT 中的指数衰减",

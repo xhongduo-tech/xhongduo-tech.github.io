@@ -1,5 +1,17 @@
 [
   {
+    "title": "BPE 分词：字节对编码的压缩理论基础",
+    "slug": "bpe-tokenization",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "分词",
+      "Tokenization"
+    ],
+    "summary": "BPE把高频相邻符号对逐步合并成子词，在词表大小与覆盖率之间取得可控平衡。"
+  },
+  {
     "title": "Word2Vec Skip-gram：负采样的数学原理",
     "slug": "word2vec-skipgram-negative-sampling",
     "date": "2026-03-07",
