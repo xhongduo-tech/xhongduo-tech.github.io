@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度下降三形态：SGD、Mini-batch、Full-batch 的收敛分析",
+    "slug": "gradient-descent-variants",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练优化",
+      "优化器"
+    ],
+    "summary": "三种梯度下降的本质差别是梯度估计噪声，Mini-batch是稳定性、效率与泛化的工程折中。"
+  },
+  {
     "title": "批归一化（BatchNorm）：内部协变量偏移的定义与解法",
     "slug": "batch-normalization",
     "date": "2026-03-07",

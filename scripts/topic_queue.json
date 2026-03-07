@@ -105,7 +105,7 @@
       "优化器"
     ],
     "brief": "Full-batch GD：精确梯度，但内存无法放下全部数据，且鞍点难以逃脱。SGD：高方差梯度带来随机性，有助于逃脱局部极小，但收敛震荡。Mini-batch：权衡两者，batch size 影响梯度噪声与计算效率。线性缩放规则：batch size ×k 时学习率 ×k（适用范围与限制）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Adam 优化器：一阶矩与二阶矩的联合自适应",
