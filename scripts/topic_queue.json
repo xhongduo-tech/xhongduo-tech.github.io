@@ -423,7 +423,7 @@
       "解码"
     ],
     "brief": "自回归生成的瓶颈：每步只生成 1 个 token，GPU 利用率极低（memory-bound 而非 compute-bound）。Speculative Decoding（Leviathan 2023）：用小模型（draft）快速生成 k 个 token 草稿，大模型（target）并行验证所有草稿。接受概率 α = min(1, p_target/p_draft)。期望加速比：1/(1-α^k) 倍。条件：draft 模型分布与 target 接近（不影响输出分布的证明）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PagedAttention",

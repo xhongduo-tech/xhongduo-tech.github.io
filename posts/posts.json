@@ -1,5 +1,17 @@
 [
   {
+    "title": "投机采样（Speculative Decoding）：草稿模型加速自回归生成",
+    "slug": "speculative-decoding",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "解码"
+    ],
+    "summary": "投机采样用小模型写草稿、大模型并行验收，在不改分布前提下降低自回归串行成本。"
+  },
+  {
     "title": "量化基础：INT8/INT4 的误差分析与 GPTQ",
     "slug": "quantization-basics",
     "date": "2026-03-07",
