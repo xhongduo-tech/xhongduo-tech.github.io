@@ -1,5 +1,19 @@
 [
   {
+    "title": "DPO",
+    "slug": "direct-preference-optimization",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "对齐",
+      "DPO",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "DPO把RLHF改写成偏好二分类训练，用概率比替代显式奖励模型。"
+  },
+  {
     "title": "PPO 在 LLM 对齐中的应用：KL 散度约束与 RL 稳定性",
     "slug": "ppo-llm-alignment",
     "date": "2026-03-07",
