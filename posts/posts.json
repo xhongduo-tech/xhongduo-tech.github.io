@@ -1,5 +1,18 @@
 [
   {
+    "title": "LLaVA",
+    "slug": "llava-visual-instruction",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "LLaVA",
+      "视觉语言"
+    ],
+    "summary": "LLaVA用线性投影把CLIP特征接入LLM，并通过两阶段训练实现低成本多模态对话。"
+  },
+  {
     "title": "多模态基础：CLIP 的对比学习对齐机制",
     "slug": "clip-contrastive-learning",
     "date": "2026-03-07",
