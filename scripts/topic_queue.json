@@ -17884,7 +17884,7 @@
       "量化"
     ],
     "brief": "多模态模型的量化需分别考虑视觉编码器和语言模型。视觉编码器对量化更敏感，语言模型可用更激进的量化。分析 INT4/INT8 量化对不同组件的影响、AWQ/GPTQ 在 VLM 的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Visual Instruction Tuning：视觉指令微调的数据构建",

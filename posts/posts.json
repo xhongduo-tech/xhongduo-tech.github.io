@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态模型的量化：视觉编码器 vs 语言模型",
+    "slug": "multimodal-quantization-vision-language",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "推理优化",
+      "量化"
+    ],
+    "summary": "VLM量化应先压语言模型，视觉编码器更敏感，宜保留更高精度。"
+  },
+  {
     "title": "视觉语言模型的 KV Cache 优化",
     "slug": "vlm-kv-cache-optimization",
     "date": "2026-03-08",
