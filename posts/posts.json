@@ -1,5 +1,17 @@
 [
   {
+    "title": "向量数据库：HNSW 索引的构建与近似最近邻搜索",
+    "slug": "vector-database-hnsw",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG",
+      "向量数据库"
+    ],
+    "summary": "HNSW 用分层小世界图在准确率、延迟和内存之间做近似最近邻搜索权衡"
+  },
+  {
     "title": "RAG 基础架构：检索增强生成的组件与流程",
     "slug": "rag-architecture",
     "date": "2026-03-07",

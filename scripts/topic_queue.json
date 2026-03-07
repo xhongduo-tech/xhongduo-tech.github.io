@@ -630,7 +630,7 @@
       "向量数据库"
     ],
     "brief": "精确最近邻搜索：复杂度 O(nd)，n=百万向量时不可用。HNSW（Hierarchical NSW，Malkov 2018）：多层图索引，上层稀疏（长程跳跃），下层密集（精确邻居）。插入：从最高层开始贪心搜索，确定每层的邻居后插入。查询：同样从最高层贪心导航到底层，返回 ef 个候选。参数：M（每节点最大邻居数）、ef_construction（构建时搜索宽度）、ef_search（查询宽度）。Recall@k vs 查询延迟的 trade-off。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "混合专家模型（MoE）",
