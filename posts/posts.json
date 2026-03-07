@@ -1,5 +1,17 @@
 [
   {
+    "title": "核密度估计与带宽选择",
+    "slug": "math-stat-kernel-density-estimation-bandwidth",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "KDE 的关键不是核函数，而是带宽如何平衡偏差与方差。"
+  },
+  {
     "title": "非参数检验方法",
     "slug": "math-stat-nonparametric-tests",
     "date": "2026-03-08",
