@@ -18014,7 +18014,7 @@
       "分割"
     ],
     "brief": "Segment Anything (SAM) 提供像素级分割能力，与 VLM 结合实现指代表达分割和交互式分割。分析 SAM 作为 VLM 的视觉工具、文本到 Mask 的方案（Grounded-SAM）、以及 SAM 2 的视频扩展。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "矩阵求逆的数值方法",

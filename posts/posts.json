@@ -1,5 +1,18 @@
 [
   {
+    "title": "像素级理解：SAM 与 VLM 的结合",
+    "slug": "pixel-understanding-sam-vlm",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "细粒度理解",
+      "分割"
+    ],
+    "summary": "VLM 负责找目标，SAM 负责切边界，Grounded-SAM 与 SAM 2把文本理解扩展到像素和视频。"
+  },
+  {
     "title": "LLaVA 的训练数据配比：LLaVA-Pretrain vs LLaVA-V1.5",
     "slug": "llava-training-data-ratio",
     "date": "2026-03-08",
