@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩估计与矩方法",
+    "slug": "math-stat-method-of-moments",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "矩估计用样本矩匹配总体矩求参数，GMM是在矩条件上做加权优化的通用扩展。"
+  },
+  {
     "title": "最大似然估计的渐近性质",
     "slug": "math-stat-mle-asymptotic-properties",
     "date": "2026-03-08",
