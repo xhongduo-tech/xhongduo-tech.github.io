@@ -69,7 +69,7 @@
       "MLP"
     ],
     "brief": "1958 年 Rosenblatt 感知机：y = sign(w·x + b)，线性可分的几何意义。XOR 问题证明单层感知机的局限。MLP 通过隐藏层引入非线性，Universal Approximation Theorem：两层 MLP 可以以任意精度逼近任意连续函数（但不说明需要多少神经元）。前向传播的矩阵形式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "激活函数全景：Sigmoid、ReLU、GELU 的数学性质与选择",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "感知机到多层感知机：深度学习的起点",
+    "slug": "perceptron-to-mlp",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "神经网络",
+      "MLP"
+    ],
+    "summary": "感知机只能线性分割，MLP 通过隐藏层非线性映射解决 XOR 并获得通用逼近能力"
+  },
+  {
     "title": "Softmax 函数：多分类输出的概率化",
     "slug": "softmax-function",
     "date": "2026-03-07",
