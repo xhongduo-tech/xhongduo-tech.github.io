@@ -141,7 +141,7 @@
       "学习率"
     ],
     "brief": "固定学习率的问题：初期过大导致不稳定，后期过大无法收敛到极小。Warmup 阶段：前 N 步线性增大学习率，让 Adam 的二阶矩估计稳定后再走大步。余弦退火：lr(t) = lr_min + 0.5(lr_max-lr_min)(1+cos(πt/T))。Warmup + 余弦退火是 Transformer 训练的标准配置，Transformer 原始论文的 lr = d_model^{-0.5} · min(step^{-0.5}, step·warmup^{-1.5})。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "词袋模型与 TF-IDF：统计语义的局限",

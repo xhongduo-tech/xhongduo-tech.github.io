@@ -1,5 +1,17 @@
 [
   {
+    "title": "学习率调度：Warmup、余弦退火与 OneCycleLR",
+    "slug": "learning-rate-schedule",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练优化",
+      "学习率"
+    ],
+    "summary": "Warmup稳初期，余弦退火管后期，OneCycle适合总步数明确的快速收敛训练"
+  },
+  {
     "title": "权重初始化：Xavier 与 He 方案的方差推导",
     "slug": "weight-initialization",
     "date": "2026-03-07",
