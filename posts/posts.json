@@ -1,5 +1,18 @@
 [
   {
+    "title": "混合精度与模型架构：FP16/BF16 对 Transformer 的影响",
+    "slug": "mixed-precision-transformer",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "训练优化",
+      "混合精度"
+    ],
+    "summary": "Transformer 混合精度的核心是分层保精度：参数与状态保 FP32，激活与梯度降到 FP16/BF16。"
+  },
+  {
     "title": "位置编码的演变：从绝对到相对再到旋转",
     "slug": "positional-encoding-absolute-relative-rope-evolution",
     "date": "2026-03-08",
