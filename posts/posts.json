@@ -1,5 +1,17 @@
 [
   {
+    "title": "AWQ：激活感知的权重量化",
+    "slug": "awq-quantization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "量化"
+    ],
+    "summary": "AWQ 用激活统计保护关键通道，在仅前向校准下实现高质量 4-bit 权重量化"
+  },
+  {
     "title": "LLaMA-3 架构解析：Meta 开源旗舰模型的技术细节",
     "slug": "llama3-architecture",
     "date": "2026-03-08",
