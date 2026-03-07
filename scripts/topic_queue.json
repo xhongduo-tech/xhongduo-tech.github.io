@@ -770,7 +770,7 @@
       "工具调用"
     ],
     "brief": "LLM 与外部系统交互的标准化接口。OpenAI API 格式：JSON Schema 定义工具（名称、描述、参数类型），模型返回工具调用请求，系统执行后将结果作为 tool message 返回。并行调用：一次响应中触发多个工具调用（减少延迟）。工具描述的重要性：描述越精确，正确路由率越高。JSON 强制输出：Constrained Decoding / Grammar Sampling 确保输出合法 JSON（不依赖模型对 JSON 格式的记忆）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态基础：CLIP 的对比学习对齐机制",
