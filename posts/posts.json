@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型评测：MMLU、HumanEval、MATH 的设计与局限",
+    "slug": "llm-evaluation-benchmarks",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "评测",
+      "Benchmark"
+    ],
+    "summary": "MMLU、HumanEval、MATH各测一类能力，但都受污染与评分偏差限制。"
+  },
+  {
     "title": "Attention 稀疏化：局部注意力、滑动窗口与 Longformer",
     "slug": "sparse-attention",
     "date": "2026-03-07",

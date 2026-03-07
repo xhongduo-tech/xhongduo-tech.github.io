@@ -833,7 +833,7 @@
       "Benchmark"
     ],
     "brief": "MMLU（Hendrycks 2020）：57 个学科的多选题，涵盖高中到专业级知识，0-shot 和 5-shot 设置。HumanEval（Chen 2021）：164 个 Python 编程题，pass@k 指标（生成 n 个解，k 个能通过测试的概率）。MATH（Hendrycks 2021）：12500 道竞赛数学题，答案需精确匹配。评测的污染问题：训练数据可能包含评测集题目，导致分数虚高（GPT-4 的 MATH 分数争议）。LLM-as-Judge：MT-Bench 用 GPT-4 打分，但 GPT-4 偏好自己风格的回答（position bias、verbosity bias）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "越狱攻击：提示注入与对抗性前缀",
