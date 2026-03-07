@@ -448,7 +448,7 @@
       "微调"
     ],
     "brief": "预训练 LLM 只能续写文本，不能执行指令。指令微调（Wei 2022，FLAN）：在 (instruction, output) 对上做有监督微调，让模型学会遵循自然语言指令。数据格式：System prompt + User instruction + Assistant response。关键发现：任务数量比任务内的数据量更重要（FLAN 用 60+ 任务 vs 1 任务）。InstructGPT 的三阶段：SFT → 奖励模型 → PPO，vs 纯 SFT 的 FLAN。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RLHF 奖励模型：偏好对比学习的训练机制",

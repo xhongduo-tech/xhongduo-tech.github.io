@@ -1,5 +1,17 @@
 [
   {
+    "title": "指令微调（Instruction Tuning）：从预训练到对话模型",
+    "slug": "instruction-tuning",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "对齐",
+      "微调"
+    ],
+    "summary": "指令微调把模型从“会续写”变成“能按自然语言要求执行任务”"
+  },
+  {
     "title": "PagedAttention",
     "slug": "paged-attention",
     "date": "2026-03-07",
