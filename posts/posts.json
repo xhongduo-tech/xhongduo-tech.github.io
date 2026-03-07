@@ -1,5 +1,17 @@
 [
   {
+    "title": "非参数检验方法",
+    "slug": "math-stat-nonparametric-tests",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "非参数检验以秩和重抽样代替强分布假设，适合小样本、偏态和异常值场景。"
+  },
+  {
     "title": "参数置信区间的构造方法",
     "slug": "math-stat-confidence-interval-construction",
     "date": "2026-03-08",
