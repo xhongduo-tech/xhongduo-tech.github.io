@@ -1,5 +1,17 @@
 [
   {
+    "title": "Longformer 的滑动窗口与全局注意力",
+    "slug": "longformer-sliding-window-global-attention",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "长序列"
+    ],
+    "summary": "Longformer用滑动窗口加少量全局token，把长文本注意力复杂度从平方降到近线性。"
+  },
+  {
     "title": "FlashAttention 反向传播的重计算策略",
     "slug": "flashattention-backward-recomputation",
     "date": "2026-03-08",

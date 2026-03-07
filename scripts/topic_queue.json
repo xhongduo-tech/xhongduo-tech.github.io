@@ -1186,7 +1186,7 @@
       "长序列"
     ],
     "brief": "核心要点：Longformer 将 O(N²) attention 分解为滑动窗口局部注意力（窗口大小 w=512）和少量全局 token 注意力。总复杂度 O(Nw + Ng·N)，其中 Ng 为全局 token 数。在 4096 长度下内存减少 8x，通过扩张滑窗（dilation=1）扩大感受野。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BigBird 的随机注意力与图连通性证明",
