@@ -81,7 +81,7 @@
       "激活函数"
     ],
     "brief": "Sigmoid σ(x) = 1/(1+e^{-x})：饱和区梯度 <0.25，10 层后梯度缩小 100 万倍。ReLU max(0,x)：梯度直通，稀疏激活，但 Dead ReLU 问题（负区梯度恒零）。GELU x·Φ(x)（Φ 为标准正态 CDF）：平滑近似 ReLU，BERT/GPT 的默认选择。SwiGLU = Swish(xW) ⊙ (xV)：LLaMA 系列的 FFN 激活。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "批归一化（BatchNorm）：内部协变量偏移的定义与解法",
