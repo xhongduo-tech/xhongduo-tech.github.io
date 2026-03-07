@@ -1,5 +1,17 @@
 [
   {
+    "title": "幻觉（Hallucination）的成因：知识边界与自信度校准",
+    "slug": "llm-hallucination",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全",
+      "幻觉"
+    ],
+    "summary": "幻觉源于知识缺口、曝光偏差和奖励失真，缓解要靠检索、验证与置信度校准"
+  },
+  {
     "title": "ZeRO：优化器状态、梯度、参数的三阶分片",
     "slug": "zero-optimizer",
     "date": "2026-03-07",
