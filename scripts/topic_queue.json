@@ -1078,7 +1078,7 @@
       "SWE-bench"
     ],
     "brief": "SWE-bench（Jimenez 2023）：从 GitHub 真实 issue 中收集 2294 个任务，要求模型修改代码库解决 issue 并通过测试。难度：需要理解大型代码库（平均 39K LOC），定位问题、修改多文件、不破坏现有测试。Lite 版本（300 tasks）用于快速评估。评测方法：自动化测试（Docker 隔离环境），无需人工评判。代表性系统：Devin（13.86%）、SWE-agent（12.47%）、OpenHands（41%，2024 年最新）。分析为何难：需要多步工具调用、上下文理解和工程判断。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "神经网络的几何视角：流形假设与嵌入空间",

@@ -1,5 +1,20 @@
 [
   {
+    "title": "SWE-bench",
+    "slug": "swe-bench-evaluation",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "评测",
+      "Agent",
+      "智能体",
+      "Agent评测",
+      "SWE-bench"
+    ],
+    "summary": "SWE-bench评测的是模型在真实代码库中定位、修改并验证修复问题的工程能力。"
+  },
+  {
     "title": "对话状态管理：多轮上下文的截断与压缩策略",
     "slug": "conversation-state-management",
     "date": "2026-03-08",
