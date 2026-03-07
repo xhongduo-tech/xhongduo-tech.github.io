@@ -1,5 +1,17 @@
 [
   {
+    "title": "对话状态管理：多轮上下文的截断与压缩策略",
+    "slug": "conversation-state-management",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推理",
+      "对话系统"
+    ],
+    "summary": "多轮对话要靠滑动窗口、摘要压缩和前缀缓存，才能同时控制长度、成本和响应速度"
+  },
+  {
     "title": "Speculative Decoding 的变体：Medusa、Eagle、Lookahead",
     "slug": "speculative-decoding-variants",
     "date": "2026-03-08",

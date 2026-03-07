@@ -1063,7 +1063,7 @@
       "对话系统"
     ],
     "brief": "多轮对话的上下文长度随轮次线性增长，最终超出模型上下文窗口。截断策略：先进先出（丢失重要的早期信息）、保留系统提示+最近 N 轮。摘要压缩：用 LLM 定期将早期对话压缩为摘要（内存损失 vs 长度节省）。KV Cache 复用：对话中不变的前缀（system prompt）可以预计算并缓存 KV，节省推理开销。Prompt Caching（Anthropic）：最长前缀匹配的 KV Cache 服务端复用，API 调用中重复前缀享受折扣。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SWE-bench",
