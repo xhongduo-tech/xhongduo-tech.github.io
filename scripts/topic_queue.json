@@ -558,7 +558,7 @@
       "解码"
     ],
     "brief": "贪心解码：每步选 argmax，速度最快，但次优（局部最优不等于全局最优）。Beam Search：维护 k 个最高概率路径，翻译任务的标准方案，但倾向于生成通用/重复文本。Top-k 采样：只从概率最高的 k 个 token 中采样，但 k 固定无法适应分布形状变化。Top-p（Nucleus）采样：选择概率累积 ≥ p 的最小 token 集合，分布尖峰时 k 小，平坦时 k 大。Temperature：采样前将 logits 除以 T，T<1 更确定，T>1 更多样。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "困惑度（Perplexity）：语言模型的标准评测指标",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "解码策略：贪心、Beam Search、Top-p、Top-k 的对比",
+    "slug": "decoding-strategies",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "推理",
+      "解码"
+    ],
+    "summary": "贪心最快，Beam求稳，Top-k固定裁剪，Top-p动态裁剪，Temperature负责调随机性强弱"
+  },
+  {
     "title": "连续批处理（Continuous Batching）：提升 LLM 推理吞吐量",
     "slug": "continuous-batching",
     "date": "2026-03-07",
