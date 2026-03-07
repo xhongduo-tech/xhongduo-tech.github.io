@@ -1,5 +1,17 @@
 [
   {
+    "title": "结构化剪枝：注意力头和 FFN 神经元的移除策略",
+    "slug": "structured-pruning",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "模型压缩",
+      "剪枝"
+    ],
+    "summary": "结构化剪枝按头和FFN通道删冗余结构，保持密集推理，并用LoRA低成本恢复性能"
+  },
+  {
     "title": "Adapter 层：在 Transformer 层间插入轻量模块",
     "slug": "adapter-layers",
     "date": "2026-03-07",
