@@ -1,5 +1,17 @@
 [
   {
+    "title": "MCMC采样与马尔可夫链收敛",
+    "slug": "math-bayesian-mcmc-markov-chain-convergence",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "MCMC通过构造收敛到目标分布的马尔可夫链完成近似采样，关键在细致平衡、混合时间与自相关。"
+  },
+  {
     "title": "变分推断与ELBO推导",
     "slug": "math-bayesian-variational-inference-elbo",
     "date": "2026-03-08",

@@ -18135,7 +18135,7 @@
       "概率论"
     ],
     "brief": "马尔可夫链的平稳分布与细致平衡条件。Metropolis-Hastings算法的收敛性。Gibbs采样的适用条件。混合时间与自相关。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "假设检验与p值的正确理解",
