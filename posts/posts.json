@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态思维链：Visual CoT 的实现与分析",
+    "slug": "multimodal-chain-of-thought-visual-cot",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "推理能力",
+      "思维链"
+    ],
+    "summary": "Visual CoT 先定位图像证据，再展开文本推理，核心价值是把可解释性真正绑定到视觉区域。"
+  },
+  {
     "title": "Visual Instruction Tuning：视觉指令微调的数据构建",
     "slug": "visual-instruction-tuning-data",
     "date": "2026-03-08",

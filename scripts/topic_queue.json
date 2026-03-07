@@ -17908,7 +17908,7 @@
       "思维链"
     ],
     "brief": "Visual CoT 将思维链扩展到多模态场景，在回答前生成视觉推理过程。分析视觉 grounding（引用图像区域）与文本推理的结合、多模态 CoT 数据的构建方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "区域级视觉理解：Visual Grounding 与 Referring Expression",
