@@ -1174,7 +1174,7 @@
       "训练优化"
     ],
     "brief": "核心要点：FlashAttention 反向传播不存储 O(N²) 的 attention 矩阵 P，而是仅保存 O(N) 的 logsumexp 值 L，反向时从 Q/K/V 重计算 P。这将内存从 O(N²) 降至 O(N)，而重计算的额外 FLOPs 被 HBM 读写减少所补偿。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Longformer 的滑动窗口与全局注意力",

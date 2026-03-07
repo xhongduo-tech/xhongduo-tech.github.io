@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention 反向传播的重计算策略",
+    "slug": "flashattention-backward-recomputation",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "注意力机制",
+      "训练优化"
+    ],
+    "summary": "FlashAttention 反向只存每行 L，按块重算 P，用额外算力换掉 O(N²) 显存占用。"
+  },
+  {
     "title": "在线 Softmax 算法：数值稳定的流式计算",
     "slug": "online-softmax-streaming",
     "date": "2026-03-08",
