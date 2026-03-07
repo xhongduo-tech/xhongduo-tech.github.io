@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩阵求逆的数值方法",
+    "slug": "math-la-matrix-inversion-numerical",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "矩阵求逆的核心是稳定消元；LU 负责复用，条件数决定结果是否可信。"
+  },
+  {
     "title": "像素级理解：SAM 与 VLM 的结合",
     "slug": "pixel-understanding-sam-vlm",
     "date": "2026-03-08",
