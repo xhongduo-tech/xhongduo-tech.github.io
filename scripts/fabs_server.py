@@ -14,6 +14,7 @@ import os
 import re
 import shutil
 import sys
+from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -280,6 +281,31 @@ class FABSManager:
         self.state.cli_configured = shutil.which("claude") is not None
         self.state.use_cli = bool(self._config.get("use_cli", False))
 
+    async def _reinit_client(self) -> None:
+        """Async-safe client replacement: closes old client first to avoid __del__ GC errors."""
+        old = getattr(self, "_client", None)
+        self._init_client()          # creates new self._client immediately
+        if old is not None:
+            try:
+                await old.aclose()   # close old one cleanly after new is in place
+            except Exception:
+                pass
+
+    async def close(self) -> None:
+        """Graceful shutdown: cancel pipeline and close httpx client."""
+        self._stop_flag = True
+        self._pause_event.set()
+        if self._pipeline_task:
+            self._pipeline_task.cancel()
+            try:
+                await self._pipeline_task
+            except Exception:
+                pass
+        try:
+            await self._client.aclose()
+        except Exception:
+            pass
+
     # ── Config & Settings ──────────────────────────────────────
     async def update_settings(self, settings: dict) -> None:
         changed = False
@@ -293,7 +319,7 @@ class FABSManager:
             changed = True
         save_config(self._config)
         if changed:
-            self._init_client()
+            await self._reinit_client()  # async-safe replacement
         await self._broadcast_state()
 
     def get_settings(self) -> dict:
@@ -724,14 +750,13 @@ class FABSManager:
 
 
 # ──────────────────────────────────────────────────────────────
-# FastAPI app
+# FastAPI app — lifespan (startup + graceful shutdown)
 # ──────────────────────────────────────────────────────────────
-app = FastAPI(title="FABS")
 manager: FABSManager
 
 
-@app.on_event("startup")
-async def startup_event() -> None:
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     global manager
     manager = FABSManager()
     asyncio.create_task(manager.tick())
@@ -746,6 +771,11 @@ async def startup_event() -> None:
         print(f"Pending topics: {pend} (loaded from {QUEUE_FILE.name})")
     else:
         print(f"Pending topics: 0 — upload a topic_queue.json via the dashboard Queue panel")
+    yield                          # server runs here
+    await manager.close()          # graceful shutdown: cancel pipeline + close httpx client
+
+
+app = FastAPI(title="FABS", lifespan=lifespan)
 
 
 @app.get("/")
