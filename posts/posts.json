@@ -1,5 +1,17 @@
 [
   {
+    "title": "RAG 基础架构：检索增强生成的组件与流程",
+    "slug": "rag-architecture",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG",
+      "检索"
+    ],
+    "summary": "RAG 的本质是先检索外部知识，再将证据拼入上下文生成答案，关键在检索质量而不只在模型本身。"
+  },
+  {
     "title": "Chain-of-Thought：推理链的原理与触发条件",
     "slug": "chain-of-thought",
     "date": "2026-03-07",
