@@ -1,5 +1,17 @@
 [
   {
+    "title": "上下文学习（In-Context Learning）：无需更新参数的少样本适应",
+    "slug": "in-context-learning",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "ICL",
+      "提示工程"
+    ],
+    "summary": "ICL 通过示例上下文在推理时临时适配任务，不改参数，但对顺序、格式与示例质量敏感。"
+  },
+  {
     "title": "涌现能力（Emergent Abilities）：规模带来的不连续性",
     "slug": "emergent-abilities",
     "date": "2026-03-07",
