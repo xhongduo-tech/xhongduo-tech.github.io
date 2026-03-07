@@ -1,5 +1,17 @@
 [
   {
+    "title": "量化基础：INT8/INT4 的误差分析与 GPTQ",
+    "slug": "quantization-basics",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "量化"
+    ],
+    "summary": "INT8/INT4量化的误差来自舍入与截断，GPTQ用二阶信息补偿误差，使4bit部署仍可用"
+  },
+  {
     "title": "Flash Attention",
     "slug": "flash-attention",
     "date": "2026-03-07",

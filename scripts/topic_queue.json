@@ -411,7 +411,7 @@
       "量化"
     ],
     "brief": "量化：用低精度整数替代浮点权重。对称量化：W_q = round(W / scale)，scale = max(|W|) / 127（INT8）。量化误差来源：四舍五入误差 + 截断误差（超出范围的值）。逐张量 vs 逐通道量化：逐通道 scale 更精确但实现复杂。GPTQ（Frantar 2022）：基于二阶 Hessian 信息的逐层量化，用未量化权重的误差补偿已量化权重，4-bit 精度损失极小。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "投机采样（Speculative Decoding）：草稿模型加速自回归生成",
