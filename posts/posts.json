@@ -1,5 +1,19 @@
 [
   {
+    "title": "Flash Attention",
+    "slug": "flash-attention",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "Flash Attention",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "FlashAttention通过SRAM分块重排精确注意力，把显存IO瓶颈从O(n²)压到接近线性。"
+  },
+  {
     "title": "RoPE：旋转位置编码的复数域推导",
     "slug": "rope-positional-encoding",
     "date": "2026-03-07",

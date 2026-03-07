@@ -399,7 +399,7 @@
       "注意力机制"
     ],
     "brief": "标准注意力的瓶颈：注意力矩阵 S=QK^T（n×n）需要写入 HBM（GPU 高带宽内存），再读回做 softmax，再写回，再读回乘 V——4 次 HBM 读写，内存访问是瓶颈而非计算。Flash Attention（Dao 2022）：Tiling 分块技术，在 SRAM（片上缓存）内完成分块的 softmax 和加权求和，只读写 O(n) HBM。速度提升：A100 上比标准注意力快 2-4 倍，内存占用从 O(n²) 降至 O(n)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "量化基础：INT8/INT4 的误差分析与 GPTQ",
