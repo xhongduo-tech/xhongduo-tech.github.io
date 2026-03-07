@@ -1,5 +1,19 @@
 [
   {
+    "title": "Constitutional AI",
+    "slug": "constitutional-ai",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "对齐",
+      "Anthropic",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "CAI把安全原则写成可审计文本，用自批自改和偏好优化完成低成本对齐。"
+  },
+  {
     "title": "Bahdanau 注意力：对齐分数的加性计算",
     "slug": "bahdanau-attention",
     "date": "2026-03-07",
