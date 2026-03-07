@@ -1,5 +1,19 @@
 [
   {
+    "title": "RLAIF",
+    "slug": "rlaif-ai-feedback",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "对齐",
+      "RLAIF",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "RLAIF用更强模型替代人工偏好标注，降低RLHF成本，但受judge能力与偏见上界约束。"
+  },
+  {
     "title": "模型水印：LLM 生成文本的可检测性",
     "slug": "llm-text-watermarking",
     "date": "2026-03-08",

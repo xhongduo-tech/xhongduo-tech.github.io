@@ -1015,7 +1015,7 @@
       "对齐算法"
     ],
     "brief": "RLHF 的瓶颈：人类标注成本高、一致性差（不同标注员偏好不同）。RLAIF（Bai 2022，Lee 2023）：用更强的 LLM（如 Claude）评判两个响应的优劣，替代人类偏好标注。技术细节：Prompt 设计对 AI 判断质量至关重要（Chain-of-thought 后再给出偏好判断）。Constitutional AI：RLAIF 的扩展，用原则列表指导 AI 判断。局限：AI 标注员会继承训练 LLM 的偏见；无法超越标注 LLM 的能力上界。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据并行：DDP 与梯度同步的通信开销",
