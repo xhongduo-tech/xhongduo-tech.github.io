@@ -275,7 +275,7 @@
       "位置编码"
     ],
     "brief": "Self-Attention 本身是排列等变的（置换输入顺序不影响输出），必须注入位置信息。Transformer 原始论文的方案：PE(pos, 2i) = sin(pos/10000^{2i/d_model})，PE(pos, 2i+1) = cos(...)。设计原理：不同维度对应不同频率，相对位置 PE(pos+k) 可以表示为 PE(pos) 的线性变换（旋转矩阵）。可学习位置编码（BERT）与固定编码（GPT）的比较。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer Encoder：前馈层与残差连接的作用",

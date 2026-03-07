@@ -1,5 +1,17 @@
 [
   {
+    "title": "位置编码：正弦函数方案的数学构造",
+    "slug": "sinusoidal-positional-encoding",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "Transformer",
+      "位置编码"
+    ],
+    "summary": "正弦位置编码用多频率波形把序列索引变成可线性处理的位置信号"
+  },
+  {
     "title": "多头注意力",
     "slug": "multi-head-attention",
     "date": "2026-03-07",
