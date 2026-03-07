@@ -746,7 +746,7 @@
       "位置编码"
     ],
     "brief": "RoPE 的外推问题：训练时 max_seq=4096，推理时 seq>4096 时 RoPE 角频率超出训练分布，注意力分数崩溃。位置插值（Chen 2023）：将位置索引缩放到训练范围内（下采样），牺牲短文本精度换长文本泛化。YaRN（Peng 2023）：非均匀缩放，低频维度不缩放，高频维度强缩放，保持短文本性能。NTK-aware 插值：基于神经切线核的频率调整。实践中通常结合少量长文本继续训练（context window extension fine-tuning）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ReAct 框架：推理与行动的交替循环",

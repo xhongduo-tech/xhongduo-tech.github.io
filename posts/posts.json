@@ -1,5 +1,17 @@
 [
   {
+    "title": "长上下文：YaRN 与 LongRoPE 的外推方案",
+    "slug": "long-context-rope-extension",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "长上下文",
+      "位置编码"
+    ],
+    "summary": "YaRN与LongRoPE通过非均匀缩放RoPE频率，在尽量保住短文本能力的同时扩展长上下文。"
+  },
+  {
     "title": "幻觉（Hallucination）的成因：知识边界与自信度校准",
     "slug": "llm-hallucination",
     "date": "2026-03-07",
