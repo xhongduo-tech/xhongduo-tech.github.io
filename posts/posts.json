@@ -1,5 +1,17 @@
 [
   {
+    "title": "假设检验与p值的正确理解",
+    "slug": "math-stat-hypothesis-testing-pvalue",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "p值衡量的是数据与原假设的不相容程度，不是原假设为真的概率"
+  },
+  {
     "title": "MCMC采样与马尔可夫链收敛",
     "slug": "math-bayesian-mcmc-markov-chain-convergence",
     "date": "2026-03-08",
