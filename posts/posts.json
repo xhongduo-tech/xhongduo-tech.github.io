@@ -1,5 +1,17 @@
 [
   {
+    "title": "Adapter 层：在 Transformer 层间插入轻量模块",
+    "slug": "adapter-layers",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "微调",
+      "PEFT"
+    ],
+    "summary": "Adapter 用小瓶颈模块做增量微调，省参数、易多任务切换，但推理会有轻微额外延迟。"
+  },
+  {
     "title": "ViT：将 Transformer 用于图像的 Patch Embedding 机制",
     "slug": "vision-transformer-vit",
     "date": "2026-03-07",

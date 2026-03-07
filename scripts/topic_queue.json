@@ -905,7 +905,7 @@
       "PEFT"
     ],
     "brief": "Adapter（Houlsby 2019）：在每个 Transformer 层的 MHA 和 FFN 之后插入小型瓶颈网络（Down-project → 非线性 → Up-project），参数量约 1-3%。残差设计：适配器输出与输入相加，初始化为接近恒等变换（Up-project 初始化为 0），避免训练初期破坏预训练权重。与 LoRA 的比较：Adapter 在推理时有额外层（轻微延迟），LoRA 可合并到原始权重（零额外延迟）。MAM Adapter：MHA 用 Prefix Tuning，FFN 用 Adapter 的混合方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "结构化剪枝：注意力头和 FFN 神经元的移除策略",
