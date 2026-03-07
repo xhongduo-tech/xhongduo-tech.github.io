@@ -472,7 +472,7 @@
       "强化学习"
     ],
     "brief": "RLHF 第三阶段：用 PPO 最大化奖励模型分数，同时用 KL 散度约束偏离 SFT 模型不能太远。目标：max E[R(x,y)] - β·KL(π_θ || π_ref)，β 控制对齐强度与能力保留的权衡。PPO 的 Clip 机制：限制策略更新步长，防止梯度爆炸。LLM 中的挑战：超长序列的 credit assignment，响应级别（非 token 级别）的稀疏奖励。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DPO",

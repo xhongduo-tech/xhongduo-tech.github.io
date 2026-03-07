@@ -1,5 +1,17 @@
 [
   {
+    "title": "PPO 在 LLM 对齐中的应用：KL 散度约束与 RL 稳定性",
+    "slug": "ppo-llm-alignment",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "对齐",
+      "强化学习"
+    ],
+    "summary": "PPO 在 RLHF 中用 Clip 控步长、用 KL 控偏移，在偏好优化和能力保留之间做受约束折中"
+  },
+  {
     "title": "RLHF 奖励模型：偏好对比学习的训练机制",
     "slug": "rlhf-reward-model",
     "date": "2026-03-07",
