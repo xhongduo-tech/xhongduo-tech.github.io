@@ -1,5 +1,17 @@
 [
   {
+    "title": "BERT：掩码语言模型与双向上下文表示",
+    "slug": "bert-masked-lm",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "BERT",
+      "预训练"
+    ],
+    "summary": "BERT用MLM学习双向表示，强于理解类任务，但不适合自回归生成"
+  },
+  {
     "title": "GPT 架构：Decoder-only 与因果语言建模",
     "slug": "gpt-architecture",
     "date": "2026-03-07",

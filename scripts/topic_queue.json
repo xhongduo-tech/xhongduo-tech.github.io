@@ -311,7 +311,7 @@
       "预训练"
     ],
     "brief": "BERT 使用 Encoder-only 架构，预训练任务：MLM（随机遮盖 15% token，其中 80% 替换为 [MASK]，10% 随机词，10% 不变）和 NSP（下句预测，后被证明无用）。双向上下文：每个 token 的表示融合了左右两侧信息。BERT 不能直接用于生成（因为是双向注意力），适合分类、NER、QA 等判别任务。[CLS] token 的表示用于句子级分类。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer 的 FLOP 分析：注意力层与 FFN 的计算占比",
