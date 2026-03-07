@@ -1,5 +1,18 @@
 [
   {
+    "title": "LLaVA-RLHF：视觉语言模型的人类反馈对齐",
+    "slug": "llava-rlhf-human-feedback-alignment",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "对齐",
+      "RLHF"
+    ],
+    "summary": "LLaVA-RLHF用事实增强奖励模型，把视觉语言模型的RLHF从“会说”推进到“少编造”。"
+  },
+  {
     "title": "稀疏注意力的 CUDA 实现：块稀疏矩阵乘",
     "slug": "sparse-attention-block-sparse-matmul",
     "date": "2026-03-08",
