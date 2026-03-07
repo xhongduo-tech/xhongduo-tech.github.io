@@ -1,5 +1,19 @@
 [
   {
+    "title": "混合专家模型（MoE）",
+    "slug": "moe-sparse-activation",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE",
+      "条件计算",
+      "前沿追踪"
+    ],
+    "summary": "MoE用top-k路由激活少量专家，把总参数扩展与单次计算成本拆开。"
+  },
+  {
     "title": "向量数据库：HNSW 索引的构建与近似最近邻搜索",
     "slug": "vector-database-hnsw",
     "date": "2026-03-07",
