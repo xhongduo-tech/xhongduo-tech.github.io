@@ -54,7 +54,7 @@ DEFAULT_MODELS = {
 
 VALID_REASONING_EFFORTS = {"low", "medium", "high"}
 STAGES = ["research", "outline", "write", "review", "refine", "publish"]
-MODEL_STAGES = ["research", "outline", "write", "review", "refine"]
+MODEL_STAGES = ["research", "outline", "write", "refine"]
 
 
 # ──────────────────────────────────────────────────────────────
@@ -64,6 +64,10 @@ def load_config() -> dict:
     config: dict = {
         "batch_size": 0,  # 0 = unlimited
         "codex_reasoning_effort": "medium",
+        "auto_git_push": True,
+        "git_push_remote": "origin",
+        "git_push_ref": "HEAD",
+        "min_content_chars": 2200,
     }
     if CONFIG_FILE.exists():
         try:
@@ -79,6 +83,13 @@ def load_config() -> dict:
 
     effort = str(config.get("codex_reasoning_effort", "medium")).strip().lower()
     config["codex_reasoning_effort"] = effort if effort in VALID_REASONING_EFFORTS else "medium"
+    config["auto_git_push"] = bool(config.get("auto_git_push", True))
+    config["git_push_remote"] = str(config.get("git_push_remote", "origin")).strip() or "origin"
+    config["git_push_ref"] = str(config.get("git_push_ref", "HEAD")).strip() or "HEAD"
+    try:
+        config["min_content_chars"] = max(1200, int(config.get("min_content_chars", 2200)))
+    except Exception:
+        config["min_content_chars"] = 2200
 
     for stage in MODEL_STAGES:
         model = config.get(stage)
@@ -104,15 +115,16 @@ Topic: {title}
 Brief: {brief}
 Category: {blog_category}
 
-Research and provide a technical summary covering:
-1. Core definition/theorem (2-3 precise sentences, no warm-up)
-2. Mathematical foundations — unify notation, state assumptions, sketch key proof steps
-3. Step-by-step mechanism (numbered, concrete); include a minimal numerical example
-4. Typical use cases and constraints; compare at least two related approaches on complexity/accuracy/stability
-5. Common pitfalls with root causes
-6. Related work / alternatives with at least 3 specific citations (papers, docs, or source code)
+输出中文研究笔记（控制在 8 条以内）：
+1) 一句话核心定义
+2) 面向新手的直观解释（2-3 句）
+3) 关键公式/机制（符号统一）
+4) 一个最小数值例子
+5) 一个真实工程场景
+6) 常见坑与规避
+7) 参考来源（至少 3 条，优先论文/官方文档/源码）
 
-Output in Chinese. Be precise and technical. No filler phrases."""
+要求：短句、可复核、避免空话。"""
 
 OUTLINE_PROMPT = """\
 为以下文章创建详细大纲：{title}
@@ -129,13 +141,17 @@ OUTLINE_PROMPT = """\
 6. ## 替代方案与适用边界
 7. ## 参考资料
 
-对每个章节说明：内容要点（2-3条）、所需元素（公式/表格/代码）、预计篇幅。
-选择一个贯穿全文的 running example 用于章节 2-5。"""
+对每章输出：
+- 关键点（2 条）
+- 必须示例（至少 1 个，含新手可理解版本）
+- 必要元素（公式/表格/代码）
+
+总要求：由浅入深，避免术语堆砌。"""
 
 WRITE_PROMPT = """\
-你是一位面向资深工程师的 AI 技术博客作者。输出要可复核、可运行、可比较，避免空话。
+你是一位技术博客作者，目标读者是“零基础到初级工程师”，但技术结论必须准确。
 
-只输出文章正文，不要输出任何前言、说明、道歉或过程描述。
+只输出文章正文，不输出前言、解释、道歉、过程说明。
 
 严格使用以下章节顺序：
 ## 核心结论
@@ -146,17 +162,15 @@ WRITE_PROMPT = """\
 ## 替代方案与适用边界
 ## 参考资料
 
-写作方法论：
-- 先统一符号与假设，再完成核心推导；用最小数值实验验证公式，最后对比至少两种近似方法在复杂度/误差界/稳定性上的差异
-- 每节选一个 running example 贯穿机制推导、代码实现、工程分析
-
 格式要求：
 - 从 `##` 开始，不写 `#`（H1 由系统自动生成）
 - 章节之间使用 `---`
-- 至少包含一个可运行的 `python` 代码块，含 `assert` 或明确校验输出
+- 至少包含一个可运行的 `python` 代码块（含 `assert`）
 - 至少包含一个 Markdown 表格
 - 至少包含数学公式 $...$ 或 $$...$$
-- 优先引用论文、官方文档、源码或高质量技术博客
+- 至少包含 1 个“玩具例子”与 1 个“真实工程例子”
+- 术语首次出现时用一句白话解释
+- 正文（不含参考资料）建议 2200-4200 中文字
 - 文末最后一行单独输出：{{"summary":"不超过60字的核心摘要"}}
 
 ---
@@ -172,33 +186,20 @@ WRITE_PROMPT = """\
 研究摘要：
 {research}"""
 
-REVIEW_PROMPT = """\
-Review this blog post for quality. Return JSON only, no other text.
-
-{article_text}
-
-Check:
-1. All 7 required sections present: 核心结论/问题定义与边界/核心机制与推导/代码实现/工程权衡与常见坑/替代方案与适用边界/参考资料
-2. Python code block with runnable assertions
-3. Markdown table exists (| column |)
-4. Math formula ($...$ or $$...$$)
-5. At least 3 references in 参考资料
-6. JSON summary at end: {{"summary": "..."}}
-
-Return exactly: {{"pass": true, "score": 85, "issues": [], "summary": "extracted summary"}}"""
-
 REFINE_PROMPT = """\
-Improve this technical blog article. Keep structure, title, main conclusions, and section order identical.
+在保持结构、标题、章节顺序和核心结论不变的前提下，改写并补全文章。
 
-Fix any issues: missing sections, non-runnable code, missing table, missing math, thin references.
-Improve: technical precision, example consistency, clarity.
+重点修复：
+1) 章节缺失、代码不可运行、表格/公式/参考资料不足
+2) 篇幅与深度不够
+3) 对新手不友好（术语堆砌、例子不足）
 
 Title: {title}
 
 Article:
 {article_text}
 
-Output the complete improved article starting from ## with the same JSON summary line at the end."""
+输出完整改写稿，从 `##` 开始，保留末尾 summary JSON。"""
 
 
 # ──────────────────────────────────────────────────────────────
@@ -319,6 +320,20 @@ class FABSManager:
             effort = str(settings.get("codex_reasoning_effort", "medium")).strip().lower()
             self._config["codex_reasoning_effort"] = effort if effort in VALID_REASONING_EFFORTS else "medium"
 
+        if "auto_git_push" in settings:
+            self._config["auto_git_push"] = bool(settings["auto_git_push"])
+        if "git_push_remote" in settings:
+            remote = str(settings.get("git_push_remote", "origin")).strip()
+            self._config["git_push_remote"] = remote or "origin"
+        if "git_push_ref" in settings:
+            ref = str(settings.get("git_push_ref", "HEAD")).strip()
+            self._config["git_push_ref"] = ref or "HEAD"
+        if "min_content_chars" in settings:
+            try:
+                self._config["min_content_chars"] = max(1200, int(settings.get("min_content_chars", 2200)))
+            except Exception:
+                self._config["min_content_chars"] = 2200
+
         valid_models = [m for m, _ in AVAILABLE_MODELS]
         for stage in MODEL_STAGES:
             if stage in settings and settings[stage] in valid_models:
@@ -342,6 +357,10 @@ class FABSManager:
             "codex_binary": CODEX_BINARY if self.state.codex_configured else None,
             "model_config": self.state.model_config,
             "refine_enabled": bool(self.state.model_config.get("refine_enabled", False)),
+            "auto_git_push": bool(self._config.get("auto_git_push", True)),
+            "git_push_remote": self._config.get("git_push_remote", "origin"),
+            "git_push_ref": self._config.get("git_push_ref", "HEAD"),
+            "min_content_chars": int(self._config.get("min_content_chars", 2200)),
         }
         for stage in MODEL_STAGES:
             payload[stage] = self.state.model_config.get(stage, DEFAULT_MODELS[stage])
@@ -411,6 +430,60 @@ class FABSManager:
                 fcntl.flock(f, fcntl.LOCK_UN)
         except Exception as exc:
             asyncio.create_task(self._broadcast_log("warn", f"Queue update failed for {slug}: {exc}"))
+
+    async def _run_git_cmd(self, *args: str) -> tuple[int, str, str]:
+        proc = await asyncio.create_subprocess_exec(
+            "git",
+            *args,
+            cwd=str(REPO_ROOT),
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+        out_b, err_b = await proc.communicate()
+        out = out_b.decode("utf-8", errors="replace").strip()
+        err = err_b.decode("utf-8", errors="replace").strip()
+        return proc.returncode, out, err
+
+    async def _git_commit_push_single(self, slug: str) -> None:
+        await self._broadcast_log("info", f"[git] committing {slug}")
+        add_rc, _, add_err = await self._run_git_cmd("add", "posts/posts.json", "scripts/topic_queue.json", f"posts/{slug}.md")
+        if add_rc != 0:
+            raise RuntimeError(f"git add failed: {add_err}")
+
+        diff_rc, _, diff_err = await self._run_git_cmd("diff", "--cached", "--quiet")
+        if diff_rc == 0:
+            await self._broadcast_log("warn", f"[git] no staged changes for {slug}, skip commit/push")
+            return
+        if diff_rc not in (0, 1):
+            raise RuntimeError(f"git diff --cached failed: {diff_err}")
+
+        msg = (
+            f"post: {slug}\n\n"
+            "Generated with Codex staged pipeline.\n\n"
+            "Co-Authored-By: Codex <noreply@openai.com>\n"
+        )
+        msg_file = tempfile.NamedTemporaryFile(prefix="fabs_git_msg_", suffix=".txt", delete=False)
+        msg_file.write(msg.encode("utf-8"))
+        msg_file.close()
+        msg_path = Path(msg_file.name)
+
+        try:
+            commit_rc, _, commit_err = await self._run_git_cmd("commit", "-F", str(msg_path))
+            if commit_rc != 0:
+                raise RuntimeError(f"git commit failed: {commit_err}")
+
+            remote = self._config.get("git_push_remote", "origin")
+            ref = self._config.get("git_push_ref", "HEAD")
+            push_rc, _, push_err = await self._run_git_cmd("push", remote, ref)
+            if push_rc != 0:
+                raise RuntimeError(f"git push {remote} {ref} failed: {push_err}")
+        finally:
+            try:
+                msg_path.unlink(missing_ok=True)
+            except Exception:
+                pass
+
+        await self._broadcast_log("info", f"[git] pushed {slug}")
 
     # ── WebSocket broadcast ────────────────────────────────────
     async def _broadcast(self, msg: dict) -> None:
@@ -499,21 +572,25 @@ class FABSManager:
 
                 try:
                     await self._run_topic(topic)
-                    self._pending.pop(0)
+                    self._update_queue_status(slug, "done")
+                    if self._config.get("auto_git_push", True):
+                        await self._git_commit_push_single(slug)
+                    if self._pending and self._pending[0].get("slug") == slug:
+                        self._pending.pop(0)
                     self.state.in_progress = [p for p in self.state.in_progress if p["slug"] != slug]
                     entry.status = "done"
                     self.state.completed.insert(0, entry.to_dict())
                     self.state.stats["published_count"] += 1
                     self.state.stats["pending_count"] = len(self._pending)
                     self._refresh_preview()
-                    self._update_queue_status(slug, "done")
                     await self._broadcast_log("info", f"Published: {topic['title']}")
                     processed += 1
                 except asyncio.CancelledError:
                     raise
                 except Exception as exc:
                     await self._broadcast_log("error", f"Failed [{slug}]: {exc}")
-                    self._pending.pop(0)
+                    if self._pending and self._pending[0].get("slug") == slug:
+                        self._pending.pop(0)
                     self.state.in_progress = [p for p in self.state.in_progress if p["slug"] != slug]
                     entry.status = "failed"
                     entry.error = str(exc)
@@ -588,12 +665,13 @@ class FABSManager:
             partial["article"] = article
 
             await set_stage("review")
-            review = await self._run_review(article)
+            review = self._run_review_local(article)
             if not review.get("pass", False):
                 issues = review.get("issues", [])
                 await self._broadcast_log("warn", f"Review issues [{slug}]: {', '.join(issues)}")
 
-            if self.state.model_config.get("refine_enabled", False):
+            needs_refine = (not review.get("pass", False)) or self.state.model_config.get("refine_enabled", False)
+            if needs_refine:
                 await set_stage("refine")
                 article = await self._stream_call(
                     self.state.model_config.get("refine", DEFAULT_MODELS["refine"]),
@@ -602,6 +680,9 @@ class FABSManager:
                     8192,
                 )
                 partial["article_refined"] = article
+                review = self._run_review_local(article)
+                if not review.get("pass", False):
+                    raise RuntimeError(f"Refine 后仍不达标: {', '.join(review.get('issues', []))}")
 
             await set_stage("publish")
             await self._publish(topic, article, review.get("summary", ""))
@@ -688,16 +769,70 @@ class FABSManager:
             except Exception:
                 pass
 
-    async def _run_review(self, article_text: str) -> dict:
-        model = self.state.model_config.get("review", DEFAULT_MODELS["review"])
-        raw = await self._stream_call(model, REVIEW_PROMPT.format(article_text=article_text), "review", 1024)
-        match = re.search(r'\{[^{}]*"pass"[^{}]*\}', raw, re.DOTALL)
-        if match:
+    def _run_review_local(self, article_text: str) -> dict:
+        issues: list[str] = []
+        required_sections = [
+            "## 核心结论",
+            "## 问题定义与边界",
+            "## 核心机制与推导",
+            "## 代码实现",
+            "## 工程权衡与常见坑",
+            "## 替代方案与适用边界",
+            "## 参考资料",
+        ]
+        for section in required_sections:
+            if section not in article_text:
+                issues.append(f"缺少章节：{section}")
+
+        if "```python" not in article_text:
+            issues.append("缺少可运行的 python 代码块")
+        if "|" not in article_text:
+            issues.append("缺少 Markdown 表格")
+        if "$$" not in article_text and not re.search(r"\$[^$\n]+\$", article_text):
+            issues.append("缺少公式或数学记号")
+
+        refs_body = ""
+        refs_match = re.search(r"^## 参考资料\s*$([\s\S]*)", article_text, flags=re.M)
+        if refs_match:
+            refs_body = refs_match.group(1)
+            refs_lines = []
+            for raw_line in refs_body.splitlines():
+                line = raw_line.strip()
+                if line.startswith('{"summary"'):
+                    break
+                refs_lines.append(raw_line)
+            refs_body = "\n".join(refs_lines).strip()
+        list_items = re.findall(r"^\s*(?:\d+\.\s+|[-*]\s+).+", refs_body, flags=re.M)
+        markdown_links = re.findall(r"\[[^\]]+\]\((https?://[^)]+)\)", refs_body)
+        bare_urls = re.findall(r"https?://\S+", refs_body)
+        ref_count = max(len(list_items), len(set(markdown_links)), len(set(bare_urls)))
+        if ref_count < 3:
+            issues.append("参考资料少于 3 条")
+
+        summary = ""
+        for line in reversed(article_text.splitlines()):
+            line = line.strip()
+            if not line:
+                continue
+            if not line.startswith("{"):
+                break
             try:
-                return json.loads(match.group())
-            except json.JSONDecodeError:
-                pass
-        return {"pass": False, "score": 0, "issues": ["Review parse failed"], "summary": ""}
+                obj = json.loads(line)
+            except Exception:
+                break
+            if isinstance(obj.get("summary"), str) and obj["summary"].strip():
+                summary = obj["summary"].strip()
+                break
+        if not summary:
+            issues.append("缺少末尾 summary JSON")
+
+        char_count = len(re.sub(r"\s+", "", article_text))
+        min_chars = int(self._config.get("min_content_chars", 2200))
+        if char_count < min_chars:
+            issues.append(f"正文篇幅偏短（当前约 {char_count} 字符，要求至少 {min_chars}）")
+
+        score = max(0, 100 - 10 * len(issues))
+        return {"pass": not issues, "score": score, "issues": issues, "summary": summary}
 
     # ── Publish ────────────────────────────────────────────────
     async def _publish(self, topic: dict, article_text: str, review_summary: str) -> None:
@@ -778,6 +913,7 @@ async def lifespan(app: FastAPI):
     print("FABS ready. Open http://127.0.0.1:8765")
     print(f"Codex CLI:    {codex_status}")
     print("Mode:         Codex staged models (mini + 5.4)")
+    print(f"Git push:     {'enabled' if manager._config.get('auto_git_push', True) else 'disabled'}")
     if pend:
         print(f"Pending topics: {pend} (loaded from {QUEUE_FILE.name})")
     else:

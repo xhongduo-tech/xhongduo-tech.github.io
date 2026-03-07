@@ -6,5 +6,9 @@
   "write": "gpt-5.4",
   "review": "gpt-5-codex-mini",
   "refine": "gpt-5.4",
-  "refine_enabled": false
+  "refine_enabled": false,
+  "auto_git_push": true,
+  "git_push_remote": "origin",
+  "git_push_ref": "HEAD",
+  "min_content_chars": 2200
 }

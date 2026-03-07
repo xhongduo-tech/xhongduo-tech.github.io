@@ -23,6 +23,7 @@ CODEX_DRAFT_REASONING_EFFORT="${CODEX_DRAFT_REASONING_EFFORT:-${CODEX_REASONING_
 CODEX_REFINE_MODEL="${CODEX_REFINE_MODEL:-${CODEX_MODEL:-gpt-5.4}}"
 CODEX_REFINE_REASONING_EFFORT="${CODEX_REFINE_REASONING_EFFORT:-${CODEX_REASONING_EFFORT:-medium}}"
 BATCH_SIZE="${BATCH_SIZE:-10}"
+MIN_CONTENT_CHARS="${MIN_CONTENT_CHARS:-2200}"
 
 mkdir -p "$LOGS_DIR" "$FAILED_OUTPUT_DIR"
 LOG_FILE="$LOGS_DIR/auto_post_$(date +%Y%m%d_%H%M%S).log"
@@ -40,9 +41,9 @@ DRY_RUN=false
 
 # ── 系统提示 ───────────────────────────────────────────────────────────────────
 SYSTEM_PROMPT=$(cat <<'EOF'
-你是一位面向资深工程师的 AI 技术博客作者。输出要可复核、可运行、可比较，避免空话。
+你是一位技术博客作者，目标读者是“零基础到初级工程师”。
 
-只输出文章正文，不要输出任何前言、说明、道歉、执行过程、权限/文件/工具/网络状态描述。
+只输出文章正文，不输出前言、解释、道歉、执行过程。
 
 严格使用以下章节顺序：
 ## 核心结论
@@ -56,11 +57,12 @@ SYSTEM_PROMPT=$(cat <<'EOF'
 要求：
 - 从 `##` 开始，不写 `#`
 - 章节之间使用 `---`
-- 至少包含一个可运行的 `python` 代码块，代码里有 `assert` 或明确校验输出
+- 先讲直观结论，再给定义与公式；术语首次出现要用一句白话解释
+- 每个核心小节至少 1 个具体例子；至少 1 个“玩具例子”+ 1 个“真实工程例子”
+- 至少包含一个可运行的 `python` 代码块（含 `assert`）
 - 至少包含一个 Markdown 表格
 - 至少包含一个带具体数字的推演或容量估算
-- 使用统一的 running example 贯穿机制、代码和工程分析
-- 优先引用论文、官方文档、源码或高质量技术博客
+- 保持技术结论准确，避免空话和术语堆砌
 - 文末最后一行单独输出：{"summary":"不超过60字的核心摘要"}
 EOF
 )
@@ -179,16 +181,16 @@ generate_article() {
     local article_context="$1"
     local prompt="${SYSTEM_PROMPT}
 
-请直接写出合格终稿，写作上下文如下：
+请直接写终稿，篇幅以“讲透为准”，建议正文（不含参考资料）约 2200-4200 中文字。
+请使用“由浅入深”结构：直观问题 -> 最小例子 -> 形式化定义/公式 -> 工程实现。
+
+写作上下文如下：
 
 ${article_context}
 
-额外要求：
-- 默认读者已经掌握“前置阅读”里的内容，不要重复讲基础定义；只在必要处用 1-2 句承接
-- 用同一个 running example 贯穿公式、代码和工程分析
-- 如果是工程或部署主题，不要伪造学术化推导；请用复杂度、容量、调度或协议模型解释
-- 如果是理论、训练或微调主题，公式必须可推导、符号必须可复核
-- 如果工具、文件、权限、网络有任何异常，都不要写进正文
+补充：
+- 面向小白：句子尽量短，先解释“是什么/为什么”，再讲“怎么做”
+- 面向技术：关键结论要一针见血，给可复核公式或可运行代码
 - 最后一行必须单独输出 summary JSON
 "
 
@@ -245,13 +247,14 @@ stage_draft_article() {
 
 # ── 质量校验 ──────────────────────────────────────────────────────────────────
 validate_article_output() {
-    local article_file="$1" require_summary="${2:-1}"
-    python3 - "$article_file" "$require_summary" <<'PYEOF'
+    local article_file="$1" require_summary="${2:-1}" min_chars="${3:-2200}"
+    python3 - "$article_file" "$require_summary" "$min_chars" <<'PYEOF'
 import json, re, sys
 from pathlib import Path
 
 text = Path(sys.argv[1]).read_text()
 require_summary = sys.argv[2] == "1"
+min_chars = int(sys.argv[3])
 issues = []
 required_sections = [
     "## 核心结论",
@@ -273,6 +276,10 @@ if "|" not in text:
     issues.append("缺少 Markdown 表格")
 if "$$" not in text and not re.search(r"\$[^$\n]+\$", text):
     issues.append("缺少公式或数学记号")
+
+char_count = len(re.sub(r"\s+", "", text))
+if char_count < min_chars:
+    issues.append(f"正文篇幅偏短（当前约 {char_count} 字符，要求至少 {min_chars}）")
 
 refs_body = ""
 refs_match = re.search(r"^## 参考资料\s*$([\s\S]*)", text, flags=re.M)
@@ -435,8 +442,8 @@ refine_batch_with_codex() {
 ${file_refs}
 
 任务要求：
-- 你需要先自行检查章节完整性、表格、公式/数学记号、代码可运行性、参考资料数量、summary JSON，再按缺陷直接改写到合格
-- 在保持主题、章节顺序、核心结论和整体篇幅级别基本稳定的前提下，润色表达并修正技术问题
+- 先检查：章节完整性、表格、公式/数学记号、代码可运行性、参考资料数量、summary JSON、篇幅深度
+- 若不达标再改写；目标是由浅入深、可读性强、例子充分，且技术结论准确
 - 保持每篇文章的标题、slug、主题边界、章节顺序和主要结论不变
 - 不要删除必须章节，不要新增与主题无关的内容，不要改动未列出的文件
 - 不要写任何关于权限、文件访问、工具调用、网络环境的描述
@@ -476,28 +483,22 @@ EOF
     rm -f "$tmp_out"
 }
 
-# ── Git 提交推送 ───────────────────────────────────────────────────────────────
-git_commit_push_batch() {
-    local -a batch_slugs=("$@")
+# ── Git 提交推送（逐篇）─────────────────────────────────────────────────────────
+git_commit_push_single() {
+    local slug="$1"
     cd "$REPO_ROOT"
-    git add posts/posts.json scripts/topic_queue.json
-    local slug
-    for slug in "${batch_slugs[@]}"; do
-        git add "posts/${slug}.md"
-    done
+    git add posts/posts.json scripts/topic_queue.json "posts/${slug}.md"
     if git diff --cached --quiet; then
         warn "  无暂存变更，跳过 commit"
         return 0
     fi
     {
-        printf 'post: batch %s (%d articles)\n\n' "$(date +%Y-%m-%d)" "${#batch_slugs[@]}"
+        printf 'post: %s\n\n' "${slug}"
         printf 'Generated with Codex (%s) and validated/polished with Codex (%s).\n\n' "$CODEX_DRAFT_MODEL" "$CODEX_REFINE_MODEL"
-        printf 'Articles:\n'
-        printf '%s\n' "${batch_slugs[@]}"
         printf '\nCo-Authored-By: Codex <noreply@openai.com>\n'
     } | git commit -F -
-    git push origin main
-    log "  ✓ 已推送本批次 ${#batch_slugs[@]} 篇文章"
+    git push origin HEAD
+    log "  ✓ 已推送：${slug}"
 }
 
 # ── 更新队列状态（无时间戳）──────────────────────────────────────────────────
@@ -506,15 +507,6 @@ mark_queue() {
     jq --arg slug "$slug" --arg s "$status" \
         'map(if .slug == $slug then .status = $s else . end)' \
         "$QUEUE_FILE" > /tmp/queue_tmp_$$ && mv /tmp/queue_tmp_$$ "$QUEUE_FILE"
-}
-
-mark_queue_batch() {
-    local status="$1"
-    shift
-    local slug
-    for slug in "$@"; do
-        mark_queue "$slug" "$status"
-    done
 }
 
 # ── Dry-run ───────────────────────────────────────────────────────────────────
@@ -549,6 +541,7 @@ fi
 log "本批次共 ${#slugs[@]} 篇：$(IFS=', '; echo "${slugs[*]}")"
 
 generated_slugs=()
+need_refine_slugs=()
 total_articles="${#slugs[@]}"
 total_steps=$(( total_articles * 2 + 1 ))
 progress_step=0
@@ -605,22 +598,35 @@ EOF
     fi
 
     generated_slugs+=("$slug")
+    validation_failed=false
+    issues=$(validate_article_output "$draft_file" 1 "$MIN_CONTENT_CHARS") || validation_failed=true
+    if $validation_failed; then
+        need_refine_slugs+=("$slug")
+        warn "初稿待改写：${slug}（原因：$(echo "$issues" | tr '\n' '; ' | sed 's/[[:space:]]\+/ /g')）"
+    else
+        log "初稿已达标：${slug}（将跳过改写阶段）"
+    fi
 
     sleep 3
 done
 
-log "Codex 草稿生成完成，开始调用 Codex 逐篇校验并改写本批次 ${#generated_slugs[@]} 篇文章"
-progress_step=$((progress_step + 1))
-render_progress "$progress_step" "$total_steps" "Codex 校验改写"
-
-codex_result=""
-rc=0
-codex_result=$(refine_batch_with_codex "${generated_slugs[@]}") || rc=$?
-if [[ "$rc" -ne 0 ]]; then
-    err "Codex 批量校验改写失败，已保留草稿，未推送 git。"
-    exit 1
+if [[ "${#need_refine_slugs[@]}" -gt 0 ]]; then
+    log "草稿生成完成，开始改写本批次 ${#need_refine_slugs[@]}/${#generated_slugs[@]} 篇未达标文章"
+    progress_step=$((progress_step + 1))
+    render_progress "$progress_step" "$total_steps" "Codex 校验改写"
+    codex_result=""
+    rc=0
+    codex_result=$(refine_batch_with_codex "${need_refine_slugs[@]}") || rc=$?
+    if [[ "$rc" -ne 0 ]]; then
+        err "Codex 批量校验改写失败，已保留草稿，未推送 git。"
+        exit 1
+    fi
+    [[ -n "${codex_result//[[:space:]]/}" ]] && log "Codex：$(echo "$codex_result" | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g')"
+else
+    log "所有草稿初检已达标，跳过改写阶段以节省 token。"
+    progress_step=$((progress_step + 1))
+    render_progress "$progress_step" "$total_steps" "跳过改写"
 fi
-[[ -n "${codex_result//[[:space:]]/}" ]] && log "Codex：$(echo "$codex_result" | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g')"
 
 for slug in "${generated_slugs[@]}"; do
     draft_file=$(draft_file_for_slug "$slug")
@@ -628,7 +634,7 @@ for slug in "${generated_slugs[@]}"; do
     render_progress "$progress_step" "$total_steps" "发布 ${slug}"
     sanitize_article_output "$draft_file"
     validation_failed=false
-    issues=$(validate_article_output "$draft_file" 1) || validation_failed=true
+    issues=$(validate_article_output "$draft_file" 1 "$MIN_CONTENT_CHARS") || validation_failed=true
     if $validation_failed; then
         save_failed_article "$slug" "codex-validation-failed" "$(cat "$draft_file")"
         err "Codex 改写后文章校验失败：${slug}"
@@ -651,7 +657,7 @@ for slug in "${generated_slugs[@]}"; do
     ' <<< "$topic")
     publish_article "$slug" "$title" "$tags_json" "$output"
     validation_failed=false
-    issues=$(validate_article_output "$POSTS_DIR/${slug}.md" 0) || validation_failed=true
+    issues=$(validate_article_output "$POSTS_DIR/${slug}.md" 0 "$MIN_CONTENT_CHARS") || validation_failed=true
     if $validation_failed; then
         err "发布后的正文校验失败：${slug}"
         while IFS= read -r issue; do
@@ -659,11 +665,9 @@ for slug in "${generated_slugs[@]}"; do
         done <<< "$issues"
         exit 1
     fi
+    mark_queue "$slug" "done"
+    validate_posts_json_entries "$slug" || exit 1
+    git_commit_push_single "$slug" || exit 1
 done
-
-validate_posts_json_entries "${generated_slugs[@]}" || exit 1
-
-mark_queue_batch "done" "${generated_slugs[@]}"
-git_commit_push_batch "${generated_slugs[@]}"
 
 log "=== 本批次 ${#generated_slugs[@]} 篇全部完成 ==="
