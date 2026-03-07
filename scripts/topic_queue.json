@@ -821,7 +821,7 @@
       "稀疏注意力"
     ],
     "brief": "全局注意力 O(n²) 的长序列代价。局部窗口注意力：每个 token 只与前后 w 个 token 交互，O(n×w)，但失去全局感知。Longformer（Beltagy 2020）：滑动窗口局部注意力 + 少量全局 token（[CLS] 和任务相关 token）。BigBird：局部 + 全局 + 随机稀疏，理论上等价于完整注意力（图连接性证明）。稀疏注意力的 CUDA 实现挑战：不规则内存访问难以优化，Flash Attention 的成功使得 O(n²) 的实际代价不那么大。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型评测：MMLU、HumanEval、MATH 的设计与局限",

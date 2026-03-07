@@ -1,5 +1,17 @@
 [
   {
+    "title": "Attention 稀疏化：局部注意力、滑动窗口与 Longformer",
+    "slug": "sparse-attention",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "长上下文",
+      "稀疏注意力"
+    ],
+    "summary": "稀疏注意力用局部窗口加少量全局或随机连接，把长序列注意力从平方成本降到近线性。"
+  },
+  {
     "title": "Constitutional AI",
     "slug": "constitutional-ai",
     "date": "2026-03-07",
