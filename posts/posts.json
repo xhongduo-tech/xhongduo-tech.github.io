@@ -1,5 +1,17 @@
 [
   {
+    "title": "LSTM：遗忘门、输入门、输出门的参数方程",
+    "slug": "lstm-gates",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "序列模型",
+      "LSTM"
+    ],
+    "summary": "LSTM 通过四个门和细胞状态稳定传递长期信息，核心是加法更新而非直接覆盖。"
+  },
+  {
     "title": "RNN 与梯度消失：BPTT 中的指数衰减",
     "slug": "rnn-gradient-vanishing",
     "date": "2026-03-07",

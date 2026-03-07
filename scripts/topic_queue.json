@@ -213,7 +213,7 @@
       "LSTM"
     ],
     "brief": "LSTM 引入细胞状态 C_t 作为信息高速公路。四个门：遗忘门 f_t=σ(W_f·[h_{t-1},x_t]+b_f)，输入门 i_t，候选细胞 C̃_t，输出门 o_t。关键：C_t = f_t⊙C_{t-1} + i_t⊙C̃_t，梯度可以通过加法直接反向传播（恒定误差传送带）。与 RNN 的参数量对比：LSTM 参数量是 RNN 的 4 倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Seq2Seq 架构：编码器-解码器与信息瓶颈",
