@@ -1,5 +1,17 @@
 [
   {
+    "title": "Bahdanau 注意力：对齐分数的加性计算",
+    "slug": "bahdanau-attention",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "注意力机制",
+      "Attention"
+    ],
+    "summary": "Bahdanau 注意力用加性对齐在每个解码步动态生成上下文，缓解固定向量瓶颈并提供可视化软对齐。"
+  },
+  {
     "title": "RLHF 与 RLAIF 的对齐效果对比",
     "slug": "rlhf-vs-rlaif-alignment",
     "date": "2026-03-07",
