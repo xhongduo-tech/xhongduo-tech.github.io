@@ -1,5 +1,17 @@
 [
   {
+    "title": "Adam 优化器：一阶矩与二阶矩的联合自适应",
+    "slug": "adam-optimizer",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练优化",
+      "优化器"
+    ],
+    "summary": "Adam 用方向与幅度联合自适应更新；AdamW 进一步解耦权重衰减，更适合现代大模型训练"
+  },
+  {
     "title": "梯度下降三形态：SGD、Mini-batch、Full-batch 的收敛分析",
     "slug": "gradient-descent-variants",
     "date": "2026-03-07",
