@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer 的 FLOP 分析：注意力层与 FFN 的计算占比",
+    "slug": "transformer-flops-analysis",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "Transformer",
+      "效率分析"
+    ],
+    "summary": "单层 Transformer 前向 FLOP 近似为 24nd²+4n²d，短序列常由 FFN 主导，长序列则注意力核…"
+  },
+  {
     "title": "BERT：掩码语言模型与双向上下文表示",
     "slug": "bert-masked-lm",
     "date": "2026-03-07",

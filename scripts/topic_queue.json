@@ -323,7 +323,7 @@
       "效率分析"
     ],
     "brief": "一次前向传播的 FLOP 计算：注意力层 QKV 投影 3×2×n×d²，注意力矩阵 2×n²×d，输出投影 2×n×d²；FFN 两次矩阵乘法 2×2×n×d×4d = 16nd²。总 FLOP ≈ 24nd² + 4n²d（n 为序列长度，d 为模型维度）。序列长度 n 较小时 FFN 占主导（n≪d），n 较大时注意力项 4n²d 开始显著。训练 FLOP ≈ 6×参数量×token 数（来自 Kaplan 2020）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "缩放定律（Scaling Laws）：模型性能与计算量的幂律关系",
