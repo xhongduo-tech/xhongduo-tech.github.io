@@ -373,7 +373,7 @@
       "KV Cache"
     ],
     "brief": "自回归生成时，每步需要用到所有历史 token 的 K 和 V（前缀不变）。不缓存：每步重新计算所有 K、V，复杂度 O(T²)。KV Cache：缓存历史 K、V 矩阵，每步只计算新 token 的 K、V 并追加，复杂度降为 O(T)。内存代价：batch_size × seq_len × n_layers × n_heads × d_head × 2（K+V）× bytes。以 LLaMA-2 70B 为例：seq_len=4096 时 KV Cache 约 80GB。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RoPE：旋转位置编码的复数域推导",

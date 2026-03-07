@@ -1,5 +1,17 @@
 [
   {
+    "title": "KV Cache：推理阶段的空间换时间机制",
+    "slug": "kv-cache",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "KV Cache"
+    ],
+    "summary": "KV Cache通过缓存历史K/V，把自回归推理从重复算前缀变成增量复用，但代价是显存线性增长。"
+  },
+  {
     "title": "混合精度训练",
     "slug": "mixed-precision-training",
     "date": "2026-03-07",
