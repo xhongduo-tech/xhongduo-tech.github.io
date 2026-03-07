@@ -129,7 +129,7 @@
       "初始化"
     ],
     "brief": "全零初始化的对称性问题：所有神经元计算相同梯度，层永远等价。随机初始化需要控制方差：太大→激活值爆炸，太小→梯度消失。Xavier 初始化 Var(W) = 2/(n_in + n_out) 适用于 Tanh（对称激活）。He 初始化 Var(W) = 2/n_in 适用于 ReLU（正半轴激活，有效扇入减半）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "学习率调度：Warmup、余弦退火与 OneCycleLR",

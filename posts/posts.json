@@ -1,5 +1,17 @@
 [
   {
+    "title": "权重初始化：Xavier 与 He 方案的方差推导",
+    "slug": "weight-initialization",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练优化",
+      "初始化"
+    ],
+    "summary": "Xavier 适合 tanh，He 适合 ReLU，本质是按 fan-in/fan-out 控制信号方差稳定。"
+  },
+  {
     "title": "Adam 优化器：一阶矩与二阶矩的联合自适应",
     "slug": "adam-optimizer",
     "date": "2026-03-07",
