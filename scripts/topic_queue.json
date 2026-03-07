@@ -177,7 +177,7 @@
       "Embedding"
     ],
     "brief": "Skip-gram：给定中心词，预测上下文词。原始 Softmax 对整个词表计算分母，V=10万时代价极高。Negative Sampling 近似：对每个正样本采样 k 个负样本（按词频^(3/4)的分布采样），将多类分类转为 k+1 个二分类。目标函数：log σ(v_c·v_o) + Σ_k E[log σ(-v_c·v_k)]。k=5-20 在实践中与全 Softmax 效果接近。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BPE 分词：字节对编码的压缩理论基础",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Word2Vec Skip-gram：负采样的数学原理",
+    "slug": "word2vec-skipgram-negative-sampling",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "文本表示",
+      "Embedding"
+    ],
+    "summary": "负采样把全词表 softmax 改成少量二分类，用更低成本学到接近的词向量。"
+  },
+  {
     "title": "Word2Vec CBOW：从上下文预测中心词",
     "slug": "word2vec-cbow",
     "date": "2026-03-07",
