@@ -1,5 +1,17 @@
 [
   {
+    "title": "词袋模型与 TF-IDF：统计语义的局限",
+    "slug": "bag-of-words-tfidf",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "文本表示",
+      "NLP基础"
+    ],
+    "summary": "TF-IDF改进了词频权重，但仍不理解词序与语义，这正是词嵌入出现的原因"
+  },
+  {
     "title": "学习率调度：Warmup、余弦退火与 OneCycleLR",
     "slug": "learning-rate-schedule",
     "date": "2026-03-07",
