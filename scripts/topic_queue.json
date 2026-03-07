@@ -28446,7 +28446,7 @@
       "稀疏性"
     ],
     "brief": "稀疏注意力通过限制注意力范围降低计算复杂度：局部窗口注意力（滑动窗口）、带状注意力（对角线附近）、固定模式注意力（如 checkerboard）、全局 token 注意力（如 CLS token）。分析不同稀疏模式的适用场景，以及如何组合使用局部与全局注意力。Longformer、Performer 等模型的稀疏设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多查询注意力（MQA）与分组查询注意力（GQA）的优化",

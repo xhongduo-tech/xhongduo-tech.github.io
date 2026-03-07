@@ -1,5 +1,18 @@
 [
   {
+    "title": "稀疏注意力模式：局部+全局的混合设计",
+    "slug": "sparse-attention-patterns",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制",
+      "稀疏性"
+    ],
+    "summary": "稀疏注意力用局部窗口降低成本，用少量全局 token 维持跨窗口信息流；它本质上是在 attention 图上做结构化…"
+  },
+  {
     "title": "门控机制在 Transformer 中的应用：SwiGLU 与 GEGLU",
     "slug": "gated-mechanisms-transformer",
     "date": "2026-03-08",
