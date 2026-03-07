@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据并行：DDP 与梯度同步的通信开销",
+    "slug": "data-parallel-ddp",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "数据并行"
+    ],
+    "summary": "DDP 用 Ring AllReduce 分散梯度同步压力，并靠 bucket 与 hook 把通信隐藏进 backw…"
+  },
+  {
     "title": "RLAIF",
     "slug": "rlaif-ai-feedback",
     "date": "2026-03-08",

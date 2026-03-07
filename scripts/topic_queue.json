@@ -1027,7 +1027,7 @@
       "数据并行"
     ],
     "brief": "数据并行：每个 GPU 持有完整模型副本，处理不同数据，梯度同步后参数更新相同。参数服务器（PS）架构：中心化参数存储，Worker 拉取参数、推送梯度，PS 成为通信瓶颈。AllReduce（Ring-AllReduce）：无中心节点，每个 GPU 既发送又接收，通信量 = 2(N-1)/N × 参数量（N 为 GPU 数），接近最优。PyTorch DDP：NCCL 后端 AllReduce，梯度通信与反向传播重叠（Backward Hook 触发通信）。通信量估算：175B 模型每步通信 ~350GB 梯度（FP16）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Retrieval-Augmented Fine-tuning（RAFT）：领域知识注入策略",
