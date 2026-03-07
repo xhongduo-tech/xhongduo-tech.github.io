@@ -1,5 +1,17 @@
 [
   {
+    "title": "在线 Softmax 算法：数值稳定的流式计算",
+    "slug": "online-softmax-streaming",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "注意力机制",
+      "数值计算"
+    ],
+    "summary": "在线Softmax用m和l单遍维护稳定分母，是FlashAttention分块归一化的数学基础"
+  },
+  {
     "title": "GPU 内存层次与 Attention 的算术强度",
     "slug": "gpu-memory-hierarchy-attention-intensity",
     "date": "2026-03-08",

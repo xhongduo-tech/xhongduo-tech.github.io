@@ -1162,7 +1162,7 @@
       "数值计算"
     ],
     "brief": "核心要点：在线 softmax（Milakov & Gimelshein, 2018）在单次遍历中同步维护最大值 m 和指数和 l，避免三遍扫描。FlashAttention 将其扩展到分块矩阵乘，通过 rescaling 因子 e^(m_old - m_new) 合并不同块的 partial softmax 结果。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention 反向传播的重计算策略",
