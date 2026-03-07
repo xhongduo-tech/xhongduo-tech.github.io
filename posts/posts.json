@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度与链式法则：反向传播的数学基础",
+    "slug": "gradient-chain-rule",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "链式法则负责逐边传梯度，梯度决定下降方向，二者共同构成反向传播基础"
+  },
+  {
     "title": "向量与矩阵：神经网络计算的数学基础",
     "slug": "vectors-and-matrices-ml",
     "date": "2026-03-07",
@@ -22,18 +34,6 @@
       "概率论"
     ],
     "summary": "交叉熵本质是Bernoulli/Multinomial负对数似然，MLE与贝叶斯只差先验项。"
-  },
-  {
-    "title": "梯度与链式法则：反向传播的数学基础",
-    "slug": "gradient-chain-rule",
-    "date": "2026-03-07",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "数学基础",
-      "微积分"
-    ],
-    "summary": "用一个最小计算图推导梯度、链式法则与反向传播的数学和工程边界"
   },
   {
     "title": "Claude Code 安装使用指南",
