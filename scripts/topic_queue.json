@@ -668,7 +668,7 @@
       "SSM"
     ],
     "brief": "标准注意力 O(n²) 的长序列局限。状态空间模型（SSM）：y_t = C·h_t，h_t = A·h_{t-1} + B·x_t，线性复杂度，但固定 A/B/C 表达能力受限。Mamba（Gu 2023）的关键创新：选择性 SSM，A/B/C 依赖输入 x（token-dependent），突破固定动态系统的局限。硬件感知的并行扫描算法：训练时用 parallel scan（O(n log n)），推理时用 RNN（O(1)/步）。在语言建模 PPL 上与 Transformer 相当，但推理速度更快。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型合并：SLERP 与 Task Arithmetic 的参数空间操作",

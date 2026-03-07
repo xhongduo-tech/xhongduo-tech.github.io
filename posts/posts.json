@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba 与选择性状态空间模型：线性复杂度序列建模",
+    "slug": "mamba-ssm",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "SSM"
+    ],
+    "summary": "Mamba 用输入相关的 SSM 参数实现内容感知记忆，并以线性复杂度处理长序列"
+  },
+  {
     "title": "知识蒸馏：小模型向大模型学习的机制",
     "slug": "knowledge-distillation",
     "date": "2026-03-07",
