@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer 的宽度与深度：架构搜索的权衡",
+    "slug": "transformer-width-depth-tradeoff",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer",
+      "架构搜索"
+    ],
+    "summary": "固定参数下宽深强耦合：表示任务偏宽，推理任务偏深，工程上通常取折中并引入结构偏置。"
+  },
+  {
     "title": "混合精度与模型架构：FP16/BF16 对 Transformer 的影响",
     "slug": "mixed-precision-transformer",
     "date": "2026-03-08",
