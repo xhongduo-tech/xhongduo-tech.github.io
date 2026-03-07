@@ -1,5 +1,17 @@
 [
   {
+    "title": "缩放定律（Scaling Laws）：模型性能与计算量的幂律关系",
+    "slug": "scaling-laws",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "缩放定律",
+      "训练"
+    ],
+    "summary": "缩放定律说明性能随参数和数据按幂律提升，固定算力下通常应让模型与数据同步增长。"
+  },
+  {
     "title": "Transformer 的 FLOP 分析：注意力层与 FFN 的计算占比",
     "slug": "transformer-flops-analysis",
     "date": "2026-03-07",
