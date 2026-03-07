@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FABS — Fully Automated Blog-post System</title>
+<style>
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Design tokens ─────────────────────────────────── */
+:root {
+  --bg:         #080810;
+  --bg2:        #0c0c18;
+  --panel:      #0f0f1c;
+  --panel2:     #111120;
+  --surface:    #161628;
+  --border:     rgba(255,255,255,0.06);
+  --border2:    rgba(255,255,255,0.10);
+  --text:       #dde4f0;
+  --text-2:     #8e9ab0;
+  --text-3:     #4e5a6e;
+  --cyan:       #00d4ff;
+  --cyan-glow:  rgba(0,212,255,0.18);
+  --blue:       #4f8ef7;
+  --blue-glow:  rgba(79,142,247,0.18);
+  --green:      #34d399;
+  --green-glow: rgba(52,211,153,0.15);
+  --red:        #f87171;
+  --red-glow:   rgba(248,113,113,0.15);
+  --amber:      #fbbf24;
+  --amber-glow: rgba(251,191,36,0.15);
+  --purple:     #a78bfa;
+  --font:       -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --mono:       'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', ui-monospace, monospace;
+  --radius:     8px;
+  --radius-sm:  5px;
+}
+
+html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 13px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+/* ── App shell ─────────────────────────────────────── */
+.app { display: grid; grid-template-rows: 54px 1fr 60px; height: 100vh; }
+
+/* ══════════════════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════════════════ */
+header {
+  display: flex; align-items: center; gap: 14px; padding: 0 18px;
+  background: linear-gradient(135deg, #0a0a1a 0%, #0d0d1f 60%, #0a0a1a 100%);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 40px rgba(0,212,255,0.06), 0 4px 20px rgba(0,0,0,0.3);
+  position: relative; z-index: 10; overflow: hidden;
+}
+header::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,212,255,0.3), transparent);
+  pointer-events: none;
+}
+
+.logo {
+  font-family: var(--mono); font-size: 15px; font-weight: 800; letter-spacing: -0.5px;
+  color: var(--cyan); white-space: nowrap; flex-shrink: 0;
+  display: flex; align-items: center; gap: 8px;
+  text-shadow: 0 0 24px rgba(0,212,255,0.5), 0 0 48px rgba(0,212,255,0.15);
+}
+.logo-icon { font-size: 17px; filter: drop-shadow(0 0 6px rgba(0,212,255,0.4)); }
+.live-pill {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 2px 7px; border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,212,255,0.08));
+  color: var(--cyan); border: 1px solid rgba(0,212,255,0.3);
+  animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe { 0%,100%{opacity:0.9;box-shadow:none} 50%{opacity:1;box-shadow:0 0 10px rgba(0,212,255,0.25)} }
+
+.hdr-sep { width: 1px; height: 20px; background: var(--border2); flex-shrink: 0; }
+
+.hdr-title {
+  flex: 1; min-width: 0;
+  font-size: 13px; font-weight: 500; color: var(--text);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.hdr-title-idle { color: var(--text-3); font-style: italic; }
+
+/* Stage pipeline in header */
+.pipeline {
+  display: flex; align-items: center; gap: 3px; flex-shrink: 0;
+  font-family: var(--mono); font-size: 10px;
+}
+.pip-node { display: flex; align-items: center; gap: 3px; }
+.pip-label {
+  padding: 2px 7px; border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.08); color: var(--text-3);
+  transition: all 0.3s;
+}
+.pip-label.active {
+  border-color: rgba(79,142,247,0.5); color: var(--blue);
+  background: var(--blue-glow);
+  box-shadow: 0 0 10px rgba(79,142,247,0.2);
+  animation: pip-pulse 1.6s ease-in-out infinite;
+}
+.pip-label.done { border-color: rgba(52,211,153,0.35); color: var(--green); background: var(--green-glow); }
+.pip-arrow { color: var(--text-3); font-size: 9px; opacity: 0.5; }
+@keyframes pip-pulse { 0%,100%{opacity:1} 50%{opacity:0.65;box-shadow:0 0 14px rgba(79,142,247,0.35)} }
+
+/* Connection dot */
+.conn-indicator {
+  display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+  font-size: 10px; color: var(--text-3);
+}
+.conn-dot { width: 6px; height: 6px; border-radius: 50%; }
+.conn-dot.connected { background: var(--green); box-shadow: 0 0 6px rgba(52,211,153,0.5); }
+.conn-dot.disconnected { background: var(--red); animation: blink 1s step-end infinite; }
+.conn-dot.connecting { background: var(--amber); animation: breathe 1s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Settings button */
+.btn-settings {
+  width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border2);
+  background: var(--surface); color: var(--text-2); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 15px;
+  transition: all 0.15s; flex-shrink: 0;
+}
+.btn-settings:hover { background: var(--panel2); color: var(--cyan); border-color: rgba(0,212,255,0.3); }
+
+/* ══════════════════════════════════════════════════════
+   MAIN 3-PANEL GRID
+══════════════════════════════════════════════════════ */
+.main {
+  display: grid;
+  grid-template-columns: 248px 1fr 1fr;
+  overflow: hidden;
+  border-top: none;
+}
+
+/* ══════════════════════════════════════════════════════
+   LEFT: QUEUE PANEL
+══════════════════════════════════════════════════════ */
+.panel-queue {
+  background: var(--bg2); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* Tabs */
+.tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.tab {
+  flex: 1; padding: 9px 6px; text-align: center; font-size: 10px; font-weight: 500;
+  color: var(--text-3); cursor: pointer; border: none; background: none;
+  border-bottom: 2px solid transparent; transition: all 0.2s; letter-spacing: 0.03em;
+}
+.tab.active { color: var(--cyan); border-bottom-color: var(--cyan); }
+.tab-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 15px; height: 14px; padding: 0 4px; border-radius: 7px;
+  background: rgba(255,255,255,0.07); font-size: 9px; margin-left: 3px;
+}
+.tab.active .tab-badge { background: var(--cyan-glow); color: var(--cyan); }
+
+/* Queue scroll */
+.queue-scroll { flex: 1; overflow-y: auto; padding: 8px; }
+.queue-scroll::-webkit-scrollbar { width: 3px; }
+.queue-scroll::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* Queue item */
+.qi {
+  padding: 9px 10px 10px 13px; border-radius: 6px; margin-bottom: 3px;
+  border: 1px solid transparent; cursor: default; transition: background 0.15s, border-color 0.15s;
+  position: relative; overflow: hidden;
+}
+.qi::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+  background: var(--text-3); opacity: 0.4; border-radius: 0 1px 1px 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+.qi:hover { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.05); }
+.qi:hover::before { opacity: 0.7; }
+.qi.qi-active {
+  background: linear-gradient(135deg, rgba(79,142,247,0.1) 0%, rgba(79,142,247,0.04) 100%);
+  border-color: rgba(79,142,247,0.25);
+}
+.qi.qi-active::before { background: var(--blue); opacity: 1; width: 3px; }
+.qi.qi-done { opacity: 0.4; }
+.qi.qi-done::before { background: var(--green); opacity: 0.6; }
+.qi.qi-failed {
+  background: rgba(248,113,113,0.05); border-color: rgba(248,113,113,0.15);
+}
+.qi.qi-failed::before { background: var(--red); opacity: 1; }
+
+.qi-header { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; flex-wrap: wrap; }
+.qi-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.qi-dot.pending  { background: var(--text-3); }
+.qi-dot.active   { background: var(--blue); box-shadow: 0 0 4px rgba(79,142,247,0.8); animation: ripple 1.4s ease infinite; }
+.qi-dot.done     { background: var(--green); }
+.qi-dot.failed   { background: var(--red); }
+@keyframes ripple { 0%{box-shadow:0 0 0 0 rgba(79,142,247,0.6)} 70%{box-shadow:0 0 0 6px rgba(79,142,247,0)} 100%{box-shadow:0 0 0 0 rgba(79,142,247,0)} }
+
+.qi-cat {
+  font-size: 9px; padding: 1px 6px; border-radius: 3px;
+  white-space: nowrap; max-width: 78px;
+  overflow: hidden; text-overflow: ellipsis; font-weight: 500;
+}
+.qi-tag {
+  font-size: 9px; padding: 1px 5px; border-radius: 3px;
+  background: rgba(255,255,255,0.04); color: var(--text-3);
+  border: 1px solid rgba(255,255,255,0.06); white-space: nowrap;
+  max-width: 70px; overflow: hidden; text-overflow: ellipsis;
+}
+.qi-title {
+  font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.45;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  margin-bottom: 4px;
+}
+.qi-slug {
+  font-family: var(--mono); font-size: 9px; color: var(--text-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; opacity: 0.7;
+}
+.qi-stage-badge {
+  font-size: 9px; padding: 1px 6px; border-radius: 3px; margin-top: 4px; display: inline-block;
+  background: rgba(79,142,247,0.12); color: var(--blue); border: 1px solid rgba(79,142,247,0.2);
+  font-weight: 600; letter-spacing: 0.02em;
+}
+.qi-err { font-size: 9px; color: var(--red); margin-top: 3px; opacity: 0.75; line-height: 1.4; }
+
+.empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 40px 16px; color: var(--text-3); font-size: 11.5px; line-height: 1.7; text-align: center;
+  gap: 2px;
+}
+.empty-icon { font-size: 30px; margin-bottom: 10px; opacity: 0.35; }
+
+/* Upload prompt */
+.queue-upload-prompt {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 28px 14px; margin: 8px; border-radius: 8px; cursor: pointer;
+  border: 1.5px dashed rgba(0,212,255,0.18); transition: all 0.2s;
+}
+.queue-upload-prompt:hover {
+  border-color: rgba(0,212,255,0.4); background: rgba(0,212,255,0.04);
+}
+.queue-upload-prompt:hover .upl-icon { opacity: 0.7; }
+.upl-icon { font-size: 34px; opacity: 0.3; transition: opacity 0.2s; }
+.upl-title { font-size: 13px; font-weight: 600; color: var(--text-2); }
+.upl-hint { font-size: 10.5px; color: var(--text-3); text-align: center; line-height: 1.65; }
+.upl-btn {
+  padding: 5px 14px; border-radius: 4px; border: 1px solid rgba(0,212,255,0.35);
+  background: rgba(0,212,255,0.08); color: var(--cyan); font-size: 11px; font-weight: 600;
+  cursor: pointer; transition: all 0.15s; font-family: var(--font);
+}
+.upl-btn:hover { background: rgba(0,212,255,0.18); box-shadow: 0 0 12px rgba(0,212,255,0.15); }
+/* Mini upload icon button beside the tabs */
+.tab-upl {
+  padding: 0 10px; background: none; border: none; border-bottom: 2px solid transparent;
+  cursor: pointer; color: var(--text-3); font-size: 14px; flex-shrink: 0;
+  display: flex; align-items: center; transition: color 0.15s;
+}
+.tab-upl:hover { color: var(--cyan); }
+
+/* ══════════════════════════════════════════════════════
+   CENTER: PIPELINE STEPS
+══════════════════════════════════════════════════════ */
+.panel-steps {
+  background: var(--panel); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+
+.pnl-hdr {
+  padding: 11px 16px 10px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.pnl-hdr-left { display: flex; align-items: center; gap: 8px; }
+.pnl-hdr-title { font-size: 11px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.07em; }
+.running-badge {
+  font-size: 9px; padding: 1px 6px; border-radius: 3px; font-weight: 600;
+  background: var(--green-glow); color: var(--green); border: 1px solid rgba(52,211,153,0.25);
+  animation: breathe 2s ease-in-out infinite;
+}
+.pnl-hdr-right { font-family: var(--mono); font-size: 10px; color: var(--text-3); }
+
+/* Current post card */
+.post-card {
+  margin: 10px 12px 0; padding: 12px 14px; border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(79,142,247,0.08) 0%, rgba(0,212,255,0.04) 100%);
+  border: 1px solid rgba(79,142,247,0.2);
+  box-shadow: 0 4px 20px rgba(79,142,247,0.08), inset 0 1px 0 rgba(255,255,255,0.04);
+  flex-shrink: 0; position: relative; overflow: hidden;
+}
+.post-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(79,142,247,0.4), transparent);
+}
+.post-card-id { font-family: var(--mono); font-size: 9px; color: rgba(79,142,247,0.7); margin-bottom: 5px; font-weight: 600; letter-spacing: 0.04em; }
+.post-card-title { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.45; margin-bottom: 8px; }
+.post-card-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.meta-tag {
+  font-size: 9px; padding: 2px 7px; border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Steps scroll */
+.steps-scroll { flex: 1; padding: 12px 14px; overflow-y: auto; }
+.steps-scroll::-webkit-scrollbar { width: 3px; }
+.steps-scroll::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* Step item */
+.step {
+  display: flex; gap: 12px; padding: 9px 12px 10px; margin-bottom: 4px;
+  border-radius: 6px; border: 1px solid transparent; transition: all 0.2s;
+  position: relative;
+}
+.step.pending { opacity: 0.3; }
+.step.running {
+  background: linear-gradient(135deg, rgba(79,142,247,0.1) 0%, rgba(79,142,247,0.04) 100%);
+  border-color: rgba(79,142,247,0.22);
+  box-shadow: 0 2px 16px rgba(79,142,247,0.08);
+}
+.step.running::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(79,142,247,0.5), transparent);
+}
+.step.done {
+  background: rgba(52,211,153,0.04); border-color: rgba(52,211,153,0.1); opacity: 0.75;
+}
+.step.skipped { opacity: 0.18; }
+
+/* Step number circle */
+.step-num {
+  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; margin-top: 0;
+}
+.step.pending .step-num { background: rgba(255,255,255,0.04); color: var(--text-3); border: 1px solid rgba(255,255,255,0.08); }
+.step.running .step-num { background: var(--blue); color: #fff; animation: spin 1.2s linear infinite; border: none; box-shadow: 0 0 10px rgba(79,142,247,0.5); font-size: 11px; }
+.step.done    .step-num { background: rgba(52,211,153,0.2); color: var(--green); border: 1px solid rgba(52,211,153,0.3); font-size: 13px; }
+.step.skipped .step-num { background: rgba(255,255,255,0.03); color: var(--text-3); border: 1px solid rgba(255,255,255,0.06); }
+@keyframes spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+
+.step-body { flex: 1; min-width: 0; }
+.step-name { font-size: 12.5px; font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 6px; }
+.step.running .step-name { color: var(--blue); }
+.step.done    .step-name { color: rgba(52,211,153,0.8); font-weight: 500; }
+.step-desc { font-size: 10px; color: var(--text-3); margin-top: 2px; line-height: 1.5; }
+
+/* Model selector inside step */
+.step-model { margin-top: 7px; display: flex; align-items: center; gap: 6px; }
+.step-model-lbl { font-size: 9px; color: var(--text-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.model-select {
+  font-family: var(--mono); font-size: 9px; padding: 3px 22px 3px 8px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px;
+  color: var(--text-2); cursor: pointer; outline: none; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%234e5a6e'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 7px center; transition: border-color 0.15s;
+}
+.model-select:hover { border-color: rgba(79,142,247,0.3); }
+.model-select:focus { border-color: var(--cyan); outline: none; }
+
+/* ══════════════════════════════════════════════════════
+   RIGHT: LIVE OUTPUT
+══════════════════════════════════════════════════════ */
+.panel-output {
+  background: #070710; display: flex; flex-direction: column; overflow: hidden;
+}
+
+.out-hdr {
+  padding: 9px 14px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.out-hdr-title { font-size: 11px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.07em; }
+.out-stage {
+  font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 4px;
+  background: var(--blue-glow); color: var(--blue); border: 1px solid rgba(79,142,247,0.25);
+  display: none;
+}
+.out-stage.show { display: inline-block; }
+.out-tokens {
+  margin-left: auto; font-family: var(--mono); font-size: 10px; color: var(--text-3);
+}
+
+/* Output stream */
+.out-stream {
+  flex: 1; overflow-y: auto; padding: 14px 18px;
+  font-family: var(--mono); font-size: 11px; line-height: 1.8;
+  color: #93c5d8; white-space: pre-wrap; word-break: break-word;
+  background: #060610;
+}
+.out-stream::-webkit-scrollbar { width: 3px; }
+.out-stream::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.15); border-radius: 2px; }
+.out-stream::-webkit-scrollbar-track { background: transparent; }
+
+/* Blinking cursor */
+.cursor { display: inline-block; width: 6px; height: 13px; background: var(--cyan); vertical-align: text-bottom; animation: blink 1s step-end infinite; border-radius: 1px; opacity: 0.9; }
+
+/* Log panel */
+.log-pane {
+  border-top: 1px solid rgba(0,212,255,0.06); background: #060610; flex-shrink: 0;
+  max-height: 100px; overflow-y: auto; padding: 4px 14px 6px;
+}
+.log-pane::-webkit-scrollbar { width: 2px; }
+.log-pane::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+.log-line { font-family: var(--mono); font-size: 9.5px; line-height: 1.9; color: var(--text-3); }
+.log-line.info  { color: rgba(147,197,216,0.55); }
+.log-line.warn  { color: var(--amber); opacity: 0.85; }
+.log-line.error { color: var(--red); }
+
+/* ══════════════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════════════ */
+footer {
+  background: linear-gradient(135deg, #090918 0%, #0c0c1e 50%, #090918 100%);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px; padding: 0 18px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 -1px 30px rgba(0,0,0,0.3);
+}
+footer::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(79,142,247,0.2), transparent);
+  pointer-events: none;
+}
+
+/* Progress bar at very bottom */
+.progress-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: rgba(255,255,255,0.04);
+}
+.progress-fill {
+  height: 100%; background: linear-gradient(to right, var(--cyan), var(--blue));
+  transition: width 0.6s ease;
+  box-shadow: 0 0 8px rgba(0,212,255,0.4);
+  width: 0%;
+}
+
+.timer {
+  font-family: var(--mono); font-size: 16px; font-weight: 700;
+  color: var(--cyan); white-space: nowrap; flex-shrink: 0;
+  text-shadow: 0 0 20px rgba(0,212,255,0.35);
+  letter-spacing: -0.5px; min-width: 100px;
+}
+
+.ctrl-btns { display: flex; gap: 5px; flex-shrink: 0; }
+.btn {
+  display: flex; align-items: center; gap: 5px; padding: 5px 12px;
+  border-radius: var(--radius-sm); border: 1px solid; font-size: 11.5px; font-weight: 600;
+  cursor: pointer; transition: all 0.15s; white-space: nowrap; font-family: var(--font);
+  letter-spacing: 0.02em;
+}
+.btn:disabled { opacity: 0.2; cursor: not-allowed; }
+.btn-start { background: rgba(52,211,153,0.07); border-color: rgba(52,211,153,0.3); color: var(--green); }
+.btn-start:hover:not(:disabled) { background: rgba(52,211,153,0.15); box-shadow: 0 0 16px rgba(52,211,153,0.15); border-color: rgba(52,211,153,0.5); }
+.btn-pause { background: rgba(251,191,36,0.07); border-color: rgba(251,191,36,0.3); color: var(--amber); }
+.btn-pause:hover:not(:disabled) { background: rgba(251,191,36,0.15); border-color: rgba(251,191,36,0.5); }
+.btn-stop  { background: rgba(248,113,113,0.07); border-color: rgba(248,113,113,0.3); color: var(--red); }
+.btn-stop:hover:not(:disabled)  { background: rgba(248,113,113,0.15); border-color: rgba(248,113,113,0.5); }
+
+.ftr-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.07); flex-shrink: 0; }
+
+/* Refine toggle */
+.toggle-wrap { display: flex; align-items: center; gap: 7px; flex-shrink: 0; cursor: pointer; }
+.toggle-lbl { font-size: 11px; color: var(--text-3); white-space: nowrap; }
+.sw { position: relative; width: 30px; height: 16px; }
+.sw input { opacity: 0; width: 0; height: 0; position: absolute; }
+.sw-track {
+  position: absolute; inset: 0; background: rgba(255,255,255,0.08); border-radius: 8px;
+  border: 1px solid var(--border2); transition: 0.2s; cursor: pointer;
+}
+.sw-track::before {
+  content: ''; position: absolute; width: 12px; height: 12px;
+  left: 1px; top: 1px; background: var(--text-3); border-radius: 50%; transition: 0.2s;
+}
+.sw input:checked ~ .sw-track { background: rgba(79,142,247,0.3); border-color: rgba(79,142,247,0.5); }
+.sw input:checked ~ .sw-track::before { transform: translateX(14px); background: var(--blue); }
+
+/* Stats */
+.stats {
+  flex: 1; display: flex; align-items: center; gap: 4px; min-width: 0; overflow: hidden;
+  font-family: var(--mono); font-size: 10px; color: var(--text-3);
+}
+.stat { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.sv { color: var(--text-2); font-weight: 700; font-size: 10.5px; }
+.stat-sep { color: rgba(255,255,255,0.08); font-size: 12px; margin: 0 1px; }
+
+/* Key hint */
+.kbd {
+  font-family: var(--mono); font-size: 9px; padding: 1px 4px; border-radius: 3px;
+  background: rgba(255,255,255,0.07); color: var(--text-3); border: 1px solid var(--border2);
+}
+
+/* ══════════════════════════════════════════════════════
+   SETTINGS MODAL
+══════════════════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(4,4,12,0.85); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  width: 540px; max-width: 95vw; max-height: 88vh; overflow-y: auto;
+  background: linear-gradient(160deg, #111122 0%, #0e0e1e 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; box-shadow: 0 32px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05), 0 0 60px rgba(79,142,247,0.05);
+  transform: translateY(16px) scale(0.97); transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), opacity 0.2s;
+}
+.modal-overlay { opacity: 0; }
+.modal-overlay.open { opacity: 1; }
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+.modal::-webkit-scrollbar { width: 4px; }
+.modal::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+.modal-hdr {
+  padding: 20px 24px 16px; border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; background: linear-gradient(160deg, #111122, #0e0e1e); z-index: 2;
+  backdrop-filter: blur(10px);
+}
+.modal-title { font-size: 15px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; letter-spacing: -0.2px; }
+.modal-close {
+  width: 28px; height: 28px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03); color: var(--text-3); cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.08); color: var(--text); border-color: rgba(255,255,255,0.15); }
+
+.modal-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 22px; }
+
+/* Setting group */
+.setting-group { display: flex; flex-direction: column; gap: 12px; }
+.setting-group-title {
+  font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-3); padding-bottom: 9px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.setting-row { display: flex; flex-direction: column; gap: 5px; }
+.setting-lbl { font-size: 12px; font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 7px; }
+.setting-hint { font-size: 10.5px; color: var(--text-3); line-height: 1.5; }
+
+/* Inputs */
+.inp-wrap { display: flex; gap: 8px; }
+.inp {
+  flex: 1; padding: 8px 11px; border-radius: var(--radius-sm);
+  background: var(--bg2); border: 1px solid var(--border2); color: var(--text);
+  font-family: var(--mono); font-size: 12px; outline: none; transition: border-color 0.15s;
+}
+.inp::placeholder { color: var(--text-3); }
+.inp:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0,212,255,0.08); }
+.inp.valid { border-color: rgba(52,211,153,0.5); }
+.inp.error { border-color: rgba(248,113,113,0.5); }
+.inp-num { width: 80px; flex: none; }
+
+.btn-toggle-key {
+  padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border2);
+  background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 12px;
+  white-space: nowrap; transition: all 0.15s;
+}
+.btn-toggle-key:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* API key status badge */
+.key-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10.5px; padding: 3px 8px; border-radius: 4px;
+}
+.key-status.ok  { background: var(--green-glow); color: var(--green); }
+.key-status.bad { background: var(--red-glow); color: var(--red); }
+
+/* Model grid in settings */
+.model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.model-row { display: flex; flex-direction: column; gap: 4px; }
+.model-row-lbl { font-size: 10.5px; color: var(--text-3); }
+
+/* Generation mode selector */
+.mode-opts { display: flex; gap: 8px; }
+.mode-opt {
+  flex: 1; padding: 10px 13px; border-radius: 6px;
+  border: 1px solid var(--border2); cursor: pointer; transition: all 0.2s;
+  background: var(--bg2); display: flex; flex-direction: column; gap: 3px;
+}
+.mode-opt input[type=radio] { display: none; }
+.mode-opt-title { font-weight: 600; font-size: 12px; color: var(--text-2); }
+.mode-opt-desc  { font-size: 10.5px; color: var(--text-3); line-height: 1.4; }
+.mode-opt.selected { border-color: rgba(79,142,247,0.5); background: var(--blue-glow); }
+.mode-opt.selected .mode-opt-title { color: var(--blue); }
+
+/* Mode badge in footer */
+.mode-badge {
+  font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 2px 8px; border-radius: 10px; cursor: pointer; white-space: nowrap;
+  transition: all 0.2s;
+}
+.mode-badge.api { background: rgba(79,142,247,0.15); color: var(--blue);  border: 1px solid rgba(79,142,247,0.3); }
+.mode-badge.cli { background: rgba(52,211,153,0.15); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
+.mode-badge:hover { opacity: 0.75; }
+
+/* Modal footer */
+.modal-ftr {
+  padding: 14px 22px 18px; border-top: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px; justify-content: flex-end;
+}
+.btn-save {
+  padding: 7px 20px; border-radius: var(--radius-sm);
+  background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.35);
+  color: var(--cyan); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s;
+}
+.btn-save:hover { background: rgba(0,212,255,0.2); box-shadow: 0 0 16px rgba(0,212,255,0.2); }
+.btn-cancel {
+  padding: 7px 16px; border-radius: var(--radius-sm);
+  background: none; border: 1px solid var(--border2);
+  color: var(--text-3); font-size: 12px; cursor: pointer; transition: all 0.15s;
+}
+.btn-cancel:hover { border-color: var(--text-3); color: var(--text-2); }
+.save-msg { font-size: 11px; margin-right: auto; }
+.save-msg.ok  { color: var(--green); }
+.save-msg.err { color: var(--red); }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+  <div class="logo">
+    <span class="logo-icon">✍</span>
+    FABS
+    <span class="live-pill" id="live-pill">LIVE</span>
+  </div>
+
+  <div class="conn-indicator">
+    <div class="conn-dot connecting" id="conn-dot"></div>
+  </div>
+
+  <div class="hdr-sep"></div>
+
+  <div class="hdr-title hdr-title-idle" id="hdr-title">No post in progress</div>
+
+  <div class="pipeline" id="pipeline"></div>
+
+  <div class="hdr-sep"></div>
+
+  <button class="btn-settings" onclick="openSettings()" title="Settings (S)">⚙</button>
+</header>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<div class="main">
+
+  <!-- ── LEFT: Queue ── -->
+  <div class="panel-queue">
+    <!-- Hidden file input for queue JSON upload -->
+    <input type="file" id="queue-file-input" accept=".json" style="display:none"
+           onchange="handleQueueUpload(this)">
+    <div class="tabs">
+      <button class="tab active" id="tab-pending"  onclick="setTab('pending')">
+        Queue <span class="tab-badge" id="tc-pending">0</span>
+      </button>
+      <button class="tab" id="tab-progress" onclick="setTab('progress')">
+        Active <span class="tab-badge" id="tc-progress">0</span>
+      </button>
+      <button class="tab" id="tab-done"     onclick="setTab('done')">
+        Done <span class="tab-badge" id="tc-done">0</span>
+      </button>
+      <button class="tab" id="tab-failed"   onclick="setTab('failed')">
+        Err <span class="tab-badge" id="tc-failed">0</span>
+      </button>
+      <button class="tab-upl" onclick="triggerQueueUpload()" title="Upload topic_queue.json">↑</button>
+    </div>
+    <div class="queue-scroll" id="queue-list">
+      <div class="queue-upload-prompt" onclick="triggerQueueUpload()">
+        <div class="upl-icon">📂</div>
+        <div class="upl-title">No Queue Loaded</div>
+        <div class="upl-hint">Upload your <code>topic_queue.json</code><br>to begin the pipeline</div>
+        <div class="upl-btn">Choose JSON File</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CENTER: Steps ── -->
+  <div class="panel-steps">
+    <div class="pnl-hdr">
+      <div class="pnl-hdr-left">
+        <span class="pnl-hdr-title">Pipeline</span>
+        <span class="running-badge" id="running-badge" style="display:none">RUNNING</span>
+      </div>
+      <span class="pnl-hdr-right" id="slug-label"></span>
+    </div>
+    <div id="post-card-wrap"></div>
+    <div class="steps-scroll" id="steps-body">
+      <div class="empty" style="padding-top:48px">
+        <div class="empty-icon">⏳</div>
+        Waiting to start…<br><br>
+        <span style="font-size:11px">
+          <span class="kbd">Space</span> start/pause &nbsp;
+          <span class="kbd">P</span> pause &nbsp;
+          <span class="kbd">Esc</span> stop &nbsp;
+          <span class="kbd">S</span> settings
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RIGHT: Live Output ── -->
+  <div class="panel-output">
+    <div class="out-hdr">
+      <span class="out-hdr-title">Live Output</span>
+      <span class="out-stage" id="out-stage"></span>
+      <span class="out-tokens" id="out-tokens"></span>
+    </div>
+    <pre class="out-stream" id="out-stream"><span class="cursor" id="cursor"></span></pre>
+    <div class="log-pane" id="log-pane"></div>
+  </div>
+
+</div><!-- .main -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+
+  <div class="timer" id="timer">T+ 00:00:00</div>
+
+  <div class="ctrl-btns">
+    <button class="btn btn-start" id="btn-start" onclick="sendCtrl('start')">▶ Start</button>
+    <button class="btn btn-pause" id="btn-pause" onclick="sendCtrl('pause')" disabled>⏸ Pause</button>
+    <button class="btn btn-stop"  id="btn-stop"  onclick="sendCtrl('stop')"  disabled>⏹ Stop</button>
+  </div>
+
+  <div class="ftr-sep"></div>
+
+  <label class="toggle-wrap" title="Enable optional refinement pass">
+    <span class="toggle-lbl">Refine</span>
+    <div class="sw">
+      <input type="checkbox" id="refine-chk" onchange="sendWs({action:'toggle_refine',enabled:this.checked})">
+      <span class="sw-track"></span>
+    </div>
+  </label>
+
+  <div class="ftr-sep"></div>
+
+  <span class="mode-badge api" id="mode-badge" onclick="openSettings()" title="Generation mode — click Settings to change">API</span>
+
+  <div class="stats">
+    <div class="stat">Queue <span class="sv" id="s-pending">0</span></div>
+    <span class="stat-sep">│</span>
+    <div class="stat">Done <span class="sv" id="s-published">0</span></div>
+    <span class="stat-sep">│</span>
+    <div class="stat" id="stat-tokens">Tokens <span class="sv" id="s-tokens">0</span></div>
+    <span class="stat-sep" id="stat-sep-cost">│</span>
+    <div class="stat" id="stat-cost">Cost <span class="sv" id="s-cost">$0.000</span></div>
+  </div>
+</footer>
+
+</div><!-- .app -->
+
+<!-- ═══════════════ SETTINGS MODAL ═══════════════ -->
+<div class="modal-overlay" id="modal-overlay" onclick="maybeCloseSettings(event)">
+  <div class="modal" id="modal">
+    <div class="modal-hdr">
+      <div class="modal-title">⚙ Settings</div>
+      <button class="modal-close" onclick="closeSettings()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Generation Mode -->
+      <div class="setting-group">
+        <div class="setting-group-title">Generation Mode</div>
+        <div class="mode-opts">
+          <label class="mode-opt" id="mode-opt-api" onclick="onModeChange('api')">
+            <input type="radio" name="gen-mode" id="mode-radio-api" value="api">
+            <div class="mode-opt-title">⚡ Anthropic API</div>
+            <div class="mode-opt-desc">Pay per token via API key. Supports all models and cost tracking.</div>
+          </label>
+          <label class="mode-opt" id="mode-opt-cli" onclick="onModeChange('cli')">
+            <input type="radio" name="gen-mode" id="mode-radio-cli" value="cli">
+            <div class="mode-opt-title">✨ Claude Pro</div>
+            <div class="mode-opt-desc">Use your Claude Pro subscription via the <code>claude</code> CLI. No API cost.</div>
+          </label>
+        </div>
+        <div class="setting-hint" id="cli-status-hint" style="margin-top:6px"></div>
+      </div>
+
+      <!-- API Keys (hidden in CLI mode) -->
+      <div class="setting-group" id="api-section">
+        <div class="setting-group-title">API Keys</div>
+
+        <div class="setting-row">
+          <div class="setting-lbl">
+            Anthropic API Key
+            <span class="key-status bad" id="key-status-badge">Not configured</span>
+          </div>
+          <div class="setting-hint">Required for Anthropic API mode. Stored locally in <code>scripts/fabs_config.json</code>.</div>
+          <div class="inp-wrap">
+            <input class="inp" type="password" id="inp-api-key" placeholder="sk-ant-api03-..."
+                   oninput="onKeyInput()" autocomplete="off" spellcheck="false">
+            <button class="btn-toggle-key" onclick="toggleKeyVisibility()" id="btn-show-key">Show</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="setting-group">
+        <div class="setting-group-title">Pipeline</div>
+
+        <div class="setting-row">
+          <div class="setting-lbl">Batch Size</div>
+          <div class="setting-hint">Number of posts per run. <code>0</code> = run until queue is empty.</div>
+          <input class="inp inp-num" type="number" id="inp-batch" min="0" max="500" value="0">
+        </div>
+      </div>
+
+      <!-- Model defaults -->
+      <div class="setting-group">
+        <div class="setting-group-title">Default Models per Stage</div>
+        <div class="model-grid" id="settings-model-grid">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+
+    </div><!-- .modal-body -->
+    <div class="modal-ftr">
+      <span class="save-msg" id="save-msg"></span>
+      <button class="btn-cancel" onclick="closeSettings()">Cancel</button>
+      <button class="btn-save" onclick="saveSettings()">Save Settings</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Constants ─────────────────────────────────────────────────
+const WS_URL = `ws://${location.host}/ws`;
+const STAGES      = ['research','outline','write','review','refine','publish'];
+const STAGE_LABEL = {research:'Research',outline:'Outline',write:'Write',review:'Review',refine:'Refine',publish:'Publish'};
+const STAGE_DESC  = {
+  research: 'Key concepts · mechanisms · formulas · references',
+  outline:  'H2/H3 structure with all 7 required sections',
+  write:    'Full article — runnable code, tables, math formulas',
+  review:   'Quality check: sections, code, table, math, refs',
+  refine:   'Optional improvement pass (enabled by toggle)',
+  publish:  'Write .md file and update posts.json',
+};
+const STAGE_ICON = {research:'🔍',outline:'🗂',write:'✍',review:'✅',refine:'🔧',publish:'🚀'};
+const MODEL_STAGES = ['research','outline','write','review','refine'];
+const MODELS = [
+  ['claude-haiku-4-5-20251001','Haiku 4.5 (Fast)'],
+  ['claude-sonnet-4-6','Sonnet 4.6 (Balanced)'],
+  ['claude-opus-4-6','Opus 4.6 (Best)'],
+];
+const CAT_COLORS = {
+  '理论基础':'#a78bfa','前沿追踪':'#60a5fa','模型训练':'#34d399','模型微调':'#f472b6',
+  '模型部署':'#fbbf24','智能体':'#f87171','系统基础':'#4ade80','工程实践':'#818cf8',
+};
+
+// ── App state ─────────────────────────────────────────────────
+let ws = null;
+let state = {};
+let currentTab = 'pending';
+let elapsedSec = 0;
+let timerInterval = null;
+let sessionTokens = 0;
+
+// ── WebSocket ─────────────────────────────────────────────────
+function connect() {
+  setConn('connecting');
+  ws = new WebSocket(WS_URL);
+  ws.onopen = () => {
+    setConn('connected');
+    log('info', 'Connected to FABS server.');
+  };
+  ws.onmessage = (e) => {
+    const msg = JSON.parse(e.data);
+    if      (msg.type === 'state_update') { state = msg.data; render(); }
+    else if (msg.type === 'stage_start')  { onStageStart(msg.stage, msg.slug); }
+    else if (msg.type === 'stream_chunk') { appendChunk(msg.text); }
+    else if (msg.type === 'log')          { log(msg.level, msg.msg); }
+    else if (msg.type === 'tick')         { elapsedSec = msg.elapsed; updateTimer(); updateTokenDisplay(); }
+  };
+  ws.onclose = () => { setConn('disconnected'); stopTimer(); setTimeout(connect, 2500); };
+  ws.onerror = () => setConn('disconnected');
+}
+function sendWs(obj) { if (ws?.readyState === WebSocket.OPEN) ws.send(JSON.stringify(obj)); }
+function sendCtrl(a) { sendWs({ action: a }); }
+
+// ── Render all ────────────────────────────────────────────────
+function render() {
+  const s = state;
+  try { renderHeader(s); }     catch(e) { console.error('renderHeader', e); }
+  try { renderTabs(s); }       catch(e) { console.error('renderTabs', e); }
+  try { renderQueue(s); }      catch(e) { console.error('renderQueue', e); }
+  try { renderSteps(s); }      catch(e) { console.error('renderSteps', e); }
+  try { renderControls(s); }   catch(e) { console.error('renderControls', e); }
+  try { renderStats(s); }      catch(e) { console.error('renderStats', e); }
+  try { renderTimer(s); }      catch(e) { console.error('renderTimer', e); }
+  try { updateProgressBar(s);} catch(e) { console.error('updateProgressBar', e); }
+}
+
+function renderHeader(s) {
+  const title = document.getElementById('hdr-title');
+  const ip = s.in_progress || [];
+  const cur = ip.find(p => p.slug === s.current_slug);
+  if (cur) {
+    title.textContent = cur.title;
+    title.className = 'hdr-title';
+  } else {
+    title.textContent = s.running ? '—' : 'No post in progress';
+    title.className = 'hdr-title hdr-title-idle';
+  }
+  renderPipeline(s.current_stage, s.running);
+}
+
+function renderPipeline(stage, running) {
+  const el = document.getElementById('pipeline');
+  const idx = STAGES.indexOf(stage);
+  el.innerHTML = STAGES.map((s, i) => {
+    let cls = 'pip-label';
+    if (running && i < idx) cls += ' done';
+    else if (running && i === idx) cls += ' active';
+    const arr = i < STAGES.length - 1 ? '<span class="pip-arrow">›</span>' : '';
+    return `<div class="pip-node"><span class="${cls}">${STAGE_LABEL[s]}</span>${arr}</div>`;
+  }).join('');
+}
+
+function renderTabs(s) {
+  const ip   = s.in_progress || [];
+  const done = s.completed || [];
+  const fail = s.failed || [];
+  const pend = s.pending_preview || [];
+  document.getElementById('tc-pending').textContent  = fmtN(s.stats?.pending_count || 0);
+  document.getElementById('tc-progress').textContent = ip.length;
+  document.getElementById('tc-done').textContent     = fmtN(done.length);
+  document.getElementById('tc-failed').textContent   = fail.length;
+}
+
+function renderQueue(s) {
+  let items, tabType;
+  if (currentTab === 'pending')  { items = s.pending_preview || []; tabType = 'pending'; }
+  else if (currentTab === 'progress') { items = s.in_progress || []; tabType = 'progress'; }
+  else if (currentTab === 'done')     { items = s.completed || []; tabType = 'done'; }
+  else                                { items = s.failed || []; tabType = 'failed'; }
+
+  const el = document.getElementById('queue-list');
+  if (!items.length) {
+    // Pending tab: distinguish "never loaded" vs "loaded but empty"
+    if (tabType === 'pending' && !s.queue_loaded) {
+      el.innerHTML = `<div class="queue-upload-prompt" onclick="triggerQueueUpload()">
+        <div class="upl-icon">📂</div>
+        <div class="upl-title">No Queue Loaded</div>
+        <div class="upl-hint">Upload your <code>topic_queue.json</code><br>to begin the pipeline</div>
+        <div class="upl-btn">Choose JSON File</div>
+      </div>`;
+    } else {
+      const msgs = {pending:'Queue exhausted',progress:'Nothing active yet',done:'No completed posts',failed:'No failed posts'};
+      const icons = {pending:'✓',progress:'⚡',done:'✅',failed:'❌'};
+      el.innerHTML = `<div class="empty"><div class="empty-icon">${icons[currentTab]}</div>${msgs[currentTab]}</div>`;
+    }
+    return;
+  }
+
+  el.innerHTML = items.map(p => {
+    const isActive = p.slug === s.current_slug;
+    const rawCat = p.category || '';
+    const catColor = CAT_COLORS[rawCat] || '#6b7a99';
+    const catBadge = rawCat ? `<span class="qi-cat" style="color:${catColor};border:1px solid ${catColor}44;background:${catColor}18">${esc(rawCat)}</span>` : '';
+
+    if (tabType === 'pending') {
+      const tags = (p.tags || []).slice(0, 2).filter(t => t !== rawCat);
+      const tagHtml = tags.map(t => `<span class="qi-tag">${esc(t)}</span>`).join('');
+      return `<div class="qi" style="border-left:2px solid ${catColor}55">
+        <div class="qi-header">${catBadge}${tagHtml}</div>
+        <div class="qi-title">${esc(p.title)}</div>
+        <div class="qi-slug">${esc(p.slug)}</div>
+      </div>`;
+    }
+    const dotCls = p.status==='done'?'done':p.status==='failed'?'failed':isActive?'active':'pending';
+    const wrapCls = `qi${isActive?' qi-active':''}${p.status==='done'?' qi-done':''}${p.status==='failed'?' qi-failed':''}`;
+    const borderStyle = `border-left:2px solid ${catColor}${p.status==='failed'?'99':isActive?'dd':'55'}`;
+    const stageBadge = p.status && !['queued','done','failed'].includes(p.status)
+      ? `<div class="qi-stage-badge">${STAGE_LABEL[p.status]||p.status}</div>` : '';
+    const errBadge = p.error ? `<div class="qi-err">${esc(p.error.slice(0,60))}</div>` : '';
+    return `<div class="${wrapCls}" style="${borderStyle}">
+      <div class="qi-header"><div class="qi-dot ${dotCls}"></div>${catBadge}</div>
+      <div class="qi-title">${esc(p.title||p.slug)}</div>
+      <div class="qi-slug">${esc(p.slug)}</div>
+      ${stageBadge}${errBadge}
+    </div>`;
+  }).join('');
+}
+
+function renderSteps(s) {
+  const body = document.getElementById('steps-body');
+  const slugLbl = document.getElementById('slug-label');
+  const badge = document.getElementById('running-badge');
+  const cardWrap = document.getElementById('post-card-wrap');
+  badge.style.display = s.running ? 'inline-block' : 'none';
+
+  if (!s.running && !s.current_slug) {
+    body.innerHTML = `<div class="empty" style="padding-top:48px">
+      <div class="empty-icon">⏳</div>
+      Waiting to start…<br><br>
+      <span style="font-size:11px">
+        <span class="kbd">Space</span> start/pause &nbsp;
+        <span class="kbd">P</span> pause &nbsp;
+        <span class="kbd">Esc</span> stop &nbsp;
+        <span class="kbd">S</span> settings
+      </span>
+    </div>`;
+    slugLbl.textContent = '';
+    cardWrap.innerHTML = '';
+    return;
+  }
+
+  // Current post hero card
+  const ip = s.in_progress || [];
+  const cur = ip.find(p => p.slug === s.current_slug);
+  slugLbl.textContent = s.current_slug ? `// ${s.current_slug}` : '';
+  if (cur) {
+    const catColor = CAT_COLORS[cur.category] || 'var(--purple)';
+    cardWrap.innerHTML = `<div class="post-card">
+      <div class="post-card-id">Currently writing</div>
+      <div class="post-card-title">${esc(cur.title||cur.slug)}</div>
+      <div class="post-card-meta">
+        ${cur.category ? `<span class="meta-tag" style="color:${catColor};background:${catColor}18;border-color:${catColor}33">${esc(cur.category)}</span>` : ''}
+      </div>
+    </div>`;
+  } else { cardWrap.innerHTML = ''; }
+
+  const stageIdx = STAGES.indexOf(s.current_stage);
+  const mc = s.model_config || {};
+
+  body.innerHTML = STAGES.map((stage, i) => {
+    let st = 'pending';
+    if (s.running) {
+      if (i < stageIdx) st = 'done';
+      else if (i === stageIdx) st = 'running';
+    }
+    if (stage === 'refine' && !mc.refine_enabled) st = 'skipped';
+
+    const icon = st==='done'?'✓':st==='running'?'↻':st==='skipped'?'—':(i+1);
+    let modelSel = '';
+    if (MODEL_STAGES.includes(stage)) {
+      const sel = mc[stage] || '';
+      const opts = MODELS.map(([v,l]) => `<option value="${v}"${v===sel?' selected':''}>${l}</option>`).join('');
+      modelSel = `<div class="step-model"><span class="step-model-lbl">Model</span>
+        <select class="model-select" onchange="sendWs({action:'set_model',stage:'${stage}',model:this.value})">${opts}</select>
+      </div>`;
+    }
+    return `<div class="step ${st}">
+      <div class="step-num">${icon}</div>
+      <div class="step-body">
+        <div class="step-name">${STAGE_ICON[stage]} ${STAGE_LABEL[stage]}</div>
+        <div class="step-desc">${STAGE_DESC[stage]}</div>
+        ${modelSel}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderControls(s) {
+  document.getElementById('btn-start').disabled = s.running && !s.paused;
+  document.getElementById('btn-pause').disabled = !s.running || s.paused;
+  document.getElementById('btn-stop').disabled  = !s.running;
+  document.getElementById('refine-chk').checked = s.model_config?.refine_enabled ?? false;
+  // Tooltip for start button based on mode
+  const btn = document.getElementById('btn-start');
+  if (s.use_cli && !s.cli_configured) {
+    btn.title = 'Claude CLI not found — install Claude Code or switch to API mode (S)';
+  } else if (!s.use_cli && !s.api_key_configured) {
+    btn.title = 'API key not configured — open Settings (S)';
+  } else {
+    btn.title = '';
+  }
+}
+
+function renderStats(s) {
+  const st = s.stats || {};
+  document.getElementById('s-pending').textContent   = fmtN(st.pending_count || 0);
+  document.getElementById('s-published').textContent = fmtN(st.published_count || 0);
+  sessionTokens = st.total_tokens || 0;
+  // In CLI mode: hide cost, show token count as context only
+  const cliMode = s.use_cli ?? false;
+  document.getElementById('stat-tokens').style.display  = cliMode ? 'none' : '';
+  document.getElementById('stat-sep-cost').style.display = cliMode ? 'none' : '';
+  document.getElementById('stat-cost').style.display     = cliMode ? 'none' : '';
+  if (!cliMode) {
+    document.getElementById('s-tokens').textContent = fmtTok(sessionTokens);
+    document.getElementById('s-cost').textContent   = '$' + (st.total_cost_usd || 0).toFixed(3);
+  }
+  // Mode badge
+  const badge = document.getElementById('mode-badge');
+  if (cliMode) {
+    badge.textContent = '✨ Claude Pro';
+    badge.className = 'mode-badge cli';
+    badge.title = 'Claude Pro mode (subscription) — click to change in Settings';
+  } else {
+    badge.textContent = '⚡ API';
+    badge.className = 'mode-badge api';
+    badge.title = 'Anthropic API mode — click to change in Settings';
+  }
+}
+
+function renderTimer(s) {
+  if (s.running && !timerInterval) {
+    if (s.stats?.elapsed_seconds) elapsedSec = s.stats.elapsed_seconds;
+    startTimer();
+  } else if (!s.running && timerInterval) {
+    stopTimer();
+  }
+}
+
+function updateProgressBar(s) {
+  const total = (s.stats?.pending_count || 0) + (s.stats?.published_count || 0);
+  const done  = s.stats?.published_count || 0;
+  const pct   = total > 0 ? (done / total) * 100 : 0;
+  document.getElementById('prog-fill').style.width = pct + '%';
+}
+
+// ── Stage events ──────────────────────────────────────────────
+function onStageStart(stage, slug) {
+  const stream = document.getElementById('out-stream');
+  stream.textContent = '';
+  stream.appendChild(makeCursor());
+  const badge = document.getElementById('out-stage');
+  badge.textContent = STAGE_LABEL[stage] || stage;
+  badge.className = 'out-stage show';
+}
+
+function makeCursor() {
+  const c = document.createElement('span'); c.className = 'cursor'; c.id = 'cursor'; return c;
+}
+
+// ── Streaming output ──────────────────────────────────────────
+function appendChunk(text) {
+  const stream = document.getElementById('out-stream');
+  const cur = stream.querySelector('#cursor');
+  stream.insertBefore(document.createTextNode(text), cur || null);
+  stream.scrollTop = stream.scrollHeight;
+}
+
+function updateTokenDisplay() {
+  if (sessionTokens > 0) {
+    document.getElementById('out-tokens').textContent = fmtTok(sessionTokens) + ' tok';
+  }
+}
+
+// ── Log ───────────────────────────────────────────────────────
+function log(level, msg) {
+  const pane = document.getElementById('log-pane');
+  const line = document.createElement('div');
+  line.className = `log-line ${level}`;
+  line.textContent = msg;
+  pane.appendChild(line);
+  while (pane.children.length > 150) pane.removeChild(pane.firstChild);
+  pane.scrollTop = pane.scrollHeight;
+}
+
+// ── Timer ─────────────────────────────────────────────────────
+function startTimer() {
+  if (timerInterval) return;
+  timerInterval = setInterval(() => { elapsedSec++; updateTimer(); }, 1000);
+}
+function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } }
+function updateTimer() {
+  const h = Math.floor(elapsedSec/3600), m = Math.floor((elapsedSec%3600)/60), s = elapsedSec%60;
+  document.getElementById('timer').textContent =
+    `T+ ${pad(h)}:${pad(m)}:${pad(s)}`;
+}
+function pad(n) { return String(n).padStart(2,'0'); }
+
+// ── Tabs ──────────────────────────────────────────────────────
+function setTab(tab) {
+  currentTab = tab;
+  ['pending','progress','done','failed'].forEach(t => {
+    document.getElementById(`tab-${t}`).classList.toggle('active', t === tab);
+  });
+  renderQueue(state);
+}
+
+// ── Settings modal ────────────────────────────────────────────
+function openSettings() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('save-msg').textContent = '';
+  document.getElementById('save-msg').className = 'save-msg';
+  // Populate from server
+  fetch('/api/settings').then(r => r.json()).then(cfg => {
+    const inp = document.getElementById('inp-api-key');
+    inp.value = cfg.anthropic_api_key || '';
+    inp.className = cfg.api_key_configured ? 'inp valid' : 'inp';
+    document.getElementById('inp-batch').value = cfg.batch_size ?? 0;
+    updateKeyStatusBadge(cfg.api_key_configured);
+    renderSettingsModelGrid(cfg);
+    // Mode selector
+    const useCli = cfg.use_cli ?? false;
+    setModeUI(useCli ? 'cli' : 'api');
+    // CLI status hint
+    const hint = document.getElementById('cli-status-hint');
+    if (cfg.cli_configured) {
+      hint.innerHTML = `<span style="color:var(--green)">✓ claude CLI found</span> — ${esc(cfg.cli_binary || 'claude')}`;
+    } else {
+      hint.innerHTML = `<span style="color:var(--red)">✗ claude CLI not found</span> — install <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" style="color:var(--cyan)">Claude Code</a> to use Pro mode`;
+    }
+  }).catch(() => log('warn', 'Failed to load settings'));
+}
+
+function closeSettings() {
+  document.getElementById('modal-overlay').classList.remove('open');
+}
+
+function setModeUI(mode) {
+  const isApi = (mode === 'api');
+  document.getElementById('mode-opt-api').classList.toggle('selected', isApi);
+  document.getElementById('mode-opt-cli').classList.toggle('selected', !isApi);
+  document.getElementById('mode-radio-api').checked = isApi;
+  document.getElementById('mode-radio-cli').checked = !isApi;
+  document.getElementById('api-section').style.display = isApi ? '' : 'none';
+}
+
+function onModeChange(mode) {
+  setModeUI(mode);
+}
+
+function maybeCloseSettings(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeSettings();
+}
+
+function onKeyInput() {
+  const v = document.getElementById('inp-api-key').value.trim();
+  const ok = v.startsWith('sk-ant') && v.length > 20;
+  document.getElementById('inp-api-key').className = v ? (ok ? 'inp valid' : 'inp error') : 'inp';
+  updateKeyStatusBadge(ok && v.length > 0);
+}
+
+function updateKeyStatusBadge(ok) {
+  const b = document.getElementById('key-status-badge');
+  b.textContent = ok ? 'Configured ✓' : 'Not configured';
+  b.className = `key-status ${ok ? 'ok' : 'bad'}`;
+}
+
+function toggleKeyVisibility() {
+  const inp = document.getElementById('inp-api-key');
+  const btn = document.getElementById('btn-show-key');
+  if (inp.type === 'password') { inp.type = 'text'; btn.textContent = 'Hide'; }
+  else { inp.type = 'password'; btn.textContent = 'Show'; }
+}
+
+function renderSettingsModelGrid(cfg) {
+  const grid = document.getElementById('settings-model-grid');
+  grid.innerHTML = MODEL_STAGES.map(stage => {
+    const sel = cfg[stage] || cfg.model_config?.[stage] || state.model_config?.[stage] || '';
+    const opts = MODELS.map(([v,l]) => `<option value="${v}"${v===sel?' selected':''}>${l}</option>`).join('');
+    return `<div class="model-row">
+      <div class="model-row-lbl">${STAGE_LABEL[stage]}</div>
+      <select class="inp" style="font-family:var(--mono);font-size:11px" id="sm-${stage}">${opts}</select>
+    </div>`;
+  }).join('');
+}
+
+async function saveSettings() {
+  const msg = document.getElementById('save-msg');
+  const key = document.getElementById('inp-api-key').value.trim();
+  const batch = parseInt(document.getElementById('inp-batch').value) || 0;
+  const useCli = document.getElementById('mode-radio-cli').checked;
+  const models = {};
+  MODEL_STAGES.forEach(s => {
+    const el = document.getElementById(`sm-${s}`);
+    if (el) models[s] = el.value;
+  });
+  try {
+    const res = await fetch('/api/settings', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ anthropic_api_key: key, batch_size: batch, use_cli: useCli, ...models }),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      msg.textContent = 'Settings saved successfully.';
+      msg.className = 'save-msg ok';
+      updateKeyStatusBadge(data.api_key_configured);
+      setTimeout(closeSettings, 1200);
+    } else {
+      msg.textContent = data.error || 'Save failed.';
+      msg.className = 'save-msg err';
+    }
+  } catch (e) {
+    msg.textContent = 'Network error.';
+    msg.className = 'save-msg err';
+  }
+}
+
+// ── Queue upload ──────────────────────────────────────────────
+function triggerQueueUpload() {
+  document.getElementById('queue-file-input').click();
+}
+
+async function handleQueueUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  input.value = ''; // reset so the same file can be re-uploaded
+
+  const el = document.getElementById('queue-list');
+  el.innerHTML = `<div class="empty"><div class="empty-icon">⏳</div>Reading ${esc(file.name)}…</div>`;
+  log('info', `Loading queue file: ${file.name} (${(file.size/1024).toFixed(1)} KB)`);
+
+  let parsed;
+  try {
+    const text = await file.text();
+    parsed = JSON.parse(text);
+  } catch (e) {
+    log('error', `JSON parse error: ${e.message}`);
+    el.innerHTML = `<div class="empty"><div class="empty-icon">❌</div>Invalid JSON file<br>
+      <span style="font-size:10px;color:var(--red)">${esc(e.message)}</span><br><br>
+      <div class="upl-btn" onclick="triggerQueueUpload()" style="cursor:pointer">Try again</div></div>`;
+    return;
+  }
+
+  el.innerHTML = `<div class="empty"><div class="empty-icon">⏳</div>Uploading to server…</div>`;
+
+  try {
+    const res = await fetch('/api/upload-queue', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(parsed),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      log('info', `✓ ${data.message}`);
+      // state_update arrives via WS and re-renders the queue automatically
+    } else {
+      log('error', `Queue upload failed: ${data.error}`);
+      el.innerHTML = `<div class="empty"><div class="empty-icon">❌</div>Upload failed<br>
+        <span style="font-size:10px;color:var(--red)">${esc(data.error)}</span><br><br>
+        <div class="upl-btn" onclick="triggerQueueUpload()" style="cursor:pointer">Try again</div></div>`;
+    }
+  } catch (e) {
+    log('error', `Queue upload error: ${e.message}`);
+    el.innerHTML = `<div class="empty"><div class="empty-icon">❌</div>Server error<br>
+      <span style="font-size:10px;color:var(--red)">${esc(e.message)}</span><br>
+      <div class="upl-btn" onclick="triggerQueueUpload()" style="cursor:pointer;margin-top:8px">Try again</div></div>`;
+  }
+}
+
+// ── Keyboard ──────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName)) return;
+  if (e.key === 'Escape') {
+    if (document.getElementById('modal-overlay').classList.contains('open')) { closeSettings(); return; }
+    sendCtrl('stop');
+  }
+  if (e.code === 'Space') {
+    e.preventDefault();
+    if (state.running && !state.paused) sendCtrl('pause');
+    else if (state.running && state.paused) sendCtrl('resume');
+    else sendCtrl('start');
+  }
+  if (e.key === 'p' || e.key === 'P') sendCtrl(state.paused ? 'resume' : 'pause');
+  if (e.key === 's' || e.key === 'S') openSettings();
+});
+
+// ── Connection ────────────────────────────────────────────────
+function setConn(status) {
+  const d = document.getElementById('conn-dot');
+  d.className = `conn-dot ${status}`;
+  d.title = status;
+}
+
+// ── Helpers ───────────────────────────────────────────────────
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmtN(n) { if (n>=1e6) return (n/1e6).toFixed(1)+'M'; if (n>=1000) return (n/1000).toFixed(1)+'K'; return String(n); }
+function fmtTok(n) { if (n>=1e6) return (n/1e6).toFixed(1)+'M'; if (n>=1000) return Math.round(n/1000)+'K'; return String(n); }
+
+// ── Boot ──────────────────────────────────────────────────────
+connect();
+</script>
+</body>
+</html>
