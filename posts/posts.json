@@ -1,5 +1,18 @@
 [
   {
+    "title": "注意力头的专化现象与解释性",
+    "slug": "attention-head-specialization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制",
+      "可解释性"
+    ],
+    "summary": "注意力头会自发分工，少数关键头决定性能，冗余头可解释、可剪枝、可部署。"
+  },
+  {
     "title": "核密度估计与带宽选择",
     "slug": "math-stat-kernel-density-estimation-bandwidth",
     "date": "2026-03-08",
