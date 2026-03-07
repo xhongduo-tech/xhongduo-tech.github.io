@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLaMA-3 架构解析：Meta 开源旗舰模型的技术细节",
+    "slug": "llama3-architecture",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "开源模型",
+      "LLaMA"
+    ],
+    "summary": "LLaMA-3 的关键在 GQA、RoPE 500000、128K 词表与多阶段对齐。"
+  },
+  {
     "title": "Qwen 架构解析：技术报告关键设计选择",
     "slug": "qwen-architecture",
     "date": "2026-03-08",

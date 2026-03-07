@@ -977,7 +977,7 @@
       "LLaMA"
     ],
     "brief": "LLaMA-3 技术报告（Meta 2024）关键设计：GQA（8 个 KV 头）、RoPE（θ=500000，提升外推能力）、128K 词表（tiktoken BPE）、SwiGLU FFN。训练数据：15T token（主要是英文和代码）。指令版本：RLHF 流程使用 SFT + DPO + PPO 多阶段。工具调用：原生支持 JSON Schema 格式函数调用。与 Qwen2.5/Mistral 的定位对比：Meta 以开放权重为战略重点。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AWQ：激活感知的权重量化",
