@@ -1,5 +1,17 @@
 [
   {
+    "title": "变分推断与ELBO推导",
+    "slug": "math-bayesian-variational-inference-elbo",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "变分推断把难算的后验积分问题转成ELBO优化问题；ELBO最大化等价于最小化近似分布与真实后验的KL散度。均场假设、C…"
+  },
+  {
     "title": "贝叶斯推断的共轭先验体系",
     "slug": "math-bayesian-conjugate-prior-system",
     "date": "2026-03-08",

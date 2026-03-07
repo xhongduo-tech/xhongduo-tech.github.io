@@ -18124,7 +18124,7 @@
       "概率论"
     ],
     "brief": "变分推断的目标：用简单分布q逼近复杂后验p。Evidence Lower Bound (ELBO)的数学推导。平均场近似与坐标上升。重参数化技巧。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MCMC采样与马尔可夫链收敛",
