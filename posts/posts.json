@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLM 安全：红队测试、对抗训练与安全评估框架",
+    "slug": "llm-safety-red-teaming",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全",
+      "评测"
+    ],
+    "summary": "LLM 安全要形成红队测试、能力门槛、对抗训练与回归验证的闭环。"
+  },
+  {
     "title": "过程奖励模型（PRM）：步骤级别的推理质量评估",
     "slug": "process-reward-model",
     "date": "2026-03-08",
