@@ -1,5 +1,17 @@
 [
   {
+    "title": "QLoRA：4-bit 量化与 LoRA 的组合微调",
+    "slug": "qlora",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "微调",
+      "PEFT"
+    ],
+    "summary": "QLoRA用NF4量化冻结基座，再训练BF16 LoRA，以极低显存完成大模型微调"
+  },
+  {
     "title": "LoRA：低秩分解的参数高效微调",
     "slug": "lora-peft",
     "date": "2026-03-07",

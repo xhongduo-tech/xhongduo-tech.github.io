@@ -510,7 +510,7 @@
       "PEFT"
     ],
     "brief": "QLoRA（Dettmers 2023）：用 NF4（Normal Float 4-bit）量化基础模型权重（减少 ~75% 显存），在量化基础上训练 BF16 精度的 LoRA 适配器。技术细节：NF4 是信息论最优的 4-bit 数据类型（均匀分布在标准正态分位数上）。Double Quantization：对量化常数本身再量化，节省约 0.5 bit/参数。Paged Optimizer：用 NVIDIA 统一内存管理优化器状态，防止 OOM。实现：65B 模型在单张 48GB GPU 上可微调。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LayerNorm：Transformer 归一化的标准选择",
