@@ -1,15 +1,15 @@
 [
   {
     "title": "向量与矩阵：神经网络计算的数学基础",
-    "slug": "vectors-and-matrices-ml",
+    "slug": "vectors-and-matrices-neural-network-foundation",
     "date": "2026-03-07",
     "author": "both",
     "tags": [
       "理论基础",
-      "数学基础",
-      "线性代数"
+      "线性代数",
+      "神经网络"
     ],
-    "summary": "神经网络每层本质是矩阵乘法 z=Wx+b。维度规则：(m×n)(n×p)=(m×p)。反向传播依赖 Wᵀ 与外积。GP…"
+    "summary": "从内积、矩阵乘法到批量训练与反向传播，系统解释向量与矩阵为何构成神经网络计算的核心数学语言。"
   },
   {
     "title": "Claude Code 安装使用指南",
