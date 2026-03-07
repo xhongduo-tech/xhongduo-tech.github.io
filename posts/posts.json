@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention-3 与 Hopper 架构适配",
+    "slug": "flashattention-3-hopper-wgmma",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "注意力机制",
+      "GPU优化"
+    ],
+    "summary": "FlashAttention-3 通过 WGMMA、TMA 与 FP8 路径把 Hopper 上 attention …"
+  },
+  {
     "title": "FlashAttention-2 的并行化改进",
     "slug": "flashattention-2-parallelism",
     "date": "2026-03-08",

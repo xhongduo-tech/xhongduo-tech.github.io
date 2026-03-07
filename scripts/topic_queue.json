@@ -1138,7 +1138,7 @@
       "GPU优化"
     ],
     "brief": "核心要点：FlashAttention-3 利用 H100 的 WGMMA 指令和 TMA 异步数据搬运，实现 GEMM 与 softmax 的流水线重叠。通过 FP8 量化路径支持 E4M3 格式，在保持精度的前提下将 H100 利用率提升至 75%，峰值达 740 TFLOPs。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPU 内存层次与 Attention 的算术强度",
