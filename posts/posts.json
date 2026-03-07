@@ -1,5 +1,17 @@
 [
   {
+    "title": "RNN 与梯度消失：BPTT 中的指数衰减",
+    "slug": "rnn-gradient-vanishing",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "序列模型",
+      "RNN"
+    ],
+    "summary": "RNN 的梯度在 BPTT 中连乘缩放，时间步一长就按指数衰减，导致长依赖难以学习。"
+  },
+  {
     "title": "BPE 分词：字节对编码的压缩理论基础",
     "slug": "bpe-tokenization",
     "date": "2026-03-07",

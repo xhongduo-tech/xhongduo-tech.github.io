@@ -201,7 +201,7 @@
       "RNN"
     ],
     "brief": "RNN 隐状态 h_t = tanh(W_h h_{t-1} + W_x x_t)，梯度需经 T 步反向传播（BPTT）。∂h_t/∂h_k = Π_{i=k+1}^{t} ∂h_i/∂h_{i-1}，每步乘一次 W_h^T 和激活函数导数。tanh 导数最大 1，W_h 的谱范数若 <1 则梯度消失，>1 则梯度爆炸。100 步序列上的梯度幅值变化：|λ|^100 的数值分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LSTM：遗忘门、输入门、输出门的参数方程",
