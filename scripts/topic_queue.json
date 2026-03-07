@@ -570,7 +570,7 @@
       "语言模型"
     ],
     "brief": "困惑度 PPL = exp(-1/N Σ log P(x_t|x_1,...,x_{t-1}))，即每个 token 的平均负对数似然的指数。直觉：PPL=10 表示模型平均在 10 个候选中等概率选择。PPL 对词表大小敏感（大词表 PPL 天然更低），跨模型比较需控制分词器。PPL 的局限：不直接反映下游任务性能（GPT-3 PPL 优但 few-shot 不一定胜 BERT）。Bits-per-character（BPC）：与分词无关的困惑度变体。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "涌现能力（Emergent Abilities）：规模带来的不连续性",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "困惑度（Perplexity）：语言模型的标准评测指标",
+    "slug": "perplexity-metric",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "评测",
+      "语言模型"
+    ],
+    "summary": "困惑度是语言模型平均负对数似然的指数，适合评估建模能力，但跨分词器和下游任务比较要谨慎"
+  },
+  {
     "title": "解码策略：贪心、Beam Search、Top-p、Top-k 的对比",
     "slug": "decoding-strategies",
     "date": "2026-03-07",
