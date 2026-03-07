@@ -287,7 +287,7 @@
       "架构"
     ],
     "brief": "Transformer Encoder 层 = LayerNorm + MHA + 残差 + LayerNorm + FFN + 残差。FFN = max(0, xW_1+b_1)W_2+b_2，中间维度 d_ff=4×d_model（e.g., 768→3072→768），参数量是 MHA 的两倍。FFN 被认为存储键值对记忆（Geva 2021）。残差连接 x + Sublayer(x) 保证梯度下界为 1，Pre-Norm（先 LN 再 sublayer）比 Post-Norm 训练更稳定。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPT 架构：Decoder-only 与因果语言建模",

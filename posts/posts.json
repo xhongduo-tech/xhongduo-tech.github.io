@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer Encoder：前馈层与残差连接的作用",
+    "slug": "transformer-encoder",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "Transformer",
+      "架构"
+    ],
+    "summary": "FFN负责逐位置记忆写入，残差负责恒等梯度通路，二者共同决定Encoder的表达与可训练性。"
+  },
+  {
     "title": "位置编码：正弦函数方案的数学构造",
     "slug": "sinusoidal-positional-encoding",
     "date": "2026-03-07",
