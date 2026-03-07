@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型合并：SLERP 与 Task Arithmetic 的参数空间操作",
+    "slug": "model-merging",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "模型架构",
+      "模型合并"
+    ],
+    "summary": "模型合并是在参数空间组合专家能力，Task Arithmetic重加位移，SLERP保范数，TIES解冲突。"
+  },
+  {
     "title": "Mamba 与选择性状态空间模型：线性复杂度序列建模",
     "slug": "mamba-ssm",
     "date": "2026-03-07",

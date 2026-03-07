@@ -680,7 +680,7 @@
       "模型合并"
     ],
     "brief": "模型合并：在参数空间而非特征空间组合多个微调模型，无需重训练。线性合并（权重平均）：W_merge = (W_1+W_2)/2，效果差（不同微调方向的干扰）。SLERP（球面线性插值）：沿单位超球面的测地线插值，保持参数向量的范数。Task Arithmetic（Ilharco 2022）：任务向量 τ = W_ft - W_base，W_merge = W_base + λ(τ_1+τ_2+...)，任务向量加减实现能力增删。TIES-merging：解决任务向量符号冲突问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "张量并行",
