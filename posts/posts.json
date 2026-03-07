@@ -1,5 +1,17 @@
 [
   {
+    "title": "强化学习基础：MDP、策略梯度与 Actor-Critic",
+    "slug": "rl-basics-policy-gradient",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "RLHF 可视为 MDP 上的策略优化，PPO 用 Critic 与 clip 解决高方差和策略漂移。"
+  },
+  {
     "title": "Prefix Tuning 与 Prompt Tuning：软提示的参数高效微调",
     "slug": "prefix-prompt-tuning",
     "date": "2026-03-07",

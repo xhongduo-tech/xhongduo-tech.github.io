@@ -881,7 +881,7 @@
       "RL基础"
     ],
     "brief": "LLM 对齐用到 RL，需要理解基础概念。MDP 框架：状态 s（context），动作 a（下一个 token），奖励 r（仅在句子结束时非零），策略 π（LLM 本身）。REINFORCE：∇J(θ) = E[G_t ∇log π_θ(a_t|s_t)]，高方差问题（用基线 baseline 缓解）。Actor-Critic：Actor 学策略，Critic 估计值函数（减少方差）。PPO：使用 Clip 限制策略更新幅度，是目前 LLM RLHF 的主流算法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ViT：将 Transformer 用于图像的 Patch Embedding 机制",
