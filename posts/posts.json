@@ -1,5 +1,17 @@
 [
   {
+    "title": "信息熵与交叉熵：损失函数的信息论基础",
+    "slug": "entropy-cross-entropy",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "交叉熵衡量用模型分布描述真实分布的代价，最小化它等价于最小化KL散度。"
+  },
+  {
     "title": "概率论基础：从随机变量到最大似然估计",
     "slug": "probability-basics-mle",
     "date": "2026-03-07",

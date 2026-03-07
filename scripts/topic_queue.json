@@ -45,7 +45,7 @@
       "信息论"
     ],
     "brief": "香农熵 H(p) = -Σ p(x) log p(x) 衡量分布的不确定性。交叉熵 H(p,q) = -Σ p(x) log q(x) 衡量用 q 编码真实分布 p 的额外代价。KL 散度 KL(p||q) = H(p,q) - H(p)，非对称性及其含义。为什么分类任务用交叉熵而非 MSE：梯度行为的对比分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Softmax 函数：多分类输出的概率化",
