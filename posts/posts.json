@@ -1,5 +1,17 @@
 [
   {
+    "title": "广义特征值问题",
+    "slug": "math-la-generalized-eigenvalue",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "广义特征值问题是在B定义的度量下分析A的谱，B的结构决定算法与稳定性。"
+  },
+  {
     "title": "矩阵的Schur分解与三角化",
     "slug": "math-la-schur-decomposition",
     "date": "2026-03-08",
