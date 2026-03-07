@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态基础：CLIP 的对比学习对齐机制",
+    "slug": "clip-contrastive-learning",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "CLIP"
+    ],
+    "summary": "CLIP 用对比学习把图像和文本对齐到同一语义空间，从而实现零样本分类与检索。"
+  },
+  {
     "title": "函数调用（Function Calling）：结构化工具接口的设计",
     "slug": "function-calling",
     "date": "2026-03-07",

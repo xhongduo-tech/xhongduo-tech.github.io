@@ -782,7 +782,7 @@
       "CLIP"
     ],
     "brief": "CLIP（Radford 2021）：用 4 亿图文对训练，对比学习对齐视觉编码器和语言编码器。训练目标：n×n 批次中，n 个正样本对（图像_i，文本_i）相似度最大化，n²-n 个负样本对相似度最小化。InfoNCE 损失：-E[log exp(sim(z_i,z_j)/τ) / Σ_k exp(sim(z_i,z_k)/τ)]。Zero-shot 分类：将类别名称编码为文本，与图像向量计算余弦相似度排名。为什么有效：互联网图文对天然包含语义对齐信息（文章配图、社交媒体帖子）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaVA",
