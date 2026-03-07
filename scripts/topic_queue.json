@@ -17920,7 +17920,7 @@
       "区域理解"
     ],
     "brief": "Visual Grounding 任务要求模型定位文本描述对应的图像区域。Referring Expression Comprehension/Segmentation 评测细粒度理解。分析 VLM 的区域级理解能力、Bounding Box vs Mask 输出。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多图理解：VLM 处理多图像输入的架构设计",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "区域级视觉理解：Visual Grounding 与 Referring Expression",
+    "slug": "visual-grounding-referring-expression",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "细粒度理解",
+      "区域理解"
+    ],
+    "summary": "Visual Grounding 让语言指向可验证区域，REC 定位，RES 定形，二者共同检验区域级理解。"
+  },
+  {
     "title": "多模态思维链：Visual CoT 的实现与分析",
     "slug": "multimodal-chain-of-thought-visual-cot",
     "date": "2026-03-08",
