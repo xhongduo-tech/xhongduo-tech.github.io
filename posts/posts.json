@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO：优化器状态、梯度、参数的三阶分片",
+    "slug": "zero-optimizer",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "ZeRO"
+    ],
+    "summary": "ZeRO通过分片优化器状态、梯度和参数，降低数据并行显存冗余，Stage 3 最省显存但最依赖通信。"
+  },
+  {
     "title": "流水线并行",
     "slug": "pipeline-parallelism",
     "date": "2026-03-07",

@@ -722,7 +722,7 @@
       "ZeRO"
     ],
     "brief": "混合精度训练的显存占用：fp16 参数 2 bytes，fp16 梯度 2 bytes，fp32 master weights 4 bytes，fp32 Adam 一阶矩 4 bytes + 二阶矩 4 bytes，总计 16 bytes/参数。ZeRO-1：将优化器状态（8 bytes）分片到 N 卡，每卡显存节省 8/N bytes。ZeRO-2：加上梯度分片（2 bytes）。ZeRO-3：加上参数分片（2 bytes），每卡显存降低 16/N 倍，代价是每次前向/反向需 AllGather 参数。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "幻觉（Hallucination）的成因：知识边界与自信度校准",
