@@ -1,5 +1,17 @@
 [
   {
+    "title": "随机矩阵理论初步",
+    "slug": "math-la-random-matrix-theory-intro",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "随机矩阵理论用半圆律和MP分布描述噪声谱主干，离群值常对应真实结构信号"
+  },
+  {
     "title": "矩阵函数与指数映射",
     "slug": "math-la-matrix-functions-exponential",
     "date": "2026-03-08",

@@ -18091,7 +18091,7 @@
       "线性代数"
     ],
     "brief": "随机矩阵的特征值分布：Wigner半圆律与Marchenko-Pastur分布。大N极限下的普适性。在深度学习中权重矩阵谱分析的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "低秩矩阵补全",
