@@ -758,7 +758,7 @@
       "ReAct"
     ],
     "brief": "ReAct（Yao 2022）：Reasoning + Acting 的交替循环。格式：Thought: [推理步骤] → Action: [工具调用] → Observation: [工具返回] → Thought: ... → Final Answer。与 Chain-of-Thought 的区别：CoT 只推理不行动，ReAct 将推理与工具调用交织。优势：推理步骤可以利用工具的实时信息修正，减少幻觉；行动步骤有推理理由支撑，更可解释。局限：需要模型具备足够强的指令遵循能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "函数调用（Function Calling）：结构化工具接口的设计",

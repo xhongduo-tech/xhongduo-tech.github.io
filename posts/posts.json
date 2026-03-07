@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReAct 框架：推理与行动的交替循环",
+    "slug": "react-agent-framework",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent",
+      "ReAct"
+    ],
+    "summary": "ReAct通过Thought、Action、Observation闭环，把推理和工具调用接成可纠错的多步流程。"
+  },
+  {
     "title": "长上下文：YaRN 与 LongRoPE 的外推方案",
     "slug": "long-context-rope-extension",
     "date": "2026-03-07",
