@@ -1,5 +1,18 @@
 [
   {
+    "title": "图像 Token 数量与质量的权衡",
+    "slug": "image-token-count-quality-tradeoff",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "推理优化",
+      "Token压缩"
+    ],
+    "summary": "图像 token 越多，细粒度理解越强，但 attention 成本按平方增长。"
+  },
+  {
     "title": "多图理解：VLM 处理多图像输入的架构设计",
     "slug": "multi-image-understanding-vlm",
     "date": "2026-03-08",
