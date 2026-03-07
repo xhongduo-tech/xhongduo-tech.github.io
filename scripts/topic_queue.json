@@ -1051,7 +1051,7 @@
       "解码"
     ],
     "brief": "原始 Speculative Decoding 的局限：需要独立的草稿模型（维护成本高，且加速比依赖草稿模型质量）。Medusa（Cai 2024）：在原始 LLM 之上添加多个预测头，每个头预测 k 步之后的 token，无需独立草稿模型，平均加速 2-3 倍。Eagle（Li 2024）：用 1 层 Transformer 作为草稿模型，输入 LLM 最后一层的隐藏状态，接受率更高（加速 3 倍）。Lookahead：n-gram 草稿，无需额外模型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "对话状态管理：多轮上下文的截断与压缩策略",

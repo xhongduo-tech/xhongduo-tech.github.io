@@ -1,5 +1,17 @@
 [
   {
+    "title": "Speculative Decoding 的变体：Medusa、Eagle、Lookahead",
+    "slug": "speculative-decoding-variants",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "解码"
+    ],
+    "summary": "Medusa、EAGLE、Lookahead 都在减少串行解码步数，但训练成本、接受率和适用场景不同。"
+  },
+  {
     "title": "Retrieval-Augmented Fine-tuning（RAFT）：领域知识注入策略",
     "slug": "raft-retrieval-finetuning",
     "date": "2026-03-08",
