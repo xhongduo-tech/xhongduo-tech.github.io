@@ -1,5 +1,17 @@
 [
   {
+    "title": "Seq2Seq 架构：编码器-解码器与信息瓶颈",
+    "slug": "seq2seq-encoder-decoder",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "序列模型",
+      "Seq2Seq"
+    ],
+    "summary": "原始Seq2Seq把长句压成单个向量，信息瓶颈直接催生了注意力机制。"
+  },
+  {
     "title": "LSTM：遗忘门、输入门、输出门的参数方程",
     "slug": "lstm-gates",
     "date": "2026-03-07",
