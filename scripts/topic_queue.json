@@ -498,7 +498,7 @@
       "PEFT"
     ],
     "brief": "LoRA（Hu 2021）：预训练权重 W₀ 冻结，微调时只训练低秩分解 ΔW = BA（B: d×r，A: r×k，r≪min(d,k)）。推理时合并：W = W₀ + BA，无额外推理开销。关键超参：秩 r（通常 4-64），α（缩放系数，实际学习率 = α/r），应用层（QKV 矩阵、FFN 矩阵）。参数效率：BERT-base 全参数 110M，r=8 时 LoRA 只需约 300K 参数（<0.3%）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "QLoRA：4-bit 量化与 LoRA 的组合微调",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "LoRA：低秩分解的参数高效微调",
+    "slug": "lora-peft",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "微调",
+      "PEFT"
+    ],
+    "summary": "LoRA通过冻结大模型并训练低秩补丁，以极少参数完成高性价比微调。"
+  },
+  {
     "title": "DPO",
     "slug": "direct-preference-optimization",
     "date": "2026-03-07",
