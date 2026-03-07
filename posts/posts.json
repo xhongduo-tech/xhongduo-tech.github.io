@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention-2 的并行化改进",
+    "slug": "flashattention-2-parallelism",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "注意力机制",
+      "GPU优化"
+    ],
+    "summary": "FlashAttention-2 通过按Q块并行与跳过无效块，减少同步和显存读写，显著提升长上下文注意力吞吐"
+  },
+  {
     "title": "FlashAttention 的 IO 感知分块策略",
     "slug": "flashattention-io-aware-tiling",
     "date": "2026-03-08",

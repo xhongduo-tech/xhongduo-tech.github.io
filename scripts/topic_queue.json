@@ -1126,7 +1126,7 @@
       "GPU优化"
     ],
     "brief": "核心要点：FlashAttention-2 将外层循环从 K/V 改为 Q 维度，使每个 warp 独立计算完整的 attention 输出，消除 warp 间同步。非因果 mask 下达到理论 FLOPs 的 72%（A100），因果 mask 通过跳过空块进一步提速约 1.7x。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention-3 与 Hopper 架构适配",
