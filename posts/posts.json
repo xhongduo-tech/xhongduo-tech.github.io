@@ -1,5 +1,17 @@
 [
   {
+    "title": "视觉语言模型的 KV Cache 优化",
+    "slug": "vlm-kv-cache-optimization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "推理优化"
+    ],
+    "summary": "VLM 的 KV Cache 优化，核心是同图复用、token 压缩与少量重算三条路径。"
+  },
+  {
     "title": "MM-DPO：多模态直接偏好优化",
     "slug": "mm-dpo-multimodal-direct-preference",
     "date": "2026-03-08",

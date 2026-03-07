@@ -17872,7 +17872,7 @@
       "推理优化"
     ],
     "brief": "VLM 的视觉 token 数量（通常 256-1024）增加 KV Cache 压力。分析视觉 token 的压缩策略（token 合并、低秩近似）、多轮对话中图像 KV 的复用方案、以及 vLLM/SGLang 的 VLM 优化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态模型的量化：视觉编码器 vs 语言模型",
