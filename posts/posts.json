@@ -1,5 +1,20 @@
 [
   {
+    "title": "张量并行",
+    "slug": "tensor-parallelism",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "并行策略",
+      "系统基础",
+      "并行计算",
+      "张量并行"
+    ],
+    "summary": "张量并行通过列切分和行切分大矩阵，让多卡分担参数并把每层通信控制在两次归约。"
+  },
+  {
     "title": "模型合并：SLERP 与 Task Arithmetic 的参数空间操作",
     "slug": "model-merging",
     "date": "2026-03-07",

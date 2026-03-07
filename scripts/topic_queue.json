@@ -695,7 +695,7 @@
       "张量并行"
     ],
     "brief": "单 GPU 放不下大模型时的解决方案。张量并行（Megatron-LM，Shoeybi 2019）：沿特定维度切分权重矩阵，每个 GPU 持有部分权重。MHA 的列并行：Q/K/V 矩阵按列切分，每头在一个 GPU 上；输出矩阵按行切分，AllReduce 汇聚。FFN 的列-行并行：第一层按列切分（每 GPU 独立计算 GELU），第二层按行切分后 AllReduce。通信量：每层 2 次 AllReduce，通信量 = 2×batch×seq×d（与模型大小无关）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "流水线并行",
