@@ -1,5 +1,17 @@
 [
   {
+    "title": "概率论基础：从随机变量到最大似然估计",
+    "slug": "probability-basics-mle",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "交叉熵本质是负对数似然，最小化它就是在做分类模型的最大似然估计"
+  },
+  {
     "title": "梯度与链式法则：反向传播的数学基础",
     "slug": "gradient-chain-rule",
     "date": "2026-03-07",
@@ -22,18 +34,6 @@
       "线性代数"
     ],
     "summary": "神经网络的层计算本质是矩阵乘法、偏置叠加与非线性变换。"
-  },
-  {
-    "title": "概率论基础：从随机变量到最大似然估计",
-    "slug": "probability-basics-mle",
-    "date": "2026-03-07",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "数学基础",
-      "概率论"
-    ],
-    "summary": "交叉熵本质是Bernoulli/Multinomial负对数似然，MLE与贝叶斯只差先验项。"
   },
   {
     "title": "Claude Code 安装使用指南",
