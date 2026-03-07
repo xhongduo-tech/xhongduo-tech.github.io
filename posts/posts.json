@@ -1,5 +1,17 @@
 [
   {
+    "title": "涌现能力（Emergent Abilities）：规模带来的不连续性",
+    "slug": "emergent-abilities",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "缩放定律",
+      "涌现"
+    ],
+    "summary": "涌现能力指规模跨过阈值后任务表现突跃，但部分“突跃”可能来自离散评测指标。"
+  },
+  {
     "title": "困惑度（Perplexity）：语言模型的标准评测指标",
     "slug": "perplexity-metric",
     "date": "2026-03-07",

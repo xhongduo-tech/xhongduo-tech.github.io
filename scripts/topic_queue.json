@@ -582,7 +582,7 @@
       "涌现"
     ],
     "brief": "Wei 2022：某些能力在小模型上几乎不存在，超过某个参数量阈值后突然出现（非线性跳跃）。典型例子：算术推理（<10B 接近随机，>60B 接近人类）、多步推理、上下文学习（in-context learning）。涌现的争议（Schaeffer 2023）：可能是评测指标的非线性（如 exact match）造成的假象，换用连续指标后涌现消失。Chain-of-Thought：大模型上生效（>100B），小模型上有害。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "上下文学习（In-Context Learning）：无需更新参数的少样本适应",
