@@ -299,7 +299,7 @@
       "预训练"
     ],
     "brief": "GPT 使用仅解码器（Decoder-only）架构，每个 token 只能看到自身及之前的 token（因果掩码）。预训练目标：最大化 Σ log P(x_t|x_1,...,x_{t-1})（自回归语言模型）。因果掩码实现：注意力矩阵 QK^T 上三角置为 -∞，softmax 后对应位置权重为 0。GPT-1 → GPT-2 → GPT-3 的规模演进：参数量、数据量、能力涌现（in-context learning）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BERT：掩码语言模型与双向上下文表示",
