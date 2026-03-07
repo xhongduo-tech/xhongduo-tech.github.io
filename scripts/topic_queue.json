@@ -436,7 +436,7 @@
       "注意力机制"
     ],
     "brief": "KV Cache 的内存碎片问题：请求长度不确定，预分配导致大量内存浪费（实测 20-40% 碎片率）。PagedAttention（Kwon 2023，vLLM 基础）：借鉴操作系统分页内存管理，将 KV Cache 切分为固定大小 block（如 16 token/block），按需分配。优势：几乎消除内存碎片，支持 prefix sharing（相同前缀的请求共享 KV Cache block）。吞吐量对比：vLLM 比 HuggingFace Transformers 推理吞吐量高 2-4 倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "指令微调（Instruction Tuning）：从预训练到对话模型",

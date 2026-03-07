@@ -1,5 +1,18 @@
 [
   {
+    "title": "PagedAttention",
+    "slug": "paged-attention",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "vLLM",
+      "注意力机制"
+    ],
+    "summary": "PagedAttention把KV Cache改成分页按需分配，显著减少碎片并支持前缀共享。"
+  },
+  {
     "title": "投机采样（Speculative Decoding）：草稿模型加速自回归生成",
     "slug": "speculative-decoding",
     "date": "2026-03-07",
