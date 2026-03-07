@@ -263,7 +263,7 @@
       "多头"
     ],
     "brief": "Multi-Head Attention：将 d_model 维拆分为 h 个 d_k=d_model/h 维的子空间，在每个子空间独立计算注意力。head_i = Attention(QW_i^Q, KW_i^K, VW_i^V)；MHA = Concat(head_1,...,head_h)W^O。不同 head 可以捕捉不同类型的依赖：句法关系、语义关系、共指关系等（基于 Transformer 可解释性研究）。参数量 = 4 × d_model²（Q/K/V/O 四个矩阵）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "位置编码：正弦函数方案的数学构造",
