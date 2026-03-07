@@ -1,5 +1,17 @@
 [
   {
+    "title": "最大似然估计的渐近性质",
+    "slug": "math-stat-mle-asymptotic-properties",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "MLE大样本下相合且渐近正态，方差由Fisher信息逆决定。"
+  },
+  {
     "title": "假设检验与p值的正确理解",
     "slug": "math-stat-hypothesis-testing-pvalue",
     "date": "2026-03-08",

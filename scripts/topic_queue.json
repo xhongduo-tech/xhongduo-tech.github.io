@@ -18157,7 +18157,7 @@
       "统计学"
     ],
     "brief": "MLE的一致性：参数估计收敛到真值。渐近正态性：√n(θ̂-θ)→N(0,I^-1)。Cramer-Rao下界与Fisher信息。MLE与贝叶斯估计的比较。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "矩估计与矩方法",
