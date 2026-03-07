@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩阵函数与指数映射",
+    "slug": "math-la-matrix-functions-exponential",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "矩阵函数把标量函数推广到方阵，矩阵指数管系统传播，矩阵对数要先检查谱条件。"
+  },
+  {
     "title": "矩阵的极分解",
     "slug": "math-la-polar-decomposition",
     "date": "2026-03-08",
