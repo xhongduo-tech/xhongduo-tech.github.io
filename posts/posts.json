@@ -1,5 +1,17 @@
 [
   {
+    "title": "Prefix Tuning 与 Prompt Tuning：软提示的参数高效微调",
+    "slug": "prefix-prompt-tuning",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "微调",
+      "PEFT"
+    ],
+    "summary": "软提示把离散模板变成可训练向量，输入层更轻，逐层注入更强更稳"
+  },
+  {
     "title": "SFT 数据质量：格式、多样性与规模的权衡",
     "slug": "sft-data-quality",
     "date": "2026-03-07",
