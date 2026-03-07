@@ -1,5 +1,17 @@
 [
   {
+    "title": "参数置信区间的构造方法",
+    "slug": "math-stat-confidence-interval-construction",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "置信区间描述的是区间构造方法的长期覆盖率，不是单次参数概率。"
+  },
+  {
     "title": "矩估计与矩方法",
     "slug": "math-stat-method-of-moments",
     "date": "2026-03-08",
