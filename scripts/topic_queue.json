@@ -893,7 +893,7 @@
       "ViT"
     ],
     "brief": "ViT（Dosovitskiy 2020）：将图像切分为固定大小 patch（16×16），每个 patch 线性映射为 token，然后输入标准 Transformer Encoder。位置编码：1D 或 2D 可学习位置编码。[CLS] token 的全局表示用于分类。与 CNN 的根本区别：没有局部感受野和平移等变性，需要更多训练数据（在 ImageNet 上不如 ResNet，在 JFT-300M 上超越）。DeiT：纯 ImageNet 上通过知识蒸馏训练 ViT，教师模型是 CNN（蒸馏 token）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Adapter 层：在 Transformer 层间插入轻量模块",

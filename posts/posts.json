@@ -1,5 +1,17 @@
 [
   {
+    "title": "ViT：将 Transformer 用于图像的 Patch Embedding 机制",
+    "slug": "vision-transformer-vit",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "ViT"
+    ],
+    "summary": "ViT先把图像切成patch token，再用位置编码和[CLS]送入标准Transformer。"
+  },
+  {
     "title": "强化学习基础：MDP、策略梯度与 Actor-Critic",
     "slug": "rl-basics-policy-gradient",
     "date": "2026-03-07",
