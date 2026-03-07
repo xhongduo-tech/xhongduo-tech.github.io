@@ -1,5 +1,17 @@
 [
   {
+    "title": "稀疏注意力的 CUDA 实现：块稀疏矩阵乘",
+    "slug": "sparse-attention-block-sparse-matmul",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "稀疏注意力",
+      "GPU优化"
+    ],
+    "summary": "块稀疏注意力通过只计算有效block，把长序列attention从平方成本压到近线性于保留块数。"
+  },
+  {
     "title": "BigBird 的随机注意力与图连通性证明",
     "slug": "bigbird-random-attention-graph-connectivity",
     "date": "2026-03-08",

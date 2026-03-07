@@ -1210,7 +1210,7 @@
       "GPU优化"
     ],
     "brief": "核心要点：Triton 的块稀疏 kernel 将稀疏模式编码为 block mask（块大小 64×64），通过 gather/scatter 操作仅计算非零块的 QK^T。相比 dense attention，在 N=4096 时加速 2-3x，但在短序列时因索引开销反而更慢。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Performer 的 FAVOR+ 随机特征近似",
