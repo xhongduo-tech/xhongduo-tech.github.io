@@ -1,5 +1,17 @@
 [
   {
+    "title": "越狱攻击：提示注入与对抗性前缀",
+    "slug": "jailbreak-attacks",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全",
+      "红队"
+    ],
+    "summary": "越狱攻击本质是改写上下文分布，防御必须依靠输入、上下文、输出和权限隔离的多层组合。"
+  },
+  {
     "title": "模型评测：MMLU、HumanEval、MATH 的设计与局限",
     "slug": "llm-evaluation-benchmarks",
     "date": "2026-03-07",
