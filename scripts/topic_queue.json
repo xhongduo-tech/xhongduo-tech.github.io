@@ -28434,7 +28434,7 @@
       "门控机制"
     ],
     "brief": "门控激活函数比传统激活函数更强大：SwiGLU = Swish(xW) ⊙ (xV)，GEGLU = GELU(xW) ⊙ (xV)。分析门控机制的原理：通过门控信号控制信息流动，增强模型表达能力。LLaMA、Mistral、GPT-J 等模型的门控选择。门控机制的计算开销与性能收益。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "稀疏注意力模式：局部+全局的混合设计",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "门控机制在 Transformer 中的应用：SwiGLU 与 GEGLU",
+    "slug": "gated-mechanisms-transformer",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "激活函数",
+      "门控机制"
+    ],
+    "summary": "SwiGLU/GEGLU用“内容×门控”增强FFN表达，但必须配合中间层缩放控制成本"
+  },
+  {
     "title": "早期退出机制：动态计算与推理加速",
     "slug": "early-exit-mechanisms",
     "date": "2026-03-08",
