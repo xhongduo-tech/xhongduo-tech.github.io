@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention 的 IO 感知分块策略",
+    "slug": "flashattention-io-aware-tiling",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "注意力机制",
+      "GPU优化"
+    ],
+    "summary": "FlashAttention 用 SRAM 分块和在线 softmax，避免 N² 中间矩阵写回 HBM。"
+  },
+  {
     "title": "未来方向：Test-Time Training、World Models 与 LLM 开放问题",
     "slug": "llm-future-directions",
     "date": "2026-03-08",

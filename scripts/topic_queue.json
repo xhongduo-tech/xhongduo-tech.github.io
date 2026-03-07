@@ -1114,7 +1114,7 @@
       "GPU优化"
     ],
     "brief": "核心要点：FlashAttention 将 Q/K/V 按 SRAM 容量分块（典型块大小 Bc=M/(4d)），通过在线 softmax 算法避免 O(N²) 的 HBM 读写。分析 A100 上 SRAM(192KB) vs HBM(80GB) 的带宽差异（19TB/s vs 2TB/s），推导分块后 IO 复杂度从 O(N²d) 降至 O(N²d²/M)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention-2 的并行化改进",
