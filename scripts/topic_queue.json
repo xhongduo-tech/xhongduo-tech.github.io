@@ -522,7 +522,7 @@
       "归一化"
     ],
     "brief": "LayerNorm（Ba 2016）：对单个样本的所有特征维度做归一化，而非 BatchNorm 的跨样本归一化。LN(x) = γ(x-μ)/σ + β，其中 μ 和 σ 在特征维度上计算。不依赖 batch size，适合序列模型（batch size 可以是 1）。Pre-LN vs Post-LN：Pre-LN 把 LN 放在 sublayer 之前（梯度更稳定），Post-LN 放在残差之后（BERT 原始设计）。RMSNorm：去掉均值中心化，只做方差归一化，LLaMA/Qwen/Mistral 的选择。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GQA 与 MQA：减少 KV 头数的注意力变体",

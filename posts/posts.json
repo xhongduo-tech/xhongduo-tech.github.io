@@ -1,5 +1,17 @@
 [
   {
+    "title": "LayerNorm：Transformer 归一化的标准选择",
+    "slug": "layer-normalization",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练优化",
+      "归一化"
+    ],
+    "summary": "LayerNorm按单个token特征归一化，Pre-LN更稳；现代大模型常进一步采用RMSNorm。"
+  },
+  {
     "title": "QLoRA：4-bit 量化与 LoRA 的组合微调",
     "slug": "qlora",
     "date": "2026-03-07",
