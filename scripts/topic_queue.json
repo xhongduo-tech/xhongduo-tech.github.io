@@ -1039,7 +1039,7 @@
       "微调"
     ],
     "brief": "标准 RAG 的问题：LLM 没有学会从文档中提取关键信息（只靠上下文学习，不够稳定）。RAFT（Zhang 2024）：在 SFT 数据中混合带有干扰文档的 QA 对，训练模型学会忽略无关文档、引用相关内容作答（CoT 格式）。训练数据构建：80% 含相关文档的正样本 + 20% 只含干扰文档的负样本（增强鲁棒性）。与 RAG 对比：RAFT 在领域专业任务（医疗、法律）上显著优于纯 RAG，因为模型学会了领域内的信息提取模式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Speculative Decoding 的变体：Medusa、Eagle、Lookahead",

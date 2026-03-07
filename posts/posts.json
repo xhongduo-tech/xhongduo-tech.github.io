@@ -1,5 +1,17 @@
 [
   {
+    "title": "Retrieval-Augmented Fine-tuning（RAFT）：领域知识注入策略",
+    "slug": "raft-retrieval-finetuning",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "RAG",
+      "微调"
+    ],
+    "summary": "RAFT通过带干扰文档的监督微调，让模型学会引用证据并拒绝无依据回答。"
+  },
+  {
     "title": "数据并行：DDP 与梯度同步的通信开销",
     "slug": "data-parallel-ddp",
     "date": "2026-03-08",
