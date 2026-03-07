@@ -361,7 +361,7 @@
       "数值精度"
     ],
     "brief": "FP32（1+8+23 位）vs FP16（1+5+10 位）vs BF16（1+8+7 位）：BF16 与 FP32 指数位相同，动态范围一致，但精度更低（尾数位只有 7 位）。混合精度策略：前向/后向用 FP16/BF16，梯度更新和优化器状态保留 FP32 master copy。梯度缩放（Gradient Scaling）：将 loss 乘以 scale factor，防止 FP16 梯度下溢（值 <6×10^{-5} 时变为 0）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "KV Cache：推理阶段的空间换时间机制",

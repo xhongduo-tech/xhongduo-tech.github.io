@@ -1,5 +1,19 @@
 [
   {
+    "title": "混合精度训练",
+    "slug": "mixed-precision-training",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练优化",
+      "分布式训练",
+      "混合精度",
+      "数值精度"
+    ],
+    "summary": "混合精度训练用低精度算大部分算子，用FP32保存更新与状态，FP16常需loss scaling，BF16更稳。"
+  },
+  {
     "title": "预训练数据：质量过滤与去重的工程流程",
     "slug": "pretraining-data-pipeline",
     "date": "2026-03-07",
