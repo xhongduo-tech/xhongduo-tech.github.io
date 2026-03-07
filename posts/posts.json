@@ -1,5 +1,17 @@
 [
   {
+    "title": "低秩矩阵补全",
+    "slug": "math-la-low-rank-matrix-completion",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "低秩矩阵补全用少数潜因子解释部分观测，并在条件满足时恢复完整矩阵。"
+  },
+  {
     "title": "随机矩阵理论初步",
     "slug": "math-la-random-matrix-theory-intro",
     "date": "2026-03-08",
