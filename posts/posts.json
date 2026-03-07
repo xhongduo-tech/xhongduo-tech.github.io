@@ -1,5 +1,17 @@
 [
   {
+    "title": "RoPE：旋转位置编码的复数域推导",
+    "slug": "rope-positional-encoding",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "位置编码",
+      "RoPE"
+    ],
+    "summary": "RoPE把位置编码变成Q/K旋转，使注意力分数天然只依赖相对位置差。"
+  },
+  {
     "title": "KV Cache：推理阶段的空间换时间机制",
     "slug": "kv-cache",
     "date": "2026-03-07",
