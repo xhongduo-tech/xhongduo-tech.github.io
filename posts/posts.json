@@ -1,5 +1,17 @@
 [
   {
+    "title": "Self-Attention：序列内部元素的相互依赖建模",
+    "slug": "self-attention-mechanism",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "注意力机制",
+      "Transformer"
+    ],
+    "summary": "Self-Attention 用同一序列生成 Q/K/V，并通过缩放点积在序列内部建模依赖。"
+  },
+  {
     "title": "Seq2Seq 架构：编码器-解码器与信息瓶颈",
     "slug": "seq2seq-encoder-decoder",
     "date": "2026-03-07",
