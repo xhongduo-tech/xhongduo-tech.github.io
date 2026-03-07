@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPU 内存层次与 Attention 的算术强度",
+    "slug": "gpu-memory-hierarchy-attention-intensity",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "GPU优化",
+      "注意力机制"
+    ],
+    "summary": "Attention 的算术强度随序列长度线性增长，短序列常卡带宽，FlashAttention靠片上融合减少HBM访问。"
+  },
+  {
     "title": "FlashAttention-3 与 Hopper 架构适配",
     "slug": "flashattention-3-hopper-wgmma",
     "date": "2026-03-08",

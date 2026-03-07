@@ -1150,7 +1150,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Attention 的算术强度(AI)为 O(N)，随序列增长从 memory-bound 转为 compute-bound。A100 的 roofline 模型显示临界点约 N≈1024（FP16）。分析 SRAM/L2/HBM 三级存储对 kernel 设计的约束，解释为何标准 attention 在短序列时也慢。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "在线 Softmax 算法：数值稳定的流式计算",
