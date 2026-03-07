@@ -606,7 +606,7 @@
       "推理"
     ],
     "brief": "CoT（Wei 2022）：在 few-shot 示例中加入中间推理步骤，模型在推理时自然生成推理链，复杂推理任务性能大幅提升。Zero-shot CoT（Kojima 2022）：仅加\"Let's think step by step\"，无需示例。触发条件：仅在 >100B 参数模型上有效，小模型 CoT 性能反而下降。理论解释：token 预算假说——中间 token 相当于草稿纸，扩展了模型的有效计算深度。Self-Consistency：生成多条推理链后取多数投票，进一步提升 5-10%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RAG 基础架构：检索增强生成的组件与流程",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Chain-of-Thought：推理链的原理与触发条件",
+    "slug": "chain-of-thought",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "提示工程",
+      "推理"
+    ],
+    "summary": "CoT本质是给大模型草稿空间；zero-shot负责触发，self-consistency负责纠错。"
+  },
+  {
     "title": "上下文学习（In-Context Learning）：无需更新参数的少样本适应",
     "slug": "in-context-learning",
     "date": "2026-03-07",
