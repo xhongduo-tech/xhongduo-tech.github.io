@@ -929,7 +929,7 @@
       "扩展定律"
     ],
     "brief": "训练时计算扩展（Scaling Laws）在一定规模后收益递减。Test-Time Compute（Snell 2024）：在推理阶段增加计算（更长的 CoT、更多候选答案、搜索树）可以提升性能。Self-Consistency：生成 N 条推理链，多数投票，性能随 N 增加（但有上界）。Best-of-N：生成 N 个答案，用奖励模型选最好的，性能 ∝ log N。MCTS for LLMs：蒙特卡洛树搜索，中间步骤有过程奖励模型打分（OpenAI o1 的猜测机制）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "过程奖励模型（PRM）：步骤级别的推理质量评估",

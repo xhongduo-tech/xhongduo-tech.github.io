@@ -1,5 +1,17 @@
 [
   {
+    "title": "Test-Time Compute：推理时计算扩展的收益",
+    "slug": "test-time-compute",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "推理",
+      "扩展定律"
+    ],
+    "summary": "推理时增加采样、投票与搜索，能在不扩参下提升难题表现，但收益递减且必须受预算与验证约束。"
+  },
+  {
     "title": "结构化剪枝：注意力头和 FFN 神经元的移除策略",
     "slug": "structured-pruning",
     "date": "2026-03-08",
