@@ -17955,7 +17955,7 @@
       "对抗攻击"
     ],
     "brief": "多模态模型面临图像注入攻击：在图像中嵌入不可见文本或对抗扰动绕过安全过滤。分析 Typographic Attack、Adversarial Image、Steganography 等攻击方式及防御策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CLIP 的 Zero-shot 分类与 Prompt Ensemble",

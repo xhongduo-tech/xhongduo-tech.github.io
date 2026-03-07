@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态安全：图像注入攻击与防御",
+    "slug": "multimodal-security-image-injection",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "安全性",
+      "对抗攻击"
+    ],
+    "summary": "图像注入攻击利用隐藏文字、隐写和扰动误导多模态模型，入口侧疫苗校验是更稳的防线"
+  },
+  {
     "title": "图像 Token 数量与质量的权衡",
     "slug": "image-token-count-quality-tradeoff",
     "date": "2026-03-08",
