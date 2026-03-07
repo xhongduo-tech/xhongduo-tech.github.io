@@ -1,5 +1,17 @@
 [
   {
+    "title": "Softmax 函数：多分类输出的概率化",
+    "slug": "softmax-function",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "激活函数"
+    ],
+    "summary": "Softmax把任意打分变成概率分布，关键是指数归一化、数值稳定和温度控制。"
+  },
+  {
     "title": "信息熵与交叉熵：损失函数的信息论基础",
     "slug": "entropy-cross-entropy",
     "date": "2026-03-07",

@@ -57,7 +57,7 @@
       "激活函数"
     ],
     "brief": "Softmax(z_i) = exp(z_i) / Σ exp(z_j)，将任意实数向量映射为概率分布。数值稳定性问题：exp 溢出与 log-sum-exp 技巧。温度参数 τ：Softmax(z/τ) 在 τ→0 时趋向 argmax，τ→∞ 时趋向均匀分布。在注意力机制中 τ=√d_k 的作用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "感知机到多层感知机：深度学习的起点",
