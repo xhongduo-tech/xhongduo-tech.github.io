@@ -1,6 +1,6 @@
 """
 FABS — Fully Automated Blog-post System
-FastAPI + WebSocket backend, Anthropic SDK pipeline.
+FastAPI + WebSocket backend, Codex CLI pipeline.
 Run: python scripts/fabs_server.py
 Open: http://127.0.0.1:8765
 """
@@ -10,22 +10,20 @@ from __future__ import annotations
 import asyncio
 import fcntl
 import json
-import os
 import re
 import shutil
-import sys
+import tempfile
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-import anthropic
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 
-# Path to the 'claude' CLI (Claude Code) — used in CLI mode
-CLI_BINARY: str = shutil.which("claude") or "claude"
+# Path to codex CLI
+CODEX_BINARY: str = shutil.which("codex") or "codex"
 
 # ──────────────────────────────────────────────────────────────
 # Paths
@@ -42,35 +40,30 @@ CONFIG_FILE = Path(__file__).parent / "fabs_config.json"
 # Model catalogue
 # ──────────────────────────────────────────────────────────────
 AVAILABLE_MODELS: list[tuple[str, str]] = [
-    ("claude-haiku-4-5-20251001", "Haiku 4.5 (Fast)"),
-    ("claude-sonnet-4-6", "Sonnet 4.6 (Balanced)"),
-    ("claude-opus-4-6", "Opus 4.6 (Best)"),
+    ("gpt-5-codex-mini", "GPT-5 Codex Mini (Cost Saver)"),
+    ("gpt-5.4", "GPT-5.4 (High Quality)"),
 ]
 
-MODEL_COSTS: dict[str, tuple[float, float]] = {
-    "claude-haiku-4-5-20251001": (0.00000025, 0.00000125),
-    "claude-sonnet-4-6": (0.000003, 0.000015),
-    "claude-opus-4-6": (0.000015, 0.000075),
-}
-
 DEFAULT_MODELS = {
-    "research": "claude-haiku-4-5-20251001",
-    "outline": "claude-haiku-4-5-20251001",
-    "write": "claude-sonnet-4-6",
-    "review": "claude-sonnet-4-6",
-    "refine": "claude-sonnet-4-6",
+    "research": "gpt-5-codex-mini",
+    "outline": "gpt-5-codex-mini",
+    "write": "gpt-5.4",
+    "review": "gpt-5-codex-mini",
+    "refine": "gpt-5.4",
 }
 
+VALID_REASONING_EFFORTS = {"low", "medium", "high"}
 STAGES = ["research", "outline", "write", "review", "refine", "publish"]
+MODEL_STAGES = ["research", "outline", "write", "review", "refine"]
+
 
 # ──────────────────────────────────────────────────────────────
 # Config file helpers
 # ──────────────────────────────────────────────────────────────
 def load_config() -> dict:
     config: dict = {
-        "anthropic_api_key": os.environ.get("ANTHROPIC_API_KEY", ""),
         "batch_size": 0,  # 0 = unlimited
-        "use_cli": False,  # True = Claude Pro subscription via CLI
+        "codex_reasoning_effort": "medium",
     }
     if CONFIG_FILE.exists():
         try:
@@ -78,15 +71,27 @@ def load_config() -> dict:
             config.update(saved)
         except Exception:
             pass
-    # env var always overrides saved key if present
-    env_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    if env_key:
-        config["anthropic_api_key"] = env_key
+
+    try:
+        config["batch_size"] = max(0, int(config.get("batch_size", 0)))
+    except Exception:
+        config["batch_size"] = 0
+
+    effort = str(config.get("codex_reasoning_effort", "medium")).strip().lower()
+    config["codex_reasoning_effort"] = effort if effort in VALID_REASONING_EFFORTS else "medium"
+
+    for stage in MODEL_STAGES:
+        model = config.get(stage)
+        valid = [m for m, _ in AVAILABLE_MODELS]
+        if model in valid:
+            continue
+        config[stage] = DEFAULT_MODELS[stage]
+
+    config["refine_enabled"] = bool(config.get("refine_enabled", False))
     return config
 
 
 def save_config(config: dict) -> None:
-    # Never write env key to disk if it came from environment
     to_save = dict(config)
     CONFIG_FILE.write_text(json.dumps(to_save, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -208,8 +213,13 @@ class PostEntry:
     error: str = ""
 
     def to_dict(self) -> dict:
-        return {"slug": self.slug, "title": self.title, "status": self.status,
-                "category": self.category, "error": self.error}
+        return {
+            "slug": self.slug,
+            "title": self.title,
+            "status": self.status,
+            "category": self.category,
+            "error": self.error,
+        }
 
 
 @dataclass
@@ -221,20 +231,20 @@ class FABSState:
     in_progress: list[dict] = field(default_factory=list)
     completed: list[dict] = field(default_factory=list)
     failed: list[dict] = field(default_factory=list)
-    pending_preview: list[dict] = field(default_factory=list)   # first 30 from queue
+    pending_preview: list[dict] = field(default_factory=list)
     model_config: dict = field(default_factory=lambda: dict(DEFAULT_MODELS, refine_enabled=False))
-    api_key_configured: bool = False
-    use_cli: bool = False          # True = generating via Claude Pro CLI
-    cli_configured: bool = False   # True = 'claude' binary found in PATH
-    queue_loaded: bool = False     # True once topics have been loaded (from file or upload)
-    stats: dict = field(default_factory=lambda: {
-        "total_tokens": 0,
-        "total_cost_usd": 0.0,
-        "elapsed_seconds": 0,
-        "pending_count": 0,
-        "writing_count": 0,
-        "published_count": 0,
-    })
+    codex_configured: bool = False
+    queue_loaded: bool = False
+    stats: dict = field(
+        default_factory=lambda: {
+            "total_tokens": 0,
+            "total_cost_usd": 0.0,
+            "elapsed_seconds": 0,
+            "pending_count": 0,
+            "writing_count": 0,
+            "published_count": 0,
+        }
+    )
     start_time: Optional[str] = None
 
     def to_dict(self) -> dict:
@@ -248,9 +258,7 @@ class FABSState:
             "failed": self.failed,
             "pending_preview": self.pending_preview,
             "model_config": self.model_config,
-            "api_key_configured": self.api_key_configured,
-            "use_cli": self.use_cli,
-            "cli_configured": self.cli_configured,
+            "codex_configured": self.codex_configured,
             "queue_loaded": self.queue_loaded,
             "stats": self.stats,
             "start_time": self.start_time,
@@ -270,29 +278,26 @@ class FABSManager:
         self._stop_flag = False
         self._pipeline_task: Optional[asyncio.Task] = None
         self._ws_clients: set[WebSocket] = set()
-        self._lock = asyncio.Lock()
-        self._init_client()
+        self._sync_runtime_state()
         self._load_queue()
 
-    def _init_client(self) -> None:
-        api_key = self._config.get("anthropic_api_key", "")
-        self._client = anthropic.AsyncAnthropic(api_key=api_key or "placeholder")
-        self.state.api_key_configured = bool(api_key and len(api_key) > 10)
-        self.state.cli_configured = shutil.which("claude") is not None
-        self.state.use_cli = bool(self._config.get("use_cli", False))
+    def _sync_runtime_state(self) -> None:
+        self.state.codex_configured = shutil.which("codex") is not None
+        self.state.model_config = dict(
+            DEFAULT_MODELS,
+            refine_enabled=bool(self._config.get("refine_enabled", False)),
+        )
+        for stage in MODEL_STAGES:
+            model = self._config.get(stage, DEFAULT_MODELS[stage])
+            valid = [m for m, _ in AVAILABLE_MODELS]
+            self.state.model_config[stage] = model if model in valid else DEFAULT_MODELS[stage]
 
-    async def _reinit_client(self) -> None:
-        """Async-safe client replacement: closes old client first to avoid __del__ GC errors."""
-        old = getattr(self, "_client", None)
-        self._init_client()          # creates new self._client immediately
-        if old is not None:
-            try:
-                await old.aclose()   # close old one cleanly after new is in place
-            except Exception:
-                pass
+        effort = str(self._config.get("codex_reasoning_effort", "medium")).strip().lower()
+        if effort not in VALID_REASONING_EFFORTS:
+            effort = "medium"
+        self._config["codex_reasoning_effort"] = effort
 
     async def close(self) -> None:
-        """Graceful shutdown: cancel pipeline and close httpx client."""
         self._stop_flag = True
         self._pause_event.set()
         if self._pipeline_task:
@@ -301,42 +306,49 @@ class FABSManager:
                 await self._pipeline_task
             except Exception:
                 pass
-        try:
-            await self._client.aclose()
-        except Exception:
-            pass
 
     # ── Config & Settings ──────────────────────────────────────
     async def update_settings(self, settings: dict) -> None:
-        changed = False
-        if "anthropic_api_key" in settings:
-            self._config["anthropic_api_key"] = settings["anthropic_api_key"].strip()
-            changed = True
         if "batch_size" in settings:
-            self._config["batch_size"] = max(0, int(settings.get("batch_size", 0)))
-        if "use_cli" in settings:
-            self._config["use_cli"] = bool(settings["use_cli"])
-            changed = True
+            try:
+                self._config["batch_size"] = max(0, int(settings.get("batch_size", 0)))
+            except Exception:
+                self._config["batch_size"] = 0
+
+        if "codex_reasoning_effort" in settings:
+            effort = str(settings.get("codex_reasoning_effort", "medium")).strip().lower()
+            self._config["codex_reasoning_effort"] = effort if effort in VALID_REASONING_EFFORTS else "medium"
+
+        valid_models = [m for m, _ in AVAILABLE_MODELS]
+        for stage in MODEL_STAGES:
+            if stage in settings and settings[stage] in valid_models:
+                self._config[stage] = settings[stage]
+                self.state.model_config[stage] = settings[stage]
+
+        if "refine_enabled" in settings:
+            enabled = bool(settings["refine_enabled"])
+            self._config["refine_enabled"] = enabled
+            self.state.model_config["refine_enabled"] = enabled
+
         save_config(self._config)
-        if changed:
-            await self._reinit_client()  # async-safe replacement
+        self._sync_runtime_state()
         await self._broadcast_state()
 
     def get_settings(self) -> dict:
-        key = self._config.get("anthropic_api_key", "")
-        return {
-            "anthropic_api_key": key,
-            "anthropic_api_key_masked": ("sk-ant-..." + key[-4:]) if len(key) > 10 else "",
+        payload = {
             "batch_size": self._config.get("batch_size", 0),
-            "api_key_configured": self.state.api_key_configured,
-            "use_cli": self._config.get("use_cli", False),
-            "cli_configured": self.state.cli_configured,
-            "cli_binary": CLI_BINARY if self.state.cli_configured else None,
+            "codex_reasoning_effort": self._config.get("codex_reasoning_effort", "medium"),
+            "codex_configured": self.state.codex_configured,
+            "codex_binary": CODEX_BINARY if self.state.codex_configured else None,
+            "model_config": self.state.model_config,
+            "refine_enabled": bool(self.state.model_config.get("refine_enabled", False)),
         }
+        for stage in MODEL_STAGES:
+            payload[stage] = self.state.model_config.get(stage, DEFAULT_MODELS[stage])
+        return payload
 
     # ── Queue ──────────────────────────────────────────────────
     def _load_queue(self) -> None:
-        """Try to load queue from topic_queue.json; silently skip if file is missing."""
         if not QUEUE_FILE.exists():
             self._pending = []
             self.state.queue_loaded = False
@@ -353,17 +365,14 @@ class FABSManager:
             self.state.queue_loaded = False
 
     async def load_queue_from_upload(self, raw: list) -> tuple[bool, str]:
-        """Validate and load topics from a browser-uploaded JSON array."""
         if not isinstance(raw, list):
             return False, "JSON must be an array of topic objects"
         valid = [t for t in raw if isinstance(t, dict) and t.get("slug") and t.get("title")]
         if not valid:
             return False, "No valid items found — each item must have at least 'slug' and 'title'"
-        # Treat all non-done items as pending; if there's no 'status' field treat as pending
         pending = [t for t in valid if t.get("status", "pending") not in ("done",)]
         if not pending:
             return False, "All items already have status 'done' — nothing to process"
-        # Normalise: ensure status == "pending" so pipeline doesn't skip them
         for t in pending:
             t["status"] = "pending"
         self._pending = pending
@@ -400,8 +409,8 @@ class FABSManager:
                 f.write("\n")
                 f.truncate()
                 fcntl.flock(f, fcntl.LOCK_UN)
-        except Exception as e:
-            asyncio.create_task(self._broadcast_log("warn", f"Queue update failed for {slug}: {e}"))
+        except Exception as exc:
+            asyncio.create_task(self._broadcast_log("warn", f"Queue update failed for {slug}: {exc}"))
 
     # ── WebSocket broadcast ────────────────────────────────────
     async def _broadcast(self, msg: dict) -> None:
@@ -429,14 +438,9 @@ class FABSManager:
     # ── Controls ───────────────────────────────────────────────
     async def control(self, action: str) -> None:
         if action == "start" and not self.state.running:
-            if self._config.get("use_cli", False):
-                if not self.state.cli_configured:
-                    await self._broadcast_log("error", "Claude CLI not found in PATH. Install Claude Code or switch to API mode in Settings.")
-                    return
-            else:
-                if not self.state.api_key_configured:
-                    await self._broadcast_log("error", "API key not configured. Open Settings (S) to set ANTHROPIC_API_KEY, or enable Claude Pro mode.")
-                    return
+            if not self.state.codex_configured:
+                await self._broadcast_log("error", "Codex CLI not found in PATH. Install Codex CLI first.")
+                return
             self._stop_flag = False
             self._pause_event.set()
             self.state.running = True
@@ -482,8 +486,12 @@ class FABSManager:
 
                 topic = self._pending[0]
                 slug = topic["slug"]
-                entry = PostEntry(slug=slug, title=topic["title"], status="queued",
-                                  category=topic.get("blog_category", ""))
+                entry = PostEntry(
+                    slug=slug,
+                    title=topic["title"],
+                    status="queued",
+                    category=topic.get("blog_category", ""),
+                )
                 self.state.in_progress.insert(0, entry.to_dict())
                 self.state.current_slug = slug
                 self.state.stats["writing_count"] = 1
@@ -548,7 +556,9 @@ class FABSManager:
                     title=topic["title"],
                     brief=topic.get("brief", ""),
                     blog_category=topic.get("blog_category", ""),
-                ), "research", 2048,
+                ),
+                "research",
+                2048,
             )
             partial["research"] = research
 
@@ -556,7 +566,8 @@ class FABSManager:
             outline = await self._stream_call(
                 self.state.model_config.get("outline", DEFAULT_MODELS["outline"]),
                 OUTLINE_PROMPT.format(title=topic["title"], research=research),
-                "outline", 1024,
+                "outline",
+                1024,
             )
             partial["outline"] = outline
 
@@ -570,7 +581,9 @@ class FABSManager:
                     brief=topic.get("brief", ""),
                     outline=outline,
                     research=research,
-                ), "write", 8192,
+                ),
+                "write",
+                8192,
             )
             partial["article"] = article
 
@@ -585,13 +598,13 @@ class FABSManager:
                 article = await self._stream_call(
                     self.state.model_config.get("refine", DEFAULT_MODELS["refine"]),
                     REFINE_PROMPT.format(title=topic["title"], article_text=article),
-                    "refine", 8192,
+                    "refine",
+                    8192,
                 )
                 partial["article_refined"] = article
 
             await set_stage("publish")
             await self._publish(topic, article, review.get("summary", ""))
-
         except asyncio.CancelledError:
             raise
         except Exception:
@@ -602,70 +615,78 @@ class FABSManager:
 
     # ── Streaming dispatch ─────────────────────────────────────
     async def _stream_call(self, model: str, prompt: str, stage: str, max_tokens: int) -> str:
-        """Dispatch to CLI or API streaming based on current mode."""
-        if self._config.get("use_cli", False):
-            return await self._stream_call_cli(model, prompt, stage)
-        return await self._stream_call_api(model, prompt, stage, max_tokens)
+        _ = max_tokens  # retained for signature compatibility
+        return await self._stream_call_codex(model, prompt, stage)
 
-    # ── Anthropic API streaming ────────────────────────────────
-    async def _stream_call_api(self, model: str, prompt: str, stage: str, max_tokens: int) -> str:
-        chunks: list[str] = []
-        async with self._client.messages.stream(
-            model=model, max_tokens=max_tokens,
-            messages=[{"role": "user", "content": prompt}],
-        ) as stream:
-            async for text in stream.text_stream:
-                if self._stop_flag:
-                    raise asyncio.CancelledError("Stopped during stream")
-                chunks.append(text)
-                await self._broadcast_chunk(stage, text)
-            final = await stream.get_final_message()
-            inp, out = final.usage.input_tokens, final.usage.output_tokens
+    # ── Codex CLI call ─────────────────────────────────────────
+    async def _stream_call_codex(self, model: str, prompt: str, stage: str) -> str:
+        effort = self._config.get("codex_reasoning_effort", "medium")
+        tmp_output = tempfile.NamedTemporaryFile(prefix="fabs_codex_", suffix=".txt", delete=False)
+        tmp_output.close()
+        out_path = Path(tmp_output.name)
 
-        cost = self._token_cost(model, inp, out)
-        async with self._lock:
-            self.state.stats["total_tokens"] += inp + out
-            self.state.stats["total_cost_usd"] += cost
+        cmd = [
+            CODEX_BINARY,
+            "exec",
+            "--model",
+            model,
+            "-c",
+            f'model_reasoning_effort="{effort}"',
+            "--skip-git-repo-check",
+            "--color",
+            "never",
+            "-s",
+            "workspace-write",
+            "-C",
+            str(REPO_ROOT),
+            "--output-last-message",
+            str(out_path),
+            prompt,
+        ]
 
-        return "".join(chunks)
-
-    # ── Claude Pro CLI streaming ───────────────────────────────
-    async def _stream_call_cli(self, model: str, prompt: str, stage: str) -> str:
-        """Call the 'claude' CLI (Claude Code) subprocess and stream its stdout.
-
-        Uses the user's Claude Pro subscription — no API tokens consumed.
-        Model name date-suffixes are stripped (e.g. claude-haiku-4-5-20251001
-        → claude-haiku-4-5) for CLI compatibility.
-        """
-        cli_model = re.sub(r"-\d{8}$", "", model)  # strip date suffix
-        # Unset CLAUDECODE so the CLI doesn't refuse to run inside another Claude session
-        cli_env = {k: v for k, v in os.environ.items() if k != "CLAUDECODE"}
         proc = await asyncio.create_subprocess_exec(
-            CLI_BINARY, "-p", prompt, "--model", cli_model,
-            stdout=asyncio.subprocess.PIPE,
+            *cmd,
+            stdout=asyncio.subprocess.DEVNULL,
             stderr=asyncio.subprocess.PIPE,
-            env=cli_env,
         )
-        assert proc.stdout is not None
         assert proc.stderr is not None
-        chunks: list[str] = []
-        while True:
-            chunk = await proc.stdout.read(512)
-            if not chunk:
-                break
+
+        async def _drain_stderr() -> str:
+            chunks: list[bytes] = []
+            while True:
+                chunk = await proc.stderr.read(4096)
+                if not chunk:
+                    break
+                chunks.append(chunk)
+            return b"".join(chunks).decode("utf-8", errors="replace").strip()
+
+        stderr_task = asyncio.create_task(_drain_stderr())
+
+        while proc.returncode is None:
             if self._stop_flag:
                 proc.kill()
                 await proc.wait()
-                raise asyncio.CancelledError("Stopped during CLI stream")
-            text = chunk.decode("utf-8", errors="replace")
-            chunks.append(text)
+                stderr_task.cancel()
+                raise asyncio.CancelledError("Stopped during codex call")
+            await asyncio.sleep(0.15)
+
+        stderr_text = await stderr_task
+
+        try:
+            if proc.returncode != 0:
+                short = "\n".join(stderr_text.splitlines()[:4]) if stderr_text else "unknown error"
+                raise RuntimeError(f"codex exited {proc.returncode}: {short}")
+
+            text = out_path.read_text(encoding="utf-8").strip()
+            if not text:
+                raise RuntimeError("codex returned empty output")
             await self._broadcast_chunk(stage, text)
-        await proc.wait()
-        if proc.returncode != 0:
-            err_bytes = await proc.stderr.read()
-            err_text = err_bytes.decode("utf-8", errors="replace")[:400]
-            raise RuntimeError(f"claude CLI exited {proc.returncode}: {err_text}")
-        return "".join(chunks)
+            return text
+        finally:
+            try:
+                out_path.unlink(missing_ok=True)
+            except Exception:
+                pass
 
     async def _run_review(self, article_text: str) -> dict:
         model = self.state.model_config.get("review", DEFAULT_MODELS["review"])
@@ -695,9 +716,12 @@ class FABSManager:
         (POSTS_DIR / f"{slug}.md").write_text(content.strip() + "\n", encoding="utf-8")
 
         entry = {
-            "title": topic["title"], "slug": slug,
+            "title": topic["title"],
+            "slug": slug,
             "date": datetime.now().strftime("%Y-%m-%d"),
-            "author": "both", "tags": tags, "summary": summary,
+            "author": "both",
+            "tags": tags,
+            "summary": summary,
         }
         posts: list[dict] = json.loads(POSTS_JSON.read_text(encoding="utf-8"))
         posts = [p for p in posts if p.get("slug") != slug]
@@ -716,22 +740,11 @@ class FABSManager:
             try:
                 obj = json.loads(line)
                 if isinstance(obj.get("summary"), str):
-                    remaining = lines[:i] + [l for l in lines[i + 1:] if l.strip()]
+                    remaining = lines[:i] + [l for l in lines[i + 1 :] if l.strip()]
                     return obj["summary"].strip(), "\n".join(remaining)
             except json.JSONDecodeError:
                 break
         return "", text
-
-    def _resolve_prereqs(self, prereqs: list[str]) -> str:
-        if not prereqs:
-            return ""
-        lookup = {t["slug"]: t.get("title", t["slug"]) for t in self._pending}
-        return "、".join(lookup.get(s, s) for s in prereqs)
-
-    @staticmethod
-    def _token_cost(model: str, inp: int, out: int) -> float:
-        rates = MODEL_COSTS.get(model, MODEL_COSTS["claude-sonnet-4-6"])
-        return inp * rates[0] + out * rates[1]
 
     # ── Timer tick ─────────────────────────────────────────────
     async def tick(self) -> None:
@@ -760,19 +773,17 @@ async def lifespan(app: FastAPI):
     global manager
     manager = FABSManager()
     asyncio.create_task(manager.tick())
-    key_status = "configured" if manager.state.api_key_configured else "NOT SET — open Settings in the dashboard"
-    cli_status = f"found at {CLI_BINARY}" if manager.state.cli_configured else "NOT FOUND"
+    codex_status = f"found at {CODEX_BINARY}" if manager.state.codex_configured else "NOT FOUND"
     pend = len(manager._pending)
-    print(f"FABS ready. Open http://127.0.0.1:8765")
-    print(f"API key:      {key_status}")
-    print(f"Claude CLI:   {cli_status}")
-    print(f"Mode:         {'Claude Pro (CLI)' if manager.state.use_cli else 'Anthropic API'}")
+    print("FABS ready. Open http://127.0.0.1:8765")
+    print(f"Codex CLI:    {codex_status}")
+    print("Mode:         Codex staged models (mini + 5.4)")
     if pend:
         print(f"Pending topics: {pend} (loaded from {QUEUE_FILE.name})")
     else:
-        print(f"Pending topics: 0 — upload a topic_queue.json via the dashboard Queue panel")
-    yield                          # server runs here
-    await manager.close()          # graceful shutdown: cancel pipeline + close httpx client
+        print("Pending topics: 0 — upload a topic_queue.json via the dashboard Queue panel")
+    yield
+    await manager.close()
 
 
 app = FastAPI(title="FABS", lifespan=lifespan)
@@ -807,16 +818,11 @@ async def get_settings() -> dict:
 @app.post("/api/settings")
 async def post_settings(payload: dict) -> dict:
     await manager.update_settings(payload)
-    return {"ok": True, "api_key_configured": manager.state.api_key_configured}
+    return {"ok": True, "codex_configured": manager.state.codex_configured}
 
 
 @app.post("/api/upload-queue")
 async def upload_queue(request: Request) -> dict:
-    """Accept JSON body (array) and replace the in-memory pending queue.
-
-    Client sends: Content-Type: application/json, body = raw JSON array.
-    No python-multipart required.
-    """
     try:
         raw = await request.json()
     except Exception as exc:
@@ -834,8 +840,12 @@ async def set_model(payload: dict) -> dict:
     valid_models = [m for m, _ in AVAILABLE_MODELS]
     if stage and model and model in valid_models:
         manager.state.model_config[stage] = model
+        manager._config[stage] = model
     if "refine_enabled" in payload:
-        manager.state.model_config["refine_enabled"] = bool(payload["refine_enabled"])
+        enabled = bool(payload["refine_enabled"])
+        manager.state.model_config["refine_enabled"] = enabled
+        manager._config["refine_enabled"] = enabled
+    save_config(manager._config)
     await manager._broadcast_state()
     return {"ok": True}
 
@@ -856,9 +866,14 @@ async def websocket_endpoint(ws: WebSocket) -> None:
                 valid = [m for m, _ in AVAILABLE_MODELS]
                 if stage and model and model in valid:
                     manager.state.model_config[stage] = model
+                    manager._config[stage] = model
+                    save_config(manager._config)
                 await manager._broadcast_state()
             elif action == "toggle_refine":
-                manager.state.model_config["refine_enabled"] = bool(data.get("enabled", False))
+                enabled = bool(data.get("enabled", False))
+                manager.state.model_config["refine_enabled"] = enabled
+                manager._config["refine_enabled"] = enabled
+                save_config(manager._config)
                 await manager._broadcast_state()
             elif action == "save_settings":
                 await manager.update_settings(data.get("settings", {}))
@@ -873,4 +888,5 @@ async def websocket_endpoint(ws: WebSocket) -> None:
 # ──────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("fabs_server:app", host="127.0.0.1", port=8765, reload=False)

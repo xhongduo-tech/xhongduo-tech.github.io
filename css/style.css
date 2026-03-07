@@ -356,7 +356,10 @@ main.container {
   color: var(--text-muted);
   letter-spacing: 0.02em;
 }
-.post-author svg { flex-shrink: 0; }
+.post-author .post-author-icon {
+  color: #4f8ef7;
+  flex-shrink: 0;
+}
 
 /* ===== Markdown body ===== */
 .post-body { line-height: 1.85; font-size: 1rem; }

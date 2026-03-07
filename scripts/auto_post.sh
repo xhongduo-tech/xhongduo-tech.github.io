@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# auto_post.sh — 每次按顺序取前 N 篇 pending，Claude 生成，Codex 校验改写后推送
+# auto_post.sh — 每次按顺序取前 N 篇 pending，Codex 生成并校验改写后推送
 #
 # 用法：
-#   bash scripts/auto_post.sh            # 按顺序取前 10 篇，Claude 生成后由 Codex 校验改写并推送
+#   bash scripts/auto_post.sh            # 按顺序取前 10 篇，Codex 生成并校验改写后推送
 #   BATCH_SIZE=1 bash scripts/auto_post.sh
 #   bash scripts/auto_post.sh --dry-run  # 预览将生成的前 10 篇，不实际生成
 
@@ -15,13 +15,13 @@ QUEUE_FILE="$SCRIPTS_DIR/topic_queue.json"
 POSTS_JSON="$POSTS_DIR/posts.json"
 LOGS_DIR="$SCRIPTS_DIR/logs"
 FAILED_OUTPUT_DIR="$POSTS_DIR/_failed"
-CLAUDE_BIN="${CLAUDE_BIN:-$(command -v claude 2>/dev/null || true)}"
 CODEX_BIN="${CODEX_BIN:-$(command -v codex 2>/dev/null || true)}"
 [[ -z "$CODEX_BIN" ]] && CODEX_BIN="/Applications/Codex.app/Contents/Resources/codex"
-CLAUDE_MODEL="${CLAUDE_MODEL:-claude-opus-4-6}"
-CLAUDE_EFFORT="${CLAUDE_EFFORT:-medium}"
-CODEX_MODEL="${CODEX_MODEL:-gpt-5.4}"
-CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-medium}"
+# 成本优化默认：草稿走 mini，校验改写走 5.4（可用环境变量覆盖）
+CODEX_DRAFT_MODEL="${CODEX_DRAFT_MODEL:-${CODEX_MODEL:-gpt-5-codex-mini}}"
+CODEX_DRAFT_REASONING_EFFORT="${CODEX_DRAFT_REASONING_EFFORT:-${CODEX_REASONING_EFFORT:-medium}}"
+CODEX_REFINE_MODEL="${CODEX_REFINE_MODEL:-${CODEX_MODEL:-gpt-5.4}}"
+CODEX_REFINE_REASONING_EFFORT="${CODEX_REFINE_REASONING_EFFORT:-${CODEX_REASONING_EFFORT:-medium}}"
 BATCH_SIZE="${BATCH_SIZE:-10}"
 
 mkdir -p "$LOGS_DIR" "$FAILED_OUTPUT_DIR"
@@ -131,34 +131,41 @@ resolve_prereq_titles() {
     ' "$QUEUE_FILE"
 }
 
-# ── 调用 Claude 生成正文 ───────────────────────────────────────────────────────
-run_claude_prompt() {
+# ── 调用 Codex 生成正文 ────────────────────────────────────────────────────────
+run_codex_prompt() {
     local prompt="$1"
     local tmp_out tmp_err
     tmp_out=$(mktemp /tmp/auto_post_out_XXXXXX)
     tmp_err=$(mktemp /tmp/auto_post_err_XXXXXX)
 
-    if [[ ! -x "$CLAUDE_BIN" ]]; then
-        err "未找到可执行的 claude CLI: $CLAUDE_BIN"
+    if [[ ! -x "$CODEX_BIN" ]]; then
+        err "未找到可执行的 codex CLI: $CODEX_BIN"
         rm -f "$tmp_out" "$tmp_err"
         return 1
     fi
 
-    unset CLAUDECODE CLAUDE_CODE_ENTRYPOINT 2>/dev/null || true
-
     local exit_code=0
-    "$CLAUDE_BIN" -p \
-        --model "$CLAUDE_MODEL" \
-        --effort "$CLAUDE_EFFORT" \
+    "$CODEX_BIN" exec \
+        --model "$CODEX_DRAFT_MODEL" \
+        -c "model_reasoning_effort=\"${CODEX_DRAFT_REASONING_EFFORT}\"" \
+        --skip-git-repo-check \
+        --color never \
+        -s workspace-write \
+        --output-last-message "$tmp_out" \
+        -C "$REPO_ROOT" \
         "$prompt" \
-        > "$tmp_out" 2>"$tmp_err" || exit_code=$?
+        > /dev/null 2>"$tmp_err" || exit_code=$?
 
     local stderr_content
     stderr_content=$(cat "$tmp_err")
     rm -f "$tmp_err"
 
     if [[ "$exit_code" -ne 0 ]]; then
-        err "  claude 退出码 ${exit_code}: $(echo "$stderr_content" | head -3)"
+        if grep -Eiq 'permission|readonly|Operation not permitted|websocket|shell_snapshot|state_db' <<< "$stderr_content"; then
+            err "  codex 调用失败（环境噪声已省略），请检查 codex 登录状态或网络连接。"
+        else
+            err "  codex 退出码 ${exit_code}: $(echo "$stderr_content" | head -3)"
+        fi
         rm -f "$tmp_out"
         return 1
     fi
@@ -185,7 +192,7 @@ ${article_context}
 - 最后一行必须单独输出 summary JSON
 "
 
-    run_claude_prompt "$prompt"
+    run_codex_prompt "$prompt"
 }
 
 sanitize_article_output() {
@@ -441,8 +448,8 @@ EOF
 
     local exit_code=0
     "$CODEX_BIN" exec \
-        --model "$CODEX_MODEL" \
-        -c "model_reasoning_effort=\"${CODEX_REASONING_EFFORT}\"" \
+        --model "$CODEX_REFINE_MODEL" \
+        -c "model_reasoning_effort=\"${CODEX_REFINE_REASONING_EFFORT}\"" \
         --skip-git-repo-check \
         --color never \
         -s workspace-write \
@@ -484,11 +491,10 @@ git_commit_push_batch() {
     fi
     {
         printf 'post: batch %s (%d articles)\n\n' "$(date +%Y-%m-%d)" "${#batch_slugs[@]}"
-        printf 'Generated with Claude Code and validated/polished with Codex.\n\n'
+        printf 'Generated with Codex (%s) and validated/polished with Codex (%s).\n\n' "$CODEX_DRAFT_MODEL" "$CODEX_REFINE_MODEL"
         printf 'Articles:\n'
         printf '%s\n' "${batch_slugs[@]}"
-        printf '\nCo-Authored-By: Claude Code <noreply@anthropic.com>\n'
-        printf 'Co-Authored-By: Codex GPT-5.4 <noreply@openai.com>\n'
+        printf '\nCo-Authored-By: Codex <noreply@openai.com>\n'
     } | git commit -F -
     git push origin main
     log "  ✓ 已推送本批次 ${#batch_slugs[@]} 篇文章"
@@ -529,6 +535,7 @@ fi
 
 # ── 主逻辑 ────────────────────────────────────────────────────────────────────
 log "=== auto_post.sh 启动，按顺序取前 ${BATCH_SIZE} 篇生成 ==="
+log "模型配置：draft=${CODEX_DRAFT_MODEL}(${CODEX_DRAFT_REASONING_EFFORT}) refine=${CODEX_REFINE_MODEL}(${CODEX_REFINE_REASONING_EFFORT})"
 
 # 取本批次 slug 列表
 slugs=()
@@ -593,7 +600,7 @@ EOF
     draft_file=$(draft_file_for_slug "$slug")
     if [[ ! -s "$draft_file" ]]; then
         save_failed_article "$slug" "empty-draft" "$output"
-        err "Claude 生成的草稿为空，立即停止。"
+        err "Codex 生成的草稿为空，立即停止。"
         exit 1
     fi
 
@@ -602,7 +609,7 @@ EOF
     sleep 3
 done
 
-log "Claude 草稿生成完成，开始调用 Codex 逐篇校验并改写本批次 ${#generated_slugs[@]} 篇文章"
+log "Codex 草稿生成完成，开始调用 Codex 逐篇校验并改写本批次 ${#generated_slugs[@]} 篇文章"
 progress_step=$((progress_step + 1))
 render_progress "$progress_step" "$total_steps" "Codex 校验改写"
 

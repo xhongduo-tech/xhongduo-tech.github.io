@@ -537,7 +537,6 @@ footer::after {
 .setting-hint { font-size: 10.5px; color: var(--text-3); line-height: 1.5; }
 
 /* Inputs */
-.inp-wrap { display: flex; gap: 8px; }
 .inp {
   flex: 1; padding: 8px 11px; border-radius: var(--radius-sm);
   background: var(--bg2); border: 1px solid var(--border2); color: var(--text);
@@ -549,38 +548,10 @@ footer::after {
 .inp.error { border-color: rgba(248,113,113,0.5); }
 .inp-num { width: 80px; flex: none; }
 
-.btn-toggle-key {
-  padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border2);
-  background: var(--surface); color: var(--text-2); cursor: pointer; font-size: 12px;
-  white-space: nowrap; transition: all 0.15s;
-}
-.btn-toggle-key:hover { border-color: var(--cyan); color: var(--cyan); }
-
-/* API key status badge */
-.key-status {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 10.5px; padding: 3px 8px; border-radius: 4px;
-}
-.key-status.ok  { background: var(--green-glow); color: var(--green); }
-.key-status.bad { background: var(--red-glow); color: var(--red); }
-
 /* Model grid in settings */
 .model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .model-row { display: flex; flex-direction: column; gap: 4px; }
 .model-row-lbl { font-size: 10.5px; color: var(--text-3); }
-
-/* Generation mode selector */
-.mode-opts { display: flex; gap: 8px; }
-.mode-opt {
-  flex: 1; padding: 10px 13px; border-radius: 6px;
-  border: 1px solid var(--border2); cursor: pointer; transition: all 0.2s;
-  background: var(--bg2); display: flex; flex-direction: column; gap: 3px;
-}
-.mode-opt input[type=radio] { display: none; }
-.mode-opt-title { font-weight: 600; font-size: 12px; color: var(--text-2); }
-.mode-opt-desc  { font-size: 10.5px; color: var(--text-3); line-height: 1.4; }
-.mode-opt.selected { border-color: rgba(79,142,247,0.5); background: var(--blue-glow); }
-.mode-opt.selected .mode-opt-title { color: var(--blue); }
 
 /* Mode badge in footer */
 .mode-badge {
@@ -734,7 +705,7 @@ footer::after {
 
   <div class="ftr-sep"></div>
 
-  <span class="mode-badge api" id="mode-badge" onclick="openSettings()" title="Generation mode — click Settings to change">API</span>
+  <span class="mode-badge cli" id="mode-badge" onclick="openSettings()" title="Generation mode — click Settings to change">Codex</span>
 
   <div class="stats">
     <div class="stat">Queue <span class="sv" id="s-pending">0</span></div>
@@ -758,39 +729,18 @@ footer::after {
     </div>
     <div class="modal-body">
 
-      <!-- Generation Mode -->
+      <!-- Runtime -->
       <div class="setting-group">
-        <div class="setting-group-title">Generation Mode</div>
-        <div class="mode-opts">
-          <label class="mode-opt" id="mode-opt-api" onclick="onModeChange('api')">
-            <input type="radio" name="gen-mode" id="mode-radio-api" value="api">
-            <div class="mode-opt-title">⚡ Anthropic API</div>
-            <div class="mode-opt-desc">Pay per token via API key. Supports all models and cost tracking.</div>
-          </label>
-          <label class="mode-opt" id="mode-opt-cli" onclick="onModeChange('cli')">
-            <input type="radio" name="gen-mode" id="mode-radio-cli" value="cli">
-            <div class="mode-opt-title">✨ Claude Pro</div>
-            <div class="mode-opt-desc">Use your Claude Pro subscription via the <code>claude</code> CLI. No API cost.</div>
-          </label>
-        </div>
-        <div class="setting-hint" id="cli-status-hint" style="margin-top:6px"></div>
-      </div>
-
-      <!-- API Keys (hidden in CLI mode) -->
-      <div class="setting-group" id="api-section">
-        <div class="setting-group-title">API Keys</div>
-
+        <div class="setting-group-title">Codex Runtime</div>
+        <div class="setting-hint" id="codex-status-hint" style="margin-top:2px"></div>
         <div class="setting-row">
-          <div class="setting-lbl">
-            Anthropic API Key
-            <span class="key-status bad" id="key-status-badge">Not configured</span>
-          </div>
-          <div class="setting-hint">Required for Anthropic API mode. Stored locally in <code>scripts/fabs_config.json</code>.</div>
-          <div class="inp-wrap">
-            <input class="inp" type="password" id="inp-api-key" placeholder="sk-ant-api03-..."
-                   oninput="onKeyInput()" autocomplete="off" spellcheck="false">
-            <button class="btn-toggle-key" onclick="toggleKeyVisibility()" id="btn-show-key">Show</button>
-          </div>
+          <div class="setting-lbl">Reasoning Effort</div>
+          <div class="setting-hint">Used by Codex CLI for each stage request.</div>
+          <select class="inp" id="inp-effort" style="font-family:var(--mono);font-size:11px">
+            <option value="low">low</option>
+            <option value="medium" selected>medium</option>
+            <option value="high">high</option>
+          </select>
         </div>
       </div>
 
@@ -838,9 +788,8 @@ const STAGE_DESC  = {
 const STAGE_ICON = {research:'🔍',outline:'🗂',write:'✍',review:'✅',refine:'🔧',publish:'🚀'};
 const MODEL_STAGES = ['research','outline','write','review','refine'];
 const MODELS = [
-  ['claude-haiku-4-5-20251001','Haiku 4.5 (Fast)'],
-  ['claude-sonnet-4-6','Sonnet 4.6 (Balanced)'],
-  ['claude-opus-4-6','Opus 4.6 (Best)'],
+  ['gpt-5-codex-mini','GPT-5 Codex Mini (Cost Saver)'],
+  ['gpt-5.4','GPT-5.4 (High Quality)'],
 ];
 const CAT_COLORS = {
   '理论基础':'#a78bfa','前沿追踪':'#60a5fa','模型训练':'#34d399','模型微调':'#f472b6',
@@ -1056,12 +1005,9 @@ function renderControls(s) {
   document.getElementById('btn-pause').disabled = !s.running || s.paused;
   document.getElementById('btn-stop').disabled  = !s.running;
   document.getElementById('refine-chk').checked = s.model_config?.refine_enabled ?? false;
-  // Tooltip for start button based on mode
   const btn = document.getElementById('btn-start');
-  if (s.use_cli && !s.cli_configured) {
-    btn.title = 'Claude CLI not found — install Claude Code or switch to API mode (S)';
-  } else if (!s.use_cli && !s.api_key_configured) {
-    btn.title = 'API key not configured — open Settings (S)';
+  if (!s.codex_configured) {
+    btn.title = 'Codex CLI not found — install Codex CLI (S)';
   } else {
     btn.title = '';
   }
@@ -1071,27 +1017,14 @@ function renderStats(s) {
   const st = s.stats || {};
   document.getElementById('s-pending').textContent   = fmtN(st.pending_count || 0);
   document.getElementById('s-published').textContent = fmtN(st.published_count || 0);
-  sessionTokens = st.total_tokens || 0;
-  // In CLI mode: hide cost, show token count as context only
-  const cliMode = s.use_cli ?? false;
-  document.getElementById('stat-tokens').style.display  = cliMode ? 'none' : '';
-  document.getElementById('stat-sep-cost').style.display = cliMode ? 'none' : '';
-  document.getElementById('stat-cost').style.display     = cliMode ? 'none' : '';
-  if (!cliMode) {
-    document.getElementById('s-tokens').textContent = fmtTok(sessionTokens);
-    document.getElementById('s-cost').textContent   = '$' + (st.total_cost_usd || 0).toFixed(3);
-  }
-  // Mode badge
+  sessionTokens = 0;
+  document.getElementById('stat-tokens').style.display  = 'none';
+  document.getElementById('stat-sep-cost').style.display = 'none';
+  document.getElementById('stat-cost').style.display     = 'none';
   const badge = document.getElementById('mode-badge');
-  if (cliMode) {
-    badge.textContent = '✨ Claude Pro';
-    badge.className = 'mode-badge cli';
-    badge.title = 'Claude Pro mode (subscription) — click to change in Settings';
-  } else {
-    badge.textContent = '⚡ API';
-    badge.className = 'mode-badge api';
-    badge.title = 'Anthropic API mode — click to change in Settings';
-  }
+  badge.textContent = '⚙ Codex';
+  badge.className = 'mode-badge cli';
+  badge.title = 'Codex staged model mode — click to change in Settings';
 }
 
 function renderTimer(s) {
@@ -1178,21 +1111,15 @@ function openSettings() {
   document.getElementById('save-msg').className = 'save-msg';
   // Populate from server
   fetch('/api/settings').then(r => r.json()).then(cfg => {
-    const inp = document.getElementById('inp-api-key');
-    inp.value = cfg.anthropic_api_key || '';
-    inp.className = cfg.api_key_configured ? 'inp valid' : 'inp';
     document.getElementById('inp-batch').value = cfg.batch_size ?? 0;
-    updateKeyStatusBadge(cfg.api_key_configured);
+    document.getElementById('inp-effort').value = cfg.codex_reasoning_effort || 'medium';
     renderSettingsModelGrid(cfg);
-    // Mode selector
-    const useCli = cfg.use_cli ?? false;
-    setModeUI(useCli ? 'cli' : 'api');
-    // CLI status hint
-    const hint = document.getElementById('cli-status-hint');
-    if (cfg.cli_configured) {
-      hint.innerHTML = `<span style="color:var(--green)">✓ claude CLI found</span> — ${esc(cfg.cli_binary || 'claude')}`;
+    document.getElementById('refine-chk').checked = cfg.refine_enabled ?? state.model_config?.refine_enabled ?? false;
+    const hint = document.getElementById('codex-status-hint');
+    if (cfg.codex_configured) {
+      hint.innerHTML = `<span style="color:var(--green)">✓ codex CLI found</span> — ${esc(cfg.codex_binary || 'codex')}`;
     } else {
-      hint.innerHTML = `<span style="color:var(--red)">✗ claude CLI not found</span> — install <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" style="color:var(--cyan)">Claude Code</a> to use Pro mode`;
+      hint.innerHTML = `<span style="color:var(--red)">✗ codex CLI not found</span> — install Codex CLI first`;
     }
   }).catch(() => log('warn', 'Failed to load settings'));
 }
@@ -1201,41 +1128,8 @@ function closeSettings() {
   document.getElementById('modal-overlay').classList.remove('open');
 }
 
-function setModeUI(mode) {
-  const isApi = (mode === 'api');
-  document.getElementById('mode-opt-api').classList.toggle('selected', isApi);
-  document.getElementById('mode-opt-cli').classList.toggle('selected', !isApi);
-  document.getElementById('mode-radio-api').checked = isApi;
-  document.getElementById('mode-radio-cli').checked = !isApi;
-  document.getElementById('api-section').style.display = isApi ? '' : 'none';
-}
-
-function onModeChange(mode) {
-  setModeUI(mode);
-}
-
 function maybeCloseSettings(e) {
   if (e.target === document.getElementById('modal-overlay')) closeSettings();
-}
-
-function onKeyInput() {
-  const v = document.getElementById('inp-api-key').value.trim();
-  const ok = v.startsWith('sk-ant') && v.length > 20;
-  document.getElementById('inp-api-key').className = v ? (ok ? 'inp valid' : 'inp error') : 'inp';
-  updateKeyStatusBadge(ok && v.length > 0);
-}
-
-function updateKeyStatusBadge(ok) {
-  const b = document.getElementById('key-status-badge');
-  b.textContent = ok ? 'Configured ✓' : 'Not configured';
-  b.className = `key-status ${ok ? 'ok' : 'bad'}`;
-}
-
-function toggleKeyVisibility() {
-  const inp = document.getElementById('inp-api-key');
-  const btn = document.getElementById('btn-show-key');
-  if (inp.type === 'password') { inp.type = 'text'; btn.textContent = 'Hide'; }
-  else { inp.type = 'password'; btn.textContent = 'Show'; }
 }
 
 function renderSettingsModelGrid(cfg) {
@@ -1252,9 +1146,8 @@ function renderSettingsModelGrid(cfg) {
 
 async function saveSettings() {
   const msg = document.getElementById('save-msg');
-  const key = document.getElementById('inp-api-key').value.trim();
   const batch = parseInt(document.getElementById('inp-batch').value) || 0;
-  const useCli = document.getElementById('mode-radio-cli').checked;
+  const effort = document.getElementById('inp-effort').value || 'medium';
   const models = {};
   MODEL_STAGES.forEach(s => {
     const el = document.getElementById(`sm-${s}`);
@@ -1264,13 +1157,17 @@ async function saveSettings() {
     const res = await fetch('/api/settings', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ anthropic_api_key: key, batch_size: batch, use_cli: useCli, ...models }),
+      body: JSON.stringify({
+        batch_size: batch,
+        codex_reasoning_effort: effort,
+        refine_enabled: document.getElementById('refine-chk').checked,
+        ...models,
+      }),
     });
     const data = await res.json();
     if (data.ok) {
       msg.textContent = 'Settings saved successfully.';
       msg.className = 'save-msg ok';
-      updateKeyStatusBadge(data.api_key_configured);
       setTimeout(closeSettings, 1200);
     } else {
       msg.textContent = data.error || 'Save failed.';

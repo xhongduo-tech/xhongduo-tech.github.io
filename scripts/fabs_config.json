@@ -1,5 +1,10 @@
 {
-  "anthropic_api_key": "",
   "batch_size": 0,
-  "use_cli": true
+  "codex_reasoning_effort": "medium",
+  "research": "gpt-5-codex-mini",
+  "outline": "gpt-5-codex-mini",
+  "write": "gpt-5.4",
+  "review": "gpt-5-codex-mini",
+  "refine": "gpt-5.4",
+  "refine_enabled": false
 }

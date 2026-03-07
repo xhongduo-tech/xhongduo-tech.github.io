@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file is kept for compatibility and provides guidance to Codex (Codex.ai/code) when working with code in this repository.
 
 ## 架构概览
 
@@ -42,7 +42,7 @@ posts/
 ## posts.json 关键字段
 
 - **`tags[0]`**：首个标签决定文章所属分类（`底层原理` / `模型解析` / `智能体` / `工程实践`），分类顺序在 `app.js` 的 `CATEGORY_ORDER` 中定义
-- **`author`**：统一使用 `"both"`，显示 Claude Code & xuhongduo 署名
+- **`author`**：统一使用 `"both"`，显示 Codex & xuhongduo 署名
 - **`slug`**：必须与 `.md` 文件名（去掉 `.md`）完全一致，否则 404
 
 ## 写作风格规范
