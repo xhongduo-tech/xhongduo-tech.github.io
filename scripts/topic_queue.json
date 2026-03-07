@@ -460,7 +460,7 @@
       "RLHF"
     ],
     "brief": "RLHF 第二阶段：训练奖励模型 R(x, y)，输入 (prompt, response) 对，输出标量分数。训练数据：人类标注员对同一 prompt 的两个响应进行偏好比较 (y_w ≻ y_l)。损失函数：-E[log σ(R(x,y_w) - R(x,y_l))]（Bradley-Terry 模型）。奖励模型通常以预训练 LLM 为初始化，替换最后一层为标量输出。奖励黑客（reward hacking）：模型学会欺骗奖励模型，而非真正改善质量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PPO 在 LLM 对齐中的应用：KL 散度约束与 RL 稳定性",
