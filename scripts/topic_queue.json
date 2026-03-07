@@ -17967,7 +17967,7 @@
       "零样本学习"
     ],
     "brief": "CLIP 的 Zero-shot 分类依赖 Prompt 设计。Prompt Ensemble（多个模板平均）显著提升性能。分析不同 Prompt 模板的影响、上下文词（a photo of）的作用、以及 CoOp/CoCoOp 的可学习 Prompt。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态检索增强生成：图像与文本的混合 RAG",

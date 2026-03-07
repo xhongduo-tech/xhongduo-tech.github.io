@@ -1,5 +1,18 @@
 [
   {
+    "title": "CLIP 的 Zero-shot 分类与 Prompt Ensemble",
+    "slug": "clip-zeroshot-prompt-ensemble",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码器",
+      "零样本学习"
+    ],
+    "summary": "CLIP 零样本分类的关键不只在类别名，而在多模板 prompt 平均构造更稳的类向量。"
+  },
+  {
     "title": "多模态安全：图像注入攻击与防御",
     "slug": "multimodal-security-image-injection",
     "date": "2026-03-08",
