@@ -28422,7 +28422,7 @@
       "动态计算"
     ],
     "brief": "早期退出允许简单样本在浅层退出，复杂样本继续深层计算。实现方法：每层后添加分类器，根据置信度决定是否退出。分析早期退出的加速效果、精度损失、以及如何平衡两者。DistilBERT、FastBERT 等模型的早期退出设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "门控机制在 Transformer 中的应用：SwiGLU 与 GEGLU",

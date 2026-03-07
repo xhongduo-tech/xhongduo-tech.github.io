@@ -1,5 +1,18 @@
 [
   {
+    "title": "早期退出机制：动态计算与推理加速",
+    "slug": "early-exit-mechanisms",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "推理优化",
+      "动态计算"
+    ],
+    "summary": "早期退出让简单样本浅层结束，以可控精度损失换取更低平均推理成本"
+  },
+  {
     "title": "Transformer 的宽度与深度：架构搜索的权衡",
     "slug": "transformer-width-depth-tradeoff",
     "date": "2026-03-08",
