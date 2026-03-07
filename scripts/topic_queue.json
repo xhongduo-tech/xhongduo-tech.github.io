@@ -347,7 +347,7 @@
       "数据工程"
     ],
     "brief": "大规模预训练数据的处理流程：Common Crawl 原始抓取 → 语言识别（fastText）→ 规则过滤（最短/最长文本、特殊字符比例）→ 内容过滤（去除 NSFW）→ 去重（URL 级、段落级、文档级）→ 质量过滤（分类器过滤低质量文本）。MinHash LSH 近似去重：k-gram 特征的局部敏感哈希，n²→nk 的复杂度。数据混合比例：The Pile、SlimPajama、FineWeb 的配比策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "混合精度训练",

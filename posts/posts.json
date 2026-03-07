@@ -1,5 +1,17 @@
 [
   {
+    "title": "预训练数据：质量过滤与去重的工程流程",
+    "slug": "pretraining-data-pipeline",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "预训练",
+      "数据工程"
+    ],
+    "summary": "预训练数据生产的核心是分层过滤、分层去重与可监控混合配比。"
+  },
+  {
     "title": "缩放定律（Scaling Laws）：模型性能与计算量的幂律关系",
     "slug": "scaling-laws",
     "date": "2026-03-07",
