@@ -1,5 +1,17 @@
 [
   {
+    "title": "GQA 与 MQA：减少 KV 头数的注意力变体",
+    "slug": "gqa-mqa",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "注意力机制"
+    ],
+    "summary": "GQA 用少量 KV 头服务更多 Q 头，在显存、带宽与精度之间做中间折中。"
+  },
+  {
     "title": "LayerNorm：Transformer 归一化的标准选择",
     "slug": "layer-normalization",
     "date": "2026-03-07",

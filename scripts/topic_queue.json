@@ -534,7 +534,7 @@
       "注意力机制"
     ],
     "brief": "标准 MHA：h 个 Q 头 + h 个 K 头 + h 个 V 头，KV Cache 内存 ∝ h。MQA（Shazeer 2019）：所有 Q 头共享同一组 K 和 V，KV Cache 减少 h 倍，但精度略降。GQA（Ainslie 2023）：G 组 K/V，每组 h/G 个 Q 头共享，权衡精度与内存。LLaMA-2 70B 使用 GQA（h=64 个 Q 头，8 个 KV 头），KV Cache 减少 8 倍。升级已有模型：MHA → GQA 可通过合并 KV 头的均值来实现（无需重训练）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "连续批处理（Continuous Batching）：提升 LLM 推理吞吐量",
