@@ -1,5 +1,17 @@
 [
   {
+    "title": "RLHF 与 RLAIF 的对齐效果对比",
+    "slug": "rlhf-vs-rlaif-alignment",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "对齐"
+    ],
+    "summary": "RLAIF 保持 RL 框架不变，用 AI 偏好替代部分人工标签，helpfulness 接近 RLHF，harmle…"
+  },
+  {
     "title": "LLaVA",
     "slug": "llava-visual-instruction",
     "date": "2026-03-07",
