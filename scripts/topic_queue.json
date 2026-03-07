@@ -18113,7 +18113,7 @@
       "概率论"
     ],
     "brief": "共轭先验的数学定义：后验与先验同属一个分布族。指数族分布与共轭先验的一般理论。Beta-Binomial、Dirichlet-Multinomial、Gaussian-Gaussian等经典共轭对。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "变分推断与ELBO推导",

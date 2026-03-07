@@ -1,5 +1,17 @@
 [
   {
+    "title": "贝叶斯推断的共轭先验体系",
+    "slug": "math-bayesian-conjugate-prior-system",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "共轭先验把贝叶斯更新变成参数相加，适合指数族模型的快速在线推断。"
+  },
+  {
     "title": "低秩矩阵补全",
     "slug": "math-la-low-rank-matrix-completion",
     "date": "2026-03-08",
