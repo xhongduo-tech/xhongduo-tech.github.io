@@ -17990,7 +17990,7 @@
       "多模态嵌入"
     ],
     "brief": "UAE-VL 统一文本和图像的嵌入空间，支持跨模态检索和多模态 RAG。分析其训练策略（对比学习+指令微调）、嵌入维度选择、与其他多模态嵌入模型（Cohere Embed 3）的对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaVA 的训练数据配比：LLaVA-Pretrain vs LLaVA-V1.5",

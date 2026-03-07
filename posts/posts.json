@@ -1,5 +1,17 @@
 [
   {
+    "title": "UAE-VL：统一多模态嵌入模型",
+    "slug": "uae-vl-unified-embedding",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "多模态嵌入"
+    ],
+    "summary": "UAE-VL 用理解-生成闭环统一图文嵌入，适合跨模态检索与多模态 RAG。"
+  },
+  {
     "title": "多模态检索增强生成：图像与文本的混合 RAG",
     "slug": "multimodal-rag-image-text",
     "date": "2026-03-08",
