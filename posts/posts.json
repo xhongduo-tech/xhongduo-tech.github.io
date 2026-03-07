@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型水印：LLM 生成文本的可检测性",
+    "slug": "llm-text-watermarking",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全",
+      "水印"
+    ],
+    "summary": "LLM水印通过偏置绿色token实现可检测性，但难以抵抗改写与翻译。"
+  },
+  {
     "title": "AWQ：激活感知的权重量化",
     "slug": "awq-quantization",
     "date": "2026-03-08",
