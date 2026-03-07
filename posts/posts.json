@@ -1,5 +1,17 @@
 [
   {
+    "title": "神经网络的几何视角：流形假设与嵌入空间",
+    "slug": "neural-network-geometry",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "表示学习",
+      "几何"
+    ],
+    "summary": "神经网络通过展开低维流形并优化对齐与均匀性，构造更可分、可检索的嵌入空间"
+  },
+  {
     "title": "SWE-bench",
     "slug": "swe-bench-evaluation",
     "date": "2026-03-08",

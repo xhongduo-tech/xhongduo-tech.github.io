@@ -1090,7 +1090,7 @@
       "几何"
     ],
     "brief": "流形假设（Manifold Hypothesis）：高维数据（图像、文本）实际分布在低维流形上。神经网络的作用：学习将流形展开（unfolding）为线性可分空间。Embedding 空间的几何性质：线性插值语义连续性（词类比关系的向量加减）、语义聚类结构。表示空间的各向异性问题：BERT 的 token 嵌入分布呈锥形（各向异性），余弦相似度失去意义（SimCSE 2021 解决了这一问题）。对比学习如何解决各向异性：均匀分布在超球面上。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "未来方向：Test-Time Training、World Models 与 LLM 开放问题",
