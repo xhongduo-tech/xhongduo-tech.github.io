@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态检索增强生成：图像与文本的混合 RAG",
+    "slug": "multimodal-rag-image-text",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "RAG",
+      "检索增强"
+    ],
+    "summary": "多模态RAG把图像与文本作为并行证据检索，可显著提升视觉相关问答的可靠性。"
+  },
+  {
     "title": "CLIP 的 Zero-shot 分类与 Prompt Ensemble",
     "slug": "clip-zeroshot-prompt-ensemble",
     "date": "2026-03-08",
