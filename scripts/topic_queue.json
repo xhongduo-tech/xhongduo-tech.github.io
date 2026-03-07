@@ -18002,7 +18002,7 @@
       "视觉语言模型"
     ],
     "brief": "LLaVA 系列的数据配比经历了从 LLaVA-Pretrain（558K）到 LLaVA-V1.5（665K）的演进。分析不同数据源（CC3M、LAION、ShareGPT4V）的贡献、学术任务数据 vs 通用对话数据的配比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "像素级理解：SAM 与 VLM 的结合",

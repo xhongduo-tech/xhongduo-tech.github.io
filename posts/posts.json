@@ -1,5 +1,18 @@
 [
   {
+    "title": "LLaVA 的训练数据配比：LLaVA-Pretrain vs LLaVA-V1.5",
+    "slug": "llava-training-data-ratio",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "数据配比",
+      "视觉语言模型"
+    ],
+    "summary": "LLaVA 先用558K做图文对齐，再用约665K混合指令数据平衡学术问答与通用对话能力"
+  },
+  {
     "title": "UAE-VL：统一多模态嵌入模型",
     "slug": "uae-vl-unified-embedding",
     "date": "2026-03-08",
