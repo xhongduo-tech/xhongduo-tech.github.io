@@ -656,7 +656,7 @@
       "蒸馏"
     ],
     "brief": "Hinton 2015 知识蒸馏：学生模型不仅学 hard label（one-hot），还学教师模型的 soft label（Softmax 输出）。软标签携带类间相似度信息（如 cat 与 dog 的相似度高于 cat 与 car）。蒸馏损失 = α·CE(hard) + (1-α)·KL(p_teacher || p_student)×T²，温度 T>1 平滑软标签。LLM 蒸馏：中间层特征对齐（特征蒸馏），注意力矩阵对齐（注意力蒸馏）。DistilBERT：BERT 的 40% 参数，97% 性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mamba 与选择性状态空间模型：线性复杂度序列建模",

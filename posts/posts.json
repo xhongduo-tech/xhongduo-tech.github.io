@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识蒸馏：小模型向大模型学习的机制",
+    "slug": "knowledge-distillation",
+    "date": "2026-03-07",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "模型压缩",
+      "蒸馏"
+    ],
+    "summary": "知识蒸馏让小模型同时学习硬标签和教师软标签，以更低成本保留大模型的泛化结构。"
+  },
+  {
     "title": "混合专家模型（MoE）",
     "slug": "moe-sparse-activation",
     "date": "2026-03-07",
