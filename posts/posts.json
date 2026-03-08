@@ -1,5 +1,18 @@
 [
   {
+    "title": "多查询注意力（MQA）与分组查询注意力（GQA）的优化",
+    "slug": "mqa-gqa-optimization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制",
+      "推理优化"
+    ],
+    "summary": "GQA 通过减少 KV 头数压缩缓存，是 MHA 精度与 MQA 效率之间最实用的推理折中"
+  },
+  {
     "title": "稀疏注意力模式：局部+全局的混合设计",
     "slug": "sparse-attention-patterns",
     "date": "2026-03-08",

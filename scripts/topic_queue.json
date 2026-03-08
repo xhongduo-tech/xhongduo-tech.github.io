@@ -28458,7 +28458,7 @@
       "推理优化"
     ],
     "brief": "MQA 与 GQA 通过共享 KV 头减少内存开销：MQA 所有 Q 头共享同一组 KV，GQA 将 Q 头分组共享 KV。分析 MQA/GQA 的内存节省、计算效率提升，以及精度损失。LLaMA-2、GPT-4 等模型的 GQA 配置。从标准 MHA 迁移到 GQA 的方法与注意事项。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer 的参数共享策略：Embedding 与 Softmax 共享",
