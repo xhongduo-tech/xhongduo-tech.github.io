@@ -1436,7 +1436,7 @@
       "序列建模"
     ],
     "brief": "核心要点：RWKV 将 attention 替换为 WKV 算子：wkv_t = Σ e^{-(t-i)w+k_i}·v_i / Σ e^{-(t-i)w+k_i}，其中 w 是可学习的衰减率。Token shift（时间混合）r_t = μ·x_t + (1-μ)·x_{t-1} 引入局部上下文。RWKV-6 进一步支持数据依赖的衰减。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "注意力 Sink 现象与 StreamingLLM",

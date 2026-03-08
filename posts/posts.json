@@ -1,5 +1,17 @@
 [
   {
+    "title": "RWKV 的线性 Attention 与 Token Shift",
+    "slug": "rwkv-linear-attention-token-shift",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "序列建模"
+    ],
+    "summary": "RWKV 用指数衰减的 WKV 状态替代注意力，并靠 Token Shift 补足局部上下文。"
+  },
+  {
     "title": "FlashAttention 与稀疏模式的融合",
     "slug": "flashattention-sparse-pattern-fusion",
     "date": "2026-03-08",
