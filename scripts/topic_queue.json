@@ -15738,7 +15738,7 @@
       "数据采集"
     ],
     "brief": "浏览器指纹检测与绕过：Canvas 指纹、WebGL 指纹、AudioContext 指纹。Headless 检测与伪装。行为模拟：鼠标轨迹、滚动模式、点击间隔。验证码处理：OCR、第三方服务、手动介入。反检测的伦理与法律边界。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "流式数据采集架构",

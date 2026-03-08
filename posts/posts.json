@@ -1,5 +1,17 @@
 [
   {
+    "title": "爬虫反检测技术",
+    "slug": "data-eng-crawler-anti-detection",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据采集"
+    ],
+    "summary": "反检测不是改单点，而是让环境、渲染、行为和验证码链路整体接近真实用户"
+  },
+  {
     "title": "预训练数据的 Tokenization 分析",
     "slug": "data-eng-pretraining-tokenization-analysis",
     "date": "2026-03-08",
