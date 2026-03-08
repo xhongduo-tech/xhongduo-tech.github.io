@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer 的长上下文处理：注意力机制的改进",
+    "slug": "transformer-long-context-processing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "长上下文",
+      "注意力机制"
+    ],
+    "summary": "长上下文的核心不是窗口更大，而是用稀疏连接和记忆压缩替代全连接注意力。"
+  },
+  {
     "title": "多模态 Transformer：视觉-语言融合的架构设计",
     "slug": "multimodal-transformer-architecture",
     "date": "2026-03-08",
