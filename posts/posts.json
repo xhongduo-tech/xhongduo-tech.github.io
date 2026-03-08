@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixtral 的路由模式：逐层专家分配分析",
+    "slug": "mixtral-routing-pattern-analysis",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "Mixtral"
+    ],
+    "summary": "Mixtral 路由呈现浅层偏语法、深层偏语义，中层最适合扩展候选专家池。"
+  },
+  {
     "title": "MoE 中 FFN 专家的功能分化",
     "slug": "moe-expert-specialization-analysis",
     "date": "2026-03-08",
