@@ -1,5 +1,18 @@
 [
   {
+    "title": "组合数学：排列、组合与生成函数",
+    "slug": "combinatorics-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "组合数学",
+      "离散数学"
+    ],
+    "summary": "排列看顺序，组合看取法，生成函数把分层计数转成多项式系数。"
+  },
+  {
     "title": "概率论中的不等式：切比雪夫、霍夫丁与伯恩斯坦",
     "slug": "probability-inequalities",
     "date": "2026-03-08",
