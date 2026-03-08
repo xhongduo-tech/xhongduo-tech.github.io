@@ -1,5 +1,19 @@
 [
   {
+    "title": "Switch Transformer",
+    "slug": "switch-transformer-single-expert-routing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "Switch Transformer",
+      "模型架构",
+      "Switch"
+    ],
+    "summary": "Switch Transformer 用 Top-1 路由降本，用 CF 缓冲负载波动，在吞吐与稳定性之间取得工程折中。"
+  },
+  {
     "title": "MoE 负载均衡损失的设计与调参",
     "slug": "moe-load-balancing-loss",
     "date": "2026-03-08",

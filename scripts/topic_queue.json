@@ -1500,7 +1500,7 @@
       "Switch"
     ],
     "brief": "核心要点：Switch Transformer 将 Top-2 简化为 Top-1 路由，每个 token 只发送到一个专家，减少计算和通信开销。分析其容量因子 CF 的定义 CF=(tokens_per_expert)/(total_tokens/N)，CF=1.0~1.25 的选择对溢出 token 丢弃率的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixtral 8x7B 架构：稀疏 MoE 的工程实现",
