@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态 Transformer：视觉-语言融合的架构设计",
+    "slug": "multimodal-transformer-architecture",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "多模态",
+      "视觉-语言"
+    ],
+    "summary": "多模态 Transformer 的关键不在能否融合，而在何时、以多大代价完成图文对齐。"
+  },
+  {
     "title": "Transformer 的知识蒸馏：学生模型的架构设计",
     "slug": "transformer-knowledge-distillation",
     "date": "2026-03-08",
