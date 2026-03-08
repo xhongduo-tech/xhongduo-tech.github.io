@@ -4359,7 +4359,7 @@
       "提示工程"
     ],
     "brief": "核心要点：对比 tool_choice 的 auto/required/none/指定函数四种模式对调用行为的影响。auto 模式下模型可能跳过必要调用，required 模式下可能产生幻觉调用。实测在多工具场景（>10 tools）中，精确指定可将准确率从 72% 提升至 94%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "工具描述的 Prompt 工程优化",

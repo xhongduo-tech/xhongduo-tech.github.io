@@ -1,5 +1,17 @@
 [
   {
+    "title": "工具调用的强制模式与自由选择对比",
+    "slug": "tool-choice-forced-vs-auto",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "提示工程"
+    ],
+    "summary": "tool_choice 决定模型有多大调用自由，关键步骤应减少自由度而不是盲信 auto"
+  },
+  {
     "title": "并行函数调用的调度与依赖分析",
     "slug": "parallel-function-calling-scheduling",
     "date": "2026-03-08",
