@@ -1,5 +1,18 @@
 [
   {
+    "title": "复分析基础：解析函数与留数定理",
+    "slug": "complex-analysis-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "分析",
+      "复分析"
+    ],
+    "summary": "解析函数由柯西-黎曼方程刻画，闭路积分与留数定理把复杂积分化为极点求和。"
+  },
+  {
     "title": "实分析基础：连续性、可测性与积分",
     "slug": "real-analysis-fundamentals",
     "date": "2026-03-08",
