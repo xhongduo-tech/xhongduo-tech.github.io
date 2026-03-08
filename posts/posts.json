@@ -1,5 +1,18 @@
 [
   {
+    "title": "数值优化：线搜索与信赖域方法",
+    "slug": "numerical-optimization-methods",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论",
+      "数值分析"
+    ],
+    "summary": "线搜索控步长，信赖域控可信范围；前者简单，后者更稳健。"
+  },
+  {
     "title": "图论基础：图的表示与算法",
     "slug": "graph-theory-fundamentals",
     "date": "2026-03-08",
