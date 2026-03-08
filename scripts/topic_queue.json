@@ -1386,7 +1386,7 @@
       "数值计算"
     ],
     "brief": "核心要点：离散化 SSM 等价于因果卷积 y = K * x，卷积核 K_t = C·Ā^t·B̄。训练时用 FFT 在 O(N log N) 内完成，推理时切换为递推形式。S4 通过对角化 A 将卷积核计算从 O(N·d²) 降至 O(N·d)，DSS 进一步简化为纯对角 SSM。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Dilated Attention",

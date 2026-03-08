@@ -1,5 +1,17 @@
 [
   {
+    "title": "因果卷积与 SSM 的频域加速",
+    "slug": "causal-convolution-ssm-fft-acceleration",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "状态空间模型",
+      "数值计算"
+    ],
+    "summary": "离散 SSM 可写成因果卷积，训练用 FFT 加速，推理切回递推。"
+  },
+  {
     "title": "Performer 正交随机特征的方差分析",
     "slug": "performer-orthogonal-random-features-variance",
     "date": "2026-03-08",
