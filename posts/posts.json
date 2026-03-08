@@ -1,5 +1,17 @@
 [
   {
+    "title": "多头潜在注意力：DeepSeek-V2 的 KV 压缩",
+    "slug": "multi-head-latent-attention-deepseek-v2",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "注意力机制",
+      "推理优化"
+    ],
+    "summary": "MLA把高维KV压成低维潜在向量缓存，并用矩阵吸收在不显式还原KV的前提下降低长上下文显存成本"
+  },
+  {
     "title": "线性注意力的表达力局限与修补",
     "slug": "linear-attention-expressiveness-limitations",
     "date": "2026-03-08",

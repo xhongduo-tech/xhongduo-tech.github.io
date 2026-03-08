@@ -1362,7 +1362,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MLA 将 K/V 投影到低秩潜在空间 c_t = W_DKV·x_t（维度 d_c << n_h·d_h），推理时仅缓存 c_t。DeepSeek-V2 用 d_c=512 替代 128 头×128 维的 KV，cache 减少 93.3%。通过吸收矩阵合并避免显式还原 K/V。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Performer 正交随机特征的方差分析",
