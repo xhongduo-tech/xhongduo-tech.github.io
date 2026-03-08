@@ -1,5 +1,18 @@
 [
   {
+    "title": "混合架构：Transformer 与 RNN/CNN 的结合",
+    "slug": "hybrid-architectures-transformer",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "混合模型",
+      "架构设计"
+    ],
+    "summary": "混合架构用局部或结构偏置补足Transformer，在效率与表达力之间做明确分工。"
+  },
+  {
     "title": "Transformer 的注意力 dropout 与层 dropout 的作用",
     "slug": "transformer-dropout-strategies",
     "date": "2026-03-08",

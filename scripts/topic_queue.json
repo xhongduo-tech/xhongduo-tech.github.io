@@ -28554,7 +28554,7 @@
       "架构设计"
     ],
     "brief": "混合架构结合不同模型的优势：Transformer + RNN（捕捉长距离依赖）、Transformer + CNN（捕捉局部特征）、Transformer + 图神经网络（捕捉结构化信息）。分析不同混合策略的适用场景，以及如何平衡各组件的贡献。Longformer、T5、GPT-J 等模型的混合设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer 的知识蒸馏：学生模型的架构设计",
