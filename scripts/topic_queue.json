@@ -1350,7 +1350,7 @@
       "理论分析"
     ],
     "brief": "核心要点：线性注意力等价于 d×d 状态的线性 RNN，状态容量有限，无法精确执行 copying/retrieval 等需要 O(N) 状态的任务。Based（2024）通过 Taylor 展开近似 softmax 提升短程表达力，HGRN2 通过外积状态扩展解决部分容量问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多头潜在注意力：DeepSeek-V2 的 KV 压缩",

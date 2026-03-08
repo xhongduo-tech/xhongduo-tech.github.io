@@ -1,5 +1,17 @@
 [
   {
+    "title": "线性注意力的表达力局限与修补",
+    "slug": "linear-attention-expressiveness-limitations",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "理论分析"
+    ],
+    "summary": "线性注意力本质是固定状态RNN，长程精确检索受容量限制，修补要靠高阶近似或状态扩展"
+  },
+  {
     "title": "稀疏注意力模式的信息论分析",
     "slug": "sparse-attention-information-theoretic-analysis",
     "date": "2026-03-08",
