@@ -28602,7 +28602,7 @@
       "KV Cache"
     ],
     "brief": "推理阶段的优化策略：KV Cache 的高效管理（PagedAttention）、连续批处理（Continuous Batching）、投机解码（Speculative Decoding）、动态批处理（Dynamic Batching）。分析这些技术的原理、加速效果、内存开销。vLLM、TensorRT-LLM、TGI 等推理框架的优化策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "张量运算基础：从标量到高阶张量的数学操作",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer 的推理优化：KV Cache 管理与批处理",
+    "slug": "transformer-inference-optimization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "推理优化",
+      "KV Cache"
+    ],
+    "summary": "KV Cache 优化的核心是分页存储、连续调度和投机验收三层协同。"
+  },
+  {
     "title": "Transformer 的长上下文处理：注意力机制的改进",
     "slug": "transformer-long-context-processing",
     "date": "2026-03-08",
