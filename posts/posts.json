@@ -1,5 +1,18 @@
 [
   {
+    "title": "自回归生成的并行化：交错解码与块级并行",
+    "slug": "autoregressive-parallelization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "推理优化",
+      "并行化"
+    ],
+    "summary": "自回归推理虽顺序，但可用草稿验证、块级预测和批处理并行压缩主模型前向次数。"
+  },
+  {
     "title": "条件计算：动态深度与宽度的自适应",
     "slug": "conditional-computation-transformer",
     "date": "2026-03-08",

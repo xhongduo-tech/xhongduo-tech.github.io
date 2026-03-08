@@ -28518,7 +28518,7 @@
       "并行化"
     ],
     "brief": "自回归生成的本质是顺序的，但可以通过并行化技术加速：交错解码（interleaved decoding）、块级并行（block-level parallelism）、批处理并行（batch parallelism）。分析这些技术的原理、加速效果、内存开销。vLLM、TensorRT-LLM 等推理框架的并行化策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer 的初始化策略：超越 Xavier/He",
