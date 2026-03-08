@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态预训练：CLIP 与 ALIGN 的对比",
+    "slug": "multimodal-pretraining-clip-align",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "预训练",
+      "对比学习"
+    ],
+    "summary": "CLIP重数据质量，ALIGN重数据规模；两者都靠双塔对比学习完成图文对齐。"
+  },
+  {
     "title": "视觉编码器：ViT 与 CNN 的对比",
     "slug": "vision-encoders-vit-vs-cnn",
     "date": "2026-03-08",
