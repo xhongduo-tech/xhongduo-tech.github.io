@@ -1,5 +1,18 @@
 [
   {
+    "title": "视觉编码器：ViT 与 CNN 的对比",
+    "slug": "vision-encoders-vit-vs-cnn",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码器",
+      "ViT"
+    ],
+    "summary": "CNN强在局部与低资源，ViT强在全局建模与多模态扩展。"
+  },
+  {
     "title": "多模态融合架构：早期融合 vs 晚期融合",
     "slug": "multimodal-fusion-architectures",
     "date": "2026-03-08",

@@ -28806,7 +28806,7 @@
       "ViT"
     ],
     "brief": "视觉编码器的演进：从 CNN（卷积神经网络）到 ViT（视觉 Transformer）。ViT 的设计原理：将图像分割为 patches，通过自注意力捕捉全局依赖。CNN 的优势：平移不变性、局部特征提取。ViT 的优势：全局上下文建模、可扩展性。不同视觉编码器在多模态任务中的表现对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态预训练：CLIP 与 ALIGN 的对比",
