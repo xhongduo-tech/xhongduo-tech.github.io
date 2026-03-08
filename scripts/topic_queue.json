@@ -4335,7 +4335,7 @@
       "Function Calling"
     ],
     "brief": "核心要点：拆解 OpenAI、Anthropic、Gemini 三家 Function Calling 协议的 JSON Schema 定义差异，分析参数类型约束（enum、oneOf、$ref）对调用准确率的影响，GPT-4 在嵌套对象参数上的错误率约 12-18%，扁平化参数设计可降至 3-5%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "并行函数调用的调度与依赖分析",
@@ -4347,7 +4347,7 @@
       "并行执行"
     ],
     "brief": "核心要点：分析 GPT-4-turbo 的 parallel_tool_calls 机制，模型如何识别独立调用并批量发出。构建调用依赖图的拓扑排序算法，实测并行调用相比串行可减少 40-60% 的端到端延迟，但存在状态竞争问题需要幂等性保证",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "工具调用的强制模式与自由选择对比",

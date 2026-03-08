@@ -1,5 +1,17 @@
 [
   {
+    "title": "并行函数调用的调度与依赖分析",
+    "slug": "parallel-function-calling-scheduling",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "并行执行"
+    ],
+    "summary": "并行函数调用的收益来自独立读任务并发，关键难点不是让模型一次返回多个 tool call，而是把依赖分析、分层调度、结…"
+  },
+  {
     "title": "思维链与程序化推理的互补机制",
     "slug": "cot-program-aided-reasoning",
     "date": "2026-03-08",
