@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 中 FFN 专家的功能分化",
+    "slug": "moe-expert-specialization-analysis",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "可解释性"
+    ],
+    "summary": "MoE 专家分化源于稀疏路由的隐式聚类，但必须与负载平衡一起分析。"
+  },
+  {
     "title": "Soft MoE",
     "slug": "soft-moe-differentiable-routing",
     "date": "2026-03-08",
