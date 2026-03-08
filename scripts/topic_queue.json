@@ -15826,7 +15826,7 @@
       "数据标注"
     ],
     "brief": "弱监督的核心理念：多源噪声标签的聚合。Snorkel 框架的 Labeling Function 设计。标签模型的训练与聚合。弱监督标注的质量评估。弱监督 vs 远程监督 vs 众包标注的对比。弱监督在 NLP 任务中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "合成指令数据的多样性控制",

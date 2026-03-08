@@ -1,5 +1,17 @@
 [
   {
+    "title": "弱监督标注策略",
+    "slug": "data-eng-weak-supervision-annotation",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据标注"
+    ],
+    "summary": "弱监督用标签模型聚合多源噪声投票，以较低人工成本生成可训练的概率标签"
+  },
+  {
     "title": "跨模态数据对齐",
     "slug": "data-eng-cross-modal-data-alignment",
     "date": "2026-03-08",
