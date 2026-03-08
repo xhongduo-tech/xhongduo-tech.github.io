@@ -1,5 +1,17 @@
 [
   {
+    "title": "工具选择的意图识别与消歧",
+    "slug": "tool-selection-intent-disambiguation",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "意图理解"
+    ],
+    "summary": "多工具意图识别的关键是先缩小候选，再用边界清晰的描述做最终消歧"
+  },
+  {
     "title": "工具调用的错误处理与回退策略",
     "slug": "tool-calling-error-handling-fallback",
     "date": "2026-03-08",
