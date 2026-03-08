@@ -1,5 +1,18 @@
 [
   {
+    "title": "优化算法：一阶与二阶方法的对比",
+    "slug": "optimization-algorithms-comparison",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论",
+      "算法"
+    ],
+    "summary": "一阶法便宜但慢，二阶法快但贵，L-BFGS与共轭梯度是工程上最常见的折中。"
+  },
+  {
     "title": "复分析基础：解析函数与留数定理",
     "slug": "complex-analysis-fundamentals",
     "date": "2026-03-08",
