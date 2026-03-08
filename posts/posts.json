@@ -1,5 +1,17 @@
 [
   {
+    "title": "多轮工具调用的上下文管理",
+    "slug": "multi-turn-tool-calling-context",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "上下文管理"
+    ],
+    "summary": "工具结果会以tool消息进入上下文，必须用压缩、筛选和窗口策略控制膨胀"
+  },
+  {
     "title": "结构化输出与 Function Calling 的统一",
     "slug": "structured-output-function-calling-unification",
     "date": "2026-03-08",
