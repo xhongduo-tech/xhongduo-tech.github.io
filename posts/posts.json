@@ -1,5 +1,17 @@
 [
   {
+    "title": "线性注意力的因果 Mask 与递推形式",
+    "slug": "linear-attention-causal-recurrent-form",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "序列建模"
+    ],
+    "summary": "因果线性注意力可把历史压成递推状态，推理像RNN，训练仍可并行。"
+  },
+  {
     "title": "Performer 的 FAVOR+ 随机特征近似",
     "slug": "performer-favor-plus-random-features",
     "date": "2026-03-08",

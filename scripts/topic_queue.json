@@ -1234,7 +1234,7 @@
       "序列建模"
     ],
     "brief": "核心要点：去掉 softmax 后，因果注意力可写成递推 S_t = S_{t-1} + φ(k_t)v_tᵀ，输出 o_t = φ(q_t)ᵀS_t / φ(q_t)ᵀz_t。S 是 d×d 的状态矩阵，推理复杂度 O(d²) per step，与 RNN 等价但可并行训练。这是 SSM 与 attention 统一视角的关键。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mamba 的选择性扫描机制",
