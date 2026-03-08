@@ -1,5 +1,17 @@
 [
   {
+    "title": "ToT 在数学证明搜索中的应用",
+    "slug": "tot-mathematical-proof-search",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ToT",
+      "数学证明"
+    ],
+    "summary": "ToT把数学证明从单链生成改成可回溯树搜索，并借助Lean反馈显著提升可验证证明成功率"
+  },
+  {
     "title": "Universal Self-Consistency 的无标签校验",
     "slug": "universal-self-consistency",
     "date": "2026-03-08",
