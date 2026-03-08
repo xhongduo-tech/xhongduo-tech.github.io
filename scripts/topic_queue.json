@@ -1424,7 +1424,7 @@
       "稀疏注意力"
     ],
     "brief": "核心要点：FlashAttention 通过 block mask 支持任意稀疏模式（滑动窗口、因果、固定模式），对全零块直接跳过 GEMM 计算。FlexAttention（PyTorch 2.5）将 mask 函数 JIT 编译为自定义 kernel，用户可组合任意稀疏模式而无需手写 CUDA。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RWKV 的线性 Attention 与 Token Shift",

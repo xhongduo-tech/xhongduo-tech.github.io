@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention 与稀疏模式的融合",
+    "slug": "flashattention-sparse-pattern-fusion",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "注意力机制",
+      "稀疏注意力"
+    ],
+    "summary": "块稀疏 FlashAttention 的本质是按块跳过无效 GEMM，并保持 FlashAttention 的在线 s…"
+  },
+  {
     "title": "Hash-based 稀疏注意力：Reformer 的 LSH 机制",
     "slug": "reformer-lsh-attention-mechanism",
     "date": "2026-03-08",
