@@ -1,5 +1,18 @@
 [
   {
+    "title": "条件计算：动态深度与宽度的自适应",
+    "slug": "conditional-computation-transformer",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "动态计算",
+      "条件计算"
+    ],
+    "summary": "条件计算按输入动态调深度、宽度与注意力，在可控精度损失下减少平均推理开销。"
+  },
+  {
     "title": "跨层参数共享",
     "slug": "cross-layer-parameter-sharing",
     "date": "2026-03-08",
