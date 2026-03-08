@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态融合架构：早期融合 vs 晚期融合",
+    "slug": "multimodal-fusion-architectures",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "融合架构",
+      "视觉-语言"
+    ],
+    "summary": "多模态融合的核心是决定跨模态交互发生在输入、中间还是输出阶段。"
+  },
+  {
     "title": "统计推断：假设检验与置信区间",
     "slug": "statistical-inference-fundamentals",
     "date": "2026-03-08",
