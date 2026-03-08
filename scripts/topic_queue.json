@@ -4311,7 +4311,7 @@
       "反思"
     ],
     "brief": "核心要点：Reflexion 在 ReAct 基础上增加语言化反思记忆，Agent 将失败经验转化为自然语言经验存入长期记忆。在 HumanEval 代码生成上从 67% 提升至 91%（pass@1），分析反思质量与记忆管理的关键设计",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "思维链与程序化推理的互补机制",

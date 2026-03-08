@@ -1,5 +1,19 @@
 [
   {
+    "title": "Reflexion",
+    "slug": "reflexion-language-feedback-learning",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ReAct",
+      "自我反思",
+      "架构",
+      "反思"
+    ],
+    "summary": "Reflexion用自然语言反思充当短期经验记忆，让Agent不改权重也能越试越准。"
+  },
+  {
     "title": "CoT 的对抗鲁棒性分析",
     "slug": "cot-adversarial-robustness",
     "date": "2026-03-08",
