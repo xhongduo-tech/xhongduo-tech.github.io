@@ -345,7 +345,7 @@ async function initPostPage() {
       <div class="post-author">
         <span class="post-author-icon" aria-hidden="true">⌨</span>
         ${post.author === 'both'
-          ? `<span>Codex</span><span class="author-sep">&amp;</span><span>xuhongduo</span>`
+          ? `<span>Codex</span><span class="author-sep">&amp;</span><span>GPT-5.4</span><span class="author-sep">&amp;</span><span>xuhongduo</span>`
           : `<span>Codex</span>`}
       </div>
     </header>

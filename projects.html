@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>xhd.log</title>
+  <title>projects · xhd.log</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
   <script>
-    // 初始化主题（避免闪白）
     (function() {
       var saved = localStorage.getItem('theme');
       var t = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -23,8 +22,8 @@
           <span class="prompt">&gt;</span>xhd
         </a>
         <div class="nav-links">
-          <a href="index.html" class="active">posts</a>
-          <a href="projects.html">projects</a>
+          <a href="index.html">posts</a>
+          <a href="projects.html" class="active">projects</a>
           <a href="about.html">about</a>
           <a href="https://github.com/xuhongduo" class="github-btn" target="_blank" rel="noopener" aria-label="GitHub">
             <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
@@ -45,27 +44,45 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="hero-cmd">
-        <span class="prompt">$</span> cat xhd.log
-      </div>
-      <h1>技术随笔<span class="blink">_</span></h1>
-      <p class="hero-sub">// 记录代码、架构与思考碎片</p>
-    </section>
+    <article class="post-article about-page">
+      <section class="hero">
+        <div class="hero-cmd">
+          <span class="prompt">$</span> ls -la ./projects
+        </div>
+        <h1>Projects<span class="blink">_</span></h1>
+      </section>
 
-    <!-- 分类 & 搜索 & 标签过滤 -->
-    <div class="filter-bar">
-      <div id="category-tabs" class="category-tabs"></div>
-      <div class="search-wrap">
-        <input type="text" id="search-input" placeholder="搜索文章..." class="search-input" />
-      </div>
-      <div id="tag-filter" class="tag-filter"></div>
-    </div>
+      <div class="post-body">
+        <p>
+          以下是我在 LLM、智能体与系统工程方向的主要项目。
+        </p>
 
-    <!-- 文章列表 -->
-    <div id="post-list" class="post-list">
-      <div class="loading">加载中</div>
-    </div>
+        <h2>进行中</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-name">xhd.log</span>
+              <span class="project-lang">HTML / JS</span>
+            </div>
+            <p class="project-desc">
+              本站——纯静态技术博客，无框架无构建步骤，托管于 GitHub Pages。
+              记录大模型、智能体与系统设计的研究笔记。
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/xuhongduo" target="_blank" rel="noopener">→ GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <h2>方向</h2>
+        <ul>
+          <li><strong>LLM 推理与加速</strong>：量化、KV cache 优化、speculative decoding</li>
+          <li><strong>Agent 系统</strong>：planning、memory、multi-agent 协调</li>
+          <li><strong>认知架构</strong>：超越 token prediction 的思维建模</li>
+          <li><strong>工程基础设施</strong>：分布式 serving、评估框架</li>
+        </ul>
+      </div>
+    </article>
   </main>
 
   <footer class="site-footer">

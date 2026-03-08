@@ -154,6 +154,61 @@ main.container {
 }
 .theme-btn:hover { color: var(--accent); border-color: var(--accent); }
 
+/* ===== GitHub 图标 ===== */
+.github-btn {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+.github-btn:hover { color: var(--text); text-decoration: none; }
+.github-icon {
+  width: 15px;
+  height: 15px;
+}
+
+/* ===== Projects 页卡片 ===== */
+.project-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: border-color 0.15s;
+}
+.project-card:hover { border-color: var(--accent); }
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.project-name {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.project-lang {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+.project-links a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
 /* ===== Hero ===== */
 .hero {
   margin-bottom: 44px;
