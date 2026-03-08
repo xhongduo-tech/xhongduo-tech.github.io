@@ -4659,7 +4659,7 @@
       "视觉定位"
     ],
     "brief": "核心要点：GUI Grounding 是将自然语言指令映射到屏幕坐标的能力。CogAgent（18B）通过高分辨率交叉注意力模块实现 1120x1120 输入，在 ScreenSpot 基准上文本定位准确率 76.1%、图标定位 67.0%。对比 SeeClick、UGround 等方法的训练数据构建策略",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "计算机使用中的 GUI 导航规划算法",

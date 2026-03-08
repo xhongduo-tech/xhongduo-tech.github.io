@@ -1,5 +1,17 @@
 [
   {
+    "title": "GUI Agent 的 Grounding 对齐训练",
+    "slug": "gui-agent-grounding-training",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "计算机使用",
+      "视觉定位"
+    ],
+    "summary": "GUI Grounding 的核心是高分辨率感知与 GUI 专属数据对齐训练。"
+  },
+  {
     "title": "浏览器 Agent 的表单自动填写机制",
     "slug": "browser-agent-form-filling",
     "date": "2026-03-08",
