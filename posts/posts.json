@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer 的知识蒸馏：学生模型的架构设计",
+    "slug": "transformer-knowledge-distillation",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "知识蒸馏",
+      "模型压缩"
+    ],
+    "summary": "学生模型设计先看可对齐性：优先减层，谨慎减宽，并用输出与中间层联合蒸馏。"
+  },
+  {
     "title": "混合架构：Transformer 与 RNN/CNN 的结合",
     "slug": "hybrid-architectures-transformer",
     "date": "2026-03-08",
