@@ -4527,7 +4527,7 @@
       "坐标预测"
     ],
     "brief": "核心要点：多模态模型从截图预测点击坐标的精度分析。Claude 3.5 Sonnet 在 OSWorld 基准上的坐标偏差中位数约 15-30px，对小按钮（<20px）的点击失败率约 35%。分辨率降低、UI 元素密集、深色主题是三大精度下降因素",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "OSWorld 基准的跨平台桌面 Agent 评测",

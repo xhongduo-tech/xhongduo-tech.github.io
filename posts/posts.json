@@ -1,5 +1,17 @@
 [
   {
+    "title": "计算机使用中的坐标预测精度分析",
+    "slug": "computer-use-coordinate-prediction",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "计算机使用",
+      "坐标预测"
+    ],
+    "summary": "坐标预测误差常由分辨率、目标大小和界面复杂度共同放大，需用结构化边界信息补强。"
+  },
+  {
     "title": "Claude Computer Use 的屏幕交互协议",
     "slug": "claude-computer-use-protocol",
     "date": "2026-03-08",
