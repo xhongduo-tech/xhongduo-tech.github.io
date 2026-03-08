@@ -1,5 +1,18 @@
 [
   {
+    "title": "信息论基础：熵、互信息与 KL 散度",
+    "slug": "information-theory-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论",
+      "熵"
+    ],
+    "summary": "熵衡量不确定性，互信息衡量共享信息，KL 散度衡量分布逼近代价。"
+  },
+  {
     "title": "概率分布：从离散到连续的统一视角",
     "slug": "probability-distributions-unified",
     "date": "2026-03-08",
