@@ -15804,7 +15804,7 @@
       "数据去重"
     ],
     "brief": "TB 级数据去重的工程挑战：内存限制、网络带宽、计算效率。MinHash LSH 的分布式实现：签名生成并行化、分桶分布式化。去重索引的构建与查询优化。Spark datasketch 集成。去重任务的监控与调优。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "跨模态数据对齐",
