@@ -1,5 +1,17 @@
 [
   {
+    "title": "多语言数据采集与处理",
+    "slug": "data-eng-multilingual-data-processing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "先做语言识别与分桶，再按资源差异动态采样，才能兼顾高资源语效率与低资源语覆盖。"
+  },
+  {
     "title": "语义记忆的 Embedding 表示与检索策略",
     "slug": "semantic-memory-embedding-retrieval",
     "date": "2026-03-08",
