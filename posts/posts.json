@@ -1,5 +1,17 @@
 [
   {
+    "title": "网页元素定位的语义标注方法",
+    "slug": "web-element-semantic-annotation",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "浏览器控制",
+      "元素定位"
+    ],
+    "summary": "SoM用截图编号把网页元素定位从坐标猜测改成离散选择，更适合浏览器Agent。"
+  },
+  {
     "title": "Playwright 驱动的浏览器 Agent 架构",
     "slug": "playwright-browser-agent-architecture",
     "date": "2026-03-08",

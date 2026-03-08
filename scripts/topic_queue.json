@@ -4467,7 +4467,7 @@
       "元素定位"
     ],
     "brief": "核心要点：浏览器 Agent 如何将 DOM 元素映射为可操作目标。Set-of-Mark（SoM）标注法在页面截图上叠加数字标签，使多模态模型可直接引用元素。对比 CSS 选择器、XPath、坐标点击、SoM 标注四种定位方式的鲁棒性和准确率差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "浏览器 Agent 的视觉感知与 DOM 感知对比",
