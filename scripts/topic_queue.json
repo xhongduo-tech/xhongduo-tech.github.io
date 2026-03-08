@@ -4407,7 +4407,7 @@
       "安全"
     ],
     "brief": "核心要点：分析 OpenAI Code Interpreter、Claude Analysis、E2B 三种代码沙箱的隔离架构。gVisor/microVM/容器三层沙箱的安全边界，文件系统隔离、网络隔离、系统调用白名单的具体实现。代码执行的超时机制（通常 30-120s）和资源限制（内存 512MB-2GB）",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "代码执行反馈的自动修复循环",

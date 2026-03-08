@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 代码沙箱的隔离与安全机制",
+    "slug": "agent-code-sandbox-isolation",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "代码执行",
+      "安全"
+    ],
+    "summary": "Agent 代码沙箱的本质，是用多层隔离和最小权限把不受信任代码关进可控边界。"
+  },
+  {
     "title": "多轮工具调用的上下文管理",
     "slug": "multi-turn-tool-calling-context",
     "date": "2026-03-08",
