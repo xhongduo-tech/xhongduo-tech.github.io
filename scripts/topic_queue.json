@@ -1460,7 +1460,7 @@
       "模型架构"
     ],
     "brief": "核心要点：将 MoE 思想应用于注意力头，每个 token 通过 router 选择 k 个活跃头（如 k=2/8），非活跃头跳过计算。SwitchHead（2024）在保持质量的前提下将 attention 计算减少 4x。路由策略包括 token-level 和 query-level 两种粒度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 路由机制",

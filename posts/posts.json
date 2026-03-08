@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixture of Attention Heads：动态稀疏注意力路由",
+    "slug": "mixture-of-attention-heads-routing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "模型架构"
+    ],
+    "summary": "按 token 动态选择少数注意力头，可显著降低 attention 计算与缓存成本。"
+  },
+  {
     "title": "注意力 Sink 现象与 StreamingLLM",
     "slug": "attention-sink-streaming-llm",
     "date": "2026-03-08",
