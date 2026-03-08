@@ -1,5 +1,17 @@
 [
   {
+    "title": "Playwright 驱动的浏览器 Agent 架构",
+    "slug": "playwright-browser-agent-architecture",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "浏览器控制",
+      "Playwright"
+    ],
+    "summary": "浏览器Agent的关键是用Accessibility Tree降token，并用快照-动作-复核闭环保证状态同步"
+  },
+  {
     "title": "代码执行中的状态持久化设计",
     "slug": "code-execution-state-persistence",
     "date": "2026-03-08",

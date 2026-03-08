@@ -4455,7 +4455,7 @@
       "Playwright"
     ],
     "brief": "核心要点：基于 Playwright 的浏览器 Agent 架构设计，包括页面状态提取（DOM 快照 vs 截图 vs Accessibility Tree）、动作空间定义（click/type/scroll/navigate）、动作执行与验证。Accessibility Tree 相比原始 HTML 可减少 90% 的 token 消耗",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "网页元素定位的语义标注方法",
