@@ -28470,7 +28470,7 @@
       "参数效率"
     ],
     "brief": "参数共享可以减少模型参数量：Embedding 层与 Softmax 层权重共享、层间参数共享、注意力头参数共享。分析参数共享的效果：参数量减少、训练稳定性、下游任务性能。T5、BART 等模型的参数共享策略。参数共享对模型性能的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "归一化层的位置：Pre-Norm vs Post-Norm 的训练动态",

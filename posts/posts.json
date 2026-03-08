@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer 的参数共享策略：Embedding 与 Softmax 共享",
+    "slug": "transformer-parameter-sharing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer",
+      "参数效率"
+    ],
+    "summary": "Embedding 与 Softmax 共享本质是同一词表向量同时负责读入和生成，省参数且常更稳，但要求词表和维度严格…"
+  },
+  {
     "title": "多查询注意力（MQA）与分组查询注意力（GQA）的优化",
     "slug": "mqa-gqa-optimization",
     "date": "2026-03-08",
