@@ -4479,7 +4479,7 @@
       "多模态"
     ],
     "brief": "核心要点：纯视觉（截图+多模态模型）vs 纯 DOM（HTML/Accessibility Tree+文本模型）vs 混合模式三种浏览器感知方案。WebArena 基准上纯视觉准确率约 14%，纯 DOM 约 19%，混合模式可达 25%。视觉模式在动态渲染页面上优势明显，DOM 模式在表格数据提取上更可靠",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "WebArena 基准的任务设计与评估方法",

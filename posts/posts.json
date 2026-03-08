@@ -1,5 +1,17 @@
 [
   {
+    "title": "浏览器 Agent 的视觉感知与 DOM 感知对比",
+    "slug": "browser-agent-vision-vs-dom",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "浏览器控制",
+      "多模态"
+    ],
+    "summary": "纯视觉看外观，纯DOM看结构，混合模式通过互补显著提升浏览器Agent成功率"
+  },
+  {
     "title": "网页元素定位的语义标注方法",
     "slug": "web-element-semantic-annotation",
     "date": "2026-03-08",
