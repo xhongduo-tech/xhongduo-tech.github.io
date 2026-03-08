@@ -1584,7 +1584,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：ST-MoE 论文总结了 MoE 训练不稳定的系统性原因和解决方案。关键技术：Router z-loss L_z=1/B·Σ(log Σexp(x_i))² 惩罚门控 logit 过大、辅助损失权重调度、精度敏感层使用 float32。分析这些改进如何将训练失败率从 >30% 降至接近 0%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Base Layer：线性分配的确定性路由",

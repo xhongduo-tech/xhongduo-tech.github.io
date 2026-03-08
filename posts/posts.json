@@ -1,5 +1,17 @@
 [
   {
+    "title": "ST-MoE：稳定训练的大规模 MoE",
+    "slug": "st-moe-stable-training",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "训练稳定性"
+    ],
+    "summary": "ST-MoE 通过 z-loss、负载平衡和 float32 router，把大规模 MoE 的训练失稳问题压到可控范…"
+  },
+  {
     "title": "Expert Parallelism 的通信瓶颈分析",
     "slug": "expert-parallelism-communication-bottleneck",
     "date": "2026-03-08",
