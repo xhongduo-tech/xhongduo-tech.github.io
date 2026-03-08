@@ -1524,7 +1524,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：MoE 训练中常见的专家坍缩现象——少数专家接收大部分 token，其余专家权重停止更新。分析正反馈循环机制：高频专家梯度更大→参数更优→吸引更多 token。介绍 dropout、噪声注入、专家并行初始化等缓解方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Noisy Top-k Gating：路由探索的噪声机制",

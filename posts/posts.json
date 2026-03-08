@@ -1,5 +1,17 @@
 [
   {
+    "title": "专家坍缩问题：路由退化的成因与对策",
+    "slug": "moe-expert-collapse",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "训练稳定性"
+    ],
+    "summary": "专家坍缩是MoE中少数专家垄断token的正反馈失衡，需用负载均衡、噪声与训练期随机化联合抑制"
+  },
+  {
     "title": "Mixtral 8x7B 架构：稀疏 MoE 的工程实现",
     "slug": "mixtral-8x7b-architecture",
     "date": "2026-03-08",
