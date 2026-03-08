@@ -4515,7 +4515,7 @@
       "Computer Use"
     ],
     "brief": "核心要点：Anthropic Computer Use API 的三个工具（computer、text_editor、bash）协议设计。computer 工具通过坐标系（screenshot → coordinate → action）实现屏幕交互，分辨率建议 1280x800，缩放因子影响点击精度。连续截图的 token 成本约 1500 token/张",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "计算机使用中的坐标预测精度分析",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude Computer Use 的屏幕交互协议",
+    "slug": "claude-computer-use-protocol",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "计算机使用",
+      "Computer Use"
+    ],
+    "summary": "Computer Use 的核心是缩放截图坐标反算，并与文本编辑和命令执行形成闭环。"
+  },
+  {
     "title": "浏览器 Agent 的动作空间设计与约束",
     "slug": "browser-agent-action-space-design",
     "date": "2026-03-08",
