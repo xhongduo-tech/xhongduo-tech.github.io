@@ -1,5 +1,17 @@
 [
   {
+    "title": "Computer Use 的安全边界与权限控制",
+    "slug": "computer-use-security-boundaries",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "计算机使用",
+      "安全"
+    ],
+    "summary": "Computer Use 的安全核心是隔离环境、最小权限、网络控制与人工审批四层联防"
+  },
+  {
     "title": "OSWorld 基准的跨平台桌面 Agent 评测",
     "slug": "osworld-benchmark-desktop-agent",
     "date": "2026-03-08",

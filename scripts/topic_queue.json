@@ -4551,7 +4551,7 @@
       "安全"
     ],
     "brief": "核心要点：计算机使用场景的安全风险分类：Prompt Injection 通过屏幕内容注入指令、权限越界（sudo/管理员操作）、数据泄露（截图含敏感信息）。Anthropic 的安全建议：专用虚拟机、最小权限用户、网络隔离、Human-in-the-loop 审批高危操作",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "屏幕截图的 Token 优化与压缩策略",
