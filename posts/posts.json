@@ -1,5 +1,17 @@
 [
   {
+    "title": "Base Layer：线性分配的确定性路由",
+    "slug": "base-layer-linear-assignment-routing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Base Layer 用线性分配做确定性路由，以更高求解成本换取严格负载均衡。"
+  },
+  {
     "title": "ST-MoE：稳定训练的大规模 MoE",
     "slug": "st-moe-stable-training",
     "date": "2026-03-08",

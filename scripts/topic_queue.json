@@ -1596,7 +1596,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Base Layer 将 token-to-expert 分配建模为线性分配问题（匈牙利算法），保证每个专家精确接收相同数量的 token，彻底消除负载不均。分析其 O(n³) 复杂度的实际可行性（在 token 数较少时），以及与 Top-k 路由在质量上的对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Choice 路由：让专家选择 Token",
