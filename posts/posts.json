@@ -1,5 +1,17 @@
 [
   {
+    "title": "Performer 的 FAVOR+ 随机特征近似",
+    "slug": "performer-favor-plus-random-features",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "核方法"
+    ],
+    "summary": "Performer 用正值正交随机特征近似 softmax 核，把 attention 从二次复杂度改写为线性复杂度。"
+  },
+  {
     "title": "多模态预训练：CLIP 与 ALIGN 的对比",
     "slug": "multimodal-pretraining-clip-align",
     "date": "2026-03-08",

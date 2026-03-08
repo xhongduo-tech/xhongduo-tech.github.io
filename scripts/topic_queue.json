@@ -1222,7 +1222,7 @@
       "核方法"
     ],
     "brief": "核心要点：Performer 用随机特征映射 φ(x) = exp(ωᵀx - ||x||²/2)/√m 近似 softmax kernel，将 Attention 分解为 φ(Q)(φ(K)ᵀV)，复杂度从 O(N²d) 降至 O(Nmd)。正交随机特征（FAVOR+）将方差降低 O(1/m) 到 O(exp(-m))。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "线性注意力的因果 Mask 与递推形式",
