@@ -1,5 +1,17 @@
 [
   {
+    "title": "WebArena 基准的任务设计与评估方法",
+    "slug": "webarena-benchmark-design",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "浏览器控制",
+      "评测"
+    ],
+    "summary": "WebArena用最终状态而非动作轨迹评估网页智能体，核心难点是长程规划与错误恢复。"
+  },
+  {
     "title": "浏览器 Agent 的视觉感知与 DOM 感知对比",
     "slug": "browser-agent-vision-vs-dom",
     "date": "2026-03-08",
