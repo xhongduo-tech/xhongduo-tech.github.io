@@ -4647,7 +4647,7 @@
       "表单处理"
     ],
     "brief": "核心要点：复杂表单（多步骤、条件字段、验证码）的自动化填写策略。字段类型识别（text/select/radio/checkbox/file）与对应操作映射，动态表单（字段根据前序输入变化）的处理，实测在 50 个真实注册表单上的完整填写成功率约 62%，失败主要集中在验证码和自定义组件",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GUI Agent 的 Grounding 对齐训练",

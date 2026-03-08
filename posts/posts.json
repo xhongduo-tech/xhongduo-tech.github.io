@@ -1,5 +1,17 @@
 [
   {
+    "title": "浏览器 Agent 的表单自动填写机制",
+    "slug": "browser-agent-form-filling",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "浏览器控制",
+      "表单处理"
+    ],
+    "summary": "浏览器 Agent 填表的核心是字段识别、动作映射和动态重规划，验证码与自定义组件是主要失败源"
+  },
+  {
     "title": "浏览器 Agent 的多标签页协同控制",
     "slug": "browser-agent-multi-tab-coordination",
     "date": "2026-03-08",
