@@ -1,5 +1,17 @@
 [
   {
+    "title": "屏幕截图的 Token 优化与压缩策略",
+    "slug": "screenshot-token-optimization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "计算机使用",
+      "效率优化"
+    ],
+    "summary": "连续截图的核心优化不是压文件，而是减少视觉 token 的面积、频率和无效细节。"
+  },
+  {
     "title": "Computer Use 的安全边界与权限控制",
     "slug": "computer-use-security-boundaries",
     "date": "2026-03-08",
