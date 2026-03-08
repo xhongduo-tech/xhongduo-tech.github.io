@@ -1,5 +1,17 @@
 [
   {
+    "title": "MCP 协议的工具发现与注册机制",
+    "slug": "mcp-tool-discovery-registration",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "MCP"
+    ],
+    "summary": "MCP 用 tools/list 发现工具、tools/call 执行工具，以少量延迟换取高扩展性。"
+  },
+  {
     "title": "屏幕截图的 Token 优化与压缩策略",
     "slug": "screenshot-token-optimization",
     "date": "2026-03-08",

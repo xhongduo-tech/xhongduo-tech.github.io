@@ -4575,7 +4575,7 @@
       "MCP"
     ],
     "brief": "核心要点：Model Context Protocol 的 tools/list 和 tools/call 两阶段交互设计。Server 通过 JSON-RPC 2.0 注册工具的 name/description/inputSchema，Client 动态发现并调用。对比静态工具定义 vs MCP 动态发现在扩展性和延迟上的差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "工具调用的错误处理与回退策略",
