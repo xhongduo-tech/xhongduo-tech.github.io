@@ -15760,7 +15760,7 @@
       "数据采集"
     ],
     "brief": "CDC 原理：Binlog/WAL 解析。Debezium 的架构与配置。CDC 数据的 Schema 演进处理。CDC 延迟监控。多源 CDC 的数据合并与冲突解决。CDC 在实时数仓中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PDF 文档数据提取",
