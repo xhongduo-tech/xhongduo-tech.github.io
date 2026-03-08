@@ -1,5 +1,18 @@
 [
   {
+    "title": "概率分布：从离散到连续的统一视角",
+    "slug": "probability-distributions-unified",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论",
+      "概率分布"
+    ],
+    "summary": "分布函数统一离散与连续，MGF/特征函数统一矩与收敛分析。"
+  },
+  {
     "title": "数值线性代数：稳定性与条件数",
     "slug": "numerical-linear-algebra",
     "date": "2026-03-08",
