@@ -1,5 +1,18 @@
 [
   {
+    "title": "实分析基础：连续性、可测性与积分",
+    "slug": "real-analysis-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "分析",
+      "实分析"
+    ],
+    "summary": "实分析用可测性与Lebesgue积分统一处理连续、积分与极限交换问题。"
+  },
+  {
     "title": "随机过程：马尔可夫链与布朗运动",
     "slug": "stochastic-processes-fundamentals",
     "date": "2026-03-08",
