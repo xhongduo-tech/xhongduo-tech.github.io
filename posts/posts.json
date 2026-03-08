@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer 的初始化策略：超越 Xavier/He",
+    "slug": "transformer-initialization-strategies",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "训练优化",
+      "初始化"
+    ],
+    "summary": "Transformer 初始化要分开控制 QK、残差和 LayerNorm 的尺度，核心目标是防止 softmax 饱…"
+  },
+  {
     "title": "自回归生成的并行化：交错解码与块级并行",
     "slug": "autoregressive-parallelization",
     "date": "2026-03-08",

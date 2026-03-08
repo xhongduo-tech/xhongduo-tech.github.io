@@ -28530,7 +28530,7 @@
       "初始化"
     ],
     "brief": "Transformer 特殊的架构需要专门的初始化策略：注意力层的 QK 矩阵初始化、FFN 层的权重初始化、LayerNorm 参数初始化。分析不同初始化方法对训练稳定性的影响。BERT、GPT 等模型的初始化策略。如何根据模型大小和架构调整初始化参数。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer 的注意力 dropout 与层 dropout 的作用",
