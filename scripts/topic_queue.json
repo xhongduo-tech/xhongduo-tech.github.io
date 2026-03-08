@@ -4443,7 +4443,7 @@
       "状态管理"
     ],
     "brief": "核心要点：Jupyter 内核式的有状态执行 vs 每次重启的无状态执行对比。有状态模式支持变量跨 cell 复用，但存在隐式依赖和内存泄漏风险。OpenAI Code Interpreter 的会话保持机制分析，文件系统作为持久化层的 /mnt/data 设计",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Playwright 驱动的浏览器 Agent 架构",

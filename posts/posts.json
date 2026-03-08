@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码执行中的状态持久化设计",
+    "slug": "code-execution-state-persistence",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "代码执行",
+      "状态管理"
+    ],
+    "summary": "有状态执行提升交互效率，但会以隐式依赖、内存风险和可重现性下降为代价。"
+  },
+  {
     "title": "代码生成的多语言运行时适配",
     "slug": "code-generation-multi-runtime",
     "date": "2026-03-08",
