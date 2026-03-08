@@ -1,5 +1,17 @@
 [
   {
+    "title": "CoT 的对抗鲁棒性分析",
+    "slug": "cot-adversarial-robustness",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "对抗攻击"
+    ],
+    "summary": "CoT 会放大提示注入影响，真正有效的防御是多层校验推理链而非只强化提示词"
+  },
+  {
     "title": "ToT 在数学证明搜索中的应用",
     "slug": "tot-mathematical-proof-search",
     "date": "2026-03-08",
