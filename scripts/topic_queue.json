@@ -28542,7 +28542,7 @@
       "dropout"
     ],
     "brief": "分析 Transformer 中不同 dropout 的作用：注意力 dropout（对注意力权重应用）、层 dropout（对输出应用）、embedding dropout。dropout 率的选择依据，以及在预训练和微调阶段的差异。分析 dropout 对模型泛化能力和训练稳定性的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "混合架构：Transformer 与 RNN/CNN 的结合",

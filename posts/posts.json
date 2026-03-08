@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer 的注意力 dropout 与层 dropout 的作用",
+    "slug": "transformer-dropout-strategies",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "正则化",
+      "dropout"
+    ],
+    "summary": "Transformer 的三类 dropout 作用位置不同，但目标都是抑制共适应并提升泛化。"
+  },
+  {
     "title": "Transformer 的初始化策略：超越 Xavier/He",
     "slug": "transformer-initialization-strategies",
     "date": "2026-03-08",
