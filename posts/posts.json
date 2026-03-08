@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码执行反馈的自动修复循环",
+    "slug": "code-execution-auto-fix-loop",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "代码执行",
+      "自动修复"
+    ],
+    "summary": "自动修复循环能提升代码执行成功率，但必须按错误分类、预算和验证器共同设计。"
+  },
+  {
     "title": "Agent 代码沙箱的隔离与安全机制",
     "slug": "agent-code-sandbox-isolation",
     "date": "2026-03-08",
