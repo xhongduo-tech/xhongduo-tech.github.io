@@ -1560,7 +1560,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：GShard 将 MoE 层的专家分布到不同设备上，实现 Expert Parallelism。分析 All-to-All 通信原语在 token 分发和结果收集中的开销，以及 GShard 的 random routing 辅助策略——Top-2 中第二专家按概率随机选择以改善负载均衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Parallelism 的通信瓶颈分析",
