@@ -1,5 +1,18 @@
 [
   {
+    "title": "概率论中的不等式：切比雪夫、霍夫丁与伯恩斯坦",
+    "slug": "probability-inequalities",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论",
+      "不等式"
+    ],
+    "summary": "三种概率不等式都在估计尾概率，前提越强，通常能得到越紧的上界。"
+  },
+  {
     "title": "优化算法：一阶与二阶方法的对比",
     "slug": "optimization-algorithms-comparison",
     "date": "2026-03-08",
