@@ -1,5 +1,18 @@
 [
   {
+    "title": "图论基础：图的表示与算法",
+    "slug": "graph-theory-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "图论",
+      "离散数学"
+    ],
+    "summary": "图算法的关键不在背公式，而在先分清图的表示、权重条件与目标问题。"
+  },
+  {
     "title": "组合数学：排列、组合与生成函数",
     "slug": "combinatorics-fundamentals",
     "date": "2026-03-08",
