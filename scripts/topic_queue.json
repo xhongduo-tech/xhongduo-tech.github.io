@@ -4683,7 +4683,7 @@
       "用户体验"
     ],
     "brief": "核心要点：长时间工具调用（数据库查询 >5s、API 调用 >10s）的用户体验优化。Streaming 模式下工具调用的三阶段展示：调用发起（参数预览）→ 执行中（进度指示）→ 结果返回（摘要展示）。Anthropic 的 tool_use streaming event 设计与 OpenAI 的 function_call delta 对比",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent 短期记忆的滑动窗口与摘要压缩",

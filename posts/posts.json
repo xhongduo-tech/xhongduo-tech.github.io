@@ -1,5 +1,17 @@
 [
   {
+    "title": "工具调用的流式响应与中间状态展示",
+    "slug": "tool-calling-streaming-intermediate-state",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "用户体验"
+    ],
+    "summary": "长耗时工具调用应拆成参数预览、执行中、结果摘要三阶段展示。"
+  },
+  {
     "title": "计算机使用中的 GUI 导航规划算法",
     "slug": "computer-use-gui-navigation-planning",
     "date": "2026-03-08",
