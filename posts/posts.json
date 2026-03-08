@@ -1,5 +1,17 @@
 [
   {
+    "title": "长期记忆的存储架构：KV 缓存与外部持久化",
+    "slug": "agent-long-term-memory-storage-architecture",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "存储架构"
+    ],
+    "summary": "长期记忆应做 KV、向量、结构化三层分工，核心是延迟、成本与可控性的平衡"
+  },
+  {
     "title": "Agent 短期记忆的滑动窗口与摘要压缩",
     "slug": "agent-short-term-memory-sliding-window",
     "date": "2026-03-08",
