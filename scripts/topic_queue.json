@@ -1400,7 +1400,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：LongNet 的 Dilated Attention 以指数级增长的间隔采样注意力位置（dilation rate 1,2,4,...），不同头使用不同 dilation 覆盖多尺度依赖。总复杂度 O(N·log N)，理论上支持 1B token 序列。实质是 attention 版的空洞卷积。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Hash-based 稀疏注意力：Reformer 的 LSH 机制",
