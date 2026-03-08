@@ -1,5 +1,17 @@
 [
   {
+    "title": "浏览器 Agent 的动作空间设计与约束",
+    "slug": "browser-agent-action-space-design",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "浏览器控制",
+      "动作空间"
+    ],
+    "summary": "浏览器Agent动作空间应优先精简为15到20个高阶原语，减少搜索爆炸并提升稳定性"
+  },
+  {
     "title": "WebArena 基准的任务设计与评估方法",
     "slug": "webarena-benchmark-design",
     "date": "2026-03-08",

@@ -4503,7 +4503,7 @@
       "动作空间"
     ],
     "brief": "核心要点：浏览器 Agent 的动作原语设计：低级（click坐标/type文本/press按键/scroll方向）vs 高级（fill表单/select下拉/upload文件/drag拖拽）。动作空间过大（>50种）导致模型选择困难，实测精简至 15-20 种核心动作可提升任务成功率约 8%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude Computer Use 的屏幕交互协议",
