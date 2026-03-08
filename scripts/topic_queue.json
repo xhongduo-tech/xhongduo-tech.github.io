@@ -4383,7 +4383,7 @@
       "结构化输出"
     ],
     "brief": "核心要点：OpenAI Structured Outputs 通过受限解码（Constrained Decoding）保证 JSON Schema 100% 符合率，其底层与 Function Calling 共享同一套 CFG 引导生成机制。对比 strict: true 模式与普通模式在 schema 复杂度、首 token 延迟（+0.5-1s）上的差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多轮工具调用的上下文管理",
