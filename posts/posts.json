@@ -1,5 +1,17 @@
 [
   {
+    "title": "Expert Choice 路由：让专家选择 Token",
+    "slug": "expert-choice-routing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Expert Choice 用专家选 token 实现天然负载均衡，并把算力集中给更复杂的 token。"
+  },
+  {
     "title": "Base Layer：线性分配的确定性路由",
     "slug": "base-layer-linear-assignment-routing",
     "date": "2026-03-08",

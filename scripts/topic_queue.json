@@ -1608,7 +1608,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Expert Choice 反转了传统路由方向——由专家选择 Top-k 个 token 而非 token 选择专家。每个专家固定处理 k=T·CF/N 个 token，天然实现完美负载均衡。分析这种设计下单个 token 可能被 0 或多个专家处理的异质性及其对模型表达力的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Hash Layer",
