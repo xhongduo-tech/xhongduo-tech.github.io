@@ -1,5 +1,17 @@
 [
   {
+    "title": "结构化数据抽取",
+    "slug": "data-eng-structured-data-extraction",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据清洗"
+    ],
+    "summary": "结构化抽取的关键不是会抽，而是按schema验证后稳定入库。"
+  },
+  {
     "title": "PDF 文档数据提取",
     "slug": "data-eng-pdf-data-extraction",
     "date": "2026-03-08",
