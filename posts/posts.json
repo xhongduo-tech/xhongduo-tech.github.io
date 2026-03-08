@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码执行 Agent 的包管理策略",
+    "slug": "code-agent-package-management",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "代码执行",
+      "包管理"
+    ],
+    "summary": "代码执行 Agent 的包管理，最稳妥的是预装高频包、按需补低频包，再用扫描与白名单兜底。"
+  },
+  {
     "title": "工具选择的意图识别与消歧",
     "slug": "tool-selection-intent-disambiguation",
     "date": "2026-03-08",

@@ -4611,7 +4611,7 @@
       "包管理"
     ],
     "brief": "核心要点：代码沙箱中的 Python 包安装策略：预装常用包（numpy/pandas/matplotlib 等约 200MB）vs 按需安装（pip install 延迟 2-10s）vs 白名单限制。E2B 的模板系统支持自定义预装环境，Open Interpreter 的 --safe-mode 限制危险包（os/subprocess/socket）",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "代码执行结果的可视化渲染管线",
