@@ -1448,7 +1448,7 @@
       "长序列"
     ],
     "brief": "核心要点：LLM 推理时前几个 token 获得异常高的 attention 权重（attention sink），即使它们语义无关。StreamingLLM 保留开头 4 个 sink token + 滑动窗口（如 1024），实现无限长度流式推理，perplexity 稳定在窗口大小对应水平，而纯滑窗方案在窗口外立即崩溃。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixture of Attention Heads：动态稀疏注意力路由",

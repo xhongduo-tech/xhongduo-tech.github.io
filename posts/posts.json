@@ -1,5 +1,17 @@
 [
   {
+    "title": "注意力 Sink 现象与 StreamingLLM",
+    "slug": "attention-sink-streaming-llm",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "注意力机制",
+      "长序列"
+    ],
+    "summary": "StreamingLLM 通过保留前 1~4 个 attention sink 加滑窗，稳定实现长序列流式推理。"
+  },
+  {
     "title": "RWKV 的线性 Attention 与 Token Shift",
     "slug": "rwkv-linear-attention-token-shift",
     "date": "2026-03-08",
