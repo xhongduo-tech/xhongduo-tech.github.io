@@ -1,5 +1,18 @@
 [
   {
+    "title": "统计推断：假设检验与置信区间",
+    "slug": "statistical-inference-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学",
+      "推断"
+    ],
+    "summary": "统计推断用点估计、置信区间和假设检验，从样本对总体做可量化判断。"
+  },
+  {
     "title": "微分方程：从常微分到偏微分",
     "slug": "differential-equations-fundamentals",
     "date": "2026-03-08",
