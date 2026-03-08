@@ -1512,7 +1512,7 @@
       "Mixtral"
     ],
     "brief": "核心要点：Mixtral 8x7B 的具体架构——每层 8 个 FFN 专家、Top-2 路由、总参数 46.7B 但每 token 仅激活 12.9B。分析其与 Mistral 7B 共享的注意力层设计，以及专家 FFN 的 SwiGLU 结构。对比同等激活参数的 dense 模型性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "专家坍缩问题：路由退化的成因与对策",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixtral 8x7B 架构：稀疏 MoE 的工程实现",
+    "slug": "mixtral-8x7b-architecture",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "Mixtral"
+    ],
+    "summary": "Mixtral 8x7B 用 Top-2 稀疏专家替换 FFN，以更大总容量换取可控激活成本。"
+  },
+  {
     "title": "Switch Transformer",
     "slug": "switch-transformer-single-expert-routing",
     "date": "2026-03-08",
