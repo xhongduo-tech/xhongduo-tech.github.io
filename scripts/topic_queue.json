@@ -1258,7 +1258,7 @@
       "理论分析"
     ],
     "brief": "核心要点：S4 使用 HiPPO 矩阵 A_nk = -(2n+1)^{1/2}(2k+1)^{1/2}（n>k 时），使状态压缩历史输入在 Legendre 多项式基上的最优投影。该初始化解决了 SSM 的长程依赖问题，在 Path-X（16K 长度）任务上首次超过随机水平。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Mamba-2 的 SSD 层与矩阵分解",
@@ -1270,7 +1270,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Mamba-2 证明选择性 SSM 等价于半可分矩阵（semiseparable matrix）乘法，将 SSM 与线性 attention 统一到结构化矩阵框架下。SSD 层支持 chunk-wise 并行：chunk 内用矩阵乘，chunk 间用递推，在 A100 上比 Mamba-1 快 2-8x。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GLA",

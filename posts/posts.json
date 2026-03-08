@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba-2 的 SSD 层与矩阵分解",
+    "slug": "mamba-2-ssd-structured-matrix",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "状态空间模型",
+      "注意力机制"
+    ],
+    "summary": "SSD把选择性SSM改写成半可分矩阵乘法，用块内matmul和块间递推统一SSM与线性attention。"
+  },
+  {
     "title": "Mamba 的选择性扫描机制",
     "slug": "mamba-selective-scan-mechanism",
     "date": "2026-03-08",
