@@ -1246,7 +1246,7 @@
       "线性注意力"
     ],
     "brief": "核心要点：Mamba 使 S4 的参数（Δ, B, C）成为输入依赖的，通过选择性扫描让模型能动态过滤无关信息。离散化 Ā=exp(ΔA), B̄=ΔB 后执行并行前缀扫描（scan），硬件上通过 kernel fusion 避免 O(N) 中间状态的 HBM 读写。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "S4 的 HiPPO 矩阵与长程记忆",

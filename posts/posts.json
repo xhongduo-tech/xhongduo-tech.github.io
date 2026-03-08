@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba 的选择性扫描机制",
+    "slug": "mamba-selective-scan-mechanism",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "状态空间模型",
+      "线性注意力"
+    ],
+    "summary": "Mamba 用输入依赖的 Δ/B/C 改造 SSM，并靠选择性扫描兼顾动态记忆与并行效率"
+  },
+  {
     "title": "线性注意力的因果 Mask 与递推形式",
     "slug": "linear-attention-causal-recurrent-form",
     "date": "2026-03-08",
