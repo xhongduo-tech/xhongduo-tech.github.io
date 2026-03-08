@@ -1474,7 +1474,7 @@
       "路由策略"
     ],
     "brief": "核心要点：MoE路由从Token-Choice（每token选K个专家）演进到Expert-Choice（每专家选固定数token）。Token-Choice存在负载不均和token丢弃问题，Expert-Choice通过转置选择矩阵实现完美均衡，但引入因果性问题（未来token信息泄露），需要特殊处理",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 负载均衡损失的设计与调参",
