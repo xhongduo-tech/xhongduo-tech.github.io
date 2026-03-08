@@ -15727,7 +15727,7 @@
       "预训练数据集"
     ],
     "brief": "Tokenization 对数据质量的影响：压缩率 vs 语义完整性。不同分词器（BPE/WordPiece/Unigram）的数据适配性。词表大小与数据规模的权衡。OOV 问题与处理。Tokenization 在数据清洗中的考量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "爬虫反检测技术",

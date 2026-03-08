@@ -1,5 +1,17 @@
 [
   {
+    "title": "预训练数据的 Tokenization 分析",
+    "slug": "data-eng-pretraining-tokenization-analysis",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "Tokenization决定预训练算力分配，本质是词表大小、序列长度与语义完整性的工程权衡"
+  },
+  {
     "title": "多语言数据采集与处理",
     "slug": "data-eng-multilingual-data-processing",
     "date": "2026-03-08",
