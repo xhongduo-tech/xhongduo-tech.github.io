@@ -1684,7 +1684,7 @@
       "架构设计"
     ],
     "brief": "核心要点：DeepSeek-MoE 和 DeepSeek-V2 引入的共享专家（shared expert）始终参与计算，不受路由控制。其作用是捕获所有 token 共有的通用表示，减少路由专家间的知识冗余。分析共享专家数量（1~4个）对模型容量和训练效率的影响。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 推理优化：专家缓存与预取策略",
@@ -1696,7 +1696,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MoE 模型推理时所有专家权重需驻留显存（如 Mixtral 8x7B 需约 90GB），远超实际激活量。分析 expert offloading 策略——将非活跃专家卸载到 CPU/SSD，按路由预测预取即将使用的专家。LRU 缓存的命中率与推理延迟的权衡分析。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 量化：专家级别的异构量化",
@@ -1708,7 +1708,7 @@
       "量化"
     ],
     "brief": "核心要点：MoE 中不同专家的重要性不同（高频专家对精度更敏感），可对不同专家使用不同位宽的量化。分析 QMoE 等方法将高频专家保持 FP16 而低频专家压缩至 2-bit 的策略，以及 Mixtral 在 GPTQ/AWQ 量化下的精度-显存权衡。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "V-MoE",
@@ -1720,7 +1720,7 @@
       "视觉模型"
     ],
     "brief": "V-MoE 需要从形式化定义、关键公式与可证明性质三层讲清，说明它如何影响模型表达能力、误差界或信息流，并比较相近方法在假设条件和适用范围上的差异。正文最好至少落到一个公式、复杂度边界、反例或数值验证上，避免只停留在概念解释。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 层的位置选择：全层 vs 交替层",
@@ -1732,7 +1732,7 @@
       "架构设计"
     ],
     "brief": "核心要点：MoE 层的放置策略对性能影响显著——每层都用 MoE vs 每隔一层使用 MoE vs 仅在特定层使用。分析 Switch Transformer 的每隔一层策略、Mixtral 的全层策略、以及 ST-MoE 发现的最优放置模式。讨论 MoE 层密度与模型质量/效率的关系。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Auxiliary Loss 变体：从 Importance Loss 到 z-loss",
@@ -1744,7 +1744,7 @@
       "训练技巧"
     ],
     "brief": "核心要点：系统梳理 MoE 辅助损失的演进：Importance Loss（惩罚路由概率的变异系数 CV）、Load Loss（惩罚实际分配的不均衡）、二者联合使用、以及 ST-MoE 的 router z-loss。分析各损失函数的梯度行为和对路由器学习动态的不同影响。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Megablocks：MoE 的高效 GPU 实现",
@@ -1756,7 +1756,7 @@
       "系统实现"
     ],
     "brief": "核心要点：Megablocks 使用 block-sparse 矩阵运算替代传统 MoE 的 token-permutation + batched-matmul 实现，消除 padding 浪费。分析 dMoE（dropless MoE）如何在不丢弃 token 的前提下保持高 GPU 利用率，以及 block-sparse GEMM 的 Triton 内核设计。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Token 丢弃 vs Token 不丢弃的 MoE 对比",
@@ -1768,7 +1768,7 @@
       "架构设计"
     ],
     "brief": "核心要点：传统 MoE（Switch/GShard）使用容量因子丢弃溢出 token，而 dropless MoE（Megablocks/Expert Choice）通过不同机制避免丢弃。对比两种范式在训练稳定性、推理延迟可预测性、以及最终模型质量上的差异。分析 token 丢弃对长序列任务的特殊影响。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 的 Upcycling：从 Dense 到稀疏的初始化",
@@ -1780,7 +1780,7 @@
       "训练技巧"
     ],
     "brief": "核心要点：MoE upcycling 将预训练好的 dense 模型转换为 MoE 模型——复制 FFN 层参数初始化多个专家，然后继续训练。分析 Sparse Upcycling 论文中的关键发现：初始化后路由器随机化的重要性、继续训练的 token 预算需求、以及与从头训练 MoE 的性能对比。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Sinkhorn 路由：最优传输视角的负载均衡",
@@ -1792,7 +1792,7 @@
       "路由机制"
     ],
     "brief": "核心要点：将 token-to-expert 分配建模为最优传输问题，使用 Sinkhorn 算法迭代求解双随机矩阵。与 Top-k 路由 + 辅助损失的方式不同，Sinkhorn 路由在约束满足的前提下最大化分配质量。分析 Sinkhorn 迭代次数与路由质量的关系，以及其计算开销。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 的扩展规律：稀疏模型的 Scaling Law",
@@ -1804,7 +1804,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：MoE 的 scaling 行为不同于 dense 模型——增加专家数量的收益随规模递减。分析 Clark et al. 和 Switch Transformer 论文中的发现：专家数从 8→128 带来显著提升，但 128→512 收益趋缓。讨论 granularity（专家大小 vs 专家数量）对 scaling 的影响。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Mixture-of-Depths",
@@ -1817,7 +1817,7 @@
       "动态计算"
     ],
     "brief": "核心要点：Mixture-of-Depths（MoD）将 MoE 的路由思想从「选择哪个专家」推广到「是否经过该层」。每层通过路由器决定 token 是走完整计算还是跳过（残差直连），实现计算量的动态分配。分析 Top-k 容量控制和训练时的 straight-through 估计器设计。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 与 MoA 的统一：专家粒度的设计空间",
@@ -1829,7 +1829,7 @@
       "架构设计"
     ],
     "brief": "核心要点：将 Mixture of Experts（FFN 级路由）和 Mixture of Attention Heads（注意力头级路由）纳入统一框架——条件计算的粒度从整层、子层（FFN/Attn）、到单个头/专家。分析不同粒度下的路由开销、负载均衡难度和表达力，以及 MoE+MoA 联合使用的架构设计。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Tensor Parallel 的数学分解",
@@ -1841,7 +1841,7 @@
       "模型并行"
     ],
     "brief": "核心要点：Tensor Parallel 将矩阵乘法 Y=XA 按列或行切分到多卡，列切分时每卡计算 Y_i=XA_i 无需通信，行切分需 AllReduce 聚合。分析 MLP 层的 Column-then-Row 切分策略，每层仅需 2 次 AllReduce，通信量为 2bsh，与隐藏维度无关。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Self-Attention 的 Tensor Parallel 切分",
@@ -1853,7 +1853,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：多头注意力天然支持按 head 维度切分，每卡独立计算 h/p 个 head 的 QKV 投影和注意力，输出投影采用行切分后 AllReduce。GQA/MQA 场景下 KV head 数少于 TP 度时需广播或复制，分析不同注意力变体的 TP 效率差异。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "流水线并行的微批次调度",
@@ -1865,7 +1865,7 @@
       "流水线并行"
     ],
     "brief": "核心要点：Pipeline Parallel 将模型按层切分到不同设备，朴素实现 bubble 率为 (p-1)/m，其中 p 为流水线级数、m 为微批次数。GPipe 采用同步调度，所有微批次前向完成后统一反向；bubble 时间占比约 (p-1)/(m+p-1)，当 m≥4p 时 bubble 率低于 6%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "1F1B 调度：流水线并行的内存优化",
@@ -1877,7 +1877,7 @@
       "流水线并行"
     ],
     "brief": "核心要点：PipeDream 的 1F1B（One Forward One Backward）调度在稳态阶段交替执行前向和反向，峰值激活内存从 GPipe 的 O(m) 降至 O(p)。分析 warmup 阶段的填充策略、权重版本管理问题，以及与同步训练语义的差异。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "交错式流水线：Megatron-LM 的虚拟阶段",
@@ -1889,7 +1889,7 @@
       "流水线并行"
     ],
     "brief": "核心要点：Megatron-LM 将每个设备分配多个非连续层（虚拟阶段），将 bubble 率从 (p-1)/m 降至 (p-1)/(vm)，v 为虚拟阶段数。代价是通信量增加 v 倍，因为每个微批次需要在设备间多次传输。当 v=L/p 时 bubble 趋近于零但通信开销最大。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO Stage 1",
@@ -1902,7 +1902,7 @@
       "内存优化"
     ],
     "brief": "ZeRO Stage 1 要写清核心更新公式、关键超参数和稳定性信号，比较不同配置对收敛速度、最终指标、显存与吞吐的影响，并说明何时会出现发散或退化。要把参数、梯度、优化器状态或激活在节点间如何切分讲清楚，并比较通信量、重计算和显存节省之间的真实平衡。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO Stage 2：梯度分片的通信分析",
@@ -1914,7 +1914,7 @@
       "显存优化"
     ],
     "brief": "核心要点：Stage 2 在 Stage 1 基础上将梯度也分片，每卡仅保留对应优化器分片的梯度，显存节省从 4Ψ+12Ψ/N 降至 2Ψ+(2+12)Ψ/N。关键在于反向传播时使用 Reduce-Scatter 替代 AllReduce，通信量保持 2Ψ 不变，与标准 DDP 等价。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO Stage 3：参数分片与通信开销",
@@ -1926,7 +1926,7 @@
       "显存优化"
     ],
     "brief": "核心要点：Stage 3 将模型参数也分片，每卡仅存 (2+2+12)Ψ/N 字节。前向和反向时通过 AllGather 临时收集完整参数，用完即释放。通信量增至 3Ψ（前向 AllGather Ψ + 反向 AllGather Ψ + 梯度 Reduce-Scatter Ψ），比 DDP 多 50%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO-Offload",
@@ -1939,7 +1939,7 @@
       "分布式训练"
     ],
     "brief": "ZeRO-Offload 要写清核心更新公式、关键超参数和稳定性信号，比较不同配置对收敛速度、最终指标、显存与吞吐的影响，并说明何时会出现发散或退化。要把参数、梯度、优化器状态或激活在节点间如何切分讲清楚，并比较通信量、重计算和显存节省之间的真实平衡。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO-Infinity",
@@ -1953,7 +1953,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：ZeRO-Infinity 将 ZeRO-Offload 扩展到 NVMe SSD，支持万亿参数模型训练。采用 infinity offload engine 管理 GPU-CPU-NVMe 三级存储，通过预取和流水线化隐藏 I/O 延迟。NVMe 带宽 3-6 GB/s，需要精心设计 prefetch 策略使 I/O 与计算重叠。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Megatron-LM 的 3D 并行架构",
@@ -1965,7 +1965,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：Megatron-LM 组合 TP（张量并行）、PP（流水线并行）和 DP（数据并行）形成 3D 并行。在 DGX A100 集群上，TP 限制在单节点 8 卡（NVLink 600GB/s），PP 跨节点（IB 200Gb/s），DP 覆盖剩余维度。总 GPU 数 = tp × pp × dp，三个维度的映射决定通信效率。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Megatron-LM 序列并行",
@@ -1977,7 +1977,7 @@
       "序列并行"
     ],
     "brief": "核心要点：Megatron-LM 的序列并行将 LayerNorm 和 Dropout 沿序列维度切分，与 Tensor Parallel 互补。TP 区域（Attention、MLP）按 hidden 维度切分，非 TP 区域按 sequence 维度切分，两者之间通过 AllGather/Reduce-Scatter 转换。激活内存从 O(sbh) 降至 O(sbh/t)。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Tensor Parallel 中的通信原语",
@@ -1989,7 +1989,7 @@
       "通信原语"
     ],
     "brief": "核心要点：TP 层的前向和反向分别需要不同的通信原语。Column Parallel 前向用 Identity+AllReduce（或 AllGather+split），反向则相反。分析 f 和 g 共轭算子的设计：前向 AllReduce 对应反向 Identity，前向 split 对应反向 AllGather。通信与计算的重叠策略。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO 与模型并行的显存对比",
@@ -2001,7 +2001,7 @@
       "模型并行"
     ],
     "brief": "核心要点：以 GPT-3 175B 为例，纯 TP 需要 350GB 优化器状态（8 卡每卡 43.75GB），ZeRO-3 在 64 卡上每卡仅 33GB。但 ZeRO-3 通信量是 TP 的 1.5 倍。分析两种方案在不同网络带宽下的吞吐量交叉点，以及混合使用的最佳策略。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "梯度累积与流水线并行的交互",
@@ -2013,7 +2013,7 @@
       "训练技巧"
     ],
     "brief": "核心要点：流水线并行中微批次数 m 既影响 bubble 率又等效于梯度累积步数。全局批次大小 = dp × m × micro_batch_size。增大 m 降低 bubble 但增大等效 batch size，可能影响收敛。分析 m 的选择与学习率调度的关系，以及 gradient clipping 在 PP 中的实现细节。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Megatron-LM 的激活重计算策略",
@@ -2025,7 +2025,7 @@
       "显存优化"
     ],
     "brief": "核心要点：Megatron-LM 提供 full 和 selective 两种激活重计算。Full 重计算每层仅保存输入激活，反向时重算所有中间值，显存降至 O(L·sbh) 但增加 33% 计算。Selective 仅重算占显存大但计算轻的部分（如 Softmax、Dropout），节省 60-70% 激活内存仅增加 5% 计算。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "PP 中的权重同步与一致性",
@@ -2037,7 +2037,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：异步流水线（PipeDream）中不同微批次使用不同版本权重，导致 weight stashing 问题。PipeDream-2BW 仅维护 2 个权重版本，在 bubble 期间同步。PipeDream-Flush 采用同步语义，牺牲部分吞吐保证收敛一致性。分析权重版本差异对梯度方差的定量影响。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "跨节点 TP：NVLink 与 InfiniBand 的选择",
@@ -2049,7 +2049,7 @@
       "集群网络"
     ],
     "brief": "核心要点：TP 通信频率高（每层 2 次 AllReduce），延迟敏感。NVLink 带宽 600-900 GB/s、延迟 ~1μs，适合节点内 TP。IB HDR 200Gb/s（25GB/s）、延迟 ~1μs，跨节点 TP 吞吐下降 40-60%。分析 hidden_size 对通信计算比的影响，以及何时跨节点 TP 仍然合理。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO++ 的量化通信优化",
@@ -2061,7 +2061,7 @@
       "通信优化"
     ],
     "brief": "核心要点：ZeRO++ 引入三项优化：qwZ（量化权重 AllGather，INT8 替代 FP16 减半通信）、qgZ（量化梯度 Reduce-Scatter）、hpZ（二级分区将跨节点通信替换为节点内通信）。INT8 量化对模型质量影响可控，loss 差异 <0.1%。总通信量降低 4 倍。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "FSDP 与 ZeRO Stage 3 的异同",
@@ -2073,7 +2073,7 @@
       "PyTorch"
     ],
     "brief": "核心要点：PyTorch FSDP 是 ZeRO Stage 3 的原生实现，但细节有差异。FSDP 以 FlatParameter 为单位分片，支持混合精度和 backward prefetch。与 DeepSpeed ZeRO-3 对比：FSDP 支持 torch.compile、不依赖外部库，但缺少 ZeRO-Offload 等高级功能。两者在 128 卡规模性能差距 <5%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Megatron-LM 的分布式初始化",
@@ -2085,7 +2085,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：Megatron-LM 初始化时创建多个进程组：tensor_model_parallel_group、pipeline_model_parallel_group、data_parallel_group。以 tp=4、pp=2、dp=4 共 32 卡为例，进程组的 rank 映射遵循 TP 连续、PP 其次、DP 最外层的规则。初始化顺序影响 NCCL 通信效率。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Tensor Parallel 的 Embedding 层处理",
@@ -2097,7 +2097,7 @@
       "模型并行"
     ],
     "brief": "核心要点：词表 Embedding 按 vocab 维度切分到 TP 组，每卡存 V/t 行。前向时各卡查表得到局部结果（非本卡词汇填零），AllReduce 合并。输出层（LM Head）与 Embedding 权重共享时，采用列切分后 AllGather 收集 logits。分析大词表（如 128K）下的内存和通信开销。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "PP 中的负载均衡：层分配策略",
@@ -2109,7 +2109,7 @@
       "性能优化"
     ],
     "brief": "核心要点：Transformer 各层计算量近似相等，但首尾阶段额外承担 Embedding 和 LM Head。Megatron-LM 默认均匀分层，可手动指定每级层数。不均匀分配需 profiling 各层延迟，使最慢阶段时间最小化。V 模型（首尾阶段少分层）比均匀分配提升 5-10% 吞吐。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO-R：激活内存的分布式优化",
@@ -2121,7 +2121,7 @@
       "显存优化"
     ],
     "brief": "核心要点：ZeRO-R 优化残差内存（Residual Memory），包括激活内存分片、临时 buffer 定额管理和碎片优化。激活分片将检查点激活通过 AllGather 分布到 DP 组，每卡仅存 1/N。对于 batch_size=1 场景，可将激活 offload 到 CPU。与激活重计算正交，可组合使用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Expert Parallel 与 Tensor Parallel 的组合",
@@ -2133,7 +2133,7 @@
       "MoE"
     ],
     "brief": "核心要点：大规模 MoE 模型中，EP 将不同专家分配到不同设备，TP 将单个专家内部切分。Mixtral 8x7B 的 8 个专家可 EP=8 各卡一个，或 EP=4+TP=2 每专家跨 2 卡。All-to-All 通信实现 token 到专家的路由，通信量为 2bsh·(ep-1)/ep。两种并行的通信模式不同，需要独立进程组。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "梯度通信压缩：从 FP16 到 1-bit",
@@ -2145,7 +2145,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：1-bit Adam/LAMB 将梯度压缩为符号位+误差补偿，通信量降至 1/16。压缩分两阶段：warmup 期用标准 AllReduce（约 15-20% 步数），之后切换为 1-bit 压缩。误差补偿保证收敛：本轮残差加入下轮梯度。在 256 卡上通信时间减少 5 倍，端到端加速 2-3 倍。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Context Parallel：超长序列的并行策略",
@@ -2157,7 +2157,7 @@
       "长上下文"
     ],
     "brief": "核心要点：Context Parallel（CP）将序列均匀切分到多卡，每卡处理 s/cp 长度的子序列。注意力计算需要 Ring Attention：Q 本地保留，KV 在环形拓扑上传递，每步计算一个 chunk 的注意力后传递 KV 到下一卡。通信量 O(bsh·cp)，可与 TP/PP/DP 正交组合，支持百万级序列。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "异构集群训练：GPU 混合并行策略",
@@ -2169,7 +2169,7 @@
       "异构计算"
     ],
     "brief": "核心要点：实际集群常混合 A100/H100 或不同网络拓扑，均匀并行策略导致木桶效应。AMP（Adaptive Model Parallelism）根据设备计算能力和互联带宽动态调整 TP/PP/DP 维度。慢节点分配更少层或更小 micro-batch，通过异步流水线容忍延迟差异。吞吐比均匀策略提升 20-30%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Ulysses 与 Ring Attention 的对比",
@@ -2181,7 +2181,7 @@
       "长上下文"
     ],
     "brief": "核心要点：DeepSpeed-Ulysses 沿 head 维度切分 QKV，通过 All-to-All 通信重新分布序列维度，每卡执行完整注意力但仅处理部分 head。Ring Attention 沿序列维度切分，通信为 KV 环形传递。Ulysses 通信量 O(bsh) 与序列长度无关，但受限于 head 数；Ring 可扩展到任意序列长度。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DP 通信重叠：梯度 AllReduce 流水线化",
@@ -2193,7 +2193,7 @@
       "通信优化"
     ],
     "brief": "核心要点：标准 DDP 将反向传播产生的梯度分桶（bucket），每个 bucket 填满后立即启动 AllReduce，与后续层的反向计算重叠。桶大小（默认 25MB）影响重叠效率：过小增加通信次数，过大延迟启动时机。PyTorch DDP 的 gradient_as_bucket_view 优化避免梯度拷贝，节省 peak memory。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Scaling Law 的基本形式与拟合方法",
@@ -2205,7 +2205,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：Kaplan et al. (2020) 提出的幂律关系 L(N) ∝ N^{-α}，损失与参数量、数据量、计算量的三变量拟合。详解指数 α≈0.076（参数）和 α≈0.095（数据）的来源，以及 L(N,D) = L₀ + A/N^α + B/D^β 的联合公式推导过程。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Chinchilla 定律：计算最优的训练配比",
@@ -2217,7 +2217,7 @@
       "Chinchilla"
     ],
     "brief": "核心要点：Hoffmann et al. (2022) 的核心结论——最优训练 token 数与参数量线性增长 D_opt ∝ N。对比 Kaplan 的 N^{0.74} 结论，分析三种拟合方法（固定N变D、固定FLOPs包络线、参数化损失函数）如何得到 a=0.50, b=0.50 的指数，以及 70B 参数对应 1.4T token 的具体数值。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Scaling Law 中的不可约损失与熵下界",
@@ -2229,7 +2229,7 @@
       "信息论"
     ],
     "brief": "核心要点：幂律公式中的常数项 L₀ 代表数据分布的内在熵，是任何模型都无法突破的下界。分析自然语言的信息熵估计（Shannon 游戏约 1.0-1.3 bits/char），以及 L₀ 在不同数据集（C4、The Pile、RedPajama）上的差异如何反映数据质量。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Scaling Law 的下游任务迁移",
@@ -2241,7 +2241,7 @@
       "迁移学习"
     ],
     "brief": "核心要点：预训练损失的幂律关系能否迁移到下游任务？分析 Downstream Scaling Law 的形式 Acc(L) 与 L(N,D) 的复合关系。Gadre et al. (2024) 发现不同任务的 scaling 斜率差异显著，部分任务存在 broken scaling（精度突然跃升），与 Emergent Abilities 的讨论直接相关。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "计算最优之外",
@@ -2255,7 +2255,7 @@
       "推理成本"
     ],
     "brief": "核心要点：Chinchilla 最优只考虑训练 FLOPs，但实际部署时推理成本与参数量 N 成正比。Sardana & Frankle (2023) 提出推理感知 Scaling Law，引入推理 token 总量 T_inf，最优模型应过训练（D >> D_chinchilla）以缩小 N。LLaMA 系列正是此策略的实践。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数据约束下的 Scaling Law 修正",
@@ -2267,7 +2267,7 @@
       "数据工程"
     ],
     "brief": "核心要点：Muennighoff et al. (2023) 研究数据重复对 Scaling Law 的影响。当唯一 token 数 U 不足时，重复 R 次后损失衰减变慢：有效数据量 D_eff = U(1 - e^{-R})。4 epoch 重复仅相当于约 2.8 倍数据，超过 16 epoch 后收益几乎为零。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Scaling Law 对模型宽度与深度的约束",
@@ -2279,7 +2279,7 @@
       "模型架构"
     ],
     "brief": "核心要点：参数量 N 相同时，宽度 d_model 与深度 n_layers 的最优比例是什么？Levine et al. (2020) 从表达力角度给出 d ∝ n^{2/3} 的理论最优，而实践中 GPT-3、LLaMA 的宽深比约为 128:1。分析过宽（过拟合）和过深（梯度退化）的具体机制。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "涌现能力的原始定义与争议",
@@ -2291,7 +2291,7 @@
       "评测方法"
     ],
     "brief": "核心要点：Wei et al. (2022) 定义涌现能力为'小模型中不存在、大模型中突然出现'的能力。但 Schaeffer et al. (2023) 指出这可能是评测指标的伪影——将连续的对数线性改进用非线性指标（如精确匹配）度量会产生假阶跃。两方观点的核心分歧在于'能力'的度量方式。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "涌现与指标选择：精确匹配 vs 对数概率",
@@ -2303,7 +2303,7 @@
       "评测方法"
     ],
     "brief": "核心要点：Schaeffer et al. (2023) 的核心论证——多位数加法任务中，token 级准确率平滑上升，但序列级精确匹配呈阶跃。一个 5 位数加法需要所有 5 位正确，P(全对) = p^5，当 p 从 0.8→0.95 时精确匹配从 33%→77%，产生视觉上的'涌现'。这是统计伪影还是真实现象？",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "相变视角下的涌现能力分析",
@@ -2315,7 +2315,7 @@
       "统计物理"
     ],
     "brief": "核心要点：将涌现类比为物理相变：模型规模 N 对应温度，能力对应序参量。Arora & Goyal (2023) 从统计力学角度分析，loss landscape 的对称性破缺可能导致真实的不连续相变。与 Ising 模型的临界指数类比，讨论涌现的普适类（universality class）是否存在。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "链式思维的涌现：为什么小模型做不到",
@@ -2327,7 +2327,7 @@
       "链式思维"
     ],
     "brief": "核心要点：CoT 推理能力在约 100B 参数时涌现（Wei et al., 2022）。小模型的 CoT 反而降低性能，因为中间步骤的错误会累积。分析 CoT 涌现的两个必要条件：(1) 单步推理准确率超过阈值 p > 1/k；(2) 上下文窗口中的工作记忆容量足够保持多步状态。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Grokking：过拟合之后的延迟涌现",
@@ -2339,7 +2339,7 @@
       "泛化理论"
     ],
     "brief": "核心要点：Power et al. (2022) 发现模型在训练集上过拟合很久之后，测试集性能突然跃升，称为 Grokking。在模运算任务中，训练损失在 10³ 步到达 0，但测试精度在 10⁵ 步才突然从随机涨到 95%+。与涌现能力的联系：都是非线性的能力获取过程。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "U 形涌现：逆向 Scaling 现象",
@@ -2351,7 +2351,7 @@
       "模型评测"
     ],
     "brief": "核心要点：Inverse Scaling Prize 发现部分任务（如 Hindsight Neglect、Memo Trap）中大模型表现反而更差。McKenzie et al. (2023) 分析原因：大模型更倾向于模仿训练数据中的虚假相关，但超大模型（>100B）会再次纠正，形成 U 形曲线。这对涌现的定义提出了修正。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "In-Context Learning 的信息论解释",
@@ -2363,7 +2363,7 @@
       "信息论"
     ],
     "brief": "核心要点：ICL 可以用互信息 I(Y;X|C) 来理解——上下文 C（示例）提供了 X→Y 映射的信息，降低了预测 Y 的不确定性。Xie et al. (2022) 证明 Transformer 在 ICL 中隐式执行贝叶斯推断，上下文示例用于推断隐含的生成概念 θ，等价于 p(y|x) = ∫p(y|x,θ)p(θ|C)dθ。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Transformer 的隐式梯度下降：ICL 即学习",
@@ -2375,7 +2375,7 @@
       "优化理论"
     ],
     "brief": "核心要点：Von Oswald et al. (2023) 和 Akyürek et al. (2023) 证明线性 Attention 层的前向传播等价于一步梯度下降。给定上下文示例 {(xᵢ, yᵢ)}，Self-Attention 计算出的输出等价于在示例上做最小二乘回归的梯度更新 W ← W - η∇L。多层 Transformer 对应多步梯度下降。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ICL 中的任务识别与任务学习的分离",
@@ -2387,7 +2387,7 @@
       "机制分析"
     ],
     "brief": "核心要点：Pan et al. (2023) 将 ICL 分解为两个独立机制：任务识别（从示例中识别出'这是情感分类'）和任务学习（学习输入到输出的映射）。实验证据：(1) 随机标签仍能维持部分性能（任务识别起作用）；(2) 更多示例主要提升任务学习而非识别。两个机制在不同层中实现。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Induction Head：ICL 的电路级机制",
@@ -2399,7 +2399,7 @@
       "机械可解释性"
     ],
     "brief": "核心要点：Olsson et al. (2022) 发现 ICL 依赖一种特定的注意力电路——归纳头（Induction Head）。两层电路：第一层的 previous-token head 将信息从位置 i 复制到 i+1，第二层的 induction head 在当前位置匹配相同前缀并复制后续 token。这个电路在训练中突然形成，对应 loss 的阶跃下降。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ICL 的示例选择策略与性能影响",
@@ -2411,7 +2411,7 @@
       "提示工程"
     ],
     "brief": "核心要点：ICL 性能对示例选择高度敏感。Liu et al. (2022) 发现与测试输入语义最近的示例效果最好（kNN 检索），但顺序也很重要——最相关的示例放在最后（近因效应）可提升 10%+。此外，示例的多样性与相关性存在权衡，Coverage-based 选择优于纯相似度。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ICL 中的标签空间与格式效应",
@@ -2423,7 +2423,7 @@
       "提示工程"
     ],
     "brief": "核心要点：Min et al. (2022) 发现 ICL 中标签是否正确影响不大，但标签空间（使用哪些标签词）、输入分布和格式影响显著。将'positive/negative'换成'foo/bar'会大幅降低性能，因为模型依赖预训练中标签词的语义先验。这揭示了 ICL 更多是'格式学习'而非'任务学习'。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Many-Shot ICL：突破少样本的限制",
@@ -2435,7 +2435,7 @@
       "长上下文"
     ],
     "brief": "核心要点：Agarwal et al. (2024) 利用长上下文窗口（100K+）进行数百到数千个示例的 ICL。实验表明 Many-Shot ICL 在多个任务上逼近甚至超过微调性能。但存在边际递减效应：前 100 个示例贡献最大，之后收益按 O(log n) 衰减。同时发现 Reinforced ICL（用模型生成的 rationale 替代人工示例）可进一步提升。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Scaling Law 的理论基础：神经网络逼近论",
@@ -2446,7 +2446,7 @@
       "扩展定律"
     ],
     "brief": "核心要点：Scaling Law 的幂律指数 α 与目标函数的内在维度有关。Sharma & Kaplan (2022) 从神经网络逼近论推导：如果数据流形的内在维度为 d，则 L(N) ∝ N^{-4/d}。自然语言的有效维度约 50-100，对应 α ≈ 0.04-0.08，与实验观测一致。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Broken Neural Scaling Law：S 形修正",
@@ -2458,7 +2458,7 @@
       "经验公式"
     ],
     "brief": "核心要点：Caballero et al. (2023) 提出 BNSL 公式，用分段幂律替代单一幂律：在某个临界点 N_c 处斜率发生变化，形成 S 形曲线。这能更好地拟合下游任务的 scaling 行为，解释为什么某些任务出现'涌现'——实际上是幂律斜率的突变而非阶跃。BNSL 在 100+ 任务上的拟合 R² > 0.99。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Scaling Law 的多模态扩展",
@@ -2470,7 +2470,7 @@
       "多模态"
     ],
     "brief": "核心要点：Aghajanyan et al. (2023) 研究文本+图像联合训练的 Scaling Law。多模态训练的有效计算量不等于各模态之和——图文交叉注意力带来的增益遵循 L(N,D_t,D_i) 的三变量幂律，且图像 token 的'兑换比'约为 1 图像 token ≈ 0.3 文本 token。模态比例也存在最优配比。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "训练稳定性的 Scaling：大模型为何更难训练",
@@ -2482,7 +2482,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：随着模型规模增大，训练不稳定性（loss spike）的频率和幅度增加。Chowdhery et al. (2022, PaLM) 记录了 540B 模型中约 20 次 loss spike。原因分析：(1) 梯度范数的方差与 N 正相关；(2) Attention logits 的量级随 d_model 增长为 O(√d)；(3) 学习率的最优值随 N 下降。μP 参数化可部分解决。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "μP：从小模型预测大模型的最优超参数",
@@ -2494,7 +2494,7 @@
       "超参数迁移"
     ],
     "brief": "核心要点：Yang et al. (2022) 提出 Maximal Update Parameterization (μP)，通过特定的初始化和学习率缩放规则，使得小模型的最优超参数可以直接迁移到大模型。核心思想：让每层的激活更新量 Δh/h 在不同宽度下保持恒定。具体规则：lr ∝ 1/width（输出层），lr 恒定（隐藏层），init ∝ 1/√width。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ICL 的注意力模式：从浅层匹配到深层推理",
@@ -2506,7 +2506,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Transformer 不同层在 ICL 中承担不同角色。浅层（1-8层）进行词汇和格式匹配，中层（9-20层）进行语义对齐，深层（21+层）进行任务特定的推理。Bansal et al. (2023) 通过逐层冻结实验量化各层贡献：移除中层对 ICL 性能影响最大（下降 30%+），而移除浅层影响较小。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Transformer 的上下文窗口与 ICL 容量",
@@ -2518,7 +2518,7 @@
       "模型容量"
     ],
     "brief": "核心要点：ICL 的有效示例数量受限于上下文窗口中的'工作记忆'容量，而非窗口长度本身。Bertsch et al. (2024) 发现即使窗口足够长，模型对超过一定数量示例后的信息利用效率急剧下降。有效容量约为 O(d_model/d_head) 个独立'概念槽'，与注意力头数成正比。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "涌现能力的可预测性",
@@ -2530,7 +2530,7 @@
       "扩展定律"
     ],
     "brief": "核心要点：涌现能力是否真的不可预测？Wei et al. (2024) 从 Scaling Law 角度分析：如果使用连续指标（如 Brier Score）替代离散指标，多数'涌现'可以被小模型的 scaling 趋势预测。但仍存在少数任务（如 BigBench 中的 navigate）的 scaling 行为确实非光滑，可能涉及内部表示的相变。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "重复 Token 的 Scaling 效应：数据质量 vs 数量",
@@ -2542,7 +2542,7 @@
       "数据工程"
     ],
     "brief": "核心要点：Hernandez et al. (2022) 发现重复数据对 Scaling Law 的破坏效应可以量化——100 次重复的数据等效于仅约 3.4 次的新数据（有效倍率 ≈ 0.034）。更关键的是，重复不均匀分布在不同 domain 中，高重复 domain（如 Common Crawl 中的模板页面）会系统性偏移模型的能力分布。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ICL 与微调的统一理论框架",
@@ -2554,7 +2554,7 @@
       "微调"
     ],
     "brief": "核心要点：Dai et al. (2023) 从对偶优化角度证明 ICL 和微调是同一优化问题的两种求解方式。ICL 通过 Attention 在前向传播中动态构建'虚拟梯度'，微调通过反向传播更新参数。两者收敛到相似但不完全相同的解：ICL 受限于 Attention 的表达力，相当于一阶优化；微调可以达到高阶最优。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Constitutional AI 的核心机制",
@@ -2566,7 +2566,7 @@
       "Constitutional AI"
     ],
     "brief": "核心要点：Constitutional AI (CAI) 通过两阶段训练实现自我对齐——先用 LLM 自身按宪法原则修订有害回答（SL-CAI），再对修订后的数据做 RLHF（RL-CAI）。相比纯 RLHF，CAI 将人类反馈从逐条标注转为原则制定，标注成本降低数个数量级。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "RLHF 与 RLAIF 的对齐效果对比",
@@ -2590,7 +2590,7 @@
       "对齐"
     ],
     "brief": "核心要点：Helpful、Honest、Harmless 三目标之间存在张力——过度追求 harmless 导致拒绝合理请求（过度拒绝），过度 helpful 又可能输出有害内容。Claude 通过 Constitutional AI 的原则层级来平衡三者，其中 harmlessness 在涉及严重伤害时具有最高优先级。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的 Critique-Revision 循环",
@@ -2602,7 +2602,7 @@
       "Constitutional AI"
     ],
     "brief": "核心要点：CAI 的 SL 阶段通过多轮 critique-revision 循环提升回答质量。每轮随机采样一条宪法原则，让模型自我批评并修订。实验显示 4 轮修订后 harmlessness 评分提升约 30%，但超过 4 轮后边际收益递减且 helpfulness 开始下降。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 宪法原则的设计与演化",
@@ -2614,7 +2614,7 @@
       "Constitutional AI"
     ],
     "brief": "核心要点：Claude 的宪法原则从最初 16 条基础规则（涵盖 UN 人权宣言、非歧视、真实性等）逐步扩展。原则设计需平衡覆盖度与一致性——过于宽泛导致模型行为不可预测，过于具体则无法泛化。原则之间的优先级通过训练数据中的出现频率隐式编码。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 1 到 Claude 3 的架构演进",
@@ -2626,7 +2626,7 @@
       "架构"
     ],
     "brief": "核心要点：Claude 系列从 52B 参数的 Claude 1 演进到多模态的 Claude 3 家族（Haiku/Sonnet/Opus）。关键变化包括：上下文窗口从 9K→200K、引入视觉能力、从纯 RLHF 转向 CAI+RLHF 混合训练。Claude 3 Opus 在 MMLU 上达到 86.8%，首次超越 GPT-4。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的长上下文处理机制",
@@ -2638,7 +2638,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Claude 3 支持 200K token 上下文窗口，在 Needle-in-a-Haystack 测试中准确率超过 99%。长上下文处理的关键技术包括位置编码外推（RoPE 的 NTK-aware 缩放）、注意力稀疏化，以及训练时逐步扩展上下文长度的阶段式策略。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 3 的多模态融合架构",
@@ -2650,7 +2650,7 @@
       "多模态"
     ],
     "brief": "核心要点：Claude 3 通过视觉编码器（ViT 变体）将图像转化为 token 序列，与文本 token 共享 Transformer 的注意力层。图像分辨率自适应分片，最大支持约 1568×1568 像素。在 MMMU 基准上 Claude 3 Opus 达到 59.4%，显示出强视觉推理能力。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的偏好模型训练细节",
@@ -2662,7 +2662,7 @@
       "RLHF"
     ],
     "brief": "核心要点：Claude 的奖励模型（PM）基于 Bradley-Terry 模型，使用人类偏好对和 AI 生成偏好对联合训练。PM 的损失函数为 -log σ(r_w - r_l)，其中 r 为标量奖励。关键挑战是奖励黑客（reward hacking）：策略模型学会利用 PM 漏洞获得高分但质量下降。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的 PPO 训练稳定性优化",
@@ -2674,7 +2674,7 @@
       "RLHF"
     ],
     "brief": "核心要点：Claude 使用 PPO 算法进行 RL 微调，关键超参数包括 clip ratio ε=0.2、KL 惩罚系数 β。训练中常见的不稳定现象包括奖励崩塌、KL 散度爆炸、模式坍缩。Anthropic 采用自适应 KL 控制和早停策略来维持训练稳定性。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的 Red Teaming 方法论",
@@ -2686,7 +2686,7 @@
       "安全"
     ],
     "brief": "核心要点：Anthropic 采用人类红队和自动化红队结合的方式测试 Claude 的安全边界。自动化红队使用另一个 LLM 生成攻击 prompt，按毒性分类器得分筛选有效攻击。实验显示 CAI 训练后的模型在红队攻击成功率上降低约 50%，但仍存在越狱漏洞。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的过度拒绝问题与缓解",
@@ -2698,7 +2698,7 @@
       "对齐"
     ],
     "brief": "核心要点：过度安全对齐导致 Claude 拒绝合理请求（如医学咨询、创意写作中的冲突场景）。过度拒绝率在早期版本中约 15-20%。缓解方法包括：细化宪法原则、增加 borderline 场景的训练数据、引入 helpfulness 与 harmlessness 的显式权衡机制。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的 System Prompt 机制",
@@ -2710,7 +2710,7 @@
       "推理"
     ],
     "brief": "核心要点：System prompt 在 Claude 的注意力机制中占据特殊位置——它作为前缀 context 影响后续所有生成。Claude 对 system prompt 的遵循度通过专门的指令跟随训练强化，包括多轮对话中的一致性保持。system prompt 与用户指令冲突时，Claude 倾向于遵循 system prompt。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Constitutional AI 的数学形式化",
@@ -2722,7 +2722,7 @@
       "Constitutional AI"
     ],
     "brief": "核心要点：CAI 可形式化为约束优化问题：max E[r_helpful] s.t. E[r_harmful] < ε，其中 r 为对应奖励函数。SL-CAI 阶段等价于带拒绝采样的蒸馏，RL-CAI 阶段等价于在宪法约束下的 PPO。Lagrange 对偶性连接了约束优化与 KL 正则化的 RL 目标。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的 Token 采样策略",
@@ -2734,7 +2734,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 支持 temperature、top-p、top-k 等采样参数。temperature=0 时使用贪心解码，temperature=1 时为原始分布采样。Claude 的默认 temperature 约 0.7，在创造性与一致性之间取得平衡。nucleus sampling (top-p=0.9) 通过动态截断词表避免长尾噪声。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 3.5 Sonnet 的效率优化",
@@ -2746,7 +2746,7 @@
       "模型压缩"
     ],
     "brief": "核心要点：Claude 3.5 Sonnet 在性能上接近 Claude 3 Opus，但推理速度快 2 倍、成本降低 80%。效率提升来源于：更优的模型架构（可能采用 GQA 或 MQA 减少 KV cache）、更高效的训练数据配比、以及推理端的投机解码等加速技术。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的多轮对话状态管理",
@@ -2758,7 +2758,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 在多轮对话中通过 KV cache 复用实现状态延续。随对话轮次增加，早期轮次的信息在注意力分布中逐渐稀释（attention sink 现象）。Claude 通过位置编码和训练策略缓解远距离信息丢失，但实测显示超过 20 轮后指令遵循度下降约 10%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Anthropic 的可解释性研究：特征字典",
@@ -2770,7 +2770,7 @@
       "可解释性"
     ],
     "brief": "核心要点：Anthropic 使用稀疏自编码器（SAE）从 Claude 3 Sonnet 的 MLP 层中提取出数百万个可解释特征。每个特征对应一个语义概念（如'Golden Gate Bridge'），激活值反映概念的相关度。SAE 的训练目标是最小化重建误差同时保持稀疏性：L = ||x - D·z||² + λ||z||₁。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 中的 Superposition 现象",
@@ -2782,7 +2782,7 @@
       "可解释性"
     ],
     "brief": "核心要点：Superposition 指神经网络用 N 维空间表示远超 N 个特征的现象。Anthropic 的 toy model 实验表明，当特征稀疏度 S < 1/N 时，模型倾向于将特征以近似正交的方向编码，牺牲少量干扰换取更大的表示容量。这是 Claude 内部表示的核心组织原则。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的特征引导：激活工程",
@@ -2794,7 +2794,7 @@
       "可解释性"
     ],
     "brief": "核心要点：通过 SAE 提取的特征可用于干预 Claude 的行为——放大'Golden Gate Bridge'特征使模型在所有回答中提及金门大桥。这种激活工程提供了比 prompt 更精细的行为控制。技术实现是在推理时对残差流添加特征方向的偏移向量 x' = x + α·f。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的安全分层架构",
@@ -2806,7 +2806,7 @@
       "安全"
     ],
     "brief": "核心要点：Claude 的安全系统分为四层：预训练数据过滤、Constitutional AI 对齐训练、system prompt 级约束、输出过滤器。每层防御不同类型的攻击——数据过滤防训练污染，CAI 防基本有害请求，system prompt 防角色突破，输出过滤防漏网之鱼。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的越狱攻击分类与防御",
@@ -2818,7 +2818,7 @@
       "安全"
     ],
     "brief": "核心要点：针对 Claude 的越狱攻击可分为：角色扮演型（DAN）、编码绕过型（Base64/ROT13）、渐进诱导型（多轮渐进突破）、逻辑悖论型（制造伦理困境）。CAI 对直接攻击防御率>95%，但对多轮渐进攻击和编码绕过仍有约 5-10% 的成功率。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的不确定性表达机制",
@@ -2830,7 +2830,7 @@
       "对齐"
     ],
     "brief": "核心要点：Claude 通过 CAI 中'诚实性'原则训练来表达认知不确定性，包括承认知识边界、区分事实与推测、给出置信度修饰语。内部机制上，模型的 logit 分布熵与其输出中不确定性表达的相关性约 0.3-0.5，表明模型对自身不确定性有一定感知能力。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的指令层级与优先级",
@@ -2842,7 +2842,7 @@
       "对齐"
     ],
     "brief": "核心要点：Claude 的指令遵循存在隐式层级：宪法原则 > 安全训练 > system prompt > 用户指令。当低层级指令与高层级冲突时，模型倾向于拒绝低层级指令。这种层级通过训练中的数据配比和奖励信号强度编码，而非硬编码规则实现。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Anthropic 的 Scaling 安全研究",
@@ -2854,7 +2854,7 @@
       "安全"
     ],
     "brief": "核心要点：Anthropic 发现模型能力与安全性的 Scaling 并非同步——更大的模型更擅长遵循有害指令（能力提升），但 CAI 训练后的安全对齐也更有效（可控性提升）。关键发现是对齐税（alignment tax）随模型规模增大而降低：大模型同时做到安全和有用更容易。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的 Prompt Engineering 原理",
@@ -2866,7 +2866,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 的 prompt 敏感性源于自回归 Transformer 的条件生成本质：P(output|prompt) 高度依赖 prompt 的 token 序列。有效 prompt 的关键原则包括：明确角色设定、结构化输出格式、XML 标签分段、思维链引导。Claude 对 prompt 格式的敏感性低于 GPT-4。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的 Chain-of-Thought 推理",
@@ -2878,7 +2878,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 的 CoT 能力通过 RLHF 和 CAI 训练强化——模型学会在回答复杂问题前展开中间推理步骤。CoT 在数学推理上提升约 20-30%（GSM8K），在逻辑推理上提升约 15%。Claude 3.5 Sonnet 在 extended thinking 模式下进一步支持更长的推理链。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的工具使用能力训练",
@@ -2890,7 +2890,7 @@
       "智能体"
     ],
     "brief": "核心要点：Claude 的工具使用（function calling）通过专门的微调数据训练，使模型学会将自然语言请求映射到结构化函数调用。训练数据包含工具定义 schema、调用示例和多步编排场景。Claude 3.5 在工具使用基准上达到 90%+ 准确率，支持并行调用和嵌套调用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的知识蒸馏与模型家族",
@@ -2902,7 +2902,7 @@
       "模型压缩"
     ],
     "brief": "核心要点：Claude 3 家族（Haiku/Sonnet/Opus）的三个规模档位可能通过知识蒸馏关联——大模型的输出分布作为小模型的软标签进行训练。蒸馏的关键是 temperature scaling：KL(P_teacher^(1/T) || P_student^(1/T))，T>1 时软标签包含更多暗知识。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Claude 的幻觉检测与缓解",
@@ -2914,7 +2914,7 @@
       "对齐"
     ],
     "brief": "核心要点：Claude 通过 CAI 中的诚实性原则减少幻觉——训练模型在不确定时说'我不确定'而非编造答案。幻觉类型分为事实性幻觉（错误事实）和忠实性幻觉（与输入矛盾）。Claude 3 在 TruthfulQA 上的得分约 85%，高于多数竞品，但长文本生成中幻觉率仍约 5-8%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 1.0 的 MoE 架构解析",
@@ -2926,7 +2926,7 @@
       "MoE"
     ],
     "brief": "核心要点：Gemini 1.0 采用稀疏混合专家架构，通过 Top-K 路由机制在推理时仅激活部分参数。分析其专家数量、路由策略、负载均衡损失函数设计，以及与 dense Transformer 在相同 FLOPs 下的性能对比",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的原生多模态训练范式",
@@ -2938,7 +2938,7 @@
       "多模态"
     ],
     "brief": "核心要点：Gemini 从预训练阶段即联合训练文本、图像、音频、视频，区别于 LLaVA 等后接适配器的方案。分析其统一 tokenizer 设计、跨模态注意力机制、多模态数据配比策略及其对涌现能力的影响",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的视觉编码器：从 ViT 到统一表征",
@@ -2950,7 +2950,7 @@
       "视觉编码"
     ],
     "brief": "核心要点：Gemini 使用定制化 ViT 变体作为视觉编码器，支持动态分辨率输入。分析 patch embedding 策略、位置编码方案（2D RoPE 扩展）、视觉 token 与文本 token 的对齐机制及分辨率-性能权衡",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 1.5 的百万级上下文窗口实现",
@@ -2962,7 +2962,7 @@
       "长上下文"
     ],
     "brief": "核心要点：Gemini 1.5 Pro 支持 1M token 上下文，实际测试可达 10M。分析其基于 RingAttention 思想的分布式注意力计算、KV cache 压缩策略、长序列位置编码外推方法及 Needle-in-a-Haystack 测试表现",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 1.5 Pro 的 MoE 效率设计",
@@ -2974,7 +2974,7 @@
       "MoE"
     ],
     "brief": "核心要点：Gemini 1.5 Pro 在总参数量级显著提升的同时保持推理成本可控。分析其 MoE 层的专家粒度选择、共享专家设计、激活参数比例优化，以及与 Mixtral 8x7B 在效率指标上的对比",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的音频理解架构",
@@ -2986,7 +2986,7 @@
       "音频"
     ],
     "brief": "核心要点：Gemini 原生支持音频输入，可处理语音、音乐和环境声。分析其音频 tokenizer（基于 USM/Whisper 风格编码器）、音频-文本交叉注意力设计、采样率与 token 粒度的权衡及 ASR 任务表现",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的视频理解：时序建模机制",
@@ -2998,7 +2998,7 @@
       "视频理解"
     ],
     "brief": "核心要点：Gemini 通过帧采样与时序注意力实现长视频理解，支持小时级视频输入。分析其关键帧选择策略、时序 token 压缩（temporal pooling）、视频 QA 中的因果推理机制及与 VideoLLaMA 的性能对比",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多模态位置编码：从 1D 到 N-D 的扩展",
@@ -3010,7 +3010,7 @@
       "位置编码"
     ],
     "brief": "核心要点：多模态模型需要处理文本（1D）、图像（2D）、视频（3D）的位置信息。系统分析 RoPE 的多维扩展、跨模态位置编码对齐方案、频率基数选择对不同模态分辨率的影响",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "KV Cache 压缩：长上下文推理的核心优化",
@@ -3022,7 +3022,7 @@
       "推理优化"
     ],
     "brief": "核心要点：百万级上下文推理中 KV cache 占用可达数百 GB。分析 GQA、MQA、Sliding Window、H2O（Heavy Hitter Oracle）、SnapKV 等压缩方案的原理、压缩比与精度损失权衡",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 2.0 Flash 的推理效率突破",
@@ -3034,7 +3034,7 @@
       "推理优化"
     ],
     "brief": "核心要点：Gemini 2.0 Flash 在多模态能力持平 1.5 Pro 的同时大幅降低延迟和成本。分析其可能采用的知识蒸馏策略、架构简化方案、量化友好设计及 speculative decoding 集成",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的跨模态注意力融合策略",
@@ -3046,7 +3046,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：多模态融合有 early fusion、late fusion、cross-attention 等方案。分析 Gemini 的 early fusion 设计选择、不同模态 token 在自注意力中的交互模式、模态间信息流动的层级分布",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "长上下文中的注意力稀疏性",
@@ -3058,7 +3058,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：超长序列中注意力分布高度稀疏，大部分 token 对间注意力权重接近零。分析 attention sink 现象、局部注意力模式、稀疏注意力的理论保证及 Gemini 1.5 利用稀疏性提速的可能方案",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的多模态安全对齐",
@@ -3070,7 +3070,7 @@
       "安全"
     ],
     "brief": "核心要点：多模态模型面临图像/音频注入攻击等新安全挑战。分析 Gemini 的多模态 RLHF、视觉安全分类器、跨模态对抗样本防御、以及 Google DeepMind 的 Red Teaming 框架",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的数学推理能力：多模态解题",
@@ -3082,7 +3082,7 @@
       "数学推理"
     ],
     "brief": "核心要点：Gemini 可直接理解数学公式图片和几何图形并进行推理。分析其视觉数学 OCR 精度、符号接地机制、CoT 在多模态数学中的应用及 MathVista 等 benchmark 表现",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的代码生成与执行架构",
@@ -3094,7 +3094,7 @@
       "代码生成"
     ],
     "brief": "核心要点：Gemini 2.0 支持原生代码执行（code execution tool），可在推理过程中运行 Python。分析其沙箱设计、代码-推理交替机制、与 AlphaCode 2 的关系及 HumanEval/MBPP 表现",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Infini-Attention：无限上下文注意力",
@@ -3106,7 +3106,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Google 提出的 Infini-Attention 将压缩记忆与标准注意力结合，在固定内存下处理无限长序列。分析其 compressive memory 更新规则、linear attention 作为检索机制、与 segment-level recurrence 的融合",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的 Grounding 机制：搜索增强生成",
@@ -3118,7 +3118,7 @@
       "RAG"
     ],
     "brief": "核心要点：Gemini 原生集成 Google Search grounding，可在推理中调用搜索引擎获取实时信息。分析其 grounding 触发条件、检索结果融合机制、引用归因设计及与传统 RAG 的架构差异",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GQA 在长上下文模型中的关键作用",
@@ -3130,7 +3130,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Grouped Query Attention 通过共享 KV head 将 KV cache 压缩为 MHA 的 1/N。分析 GQA 的数学等价性、head 分组策略对质量的影响、从 MHA 到 GQA 的 uptrain 方法及在 Gemini 中的应用",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的多模态 Tokenizer 设计",
@@ -3142,7 +3142,7 @@
       "Tokenizer"
     ],
     "brief": "核心要点：Gemini 需要将文本、图像、音频、视频统一编码为 token 序列。分析其 SentencePiece 文本分词、视觉 patch tokenization、音频帧分词及跨模态特殊 token 设计",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "YaRN：位置编码外推的频率调制",
@@ -3154,7 +3154,7 @@
       "位置编码"
     ],
     "brief": "核心要点：YaRN 通过分频段调节 RoPE 频率实现高效的上下文窗口扩展，无需全量重训练。分析其 NTK-aware 插值策略、attention scale 修正、temperature 参数设计及与 NTK-ALiBi 的对比",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 与 GPT-4V 的多模态能力对比",
@@ -3166,7 +3166,7 @@
       "多模态"
     ],
     "brief": "核心要点：系统对比 Gemini Ultra/Pro 与 GPT-4V 在视觉理解、文档分析、多模态推理等任务上的表现差异。分析架构设计差异（native 与 adapter）如何影响各项能力及各自优势领域",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的 Function Calling 实现机制",
@@ -3178,7 +3178,7 @@
       "工具使用"
     ],
     "brief": "核心要点：Gemini 的 function calling 支持声明式工具定义与并行调用。分析其 schema 解析机制、参数提取准确率、multi-turn tool use 的状态管理及与 OpenAI function calling 的协议差异",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "长上下文评估方法论：超越 NIAH",
@@ -3190,7 +3190,7 @@
       "评估方法"
     ],
     "brief": "核心要点：Needle-in-a-Haystack 过于简单，无法区分真正的长程理解能力。分析 RULER、LongBench、InfiniteBench 等评估框架的设计理念、任务分类及 Gemini 1.5 在各维度的表现",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的 Thinking 模式：显式推理链",
@@ -3202,7 +3202,7 @@
       "推理"
     ],
     "brief": "核心要点：Gemini 2.0 Flash Thinking 在输出前生成内部推理链。分析其 thinking token 的生成机制、推理预算控制、与 OpenAI o1 的技术路线差异及在数学/编程任务上的推理增益",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多模态对比学习：CLIP 到 SigLIP 演进",
@@ -3214,7 +3214,7 @@
       "对比学习"
     ],
     "brief": "核心要点：SigLIP 用 sigmoid 损失替代 CLIP 的 softmax 对比损失，解除了对全局 batch 通信的依赖。分析其损失函数改进、训练效率提升、在 Gemini/PaLI 视觉编码器中的应用",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的上下文缓存：成本优化机制",
@@ -3226,7 +3226,7 @@
       "推理优化"
     ],
     "brief": "核心要点：Gemini API 支持 context caching，将长 prefix 的 KV cache 持久化以降低重复计算成本。分析其缓存粒度、TTL 策略、prefix matching 算法及与 prompt caching 的技术差异",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的多模态嵌入空间分析",
@@ -3238,7 +3238,7 @@
       "表征学习"
     ],
     "brief": "核心要点：Gemini 的不同模态在统一 embedding 空间中的分布与对齐质量直接影响跨模态理解。分析模态间的语义对齐度量、模态 gap 现象、层级表征的模态特异性变化",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的 Sparse Attention 与 Flash Attention 融合",
@@ -3250,7 +3250,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：长上下文模型需要同时利用稀疏注意力降低复杂度和 FlashAttention 优化 IO。分析 blockwise sparse attention 与 FlashAttention-2 的融合方案、稀疏模式选择（local+global）及在 TPU 上的适配",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gemini 的多模态 RLHF 训练流程",
@@ -3262,7 +3262,7 @@
       "RLHF"
     ],
     "brief": "核心要点：多模态模型的 RLHF 需要处理图文混合输出的偏好标注。分析 Gemini 的多模态奖励模型设计、视觉安全约束的 reward shaping、多目标优化（有用性 vs 安全性）的 Pareto 策略",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V1 的架构设计与训练策略",
@@ -3274,7 +3274,7 @@
       "预训练"
     ],
     "brief": "核心要点：DeepSeek-V1（67B）的Dense架构选择，采用Pre-Norm + RMSNorm + SwiGLU组合，训练数据2T tokens的配比策略，与LLaMA 2架构的关键差异（GQA头数、FFN维度比），以及在代码和数学基准上的表现分析",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V2 的 MLA 注意力机制",
@@ -3286,7 +3286,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Multi-head Latent Attention将KV缓存压缩至原始MHA的5-13%，通过低秩联合压缩将K和V投影到低维潜在空间（d_c=512），再解压恢复多头表示，相比GQA/MQA在保持性能的同时大幅降低推理显存",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V2 的 DeepSeekMoE 架构",
@@ -3298,7 +3298,7 @@
       "MoE"
     ],
     "brief": "核心要点：DeepSeekMoE采用细粒度专家分割（160个路由专家+2个共享专家），每token激活6个路由专家，总参数236B但激活仅21B。共享专家捕获通用知识，路由专家实现专业化分工，相比GShard的粗粒度MoE提升2-6%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V3 的无辅助损失负载均衡",
@@ -3310,7 +3310,7 @@
       "MoE"
     ],
     "brief": "核心要点：V3提出auxiliary-loss-free负载均衡策略，用动态偏置项b_i替代传统辅助损失函数。当专家负载过高时自动降低偏置、过低时提升，避免辅助损失与主损失的梯度冲突。实验表明该方法在保持均衡的同时提升0.3-0.5%的下游性能",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V3 的 Multi-Token Prediction",
@@ -3322,7 +3322,7 @@
       "训练方法"
     ],
     "brief": "核心要点：V3引入MTP模块，每个位置同时预测后续D个token（D=2），使用D个顺序连接的Transformer层作为预测头，共享主模型embedding。MTP作为训练信号密度增强手段，训练完成后可丢弃额外头，也可用于speculative decoding加速推理",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V3 的 FP8 混合精度训练",
@@ -3334,7 +3334,7 @@
       "训练优化"
     ],
     "brief": "核心要点：V3在671B参数规模首次成功应用FP8训练，采用细粒度量化（tile-wise scaling）而非tensor-wise，将GEMM操作在E4M3格式下完成，累加器使用FP32保持精度。FP8训练使显存降低约40%，训练成本仅557万美元（2048 H800，约2个月）",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-R1 的强化学习推理训练",
@@ -3346,7 +3346,7 @@
       "强化学习"
     ],
     "brief": "核心要点：R1采用纯RL训练路线（GRPO算法），不依赖监督微调的思维链数据。奖励模型仅基于结果正确性（数学验证/代码测试），模型自发涌现出反思、验证、回溯等推理行为。R1在AIME 2024达到79.8%，MATH-500达到97.3%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-R1-Zero 的推理涌现现象",
@@ -3358,7 +3358,7 @@
       "推理能力"
     ],
     "brief": "核心要点：R1-Zero直接在基础模型上做RL，无SFT冷启动，观察到推理行为的自然涌现：思维链长度从数百token增长到数千token，出现自我验证和回溯修正。但也存在可读性差、语言混杂等问题，揭示了RL训练中reasoning的本质特征",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GRPO",
@@ -3373,7 +3373,7 @@
       "推理训练"
     ],
     "brief": "GRPO 需要围绕参数更新路径、数据格式和效果-成本权衡展开，说明它在 SFT、偏好优化或 PEFT 场景中的适用条件，以及最常见的性能退化来源。正文最好补齐数据格式、参数量变化和退化样例，说明效果提升是否真的划算。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-R1 的蒸馏策略与小模型推理",
@@ -3385,7 +3385,7 @@
       "知识蒸馏"
     ],
     "brief": "核心要点：R1将671B模型的长思维链能力蒸馏到1.5B-70B的Qwen和LLaMA系列。蒸馏数据约80万条R1生成的推理轨迹，仅做SFT即获得显著推理提升。R1-Distill-Qwen-32B在AIME上达72.6%，超越OpenAI o1-mini，证明小模型可习得长链推理",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 的专家崩塌与负载均衡",
@@ -3397,7 +3397,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：MoE训练中路由器易收敛到仅使用少数专家的退化状态（专家崩塌）。解决方案包括：辅助均衡损失（L_balance）、随机路由噪声（Noisy Top-K）、专家容量因子（capacity factor）、Z-loss正则化。各方法在均衡效果与模型性能间存在权衡",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 中共享专家的设计原理",
@@ -3409,7 +3409,7 @@
       "架构设计"
     ],
     "brief": "核心要点：DeepSeekMoE引入共享专家（Shared Expert）捕获跨领域通用知识，避免路由专家重复学习公共特征。共享专家始终激活，与路由专家的输出相加。实验表明2个共享专家+128个路由专家优于纯160路由专家配置，通用知识与专业知识的解耦提升参数效率",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 的细粒度专家分割策略",
@@ -3421,7 +3421,7 @@
       "架构设计"
     ],
     "brief": "核心要点：DeepSeekMoE将传统粗粒度专家（如16个大专家）拆分为更多细粒度专家（如256个小专家），每个专家FFN维度缩小但数量增多，激活组合更灵活。在总参数和激活参数不变的情况下，细粒度分割使专家组合数从C(16,2)增至C(256,8)，表达能力指数级提升",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V2 的 RoPE 解耦设计",
@@ -3433,7 +3433,7 @@
       "位置编码"
     ],
     "brief": "核心要点：MLA中的低秩压缩与RoPE的位置相关性存在冲突——RoPE作用于Q/K后无法被压缩矩阵吸收。V2的解决方案是将Q/K各分出一小部分维度（d_r=64）专门携带RoPE，其余维度走压缩路径，两部分拼接后做注意力，兼顾位置感知与缓存压缩",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V3 的 DualPipe 并行策略",
@@ -3445,7 +3445,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：V3提出DualPipe流水线并行，将前向和反向计算与All-to-All通信双向重叠。通过将micro-batch从两端同时注入流水线，计算与通信的重叠率接近100%，pipeline bubble降至接近零。在2048卡H800集群上实现单卡180 TFLOPS的MFU",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek Coder 的代码预训练策略",
@@ -3457,7 +3457,7 @@
       "代码生成"
     ],
     "brief": "核心要点：DeepSeek-Coder在2T tokens上训练（87%代码+13%自然语言），采用repo-level代码组织和FIM（Fill-in-the-Middle）训练。仓库级上下文通过依赖拓扑排序文件顺序，FIM以PSM模式（Prefix-Suffix-Middle）训练，使模型具备代码补全和跨文件理解能力",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-Math 的数学推理训练",
@@ -3469,7 +3469,7 @@
       "数学推理"
     ],
     "brief": "核心要点：DeepSeek-Math从Common Crawl中提取120B高质量数学语料，使用fastText分类器筛选。RL阶段采用GRPO在MATH和GSM8K上训练，引入过程奖励和结果奖励的混合信号。7B模型在MATH上达51.7%（超越GPT-4早期），验证了数据质量>数据规模的假设",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 的 All-to-All 通信优化",
@@ -3481,7 +3481,7 @@
       "分布式系统"
     ],
     "brief": "核心要点：MoE的Expert Parallelism需要All-to-All通信将token分发到对应专家所在的GPU。通信量为O(B×d×E/N)，成为MoE扩展瓶颈。优化手段包括：分层All-to-All（节点内NVLINK+节点间IB）、通信-计算重叠、token压缩传输（FP8量化）",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V3 的训练数据配方",
@@ -3493,7 +3493,7 @@
       "预训练"
     ],
     "brief": "核心要点：V3预训练14.8T tokens，两阶段数据配方：第一阶段以通用文本为主，第二阶段提升数学、代码、STEM占比并引入长文本（最长128K）。数据质量控制包括去重（MinHash+精确匹配）、毒性过滤、质量分类器打分，开源数据占比约60%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "推理强化训练中的奖励设计",
@@ -3505,7 +3505,7 @@
       "推理训练"
     ],
     "brief": "核心要点：推理RL的奖励设计分为结果奖励（ORM）和过程奖励（PRM）。ORM仅看最终答案正确性，实现简单但奖励稀疏；PRM对每步推理打分，信号密集但标注成本高。R1证明纯ORM配合GRPO即可涌现推理，而PRM+MCTS路线（如AlphaProof）在数学竞赛更强",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 推理加速：专家卸载与预取",
@@ -3517,7 +3517,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MoE模型总参数量大但每token仅激活少数专家，推理时可将不活跃专家卸载到CPU/NVMe。关键是路由预测——利用前一层路由结果预测下一层激活专家并预取到GPU。DeepSeek-V3的671B参数在单节点8卡上可通过专家缓存+预取实现可用推理速度",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-R1 的冷启动数据构建",
@@ -3529,7 +3529,7 @@
       "数据工程"
     ],
     "brief": "核心要点：R1（非Zero版本）使用数千条高质量长思维链数据做SFT冷启动，再接RL训练。冷启动数据包含详细推理步骤、自我反思和验证，格式为<think>...</think>标签包裹。冷启动解决了R1-Zero的可读性和语言混杂问题，同时保留了RL涌现推理的优势",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Switch Transformer 到 V-MoE 的演进",
@@ -3541,7 +3541,7 @@
       "架构演进"
     ],
     "brief": "核心要点：Switch Transformer（2021）首次将MoE扩展到Top-1路由，简化实现但牺牲表达力。V-MoE（2022）将MoE引入ViT并提出优先路由（priority routing），按token重要性分配专家容量。从GShard的Top-2到Switch的Top-1再到V-MoE的自适应，路由策略持续演进",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Mixtral 8x7B 与 DeepSeek MoE 对比",
@@ -3553,7 +3553,7 @@
       "模型对比"
     ],
     "brief": "核心要点：Mixtral采用标准Top-2路由+8个粗粒度专家（46.7B总参/12.9B激活），DeepSeekMoE采用Top-6路由+160细粒度专家+2共享专家。在相近激活参数下，DeepSeekMoE通过细粒度分割和共享专家获得更好的专家利用效率，但通信开销更大",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "推理模型的测试时计算扩展",
@@ -3565,7 +3565,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：推理模型通过增加测试时计算（更长思维链、多次采样）提升性能，形成test-time compute scaling law。R1在AIME上pass@1=79.8%，但maj@64可达90%+，揭示推理任务中测试时计算的scaling指数约0.3-0.5。与预训练scaling law形成互补的两条曲线",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-V3 的长上下文扩展训练",
@@ -3577,7 +3577,7 @@
       "长上下文"
     ],
     "brief": "核心要点：V3通过两阶段扩展上下文至128K：第一阶段用YaRN调整RoPE基频从10K到100K（在4K→32K数据上训练），第二阶段在32K→128K数据上继续训练。MLA中仅对解耦的RoPE维度（d_r=64）做频率调整，压缩维度不受影响，简化了长上下文适配",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-R1 的拒绝采样与多阶段训练",
@@ -3589,7 +3589,7 @@
       "训练流程"
     ],
     "brief": "核心要点：R1的完整训练流水线：SFT冷启动→RL推理训练→拒绝采样生成80万条数据→全场景SFT→全场景RL。拒绝采样从RL checkpoint生成多个回答，按正确性和格式筛选，将推理能力扩展到写作、翻译等非推理任务，实现通用能力与推理能力的统一",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 模型的 Upcycling 初始化策略",
@@ -3601,7 +3601,7 @@
       "训练策略"
     ],
     "brief": "核心要点：Upcycling将已训练的Dense模型转换为MoE：复制FFN层N次作为N个专家的初始化，路由器随机初始化。相比从头训练MoE，Upcycling节省50-70%训练计算量。关键问题是初始路由崩塌（所有专家相同导致梯度相同），需加入噪声或差异化初始化打破对称性",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Codex 的代码生成训练流程",
@@ -3613,7 +3613,7 @@
       "GPT"
     ],
     "brief": "核心要点：OpenAI Codex 基于 GPT-3 12B 参数微调，使用 159GB GitHub 代码数据。分析其从自然语言到代码的微调策略、Docstring-to-Code 的训练目标设计，以及 pass@k 评估指标的统计方法（k=1 时 HumanEval 达 28.8%）",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CodeLlama 的长上下文填充训练",
@@ -3625,7 +3625,7 @@
       "Llama"
     ],
     "brief": "核心要点：CodeLlama 基于 Llama 2 进行 500B token 代码续训，支持 100K 上下文。解析其长上下文微调（LCFT）阶段将 RoPE 基频从 10000 修改为 1000000 的外推策略，以及 Fill-in-the-Middle（FIM）训练中 PSM/SPM 两种格式的效果对比",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeek-Coder-V2 的 MoE 代码模型设计",
@@ -3637,7 +3637,7 @@
       "DeepSeek"
     ],
     "brief": "核心要点：DeepSeek-Coder-V2 采用 236B 总参数/21B 激活参数的 MoE 架构，支持 338 种编程语言和 128K 上下文。分析其从 Dense 到 MoE 的代码模型演进、额外 6T token 的续训策略，以及在 HumanEval/MBPP 等基准上超越 GPT-4 Turbo 的关键因素",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "StarCoder 的多语言代码预训练",
@@ -3649,7 +3649,7 @@
       "开源模型"
     ],
     "brief": "核心要点：StarCoder 15.5B 参数，在 The Stack v1 的 80+ 编程语言上训练 1T token。分析其数据去重与 PII 过滤流程、Multi-Query Attention 的推理加速效果（约 1.5x），以及 Fill-in-the-Middle 训练对代码补全任务的增益",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "StarCoder2 的分阶段训练策略",
@@ -3661,7 +3661,7 @@
       "开源模型"
     ],
     "brief": "核心要点：StarCoder2 提供 3B/7B/15B 三个规模，在 The Stack v2（3.3-4.3T token）上训练。分析其分阶段数据配方（代码→高质量代码→指令数据）、Grouped-Query Attention 的引入，以及 15B 模型在 HumanEval 上达到 46.3% 的训练细节",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CodeGemma 的代码与数学联合训练",
@@ -3673,7 +3673,7 @@
       "Gemma"
     ],
     "brief": "核心要点：CodeGemma 基于 Gemma 2B/7B 进行 500B token 代码续训，其中 80% 为代码、20% 为自然语言与数学数据。分析代码与数学数据联合训练对逻辑推理能力的协同增益，以及 FIM 训练中 token 级别填充 vs 行级别填充的效果差异",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "WizardCoder 的 Evol-Instruct 代码指令进化",
@@ -3685,7 +3685,7 @@
       "指令微调"
     ],
     "brief": "核心要点：WizardCoder 将 Evol-Instruct 方法适配到代码领域，通过增加约束、深化需求、并发需求、替换算法、增加推理步骤五种进化算子，从 20K 种子指令进化出 78K 代码指令。15B 模型在 HumanEval 达 57.3%，超越闭源模型",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "SantaCoder 的 FIM 训练目标设计",
@@ -3697,7 +3697,7 @@
       "训练方法"
     ],
     "brief": "核心要点：SantaCoder 1.1B 参数在 Python/Java/JavaScript 上训练，系统研究了 Fill-in-the-Middle 训练。对比 Prefix-Suffix-Middle（PSM）与 Suffix-Prefix-Middle（SPM）两种格式，发现 SPM 在 single-line infilling 上更优。FIM rate 从 0% 到 100% 的消融实验显示 50% 为最优",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AlphaCode 的大规模采样与过滤策略",
@@ -3709,7 +3709,7 @@
       "竞赛编程"
     ],
     "brief": "核心要点：AlphaCode 在 Codeforces 竞赛中达到 top 54% 水平。核心策略：每题生成百万级代码样本，通过测试用例过滤、聚类去重将候选解压缩到 10 个提交。分析其 41B 参数 Encoder-Decoder 架构选择、GOLD 训练目标（离线强化学习）、以及基于执行结果的聚类方法",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AlphaCode 2 的多模型协作代码生成",
@@ -3721,7 +3721,7 @@
       "Gemini"
     ],
     "brief": "核心要点：AlphaCode 2 基于 Gemini Pro 微调，在 Codeforces 达到 top 15% 水平。分析其两阶段策略：先用微调模型大规模采样生成代码，再用 Gemini 评分模型对候选解排序。评分模型的 token-level 似然评分 vs 解的正确性之间的对齐机制",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CodeT 的双重执行验证机制",
@@ -3733,7 +3733,7 @@
       "测试生成"
     ],
     "brief": "核心要点：CodeT 同时生成代码解和测试用例，通过交叉执行进行双重验证。对于每个代码解，统计其通过的测试用例数量进行排序，HumanEval pass@1 从 65.8% 提升至 85.2%。分析 Dual Execution Agreement 机制的理论基础及其与 self-consistency 的区别",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Qwen2.5-Coder 的大规模代码数据工程",
@@ -3745,7 +3745,7 @@
       "Qwen"
     ],
     "brief": "核心要点：Qwen2.5-Coder 在 5.5T token 代码数据上训练，覆盖 92 种编程语言。分析其多阶段数据清洗流水线（文件级去重→仓库级去重→质量过滤→依赖排序）、代码与文本的最优混合比例实验（代码占比 70%），以及 32B 模型在 HumanEval+ 上达 73.2% 的关键因素",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "代码模型的仓库级上下文建模",
@@ -3757,7 +3757,7 @@
       "长上下文"
     ],
     "brief": "核心要点：对比 RepoCoder、RepoFusion、CrossCodeEval 等仓库级代码补全方法。分析如何从跨文件依赖图中检索相关上下文、BM25 vs Dense Retrieval 在代码检索中的效果差异，以及 Repository-level FIM 训练如何提升跨文件补全准确率（相对提升 15-30%）",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "代码模型的 Tokenizer 设计差异",
@@ -3769,7 +3769,7 @@
       "分词器"
     ],
     "brief": "核心要点：对比 Codex（GPT BPE）、CodeLlama（SentencePiece）、StarCoder（Hugging Face BPE）的分词策略差异。分析空白符编码（空格 vs 制表符压缩）、编程语言特殊 token 设计、词表大小对代码任务的影响（32K vs 49K vs 100K），以及多语言代码分词的公平性问题",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "BLOOM 的多语言训练数据平衡策略",
@@ -3781,7 +3781,7 @@
       "训练策略"
     ],
     "brief": "核心要点：BLOOM 176B 参数，在 ROOTS 语料库（46 种自然语言 + 13 种编程语言，1.6T token）上训练。分析其语言采样策略：高资源语言降采样（α=0.3 的温度采样），低资源语言上采样，以及这种平衡对各语言性能的非线性影响",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "mGPT 的跨语言迁移涌现",
@@ -3793,7 +3793,7 @@
       "涌现能力"
     ],
     "brief": "核心要点：mGPT 1.3B 在 60 种语言上训练，发现 few-shot 跨语言迁移的涌现现象：模型未经对齐训练即可将英语 few-shot 示例的推理模式迁移到低资源语言。分析共享子词重叠率、语系距离与迁移效果的相关性，以及「意外跨语言泛化」的成因假说",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Aya 模型的多语言指令微调",
@@ -3805,7 +3805,7 @@
       "指令微调"
     ],
     "brief": "核心要点：Aya 模型覆盖 101 种语言，使用人工标注的 Aya Dataset（204K 条跨语言指令）微调。分析其数据收集的社区驱动模式、模板化翻译 vs 原生标注的质量差异，以及在低资源语言上相对 mT5/BLOOMZ 最高 25% 的性能提升",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "NLLB 的低资源语言翻译架构",
@@ -3817,7 +3817,7 @@
       "机器翻译"
     ],
     "brief": "核心要点：Meta NLLB-200 支持 200 种语言互译，使用 54.5B 参数 MoE 架构。分析其 Conditional Computation（语言路由的 MoE）设计、LASER3 跨语言嵌入用于平行语料挖掘、以及针对极低资源语言（<1M 句对）的回译数据增强策略",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多语言 Tokenizer 的词表分配公平性",
@@ -3829,7 +3829,7 @@
       "分词器"
     ],
     "brief": "核心要点：多语言模型的 BPE/SentencePiece 词表在不同语言间存在严重不公平：同义句在中文需要的 token 数量是英文的 1.5-3 倍。分析 XLM-R、mT5、BLOOM 的词表分配策略差异，以及 token 效率不均衡对模型性能和推理成本的影响",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GLM-4 的中英双语对齐训练",
@@ -3841,7 +3841,7 @@
       "ChatGLM"
     ],
     "brief": "核心要点：GLM-4 在中英双语场景下实现接近 GPT-4 的性能。分析其预训练数据中中英比例的动态调整策略、中英文 SFT 数据的交叉对齐方法、以及如何在 RLHF 阶段保持双语能力不退化的正则化技巧",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Minerva 的数学推理预训练",
@@ -3853,7 +3853,7 @@
       "PaLM"
     ],
     "brief": "核心要点：Google Minerva 基于 PaLM 540B 在 38.5B token 数学数据（arXiv + 网页数学内容）上续训。分析其 LaTeX 公式归一化处理、数学特有 token 的引入，以及在 MATH 基准上达到 50.3% 的多数投票（maj@k）策略",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Llemma 的开源数学语言模型",
@@ -3865,7 +3865,7 @@
       "开源模型"
     ],
     "brief": "核心要点：Llemma 基于 CodeLlama 在 Proof-Pile-2（55B token 数学数据）上续训，7B/34B 模型开源。分析其训练数据构成（数学论文 + 数学代码 + 数学网页）、代码预训练对数学推理的正迁移效应，以及在 MATH 上无需微调即超越 Minerva 540B 的原因",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数学推理中的思维链格式设计",
@@ -3877,7 +3877,7 @@
       "提示工程"
     ],
     "brief": "核心要点：对比数学推理中不同 CoT 格式的效果：自然语言推理、代码形式推理（PoT/PAL）、LaTeX 形式推理、结构化 JSON 推理。分析 Program-of-Thought 将准确率从 58.6% 提升至 71.3% 的机制，以及代码执行作为外部验证器的可靠性分析",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数学推理的过程奖励模型 PRM",
@@ -3889,7 +3889,7 @@
       "奖励模型"
     ],
     "brief": "核心要点：OpenAI 提出过程奖励模型（PRM）对数学推理的每个步骤进行评分，对比结果奖励模型（ORM）仅评判最终答案。PRM800K 数据集包含 75K 道题、800K 步骤级标注。分析 PRM 在 best-of-N 采样中将 MATH 准确率从 72.4% 提升至 78.2% 的机制",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MetaMath 的数学数据增强方法",
@@ -3901,7 +3901,7 @@
       "数据增强"
     ],
     "brief": "核心要点：MetaMath 通过四种数据增强策略（答案增强、问题重述、FOBAR 反向推理、Self-Verification）将 GSM8K 和 MATH 数据从 15K 扩展到 395K。7B 模型在 GSM8K 达 66.5%、MATH 达 19.8%，分析各增强策略的独立贡献和互补效应",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "InternLM-Math 的统一数学推理框架",
@@ -3913,7 +3913,7 @@
       "InternLM"
     ],
     "brief": "核心要点：InternLM-Math 将代码解释器、形式化证明（Lean 4）和自然语言推理统一在单一模型中。分析其 Chain-of-Thought 与 Program-of-Thought 的动态切换机制、Lean 4 形式化验证作为奖励信号的 RLHF 训练，以及在 MiniF2F 形式化数学基准上的表现",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "NuminaMath 的竞赛数学数据构建",
@@ -3925,7 +3925,7 @@
       "数据集"
     ],
     "brief": "核心要点：NuminaMath 在 AIMO 竞赛中获胜，核心是高质量竞赛数学数据集构建。包含来自 AMC/AIME/IMO 等竞赛的 860K 题目，每题配有 CoT 和 Tool-Integrated Reasoning 两种解法。分析竞赛数据的难度分级策略和课程学习训练方案",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数学推理中的自一致性解码",
@@ -3937,7 +3937,7 @@
       "解码策略"
     ],
     "brief": "核心要点：Self-Consistency 在数学推理中通过多次采样（温度 0.7）取多数投票，GSM8K 准确率从 CoT 的 58% 提升至 74%。分析投票数量 vs 准确率的对数关系、加权投票（基于序列概率）vs 等权投票的差异，以及与 beam search 的本质区别",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "代码模型的指令微调对齐方法对比",
@@ -3949,7 +3949,7 @@
       "对齐"
     ],
     "brief": "核心要点：对比代码模型的三种对齐路径：纯 SFT（CodeLlama-Instruct）、Evol-Instruct（WizardCoder）、RLHF/DPO（DeepSeek-Coder-Instruct）。分析各路径在代码正确性、指令遵循、安全性三个维度的 trade-off，以及 DPO 在代码领域相对 RLHF 的数据效率优势",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数学推理的形式化验证：Lean 4 集成",
@@ -3961,7 +3961,7 @@
       "形式化验证"
     ],
     "brief": "核心要点：将大模型的数学推理与 Lean 4 形式化证明系统结合，实现可验证的数学推理。分析 LeanDojo 的 tactic 预测方法、autoformalization（自然语言→形式化语言）的难点，以及 MiniF2F 基准上当前最优的 41.2% 证明成功率的瓶颈分析",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ReAct 框架的推理-行动交替机制",
@@ -3973,7 +3973,7 @@
       "推理框架"
     ],
     "brief": "核心要点：解析 ReAct 框架中 Thought-Action-Observation 三元循环的设计原理，对比纯推理（CoT）和纯行动（Act-only）基线，ReAct 在 HotpotQA 上将幻觉率降低约 20%，在 ALFWorld 任务成功率提升 34%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "思维链提示的涌现与规模阈值",
@@ -3985,7 +3985,7 @@
       "涌现能力"
     ],
     "brief": "核心要点：分析 Chain-of-Thought 在不同模型规模下的涌现行为，Wei et al. 实验表明 CoT 在约 100B 参数以上模型才显著生效，小模型使用 CoT 反而导致性能下降，探讨涌现的可能机制与 U 形曲线现象",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "自洽性解码的多路径投票机制",
@@ -3997,7 +3997,7 @@
       "解码策略"
     ],
     "brief": "核心要点：Self-Consistency 通过采样多条推理路径并对最终答案进行边际化投票，替代贪心解码。在 GSM8K 上将 CoT 准确率从 56.5% 提升至 74.4%（PaLM 540B），分析采样数量与准确率的对数线性关系",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Tree of Thoughts 的搜索策略设计",
@@ -4009,7 +4009,7 @@
       "搜索算法"
     ],
     "brief": "核心要点：ToT 将推理建模为树搜索问题，支持 BFS 和 DFS 两种搜索策略。在 Game of 24 任务中成功率从 CoT 的 4% 提升至 74%，分析不同任务特征下 BFS vs DFS 的选择依据与剪枝条件设计",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CoT 中的忠实推理与不忠实推理",
@@ -4021,7 +4021,7 @@
       "可解释性"
     ],
     "brief": "核心要点：研究表明 LLM 生成的思维链不一定反映其真实推理过程。Turpin et al. 发现模型在 CoT 中会编造合理化解释而非暴露真实偏见，Lanham et al. 通过 early answering 实验量化了推理忠实度约 50-80%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ReAct 与工具调用的统一接口设计",
@@ -4033,7 +4033,7 @@
       "工具调用"
     ],
     "brief": "核心要点：将 ReAct 的 Action 步骤与外部工具 API 对接，实现搜索引擎、计算器、代码执行器等工具的统一调用。对比 Toolformer、Gorilla 等工具学习方法，分析 ReAct 在多工具协调场景下的优势与路由决策机制",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Zero-shot CoT 的触发词工程",
@@ -4045,7 +4045,7 @@
       "提示工程"
     ],
     "brief": "核心要点：Kojima et al. 发现仅添加'Let's think step by step'即可在零样本下激活推理能力。系统对比不同触发词（step by step、think carefully、break down）在 MultiArith、GSM8K 等基准上的效果差异，最优触发词提升可达 20%+",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "自洽性在代码生成中的应用",
@@ -4057,7 +4057,7 @@
       "代码生成"
     ],
     "brief": "核心要点：将 Self-Consistency 的多路径投票思想应用于代码生成，通过执行测试用例替代答案比对实现功能等价性判断。CodeT 等方法结合双重执行验证，在 HumanEval 上 pass@1 从 47% 提升至 65%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ToT 的启发式评估函数设计",
@@ -4069,7 +4069,7 @@
       "启发式搜索"
     ],
     "brief": "核心要点：ToT 中节点评估函数决定搜索质量，可用 LLM 自身作为评估器（value prompt）或外部验证器。分析投票式评估、打分式评估、分类式评估三种范式的准确率-成本权衡，及评估函数校准问题",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CoT 的自动生成与 Auto-CoT",
@@ -4081,7 +4081,7 @@
       "自动化"
     ],
     "brief": "核心要点：Auto-CoT 通过聚类问题集并让 LLM 为每个簇自动生成示范推理链，消除人工编写 few-shot 示例的成本。采用多样性采样 + Zero-shot CoT 构建示范集，在 10 个推理基准上平均仅落后人工 CoT 1-2%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ReAct 中的观察信息压缩策略",
@@ -4093,7 +4093,7 @@
       "上下文管理"
     ],
     "brief": "核心要点：ReAct 循环中 Observation 累积会快速耗尽上下文窗口。分析摘要压缩、选择性保留、滑动窗口三种压缩策略对长链任务的影响，实验表明智能压缩可将最大可执行步数从 5-6 步扩展至 15+ 步",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "自洽性的采样效率优化",
@@ -4105,7 +4105,7 @@
       "推理优化"
     ],
     "brief": "核心要点：标准 Self-Consistency 需要 40+ 次采样才趋于稳定，计算开销大。分析自适应采样（early stopping）、分层采样、重要性加权等优化方法，可在保持 95% 准确率的前提下减少 60-70% 的采样次数",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ToT 与蒙特卡洛树搜索的结合",
@@ -4117,7 +4117,7 @@
       "MCTS"
     ],
     "brief": "核心要点：将 MCTS 的 UCB 选择策略引入 ToT，实现探索-利用平衡。RAP（Reasoning via Planning）框架用 LLM 同时作为世界模型和推理引擎，在 Blocksworld 规划任务上超越 CoT 约 30%，分析 UCB 常数 c 的调参影响",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "思维链的长度与推理深度关系",
@@ -4129,7 +4129,7 @@
       "推理能力"
     ],
     "brief": "核心要点：更长的 CoT 不一定带来更好的推理结果。实验表明存在最优链长度，过短缺乏推理步骤，过长引入错误累积。分析 token 级别的错误传播概率模型，单步错误率 p 下 n 步链的整体准确率约为 (1-p)^n",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ReAct Agent 的错误恢复与重试机制",
@@ -4141,7 +4141,7 @@
       "容错设计"
     ],
     "brief": "核心要点：ReAct Agent 在工具调用失败或返回无效结果时的恢复策略。分析反思式重试（Reflexion）、回溯重规划、降级策略三种机制，Reflexion 通过语言反馈累积经验，在 AlfWorld 上成功率从 75% 提升至 97%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多步推理中的 CoT 分解策略",
@@ -4153,7 +4153,7 @@
       "问题分解"
     ],
     "brief": "核心要点：对比 Least-to-Most Prompting、Decomposed Prompting、Successive Prompting 三种将复杂问题分解为子问题的 CoT 变体。Least-to-Most 在 SCAN 组合泛化任务上将准确率从 16% 提升至 99.7%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "自洽性与验证器的对比与融合",
@@ -4165,7 +4165,7 @@
       "验证器"
     ],
     "brief": "核心要点：Self-Consistency 的多数投票与训练专用验证器（ORM/PRM）是两种互补的答案选择策略。分析 SC 的无需训练优势与验证器的细粒度判断能力，融合方案（SC + PRM 重排序）在 GSM8K 上可再提升 3-5%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GoT 思维图：超越树结构的推理拓扑",
@@ -4177,7 +4177,7 @@
       "思维图"
     ],
     "brief": "核心要点：Graph of Thoughts 将 ToT 的树结构扩展为有向无环图，允许思维节点的合并与聚合操作。在排序任务中，GoT 比 ToT 减少约 31% 的 LLM 调用次数，同时支持并行分支的信息融合",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CoT 提示中的示例选择策略",
@@ -4189,7 +4189,7 @@
       "示例选择"
     ],
     "brief": "核心要点：Few-shot CoT 的性能高度依赖示例选择。对比随机选择、相似度检索（kNN）、多样性采样、难度递增四种策略，复杂度自适应选择（Complex CoT）在 GSM8K 上比随机选择提升 5-8%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ReAct 在多模态场景中的扩展",
@@ -4201,7 +4201,7 @@
       "多模态"
     ],
     "brief": "核心要点：将 ReAct 的推理-行动循环扩展到视觉-语言任务，Action 包含图像理解、UI 操作、视觉搜索等。分析 VisualWebArena、SeeAct 等框架中视觉 Observation 的处理方式，以及视觉 grounding 对决策准确率的影响",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "思维链蒸馏：小模型的推理能力迁移",
@@ -4213,7 +4213,7 @@
       "知识蒸馏"
     ],
     "brief": "核心要点：通过大模型生成 CoT 标注数据，微调小模型获得推理能力。Magister et al. 证明 CoT 蒸馏可让 0.3B 模型在算术任务上接近 540B 模型的 CoT 性能。分析蒸馏数据质量、规模与目标模型大小的交互关系",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "自洽性在多语言推理中的表现差异",
@@ -4225,7 +4225,7 @@
       "多语言"
     ],
     "brief": "核心要点：Self-Consistency 在不同语言上的增益不均匀，英语推理路径一致性高于低资源语言。分析 MGSM 基准上 SC 在 10 种语言的增益差异（英语 +15% vs 泰语 +8%），及跨语言混合采样对一致性的提升效果",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ToT 的并行化与延迟优化",
@@ -4237,7 +4237,7 @@
       "推理加速"
     ],
     "brief": "核心要点：ToT 的串行树搜索导致推理延迟远高于 CoT。分析批量节点扩展、异步评估、投机式搜索等并行化策略，实验表明 BFS 宽度为 5 时可通过并行评估将延迟降低 3-4 倍，同时保持搜索质量",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CoT 在逻辑推理中的系统性失败",
@@ -4249,7 +4249,7 @@
       "推理局限"
     ],
     "brief": "核心要点：CoT 在形式逻辑、反事实推理、否定推理等场景存在系统性失败模式。分析 LLM 在三段论推理中的信念偏差（准确率仅 60-70%）、否定词处理错误、以及 CoT 如何放大而非纠正这些偏差",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ReAct 与 Plan-and-Execute 的架构对比",
@@ -4261,7 +4261,7 @@
       "规划架构"
     ],
     "brief": "核心要点：ReAct 的逐步推理-执行与 Plan-and-Execute 的先规划后执行是两种主流 Agent 架构。对比两者在任务复杂度、错误恢复、token 效率上的权衡，混合架构（ADaPT）在长链任务上比纯 ReAct 成功率提升 20%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Universal Self-Consistency 的无标签校验",
@@ -4273,7 +4273,7 @@
       "开放式推理"
     ],
     "brief": "核心要点：标准 SC 仅适用于有固定答案的任务，Universal SC 通过 LLM 选择而非精确匹配实现开放式任务的一致性校验。在摘要、翻译等生成任务上，USC 比 greedy decoding 的人类评分提升 10-15%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ToT 在数学证明搜索中的应用",

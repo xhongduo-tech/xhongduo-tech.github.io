@@ -1,5 +1,17 @@
 [
   {
+    "title": "Universal Self-Consistency 的无标签校验",
+    "slug": "universal-self-consistency",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自洽性",
+      "开放式推理"
+    ],
+    "summary": "USC 先采样多答案，再让模型按语义一致性选最稳输出。"
+  },
+  {
     "title": "DeepSeek-MoE",
     "slug": "deepseek-moe-fine-grained-experts",
     "date": "2026-03-08",
