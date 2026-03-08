@@ -1,5 +1,17 @@
 [
   {
+    "title": "工具描述的 Prompt 工程优化",
+    "slug": "tool-description-prompt-engineering",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "提示工程"
+    ],
+    "summary": "工具描述要写成提示契约：职责、边界、参数示例三者缺一不可。"
+  },
+  {
     "title": "工具调用的强制模式与自由选择对比",
     "slug": "tool-choice-forced-vs-auto",
     "date": "2026-03-08",

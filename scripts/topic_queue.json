@@ -4371,7 +4371,7 @@
       "提示工程"
     ],
     "brief": "核心要点：工具的 name、description、parameter description 三层文本如何影响模型选择和参数填充。实验表明描述中加入使用条件（when to use）可减少 30% 的误调用，加入参数示例可减少 25% 的参数格式错误，过长描述（>500 token）反而降低性能",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "结构化输出与 Function Calling 的统一",
