@@ -1,5 +1,17 @@
 [
   {
+    "title": "Expert Parallelism 的通信瓶颈分析",
+    "slug": "expert-parallelism-communication-bottleneck",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "分布式系统"
+    ],
+    "summary": "MoE 的 Expert Parallelism 本质受两次 all-to-all 支配，网络带宽决定扩展上限。"
+  },
+  {
     "title": "GShard：MoE 的分布式训练框架",
     "slug": "gshard-distributed-moe-training",
     "date": "2026-03-08",

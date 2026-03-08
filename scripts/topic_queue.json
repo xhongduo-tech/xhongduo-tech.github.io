@@ -1572,7 +1572,7 @@
       "分布式系统"
     ],
     "brief": "核心要点：Expert Parallelism 中每个 MoE 层需要两次 All-to-All 通信（分发 token 和收集结果），通信量为 O(B·S·d/P) 其中 P 为设备数。分析 NVLink vs InfiniBand 带宽对 MoE 扩展性的限制，以及通信与计算的 overlap 策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ST-MoE：稳定训练的大规模 MoE",
