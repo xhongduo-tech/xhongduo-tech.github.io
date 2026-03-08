@@ -1,5 +1,17 @@
 [
   {
+    "title": "计算机使用中的 GUI 导航规划算法",
+    "slug": "computer-use-gui-navigation-planning",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "计算机使用",
+      "规划"
+    ],
+    "summary": "桌面Agent做GUI长任务，最稳的是粗粒度全局规划配合每步局部重规划。"
+  },
+  {
     "title": "GUI Agent 的 Grounding 对齐训练",
     "slug": "gui-agent-grounding-training",
     "date": "2026-03-08",
