@@ -1,5 +1,17 @@
 [
   {
+    "title": "Hash Layer",
+    "slug": "hash-layer-fixed-routing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Hash Layer 用固定哈希替代可学习路由，换取稳定与低开销，但失去语义自适应能力"
+  },
+  {
     "title": "Expert Choice 路由：让专家选择 Token",
     "slug": "expert-choice-routing",
     "date": "2026-03-08",
