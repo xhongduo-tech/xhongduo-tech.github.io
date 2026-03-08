@@ -1308,7 +1308,7 @@
       "推理优化"
     ],
     "brief": "核心要点：GQA 将 K/V 头数减少至 Q 头的 1/G（如 G=8），FlashAttention 通过共享 K/V 的分块 tile 减少 HBM 读取。在 Llama-2 70B（GQA, G=8）上，KV cache 减少 8x，FlashDecoding 将 batch decode 在长序列时加速 2-4x。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Ring Attention",

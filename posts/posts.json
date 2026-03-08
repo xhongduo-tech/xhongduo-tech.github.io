@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention 在多头注意力中的分组查询优化",
+    "slug": "flashattention-grouped-query-optimization",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "注意力机制",
+      "推理优化"
+    ],
+    "summary": "GQA 先把 KV cache 缩到 1/G，FlashAttention 再用 tile 减少 HBM 读写，长上下…"
+  },
+  {
     "title": "RetNet 的多尺度指数衰减与并行-递推双模式",
     "slug": "retnet-multi-scale-retention",
     "date": "2026-03-08",
