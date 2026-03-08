@@ -1,5 +1,19 @@
 [
   {
+    "title": "Soft MoE",
+    "slug": "soft-moe-differentiable-routing",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制",
+      "模型架构",
+      "MoE路由"
+    ],
+    "summary": "Soft MoE 用两次 softmax 做可微软路由，换来更稳定训练与更连续的信息流。"
+  },
+  {
     "title": "Hash Layer",
     "slug": "hash-layer-fixed-routing",
     "date": "2026-03-08",
