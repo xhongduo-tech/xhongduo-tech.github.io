@@ -1,5 +1,17 @@
 [
   {
+    "title": "RetNet 的多尺度指数衰减与并行-递推双模式",
+    "slug": "retnet-multi-scale-retention",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "序列建模"
+    ],
+    "summary": "RetNet 用指数衰减把线性注意力改造成可并行训练、可递推推理的多尺度记忆机制"
+  },
+  {
     "title": "GLA",
     "slug": "gated-linear-attention-hardware-efficient",
     "date": "2026-03-08",

@@ -1296,7 +1296,7 @@
       "序列建模"
     ],
     "brief": "核心要点：RetNet 将衰减因子 γ 引入线性注意力，retention(Q,K,V) = (QKᵀ ⊙ D)V，其中 D_nm = γ^(n-m)。多头使用不同 γ 值形成多尺度记忆。支持并行（训练，O(N²)）、递推（推理，O(1) 内存）和 chunk-wise（混合）三种模式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention 在多头注意力中的分组查询优化",
