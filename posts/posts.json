@@ -1,5 +1,18 @@
 [
   {
+    "title": "随机过程：马尔可夫链与布朗运动",
+    "slug": "stochastic-processes-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论",
+      "随机过程"
+    ],
+    "summary": "随机过程研究随时间演化的随机变量，马尔可夫链看状态转移，布朗运动看连续噪声扩散。"
+  },
+  {
     "title": "信息论基础：熵、互信息与 KL 散度",
     "slug": "information-theory-fundamentals",
     "date": "2026-03-08",
