@@ -1,5 +1,17 @@
 [
   {
+    "title": "工具调用的错误处理与回退策略",
+    "slug": "tool-calling-error-handling-fallback",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "容错"
+    ],
+    "summary": "工具调用失败要先分型，再分别用修参、重试、降级或用户确认处理。"
+  },
+  {
     "title": "MCP 协议的工具发现与注册机制",
     "slug": "mcp-tool-discovery-registration",
     "date": "2026-03-08",
