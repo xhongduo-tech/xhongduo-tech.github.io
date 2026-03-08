@@ -1326,7 +1326,7 @@
       "Ring"
     ],
     "brief": "核心要点：Ring Attention 将长序列切分到多设备，每设备持有局部 Q 块，K/V 块通过环形通信轮转。当 FLOP 时间 ≥ 通信时间（即 block_size·d ≥ bandwidth），通信完全被计算掩盖。理论上可处理 device_num × single_device_length 的序列。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "稀疏注意力模式的信息论分析",

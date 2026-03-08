@@ -1,5 +1,23 @@
 [
   {
+    "title": "Ring Attention",
+    "slug": "ring-attention-sequence-parallelism",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "注意力机制",
+      "分布式计算",
+      "前沿追踪",
+      "长上下文",
+      "分布式训练",
+      "模型架构",
+      "注意力优化",
+      "Ring"
+    ],
+    "summary": "Ring Attention 用固定本地Q和环形轮转KV，在多设备上实现精确长上下文注意力。"
+  },
+  {
     "title": "FlashAttention 在多头注意力中的分组查询优化",
     "slug": "flashattention-grouped-query-optimization",
     "date": "2026-03-08",
