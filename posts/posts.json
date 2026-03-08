@@ -1,5 +1,19 @@
 [
   {
+    "title": "DeepSeek-MoE",
+    "slug": "deepseek-moe-fine-grained-experts",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "DeepSeek",
+      "模型架构",
+      "MoE变体"
+    ],
+    "summary": "DeepSeek-MoE 通过细粒度专家和共享专家，用更低激活计算换取更高组合灵活性。"
+  },
+  {
     "title": "Mixtral 的路由模式：逐层专家分配分析",
     "slug": "mixtral-routing-pattern-analysis",
     "date": "2026-03-08",
