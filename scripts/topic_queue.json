@@ -1374,7 +1374,7 @@
       "核方法"
     ],
     "brief": "核心要点：FAVOR+ 使用正交随机矩阵替代 iid 高斯矩阵生成特征映射，估计量方差从 O(1/m) 指数级降至 O(exp(-m/d))。通过 Gram-Schmidt 或 QR 分解获得正交基，每 d 个特征为一组正交块。当 m≥64 时近似误差已接近 float32 精度极限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "因果卷积与 SSM 的频域加速",

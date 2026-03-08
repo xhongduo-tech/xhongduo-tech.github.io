@@ -1,5 +1,17 @@
 [
   {
+    "title": "Performer 正交随机特征的方差分析",
+    "slug": "performer-orthogonal-random-features-variance",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "核方法"
+    ],
+    "summary": "FAVOR+ 用正值加正交随机特征近似 softmax，在长序列下把注意力降为线性且更稳定。"
+  },
+  {
     "title": "多头潜在注意力：DeepSeek-V2 的 KV 压缩",
     "slug": "multi-head-latent-attention-deepseek-v2",
     "date": "2026-03-08",
