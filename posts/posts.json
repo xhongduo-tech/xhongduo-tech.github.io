@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据清洗的分布式实现",
+    "slug": "data-eng-distributed-data-cleaning",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据清洗"
+    ],
+    "summary": "分布式数据清洗的关键不在并行本身，而在分区策略、shuffle控制、状态边界与资源估算。"
+  },
+  {
     "title": "结构化数据抽取",
     "slug": "data-eng-structured-data-extraction",
     "date": "2026-03-08",
