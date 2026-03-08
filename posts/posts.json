@@ -1,5 +1,19 @@
 [
   {
+    "title": "GLA",
+    "slug": "gated-linear-attention-hardware-efficient",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "线性注意力",
+      "GPU优化",
+      "理论基础",
+      "GLA"
+    ],
+    "summary": "GLA在线性注意力中加入可学习遗忘门，兼顾线性复杂度、长上下文稳定性与GPU友好实现。"
+  },
+  {
     "title": "Mamba-2 的 SSD 层与矩阵分解",
     "slug": "mamba-2-ssd-structured-matrix",
     "date": "2026-03-08",

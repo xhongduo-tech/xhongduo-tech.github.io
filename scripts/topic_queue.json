@@ -1284,7 +1284,7 @@
       "GLA"
     ],
     "brief": "核心要点：GLA 在线性注意力递推中加入标量门控 g_t ∈ (0,1)，状态更新为 S_t = g_t·S_{t-1} + k_t v_tᵀ。通过 chunk-wise 并行和 materialization 技巧，在 Triton 中实现高效 kernel，训练吞吐量接近 FlashAttention-2 的 Transformer。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RetNet 的多尺度指数衰减与并行-递推双模式",
