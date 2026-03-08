@@ -1,5 +1,18 @@
 [
   {
+    "title": "归一化层的位置：Pre-Norm vs Post-Norm 的训练动态",
+    "slug": "normalization-position-transformer",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "归一化",
+      "训练动态"
+    ],
+    "summary": "Pre-Norm 保住梯度主通路，深层训练更稳；Post-Norm 更依赖 warmup 与精细调参。"
+  },
+  {
     "title": "Transformer 的参数共享策略：Embedding 与 Softmax 共享",
     "slug": "transformer-parameter-sharing",
     "date": "2026-03-08",
