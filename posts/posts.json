@@ -1,5 +1,17 @@
 [
   {
+    "title": "Expert Capacity 与 Token 丢弃机制",
+    "slug": "moe-expert-capacity-token-dropping",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "负载均衡"
+    ],
+    "summary": "Expert Capacity 决定 MoE 丢弃多少 token，本质是在信息完整性与资源成本之间做容量权衡"
+  },
+  {
     "title": "Noisy Top-k Gating：路由探索的噪声机制",
     "slug": "noisy-topk-gating",
     "date": "2026-03-08",

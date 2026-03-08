@@ -1548,7 +1548,7 @@
       "负载均衡"
     ],
     "brief": "核心要点：MoE 中专家容量 C=CF·(T/N) 的设定，当某专家接收 token 超过 C 时多余 token 被丢弃（通过残差连接跳过该层）。分析 CF 过小导致信息丢失、CF 过大导致计算浪费的权衡。ST-MoE 中动态容量调整的改进方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GShard：MoE 的分布式训练框架",
