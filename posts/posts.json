@@ -1,5 +1,18 @@
 [
   {
+    "title": "张量运算基础：从标量到高阶张量的数学操作",
+    "slug": "tensor-operations-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数",
+      "张量计算"
+    ],
+    "summary": "张量本质是多轴数组，核心操作可统一为张量积、收缩与置换。"
+  },
+  {
     "title": "Transformer 的推理优化：KV Cache 管理与批处理",
     "slug": "transformer-inference-optimization",
     "date": "2026-03-08",
