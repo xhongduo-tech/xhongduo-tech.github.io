@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 负载均衡损失的设计与调参",
+    "slug": "moe-load-balancing-loss",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "负载均衡"
+    ],
+    "summary": "MoE负载均衡损失用于抑制专家塌缩，α过小会失衡，过大又会抹平特化。"
+  },
+  {
     "title": "MoE 路由机制",
     "slug": "moe-routing-topk-to-expert-choice",
     "date": "2026-03-08",

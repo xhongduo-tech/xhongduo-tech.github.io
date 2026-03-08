@@ -1486,7 +1486,7 @@
       "负载均衡"
     ],
     "brief": "核心要点：辅助负载均衡损失 L_aux=α·N·Σf_i·P_i 的推导，其中 f_i 是专家 i 实际接收的 token 比例，P_i 是路由概率均值。分析 α 系数从 0.01 到 1.0 对训练稳定性的影响，以及过大 α 导致路由退化为均匀分布的问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Switch Transformer",
