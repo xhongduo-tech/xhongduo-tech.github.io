@@ -1412,7 +1412,7 @@
       "近似算法"
     ],
     "brief": "核心要点：Reformer 用 LSH（局部敏感哈希）将 Q/K 映射到相同桶中，仅在桶内计算注意力。每轮哈希复杂度 O(N·log N)，多轮（n_rounds=8）降低碰撞遗漏概率。可逆残差网络进一步将激活内存从 O(N·L) 降至 O(N)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention 与稀疏模式的融合",

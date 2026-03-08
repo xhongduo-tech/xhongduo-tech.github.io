@@ -1,5 +1,17 @@
 [
   {
+    "title": "Hash-based 稀疏注意力：Reformer 的 LSH 机制",
+    "slug": "reformer-lsh-attention-mechanism",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "近似算法"
+    ],
+    "summary": "Reformer用LSH先分桶再做桶内注意力，将长序列计算从平方级降到近似NlogN。"
+  },
+  {
     "title": "Dilated Attention",
     "slug": "dilated-attention-multi-scale-sparse",
     "date": "2026-03-08",
