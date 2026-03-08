@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 短期记忆的滑动窗口与摘要压缩",
+    "slug": "agent-short-term-memory-sliding-window",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "上下文管理"
+    ],
+    "summary": "Agent短期记忆本质是有限上下文调度，核心手段是滑窗、摘要和预算压缩。"
+  },
+  {
     "title": "工具调用的流式响应与中间状态展示",
     "slug": "tool-calling-streaming-intermediate-state",
     "date": "2026-03-08",
