@@ -1,5 +1,17 @@
 [
   {
+    "title": "浏览器 Agent 的多标签页协同控制",
+    "slug": "browser-agent-multi-tab-coordination",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "浏览器控制",
+      "多标签页"
+    ],
+    "summary": "多标签页 Agent 的关键是用焦点栈、分层缓存和失效规则控制切换 token 成本。"
+  },
+  {
     "title": "代码执行 Agent 的包管理策略",
     "slug": "code-agent-package-management",
     "date": "2026-03-08",

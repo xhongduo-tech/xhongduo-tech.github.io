@@ -4623,7 +4623,7 @@
       "可视化"
     ],
     "brief": "核心要点：代码执行 Agent 生成可视化的完整管线：matplotlib/plotly 图表生成 → 图像序列化（base64/文件路径）→ 多模态模型解读 → 自然语言描述。实测 GPT-4V 对 matplotlib 图表的数据点读取误差约 5-15%，趋势判断准确率约 85%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "浏览器 Agent 的多标签页协同控制",
@@ -4635,7 +4635,7 @@
       "多标签页"
     ],
     "brief": "核心要点：多标签页场景（信息对比、跨站表单填写、多步验证）的 Agent 控制策略。标签页上下文切换的 token 开销（每次切换需重新截图/提取 DOM 约 500-1500 token），页面状态缓存与失效机制，并行加载 vs 串行操作的权衡",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "浏览器 Agent 的表单自动填写机制",
