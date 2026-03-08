@@ -4539,7 +4539,7 @@
       "评测"
     ],
     "brief": "核心要点：OSWorld 提供 369 个跨 Ubuntu/Windows/macOS 的真实桌面任务评测。任务涵盖办公软件、文件管理、系统设置、多应用协作四大类。GPT-4V 成功率约 12.2%，Claude 3.5 Sonnet 约 22.0%，人类约 72.4%。主要瓶颈在长程任务的规划退化",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Computer Use 的安全边界与权限控制",

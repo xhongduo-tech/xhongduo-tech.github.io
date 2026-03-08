@@ -1,5 +1,17 @@
 [
   {
+    "title": "OSWorld 基准的跨平台桌面 Agent 评测",
+    "slug": "osworld-benchmark-desktop-agent",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "计算机使用",
+      "评测"
+    ],
+    "summary": "OSWorld用369个真实桌面任务量化Agent能力，核心瓶颈不是点击，而是长流程规划与恢复。"
+  },
+  {
     "title": "计算机使用中的坐标预测精度分析",
     "slug": "computer-use-coordinate-prediction",
     "date": "2026-03-08",
