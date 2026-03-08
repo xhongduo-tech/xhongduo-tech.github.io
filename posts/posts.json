@@ -1,5 +1,17 @@
 [
   {
+    "title": "PDF 文档数据提取",
+    "slug": "data-eng-pdf-data-extraction",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据清洗"
+    ],
+    "summary": "PDF提取的关键是先分清数字页与扫描页，再用坐标、表格线和OCR重建结构化数据"
+  },
+  {
     "title": "数据库 CDC 集成",
     "slug": "data-eng-database-cdc-integration",
     "date": "2026-03-08",

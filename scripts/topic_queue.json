@@ -15771,7 +15771,7 @@
       "数据清洗"
     ],
     "brief": "PDF 解析工具对比：PyPDF2、pdfplumber、pdfminer、MuPDF。表格提取的挑战与解决方案。OCR 集成：Tesseract、PaddleOCR。扫描件与矢量 PDF 的区分处理。PDF 提取的后处理流程。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "结构化数据抽取",
