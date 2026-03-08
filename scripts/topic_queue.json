@@ -1338,7 +1338,7 @@
       "理论分析"
     ],
     "brief": "核心要点：attention 矩阵的熵 H(A) 反映信息集中度，实证发现深层 attention 更稀疏（H 更低）。稀疏化相当于 top-k 截断，信息损失可用 KL(A_full || A_sparse) 量化。理论表明保留 O(N·log N) 个连接即可以 1-δ 概率保持 attention 输出的 ε-近似。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "线性注意力的表达力局限与修补",

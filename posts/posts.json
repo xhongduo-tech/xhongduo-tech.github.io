@@ -1,5 +1,17 @@
 [
   {
+    "title": "稀疏注意力模式的信息论分析",
+    "slug": "sparse-attention-information-theoretic-analysis",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "理论分析"
+    ],
+    "summary": "用熵、尾部质量与验证误差统一理解稀疏注意力的收益、损失与适用边界"
+  },
+  {
     "title": "Ring Attention",
     "slug": "ring-attention-sequence-parallelism",
     "date": "2026-03-08",
