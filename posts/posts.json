@@ -1,5 +1,18 @@
 [
   {
+    "title": "数值线性代数：稳定性与条件数",
+    "slug": "numerical-linear-algebra",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数",
+      "数值分析"
+    ],
+    "summary": "条件数决定问题有多脆弱，稳定算法决定误差不会被额外放大。"
+  },
+  {
     "title": "张量运算基础：从标量到高阶张量的数学操作",
     "slug": "tensor-operations-fundamentals",
     "date": "2026-03-08",
