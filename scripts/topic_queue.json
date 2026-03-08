@@ -4431,7 +4431,7 @@
       "运行时"
     ],
     "brief": "核心要点：Agent 在 Python/JavaScript/Bash 多运行时间切换的决策逻辑。Python 适合数据处理和科学计算，JS 适合 DOM 操作和 API 调用，Bash 适合文件操作和系统管理。不同运行时的启动延迟（Python ~200ms、Node ~100ms）和包管理策略差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "代码执行中的状态持久化设计",

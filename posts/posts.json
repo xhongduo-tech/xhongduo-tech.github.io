@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码生成的多语言运行时适配",
+    "slug": "code-generation-multi-runtime",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "代码执行",
+      "运行时"
+    ],
+    "summary": "用任务契合度、启动延迟和依赖风险三项打分，决定 Python、Node、Bash 的最优执行环境"
+  },
+  {
     "title": "代码执行反馈的自动修复循环",
     "slug": "code-execution-auto-fix-loop",
     "date": "2026-03-08",
