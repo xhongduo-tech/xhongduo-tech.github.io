@@ -1,5 +1,17 @@
 [
   {
+    "title": "Noisy Top-k Gating：路由探索的噪声机制",
+    "slug": "noisy-topk-gating",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Noisy Top-k 在训练时加可控噪声促进专家探索，推理去噪并保留 Top-k 以稳定输出。"
+  },
+  {
     "title": "专家坍缩问题：路由退化的成因与对策",
     "slug": "moe-expert-collapse",
     "date": "2026-03-08",

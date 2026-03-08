@@ -1536,7 +1536,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Shazeer 等人提出的噪声门控 H(x)=W_g·x + N·Softplus(W_noise·x)，其中 N~N(0,1)。噪声项在训练时鼓励探索不同专家，推理时关闭。分析噪声幅度对路由多样性和训练收敛速度的权衡，以及与 ε-greedy 探索策略的对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Capacity 与 Token 丢弃机制",
