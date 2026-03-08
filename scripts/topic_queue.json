@@ -4719,7 +4719,7 @@
       "Embedding"
     ],
     "brief": "核心要点：语义记忆将经验抽象为向量表示，关键在于 Embedding 模型选择与检索策略设计。text-embedding-3-large 在语义相似度任务上 NDCG@10 达 0.62，但对时序关系捕获不足。混合检索（向量 + BM25）可提升 Recall@10 约 15%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MemGPT 的分层记忆管理机制",

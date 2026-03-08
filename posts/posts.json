@@ -1,5 +1,17 @@
 [
   {
+    "title": "语义记忆的 Embedding 表示与检索策略",
+    "slug": "semantic-memory-embedding-retrieval",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "语义记忆",
+      "Embedding"
+    ],
+    "summary": "语义记忆的关键不只在向量质量，更在混合检索与时间约束设计"
+  },
+  {
     "title": "长期记忆的存储架构：KV 缓存与外部持久化",
     "slug": "agent-long-term-memory-storage-architecture",
     "date": "2026-03-08",
