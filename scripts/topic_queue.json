@@ -15749,7 +15749,7 @@
       "数据采集"
     ],
     "brief": "流式采集的场景：社交媒体、日志、IoT。采集架构：Fluentd/Logstash/Filebeat → Kafka。背压处理与流量控制。采集延迟的监控与优化。流式采集与批处理采集的混合架构。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据库 CDC 集成",
