@@ -1,5 +1,18 @@
 [
   {
+    "title": "微分方程：从常微分到偏微分",
+    "slug": "differential-equations-fundamentals",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分",
+      "微分方程"
+    ],
+    "summary": "ODE描述单变量轨迹，PDE描述时空场；核心是边界条件、离散化与稳定性。"
+  },
+  {
     "title": "数值优化：线搜索与信赖域方法",
     "slug": "numerical-optimization-methods",
     "date": "2026-03-08",
