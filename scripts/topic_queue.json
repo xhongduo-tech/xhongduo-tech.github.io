@@ -4323,7 +4323,7 @@
       "程序推理"
     ],
     "brief": "核心要点：PAL（Program-Aided Language models）将 CoT 的自然语言推理与程序执行结合，LLM 生成推理代码而非直接计算。在 GSM8K 上 PAL 比纯 CoT 提升约 10%，分析自然语言推理与形式化执行各自的适用边界",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Function Calling 的协议设计与类型约束",

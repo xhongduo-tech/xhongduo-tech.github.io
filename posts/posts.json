@@ -1,5 +1,17 @@
 [
   {
+    "title": "思维链与程序化推理的互补机制",
+    "slug": "cot-program-aided-reasoning",
+    "date": "2026-03-08",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "程序推理"
+    ],
+    "summary": "PAL把语义推理交给LLM，把精确计算交给解释器，两者互补提升结构化推理稳定性"
+  },
+  {
     "title": "Reflexion",
     "slug": "reflexion-language-feedback-learning",
     "date": "2026-03-08",
