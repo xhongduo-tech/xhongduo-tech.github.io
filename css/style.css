@@ -182,7 +182,7 @@ main.container {
 .project-card:hover { border-color: var(--accent); }
 .project-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   margin-bottom: 8px;
 }
@@ -848,6 +848,71 @@ main.container {
 .feedback-submit:hover {
   background: var(--accent);
   color: var(--bg);
+}
+
+/* ===== 作者品牌图标 ===== */
+.author-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.claude-icon { color: #cc785c; }
+.openai-icon { color: var(--text-muted); }
+[data-theme="light"] .openai-icon { color: #555; }
+
+/* ===== 文章 Follow ===== */
+.post-follow {
+  margin-top: 14px;
+}
+.follow-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 0.28rem 0.85rem;
+  cursor: pointer;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+  transition: color 0.15s, border-color 0.15s;
+}
+.follow-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.follow-btn.following {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+/* ===== Projects 状态 & 日期 ===== */
+.project-status {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.04em;
+  margin-left: auto;
+}
+.status-active {
+  background: rgba(74, 222, 128, 0.08);
+  color: var(--green);
+  border: 1px solid rgba(74, 222, 128, 0.22);
+}
+.status-done {
+  background: var(--bg-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.project-dates {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 6px 0 10px;
 }
 
 /* ===== 响应式 ===== */
