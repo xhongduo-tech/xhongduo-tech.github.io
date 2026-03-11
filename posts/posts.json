@@ -1,5 +1,17 @@
 [
   {
+    "title": "Tensor Parallel 中的通信原语",
+    "slug": "tp-communication-primitives",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "通信原语"
+    ],
+    "summary": "TP 的关键不是死记 AllReduce，而是先分清张量是分片还是部分和。"
+  },
+  {
     "title": "Megatron-LM 序列并行",
     "slug": "megatron-sequence-parallel",
     "date": "2026-03-11",

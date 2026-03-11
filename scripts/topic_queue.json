@@ -1989,7 +1989,7 @@
       "通信原语"
     ],
     "brief": "核心要点：TP 层的前向和反向分别需要不同的通信原语。Column Parallel 前向用 Identity+AllReduce（或 AllGather+split），反向则相反。分析 f 和 g 共轭算子的设计：前向 AllReduce 对应反向 Identity，前向 split 对应反向 AllGather。通信与计算的重叠策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO 与模型并行的显存对比",
