@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的特征引导：激活工程",
+    "slug": "claude-activation-engineering",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "可解释性"
+    ],
+    "summary": "SAE steering能精细调语义偏向，但不能替代结构化任务里的训练与约束解码"
+  },
+  {
     "title": "Claude 中的 Superposition 现象",
     "slug": "claude-superposition-phenomenon",
     "date": "2026-03-12",

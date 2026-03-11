@@ -2794,7 +2794,7 @@
       "可解释性"
     ],
     "brief": "核心要点：通过 SAE 提取的特征可用于干预 Claude 的行为——放大'Golden Gate Bridge'特征使模型在所有回答中提及金门大桥。这种激活工程提供了比 prompt 更精细的行为控制。技术实现是在推理时对残差流添加特征方向的偏移向量 x' = x + α·f。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的安全分层架构",
