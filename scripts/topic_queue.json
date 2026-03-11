@@ -2205,7 +2205,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：Kaplan et al. (2020) 提出的幂律关系 L(N) ∝ N^{-α}，损失与参数量、数据量、计算量的三变量拟合。详解指数 α≈0.076（参数）和 α≈0.095（数据）的来源，以及 L(N,D) = L₀ + A/N^α + B/D^β 的联合公式推导过程。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Chinchilla 定律：计算最优的训练配比",

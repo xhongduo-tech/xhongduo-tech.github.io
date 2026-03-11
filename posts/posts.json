@@ -1,5 +1,17 @@
 [
   {
+    "title": "Scaling Law 的基本形式与拟合方法",
+    "slug": "scaling-law-basic-formulation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "Scaling Law"
+    ],
+    "summary": "Scaling Law 用幂律刻画参数与数据扩展对验证损失的递减收益，可用于预算分配与损失预测"
+  },
+  {
     "title": "DP 通信重叠：梯度 AllReduce 流水线化",
     "slug": "dp-communication-overlap",
     "date": "2026-03-12",
