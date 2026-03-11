@@ -1,5 +1,16 @@
 [
   {
+    "title": "Docker镜像构建优化",
+    "slug": "sys-container-docker-image-optimization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "summary": "优化 Docker 镜像的关键是分离构建与运行阶段，并提高层缓存命中率"
+  },
+  {
     "title": "Linux定时任务",
     "slug": "sys-linux-linux-cron-jobs",
     "date": "2026-03-12",

@@ -13479,7 +13479,7 @@
       "容器"
     ],
     "brief": "Docker镜像优化的核心是减少无效层、缩小运行时依赖并最大化缓存命中。多阶段构建可把编译环境与运行环境分离，COPY顺序会直接影响层缓存复用率。基础镜像从Ubuntu换到Alpine或distroless往往能显著减小体积，但也可能带来兼容性、调试性和libc差异问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Docker网络模式",
