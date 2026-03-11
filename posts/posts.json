@@ -1,5 +1,17 @@
 [
   {
+    "title": "ICL 的示例选择策略与性能影响",
+    "slug": "icl-example-selection-strategies",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "提示工程"
+    ],
+    "summary": "ICL 选例要同时优化相关性、顺序和覆盖，不能只做 top-k 相似检索"
+  },
+  {
     "title": "Induction Head：ICL 的电路级机制",
     "slug": "induction-head-icl-circuit",
     "date": "2026-03-12",
