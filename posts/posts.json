@@ -1,5 +1,17 @@
 [
   {
+    "title": "交错式流水线：Megatron-LM 的虚拟阶段",
+    "slug": "interleaved-pipeline-stages",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "流水线并行"
+    ],
+    "summary": "虚拟阶段用更多通信换更少流水线空转，收益取决于带宽是否撑得住。"
+  },
+  {
     "title": "1F1B 调度：流水线并行的内存优化",
     "slug": "pipeline-1f1b-schedule",
     "date": "2026-03-11",

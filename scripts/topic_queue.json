@@ -1889,7 +1889,7 @@
       "流水线并行"
     ],
     "brief": "核心要点：Megatron-LM 将每个设备分配多个非连续层（虚拟阶段），将 bubble 率从 (p-1)/m 降至 (p-1)/(vm)，v 为虚拟阶段数。代价是通信量增加 v 倍，因为每个微批次需要在设备间多次传输。当 v=L/p 时 bubble 趋近于零但通信开销最大。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO Stage 1",
