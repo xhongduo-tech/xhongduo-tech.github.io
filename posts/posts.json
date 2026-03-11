@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据约束下的 Scaling Law 修正",
+    "slug": "data-constrained-scaling-law",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "数据工程"
+    ],
+    "summary": "数据不足时，重复训练仍有收益，但有效数据量按指数衰减，约16轮后增益接近耗尽。"
+  },
+  {
     "title": "计算最优之外",
     "slug": "inference-aware-scaling-law",
     "date": "2026-03-12",

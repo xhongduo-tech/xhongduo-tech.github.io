@@ -2267,7 +2267,7 @@
       "数据工程"
     ],
     "brief": "核心要点：Muennighoff et al. (2023) 研究数据重复对 Scaling Law 的影响。当唯一 token 数 U 不足时，重复 R 次后损失衰减变慢：有效数据量 D_eff = U(1 - e^{-R})。4 epoch 重复仅相当于约 2.8 倍数据，超过 16 epoch 后收益几乎为零。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Scaling Law 对模型宽度与深度的约束",
