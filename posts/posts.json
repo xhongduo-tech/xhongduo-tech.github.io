@@ -1,5 +1,16 @@
 [
   {
+    "title": "Claude 3.5 Sonnet的技术特点",
+    "slug": "frontier-model-claude35-sonnet-features",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Claude 3.5 Sonnet强在长上下文、工具协作与代码任务稳定性，但实时事实仍需外部验证"
+  },
+  {
     "title": "GPT-4o的多模态能力",
     "slug": "frontier-model-gpt4o-multimodal-capability",
     "date": "2026-03-12",
