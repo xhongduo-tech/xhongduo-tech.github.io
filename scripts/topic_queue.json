@@ -14074,7 +14074,7 @@
       "FFN层"
     ],
     "brief": "FFN扩展比(4x)的来源：从d_model到d_ff的投影。分析4x选择的理论依据，对比不同扩展比(2x, 4x, 8x)的参数量与性能曲线，探讨LLaMA的8/3x设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FFN第二层的压缩投影",

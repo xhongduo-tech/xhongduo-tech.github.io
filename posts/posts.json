@@ -1,5 +1,17 @@
 [
   {
+    "title": "FFN第一层的扩展比设计",
+    "slug": "arch-transformer-ffn-expansion-ratio",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "FFN层"
+    ],
+    "summary": "FFN扩展比本质是容量与成本旋钮，标准4×是稳健折中，SwiGLU常用8/3×做预算对齐"
+  },
+  {
     "title": "QKV投影的合并优化",
     "slug": "arch-transformer-qkv-fused-projection",
     "date": "2026-03-12",
