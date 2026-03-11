@@ -1,5 +1,17 @@
 [
   {
+    "title": "V-MoE",
+    "slug": "vmoe-vision-moe",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "视觉模型"
+    ],
+    "summary": "V-MoE用稀疏专家替换ViT的MLP，以少量激活专家换取更大参数容量与可调推理成本"
+  },
+  {
     "title": "MoE 量化：专家级别的异构量化",
     "slug": "moe-heterogeneous-quantization",
     "date": "2026-03-11",
