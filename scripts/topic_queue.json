@@ -2638,7 +2638,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Claude 3 支持 200K token 上下文窗口，在 Needle-in-a-Haystack 测试中准确率超过 99%。长上下文处理的关键技术包括位置编码外推（RoPE 的 NTK-aware 缩放）、注意力稀疏化，以及训练时逐步扩展上下文长度的阶段式策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 3 的多模态融合架构",

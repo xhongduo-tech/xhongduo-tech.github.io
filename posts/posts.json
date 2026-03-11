@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的长上下文处理机制",
+    "slug": "claude-long-context-mechanism",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "注意力机制"
+    ],
+    "summary": "Claude 长上下文的关键不只是 200K 窗口，而是位置外推、阶段式训练和推理期 token 管理。"
+  },
+  {
     "title": "Claude 1 到 Claude 3 的架构演进",
     "slug": "claude-architecture-evolution",
     "date": "2026-03-12",
