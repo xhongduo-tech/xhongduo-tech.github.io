@@ -1,5 +1,16 @@
 [
   {
+    "title": "Llama 3.1的405B模型",
+    "slug": "frontier-model-llama31-405b",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Llama 3.1 405B是高能力开源稠密模型，但真实落地几乎必须依赖量化、并行和分层部署。"
+  },
+  {
     "title": "Gemini 2.0的原生多模态输出",
     "slug": "frontier-model-gemini20-native-multimodal",
     "date": "2026-03-12",
