@@ -1,5 +1,16 @@
 [
   {
+    "title": "向量数据库的设计",
+    "slug": "sys-db-vector-database-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "向量数据库本质是在召回、延迟、内存和规模之间做ANN索引权衡"
+  },
+  {
     "title": "Elasticsearch的搜索优化",
     "slug": "sys-db-elasticsearch-search-optimization",
     "date": "2026-03-12",
