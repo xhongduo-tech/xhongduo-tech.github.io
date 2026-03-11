@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 HHH 目标函数解析",
+    "slug": "claude-hhh-objective",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "对齐"
+    ],
+    "summary": "Claude 的 HHH 本质是分层多目标对齐，高风险场景由 harmlessness 优先覆盖 helpfulnes…"
+  },
+  {
     "title": "Constitutional AI 的核心机制",
     "slug": "constitutional-ai-core-mechanism",
     "date": "2026-03-12",

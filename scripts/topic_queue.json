@@ -2590,7 +2590,7 @@
       "对齐"
     ],
     "brief": "核心要点：Helpful、Honest、Harmless 三目标之间存在张力——过度追求 harmless 导致拒绝合理请求（过度拒绝），过度 helpful 又可能输出有害内容。Claude 通过 Constitutional AI 的原则层级来平衡三者，其中 harmlessness 在涉及严重伤害时具有最高优先级。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的 Critique-Revision 循环",
