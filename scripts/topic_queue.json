@@ -2229,7 +2229,7 @@
       "信息论"
     ],
     "brief": "核心要点：幂律公式中的常数项 L₀ 代表数据分布的内在熵，是任何模型都无法突破的下界。分析自然语言的信息熵估计（Shannon 游戏约 1.0-1.3 bits/char），以及 L₀ 在不同数据集（C4、The Pile、RedPajama）上的差异如何反映数据质量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Scaling Law 的下游任务迁移",

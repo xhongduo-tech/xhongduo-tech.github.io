@@ -1,5 +1,17 @@
 [
   {
+    "title": "Scaling Law 中的不可约损失与熵下界",
+    "slug": "irreducible-loss-entropy-bound",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "信息论"
+    ],
+    "summary": "Scaling law 的常数项 E 是数据熵下界，决定了 loss 能降到多低。"
+  },
+  {
     "title": "Chinchilla 定律：计算最优的训练配比",
     "slug": "chinchilla-optimal-scaling",
     "date": "2026-03-12",
