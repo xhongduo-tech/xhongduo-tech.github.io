@@ -2037,7 +2037,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：异步流水线（PipeDream）中不同微批次使用不同版本权重，导致 weight stashing 问题。PipeDream-2BW 仅维护 2 个权重版本，在 bubble 期间同步。PipeDream-Flush 采用同步语义，牺牲部分吞吐保证收敛一致性。分析权重版本差异对梯度方差的定量影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "跨节点 TP：NVLink 与 InfiniBand 的选择",

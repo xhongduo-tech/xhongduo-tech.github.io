@@ -1,5 +1,17 @@
 [
   {
+    "title": "PP 中的权重同步与一致性",
+    "slug": "pipeline-weight-consistency",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "流水线并行",
+      "分布式训练"
+    ],
+    "summary": "流水线并行的关键不是缓存权重，而是控制跨stage的参数版本一致性。"
+  },
+  {
     "title": "Megatron-LM 的激活重计算策略",
     "slug": "megatron-activation-recomputation",
     "date": "2026-03-11",
