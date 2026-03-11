@@ -1,5 +1,17 @@
 [
   {
+    "title": "Broken Neural Scaling Law：S 形修正",
+    "slug": "broken-neural-scaling-law",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "经验公式"
+    ],
+    "summary": "BNSL用平滑断裂幂律把单一直线改成S形，更适合解释拐点、平台和所谓涌现。"
+  },
+  {
     "title": "Scaling Law 的理论基础：神经网络逼近论",
     "slug": "scaling-law-approximation-theory",
     "date": "2026-03-12",
