@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的安全分层架构",
+    "slug": "claude-safety-layered-architecture",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "安全"
+    ],
+    "summary": "Claude 安全可抽象为四层：过滤训练数据、CAI 对齐、系统约束、输出拦截。"
+  },
+  {
     "title": "Claude 的特征引导：激活工程",
     "slug": "claude-activation-engineering",
     "date": "2026-03-12",

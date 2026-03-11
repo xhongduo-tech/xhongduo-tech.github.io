@@ -2806,7 +2806,7 @@
       "安全"
     ],
     "brief": "核心要点：Claude 的安全系统分为四层：预训练数据过滤、Constitutional AI 对齐训练、system prompt 级约束、输出过滤器。每层防御不同类型的攻击——数据过滤防训练污染，CAI 防基本有害请求，system prompt 防角色突破，输出过滤防漏网之鱼。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的越狱攻击分类与防御",
