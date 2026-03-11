@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的知识蒸馏与模型家族",
+    "slug": "claude-knowledge-distillation-family",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Claude",
+      "模型压缩"
+    ],
+    "summary": "Claude 家族公开确认了 Sonnet 到 Haiku 的蒸馏路径，核心是用温度软标签迁移大模型判断分布。"
+  },
+  {
     "title": "Claude 的工具使用能力训练",
     "slug": "claude-tool-use-training",
     "date": "2026-03-12",

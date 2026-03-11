@@ -2902,7 +2902,7 @@
       "模型压缩"
     ],
     "brief": "核心要点：Claude 3 家族（Haiku/Sonnet/Opus）的三个规模档位可能通过知识蒸馏关联——大模型的输出分布作为小模型的软标签进行训练。蒸馏的关键是 temperature scaling：KL(P_teacher^(1/T) || P_student^(1/T))，T>1 时软标签包含更多暗知识。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的幻觉检测与缓解",
