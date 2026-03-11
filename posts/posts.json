@@ -1,5 +1,17 @@
 [
   {
+    "title": "FFN的稀疏激活模式",
+    "slug": "arch-transformer-ffn-sparse-activation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "FFN层"
+    ],
+    "summary": "FFN 稀疏激活本质是 ReLU 类函数按输入只点亮少数神经元，可降计算，但需配合微调与硬件实现评估。"
+  },
+  {
     "title": "SwiGLU激活函数的FFN设计",
     "slug": "arch-transformer-swiglu-ffn-design",
     "date": "2026-03-12",
