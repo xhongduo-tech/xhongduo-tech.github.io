@@ -1732,7 +1732,7 @@
       "架构设计"
     ],
     "brief": "核心要点：MoE 层的放置策略对性能影响显著——每层都用 MoE vs 每隔一层使用 MoE vs 仅在特定层使用。分析 Switch Transformer 的每隔一层策略、Mixtral 的全层策略、以及 ST-MoE 发现的最优放置模式。讨论 MoE 层密度与模型质量/效率的关系。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Auxiliary Loss 变体：从 Importance Loss 到 z-loss",

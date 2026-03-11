@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 层的位置选择：全层 vs 交替层",
+    "slug": "moe-layer-placement-strategy",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "架构设计"
+    ],
+    "summary": "MoE 放置位置决定容量释放、路由频率与训练稳定性的平衡点"
+  },
+  {
     "title": "V-MoE",
     "slug": "vmoe-vision-moe",
     "date": "2026-03-11",
