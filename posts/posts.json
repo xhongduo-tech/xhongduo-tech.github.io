@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sinkhorn 路由：最优传输视角的负载均衡",
+    "slug": "sinkhorn-routing-optimal-transport",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Sinkhorn 路由把 MoE 分配改写为最优传输，用全局约束换更稳定的专家负载均衡。"
+  },
+  {
     "title": "MoE 的 Upcycling：从 Dense 到稀疏的初始化",
     "slug": "moe-upcycling-dense-to-sparse",
     "date": "2026-03-11",

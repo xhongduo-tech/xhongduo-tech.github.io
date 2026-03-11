@@ -1792,7 +1792,7 @@
       "路由机制"
     ],
     "brief": "核心要点：将 token-to-expert 分配建模为最优传输问题，使用 Sinkhorn 算法迭代求解双随机矩阵。与 Top-k 路由 + 辅助损失的方式不同，Sinkhorn 路由在约束满足的前提下最大化分配质量。分析 Sinkhorn 迭代次数与路由质量的关系，以及其计算开销。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 的扩展规律：稀疏模型的 Scaling Law",
