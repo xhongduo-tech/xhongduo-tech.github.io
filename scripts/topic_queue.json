@@ -2962,7 +2962,7 @@
       "长上下文"
     ],
     "brief": "核心要点：Gemini 1.5 Pro 支持 1M token 上下文，实际测试可达 10M。分析其基于 RingAttention 思想的分布式注意力计算、KV cache 压缩策略、长序列位置编码外推方法及 Needle-in-a-Haystack 测试表现",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 1.5 Pro 的 MoE 效率设计",
