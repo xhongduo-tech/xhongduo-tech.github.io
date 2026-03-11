@@ -13667,7 +13667,7 @@
       "数据库"
     ],
     "brief": "MySQL事务与锁的关键在MVCC与锁粒度配合。InnoDB通过undo log形成快照读，普通SELECT通常不加锁；当前读则依赖记录锁、间隙锁和next-key lock防止幻读。隔离级别越高，并发冲突和死锁概率往往越大。理解锁等待、回滚段与索引条件，是排查慢事务和死锁的基础。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PostgreSQL的高级特性",

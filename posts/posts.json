@@ -1,5 +1,16 @@
 [
   {
+    "title": "MySQL事务与锁",
+    "slug": "sys-db-mysql-transaction-lock",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "MySQL事务的核心是MVCC处理快照读、next-key处理当前读范围冲突。"
+  },
+  {
     "title": "MySQL索引优化",
     "slug": "sys-db-mysql-index-optimization",
     "date": "2026-03-12",
