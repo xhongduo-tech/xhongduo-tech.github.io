@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 3 的多模态融合架构",
+    "slug": "claude3-multimodal-architecture",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "多模态"
+    ],
+    "summary": "Claude 3 的图像会转成视觉 token，与文本共享同一推理上下文，但工程上首先受尺寸、token 和延迟约束。"
+  },
+  {
     "title": "Claude 的长上下文处理机制",
     "slug": "claude-long-context-mechanism",
     "date": "2026-03-12",

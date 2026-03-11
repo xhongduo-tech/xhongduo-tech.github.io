@@ -2650,7 +2650,7 @@
       "多模态"
     ],
     "brief": "核心要点：Claude 3 通过视觉编码器（ViT 变体）将图像转化为 token 序列，与文本 token 共享 Transformer 的注意力层。图像分辨率自适应分片，最大支持约 1568×1568 像素。在 MMMU 基准上 Claude 3 Opus 达到 59.4%，显示出强视觉推理能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的偏好模型训练细节",
