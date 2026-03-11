@@ -1,5 +1,17 @@
 [
   {
+    "title": "In-Context Learning 的信息论解释",
+    "slug": "in-context-learning-information-theory",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "信息论"
+    ],
+    "summary": "ICL 本质是用上下文示例推断任务概念，从而降低预测不确定性。"
+  },
+  {
     "title": "U 形涌现：逆向 Scaling 现象",
     "slug": "inverse-scaling-u-shaped-emergence",
     "date": "2026-03-12",

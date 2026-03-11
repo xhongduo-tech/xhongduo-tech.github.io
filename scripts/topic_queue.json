@@ -2363,7 +2363,7 @@
       "信息论"
     ],
     "brief": "核心要点：ICL 可以用互信息 I(Y;X|C) 来理解——上下文 C（示例）提供了 X→Y 映射的信息，降低了预测 Y 的不确定性。Xie et al. (2022) 证明 Transformer 在 ICL 中隐式执行贝叶斯推断，上下文示例用于推断隐含的生成概念 θ，等价于 p(y|x) = ∫p(y|x,θ)p(θ|C)dθ。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer 的隐式梯度下降：ICL 即学习",
