@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练稳定性的 Scaling：大模型为何更难训练",
+    "slug": "training-instability-scaling",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "训练稳定性"
+    ],
+    "summary": "模型越大，梯度极值、Attention饱和和学习率失配越严重，μP可部分缓解训练不稳定。"
+  },
+  {
     "title": "Broken Neural Scaling Law：S 形修正",
     "slug": "broken-neural-scaling-law",
     "date": "2026-03-12",

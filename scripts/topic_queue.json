@@ -2470,7 +2470,7 @@
       "多模态"
     ],
     "brief": "核心要点：Aghajanyan et al. (2023) 研究文本+图像联合训练的 Scaling Law。多模态训练的有效计算量不等于各模态之和——图文交叉注意力带来的增益遵循 L(N,D_t,D_i) 的三变量幂律，且图像 token 的'兑换比'约为 1 图像 token ≈ 0.3 文本 token。模态比例也存在最优配比。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "训练稳定性的 Scaling：大模型为何更难训练",
@@ -2482,7 +2482,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：随着模型规模增大，训练不稳定性（loss spike）的频率和幅度增加。Chowdhery et al. (2022, PaLM) 记录了 540B 模型中约 20 次 loss spike。原因分析：(1) 梯度范数的方差与 N 正相关；(2) Attention logits 的量级随 d_model 增长为 O(√d)；(3) 学习率的最优值随 N 下降。μP 参数化可部分解决。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "μP：从小模型预测大模型的最优超参数",
