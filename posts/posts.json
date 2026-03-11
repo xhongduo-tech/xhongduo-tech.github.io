@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 宪法原则的设计与演化",
+    "slug": "claude-constitution-principles-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "Constitutional AI"
+    ],
+    "summary": "Claude 宪法原则的核心不是死规则，而是通过自我批评与修订把安全和实用一起训练进去。"
+  },
+  {
     "title": "Claude 的 Critique-Revision 循环",
     "slug": "claude-critique-revision-loop",
     "date": "2026-03-12",
