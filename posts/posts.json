@@ -1,5 +1,17 @@
 [
   {
+    "title": "Constitutional AI 的核心机制",
+    "slug": "constitutional-ai-core-mechanism",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "Constitutional AI"
+    ],
+    "summary": "CAI用“原则驱动的自我修订+AI偏好强化学习”降低对齐标注成本。"
+  },
+  {
     "title": "ICL 与微调的统一理论框架",
     "slug": "icl-finetuning-unified-framework",
     "date": "2026-03-12",

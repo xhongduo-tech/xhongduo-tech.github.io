@@ -2566,7 +2566,7 @@
       "Constitutional AI"
     ],
     "brief": "核心要点：Constitutional AI (CAI) 通过两阶段训练实现自我对齐——先用 LLM 自身按宪法原则修订有害回答（SL-CAI），再对修订后的数据做 RLHF（RL-CAI）。相比纯 RLHF，CAI 将人类反馈从逐条标注转为原则制定，标注成本降低数个数量级。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RLHF 与 RLAIF 的对齐效果对比",
