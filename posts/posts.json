@@ -1,5 +1,16 @@
 [
   {
+    "title": "Linux性能分析工具",
+    "slug": "sys-linux-linux-performance-tools",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "summary": "先用USE判断瓶颈类型，再按资源、syscall、函数逐层选择top、strace、perf和eBPF。"
+  },
+  {
     "title": "多模态位置编码：从 1D 到 N-D 的扩展",
     "slug": "multimodal-positional-encoding-nd",
     "date": "2026-03-12",
