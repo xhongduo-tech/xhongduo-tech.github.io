@@ -2133,7 +2133,7 @@
       "MoE"
     ],
     "brief": "核心要点：大规模 MoE 模型中，EP 将不同专家分配到不同设备，TP 将单个专家内部切分。Mixtral 8x7B 的 8 个专家可 EP=8 各卡一个，或 EP=4+TP=2 每专家跨 2 卡。All-to-All 通信实现 token 到专家的路由，通信量为 2bsh·(ep-1)/ep。两种并行的通信模式不同，需要独立进程组。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度通信压缩：从 FP16 到 1-bit",

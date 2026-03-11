@@ -1,5 +1,17 @@
 [
   {
+    "title": "Expert Parallel 与 Tensor Parallel 的组合",
+    "slug": "expert-parallel-tensor-parallel",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "MoE"
+    ],
+    "summary": "EP 负责专家分布，TP 负责专家内切分，二者可组合但必须使用独立进程组并配合 Sequence Parallel。"
+  },
+  {
     "title": "ZeRO-R：激活内存的分布式优化",
     "slug": "zero-r-activation-memory",
     "date": "2026-03-11",
