@@ -1,5 +1,17 @@
 [
   {
+    "title": "ICL 中的标签空间与格式效应",
+    "slug": "icl-label-space-format-effect",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "提示工程"
+    ],
+    "summary": "ICL更依赖标签空间、输入分布和格式，而不只是示例标签真假。"
+  },
+  {
     "title": "ICL 的示例选择策略与性能影响",
     "slug": "icl-example-selection-strategies",
     "date": "2026-03-12",

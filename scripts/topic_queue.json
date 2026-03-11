@@ -2423,7 +2423,7 @@
       "提示工程"
     ],
     "brief": "核心要点：Min et al. (2022) 发现 ICL 中标签是否正确影响不大，但标签空间（使用哪些标签词）、输入分布和格式影响显著。将'positive/negative'换成'foo/bar'会大幅降低性能，因为模型依赖预训练中标签词的语义先验。这揭示了 ICL 更多是'格式学习'而非'任务学习'。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Many-Shot ICL：突破少样本的限制",
