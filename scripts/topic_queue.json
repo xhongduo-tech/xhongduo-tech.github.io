@@ -2986,7 +2986,7 @@
       "音频"
     ],
     "brief": "核心要点：Gemini 原生支持音频输入，可处理语音、音乐和环境声。分析其音频 tokenizer（基于 USM/Whisper 风格编码器）、音频-文本交叉注意力设计、采样率与 token 粒度的权衡及 ASR 任务表现",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的视频理解：时序建模机制",

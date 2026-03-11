@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的音频理解架构",
+    "slug": "gemini-audio-understanding-architecture",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "音频"
+    ],
+    "summary": "Gemini把音频编码成token并与文本图像统一注意力处理，长上下文显著改善长音频理解。"
+  },
+  {
     "title": "Gemini 1.5 Pro 的 MoE 效率设计",
     "slug": "gemini-1-5-pro-moe-efficiency",
     "date": "2026-03-12",
