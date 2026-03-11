@@ -2073,7 +2073,7 @@
       "PyTorch"
     ],
     "brief": "核心要点：PyTorch FSDP 是 ZeRO Stage 3 的原生实现，但细节有差异。FSDP 以 FlatParameter 为单位分片，支持混合精度和 backward prefetch。与 DeepSpeed ZeRO-3 对比：FSDP 支持 torch.compile、不依赖外部库，但缺少 ZeRO-Offload 等高级功能。两者在 128 卡规模性能差距 <5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Megatron-LM 的分布式初始化",
