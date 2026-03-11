@@ -2926,7 +2926,7 @@
       "MoE"
     ],
     "brief": "核心要点：Gemini 1.0 采用稀疏混合专家架构，通过 Top-K 路由机制在推理时仅激活部分参数。分析其专家数量、路由策略、负载均衡损失函数设计，以及与 dense Transformer 在相同 FLOPs 下的性能对比",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的原生多模态训练范式",

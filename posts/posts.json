@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 1.0 的 MoE 架构解析",
+    "slug": "gemini-1-moe-architecture",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "MoE"
+    ],
+    "summary": "Gemini 路线用稀疏 MoE 扩大容量，但 1.0 具体专家细节并未完整公开。"
+  },
+  {
     "title": "Claude 的幻觉检测与缓解",
     "slug": "claude-hallucination-detection-mitigation",
     "date": "2026-03-12",
