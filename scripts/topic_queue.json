@@ -13678,7 +13678,7 @@
       "数据库"
     ],
     "brief": "PostgreSQL的高级能力建立在可扩展内核上：JSONB支持半结构化数据与GIN索引，全文搜索提供词法解析和相关性排序，扩展机制可引入PostGIS、pgvector等能力。与功能专用库相比，PostgreSQL常能在单引擎内覆盖更多场景，但高灵活性也意味着更需要关注索引类型、VACUUM与统计信息维护。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Redis的数据结构与应用",

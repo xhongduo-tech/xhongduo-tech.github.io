@@ -1,5 +1,16 @@
 [
   {
+    "title": "PostgreSQL的高级特性",
+    "slug": "sys-db-postgresql-advanced-features",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "PostgreSQL 可在单引擎内统一处理 JSONB、全文、空间与向量，但必须重视索引与维护成本"
+  },
+  {
     "title": "MySQL事务与锁",
     "slug": "sys-db-mysql-transaction-lock",
     "date": "2026-03-12",
