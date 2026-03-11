@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 与 MoA 的统一：专家粒度的设计空间",
+    "slug": "moe-moa-unified-design-space",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "架构设计"
+    ],
+    "summary": "MoE 与 MoA 本质同构，差别在专家粒度；粒度越细，表达更强但调度更贵"
+  },
+  {
     "title": "Mixture-of-Depths",
     "slug": "mixture-of-depths",
     "date": "2026-03-11",
