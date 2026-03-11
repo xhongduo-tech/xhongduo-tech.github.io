@@ -2241,7 +2241,7 @@
       "迁移学习"
     ],
     "brief": "核心要点：预训练损失的幂律关系能否迁移到下游任务？分析 Downstream Scaling Law 的形式 Acc(L) 与 L(N,D) 的复合关系。Gadre et al. (2024) 发现不同任务的 scaling 斜率差异显著，部分任务存在 broken scaling（精度突然跃升），与 Emergent Abilities 的讨论直接相关。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "计算最优之外",

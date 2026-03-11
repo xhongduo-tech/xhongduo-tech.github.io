@@ -1,5 +1,17 @@
 [
   {
+    "title": "Scaling Law 的下游任务迁移",
+    "slug": "scaling-law-downstream-transfer",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "迁移学习"
+    ],
+    "summary": "下游 scaling law 是 compute→loss→accuracy 的链式预测，但只在数据与任务对齐时才可靠。"
+  },
+  {
     "title": "Scaling Law 中的不可约损失与熵下界",
     "slug": "irreducible-loss-entropy-bound",
     "date": "2026-03-12",
