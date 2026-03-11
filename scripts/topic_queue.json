@@ -2169,7 +2169,7 @@
       "异构计算"
     ],
     "brief": "核心要点：实际集群常混合 A100/H100 或不同网络拓扑，均匀并行策略导致木桶效应。AMP（Adaptive Model Parallelism）根据设备计算能力和互联带宽动态调整 TP/PP/DP 维度。慢节点分配更少层或更小 micro-batch，通过异步流水线容忍延迟差异。吞吐比均匀策略提升 20-30%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Ulysses 与 Ring Attention 的对比",

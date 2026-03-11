@@ -1,5 +1,17 @@
 [
   {
+    "title": "异构集群训练：GPU 混合并行策略",
+    "slug": "heterogeneous-cluster-training",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "异构计算"
+    ],
+    "summary": "异构集群训练要优化最长阶段时间，AMP通过感知算力与带宽联合搜索TP/PP/DP与切分策略提升吞吐"
+  },
+  {
     "title": "Context Parallel：超长序列的并行策略",
     "slug": "context-parallelism-long-seq",
     "date": "2026-03-12",
