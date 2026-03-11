@@ -1,5 +1,16 @@
 [
   {
+    "title": "Scaling Law 的理论基础：神经网络逼近论",
+    "slug": "scaling-law-approximation-theory",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律"
+    ],
+    "summary": "Scaling Law 的幂律指数可由数据流形内在维度解释，近似满足 α≈4/d。"
+  },
+  {
     "title": "Many-Shot ICL：突破少样本的限制",
     "slug": "many-shot-icl-long-context",
     "date": "2026-03-12",

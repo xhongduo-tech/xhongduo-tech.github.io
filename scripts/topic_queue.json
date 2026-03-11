@@ -2446,7 +2446,7 @@
       "扩展定律"
     ],
     "brief": "核心要点：Scaling Law 的幂律指数 α 与目标函数的内在维度有关。Sharma & Kaplan (2022) 从神经网络逼近论推导：如果数据流形的内在维度为 d，则 L(N) ∝ N^{-4/d}。自然语言的有效维度约 50-100，对应 α ≈ 0.04-0.08，与实验观测一致。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Broken Neural Scaling Law：S 形修正",
