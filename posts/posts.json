@@ -1,5 +1,16 @@
 [
   {
+    "title": "API网关设计",
+    "slug": "sys-dist-api-gateway-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "summary": "API网关统一承接外部流量治理，但必须保持无状态、高可用，且避免承载业务逻辑"
+  },
+  {
     "title": "微服务架构模式",
     "slug": "sys-dist-microservice-patterns",
     "date": "2026-03-12",
