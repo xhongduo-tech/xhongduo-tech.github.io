@@ -1,5 +1,16 @@
 [
   {
+    "title": "CAP定理与BASE理论",
+    "slug": "sys-dist-cap-base-theorem",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "summary": "CAP关注分区时C与A取舍，BASE用最终一致换高可用，关键在按业务粒度选型"
+  },
+  {
     "title": "Helm Chart的编写",
     "slug": "sys-container-helm-chart-writing",
     "date": "2026-03-12",
