@@ -2025,7 +2025,7 @@
       "显存优化"
     ],
     "brief": "核心要点：Megatron-LM 提供 full 和 selective 两种激活重计算。Full 重计算每层仅保存输入激活，反向时重算所有中间值，显存降至 O(L·sbh) 但增加 33% 计算。Selective 仅重算占显存大但计算轻的部分（如 Softmax、Dropout），节省 60-70% 激活内存仅增加 5% 计算。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PP 中的权重同步与一致性",

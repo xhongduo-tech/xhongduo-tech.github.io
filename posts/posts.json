@@ -1,5 +1,17 @@
 [
   {
+    "title": "Megatron-LM 的激活重计算策略",
+    "slug": "megatron-activation-recomputation",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "显存优化"
+    ],
+    "summary": "Megatron-LM 用 selective 和 full 在显存与算力之间做两档激活重计算折中。"
+  },
+  {
     "title": "梯度累积与流水线并行的交互",
     "slug": "gradient-accumulation-pipeline",
     "date": "2026-03-11",
