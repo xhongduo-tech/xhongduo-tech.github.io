@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的越狱攻击分类与防御",
+    "slug": "claude-jailbreak-taxonomy-defense",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "安全"
+    ],
+    "summary": "Claude 越狱应按四类理解，并用解码、多轮追踪与双层分类器联合防御。"
+  },
+  {
     "title": "Claude 的安全分层架构",
     "slug": "claude-safety-layered-architecture",
     "date": "2026-03-12",
