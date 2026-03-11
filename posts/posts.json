@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 中的 Superposition 现象",
+    "slug": "claude-superposition-phenomenon",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "可解释性"
+    ],
+    "summary": "Superposition 是稀疏条件下用少量维度容纳更多特征的表征机制，也是理解 Claude 内部特征组织的关键入口"
+  },
+  {
     "title": "Anthropic 的可解释性研究：特征字典",
     "slug": "anthropic-interpretability-feature-dictionary",
     "date": "2026-03-12",

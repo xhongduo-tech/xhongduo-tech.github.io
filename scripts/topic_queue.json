@@ -2782,7 +2782,7 @@
       "可解释性"
     ],
     "brief": "核心要点：Superposition 指神经网络用 N 维空间表示远超 N 个特征的现象。Anthropic 的 toy model 实验表明，当特征稀疏度 S < 1/N 时，模型倾向于将特征以近似正交的方向编码，牺牲少量干扰换取更大的表示容量。这是 Claude 内部表示的核心组织原则。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的特征引导：激活工程",
