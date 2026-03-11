@@ -1,5 +1,19 @@
 [
   {
+    "title": "ZeRO-Infinity",
+    "slug": "zero-infinity-nvme",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "异构计算",
+      "存储层级",
+      "分布式训练"
+    ],
+    "summary": "ZeRO-Infinity 用 GPU-CPU-NVMe 三级存储与预取流水线突破显存墙。"
+  },
+  {
     "title": "ZeRO-Offload",
     "slug": "zero-offload-gpu-cpu",
     "date": "2026-03-11",

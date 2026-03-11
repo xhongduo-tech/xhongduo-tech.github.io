@@ -1953,7 +1953,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：ZeRO-Infinity 将 ZeRO-Offload 扩展到 NVMe SSD，支持万亿参数模型训练。采用 infinity offload engine 管理 GPU-CPU-NVMe 三级存储，通过预取和流水线化隐藏 I/O 延迟。NVMe 带宽 3-6 GB/s，需要精心设计 prefetch 策略使 I/O 与计算重叠。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Megatron-LM 的 3D 并行架构",
