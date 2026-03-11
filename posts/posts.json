@@ -1,5 +1,17 @@
 [
   {
+    "title": "Grokking：过拟合之后的延迟涌现",
+    "slug": "grokking-delayed-generalization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "涌现能力",
+      "泛化理论"
+    ],
+    "summary": "Grokking是模型先记忆训练集，再在长期训练后突然学会可泛化规则的延迟泛化现象"
+  },
+  {
     "title": "链式思维的涌现：为什么小模型做不到",
     "slug": "chain-of-thought-emergence",
     "date": "2026-03-12",
