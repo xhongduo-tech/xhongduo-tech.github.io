@@ -2842,7 +2842,7 @@
       "对齐"
     ],
     "brief": "核心要点：Claude 的指令遵循存在隐式层级：宪法原则 > 安全训练 > system prompt > 用户指令。当低层级指令与高层级冲突时，模型倾向于拒绝低层级指令。这种层级通过训练中的数据配比和奖励信号强度编码，而非硬编码规则实现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Anthropic 的 Scaling 安全研究",

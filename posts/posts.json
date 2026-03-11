@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的指令层级与优先级",
+    "slug": "claude-instruction-hierarchy",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "对齐"
+    ],
+    "summary": "Claude 的层级本质是把高优先级约束写进训练与推理流程，使低层指令难以覆盖高层规则"
+  },
+  {
     "title": "Claude 的不确定性表达机制",
     "slug": "claude-uncertainty-expression",
     "date": "2026-03-12",
