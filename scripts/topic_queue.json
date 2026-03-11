@@ -14063,7 +14063,7 @@
       "Transformer组件"
     ],
     "brief": "将Q、K、V三个投影合并为一个大矩阵乘法：[Q,K,V] = xW_{QKV}。分析内存访问效率提升，展示GPU kernel融合的加速效果，讨论量化场景下的权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FFN第一层的扩展比设计",

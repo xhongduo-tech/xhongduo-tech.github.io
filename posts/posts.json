@@ -1,5 +1,17 @@
 [
   {
+    "title": "QKV投影的合并优化",
+    "slug": "arch-transformer-qkv-fused-projection",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer组件"
+    ],
+    "summary": "QKV 合并不改数学结果，核心收益来自少读输入、少启 kernel、少写中间张量。"
+  },
+  {
     "title": "输出投影矩阵O的作用",
     "slug": "arch-transformer-output-projection-o",
     "date": "2026-03-12",
