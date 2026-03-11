@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 PPO 训练稳定性优化",
+    "slug": "claude-ppo-training-stability",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "RLHF"
+    ],
+    "summary": "Claude 的 PPO 稳定性来自 clip、KL 惩罚、自适应 beta 与早停的协同约束。"
+  },
+  {
     "title": "Claude 的偏好模型训练细节",
     "slug": "claude-preference-model-training",
     "date": "2026-03-12",

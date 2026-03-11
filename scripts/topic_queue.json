@@ -2674,7 +2674,7 @@
       "RLHF"
     ],
     "brief": "核心要点：Claude 使用 PPO 算法进行 RL 微调，关键超参数包括 clip ratio ε=0.2、KL 惩罚系数 β。训练中常见的不稳定现象包括奖励崩塌、KL 散度爆炸、模式坍缩。Anthropic 采用自适应 KL 控制和早停策略来维持训练稳定性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的 Red Teaming 方法论",
