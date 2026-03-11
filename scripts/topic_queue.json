@@ -2435,7 +2435,7 @@
       "长上下文"
     ],
     "brief": "核心要点：Agarwal et al. (2024) 利用长上下文窗口（100K+）进行数百到数千个示例的 ICL。实验表明 Many-Shot ICL 在多个任务上逼近甚至超过微调性能。但存在边际递减效应：前 100 个示例贡献最大，之后收益按 O(log n) 衰减。同时发现 Reinforced ICL（用模型生成的 rationale 替代人工示例）可进一步提升。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Scaling Law 的理论基础：神经网络逼近论",

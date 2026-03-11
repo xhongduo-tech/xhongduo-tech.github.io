@@ -1,5 +1,17 @@
 [
   {
+    "title": "Many-Shot ICL：突破少样本的限制",
+    "slug": "many-shot-icl-long-context",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "长上下文"
+    ],
+    "summary": "Many-Shot ICL用超长上下文装入海量示例，能逼近微调，但收益按对数递减。"
+  },
+  {
     "title": "ICL 中的标签空间与格式效应",
     "slug": "icl-label-space-format-effect",
     "date": "2026-03-12",
