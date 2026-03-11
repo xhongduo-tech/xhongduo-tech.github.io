@@ -1684,7 +1684,7 @@
       "架构设计"
     ],
     "brief": "核心要点：DeepSeek-MoE 和 DeepSeek-V2 引入的共享专家（shared expert）始终参与计算，不受路由控制。其作用是捕获所有 token 共有的通用表示，减少路由专家间的知识冗余。分析共享专家数量（1~4个）对模型容量和训练效率的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 推理优化：专家缓存与预取策略",

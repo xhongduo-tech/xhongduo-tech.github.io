@@ -1,5 +1,17 @@
 [
   {
+    "title": "共享专家机制：MoE 中的通用知识锚定",
+    "slug": "moe-shared-expert-mechanism",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "架构设计"
+    ],
+    "summary": "共享专家用固定激活承载通用知识，减少路由专家冗余，但必须与Top-K预算联动设计"
+  },
+  {
     "title": "S4 的 HiPPO 矩阵与长程记忆",
     "slug": "s4-hippo-matrix-long-range-memory",
     "date": "2026-03-11",
