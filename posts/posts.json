@@ -1,5 +1,16 @@
 [
   {
+    "title": "DeepSeek V3的MoE架构",
+    "slug": "frontier-model-deepseek-v3-moe",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "DeepSeek V3 用超大 MoE 把 671B 容量与 37B 激活计算拆开，实现高容量低单次成本。"
+  },
+  {
     "title": "Mistral Large 2的架构",
     "slug": "frontier-model-mistral-large2-architecture",
     "date": "2026-03-12",
