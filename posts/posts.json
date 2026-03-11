@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 的扩展规律：稀疏模型的 Scaling Law",
+    "slug": "moe-scaling-laws",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "Scaling Law"
+    ],
+    "summary": "MoE 的关键不是无限加专家，而是在 64 到 128 专家附近联合调专家数、粒度与路由稳定性。"
+  },
+  {
     "title": "Sinkhorn 路由：最优传输视角的负载均衡",
     "slug": "sinkhorn-routing-optimal-transport",
     "date": "2026-03-11",

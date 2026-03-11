@@ -1804,7 +1804,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：MoE 的 scaling 行为不同于 dense 模型——增加专家数量的收益随规模递减。分析 Clark et al. 和 Switch Transformer 论文中的发现：专家数从 8→128 带来显著提升，但 128→512 收益趋缓。讨论 granularity（专家大小 vs 专家数量）对 scaling 的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixture-of-Depths",
