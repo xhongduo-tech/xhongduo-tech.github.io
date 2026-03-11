@@ -1,5 +1,17 @@
 [
   {
+    "title": "S4 的 HiPPO 矩阵与长程记忆",
+    "slug": "s4-hippo-matrix-long-range-memory",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "状态空间模型",
+      "理论分析"
+    ],
+    "summary": "HiPPO-LegS把历史压成Legendre系数，是S4长程记忆能力的核心来源"
+  },
+  {
     "title": "弱监督标注策略",
     "slug": "data-eng-weak-supervision-annotation",
     "date": "2026-03-08",
