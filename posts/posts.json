@@ -1,5 +1,17 @@
 [
   {
+    "title": "Megatron-LM 序列并行",
+    "slug": "megatron-sequence-parallel",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "序列并行"
+    ],
+    "summary": "序列并行把非TP激活沿序列切分，使每卡激活显存从O(sbh)降到O(sbh/t)。"
+  },
+  {
     "title": "Megatron-LM 的 3D 并行架构",
     "slug": "megatron-3d-parallelism",
     "date": "2026-03-11",

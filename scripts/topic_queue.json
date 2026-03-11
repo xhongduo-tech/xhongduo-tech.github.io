@@ -1977,7 +1977,7 @@
       "序列并行"
     ],
     "brief": "核心要点：Megatron-LM 的序列并行将 LayerNorm 和 Dropout 沿序列维度切分，与 Tensor Parallel 互补。TP 区域（Attention、MLP）按 hidden 维度切分，非 TP 区域按 sequence 维度切分，两者之间通过 AllGather/Reduce-Scatter 转换。激活内存从 O(sbh) 降至 O(sbh/t)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Tensor Parallel 中的通信原语",
