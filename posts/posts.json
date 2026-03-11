@@ -1,5 +1,17 @@
 [
   {
+    "title": "Self-Attention 的 Tensor Parallel 切分",
+    "slug": "tensor-parallel-attention",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "注意力机制"
+    ],
+    "summary": "Self-Attention 的 TP 本质是按 head 切分；GQA/MQA 省 KV，但会受 KV 头数与 TP…"
+  },
+  {
     "title": "Tensor Parallel 的数学分解",
     "slug": "tensor-parallel-math",
     "date": "2026-03-11",

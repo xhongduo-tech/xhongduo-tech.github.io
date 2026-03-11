@@ -1853,7 +1853,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：多头注意力天然支持按 head 维度切分，每卡独立计算 h/p 个 head 的 QKV 投影和注意力，输出投影采用行切分后 AllReduce。GQA/MQA 场景下 KV head 数少于 TP 度时需广播或复制，分析不同注意力变体的 TP 效率差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "流水线并行的微批次调度",
