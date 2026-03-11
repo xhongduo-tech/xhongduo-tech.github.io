@@ -1,5 +1,16 @@
 [
   {
+    "title": "Kubernetes调度策略",
+    "slug": "sys-container-kubernetes-scheduling",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "summary": "Kubernetes 调度先过滤再打分，requests 决定能否调度，硬亲和会显著降低可调度性"
+  },
+  {
     "title": "Kubernetes ConfigMap与Secret",
     "slug": "sys-container-kubernetes-configmap-secret",
     "date": "2026-03-12",
