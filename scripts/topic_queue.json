@@ -2854,7 +2854,7 @@
       "安全"
     ],
     "brief": "核心要点：Anthropic 发现模型能力与安全性的 Scaling 并非同步——更大的模型更擅长遵循有害指令（能力提升），但 CAI 训练后的安全对齐也更有效（可控性提升）。关键发现是对齐税（alignment tax）随模型规模增大而降低：大模型同时做到安全和有用更容易。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的 Prompt Engineering 原理",
