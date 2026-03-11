@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 Token 采样策略",
+    "slug": "claude-token-sampling-strategy",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "推理"
+    ],
+    "summary": "Claude 采样由 temperature、top-p、top-k 共同控制，本质是在稳定性与多样性之间做概率裁剪。"
+  },
+  {
     "title": "Constitutional AI 的数学形式化",
     "slug": "constitutional-ai-formalization",
     "date": "2026-03-12",

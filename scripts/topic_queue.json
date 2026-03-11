@@ -2734,7 +2734,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 支持 temperature、top-p、top-k 等采样参数。temperature=0 时使用贪心解码，temperature=1 时为原始分布采样。Claude 的默认 temperature 约 0.7，在创造性与一致性之间取得平衡。nucleus sampling (top-p=0.9) 通过动态截断词表避免长尾噪声。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 3.5 Sonnet 的效率优化",
