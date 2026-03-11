@@ -2866,7 +2866,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 的 prompt 敏感性源于自回归 Transformer 的条件生成本质：P(output|prompt) 高度依赖 prompt 的 token 序列。有效 prompt 的关键原则包括：明确角色设定、结构化输出格式、XML 标签分段、思维链引导。Claude 对 prompt 格式的敏感性低于 GPT-4。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的 Chain-of-Thought 推理",

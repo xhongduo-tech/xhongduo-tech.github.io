@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 Prompt Engineering 原理",
+    "slug": "claude-prompt-engineering-principles",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "推理"
+    ],
+    "summary": "Claude 的 prompt 工程，本质是用结构化输入重塑条件概率，提升输出可控性。"
+  },
+  {
     "title": "Anthropic 的 Scaling 安全研究",
     "slug": "anthropic-scaling-safety-research",
     "date": "2026-03-12",
