@@ -14096,7 +14096,7 @@
       "FFN层"
     ],
     "brief": "SwiGLU = Swish(xW_1) ⊙ (xW_2)，门控线性单元的变体。推导参数量变化(3/4 × 4d²)，分析门控机制的表达优势，对比GLU/GeGLU/SwiGLU的性能差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FFN的稀疏激活模式",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "SwiGLU激活函数的FFN设计",
+    "slug": "arch-transformer-swiglu-ffn-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "FFN层"
+    ],
+    "summary": "SwiGLU 用 Swish 门控改造 FFN，并通过 8/3d 中间维实现近似等参数升级。"
+  },
+  {
     "title": "FFN第二层的压缩投影",
     "slug": "arch-transformer-ffn-compression-projection",
     "date": "2026-03-12",
