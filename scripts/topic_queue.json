@@ -2494,7 +2494,7 @@
       "超参数迁移"
     ],
     "brief": "核心要点：Yang et al. (2022) 提出 Maximal Update Parameterization (μP)，通过特定的初始化和学习率缩放规则，使得小模型的最优超参数可以直接迁移到大模型。核心思想：让每层的激活更新量 Δh/h 在不同宽度下保持恒定。具体规则：lr ∝ 1/width（输出层），lr 恒定（隐藏层），init ∝ 1/√width。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ICL 的注意力模式：从浅层匹配到深层推理",

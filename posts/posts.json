@@ -1,5 +1,17 @@
 [
   {
+    "title": "μP：从小模型预测大模型的最优超参数",
+    "slug": "mup-maximal-update-parameterization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "超参数迁移"
+    ],
+    "summary": "μP通过保持各层表征更新量跨宽度稳定，实现小模型超参数向大模型零样本迁移"
+  },
+  {
     "title": "训练稳定性的 Scaling：大模型为何更难训练",
     "slug": "training-instability-scaling",
     "date": "2026-03-12",
