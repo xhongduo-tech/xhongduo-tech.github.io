@@ -2013,7 +2013,7 @@
       "训练技巧"
     ],
     "brief": "核心要点：流水线并行中微批次数 m 既影响 bubble 率又等效于梯度累积步数。全局批次大小 = dp × m × micro_batch_size。增大 m 降低 bubble 但增大等效 batch size，可能影响收敛。分析 m 的选择与学习率调度的关系，以及 gradient clipping 在 PP 中的实现细节。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Megatron-LM 的激活重计算策略",

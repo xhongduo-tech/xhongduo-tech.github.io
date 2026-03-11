@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度累积与流水线并行的交互",
+    "slug": "gradient-accumulation-pipeline",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "流水线并行",
+      "训练技巧"
+    ],
+    "summary": "流水线并行里的 m 同时决定 bubble、有效批量和更新频率，改它必须联动 lr、warmup 与 global c…"
+  },
+  {
     "title": "ZeRO 与模型并行的显存对比",
     "slug": "zero-vs-model-parallel-memory",
     "date": "2026-03-11",
