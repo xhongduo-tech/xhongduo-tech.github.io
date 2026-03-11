@@ -1,5 +1,17 @@
 [
   {
+    "title": "Induction Head：ICL 的电路级机制",
+    "slug": "induction-head-icl-circuit",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "机械可解释性"
+    ],
+    "summary": "归纳头通过“前一位复制+重复匹配后继复制”实现最小形式的上下文学习。"
+  },
+  {
     "title": "ICL 中的任务识别与任务学习的分离",
     "slug": "icl-task-recognition-vs-learning",
     "date": "2026-03-12",

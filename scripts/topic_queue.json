@@ -2399,7 +2399,7 @@
       "机械可解释性"
     ],
     "brief": "核心要点：Olsson et al. (2022) 发现 ICL 依赖一种特定的注意力电路——归纳头（Induction Head）。两层电路：第一层的 previous-token head 将信息从位置 i 复制到 i+1，第二层的 induction head 在当前位置匹配相同前缀并复制后续 token。这个电路在训练中突然形成，对应 loss 的阶跃下降。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ICL 的示例选择策略与性能影响",
