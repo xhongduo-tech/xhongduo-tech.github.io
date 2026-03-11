@@ -14085,7 +14085,7 @@
       "FFN层"
     ],
     "brief": "FFN 下投影层 W₂ ∈ ℝ^{d_ff×d_model} 将 4×d_model 维激活压缩回 d_model。这是信息瓶颈：SwiGLU/GeGLU 中 W₂ 的输入已被门控置零（约 50% 神经元），梯度稀疏但集中。初始化策略：Wang et al. 建议 W₂ 用 N(0, 1/√(2L)) 防止残差输出方差累积。对 LoRA 微调：W₂ 比 W₁ 重要性更高（实验：只对 W₂ 加 LoRA 效果 ≥ 只对 W₁）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SwiGLU激活函数的FFN设计",
