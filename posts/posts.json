@@ -1,5 +1,17 @@
 [
   {
+    "title": "Tensor Parallel 的 Embedding 层处理",
+    "slug": "tp-embedding-parallel",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "模型并行"
+    ],
+    "summary": "TP 的 Embedding 按词表切分，前向靠零填加 AllReduce 恢复，LM Head 通信常成更大瓶颈"
+  },
+  {
     "title": "Megatron-LM 的分布式初始化",
     "slug": "megatron-distributed-init",
     "date": "2026-03-11",

@@ -2097,7 +2097,7 @@
       "模型并行"
     ],
     "brief": "核心要点：词表 Embedding 按 vocab 维度切分到 TP 组，每卡存 V/t 行。前向时各卡查表得到局部结果（非本卡词汇填零），AllReduce 合并。输出层（LM Head）与 Embedding 权重共享时，采用列切分后 AllGather 收集 logits。分析大词表（如 128K）下的内存和通信开销。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PP 中的负载均衡：层分配策略",
