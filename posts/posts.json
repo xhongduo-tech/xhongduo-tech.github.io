@@ -1,5 +1,17 @@
 [
   {
+    "title": "Scaling Law 对模型宽度与深度的约束",
+    "slug": "scaling-law-width-depth-ratio",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "模型架构"
+    ],
+    "summary": "固定参数预算下，Transformer 的宽度与深度不能单边扩张。把 dense 参数约束 N≈12nd^2 与自注意…"
+  },
+  {
     "title": "数据约束下的 Scaling Law 修正",
     "slug": "data-constrained-scaling-law",
     "date": "2026-03-12",
