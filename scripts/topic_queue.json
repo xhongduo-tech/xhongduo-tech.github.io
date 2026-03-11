@@ -14041,7 +14041,7 @@
       "Transformer组件"
     ],
     "brief": "Value投影W_V将输入映射到值空间，决定最终输出的内容。分析W_V与注意力权重的解耦关系，探讨W_V维度(d_model × d_v)的选择，对比d_v ≠ d_k的设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "输出投影矩阵O的作用",

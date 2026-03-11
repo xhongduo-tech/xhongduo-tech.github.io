@@ -1,5 +1,17 @@
 [
   {
+    "title": "Value投影矩阵的作用机制",
+    "slug": "arch-transformer-value-projection-mechanism",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer组件"
+    ],
+    "summary": "W_V不决定注意力看谁，而决定被聚合出来的内容表示。"
+  },
+  {
     "title": "Key投影矩阵的设计考量",
     "slug": "arch-transformer-key-projection-design",
     "date": "2026-03-12",
