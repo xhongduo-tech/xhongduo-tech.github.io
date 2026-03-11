@@ -1,5 +1,16 @@
 [
   {
+    "title": "Shell脚本编程",
+    "slug": "sys-linux-shell-scripting",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "summary": "Shell脚本本质是用退出码、文本流和严格模式把系统命令编排成可靠流水线。"
+  },
+  {
     "title": "Linux安全机制",
     "slug": "sys-linux-linux-security-mechanisms",
     "date": "2026-03-12",
