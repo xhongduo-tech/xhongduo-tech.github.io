@@ -2626,7 +2626,7 @@
       "架构"
     ],
     "brief": "核心要点：Claude 系列从 52B 参数的 Claude 1 演进到多模态的 Claude 3 家族（Haiku/Sonnet/Opus）。关键变化包括：上下文窗口从 9K→200K、引入视觉能力、从纯 RLHF 转向 CAI+RLHF 混合训练。Claude 3 Opus 在 MMLU 上达到 86.8%，首次超越 GPT-4。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的长上下文处理机制",

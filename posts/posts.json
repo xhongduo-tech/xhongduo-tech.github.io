@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 1 到 Claude 3 的架构演进",
+    "slug": "claude-architecture-evolution",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "架构"
+    ],
+    "summary": "Claude 1到3的核心演进，是长上下文、多模态与CAI+RLHF混合对齐三线并进。"
+  },
+  {
     "title": "Claude 宪法原则的设计与演化",
     "slug": "claude-constitution-principles-design",
     "date": "2026-03-12",
