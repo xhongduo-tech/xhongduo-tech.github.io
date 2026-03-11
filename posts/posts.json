@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的偏好模型训练细节",
+    "slug": "claude-preference-model-training",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "RLHF"
+    ],
+    "summary": "Claude偏好模型用Bradley-Terry排序训练，核心风险不是公式，而是reward hacking。"
+  },
+  {
     "title": "Claude 3 的多模态融合架构",
     "slug": "claude3-multimodal-architecture",
     "date": "2026-03-12",

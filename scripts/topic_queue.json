@@ -2662,7 +2662,7 @@
       "RLHF"
     ],
     "brief": "核心要点：Claude 的奖励模型（PM）基于 Bradley-Terry 模型，使用人类偏好对和 AI 生成偏好对联合训练。PM 的损失函数为 -log σ(r_w - r_l)，其中 r 为标量奖励。关键挑战是奖励黑客（reward hacking）：策略模型学会利用 PM 漏洞获得高分但质量下降。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的 PPO 训练稳定性优化",
