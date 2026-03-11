@@ -1,5 +1,16 @@
 [
   {
+    "title": "数据库连接池",
+    "slug": "sys-db-database-connection-pool",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "连接池的本质是复用连接，容量应同时受业务并发和数据库承载能力约束。"
+  },
+  {
     "title": "向量数据库的设计",
     "slug": "sys-db-vector-database-design",
     "date": "2026-03-12",
