@@ -1,5 +1,16 @@
 [
   {
+    "title": "Gemini 2.0的原生多模态输出",
+    "slug": "frontier-model-gemini20-native-multimodal",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Gemini 2.0 的原生多模态输出，本质是共享上下文里的统一生成通路。"
+  },
+  {
     "title": "Gemini 1.5 Pro的长上下文",
     "slug": "frontier-model-gemini15-pro-long-context",
     "date": "2026-03-12",
