@@ -1,5 +1,16 @@
 [
   {
+    "title": "Llama 3.2的多模态版本",
+    "slug": "frontier-model-llama32-multimodal",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Llama 3.2多模态版本质是把视觉编码器接入语言主干，强项在图文理解而非图像生成"
+  },
+  {
     "title": "Llama 3.1的405B模型",
     "slug": "frontier-model-llama31-405b",
     "date": "2026-03-12",
