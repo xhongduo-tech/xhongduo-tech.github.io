@@ -13501,7 +13501,7 @@
       "容器"
     ],
     "brief": "Docker存储驱动决定镜像层与容器可写层如何叠加。Overlay2依赖联合挂载和copy-on-write，元数据简单、兼容性好，已成主流；AUFS维护成本高，Device Mapper曾适用于块级场景但配置复杂。大量小文件修改、深层目录和频繁写放大会放大CoW成本，因此数据库类负载通常更适合挂卷而不是写容器层。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kubernetes Pod设计",
