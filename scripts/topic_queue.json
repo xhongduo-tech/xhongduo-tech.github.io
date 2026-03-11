@@ -2974,7 +2974,7 @@
       "MoE"
     ],
     "brief": "核心要点：Gemini 1.5 Pro 在总参数量级显著提升的同时保持推理成本可控。分析其 MoE 层的专家粒度选择、共享专家设计、激活参数比例优化，以及与 Mixtral 8x7B 在效率指标上的对比",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的音频理解架构",

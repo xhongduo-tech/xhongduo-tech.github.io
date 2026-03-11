@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 1.5 Pro 的 MoE 效率设计",
+    "slug": "gemini-1-5-pro-moe-efficiency",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "MoE"
+    ],
+    "summary": "Gemini 1.5 Pro 用极低激活比的稀疏 MoE，把超长上下文推理成本压到可控范围。"
+  },
+  {
     "title": "Gemini 1.5 的百万级上下文窗口实现",
     "slug": "gemini-1-5-million-context-window",
     "date": "2026-03-12",
