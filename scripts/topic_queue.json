@@ -2061,7 +2061,7 @@
       "通信优化"
     ],
     "brief": "核心要点：ZeRO++ 引入三项优化：qwZ（量化权重 AllGather，INT8 替代 FP16 减半通信）、qgZ（量化梯度 Reduce-Scatter）、hpZ（二级分区将跨节点通信替换为节点内通信）。INT8 量化对模型质量影响可控，loss 差异 <0.1%。总通信量降低 4 倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FSDP 与 ZeRO Stage 3 的异同",

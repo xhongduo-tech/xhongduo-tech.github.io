@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO++ 的量化通信优化",
+    "slug": "zero-plus-plus-quantized-comm",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "通信优化"
+    ],
+    "summary": "ZeRO++ 用 qwZ、hpZ、qgZ 把 ZeRO-3 跨节点通信从 3M 压到 0.75M，适合低带宽和小 ba…"
+  },
+  {
     "title": "跨节点 TP：NVLink 与 InfiniBand 的选择",
     "slug": "cross-node-tensor-parallel",
     "date": "2026-03-11",
