@@ -1,5 +1,16 @@
 [
   {
+    "title": "Linux定时任务",
+    "slug": "sys-linux-linux-cron-jobs",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "summary": "cron 适合简单调度，systemd timer 更适合需要补跑、日志、重试和互斥的生产任务"
+  },
+  {
     "title": "Shell脚本编程",
     "slug": "sys-linux-shell-scripting",
     "date": "2026-03-12",

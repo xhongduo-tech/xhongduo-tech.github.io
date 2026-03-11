@@ -13468,7 +13468,7 @@
       "Linux"
     ],
     "brief": "Linux定时任务常见于cron与systemd timer。cron基于表达式按分钟轮询触发，实现简单但对时区、补偿执行、并发互斥和失败重试支持有限；systemd timer则更适合依赖管理、随机延迟和持久化补跑。生产环境的关键不是能跑，而是避免重入、漂移、静默失败与日志不可追踪。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Docker镜像构建优化",
