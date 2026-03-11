@@ -1,5 +1,16 @@
 [
   {
+    "title": "分布式锁的实现",
+    "slug": "sys-dist-distributed-lock-implementation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "summary": "分布式锁的关键是租约、续租、误删防护和一致性边界，不是单次加锁成功。"
+  },
+  {
     "title": "分布式一致性协议",
     "slug": "sys-dist-distributed-consensus",
     "date": "2026-03-12",
