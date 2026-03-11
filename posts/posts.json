@@ -1,5 +1,16 @@
 [
   {
+    "title": "Yi-Lightning的推理加速",
+    "slug": "frontier-model-yi-lightning-inference",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Yi-Lightning的核心价值是用缓存、调度与算子优化压低在线推理延迟和成本"
+  },
+  {
     "title": "Qwen2.5-Math的数学能力",
     "slug": "frontier-model-qwen25-math-capability",
     "date": "2026-03-12",
