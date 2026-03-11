@@ -1,5 +1,17 @@
 [
   {
+    "title": "涌现与指标选择：精确匹配 vs 对数概率",
+    "slug": "emergence-metric-artifact",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "涌现能力",
+      "评测方法"
+    ],
+    "summary": "精确匹配会把逐位平滑提升放大成阶跃，对数概率更能真实追踪模型能力变化"
+  },
+  {
     "title": "涌现能力的原始定义与争议",
     "slug": "emergent-abilities-definition-debate",
     "date": "2026-03-12",
