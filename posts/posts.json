@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer 的上下文窗口与 ICL 容量",
+    "slug": "context-window-icl-capacity",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "模型容量"
+    ],
+    "summary": "ICL 有效示例数更受注意力头形成的工作记忆槽限制，而非窗口 token 上限"
+  },
+  {
     "title": "ICL 的注意力模式：从浅层匹配到深层推理",
     "slug": "icl-attention-pattern-analysis",
     "date": "2026-03-12",
