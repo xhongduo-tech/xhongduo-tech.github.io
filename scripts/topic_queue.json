@@ -2530,7 +2530,7 @@
       "扩展定律"
     ],
     "brief": "核心要点：涌现能力是否真的不可预测？Wei et al. (2024) 从 Scaling Law 角度分析：如果使用连续指标（如 Brier Score）替代离散指标，多数'涌现'可以被小模型的 scaling 趋势预测。但仍存在少数任务（如 BigBench 中的 navigate）的 scaling 行为确实非光滑，可能涉及内部表示的相变。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "重复 Token 的 Scaling 效应：数据质量 vs 数量",
