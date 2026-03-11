@@ -1,5 +1,16 @@
 [
   {
+    "title": "分布式ID生成",
+    "slug": "sys-dist-distributed-id-generation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "summary": "分布式ID生成的核心是在唯一性、有序性、吞吐和运维成本之间做结构化权衡。"
+  },
+  {
     "title": "分布式事务",
     "slug": "sys-dist-distributed-transactions",
     "date": "2026-03-12",
