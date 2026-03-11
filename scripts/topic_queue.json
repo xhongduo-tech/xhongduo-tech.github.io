@@ -13512,7 +13512,7 @@
       "容器"
     ],
     "brief": "Pod是Kubernetes最小调度单元，共享网络命名空间与存储卷，适合强耦合进程协同。设计重点在主容器职责、sidecar辅助能力、requests/limits、探针和优雅退出。资源请求影响调度，可用上限影响cgroup限流；探针配置过严会导致误杀，过松又会延迟故障摘除，直接影响稳定性与资源利用率。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kubernetes Service与Ingress",

@@ -1,5 +1,16 @@
 [
   {
+    "title": "Kubernetes Pod设计",
+    "slug": "sys-container-kubernetes-pod-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "summary": "Pod 是最小调度单元，设计重点是共享环境、资源声明、探针和优雅退出。"
+  },
+  {
     "title": "Docker存储驱动",
     "slug": "sys-container-docker-storage-drivers",
     "date": "2026-03-12",
