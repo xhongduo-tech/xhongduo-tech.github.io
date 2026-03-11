@@ -1744,7 +1744,7 @@
       "训练技巧"
     ],
     "brief": "核心要点：系统梳理 MoE 辅助损失的演进：Importance Loss（惩罚路由概率的变异系数 CV）、Load Loss（惩罚实际分配的不均衡）、二者联合使用、以及 ST-MoE 的 router z-loss。分析各损失函数的梯度行为和对路由器学习动态的不同影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Megablocks：MoE 的高效 GPU 实现",

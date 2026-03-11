@@ -1,5 +1,17 @@
 [
   {
+    "title": "Auxiliary Loss 变体：从 Importance Loss 到 z-loss",
+    "slug": "moe-auxiliary-loss-variants",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "训练技巧"
+    ],
+    "summary": "MoE 辅助损失分三层：Importance 管倾向，Load 管负载，z-loss 管 logits 温度。"
+  },
+  {
     "title": "MoE 层的位置选择：全层 vs 交替层",
     "slug": "moe-layer-placement-strategy",
     "date": "2026-03-11",
