@@ -1877,7 +1877,7 @@
       "流水线并行"
     ],
     "brief": "核心要点：PipeDream 的 1F1B（One Forward One Backward）调度在稳态阶段交替执行前向和反向，峰值激活内存从 GPipe 的 O(m) 降至 O(p)。分析 warmup 阶段的填充策略、权重版本管理问题，以及与同步训练语义的差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "交错式流水线：Megatron-LM 的虚拟阶段",
