@@ -1,5 +1,18 @@
 [
   {
+    "title": "ZeRO-Offload",
+    "slug": "zero-offload-gpu-cpu",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "异构计算",
+      "分布式训练"
+    ],
+    "summary": "ZeRO-Offload用CPU/NVMe换GPU显存，关键在通信重叠与参数分片调优。"
+  },
+  {
     "title": "ZeRO Stage 3：参数分片与通信开销",
     "slug": "zero-stage3-parameter-partition",
     "date": "2026-03-11",
