@@ -1,5 +1,16 @@
 [
   {
+    "title": "Claude 3.7 Sonnet的Extended Thinking",
+    "slug": "frontier-model-claude37-extended-thinking",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Extended Thinking本质是给复杂任务更多推理预算，换正确率但增加延迟与成本"
+  },
+  {
     "title": "Claude 3.5 Sonnet的技术特点",
     "slug": "frontier-model-claude35-sonnet-features",
     "date": "2026-03-12",
