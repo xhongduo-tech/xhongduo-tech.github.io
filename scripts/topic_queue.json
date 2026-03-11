@@ -2085,7 +2085,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：Megatron-LM 初始化时创建多个进程组：tensor_model_parallel_group、pipeline_model_parallel_group、data_parallel_group。以 tp=4、pp=2、dp=4 共 32 卡为例，进程组的 rank 映射遵循 TP 连续、PP 其次、DP 最外层的规则。初始化顺序影响 NCCL 通信效率。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Tensor Parallel 的 Embedding 层处理",

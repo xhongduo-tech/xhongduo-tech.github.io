@@ -1,5 +1,17 @@
 [
   {
+    "title": "Megatron-LM 的分布式初始化",
+    "slug": "megatron-distributed-init",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "分布式训练"
+    ],
+    "summary": "Megatron-LM 用正交 TP/PP/DP 进程组完成初始化，rank 映射与创建顺序共同决定通信效率"
+  },
+  {
     "title": "FSDP 与 ZeRO Stage 3 的异同",
     "slug": "fsdp-vs-zero-stage3",
     "date": "2026-03-11",
