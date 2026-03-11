@@ -2121,7 +2121,7 @@
       "显存优化"
     ],
     "brief": "核心要点：ZeRO-R 优化残差内存（Residual Memory），包括激活内存分片、临时 buffer 定额管理和碎片优化。激活分片将检查点激活通过 AllGather 分布到 DP 组，每卡仅存 1/N。对于 batch_size=1 场景，可将激活 offload 到 CPU。与激活重计算正交，可组合使用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Parallel 与 Tensor Parallel 的组合",

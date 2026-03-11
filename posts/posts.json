@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO-R：激活内存的分布式优化",
+    "slug": "zero-r-activation-memory",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "显存优化"
+    ],
+    "summary": "ZeRO-R 通过激活分片、定额buffer和碎片整理压缩残余显存，可与重计算和ZeRO-DP叠加。"
+  },
+  {
     "title": "PP 中的负载均衡：层分配策略",
     "slug": "pipeline-layer-assignment",
     "date": "2026-03-11",
