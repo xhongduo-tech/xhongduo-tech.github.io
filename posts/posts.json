@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 System Prompt 机制",
+    "slug": "claude-system-prompt-mechanism",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "推理"
+    ],
+    "summary": "Claude 的 system prompt 本质是高优先级前缀上下文，靠前缀位置与指令训练共同维持长期行为一致性"
+  },
+  {
     "title": "Claude 的过度拒绝问题与缓解",
     "slug": "claude-overrefusal-mitigation",
     "date": "2026-03-12",

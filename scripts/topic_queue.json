@@ -2710,7 +2710,7 @@
       "推理"
     ],
     "brief": "核心要点：System prompt 在 Claude 的注意力机制中占据特殊位置——它作为前缀 context 影响后续所有生成。Claude 对 system prompt 的遵循度通过专门的指令跟随训练强化，包括多轮对话中的一致性保持。system prompt 与用户指令冲突时，Claude 倾向于遵循 system prompt。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Constitutional AI 的数学形式化",
