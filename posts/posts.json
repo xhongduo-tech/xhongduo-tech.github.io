@@ -1,5 +1,17 @@
 [
   {
+    "title": "残差连接的梯度高速公路",
+    "slug": "arch-transformer-residual-gradient-highway",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "残差连接"
+    ],
+    "summary": "残差连接用恒等路径保住梯度回传，是深层Transformer可训练的基础。"
+  },
+  {
     "title": "FFN的稀疏激活模式",
     "slug": "arch-transformer-ffn-sparse-activation",
     "date": "2026-03-12",

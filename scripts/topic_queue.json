@@ -14118,7 +14118,7 @@
       "残差连接"
     ],
     "brief": "残差连接x + F(x)提供梯度直通路径：∂L/∂x = ∂L/∂x + ∂L/∂F。分析深层Transformer中残差的梯度流，探讨无残差时的梯度衰减速度，对比不同残差缩放因子。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "C-Eval 中文语言模型评测基准",
