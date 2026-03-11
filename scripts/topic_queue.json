@@ -2375,7 +2375,7 @@
       "优化理论"
     ],
     "brief": "核心要点：Von Oswald et al. (2023) 和 Akyürek et al. (2023) 证明线性 Attention 层的前向传播等价于一步梯度下降。给定上下文示例 {(xᵢ, yᵢ)}，Self-Attention 计算出的输出等价于在示例上做最小二乘回归的梯度更新 W ← W - η∇L。多层 Transformer 对应多步梯度下降。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ICL 中的任务识别与任务学习的分离",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer 的隐式梯度下降：ICL 即学习",
+    "slug": "icl-implicit-gradient-descent",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "优化理论"
+    ],
+    "summary": "线性 attention 的前向传播可等价于一步或多步梯度下降，这解释了 ICL 的一类核心机制"
+  },
+  {
     "title": "In-Context Learning 的信息论解释",
     "slug": "in-context-learning-information-theory",
     "date": "2026-03-12",
