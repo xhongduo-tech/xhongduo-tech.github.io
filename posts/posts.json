@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 的 Upcycling：从 Dense 到稀疏的初始化",
+    "slug": "moe-upcycling-dense-to-sparse",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "训练技巧"
+    ],
+    "summary": "MoE upcycling 通过复制 dense FFN 为专家并随机初始化路由器，在中短期增量预算下高效超过 den…"
+  },
+  {
     "title": "Token 丢弃 vs Token 不丢弃的 MoE 对比",
     "slug": "moe-token-drop-vs-dropless",
     "date": "2026-03-11",

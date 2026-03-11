@@ -1780,7 +1780,7 @@
       "训练技巧"
     ],
     "brief": "核心要点：MoE upcycling 将预训练好的 dense 模型转换为 MoE 模型——复制 FFN 层参数初始化多个专家，然后继续训练。分析 Sparse Upcycling 论文中的关键发现：初始化后路由器随机化的重要性、继续训练的 token 预算需求、以及与从头训练 MoE 的性能对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sinkhorn 路由：最优传输视角的负载均衡",
