@@ -10,5 +10,5 @@
   "write": "gpt-5.4",
   "review": "gpt-5-codex-mini",
   "refine": "gpt-5.4",
-  "refine_enabled": true
+  "refine_enabled": false
 }
