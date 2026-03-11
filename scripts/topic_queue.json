@@ -2698,7 +2698,7 @@
       "对齐"
     ],
     "brief": "核心要点：过度安全对齐导致 Claude 拒绝合理请求（如医学咨询、创意写作中的冲突场景）。过度拒绝率在早期版本中约 15-20%。缓解方法包括：细化宪法原则、增加 borderline 场景的训练数据、引入 helpfulness 与 harmlessness 的显式权衡机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的 System Prompt 机制",

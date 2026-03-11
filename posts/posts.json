@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的过度拒绝问题与缓解",
+    "slug": "claude-overrefusal-mitigation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "对齐"
+    ],
+    "summary": "Claude 过度拒绝的根因是边界样本不足，缓解靠细粒度偏好训练与高风险分流。"
+  },
+  {
     "title": "Claude 的 Red Teaming 方法论",
     "slug": "claude-red-teaming-methodology",
     "date": "2026-03-12",
