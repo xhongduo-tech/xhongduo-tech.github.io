@@ -1926,7 +1926,7 @@
       "显存优化"
     ],
     "brief": "核心要点：Stage 3 将模型参数也分片，每卡仅存 (2+2+12)Ψ/N 字节。前向和反向时通过 AllGather 临时收集完整参数，用完即释放。通信量增至 3Ψ（前向 AllGather Ψ + 反向 AllGather Ψ + 梯度 Reduce-Scatter Ψ），比 DDP 多 50%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO-Offload",

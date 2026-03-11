@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO Stage 3：参数分片与通信开销",
+    "slug": "zero-stage3-parameter-partition",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "显存优化"
+    ],
+    "summary": "ZeRO-3 用参数分片换显存，把单卡状态压到 16Ψ/N，但通信增到 3Ψ。"
+  },
+  {
     "title": "ZeRO Stage 2：梯度分片的通信分析",
     "slug": "zero-stage2-gradient-partition",
     "date": "2026-03-11",
