@@ -2770,7 +2770,7 @@
       "可解释性"
     ],
     "brief": "核心要点：Anthropic 使用稀疏自编码器（SAE）从 Claude 3 Sonnet 的 MLP 层中提取出数百万个可解释特征。每个特征对应一个语义概念（如'Golden Gate Bridge'），激活值反映概念的相关度。SAE 的训练目标是最小化重建误差同时保持稀疏性：L = ||x - D·z||² + λ||z||₁。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 中的 Superposition 现象",

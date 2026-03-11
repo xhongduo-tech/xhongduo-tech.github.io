@@ -1,5 +1,17 @@
 [
   {
+    "title": "Anthropic 的可解释性研究：特征字典",
+    "slug": "anthropic-interpretability-feature-dictionary",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "可解释性"
+    ],
+    "summary": "SAE把Claude内部激活拆成稀疏语义特征，可解释、可检索，也可做有限行为干预。"
+  },
+  {
     "title": "Claude 的多轮对话状态管理",
     "slug": "claude-multi-turn-state-management",
     "date": "2026-03-12",
