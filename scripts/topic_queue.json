@@ -2315,7 +2315,7 @@
       "统计物理"
     ],
     "brief": "核心要点：将涌现类比为物理相变：模型规模 N 对应温度，能力对应序参量。Arora & Goyal (2023) 从统计力学角度分析，loss landscape 的对称性破缺可能导致真实的不连续相变。与 Ising 模型的临界指数类比，讨论涌现的普适类（universality class）是否存在。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "链式思维的涌现：为什么小模型做不到",
