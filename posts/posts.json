@@ -1,5 +1,17 @@
 [
   {
+    "title": "Context Parallel：超长序列的并行策略",
+    "slug": "context-parallelism-long-seq",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "序列并行",
+      "长上下文"
+    ],
+    "summary": "Context Parallel按序列切分长上下文，用Ring Attention交换KV，在多卡上支撑百万级pref…"
+  },
+  {
     "title": "梯度通信压缩：从 FP16 到 1-bit",
     "slug": "gradient-compression-1bit",
     "date": "2026-03-11",

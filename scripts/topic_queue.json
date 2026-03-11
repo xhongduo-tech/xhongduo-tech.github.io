@@ -2157,7 +2157,7 @@
       "长上下文"
     ],
     "brief": "核心要点：Context Parallel（CP）将序列均匀切分到多卡，每卡处理 s/cp 长度的子序列。注意力计算需要 Ring Attention：Q 本地保留，KV 在环形拓扑上传递，每步计算一个 chunk 的注意力后传递 KV 到下一卡。通信量 O(bsh·cp)，可与 TP/PP/DP 正交组合，支持百万级序列。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "异构集群训练：GPU 混合并行策略",
