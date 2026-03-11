@@ -1,5 +1,16 @@
 [
   {
+    "title": "Gemini 1.5 Pro的长上下文",
+    "slug": "frontier-model-gemini15-pro-long-context",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Gemini 1.5 Pro 的价值在于让百万级上下文可用，但长不等于稳，工程上仍要控制提示、召回与成本。"
+  },
+  {
     "title": "Claude 3.7 Sonnet的Extended Thinking",
     "slug": "frontier-model-claude37-extended-thinking",
     "date": "2026-03-12",
