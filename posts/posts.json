@@ -1,5 +1,16 @@
 [
   {
+    "title": "MySQL索引优化",
+    "slug": "sys-db-mysql-index-optimization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "索引优化本质是按B+树有序性减少扫描、回表与随机IO。"
+  },
+  {
     "title": "API网关设计",
     "slug": "sys-dist-api-gateway-design",
     "date": "2026-03-12",
