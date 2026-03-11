@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的多轮对话状态管理",
+    "slug": "claude-multi-turn-state-management",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "推理"
+    ],
+    "summary": "Claude 多轮状态依赖 KV cache 复用，但长轮次会因注意力衰减导致早期指令逐步失效"
+  },
+  {
     "title": "Claude 3.5 Sonnet 的效率优化",
     "slug": "claude-35-sonnet-efficiency",
     "date": "2026-03-12",

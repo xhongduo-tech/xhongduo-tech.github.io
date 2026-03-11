@@ -2758,7 +2758,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 在多轮对话中通过 KV cache 复用实现状态延续。随对话轮次增加，早期轮次的信息在注意力分布中逐渐稀释（attention sink 现象）。Claude 通过位置编码和训练策略缓解远距离信息丢失，但实测显示超过 20 轮后指令遵循度下降约 10%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Anthropic 的可解释性研究：特征字典",
