@@ -1,5 +1,16 @@
 [
   {
+    "title": "分布式一致性协议",
+    "slug": "sys-dist-distributed-consensus",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "分布式"
+    ],
+    "summary": "一致性协议靠多数派确认统一日志顺序，Raft更易实现，性能瓶颈常在刷盘与网络。"
+  },
+  {
     "title": "CAP定理与BASE理论",
     "slug": "sys-dist-cap-base-theorem",
     "date": "2026-03-12",
