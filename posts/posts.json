@@ -1,5 +1,16 @@
 [
   {
+    "title": "Elasticsearch的搜索优化",
+    "slug": "sys-db-elasticsearch-search-optimization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "搜索优化的核心是按需索引、先过滤后打分，并把分片数量控制在可协调范围内"
+  },
+  {
     "title": "MongoDB的文档设计",
     "slug": "sys-db-mongodb-document-design",
     "date": "2026-03-12",
