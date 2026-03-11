@@ -13490,7 +13490,7 @@
       "容器"
     ],
     "brief": "Docker网络模式本质是命名空间与虚拟交换机组合。bridge模式默认经veth加bridge加NAT，隔离性好但多一层转发；host直接复用宿主网络栈，延迟和吞吐通常更优，但端口冲突与隔离性较差；overlay通过VXLAN解决跨主机容器互通，适合集群，但会增加封装开销与排障复杂度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Docker存储驱动",
