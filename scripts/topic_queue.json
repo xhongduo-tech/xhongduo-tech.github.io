@@ -2049,7 +2049,7 @@
       "集群网络"
     ],
     "brief": "核心要点：TP 通信频率高（每层 2 次 AllReduce），延迟敏感。NVLink 带宽 600-900 GB/s、延迟 ~1μs，适合节点内 TP。IB HDR 200Gb/s（25GB/s）、延迟 ~1μs，跨节点 TP 吞吐下降 40-60%。分析 hidden_size 对通信计算比的影响，以及何时跨节点 TP 仍然合理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO++ 的量化通信优化",

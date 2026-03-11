@@ -1,5 +1,17 @@
 [
   {
+    "title": "跨节点 TP：NVLink 与 InfiniBand 的选择",
+    "slug": "cross-node-tensor-parallel",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "集群网络"
+    ],
+    "summary": "跨节点TP默认不划算，除非模型极大且计算足以覆盖网络通信。"
+  },
+  {
     "title": "PP 中的权重同步与一致性",
     "slug": "pipeline-weight-consistency",
     "date": "2026-03-11",
