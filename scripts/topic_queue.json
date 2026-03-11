@@ -2351,7 +2351,7 @@
       "模型评测"
     ],
     "brief": "核心要点：Inverse Scaling Prize 发现部分任务（如 Hindsight Neglect、Memo Trap）中大模型表现反而更差。McKenzie et al. (2023) 分析原因：大模型更倾向于模仿训练数据中的虚假相关，但超大模型（>100B）会再次纠正，形成 U 形曲线。这对涌现的定义提出了修正。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "In-Context Learning 的信息论解释",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "U 形涌现：逆向 Scaling 现象",
+    "slug": "inverse-scaling-u-shaped-emergence",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "涌现能力",
+      "模型评测"
+    ],
+    "summary": "U形涌现说明中型模型会先学错捷径，超大模型才重新对准真实目标。"
+  },
+  {
     "title": "Grokking：过拟合之后的延迟涌现",
     "slug": "grokking-delayed-generalization",
     "date": "2026-03-12",
