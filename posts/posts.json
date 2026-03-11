@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 Red Teaming 方法论",
+    "slug": "claude-red-teaming-methodology",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "安全"
+    ],
+    "summary": "Claude 的红队方法是人类发现风险、自动扩展攻击、CAI 吸收失败并叠加工程防护。"
+  },
+  {
     "title": "Claude 的 PPO 训练稳定性优化",
     "slug": "claude-ppo-training-stability",
     "date": "2026-03-12",
