@@ -1,5 +1,17 @@
 [
   {
+    "title": "ICL 中的任务识别与任务学习的分离",
+    "slug": "icl-task-recognition-vs-learning",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "机制分析"
+    ],
+    "summary": "ICL 常先做任务识别，再做映射学习；只有后者才真正随着示例数和模型规模增强"
+  },
+  {
     "title": "Transformer 的隐式梯度下降：ICL 即学习",
     "slug": "icl-implicit-gradient-descent",
     "date": "2026-03-12",
