@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态位置编码：从 1D 到 N-D 的扩展",
+    "slug": "multimodal-positional-encoding-nd",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "位置编码"
+    ],
+    "summary": "M-RoPE把文本、图像、视频坐标统一成多轴旋转，使注意力依赖相对位移而非拼接序号"
+  },
+  {
     "title": "Gemini 的视频理解：时序建模机制",
     "slug": "gemini-video-temporal-modeling",
     "date": "2026-03-12",
