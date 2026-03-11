@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 Chain-of-Thought 推理",
+    "slug": "claude-chain-of-thought-reasoning",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "推理"
+    ],
+    "summary": "Claude 的 CoT 本质是受训练与预算控制的分步推理，适合复杂任务，但有成本、延迟与忠实性边界。"
+  },
+  {
     "title": "Claude 的 Prompt Engineering 原理",
     "slug": "claude-prompt-engineering-principles",
     "date": "2026-03-12",

@@ -2878,7 +2878,7 @@
       "推理"
     ],
     "brief": "核心要点：Claude 的 CoT 能力通过 RLHF 和 CAI 训练强化——模型学会在回答复杂问题前展开中间推理步骤。CoT 在数学推理上提升约 20-30%（GSM8K），在逻辑推理上提升约 15%。Claude 3.5 Sonnet 在 extended thinking 模式下进一步支持更长的推理链。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的工具使用能力训练",
