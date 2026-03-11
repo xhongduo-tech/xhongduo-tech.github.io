@@ -1,5 +1,16 @@
 [
   {
+    "title": "Command R+的RAG能力",
+    "slug": "frontier-model-command-r-plus-rag",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Command R+ 的优势不在更大上下文，而在更稳地组织检索、引用和多步工具调用。"
+  },
+  {
     "title": "Grok-1的开源分析",
     "slug": "frontier-model-grok1-open-source",
     "date": "2026-03-12",
