@@ -1,5 +1,17 @@
 [
   {
+    "title": "Constitutional AI 的数学形式化",
+    "slug": "constitutional-ai-formalization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "Constitutional AI"
+    ],
+    "summary": "CAI本质是带安全约束的优化，SL阶段做宪法蒸馏，RL阶段做带KL约束的PPO。"
+  },
+  {
     "title": "Claude 的 System Prompt 机制",
     "slug": "claude-system-prompt-mechanism",
     "date": "2026-03-12",

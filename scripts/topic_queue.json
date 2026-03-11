@@ -2722,7 +2722,7 @@
       "Constitutional AI"
     ],
     "brief": "核心要点：CAI 可形式化为约束优化问题：max E[r_helpful] s.t. E[r_harmful] < ε，其中 r 为对应奖励函数。SL-CAI 阶段等价于带拒绝采样的蒸馏，RL-CAI 阶段等价于在宪法约束下的 PPO。Lagrange 对偶性连接了约束优化与 KL 正则化的 RL 目标。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的 Token 采样策略",
