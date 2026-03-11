@@ -2145,7 +2145,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：1-bit Adam/LAMB 将梯度压缩为符号位+误差补偿，通信量降至 1/16。压缩分两阶段：warmup 期用标准 AllReduce（约 15-20% 步数），之后切换为 1-bit 压缩。误差补偿保证收敛：本轮残差加入下轮梯度。在 256 卡上通信时间减少 5 倍，端到端加速 2-3 倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Context Parallel：超长序列的并行策略",

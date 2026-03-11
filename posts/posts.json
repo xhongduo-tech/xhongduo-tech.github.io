@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度通信压缩：从 FP16 到 1-bit",
+    "slug": "gradient-compression-1bit",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "通信优化",
+      "分布式训练"
+    ],
+    "summary": "1-bit Adam/LAMB 用符号压缩加误差补偿，把分布式训练通信量降到约 1/16。"
+  },
+  {
     "title": "Expert Parallel 与 Tensor Parallel 的组合",
     "slug": "expert-parallel-tensor-parallel",
     "date": "2026-03-11",
