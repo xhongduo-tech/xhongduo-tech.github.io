@@ -1,5 +1,17 @@
 [
   {
+    "title": "DP 通信重叠：梯度 AllReduce 流水线化",
+    "slug": "dp-communication-overlap",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据并行",
+      "通信优化"
+    ],
+    "summary": "DDP 通过梯度分桶后异步 AllReduce，把通信塞进反向传播空隙里；桶大小与梯度视图决定吞吐和显存。"
+  },
+  {
     "title": "Ulysses 与 Ring Attention 的对比",
     "slug": "ulysses-vs-ring-attention",
     "date": "2026-03-12",

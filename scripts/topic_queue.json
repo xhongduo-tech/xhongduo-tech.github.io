@@ -2193,7 +2193,7 @@
       "通信优化"
     ],
     "brief": "核心要点：标准 DDP 将反向传播产生的梯度分桶（bucket），每个 bucket 填满后立即启动 AllReduce，与后续层的反向计算重叠。桶大小（默认 25MB）影响重叠效率：过小增加通信次数，过大延迟启动时机。PyTorch DDP 的 gradient_as_bucket_view 优化避免梯度拷贝，节省 peak memory。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Scaling Law 的基本形式与拟合方法",
