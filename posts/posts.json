@@ -1,5 +1,16 @@
 [
   {
+    "title": "Kubernetes Service与Ingress",
+    "slug": "sys-container-kubernetes-service-ingress",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "summary": "Service 解决集群内稳定寻址，Ingress 解决外部 HTTP 路由与 TLS，二者分层协作。"
+  },
+  {
     "title": "Kubernetes Pod设计",
     "slug": "sys-container-kubernetes-pod-design",
     "date": "2026-03-12",

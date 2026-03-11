@@ -13523,7 +13523,7 @@
       "容器"
     ],
     "brief": "Kubernetes Service解决集群内稳定访问与负载均衡，依赖kube-proxy通过iptables或IPVS把虚拟IP转发到后端Pod；Ingress位于七层，负责域名、路径、TLS和灰度路由。Service更偏四层抽象，Ingress更偏HTTP流量治理，二者常组合使用，但跨命名空间、会话保持和证书更新需额外设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kubernetes ConfigMap与Secret",
