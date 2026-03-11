@@ -2950,7 +2950,7 @@
       "视觉编码"
     ],
     "brief": "核心要点：Gemini 使用定制化 ViT 变体作为视觉编码器，支持动态分辨率输入。分析 patch embedding 策略、位置编码方案（2D RoPE 扩展）、视觉 token 与文本 token 的对齐机制及分辨率-性能权衡",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 1.5 的百万级上下文窗口实现",

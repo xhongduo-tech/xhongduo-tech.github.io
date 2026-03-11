@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的视觉编码器：从 ViT 到统一表征",
+    "slug": "gemini-visual-encoder-vit",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "视觉编码"
+    ],
+    "summary": "Gemini 视觉编码的关键不只是 ViT，而是动态分辨率、2D位置编码和统一 token 表征。"
+  },
+  {
     "title": "Gemini 的原生多模态训练范式",
     "slug": "gemini-native-multimodal-training",
     "date": "2026-03-12",
