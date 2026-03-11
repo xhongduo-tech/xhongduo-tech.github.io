@@ -2554,7 +2554,7 @@
       "微调"
     ],
     "brief": "核心要点：Dai et al. (2023) 从对偶优化角度证明 ICL 和微调是同一优化问题的两种求解方式。ICL 通过 Attention 在前向传播中动态构建'虚拟梯度'，微调通过反向传播更新参数。两者收敛到相似但不完全相同的解：ICL 受限于 Attention 的表达力，相当于一阶优化；微调可以达到高阶最优。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Constitutional AI 的核心机制",

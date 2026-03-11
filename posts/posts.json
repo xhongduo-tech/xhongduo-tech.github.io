@@ -1,5 +1,17 @@
 [
   {
+    "title": "ICL 与微调的统一理论框架",
+    "slug": "icl-finetuning-unified-framework",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "微调"
+    ],
+    "summary": "ICL 与微调是在同一优化目标上的两条路径：前者前向构造元梯度，后者反向显式更新参数。"
+  },
+  {
     "title": "重复 Token 的 Scaling 效应：数据质量 vs 数量",
     "slug": "token-repetition-scaling-effect",
     "date": "2026-03-12",
