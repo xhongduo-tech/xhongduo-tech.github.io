@@ -1,5 +1,17 @@
 [
   {
+    "title": "Megatron-LM 的 3D 并行架构",
+    "slug": "megatron-3d-parallelism",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "分布式训练"
+    ],
+    "summary": "Megatron-LM 用 TP、PP、DP 三维切分训练，并把高频通信尽量留在节点内高速互联。"
+  },
+  {
     "title": "ZeRO-Infinity",
     "slug": "zero-infinity-nvme",
     "date": "2026-03-11",
