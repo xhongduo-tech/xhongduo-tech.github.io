@@ -1,5 +1,18 @@
 [
   {
+    "title": "Mixture-of-Depths",
+    "slug": "mixture-of-depths",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "条件计算",
+      "动态计算"
+    ],
+    "summary": "MoD按层只让少数token做完整计算，用固定top-k容量把FLOP集中到更重要的位置。"
+  },
+  {
     "title": "MoE 的扩展规律：稀疏模型的 Scaling Law",
     "slug": "moe-scaling-laws",
     "date": "2026-03-11",

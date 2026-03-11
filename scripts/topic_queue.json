@@ -1817,7 +1817,7 @@
       "动态计算"
     ],
     "brief": "核心要点：Mixture-of-Depths（MoD）将 MoE 的路由思想从「选择哪个专家」推广到「是否经过该层」。每层通过路由器决定 token 是走完整计算还是跳过（残差直连），实现计算量的动态分配。分析 Top-k 容量控制和训练时的 straight-through 估计器设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 与 MoA 的统一：专家粒度的设计空间",
