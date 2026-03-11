@@ -2181,7 +2181,7 @@
       "长上下文"
     ],
     "brief": "核心要点：DeepSpeed-Ulysses 沿 head 维度切分 QKV，通过 All-to-All 通信重新分布序列维度，每卡执行完整注意力但仅处理部分 head。Ring Attention 沿序列维度切分，通信为 KV 环形传递。Ulysses 通信量 O(bsh) 与序列长度无关，但受限于 head 数；Ring 可扩展到任意序列长度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DP 通信重叠：梯度 AllReduce 流水线化",

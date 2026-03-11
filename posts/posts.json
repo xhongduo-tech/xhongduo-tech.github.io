@@ -1,5 +1,17 @@
 [
   {
+    "title": "Ulysses 与 Ring Attention 的对比",
+    "slug": "ulysses-vs-ring-attention",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "序列并行",
+      "长上下文"
+    ],
+    "summary": "Ulysses 省通信但受 head 限制，Ring 更易扩超长上下文，工程上常混合使用"
+  },
+  {
     "title": "异构集群训练：GPU 混合并行策略",
     "slug": "heterogeneous-cluster-training",
     "date": "2026-03-12",
