@@ -1,5 +1,17 @@
 [
   {
+    "title": "Tensor Parallel 的数学分解",
+    "slug": "tensor-parallel-math",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "模型并行"
+    ],
+    "summary": "Tensor Parallel 的本质是把线性层按列或按行分解，并把通信压缩到模块边界。"
+  },
+  {
     "title": "MoE 与 MoA 的统一：专家粒度的设计空间",
     "slug": "moe-moa-unified-design-space",
     "date": "2026-03-11",

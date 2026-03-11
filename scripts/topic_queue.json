@@ -1841,7 +1841,7 @@
       "模型并行"
     ],
     "brief": "核心要点：Tensor Parallel 将矩阵乘法 Y=XA 按列或行切分到多卡，列切分时每卡计算 Y_i=XA_i 无需通信，行切分需 AllReduce 聚合。分析 MLP 层的 Column-then-Row 切分策略，每层仅需 2 次 AllReduce，通信量为 2bsh，与隐藏维度无关。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Self-Attention 的 Tensor Parallel 切分",
