@@ -1,5 +1,16 @@
 [
   {
+    "title": "Qwen2.5-Math的数学能力",
+    "slug": "frontier-model-qwen25-math-capability",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Qwen2.5-Math靠数学专精后训练与工具推理提升效果，不是单靠更大参数。"
+  },
+  {
     "title": "Qwen2.5的技术报告分析",
     "slug": "frontier-model-qwen25-technical-report",
     "date": "2026-03-12",
