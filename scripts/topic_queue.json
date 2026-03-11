@@ -13534,7 +13534,7 @@
       "容器"
     ],
     "brief": "ConfigMap与Secret提供配置和敏感数据解耦能力，本质都是对象存储加卷或环境变量注入，但Secret会做base64编码并可结合KMS或etcd加密。环境变量注入更新后通常需重启Pod才生效，卷挂载可热更新但应用未必自动重载。边界在于容量有限、变更传播延迟和密钥轮换流程复杂。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kubernetes调度策略",
