@@ -1,5 +1,17 @@
 [
   {
+    "title": "流水线并行的微批次调度",
+    "slug": "pipeline-parallel-microbatch",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "流水线并行"
+    ],
+    "summary": "流水线并行靠微批次填满阶段链路，收益取决于bubble、阶段均衡与显存通信约束"
+  },
+  {
     "title": "Self-Attention 的 Tensor Parallel 切分",
     "slug": "tensor-parallel-attention",
     "date": "2026-03-11",
