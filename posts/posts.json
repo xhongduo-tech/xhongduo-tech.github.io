@@ -1,5 +1,17 @@
 [
   {
+    "title": "输出投影矩阵O的作用",
+    "slug": "arch-transformer-output-projection-o",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer组件"
+    ],
+    "summary": "W_O负责把多头结果回投到d_model，并完成头间融合，使残差连接成立。"
+  },
+  {
     "title": "Value投影矩阵的作用机制",
     "slug": "arch-transformer-value-projection-mechanism",
     "date": "2026-03-12",

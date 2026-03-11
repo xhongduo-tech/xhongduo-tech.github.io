@@ -14052,7 +14052,7 @@
       "Transformer组件"
     ],
     "brief": "输出投影W_O将多头拼接结果映射回d_model维度。分析W_O在多头融合中的关键作用，探讨W_O与残差连接的交互，对比有无W_O的性能差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "QKV投影的合并优化",
