@@ -1,5 +1,16 @@
 [
   {
+    "title": "GPT-4的技术分析",
+    "slug": "frontier-model-gpt4-technical-analysis",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "GPT-4大概率仍是Transformer，并可能借助MoE在能力、成本与稳健性之间取平衡。"
+  },
+  {
     "title": "数据库连接池",
     "slug": "sys-db-database-connection-pool",
     "date": "2026-03-12",
