@@ -1,5 +1,17 @@
 [
   {
+    "title": "C-Eval 中文语言模型评测基准",
+    "slug": "c-eval-chinese-benchmark",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "中文NLP"
+    ],
+    "summary": "C-Eval 用统一中文选择题和准确率，评估模型多学科知识与推理，并适合做工程回归检测"
+  },
+  {
     "title": "残差连接的梯度高速公路",
     "slug": "arch-transformer-residual-gradient-highway",
     "date": "2026-03-12",
