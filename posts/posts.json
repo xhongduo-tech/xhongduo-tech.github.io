@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的不确定性表达机制",
+    "slug": "claude-uncertainty-expression",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "对齐"
+    ],
+    "summary": "Claude 的不确定性表达源于 CAI 的诚实原则，并可由 logit 熵等信号部分驱动。"
+  },
+  {
     "title": "Claude 的越狱攻击分类与防御",
     "slug": "claude-jailbreak-taxonomy-defense",
     "date": "2026-03-12",
