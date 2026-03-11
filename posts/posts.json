@@ -1,5 +1,18 @@
 [
   {
+    "title": "ZeRO Stage 1",
+    "slug": "zero-stage1-optimizer-partition",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "显存优化",
+      "内存优化"
+    ],
+    "summary": "ZeRO Stage 1 只分片优化器状态，用较低复杂度换取显著显存收益。"
+  },
+  {
     "title": "交错式流水线：Megatron-LM 的虚拟阶段",
     "slug": "interleaved-pipeline-stages",
     "date": "2026-03-11",
