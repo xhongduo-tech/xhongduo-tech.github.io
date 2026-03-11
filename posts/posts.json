@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 量化：专家级别的异构量化",
+    "slug": "moe-heterogeneous-quantization",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "MoE",
+      "量化"
+    ],
+    "summary": "MoE量化最有效的方向，是按专家重要性做异构位宽分配，而不是统一降bit。"
+  },
+  {
     "title": "MoE 推理优化：专家缓存与预取策略",
     "slug": "moe-inference-expert-caching",
     "date": "2026-03-11",

@@ -1708,7 +1708,7 @@
       "量化"
     ],
     "brief": "核心要点：MoE 中不同专家的重要性不同（高频专家对精度更敏感），可对不同专家使用不同位宽的量化。分析 QMoE 等方法将高频专家保持 FP16 而低频专家压缩至 2-bit 的策略，以及 Mixtral 在 GPTQ/AWQ 量化下的精度-显存权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "V-MoE",
