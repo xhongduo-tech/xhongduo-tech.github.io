@@ -1,5 +1,17 @@
 [
   {
+    "title": "ICL 的注意力模式：从浅层匹配到深层推理",
+    "slug": "icl-attention-pattern-analysis",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "注意力机制"
+    ],
+    "summary": "ICL 不是单层完成的，浅层看模板，中层做映射，深层把映射变成答案。"
+  },
+  {
     "title": "μP：从小模型预测大模型的最优超参数",
     "slug": "mup-maximal-update-parameterization",
     "date": "2026-03-12",
