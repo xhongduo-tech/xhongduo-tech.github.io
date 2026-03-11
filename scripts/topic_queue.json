@@ -1768,7 +1768,7 @@
       "架构设计"
     ],
     "brief": "核心要点：传统 MoE（Switch/GShard）使用容量因子丢弃溢出 token，而 dropless MoE（Megablocks/Expert Choice）通过不同机制避免丢弃。对比两种范式在训练稳定性、推理延迟可预测性、以及最终模型质量上的差异。分析 token 丢弃对长序列任务的特殊影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 的 Upcycling：从 Dense 到稀疏的初始化",

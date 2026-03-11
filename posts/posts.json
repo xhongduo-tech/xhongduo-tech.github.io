@@ -1,5 +1,17 @@
 [
   {
+    "title": "Token 丢弃 vs Token 不丢弃的 MoE 对比",
+    "slug": "moe-token-drop-vs-dropless",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "架构设计"
+    ],
+    "summary": "传统 MoE 用容量上限换实现简单，dropless 用更复杂调度换更稳质量与延迟。"
+  },
+  {
     "title": "Megablocks：MoE 的高效 GPU 实现",
     "slug": "megablocks-efficient-moe-gpu",
     "date": "2026-03-11",
