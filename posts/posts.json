@@ -1,5 +1,17 @@
 [
   {
+    "title": "分布式事务",
+    "slug": "sys-dist-distributed-transactions",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "分布式",
+      "事务"
+    ],
+    "summary": "分布式事务选型关键不在协议名，而在补偿能力、预留能力和不一致容忍度"
+  },
+  {
     "title": "分布式锁的实现",
     "slug": "sys-dist-distributed-lock-implementation",
     "date": "2026-03-12",
