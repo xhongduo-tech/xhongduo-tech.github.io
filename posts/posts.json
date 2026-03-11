@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的幻觉检测与缓解",
+    "slug": "claude-hallucination-detection-mitigation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "对齐"
+    ],
+    "summary": "Claude 通过诚实性校准降低幻觉，但高风险场景仍必须先引用、再校验、再人工复核"
+  },
+  {
     "title": "Claude 的知识蒸馏与模型家族",
     "slug": "claude-knowledge-distillation-family",
     "date": "2026-03-12",
