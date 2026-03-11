@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO Stage 2：梯度分片的通信分析",
+    "slug": "zero-stage2-gradient-partition",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "显存优化"
+    ],
+    "summary": "ZeRO Stage 2 通过梯度分片把显存从完整梯度副本降到 owner shard，通信量仍与 DDP 同阶"
+  },
+  {
     "title": "ZeRO Stage 1",
     "slug": "zero-stage1-optimizer-partition",
     "date": "2026-03-11",

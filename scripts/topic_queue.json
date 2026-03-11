@@ -1914,7 +1914,7 @@
       "显存优化"
     ],
     "brief": "核心要点：Stage 2 在 Stage 1 基础上将梯度也分片，每卡仅保留对应优化器分片的梯度，显存节省从 4Ψ+12Ψ/N 降至 2Ψ+(2+12)Ψ/N。关键在于反向传播时使用 Reduce-Scatter 替代 AllReduce，通信量保持 2Ψ 不变，与标准 DDP 等价。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO Stage 3：参数分片与通信开销",
