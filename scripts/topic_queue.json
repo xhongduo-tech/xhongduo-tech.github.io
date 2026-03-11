@@ -1696,7 +1696,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MoE 模型推理时所有专家权重需驻留显存（如 Mixtral 8x7B 需约 90GB），远超实际激活量。分析 expert offloading 策略——将非活跃专家卸载到 CPU/SSD，按路由预测预取即将使用的专家。LRU 缓存的命中率与推理延迟的权衡分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 量化：专家级别的异构量化",

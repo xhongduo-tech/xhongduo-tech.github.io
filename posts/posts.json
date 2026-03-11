@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 推理优化：专家缓存与预取策略",
+    "slug": "moe-inference-expert-caching",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "MoE",
+      "推理优化"
+    ],
+    "summary": "MoE 推理优化的关键不是继续减少计算，而是用专家卸载、LRU 缓存和小窗口预取，把专家权重搬运造成的同步等待尽量变成…"
+  },
+  {
     "title": "共享专家机制：MoE 中的通用知识锚定",
     "slug": "moe-shared-expert-mechanism",
     "date": "2026-03-11",
