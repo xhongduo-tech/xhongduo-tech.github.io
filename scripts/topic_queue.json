@@ -1756,7 +1756,7 @@
       "系统实现"
     ],
     "brief": "核心要点：Megablocks 使用 block-sparse 矩阵运算替代传统 MoE 的 token-permutation + batched-matmul 实现，消除 padding 浪费。分析 dMoE（dropless MoE）如何在不丢弃 token 的前提下保持高 GPU 利用率，以及 block-sparse GEMM 的 Triton 内核设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Token 丢弃 vs Token 不丢弃的 MoE 对比",
