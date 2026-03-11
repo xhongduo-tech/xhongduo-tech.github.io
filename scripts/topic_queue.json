@@ -13920,7 +13920,7 @@
       "前沿技术"
     ],
     "brief": "思维链的进化路线很清楚：从Zero-shot CoT触发模型显式分步，到Few-shot CoT用示例稳定推理，再到Tree of Thoughts、Graph of Thoughts把单一路径扩展成搜索空间。核心机制是把隐式表示外显为可操作中间状态，从而允许采样、回溯和筛选。适用任务集中在数学、规划、组合搜索；边界是冗长推理会增加幻觉面和token成本。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自我修正与反思",

@@ -1,5 +1,16 @@
 [
   {
+    "title": "思维链的进化",
+    "slug": "frontier-tech-chain-of-thought-evolution",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "summary": "思维链从线性提示进化为树图搜索，核心是把隐式推理变成可评估、可回溯的中间状态。"
+  },
+  {
     "title": "推理时计算Scaling",
     "slug": "frontier-tech-inference-time-compute-scaling",
     "date": "2026-03-12",
