@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的 Critique-Revision 循环",
+    "slug": "claude-critique-revision-loop",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Claude",
+      "Constitutional AI"
+    ],
+    "summary": "CAI 在监督阶段用多轮自我批评与修订，先建立 harmless 基线，再进入 RLAIF 强化。"
+  },
+  {
     "title": "Claude 的 HHH 目标函数解析",
     "slug": "claude-hhh-objective",
     "date": "2026-03-12",

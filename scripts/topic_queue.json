@@ -2602,7 +2602,7 @@
       "Constitutional AI"
     ],
     "brief": "核心要点：CAI 的 SL 阶段通过多轮 critique-revision 循环提升回答质量。每轮随机采样一条宪法原则，让模型自我批评并修订。实验显示 4 轮修订后 harmlessness 评分提升约 30%，但超过 4 轮后边际收益递减且 helpfulness 开始下降。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 宪法原则的设计与演化",
