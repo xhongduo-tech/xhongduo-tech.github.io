@@ -1,5 +1,16 @@
 [
   {
+    "title": "Grok-1的开源分析",
+    "slug": "frontier-model-grok1-open-source",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Grok-1开源的核心价值是公开了超大MoE样本，便于研究路由机制与部署代价。"
+  },
+  {
     "title": "Yi-Lightning的推理加速",
     "slug": "frontier-model-yi-lightning-inference",
     "date": "2026-03-12",
