@@ -1,5 +1,19 @@
 [
   {
+    "title": "计算最优之外",
+    "slug": "inference-aware-scaling-law",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "扩展定律",
+      "推理优化",
+      "理论基础",
+      "推理成本"
+    ],
+    "summary": "推理量越大，最优模型越该更小并训练更久，生命周期总成本才最低"
+  },
+  {
     "title": "Scaling Law 的下游任务迁移",
     "slug": "scaling-law-downstream-transfer",
     "date": "2026-03-12",

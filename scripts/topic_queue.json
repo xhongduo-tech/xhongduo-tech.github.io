@@ -2255,7 +2255,7 @@
       "推理成本"
     ],
     "brief": "核心要点：Chinchilla 最优只考虑训练 FLOPs，但实际部署时推理成本与参数量 N 成正比。Sardana & Frankle (2023) 提出推理感知 Scaling Law，引入推理 token 总量 T_inf，最优模型应过训练（D >> D_chinchilla）以缩小 N。LLaMA 系列正是此策略的实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据约束下的 Scaling Law 修正",
