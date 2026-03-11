@@ -2746,7 +2746,7 @@
       "模型压缩"
     ],
     "brief": "核心要点：Claude 3.5 Sonnet 在性能上接近 Claude 3 Opus，但推理速度快 2 倍、成本降低 80%。效率提升来源于：更优的模型架构（可能采用 GQA 或 MQA 减少 KV cache）、更高效的训练数据配比、以及推理端的投机解码等加速技术。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的多轮对话状态管理",

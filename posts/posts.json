@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 3.5 Sonnet 的效率优化",
+    "slug": "claude-35-sonnet-efficiency",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Claude",
+      "模型压缩"
+    ],
+    "summary": "Claude 3.5 Sonnet 通过架构、缓存和推理协同优化，把接近 Opus 的能力压到更低时延与成本。"
+  },
+  {
     "title": "Claude 的 Token 采样策略",
     "slug": "claude-token-sampling-strategy",
     "date": "2026-03-12",
