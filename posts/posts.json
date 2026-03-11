@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO 与模型并行的显存对比",
+    "slug": "zero-vs-model-parallel-memory",
+    "date": "2026-03-11",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "模型并行"
+    ],
+    "summary": "ZeRO-3 更省显存，TP 更省通信，80到90GB/s 常是吞吐交叉带"
+  },
+  {
     "title": "Tensor Parallel 中的通信原语",
     "slug": "tp-communication-primitives",
     "date": "2026-03-11",
