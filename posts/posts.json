@@ -1,5 +1,16 @@
 [
   {
+    "title": "Redis的数据结构与应用",
+    "slug": "sys-db-redis-data-structures",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "Redis 的关键在于用合适数据结构承接访问模式，并避免慢命令拖垮单线程事件循环"
+  },
+  {
     "title": "PostgreSQL的高级特性",
     "slug": "sys-db-postgresql-advanced-features",
     "date": "2026-03-12",
