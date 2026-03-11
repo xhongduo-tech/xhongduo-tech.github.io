@@ -1,5 +1,17 @@
 [
   {
+    "title": "重复 Token 的 Scaling 效应：数据质量 vs 数量",
+    "slug": "token-repetition-scaling-effect",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "数据工程"
+    ],
+    "summary": "重复 Token 的收益会快速饱和，低信息重复会浪费训练预算并系统性拉偏模型能力分布"
+  },
+  {
     "title": "涌现能力的可预测性",
     "slug": "predictability-of-emergence",
     "date": "2026-03-12",

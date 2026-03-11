@@ -2542,7 +2542,7 @@
       "数据工程"
     ],
     "brief": "核心要点：Hernandez et al. (2022) 发现重复数据对 Scaling Law 的破坏效应可以量化——100 次重复的数据等效于仅约 3.4 次的新数据（有效倍率 ≈ 0.034）。更关键的是，重复不均匀分布在不同 domain 中，高重复 domain（如 Common Crawl 中的模板页面）会系统性偏移模型的能力分布。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ICL 与微调的统一理论框架",
