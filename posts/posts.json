@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理时计算Scaling",
+    "slug": "frontier-tech-inference-time-compute-scaling",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "前沿技术"
+    ],
+    "summary": "推理时计算Scaling本质是用多采样、搜索与验证，把线上算力换成更高复杂任务正确率。"
+  },
+  {
     "title": "Command R+的RAG能力",
     "slug": "frontier-model-command-r-plus-rag",
     "date": "2026-03-12",
