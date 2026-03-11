@@ -13446,7 +13446,7 @@
       "Linux"
     ],
     "brief": "Linux安全机制由DAC权限模型、ACL、Capabilities、LSM框架共同组成。传统root/普通用户二元权限过粗，Capabilities将特权拆成数十项细粒度能力，SELinux或AppArmor再以强制访问控制限制进程可访问对象。安全增强通常会带来配置复杂度和少量运维开销，但能明显降低横向提权风险。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Shell脚本编程",

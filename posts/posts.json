@@ -1,5 +1,16 @@
 [
   {
+    "title": "Linux安全机制",
+    "slug": "sys-linux-linux-security-mechanisms",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "summary": "Linux安全依赖DAC/ACL、Capabilities与LSM逐层收紧，核心原则是最小权限。"
+  },
+  {
     "title": "Linux性能分析工具",
     "slug": "sys-linux-linux-performance-tools",
     "date": "2026-03-12",
