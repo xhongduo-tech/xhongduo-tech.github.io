@@ -1,5 +1,17 @@
 [
   {
+    "title": "Chinchilla 定律：计算最优的训练配比",
+    "slug": "chinchilla-optimal-scaling",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "Chinchilla"
+    ],
+    "summary": "Chinchilla定律表明固定算力下参数与token应近似等比例扩张，经验上约为20 token/参数。"
+  },
+  {
     "title": "Scaling Law 的基本形式与拟合方法",
     "slug": "scaling-law-basic-formulation",
     "date": "2026-03-12",

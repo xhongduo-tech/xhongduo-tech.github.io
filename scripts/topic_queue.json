@@ -2217,7 +2217,7 @@
       "Chinchilla"
     ],
     "brief": "核心要点：Hoffmann et al. (2022) 的核心结论——最优训练 token 数与参数量线性增长 D_opt ∝ N。对比 Kaplan 的 N^{0.74} 结论，分析三种拟合方法（固定N变D、固定FLOPs包络线、参数化损失函数）如何得到 a=0.50, b=0.50 的指数，以及 70B 参数对应 1.4T token 的具体数值。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Scaling Law 中的不可约损失与熵下界",
