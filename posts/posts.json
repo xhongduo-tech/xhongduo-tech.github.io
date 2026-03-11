@@ -1,5 +1,17 @@
 [
   {
+    "title": "链式思维的涌现：为什么小模型做不到",
+    "slug": "chain-of-thought-emergence",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "涌现能力",
+      "链式思维"
+    ],
+    "summary": "CoT 不是万能提示词，只有单步推理够准且工作记忆够用时才会稳定提升多步任务。"
+  },
+  {
     "title": "相变视角下的涌现能力分析",
     "slug": "emergence-phase-transition",
     "date": "2026-03-12",
