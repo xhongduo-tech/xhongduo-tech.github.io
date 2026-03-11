@@ -14019,7 +14019,7 @@
       "Transformer组件"
     ],
     "brief": "Query投影W_Q将输入x映射到查询空间。推导W_Q的维度选择(d_model × d_k)，分析初始化策略对注意力分布的影响，展示多头拆分的等效性证明。包含PyTorch实现与数值验证。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Key投影矩阵的设计考量",
@@ -14030,7 +14030,7 @@
       "Transformer组件"
     ],
     "brief": "Key投影W_K与Query的点积形成注意力分数。分析W_K与W_Q的对称性与非对称性，探讨权重共享的条件，讨论初始化方差对训练稳定性的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Value投影矩阵的作用机制",

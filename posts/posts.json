@@ -1,5 +1,17 @@
 [
   {
+    "title": "Key投影矩阵的设计考量",
+    "slug": "arch-transformer-key-projection-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer组件"
+    ],
+    "summary": "W_K决定Key空间；独立投影保方向性，共享投影省参数但更对称，初始化方差直接影响训练稳定性"
+  },
+  {
     "title": "AI Agent的生产化",
     "slug": "frontier-tech-ai-agent-production",
     "date": "2026-03-12",
