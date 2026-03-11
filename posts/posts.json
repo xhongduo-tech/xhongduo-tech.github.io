@@ -1,5 +1,16 @@
 [
   {
+    "title": "Qwen2.5的技术报告分析",
+    "slug": "frontier-model-qwen25-technical-report",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "最新模型"
+    ],
+    "summary": "Qwen2.5的价值不在单点最强，而在多尺寸、双语和结构化任务上的高性价比可部署性"
+  },
+  {
     "title": "DeepSeek V3的MoE架构",
     "slug": "frontier-model-deepseek-v3-moe",
     "date": "2026-03-12",
