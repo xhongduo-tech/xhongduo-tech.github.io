@@ -2890,7 +2890,7 @@
       "智能体"
     ],
     "brief": "核心要点：Claude 的工具使用（function calling）通过专门的微调数据训练，使模型学会将自然语言请求映射到结构化函数调用。训练数据包含工具定义 schema、调用示例和多步编排场景。Claude 3.5 在工具使用基准上达到 90%+ 准确率，支持并行调用和嵌套调用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 的知识蒸馏与模型家族",

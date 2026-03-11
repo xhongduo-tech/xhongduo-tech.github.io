@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 的工具使用能力训练",
+    "slug": "claude-tool-use-training",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "智能体"
+    ],
+    "summary": "Claude 的工具使用强在结构化训练与按需编排，不只是会填 JSON。"
+  },
+  {
     "title": "Claude 的 Chain-of-Thought 推理",
     "slug": "claude-chain-of-thought-reasoning",
     "date": "2026-03-12",
