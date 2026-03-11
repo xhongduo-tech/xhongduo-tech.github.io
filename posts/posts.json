@@ -1,5 +1,16 @@
 [
   {
+    "title": "Helm Chart的编写",
+    "slug": "sys-container-helm-chart-writing",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "容器"
+    ],
+    "summary": "Helm Chart是Kubernetes清单的模板化、参数化和版本化封装。"
+  },
+  {
     "title": "Kubernetes调度策略",
     "slug": "sys-container-kubernetes-scheduling",
     "date": "2026-03-12",

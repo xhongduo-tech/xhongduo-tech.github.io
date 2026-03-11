@@ -13556,7 +13556,7 @@
       "容器"
     ],
     "brief": "Helm Chart的本质是把Kubernetes清单参数化、模板化并版本化。核心机制包括Go template、values.yaml覆盖链、依赖子Chart和release历史管理。它能降低重复YAML维护成本，但模板嵌套过深会显著增加理解难度；参数暴露过多也会让可配置性超过可维护性，出现能装不能改的问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CAP定理与BASE理论",
