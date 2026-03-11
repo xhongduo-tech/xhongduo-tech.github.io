@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的视频理解：时序建模机制",
+    "slug": "gemini-video-temporal-modeling",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "视频理解"
+    ],
+    "summary": "Gemini 的长视频理解，本质是把视频音频变成同一时序 token 序列做统一建模。"
+  },
+  {
     "title": "Gemini 的音频理解架构",
     "slug": "gemini-audio-understanding-architecture",
     "date": "2026-03-12",

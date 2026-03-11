@@ -2998,7 +2998,7 @@
       "视频理解"
     ],
     "brief": "核心要点：Gemini 通过帧采样与时序注意力实现长视频理解，支持小时级视频输入。分析其关键帧选择策略、时序 token 压缩（temporal pooling）、视频 QA 中的因果推理机制及与 VideoLLaMA 的性能对比",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态位置编码：从 1D 到 N-D 的扩展",
