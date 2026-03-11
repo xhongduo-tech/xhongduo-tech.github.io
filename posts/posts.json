@@ -1,5 +1,16 @@
 [
   {
+    "title": "MongoDB的文档设计",
+    "slug": "sys-db-mongodb-document-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "数据库"
+    ],
+    "summary": "MongoDB文档设计的关键是按读写模式权衡嵌入、引用、索引和分片键。"
+  },
+  {
     "title": "Redis的数据结构与应用",
     "slug": "sys-db-redis-data-structures",
     "date": "2026-03-12",
