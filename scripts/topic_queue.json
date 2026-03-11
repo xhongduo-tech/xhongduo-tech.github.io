@@ -2938,7 +2938,7 @@
       "多模态"
     ],
     "brief": "核心要点：Gemini 从预训练阶段即联合训练文本、图像、音频、视频，区别于 LLaVA 等后接适配器的方案。分析其统一 tokenizer 设计、跨模态注意力机制、多模态数据配比策略及其对涌现能力的影响",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的视觉编码器：从 ViT 到统一表征",

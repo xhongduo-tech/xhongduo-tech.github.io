@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的原生多模态训练范式",
+    "slug": "gemini-native-multimodal-training",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "多模态"
+    ],
+    "summary": "Gemini 的关键不在能看图，而在预训练阶段就把多模态放进同一 token 流统一建模。"
+  },
+  {
     "title": "Gemini 1.0 的 MoE 架构解析",
     "slug": "gemini-1-moe-architecture",
     "date": "2026-03-12",
