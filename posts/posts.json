@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 模型的 Upcycling 初始化策略",
+    "slug": "moe-upcycling-initialization",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MoE",
+      "训练策略"
+    ],
+    "summary": "Upcycling用Dense权重初始化MoE，关键是低成本扩容并用扰动与负载均衡避免路由崩塌"
+  },
+  {
     "title": "推理模型的测试时计算扩展",
     "slug": "test-time-compute-scaling-reasoning",
     "date": "2026-03-13",

@@ -3601,7 +3601,7 @@
       "训练策略"
     ],
     "brief": "核心要点：Upcycling将已训练的Dense模型转换为MoE：复制FFN层N次作为N个专家的初始化，路由器随机初始化。相比从头训练MoE，Upcycling节省50-70%训练计算量。关键问题是初始路由崩塌（所有专家相同导致梯度相同），需加入噪声或差异化初始化打破对称性",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Codex 的代码生成训练流程",
