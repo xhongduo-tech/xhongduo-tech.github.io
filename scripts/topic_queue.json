@@ -4201,7 +4201,7 @@
       "多模态"
     ],
     "brief": "核心要点：将 ReAct 的推理-行动循环扩展到视觉-语言任务，Action 包含图像理解、UI 操作、视觉搜索等。分析 VisualWebArena、SeeAct 等框架中视觉 Observation 的处理方式，以及视觉 grounding 对决策准确率的影响",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "思维链蒸馏：小模型的推理能力迁移",

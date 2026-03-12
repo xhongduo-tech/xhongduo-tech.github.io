@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReAct 在多模态场景中的扩展",
+    "slug": "react-multimodal-extension",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ReAct",
+      "多模态"
+    ],
+    "summary": "多模态ReAct的关键不只是看图，而是用grounding把推理稳定落成可执行坐标。"
+  },
+  {
     "title": "CoT 提示中的示例选择策略",
     "slug": "cot-example-selection-strategy",
     "date": "2026-03-13",
