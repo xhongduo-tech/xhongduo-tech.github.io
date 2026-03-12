@@ -3445,7 +3445,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：V3提出DualPipe流水线并行，将前向和反向计算与All-to-All通信双向重叠。通过将micro-batch从两端同时注入流水线，计算与通信的重叠率接近100%，pipeline bubble降至接近零。在2048卡H800集群上实现单卡180 TFLOPS的MFU",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek Coder 的代码预训练策略",

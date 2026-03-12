@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V3 的 DualPipe 并行策略",
+    "slug": "deepseek-v3-dualpipe-parallelism",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "分布式训练"
+    ],
+    "summary": "DualPipe 通过双向注入与细粒度重排，把 MoE 训练中的通信等待大幅隐藏。"
+  },
+  {
     "title": "MoE 的专家崩塌与负载均衡",
     "slug": "moe-expert-collapse-load-balancing",
     "date": "2026-03-12",
