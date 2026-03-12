@@ -1,5 +1,17 @@
 [
   {
+    "title": "自洽性在代码生成中的应用",
+    "slug": "self-consistency-code-generation",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自洽性",
+      "代码生成"
+    ],
+    "summary": "代码生成中的自洽性，本质是多采样后用执行验证选择功能最稳定的实现"
+  },
+  {
     "title": "Zero-shot CoT 的触发词工程",
     "slug": "zero-shot-cot-trigger-engineering",
     "date": "2026-03-13",

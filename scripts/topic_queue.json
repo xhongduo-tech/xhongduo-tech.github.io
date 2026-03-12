@@ -4057,7 +4057,7 @@
       "代码生成"
     ],
     "brief": "核心要点：将 Self-Consistency 的多路径投票思想应用于代码生成，通过执行测试用例替代答案比对实现功能等价性判断。CodeT 等方法结合双重执行验证，在 HumanEval 上 pass@1 从 47% 提升至 65%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ToT 的启发式评估函数设计",
