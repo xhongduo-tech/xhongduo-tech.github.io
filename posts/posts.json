@@ -1,5 +1,17 @@
 [
   {
+    "title": "Embedding 模型微调提升领域记忆检索精度",
+    "slug": "embedding-finetuning-domain-memory-retrieval",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Embedding",
+      "微调"
+    ],
+    "summary": "领域检索提升的关键不是更大模型，而是高质量正样本与可控的 hard negative 微调。"
+  },
+  {
     "title": "多 Agent 共享记忆的一致性与冲突解决",
     "slug": "multi-agent-shared-memory-consistency",
     "date": "2026-03-13",

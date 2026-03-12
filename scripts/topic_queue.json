@@ -4853,7 +4853,7 @@
       "微调"
     ],
     "brief": "核心要点：通用 Embedding 模型在垂直领域（医疗、法律、代码）的检索精度不足，通过对比学习微调可将领域内 Recall@10 从 0.68 提升至 0.89。关键在于构造高质量的正负样本对，hard negative mining 策略比随机采样效果提升 15%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "记忆的元数据标注与多维度过滤检索",
@@ -4889,7 +4889,7 @@
       "量化压缩"
     ],
     "brief": "核心要点：百万级记忆向量的存储成本高昂，Product Quantization（PQ）可将 1536 维向量压缩至 64 字节（压缩比 24:1），Recall@10 仅下降 3%。OPQ（Optimized PQ）通过旋转矩阵预处理进一步将精度损失控制在 1% 以内。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "外部知识库的增量更新与索引同步",
@@ -4901,7 +4901,7 @@
       "增量更新"
     ],
     "brief": "核心要点：Agent 依赖的外部知识库需要持续更新，全量重建索引（百万文档约 2 小时）不可接受。增量更新策略包括：变更检测（文档哈希）、差量 Embedding、在线索引插入。Milvus 的动态索引支持实时插入，延迟 <100ms/条。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "记忆检索中的上下文窗口填充策略",
@@ -4913,7 +4913,7 @@
       "上下文优化"
     ],
     "brief": "核心要点：检索到的记忆片段如何填入有限的上下文窗口直接影响 Agent 表现。贪心填充（按相关性排序直到满）、多样性采样（MMR 算法，λ=0.7 时效果最优）、分层摘要填充三种策略。MMR 策略在多跳推理任务中比贪心填充准确率高 11%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Generative Agents 的记忆流与重要性评分",
@@ -4925,7 +4925,7 @@
       "Generative Agents"
     ],
     "brief": "核心要点：Stanford Generative Agents 提出记忆流（Memory Stream）架构，每条记忆带有新近性、重要性、相关性三维评分，综合分数 score = α·recency + β·importance + γ·relevance 决定检索排序。重要性由 LLM 自评（1-10 分），新近性按指数衰减。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "基于 SQL 的结构化 Agent 记忆系统",
@@ -4937,7 +4937,7 @@
       "结构化存储"
     ],
     "brief": "核心要点：并非所有 Agent 记忆都适合向量化，用户偏好、任务状态、配置参数等结构化数据用 SQL 存储更高效。SQLite 作为嵌入式方案，查询延迟 <1ms，配合 JSON 字段实现半结构化存储，比向量检索在精确匹配场景下准确率高 40%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多模态记忆：图像与文本的联合向量存储",
@@ -4949,7 +4949,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：视觉 Agent 需要存储和检索图像记忆，CLIP 模型将图像和文本映射到同一 512/768 维空间，实现跨模态检索。图文联合索引比分离索引在跨模态查询中 Recall@10 高 22%，但索引构建时间增加 35%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "记忆蒸馏：从经验中提取可复用规则",
@@ -4961,7 +4961,7 @@
       "经验学习"
     ],
     "brief": "核心要点：Agent 积累大量情景记忆后，需要蒸馏出通用规则以减少存储和检索开销。通过聚类相似经验（DBSCAN，eps=0.3）再用 LLM 归纳规则，可将 1000 条原始记忆压缩为 50 条规则，任务表现仅下降 2%，检索速度提升 20 倍。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LangChain Memory 模块的实现与局限",
@@ -4973,7 +4973,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：LangChain 提供 ConversationBufferMemory、ConversationSummaryMemory、VectorStoreRetrieverMemory 等六种记忆模块。Buffer 适合短对话（<10 轮），Summary 适合长对话但丢失细节，VectorStore 检索精度依赖 Embedding 质量。实际生产中常需组合使用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "记忆检索的重排序：Cross-Encoder 精排",
@@ -4985,7 +4985,7 @@
       "重排序"
     ],
     "brief": "核心要点：向量近似检索（Bi-Encoder）的召回结果存在排序噪声，Cross-Encoder 重排序可将 NDCG@10 从 0.65 提升至 0.78。Cohere Rerank 和 bge-reranker-v2 在 Agent 记忆场景下延迟约 50-100ms，适合 Top-20 候选精排。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Agent 记忆的隐私保护与选择性遗忘",
@@ -4997,7 +4997,7 @@
       "隐私安全"
     ],
     "brief": "核心要点：Agent 长期记忆中可能存储敏感信息，需要支持选择性遗忘（GDPR 合规）。向量删除后索引中仍可能残留近似信息，需要配合向量扰动（差分隐私 ε=1.0）或索引重建。完全遗忘的计算开销约为插入的 5-10 倍。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "基于 Graph RAG 的多跳知识检索",
@@ -5009,7 +5009,7 @@
       "知识检索"
     ],
     "brief": "核心要点：传统 RAG 单次检索难以回答需要多步推理的问题，Graph RAG 将文档构建为实体关系图，支持沿图谱边进行多跳检索。微软 Graph RAG 在全局摘要任务中比朴素 RAG 的全面性评分高 20-30%，但索引构建成本增加 5-10 倍。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Sparse-Dense 混合检索在记忆系统中的实践",
@@ -5021,7 +5021,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：纯密集检索（Dense）对精确关键词匹配不敏感，纯稀疏检索（BM25）缺乏语义理解。混合检索 score = α·dense + (1-α)·sparse，α=0.7 时在 Agent 记忆检索中 MRR@10 最优，比单一方案高 10-15%。SPLADE 作为学习型稀疏表示可进一步提升。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Agent 记忆系统的端到端评测框架",
@@ -5033,7 +5033,7 @@
       "评测"
     ],
     "brief": "核心要点：缺乏标准化评测框架是 Agent 记忆研究的瓶颈。提出四维评测体系：检索精度（Recall/MRR）、信息保持率（长对话后的事实回忆准确率）、存储效率（Token/字节比）、任务贡献度（有无记忆的任务完成率差异）。在 5 个基准任务上验证框架有效性。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "记忆感知的 Prompt 构建与动态注入",
@@ -5045,7 +5045,7 @@
       "Prompt工程"
     ],
     "brief": "核心要点：检索到的记忆如何注入 Prompt 直接影响 LLM 利用效率。对比前置注入（System Prompt）、上下文内嵌、工具调用返回三种方式，前置注入的记忆利用率最高（85%）但占用固定窗口空间，工具调用方式最灵活但引入额外延迟（100-200ms）。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent系统的角色分工设计模式",
@@ -5057,7 +5057,7 @@
       "架构设计"
     ],
     "brief": "核心要点：分析多Agent系统中常见的角色分工模式——专家型、流水线型、辩论型、层级型。对比各模式在代码生成任务上的准确率差异（专家型85% vs 辩论型91%），给出角色定义的Prompt模板与职责边界划分原则。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AutoGen的会话编排与终止条件设计",
@@ -5069,7 +5069,7 @@
       "多Agent"
     ],
     "brief": "核心要点：深入AutoGen的GroupChat机制，解析speaker_selection_method的四种策略（round_robin/random/auto/manual）及其对任务收敛速度的影响。分析max_round与is_termination_msg的组合策略，避免Agent陷入无限对话循环的实践方案。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CrewAI的Task依赖链与执行调度",
@@ -5081,7 +5081,7 @@
       "任务调度"
     ],
     "brief": "核心要点：解析CrewAI中Task的context参数如何构建DAG依赖图，对比sequential与hierarchical两种Process模式的执行语义差异。分析任务输出的expected_output字段如何约束Agent行为，以及async_execution参数实现并行任务的底层机制。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent通信的消息传递协议设计",
@@ -5093,7 +5093,7 @@
       "系统设计"
     ],
     "brief": "核心要点：对比多Agent系统中三种通信范式——共享黑板、点对点消息、发布订阅。分析消息格式标准化（sender/receiver/content/metadata）对系统可扩展性的影响，以及消息队列在异步Agent协作中的缓冲与背压处理。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AutoGen中自定义Agent的注册与能力声明",
@@ -5105,7 +5105,7 @@
       "扩展机制"
     ],
     "brief": "核心要点：解析AutoGen v0.4的ConversableAgent基类继承体系，分析register_reply方法的触发链机制。详解如何通过system_message声明Agent能力边界，以及register_function将Python函数暴露为Agent可调用工具的完整流程。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent辩论机制提升推理准确率",
