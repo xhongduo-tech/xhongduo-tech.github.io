@@ -1,5 +1,17 @@
 [
   {
+    "title": "YaRN：位置编码外推的频率调制",
+    "slug": "yarn-positional-encoding-extrapolation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "长上下文",
+      "位置编码"
+    ],
+    "summary": "YaRN 用分频段 RoPE 插值加温度修正，低成本把上下文稳定扩到长窗口。"
+  },
+  {
     "title": "Gemini 的多模态 Tokenizer 设计",
     "slug": "gemini-multimodal-tokenizer-design",
     "date": "2026-03-12",

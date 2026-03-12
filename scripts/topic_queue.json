@@ -3154,7 +3154,7 @@
       "位置编码"
     ],
     "brief": "核心要点：YaRN 通过分频段调节 RoPE 频率实现高效的上下文窗口扩展，无需全量重训练。分析其 NTK-aware 插值策略、attention scale 修正、temperature 参数设计及与 NTK-ALiBi 的对比",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 与 GPT-4V 的多模态能力对比",
