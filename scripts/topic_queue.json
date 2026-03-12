@@ -3250,7 +3250,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：长上下文模型需要同时利用稀疏注意力降低复杂度和 FlashAttention 优化 IO。分析 blockwise sparse attention 与 FlashAttention-2 的融合方案、稀疏模式选择（local+global）及在 TPU 上的适配",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的多模态 RLHF 训练流程",

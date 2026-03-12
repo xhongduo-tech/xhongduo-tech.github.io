@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的 Sparse Attention 与 Flash Attention 融合",
+    "slug": "gemini-sparse-flash-attention",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "注意力机制"
+    ],
+    "summary": "Gemini 将块稀疏注意力与 FlashAttention 融合，用 local+global mask 降低长上下…"
+  },
+  {
     "title": "Gemini 的多模态嵌入空间分析",
     "slug": "gemini-multimodal-embedding-space",
     "date": "2026-03-12",
