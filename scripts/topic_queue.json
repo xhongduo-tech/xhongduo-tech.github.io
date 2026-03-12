@@ -3070,7 +3070,7 @@
       "安全"
     ],
     "brief": "核心要点：多模态模型面临图像/音频注入攻击等新安全挑战。分析 Gemini 的多模态 RLHF、视觉安全分类器、跨模态对抗样本防御、以及 Google DeepMind 的 Red Teaming 框架",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的数学推理能力：多模态解题",

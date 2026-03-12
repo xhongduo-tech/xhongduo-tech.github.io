@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的多模态安全对齐",
+    "slug": "gemini-multimodal-safety-alignment",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Gemini",
+      "安全"
+    ],
+    "summary": "Gemini 多模态安全对齐依赖对抗微调、分类器、自动红队与系统级防线协同生效"
+  },
+  {
     "title": "长上下文中的注意力稀疏性",
     "slug": "attention-sparsity-long-context",
     "date": "2026-03-12",
