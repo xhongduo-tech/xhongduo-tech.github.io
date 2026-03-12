@@ -1,5 +1,17 @@
 [
   {
+    "title": "Infini-Attention：无限上下文注意力",
+    "slug": "infini-attention-infinite-context",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "长上下文",
+      "注意力机制"
+    ],
+    "summary": "Infini-Attention 用局部注意力加压缩记忆，在固定内存下处理超长上下文。"
+  },
+  {
     "title": "Gemini 的代码生成与执行架构",
     "slug": "gemini-code-generation-execution",
     "date": "2026-03-12",

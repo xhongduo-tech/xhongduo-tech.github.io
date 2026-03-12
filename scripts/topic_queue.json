@@ -3106,7 +3106,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Google 提出的 Infini-Attention 将压缩记忆与标准注意力结合，在固定内存下处理无限长序列。分析其 compressive memory 更新规则、linear attention 作为检索机制、与 segment-level recurrence 的融合",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的 Grounding 机制：搜索增强生成",
