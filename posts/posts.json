@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-R1 的蒸馏策略与小模型推理",
+    "slug": "deepseek-r1-distillation-small-models",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "知识蒸馏"
+    ],
+    "summary": "DeepSeek-R1 证明高质量长链推理可通过教师轨迹 SFT 蒸馏到可部署小模型。"
+  },
+  {
     "title": "GRPO",
     "slug": "grpo-deepseek-r1-rl",
     "date": "2026-03-12",
