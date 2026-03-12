@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的 Function Calling 实现机制",
+    "slug": "gemini-function-calling-mechanism",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "工具使用"
+    ],
+    "summary": "Gemini Function Calling 的关键在于 schema 声明、并行/组合调用，以及 thought_…"
+  },
+  {
     "title": "Gemini 与 GPT-4V 的多模态能力对比",
     "slug": "gemini-vs-gpt4v-multimodal-comparison",
     "date": "2026-03-12",

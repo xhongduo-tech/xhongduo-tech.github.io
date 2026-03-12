@@ -3178,7 +3178,7 @@
       "工具使用"
     ],
     "brief": "核心要点：Gemini 的 function calling 支持声明式工具定义与并行调用。分析其 schema 解析机制、参数提取准确率、multi-turn tool use 的状态管理及与 OpenAI function calling 的协议差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "长上下文评估方法论：超越 NIAH",
