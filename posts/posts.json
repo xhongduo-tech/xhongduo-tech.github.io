@@ -1,5 +1,17 @@
 [
   {
+    "title": "GoT 思维图：超越树结构的推理拓扑",
+    "slug": "graph-of-thoughts-reasoning-topology",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ToT",
+      "思维图"
+    ],
+    "summary": "GoT把推理从树扩展为DAG，核心价值是分支复用、聚合融合与按需搜索。"
+  },
+  {
     "title": "自洽性与验证器的对比与融合",
     "slug": "self-consistency-vs-verifier",
     "date": "2026-03-13",

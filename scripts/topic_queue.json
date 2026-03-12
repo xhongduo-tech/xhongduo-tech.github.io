@@ -4177,7 +4177,7 @@
       "思维图"
     ],
     "brief": "核心要点：Graph of Thoughts 将 ToT 的树结构扩展为有向无环图，允许思维节点的合并与聚合操作。在排序任务中，GoT 比 ToT 减少约 31% 的 LLM 调用次数，同时支持并行分支的信息融合",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CoT 提示中的示例选择策略",
