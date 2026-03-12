@@ -1,5 +1,17 @@
 [
   {
+    "title": "数学推理中的自一致性解码",
+    "slug": "math-self-consistency-decoding",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "数学推理",
+      "解码策略"
+    ],
+    "summary": "自一致性解码用多次采样加投票，降低单条推理路径偏航，在数学题上常以线性成本换显著精度提升。"
+  },
+  {
     "title": "InternLM-Math 的统一数学推理框架",
     "slug": "internlm-math-unified-framework",
     "date": "2026-03-13",

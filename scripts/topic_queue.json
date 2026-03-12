@@ -3937,7 +3937,7 @@
       "解码策略"
     ],
     "brief": "核心要点：Self-Consistency 在数学推理中通过多次采样（温度 0.7）取多数投票，GSM8K 准确率从 CoT 的 58% 提升至 74%。分析投票数量 vs 准确率的对数关系、加权投票（基于序列概率）vs 等权投票的差异，以及与 beam search 的本质区别",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "代码模型的指令微调对齐方法对比",
