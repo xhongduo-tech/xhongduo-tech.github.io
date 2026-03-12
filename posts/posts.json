@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的跨模态注意力融合策略",
+    "slug": "gemini-cross-modal-attention-fusion",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "注意力机制"
+    ],
+    "summary": "Gemini把多模态token早期统一入同一注意力栈，实现层层跨模态信息流动。"
+  },
+  {
     "title": "Gemini 2.0 Flash 的推理效率突破",
     "slug": "gemini-2-flash-inference-efficiency",
     "date": "2026-03-12",

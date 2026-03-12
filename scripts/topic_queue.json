@@ -3046,7 +3046,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：多模态融合有 early fusion、late fusion、cross-attention 等方案。分析 Gemini 的 early fusion 设计选择、不同模态 token 在自注意力中的交互模式、模态间信息流动的层级分布",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "长上下文中的注意力稀疏性",
