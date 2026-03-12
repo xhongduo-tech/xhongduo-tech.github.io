@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReAct 中的观察信息压缩策略",
+    "slug": "react-observation-compression",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ReAct",
+      "上下文管理"
+    ],
+    "summary": "ReAct 的瓶颈主要来自 Observation 膨胀，长任务应组合使用滑窗、摘要与掩码压缩。"
+  },
+  {
     "title": "ToT 的启发式评估函数设计",
     "slug": "tot-heuristic-evaluation-function",
     "date": "2026-03-13",
