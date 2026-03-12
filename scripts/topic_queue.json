@@ -3757,7 +3757,7 @@
       "长上下文"
     ],
     "brief": "核心要点：对比 RepoCoder、RepoFusion、CrossCodeEval 等仓库级代码补全方法。分析如何从跨文件依赖图中检索相关上下文、BM25 vs Dense Retrieval 在代码检索中的效果差异，以及 Repository-level FIM 训练如何提升跨文件补全准确率（相对提升 15-30%）",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "代码模型的 Tokenizer 设计差异",
@@ -3805,7 +3805,7 @@
       "指令微调"
     ],
     "brief": "核心要点：Aya 模型覆盖 101 种语言，使用人工标注的 Aya Dataset（204K 条跨语言指令）微调。分析其数据收集的社区驱动模式、模板化翻译 vs 原生标注的质量差异，以及在低资源语言上相对 mT5/BLOOMZ 最高 25% 的性能提升",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "NLLB 的低资源语言翻译架构",
