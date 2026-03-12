@@ -1,5 +1,17 @@
 [
   {
+    "title": "数学推理的过程奖励模型 PRM",
+    "slug": "math-process-reward-model",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "数学推理",
+      "奖励模型"
+    ],
+    "summary": "PRM按步骤评分数学推理，能比只看结果的ORM更稳定地筛出可靠解法"
+  },
+  {
     "title": "GLM-4 的中英双语对齐训练",
     "slug": "glm4-bilingual-alignment",
     "date": "2026-03-13",

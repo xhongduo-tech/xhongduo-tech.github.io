@@ -3889,7 +3889,7 @@
       "奖励模型"
     ],
     "brief": "核心要点：OpenAI 提出过程奖励模型（PRM）对数学推理的每个步骤进行评分，对比结果奖励模型（ORM）仅评判最终答案。PRM800K 数据集包含 75K 道题、800K 步骤级标注。分析 PRM 在 best-of-N 采样中将 MATH 准确率从 72.4% 提升至 78.2% 的机制",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MetaMath 的数学数据增强方法",
