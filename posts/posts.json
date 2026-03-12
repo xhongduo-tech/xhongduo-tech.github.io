@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V3 的无辅助损失负载均衡",
+    "slug": "deepseek-v3-auxiliary-loss-free-balancing",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "MoE"
+    ],
+    "summary": "DeepSeek-V3 用动态偏置替代辅助loss做MoE均衡，解耦了路由平衡与主任务优化。"
+  },
+  {
     "title": "DeepSeek-V2 的 DeepSeekMoE 架构",
     "slug": "deepseek-v2-moe-architecture",
     "date": "2026-03-12",

@@ -3310,7 +3310,7 @@
       "MoE"
     ],
     "brief": "核心要点：V3提出auxiliary-loss-free负载均衡策略，用动态偏置项b_i替代传统辅助损失函数。当专家负载过高时自动降低偏置、过低时提升，避免辅助损失与主损失的梯度冲突。实验表明该方法在保持均衡的同时提升0.3-0.5%的下游性能",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V3 的 Multi-Token Prediction",
