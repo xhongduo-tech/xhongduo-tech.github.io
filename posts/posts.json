@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 工作记忆的容量约束与优先级淘汰",
+    "slug": "working-memory-capacity-eviction-policy",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "资源管理"
+    ],
+    "summary": "工作记忆受窗口限制，复杂任务应优先用重要性评分而非纯 LRU 淘汰。"
+  },
+  {
     "title": "Agent 情景记忆的时序索引与因果检索",
     "slug": "episodic-memory-temporal-causal-retrieval",
     "date": "2026-03-13",
