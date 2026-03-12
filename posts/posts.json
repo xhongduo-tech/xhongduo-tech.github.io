@@ -1,5 +1,17 @@
 [
   {
+    "title": "SantaCoder 的 FIM 训练目标设计",
+    "slug": "santacoder-fim-training-objective",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "训练方法"
+    ],
+    "summary": "SantaCoder 用混合 AR+FIM 训练补中间代码，50% FIM rate 通常最稳。"
+  },
+  {
     "title": "CodeGemma 的代码与数学联合训练",
     "slug": "codegemma-code-math-joint-training",
     "date": "2026-03-13",

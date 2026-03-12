@@ -3697,7 +3697,7 @@
       "训练方法"
     ],
     "brief": "核心要点：SantaCoder 1.1B 参数在 Python/Java/JavaScript 上训练，系统研究了 Fill-in-the-Middle 训练。对比 Prefix-Suffix-Middle（PSM）与 Suffix-Prefix-Middle（SPM）两种格式，发现 SPM 在 single-line infilling 上更优。FIM rate 从 0% 到 100% 的消融实验显示 50% 为最优",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AlphaCode 的大规模采样与过滤策略",
