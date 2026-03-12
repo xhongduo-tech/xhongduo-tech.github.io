@@ -1,5 +1,17 @@
 [
   {
+    "title": "Qwen2.5-Coder 的大规模代码数据工程",
+    "slug": "qwen25-coder-data-engineering",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "Qwen"
+    ],
+    "summary": "Qwen2.5-Coder 的上限主要来自干净、分层、结构化的代码数据工程，而不只是参数规模"
+  },
+  {
     "title": "代码模型的 Tokenizer 设计差异",
     "slug": "code-model-tokenizer-design",
     "date": "2026-03-13",
