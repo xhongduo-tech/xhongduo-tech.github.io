@@ -1,5 +1,17 @@
 [
   {
+    "title": "HNSW 索引在 Agent 记忆检索中的调参实践",
+    "slug": "hnsw-index-tuning-agent-memory",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "向量数据库",
+      "HNSW"
+    ],
+    "summary": "HNSW 调参先看规模与内存，再用 efSearch 补召回，不够时才提高 M 和重建索引。"
+  },
+  {
     "title": "向量数据库选型",
     "slug": "vector-database-comparison-pinecone-milvus-chroma",
     "date": "2026-03-13",

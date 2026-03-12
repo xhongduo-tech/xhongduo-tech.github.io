@@ -4757,7 +4757,7 @@
       "RAG"
     ],
     "brief": "核心要点：三款主流向量数据库在 Agent 场景下的核心差异——Pinecone 托管型延迟 P99 <50ms 但成本高；Milvus 支持十亿级向量但运维复杂；Chroma 轻量嵌入式适合原型但缺乏分布式能力。从 QPS、索引构建时间、Recall@10 三个维度量化对比。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "HNSW 索引在 Agent 记忆检索中的调参实践",
@@ -4769,7 +4769,7 @@
       "HNSW"
     ],
     "brief": "核心要点：HNSW 是 Agent 记忆检索最常用的 ANN 索引，核心参数 M（邻居数）和 efConstruction 直接影响检索质量与构建速度。M=16 时 Recall@10 约 0.95，M=64 时达 0.99 但内存增加 4 倍。给出不同数据规模下的最优参数配置。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "记忆检索的语义路由与多索引分发",
