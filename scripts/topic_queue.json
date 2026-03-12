@@ -3685,7 +3685,7 @@
       "指令微调"
     ],
     "brief": "核心要点：WizardCoder 将 Evol-Instruct 方法适配到代码领域，通过增加约束、深化需求、并发需求、替换算法、增加推理步骤五种进化算子，从 20K 种子指令进化出 78K 代码指令。15B 模型在 HumanEval 达 57.3%，超越闭源模型",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SantaCoder 的 FIM 训练目标设计",

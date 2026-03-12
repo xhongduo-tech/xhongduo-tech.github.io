@@ -1,5 +1,17 @@
 [
   {
+    "title": "WizardCoder 的 Evol-Instruct 代码指令进化",
+    "slug": "wizardcoder-evol-instruct",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "指令微调"
+    ],
+    "summary": "WizardCoder 用五类指令进化把 20K 种子扩到 78K，核心收益来自更复杂、更工程化的训练问题。"
+  },
+  {
     "title": "StarCoder2 的分阶段训练策略",
     "slug": "starcoder2-staged-training",
     "date": "2026-03-13",
