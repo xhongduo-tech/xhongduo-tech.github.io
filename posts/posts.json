@@ -1,5 +1,17 @@
 [
   {
+    "title": "数学推理中的思维链格式设计",
+    "slug": "math-reasoning-cot-format-design",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "数学推理",
+      "提示工程"
+    ],
+    "summary": "数学推理的关键不是更长思维链，而是把拆题、计算和验证分层处理。"
+  },
+  {
     "title": "Llemma 的开源数学语言模型",
     "slug": "llemma-open-math-language-model",
     "date": "2026-03-13",

@@ -3877,7 +3877,7 @@
       "提示工程"
     ],
     "brief": "核心要点：对比数学推理中不同 CoT 格式的效果：自然语言推理、代码形式推理（PoT/PAL）、LaTeX 形式推理、结构化 JSON 推理。分析 Program-of-Thought 将准确率从 58.6% 提升至 71.3% 的机制，以及代码执行作为外部验证器的可靠性分析",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数学推理的过程奖励模型 PRM",
