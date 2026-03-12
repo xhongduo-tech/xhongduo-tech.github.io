@@ -1,5 +1,17 @@
 [
   {
+    "title": "CodeT 的双重执行验证机制",
+    "slug": "codet-dual-execution-verification",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "测试生成"
+    ],
+    "summary": "CodeT通过“生成代码+生成测试+交叉执行共识”筛选最可信功能解。"
+  },
+  {
     "title": "AlphaCode 2 的多模型协作代码生成",
     "slug": "alphacode2-multi-model-collaboration",
     "date": "2026-03-13",

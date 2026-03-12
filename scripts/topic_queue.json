@@ -3733,7 +3733,7 @@
       "测试生成"
     ],
     "brief": "核心要点：CodeT 同时生成代码解和测试用例，通过交叉执行进行双重验证。对于每个代码解，统计其通过的测试用例数量进行排序，HumanEval pass@1 从 65.8% 提升至 85.2%。分析 Dual Execution Agreement 机制的理论基础及其与 self-consistency 的区别",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Qwen2.5-Coder 的大规模代码数据工程",
