@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V3 的 Multi-Token Prediction",
+    "slug": "deepseek-v3-multi-token-prediction",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "训练方法"
+    ],
+    "summary": "MTP让DeepSeek-V3用更密训练信号学会提前规划，并可在推理中复用为草稿加速"
+  },
+  {
     "title": "DeepSeek-V3 的无辅助损失负载均衡",
     "slug": "deepseek-v3-auxiliary-loss-free-balancing",
     "date": "2026-03-12",

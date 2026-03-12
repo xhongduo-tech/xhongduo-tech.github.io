@@ -3322,7 +3322,7 @@
       "训练方法"
     ],
     "brief": "核心要点：V3引入MTP模块，每个位置同时预测后续D个token（D=2），使用D个顺序连接的Transformer层作为预测头，共享主模型embedding。MTP作为训练信号密度增强手段，训练完成后可丢弃额外头，也可用于speculative decoding加速推理",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V3 的 FP8 混合精度训练",
