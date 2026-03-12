@@ -1,5 +1,17 @@
 [
   {
+    "title": "Zero-shot CoT 的触发词工程",
+    "slug": "zero-shot-cot-trigger-engineering",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "提示工程"
+    ],
+    "summary": "Zero-shot CoT 用一句触发词把模型从直接猜答案切到分步推理。"
+  },
+  {
     "title": "CoT 中的忠实推理与不忠实推理",
     "slug": "cot-faithful-vs-unfaithful-reasoning",
     "date": "2026-03-13",

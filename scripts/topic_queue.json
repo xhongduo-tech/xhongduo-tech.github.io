@@ -4045,7 +4045,7 @@
       "提示工程"
     ],
     "brief": "核心要点：Kojima et al. 发现仅添加'Let's think step by step'即可在零样本下激活推理能力。系统对比不同触发词（step by step、think carefully、break down）在 MultiArith、GSM8K 等基准上的效果差异，最优触发词提升可达 20%+",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自洽性在代码生成中的应用",
