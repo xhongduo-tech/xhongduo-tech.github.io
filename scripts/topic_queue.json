@@ -3661,7 +3661,7 @@
       "开源模型"
     ],
     "brief": "核心要点：StarCoder2 提供 3B/7B/15B 三个规模，在 The Stack v2（3.3-4.3T token）上训练。分析其分阶段数据配方（代码→高质量代码→指令数据）、Grouped-Query Attention 的引入，以及 15B 模型在 HumanEval 上达到 46.3% 的训练细节",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CodeGemma 的代码与数学联合训练",

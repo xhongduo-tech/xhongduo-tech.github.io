@@ -1,5 +1,17 @@
 [
   {
+    "title": "StarCoder2 的分阶段训练策略",
+    "slug": "starcoder2-staged-training",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "开源模型"
+    ],
+    "summary": "StarCoder2 的核心不是只放大参数，而是用三阶段数据配方和 GQA 把代码能力、协作能力、长上下文能力组合起来。"
+  },
+  {
     "title": "DeepSeek-Coder-V2 的 MoE 代码模型设计",
     "slug": "deepseek-coder-v2-moe-architecture",
     "date": "2026-03-13",
