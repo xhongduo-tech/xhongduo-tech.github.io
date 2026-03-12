@@ -1,5 +1,17 @@
 [
   {
+    "title": "mGPT 的跨语言迁移涌现",
+    "slug": "mgpt-crosslingual-transfer-emergence",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多语言模型",
+      "涌现能力"
+    ],
+    "summary": "mGPT 表明英语 few-shot 模式可迁移到多语言，但效果受共享词表、脚本和语料覆盖强约束"
+  },
+  {
     "title": "NLLB 的低资源语言翻译架构",
     "slug": "nllb-low-resource-translation",
     "date": "2026-03-13",
