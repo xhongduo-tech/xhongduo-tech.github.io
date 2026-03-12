@@ -1,5 +1,17 @@
 [
   {
+    "title": "Function Calling 的协议设计与类型约束",
+    "slug": "function-calling-protocol-design",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "工具调用",
+      "Function Calling"
+    ],
+    "summary": "Function Calling 的可靠性主要由 schema 设计决定，优先严格约束、枚举化与扁平化参数。"
+  },
+  {
     "title": "ReAct 与 Plan-and-Execute 的架构对比",
     "slug": "react-vs-plan-and-execute",
     "date": "2026-03-13",

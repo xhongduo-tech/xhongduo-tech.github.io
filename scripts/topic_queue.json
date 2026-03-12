@@ -4335,7 +4335,7 @@
       "Function Calling"
     ],
     "brief": "核心要点：拆解 OpenAI、Anthropic、Gemini 三家 Function Calling 协议的 JSON Schema 定义差异，分析参数类型约束（enum、oneOf、$ref）对调用准确率的影响，GPT-4 在嵌套对象参数上的错误率约 12-18%，扁平化参数设计可降至 3-5%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "并行函数调用的调度与依赖分析",
