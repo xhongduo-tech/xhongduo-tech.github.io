@@ -4009,7 +4009,7 @@
       "搜索算法"
     ],
     "brief": "核心要点：ToT 将推理建模为树搜索问题，支持 BFS 和 DFS 两种搜索策略。在 Game of 24 任务中成功率从 CoT 的 4% 提升至 74%，分析不同任务特征下 BFS vs DFS 的选择依据与剪枝条件设计",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CoT 中的忠实推理与不忠实推理",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Tree of Thoughts 的搜索策略设计",
+    "slug": "tot-search-strategy-bfs-dfs",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ToT",
+      "搜索算法"
+    ],
+    "summary": "ToT把推理变成树搜索，关键在按任务结构选择BFS或DFS并设计稳健剪枝。"
+  },
+  {
     "title": "自洽性解码的多路径投票机制",
     "slug": "self-consistency-majority-voting",
     "date": "2026-03-13",
