@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码模型的 Tokenizer 设计差异",
+    "slug": "code-model-tokenizer-design",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "分词器"
+    ],
+    "summary": "代码 tokenizer 的核心差异，在于空白、元信息和多语言字符到底保留到什么粒度。"
+  },
+  {
     "title": "CodeT 的双重执行验证机制",
     "slug": "codet-dual-execution-verification",
     "date": "2026-03-13",

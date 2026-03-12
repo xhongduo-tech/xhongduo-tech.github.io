@@ -3769,7 +3769,7 @@
       "分词器"
     ],
     "brief": "核心要点：对比 Codex（GPT BPE）、CodeLlama（SentencePiece）、StarCoder（Hugging Face BPE）的分词策略差异。分析空白符编码（空格 vs 制表符压缩）、编程语言特殊 token 设计、词表大小对代码任务的影响（32K vs 49K vs 100K），以及多语言代码分词的公平性问题",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BLOOM 的多语言训练数据平衡策略",
