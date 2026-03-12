@@ -1,5 +1,17 @@
 [
   {
+    "title": "Codex 的代码生成训练流程",
+    "slug": "codex-code-generation-training",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "GPT"
+    ],
+    "summary": "Codex本质是把docstring到函数实现的映射学成条件生成，并用HumanEval的pass@k衡量可测试正确率。"
+  },
+  {
     "title": "DeepSeek-V3 的长上下文扩展训练",
     "slug": "deepseek-v3-long-context-extension",
     "date": "2026-03-12",

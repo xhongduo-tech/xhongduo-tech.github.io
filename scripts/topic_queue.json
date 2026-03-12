@@ -3613,7 +3613,7 @@
       "GPT"
     ],
     "brief": "核心要点：OpenAI Codex 基于 GPT-3 12B 参数微调，使用 159GB GitHub 代码数据。分析其从自然语言到代码的微调策略、Docstring-to-Code 的训练目标设计，以及 pass@k 评估指标的统计方法（k=1 时 HumanEval 达 28.8%）",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CodeLlama 的长上下文填充训练",
