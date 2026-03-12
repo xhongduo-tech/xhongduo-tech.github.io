@@ -1,5 +1,17 @@
 [
   {
+    "title": "Scaling Law 的多模态扩展",
+    "slug": "multimodal-scaling-law",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "多模态"
+    ],
+    "summary": "多模态 Scaling Law 的关键不是数据相加，而是显式建模图文协同与竞争。"
+  },
+  {
     "title": "C-Eval 中文语言模型评测基准",
     "slug": "c-eval-chinese-benchmark",
     "date": "2026-03-12",

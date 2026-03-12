@@ -2470,7 +2470,7 @@
       "多模态"
     ],
     "brief": "核心要点：Aghajanyan et al. (2023) 研究文本+图像联合训练的 Scaling Law。多模态训练的有效计算量不等于各模态之和——图文交叉注意力带来的增益遵循 L(N,D_t,D_i) 的三变量幂律，且图像 token 的'兑换比'约为 1 图像 token ≈ 0.3 文本 token。模态比例也存在最优配比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "训练稳定性的 Scaling：大模型为何更难训练",
