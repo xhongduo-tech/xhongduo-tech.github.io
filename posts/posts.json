@@ -1,5 +1,20 @@
 [
   {
+    "title": "GRPO",
+    "slug": "grpo-deepseek-r1-rl",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "前沿追踪",
+      "DeepSeek",
+      "强化学习",
+      "RLHF",
+      "推理训练"
+    ],
+    "summary": "GRPO 用组内相对奖励替代 critic，适合可验证推理任务，但生成成本和长度偏差是最大风险"
+  },
+  {
     "title": "DeepSeek-R1-Zero 的推理涌现现象",
     "slug": "deepseek-r1-zero-emergent-reasoning",
     "date": "2026-03-12",
