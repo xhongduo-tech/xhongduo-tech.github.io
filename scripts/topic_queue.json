@@ -3565,7 +3565,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：推理模型通过增加测试时计算（更长思维链、多次采样）提升性能，形成test-time compute scaling law。R1在AIME上pass@1=79.8%，但maj@64可达90%+，揭示推理任务中测试时计算的scaling指数约0.3-0.5。与预训练scaling law形成互补的两条曲线",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V3 的长上下文扩展训练",

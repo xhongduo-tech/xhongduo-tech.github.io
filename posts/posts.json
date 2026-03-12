@@ -1,5 +1,17 @@
 [
   {
+    "title": "推理模型的测试时计算扩展",
+    "slug": "test-time-compute-scaling-reasoning",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "推理训练",
+      "Scaling Law"
+    ],
+    "summary": "测试时计算扩展用更多采样与验证换取推理正确率，但收益递减且依赖任务边界。"
+  },
+  {
     "title": "CodeLlama 的长上下文填充训练",
     "slug": "codellama-long-context-infilling",
     "date": "2026-03-13",
