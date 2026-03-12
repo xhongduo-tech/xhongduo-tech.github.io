@@ -1,5 +1,17 @@
 [
   {
+    "title": "多步推理中的 CoT 分解策略",
+    "slug": "cot-decomposition-strategies",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "问题分解"
+    ],
+    "summary": "CoT 分解的本质是把复杂推理变成可控子问题，LtM、Decomposed、Successive分别适合有序、模块化和…"
+  },
+  {
     "title": "ToT 与蒙特卡洛树搜索的结合",
     "slug": "tot-mcts-integration",
     "date": "2026-03-13",

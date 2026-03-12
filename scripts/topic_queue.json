@@ -4153,7 +4153,7 @@
       "问题分解"
     ],
     "brief": "核心要点：对比 Least-to-Most Prompting、Decomposed Prompting、Successive Prompting 三种将复杂问题分解为子问题的 CoT 变体。Least-to-Most 在 SCAN 组合泛化任务上将准确率从 16% 提升至 99.7%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自洽性与验证器的对比与融合",
