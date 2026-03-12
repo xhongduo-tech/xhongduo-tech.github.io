@@ -1,5 +1,17 @@
 [
   {
+    "title": "ToT 的并行化与延迟优化",
+    "slug": "tot-parallelization-latency",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ToT",
+      "推理加速"
+    ],
+    "summary": "ToT 更稳但天然更慢，关键优化是批量扩展、异步评估和负载感知投机搜索。"
+  },
+  {
     "title": "CoT 在逻辑推理中的系统性失败",
     "slug": "cot-logical-reasoning-failures",
     "date": "2026-03-13",
