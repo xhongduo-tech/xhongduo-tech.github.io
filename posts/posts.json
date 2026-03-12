@@ -1,5 +1,17 @@
 [
   {
+    "title": "AlphaCode 2 的多模型协作代码生成",
+    "slug": "alphacode2-multi-model-collaboration",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "Gemini"
+    ],
+    "summary": "AlphaCode 2 依靠大规模采样与评分重排，把竞赛代码生成从单次猜测变成先保留再筛选。"
+  },
+  {
     "title": "AlphaCode 的大规模采样与过滤策略",
     "slug": "alphacode-sampling-filtering",
     "date": "2026-03-13",
