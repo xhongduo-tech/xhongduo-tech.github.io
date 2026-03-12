@@ -1,5 +1,17 @@
 [
   {
+    "title": "多语言 Tokenizer 的词表分配公平性",
+    "slug": "multilingual-tokenizer-vocabulary-fairness",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多语言模型",
+      "分词器"
+    ],
+    "summary": "多语言词表并非平均分配，中文等语种常用更多token，直接推高成本并压缩上下文。"
+  },
+  {
     "title": "BLOOM 的多语言训练数据平衡策略",
     "slug": "bloom-multilingual-data-balance",
     "date": "2026-03-13",

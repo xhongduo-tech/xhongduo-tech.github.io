@@ -3829,7 +3829,7 @@
       "分词器"
     ],
     "brief": "核心要点：多语言模型的 BPE/SentencePiece 词表在不同语言间存在严重不公平：同义句在中文需要的 token 数量是英文的 1.5-3 倍。分析 XLM-R、mT5、BLOOM 的词表分配策略差异，以及 token 效率不均衡对模型性能和推理成本的影响",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GLM-4 的中英双语对齐训练",
