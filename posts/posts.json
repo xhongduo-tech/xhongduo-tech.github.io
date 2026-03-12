@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱与向量检索的混合记忆架构",
+    "slug": "knowledge-graph-vector-hybrid-memory",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "知识图谱",
+      "混合检索"
+    ],
+    "summary": "混合记忆先做语义召回，再做图关系约束，核心价值是同时提升覆盖率与多跳推理精度"
+  },
+  {
     "title": "RAG 管线中的 Chunk 策略对 Agent 表现的影响",
     "slug": "rag-chunking-strategy-agent-performance",
     "date": "2026-03-13",
