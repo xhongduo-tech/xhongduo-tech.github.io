@@ -3202,7 +3202,7 @@
       "推理"
     ],
     "brief": "核心要点：Gemini 2.0 Flash Thinking 在输出前生成内部推理链。分析其 thinking token 的生成机制、推理预算控制、与 OpenAI o1 的技术路线差异及在数学/编程任务上的推理增益",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态对比学习：CLIP 到 SigLIP 演进",

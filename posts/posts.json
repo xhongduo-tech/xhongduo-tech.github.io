@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的 Thinking 模式：显式推理链",
+    "slug": "gemini-thinking-mode-reasoning",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "推理"
+    ],
+    "summary": "Gemini Thinking 本质是用可控推理预算换正确率，收益来自中间步骤校验，成本与延迟也随之上升"
+  },
+  {
     "title": "长上下文评估方法论：超越 NIAH",
     "slug": "long-context-evaluation-beyond-niah",
     "date": "2026-03-12",
