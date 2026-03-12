@@ -3286,7 +3286,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Multi-head Latent Attention将KV缓存压缩至原始MHA的5-13%，通过低秩联合压缩将K和V投影到低维潜在空间（d_c=512），再解压恢复多头表示，相比GQA/MQA在保持性能的同时大幅降低推理显存",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V2 的 DeepSeekMoE 架构",

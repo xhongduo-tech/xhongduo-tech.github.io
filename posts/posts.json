@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V2 的 MLA 注意力机制",
+    "slug": "deepseek-v2-multi-latent-attention",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "注意力机制"
+    ],
+    "summary": "MLA 用低秩 latent 取代完整 KV 缓存，在保留多头表达的同时显著降低长上下文推理显存。"
+  },
+  {
     "title": "DeepSeek-V1 的架构设计与训练策略",
     "slug": "deepseek-v1-architecture",
     "date": "2026-03-12",
