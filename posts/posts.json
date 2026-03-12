@@ -1,5 +1,17 @@
 [
   {
+    "title": "ToT 与蒙特卡洛树搜索的结合",
+    "slug": "tot-mcts-integration",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ToT",
+      "MCTS"
+    ],
+    "summary": "ToT把思路变成树，MCTS用UCB分配搜索预算，适合多步规划与可回溯推理。"
+  },
+  {
     "title": "自洽性的采样效率优化",
     "slug": "self-consistency-sampling-efficiency",
     "date": "2026-03-13",

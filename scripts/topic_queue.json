@@ -4117,7 +4117,7 @@
       "MCTS"
     ],
     "brief": "核心要点：将 MCTS 的 UCB 选择策略引入 ToT，实现探索-利用平衡。RAP（Reasoning via Planning）框架用 LLM 同时作为世界模型和推理引擎，在 Blocksworld 规划任务上超越 CoT 约 30%，分析 UCB 常数 c 的调参影响",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "思维链的长度与推理深度关系",
