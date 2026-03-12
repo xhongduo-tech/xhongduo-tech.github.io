@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V3 的长上下文扩展训练",
+    "slug": "deepseek-v3-long-context-extension",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "长上下文"
+    ],
+    "summary": "DeepSeek-V3 通过两阶段 YaRN，只调整 MLA 中解耦的 RoPE 维度，把 4K 稳定扩展到 128K。"
+  },
+  {
     "title": "Mixtral 8x7B 与 DeepSeek MoE 对比",
     "slug": "mixtral-vs-deepseek-moe-comparison",
     "date": "2026-03-12",
