@@ -1,5 +1,17 @@
 [
   {
+    "title": "AlphaCode 的大规模采样与过滤策略",
+    "slug": "alphacode-sampling-filtering",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "竞赛编程"
+    ],
+    "summary": "AlphaCode 的核心不是单次更准，而是百万采样后用执行过滤和聚类压缩到 10 次高价值提交"
+  },
+  {
     "title": "SantaCoder 的 FIM 训练目标设计",
     "slug": "santacoder-fim-training-objective",
     "date": "2026-03-13",

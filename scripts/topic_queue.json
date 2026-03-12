@@ -3709,7 +3709,7 @@
       "竞赛编程"
     ],
     "brief": "核心要点：AlphaCode 在 Codeforces 竞赛中达到 top 54% 水平。核心策略：每题生成百万级代码样本，通过测试用例过滤、聚类去重将候选解压缩到 10 个提交。分析其 41B 参数 Encoder-Decoder 架构选择、GOLD 训练目标（离线强化学习）、以及基于执行结果的聚类方法",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AlphaCode 2 的多模型协作代码生成",
