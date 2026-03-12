@@ -1,5 +1,17 @@
 [
   {
+    "title": "记忆的元数据标注与多维度过滤检索",
+    "slug": "memory-metadata-annotation-filtered-retrieval",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "元数据"
+    ],
+    "summary": "向量检索负责找相似，元数据过滤负责守边界，两者结合才能让 Agent 记忆检索真正可用。"
+  },
+  {
     "title": "Agent 工作记忆的容量约束与优先级淘汰",
     "slug": "working-memory-capacity-eviction-policy",
     "date": "2026-03-13",
