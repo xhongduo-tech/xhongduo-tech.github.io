@@ -1,5 +1,17 @@
 [
   {
+    "title": "CodeGemma 的代码与数学联合训练",
+    "slug": "codegemma-code-math-joint-training",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "Gemma"
+    ],
+    "summary": "CodeGemma 用代码与数学联合续训叠加 FIM，使代码补全和推理说明能共享同一套上下文约束。"
+  },
+  {
     "title": "StarCoder 的多语言代码预训练",
     "slug": "starcoder-multilingual-pretraining",
     "date": "2026-03-13",

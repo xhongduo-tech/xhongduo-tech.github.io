@@ -3673,7 +3673,7 @@
       "Gemma"
     ],
     "brief": "核心要点：CodeGemma 基于 Gemma 2B/7B 进行 500B token 代码续训，其中 80% 为代码、20% 为自然语言与数学数据。分析代码与数学数据联合训练对逻辑推理能力的协同增益，以及 FIM 训练中 token 级别填充 vs 行级别填充的效果差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "WizardCoder 的 Evol-Instruct 代码指令进化",
