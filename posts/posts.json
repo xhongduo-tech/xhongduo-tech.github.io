@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的上下文缓存：成本优化机制",
+    "slug": "gemini-context-caching-cost-optimization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Gemini",
+      "推理优化"
+    ],
+    "summary": "Gemini 上下文缓存通过复用长前缀 KV 状态，降低重复输入成本并改善延迟。"
+  },
+  {
     "title": "多模态对比学习：CLIP 到 SigLIP 演进",
     "slug": "multimodal-contrastive-learning-clip-siglip",
     "date": "2026-03-12",

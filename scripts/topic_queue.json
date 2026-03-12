@@ -3226,7 +3226,7 @@
       "推理优化"
     ],
     "brief": "核心要点：Gemini API 支持 context caching，将长 prefix 的 KV cache 持久化以降低重复计算成本。分析其缓存粒度、TTL 策略、prefix matching 算法及与 prompt caching 的技术差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的多模态嵌入空间分析",
