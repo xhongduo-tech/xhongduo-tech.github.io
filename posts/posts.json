@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-R1 的拒绝采样与多阶段训练",
+    "slug": "deepseek-r1-rejection-sampling-pipeline",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "训练流程"
+    ],
+    "summary": "DeepSeek-R1 用拒绝采样把推理RL输出变成高质量监督数据，再通过多阶段训练统一推理与通用能力"
+  },
+  {
     "title": "Codex 的代码生成训练流程",
     "slug": "codex-code-generation-training",
     "date": "2026-03-13",
