@@ -3082,7 +3082,7 @@
       "数学推理"
     ],
     "brief": "核心要点：Gemini 可直接理解数学公式图片和几何图形并进行推理。分析其视觉数学 OCR 精度、符号接地机制、CoT 在多模态数学中的应用及 MathVista 等 benchmark 表现",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的代码生成与执行架构",

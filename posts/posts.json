@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的数学推理能力：多模态解题",
+    "slug": "gemini-math-reasoning-multimodal",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "数学推理"
+    ],
+    "summary": "Gemini 的优势在于把图像理解与数学推理放进同一链路，但工程上仍需做接地校验与错误追踪。"
+  },
+  {
     "title": "Gemini 的多模态安全对齐",
     "slug": "gemini-multimodal-safety-alignment",
     "date": "2026-03-12",
