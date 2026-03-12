@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 与 GPT-4V 的多模态能力对比",
+    "slug": "gemini-vs-gpt4v-multimodal-comparison",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "多模态"
+    ],
+    "summary": "Gemini 更强在原生多模态感知，GPT-4V 更强在文本推理与成熟工程生态。"
+  },
+  {
     "title": "YaRN：位置编码外推的频率调制",
     "slug": "yarn-positional-encoding-extrapolation",
     "date": "2026-03-12",

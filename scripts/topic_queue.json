@@ -3166,7 +3166,7 @@
       "多模态"
     ],
     "brief": "核心要点：系统对比 Gemini Ultra/Pro 与 GPT-4V 在视觉理解、文档分析、多模态推理等任务上的表现差异。分析架构设计差异（native 与 adapter）如何影响各项能力及各自优势领域",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的 Function Calling 实现机制",
