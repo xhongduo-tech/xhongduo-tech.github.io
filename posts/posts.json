@@ -1,5 +1,19 @@
 [
   {
+    "title": "向量数据库选型",
+    "slug": "vector-database-comparison-pinecone-milvus-chroma",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "向量数据库",
+      "技术选型",
+      "工程实践",
+      "RAG"
+    ],
+    "summary": "Pinecone省运维且尾延迟稳，Milvus适合大规模自建，Chroma最适合原型验证"
+  },
+  {
     "title": "对话历史的增量摘要与遗忘曲线建模",
     "slug": "conversation-summary-forgetting-curve",
     "date": "2026-03-13",

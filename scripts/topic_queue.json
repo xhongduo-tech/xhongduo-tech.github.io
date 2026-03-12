@@ -4757,7 +4757,7 @@
       "RAG"
     ],
     "brief": "核心要点：三款主流向量数据库在 Agent 场景下的核心差异——Pinecone 托管型延迟 P99 <50ms 但成本高；Milvus 支持十亿级向量但运维复杂；Chroma 轻量嵌入式适合原型但缺乏分布式能力。从 QPS、索引构建时间、Recall@10 三个维度量化对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "HNSW 索引在 Agent 记忆检索中的调参实践",
