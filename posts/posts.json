@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-R1 的强化学习推理训练",
+    "slug": "deepseek-r1-reinforcement-learning",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "强化学习"
+    ],
+    "summary": "DeepSeek-R1用可验证结果驱动纯RL，让模型在数学和代码中自发学会推理。"
+  },
+  {
     "title": "DeepSeek-V3 的 FP8 混合精度训练",
     "slug": "deepseek-v3-fp8-mixed-precision",
     "date": "2026-03-12",
