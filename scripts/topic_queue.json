@@ -3298,7 +3298,7 @@
       "MoE"
     ],
     "brief": "核心要点：DeepSeekMoE采用细粒度专家分割（160个路由专家+2个共享专家），每token激活6个路由专家，总参数236B但激活仅21B。共享专家捕获通用知识，路由专家实现专业化分工，相比GShard的粗粒度MoE提升2-6%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V3 的无辅助损失负载均衡",

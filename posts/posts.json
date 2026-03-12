@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V2 的 DeepSeekMoE 架构",
+    "slug": "deepseek-v2-moe-architecture",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "MoE"
+    ],
+    "summary": "DeepSeekMoE用细粒度路由专家加共享专家，在低激活成本下提升专精度与长上下文实用性"
+  },
+  {
     "title": "DeepSeek-V2 的 MLA 注意力机制",
     "slug": "deepseek-v2-multi-latent-attention",
     "date": "2026-03-12",
