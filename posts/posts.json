@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 的专家崩塌与负载均衡",
+    "slug": "moe-expert-collapse-load-balancing",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MoE",
+      "训练稳定性"
+    ],
+    "summary": "MoE专家崩塌本质是路由正反馈失衡，通常需联合均衡损失、噪声、容量与偏置机制处理"
+  },
+  {
     "title": "MoE 中共享专家的设计原理",
     "slug": "moe-shared-expert-design",
     "date": "2026-03-12",

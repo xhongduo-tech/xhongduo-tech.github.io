@@ -3397,7 +3397,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：MoE训练中路由器易收敛到仅使用少数专家的退化状态（专家崩塌）。解决方案包括：辅助均衡损失（L_balance）、随机路由噪声（Noisy Top-K）、专家容量因子（capacity factor）、Z-loss正则化。各方法在均衡效果与模型性能间存在权衡",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 中共享专家的设计原理",
