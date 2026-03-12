@@ -3865,7 +3865,7 @@
       "开源模型"
     ],
     "brief": "核心要点：Llemma 基于 CodeLlama 在 Proof-Pile-2（55B token 数学数据）上续训，7B/34B 模型开源。分析其训练数据构成（数学论文 + 数学代码 + 数学网页）、代码预训练对数学推理的正迁移效应，以及在 MATH 上无需微调即超越 Minerva 540B 的原因",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数学推理中的思维链格式设计",

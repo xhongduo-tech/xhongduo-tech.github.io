@@ -1,5 +1,17 @@
 [
   {
+    "title": "Llemma 的开源数学语言模型",
+    "slug": "llemma-open-math-language-model",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "数学推理",
+      "开源模型"
+    ],
+    "summary": "Llemma 用数学论文、网页和代码继续训练 Code Llama，低成本获得强数学推理与工具能力。"
+  },
+  {
     "title": "Minerva 的数学推理预训练",
     "slug": "minerva-math-pretraining",
     "date": "2026-03-13",
