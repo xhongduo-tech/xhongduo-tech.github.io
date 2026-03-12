@@ -4105,7 +4105,7 @@
       "推理优化"
     ],
     "brief": "核心要点：标准 Self-Consistency 需要 40+ 次采样才趋于稳定，计算开销大。分析自适应采样（early stopping）、分层采样、重要性加权等优化方法，可在保持 95% 准确率的前提下减少 60-70% 的采样次数",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ToT 与蒙特卡洛树搜索的结合",

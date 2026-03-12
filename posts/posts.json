@@ -1,5 +1,17 @@
 [
   {
+    "title": "自洽性的采样效率优化",
+    "slug": "self-consistency-sampling-efficiency",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自洽性",
+      "推理优化"
+    ],
+    "summary": "自适应自洽性把预算集中给难题，在接近95%精度下将采样成本降到固定SC的30%到40%"
+  },
+  {
     "title": "思维链的长度与推理深度关系",
     "slug": "cot-length-reasoning-depth",
     "date": "2026-03-13",
