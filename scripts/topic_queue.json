@@ -3022,7 +3022,7 @@
       "推理优化"
     ],
     "brief": "核心要点：百万级上下文推理中 KV cache 占用可达数百 GB。分析 GQA、MQA、Sliding Window、H2O（Heavy Hitter Oracle）、SnapKV 等压缩方案的原理、压缩比与精度损失权衡",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 2.0 Flash 的推理效率突破",

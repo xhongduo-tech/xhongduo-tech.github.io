@@ -1,5 +1,17 @@
 [
   {
+    "title": "KV Cache 压缩：长上下文推理的核心优化",
+    "slug": "kv-cache-compression-long-context",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "长上下文",
+      "推理优化"
+    ],
+    "summary": "KV Cache 压缩本质是同时控制 KV 头数、保留长度和数值精度，以换取长上下文可部署性。"
+  },
+  {
     "title": "Scaling Law 的多模态扩展",
     "slug": "multimodal-scaling-law",
     "date": "2026-03-12",
