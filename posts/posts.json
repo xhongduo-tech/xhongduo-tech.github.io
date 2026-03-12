@@ -1,5 +1,17 @@
 [
   {
+    "title": "推理强化训练中的奖励设计",
+    "slug": "reasoning-rl-reward-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "强化学习",
+      "推理训练"
+    ],
+    "summary": "ORM便宜但稀疏，PRM密集但昂贵；多数可验证任务先做ORM+GRPO，再评估是否值得上PRM。"
+  },
+  {
     "title": "MoE 的 All-to-All 通信优化",
     "slug": "moe-all-to-all-communication-optimization",
     "date": "2026-03-12",

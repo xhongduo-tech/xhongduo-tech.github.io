@@ -3505,7 +3505,7 @@
       "推理训练"
     ],
     "brief": "核心要点：推理RL的奖励设计分为结果奖励（ORM）和过程奖励（PRM）。ORM仅看最终答案正确性，实现简单但奖励稀疏；PRM对每步推理打分，信号密集但标注成本高。R1证明纯ORM配合GRPO即可涌现推理，而PRM+MCTS路线（如AlphaProof）在数学竞赛更强",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 推理加速：专家卸载与预取",
