@@ -1,5 +1,17 @@
 [
   {
+    "title": "BLOOM 的多语言训练数据平衡策略",
+    "slug": "bloom-multilingual-data-balance",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多语言模型",
+      "训练策略"
+    ],
+    "summary": "BLOOM 用 α=0.3 温度采样压低大语种主导权，给低资源语言稳定训练曝光。"
+  },
+  {
     "title": "mGPT 的跨语言迁移涌现",
     "slug": "mgpt-crosslingual-transfer-emergence",
     "date": "2026-03-13",
