@@ -3649,7 +3649,7 @@
       "开源模型"
     ],
     "brief": "核心要点：StarCoder 15.5B 参数，在 The Stack v1 的 80+ 编程语言上训练 1T token。分析其数据去重与 PII 过滤流程、Multi-Query Attention 的推理加速效果（约 1.5x），以及 Fill-in-the-Middle 训练对代码补全任务的增益",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "StarCoder2 的分阶段训练策略",

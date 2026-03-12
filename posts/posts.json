@@ -1,5 +1,17 @@
 [
   {
+    "title": "StarCoder 的多语言代码预训练",
+    "slug": "starcoder-multilingual-pretraining",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "开源模型"
+    ],
+    "summary": "StarCoder 的优势来自去重、PII 过滤、FIM 训练与 MQA 推理友好设计的组合。"
+  },
+  {
     "title": "WizardCoder 的 Evol-Instruct 代码指令进化",
     "slug": "wizardcoder-evol-instruct",
     "date": "2026-03-13",
