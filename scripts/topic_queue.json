@@ -4261,7 +4261,7 @@
       "规划架构"
     ],
     "brief": "核心要点：ReAct 的逐步推理-执行与 Plan-and-Execute 的先规划后执行是两种主流 Agent 架构。对比两者在任务复杂度、错误恢复、token 效率上的权衡，混合架构（ADaPT）在长链任务上比纯 ReAct 成功率提升 20%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Universal Self-Consistency 的无标签校验",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReAct 与 Plan-and-Execute 的架构对比",
+    "slug": "react-vs-plan-and-execute",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ReAct",
+      "规划架构"
+    ],
+    "summary": "ReAct灵活但耗token，Plan-and-Execute更稳，ADaPT在失败时局部递归拆解，长链任务优势最明显"
+  },
+  {
     "title": "代码执行结果的可视化渲染管线",
     "slug": "code-execution-visualization-pipeline",
     "date": "2026-03-13",
