@@ -1,5 +1,17 @@
 [
   {
+    "title": "数学推理的形式化验证：Lean 4 集成",
+    "slug": "math-formal-verification-lean4",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "数学推理",
+      "形式化验证"
+    ],
+    "summary": "Lean 4 把 LLM 数学推理变成可验证流水线，瓶颈已从会不会答转向类型检查、检索质量和长链规划。"
+  },
+  {
     "title": "代码模型的指令微调对齐方法对比",
     "slug": "code-model-instruction-alignment",
     "date": "2026-03-13",

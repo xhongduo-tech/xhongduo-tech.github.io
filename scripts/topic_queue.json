@@ -3961,7 +3961,7 @@
       "形式化验证"
     ],
     "brief": "核心要点：将大模型的数学推理与 Lean 4 形式化证明系统结合，实现可验证的数学推理。分析 LeanDojo 的 tactic 预测方法、autoformalization（自然语言→形式化语言）的难点，以及 MiniF2F 基准上当前最优的 41.2% 证明成功率的瓶颈分析",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ReAct 框架的推理-行动交替机制",
