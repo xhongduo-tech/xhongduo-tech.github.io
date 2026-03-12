@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 反思记忆的生成与自我修正机制",
+    "slug": "agent-reflective-memory-self-correction",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "反思记忆",
+      "自我修正"
+    ],
+    "summary": "反思记忆用阈值触发和带引用的高层规则，让 Agent 从失败中形成可复用自我修正能力"
+  },
+  {
     "title": "Embedding 模型微调提升领域记忆检索精度",
     "slug": "embedding-finetuning-domain-memory-retrieval",
     "date": "2026-03-13",

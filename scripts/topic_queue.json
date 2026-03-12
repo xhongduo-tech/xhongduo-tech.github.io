@@ -4877,7 +4877,7 @@
       "自我修正"
     ],
     "brief": "核心要点：反思记忆是 Agent 从失败经验中提取的高层规则，如'调用 API 前先验证参数格式'。Generative Agents 论文中反思机制将行为合理性评分从 2.1 提升至 3.8（5 分制）。关键是反思的触发时机、抽象层级和存储粒度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "向量数据库的量化压缩与检索精度权衡",
@@ -5117,7 +5117,7 @@
       "辩论机制"
     ],
     "brief": "核心要点：分析Du et al. (2023)提出的多Agent辩论框架，通过3轮辩论在GSM8K上将准确率从78%提升至85%。解析辩论轮次、Agent数量与准确率的关系曲线，以及majority voting与weighted voting的聚合策略差异。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CrewAI的Agent记忆与学习机制",
@@ -5129,7 +5129,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：解析CrewAI中short_term_memory、long_term_memory和entity_memory三层记忆架构的存储实现。分析memory=True开启后的RAG检索流程，以及Crew级别shared_memory如何在多Agent间同步任务上下文与中间结果。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "层级式多Agent的管理者路由策略",
@@ -5141,7 +5141,7 @@
       "路由策略"
     ],
     "brief": "核心要点：分析层级式多Agent架构中Manager Agent的任务分解与路由决策机制。对比基于规则、基于语义相似度、基于LLM判断三种路由策略的延迟与准确率，以及子任务结果的汇聚与冲突检测算法。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent系统中的死锁检测与预防",
@@ -5153,7 +5153,7 @@
       "系统可靠性"
     ],
     "brief": "核心要点：分析多Agent协作中因循环等待（A等B的输出、B等A的输出）导致的死锁场景。提出基于超时机制、资源有序分配、死锁检测图的三种解决方案，以及在AutoGen GroupChat中实现max_stall_count的实践。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AutoGen的代码执行沙箱架构",
@@ -5165,7 +5165,7 @@
       "安全隔离"
     ],
     "brief": "核心要点：解析AutoGen中LocalCommandLineCodeExecutor与DockerCommandLineCodeExecutor的实现差异。分析Docker沙箱的资源限制配置（CPU/内存/网络）、文件系统挂载策略，以及代码执行结果的stdout/stderr捕获与超时终止机制。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent的共识达成算法与投票机制",
@@ -5177,7 +5177,7 @@
       "协调机制"
     ],
     "brief": "核心要点：分析多Agent系统中达成共识的常见算法——多数投票、加权投票、Borda计数、LLM-as-Judge。对比各算法在代码审查任务上的一致率（多数投票72% vs LLM-Judge 89%），以及拜占庭容错在Agent可靠性中的启示。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "CrewAI与LangGraph的多Agent编排对比",
@@ -5189,7 +5189,7 @@
       "LangGraph"
     ],
     "brief": "核心要点：从编排范式（声明式vs图式）、状态管理（隐式vs显式State）、控制流（Process vs Edge/Condition）三个维度对比CrewAI与LangGraph。分析各自适用场景——CrewAI适合角色驱动任务、LangGraph适合复杂状态流转。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent系统的可观测性与调试追踪",
@@ -5201,7 +5201,7 @@
       "可观测性"
     ],
     "brief": "核心要点：分析多Agent系统调试的核心挑战——消息流不透明、状态分散、因果链难追踪。介绍基于OpenTelemetry的分布式追踪方案，以及AutoGen的logging模块和CrewAI的verbose模式在生产环境中的局限与增强方案。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent任务分解的递归细化策略",
@@ -5213,7 +5213,7 @@
       "任务规划"
     ],
     "brief": "核心要点：分析将复杂任务递归分解为子任务的策略——深度优先分解、广度优先分解、自适应粒度控制。解析分解终止条件的判定（子任务Token数<阈值、单Agent可独立完成），以及子任务间依赖关系的自动推断机制。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AutoGen中的人机协作与Human-in-the-Loop",
@@ -5225,7 +5225,7 @@
       "人机协作"
     ],
     "brief": "核心要点：解析AutoGen的UserProxyAgent与人类交互的三种模式——ALWAYS（每步确认）、TERMINATE（仅终止时）、NEVER（全自动）。分析human_input_mode对任务完成率与安全性的影响，以及在关键决策节点插入人类审批的中间件设计。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent系统的Token预算分配与成本控制",
@@ -5237,7 +5237,7 @@
       "成本优化"
     ],
     "brief": "核心要点：分析多Agent系统中Token消耗爆炸的根因——N个Agent的上下文窗口叠加、冗余信息重复传递。提出Token预算分配策略：per-agent上限、全局预算池、动态优先级分配，以及通过消息摘要压缩降低40%Token消耗的实践。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "基于事件驱动的Agent协调架构",
@@ -5249,7 +5249,7 @@
       "事件驱动"
     ],
     "brief": "核心要点：对比请求-响应式与事件驱动式Agent协调的架构差异。分析事件总线（Event Bus）在多Agent系统中的实现——事件定义、订阅注册、异步分发，以及事件溯源（Event Sourcing）在Agent状态恢复中的应用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent的动态组队与角色自适应",
@@ -5261,7 +5261,7 @@
       "动态组队"
     ],
     "brief": "核心要点：分析静态角色分配的局限性，提出基于任务特征动态组建Agent团队的机制。解析Agent能力向量与任务需求向量的匹配算法（余弦相似度>0.8为匹配），以及运行时角色切换的Prompt重写策略。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AutoGen的状态持久化与断点恢复",
@@ -5273,7 +5273,7 @@
       "容错恢复"
     ],
     "brief": "核心要点：分析AutoGen中长时间运行的多Agent会话的状态持久化需求。解析Agent chat_messages的序列化格式、GroupChat状态的checkpoint存储，以及从断点恢复会话时的消息重放与状态一致性校验机制。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多Agent对抗式测试与红蓝对抗",
