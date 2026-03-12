@@ -1,5 +1,17 @@
 [
   {
+    "title": "CodeLlama 的长上下文填充训练",
+    "slug": "codellama-long-context-infilling",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "Llama"
+    ],
+    "summary": "CodeLlama 用 LCFT 与更大 RoPE 基频把代码模型推到 100K 上下文，并用 FIM 支持跨文件中间…"
+  },
+  {
     "title": "DeepSeek-R1 的拒绝采样与多阶段训练",
     "slug": "deepseek-r1-rejection-sampling-pipeline",
     "date": "2026-03-13",

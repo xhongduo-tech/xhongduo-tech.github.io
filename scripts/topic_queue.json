@@ -3625,7 +3625,7 @@
       "Llama"
     ],
     "brief": "核心要点：CodeLlama 基于 Llama 2 进行 500B token 代码续训，支持 100K 上下文。解析其长上下文微调（LCFT）阶段将 RoPE 基频从 10000 修改为 1000000 的外推策略，以及 Fill-in-the-Middle（FIM）训练中 PSM/SPM 两种格式的效果对比",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-Coder-V2 的 MoE 代码模型设计",
