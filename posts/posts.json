@@ -1,5 +1,17 @@
 [
   {
+    "title": "CoT 在逻辑推理中的系统性失败",
+    "slug": "cot-logical-reasoning-failures",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "推理局限"
+    ],
+    "summary": "CoT 更像推理文本生成器，不是可靠的形式逻辑验证器。"
+  },
+  {
     "title": "ReAct 在多模态场景中的扩展",
     "slug": "react-multimodal-extension",
     "date": "2026-03-13",
