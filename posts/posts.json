@@ -1,5 +1,17 @@
 [
   {
+    "title": "RAG 管线中的 Chunk 策略对 Agent 表现的影响",
+    "slug": "rag-chunking-strategy-agent-performance",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG",
+      "知识管理"
+    ],
+    "summary": "RAG 的 chunk 策略直接决定检索质量，语义分块常比换更强模型更有效。"
+  },
+  {
     "title": "HNSW 索引在 Agent 记忆检索中的调参实践",
     "slug": "hnsw-index-tuning-agent-memory",
     "date": "2026-03-13",
