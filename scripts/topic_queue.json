@@ -3973,7 +3973,7 @@
       "推理框架"
     ],
     "brief": "核心要点：解析 ReAct 框架中 Thought-Action-Observation 三元循环的设计原理，对比纯推理（CoT）和纯行动（Act-only）基线，ReAct 在 HotpotQA 上将幻觉率降低约 20%，在 ALFWorld 任务成功率提升 34%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "思维链提示的涌现与规模阈值",

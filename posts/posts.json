@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReAct 框架的推理-行动交替机制",
+    "slug": "react-reasoning-acting-mechanism",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ReAct",
+      "推理框架"
+    ],
+    "summary": "ReAct用“思考-行动-观察”闭环，把推理和外部证据校验绑定在一起。"
+  },
+  {
     "title": "MetaMath 的数学数据增强方法",
     "slug": "metamath-data-augmentation",
     "date": "2026-03-13",
