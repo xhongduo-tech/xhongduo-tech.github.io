@@ -3913,7 +3913,7 @@
       "InternLM"
     ],
     "brief": "核心要点：InternLM-Math 将代码解释器、形式化证明（Lean 4）和自然语言推理统一在单一模型中。分析其 Chain-of-Thought 与 Program-of-Thought 的动态切换机制、Lean 4 形式化验证作为奖励信号的 RLHF 训练，以及在 MiniF2F 形式化数学基准上的表现",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "NuminaMath 的竞赛数学数据构建",

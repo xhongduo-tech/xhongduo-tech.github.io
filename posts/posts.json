@@ -1,5 +1,17 @@
 [
   {
+    "title": "InternLM-Math 的统一数学推理框架",
+    "slug": "internlm-math-unified-framework",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "数学推理",
+      "InternLM"
+    ],
+    "summary": "InternLM-Math把文字推理、代码执行和Lean验证统一进同一条数学推理轨迹。"
+  },
+  {
     "title": "数学推理的过程奖励模型 PRM",
     "slug": "math-process-reward-model",
     "date": "2026-03-13",
