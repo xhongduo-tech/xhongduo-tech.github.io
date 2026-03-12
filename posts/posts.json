@@ -1,5 +1,17 @@
 [
   {
+    "title": "自洽性与验证器的对比与融合",
+    "slug": "self-consistency-vs-verifier",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自洽性",
+      "验证器"
+    ],
+    "summary": "SC 擅长找高频答案，PRM 擅长查过程漏洞，融合后更适合高精度推理任务"
+  },
+  {
     "title": "ReAct Agent 的错误恢复与重试机制",
     "slug": "react-error-recovery-retry",
     "date": "2026-03-13",

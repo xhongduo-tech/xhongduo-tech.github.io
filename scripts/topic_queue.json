@@ -4165,7 +4165,7 @@
       "验证器"
     ],
     "brief": "核心要点：Self-Consistency 的多数投票与训练专用验证器（ORM/PRM）是两种互补的答案选择策略。分析 SC 的无需训练优势与验证器的细粒度判断能力，融合方案（SC + PRM 重排序）在 GSM8K 上可再提升 3-5%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GoT 思维图：超越树结构的推理拓扑",
