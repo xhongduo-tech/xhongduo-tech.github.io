@@ -3274,7 +3274,7 @@
       "预训练"
     ],
     "brief": "核心要点：DeepSeek-V1（67B）的Dense架构选择，采用Pre-Norm + RMSNorm + SwiGLU组合，训练数据2T tokens的配比策略，与LLaMA 2架构的关键差异（GQA头数、FFN维度比），以及在代码和数学基准上的表现分析",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V2 的 MLA 注意力机制",

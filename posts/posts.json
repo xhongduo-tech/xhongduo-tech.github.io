@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V1 的架构设计与训练策略",
+    "slug": "deepseek-v1-architecture",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "预训练"
+    ],
+    "summary": "DeepSeek-V1 用更深更窄的 Dense 结构和专业数据 remix，强化数学与代码能力。"
+  },
+  {
     "title": "Gemini 的多模态 RLHF 训练流程",
     "slug": "gemini-multimodal-rlhf-training",
     "date": "2026-03-12",
