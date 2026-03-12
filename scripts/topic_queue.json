@@ -4141,7 +4141,7 @@
       "容错设计"
     ],
     "brief": "核心要点：ReAct Agent 在工具调用失败或返回无效结果时的恢复策略。分析反思式重试（Reflexion）、回溯重规划、降级策略三种机制，Reflexion 通过语言反馈累积经验，在 AlfWorld 上成功率从 75% 提升至 97%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多步推理中的 CoT 分解策略",

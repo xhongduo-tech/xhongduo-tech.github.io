@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReAct Agent 的错误恢复与重试机制",
+    "slug": "react-error-recovery-retry",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ReAct",
+      "容错设计"
+    ],
+    "summary": "ReAct 容错的核心不是盲目重试，而是自省、局部回溯和受控降级三层联动。"
+  },
+  {
     "title": "多步推理中的 CoT 分解策略",
     "slug": "cot-decomposition-strategies",
     "date": "2026-03-13",
