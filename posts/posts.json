@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码模型的指令微调对齐方法对比",
+    "slug": "code-model-instruction-alignment",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "代码模型",
+      "对齐"
+    ],
+    "summary": "代码模型对齐可分SFT、Evol与DPO/RLHF，核心差异在正确性、遵循、安全与成本折中"
+  },
+  {
     "title": "ReAct 框架的推理-行动交替机制",
     "slug": "react-reasoning-acting-mechanism",
     "date": "2026-03-13",

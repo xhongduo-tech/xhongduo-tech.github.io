@@ -3949,7 +3949,7 @@
       "对齐"
     ],
     "brief": "核心要点：对比代码模型的三种对齐路径：纯 SFT（CodeLlama-Instruct）、Evol-Instruct（WizardCoder）、RLHF/DPO（DeepSeek-Coder-Instruct）。分析各路径在代码正确性、指令遵循、安全性三个维度的 trade-off，以及 DPO 在代码领域相对 RLHF 的数据效率优势",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数学推理的形式化验证：Lean 4 集成",
