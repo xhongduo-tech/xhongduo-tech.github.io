@@ -3262,7 +3262,7 @@
       "RLHF"
     ],
     "brief": "核心要点：多模态模型的 RLHF 需要处理图文混合输出的偏好标注。分析 Gemini 的多模态奖励模型设计、视觉安全约束的 reward shaping、多目标优化（有用性 vs 安全性）的 Pareto 策略",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V1 的架构设计与训练策略",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的多模态 RLHF 训练流程",
+    "slug": "gemini-multimodal-rlhf-training",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "Gemini",
+      "RLHF"
+    ],
+    "summary": "Gemini 多模态 RLHF 的核心是多头奖励加 PPO，在有用、真实、视觉对齐与安全之间做可控折中。"
+  },
+  {
     "title": "Gemini 的 Sparse Attention 与 Flash Attention 融合",
     "slug": "gemini-sparse-flash-attention",
     "date": "2026-03-12",
