@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 的细粒度专家分割策略",
+    "slug": "moe-fine-grained-expert-segmentation",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MoE",
+      "架构设计"
+    ],
+    "summary": "细粒度专家分割在不增加激活预算时，大幅扩展 MoE 组合空间，并用共享专家承接通用知识。"
+  },
+  {
     "title": "DeepSeek-R1 的蒸馏策略与小模型推理",
     "slug": "deepseek-r1-distillation-small-models",
     "date": "2026-03-12",
