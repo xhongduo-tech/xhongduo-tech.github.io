@@ -3997,7 +3997,7 @@
       "解码策略"
     ],
     "brief": "核心要点：Self-Consistency 通过采样多条推理路径并对最终答案进行边际化投票，替代贪心解码。在 GSM8K 上将 CoT 准确率从 56.5% 提升至 74.4%（PaLM 540B），分析采样数量与准确率的对数线性关系",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Tree of Thoughts 的搜索策略设计",

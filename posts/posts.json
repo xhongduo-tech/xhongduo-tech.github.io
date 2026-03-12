@@ -1,5 +1,17 @@
 [
   {
+    "title": "自洽性解码的多路径投票机制",
+    "slug": "self-consistency-majority-voting",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自洽性",
+      "解码策略"
+    ],
+    "summary": "自洽性解码用多路径推理投票替代单路径输出，以线性成本换取更稳的推理准确率。"
+  },
+  {
     "title": "思维链提示的涌现与规模阈值",
     "slug": "cot-emergence-scale-threshold",
     "date": "2026-03-13",
