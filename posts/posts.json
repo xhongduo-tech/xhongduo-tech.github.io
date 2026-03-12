@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReAct 与工具调用的统一接口设计",
+    "slug": "react-tool-calling-interface",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ReAct",
+      "工具调用"
+    ],
+    "summary": "ReAct把推理与工具调用统一成显式循环，核心价值是可路由、可回退、可审计。"
+  },
+  {
     "title": "Tree of Thoughts 的搜索策略设计",
     "slug": "tot-search-strategy-bfs-dfs",
     "date": "2026-03-13",
