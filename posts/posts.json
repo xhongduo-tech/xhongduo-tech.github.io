@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 2.0 Flash 的推理效率突破",
+    "slug": "gemini-2-flash-inference-efficiency",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Gemini",
+      "推理优化"
+    ],
+    "summary": "Gemini 2.0 Flash 通过蒸馏、规整架构、量化与 speculative decoding，把多模态能力压…"
+  },
+  {
     "title": "KV Cache 压缩：长上下文推理的核心优化",
     "slug": "kv-cache-compression-long-context",
     "date": "2026-03-12",

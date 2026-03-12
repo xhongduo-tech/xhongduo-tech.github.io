@@ -3034,7 +3034,7 @@
       "推理优化"
     ],
     "brief": "核心要点：Gemini 2.0 Flash 在多模态能力持平 1.5 Pro 的同时大幅降低延迟和成本。分析其可能采用的知识蒸馏策略、架构简化方案、量化友好设计及 speculative decoding 集成",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的跨模态注意力融合策略",
