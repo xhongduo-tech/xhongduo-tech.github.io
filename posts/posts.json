@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的代码生成与执行架构",
+    "slug": "gemini-code-generation-execution",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "代码生成"
+    ],
+    "summary": "Gemini 的 code execution 是受限 Python 沙箱，强项在生成、执行、回写闭环，而不是单次写代…"
+  },
+  {
     "title": "Gemini 的数学推理能力：多模态解题",
     "slug": "gemini-math-reasoning-multimodal",
     "date": "2026-03-12",

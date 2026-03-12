@@ -3094,7 +3094,7 @@
       "代码生成"
     ],
     "brief": "核心要点：Gemini 2.0 支持原生代码执行（code execution tool），可在推理过程中运行 Python。分析其沙箱设计、代码-推理交替机制、与 AlphaCode 2 的关系及 HumanEval/MBPP 表现",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Infini-Attention：无限上下文注意力",
