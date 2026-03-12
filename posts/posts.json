@@ -1,5 +1,17 @@
 [
   {
+    "title": "CoT 提示中的示例选择策略",
+    "slug": "cot-example-selection-strategy",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "示例选择"
+    ],
+    "summary": "Few-shot CoT 的关键不是多给示例，而是按相似度、复杂度和多样性联合选例。"
+  },
+  {
     "title": "GoT 思维图：超越树结构的推理拓扑",
     "slug": "graph-of-thoughts-reasoning-topology",
     "date": "2026-03-13",

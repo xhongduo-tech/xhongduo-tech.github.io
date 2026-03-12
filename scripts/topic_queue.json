@@ -4177,7 +4177,7 @@
       "思维图"
     ],
     "brief": "核心要点：Graph of Thoughts 将 ToT 的树结构扩展为有向无环图，允许思维节点的合并与聚合操作。在排序任务中，GoT 比 ToT 减少约 31% 的 LLM 调用次数，同时支持并行分支的信息融合",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "CoT 提示中的示例选择策略",
@@ -4189,7 +4189,7 @@
       "示例选择"
     ],
     "brief": "核心要点：Few-shot CoT 的性能高度依赖示例选择。对比随机选择、相似度检索（kNN）、多样性采样、难度递增四种策略，复杂度自适应选择（Complex CoT）在 GSM8K 上比随机选择提升 5-8%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ReAct 在多模态场景中的扩展",
