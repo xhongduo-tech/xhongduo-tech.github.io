@@ -3238,7 +3238,7 @@
       "表征学习"
     ],
     "brief": "核心要点：Gemini 的不同模态在统一 embedding 空间中的分布与对齐质量直接影响跨模态理解。分析模态间的语义对齐度量、模态 gap 现象、层级表征的模态特异性变化",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的 Sparse Attention 与 Flash Attention 融合",

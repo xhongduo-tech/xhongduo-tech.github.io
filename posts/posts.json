@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的多模态嵌入空间分析",
+    "slug": "gemini-multimodal-embedding-space",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "表征学习"
+    ],
+    "summary": "统一多模态 embedding 的核心，不是能嵌入多种数据，而是跨模态语义是否真正对齐。"
+  },
+  {
     "title": "Gemini 的上下文缓存：成本优化机制",
     "slug": "gemini-context-caching-cost-optimization",
     "date": "2026-03-12",
