@@ -3334,7 +3334,7 @@
       "训练优化"
     ],
     "brief": "核心要点：V3在671B参数规模首次成功应用FP8训练，采用细粒度量化（tile-wise scaling）而非tensor-wise，将GEMM操作在E4M3格式下完成，累加器使用FP32保持精度。FP8训练使显存降低约40%，训练成本仅557万美元（2048 H800，约2个月）",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-R1 的强化学习推理训练",

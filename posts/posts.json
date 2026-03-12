@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V3 的 FP8 混合精度训练",
+    "slug": "deepseek-v3-fp8-mixed-precision",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "训练优化"
+    ],
+    "summary": "DeepSeek-V3 用 tile 级缩放和 FP32 累加，让 FP8 在超大模型训练中既省显存又能控误差"
+  },
+  {
     "title": "DeepSeek-V3 的 Multi-Token Prediction",
     "slug": "deepseek-v3-multi-token-prediction",
     "date": "2026-03-12",
