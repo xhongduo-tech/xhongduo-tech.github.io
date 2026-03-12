@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-Coder-V2 的 MoE 代码模型设计",
+    "slug": "deepseek-coder-v2-moe-architecture",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "DeepSeek"
+    ],
+    "summary": "DeepSeek-Coder-V2 用 MoE、6T 续训和 128K 上下文，把开放代码模型推进到仓库级工程可用区间"
+  },
+  {
     "title": "MoE 模型的 Upcycling 初始化策略",
     "slug": "moe-upcycling-initialization",
     "date": "2026-03-13",

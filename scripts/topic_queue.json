@@ -3637,7 +3637,7 @@
       "DeepSeek"
     ],
     "brief": "核心要点：DeepSeek-Coder-V2 采用 236B 总参数/21B 激活参数的 MoE 架构，支持 338 种编程语言和 128K 上下文。分析其从 Dense 到 MoE 的代码模型演进、额外 6T token 的续训策略，以及在 HumanEval/MBPP 等基准上超越 GPT-4 Turbo 的关键因素",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "StarCoder 的多语言代码预训练",
