@@ -3817,7 +3817,7 @@
       "机器翻译"
     ],
     "brief": "核心要点：Meta NLLB-200 支持 200 种语言互译，使用 54.5B 参数 MoE 架构。分析其 Conditional Computation（语言路由的 MoE）设计、LASER3 跨语言嵌入用于平行语料挖掘、以及针对极低资源语言（<1M 句对）的回译数据增强策略",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多语言 Tokenizer 的词表分配公平性",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "NLLB 的低资源语言翻译架构",
+    "slug": "nllb-low-resource-translation",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多语言模型",
+      "机器翻译"
+    ],
+    "summary": "NLLB-200 用 MoE 路由、LASER3 挖掘与回译增强，解决 200 语低资源翻译。"
+  },
+  {
     "title": "Aya 模型的多语言指令微调",
     "slug": "aya-multilingual-instruction-tuning",
     "date": "2026-03-13",
