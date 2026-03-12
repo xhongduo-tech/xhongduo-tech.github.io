@@ -1,5 +1,17 @@
 [
   {
+    "title": "思维链蒸馏：小模型的推理能力迁移",
+    "slug": "cot-distillation-small-models",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "知识蒸馏"
+    ],
+    "summary": "CoT蒸馏有效，但小模型更依赖高质量、短而稳、与容量匹配的推理数据；工程上应优先做答案校验、长度控制和混合蒸馏，若任务…"
+  },
+  {
     "title": "ToT 的并行化与延迟优化",
     "slug": "tot-parallelization-latency",
     "date": "2026-03-13",
