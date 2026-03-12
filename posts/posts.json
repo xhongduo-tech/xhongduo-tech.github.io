@@ -1,5 +1,17 @@
 [
   {
+    "title": "自洽性在多语言推理中的表现差异",
+    "slug": "self-consistency-multilingual-reasoning",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自洽性",
+      "多语言"
+    ],
+    "summary": "多语言自洽性增益不均，高资源语言更易形成稳定多数，跨语言投票需控制噪声语言。"
+  },
+  {
     "title": "思维链蒸馏：小模型的推理能力迁移",
     "slug": "cot-distillation-small-models",
     "date": "2026-03-13",
