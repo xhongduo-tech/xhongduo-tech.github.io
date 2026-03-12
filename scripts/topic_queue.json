@@ -3118,7 +3118,7 @@
       "RAG"
     ],
     "brief": "核心要点：Gemini 原生集成 Google Search grounding，可在推理中调用搜索引擎获取实时信息。分析其 grounding 触发条件、检索结果融合机制、引用归因设计及与传统 RAG 的架构差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GQA 在长上下文模型中的关键作用",

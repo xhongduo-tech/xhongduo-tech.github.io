@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的 Grounding 机制：搜索增强生成",
+    "slug": "gemini-grounding-search-augmented",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "RAG"
+    ],
+    "summary": "Gemini Grounding把搜索、生成和引用归因合进一次推理，适合公开且时效性强的问题。"
+  },
+  {
     "title": "Infini-Attention：无限上下文注意力",
     "slug": "infini-attention-infinite-context",
     "date": "2026-03-12",
