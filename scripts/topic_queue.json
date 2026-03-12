@@ -3517,7 +3517,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MoE模型总参数量大但每token仅激活少数专家，推理时可将不活跃专家卸载到CPU/NVMe。关键是路由预测——利用前一层路由结果预测下一层激活专家并预取到GPU。DeepSeek-V3的671B参数在单节点8卡上可通过专家缓存+预取实现可用推理速度",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-R1 的冷启动数据构建",
@@ -3541,7 +3541,7 @@
       "架构演进"
     ],
     "brief": "核心要点：Switch Transformer（2021）首次将MoE扩展到Top-1路由，简化实现但牺牲表达力。V-MoE（2022）将MoE引入ViT并提出优先路由（priority routing），按token重要性分配专家容量。从GShard的Top-2到Switch的Top-1再到V-MoE的自适应，路由策略持续演进",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Mixtral 8x7B 与 DeepSeek MoE 对比",

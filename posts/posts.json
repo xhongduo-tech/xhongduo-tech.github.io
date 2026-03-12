@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 推理加速：专家卸载与预取",
+    "slug": "moe-inference-expert-offloading-prefetch",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "MoE",
+      "推理优化"
+    ],
+    "summary": "MoE 推理加速的关键不是全量上 GPU，而是预测下一层活跃专家并提前预取。"
+  },
+  {
     "title": "DeepSeek-R1 的冷启动数据构建",
     "slug": "deepseek-r1-cold-start-data",
     "date": "2026-03-12",
