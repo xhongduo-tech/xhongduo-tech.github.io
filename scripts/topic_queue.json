@@ -3985,7 +3985,7 @@
       "涌现能力"
     ],
     "brief": "核心要点：分析 Chain-of-Thought 在不同模型规模下的涌现行为，Wei et al. 实验表明 CoT 在约 100B 参数以上模型才显著生效，小模型使用 CoT 反而导致性能下降，探讨涌现的可能机制与 U 形曲线现象",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自洽性解码的多路径投票机制",

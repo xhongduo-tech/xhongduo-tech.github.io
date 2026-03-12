@@ -1,5 +1,17 @@
 [
   {
+    "title": "思维链提示的涌现与规模阈值",
+    "slug": "cot-emergence-scale-threshold",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "涌现能力"
+    ],
+    "summary": "思维链提示只在足够大的模型上稳定增益，小模型常被错误链条反向拖累。"
+  },
+  {
     "title": "数学推理的形式化验证：Lean 4 集成",
     "slug": "math-formal-verification-lean4",
     "date": "2026-03-13",
