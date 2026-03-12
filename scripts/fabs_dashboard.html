@@ -454,6 +454,60 @@ footer::after {
 
 .ftr-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.07); flex-shrink: 0; }
 
+/* Concurrent button */
+.btn-concurrent {
+  font-family: var(--mono); font-size: 11px; padding: 3px 10px; cursor: pointer;
+  background: none; border: 1px solid var(--border2); border-radius: var(--radius-sm);
+  color: var(--text-3); transition: color 0.15s, border-color 0.15s; white-space: nowrap; flex-shrink: 0;
+}
+.btn-concurrent:hover { color: var(--amber); border-color: var(--amber); }
+.btn-concurrent.active { color: var(--amber); border-color: var(--amber); background: var(--amber-glow); }
+
+/* Worker pills in pipeline header */
+.pip-workers { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.pip-worker {
+  display: flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border2); cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  font-family: var(--mono); font-size: 10px; color: var(--text-2);
+}
+.pip-worker:hover { border-color: var(--cyan); color: var(--cyan); }
+.pip-worker.focused { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-glow); }
+.pip-worker-id { font-size: 9px; color: var(--text-3); }
+.pip-worker-stage { font-size: 10px; }
+.pip-worker-title { font-size: 9px; color: var(--text-3); max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Concurrent modal */
+.conc-modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200;
+  align-items: center; justify-content: center;
+}
+.conc-modal-overlay.open { display: flex; }
+.conc-modal {
+  background: var(--panel); border: 1px solid var(--border2); border-radius: var(--radius);
+  padding: 24px; min-width: 320px; max-width: 400px; width: 100%;
+}
+.conc-modal-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.conc-modal-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.conc-modal-close { background: none; border: none; color: var(--text-3); cursor: pointer; font-size: 14px; }
+.conc-modal-close:hover { color: var(--text); }
+.conc-info { font-family: var(--mono); font-size: 11px; color: var(--text-2); margin-bottom: 16px; line-height: 1.8; }
+.conc-info span { color: var(--cyan); }
+.conc-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.conc-lbl { font-size: 11px; color: var(--text-2); white-space: nowrap; }
+.conc-input {
+  flex: 1; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-sm);
+  color: var(--text); font-family: var(--mono); font-size: 12px; padding: 5px 8px; outline: none;
+}
+.conc-input:focus { border-color: var(--amber); }
+.conc-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.conc-btn {
+  font-family: var(--mono); font-size: 11px; padding: 5px 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border2); cursor: pointer; background: none; color: var(--text-2);
+  transition: 0.15s;
+}
+.conc-btn.primary { background: var(--amber-glow); border-color: var(--amber); color: var(--amber); }
+.conc-btn:hover { opacity: 0.8; }
+
 /* Refine toggle */
 .toggle-wrap { display: flex; align-items: center; gap: 7px; flex-shrink: 0; cursor: pointer; }
 .toggle-lbl { font-size: 11px; color: var(--text-3); white-space: nowrap; }
@@ -703,6 +757,8 @@ footer::after {
     </div>
   </label>
 
+  <button class="btn-concurrent" id="btn-concurrent" onclick="openConcurrentModal()" title="Set concurrent workers">⇉ Concurrent</button>
+
   <div class="ftr-sep"></div>
 
   <span class="mode-badge cli" id="mode-badge" onclick="openSettings()" title="Generation mode — click Settings to change">Codex</span>
@@ -719,6 +775,25 @@ footer::after {
 </footer>
 
 </div><!-- .app -->
+
+<!-- ═══════════════ CONCURRENT MODAL ═══════════════ -->
+<div class="conc-modal-overlay" id="conc-modal-overlay" onclick="maybeConcClose(event)">
+  <div class="conc-modal">
+    <div class="conc-modal-hdr">
+      <div class="conc-modal-title">⇉ Concurrent Workers</div>
+      <button class="conc-modal-close" onclick="closeConcurrentModal()">✕</button>
+    </div>
+    <div class="conc-info" id="conc-host-info">Detecting host specs…</div>
+    <div class="conc-row">
+      <span class="conc-lbl">Workers</span>
+      <input class="conc-input" type="number" id="conc-input" min="1" max="16" value="1" />
+    </div>
+    <div class="conc-actions">
+      <button class="conc-btn" onclick="closeConcurrentModal()">Cancel</button>
+      <button class="conc-btn primary" onclick="saveConcurrent()">Confirm &amp; Apply</button>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════ SETTINGS MODAL ═══════════════ -->
 <div class="modal-overlay" id="modal-overlay" onclick="maybeCloseSettings(event)">
@@ -803,6 +878,8 @@ let currentTab = 'pending';
 let elapsedSec = 0;
 let timerInterval = null;
 let sessionTokens = 0;
+let focusedWorker = 0;       // 0 = auto (most recent)
+let workerBuffers = {};      // worker_id → {text, stage}
 
 // ── WebSocket ─────────────────────────────────────────────────
 function connect() {
@@ -815,8 +892,8 @@ function connect() {
   ws.onmessage = (e) => {
     const msg = JSON.parse(e.data);
     if      (msg.type === 'state_update') { state = msg.data; render(); }
-    else if (msg.type === 'stage_start')  { onStageStart(msg.stage, msg.slug); }
-    else if (msg.type === 'stream_chunk') { appendChunk(msg.text); }
+    else if (msg.type === 'stage_start')  { onStageStart(msg.stage, msg.slug, msg.worker_id || 0); }
+    else if (msg.type === 'stream_chunk') { appendChunk(msg.text, msg.worker_id || 0); }
     else if (msg.type === 'log')          { log(msg.level, msg.msg); }
     else if (msg.type === 'tick')         { elapsedSec = msg.elapsed; updateTimer(); updateTokenDisplay(); }
   };
@@ -829,6 +906,11 @@ function sendCtrl(a) { sendWs({ action: a }); }
 // ── Render all ────────────────────────────────────────────────
 function render() {
   const s = state;
+  // Reset worker state when pipeline stops
+  if (!s.running && (s.workers || []).length === 0) {
+    workerBuffers = {};
+    focusedWorker = 0;
+  }
   try { renderHeader(s); }     catch(e) { console.error('renderHeader', e); }
   try { renderTabs(s); }       catch(e) { console.error('renderTabs', e); }
   try { renderQueue(s); }      catch(e) { console.error('renderQueue', e); }
@@ -850,18 +932,39 @@ function renderHeader(s) {
     title.textContent = s.running ? '—' : 'No post in progress';
     title.className = 'hdr-title hdr-title-idle';
   }
-  renderPipeline(s.current_stage, s.running);
+  renderPipeline(s);
 }
 
-function renderPipeline(stage, running) {
+function renderPipeline(s) {
   const el = document.getElementById('pipeline');
+  const workers = s.workers || [];
+  const n = (s.model_config?.concurrent_workers) || (window._concurrentWorkers) || 1;
+
+  if (workers.length > 1 || (s.running && n > 1)) {
+    // Concurrent mode: show worker pills
+    el.innerHTML = `<div class="pip-workers">${workers.map(w => {
+      const isFocused = focusedWorker === w.worker_id;
+      const stageIcon = STAGE_ICON[w.stage] || '·';
+      const stageLabel = STAGE_LABEL[w.stage] || w.stage || '—';
+      return `<div class="pip-worker${isFocused ? ' focused' : ''}" onclick="focusWorker(${w.worker_id})" title="${esc(w.title||w.slug)}">
+        <span class="pip-worker-id">W${w.worker_id}</span>
+        <span class="pip-worker-stage">${stageIcon} ${stageLabel}</span>
+        <span class="pip-worker-title">${esc((w.title||w.slug||'').slice(0,20))}</span>
+      </div>`;
+    }).join('')}</div>`;
+    return;
+  }
+
+  // Sequential mode (original): stage progress bar
+  const stage = s.current_stage;
+  const running = s.running;
   const idx = STAGES.indexOf(stage);
-  el.innerHTML = STAGES.map((s, i) => {
+  el.innerHTML = STAGES.map((st, i) => {
     let cls = 'pip-label';
     if (running && i < idx) cls += ' done';
     else if (running && i === idx) cls += ' active';
     const arr = i < STAGES.length - 1 ? '<span class="pip-arrow">›</span>' : '';
-    return `<div class="pip-node"><span class="${cls}">${STAGE_LABEL[s]}</span>${arr}</div>`;
+    return `<div class="pip-node"><span class="${cls}">${STAGE_LABEL[st]}</span>${arr}</div>`;
   }).join('');
 }
 
@@ -954,14 +1057,19 @@ function renderSteps(s) {
     return;
   }
 
-  // Current post hero card
+  // In concurrent mode, show focused worker's info; otherwise show current_slug
   const ip = s.in_progress || [];
-  const cur = ip.find(p => p.slug === s.current_slug);
-  slugLbl.textContent = s.current_slug ? `// ${s.current_slug}` : '';
+  const workers = s.workers || [];
+  const focusedWorkerData = workers.find(w => w.worker_id === focusedWorker);
+  const displaySlug = focusedWorkerData ? focusedWorkerData.slug : s.current_slug;
+  const displayStage = focusedWorkerData ? focusedWorkerData.stage : s.current_stage;
+  const cur = ip.find(p => p.slug === displaySlug);
+  slugLbl.textContent = displaySlug ? `// ${displaySlug}` : '';
   if (cur) {
     const catColor = CAT_COLORS[cur.category] || 'var(--purple)';
+    const workerLabel = focusedWorkerData ? `W${focusedWorkerData.worker_id} · writing` : 'Currently writing';
     cardWrap.innerHTML = `<div class="post-card">
-      <div class="post-card-id">Currently writing</div>
+      <div class="post-card-id">${esc(workerLabel)}</div>
       <div class="post-card-title">${esc(cur.title||cur.slug)}</div>
       <div class="post-card-meta">
         ${cur.category ? `<span class="meta-tag" style="color:${catColor};background:${catColor}18;border-color:${catColor}33">${esc(cur.category)}</span>` : ''}
@@ -969,7 +1077,7 @@ function renderSteps(s) {
     </div>`;
   } else { cardWrap.innerHTML = ''; }
 
-  const stageIdx = STAGES.indexOf(s.current_stage);
+  const stageIdx = STAGES.indexOf(displayStage);
   const mc = s.model_config || {};
 
   body.innerHTML = STAGES.map((stage, i) => {
@@ -1011,6 +1119,14 @@ function renderControls(s) {
   } else {
     btn.title = '';
   }
+  // Sync concurrent workers count
+  const n = s.model_config?.concurrent_workers ?? 1;
+  window._concurrentWorkers = n;
+  const concBtn = document.getElementById('btn-concurrent');
+  if (concBtn) {
+    concBtn.textContent = n > 1 ? `⇉ ×${n}` : '⇉ Concurrent';
+    concBtn.classList.toggle('active', n > 1);
+  }
 }
 
 function renderStats(s) {
@@ -1044,25 +1160,58 @@ function updateProgressBar(s) {
 }
 
 // ── Stage events ──────────────────────────────────────────────
-function onStageStart(stage, slug) {
-  const stream = document.getElementById('out-stream');
-  stream.textContent = '';
-  stream.appendChild(makeCursor());
-  const badge = document.getElementById('out-stage');
-  badge.textContent = STAGE_LABEL[stage] || stage;
-  badge.className = 'out-stage show';
+function onStageStart(stage, slug, worker_id) {
+  const wid = worker_id || 0;
+  if (!workerBuffers[wid]) workerBuffers[wid] = { text: '', stage: '' };
+  workerBuffers[wid].text = '';
+  workerBuffers[wid].stage = stage;
+
+  // Auto-focus first active worker if nothing focused yet
+  if (focusedWorker === 0 || focusedWorker === wid) {
+    focusedWorker = wid;
+    const stream = document.getElementById('out-stream');
+    stream.textContent = '';
+    stream.appendChild(makeCursor());
+    const badge = document.getElementById('out-stage');
+    badge.textContent = (wid > 0 ? `W${wid} · ` : '') + (STAGE_LABEL[stage] || stage);
+    badge.className = 'out-stage show';
+  }
+  // Re-render pipeline so worker pill updates
+  try { renderPipeline(state); } catch(e) {}
 }
 
 function makeCursor() {
   const c = document.createElement('span'); c.className = 'cursor'; c.id = 'cursor'; return c;
 }
 
-// ── Streaming output ──────────────────────────────────────────
-function appendChunk(text) {
+// Focus a specific worker to view its output
+function focusWorker(worker_id) {
+  focusedWorker = worker_id;
+  const buf = workerBuffers[worker_id];
   const stream = document.getElementById('out-stream');
-  const cur = stream.querySelector('#cursor');
-  stream.insertBefore(document.createTextNode(text), cur || null);
-  stream.scrollTop = stream.scrollHeight;
+  stream.textContent = buf ? buf.text : '';
+  stream.appendChild(makeCursor());
+  const badge = document.getElementById('out-stage');
+  if (buf) {
+    badge.textContent = `W${worker_id} · ${STAGE_LABEL[buf.stage] || buf.stage || '—'}`;
+    badge.className = 'out-stage show';
+  }
+  try { renderPipeline(state); } catch(e) {}
+}
+
+// ── Streaming output ──────────────────────────────────────────
+function appendChunk(text, worker_id) {
+  const wid = worker_id || 0;
+  if (!workerBuffers[wid]) workerBuffers[wid] = { text: '', stage: '' };
+  workerBuffers[wid].text += text;
+
+  if (focusedWorker === 0 || focusedWorker === wid) {
+    focusedWorker = wid;
+    const stream = document.getElementById('out-stream');
+    const cur = stream.querySelector('#cursor');
+    stream.insertBefore(document.createTextNode(text), cur || null);
+    stream.scrollTop = stream.scrollHeight;
+  }
 }
 
 function updateTokenDisplay() {
@@ -1102,6 +1251,48 @@ function setTab(tab) {
     document.getElementById(`tab-${t}`).classList.toggle('active', t === tab);
   });
   renderQueue(state);
+}
+
+// ── Concurrent modal ──────────────────────────────────────────
+function openConcurrentModal() {
+  const overlay = document.getElementById('conc-modal-overlay');
+  overlay.classList.add('open');
+  const infoEl = document.getElementById('conc-host-info');
+  const inputEl = document.getElementById('conc-input');
+  // Set current value
+  inputEl.value = window._concurrentWorkers || 1;
+  infoEl.textContent = 'Detecting host specs…';
+  fetch('/api/host-info').then(r => r.json()).then(info => {
+    const ram = info.ram_gb != null ? `${info.ram_gb} GB RAM` : 'RAM unknown';
+    infoEl.innerHTML =
+      `CPU cores: <span>${info.cpu_cores}</span> &nbsp;·&nbsp; ${ram}<br>` +
+      `Suggested workers: <span>${info.suggested}</span><br>` +
+      `<span style="color:var(--text-3);font-size:10px">Each worker runs one full pipeline (research → publish) in parallel.<br>` +
+      `More workers = higher throughput but more API cost &amp; CPU load.</span>`;
+    if (inputEl.value == 1) inputEl.value = info.suggested;
+  }).catch(() => {
+    infoEl.textContent = 'Could not fetch host info.';
+  });
+}
+
+function closeConcurrentModal() {
+  document.getElementById('conc-modal-overlay').classList.remove('open');
+}
+
+function maybeConcClose(e) {
+  if (e.target === document.getElementById('conc-modal-overlay')) closeConcurrentModal();
+}
+
+function saveConcurrent() {
+  const n = Math.max(1, parseInt(document.getElementById('conc-input').value) || 1);
+  sendWs({ action: 'set_concurrent', workers: n });
+  window._concurrentWorkers = n;
+  const btn = document.getElementById('btn-concurrent');
+  if (btn) {
+    btn.textContent = n > 1 ? `⇉ ×${n}` : '⇉ Concurrent';
+    btn.classList.toggle('active', n > 1);
+  }
+  closeConcurrentModal();
 }
 
 // ── Settings modal ────────────────────────────────────────────

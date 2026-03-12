@@ -3385,7 +3385,7 @@
       "知识蒸馏"
     ],
     "brief": "核心要点：R1将671B模型的长思维链能力蒸馏到1.5B-70B的Qwen和LLaMA系列。蒸馏数据约80万条R1生成的推理轨迹，仅做SFT即获得显著推理提升。R1-Distill-Qwen-32B在AIME上达72.6%，超越OpenAI o1-mini，证明小模型可习得长链推理",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE 的专家崩塌与负载均衡",
@@ -3433,7 +3433,7 @@
       "位置编码"
     ],
     "brief": "核心要点：MLA中的低秩压缩与RoPE的位置相关性存在冲突——RoPE作用于Q/K后无法被压缩矩阵吸收。V2的解决方案是将Q/K各分出一小部分维度（d_r=64）专门携带RoPE，其余维度走压缩路径，两部分拼接后做注意力，兼顾位置感知与缓存压缩",
-    "status": "failed"
+    "status": "pen'ding"
   },
   {
     "title": "DeepSeek-V3 的 DualPipe 并行策略",
@@ -3541,7 +3541,7 @@
       "架构演进"
     ],
     "brief": "核心要点：Switch Transformer（2021）首次将MoE扩展到Top-1路由，简化实现但牺牲表达力。V-MoE（2022）将MoE引入ViT并提出优先路由（priority routing），按token重要性分配专家容量。从GShard的Top-2到Switch的Top-1再到V-MoE的自适应，路由策略持续演进",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Mixtral 8x7B 与 DeepSeek MoE 对比",
@@ -3757,7 +3757,7 @@
       "长上下文"
     ],
     "brief": "核心要点：对比 RepoCoder、RepoFusion、CrossCodeEval 等仓库级代码补全方法。分析如何从跨文件依赖图中检索相关上下文、BM25 vs Dense Retrieval 在代码检索中的效果差异，以及 Repository-level FIM 训练如何提升跨文件补全准确率（相对提升 15-30%）",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "代码模型的 Tokenizer 设计差异",
@@ -4177,7 +4177,7 @@
       "思维图"
     ],
     "brief": "核心要点：Graph of Thoughts 将 ToT 的树结构扩展为有向无环图，允许思维节点的合并与聚合操作。在排序任务中，GoT 比 ToT 减少约 31% 的 LLM 调用次数，同时支持并行分支的信息融合",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CoT 提示中的示例选择策略",
@@ -4757,7 +4757,7 @@
       "RAG"
     ],
     "brief": "核心要点：三款主流向量数据库在 Agent 场景下的核心差异——Pinecone 托管型延迟 P99 <50ms 但成本高；Milvus 支持十亿级向量但运维复杂；Chroma 轻量嵌入式适合原型但缺乏分布式能力。从 QPS、索引构建时间、Recall@10 三个维度量化对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "HNSW 索引在 Agent 记忆检索中的调参实践",
@@ -4889,7 +4889,7 @@
       "量化压缩"
     ],
     "brief": "核心要点：百万级记忆向量的存储成本高昂，Product Quantization（PQ）可将 1536 维向量压缩至 64 字节（压缩比 24:1），Recall@10 仅下降 3%。OPQ（Optimized PQ）通过旋转矩阵预处理进一步将精度损失控制在 1% 以内。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "外部知识库的增量更新与索引同步",
@@ -4901,7 +4901,7 @@
       "增量更新"
     ],
     "brief": "核心要点：Agent 依赖的外部知识库需要持续更新，全量重建索引（百万文档约 2 小时）不可接受。增量更新策略包括：变更检测（文档哈希）、差量 Embedding、在线索引插入。Milvus 的动态索引支持实时插入，延迟 <100ms/条。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "记忆检索中的上下文窗口填充策略",
@@ -4913,7 +4913,7 @@
       "上下文优化"
     ],
     "brief": "核心要点：检索到的记忆片段如何填入有限的上下文窗口直接影响 Agent 表现。贪心填充（按相关性排序直到满）、多样性采样（MMR 算法，λ=0.7 时效果最优）、分层摘要填充三种策略。MMR 策略在多跳推理任务中比贪心填充准确率高 11%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Generative Agents 的记忆流与重要性评分",
@@ -4925,7 +4925,7 @@
       "Generative Agents"
     ],
     "brief": "核心要点：Stanford Generative Agents 提出记忆流（Memory Stream）架构，每条记忆带有新近性、重要性、相关性三维评分，综合分数 score = α·recency + β·importance + γ·relevance 决定检索排序。重要性由 LLM 自评（1-10 分），新近性按指数衰减。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "基于 SQL 的结构化 Agent 记忆系统",
@@ -4937,7 +4937,7 @@
       "结构化存储"
     ],
     "brief": "核心要点：并非所有 Agent 记忆都适合向量化，用户偏好、任务状态、配置参数等结构化数据用 SQL 存储更高效。SQLite 作为嵌入式方案，查询延迟 <1ms，配合 JSON 字段实现半结构化存储，比向量检索在精确匹配场景下准确率高 40%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多模态记忆：图像与文本的联合向量存储",
@@ -4949,7 +4949,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：视觉 Agent 需要存储和检索图像记忆，CLIP 模型将图像和文本映射到同一 512/768 维空间，实现跨模态检索。图文联合索引比分离索引在跨模态查询中 Recall@10 高 22%，但索引构建时间增加 35%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "记忆蒸馏：从经验中提取可复用规则",
@@ -4961,7 +4961,7 @@
       "经验学习"
     ],
     "brief": "核心要点：Agent 积累大量情景记忆后，需要蒸馏出通用规则以减少存储和检索开销。通过聚类相似经验（DBSCAN，eps=0.3）再用 LLM 归纳规则，可将 1000 条原始记忆压缩为 50 条规则，任务表现仅下降 2%，检索速度提升 20 倍。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LangChain Memory 模块的实现与局限",
@@ -4973,7 +4973,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：LangChain 提供 ConversationBufferMemory、ConversationSummaryMemory、VectorStoreRetrieverMemory 等六种记忆模块。Buffer 适合短对话（<10 轮），Summary 适合长对话但丢失细节，VectorStore 检索精度依赖 Embedding 质量。实际生产中常需组合使用。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "记忆检索的重排序：Cross-Encoder 精排",
@@ -4985,7 +4985,7 @@
       "重排序"
     ],
     "brief": "核心要点：向量近似检索（Bi-Encoder）的召回结果存在排序噪声，Cross-Encoder 重排序可将 NDCG@10 从 0.65 提升至 0.78。Cohere Rerank 和 bge-reranker-v2 在 Agent 记忆场景下延迟约 50-100ms，适合 Top-20 候选精排。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Agent 记忆的隐私保护与选择性遗忘",
@@ -4997,7 +4997,7 @@
       "隐私安全"
     ],
     "brief": "核心要点：Agent 长期记忆中可能存储敏感信息，需要支持选择性遗忘（GDPR 合规）。向量删除后索引中仍可能残留近似信息，需要配合向量扰动（差分隐私 ε=1.0）或索引重建。完全遗忘的计算开销约为插入的 5-10 倍。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "基于 Graph RAG 的多跳知识检索",
@@ -5009,7 +5009,7 @@
       "知识检索"
     ],
     "brief": "核心要点：传统 RAG 单次检索难以回答需要多步推理的问题，Graph RAG 将文档构建为实体关系图，支持沿图谱边进行多跳检索。微软 Graph RAG 在全局摘要任务中比朴素 RAG 的全面性评分高 20-30%，但索引构建成本增加 5-10 倍。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Sparse-Dense 混合检索在记忆系统中的实践",
@@ -5021,7 +5021,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：纯密集检索（Dense）对精确关键词匹配不敏感，纯稀疏检索（BM25）缺乏语义理解。混合检索 score = α·dense + (1-α)·sparse，α=0.7 时在 Agent 记忆检索中 MRR@10 最优，比单一方案高 10-15%。SPLADE 作为学习型稀疏表示可进一步提升。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Agent 记忆系统的端到端评测框架",
@@ -5033,7 +5033,7 @@
       "评测"
     ],
     "brief": "核心要点：缺乏标准化评测框架是 Agent 记忆研究的瓶颈。提出四维评测体系：检索精度（Recall/MRR）、信息保持率（长对话后的事实回忆准确率）、存储效率（Token/字节比）、任务贡献度（有无记忆的任务完成率差异）。在 5 个基准任务上验证框架有效性。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "记忆感知的 Prompt 构建与动态注入",
@@ -5045,7 +5045,7 @@
       "Prompt工程"
     ],
     "brief": "核心要点：检索到的记忆如何注入 Prompt 直接影响 LLM 利用效率。对比前置注入（System Prompt）、上下文内嵌、工具调用返回三种方式，前置注入的记忆利用率最高（85%）但占用固定窗口空间，工具调用方式最灵活但引入额外延迟（100-200ms）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent系统的角色分工设计模式",
@@ -5057,7 +5057,7 @@
       "架构设计"
     ],
     "brief": "核心要点：分析多Agent系统中常见的角色分工模式——专家型、流水线型、辩论型、层级型。对比各模式在代码生成任务上的准确率差异（专家型85% vs 辩论型91%），给出角色定义的Prompt模板与职责边界划分原则。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AutoGen的会话编排与终止条件设计",
@@ -5069,7 +5069,7 @@
       "多Agent"
     ],
     "brief": "核心要点：深入AutoGen的GroupChat机制，解析speaker_selection_method的四种策略（round_robin/random/auto/manual）及其对任务收敛速度的影响。分析max_round与is_termination_msg的组合策略，避免Agent陷入无限对话循环的实践方案。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CrewAI的Task依赖链与执行调度",
@@ -5081,7 +5081,7 @@
       "任务调度"
     ],
     "brief": "核心要点：解析CrewAI中Task的context参数如何构建DAG依赖图，对比sequential与hierarchical两种Process模式的执行语义差异。分析任务输出的expected_output字段如何约束Agent行为，以及async_execution参数实现并行任务的底层机制。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent通信的消息传递协议设计",
@@ -5093,7 +5093,7 @@
       "系统设计"
     ],
     "brief": "核心要点：对比多Agent系统中三种通信范式——共享黑板、点对点消息、发布订阅。分析消息格式标准化（sender/receiver/content/metadata）对系统可扩展性的影响，以及消息队列在异步Agent协作中的缓冲与背压处理。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AutoGen中自定义Agent的注册与能力声明",
@@ -5105,7 +5105,7 @@
       "扩展机制"
     ],
     "brief": "核心要点：解析AutoGen v0.4的ConversableAgent基类继承体系，分析register_reply方法的触发链机制。详解如何通过system_message声明Agent能力边界，以及register_function将Python函数暴露为Agent可调用工具的完整流程。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent辩论机制提升推理准确率",
@@ -5117,7 +5117,7 @@
       "辩论机制"
     ],
     "brief": "核心要点：分析Du et al. (2023)提出的多Agent辩论框架，通过3轮辩论在GSM8K上将准确率从78%提升至85%。解析辩论轮次、Agent数量与准确率的关系曲线，以及majority voting与weighted voting的聚合策略差异。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CrewAI的Agent记忆与学习机制",
@@ -5129,7 +5129,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：解析CrewAI中short_term_memory、long_term_memory和entity_memory三层记忆架构的存储实现。分析memory=True开启后的RAG检索流程，以及Crew级别shared_memory如何在多Agent间同步任务上下文与中间结果。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "层级式多Agent的管理者路由策略",
@@ -5141,7 +5141,7 @@
       "路由策略"
     ],
     "brief": "核心要点：分析层级式多Agent架构中Manager Agent的任务分解与路由决策机制。对比基于规则、基于语义相似度、基于LLM判断三种路由策略的延迟与准确率，以及子任务结果的汇聚与冲突检测算法。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent系统中的死锁检测与预防",
@@ -5153,7 +5153,7 @@
       "系统可靠性"
     ],
     "brief": "核心要点：分析多Agent协作中因循环等待（A等B的输出、B等A的输出）导致的死锁场景。提出基于超时机制、资源有序分配、死锁检测图的三种解决方案，以及在AutoGen GroupChat中实现max_stall_count的实践。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AutoGen的代码执行沙箱架构",
@@ -5165,7 +5165,7 @@
       "安全隔离"
     ],
     "brief": "核心要点：解析AutoGen中LocalCommandLineCodeExecutor与DockerCommandLineCodeExecutor的实现差异。分析Docker沙箱的资源限制配置（CPU/内存/网络）、文件系统挂载策略，以及代码执行结果的stdout/stderr捕获与超时终止机制。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent的共识达成算法与投票机制",
@@ -5177,7 +5177,7 @@
       "协调机制"
     ],
     "brief": "核心要点：分析多Agent系统中达成共识的常见算法——多数投票、加权投票、Borda计数、LLM-as-Judge。对比各算法在代码审查任务上的一致率（多数投票72% vs LLM-Judge 89%），以及拜占庭容错在Agent可靠性中的启示。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CrewAI与LangGraph的多Agent编排对比",
@@ -5189,7 +5189,7 @@
       "LangGraph"
     ],
     "brief": "核心要点：从编排范式（声明式vs图式）、状态管理（隐式vs显式State）、控制流（Process vs Edge/Condition）三个维度对比CrewAI与LangGraph。分析各自适用场景——CrewAI适合角色驱动任务、LangGraph适合复杂状态流转。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent系统的可观测性与调试追踪",
@@ -5201,7 +5201,7 @@
       "可观测性"
     ],
     "brief": "核心要点：分析多Agent系统调试的核心挑战——消息流不透明、状态分散、因果链难追踪。介绍基于OpenTelemetry的分布式追踪方案，以及AutoGen的logging模块和CrewAI的verbose模式在生产环境中的局限与增强方案。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent任务分解的递归细化策略",
@@ -5213,7 +5213,7 @@
       "任务规划"
     ],
     "brief": "核心要点：分析将复杂任务递归分解为子任务的策略——深度优先分解、广度优先分解、自适应粒度控制。解析分解终止条件的判定（子任务Token数<阈值、单Agent可独立完成），以及子任务间依赖关系的自动推断机制。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AutoGen中的人机协作与Human-in-the-Loop",
@@ -5225,7 +5225,7 @@
       "人机协作"
     ],
     "brief": "核心要点：解析AutoGen的UserProxyAgent与人类交互的三种模式——ALWAYS（每步确认）、TERMINATE（仅终止时）、NEVER（全自动）。分析human_input_mode对任务完成率与安全性的影响，以及在关键决策节点插入人类审批的中间件设计。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent系统的Token预算分配与成本控制",
@@ -5237,7 +5237,7 @@
       "成本优化"
     ],
     "brief": "核心要点：分析多Agent系统中Token消耗爆炸的根因——N个Agent的上下文窗口叠加、冗余信息重复传递。提出Token预算分配策略：per-agent上限、全局预算池、动态优先级分配，以及通过消息摘要压缩降低40%Token消耗的实践。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "基于事件驱动的Agent协调架构",
@@ -5249,7 +5249,7 @@
       "事件驱动"
     ],
     "brief": "核心要点：对比请求-响应式与事件驱动式Agent协调的架构差异。分析事件总线（Event Bus）在多Agent系统中的实现——事件定义、订阅注册、异步分发，以及事件溯源（Event Sourcing）在Agent状态恢复中的应用。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent的动态组队与角色自适应",
@@ -5261,7 +5261,7 @@
       "动态组队"
     ],
     "brief": "核心要点：分析静态角色分配的局限性，提出基于任务特征动态组建Agent团队的机制。解析Agent能力向量与任务需求向量的匹配算法（余弦相似度>0.8为匹配），以及运行时角色切换的Prompt重写策略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AutoGen的状态持久化与断点恢复",
@@ -5273,7 +5273,7 @@
       "容错恢复"
     ],
     "brief": "核心要点：分析AutoGen中长时间运行的多Agent会话的状态持久化需求。解析Agent chat_messages的序列化格式、GroupChat状态的checkpoint存储，以及从断点恢复会话时的消息重放与状态一致性校验机制。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多Agent对抗式测试与红蓝对抗",

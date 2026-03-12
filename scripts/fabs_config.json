@@ -5,6 +5,7 @@
   "git_push_remote": "origin",
   "git_push_ref": "HEAD",
   "min_content_chars": 2200,
+  "concurrent_workers": 4,
   "research": "gpt-5-codex-mini",
   "outline": "gpt-5-codex-mini",
   "write": "gpt-5.4",

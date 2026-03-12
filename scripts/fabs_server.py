@@ -10,6 +10,7 @@ from __future__ import annotations
 import asyncio
 import fcntl
 import json
+import os
 import re
 import shutil
 import tempfile
@@ -68,6 +69,7 @@ def load_config() -> dict:
         "git_push_remote": "origin",
         "git_push_ref": "HEAD",
         "min_content_chars": 2200,
+        "concurrent_workers": 1,
     }
     if CONFIG_FILE.exists():
         try:
@@ -99,6 +101,10 @@ def load_config() -> dict:
         config[stage] = DEFAULT_MODELS[stage]
 
     config["refine_enabled"] = bool(config.get("refine_enabled", False))
+    try:
+        config["concurrent_workers"] = max(1, int(config.get("concurrent_workers", 1)))
+    except Exception:
+        config["concurrent_workers"] = 1
     return config
 
 
@@ -233,6 +239,7 @@ class FABSState:
     completed: list[dict] = field(default_factory=list)
     failed: list[dict] = field(default_factory=list)
     pending_preview: list[dict] = field(default_factory=list)
+    workers: list[dict] = field(default_factory=list)  # active concurrent workers
     model_config: dict = field(default_factory=lambda: dict(DEFAULT_MODELS, refine_enabled=False))
     codex_configured: bool = False
     queue_loaded: bool = False
@@ -258,6 +265,7 @@ class FABSState:
             "completed": self.completed,
             "failed": self.failed,
             "pending_preview": self.pending_preview,
+            "workers": self.workers,
             "model_config": self.model_config,
             "codex_configured": self.codex_configured,
             "queue_loaded": self.queue_loaded,
@@ -278,6 +286,7 @@ class FABSManager:
         self._pause_event.set()
         self._stop_flag = False
         self._pipeline_task: Optional[asyncio.Task] = None
+        self._worker_tasks: set[asyncio.Task] = set()
         self._ws_clients: set[WebSocket] = set()
         self._sync_runtime_state()
         self._load_queue()
@@ -297,10 +306,13 @@ class FABSManager:
         if effort not in VALID_REASONING_EFFORTS:
             effort = "medium"
         self._config["codex_reasoning_effort"] = effort
+        self.state.model_config["concurrent_workers"] = max(1, int(self._config.get("concurrent_workers", 1)))
 
     async def close(self) -> None:
         self._stop_flag = True
         self._pause_event.set()
+        for t in list(self._worker_tasks):
+            t.cancel()
         if self._pipeline_task:
             self._pipeline_task.cancel()
             try:
@@ -345,6 +357,12 @@ class FABSManager:
             self._config["refine_enabled"] = enabled
             self.state.model_config["refine_enabled"] = enabled
 
+        if "concurrent_workers" in settings:
+            try:
+                self._config["concurrent_workers"] = max(1, int(settings["concurrent_workers"]))
+            except Exception:
+                self._config["concurrent_workers"] = 1
+
         save_config(self._config)
         self._sync_runtime_state()
         await self._broadcast_state()
@@ -361,6 +379,7 @@ class FABSManager:
             "git_push_remote": self._config.get("git_push_remote", "origin"),
             "git_push_ref": self._config.get("git_push_ref", "HEAD"),
             "min_content_chars": int(self._config.get("min_content_chars", 2200)),
+            "concurrent_workers": int(self._config.get("concurrent_workers", 1)),
         }
         for stage in MODEL_STAGES:
             payload[stage] = self.state.model_config.get(stage, DEFAULT_MODELS[stage])
@@ -502,11 +521,11 @@ class FABSManager:
         ts = datetime.now().strftime("%H:%M:%S")
         await self._broadcast({"type": "log", "level": level, "msg": f"[{ts}] {msg}"})
 
-    async def _broadcast_chunk(self, stage: str, text: str) -> None:
-        await self._broadcast({"type": "stream_chunk", "stage": stage, "text": text})
+    async def _broadcast_chunk(self, stage: str, text: str, worker_id: int = 0) -> None:
+        await self._broadcast({"type": "stream_chunk", "stage": stage, "text": text, "worker_id": worker_id})
 
-    async def _broadcast_stage_start(self, stage: str, slug: str) -> None:
-        await self._broadcast({"type": "stage_start", "stage": stage, "slug": slug})
+    async def _broadcast_stage_start(self, stage: str, slug: str, worker_id: int = 0) -> None:
+        await self._broadcast({"type": "stage_start", "stage": stage, "slug": slug, "worker_id": worker_id})
 
     # ── Controls ───────────────────────────────────────────────
     async def control(self, action: str) -> None:
@@ -531,10 +550,13 @@ class FABSManager:
         elif action == "stop":
             self._stop_flag = True
             self._pause_event.set()
+            for t in list(self._worker_tasks):
+                t.cancel()
             if self._pipeline_task:
                 self._pipeline_task.cancel()
             self.state.running = False
             self.state.paused = False
+            self.state.workers = []
             await self._broadcast_log("info", "Stopped.")
         await self._broadcast_state()
 
@@ -544,74 +566,117 @@ class FABSManager:
         if self._stop_flag:
             raise asyncio.CancelledError("FABS stopped by user")
 
+    # ── Worker state helpers ────────────────────────────────────
+    def _set_worker(self, worker_id: int, slug: str, title: str, category: str, stage: str) -> None:
+        self.state.workers = [w for w in self.state.workers if w["worker_id"] != worker_id]
+        self.state.workers.append({"worker_id": worker_id, "slug": slug, "title": title, "category": category, "stage": stage})
+
+    def _update_worker_stage(self, worker_id: int, stage: str) -> None:
+        for w in self.state.workers:
+            if w["worker_id"] == worker_id:
+                w["stage"] = stage
+
+    def _clear_worker(self, worker_id: int) -> None:
+        self.state.workers = [w for w in self.state.workers if w["worker_id"] != worker_id]
+
     async def _pipeline_loop(self) -> None:
+        n_workers = max(1, int(self._config.get("concurrent_workers", 1)))
         batch_size = self._config.get("batch_size", 0)
-        processed = 0
+        total_processed = 0
+        # Assign worker IDs 1..n_workers in a cyclic pool
+        next_worker_id = 1
+
+        async def run_worker(topic: dict, worker_id: int) -> None:
+            nonlocal total_processed
+            slug = topic["slug"]
+            entry = PostEntry(
+                slug=slug,
+                title=topic["title"],
+                status="queued",
+                category=topic.get("blog_category", ""),
+            )
+            self.state.in_progress.insert(0, entry.to_dict())
+            self.state.current_slug = slug
+            self._set_worker(worker_id, slug, topic["title"], topic.get("blog_category", ""), "queued")
+            self.state.stats["writing_count"] = len(self._worker_tasks)
+            await self._broadcast_state()
+            try:
+                await self._run_topic(topic, worker_id)
+                self._update_queue_status(slug, "done")
+                if self._config.get("auto_git_push", True):
+                    await self._git_commit_push_single(slug)
+                self.state.in_progress = [p for p in self.state.in_progress if p["slug"] != slug]
+                entry.status = "done"
+                self.state.completed.insert(0, entry.to_dict())
+                self.state.stats["published_count"] += 1
+                self.state.stats["pending_count"] = len(self._pending)
+                self._refresh_preview()
+                total_processed += 1
+                await self._broadcast_log("info", f"Published: {topic['title']}")
+            except asyncio.CancelledError:
+                raise
+            except Exception as exc:
+                await self._broadcast_log("error", f"Failed [{slug}]: {exc}")
+                self.state.in_progress = [p for p in self.state.in_progress if p["slug"] != slug]
+                entry.status = "failed"
+                entry.error = str(exc)
+                self.state.failed.insert(0, entry.to_dict())
+                self._update_queue_status(slug, "failed")
+            finally:
+                self._clear_worker(worker_id)
+                self._worker_tasks.discard(asyncio.current_task())  # type: ignore[arg-type]
+                self.state.stats["writing_count"] = len(self._worker_tasks)
+                if not self.state.workers:
+                    self.state.current_slug = None
+                    self.state.current_stage = None
+                await self._broadcast_state()
+
         try:
             while not self._stop_flag:
                 await self._check_pause_or_stop()
+
+                # Clean up done tasks
+                self._worker_tasks = {t for t in self._worker_tasks if not t.done()}
+
                 if not self._pending:
+                    if self._worker_tasks:
+                        await asyncio.gather(*self._worker_tasks, return_exceptions=True)
                     await self._broadcast_log("info", "Queue exhausted. All pending topics done.")
                     break
-                if batch_size > 0 and processed >= batch_size:
+
+                if batch_size > 0 and total_processed >= batch_size:
+                    if self._worker_tasks:
+                        await asyncio.gather(*self._worker_tasks, return_exceptions=True)
                     await self._broadcast_log("info", f"Batch of {batch_size} posts completed.")
                     break
 
-                topic = self._pending[0]
-                slug = topic["slug"]
-                entry = PostEntry(
-                    slug=slug,
-                    title=topic["title"],
-                    status="queued",
-                    category=topic.get("blog_category", ""),
-                )
-                self.state.in_progress.insert(0, entry.to_dict())
-                self.state.current_slug = slug
-                self.state.stats["writing_count"] = 1
-                await self._broadcast_state()
+                if len(self._worker_tasks) >= n_workers:
+                    # Wait for any one worker to free up, then re-loop
+                    await asyncio.wait(self._worker_tasks, return_when=asyncio.FIRST_COMPLETED)
+                    continue
 
-                try:
-                    await self._run_topic(topic)
-                    self._update_queue_status(slug, "done")
-                    if self._config.get("auto_git_push", True):
-                        await self._git_commit_push_single(slug)
-                    if self._pending and self._pending[0].get("slug") == slug:
-                        self._pending.pop(0)
-                    self.state.in_progress = [p for p in self.state.in_progress if p["slug"] != slug]
-                    entry.status = "done"
-                    self.state.completed.insert(0, entry.to_dict())
-                    self.state.stats["published_count"] += 1
-                    self.state.stats["pending_count"] = len(self._pending)
-                    self._refresh_preview()
-                    await self._broadcast_log("info", f"Published: {topic['title']}")
-                    processed += 1
-                except asyncio.CancelledError:
-                    raise
-                except Exception as exc:
-                    await self._broadcast_log("error", f"Failed [{slug}]: {exc}")
-                    if self._pending and self._pending[0].get("slug") == slug:
-                        self._pending.pop(0)
-                    self.state.in_progress = [p for p in self.state.in_progress if p["slug"] != slug]
-                    entry.status = "failed"
-                    entry.error = str(exc)
-                    self.state.failed.insert(0, entry.to_dict())
-                    self._update_queue_status(slug, "failed")
+                topic = self._pending.pop(0)
+                worker_id = next_worker_id
+                next_worker_id = (next_worker_id % n_workers) + 1
+                task = asyncio.create_task(run_worker(topic, worker_id), name=f"fabs-worker-{worker_id}")
+                self._worker_tasks.add(task)
 
-                self.state.current_slug = None
-                self.state.current_stage = None
-                self.state.stats["writing_count"] = 0
-                await self._broadcast_state()
         except asyncio.CancelledError:
-            pass
+            for t in list(self._worker_tasks):
+                t.cancel()
+            if self._worker_tasks:
+                await asyncio.gather(*self._worker_tasks, return_exceptions=True)
         finally:
+            self._worker_tasks.clear()
             self.state.running = False
             self.state.paused = False
             self.state.current_slug = None
             self.state.current_stage = None
+            self.state.workers = []
             self.state.stats["writing_count"] = 0
             await self._broadcast_state()
 
-    async def _run_topic(self, topic: dict) -> None:
+    async def _run_topic(self, topic: dict, worker_id: int = 0) -> None:
         slug = topic["slug"]
         partial: dict[str, str] = {}
 
@@ -621,7 +686,8 @@ class FABSManager:
                 {**p, "status": stage} if p["slug"] == slug else p
                 for p in self.state.in_progress
             ]
-            await self._broadcast_stage_start(stage, slug)
+            self._update_worker_stage(worker_id, stage)
+            await self._broadcast_stage_start(stage, slug, worker_id)
             await self._broadcast_state()
             await self._check_pause_or_stop()
 
@@ -636,6 +702,7 @@ class FABSManager:
                 ),
                 "research",
                 2048,
+                worker_id,
             )
             partial["research"] = research
 
@@ -645,6 +712,7 @@ class FABSManager:
                 OUTLINE_PROMPT.format(title=topic["title"], research=research),
                 "outline",
                 1024,
+                worker_id,
             )
             partial["outline"] = outline
 
@@ -661,6 +729,7 @@ class FABSManager:
                 ),
                 "write",
                 8192,
+                worker_id,
             )
             partial["article"] = article
 
@@ -678,6 +747,7 @@ class FABSManager:
                     REFINE_PROMPT.format(title=topic["title"], article_text=article),
                     "refine",
                     8192,
+                    worker_id,
                 )
                 partial["article_refined"] = article
                 review = self._run_review_local(article)
@@ -695,12 +765,12 @@ class FABSManager:
             raise
 
     # ── Streaming dispatch ─────────────────────────────────────
-    async def _stream_call(self, model: str, prompt: str, stage: str, max_tokens: int) -> str:
+    async def _stream_call(self, model: str, prompt: str, stage: str, max_tokens: int, worker_id: int = 0) -> str:
         _ = max_tokens  # retained for signature compatibility
-        return await self._stream_call_codex(model, prompt, stage)
+        return await self._stream_call_codex(model, prompt, stage, worker_id)
 
     # ── Codex CLI call ─────────────────────────────────────────
-    async def _stream_call_codex(self, model: str, prompt: str, stage: str) -> str:
+    async def _stream_call_codex(self, model: str, prompt: str, stage: str, worker_id: int = 0) -> str:
         effort = self._config.get("codex_reasoning_effort", "medium")
         tmp_output = tempfile.NamedTemporaryFile(prefix="fabs_codex_", suffix=".txt", delete=False)
         tmp_output.close()
@@ -761,7 +831,7 @@ class FABSManager:
             text = out_path.read_text(encoding="utf-8").strip()
             if not text:
                 raise RuntimeError("codex returned empty output")
-            await self._broadcast_chunk(stage, text)
+            await self._broadcast_chunk(stage, text, worker_id)
             return text
         finally:
             try:
@@ -941,6 +1011,35 @@ async def control(action: str) -> dict:
     return {"ok": True}
 
 
+@app.get("/api/host-info")
+async def host_info() -> dict:
+    cpu = os.cpu_count() or 1
+    ram_gb: Optional[float] = None
+    try:
+        import resource
+        ram_gb = None  # resource module doesn't give total RAM
+    except Exception:
+        pass
+    try:
+        # macOS / Linux: read total memory
+        with open("/proc/meminfo") as f:
+            for line in f:
+                if line.startswith("MemTotal:"):
+                    ram_gb = int(line.split()[1]) / (1024 ** 2)
+                    break
+    except Exception:
+        pass
+    if ram_gb is None:
+        try:
+            import subprocess
+            out = subprocess.check_output(["sysctl", "-n", "hw.memsize"], text=True).strip()
+            ram_gb = int(out) / (1024 ** 3)
+        except Exception:
+            pass
+    suggested = max(1, min(cpu - 1, 4))
+    return {"cpu_cores": cpu, "ram_gb": round(ram_gb, 1) if ram_gb else None, "suggested": suggested}
+
+
 @app.get("/api/queue")
 async def get_queue() -> dict:
     return manager.state.to_dict()
@@ -1013,6 +1112,15 @@ async def websocket_endpoint(ws: WebSocket) -> None:
                 await manager._broadcast_state()
             elif action == "save_settings":
                 await manager.update_settings(data.get("settings", {}))
+            elif action == "set_concurrent":
+                try:
+                    n = max(1, int(data.get("workers", 1)))
+                except Exception:
+                    n = 1
+                manager._config["concurrent_workers"] = n
+                manager.state.model_config["concurrent_workers"] = n
+                save_config(manager._config)
+                await manager._broadcast_state()
     except WebSocketDisconnect:
         manager._ws_clients.discard(ws)
     except Exception:
