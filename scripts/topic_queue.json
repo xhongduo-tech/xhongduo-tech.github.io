@@ -3841,7 +3841,7 @@
       "ChatGLM"
     ],
     "brief": "核心要点：GLM-4 在中英双语场景下实现接近 GPT-4 的性能。分析其预训练数据中中英比例的动态调整策略、中英文 SFT 数据的交叉对齐方法、以及如何在 RLHF 阶段保持双语能力不退化的正则化技巧",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Minerva 的数学推理预训练",

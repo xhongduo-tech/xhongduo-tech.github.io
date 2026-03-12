@@ -1,5 +1,17 @@
 [
   {
+    "title": "GLM-4 的中英双语对齐训练",
+    "slug": "glm4-bilingual-alignment",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多语言模型",
+      "ChatGLM"
+    ],
+    "summary": "GLM-4 的关键不是混合中英数据，而是在预训练、SFT、RLHF 三阶段持续约束双语能力不漂移"
+  },
+  {
     "title": "数学推理中的思维链格式设计",
     "slug": "math-reasoning-cot-format-design",
     "date": "2026-03-13",
