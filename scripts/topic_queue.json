@@ -3901,7 +3901,7 @@
       "数据增强"
     ],
     "brief": "核心要点：MetaMath 通过四种数据增强策略（答案增强、问题重述、FOBAR 反向推理、Self-Verification）将 GSM8K 和 MATH 数据从 15K 扩展到 395K。7B 模型在 GSM8K 达 66.5%、MATH 达 19.8%，分析各增强策略的独立贡献和互补效应",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "InternLM-Math 的统一数学推理框架",

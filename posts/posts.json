@@ -1,5 +1,17 @@
 [
   {
+    "title": "MetaMath 的数学数据增强方法",
+    "slug": "metamath-data-augmentation",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "数学推理",
+      "数据增强"
+    ],
+    "summary": "MetaMath的关键不是扩量，而是用反向推理和自检扩展数学推理视角。"
+  },
+  {
     "title": "NuminaMath 的竞赛数学数据构建",
     "slug": "numinamath-competition-data",
     "date": "2026-03-13",
