@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixtral 8x7B 与 DeepSeek MoE 对比",
+    "slug": "mixtral-vs-deepseek-moe-comparison",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MoE",
+      "模型对比"
+    ],
+    "summary": "Mixtral重在低门槛落地，DeepSeekMoE重在细粒度专家与大规模分布式上限"
+  },
+  {
     "title": "MoE 推理加速：专家卸载与预取",
     "slug": "moe-inference-expert-offloading-prefetch",
     "date": "2026-03-12",
