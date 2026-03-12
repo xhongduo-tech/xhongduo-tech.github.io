@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 的 All-to-All 通信优化",
+    "slug": "moe-all-to-all-communication-optimization",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MoE",
+      "分布式系统"
+    ],
+    "summary": "MoE 的扩展瓶颈常在 All-to-All，优化核心是分层通信、重叠执行与低精度传输"
+  },
+  {
     "title": "DeepSeek Coder 的代码预训练策略",
     "slug": "deepseek-coder-pretraining-strategy",
     "date": "2026-03-12",

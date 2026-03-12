@@ -3481,7 +3481,7 @@
       "分布式系统"
     ],
     "brief": "核心要点：MoE的Expert Parallelism需要All-to-All通信将token分发到对应专家所在的GPU。通信量为O(B×d×E/N)，成为MoE扩展瓶颈。优化手段包括：分层All-to-All（节点内NVLINK+节点间IB）、通信-计算重叠、token压缩传输（FP8量化）",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V3 的训练数据配方",
