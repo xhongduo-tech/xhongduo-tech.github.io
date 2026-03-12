@@ -1,5 +1,17 @@
 [
   {
+    "title": "CoT 的自动生成与 Auto-CoT",
+    "slug": "auto-cot-automatic-chain-generation",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "自动化"
+    ],
+    "summary": "Auto-CoT 先聚类题目，再自动生成各类代表推理链，用低维护成本逼近人工 CoT 效果"
+  },
+  {
     "title": "自洽性在代码生成中的应用",
     "slug": "self-consistency-code-generation",
     "date": "2026-03-13",

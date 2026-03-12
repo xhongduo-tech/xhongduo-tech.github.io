@@ -4081,7 +4081,7 @@
       "自动化"
     ],
     "brief": "核心要点：Auto-CoT 通过聚类问题集并让 LLM 为每个簇自动生成示范推理链，消除人工编写 few-shot 示例的成本。采用多样性采样 + Zero-shot CoT 构建示范集，在 10 个推理基准上平均仅落后人工 CoT 1-2%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ReAct 中的观察信息压缩策略",
