@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V3 的训练数据配方",
+    "slug": "deepseek-v3-training-data-recipe",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "预训练"
+    ],
+    "summary": "DeepSeek-V3 先用通用大语料打底，再用数学、代码与长文分阶段强化到128K。"
+  },
+  {
     "title": "DeepSeek-Math 的数学推理训练",
     "slug": "deepseek-math-reasoning-training",
     "date": "2026-03-12",
