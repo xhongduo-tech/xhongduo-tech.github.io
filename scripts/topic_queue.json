@@ -3469,7 +3469,7 @@
       "数学推理"
     ],
     "brief": "核心要点：DeepSeek-Math从Common Crawl中提取120B高质量数学语料，使用fastText分类器筛选。RL阶段采用GRPO在MATH和GSM8K上训练，引入过程奖励和结果奖励的混合信号。7B模型在MATH上达51.7%（超越GPT-4早期），验证了数据质量>数据规模的假设",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 的 All-to-All 通信优化",

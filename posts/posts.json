@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-Math 的数学推理训练",
+    "slug": "deepseek-math-reasoning-training",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "数学推理"
+    ],
+    "summary": "DeepSeek-Math证明了高质量数学语料加GRPO，比单纯堆参数更能提升7B模型数学推理。"
+  },
+  {
     "title": "推理强化训练中的奖励设计",
     "slug": "reasoning-rl-reward-design",
     "date": "2026-03-12",
