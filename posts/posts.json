@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-V2 的 RoPE 解耦设计",
+    "slug": "deepseek-v2-rope-decoupled-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "位置编码"
+    ],
+    "summary": "DeepSeek-V2 将 RoPE 从 MLA 压缩路径中拆出，用小维度位置通道兼顾长上下文与低缓存。"
+  },
+  {
     "title": "MoE 的细粒度专家分割策略",
     "slug": "moe-fine-grained-expert-segmentation",
     "date": "2026-03-12",

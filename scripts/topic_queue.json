@@ -3433,7 +3433,7 @@
       "位置编码"
     ],
     "brief": "核心要点：MLA中的低秩压缩与RoPE的位置相关性存在冲突——RoPE作用于Q/K后无法被压缩矩阵吸收。V2的解决方案是将Q/K各分出一小部分维度（d_r=64）专门携带RoPE，其余维度走压缩路径，两部分拼接后做注意力，兼顾位置感知与缓存压缩",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V3 的 DualPipe 并行策略",
