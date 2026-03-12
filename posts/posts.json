@@ -1,5 +1,17 @@
 [
   {
+    "title": "思维链的长度与推理深度关系",
+    "slug": "cot-length-reasoning-depth",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "推理能力"
+    ],
+    "summary": "思维链存在最优长度，过短会跳步，过长会因错误累积降低整体推理准确率。"
+  },
+  {
     "title": "ReAct 中的观察信息压缩策略",
     "slug": "react-observation-compression",
     "date": "2026-03-13",
