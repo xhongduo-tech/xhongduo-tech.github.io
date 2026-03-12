@@ -1,5 +1,17 @@
 [
   {
+    "title": "NuminaMath 的竞赛数学数据构建",
+    "slug": "numinamath-competition-data",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "数学推理",
+      "数据集"
+    ],
+    "summary": "NuminaMath 的优势不只在题量，更在 CoT→TIR 两阶段数据与受限资源下的稳健推理设计"
+  },
+  {
     "title": "数学推理中的自一致性解码",
     "slug": "math-self-consistency-decoding",
     "date": "2026-03-13",

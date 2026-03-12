@@ -3925,7 +3925,7 @@
       "数据集"
     ],
     "brief": "核心要点：NuminaMath 在 AIMO 竞赛中获胜，核心是高质量竞赛数学数据集构建。包含来自 AMC/AIME/IMO 等竞赛的 860K 题目，每题配有 CoT 和 Tool-Integrated Reasoning 两种解法。分析竞赛数据的难度分级策略和课程学习训练方案",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数学推理中的自一致性解码",
