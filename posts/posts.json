@@ -1,5 +1,17 @@
 [
   {
+    "title": "Switch Transformer 到 V-MoE 的演进",
+    "slug": "switch-transformer-to-vmoe-evolution",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MoE",
+      "架构演进"
+    ],
+    "summary": "MoE 路由从 GShard 的 Top-2 走向 Switch 的 Top-1，再到 V-MoE 用优先级在固定容量…"
+  },
+  {
     "title": "DeepSeek-V3 的训练数据配方",
     "slug": "deepseek-v3-training-data-recipe",
     "date": "2026-03-12",

@@ -3541,7 +3541,7 @@
       "架构演进"
     ],
     "brief": "核心要点：Switch Transformer（2021）首次将MoE扩展到Top-1路由，简化实现但牺牲表达力。V-MoE（2022）将MoE引入ViT并提出优先路由（priority routing），按token重要性分配专家容量。从GShard的Top-2到Switch的Top-1再到V-MoE的自适应，路由策略持续演进",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixtral 8x7B 与 DeepSeek MoE 对比",
