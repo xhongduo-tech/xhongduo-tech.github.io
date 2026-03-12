@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态对比学习：CLIP 到 SigLIP 演进",
+    "slug": "multimodal-contrastive-learning-clip-siglip",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "对比学习"
+    ],
+    "summary": "SigLIP 用成对 sigmoid 损失替代 CLIP softmax，核心价值是降低全局 batch 通信依赖。"
+  },
+  {
     "title": "Gemini 的 Thinking 模式：显式推理链",
     "slug": "gemini-thinking-mode-reasoning",
     "date": "2026-03-12",

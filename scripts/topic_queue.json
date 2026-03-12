@@ -3214,7 +3214,7 @@
       "对比学习"
     ],
     "brief": "核心要点：SigLIP 用 sigmoid 损失替代 CLIP 的 softmax 对比损失，解除了对全局 batch 通信的依赖。分析其损失函数改进、训练效率提升、在 Gemini/PaLI 视觉编码器中的应用",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的上下文缓存：成本优化机制",
