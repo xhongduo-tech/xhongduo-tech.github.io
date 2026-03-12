@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 的多模态 Tokenizer 设计",
+    "slug": "gemini-multimodal-tokenizer-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "Tokenizer"
+    ],
+    "summary": "Gemini 的关键不是把媒体变成文字，而是把多模态统一成同一条可预算、可对齐的 token 序列。"
+  },
+  {
     "title": "GQA 在长上下文模型中的关键作用",
     "slug": "gqa-grouped-query-attention-long-context",
     "date": "2026-03-12",

@@ -3142,7 +3142,7 @@
       "Tokenizer"
     ],
     "brief": "核心要点：Gemini 需要将文本、图像、音频、视频统一编码为 token 序列。分析其 SentencePiece 文本分词、视觉 patch tokenization、音频帧分词及跨模态特殊 token 设计",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "YaRN：位置编码外推的频率调制",
