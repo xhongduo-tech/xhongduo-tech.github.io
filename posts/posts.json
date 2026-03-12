@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码执行结果的可视化渲染管线",
+    "slug": "code-execution-visualization-pipeline",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "代码执行",
+      "可视化"
+    ],
+    "summary": "可视化渲染管线的关键是把数值真值、图像理解和语言生成分层并可验证。"
+  },
+  {
     "title": "自洽性在多语言推理中的表现差异",
     "slug": "self-consistency-multilingual-reasoning",
     "date": "2026-03-13",

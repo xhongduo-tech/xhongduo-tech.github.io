@@ -4623,7 +4623,7 @@
       "可视化"
     ],
     "brief": "核心要点：代码执行 Agent 生成可视化的完整管线：matplotlib/plotly 图表生成 → 图像序列化（base64/文件路径）→ 多模态模型解读 → 自然语言描述。实测 GPT-4V 对 matplotlib 图表的数据点读取误差约 5-15%，趋势判断准确率约 85%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "浏览器 Agent 的多标签页协同控制",
