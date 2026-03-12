@@ -3130,7 +3130,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：Grouped Query Attention 通过共享 KV head 将 KV cache 压缩为 MHA 的 1/N。分析 GQA 的数学等价性、head 分组策略对质量的影响、从 MHA 到 GQA 的 uptrain 方法及在 Gemini 中的应用",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的多模态 Tokenizer 设计",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "GQA 在长上下文模型中的关键作用",
+    "slug": "gqa-grouped-query-attention-long-context",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "长上下文",
+      "注意力机制"
+    ],
+    "summary": "GQA通过共享KV头压缩长上下文缓存，在质量与推理资源之间提供可调折中"
+  },
+  {
     "title": "Gemini 的 Grounding 机制：搜索增强生成",
     "slug": "gemini-grounding-search-augmented",
     "date": "2026-03-12",
