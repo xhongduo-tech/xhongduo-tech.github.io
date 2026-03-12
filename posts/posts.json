@@ -1,5 +1,17 @@
 [
   {
+    "title": "多 Agent 共享记忆的一致性与冲突解决",
+    "slug": "multi-agent-shared-memory-consistency",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "共享记忆"
+    ],
+    "summary": "多Agent共享记忆要先判因果，再做CRDT合并，否则协作会被覆写和旧值拖垮"
+  },
+  {
     "title": "记忆的元数据标注与多维度过滤检索",
     "slug": "memory-metadata-annotation-filtered-retrieval",
     "date": "2026-03-13",
