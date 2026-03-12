@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE 中共享专家的设计原理",
+    "slug": "moe-shared-expert-design",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MoE",
+      "架构设计"
+    ],
+    "summary": "共享专家把通用知识固定承载，减少路由专家重复学习公共特征。"
+  },
+  {
     "title": "DeepSeek-V2 的 RoPE 解耦设计",
     "slug": "deepseek-v2-rope-decoupled-design",
     "date": "2026-03-12",
