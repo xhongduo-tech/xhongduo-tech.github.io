@@ -3853,7 +3853,7 @@
       "PaLM"
     ],
     "brief": "核心要点：Google Minerva 基于 PaLM 540B 在 38.5B token 数学数据（arXiv + 网页数学内容）上续训。分析其 LaTeX 公式归一化处理、数学特有 token 的引入，以及在 MATH 基准上达到 50.3% 的多数投票（maj@k）策略",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Llemma 的开源数学语言模型",
