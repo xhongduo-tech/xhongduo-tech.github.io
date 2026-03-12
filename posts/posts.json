@@ -1,5 +1,17 @@
 [
   {
+    "title": "长上下文评估方法论：超越 NIAH",
+    "slug": "long-context-evaluation-beyond-niah",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "长上下文",
+      "评估方法"
+    ],
+    "summary": "长上下文评估要看多跳、聚合与退化曲线，不能只看 NIAH 找针能力"
+  },
+  {
     "title": "Gemini 的 Function Calling 实现机制",
     "slug": "gemini-function-calling-mechanism",
     "date": "2026-03-12",

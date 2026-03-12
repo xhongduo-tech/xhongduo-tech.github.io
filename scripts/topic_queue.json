@@ -3190,7 +3190,7 @@
       "评估方法"
     ],
     "brief": "核心要点：Needle-in-a-Haystack 过于简单，无法区分真正的长程理解能力。分析 RULER、LongBench、InfiniteBench 等评估框架的设计理念、任务分类及 Gemini 1.5 在各维度的表现",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的 Thinking 模式：显式推理链",
