@@ -1,5 +1,17 @@
 [
   {
+    "title": "ToT 的启发式评估函数设计",
+    "slug": "tot-heuristic-evaluation-function",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "ToT",
+      "启发式搜索"
+    ],
+    "summary": "ToT 的关键不只是多分支生成，而是用可校准的评估函数把预算集中到更有潜力的思路上。"
+  },
+  {
     "title": "CoT 的自动生成与 Auto-CoT",
     "slug": "auto-cot-automatic-chain-generation",
     "date": "2026-03-13",
