@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-R1 的冷启动数据构建",
+    "slug": "deepseek-r1-cold-start-data",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "数据工程"
+    ],
+    "summary": "DeepSeek-R1 先用高质量<think>冷启动定格式，再用 RL 放大推理深度。"
+  },
+  {
     "title": "Switch Transformer 到 V-MoE 的演进",
     "slug": "switch-transformer-to-vmoe-evolution",
     "date": "2026-03-12",

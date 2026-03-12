@@ -3529,7 +3529,7 @@
       "数据工程"
     ],
     "brief": "核心要点：R1（非Zero版本）使用数千条高质量长思维链数据做SFT冷启动，再接RL训练。冷启动数据包含详细推理步骤、自我反思和验证，格式为<think>...</think>标签包裹。冷启动解决了R1-Zero的可读性和语言混杂问题，同时保留了RL涌现推理的优势",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Switch Transformer 到 V-MoE 的演进",
