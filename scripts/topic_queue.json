@@ -3358,7 +3358,7 @@
       "推理能力"
     ],
     "brief": "核心要点：R1-Zero直接在基础模型上做RL，无SFT冷启动，观察到推理行为的自然涌现：思维链长度从数百token增长到数千token，出现自我验证和回溯修正。但也存在可读性差、语言混杂等问题，揭示了RL训练中reasoning的本质特征",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GRPO",

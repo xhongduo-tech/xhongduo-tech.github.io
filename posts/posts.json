@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-R1-Zero 的推理涌现现象",
+    "slug": "deepseek-r1-zero-emergent-reasoning",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "推理能力"
+    ],
+    "summary": "R1-Zero 证明纯 RL 也能催生长链推理、自检与回溯，但代价是冗长、混语和可读性差"
+  },
+  {
     "title": "DeepSeek-R1 的强化学习推理训练",
     "slug": "deepseek-r1-reinforcement-learning",
     "date": "2026-03-12",
