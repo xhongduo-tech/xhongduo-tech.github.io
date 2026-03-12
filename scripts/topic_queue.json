@@ -3457,7 +3457,7 @@
       "代码生成"
     ],
     "brief": "核心要点：DeepSeek-Coder在2T tokens上训练（87%代码+13%自然语言），采用repo-level代码组织和FIM（Fill-in-the-Middle）训练。仓库级上下文通过依赖拓扑排序文件顺序，FIM以PSM模式（Prefix-Suffix-Middle）训练，使模型具备代码补全和跨文件理解能力",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-Math 的数学推理训练",

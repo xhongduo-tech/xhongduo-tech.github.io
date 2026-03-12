@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek Coder 的代码预训练策略",
+    "slug": "deepseek-coder-pretraining-strategy",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "代码生成"
+    ],
+    "summary": "DeepSeek Coder通过仓库级排序与FIM训练，把代码建模从单文件续写推进到跨文件补全。"
+  },
+  {
     "title": "DeepSeek-V3 的 DualPipe 并行策略",
     "slug": "deepseek-v3-dualpipe-parallelism",
     "date": "2026-03-12",
