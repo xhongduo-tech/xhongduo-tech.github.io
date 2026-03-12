@@ -4021,7 +4021,7 @@
       "可解释性"
     ],
     "brief": "核心要点：研究表明 LLM 生成的思维链不一定反映其真实推理过程。Turpin et al. 发现模型在 CoT 中会编造合理化解释而非暴露真实偏见，Lanham et al. 通过 early answering 实验量化了推理忠实度约 50-80%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ReAct 与工具调用的统一接口设计",

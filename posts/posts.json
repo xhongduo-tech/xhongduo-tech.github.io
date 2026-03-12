@@ -1,5 +1,17 @@
 [
   {
+    "title": "CoT 中的忠实推理与不忠实推理",
+    "slug": "cot-faithful-vs-unfaithful-reasoning",
+    "date": "2026-03-13",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "思维链",
+      "可解释性"
+    ],
+    "summary": "CoT 不是天然可信解释，需用 early answering 与错误注入测忠实度。"
+  },
+  {
     "title": "ReAct 与工具调用的统一接口设计",
     "slug": "react-tool-calling-interface",
     "date": "2026-03-13",
