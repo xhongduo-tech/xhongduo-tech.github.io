@@ -3058,7 +3058,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：超长序列中注意力分布高度稀疏，大部分 token 对间注意力权重接近零。分析 attention sink 现象、局部注意力模式、稀疏注意力的理论保证及 Gemini 1.5 利用稀疏性提速的可能方案",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 的多模态安全对齐",

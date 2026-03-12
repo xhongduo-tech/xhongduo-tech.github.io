@@ -1,5 +1,17 @@
 [
   {
+    "title": "长上下文中的注意力稀疏性",
+    "slug": "attention-sparsity-long-context",
+    "date": "2026-03-12",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "长上下文",
+      "注意力机制"
+    ],
+    "summary": "长上下文注意力天然稀疏，靠局部窗口、全局锚点与动态选点可把成本从平方级降到近线性。"
+  },
+  {
     "title": "Gemini 的跨模态注意力融合策略",
     "slug": "gemini-cross-modal-attention-fusion",
     "date": "2026-03-12",
