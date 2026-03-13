@@ -1272,3 +1272,190 @@ main.container {
   .tl-card       { padding: 9px 12px 10px; }
   .tl-legend     { gap: 8px; }
 }
+
+/* ===== Hero 统计行 ===== */
+.hero-stats {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-stats:empty { display: none; }
+.hero-stats-sep { color: var(--border); }
+
+/* ===== 过滤栏：分类 + 搜索联排 ===== */
+.filter-top-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter-top-row .category-tabs {
+  flex: 1;
+  min-width: 0;
+}
+.filter-top-row .search-wrap {
+  width: 200px;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .filter-top-row { flex-direction: column; align-items: stretch; }
+  .filter-top-row .search-wrap { width: 100%; }
+}
+
+/* ===== Heading 锚点滚动偏移 ===== */
+.post-body h2[id],
+.post-body h3[id] {
+  scroll-margin-top: 72px;
+}
+
+/* ===== TOC 侧边栏 ===== */
+.toc-sidebar {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: calc(50% + 408px);
+  width: 168px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 50;
+  scrollbar-width: none;
+}
+.toc-sidebar::-webkit-scrollbar { display: none; }
+
+@media (min-width: 1200px) {
+  .toc-sidebar { display: block; }
+}
+
+.toc-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.toc-link {
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: block;
+  padding: 4px 8px 4px 12px;
+  border-left: 1px solid transparent;
+  text-decoration: none;
+  border-radius: 0 3px 3px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.toc-link:hover {
+  color: var(--text);
+  border-left-color: var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  text-decoration: none;
+}
+.toc-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(34, 211, 238, 0.04);
+}
+[data-theme="light"] .toc-link:hover  { background: rgba(0, 0, 0, 0.03); }
+[data-theme="light"] .toc-link.active { background: rgba(8, 145, 178, 0.05); }
+
+/* ===== 回到顶部 ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s, color 0.15s, border-color 0.15s, background 0.15s;
+  z-index: 90;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(34, 211, 238, 0.04);
+}
+
+/* ===== 分类分组标题强化 ===== */
+.post-section-header {
+  position: relative;
+}
+.post-section-header::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0.15;
+  border-radius: 1px;
+}
+
+/* ===== 文章页 — 面包屑 ===== */
+.post-breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.post-breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.post-breadcrumb a:hover { color: var(--accent); }
+.post-breadcrumb .sep { opacity: 0.4; }
+
+/* ===== 文章 header 微调 ===== */
+.post-header {
+  background: linear-gradient(
+    to bottom,
+    rgba(34, 211, 238, 0.025),
+    transparent 80%
+  );
+}
+[data-theme="light"] .post-header {
+  background: linear-gradient(to bottom, rgba(8, 145, 178, 0.04), transparent 80%);
+}

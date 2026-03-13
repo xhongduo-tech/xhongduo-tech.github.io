@@ -98,6 +98,14 @@ async function initIndexPage() {
   // 按日期降序
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+  // Hero 统计
+  const statsEl = document.getElementById('hero-stats');
+  if (statsEl) {
+    const cats = new Set(posts.map(p => p.tags?.[0]).filter(Boolean)).size;
+    statsEl.innerHTML =
+      `<span>${posts.length} posts</span><span class="hero-stats-sep">·</span><span>${cats} categories</span>`;
+  }
+
   // State
   let activeCategory = 'all';
   let activeTag      = null;
@@ -361,6 +369,26 @@ async function initPostPage() {
     <div class="post-body">${bodyHtml}</div>
   `;
 
+  // 面包屑
+  const breadcrumb = document.createElement('div');
+  breadcrumb.className = 'post-breadcrumb';
+  breadcrumb.innerHTML = `<a href="index.html">← posts</a><span class="sep">/</span><span>${escapeHtml(post.title)}</span>`;
+  contentEl.insertBefore(breadcrumb, contentEl.firstChild);
+
+  // TOC 侧边栏
+  buildPostToc();
+
+  // 回到顶部按钮
+  const topBtn = document.createElement('button');
+  topBtn.className = 'back-to-top';
+  topBtn.textContent = '↑';
+  topBtn.setAttribute('aria-label', 'Back to top');
+  document.body.appendChild(topBtn);
+  window.addEventListener('scroll', () => {
+    topBtn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
   // 上一篇 / 下一篇（列表已按日期降序，idx-1 = 更新，idx+1 = 更早）
   const navEl = document.getElementById('post-nav');
   const prev  = posts[idx - 1];
@@ -395,6 +423,41 @@ async function initPostPage() {
 
   setupFollow(post);
   setupFeedback(post);
+}
+
+/* ===================================================
+   TOC 侧边栏
+   =================================================== */
+function buildPostToc() {
+  const headings = [...document.querySelectorAll('.post-body h2')];
+  if (headings.length < 3) return;
+
+  // 给每个 h2 加 id
+  headings.forEach((h, i) => {
+    if (!h.id) h.id = `s${i}`;
+  });
+
+  const toc = document.createElement('nav');
+  toc.className = 'toc-sidebar';
+  toc.setAttribute('aria-label', 'Table of contents');
+  toc.innerHTML = `
+    <div class="toc-label">// contents</div>
+    <ul class="toc-list">
+      ${headings.map(h =>
+        `<li><a class="toc-link" href="#${h.id}">${escapeHtml(h.textContent.trim())}</a></li>`
+      ).join('')}
+    </ul>`;
+  document.body.appendChild(toc);
+
+  // 滚动高亮当前章节
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const link = toc.querySelector(`[href="#${entry.target.id}"]`);
+      if (link) link.classList.toggle('active', entry.isIntersecting);
+    });
+  }, { rootMargin: '-5% 0px -65% 0px' });
+
+  headings.forEach(h => observer.observe(h));
 }
 
 /* ===================================================
