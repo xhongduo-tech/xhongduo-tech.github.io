@@ -89,6 +89,24 @@
         <div class="project-grid">
           <div class="project-card">
             <div class="project-header">
+              <span class="project-name">Offline LLM Inference Stack</span>
+              <span class="project-lang">llama.cpp / Docker / Nginx</span>
+              <span class="project-status status-done">已完成</span>
+            </div>
+            <p class="project-desc">
+              在麒麟 V10 + V100 离线内网上部署量化大模型推理服务的完整工程方案。
+              采用 GGUF Q4_K_M + llama.cpp（纯 CUDA、Volta 架构优化，规避 Flash-Attention 依赖），
+              以 Docker Compose 编排多模型实例，Nginx 作 API 网关，对外暴露 OpenAI 兼容接口。
+              覆盖内核一致性校验、Nouveau 驱动屏蔽至服务上线的五阶段流程，全程无外网访问。
+            </p>
+            <p class="project-dates">// 2026-01 → 2026-02</p>
+            <div class="project-links">
+              <a href="https://github.com/xhongduo-tech/v100-llm-deploy" target="_blank" rel="noopener">→ GitHub</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
               <span class="project-name">Offline Vector Cluster</span>
               <span class="project-lang">Docker / Nginx / Shell</span>
               <span class="project-status status-done">已完成</span>
