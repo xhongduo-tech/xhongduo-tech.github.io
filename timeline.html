@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>timeline · xhd.log</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var t = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">
+          <span class="prompt">&gt;</span>xhd
+        </a>
+        <div class="nav-links">
+          <a href="index.html">posts</a>
+          <a href="projects.html">projects</a>
+          <a href="timeline.html" class="active">timeline</a>
+          <a href="about.html">about</a>
+          <a href="https://github.com/xhongduo-tech" class="github-btn" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+          <button id="theme-toggle" class="theme-btn" aria-label="切换主题">[light]</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="post-article about-page">
+      <section class="hero">
+        <div class="hero-cmd">
+          <span class="prompt">$</span> git log --all --oneline --graph --ai
+        </div>
+        <h1>AI Timeline<span class="blink">_</span></h1>
+        <p class="hero-sub">// 从图灵测试到推理模型竞赛——将节点串成脉络，而非罗列历史</p>
+      </section>
+
+      <div class="post-body">
+
+        <!-- 图例 -->
+        <div class="tl-legend">
+          <span class="tl-legend-item"><span class="tl-legend-dot major"></span>关键转折点</span>
+          <span class="tl-legend-item"><span class="tl-legend-dot minor"></span>重要事件</span>
+          <span style="margin-left:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+            <span class="tl-tag tl-tag-arch">架构</span>
+            <span class="tl-tag tl-tag-model">模型</span>
+            <span class="tl-tag tl-tag-product">产品</span>
+            <span class="tl-tag tl-tag-open">开源</span>
+            <span class="tl-tag tl-tag-agent">Agent</span>
+            <span class="tl-tag tl-tag-multi">多模态</span>
+            <span class="tl-tag tl-tag-reason">推理</span>
+            <span class="tl-tag tl-tag-sci">科学</span>
+          </span>
+        </div>
+
+        <div class="timeline">
+
+          <!-- ── ERA 1 ── -->
+          <div class="tl-era">
+            <div class="tl-era-label">基础奠定 · 1950–2016</div>
+            <p class="tl-era-sub">// 神经网络的漫长前夜：从哲学命题到工程突破</p>
+          </div>
+
+          <div class="tl-item early">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">1950</span>
+                <span class="tl-title">图灵测试</span>
+              </div>
+              <p class="tl-desc">Alan Turing 在《计算机器与智能》中提出：若机器的回答使人无法分辨其为机器，则视其为"能思考"。<strong>AI 哲学问题的起点</strong>，而非技术路线图。</p>
+            </div>
+          </div>
+
+          <div class="tl-item early">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">1956</span>
+                <span class="tl-title">Dartmouth 会议</span>
+              </div>
+              <p class="tl-desc">McCarthy、Minsky 等人首次使用"人工智能"一词，确立 AI 为独立研究领域。随后数十年以规则系统、专家系统为主线——路走对了，工具错了。</p>
+            </div>
+          </div>
+
+          <div class="tl-item early">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">1986</span>
+                <span class="tl-title">反向传播算法</span>
+              </div>
+              <p class="tl-desc">Rumelhart、Hinton、Williams 将 BP 算法系统化发表，多层神经网络训练在理论上成立。<strong>此后 26 年，算力与数据都不够，理论先等着</strong>。</p>
+            </div>
+          </div>
+
+          <div class="tl-item early">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">1997</span>
+                <span class="tl-title">Deep Blue 击败卡斯帕罗夫</span>
+              </div>
+              <p class="tl-desc">IBM 超级计算机在正式比赛中首次击败人类国际象棋世界冠军。象征意义远大于技术意义——这是<strong>暴力搜索</strong>，不是智能，但全球开始认真对待 AI。</p>
+            </div>
+          </div>
+
+          <div class="tl-item early major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2012</span>
+                <span class="tl-title">AlexNet — 深度学习革命</span>
+                <span class="tl-tag tl-tag-arch">架构</span>
+              </div>
+              <p class="tl-desc">Hinton 团队在 ImageNet 上以 <strong>top-5 错误率 15.3%</strong> 夺冠（第二名 26.2%）。GPU 并行 + 大数据 + 深度 CNN 的组合<strong>彻底终结了手工特征工程时代</strong>，拉开深度学习序幕。</p>
+            </div>
+          </div>
+
+          <!-- ── ERA 2 ── -->
+          <div class="tl-era">
+            <div class="tl-era-label">Transformer 奠基 · 2017–2020</div>
+            <p class="tl-era-sub">// 统一架构出现，预训练范式确立，规模红利浮现</p>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2017.06</span>
+                <span class="tl-title">Attention Is All You Need</span>
+                <span class="tl-tag tl-tag-arch">架构</span>
+              </div>
+              <p class="tl-desc">Google Brain 8 人团队发表 Transformer，<strong>纯注意力机制彻底取代 RNN/LSTM</strong>。无递归结构使并行训练成为可能，序列建模范式被重写。此后所有大模型的统一底座由此而来。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2018.06</span>
+                <span class="tl-title">GPT-1</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc">OpenAI 将 Transformer 用于语言模型<strong>无监督预训练 + 有监督微调</strong>，1.17 亿参数，验证"预训练迁移"路线的可行性。GPT 系列的起点。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2018.10</span>
+                <span class="tl-title">BERT</span>
+                <span class="tl-tag tl-tag-arch">架构</span>
+              </div>
+              <p class="tl-desc">Google 提出双向预训练语言模型，<strong>MLM（掩码语言模型）+ NSP</strong> 任务使上下文理解能力大幅超越单向模型，横扫 11 项 NLP 基准。Encoder-only 路线的集大成者。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2019.02</span>
+                <span class="tl-title">GPT-2 — "危险到无法发布"</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc">15 亿参数，生成文本质量使 OpenAI 以"滥用风险"为由<strong>拒绝完整开放</strong>——这是历史上第一次 AI 安全被公开讨论。事后来看，担忧提前了几年，但意识觉醒有价值。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2020.05</span>
+                <span class="tl-title">GPT-3 — 规模涌现</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc"><strong>1750 亿参数</strong>，few-shot 能力涌现：无需微调，凭三五示例即可执行翻译、摘要、代码生成。<strong>"规模即智能"假说首次获得强证据</strong>，Scaling Law 成为主流信条。API 商业化路线同步确立。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2020.12</span>
+                <span class="tl-title">AlphaFold 2 — AI 进入科学发现</span>
+                <span class="tl-tag tl-tag-sci">科学</span>
+              </div>
+              <p class="tl-desc">DeepMind 在 CASP14 以<strong>近原子精度预测蛋白质三维结构</strong>，解决了结构生物学 50 年难题。标志深度学习从感知任务突破至科学发现领域，AI for Science 路线正式确立。</p>
+            </div>
+          </div>
+
+          <!-- ── ERA 3 ── -->
+          <div class="tl-era">
+            <div class="tl-era-label">对齐与商业化 · 2021–2022</div>
+            <p class="tl-era-sub">// RLHF 让模型学会"听话"，生成式 AI 首次大规模落地</p>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2021.06</span>
+                <span class="tl-title">GitHub Copilot</span>
+                <span class="tl-tag tl-tag-product">产品</span>
+              </div>
+              <p class="tl-desc">OpenAI Codex 驱动的代码补全工具进入技术预览，<strong>首个在生产环境大规模落地的 LLM 应用</strong>。开发者工作流被重构，AI 从研究走向日常工具的第一步。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2022.01</span>
+                <span class="tl-title">InstructGPT — RLHF 对齐</span>
+                <span class="tl-tag tl-tag-arch">架构</span>
+              </div>
+              <p class="tl-desc">OpenAI 将<strong>人类反馈强化学习（RLHF）</strong>引入语言模型，使模型行为从"预测下一 token"转向"遵循人类意图"。规模更小却被用户偏好超过 GPT-3，<strong>奠定 ChatGPT 的直接技术基础</strong>。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2022.04</span>
+                <span class="tl-title">DALL·E 2 — 文本生成图像</span>
+                <span class="tl-tag tl-tag-multi">多模态</span>
+              </div>
+              <p class="tl-desc">扩散模型（Diffusion Model）+ CLIP 使文本到图像质量<strong>首次超越公众预期边界</strong>。生成式 AI 不再是语言专属，多模态时代的序幕从这里掀开。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2022.08</span>
+                <span class="tl-title">Stable Diffusion — 开源扩散模型</span>
+                <span class="tl-tag tl-tag-open">开源</span>
+                <span class="tl-tag tl-tag-multi">多模态</span>
+              </div>
+              <p class="tl-desc">Stability AI 开源高质量图像生成模型，<strong>将图像生成门槛降至零</strong>，消费级 GPU 即可本地运行。LoRA、ControlNet 等社区扩展随即涌现，创作工具生态 Cambrian 爆发。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2022.11.30</span>
+                <span class="tl-title">ChatGPT — 奇点时刻</span>
+                <span class="tl-tag tl-tag-product">产品</span>
+              </div>
+              <p class="tl-desc">GPT-3.5 + RLHF 封装为对话产品，上线 <strong>5 天 100 万用户，2 个月突破 1 亿</strong>——史上增长最快的消费应用。触发全球 AI 战略重估，微软、谷歌、百度相继进入战时状态。</p>
+            </div>
+          </div>
+
+          <!-- ── ERA 4 ── -->
+          <div class="tl-era">
+            <div class="tl-era-label">大爆炸 · 2023</div>
+            <p class="tl-era-sub">// 闭源与开源两条线同步爆发，Agent 范式首次成型</p>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2023.02</span>
+                <span class="tl-title">LLaMA — 开源生态引爆</span>
+                <span class="tl-tag tl-tag-open">开源</span>
+              </div>
+              <p class="tl-desc">Meta AI 开源 7B–65B 语言模型，泄露版本迅速在社区传播。<strong>Alpaca、Vicuna、WizardLM 系列接连涌现</strong>，打破闭源垄断，任何人都可以在笔记本上运行并微调大模型。开源 LLM 生态由此奠基。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2023.03</span>
+                <span class="tl-title">GPT-4 — 多模态旗舰</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc">支持图像输入，跨领域推理大幅提升——律师资格考试成绩超过 <strong>90% 人类考生</strong>。闭源壁垒与开源生态的对立格局正式确立，"大模型军备竞赛"一词开始频繁出现。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2023.03</span>
+                <span class="tl-title">Claude 1 — 宪法 AI</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc">Anthropic 发布首版 Claude，采用<strong>宪法 AI（Constitutional AI）</strong>对齐方法：用原则性规则驱动自我批判与修正，大幅减少人工标注依赖，提供对齐路线的另一种范式。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2023.04</span>
+                <span class="tl-title">AutoGPT — Agent 范式首次流行</span>
+                <span class="tl-tag tl-tag-agent">Agent</span>
+              </div>
+              <p class="tl-desc">首个获得广泛关注的 LLM 自主 Agent 框架，将<strong>"任务分解—工具调用—自我反思"循环</strong>带入公众视野。GitHub 数日内破万星，触发 LangChain、AutoGen、BabyAGI 等 Agent 框架潮。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2023.07</span>
+                <span class="tl-title">LLaMA 2 — 开源商用</span>
+                <span class="tl-tag tl-tag-open">开源</span>
+              </div>
+              <p class="tl-desc">Meta 与微软合作发布，附带<strong>商业友好许可证</strong>，开源 LLM 首次可合法用于商业产品。Chat 版本同步发布，开源对话模型与 ChatGPT 的差距开始缩小。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2023.09</span>
+                <span class="tl-title">Mistral 7B — 小模型效率极限</span>
+                <span class="tl-tag tl-tag-open">开源</span>
+              </div>
+              <p class="tl-desc">7B 参数超越同规模所有竞品，<strong>滑动窗口注意力（SWA）+ 分组查询注意力（GQA）</strong>证明架构效率优化空间巨大。随后的 Mixtral-8x7B 将 MoE 路线推向开源主流。</p>
+            </div>
+          </div>
+
+          <!-- ── ERA 5 ── -->
+          <div class="tl-era">
+            <div class="tl-era-label">多模态与工具竞速 · 2024</div>
+            <p class="tl-era-sub">// 感知边界扩展，推理能力开始成为新的分水岭</p>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2024.02</span>
+                <span class="tl-title">Sora — 视频世界模型</span>
+                <span class="tl-tag tl-tag-multi">多模态</span>
+              </div>
+              <p class="tl-desc">OpenAI 发布文本生成视频模型，<strong>60 秒高保真视频</strong>，物理世界连贯性超出预期。"Sora 是世界模型的雏形"的讨论引发学界对视觉预训练路线的重估，但技术细节至今未完全公开。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2024.03</span>
+                <span class="tl-title">Claude 3 — Opus / Sonnet / Haiku</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc">三档能力/成本定位，<strong>Opus 在多项基准首次超越 GPT-4</strong>，Anthropic 建立与 OpenAI 对等的竞争地位。分级产品策略成为行业标配。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2024.05</span>
+                <span class="tl-title">GPT-4o — 全模态实时交互</span>
+                <span class="tl-tag tl-tag-multi">多模态</span>
+              </div>
+              <p class="tl-desc">端到端全模态架构（文本 / 图像 / 音频），<strong>语音响应延迟降至 320ms</strong>，实时情感感知，交互体验接近人类对话。"omni"模型<strong>重新定义人机交互范式</strong>，同步宣布 GPT-4 API 免费化。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2024.06</span>
+                <span class="tl-title">Claude 3.5 Sonnet — 效率驱动迭代</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc">Claude 系列中<strong>Sonnet 档次反超 Opus</strong>，以更低成本提供更强能力，验证"效率驱动"模型迭代路线。<strong>Computer Use</strong> 功能同期公测，Agent 控制计算机的路线正式落地。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2024.09</span>
+                <span class="tl-title">OpenAI o1 — 推理模型时代开始</span>
+                <span class="tl-tag tl-tag-reason">推理</span>
+              </div>
+              <p class="tl-desc">显式 chain-of-thought 推理链，<strong>用推理时间换精度</strong>：数学竞赛、代码调试、科学推断大幅提升，超越博士水平的评测开始出现。"预训练 Scaling"之外，<strong>"推理时间 Scaling"</strong>成为新主轴。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2024.12</span>
+                <span class="tl-title">Gemini 2.0 Flash</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+              </div>
+              <p class="tl-desc">Google 多模态架构全面升级，<strong>实时流式多模态输入输出</strong>，Agent 工具调用与 Deep Research 能力增强。Google 经历 2023 年被动局面后，重返 AI 前沿竞争序列。</p>
+            </div>
+          </div>
+
+          <!-- ── ERA 6 ── -->
+          <div class="tl-era">
+            <div class="tl-era-label">推理模型竞赛 · 2025</div>
+            <p class="tl-era-sub">// 开源对齐闭源，思考时间成为核心变量，地缘竞争进入 AI 叙事</p>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2025.01</span>
+                <span class="tl-title">DeepSeek R1 — 开源推理模型冲击</span>
+                <span class="tl-tag tl-tag-reason">推理</span>
+                <span class="tl-tag tl-tag-open">开源</span>
+              </div>
+              <p class="tl-desc">中国团队发布开源推理模型，性能<strong>媲美 OpenAI o1</strong>，公开的训练成本仅为数十分之一。冲击"顶级推理能力需要顶级投入"的叙事，<strong>引发全球资本市场震荡与地缘 AI 政策重估</strong>，英伟达单日市值蒸发近 6000 亿美元。</p>
+            </div>
+          </div>
+
+          <div class="tl-item major">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2025.02</span>
+                <span class="tl-title">Claude 3.7 Sonnet — 混合推理</span>
+                <span class="tl-tag tl-tag-reason">推理</span>
+              </div>
+              <p class="tl-desc"><strong>混合推理架构</strong>：可控延伸思考深度（标准模式 / 扩展思考模式切换），在软件工程基准 SWE-bench 达到新高点。Anthropic 确立<strong>推理能力 + 工程综合能力</strong>的双轮路线。</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">2025.03</span>
+                <span class="tl-title">GPT-4.5 &amp; o3</span>
+                <span class="tl-tag tl-tag-model">模型</span>
+                <span class="tl-tag tl-tag-reason">推理</span>
+              </div>
+              <p class="tl-desc">GPT-4.5 扩大预训练规模强化世界知识与情感理解；o3 将推理泛化能力推至新基准，在 ARC-AGI 测试中达到接近人类水平。<strong>预训练路线与推理路线并行推进</strong>，OpenAI 在 DeepSeek 冲击后加速节奏。</p>
+            </div>
+          </div>
+
+          <!-- 现在 -->
+          <div class="tl-era" style="margin-bottom: 0;">
+            <div class="tl-era-label" style="border-color: rgba(74,222,128,0.4); color: var(--green); background: rgba(74,222,128,0.05);">现在 · 2026.03</div>
+            <p class="tl-era-sub">// 推理时间 Scaling、多模态 Agent、开源 vs 闭源——三条线同时演进，下一个转折点尚未命名</p>
+          </div>
+
+        </div><!-- /timeline -->
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // 时间线滚动渐入
+    (function () {
+      var items = document.querySelectorAll('.tl-item, .tl-era');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function(el) { el.classList.add('tl-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('tl-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
