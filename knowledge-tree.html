@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM 知识树 · xhd.log</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>
+    /* ===== Knowledge Tree 专属样式 ===== */
+    .kt-hero {
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .kt-hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .kt-desc {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* ===== 进度栏 ===== */
+    .kt-stats {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .kt-stat {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .kt-stat strong {
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+    .kt-progress-track {
+      flex: 1;
+      min-width: 120px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .kt-progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 0.6s ease;
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    /* ===== 图例 ===== */
+    .kt-legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+    }
+    .kt-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+    .kt-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .kt-legend-dot.done    { background: var(--accent); }
+    .kt-legend-dot.pending { background: var(--text-muted); opacity: 0.35; }
+
+    /* ===== 域卡片网格 ===== */
+    .kt-domains {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 640px) {
+      .kt-domains { grid-template-columns: 1fr; }
+    }
+
+    /* ===== 域卡片 ===== */
+    .kt-domain {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .kt-domain-head {
+      padding: 12px 16px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .kt-domain-title {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.83rem;
+      letter-spacing: 0.01em;
+      color: var(--text);
+    }
+    .kt-domain-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 20px;
+      border: 1px solid;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .kt-domain-body {
+      padding: 14px 16px 16px;
+    }
+
+    /* ===== 主题分组 ===== */
+    .kt-topic {
+      margin-bottom: 14px;
+    }
+    .kt-topic:last-child { margin-bottom: 0; }
+
+    .kt-topic-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .kt-topic-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-dim);
+    }
+
+    /* ===== 节点列表（树线） ===== */
+    .kt-nodes {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      padding-left: 14px;
+    }
+    .kt-nodes::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: var(--border);
+    }
+    .kt-node-item {
+      position: relative;
+      margin-bottom: 3px;
+    }
+    .kt-node-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 8px;
+      width: 7px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ===== 节点元素 ===== */
+    .kt-node {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.71rem;
+      line-height: 1.4;
+      padding: 2px 7px;
+      border-radius: 3px;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .kt-node-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* 已完成 */
+    .kt-node.done {
+      color: #000;
+      text-decoration: none;
+      transition: opacity 0.12s;
+    }
+    .kt-node.done:hover { opacity: 0.82; text-decoration: none; }
+    .kt-node.done .kt-node-dot { background: #000; opacity: 0.5; }
+
+    /* 待完成 */
+    .kt-node.pending {
+      color: var(--text-muted);
+      cursor: default;
+    }
+    .kt-node.pending .kt-node-dot {
+      background: var(--text-muted);
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">
+          <span class="prompt">&gt;</span>xhd
+        </a>
+        <div class="nav-links">
+          <a href="index.html">posts</a>
+          <a href="projects.html" class="active">projects</a>
+          <a href="timeline.html">timeline</a>
+          <a href="about.html">about</a>
+          <a href="https://github.com/xhongduo-tech" class="github-btn" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+          <button id="theme-toggle" class="theme-btn" aria-label="切换主题">[light]</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kt-hero">
+      <div class="hero-cmd">
+        <span class="prompt">$</span> tree ./llm-mastery --depth 3 --show-progress
+      </div>
+      <h1>LLM 全栈知识树<span class="blink">_</span></h1>
+      <p class="kt-desc">
+        从数学基础到前沿研究的完整学习路线图。<br>
+        高亮节点已有对应文章，点击直达；灰色节点规划中，持续更新。
+      </p>
+      <div class="kt-stats" id="kt-stats">
+        <span class="kt-stat">加载中...</span>
+      </div>
+    </section>
+
+    <div class="kt-legend">
+      <span class="kt-legend-item">
+        <span class="kt-legend-dot done"></span>已完成
+      </span>
+      <span class="kt-legend-item">
+        <span class="kt-legend-dot pending"></span>规划中
+      </span>
+    </div>
+
+    <div class="kt-domains" id="kt-domains">
+      <p class="loading">// 加载知识树...</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+  // ===== 知识树数据 =====
+  // slugs 数组中的 slug 与 posts.json 中的 slug 对应
+  // 只要有一篇文章命中，该节点就标为"已完成"
+  const TREE = [
+    {
+      id: 'math', title: '01 · 数学基础', color: '#818cf8',
+      topics: [
+        { title: '线性代数', nodes: [
+          { title: '矩阵运算与向量空间', slugs: [] },
+          { title: '特征值 / 奇异值分解 (EVD/SVD)', slugs: [] },
+          { title: '矩阵低秩近似与 LoRA 的关系', slugs: [] },
+        ]},
+        { title: '概率论与统计', nodes: [
+          { title: '概率分布与期望', slugs: [] },
+          { title: '贝叶斯推断', slugs: [] },
+          { title: '最大似然估计 (MLE)', slugs: [] },
+          { title: '信息论（熵、KL 散度、互信息）', slugs: [] },
+        ]},
+        { title: '优化理论', nodes: [
+          { title: '梯度下降与自动微分', slugs: [] },
+          { title: '凸优化基础', slugs: [] },
+          { title: '随机优化与方差缩减', slugs: [] },
+        ]},
+        { title: '数值计算', nodes: [
+          { title: '浮点精度与数值稳定性', slugs: [] },
+          { title: 'CUDA 并行计算基础', slugs: [] },
+        ]},
+      ]
+    },
+    {
+      id: 'dl', title: '02 · 深度学习基础', color: '#a78bfa',
+      topics: [
+        { title: '神经网络', nodes: [
+          { title: '前向传播与反向传播', slugs: [] },
+          { title: '激活函数（ReLU / GeLU / SiLU）', slugs: [] },
+          { title: '归一化（BatchNorm / LayerNorm）', slugs: [] },
+          { title: 'Dropout 与权重衰减', slugs: [] },
+        ]},
+        { title: '注意力机制', nodes: [
+          { title: 'Scaled Dot-Product Attention', slugs: [] },
+          { title: 'Multi-Head Attention (MHA)', slugs: [] },
+          { title: '注意力的计算复杂度与优化', slugs: [] },
+        ]},
+        { title: '优化器', nodes: [
+          { title: 'SGD / Momentum', slugs: [] },
+          { title: 'Adam / AdamW', slugs: [] },
+          { title: '学习率调度（Warmup / Cosine）', slugs: [] },
+          { title: '梯度裁剪', slugs: [] },
+        ]},
+      ]
+    },
+    {
+      id: 'transformer', title: '03 · Transformer 架构', color: '#c084fc',
+      topics: [
+        { title: '核心结构', nodes: [
+          { title: '原始 Transformer（Vaswani 2017）', slugs: [] },
+          { title: 'Encoder-Decoder vs Decoder-Only', slugs: [] },
+          { title: 'RMS Norm / Pre-LN', slugs: [] },
+        ]},
+        { title: '位置编码', nodes: [
+          { title: '绝对位置编码 (Sinusoidal)', slugs: [] },
+          { title: 'RoPE 旋转位置编码', slugs: [] },
+          { title: 'RoPE 解耦设计（MLA）', slugs: ['deepseek-v2-rope-decoupled-design'] },
+          { title: 'ALiBi 线性偏置', slugs: [] },
+        ]},
+        { title: 'FFN 与 MoE', nodes: [
+          { title: 'SwiGLU FFN 变体', slugs: [] },
+          { title: 'Switch Transformer → V-MoE 演进', slugs: ['switch-transformer-to-vmoe-evolution'] },
+          { title: 'MoE 细粒度专家分割', slugs: ['moe-fine-grained-expert-segmentation'] },
+          { title: 'MoE 共享专家设计', slugs: ['moe-shared-expert-design'] },
+          { title: 'MoE Upcycling 初始化', slugs: ['moe-upcycling-initialization'] },
+          { title: 'Mixtral vs DeepSeek MoE', slugs: ['mixtral-vs-deepseek-moe-comparison'] },
+        ]},
+        { title: 'KV Cache 与长上下文', nodes: [
+          { title: 'KV Cache 原理与显存管理', slugs: [] },
+          { title: 'Flash Attention', slugs: [] },
+          { title: 'GQA / MQA', slugs: [] },
+          { title: '长上下文扩展（YaRN）', slugs: ['deepseek-v3-long-context-extension'] },
+          { title: 'CodeLlama 长上下文填充训练', slugs: ['codellama-long-context-infilling'] },
+        ]},
+      ]
+    },
+    {
+      id: 'pretrain', title: '04 · 大模型预训练', color: '#e879f9',
+      topics: [
+        { title: '数据工程', nodes: [
+          { title: '大规模数据清洗与去重', slugs: [] },
+          { title: '数据配比策略', slugs: [] },
+          { title: 'DeepSeek-V3 训练数据配方', slugs: ['deepseek-v3-training-data-recipe'] },
+          { title: '代码数据工程（Qwen2.5-Coder）', slugs: ['qwen25-coder-data-engineering'] },
+          { title: 'FIM 填充训练目标（SantaCoder）', slugs: ['santacoder-fim-training-objective'] },
+        ]},
+        { title: '分布式训练', nodes: [
+          { title: '数据并行 (DDP)', slugs: [] },
+          { title: '张量并行 (Megatron-LM)', slugs: [] },
+          { title: '流水线并行', slugs: [] },
+          { title: 'MoE All-to-All 通信优化', slugs: ['moe-all-to-all-communication-optimization'] },
+          { title: 'DeepSeek-V3 DualPipe 并行', slugs: ['deepseek-v3-dualpipe-parallelism'] },
+          { title: '训练稳定性与损失尖峰处理', slugs: [] },
+        ]},
+        { title: '代表模型解析', nodes: [
+          { title: 'GPT 系列架构演进', slugs: [] },
+          { title: 'LLaMA 系列', slugs: [] },
+          { title: 'StarCoder 多语言代码预训练', slugs: ['starcoder-multilingual-pretraining'] },
+          { title: 'StarCoder2 分阶段训练', slugs: ['starcoder2-staged-training'] },
+          { title: 'DeepSeek-Coder 预训练策略', slugs: ['deepseek-coder-pretraining-strategy'] },
+          { title: 'DeepSeek-Coder-V2 MoE 设计', slugs: ['deepseek-coder-v2-moe-architecture'] },
+          { title: 'Minerva 数学推理预训练', slugs: ['minerva-math-pretraining'] },
+          { title: 'Llemma 开源数学语言模型', slugs: ['llemma-open-math-language-model'] },
+        ]},
+      ]
+    },
+    {
+      id: 'finetune', title: '05 · 大模型微调', color: '#f472b6',
+      topics: [
+        { title: 'SFT / 指令微调', nodes: [
+          { title: '监督微调基础 (SFT)', slugs: ['code-model-instruction-alignment'] },
+          { title: 'Evol-Instruct 指令进化', slugs: ['wizardcoder-evol-instruct'] },
+          { title: 'Aya 多语言指令微调', slugs: ['aya-multilingual-instruction-tuning'] },
+          { title: 'Embedding 模型领域微调', slugs: ['embedding-finetuning-domain-memory-retrieval'] },
+          { title: 'DeepSeek-R1 冷启动数据构建', slugs: ['deepseek-r1-cold-start-data'] },
+          { title: 'DeepSeek-R1 拒绝采样流程', slugs: ['deepseek-r1-rejection-sampling-pipeline'] },
+          { title: 'DeepSeek-R1 蒸馏小模型', slugs: ['deepseek-r1-distillation-small-models'] },
+        ]},
+        { title: 'PEFT / 参数高效微调', nodes: [
+          { title: 'LoRA 原理与实现', slugs: [] },
+          { title: 'QLoRA 量化低秩微调', slugs: [] },
+          { title: 'Prefix Tuning / P-Tuning v2', slugs: [] },
+          { title: 'Adapter 层方法', slugs: [] },
+        ]},
+        { title: 'RLHF / 对齐', nodes: [
+          { title: 'RLHF 完整流程', slugs: [] },
+          { title: '奖励模型 (RM) 训练', slugs: [] },
+          { title: 'PPO 近端策略优化', slugs: [] },
+          { title: '过程奖励模型 (PRM)', slugs: ['math-process-reward-model'] },
+          { title: 'DPO 直接偏好优化', slugs: [] },
+          { title: 'GRPO 组相对策略优化', slugs: ['grpo-deepseek-r1-rl'] },
+          { title: '推理 RL 奖励设计', slugs: ['reasoning-rl-reward-design'] },
+          { title: 'GLM-4 双语对齐训练', slugs: ['glm4-bilingual-alignment'] },
+        ]},
+        { title: '数学推理专项微调', nodes: [
+          { title: 'MetaMath 数据增强方法', slugs: ['metamath-data-augmentation'] },
+          { title: 'NuminaMath 竞赛数据构建', slugs: ['numinamath-competition-data'] },
+          { title: 'InternLM-Math 统一推理框架', slugs: ['internlm-math-unified-framework'] },
+          { title: 'CoT 格式设计', slugs: ['math-reasoning-cot-format-design'] },
+          { title: 'DeepSeek-Math 推理训练', slugs: ['deepseek-math-reasoning-training'] },
+        ]},
+      ]
+    },
+    {
+      id: 'deploy', title: '06 · 推理与部署', color: '#fb923c',
+      topics: [
+        { title: '量化技术', nodes: [
+          { title: 'INT8 / INT4 量化原理', slugs: [] },
+          { title: 'GPTQ / AWQ', slugs: [] },
+          { title: 'GGUF 格式与 llama.cpp', slugs: [] },
+          { title: '量化对精度影响的分析', slugs: [] },
+        ]},
+        { title: '推理加速', nodes: [
+          { title: 'vLLM 与 PagedAttention', slugs: [] },
+          { title: 'TGI / TensorRT-LLM', slugs: [] },
+          { title: 'Speculative Decoding', slugs: [] },
+          { title: 'Flash Attention 工程实现', slugs: [] },
+          { title: 'MoE 专家卸载与预取', slugs: ['moe-inference-expert-offloading-prefetch'] },
+          { title: 'MoE 专家崩塌与负载均衡', slugs: ['moe-expert-collapse-load-balancing'] },
+        ]},
+        { title: '解码策略', nodes: [
+          { title: 'Greedy / Beam Search', slugs: [] },
+          { title: 'Top-k / Top-p 采样', slugs: [] },
+          { title: '自洽性解码 (Self-Consistency)', slugs: ['self-consistency-majority-voting', 'self-consistency-sampling-efficiency'] },
+          { title: '测试时计算扩展', slugs: ['test-time-compute-scaling-reasoning'] },
+          { title: '数学推理自一致性', slugs: ['math-self-consistency-decoding'] },
+        ]},
+        { title: '工程实践', nodes: [
+          { title: 'Nginx API 网关设计', slugs: [] },
+          { title: 'Docker Compose 多实例编排', slugs: [] },
+          { title: '离线内网离线部署（Kylin+V100）', slugs: [] },
+          { title: 'KV Cache 显存占用优化', slugs: [] },
+        ]},
+      ]
+    },
+    {
+      id: 'agent', title: '07 · 智能体系统', color: '#34d399',
+      topics: [
+        { title: 'ReAct 框架', nodes: [
+          { title: 'ReAct 推理-行动交替机制', slugs: ['react-reasoning-acting-mechanism'] },
+          { title: 'ReAct vs Plan-and-Execute', slugs: ['react-vs-plan-and-execute'] },
+          { title: 'ReAct 工具调用接口设计', slugs: ['react-tool-calling-interface'] },
+          { title: 'ReAct 多模态扩展', slugs: ['react-multimodal-extension'] },
+          { title: 'ReAct 错误恢复与重试', slugs: ['react-error-recovery-retry'] },
+          { title: 'ReAct 观察信息压缩', slugs: ['react-observation-compression'] },
+        ]},
+        { title: '思维链 (CoT)', nodes: [
+          { title: 'CoT 涌现与规模阈值', slugs: ['cot-emergence-scale-threshold'] },
+          { title: 'Zero-shot CoT 触发词工程', slugs: ['zero-shot-cot-trigger-engineering'] },
+          { title: 'CoT 示例选择策略', slugs: ['cot-example-selection-strategy'] },
+          { title: 'CoT 分解策略（LtM / Decomposed）', slugs: ['cot-decomposition-strategies'] },
+          { title: 'CoT 长度与推理深度', slugs: ['cot-length-reasoning-depth'] },
+          { title: 'CoT 逻辑推理系统性失败', slugs: ['cot-logical-reasoning-failures'] },
+          { title: 'CoT 忠实性分析', slugs: ['cot-faithful-vs-unfaithful-reasoning'] },
+          { title: 'Auto-CoT 自动生成', slugs: ['auto-cot-automatic-chain-generation'] },
+          { title: 'CoT 蒸馏到小模型', slugs: ['cot-distillation-small-models'] },
+        ]},
+        { title: 'Tree / Graph of Thoughts', nodes: [
+          { title: 'ToT 搜索策略（BFS / DFS）', slugs: ['tot-search-strategy-bfs-dfs'] },
+          { title: 'ToT 启发式评估函数设计', slugs: ['tot-heuristic-evaluation-function'] },
+          { title: 'ToT × MCTS 结合', slugs: ['tot-mcts-integration'] },
+          { title: 'ToT 并行化与延迟优化', slugs: ['tot-parallelization-latency'] },
+          { title: 'GoT 思维图推理拓扑', slugs: ['graph-of-thoughts-reasoning-topology'] },
+        ]},
+        { title: '自洽性与验证器', nodes: [
+          { title: '多路径投票机制', slugs: ['self-consistency-majority-voting'] },
+          { title: '采样效率自适应优化', slugs: ['self-consistency-sampling-efficiency'] },
+          { title: '自洽性 vs 验证器对比与融合', slugs: ['self-consistency-vs-verifier'] },
+          { title: '代码生成中的自洽性', slugs: ['self-consistency-code-generation'] },
+          { title: '多语言推理差异', slugs: ['self-consistency-multilingual-reasoning'] },
+        ]},
+        { title: '工具调用', nodes: [
+          { title: 'Function Calling 协议设计与类型约束', slugs: ['function-calling-protocol-design'] },
+          { title: '代码执行可视化渲染管线', slugs: ['code-execution-visualization-pipeline'] },
+        ]},
+        { title: '记忆系统', nodes: [
+          { title: '工作记忆容量约束与淘汰策略', slugs: ['working-memory-capacity-eviction-policy'] },
+          { title: '情景记忆时序索引与因果检索', slugs: ['episodic-memory-temporal-causal-retrieval'] },
+          { title: '对话历史摘要与遗忘曲线', slugs: ['conversation-summary-forgetting-curve'] },
+          { title: '记忆检索语义路由与多索引', slugs: ['memory-retrieval-semantic-routing'] },
+          { title: '记忆元数据标注与过滤检索', slugs: ['memory-metadata-annotation-filtered-retrieval'] },
+          { title: '反思记忆与自我修正机制', slugs: ['agent-reflective-memory-self-correction'] },
+          { title: 'MemGPT 分层记忆管理', slugs: ['memgpt-hierarchical-memory-management'] },
+        ]},
+        { title: 'RAG 与向量检索', nodes: [
+          { title: 'RAG Chunk 策略对 Agent 表现的影响', slugs: ['rag-chunking-strategy-agent-performance'] },
+          { title: '向量数据库选型（Pinecone / Milvus / Chroma）', slugs: ['vector-database-comparison-pinecone-milvus-chroma'] },
+          { title: 'HNSW 索引调参实践', slugs: ['hnsw-index-tuning-agent-memory'] },
+          { title: '知识图谱 × 向量混合记忆架构', slugs: ['knowledge-graph-vector-hybrid-memory'] },
+          { title: 'Embedding 微调提升检索精度', slugs: ['embedding-finetuning-domain-memory-retrieval'] },
+        ]},
+        { title: '多智能体', nodes: [
+          { title: '共享记忆一致性与冲突解决', slugs: ['multi-agent-shared-memory-consistency'] },
+          { title: '多 Agent 协作架构设计', slugs: [] },
+          { title: 'Agent 工作流编排与调度', slugs: [] },
+        ]},
+      ]
+    },
+    {
+      id: 'frontier', title: '08 · 前沿追踪', color: '#22d3ee',
+      topics: [
+        { title: '数学推理', nodes: [
+          { title: 'Lean 4 形式化验证集成', slugs: ['math-formal-verification-lean4'] },
+          { title: '过程奖励模型 (PRM)', slugs: ['math-process-reward-model'] },
+          { title: '自一致性数学解码', slugs: ['math-self-consistency-decoding'] },
+          { title: 'CoT 格式设计', slugs: ['math-reasoning-cot-format-design'] },
+          { title: 'MetaMath 数据增强', slugs: ['metamath-data-augmentation'] },
+          { title: 'NuminaMath 竞赛数据构建', slugs: ['numinamath-competition-data'] },
+          { title: 'InternLM-Math 统一框架', slugs: ['internlm-math-unified-framework'] },
+          { title: 'Minerva 数学推理预训练', slugs: ['minerva-math-pretraining'] },
+          { title: 'Llemma 开源数学模型', slugs: ['llemma-open-math-language-model'] },
+          { title: 'DeepSeek-Math 推理训练', slugs: ['deepseek-math-reasoning-training'] },
+        ]},
+        { title: '推理强化学习', nodes: [
+          { title: 'DeepSeek-R1-Zero 推理涌现', slugs: ['deepseek-r1-zero-emergent-reasoning'] },
+          { title: 'DeepSeek-R1 强化学习训练', slugs: ['deepseek-r1-reinforcement-learning'] },
+          { title: 'GRPO 组相对策略优化', slugs: ['grpo-deepseek-r1-rl'] },
+          { title: '推理 RL 奖励设计', slugs: ['reasoning-rl-reward-design'] },
+          { title: '测试时计算扩展 (Test-Time Compute)', slugs: ['test-time-compute-scaling-reasoning'] },
+        ]},
+        { title: '代码模型', nodes: [
+          { title: 'Codex 代码生成训练流程', slugs: ['codex-code-generation-training'] },
+          { title: 'Qwen2.5-Coder 数据工程', slugs: ['qwen25-coder-data-engineering'] },
+          { title: 'StarCoder 多语言预训练', slugs: ['starcoder-multilingual-pretraining'] },
+          { title: 'StarCoder2 分阶段训练', slugs: ['starcoder2-staged-training'] },
+          { title: 'WizardCoder Evol-Instruct', slugs: ['wizardcoder-evol-instruct'] },
+          { title: 'SantaCoder FIM 训练目标', slugs: ['santacoder-fim-training-objective'] },
+          { title: 'CodeGemma 代码 + 数学联合训练', slugs: ['codegemma-code-math-joint-training'] },
+          { title: 'AlphaCode 大规模采样过滤', slugs: ['alphacode-sampling-filtering'] },
+          { title: 'AlphaCode 2 多模型协作', slugs: ['alphacode2-multi-model-collaboration'] },
+          { title: 'CodeT 双重执行验证', slugs: ['codet-dual-execution-verification'] },
+          { title: 'DeepSeek Coder 预训练策略', slugs: ['deepseek-coder-pretraining-strategy'] },
+          { title: 'DeepSeek-Coder-V2 MoE 架构', slugs: ['deepseek-coder-v2-moe-architecture'] },
+          { title: 'CodeLlama 长上下文填充训练', slugs: ['codellama-long-context-infilling'] },
+          { title: '代码 Tokenizer 设计差异', slugs: ['code-model-tokenizer-design'] },
+        ]},
+        { title: '多语言模型', nodes: [
+          { title: 'BLOOM 多语言数据平衡策略', slugs: ['bloom-multilingual-data-balance'] },
+          { title: 'mGPT 跨语言迁移涌现', slugs: ['mgpt-crosslingual-transfer-emergence'] },
+          { title: 'NLLB 低资源语言翻译架构', slugs: ['nllb-low-resource-translation'] },
+          { title: 'Aya 多语言指令微调', slugs: ['aya-multilingual-instruction-tuning'] },
+          { title: 'GLM-4 中英双语对齐', slugs: ['glm4-bilingual-alignment'] },
+          { title: '多语言 Tokenizer 词表公平性', slugs: ['multilingual-tokenizer-vocabulary-fairness'] },
+        ]},
+        { title: 'DeepSeek 系列深度解析', nodes: [
+          { title: 'DeepSeek-V2 RoPE 解耦设计', slugs: ['deepseek-v2-rope-decoupled-design'] },
+          { title: 'DeepSeek-V3 长上下文扩展训练', slugs: ['deepseek-v3-long-context-extension'] },
+          { title: 'DeepSeek-V3 训练数据配方', slugs: ['deepseek-v3-training-data-recipe'] },
+          { title: 'DeepSeek-V3 DualPipe 并行策略', slugs: ['deepseek-v3-dualpipe-parallelism'] },
+          { title: 'DeepSeek-R1 冷启动数据构建', slugs: ['deepseek-r1-cold-start-data'] },
+          { title: 'DeepSeek-R1 拒绝采样与多阶段训练', slugs: ['deepseek-r1-rejection-sampling-pipeline'] },
+          { title: 'DeepSeek-R1 蒸馏小模型推理', slugs: ['deepseek-r1-distillation-small-models'] },
+        ]},
+      ]
+    },
+  ];
+
+  // ===== 渲染逻辑 =====
+  (async function renderTree() {
+    // 加载 posts.json，构建 slug 集合
+    let slugSet = new Set();
+    let slugToPost = {};
+    try {
+      const res = await fetch('posts/posts.json');
+      if (res.ok) {
+        const posts = await res.json();
+        posts.forEach(p => {
+          slugSet.add(p.slug);
+          slugToPost[p.slug] = p;
+        });
+      }
+    } catch (e) { /* ignore */ }
+
+    // 统计总节点 / 完成节点
+    let totalNodes = 0, doneNodes = 0;
+    const domainStats = {};
+    TREE.forEach(domain => {
+      let dt = 0, dd = 0;
+      domain.topics.forEach(topic => {
+        topic.nodes.forEach(node => {
+          dt++; totalNodes++;
+          const done = node.slugs.some(s => slugSet.has(s));
+          if (done) { dd++; doneNodes++; }
+        });
+      });
+      domainStats[domain.id] = { total: dt, done: dd };
+    });
+
+    // 渲染进度
+    const pct = totalNodes > 0 ? Math.round(doneNodes / totalNodes * 100) : 0;
+    document.getElementById('kt-stats').innerHTML = `
+      <span class="kt-stat"><strong>${doneNodes}</strong> / ${totalNodes} 节点已完成</span>
+      <div class="kt-progress-track">
+        <div class="kt-progress-fill" style="width:${pct}%"></div>
+      </div>
+      <span class="kt-stat"><strong>${pct}%</strong></span>
+    `;
+
+    // 渲染域卡片
+    const container = document.getElementById('kt-domains');
+    container.innerHTML = TREE.map(domain => {
+      const stats = domainStats[domain.id];
+      const badgeBg = domain.color + '22';
+      const topicsHtml = domain.topics.map(topic => {
+        const nodesHtml = topic.nodes.map(node => {
+          const matchSlug = node.slugs.find(s => slugSet.has(s));
+          const done = !!matchSlug;
+          if (done) {
+            const post = slugToPost[matchSlug];
+            return `<li class="kt-node-item">
+              <a class="kt-node done" href="post.html?slug=${encodeURIComponent(matchSlug)}"
+                 style="background:${domain.color};color:#000;"
+                 title="${escapeHtml(post ? post.summary || '' : '')}">
+                <span class="kt-node-dot"></span>
+                ${escapeHtml(node.title)}
+              </a>
+            </li>`;
+          } else {
+            return `<li class="kt-node-item">
+              <span class="kt-node pending">
+                <span class="kt-node-dot"></span>
+                ${escapeHtml(node.title)}
+              </span>
+            </li>`;
+          }
+        }).join('');
+        return `<div class="kt-topic">
+          <div class="kt-topic-label">${escapeHtml(topic.title)}</div>
+          <ul class="kt-nodes">${nodesHtml}</ul>
+        </div>`;
+      }).join('');
+
+      return `<div class="kt-domain">
+        <div class="kt-domain-head" style="border-left:3px solid ${domain.color}; padding-left:13px;">
+          <span class="kt-domain-title">${escapeHtml(domain.title)}</span>
+          <span class="kt-domain-badge" style="color:${domain.color};border-color:${domain.color};background:${badgeBg};">
+            ${stats.done}/${stats.total}
+          </span>
+        </div>
+        <div class="kt-domain-body">${topicsHtml}</div>
+      </div>`;
+    }).join('');
+  })();
+  </script>
+</body>
+</html>
