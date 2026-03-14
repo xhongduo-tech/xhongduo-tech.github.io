@@ -209,8 +209,14 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
+    .kt-count {
+      font-size: 0.62rem;
+      opacity: 0.7;
+      margin-left: 2px;
+      flex-shrink: 0;
+    }
 
-    /* 已完成 */
+    /* 已完成（任意文章命中） */
     .kt-node.done {
       color: #000;
       text-decoration: none;
@@ -227,6 +233,9 @@
     .kt-node.pending .kt-node-dot {
       background: var(--text-muted);
       opacity: 0.3;
+    }
+    .kt-node.pending .kt-count {
+      opacity: 0.45;
     }
   </style>
 </head>
@@ -260,7 +269,7 @@
       </div>
       <h1>LLM 全栈知识树<span class="blink">_</span></h1>
       <p class="kt-desc">
-        从数学基础到前沿研究的完整学习路线图。<br>
+        从数学基础到前沿研究的完整学习路线图，规划 3500+ 知识节点。<br>
         高亮节点已有对应文章，点击直达；灰色节点规划中，持续更新。
       </p>
       <div class="kt-stats" id="kt-stats">
@@ -270,7 +279,7 @@
 
     <div class="kt-legend">
       <span class="kt-legend-item">
-        <span class="kt-legend-dot done"></span>已完成
+        <span class="kt-legend-dot done"></span>已有文章
       </span>
       <span class="kt-legend-item">
         <span class="kt-legend-dot pending"></span>规划中
@@ -291,303 +300,253 @@
   <script src="js/app.js"></script>
   <script>
   // ===== 知识树数据 =====
-  // slugs 数组中的 slug 与 posts.json 中的 slug 对应
-  // 只要有一篇文章命中，该节点就标为"已完成"
+  // 8 大分类对应 topic_queue.json 的 blog_category
+  // 每个 group 代表一个二级话题方向
+  // done_slugs: 该方向下已发布的文章 slug 列表（运行时与 posts.json 交叉比对）
+  // total: 该方向在知识图谱中的完整规划节点数
   const TREE = [
     {
-      id: 'math', title: '01 · 数学基础', color: '#818cf8',
+      id: 'theory', title: '01 · 理论基础', color: '#818cf8', catTotal: 880,
       topics: [
-        { title: '线性代数', nodes: [
-          { title: '矩阵运算与向量空间', slugs: [] },
-          { title: '特征值 / 奇异值分解 (EVD/SVD)', slugs: [] },
-          { title: '矩阵低秩近似与 LoRA 的关系', slugs: [] },
+        { title: '数学基础', groups: [
+          { title: '线性代数',   total: 30, link: 'math-la-matrix-inversion-numerical', done_slugs: ['math-la-matrix-inversion-numerical','math-la-cholesky-decomposition','math-la-schur-decomposition','math-la-generalized-eigenvalue','math-la-polar-decomposition','math-la-matrix-functions-exponential','math-la-random-matrix-theory-intro','math-la-low-rank-matrix-completion','tensor-operations-fundamentals','numerical-linear-algebra'] },
+          { title: '概率论',     total: 34, link: 'math-bayesian-conjugate-prior-system', done_slugs: ['math-bayesian-conjugate-prior-system','math-bayesian-variational-inference-elbo','math-bayesian-mcmc-markov-chain-convergence','probability-distributions-unified','stochastic-processes-fundamentals','probability-inequalities'] },
+          { title: '统计学',     total: 11, link: 'math-stat-hypothesis-testing-pvalue', done_slugs: ['math-stat-hypothesis-testing-pvalue','math-stat-mle-asymptotic-properties','math-stat-method-of-moments','math-stat-confidence-interval-construction','math-stat-nonparametric-tests','math-stat-kernel-density-estimation-bandwidth','statistical-inference-fundamentals'] },
+          { title: '信息论',     total: 26, link: 'information-theory-fundamentals', done_slugs: ['information-theory-fundamentals'] },
+          { title: '微积分',     total: 21, link: 'differential-equations-fundamentals', done_slugs: ['differential-equations-fundamentals'] },
+          { title: '优化理论',   total: 44, link: 'optimization-algorithms-comparison', done_slugs: ['optimization-algorithms-comparison','numerical-optimization-methods'] },
         ]},
-        { title: '概率论与统计', nodes: [
-          { title: '概率分布与期望', slugs: [] },
-          { title: '贝叶斯推断', slugs: [] },
-          { title: '最大似然估计 (MLE)', slugs: [] },
-          { title: '信息论（熵、KL 散度、互信息）', slugs: [] },
+        { title: 'Transformer 核心', groups: [
+          { title: 'Transformer 架构', total: 25, link: 'sinusoidal-positional-encoding', done_slugs: ['sinusoidal-positional-encoding','transformer-encoder','transformer-flops-analysis','transformer-width-depth-tradeoff','transformer-parameter-sharing','cross-layer-parameter-sharing'] },
+          { title: '位置编码',   total: 33, link: 'rope-positional-encoding', done_slugs: ['rope-positional-encoding','positional-encoding-absolute-relative-rope-evolution'] },
+          { title: 'Tokenization', total: 14, link: '', done_slugs: [] },
+          { title: '分词算法',   total: 11, link: 'bpe-tokenization', done_slugs: ['bpe-tokenization'] },
         ]},
-        { title: '优化理论', nodes: [
-          { title: '梯度下降与自动微分', slugs: [] },
-          { title: '凸优化基础', slugs: [] },
-          { title: '随机优化与方差缩减', slugs: [] },
+        { title: '注意力机制', groups: [
+          { title: '注意力机制',   total: 64, link: 'bahdanau-attention', done_slugs: ['bahdanau-attention','self-attention-mechanism','multi-head-attention','online-softmax-streaming','ring-attention-sequence-parallelism','flashattention-sparse-pattern-fusion','attention-sink-streaming-llm','attention-head-specialization','sparse-attention-patterns','mqa-gqa-optimization'] },
+          { title: '稀疏注意力', total: 13, link: 'longformer-sliding-window-global-attention', done_slugs: ['longformer-sliding-window-global-attention','bigbird-random-attention-graph-connectivity','sparse-attention-information-theoretic-analysis','dilated-attention-multi-scale-sparse','reformer-lsh-attention-mechanism','mixture-of-attention-heads-routing'] },
+          { title: '线性注意力', total: 12, link: 'performer-favor-plus-random-features', done_slugs: ['performer-favor-plus-random-features','linear-attention-causal-recurrent-form','retnet-multi-scale-retention','linear-attention-expressiveness-limitations','performer-orthogonal-random-features-variance','rwkv-linear-attention-token-shift'] },
+          { title: '高效架构',   total: 13, link: '', done_slugs: [] },
+          { title: '状态空间模型', total: 11, link: 'mamba-selective-scan-mechanism', done_slugs: ['mamba-selective-scan-mechanism','s4-hippo-matrix-long-range-memory','mamba-2-ssd-structured-matrix','causal-convolution-ssm-fft-acceleration'] },
         ]},
-        { title: '数值计算', nodes: [
-          { title: '浮点精度与数值稳定性', slugs: [] },
-          { title: 'CUDA 并行计算基础', slugs: [] },
+        { title: 'MoE 与路由', groups: [
+          { title: 'MoE 架构',   total: 63, link: 'moe-load-balancing-loss', done_slugs: ['moe-load-balancing-loss','switch-transformer-single-expert-routing','mixtral-8x7b-architecture','moe-expert-collapse','noisy-topk-gating','moe-expert-capacity-token-dropping','expert-parallelism-communication-bottleneck','st-moe-stable-training','base-layer-linear-assignment-routing','expert-choice-routing','hash-layer-fixed-routing','soft-moe-differentiable-routing','moe-expert-specialization-analysis','mixtral-routing-pattern-analysis','deepseek-moe-fine-grained-experts','moe-shared-expert-mechanism','vmoe-vision-moe','moe-layer-placement-strategy','moe-auxiliary-loss-variants','megablocks-efficient-moe-gpu','moe-token-drop-vs-dropless','moe-upcycling-dense-to-sparse','sinkhorn-routing-optimal-transport','moe-scaling-laws','mixture-of-depths','moe-moa-unified-design-space'] },
+        ]},
+        { title: '缩放与涌现', groups: [
+          { title: '扩展定律',   total: 15, link: 'scaling-law-basic-formulation', done_slugs: ['scaling-law-basic-formulation','chinchilla-optimal-scaling','irreducible-loss-entropy-bound','scaling-law-downstream-transfer','data-constrained-scaling-law','scaling-law-width-depth-ratio','scaling-law-approximation-theory','broken-neural-scaling-law','multimodal-scaling-law','training-instability-scaling','mup-maximal-update-parameterization','token-repetition-scaling-effect'] },
+          { title: '上下文学习', total: 15, link: 'in-context-learning-information-theory', done_slugs: ['in-context-learning-information-theory','icl-implicit-gradient-descent','icl-task-recognition-vs-learning','induction-head-icl-circuit','icl-example-selection-strategies','icl-label-space-format-effect','many-shot-icl-long-context','icl-attention-pattern-analysis','context-window-icl-capacity','icl-finetuning-unified-framework'] },
+          { title: '涌现能力',   total: 10, link: 'emergent-abilities-phase-transition', done_slugs: ['emergent-abilities-phase-transition','emergent-abilities-predictability','emergent-abilities-few-shot-prompting','emergent-reasoning-arithmetic','emergent-abilities-detection-challenges','emergent-benchmark-contamination','emergent-abilities-non-linear-scaling'] },
+          { title: '文本分类',   total: 17, link: '', done_slugs: [] },
+          { title: '序列标注',   total: 11, link: '', done_slugs: [] },
         ]},
       ]
     },
+
     {
-      id: 'dl', title: '02 · 深度学习基础', color: '#a78bfa',
+      id: 'training', title: '02 · 模型训练', color: '#a78bfa', catTotal: 428,
       topics: [
-        { title: '神经网络', nodes: [
-          { title: '前向传播与反向传播', slugs: [] },
-          { title: '激活函数（ReLU / GeLU / SiLU）', slugs: [] },
-          { title: '归一化（BatchNorm / LayerNorm）', slugs: [] },
-          { title: 'Dropout 与权重衰减', slugs: [] },
+        { title: '分布式训练', groups: [
+          { title: '分布式训练综合', total: 48, link: 'tensor-parallelism', done_slugs: ['tensor-parallelism','pipeline-parallelism','zero-optimizer','data-parallel-ddp','tensor-parallel-math','tensor-parallel-attention','pipeline-parallel-microbatch','pipeline-1f1b-schedule','tp-communication-primitives','cross-node-tensor-parallel','tp-embedding-parallel','expert-parallel-tensor-parallel','heterogeneous-cluster-training'] },
+          { title: 'ZeRO 显存优化', total: 12, link: 'zero-stage1-optimizer-partition', done_slugs: ['zero-stage1-optimizer-partition','zero-stage2-gradient-partition','zero-stage3-parameter-partition','zero-offload-gpu-cpu','zero-infinity-nvme','zero-vs-model-parallel-memory','zero-plus-plus-quantized-comm','fsdp-vs-zero-stage3','zero-r-activation-memory'] },
+          { title: '流水线并行', total: 9, link: 'gradient-accumulation-pipeline', done_slugs: ['gradient-accumulation-pipeline','pipeline-weight-consistency','pipeline-layer-assignment'] },
+          { title: 'Megatron-LM', total: 8, link: 'interleaved-pipeline-stages', done_slugs: ['interleaved-pipeline-stages','megatron-3d-parallelism','megatron-sequence-parallel','megatron-activation-recomputation','megatron-distributed-init'] },
         ]},
-        { title: '注意力机制', nodes: [
-          { title: 'Scaled Dot-Product Attention', slugs: [] },
-          { title: 'Multi-Head Attention (MHA)', slugs: [] },
-          { title: '注意力的计算复杂度与优化', slugs: [] },
+        { title: '训练优化技术', groups: [
+          { title: '训练优化',   total: 17, link: 'batch-normalization', done_slugs: ['batch-normalization','gradient-descent-variants','adam-optimizer','weight-initialization','learning-rate-schedule','mixed-precision-training','layer-normalization'] },
+          { title: '优化器',     total: 20, link: '', done_slugs: [] },
+          { title: '训练稳定性', total: 18, link: '', done_slugs: [] },
+          { title: '高效训练',   total: 12, link: '', done_slugs: [] },
+          { title: '正则化',     total:  8, link: '', done_slugs: [] },
+          { title: '归一化',     total:  6, link: '', done_slugs: [] },
+          { title: '学习率调度', total:  7, link: '', done_slugs: [] },
         ]},
-        { title: '优化器', nodes: [
-          { title: 'SGD / Momentum', slugs: [] },
-          { title: 'Adam / AdamW', slugs: [] },
-          { title: '学习率调度（Warmup / Cosine）', slugs: [] },
-          { title: '梯度裁剪', slugs: [] },
+        { title: '强化学习', groups: [
+          { title: 'RLHF',       total: 23, link: '', done_slugs: [] },
+          { title: 'RL 基础',    total: 10, link: '', done_slugs: [] },
+          { title: '策略梯度',   total: 11, link: '', done_slugs: [] },
+          { title: '深度强化学习', total: 10, link: '', done_slugs: [] },
+          { title: 'Actor-Critic', total: 9, link: '', done_slugs: [] },
+          { title: '值函数方法', total:  9, link: '', done_slugs: [] },
+          { title: '训练后处理', total: 10, link: '', done_slugs: [] },
         ]},
       ]
     },
+
     {
-      id: 'transformer', title: '03 · Transformer 架构', color: '#c084fc',
+      id: 'finetune', title: '03 · 模型微调', color: '#c084fc', catTotal: 153,
       topics: [
-        { title: '核心结构', nodes: [
-          { title: '原始 Transformer（Vaswani 2017）', slugs: [] },
-          { title: 'Encoder-Decoder vs Decoder-Only', slugs: [] },
-          { title: 'RMS Norm / Pre-LN', slugs: [] },
+        { title: 'SFT 与指令微调', groups: [
+          { title: '指令微调',   total: 19, link: '', done_slugs: [] },
+          { title: '微调方法',   total:  5, link: 'lora-peft', done_slugs: ['lora-peft','qlora','sft-data-quality','prefix-prompt-tuning','adapter-layers'] },
+          { title: '对齐基础',   total:  3, link: 'instruction-tuning', done_slugs: ['instruction-tuning','constitutional-ai'] },
+          { title: '对齐算法',   total:  4, link: '', done_slugs: [] },
+          { title: '数据构建',   total:  6, link: '', done_slugs: [] },
         ]},
-        { title: '位置编码', nodes: [
-          { title: '绝对位置编码 (Sinusoidal)', slugs: [] },
-          { title: 'RoPE 旋转位置编码', slugs: [] },
-          { title: 'RoPE 解耦设计（MLA）', slugs: ['deepseek-v2-rope-decoupled-design'] },
-          { title: 'ALiBi 线性偏置', slugs: [] },
+        { title: '参数高效微调 (PEFT)', groups: [
+          { title: 'PEFT 方法',  total: 14, link: '', done_slugs: [] },
+          { title: '参数高效微调', total: 9, link: '', done_slugs: [] },
+          { title: '领域适配微调', total: 4, link: '', done_slugs: [] },
+          { title: '长上下文微调', total: 5, link: '', done_slugs: [] },
         ]},
-        { title: 'FFN 与 MoE', nodes: [
-          { title: 'SwiGLU FFN 变体', slugs: [] },
-          { title: 'Switch Transformer → V-MoE 演进', slugs: ['switch-transformer-to-vmoe-evolution'] },
-          { title: 'MoE 细粒度专家分割', slugs: ['moe-fine-grained-expert-segmentation'] },
-          { title: 'MoE 共享专家设计', slugs: ['moe-shared-expert-design'] },
-          { title: 'MoE Upcycling 初始化', slugs: ['moe-upcycling-initialization'] },
-          { title: 'Mixtral vs DeepSeek MoE', slugs: ['mixtral-vs-deepseek-moe-comparison'] },
-        ]},
-        { title: 'KV Cache 与长上下文', nodes: [
-          { title: 'KV Cache 原理与显存管理', slugs: [] },
-          { title: 'Flash Attention', slugs: [] },
-          { title: 'GQA / MQA', slugs: [] },
-          { title: '长上下文扩展（YaRN）', slugs: ['deepseek-v3-long-context-extension'] },
-          { title: 'CodeLlama 长上下文填充训练', slugs: ['codellama-long-context-infilling'] },
+        { title: '对齐与安全', groups: [
+          { title: 'Claude 安全研究', total: 16, link: 'constitutional-ai-core-mechanism', done_slugs: ['constitutional-ai-core-mechanism','rlhf-vs-rlaif-alignment','claude-hhh-objective','claude-critique-revision-loop','claude-constitution-principles-design','claude-preference-model-training','claude-ppo-training-stability','claude-red-teaming-methodology','claude-overrefusal-mitigation','constitutional-ai-formalization','claude-safety-layered-architecture','claude-jailbreak-taxonomy-defense','claude-uncertainty-expression','claude-instruction-hierarchy','anthropic-scaling-safety-research','claude-hallucination-detection-mitigation'] },
+          { title: 'LLM 安全',  total:  4, link: 'llm-hallucination', done_slugs: ['llm-hallucination','jailbreak-attacks','llm-safety-red-teaming','llm-text-watermarking'] },
+          { title: 'RLHF 对齐', total:  3, link: '', done_slugs: [] },
+          { title: '多任务微调', total:  3, link: '', done_slugs: [] },
+          { title: '工程实践',   total:  8, link: '', done_slugs: [] },
         ]},
       ]
     },
+
     {
-      id: 'pretrain', title: '04 · 大模型预训练', color: '#e879f9',
+      id: 'deploy', title: '04 · 模型部署', color: '#e879f9', catTotal: 218,
       topics: [
-        { title: '数据工程', nodes: [
-          { title: '大规模数据清洗与去重', slugs: [] },
-          { title: '数据配比策略', slugs: [] },
-          { title: 'DeepSeek-V3 训练数据配方', slugs: ['deepseek-v3-training-data-recipe'] },
-          { title: '代码数据工程（Qwen2.5-Coder）', slugs: ['qwen25-coder-data-engineering'] },
-          { title: 'FIM 填充训练目标（SantaCoder）', slugs: ['santacoder-fim-training-objective'] },
+        { title: '推理加速', groups: [
+          { title: '推理优化综合', total: 35, link: 'kv-cache', done_slugs: ['kv-cache','flash-attention','quantization-basics','speculative-decoding','paged-attention','gqa-mqa','continuous-batching','awq-quantization','speculative-decoding-variants'] },
+          { title: 'FlashAttention', total: 5, link: 'flashattention-io-aware-tiling', done_slugs: ['flashattention-io-aware-tiling','flashattention-2-parallelism','flashattention-3-hopper-wgmma','flashattention-grouped-query-optimization','multi-head-latent-attention-deepseek-v2'] },
+          { title: 'MoE 推理',   total:  5, link: 'moe-inference-expert-caching', done_slugs: ['moe-inference-expert-caching','moe-heterogeneous-quantization','moe-inference-expert-offloading-prefetch'] },
+          { title: '硬件加速',   total:  4, link: '', done_slugs: [] },
         ]},
-        { title: '分布式训练', nodes: [
-          { title: '数据并行 (DDP)', slugs: [] },
-          { title: '张量并行 (Megatron-LM)', slugs: [] },
-          { title: '流水线并行', slugs: [] },
-          { title: 'MoE All-to-All 通信优化', slugs: ['moe-all-to-all-communication-optimization'] },
-          { title: 'DeepSeek-V3 DualPipe 并行', slugs: ['deepseek-v3-dualpipe-parallelism'] },
-          { title: '训练稳定性与损失尖峰处理', slugs: [] },
+        { title: '量化与压缩', groups: [
+          { title: '量化技术',   total: 13, link: '', done_slugs: [] },
+          { title: '模型压缩',   total:  5, link: 'structured-pruning', done_slugs: ['structured-pruning'] },
+          { title: '成本优化',   total:  6, link: '', done_slugs: [] },
         ]},
-        { title: '代表模型解析', nodes: [
-          { title: 'GPT 系列架构演进', slugs: [] },
-          { title: 'LLaMA 系列', slugs: [] },
-          { title: 'StarCoder 多语言代码预训练', slugs: ['starcoder-multilingual-pretraining'] },
-          { title: 'StarCoder2 分阶段训练', slugs: ['starcoder2-staged-training'] },
-          { title: 'DeepSeek-Coder 预训练策略', slugs: ['deepseek-coder-pretraining-strategy'] },
-          { title: 'DeepSeek-Coder-V2 MoE 设计', slugs: ['deepseek-coder-v2-moe-architecture'] },
-          { title: 'Minerva 数学推理预训练', slugs: ['minerva-math-pretraining'] },
-          { title: 'Llemma 开源数学语言模型', slugs: ['llemma-open-math-language-model'] },
+        { title: '服务化工程', groups: [
+          { title: '服务化部署', total:  4, link: '', done_slugs: [] },
+          { title: '边缘部署',   total:  7, link: '', done_slugs: [] },
+          { title: '负载均衡',   total:  3, link: '', done_slugs: [] },
+          { title: '监控运维',   total:  4, link: '', done_slugs: [] },
+          { title: '性能优化',   total:  3, link: '', done_slugs: [] },
+          { title: '生产环境',   total:  3, link: '', done_slugs: [] },
         ]},
       ]
     },
+
     {
-      id: 'finetune', title: '05 · 大模型微调', color: '#f472b6',
+      id: 'agent', title: '05 · 智能体', color: '#34d399', catTotal: 374,
       topics: [
-        { title: 'SFT / 指令微调', nodes: [
-          { title: '监督微调基础 (SFT)', slugs: ['code-model-instruction-alignment'] },
-          { title: 'Evol-Instruct 指令进化', slugs: ['wizardcoder-evol-instruct'] },
-          { title: 'Aya 多语言指令微调', slugs: ['aya-multilingual-instruction-tuning'] },
-          { title: 'Embedding 模型领域微调', slugs: ['embedding-finetuning-domain-memory-retrieval'] },
-          { title: 'DeepSeek-R1 冷启动数据构建', slugs: ['deepseek-r1-cold-start-data'] },
-          { title: 'DeepSeek-R1 拒绝采样流程', slugs: ['deepseek-r1-rejection-sampling-pipeline'] },
-          { title: 'DeepSeek-R1 蒸馏小模型', slugs: ['deepseek-r1-distillation-small-models'] },
+        { title: '推理框架', groups: [
+          { title: '思维链 (CoT)', total: 11, link: 'cot-emergence-scale-threshold', done_slugs: ['cot-emergence-scale-threshold','cot-faithful-vs-unfaithful-reasoning','zero-shot-cot-trigger-engineering','auto-cot-automatic-chain-generation','cot-length-reasoning-depth','cot-decomposition-strategies','cot-example-selection-strategy','cot-distillation-small-models','cot-logical-reasoning-failures','cot-adversarial-robustness','cot-program-aided-reasoning'] },
+          { title: 'ReAct 框架', total:  7, link: 'react-reasoning-acting-mechanism', done_slugs: ['react-reasoning-acting-mechanism','react-tool-calling-interface','react-observation-compression','react-error-recovery-retry','react-multimodal-extension','react-vs-plan-and-execute','reflexion-language-feedback-learning'] },
+          { title: '工具调用',   total: 15, link: 'function-calling-protocol-design', done_slugs: ['function-calling-protocol-design','parallel-function-calling-scheduling','tool-choice-forced-vs-auto','tool-description-prompt-engineering','structured-output-function-calling-unification','multi-turn-tool-calling-context','mcp-tool-discovery-registration','tool-calling-error-handling-fallback','tool-selection-intent-disambiguation','tool-calling-streaming-intermediate-state'] },
         ]},
-        { title: 'PEFT / 参数高效微调', nodes: [
-          { title: 'LoRA 原理与实现', slugs: [] },
-          { title: 'QLoRA 量化低秩微调', slugs: [] },
-          { title: 'Prefix Tuning / P-Tuning v2', slugs: [] },
-          { title: 'Adapter 层方法', slugs: [] },
+        { title: '感知与执行', groups: [
+          { title: '浏览器控制', total:  7, link: 'playwright-browser-agent-architecture', done_slugs: ['playwright-browser-agent-architecture','web-element-semantic-annotation','browser-agent-vision-vs-dom','webarena-benchmark-design','browser-agent-action-space-design','browser-agent-multi-tab-coordination','browser-agent-form-filling'] },
+          { title: '计算机使用', total:  7, link: 'claude-computer-use-protocol', done_slugs: ['claude-computer-use-protocol','computer-use-coordinate-prediction','osworld-benchmark-desktop-agent','computer-use-security-boundaries','screenshot-token-optimization','gui-agent-grounding-training','computer-use-gui-navigation-planning'] },
         ]},
-        { title: 'RLHF / 对齐', nodes: [
-          { title: 'RLHF 完整流程', slugs: [] },
-          { title: '奖励模型 (RM) 训练', slugs: [] },
-          { title: 'PPO 近端策略优化', slugs: [] },
-          { title: '过程奖励模型 (PRM)', slugs: ['math-process-reward-model'] },
-          { title: 'DPO 直接偏好优化', slugs: [] },
-          { title: 'GRPO 组相对策略优化', slugs: ['grpo-deepseek-r1-rl'] },
-          { title: '推理 RL 奖励设计', slugs: ['reasoning-rl-reward-design'] },
-          { title: 'GLM-4 双语对齐训练', slugs: ['glm4-bilingual-alignment'] },
+        { title: '记忆与检索', groups: [
+          { title: '记忆系统',   total: 15, link: 'agent-short-term-memory-sliding-window', done_slugs: ['agent-short-term-memory-sliding-window','agent-long-term-memory-storage-architecture','memgpt-hierarchical-memory-management','conversation-summary-forgetting-curve','memory-retrieval-semantic-routing','working-memory-capacity-eviction-policy','memory-metadata-annotation-filtered-retrieval'] },
+          { title: 'RAG 检索',   total: 16, link: 'rag-architecture', done_slugs: ['rag-architecture','vector-database-hnsw','rag-chunking-strategy-agent-performance'] },
         ]},
-        { title: '数学推理专项微调', nodes: [
-          { title: 'MetaMath 数据增强方法', slugs: ['metamath-data-augmentation'] },
-          { title: 'NuminaMath 竞赛数据构建', slugs: ['numinamath-competition-data'] },
-          { title: 'InternLM-Math 统一推理框架', slugs: ['internlm-math-unified-framework'] },
-          { title: 'CoT 格式设计', slugs: ['math-reasoning-cot-format-design'] },
-          { title: 'DeepSeek-Math 推理训练', slugs: ['deepseek-math-reasoning-training'] },
+        { title: '多智能体', groups: [
+          { title: '多 Agent',   total: 17, link: 'multi-agent-shared-memory-consistency', done_slugs: ['multi-agent-shared-memory-consistency'] },
+          { title: 'AutoGen',    total:  7, link: '', done_slugs: [] },
+          { title: 'Agent 架构', total: 10, link: '', done_slugs: [] },
+          { title: 'Agent 应用', total:  8, link: '', done_slugs: [] },
+        ]},
+        { title: '评测与对齐', groups: [
+          { title: 'Agent 评测', total: 11, link: '', done_slugs: [] },
+          { title: '红队测试',   total:  9, link: '', done_slugs: [] },
+          { title: '对抗安全',   total:  8, link: '', done_slugs: [] },
+          { title: '对齐算法',   total:  8, link: '', done_slugs: [] },
+          { title: '可解释性',   total:  8, link: '', done_slugs: [] },
+          { title: '越狱防护',   total:  7, link: '', done_slugs: [] },
+          { title: '水印技术',   total:  7, link: '', done_slugs: [] },
         ]},
       ]
     },
+
     {
-      id: 'deploy', title: '06 · 推理与部署', color: '#fb923c',
+      id: 'engineering', title: '06 · 工程实践', color: '#fb923c', catTotal: 875,
       topics: [
-        { title: '量化技术', nodes: [
-          { title: 'INT8 / INT4 量化原理', slugs: [] },
-          { title: 'GPTQ / AWQ', slugs: [] },
-          { title: 'GGUF 格式与 llama.cpp', slugs: [] },
-          { title: '量化对精度影响的分析', slugs: [] },
+        { title: '数据工程', groups: [
+          { title: '数据清洗',   total: 12, link: 'data-eng-pdf-data-extraction', done_slugs: ['data-eng-pdf-data-extraction','data-eng-structured-data-extraction','data-eng-distributed-data-cleaning'] },
+          { title: '数据质量',   total: 11, link: 'data-eng-cross-modal-data-alignment', done_slugs: ['data-eng-cross-modal-data-alignment'] },
+          { title: '合成数据',   total: 12, link: '', done_slugs: [] },
+          { title: '数据采集',   total: 10, link: '', done_slugs: [] },
+          { title: '数据管线',   total:  8, link: '', done_slugs: [] },
         ]},
-        { title: '推理加速', nodes: [
-          { title: 'vLLM 与 PagedAttention', slugs: [] },
-          { title: 'TGI / TensorRT-LLM', slugs: [] },
-          { title: 'Speculative Decoding', slugs: [] },
-          { title: 'Flash Attention 工程实现', slugs: [] },
-          { title: 'MoE 专家卸载与预取', slugs: ['moe-inference-expert-offloading-prefetch'] },
-          { title: 'MoE 专家崩塌与负载均衡', slugs: ['moe-expert-collapse-load-balancing'] },
+        { title: '知识图谱', groups: [
+          { title: '知识推理',   total: 20, link: '', done_slugs: [] },
+          { title: '图数据库',   total: 12, link: '', done_slugs: [] },
+          { title: '知识融合',   total: 12, link: '', done_slugs: [] },
+          { title: '图神经网络', total: 12, link: '', done_slugs: [] },
+          { title: '信息抽取',   total: 12, link: '', done_slugs: [] },
         ]},
-        { title: '解码策略', nodes: [
-          { title: 'Greedy / Beam Search', slugs: [] },
-          { title: 'Top-k / Top-p 采样', slugs: [] },
-          { title: '自洽性解码 (Self-Consistency)', slugs: ['self-consistency-majority-voting', 'self-consistency-sampling-efficiency'] },
-          { title: '测试时计算扩展', slugs: ['test-time-compute-scaling-reasoning'] },
-          { title: '数学推理自一致性', slugs: ['math-self-consistency-decoding'] },
+        { title: '检索与排序', groups: [
+          { title: 'RAG 工程',   total: 22, link: '', done_slugs: [] },
+          { title: '召回系统',   total: 14, link: '', done_slugs: [] },
+          { title: '召回模型',   total: 11, link: '', done_slugs: [] },
+          { title: '排序系统',   total: 13, link: '', done_slugs: [] },
+          { title: '排序模型',   total: 13, link: '', done_slugs: [] },
         ]},
-        { title: '工程实践', nodes: [
-          { title: 'Nginx API 网关设计', slugs: [] },
-          { title: 'Docker Compose 多实例编排', slugs: [] },
-          { title: '离线内网离线部署（Kylin+V100）', slugs: [] },
-          { title: 'KV Cache 显存占用优化', slugs: [] },
+        { title: 'MLOps / DevOps', groups: [
+          { title: 'CI/CD',      total: 14, link: '', done_slugs: [] },
+          { title: '工程最佳实践', total: 21, link: '', done_slugs: [] },
+          { title: '能力评测',   total: 10, link: '', done_slugs: [] },
+          { title: '框架工具',   total: 10, link: '', done_slugs: [] },
+          { title: '多模态工程', total: 11, link: '', done_slugs: [] },
         ]},
       ]
     },
+
     {
-      id: 'agent', title: '07 · 智能体系统', color: '#34d399',
+      id: 'systems', title: '07 · 系统基础', color: '#22d3ee', catTotal: 153,
       topics: [
-        { title: 'ReAct 框架', nodes: [
-          { title: 'ReAct 推理-行动交替机制', slugs: ['react-reasoning-acting-mechanism'] },
-          { title: 'ReAct vs Plan-and-Execute', slugs: ['react-vs-plan-and-execute'] },
-          { title: 'ReAct 工具调用接口设计', slugs: ['react-tool-calling-interface'] },
-          { title: 'ReAct 多模态扩展', slugs: ['react-multimodal-extension'] },
-          { title: 'ReAct 错误恢复与重试', slugs: ['react-error-recovery-retry'] },
-          { title: 'ReAct 观察信息压缩', slugs: ['react-observation-compression'] },
+        { title: '操作系统', groups: [
+          { title: 'Linux',      total: 21, link: 'sys-linux-linux-performance-tools', done_slugs: ['sys-linux-linux-performance-tools','sys-linux-linux-security-mechanisms','sys-linux-shell-scripting','sys-linux-linux-cron-jobs'] },
+          { title: '并行计算',   total: 13, link: '', done_slugs: [] },
+          { title: 'CUDA / GPU', total:  3, link: '', done_slugs: [] },
         ]},
-        { title: '思维链 (CoT)', nodes: [
-          { title: 'CoT 涌现与规模阈值', slugs: ['cot-emergence-scale-threshold'] },
-          { title: 'Zero-shot CoT 触发词工程', slugs: ['zero-shot-cot-trigger-engineering'] },
-          { title: 'CoT 示例选择策略', slugs: ['cot-example-selection-strategy'] },
-          { title: 'CoT 分解策略（LtM / Decomposed）', slugs: ['cot-decomposition-strategies'] },
-          { title: 'CoT 长度与推理深度', slugs: ['cot-length-reasoning-depth'] },
-          { title: 'CoT 逻辑推理系统性失败', slugs: ['cot-logical-reasoning-failures'] },
-          { title: 'CoT 忠实性分析', slugs: ['cot-faithful-vs-unfaithful-reasoning'] },
-          { title: 'Auto-CoT 自动生成', slugs: ['auto-cot-automatic-chain-generation'] },
-          { title: 'CoT 蒸馏到小模型', slugs: ['cot-distillation-small-models'] },
+        { title: '分布式系统', groups: [
+          { title: '分布式理论', total: 12, link: 'sys-dist-cap-base-theorem', done_slugs: ['sys-dist-cap-base-theorem','sys-dist-distributed-consensus','sys-dist-distributed-lock-implementation','sys-dist-distributed-transactions','sys-dist-distributed-id-generation','sys-dist-message-queue-design','sys-dist-microservice-patterns','sys-dist-api-gateway-design'] },
+          { title: '分布式系统', total: 12, link: '', done_slugs: [] },
+          { title: '网络通信',   total: 12, link: '', done_slugs: [] },
         ]},
-        { title: 'Tree / Graph of Thoughts', nodes: [
-          { title: 'ToT 搜索策略（BFS / DFS）', slugs: ['tot-search-strategy-bfs-dfs'] },
-          { title: 'ToT 启发式评估函数设计', slugs: ['tot-heuristic-evaluation-function'] },
-          { title: 'ToT × MCTS 结合', slugs: ['tot-mcts-integration'] },
-          { title: 'ToT 并行化与延迟优化', slugs: ['tot-parallelization-latency'] },
-          { title: 'GoT 思维图推理拓扑', slugs: ['graph-of-thoughts-reasoning-topology'] },
+        { title: '存储与数据库', groups: [
+          { title: '容器编排',   total:  8, link: 'sys-container-docker-image-optimization', done_slugs: ['sys-container-docker-image-optimization','sys-container-docker-network-modes','sys-container-docker-storage-drivers','sys-container-kubernetes-pod-design','sys-container-kubernetes-service-ingress','sys-container-kubernetes-configmap-secret','sys-container-kubernetes-scheduling','sys-container-helm-chart-writing'] },
+          { title: '数据库',     total:  8, link: 'sys-db-mysql-index-optimization', done_slugs: ['sys-db-mysql-index-optimization','sys-db-mysql-transaction-lock','sys-db-postgresql-advanced-features','sys-db-redis-data-structures','sys-db-mongodb-document-design','sys-db-elasticsearch-search-optimization','sys-db-vector-database-design','sys-db-database-connection-pool'] },
+          { title: '存储系统',   total: 10, link: '', done_slugs: [] },
         ]},
-        { title: '自洽性与验证器', nodes: [
-          { title: '多路径投票机制', slugs: ['self-consistency-majority-voting'] },
-          { title: '采样效率自适应优化', slugs: ['self-consistency-sampling-efficiency'] },
-          { title: '自洽性 vs 验证器对比与融合', slugs: ['self-consistency-vs-verifier'] },
-          { title: '代码生成中的自洽性', slugs: ['self-consistency-code-generation'] },
-          { title: '多语言推理差异', slugs: ['self-consistency-multilingual-reasoning'] },
-        ]},
-        { title: '工具调用', nodes: [
-          { title: 'Function Calling 协议设计与类型约束', slugs: ['function-calling-protocol-design'] },
-          { title: '代码执行可视化渲染管线', slugs: ['code-execution-visualization-pipeline'] },
-        ]},
-        { title: '记忆系统', nodes: [
-          { title: '工作记忆容量约束与淘汰策略', slugs: ['working-memory-capacity-eviction-policy'] },
-          { title: '情景记忆时序索引与因果检索', slugs: ['episodic-memory-temporal-causal-retrieval'] },
-          { title: '对话历史摘要与遗忘曲线', slugs: ['conversation-summary-forgetting-curve'] },
-          { title: '记忆检索语义路由与多索引', slugs: ['memory-retrieval-semantic-routing'] },
-          { title: '记忆元数据标注与过滤检索', slugs: ['memory-metadata-annotation-filtered-retrieval'] },
-          { title: '反思记忆与自我修正机制', slugs: ['agent-reflective-memory-self-correction'] },
-          { title: 'MemGPT 分层记忆管理', slugs: ['memgpt-hierarchical-memory-management'] },
-        ]},
-        { title: 'RAG 与向量检索', nodes: [
-          { title: 'RAG Chunk 策略对 Agent 表现的影响', slugs: ['rag-chunking-strategy-agent-performance'] },
-          { title: '向量数据库选型（Pinecone / Milvus / Chroma）', slugs: ['vector-database-comparison-pinecone-milvus-chroma'] },
-          { title: 'HNSW 索引调参实践', slugs: ['hnsw-index-tuning-agent-memory'] },
-          { title: '知识图谱 × 向量混合记忆架构', slugs: ['knowledge-graph-vector-hybrid-memory'] },
-          { title: 'Embedding 微调提升检索精度', slugs: ['embedding-finetuning-domain-memory-retrieval'] },
-        ]},
-        { title: '多智能体', nodes: [
-          { title: '共享记忆一致性与冲突解决', slugs: ['multi-agent-shared-memory-consistency'] },
-          { title: '多 Agent 协作架构设计', slugs: [] },
-          { title: 'Agent 工作流编排与调度', slugs: [] },
+        { title: '监控运维', groups: [
+          { title: '系统监控',   total:  8, link: '', done_slugs: [] },
+          { title: 'Kubernetes', total:  3, link: '', done_slugs: [] },
+          { title: 'SRE',        total:  2, link: '', done_slugs: [] },
         ]},
       ]
     },
+
     {
-      id: 'frontier', title: '08 · 前沿追踪', color: '#22d3ee',
+      id: 'frontier', title: '08 · 前沿追踪', color: '#f472b6', catTotal: 461,
       topics: [
-        { title: '数学推理', nodes: [
-          { title: 'Lean 4 形式化验证集成', slugs: ['math-formal-verification-lean4'] },
-          { title: '过程奖励模型 (PRM)', slugs: ['math-process-reward-model'] },
-          { title: '自一致性数学解码', slugs: ['math-self-consistency-decoding'] },
-          { title: 'CoT 格式设计', slugs: ['math-reasoning-cot-format-design'] },
-          { title: 'MetaMath 数据增强', slugs: ['metamath-data-augmentation'] },
-          { title: 'NuminaMath 竞赛数据构建', slugs: ['numinamath-competition-data'] },
-          { title: 'InternLM-Math 统一框架', slugs: ['internlm-math-unified-framework'] },
-          { title: 'Minerva 数学推理预训练', slugs: ['minerva-math-pretraining'] },
-          { title: 'Llemma 开源数学模型', slugs: ['llemma-open-math-language-model'] },
-          { title: 'DeepSeek-Math 推理训练', slugs: ['deepseek-math-reasoning-training'] },
+        { title: '旗舰模型', groups: [
+          { title: '最新模型',   total: 15, link: 'frontier-model-gpt4-technical-analysis', done_slugs: ['frontier-model-gpt4-technical-analysis','frontier-model-gpt4o-multimodal-capability','frontier-model-claude35-sonnet-features','frontier-model-claude37-extended-thinking','frontier-model-gemini15-pro-long-context','frontier-model-gemini20-native-multimodal','frontier-model-llama31-405b','frontier-model-llama32-multimodal','frontier-model-mistral-large2-architecture','frontier-model-deepseek-v3-moe','frontier-model-qwen25-technical-report','frontier-model-qwen25-math-capability','frontier-model-yi-lightning-inference','frontier-model-grok1-open-source','frontier-model-command-r-plus-rag'] },
+          { title: 'Gemini',     total: 19, link: 'gemini-1-moe-architecture', done_slugs: ['gemini-1-moe-architecture','gemini-native-multimodal-training','gemini-visual-encoder-vit','gemini-1-5-million-context-window','gemini-1-5-pro-moe-efficiency','gemini-audio-understanding-architecture','gemini-video-temporal-modeling','gemini-cross-modal-attention-fusion','gemini-math-reasoning-multimodal','gemini-code-generation-execution','gemini-grounding-search-augmented','gemini-multimodal-tokenizer-design','gemini-vs-gpt4v-multimodal-comparison','gemini-function-calling-mechanism','gemini-thinking-mode-reasoning','gemini-multimodal-embedding-space','gemini-sparse-flash-attention'] },
+          { title: 'DeepSeek',   total: 19, link: 'deepseek-v1-architecture', done_slugs: ['deepseek-v1-architecture','deepseek-v2-multi-latent-attention','deepseek-v2-moe-architecture','deepseek-v3-auxiliary-loss-free-balancing','deepseek-v3-multi-token-prediction','deepseek-v3-fp8-mixed-precision','deepseek-r1-reinforcement-learning','deepseek-r1-zero-emergent-reasoning','deepseek-v3-dualpipe-parallelism','deepseek-coder-pretraining-strategy','deepseek-math-reasoning-training','deepseek-v3-training-data-recipe','deepseek-r1-cold-start-data','deepseek-v3-long-context-extension','deepseek-r1-rejection-sampling-pipeline'] },
+          { title: 'Claude',     total: 15, link: 'claude-architecture-evolution', done_slugs: ['claude-architecture-evolution','claude-long-context-mechanism','claude3-multimodal-architecture','claude-system-prompt-mechanism','claude-token-sampling-strategy','claude-multi-turn-state-management','anthropic-interpretability-feature-dictionary','claude-superposition-phenomenon','claude-activation-engineering','claude-prompt-engineering-principles','claude-chain-of-thought-reasoning','claude-tool-use-training'] },
         ]},
-        { title: '推理强化学习', nodes: [
-          { title: 'DeepSeek-R1-Zero 推理涌现', slugs: ['deepseek-r1-zero-emergent-reasoning'] },
-          { title: 'DeepSeek-R1 强化学习训练', slugs: ['deepseek-r1-reinforcement-learning'] },
-          { title: 'GRPO 组相对策略优化', slugs: ['grpo-deepseek-r1-rl'] },
-          { title: '推理 RL 奖励设计', slugs: ['reasoning-rl-reward-design'] },
-          { title: '测试时计算扩展 (Test-Time Compute)', slugs: ['test-time-compute-scaling-reasoning'] },
+        { title: '代码与数学', groups: [
+          { title: '代码模型',   total: 14, link: 'codex-code-generation-training', done_slugs: ['codex-code-generation-training','codellama-long-context-infilling','deepseek-coder-v2-moe-architecture','starcoder-multilingual-pretraining','starcoder2-staged-training','codegemma-code-math-joint-training','wizardcoder-evol-instruct','santacoder-fim-training-objective','alphacode-sampling-filtering','alphacode2-multi-model-collaboration','codet-dual-execution-verification','qwen25-coder-data-engineering','code-model-tokenizer-design'] },
+          { title: '数学推理',   total:  9, link: 'minerva-math-pretraining', done_slugs: ['minerva-math-pretraining','llemma-open-math-language-model','math-reasoning-cot-format-design','metamath-data-augmentation','internlm-math-unified-framework','numinamath-competition-data','math-self-consistency-decoding','math-formal-verification-lean4'] },
+          { title: '多语言模型', total:  6, link: 'bloom-multilingual-data-balance', done_slugs: ['bloom-multilingual-data-balance','mgpt-crosslingual-transfer-emergence','aya-multilingual-instruction-tuning','nllb-low-resource-translation','multilingual-tokenizer-vocabulary-fairness','glm4-bilingual-alignment'] },
         ]},
-        { title: '代码模型', nodes: [
-          { title: 'Codex 代码生成训练流程', slugs: ['codex-code-generation-training'] },
-          { title: 'Qwen2.5-Coder 数据工程', slugs: ['qwen25-coder-data-engineering'] },
-          { title: 'StarCoder 多语言预训练', slugs: ['starcoder-multilingual-pretraining'] },
-          { title: 'StarCoder2 分阶段训练', slugs: ['starcoder2-staged-training'] },
-          { title: 'WizardCoder Evol-Instruct', slugs: ['wizardcoder-evol-instruct'] },
-          { title: 'SantaCoder FIM 训练目标', slugs: ['santacoder-fim-training-objective'] },
-          { title: 'CodeGemma 代码 + 数学联合训练', slugs: ['codegemma-code-math-joint-training'] },
-          { title: 'AlphaCode 大规模采样过滤', slugs: ['alphacode-sampling-filtering'] },
-          { title: 'AlphaCode 2 多模型协作', slugs: ['alphacode2-multi-model-collaboration'] },
-          { title: 'CodeT 双重执行验证', slugs: ['codet-dual-execution-verification'] },
-          { title: 'DeepSeek Coder 预训练策略', slugs: ['deepseek-coder-pretraining-strategy'] },
-          { title: 'DeepSeek-Coder-V2 MoE 架构', slugs: ['deepseek-coder-v2-moe-architecture'] },
-          { title: 'CodeLlama 长上下文填充训练', slugs: ['codellama-long-context-infilling'] },
-          { title: '代码 Tokenizer 设计差异', slugs: ['code-model-tokenizer-design'] },
+        { title: '推理与长上下文', groups: [
+          { title: '前沿技术',   total: 10, link: 'frontier-tech-inference-time-compute-scaling', done_slugs: ['frontier-tech-inference-time-compute-scaling','frontier-tech-chain-of-thought-evolution','frontier-tech-self-correction-reflection','frontier-tech-multi-agent-frontiers','frontier-tech-long-context-breakthroughs','frontier-tech-on-device-model-development','frontier-tech-multimodal-fusion-paradigms','frontier-tech-video-understanding-advances','frontier-tech-world-model-development','frontier-tech-ai-agent-production'] },
+          { title: '长上下文',   total: 10, link: 'attention-sparsity-long-context', done_slugs: ['attention-sparsity-long-context','infini-attention-infinite-context','gqa-grouped-query-attention-long-context','yarn-positional-encoding-extrapolation','long-context-evaluation-beyond-niah'] },
+          { title: 'MoE 前沿',   total:  8, link: 'moe-routing-topk-to-expert-choice', done_slugs: ['moe-routing-topk-to-expert-choice','moe-expert-collapse-load-balancing','moe-shared-expert-design','moe-fine-grained-expert-segmentation','moe-all-to-all-communication-optimization','mixtral-vs-deepseek-moe-comparison','moe-upcycling-initialization'] },
+          { title: '基准评测',   total: 10, link: '', done_slugs: [] },
         ]},
-        { title: '多语言模型', nodes: [
-          { title: 'BLOOM 多语言数据平衡策略', slugs: ['bloom-multilingual-data-balance'] },
-          { title: 'mGPT 跨语言迁移涌现', slugs: ['mgpt-crosslingual-transfer-emergence'] },
-          { title: 'NLLB 低资源语言翻译架构', slugs: ['nllb-low-resource-translation'] },
-          { title: 'Aya 多语言指令微调', slugs: ['aya-multilingual-instruction-tuning'] },
-          { title: 'GLM-4 中英双语对齐', slugs: ['glm4-bilingual-alignment'] },
-          { title: '多语言 Tokenizer 词表公平性', slugs: ['multilingual-tokenizer-vocabulary-fairness'] },
+        { title: '多模态', groups: [
+          { title: '视觉编码器', total: 19, link: 'clip-zeroshot-prompt-ensemble', done_slugs: ['clip-zeroshot-prompt-ensemble','vision-encoders-vit-vs-cnn'] },
+          { title: '多模态前沿', total:  8, link: 'llava-visual-instruction', done_slugs: ['llava-visual-instruction','multimodal-positional-encoding-nd','multimodal-contrastive-learning-clip-siglip'] },
+          { title: '视觉语言模型', total: 27, link: '', done_slugs: [] },
+          { title: '图像生成',   total: 31, link: '', done_slugs: [] },
         ]},
-        { title: 'DeepSeek 系列深度解析', nodes: [
-          { title: 'DeepSeek-V2 RoPE 解耦设计', slugs: ['deepseek-v2-rope-decoupled-design'] },
-          { title: 'DeepSeek-V3 长上下文扩展训练', slugs: ['deepseek-v3-long-context-extension'] },
-          { title: 'DeepSeek-V3 训练数据配方', slugs: ['deepseek-v3-training-data-recipe'] },
-          { title: 'DeepSeek-V3 DualPipe 并行策略', slugs: ['deepseek-v3-dualpipe-parallelism'] },
-          { title: 'DeepSeek-R1 冷启动数据构建', slugs: ['deepseek-r1-cold-start-data'] },
-          { title: 'DeepSeek-R1 拒绝采样与多阶段训练', slugs: ['deepseek-r1-rejection-sampling-pipeline'] },
-          { title: 'DeepSeek-R1 蒸馏小模型推理', slugs: ['deepseek-r1-distillation-small-models'] },
+        { title: '语音与视频', groups: [
+          { title: '语音处理',   total: 23, link: '', done_slugs: [] },
+          { title: '视频理解',   total: 21, link: '', done_slugs: [] },
+          { title: '技术趋势',   total:  6, link: '', done_slugs: [] },
         ]},
       ]
     },
@@ -597,41 +556,40 @@
   (async function renderTree() {
     // 加载 posts.json，构建 slug 集合
     let slugSet = new Set();
-    let slugToPost = {};
     try {
       const res = await fetch('posts/posts.json');
       if (res.ok) {
         const posts = await res.json();
-        posts.forEach(p => {
-          slugSet.add(p.slug);
-          slugToPost[p.slug] = p;
-        });
+        posts.forEach(p => slugSet.add(p.slug));
       }
     } catch (e) { /* ignore */ }
 
-    // 统计总节点 / 完成节点
-    let totalNodes = 0, doneNodes = 0;
+    // 统计：按发布的文章数 / 规划节点总数
+    let totalTopics = 0, doneGroups = 0, totalGroups = 0;
     const domainStats = {};
+
     TREE.forEach(domain => {
-      let dt = 0, dd = 0;
+      let domainDone = 0, domainGroups = 0;
       domain.topics.forEach(topic => {
-        topic.nodes.forEach(node => {
-          dt++; totalNodes++;
-          const done = node.slugs.some(s => slugSet.has(s));
-          if (done) { dd++; doneNodes++; }
+        topic.groups.forEach(g => {
+          totalGroups++; domainGroups++;
+          totalTopics += g.total;
+          const pub = g.done_slugs.filter(s => slugSet.has(s)).length;
+          if (pub > 0) { doneGroups++; domainDone++; }
+          g._pub = pub; // cache
         });
       });
-      domainStats[domain.id] = { total: dt, done: dd };
+      domainStats[domain.id] = { groups: domainGroups, done: domainDone, total: domain.catTotal };
     });
 
-    // 渲染进度
-    const pct = totalNodes > 0 ? Math.round(doneNodes / totalNodes * 100) : 0;
+    // 渲染总进度（以话题方向计）
+    const pct = totalGroups > 0 ? Math.round(doneGroups / totalGroups * 100) : 0;
     document.getElementById('kt-stats').innerHTML = `
-      <span class="kt-stat"><strong>${doneNodes}</strong> / ${totalNodes} 节点已完成</span>
+      <span class="kt-stat"><strong>${doneGroups}</strong> / ${totalGroups} 话题方向已覆盖</span>
       <div class="kt-progress-track">
         <div class="kt-progress-fill" style="width:${pct}%"></div>
       </div>
-      <span class="kt-stat"><strong>${pct}%</strong></span>
+      <span class="kt-stat"><strong>${pct}%</strong> · 规划 <strong>${totalTopics.toLocaleString()}</strong> 知识节点</span>
     `;
 
     // 渲染域卡片
@@ -640,31 +598,30 @@
       const stats = domainStats[domain.id];
       const badgeBg = domain.color + '22';
       const topicsHtml = domain.topics.map(topic => {
-        const nodesHtml = topic.nodes.map(node => {
-          const matchSlug = node.slugs.find(s => slugSet.has(s));
-          const done = !!matchSlug;
+        const groupsHtml = topic.groups.map(g => {
+          const pub = g._pub;
+          const done = pub > 0;
+          const countLabel = `${pub}/${g.total}`;
           if (done) {
-            const post = slugToPost[matchSlug];
             return `<li class="kt-node-item">
-              <a class="kt-node done" href="post.html?slug=${encodeURIComponent(matchSlug)}"
-                 style="background:${domain.color};color:#000;"
-                 title="${escapeHtml(post ? post.summary || '' : '')}">
+              <a class="kt-node done" href="post.html?slug=${encodeURIComponent(g.link)}"
+                 style="background:${domain.color};color:#000;">
                 <span class="kt-node-dot"></span>
-                ${escapeHtml(node.title)}
+                ${escapeHtml(g.title)}<span class="kt-count">${countLabel}</span>
               </a>
             </li>`;
           } else {
             return `<li class="kt-node-item">
               <span class="kt-node pending">
                 <span class="kt-node-dot"></span>
-                ${escapeHtml(node.title)}
+                ${escapeHtml(g.title)}<span class="kt-count">0/${g.total}</span>
               </span>
             </li>`;
           }
         }).join('');
         return `<div class="kt-topic">
           <div class="kt-topic-label">${escapeHtml(topic.title)}</div>
-          <ul class="kt-nodes">${nodesHtml}</ul>
+          <ul class="kt-nodes">${groupsHtml}</ul>
         </div>`;
       }).join('');
 
@@ -672,7 +629,7 @@
         <div class="kt-domain-head" style="border-left:3px solid ${domain.color}; padding-left:13px;">
           <span class="kt-domain-title">${escapeHtml(domain.title)}</span>
           <span class="kt-domain-badge" style="color:${domain.color};border-color:${domain.color};background:${badgeBg};">
-            ${stats.done}/${stats.total}
+            ${stats.done}/${stats.groups} 方向 · ${stats.total} 节点
           </span>
         </div>
         <div class="kt-domain-body">${topicsHtml}</div>
