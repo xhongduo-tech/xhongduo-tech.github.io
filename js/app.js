@@ -157,17 +157,100 @@ async function initIndexPage() {
     renderList();
   });
 
+  function computeImpactFactor(post) {
+    const title   = post.title   || '';
+    const summary = post.summary || '';
+    const tags    = post.tags    || [];
+    const cat     = tags[0]      || '';
+
+    let score = 0;
+    const factors = [];
+
+    // 1. Category base score
+    const catMeta = {
+      '前沿追踪': { score: 4, label: '前沿研究领域' },
+      '理论基础': { score: 4, label: '基础理论方向' },
+      '模型训练': { score: 3, label: '模型训练方向' },
+      '模型微调': { score: 3, label: '微调工程方向' },
+      '模型部署': { score: 2, label: '部署工程方向' },
+      '智能体':   { score: 2, label: 'Agent 应用方向' },
+      '系统基础': { score: 2, label: '系统基础方向' },
+      '工程实践': { score: 1, label: '工程实践方向' },
+    };
+    const catInfo = catMeta[cat] || { score: 2, label: '通用方向' };
+    score += catInfo.score;
+    factors.push(catInfo.label);
+
+    // 2. Specific well-known algorithm / system names
+    const techKeywords = [
+      'HNSW', 'RAG', 'MCTS', 'MemGPT', 'GoT', 'ToT', 'CoT', 'ReAct',
+      'LoRA', 'RLHF', 'SFT', 'DPO', 'Lean', 'CRDT', 'PPO', 'GQA',
+      'RLVR', 'KV', 'BFS', 'DFS', 'Embedding', 'Function Calling', '知识图谱',
+    ];
+    const matched = techKeywords.filter(t => title.includes(t) || summary.includes(t));
+    if (matched.length >= 2) {
+      score += 2;
+      factors.push(`涵盖 ${matched.slice(0, 2).join('/')} 等专项算法`);
+    } else if (matched.length === 1) {
+      score += 1;
+      factors.push(`聚焦 ${matched[0]} 技术细节`);
+    } else {
+      factors.push('聚焦单一核心概念');
+    }
+
+    // 3. Multi-technique synthesis / comparison
+    if (/与|对比|融合|结合|集成|混合/.test(title)) {
+      score += 1;
+      factors.push('多技术对比融合');
+    }
+
+    // 4. Tag breadth (cross-domain coverage)
+    if (tags.length >= 5) {
+      score += 2;
+      factors.push(`跨 ${tags.length} 个领域`);
+    } else if (tags.length >= 4) {
+      score += 2;
+      factors.push('跨领域多标签');
+    } else if (tags.length >= 3) {
+      score += 1;
+    }
+
+    // 5. Comparison / selection article
+    if (/选型|对比|比较/.test(title)) {
+      score += 1;
+      factors.push('技术选型综合评估');
+    }
+
+    // 6. Summary technical density
+    if (summary.length > 55 && /架构|原理|机制|策略|优化|推理|验证|算法/.test(summary)) {
+      score += 1;
+      factors.push('摘要技术密度高');
+    }
+
+    // Map to 1–5: theoretical max ≈ 4+2+1+2+1+1 = 11
+    const level = Math.max(1, Math.min(5, Math.ceil(score / 2.2)));
+    const reasonParts = factors.slice(0, 3).join('，');
+    const reason = `影响力因子 ${level}/5 · ${reasonParts}`;
+    return { level, reason };
+  }
+
   function postCardHtml(p) {
     const tags = p.tags || [];
     const tagsHtml = tags.map((t, i) => {
       const catCls = i === 0 ? (CATEGORY_CLASS[t] || '') : '';
       return `<span class="tag ${catCls}">${escapeHtml(t)}</span>`;
     }).join('');
+    const { level, reason } = computeImpactFactor(p);
+    const barsHtml = [1, 2, 3, 4, 5]
+      .map(i => `<span class="impact-bar${i <= level ? ' active' : ''}"></span>`)
+      .join('');
+    const impactHtml = `<span class="impact-factor impact-level-${level}" data-tooltip="${escapeHtml(reason)}" aria-label="${escapeHtml(reason)}">${barsHtml}</span>`;
     return `
       <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
         <div class="post-card-meta">
           <span class="post-date">${p.date}</span>
           <div class="post-tags">${tagsHtml}</div>
+          ${impactHtml}
         </div>
         <div class="post-card-title">${escapeHtml(p.title)}</div>
         ${p.summary ? `<div class="post-card-summary">${escapeHtml(p.summary)}</div>` : ''}
