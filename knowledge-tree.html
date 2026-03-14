@@ -15,227 +15,141 @@
   </script>
   <style>
     /* ===== Knowledge Tree 专属样式 ===== */
-    .kt-hero {
-      margin-bottom: 36px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-    }
-    .kt-hero h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.15;
-      margin-bottom: 10px;
-    }
-    .kt-desc {
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
+    .kt-hero { margin-bottom: 36px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .kt-hero h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 10px; }
+    .kt-desc { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 20px; line-height: 1.6; }
 
-    /* ===== 进度栏 ===== */
-    .kt-stats {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-bottom: 6px;
-    }
-    .kt-stat {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    .kt-stat strong {
-      color: var(--accent);
-      font-size: 1.05rem;
-    }
-    .kt-progress-track {
-      flex: 1;
-      min-width: 120px;
-      height: 4px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .kt-progress-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 2px;
-      transition: width 0.6s ease;
-      box-shadow: 0 0 8px var(--accent);
-    }
+    /* 进度栏 */
+    .kt-stats { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 6px; }
+    .kt-stat { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+    .kt-stat strong { color: var(--accent); font-size: 1.05rem; }
+    .kt-progress-track { flex: 1; min-width: 120px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .kt-progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.6s ease; box-shadow: 0 0 8px var(--accent); }
 
-    /* ===== 图例 ===== */
-    .kt-legend {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 32px;
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-    }
-    .kt-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--text-muted);
-    }
-    .kt-legend-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+    /* 图例 */
+    .kt-legend { display: flex; gap: 20px; margin-bottom: 32px; font-family: var(--font-mono); font-size: 0.73rem; }
+    .kt-legend-item { display: flex; align-items: center; gap: 6px; color: var(--text-muted); }
+    .kt-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .kt-legend-dot.done    { background: var(--accent); }
     .kt-legend-dot.pending { background: var(--text-muted); opacity: 0.35; }
 
-    /* ===== 域卡片网格 ===== */
-    .kt-domains {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    @media (max-width: 640px) {
-      .kt-domains { grid-template-columns: 1fr; }
-    }
+    /* 域卡片网格 */
+    .kt-domains { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 640px) { .kt-domains { grid-template-columns: 1fr; } }
 
-    /* ===== 域卡片 ===== */
-    .kt-domain {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .kt-domain-head {
-      padding: 12px 16px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .kt-domain-title {
-      font-family: var(--font-mono);
-      font-weight: 600;
-      font-size: 0.83rem;
-      letter-spacing: 0.01em;
-      color: var(--text);
-    }
-    .kt-domain-badge {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      padding: 2px 7px;
-      border-radius: 20px;
-      border: 1px solid;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .kt-domain-body {
-      padding: 14px 16px 16px;
-    }
+    /* 域卡片 */
+    .kt-domain { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .kt-domain-head { padding: 12px 16px 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--border); }
+    .kt-domain-title { font-family: var(--font-mono); font-weight: 600; font-size: 0.83rem; letter-spacing: 0.01em; color: var(--text); }
+    .kt-domain-badge { font-family: var(--font-mono); font-size: 0.68rem; padding: 2px 7px; border-radius: 20px; border: 1px solid; white-space: nowrap; flex-shrink: 0; }
+    .kt-domain-body { padding: 14px 16px 16px; }
 
-    /* ===== 主题分组 ===== */
-    .kt-topic {
-      margin-bottom: 14px;
-    }
+    /* 主题分组 */
+    .kt-topic { margin-bottom: 14px; }
     .kt-topic:last-child { margin-bottom: 0; }
+    .kt-topic-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+    .kt-topic-label::after { content: ''; flex: 1; height: 1px; background: var(--border-dim); }
 
-    .kt-topic-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .kt-topic-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border-dim);
-    }
+    /* 节点列表（树线） */
+    .kt-nodes { list-style: none; padding: 0 0 0 14px; margin: 0; position: relative; }
+    .kt-nodes::before { content: ''; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+    .kt-node-item { position: relative; margin-bottom: 3px; }
+    .kt-node-item::before { content: ''; position: absolute; left: -10px; top: 8px; width: 7px; height: 1px; background: var(--border); }
 
-    /* ===== 节点列表（树线） ===== */
-    .kt-nodes {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      position: relative;
-      padding-left: 14px;
-    }
-    .kt-nodes::before {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 6px;
-      bottom: 6px;
-      width: 1px;
-      background: var(--border);
-    }
-    .kt-node-item {
-      position: relative;
-      margin-bottom: 3px;
-    }
-    .kt-node-item::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 8px;
-      width: 7px;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ===== 节点元素 ===== */
+    /* 节点元素 */
     .kt-node {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-family: var(--font-mono);
-      font-size: 0.71rem;
-      line-height: 1.4;
-      padding: 2px 7px;
-      border-radius: 3px;
-      max-width: 100%;
-      word-break: break-word;
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--font-mono); font-size: 0.71rem; line-height: 1.4;
+      padding: 2px 7px; border-radius: 3px; max-width: 100%;
+      border: none; background: none; text-align: left; cursor: default;
     }
-    .kt-node-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .kt-count {
-      font-size: 0.62rem;
-      opacity: 0.7;
-      margin-left: 2px;
-      flex-shrink: 0;
-    }
+    .kt-node-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    .kt-count { font-size: 0.62rem; opacity: 0.7; margin-left: 2px; flex-shrink: 0; }
 
-    /* 已完成（任意文章命中） */
-    .kt-node.done {
-      color: #000;
-      text-decoration: none;
-      transition: opacity 0.12s;
-    }
-    .kt-node.done:hover { opacity: 0.82; text-decoration: none; }
+    /* 已完成 */
+    .kt-node.done { color: #000; cursor: pointer; transition: opacity 0.12s; }
+    .kt-node.done:hover { opacity: 0.82; }
     .kt-node.done .kt-node-dot { background: #000; opacity: 0.5; }
 
     /* 待完成 */
-    .kt-node.pending {
-      color: var(--text-muted);
-      cursor: default;
+    .kt-node.pending { color: var(--text-muted); }
+    .kt-node.pending .kt-node-dot { background: var(--text-muted); opacity: 0.3; }
+    .kt-node.pending .kt-count { opacity: 0.45; }
+
+    /* ===== 弹窗 ===== */
+    .kt-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 900;
+      align-items: center; justify-content: center;
+      padding: 20px;
     }
-    .kt-node.pending .kt-node-dot {
-      background: var(--text-muted);
-      opacity: 0.3;
+    .kt-overlay.open { display: flex; }
+
+    .kt-modal {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 100%; max-width: 540px;
+      max-height: 80vh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      overflow: hidden;
     }
-    .kt-node.pending .kt-count {
-      opacity: 0.45;
+    .kt-modal-head {
+      padding: 14px 18px 12px;
+      border-bottom: 1px solid var(--border);
+      border-left: 4px solid var(--kt-modal-color, var(--accent));
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+      flex-shrink: 0;
+    }
+    .kt-modal-info { flex: 1; min-width: 0; }
+    .kt-modal-title { font-family: var(--font-mono); font-weight: 700; font-size: 0.92rem; color: var(--text); margin-bottom: 4px; }
+    .kt-modal-sub { font-family: var(--font-mono); font-size: 0.73rem; color: var(--text-muted); }
+    .kt-modal-close {
+      background: none; border: none; cursor: pointer; color: var(--text-muted);
+      font-family: var(--font-mono); font-size: 0.8rem; padding: 2px 6px;
+      border-radius: 3px; flex-shrink: 0;
+      transition: background 0.1s;
+    }
+    .kt-modal-close:hover { background: var(--border); color: var(--text); }
+
+    .kt-modal-body { overflow-y: auto; padding: 14px 18px; flex: 1; }
+    .kt-modal-section { margin-bottom: 16px; }
+    .kt-modal-section:last-child { margin-bottom: 0; }
+    .kt-modal-section-title {
+      font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;
+    }
+
+    .kt-article-list { list-style: none; padding: 0; margin: 0; }
+    .kt-article-item { margin-bottom: 6px; }
+    .kt-article-link {
+      display: flex; align-items: baseline; gap: 10px;
+      font-family: var(--font-mono); font-size: 0.76rem;
+      color: var(--text); text-decoration: none;
+      padding: 5px 8px; border-radius: 4px;
+      border: 1px solid transparent;
+      transition: border-color 0.12s, background 0.12s;
+    }
+    .kt-article-link:hover {
+      border-color: var(--border);
+      background: var(--bg-2);
+      text-decoration: none;
+    }
+    .kt-article-date { color: var(--text-muted); font-size: 0.68rem; white-space: nowrap; flex-shrink: 0; }
+    .kt-article-title { flex: 1; }
+    .kt-article-arrow { color: var(--text-muted); flex-shrink: 0; }
+
+    .kt-pending-info {
+      font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);
+      padding: 8px 10px; border: 1px dashed var(--border);
+      border-radius: 4px; line-height: 1.5;
+    }
+    .kt-pending-info strong { color: var(--text); }
+
+    .kt-empty-state {
+      font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);
+      padding: 20px 0; text-align: center;
     }
   </style>
 </head>
@@ -243,9 +157,7 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a href="index.html" class="nav-logo">
-          <span class="prompt">&gt;</span>xhd
-        </a>
+        <a href="index.html" class="nav-logo"><span class="prompt">&gt;</span>xhd</a>
         <div class="nav-links">
           <a href="index.html">posts</a>
           <a href="projects.html" class="active">projects</a>
@@ -264,360 +176,341 @@
 
   <main class="container">
     <section class="kt-hero">
-      <div class="hero-cmd">
-        <span class="prompt">$</span> tree ./llm-mastery --depth 3 --show-progress
-      </div>
+      <div class="hero-cmd"><span class="prompt">$</span> tree ./llm-mastery --depth 3 --show-progress</div>
       <h1>LLM 全栈知识树<span class="blink">_</span></h1>
       <p class="kt-desc">
         从数学基础到前沿研究的完整学习路线图，规划 3500+ 知识节点。<br>
-        高亮节点已有对应文章，点击直达；灰色节点规划中，持续更新。
+        高亮节点已有对应文章，点击可查看全部文章；灰色节点规划中，持续更新。
       </p>
-      <div class="kt-stats" id="kt-stats">
-        <span class="kt-stat">加载中...</span>
-      </div>
+      <div class="kt-stats" id="kt-stats"><span class="kt-stat">加载中...</span></div>
     </section>
 
     <div class="kt-legend">
-      <span class="kt-legend-item">
-        <span class="kt-legend-dot done"></span>已有文章
-      </span>
-      <span class="kt-legend-item">
-        <span class="kt-legend-dot pending"></span>规划中
-      </span>
+      <span class="kt-legend-item"><span class="kt-legend-dot done"></span>已有文章（点击查看）</span>
+      <span class="kt-legend-item"><span class="kt-legend-dot pending"></span>规划中</span>
     </div>
 
-    <div class="kt-domains" id="kt-domains">
-      <p class="loading">// 加载知识树...</p>
-    </div>
+    <div class="kt-domains" id="kt-domains"><p class="loading">// 加载知识树...</p></div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+  <!-- 弹窗 -->
+  <div class="kt-overlay" id="kt-overlay" role="dialog" aria-modal="true">
+    <div class="kt-modal" id="kt-modal">
+      <div class="kt-modal-head">
+        <div class="kt-modal-info">
+          <div class="kt-modal-title" id="kt-modal-title"></div>
+          <div class="kt-modal-sub" id="kt-modal-sub"></div>
+        </div>
+        <button class="kt-modal-close" id="kt-modal-close" aria-label="关闭">[×]</button>
+      </div>
+      <div class="kt-modal-body" id="kt-modal-body"></div>
     </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container"><p>© <span id="year"></span> xhd · built with GitHub Pages</p></div>
   </footer>
 
   <script src="js/app.js"></script>
   <script>
-  // ===== 知识树数据 =====
-  // 8 大分类对应 topic_queue.json 的 blog_category
-  // 每个 group 代表一个二级话题方向
-  // done_slugs: 该方向下已发布的文章 slug 列表（运行时与 posts.json 交叉比对）
-  // total: 该方向在知识图谱中的完整规划节点数
+// AUTO-GENERATED — do not manually edit all_slugs (regenerate from topic_queue.json)
   const TREE = [
-    {
-      id: 'theory', title: '01 · 理论基础', color: '#818cf8', catTotal: 880,
-      topics: [
-        { title: '数学基础', groups: [
-          { title: '线性代数',   total: 30, link: 'math-la-matrix-inversion-numerical', done_slugs: ['math-la-matrix-inversion-numerical','math-la-cholesky-decomposition','math-la-schur-decomposition','math-la-generalized-eigenvalue','math-la-polar-decomposition','math-la-matrix-functions-exponential','math-la-random-matrix-theory-intro','math-la-low-rank-matrix-completion','tensor-operations-fundamentals','numerical-linear-algebra'] },
-          { title: '概率论',     total: 34, link: 'math-bayesian-conjugate-prior-system', done_slugs: ['math-bayesian-conjugate-prior-system','math-bayesian-variational-inference-elbo','math-bayesian-mcmc-markov-chain-convergence','probability-distributions-unified','stochastic-processes-fundamentals','probability-inequalities'] },
-          { title: '统计学',     total: 11, link: 'math-stat-hypothesis-testing-pvalue', done_slugs: ['math-stat-hypothesis-testing-pvalue','math-stat-mle-asymptotic-properties','math-stat-method-of-moments','math-stat-confidence-interval-construction','math-stat-nonparametric-tests','math-stat-kernel-density-estimation-bandwidth','statistical-inference-fundamentals'] },
-          { title: '信息论',     total: 26, link: 'information-theory-fundamentals', done_slugs: ['information-theory-fundamentals'] },
-          { title: '微积分',     total: 21, link: 'differential-equations-fundamentals', done_slugs: ['differential-equations-fundamentals'] },
-          { title: '优化理论',   total: 44, link: 'optimization-algorithms-comparison', done_slugs: ['optimization-algorithms-comparison','numerical-optimization-methods'] },
-        ]},
-        { title: 'Transformer 核心', groups: [
-          { title: 'Transformer 架构', total: 25, link: 'sinusoidal-positional-encoding', done_slugs: ['sinusoidal-positional-encoding','transformer-encoder','transformer-flops-analysis','transformer-width-depth-tradeoff','transformer-parameter-sharing','cross-layer-parameter-sharing'] },
-          { title: '位置编码',   total: 33, link: 'rope-positional-encoding', done_slugs: ['rope-positional-encoding','positional-encoding-absolute-relative-rope-evolution'] },
-          { title: 'Tokenization', total: 14, link: '', done_slugs: [] },
-          { title: '分词算法',   total: 11, link: 'bpe-tokenization', done_slugs: ['bpe-tokenization'] },
-        ]},
-        { title: '注意力机制', groups: [
-          { title: '注意力机制',   total: 64, link: 'bahdanau-attention', done_slugs: ['bahdanau-attention','self-attention-mechanism','multi-head-attention','online-softmax-streaming','ring-attention-sequence-parallelism','flashattention-sparse-pattern-fusion','attention-sink-streaming-llm','attention-head-specialization','sparse-attention-patterns','mqa-gqa-optimization'] },
-          { title: '稀疏注意力', total: 13, link: 'longformer-sliding-window-global-attention', done_slugs: ['longformer-sliding-window-global-attention','bigbird-random-attention-graph-connectivity','sparse-attention-information-theoretic-analysis','dilated-attention-multi-scale-sparse','reformer-lsh-attention-mechanism','mixture-of-attention-heads-routing'] },
-          { title: '线性注意力', total: 12, link: 'performer-favor-plus-random-features', done_slugs: ['performer-favor-plus-random-features','linear-attention-causal-recurrent-form','retnet-multi-scale-retention','linear-attention-expressiveness-limitations','performer-orthogonal-random-features-variance','rwkv-linear-attention-token-shift'] },
-          { title: '高效架构',   total: 13, link: '', done_slugs: [] },
-          { title: '状态空间模型', total: 11, link: 'mamba-selective-scan-mechanism', done_slugs: ['mamba-selective-scan-mechanism','s4-hippo-matrix-long-range-memory','mamba-2-ssd-structured-matrix','causal-convolution-ssm-fft-acceleration'] },
-        ]},
-        { title: 'MoE 与路由', groups: [
-          { title: 'MoE 架构',   total: 63, link: 'moe-load-balancing-loss', done_slugs: ['moe-load-balancing-loss','switch-transformer-single-expert-routing','mixtral-8x7b-architecture','moe-expert-collapse','noisy-topk-gating','moe-expert-capacity-token-dropping','expert-parallelism-communication-bottleneck','st-moe-stable-training','base-layer-linear-assignment-routing','expert-choice-routing','hash-layer-fixed-routing','soft-moe-differentiable-routing','moe-expert-specialization-analysis','mixtral-routing-pattern-analysis','deepseek-moe-fine-grained-experts','moe-shared-expert-mechanism','vmoe-vision-moe','moe-layer-placement-strategy','moe-auxiliary-loss-variants','megablocks-efficient-moe-gpu','moe-token-drop-vs-dropless','moe-upcycling-dense-to-sparse','sinkhorn-routing-optimal-transport','moe-scaling-laws','mixture-of-depths','moe-moa-unified-design-space'] },
-        ]},
-        { title: '缩放与涌现', groups: [
-          { title: '扩展定律',   total: 15, link: 'scaling-law-basic-formulation', done_slugs: ['scaling-law-basic-formulation','chinchilla-optimal-scaling','irreducible-loss-entropy-bound','scaling-law-downstream-transfer','data-constrained-scaling-law','scaling-law-width-depth-ratio','scaling-law-approximation-theory','broken-neural-scaling-law','multimodal-scaling-law','training-instability-scaling','mup-maximal-update-parameterization','token-repetition-scaling-effect'] },
-          { title: '上下文学习', total: 15, link: 'in-context-learning-information-theory', done_slugs: ['in-context-learning-information-theory','icl-implicit-gradient-descent','icl-task-recognition-vs-learning','induction-head-icl-circuit','icl-example-selection-strategies','icl-label-space-format-effect','many-shot-icl-long-context','icl-attention-pattern-analysis','context-window-icl-capacity','icl-finetuning-unified-framework'] },
-          { title: '涌现能力',   total: 10, link: 'emergent-abilities-phase-transition', done_slugs: ['emergent-abilities-phase-transition','emergent-abilities-predictability','emergent-abilities-few-shot-prompting','emergent-reasoning-arithmetic','emergent-abilities-detection-challenges','emergent-benchmark-contamination','emergent-abilities-non-linear-scaling'] },
-          { title: '文本分类',   total: 17, link: '', done_slugs: [] },
-          { title: '序列标注',   total: 11, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
-
-    {
-      id: 'training', title: '02 · 模型训练', color: '#a78bfa', catTotal: 428,
-      topics: [
-        { title: '分布式训练', groups: [
-          { title: '分布式训练综合', total: 48, link: 'tensor-parallelism', done_slugs: ['tensor-parallelism','pipeline-parallelism','zero-optimizer','data-parallel-ddp','tensor-parallel-math','tensor-parallel-attention','pipeline-parallel-microbatch','pipeline-1f1b-schedule','tp-communication-primitives','cross-node-tensor-parallel','tp-embedding-parallel','expert-parallel-tensor-parallel','heterogeneous-cluster-training'] },
-          { title: 'ZeRO 显存优化', total: 12, link: 'zero-stage1-optimizer-partition', done_slugs: ['zero-stage1-optimizer-partition','zero-stage2-gradient-partition','zero-stage3-parameter-partition','zero-offload-gpu-cpu','zero-infinity-nvme','zero-vs-model-parallel-memory','zero-plus-plus-quantized-comm','fsdp-vs-zero-stage3','zero-r-activation-memory'] },
-          { title: '流水线并行', total: 9, link: 'gradient-accumulation-pipeline', done_slugs: ['gradient-accumulation-pipeline','pipeline-weight-consistency','pipeline-layer-assignment'] },
-          { title: 'Megatron-LM', total: 8, link: 'interleaved-pipeline-stages', done_slugs: ['interleaved-pipeline-stages','megatron-3d-parallelism','megatron-sequence-parallel','megatron-activation-recomputation','megatron-distributed-init'] },
-        ]},
-        { title: '训练优化技术', groups: [
-          { title: '训练优化',   total: 17, link: 'batch-normalization', done_slugs: ['batch-normalization','gradient-descent-variants','adam-optimizer','weight-initialization','learning-rate-schedule','mixed-precision-training','layer-normalization'] },
-          { title: '优化器',     total: 20, link: '', done_slugs: [] },
-          { title: '训练稳定性', total: 18, link: '', done_slugs: [] },
-          { title: '高效训练',   total: 12, link: '', done_slugs: [] },
-          { title: '正则化',     total:  8, link: '', done_slugs: [] },
-          { title: '归一化',     total:  6, link: '', done_slugs: [] },
-          { title: '学习率调度', total:  7, link: '', done_slugs: [] },
-        ]},
-        { title: '强化学习', groups: [
-          { title: 'RLHF',       total: 23, link: '', done_slugs: [] },
-          { title: 'RL 基础',    total: 10, link: '', done_slugs: [] },
-          { title: '策略梯度',   total: 11, link: '', done_slugs: [] },
-          { title: '深度强化学习', total: 10, link: '', done_slugs: [] },
-          { title: 'Actor-Critic', total: 9, link: '', done_slugs: [] },
-          { title: '值函数方法', total:  9, link: '', done_slugs: [] },
-          { title: '训练后处理', total: 10, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
-
-    {
-      id: 'finetune', title: '03 · 模型微调', color: '#c084fc', catTotal: 153,
-      topics: [
-        { title: 'SFT 与指令微调', groups: [
-          { title: '指令微调',   total: 19, link: '', done_slugs: [] },
-          { title: '微调方法',   total:  5, link: 'lora-peft', done_slugs: ['lora-peft','qlora','sft-data-quality','prefix-prompt-tuning','adapter-layers'] },
-          { title: '对齐基础',   total:  3, link: 'instruction-tuning', done_slugs: ['instruction-tuning','constitutional-ai'] },
-          { title: '对齐算法',   total:  4, link: '', done_slugs: [] },
-          { title: '数据构建',   total:  6, link: '', done_slugs: [] },
-        ]},
-        { title: '参数高效微调 (PEFT)', groups: [
-          { title: 'PEFT 方法',  total: 14, link: '', done_slugs: [] },
-          { title: '参数高效微调', total: 9, link: '', done_slugs: [] },
-          { title: '领域适配微调', total: 4, link: '', done_slugs: [] },
-          { title: '长上下文微调', total: 5, link: '', done_slugs: [] },
-        ]},
-        { title: '对齐与安全', groups: [
-          { title: 'Claude 安全研究', total: 16, link: 'constitutional-ai-core-mechanism', done_slugs: ['constitutional-ai-core-mechanism','rlhf-vs-rlaif-alignment','claude-hhh-objective','claude-critique-revision-loop','claude-constitution-principles-design','claude-preference-model-training','claude-ppo-training-stability','claude-red-teaming-methodology','claude-overrefusal-mitigation','constitutional-ai-formalization','claude-safety-layered-architecture','claude-jailbreak-taxonomy-defense','claude-uncertainty-expression','claude-instruction-hierarchy','anthropic-scaling-safety-research','claude-hallucination-detection-mitigation'] },
-          { title: 'LLM 安全',  total:  4, link: 'llm-hallucination', done_slugs: ['llm-hallucination','jailbreak-attacks','llm-safety-red-teaming','llm-text-watermarking'] },
-          { title: 'RLHF 对齐', total:  3, link: '', done_slugs: [] },
-          { title: '多任务微调', total:  3, link: '', done_slugs: [] },
-          { title: '工程实践',   total:  8, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
-
-    {
-      id: 'deploy', title: '04 · 模型部署', color: '#e879f9', catTotal: 218,
-      topics: [
-        { title: '推理加速', groups: [
-          { title: '推理优化综合', total: 35, link: 'kv-cache', done_slugs: ['kv-cache','flash-attention','quantization-basics','speculative-decoding','paged-attention','gqa-mqa','continuous-batching','awq-quantization','speculative-decoding-variants'] },
-          { title: 'FlashAttention', total: 5, link: 'flashattention-io-aware-tiling', done_slugs: ['flashattention-io-aware-tiling','flashattention-2-parallelism','flashattention-3-hopper-wgmma','flashattention-grouped-query-optimization','multi-head-latent-attention-deepseek-v2'] },
-          { title: 'MoE 推理',   total:  5, link: 'moe-inference-expert-caching', done_slugs: ['moe-inference-expert-caching','moe-heterogeneous-quantization','moe-inference-expert-offloading-prefetch'] },
-          { title: '硬件加速',   total:  4, link: '', done_slugs: [] },
-        ]},
-        { title: '量化与压缩', groups: [
-          { title: '量化技术',   total: 13, link: '', done_slugs: [] },
-          { title: '模型压缩',   total:  5, link: 'structured-pruning', done_slugs: ['structured-pruning'] },
-          { title: '成本优化',   total:  6, link: '', done_slugs: [] },
-        ]},
-        { title: '服务化工程', groups: [
-          { title: '服务化部署', total:  4, link: '', done_slugs: [] },
-          { title: '边缘部署',   total:  7, link: '', done_slugs: [] },
-          { title: '负载均衡',   total:  3, link: '', done_slugs: [] },
-          { title: '监控运维',   total:  4, link: '', done_slugs: [] },
-          { title: '性能优化',   total:  3, link: '', done_slugs: [] },
-          { title: '生产环境',   total:  3, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
-
-    {
-      id: 'agent', title: '05 · 智能体', color: '#34d399', catTotal: 374,
-      topics: [
-        { title: '推理框架', groups: [
-          { title: '思维链 (CoT)', total: 11, link: 'cot-emergence-scale-threshold', done_slugs: ['cot-emergence-scale-threshold','cot-faithful-vs-unfaithful-reasoning','zero-shot-cot-trigger-engineering','auto-cot-automatic-chain-generation','cot-length-reasoning-depth','cot-decomposition-strategies','cot-example-selection-strategy','cot-distillation-small-models','cot-logical-reasoning-failures','cot-adversarial-robustness','cot-program-aided-reasoning'] },
-          { title: 'ReAct 框架', total:  7, link: 'react-reasoning-acting-mechanism', done_slugs: ['react-reasoning-acting-mechanism','react-tool-calling-interface','react-observation-compression','react-error-recovery-retry','react-multimodal-extension','react-vs-plan-and-execute','reflexion-language-feedback-learning'] },
-          { title: '工具调用',   total: 15, link: 'function-calling-protocol-design', done_slugs: ['function-calling-protocol-design','parallel-function-calling-scheduling','tool-choice-forced-vs-auto','tool-description-prompt-engineering','structured-output-function-calling-unification','multi-turn-tool-calling-context','mcp-tool-discovery-registration','tool-calling-error-handling-fallback','tool-selection-intent-disambiguation','tool-calling-streaming-intermediate-state'] },
-        ]},
-        { title: '感知与执行', groups: [
-          { title: '浏览器控制', total:  7, link: 'playwright-browser-agent-architecture', done_slugs: ['playwright-browser-agent-architecture','web-element-semantic-annotation','browser-agent-vision-vs-dom','webarena-benchmark-design','browser-agent-action-space-design','browser-agent-multi-tab-coordination','browser-agent-form-filling'] },
-          { title: '计算机使用', total:  7, link: 'claude-computer-use-protocol', done_slugs: ['claude-computer-use-protocol','computer-use-coordinate-prediction','osworld-benchmark-desktop-agent','computer-use-security-boundaries','screenshot-token-optimization','gui-agent-grounding-training','computer-use-gui-navigation-planning'] },
-        ]},
-        { title: '记忆与检索', groups: [
-          { title: '记忆系统',   total: 15, link: 'agent-short-term-memory-sliding-window', done_slugs: ['agent-short-term-memory-sliding-window','agent-long-term-memory-storage-architecture','memgpt-hierarchical-memory-management','conversation-summary-forgetting-curve','memory-retrieval-semantic-routing','working-memory-capacity-eviction-policy','memory-metadata-annotation-filtered-retrieval'] },
-          { title: 'RAG 检索',   total: 16, link: 'rag-architecture', done_slugs: ['rag-architecture','vector-database-hnsw','rag-chunking-strategy-agent-performance'] },
-        ]},
-        { title: '多智能体', groups: [
-          { title: '多 Agent',   total: 17, link: 'multi-agent-shared-memory-consistency', done_slugs: ['multi-agent-shared-memory-consistency'] },
-          { title: 'AutoGen',    total:  7, link: '', done_slugs: [] },
-          { title: 'Agent 架构', total: 10, link: '', done_slugs: [] },
-          { title: 'Agent 应用', total:  8, link: '', done_slugs: [] },
-        ]},
-        { title: '评测与对齐', groups: [
-          { title: 'Agent 评测', total: 11, link: '', done_slugs: [] },
-          { title: '红队测试',   total:  9, link: '', done_slugs: [] },
-          { title: '对抗安全',   total:  8, link: '', done_slugs: [] },
-          { title: '对齐算法',   total:  8, link: '', done_slugs: [] },
-          { title: '可解释性',   total:  8, link: '', done_slugs: [] },
-          { title: '越狱防护',   total:  7, link: '', done_slugs: [] },
-          { title: '水印技术',   total:  7, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
-
-    {
-      id: 'engineering', title: '06 · 工程实践', color: '#fb923c', catTotal: 875,
-      topics: [
-        { title: '数据工程', groups: [
-          { title: '数据清洗',   total: 12, link: 'data-eng-pdf-data-extraction', done_slugs: ['data-eng-pdf-data-extraction','data-eng-structured-data-extraction','data-eng-distributed-data-cleaning'] },
-          { title: '数据质量',   total: 11, link: 'data-eng-cross-modal-data-alignment', done_slugs: ['data-eng-cross-modal-data-alignment'] },
-          { title: '合成数据',   total: 12, link: '', done_slugs: [] },
-          { title: '数据采集',   total: 10, link: '', done_slugs: [] },
-          { title: '数据管线',   total:  8, link: '', done_slugs: [] },
-        ]},
-        { title: '知识图谱', groups: [
-          { title: '知识推理',   total: 20, link: '', done_slugs: [] },
-          { title: '图数据库',   total: 12, link: '', done_slugs: [] },
-          { title: '知识融合',   total: 12, link: '', done_slugs: [] },
-          { title: '图神经网络', total: 12, link: '', done_slugs: [] },
-          { title: '信息抽取',   total: 12, link: '', done_slugs: [] },
-        ]},
-        { title: '检索与排序', groups: [
-          { title: 'RAG 工程',   total: 22, link: '', done_slugs: [] },
-          { title: '召回系统',   total: 14, link: '', done_slugs: [] },
-          { title: '召回模型',   total: 11, link: '', done_slugs: [] },
-          { title: '排序系统',   total: 13, link: '', done_slugs: [] },
-          { title: '排序模型',   total: 13, link: '', done_slugs: [] },
-        ]},
-        { title: 'MLOps / DevOps', groups: [
-          { title: 'CI/CD',      total: 14, link: '', done_slugs: [] },
-          { title: '工程最佳实践', total: 21, link: '', done_slugs: [] },
-          { title: '能力评测',   total: 10, link: '', done_slugs: [] },
-          { title: '框架工具',   total: 10, link: '', done_slugs: [] },
-          { title: '多模态工程', total: 11, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
-
-    {
-      id: 'systems', title: '07 · 系统基础', color: '#22d3ee', catTotal: 153,
-      topics: [
-        { title: '操作系统', groups: [
-          { title: 'Linux',      total: 21, link: 'sys-linux-linux-performance-tools', done_slugs: ['sys-linux-linux-performance-tools','sys-linux-linux-security-mechanisms','sys-linux-shell-scripting','sys-linux-linux-cron-jobs'] },
-          { title: '并行计算',   total: 13, link: '', done_slugs: [] },
-          { title: 'CUDA / GPU', total:  3, link: '', done_slugs: [] },
-        ]},
-        { title: '分布式系统', groups: [
-          { title: '分布式理论', total: 12, link: 'sys-dist-cap-base-theorem', done_slugs: ['sys-dist-cap-base-theorem','sys-dist-distributed-consensus','sys-dist-distributed-lock-implementation','sys-dist-distributed-transactions','sys-dist-distributed-id-generation','sys-dist-message-queue-design','sys-dist-microservice-patterns','sys-dist-api-gateway-design'] },
-          { title: '分布式系统', total: 12, link: '', done_slugs: [] },
-          { title: '网络通信',   total: 12, link: '', done_slugs: [] },
-        ]},
-        { title: '存储与数据库', groups: [
-          { title: '容器编排',   total:  8, link: 'sys-container-docker-image-optimization', done_slugs: ['sys-container-docker-image-optimization','sys-container-docker-network-modes','sys-container-docker-storage-drivers','sys-container-kubernetes-pod-design','sys-container-kubernetes-service-ingress','sys-container-kubernetes-configmap-secret','sys-container-kubernetes-scheduling','sys-container-helm-chart-writing'] },
-          { title: '数据库',     total:  8, link: 'sys-db-mysql-index-optimization', done_slugs: ['sys-db-mysql-index-optimization','sys-db-mysql-transaction-lock','sys-db-postgresql-advanced-features','sys-db-redis-data-structures','sys-db-mongodb-document-design','sys-db-elasticsearch-search-optimization','sys-db-vector-database-design','sys-db-database-connection-pool'] },
-          { title: '存储系统',   total: 10, link: '', done_slugs: [] },
-        ]},
-        { title: '监控运维', groups: [
-          { title: '系统监控',   total:  8, link: '', done_slugs: [] },
-          { title: 'Kubernetes', total:  3, link: '', done_slugs: [] },
-          { title: 'SRE',        total:  2, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
-
-    {
-      id: 'frontier', title: '08 · 前沿追踪', color: '#f472b6', catTotal: 461,
-      topics: [
-        { title: '旗舰模型', groups: [
-          { title: '最新模型',   total: 15, link: 'frontier-model-gpt4-technical-analysis', done_slugs: ['frontier-model-gpt4-technical-analysis','frontier-model-gpt4o-multimodal-capability','frontier-model-claude35-sonnet-features','frontier-model-claude37-extended-thinking','frontier-model-gemini15-pro-long-context','frontier-model-gemini20-native-multimodal','frontier-model-llama31-405b','frontier-model-llama32-multimodal','frontier-model-mistral-large2-architecture','frontier-model-deepseek-v3-moe','frontier-model-qwen25-technical-report','frontier-model-qwen25-math-capability','frontier-model-yi-lightning-inference','frontier-model-grok1-open-source','frontier-model-command-r-plus-rag'] },
-          { title: 'Gemini',     total: 19, link: 'gemini-1-moe-architecture', done_slugs: ['gemini-1-moe-architecture','gemini-native-multimodal-training','gemini-visual-encoder-vit','gemini-1-5-million-context-window','gemini-1-5-pro-moe-efficiency','gemini-audio-understanding-architecture','gemini-video-temporal-modeling','gemini-cross-modal-attention-fusion','gemini-math-reasoning-multimodal','gemini-code-generation-execution','gemini-grounding-search-augmented','gemini-multimodal-tokenizer-design','gemini-vs-gpt4v-multimodal-comparison','gemini-function-calling-mechanism','gemini-thinking-mode-reasoning','gemini-multimodal-embedding-space','gemini-sparse-flash-attention'] },
-          { title: 'DeepSeek',   total: 19, link: 'deepseek-v1-architecture', done_slugs: ['deepseek-v1-architecture','deepseek-v2-multi-latent-attention','deepseek-v2-moe-architecture','deepseek-v3-auxiliary-loss-free-balancing','deepseek-v3-multi-token-prediction','deepseek-v3-fp8-mixed-precision','deepseek-r1-reinforcement-learning','deepseek-r1-zero-emergent-reasoning','deepseek-v3-dualpipe-parallelism','deepseek-coder-pretraining-strategy','deepseek-math-reasoning-training','deepseek-v3-training-data-recipe','deepseek-r1-cold-start-data','deepseek-v3-long-context-extension','deepseek-r1-rejection-sampling-pipeline'] },
-          { title: 'Claude',     total: 15, link: 'claude-architecture-evolution', done_slugs: ['claude-architecture-evolution','claude-long-context-mechanism','claude3-multimodal-architecture','claude-system-prompt-mechanism','claude-token-sampling-strategy','claude-multi-turn-state-management','anthropic-interpretability-feature-dictionary','claude-superposition-phenomenon','claude-activation-engineering','claude-prompt-engineering-principles','claude-chain-of-thought-reasoning','claude-tool-use-training'] },
-        ]},
-        { title: '代码与数学', groups: [
-          { title: '代码模型',   total: 14, link: 'codex-code-generation-training', done_slugs: ['codex-code-generation-training','codellama-long-context-infilling','deepseek-coder-v2-moe-architecture','starcoder-multilingual-pretraining','starcoder2-staged-training','codegemma-code-math-joint-training','wizardcoder-evol-instruct','santacoder-fim-training-objective','alphacode-sampling-filtering','alphacode2-multi-model-collaboration','codet-dual-execution-verification','qwen25-coder-data-engineering','code-model-tokenizer-design'] },
-          { title: '数学推理',   total:  9, link: 'minerva-math-pretraining', done_slugs: ['minerva-math-pretraining','llemma-open-math-language-model','math-reasoning-cot-format-design','metamath-data-augmentation','internlm-math-unified-framework','numinamath-competition-data','math-self-consistency-decoding','math-formal-verification-lean4'] },
-          { title: '多语言模型', total:  6, link: 'bloom-multilingual-data-balance', done_slugs: ['bloom-multilingual-data-balance','mgpt-crosslingual-transfer-emergence','aya-multilingual-instruction-tuning','nllb-low-resource-translation','multilingual-tokenizer-vocabulary-fairness','glm4-bilingual-alignment'] },
-        ]},
-        { title: '推理与长上下文', groups: [
-          { title: '前沿技术',   total: 10, link: 'frontier-tech-inference-time-compute-scaling', done_slugs: ['frontier-tech-inference-time-compute-scaling','frontier-tech-chain-of-thought-evolution','frontier-tech-self-correction-reflection','frontier-tech-multi-agent-frontiers','frontier-tech-long-context-breakthroughs','frontier-tech-on-device-model-development','frontier-tech-multimodal-fusion-paradigms','frontier-tech-video-understanding-advances','frontier-tech-world-model-development','frontier-tech-ai-agent-production'] },
-          { title: '长上下文',   total: 10, link: 'attention-sparsity-long-context', done_slugs: ['attention-sparsity-long-context','infini-attention-infinite-context','gqa-grouped-query-attention-long-context','yarn-positional-encoding-extrapolation','long-context-evaluation-beyond-niah'] },
-          { title: 'MoE 前沿',   total:  8, link: 'moe-routing-topk-to-expert-choice', done_slugs: ['moe-routing-topk-to-expert-choice','moe-expert-collapse-load-balancing','moe-shared-expert-design','moe-fine-grained-expert-segmentation','moe-all-to-all-communication-optimization','mixtral-vs-deepseek-moe-comparison','moe-upcycling-initialization'] },
-          { title: '基准评测',   total: 10, link: '', done_slugs: [] },
-        ]},
-        { title: '多模态', groups: [
-          { title: '视觉编码器', total: 19, link: 'clip-zeroshot-prompt-ensemble', done_slugs: ['clip-zeroshot-prompt-ensemble','vision-encoders-vit-vs-cnn'] },
-          { title: '多模态前沿', total:  8, link: 'llava-visual-instruction', done_slugs: ['llava-visual-instruction','multimodal-positional-encoding-nd','multimodal-contrastive-learning-clip-siglip'] },
-          { title: '视觉语言模型', total: 27, link: '', done_slugs: [] },
-          { title: '图像生成',   total: 31, link: '', done_slugs: [] },
-        ]},
-        { title: '语音与视频', groups: [
-          { title: '语音处理',   total: 23, link: '', done_slugs: [] },
-          { title: '视频理解',   total: 21, link: '', done_slugs: [] },
-          { title: '技术趋势',   total:  6, link: '', done_slugs: [] },
-        ]},
-      ]
-    },
+  {
+    id: 'theory', title: "01 · 理论基础", color: '#818cf8', catTotal: 880,
+    topics: [
+      { title: "数学基础", groups: [
+        { title: "线性代数", total: 30, all_slugs: ["math-la-vector-space-linear-independence", "math-la-linear-transformation-matrix", "math-la-eigenvalue-eigenvector", "math-la-singular-value-decomposition", "math-la-matrix-qr-decomposition", "math-la-jordan-canonical-form", "math-la-positive-definite-matrix", "math-la-matrix-norms", "math-la-tensor-decomposition", "math-la-sparse-matrix-storage", "math-la-matrix-inversion-numerical", "math-la-cholesky-decomposition", "math-la-schur-decomposition", "math-la-generalized-eigenvalue", "math-la-polar-decomposition", "math-la-matrix-functions-exponential", "math-la-random-matrix-theory-intro", "math-la-low-rank-matrix-completion", "matrix-decomposition-svd-qr-lu", "tensor-operations-high-dimensional", "linear-transformations-geometry", "tensor-operations-fundamentals", "numerical-linear-algebra", "svd-geometric-interpretation", "math-randomized-svd-error-bounds", "convex-optimization-kkt-conditions", "stability-math", "conditions-math", "vector-space-and", "linear-transform-and"] },
+        { title: "概率论", total: 34, all_slugs: ["math-prob-probability-axioms-conditional", "math-prob-random-variable-transformation", "math-prob-multivariate-random-variables", "math-prob-law-of-large-numbers", "math-prob-central-limit-theorem", "math-prob-monte-carlo-methods", "math-prob-markov-chebyshev-inequalities", "math-prob-exponential-family-distributions", "math-prob-conjugate-priors", "math-prob-variational-inference-math", "math-bayesian-conjugate-prior-system", "math-bayesian-variational-inference-elbo", "math-bayesian-mcmc-markov-chain-convergence", "math-gaussian-process-regression-math", "math-stochastic-process-stationarity-ergodicity", "math-concentration-hoeffding-inequality", "math-concentration-azuma-hoeffding-martingale", "math-large-deviation-theory-intro", "math-copula-dependence-structure", "math-integral-transform-characteristic-function", "math-wasserstein-distance-optimal-transport", "bayesian-statistics-fundamentals", "common-probability-distributions", "law-of-large-numbers-clt", "hypothesis-testing-p-value", "probability-distributions-unified", "stochastic-processes-fundamentals", "probability-inequalities", "monte-carlo-integration", "variational-inference-elbo", "math-matrix-concentration-inequalities", "math-subgaussian-subexponential-tail-bounds", "math-coupling-method-markov-chain-mixing", "fundamentals"] },
+        { title: "统计学", total: 11, all_slugs: ["math-stat-hypothesis-testing-pvalue", "math-stat-mle-asymptotic-properties", "math-stat-method-of-moments", "math-stat-confidence-interval-construction", "math-stat-nonparametric-tests", "math-stat-kernel-density-estimation-bandwidth", "math-stat-empirical-bayes", "math-stein-lemma-unbiased-risk-estimator", "statistical-inference-fundamentals", "math-m-estimation-influence-function-robustness", "math-bootstrap-uncertainty-confidence-interval"] },
+        { title: "信息论", total: 26, all_slugs: ["math-info-shannon-entropy-properties", "math-info-kl-divergence-information", "math-info-mutual-information-feature-selection", "math-info-rate-distortion-theory", "math-info-information-bottleneck", "math-info-channel-capacity-coding", "math-info-cross-entropy-perplexity", "math-info-data-processing-kl-view", "math-info-information-theory-generalization", "math-info-info-theory-contrastive-learning", "math-info-kl-divergence-variational-properties", "math-info-mutual-information-estimation", "math-info-renyi-entropy-alpha-divergence", "math-info-data-processing-inequality", "mutual-information-dependency", "kl-divergence-asymmetric", "channel-capacity-information", "information-theory-fundamentals", "mutual-information-kl-divergence", "math-fano-inequality-error-lower-bound", "math-pac-bayes-kl-generalization-bound", "math-rate-distortion-representation-learning", "fundamentals-3", "entropy-and-mutual-information", "kl-and-2", "information-theory-ml-application"] },
+        { title: "微积分", total: 21, all_slugs: ["math-calc-multivariate-limits-continuity", "math-calc-partial-derivative-total-differential", "math-calc-jacobian-implicit-function", "math-calc-taylor-expansion-error", "math-calc-multiple-integrals-change-variables", "math-calc-line-surface-integrals", "math-calc-ode-basics", "math-calc-fourier-series-transform", "math-calc-laplace-transform", "math-calc-complex-analysis-residue", "math-calc-hessian-matrix-second-order", "math-calc-jacobian-chain-rule", "math-calc-vanishing-exploding-gradients", "multivariate-calculus-optimization", "jacobian-hessian-matrices", "taylor-expansion-local-approximation", "calculus-of-variations", "differential-equations-fundamentals", "math-jvp-hvp-efficient-autodiff", "math-forward-vs-reverse-mode-autodiff", "jvp-hvp"] },
+        { title: "优化理论", total: 44, all_slugs: ["math-opt-convex-set-function", "math-opt-lagrangian-duality", "math-opt-gradient-descent-convergence", "math-opt-sgd-convergence-analysis", "math-opt-momentum-acceleration", "math-opt-newton-quasi-newton", "math-opt-proximal-gradient-method", "math-opt-admm-algorithm", "math-opt-subgradient-methods", "math-opt-natural-gradient-fisher", "math-opt-convex-duality-theory", "math-opt-barrier-interior-point-methods", "math-opt-adam-convergence-analysis", "math-opt-second-order-hessian-approximation", "math-opt-nesterov-accelerated-gradient", "math-opt-condition-number-preconditioning", "math-opt-stochastic-variance-reduction", "math-opt-distributed-optimization-communication", "math-regularization-bayesian-interpretation", "math-opt-lagrange-multipliers-geometry", "math-bregman-divergence-optimization", "convex-optimization-fundamentals", "gradient-descent-convergence", "sgd-variance-reduction", "lagrange-multipliers-constrained", "second-order-optimization-newton", "optimization-algorithms-comparison", "numerical-optimization-methods", "convex-optimization-duality-kkt", "math-mirror-descent-bregman-geometry", "math-implicit-bias-gradient-descent", "math-polyak-step-size-convergence-theory", "math-saddle-point-minimax-optimization", "math-hessian-spectrum-curvature-analysis", "math-sgd-stochastic-differential-equation-view", "and-fenchel", "budget-constraints-optimal-stopping-rule", "matrix-spectral-radius-analysis", "random-variable-tail-bound", "kkt-conditions", "stability-math-2", "gradient-descent", "constrained-optimization-and", "stochastic-optimization-methods"] },
+      ]},
+      { title: "Transformer 核心", groups: [
+        { title: "Transformer 架构", total: 25, all_slugs: ["sinusoidal-positional-encoding", "transformer-encoder", "transformer-flops-analysis", "arch-transformer-transformer-forward-pass-complete", "arch-transformer-prenorm-postnorm-gradient-flow", "arch-transformer-transformer-parameter-count", "arch-transformer-transformer-flop-calculation", "arch-transformer-attention-scale-factor", "arch-transformer-causal-mask-implementation", "arch-transformer-embedding-layer-details", "arch-transformer-transformer-layernorm", "arch-transformer-transformer-dropout-strategies", "arch-transformer-transformer-residual-design", "transformer-bottleneck-analysis", "transformer-width-depth-tradeoff", "transformer-parameter-sharing", "cross-layer-parameter-sharing", "arch-swiglu-vs-gelu-ffn-parameter-efficiency", "arch-residual-stream-bottleneck-analysis", "arch-attention-first-vs-ffn-first-block-order", "arch-parallel-residual-transformer-block", "arch-gated-residual-connection-design", "arch-ffn-expansion-ratio-sensitivity", "arch-decoder-block-reordering-effects", "arch-decoder-residual-scaling-coefficients"] },
+        { title: "位置编码", total: 33, all_slugs: ["rope-positional-encoding", "arch-pos-alibi-position-encoding", "relative-positional-encoding-t5", "arch-pos-rope-deep-dive", "arch-pos-yarn-length-extrapolation", "arch-pos-learnable-pos-encoding-limits", "arch-pos-position-encoding-ablation", "arch-pos-long-context-pos-encoding", "arch-pos-2d-position-encoding", "yarn-rope-extension", "longrope", "alibi-attention", "relative-position-encoding", "lepe-encoding", "alibi-positional-bias", "learnable-positional-encoding", "rope-rotary-positional-encoding", "alibi-linear-bias", "positional-interpolation-context", "rope-implementation-optimization", "positional-encoding-absolute-relative-rope-evolution", "arch-rope-extrapolation-ntk-scaling-yarn", "arch-alibi-slope-design-length-generalization", "arch-position-interpolation-rope-stability", "arch-rope-theta-frequency-aliasing", "arch-rope-interpolation-vs-extrapolation", "arch-relative-position-bias-bucket-design", "arch-layerwise-rope-frequency-scaling", "rope-extrapolation-phase-drift", "hybrid-positional-encoding-stitching", "rope-frequency-interpolation-and-ultra-long-extrapolation-degradation", "yarn-longrope-dynamic-scaling-strategy", "multi-scale-hybrid-injection-strategy"] },
+        { title: "Tokenization", total: 14, all_slugs: ["bpe-merge-rule-learning-and-vocabulary-degradation", "wordpiece-max-match-search-complexity", "sentencepiece-unigram-probabilistic-modeling", "byte-level-tokenization-multilingual-stability", "chat-template-special-token-design", "vocabulary-size-and-training-throughput-coupling", "oov-degradation-path-and-subword-fallback-strategy", "consistency-rag-chunk-recall", "tokenizer-version-drift-and-online-compatibility", "nlp-fundamentals", "tiktoken-and-llama-tokenizer", "regex-pretokenization-and-unicode-normalization", "bpe-strategy", "nlp-fundamentals-3"] },
+        { title: "分词算法", total: 11, all_slugs: ["bpe-tokenization", "nlp-token-bpe-algorithm-implementation", "nlp-token-wordpiece-tokenization", "nlp-token-unigram-lm-tokenization", "nlp-token-sentencepiece-design", "nlp-token-byte-level-bpe", "nlp-token-tokenizer-training-data", "nlp-token-special-tokens-design", "nlp-token-tokenization-model-performance", "nlp-token-chinese-tokenization", "nlp-token-multilingual-unified-tokenization"] },
+      ]},
+      { title: "注意力机制", groups: [
+        { title: "注意力机制", total: 64, all_slugs: ["bahdanau-attention", "self-attention-mechanism", "multi-head-attention", "online-softmax-streaming", "ring-attention-sequence-parallelism", "flashattention-sparse-pattern-fusion", "attention-sink-streaming-llm", "attention-unified-view-quadratic-to-linear", "arch-attention-multi-query-attention", "arch-attention-grouped-query-attention", "sliding-window-attention", "arch-attention-longformer-local-global", "arch-attention-bigbird-block-sparse", "arch-attention-linformer-low-rank-projection", "arch-attention-performer-random-features", "arch-attention-linear-attention-matrix", "arch-attention-flash-attention-2-optimization", "linear-attention", "grouped-query-attention", "logn-attention", "prefix-lm-blockwise-causal-attention", "self-attention-qkv-mechanism", "sparse-attention-long-sequences", "local-attention-sliding-window", "linear-attention-complexity", "multi-query-attention-inference", "grouped-query-attention-gqa", "linear-transformer-kernel", "attention-scaling-laws", "linear-attention-kernels", "attention-head-specialization", "sparse-attention-patterns", "mqa-gqa-optimization", "arch-mqa-gqa-kv-sharing-bandwidth-quality", "arch-flashattention-io-aware-tiling-parallelism", "arch-sliding-window-attention-with-global-tokens", "arch-linear-attention-kernel-approximation-error", "arch-qk-norm-attention-stability", "arch-attention-sink-token-mechanism", "arch-dynamic-gqa-group-size-adaptation", "arch-attention-decay-forgetting-mask-design", "arch-multiscale-attention-pyramid", "arch-shared-kv-across-layers", "arch-attention-sink-mitigation-design", "arch-attention-head-pruning-importance", "arch-head-dimension-scaling-laws", "arch-cross-attention-gated-fusion", "arch-block-sparse-causal-mask-design", "arch-attention-logit-clipping-stability", "arch-key-value-head-mixing-design", "arch-entropy-regularized-attention", "arch-causal-mask-relaxation-local-bidirectional", "arch-dynamic-attention-window-allocation", "gqa-grouped-attention-head-configuration", "attention-sink", "flash-attention-tiled-scheduling", "flash-attention-3-tiled-parallelism-and-io-lower-bound", "ring-attention-cross-node-sequence-parallel-scheduling", "kv-head-sharing-ratio-and-gqa-accuracy-loss", "chunked-attention-chunking-error-bound", "flash-attention-tiling-strategy", "qk-norm-2", "flash-attention-3", "qk-norm-stability"] },
+        { title: "稀疏注意力", total: 13, all_slugs: ["longformer-sliding-window-global-attention", "bigbird-random-attention-graph-connectivity", "sparse-attention-information-theoretic-analysis", "dilated-attention-multi-scale-sparse", "reformer-lsh-attention-mechanism", "mixture-of-attention-heads-routing", "longformer-sliding-window-attention", "bigbird-random-sparse-attention", "longformer-bigbird-sparse-pattern-comparison", "sparse-attention-cuda-kernel-challenges", "mistral-sliding-window-attention", "learnable-sparse-attention-patterns", "sparse-attention-global-token-selection-rule"] },
+        { title: "线性注意力", total: 12, all_slugs: ["performer-favor-plus-random-features", "linear-attention-causal-recurrent-form", "retnet-multi-scale-retention", "linear-attention-expressiveness-limitations", "performer-orthogonal-random-features-variance", "rwkv-linear-attention-token-shift", "performer-random-feature-softmax-approximation", "linear-attention-causal-constraint", "retnet-multiscale-exponential-decay", "linear-attention-expressiveness-bounds", "linear-transformer-kernel-functions", "rwkv-linear-complexity-language-model"] },
+        { title: "高效架构", total: 13, all_slugs: ["early-exit-dynamic-depth", "arch-adaptive-computation-time-token-halting", "arch-early-exit-transformer-confidence-gating", "arch-token-pruning-dynamic-inference-complexity", "arch-mixture-of-depth-dynamic-layer-routing", "arch-ffn-topk-neuron-sparsity", "arch-cross-layer-attention-reuse", "arch-dynamic-token-merging-inference", "arch-layerdrop-depth-scalable-transformer", "arch-sparse-ffn-block-diagonal-projection", "arch-layerwise-early-exit-calibration", "rope-architecture", "gqa-sharing-ratio"] },
+        { title: "状态空间模型", total: 11, all_slugs: ["mamba-selective-scan-mechanism", "s4-hippo-matrix-long-range-memory", "mamba-2-ssd-structured-matrix", "causal-convolution-ssm-fft-acceleration", "s4-hippo-matrix-initialization", "ssm-continuous-discrete-duality", "mamba-selective-ssm", "s4-structured-state-space", "mamba-2-ssd", "arch-mamba-selective-state-space-scan-mechanism", "mamba-2-ssd-state-update"] },
+      ]},
+      { title: "MoE 与路由", groups: [
+        { title: "MoE 架构", total: 63, all_slugs: ["moe-load-balancing-loss", "switch-transformer-single-expert-routing", "mixtral-8x7b-architecture", "moe-expert-collapse", "noisy-topk-gating", "moe-expert-capacity-token-dropping", "expert-parallelism-communication-bottleneck", "st-moe-stable-training", "base-layer-linear-assignment-routing", "expert-choice-routing", "hash-layer-fixed-routing", "soft-moe-differentiable-routing", "moe-expert-specialization-analysis", "mixtral-routing-pattern-analysis", "deepseek-moe-fine-grained-experts", "moe-shared-expert-mechanism", "vmoe-vision-moe", "moe-layer-placement-strategy", "moe-auxiliary-loss-variants", "megablocks-efficient-moe-gpu", "moe-token-drop-vs-dropless", "moe-upcycling-dense-to-sparse", "sinkhorn-routing-optimal-transport", "moe-scaling-laws", "mixture-of-depths", "moe-moa-unified-design-space", "moe-routing-formalization", "switch-transformer-routing", "gshard-random-top2-routing", "moe-capacity-factor-overflow", "mixtral-sliding-window-moe-synergy", "moe-noisy-gating", "st-moe-router-z-loss", "moe-vs-dense-scaling-laws", "moe-attention-multi-head-moe", "moe-gradient-estimation-ste", "sparse-upcycling-dense-to-moe", "moe-token-vs-sequence-routing", "deepseek-moe-shared-experts", "moe-expert-capacity-memory-wall", "arch-moe-moe-basic-architecture", "arch-moe-moe-topk-routing", "arch-moe-moe-load-balancing", "arch-moe-expert-choice-routing-token-allocation", "arch-moe-moe-training-stability", "arch-moe-deepseek-moe-architecture", "arch-moe-mixtral-8x7b-analysis", "arch-moe-moe-inference-optimization", "arch-moe-moe-quantization-challenges", "moe-routing-strategies", "arch-moe-router-load-balancing-zloss", "arch-moe-top1-vs-top2-routing-tradeoff", "arch-moe-shared-expert-stability-role", "arch-moe-expert-parallel-dispatch-scheduling", "arch-moe-router-temperature-annealing", "arch-moe-capacity-factor-scheduling", "arch-hybrid-moe-dense-layer-scheduling", "arch-moe-capacity-routing-noise-coupling", "arch-moe-token-dropless-routing", "arch-moe-router-auxloss-balancing", "moe-routing-load-balancing", "moe-top-k-routing-temperature-and-load-balancing-loss", "shared-expert-and-private-expert-ratio-optimization"] },
+      ]},
+      { title: "缩放与涌现", groups: [
+        { title: "扩展定律", total: 15, all_slugs: ["scaling-law-basic-formulation", "chinchilla-optimal-scaling", "irreducible-loss-entropy-bound", "scaling-law-downstream-transfer", "data-constrained-scaling-law", "scaling-law-width-depth-ratio", "scaling-law-approximation-theory", "broken-neural-scaling-law", "multimodal-scaling-law", "training-instability-scaling", "mup-maximal-update-parameterization", "token-repetition-scaling-effect", "chinchilla-scaling-law-derivation", "irreducible-loss-scaling-law", "scaling-exponents-alpha-beta"] },
+        { title: "上下文学习", total: 15, all_slugs: ["in-context-learning-information-theory", "icl-implicit-gradient-descent", "icl-task-recognition-vs-learning", "induction-head-icl-circuit", "icl-example-selection-strategies", "icl-label-space-format-effect", "many-shot-icl-long-context", "icl-attention-pattern-analysis", "context-window-icl-capacity", "icl-finetuning-unified-framework", "in-context-learning-bayesian-inference", "icl-gradient-descent-equivalence", "icl-task-vectors-function-compression", "icl-example-selection-ordering", "icl-emergence-pattern-to-task-learning"] },
+        { title: "涌现能力", total: 10, all_slugs: ["emergent-abilities-definition-debate", "emergence-metric-artifact", "emergence-phase-transition", "chain-of-thought-emergence", "grokking-delayed-generalization", "inverse-scaling-u-shaped-emergence", "predictability-of-emergence", "emergent-abilities-metric-mirage", "emergence-phase-transition-analogy", "chain-of-thought-emergence-threshold"] },
+        { title: "文本分类", total: 17, all_slugs: ["textcnn-text-classification", "hierarchical-attention-network", "bert-text-classification-finetuning", "textual-entailment-recognition", "text-clustering-algorithms", "text-data-augmentation", "text-similarity-calculation", "text-deduplication", "keyword-extraction-algorithms", "topic-model-lda", "stopword-handling-strategies", "active-learning-annotation-optimization", "few-shot-text-classification", "zero-shot-text-classification", "cross-domain-text-classification", "class-imbalance-text-classification", "text-classification-bert-traditional"] },
+        { title: "序列标注", total: 11, all_slugs: ["crf-sequence-labeling", "bilstm-crf-sequence-labeling", "bert-crf-named-entity-recognition", "part-of-speech-tagging", "semantic-role-labeling", "chinese-word-segmentation", "event-extraction", "ner-feature-engineering", "slot-filling-dialogue-understanding", "sequence-labeling-evaluation-metrics", "sequence-labeling-crf-bilstm-crf"] },
+      ]},
+    ]
+  },
+  {
+    id: 'training', title: "02 · 模型训练", color: '#a78bfa', catTotal: 428,
+    topics: [
+      { title: "分布式训练", groups: [
+        { title: "分布式训练综合", total: 48, all_slugs: ["tensor-parallelism", "pipeline-parallelism", "zero-optimizer", "data-parallel-ddp", "tensor-parallel-math", "tensor-parallel-attention", "pipeline-parallel-microbatch", "pipeline-1f1b-schedule", "tp-communication-primitives", "cross-node-tensor-parallel", "tp-embedding-parallel", "expert-parallel-tensor-parallel", "heterogeneous-cluster-training", "gradient-accumulation-microbatch-equivalence", "distributed-checkpoint-save-restore", "data-parallel-gradient-compression", "train-dist-data-parallel-implementation", "train-dist-distributed-data-parallel", "train-dist-model-parallel-basics", "train-dist-tensor-parallel-megatron", "train-dist-zero-optimizer-state-sharding", "train-dist-fsdp-fully-sharded", "train-dist-3d-parallelism", "train-dist-sequence-parallelism", "efficient-dataparallel-async-sync", "gradient-compression-bandwidth-optimization", "distributed-training-fault-tolerance-checkpoint", "elastic-training-dynamic-worker-scaling", "distributed-training-strategies", "zero-optimization-deepspeed", "model-parallelism-strategies", "train-zero3-offload-bandwidth-model", "train-fsdp-auto-wrap-policy-granularity", "train-optimizer-sharding-communication-overlap", "train-ddp-bucket-size-overlap-tuning", "train-nccl-timeout-fault-recovery", "zero-sharding-communication", "fsdp-window", "zero-3-shard-granularity-and-communication-overhead-curve", "sequence-parallel-activation-sharding-and-recomputation", "expert-parallel-all-to-all-hotspot-mitigation", "model-training-trainb", "learning-rate-schedule-wsd", "data-mixture-strategy", "zero-sharding-communication-2", "ddp-and", "tensor-parallel-and-pp", "zero-1-2-3-state"] },
+        { title: "ZeRO 显存优化", total: 12, all_slugs: ["zero-stage1-optimizer-partition", "zero-stage2-gradient-partition", "zero-stage3-parameter-partition", "zero-offload-gpu-cpu", "zero-infinity-nvme", "zero-vs-model-parallel-memory", "zero-plus-plus-quantized-comm", "fsdp-vs-zero-stage3", "zero-r-activation-memory", "zero-vs-model-parallelism-comparison", "zero-plus-plus-quantized-communication", "fsdp-pytorch-zero-implementation"] },
+        { title: "流水线并行", total: 9, all_slugs: ["gradient-accumulation-pipeline", "pipeline-weight-consistency", "pipeline-layer-assignment", "pipeline-parallel-microbatch-scheduling", "gpipe-gradient-accumulation-sync", "pipedream-1f1b-async-scheduling", "virtual-pipeline-interleaved-schedule", "pipeline-parallel-load-balancing", "async-pipeline-weight-consistency"] },
+        { title: "Megatron-LM", total: 8, all_slugs: ["interleaved-pipeline-stages", "megatron-3d-parallelism", "megatron-sequence-parallel", "megatron-activation-recomputation", "megatron-distributed-init", "megatron-lm-hybrid-parallelism", "megatron-sequence-parallelism", "megatron-distributed-embedding"] },
+      ]},
+      { title: "训练优化技术", groups: [
+        { title: "训练优化", total: 17, all_slugs: ["batch-normalization", "gradient-descent-variants", "adam-optimizer", "weight-initialization", "learning-rate-schedule", "mixed-precision-training", "layer-normalization", "train-curriculum-learning-pacing-strategies", "train-data-mixture-temperature-sampling", "train-gradient-noise-scale-estimation", "train-sequence-packing-throughput-optimization", "train-batch-composition-hard-sample-mining", "learning-rate-warmup", "p-parameterization-width-transfer-reusability", "and-batch", "mixed-precision", "consistency-model-training"] },
+        { title: "优化器", total: 20, all_slugs: ["optimizer-variants-adamw-adafactor", "train-opt-sgd-momentum-implementation", "train-opt-adam-complete-implementation", "train-opt-adamw-weight-decay-decoupled", "train-opt-lamb-optimizer", "train-opt-lion-optimizer", "train-opt-shampoo-optimizer", "train-opt-adafactor-optimizer", "train-opt-sophia-optimizer", "train-opt-muon-optimizer", "train-opt-8bit-optimizers", "lamb-optimizer-large-batch-training", "lion-optimizer-minimal-adaptive", "sophia-optimizer-hessian-preconditioning", "shampoo-optimizer-structured-second-order", "adafactor-optimizer-memory-efficient", "muon-optimizer-momentum-orthogonalization", "8bit-optimizer-quantized-states", "adamw-beta", "adamw-beta2"] },
+        { title: "训练稳定性", total: 18, all_slugs: ["training-stability-loss-spikes", "train-stab-training-loss-spike-diagnosis", "train-stab-gradient-clipping-strategies", "train-stab-weight-initialization-training-impact", "train-stab-layerscale-training-stability", "mup-maximal-update-parametrization", "train-stab-gradient-nan-diagnosis", "train-stab-learning-rate-too-large-symptoms", "train-stab-batch-size-scaling-rules", "loss-spike-diagnosis-training-crash", "gradient-nan-diagnosis-numerical-anomaly", "layerscale-deep-vit-stability", "training-monitoring-mfu-loss-scale-gradients", "learning-rate-finder-optimal-lr", "pretraining-stability-deepnorm-residual", "train-gradient-clipping-global-vs-layerwise", "model-training-train", "gradient-clipping-threshold-and-loss-spike"] },
+        { title: "高效训练", total: 12, all_slugs: ["gradient-checkpointing-activation-recomputation", "activation-offloading-cpu-memory", "selective-activation-recomputation", "flashattention2-io-aware-exact-attention", "flashattention3-h100-async-optimization", "paged-attention-kv-cache-paging", "mixed-precision-loss-scaling-strategies", "fp8-training-h100-8bit-floating", "gradient-accumulation-large-batch-simulation", "prefetching-data-loading-overlap", "communication-computation-overlap-distributed", "long-sequence-training-sequence-parallelism"] },
+        { title: "正则化", total: 8, all_slugs: ["dropconnect-weight-regularization", "spatial-dropout-convolution-regularization", "dropblock-feature-map-block-dropout", "stochastic-depth-random-layer-depth", "zoneout-rnn-state-preservation", "label-smoothing-soft-label-regularization", "token-dropout-language-model-masking", "weight-decay-regularization"] },
+        { title: "归一化", total: 6, all_slugs: ["rmsnorm-root-mean-square-normalization", "groupnorm-group-normalization", "instancenorm-instance-normalization", "weight-standardization-convolution-weight", "spectral-normalization-gan-training", "rmsnorm-variants-performance"] },
+        { title: "学习率调度", total: 7, all_slugs: ["cosine-learning-rate-schedule", "polynomial-learning-rate-schedule", "layerwise-learning-rate-differential", "warmup-strategy-learning-rate-preheating", "one-cycle-policy-superconvergence", "train-learning-rate-warmup-length-selection", "train-cosine-decay-restarts-long-run"] },
+      ]},
+      { title: "强化学习", groups: [
+        { title: "RLHF", total: 23, all_slugs: ["rl-rlhf-rlhf-three-stages", "rl-rlhf-reward-model-data-construction", "rl-rlhf-reward-model-overfitting", "rl-rlhf-ppo-kl-constraint", "rl-rlhf-reward-hacking-detection", "rl-rlhf-dpo-direct-preference-optimization", "rl-rlhf-ipo-kl-regularization", "rl-rlhf-kto-kahneman-tversky", "rl-rlhf-orpo-odds-ratio", "rl-rlhf-rlaif-ai-feedback", "rlhf-reward-model-training", "rlhf-ppo-optimization", "dpo-vs-rlhf-theory", "rlhf-alternatives-kto-ipo", "grpo-reinforcement-learning", "prm-consistency", "orm-and-prm", "and-reinforcement-learning", "kto-simpo-objective-geometric-interpretation", "and-reinforcement-learning-2", "hacking-design", "rl-reinforcement-learning", "reinforcement-learning-rl-3"] },
+        { title: "RL 基础", total: 10, all_slugs: ["rl-basic-mdp-pomdp-difference", "rl-basic-bellman-equation-derivation", "rl-basic-policy-iteration-algorithm", "rl-basic-value-iteration-algorithm", "rl-basic-monte-carlo-policy-evaluation", "rl-basic-td-learning-bias-variance", "rl-basic-eligibility-traces", "rl-basic-exploration-strategies", "rl-basic-model-based-rl-planning", "rl-basic-offline-reinforcement-learning"] },
+        { title: "策略梯度", total: 11, all_slugs: ["policy-gradient-reinforce", "actor-critic", "ppo-clip-objective", "sac-maximum-entropy", "policy-gradient-theorem", "reinforce-baseline-variance", "trpo-trust-region", "ppo-implementation-details", "reinforce-monte-carlo-policy-gradient", "policy-gradient-theorem-reinforce-derivation", "ppo-trajectory-kl"] },
+        { title: "深度强化学习", total: 10, all_slugs: ["rl-deep-dqn-experience-replay", "rl-deep-dqn-target-network", "rl-deep-double-dqn-overestimation", "rl-deep-dueling-dqn-architecture", "rl-deep-noisy-nets-exploration", "rl-deep-c51-distributed-value", "rl-deep-rainbow-integration", "rl-deep-reinforce-variance-analysis", "rl-deep-a2c-synchronous-parallel", "rl-deep-a3c-asynchronous-parallel"] },
+        { title: "Actor-Critic", total: 9, all_slugs: ["actor-critic-architecture", "gae-generalized-advantage-estimation", "v-trace-importance-sampling", "a2c-vs-a3c-sync-async", "sac-implementation-details", "td3-twin-delayed-ddpg", "ddpg-deep-deterministic", "soft-actor-critic-entropy", "continuous-action-maximization"] },
+        { title: "值函数方法", total: 9, all_slugs: ["double-dqn-overestimation", "dueling-dqn-advantage", "prioritized-experience-replay", "rainbow-dqn", "distributional-rl-c51", "noisy-nets-exploration", "multi-step-learning-n-step", "rainbow-ablation-study", "dqn-target-network"] },
+        { title: "训练后处理", total: 10, all_slugs: ["train-checkpoint-delta-compression-storage", "train-ema-swa-checkpoint-selection", "train-checkpoint-consistency-hash-validation", "ema-swa-and", "task-vector", "slerp-conditions", "and-model-training-2", "slerp-task-vector", "loss-and", "release-workflow-and-checkpoint"] },
+      ]},
+    ]
+  },
+  {
+    id: 'finetune', title: "03 · 模型微调", color: '#c084fc', catTotal: 153,
+    topics: [
+      { title: "SFT 与指令微调", groups: [
+        { title: "指令微调", total: 19, all_slugs: ["ft-sft-instruction-data-format", "ft-sft-instruction-data-diversity", "ft-sft-self-instruct-auto-generation", "ft-sft-alpaca-data-construction", "ft-sft-wizardlm-evol-instruct", "ft-sft-sft-hyperparameter-selection", "ft-sft-sft-data-scale", "ft-sft-sft-catastrophic-forgetting", "flan-instruction-tuning", "self-instruct", "evol-instruct", "alpaca-instruction-dataset", "wizardlm-complex-instruction", "orca-progressive-learning", "preference-optimization-objective", "multi-turn-dialog-alignment", "wizardlm-orca-and-gpt-4-strategy", "consistency-and", "diversity-and"] },
+        { title: "微调方法", total: 5, all_slugs: ["lora-peft", "qlora", "sft-data-quality", "prefix-prompt-tuning", "adapter-layers"] },
+        { title: "对齐基础", total: 3, all_slugs: ["instruction-tuning", "constitutional-ai", "safety-alignment-refusal-calibration"] },
+        { title: "对齐算法", total: 4, all_slugs: ["ppo-rlhf-math-implementation", "iterative-dpo-boosting", "f-divergence-dpo-generalization", "sppo-self-play-preference-optimization"] },
+        { title: "数据构建", total: 6, all_slugs: ["instruction-data-quality-evaluation", "instruction-data-deduplication-diversity", "wizardlm-data-complexity-scoring", "response-diversity-enhancement", "taggpt-automated-data-annotation", "instruction-data-synthesis-self-evol-instruct"] },
+      ]},
+      { title: "参数高效微调 (PEFT)", groups: [
+        { title: "PEFT 方法", total: 14, all_slugs: ["dora-lora-variants", "peft-methods-comparison", "ft-peft-lora-matrix-factorization", "ft-peft-lora-merging-deployment", "ft-peft-adalora-adaptive-rank", "ft-peft-qlora-4bit-quantization", "ft-peft-prefix-tuning-virtual-tokens", "ft-peft-prompt-tuning-soft-prompts", "ft-peft-p-tuning-encoder", "ft-peft-ia3-scaling-vectors", "ft-peft-adapter-structure-design", "ft-peft-llama-adapter-early-layer", "lora-rank-allocation", "instruction-data-construction"] },
+        { title: "参数高效微调", total: 9, all_slugs: ["adalora-adaptive-rank-allocation", "dora-weight-decomposition", "prefix-tuning", "prompt-tuning", "ptuning-v2", "ia3-rescaling-factors", "loraplus-efficient-lora", "loha-low-rank-hadamard", "lokr-low-rank-kronecker"] },
+        { title: "领域适配微调", total: 4, all_slugs: ["model-finetuning-ft", "model-finetuning-ft-2", "model-finetuning-ft-3", "multilingual-model-finetuning"] },
+        { title: "长上下文微调", total: 5, all_slugs: ["long-context-finetuning-rope", "long-context-finetuning-data", "positional-extrapolation-techniques", "longlora-efficient-long-context", "ring-attention-context-parallelism"] },
+      ]},
+      { title: "对齐与安全", groups: [
+        { title: "Claude 安全研究", total: 16, all_slugs: ["constitutional-ai-core-mechanism", "rlhf-vs-rlaif-alignment", "claude-hhh-objective", "claude-critique-revision-loop", "claude-constitution-principles-design", "claude-preference-model-training", "claude-ppo-training-stability", "claude-red-teaming-methodology", "claude-overrefusal-mitigation", "constitutional-ai-formalization", "claude-safety-layered-architecture", "claude-jailbreak-taxonomy-defense", "claude-uncertainty-expression", "claude-instruction-hierarchy", "anthropic-scaling-safety-research", "claude-hallucination-detection-mitigation"] },
+        { title: "LLM 安全", total: 4, all_slugs: ["llm-hallucination", "jailbreak-attacks", "llm-safety-red-teaming", "llm-text-watermarking"] },
+        { title: "RLHF 对齐", total: 3, all_slugs: ["reward-model-training", "rlhf-human-feedback-deep-dive", "rlhf-safety-reward-modeling"] },
+        { title: "多任务微调", total: 3, all_slugs: ["t0-multitask-prompt-tuning", "flan-t5-instruction-tuning", "flan-ul2-unified-instruction"] },
+        { title: "工程实践", total: 8, all_slugs: ["finetuning-hyperparameter-search", "lora-rank-alpha-selection", "finetuned-model-merging", "qlora-quantized-finetuning-practice", "llamafactory-finetuning-framework", "axolotl-finetuning-configuration", "deepspeed-zero-finetuning", "fsdp-fully-sharded-data-parallel"] },
+      ]},
+    ]
+  },
+  {
+    id: 'deploy', title: "04 · 模型部署", color: '#e879f9', catTotal: 218,
+    topics: [
+      { title: "推理加速", groups: [
+        { title: "推理优化综合", total: 35, all_slugs: ["kv-cache", "flash-attention", "quantization-basics", "speculative-decoding", "paged-attention", "gqa-mqa", "continuous-batching", "awq-quantization", "speculative-decoding-variants", "paged-attention-kv-cache", "deploy-infer-kv-cache-memory-calculation", "deploy-infer-pagedattention-memory-pool", "deploy-infer-vllm-continuous-batching", "deploy-infer-tensorrt-llm-graph-optimization", "deploy-infer-tgi-deployment-architecture", "deploy-infer-streaming-output-implementation", "deploy-infer-speculative-decoding-acceleration", "deploy-infer-medusa-multi-head-decoding", "deploy-infer-lookahead-decoding", "deploy-infer-inference-async-processing", "kv-cache-quantization-int8-fp8", "prefill-decode-separation-throughput", "paged-kv-cache-multitenant-isolation", "vllm-scheduler-preemption", "tensorrt-llm-compilation-operator-fusion", "flashdecoding-split-k-parallel", "kv-cache-and", "chunked-prefill-ttft-tpot-tradeoff", "streamingllm-attention-sink", "snapkv-token-strategy", "disaggregated-prefill-decode", "kv-model-deployment", "shared-and", "paged-attention-2", "model-deployment-deploy"] },
+        { title: "FlashAttention", total: 5, all_slugs: ["flashattention-io-aware-tiling", "flashattention-2-parallelism", "flashattention-3-hopper-wgmma", "flashattention-grouped-query-optimization", "multi-head-latent-attention-deepseek-v2"] },
+        { title: "MoE 推理", total: 5, all_slugs: ["moe-inference-expert-caching", "moe-heterogeneous-quantization", "moe-inference-expert-offloading-prefetch", "moe-inference-optimization", "mixtral-expert-merging-distillation"] },
+        { title: "硬件加速", total: 4, all_slugs: ["kv-and-gpu", "gpu-model-deployment", "npu-tpu", "schedule-model-deployment-2"] },
+      ]},
+      { title: "量化与压缩", groups: [
+        { title: "量化技术", total: 13, all_slugs: ["smoothquant-awq-activation", "deploy-quant-int8-quantization-accuracy", "deploy-quant-int4-quantization-challenges", "deploy-quant-gptq-layerwise-quantization", "deploy-quant-awq-activation-aware", "deploy-quant-gguf-file-format", "deploy-quant-llamacpp-cpu-inference", "deploy-quant-smoothquant-smooth-quantization", "deploy-quant-spqr-sparse-quantization", "deploy-quant-quip-hash-vector-quantization", "deploy-quant-mixed-precision-quantization", "quantization-post-training-calibration", "fp8-inference-implementation"] },
+        { title: "模型压缩", total: 5, all_slugs: ["structured-pruning", "knowledge-distillation-inference", "model-compression-ratio-evaluation", "attention-head-pruning-reallocation", "model-distillation-edge-deployment"] },
+        { title: "成本优化", total: 6, all_slugs: ["inference-cost-optimization", "model-inference-cost-analysis", "inference-service-cost-prediction", "inference-service-cost-optimization-practice", "speculative-decoding-2", "release-model-deployment"] },
+      ]},
+      { title: "服务化工程", groups: [
+        { title: "服务化部署", total: 4, all_slugs: ["vllm-model-deployment", "tensorrt-llm", "ray-serve", "model-deployment-deploy-3"] },
+        { title: "边缘部署", total: 7, all_slugs: ["edge-deployment-model-pruning", "mobile-inference-coreml", "edge-model-quantization-acceleration", "edge-model-update-strategy", "edge-inference-cache-optimization", "edge-inference-privacy-protection", "edge-model-performance-optimization"] },
+        { title: "负载均衡", total: 3, all_slugs: ["llm-serving-load-balance-autoscale", "inference-load-balancing", "load-balancing-strategies"] },
+        { title: "监控运维", total: 4, all_slugs: ["inference-serving-monitoring", "inference-monitoring-metrics", "model-inference-accuracy-monitoring", "monitoring-system-prometheus-grafana"] },
+        { title: "性能优化", total: 3, all_slugs: ["cold-start-latency-optimization", "model-inference-optimization-iteration", "model-inference-performance-tuning"] },
+        { title: "生产环境", total: 3, all_slugs: ["kv-and", "a-b-and-release", "and-model-deployment"] },
+      ]},
+    ]
+  },
+  {
+    id: 'agent', title: "05 · 智能体", color: '#34d399', catTotal: 374,
+    topics: [
+      { title: "推理框架", groups: [
+        { title: "思维链 (CoT)", total: 11, all_slugs: ["cot-emergence-scale-threshold", "cot-faithful-vs-unfaithful-reasoning", "zero-shot-cot-trigger-engineering", "auto-cot-automatic-chain-generation", "cot-length-reasoning-depth", "cot-decomposition-strategies", "cot-example-selection-strategy", "cot-distillation-small-models", "cot-logical-reasoning-failures", "cot-adversarial-robustness", "cot-program-aided-reasoning"] },
+        { title: "ReAct 框架", total: 7, all_slugs: ["react-reasoning-acting-mechanism", "react-tool-calling-interface", "react-observation-compression", "react-error-recovery-retry", "react-multimodal-extension", "react-vs-plan-and-execute", "reflexion-language-feedback-learning"] },
+        { title: "工具调用", total: 15, all_slugs: ["function-calling-protocol-design", "parallel-function-calling-scheduling", "tool-choice-forced-vs-auto", "tool-description-prompt-engineering", "structured-output-function-calling-unification", "multi-turn-tool-calling-context", "mcp-tool-discovery-registration", "tool-calling-error-handling-fallback", "tool-selection-intent-disambiguation", "tool-calling-streaming-intermediate-state", "toolformer-automatic-tool-data", "plan-execute-replanning", "react-trajectory-verification", "task-decomposition-and-replanning", "mcp-interface-constraints"] },
+      ]},
+      { title: "感知与执行", groups: [
+        { title: "浏览器控制", total: 7, all_slugs: ["playwright-browser-agent-architecture", "web-element-semantic-annotation", "browser-agent-vision-vs-dom", "webarena-benchmark-design", "browser-agent-action-space-design", "browser-agent-multi-tab-coordination", "browser-agent-form-filling"] },
+        { title: "计算机使用", total: 7, all_slugs: ["claude-computer-use-protocol", "computer-use-coordinate-prediction", "osworld-benchmark-desktop-agent", "computer-use-security-boundaries", "screenshot-token-optimization", "gui-agent-grounding-training", "computer-use-gui-navigation-planning"] },
+      ]},
+      { title: "记忆与检索", groups: [
+        { title: "记忆系统", total: 15, all_slugs: ["agent-short-term-memory-sliding-window", "agent-long-term-memory-storage-architecture", "memgpt-hierarchical-memory-management", "conversation-summary-forgetting-curve", "memory-retrieval-semantic-routing", "working-memory-capacity-eviction-policy", "memory-metadata-annotation-filtered-retrieval", "memory-retrieval-context-window-packing", "generative-agents-memory-stream-importance", "sql-structured-agent-memory-system", "memory-retrieval-reranking-cross-encoder", "agent-memory-privacy-selective-forgetting", "agent-memory-system-evaluation-framework", "memory-aware-prompt-construction-dynamic-injection", "memory-retrieval-and-decay-strategy"] },
+        { title: "RAG 检索", total: 16, all_slugs: ["rag-architecture", "vector-database-hnsw", "rag-chunking-strategy-agent-performance", "agent-rag-rag-retrieval-generation-joint", "agent-rag-dense-retrieval-indexing", "agent-rag-sparse-retrieval-bm25", "agent-rag-hybrid-retrieval-strategies", "agent-rag-rag-chunking-strategies", "agent-rag-rag-reranking", "agent-rag-rag-query-expansion", "agent-rag-rag-context-compression", "agent-rag-graphrag-graph-retrieval", "agent-rag-rag-memory-mechanism", "rag-chunking-strategies-retrieval", "rag-reranking-cross-encoder-llm", "rag-citation-alignment-traceability"] },
+      ]},
+      { title: "多智能体", groups: [
+        { title: "多 Agent", total: 17, all_slugs: ["multi-agent-shared-memory-consistency", "multi-agent-role-design-patterns", "hierarchical-agent-manager-routing", "multi-agent-deadlock-detection-prevention", "multi-agent-consensus-voting-mechanism", "multi-agent-observability-tracing", "multi-agent-recursive-task-decomposition", "multi-agent-token-budget-cost-control", "event-driven-agent-coordination", "multi-agent-dynamic-teaming-role-adaptation", "multi-agent-adversarial-red-blue-testing", "multi-agent-load-balancing-scaling", "multi-agent-structured-output-schema", "multi-agent-workflow-dsl-design", "multi-agent-information-asymmetry-privacy", "multi-agent-error-propagation-fault-tolerance", "multi-agent-evaluation-benchmark"] },
+        { title: "AutoGen", total: 7, all_slugs: ["autogen-conversation-orchestration-termination", "autogen-custom-agent-registration-capability", "autogen-code-execution-sandbox", "autogen-human-in-the-loop", "autogen-state-persistence-checkpoint", "autogen-multi-model-orchestration", "autogen-studio-visual-orchestration"] },
+        { title: "Agent 架构", total: 10, all_slugs: ["agent-arch-react-reasoning-action-loop", "agent-arch-plan-execute-architecture", "agent-arch-self-reflection-correction", "agent-arch-agent-tool-learning", "agent-arch-multi-agent-collaboration-patterns", "agent-arch-agent-memory-architecture", "agent-arch-agent-planning-algorithms", "agent-arch-agent-execution-monitoring", "agent-arch-function-calling-implementation", "agent-arch-code-interpreter-sandbox"] },
+        { title: "Agent 应用", total: 8, all_slugs: ["agent-app-build-code-assistant-agent", "agent-app-build-data-analysis-agent", "agent-app-build-research-assistant-agent", "agent-app-build-customer-service-agent", "agent-app-build-writing-assistant-agent", "agent-app-build-game-ai-agent", "agent-app-build-test-automation-agent", "agent-app-build-devops-agent"] },
+      ]},
+      { title: "评测与对齐", groups: [
+        { title: "Agent 评测", total: 11, all_slugs: ["gaia-benchmark-methodology", "agentbench-eight-dimensions", "gaia-level3-tool-chain-analysis", "swe-bench-verified-subset", "webarena-web-agent-evaluation", "swe-agent-aci-design", "tau-bench-tool-agent-evaluation", "agent-adversarial-robustness-eval", "agent-eval-data-contamination", "osworld-desktop-agent-evaluation", "agent-eval-cost-efficiency-pareto"] },
+        { title: "红队测试", total: 9, all_slugs: ["auto-red-teaming-attack-generation", "gptfuzzer-jailbreak-fuzzing", "deepinception-roleplay-jailbreak", "pair-prompt-adversarial-iteration", "tap-tree-attacks-pruning", "red-team-benchmarks-harmbench", "human-red-teaming-process", "multimodal-red-teaming-attacks", "red-teaming-process-for-llms"] },
+        { title: "对抗安全", total: 8, all_slugs: ["sec-prompt-injection-attack", "sec-jailbreak-attack-classification", "sec-adversarial-example-generation", "sec-model-stealing-attack", "sec-membership-inference-attack", "sec-data-poisoning-attack", "sec-llm-content-safety-filtering", "sec-red-teaming-practice"] },
+        { title: "对齐算法", total: 8, all_slugs: ["ipo-identity-preference-optimization", "kto-kahneman-tversky-optimization", "orpo-odds-ratio-preference-optimization", "rrhf-rank-responses-align", "raft-reward-ranked-finetuning", "remax-reward-maximization-alignment", "nash-learning-alignment", "simpo-simple-preference-optimization"] },
+        { title: "可解释性", total: 8, all_slugs: ["mechanistic-interpretability-intro", "activation-patching-localization", "logit-lens-layer-decoding", "probing-classifier-representation", "sparse-autoencoder-feature-decomposition", "transformer-circuits-attention-mlp", "superalignment-challenges", "agent-interpretability"] },
+        { title: "越狱防护", total: 7, all_slugs: ["jailbreak-attack-classification", "jailbreak-defense-input-output-filtering", "adversarial-training-robustness", "safedecoding-defense-strategy", "safeprompt-defense-template", "smoothllm-perturbation-defense", "circuit-breakers-defense-mechanism"] },
+        { title: "水印技术", total: 7, all_slugs: ["llm-watermark-kgtwatermark", "watermark-detection-statistical-test", "watermark-attacks-paraphrase-translation", "synthid-google-watermarking", "implicit-explicit-watermark-comparison", "multimodal-watermarking-image-text", "watermark-benchmarks-evaluation"] },
+      ]},
+    ]
+  },
+  {
+    id: 'engineering', title: "06 · 工程实践", color: '#fb923c', catTotal: 875,
+    topics: [
+      { title: "数据工程", groups: [
+        { title: "数据清洗", total: 12, all_slugs: ["data-eng-text-cleaning-pipeline", "data-eng-web-noise-filtering", "data-eng-multi-format-normalization", "data-eng-regex-cleaning-rules", "data-eng-pdf-data-extraction", "data-eng-structured-data-extraction", "data-eng-distributed-data-cleaning", "data-eng-cleaning-rules-engine", "text-cleaning-language-id-quality-filtering", "data-cleaning-quality", "data-engineering-data", "consistency-data-engineering"] },
+        { title: "数据质量", total: 11, all_slugs: ["data-eng-data-quality-scoring", "data-eng-text-quality-classifier", "data-eng-anomaly-detection-rules", "data-eng-data-integrity-validation", "data-eng-nsfw-content-filtering", "data-eng-cross-modal-data-alignment", "data-augmentation-quality", "synthetic-data-quality-evaluation", "data-quality-monitoring", "strategy-data-engineering", "high-efficiency-loading"] },
+        { title: "合成数据", total: 12, all_slugs: ["data-eng-llm-synthetic-data-generation", "data-eng-self-instruct-pipeline", "data-eng-data-augmentation-techniques", "data-eng-synthetic-data-validation", "data-eng-synthetic-data-for-sft", "data-eng-synthetic-instruction-diversity", "data-eng-synthetic-data-distribution-eval", "data-eng-claude-data-generation", "data-eng-self-instruct-implementation", "data-eng-instruction-diversity-enhancement", "data-eng-sft-synthetic-data-mixing", "data-eng-synthetic-data-quality-control"] },
+        { title: "数据采集", total: 10, all_slugs: ["data-eng-distributed-crawler-architecture", "data-eng-incremental-data-collection", "data-eng-api-data-integration-patterns", "data-eng-javascript-rendering-crawling", "data-eng-crawler-request-scheduling", "data-eng-proxy-pool-management", "data-eng-crawler-anti-detection", "data-eng-streaming-data-collection", "data-eng-database-cdc-integration", "data-collection-strategies"] },
+        { title: "数据管线", total: 8, all_slugs: ["data-eng-etl-pipeline-design", "data-eng-airflow-dag-best-practices", "data-eng-data-lineage-system", "data-eng-dvc-data-versioning", "data-eng-streaming-etl-pipeline", "data-eng-data-quality-monitoring", "data-eng-feature-store-architecture", "data-eng-dbt-transformation-engineering"] },
+      ]},
+      { title: "知识图谱", groups: [
+        { title: "知识推理", total: 20, all_slugs: ["transe-variants", "rotate-complex-embedding", "complex-hole-embedding", "gnn-knowledge-reasoning", "rule-based-knowledge-reasoning", "multi-hop-reasoning-paths", "knowledge-graph-completion", "temporal-kg-embedding", "kg-reasoning-interpretability", "negative-sampling-kg", "kg-embedding-visualization", "causal-kg-reasoning", "kg-benchmarks", "rule-based-reasoning-engine", "embedding-based-reasoning", "neuro-symbolic-reasoning", "kg-qa-system", "explainable-reasoning-path", "graph-rag", "rag-knowledge-graph-2"] },
+        { title: "图数据库", total: 12, all_slugs: ["neo4j-cypher-basics", "neo4j-graph-algorithms", "sparql-query-rdf", "rdf-owl-representation", "distributed-kg-storage", "subgraph-matching-optimization", "neo4j-cypher-query-optimization", "neo4j-index-strategy", "arangodb-multi-model-query", "graph-database-sharding", "graph-database-transaction-acid", "distributed-graph-traversal"] },
+        { title: "知识融合", total: 12, all_slugs: ["entity-alignment-kgs", "ontology-matching", "knowledge-fusion-deduplication", "multimodal-kg-fusion", "incremental-kg-update", "kg-quality-assessment", "federated-kg-learning", "schema-data-level-fusion", "multi-source-entity-alignment", "knowledge-graph-schema-mapping", "temporal-knowledge-fusion", "knowledge-consistency-validation"] },
+        { title: "图神经网络", total: 12, all_slugs: ["pinsage-graph-neural-recommendation", "lightgcn-simplified-graph-convolution", "ngcf-neural-graph-collaborative-filtering", "igmc-inductive-graph-matrix-completion", "gnn-oversmoothing-problem", "graph-recommendation-large-scale-training", "gcn-graph-convolutional-network", "gat-graph-attention-network", "rgcn-relational-gcn", "graphsage-sampling-strategy", "gnn-over-smoothing-problem", "heterogeneous-graph-neural-network"] },
+        { title: "信息抽取", total: 12, all_slugs: ["kg-entity-linking-candidate-generation", "kg-relation-extraction-distant", "kg-event-extraction-structuring", "kg-kg-reasoning-paths", "kg-kg-representation-learning", "kg-kg-link-prediction", "kg-kg-llm-integration", "kg-kg-construction-pipeline", "data-eng-spacy-information-extraction", "ner-evaluation-metrics", "relation-extraction-evaluation", "event-extraction-evaluation"] },
+      ]},
+      { title: "检索与排序", groups: [
+        { title: "RAG 工程", total: 22, all_slugs: ["rag-knowledge-graph", "build-rag-system-from-scratch", "build-private-knowledge-rag", "rag-retrieval-augmented-generation", "answer-attribution-evaluation", "rag-faithfulness-factuality-evaluation", "rag-end-to-end-chunking-strategy-and-recall-upper-bound", "dense-retrieval-negative-sample-construction-and-hard-negative-mining", "bm25-and-retrieval-fusion-ranking", "reranker-and", "graph-rag-construction", "graph-protocol", "citation-alignment-and-answer-traceability", "rag-as-and", "retrieval-and", "update-consistency", "rome-memit", "retrieval-planning-and", "embedding-and-strategy", "and-strategy", "entity-alignment-and-disambiguation", "update-knowledge-graph"] },
+        { title: "召回系统", total: 14, all_slugs: ["collaborative-filtering-basics", "item2vec-recommendation", "neural-collaborative-filtering", "sasrec-sequential-recommendation", "lightgcn-recommendation", "two-tower-dssm", "rec-recall-vector-recall-ann-index", "rec-recall-graph-recall-neighborhood", "rec-recall-multi-channel-recall-fusion", "rec-recall-recall-evaluation", "rec-recall-realtime-recall-architecture", "rec-recall-cold-start-recall-strategy", "rec-recall-long-tail-recall-enhancement", "rec-recall-recall-negative-sampling"] },
+        { title: "召回模型", total: 11, all_slugs: ["dssm-deep-semantic-similarity", "two-tower-model-evolution", "youtube-dnn-retrieval", "kg-based-retrieval", "ann-vector-retrieval", "swish-retrieval-model", "mind-multi-interest-retrieval", "contrastive-learning-retrieval", "multimodal-content-recommendation", "retrieval-training-objectives", "graph-vector-retrieval-fusion"] },
+        { title: "排序系统", total: 13, all_slugs: ["wide-and-deep", "deepfm", "deep-interest-network", "esmm-multi-task", "lambdarank-lambdamart", "rec-rank-ranking-feature-engineering", "rec-rank-ranking-training-objective", "rec-rank-ltr-lambda-gradient", "rec-rank-ranking-position-aware", "rec-rank-multi-objective-ranking-fusion", "rec-rank-ranking-latency-constraint", "rec-rank-online-learning-ranking", "rec-rank-ranking-model-calibration"] },
+        { title: "排序模型", total: 13, all_slugs: ["wide-deep-learning", "deepfm-feature-interaction", "din-deep-interest-network", "dien-interest-evolution", "bst-behavior-sequence-transformer", "dcn-deep-cross-network", "xdeepfm-compressed-interaction", "autoint-feature-interaction", "fgnn-feature-graph-neural-network", "ranking-feature-engineering", "ranking-position-bias", "multi-objective-ranking-fusion", "learning-to-rank-recommendation"] },
+      ]},
+      { title: "MLOps / DevOps", groups: [
+        { title: "CI/CD", total: 14, all_slugs: ["github-actions-ml-cicd", "github-actions-ai-projects", "eng-ci-test-matrix-parallelization-failure-isolation", "eng-flaky-test-detection-quarantine-confidence-gate", "eng-software-supply-chain-security-sbom-slsa", "eng-canary-release-sequential-testing-decision", "eng-blue-green-db-migration-expand-contract", "eng-argo-rollouts-progressive-delivery-metrics", "eng-gitops-drift-detection-argocd-flux", "eng-terraform-state-locking-backend-strategy", "eng-opa-gatekeeper-admission-policy-governance", "eng-ci-performance-regression-benchmark-gating", "ci-strategy", "ci-design"] },
+        { title: "工程最佳实践", total: 21, all_slugs: ["eng-clean-architecture-llm-service-boundaries", "eng-llm-testing-pyramid-unit-integration-e2e", "eng-adr-driven-technical-debt-governance", "eng-blameless-postmortem-action-closure", "eng-dora-metrics-adaptation-for-ai-platform", "eng-sdk-versioning-deprecation-window-management", "eng-incident-command-system-role-model", "eng-chatops-runbook-automation-incident-response", "eng-data-contract-schema-evolution-governance", "eng-backfill-idempotency-checkpoint-recovery", "eng-finops-cost-allocation-ai-workloads", "eng-log-pii-tokenization-redaction-pipeline", "eng-secret-rotation-zero-downtime-reload", "eng-async-queue-reliability-semantics-design", "eng-rate-limiting-token-bucket-sliding-window", "eng-alert-noise-reduction-slo-driven-tuning", "code-quality-standards", "test-driven-development", "and-clean-code", "technical-debt", "knowledge-sharing"] },
+        { title: "能力评测", total: 10, all_slugs: ["eval-mmlu-evaluation-design", "eval-gsm8k-math-reasoning", "eval-humaneval-code-evaluation", "eval-math-competition-evaluation", "eval-gpqa-graduate-evaluation", "eval-ifeval-instruction-following", "eval-bfcl-function-calling", "eval-mmmu-multimodal-evaluation", "eval-longbench-long-context", "eval-evaluation-contamination-detection"] },
+        { title: "框架工具", total: 10, all_slugs: ["eng-fw-pytorch-autograd-mechanism", "eng-fw-pytorch-distributed-training", "eng-fw-hf-transformers-usage", "eng-fw-hf-datasets-streaming", "eng-fw-accelerate-distributed-abstraction", "eng-fw-deepspeed-zero-implementation", "eng-fw-megatron-tensor-parallel", "eng-fw-vllm-high-throughput-inference", "eng-fw-langchain-chain-calls", "eng-fw-llamaindex-index-construction"] },
+        { title: "多模态工程", total: 11, all_slugs: ["multimodal-recommendation", "vqav2-visual-question-answering", "textvqa-scene-text", "mmbench-multimodal-benchmark", "mmmu-multimodal-university", "data-eng-clip-cross-modal-alignment", "data-eng-vision-language-pretraining-data", "multimodal-text-image-alignment", "video-understanding-benchmark", "audio-understanding-benchmark", "multimodal-benchmarks-vqa-captioning"] },
+      ]},
+    ]
+  },
+  {
+    id: 'systems', title: "07 · 系统基础", color: '#22d3ee', catTotal: 153,
+    topics: [
+      { title: "操作系统", groups: [
+        { title: "Linux", total: 21, all_slugs: ["linux-process-model", "linux-filesystem-inode-vfs", "linux-memory-management", "linux-perf-tools", "cgroup-namespace-container", "linux-network-tcp-socket", "linux-io-models", "linux-scheduler-cfs-numa", "linux-tcp-tuning-distributed", "process-management-tmux-systemd", "linux-permissions-gpu-server", "disk-management-lvm-nvme", "ntp-ptp-distributed-training", "sys-linux-linux-process-scheduling", "sys-linux-linux-memory-management", "sys-linux-linux-filesystem", "sys-linux-linux-network-stack", "sys-linux-linux-performance-tools", "sys-linux-linux-security-mechanisms", "sys-linux-shell-scripting", "sys-linux-linux-cron-jobs"] },
+        { title: "并行计算", total: 13, all_slugs: ["sys-nccl-allreduce-ring-tree-cost-model", "sys-3d-parallelism-dp-tp-pp-strategy", "sys-cuda-occupancy-roofline-analysis", "sys-gpudirect-rdma-path-bottlenecks", "sys-nvlink-nvswitch-topology-aware-scheduling", "sys-nccl-alltoall-moe-traffic-shaping", "sys-fsdp-checkpoint-sharding-io-pipeline", "nccl-systems", "fundamentals-5", "gpu-cuda", "vs-systems", "strategy-systems", "fundamentals-6"] },
+        { title: "CUDA / GPU", total: 3, all_slugs: ["cuda-programming-model", "gpu-memory-hierarchy", "cuda-env-ld-library"] },
+      ]},
+      { title: "分布式系统", groups: [
+        { title: "分布式理论", total: 12, all_slugs: ["sys-dist-cap-base-theorem", "sys-dist-distributed-consensus", "sys-dist-distributed-lock-implementation", "sys-dist-distributed-transactions", "sys-dist-distributed-id-generation", "sys-dist-message-queue-design", "sys-dist-microservice-patterns", "sys-dist-api-gateway-design", "cap-theorem-distributed-systems", "paxos-raft-consensus-algorithms", "distributed-locks-redis-zookeeper", "eventual-consistency-engineering"] },
+        { title: "分布式系统", total: 12, all_slugs: ["sys-consensus-paxos-vs-raft-safety-commit", "sys-raft-joint-consensus-membership-change", "sys-linearizable-read-readindex-lease", "sys-cap-pacelc-database-selection", "sys-multipaxos-leader-stable-log-replication", "sys-zab-vs-raft-atomic-broadcast", "sys-hlc-clock-uncertainty-distributed-tx", "sys-rsm-snapshot-log-compaction-trigger", "sys-2pc-vs-saga-consistency-compensation", "sys-exactly-once-idempotency-dedup-log", "consistency-protocol", "rdma-systems"] },
+        { title: "网络通信", total: 12, all_slugs: ["sys-rdma-qp-cq-zero-copy-path", "sys-grpc-flow-control-head-of-line-mitigation", "sys-quic-vs-tcp-inference-transport-tradeoff", "sys-service-mesh-retry-timeout-budget", "sys-ebpf-latency-breakdown-kernel-user", "sys-bbr-vs-cubic-cross-region-throughput", "sys-grpc-connection-draining-zero-downtime", "rdma-systems-2", "grpc-and", "protocol-systems", "design-systems", "strategy-systems-2"] },
+      ]},
+      { title: "存储与数据库", groups: [
+        { title: "容器编排", total: 8, all_slugs: ["sys-container-docker-image-optimization", "sys-container-docker-network-modes", "sys-container-docker-storage-drivers", "sys-container-kubernetes-pod-design", "sys-container-kubernetes-service-ingress", "sys-container-kubernetes-configmap-secret", "sys-container-kubernetes-scheduling", "sys-container-helm-chart-writing"] },
+        { title: "数据库", total: 8, all_slugs: ["sys-db-mysql-index-optimization", "sys-db-mysql-transaction-lock", "sys-db-postgresql-advanced-features", "sys-db-redis-data-structures", "sys-db-mongodb-document-design", "sys-db-elasticsearch-search-optimization", "sys-db-vector-database-design", "sys-db-database-connection-pool"] },
+        { title: "存储系统", total: 10, all_slugs: ["sys-lsm-tree-write-amplification-compaction", "sys-columnar-storage-parquet-orc-predicate-pushdown", "sys-distributed-cache-consistency-patterns", "sys-object-storage-erasure-coding-k-m-model", "sys-zns-ssd-training-dataset-layout", "sys-ceph-crush-failure-domain-placement", "sys-kafka-isr-min-insync-reliability", "and-systems-2", "strategy-and", "fundamentals-7"] },
+      ]},
+      { title: "监控运维", groups: [
+        { title: "系统监控", total: 8, all_slugs: ["sys-observability-high-cardinality-metrics-control", "sys-slo-sli-error-budget-ml-services", "sys-chaos-engineering-distributed-training-resilience", "sys-capacity-planning-littles-law-inference", "sys-otel-tail-sampling-cost-accuracy", "sys-red-use-metrics-diagnosis-framework", "sys-cgroups-noisy-neighbor-isolation", "sys-dr-rpo-rto-game-day-validation"] },
+        { title: "Kubernetes", total: 3, all_slugs: ["kubernetes-basics-ml", "kubernetes-gpu-scheduling", "helm-ml-platform"] },
+        { title: "SRE", total: 2, all_slugs: ["fundamentals-4", "planning-systems"] },
+      ]},
+    ]
+  },
+  {
+    id: 'frontier', title: "08 · 前沿追踪", color: '#f472b6', catTotal: 461,
+    topics: [
+      { title: "旗舰模型", groups: [
+        { title: "最新模型", total: 15, all_slugs: ["frontier-model-gpt4-technical-analysis", "frontier-model-gpt4o-multimodal-capability", "frontier-model-claude35-sonnet-features", "frontier-model-claude37-extended-thinking", "frontier-model-gemini15-pro-long-context", "frontier-model-gemini20-native-multimodal", "frontier-model-llama31-405b", "frontier-model-llama32-multimodal", "frontier-model-mistral-large2-architecture", "frontier-model-deepseek-v3-moe", "frontier-model-qwen25-technical-report", "frontier-model-qwen25-math-capability", "frontier-model-yi-lightning-inference", "frontier-model-grok1-open-source", "frontier-model-command-r-plus-rag"] },
+        { title: "Gemini", total: 19, all_slugs: ["gemini-1-moe-architecture", "gemini-native-multimodal-training", "gemini-visual-encoder-vit", "gemini-1-5-million-context-window", "gemini-1-5-pro-moe-efficiency", "gemini-audio-understanding-architecture", "gemini-video-temporal-modeling", "gemini-cross-modal-attention-fusion", "gemini-math-reasoning-multimodal", "gemini-code-generation-execution", "gemini-grounding-search-augmented", "gemini-multimodal-tokenizer-design", "gemini-vs-gpt4v-multimodal-comparison", "gemini-function-calling-mechanism", "gemini-thinking-mode-reasoning", "gemini-multimodal-embedding-space", "gemini-sparse-flash-attention", "gemini-15-pro-long-context", "gemini-20-multimodal-output"] },
+        { title: "DeepSeek", total: 19, all_slugs: ["deepseek-v1-architecture", "deepseek-v2-multi-latent-attention", "deepseek-v2-moe-architecture", "deepseek-v3-auxiliary-loss-free-balancing", "deepseek-v3-multi-token-prediction", "deepseek-v3-fp8-mixed-precision", "deepseek-r1-reinforcement-learning", "deepseek-r1-zero-emergent-reasoning", "deepseek-r1-distillation-small-models", "deepseek-v2-rope-decoupled-design", "deepseek-v3-dualpipe-parallelism", "deepseek-coder-pretraining-strategy", "deepseek-math-reasoning-training", "deepseek-v3-training-data-recipe", "deepseek-r1-cold-start-data", "deepseek-v3-long-context-extension", "deepseek-r1-rejection-sampling-pipeline", "deepseek-r1-technical-report", "janus-deepseek-vl2-unified"] },
+        { title: "Claude", total: 15, all_slugs: ["claude-architecture-evolution", "claude-long-context-mechanism", "claude3-multimodal-architecture", "claude-system-prompt-mechanism", "claude-token-sampling-strategy", "claude-multi-turn-state-management", "anthropic-interpretability-feature-dictionary", "claude-superposition-phenomenon", "claude-activation-engineering", "claude-prompt-engineering-principles", "claude-chain-of-thought-reasoning", "claude-tool-use-training", "claude35-sonnet-analysis", "claude-37-sonnet-extended-thinking", "claude-35-sonnet-evaluation"] },
+      ]},
+      { title: "代码与数学", groups: [
+        { title: "代码模型", total: 14, all_slugs: ["codex-code-generation-training", "codellama-long-context-infilling", "deepseek-coder-v2-moe-architecture", "starcoder-multilingual-pretraining", "starcoder2-staged-training", "codegemma-code-math-joint-training", "wizardcoder-evol-instruct", "santacoder-fim-training-objective", "alphacode-sampling-filtering", "alphacode2-multi-model-collaboration", "codet-dual-execution-verification", "qwen25-coder-data-engineering", "repo-level-context-modeling", "code-model-tokenizer-design"] },
+        { title: "数学推理", total: 9, all_slugs: ["minerva-math-pretraining", "llemma-open-math-language-model", "math-reasoning-cot-format-design", "metamath-data-augmentation", "internlm-math-unified-framework", "numinamath-competition-data", "math-self-consistency-decoding", "math-formal-verification-lean4", "mathematical-reasoning-llms"] },
+        { title: "多语言模型", total: 6, all_slugs: ["bloom-multilingual-data-balance", "mgpt-crosslingual-transfer-emergence", "aya-multilingual-instruction-tuning", "nllb-low-resource-translation", "multilingual-tokenizer-vocabulary-fairness", "glm4-bilingual-alignment"] },
+      ]},
+      { title: "推理与长上下文", groups: [
+        { title: "前沿技术", total: 10, all_slugs: ["frontier-tech-inference-time-compute-scaling", "frontier-tech-chain-of-thought-evolution", "frontier-tech-self-correction-reflection", "frontier-tech-multi-agent-frontiers", "frontier-tech-long-context-breakthroughs", "frontier-tech-on-device-model-development", "frontier-tech-multimodal-fusion-paradigms", "frontier-tech-video-understanding-advances", "frontier-tech-world-model-development", "frontier-tech-ai-agent-production"] },
+        { title: "长上下文", total: 10, all_slugs: ["attention-sparsity-long-context", "infini-attention-infinite-context", "gqa-grouped-query-attention-long-context", "yarn-positional-encoding-extrapolation", "long-context-evaluation-beyond-niah", "long-context-extension-techniques", "context-compression-techniques", "long-context-modeling", "long-context-strategy", "open-vs-closed-model-gap"] },
+        { title: "MoE 前沿", total: 8, all_slugs: ["moe-routing-topk-to-expert-choice", "moe-expert-collapse-load-balancing", "moe-shared-expert-design", "moe-fine-grained-expert-segmentation", "moe-all-to-all-communication-optimization", "switch-transformer-to-vmoe-evolution", "mixtral-vs-deepseek-moe-comparison", "moe-upcycling-initialization"] },
+        { title: "基准评测", total: 10, all_slugs: ["textvqa-ocrvqa-benchmark", "mmbench-fine-grained-evaluation", "mme-multimodal-evaluation-benchmark", "mmmu-university-level-multimodal", "mathvista-math-visual-reasoning", "docvqa-document-understanding", "pope-hallucination-evaluation", "hallusionbench-visual-hallucination", "vqav2-gqa-visual-qa-benchmark", "video-benchmarks-activitynet-videomme"] },
+      ]},
+      { title: "多模态", groups: [
+        { title: "视觉编码器", total: 19, all_slugs: ["eva-clip-training-stability", "siglip-sigmoid-loss", "dinov2-self-supervised-vision", "florence2-unified-vision-tasks", "clipa-efficient-clip-training", "clip-zeroshot-prompt-ensemble", "vit-architecture-patch-embedding", "deit-data-efficient-vit", "swin-transformer-hierarchical", "convnext-modern-cnn", "clip-vision-encoder", "vision-encoders-vit-vs-cnn", "mm-vision-patch-size-scaling-tradeoff", "mm-vit-pos-embedding-interpolation", "mm-adaptive-image-tiling-high-resolution", "mm-vision-multiscale-feature-distillation", "patch-and", "and-transformer-convnext-efficientvit", "vision-encoding-swin-transformer-and-multi-scale"] },
+        { title: "多模态前沿", total: 8, all_slugs: ["llava-visual-instruction", "multimodal-positional-encoding-nd", "multimodal-contrastive-learning-clip-siglip", "video-temporal-modeling-3d-to-transformer", "multimodal-agent-gui-computer-use", "vlm-ocr-document-understanding", "native-multimodal-generation-unified", "native-multimodal-architecture"] },
+        { title: "视觉语言模型", total: 27, all_slugs: ["internvl2-progressive-pretraining", "qwen2-vl-native-resolution", "blip2-q-former-alignment", "instructblip-instruction-aware-vision", "llava-architecture-projector-design", "llava-next-anyres-video", "molmo-pixel-multimodal", "deepseek-vl2-moe-multimodal", "cogvlm-deep-fusion-vlm", "mini-gemini-dual-encoder", "video-llava-unified-video-image", "mplug-owl-visual-abstraction", "bakllava-efficient-finetuning", "yi-vl-multimodal-model", "sharegpt4v-synthetic-data-vlm", "mm-clip-vs-siglip-loss-design", "mm-projector-linear-mlp-qformer-comparison", "mm-visual-token-pruning-vlm", "mm-ocr-grounding-bbox-tokenization", "mm-chartqa-program-of-thought-tooling", "mm-document-layout-aware-fusion", "multimodal-mm", "siglip-multimodal", "llava-strategy", "attention-vs-architecture", "internvl-qwen-vl-patch-strategy", "capability-and"] },
+        { title: "图像生成", total: 31, all_slugs: ["mm-imgen-diffusion-model-math-basics", "mm-imgen-ddpm-training-objective", "mm-imgen-ddim-deterministic-sampling", "mm-imgen-stable-diffusion-latent-space", "mm-imgen-stable-diffusion-unet", "mm-imgen-controlnet-conditioning", "mm-imgen-lora-image-generation", "mm-imgen-ip-adapter-image-prompt", "mm-imgen-flux-rectified-flow", "mm-imgen-sd3-mmdit", "controlnet-conditional-generation", "ip-adapter-decoupled-cross-attention", "lora-stable-diffusion-finetuning", "sdxl-high-resolution-diffusion", "sd3-multimodal-diffusion-transformer", "flux-flow-matching-generation", "deepfloyd-if-pixel-cascade-diffusion", "diffusion-models-ddpm-stable-diffusion", "unet-backbone-diffusion", "stable-diffusion-latent-diffusion", "image-generation-diffusion-models", "mm-diffusion-transformer-vs-unet", "mm-latent-tokenizer-vqvae-bitrate", "mm-image-edit-instruction-faithfulness-metrics", "mm-diffusion-conditioning-injection-position", "image-generation-cfg", "flow-matching-ode-trajectory-error", "dit-patch", "consistency-multimodal", "ddpm-ddim-and", "consistency-models-and-methods"] },
+      ]},
+      { title: "语音与视频", groups: [
+        { title: "语音处理", total: 23, all_slugs: ["mm-speech-whisper-architecture-analysis", "mm-speech-whisper-robustness-analysis", "mm-speech-asr-ctc-decoding", "mm-speech-e2e-asr-attention", "mm-speech-conformer-conv-attention", "mm-speech-tts-text-to-spectrogram", "mm-speech-neural-vocoder", "mm-speech-speech-lm-unified", "mm-speech-voice-cloning-zero-shot", "mm-speech-realtime-asr-streaming", "whisper-weakly-supervised-asr", "vits-end-to-end-tts", "gpt-sovits-voice-cloning", "llm-driven-tts-synthesis", "wav2vec2-self-supervised-speech", "speech-emotion-recognition", "multilingual-speech-models", "speech-processing-end-to-end", "mm-audio-text-contrastive-alignment", "mm-speech-text-unified-tokenizer", "mm-speech-emotion-text-semantic-fusion", "multimodal-mm-4", "alignment-loss-design"] },
+        { title: "视频理解", total: 21, all_slugs: ["video-transformer-spatial-temporal-attention", "video-qa-temporal-alignment", "videomae-masked-autoencoder", "video-language-pretraining", "long-video-understanding-temporal", "video-question-answering", "video-understanding-temporal-modeling", "mm-video-frame-sampling-budget", "mm-video-temporal-position-encoding", "mm-long-video-segment-retrieval-qa", "mm-audio-video-sync-drift-correction", "mm-video-event-boundary-detection", "mm-video-summary-temporal-consistency-loss", "multimodal-mm-2", "memory-compression", "and-multimodal", "memory-compression-and-tradeoff", "design-multimodal", "multimodal-mm-7", "multimodal-mm-8", "and-retrieval"] },
+        { title: "技术趋势", total: 6, all_slugs: ["2026h1-frontier", "2026h1-long-context", "2026h1-architecture", "2026h1-capability", "2026h1-rag-and", "2026h1-update"] },
+      ]},
+    ]
+  },
   ];
 
-  // ===== 渲染逻辑 =====
-  (async function renderTree() {
-    // 加载 posts.json，构建 slug 集合
+  // ===== 渲染与交互逻辑 =====
+  (async function init() {
+    // 加载 posts.json
     let slugSet = new Set();
+    let slugToPost = {};
     try {
       const res = await fetch('posts/posts.json');
       if (res.ok) {
         const posts = await res.json();
-        posts.forEach(p => slugSet.add(p.slug));
+        posts.forEach(p => { slugSet.add(p.slug); slugToPost[p.slug] = p; });
       }
     } catch (e) { /* ignore */ }
 
-    // 统计：按发布的文章数 / 规划节点总数
-    let totalTopics = 0, doneGroups = 0, totalGroups = 0;
+    // 为每个 group 计算已发布文章列表（全自动：only relies on posts.json）
+    let totalGroups = 0, doneGroups = 0;
     const domainStats = {};
-
     TREE.forEach(domain => {
-      let domainDone = 0, domainGroups = 0;
+      let dd = 0, dt = 0;
       domain.topics.forEach(topic => {
         topic.groups.forEach(g => {
-          totalGroups++; domainGroups++;
-          totalTopics += g.total;
-          const pub = g.done_slugs.filter(s => slugSet.has(s)).length;
-          if (pub > 0) { doneGroups++; domainDone++; }
-          g._pub = pub; // cache
+          dt++; totalGroups++;
+          g._published = g.all_slugs.filter(s => slugSet.has(s));
+          if (g._published.length > 0) { dd++; doneGroups++; }
         });
       });
-      domainStats[domain.id] = { groups: domainGroups, done: domainDone, total: domain.catTotal };
+      domainStats[domain.id] = { groups: dt, done: dd, catTotal: domain.catTotal };
     });
 
-    // 渲染总进度（以话题方向计）
+    // 渲染总进度
     const pct = totalGroups > 0 ? Math.round(doneGroups / totalGroups * 100) : 0;
     document.getElementById('kt-stats').innerHTML = `
       <span class="kt-stat"><strong>${doneGroups}</strong> / ${totalGroups} 话题方向已覆盖</span>
-      <div class="kt-progress-track">
-        <div class="kt-progress-fill" style="width:${pct}%"></div>
-      </div>
-      <span class="kt-stat"><strong>${pct}%</strong> · 规划 <strong>${totalTopics.toLocaleString()}</strong> 知识节点</span>
+      <div class="kt-progress-track"><div class="kt-progress-fill" style="width:${pct}%"></div></div>
+      <span class="kt-stat"><strong>${pct}%</strong> · 规划 <strong>3500+</strong> 知识节点</span>
     `;
 
     // 渲染域卡片
     const container = document.getElementById('kt-domains');
     container.innerHTML = TREE.map(domain => {
-      const stats = domainStats[domain.id];
+      const st = domainStats[domain.id];
       const badgeBg = domain.color + '22';
       const topicsHtml = domain.topics.map(topic => {
         const groupsHtml = topic.groups.map(g => {
-          const pub = g._pub;
+          const pub = g._published.length;
           const done = pub > 0;
-          const countLabel = `${pub}/${g.total}`;
-          if (done) {
-            return `<li class="kt-node-item">
-              <a class="kt-node done" href="post.html?slug=${encodeURIComponent(g.link)}"
-                 style="background:${domain.color};color:#000;">
-                <span class="kt-node-dot"></span>
-                ${escapeHtml(g.title)}<span class="kt-count">${countLabel}</span>
-              </a>
-            </li>`;
-          } else {
-            return `<li class="kt-node-item">
-              <span class="kt-node pending">
-                <span class="kt-node-dot"></span>
-                ${escapeHtml(g.title)}<span class="kt-count">0/${g.total}</span>
-              </span>
-            </li>`;
-          }
+          const nodeClass = done ? 'done' : 'pending';
+          const colorStyle = done ? `background:${domain.color};color:#000;` : '';
+          return `<li class="kt-node-item">
+            <button class="kt-node ${nodeClass}"
+              style="${colorStyle}"
+              data-group-id="${encodeURIComponent(JSON.stringify({domainId:domain.id, title:g.title, pub, total:g.total, color:domain.color, slugs:g._published}))}"
+              ${done ? '' : 'disabled'}>
+              <span class="kt-node-dot"></span>
+              ${escapeHtml(g.title)}<span class="kt-count">${pub}/${g.total}</span>
+            </button>
+          </li>`;
         }).join('');
         return `<div class="kt-topic">
           <div class="kt-topic-label">${escapeHtml(topic.title)}</div>
@@ -629,12 +522,88 @@
         <div class="kt-domain-head" style="border-left:3px solid ${domain.color}; padding-left:13px;">
           <span class="kt-domain-title">${escapeHtml(domain.title)}</span>
           <span class="kt-domain-badge" style="color:${domain.color};border-color:${domain.color};background:${badgeBg};">
-            ${stats.done}/${stats.groups} 方向 · ${stats.total} 节点
+            ${st.done}/${st.groups} 方向 · ${st.catTotal} 节点
           </span>
         </div>
         <div class="kt-domain-body">${topicsHtml}</div>
       </div>`;
     }).join('');
+
+    // ===== 弹窗逻辑 =====
+    const overlay = document.getElementById('kt-overlay');
+    const modal   = document.getElementById('kt-modal');
+    const btnClose = document.getElementById('kt-modal-close');
+
+    function openModal(groupData) {
+      const { title, pub, total, color, slugs } = groupData;
+      const pending = total - pub;
+
+      // 设置颜色
+      modal.style.setProperty('--kt-modal-color', color);
+
+      document.getElementById('kt-modal-title').textContent = title;
+      document.getElementById('kt-modal-sub').textContent =
+        `${pub} 篇已发布 · ${total} 个规划节点`;
+
+      const body = document.getElementById('kt-modal-body');
+      let html = '';
+
+      if (pub > 0) {
+        html += '<div class="kt-modal-section"><div class="kt-modal-section-title">// 已发布文章</div>';
+        html += '<ul class="kt-article-list">';
+        // Sort by date descending
+        const sortedSlugs = [...slugs].sort((a, b) => {
+          const da = slugToPost[a]?.date || '';
+          const db = slugToPost[b]?.date || '';
+          return db.localeCompare(da);
+        });
+        sortedSlugs.forEach(slug => {
+          const post = slugToPost[slug];
+          if (!post) return;
+          html += `<li class="kt-article-item">
+            <a class="kt-article-link" href="post.html?slug=${encodeURIComponent(slug)}" target="_self">
+              <span class="kt-article-date">${escapeHtml(post.date || '')}</span>
+              <span class="kt-article-title">${escapeHtml(post.title || slug)}</span>
+              <span class="kt-article-arrow">→</span>
+            </a>
+          </li>`;
+        });
+        html += '</ul></div>';
+      } else {
+        html += '<div class="kt-modal-section"><p class="kt-empty-state">// 该方向文章尚未发布</p></div>';
+      }
+
+      if (pending > 0) {
+        html += `<div class="kt-modal-section">
+          <div class="kt-pending-info">
+            // 另有 <strong>${pending}</strong> 个知识节点规划中，持续更新…
+          </div>
+        </div>`;
+      }
+
+      body.innerHTML = html;
+      overlay.classList.add('open');
+      btnClose.focus();
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+    }
+
+    // 事件委托：点击节点
+    container.addEventListener('click', e => {
+      const btn = e.target.closest('.kt-node.done');
+      if (!btn || !btn.dataset.groupId) return;
+      try {
+        const data = JSON.parse(decodeURIComponent(btn.dataset.groupId));
+        openModal(data);
+      } catch {}
+    });
+
+    btnClose.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
   })();
   </script>
 </body>
