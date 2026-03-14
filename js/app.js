@@ -157,16 +157,55 @@ async function initIndexPage() {
     renderList();
   });
 
+  // 影响力因子：基于学术引用量与工业落地程度对研究主题打分
   function computeImpactFactor(post) {
     const title   = post.title   || '';
     const summary = post.summary || '';
     const tags    = post.tags    || [];
     const cat     = tags[0]      || '';
 
-    let score = 0;
-    const factors = [];
+    // 核心研究主题表（score 反映引用规模与工业采用广度）
+    const TOPIC_MAP = [
+      // ★★★★★ 奠基性范式，引用量/落地程度最高
+      { keys: ['RLHF'],                       score: 5, name: 'RLHF',              desc: 'InstructGPT 对齐范式，引用量破万，确立 LLM 训练基线' },
+      { keys: ['LoRA'],                        score: 5, name: 'LoRA',              desc: 'Hu et al. 2022，参数高效微调事实标准，引用量超 2 万' },
+      { keys: ['CoT', '思维链'],               score: 5, name: 'Chain-of-Thought',  desc: 'Wei et al. 2022，推理提示基础工作，引用量超 1.5 万' },
+      { keys: ['RAG'],                         score: 5, name: 'RAG',               desc: 'Lewis et al. 2020，检索增强生成，工业界知识库核心架构' },
+      // ★★★★ 高影响，>3k 引用或广泛工程采用
+      { keys: ['DPO'],                         score: 4, name: 'DPO',               desc: 'Rafailov et al. 2023，无需奖励模型的对齐新范式，引用超 5000' },
+      { keys: ['SFT'],                         score: 4, name: 'SFT',               desc: '监督微调基线，几乎覆盖所有 LLM 指令对齐流程' },
+      { keys: ['ReAct'],                       score: 4, name: 'ReAct',             desc: 'Yao et al. 2022，推理-行动交替框架，Agent 工程代表论文' },
+      { keys: ['ToT', 'Tree of Thought'],      score: 4, name: 'Tree of Thoughts',  desc: 'Yao et al. 2023，树结构多路径推理，引用超 3000' },
+      { keys: ['HNSW'],                        score: 4, name: 'HNSW',              desc: 'Malkov & Yashunin 2018，向量近邻索引工业标准，Faiss/Weaviate 均采用' },
+      { keys: ['Embedding', '嵌入模型'],       score: 4, name: 'Embedding',         desc: '语义嵌入是 RAG 与向量检索体系的核心底层组件' },
+      { keys: ['知识图谱'],                    score: 4, name: '知识图谱',           desc: '结构化知识表示，增强多跳推理的经典路径，与向量检索互补' },
+      // ★★★ 重要专项，特定领域广泛引用
+      { keys: ['自洽性', 'Self-Consistency'],  score: 3, name: 'Self-Consistency',  desc: 'Wang et al. 2022，多路径多数投票解码，引用约 8000' },
+      { keys: ['GoT', 'Graph of Thought'],     score: 3, name: 'Graph of Thoughts', desc: 'Besta et al. 2023，推理拓扑从树扩展到 DAG，支持分支复用' },
+      { keys: ['MCTS', '蒙特卡洛树'],          score: 3, name: 'MCTS',              desc: '蒙特卡洛树搜索，博弈推理与长链规划的经典算法' },
+      { keys: ['MemGPT'],                      score: 3, name: 'MemGPT',            desc: 'Packer et al. 2023，分层上下文管理系统，扩展 LLM 记忆边界' },
+      { keys: ['Function Calling'],            score: 3, name: 'Function Calling',  desc: 'OpenAI 工具调用协议，Agent 工程落地的核心接口规范' },
+      // ★★ 专项实现，引用或落地相对局限
+      { keys: ['CRDT'],                        score: 2, name: 'CRDT',              desc: '无冲突复制数据类型，分布式一致性系统领域的专项数据结构' },
+      { keys: ['PPO'],                         score: 2, name: 'PPO',               desc: 'Schulman et al. 2017，RLHF 流程中常用的近端策略优化算法' },
+      { keys: ['GQA'],                         score: 2, name: 'GQA',               desc: 'Grouped Query Attention，推理加速的注意力变体，Llama 2/3 使用' },
+    ];
 
-    // 1. Category base score
+    // 找最高分匹配主题
+    let topicScore = 0;
+    let topicName  = '';
+    let topicDesc  = '';
+    for (const item of TOPIC_MAP) {
+      if (item.keys.some(k => title.includes(k) || summary.includes(k))) {
+        if (item.score > topicScore) {
+          topicScore = item.score;
+          topicName  = item.name;
+          topicDesc  = item.desc;
+        }
+      }
+    }
+
+    // 分类兜底得分
     const catMeta = {
       '前沿追踪': { score: 4, label: '前沿研究领域' },
       '理论基础': { score: 4, label: '基础理论方向' },
@@ -178,60 +217,25 @@ async function initIndexPage() {
       '工程实践': { score: 1, label: '工程实践方向' },
     };
     const catInfo = catMeta[cat] || { score: 2, label: '通用方向' };
-    score += catInfo.score;
-    factors.push(catInfo.label);
 
-    // 2. Specific well-known algorithm / system names
-    const techKeywords = [
-      'HNSW', 'RAG', 'MCTS', 'MemGPT', 'GoT', 'ToT', 'CoT', 'ReAct',
-      'LoRA', 'RLHF', 'SFT', 'DPO', 'Lean', 'CRDT', 'PPO', 'GQA',
-      'RLVR', 'KV', 'BFS', 'DFS', 'Embedding', 'Function Calling', '知识图谱',
-    ];
-    const matched = techKeywords.filter(t => title.includes(t) || summary.includes(t));
-    if (matched.length >= 2) {
-      score += 2;
-      factors.push(`涵盖 ${matched.slice(0, 2).join('/')} 等专项算法`);
-    } else if (matched.length === 1) {
-      score += 1;
-      factors.push(`聚焦 ${matched[0]} 技术细节`);
-    } else {
-      factors.push('聚焦单一核心概念');
-    }
+    let level = topicScore > 0 ? topicScore : catInfo.score;
 
-    // 3. Multi-technique synthesis / comparison
-    if (/与|对比|融合|结合|集成|混合/.test(title)) {
-      score += 1;
-      factors.push('多技术对比融合');
-    }
+    // 微调：跨技术对比/融合分析酌情+1
+    const isSynthesis  = /与|融合|结合|集成|混合/.test(title);
+    const isComparison = /选型|对比|比较/.test(title);
+    if (topicScore === 0 && isSynthesis)    level = Math.min(5, level + 1);
+    if (isComparison && tags.length >= 4)   level = Math.min(5, level + 1);
+    level = Math.max(1, Math.min(5, level));
 
-    // 4. Tag breadth (cross-domain coverage)
-    if (tags.length >= 5) {
-      score += 2;
-      factors.push(`跨 ${tags.length} 个领域`);
-    } else if (tags.length >= 4) {
-      score += 2;
-      factors.push('跨领域多标签');
-    } else if (tags.length >= 3) {
-      score += 1;
-    }
+    // 组装 tooltip 行
+    const factors = [];
+    if (topicName)    factors.push({ label: '核心主题', value: topicName });
+    factors.push(      { label: '分类方向', value: catInfo.label });
+    if (topicDesc)    factors.push({ label: '学术背景', value: topicDesc });
+    if (isSynthesis)  factors.push({ label: '文章类型', value: '多技术综合分析' });
+    if (isComparison) factors.push({ label: '文章类型', value: '技术选型综合评估' });
 
-    // 5. Comparison / selection article
-    if (/选型|对比|比较/.test(title)) {
-      score += 1;
-      factors.push('技术选型综合评估');
-    }
-
-    // 6. Summary technical density
-    if (summary.length > 55 && /架构|原理|机制|策略|优化|推理|验证|算法/.test(summary)) {
-      score += 1;
-      factors.push('摘要技术密度高');
-    }
-
-    // Map to 1–5: theoretical max ≈ 4+2+1+2+1+1 = 11
-    const level = Math.max(1, Math.min(5, Math.ceil(score / 2.2)));
-    const reasonParts = factors.slice(0, 3).join('，');
-    const reason = `影响力因子 ${level}/5 · ${reasonParts}`;
-    return { level, reason };
+    return { level, factors };
   }
 
   function postCardHtml(p) {
@@ -240,11 +244,12 @@ async function initIndexPage() {
       const catCls = i === 0 ? (CATEGORY_CLASS[t] || '') : '';
       return `<span class="tag ${catCls}">${escapeHtml(t)}</span>`;
     }).join('');
-    const { level, reason } = computeImpactFactor(p);
+    const { level, factors } = computeImpactFactor(p);
+    const impactData = escapeHtml(JSON.stringify({ level, factors }));
     const barsHtml = [1, 2, 3, 4, 5]
       .map(i => `<span class="impact-bar${i <= level ? ' active' : ''}"></span>`)
       .join('');
-    const impactHtml = `<span class="impact-factor impact-level-${level}" data-tooltip="${escapeHtml(reason)}" aria-label="${escapeHtml(reason)}">${barsHtml}</span>`;
+    const impactHtml = `<span class="impact-factor impact-level-${level}" data-impact="${impactData}">${barsHtml}</span>`;
     return `
       <a class="post-card" href="post.html?slug=${encodeURIComponent(p.slug)}">
         <div class="post-card-meta">
@@ -301,6 +306,61 @@ async function initIndexPage() {
   }
 
   renderList();
+  setupImpactTooltip();
+}
+
+/* ===================================================
+   影响力因子 Tooltip
+   =================================================== */
+function setupImpactTooltip() {
+  let tip = document.getElementById('impact-tooltip');
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.id = 'impact-tooltip';
+    tip.className = 'impact-tooltip';
+    document.body.appendChild(tip);
+  }
+
+  const listEl = document.getElementById('post-list');
+  if (!listEl) return;
+
+  listEl.addEventListener('mouseover', e => {
+    const el = e.target.closest('.impact-factor');
+    if (!el) return;
+    let data;
+    try { data = JSON.parse(el.dataset.impact); } catch { return; }
+
+    const { level, factors } = data;
+    const rowsHtml = (factors || []).map(f =>
+      `<div class="itp-row">
+        <span class="itp-key">${escapeHtml(f.label)}</span>
+        <span class="itp-val">${escapeHtml(f.value)}</span>
+      </div>`
+    ).join('');
+
+    tip.innerHTML = `
+      <div class="itp-header">
+        <span class="itp-title">影响力因子</span>
+        <span class="itp-score">${level} / 5</span>
+      </div>
+      ${rowsHtml}`;
+
+    const rect  = el.getBoundingClientRect();
+    const tipW  = 270;
+    let left = rect.left + rect.width / 2 - tipW / 2;
+    left = Math.max(8, Math.min(left, window.innerWidth - tipW - 8));
+    tip.style.left      = left + 'px';
+    tip.style.top       = (rect.top - 8) + 'px';
+    tip.style.transform = 'translateY(-100%)';
+    tip.classList.add('visible');
+  });
+
+  listEl.addEventListener('mouseout', e => {
+    const el = e.target.closest('.impact-factor');
+    if (!el) return;
+    if (el.contains(e.relatedTarget)) return;
+    tip.classList.remove('visible');
+  });
 }
 
 /* ===================================================

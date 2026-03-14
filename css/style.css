@@ -356,9 +356,8 @@ main.container {
   gap: 2px;
   height: 16px;
   cursor: help;
-  position: relative;
   flex-shrink: 0;
-  margin-left: 2px;
+  margin-left: auto;
 }
 
 .impact-bar {
@@ -382,33 +381,62 @@ main.container {
 .impact-level-4 .impact-bar.active { background: #f97316; }
 .impact-level-5 .impact-bar.active { background: #ef4444; }
 
-.impact-factor::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 7px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text);
+/* ===== 影响力因子 Tooltip (JS 注入) ===== */
+.impact-tooltip {
+  position: fixed;
+  z-index: 999;
   background: var(--bg-3);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 5px 9px;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s;
-  z-index: 50;
-  max-width: 240px;
-  white-space: normal;
-  word-break: break-word;
-  line-height: 1.5;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  width: 270px;
 }
-.impact-factor:hover::after { opacity: 1; }
+.impact-tooltip.visible { opacity: 1; }
 
-[data-theme="light"] .impact-factor::after {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+[data-theme="light"] .impact-tooltip {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.itp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.itp-title {
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  font-size: 0.67rem;
+}
+.itp-score {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.78rem;
+}
+.itp-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+.itp-row:last-child { margin-bottom: 0; }
+.itp-key {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 52px;
+}
+.itp-val {
+  color: var(--text-dim);
+  flex: 1;
+  word-break: break-word;
 }
 
 .post-date {
