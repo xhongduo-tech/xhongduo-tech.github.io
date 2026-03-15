@@ -6,6 +6,127 @@
   <title>projects · xhd.log</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
+  <style>
+    /* ── Projects page extras ── */
+    .proj-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .proj-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .proj-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px 14px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .15s, box-shadow .15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--border);
+      transition: background .15s;
+    }
+    .proj-card:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    .proj-card:hover::before { background: var(--accent); }
+    .proj-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .proj-name {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .proj-badge {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+    .badge-active {
+      background: rgba(74,222,128,.08);
+      color: var(--green);
+      border: 1px solid rgba(74,222,128,.22);
+    }
+    .badge-done {
+      background: var(--bg-2);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .proj-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0 0 12px;
+      flex: 1;
+    }
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .proj-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+    .proj-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+    .proj-dates {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .proj-link {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .proj-link:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .proj-grid { grid-template-columns: 1fr; }
+    }
+  </style>
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
@@ -23,9 +144,9 @@
         </a>
         <div class="nav-links">
           <a href="index.html">posts</a>
+          <a href="learn.html">learn</a>
           <a href="projects.html" class="active">projects</a>
           <a href="timeline.html">timeline</a>
-          <a href="learn.html">learn</a>
           <a href="about.html">about</a>
           <a href="https://github.com/xhongduo-tech" class="github-btn" target="_blank" rel="noopener" aria-label="GitHub">
             <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
@@ -40,124 +161,157 @@
 
   <main class="container">
     <article class="post-article about-page">
+
       <section class="hero">
         <div class="hero-cmd">
           <span class="prompt">$</span> ls -la ./projects
         </div>
         <h1>Projects<span class="blink">_</span></h1>
+        <p class="hero-sub">LLM 推理 · 智能体 · 系统工程</p>
       </section>
 
       <div class="post-body">
-        <p>
-          以下是我在 LLM、智能体与系统工程方向的主要项目。
-        </p>
 
-        <h2>核心项目</h2>
-        <div class="project-grid">
+        <!-- 进行中 -->
+        <p class="proj-section-label">// 进行中</p>
+        <div class="proj-grid">
 
-          <!-- xhd.log -->
-          <div class="project-card">
-            <div class="project-header">
-              <span class="project-name">xhd.log</span>
-              <span class="project-lang">HTML / JS</span>
-              <span class="project-status status-active">进行中</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <span class="proj-name">xhd.log</span>
+              <span class="proj-badge badge-active">进行中</span>
             </div>
-            <p class="project-desc">
+            <p class="proj-desc">
               本站——纯静态技术博客，无框架无构建步骤，托管于 GitHub Pages。
+              内置 FABS（全自动文章生成系统）、三段式知识路线图与标签检索，
               记录大模型、智能体与系统设计的研究笔记。
             </p>
-            <p class="project-dates">// 2025-10 → 至今</p>
-            <div class="project-links">
-              <a href="https://github.com/xhongduo-tech/xhongduo-tech.github.io" target="_blank" rel="noopener">→ GitHub</a>
+            <div class="proj-tags">
+              <span class="proj-tag">HTML</span>
+              <span class="proj-tag">JS</span>
+              <span class="proj-tag">GitHub Pages</span>
+              <span class="proj-tag">FastAPI</span>
+            </div>
+            <div class="proj-footer">
+              <span class="proj-dates">2025-10 → 至今</span>
+              <a class="proj-link" href="https://github.com/xhongduo-tech/xhongduo-tech.github.io" target="_blank" rel="noopener">→ GitHub</a>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <span class="project-name">LLM Serving Bench</span>
-              <span class="project-lang">Python</span>
-              <span class="project-status status-active">进行中</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <span class="proj-name">LLM Serving Bench</span>
+              <span class="proj-badge badge-active">进行中</span>
             </div>
-            <p class="project-desc">
+            <p class="proj-desc">
               针对主流推理框架（vLLM、TGI、TensorRT-LLM）的吞吐、延迟与内存效率基准测试工具集，
-              支持 KV cache、speculative decoding 等优化对比分析。
+              支持 KV cache、speculative decoding 等优化策略的横向对比分析。
             </p>
-            <p class="project-dates">// 2026-01 → 至今</p>
-            <div class="project-links">
-              <a href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">→ GitHub</a>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">vLLM</span>
+              <span class="proj-tag">TensorRT-LLM</span>
+              <span class="proj-tag">CUDA</span>
+            </div>
+            <div class="proj-footer">
+              <span class="proj-dates">2026-01 → 至今</span>
+              <a class="proj-link" href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">→ GitHub</a>
             </div>
           </div>
+
         </div>
 
-        <h2>已完成</h2>
-        <div class="project-grid">
-          <div class="project-card">
-            <div class="project-header">
-              <span class="project-name">Offline LLM Inference Stack</span>
-              <span class="project-lang">llama.cpp / Docker / Nginx</span>
-              <span class="project-status status-done">已完成</span>
+        <!-- 已完成 -->
+        <p class="proj-section-label">// 已完成</p>
+        <div class="proj-grid">
+
+          <div class="proj-card">
+            <div class="proj-top">
+              <span class="proj-name">Offline LLM Inference Stack</span>
+              <span class="proj-badge badge-done">已完成</span>
             </div>
-            <p class="project-desc">
-              在麒麟 V10 + V100 离线内网上部署量化大模型推理服务的完整工程方案。
-              采用 GGUF Q4_K_M + llama.cpp（纯 CUDA、Volta 架构优化，规避 Flash-Attention 依赖），
-              以 Docker Compose 编排多模型实例，Nginx 作 API 网关，对外暴露 OpenAI 兼容接口。
-              覆盖内核一致性校验、Nouveau 驱动屏蔽至服务上线的五阶段流程，全程无外网访问。
+            <p class="proj-desc">
+              在麒麟 V10 + V100 离线内网部署量化大模型推理服务的完整工程方案。
+              GGUF Q4_K_M + llama.cpp（纯 CUDA Volta 优化，规避 Flash-Attention 依赖），
+              Docker Compose 编排多模型实例，Nginx 作 API 网关，暴露 OpenAI 兼容接口。全程无外网访问。
             </p>
-            <p class="project-dates">// 2026-01 → 2026-02</p>
-            <div class="project-links">
-              <a href="https://github.com/xhongduo-tech/v100-llm-deploy" target="_blank" rel="noopener">→ GitHub</a>
+            <div class="proj-tags">
+              <span class="proj-tag">llama.cpp</span>
+              <span class="proj-tag">Docker</span>
+              <span class="proj-tag">Nginx</span>
+              <span class="proj-tag">GGUF</span>
+              <span class="proj-tag">V100</span>
+            </div>
+            <div class="proj-footer">
+              <span class="proj-dates">2026-01 → 2026-02</span>
+              <a class="proj-link" href="https://github.com/xhongduo-tech/v100-llm-deploy" target="_blank" rel="noopener">→ GitHub</a>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <span class="project-name">Offline Vector Cluster</span>
-              <span class="project-lang">Docker / Nginx / Shell</span>
-              <span class="project-status status-done">已完成</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <span class="proj-name">Offline Vector Cluster</span>
+              <span class="proj-badge badge-done">已完成</span>
             </div>
-            <p class="project-desc">
-              在完全隔离的内网（麒麟 V10 + V100）上部署 10 节点向量化与重排序集群的工程实践。
-              4 节点运行 BGE-M3 Embedding、4 节点运行 BGE-Reranker-V2-M3，
-              Nginx 负载均衡，全程离线无外网访问，覆盖驱动安装、镜像迁移与服务编排五阶段流程。
+            <p class="proj-desc">
+              在完全隔离内网（麒麟 V10 + V100）部署 10 节点向量化与重排序集群。
+              4 节点 BGE-M3 Embedding + 4 节点 BGE-Reranker-V2-M3，Nginx 负载均衡，
+              覆盖驱动安装、镜像迁移与服务编排的完整五阶段流程。
             </p>
-            <p class="project-dates">// 2025-11 → 2026-01</p>
-            <div class="project-links">
-              <a href="https://github.com/xhongduo-tech/embed-deploy" target="_blank" rel="noopener">→ GitHub</a>
+            <div class="proj-tags">
+              <span class="proj-tag">BGE-M3</span>
+              <span class="proj-tag">Docker</span>
+              <span class="proj-tag">Nginx</span>
+              <span class="proj-tag">Shell</span>
+            </div>
+            <div class="proj-footer">
+              <span class="proj-dates">2025-11 → 2026-01</span>
+              <a class="proj-link" href="https://github.com/xhongduo-tech/embed-deploy" target="_blank" rel="noopener">→ GitHub</a>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <span class="project-name">innerpy</span>
-              <span class="project-lang">Python</span>
-              <span class="project-status status-done">已完成</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <span class="proj-name">innerpy</span>
+              <span class="proj-badge badge-done">已完成</span>
             </div>
-            <p class="project-desc">
+            <p class="proj-desc">
               面向完全离线内网环境的 Python 包管理与虚拟环境平台。
               解决无外网访问场景下 pip 依赖安装、版本锁定与跨节点分发问题，
               提供本地镜像源、环境快照与批量部署脚本。
             </p>
-            <p class="project-dates">// 2026-03</p>
-            <div class="project-links">
-              <a href="https://github.com/xhongduo-tech/innerpy" target="_blank" rel="noopener">→ GitHub</a>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">pip</span>
+              <span class="proj-tag">离线部署</span>
+            </div>
+            <div class="proj-footer">
+              <span class="proj-dates">2026-03</span>
+              <a class="proj-link" href="https://github.com/xhongduo-tech/innerpy" target="_blank" rel="noopener">→ GitHub</a>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <span class="project-name">Agent Memory PoC</span>
-              <span class="project-lang">Python</span>
-              <span class="project-status status-done">已完成</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <span class="proj-name">Agent Memory PoC</span>
+              <span class="proj-badge badge-done">已完成</span>
             </div>
-            <p class="project-desc">
+            <p class="proj-desc">
               探索 Agent 长期记忆结构的概念验证，实现基于向量检索 + 图结构的混合记忆方案，
               对比 episodic / semantic / procedural 三层记忆在多轮任务中的效果。
             </p>
-            <p class="project-dates">// 2025-08 → 2025-12</p>
-            <div class="project-links">
-              <a href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">→ GitHub</a>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">向量检索</span>
+              <span class="proj-tag">图结构</span>
+              <span class="proj-tag">Agent</span>
+            </div>
+            <div class="proj-footer">
+              <span class="proj-dates">2025-08 → 2025-12</span>
+              <a class="proj-link" href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">→ GitHub</a>
             </div>
           </div>
+
         </div>
       </div>
     </article>

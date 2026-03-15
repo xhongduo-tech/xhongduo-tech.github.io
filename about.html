@@ -6,6 +6,118 @@
   <title>about · xhd.log</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
+  <style>
+    /* ── About page extras ── */
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 28px 0 36px;
+    }
+    .about-stat {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .about-stat-num {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .about-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .about-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .about-blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 12px 20px;
+      margin: 0 0 32px;
+      background: var(--bg-2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .about-blockquote p {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin: 0;
+    }
+    .about-blockquote p + p { margin-top: 10px; }
+    .focus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .focus-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      transition: border-color .15s;
+    }
+    .focus-item:hover { border-color: var(--accent); }
+    .focus-icon { font-size: 1rem; line-height: 1.4; flex-shrink: 0; }
+    .focus-text strong {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .focus-text span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .contact-btn {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 7px 16px;
+      text-decoration: none;
+      transition: border-color .15s, background .15s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .contact-btn:hover { border-color: var(--accent); background: var(--bg-2); }
+    @media (max-width: 640px) {
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+      .focus-grid  { grid-template-columns: 1fr; }
+    }
+  </style>
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
@@ -23,9 +135,9 @@
         </a>
         <div class="nav-links">
           <a href="index.html">posts</a>
+          <a href="learn.html">learn</a>
           <a href="projects.html">projects</a>
           <a href="timeline.html">timeline</a>
-          <a href="learn.html">learn</a>
           <a href="about.html" class="active">about</a>
           <a href="https://github.com/xhongduo-tech" class="github-btn" target="_blank" rel="noopener" aria-label="GitHub">
             <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
@@ -40,47 +152,86 @@
 
   <main class="container">
     <article class="post-article about-page">
+
       <section class="hero">
         <div class="hero-cmd">
           <span class="prompt">$</span> cat about.md
         </div>
-        <h1>关于我<span class="blink">_</span></h1>
+        <h1>xhd<span class="blink">_</span></h1>
+        <p class="hero-sub">大模型 · 智能体 · 认知架构</p>
       </section>
 
       <div class="post-body">
-        <p>
-          我是 xhd，专注于大模型、智能体与 AGI 的研究与工程实践。
-          目前的核心工作围绕 LLM 推理、Agent 系统设计与认知架构展开。
-        </p>
 
-        <h2>核心观点</h2>
-        <blockquote>
-          大模型是基于语言的模型，而语言是思维的一种解析与外化。
-          当下的 LLM 本质上是在对「思维的投影」建模，而非思维本身。
-          真正的 AGI 之路，不在于把语言模型做得更大——
-          而在于找到思维的原始结构，并直接对其建模。
-        </blockquote>
-        <p>
-          语言是思维压缩后的有损编码：歧义、文化偏差、表达瓶颈，
-          都是这层编码引入的噪声。Scale 可以逼近极限，但无法突破信息论的边界。
-          我相信，下一代范式的突破口在于<strong>认知表示</strong>，
-          而不是更长的上下文窗口。
-        </p>
+        <!-- Stats row -->
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="about-stat-num" id="stat-posts">—</span>
+            <span class="about-stat-label">篇文章</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">5+</span>
+            <span class="about-stat-label">工程项目</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">4</span>
+            <span class="about-stat-label">研究方向</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">2025</span>
+            <span class="about-stat-label">创建于</span>
+          </div>
+        </div>
 
-        <h2>关注领域</h2>
-        <ul>
-          <li>大模型推理与对齐（reasoning、RLHF、CoT 机制）</li>
-          <li>智能体系统设计（planning、memory、tool use、multi-agent）</li>
-          <li>认知架构与 AGI 理论（symbol grounding、思维建模）</li>
-          <li>LLM 工程化与推理加速（量化、KV cache、serving 优化）</li>
-          <li>系统设计与分布式基础设施</li>
-        </ul>
+        <!-- 核心观点 -->
+        <p class="about-section-label">// 核心观点</p>
+        <div class="about-blockquote">
+          <p>大模型是基于语言的模型，而语言是思维的一种解析与外化。当下的 LLM 本质上是在对「思维的投影」建模，而非思维本身。</p>
+          <p>真正的 AGI 之路，不在于把语言模型做得更大——而在于找到思维的原始结构，并直接对其建模。Scale 可以逼近极限，但无法突破信息论的边界。下一代范式的突破口在于<strong>认知表示</strong>，而不是更长的上下文窗口。</p>
+        </div>
 
-        <h2>联系</h2>
-        <ul>
-          <li>GitHub：<a href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">@xhongduo-tech</a></li>
-          <li>Email：your@email.com</li>
-        </ul>
+        <!-- 关注领域 -->
+        <p class="about-section-label">// 关注领域</p>
+        <div class="focus-grid">
+          <div class="focus-item">
+            <span class="focus-icon">🔍</span>
+            <div class="focus-text">
+              <strong>推理与对齐</strong>
+              <span>Reasoning、RLHF、CoT 机制、奖励建模</span>
+            </div>
+          </div>
+          <div class="focus-item">
+            <span class="focus-icon">🤖</span>
+            <div class="focus-text">
+              <strong>智能体系统</strong>
+              <span>Planning、Memory、Tool Use、Multi-Agent</span>
+            </div>
+          </div>
+          <div class="focus-item">
+            <span class="focus-icon">🧠</span>
+            <div class="focus-text">
+              <strong>认知架构与 AGI</strong>
+              <span>Symbol Grounding、思维建模、认知表示</span>
+            </div>
+          </div>
+          <div class="focus-item">
+            <span class="focus-icon">⚙️</span>
+            <div class="focus-text">
+              <strong>LLM 工程化</strong>
+              <span>量化、KV Cache、Serving 优化、分布式推理</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 联系 -->
+        <p class="about-section-label">// 联系</p>
+        <div class="contact-row">
+          <a class="contact-btn" href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            @xhongduo-tech
+          </a>
+        </div>
+
       </div>
     </article>
   </main>
@@ -92,5 +243,14 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script>
+    fetch('posts/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        var el = document.getElementById('stat-posts');
+        if (el) el.textContent = posts.length;
+      })
+      .catch(function() {});
+  </script>
 </body>
 </html>
