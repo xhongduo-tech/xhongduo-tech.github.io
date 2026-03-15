@@ -210,8 +210,10 @@
       <div class="hero-cmd"><span class="prompt">$</span> roadmap --stages 3 --track-progress</div>
       <h1>大模型学习路线图<span class="blink">_</span></h1>
       <p class="kt-desc">
-        从数学基础到前沿工程，三个递进阶段覆盖 LLM 全栈知识体系。<br>
-        高亮节点已有对应文章，点击可查看；灰色节点规划中，持续更新。
+        三个递进阶段覆盖 LLM 全栈知识体系。<br>
+        <span style="color:#34d399">Stage 1 · 理论基石</span>：文章由我亲自写作发布，独立于自动化管线。<br>
+        <span style="color:#818cf8">Stage 2</span> &amp; <span style="color:#e879f9">Stage 3</span>：由 FABS 自动生成并持续更新。<br>
+        高亮节点已有文章，点击可查看；灰色节点待发布。
       </p>
     </section>
 
@@ -230,7 +232,8 @@
 
     <div class="kt-legend">
       <span class="kt-legend-item"><span class="kt-legend-dot done"></span>已有文章（点击查看）</span>
-      <span class="kt-legend-item"><span class="kt-legend-dot pending"></span>规划中</span>
+      <span class="kt-legend-item"><span class="kt-legend-dot pending"></span>待发布</span>
+      <span class="kt-legend-item" style="margin-left:8px;opacity:0.6;font-size:0.68rem">✍ Stage 1 手写 &nbsp;·&nbsp; ⚡ Stage 2/3 FABS</span>
     </div>
 
     <!-- Stage 1 -->
@@ -239,13 +242,14 @@
         <span class="stage-toggle">▶</span>
         <span class="stage-num">Stage 1</span>
         <span class="stage-title">理论基石<span class="stage-title-en">The Foundations</span></span>
+        <span style="font-family:var(--font-mono);font-size:0.62rem;color:#34d399;border:1px solid #34d39966;border-radius:3px;padding:1px 6px;flex-shrink:0">✍ 手写</span>
         <div class="stage-meta">
           <span class="stage-badge" id="s1-badge" style="color:#34d399;border-color:#34d399;background:#34d39918">—</span>
           <div class="stage-bar-wrap"><div class="stage-bar-fill" id="s1-bar" style="width:0%;background:#34d399;box-shadow:0 0 6px #34d399"></div></div>
         </div>
       </div>
       <div class="stage-body">
-        <p class="stage-desc">进入 LLM 全栈学习前必须掌握的基础知识体系，覆盖数学、机器学习、深度学习、计算机科学与 NLP 五大领域，共 1000+ 知识节点。</p>
+        <p class="stage-desc">进入 LLM 全栈学习前必须掌握的基础知识体系，覆盖数学、机器学习、深度学习、计算机科学与 NLP 五大领域，共 1000+ 知识节点。<br><span style="color:#34d399">✍ 本阶段文章由我亲自写作，独立管理，不经 FABS 自动生成。</span></p>
         <div class="stage-stats">
           <span class="kt-stat" id="s1-stat">加载中...</span>
           <div class="kt-progress-track" style="flex:1;min-width:120px"><div class="kt-progress-fill" id="s1-prog" style="width:0%"></div></div>
@@ -260,13 +264,14 @@
         <span class="stage-toggle">▶</span>
         <span class="stage-num">Stage 2</span>
         <span class="stage-title">模型核心与原理<span class="stage-title-en">Core Mechanisms</span></span>
+        <span style="font-family:var(--font-mono);font-size:0.62rem;color:#818cf8;border:1px solid #818cf866;border-radius:3px;padding:1px 6px;flex-shrink:0">⚡ FABS</span>
         <div class="stage-meta">
           <span class="stage-badge" id="s2-badge" style="color:#818cf8;border-color:#818cf8;background:#818cf818">—</span>
           <div class="stage-bar-wrap"><div class="stage-bar-fill" id="s2-bar" style="width:0%;background:#818cf8;box-shadow:0 0 6px #818cf8"></div></div>
         </div>
       </div>
       <div class="stage-body">
-        <p class="stage-desc">从 Transformer 架构到预训练范式，覆盖 LLM 核心机制与训练体系，含理论基础、模型训练、模型微调三大方向。</p>
+        <p class="stage-desc">从 Transformer 架构到预训练范式，覆盖 LLM 核心机制与训练体系，含理论基础、模型训练、模型微调三大方向。<br><span style="color:#818cf8">⚡ 本阶段由 FABS 自动生成，持续更新中。</span></p>
         <div class="stage-stats">
           <span class="kt-stat" id="s2-stat">加载中...</span>
           <div class="kt-progress-track" style="flex:1;min-width:120px"><div class="kt-progress-fill" id="s2-prog" style="width:0%"></div></div>
@@ -281,13 +286,14 @@
         <span class="stage-toggle">▶</span>
         <span class="stage-num">Stage 3</span>
         <span class="stage-title">全栈工程与应用<span class="stage-title-en">Full-Stack & Applications</span></span>
+        <span style="font-family:var(--font-mono);font-size:0.62rem;color:#e879f9;border:1px solid #e879f966;border-radius:3px;padding:1px 6px;flex-shrink:0">⚡ FABS</span>
         <div class="stage-meta">
           <span class="stage-badge" id="s3-badge" style="color:#e879f9;border-color:#e879f9;background:#e879f918">—</span>
           <div class="stage-bar-wrap"><div class="stage-bar-fill" id="s3-bar" style="width:0%;background:#e879f9;box-shadow:0 0 6px #e879f9"></div></div>
         </div>
       </div>
       <div class="stage-body">
-        <p class="stage-desc">从模型部署到智能体系统，覆盖 LLM 全栈工程实践与前沿方向，含推理部署、智能体、工程实践、系统基础与前沿追踪五大方向。</p>
+        <p class="stage-desc">从模型部署到智能体系统，覆盖 LLM 全栈工程实践与前沿方向，含推理部署、智能体、工程实践、系统基础与前沿追踪五大方向。<br><span style="color:#e879f9">⚡ 本阶段由 FABS 自动生成，持续更新中。</span></p>
         <div class="stage-stats">
           <span class="kt-stat" id="s3-stat">加载中...</span>
           <div class="kt-progress-track" style="flex:1;min-width:120px"><div class="kt-progress-fill" id="s3-prog" style="width:0%"></div></div>
@@ -702,7 +708,7 @@ const ADVANCED_TREE = [
   }
 
   // ===== 渲染逻辑 =====
-  function renderDomains(containerId, tree, slugSet, slugToPost) {
+  function renderDomains(containerId, tree, slugSet, slugToPost, isManual) {
     const container = document.getElementById(containerId);
     if (!tree.length) { container.innerHTML = ''; return { groups: 0, done: 0 }; }
 
@@ -728,7 +734,7 @@ const ADVANCED_TREE = [
           return `<li class="kt-node-item">
             <button class="kt-node ${nodeClass}"
               style="${colorStyle}"
-              data-group-id="${encodeURIComponent(JSON.stringify({domainId:domain.id, title:g.title, pub, total:g.total, color:domain.color, slugs:g._published}))}"
+              data-group-id="${encodeURIComponent(JSON.stringify({domainId:domain.id, title:g.title, pub, total:g.total, color:domain.color, slugs:g._published, isManual:!!isManual}))}"
               ${done ? '' : 'disabled'}>
               <span class="kt-node-dot"></span>
               ${escapeHtml(g.title)}<span class="kt-count">${pub}/${g.total}</span>
@@ -769,9 +775,9 @@ const ADVANCED_TREE = [
     } catch (e) { /* ignore */ }
 
     // 渲染三个 Stage
-    const s1 = renderDomains('stage-1-domains', BASICS_TREE, slugSet, slugToPost);
-    const s2 = renderDomains('stage-2-domains', STAGE_2_TREE, slugSet, slugToPost);
-    const s3 = renderDomains('stage-3-domains', STAGE_3_TREE, slugSet, slugToPost);
+    const s1 = renderDomains('stage-1-domains', BASICS_TREE, slugSet, slugToPost, true);
+    const s2 = renderDomains('stage-2-domains', STAGE_2_TREE, slugSet, slugToPost, false);
+    const s3 = renderDomains('stage-3-domains', STAGE_3_TREE, slugSet, slugToPost, false);
 
     // 更新 Stage 进度
     function updateStageStat(statId, progId, badgeId, barId, st) {
@@ -844,8 +850,11 @@ const ADVANCED_TREE = [
         html += '<div class="kt-modal-section"><p class="kt-empty-state">// 该方向文章尚未发布</p></div>';
       }
       if (pending > 0) {
+        const pendingMsg = groupData.isManual
+          ? `// 另有 <strong>${pending}</strong> 个知识节点待写作，将由作者陆续发布…`
+          : `// 另有 <strong>${pending}</strong> 个知识节点规划中，由 FABS 持续生成…`;
         html += `<div class="kt-modal-section">
-          <div class="kt-pending-info">// 另有 <strong>${pending}</strong> 个知识节点规划中，持续更新…</div>
+          <div class="kt-pending-info">${pendingMsg}</div>
         </div>`;
       }
       body.innerHTML = html;
