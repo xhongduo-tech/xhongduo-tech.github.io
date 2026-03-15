@@ -3385,7 +3385,7 @@
       "知识蒸馏"
     ],
     "brief": "核心要点：R1将671B模型的长思维链能力蒸馏到1.5B-70B的Qwen和LLaMA系列。蒸馏数据约80万条R1生成的推理轨迹，仅做SFT即获得显著推理提升。R1-Distill-Qwen-32B在AIME上达72.6%，超越OpenAI o1-mini，证明小模型可习得长链推理",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 的专家崩塌与负载均衡",
@@ -3433,7 +3433,7 @@
       "位置编码"
     ],
     "brief": "核心要点：MLA中的低秩压缩与RoPE的位置相关性存在冲突——RoPE作用于Q/K后无法被压缩矩阵吸收。V2的解决方案是将Q/K各分出一小部分维度（d_r=64）专门携带RoPE，其余维度走压缩路径，两部分拼接后做注意力，兼顾位置感知与缓存压缩",
-    "status": "pen'ding"
+    "status": "done"
   },
   {
     "title": "DeepSeek-V3 的 DualPipe 并行策略",
@@ -3541,7 +3541,7 @@
       "架构演进"
     ],
     "brief": "核心要点：Switch Transformer（2021）首次将MoE扩展到Top-1路由，简化实现但牺牲表达力。V-MoE（2022）将MoE引入ViT并提出优先路由（priority routing），按token重要性分配专家容量。从GShard的Top-2到Switch的Top-1再到V-MoE的自适应，路由策略持续演进",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixtral 8x7B 与 DeepSeek MoE 对比",
@@ -4177,7 +4177,7 @@
       "思维图"
     ],
     "brief": "核心要点：Graph of Thoughts 将 ToT 的树结构扩展为有向无环图，允许思维节点的合并与聚合操作。在排序任务中，GoT 比 ToT 减少约 31% 的 LLM 调用次数，同时支持并行分支的信息融合",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CoT 提示中的示例选择策略",
@@ -4757,7 +4757,7 @@
       "RAG"
     ],
     "brief": "核心要点：三款主流向量数据库在 Agent 场景下的核心差异——Pinecone 托管型延迟 P99 <50ms 但成本高；Milvus 支持十亿级向量但运维复杂；Chroma 轻量嵌入式适合原型但缺乏分布式能力。从 QPS、索引构建时间、Recall@10 三个维度量化对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "HNSW 索引在 Agent 记忆检索中的调参实践",
@@ -41459,5 +41459,6948 @@
     ],
     "brief": "多语言与跨语言 需要从形式化定义、关键公式与可证明性质三层讲清，说明它如何影响模型表达能力、误差界或信息流，并比较相近方法在假设条件和适用范围上的差异。正文最好至少落到一个公式、复杂度边界、反例或数值验证上，避免只停留在概念解释。",
     "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-limits-definition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-limit-laws",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-continuity",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-infinite-limits",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-squeeze-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-lhopital-rule",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-epsilon-delta",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-asymptotes",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-intermediate-value-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "极限与连续性",
+    "slug": "basics-calc-extreme-value-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·极限与连续性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-derivative-definition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-differentiation-rules",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-chain-rule",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-product-quotient-rule",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-implicit-differentiation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-higher-order-derivatives",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-mean-value-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-taylors-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-linearization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-differentials",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-newtons-method",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "导数与微分",
+    "slug": "basics-calc-optimization-single-var",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·导数与微分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-riemann-integral",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-fundamental-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-integration-by-parts",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-u-substitution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-partial-fractions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-trig-substitution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-improper-integrals",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-numerical-integration",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-arc-length",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "积分技术",
+    "slug": "basics-calc-area-volume",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·积分技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-partial-derivatives",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-gradient-vector",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-directional-derivatives",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-chain-rule-multivariate",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-jacobian-matrix",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-hessian-matrix",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-critical-points-multivar",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-lagrange-multipliers",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-double-integrals",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-change-of-variables",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-divergence-curl",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "多元微积分",
+    "slug": "basics-calc-stokes-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·多元微积分 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-power-series",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-taylor-maclaurin",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-convergence-tests",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-fourier-series",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-fourier-transform",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-discrete-fourier-transform",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-laplace-transform",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "级数与变换",
+    "slug": "basics-calc-z-transform",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "brief": "聚焦 微积分·级数与变换 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-vector-operations",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-dot-cross-product",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-matrix-arithmetic",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-matrix-multiplication",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-transpose-properties",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-trace-determinant",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-inverse-matrix",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-gaussian-elimination",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-lu-decomposition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-matrix-rank",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-block-matrices",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量与矩阵运算",
+    "slug": "basics-la-sparse-matrices",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量与矩阵运算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-eigenvalue-definition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-characteristic-polynomial",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-diagonalization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-symmetric-matrix-eigen",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-svd-fundamentals",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-pca-via-svd",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-qr-decomposition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-cholesky-decomposition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-spectral-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征值与分解",
+    "slug": "basics-la-pseudoinverse",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·特征值与分解 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-vector-space-axioms",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-subspace-basis",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-linear-independence",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-dimension-rank-nullity",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-inner-product-spaces",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-orthogonality-gram-schmidt",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-linear-maps",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "向量空间理论",
+    "slug": "basics-la-change-of-basis",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·向量空间理论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-tensor-basics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-tensor-operations",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-matrix-norms",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-condition-number",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-numerical-stability",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-iterative-solvers",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-randomized-algorithms",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "张量与数值线代",
+    "slug": "basics-la-low-rank-approximation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "brief": "聚焦 线性代数·张量与数值线代 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-sample-space-events",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-axioms-rules",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-conditional-probability",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-bayes-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-independence",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-counting-combinatorics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-law-total-probability",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-inclusion-exclusion",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-geometric-probability",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "概率基础",
+    "slug": "basics-prob-probability-inequalities",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·概率基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-discrete-rv",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-continuous-rv",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-pdf-pmf-cdf",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-expectation-variance",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-binomial-distribution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-poisson-distribution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-normal-distribution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-exponential-distribution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-joint-distributions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-covariance-correlation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-mgf-characteristic",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "随机变量与分布",
+    "slug": "basics-prob-clt-law-large-numbers",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·随机变量与分布 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-point-estimation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-mle",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-map-estimation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-confidence-intervals",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-hypothesis-testing",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-p-value-power",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-t-test-chi-square",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-anova",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-regression-analysis",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "统计推断",
+    "slug": "basics-stat-model-selection",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·统计推断 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-bayesian-inference",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-prior-posterior",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-conjugate-priors",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-mcmc-basics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-variational-inference-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-bayesian-model-comparison",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-credible-intervals",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "贝叶斯方法",
+    "slug": "basics-stat-empirical-bayes",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论与统计"
+    ],
+    "brief": "聚焦 概率论与统计·贝叶斯方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-convex-sets",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-convex-functions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-optimality-conditions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-kkt-conditions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-duality-theory",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-linear-programming",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-quadratic-programming",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-unconstrained-optimization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-constrained-optimization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "凸优化基础",
+    "slug": "basics-opt-convex-vs-nonconvex",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·凸优化基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-gradient-descent",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-sgd-variants",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-momentum-nesterov",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-adagrad-rmsprop",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-adam-adamw",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-second-order-methods",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-learning-rate-schedules",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-convergence-analysis",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-saddle-points",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "梯度优化算法",
+    "slug": "basics-opt-landscape-neural-nets",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·梯度优化算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-entropy-definition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-joint-conditional-entropy",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-mutual-information",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-kl-divergence",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-cross-entropy",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-jensen-inequality",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-source-coding-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "信息论基础",
+    "slug": "basics-info-channel-capacity",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·信息论基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-floating-point",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-numerical-errors",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-root-finding",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-interpolation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-numerical-differentiation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-ode-solvers",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-monte-carlo",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数值计算",
+    "slug": "basics-num-importance-sampling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化与信息论"
+    ],
+    "brief": "聚焦 优化与信息论·数值计算 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-linear-regression",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-logistic-regression",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-linear-discriminant",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-softmax-regression",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-generalized-linear-models",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-ridge-lasso",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-elastic-net",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-perceptron",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-naive-bayes",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "线性模型",
+    "slug": "basics-ml-linear-model-probabilistic",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·线性模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-decision-tree-id3",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-cart-algorithm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-pruning-overfitting",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-random-forest",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-bagging-bootstrapping",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-boosting-adaboost",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-gradient-boosting",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-xgboost-lightgbm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-stacking-ensembles",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-bias-variance-ensembles",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-feature-importance-tree",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "决策树与集成",
+    "slug": "basics-ml-out-of-bag-estimation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·决策树与集成 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-svm-linear",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-svm-soft-margin",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-kernel-trick",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-rbf-polynomial-kernel",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-svm-multiclass",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-svm-regression",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-kernel-pca",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-gaussian-processes-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-representer-theorem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "核方法与SVM",
+    "slug": "basics-ml-kernel-methods-theory",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "监督学习"
+    ],
+    "brief": "聚焦 监督学习·核方法与SVM 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-kmeans",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-kmeans-plus",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-hierarchical-clustering",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-dbscan",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-gaussian-mixture-models",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-em-algorithm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-spectral-clustering",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-cluster-evaluation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-density-estimation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "聚类算法",
+    "slug": "basics-ml-topic-models-lda",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·聚类算法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-pca",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-pca-whitening",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-ica",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-nmf",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-tsne",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-umap",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-autoencoders-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-manifold-learning",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-random-projections",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "降维方法",
+    "slug": "basics-ml-feature-selection",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·降维方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-generative-vs-discriminative",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-naive-bayes-generative",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-hidden-markov-models",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-restricted-boltzmann-machine",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-vae-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-gan-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-flow-models-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "生成模型入门",
+    "slug": "basics-ml-energy-based-models",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "无监督学习"
+    ],
+    "brief": "聚焦 无监督学习·生成模型入门 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-train-val-test-split",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-cross-validation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-stratified-sampling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-bias-variance-tradeoff",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-learning-curves",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-model-complexity",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-bootstrap-statistics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-statistical-tests-ml",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-ablation-study",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估方法论",
+    "slug": "basics-ml-error-analysis",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估方法论 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-accuracy-precision-recall",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-f1-score",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-roc-auc",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-confusion-matrix",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-log-loss",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-mse-mae-metrics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-r-squared",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-ndcg-map-ranking",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-calibration",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "评估指标",
+    "slug": "basics-ml-fairness-metrics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·评估指标 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-missing-values",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-normalization-scaling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-categorical-encoding",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-feature-interactions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-dimensionality-reduction-eng",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-class-imbalance",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-data-augmentation-basics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "特征工程",
+    "slug": "basics-ml-pipelines-sklearn",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "机器学习",
+      "模型评估与工程"
+    ],
+    "brief": "聚焦 模型评估与工程·特征工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-perceptron-history",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-mlp-architecture",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-universal-approximation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-forward-pass",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-computational-graph",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-loss-landscape",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-depth-vs-width",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-residual-connections-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-skip-connections",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "感知机与MLP",
+    "slug": "basics-dl-network-initialization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·感知机与MLP 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-sigmoid-tanh",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-relu-variants",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-leaky-relu-elu",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-gelu-swish",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-activation-saturation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-dying-relu-problem",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-activation-in-transformers",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "激活函数",
+    "slug": "basics-dl-activation-function-selection",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·激活函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-mse-regression-loss",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-cross-entropy-loss",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-binary-cross-entropy",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-focal-loss",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-contrastive-loss",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-triplet-loss",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-hinge-loss-svm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "损失函数",
+    "slug": "basics-dl-custom-loss-functions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·损失函数 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-chain-rule-backprop",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-backprop-algorithm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-vanishing-gradient",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-exploding-gradient",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-gradient-clipping",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-backprop-through-time",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-autodiff-forward-mode",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-autodiff-reverse-mode",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-second-order-backprop",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "反向传播",
+    "slug": "basics-dl-gradient-checkpointing",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "神经网络基础"
+    ],
+    "brief": "聚焦 神经网络基础·反向传播 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-convolution-operation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-pooling-layers",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-cnn-receptive-field",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-lenet-alexnet",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-vgg-resnet",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-inception-architecture",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-depthwise-separable-conv",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-dilated-convolution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-transposed-convolution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-batch-norm-cnn",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-transfer-learning-cnn",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "卷积神经网络",
+    "slug": "basics-dl-cnn-visualization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·卷积神经网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-rnn-unrolled",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-vanishing-gradient-rnn",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-lstm-architecture",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-lstm-gates",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-gru-simplified",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-bidirectional-rnn",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-stacked-rnn",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-seq2seq-basics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-teacher-forcing",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "RNN与序列模型",
+    "slug": "basics-dl-beam-search",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·RNN与序列模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-attention-motivation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-bahdanau-attention",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-luong-attention",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-self-attention",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-multi-head-attention",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-scaled-dot-product",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-attention-masking",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-cross-attention",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-attention-complexity",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力机制",
+    "slug": "basics-dl-attention-visualization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·注意力机制 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-transformer-overview",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-positional-encoding",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-encoder-stack",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-decoder-stack",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-feed-forward-sublayer",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-layer-normalization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-pre-norm-vs-post-norm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-transformer-training",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-bert-gpt-differences",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-transformer-variants",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-vision-transformer-vit",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Transformer架构",
+    "slug": "basics-dl-transformer-scaling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "经典网络架构"
+    ],
+    "brief": "聚焦 经典网络架构·Transformer架构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-batch-normalization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-layer-normalization-detail",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-instance-normalization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-group-normalization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-rms-norm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-normalization-theory",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-covariate-shift",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "归一化方法",
+    "slug": "basics-dl-norm-placement",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·归一化方法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-l1-l2-weight-decay",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-dropout-mechanism",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-variational-dropout",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-data-augmentation-dl",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-early-stopping",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-mixup-cutmix",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-label-smoothing",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "正则化技术",
+    "slug": "basics-dl-stochastic-depth",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·正则化技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-sgd-momentum",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-adam-derivation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-adamw-decoupled",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-adafactor",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-lion-optimizer",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-lr-warmup",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-cosine-annealing",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-cyclical-learning-rates",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-gradient-accumulation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "优化器与调度",
+    "slug": "basics-dl-mixed-precision-training",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·优化器与调度 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-weight-initialization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-kaiming-xavier-init",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-gradient-norm-monitoring",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-loss-spikes-recovery",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-numerical-precision",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-activation-statistics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-training-debugging",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "训练稳定性",
+    "slug": "basics-dl-reproducibility",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "训练技术"
+    ],
+    "brief": "聚焦 训练技术·训练稳定性 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-tensor-operations",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-autograd-basics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-nn-module",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-dataset-dataloader",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-training-loop",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-model-saving",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-gpu-acceleration",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-custom-layers",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-hooks-debugging",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-jit-scripting",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-distributed-data-parallel",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-mixed-precision",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-memory-management",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-profiling-tools",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "PyTorch核心",
+    "slug": "basics-pt-lightning-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·PyTorch核心 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-experiment-tracking",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-hyperparameter-search",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-logging-wandb",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-checkpoint-resume",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-config-management",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-reproducibility-seeds",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-debugging-nan",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "实验工程化",
+    "slug": "basics-pt-model-deployment-onnx",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "深度学习",
+      "深度学习框架"
+    ],
+    "brief": "聚焦 深度学习框架·实验工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-data-types",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-control-flow",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-functions-closures",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-oop-classes",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-decorators",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-generators-iterators",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-context-managers",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-comprehensions",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-error-handling",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-modules-packages",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-type-hints",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python核心语法",
+    "slug": "basics-py-functional-programming",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python核心语法 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-numpy-fundamentals",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-numpy-broadcasting",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-pandas-dataframes",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-pandas-operations",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-matplotlib-visualization",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-scipy-stats",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-sklearn-api",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-data-io-formats",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-memory-efficiency",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-vectorization",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-multiprocessing",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python数据生态",
+    "slug": "basics-py-async-programming",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python数据生态 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-virtual-environments",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-dependency-management",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-testing-pytest",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-logging-monitoring",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-profiling-optimization",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-packaging",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-cli-tools",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Python工程化",
+    "slug": "basics-py-documentation",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "Python",
+      "Python编程"
+    ],
+    "brief": "聚焦 Python编程·Python工程化 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-arrays-linked-lists",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-stacks-queues",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-hash-tables",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-trees-binary",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-heaps-priority-queues",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-graphs-representation",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-tries",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-union-find",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-segment-trees",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-bloom-filters",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-skip-lists",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "基础数据结构",
+    "slug": "basics-cs-data-structure-tradeoffs",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·基础数据结构 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-sorting-algorithms",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-binary-search",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-two-pointers",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-sliding-window",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-recursion-backtracking",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-divide-conquer",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-dynamic-programming",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-greedy-algorithms",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-graph-bfs-dfs",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-shortest-path-dijkstra",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-minimum-spanning-tree",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "算法设计",
+    "slug": "basics-cs-complexity-analysis",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据结构与算法"
+    ],
+    "brief": "聚焦 数据结构与算法·算法设计 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-osi-model",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-tcp-ip-stack",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-tcp-handshake",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-udp-vs-tcp",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-http-https",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-dns-resolution",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-rest-api-design",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-socket-programming",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-load-balancing",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "计算机网络",
+    "slug": "basics-net-cdn-basics",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·计算机网络 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-process-thread",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-process-scheduling",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-memory-management",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-virtual-memory",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-file-systems",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-io-models",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-concurrency-primitives",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-deadlock",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-signals-ipc",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "操作系统",
+    "slug": "basics-os-containers-namespaces",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·操作系统 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-filesystem-navigation",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-permissions",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-process-management",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-text-processing",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-shell-scripting",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-networking-tools",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-system-monitoring",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-ssh-remote",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-cron-jobs",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "Linux与命令行",
+    "slug": "basics-linux-environment-variables",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统"
+    ],
+    "brief": "聚焦 计算机系统·Linux与命令行 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-relational-model",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-sql-queries",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-joins-subqueries",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-indexes-optimization",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-transactions-acid",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-nosql-overview",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-vector-databases-intro",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "数据库基础",
+    "slug": "basics-db-database-design",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "数据库",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·数据库基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-git-basics",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-git-branching",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-git-rebase-merge",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-ci-cd-basics",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-docker-fundamentals",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-code-review-practices",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-api-design",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "版本控制与工程",
+    "slug": "basics-cs-system-design-basics",
+    "blog_category": "系统基础",
+    "tags": [
+      "系统基础",
+      "计算机系统",
+      "数据与工具"
+    ],
+    "brief": "聚焦 数据与工具·版本控制与工程 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-tokenization-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-stemming-lemmatization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-stopwords",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-text-normalization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-unicode-handling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-regex-for-nlp",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-sentence-segmentation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本预处理",
+    "slug": "basics-nlp-language-detection",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本预处理 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-word-tokenization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-bpe-tokenization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-wordpiece-tokenization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-sentencepiece",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-unigram-lm-tokenizer",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-subword-tokenization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-chinese-tokenization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "分词技术",
+    "slug": "basics-nlp-tokenizer-vocabulary-size",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·分词技术 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-bag-of-words",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-tfidf",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-n-grams",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-character-ngrams",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-document-representation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-text-similarity-metrics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-feature-selection-nlp",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "文本特征提取",
+    "slug": "basics-nlp-sparse-vs-dense",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "文本处理基础"
+    ],
+    "brief": "聚焦 文本处理基础·文本特征提取 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-word2vec-cbow",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-word2vec-skipgram",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-negative-sampling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-hierarchical-softmax",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-glove-matrix-factorization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-fasttext-subword",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-word-analogy-tasks",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-embedding-visualization",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-oov-handling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典词嵌入",
+    "slug": "basics-nlp-multilingual-embeddings",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·经典词嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-elmo-contextual",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-context-dependent-representations",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-sentence-embeddings",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-bert-embeddings-usage",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-embedding-fine-tuning",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-embedding-similarity-search",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-dense-retrieval-basics",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "上下文化嵌入",
+    "slug": "basics-nlp-embedding-evaluation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "词向量表示"
+    ],
+    "brief": "聚焦 词向量表示·上下文化嵌入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-pos-tagging",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-named-entity-recognition",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-dependency-parsing",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-coreference-resolution",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-sentiment-analysis",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-text-classification",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-question-answering-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-machine-translation-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-text-summarization-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "经典NLP任务",
+    "slug": "basics-nlp-information-extraction",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·经典NLP任务 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-ngram-language-model",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-perplexity-metric",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-smoothing-techniques",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-neural-language-models",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-causal-vs-masked-lm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-language-model-evaluation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-scaling-laws-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "语言模型基础",
+    "slug": "basics-nlp-emergent-abilities-intro",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·语言模型基础 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "CRF与序列标注",
+    "slug": "basics-nlp-hmm-viterbi",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·CRF与序列标注 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "CRF与序列标注",
+    "slug": "basics-nlp-crf-linear-chain",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·CRF与序列标注 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "CRF与序列标注",
+    "slug": "basics-nlp-crf-features",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·CRF与序列标注 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "CRF与序列标注",
+    "slug": "basics-nlp-crf-training",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·CRF与序列标注 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "CRF与序列标注",
+    "slug": "basics-nlp-bert-for-ner",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·CRF与序列标注 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "CRF与序列标注",
+    "slug": "basics-nlp-sequence-labeling-evaluation",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "序列建模基础"
+    ],
+    "brief": "聚焦 序列建模基础·CRF与序列标注 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-attention-score-functions",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-self-attention-mechanism",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-multi-head-attention-detail",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-attention-patterns",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-relative-position-attention",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-efficient-attention-overview",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-attention-memory-complexity",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-attention-in-cv",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-cross-modal-attention",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "注意力深入",
+    "slug": "basics-tf-attention-interpretability",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·注意力深入 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-bert-pretraining",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-bert-mlm-nsp",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-bert-fine-tuning",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-gpt-autoregressive",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-gpt2-scaling",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-roberta-improvements",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-t5-text-to-text",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-xlnet-permutation-lm",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-bart-denoising",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "预训练语言模型",
+    "slug": "basics-tf-transfer-learning-nlp",
+    "blog_category": "理论基础",
+    "tags": [
+      "理论基础",
+      "NLP",
+      "Transformer前置"
+    ],
+    "brief": "聚焦 Transformer前置·预训练语言模型 中的核心知识点：给出严格定义与直觉解释，推导关键公式，结合典型数值例子，指出在机器学习/深度学习/LLM 中的实际应用场景与工程注意事项。",
+    "status": "pending"
+  },
+  {
+    "title": "GShard：MoE 的分布式训练框架",
+    "slug": "gshard-moe-distributed-training-framework",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "MoE",
+      "分布式训练",
+      "GShard"
+    ],
+    "brief": "GShard 用 Top-2 路由和 All-to-All，把 MoE 专家并行真正扩展到超大规模训练。",
+    "status": "done"
+  },
+  {
+    "title": "Claude Code 安装使用指南",
+    "slug": "how-to-use-claude-code",
+    "blog_category": "工程实践",
+    "tags": [
+      "工程实践",
+      "开发工具",
+      "Claude Code"
+    ],
+    "brief": "面向零基础用户的 Claude Code 实战指南：安装配置、核心命令、深度思考模式、多智能体团队、CLAUDE.md 记忆系统，附完整工作流示例。",
+    "status": "done"
   }
 ]
