@@ -157,46 +157,76 @@ async function initIndexPage() {
     renderList();
   });
 
-  // 影响力因子：基于学术引用量与工业落地程度对研究主题打分
+  /**
+   * 影响力因子评估原则（科学家视角）
+   * 评估维度：1) 学术奠基性（引用量、范式开创） 2) 工业落地广度（主流采用） 3) 能力边界扩展（推理/多模态/长上下文） 4) 可复现性与可验证性 5) 长期演进潜力
+   * 评分标准：5=奠基范式/工业标配 4=高影响/广泛采用 3=重要专项 2=专项实现 1=工程实践
+   */
   function computeImpactFactor(post) {
     const title   = post.title   || '';
     const summary = post.summary || '';
     const tags    = post.tags    || [];
     const cat     = tags[0]      || '';
+    const text    = [title, summary, ...tags].join(' ');
 
-    // 核心研究主题表（score 反映引用规模与工业采用广度）
     const TOPIC_MAP = [
-      // ★★★★★ 奠基性范式，引用量/落地程度最高
-      { keys: ['RLHF'],                       score: 5, name: 'RLHF',              desc: 'InstructGPT 对齐范式，引用量破万，确立 LLM 训练基线' },
-      { keys: ['LoRA'],                        score: 5, name: 'LoRA',              desc: 'Hu et al. 2022，参数高效微调事实标准，引用量超 2 万' },
-      { keys: ['CoT', '思维链'],               score: 5, name: 'Chain-of-Thought',  desc: 'Wei et al. 2022，推理提示基础工作，引用量超 1.5 万' },
-      { keys: ['RAG'],                         score: 5, name: 'RAG',               desc: 'Lewis et al. 2020，检索增强生成，工业界知识库核心架构' },
-      // ★★★★ 高影响，>3k 引用或广泛工程采用
-      { keys: ['DPO'],                         score: 4, name: 'DPO',               desc: 'Rafailov et al. 2023，无需奖励模型的对齐新范式，引用超 5000' },
-      { keys: ['SFT'],                         score: 4, name: 'SFT',               desc: '监督微调基线，几乎覆盖所有 LLM 指令对齐流程' },
-      { keys: ['ReAct'],                       score: 4, name: 'ReAct',             desc: 'Yao et al. 2022，推理-行动交替框架，Agent 工程代表论文' },
-      { keys: ['ToT', 'Tree of Thought'],      score: 4, name: 'Tree of Thoughts',  desc: 'Yao et al. 2023，树结构多路径推理，引用超 3000' },
-      { keys: ['HNSW'],                        score: 4, name: 'HNSW',              desc: 'Malkov & Yashunin 2018，向量近邻索引工业标准，Faiss/Weaviate 均采用' },
-      { keys: ['Embedding', '嵌入模型'],       score: 4, name: 'Embedding',         desc: '语义嵌入是 RAG 与向量检索体系的核心底层组件' },
-      { keys: ['知识图谱'],                    score: 4, name: '知识图谱',           desc: '结构化知识表示，增强多跳推理的经典路径，与向量检索互补' },
-      // ★★★ 重要专项，特定领域广泛引用
-      { keys: ['自洽性', 'Self-Consistency'],  score: 3, name: 'Self-Consistency',  desc: 'Wang et al. 2022，多路径多数投票解码，引用约 8000' },
-      { keys: ['GoT', 'Graph of Thought'],     score: 3, name: 'Graph of Thoughts', desc: 'Besta et al. 2023，推理拓扑从树扩展到 DAG，支持分支复用' },
-      { keys: ['MCTS', '蒙特卡洛树'],          score: 3, name: 'MCTS',              desc: '蒙特卡洛树搜索，博弈推理与长链规划的经典算法' },
-      { keys: ['MemGPT'],                      score: 3, name: 'MemGPT',            desc: 'Packer et al. 2023，分层上下文管理系统，扩展 LLM 记忆边界' },
-      { keys: ['Function Calling'],            score: 3, name: 'Function Calling',  desc: 'OpenAI 工具调用协议，Agent 工程落地的核心接口规范' },
-      // ★★ 专项实现，引用或落地相对局限
-      { keys: ['CRDT'],                        score: 2, name: 'CRDT',              desc: '无冲突复制数据类型，分布式一致性系统领域的专项数据结构' },
-      { keys: ['PPO'],                         score: 2, name: 'PPO',               desc: 'Schulman et al. 2017，RLHF 流程中常用的近端策略优化算法' },
-      { keys: ['GQA'],                         score: 2, name: 'GQA',               desc: 'Grouped Query Attention，推理加速的注意力变体，Llama 2/3 使用' },
+      // ★★★★★ 奠基性范式：引用破万或工业标配，奠定 AI 发展关键路径
+      { keys: ['RLHF'], score: 5, name: 'RLHF', desc: '评分 5：InstructGPT 开创人类偏好对齐范式，引用破万，确立 ChatGPT/Claude 等主流模型训练基线；工业界几乎全部闭源模型均采用，是 LLM 能力与安全可控的核心基础设施。' },
+      { keys: ['LoRA'], score: 5, name: 'LoRA', desc: '评分 5：Hu et al. 2022 提出低秩适配，引用超 2 万；参数高效微调事实标准，HuggingFace/PEFT 生态标配，使个人与中小企业可微调大模型，显著降低 AI  democratization 门槛。' },
+      { keys: ['CoT', '思维链'], score: 5, name: 'Chain-of-Thought', desc: '评分 5：Wei et al. 2022 首次系统化推理提示，引用超 1.5 万；开启 LLM 推理能力显式化研究线，GPT-4/Claude 等均内置 CoT 能力，是复杂推理任务的基础方法论。' },
+      { keys: ['RAG'], score: 5, name: 'RAG', desc: '评分 5：Lewis et al. 2020 检索增强生成，引用超 1 万；工业界知识库问答、企业搜索、客服系统的核心架构，解决 LLM 幻觉与知识截止问题的事实标准方案。' },
+      { keys: ['扩展定律', 'Scaling Law'], score: 5, name: 'Scaling Law', desc: '评分 5：Kaplan/Chinchilla 等奠定大模型规模-数据-算力关系；指导 OpenAI/Google 等超大规模训练决策，是 AI 投入产出可预测性的理论基石。' },
+      { keys: ['Transformer'], score: 5, name: 'Transformer', desc: '评分 5：Vaswani et al. 2017 注意力机制，引用超 10 万；当前所有主流 LLM/VLM 的基础架构，是深度学习领域最具影响力的范式迁移之一。' },
+      // ★★★★ 高影响：>3k 引用或广泛工程采用
+      { keys: ['DPO'], score: 4, name: 'DPO', desc: '评分 4：Rafailov et al. 2023 无需奖励模型的对齐，引用超 5000；简化 RLHF 管线、降低训练成本，Zephyr/Llama 等开源模型广泛采用，对齐研究的重要分支。' },
+      { keys: ['SFT'], score: 4, name: 'SFT', desc: '评分 4：监督微调是 LLM 指令对齐的基线；几乎覆盖所有指令模型训练流程，工业界标配环节，虽非单篇高引但作为流程基石影响广泛。' },
+      { keys: ['ReAct'], score: 4, name: 'ReAct', desc: '评分 4：Yao et al. 2022 推理-行动交替，引用超 3000；Agent 工程代表框架，LangChain/AutoGPT 等均借鉴，是工具调用与推理结合的主流范式。' },
+      { keys: ['ToT', 'Tree of Thought'], score: 4, name: 'Tree of Thoughts', desc: '评分 4：Yao et al. 2023 树结构多路径推理，引用超 3000；扩展 CoT 为显式搜索，数学/代码等需验证任务的标准增强方法。' },
+      { keys: ['HNSW'], score: 4, name: 'HNSW', desc: '评分 4：Malkov & Yashunin 2018 近似最近邻，Faiss/Weaviate/Milvus 等工业标准；向量检索与 RAG 的底层索引事实选择，工程落地必备。' },
+      { keys: ['Embedding', '嵌入模型'], score: 4, name: 'Embedding', desc: '评分 4：语义嵌入是 RAG、检索、多模态对齐的核心组件；OpenAI/Cohere 等提供商用 API，工业界语义搜索基础设施。' },
+      { keys: ['知识图谱'], score: 4, name: '知识图谱', desc: '评分 4：结构化知识表示，与向量检索互补；多跳推理、知识问答的经典路径，企业知识管理的重要技术栈。' },
+      { keys: ['MoE'], score: 4, name: 'MoE', desc: '评分 4：稀疏激活扩展模型容量而不成比例增加计算；Mixtral/DeepSeek-MoE 等证明可行，是 scaling 效率的重要方向，引用与工业采用双高。' },
+      { keys: ['多模态'], score: 4, name: '多模态', desc: '评分 4：图文/音视频统一建模是 GPT-4V/Claude/Gemini 的核心能力；多模态理解与生成是 AI 泛化到真实世界的关键扩展。' },
+      { keys: ['长上下文'], score: 4, name: '长上下文', desc: '评分 4：百万 token 上下文是 Claude/Gemini 的差异化能力；长文档理解、代码库分析、多轮对话依赖，工业界刚需方向。' },
+      { keys: ['FlashAttention'], score: 4, name: 'FlashAttention', desc: '评分 4：Dao et al. 2022 注意力 IO 优化，引用超 3000；PyTorch 2.0/vLLM 等标配，大模型训练与推理的显存与速度关键优化。' },
+      { keys: ['ZeRO'], score: 4, name: 'ZeRO', desc: '评分 4：微软 DeepSpeed ZeRO 系列，分布式训练事实标准；参数/梯度/优化器分片成为大模型训练标配，引用与采用双高。' },
+      { keys: ['涌现能力'], score: 4, name: '涌现能力', desc: '评分 4：规模增大带来的突变式能力跃迁；指导模型 scaling 决策，是理解 LLM 能力边界的核心概念，学术争议与工业关注并存。' },
+      // ★★★ 重要专项：特定领域广泛引用
+      { keys: ['自洽性', 'Self-Consistency'], score: 3, name: 'Self-Consistency', desc: '评分 3：Wang et al. 2022 多路径多数投票，引用约 8000；数学/推理任务的标准解码增强，实现简单、收益稳定，但依赖采样成本。' },
+      { keys: ['GoT', 'Graph of Thought'], score: 3, name: 'Graph of Thoughts', desc: '评分 3：Besta et al. 2023 推理拓扑从树扩展为 DAG；支持分支复用与聚合，是 ToT 的拓扑泛化，引用与关注持续增长。' },
+      { keys: ['MCTS', '蒙特卡洛树'], score: 3, name: 'MCTS', desc: '评分 3：蒙特卡洛树搜索是博弈与规划经典算法；AlphaGo 奠定地位，LLM+搜索结合的重要方向，数学证明、代码生成等任务有应用。' },
+      { keys: ['MemGPT'], score: 3, name: 'MemGPT', desc: '评分 3：Packer et al. 2023 分层上下文管理；扩展 LLM 记忆边界，Agent 长程交互的实用方案，记忆系统研究代表工作。' },
+      { keys: ['Function Calling', '工具调用'], score: 3, name: 'Function Calling', desc: '评分 3：OpenAI 工具调用协议成为事实标准；Agent 落地的核心接口，GPT/Claude/Gemini 均支持，工程采用广泛。' },
+      { keys: ['数学推理'], score: 3, name: '数学推理', desc: '评分 3：MATH/GSM8K 等 benchmark 驱动；过程奖励、形式化验证等方向活跃，是衡量推理能力的关键任务域。' },
+      { keys: ['上下文学习', 'ICL', 'In-Context Learning'], score: 3, name: 'ICL', desc: '评分 3：Brown et al. 2020 首次系统展示 few-shot 适应；无需微调即可任务适应，是 LLM 核心特性，引用与理论分析丰富。' },
+      { keys: ['注意力机制'], score: 3, name: '注意力机制', desc: '评分 3：Transformer 核心组件；GQA/MQA、稀疏注意力等变体广泛采用，是模型效率与能力的关键调节点。' },
+      { keys: ['位置编码', 'RoPE', 'YaRN'], score: 3, name: '位置编码', desc: '评分 3：RoPE 等相对位置编码是长上下文基础；YaRN/LongRoPE 等扩展方法支撑百万 token，工程实现必备知识。' },
+      { keys: ['Constitutional AI', 'RLAIF'], score: 3, name: 'Constitutional AI', desc: '评分 3：Anthropic 宪法式自洽对齐；减少人类标注、提升可控性，Claude 系列采用，对齐研究的重要分支。' },
+      { keys: ['PRM', '过程奖励'], score: 3, name: 'PRM', desc: '评分 3：过程奖励模型对推理步骤评分；数学/代码等链式任务的关键增强，OpenAI 等采用，与 ORM 互补。' },
+      { keys: ['量化'], score: 3, name: '量化', desc: '评分 3：AWQ/GPTQ 等使大模型边缘部署可行；工业界推理成本控制标配，学术与工程双线活跃。' },
+      { keys: ['分布式训练', 'Megatron', '流水线并行'], score: 3, name: '分布式训练', desc: '评分 3：TP/PP/DP 等并行范式支撑千亿级训练；Megatron/DeepSpeed 等框架标配，大模型训练基础设施。' },
+      { keys: ['Reflexion', '反思'], score: 3, name: 'Reflexion', desc: '评分 3：语言化反馈实现跨 episode 学习；HotPotQA 等任务显著提升，Agent 自我修正的代表方法。' },
+      { keys: ['记忆系统', '反思记忆'], score: 3, name: '记忆系统', desc: '评分 3：Agent 长程交互的存储与检索；Generative Agents 等奠定架构，多 Agent 协作与个人化的重要组件。' },
+      // ★★ 专项实现：引用或落地相对局限
+      { keys: ['CRDT'], score: 2, name: 'CRDT', desc: '评分 2：无冲突复制数据类型，分布式一致性专项；多 Agent 共享状态等场景有用，但应用面较窄。' },
+      { keys: ['PPO'], score: 2, name: 'PPO', desc: '评分 2：Schulman et al. 2017 近端策略优化；RLHF 常用算法，但作为 RL 通用方法，在 LLM 语境下更多是工具而非范式。' },
+      { keys: ['GQA', 'MQA'], score: 2, name: 'GQA/MQA', desc: '评分 2：Grouped/Multi-Query Attention 减少 KV 缓存；Llama 2/3 等采用，推理加速的工程优化，非范式级创新。' },
+      { keys: ['状态空间模型', 'Mamba', 'RetNet'], score: 2, name: 'SSM', desc: '评分 2：Mamba/RetNet 等线性复杂度序列模型；长序列效率有优势，但尚未成为主流，处于探索期。' },
+      { keys: ['稀疏注意力', '线性注意力'], score: 2, name: '稀疏/线性注意力', desc: '评分 2：降低注意力复杂度的方法；Longformer/Sparse Transformer 等有应用，但 FlashAttention 等使标准注意力仍主流。' },
+      { keys: ['数据工程', '预训练'], score: 2, name: '数据工程', desc: '评分 2：数据清洗、去重、配比是训练质量基础；工业界重视但学术引用分散，属工程关键环节。' },
+      { keys: ['评测', 'Benchmark'], score: 2, name: '评测', desc: '评分 2：MMLU/SWE-bench 等驱动能力迭代；必要基础设施，但单篇 benchmark 影响力有限。' },
+      { keys: ['安全', '红队', 'Jailbreak'], score: 2, name: '安全', desc: '评分 2：对齐与对抗是持续研究方向；工业界刚需，但方法分散，尚未形成统一范式。' },
+      { keys: ['推理优化', 'Speculative', 'KV Cache'], score: 2, name: '推理优化', desc: '评分 2：投机解码、KV 压缩等提升推理效率；部署必备，属工程优化范畴。' },
+      { keys: ['模型部署', 'vLLM', '显存优化'], score: 2, name: '模型部署', desc: '评分 2：服务化与资源优化；vLLM/SGLang 等有影响，但更多是工程实现。' },
+      // ★ 工程实践与系统基础
+      { keys: ['系统基础', 'Linux', 'Docker', 'Kubernetes', '数据库'], score: 2, name: '系统基础', desc: '评分 2：操作系统、容器、数据库等是 AI 工程底座；必要但不直接贡献 AI 能力突破。' },
     ];
 
-    // 找最高分匹配主题
     let topicScore = 0;
     let topicName  = '';
     let topicDesc  = '';
     for (const item of TOPIC_MAP) {
-      if (item.keys.some(k => title.includes(k) || summary.includes(k))) {
+      if (item.keys.some(k => text.includes(k))) {
         if (item.score > topicScore) {
           topicScore = item.score;
           topicName  = item.name;
@@ -205,33 +235,37 @@ async function initIndexPage() {
       }
     }
 
-    // 分类兜底得分
     const catMeta = {
-      '前沿追踪': { score: 4, label: '前沿研究领域' },
-      '理论基础': { score: 4, label: '基础理论方向' },
-      '模型训练': { score: 3, label: '模型训练方向' },
-      '模型微调': { score: 3, label: '微调工程方向' },
-      '模型部署': { score: 2, label: '部署工程方向' },
-      '智能体':   { score: 2, label: 'Agent 应用方向' },
-      '系统基础': { score: 2, label: '系统基础方向' },
-      '工程实践': { score: 1, label: '工程实践方向' },
+      '前沿追踪': { score: 4, label: '前沿研究领域', desc: '评分 4：前沿追踪覆盖最新模型与架构，直接反映 AI 能力边界拓展，学术与工业关注度高。' },
+      '理论基础': { score: 4, label: '基础理论方向', desc: '评分 4：扩展定律、涌现、数学基础等是理解与预测 AI 发展的理论基石，指导大规模投入决策。' },
+      '模型训练': { score: 3, label: '模型训练方向', desc: '评分 3：分布式、ZeRO、数据工程等是千亿级模型训练的基础设施，工业界刚需但多属工程实现。' },
+      '模型微调': { score: 3, label: '微调工程方向', desc: '评分 3：SFT/RLHF/DPO 等对齐流程是模型可用化的关键环节，工业界标配。' },
+      '模型部署': { score: 2, label: '部署工程方向', desc: '评分 2：量化、推理优化、服务化等是落地必备，属工程实现范畴。' },
+      '智能体':   { score: 3, label: 'Agent 应用方向', desc: '评分 3：ReAct、工具调用、记忆等是 Agent 落地的核心组件，是 AI 从对话到行动的扩展前沿。' },
+      '系统基础': { score: 2, label: '系统基础方向', desc: '评分 2：OS、容器、网络等是工程底座，必要但不直接贡献 AI 能力突破。' },
+      '工程实践': { score: 1, label: '工程实践方向', desc: '评分 1：具体实现、选型、调参等面向落地，价值在可复用经验而非范式贡献。' },
     };
-    const catInfo = catMeta[cat] || { score: 2, label: '通用方向' };
+    const catInfo = catMeta[cat] || { score: 2, label: '通用方向', desc: '评分 2：跨分类主题，按具体内容评估。' };
 
     let level = topicScore > 0 ? topicScore : catInfo.score;
+    let reasonDesc = topicDesc || catInfo.desc;
 
-    // 微调：跨技术对比/融合分析酌情+1
     const isSynthesis  = /与|融合|结合|集成|混合/.test(title);
     const isComparison = /选型|对比|比较/.test(title);
     if (topicScore === 0 && isSynthesis)    level = Math.min(5, level + 1);
     if (isComparison && tags.length >= 4)   level = Math.min(5, level + 1);
     level = Math.max(1, Math.min(5, level));
 
-    // 组装 tooltip 行
+    if (topicScore === 0 && (isSynthesis || isComparison)) {
+      reasonDesc = reasonDesc.replace(/评分 \d：/, '评分 ' + level + '：');
+      if (isSynthesis)  reasonDesc += ' 多技术综合分析提升综合价值。';
+      if (isComparison) reasonDesc += ' 技术选型综合评估具有工程参考价值。';
+    }
+
     const factors = [];
     if (topicName)    factors.push({ label: '核心主题', value: topicName });
     factors.push(      { label: '分类方向', value: catInfo.label });
-    if (topicDesc)    factors.push({ label: '学术背景', value: topicDesc });
+    factors.push(      { label: '评分依据', value: reasonDesc });
     if (isSynthesis)  factors.push({ label: '文章类型', value: '多技术综合分析' });
     if (isComparison) factors.push({ label: '文章类型', value: '技术选型综合评估' });
 
