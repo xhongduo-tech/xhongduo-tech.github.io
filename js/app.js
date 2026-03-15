@@ -158,9 +158,9 @@ async function initIndexPage() {
   });
 
   /**
-   * 影响力因子评估原则（科学家视角）
-   * 评估维度：1) 学术奠基性（引用量、范式开创） 2) 工业落地广度（主流采用） 3) 能力边界扩展（推理/多模态/长上下文） 4) 可复现性与可验证性 5) 长期演进潜力
-   * 评分标准：5=奠基范式/工业标配 4=高影响/广泛采用 3=重要专项 2=专项实现 1=工程实践
+   * 影响力因子：仅显示 核心主题、分类方向、评分依据。
+   * 评分依据必须基于具体 topic（如 Broken Neural Scaling Law: S 形修正），而非宽泛分类。
+   * 具体 topic 优先匹配，顺序靠前的条目优先。
    */
   function computeImpactFactor(post) {
     const title   = post.title   || '';
@@ -169,14 +169,22 @@ async function initIndexPage() {
     const cat     = tags[0]      || '';
     const text    = [title, summary, ...tags].join(' ');
 
+    // 具体 topic 优先：每个条目对应一个可识别的具体研究主题，评分依据针对该 topic
     const TOPIC_MAP = [
-      // ★★★★★ 奠基性范式：引用破万或工业标配，奠定 AI 发展关键路径
-      { keys: ['RLHF'], score: 5, name: 'RLHF', desc: '评分 5：InstructGPT 开创人类偏好对齐范式，引用破万，确立 ChatGPT/Claude 等主流模型训练基线；工业界几乎全部闭源模型均采用，是 LLM 能力与安全可控的核心基础设施。' },
-      { keys: ['LoRA'], score: 5, name: 'LoRA', desc: '评分 5：Hu et al. 2022 提出低秩适配，引用超 2 万；参数高效微调事实标准，HuggingFace/PEFT 生态标配，使个人与中小企业可微调大模型，显著降低 AI  democratization 门槛。' },
-      { keys: ['CoT', '思维链'], score: 5, name: 'Chain-of-Thought', desc: '评分 5：Wei et al. 2022 首次系统化推理提示，引用超 1.5 万；开启 LLM 推理能力显式化研究线，GPT-4/Claude 等均内置 CoT 能力，是复杂推理任务的基础方法论。' },
-      { keys: ['RAG'], score: 5, name: 'RAG', desc: '评分 5：Lewis et al. 2020 检索增强生成，引用超 1 万；工业界知识库问答、企业搜索、客服系统的核心架构，解决 LLM 幻觉与知识截止问题的事实标准方案。' },
-      { keys: ['扩展定律', 'Scaling Law'], score: 5, name: 'Scaling Law', desc: '评分 5：Kaplan/Chinchilla 等奠定大模型规模-数据-算力关系；指导 OpenAI/Google 等超大规模训练决策，是 AI 投入产出可预测性的理论基石。' },
-      { keys: ['Transformer'], score: 5, name: 'Transformer', desc: '评分 5：Vaswani et al. 2017 注意力机制，引用超 10 万；当前所有主流 LLM/VLM 的基础架构，是深度学习领域最具影响力的范式迁移之一。' },
+      // 具体 topic：Scaling Law 相关
+      { keys: ['Broken Neural Scaling Law', 'BNSL', 'S 形修正', '断裂神经扩展'], score: 4, name: 'Broken Neural Scaling Law: S 形修正', desc: '评分 4：Shen 等将单一幂律扩展为带平滑拐点的分段幂律，解释涌现为斜率突变而非跳变；修正传统 scaling law 对下游任务的拟合偏差，是理解规模-能力非单调关系的核心工作。' },
+      { keys: ['Inverse Scaling', 'U 形涌现', '逆向 scaling'], score: 4, name: 'Inverse Scaling / U 形涌现', desc: '评分 4：Wei 等发现部分任务随规模先变差再回升；Inverse Scaling Prize 推动任务设计反思，U 形曲线揭示干扰信号与容量竞争，对 benchmark 设计与能力评估有直接影响。' },
+      { keys: ['Chinchilla', '计算最优'], score: 5, name: 'Chinchilla 计算最优', desc: '评分 5：Hoffmann 等证明数据与算力应同步扩展，推翻「模型越大越好」的粗放结论；指导 OpenAI/Google 等训练配比，是 scaling 决策的理论基石。' },
+      { keys: ['涌现能力', 'emergent', 'Emergent Abilities'], score: 4, name: '涌现能力', desc: '评分 4：规模增大带来的突变式能力跃迁；Wei 等 2022 系统化定义，指导 scaling 决策，是理解 LLM 能力边界的核心概念。' },
+      { keys: ['扩展定律', 'Scaling Law', 'scaling law'], score: 5, name: 'Scaling Law', desc: '评分 5：Kaplan/Chinchilla 等奠定规模-数据-算力关系；指导超大规模训练决策，是 AI 投入产出可预测性的理论基石。' },
+      // 奠基性范式
+      { keys: ['RLHF'], score: 5, name: 'RLHF', desc: '评分 5：InstructGPT 开创人类偏好对齐范式，引用破万；确立 ChatGPT/Claude 等主流模型训练基线，工业界几乎全部闭源模型均采用。' },
+      { keys: ['LoRA'], score: 5, name: 'LoRA', desc: '评分 5：Hu et al. 2022 低秩适配，引用超 2 万；参数高效微调事实标准，HuggingFace/PEFT 生态标配。' },
+      { keys: ['CoT', '思维链'], score: 5, name: 'Chain-of-Thought', desc: '评分 5：Wei et al. 2022 首次系统化推理提示，引用超 1.5 万；开启 LLM 推理能力显式化研究线，GPT-4/Claude 等均内置，是复杂推理任务的基础方法论。' },
+      { keys: ['RAG'], score: 5, name: 'RAG', desc: '评分 5：Lewis et al. 2020 检索增强生成，引用超 1 万；工业界知识库问答、企业搜索的核心架构，解决幻觉与知识截止的事实标准。' },
+      { keys: ['Transformer'], score: 5, name: 'Transformer', desc: '评分 5：Vaswani et al. 2017 注意力机制，引用超 10 万；当前所有主流 LLM/VLM 的基础架构。' },
+      // 具体 topic：推理与 CoT
+      { keys: ['Zero-shot CoT', '零样本思维链'], score: 4, name: 'Zero-shot CoT', desc: '评分 4：Kojima 等用「Let\'s think step by step」触发推理，无需示例；大幅降低 CoT 使用门槛，工业界广泛采用。' },
       // ★★★★ 高影响：>3k 引用或广泛工程采用
       { keys: ['DPO'], score: 4, name: 'DPO', desc: '评分 4：Rafailov et al. 2023 无需奖励模型的对齐，引用超 5000；简化 RLHF 管线、降低训练成本，Zephyr/Llama 等开源模型广泛采用，对齐研究的重要分支。' },
       { keys: ['SFT'], score: 4, name: 'SFT', desc: '评分 4：监督微调是 LLM 指令对齐的基线；几乎覆盖所有指令模型训练流程，工业界标配环节，虽非单篇高引但作为流程基石影响广泛。' },
@@ -236,38 +244,36 @@ async function initIndexPage() {
     }
 
     const catMeta = {
-      '前沿追踪': { score: 4, label: '前沿研究领域', desc: '评分 4：前沿追踪覆盖最新模型与架构，直接反映 AI 能力边界拓展，学术与工业关注度高。' },
-      '理论基础': { score: 4, label: '基础理论方向', desc: '评分 4：扩展定律、涌现、数学基础等是理解与预测 AI 发展的理论基石，指导大规模投入决策。' },
-      '模型训练': { score: 3, label: '模型训练方向', desc: '评分 3：分布式、ZeRO、数据工程等是千亿级模型训练的基础设施，工业界刚需但多属工程实现。' },
-      '模型微调': { score: 3, label: '微调工程方向', desc: '评分 3：SFT/RLHF/DPO 等对齐流程是模型可用化的关键环节，工业界标配。' },
-      '模型部署': { score: 2, label: '部署工程方向', desc: '评分 2：量化、推理优化、服务化等是落地必备，属工程实现范畴。' },
-      '智能体':   { score: 3, label: 'Agent 应用方向', desc: '评分 3：ReAct、工具调用、记忆等是 Agent 落地的核心组件，是 AI 从对话到行动的扩展前沿。' },
-      '系统基础': { score: 2, label: '系统基础方向', desc: '评分 2：OS、容器、网络等是工程底座，必要但不直接贡献 AI 能力突破。' },
-      '工程实践': { score: 1, label: '工程实践方向', desc: '评分 1：具体实现、选型、调参等面向落地，价值在可复用经验而非范式贡献。' },
+      '前沿追踪': { score: 4, label: '前沿研究领域' },
+      '理论基础': { score: 4, label: '基础理论方向' },
+      '模型训练': { score: 3, label: '模型训练方向' },
+      '模型微调': { score: 3, label: '微调工程方向' },
+      '模型部署': { score: 2, label: '部署工程方向' },
+      '智能体':   { score: 3, label: 'Agent 应用方向' },
+      '系统基础': { score: 2, label: '系统基础方向' },
+      '工程实践': { score: 1, label: '工程实践方向' },
     };
-    const catInfo = catMeta[cat] || { score: 2, label: '通用方向', desc: '评分 2：跨分类主题，按具体内容评估。' };
+    const catInfo = catMeta[cat] || { score: 2, label: '通用方向' };
 
     let level = topicScore > 0 ? topicScore : catInfo.score;
-    let reasonDesc = topicDesc || catInfo.desc;
-
     const isSynthesis  = /与|融合|结合|集成|混合/.test(title);
     const isComparison = /选型|对比|比较/.test(title);
     if (topicScore === 0 && isSynthesis)    level = Math.min(5, level + 1);
     if (isComparison && tags.length >= 4)   level = Math.min(5, level + 1);
     level = Math.max(1, Math.min(5, level));
 
-    if (topicScore === 0 && (isSynthesis || isComparison)) {
-      reasonDesc = reasonDesc.replace(/评分 \d：/, '评分 ' + level + '：');
-      if (isSynthesis)  reasonDesc += ' 多技术综合分析提升综合价值。';
-      if (isComparison) reasonDesc += ' 技术选型综合评估具有工程参考价值。';
+    let reasonDesc;
+    if (topicName && topicDesc) {
+      reasonDesc = topicDesc;
+    } else {
+      reasonDesc = '该主题暂无独立文献评估，按分类给出参考分。';
     }
 
-    const factors = [];
-    if (topicName)    factors.push({ label: '核心主题', value: topicName });
-    factors.push(      { label: '分类方向', value: catInfo.label });
-    factors.push(      { label: '评分依据', value: reasonDesc });
-    if (isSynthesis)  factors.push({ label: '文章类型', value: '多技术综合分析' });
-    if (isComparison) factors.push({ label: '文章类型', value: '技术选型综合评估' });
+    const factors = [
+      { label: '核心主题', value: topicName || title },
+      { label: '分类方向', value: catInfo.label },
+      { label: '评分依据', value: reasonDesc },
+    ];
 
     return { level, factors };
   }
