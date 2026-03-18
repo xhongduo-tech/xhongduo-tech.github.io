@@ -1146,6 +1146,15 @@
 
   <script src="js/app.js"></script>
   <script>
+    // 交替左右布局
+    (function () {
+      var tlItems = document.querySelectorAll('.tl-item');
+      tlItems.forEach(function (item, i) {
+        item.classList.add(i % 2 === 0 ? 'tl-right' : 'tl-left');
+      });
+    })();
+
+    // 滚动入场动画
     (function () {
       var items = document.querySelectorAll('.tl-item, .tl-era');
       if (!('IntersectionObserver' in window)) {
