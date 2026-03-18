@@ -126,6 +126,33 @@
     @media (max-width: 640px) {
       .proj-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── Pixel Office ── */
+    .pixel-office-wrap {
+      margin: 0 0 36px;
+      padding: 14px 16px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    #pixel-office {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      max-width: 100%;
+      display: block;
+    }
+    .pixel-office-label {
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
   </style>
   <script>
     (function() {
@@ -171,6 +198,12 @@
       </section>
 
       <div class="post-body">
+
+        <!-- Pixel Office -->
+        <div class="pixel-office-wrap">
+          <canvas id="pixel-office" width="480" height="160"></canvas>
+          <span class="pixel-office-label">// workspace · online</span>
+        </div>
 
         <!-- 进行中 -->
         <p class="proj-section-label">// 进行中</p>
@@ -324,5 +357,447 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script>
+  // ── Pixel House Animation ──
+  // Canvas: 480×160, S=4, grid=120×40
+  // Rooms (side cross-section): [BEDROOM|LIVING|OFFICE|SERVER]
+  //   each 30 cells wide, x: 0-29 / 30-59 / 60-89 / 90-119
+  // Floor: y=29  Ceiling: y=2
+  // Schedule: night→sleep, morning→living, work→office+server, evening→living
+  (function () {
+    var canvas = document.getElementById('pixel-office');
+    if (!canvas) return;
+    canvas.width  = 480;
+    canvas.height = 160;
+    var ctx = canvas.getContext('2d');
+    var S = 4;
+    var frame = 0, raf;
+
+    /* ── helpers ── */
+    function dark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    function f(x, y, w, h, col) { ctx.fillStyle = col; ctx.fillRect(x*S, y*S, w*S, h*S); }
+    function p(x, y, col)        { ctx.fillStyle = col; ctx.fillRect(x*S, y*S, S,   S);   }
+
+    /* ── person state ── */
+    // px = left edge of 4-cell-wide person sprite, walks on floor y=29
+    var px = 4, pDir = 1, pWalkF = 0, pState = 'sleeping';
+    // person x positions (left edge) per destination
+    var POS = { bed: 4, living: 34, office: 67, server: 93 };
+    var workCycle = 0;  // frame counter for office↔server cycling
+
+    function schedule(hour) {
+      if (hour >= 22 || hour < 6)  return { pos: POS.bed,    state: 'sleeping' };
+      if (hour >= 6  && hour < 8)  return { pos: POS.living, state: 'sitting'  };
+      if (hour >= 8  && hour < 12) return null;   // work cycle
+      if (hour >= 12 && hour < 13) return { pos: POS.living, state: 'sitting'  };
+      if (hour >= 13 && hour < 18) return null;   // work cycle
+      return                              { pos: POS.living, state: 'sitting'   }; // 18-22
+    }
+
+    /* ── person sprite ── */
+    // gx=left edge, gy=feet grid-y, sprite=4w×9h upright / 8w×2h sleeping
+    function drawPerson(gx, gy, state, dir, wf) {
+      var SK = '#ffcc80', HR = '#4e342e', SH = '#1565c0', PN = '#263238', SW = '#5d4037';
+      if (state === 'sleeping') {
+        // horizontal: head at left, feet at right, drawn at gy-1 and gy
+        p(gx,   gy-1, SK); p(gx+1, gy-1, SK); p(gx,   gy, SK); p(gx+1, gy, SK); // head
+        p(gx,   gy-1, HR); p(gx+1, gy-1, HR);                                    // hair
+        p(gx+2, gy-1, SH); p(gx+3, gy-1, SH); p(gx+4, gy-1, SH); p(gx+5, gy-1, SH); // body
+        p(gx+2, gy,   SH); p(gx+3, gy,   SH);
+        p(gx+6, gy-1, PN); p(gx+7, gy-1, PN); p(gx+6, gy, PN); p(gx+7, gy, PN); // legs
+        // ZZZ
+        var zf = Math.floor(frame / 50) % 3;
+        ctx.fillStyle = dark() ? '#556677' : '#8899aa';
+        ctx.font = 'bold 8px sans-serif';
+        ctx.fillText('z', (gx+2+zf)*S, (gy-3)*S);
+        ctx.fillText('Z', (gx+4+zf)*S, (gy-5)*S);
+        return;
+      }
+      var ex = dir >= 0 ? gx+2 : gx+1;
+      // head 2×2
+      p(gx+1,gy-8,SK); p(gx+2,gy-8,SK); p(gx+1,gy-7,SK); p(gx+2,gy-7,SK);
+      p(gx+1,gy-8,HR); p(gx+2,gy-8,HR); // hair
+      p(ex,  gy-7,'#333');               // eye
+      // body 2×3
+      p(gx+1,gy-6,SH); p(gx+2,gy-6,SH);
+      p(gx+1,gy-5,SH); p(gx+2,gy-5,SH);
+      p(gx+1,gy-4,SH); p(gx+2,gy-4,SH);
+      // arms
+      if (state === 'typing') {
+        var tap = Math.floor(wf/10)%2;
+        p(gx,   gy-5-tap, SK); p(gx+3, gy-5-tap, SK);
+      } else if (state === 'walking') {
+        var sw = Math.floor(wf/8)%2;
+        p(gx,   gy-6+sw, SK); p(gx+3, gy-5+sw, SK);
+      } else {
+        p(gx, gy-5, SK); p(gx+3, gy-5, SK);
+      }
+      // pants 2×2
+      p(gx+1,gy-3,PN); p(gx+2,gy-3,PN); p(gx+1,gy-2,PN); p(gx+2,gy-2,PN);
+      // legs/feet
+      if (state === 'walking') {
+        var lp = Math.floor(wf/8)%2;
+        p(gx+1+lp,gy-1,PN); p(gx+2-lp,gy-1,PN);
+        p(gx+1+lp,gy,  SW); p(gx+2-lp,gy,  SW);
+      } else if (state === 'sitting') {
+        p(gx+1,gy-1,PN); p(gx+2,gy-1,PN); // legs straight down
+        var fd = dir >= 0 ? 1 : -1;
+        p(gx+1+fd*2, gy-1, SW); p(gx+2+fd*2, gy-1, SW); // shoes forward
+      } else {
+        p(gx+1,gy-1,PN); p(gx+2,gy-1,PN); p(gx+1,gy,SW); p(gx+2,gy,SW);
+      }
+    }
+
+    /* ── room drawing ── */
+    function drawBedroom(d, hour) {
+      var night = hour >= 20 || hour < 7;
+      f(0, 2, 29, 27, d ? '#111827' : '#f0ece4');
+      // Window
+      var sky = night ? '#08102a' : (d ? '#1a3a5c' : '#87ceeb');
+      f(19,4, 8,11, '#666'); f(20,5, 6,9, sky);
+      f(22,5, 1,9,'#555'); f(20,10,6,1,'#555'); // cross bars
+      if (night) {
+        p(21,6,'#fff'); p(24,8,'#ddd'); p(22,11,'#fff'); // stars
+        f(23,6,2,3,'#ffffd0'); p(24,6,1,sky); p(24,7,1,sky); // crescent moon
+      } else {
+        f(22,5,2,2,'#ffe066'); f(21,8,1,1,'#ffe066'); f(25,6,1,1,'#ffe066'); // sun patch
+      }
+      // Bed (side view: headboard + frame + legs)
+      f(1,17,2,12,'#6d4c41');    // headboard (tall)
+      f(2,21,14,1,'#faf0e6');    // mattress top
+      f(2,22,14,2,'#8d6e63');    // frame body
+      f(3,24,2,5,'#5d4037');     // left leg
+      f(13,24,2,5,'#5d4037');    // right leg
+      f(2,21,4,1,'#e8ddd0');     // pillow (under sleeping-person's head area)
+      f(6,21,10,1,'#6a8fc0');    // blanket stripe on mattress
+      // Nightstand + lamp
+      f(16,23,4,6,'#8d6e63');
+      f(17,20,2,3,'#b0b0b0');    // lamp pole
+      f(16,19,4,2,'#ffe082');    // lampshade
+      if (night) { ctx.globalAlpha=0.18; f(13,18,9,8,'#ffe082'); ctx.globalAlpha=1; }
+    }
+
+    function drawLiving(d, hour) {
+      f(30, 2, 29, 27, d ? '#0f1a14' : '#eef5ee');
+      // Couch
+      f(31,22,14,3,'#b08a60'); f(31,25,14,4,'#9c7a50'); // back + seat
+      f(31,22,3,7,'#b08a60'); f(42,22,3,7,'#b08a60');   // arms
+      f(33,25,5,4,'#c49a6c'); f(39,25,3,4,'#c49a6c');   // cushions
+      // TV + stand
+      f(50,24,8,5,'#4a3728');    // stand
+      f(49,12,10,13,'#1a1a1a'); // TV body
+      f(50,13,8,11,'#050d15');   // screen
+      var tvF = Math.floor(frame/22)%3;
+      var tvR = ['#334466','#3a4f70','#2a3a58'][tvF];
+      f(50,13,8,11,tvR);
+      ctx.globalAlpha=0.7;
+      f(51,15,6,1,'#88aaff'); f(51,17,4,1,'#7799ee'); f(51,19,5,1,'#6688cc');
+      ctx.globalAlpha=1;
+      // Plant
+      f(56,17,4,10,'#2e7d32'); f(55,20,6,7,'#388e3c'); f(57,27,2,2,'#8d6e63');
+    }
+
+    function drawOffice(d, hour) {
+      f(60, 2, 29, 27, d ? '#0d1523' : '#f0f2f8');
+      // Desk
+      f(62,24,22,2,'#795548'); f(62,26,22,1,'#6d4c41');
+      f(63,27,2,2,'#6d4c41'); f(82,27,2,2,'#6d4c41');
+      // Monitor
+      f(65,12,16,13,'#1a1a28'); f(66,13,14,11,'#00100a');
+      f(71,24,6,1,'#1a1a28'); f(73,20,2,5,'#1a1a28');
+      // Animated code
+      var blink = Math.floor(frame/26)%2===0, sc = Math.floor(frame/80)%5;
+      var lw=[9,6,11,4,8,7], li=[0,1,0,2,1,0];
+      for (var i=0;i<4;i++) {
+        var idx=(i+sc)%lw.length, lx=67+li[idx]*2, ly=14+i*2;
+        if (i<3) { f(67,ly,li[idx]*2,1,'#002211'); f(lx,ly,lw[idx],1,'#00aa55'); }
+        else { var pr=Math.floor((frame%60)*lw[idx]/60); f(lx,ly,pr,1,'#00ff88'); if(blink) p(lx+pr,ly,'#00ff88'); }
+      }
+      // Keyboard
+      f(64,23,16,2,'#2a2a2a'); f(65,23,14,1,'#3c3c3c');
+      // Chair
+      f(70,24,8,2,'#455a64'); f(69,20,2,6,'#37474f');
+      f(70,26,2,3,'#37474f'); f(76,26,2,3,'#37474f');
+      // Bookshelf
+      f(86,4,3,20,'#5d4037');
+      var bkc=['#c62828','#1b5e20','#0d47a1','#e65100','#4a148c','#827717'];
+      for (var bi=0;bi<6;bi++) { p(86,5+bi,bkc[bi%6]); p(87,5+bi,bkc[(bi+2)%6]); p(88,5+bi,bkc[(bi+4)%6]); }
+    }
+
+    function drawServer(d, hour) {
+      f(90, 2, 30, 27, d ? '#050d10' : '#e8f0f0');
+      ctx.globalAlpha=0.12; f(90,2,30,27,'#00aaff'); ctx.globalAlpha=1;
+      // 3 racks
+      var rxs=[92,101,110];
+      for (var ri=0;ri<3;ri++) {
+        var rx=rxs[ri];
+        f(rx,4,8,25,'#141414'); f(rx+1,5,6,23,'#1e1e1e'); f(rx,4,8,1,'#2a2a2a');
+        for (var ru=0;ru<10;ru++) {
+          f(rx+1,6+ru*2,6,1,'#2a2a2a');
+          var on=(Math.floor(frame/18)+ri*7+ru*3)%2===0;
+          p(rx+1,6+ru*2, on?'#00ff88':'#003322');
+          var act=(Math.floor(frame/6)+ri*13+ru*7)%6===0;
+          p(rx+2,6+ru*2, act?'#44aaff':'#001133');
+          var disk=(Math.floor(frame/9)+ri*11+ru*5)%5===0;
+          p(rx+3,6+ru*2, disk?'#ff4444':'#330000');
+        }
+      }
+      // Cable tray
+      f(91,28,27,1,'#1a1a1a');
+      for (var ci=0;ci<9;ci++) p(92+ci*3,28,'#2a2a2a');
+    }
+
+    function drawWalls(d) {
+      var wc  = d ? '#21262d' : '#c0b8a8';
+      var flc = d ? '#0d1117' : '#d4cbb8';
+      f(0,2,120,1,wc);                      // ceiling
+      f(0,2,1,28,wc); f(119,2,1,28,wc);    // outer walls
+      f(29,2,1,28,wc); f(59,2,1,28,wc); f(89,2,1,28,wc); // room dividers
+      // Doors (clear enough for 9-cell-tall person: y=18-29)
+      f(29,18,1,12,flc); f(59,18,1,12,flc); f(89,18,1,12,flc);
+      f(0,29,120,1,wc);                     // floor line
+      f(0,30,120,10,flc);                   // sub-floor
+    }
+
+    /* ── main loop ── */
+    function draw() {
+      var d = dark(), now = new Date(), hour = now.getHours();
+
+      // Determine schedule target
+      var sched = schedule(hour), tPos, tState;
+      if (sched) {
+        tPos = sched.pos; tState = sched.state;
+      } else {
+        workCycle++;
+        var cyc = workCycle % 900; // 900 frames ≈ 15s
+        if (cyc < 600) { tPos = POS.office; tState = 'typing';   }
+        else           { tPos = POS.server; tState = 'standing';  }
+      }
+
+      // Smooth walk toward target
+      var dx = tPos - px;
+      if (Math.abs(dx) > 0.35) {
+        px += (dx > 0 ? 1 : -1) * 0.45;
+        pDir = dx > 0 ? 1 : -1; pState = 'walking'; pWalkF++;
+      } else {
+        px = tPos; pState = tState;
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Top strip (above ceiling)
+      f(0,0,120,2, d ? '#0d1117' : '#e0dcd4');
+
+      drawBedroom(d, hour);
+      drawLiving(d, hour);
+      drawOffice(d, hour);
+      drawServer(d, hour);
+      drawWalls(d);
+
+      // Draw person
+      var pgx = Math.floor(px);
+      if (pState === 'sleeping') {
+        drawPerson(pgx, 22, 'sleeping', 1, pWalkF); // lying on bed at y=21-22
+      } else {
+        drawPerson(pgx, 28, pState, pDir, pWalkF);  // standing on floor
+      }
+
+      // Room labels
+      ctx.globalAlpha = 0.35;
+      ctx.fillStyle = d ? '#00ff88' : '#2d7a4f';
+      ctx.font = '7px monospace';
+      ctx.fillText('BEDROOM',  2*S,  3*S);
+      ctx.fillText('LIVING',  32*S,  3*S);
+      ctx.fillText('OFFICE',  62*S,  3*S);
+      ctx.fillText('SERVER',  92*S,  3*S);
+      ctx.globalAlpha = 1;
+
+      // Clock (bottom-right)
+      ctx.fillStyle = d ? 'rgba(0,255,136,0.5)' : 'rgba(45,122,79,0.6)';
+      ctx.font = '8px monospace';
+      var hh = now.getHours().toString().padStart(2,'0');
+      var mm = now.getMinutes().toString().padStart(2,'0');
+      ctx.fillText(hh+':'+mm, 107*S, 38*S);
+
+      // Update label below canvas
+      var lbl = canvas.parentNode && canvas.parentNode.querySelector('.pixel-office-label');
+      if (lbl) {
+        var labels = { sleeping:'// zzzz · offline', sitting:'// break · away',
+                       typing:'// coding · online', standing:'// deploying · online',
+                       walking:'// in transit · ...' };
+        lbl.textContent = labels[pState] || '// workspace · online';
+      }
+
+      frame++;
+      raf = requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) cancelAnimationFrame(raf); else draw();
+    });
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.addEventListener('click', function () { cancelAnimationFrame(raf); draw(); });
+
+  // ── end of new animation ──
+  // (old code removed below)
+  /*  function draw() {
+      var d = dark();
+      var BG   = d ? '#0d1117' : '#f6f8fa';
+      var BG2  = d ? '#161b22' : '#eaecef';
+      var FL   = d ? '#12151c' : '#dde1e7';
+      var BRD  = d ? '#21262d' : '#d0d7de';
+      var DESK = d ? '#6d4c41' : '#8d6e63';
+      var DESKD= d ? '#5d4037' : '#795548';
+      var MON  = '#1a1a28';
+      var SCR  = '#00100a';
+      var SGRN = '#00ff88';
+      var SGMD = '#00aa55';
+      var SDIM = '#003322';
+      var CHR  = d ? '#37474f' : '#546e7a';
+      var SKIN = '#ffcc80';
+      var HAIR = '#4e342e';
+      var SHRT = d ? '#0d47a1' : '#1565c0';
+      var PANT = '#263238';
+      var PLT1 = '#2e7d32';
+      var PLT2 = '#388e3c';
+      var POT  = '#8d6e63';
+      var MUG  = '#f5f5f5';
+      var STM  = d ? '#445' : '#aac';
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // ── Wall ──
+      f(0, 0, 80, 22, BG);
+      ctx.globalAlpha = 0.08;
+      ctx.fillStyle = BG2;
+      for (var gx = 0; gx <= 80; gx += 10) ctx.fillRect(gx * S, 0, 1, 22 * S);
+      for (var gy = 0; gy <= 22; gy += 7)  ctx.fillRect(0, gy * S, 80 * S, 1);
+      ctx.globalAlpha = 1;
+
+      // ── Floor ──
+      f(0, 22, 80, 1, BRD);
+      f(0, 23, 80, 7, FL);
+
+      // ── Bookshelf (left wall) ──
+      f(0, 2, 4, 20, MON);
+      f(1, 3, 3, 19, '#111116');
+      var bkc = ['#b71c1c','#e65100','#1b5e20','#0d47a1','#4a148c','#006064','#827717','#880e4f'];
+      for (var row = 0; row < 4; row++) {
+        for (var col = 0; col < 3; col++) {
+          f(1 + col, 4 + row * 4, 1, 3, bkc[(row * 3 + col) % bkc.length]);
+        }
+      }
+
+      // ── Desk ──
+      f(5, 18, 62, 2, DESK);
+      f(5, 20, 62, 1, DESKD);
+      f(7,  21, 2, 9, DESKD);
+      f(65, 21, 2, 9, DESKD);
+
+      // ── Keyboard ──
+      f(7, 16, 22, 2, '#2a2a2a');
+      f(8, 16, 20, 1, '#3c3c3c');
+      for (var k = 0; k < 5; k++) {
+        ctx.fillStyle = '#555';
+        ctx.fillRect((8 + k * 4) * S + 1, 16 * S + 1, 3 * S - 2, S - 2);
+      }
+
+      // ── Monitor ──
+      f(29, 3, 24, 16, MON);      // outer body
+      f(30, 4, 22, 13, SCR);      // screen
+      f(37, 18, 8, 1, MON);       // stand base
+      f(40, 14, 2, 5, MON);       // stand neck
+
+      // Screen: scrolling code lines + blinking cursor
+      var blink   = Math.floor(frame / 26) % 2 === 0;
+      var scroll  = Math.floor(frame / 72) % 6;
+      var lines   = [{i:0,w:14},{i:1,w:10},{i:1,w:18},{i:0,w:8},{i:2,w:12},{i:0,w:16}];
+      for (var li = 0; li < 5; li++) {
+        var ln  = lines[(li + scroll) % lines.length];
+        var lx  = 31 + ln.i * 2;
+        var ly  = 5 + li * 2;
+        if (li < 4) {
+          f(31, ly, ln.i * 2, 1, SDIM);
+          f(lx, ly, ln.w, 1, SGMD);
+        } else {
+          var prog = Math.min(ln.w, Math.floor((frame % 55) * ln.w / 55));
+          f(lx, ly, prog, 1, SGRN);
+          if (blink) p(lx + prog, ly, SGRN);
+        }
+      }
+
+      // ── Person ──
+      // Chair back
+      f(9, 10, 2, 11, CHR);
+      f(9, 10, 5, 1, CHR);
+      // Head
+      f(12, 6, 6, 6, SKIN);
+      f(12, 6, 6, 2, HAIR);
+      p(13, 9, '#333');
+      p(16, 9, '#333');
+      // Body / shirt
+      f(11, 12, 8, 6, SHRT);
+      // Typing arms animation
+      var typ = Math.floor(frame / 13) % 2;
+      f(7,  14 + typ, 4, 2, SKIN);
+      f(19, 14 + typ, 4, 2, SKIN);
+      // Legs / pants
+      f(13, 18, 3, 4, PANT);
+      f(17, 18, 3, 4, PANT);
+      // Chair seat
+      f(9, 19, 14, 2, CHR);
+      f(9,  21, 2, 5, CHR);
+      f(19, 21, 2, 5, CHR);
+
+      // ── Coffee mug ──
+      f(52, 14, 5, 5, MUG);
+      p(57, 15, MUG);
+      p(57, 16, MUG);
+      f(53, 15, 3, 3, '#4e2900');
+      // Steam (wavy, 4-frame cycle)
+      var sp = Math.floor(frame / 14) % 4;
+      var steamPos = [[53,13],[54,12],[55,13],[54,12]];
+      var steamPos2= [[54,12],[55,11],[53,12],[53,11]];
+      ctx.globalAlpha = 0.55;
+      p(steamPos[sp][0],  steamPos[sp][1],  STM);
+      ctx.globalAlpha = 0.25;
+      p(steamPos2[sp][0], steamPos2[sp][1], STM);
+      ctx.globalAlpha = 1;
+
+      // ── Plant ──
+      f(65, 9,  10, 10, PLT1);
+      f(64, 11, 12, 7,  PLT2);
+      p(64, 10, PLT1);
+      p(74, 10, PLT1);
+      f(66, 18, 8, 3, POT);
+      f(65, 18, 10, 1, '#a1887f');
+
+      // ── Wall clock ──
+      f(72, 1, 7, 7, MON);
+      f(73, 2, 5, 5, '#071007');
+      var now = new Date();
+      var ha = ((now.getHours() % 12) + now.getMinutes() / 60) / 12 * Math.PI * 2 - Math.PI / 2;
+      var ma = now.getMinutes() / 60 * Math.PI * 2 - Math.PI / 2;
+      var ccx = 75, ccy = 4;
+      p(ccx, ccy, SGRN);
+      p(ccx + Math.round(Math.cos(ha)), ccy + Math.round(Math.sin(ha)), SGRN);
+      p(ccx + Math.round(Math.cos(ma) * 2), ccy + Math.round(Math.sin(ma) * 2), SGMD);
+
+      frame++;
+      raf = requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    // Pause when tab hidden
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { cancelAnimationFrame(raf); }
+      else { draw(); }
+    });
+
+  */ // end removed old code
+  })();
+  </script>
 </body>
 </html>
