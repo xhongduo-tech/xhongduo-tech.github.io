@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent的动态组队与角色自适应",
+    "slug": "multi-agent-dynamic-teaming-role-adaptation",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "动态组队"
+    ],
+    "summary": "多Agent动态组队的关键是用相似度筛选主角色，并在低匹配时重写角色或补员。"
+  },
+  {
     "title": "基于事件驱动的Agent协调架构",
     "slug": "event-driven-agent-coordination",
     "date": "2026-03-19",
