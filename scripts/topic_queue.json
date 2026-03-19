@@ -5369,7 +5369,7 @@
       "低代码"
     ],
     "brief": "核心要点：解析AutoGen Studio的架构——前端React可视化画布、后端FastAPI编排引擎、WebSocket实时通信。分析其Gallery模板系统如何降低多Agent应用开发门槛，以及自定义Skill（Python函数）的注册与版本管理机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent系统的错误传播与容错策略",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Autogen Studio的可视化Agent编排",
+    "slug": "autogen-studio-visual-orchestration",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "AutoGen",
+      "低代码"
+    ],
+    "summary": "AutoGen Studio用可视化配置、实时观测和Gallery模板，降低多Agent编排门槛。"
+  },
+  {
     "title": "多Agent系统的错误传播与容错策略",
     "slug": "multi-agent-error-propagation-fault-tolerance",
     "date": "2026-03-19",
