@@ -1,5 +1,17 @@
 [
   {
+    "title": "向量数据库的量化压缩与检索精度权衡",
+    "slug": "vector-quantization-compression-accuracy-tradeoff",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "向量数据库",
+      "量化压缩"
+    ],
+    "summary": "PQ用少量召回损失换大幅降本，OPQ进一步把精度损失压到工程可接受范围"
+  },
+  {
     "title": "代码模型的仓库级上下文建模",
     "slug": "repo-level-context-modeling",
     "date": "2026-03-19",

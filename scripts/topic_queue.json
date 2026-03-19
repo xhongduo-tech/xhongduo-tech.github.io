@@ -4889,7 +4889,7 @@
       "量化压缩"
     ],
     "brief": "核心要点：百万级记忆向量的存储成本高昂，Product Quantization（PQ）可将 1536 维向量压缩至 64 字节（压缩比 24:1），Recall@10 仅下降 3%。OPQ（Optimized PQ）通过旋转矩阵预处理进一步将精度损失控制在 1% 以内。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "外部知识库的增量更新与索引同步",
