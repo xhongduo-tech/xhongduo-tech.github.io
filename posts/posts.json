@@ -1,5 +1,17 @@
 [
   {
+    "title": "Swarm框架的轻量级Agent切换机制",
+    "slug": "swarm-lightweight-agent-handoff",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Swarm",
+      "Agent切换"
+    ],
+    "summary": "Swarm用handoff做轻量Agent切换，核心是客户端编排、无状态、按需转接。"
+  },
+  {
     "title": "Autogen Studio的可视化Agent编排",
     "slug": "autogen-studio-visual-orchestration",
     "date": "2026-03-19",

@@ -5393,7 +5393,7 @@
       "Agent切换"
     ],
     "brief": "核心要点：解析OpenAI Swarm框架的核心设计——Agent间通过handoff函数实现轻量级切换，无需复杂的编排层。分析其与AutoGen/CrewAI的本质差异：Swarm是客户端编排、无状态、单次对话切换。对比三者在客服路由场景中的实现复杂度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent评估基准与性能度量体系",
