@@ -5561,7 +5561,7 @@
       "红队测试"
     ],
     "brief": "核心要点：Agent红队测试需覆盖目标劫持、权限提升、信息泄露、拒绝服务四个攻击面。设计对抗性测试用例的系统方法：基于攻击树（Attack Tree）枚举路径、基于模糊测试生成边界输入、基于对抗提示探测安全护栏。分析自动化红队（用LLM生成攻击）的效率与覆盖率。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SWE-agent的Agent-Computer Interface设计",

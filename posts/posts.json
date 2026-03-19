@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent安全的红队测试方法论",
+    "slug": "agent-red-teaming-methodology",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全边界",
+      "红队测试"
+    ],
+    "summary": "Agent红队应以四类攻击树为骨架，用模糊测试与自动化红队持续量化护栏强度"
+  },
+  {
     "title": "WebArena：网页交互Agent的端到端评测",
     "slug": "webarena-web-agent-evaluation",
     "date": "2026-03-20",
