@@ -1,5 +1,17 @@
 [
   {
+    "title": "CrewAI与LangGraph的多Agent编排对比",
+    "slug": "crewai-vs-langgraph-orchestration",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "CrewAI",
+      "LangGraph"
+    ],
+    "summary": "CrewAI偏角色协作，LangGraph偏显式状态流；开放任务选前者，复杂可审计流程选后者。"
+  },
+  {
     "title": "多Agent系统的可观测性与调试追踪",
     "slug": "multi-agent-observability-tracing",
     "date": "2026-03-19",

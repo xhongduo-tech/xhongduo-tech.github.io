@@ -5189,7 +5189,7 @@
       "LangGraph"
     ],
     "brief": "核心要点：从编排范式（声明式vs图式）、状态管理（隐式vs显式State）、控制流（Process vs Edge/Condition）三个维度对比CrewAI与LangGraph。分析各自适用场景——CrewAI适合角色驱动任务、LangGraph适合复杂状态流转。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent系统的可观测性与调试追踪",
