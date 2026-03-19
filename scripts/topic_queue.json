@@ -5237,7 +5237,7 @@
       "成本优化"
     ],
     "brief": "核心要点：分析多Agent系统中Token消耗爆炸的根因——N个Agent的上下文窗口叠加、冗余信息重复传递。提出Token预算分配策略：per-agent上限、全局预算池、动态优先级分配，以及通过消息摘要压缩降低40%Token消耗的实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "基于事件驱动的Agent协调架构",

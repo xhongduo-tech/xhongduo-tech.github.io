@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent系统的Token预算分配与成本控制",
+    "slug": "multi-agent-token-budget-cost-control",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "成本优化"
+    ],
+    "summary": "多Agent降本的核心是分层预算、共享摘要和动态优先级调度。"
+  },
+  {
     "title": "多Agent的共识达成算法与投票机制",
     "slug": "multi-agent-consensus-voting-mechanism",
     "date": "2026-03-19",
