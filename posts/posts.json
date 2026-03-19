@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent执行链的异常分类与恢复策略选择",
+    "slug": "agent-exception-taxonomy-recovery",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "错误恢复",
+      "异常处理"
+    ],
+    "summary": "Agent异常先分环境、工具、推理、目标四层，再分别重试、修正、重规划或终止。"
+  },
+  {
     "title": "Reflexion的长期记忆管理与反思质量衰减",
     "slug": "reflexion-memory-management-decay",
     "date": "2026-03-20",
