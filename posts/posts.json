@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent推理循环检测与强制终止机制",
+    "slug": "agent-loop-detection-termination",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "错误恢复",
+      "循环检测"
+    ],
+    "summary": "用行为相似、重复率和状态覆盖三信号叠加，可稳定检测Agent循环并分级终止"
+  },
+  {
     "title": "τ-bench：工具使用Agent的对话式评测",
     "slug": "tau-bench-tool-agent-evaluation",
     "date": "2026-03-20",
