@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent错误恢复的回退策略与检查点机制",
+    "slug": "agent-error-recovery-checkpoint",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "错误恢复",
+      "容错"
+    ],
+    "summary": "Agent恢复的核心不是多重试，而是分型、检查点、回滚与重规划的闭环。"
+  },
+  {
     "title": "Agent自我反思的ReAct与Reflexion对比",
     "slug": "react-vs-reflexion-self-reflection",
     "date": "2026-03-19",
