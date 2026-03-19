@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态记忆：图像与文本的联合向量存储",
+    "slug": "multimodal-memory-image-text-joint-storage",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多模态",
+      "记忆系统"
+    ],
+    "summary": "用共享向量空间存图文记忆，可统一检索，但要用离线索引成本换更高召回。"
+  },
+  {
     "title": "LangChain Memory 模块的实现与局限",
     "slug": "langchain-memory-module-implementation-limitations",
     "date": "2026-03-19",
