@@ -1,5 +1,17 @@
 [
   {
+    "title": "WebArena：网页交互Agent的端到端评测",
+    "slug": "webarena-web-agent-evaluation",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "WebArena"
+    ],
+    "summary": "WebArena用真实多站点长任务评测网页Agent，核心难点是状态理解、长序列控制与功能性验证。"
+  },
+  {
     "title": "Agent执行链的异常分类与恢复策略选择",
     "slug": "agent-exception-taxonomy-recovery",
     "date": "2026-03-20",
