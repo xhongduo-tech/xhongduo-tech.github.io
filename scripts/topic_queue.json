@@ -5717,7 +5717,7 @@
       "OSWorld"
     ],
     "brief": "核心要点：OSWorld在真实操作系统中评测Agent执行计算机任务的能力，覆盖Ubuntu/Windows/macOS的369个任务。Agent需通过截图理解界面并生成鼠标/键盘操作。GPT-4V的成功率仅12.24%（截图模式），人类基线为72.36%。分析视觉理解与操作精度的主要瓶颈。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent自我评估的校准度与过度自信问题",

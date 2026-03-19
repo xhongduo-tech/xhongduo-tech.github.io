@@ -1,5 +1,17 @@
 [
   {
+    "title": "OSWorld：桌面操作Agent的跨平台评测",
+    "slug": "osworld-desktop-agent-evaluation",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "OSWorld"
+    ],
+    "summary": "OSWorld用真实桌面任务检验Agent，当前模型离稳定操作电脑仍有显著差距"
+  },
+  {
     "title": "LATS：蒙特卡洛树搜索驱动的Agent决策",
     "slug": "lats-monte-carlo-tree-search-agent",
     "date": "2026-03-20",
