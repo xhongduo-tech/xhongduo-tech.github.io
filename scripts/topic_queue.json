@@ -5285,7 +5285,7 @@
       "安全测试"
     ],
     "brief": "核心要点：分析利用多Agent框架构建红蓝对抗系统——Red Agent生成攻击Prompt、Blue Agent执行防御检测、Judge Agent评估结果。解析对抗迭代的收敛条件，以及在Prompt注入防御中红队Agent的攻击策略演化机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CrewAI的Tool委托与跨Agent工具共享",

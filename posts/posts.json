@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent对抗式测试与红蓝对抗",
+    "slug": "multi-agent-adversarial-red-blue-testing",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "安全测试"
+    ],
+    "summary": "多Agent红蓝对抗的核心是用可量化闭环持续暴露并修复提示注入风险"
+  },
+  {
     "title": "多Agent的动态组队与角色自适应",
     "slug": "multi-agent-dynamic-teaming-role-adaptation",
     "date": "2026-03-19",
