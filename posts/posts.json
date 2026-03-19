@@ -1,5 +1,17 @@
 [
   {
+    "title": "LangChain Memory 模块的实现与局限",
+    "slug": "langchain-memory-module-implementation-limitations",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "LangChain",
+      "记忆系统"
+    ],
+    "summary": "LangChain 经典 Memory 解决的是上下文注入，不是真实长期记忆；生产中通常需短期Buffer、摘要和检索…"
+  },
+  {
     "title": "基于 SQL 的结构化 Agent 记忆系统",
     "slug": "sql-structured-agent-memory-system",
     "date": "2026-03-19",

@@ -4973,7 +4973,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：LangChain 提供 ConversationBufferMemory、ConversationSummaryMemory、VectorStoreRetrieverMemory 等六种记忆模块。Buffer 适合短对话（<10 轮），Summary 适合长对话但丢失细节，VectorStore 检索精度依赖 Embedding 质量。实际生产中常需组合使用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "记忆检索的重排序：Cross-Encoder 精排",
