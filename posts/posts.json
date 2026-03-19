@@ -1,5 +1,17 @@
 [
   {
+    "title": "AgentBench：八维度Agent能力的标准化评测",
+    "slug": "agentbench-eight-dimensions",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "AgentBench"
+    ],
+    "summary": "AgentBench用困难环境加权，揭示Agent跨工具、多步执行能力的真实短板。"
+  },
+  {
     "title": "GAIA基准详解：通用AI助手的评测方法论",
     "slug": "gaia-benchmark-methodology",
     "date": "2026-03-19",
