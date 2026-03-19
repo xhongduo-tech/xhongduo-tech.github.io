@@ -5681,7 +5681,7 @@
       "数据污染"
     ],
     "brief": "核心要点：LLM训练数据可能包含评测基准的答案，导致评测分数虚高。分析SWE-bench、GAIA等基准的数据污染风险评估方法：n-gram重叠检测、membership inference攻击、canary token注入。讨论动态评测集（持续更新题目）和私有评测集的设计策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent的多步推理中间结果验证",

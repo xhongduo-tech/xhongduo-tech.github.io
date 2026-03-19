@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent评测中的数据污染与防泄漏机制",
+    "slug": "agent-eval-data-contamination",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "数据污染"
+    ],
+    "summary": "Agent评测防污染的核心，不是刷更难题，而是把记忆、泄漏和真实推理分开。"
+  },
+  {
     "title": "OSWorld：桌面操作Agent的跨平台评测",
     "slug": "osworld-desktop-agent-evaluation",
     "date": "2026-03-20",
