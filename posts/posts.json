@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent对抗性环境下的鲁棒性评测",
+    "slug": "agent-adversarial-robustness-eval",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "鲁棒性"
+    ],
+    "summary": "Agent鲁棒性评测要同时测成功率、拒绝率和非拒绝危害分数，不能只看正常表现。"
+  },
+  {
     "title": "Agent的渐进式规划与动态子目标调整",
     "slug": "agent-progressive-planning-subgoals",
     "date": "2026-03-20",
