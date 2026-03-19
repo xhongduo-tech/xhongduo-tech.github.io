@@ -1,5 +1,17 @@
 [
   {
+    "title": "记忆感知的 Prompt 构建与动态注入",
+    "slug": "memory-aware-prompt-construction-dynamic-injection",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "Prompt工程"
+    ],
+    "summary": "记忆注入位点决定模型利用率、窗口成本与延迟，稳定记忆宜前置，动态记忆宜按需调用"
+  },
+  {
     "title": "Agent 记忆系统的端到端评测框架",
     "slug": "agent-memory-system-evaluation-framework",
     "date": "2026-03-19",
