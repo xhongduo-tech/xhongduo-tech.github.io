@@ -5129,7 +5129,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：解析CrewAI中short_term_memory、long_term_memory和entity_memory三层记忆架构的存储实现。分析memory=True开启后的RAG检索流程，以及Crew级别shared_memory如何在多Agent间同步任务上下文与中间结果。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "层级式多Agent的管理者路由策略",

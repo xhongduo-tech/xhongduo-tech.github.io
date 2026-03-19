@@ -1,5 +1,17 @@
 [
   {
+    "title": "CrewAI的Agent记忆与学习机制",
+    "slug": "crewai-agent-memory-learning",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "CrewAI",
+      "记忆系统"
+    ],
+    "summary": "CrewAI 记忆应按统一 Memory 理解：共享存储、作用域隔离、任务前召回、任务后写回。"
+  },
+  {
     "title": "多Agent辩论机制提升推理准确率",
     "slug": "multi-agent-debate-reasoning-accuracy",
     "date": "2026-03-19",
