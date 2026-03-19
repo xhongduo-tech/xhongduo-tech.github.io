@@ -1,5 +1,17 @@
 [
   {
+    "title": "SWE-bench Verified：人工验证子集的评测意义",
+    "slug": "swe-bench-verified-subset",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "SWE-bench"
+    ],
+    "summary": "Verified 的价值是先删掉歧义题，再比较 agent 的真实修复能力。"
+  },
+  {
     "title": "Agent安全边界：Prompt注入攻击与防御",
     "slug": "agent-prompt-injection-defense",
     "date": "2026-03-19",
