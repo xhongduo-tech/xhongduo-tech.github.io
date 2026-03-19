@@ -5273,7 +5273,7 @@
       "容错恢复"
     ],
     "brief": "核心要点：分析AutoGen中长时间运行的多Agent会话的状态持久化需求。解析Agent chat_messages的序列化格式、GroupChat状态的checkpoint存储，以及从断点恢复会话时的消息重放与状态一致性校验机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent对抗式测试与红蓝对抗",

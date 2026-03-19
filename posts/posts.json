@@ -1,5 +1,17 @@
 [
   {
+    "title": "AutoGen的状态持久化与断点恢复",
+    "slug": "autogen-state-persistence-checkpoint",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "AutoGen",
+      "容错恢复"
+    ],
+    "summary": "AutoGen断点恢复要同时保存消息序列与团队状态，恢复时先load_state再续接会话。"
+  },
+  {
     "title": "多Agent系统的Token预算分配与成本控制",
     "slug": "multi-agent-token-budget-cost-control",
     "date": "2026-03-19",
