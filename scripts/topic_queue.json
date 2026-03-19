@@ -5669,7 +5669,7 @@
       "LATS"
     ],
     "brief": "核心要点：LATS将LLM Agent的决策建模为树搜索问题，通过UCT选择、LLM扩展、环境模拟评估、反向传播四步实现系统性探索。在HotPotQA上LATS比ReAct提升12%、比Reflexion提升6%。分析搜索宽度、深度、模拟次数对性能与计算成本的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent评测中的数据污染与防泄漏机制",

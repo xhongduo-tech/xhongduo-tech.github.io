@@ -1,5 +1,17 @@
 [
   {
+    "title": "LATS：蒙特卡洛树搜索驱动的Agent决策",
+    "slug": "lats-monte-carlo-tree-search-agent",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自我反思",
+      "LATS"
+    ],
+    "summary": "LATS把Agent决策变成树搜索，用UCT、反思和环境反馈系统探索更优行动轨迹"
+  },
+  {
     "title": "Agent的失败归因：从日志到根因分析",
     "slug": "agent-failure-attribution-root-cause",
     "date": "2026-03-20",
