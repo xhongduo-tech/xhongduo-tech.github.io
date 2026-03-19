@@ -5321,7 +5321,7 @@
       "数据交换"
     ],
     "brief": "核心要点：分析多Agent间传递非结构化文本的信息损耗问题。提出基于JSON Schema的Agent间结构化通信协议——输出Schema声明、输入Schema校验、Schema不兼容时的自动适配。对比Pydantic BaseModel与JSON Schema在Agent输出约束中的实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AutoGen的多模型混合编排策略",

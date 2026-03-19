@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent的结构化输出与Schema协商",
+    "slug": "multi-agent-structured-output-schema",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "数据交换"
+    ],
+    "summary": "多Agent应传递“数据+Schema”，并用校验与适配器消除链路信息损耗"
+  },
+  {
     "title": "AutoGen的多模型混合编排策略",
     "slug": "autogen-multi-model-orchestration",
     "date": "2026-03-19",
