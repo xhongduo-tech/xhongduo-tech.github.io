@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 记忆系统的端到端评测框架",
+    "slug": "agent-memory-system-evaluation-framework",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "评测"
+    ],
+    "summary": "用检索、保持、效率、任务贡献四维指标，才能完整评测 Agent 记忆系统。"
+  },
+  {
     "title": "Sparse-Dense 混合检索在记忆系统中的实践",
     "slug": "sparse-dense-hybrid-retrieval-memory-system",
     "date": "2026-03-19",
