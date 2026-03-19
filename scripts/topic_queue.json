@@ -5165,7 +5165,7 @@
       "安全隔离"
     ],
     "brief": "核心要点：解析AutoGen中LocalCommandLineCodeExecutor与DockerCommandLineCodeExecutor的实现差异。分析Docker沙箱的资源限制配置（CPU/内存/网络）、文件系统挂载策略，以及代码执行结果的stdout/stderr捕获与超时终止机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent的共识达成算法与投票机制",

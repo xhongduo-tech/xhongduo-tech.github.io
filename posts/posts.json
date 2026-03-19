@@ -1,5 +1,17 @@
 [
   {
+    "title": "AutoGen的代码执行沙箱架构",
+    "slug": "autogen-code-execution-sandbox",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "AutoGen",
+      "安全隔离"
+    ],
+    "summary": "AutoGen代码执行的核心差异不在流程，而在Local与Docker的隔离边界和资源控制。"
+  },
+  {
     "title": "多Agent系统中的死锁检测与预防",
     "slug": "multi-agent-deadlock-detection-prevention",
     "date": "2026-03-19",
