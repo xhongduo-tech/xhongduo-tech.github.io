@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent系统的负载均衡与弹性伸缩",
+    "slug": "multi-agent-load-balancing-scaling",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "系统工程"
+    ],
+    "summary": "多Agent高并发要同时做能力路由、负载感知调度与弹性扩容，单靠轮询会放大尾延迟"
+  },
+  {
     "title": "多Agent的结构化输出与Schema协商",
     "slug": "multi-agent-structured-output-schema",
     "date": "2026-03-19",
