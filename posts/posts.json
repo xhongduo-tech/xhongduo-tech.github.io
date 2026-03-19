@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent辩论机制提升推理准确率",
+    "slug": "multi-agent-debate-reasoning-accuracy",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "推理增强",
+      "辩论机制"
+    ],
+    "summary": "多Agent辩论通过多轮互相纠错与加权共识，显著提升复杂推理任务准确率。"
+  },
+  {
     "title": "AutoGen中自定义Agent的注册与能力声明",
     "slug": "autogen-custom-agent-registration-capability",
     "date": "2026-03-19",

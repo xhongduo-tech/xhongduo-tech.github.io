@@ -5117,7 +5117,7 @@
       "辩论机制"
     ],
     "brief": "核心要点：分析Du et al. (2023)提出的多Agent辩论框架，通过3轮辩论在GSM8K上将准确率从78%提升至85%。解析辩论轮次、Agent数量与准确率的关系曲线，以及majority voting与weighted voting的聚合策略差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CrewAI的Agent记忆与学习机制",
