@@ -366,10 +366,10 @@
     var canvas = document.getElementById('pixel-office');
     if (!canvas) return;
     canvas.width  = 960;
-    canvas.height = 440;
+    canvas.height = 464;
     var ctx = canvas.getContext('2d');
     var S = 4;
-    var GW=240, GH=110, CL1=3, FL1=52, CL2=60, FL2=107;
+    var GW=240, GH=116, CL1=3, FL1=52, CL2=60, FL2=107;
     var frame = 0, raf;
 
     /* ── helpers ── */
@@ -444,6 +444,86 @@
       f(gx+5,FL-5,2,2,'#b0a080');
     }
 
+    /* ── ladder between rows ── */
+    function drawLadder(d){
+      var y0=FL1+1, y1=CL2-1;
+      var lc=d?'#5a5a6a':'#8a8a9a';
+      f(1,y0,1,y1-y0+1,lc); f(3,y0,1,y1-y0+1,lc);
+      for(var ry=y0;ry<=y1;ry+=2) f(1,ry,3,1,lc);
+      var cy=y0+Math.floor(frame/18)%(y1-y0);
+      p(2,cy,'#ffcc80'); p(2,cy+1,'#1565c0');
+    }
+
+    /* ── city skyline in bedroom window (night only) ── */
+    function drawCitySkyline(d){
+      var wx=31, wy=CL1+3, wh=20;
+      var bldData=[[0,8,3],[3,13,4],[8,7,3],[11,11,3],[14,6,2]];
+      var bc=d?'#111b2f':'#19234a';
+      for(var bi=0;bi<bldData.length;bi++){
+        var bd=bldData[bi], bx=wx+bd[0], bbot=wy+wh-1, btop=bbot-bd[1];
+        f(bx,btop,bd[2],bd[1],bc);
+        for(var wi=0;wi<Math.floor(bd[1]/3);wi++){
+          var wwy=btop+1+wi*3;
+          if(wwy<bbot-1 && rand(bi*41+wi*17+Math.floor(frame/150))<0.6) p(bx+1,wwy,'#ffff99');
+        }
+      }
+      f(wx+4,wy+wh-14,1,2,'#888');
+      var ab=Math.floor(frame/25)%4<2;
+      if(ab) p(wx+4,wy+wh-15,'#ff4444');
+      f(wx+13,wy+1,3,3,'#fffacc'); f(wx+14,wy+1,2,3,d?'#08102a':'#0d1a3a');
+    }
+
+    /* ── data packets flowing in server room ── */
+    function drawDataPackets(d){
+      var wireYs=[CL2+18,CL2+30,CL2+42,CL2+54];
+      var wireC=['#002211','#001133','#221100','#330011'];
+      var pktC=['#00ff88','#44aaff','#ffaa00','#ff4455'];
+      var spd=[1.3,0.8,1.6,1.1];
+      var total=116;
+      for(var wi=0;wi<4;wi++){
+        var wy=wireYs[wi];
+        if(wy>=FL2-1) continue;
+        f(121,wy,total,1,wireC[wi]);
+        for(var pi=0;pi<3;pi++){
+          var pos=Math.floor((frame*spd[wi]+pi*(total/3)))%total;
+          var px2=121+pos;
+          if(px2+2<=238){ f(px2,wy,3,1,pktC[wi]); }
+        }
+      }
+    }
+
+    /* ── scrolling status bar at bottom ── */
+    function drawStatusBar(d){
+      var sy=FL2+2, sh=GH-FL2-2;
+      if(sh<3) return;
+      f(0,sy,GW,sh,d?'#050912':'#08101e');
+      f(0,sy,GW,1,d?'#003322':'#002211');
+      var parts=[
+        {t:'// Datacenter load balancing  ',c:d?'#6699cc':'#3366aa'},
+        {t:'[HEALTHY] ',c:'#00ff88'},
+        {t:'// Agent memory sync complete  ',c:d?'#6699cc':'#3366aa'},
+        {t:'[OK] ',c:'#33cc88'},
+        {t:'// Core: Memory \u2192 Planning \u2192 Tools  ',c:d?'#44aaff':'#0066cc'},
+        {t:'// Stack: vLLM + Docker + Nginx    ',c:d?'#ffaa44':'#cc7700'}
+      ];
+      ctx.font='bold 8px monospace';
+      var totalW=0;
+      parts.forEach(function(pt){ totalW+=ctx.measureText(pt.t).width; });
+      var offset=-(frame*1.1)%totalW;
+      if(offset>0) offset-=totalW;
+      ctx.save();
+      ctx.beginPath(); ctx.rect(0,(sy+1)*S,960,(sh-2)*S); ctx.clip();
+      for(var rep=0;rep<3;rep++){
+        var xp=offset+rep*totalW+4;
+        if(xp>960) break;
+        parts.forEach(function(pt){
+          ctx.fillStyle=pt.c; ctx.fillText(pt.t,xp,(sy+sh-1)*S);
+          xp+=ctx.measureText(pt.t).width;
+        });
+      }
+      ctx.restore();
+    }
+
     /* ── person ── */
     var px=55, pRow=1, pDir=1, pWalkF=0, pState='sleeping', workCycle=0;
     var PPOS={bed:{x:50,row:1}, kitchen:{x:195,row:1}, living:{x:113,row:1}, office:{x:55,row:2}, server:{x:175,row:2}};
@@ -497,7 +577,7 @@
       f(31,CL1+3,16,20,sky);
       f(38,CL1+3,1,20,d?'#445':'#7799bb'); f(31,CL1+12,16,1,d?'#445':'#7799bb');
       f(29,CL1+2,3,22,d?'#2a1a3a':'#c4a8cc'); f(46,CL1+2,3,22,d?'#2a1a3a':'#c4a8cc');
-      if(night){p(32,CL1+5,'#fff');p(40,CL1+9,'#ddd');p(35,CL1+15,'#eee');f(42,CL1+4,2,4,'#ffffd0');p(43,CL1+4,1,sky);}
+      if(night){ drawCitySkyline(d); }
       else{f(36,CL1+4,5,5,'#ffe066');p(34,CL1+7,'#ffe066');p(41,CL1+5,'#ffe066');}
       // Wardrobe (full-height, b4 true 3D)
       var wH=FL1-CL1-1;
@@ -539,6 +619,15 @@
       if(night){ctx.globalAlpha=0.22;f(37,FL1-21,12,11,'#ffe082');ctx.globalAlpha=1;}
       // Rug
       f(2,FL1-2,76,2,d?'#2a1f14':'#c4905a'); f(4,FL1-2,72,2,d?'#3a2a1a':'#d4a870');
+      // Stretching character near wardrobe (static, arms up)
+      var SK='#ffcc80',HR='#4e342e',SH='#e53935',PN='#263238';
+      p(24,FL1-9,SK); p(25,FL1-9,SK); p(24,FL1-8,SK); p(25,FL1-8,SK); // head
+      p(24,FL1-9,HR); p(25,FL1-9,HR);
+      p(24,FL1-7,SH); p(25,FL1-7,SH); p(24,FL1-6,SH); p(25,FL1-6,SH); // torso
+      p(22,FL1-8,SK); p(23,FL1-7,SK); // left arm up
+      p(26,FL1-8,SK); p(27,FL1-7,SK); // right arm up
+      p(24,FL1-5,PN); p(25,FL1-5,PN); p(24,FL1-4,PN); p(25,FL1-4,PN); // legs
+      p(24,FL1-3,PN); p(25,FL1-3,PN); p(23,FL1-1,'#5d4037'); p(26,FL1-1,'#5d4037');
     }
 
     // LIVING  x:80-159  Row1
@@ -584,6 +673,16 @@
       // Corner plant (touching floor, b4 pot)
       f(150,CL1+12,8,FL1-CL1-14,'#2e7d32'); f(148,CL1+18,13,FL1-CL1-21,'#388e3c'); f(149,CL1+15,11,8,'#43a047');
       b4(149,FL1-5,9,5,1,'#a0785a','#8d6e63','#6d4c41');
+      // TV glow on sofa area (when evening/night)
+      var tvOn=Math.floor(frame/22)%3; ctx.globalAlpha=0.10; f(82,CL1+22,46,FL1-CL1-22,['#2244aa','#2a3d7a','#1a2a60'][tvOn]); ctx.globalAlpha=1;
+      // Lounging character on sofa (reading, horizontal)
+      var SK2='#ffcc80',HR2='#5d4037',SH2='#7b1fa2',PN2='#37474f';
+      p(88,CL1+27,SK2); p(89,CL1+27,SK2); // head
+      p(88,CL1+27,HR2); p(89,CL1+27,HR2);
+      p(90,CL1+27,SH2); p(91,CL1+27,SH2); p(92,CL1+27,SH2); p(93,CL1+27,SH2); // torso
+      p(94,CL1+27,PN2); p(95,CL1+27,PN2); p(96,CL1+27,PN2); // legs
+      p(90,CL1+26,SH2); // arm up
+      f(88,CL1+24,3,2,'#f5f5f5'); f(88,CL1+25,1,2,'#ccc'); // book
       // Rug
       f(82,FL1-2,72,2,d?'#1a2814':'#9aaa70'); f(84,FL1-2,68,2,d?'#223322':'#aabe80');
     }
@@ -634,6 +733,14 @@
       // Counter plant (touching counter)
       f(220,FL1-26,7,12,'#2e7d32'); f(218,FL1-22,11,8,'#388e3c');
       b4(220,FL1-14,5,3,1,'#a0785a','#8d6e63','#6d4c41');
+      // Washing character at sink
+      var SK3='#ffcc80',HR3='#37474f',SH3='#0288d1',PN3='#263238';
+      p(196,FL1-9,SK3); p(197,FL1-9,SK3); p(196,FL1-8,SK3); p(197,FL1-8,SK3); // head
+      p(196,FL1-9,HR3); p(197,FL1-9,HR3);
+      p(196,FL1-7,SH3); p(197,FL1-7,SH3); p(196,FL1-6,SH3); p(197,FL1-6,SH3);
+      p(194,FL1-6,SK3); p(195,FL1-7,SK3); // left arm extended to sink
+      p(196,FL1-5,PN3); p(197,FL1-5,PN3); p(196,FL1-4,PN3); p(197,FL1-4,PN3);
+      p(196,FL1-3,PN3); p(197,FL1-3,PN3); p(196,FL1-1,'#5d4037'); p(197,FL1-1,'#5d4037');
       // Rug
       f(161,FL1-2,66,2,d?'#1a2814':'#a0b870'); f(163,FL1-2,62,2,d?'#223322':'#b4cc88');
     }
@@ -644,14 +751,16 @@
       for(var i=0;i<15;i++) f(i*8,FL2,8,1,i%2?d?'#1a1005':'#b88848':d?'#140f03':'#c8985a');
       // Bookshelf full-height (b4 via helper)
       drawBookshelf(1,CL2,FL2,16,d);
-      // Whiteboard on wall
+      // Whiteboard on wall — [AGENT ARCH] diagram
       b3(22,CL2+2,32,20,d?'#445566':'#99aacc',d?'#1a2040':'#eef2ff',d?'#223344':'#7788aa');
       f(23,CL2+3,30,18,d?'#1a2040':'#ffffff');
-      ctx.fillStyle=d?'#00cc66':'#005500'; ctx.font='5px monospace';
-      ctx.fillText('Agent→Loop',(25)*S,(CL2+8)*S);
-      ctx.fillText('LLM → Tools',(25)*S,(CL2+13)*S);
-      ctx.fillStyle=d?'#4499ff':'#bb3300';
-      ctx.fillText('Memory ←→ Plan',(25)*S,(CL2+18)*S);
+      ctx.font='bold 5px monospace';
+      ctx.fillStyle=d?'#aaccff':'#0033aa'; ctx.fillText('[AGENT ARCH]',(24)*S,(CL2+7)*S);
+      ctx.font='5px monospace';
+      ctx.fillStyle=d?'#00ee77':'#005500'; ctx.fillText('Memory\u2192Planning',(24)*S,(CL2+11)*S);
+      ctx.fillStyle=d?'#00cc66':'#006600'; ctx.fillText('   \u2192Tools',(24)*S,(CL2+14)*S);
+      ctx.fillStyle=d?'#ff8844':'#cc4400'; ctx.fillText('VectorDB Sync',(24)*S,(CL2+17)*S);
+      ctx.fillStyle=d?'#44aaff':'#0055cc'; ctx.fillText('Query Parse',(24)*S,(CL2+20)*S);
       // L-shaped desk: main surface (b4, touching floor via legs)
       b4(19,FL2-21,82,3,2,d?'#c0a050':'#e8c870',d?'#906020':'#b89040',d?'#604010':'#806020');
       f(20,FL2-23,81,2,d?'#d0b060':'#f0d880');
@@ -671,14 +780,21 @@
         if(i<5){f(37,ly,li[idx]*2,1,'#002211');f(lx,ly,lw[idx],1,'#00aa55');}
         else{var pr=Math.floor((frame%60)*lw[idx]/60);f(lx,ly,pr,1,'#00ff88');if(blink)p(lx+pr,ly,'#00ff88');}
       }
-      // Monitor 2 (browser)
-      b4(60,CL2+8,22,18,1,'#111','#1a1a1a','#090909');
-      f(61,CL2+9,20,16,'#050d20');
+      // Monitor 2 (system health graphs)
+      b4(60,CL2+8,22,18,1,'#111','#0a0a0a','#090909');
+      f(61,CL2+9,20,16,'#020a12');
       f(68,FL2-21,4,3,'#1a1a28'); f(66,FL2-19,8,2,'#1a1a28');
-      f(61,CL2+9,20,2,'#444'); f(62,CL2+9,10,2,'#555');
-      f(61,CL2+11,20,1,'#666');
-      f(62,CL2+13,14,1,'#3366cc'); f(62,CL2+15,11,1,'#3366cc');
-      f(62,CL2+17,17,1,'#666'); f(62,CL2+19,14,1,'#666'); f(62,CL2+21,16,1,'#666');
+      ctx.font='4px monospace';
+      ctx.fillStyle='#00cc44'; ctx.fillText('CPU',(62)*S,(CL2+11)*S);
+      for(var gi=0;gi<16;gi++){
+        var cv=Math.floor(5+Math.sin(frame*0.05+gi*0.42)*4);
+        f(62+gi,CL2+17-cv,1,cv+1,'#00aa33');
+      }
+      ctx.fillStyle='#4488ff'; ctx.fillText('MEM',(62)*S,(CL2+21)*S);
+      for(var gi=0;gi<16;gi++){
+        var mv=Math.floor(4+Math.cos(frame*0.04+gi*0.38)*3);
+        f(62+gi,CL2+24-mv,1,mv+1,'#3366cc');
+      }
       // Keyboard + mouse
       b4(35,FL2-24,35,2,1,'#3c3c3c','#2a2a2a','#1a1a1a');
       f(36,FL2-24,33,1,'#404040');
@@ -699,9 +815,11 @@
       f(89,FL2-25,10,1,d?'#ffc107':'#ffb300');
       ctx.globalAlpha=0.09; f(89,FL2-24,10,9,'#ffe082'); ctx.globalAlpha=1;
       b3(86,FL2-21,6,1,'#aaa','#999','#777');
-      // Coffee mug
+      // Coffee mug ("Code Juice" label)
       b4(90,FL2-25,5,4,1,'#f5f5f5','#e0e0e0','#c0c0c0');
       f(91,FL2-24,3,2,'#4e2900'); p(95,FL2-24,'#e0e0e0');
+      ctx.font='3px monospace'; ctx.fillStyle=d?'#aaaaaa':'#555555';
+      ctx.fillText('CJ',(91)*S,(FL2-23)*S);
       var sp2=Math.floor(frame/14)%4, sx2=[[91,FL2-27],[92,FL2-28],[91,FL2-28],[92,FL2-27]];
       ctx.globalAlpha=0.55; p(sx2[sp2][0],sx2[sp2][1],d?'#445':'#aac'); ctx.globalAlpha=1;
       // Small office couch (right, legs touching floor)
@@ -764,6 +882,20 @@
       var bon=Math.floor(frame/15)%4<2;
       if(bon){ctx.globalAlpha=0.35;f(118,CL2+6,5,5,'#ff6600');ctx.globalAlpha=1;}
       b4(118,CL2+8,4,4,1,bon?'#ff8800':'#442200',bon?'#ff6600':'#331800','#220e00');
+      // Scanning technician (standing in front of rack 4, rx=172)
+      var SK4='#ffcc80',HR4='#263238',SH4='#00695c',PN4='#263238';
+      var sgx=169; // left of rack 4
+      p(sgx+1,FL2-9,SK4); p(sgx+2,FL2-9,SK4); p(sgx+1,FL2-8,SK4); p(sgx+2,FL2-8,SK4); // head
+      p(sgx+1,FL2-9,HR4); p(sgx+2,FL2-9,HR4);
+      p(sgx+1,FL2-7,SH4); p(sgx+2,FL2-7,SH4); p(sgx+1,FL2-6,SH4); p(sgx+2,FL2-6,SH4);
+      p(sgx+3,FL2-7,SK4); p(sgx+4,FL2-7,SK4); // right arm out (holding device)
+      f(sgx+4,FL2-8,3,2,'#4caf50'); // handheld device (tablet)
+      p(sgx,FL2-6,SK4); // left arm
+      p(sgx+1,FL2-5,PN4); p(sgx+2,FL2-5,PN4); p(sgx+1,FL2-4,PN4); p(sgx+2,FL2-4,PN4);
+      p(sgx+1,FL2-3,PN4); p(sgx+2,FL2-3,PN4); p(sgx+1,FL2-1,'#5d4037'); p(sgx+2,FL2-1,'#5d4037');
+      // Scan beam on rack 4 (animated horizontal line moving up/down)
+      var scanY=CL2+8+Math.floor((frame/3)%(FL2-CL2-12));
+      ctx.globalAlpha=0.5; f(172,scanY,14,1,'#00ff88'); ctx.globalAlpha=1;
     }
 
     function drawWalls(d){
@@ -776,6 +908,8 @@
       f(120,CL2,1,FL2-CL2,wc); f(120,FL2-12,1,12,fl);
       f(0,FL1+1,GW,CL2-FL1-1,fl);
       f(0,FL2+1,GW,GH-FL2-1,fl);
+      // Status bar separator
+      f(0,FL2+1,GW,1,d?'#002211':'#001a0d');
     }
 
     /* ── main loop ── */
@@ -797,7 +931,10 @@
       drawKitchen(d,hr);
       drawOffice(d,hr);
       drawServer(d,hr);
+      drawDataPackets(d);
       drawWalls(d);
+      drawLadder(d);
+      drawStatusBar(d);
 
       var pgx=Math.floor(px), pFL=pRow===1?FL1:FL2;
       if(pState==='sleeping') drawPerson(pgx,FL1-22,'sleeping',1,pWalkF);
