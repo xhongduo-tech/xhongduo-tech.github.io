@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent工具调用的权限控制与沙箱隔离",
+    "slug": "agent-tool-permission-sandbox",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全边界",
+      "沙箱"
+    ],
+    "summary": "Agent 工具安全的核心是能力令牌限权，加上沙箱隔离形成双层边界。"
+  },
+  {
     "title": "GAIA Level-3题目的多工具链编排分析",
     "slug": "gaia-level3-tool-chain-analysis",
     "date": "2026-03-20",

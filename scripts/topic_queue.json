@@ -5513,7 +5513,7 @@
       "沙箱"
     ],
     "brief": "核心要点：Agent可调用文件系统、网络请求、代码执行等工具，需要细粒度权限控制。分析基于能力的访问控制模型（Capability-based）、最小权限原则的实现、Docker/gVisor/Firecracker三种沙箱方案在Agent场景的适用性与性能开销（延迟增加5-50ms）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Reflexion的长期记忆管理与反思质量衰减",
