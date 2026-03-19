@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent自我反思的ReAct与Reflexion对比",
+    "slug": "react-vs-reflexion-self-reflection",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自我反思",
+      "推理框架"
+    ],
+    "summary": "ReAct负责边想边做，Reflexion负责把失败写成经验并带到下一轮。"
+  },
+  {
     "title": "AgentBench：八维度Agent能力的标准化评测",
     "slug": "agentbench-eight-dimensions",
     "date": "2026-03-19",

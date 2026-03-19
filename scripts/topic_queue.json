@@ -5441,7 +5441,7 @@
       "推理框架"
     ],
     "brief": "核心要点：ReAct将推理与行动交织但缺乏失败后的系统性修正，Reflexion引入语言化反馈信号实现跨episode学习。在HotPotQA上Reflexion将ReAct的34%提升至68%，在AlfWorld上从55%提升至97%。解析反思记忆的滑动窗口机制与反思质量对收敛速度的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent错误恢复的回退策略与检查点机制",
