@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent系统中的死锁检测与预防",
+    "slug": "multi-agent-deadlock-detection-prevention",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "系统可靠性"
+    ],
+    "summary": "多Agent死锁本质是循环等待，工程上应用超时、资源排序与WFG检测联合处理"
+  },
+  {
     "title": "层级式多Agent的管理者路由策略",
     "slug": "hierarchical-agent-manager-routing",
     "date": "2026-03-19",

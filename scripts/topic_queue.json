@@ -5153,7 +5153,7 @@
       "系统可靠性"
     ],
     "brief": "核心要点：分析多Agent协作中因循环等待（A等B的输出、B等A的输出）导致的死锁场景。提出基于超时机制、资源有序分配、死锁检测图的三种解决方案，以及在AutoGen GroupChat中实现max_stall_count的实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AutoGen的代码执行沙箱架构",
