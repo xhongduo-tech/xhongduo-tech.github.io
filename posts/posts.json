@@ -1,5 +1,17 @@
 [
   {
+    "title": "GAIA Level-3题目的多工具链编排分析",
+    "slug": "gaia-level3-tool-chain-analysis",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "GAIA"
+    ],
+    "summary": "GAIA Level-3 的本质不是答题，而是长工具链里的中间结果保真与失败恢复。"
+  },
+  {
     "title": "SWE-bench Verified：人工验证子集的评测意义",
     "slug": "swe-bench-verified-subset",
     "date": "2026-03-20",
