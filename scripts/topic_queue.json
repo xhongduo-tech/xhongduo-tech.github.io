@@ -4985,7 +4985,7 @@
       "重排序"
     ],
     "brief": "核心要点：向量近似检索（Bi-Encoder）的召回结果存在排序噪声，Cross-Encoder 重排序可将 NDCG@10 从 0.65 提升至 0.78。Cohere Rerank 和 bge-reranker-v2 在 Agent 记忆场景下延迟约 50-100ms，适合 Top-20 候选精排。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent 记忆的隐私保护与选择性遗忘",

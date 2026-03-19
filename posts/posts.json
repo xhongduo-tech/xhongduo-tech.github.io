@@ -1,5 +1,17 @@
 [
   {
+    "title": "记忆检索的重排序：Cross-Encoder 精排",
+    "slug": "memory-retrieval-reranking-cross-encoder",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "重排序"
+    ],
+    "summary": "Cross-Encoder 适合对召回后的少量候选精排，用几十毫秒换前几名结果显著变准。"
+  },
+  {
     "title": "多模态记忆：图像与文本的联合向量存储",
     "slug": "multimodal-memory-image-text-joint-storage",
     "date": "2026-03-19",
