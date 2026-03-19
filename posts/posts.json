@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent安全边界：Prompt注入攻击与防御",
+    "slug": "agent-prompt-injection-defense",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全边界",
+      "Prompt注入"
+    ],
+    "summary": "Agent读外部内容时，数据会伪装成指令；三层组合防御比单层过滤可靠得多。"
+  },
+  {
     "title": "Agent错误恢复的回退策略与检查点机制",
     "slug": "agent-error-recovery-checkpoint",
     "date": "2026-03-19",
