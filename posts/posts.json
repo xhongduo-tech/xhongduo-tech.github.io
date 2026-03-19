@@ -1,5 +1,17 @@
 [
   {
+    "title": "基于 SQL 的结构化 Agent 记忆系统",
+    "slug": "sql-structured-agent-memory-system",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "结构化存储"
+    ],
+    "summary": "结构化 Agent 记忆应优先用 SQL 存偏好、状态和配置，精确、低成本且易审计。"
+  },
+  {
     "title": "Generative Agents 的记忆流与重要性评分",
     "slug": "generative-agents-memory-stream-importance",
     "date": "2026-03-19",
