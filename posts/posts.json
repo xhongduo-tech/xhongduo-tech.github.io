@@ -1,5 +1,17 @@
 [
   {
+    "title": "外部知识库的增量更新与索引同步",
+    "slug": "knowledge-base-incremental-update-index-sync",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "知识管理",
+      "增量更新"
+    ],
+    "summary": "增量更新用哈希找变更，只重算变动文档并同步向量索引。"
+  },
+  {
     "title": "Agent 反思记忆的生成与自我修正机制",
     "slug": "agent-reflective-memory-self-correction",
     "date": "2026-03-13",
