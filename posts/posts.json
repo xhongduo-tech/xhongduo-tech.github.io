@@ -1,5 +1,17 @@
 [
   {
+    "title": "τ-bench：工具使用Agent的对话式评测",
+    "slug": "tau-bench-tool-agent-evaluation",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "τ-bench"
+    ],
+    "summary": "τ-bench用多轮对话与数据库对齐，评测Agent是否稳定按策略正确使用工具。"
+  },
+  {
     "title": "SWE-agent的Agent-Computer Interface设计",
     "slug": "swe-agent-aci-design",
     "date": "2026-03-20",
