@@ -1,5 +1,17 @@
 [
   {
+    "title": "记忆检索中的上下文窗口填充策略",
+    "slug": "memory-retrieval-context-window-packing",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "上下文优化"
+    ],
+    "summary": "有限 token 预算下，上下文填充应同时优化相关性、去重与多跳覆盖。"
+  },
+  {
     "title": "向量数据库的量化压缩与检索精度权衡",
     "slug": "vector-quantization-compression-accuracy-tradeoff",
     "date": "2026-03-19",
