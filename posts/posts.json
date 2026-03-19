@@ -1,5 +1,17 @@
 [
   {
+    "title": "AutoGen的多模型混合编排策略",
+    "slug": "autogen-multi-model-orchestration",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "AutoGen",
+      "模型选择"
+    ],
+    "summary": "AutoGen多模型编排的本质是用过滤、排序和回退，把不同Agent绑定到合适模型。"
+  },
+  {
     "title": "CrewAI的Tool委托与跨Agent工具共享",
     "slug": "crewai-tool-delegation-sharing",
     "date": "2026-03-19",

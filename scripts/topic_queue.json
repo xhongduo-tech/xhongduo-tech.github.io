@@ -5333,7 +5333,7 @@
       "模型选择"
     ],
     "brief": "核心要点：解析AutoGen中为不同Agent配置不同LLM的策略——推理Agent用GPT-4、编码Agent用Claude、摘要Agent用GPT-3.5以降低成本。分析config_list的优先级与fallback机制，以及模型能力差异对多Agent协作质量的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent的工作流编排DSL设计",
