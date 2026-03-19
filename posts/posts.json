@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码模型的仓库级上下文建模",
+    "slug": "repo-level-context-modeling",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "代码模型",
+      "长上下文"
+    ],
+    "summary": "仓库级代码补全的核心是按需检索跨文件证据，再用FIM在相关上下文中生成缺失代码。"
+  },
+  {
     "title": "外部知识库的增量更新与索引同步",
     "slug": "knowledge-base-incremental-update-index-sync",
     "date": "2026-03-19",

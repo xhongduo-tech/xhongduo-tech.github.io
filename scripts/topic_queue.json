@@ -3757,7 +3757,7 @@
       "长上下文"
     ],
     "brief": "核心要点：对比 RepoCoder、RepoFusion、CrossCodeEval 等仓库级代码补全方法。分析如何从跨文件依赖图中检索相关上下文、BM25 vs Dense Retrieval 在代码检索中的效果差异，以及 Repository-level FIM 训练如何提升跨文件补全准确率（相对提升 15-30%）",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "代码模型的 Tokenizer 设计差异",
