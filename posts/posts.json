@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent自我纠错的内省机制设计",
+    "slug": "agent-introspection-self-correction",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自我反思",
+      "纠错机制"
+    ],
+    "summary": "自我纠错要做成选择性机制：先检测，再归因，再修正，避免把对的答案改错。"
+  },
+  {
     "title": "Agent工具调用的权限控制与沙箱隔离",
     "slug": "agent-tool-permission-sandbox",
     "date": "2026-03-20",
