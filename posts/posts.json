@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent的多步推理中间结果验证",
+    "slug": "agent-intermediate-result-verification",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "错误恢复",
+      "结果验证"
+    ],
+    "summary": "多步Agent要在中间步设验证门，才能抑制错误级联并提升整链可靠性。"
+  },
+  {
     "title": "Agent评测中的数据污染与防泄漏机制",
     "slug": "agent-eval-data-contamination",
     "date": "2026-03-20",
