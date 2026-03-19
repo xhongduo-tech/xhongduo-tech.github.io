@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent任务分解的递归细化策略",
+    "slug": "multi-agent-recursive-task-decomposition",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "任务规划"
+    ],
+    "summary": "多Agent递归细化的核心是按需拆分任务树，并用预算、注意力与能力匹配决定何时停止。"
+  },
+  {
     "title": "AutoGen中的人机协作与Human-in-the-Loop",
     "slug": "autogen-human-in-the-loop",
     "date": "2026-03-19",
