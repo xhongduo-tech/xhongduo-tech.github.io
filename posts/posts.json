@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent的共识达成算法与投票机制",
+    "slug": "multi-agent-consensus-voting-mechanism",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "协调机制"
+    ],
+    "summary": "多Agent共识不能只数票，必须保留证据链、设不确定性闸门并审计最弱环节"
+  },
+  {
     "title": "多Agent任务分解的递归细化策略",
     "slug": "multi-agent-recursive-task-decomposition",
     "date": "2026-03-19",

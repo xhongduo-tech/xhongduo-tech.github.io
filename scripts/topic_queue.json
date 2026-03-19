@@ -5177,7 +5177,7 @@
       "协调机制"
     ],
     "brief": "核心要点：分析多Agent系统中达成共识的常见算法——多数投票、加权投票、Borda计数、LLM-as-Judge。对比各算法在代码审查任务上的一致率（多数投票72% vs LLM-Judge 89%），以及拜占庭容错在Agent可靠性中的启示。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CrewAI与LangGraph的多Agent编排对比",
