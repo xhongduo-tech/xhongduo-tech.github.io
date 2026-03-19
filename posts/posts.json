@@ -1,5 +1,17 @@
 [
   {
+    "title": "Reflexion的长期记忆管理与反思质量衰减",
+    "slug": "reflexion-memory-management-decay",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自我反思",
+      "Reflexion"
+    ],
+    "summary": "Reflexion要管的不是记忆多少，而是如何只把最新且相关的反思带进下一轮决策"
+  },
+  {
     "title": "Agent自我纠错的内省机制设计",
     "slug": "agent-introspection-self-correction",
     "date": "2026-03-20",
