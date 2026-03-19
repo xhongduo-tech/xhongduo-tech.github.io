@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent的渐进式规划与动态子目标调整",
+    "slug": "agent-progressive-planning-subgoals",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自我反思",
+      "规划"
+    ],
+    "summary": "渐进式规划用执行反馈动态细化子目标，比静态计划更适合长链不确定任务"
+  },
+  {
     "title": "Agent推理循环检测与强制终止机制",
     "slug": "agent-loop-detection-termination",
     "date": "2026-03-20",

@@ -5621,7 +5621,7 @@
       "规划"
     ],
     "brief": "核心要点：静态规划在长序列任务中失败率高，渐进式规划在每步执行后根据环境反馈动态调整后续子目标。分析Plan-and-Solve、ADaPT、LATS三种方案的子目标粒度与调整频率。在ALFWorld上，ADaPT的动态分解使成功率从ReAct的55%提升至85%，但规划开销增加40%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent对抗性环境下的鲁棒性评测",
