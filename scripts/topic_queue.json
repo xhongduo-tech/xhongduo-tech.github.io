@@ -5381,7 +5381,7 @@
       "容错设计"
     ],
     "brief": "核心要点：分析多Agent系统中单Agent错误的级联传播路径——幻觉输出→下游Agent决策偏移→系统整体失败。提出三级容错策略：Agent级重试与自我纠正、流水线级checkpoint回滚、系统级降级与人工接管，以及错误隔离的断路器模式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Swarm框架的轻量级Agent切换机制",

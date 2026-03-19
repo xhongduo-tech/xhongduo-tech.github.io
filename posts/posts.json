@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent系统的错误传播与容错策略",
+    "slug": "multi-agent-error-propagation-fault-tolerance",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "容错设计"
+    ],
+    "summary": "多Agent容错要分三层：Agent自检重试、流水线回滚、系统降级熔断。"
+  },
+  {
     "title": "多Agent协作中的信息不对称与隐私保护",
     "slug": "multi-agent-information-asymmetry-privacy",
     "date": "2026-03-19",
