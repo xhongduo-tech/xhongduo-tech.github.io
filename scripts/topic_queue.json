@@ -5249,7 +5249,7 @@
       "事件驱动"
     ],
     "brief": "核心要点：对比请求-响应式与事件驱动式Agent协调的架构差异。分析事件总线（Event Bus）在多Agent系统中的实现——事件定义、订阅注册、异步分发，以及事件溯源（Event Sourcing）在Agent状态恢复中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent的动态组队与角色自适应",

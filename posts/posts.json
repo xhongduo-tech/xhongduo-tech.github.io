@@ -1,5 +1,17 @@
 [
   {
+    "title": "基于事件驱动的Agent协调架构",
+    "slug": "event-driven-agent-coordination",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "事件驱动"
+    ],
+    "summary": "事件驱动用事实广播替代点对点调用，适合多Agent解耦、并发扩展与状态回放"
+  },
+  {
     "title": "AutoGen的状态持久化与断点恢复",
     "slug": "autogen-state-persistence-checkpoint",
     "date": "2026-03-19",
