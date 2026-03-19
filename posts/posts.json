@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent自我评估的校准度与过度自信问题",
+    "slug": "agent-self-assessment-calibration",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "自我反思",
+      "置信度校准"
+    ],
+    "summary": "Agent常把置信度说高，ECE可量化偏差，温度缩放与采样一致性能改善校准。"
+  },
+  {
     "title": "Agent安全的多层防御架构设计",
     "slug": "agent-defense-in-depth-architecture",
     "date": "2026-03-20",
