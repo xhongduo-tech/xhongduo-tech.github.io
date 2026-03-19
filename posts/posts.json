@@ -1,5 +1,17 @@
 [
   {
+    "title": "Generative Agents 的记忆流与重要性评分",
+    "slug": "generative-agents-memory-stream-importance",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "Generative Agents"
+    ],
+    "summary": "记忆流用新近性、重要性、相关性三维评分，筛出最该进入推理上下文的记忆"
+  },
+  {
     "title": "记忆检索中的上下文窗口填充策略",
     "slug": "memory-retrieval-context-window-packing",
     "date": "2026-03-19",

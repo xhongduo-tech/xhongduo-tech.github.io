@@ -4913,7 +4913,7 @@
       "上下文优化"
     ],
     "brief": "核心要点：检索到的记忆片段如何填入有限的上下文窗口直接影响 Agent 表现。贪心填充（按相关性排序直到满）、多样性采样（MMR 算法，λ=0.7 时效果最优）、分层摘要填充三种策略。MMR 策略在多跳推理任务中比贪心填充准确率高 11%。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Generative Agents 的记忆流与重要性评分",
@@ -4925,7 +4925,7 @@
       "Generative Agents"
     ],
     "brief": "核心要点：Stanford Generative Agents 提出记忆流（Memory Stream）架构，每条记忆带有新近性、重要性、相关性三维评分，综合分数 score = α·recency + β·importance + γ·relevance 决定检索排序。重要性由 LLM 自评（1-10 分），新近性按指数衰减。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "基于 SQL 的结构化 Agent 记忆系统",
