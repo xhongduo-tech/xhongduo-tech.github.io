@@ -1,5 +1,17 @@
 [
   {
+    "title": "基于 Graph RAG 的多跳知识检索",
+    "slug": "graph-rag-multi-hop-knowledge-retrieval",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Graph RAG",
+      "知识检索"
+    ],
+    "summary": "Graph RAG 用实体关系图和社区摘要支持多跳检索，提升跨文档推理，但索引成本显著更高。"
+  },
+  {
     "title": "记忆检索的重排序：Cross-Encoder 精排",
     "slug": "memory-retrieval-reranking-cross-encoder",
     "date": "2026-03-19",
