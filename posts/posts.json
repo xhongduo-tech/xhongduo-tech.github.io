@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent的失败归因：从日志到根因分析",
+    "slug": "agent-failure-attribution-root-cause",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "错误恢复",
+      "根因分析"
+    ],
+    "summary": "Agent失败归因的核心是沿执行日志找最早破坏点，而不是沿报错文本猜补丁。"
+  },
+  {
     "title": "Agent的越权行为检测与意图对齐验证",
     "slug": "agent-overreach-detection-alignment",
     "date": "2026-03-20",
