@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent通信的消息传递协议设计",
+    "slug": "multi-agent-message-passing-protocol",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "通信协议",
+      "系统设计"
+    ],
+    "summary": "统一消息信封加元数据，是多Agent兼容黑板、点对点和发布订阅的关键。"
+  },
+  {
     "title": "CrewAI的Task依赖链与执行调度",
     "slug": "crewai-task-dependency-scheduling",
     "date": "2026-03-19",

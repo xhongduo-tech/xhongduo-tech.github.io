@@ -4997,7 +4997,7 @@
       "隐私安全"
     ],
     "brief": "核心要点：Agent 长期记忆中可能存储敏感信息，需要支持选择性遗忘（GDPR 合规）。向量删除后索引中仍可能残留近似信息，需要配合向量扰动（差分隐私 ε=1.0）或索引重建。完全遗忘的计算开销约为插入的 5-10 倍。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "基于 Graph RAG 的多跳知识检索",
@@ -5093,7 +5093,7 @@
       "系统设计"
     ],
     "brief": "核心要点：对比多Agent系统中三种通信范式——共享黑板、点对点消息、发布订阅。分析消息格式标准化（sender/receiver/content/metadata）对系统可扩展性的影响，以及消息队列在异步Agent协作中的缓冲与背压处理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AutoGen中自定义Agent的注册与能力声明",
