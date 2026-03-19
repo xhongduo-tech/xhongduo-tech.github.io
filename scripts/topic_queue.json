@@ -5297,7 +5297,7 @@
       "工具系统"
     ],
     "brief": "核心要点：解析CrewAI中allow_delegation参数的工作机制——Agent如何将子任务委托给团队中其他具备特定工具的Agent。分析Tool的定义规范（BaseTool继承、_run方法实现），以及工具权限隔离与共享的设计决策。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent系统的负载均衡与弹性伸缩",

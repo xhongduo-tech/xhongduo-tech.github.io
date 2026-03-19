@@ -1,5 +1,17 @@
 [
   {
+    "title": "CrewAI的Tool委托与跨Agent工具共享",
+    "slug": "crewai-tool-delegation-sharing",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "CrewAI",
+      "工具系统"
+    ],
+    "summary": "allow_delegation本质是注入协作工具，真正可控共享依赖白名单、层级和最小权限。"
+  },
+  {
     "title": "多Agent对抗式测试与红蓝对抗",
     "slug": "multi-agent-adversarial-red-blue-testing",
     "date": "2026-03-19",
