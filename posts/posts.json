@@ -1,5 +1,17 @@
 [
   {
+    "title": "层级式多Agent的管理者路由策略",
+    "slug": "hierarchical-agent-manager-routing",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "路由策略"
+    ],
+    "summary": "Manager 路由的本质是在准确率、延迟、成本之间做分层最优决策。"
+  },
+  {
     "title": "CrewAI的Agent记忆与学习机制",
     "slug": "crewai-agent-memory-learning",
     "date": "2026-03-19",
