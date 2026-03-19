@@ -1,5 +1,17 @@
 [
   {
+    "title": "SWE-agent的Agent-Computer Interface设计",
+    "slug": "swe-agent-aci-design",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "SWE-agent"
+    ],
+    "summary": "ACI把搜索、查看、编辑、校验做成面向LLM的接口，显著提升真实软件修复成功率"
+  },
+  {
     "title": "Agent安全的红队测试方法论",
     "slug": "agent-red-teaming-methodology",
     "date": "2026-03-20",

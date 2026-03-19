@@ -5573,7 +5573,7 @@
       "SWE-agent"
     ],
     "brief": "核心要点：SWE-agent提出ACI（Agent-Computer Interface）概念，通过定制化命令行接口降低Agent操作复杂度。核心设计：文件查看器（带行号滚动）、搜索命令（语义级grep）、编辑命令（带lint校验的原子操作）。ACI使基础模型的SWE-bench解题率从2.3%提升至12.5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent推理循环检测与强制终止机制",
