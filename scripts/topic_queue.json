@@ -5357,7 +5357,7 @@
       "隐私安全"
     ],
     "brief": "核心要点：分析多Agent协作中的信息可见性控制——并非所有Agent都应看到完整对话历史。提出基于角色的访问控制（RBAC）模型：消息过滤、上下文裁剪、敏感字段脱敏，以及在医疗/金融场景中的合规性要求。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Autogen Studio的可视化Agent编排",

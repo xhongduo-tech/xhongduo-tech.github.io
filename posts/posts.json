@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent协作中的信息不对称与隐私保护",
+    "slug": "multi-agent-information-asymmetry-privacy",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "隐私安全"
+    ],
+    "summary": "多Agent协作应按角色和任务控制可见性，先过滤脱敏，再分发上下文并审计留痕"
+  },
+  {
     "title": "多Agent系统的负载均衡与弹性伸缩",
     "slug": "multi-agent-load-balancing-scaling",
     "date": "2026-03-19",
