@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent的越权行为检测与意图对齐验证",
+    "slug": "agent-overreach-detection-alignment",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全边界",
+      "意图对齐"
+    ],
+    "summary": "Agent越权防护要同时覆盖策略、意图一致性与执行后影响审计"
+  },
+  {
     "title": "Agent对抗性环境下的鲁棒性评测",
     "slug": "agent-adversarial-robustness-eval",
     "date": "2026-03-20",
