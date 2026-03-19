@@ -1,5 +1,17 @@
 [
   {
+    "title": "AutoGen的会话编排与终止条件设计",
+    "slug": "autogen-conversation-orchestration-termination",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "AutoGen",
+      "多Agent"
+    ],
+    "summary": "AutoGen多Agent要想稳定收敛，必须同时设计发言顺序和多层终止条件。"
+  },
+  {
     "title": "记忆感知的 Prompt 构建与动态注入",
     "slug": "memory-aware-prompt-construction-dynamic-injection",
     "date": "2026-03-19",

@@ -5069,7 +5069,7 @@
       "多Agent"
     ],
     "brief": "核心要点：深入AutoGen的GroupChat机制，解析speaker_selection_method的四种策略（round_robin/random/auto/manual）及其对任务收敛速度的影响。分析max_round与is_termination_msg的组合策略，避免Agent陷入无限对话循环的实践方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CrewAI的Task依赖链与执行调度",
