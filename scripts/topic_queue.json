@@ -5081,7 +5081,7 @@
       "任务调度"
     ],
     "brief": "核心要点：解析CrewAI中Task的context参数如何构建DAG依赖图，对比sequential与hierarchical两种Process模式的执行语义差异。分析任务输出的expected_output字段如何约束Agent行为，以及async_execution参数实现并行任务的底层机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent通信的消息传递协议设计",
