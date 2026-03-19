@@ -1,5 +1,17 @@
 [
   {
+    "title": "记忆蒸馏：从经验中提取可复用规则",
+    "slug": "memory-distillation-extracting-reusable-rules",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆蒸馏",
+      "经验学习"
+    ],
+    "summary": "把海量情景记忆聚类后蒸馏成规则，可显著压缩检索成本且基本保持任务表现"
+  },
+  {
     "title": "基于 Graph RAG 的多跳知识检索",
     "slug": "graph-rag-multi-hop-knowledge-retrieval",
     "date": "2026-03-19",
