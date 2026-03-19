@@ -502,6 +502,21 @@
           xp+=ctx.measureText(pt.t).width;
         });
       }
+      // Fixed progress bar (right side, always visible)
+      var pbCanX=canvas.width-210, pbCanY=(sy+2)*S, pbCanH=(sh-4)*S;
+      if(pbCanH>2){
+        ctx.fillStyle=d?'#010810':'#000b08';
+        ctx.fillRect(pbCanX-4,pbCanY-2,212,pbCanH+4);
+        var pbW=110, pbFill=Math.floor(pbW*0.75);
+        ctx.fillStyle=d?'#002a15':'#001a0c';
+        ctx.fillRect(pbCanX+32,pbCanY,pbW,pbCanH);
+        ctx.fillStyle=d?'#00dd55':'#00aa33';
+        ctx.fillRect(pbCanX+32,pbCanY,pbFill,pbCanH);
+        ctx.fillStyle=d?'#3399cc':'#2277aa'; ctx.font='bold 7px monospace';
+        ctx.fillText('LOAD',pbCanX,pbCanY+pbCanH-1);
+        ctx.fillStyle=d?'#00ff77':'#00cc44'; ctx.font='bold 7px monospace';
+        ctx.fillText(' 75%',pbCanX+32+pbW+2,pbCanY+pbCanH-1);
+      }
       ctx.restore();
     }
 
@@ -693,6 +708,19 @@
       f(229,CL1+2+Math.floor((FL1-CL1)/2),8,Math.floor((FL1-CL1)/2)-3,d?'#c0c0c0':'#dcdcdc');
       f(228,CL1+2+Math.floor((FL1-CL1)/2),10,1,d?'#999':'#bbb');
       f(233,CL1+7,2,1,'#aaa'); f(233,CL1+7+Math.floor((FL1-CL1)/2),2,1,'#aaa');
+      // Smart recipe screen (wall-mounted, backsplash above counter)
+      b3(200,CL1+21,15,10,d?'#003344':'#005566','#002233','#00334a');
+      f(201,CL1+22,13,8,d?'#001825':'#002030');
+      ctx.font='bold 4px monospace'; ctx.fillStyle='#00e5cc';
+      ctx.fillText('RECIPE',(202)*S,(CL1+25)*S);
+      var ing2=[['#ff6644','Tomato'],['#ffdd44','Pasta'],['#77ee44','Basil']];
+      ctx.font='3px monospace';
+      for(var ii=0;ii<3;ii++){ctx.fillStyle=ing2[ii][0];ctx.fillText('\u25cf '+ing2[ii][1],(202)*S,(CL1+26+ii)*S+3);}
+      var tSec2=Math.abs(59-Math.floor(frame/2)%60);
+      ctx.fillStyle='#00ffee'; ctx.font='bold 4px monospace';
+      ctx.fillText('0:'+String(tSec2).padStart(2,'0'),(210)*S,(CL1+25)*S);
+      ctx.globalAlpha=0.14; f(201,CL1+22,13,8,'#00ddcc'); ctx.globalAlpha=1;
+      f(205,CL1+31,2,1,'#555'); // mount bracket
       // Counter top (touching floor via lower cabinet)
       b4(161,FL1-13,34,3,2,d?'#d0c4a0':'#e8d8b8',d?'#b0a480':'#d0c4a0',d?'#907860':'#b0a080');
       b4(161,FL1-10,34,10,2,d?'#9a7050':'#b09070',d?'#7a5030':'#9e8060',d?'#5a3818':'#7e6040');
@@ -826,6 +854,38 @@
       f(36,FL2-24,33,1,'#404040');
       for(var k=0;k<9;k++){ ctx.fillStyle='#555'; ctx.fillRect((37+k*3)*S+1,(FL2-24)*S+1,2*S-2,S-2); }
       b4(72,FL2-24,6,3,1,'#888','#777','#555'); f(73,FL2-24,3,1,'#999');
+      // Holographic projector (on desk, between mon2 stand and lamp)
+      b4(83,FL2-25,4,3,1,'#1a1a3a','#0e0e22','#07070f');
+      f(84,FL2-24,3,1,'#3355aa'); // emitter strip
+      p(84,FL2-23,'#004488'); p(85,FL2-23,'#004488'); // indicator LEDs
+      // Beam cone (upward, semi-transparent blue, tapering)
+      ctx.globalAlpha=0.1;
+      for(var hci=0;hci<16;hci++){var hw=Math.max(1,5-Math.floor(hci*0.28));f(Math.floor(85-hw/2),FL2-26-hci,hw,1,'#4488ff');}
+      ctx.globalAlpha=1;
+      // Network graph nodes (animated rotation)
+      var hf=frame*0.028, hcx=85, hcy=FL2-38;
+      var hNc=['#00ffff','#55aaff','#aaddff'];
+      for(var hni=0;hni<3;hni++){
+        var ha=hni*Math.PI*0.667+hf;
+        var hnx=hcx+Math.round(Math.cos(ha)*3.5);
+        var hny=hcy+Math.round(Math.sin(ha)*2.2);
+        ctx.globalAlpha=0.5; ctx.strokeStyle='#1144bb'; ctx.lineWidth=0.6;
+        ctx.beginPath(); ctx.moveTo(hcx*S,hcy*S); ctx.lineTo(hnx*S,hny*S); ctx.stroke();
+        ctx.globalAlpha=1; p(hnx,hny,hNc[hni]);
+      }
+      // Outer ring (6 nodes, slower counter-rotation)
+      for(var hni2=0;hni2<6;hni2++){
+        var ha2=hni2*Math.PI/3-hf*0.55;
+        var hnx2=hcx+Math.round(Math.cos(ha2)*5.5);
+        var hny2=hcy+Math.round(Math.sin(ha2)*3.5);
+        ctx.globalAlpha=0.35; ctx.strokeStyle='#113366'; ctx.lineWidth=0.4;
+        ctx.beginPath(); ctx.moveTo(hcx*S,hcy*S); ctx.lineTo(hnx2*S,hny2*S); ctx.stroke();
+        ctx.globalAlpha=1;
+        if(hny2>=CL2+10 && hny2<=FL2-26) p(hnx2,hny2,'#224466');
+      }
+      p(hcx,hcy,'#ffffff'); // center node (brightest)
+      // Area glow around hologram
+      ctx.globalAlpha=0.08; f(79,FL2-42,14,18,'#2244aa'); ctx.globalAlpha=1;
       // Desk lamp
       f(87,FL2-30,2,9,'#888'); f(87,FL2-30,10,1,'#999'); f(96,FL2-30,1,5,'#777');
       f(90,FL2-28,8,3,d?'#ffe082':'#ffd54f');
@@ -885,6 +945,17 @@
         ctx.fillText('R'+(ri+1),(rx+4)*S,(FL2-3)*S); ctx.globalAlpha=1;
         p(rx+12,CL2+7,ledOn(ri,0,0)?'#00ff00':'#004400');
       }
+      // Rack 3 (ri=2, rx=155) — yellow hardware warning state
+      var wblink=Math.floor(frame/10)%3<2;
+      // Warning glow overlay
+      ctx.globalAlpha=wblink?0.1:0.04; f(rxs[2],CL2+6,14,FL2-CL2-8,'#ffaa00'); ctx.globalAlpha=1;
+      // Overdraw status LED in yellow (covers green drawn in loop)
+      p(rxs[2]+12,CL2+7,wblink?'#ffcc00':'#443300');
+      // Warning symbol and label override
+      ctx.globalAlpha=wblink?0.9:0.25; ctx.fillStyle='#ffcc00'; ctx.font='bold 6px monospace';
+      ctx.fillText('!',(rxs[2]+6)*S,(CL2+11)*S);
+      ctx.font='6px monospace'; ctx.fillText('R3',(rxs[2]+3)*S,(FL2-3)*S);
+      ctx.globalAlpha=1;
       // Network switch (wall-mounted)
       b3(134,CL2+48,82,4,'#2a2a3a','#1a1a2a','#0a0a1a');
       for(var ni=0;ni<26;ni++) p(135+ni*3,CL2+49,ledOn(6,ni,1)?'#44aaff':'#001133');
@@ -900,6 +971,25 @@
       var bon=Math.floor(frame/15)%4<2;
       if(bon){ctx.globalAlpha=0.35;f(118,CL2+6,5,5,'#ff6600');ctx.globalAlpha=1;}
       b4(118,CL2+8,4,4,1,bon?'#ff8800':'#442200',bon?'#ff6600':'#331800','#220e00');
+      // Maintenance drone (hovering in server room aisle, animated)
+      var dhy=CL2+28+Math.floor(Math.sin(frame*0.07)*4);
+      var dhx=148; // hovering in front of racks 2-3 area
+      var rsp=Math.floor(frame/3)%4;
+      // Arms
+      f(dhx-2,dhy,2,1,d?'#1a2a3a':'#2a3a4a');
+      f(dhx+5,dhy,2,1,d?'#1a2a3a':'#2a3a4a');
+      // Body
+      f(dhx,dhy,5,3,d?'#222a38':'#2e3e52');
+      f(dhx+1,dhy,'#334455'); f(dhx+2,dhy,'#445566'); f(dhx+3,dhy,'#334455');
+      // Sensor lens
+      p(dhx+2,dhy+1,'#00aaee');
+      // Rotor blades (spinning 2 per side)
+      p(dhx-2+rsp%2,dhy-1,'#55aaff'); p(dhx-1+rsp%2,dhy-1,'#2266aa');
+      p(dhx+5+rsp%2,dhy-1,'#55aaff'); p(dhx+6-rsp%2,dhy-1,'#2266aa');
+      // Blinking cyan belly light
+      if(Math.floor(frame/18)%3<2){ctx.globalAlpha=0.7;p(dhx+2,dhy+3,'#00ffcc');ctx.globalAlpha=1;}
+      // Subtle drone shadow on rack below
+      ctx.globalAlpha=0.12; f(dhx,dhy+4,5,2,'#000088'); ctx.globalAlpha=1;
       // Scanning technician (bigger, animated tablet arm)
       var SK4='#ffcc80',HR4='#263238',SH4='#00897b',PN4='#263238';
       var sgx=168, sca=Math.floor(frame/18)%2;
