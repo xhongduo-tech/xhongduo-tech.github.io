@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent评估基准与性能度量体系",
+    "slug": "multi-agent-evaluation-benchmark",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "评测"
+    ],
+    "summary": "多Agent评估要统一看成功率、协作效率、Token成本与延迟四个维度"
+  },
+  {
     "title": "多Agent的工作流编排DSL设计",
     "slug": "multi-agent-workflow-dsl-design",
     "date": "2026-03-19",

@@ -5345,7 +5345,7 @@
       "DSL设计"
     ],
     "brief": "核心要点：分析用DSL（领域特定语言）描述多Agent工作流的设计思路——节点定义（Agent）、边定义（消息传递）、条件分支、循环结构。对比YAML声明式、Python装饰器式、图可视化三种DSL形态的表达力与易用性。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "多Agent协作中的信息不对称与隐私保护",
@@ -5405,7 +5405,7 @@
       "评测"
     ],
     "brief": "核心要点：分析多Agent系统评估的四个维度——任务完成率、协作效率（消息轮次）、Token成本、延迟。介绍AgentBench、BOLAA等基准测试的评测方法论，以及自建评测Pipeline的关键设计：确定性场景复现、自动化评分、A/B对比框架。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GAIA基准详解：通用AI助手的评测方法论",
