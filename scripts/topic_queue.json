@@ -5705,7 +5705,7 @@
       "防御架构"
     ],
     "brief": "核心要点：单点安全措施易被绕过，需构建输入过滤→意图分析→权限控制→执行隔离→输出审查的五层纵深防御。分析每层的具体实现技术与性能开销，总延迟增加约100-300ms。以真实攻击链为例演示单层失效时其他层的兜底能力，组合防御使攻击成功率降至3%以下。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "OSWorld：桌面操作Agent的跨平台评测",
@@ -5741,7 +5741,7 @@
       "用户体验"
     ],
     "brief": "核心要点：Agent无法完成任务时应优雅降级而非静默失败或幻觉输出。设计三级降级策略：完整完成→部分完成并说明→明确拒绝并给出原因。分析不确定性传达的UI模式、部分结果的质量标注、人工接管的无缝切换。用户研究表明透明沟通可将满意度从32%提升至78%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Agent评测的成本效率指标：性能与Token消耗的帕累托前沿",
@@ -5753,7 +5753,7 @@
       "成本效率"
     ],
     "brief": "核心要点：Agent评测不应只看成功率，还需考虑Token消耗、API调用次数、延迟。分析SWE-bench上各Agent的帕累托前沿：部分Agent以10倍token消耗仅换来5%的成功率提升。提出标准化的成本效率指标（成功率/千token），建立不同预算约束下的最优Agent选择框架。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "FlashAttention的IO复杂度分析",
@@ -5765,7 +5765,7 @@
       "IO感知"
     ],
     "brief": "核心要点：标准Attention的HBM读写量为Θ(Nd+N²)，FlashAttention通过分块计算将其降至Θ(N²d²M⁻¹)，其中M为SRAM大小。详解tiling策略如何将N×N注意力矩阵的显存访问从O(N²)压缩到O(N²/B_c)，B_c为块大小，受限于SRAM容量",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "FlashAttention的在线Softmax算法",
@@ -5777,7 +5777,7 @@
       "数值计算"
     ],
     "brief": "核心要点：标准Softmax需两次遍历（求max和求sum），FlashAttention采用Milakov & Gimelshein的在线Softmax技巧，单次遍历完成。通过维护running max m_i和running sum l_i，在分块处理时动态修正已计算的部分结果，保证数值稳定性与精确Softmax等价",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "FlashAttention-3的异步与低精度优化",
@@ -5789,7 +5789,7 @@
       "Hopper架构"
     ],
     "brief": "核心要点：FlashAttention-3针对H100 Hopper架构，利用wgmma异步Tensor Core指令和TMA硬件实现计算与数据传输重叠。引入FP8量化支持（E4M3/E5M2混合），在损失<0.01 perplexity的条件下将吞吐提升至1.2 PFLOPs/s，接近H100理论峰值的75%",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "FlashAttention的因果Mask实现",
@@ -5801,7 +5801,7 @@
       "Transformer"
     ],
     "brief": "核心要点：因果Mask在FlashAttention中不通过显式存储三角矩阵实现，而是在分块计算时跳过全部被Mask的block，仅对部分被Mask的边界block做行级mask。这使因果Attention的FLOPs降为非因果的约50%，而标准实现即使用mask仍需完整O(N²)计算",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GPU显存层次与Attention的带宽瓶颈",
@@ -5813,7 +5813,7 @@
       "IO感知"
     ],
     "brief": "核心要点：A100的HBM带宽2TB/s，SRAM带宽19TB/s，但SRAM仅20MB。标准Attention的算术强度（FLOPs/byte）仅为O(1)到O(d)，远低于GPU的ops:byte比（约200:1），导致计算单元空转等待数据。FlashAttention通过提升算术强度到O(N·d/M)使计算变为compute-bound",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Longformer的滑动窗口注意力机制",
@@ -5825,7 +5825,7 @@
       "Longformer"
     ],
     "brief": "核心要点：Longformer将全局O(N²)注意力替换为滑动窗口局部注意力O(N·w)，窗口大小w=512时可处理4096+ tokens。结合扩张滑动窗口（dilation=d时感受野扩大d倍）和全局token（对特定位置如[CLS]保留全局注意力），在保持长距离依赖的同时实现线性复杂度",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "BigBird的随机稀疏注意力理论基础",
@@ -5837,7 +5837,7 @@
       "BigBird"
     ],
     "brief": "核心要点：BigBird的注意力由三部分组成：随机注意力（每个token随机关注r个token）、窗口注意力（局部w个邻居）、全局注意力（g个全局token）。论文证明当r·w≥Ω(N)时，该稀疏图是O(1)直径的expander graph，保证信息O(1)跳可达任意位置，是完整Transformer的通用近似器",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Longformer与BigBird的稀疏模式对比",
@@ -5849,7 +5849,7 @@
       "模型对比"
     ],
     "brief": "核心要点：Longformer使用确定性稀疏模式（滑动窗口+扩张+全局token），BigBird额外引入随机连接并提供理论保证。实验显示两者在长文档任务上性能接近（±0.5 F1），但BigBird的随机连接在训练时增加实现复杂度，Longformer的全局token策略更易于工程部署",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "稀疏注意力的CUDA kernel实现挑战",
@@ -5861,7 +5861,7 @@
       "CUDA"
     ],
     "brief": "核心要点：稀疏注意力的理论复杂度为O(N·k)但实际加速受限于GPU的不规则访存。block-sparse实现（如OpenAI的block_size=64策略）通过将稀疏模式对齐到Tensor Core的block粒度，避免warp divergence。实测在N<2048时稀疏kernel反而慢于dense FlashAttention",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Performer的随机特征映射近似Softmax",
@@ -5873,7 +5873,7 @@
       "Performer"
     ],
     "brief": "核心要点：Performer用随机特征映射φ(x)将softmax核近似为φ(Q)·φ(K)ᵀ，其中φ使用FAVOR+算法：φ(x)=exp(ωᵀx - ||x||²/2)/√m，ω采样自N(0,I)。这允许利用矩阵乘法结合律将Attention从O(N²d)降至O(Nmd)，m为特征维度（通常m=O(d·log d)）",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "线性注意力的因果约束处理",
@@ -5885,7 +5885,7 @@
       "因果推理"
     ],
     "brief": "核心要点：线性注意力通过结合律实现O(Nd²)复杂度：O_i = Σ_{j≤i} φ(Q_i)φ(K_j)ᵀV_j = φ(Q_i)·S_i，其中S_i = S_{i-1} + φ(K_i)⊗V_i为累积状态矩阵（d×d）。因果约束自然适配递推形式，使线性注意力等价于RNN，推理时O(1)复杂度per token",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Mamba的选择性状态空间机制",
@@ -5897,7 +5897,7 @@
       "状态空间模型"
     ],
     "brief": "核心要点：Mamba（S6）的核心创新是让SSM参数Δ、B、C依赖于输入x，即Δ=softplus(Linear(x))。选择性机制使模型能根据内容动态决定遗忘/记忆，Δ大时遗忘历史聚焦当前输入，Δ小时保持长期记忆。这打破了线性时不变假设，代价是无法使用FFT卷积加速",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Mamba的硬件感知扫描算法",
@@ -5909,7 +5909,7 @@
       "GPU优化"
     ],
     "brief": "核心要点：Mamba的选择性SSM无法用FFT加速，改用parallel scan算法实现O(N)工作量和O(log N)并行深度。关键优化：1)将Δ、B、C的投影和离散化融合为单个kernel；2)状态矩阵d_state×d_model不存入HBM，全程在SRAM中计算；3)反向传播时重计算避免存储中间状态",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "S4模型的HiPPO矩阵初始化",
@@ -5921,7 +5921,7 @@
       "HiPPO"
     ],
     "brief": "核心要点：S4的核心是状态矩阵A的初始化策略HiPPO（High-order Polynomial Projection Operators）。HiPPO-LegS矩阵A_{nk}=-(2n+1)^{1/2}(2k+1)^{1/2}（n>k时），使隐状态最优地压缩历史信息为Legendre多项式系数，理论上实现O(N)记忆长度无衰减",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "状态空间模型的连续-离散对偶性",

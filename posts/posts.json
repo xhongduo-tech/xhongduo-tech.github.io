@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent安全的多层防御架构设计",
+    "slug": "agent-defense-in-depth-architecture",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全边界",
+      "防御架构"
+    ],
+    "summary": "Agent安全应采用五层纵深防御，让单层失效也无法打通整条攻击链"
+  },
+  {
     "title": "Agent的多步推理中间结果验证",
     "slug": "agent-intermediate-result-verification",
     "date": "2026-03-20",
