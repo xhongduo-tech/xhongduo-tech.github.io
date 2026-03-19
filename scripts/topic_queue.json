@@ -5345,7 +5345,7 @@
       "DSL设计"
     ],
     "brief": "核心要点：分析用DSL（领域特定语言）描述多Agent工作流的设计思路——节点定义（Agent）、边定义（消息传递）、条件分支、循环结构。对比YAML声明式、Python装饰器式、图可视化三种DSL形态的表达力与易用性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent协作中的信息不对称与隐私保护",

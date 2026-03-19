@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent的工作流编排DSL设计",
+    "slug": "multi-agent-workflow-dsl-design",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "DSL设计"
+    ],
+    "summary": "多Agent工作流DSL的核心是统一节点、边、条件和循环语义，再映射到YAML、Python和图形界面。"
+  },
+  {
     "title": "Swarm框架的轻量级Agent切换机制",
     "slug": "swarm-lightweight-agent-handoff",
     "date": "2026-03-19",
