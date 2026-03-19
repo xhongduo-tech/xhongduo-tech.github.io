@@ -1,5 +1,17 @@
 [
   {
+    "title": "AutoGen中自定义Agent的注册与能力声明",
+    "slug": "autogen-custom-agent-registration-capability",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "AutoGen",
+      "扩展机制"
+    ],
+    "summary": "先分清v0.4与v0.2接口，再用边界声明、回复链和工具注册构建可控Agent"
+  },
+  {
     "title": "多Agent通信的消息传递协议设计",
     "slug": "multi-agent-message-passing-protocol",
     "date": "2026-03-19",

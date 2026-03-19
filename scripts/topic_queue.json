@@ -5105,7 +5105,7 @@
       "扩展机制"
     ],
     "brief": "核心要点：解析AutoGen v0.4的ConversableAgent基类继承体系，分析register_reply方法的触发链机制。详解如何通过system_message声明Agent能力边界，以及register_function将Python函数暴露为Agent可调用工具的完整流程。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent辩论机制提升推理准确率",
