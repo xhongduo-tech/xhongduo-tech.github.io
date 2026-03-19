@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent系统的角色分工设计模式",
+    "slug": "multi-agent-role-design-patterns",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "架构设计"
+    ],
+    "summary": "多Agent分工的核心不是堆模型，而是明确边界、控制交接和把纠错做成结构。"
+  },
+  {
     "title": "AutoGen的会话编排与终止条件设计",
     "slug": "autogen-conversation-orchestration-termination",
     "date": "2026-03-19",
