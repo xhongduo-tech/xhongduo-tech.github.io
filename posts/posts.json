@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sparse-Dense 混合检索在记忆系统中的实践",
+    "slug": "sparse-dense-hybrid-retrieval-memory-system",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "混合检索",
+      "记忆系统"
+    ],
+    "summary": "混合检索用语义召回加关键词兜底，是 Agent 记忆系统的稳健默认方案。"
+  },
+  {
     "title": "记忆蒸馏：从经验中提取可复用规则",
     "slug": "memory-distillation-extracting-reusable-rules",
     "date": "2026-03-19",

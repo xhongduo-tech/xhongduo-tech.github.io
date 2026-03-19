@@ -5021,7 +5021,7 @@
       "记忆系统"
     ],
     "brief": "核心要点：纯密集检索（Dense）对精确关键词匹配不敏感，纯稀疏检索（BM25）缺乏语义理解。混合检索 score = α·dense + (1-α)·sparse，α=0.7 时在 Agent 记忆检索中 MRR@10 最优，比单一方案高 10-15%。SPLADE 作为学习型稀疏表示可进一步提升。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent 记忆系统的端到端评测框架",
