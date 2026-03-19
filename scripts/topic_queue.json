@@ -5225,7 +5225,7 @@
       "人机协作"
     ],
     "brief": "核心要点：解析AutoGen的UserProxyAgent与人类交互的三种模式——ALWAYS（每步确认）、TERMINATE（仅终止时）、NEVER（全自动）。分析human_input_mode对任务完成率与安全性的影响，以及在关键决策节点插入人类审批的中间件设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent系统的Token预算分配与成本控制",

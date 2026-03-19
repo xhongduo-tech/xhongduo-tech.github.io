@@ -1,5 +1,17 @@
 [
   {
+    "title": "AutoGen中的人机协作与Human-in-the-Loop",
+    "slug": "autogen-human-in-the-loop",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "AutoGen",
+      "人机协作"
+    ],
+    "summary": "AutoGen的人机协作核心是用human_input_mode在速度、安全与审批边界之间做精确取舍。"
+  },
+  {
     "title": "CrewAI与LangGraph的多Agent编排对比",
     "slug": "crewai-vs-langgraph-orchestration",
     "date": "2026-03-19",
