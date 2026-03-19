@@ -1,5 +1,17 @@
 [
   {
+    "title": "GAIA基准详解：通用AI助手的评测方法论",
+    "slug": "gaia-benchmark-methodology",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "GAIA"
+    ],
+    "summary": "GAIA测的不是会不会答题，而是AI助手能否稳定走通多步工具链并交付唯一正确答案"
+  },
+  {
     "title": "多Agent评估基准与性能度量体系",
     "slug": "multi-agent-evaluation-benchmark",
     "date": "2026-03-19",
