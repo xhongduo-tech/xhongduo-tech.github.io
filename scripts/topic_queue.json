@@ -5201,7 +5201,7 @@
       "可观测性"
     ],
     "brief": "核心要点：分析多Agent系统调试的核心挑战——消息流不透明、状态分散、因果链难追踪。介绍基于OpenTelemetry的分布式追踪方案，以及AutoGen的logging模块和CrewAI的verbose模式在生产环境中的局限与增强方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多Agent任务分解的递归细化策略",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent系统的可观测性与调试追踪",
+    "slug": "multi-agent-observability-tracing",
+    "date": "2026-03-19",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "可观测性"
+    ],
+    "summary": "多Agent调试要靠统一Trace树，而不是零散日志；关键是传播上下文并对齐成本、延迟与质量。"
+  },
+  {
     "title": "AutoGen的代码执行沙箱架构",
     "slug": "autogen-code-execution-sandbox",
     "date": "2026-03-19",
