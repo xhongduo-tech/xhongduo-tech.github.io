@@ -1,5 +1,17 @@
 [
   {
+    "title": "3D并行的通信拓扑与带宽分配",
+    "slug": "3d-parallelism-communication-topology",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "混合并行",
+      "通信优化"
+    ],
+    "summary": "3D并行的关键不是拆模型，而是让TP、PP、DP按通信频率匹配不同带宽链路。"
+  },
+  {
     "title": "FSDP：PyTorch原生的ZeRO实现",
     "slug": "fsdp-pytorch-zero-implementation",
     "date": "2026-03-20",

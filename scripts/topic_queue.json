@@ -6449,7 +6449,7 @@
       "通信优化"
     ],
     "brief": "核心要点：3D并行（TP×PP×DP）的GPU分组形成三维网格。最优映射：TP组映射到NVLink连接的机内GPU（600GB/s），PP组映射到机间InfiniBand（200Gb/s），DP组利用剩余带宽。错误的映射可使训练吞吐量下降40%以上。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO++的量化通信优化",
