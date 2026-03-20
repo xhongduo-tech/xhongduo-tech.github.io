@@ -1,5 +1,17 @@
 [
   {
+    "title": "Docker 网络模式：bridge、host、overlay 的实现与选型",
+    "slug": "docker-network-modes",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Docker",
+      "网络"
+    ],
+    "summary": "bridge 靠 veth+iptables NAT，host 追求最短路径，overlay 用 VXLAN 换取跨主…"
+  },
+  {
     "title": "Docker Compose",
     "slug": "docker-compose-ml-env",
     "date": "2026-03-20",

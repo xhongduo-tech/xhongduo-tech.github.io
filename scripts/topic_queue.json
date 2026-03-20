@@ -6871,7 +6871,7 @@
       "网络"
     ],
     "brief": "bridge 模式的 veth pair 与 iptables NAT 原理。host 模式绕过网络栈的性能优势——分布式训练场景为何推荐 host 网络。overlay 网络的 VXLAN 封装开销。端口映射的 NAT 实现细节。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Docker Compose",
