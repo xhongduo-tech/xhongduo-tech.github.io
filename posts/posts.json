@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent的优雅降级与用户透明度设计",
+    "slug": "agent-graceful-degradation-transparency",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "错误恢复",
+      "用户体验"
+    ],
+    "summary": "Agent失败时应按完整、部分、拒绝三级降级，并把原因、置信度和接管入口公开给用户"
+  },
+  {
     "title": "AgentBench：八维度Agent能力的标准化评测",
     "slug": "agentbench-eight-dimensions",
     "date": "2026-03-20",
