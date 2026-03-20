@@ -1,5 +1,17 @@
 [
   {
+    "title": "MLflow：模型生命周期管理与模型注册中心",
+    "slug": "mlflow-model-registry",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "MLflow",
+      "模型管理"
+    ],
+    "summary": "MLflow 用 Tracking+Registry 把训练记录、模型版本和上线阶段串成可追溯闭环"
+  },
+  {
     "title": "LLM 推理 API 集成：OpenAI/Anthropic SDK 的工程最佳实践",
     "slug": "llm-api-integration-engineering",
     "date": "2026-03-21",

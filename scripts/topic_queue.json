@@ -7373,7 +7373,7 @@
       "模型管理"
     ],
     "brief": "MLflow Tracking 的 experiment/run/metric/artifact 层次。MLflow Models 的通用打包格式（mlflow.pytorch.log_model）。Model Registry 的 Staging/Production 生命周期管理。与 Kubernetes 的模型部署集成。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "代码审查与调试：pdb、ipdb 与 VS Code 调试器",
