@@ -1,5 +1,17 @@
 [
   {
+    "title": "线性注意力的表达能力理论界限",
+    "slug": "linear-attention-expressiveness-bounds",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "理论分析"
+    ],
+    "summary": "线性注意力用有限状态换线性复杂度，因此在长程精确召回上存在不可回避的容量上限"
+  },
+  {
     "title": "FlashAttention的多头注意力并行策略",
     "slug": "flashattention-multi-head-parallelism",
     "date": "2026-03-20",

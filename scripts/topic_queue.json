@@ -5969,7 +5969,7 @@
       "理论分析"
     ],
     "brief": "核心要点：线性注意力用有限维特征映射近似softmax核，存在本质精度限制。softmax注意力可区分的token对，线性注意力在特征维度m<d²时无法区分（MQAR任务上m需≥O(Nd)才能完美recall）。状态矩阵S∈R^{d×d}的容量上界为d²，限制了可存储的KV对数量",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention的多头注意力并行策略",
