@@ -6509,7 +6509,7 @@
       "数值一致性"
     ],
     "brief": "核心要点：TP要求部分操作（如Dropout）跨GPU保持相同随机种子（保证AllReduce结果正确），另一部分操作需要不同种子（保证正则化多样性）。Megatron-LM维护两个CUDA RNG状态：model-parallel随机种子和data-parallel随机种子，在前向/反向传播中精确切换。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Context Parallel的长序列分布式训练",

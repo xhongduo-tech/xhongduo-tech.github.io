@@ -1,5 +1,17 @@
 [
   {
+    "title": "Tensor Parallel中的随机性同步",
+    "slug": "tensor-parallel-randomness-synchronization",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "模型并行",
+      "数值一致性"
+    ],
+    "summary": "TP中随机性必须分类管理：该同步的同步，该独立的独立。"
+  },
+  {
     "title": "Expert Parallel与MoE分布式训练",
     "slug": "expert-parallelism-moe-distributed",
     "date": "2026-03-20",
