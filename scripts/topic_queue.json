@@ -7529,7 +7529,7 @@
       "机制分析"
     ],
     "brief": "Logit Lens 将中间层隐状态投影到词表分析语义演化。Activation Patching 定位因果机制（哪个注意力头负责特定能力）。Sparse Autoencoder（SAE）分解 MLP 激活为可解释特征。Mechanistic Interpretability 在微调中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PEFT 方法全景：LoRA、Adapter、Prefix、Prompt Tuning 对比",

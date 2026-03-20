@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型解释性工具：Logit Lens、激活补丁与电路分析",
+    "slug": "model-interpretability-tools",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "可解释性",
+      "机制分析"
+    ],
+    "summary": "Logit Lens看表示，Activation Patching验证因果，SAE拆解特征，三者构成机制解释闭环。"
+  },
+  {
     "title": "模型合并高级技术：DARE、TIES 与模型融合",
     "slug": "model-merging-dare-ties",
     "date": "2026-03-21",
