@@ -1,5 +1,17 @@
 [
   {
+    "title": "GShard的随机Top-2路由策略",
+    "slug": "gshard-random-top2-routing",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "GShard"
+    ],
+    "summary": "GShard 用“Top-1必选+Top-2按概率采样”在探索性、负载均衡与计算成本之间取中间点"
+  },
+  {
     "title": "注意力机制的统一视角：从二次到线性",
     "slug": "attention-unified-view-quadratic-to-linear",
     "date": "2026-03-20",

@@ -6101,7 +6101,7 @@
       "GShard"
     ],
     "brief": "核心要点：GShard对第二专家采用概率采样而非确定性选择，路由公式为Top-1确定+第二专家按softmax概率采样。分析这种随机性如何同时提升探索性和负载均衡，以及与纯Top-2的效果差异",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的容量因子与Token溢出处理",
