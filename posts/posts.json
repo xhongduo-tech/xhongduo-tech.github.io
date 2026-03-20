@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent输出的事实性验证与幻觉检测",
+    "slug": "agent-output-factuality-hallucination",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全边界",
+      "幻觉检测"
+    ],
+    "summary": "Agent幻觉检测要同时检查工具调用、答案一致性与生成置信度"
+  },
+  {
     "title": "Agent 记忆的隐私保护与选择性遗忘",
     "slug": "agent-memory-privacy-selective-forgetting",
     "date": "2026-03-20",
