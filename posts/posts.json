@@ -1,5 +1,17 @@
 [
   {
+    "title": "磁盘管理：LVM、RAID 与 NVMe 调优",
+    "slug": "disk-management-lvm-nvme",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "存储"
+    ],
+    "summary": "LVM 管容量弹性，RAID 管冗余性能，NVMe 与 fstrim 管持续吞吐和 SSD 寿命"
+  },
+  {
     "title": "Prometheus + Grafana",
     "slug": "prometheus-grafana-ml-monitoring",
     "date": "2026-03-20",

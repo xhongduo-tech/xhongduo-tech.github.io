@@ -7105,7 +7105,7 @@
       "存储"
     ],
     "brief": "LVM（逻辑卷管理）：PV/VG/LV 层次与在线扩容。RAID 0/1/5/10 的冗余与性能权衡。NVMe 的 PCIe 通道数与队列深度（io_uring 与 NVMe 的配合）。fstrim 与 SSD 寿命管理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "环境变量与动态链接库：CUDA 版本管理与库冲突排查",
