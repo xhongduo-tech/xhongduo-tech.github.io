@@ -7433,7 +7433,7 @@
       "SFT"
     ],
     "brief": "ChatML、Llama3/Alpaca/Vicuna/Mistral 各自的 system/user/assistant 标记格式。tokenizer.apply_chat_template 的使用。Special token（BOS/EOS/PAD）的角色。训练与推理模板不一致导致的性能劣化问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "拒绝采样微调（RFT）：用自生成数据提升推理能力",

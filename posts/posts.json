@@ -1,5 +1,17 @@
 [
   {
+    "title": "对话模板（Chat Template）：不同模型的格式规范",
+    "slug": "chat-template-formats",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "对话模板",
+      "SFT"
+    ],
+    "summary": "聊天模板决定对话如何变成模型见过的输入格式，训练与推理必须严格一致。"
+  },
+  {
     "title": "DoRA 与 LoRA 变体：权重分解的参数高效微调",
     "slug": "dora-lora-variants",
     "date": "2026-03-21",
