@@ -1,5 +1,17 @@
 [
   {
+    "title": "上下文学习的示例选择与排序效应",
+    "slug": "icl-example-selection-ordering",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "提示工程"
+    ],
+    "summary": "ICL 不只依赖示例内容，还强烈依赖顺序；稳健做法是局部筛选、排序校准与多顺序投票。"
+  },
+  {
     "title": "上下文学习的规模涌现：从模式匹配到任务学习",
     "slug": "icl-emergence-pattern-to-task-learning",
     "date": "2026-03-20",
