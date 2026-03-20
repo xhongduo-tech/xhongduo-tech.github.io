@@ -1,5 +1,17 @@
 [
   {
+    "title": "LMDeploy：TurboMind 引擎与高效推理优化",
+    "slug": "lmdeploy-turbomind",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "LMDeploy",
+      "推理框架"
+    ],
+    "summary": "TurboMind 通过 blocked KV 与 persistent batch，在 NVIDIA GPU 上提升…"
+  },
+  {
     "title": "SGLang：结构化生成与 RadixAttention 的 KV Cache 复用",
     "slug": "sglang-structured-generation",
     "date": "2026-03-21",
