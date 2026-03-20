@@ -1,5 +1,17 @@
 [
   {
+    "title": "微调学习率调度：warmup、余弦退火与学习率查找",
+    "slug": "finetuning-lr-schedule",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "训练优化",
+      "学习率"
+    ],
+    "summary": "微调学习率的默认优先解是 warmup+余弦退火，并用 LR Range Test 先定有效区间。"
+  },
+  {
     "title": "PEFT 方法全景：LoRA、Adapter、Prefix、Prompt Tuning 对比",
     "slug": "peft-methods-comparison",
     "date": "2026-03-21",

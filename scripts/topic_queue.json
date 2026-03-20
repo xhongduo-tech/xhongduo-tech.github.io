@@ -7553,7 +7553,7 @@
       "学习率"
     ],
     "brief": "warmup 的必要性：大 LR 在训练初期破坏预训练权重的机制。余弦退火的数学形式与 cycle 变体。学习率查找器（LR Range Test）的实验方法。LoRA 微调时 base model 与 adapter 使用不同 LR 的策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型量化感知训练（QAT）：INT8/INT4 的训练时量化",
