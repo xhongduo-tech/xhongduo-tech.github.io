@@ -1,5 +1,17 @@
 [
   {
+    "title": "上下文学习中的任务向量与功能压缩",
+    "slug": "icl-task-vectors-function-compression",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "表示学习"
+    ],
+    "summary": "ICL常先把示例压缩成中层任务向量，后续层再用它执行查询规则"
+  },
+  {
     "title": "Transformer的上下文学习与梯度下降的等价性",
     "slug": "icl-gradient-descent-equivalence",
     "date": "2026-03-20",
