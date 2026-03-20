@@ -6221,7 +6221,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：传统MoE仅用于FFN层，Multi-Head MoE将路由机制扩展到注意力头选择。每个token只激活部分注意力头，分析这种设计如何在不损失多头多样性的前提下减少Attention层的计算量",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的梯度估计与直通估计器",

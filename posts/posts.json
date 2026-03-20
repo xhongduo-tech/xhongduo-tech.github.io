@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE在Attention层的应用：Multi-Head MoE",
+    "slug": "moe-attention-multi-head-moe",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "注意力机制"
+    ],
+    "summary": "Multi-Head MoE把MoE路由扩展到注意力头选择，以少量激活头降低Attention计算。"
+  },
+  {
     "title": "MoE与Dense模型的Scaling Law对比",
     "slug": "moe-vs-dense-scaling-laws",
     "date": "2026-03-20",
