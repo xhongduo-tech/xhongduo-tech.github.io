@@ -1,5 +1,17 @@
 [
   {
+    "title": "线性注意力的因果约束处理",
+    "slug": "linear-attention-causal-constraint",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "因果推理"
+    ],
+    "summary": "因果线性注意力把历史压成固定状态，用递推天然满足因果并降低推理内存。"
+  },
+  {
     "title": "Mamba的选择性状态空间机制",
     "slug": "mamba-selective-state-space",
     "date": "2026-03-20",

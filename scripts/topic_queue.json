@@ -5885,7 +5885,7 @@
       "因果推理"
     ],
     "brief": "核心要点：线性注意力通过结合律实现O(Nd²)复杂度：O_i = Σ_{j≤i} φ(Q_i)φ(K_j)ᵀV_j = φ(Q_i)·S_i，其中S_i = S_{i-1} + φ(K_i)⊗V_i为累积状态矩阵（d×d）。因果约束自然适配递推形式，使线性注意力等价于RNN，推理时O(1)复杂度per token",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mamba的选择性状态空间机制",
