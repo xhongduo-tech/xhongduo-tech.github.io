@@ -6317,7 +6317,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：朴素流水线并行的bubble率为(p-1)/m（p为流水线级数，m为微批次数）。GPipe采用同步调度，将mini-batch切分为m个micro-batch串行执行；当m≥4p时bubble率降至25%以下。1F1B调度进一步降低峰值内存至O(1/p)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPipe的梯度累积与同步机制",

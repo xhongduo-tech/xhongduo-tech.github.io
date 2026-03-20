@@ -1,5 +1,17 @@
 [
   {
+    "title": "流水线并行的微批次调度策略",
+    "slug": "pipeline-parallel-microbatch-scheduling",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "流水线并行",
+      "分布式训练"
+    ],
+    "summary": "流水线并行的关键是用足够多的微批次摊薄气泡，再用1F1B控制激活显存。"
+  },
+  {
     "title": "自注意力层的Tensor Parallel实现",
     "slug": "tensor-parallel-self-attention",
     "date": "2026-03-20",
