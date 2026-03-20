@@ -6197,7 +6197,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：MoE在相同计算预算下通常优于dense模型，但优势随规模增长的趋势存在争议。分析Unified Scaling Law的结论：MoE的有效参数利用率约为E^0.3（E为专家数），以及专家数存在收益递减拐点",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixtral的专家权重合并与蒸馏",
