@@ -1,5 +1,17 @@
 [
   {
+    "title": "Shell 脚本与自动化：ML 实验管理的工程基础",
+    "slug": "shell-scripting-ml",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Shell",
+      "自动化"
+    ],
+    "summary": "Bash 通过参数化、并行调度与统一清理，构成 ML 实验管理的最轻量工程基础"
+  },
+  {
     "title": "分布式存储：NFS、Ceph 与 AI 训练集群的存储架构",
     "slug": "distributed-storage-ai-cluster",
     "date": "2026-03-20",

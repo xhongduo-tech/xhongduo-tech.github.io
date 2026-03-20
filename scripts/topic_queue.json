@@ -7020,7 +7020,7 @@
       "自动化"
     ],
     "brief": "Bash 核心语法：变量、数组、条件、循环、函数。并行执行：xargs -P 与 GNU parallel。trap 信号处理确保训练脚本异常退出时清理资源。Here Document 生成配置文件。实验批量提交脚本的设计模式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SSH 与远程开发：跳板机、端口转发与 VS Code Remote",
