@@ -1,5 +1,17 @@
 [
   {
+    "title": "CUDA 编程模型：Grid、Block、Thread 的层次结构",
+    "slug": "cuda-programming-model",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "CUDA",
+      "GPU编程"
+    ],
+    "summary": "CUDA 用 Grid/Block/Thread 描述并行，用 warp 在 SM 上真正执行。"
+  },
+  {
     "title": "Dockerfile 最佳实践",
     "slug": "dockerfile-best-practices",
     "date": "2026-03-20",

@@ -6897,7 +6897,7 @@
       "GPU编程"
     ],
     "brief": "GPU 的 SM（流多处理器）与 CUDA Core 的对应关系。Grid/Block/Thread 三层层次如何映射到 SM 上执行。Warp（32 线程）的 SIMT 执行模型与分支分歧（Branch Divergence）的性能影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPU 内存层次：Global、Shared、Register 的访问延迟与优化",
