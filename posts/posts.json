@@ -1,5 +1,29 @@
 [
   {
+    "title": "FlashAttention的在线Softmax算法",
+    "slug": "flashattention-online-softmax",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "FlashAttention",
+      "数值计算"
+    ],
+    "summary": "在线Softmax用运行最大值与分母修正，实现与标准Softmax等价的块级流式计算。"
+  },
+  {
+    "title": "Agent评测的成本效率指标：性能与Token消耗的帕累托前沿",
+    "slug": "agent-eval-cost-efficiency-pareto",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "成本效率"
+    ],
+    "summary": "Agent评测应把成功率、Token、API和延迟一起纳入帕累托前沿决策。"
+  },
+  {
     "title": "FlashAttention的IO复杂度分析",
     "slug": "flashattention-io-complexity",
     "date": "2026-03-20",
