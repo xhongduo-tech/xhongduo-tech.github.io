@@ -5825,7 +5825,7 @@
       "Longformer"
     ],
     "brief": "核心要点：Longformer将全局O(N²)注意力替换为滑动窗口局部注意力O(N·w)，窗口大小w=512时可处理4096+ tokens。结合扩张滑动窗口（dilation=d时感受野扩大d倍）和全局token（对特定位置如[CLS]保留全局注意力），在保持长距离依赖的同时实现线性复杂度",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BigBird的随机稀疏注意力理论基础",

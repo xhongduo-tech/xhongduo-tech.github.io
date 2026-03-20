@@ -1,5 +1,17 @@
 [
   {
+    "title": "Longformer的滑动窗口注意力机制",
+    "slug": "longformer-sliding-window-attention",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "Longformer"
+    ],
+    "summary": "Longformer用局部滑窗加少量全局token，把长文本注意力从平方复杂度降到近线性。"
+  },
+  {
     "title": "FlashAttention的因果Mask实现",
     "slug": "flashattention-causal-mask",
     "date": "2026-03-20",
