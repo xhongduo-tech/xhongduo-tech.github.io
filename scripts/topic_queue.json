@@ -6413,7 +6413,7 @@
       "模型并行"
     ],
     "brief": "核心要点：ZeRO-3在数学上等价于模型并行但保持数据并行的通信模式。ZeRO适合跨机扩展（仅需AllGather/Reduce-Scatter），TP适合机内高带宽互联。两者可组合：机内TP+跨机ZeRO-DP，兼顾通信效率和内存扩展。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Megatron-LM的分布式Embedding实现",

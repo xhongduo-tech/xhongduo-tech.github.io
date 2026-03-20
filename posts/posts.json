@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO与模型并行的对比与互补",
+    "slug": "zero-vs-model-parallelism-comparison",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "模型并行"
+    ],
+    "summary": "ZeRO-3擅长跨机省显存，TP擅长机内拆大算子，工程上常组合使用。"
+  },
+  {
     "title": "流水线并行的负载均衡策略",
     "slug": "pipeline-parallel-load-balancing",
     "date": "2026-03-20",
