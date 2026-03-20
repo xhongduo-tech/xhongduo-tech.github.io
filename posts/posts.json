@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux 内存管理：虚拟内存、Page Fault 与 OOM Killer",
+    "slug": "linux-memory-management",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "内存管理"
+    ],
+    "summary": "Linux 以内核补页管理虚拟内存，内存耗尽时由 OOM Killer 按分数止损。"
+  },
+  {
     "title": "Linux 文件系统：inode、VFS 与 mmap",
     "slug": "linux-filesystem-inode-vfs",
     "date": "2026-03-20",

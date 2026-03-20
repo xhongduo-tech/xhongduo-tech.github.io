@@ -6773,7 +6773,7 @@
       "内存管理"
     ],
     "brief": "虚拟地址空间布局（栈/堆/mmap区/代码段）。缺页异常的处理路径。Swap 分区对深度学习训练的影响。OOM Killer 的打分算法与 /proc/sys/vm 调优参数。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux 性能分析工具箱：perf、strace、eBPF",
