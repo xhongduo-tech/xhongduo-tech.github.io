@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的专家容量与内存墙问题",
+    "slug": "moe-expert-capacity-memory-wall",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "系统优化"
+    ],
+    "summary": "MoE每次只算少数专家，但全体专家常驻显存，瓶颈常从算力转向显存容量与带宽。"
+  },
+  {
     "title": "DeepSeekMoE的共享专家机制",
     "slug": "deepseek-moe-shared-experts",
     "date": "2026-03-20",

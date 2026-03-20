@@ -6281,7 +6281,7 @@
       "系统优化"
     ],
     "brief": "核心要点：MoE总参数量大但激活参数少，核心瓶颈从计算转移到内存带宽。分析专家参数的HBM占用、推理时的内存带宽利用率（通常<30%）、以及专家offloading到CPU/NVMe的分层存储策略",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Tensor Parallel的列并行与行并行切分",
