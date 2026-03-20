@@ -1,5 +1,17 @@
 [
   {
+    "title": "Makefile 与构建系统：AI 项目的实验自动化",
+    "slug": "makefile-build-system-ai",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "工具链",
+      "自动化"
+    ],
+    "summary": "Makefile 用依赖和时间戳把 AI 训练、评测、部署变成可增量执行的标准化入口"
+  },
+  {
     "title": "磁盘管理：LVM、RAID 与 NVMe 调优",
     "slug": "disk-management-lvm-nvme",
     "date": "2026-03-21",

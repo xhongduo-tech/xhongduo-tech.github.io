@@ -7141,7 +7141,7 @@
       "自动化"
     ],
     "brief": "Makefile 的规则语法：target/prerequisite/recipe。隐式规则与模式规则。.PHONY 目标的使用场景。用 Makefile 管理训练/评测/部署的标准化入口。与 cmake 在 CUDA 扩展编译中的配合。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Git 高级用法：rebase、bisect 与大模型仓库管理",
