@@ -6005,7 +6005,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MQA让所有head共享一组KV（KV Cache缩小h倍），GQA将h个head分为g组共享KV（缩小h/g倍）。GQA在g=8时性能接近MHA（差<0.5% on LM eval），但推理速度接近MQA。LLaMA-2 70B使用GQA g=8，KV Cache从每层256MB降至32MB",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sliding Window Attention在Mistral中的实现",

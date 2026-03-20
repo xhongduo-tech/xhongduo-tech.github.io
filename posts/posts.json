@@ -1,5 +1,17 @@
 [
   {
+    "title": "Multi-Query与Grouped-Query Attention的KV压缩",
+    "slug": "mqa-gqa-kv-compression",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "注意力变体",
+      "推理优化"
+    ],
+    "summary": "GQA 通过让多个 Query 头共享分组 KV，把 KV Cache 按 g/h 线性压缩。"
+  },
+  {
     "title": "稀疏注意力的动态模式学习",
     "slug": "learnable-sparse-attention-patterns",
     "date": "2026-03-20",
