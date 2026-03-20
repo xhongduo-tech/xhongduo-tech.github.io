@@ -1,5 +1,17 @@
 [
   {
+    "title": "Tensor Parallel的通信原语分析",
+    "slug": "tensor-parallel-communication-primitives",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "模型并行",
+      "集合通信"
+    ],
+    "summary": "TP 的本质是用 Ring AllReduce 让分片激活与梯度在多卡间重新对齐。"
+  },
+  {
     "title": "Megatron-LM的混合并行架构",
     "slug": "megatron-lm-hybrid-parallelism",
     "date": "2026-03-20",
