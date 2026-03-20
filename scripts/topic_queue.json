@@ -5945,7 +5945,7 @@
       "SSD"
     ],
     "brief": "核心要点：Mamba-2揭示了SSM与注意力的结构对偶：当SSM的状态转移矩阵A为标量乘以单位矩阵时，SSM的输入-输出映射等价于一个半可分(semiseparable)矩阵乘法，形式上与因果线性注意力一致。SSD算法利用此对偶，在chunk内用矩阵乘法、chunk间用递推，实现8倍于Mamba-1的速度",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RetNet的多尺度指数衰减与chunk递推",

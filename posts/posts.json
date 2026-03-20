@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba-2的结构化状态空间对偶性",
+    "slug": "mamba-2-ssd-duality",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "Mamba",
+      "SSD"
+    ],
+    "summary": "Mamba-2用SSD证明特定SSM与因果线性注意力等价，并据此实现高效分块计算"
+  },
+  {
     "title": "Mamba的硬件感知扫描算法",
     "slug": "mamba-hardware-aware-scan",
     "date": "2026-03-20",
