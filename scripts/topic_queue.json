@@ -5813,7 +5813,7 @@
       "IO感知"
     ],
     "brief": "核心要点：A100的HBM带宽2TB/s，SRAM带宽19TB/s，但SRAM仅20MB。标准Attention的算术强度（FLOPs/byte）仅为O(1)到O(d)，远低于GPU的ops:byte比（约200:1），导致计算单元空转等待数据。FlashAttention通过提升算术强度到O(N·d/M)使计算变为compute-bound",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Longformer的滑动窗口注意力机制",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPU显存层次与Attention的带宽瓶颈",
+    "slug": "gpu-memory-hierarchy-attention-bottleneck",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "GPU架构",
+      "IO感知"
+    ],
+    "summary": "Attention 常被显存带宽而非算力限制，FlashAttention 通过片上分块与在线 softmax 把瓶颈…"
+  },
+  {
     "title": "FlashAttention-3的异步与低精度优化",
     "slug": "flashattention-3-async-fp8",
     "date": "2026-03-20",
