@@ -1,5 +1,17 @@
 [
   {
+    "title": "Weights & Biases（W&B）：实验追踪与超参搜索",
+    "slug": "wandb-experiment-tracking",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "实验追踪",
+      "W&B"
+    ],
+    "summary": "W&B把实验记录、版本管理和超参搜索统一到同一条可追溯链路里。"
+  },
+  {
     "title": "Kubernetes Helm Chart：ML 平台组件的标准化部署",
     "slug": "helm-ml-platform",
     "date": "2026-03-21",

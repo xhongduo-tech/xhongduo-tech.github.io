@@ -7240,7 +7240,7 @@
       "W&B"
     ],
     "brief": "wandb.init/log/watch 的使用模式。artifact 管理训练数据集与模型检查点版本。Sweep 的贝叶斯优化超参搜索配置。团队协作：共享 Project 与 Report 的最佳实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Hugging Face 生态：transformers、datasets、accelerate 的工程用法",
