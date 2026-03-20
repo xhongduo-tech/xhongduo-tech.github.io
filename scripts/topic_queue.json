@@ -6377,7 +6377,7 @@
       "Megatron-LM"
     ],
     "brief": "核心要点：Megatron-LM的交错调度将每个GPU分配多个非连续的模型层块（虚拟stage），使bubble率从(p-1)/m降至(p-1)/(v·m)（v为虚拟stage数）。代价是通信量增加v倍，但在高带宽互联下，bubble减少带来的收益大于通信增加的开销。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Tensor Parallel的通信原语分析",

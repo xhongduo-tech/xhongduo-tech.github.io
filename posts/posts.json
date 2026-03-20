@@ -1,5 +1,17 @@
 [
   {
+    "title": "虚拟流水线并行的交错调度",
+    "slug": "virtual-pipeline-interleaved-schedule",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "流水线并行",
+      "Megatron-LM"
+    ],
+    "summary": "交错调度用更多通信换更少流水线空转，前提是高带宽互联与通信重叠足够好。"
+  },
+  {
     "title": "GPipe的梯度累积与同步机制",
     "slug": "gpipe-gradient-accumulation-sync",
     "date": "2026-03-20",
