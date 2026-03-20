@@ -7252,7 +7252,7 @@
       "工具链"
     ],
     "brief": "from_pretrained 的权重加载机制与缓存策略。datasets 的 map/filter 并行处理与 Arrow 格式优势。accelerate 的多 GPU 抽象：一套代码跑单卡/多卡/DeepSpeed。trainer vs 自定义训练循环的取舍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Ray：分布式 Python 计算框架与 ML 工作流",

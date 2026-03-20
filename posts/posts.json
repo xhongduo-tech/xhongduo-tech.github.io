@@ -1,5 +1,17 @@
 [
   {
+    "title": "Hugging Face 生态：transformers、datasets、accelerate 的工程用法",
+    "slug": "huggingface-ecosystem-engineering",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Hugging Face",
+      "工具链"
+    ],
+    "summary": "三库各管缓存、数据并行、设备抽象，组合后能让一套训练脚本跨环境稳定复用"
+  },
+  {
     "title": "Weights & Biases（W&B）：实验追踪与超参搜索",
     "slug": "wandb-experiment-tracking",
     "date": "2026-03-21",
