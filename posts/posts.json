@@ -1,5 +1,19 @@
 [
   {
+    "title": "Dockerfile 最佳实践",
+    "slug": "dockerfile-best-practices",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Docker",
+      "镜像构建",
+      "工程实践",
+      "Dockerfile"
+    ],
+    "summary": "多阶段构建、缓存友好顺序、最小上下文和非root运行，是Dockerfile最重要的四条实践。"
+  },
+  {
     "title": "Linux 调度器：CFS、实时调度与 NUMA 感知",
     "slug": "linux-scheduler-cfs-numa",
     "date": "2026-03-20",

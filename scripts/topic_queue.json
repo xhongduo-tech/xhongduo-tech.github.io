@@ -6859,7 +6859,7 @@
       "Dockerfile"
     ],
     "brief": "多阶段构建（FROM ... AS builder）分离编译环境与运行环境。层缓存失效规则：RUN/COPY 指令顺序的性能影响。.dockerignore、非 root 用户、ENTRYPOINT vs CMD 的选择。ML 镜像专项：CUDA 基础镜像选型与依赖安装顺序。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Docker 网络模式：bridge、host、overlay 的实现与选型",
