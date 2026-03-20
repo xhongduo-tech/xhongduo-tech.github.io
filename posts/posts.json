@@ -1,5 +1,17 @@
 [
   {
+    "title": "进程监控与守护：screen、tmux 与 systemd service",
+    "slug": "process-management-tmux-systemd",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "进程管理"
+    ],
+    "summary": "训练类任务用 tmux，常驻服务用 systemd，日志统一用 journalctl。"
+  },
+  {
     "title": "容器镜像仓库：Harbor 私有仓库搭建与镜像管理",
     "slug": "harbor-private-registry",
     "date": "2026-03-20",

@@ -7044,7 +7044,7 @@
       "进程管理"
     ],
     "brief": "tmux 会话管理：在断开 SSH 后保持训练进程运行。tmux 的 pane/window/session 层次与常用快捷键。systemd unit file 将推理服务注册为系统服务（自动重启、日志收集）。journalctl 日志查询。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "容器镜像仓库：Harbor 私有仓库搭建与镜像管理",
