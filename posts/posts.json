@@ -1,5 +1,17 @@
 [
   {
+    "title": "自注意力层的Tensor Parallel实现",
+    "slug": "tensor-parallel-self-attention",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "模型并行",
+      "注意力机制"
+    ],
+    "summary": "自注意力的 Tensor Parallel 本质是按 head 切 QKV，本地算完后仅在输出投影后做一次聚合"
+  },
+  {
     "title": "Tensor Parallel的列并行与行并行切分",
     "slug": "tensor-parallel-column-row-split",
     "date": "2026-03-20",

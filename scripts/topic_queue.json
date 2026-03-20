@@ -6305,7 +6305,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：多头注意力天然适合Tensor Parallel——将注意力头均匀分配到不同GPU，每个GPU独立计算QKV投影和注意力，仅在输出投影后做一次AllReduce。对于h=96头、t=8的配置，每GPU处理12个头，通信量与隐藏维度成正比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "流水线并行的微批次调度策略",
