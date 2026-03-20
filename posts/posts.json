@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba的硬件感知扫描算法",
+    "slug": "mamba-hardware-aware-scan",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Mamba",
+      "GPU优化"
+    ],
+    "summary": "Mamba用并行scan替代FFT，并靠SRAM融合与反向重算兑现线性长序列性能"
+  },
+  {
     "title": "状态空间模型的连续-离散对偶性",
     "slug": "ssm-continuous-discrete-duality",
     "date": "2026-03-20",

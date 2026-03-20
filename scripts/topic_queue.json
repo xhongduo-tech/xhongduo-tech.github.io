@@ -5909,7 +5909,7 @@
       "GPU优化"
     ],
     "brief": "核心要点：Mamba的选择性SSM无法用FFT加速，改用parallel scan算法实现O(N)工作量和O(log N)并行深度。关键优化：1)将Δ、B、C的投影和离散化融合为单个kernel；2)状态矩阵d_state×d_model不存入HBM，全程在SRAM中计算；3)反向传播时重计算避免存储中间状态",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "S4模型的HiPPO矩阵初始化",
