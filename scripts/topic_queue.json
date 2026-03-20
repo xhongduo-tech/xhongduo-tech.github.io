@@ -6677,7 +6677,7 @@
       "优化理论"
     ],
     "brief": "核心要点：Akyürek和Von Oswald分别证明线性注意力Transformer的前向传播等价于对示例数据执行一步梯度下降。具体构造：将QKV矩阵参数化使得注意力输出恢复出(X^TX)^{-1}X^Ty的最小二乘解，揭示ICL是隐式优化过程",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "上下文学习中的任务向量与功能压缩",

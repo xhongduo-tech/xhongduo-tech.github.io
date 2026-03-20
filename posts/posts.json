@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer的上下文学习与梯度下降的等价性",
+    "slug": "icl-gradient-descent-equivalence",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "优化理论"
+    ],
+    "summary": "在线性条件下，Transformer 的上下文学习可严格解释为前向传播中执行梯度下降或解析回归求解。"
+  },
+  {
     "title": "上下文学习的贝叶斯推断解释",
     "slug": "in-context-learning-bayesian-inference",
     "date": "2026-03-20",
