@@ -1,5 +1,17 @@
 [
   {
+    "title": "环境变量与动态链接库：CUDA 版本管理与库冲突排查",
+    "slug": "cuda-env-ld-library",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "CUDA",
+      "环境管理"
+    ],
+    "summary": "CUDA库冲突本质是动态链接搜索顺序与版本兼容矩阵问题。"
+  },
+  {
     "title": "Makefile 与构建系统：AI 项目的实验自动化",
     "slug": "makefile-build-system-ai",
     "date": "2026-03-21",

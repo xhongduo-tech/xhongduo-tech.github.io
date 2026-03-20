@@ -7117,7 +7117,7 @@
       "环境管理"
     ],
     "brief": "LD_LIBRARY_PATH 的搜索顺序与 ldconfig。CUDA/cuDNN/NCCL 版本兼容矩阵。ldd 命令检查动态链接依赖。update-alternatives 管理多版本 CUDA。容器化如何从根本上解决版本冲突。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "系统时间同步与分布式训练：NTP、PTP 与时钟漂移",
