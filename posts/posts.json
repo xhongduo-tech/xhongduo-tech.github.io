@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码审查与调试：pdb、ipdb 与 VS Code 调试器",
+    "slug": "debugging-tools-ml",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "调试",
+      "开发效率"
+    ],
+    "summary": "掌握 pdb/ipdb 基本命令，再用 debugpy 处理远端与分布式调试。"
+  },
+  {
     "title": "Python 性能优化：Cython、Numba 与 C 扩展",
     "slug": "python-performance-cython-numba",
     "date": "2026-03-21",

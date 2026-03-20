@@ -7385,7 +7385,7 @@
       "开发效率"
     ],
     "brief": "pdb 常用命令（n/s/c/p/l/b）。ipdb 的 IPython 增强。在分布式训练中只在 rank 0 打断点的技巧。VS Code 的 launch.json 配置远程 Python 调试。post-mortem 调试（pdb.pm()）分析异常堆栈。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "开源模型下载与管理：HuggingFace Hub CLI 与本地镜像",
