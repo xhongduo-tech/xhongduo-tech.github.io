@@ -6785,7 +6785,7 @@
       "性能分析"
     ],
     "brief": "perf stat/record/report 的使用方法与火焰图解读。strace 跟踪系统调用开销。eBPF 的无侵入式内核追踪——用 bpftrace 分析 I/O 延迟。top/htop/iotop/vmstat 的关键指标解读。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Cgroup 与 Namespace：Linux 容器隔离的内核机制",

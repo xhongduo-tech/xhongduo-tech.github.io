@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux 性能分析工具箱：perf、strace、eBPF",
+    "slug": "linux-perf-tools",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "性能分析"
+    ],
+    "summary": "先用 top/vmstat 定方向，再用 perf、strace、bpftrace 分层定位 Linux 性能瓶颈"
+  },
+  {
     "title": "Cgroup 与 Namespace：Linux 容器隔离的内核机制",
     "slug": "cgroup-namespace-container",
     "date": "2026-03-20",
