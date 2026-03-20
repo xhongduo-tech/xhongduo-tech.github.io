@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeekMoE的共享专家机制",
+    "slug": "deepseek-moe-shared-experts",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "DeepSeek"
+    ],
+    "summary": "共享专家把通用知识集中沉淀，释放路由专家做更细的专业化。"
+  },
+  {
     "title": "Sparse Upcycling：从Dense到MoE的转换",
     "slug": "sparse-upcycling-dense-to-moe",
     "date": "2026-03-20",
