@@ -6921,7 +6921,7 @@
       "性能调优"
     ],
     "brief": "Nsight Systems 的时间线视图：CPU-GPU 同步、kernel 启动延迟、数据传输重叠。Nsight Compute 的 roofline 模型定位 compute bound vs memory bound。torch.profiler 的 trace_handler 与 Chrome Trace 可视化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "NCCL",

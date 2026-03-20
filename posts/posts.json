@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPU 性能分析：Nsight Systems、Nsight Compute 与 PyTorch Profiler",
+    "slug": "gpu-profiling-nsight",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "GPU分析",
+      "性能调优"
+    ],
+    "summary": "三种工具分别看全局时间线、单核瓶颈和Python调用链，组合使用才能高效定位GPU性能问题"
+  },
+  {
     "title": "GPU 内存层次：Global、Shared、Register 的访问延迟与优化",
     "slug": "gpu-memory-hierarchy",
     "date": "2026-03-20",
