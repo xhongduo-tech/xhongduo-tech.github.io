@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据并行的梯度AllReduce带宽瓶颈",
+    "slug": "data-parallel-allreduce-bandwidth-bottleneck",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据并行",
+      "通信优化"
+    ],
+    "summary": "梯度AllReduce的瓶颈本质是大模型梯度体量与跨节点带宽不匹配。"
+  },
+  {
     "title": "大模型分布式Checkpoint的保存与恢复",
     "slug": "distributed-checkpoint-save-restore",
     "date": "2026-03-20",

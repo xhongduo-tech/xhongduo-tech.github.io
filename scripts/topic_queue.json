@@ -6581,7 +6581,7 @@
       "通信优化"
     ],
     "brief": "核心要点：数据并行中梯度AllReduce的通信量为2(N-1)/N×M（M为参数量，N为GPU数），对于175B模型约350GB（fp16）。Ring AllReduce的时间复杂度为2(N-1)/N×M/B（B为带宽），在200Gbps InfiniBand下需14秒，必须通过梯度分桶和计算重叠来隐藏。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Chinchilla定律的推导与最优分配",
