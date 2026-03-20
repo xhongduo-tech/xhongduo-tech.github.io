@@ -1,5 +1,17 @@
 [
   {
+    "title": "记忆检索中的上下文窗口填充策略",
+    "slug": "memory-retrieval-context-window-packing",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "上下文优化"
+    ],
+    "summary": "上下文窗口填充决定多跳 Agent 能否在有限预算中拿到互补证据。"
+  },
+  {
     "title": "多Agent的结构化输出与Schema协商",
     "slug": "multi-agent-structured-output-schema",
     "date": "2026-03-20",
@@ -802,18 +814,6 @@
       "Generative Agents"
     ],
     "summary": "记忆流用新近性、重要性、相关性三维评分，筛出最该进入推理上下文的记忆"
-  },
-  {
-    "title": "记忆检索中的上下文窗口填充策略",
-    "slug": "memory-retrieval-context-window-packing",
-    "date": "2026-03-19",
-    "author": "both",
-    "tags": [
-      "智能体",
-      "记忆系统",
-      "上下文优化"
-    ],
-    "summary": "有限 token 预算下，上下文填充应同时优化相关性、去重与多跳覆盖。"
   },
   {
     "title": "向量数据库的量化压缩与检索精度权衡",

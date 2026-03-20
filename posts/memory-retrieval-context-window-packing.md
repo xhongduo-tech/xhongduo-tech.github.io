@@ -1,146 +1,153 @@
 ## 核心结论
 
-上下文窗口填充策略，白话说，就是“在模型能读的有限字数里，决定把哪几段记忆塞进去”。它不是简单的检索后拼接，而是一个受限集合选择问题：在固定 token 预算下，同时最大化相关性与信息覆盖。
+记忆检索不只是在“找什么”，更是在“有限窗口里先放什么、舍弃什么、放到多细”。这一步叫上下文窗口填充策略，指把候选记忆片段塞进模型输入的规则。对多跳推理任务来说，它往往比单次召回分数更关键，因为多跳问题需要多条互补证据，而不是一堆意思接近的高分段落。
 
-三类常见策略可以按能力分层理解：
+三类策略最常见：
 
-| 策略 | 选择规则 | 优点 | 主要问题 | 适合场景 |
-| --- | --- | --- | --- | --- |
-| 贪心填充 | 按相关性排序，直到窗口满 | 实现最简单，延迟低 | 容易塞入重复片段 | 问题单跳、语料重复少 |
-| MMR 多样性填充 | 每次选“相关且不重复”的片段 | 覆盖更好，适合多跳 | 参数需要调，过强会漏细节 | 企业知识库、FAQ、事故分析 |
-| 分层摘要填充 | 先文档级筛选，再章节级，再片段级压缩 | 适合长文档和复杂问题 | 实现复杂，摘要本身可能丢信息 | 法律、论文、多文档综述 |
+| 策略 | 决策原则 | 优点 | 主要风险 | 适合场景 |
+|---|---|---|---|---|
+| 贪心填充 | 按相关性从高到低塞到满 | 简单、快、易实现 | 冗余高，容易挤掉第二条线索 | 问题单跳、候选很短 |
+| MMR 多样性填充 | 同时考虑相关性与去重 | 多跳效果通常更稳 | 需要调 $\lambda$，实现略复杂 | 多跳问答、Agent 记忆检索 |
+| 分层摘要填充 | 先粗摘要，再按需展开细节 | 节省窗口，适合长文 | 摘要质量差会丢关键信息 | 长期记忆、超长上下文 |
 
-如果只看工程结论，优先级通常是这样的：
-
-1. 先把“检索 top-k 后直接全塞进去”的做法替换掉。
-2. 语料存在明显重复时，先上 MMR 或 AdaGReS 一类的冗余惩罚。
-3. 文档很长、问题需要跨章节时，再上分层摘要。
-
-一个足够稳定的经验是：有限预算下，正确目标不是“拿到最像查询的几个片段”，而是“拿到一组能共同回答问题的片段”。公开工程案例里，AdaGReS 相比传统 top-k 在冗余企业语料上报告了约 30% 的 token 节省和约 15% 的整体正确率提升；多跳问题提升更明显。对于初级工程师，这个结论比任何花哨检索名词都更重要。
+核心判断标准不是“拿到多少段”，而是“窗口内是否保留了互补线索”。一个常见经验是：如果任务需要两条以上证据链，单纯 top-k 往往不够，MMR 往往比贪心更稳；如果单条文档本身很长，分层摘要比继续加 chunk 更有效。
 
 ---
 
 ## 问题定义与边界
 
-上下文窗口，白话说，就是模型这一次回答前能看到的输入容量。它是硬约束，不会因为你“还有很多相关资料”就自动变大。于是问题变成：
+问题定义可以写成一句话：在固定 token 预算下，从检索候选池中决定谁先进入上下文窗口、谁被跳过、是否保留相似片段，以及要保留到什么粒度。
 
-给定候选记忆片段集合 $D=\{d_1,d_2,\dots,d_n\}$，在预算 $B$ 内选择子集 $S$，使得
+这里有三个边界必须先定清楚。
 
-$$
-\sum_{d_i \in S} tokens(d_i) \le B
-$$
+第一，`token 上限`。token 可以理解成模型读入文本时的容量单位。窗口再大也不是无限的，记忆片段多了以后，任何一个新片段都会挤占已有空间。
 
-并且 $S$ 对当前问题既相关，又尽量覆盖不同事实。
+第二，`候选粒度`。粒度就是切分得多细。你可以拿 article 级整篇文章，也可以拿 paragraph 级段落，还可以拿 chunk 级小片段。粒度越细，精确命中越容易；粒度越细，也越容易出现重复片段淹没窗口。
 
-这里有三个边界最容易被忽略。
+第三，`任务需要的证据条数`。单跳问题常常一条证据就够，多跳问题需要两条或更多互补证据。如果系统不知道这一点，就会把窗口当作普通排序题处理，结果把同一路径的相似片段塞满。
 
-第一，预算边界。`top-k=5` 不等于“最终放 5 段”。如果 5 段里有 3 段在重复同一事实，那么预算虽然花掉了，信息覆盖却没有增加。
+对零基础读者，可以用“背包”来理解。上下文窗口像背包，token 是容量。贪心 top-k 相当于只按“价值分”往里装；MMR 则是在每次装入时额外问一句：“这个东西是不是和包里已有物品太像了？”分层摘要则是“先装目录和摘要，真的需要时再展开正文”。
 
-第二，冗余边界。冗余，白话说，就是“看起来是新段落，其实在重复老信息”。向量检索特别容易把相邻、改写、转述后的相似块一起召回。
+一个实用的流程可以抽象成下面这样：
 
-第三，多跳边界。多跳，白话说，就是答案要跨两个或多个事实链路才能拼出来。例如“上周二故障的原因和业务影响”，至少要覆盖“原因”与“影响”两个 hop。只覆盖一个 hop，答案就会不完整。
+```text
+用户问题
+  ↓
+向量检索/混合检索
+  ↓
+候选池 candidates
+  ↓
+重排与填充策略
+  ├─ 贪心：按 sim(q, d) 排序
+  ├─ MMR：按 relevance - redundancy 排序
+  └─ 分层：先 coarse summary，再 fine chunk
+  ↓
+上下文窗口 context
+  ↓
+模型推理
+```
 
-下面这个小表可以直接用来判断候选片段是否值得保留：
-
-| 候选片段 | 相关性 | 来源 | hop | 是否应优先覆盖 |
-| --- | --- | --- | --- | --- |
-| 数据库超时根因说明 | 高 | 事故复盘 A | 原因 | 是 |
-| 数据库超时重复描述 | 高 | 值班群摘录 | 原因 | 否，可能冗余 |
-| 订单失败率上升 18% | 中高 | 影响评估报告 | 影响 | 是 |
-| 上月另一次故障记录 | 中 | 历史周报 | 无关 hop | 否 |
-
-玩具例子可以更直观。假设 token 预算只能放 3 段，每段约 500 token：
-
-- 贪心 top-3：原因 A、原因 B、原因 C
-- 更好的集合：原因 A、影响 D、修复动作 E
-
-前者相关性分数可能更高，但后者更接近“可回答”。这就是上下文填充和单纯检索排序的本质区别。
+“填充策略”讨论的边界并不包含底层 embedding 模型训练，也不包含模型本体参数更新。它讨论的是推理时的输入组织问题，属于典型的 context engineering，也就是上下文工程。
 
 ---
 
 ## 核心机制与推导
 
-MMR，白话说，就是“每次挑一个既像问题、又别太像已选内容的片段”。它的经典形式是：
+MMR 的全称是 Maximal Marginal Relevance，可以直译为“最大边际相关性”。白话解释是：每次新选一个候选时，不只看它和问题有多像，还要看它是不是跟已选内容太重复。
+
+公式是：
 
 $$
-MMR(d_i)=\lambda \cdot sim(q,d_i) - (1-\lambda)\cdot \max_{d_j \in S} sim(d_i,d_j)
+\mathrm{MMR}_i=\lambda \cdot \mathrm{sim}(q,i)-(1-\lambda)\cdot \max_{j\in S}\mathrm{sim}(i,j)
 $$
 
 其中：
 
-- $sim(q,d_i)$ 表示候选片段对查询的相关性
-- $\max_{d_j \in S} sim(d_i,d_j)$ 表示它和已选集合里最相似片段的重复程度
-- $\lambda$ 控制相关性与多样性的平衡
+- $q$ 是查询问题
+- $i$ 是当前候选片段
+- $S$ 是已经选入窗口的片段集合
+- $\mathrm{sim}$ 是相似度函数，常用 cosine similarity
+- $\lambda \in (0,1)$ 是权重，控制“相关性”和“多样性”的平衡
 
-如果 $\lambda=1$，它退化成纯相关性排序；如果 $\lambda=0$，它几乎只追求差异性，容易选到不相关内容。公开实践资料里，$\lambda=0.7$ 常被当作偏稳妥的默认值，因为它仍然优先相关性，但已经开始惩罚重复。
+这里的 trade-off 可以直接理解成拉锯：
 
-可以把它理解成拼图问题。贪心填充是在找“和盒盖最像的三块拼图”；MMR 是在找“既像盒盖，又能补上新区域的下一块拼图”。
+- $\lambda$ 越大，越偏向“和问题最像”
+- $\lambda$ 越小，越偏向“和已选内容不重复”
 
-AdaGReS 这类策略再往前走一步，不只看单个片段分数，而是把上下文视为一个集合优化问题。它常写成：
+经验上，$\lambda \approx 0.7$ 常作为一个稳定起点，因为它保留了相关性优先，但已经开始抑制冗余。
+
+### 玩具例子：A、B、C 三段候选为什么会选 A→C→B
+
+假设用户问：“某模型为什么在长上下文推理中失败？”
+
+检索后得到三段候选：
+
+- A：讲注意力退化，和问题相似度 0.92
+- B：也讲注意力退化，但只是 A 的近义重复，相似度 0.88
+- C：讲检索片段排序错误导致关键证据缺失，相似度 0.85
+
+再设：
+
+- $\mathrm{sim}(B, A)=0.9$
+- $\mathrm{sim}(C, A)=0.5$
+- $\lambda=0.7$
+
+第一次选择时，$S$ 为空，通常直接拿最高相关的 A。
+
+第二次对 B、C 打分：
 
 $$
-Score(S)=Rel(S)-\beta \cdot Redundancy(S)
+\mathrm{MMR}_B=0.7 \times 0.88 - 0.3 \times 0.9 = 0.346
 $$
 
-这里的 $\beta$ 是冗余惩罚强度。它的工程价值在于：同样是冗余语料，有的查询需要强惩罚，有的查询不能惩罚太重。于是 $\beta$ 可以按候选池统计量自适应调整，例如基于相关性均值和方差近似估计：
-
 $$
-\beta \approx \frac{\mu_{rel}}{\sigma_{rel}+\epsilon} \cdot budget\_factor
+\mathrm{MMR}_C=0.7 \times 0.85 - 0.3 \times 0.5 = 0.445
 $$
 
-这个式子不是唯一标准答案，但表达了一个实用思想：候选越同质，越需要抑制重复；候选差异越大，惩罚就要更保守。
+所以第二个会选 C，而不是 B。原因非常直接：B 虽然更相关，但它和 A 太像；C 稍微没那么像问题，却带来了另一条因果路径。多跳任务依赖的正是这种“第二条路线索”。
 
-一个玩具数值例子：
+这也是为什么 top-k 容易失败。top-k 看的是：
 
-| 候选 | 对查询相关性 | 与已选最大相似度 | $\lambda=0.7$ 时 MMR 分数 |
-| --- | --- | --- | --- |
-| A: 数据库超时 | 0.92 | 0.00 | 0.644 |
-| B: 数据库超时改写版 | 0.90 | 0.95 | 0.345 |
-| C: 业务影响统计 | 0.78 | 0.20 | 0.486 |
-| D: 修复动作 | 0.70 | 0.25 | 0.415 |
+$$
+\text{score}(i)=\mathrm{sim}(q,i)
+$$
 
-第一轮会先选 A。第二轮如果只看相关性会继续选 B；但 MMR 会发现 B 与 A 高度重复，于是更可能选 C。这样，窗口里第一次同时出现“原因”和“影响”。
+它不会惩罚重复，因此经常选出一串同义片段。
 
-这也是为什么在多跳推理里，MMR 类方法常比贪心填充更稳。它不是让每个片段都最相关，而是让最终集合更完整。
+### 分层摘要为什么有效
+
+分层摘要的核心不是“把文章缩短”，而是“先保留结构，再按需下钻”。粗粒度摘要可以理解为目录级信息，细粒度 chunk 是正文级信息。对于长文档或长期记忆，先把 coarse summary 放进窗口，只有当模型确认某个主题需要展开时，再加载对应细节。
+
+这背后的思路是：
+
+$$
+\text{总窗口预算} = \text{全局概览预算} + \text{局部细节预算}
+$$
+
+如果一开始就把细节全部灌入，那么全局概览会缺失，模型常常知道很多局部句子，却不知道这些句子在整体任务里各自扮演什么角色。
+
+可以把它理解为“先看目录再翻章节”。对短文没必要，但对长文、会话记忆、项目文档库非常重要。
 
 ---
 
 ## 代码实现
 
-下面给出一个可运行的 Python 版本。它不依赖真实向量库，只用手写相似度分数来演示“贪心填充”和“MMR 填充”的差异。
+下面给一个适合初学者理解的可运行 Python 版本。它不依赖向量数据库，用字典模拟“与查询的相似度”和“片段之间的相似度”，重点展示 MMR 的循环逻辑。
 
 ```python
-from dataclasses import dataclass
-from typing import List, Tuple
+from typing import List, Dict, Tuple
 
-@dataclass
-class Chunk:
-    chunk_id: str
-    text: str
-    tokens: int
-    rel: float
-    hop: str
-    source: str
-
-def greedy_fill(chunks: List[Chunk], budget: int) -> List[Chunk]:
-    ordered = sorted(chunks, key=lambda x: x.rel, reverse=True)
+def mmr_select(
+    candidates: List[str],
+    query_sim: Dict[str, float],
+    pair_sim: Dict[Tuple[str, str], float],
+    token_len: Dict[str, int],
+    max_tokens: int,
+    lam: float = 0.7,
+) -> List[str]:
     selected = []
-    used = 0
-    for c in ordered:
-        if used + c.tokens <= budget:
-            selected.append(c)
-            used += c.tokens
-    return selected
-
-def mmr_fill(
-    chunks: List[Chunk],
-    budget: int,
-    lambda_: float,
-    pair_sim: dict[Tuple[str, str], float],
-) -> List[Chunk]:
-    selected = []
-    remaining = chunks[:]
-    used = 0
+    used_tokens = 0
+    remaining = set(candidates)
 
     def sim(a: str, b: str) -> float:
         if (a, b) in pair_sim:
@@ -150,126 +157,157 @@ def mmr_fill(
         return 0.0
 
     while remaining:
-        best = None
+        best_item = None
         best_score = float("-inf")
-        best_idx = -1
-        for i, c in enumerate(remaining):
-            if used + c.tokens > budget:
+
+        for item in remaining:
+            if used_tokens + token_len[item] > max_tokens:
                 continue
-            redundancy = max((sim(c.chunk_id, s.chunk_id) for s in selected), default=0.0)
-            score = lambda_ * c.rel - (1 - lambda_) * redundancy
+
+            if not selected:
+                score = query_sim[item]
+            else:
+                redundancy = max(sim(item, s) for s in selected)
+                score = lam * query_sim[item] - (1 - lam) * redundancy
+
             if score > best_score:
                 best_score = score
-                best = c
-                best_idx = i
-        if best is None:
+                best_item = item
+
+        if best_item is None:
             break
-        selected.append(best)
-        used += best.tokens
-        remaining.pop(best_idx)
+
+        selected.append(best_item)
+        used_tokens += token_len[best_item]
+        remaining.remove(best_item)
+
     return selected
 
-chunks = [
-    Chunk("A", "数据库超时根因", 500, 0.92, "cause", "postmortem"),
-    Chunk("B", "数据库超时改写版", 500, 0.90, "cause", "ticket"),
-    Chunk("C", "业务影响: 订单失败率上升18%", 500, 0.78, "impact", "impact-report"),
-    Chunk("D", "修复动作: 连接池参数回滚", 500, 0.70, "fix", "runbook"),
-]
 
+candidates = ["A", "B", "C"]
+query_sim = {"A": 0.92, "B": 0.88, "C": 0.85}
 pair_sim = {
-    ("A", "B"): 0.95,
-    ("A", "C"): 0.20,
-    ("A", "D"): 0.25,
-    ("B", "C"): 0.22,
-    ("B", "D"): 0.24,
-    ("C", "D"): 0.30,
+    ("A", "B"): 0.90,
+    ("A", "C"): 0.50,
+    ("B", "C"): 0.40,
 }
+token_len = {"A": 80, "B": 80, "C": 80}
 
-budget = 1500
+result = mmr_select(
+    candidates=candidates,
+    query_sim=query_sim,
+    pair_sim=pair_sim,
+    token_len=token_len,
+    max_tokens=160,
+    lam=0.7,
+)
 
-greedy = greedy_fill(chunks, budget)
-mmr = mmr_fill(chunks, budget, lambda_=0.7, pair_sim=pair_sim)
-
-greedy_hops = {c.hop for c in greedy}
-mmr_hops = {c.hop for c in mmr}
-
-assert len(greedy) == 3
-assert len(mmr) == 3
-assert "impact" not in greedy_hops
-assert "impact" in mmr_hops
-
-print("greedy:", [c.chunk_id for c in greedy])
-print("mmr:", [c.chunk_id for c in mmr])
+assert result == ["A", "C"], result
+print(result)
 ```
 
-这个例子里，贪心填充会优先拿 `A+B+C` 或 `A+B+D`，取决于排序细节，但它很容易先塞进两个“原因”片段。MMR 则更容易拿 `A+C+D`，因为 `B` 与 `A` 的重复度过高。
+这段代码体现了一个关键实现原则：`retrieve candidates -> while window not full -> compute MMR -> append best -> update selected set`。真正工程里通常会再做两件事：
 
-真实工程里，代码会多两层：
+1. 预先缓存候选间相似度，避免每轮重复算 embedding。
+2. 在填充前先做 chunk 截断，避免单个片段过长直接吃掉预算。
 
-1. `retrieve_candidates(query, k=20)` 先拉大候选池，为后续集合优化留空间。
-2. `select_context(...)` 再按相关性减去冗余惩罚做迭代选择，直到 token 用完。
+输入输出结构可以先固定成下面这样：
 
-如果你的系统已经有 embedding 检索，改造成本通常不高。难点不在代码量，而在你是否开始把“选上下文”当成独立模块来评估。
+| 结构 | 类型 | 含义 |
+|---|---|---|
+| `candidates` | `List[Chunk]` | 检索返回的候选片段 |
+| `selected` | `List[Chunk]` | 已经放进窗口的片段 |
+| `window` | `str` 或 token buffer | 最终给模型的上下文 |
+| `query_sim` | `Dict[id, float]` | 候选与问题的相似度 |
+| `pair_sim` | `Dict[(id,id), float]` | 候选之间的相似度 |
+
+如果要加分层摘要，常见做法是把候选分成两层：
+
+- coarse 层：文档摘要、段落主题句、章节标题
+- fine 层：原始 chunk、句级证据、代码片段
+
+填充时先拿 coarse 层判断“哪些主题值得展开”，再到 fine 层补细节，而不是直接在所有细粒度 chunk 上暴力 top-k。
 
 ---
 
 ## 工程权衡与常见坑
 
-真实工程例子最典型的是企业事故分析。问题是：“上周二故障的原因和业务影响是什么？”如果知识库里同时有事故复盘、值班群记录、影响评估表、周报摘要，top-k 很可能召回 3 段都在讲“数据库超时”，却把“订单失败率上升”“退款延迟”这类影响信息挤掉。公开案例中，AdaGReS 在这类冗余企业语料上报告了约 30% token 节省与约 15% 整体正确率提升，核心原因不是检索更准，而是窗口里终于同时装进了互补事实。
+真实系统里，填充策略的目标不是单独优化一个排序分数，而是同时平衡正确率、延迟、token 成本和稳定性。
 
-但多样性不是越强越好，常见坑主要有四个。
+先看一个高层对比：
 
-第一，过度去重。两个高相似片段里，可能一个带表格，一个带结论。只因为“长得像”就删掉，会丢关键细节。
+| 策略 | 冗余比例 | 多跳 F1 表现 | 实现复杂度 |
+|---|---|---|---|
+| top-k 贪心 | 高 | 基线 | 低 |
+| MMR | 中低 | 常见可提升约 11% 左右 | 中 |
+| 分层摘要 | 低 | 长文场景更稳 | 中高 |
 
-第二，候选池过小。你如果只先检索 5 条，再做 MMR，算法再聪明也无事可做。集合优化需要候选冗余里存在“可替换项”。
+这里“冗余比例”指被选中的上下文中，语义高度重复的片段占比。它一高，窗口就会出现“看起来很多，实际上有效信息很少”的问题。
 
-第三，只监控最终答案，不监控选择过程。工程上至少要记录 `selected_id`、`rel_score`、`redundancy`、`used_tokens`。否则答错时你根本不知道是没召回、选错了，还是摘要时丢了信息。
+### 真实工程例子
 
-第四，把摘要当万能补丁。分层摘要能压缩上下文，但摘要模型本身也会漏掉边界条件、数字和否定关系。对高风险问答，原文片段和摘要片段最好混合保留。
+在多 Agent RAG 场景里，像 SQuAD、HotpotQA 这类任务经常要求模型综合多段证据。若只用 top-k，相似片段容易集中在一条路径上，例如都在解释“人物 A 的背景”，却漏掉“人物 A 与事件 B 的关系”。一些工程报告和论文结果显示，引入混合召回、rerank、MMR 或近似的多样性填充后，相比纯 top-k 流水线，F1 可能出现双位数提升，研究摘要里给出的量级约为 11.5%。这个数字的含义不是“MMR 永远 +11.5%”，而是说明填充策略足以决定多跳问题能否过线。
 
-可以把调参思路整理成一张决策表：
+常见坑可以直接列出来：
 
-| 现象 | 更可能的问题 | 调整方向 |
-| --- | --- | --- |
-| 回答重复一个事实，缺少第二个事实 | 冗余过高，覆盖不足 | 降低 top-k 直塞比例，增加 MMR/集合选择 |
-| 回答漏掉细小关键条件 | 冗余惩罚过强 | 降低 $\beta$ 或加“每个子问题至少一段”约束 |
-| 上下文仍然很长 | 候选过多但过滤太弱 | 提高冗余惩罚，增加预算感知 |
-| 长文档答案碎片化 | 平面检索不够 | 切换到分层摘要或层级 RAG |
+| 坑 | 触发条件 | 结果 | 规避方法 |
+|---|---|---|---|
+| 只按 top-k 填充 | 候选高度相似 | 冗余塞满窗口，第二条证据缺失 | 用 MMR 或 rerank 去重 |
+| $\lambda$ 过高 | 过度追求相关性 | 退化成贪心 | 从 0.7 起调，小批量验证 |
+| $\lambda$ 过低 | 过度追求多样性 | 选入不够相关的片段 | 观察准确率和人工可读性 |
+| chunk 太大 | 单片段过长 | 一段占满窗口 | 先做 chunk 上限裁剪 |
+| 不做分层摘要 | 长期记忆或长文档 | token overflow、信息冲突 | 先 coarse，再 fine |
+| 只评估召回率 | 忽略最终回答质量 | 检索看似好，回答仍错 | 直接评估最终任务 F1/EM |
 
-工程上最稳的做法通常不是“只信一个分数”，而是同时加两个约束：相关性分数负责保底，覆盖约束负责防漏。
+一个常被忽略的事实是：多跳任务不是“把最多信息放进去”，而是“把足够且互补的信息放进去”。因此工程上应先估算任务需要几条独立线索，再决定窗口里最多留多少同类片段。否则系统会把全部预算浪费在同一路径的反复确认上。
 
 ---
 
 ## 替代方案与适用边界
 
-如果问题主要是“重复片段太多”，MMR 或 AdaGReS 足够有效；如果问题主要是“材料太长、结构太深”，分层摘要更合适。
+MMR 很实用，但不是唯一方案。它解决的是“已召回候选如何去重并保留互补信息”，如果你的问题出在召回阶段本身，单靠 MMR 不够。
 
-层级 RAG，白话说，就是“先看目录和摘要，再深入到章节和具体段落”。它通常分三层：文档级检索、章节级检索、片段级检索，然后在进入模型前做压缩。它适合论文综述、法规检索、医疗指南这类长文档场景，因为问题往往跨章节，且原文顺序本身有意义。
+可以把常见方案放到一张决策表里看：
 
-Adaptive-k，白话说，就是“不预先写死拿几段，而是看相似度曲线在哪儿突然掉下去”。它的好处是几乎不增加延迟，适合对时延敏感的线上系统。它解决的是“拿多少段”的问题，不直接解决“这几段彼此是否重复”的问题，所以和 MMR 组合通常比单独使用更稳。
+| 方案 | 适用场景 | 优点 | 局限 | 复杂度 |
+|---|---|---|---|---|
+| top-k 贪心 | 单跳、小窗口、低成本系统 | 最简单 | 冗余高 | 低 |
+| MMR | 多跳问答、Agent 记忆注入 | 去重有效，易落地 | 需要候选间相似度 | 中 |
+| rerank + hybrid recall | 检索源复杂，既有关键词又有语义 | 召回更全，排序更稳 | 组件更多 | 中高 |
+| 分层摘要 | 长文、长期记忆、超长对话 | 节省窗口，保留全局结构 | 依赖摘要质量 | 中高 |
+| 多 Agent 分工检索 | 问题复杂、知识源异构 | 能拆路径并行找证据 | 调度和成本更高 | 高 |
 
-三类方案可以这样比较：
+几个边界判断很重要：
 
-| 方案 | 解决的主问题 | 优点 | 代价 | 适用边界 |
-| --- | --- | --- | --- | --- |
-| MMR / AdaGReS | 重复片段挤占窗口 | 提升覆盖，改造成本低 | 需要调惩罚项 | 冗余知识库、多跳问答 |
-| 层级 RAG | 长文档、跨层级推理 | 结构清晰，适合长上下文 | 系统复杂，摘要有误差 | 法律、论文、复杂报告 |
-| Adaptive-k | 固定 k 不稳 | 延迟低，容易接入 | 不处理重复 | 在线检索、预算敏感系统 |
+第一，短文档场景未必需要分层摘要。如果单条证据本身只有几百 token，先摘要再展开可能纯属额外开销，MMR 就够了。
 
-适用边界也要说清楚。若你的问题本身是单跳事实查询，例如“某 API 的返回字段是什么意思”，简单贪心填充未必差；若你的语料高度结构化且文档很短，复杂集合优化可能收益有限。真正值得投入的场景，是“有限预算 + 明显冗余 + 需要跨事实拼接答案”。
+第二，MMR 不能替代混合召回。若 dense retrieval 漏掉关键词精确匹配项，MMR 只是对错误候选做更好排序，无法凭空补回遗漏文档。此时要先做 dense + sparse 的 hybrid recall，再谈填充。
+
+第三，多 Agent 系统里，MMR 更像“窗口整理器”，不是总调度器。多个 Agent 分头检索后，仍然需要一个最终的汇总阶段去控制冗余，否则每个 Agent 都可能把自己最相关的材料重复送进来。
+
+对新手来说，可以这样记：
+
+- 只有短答案、单跳问题：先用 top-k，足够简单
+- 需要两条以上证据：优先试 MMR
+- 文档很长、记忆很多：考虑分层摘要
+- 数据源复杂、召回不稳：先补 hybrid recall 或 rerank
 
 ---
 
 ## 参考资料
 
-1. Micheal Lanham, “Your Agent’s RAG Is Bleeding Tokens: How AdaGReS Beats Top-K Retrieval”, Medium, 2026-01-10. 介绍将上下文选择视为集合优化问题，并给出约 30% token 节省、约 15% 正确率提升的公开工程案例。  
-   链接：https://medium.com/%40Micheal-Lanham/your-agents-rag-is-bleeding-tokens-how-adagres-beats-top-k-retrieval-8b8e50870e56
+1. **Context Engineering Guide**  
+   用途：支撑上下文窗口填充的定义、MMR 思路、$\lambda \approx 0.7$ 的经验设定，以及 relevance 与 diversity 的权衡框架。  
+   链接：https://www.linkedin.com/pulse/context-engineering-guide-cost-latency-optimization-agent-khatri-thg9c?utm_source=openai
 
-2. Wayland Zhang, “Chapter 8: Memory Architecture”, AI Agent Architecture, 2026. 给出 MMR 的实用公式与 `lambda=0.7` 的默认建议。  
-   链接：https://www.waylandz.com/ai-agent-book-en/chapter-08-memory-architecture/
+2. **MMR Diversify Search Results**  
+   用途：支撑 MMR 的直观解释、A/B/C 玩具例子、为什么 top-k 容易选出重复证据，以及何时使用多样性重排。  
+   链接：https://app.ailog.fr/en/blog/guides/mmr-diversification?utm_source=openai
 
-3. Atharva Khollam, “Hierarchical RAG: Multi-Level Retrieval and Context Condensation for Long-Context Reasoning”, Medium, 2025-10-20. 介绍文档级到片段级的多层检索与逐层压缩。  
-   链接：https://medium.com/%40atharvadude617/hierarchical-rag-multi-level-retrieval-and-context-condensation-for-long-context-reasoning-dce197a5da45
+3. **Improving Long-Context Summarization with Multi-Granularity Retrieval Optimization**  
+   用途：支撑分层摘要填充、粗粒度到细粒度的多层检索结构，以及长上下文场景下“先保留结构再展开细节”的工程思路。  
+   链接：https://www.microsoft.com/en-us/research/publication/improving-long-context-summarization-with-multi-granularity-retrieval-optimization/?utm_source=openai
 
-4. Indranil Chandra, “Adaptive-k Retrieval: A Smarter Way to Trim Context in RAG”, Medium. 说明如何依据相似度分布的最大落差动态决定检索深度。  
-   链接：https://indranildchandra.medium.com/adaptive-k-retrieval-a-smarter-way-to-trim-context-in-rag-687a399a67fe
+4. **Multi-agent Retrieval-Augmented Generation for Enhancing Answer Generation and Knowledge Retrieval**  
+   用途：支撑多 Agent、多跳问答场景下，混合召回与重排策略相对传统 top-k 流水线可带来双位数量级 F1 提升的工程证据。  
+   链接：https://link.springer.com/chapter/10.1007/978-3-032-05179-0_22?utm_source=openai
