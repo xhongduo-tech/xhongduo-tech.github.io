@@ -1,5 +1,17 @@
 [
   {
+    "title": "Ray：分布式 Python 计算框架与 ML 工作流",
+    "slug": "ray-distributed-ml",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Ray",
+      "分布式"
+    ],
+    "summary": "Ray 用 task/actor 统一数据处理、训练、调参与部署，适合 ML 分布式工作流。"
+  },
+  {
     "title": "pytest 在 ML 项目中的使用：模型测试与回归测试",
     "slug": "pytest-ml-testing",
     "date": "2026-03-21",

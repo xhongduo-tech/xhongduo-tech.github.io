@@ -7264,7 +7264,7 @@
       "分布式"
     ],
     "brief": "Ray Core 的 task/actor 模型。Ray Data 的流式数据处理。Ray Train 封装 PyTorch DDP 训练。Ray Serve 的模型部署与请求路由。Ray Tune 的超参搜索集成。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据版本控制",
