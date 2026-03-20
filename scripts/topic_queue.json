@@ -7337,7 +7337,7 @@
       "API集成"
     ],
     "brief": "异步客户端（asyncio + httpx）提高并发吞吐。重试策略与指数退避。流式响应（SSE）的正确处理。token 计数与成本估算。结构化输出（Structured Output/Tool Use）的可靠性保障。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "提示工程工程化：模板管理、版本控制与 A/B 测试",

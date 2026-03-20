@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM 推理 API 集成：OpenAI/Anthropic SDK 的工程最佳实践",
+    "slug": "llm-api-integration-engineering",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "API集成"
+    ],
+    "summary": "异步流式消费、结构化校验、限流重试，是生产级 LLM API 集成的三根主线"
+  },
+  {
     "title": "提示工程工程化：模板管理、版本控制与 A/B 测试",
     "slug": "prompt-engineering-productionize",
     "date": "2026-03-21",
