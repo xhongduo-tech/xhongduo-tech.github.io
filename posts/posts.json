@@ -1,5 +1,17 @@
 [
   {
+    "title": "AgentBench：八维度Agent能力的标准化评测",
+    "slug": "agentbench-eight-dimensions",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent评测",
+      "AgentBench"
+    ],
+    "summary": "AgentBench用八类真实交互环境，测出Agent在工具调用与多轮决策上的真实能力断层。"
+  },
+  {
     "title": "Agent输出的事实性验证与幻觉检测",
     "slug": "agent-output-factuality-hallucination",
     "date": "2026-03-20",
@@ -346,18 +358,6 @@
       "推理框架"
     ],
     "summary": "ReAct负责边想边做，Reflexion负责把失败写成经验并带到下一轮。"
-  },
-  {
-    "title": "AgentBench：八维度Agent能力的标准化评测",
-    "slug": "agentbench-eight-dimensions",
-    "date": "2026-03-19",
-    "author": "both",
-    "tags": [
-      "智能体",
-      "Agent评测",
-      "AgentBench"
-    ],
-    "summary": "AgentBench用困难环境加权，揭示Agent跨工具、多步执行能力的真实短板。"
   },
   {
     "title": "GAIA基准详解：通用AI助手的评测方法论",

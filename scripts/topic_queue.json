@@ -5429,7 +5429,7 @@
       "AgentBench"
     ],
     "brief": "核心要点：AgentBench覆盖操作系统、数据库、知识图谱、数字卡牌、家居环境、网页浏览、网上购物、拼图八个交互环境。分析GPT-4在OS环境得分42.4%但在KG环境仅9.1%的能力不均衡现象，揭示开源模型与闭源模型的性能断崖（平均差距超30%）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent自我反思的ReAct与Reflexion对比",
