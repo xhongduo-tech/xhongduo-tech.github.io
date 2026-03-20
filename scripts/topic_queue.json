@@ -7192,7 +7192,7 @@
       "可观测性"
     ],
     "brief": "日志管理的重要性：故障排查、性能分析、安全审计。日志管理工具：ELK Stack（Elasticsearch、Logstash、Kibana）、Loki、Graylog。日志的结构化与标准化：JSON 格式、字段提取、日志分类。日志的存储与检索：索引管理、查询优化、存储策略。日志管理的最佳实践：日志轮转、压缩、保留策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "容器运行时安全：Seccomp、AppArmor 与非 root 容器",

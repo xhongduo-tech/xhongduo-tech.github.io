@@ -1,5 +1,20 @@
 [
   {
+    "title": "日志管理",
+    "slug": "log-management-elk-loki",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "系统基础",
+      "日志",
+      "运维",
+      "日志管理",
+      "可观测性"
+    ],
+    "summary": "日志管理的核心是结构化、集中化、可保留、可检索，而不是单纯把日志存下来"
+  },
+  {
     "title": "Git 高级用法：rebase、bisect 与大模型仓库管理",
     "slug": "git-advanced-ml",
     "date": "2026-03-21",
