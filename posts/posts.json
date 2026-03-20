@@ -1,5 +1,17 @@
 [
   {
+    "title": "Context Parallel的长序列分布式训练",
+    "slug": "context-parallel-long-sequence-training",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "序列并行",
+      "长序列"
+    ],
+    "summary": "CP把长序列按序列维切到多GPU，用Ring Attention在通信中恢复全局Attention。"
+  },
+  {
     "title": "Tensor Parallel中的随机性同步",
     "slug": "tensor-parallel-randomness-synchronization",
     "date": "2026-03-20",

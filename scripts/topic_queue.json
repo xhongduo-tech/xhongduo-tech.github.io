@@ -6521,7 +6521,7 @@
       "长序列"
     ],
     "brief": "核心要点：Context Parallel（CP）将输入序列沿序列维度切分到多GPU，注意力计算通过Ring Attention实现：KV块在GPU间循环传递，每步计算局部注意力并累积结果。CP使序列长度可线性扩展，128K长度的序列在CP=8时每GPU仅处理16K。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分布式训练的内存分析框架",
