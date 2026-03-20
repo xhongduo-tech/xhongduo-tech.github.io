@@ -6257,7 +6257,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Token级路由（每个token独立选专家）是主流但引入计算不规则性；序列级路由（整个序列选一组专家）更高效但丧失细粒度。分析sentence-level routing和task-level routing的设计，以及两者的适用场景",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepSeekMoE的共享专家机制",
@@ -6293,7 +6293,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：Megatron-LM中MLP层的列并行（Column Parallel）将权重按列切分到多GPU，前向无需通信；行并行（Row Parallel）按行切分，前向需AllReduce。两者组合使MLP层仅需一次AllReduce，通信量为O(b·s·h/t)，其中t为并行度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自注意力层的Tensor Parallel实现",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Tensor Parallel的列并行与行并行切分",
+    "slug": "tensor-parallel-column-row-split",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "模型并行",
+      "分布式训练"
+    ],
+    "summary": "Megatron 的 MLP 用列并行接行并行，把通信压到块尾一次 AllReduce。"
+  },
+  {
     "title": "MoE的专家容量与内存墙问题",
     "slug": "moe-expert-capacity-memory-wall",
     "date": "2026-03-20",
