@@ -1,5 +1,17 @@
 [
   {
+    "title": "分布式训练的内存分析框架",
+    "slug": "distributed-training-memory-analysis",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "内存优化",
+      "分布式训练"
+    ],
+    "summary": "训练显存应拆成状态与激活两类建模，175B 级模型通常必须靠 ZeRO-3、TP、PP 联合分摊。"
+  },
+  {
     "title": "Context Parallel的长序列分布式训练",
     "slug": "context-parallel-long-sequence-training",
     "date": "2026-03-20",
