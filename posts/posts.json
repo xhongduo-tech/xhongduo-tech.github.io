@@ -1,5 +1,17 @@
 [
   {
+    "title": "lm-evaluation-harness：LLM 标准化评测框架",
+    "slug": "lm-evaluation-harness",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测",
+      "工具链"
+    ],
+    "summary": "lm-eval把任务、few-shot、prompt和指标统一配置化，从而让LLM评测结果可复现、可比较。"
+  },
+  {
     "title": "数据版本控制",
     "slug": "dvc-data-version-control",
     "date": "2026-03-21",

@@ -7290,7 +7290,7 @@
       "工具链"
     ],
     "brief": "EleutherAI lm-eval 的任务注册机制。内置 benchmark：MMLU/HellaSwag/ARC/TruthfulQA 的评测实现。自定义任务的 YAML 配置格式。few-shot 设置与评测结果的可比性注意事项。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "pytest 在 ML 项目中的使用：模型测试与回归测试",
