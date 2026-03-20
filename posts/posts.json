@@ -1,5 +1,17 @@
 [
   {
+    "title": "PagedAttention与KV Cache分页管理",
+    "slug": "paged-attention-kv-cache",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "显存管理"
+    ],
+    "summary": "PagedAttention用固定block管理KV Cache，显著降低碎片并提升LLM推理吞吐"
+  },
+  {
     "title": "线性注意力的表达能力理论界限",
     "slug": "linear-attention-expressiveness-bounds",
     "date": "2026-03-20",

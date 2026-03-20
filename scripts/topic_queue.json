@@ -5993,7 +5993,7 @@
       "显存管理"
     ],
     "brief": "核心要点：LLM推理的KV Cache按序列连续分配导致严重内存碎片（浪费60-80%显存）。PagedAttention借鉴OS虚拟内存，将KV Cache分为固定大小的block（如16 tokens），通过block table实现非连续存储。碎片率从60%降至<4%，batch size可提升2-4倍，直接转化为吞吐提升",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Multi-Query与Grouped-Query Attention的KV压缩",
