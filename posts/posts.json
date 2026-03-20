@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型量化感知训练（QAT）：INT8/INT4 的训练时量化",
+    "slug": "quantization-aware-training",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "量化",
+      "训练优化"
+    ],
+    "summary": "QAT用FakeQuant+STE把低比特误差提前纳入训练，GPTQ和QLoRA则分别覆盖无数据压缩与低显存微调场景"
+  },
+  {
     "title": "微调学习率调度：warmup、余弦退火与学习率查找",
     "slug": "finetuning-lr-schedule",
     "date": "2026-03-21",

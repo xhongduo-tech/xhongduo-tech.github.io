@@ -7565,7 +7565,7 @@
       "训练优化"
     ],
     "brief": "PTQ（训练后量化）vs QAT（量化感知训练）的精度差异来源。伪量化节点（fake quantize op）的梯度直通估计器（STE）。GPTQ 的按层 Hessian 加权优化。QLoRA 的 NF4（Normal Float 4）的统计意义。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "vLLM 架构深解：Scheduler、Engine 与 Worker 的协作",
