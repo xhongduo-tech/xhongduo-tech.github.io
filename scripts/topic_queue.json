@@ -7505,7 +7505,7 @@
       "PEFT"
     ],
     "brief": "Task Arithmetic 的向量叠加理论。TIES-Merging 的冲突解决：Trim→Elect→Disjoint Merge。DARE（Drop And REscale）的稀疏化减少冲突。Franken-merging（层级拼接）的实验现象。Mergekit 工具的使用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "奖励模型训练：偏好数据标注、架构与过优化",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型合并高级技术：DARE、TIES 与模型融合",
+    "slug": "model-merging-dare-ties",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "模型合并",
+      "PEFT"
+    ],
+    "summary": "TIES 先解冲突，DARE 先降冲突面，二者结合比直接任务向量相加更稳。"
+  },
+  {
     "title": "在线 DPO vs 离线 DPO：偏好数据收集与训练策略",
     "slug": "online-vs-offline-dpo",
     "date": "2026-03-21",
