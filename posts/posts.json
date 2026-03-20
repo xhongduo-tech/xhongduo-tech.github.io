@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux 调度器：CFS、实时调度与 NUMA 感知",
+    "slug": "linux-scheduler-cfs-numa",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "调度"
+    ],
+    "summary": "CFS 按 vruntime 做公平调度，实时类优先抢占，NUMA 绑定决定多路机器性能上限"
+  },
+  {
     "title": "Docker 核心机制：镜像分层、OverlayFS 与容器生命周期",
     "slug": "docker-core-overlay-lifecycle",
     "date": "2026-03-20",

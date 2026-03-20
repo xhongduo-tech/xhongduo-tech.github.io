@@ -6833,7 +6833,7 @@
       "调度"
     ],
     "brief": "完全公平调度器（CFS）的虚拟运行时间与红黑树实现。SCHED_FIFO/SCHED_RR 实时调度类。NUMA 架构下的内存访问延迟差异与 numactl 绑核——CPU 密集型预处理的性能调优。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Docker 核心机制：镜像分层、OverlayFS 与容器生命周期",
