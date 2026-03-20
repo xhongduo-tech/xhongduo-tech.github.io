@@ -1,5 +1,17 @@
 [
   {
+    "title": "pytest 在 ML 项目中的使用：模型测试与回归测试",
+    "slug": "pytest-ml-testing",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "测试",
+      "工程质量"
+    ],
+    "summary": "用 pytest 复用模型加载、覆盖多输入，并用近似断言和精度门槛防止模型回退"
+  },
+  {
     "title": "lm-evaluation-harness：LLM 标准化评测框架",
     "slug": "lm-evaluation-harness",
     "date": "2026-03-21",

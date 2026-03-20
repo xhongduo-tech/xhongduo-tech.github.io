@@ -7302,7 +7302,7 @@
       "工程质量"
     ],
     "brief": "pytest fixture 管理模型加载的共享开销。参数化测试覆盖多种输入。近似断言（pytest.approx）测试浮点输出。用 pytest 构建模型精度回归测试：防止代码变更引入精度劣化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CI/CD for ML：GitHub Actions 的训练与评测自动化",
