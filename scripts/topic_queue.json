@@ -7314,7 +7314,7 @@
       "自动化"
     ],
     "brief": "GitHub Actions 的 workflow/job/step 语法。self-hosted runner 配置 GPU 节点。在 PR 时自动运行小规模冒烟训练与评测。模型权重的 artifact 管理。matrix strategy 并行测试多配置。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Hydra：配置管理框架与大规模实验配置",

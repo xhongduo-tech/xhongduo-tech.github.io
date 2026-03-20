@@ -1,5 +1,17 @@
 [
   {
+    "title": "CI/CD for ML：GitHub Actions 的训练与评测自动化",
+    "slug": "github-actions-ml-cicd",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "CI/CD",
+      "自动化"
+    ],
+    "summary": "用 GitHub Actions 把 ML 冒烟训练、评测、Artifact 和 GPU Runner 串成可维护 C…"
+  },
+  {
     "title": "Hydra：配置管理框架与大规模实验配置",
     "slug": "hydra-config-management",
     "date": "2026-03-21",
