@@ -1,5 +1,19 @@
 [
   {
+    "title": "Docker Compose",
+    "slug": "docker-compose-ml-env",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Docker",
+      "编排",
+      "工程实践",
+      "开发环境"
+    ],
+    "summary": "Compose 用声明式 YAML 管理单机多容器系统，关键是服务、网络、卷与健康检查。"
+  },
+  {
     "title": "CUDA 编程模型：Grid、Block、Thread 的层次结构",
     "slug": "cuda-programming-model",
     "date": "2026-03-20",

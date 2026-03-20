@@ -6885,7 +6885,7 @@
       "开发环境"
     ],
     "brief": "docker-compose.yml 的服务/网络/卷定义语法。depends_on 与健康检查。GPU 资源的 deploy.resources 配置（nvidia runtime）。用 Compose 管理训练/推理/监控多容器的实战模式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CUDA 编程模型：Grid、Block、Thread 的层次结构",
