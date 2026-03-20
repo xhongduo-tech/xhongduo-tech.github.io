@@ -7577,7 +7577,7 @@
       "推理系统"
     ],
     "brief": "vLLM 的三层架构：LLMEngine（调度决策）/ AsyncLLMEngine（异步接口）/ Worker（GPU 执行）。请求生命周期：arrive → preempt → recompute → output。Chunked Prefill 的流式处理机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SGLang：结构化生成与 RadixAttention 的 KV Cache 复用",

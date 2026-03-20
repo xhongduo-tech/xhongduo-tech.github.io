@@ -1,5 +1,17 @@
 [
   {
+    "title": "vLLM 架构深解：Scheduler、Engine 与 Worker 的协作",
+    "slug": "vllm-architecture-deep-dive",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "vLLM",
+      "推理系统"
+    ],
+    "summary": "vLLM 用异步入口、统一调度器和 GPU Worker 协作，在有限 KV 与 token 预算下平衡 decode…"
+  },
+  {
     "title": "奖励模型训练：偏好数据标注、架构与过优化",
     "slug": "reward-model-training",
     "date": "2026-03-21",
