@@ -7409,7 +7409,7 @@
       "LoRA"
     ],
     "brief": "DoRA（Weight-Decomposed Low-Rank Adaptation）将权重分解为幅度（magnitude）与方向（direction）分别更新。与 LoRA 的梯度行为对比。VeRA（向量化随机矩阵）进一步减少参数量。LongLoRA 的 S²-Attn 支持长上下文微调。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "灾难性遗忘与持续学习：微调后通用能力保持策略",

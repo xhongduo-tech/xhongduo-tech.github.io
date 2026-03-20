@@ -1,5 +1,17 @@
 [
   {
+    "title": "DoRA 与 LoRA 变体：权重分解的参数高效微调",
+    "slug": "dora-lora-variants",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT",
+      "LoRA"
+    ],
+    "summary": "DoRA分离幅度与方向，VeRA压缩适配器存储，LongLoRA解决长上下文训练成本"
+  },
+  {
     "title": "开源模型下载与管理：HuggingFace Hub CLI 与本地镜像",
     "slug": "model-download-management",
     "date": "2026-03-21",
