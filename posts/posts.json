@@ -1,5 +1,17 @@
 [
   {
+    "title": "稀疏注意力的动态模式学习",
+    "slug": "learnable-sparse-attention-patterns",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "自适应"
+    ],
+    "summary": "动态稀疏注意力先低成本预测重要位置，再只对top-k做精确计算。"
+  },
+  {
     "title": "Linear Transformer与核函数选择",
     "slug": "linear-transformer-kernel-functions",
     "date": "2026-03-20",

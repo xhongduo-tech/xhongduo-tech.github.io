@@ -6029,7 +6029,7 @@
       "自适应"
     ],
     "brief": "核心要点：固定稀疏模式（如Longformer）无法适应不同输入的注意力分布。动态稀疏方法通过轻量级评分网络预测每个token应关注的top-k位置：先用低秩投影计算近似注意力分数O(Nr)（r<<N），再对top-k位置做精确注意力。Reformer用LSH哈希实现O(N log N)的近似top-k",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linear Transformer与核函数选择",
