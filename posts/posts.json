@@ -1,5 +1,17 @@
 [
   {
+    "title": "稀疏注意力的CUDA kernel实现挑战",
+    "slug": "sparse-attention-cuda-kernel-challenges",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "CUDA"
+    ],
+    "summary": "稀疏注意力要真正加速，关键不只是少算，而是让块稀疏模式对齐 GPU 的访存与调度路径。"
+  },
+  {
     "title": "Longformer与BigBird的稀疏模式对比",
     "slug": "longformer-bigbird-sparse-pattern-comparison",
     "date": "2026-03-20",

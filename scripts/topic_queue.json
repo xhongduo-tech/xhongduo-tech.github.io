@@ -5861,7 +5861,7 @@
       "CUDA"
     ],
     "brief": "核心要点：稀疏注意力的理论复杂度为O(N·k)但实际加速受限于GPU的不规则访存。block-sparse实现（如OpenAI的block_size=64策略）通过将稀疏模式对齐到Tensor Core的block粒度，避免warp divergence。实测在N<2048时稀疏kernel反而慢于dense FlashAttention",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Performer的随机特征映射近似Softmax",
