@@ -6749,7 +6749,7 @@
       "进程管理"
     ],
     "brief": "fork 的写时复制机制、exec 族函数替换进程镜像、wait/waitpid 回收僵尸进程。IPC 六种方式（管道、FIFO、消息队列、共享内存、信号量、Socket）的选型依据与典型场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux 文件系统：inode、VFS 与 mmap",

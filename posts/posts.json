@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux 进程模型：fork、exec 与进程间通信",
+    "slug": "linux-process-model",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "进程管理"
+    ],
+    "summary": "fork 负责复制，exec 替换映像，waitpid 回收；IPC 选型取决于亲缘、延迟与数据量。"
+  },
+  {
     "title": "知识蒸馏的损失函数设计与软标签信息量分析",
     "slug": "knowledge-distillation-loss-design-soft-label-information",
     "date": "2026-03-20",
