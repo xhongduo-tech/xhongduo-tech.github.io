@@ -7445,7 +7445,7 @@
       "数据生成"
     ],
     "brief": "RFT 的核心思路：让模型多次采样，保留正确答案的轨迹做 SFT。与 RLHF 的对比：无需奖励模型，但依赖验证器。Self-Play Fine-Tuning（SPIN）的迭代博弈机制。StarCoder2-Instruct 的无人类标注对齐实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "长上下文微调：RoPE 外推与 Position Interpolation",

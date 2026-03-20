@@ -1,5 +1,17 @@
 [
   {
+    "title": "拒绝采样微调（RFT）：用自生成数据提升推理能力",
+    "slug": "rejection-sampling-finetuning",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "推理训练",
+      "数据生成"
+    ],
+    "summary": "RFT用自采样加验证筛出正确轨迹，再用SFT持续放大模型的可验证推理能力"
+  },
+  {
     "title": "灾难性遗忘与持续学习：微调后通用能力保持策略",
     "slug": "catastrophic-forgetting-continual",
     "date": "2026-03-21",
