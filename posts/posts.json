@@ -1,5 +1,19 @@
 [
   {
+    "title": "数据版本控制",
+    "slug": "dvc-data-version-control",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "DVC",
+      "数据管理",
+      "数据工程",
+      "版本控制"
+    ],
+    "summary": "DVC把代码与数据分治管理，用哈希、远端和DAG实现可复现的数据工程流程"
+  },
+  {
     "title": "硬件规格解读：GPU 选型、互联带宽与训练效率估算",
     "slug": "gpu-hardware-spec-selection",
     "date": "2026-03-21",

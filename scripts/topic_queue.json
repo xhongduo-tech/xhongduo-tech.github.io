@@ -7278,7 +7278,7 @@
       "版本控制"
     ],
     "brief": "DVC 的设计哲学：Git 管代码，DVC 管数据/模型。dvc add/push/pull 与 remote storage（S3/GCS/SSH）。dvc repro 的 pipeline DAG 重现。DVC Experiments 追踪超参与指标。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "lm-evaluation-harness：LLM 标准化评测框架",
