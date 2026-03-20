@@ -1,5 +1,17 @@
 [
   {
+    "title": "SSH 与远程开发：跳板机、端口转发与 VS Code Remote",
+    "slug": "ssh-remote-dev",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "SSH",
+      "开发环境"
+    ],
+    "summary": "用 ProxyJump 打通内网，用端口转发带回服务，再用 VS Code Remote SSH在远端直接开发。"
+  },
+  {
     "title": "Linux TCP 调优：分布式训练网络性能优化",
     "slug": "linux-tcp-tuning-distributed",
     "date": "2026-03-20",

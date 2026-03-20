@@ -7032,7 +7032,7 @@
       "开发环境"
     ],
     "brief": "SSH 多级跳转（ProxyJump）访问内网 GPU 服务器。本地/远程/动态端口转发的使用场景（TensorBoard、Jupyter 访问）。SSH config 文件管理多主机。VS Code Remote SSH 的工作原理与常见问题排查。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "进程监控与守护：screen、tmux 与 systemd service",
