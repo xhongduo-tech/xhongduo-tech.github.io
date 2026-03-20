@@ -1,5 +1,17 @@
 [
   {
+    "title": "扩展定律中的不可约损失项分析",
+    "slug": "irreducible-loss-scaling-law",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "损失函数"
+    ],
+    "summary": "E 是训练分布的熵下界，决定扩展定律最终逼近的 loss 底部。"
+  },
+  {
     "title": "涌现能力的度量依赖性解释",
     "slug": "emergent-abilities-metric-mirage",
     "date": "2026-03-20",
