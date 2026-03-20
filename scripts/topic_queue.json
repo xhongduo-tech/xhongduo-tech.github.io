@@ -6761,7 +6761,7 @@
       "文件系统"
     ],
     "brief": "inode 存储哪些元数据、目录项（dentry）的作用。VFS 抽象层使 ext4/XFS/tmpfs 共享同一套系统调用接口。mmap 的页缓存机制与直接 I/O 的差异——ML 训练数据加载的选型依据。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux 内存管理：虚拟内存、Page Fault 与 OOM Killer",

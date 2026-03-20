@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux 文件系统：inode、VFS 与 mmap",
+    "slug": "linux-filesystem-inode-vfs",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "文件系统"
+    ],
+    "summary": "inode管元数据，dentry管名字映射，VFS统一接口，mmap与Direct I/O按访问模式选型"
+  },
+  {
     "title": "Linux 进程模型：fork、exec 与进程间通信",
     "slug": "linux-process-model",
     "date": "2026-03-20",
