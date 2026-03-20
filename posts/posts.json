@@ -1,5 +1,17 @@
 [
   {
+    "title": "S4模型的HiPPO矩阵初始化",
+    "slug": "s4-hippo-matrix-initialization",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "状态空间模型",
+      "HiPPO"
+    ],
+    "summary": "HiPPO-LegS把S4状态初始化为历史的Legendre投影系数，提供可解释且稳定的长记忆结构"
+  },
+  {
     "title": "线性注意力的因果约束处理",
     "slug": "linear-attention-causal-constraint",
     "date": "2026-03-20",

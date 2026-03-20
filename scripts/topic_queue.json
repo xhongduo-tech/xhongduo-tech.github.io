@@ -5921,7 +5921,7 @@
       "HiPPO"
     ],
     "brief": "核心要点：S4的核心是状态矩阵A的初始化策略HiPPO（High-order Polynomial Projection Operators）。HiPPO-LegS矩阵A_{nk}=-(2n+1)^{1/2}(2k+1)^{1/2}（n>k时），使隐状态最优地压缩历史信息为Legendre多项式系数，理论上实现O(N)记忆长度无衰减",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "状态空间模型的连续-离散对偶性",
