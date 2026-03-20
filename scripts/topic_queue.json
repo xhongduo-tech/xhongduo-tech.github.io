@@ -7493,7 +7493,7 @@
       "SFT"
     ],
     "brief": "数据去重方法：精确去重（hash）与近似去重（MinHash LSH）。质量过滤：困惑度过滤、长度过滤、规则过滤。IFD（Instruction Following Difficulty）分选高价值样本。Alpagasus 的 ChatGPT 打分过滤策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型合并高级技术：DARE、TIES 与模型融合",
