@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent安全边界：Prompt注入攻击与防御",
+    "slug": "agent-prompt-injection-defense",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全边界",
+      "Prompt注入"
+    ],
+    "summary": "Prompt注入本质是数据流误入命令流，需用分层隔离、输入消毒和输出验证联合防御"
+  },
+  {
     "title": "记忆检索中的上下文窗口填充策略",
     "slug": "memory-retrieval-context-window-packing",
     "date": "2026-03-20",
@@ -286,18 +298,6 @@
       "SWE-bench"
     ],
     "summary": "Verified 的价值是先删掉歧义题，再比较 agent 的真实修复能力。"
-  },
-  {
-    "title": "Agent安全边界：Prompt注入攻击与防御",
-    "slug": "agent-prompt-injection-defense",
-    "date": "2026-03-19",
-    "author": "both",
-    "tags": [
-      "智能体",
-      "安全边界",
-      "Prompt注入"
-    ],
-    "summary": "Agent读外部内容时，数据会伪装成指令；三层组合防御比单层过滤可靠得多。"
   },
   {
     "title": "Agent错误恢复的回退策略与检查点机制",
