@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention的IO复杂度分析",
+    "slug": "flashattention-io-complexity",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "FlashAttention",
+      "IO感知"
+    ],
+    "summary": "FlashAttention通过SRAM分块与算子融合，把Attention瓶颈从显存读写转成片上计算。"
+  },
+  {
     "title": "Agent的优雅降级与用户透明度设计",
     "slug": "agent-graceful-degradation-transparency",
     "date": "2026-03-20",

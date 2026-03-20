@@ -5765,7 +5765,7 @@
       "IO感知"
     ],
     "brief": "核心要点：标准Attention的HBM读写量为Θ(Nd+N²)，FlashAttention通过分块计算将其降至Θ(N²d²M⁻¹)，其中M为SRAM大小。详解tiling策略如何将N×N注意力矩阵的显存访问从O(N²)压缩到O(N²/B_c)，B_c为块大小，受限于SRAM容量",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention的在线Softmax算法",
