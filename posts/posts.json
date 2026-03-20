@@ -1,5 +1,17 @@
 [
   {
+    "title": "思维链如何降低涌现的临界规模",
+    "slug": "chain-of-thought-emergence-threshold",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "涌现能力",
+      "思维链"
+    ],
+    "summary": "思维链通过分解多步任务，放大有效推理深度，从而把涌现能力的触发门槛推向更小模型。"
+  },
+  {
     "title": "Agent评测的成本效率指标：性能与Token消耗的帕累托前沿",
     "slug": "agent-eval-cost-efficiency-pareto",
     "date": "2026-03-20",
