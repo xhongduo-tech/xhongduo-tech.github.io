@@ -6984,7 +6984,7 @@
       "GPU调度"
     ],
     "brief": "NVIDIA Device Plugin 的工作原理：GPU 资源注册到 kubelet。nodeSelector / nodeAffinity / podAffinity 的调度约束。Volcano（批调度器）的 gang scheduling——确保多节点训练任务全部 Pod 同时启动。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分布式存储：NFS、Ceph 与 AI 训练集群的存储架构",
