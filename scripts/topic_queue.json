@@ -5753,7 +5753,7 @@
       "成本效率"
     ],
     "brief": "核心要点：Agent评测不应只看成功率，还需考虑Token消耗、API调用次数、延迟。分析SWE-bench上各Agent的帕累托前沿：部分Agent以10倍token消耗仅换来5%的成功率提升。提出标准化的成本效率指标（成功率/千token），建立不同预算约束下的最优Agent选择框架。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "FlashAttention的IO复杂度分析",
@@ -6257,7 +6257,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Token级路由（每个token独立选专家）是主流但引入计算不规则性；序列级路由（整个序列选一组专家）更高效但丧失细粒度。分析sentence-level routing和task-level routing的设计，以及两者的适用场景",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DeepSeekMoE的共享专家机制",
@@ -6641,7 +6641,7 @@
       "统计物理"
     ],
     "brief": "核心要点：将涌现能力类比为统计物理中的相变：模型规模对应温度，任务准确率对应序参量。分析这一类比的数学基础——损失函数的平滑下降如何通过非线性解码产生序参量的不连续跳变，讨论临界指数的可预测性",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "思维链如何降低涌现的临界规模",
