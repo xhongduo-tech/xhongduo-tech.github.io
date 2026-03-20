@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sparse Upcycling：从Dense到MoE的转换",
+    "slug": "sparse-upcycling-dense-to-moe",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "训练策略"
+    ],
+    "summary": "Sparse Upcycling把dense的FFN升级为MoE，关键在复制继承、路由预热和部分重初始化。"
+  },
+  {
     "title": "MoE的梯度估计与直通估计器",
     "slug": "moe-gradient-estimation-ste",
     "date": "2026-03-20",

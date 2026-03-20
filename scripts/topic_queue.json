@@ -6245,7 +6245,7 @@
       "训练策略"
     ],
     "brief": "核心要点：Sparse Upcycling将预训练好的dense模型转换为MoE模型继续训练，避免从零训练MoE的成本。分析FFN层复制初始化策略、路由网络的warm-up设计、以及转换后的训练dynamics变化",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的Token级与序列级路由对比",
