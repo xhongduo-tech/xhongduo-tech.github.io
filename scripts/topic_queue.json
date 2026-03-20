@@ -7093,7 +7093,7 @@
       "权限管理"
     ],
     "brief": "用户/组的 UID/GID 机制。sudo 的 sudoers 配置与最小权限原则。ACL（setfacl/getfacl）实现比传统 rwx 更细粒度的文件权限。多用户共享 GPU 服务器的规范：资源隔离、进程归属、空间配额。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "磁盘管理：LVM、RAID 与 NVMe 调优",

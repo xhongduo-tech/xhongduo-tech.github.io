@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux 用户权限管理：sudo、ACL 与多用户 GPU 服务器规范",
+    "slug": "linux-permissions-gpu-server",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "权限管理"
+    ],
+    "summary": "Linux 权限管理要把 UID/GID、sudo、ACL 与 GPU 资源隔离一起设计。"
+  },
+  {
     "title": "存储 I/O 优化：数据集预处理与高吞吐数据加载",
     "slug": "storage-io-optimization-ml",
     "date": "2026-03-20",
