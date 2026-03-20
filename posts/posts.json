@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的梯度估计与直通估计器",
+    "slug": "moe-gradient-estimation-ste",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "优化理论"
+    ],
+    "summary": "MoE的top-k不可导，STE、Gumbel-Softmax与REINFORCE分别在偏差和方差之间做不同权衡"
+  },
+  {
     "title": "MoE在Attention层的应用：Multi-Head MoE",
     "slug": "moe-attention-multi-head-moe",
     "date": "2026-03-20",

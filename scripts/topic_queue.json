@@ -6233,7 +6233,7 @@
       "优化理论"
     ],
     "brief": "核心要点：Top-K操作的离散性导致梯度不连续，分析三种梯度估计方案：直通估计器（STE）直接传递梯度、Gumbel-Softmax的连续松弛、以及REINFORCE策略梯度。推导各方案的梯度偏差与方差特性",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sparse Upcycling：从Dense到MoE的转换",
