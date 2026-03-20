@@ -7457,7 +7457,7 @@
       "RoPE"
     ],
     "brief": "预训练位置编码的外推局限性。Position Interpolation（PI）将旋转频率缩放以支持更长上下文。YaRN 的非均匀缩放策略。LongLoRA 的 S²-Attention 降低长上下文训练成本。微调数据长度分布的重要性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多任务微调：任务混合比例、损失加权与梯度冲突",

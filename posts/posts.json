@@ -1,5 +1,17 @@
 [
   {
+    "title": "长上下文微调：RoPE 外推与 Position Interpolation",
+    "slug": "long-context-finetuning-rope",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "长上下文",
+      "RoPE"
+    ],
+    "summary": "RoPE 长上下文扩展的关键是用 PI/YaRN 稳定位置角度，再用 LongLoRA 降低训练成本。"
+  },
+  {
     "title": "拒绝采样微调（RFT）：用自生成数据提升推理能力",
     "slug": "rejection-sampling-finetuning",
     "date": "2026-03-21",
