@@ -1,5 +1,17 @@
 [
   {
+    "title": "多任务微调：任务混合比例、损失加权与梯度冲突",
+    "slug": "multitask-finetuning",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "多任务学习",
+      "SFT"
+    ],
+    "summary": "多任务微调的关键是采样调度、损失加权与梯度冲突协调三者配合"
+  },
+  {
     "title": "长上下文微调：RoPE 外推与 Position Interpolation",
     "slug": "long-context-finetuning-rope",
     "date": "2026-03-21",

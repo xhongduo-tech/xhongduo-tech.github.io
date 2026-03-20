@@ -7469,7 +7469,7 @@
       "SFT"
     ],
     "brief": "多任务数据混合的采样策略（均匀/温度采样/任务比例调度）。任务间梯度冲突的诊断（梯度余弦相似度）。PCGrad/GradNorm 等梯度外科手术方法。Flan 系列的多任务 prompt 模板设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "在线 DPO vs 离线 DPO：偏好数据收集与训练策略",
