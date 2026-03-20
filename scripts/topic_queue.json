@@ -6425,7 +6425,7 @@
       "模型并行"
     ],
     "brief": "核心要点：词表Embedding在TP中按词表维度切分，每GPU存储V/t行的Embedding矩阵。前向通过AllReduce收集完整输出，反向仅更新本地分片。当词表V=256000、隐藏维度h=12288时，Embedding参数约3.1B，TP=8使每GPU仅需存储390M参数。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "激活重计算在并行训练中的应用",

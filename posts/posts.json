@@ -1,5 +1,17 @@
 [
   {
+    "title": "Megatron-LM的分布式Embedding实现",
+    "slug": "megatron-distributed-embedding",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "模型并行"
+    ],
+    "summary": "Megatron-LM把Embedding按词表维切到各卡，前向AllReduce恢复输出，反向仅更新本地分片。"
+  },
+  {
     "title": "Tensor Parallel的通信原语分析",
     "slug": "tensor-parallel-communication-primitives",
     "date": "2026-03-20",
