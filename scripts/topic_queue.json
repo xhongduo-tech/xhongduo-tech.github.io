@@ -6797,7 +6797,7 @@
       "容器"
     ],
     "brief": "Namespace 实现 PID/Network/Mount/UTS/IPC 的隔离机制。Cgroup v2 的资源限制：CPU 配额、内存硬限、I/O 权重。容器运行时（runc/containerd）如何组合这两个机制构建隔离环境。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux 网络栈：TCP/IP 协议与 Socket 编程基础",
