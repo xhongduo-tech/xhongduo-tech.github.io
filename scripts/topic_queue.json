@@ -6329,7 +6329,7 @@
       "GPipe"
     ],
     "brief": "核心要点：GPipe将模型按层切分到K个加速器，mini-batch切分为M个micro-batch。前向阶段顺序执行所有micro-batch，反向阶段逆序执行，梯度在所有micro-batch上累积后同步更新。re-materialization策略以计算换内存，峰值激活内存降至O(N/K)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PipeDream的1F1B异步调度",

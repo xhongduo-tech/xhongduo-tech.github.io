@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPipe的梯度累积与同步机制",
+    "slug": "gpipe-gradient-accumulation-sync",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "流水线并行",
+      "GPipe"
+    ],
+    "summary": "GPipe用micro-batch流水线与梯度累积，在保持同步SGD语义下扩展大模型训练。"
+  },
+  {
     "title": "PipeDream的1F1B异步调度",
     "slug": "pipedream-1f1b-async-scheduling",
     "date": "2026-03-20",
