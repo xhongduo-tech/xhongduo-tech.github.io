@@ -7008,7 +7008,7 @@
       "网络调优"
     ],
     "brief": "TCP 缓冲区大小（rmem/wmem）对吞吐的影响。MTU jumbo frame 的配置。IRQ affinity 与网卡多队列绑核。NCCL_SOCKET_IFNAME 等环境变量的正确配置。实测 iperf3 验证带宽是否达到物理上限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Shell 脚本与自动化：ML 实验管理的工程基础",

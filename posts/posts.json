@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux TCP 调优：分布式训练网络性能优化",
+    "slug": "linux-tcp-tuning-distributed",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "网络调优"
+    ],
+    "summary": "TCP 调优的核心是让窗口、MTU、队列和 NCCL 选口共同对齐链路 BDP。"
+  },
+  {
     "title": "Shell 脚本与自动化：ML 实验管理的工程基础",
     "slug": "shell-scripting-ml",
     "date": "2026-03-20",
