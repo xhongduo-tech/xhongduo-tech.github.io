@@ -7129,7 +7129,7 @@
       "分布式"
     ],
     "brief": "NTP vs PTP（IEEE 1588）的精度差异（毫秒 vs 微秒）。时钟漂移对分布式训练超时设置的影响。timedatectl 与 chronyc 查看同步状态。NCCL timeout 参数与时钟不同步导致的假超时案例。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Makefile 与构建系统：AI 项目的实验自动化",

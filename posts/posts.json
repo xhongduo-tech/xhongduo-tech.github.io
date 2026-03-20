@@ -1,5 +1,17 @@
 [
   {
+    "title": "系统时间同步与分布式训练：NTP、PTP 与时钟漂移",
+    "slug": "ntp-ptp-distributed-training",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "分布式"
+    ],
+    "summary": "NTP 够大多数训练，PTP 解决子微秒对齐；先排时间链路，再调分布式超时。"
+  },
+  {
     "title": "环境变量与动态链接库：CUDA 版本管理与库冲突排查",
     "slug": "cuda-env-ld-library",
     "date": "2026-03-21",
