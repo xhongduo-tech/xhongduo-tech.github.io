@@ -6341,7 +6341,7 @@
       "PipeDream"
     ],
     "brief": "核心要点：PipeDream的1F1B（one-forward-one-backward）调度在稳态阶段交替执行前向和反向传播，将内存占用从O(m)降至O(p)。权重版本管理通过weight stashing保持梯度一致性，每个stage最多保存p份权重副本。PipeDream-2BW进一步将权重副本减少到2份。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Megatron-LM的混合并行架构",

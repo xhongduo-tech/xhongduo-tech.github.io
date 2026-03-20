@@ -1,5 +1,17 @@
 [
   {
+    "title": "PipeDream的1F1B异步调度",
+    "slug": "pipedream-1f1b-async-scheduling",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "流水线并行",
+      "PipeDream"
+    ],
+    "summary": "1F1B用前后向交替把缓存从随微批增长改为随流水线深度增长，2BW再把权重副本压到2份。"
+  },
+  {
     "title": "流水线并行的微批次调度策略",
     "slug": "pipeline-parallel-microbatch-scheduling",
     "date": "2026-03-20",
