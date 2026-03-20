@@ -1,5 +1,17 @@
 [
   {
+    "title": "Git 高级用法：rebase、bisect 与大模型仓库管理",
+    "slug": "git-advanced-ml",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Git",
+      "版本控制"
+    ],
+    "summary": "rebase 整理私有历史，bisect 二分找回归，LFS 与 DVC 分别管理权重和数据。"
+  },
+  {
     "title": "系统时间同步与分布式训练：NTP、PTP 与时钟漂移",
     "slug": "ntp-ptp-distributed-training",
     "date": "2026-03-21",

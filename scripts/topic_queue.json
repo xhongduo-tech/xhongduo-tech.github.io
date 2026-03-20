@@ -7153,7 +7153,7 @@
       "版本控制"
     ],
     "brief": "git rebase interactive 的提交整理。git bisect 二分定位引入 bug 的 commit。Git LFS 管理大权重文件。DVC 在模型版本控制中的作用。monorepo 结构下的训练代码组织规范。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Python 包管理与虚拟环境：uv、conda 与 pip 的选择",
