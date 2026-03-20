@@ -1,5 +1,17 @@
 [
   {
+    "title": "InfiniBand 与 RDMA：高性能计算集群网络基础",
+    "slug": "infiniband-rdma",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "网络",
+      "分布式"
+    ],
+    "summary": "RDMA 通过网卡直达内存降低延迟，RC 是主流模式，IB 追求极致性能，RoCE 更看重成本与调优能力"
+  },
+  {
     "title": "NCCL",
     "slug": "nccl-multi-gpu-communication",
     "date": "2026-03-20",

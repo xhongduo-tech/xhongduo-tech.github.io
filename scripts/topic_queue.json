@@ -6946,7 +6946,7 @@
       "分布式"
     ],
     "brief": "InfiniBand 的 RC/UD 传输模式与 RDMA 操作语义（Read/Write/Send）。RDMA 零拷贝原理：绕过 CPU 的数据传输路径。RoCE（RDMA over Converged Ethernet）与原生 IB 的延迟对比。分布式训练选型参考。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "nvidia-smi 深度使用：显存分析、利用率诊断与 MIG",
