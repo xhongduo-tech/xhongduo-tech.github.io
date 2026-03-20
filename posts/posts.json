@@ -1,5 +1,17 @@
 [
   {
+    "title": "Expert Parallel与MoE分布式训练",
+    "slug": "expert-parallelism-moe-distributed",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "模型并行",
+      "MoE"
+    ],
+    "summary": "Expert Parallel用参数分片换可扩展性，但All-to-All通信常成为MoE训练主瓶颈"
+  },
+  {
     "title": "ZeRO++的量化通信优化",
     "slug": "zero-plus-plus-quantized-communication",
     "date": "2026-03-20",

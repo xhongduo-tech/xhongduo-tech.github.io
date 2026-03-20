@@ -6485,7 +6485,7 @@
       "MoE"
     ],
     "brief": "核心要点：专家并行将不同Expert分配到不同GPU，Token通过All-to-All通信路由到目标Expert所在GPU。通信量为O(B·s·h·k/E)（k为top-k，E为Expert数）。All-to-All的通信模式不规则，难以与计算重叠，是MoE训练的主要瓶颈。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度累积与微批次大小的数学等价性",
