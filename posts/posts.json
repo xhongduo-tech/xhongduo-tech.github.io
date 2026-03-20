@@ -1,5 +1,17 @@
 [
   {
+    "title": "ST-MoE的路由稳定性与Z-Loss",
+    "slug": "st-moe-router-z-loss",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "训练稳定性"
+    ],
+    "summary": "Z-Loss通过约束router logits尺度，显著降低MoE训练崩溃率且基本不伤模型质量"
+  },
+  {
     "title": "MoE路由中的噪声注入机制",
     "slug": "moe-noisy-gating",
     "date": "2026-03-20",

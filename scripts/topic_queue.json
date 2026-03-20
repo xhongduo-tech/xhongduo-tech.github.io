@@ -6185,7 +6185,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：ST-MoE（Stable and Transferable MoE）系统研究了MoE训练不稳定的根因：路由logits的数值爆炸。提出Router Z-Loss惩罚logits的对数指数和，将训练不稳定发生率从~30%降至<1%，且不损害模型质量",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE与Dense模型的Scaling Law对比",
