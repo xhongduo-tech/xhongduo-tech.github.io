@@ -1,5 +1,17 @@
 [
   {
+    "title": "存储 I/O 优化：数据集预处理与高吞吐数据加载",
+    "slug": "storage-io-optimization-ml",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "存储",
+      "I/O优化"
+    ],
+    "summary": "把小文件随机读改成 shard 顺序流，再配合多 worker、共享内存和预取，才能稳定喂满 GPU"
+  },
+  {
     "title": "进程监控与守护：screen、tmux 与 systemd service",
     "slug": "process-management-tmux-systemd",
     "date": "2026-03-20",

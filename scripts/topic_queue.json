@@ -7068,7 +7068,7 @@
       "I/O优化"
     ],
     "brief": "顺序读与随机读的磁盘行为差异。WebDataset（tar 打包）格式将随机访问转换为顺序读。多进程 DataLoader 的 num_workers 配置与共享内存（/dev/shm）。预取（prefetch）与 GPU-Direct Storage 的原理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Prometheus + Grafana",
