@@ -7056,7 +7056,7 @@
       "镜像管理"
     ],
     "brief": "Harbor 的架构组件（Core/Registry/Jobservice/Trivy 扫描）。HTTPS 配置与自签名证书。镜像同步与复制规则。镜像漏洞扫描与策略门控（阻止高危镜像部署）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "存储 I/O 优化：数据集预处理与高吞吐数据加载",
