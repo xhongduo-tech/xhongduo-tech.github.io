@@ -1,5 +1,17 @@
 [
   {
+    "title": "分布式存储：NFS、Ceph 与 AI 训练集群的存储架构",
+    "slug": "distributed-storage-ai-cluster",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "存储",
+      "分布式"
+    ],
+    "summary": "AI训练集群应按访问模式分层组合NFS、Ceph、并行文件系统与对象存储"
+  },
+  {
     "title": "Kubernetes GPU 调度：设备插件、亲和性与 volcano",
     "slug": "kubernetes-gpu-scheduling",
     "date": "2026-03-20",

@@ -6996,7 +6996,7 @@
       "分布式"
     ],
     "brief": "NFS 的共享存储模型与单点瓶颈。Ceph 的 RADOS 对象存储与 CephFS 分布式文件系统。并行文件系统（Lustre/GPFS）在万卡集群中的应用。对象存储（MinIO/S3）在数据集管理中的适用场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux TCP 调优：分布式训练网络性能优化",
