@@ -1,5 +1,17 @@
 [
   {
+    "title": "Megatron-LM的序列并行优化",
+    "slug": "megatron-sequence-parallelism",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "序列并行"
+    ],
+    "summary": "序列并行把非TP层激活按序列切分，用通信换掉激活冗余，将单卡内存降到原来的1/t。"
+  },
+  {
     "title": "虚拟流水线并行的交错调度",
     "slug": "virtual-pipeline-interleaved-schedule",
     "date": "2026-03-20",

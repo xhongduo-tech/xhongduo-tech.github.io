@@ -6365,7 +6365,7 @@
       "序列并行"
     ],
     "brief": "核心要点：Megatron-LM的序列并行将LayerNorm和Dropout沿序列维度切分到不同GPU，解决TP中这些操作的激活冗余。通过将AllReduce拆分为Reduce-Scatter+AllGather，并在LayerNorm/Dropout处切换到序列并行，总激活内存降至原来的1/t。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "虚拟流水线并行的交错调度",
