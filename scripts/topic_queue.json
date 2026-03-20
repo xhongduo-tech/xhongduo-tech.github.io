@@ -7177,7 +7177,7 @@
       "环境配置"
     ],
     "brief": "pip/conda/uv 的镜像源配置。HuggingFace Hub 的 HF_ENDPOINT 环境变量与本地缓存路径。HTTP_PROXY/HTTPS_PROXY 在容器和物理机的差异。局域网内搭建 Nexus 私有 PyPI 仓库。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "日志管理",

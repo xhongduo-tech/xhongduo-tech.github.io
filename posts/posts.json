@@ -1,5 +1,17 @@
 [
   {
+    "title": "网络代理与加速：训练环境中的 PyPI/HuggingFace 镜像配置",
+    "slug": "proxy-mirror-ml-env",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "网络",
+      "环境配置"
+    ],
+    "summary": "训练环境加速要同时统一包镜像、代理变量、HF缓存和内网仓库入口"
+  },
+  {
     "title": "日志管理",
     "slug": "log-management-elk-loki",
     "date": "2026-03-21",
