@@ -1,5 +1,19 @@
 [
   {
+    "title": "Kubernetes 基础",
+    "slug": "kubernetes-basics-ml",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Kubernetes",
+      "集群",
+      "工程实践",
+      "基础"
+    ],
+    "summary": "Pod 是最小调度单元，Deployment 管副本更新，Service 管入口，资源声明决定能否被调度。"
+  },
+  {
     "title": "GPU 性能分析：Nsight Systems、Nsight Compute 与 PyTorch Profiler",
     "slug": "gpu-profiling-nsight",
     "date": "2026-03-20",

@@ -6972,7 +6972,7 @@
       "基础"
     ],
     "brief": "Pod 是调度的最小单元：为什么 LLM 训练通常多个 Pod 而非单 Pod 多容器。Deployment 的滚动更新与副本控制。Service 的 ClusterIP/NodePort/LoadBalancer 类型。requests/limits 的资源配额机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kubernetes GPU 调度：设备插件、亲和性与 volcano",
