@@ -1,5 +1,17 @@
 [
   {
+    "title": "上下文学习的贝叶斯推断解释",
+    "slug": "in-context-learning-bayesian-inference",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "贝叶斯推断"
+    ],
+    "summary": "上下文学习可视为对潜在概念变量的隐式贝叶斯推断。"
+  },
+  {
     "title": "思维链如何降低涌现的临界规模",
     "slug": "chain-of-thought-emergence-threshold",
     "date": "2026-03-20",

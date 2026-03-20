@@ -6665,7 +6665,7 @@
       "贝叶斯推断"
     ],
     "brief": "核心要点：Xie等人证明ICL隐式执行贝叶斯推断——给定示例序列，Transformer在隐空间中推断潜在概念变量θ，实现P(y|x,示例)≈∫P(y|x,θ)P(θ|示例)dθ。分析这一理论的HMM构造证明及其对示例数量、顺序敏感性的解释力",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer的上下文学习与梯度下降的等价性",
