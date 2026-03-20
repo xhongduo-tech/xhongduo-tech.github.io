@@ -1,5 +1,17 @@
 [
   {
+    "title": "RWKV的线性复杂度语言模型设计",
+    "slug": "rwkv-linear-complexity-language-model",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "RWKV"
+    ],
+    "summary": "RWKV用递推状态替代KV缓存，实现并行训练与固定内存推理的结合"
+  },
+  {
     "title": "Multi-Query与Grouped-Query Attention的KV压缩",
     "slug": "mqa-gqa-kv-compression",
     "date": "2026-03-20",

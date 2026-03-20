@@ -6053,7 +6053,7 @@
       "RWKV"
     ],
     "brief": "核心要点：RWKV结合Transformer的并行训练和RNN的O(1)推理。WKV算子定义为wkv_t = Σ_{i=1}^{t-1} e^{-(t-1-i)w+k_i}·v_i / Σ e^{...}，其中w为通道级衰减率。该求和可递推计算：分子a_t=e^{-w}·a_{t-1}+e^{k_t}·v_t，实现线性复杂度。RWKV-6引入data-dependent衰减提升表达力",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "注意力机制的统一视角：从二次到线性",
