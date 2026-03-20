@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux I/O 模型：阻塞、非阻塞、异步与 io_uring",
+    "slug": "linux-io-models",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux",
+      "I/O"
+    ],
+    "summary": "Linux I/O 模型的核心差异在等待方式、通知路径和高并发下的扩展成本。"
+  },
+  {
     "title": "Linux 性能分析工具箱：perf、strace、eBPF",
     "slug": "linux-perf-tools",
     "date": "2026-03-20",
