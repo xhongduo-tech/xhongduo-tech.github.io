@@ -6209,7 +6209,7 @@
       "模型压缩"
     ],
     "brief": "核心要点：将Mixtral的8个专家合并或蒸馏为更少专家以降低部署成本。分析基于路由统计的专家聚类合并、基于任务相关性的专家剪枝、以及将MoE蒸馏为dense模型的知识迁移策略",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE在Attention层的应用：Multi-Head MoE",

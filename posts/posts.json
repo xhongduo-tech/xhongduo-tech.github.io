@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixtral的专家权重合并与蒸馏",
+    "slug": "mixtral-expert-merging-distillation",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "MoE",
+      "模型压缩"
+    ],
+    "summary": "Mixtral压缩的主路径是专家聚类合并、任务感知剪枝和蒸馏补偿。"
+  },
+  {
     "title": "ST-MoE的路由稳定性与Z-Loss",
     "slug": "st-moe-router-z-loss",
     "date": "2026-03-20",
