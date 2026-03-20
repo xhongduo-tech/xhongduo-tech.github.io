@@ -7165,7 +7165,7 @@
       "环境管理"
     ],
     "brief": "virtualenv/venv/conda 的隔离机制差异。uv 的 Rust 加速依赖解析与锁文件。conda 在 CUDA 依赖管理中的优势与陷阱。requirements.txt vs pyproject.toml vs environment.yml 的适用场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "网络代理与加速：训练环境中的 PyPI/HuggingFace 镜像配置",

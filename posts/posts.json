@@ -1,5 +1,17 @@
 [
   {
+    "title": "Python 包管理与虚拟环境：uv、conda 与 pip 的选择",
+    "slug": "python-package-management",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Python",
+      "环境管理"
+    ],
+    "summary": "纯Python优先uv或venv，涉及CUDA和系统库时优先conda。"
+  },
+  {
     "title": "网络代理与加速：训练环境中的 PyPI/HuggingFace 镜像配置",
     "slug": "proxy-mirror-ml-env",
     "date": "2026-03-21",
