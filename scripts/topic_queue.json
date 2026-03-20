@@ -6725,7 +6725,7 @@
       "表示学习"
     ],
     "brief": "核心要点：从InfoNCE损失的梯度公式出发，分析SimCSE中正负样本梯度的推拉机制。推导温度系数τ对梯度幅值的缩放效应，解释τ→0时的硬负样本主导现象。剖析表示坍缩（collapse）的成因——所有向量收敛到同一方向，以及SimCSE通过Dropout噪声构造正样本对如何缓解均匀性-对齐性（uniformity-alignment）的权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识蒸馏的损失函数设计与软标签信息量分析",

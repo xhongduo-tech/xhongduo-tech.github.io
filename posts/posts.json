@@ -1,5 +1,17 @@
 [
   {
+    "title": "SimCSE对比学习的梯度分析与表示坍缩",
+    "slug": "simcse-contrastive-gradient-representation-collapse",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "对比学习",
+      "表示学习"
+    ],
+    "summary": "SimCSE用dropout构造正样本，借InfoNCE在对齐与均匀之间平衡，并用温度控制硬负样本梯度。"
+  },
+  {
     "title": "上下文学习的示例选择与排序效应",
     "slug": "icl-example-selection-ordering",
     "date": "2026-03-20",
