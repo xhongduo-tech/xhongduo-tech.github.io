@@ -7349,7 +7349,7 @@
       "工程化"
     ],
     "brief": "Jinja2 模板管理提示词变量。Git 追踪 Prompt 版本。提示词的单元测试设计。A/B 测试框架评估提示词效果。Promptfoo 等提示词评测工具。生产环境的 Prompt Registry 设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Python 性能优化：Cython、Numba 与 C 扩展",

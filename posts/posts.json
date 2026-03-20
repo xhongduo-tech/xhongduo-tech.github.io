@@ -1,5 +1,17 @@
 [
   {
+    "title": "提示工程工程化：模板管理、版本控制与 A/B 测试",
+    "slug": "prompt-engineering-productionize",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "提示工程",
+      "工程化"
+    ],
+    "summary": "Prompt 工程化的核心是模板化、版本化、自动测试和灰度发布闭环。"
+  },
+  {
     "title": "CI/CD for ML：GitHub Actions 的训练与评测自动化",
     "slug": "github-actions-ml-cicd",
     "date": "2026-03-21",
