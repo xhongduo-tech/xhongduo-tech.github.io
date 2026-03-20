@@ -6473,7 +6473,7 @@
       "PyTorch"
     ],
     "brief": "核心要点：FullyShardedDataParallel（FSDP）是PyTorch对ZeRO-3的原生实现。基于FlatParameter将参数展平为一维张量后分片，前向/反向时通过AllGather重建、Reduce-Scatter聚合。FSDP2重构为per-parameter分片，支持更灵活的混合分片策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Parallel与MoE分布式训练",

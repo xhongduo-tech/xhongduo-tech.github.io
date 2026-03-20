@@ -1,5 +1,17 @@
 [
   {
+    "title": "FSDP：PyTorch原生的ZeRO实现",
+    "slug": "fsdp-pytorch-zero-implementation",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "PyTorch"
+    ],
+    "summary": "FSDP用ZeRO-3式分片替代DDP全量复制，以通信换显存，支撑超大模型训练"
+  },
+  {
     "title": "激活重计算在并行训练中的应用",
     "slug": "activation-recomputation-parallel-training",
     "date": "2026-03-20",
