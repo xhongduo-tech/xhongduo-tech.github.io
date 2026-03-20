@@ -7421,7 +7421,7 @@
       "灾难性遗忘"
     ],
     "brief": "微调导致通用能力下降的机制：权重偏移的分布分析。缓解策略：EWC（弹性权重固化）、回放（Replay Buffer）、LoRA 限制更新范围。数据混合比例（通用数据 + 领域数据）对保持通用性的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "对话模板（Chat Template）：不同模型的格式规范",

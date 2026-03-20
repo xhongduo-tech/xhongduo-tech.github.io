@@ -1,5 +1,17 @@
 [
   {
+    "title": "灾难性遗忘与持续学习：微调后通用能力保持策略",
+    "slug": "catastrophic-forgetting-continual",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "持续学习",
+      "灾难性遗忘"
+    ],
+    "summary": "微调保通用能力的核心是限制参数漂移、持续混入旧分布、惩罚关键权重偏移"
+  },
+  {
     "title": "对话模板（Chat Template）：不同模型的格式规范",
     "slug": "chat-template-formats",
     "date": "2026-03-21",
