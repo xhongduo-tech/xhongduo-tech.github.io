@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention的因果Mask实现",
+    "slug": "flashattention-causal-mask",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "FlashAttention",
+      "Transformer"
+    ],
+    "summary": "FlashAttention 用块级跳过和边界块行级mask实现因果注意力，不显式存三角矩阵。"
+  },
+  {
     "title": "FlashAttention的在线Softmax算法",
     "slug": "flashattention-online-softmax",
     "date": "2026-03-20",
