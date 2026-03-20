@@ -1,5 +1,17 @@
 [
   {
+    "title": "硬件规格解读：GPU 选型、互联带宽与训练效率估算",
+    "slug": "gpu-hardware-spec-selection",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "硬件",
+      "GPU选型"
+    ],
+    "summary": "GPU选型本质是显存、互联和IO链路三者的联合容量规划。"
+  },
+  {
     "title": "Hugging Face 生态：transformers、datasets、accelerate 的工程用法",
     "slug": "huggingface-ecosystem-engineering",
     "date": "2026-03-21",

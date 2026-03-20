@@ -7216,7 +7216,7 @@
       "GPU选型"
     ],
     "brief": "A100/H100/H200 的规格差异：HBM 带宽、NVLink 代际、FP8 支持。PCIe Gen4 vs Gen5 对数据加载的影响。NVSwitch 的 all-to-all 全互联。根据模型规模估算所需显存与通信带宽的计算方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kubernetes Helm Chart：ML 平台组件的标准化部署",
