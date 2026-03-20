@@ -5789,7 +5789,7 @@
       "Hopper架构"
     ],
     "brief": "核心要点：FlashAttention-3针对H100 Hopper架构，利用wgmma异步Tensor Core指令和TMA硬件实现计算与数据传输重叠。引入FP8量化支持（E4M3/E5M2混合），在损失<0.01 perplexity的条件下将吞吐提升至1.2 PFLOPs/s，接近H100理论峰值的75%",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention的因果Mask实现",

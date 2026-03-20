@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention-3的异步与低精度优化",
+    "slug": "flashattention-3-async-fp8",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "FlashAttention",
+      "Hopper架构"
+    ],
+    "summary": "FlashAttention-3用异步流水线和稳定FP8量化，把H100上的Attention推近硬件峰值。"
+  },
+  {
     "title": "Longformer的滑动窗口注意力机制",
     "slug": "longformer-sliding-window-attention",
     "date": "2026-03-20",
