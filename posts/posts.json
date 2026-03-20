@@ -1,5 +1,17 @@
 [
   {
+    "title": "Hydra：配置管理框架与大规模实验配置",
+    "slug": "hydra-config-management",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "配置管理",
+      "工具链"
+    ],
+    "summary": "Hydra 用 defaults、配置组和命令行覆盖统一管理大规模实验配置。"
+  },
+  {
     "title": "Ray：分布式 Python 计算框架与 ML 工作流",
     "slug": "ray-distributed-ml",
     "date": "2026-03-21",

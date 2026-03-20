@@ -7326,7 +7326,7 @@
       "工具链"
     ],
     "brief": "Hydra 的结构化配置（OmegaConf）与 YAML 组合机制。命令行覆盖语法：python train.py model=llama lr=1e-4。config group 的多配置切换。与 W&B Sweep 的集成。多运行（multirun）批量启动实验。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLM 推理 API 集成：OpenAI/Anthropic SDK 的工程最佳实践",
