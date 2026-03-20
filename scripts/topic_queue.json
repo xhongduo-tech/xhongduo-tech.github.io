@@ -5873,7 +5873,7 @@
       "Performer"
     ],
     "brief": "核心要点：Performer用随机特征映射φ(x)将softmax核近似为φ(Q)·φ(K)ᵀ，其中φ使用FAVOR+算法：φ(x)=exp(ωᵀx - ||x||²/2)/√m，ω采样自N(0,I)。这允许利用矩阵乘法结合律将Attention从O(N²d)降至O(Nmd)，m为特征维度（通常m=O(d·log d)）",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "线性注意力的因果约束处理",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Performer的随机特征映射近似Softmax",
+    "slug": "performer-random-feature-softmax-approximation",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "Performer"
+    ],
+    "summary": "Performer用正随机特征近似softmax核，并通过结合律把注意力复杂度从二次降为线性。"
+  },
+  {
     "title": "稀疏注意力的CUDA kernel实现挑战",
     "slug": "sparse-attention-cuda-kernel-challenges",
     "date": "2026-03-20",
