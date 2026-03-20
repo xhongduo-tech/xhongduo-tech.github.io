@@ -1,5 +1,17 @@
 [
   {
+    "title": "上下文学习的规模涌现：从模式匹配到任务学习",
+    "slug": "icl-emergence-pattern-to-task-learning",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "上下文学习",
+      "涌现能力"
+    ],
+    "summary": "ICL 的规模涌现，本质是从高共现匹配跃迁到上下文中的函数学习。"
+  },
+  {
     "title": "上下文学习中的任务向量与功能压缩",
     "slug": "icl-task-vectors-function-compression",
     "date": "2026-03-20",
