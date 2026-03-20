@@ -5837,7 +5837,7 @@
       "BigBird"
     ],
     "brief": "核心要点：BigBird的注意力由三部分组成：随机注意力（每个token随机关注r个token）、窗口注意力（局部w个邻居）、全局注意力（g个全局token）。论文证明当r·w≥Ω(N)时，该稀疏图是O(1)直径的expander graph，保证信息O(1)跳可达任意位置，是完整Transformer的通用近似器",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Longformer与BigBird的稀疏模式对比",

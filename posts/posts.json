@@ -1,5 +1,17 @@
 [
   {
+    "title": "BigBird的随机稀疏注意力理论基础",
+    "slug": "bigbird-random-sparse-attention",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "BigBird"
+    ],
+    "summary": "BigBird 用窗口、全局和随机三类边，把长序列注意力降到线性，同时尽量保留全注意力的表达力。"
+  },
+  {
     "title": "GPU显存层次与Attention的带宽瓶颈",
     "slug": "gpu-memory-hierarchy-attention-bottleneck",
     "date": "2026-03-20",
