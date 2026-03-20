@@ -6497,7 +6497,7 @@
       "优化算法"
     ],
     "brief": "核心要点：梯度累积K步等价于K倍batch size的单步更新（SGD下严格等价，Adam下近似等价）。流水线并行中，micro-batch数m与gradient accumulation步数相关联。当m过小，bubble比例增大；m过大，收敛速度下降。最优m满足bubble率<10%且有效batch size在线性缩放范围内。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Tensor Parallel中的随机性同步",

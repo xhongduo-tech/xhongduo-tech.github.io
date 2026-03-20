@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度累积与微批次大小的数学等价性",
+    "slug": "gradient-accumulation-microbatch-equivalence",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "优化算法"
+    ],
+    "summary": "梯度累积在SGD下等价于大batch更新，Adam仅近似；pipeline中还要同时平衡bubble与有效批量上限"
+  },
+  {
     "title": "分布式训练的内存分析框架",
     "slug": "distributed-training-memory-analysis",
     "date": "2026-03-20",
