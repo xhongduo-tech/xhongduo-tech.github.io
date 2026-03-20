@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的Token级与序列级路由对比",
+    "slug": "moe-token-vs-sequence-routing",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Token级更细但更难部署，序列级更稳更快，层级路由通常是工程折中。"
+  },
+  {
     "title": "扩展定律的幂律指数：α与β的实验估计",
     "slug": "scaling-exponents-alpha-beta",
     "date": "2026-03-20",

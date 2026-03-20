@@ -6257,7 +6257,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Token级路由（每个token独立选专家）是主流但引入计算不规则性；序列级路由（整个序列选一组专家）更高效但丧失细粒度。分析sentence-level routing和task-level routing的设计，以及两者的适用场景",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeekMoE的共享专家机制",
