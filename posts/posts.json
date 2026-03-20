@@ -1,5 +1,17 @@
 [
   {
+    "title": "状态空间模型的连续-离散对偶性",
+    "slug": "ssm-continuous-discrete-duality",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "状态空间模型",
+      "数学基础"
+    ],
+    "summary": "连续SSM在ZOH下可精确离散化，并在训练时转卷积、推理时转递推。"
+  },
+  {
     "title": "S4模型的HiPPO矩阵初始化",
     "slug": "s4-hippo-matrix-initialization",
     "date": "2026-03-20",

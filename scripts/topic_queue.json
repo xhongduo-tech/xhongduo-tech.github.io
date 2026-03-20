@@ -5933,7 +5933,7 @@
       "数学基础"
     ],
     "brief": "核心要点：SSM的连续形式dx/dt=Ax+Bu通过零阶保持(ZOH)离散化得到x_k=A̅x_{k-1}+B̅u_k，其中A̅=exp(ΔA), B̅=(exp(ΔA)-I)A⁻¹B。离散SSM等价于卷积y=K̄*u（K̄_i=C̅A̅ⁱB̅），训练时用FFT做O(N log N)卷积，推理时用递推做O(1)/step",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mamba-2的结构化状态空间对偶性",
