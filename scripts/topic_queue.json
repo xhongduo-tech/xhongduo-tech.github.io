@@ -5753,7 +5753,7 @@
       "成本效率"
     ],
     "brief": "核心要点：Agent评测不应只看成功率，还需考虑Token消耗、API调用次数、延迟。分析SWE-bench上各Agent的帕累托前沿：部分Agent以10倍token消耗仅换来5%的成功率提升。提出标准化的成本效率指标（成功率/千token），建立不同预算约束下的最优Agent选择框架。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention的IO复杂度分析",
