@@ -6461,7 +6461,7 @@
       "通信压缩"
     ],
     "brief": "核心要点：ZeRO++引入三项优化：qwZ（权重量化AllGather，INT8/INT4），qgZ（梯度量化Reduce-Scatter，INT8），hpZ（二级分层分片，机内保留完整参数副本减少跨机通信）。三项优化组合可将跨机通信量减少4倍，400Gb/s网络下吞吐提升最高2.16倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FSDP：PyTorch原生的ZeRO实现",

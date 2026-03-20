@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO++的量化通信优化",
+    "slug": "zero-plus-plus-quantized-communication",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "ZeRO",
+      "通信压缩"
+    ],
+    "summary": "ZeRO++用qwZ、qgZ、hpZ把ZeRO跨机通信压到四分之一，带宽瓶颈下显著提速"
+  },
+  {
     "title": "3D并行的通信拓扑与带宽分配",
     "slug": "3d-parallelism-communication-topology",
     "date": "2026-03-20",
