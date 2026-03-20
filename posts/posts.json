@@ -1,5 +1,17 @@
 [
   {
+    "title": "多Agent的工作流编排DSL设计",
+    "slug": "multi-agent-workflow-dsl-design",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多Agent",
+      "DSL设计"
+    ],
+    "summary": "多Agent工作流DSL本质是状态图：节点、边、条件和循环的统一表达。"
+  },
+  {
     "title": "Agent自我评估的校准度与过度自信问题",
     "slug": "agent-self-assessment-calibration",
     "date": "2026-03-20",
@@ -322,18 +334,6 @@
       "评测"
     ],
     "summary": "多Agent评估要统一看成功率、协作效率、Token成本与延迟四个维度"
-  },
-  {
-    "title": "多Agent的工作流编排DSL设计",
-    "slug": "multi-agent-workflow-dsl-design",
-    "date": "2026-03-19",
-    "author": "both",
-    "tags": [
-      "智能体",
-      "多Agent",
-      "DSL设计"
-    ],
-    "summary": "多Agent工作流DSL的核心是统一节点、边、条件和循环语义，再映射到YAML、Python和图形界面。"
   },
   {
     "title": "Swarm框架的轻量级Agent切换机制",

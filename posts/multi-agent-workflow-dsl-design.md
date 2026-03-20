@@ -1,682 +1,360 @@
 ## 核心结论
 
-多 Agent 工作流 DSL，意思是“专门用来描述多个 Agent 如何协作的一套小语言”。它的核心不是先选 YAML、Python 还是图形界面，而是先把执行语义定死：**Agent 是节点，消息传递是边，条件决定分支，反馈边表示循环**。只要这四件事统一，不同语法只是不同的“书写界面”。
+多 Agent 工作流的 DSL，核心不是“换一种语法写流程”，而是把协作系统抽象成一张**状态图**。状态图的白话解释是：把每个参与工作的角色画成节点，把“谁把什么信息交给谁”画成边，再给边加上“满足什么条件才走”这一层规则。这样，节点、消息、条件分支、循环结构就能放进同一个模型里。
 
-可以先用一个最小例子理解：
+对初级工程师来说，最重要的结论有三点：
 
-```yaml
-nodes:
-  - actor: ResearchAgent
-    next: ReviewAgent
+| 视角 | 优点 | 典型用途 |
+| --- | --- | --- |
+| 图结构视角 | 节点、边、条件、循环统一建模 | 设计和推演协作流程 |
+| DSL 表达视角 | 把图写成可执行配置或代码 | 落地成实际系统 |
+| 工程实现视角 | 调度、重试、观测、测试更容易接入 | 生产环境运行 |
 
-  - actor: ReviewAgent
-    condition: quality_score >= 0.6
-    on_success: PublishAgent
-    on_failure: ReviseAgent
-```
+第一，**把多 Agent 工作流当作 StateGraph 最稳妥**。Agent 是节点，消息与上下文流是边，`If`、`Else`、`Foreach`、`BreakLoop` 是图上的路由规则。这种抽象不会绑死在某个具体框架上。
 
-这段 DSL 表达的不是“代码细节”，而是“流程事实”：
+第二，**DSL 有三种常见形态，各有侧重**。YAML 声明式适合让流程清晰可读；Python 装饰器或链式 DSL 适合把流程嵌进代码里，便于调试与测试；图可视化适合跨角色协作评审，让产品、算法、工程都能看懂流程。
 
-1. `ResearchAgent` 先执行。
-2. 输出交给 `ReviewAgent`。
-3. `ReviewAgent` 根据 `quality_score` 走向发布或返工。
+第三，**不要把 DSL 理解成“替代代码”**。更准确的理解是：DSL 负责描述稳定结构，代码负责承载复杂逻辑。简单路由、固定节点依赖、有限循环，可以放进声明式 DSL；复杂判断、自定义调度、动态 Agent 选择，通常要退回到 Python 这类可编程 DSL。
 
-对零基础读者最重要的一点是：**DSL 不是为了炫技，而是为了把工作流从散落的代码里提取出来，变成可审查、可追踪、可迁移的流程定义**。  
-对工程实现最重要的一点是：**语法可以变，运行时语义不能变**。如果 YAML 里的边和 Python 里的边含义不同，系统很快就会失控。
-
-三种常见 DSL 形态的定位可以直接总结如下：
-
-| 形态 | 核心优势 | 主要短板 | 更适合谁 |
-|---|---|---|---|
-| YAML 声明式 | 可读、可审查、适合固化流程 | 复杂循环和动态逻辑难写 | 产品、运营、平台工程 |
-| Python 装饰器式 | 表达力强，便于扩展和复用 | 容易把流程重新写回普通代码 | 应用工程师 |
-| 图形可视化 | 并发、汇聚、回路最直观 | 易与源码脱节 | 架构设计、复盘分析、跨团队沟通 |
-
-还可以再补一句判断标准：  
-**DSL 不是“让 Agent 自动变聪明”，而是“让协作关系变明确”。**  
-一个 Agent 会不会回答问题，主要取决于模型、提示词、工具和上下文；多个 Agent 如何稳定协作，主要取决于编排语义是否清楚。
+玩具例子可以先这样理解：有三个角色，“采集”“校验”“执行”。白板上画三个方框，再画箭头：采集产出数据给校验；如果值不够就回到采集；如果满足条件就交给执行。每条箭头上写“满足条件才走”或“继续循环”，这已经是一个最小可用的工作流 DSL 模型。
 
 ---
 
 ## 问题定义与边界
 
-多 Agent 工作流要解决三个基础问题：
+这里的问题不是“如何写很多 Agent”，而是“如何让多个 Agent 的协作关系**可描述、可执行、可观察**”。
 
-| 问题 | 白话解释 | DSL 中必须有的元素 |
-|---|---|---|
-| 角色分工 | 谁负责哪一步 | `node` / `actor` |
-| 状态传递 | 上一步结果怎么交给下一步 | `edge` / `message` / `state` |
-| 执行顺序 | 什么时候分支、什么时候回退、什么时候结束 | `condition` / `loop` / `terminal` |
+**Agent** 的白话解释是：一个能接收输入、处理任务、再输出结果的执行单元。它可以是一个 LLM 调用，也可以是普通函数、检索器、规则引擎，甚至是人工审批节点。
 
-因此可以先给出一个抽象定义。设节点集合为 $N$，边集合为 $E$，状态空间为 $S$：
+**DSL** 的白话解释是：为了某类问题专门设计的一套小语言。它不追求像通用编程语言那样什么都能做，而是追求把某个领域的结构表达得更直接。
 
-$$
-N=\{A_1, A_2, \dots, A_n\}, \quad E \subseteq N \times N, \quad s \in S
-$$
+多 Agent 工作流 DSL 的目标通常有四个：
 
-这里：
+1. 明确节点定义：每个 Agent 做什么、接收什么、输出什么。
+2. 明确边定义：消息、共享状态、上下文如何传递。
+3. 明确控制流：条件分支、循环、失败回退、终止条件如何表示。
+4. 明确执行语义：调度顺序、并发限制、重试策略、可观测性如何落地。
 
-- 节点（Node）就是“一个可执行角色”，例如 `ResearchAgent`。
-- 边（Edge）就是“从一个角色到另一个角色的调用或消息路径”。
-- 状态（State）就是“工作流运行过程中共享的数据”，例如 `query`、`draft`、`quality_score`。
+边界也要说清楚。DSL 不是无限表达力的语言。一个工程可用的工作流 DSL，至少要明确下面几件事：
 
-如果再把消息体和条件加进去，一条边就不只是“连线”，而是：
+| 控制结构 | 作用 | 常见限制 |
+| --- | --- | --- |
+| `actions` | 声明节点及执行顺序 | 难表达复杂依赖计算 |
+| `If` | 条件分支 | 条件表达式往往受限 |
+| `Foreach` | 遍历集合或重复执行 | 动态集合来源要提前定义 |
+| `BreakLoop` | 提前终止循环 | 终止条件与状态更新要一致 |
 
-$$
-e=(A_i, A_j, m, c)
-$$
+新手版理解可以非常直接：假设 Agent A 先运行，把结果发给 B；B 再决定要不要让 C 运行。这里最重要的不是“B 里写了多少代码”，而是要把“节点是角色，边是消息”清楚分开。这样你才知道问题到底出在节点逻辑，还是出在路由设计。
 
-其中：
+工程里最常见的边界冲突有两个。
 
-- $m$ 表示消息体，也就是要传递的数据。
-- $c(s)$ 表示条件谓词。谓词可以理解为“一个返回真或假的判断式”。
+第一，**静态声明和动态逻辑的边界**。如果你希望流程文件能让非程序员读懂，就会偏向 YAML；但 YAML 对复杂表达式支持弱，一旦条件依赖运行时上下文的复杂组合，就会开始变形。
 
-对新手更直白的理解是：  
-**节点回答“谁做事”，边回答“交给谁”，状态回答“拿着什么做”，条件回答“什么时候走这条路”。**
+第二，**共享状态模型的边界**。共享状态的白话解释是：所有节点都能读取或更新的一份公共上下文。如果这份状态没有明确定义字段、读写规则和生命周期，流程很快会变成隐式耦合，最后谁都不敢改。
 
-还可以把一次执行写成状态转移函数：
-
-$$
-T: (A_i, s) \rightarrow (A_j, s')
-$$
-
-含义是：当前节点 $A_i$ 读取旧状态 $s$，运行后产出新状态 $s'$，再把控制权交给下一个节点 $A_j$。  
-如果一个 DSL 连这个最基本的转移关系都说不清，它就不是工作流 DSL，只是配置文件的另一种写法。
-
-一个客服场景的玩具例子如下：
-
-```text
-RoutingAgent -> ResearchAgent -> AnalyzerAgent -> ReplyAgent
-```
-
-含义很直接：
-
-- `RoutingAgent` 判断用户问题属于哪个类别。
-- `ResearchAgent` 检索资料。
-- `AnalyzerAgent` 整理证据。
-- `ReplyAgent` 生成回复。
-
-把这个例子再展开一步，新手通常就能看出边界：
-
-| 节点 | 输入 | 输出 | 职责 |
-|---|---|---|---|
-| `RoutingAgent` | `user_query` | `intent` | 判断走退款、物流还是技术支持 |
-| `ResearchAgent` | `intent`, `user_query` | `docs` | 检索知识库和案例 |
-| `AnalyzerAgent` | `docs` | `facts`, `constraints` | 提炼可用事实和限制条件 |
-| `ReplyAgent` | `facts`, `constraints` | `reply` | 生成最终回复 |
-
-如果每一步输出字段不固定，比如 `ResearchAgent` 有时返回 `docs`，有时返回 `knowledge`，后续节点就无法稳定消费输入。所以 DSL 的边界很明确：**它适合描述“流程结构稳定、节点职责明确、输入输出可约束”的协作系统**。
-
-反过来说，下面这些情况不适合只靠 DSL：
-
-- 节点内部算法极其复杂，而且经常变化。
-- 路由策略依赖大量实时代码逻辑。
-- 状态对象没有固定 schema，也就是字段结构不稳定。
-- 流程是否继续执行，严重依赖外部异步事件，但 DSL 中没有等待、超时和恢复语义。
-- 节点副作用很多，例如改数据库、发短信、扣费，但 DSL 没有补偿或幂等约束。
-
-这也是为什么声明式 DSL 常用于“标准化流程”，而不是替代所有业务代码。  
-**DSL 负责描述骨架，业务代码负责填充肌肉。**
+所以，DSL 设计的真正难点，不是语法长什么样，而是：哪些信息必须在图上显式声明，哪些逻辑允许藏在代码里。
 
 ---
 
 ## 核心机制与推导
 
-多 Agent DSL 的关键，不是把节点画出来，而是把**节点契约、边条件、状态演化**说清楚。
-
-先看一个带分支的定义：
+把多 Agent 工作流建模为：
 
 $$
-N = \{ResearchAgent, ReviewAgent, PublishAgent, ReviseAgent\}
+G=(N,E,\Sigma)
 $$
 
-$$
-E = \{
-(ResearchAgent, ReviewAgent),
-(ReviewAgent, PublishAgent)\ \text{if}\ quality\_score \ge 0.6,
-(ReviewAgent, ReviseAgent)\ \text{if}\ quality\_score < 0.6,
-(ReviseAgent, ReviewAgent)\ \text{if}\ revision\_count < 3
-\}
-$$
+其中：
 
-这里的 `quality_score` 是状态变量。状态变量就是“会被后续节点读取的运行数据”。  
-分支逻辑的本质是：**边的可达性由状态决定**。
+- $N$ 是节点集合，每个节点对应一个 Agent。
+- $E$ 是边集合，每条边定义从哪个节点流向哪个节点。
+- $\Sigma$ 是系统状态集合，表示共享上下文、消息缓存、循环计数、执行结果等。
 
-可以把它写成一个状态转移表：
-
-| 当前节点 | 关键状态 | 条件 | 后续节点 |
-|---|---|---|---|
-| `ResearchAgent` | `draft` | 无 | `ReviewAgent` |
-| `ReviewAgent` | `quality_score` | `quality_score >= 0.6` | `PublishAgent` |
-| `ReviewAgent` | `quality_score` | `quality_score < 0.6` | `ReviseAgent` |
-| `ReviseAgent` | `draft`, `revision_count` | `revision_count < 3` | `ReviewAgent` |
-
-这张表已经暴露了 DSL 设计里最重要的三条约束。
-
-第一，**节点输入输出必须显式化**。  
-比如 `ReviewAgent` 至少要声明：输入包含 `draft`，输出包含 `quality_score`。否则下游边的条件根本无法判断。
-
-第二，**条件表达式必须有统一求值语义**。  
-如果 YAML 用 `quality_score >= 0.6`，Python 却把分数按 100 分制解释成 `60`，那么同一流程会在不同入口走出不同结果。
-
-第三，**循环必须是可追踪的反馈，而不是隐式递归**。  
-循环的本质是图中的反馈弧，也就是从后面节点连回前面节点：
+如果把共享状态记作 $S \in \Sigma$，那么每个节点 $n_i$ 本质上执行一个状态变换函数：
 
 $$
-A_j \rightarrow A_i
+f_i: S \rightarrow S
 $$
 
-例如 `ReviseAgent -> ReviewAgent`。这意味着状态会被迭代更新，所以必须保留至少这些字段：
+白话解释是：节点拿到当前上下文，处理后写回一个新上下文。
 
-| 状态字段 | 作用 | 为什么不能省 |
-|---|---|---|
-| `workflow_id` | 标识一次流程实例 | 否则无法追踪一次完整运行 |
-| `current_node` | 标识当前执行位置 | 否则恢复执行困难 |
-| `quality_score` | 分支判断 | 否则无法复现决策 |
-| `revision_count` | 控制循环次数 | 否则可能死循环 |
-| `message_history` | 保留上下文 | 否则 Agent 间信息断裂 |
+每条边可以表示为：
 
-为了让新手更容易看懂，可以把“反馈边”理解成“返工单”。  
-不是函数自己调用自己，而是流程显式地写明：**审核不过，就回到修改节点；修改后，再重新审核。**  
-这和普通递归最大的区别是，工作流引擎能够在每一轮都保存状态、记录路径、限制次数、支持恢复。
+$$
+e_j=(n_{src}, n_{dst}, cond, msg)
+$$
 
-玩具例子可以再具体一点。假设输入分数为 `0.55`：
+其中：
 
-1. `ResearchAgent` 产出一版草稿。
-2. `ReviewAgent` 给出 `quality_score = 0.55`。
-3. 因为 `0.55 < 0.6`，边 `(ReviewAgent, ReviseAgent)` 被激活。
-4. `ReviseAgent` 修改草稿，并把 `revision_count` 加一。
-5. 流程回到 `ReviewAgent`，直到分数达标或达到最大重试次数。
+- $n_{src}$ 是起点节点。
+- $n_{dst}$ 是目标节点。
+- $cond: S \rightarrow \{\text{true}, \text{false}\}$ 是条件函数。
+- $msg$ 表示要传递的消息或上下文字段。
 
-把这件事写成一次完整状态演化，会更清楚：
+当节点 $n_{src}$ 执行完得到新状态 $S'$ 后，如果 $cond(S')=\text{true}$，调度器就沿这条边走向 $n_{dst}$。否则走另一条备用边，或直接结束。
 
-| 轮次 | 当前节点 | 输入状态片段 | 输出状态片段 | 下一跳 |
-|---|---|---|---|---|
-| 1 | `ResearchAgent` | `topic="DSL"` | `draft="v1"`, `evidence=[...]` | `ReviewAgent` |
-| 2 | `ReviewAgent` | `draft="v1"` | `quality_score=0.55`, `review_comment="examples too few"` | `ReviseAgent` |
-| 3 | `ReviseAgent` | `draft="v1"`, `review_comment=...` | `draft="v2"`, `revision_count=1` | `ReviewAgent` |
-| 4 | `ReviewAgent` | `draft="v2"` | `quality_score=0.81` | `PublishAgent` |
-| 5 | `PublishAgent` | `draft="v2"` | `published_url="..."` | 结束 |
+这个模型的价值在于，它把几种看起来不同的控制结构统一了：
 
-真实工程里，这套机制经常用于“先检索、再分析、再撰写、最后审核”的内容生产或客服流程。比如一个客户支持系统：
+| 图上的概念 | DSL 中常见写法 | 本质 |
+| --- | --- | --- |
+| 条件边 | `If` | 基于状态选择后继节点 |
+| 默认边 | `Else` | 条件不满足时的兜底路径 |
+| 回环边 | `Foreach` / loop | 节点再次进入前序节点 |
+| 终止边 | `BreakLoop` / `End` | 满足条件后退出图 |
 
-- `RoutingAgent` 把工单路由到退款、物流或技术支持。
-- `ResearchAgent` 检索知识库和历史案例。
-- `AnalyzerAgent` 提炼事实与限制条件。
-- `WriterAgent` 生成答复草稿。
-- `ReviewerAgent` 检查合规性与准确性。
-- 不合格则回退到 `WriterAgent` 或 `ResearchAgent`。
+玩具例子可以写成这样：
 
-这类流程的价值不在于“Agent 数量多”，而在于**每个 Agent 只处理局部职责，DSL 负责把它们串成一个可验证的系统**。
+- 节点 A：采集数据，输出一个值 $v$。
+- 节点 B：校验 $v$ 是否足够大。
+- 节点 C：执行正式动作。
 
-如果进一步支持并发，还需要补上“汇聚”语义。  
-例如 `FactCheckAgent`、`StyleCheckAgent`、`PolicyCheckAgent` 可以并行执行，然后统一汇聚到 `FinalReviewAgent`。此时图结构就变成：
+初始时有 $loop\_cnt=0$。A 每次产出：
+
+$$
+v = 2 + loop\_cnt
+$$
+
+B 的条件函数为：
+
+$$
+cond(S)= [v \ge 5]
+$$
+
+如果条件不满足，B 走回环边回到 A，并把 $loop\_cnt$ 加一；如果满足，就流向 C。这个过程说明一件事：**循环不是特殊结构，本质上只是指回前序节点的边**。
+
+可以把图简化成下面这种手写表示：
 
 ```text
-             -> FactCheckAgent  -
-DraftAgent -> StyleCheckAgent   -> FinalReviewAgent
-             -> PolicyCheckAgent -
+[A:采集] --v--> [B:校验]
+   ^              |
+   | v<5          | v>=5
+   +--------------+
+                  \
+                   -> [C:执行]
 ```
 
-这时单纯的“谁 next 到谁”已经不够，还要定义汇聚条件。最常见的形式是：
+真实工程例子更接近下面这种模式：
 
-$$
-join(A_j) = \bigwedge_{A_i \in Parents(A_j)} done(A_i)
-$$
+- `planner` 节点：根据用户目标生成任务计划。
+- `executor` 节点：执行当前计划步骤。
+- `reviewer` 节点：检查结果是否满足目标。
+- 条件边：如果 `plan_complete=true`，结束；否则回到 `planner` 或继续到 `executor`。
 
-意思是：只有当 `FinalReviewAgent` 的所有上游节点都完成，汇聚节点才允许执行。  
-如果 DSL 不支持这个语义，工程师就会在节点内部偷偷查询“其他分支跑完没”，依赖关系会从图上消失。
+这类系统经常会把计划、执行结果、错误信息写入共享状态，再由条件边决定下一跳。也就是说，Agent 之间真正传递的并不只是自然语言消息，而是一份结构化状态。
+
+因此，DSL 设计要回答的核心问题只有一个：**你打算用什么语法，把这张状态图完整、明确、可执行地表达出来。**
 
 ---
 
 ## 代码实现
 
-实现上可以把 DSL 分为“定义层”和“执行层”。
-
-定义层负责回答“流程长什么样”。  
-执行层负责回答“运行时怎么走图”。
-
-先看 YAML 声明式版本。它适合把流程结构交给人直接阅读和审查。
+先看最小的 YAML 声明式例子。它适合描述“先做什么，再判断什么，最后做什么”这种结构稳定的流程。
 
 ```yaml
-workflow: article_pipeline
-version: 1
+workflow:
+  name: collect-validate-execute
 
-state_schema:
-  topic: str
-  draft: str
-  evidence: list
-  quality_score: float
-  review_comment: str
-  revision_count: int
-  published_url: str
+state:
+  loop_cnt: 0
+  value: 0
+  max_loop: 3
 
-nodes:
-  - actor: ResearchAgent
-    input: [topic]
-    output: [draft, evidence]
-    next: ReviewAgent
+actions:
+  - id: collect
+    agent: collector
+    next: validate
 
-  - actor: ReviewAgent
-    input: [draft, evidence, revision_count]
-    output: [quality_score, review_comment]
-    condition: quality_score >= 0.6
-    on_success: PublishAgent
-    on_failure: ReviseAgent
+  - id: validate
+    agent: validator
+    if:
+      condition: "state.value >= 5"
+      then: execute
+      else: collect
 
-  - actor: ReviseAgent
-    input: [draft, review_comment, revision_count]
-    output: [draft, revision_count]
-    next: ReviewAgent
-
-  - actor: PublishAgent
-    input: [draft]
-    output: [published_url]
-    terminal: true
+  - id: execute
+    agent: executor
+    next: end
 ```
 
-它的优点是字段稳定。`actor`、`next`、`condition` 这些键一眼就能看懂。  
-它的缺点也很明确：一旦条件逻辑、并发汇聚、异常恢复变复杂，YAML 会迅速膨胀。
+这个片段和图的映射关系非常直接：
 
-因此一个更稳妥的工程做法是：**YAML 只负责描述结构，不负责承载复杂运行逻辑。**  
-复杂逻辑应该下沉到统一 IR 或执行器里。
+- `actions` 里的每个条目就是一个节点。
+- `next` 表示默认边。
+- `if.then` 和 `if.else` 表示条件边。
+- `state` 是共享状态的初始值。
 
-可以先定义一个统一 IR。IR 的意思是“中间表示”，也就是所有前端语法最终都要编译成的公共结构。
+新手版理解可以概括成一句话：这个文件只在写一件事，先做 A，再判断是否进入 B 或回到 A，最后做 C。
+
+但 YAML 只能描述结构，不能直接执行。下面给一个可运行的 Python 玩具实现，用最少代码模拟“节点 + 条件边 + 循环”的调度逻辑：
 
 ```python
-from dataclasses import dataclass
-from typing import Callable
+from dataclasses import dataclass, field
 
 @dataclass
-class EdgeIR:
-    source: str
-    target: str
-    condition: str | None = None
+class State:
+    loop_cnt: int = 0
+    value: int = 0
+    history: list[str] = field(default_factory=list)
 
-@dataclass
-class NodeIR:
-    actor: str
-    inputs: list[str]
-    outputs: list[str]
-    terminal: bool = False
+def collect(state: State) -> State:
+    state.value = 2 + state.loop_cnt
+    state.history.append(f"collect(value={state.value})")
+    return state
+
+def validate(state: State) -> str:
+    state.history.append(f"validate(value={state.value})")
+    if state.value >= 4 or state.loop_cnt >= 2:
+        return "execute"
+    state.loop_cnt += 1
+    return "collect"
+
+def execute(state: State) -> State:
+    state.history.append("execute()")
+    return state
+
+def run_workflow() -> State:
+    state = State()
+    current = "collect"
+
+    while current != "end":
+        if current == "collect":
+            state = collect(state)
+            current = "validate"
+        elif current == "validate":
+            current = validate(state)
+        elif current == "execute":
+            state = execute(state)
+            current = "end"
+        else:
+            raise ValueError(f"unknown node: {current}")
+
+    return state
+
+result = run_workflow()
+assert result.value >= 4
+assert result.history[-1] == "execute()"
+assert result.history.count("execute()") == 1
+print(result.history)
 ```
 
-这样 YAML、Python 装饰器、图形界面都不直接互相转换，而是都转成 `NodeIR + EdgeIR`。  
-好处是：**语义只有一套，前端可以有很多套。**
+这个例子故意保持简单，但已经包含了 DSL 的几个核心语义：
 
-下面给出一个可以直接运行的 Python 装饰器式最小执行器。它不是演示语法花样，而是把“节点注册、条件求值、循环控制、输入输出校验”都补齐。
+- `current` 是当前节点指针。
+- 每个函数是一个节点执行器。
+- `validate` 返回下一个节点名，相当于边路由。
+- `State` 是共享状态。
+- `assert` 用来验证流程终态是否正确。
+
+如果流程复杂度上升，很多团队会改用 Python 装饰器或链式 DSL。链式 DSL 的白话解释是：用连续的方法调用，把图关系一行一行串出来。示意写法如下：
 
 ```python
-from __future__ import annotations
-
-from dataclasses import dataclass
-from typing import Any, Callable
-
-State = dict[str, Any]
-NodeFn = Callable[[State], State]
-
-
-@dataclass
-class NodeSpec:
-    actor: str
-    fn: NodeFn
-    inputs: list[str]
-    outputs: list[str]
-    next: str | None = None
-    condition: str | None = None
-    on_success: str | None = None
-    on_failure: str | None = None
-    terminal: bool = False
-
-
-registry: dict[str, NodeSpec] = {}
-
-
-def node(
-    *,
-    actor: str,
-    inputs: list[str],
-    outputs: list[str],
-    next: str | None = None,
-    condition: str | None = None,
-    on_success: str | None = None,
-    on_failure: str | None = None,
-    terminal: bool = False,
-) -> Callable[[NodeFn], NodeFn]:
-    def wrap(fn: NodeFn) -> NodeFn:
-        registry[actor] = NodeSpec(
-            actor=actor,
-            fn=fn,
-            inputs=inputs,
-            outputs=outputs,
-            next=next,
-            condition=condition,
-            on_success=on_success,
-            on_failure=on_failure,
-            terminal=terminal,
-        )
-        return fn
-    return wrap
-
-
-def require_fields(state: State, fields: list[str], actor: str) -> None:
-    missing = [field for field in fields if field not in state]
-    if missing:
-        raise KeyError(f"{actor} missing required inputs: {missing}")
-
-
-def eval_condition(expr: str, state: State) -> bool:
-    allowed_builtins = {"True": True, "False": False, "len": len, "min": min, "max": max}
-    return bool(eval(expr, {"__builtins__": {}}, {**allowed_builtins, **state}))
-
-
-@node(
-    actor="ResearchAgent",
-    inputs=["topic"],
-    outputs=["draft", "evidence"],
-    next="ReviewAgent",
+workflow = (
+    Workflow("ops-pipeline")
+    .agent("planner", run=plan_task)
+    .agent("executor", run=execute_task)
+    .agent("reviewer", run=review_result)
+    .edge("planner", "executor")
+    .if_("reviewer", cond=lambda s: s["done"], then="end", else_="planner")
 )
-def research(state: State) -> State:
-    topic = state["topic"]
-    state["draft"] = f"{topic} 的初稿：先定义执行语义，再选择 DSL 语法。"
-    state["evidence"] = [
-        "节点表示角色",
-        "边表示消息流",
-        "条件表示分支",
-        "反馈边表示循环",
-    ]
-    state.setdefault("revision_count", 0)
-    return state
-
-
-@node(
-    actor="ReviewAgent",
-    inputs=["draft", "evidence", "revision_count"],
-    outputs=["quality_score", "review_comment"],
-    condition="quality_score >= 0.6",
-    on_success="PublishAgent",
-    on_failure="ReviseAgent",
-)
-def review(state: State) -> State:
-    revision_count = state["revision_count"]
-    if revision_count == 0:
-        state["quality_score"] = 0.55
-        state["review_comment"] = "定义有了，但例子太少，对新手不友好。"
-    else:
-        state["quality_score"] = 0.82
-        state["review_comment"] = "通过。"
-    return state
-
-
-@node(
-    actor="ReviseAgent",
-    inputs=["draft", "review_comment", "revision_count"],
-    outputs=["draft", "revision_count"],
-    next="ReviewAgent",
-)
-def revise(state: State) -> State:
-    state["revision_count"] += 1
-    state["draft"] += " 已补充状态转移表、并发汇聚示例和失败处理说明。"
-    return state
-
-
-@node(
-    actor="PublishAgent",
-    inputs=["draft"],
-    outputs=["published_url"],
-    terminal=True,
-)
-def publish(state: State) -> State:
-    state["published_url"] = "https://example.com/article/dsl"
-    state["published"] = True
-    return state
-
-
-def run(start: str, state: State, *, max_steps: int = 20) -> State:
-    current = start
-    steps = 0
-    state["trace"] = []
-
-    while True:
-        steps += 1
-        if steps > max_steps:
-            raise RuntimeError("workflow exceeded max_steps")
-
-        spec = registry[current]
-        require_fields(state, spec.inputs, spec.actor)
-
-        state["current_node"] = spec.actor
-        state["trace"].append(spec.actor)
-        state = spec.fn(state)
-
-        require_fields(state, spec.outputs, spec.actor)
-
-        if spec.terminal:
-            return state
-
-        if spec.condition is None:
-            if spec.next is None:
-                raise RuntimeError(f"{spec.actor} has no next node")
-            current = spec.next
-            continue
-
-        branch = eval_condition(spec.condition, state)
-        current = spec.on_success if branch else spec.on_failure
-        if current is None:
-            raise RuntimeError(f"{spec.actor} branch target is missing")
-
-
-if __name__ == "__main__":
-    initial_state = {"topic": "多 Agent 工作流 DSL 设计"}
-    result = run("ResearchAgent", initial_state)
-
-    assert result["published"] is True
-    assert result["revision_count"] == 1
-    assert result["quality_score"] >= 0.6
-    assert result["trace"] == [
-        "ResearchAgent",
-        "ReviewAgent",
-        "ReviseAgent",
-        "ReviewAgent",
-        "PublishAgent",
-    ]
-
-    print("workflow finished")
-    print(result)
 ```
 
-这段代码可以直接运行，命令如下：
+这种写法的优点不在“更短”，而在“更可编程”：
 
-```bash
-python workflow_dsl_demo.py
-```
+- 条件函数可以直接写 Python。
+- 单个 Agent 可以被 mock，白话解释是：在测试里用假的实现替换真实实现。
+- 可以插断点、打日志、写单元测试。
+- 可以把复杂路由逻辑拆成普通函数。
 
-它演示了一个最小执行器：
+真实工程例子通常会再多一层：先用 YAML 声明大致拓扑，再在 Python 中注册节点实现。例如：
 
-- 用 `@node(...)` 注册节点。
-- 用 `registry` 维护图元数据。
-- 用 `run()` 按条件边推进流程。
-- 用 `require_fields()` 检查输入输出契约。
-- 用 `max_steps` 防止循环失控。
-- 用 `trace` 记录完整执行路径，便于排障和回放。
+- YAML 定义：`planner -> executor -> reviewer`
+- Python 注册：`planner` 用 LLM 生成计划，`executor` 调工具执行，`reviewer` 校验结果
+- 运行时：调度器根据状态决定走哪条边
 
-对新手尤其要说明一件事：  
-这里的 `condition="quality_score >= 0.6"` 不是“为了炫表达式引擎”，而是为了让**条件边可序列化**。  
-如果条件只能写成 Python lambda，它就很难被 YAML、数据库配置或图形界面复用。
-
-字段映射关系最好在 DSL 设计阶段就固定下来：
-
-| 语义 | YAML field | Python decorator arg | 图形节点属性 |
-|---|---|---|---|
-| 节点名 | `actor` | `actor` | `label` |
-| 顺序边 | `next` | `next` | `outgoing edge` |
-| 条件表达式 | `condition` | `condition` | `edge predicate` |
-| 成功分支 | `on_success` | `on_success` | `true edge` |
-| 失败分支 | `on_failure` | `on_failure` | `false edge` |
-| 输入契约 | `input` | `inputs` | `input ports` |
-| 输出契约 | `output` | `outputs` | `output ports` |
-| 结束节点 | `terminal` | `terminal` | `end node` |
-
-图形 DSL 本质上不是第三套语义，而是前两者的可视化投影。  
-如果图形工具里画出一个回路，但 YAML 无法表达，问题不在图，而在于**三种 DSL 没有共享同一个中间模型**。工程上更稳妥的做法通常是：先定义统一 IR，再让 YAML、Python、图形分别编译到这个 IR。
-
-如果流程里需要并发与汇聚，IR 最好进一步补上这些字段：
-
-| 字段 | 含义 |
-|---|---|
-| `edge_type` | `direct`、`conditional`、`fan_out`、`fan_in` |
-| `join_key` | 哪些分支属于同一次汇聚 |
-| `wait_all` | 是否等待所有上游完成 |
-| `timeout_sec` | 汇聚等待超时时间 |
-| `retry_policy` | 节点失败后的重试规则 |
-
-没有这些字段时，你以为自己设计的是“工作流 DSL”，实际只是“串行调用配置”。
+这是一种很实用的折中。结构可读，逻辑可编程。
 
 ---
 
 ## 工程权衡与常见坑
 
-工程里最大的风险不是“不会写 DSL”，而是“写出三套看似相同、实际不同的 DSL”。
+三种 DSL 形态没有绝对优劣，问题只在于你的流程复杂度和团队协作方式。
 
-常见坑可以直接列出来：
+先看常见坑：
 
-| 坑 | 影响 | 规避方式 |
-|---|---|---|
-| YAML 只写 `next`，不写状态 schema | 下游节点输入不稳定 | 强制声明 `input/output` 字段 |
-| 条件表达式语义不统一 | 同一流程在不同运行器结果不同 | 定义统一表达式求值规则 |
-| 循环没有最大次数 | 返工流程可能死循环 | 增加 `max_iteration` 或 `revision_count` |
-| Python 装饰器掺杂业务逻辑 | 流程结构难以审查 | 节点逻辑与图元数据分离 |
-| 图形工具手工改图不回写源码 | 图和代码失真 | 图形编辑后统一生成 IR 或源码 |
-| 并发汇聚无显式 join | 节点提前执行，拿到半成品状态 | 引入 `join` 语义和完成条件 |
-| 错误处理只靠异常 | 流程不可恢复 | 区分“节点失败”和“工作流失败” |
+| 常见坑 | 具体表现 | 规避策略 |
+| --- | --- | --- |
+| 动态条件过复杂 | YAML 中塞大量表达式，可读性迅速下降 | 把条件下沉到 Python 函数 |
+| 循环次数失控 | 回环条件不完整，流程可能卡死 | 在状态里显式维护计数与上限 |
+| 共享状态污染 | 多节点随意改字段，行为难预测 | 定义状态 schema 和写入边界 |
+| 可视化拥挤 | 节点一多，图变成线团 | 分层、子图、按阶段折叠 |
+| 图与代码不同步 | 配置改了，执行器没同步更新 | 用单一事实来源生成另一侧产物 |
 
-对初级工程师最容易踩的坑是：**把 DSL 当成“另一种代码写法”，而不是“流程契约”**。  
-例如在客服流程中，YAML 很容易写出串行路径：
+第一类权衡是**可读性和表达力的冲突**。纯 YAML 好读，但一旦你要写“如果过去三轮评分均值低于阈值且当前错误类型属于可重试类，再切换到备用 Agent”这种规则，声明式配置很快就会变成另一种难读代码。这个时候应该降级为代码控制，而不是继续硬塞进 DSL。
 
-```yaml
-RoutingAgent -> ResearchAgent -> AnalyzerAgent -> ReviewerAgent
-```
+第二类权衡是**结构稳定和执行灵活的冲突**。如果你的工作流经常新增节点、改路由、由非工程角色参与评审，DSL 很有价值；如果你的流程本质上是运行时动态搜索，比如根据检索结果临时生成 20 个 Agent 子任务，纯声明式图就不一定合适。
 
-但真实业务可能是：
+第三类权衡是**可视化友好和系统规模的冲突**。图在 3 到 10 个节点时很清晰，到了 50 个节点往往会拥挤。解决办法通常不是“画更大的图”，而是引入层级：
 
-- 一个分支检索知识库。
-- 一个分支读取用户历史工单。
-- 两路结果汇聚后再审核。
+- 顶层图：只显示阶段，如“计划”“执行”“校验”。
+- 子图：展开某个阶段内部的具体 Agent。
+- 代码同步：图从 DSL 或代码自动生成，避免手工维护两份定义。
 
-这时简单的 `next` 已经不够，需要显式支持并发和汇聚。否则你在 YAML 里写出来的是线性流程，运行时却偷偷在 Python 里做并发，最后系统行为就不可解释。
+新手常见误区还有一个：把“Agent 节点”设计得太粗。比如把检索、推理、校验、执行全塞进一个超级 Agent。这样图上虽然节点少了，但可观测性和可测试性都变差。一般来说，一个节点至少应该满足“职责单一、输入输出明确”。
 
-并发或反馈场景里，建议保留这些状态字段：
+什么时候应该明确退回纯代码控制？经验上有三个信号：
 
-| 字段 | 用途 |
-|---|---|
-| `trace_id` | 贯穿一次请求的全链路追踪 |
-| `branch_id` | 标识并发分支 |
-| `join_status` | 标识汇聚节点是否已收齐输入 |
-| `retry_count` | 控制失败重试 |
-| `last_error` | 保存最近一次节点错误 |
-| `updated_at` | 排查乱序与超时 |
+1. 条件分支已经依赖复杂计算或外部副作用。
+2. 节点集合在运行时才确定，静态图无法提前列出。
+3. 你需要细粒度控制并发、超时、熔断、补偿逻辑。
 
-还要再补一个经常被忽略的问题：**失败语义**。  
-一个节点抛异常，不一定等于整个工作流失败。至少要区分三种情况：
-
-| 失败类型 | 例子 | 推荐处理 |
-|---|---|---|
-| 可重试失败 | 调用外部 API 超时 | 节点级重试 |
-| 可补偿失败 | 已写数据库但后续审核失败 | 触发补偿节点 |
-| 不可恢复失败 | 输入状态缺关键字段 | 终止工作流并报警 |
-
-真实工程例子里，内容审核流程常见一个问题：`ReviewerAgent` 要等待多个上游结果，例如事实校验、风格校验、合规校验。如果 DSL 只支持单输入边，工程师就会在节点内部偷偷拉取别的状态字段，导致依赖关系从图上消失。  
-一旦图上看不到依赖，排障、重放、补偿都会变得很困难。
-
-另一个常见坑是“节点副作用不幂等”。  
-例如 `PublishAgent` 可能会发邮件、写数据库、推送消息。如果工作流恢复时重复执行这一节点，就可能重复发布。  
-因此对有副作用的节点，最好额外定义：
-
-| 约束 | 目的 |
-|---|---|
-| `idempotency_key` | 防止重复写入或重复发送 |
-| `timeout` | 控制卡死节点 |
-| `retry_policy` | 避免无限重试 |
-| `compensation` | 支持撤销或补救 |
-| `checkpoint` | 支持从中间状态恢复 |
-
-一句话总结工程权衡：  
-**你不是在设计“怎么写配置”，而是在设计“系统如何解释配置”。**
+出现这些信号时，不要强行坚持“所有东西都必须是 DSL”。
 
 ---
 
 ## 替代方案与适用边界
 
-多 Agent 工作流 DSL 不是唯一方案。常见替代方案有状态机库、Airflow、Temporal 这类工作流引擎。
+如果不用工作流 DSL，还可以有三类方案：
 
-| 方案 | 表达力 | 易用性 | 协作性 | 适用边界 |
-|---|---|---|---|---|
-| 多 Agent DSL | 对 Agent 角色和消息流表达直接 | 中等 | 高 | 需要统一人机可读流程 |
-| 状态机库 | 状态转移严谨 | 中等 | 中 | 规则明确、角色概念不强 |
-| Airflow DAG | 批处理与调度成熟 | 高 | 中 | 数据任务、定时任务 |
-| Temporal | 长时运行、补偿、重试强 | 中等偏低 | 中 | 复杂可靠性要求的业务流程 |
+| 方式 | 适用场景 | 局限 |
+| --- | --- | --- |
+| YAML/声明式 DSL | 流程稳定、需要评审、需要可视化 | 复杂逻辑表达弱 |
+| Python 代码 DSL | 需要调试、测试、动态逻辑 | 非工程人员不易直接阅读 |
+| 纯图谱工具/可视化编排 | 跨职能协作、演示、低门槛配置 | 与代码同步和版本控制较难 |
 
-边界要看你要优化什么。
+第一类替代方案是**纯代码**。例如直接用 Python 协程、线程或事件循环来调度 Agent。它的优点是灵活，几乎没有表达力上限；缺点是透明度差，流程结构藏在控制流里，不适合多人评审，也不利于快速回答“当前为什么走到这里”。
 
-如果重点是“任务调度”和“可恢复执行”，Temporal 往往更强。  
-如果重点是“数据管道编排”，Airflow 往往更成熟。  
-如果重点是“把多个 Agent 的角色分工、消息传递、分支与循环用一套统一语义表达出来”，专门的多 Agent DSL 更自然。
+第二类替代方案是**纯图形化工具**。优点是非程序员也能参与设计，节点和边一眼可见；缺点是版本管理、代码复用、测试自动化通常弱于代码库。特别是在 Agent 数量很大、状态频繁变化时，图形界面往往会变成“展示层”，真正逻辑还是要回到代码里。
 
-举个新手容易看懂的对比：
+第三类是**混合方案**，也是最常见的工程落点：
 
-如果用 Airflow DAG，你画出来的通常是任务节点，关注点是“哪个 task 先跑、哪个 task 后跑”。它能编排流程，但不天然强调“这个节点是 `ReviewerAgent`，那个节点是 `ResearchAgent`，它们交换的是什么语义消息”。  
-而多 Agent DSL 会把“agent-node”作为一等公民，也就是系统里最基本的建模对象。
+- 用 YAML 或 JSON 定义稳定拓扑。
+- 用 Python 注册节点实现与复杂条件。
+- 用图可视化作为观测和评审界面。
+- 用统一状态模型串起日志、重试、回放和测试。
 
-如果用 Temporal，重点则是“长时运行、故障恢复、重试和补偿”。  
-它很适合承载生产级可靠性，但不会自动替你定义“多 Agent 协作语义”。  
-也就是说，Temporal 更像可靠执行底座，DSL 更像协作语义层。
+新手版对比可以这样理解：
 
-实际工程中，常见的稳妥做法不是二选一，而是混合：
+- 写一整段 Python 控制流，最灵活，但别人读起来成本高。
+- 用 DSL 图形化配置，结构更清楚，适合团队一起 review。
+- 纯图谱工具最直观，但复杂项目里常常不够精确。
 
-- 用 DSL 描述 Agent 级别语义。
-- 用传统工作流引擎承载重试、超时、持久化、补偿。
-
-推荐混合使用的场景包括：
-
-- 流程跨分钟、跨小时，需要可靠恢复。
-- 一个节点要调用外部系统，失败率和超时不可忽略。
-- 审批、合规、人工介入等步骤需要持久化状态。
-- 团队既要图形化审阅，又要生产级调度能力。
-
-一句话概括适用边界：**DSL 负责“把流程说清楚”，引擎负责“把流程跑稳”**。
-
-如果进一步压缩成一个决策表，可以这样看：
-
-| 你的核心问题 | 更优先的方案 |
-|---|---|
-| 我想让产品、运营、工程都能读懂 Agent 协作关系 | 多 Agent DSL |
-| 我想严格控制有限状态和状态转移 | 状态机库 |
-| 我想做定时任务和数据处理流水线 | Airflow |
-| 我想做强恢复、强重试、强补偿的长流程 | Temporal |
-| 我既要清晰语义，又要生产级可靠性 | DSL + 工作流引擎混合 |
+所以，DSL 的适用边界不是“只要是多 Agent 就该上 DSL”，而是：**当你需要把协作结构从执行细节里抽离出来，并让它可审查、可复用、可观测时，DSL 才真正有价值。**
 
 ---
 
 ## 参考资料
 
-| 资料名称 | 用途 | 链接 |
-|---|---|---|
-| Strands Agents: Multi-agent Patterns | 用于理解 Graph、Swarm、Workflow 三类多 Agent 模式，以及共享状态与图式组织方式 | https://strandsagents.com/latest/documentation/docs/user-guide/concepts/multi-agent/multi-agent-patterns/ |
-| Microsoft Agent Framework: Declarative Workflows | 用于参考 YAML 声明式工作流、变量命名空间、表达式语义和多 Agent 编排模式 | https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/declarative-workflows |
-| Microsoft Agent Framework: Workflow with Branching Logic | 用于参考条件边、分支路由、结构化输出与条件求值 | https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/workflow-with-branching-logic |
-| Microsoft Agent Framework: Sequential Workflow | 用于参考顺序编排、Agent 管道和事件流式执行 | https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/simple-sequential-workflow |
-| Microsoft Agent Framework: Concurrent Workflow | 用于参考并发编排、fan-out 和结果聚合 | https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/simple-concurrent-workflow |
-| Apache Airflow: DAG Concepts | 用于对比任务 DAG 与 Agent 语义 DSL 的差异，理解 DAG 更偏调度而非 Agent 角色建模 | https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html |
-| Temporal Docs | 用于对比长时运行、故障恢复、重试与补偿这类执行层能力 | https://docs.temporal.io/ |
+| 资源名称 | 所属主题 | 作用简述 | 访问用途 |
+| --- | --- | --- | --- |
+| LangGraph / 状态图编排相关文章 | 图/FSM 工作流 | 用状态图理解多 Agent 的计划、执行、校验闭环 | 用来参考图式建模与条件边设计 |
+| Microsoft Agent Framework Declarative Workflows | YAML 声明式工作流 | 提供 `actions`、`If`、`Foreach`、`BreakLoop` 等控制结构 | 用来参考声明式 DSL 语法与边界 |
+| Kubiya Workflow DSL Overview | Python 链式 DSL | 展示链式或图式 API 如何把工作流嵌入代码 | 用来参考可测试、可调试 DSL 设计 |
 
-这些资料对应三类问题：
+- LangGraph 相关思路：把多 Agent 系统建模为图，适合表达计划-执行-校验这类闭环。
+- Microsoft Agent Framework Declarative Workflows：强调 YAML 声明式控制流，适合让流程结构更易读。
+- Kubiya Workflow DSL：强调链式 API 的可编程性，适合把 DSL 与工程代码、测试体系结合。
 
-| 你想补哪块知识 | 优先看什么 |
-|---|---|
-| 想看多 Agent 模式本身怎么分类 | Strands Agents |
-| 想看声明式 YAML 和条件边怎么落地 | Microsoft Agent Framework |
-| 想看生产级执行可靠性怎么补足 | Temporal |
-| 想看传统 DAG 为什么不等于 Agent DSL | Airflow |
-
-最后把全文压缩成一句工程判断：  
-**多 Agent 工作流 DSL 的设计重点，不是“选一种更好看的写法”，而是“先固定节点、边、条件、循环、并发、错误恢复这些执行语义，再决定用什么写法承载它”。**
+参考链接：
+- https://healthark.ai/orchestrating-multi-agent-systems-with-lang-graph-mcp/
+- https://learn.microsoft.com/en-us/agent-framework/workflows/declarative
+- https://docs.kubiya.ai/sdk/workflow-dsl-overview

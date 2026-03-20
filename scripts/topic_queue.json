@@ -4913,7 +4913,7 @@
       "上下文优化"
     ],
     "brief": "核心要点：检索到的记忆片段如何填入有限的上下文窗口直接影响 Agent 表现。贪心填充（按相关性排序直到满）、多样性采样（MMR 算法，λ=0.7 时效果最优）、分层摘要填充三种策略。MMR 策略在多跳推理任务中比贪心填充准确率高 11%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Generative Agents 的记忆流与重要性评分",
@@ -4997,7 +4997,7 @@
       "隐私安全"
     ],
     "brief": "核心要点：Agent 长期记忆中可能存储敏感信息，需要支持选择性遗忘（GDPR 合规）。向量删除后索引中仍可能残留近似信息，需要配合向量扰动（差分隐私 ε=1.0）或索引重建。完全遗忘的计算开销约为插入的 5-10 倍。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "基于 Graph RAG 的多跳知识检索",
@@ -5321,7 +5321,7 @@
       "数据交换"
     ],
     "brief": "核心要点：分析多Agent间传递非结构化文本的信息损耗问题。提出基于JSON Schema的Agent间结构化通信协议——输出Schema声明、输入Schema校验、Schema不兼容时的自动适配。对比Pydantic BaseModel与JSON Schema在Agent输出约束中的实践。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AutoGen的多模型混合编排策略",
@@ -5345,7 +5345,7 @@
       "DSL设计"
     ],
     "brief": "核心要点：分析用DSL（领域特定语言）描述多Agent工作流的设计思路——节点定义（Agent）、边定义（消息传递）、条件分支、循环结构。对比YAML声明式、Python装饰器式、图可视化三种DSL形态的表达力与易用性。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "多Agent协作中的信息不对称与隐私保护",
@@ -5429,7 +5429,7 @@
       "AgentBench"
     ],
     "brief": "核心要点：AgentBench覆盖操作系统、数据库、知识图谱、数字卡牌、家居环境、网页浏览、网上购物、拼图八个交互环境。分析GPT-4在OS环境得分42.4%但在KG环境仅9.1%的能力不均衡现象，揭示开源模型与闭源模型的性能断崖（平均差距超30%）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Agent自我反思的ReAct与Reflexion对比",
@@ -5465,7 +5465,7 @@
       "Prompt注入"
     ],
     "brief": "核心要点：Agent使用工具读取外部内容时面临间接Prompt注入风险。攻击向量包括网页嵌入指令、文件隐藏指令、API返回值污染。分析Dual-LLM架构（特权层+隔离层）、输入消毒、输出验证三种防御方案的有效性，实测表明组合防御可将攻击成功率从78%降至12%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "GAIA Level-3题目的多工具链编排分析",
@@ -5597,7 +5597,7 @@
       "幻觉检测"
     ],
     "brief": "核心要点：Agent生成的工具调用参数和最终回答均可能包含幻觉。分析三种检测方案：基于知识库的事实核查、基于自一致性的多次采样比对（SC@k）、基于不确定性估计的token级置信度。在ToolBench上，SC@5可将幻觉工具调用率从18%降至7%，但计算成本增加5倍。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "τ-bench：工具使用Agent的对话式评测",
@@ -5741,7 +5741,7 @@
       "用户体验"
     ],
     "brief": "核心要点：Agent无法完成任务时应优雅降级而非静默失败或幻觉输出。设计三级降级策略：完整完成→部分完成并说明→明确拒绝并给出原因。分析不确定性传达的UI模式、部分结果的质量标注、人工接管的无缝切换。用户研究表明透明沟通可将满意度从32%提升至78%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Agent评测的成本效率指标：性能与Token消耗的帕累托前沿",
@@ -5753,7 +5753,7 @@
       "成本效率"
     ],
     "brief": "核心要点：Agent评测不应只看成功率，还需考虑Token消耗、API调用次数、延迟。分析SWE-bench上各Agent的帕累托前沿：部分Agent以10倍token消耗仅换来5%的成功率提升。提出标准化的成本效率指标（成功率/千token），建立不同预算约束下的最优Agent选择框架。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "FlashAttention的IO复杂度分析",
@@ -5765,7 +5765,7 @@
       "IO感知"
     ],
     "brief": "核心要点：标准Attention的HBM读写量为Θ(Nd+N²)，FlashAttention通过分块计算将其降至Θ(N²d²M⁻¹)，其中M为SRAM大小。详解tiling策略如何将N×N注意力矩阵的显存访问从O(N²)压缩到O(N²/B_c)，B_c为块大小，受限于SRAM容量",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "FlashAttention的在线Softmax算法",
@@ -5777,7 +5777,7 @@
       "数值计算"
     ],
     "brief": "核心要点：标准Softmax需两次遍历（求max和求sum），FlashAttention采用Milakov & Gimelshein的在线Softmax技巧，单次遍历完成。通过维护running max m_i和running sum l_i，在分块处理时动态修正已计算的部分结果，保证数值稳定性与精确Softmax等价",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "FlashAttention-3的异步与低精度优化",
@@ -5789,7 +5789,7 @@
       "Hopper架构"
     ],
     "brief": "核心要点：FlashAttention-3针对H100 Hopper架构，利用wgmma异步Tensor Core指令和TMA硬件实现计算与数据传输重叠。引入FP8量化支持（E4M3/E5M2混合），在损失<0.01 perplexity的条件下将吞吐提升至1.2 PFLOPs/s，接近H100理论峰值的75%",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "FlashAttention的因果Mask实现",
@@ -5801,7 +5801,7 @@
       "Transformer"
     ],
     "brief": "核心要点：因果Mask在FlashAttention中不通过显式存储三角矩阵实现，而是在分块计算时跳过全部被Mask的block，仅对部分被Mask的边界block做行级mask。这使因果Attention的FLOPs降为非因果的约50%，而标准实现即使用mask仍需完整O(N²)计算",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "GPU显存层次与Attention的带宽瓶颈",
@@ -5813,7 +5813,7 @@
       "IO感知"
     ],
     "brief": "核心要点：A100的HBM带宽2TB/s，SRAM带宽19TB/s，但SRAM仅20MB。标准Attention的算术强度（FLOPs/byte）仅为O(1)到O(d)，远低于GPU的ops:byte比（约200:1），导致计算单元空转等待数据。FlashAttention通过提升算术强度到O(N·d/M)使计算变为compute-bound",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Longformer的滑动窗口注意力机制",
@@ -5825,7 +5825,7 @@
       "Longformer"
     ],
     "brief": "核心要点：Longformer将全局O(N²)注意力替换为滑动窗口局部注意力O(N·w)，窗口大小w=512时可处理4096+ tokens。结合扩张滑动窗口（dilation=d时感受野扩大d倍）和全局token（对特定位置如[CLS]保留全局注意力），在保持长距离依赖的同时实现线性复杂度",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "BigBird的随机稀疏注意力理论基础",
@@ -5837,7 +5837,7 @@
       "BigBird"
     ],
     "brief": "核心要点：BigBird的注意力由三部分组成：随机注意力（每个token随机关注r个token）、窗口注意力（局部w个邻居）、全局注意力（g个全局token）。论文证明当r·w≥Ω(N)时，该稀疏图是O(1)直径的expander graph，保证信息O(1)跳可达任意位置，是完整Transformer的通用近似器",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Longformer与BigBird的稀疏模式对比",
@@ -5849,7 +5849,7 @@
       "模型对比"
     ],
     "brief": "核心要点：Longformer使用确定性稀疏模式（滑动窗口+扩张+全局token），BigBird额外引入随机连接并提供理论保证。实验显示两者在长文档任务上性能接近（±0.5 F1），但BigBird的随机连接在训练时增加实现复杂度，Longformer的全局token策略更易于工程部署",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "稀疏注意力的CUDA kernel实现挑战",
@@ -5861,7 +5861,7 @@
       "CUDA"
     ],
     "brief": "核心要点：稀疏注意力的理论复杂度为O(N·k)但实际加速受限于GPU的不规则访存。block-sparse实现（如OpenAI的block_size=64策略）通过将稀疏模式对齐到Tensor Core的block粒度，避免warp divergence。实测在N<2048时稀疏kernel反而慢于dense FlashAttention",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Performer的随机特征映射近似Softmax",
@@ -5873,7 +5873,7 @@
       "Performer"
     ],
     "brief": "核心要点：Performer用随机特征映射φ(x)将softmax核近似为φ(Q)·φ(K)ᵀ，其中φ使用FAVOR+算法：φ(x)=exp(ωᵀx - ||x||²/2)/√m，ω采样自N(0,I)。这允许利用矩阵乘法结合律将Attention从O(N²d)降至O(Nmd)，m为特征维度（通常m=O(d·log d)）",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "线性注意力的因果约束处理",
@@ -5885,7 +5885,7 @@
       "因果推理"
     ],
     "brief": "核心要点：线性注意力通过结合律实现O(Nd²)复杂度：O_i = Σ_{j≤i} φ(Q_i)φ(K_j)ᵀV_j = φ(Q_i)·S_i，其中S_i = S_{i-1} + φ(K_i)⊗V_i为累积状态矩阵（d×d）。因果约束自然适配递推形式，使线性注意力等价于RNN，推理时O(1)复杂度per token",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Mamba的选择性状态空间机制",
@@ -5897,7 +5897,7 @@
       "状态空间模型"
     ],
     "brief": "核心要点：Mamba（S6）的核心创新是让SSM参数Δ、B、C依赖于输入x，即Δ=softplus(Linear(x))。选择性机制使模型能根据内容动态决定遗忘/记忆，Δ大时遗忘历史聚焦当前输入，Δ小时保持长期记忆。这打破了线性时不变假设，代价是无法使用FFT卷积加速",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Mamba的硬件感知扫描算法",
@@ -5909,7 +5909,7 @@
       "GPU优化"
     ],
     "brief": "核心要点：Mamba的选择性SSM无法用FFT加速，改用parallel scan算法实现O(N)工作量和O(log N)并行深度。关键优化：1)将Δ、B、C的投影和离散化融合为单个kernel；2)状态矩阵d_state×d_model不存入HBM，全程在SRAM中计算；3)反向传播时重计算避免存储中间状态",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "S4模型的HiPPO矩阵初始化",
@@ -5921,7 +5921,7 @@
       "HiPPO"
     ],
     "brief": "核心要点：S4的核心是状态矩阵A的初始化策略HiPPO（High-order Polynomial Projection Operators）。HiPPO-LegS矩阵A_{nk}=-(2n+1)^{1/2}(2k+1)^{1/2}（n>k时），使隐状态最优地压缩历史信息为Legendre多项式系数，理论上实现O(N)记忆长度无衰减",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "状态空间模型的连续-离散对偶性",
@@ -5933,7 +5933,7 @@
       "数学基础"
     ],
     "brief": "核心要点：SSM的连续形式dx/dt=Ax+Bu通过零阶保持(ZOH)离散化得到x_k=A̅x_{k-1}+B̅u_k，其中A̅=exp(ΔA), B̅=(exp(ΔA)-I)A⁻¹B。离散SSM等价于卷积y=K̄*u（K̄_i=C̅A̅ⁱB̅），训练时用FFT做O(N log N)卷积，推理时用递推做O(1)/step",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Mamba-2的结构化状态空间对偶性",
@@ -5945,7 +5945,7 @@
       "SSD"
     ],
     "brief": "核心要点：Mamba-2揭示了SSM与注意力的结构对偶：当SSM的状态转移矩阵A为标量乘以单位矩阵时，SSM的输入-输出映射等价于一个半可分(semiseparable)矩阵乘法，形式上与因果线性注意力一致。SSD算法利用此对偶，在chunk内用矩阵乘法、chunk间用递推，实现8倍于Mamba-1的速度",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "RetNet的多尺度指数衰减与chunk递推",
@@ -5957,7 +5957,7 @@
       "RetNet"
     ],
     "brief": "核心要点：RetNet将线性注意力的递推引入指数衰减因子γ∈(0,1)：S_n = γ·S_{n-1} + K_nᵀV_n，不同注意力头使用不同γ值（多尺度）实现短/长程信息的分层捕获。支持三种等价计算模式：并行O(N²)训练、chunk-wise O(C²)混合、递推O(1)推理",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "线性注意力的表达能力理论界限",
@@ -5969,7 +5969,7 @@
       "理论分析"
     ],
     "brief": "核心要点：线性注意力用有限维特征映射近似softmax核，存在本质精度限制。softmax注意力可区分的token对，线性注意力在特征维度m<d²时无法区分（MQAR任务上m需≥O(Nd)才能完美recall）。状态矩阵S∈R^{d×d}的容量上界为d²，限制了可存储的KV对数量",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "FlashAttention的多头注意力并行策略",
@@ -5981,7 +5981,7 @@
       "并行计算"
     ],
     "brief": "核心要点：FlashAttention在batch×head维度做外层并行，序列维度做内层分块。当batch×head数不足以填满GPU的108个SM时（如长序列+少头），利用率下降。FlashAttention-2引入序列维度的并行分割，将thread block数从batch×head增加到batch×head×⌈N/B_r⌉，显著提升长序列场景的SM占用率",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "PagedAttention与KV Cache分页管理",
@@ -5993,7 +5993,7 @@
       "显存管理"
     ],
     "brief": "核心要点：LLM推理的KV Cache按序列连续分配导致严重内存碎片（浪费60-80%显存）。PagedAttention借鉴OS虚拟内存，将KV Cache分为固定大小的block（如16 tokens），通过block table实现非连续存储。碎片率从60%降至<4%，batch size可提升2-4倍，直接转化为吞吐提升",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Multi-Query与Grouped-Query Attention的KV压缩",
@@ -6005,7 +6005,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MQA让所有head共享一组KV（KV Cache缩小h倍），GQA将h个head分为g组共享KV（缩小h/g倍）。GQA在g=8时性能接近MHA（差<0.5% on LM eval），但推理速度接近MQA。LLaMA-2 70B使用GQA g=8，KV Cache从每层256MB降至32MB",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Sliding Window Attention在Mistral中的实现",
@@ -6017,7 +6017,7 @@
       "Mistral"
     ],
     "brief": "核心要点：Mistral-7B使用固定窗口W=4096的滑动窗口注意力，但通过L层堆叠获得L×W=32×4096=131K的理论感受野。Rolling Buffer KV Cache固定大小为W，位置i的KV存储在cache[i mod W]，实现O(W)固定显存。配合Flash实现，预填充阶段支持超过W的序列长度",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "稀疏注意力的动态模式学习",
@@ -6029,7 +6029,7 @@
       "自适应"
     ],
     "brief": "核心要点：固定稀疏模式（如Longformer）无法适应不同输入的注意力分布。动态稀疏方法通过轻量级评分网络预测每个token应关注的top-k位置：先用低秩投影计算近似注意力分数O(Nr)（r<<N），再对top-k位置做精确注意力。Reformer用LSH哈希实现O(N log N)的近似top-k",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Linear Transformer与核函数选择",
@@ -6041,7 +6041,7 @@
       "核方法"
     ],
     "brief": "核心要点：Linear Transformer将Attention解释为核函数k(Q,K)=φ(Q)ᵀφ(K)，不同φ对应不同核。ELU+1核φ(x)=elu(x)+1简单但近似质量差；随机傅里叶特征φ实现高斯核但需高维m；cosFormer用cos(πi/2N)加权实现位置感知的线性注意力，无需显式核近似",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "RWKV的线性复杂度语言模型设计",
@@ -6053,7 +6053,7 @@
       "RWKV"
     ],
     "brief": "核心要点：RWKV结合Transformer的并行训练和RNN的O(1)推理。WKV算子定义为wkv_t = Σ_{i=1}^{t-1} e^{-(t-1-i)w+k_i}·v_i / Σ e^{...}，其中w为通道级衰减率。该求和可递推计算：分子a_t=e^{-w}·a_{t-1}+e^{k_t}·v_t，实现线性复杂度。RWKV-6引入data-dependent衰减提升表达力",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "注意力机制的统一视角：从二次到线性",
@@ -6065,7 +6065,7 @@
       "综述"
     ],
     "brief": "核心要点：所有注意力变体可统一为Y=f(Q,K)·V的框架：标准Attention中f=softmax(QKᵀ/√d)是O(N²)；稀疏注意力中f保留top-k或固定模式；线性注意力中f=φ(Q)φ(K)ᵀ利用结合律变为O(Nd²)；SSM中f等价于半可分矩阵（Mamba-2证明）。关键权衡轴：表达力 vs 效率 vs 实现复杂度",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE路由机制的数学形式化",
@@ -6077,7 +6077,7 @@
       "路由机制"
     ],
     "brief": "核心要点：将MoE路由抽象为Top-K稀疏门控函数G(x)=TopK(softmax(Wx))，分析门控网络的梯度流特性，推导专家选择概率分布与模型容量的关系，解释为何softmax温度τ影响专家利用率",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Switch Transformer的简化路由设计",
@@ -6089,7 +6089,7 @@
       "Switch Transformer"
     ],
     "brief": "核心要点：Switch Transformer将Top-2简化为Top-1路由，单专家选择使计算量降低近50%。分析其capacity factor C的设定（C=1.0~1.5），溢出token的丢弃策略，以及为何Top-1在大规模预训练中反而优于Top-2",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "GShard的随机Top-2路由策略",
@@ -6101,7 +6101,7 @@
       "GShard"
     ],
     "brief": "核心要点：GShard对第二专家采用概率采样而非确定性选择，路由公式为Top-1确定+第二专家按softmax概率采样。分析这种随机性如何同时提升探索性和负载均衡，以及与纯Top-2的效果差异",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE的容量因子与Token溢出处理",
@@ -6113,7 +6113,7 @@
       "系统设计"
     ],
     "brief": "核心要点：容量因子C定义每个专家的缓冲区大小为C·(N/E)，其中N为token数、E为专家数。C过小导致token丢弃影响质量，C过大浪费显存。分析溢出token的三种处理策略：丢弃、随机重路由、辅助专家兜底",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE的专家并行与通信开销分析",
@@ -6125,7 +6125,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：专家并行将不同专家放在不同设备，需要All-to-All通信在路由前后交换token。分析All-to-All的通信量O(B·S·d/P)、与数据并行的正交性、以及专家并行度与模型并行度的组合策略",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Switch Transformer的混合精度训练策略",
@@ -6137,7 +6137,7 @@
       "训练优化"
     ],
     "brief": "核心要点：Switch Transformer发现MoE路由的softmax和Top-K操作对精度敏感，需在float32下执行，而专家FFN可用bfloat16。分析选择性精度策略如何将训练不稳定性降低80%，以及router z-loss的数值稳定化作用",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Mixtral的Sliding Window与MoE协同设计",
@@ -6149,7 +6149,7 @@
       "Mixtral"
     ],
     "brief": "核心要点：Mixtral结合4096窗口的滑动窗口注意力与MoE FFN，分析两者的互补性：SWA降低Attention的计算复杂度，MoE降低FFN的激活参数量。推导组合后的总FLOPs公式与等效dense模型的对比",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE路由中的噪声注入机制",
@@ -6161,7 +6161,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Noisy Top-K Gating在路由logits上添加可调噪声H(x)=Wx+softplus(W_noise·x)·ε，ε~N(0,1)。分析噪声如何促进专家探索、防止路由坍缩，以及噪声幅度随训练进程的自适应调节机制",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE模型的推理效率优化",
@@ -6173,7 +6173,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MoE推理面临专家参数加载的内存瓶颈，batch内不同token路由到不同专家导致计算不规则。分析专家预加载预测、专家缓存策略、以及动态batch重组三种优化方案的延迟与吞吐量提升",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "ST-MoE的路由稳定性与Z-Loss",
@@ -6185,7 +6185,7 @@
       "训练稳定性"
     ],
     "brief": "核心要点：ST-MoE（Stable and Transferable MoE）系统研究了MoE训练不稳定的根因：路由logits的数值爆炸。提出Router Z-Loss惩罚logits的对数指数和，将训练不稳定发生率从~30%降至<1%，且不损害模型质量",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE与Dense模型的Scaling Law对比",
@@ -6197,7 +6197,7 @@
       "Scaling Law"
     ],
     "brief": "核心要点：MoE在相同计算预算下通常优于dense模型，但优势随规模增长的趋势存在争议。分析Unified Scaling Law的结论：MoE的有效参数利用率约为E^0.3（E为专家数），以及专家数存在收益递减拐点",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Mixtral的专家权重合并与蒸馏",
@@ -6209,7 +6209,7 @@
       "模型压缩"
     ],
     "brief": "核心要点：将Mixtral的8个专家合并或蒸馏为更少专家以降低部署成本。分析基于路由统计的专家聚类合并、基于任务相关性的专家剪枝、以及将MoE蒸馏为dense模型的知识迁移策略",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE在Attention层的应用：Multi-Head MoE",
@@ -6221,7 +6221,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：传统MoE仅用于FFN层，Multi-Head MoE将路由机制扩展到注意力头选择。每个token只激活部分注意力头，分析这种设计如何在不损失多头多样性的前提下减少Attention层的计算量",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE的梯度估计与直通估计器",
@@ -6233,7 +6233,7 @@
       "优化理论"
     ],
     "brief": "核心要点：Top-K操作的离散性导致梯度不连续，分析三种梯度估计方案：直通估计器（STE）直接传递梯度、Gumbel-Softmax的连续松弛、以及REINFORCE策略梯度。推导各方案的梯度偏差与方差特性",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Sparse Upcycling：从Dense到MoE的转换",
@@ -6245,7 +6245,7 @@
       "训练策略"
     ],
     "brief": "核心要点：Sparse Upcycling将预训练好的dense模型转换为MoE模型继续训练，避免从零训练MoE的成本。分析FFN层复制初始化策略、路由网络的warm-up设计、以及转换后的训练dynamics变化",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE的Token级与序列级路由对比",
@@ -6257,7 +6257,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Token级路由（每个token独立选专家）是主流但引入计算不规则性；序列级路由（整个序列选一组专家）更高效但丧失细粒度。分析sentence-level routing和task-level routing的设计，以及两者的适用场景",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DeepSeekMoE的共享专家机制",
@@ -6269,7 +6269,7 @@
       "DeepSeek"
     ],
     "brief": "核心要点：DeepSeekMoE设计1-2个始终激活的共享专家，捕获所有token的通用特征，其余路由专家负责专业化特征。分析共享专家如何缓解专家冗余、提升参数效率，以及共享比例对性能的影响",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE的专家容量与内存墙问题",
@@ -6281,7 +6281,7 @@
       "系统优化"
     ],
     "brief": "核心要点：MoE总参数量大但激活参数少，核心瓶颈从计算转移到内存带宽。分析专家参数的HBM占用、推理时的内存带宽利用率（通常<30%）、以及专家offloading到CPU/NVMe的分层存储策略",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Tensor Parallel的列并行与行并行切分",
@@ -6293,7 +6293,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：Megatron-LM中MLP层的列并行（Column Parallel）将权重按列切分到多GPU，前向无需通信；行并行（Row Parallel）按行切分，前向需AllReduce。两者组合使MLP层仅需一次AllReduce，通信量为O(b·s·h/t)，其中t为并行度。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "自注意力层的Tensor Parallel实现",
@@ -6305,7 +6305,7 @@
       "注意力机制"
     ],
     "brief": "核心要点：多头注意力天然适合Tensor Parallel——将注意力头均匀分配到不同GPU，每个GPU独立计算QKV投影和注意力，仅在输出投影后做一次AllReduce。对于h=96头、t=8的配置，每GPU处理12个头，通信量与隐藏维度成正比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "流水线并行的微批次调度策略",
@@ -6317,7 +6317,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：朴素流水线并行的bubble率为(p-1)/m（p为流水线级数，m为微批次数）。GPipe采用同步调度，将mini-batch切分为m个micro-batch串行执行；当m≥4p时bubble率降至25%以下。1F1B调度进一步降低峰值内存至O(1/p)。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "GPipe的梯度累积与同步机制",
@@ -6329,7 +6329,7 @@
       "GPipe"
     ],
     "brief": "核心要点：GPipe将模型按层切分到K个加速器，mini-batch切分为M个micro-batch。前向阶段顺序执行所有micro-batch，反向阶段逆序执行，梯度在所有micro-batch上累积后同步更新。re-materialization策略以计算换内存，峰值激活内存降至O(N/K)。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "PipeDream的1F1B异步调度",
@@ -6341,7 +6341,7 @@
       "PipeDream"
     ],
     "brief": "核心要点：PipeDream的1F1B（one-forward-one-backward）调度在稳态阶段交替执行前向和反向传播，将内存占用从O(m)降至O(p)。权重版本管理通过weight stashing保持梯度一致性，每个stage最多保存p份权重副本。PipeDream-2BW进一步将权重副本减少到2份。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Megatron-LM的混合并行架构",
@@ -6353,7 +6353,7 @@
       "混合并行"
     ],
     "brief": "核心要点：Megatron-LM结合数据并行（DP）、张量并行（TP）和流水线并行（PP），三维并行度d×t×p=总GPU数。TP限制在单机内（NVLink高带宽），PP跨机（容忍较高延迟），DP在TP和PP之上扩展。530B模型使用TP=8、PP=35、DP=若干的配置。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Megatron-LM的序列并行优化",
@@ -6365,7 +6365,7 @@
       "序列并行"
     ],
     "brief": "核心要点：Megatron-LM的序列并行将LayerNorm和Dropout沿序列维度切分到不同GPU，解决TP中这些操作的激活冗余。通过将AllReduce拆分为Reduce-Scatter+AllGather，并在LayerNorm/Dropout处切换到序列并行，总激活内存降至原来的1/t。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "虚拟流水线并行的交错调度",
@@ -6377,7 +6377,7 @@
       "Megatron-LM"
     ],
     "brief": "核心要点：Megatron-LM的交错调度将每个GPU分配多个非连续的模型层块（虚拟stage），使bubble率从(p-1)/m降至(p-1)/(v·m)（v为虚拟stage数）。代价是通信量增加v倍，但在高带宽互联下，bubble减少带来的收益大于通信增加的开销。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Tensor Parallel的通信原语分析",
@@ -6389,7 +6389,7 @@
       "集合通信"
     ],
     "brief": "核心要点：TP中核心通信原语为AllReduce（前向聚合）和AllReduce（反向聚合），可分解为Reduce-Scatter+AllGather。在Ring AllReduce中，通信量为2(t-1)/t×M（M为张量大小）。NVLink提供600GB/s带宽，使TP在8GPU内保持90%以上的计算效率。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "流水线并行的负载均衡策略",
@@ -6401,7 +6401,7 @@
       "性能优化"
     ],
     "brief": "核心要点：Transformer各层计算量大致相同，但Embedding层和LM Head层的计算量和内存占用不同。Megatron-LM将Embedding与第一个Transformer块共置，LM Head与最后一个块共置。不均衡的stage划分使最慢stage决定整体吞吐，需通过profiling调整层分配。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "ZeRO与模型并行的对比与互补",
@@ -6413,7 +6413,7 @@
       "模型并行"
     ],
     "brief": "核心要点：ZeRO-3在数学上等价于模型并行但保持数据并行的通信模式。ZeRO适合跨机扩展（仅需AllGather/Reduce-Scatter），TP适合机内高带宽互联。两者可组合：机内TP+跨机ZeRO-DP，兼顾通信效率和内存扩展。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Megatron-LM的分布式Embedding实现",
@@ -6425,7 +6425,7 @@
       "模型并行"
     ],
     "brief": "核心要点：词表Embedding在TP中按词表维度切分，每GPU存储V/t行的Embedding矩阵。前向通过AllReduce收集完整输出，反向仅更新本地分片。当词表V=256000、隐藏维度h=12288时，Embedding参数约3.1B，TP=8使每GPU仅需存储390M参数。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "激活重计算在并行训练中的应用",
@@ -6437,7 +6437,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：激活重计算（activation checkpointing/recomputation）在反向传播时重新计算激活值而非存储。完全重计算增加约33%计算开销但将激活内存从O(L·s·h)降至O(L·s·h/L)=O(s·h)。选择性重计算仅重算QKV计算等占内存大但计算快的部分。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "3D并行的通信拓扑与带宽分配",
@@ -6449,7 +6449,7 @@
       "通信优化"
     ],
     "brief": "核心要点：3D并行（TP×PP×DP）的GPU分组形成三维网格。最优映射：TP组映射到NVLink连接的机内GPU（600GB/s），PP组映射到机间InfiniBand（200Gb/s），DP组利用剩余带宽。错误的映射可使训练吞吐量下降40%以上。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "ZeRO++的量化通信优化",
@@ -6461,7 +6461,7 @@
       "通信压缩"
     ],
     "brief": "核心要点：ZeRO++引入三项优化：qwZ（权重量化AllGather，INT8/INT4），qgZ（梯度量化Reduce-Scatter，INT8），hpZ（二级分层分片，机内保留完整参数副本减少跨机通信）。三项优化组合可将跨机通信量减少4倍，400Gb/s网络下吞吐提升最高2.16倍。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "FSDP：PyTorch原生的ZeRO实现",
@@ -6473,7 +6473,7 @@
       "PyTorch"
     ],
     "brief": "核心要点：FullyShardedDataParallel（FSDP）是PyTorch对ZeRO-3的原生实现。基于FlatParameter将参数展平为一维张量后分片，前向/反向时通过AllGather重建、Reduce-Scatter聚合。FSDP2重构为per-parameter分片，支持更灵活的混合分片策略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Expert Parallel与MoE分布式训练",
