@@ -1,5 +1,17 @@
 [
   {
+    "title": "Kubernetes Helm Chart：ML 平台组件的标准化部署",
+    "slug": "helm-ml-platform",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Kubernetes",
+      "Helm"
+    ],
+    "summary": "Helm 用 Chart、Values、Release 把 ML 组件部署标准化，并支持升级回滚。"
+  },
+  {
     "title": "容器运行时安全：Seccomp、AppArmor 与非 root 容器",
     "slug": "container-security-seccomp",
     "date": "2026-03-21",

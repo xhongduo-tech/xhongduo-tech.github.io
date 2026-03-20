@@ -7228,7 +7228,7 @@
       "Helm"
     ],
     "brief": "Helm 的 Chart/Release/Repository 概念。values.yaml 参数覆盖机制。模板语法（Go template）编写通用 Chart。将 vLLM 推理服务打包为 Helm Chart 实现一键部署与版本回滚。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Weights & Biases（W&B）：实验追踪与超参搜索",
