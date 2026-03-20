@@ -7397,7 +7397,7 @@
       "工具链"
     ],
     "brief": "huggingface-cli download 的断点续传与完整性校验。TRANSFORMERS_CACHE 的目录结构。snapshot_download vs hf_hub_download 的差异。内网集群搭建 HuggingFace 镜像服务（hf-mirror）。模型文件的 safetensors vs pytorch_model.bin 对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DoRA 与 LoRA 变体：权重分解的参数高效微调",

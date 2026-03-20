@@ -1,5 +1,17 @@
 [
   {
+    "title": "开源模型下载与管理：HuggingFace Hub CLI 与本地镜像",
+    "slug": "model-download-management",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "模型管理",
+      "工具链"
+    ],
+    "summary": "掌握 HF 下载的关键在缓存结构、断点机制、环境变量和内网镜像。"
+  },
+  {
     "title": "代码审查与调试：pdb、ipdb 与 VS Code 调试器",
     "slug": "debugging-tools-ml",
     "date": "2026-03-21",
