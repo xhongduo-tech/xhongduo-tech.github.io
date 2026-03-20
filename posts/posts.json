@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention的多头注意力并行策略",
+    "slug": "flashattention-multi-head-parallelism",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "FlashAttention",
+      "并行计算"
+    ],
+    "summary": "FlashAttention-2把序列维度也并行化，解决长序列小batch下SM空闲问题"
+  },
+  {
     "title": "RetNet的多尺度指数衰减与chunk递推",
     "slug": "retnet-multiscale-exponential-decay",
     "date": "2026-03-20",

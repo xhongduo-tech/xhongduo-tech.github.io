@@ -5981,7 +5981,7 @@
       "并行计算"
     ],
     "brief": "核心要点：FlashAttention在batch×head维度做外层并行，序列维度做内层分块。当batch×head数不足以填满GPU的108个SM时（如长序列+少头），利用率下降。FlashAttention-2引入序列维度的并行分割，将thread block数从batch×head增加到batch×head×⌈N/B_r⌉，显著提升长序列场景的SM占用率",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PagedAttention与KV Cache分页管理",
