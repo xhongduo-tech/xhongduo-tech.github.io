@@ -1,5 +1,17 @@
 [
   {
+    "title": "RetNet的多尺度指数衰减与chunk递推",
+    "slug": "retnet-multiscale-exponential-decay",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "RetNet"
+    ],
+    "summary": "RetNet用指数衰减状态替代显式历史注意力，统一了并行训练与递推推理。"
+  },
+  {
     "title": "Mamba-2的结构化状态空间对偶性",
     "slug": "mamba-2-ssd-duality",
     "date": "2026-03-20",
