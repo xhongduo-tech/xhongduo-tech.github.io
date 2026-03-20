@@ -6437,7 +6437,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：激活重计算（activation checkpointing/recomputation）在反向传播时重新计算激活值而非存储。完全重计算增加约33%计算开销但将激活内存从O(L·s·h)降至O(L·s·h/L)=O(s·h)。选择性重计算仅重算QKV计算等占内存大但计算快的部分。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "3D并行的通信拓扑与带宽分配",

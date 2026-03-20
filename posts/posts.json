@@ -1,5 +1,17 @@
 [
   {
+    "title": "激活重计算在并行训练中的应用",
+    "slug": "activation-recomputation-parallel-training",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "内存优化",
+      "分布式训练"
+    ],
+    "summary": "激活重计算用额外前向换显存，LLM训练里常配合 selective attention 重算降低单卡激活占用。"
+  },
+  {
     "title": "ZeRO与模型并行的对比与互补",
     "slug": "zero-vs-model-parallelism-comparison",
     "date": "2026-03-20",
