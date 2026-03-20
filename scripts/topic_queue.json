@@ -6545,7 +6545,7 @@
       "收敛性"
     ],
     "brief": "核心要点：异步流水线中，前向和反向使用不同版本的权重（weight staleness），导致梯度计算不一致。PipeDream通过weight stashing保证前向-反向使用相同权重版本，但需存储多份权重副本。PipeDream-Flush采用周期性同步消除staleness，以增加bubble为代价保证收敛性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SP-TP-PP通信重叠的实现技术",
