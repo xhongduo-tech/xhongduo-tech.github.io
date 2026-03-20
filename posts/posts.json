@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的容量因子与Token溢出处理",
+    "slug": "moe-capacity-factor-overflow",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "系统设计"
+    ],
+    "summary": "容量因子决定专家缓冲上限，本质是在token丢失、显存和通信成本之间做工程折中"
+  },
+  {
     "title": "GShard的随机Top-2路由策略",
     "slug": "gshard-random-top2-routing",
     "date": "2026-03-20",
