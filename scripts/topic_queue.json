@@ -7517,7 +7517,7 @@
       "奖励模型"
     ],
     "brief": "Bradley-Terry 模型的偏好概率公式。奖励模型的架构变体（value head vs 生成式 reward）。标注一致性与 inter-annotator agreement 的影响。奖励过优化（reward hacking）的检测与缓解（KL 惩罚项、ERM）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型解释性工具：Logit Lens、激活补丁与电路分析",

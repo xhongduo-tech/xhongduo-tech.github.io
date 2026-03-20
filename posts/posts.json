@@ -1,5 +1,17 @@
 [
   {
+    "title": "奖励模型训练：偏好数据标注、架构与过优化",
+    "slug": "reward-model-training",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "RLHF",
+      "奖励模型"
+    ],
+    "summary": "奖励模型本质是把人类偏好转成分数差概率，并用KL等约束防止刷分失真"
+  },
+  {
     "title": "模型量化感知训练（QAT）：INT8/INT4 的训练时量化",
     "slug": "quantization-aware-training",
     "date": "2026-03-21",
