@@ -1,5 +1,17 @@
 [
   {
+    "title": "Megatron-LM的混合并行架构",
+    "slug": "megatron-lm-hybrid-parallelism",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Megatron-LM",
+      "混合并行"
+    ],
+    "summary": "Megatron-LM用DP、TP、PP三维协同扩展，大模型训练的关键是按通信特性分层部署。"
+  },
+  {
     "title": "Megatron-LM的序列并行优化",
     "slug": "megatron-sequence-parallelism",
     "date": "2026-03-20",

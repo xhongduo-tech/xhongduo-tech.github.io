@@ -6353,7 +6353,7 @@
       "混合并行"
     ],
     "brief": "核心要点：Megatron-LM结合数据并行（DP）、张量并行（TP）和流水线并行（PP），三维并行度d×t×p=总GPU数。TP限制在单机内（NVLink高带宽），PP跨机（容忍较高延迟），DP在TP和PP之上扩展。530B模型使用TP=8、PP=35、DP=若干的配置。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Megatron-LM的序列并行优化",
