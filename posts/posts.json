@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba的选择性状态空间机制",
+    "slug": "mamba-selective-state-space",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "Mamba",
+      "状态空间模型"
+    ],
+    "summary": "Mamba通过让Δ、B、C依赖输入，实现按内容动态决定记忆保留与遗忘速度。"
+  },
+  {
     "title": "Performer的随机特征映射近似Softmax",
     "slug": "performer-random-feature-softmax-approximation",
     "date": "2026-03-20",
