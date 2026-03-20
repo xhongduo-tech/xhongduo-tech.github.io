@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的专家并行与通信开销分析",
+    "slug": "moe-expert-parallelism-communication",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "MoE",
+      "分布式训练"
+    ],
+    "summary": "MoE专家并行的核心成本是两次All-to-All，规模越大越要先优化通信而不是只堆专家。"
+  },
+  {
     "title": "MoE的容量因子与Token溢出处理",
     "slug": "moe-capacity-factor-overflow",
     "date": "2026-03-20",

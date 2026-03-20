@@ -6125,7 +6125,7 @@
       "分布式训练"
     ],
     "brief": "核心要点：专家并行将不同专家放在不同设备，需要All-to-All通信在路由前后交换token。分析All-to-All的通信量O(B·S·d/P)、与数据并行的正交性、以及专家并行度与模型并行度的组合策略",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Switch Transformer的混合精度训练策略",
