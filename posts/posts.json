@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixtral的Sliding Window与MoE协同设计",
+    "slug": "mixtral-sliding-window-moe-synergy",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "Mixtral"
+    ],
+    "summary": "Mixtral用滑动窗口削减长序列注意力成本，用top-2 MoE扩大参数而控制FFN计算。"
+  },
+  {
     "title": "Switch Transformer的混合精度训练策略",
     "slug": "switch-transformer-mixed-precision",
     "date": "2026-03-20",

@@ -6149,7 +6149,7 @@
       "Mixtral"
     ],
     "brief": "核心要点：Mixtral结合4096窗口的滑动窗口注意力与MoE FFN，分析两者的互补性：SWA降低Attention的计算复杂度，MoE降低FFN的激活参数量。推导组合后的总FLOPs公式与等效dense模型的对比",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE路由中的噪声注入机制",
