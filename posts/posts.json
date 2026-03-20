@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 记忆的隐私保护与选择性遗忘",
+    "slug": "agent-memory-privacy-selective-forgetting",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "记忆系统",
+      "隐私安全"
+    ],
+    "summary": "Agent记忆删除不能只删原文，还需扰动向量、阻断查询并重建索引。"
+  },
+  {
     "title": "Agent安全边界：Prompt注入攻击与防御",
     "slug": "agent-prompt-injection-defense",
     "date": "2026-03-20",
@@ -658,18 +670,6 @@
       "任务调度"
     ],
     "summary": "CrewAI 用 context 建 DAG 调度任务，expected_output 定义验收，async_exec…"
-  },
-  {
-    "title": "Agent 记忆的隐私保护与选择性遗忘",
-    "slug": "agent-memory-privacy-selective-forgetting",
-    "date": "2026-03-19",
-    "author": "both",
-    "tags": [
-      "智能体",
-      "记忆系统",
-      "隐私保护"
-    ],
-    "summary": "Agent 记忆要满足被遗忘权，必须把删除、扰动、重建与审计作为一条完整链路。"
   },
   {
     "title": "多Agent系统的角色分工设计模式",
