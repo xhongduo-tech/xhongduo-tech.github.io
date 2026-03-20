@@ -6017,7 +6017,7 @@
       "Mistral"
     ],
     "brief": "核心要点：Mistral-7B使用固定窗口W=4096的滑动窗口注意力，但通过L层堆叠获得L×W=32×4096=131K的理论感受野。Rolling Buffer KV Cache固定大小为W，位置i的KV存储在cache[i mod W]，实现O(W)固定显存。配合Flash实现，预填充阶段支持超过W的序列长度",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "稀疏注意力的动态模式学习",

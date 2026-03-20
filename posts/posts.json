@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sliding Window Attention在Mistral中的实现",
+    "slug": "mistral-sliding-window-attention",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "Mistral"
+    ],
+    "summary": "Mistral用4096滑窗加32层堆叠与环形KV缓存，把长上下文推理的KV显存固定在O(W)。"
+  },
+  {
     "title": "PagedAttention与KV Cache分页管理",
     "slug": "paged-attention-kv-cache",
     "date": "2026-03-20",
