@@ -6934,7 +6934,7 @@
       "GPU"
     ],
     "brief": "NCCL 是多 GPU 训练通信的基础设施，它把 AllReduce、AllGather、ReduceScatter 等集合通信高效映射到 NVLink、PCIe 和 IB 等不同互联拓扑上。理解 NCCL，才能真正理解大模型训练为什么常常卡在通信而不是计算。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "InfiniBand 与 RDMA：高性能计算集群网络基础",

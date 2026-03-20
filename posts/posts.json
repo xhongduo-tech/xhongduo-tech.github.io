@@ -1,5 +1,18 @@
 [
   {
+    "title": "NCCL",
+    "slug": "nccl-multi-gpu-communication",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "NCCL",
+      "分布式",
+      "GPU"
+    ],
+    "summary": "NCCL把多GPU集合通信高效映射到真实互联拓扑，是大模型训练通信瓶颈的核心基础设施"
+  },
+  {
     "title": "Kubernetes 基础",
     "slug": "kubernetes-basics-ml",
     "date": "2026-03-20",
