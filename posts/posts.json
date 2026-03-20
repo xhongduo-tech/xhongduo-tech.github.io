@@ -1,5 +1,17 @@
 [
   {
+    "title": "Docker 核心机制：镜像分层、OverlayFS 与容器生命周期",
+    "slug": "docker-core-overlay-lifecycle",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Docker",
+      "容器"
+    ],
+    "summary": "Docker 用 OverlayFS 叠加只读镜像层与容器写层，生命周期由 create/start/stop/rm …"
+  },
+  {
     "title": "Linux 网络栈：TCP/IP 协议与 Socket 编程基础",
     "slug": "linux-network-tcp-socket",
     "date": "2026-03-20",

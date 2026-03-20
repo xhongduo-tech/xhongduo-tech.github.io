@@ -6845,7 +6845,7 @@
       "容器"
     ],
     "brief": "Docker 镜像的 UnionFS 分层存储（OverlayFS 的 lowerdir/upperdir/merged）。镜像层共享节省磁盘的机制。容器从 Created → Running → Stopped → Removed 的状态流转与 docker ps 各字段含义。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Dockerfile 最佳实践",
