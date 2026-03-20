@@ -1,5 +1,17 @@
 [
   {
+    "title": "流水线并行的负载均衡策略",
+    "slug": "pipeline-parallel-load-balancing",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "流水线并行",
+      "性能优化"
+    ],
+    "summary": "流水线并行的关键不是平均层数，而是让首尾与中间stage的总延迟尽量持平"
+  },
+  {
     "title": "Megatron-LM的分布式Embedding实现",
     "slug": "megatron-distributed-embedding",
     "date": "2026-03-20",

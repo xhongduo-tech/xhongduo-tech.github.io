@@ -6401,7 +6401,7 @@
       "性能优化"
     ],
     "brief": "核心要点：Transformer各层计算量大致相同，但Embedding层和LM Head层的计算量和内存占用不同。Megatron-LM将Embedding与第一个Transformer块共置，LM Head与最后一个块共置。不均衡的stage划分使最慢stage决定整体吞吐，需通过profiling调整层分配。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO与模型并行的对比与互补",
