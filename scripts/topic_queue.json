@@ -7589,7 +7589,7 @@
       "推理优化"
     ],
     "brief": "SGLang 的 SGL（Structured Generation Language）多调用共享前缀的语义。RadixAttention 的 Radix Tree 管理 KV Cache 以复用公共前缀。与 vLLM 在多轮对话和 Tree-of-Thought 场景的吞吐对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TGI（Text Generation Inference）：HuggingFace 推理框架",
