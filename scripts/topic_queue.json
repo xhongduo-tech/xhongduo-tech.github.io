@@ -7541,7 +7541,7 @@
       "综述"
     ],
     "brief": "四类 PEFT 方法的参数位置与更新机制对比。trainable params 数量与性能的 Pareto 曲线。在低资源场景（<1K 样本）各方法的鲁棒性。PEFT 与全参数微调的最终性能上限差距分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "微调学习率调度：warmup、余弦退火与学习率查找",

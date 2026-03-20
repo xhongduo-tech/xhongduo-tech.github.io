@@ -1,5 +1,17 @@
 [
   {
+    "title": "PEFT 方法全景：LoRA、Adapter、Prefix、Prompt Tuning 对比",
+    "slug": "peft-methods-comparison",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT",
+      "综述"
+    ],
+    "summary": "PEFT用少量新增参数适配大模型，LoRA通常是资源与性能最均衡的默认选择"
+  },
+  {
     "title": "模型解释性工具：Logit Lens、激活补丁与电路分析",
     "slug": "model-interpretability-tools",
     "date": "2026-03-21",
