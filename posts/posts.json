@@ -1,5 +1,17 @@
 [
   {
+    "title": "注意力机制的统一视角：从二次到线性",
+    "slug": "attention-unified-view-quadratic-to-linear",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "注意力机制",
+      "综述"
+    ],
+    "summary": "注意力可统一为Y=f(Q,K)V，差别本质是权重构造方式与效率表达权衡"
+  },
+  {
     "title": "Switch Transformer的简化路由设计",
     "slug": "switch-transformer-routing",
     "date": "2026-03-20",

@@ -6065,7 +6065,7 @@
       "综述"
     ],
     "brief": "核心要点：所有注意力变体可统一为Y=f(Q,K)·V的框架：标准Attention中f=softmax(QKᵀ/√d)是O(N²)；稀疏注意力中f保留top-k或固定模式；线性注意力中f=φ(Q)φ(K)ᵀ利用结合律变为O(Nd²)；SSM中f等价于半可分矩阵（Mamba-2证明）。关键权衡轴：表达力 vs 效率 vs 实现复杂度",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE路由机制的数学形式化",
