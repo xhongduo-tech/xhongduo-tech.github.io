@@ -1,5 +1,17 @@
 [
   {
+    "title": "大模型分布式Checkpoint的保存与恢复",
+    "slug": "distributed-checkpoint-save-restore",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "工程实践"
+    ],
+    "summary": "分布式Checkpoint的关键不只是分片保存，更是用metadata描述如何重组与重切分"
+  },
+  {
     "title": "SP-TP-PP通信重叠的实现技术",
     "slug": "communication-computation-overlap-parallel",
     "date": "2026-03-20",

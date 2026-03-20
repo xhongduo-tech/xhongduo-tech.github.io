@@ -6569,7 +6569,7 @@
       "工程实践"
     ],
     "brief": "核心要点：分布式训练的Checkpoint需保存各并行维度的分片状态。TP分片的参数需记录切分维度和偏移，PP需保存各stage的层映射，ZeRO需保存优化器状态的分片信息。Megatron-LM支持在不同并行度间转换Checkpoint，需处理参数的重新切分和合并。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据并行的梯度AllReduce带宽瓶颈",
