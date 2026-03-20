@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE路由中的噪声注入机制",
+    "slug": "moe-noisy-gating",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Noisy Top-K通过给路由logits加可学习噪声，缓解专家坍缩并提升负载均衡。"
+  },
+  {
     "title": "Mixtral的Sliding Window与MoE协同设计",
     "slug": "mixtral-sliding-window-moe-synergy",
     "date": "2026-03-20",

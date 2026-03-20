@@ -6161,7 +6161,7 @@
       "路由机制"
     ],
     "brief": "核心要点：Noisy Top-K Gating在路由logits上添加可调噪声H(x)=Wx+softplus(W_noise·x)·ε，ε~N(0,1)。分析噪声如何促进专家探索、防止路由坍缩，以及噪声幅度随训练进程的自适应调节机制",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE模型的推理效率优化",
