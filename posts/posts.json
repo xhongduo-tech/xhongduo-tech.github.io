@@ -1,5 +1,17 @@
 [
   {
+    "title": "Chinchilla定律的推导与最优分配",
+    "slug": "chinchilla-scaling-law-derivation",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "训练效率"
+    ],
+    "summary": "Chinchilla表明固定算力下参数与数据应近等比扩展，避免大模型欠训练。"
+  },
+  {
     "title": "数据并行的梯度AllReduce带宽瓶颈",
     "slug": "data-parallel-allreduce-bandwidth-bottleneck",
     "date": "2026-03-20",

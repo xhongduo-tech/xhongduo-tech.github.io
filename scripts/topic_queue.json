@@ -6593,7 +6593,7 @@
       "训练效率"
     ],
     "brief": "核心要点：从Kaplan等人的幂律拟合L(N,D)=E+A/N^α+B/D^β出发，推导Chinchilla的计算最优分配N∝C^0.5、D∝C^0.5，解释为何参数量与数据量应等比扩展，对比Kaplan原始结论N∝C^0.73的偏差来源",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "扩展定律中的不可约损失项分析",
