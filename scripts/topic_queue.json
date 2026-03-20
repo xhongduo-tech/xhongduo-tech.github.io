@@ -6137,7 +6137,7 @@
       "训练优化"
     ],
     "brief": "核心要点：Switch Transformer发现MoE路由的softmax和Top-K操作对精度敏感，需在float32下执行，而专家FFN可用bfloat16。分析选择性精度策略如何将训练不稳定性降低80%，以及router z-loss的数值稳定化作用",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixtral的Sliding Window与MoE协同设计",
