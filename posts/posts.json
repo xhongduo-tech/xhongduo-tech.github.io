@@ -1,5 +1,17 @@
 [
   {
+    "title": "SP-TP-PP通信重叠的实现技术",
+    "slug": "communication-computation-overlap-parallel",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "通信优化",
+      "性能优化"
+    ],
+    "summary": "通信重叠的本质是前移发起时机，并用多流把通信隐藏到计算窗口中。"
+  },
+  {
     "title": "异步流水线并行的权重一致性问题",
     "slug": "async-pipeline-weight-consistency",
     "date": "2026-03-20",

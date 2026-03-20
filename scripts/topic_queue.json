@@ -6557,7 +6557,7 @@
       "性能优化"
     ],
     "brief": "核心要点：通信-计算重叠是提升并行效率的关键。TP的AllReduce可拆分为Reduce-Scatter+AllGather并与后续计算重叠；PP的点对点通信可与不相关层的计算重叠；ZeRO的AllGather可在参数使用前提前发起。CUDA Stream和异步通信原语是实现重叠的基础。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "大模型分布式Checkpoint的保存与恢复",
