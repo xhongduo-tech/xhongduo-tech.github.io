@@ -1,5 +1,17 @@
 [
   {
+    "title": "Switch Transformer的简化路由设计",
+    "slug": "switch-transformer-routing",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "MoE",
+      "Switch Transformer"
+    ],
+    "summary": "Switch Transformer用Top-1路由替代Top-2，在降低近半expert计算的同时，用容量控制与残差…"
+  },
+  {
     "title": "MoE路由机制的数学形式化",
     "slug": "moe-routing-formalization",
     "date": "2026-03-20",

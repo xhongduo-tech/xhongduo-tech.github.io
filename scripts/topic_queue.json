@@ -6089,7 +6089,7 @@
       "Switch Transformer"
     ],
     "brief": "核心要点：Switch Transformer将Top-2简化为Top-1路由，单专家选择使计算量降低近50%。分析其capacity factor C的设定（C=1.0~1.5），溢出token的丢弃策略，以及为何Top-1在大规模预训练中反而优于Top-2",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GShard的随机Top-2路由策略",
