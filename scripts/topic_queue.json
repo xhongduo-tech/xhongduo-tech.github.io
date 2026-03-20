@@ -7361,7 +7361,7 @@
       "Python"
     ],
     "brief": "Numba JIT 编译的适用场景（数值密集型循环）。Cython 的类型声明加速。PyBind11 封装 C++ 代码供 Python 调用。torch.compile 的 Dynamo 图捕获机制。何时放弃纯 Python 转向扩展。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MLflow：模型生命周期管理与模型注册中心",

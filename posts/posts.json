@@ -1,5 +1,17 @@
 [
   {
+    "title": "Python 性能优化：Cython、Numba 与 C 扩展",
+    "slug": "python-performance-cython-numba",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "性能优化",
+      "Python"
+    ],
+    "summary": "Python 提速要先定位瓶颈，再按 Numba、Cython、PyBind11、torch.compile 递进选型"
+  },
+  {
     "title": "MLflow：模型生命周期管理与模型注册中心",
     "slug": "mlflow-model-registry",
     "date": "2026-03-21",
