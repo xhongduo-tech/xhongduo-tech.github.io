@@ -1,5 +1,18 @@
 [
   {
+    "title": "Prometheus + Grafana",
+    "slug": "prometheus-grafana-ml-monitoring",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "监控",
+      "运维",
+      "Prometheus"
+    ],
+    "summary": "Prometheus 拉取 GPU 指标，Grafana 查询展示，Alertmanager 路由告警，核心是 pul…"
+  },
+  {
     "title": "Linux 用户权限管理：sudo、ACL 与多用户 GPU 服务器规范",
     "slug": "linux-permissions-gpu-server",
     "date": "2026-03-20",

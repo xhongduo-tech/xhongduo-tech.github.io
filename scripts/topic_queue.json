@@ -7081,7 +7081,7 @@
       "Prometheus"
     ],
     "brief": "Prometheus 的 pull 模型与 PromQL 查询语法。GPU Exporter（dcgm-exporter）暴露显存利用率、温度、功率指标。Grafana Dashboard 的分布式训练监控面板设计。Alertmanager 的告警规则配置。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux 用户权限管理：sudo、ACL 与多用户 GPU 服务器规范",
