@@ -1,5 +1,17 @@
 [
   {
+    "title": "nvidia-smi 深度使用：显存分析、利用率诊断与 MIG",
+    "slug": "nvidia-smi-advanced",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "GPU分析",
+      "显存"
+    ],
+    "summary": "讲清 nvidia-smi 利用率定义、持续采样方法，以及 A100 MIG 下为何必须转向 DCGM。"
+  },
+  {
     "title": "InfiniBand 与 RDMA：高性能计算集群网络基础",
     "slug": "infiniband-rdma",
     "date": "2026-03-20",

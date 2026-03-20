@@ -6958,7 +6958,7 @@
       "显存"
     ],
     "brief": "nvidia-smi 各字段含义（GPU-Util 与 Memory-Util 的区别、volatile vs fan speed）。持续监控：nvidia-smi dmon 采样。DCGM 集群级 GPU 监控。MIG（Multi-Instance GPU）：将 A100 切分为多个独立 GPU 实例的使用场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kubernetes 基础",
