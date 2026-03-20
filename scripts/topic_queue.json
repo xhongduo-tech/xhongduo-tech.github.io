@@ -7204,7 +7204,7 @@
       "容器"
     ],
     "brief": "Seccomp 的系统调用白名单机制与 Docker 默认 profile。AppArmor 的路径访问控制。非 root 用户运行容器的挑战（GPU 设备权限）。只读文件系统与临时文件系统的安全加固。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "硬件规格解读：GPU 选型、互联带宽与训练效率估算",
