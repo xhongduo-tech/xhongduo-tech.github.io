@@ -6809,7 +6809,7 @@
       "网络"
     ],
     "brief": "TCP 三次握手/四次挥手的内核状态机。TCP 流量控制（滑动窗口）与拥塞控制（CUBIC/BBR）。Socket 的 blocking/non-blocking 模式与 epoll 的 ET/LT 差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux I/O 模型：阻塞、非阻塞、异步与 io_uring",
