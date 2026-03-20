@@ -1,5 +1,17 @@
 [
   {
+    "title": "扩展定律的幂律指数：α与β的实验估计",
+    "slug": "scaling-exponents-alpha-beta",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩展定律",
+      "实验方法"
+    ],
+    "summary": "α、β的估计方法会直接改变最优训练策略，核心差异在收敛控制与联合拟合。"
+  },
+  {
     "title": "涌现能力的相变类比与临界指数",
     "slug": "emergence-phase-transition-analogy",
     "date": "2026-03-20",
