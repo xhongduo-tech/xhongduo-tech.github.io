@@ -1,5 +1,17 @@
 [
   {
+    "title": "Longformer与BigBird的稀疏模式对比",
+    "slug": "longformer-bigbird-sparse-pattern-comparison",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "稀疏注意力",
+      "模型对比"
+    ],
+    "summary": "Longformer更易部署，BigBird靠随机捷径获得更强长程建模与理论保证。"
+  },
+  {
     "title": "BigBird的随机稀疏注意力理论基础",
     "slug": "bigbird-random-sparse-attention",
     "date": "2026-03-20",

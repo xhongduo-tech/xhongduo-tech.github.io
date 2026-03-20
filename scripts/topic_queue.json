@@ -5849,7 +5849,7 @@
       "模型对比"
     ],
     "brief": "核心要点：Longformer使用确定性稀疏模式（滑动窗口+扩张+全局token），BigBird额外引入随机连接并提供理论保证。实验显示两者在长文档任务上性能接近（±0.5 F1），但BigBird的随机连接在训练时增加实现复杂度，Longformer的全局token策略更易于工程部署",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "稀疏注意力的CUDA kernel实现挑战",
