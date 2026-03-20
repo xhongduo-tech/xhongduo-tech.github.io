@@ -7481,7 +7481,7 @@
       "RLHF"
     ],
     "brief": "离线 DPO 依赖固定偏好数据集，存在分布偏移问题。在线 DPO 用当前策略生成响应后实时收集偏好，减少分布偏移。SimPO（不依赖参考模型的 DPO 变体）的设计。Iterative DPO 的迭代数据收集策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SFT 数据工程：过滤、去重与质量评分",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "在线 DPO vs 离线 DPO：偏好数据收集与训练策略",
+    "slug": "online-vs-offline-dpo",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "DPO",
+      "RLHF"
+    ],
+    "summary": "离线DPO受限于旧偏好分布，在线与迭代DPO通过当前策略采样持续纠偏，SimPO则以无参考模型降低训练成本。"
+  },
+  {
     "title": "SFT 数据工程：过滤、去重与质量评分",
     "slug": "sft-data-engineering",
     "date": "2026-03-21",
