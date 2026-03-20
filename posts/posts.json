@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linear Transformer与核函数选择",
+    "slug": "linear-transformer-kernel-functions",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "线性注意力",
+      "核方法"
+    ],
+    "summary": "Linear Transformer 的关键不在线性化本身，而在核函数与特征映射的选择。"
+  },
+  {
     "title": "Sliding Window Attention在Mistral中的实现",
     "slug": "mistral-sliding-window-attention",
     "date": "2026-03-20",

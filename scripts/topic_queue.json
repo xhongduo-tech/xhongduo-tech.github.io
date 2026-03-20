@@ -6041,7 +6041,7 @@
       "核方法"
     ],
     "brief": "核心要点：Linear Transformer将Attention解释为核函数k(Q,K)=φ(Q)ᵀφ(K)，不同φ对应不同核。ELU+1核φ(x)=elu(x)+1简单但近似质量差；随机傅里叶特征φ实现高斯核但需高维m；cosFormer用cos(πi/2N)加权实现位置感知的线性注意力，无需显式核近似",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RWKV的线性复杂度语言模型设计",
