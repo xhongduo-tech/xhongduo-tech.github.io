@@ -6173,7 +6173,7 @@
       "推理优化"
     ],
     "brief": "核心要点：MoE推理面临专家参数加载的内存瓶颈，batch内不同token路由到不同专家导致计算不规则。分析专家预加载预测、专家缓存策略、以及动态batch重组三种优化方案的延迟与吞吐量提升",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ST-MoE的路由稳定性与Z-Loss",

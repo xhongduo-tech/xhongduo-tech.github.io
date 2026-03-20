@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE模型的推理效率优化",
+    "slug": "moe-inference-optimization",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "MoE",
+      "推理优化"
+    ],
+    "summary": "MoE推理优化的关键是减少活跃专家访问数T，把权重加载等待转成连续计算。"
+  },
+  {
     "title": "Mixtral的专家权重合并与蒸馏",
     "slug": "mixtral-expert-merging-distillation",
     "date": "2026-03-20",
