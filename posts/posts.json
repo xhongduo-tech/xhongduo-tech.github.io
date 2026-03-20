@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识蒸馏的损失函数设计与软标签信息量分析",
+    "slug": "knowledge-distillation-loss-design-soft-label-information",
+    "date": "2026-03-20",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "知识蒸馏",
+      "模型压缩"
+    ],
+    "summary": "蒸馏的关键是用带T²缩放的软标签KL，把教师的类间相似度结构传给学生。"
+  },
+  {
     "title": "SimCSE对比学习的梯度分析与表示坍缩",
     "slug": "simcse-contrastive-gradient-representation-collapse",
     "date": "2026-03-20",
