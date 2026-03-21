@@ -7805,7 +7805,7 @@
       "OpenAI"
     ],
     "brief": "GPT-4o 的架构推断：统一 tokenizer 处理文本/音频/图像 vs 独立 encoder。实时语音交互的端到端延迟分析（320ms）。与 GPT-4V 的多模态能力差异。图像生成集成（DALL-E 3 集成推断）。效率优化使成本降低 50% 的机制分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据并行的通信优化：梯度压缩与异步更新",
