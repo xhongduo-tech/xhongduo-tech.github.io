@@ -7649,7 +7649,7 @@
       "推理服务"
     ],
     "brief": "LLM 推理的核心指标：TTFT（首 token 延迟）、TPOT（每 token 时间）、吞吐量（token/s/GPU）。SLO（服务级别目标）的 P50/P95/P99 设置。Prometheus metrics 的 vLLM 接口。负载测试工具（locust/wrk2）的使用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SmoothQuant 与 AWQ：激活平滑的权重量化",
