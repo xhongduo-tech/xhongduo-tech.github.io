@@ -1,5 +1,17 @@
 [
   {
+    "title": "投机解码高级：Eagle、Medusa 与树形验证",
+    "slug": "speculative-decoding-eagle-medusa",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "投机解码",
+      "推理优化"
+    ],
+    "summary": "Medusa 产草稿，Eagle 复用特征，树形验证并行确认，多 token 一次前向完成。"
+  },
+  {
     "title": "SmoothQuant 与 AWQ：激活平滑的权重量化",
     "slug": "smoothquant-awq-activation",
     "date": "2026-03-21",
