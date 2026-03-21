@@ -7757,7 +7757,7 @@
       "Meta"
     ],
     "brief": "LLaMA 3 的架构变化：128K 词表、GQA、更长上下文。预训练数据：15T tokens 的质量过滤与去重。多语言与代码数据比例。Llama 3.1 的 Post-Training：SFT + RLHF 的多轮迭代。405B 模型的并行训练策略披露。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 1.5 Pro：百万 Token 长上下文的实现机制",

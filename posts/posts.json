@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLaMA 3 技术细节：架构改进与 400B+ 参数训练",
+    "slug": "llama3-architecture-training",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "LLaMA",
+      "Meta"
+    ],
+    "summary": "LLaMA 3 的核心升级在 128K 词表、GQA、128K 上下文与系统化训练工程。"
+  },
+  {
     "title": "Qwen2.5 系列技术解析：数据、架构与对齐策略",
     "slug": "qwen25-technical-analysis",
     "date": "2026-03-21",
