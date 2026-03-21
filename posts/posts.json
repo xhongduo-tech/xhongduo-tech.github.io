@@ -1,5 +1,17 @@
 [
   {
+    "title": "计算效率分析：MFU、HFU 与 Roofline 模型",
+    "slug": "compute-efficiency-mfu-roofline",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "性能分析",
+      "训练优化"
+    ],
+    "summary": "MFU看模型效率，HFU看硬件忙碌度，Roofline判断算力瓶颈还是带宽瓶颈。"
+  },
+  {
     "title": "Adam 优化器变体：AdamW、Adafactor 与 SOAP",
     "slug": "optimizer-variants-adamw-adafactor",
     "date": "2026-03-21",

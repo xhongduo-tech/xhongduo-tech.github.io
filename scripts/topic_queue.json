@@ -7878,7 +7878,7 @@
       "训练优化"
     ],
     "brief": "MFU（Model FLOP Utilization）= 实际 FLOP / 峰值 FLOP 的计算方法。HFU（Hardware FLOP Utilization）纳入重计算开销。Roofline 模型区分 compute-bound 与 memory-bound 操作。Transformer 各操作的算术强度分析（attention vs FFN）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Adam 优化器变体：AdamW、Adafactor 与 SOAP",
@@ -7902,7 +7902,7 @@
       "预训练"
     ],
     "brief": "BPE（Byte-Pair Encoding）的合并规则训练算法。Unigram Language Model Tokenizer 的概率剪枝。SentencePiece 的字节级回退处理未知字符。多语言词表扩展：语言专项 token 与词表容量的权衡。LLaMA vs Qwen 词表设计的中文 fertility 对比。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Q-Former（BLIP-2）：冻结模态编码器的轻量桥接设计",
@@ -7914,7 +7914,7 @@
       "视觉语言"
     ],
     "brief": "Q-Former 用一组可学习 Query Token 通过交叉注意力从冻结视觉编码器提取信息，再对接冻结 LLM。两阶段训练：先对齐视觉-语言表征，再对接 LLM 生成。InstructBLIP 对 Q-Former 的指令感知改进。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Flamingo：交叉注意力插层的多模态少样本学习",
@@ -7926,7 +7926,7 @@
       "交叉注意力"
     ],
     "brief": "Flamingo 在冻结 LLM 层间插入可训练的 Gated Cross-Attention 层，消耗视觉特征序列（Perceiver Resampler 压缩后）。交错图文序列的 in-context learning 能力。与 Q-Former 的架构对比：交叉注意力 vs 查询 Token。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "图像离散 Tokenization：VQ-VAE、VQGAN 与视觉自回归生成",
@@ -7938,7 +7938,7 @@
       "图像生成"
     ],
     "brief": "VQ-VAE 的编码器→量化码本→解码器结构。码本的承诺损失（commitment loss）与 codebook collapse 问题。VQGAN 引入感知损失与对抗损失提升重建质量。LlamaGen/LWM 等视觉自回归模型将图像视为离散 Token 序列的生成框架。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "动态分辨率与瓦片编码：VLM 处理高分辨率图像的策略",
@@ -7950,7 +7950,7 @@
       "视觉编码"
     ],
     "brief": "固定分辨率 ViT 对高分辨率图像的下采样损失信息。瓦片编码（Tile Encoding）：将高分辨率图切分为多个 ViT 子块并行编码。动态分辨率：根据图像宽高比自适应决定分块策略（Qwen2.5-VL/InternVL 的实现）。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "视觉 Token 压缩：减少 VLM 图像 Token 数量的方法",
@@ -7962,7 +7962,7 @@
       "推理效率"
     ],
     "brief": "高分辨率图像产生大量视觉 Token（如 1024 个）导致 LLM 上下文膨胀。压缩方法：平均池化、注意力加权池化、可学习压缩（LDPv2）、Token Merging（ToMe）。压缩比与下游任务性能的 Pareto 权衡。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "2D RoPE 与多模态位置编码：图像空间位置的表示",
@@ -7974,7 +7974,7 @@
       "位置编码"
     ],
     "brief": "标准 1D RoPE 无法区分图像的行列关系。2D RoPE 将位置 ID 拆为行/列分别编码旋转角度。M-RoPE（Qwen2.5-VL）扩展到视频的时间维度（时间/高度/宽度三轴）。与 VPE（Visual Positional Embedding）的对比。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "视频时序建模",
@@ -7989,7 +7989,7 @@
       "视觉语言"
     ],
     "brief": "视频时序建模从 C3D/I3D 的 3D 卷积发展到 Video Transformer。分析 3D 卷积的局部时序感受野限制、Temporal Shift Module 的零参数时序建模、以及 Transformer 的全局时序注意力优势。讨论长视频处理的分片段策略。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "语音离散 Tokenization：EnCodec、Whisper 与语音 LLM 架构",
@@ -8001,7 +8001,7 @@
       "语音"
     ],
     "brief": "连续语音特征（Mel 频谱）vs 离散语音 Token（RVQ 残差向量量化）。EnCodec 的多层 RVQ 结构与比特率控制。Whisper 的 Encoder-Decoder ASR 架构。端到端语音 LLM（Qwen-Audio、Gemini Audio）将语音 Token 与文本 Token 统一处理的范式。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "扩散模型基础：DDPM、分数匹配与 DDIM 加速采样",
