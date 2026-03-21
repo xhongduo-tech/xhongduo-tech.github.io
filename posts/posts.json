@@ -1,5 +1,18 @@
 [
   {
+    "title": "训练稳定性",
+    "slug": "training-stability-loss-spikes",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "优化器",
+      "优化"
+    ],
+    "summary": "Loss spike 常由 Adam 二阶矩迟滞触发，结合模块级裁剪、μP 与 Z-loss 可显著稳住训练"
+  },
+  {
     "title": "计算效率分析：MFU、HFU 与 Roofline 模型",
     "slug": "compute-efficiency-mfu-roofline",
     "date": "2026-03-21",
