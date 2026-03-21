@@ -7781,7 +7781,7 @@
       "小模型"
     ],
     "brief": "Phi-4 的核心假设：数据质量 > 数据规模。合成数据生成的具体策略（教科书式数据）。14B 参数在 STEM 任务超越 GPT-4o-mini 的机制分析。与 Gemma 2 的小模型对比。知识蒸馏在数据生成中的作用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 3.5 Sonnet 技术分析：混合推理与效率优化",

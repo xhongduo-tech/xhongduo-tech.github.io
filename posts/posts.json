@@ -1,5 +1,17 @@
 [
   {
+    "title": "Phi-4 技术报告：小模型的高质量数据策略",
+    "slug": "phi4-small-model-data-strategy",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Phi",
+      "小模型"
+    ],
+    "summary": "Phi-4 证明小模型能靠教材式高质量数据和关键 token 后训，在 STEM 推理上越级。"
+  },
+  {
     "title": "Claude 3.5 Sonnet 技术分析：混合推理与效率优化",
     "slug": "claude35-sonnet-analysis",
     "date": "2026-03-21",
