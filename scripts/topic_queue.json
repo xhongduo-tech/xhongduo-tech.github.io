@@ -7637,7 +7637,7 @@
       "推理优化"
     ],
     "brief": "相同系统提示的多请求共享 KV Cache 的实现机制。Cache 命中率对 TTFT（首 token 延迟）的影响。基于 hash 的 Cache 索引设计。vLLM 与 SGLang 的前缀缓存实现差异。成本节省的量化分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推理服务监控：TTFT、TPS、吞吐量与 SLO 设计",

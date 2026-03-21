@@ -1,5 +1,17 @@
 [
   {
+    "title": "前缀缓存（Prefix Caching）：系统提示的 KV Cache 复用",
+    "slug": "prefix-caching-kv-reuse",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "KV Cache",
+      "推理优化"
+    ],
+    "summary": "前缀缓存把共享系统提示的 KV 记住复用，命中率越高，TTFT 和重复算力越低。"
+  },
+  {
     "title": "LMDeploy：TurboMind 引擎与高效推理优化",
     "slug": "lmdeploy-turbomind",
     "date": "2026-03-21",
