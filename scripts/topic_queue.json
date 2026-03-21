@@ -7829,7 +7829,7 @@
       "训练优化"
     ],
     "brief": "MoE 训练的核心挑战：路由崩溃（所有 token 流向少数专家）。辅助损失（auxiliary loss）的负载均衡机制。Expert Capacity Factor 的设置与 token dropped 的影响。DeepSeek MoE 的无辅助损失负载均衡（Bias-based routing）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "预训练数据配比：领域权重、代码比例与多语言混合",

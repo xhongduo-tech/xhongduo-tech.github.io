@@ -1,5 +1,17 @@
 [
   {
+    "title": "混合专家（MoE）训练：负载均衡与专家崩溃",
+    "slug": "moe-training-load-balance",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "MoE",
+      "训练优化"
+    ],
+    "summary": "MoE训练成败取决于路由均衡，aux loss、capacity与bias routing需协同抑制专家崩溃。"
+  },
+  {
     "title": "GPT-4o 统一多模态架构解析",
     "slug": "gpt4o-multimodal-architecture",
     "date": "2026-03-21",
