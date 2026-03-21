@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型服务的负载均衡与自动扩缩容",
+    "slug": "llm-serving-load-balance-autoscale",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "负载均衡",
+      "工程实践"
+    ],
+    "summary": "LLM 弹性核心是前缀感知路由、多指标扩缩容与可控发布三者协同"
+  },
+  {
     "title": "DeepSeek-R1 技术报告解析：强化学习驱动的推理链",
     "slug": "deepseek-r1-technical-report",
     "date": "2026-03-21",

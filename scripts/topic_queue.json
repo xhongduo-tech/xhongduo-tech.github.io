@@ -7709,7 +7709,7 @@
       "工程实践"
     ],
     "brief": "多实例 LLM 服务的请求路由策略：Round-Robin vs 最短队列。GPU 利用率驱动的自动扩缩容（HPA vs KEDA）。请求亲和性（Sticky Session）在有 Prefix Cache 时的必要性。蓝绿部署与金丝雀发布的模型更新策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "o1/o3：OpenAI 的 Chain-of-Thought 扩展推理",
