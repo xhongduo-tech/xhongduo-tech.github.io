@@ -7625,7 +7625,7 @@
       "CPU推理"
     ],
     "brief": "GGUF 格式：权重量化类型（Q4_K_M/Q5_K_S 等）的精度-速度权衡。llama.cpp 的 Metal/CUDA/CPU 后端选择。Ollama 的本地 LLM 管理工具链。边缘设备（Apple Silicon/ARM）的推理性能分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "前缀缓存（Prefix Caching）：系统提示的 KV Cache 复用",

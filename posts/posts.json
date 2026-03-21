@@ -1,5 +1,17 @@
 [
   {
+    "title": "llama.cpp 与 GGUF：CPU/边缘设备的量化推理",
+    "slug": "llama-cpp-gguf-cpu-inference",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "llama.cpp",
+      "CPU推理"
+    ],
+    "summary": "GGUF 负责装权重，llama.cpp 负责跑，Ollama 负责管理；Q4_K_M 常是 CPU/边缘部署的平衡点"
+  },
+  {
     "title": "TGI（Text Generation Inference）：HuggingFace 推理框架",
     "slug": "text-generation-inference-tgi",
     "date": "2026-03-21",
