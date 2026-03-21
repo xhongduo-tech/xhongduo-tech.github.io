@@ -1,5 +1,17 @@
 [
   {
+    "title": "张量并行推理：大模型跨卡部署的实现机制",
+    "slug": "tensor-parallel-inference",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "张量并行",
+      "多卡推理"
+    ],
+    "summary": "张量并行通过列分与行分把层内计算拆到多卡，但真正限制推理收益的是每层反复发生的 all-reduce 通信。"
+  },
+  {
     "title": "投机解码高级：Eagle、Medusa 与树形验证",
     "slug": "speculative-decoding-eagle-medusa",
     "date": "2026-03-21",
