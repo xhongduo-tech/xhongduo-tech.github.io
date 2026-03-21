@@ -7769,7 +7769,7 @@
       "Google"
     ],
     "brief": "Gemini 1.5 的 Mixture-of-Experts 架构。百万 token 上下文的 Ring Attention 实现推断。Needle-in-a-Haystack 测试的性能分析。多模态长上下文（视频/音频/代码）的统一处理。与 Claude 3 长上下文能力的对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Phi-4 技术报告：小模型的高质量数据策略",
