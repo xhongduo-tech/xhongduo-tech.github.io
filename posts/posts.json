@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据并行的通信优化：梯度压缩与异步更新",
+    "slug": "data-parallel-gradient-compression",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "梯度压缩"
+    ],
+    "summary": "梯度压缩省带宽，异步更新省等待，误差反馈与延迟控制是两者能否稳定收敛的关键"
+  },
+  {
     "title": "混合专家（MoE）训练：负载均衡与专家崩溃",
     "slug": "moe-training-load-balance",
     "date": "2026-03-21",

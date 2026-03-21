@@ -7817,7 +7817,7 @@
       "梯度压缩"
     ],
     "brief": "梯度压缩方法：TopK 稀疏化、随机量化（1-bit SGD）、PowerSGD 低秩近似。压缩误差反馈机制（Error Feedback）。异步 SGD 的 staleness 问题与理论收敛保证。Horovod 与 PyTorch DDP 的压缩接口。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "混合专家（MoE）训练：负载均衡与专家崩溃",
