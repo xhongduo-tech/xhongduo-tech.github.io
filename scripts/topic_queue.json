@@ -7673,7 +7673,7 @@
       "推理框架"
     ],
     "brief": "Triton 的 model repository 结构与 config.pbtxt。动态批处理（Dynamic Batching）配置。同时支持 TensorRT/ONNX/PyTorch/Python backend。ensemble pipeline 将预处理/推理/后处理串联。gRPC/HTTP 协议性能对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "张量并行推理：大模型跨卡部署的实现机制",

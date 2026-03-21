@@ -1,5 +1,17 @@
 [
   {
+    "title": "Triton Inference Server：多框架统一推理服务",
+    "slug": "triton-inference-server",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Triton",
+      "推理框架"
+    ],
+    "summary": "Triton 用统一模型仓库、动态批和 ensemble，把多框架推理服务化并提升吞吐。"
+  },
+  {
     "title": "llama.cpp 与 GGUF：CPU/边缘设备的量化推理",
     "slug": "llama-cpp-gguf-cpu-inference",
     "date": "2026-03-21",
