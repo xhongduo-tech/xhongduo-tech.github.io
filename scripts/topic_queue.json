@@ -7866,7 +7866,7 @@
       "故障恢复"
     ],
     "brief": "检查点保存频率的权衡：存储成本 vs 重算代价。异步检查点（Async Checkpoint）不阻塞训练进程。ZeRO 分片检查点的合并与加载。故障恢复的自动检测（健康检查 + 自动重启脚本）。Gemini 训练中 130 次故障的恢复实践。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "计算效率分析：MFU、HFU 与 Roofline 模型",
@@ -7902,7 +7902,7 @@
       "预训练"
     ],
     "brief": "BPE（Byte-Pair Encoding）的合并规则训练算法。Unigram Language Model Tokenizer 的概率剪枝。SentencePiece 的字节级回退处理未知字符。多语言词表扩展：语言专项 token 与词表容量的权衡。LLaMA vs Qwen 词表设计的中文 fertility 对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Q-Former（BLIP-2）：冻结模态编码器的轻量桥接设计",
@@ -7914,7 +7914,7 @@
       "视觉语言"
     ],
     "brief": "Q-Former 用一组可学习 Query Token 通过交叉注意力从冻结视觉编码器提取信息，再对接冻结 LLM。两阶段训练：先对齐视觉-语言表征，再对接 LLM 生成。InstructBLIP 对 Q-Former 的指令感知改进。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Flamingo：交叉注意力插层的多模态少样本学习",
@@ -7926,7 +7926,7 @@
       "交叉注意力"
     ],
     "brief": "Flamingo 在冻结 LLM 层间插入可训练的 Gated Cross-Attention 层，消耗视觉特征序列（Perceiver Resampler 压缩后）。交错图文序列的 in-context learning 能力。与 Q-Former 的架构对比：交叉注意力 vs 查询 Token。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "图像离散 Tokenization：VQ-VAE、VQGAN 与视觉自回归生成",
@@ -7938,7 +7938,7 @@
       "图像生成"
     ],
     "brief": "VQ-VAE 的编码器→量化码本→解码器结构。码本的承诺损失（commitment loss）与 codebook collapse 问题。VQGAN 引入感知损失与对抗损失提升重建质量。LlamaGen/LWM 等视觉自回归模型将图像视为离散 Token 序列的生成框架。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "动态分辨率与瓦片编码：VLM 处理高分辨率图像的策略",
@@ -7950,7 +7950,7 @@
       "视觉编码"
     ],
     "brief": "固定分辨率 ViT 对高分辨率图像的下采样损失信息。瓦片编码（Tile Encoding）：将高分辨率图切分为多个 ViT 子块并行编码。动态分辨率：根据图像宽高比自适应决定分块策略（Qwen2.5-VL/InternVL 的实现）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "视觉 Token 压缩：减少 VLM 图像 Token 数量的方法",
@@ -7962,7 +7962,7 @@
       "推理效率"
     ],
     "brief": "高分辨率图像产生大量视觉 Token（如 1024 个）导致 LLM 上下文膨胀。压缩方法：平均池化、注意力加权池化、可学习压缩（LDPv2）、Token Merging（ToMe）。压缩比与下游任务性能的 Pareto 权衡。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "2D RoPE 与多模态位置编码：图像空间位置的表示",
@@ -7974,7 +7974,7 @@
       "位置编码"
     ],
     "brief": "标准 1D RoPE 无法区分图像的行列关系。2D RoPE 将位置 ID 拆为行/列分别编码旋转角度。M-RoPE（Qwen2.5-VL）扩展到视频的时间维度（时间/高度/宽度三轴）。与 VPE（Visual Positional Embedding）的对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "视频时序建模",
@@ -7989,7 +7989,7 @@
       "视觉语言"
     ],
     "brief": "视频时序建模从 C3D/I3D 的 3D 卷积发展到 Video Transformer。分析 3D 卷积的局部时序感受野限制、Temporal Shift Module 的零参数时序建模、以及 Transformer 的全局时序注意力优势。讨论长视频处理的分片段策略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "语音离散 Tokenization：EnCodec、Whisper 与语音 LLM 架构",
@@ -8001,7 +8001,7 @@
       "语音"
     ],
     "brief": "连续语音特征（Mel 频谱）vs 离散语音 Token（RVQ 残差向量量化）。EnCodec 的多层 RVQ 结构与比特率控制。Whisper 的 Encoder-Decoder ASR 架构。端到端语音 LLM（Qwen-Audio、Gemini Audio）将语音 Token 与文本 Token 统一处理的范式。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "扩散模型基础：DDPM、分数匹配与 DDIM 加速采样",
@@ -8013,7 +8013,7 @@
       "图像生成"
     ],
     "brief": "前向扩散过程：逐步加高斯噪声的马尔科夫链。去噪网络的训练目标：预测噪声 ε 或预测原始图像 x₀。分数函数（score function）与朗之万动力学的关系。DDIM 的非马尔科夫链确定性采样——从 1000 步降到 50 步的原理。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DiT（Diffusion Transformer）：图像生成的纯 Transformer 架构",
@@ -8025,7 +8025,7 @@
       "Transformer"
     ],
     "brief": "用 Transformer 替换 U-Net 作为扩散模型的去噪网络。patch 化输入处理图像 token。adaLN-Zero（自适应层归一化）注入时间步与条件信息。DiT 的 Scaling Law：参数量与 FID 的幂律关系。SD3/Flux 对 DiT 的继承与改进。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CFG（Classifier-Free Guidance）：无分类器引导的条件生成",
@@ -8037,7 +8037,7 @@
       "图像生成"
     ],
     "brief": "分类器引导的原理与局限（需要额外分类器）。CFG 通过联合训练条件/无条件预测，推理时线性外插放大条件信号。CFG 强度（guidance scale）对图像质量与多样性的权衡。流匹配（Flow Matching）中 CFG 的等价形式。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多模态预训练数据集：LAION、MMC4、OBELISC 与交错图文",
@@ -8049,7 +8049,7 @@
       "数据工程"
     ],
     "brief": "图文对数据（LAION-5B）的规模与质量争议。交错图文序列数据集（MMC4/OBELISC）对 in-context 多模态能力的作用。视频字幕数据（WebVid/Panda-70M）。合成多模态数据的生成策略（GPT-4V 标注）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "VLM 评测基准全景：MMBench、MMMU、MathVista、OCRBench",
@@ -8061,7 +8061,7 @@
       "评测"
     ],
     "brief": "MMBench 的细粒度能力维度划分。MMMU（大学水平多学科多模态理解）的难点分析。MathVista 的数学图形推理。OCRBench 的文字识别与文档理解。ChartQA/DocVQA 的专项能力测评。VLM 评测的污染问题与反污染策略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多模态幻觉：成因分析与 POPE/HallusionBench 评测",
@@ -8073,7 +8073,7 @@
       "幻觉"
     ],
     "brief": "VLM 幻觉的两类来源：视觉特征提取不充分 vs 语言先验过强。POPE（基于对象存在性的幻觉评测）的 adversarial/popular/random 三种设置。HallusionBench 的视觉推理幻觉。缓解方法：RLHF-V、视觉对比解码（VCD）、幻觉感知 DPO。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "视觉指令微调：LLaVA 数据构建与两阶段训练范式",
@@ -8085,7 +8085,7 @@
       "SFT"
     ],
     "brief": "LLaVA 数据构建：用 GPT-4 将图像标注转换为对话格式。两阶段训练：第一阶段冻结 LLM 只训练连接器（Projector），第二阶段端到端微调。LLaVA-1.5 引入 MLP Projector 与高质量学术数据的改进。LLaVA-Next 的动态分辨率扩展。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "图像生成的流匹配（Flow Matching）：从扩散到整流流",
@@ -8097,7 +8097,7 @@
       "图像生成"
     ],
     "brief": "连续时间归一化流的训练目标（条件流匹配 CFM）。整流流（Rectified Flow）：用直线轨迹连接噪声与数据，减少 ODE 求解步数。ReFlow 迭代直线化训练。Flux 与 SD3 基于整流流的实现。与 DDPM 的采样效率对比（步数从 1000 降到 4-8）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "文生图的条件机制：CLIP 文本编码、T5 与双编码器",
@@ -8109,7 +8109,7 @@
       "多模态"
     ],
     "brief": "CLIP 文本编码器的 77 token 限制与语义表达局限。T5-XXL 文本编码器对复杂提示的长程语义理解优势。SD3/Flux 同时使用 CLIP + T5 的双编码器策略。SDXL 的双 CLIP 文本编码器。条件信号注入方式：cross-attention vs adaLN。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "VLM 全参数 vs 冻结策略：视觉编码器与 LLM 的联合微调",
@@ -8121,7 +8121,7 @@
       "VLM"
     ],
     "brief": "冻结视觉编码器只训练 Projector 的适用场景（数据少时防过拟合）。联合解冻 ViT 的好处：视觉特征向任务分布适配。LoRA 在 VLM 上的应用：对 ViT/LLM 分别施加 LoRA。全参数微调的显存需求与梯度不均衡问题（ViT 梯度 vs LLM 梯度的量级差异）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多模态 DPO：视觉偏好数据构建与幻觉缓解",
@@ -8133,7 +8133,7 @@
       "DPO"
     ],
     "brief": "VLM 偏好数据的构建：人工标注 vs GPT-4V 自动评判（chosen/rejected 响应）。RLHF-V 的细粒度幻觉标注。视觉对比偏好（对同一图像的正确 vs 幻觉描述）。多模态 DPO 的训练稳定性：图像条件下的参考策略设计。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "视觉 Grounding 微调：参照表达理解与定位输出格式",
@@ -8145,7 +8145,7 @@
       "Grounding"
     ],
     "brief": "Referring Expression Comprehension（REC）任务：根据文本描述定位图像区域。输出格式：坐标回归（归一化 bbox）vs 点击坐标 vs 分割掩码 token。Grounding 数据集：RefCOCO/RefCOCO+/GRIT。Qwen2.5-VL 与 InternVL 的 Grounding 训练策略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "VLM 推理优化：图像 Token 的 KV Cache 与 Prefill 加速",
@@ -8157,7 +8157,7 @@
       "推理优化"
     ],
     "brief": "图像 Token 在 Prefill 阶段的计算瓶颈（1024 个视觉 token 的全注意力）。静态图像 Token 的 KV Cache 复用（多轮对话中图像不变时）。视觉 Prefill 与文本 Decode 的异构批处理策略。vLLM/SGLang 对 VLM 的多模态支持实现方式。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "视频 LLM 推理：帧压缩与长视频的 Token 预算管理",
@@ -8169,7 +8169,7 @@
       "视频推理"
     ],
     "brief": "长视频（>10 分钟）产生数万个视觉 Token 超出 LLM 上下文限制。帧级压缩：均匀降采样、运动感知关键帧选取。Token 级压缩：时序池化、视频 Prefix Cache。分块推理（Chunk Processing）与上下文记忆。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "文生图推理加速：SDXL/Flux 的 TensorRT 与 Step Distillation",
@@ -8181,7 +8181,7 @@
       "推理优化"
     ],
     "brief": "扩散模型推理的迭代去噪瓶颈（50 次前向传播）。一致性模型（Consistency Model）的 1-4 步生成。Step Distillation：LCM-LoRA 的潜在一致性蒸馏。TensorRT 编译 U-Net/DiT 的 kernel 融合加速。SDXL Turbo 的对抗扩散蒸馏（ADD）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Qwen2.5-VL：动态分辨率、M-RoPE 与视觉 Grounding 突破",
@@ -8193,7 +8193,7 @@
       "多模态"
     ],
     "brief": "Qwen2.5-VL 的三大创新：动态分辨率（原生任意尺寸处理）、M-RoPE（时空三轴位置编码）、视觉 Grounding 原生支持（bbox 坐标输出）。在 DocVQA/ChartQA/OCRBench 的领先表现。视频理解能力与帧采样策略。与 InternVL2.5 的能力对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Qwen3.5 系列技术解析：推理能力与架构演进",
@@ -8205,7 +8205,7 @@
       "推理模型"
     ],
     "brief": "Qwen3.5 在 Qwen3 基础上的改进方向：推理时 Compute Scaling、更大规模预训练数据、更强的代码与数学能力。与 DeepSeek-R1 的推理能力对比。Qwen3.5-VL 的多模态推理扩展。开源权重的架构细节解析。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "InternVL2 与 InternVL3：开源 VLM 的系统设计",
@@ -8217,7 +8217,7 @@
       "多模态"
     ],
     "brief": "InternVL 的核心设计：InternViT-6B 超大视觉编码器 + Dynamic Tiling。像素级对齐的高分辨率训练策略。InternVL2 在 OCR/Document 理解的领先能力。InternVL3 的架构改进：视频理解与多图推理。与闭源 GPT-4V/Claude 3.5 Vision 的能力对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LLaVA-OneVision",
@@ -8231,7 +8231,7 @@
       "视频理解"
     ],
     "brief": "LLaVA-OneVision 的统一设计：单一模型处理单图/多图/视频三种输入格式。AnyRes 动态分辨率策略与 Video Frame 采样统一化。在 Video-MME 与 MathVista 的性能。开放数据配方（Open Recipe）的训练透明度。与 Qwen2.5-VL 的定位差异。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "PaliGemma 与 PaliGemma 2：ViT-22B 与 Gemma 的多模态融合",
@@ -8243,7 +8243,7 @@
       "多模态"
     ],
     "brief": "PaliGemma 用 SigLIP-So400M 视觉编码器 + Gemma LLM，以极简架构在多项基准领先。PaliGemma 2 用更大的 Gemma 2 LLM 与多分辨率训练。Transfer learning VLM 的 few-shot 性能。与需要复杂 Projector 架构的对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Pixtral：Mistral 的原生多模态架构与变长图像处理",
@@ -8255,7 +8255,7 @@
       "多模态"
     ],
     "brief": "Pixtral 12B 的原生多模态设计：图像 Token 直接融入文本序列，无独立 Projector。变长图像 Token 序列支持任意分辨率。[IMG_BREAK] 特殊 Token 标记行边界。与 Qwen2.5-VL 动态分辨率的实现差异。在 MMMU 与 MM-MT-Bench 的性能。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MiniCPM-V：端侧高效多模态模型的架构与优化",
@@ -8267,7 +8267,7 @@
       "多模态"
     ],
     "brief": "MiniCPM-V 系列在 2B-8B 参数实现强多模态能力的关键技术：高效 Token 压缩（LDPv2）、动态分辨率、RLAIF-V 幻觉缓解。端侧部署优化：INT4 量化 + llama.cpp 在手机运行。在移动设备的实测性能（iPhone/Android）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Janus 与 DeepSeek-VL2：生成与理解统一的多模态架构",
@@ -8279,7 +8279,7 @@
       "多模态"
     ],
     "brief": "Janus 的核心创新：解耦视觉理解（SigLIP 编码器）与视觉生成（VQ 离散编码器）到不同处理路径，共享 LLM 骨干。DeepSeek-VL2 引入 MoE 架构扩展多模态理解能力。与 GPT-4o 统一多模态的架构哲学对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Flux：基于整流流的新一代文生图模型",
@@ -8291,7 +8291,7 @@
       "图像生成"
     ],
     "brief": "Flux 由 Black Forest Labs（Stable Diffusion 原班人马）发布，基于整流流（Rectified Flow）与 DiT 架构。双流 Transformer 块（MM-DiT）处理图像与文本 Token 的交互。Flux.1 系列（Dev/Schnell/Pro）的差异。与 SDXL/SD3 的图像质量与提示遵循度对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "SD3 与 SDXL：Stable Diffusion 的架构演进",
@@ -8303,7 +8303,7 @@
       "图像生成"
     ],
     "brief": "SDXL 的双 U-Net（base + refiner）设计与更大 VAE。SD3 转向 MMDiT（Multimodal Diffusion Transformer）完全抛弃 U-Net。SD3 的三编码器文本条件（CLIP-L + CLIP-G + T5-XXL）。ComfyUI 生态与 ControlNet 适配。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Gemini 2.0：原生多模态输出与实时交互能力",
@@ -8315,7 +8315,7 @@
       "多模态"
     ],
     "brief": "Gemini 2.0 的核心升级：从多模态输入扩展到多模态输出（文本 + 图像 + 音频原生生成）。Gemini 2.0 Flash 的实时流式交互（200ms 响应延迟）。Deep Research 能力的实现机制。与 GPT-4o 实时语音能力的对比。Gemini 2.0 Pro 在编程与推理的突破。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Claude 3.7 Sonnet：Extended Thinking 与混合推理模式",
@@ -8327,7 +8327,7 @@
       "推理模型"
     ],
     "brief": "Claude 3.7 Sonnet 的 Extended Thinking 模式：动态分配推理 Token 预算。混合推理架构：在快速响应与深度思考间的切换机制。在 SWE-Bench Verified 的 Agent 编码能力（62.3%）。与 o3-mini 推理效率的对比。Computer Use 的改进。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Kimi k1.5 与 Kimi VL：长上下文推理与多模态扩展",
@@ -8339,7 +8339,7 @@
       "推理模型"
     ],
     "brief": "Kimi k1.5 的长上下文强化学习：128K Context Window RL 训练，无 Monte Carlo Tree Search 的高效推理链。Long-CoT 与 Short-CoT 的混合推理策略。Kimi VL 的多模态扩展：图像理解与长文档处理。在 AIME/LiveCodeBench 的竞争力表现。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多模态大模型的 Agent 能力：GUI 操控与 Computer Use",
@@ -8351,7 +8351,7 @@
       "Agent"
     ],
     "brief": "Computer Use 范式：VLM 直接感知屏幕截图并输出操作指令（点击/输入/滚动）。GUI Grounding：像素级 UI 元素定位的训练数据与技术。Claude 3.5/3.7 Computer Use 的实现架构。UI-TARS/ShowUI 等开源 GUI Agent 模型。与传统 DOM-based Agent 的对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "视觉语言模型的 OCR 与文档理解：从图像到结构化信息",
@@ -8363,7 +8363,7 @@
       "文档理解"
     ],
     "brief": "VLM 在 OCR 上的范式转变：从专用 OCR 引擎到端到端 VLM。DocVQA/InfoVQA/ChartQA 的任务特点。表格识别与公式理解的技术难点。GOT-OCR 2.0 的端到端 OCR 专用模型。Qwen2.5-VL 在文档场景的动态分辨率策略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "原生多模态生成：统一理解与生成的架构探索",
@@ -8375,7 +8375,7 @@
       "图像生成"
     ],
     "brief": "LLM 同时理解与生成图像的技术路径：离散视觉 Token（自回归）vs 连续特征 + 扩散头（混合）。Chameleon（Meta）的统一 Token 序列方法。Emu3 的纯自回归多模态生成。与 Janus 解耦方法的对比。未来走向：原生多模态 vs 模态专用系统集成。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "协同过滤",
@@ -8388,7 +8388,7 @@
       "基础"
     ],
     "brief": "User-CF 基于用户相似度推荐，Item-CF 基于物品相似度推荐。核心是相似度计算（余弦、皮尔逊、Jaccard）。稀疏矩阵的高效存储与计算。预测评分的计算公式与归一化。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "矩阵分解",
@@ -8402,7 +8402,7 @@
       "线性代数"
     ],
     "brief": "矩阵分解是线性代数的核心工具：SVD（奇异值分解）用于降维、数据压缩和伪逆计算；QR 分解用于线性方程组求解和最小二乘问题；LU 分解用于高效矩阵求逆和行列式计算。分析这些分解在神经网络训练、PCA、协同过滤等任务中的应用。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Word2Vec 在推荐中的应用：Item2Vec",
@@ -8414,7 +8414,7 @@
       "Embedding"
     ],
     "brief": "将用户行为序列视为句子，物品视为词。用 Skip-gram 学习物品嵌入。物品嵌入的相似度用于召回。与协同过滤的关系与区别。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "深度协同过滤：NCF 的神经网络架构",
@@ -8426,7 +8426,7 @@
       "深度学习"
     ],
     "brief": "GMF（广义矩阵分解）+ MLP 的融合架构。GMF 学习线性交互，MLP 学习非线性交互。输出层的加权融合。相比传统 MF 的优势。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Wide & Deep",
@@ -8439,7 +8439,7 @@
       "Wide&Deep"
     ],
     "brief": "Wide 侧：线性模型 + 特征交叉，学习历史规则（记忆）。Deep 侧：DNN 学习泛化能力。联合训练让两者互补。Google Play 商店的生产应用。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DeepFM",
@@ -8452,7 +8452,7 @@
       "DeepFM"
     ],
     "brief": "FM 组件学习二阶特征交叉。Deep 组件学习高阶特征交叉。两组件共享输入嵌入。相比 Wide & Deep 不需要人工特征工程。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DIN（Deep Interest Network）：注意力加权用户行为",
@@ -8464,7 +8464,7 @@
       "注意力"
     ],
     "brief": "用户历史行为不是简单求和，而是用注意力机制加权。与候选物品相关的历史行为权重更高。兴趣的动态激活。Dice 激活函数的设计。正文最好补齐自动化检查、核心指标和可回滚条件。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "序列推荐",
@@ -8477,7 +8477,7 @@
       "序列"
     ],
     "brief": "用户行为序列用 Transformer 编码。Self-Attention 捕捉长距离依赖。因果掩码保证只看历史。位置编码捕捉行为顺序。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "图神经网络推荐：LightGCN 的消息传递",
@@ -8489,7 +8489,7 @@
       "GNN"
     ],
     "brief": "用户-物品二部图的 GNN。LightGCN 简化了 NGCF，去掉了特征变换和非线性激活。只有消息传递和归一化。效果更好且训练更快。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "双塔模型：DSSM 的召回架构",
@@ -8501,7 +8501,7 @@
       "Embedding"
     ],
     "brief": "用户塔和物品塔独立编码。内积计算相似度。训练时负采样。推理时物品塔可离线计算，用户塔在线计算。召回的核心架构。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多目标优化：ESMM 的多任务学习",
@@ -8513,7 +8513,7 @@
       "多任务学习"
     ],
     "brief": "CTR（点击率）和 CVR（转化率）的联合建模。CVR 的样本选择偏差问题。ESMM：pCTCVR = pCTR × pCVR。共享嵌入，独立塔头。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "排序模型：LambdaRank/LambdaMART 的梯度提升",
@@ -8525,7 +8525,7 @@
       "Learning to Rank"
     ],
     "brief": "Learning to Rank 的三种范式：pointwise、pairwise、listwise。LambdaRank 定义了交换任意两个文档的 NDCG 增益作为梯度。LambdaMART 是 LambdaRank + GBDT。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "负采样策略：Easy Negative vs Hard Negative",
@@ -8537,7 +8537,7 @@
       "采样"
     ],
     "brief": "随机负采样简单但效率低。Hard Negative Mining 选取难区分的负样本。混合负采样：Easy + Hard 的比例。批内负采样 vs 批外负采样。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "推荐系统的冷启动问题",
