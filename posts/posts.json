@@ -1,5 +1,17 @@
 [
   {
+    "title": "Qwen2.5 系列技术解析：数据、架构与对齐策略",
+    "slug": "qwen25-technical-analysis",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Qwen",
+      "开源模型"
+    ],
+    "summary": "Qwen2.5 的提升来自 18T 高质数据、GQA/Tie Embedding 架构取舍与 SFT 到 DPO 的工…"
+  },
+  {
     "title": "模型服务的负载均衡与自动扩缩容",
     "slug": "llm-serving-load-balance-autoscale",
     "date": "2026-03-21",

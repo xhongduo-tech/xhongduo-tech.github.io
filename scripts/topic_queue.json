@@ -7745,7 +7745,7 @@
       "开源模型"
     ],
     "brief": "Qwen2.5 的预训练数据规模（18T tokens）与数据质量提升策略。架构改进：Tie Embedding、增大词表、GQA 配置。Qwen2.5-Coder 与 Qwen2.5-Math 的领域专项训练。对齐方法：从 RLHF 到 DPO 的演进。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaMA 3 技术细节：架构改进与 400B+ 参数训练",
