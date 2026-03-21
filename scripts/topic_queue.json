@@ -7601,7 +7601,7 @@
       "推理框架"
     ],
     "brief": "TGI 的 Rust + Python 混合架构设计。Continuous Batching 与 Flash Attention 的集成。GPTQ/AWQ/EETQ 量化支持。gRPC + HTTP 双协议服务接口。与 vLLM 的功能差异与适用场景对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LMDeploy：TurboMind 引擎与高效推理优化",

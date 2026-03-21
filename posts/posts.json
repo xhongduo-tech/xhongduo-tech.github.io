@@ -1,5 +1,17 @@
 [
   {
+    "title": "TGI（Text Generation Inference）：HuggingFace 推理框架",
+    "slug": "text-generation-inference-tgi",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "TGI",
+      "推理框架"
+    ],
+    "summary": "TGI 是 Hugging Face 的生产级推理框架，强在调度、缓存和工程化链路。"
+  },
+  {
     "title": "推理服务监控：TTFT、TPS、吞吐量与 SLO 设计",
     "slug": "inference-serving-monitoring",
     "date": "2026-03-21",
