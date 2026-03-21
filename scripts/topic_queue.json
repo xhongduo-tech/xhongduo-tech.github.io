@@ -7661,7 +7661,7 @@
       "推理优化"
     ],
     "brief": "量化难点：LLM 激活值的异常值（outlier）分布。SmoothQuant 将激活的量化难度迁移到权重（数学等价变换）。AWQ 的激活感知权重缩放：保护显著权重通道。两者在 INT8/INT4 下的精度恢复对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Triton Inference Server：多框架统一推理服务",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "SmoothQuant 与 AWQ：激活平滑的权重量化",
+    "slug": "smoothquant-awq-activation",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化",
+      "推理优化"
+    ],
+    "summary": "SmoothQuant 平滑全部激活，AWQ 优先保护关键通道，都是把激活量化难点转移到权重侧。"
+  },
+  {
     "title": "Triton Inference Server：多框架统一推理服务",
     "slug": "triton-inference-server",
     "date": "2026-03-21",
