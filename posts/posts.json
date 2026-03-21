@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-R1 技术报告解析：强化学习驱动的推理链",
+    "slug": "deepseek-r1-technical-report",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "推理模型"
+    ],
+    "summary": "DeepSeek-R1 的关键不是单次纯RL，而是用 GRPO、拒绝采样和再训练把推理能力做成可蒸馏的工程流水线。"
+  },
+  {
     "title": "o1/o3：OpenAI 的 Chain-of-Thought 扩展推理",
     "slug": "openai-o1-o3-cot-scaling",
     "date": "2026-03-21",

@@ -7733,7 +7733,7 @@
       "推理模型"
     ],
     "brief": "DeepSeek-R1-Zero：纯 RL 无 SFT 冷启动，涌现出自我验证与回溯行为。R1 完整 pipeline：冷启动 SFT → GRPO → 拒绝采样 → SFT → GRPO。蒸馏到小模型（Qwen/Llama）的效果。与 o1 的推理链风格对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Qwen2.5 系列技术解析：数据、架构与对齐策略",
