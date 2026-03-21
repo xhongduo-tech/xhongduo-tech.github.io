@@ -7721,7 +7721,7 @@
       "推理模型"
     ],
     "brief": "o1 的核心创新：推理时 Compute Scaling（而非参数 Scaling）。CoT 扩展训练的实现推断：大规模 RLHF on reasoning traces。o3 在 ARC-AGI 的突破性表现。推理时 token 预算的动态分配。与传统 SFT 模型的本质差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-R1 技术报告解析：强化学习驱动的推理链",

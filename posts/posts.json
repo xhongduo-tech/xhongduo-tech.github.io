@@ -1,5 +1,17 @@
 [
   {
+    "title": "o1/o3：OpenAI 的 Chain-of-Thought 扩展推理",
+    "slug": "openai-o1-o3-cot-scaling",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "OpenAI",
+      "推理模型"
+    ],
+    "summary": "o1/o3 的核心不是更大参数，而是把训练与推理算力都变成可扩展的推理能力。"
+  },
+  {
     "title": "张量并行推理：大模型跨卡部署的实现机制",
     "slug": "tensor-parallel-inference",
     "date": "2026-03-21",
