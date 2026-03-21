@@ -7890,7 +7890,7 @@
       "训练优化"
     ],
     "brief": "AdamW 的权重衰减与 L2 正则化的区别（Adam 中 L2 等效 weight decay 的论证）。Adafactor 的内存节省：用低秩因子估计二阶矩，省去 Adam 的状态存储。SOAP 将 Shampoo 的 Kronecker 因子预条件引入 Adam 框架。Lion 优化器的符号更新机制。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "词表设计：BPE、Unigram LM 与多语言 Tokenizer",

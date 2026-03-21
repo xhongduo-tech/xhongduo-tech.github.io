@@ -1,5 +1,17 @@
 [
   {
+    "title": "Adam 优化器变体：AdamW、Adafactor 与 SOAP",
+    "slug": "optimizer-variants-adamw-adafactor",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "训练优化"
+    ],
+    "summary": "Adam 变体各解一个瓶颈：AdamW解耦正则，Adafactor省内存，SOAP引入矩阵曲率，Lion只用方向更新。"
+  },
+  {
     "title": "预训练数据配比：领域权重、代码比例与多语言混合",
     "slug": "pretraining-data-mixture",
     "date": "2026-03-21",
