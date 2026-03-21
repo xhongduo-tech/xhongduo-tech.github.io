@@ -7841,7 +7841,7 @@
       "数据工程"
     ],
     "brief": "Dolma/FineWeb/The Pile 等开源预训练数据集的构成分析。代码数据对推理能力的迁移效果（Code → Math）。多语言数据的语言分布与低资源语言的处理。DoReMi 的自动数据配比优化算法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "训练稳定性",

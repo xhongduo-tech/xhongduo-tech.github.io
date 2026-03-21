@@ -1,5 +1,17 @@
 [
   {
+    "title": "预训练数据配比：领域权重、代码比例与多语言混合",
+    "slug": "pretraining-data-mixture",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "预训练",
+      "数据工程"
+    ],
+    "summary": "预训练数据配比的核心，是在有限 token 下用动态权重平衡网页、代码、多语与推理收益。"
+  },
+  {
     "title": "数据并行的通信优化：梯度压缩与异步更新",
     "slug": "data-parallel-gradient-compression",
     "date": "2026-03-21",
