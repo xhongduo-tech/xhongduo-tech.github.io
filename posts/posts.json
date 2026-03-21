@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 3.5 Sonnet 技术分析：混合推理与效率优化",
+    "slug": "claude35-sonnet-analysis",
+    "date": "2026-03-21",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "Anthropic"
+    ],
+    "summary": "Claude 3.5 Sonnet 的核心突破在于更强的 agentic 编码闭环，而非单纯聊天能力。"
+  },
+  {
     "title": "Gemini 1.5 Pro：百万 Token 长上下文的实现机制",
     "slug": "gemini-15-pro-long-context",
     "date": "2026-03-21",

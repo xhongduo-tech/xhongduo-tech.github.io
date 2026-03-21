@@ -7793,7 +7793,7 @@
       "Anthropic"
     ],
     "brief": "Claude 3.5 Sonnet 在 SWE-Bench 的代码能力突破（49%）。Computer Use 的视觉-动作循环实现。Extended Thinking（claude-3-5-sonnet 的推理链扩展）的机制推断。与 GPT-4o 的 Agentic 能力对比评测。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPT-4o 统一多模态架构解析",
