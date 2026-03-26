@@ -1,5 +1,18 @@
 [
   {
+    "title": "Conformer：卷积与注意力的混合架构",
+    "slug": "conformer-architecture",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Conformer 用注意力建模全局、用卷积补足局部，是语音序列建模的高质量折中。"
+  },
+  {
     "title": "音频特征提取：MFCC 与 Mel 频谱",
     "slug": "audio-feature-extraction-mfcc",
     "date": "2026-03-27",

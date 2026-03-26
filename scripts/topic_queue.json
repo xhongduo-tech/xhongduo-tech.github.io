@@ -8659,7 +8659,7 @@
       "Transformer"
     ],
     "brief": "Conformer 块 = FFN + MHSA + Conv + FFN。卷积捕捉局部特征，注意力捕捉全局依赖。相对位置编码。CTC + Attention 联合解码。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Whisper",
