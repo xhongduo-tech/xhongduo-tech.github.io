@@ -1,5 +1,21 @@
 [
   {
+    "title": "命名实体识别（NER）",
+    "slug": "ner-bilstm-crf-architecture",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "知识图谱",
+      "信息抽取",
+      "序列标注",
+      "NLP基础",
+      "NER",
+      "实体识别"
+    ],
+    "summary": "NER本质是边界受约束的结构化预测，CRF重一致性，span重区间表达。"
+  },
+  {
     "title": "Vocoder：WaveNet 到 HiFi-GAN",
     "slug": "neural-vocoder-wavenet-hifigan",
     "date": "2026-03-27",
