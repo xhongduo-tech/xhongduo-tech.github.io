@@ -8774,7 +8774,7 @@
       "表示学习"
     ],
     "brief": "TransE：h + r ≈ t，平移模型，适合一对一关系。TransR：投影到关系空间再平移，处理多对多。RotatE：复数域旋转，建模对称/反对称关系。损失函数：负采样 + Margin Ranking。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RAG + 知识图谱：结构化检索增强",

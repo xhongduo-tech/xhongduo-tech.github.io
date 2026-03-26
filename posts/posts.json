@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱嵌入：TransE/TransR/RotatE",
+    "slug": "knowledge-graph-embeddings",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "嵌入",
+      "表示学习"
+    ],
+    "summary": "TransE用平移，TransR用关系空间投影，RotatE用复数旋转，统一靠负采样与间隔损失训练。"
+  },
+  {
     "title": "知识图谱基础：实体、关系、三元组",
     "slug": "knowledge-graph-basics",
     "date": "2026-03-27",
