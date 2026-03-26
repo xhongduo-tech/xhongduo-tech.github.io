@@ -8193,7 +8193,7 @@
       "多模态"
     ],
     "brief": "Qwen2.5-VL 的三大创新：动态分辨率（原生任意尺寸处理）、M-RoPE（时空三轴位置编码）、视觉 Grounding 原生支持（bbox 坐标输出）。在 DocVQA/ChartQA/OCRBench 的领先表现。视频理解能力与帧采样策略。与 InternVL2.5 的能力对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Qwen3.5 系列技术解析：推理能力与架构演进",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Qwen2.5-VL：动态分辨率、M-RoPE 与视觉 Grounding 突破",
+    "slug": "qwen25-vl-technical-analysis",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Qwen",
+      "多模态"
+    ],
+    "summary": "Qwen2.5-VL用动态分辨率、M-RoPE和原生bbox把理解与定位合成一条链路"
+  },
+  {
     "title": "视频 LLM 推理：帧压缩与长视频的 Token 预算管理",
     "slug": "video-llm-inference-token-budget",
     "date": "2026-03-27",
