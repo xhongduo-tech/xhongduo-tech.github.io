@@ -7974,7 +7974,7 @@
       "位置编码"
     ],
     "brief": "标准 1D RoPE 无法区分图像的行列关系。2D RoPE 将位置 ID 拆为行/列分别编码旋转角度。M-RoPE（Qwen2.5-VL）扩展到视频的时间维度（时间/高度/宽度三轴）。与 VPE（Visual Positional Embedding）的对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "视频时序建模",

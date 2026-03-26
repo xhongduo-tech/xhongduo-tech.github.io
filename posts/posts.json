@@ -1,5 +1,17 @@
 [
   {
+    "title": "2D RoPE 与多模态位置编码：图像空间位置的表示",
+    "slug": "2d-rope-visual-position-encoding",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "位置编码"
+    ],
+    "summary": "2D RoPE按行列分别编码位置，M-RoPE再加入时间轴，能更稳定建模图像与视频的相对位置。"
+  },
+  {
     "title": "语音离散 Tokenization：EnCodec、Whisper 与语音 LLM 架构",
     "slug": "speech-discrete-tokenization-encodec",
     "date": "2026-03-27",
