@@ -8452,7 +8452,7 @@
       "DeepFM"
     ],
     "brief": "FM 组件学习二阶特征交叉。Deep 组件学习高阶特征交叉。两组件共享输入嵌入。相比 Wide & Deep 不需要人工特征工程。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DIN（Deep Interest Network）：注意力加权用户行为",

@@ -1,5 +1,19 @@
 [
   {
+    "title": "DeepFM",
+    "slug": "deepfm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序",
+      "深度学习",
+      "DeepFM"
+    ],
+    "summary": "DeepFM 用共享 embedding 同时学习二阶与高阶特征交叉，适合稀疏推荐排序。"
+  },
+  {
     "title": "Wide & Deep",
     "slug": "wide-and-deep",
     "date": "2026-03-27",
