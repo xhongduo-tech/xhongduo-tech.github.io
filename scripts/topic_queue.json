@@ -8426,7 +8426,7 @@
       "深度学习"
     ],
     "brief": "GMF（广义矩阵分解）+ MLP 的融合架构。GMF 学习线性交互，MLP 学习非线性交互。输出层的加权融合。相比传统 MF 的优势。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Wide & Deep",

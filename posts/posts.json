@@ -1,5 +1,18 @@
 [
   {
+    "title": "深度协同过滤：NCF 的神经网络架构",
+    "slug": "neural-collaborative-filtering",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回",
+      "深度学习"
+    ],
+    "summary": "NCF 用 GMF 学线性匹配，用 MLP 学非线性交互，再融合输出最终偏好分数"
+  },
+  {
     "title": "矩阵分解",
     "slug": "matrix-decompositions-ml",
     "date": "2026-03-27",
