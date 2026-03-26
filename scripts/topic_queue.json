@@ -8231,7 +8231,7 @@
       "视频理解"
     ],
     "brief": "LLaVA-OneVision 的统一设计：单一模型处理单图/多图/视频三种输入格式。AnyRes 动态分辨率策略与 Video Frame 采样统一化。在 Video-MME 与 MathVista 的性能。开放数据配方（Open Recipe）的训练透明度。与 Qwen2.5-VL 的定位差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PaliGemma 与 PaliGemma 2：ViT-22B 与 Gemma 的多模态融合",

@@ -1,5 +1,19 @@
 [
   {
+    "title": "LLaVA-OneVision",
+    "slug": "llava-onevision-unified",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "LLaVA",
+      "多模态",
+      "视觉语言模型",
+      "视频理解"
+    ],
+    "summary": "LLaVA-OneVision用统一架构和统一token预算同时处理单图、多图与视频。"
+  },
+  {
     "title": "PaliGemma 与 PaliGemma 2：ViT-22B 与 Gemma 的多模态融合",
     "slug": "paligemma-vit22b-gemma",
     "date": "2026-03-27",
