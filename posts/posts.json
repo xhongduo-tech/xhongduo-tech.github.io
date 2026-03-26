@@ -1,5 +1,18 @@
 [
   {
+    "title": "双塔模型：DSSM 的召回架构",
+    "slug": "two-tower-dssm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回",
+      "Embedding"
+    ],
+    "summary": "DSSM 用双塔把召回转成向量检索，核心是独立编码、内积打分、负采样训练与离线索引。"
+  },
+  {
     "title": "图神经网络推荐：LightGCN 的消息传递",
     "slug": "lightgcn-recommendation",
     "date": "2026-03-27",
