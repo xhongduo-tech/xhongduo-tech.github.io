@@ -8513,7 +8513,7 @@
       "多任务学习"
     ],
     "brief": "CTR（点击率）和 CVR（转化率）的联合建模。CVR 的样本选择偏差问题。ESMM：pCTCVR = pCTR × pCVR。共享嵌入，独立塔头。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "排序模型：LambdaRank/LambdaMART 的梯度提升",

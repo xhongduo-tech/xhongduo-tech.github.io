@@ -1,5 +1,18 @@
 [
   {
+    "title": "多目标优化：ESMM 的多任务学习",
+    "slug": "esmm-multi-task",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序",
+      "多任务学习"
+    ],
+    "summary": "ESMM用CTR与CTCVR联合建模，把CVR约束回全曝光空间，缓解偏差与稀疏性"
+  },
+  {
     "title": "排序模型：LambdaRank/LambdaMART 的梯度提升",
     "slug": "lambdarank-lambdamart",
     "date": "2026-03-27",
