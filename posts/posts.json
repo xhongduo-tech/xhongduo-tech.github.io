@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱基础：实体、关系、三元组",
+    "slug": "knowledge-graph-basics",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "基础",
+      "表示"
+    ],
+    "summary": "知识图谱的基础是把知识规范成实体、关系与三元组，再用本体和查询语言保证可查可推理。"
+  },
+  {
     "title": "命名实体识别（NER）",
     "slug": "ner-bilstm-crf-architecture",
     "date": "2026-03-27",

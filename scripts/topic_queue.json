@@ -8733,7 +8733,7 @@
       "表示"
     ],
     "brief": "知识图谱 = (头实体, 关系, 尾实体) 三元组集合。本体（Ontology）定义概念和关系。RDF、OWL 表示语言。知识图谱的构建流程。常见知识图谱：Freebase、Wikidata、CN-DBpedia。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "命名实体识别（NER）",
