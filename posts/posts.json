@@ -1,5 +1,18 @@
 [
   {
+    "title": "探索与利用（E&E）：Bandit 算法在推荐中的应用",
+    "slug": "bandit-algorithms-recommendation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "策略",
+      "Bandit"
+    ],
+    "summary": "Bandit 用受控探索换持续学习能力，推荐里常用 ε-Greedy、UCB 和 Thompson Sampling。"
+  },
+  {
     "title": "推荐系统的冷启动问题",
     "slug": "cold-start-recommendation",
     "date": "2026-03-27",

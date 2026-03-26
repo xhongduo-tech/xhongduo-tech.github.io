@@ -8611,7 +8611,7 @@
       "Bandit"
     ],
     "brief": "ε-Greedy：以 ε 概率探索，1-ε 概率利用。UCB：置信上界，不确定性高的物品更倾向探索。Thompson Sampling：贝叶斯采样。在冷启动和内容探索中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推荐系统的可解释性",
