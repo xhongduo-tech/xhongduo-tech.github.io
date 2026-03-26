@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态预训练数据集：LAION、MMC4、OBELISC 与交错图文",
+    "slug": "multimodal-pretraining-datasets",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "多模态",
+      "数据工程"
+    ],
+    "summary": "多模态预训练要把大规模图文对、交错文档、视频字幕和合成标注组合成可过滤的数据流水线"
+  },
+  {
     "title": "视频时序建模",
     "slug": "video-temporal-modeling-3d-to-transformer",
     "date": "2026-03-27",

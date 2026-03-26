@@ -8049,7 +8049,7 @@
       "数据工程"
     ],
     "brief": "图文对数据（LAION-5B）的规模与质量争议。交错图文序列数据集（MMC4/OBELISC）对 in-context 多模态能力的作用。视频字幕数据（WebVid/Panda-70M）。合成多模态数据的生成策略（GPT-4V 标注）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "VLM 评测基准全景：MMBench、MMMU、MathVista、OCRBench",
