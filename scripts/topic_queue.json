@@ -8696,7 +8696,7 @@
       "声码器"
     ],
     "brief": "WaveNet：膨胀因果卷积，自回归生成波形，高质量但慢。WaveGlow：基于流的并行生成。HiFi-GAN：GAN 生成，质量高且快。Mel 频谱到波形的映射。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FastSpeech：非自回归 TTS",

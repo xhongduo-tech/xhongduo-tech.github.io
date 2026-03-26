@@ -1,5 +1,18 @@
 [
   {
+    "title": "Vocoder：WaveNet 到 HiFi-GAN",
+    "slug": "neural-vocoder-wavenet-hifigan",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "TTS",
+      "声码器"
+    ],
+    "summary": "WaveNet慢但精细，WaveGlow并行提速，HiFi-GAN在质量与实时性之间最均衡。"
+  },
+  {
     "title": "语音大模型",
     "slug": "speech-llm-unified-processing",
     "date": "2026-03-27",
