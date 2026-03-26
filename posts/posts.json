@@ -1,5 +1,20 @@
 [
   {
+    "title": "矩阵分解",
+    "slug": "matrix-decompositions-ml",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "推荐系统",
+      "召回",
+      "矩阵分解",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "矩阵分解把复杂矩阵任务拆成低秩、最小二乘和三角求解三类标准问题"
+  },
+  {
     "title": "协同过滤",
     "slug": "collaborative-filtering-basics",
     "date": "2026-03-27",
