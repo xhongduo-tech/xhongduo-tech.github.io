@@ -1,5 +1,17 @@
 [
   {
+    "title": "VLM 全参数 vs 冻结策略：视觉编码器与 LLM 的联合微调",
+    "slug": "vlm-finetuning-frozen-vs-full",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "多模态",
+      "VLM"
+    ],
+    "summary": "少数据先冻结对齐，大数据跨域再逐层解冻，LoRA是显存与能力的折中。"
+  },
+  {
     "title": "文生图的条件机制：CLIP 文本编码、T5 与双编码器",
     "slug": "text-to-image-conditioning",
     "date": "2026-03-27",

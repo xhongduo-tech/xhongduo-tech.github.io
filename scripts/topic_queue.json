@@ -8121,7 +8121,7 @@
       "VLM"
     ],
     "brief": "冻结视觉编码器只训练 Projector 的适用场景（数据少时防过拟合）。联合解冻 ViT 的好处：视觉特征向任务分布适配。LoRA 在 VLM 上的应用：对 ViT/LLM 分别施加 LoRA。全参数微调的显存需求与梯度不均衡问题（ViT 梯度 vs LLM 梯度的量级差异）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态 DPO：视觉偏好数据构建与幻觉缓解",
