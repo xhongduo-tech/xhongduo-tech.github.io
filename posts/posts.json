@@ -1,5 +1,18 @@
 [
   {
+    "title": "Word2Vec 在推荐中的应用：Item2Vec",
+    "slug": "item2vec-recommendation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回",
+      "Embedding"
+    ],
+    "summary": "Item2Vec把行为序列当句子训练物品向量，用相似度直接做推荐召回。"
+  },
+  {
     "title": "深度协同过滤：NCF 的神经网络架构",
     "slug": "neural-collaborative-filtering",
     "date": "2026-03-27",

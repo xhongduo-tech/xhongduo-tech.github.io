@@ -8414,7 +8414,7 @@
       "Embedding"
     ],
     "brief": "将用户行为序列视为句子，物品视为词。用 Skip-gram 学习物品嵌入。物品嵌入的相似度用于召回。与协同过滤的关系与区别。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "深度协同过滤：NCF 的神经网络架构",
