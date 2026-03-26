@@ -8169,7 +8169,7 @@
       "视频推理"
     ],
     "brief": "长视频（>10 分钟）产生数万个视觉 Token 超出 LLM 上下文限制。帧级压缩：均匀降采样、运动感知关键帧选取。Token 级压缩：时序池化、视频 Prefix Cache。分块推理（Chunk Processing）与上下文记忆。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "文生图推理加速：SDXL/Flux 的 TensorRT 与 Step Distillation",

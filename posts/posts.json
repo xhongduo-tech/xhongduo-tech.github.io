@@ -1,5 +1,17 @@
 [
   {
+    "title": "视频 LLM 推理：帧压缩与长视频的 Token 预算管理",
+    "slug": "video-llm-inference-token-budget",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模态",
+      "视频推理"
+    ],
+    "summary": "长视频推理的关键是先压缩视觉输入，再用动态 token 预算和分块缓存稳定处理长上下文"
+  },
+  {
     "title": "视觉 Grounding 微调：参照表达理解与定位输出格式",
     "slug": "visual-grounding-finetuning",
     "date": "2026-03-27",
