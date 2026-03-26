@@ -1,5 +1,17 @@
 [
   {
+    "title": "动态分辨率与瓦片编码：VLM 处理高分辨率图像的策略",
+    "slug": "dynamic-resolution-tile-encoding",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "动态分辨率先控预算，瓦片编码再保细节，是高分辨率VLM的主流折中方案"
+  },
+  {
     "title": "检查点策略：保存频率、异步存储与训练恢复",
     "slug": "checkpoint-strategy-async",
     "date": "2026-03-27",
