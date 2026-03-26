@@ -1,5 +1,17 @@
 [
   {
+    "title": "VLM 推理优化：图像 Token 的 KV Cache 与 Prefill 加速",
+    "slug": "vlm-inference-image-token-kvcache",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模态",
+      "推理优化"
+    ],
+    "summary": "静态图像多轮问答中，复用视觉KV并拆分Prefill/Decode可显著降低TTFT与尾延迟"
+  },
+  {
     "title": "VLM 全参数 vs 冻结策略：视觉编码器与 LLM 的联合微调",
     "slug": "vlm-finetuning-frozen-vs-full",
     "date": "2026-03-27",

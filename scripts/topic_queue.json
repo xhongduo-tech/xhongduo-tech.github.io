@@ -8157,7 +8157,7 @@
       "推理优化"
     ],
     "brief": "图像 Token 在 Prefill 阶段的计算瓶颈（1024 个视觉 token 的全注意力）。静态图像 Token 的 KV Cache 复用（多轮对话中图像不变时）。视觉 Prefill 与文本 Decode 的异构批处理策略。vLLM/SGLang 对 VLM 的多模态支持实现方式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "视频 LLM 推理：帧压缩与长视频的 Token 预算管理",
