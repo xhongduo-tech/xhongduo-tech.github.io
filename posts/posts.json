@@ -1,5 +1,20 @@
 [
   {
+    "title": "关系抽取",
+    "slug": "relation-extraction",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "知识图谱",
+      "信息抽取",
+      "远程监督",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "关系抽取本质是实体对分类，监督学习是主线，远程监督能扩数据但必须治理噪声"
+  },
+  {
     "title": "RAG + 知识图谱：结构化检索增强",
     "slug": "rag-knowledge-graph",
     "date": "2026-03-27",
