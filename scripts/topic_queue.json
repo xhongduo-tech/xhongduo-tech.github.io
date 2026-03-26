@@ -8721,7 +8721,7 @@
       "语音识别"
     ],
     "brief": "语音大模型将 ASR、TTS、语音翻译统一到单一模型。代表工作包括 SpeechGPT、AudioPaLM、Qwen-Audio。分析音频 tokenization 方法（EnCodec、SoundStream）、连续特征 vs 离散 token 的选择。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识图谱基础：实体、关系、三元组",

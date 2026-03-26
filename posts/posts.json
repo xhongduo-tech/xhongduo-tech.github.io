@@ -1,5 +1,19 @@
 [
   {
+    "title": "语音大模型",
+    "slug": "speech-llm-unified-processing",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "大模型",
+      "语音处理",
+      "语音识别"
+    ],
+    "summary": "语音大模型用离散音频token统一ASR、翻译与TTS，本质是把语音改写成语言模型可处理的序列问题"
+  },
+  {
     "title": "语音合成基础：Tacotron 的端到端 TTS",
     "slug": "tacotron-end-to-end-tts",
     "date": "2026-03-27",
