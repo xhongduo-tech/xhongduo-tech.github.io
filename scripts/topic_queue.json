@@ -8255,7 +8255,7 @@
       "多模态"
     ],
     "brief": "Pixtral 12B 的原生多模态设计：图像 Token 直接融入文本序列，无独立 Projector。变长图像 Token 序列支持任意分辨率。[IMG_BREAK] 特殊 Token 标记行边界。与 Qwen2.5-VL 动态分辨率的实现差异。在 MMMU 与 MM-MT-Bench 的性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MiniCPM-V：端侧高效多模态模型的架构与优化",

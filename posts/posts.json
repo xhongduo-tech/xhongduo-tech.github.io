@@ -1,5 +1,17 @@
 [
   {
+    "title": "Pixtral：Mistral 的原生多模态架构与变长图像处理",
+    "slug": "pixtral-mistral-multimodal",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Mistral",
+      "多模态"
+    ],
+    "summary": "Pixtral用图像token直接并入文本序列，以行分隔标记支持任意分辨率多模态输入"
+  },
+  {
     "title": "LLaVA-OneVision",
     "slug": "llava-onevision-unified",
     "date": "2026-03-27",
