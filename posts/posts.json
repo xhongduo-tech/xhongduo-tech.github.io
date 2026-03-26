@@ -1,5 +1,17 @@
 [
   {
+    "title": "词表设计：BPE、Unigram LM 与多语言 Tokenizer",
+    "slug": "tokenizer-bpe-unigram-multilingual",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "Tokenizer",
+      "预训练"
+    ],
+    "summary": "BPE管高频合并，Unigram管概率剪枝，byte fallback负责兜底，多语言词表核心是降fertility而…"
+  },
+  {
     "title": "Flamingo：交叉注意力插层的多模态少样本学习",
     "slug": "flamingo-cross-attention-multimodal",
     "date": "2026-03-27",

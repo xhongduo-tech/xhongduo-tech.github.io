@@ -7902,7 +7902,7 @@
       "预训练"
     ],
     "brief": "BPE（Byte-Pair Encoding）的合并规则训练算法。Unigram Language Model Tokenizer 的概率剪枝。SentencePiece 的字节级回退处理未知字符。多语言词表扩展：语言专项 token 与词表容量的权衡。LLaMA vs Qwen 词表设计的中文 fertility 对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Q-Former（BLIP-2）：冻结模态编码器的轻量桥接设计",
