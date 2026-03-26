@@ -8073,7 +8073,7 @@
       "幻觉"
     ],
     "brief": "VLM 幻觉的两类来源：视觉特征提取不充分 vs 语言先验过强。POPE（基于对象存在性的幻觉评测）的 adversarial/popular/random 三种设置。HallusionBench 的视觉推理幻觉。缓解方法：RLHF-V、视觉对比解码（VCD）、幻觉感知 DPO。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "视觉指令微调：LLaVA 数据构建与两阶段训练范式",

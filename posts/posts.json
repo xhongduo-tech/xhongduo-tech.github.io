@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态幻觉：成因分析与 POPE/HallusionBench 评测",
+    "slug": "multimodal-hallucination-pope",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "多模态",
+      "幻觉"
+    ],
+    "summary": "多模态幻觉可分视觉误读与语言先验过强，需用 POPE、HallusionBench 与 VCD/DPO 联合诊断和治理"
+  },
+  {
     "title": "图像生成的流匹配（Flow Matching）：从扩散到整流流",
     "slug": "flow-matching-rectified-flow",
     "date": "2026-03-27",
