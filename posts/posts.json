@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态 DPO：视觉偏好数据构建与幻觉缓解",
+    "slug": "multimodal-dpo-visual-preference",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "多模态",
+      "DPO"
+    ],
+    "summary": "多模态DPO的关键不在公式，而在高质量视觉偏好对与on-policy参考策略设计"
+  },
+  {
     "title": "VLM 推理优化：图像 Token 的 KV Cache 与 Prefill 加速",
     "slug": "vlm-inference-image-token-kvcache",
     "date": "2026-03-27",

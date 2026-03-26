@@ -8133,7 +8133,7 @@
       "DPO"
     ],
     "brief": "VLM 偏好数据的构建：人工标注 vs GPT-4V 自动评判（chosen/rejected 响应）。RLHF-V 的细粒度幻觉标注。视觉对比偏好（对同一图像的正确 vs 幻觉描述）。多模态 DPO 的训练稳定性：图像条件下的参考策略设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "视觉 Grounding 微调：参照表达理解与定位输出格式",
