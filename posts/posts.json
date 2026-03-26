@@ -1,5 +1,18 @@
 [
   {
+    "title": "推荐系统的位置偏差与校准",
+    "slug": "position-bias-calibration",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "偏差",
+      "校准"
+    ],
+    "summary": "位置偏差会把曝光优势学成质量信号，需用IPW去偏并用校准让pCTR对齐真实CTR"
+  },
+  {
     "title": "负采样策略：Easy Negative vs Hard Negative",
     "slug": "negative-sampling-strategies",
     "date": "2026-03-27",
