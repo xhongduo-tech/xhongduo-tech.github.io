@@ -1,5 +1,17 @@
 [
   {
+    "title": "Flamingo：交叉注意力插层的多模态少样本学习",
+    "slug": "flamingo-cross-attention-multimodal",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "交叉注意力"
+    ],
+    "summary": "Flamingo 通过在冻结 LLM 层间插入门控交叉注意力，实现图文交错的少样本多模态推理"
+  },
+  {
     "title": "Q-Former（BLIP-2）：冻结模态编码器的轻量桥接设计",
     "slug": "qformer-blip2-bridge",
     "date": "2026-03-27",

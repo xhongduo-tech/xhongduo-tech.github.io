@@ -7926,7 +7926,7 @@
       "交叉注意力"
     ],
     "brief": "Flamingo 在冻结 LLM 层间插入可训练的 Gated Cross-Attention 层，消耗视觉特征序列（Perceiver Resampler 压缩后）。交错图文序列的 in-context learning 能力。与 Q-Former 的架构对比：交叉注意力 vs 查询 Token。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图像离散 Tokenization：VQ-VAE、VQGAN 与视觉自回归生成",
