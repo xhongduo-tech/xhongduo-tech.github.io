@@ -8061,7 +8061,7 @@
       "评测"
     ],
     "brief": "MMBench 的细粒度能力维度划分。MMMU（大学水平多学科多模态理解）的难点分析。MathVista 的数学图形推理。OCRBench 的文字识别与文档理解。ChartQA/DocVQA 的专项能力测评。VLM 评测的污染问题与反污染策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态幻觉：成因分析与 POPE/HallusionBench 评测",

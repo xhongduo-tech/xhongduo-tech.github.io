@@ -1,5 +1,17 @@
 [
   {
+    "title": "VLM 评测基准全景：MMBench、MMMU、MathVista、OCRBench",
+    "slug": "vlm-evaluation-benchmarks",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "多模态",
+      "评测"
+    ],
+    "summary": "VLM评测应以MMBench为骨架，联合MMMU、MathVista与OCR/文档专项建立能力向量。"
+  },
+  {
     "title": "扩散模型基础：DDPM、分数匹配与 DDIM 加速采样",
     "slug": "diffusion-model-ddpm-ddim",
     "date": "2026-03-27",
