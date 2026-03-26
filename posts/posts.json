@@ -1,5 +1,17 @@
 [
   {
+    "title": "DiT（Diffusion Transformer）：图像生成的纯 Transformer 架构",
+    "slug": "dit-diffusion-transformer",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩散模型",
+      "Transformer"
+    ],
+    "summary": "DiT用patch化latent和adaLN-Zero，把扩散去噪主干从U-Net换成了可扩展的纯Transforme…"
+  },
+  {
     "title": "CFG（Classifier-Free Guidance）：无分类器引导的条件生成",
     "slug": "classifier-free-guidance",
     "date": "2026-03-27",

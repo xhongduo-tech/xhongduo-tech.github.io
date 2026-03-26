@@ -8025,7 +8025,7 @@
       "Transformer"
     ],
     "brief": "用 Transformer 替换 U-Net 作为扩散模型的去噪网络。patch 化输入处理图像 token。adaLN-Zero（自适应层归一化）注入时间步与条件信息。DiT 的 Scaling Law：参数量与 FID 的幂律关系。SD3/Flux 对 DiT 的继承与改进。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CFG（Classifier-Free Guidance）：无分类器引导的条件生成",
