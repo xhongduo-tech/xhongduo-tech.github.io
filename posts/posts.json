@@ -1,5 +1,18 @@
 [
   {
+    "title": "推荐系统的冷启动问题",
+    "slug": "cold-start-recommendation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "策略",
+      "冷启动"
+    ],
+    "summary": "冷启动不是补热门，而是规则、探索、评测、回滚组成的完整工程流程"
+  },
+  {
     "title": "多模态推荐",
     "slug": "multimodal-recommendation",
     "date": "2026-03-27",
