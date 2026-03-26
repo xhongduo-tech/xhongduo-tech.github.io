@@ -1,5 +1,17 @@
 [
   {
+    "title": "视觉语言模型的 OCR 与文档理解：从图像到结构化信息",
+    "slug": "vlm-ocr-document-understanding",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "文档理解"
+    ],
+    "summary": "VLM把OCR升级为端到端文档理解，关键在保留布局并直接输出结构化结果"
+  },
+  {
     "title": "多模态大模型的 Agent 能力：GUI 操控与 Computer Use",
     "slug": "multimodal-agent-gui-computer-use",
     "date": "2026-03-27",

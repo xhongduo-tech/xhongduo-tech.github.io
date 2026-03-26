@@ -8363,7 +8363,7 @@
       "文档理解"
     ],
     "brief": "VLM 在 OCR 上的范式转变：从专用 OCR 引擎到端到端 VLM。DocVQA/InfoVQA/ChartQA 的任务特点。表格识别与公式理解的技术难点。GOT-OCR 2.0 的端到端 OCR 专用模型。Qwen2.5-VL 在文档场景的动态分辨率策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "原生多模态生成：统一理解与生成的架构探索",
