@@ -1,5 +1,19 @@
 [
   {
+    "title": "协同过滤",
+    "slug": "collaborative-filtering-basics",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回",
+      "协同过滤",
+      "基础"
+    ],
+    "summary": "协同过滤用相似用户或相似物品补全未知偏好，关键在稀疏计算、相似度设计与邻居筛选。"
+  },
+  {
     "title": "原生多模态生成：统一理解与生成的架构探索",
     "slug": "native-multimodal-generation-unified",
     "date": "2026-03-27",
