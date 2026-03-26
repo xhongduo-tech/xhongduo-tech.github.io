@@ -1,5 +1,19 @@
 [
   {
+    "title": "实时推荐架构",
+    "slug": "realtime-recommendation-architecture",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "工程",
+      "架构",
+      "实时"
+    ],
+    "summary": "实时推荐的关键是统一特征定义、保证点位时间正确，并在百毫秒内完成在线特征读取。"
+  },
+  {
     "title": "推荐系统的位置偏差与校准",
     "slug": "position-bias-calibration",
     "date": "2026-03-27",
