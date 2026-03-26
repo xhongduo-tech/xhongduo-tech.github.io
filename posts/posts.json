@@ -1,5 +1,18 @@
 [
   {
+    "title": "DIN（Deep Interest Network）：注意力加权用户行为",
+    "slug": "deep-interest-network",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序",
+      "注意力"
+    ],
+    "summary": "DIN 用候选相关注意力加权历史行为，生成动态兴趣向量以提升 CTR 排序。"
+  },
+  {
     "title": "序列推荐",
     "slug": "sasrec-sequential-recommendation",
     "date": "2026-03-27",
