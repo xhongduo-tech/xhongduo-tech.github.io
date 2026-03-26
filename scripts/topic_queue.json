@@ -8684,7 +8684,7 @@
       "端到端"
     ],
     "brief": "文本 → 字符嵌入 → CBHG 编码器 → 注意力 → 解码器 → Mel 频谱。注意力机制对齐文本与声学帧。Griffin-Lim 算法从频谱重建波形。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Vocoder：WaveNet 到 HiFi-GAN",

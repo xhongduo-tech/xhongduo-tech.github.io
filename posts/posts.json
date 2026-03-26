@@ -1,5 +1,18 @@
 [
   {
+    "title": "语音合成基础：Tacotron 的端到端 TTS",
+    "slug": "tacotron-end-to-end-tts",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "TTS",
+      "端到端"
+    ],
+    "summary": "Tacotron把文本直接映射到Mel频谱，核心难点是注意力对齐，优点是链路短，短板是稳定性和音质上限。"
+  },
+  {
     "title": "FastSpeech：非自回归 TTS",
     "slug": "fastspeech-non-autoregressive-tts",
     "date": "2026-03-27",
