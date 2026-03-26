@@ -1,5 +1,17 @@
 [
   {
+    "title": "Janus 与 DeepSeek-VL2：生成与理解统一的多模态架构",
+    "slug": "janus-deepseek-vl2-unified",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "DeepSeek",
+      "多模态"
+    ],
+    "summary": "Janus 分离视觉理解与生成路径，DeepSeek-VL2 用动态平铺与 MoE/MLA 强化高分辨率理解。"
+  },
+  {
     "title": "MiniCPM-V：端侧高效多模态模型的架构与优化",
     "slug": "minicpm-v-efficient-multimodal",
     "date": "2026-03-27",

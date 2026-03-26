@@ -8279,7 +8279,7 @@
       "多模态"
     ],
     "brief": "Janus 的核心创新：解耦视觉理解（SigLIP 编码器）与视觉生成（VQ 离散编码器）到不同处理路径，共享 LLM 骨干。DeepSeek-VL2 引入 MoE 架构扩展多模态理解能力。与 GPT-4o 统一多模态的架构哲学对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Flux：基于整流流的新一代文生图模型",
