@@ -8351,7 +8351,7 @@
       "Agent"
     ],
     "brief": "Computer Use 范式：VLM 直接感知屏幕截图并输出操作指令（点击/输入/滚动）。GUI Grounding：像素级 UI 元素定位的训练数据与技术。Claude 3.5/3.7 Computer Use 的实现架构。UI-TARS/ShowUI 等开源 GUI Agent 模型。与传统 DOM-based Agent 的对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "视觉语言模型的 OCR 与文档理解：从图像到结构化信息",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态大模型的 Agent 能力：GUI 操控与 Computer Use",
+    "slug": "multimodal-agent-gui-computer-use",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "Agent"
+    ],
+    "summary": "Computer Use 让模型直接看屏幕并操作 GUI，但现阶段仍需靠闭环验证与人工约束保证可用性。"
+  },
+  {
     "title": "SD3 与 SDXL：Stable Diffusion 的架构演进",
     "slug": "sd3-sdxl-architecture-evolution",
     "date": "2026-03-27",
