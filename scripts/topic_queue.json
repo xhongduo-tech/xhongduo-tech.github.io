@@ -8762,7 +8762,7 @@
       "序列标注"
     ],
     "brief": "关系抽取识别文本中实体之间的语义关系（位于、雇佣、配偶等）。基于模板的方法依赖预定义规则。监督学习方法将实体对及其上下文编码为特征向量，分类关系类型。远程监督使用知识库自动标注，但存在噪声问题。BERT-CNN 是高效的基线模型。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "知识图谱嵌入：TransE/TransR/RotatE",
@@ -8810,7 +8810,7 @@
       "无模型"
     ],
     "brief": "Q 表格存储所有 (s,a) 的价值。更新规则：Q(s,a) ← Q(s,a) + α[r + γ max Q(s',a') - Q(s,a)]。ε-greedy 探索策略。off-policy：学习策略与行为策略不同。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DQN",

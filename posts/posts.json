@@ -1,5 +1,18 @@
 [
   {
+    "title": "Q-Learning：off-policy 的价值学习",
+    "slug": "q-learning-off-policy",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "价值学习",
+      "无模型"
+    ],
+    "summary": "Q-Learning用ε-greedy采样，但始终按max Q更新，因此是off-policy价值学习。"
+  },
+  {
     "title": "关系抽取",
     "slug": "relation-extraction",
     "date": "2026-03-27",
