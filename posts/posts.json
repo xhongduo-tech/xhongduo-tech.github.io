@@ -1,5 +1,18 @@
 [
   {
+    "title": "推荐系统的可解释性",
+    "slug": "recommendation-explainability",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "可解释性",
+      "用户信任"
+    ],
+    "summary": "可解释推荐要同时回答特征为何重要，以及用户与物品通过什么路径被连起来。"
+  },
+  {
     "title": "探索与利用（E&E）：Bandit 算法在推荐中的应用",
     "slug": "bandit-algorithms-recommendation",
     "date": "2026-03-27",
