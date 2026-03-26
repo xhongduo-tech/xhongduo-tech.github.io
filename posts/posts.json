@@ -1,5 +1,18 @@
 [
   {
+    "title": "FastSpeech：非自回归 TTS",
+    "slug": "fastspeech-non-autoregressive-tts",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "TTS",
+      "非自回归"
+    ],
+    "summary": "FastSpeech用时长预测和长度调节器，把TTS从逐帧递归改成整段并行生成。"
+  },
+  {
     "title": "Whisper",
     "slug": "whisper-asr",
     "date": "2026-03-27",

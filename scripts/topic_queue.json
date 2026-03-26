@@ -8708,7 +8708,7 @@
       "非自回归"
     ],
     "brief": "自回归 TTS 的推理瓶颈。FastSpeech 并行生成所有帧。长度调节器：音素到 Mel 帧的映射。从教师模型提取对齐信息。速度提升 10 倍以上。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "语音大模型",
