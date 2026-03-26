@@ -8205,7 +8205,7 @@
       "推理模型"
     ],
     "brief": "Qwen3.5 在 Qwen3 基础上的改进方向：推理时 Compute Scaling、更大规模预训练数据、更强的代码与数学能力。与 DeepSeek-R1 的推理能力对比。Qwen3.5-VL 的多模态推理扩展。开源权重的架构细节解析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "InternVL2 与 InternVL3：开源 VLM 的系统设计",
