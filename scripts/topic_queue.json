@@ -8537,7 +8537,7 @@
       "采样"
     ],
     "brief": "随机负采样简单但效率低。Hard Negative Mining 选取难区分的负样本。混合负采样：Easy + Hard 的比例。批内负采样 vs 批外负采样。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推荐系统的冷启动问题",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "负采样策略：Easy Negative vs Hard Negative",
+    "slug": "negative-sampling-strategies",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "训练",
+      "采样"
+    ],
+    "summary": "Hard negative 能提供有效梯度，但必须与 easy 混合并控制 false negative 风险"
+  },
+  {
     "title": "多目标优化：ESMM 的多任务学习",
     "slug": "esmm-multi-task",
     "date": "2026-03-27",
