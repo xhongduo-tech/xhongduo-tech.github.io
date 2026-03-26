@@ -8599,7 +8599,7 @@
       "A/B测试"
     ],
     "brief": "离线指标：AUC、GAUC、NDCG、MRR、Hit Rate。在线指标：CTR、CVR、GMV、用户停留时长。离线与在线指标的差距分析。A/B 测试的设计与显著性检验。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "探索与利用（E&E）：Bandit 算法在推荐中的应用",
@@ -8647,7 +8647,7 @@
       "序列学习"
     ],
     "brief": "序列标注的困难：帧与标签不对齐。CTC 引入 blank 符号，所有可能对齐的边缘化。前向-后向算法高效计算。解码策略：贪婪解码、束搜索。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Conformer：卷积与注意力的混合架构",

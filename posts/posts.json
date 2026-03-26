@@ -1,5 +1,18 @@
 [
   {
+    "title": "CTC 损失函数：对齐无关的序列学习",
+    "slug": "ctc-loss-alignment-free",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "损失函数",
+      "序列学习"
+    ],
+    "summary": "CTC 用 blank 和路径求和消除对齐依赖，是单调序列任务的高效训练方法"
+  },
+  {
     "title": "推荐系统的可解释性",
     "slug": "recommendation-explainability",
     "date": "2026-03-27",
