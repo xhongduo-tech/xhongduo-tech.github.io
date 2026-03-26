@@ -8109,7 +8109,7 @@
       "多模态"
     ],
     "brief": "CLIP 文本编码器的 77 token 限制与语义表达局限。T5-XXL 文本编码器对复杂提示的长程语义理解优势。SD3/Flux 同时使用 CLIP + T5 的双编码器策略。SDXL 的双 CLIP 文本编码器。条件信号注入方式：cross-attention vs adaLN。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "VLM 全参数 vs 冻结策略：视觉编码器与 LLM 的联合微调",

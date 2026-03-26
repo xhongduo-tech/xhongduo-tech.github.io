@@ -1,5 +1,17 @@
 [
   {
+    "title": "文生图的条件机制：CLIP 文本编码、T5 与双编码器",
+    "slug": "text-to-image-conditioning",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "扩散模型",
+      "多模态"
+    ],
+    "summary": "CLIP 负责短视觉关键词，T5 负责长语义，cross-attention 与 adaLN 分别控制局部和全局。"
+  },
+  {
     "title": "多模态幻觉：成因分析与 POPE/HallusionBench 评测",
     "slug": "multimodal-hallucination-pope",
     "date": "2026-03-27",
