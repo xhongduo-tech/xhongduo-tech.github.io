@@ -1,5 +1,17 @@
 [
   {
+    "title": "图像离散 Tokenization：VQ-VAE、VQGAN 与视觉自回归生成",
+    "slug": "image-discrete-tokenization-vqvae",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "VQ-VAE负责离散压缩，VQGAN提升重建质量，LlamaGen再把视觉token当序列自回归生成"
+  },
+  {
     "title": "动态分辨率与瓦片编码：VLM 处理高分辨率图像的策略",
     "slug": "dynamic-resolution-tile-encoding",
     "date": "2026-03-27",

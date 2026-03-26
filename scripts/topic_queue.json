@@ -7938,7 +7938,7 @@
       "图像生成"
     ],
     "brief": "VQ-VAE 的编码器→量化码本→解码器结构。码本的承诺损失（commitment loss）与 codebook collapse 问题。VQGAN 引入感知损失与对抗损失提升重建质量。LlamaGen/LWM 等视觉自回归模型将图像视为离散 Token 序列的生成框架。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "动态分辨率与瓦片编码：VLM 处理高分辨率图像的策略",
