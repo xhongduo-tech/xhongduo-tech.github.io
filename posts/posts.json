@@ -1,5 +1,21 @@
 [
   {
+    "title": "视频时序建模",
+    "slug": "video-temporal-modeling-3d-to-transformer",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "理论基础",
+      "多模态",
+      "视频理解",
+      "时序建模",
+      "生成与评测",
+      "视觉语言"
+    ],
+    "summary": "视频时序建模的主线是从局部卷积到零参数时移再到全局注意力，并最终落到长视频分段聚合。"
+  },
+  {
     "title": "2D RoPE 与多模态位置编码：图像空间位置的表示",
     "slug": "2d-rope-visual-position-encoding",
     "date": "2026-03-27",

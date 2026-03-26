@@ -7989,7 +7989,7 @@
       "视觉语言"
     ],
     "brief": "视频时序建模从 C3D/I3D 的 3D 卷积发展到 Video Transformer。分析 3D 卷积的局部时序感受野限制、Temporal Shift Module 的零参数时序建模、以及 Transformer 的全局时序注意力优势。讨论长视频处理的分片段策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "语音离散 Tokenization：EnCodec、Whisper 与语音 LLM 架构",
