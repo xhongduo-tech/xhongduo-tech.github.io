@@ -8489,7 +8489,7 @@
       "GNN"
     ],
     "brief": "用户-物品二部图的 GNN。LightGCN 简化了 NGCF，去掉了特征变换和非线性激活。只有消息传递和归一化。效果更好且训练更快。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "双塔模型：DSSM 的召回架构",

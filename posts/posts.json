@@ -1,5 +1,18 @@
 [
   {
+    "title": "图神经网络推荐：LightGCN 的消息传递",
+    "slug": "lightgcn-recommendation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回",
+      "GNN"
+    ],
+    "summary": "LightGCN 用纯邻居传播替代复杂 GNN，在推荐二部图上以更少参数捕捉高阶协同信号"
+  },
+  {
     "title": "DIN（Deep Interest Network）：注意力加权用户行为",
     "slug": "deep-interest-network",
     "date": "2026-03-27",
