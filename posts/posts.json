@@ -1,5 +1,17 @@
 [
   {
+    "title": "Kimi k1.5 与 Kimi VL：长上下文推理与多模态扩展",
+    "slug": "kimi-k15-vl-analysis",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Kimi",
+      "推理模型"
+    ],
+    "summary": "Kimi k1.5用128K长上下文RL提升推理，Kimi VL把这套能力扩到图文长文档场景"
+  },
+  {
     "title": "Claude 3.7 Sonnet：Extended Thinking 与混合推理模式",
     "slug": "claude-37-sonnet-extended-thinking",
     "date": "2026-03-27",

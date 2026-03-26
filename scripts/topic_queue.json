@@ -8339,7 +8339,7 @@
       "推理模型"
     ],
     "brief": "Kimi k1.5 的长上下文强化学习：128K Context Window RL 训练，无 Monte Carlo Tree Search 的高效推理链。Long-CoT 与 Short-CoT 的混合推理策略。Kimi VL 的多模态扩展：图像理解与长文档处理。在 AIME/LiveCodeBench 的竞争力表现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态大模型的 Agent 能力：GUI 操控与 Computer Use",
