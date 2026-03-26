@@ -1,5 +1,18 @@
 [
   {
+    "title": "RAG + 知识图谱：结构化检索增强",
+    "slug": "rag-knowledge-graph",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "RAG",
+      "检索增强"
+    ],
+    "summary": "KG-RAG用向量召回加图谱核验，把语义覆盖和关系精度同时带进RAG。"
+  },
+  {
     "title": "知识图谱嵌入：TransE/TransR/RotatE",
     "slug": "knowledge-graph-embeddings",
     "date": "2026-03-27",
