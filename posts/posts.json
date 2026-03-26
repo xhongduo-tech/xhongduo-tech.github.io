@@ -1,5 +1,17 @@
 [
   {
+    "title": "PaliGemma 与 PaliGemma 2：ViT-22B 与 Gemma 的多模态融合",
+    "slug": "paligemma-vit22b-gemma",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Google",
+      "多模态"
+    ],
+    "summary": "PaliGemma 2 用 SigLIP 与 Gemma 2 单流拼接，在 few-shot 多模态迁移中以更简架构取…"
+  },
+  {
     "title": "Qwen3.5 系列技术解析：推理能力与架构演进",
     "slug": "qwen35-technical-analysis",
     "date": "2026-03-27",

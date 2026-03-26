@@ -8243,7 +8243,7 @@
       "多模态"
     ],
     "brief": "PaliGemma 用 SigLIP-So400M 视觉编码器 + Gemma LLM，以极简架构在多项基准领先。PaliGemma 2 用更大的 Gemma 2 LLM 与多分辨率训练。Transfer learning VLM 的 few-shot 性能。与需要复杂 Projector 架构的对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Pixtral：Mistral 的原生多模态架构与变长图像处理",
