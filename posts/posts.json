@@ -1,5 +1,18 @@
 [
   {
+    "title": "排序模型：LambdaRank/LambdaMART 的梯度提升",
+    "slug": "lambdarank-lambdamart",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序",
+      "Learning to Rank"
+    ],
+    "summary": "LambdaRank用NDCG交换增益定义梯度，LambdaMART用GBDT拟合该梯度完成重排"
+  },
+  {
     "title": "双塔模型：DSSM 的召回架构",
     "slug": "two-tower-dssm",
     "date": "2026-03-27",

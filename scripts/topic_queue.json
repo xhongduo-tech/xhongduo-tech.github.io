@@ -8525,7 +8525,7 @@
       "Learning to Rank"
     ],
     "brief": "Learning to Rank 的三种范式：pointwise、pairwise、listwise。LambdaRank 定义了交换任意两个文档的 NDCG 增益作为梯度。LambdaMART 是 LambdaRank + GBDT。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "负采样策略：Easy Negative vs Hard Negative",
