@@ -8013,7 +8013,7 @@
       "图像生成"
     ],
     "brief": "前向扩散过程：逐步加高斯噪声的马尔科夫链。去噪网络的训练目标：预测噪声 ε 或预测原始图像 x₀。分数函数（score function）与朗之万动力学的关系。DDIM 的非马尔科夫链确定性采样——从 1000 步降到 50 步的原理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DiT（Diffusion Transformer）：图像生成的纯 Transformer 架构",

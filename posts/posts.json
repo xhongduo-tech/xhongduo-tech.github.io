@@ -1,5 +1,17 @@
 [
   {
+    "title": "扩散模型基础：DDPM、分数匹配与 DDIM 加速采样",
+    "slug": "diffusion-model-ddpm-ddim",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩散模型",
+      "图像生成"
+    ],
+    "summary": "DDPM学去噪轨迹，DDIM在同一模型上改采样路径，用更少步数完成更快生成"
+  },
+  {
     "title": "DiT（Diffusion Transformer）：图像生成的纯 Transformer 架构",
     "slug": "dit-diffusion-transformer",
     "date": "2026-03-27",
