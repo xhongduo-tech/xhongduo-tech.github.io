@@ -8327,7 +8327,7 @@
       "推理模型"
     ],
     "brief": "Claude 3.7 Sonnet 的 Extended Thinking 模式：动态分配推理 Token 预算。混合推理架构：在快速响应与深度思考间的切换机制。在 SWE-Bench Verified 的 Agent 编码能力（62.3%）。与 o3-mini 推理效率的对比。Computer Use 的改进。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Kimi k1.5 与 Kimi VL：长上下文推理与多模态扩展",

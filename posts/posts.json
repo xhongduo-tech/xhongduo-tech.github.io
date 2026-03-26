@@ -1,5 +1,17 @@
 [
   {
+    "title": "Claude 3.7 Sonnet：Extended Thinking 与混合推理模式",
+    "slug": "claude-37-sonnet-extended-thinking",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Claude",
+      "推理模型"
+    ],
+    "summary": "Claude 3.7 Sonnet 用 thinking budget 在单模型里平衡快答与深思，适合复杂工程 Age…"
+  },
+  {
     "title": "Janus 与 DeepSeek-VL2：生成与理解统一的多模态架构",
     "slug": "janus-deepseek-vl2-unified",
     "date": "2026-03-27",
