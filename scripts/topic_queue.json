@@ -8303,7 +8303,7 @@
       "图像生成"
     ],
     "brief": "SDXL 的双 U-Net（base + refiner）设计与更大 VAE。SD3 转向 MMDiT（Multimodal Diffusion Transformer）完全抛弃 U-Net。SD3 的三编码器文本条件（CLIP-L + CLIP-G + T5-XXL）。ComfyUI 生态与 ControlNet 适配。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemini 2.0：原生多模态输出与实时交互能力",

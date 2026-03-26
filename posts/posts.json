@@ -1,5 +1,17 @@
 [
   {
+    "title": "SD3 与 SDXL：Stable Diffusion 的架构演进",
+    "slug": "sd3-sdxl-architecture-evolution",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Stable Diffusion",
+      "图像生成"
+    ],
+    "summary": "SDXL是分段U-Net路线，SD3改为MMDiT多模态Transformer主干。"
+  },
+  {
     "title": "Kimi k1.5 与 Kimi VL：长上下文推理与多模态扩展",
     "slug": "kimi-k15-vl-analysis",
     "date": "2026-03-27",
