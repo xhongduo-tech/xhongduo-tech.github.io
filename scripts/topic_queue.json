@@ -8635,7 +8635,7 @@
       "信号处理"
     ],
     "brief": "短时傅里叶变换（STFT）：分帧、加窗、FFT。Mel 滤波器组：模拟人耳对频率的感知。MFCC：Mel 频谱 + DCT。Log-Mel 频谱：现代深度学习的首选。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "CTC 损失函数：对齐无关的序列学习",
@@ -8659,7 +8659,7 @@
       "Transformer"
     ],
     "brief": "Conformer 块 = FFN + MHSA + Conv + FFN。卷积捕捉局部特征，注意力捕捉全局依赖。相对位置编码。CTC + Attention 联合解码。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Whisper",
@@ -8672,7 +8672,7 @@
       "语音处理"
     ],
     "brief": "Whisper 需要交代它相对主流方案到底改动了哪条技术路径，并用公开结果或可复现实验比较收益、成本、数据需求和能力边界，而不是只列名词。正文最好补齐公开基准、训练或推理成本，以及为什么它值得替换现有方案的证据。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "语音合成基础：Tacotron 的端到端 TTS",
