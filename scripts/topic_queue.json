@@ -8001,7 +8001,7 @@
       "语音"
     ],
     "brief": "连续语音特征（Mel 频谱）vs 离散语音 Token（RVQ 残差向量量化）。EnCodec 的多层 RVQ 结构与比特率控制。Whisper 的 Encoder-Decoder ASR 架构。端到端语音 LLM（Qwen-Audio、Gemini Audio）将语音 Token 与文本 Token 统一处理的范式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "扩散模型基础：DDPM、分数匹配与 DDIM 加速采样",

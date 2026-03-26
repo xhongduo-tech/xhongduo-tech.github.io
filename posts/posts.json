@@ -1,5 +1,17 @@
 [
   {
+    "title": "语音离散 Tokenization：EnCodec、Whisper 与语音 LLM 架构",
+    "slug": "speech-discrete-tokenization-encodec",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "语音"
+    ],
+    "summary": "语音离散 Token 把连续声学信号变成可被 Transformer 统一处理的符号序列。"
+  },
+  {
     "title": "视觉 Token 压缩：减少 VLM 图像 Token 数量的方法",
     "slug": "visual-token-compression",
     "date": "2026-03-27",
