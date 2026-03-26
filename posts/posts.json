@@ -1,5 +1,17 @@
 [
   {
+    "title": "Flux：基于整流流的新一代文生图模型",
+    "slug": "flux-rectified-flow-image-gen",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Flux",
+      "图像生成"
+    ],
+    "summary": "Flux 用整流流和 MM-DiT 提升文生图质量，并在 Pro、Dev、Schnell 间做速度与许可分层"
+  },
+  {
     "title": "Pixtral：Mistral 的原生多模态架构与变长图像处理",
     "slug": "pixtral-mistral-multimodal",
     "date": "2026-03-27",

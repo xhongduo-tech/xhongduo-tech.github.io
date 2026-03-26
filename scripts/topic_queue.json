@@ -8291,7 +8291,7 @@
       "图像生成"
     ],
     "brief": "Flux 由 Black Forest Labs（Stable Diffusion 原班人马）发布，基于整流流（Rectified Flow）与 DiT 架构。双流 Transformer 块（MM-DiT）处理图像与文本 Token 的交互。Flux.1 系列（Dev/Schnell/Pro）的差异。与 SDXL/SD3 的图像质量与提示遵循度对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SD3 与 SDXL：Stable Diffusion 的架构演进",
