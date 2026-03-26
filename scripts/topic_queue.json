@@ -8217,7 +8217,7 @@
       "多模态"
     ],
     "brief": "InternVL 的核心设计：InternViT-6B 超大视觉编码器 + Dynamic Tiling。像素级对齐的高分辨率训练策略。InternVL2 在 OCR/Document 理解的领先能力。InternVL3 的架构改进：视频理解与多图推理。与闭源 GPT-4V/Claude 3.5 Vision 的能力对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaVA-OneVision",

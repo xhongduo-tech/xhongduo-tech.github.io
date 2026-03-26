@@ -1,5 +1,17 @@
 [
   {
+    "title": "InternVL2 与 InternVL3：开源 VLM 的系统设计",
+    "slug": "internvl2-internvl3-architecture",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "InternVL",
+      "多模态"
+    ],
+    "summary": "InternVL2/3 的核心是高分辨率切图加 token 压缩，再用更强位置编码扩展到多图与视频理解"
+  },
+  {
     "title": "文生图推理加速：SDXL/Flux 的 TensorRT 与 Step Distillation",
     "slug": "text-to-image-inference-acceleration",
     "date": "2026-03-27",
