@@ -1,5 +1,17 @@
 [
   {
+    "title": "MiniCPM-V：端侧高效多模态模型的架构与优化",
+    "slug": "minicpm-v-efficient-multimodal",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "MiniCPM",
+      "多模态"
+    ],
+    "summary": "MiniCPM-V 通过视觉 token 压缩、动态分辨率和端侧量化，把多模态推理真正带到手机上"
+  },
+  {
     "title": "Flux：基于整流流的新一代文生图模型",
     "slug": "flux-rectified-flow-image-gen",
     "date": "2026-03-27",
