@@ -7866,7 +7866,7 @@
       "故障恢复"
     ],
     "brief": "检查点保存频率的权衡：存储成本 vs 重算代价。异步检查点（Async Checkpoint）不阻塞训练进程。ZeRO 分片检查点的合并与加载。故障恢复的自动检测（健康检查 + 自动重启脚本）。Gemini 训练中 130 次故障的恢复实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "计算效率分析：MFU、HFU 与 Roofline 模型",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "检查点策略：保存频率、异步存储与训练恢复",
+    "slug": "checkpoint-strategy-async",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "工程实践",
+      "故障恢复"
+    ],
+    "summary": "检查点策略的核心是用异步与分层存储降低阻塞，并用自动恢复降低故障重算成本"
+  },
+  {
     "title": "词表设计：BPE、Unigram LM 与多语言 Tokenizer",
     "slug": "tokenizer-bpe-unigram-multilingual",
     "date": "2026-03-27",
