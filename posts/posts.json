@@ -1,5 +1,17 @@
 [
   {
+    "title": "视觉 Token 压缩：减少 VLM 图像 Token 数量的方法",
+    "slug": "visual-token-compression",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "推理效率"
+    ],
+    "summary": "视觉Token压缩用更短序列保住关键语义，是VLM推理效率的核心手段"
+  },
+  {
     "title": "图像离散 Tokenization：VQ-VAE、VQGAN 与视觉自回归生成",
     "slug": "image-discrete-tokenization-vqvae",
     "date": "2026-03-27",

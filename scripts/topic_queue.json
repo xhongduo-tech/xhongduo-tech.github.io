@@ -7962,7 +7962,7 @@
       "推理效率"
     ],
     "brief": "高分辨率图像产生大量视觉 Token（如 1024 个）导致 LLM 上下文膨胀。压缩方法：平均池化、注意力加权池化、可学习压缩（LDPv2）、Token Merging（ToMe）。压缩比与下游任务性能的 Pareto 权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "2D RoPE 与多模态位置编码：图像空间位置的表示",
