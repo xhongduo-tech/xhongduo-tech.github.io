@@ -1,5 +1,20 @@
 [
   {
+    "title": "DQN",
+    "slug": "dqn-q-network",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度学习",
+      "价值学习",
+      "值函数方法",
+      "DQN"
+    ],
+    "summary": "DQN 用神经网络近似 Q 值，依靠经验回放和目标网络稳定训练。"
+  },
+  {
     "title": "Policy Gradient：REINFORCE",
     "slug": "policy-gradient-reinforce",
     "date": "2026-03-27",

@@ -8798,7 +8798,7 @@
       "MDP"
     ],
     "brief": "MDP 五元组 (S, A, P, R, γ)。策略 π(a|s) 状态到动作的映射。价值函数 V^π(s) 状态的期望累积奖励。动作价值函数 Q^π(s,a)。Bellman 方程的递归定义。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Q-Learning：off-policy 的价值学习",
@@ -8824,7 +8824,7 @@
       "DQN"
     ],
     "brief": "Q-learning 用表格存储 Q(s,a)，状态空间大时不可行。DQN 用神经网络 Q(s,a;θ) 逼近 Q 值函数。核心技巧：经验回放（Experience Replay）打破样本相关性，目标网络（Target Network）稳定训练。损失函数 L(θ) = E[(r + γ max_a' Q(s',a';θ⁻) - Q(s,a;θ))²]。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Policy Gradient：REINFORCE",
@@ -8848,7 +8848,7 @@
       "价值学习"
     ],
     "brief": "Actor 用策略梯度更新策略，Critic 估计价值函数。Critic 用 TD 误差训练。优势函数 A(s,a) = Q(s,a) - V(s) 减少方差。A2C/A3C 的同步与异步。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "PPO",
@@ -8861,7 +8861,7 @@
       "PPO"
     ],
     "brief": "TRPO 计算复杂，PPO 用简单剪裁替代 KL 约束。目标函数 L = E[min(r_t(θ)·A_t, clip(r_t(θ), 1-ε, 1+ε)·A_t)]，r_t = π_θ/π_old 是概率比。当 r_t 偏离 1 太远时梯度被剪裁，限制策略更新幅度。实践中极其稳定，是 RLHF 的基础算法。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "SAC",
@@ -8874,7 +8874,7 @@
       "Actor-Critic"
     ],
     "brief": "SAC 要写清核心更新公式、关键超参数和稳定性信号，比较不同配置对收敛速度、最终指标、显存与吞吐的影响，并说明何时会出现发散或退化。正文最好补齐训练曲线、关键超参数和异常信号，说明如何定位训练失败。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "损失函数总览：分类、回归、排序",
@@ -8898,7 +8898,7 @@
       "类别不平衡"
     ],
     "brief": "类别不平衡问题：简单样本主导梯度。Focal Loss：FL(p) = -α(1-p)^γ log(p)。γ 控制难样本的聚焦程度。α 平衡类别权重。RetinaNet 的成功应用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "对比损失：SimCLR 的 InfoNCE",
