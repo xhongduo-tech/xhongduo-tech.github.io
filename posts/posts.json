@@ -1,5 +1,17 @@
 [
   {
+    "title": "CFG（Classifier-Free Guidance）：无分类器引导的条件生成",
+    "slug": "classifier-free-guidance",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "扩散模型",
+      "图像生成"
+    ],
+    "summary": "CFG用同一模型学条件与无条件分支，推理时放大二者差值以提升prompt对齐，但会牺牲多样性。"
+  },
+  {
     "title": "多模态预训练数据集：LAION、MMC4、OBELISC 与交错图文",
     "slug": "multimodal-pretraining-datasets",
     "date": "2026-03-27",

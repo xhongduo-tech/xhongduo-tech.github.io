@@ -8037,7 +8037,7 @@
       "图像生成"
     ],
     "brief": "分类器引导的原理与局限（需要额外分类器）。CFG 通过联合训练条件/无条件预测，推理时线性外插放大条件信号。CFG 强度（guidance scale）对图像质量与多样性的权衡。流匹配（Flow Matching）中 CFG 的等价形式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态预训练数据集：LAION、MMC4、OBELISC 与交错图文",
