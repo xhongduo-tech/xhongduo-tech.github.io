@@ -1,5 +1,19 @@
 [
   {
+    "title": "Wide & Deep",
+    "slug": "wide-and-deep",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序",
+      "深度学习",
+      "Wide&Deep"
+    ],
+    "summary": "Wide&Deep用线性规则记忆加DNN泛化，在推荐排序中兼顾稳定命中与新组合预测"
+  },
+  {
     "title": "Word2Vec 在推荐中的应用：Item2Vec",
     "slug": "item2vec-recommendation",
     "date": "2026-03-27",

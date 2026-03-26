@@ -8439,7 +8439,7 @@
       "Wide&Deep"
     ],
     "brief": "Wide 侧：线性模型 + 特征交叉，学习历史规则（记忆）。Deep 侧：DNN 学习泛化能力。联合训练让两者互补。Google Play 商店的生产应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepFM",
