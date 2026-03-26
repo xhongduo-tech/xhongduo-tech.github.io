@@ -1,5 +1,17 @@
 [
   {
+    "title": "视觉指令微调：LLaVA 数据构建与两阶段训练范式",
+    "slug": "visual-instruction-tuning-llava",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "多模态",
+      "SFT"
+    ],
+    "summary": "LLaVA 通过“先对齐、再指令微调”把图像稳定接入 LLM，核心改进在数据质量、投影器和高分辨率支持。"
+  },
+  {
     "title": "VLM 评测基准全景：MMBench、MMMU、MathVista、OCRBench",
     "slug": "vlm-evaluation-benchmarks",
     "date": "2026-03-27",

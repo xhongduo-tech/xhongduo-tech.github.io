@@ -8085,7 +8085,7 @@
       "SFT"
     ],
     "brief": "LLaVA 数据构建：用 GPT-4 将图像标注转换为对话格式。两阶段训练：第一阶段冻结 LLM 只训练连接器（Projector），第二阶段端到端微调。LLaVA-1.5 引入 MLP Projector 与高质量学术数据的改进。LLaVA-Next 的动态分辨率扩展。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图像生成的流匹配（Flow Matching）：从扩散到整流流",
