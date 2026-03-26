@@ -1,5 +1,19 @@
 [
   {
+    "title": "多模态推荐",
+    "slug": "multimodal-recommendation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "多模态",
+      "特征融合",
+      "融合"
+    ],
+    "summary": "多模态推荐的关键不在多，而在可对齐、可融合、可补全。"
+  },
+  {
     "title": "实时推荐架构",
     "slug": "realtime-recommendation-architecture",
     "date": "2026-03-27",
