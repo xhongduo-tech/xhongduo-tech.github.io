@@ -8097,7 +8097,7 @@
       "图像生成"
     ],
     "brief": "连续时间归一化流的训练目标（条件流匹配 CFM）。整流流（Rectified Flow）：用直线轨迹连接噪声与数据，减少 ODE 求解步数。ReFlow 迭代直线化训练。Flux 与 SD3 基于整流流的实现。与 DDPM 的采样效率对比（步数从 1000 降到 4-8）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "文生图的条件机制：CLIP 文本编码、T5 与双编码器",

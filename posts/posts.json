@@ -1,5 +1,17 @@
 [
   {
+    "title": "图像生成的流匹配（Flow Matching）：从扩散到整流流",
+    "slug": "flow-matching-rectified-flow",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "扩散模型",
+      "图像生成"
+    ],
+    "summary": "Flow Matching直接学习速度场，Rectified Flow用路径整流把图像生成步数压到4到8步。"
+  },
+  {
     "title": "视觉指令微调：LLaVA 数据构建与两阶段训练范式",
     "slug": "visual-instruction-tuning-llava",
     "date": "2026-03-27",
