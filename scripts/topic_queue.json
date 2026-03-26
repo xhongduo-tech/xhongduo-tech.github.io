@@ -8181,7 +8181,7 @@
       "推理优化"
     ],
     "brief": "扩散模型推理的迭代去噪瓶颈（50 次前向传播）。一致性模型（Consistency Model）的 1-4 步生成。Step Distillation：LCM-LoRA 的潜在一致性蒸馏。TensorRT 编译 U-Net/DiT 的 kernel 融合加速。SDXL Turbo 的对抗扩散蒸馏（ADD）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Qwen2.5-VL：动态分辨率、M-RoPE 与视觉 Grounding 突破",
