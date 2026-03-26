@@ -1,5 +1,17 @@
 [
   {
+    "title": "原生多模态生成：统一理解与生成的架构探索",
+    "slug": "native-multimodal-generation-unified",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "原生多模态把图文视频统一成 token 序列，用一个 decoder 同时完成理解与生成。"
+  },
+  {
     "title": "视觉语言模型的 OCR 与文档理解：从图像到结构化信息",
     "slug": "vlm-ocr-document-understanding",
     "date": "2026-03-27",
