@@ -1,5 +1,17 @@
 [
   {
+    "title": "视觉 Grounding 微调：参照表达理解与定位输出格式",
+    "slug": "visual-grounding-finetuning",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "多模态",
+      "Grounding"
+    ],
+    "summary": "视觉Grounding微调的关键，是把语言稳定翻译成可执行的框、点或Mask输出。"
+  },
+  {
     "title": "多模态 DPO：视觉偏好数据构建与幻觉缓解",
     "slug": "multimodal-dpo-visual-preference",
     "date": "2026-03-27",

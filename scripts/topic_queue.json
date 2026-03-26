@@ -8145,7 +8145,7 @@
       "Grounding"
     ],
     "brief": "Referring Expression Comprehension（REC）任务：根据文本描述定位图像区域。输出格式：坐标回归（归一化 bbox）vs 点击坐标 vs 分割掩码 token。Grounding 数据集：RefCOCO/RefCOCO+/GRIT。Qwen2.5-VL 与 InternVL 的 Grounding 训练策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "VLM 推理优化：图像 Token 的 KV Cache 与 Prefill 加速",
