@@ -8477,7 +8477,7 @@
       "序列"
     ],
     "brief": "用户行为序列用 Transformer 编码。Self-Attention 捕捉长距离依赖。因果掩码保证只看历史。位置编码捕捉行为顺序。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图神经网络推荐：LightGCN 的消息传递",

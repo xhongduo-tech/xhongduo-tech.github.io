@@ -1,5 +1,19 @@
 [
   {
+    "title": "序列推荐",
+    "slug": "sasrec-sequential-recommendation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回",
+      "Transformer",
+      "序列"
+    ],
+    "summary": "序列推荐用带因果掩码与位置编码的Transformer，只依赖历史行为预测下一步。"
+  },
+  {
     "title": "DeepFM",
     "slug": "deepfm",
     "date": "2026-03-27",
