@@ -7914,7 +7914,7 @@
       "视觉语言"
     ],
     "brief": "Q-Former 用一组可学习 Query Token 通过交叉注意力从冻结视觉编码器提取信息，再对接冻结 LLM。两阶段训练：先对齐视觉-语言表征，再对接 LLM 生成。InstructBLIP 对 Q-Former 的指令感知改进。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Flamingo：交叉注意力插层的多模态少样本学习",

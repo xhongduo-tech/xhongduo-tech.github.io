@@ -1,5 +1,17 @@
 [
   {
+    "title": "Q-Former（BLIP-2）：冻结模态编码器的轻量桥接设计",
+    "slug": "qformer-blip2-bridge",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "Q-Former用少量Query从冻结视觉特征中取信息，再桥接冻结LLM。"
+  },
+  {
     "title": "训练稳定性",
     "slug": "training-stability-loss-spikes",
     "date": "2026-03-21",
