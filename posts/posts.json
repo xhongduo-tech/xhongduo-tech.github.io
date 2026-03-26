@@ -1,5 +1,18 @@
 [
   {
+    "title": "音频特征提取：MFCC 与 Mel 频谱",
+    "slug": "audio-feature-extraction-mfcc",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "特征工程",
+      "信号处理"
+    ],
+    "summary": "MFCC是Log-Mel再做DCT压缩；深度学习常优先Log-Mel，传统轻量模型常用MFCC。"
+  },
+  {
     "title": "CTC 损失函数：对齐无关的序列学习",
     "slug": "ctc-loss-alignment-free",
     "date": "2026-03-27",

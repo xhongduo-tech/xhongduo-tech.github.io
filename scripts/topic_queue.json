@@ -8635,7 +8635,7 @@
       "信号处理"
     ],
     "brief": "短时傅里叶变换（STFT）：分帧、加窗、FFT。Mel 滤波器组：模拟人耳对频率的感知。MFCC：Mel 频谱 + DCT。Log-Mel 频谱：现代深度学习的首选。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CTC 损失函数：对齐无关的序列学习",
