@@ -1,5 +1,17 @@
 [
   {
+    "title": "凸集与凸函数",
+    "slug": "math-opt-convex-set-function",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "凸集管可行域形状，凸函数管目标曲率，二者共同保证局部最优即全局最优。"
+  },
+  {
     "title": "中心极限定理",
     "slug": "math-prob-central-limit-theorem",
     "date": "2026-03-27",
