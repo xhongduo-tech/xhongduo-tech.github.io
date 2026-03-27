@@ -29506,7 +29506,7 @@
       "量化"
     ],
     "brief": "模型量化的原理：将浮点权重转换为整数，减少内存使用和计算开销。量化方法：PTQ（训练后量化）、QAT（量化感知训练）、GPTQ、AWQ。不同量化精度：INT8、INT4、NF4、FP8。量化对模型性能的影响：准确率、推理速度、内存使用。量化工具：llama.cpp、bitsandbytes、TensorRT。量化的最佳实践与注意事项。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型压缩：剪枝、知识蒸馏与结构搜索",

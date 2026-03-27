@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型量化：从 INT8 到 INT4 的实践指南",
+    "slug": "model-quantization-practical-guide",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "模型压缩",
+      "量化"
+    ],
+    "summary": "量化通过缩放与整数映射压缩模型，核心是显存、精度与部署复杂度之间的工程折中。"
+  },
+  {
     "title": "大模型部署架构：从单机到分布式",
     "slug": "llm-deployment-architecture",
     "date": "2026-03-27",
