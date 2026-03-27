@@ -29782,7 +29782,7 @@
       "性能优化"
     ],
     "brief": "负载均衡的重要性：提高吞吐量、减少延迟、增强可靠性。负载均衡策略：Round Robin、Least Connections、IP Hash、Weighted Round Robin、Adaptive Load Balancing。负载均衡的实现：硬件负载均衡、软件负载均衡（NGINX、HAProxy）、云服务负载均衡。负载均衡的监控与调优。不同负载均衡策略的适用场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自动扩缩容：基于指标的弹性伸缩",
