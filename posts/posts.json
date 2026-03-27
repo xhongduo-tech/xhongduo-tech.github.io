@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据管理：输入处理与输出缓存",
+    "slug": "data-management-llm-serving",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据管理",
+      "缓存"
+    ],
+    "summary": "输入靠清洗验证与敏感识别，输出靠编码过滤与缓存，配合备份策略共同保证性能、安全与可恢复性"
+  },
+  {
     "title": "异步推理与批处理：提高吞吐量的实践",
     "slug": "async-inference-batching-practices",
     "date": "2026-03-27",
