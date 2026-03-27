@@ -1,5 +1,17 @@
 [
   {
+    "title": "随机变量的变换",
+    "slug": "math-prob-random-variable-transformation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "随机变量变换靠导数或Jacobian修正密度，正则化流是这一规则的多层可逆实现。"
+  },
+  {
     "title": "稀疏矩阵与压缩存储",
     "slug": "math-la-sparse-matrix-storage",
     "date": "2026-03-27",

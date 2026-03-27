@@ -9382,7 +9382,7 @@
       "概率论"
     ],
     "brief": "若Y=g(X)单调可微，则f_Y(y)=f_X(g^-1(y))·|d(g^-1)/dy|（变量替换公式）。多变量变换Y=g(X)引入Jacobian行列式：f_Y(y)=f_X(g^-1(y))·|det J_{g^-1}|。归一化流（Normalizing Flow）是此操作的链式组合：log p(x)=log p(z)+Σ_i log|det J_i|，通过可逆变换f将简单分布（高斯）变换为复杂分布，要求变换可逆且Jacobian行列式可高效计算，如三角矩阵结构（RealNVP中det J=Π对角元素）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多维随机变量与协方差",
