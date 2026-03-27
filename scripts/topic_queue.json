@@ -8946,7 +8946,7 @@
       "集成学习"
     ],
     "brief": "训练时以概率 p 随机失活神经元。推理时缩放权重或使用期望。贝叶斯解释：Dropout 近似高斯过程的贝叶斯推断。DropConnect、Spatial Dropout 变体。p 的选择策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据增强",
