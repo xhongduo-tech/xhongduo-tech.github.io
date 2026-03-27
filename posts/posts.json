@@ -1,5 +1,17 @@
 [
   {
+    "title": "边缘部署：在资源受限环境运行大模型",
+    "slug": "edge-deployment-llm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "边缘部署",
+      "资源优化"
+    ],
+    "summary": "边缘部署的关键不是把模型搬到本地，而是在内存、功耗和延迟预算内做压缩、加速与边云协同。"
+  },
+  {
     "title": "容器化部署：Docker 与 Kubernetes 最佳实践",
     "slug": "containerization-best-practices",
     "date": "2026-03-27",
