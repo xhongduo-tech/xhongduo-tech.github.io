@@ -1,5 +1,17 @@
 [
   {
+    "title": "TCP/IP 协议栈详解",
+    "slug": "tcp-ip-protocol-stack",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "网络",
+      "协议"
+    ],
+    "summary": "TCP 依靠握手、窗口、拥塞控制和 TIME_WAIT 提供可靠传输，UDP则用更低开销换低延迟。"
+  },
+  {
     "title": "批处理策略：动态 Batching",
     "slug": "dynamic-batching-inference",
     "date": "2026-03-27",

@@ -9225,7 +9225,7 @@
       "协议"
     ],
     "brief": "TCP 三次握手与四次挥手。滑动窗口与流量控制。拥塞控制算法：慢启动、拥塞避免、快重传。TIME_WAIT 状态的问题与解决。TCP 与 UDP 的选择。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据库原理：B+ 树与 LSM 树",
