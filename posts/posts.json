@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩阵的QR分解",
+    "slug": "math-la-matrix-qr-decomposition",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "QR把矩阵拆成正交与上三角，最小二乘更稳，工业实现通常采用Householder反射。"
+  },
+  {
     "title": "奇异值分解SVD",
     "slug": "math-la-singular-value-decomposition",
     "date": "2026-03-27",

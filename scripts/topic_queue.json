@@ -9305,7 +9305,7 @@
       "线性代数"
     ],
     "brief": "列满秩矩阵A=QR，Q为正交矩阵，R为上三角矩阵。Gram-Schmidt正交化逐列构造Q但数值不稳定；Householder变换通过反射消元，数值稳定性好，是工业级实现（LAPACK）。求解线性最小二乘min||Ax-b||时，QR避免计算A^TA（条件数平方放大误差）：Rx=Q^Tb直接回代即得解。QR迭代算法（A→QR→RQ循环）是计算全部特征值的标准方法，收敛至Schur上三角形式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Jordan标准型",
