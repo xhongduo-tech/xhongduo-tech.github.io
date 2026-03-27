@@ -1,5 +1,20 @@
 [
   {
+    "title": "关系抽取",
+    "slug": "relation-extraction",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "知识图谱",
+      "信息抽取",
+      "远程监督",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "关系抽取是对实体对做关系分类，核心难点在表示学习、负类建模与远程监督降噪。"
+  },
+  {
     "title": "RL 基础：MDP、策略、价值函数",
     "slug": "rl-basics-mdp-policy-value",
     "date": "2026-03-27",
@@ -1064,21 +1079,6 @@
       "无模型"
     ],
     "summary": "Q-Learning用ε-greedy采样，但始终按max Q更新，因此是off-policy价值学习。"
-  },
-  {
-    "title": "关系抽取",
-    "slug": "relation-extraction",
-    "date": "2026-03-27",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "知识图谱",
-      "信息抽取",
-      "远程监督",
-      "NLP基础",
-      "序列标注"
-    ],
-    "summary": "关系抽取本质是实体对分类，监督学习是主线，远程监督能扩数据但必须治理噪声"
   },
   {
     "title": "RAG + 知识图谱：结构化检索增强",
