@@ -1,5 +1,17 @@
 [
   {
+    "title": "张量与张量分解",
+    "slug": "math-la-tensor-decomposition",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "张量分解用低秩结构近似多维数组，Tucker更灵活，常用于卷积压缩与注意力张量计算理解"
+  },
+  {
     "title": "矩阵范数",
     "slug": "math-la-matrix-norms",
     "date": "2026-03-27",

@@ -9316,7 +9316,7 @@
       "线性代数"
     ],
     "brief": "若矩阵代数重数>几何重数则不可对角化，相似于Jordan标准型J=P^-1AP，由Jordan块J_k(λ)组成（对角线为λ，上次对角线为1）。最小多项式的每个因子(λ-λ_i)的最高幂次等于对应λ_i的最大Jordan块大小。矩阵指数e^A通过Jordan形计算：e^J=block-diag(e^{J_k})，e^{J_k(λ)}为上三角矩阵，是求解线性ODE系统dx/dt=Ax解析解的基础。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "正定矩阵与半正定矩阵",
@@ -9349,7 +9349,7 @@
       "线性代数"
     ],
     "brief": "d阶张量是d维数组，mode-n展开将其重塑为矩阵。CP分解T≈Σ_{r=1}^R a_r⊗b_r⊗c_r（R为CP秩），Tucker分解T≈G×1U1×2U2×3U3（G为核张量，U_i为正交因子矩阵），Tucker是CP的推广。卷积层权重张量W∈R^{C_out×C_in×k×k}做Tucker分解可压缩80%以上参数；Transformer的多头注意力本质是对[B,H,T,d]张量做多路爱因斯坦求和（einsum），高效实现依赖张量收缩操作。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "稀疏矩阵与压缩存储",
