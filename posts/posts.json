@@ -1,5 +1,17 @@
 [
   {
+    "title": "API 设计与服务架构：RESTful API 与 gRPC",
+    "slug": "api-design-serving-architecture",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "API 设计",
+      "服务架构"
+    ],
+    "summary": "外部接口优先 REST，内部高频调用优先 gRPC，网关负责安全、限流、熔断与降级。"
+  },
+  {
     "title": "模型压缩：剪枝、知识蒸馏与结构搜索",
     "slug": "model-compression-techniques",
     "date": "2026-03-27",
