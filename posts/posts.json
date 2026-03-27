@@ -1,5 +1,18 @@
 [
   {
+    "title": "内容过滤系统：规则、分类器与混合架构",
+    "slug": "content-filtering-systems-for-llms",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "内容过滤",
+      "系统设计"
+    ],
+    "summary": "内容过滤应采用规则、分类器与模型自检的多级混合架构。"
+  },
+  {
     "title": "合规与风控视角下的大模型应用设计",
     "slug": "compliance-and-risk-control-llm-apps",
     "date": "2026-03-27",
