@@ -1,5 +1,19 @@
 [
   {
+    "title": "实时推荐架构",
+    "slug": "realtime-recommendation-architecture",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "工程",
+      "架构",
+      "实时"
+    ],
+    "summary": "实时推荐的关键是统一离线与在线特征，并在100ms内完成特征拉取与推理"
+  },
+  {
     "title": "部署流水线：从代码到生产",
     "slug": "deployment-pipeline-code-to-production",
     "date": "2026-03-27",
@@ -1215,20 +1229,6 @@
       "融合"
     ],
     "summary": "多模态推荐的关键不在多，而在可对齐、可融合、可补全。"
-  },
-  {
-    "title": "实时推荐架构",
-    "slug": "realtime-recommendation-architecture",
-    "date": "2026-03-27",
-    "author": "both",
-    "tags": [
-      "工程实践",
-      "推荐系统",
-      "工程",
-      "架构",
-      "实时"
-    ],
-    "summary": "实时推荐的关键是统一特征定义、保证点位时间正确，并在百毫秒内完成在线特征读取。"
   },
   {
     "title": "推荐系统的位置偏差与校准",
