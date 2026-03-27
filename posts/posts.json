@@ -1,5 +1,17 @@
 [
   {
+    "title": "从零构建 RAG 系统：完整代码实现",
+    "slug": "build-rag-system-from-scratch",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "RAG",
+      "实战"
+    ],
+    "summary": "RAG 的本质是先检索证据，再让 LLM 基于证据生成答案。"
+  },
+  {
     "title": "Dropout：随机失活的贝叶斯解释",
     "slug": "dropout-regularization",
     "date": "2026-03-27",

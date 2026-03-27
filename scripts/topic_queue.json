@@ -8973,7 +8973,7 @@
       "实战"
     ],
     "brief": "完整 RAG 系统：文档加载 → 分块 → 嵌入 → 向量存储 → 检索 → LLM 生成。使用 LangChain/LlamaIndex 或纯 Python 实现。包括评估与优化策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLM API 调用的最佳实践",
