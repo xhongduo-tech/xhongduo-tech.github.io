@@ -8910,7 +8910,7 @@
       "自监督"
     ],
     "brief": "对比学习：拉近正样本，推远负样本。InfoNCE：-log(exp(sim(z_i,z_j)/τ) / Σ exp(sim(z_i,z_k)/τ))。温度 τ 控制分布锐度。负样本数量对效果的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Triplet Loss：三元组学习",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "对比损失：SimCLR 的 InfoNCE",
+    "slug": "contrastive-loss-infonce",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "对比学习",
+      "自监督"
+    ],
+    "summary": "InfoNCE通过softmax竞争拉近正样本、推远负样本，效果高度依赖温度与负样本质量。"
+  },
+  {
     "title": "Policy Gradient：REINFORCE",
     "slug": "policy-gradient-reinforce",
     "date": "2026-03-27",
