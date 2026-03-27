@@ -1,5 +1,17 @@
 [
   {
+    "title": "多 Agent 协作模式实战",
+    "slug": "multi-agent-collaboration",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "多Agent"
+    ],
+    "summary": "多Agent协作的关键不在数量，而在正确拆分、通信和冲突控制。"
+  },
+  {
     "title": "梯度累积：大 batch size 的显存优化",
     "slug": "gradient-accumulation",
     "date": "2026-03-27",

@@ -9069,7 +9069,7 @@
       "多Agent"
     ],
     "brief": "协作模式：顺序、并行、层次。通信机制：消息传递、共享记忆。冲突解决策略。任务分解与分配。实例：代码评审 Agent、研究助手 Agent。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLM 应用的安全防护",
