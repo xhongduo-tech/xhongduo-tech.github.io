@@ -29108,7 +29108,7 @@
       "状态建模"
     ],
     "brief": "任务型对话系统需要维护跨轮的对话状态（slots）的更新。介绍 rule-based、RNN/Transformer 基和基于生成的大模型 DST 方法，分析多轮上下文编码、置信度估计和纠错机制。讨论多域场景下 schema 泛化问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "检索增强生成（RAG）在 NLP 任务中的设计模式",

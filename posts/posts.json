@@ -1,5 +1,18 @@
 [
   {
+    "title": "任务型对话系统中的对话状态跟踪",
+    "slug": "task-oriented-dialogue-state-tracking",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "对话系统",
+      "状态建模"
+    ],
+    "summary": "DST的本质是跨轮维护belief state，关键难点在更新、校准与纠错。"
+  },
+  {
     "title": "抽取式问答中的 Span 表示学习",
     "slug": "span-representation-extractive-qa",
     "date": "2026-03-27",
