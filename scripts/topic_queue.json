@@ -29494,7 +29494,7 @@
       "性能优化"
     ],
     "brief": "推理加速的核心技术：KV Cache（缓存注意力计算结果）、Speculative Decoding（推测解码）、PagedAttention（分页注意力）。这些技术的工作原理、实现方法、性能提升效果。内存优化策略：连续内存分配、内存碎片化管理。不同加速技术的组合使用。推理加速在不同硬件平台的效果。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型量化：从 INT8 到 INT4 的实践指南",

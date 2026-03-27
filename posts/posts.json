@@ -1,5 +1,17 @@
 [
   {
+    "title": "推理加速技术：KV Cache、 speculative decoding 与 PagedAttention",
+    "slug": "inference-acceleration-techniques",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推理加速",
+      "性能优化"
+    ],
+    "summary": "KV Cache 减重算，PagedAttention 减浪费，Speculative 提高单轮推进长度。"
+  },
+  {
     "title": "API 设计与服务架构：RESTful API 与 gRPC",
     "slug": "api-design-serving-architecture",
     "date": "2026-03-27",
