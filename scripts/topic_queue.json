@@ -29602,7 +29602,7 @@
       "部署"
     ],
     "brief": "大模型的容器化部署：Docker 镜像构建、容器优化、镜像版本管理。Kubernetes 部署：Deployment、StatefulSet、ConfigMap、Secret。容器编排的最佳实践：资源限制、健康检查、就绪探针、存活探针。CI/CD 流程：代码构建、测试、部署自动化。容器化部署的监控与日志管理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "边缘部署：在资源受限环境运行大模型",
