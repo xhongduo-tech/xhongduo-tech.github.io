@@ -9165,7 +9165,7 @@
       "稳定性"
     ],
     "brief": "RNN/Transformer 训练中的梯度爆炸。按值裁剪：clip(g, -c, c)。按范数裁剪：g × c / ||g||。裁剪阈值的选择。对训练动态的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度检查点（Gradient Checkpointing）",

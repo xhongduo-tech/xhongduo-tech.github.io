@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度裁剪：防止梯度爆炸",
+    "slug": "gradient-clipping",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化",
+      "稳定性"
+    ],
+    "summary": "梯度裁剪通过限制异常大梯度，避免训练发散或出现NaN。"
+  },
+  {
     "title": "LLM 应用的压测与调优",
     "slug": "llm-load-testing-optimization",
     "date": "2026-03-27",
