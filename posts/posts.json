@@ -1,5 +1,17 @@
 [
   {
+    "title": "构建代码生成 Agent",
+    "slug": "build-code-generation-agent",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "代码生成"
+    ],
+    "summary": "代码生成Agent的核心不是生成，而是受约束的验证闭环与失败修复机制"
+  },
+  {
     "title": "构建数据分析 Agent",
     "slug": "build-data-analysis-agent",
     "date": "2026-03-27",
