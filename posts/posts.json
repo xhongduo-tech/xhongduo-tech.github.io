@@ -1,5 +1,17 @@
 [
   {
+    "title": "配置管理：基础设施即代码与配置中心",
+    "slug": "configuration-management-iac-config-center",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "配置管理",
+      "IaC"
+    ],
+    "summary": "IaC 管结构，配置中心管参数，版本化与校验决定部署是否可靠"
+  },
+  {
     "title": "监控系统：Prometheus 与 Grafana 实践",
     "slug": "monitoring-system-prometheus-grafana",
     "date": "2026-03-27",

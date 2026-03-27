@@ -29866,7 +29866,7 @@
       "IaC"
     ],
     "brief": "配置管理的重要性：一致性、可重复性、版本控制。基础设施即代码（IaC）：Terraform、CloudFormation、Ansible。配置中心：Consul、Etcd、Apollo。配置管理的最佳实践：配置分离、环境隔离、配置验证、变更管理。配置管理对部署可靠性的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "服务降级与熔断：保障系统稳定性",
