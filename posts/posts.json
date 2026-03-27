@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemini 2.0：原生多模态输出与实时交互能力",
+    "slug": "gemini-20-multimodal-output",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "Gemini",
+      "多模态"
+    ],
+    "summary": "Gemini 2.0把多模态输出、实时会话和工具调用并进同一代理链路。"
+  },
+  {
     "title": "推荐系统评测：离线指标与在线 A/B",
     "slug": "recommendation-evaluation",
     "date": "2026-03-27",

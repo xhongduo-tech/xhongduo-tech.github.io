@@ -8315,7 +8315,7 @@
       "多模态"
     ],
     "brief": "Gemini 2.0 的核心升级：从多模态输入扩展到多模态输出（文本 + 图像 + 音频原生生成）。Gemini 2.0 Flash 的实时流式交互（200ms 响应延迟）。Deep Research 能力的实现机制。与 GPT-4o 实时语音能力的对比。Gemini 2.0 Pro 在编程与推理的突破。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Claude 3.7 Sonnet：Extended Thinking 与混合推理模式",
