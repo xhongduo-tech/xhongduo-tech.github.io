@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型检查点管理：保存、加载与平均",
+    "slug": "model-checkpoint-management",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "检查点",
+      "模型管理"
+    ],
+    "summary": "检查点管理的核心是完整保存训练状态，并同时维护best、last与periodic。"
+  },
+  {
     "title": "预训练数据处理：质量过滤与去重",
     "slug": "pretraining-data-processing",
     "date": "2026-03-27",
