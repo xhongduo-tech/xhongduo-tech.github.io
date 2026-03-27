@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态大模型的安全与伦理",
+    "slug": "multimodal-model-safety-ethics",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "安全",
+      "伦理"
+    ],
+    "summary": "多模态大模型安全治理要统一量化跨模态风险，并用评估、日志和责任链形成闭环"
+  },
+  {
     "title": "DQN",
     "slug": "dqn-q-network",
     "date": "2026-03-27",
