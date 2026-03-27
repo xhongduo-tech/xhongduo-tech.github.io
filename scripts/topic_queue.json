@@ -8599,7 +8599,7 @@
       "A/B测试"
     ],
     "brief": "离线指标：AUC、GAUC、NDCG、MRR、Hit Rate。在线指标：CTR、CVR、GMV、用户停留时长。离线与在线指标的差距分析。A/B 测试的设计与显著性检验。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "探索与利用（E&E）：Bandit 算法在推荐中的应用",

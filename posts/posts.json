@@ -1,5 +1,18 @@
 [
   {
+    "title": "推荐系统评测：离线指标与在线 A/B",
+    "slug": "recommendation-evaluation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "评测",
+      "A/B测试"
+    ],
+    "summary": "推荐评测必须分离线筛选与在线A/B验证，排序提升不等于业务提升。"
+  },
+  {
     "title": "音频特征提取：MFCC 与 Mel 频谱",
     "slug": "audio-feature-extraction-mfcc",
     "date": "2026-03-27",
