@@ -1,5 +1,17 @@
 [
   {
+    "title": "L1/L2 正则化：稀疏性与权重衰减",
+    "slug": "l1-l2-regularization",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "权重衰减",
+      "稀疏性"
+    ],
+    "summary": "L2做平滑收缩，L1做显式稀疏；深度学习里自适应优化器优先用AdamW。"
+  },
+  {
     "title": "数据增强",
     "slug": "data-augmentation-generative",
     "date": "2026-03-27",
