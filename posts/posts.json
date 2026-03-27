@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLM 应用的安全防护",
+    "slug": "llm-security-protection",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "安全",
+      "防护"
+    ],
+    "summary": "LLM 安全要做成输入、输出、限流、越狱探测与审计联动的防线链条。"
+  },
+  {
     "title": "Agent 的工具定义规范",
     "slug": "agent-tool-definition-spec",
     "date": "2026-03-27",
