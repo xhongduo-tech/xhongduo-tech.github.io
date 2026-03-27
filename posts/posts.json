@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型并行策略：张量并行与流水线并行",
+    "slug": "model-parallelism-strategies",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "模型并行"
+    ],
+    "summary": "张量并行拆单层，流水线并行拆层级，工业界通常混合使用以突破大模型训练瓶颈"
+  },
+  {
     "title": "训练效率优化：编译优化与内存管理",
     "slug": "training-efficiency-optimization",
     "date": "2026-03-27",
