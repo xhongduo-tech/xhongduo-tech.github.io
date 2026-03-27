@@ -1,5 +1,18 @@
 [
   {
+    "title": "音频特征提取：MFCC 与 Mel 频谱",
+    "slug": "audio-feature-extraction-mfcc",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "特征工程",
+      "信号处理"
+    ],
+    "summary": "MFCC 更紧凑，Log-Mel 保留更多时频结构，深度模型通常更偏好后者"
+  },
+  {
     "title": "实时推荐架构",
     "slug": "realtime-recommendation-architecture",
     "date": "2026-03-27",
@@ -1150,19 +1163,6 @@
       "Transformer"
     ],
     "summary": "Conformer 用注意力建模全局、用卷积补足局部，是语音序列建模的高质量折中。"
-  },
-  {
-    "title": "音频特征提取：MFCC 与 Mel 频谱",
-    "slug": "audio-feature-extraction-mfcc",
-    "date": "2026-03-27",
-    "author": "both",
-    "tags": [
-      "前沿追踪",
-      "多模态",
-      "特征工程",
-      "信号处理"
-    ],
-    "summary": "MFCC是Log-Mel再做DCT压缩；深度学习常优先Log-Mel，传统轻量模型常用MFCC。"
   },
   {
     "title": "CTC 损失函数：对齐无关的序列学习",
