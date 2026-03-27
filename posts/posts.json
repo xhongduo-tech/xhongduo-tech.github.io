@@ -1,5 +1,17 @@
 [
   {
+    "title": "构建多轮对话系统",
+    "slug": "build-conversational-system",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "对话系统",
+      "实战"
+    ],
+    "summary": "多轮对话系统的关键不是记更多历史，而是持续维护状态、约束和动作选择的一致性。"
+  },
+  {
     "title": "LLM API 调用的最佳实践",
     "slug": "llm-api-best-practices",
     "date": "2026-03-27",
