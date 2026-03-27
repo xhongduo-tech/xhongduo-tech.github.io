@@ -1,5 +1,17 @@
 [
   {
+    "title": "安全与合规：API 密钥管理与数据隐私",
+    "slug": "security-compliance-llm-api",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "安全",
+      "合规"
+    ],
+    "summary": "大模型API安全的核心是最小权限、密钥轮换、限流审计与数据脱敏加密。"
+  },
+  {
     "title": "缓存策略：请求缓存与模型缓存",
     "slug": "caching-strategies-llm",
     "date": "2026-03-27",
