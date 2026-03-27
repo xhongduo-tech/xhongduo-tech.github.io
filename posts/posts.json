@@ -1,5 +1,18 @@
 [
   {
+    "title": "Conformer：卷积与注意力的混合架构",
+    "slug": "conformer-architecture",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Conformer用半步FFN串联注意力与卷积，同时建模全局依赖和局部特征。"
+  },
+  {
     "title": "Gemini 2.0：原生多模态输出与实时交互能力",
     "slug": "gemini-20-multimodal-output",
     "date": "2026-03-27",
@@ -1175,19 +1188,6 @@
       "语音处理"
     ],
     "summary": "Whisper 的核心价值是用单一 Transformer 统一多语言多任务，并用更低运维复杂度换来更强零样本泛化。"
-  },
-  {
-    "title": "Conformer：卷积与注意力的混合架构",
-    "slug": "conformer-architecture",
-    "date": "2026-03-27",
-    "author": "both",
-    "tags": [
-      "前沿追踪",
-      "多模态",
-      "模型架构",
-      "Transformer"
-    ],
-    "summary": "Conformer 用注意力建模全局、用卷积补足局部，是语音序列建模的高质量折中。"
   },
   {
     "title": "CTC 损失函数：对齐无关的序列学习",
