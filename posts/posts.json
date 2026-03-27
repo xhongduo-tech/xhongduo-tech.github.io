@@ -1,5 +1,18 @@
 [
   {
+    "title": "对抗样本生成：FGSM、PGD 与 CW 攻击",
+    "slug": "adversarial-examples-fgsm-pgd-cw",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗攻击",
+      "鲁棒性"
+    ],
+    "summary": "FGSM快，PGD强，CW细；三者本质都是在扰动约束内沿梯度寻找误判。"
+  },
+  {
     "title": "指令数据构造：从自然语料到高质量指令集",
     "slug": "instruction-data-construction-nlp",
     "date": "2026-03-27",
