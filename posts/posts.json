@@ -1,5 +1,17 @@
 [
   {
+    "title": "中心极限定理",
+    "slug": "math-prob-central-limit-theorem",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "中心极限定理说明大量独立扰动的均值经归一化后趋近高斯，可量化误差并指导统计与深度学习分析"
+  },
+  {
     "title": "共轭先验",
     "slug": "math-prob-conjugate-priors",
     "date": "2026-03-27",
