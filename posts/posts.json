@@ -1,5 +1,17 @@
 [
   {
+    "title": "服务降级与熔断：保障系统稳定性",
+    "slug": "service-degradation-circuit-breaker",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "服务降级",
+      "熔断"
+    ],
+    "summary": "服务降级保核心功能，熔断切断异常依赖，两者配合可防止级联故障。"
+  },
+  {
     "title": "配置管理：基础设施即代码与配置中心",
     "slug": "configuration-management-iac-config-center",
     "date": "2026-03-27",

@@ -29878,7 +29878,7 @@
       "熔断"
     ],
     "brief": "服务降级与熔断的目的：保障系统稳定性、防止级联故障、提升用户体验。服务降级策略：简化功能、返回缓存数据、拒绝低优先级请求。熔断机制：Open、Half-Open、Closed 状态，熔断阈值设置。实现工具：Hystrix、Resilience4j、Sentinel。服务降级与熔断的最佳实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据备份与恢复：保障数据安全",
