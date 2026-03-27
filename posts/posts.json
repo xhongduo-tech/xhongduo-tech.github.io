@@ -1,5 +1,17 @@
 [
   {
+    "title": "错误处理与故障恢复：构建高可用服务",
+    "slug": "error-handling-fault-recovery",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "高可用性",
+      "故障处理"
+    ],
+    "summary": "高可用服务的关键是先分错，再限时重试、降级熔断，并用多区域容灾收尾"
+  },
+  {
     "title": "边缘部署：在资源受限环境运行大模型",
     "slug": "edge-deployment-llm",
     "date": "2026-03-27",
