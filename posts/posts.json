@@ -1,5 +1,17 @@
 [
   {
+    "title": "Redis 核心数据结构",
+    "slug": "redis-data-structures",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "存储",
+      "Redis"
+    ],
+    "summary": "Redis 用六类底层结构在时间复杂度、内存占用和持久化之间做动态权衡。"
+  },
+  {
     "title": "线性变换与矩阵表示",
     "slug": "math-la-linear-transformation-matrix",
     "date": "2026-03-27",
