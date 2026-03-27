@@ -1,5 +1,18 @@
 [
   {
+    "title": "合规与风控视角下的大模型应用设计",
+    "slug": "compliance-and-risk-control-llm-apps",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "合规",
+      "应用设计"
+    ],
+    "summary": "高敏感领域的大模型应用，关键是把权限、脱敏、留痕和人工复核做成可追责闭环"
+  },
+  {
     "title": "对抗样本生成：FGSM、PGD 与 CW 攻击",
     "slug": "adversarial-examples-fgsm-pgd-cw",
     "date": "2026-03-27",
