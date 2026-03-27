@@ -1,5 +1,17 @@
 [
   {
+    "title": "构建数据分析 Agent",
+    "slug": "build-data-analysis-agent",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "数据分析"
+    ],
+    "summary": "数据分析Agent的关键不是会写SQL，而是受约束地完成查询、校验、可视化与结论生成"
+  },
+  {
     "title": "LangChain 核心组件源码分析",
     "slug": "langchain-core-components-analysis",
     "date": "2026-03-27",
