@@ -1,5 +1,17 @@
 [
   {
+    "title": "拉格朗日对偶",
+    "slug": "math-opt-lagrangian-duality",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "拉格朗日对偶把约束转成可优化的价格系统，在凸条件下可用强对偶与KKT完整刻画最优解"
+  },
+  {
     "title": "变分推断的数学基础",
     "slug": "math-prob-variational-inference-math",
     "date": "2026-03-27",
