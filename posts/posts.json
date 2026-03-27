@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模型服务：模型路由与版本管理",
+    "slug": "multi-model-serving-strategies",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "模型服务",
+      "版本管理"
+    ],
+    "summary": "多模型服务的核心是可解释路由、可回滚版本管理与统一治理。"
+  },
+  {
     "title": "数据管理：输入处理与输出缓存",
     "slug": "data-management-llm-serving",
     "date": "2026-03-27",
