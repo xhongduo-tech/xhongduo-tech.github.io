@@ -1,5 +1,18 @@
 [
   {
+    "title": "上线后的安全监控与回滚策略",
+    "slug": "post-deployment-safety-monitoring",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "监控",
+      "运维"
+    ],
+    "summary": "大模型上线后，必须用监控、抽样审查与可执行回滚形成分钟级止损闭环"
+  },
+  {
     "title": "分布式训练策略：数据并行、模型并行与流水线并行",
     "slug": "distributed-training-strategies",
     "date": "2026-03-27",
