@@ -1,5 +1,17 @@
 [
   {
+    "title": "监控系统：Prometheus 与 Grafana 实践",
+    "slug": "monitoring-system-prometheus-grafana",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "监控",
+      "可观测性"
+    ],
+    "summary": "Prometheus负责指标采集查询，Grafana负责展示告警，关键在指标设计与告警降噪。"
+  },
+  {
     "title": "自动扩缩容：基于指标的弹性伸缩",
     "slug": "auto-scaling-strategies",
     "date": "2026-03-27",
