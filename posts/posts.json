@@ -1,5 +1,18 @@
 [
   {
+    "title": "安全评测基准设计：从场景到指标",
+    "slug": "safety-benchmark-design-for-llms",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "安全评测",
+      "基准设计"
+    ],
+    "summary": "安全基准的核心是按攻击面建模、按风险打分，并接入持续评测流水线。"
+  },
+  {
     "title": "安全奖励建模：RLHF 中的安全约束设计",
     "slug": "rlhf-safety-reward-modeling",
     "date": "2026-03-27",
