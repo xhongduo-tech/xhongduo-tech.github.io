@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩阵范数",
+    "slug": "math-la-matrix-norms",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "谱范数管最坏放大，Frobenius范数管整体能量，二者在训练稳定性中分工明确"
+  },
+  {
     "title": "向量空间与线性无关",
     "slug": "math-la-vector-space-linear-independence",
     "date": "2026-03-27",
