@@ -9189,7 +9189,7 @@
       "框架"
     ],
     "brief": "vLLM：PagedAttention，高吞吐。TGI：HuggingFace 生态，易用。TensorRT-LLM：NVIDIA 优化，极致性能。功能对比：流式、批处理、量化。性能基准测试。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "批处理策略：动态 Batching",

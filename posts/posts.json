@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型服务框架对比：vLLM、TGI、TensorRT-LLM",
+    "slug": "model-serving-frameworks-comparison",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理",
+      "框架"
+    ],
+    "summary": "vLLM重吞吐，TGI重易用，TensorRT-LLM重NVIDIA极致性能。"
+  },
+  {
     "title": "TCP/IP 协议栈详解",
     "slug": "tcp-ip-protocol-stack",
     "date": "2026-03-27",
