@@ -1,5 +1,17 @@
 [
   {
+    "title": "成本优化：资源利用与预算管理",
+    "slug": "cost-optimization-llm-deployment",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "成本优化",
+      "资源管理"
+    ],
+    "summary": "大模型成本优化的核心是提利用率、拆分基线与峰值，并用预算治理形成闭环"
+  },
+  {
     "title": "监控与可观测性：指标、日志与追踪",
     "slug": "monitoring-observability-llm",
     "date": "2026-03-27",
