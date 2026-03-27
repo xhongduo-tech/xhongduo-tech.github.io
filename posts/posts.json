@@ -1,5 +1,17 @@
 [
   {
+    "title": "概率公理与条件概率",
+    "slug": "math-prob-probability-axioms-conditional",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "概率公理定义合法概率，条件概率负责在已知信息下更新并展开推理链。"
+  },
+  {
     "title": "随机变量的变换",
     "slug": "math-prob-random-variable-transformation",
     "date": "2026-03-27",
