@@ -1,5 +1,17 @@
 [
   {
+    "title": "缓存策略：请求缓存与模型缓存",
+    "slug": "caching-strategies-llm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "缓存",
+      "性能优化"
+    ],
+    "summary": "请求缓存省推理，模型缓存省准备；命中率、键设计和失效策略决定真实收益"
+  },
+  {
     "title": "推理加速技术：KV Cache、 speculative decoding 与 PagedAttention",
     "slug": "inference-acceleration-techniques",
     "date": "2026-03-27",
