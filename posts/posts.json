@@ -1,5 +1,17 @@
 [
   {
+    "title": "监控与可观测性：指标、日志与追踪",
+    "slug": "monitoring-observability-llm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "监控",
+      "可观测性"
+    ],
+    "summary": "可观测性要把指标、日志、追踪串成闭环，才能在分布式与大模型服务中快速定位根因"
+  },
+  {
     "title": "负载均衡与自动扩缩容：Kubernetes 实践",
     "slug": "load-balancing-auto-scaling-kubernetes",
     "date": "2026-03-27",
