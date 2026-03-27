@@ -8798,7 +8798,7 @@
       "MDP"
     ],
     "brief": "MDP 五元组 (S, A, P, R, γ)。策略 π(a|s) 状态到动作的映射。价值函数 V^π(s) 状态的期望累积奖励。动作价值函数 Q^π(s,a)。Bellman 方程的递归定义。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Q-Learning：off-policy 的价值学习",
