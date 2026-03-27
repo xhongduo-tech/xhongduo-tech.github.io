@@ -1,5 +1,17 @@
 [
   {
+    "title": "LlamaIndex 索引策略",
+    "slug": "llamaindex-indexing-strategies",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "LlamaIndex",
+      "索引"
+    ],
+    "summary": "LlamaIndex 的索引策略核心不是单选，而是按查询类型组合向量、BM25、图谱和树状摘要。"
+  },
+  {
     "title": "LLM 应用的安全防护",
     "slug": "llm-security-protection",
     "date": "2026-03-27",
