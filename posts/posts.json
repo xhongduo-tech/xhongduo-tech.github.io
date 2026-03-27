@@ -1,5 +1,17 @@
 [
   {
+    "title": "权重衰减与正则化：理论与实践",
+    "slug": "weight-decay-regularization",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "优化"
+    ],
+    "summary": "AdamW 的关键是解耦衰减，并优先保持 eta 与 lambda 的乘积稳定。"
+  },
+  {
     "title": "学习率调度策略",
     "slug": "learning-rate-scheduling-comprehensive",
     "date": "2026-03-27",
