@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型部署环境：云服务 vs 本地部署",
+    "slug": "model-deployment-environments",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "环境选择",
+      "云服务"
+    ],
+    "summary": "云适合波动与试错，本地适合高利用率、强合规、低延迟，混合部署最常见。"
+  },
+  {
     "title": "DevOps 实践：自动化部署与持续集成",
     "slug": "devops-practices-llm",
     "date": "2026-03-27",
