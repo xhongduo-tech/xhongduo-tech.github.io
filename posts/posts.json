@@ -1,5 +1,17 @@
 [
   {
+    "title": "负载均衡与自动扩缩容：Kubernetes 实践",
+    "slug": "load-balancing-auto-scaling-kubernetes",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Kubernetes",
+      "运维"
+    ],
+    "summary": "Kubernetes 负载均衡靠 Service 与 Ingress，弹性伸缩靠 HPA、VPA、CA 按真实瓶颈协同。"
+  },
+  {
     "title": "安全与合规：API 密钥管理与数据隐私",
     "slug": "security-compliance-llm-api",
     "date": "2026-03-27",

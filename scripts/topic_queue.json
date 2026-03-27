@@ -29554,7 +29554,7 @@
       "运维"
     ],
     "brief": "Kubernetes 中的负载均衡：Ingress、Service、Pod 调度。自动扩缩容策略：HPA（基于 CPU/内存）、VPA（垂直扩缩容）、CA（集群自动扩缩容）。扩缩容指标的选择：请求量、队列长度、推理延迟。扩缩容的最佳实践：合理的扩缩容阈值、冷却时间、资源预留。监控与告警：Prometheus、Grafana。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "监控与可观测性：指标、日志与追踪",
