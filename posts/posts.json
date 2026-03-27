@@ -1,5 +1,17 @@
 [
   {
+    "title": "大规模训练的硬件优化：GPU、TPU 与集群配置",
+    "slug": "hardware-optimization-large-scale-training",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "硬件优化",
+      "大规模训练"
+    ],
+    "summary": "大规模训练优化的核心不是单卡峰值，而是整条计算、通信与存储链路的协同效率。"
+  },
+  {
     "title": "训练监控与诊断：指标与工具",
     "slug": "training-monitoring-diagnostics",
     "date": "2026-03-27",
