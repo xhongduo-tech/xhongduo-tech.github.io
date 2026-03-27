@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态模型的可解释性研究",
+    "slug": "multimodal-model-interpretability",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "可解释性",
+      "模型分析"
+    ],
+    "summary": "多模态可解释性要把注意力、梯度与反事实串成可验证的跨模态因果链"
+  },
+  {
     "title": "依存句法与成分句法：两种句法分析范式",
     "slug": "dependency-vs-constituency-parsing",
     "date": "2026-03-27",
