@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态模型的迁移学习与领域适配",
+    "slug": "multimodal-transfer-learning",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "迁移学习",
+      "领域适配"
+    ],
+    "summary": "多模态领域适配的关键，是在保留通用表示的同时显式处理目标域分布偏移。"
+  },
+  {
     "title": "多模态未来趋势：多感官融合与具身智能",
     "slug": "multimodal-future-trends",
     "date": "2026-03-27",
