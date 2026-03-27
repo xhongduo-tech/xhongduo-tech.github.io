@@ -1,5 +1,17 @@
 [
   {
+    "title": "异步推理与批处理：提高吞吐量的实践",
+    "slug": "async-inference-batching-practices",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推理优化",
+      "性能提升"
+    ],
+    "summary": "异步队列解耦接收与执行，动态批处理摊薄固定开销，在可控延迟下显著提高推理吞吐。"
+  },
+  {
     "title": "错误处理与故障恢复：构建高可用服务",
     "slug": "error-handling-fault-recovery",
     "date": "2026-03-27",
