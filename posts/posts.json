@@ -1,5 +1,17 @@
 [
   {
+    "title": "多租户部署：隔离与资源管理",
+    "slug": "multi-tenant-deployment",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多租户",
+      "资源管理"
+    ],
+    "summary": "多租户部署的关键不在共享，而在可验证的隔离、配额、限流与审计。"
+  },
+  {
     "title": "API 性能优化：从请求处理到响应返回",
     "slug": "api-performance-optimization",
     "date": "2026-03-27",
