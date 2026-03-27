@@ -1,5 +1,17 @@
 [
   {
+    "title": "马尔可夫不等式与切比雪夫不等式",
+    "slug": "math-prob-markov-chebyshev-inequalities",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "从最弱保底到指数集中，系统理解尾概率界与泛化误差控制"
+  },
+  {
     "title": "指数族分布",
     "slug": "math-prob-exponential-family-distributions",
     "date": "2026-03-27",
