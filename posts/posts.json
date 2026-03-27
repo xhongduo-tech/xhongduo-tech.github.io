@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型压缩：剪枝、知识蒸馏与结构搜索",
+    "slug": "model-compression-techniques",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "模型压缩",
+      "性能优化"
+    ],
+    "summary": "模型压缩的核心是按部署约束组合剪枝、蒸馏与结构搜索，而不是只追求参数变少"
+  },
+  {
     "title": "模型量化：从 INT8 到 INT4 的实践指南",
     "slug": "model-quantization-practical-guide",
     "date": "2026-03-27",
