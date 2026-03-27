@@ -1,5 +1,20 @@
 [
   {
+    "title": "蒙特卡洛方法",
+    "slug": "math-prob-monte-carlo-methods",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论",
+      "强化学习",
+      "蒙特卡洛",
+      "价值学习"
+    ],
+    "summary": "蒙特卡洛把高维积分变成样本平均，误差按1/sqrt(N)下降，关键在采样设计与方差控制"
+  },
+  {
     "title": "大数定律",
     "slug": "math-prob-law-of-large-numbers",
     "date": "2026-03-27",
