@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度累积与梯度检查点：内存优化技术",
+    "slug": "gradient-accumulation-checkpointing",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "内存优化",
+      "训练技巧"
+    ],
+    "summary": "梯度累积放大等效批次，梯度检查点压缩激活显存，二者常组合用于大模型训练。"
+  },
+  {
     "title": "ZeRO 优化：内存高效的分布式训练",
     "slug": "zero-optimization-deepspeed",
     "date": "2026-03-27",
