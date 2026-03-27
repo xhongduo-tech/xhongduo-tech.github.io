@@ -1,5 +1,18 @@
 [
   {
+    "title": "特征值与特征向量",
+    "slug": "math-la-eigenvalue-eigenvector",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数",
+      "特征值"
+    ],
+    "summary": "特征值给出缩放倍数，特征向量给出不变方向；对称矩阵可正交对角化，PCA依赖此机制。"
+  },
+  {
     "title": "Redis 核心数据结构",
     "slug": "redis-data-structures",
     "date": "2026-03-27",
