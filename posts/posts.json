@@ -1,5 +1,17 @@
 [
   {
+    "title": "共轭先验",
+    "slug": "math-prob-conjugate-priors",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "共轭先验让后验保持同族，核心是用充分统计量做解析更新。"
+  },
+  {
     "title": "马尔可夫不等式与切比雪夫不等式",
     "slug": "math-prob-markov-chebyshev-inequalities",
     "date": "2026-03-27",
