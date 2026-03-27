@@ -1,5 +1,17 @@
 [
   {
+    "title": "API 性能优化：从请求处理到响应返回",
+    "slug": "api-performance-optimization",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "API 优化",
+      "性能提升"
+    ],
+    "summary": "API 性能优化要端到端做，并用 p95/p99、吞吐和错误率持续验证。"
+  },
+  {
     "title": "数据备份与恢复：保障数据安全",
     "slug": "data-backup-recovery",
     "date": "2026-03-27",
