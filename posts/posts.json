@@ -1,5 +1,18 @@
 [
   {
+    "title": "子词分词：BPE、WordPiece 与 Unigram 对比",
+    "slug": "subword-tokenization-bpe-wordpiece-unigram",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本处理",
+      "分词"
+    ],
+    "summary": "BPE看频次，WordPiece看似然，Unigram看概率剪枝，三者本质是在覆盖率、序列长度和训练成本间取舍"
+  },
+  {
     "title": "序列标注建模：CRF 与 BiLSTM-CRF",
     "slug": "sequence-labeling-crf-bilstm-crf",
     "date": "2026-03-27",
