@@ -1,5 +1,17 @@
 [
   {
+    "title": "部署流水线：从代码到生产",
+    "slug": "deployment-pipeline-code-to-production",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "CI/CD",
+      "部署流水线"
+    ],
+    "summary": "部署流水线的本质是把发布变成可重复、可验证、可回滚的工程系统"
+  },
+  {
     "title": "多租户部署：隔离与资源管理",
     "slug": "multi-tenant-deployment",
     "date": "2026-03-27",
