@@ -1,5 +1,18 @@
 [
   {
+    "title": "序列标注建模：CRF 与 BiLSTM-CRF",
+    "slug": "sequence-labeling-crf-bilstm-crf",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注",
+      "CRF"
+    ],
+    "summary": "CRF对整条标签序列建模，BiLSTM提供上下文发射分数，两者结合可稳定处理序列标注中的标签依赖。"
+  },
+  {
     "title": "多模态模型的迁移学习与领域适配",
     "slug": "multimodal-transfer-learning",
     "date": "2026-03-27",
