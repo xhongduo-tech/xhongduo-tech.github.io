@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练效率优化：编译优化与内存管理",
+    "slug": "training-efficiency-optimization",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "性能优化",
+      "效率"
+    ],
+    "summary": "训练提效要同时优化编译、混合精度、内存分配和异步数据流，核心指标是吞吐率与达标时间。"
+  },
+  {
     "title": "大规模训练的硬件优化：GPU、TPU 与集群配置",
     "slug": "hardware-optimization-large-scale-training",
     "date": "2026-03-27",
