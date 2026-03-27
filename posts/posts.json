@@ -1,5 +1,17 @@
 [
   {
+    "title": "预训练数据处理：质量过滤与去重",
+    "slug": "pretraining-data-processing",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理",
+      "预训练"
+    ],
+    "summary": "预训练数据处理的核心是先去坏，再去重，并用配比控制多样性。"
+  },
+  {
     "title": "批处理优化：动态批处理与混合精度",
     "slug": "batch-processing-optimization",
     "date": "2026-03-27",
