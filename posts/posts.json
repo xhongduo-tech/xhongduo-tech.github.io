@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练监控与诊断：指标与工具",
+    "slug": "training-monitoring-diagnostics",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "监控",
+      "诊断"
+    ],
+    "summary": "训练监控要同时看效果、优化状态与系统指标，才能快速定位收敛与性能瓶颈"
+  },
+  {
     "title": "模型检查点管理：保存、加载与平均",
     "slug": "model-checkpoint-management",
     "date": "2026-03-27",
