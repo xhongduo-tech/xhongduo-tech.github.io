@@ -8898,7 +8898,7 @@
       "类别不平衡"
     ],
     "brief": "类别不平衡问题：简单样本主导梯度。Focal Loss：FL(p) = -α(1-p)^γ log(p)。γ 控制难样本的聚焦程度。α 平衡类别权重。RetinaNet 的成功应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "对比损失：SimCLR 的 InfoNCE",

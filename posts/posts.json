@@ -1,5 +1,17 @@
 [
   {
+    "title": "Focal Loss：难样本的加权",
+    "slug": "focal-loss-hard-examples",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分类",
+      "类别不平衡"
+    ],
+    "summary": "Focal Loss 用动态降权易样本的方式，把梯度集中到难样本，适合极度类别不平衡训练。"
+  },
+  {
     "title": "损失函数总览：分类、回归、排序",
     "slug": "loss-functions-overview",
     "date": "2026-03-27",
