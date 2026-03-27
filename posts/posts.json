@@ -1,5 +1,21 @@
 [
   {
+    "title": "数据增强",
+    "slug": "data-augmentation-generative",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "模型训练",
+      "训练",
+      "数据",
+      "数据工程",
+      "数据增强",
+      "生成式模型"
+    ],
+    "summary": "数据增强不是技巧清单，而是要带指标、校验、回滚门槛一起落地的工程流程"
+  },
+  {
     "title": "Triplet Loss：三元组学习",
     "slug": "triplet-loss-metric-learning",
     "date": "2026-03-27",
