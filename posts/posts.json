@@ -1,5 +1,17 @@
 [
   {
+    "title": "奇异值分解SVD",
+    "slug": "math-la-singular-value-decomposition",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "SVD把矩阵拆成主方向与强度，截断后得到最优低秩近似，LoRA是这一思想的工程化应用"
+  },
+  {
     "title": "特征值与特征向量",
     "slug": "math-la-eigenvalue-eigenvector",
     "date": "2026-03-27",

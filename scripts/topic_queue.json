@@ -9294,7 +9294,7 @@
       "线性代数"
     ],
     "brief": "任意m×n矩阵A=UΣV^T，奇异值σ1≥σ2≥...≥0。前k项截断SVD A_k=U_kΣ_kV_k^T是所有秩k矩阵中Frobenius范数最优近似（Eckart-Young定理），近似误差=√(σ²_{k+1}+...+σ²_r)。LoRA正是利用此原理，将增量权重分解为ΔW=BA（B∈R^{m×r}, A∈R^{r×n}，r<<min(m,n)），以极少参数量适配大模型，典型r=4~16时参数量减少99%+。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "矩阵的QR分解",
