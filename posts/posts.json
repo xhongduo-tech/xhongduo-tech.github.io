@@ -1,5 +1,17 @@
 [
   {
+    "title": "指数族分布",
+    "slug": "math-prob-exponential-family-distributions",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "指数族用统一模板描述多种分布，A(η)的导数直接给出矩，是GLM等模型的理论基础"
+  },
+  {
     "title": "蒙特卡洛方法",
     "slug": "math-prob-monte-carlo-methods",
     "date": "2026-03-27",
