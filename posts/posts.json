@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLM 应用的可观测性",
+    "slug": "llm-observability",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "监控",
+      "可观测性"
+    ],
+    "summary": "LLM可观测性的核心是把日志、trace、指标和成本统一到单次交互链路里。"
+  },
+  {
     "title": "构建多轮对话系统",
     "slug": "build-conversational-system",
     "date": "2026-03-27",

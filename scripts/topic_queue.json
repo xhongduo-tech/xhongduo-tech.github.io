@@ -9021,7 +9021,7 @@
       "可观测性"
     ],
     "brief": "日志：请求/响应、Token 使用、延迟。追踪：请求链路、组件耗时。指标：QPS、P99 延迟、错误率、成本。工具：LangSmith、W&B、自建仪表盘。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型服务的灰度发布",
