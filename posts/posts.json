@@ -1,5 +1,17 @@
 [
   {
+    "title": "构建私有知识库 RAG",
+    "slug": "build-private-knowledge-rag",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "RAG",
+      "企业"
+    ],
+    "summary": "私有知识库RAG的关键不在模型，而在解析、分块、增量更新和权限控制。"
+  },
+  {
     "title": "模型服务的灰度发布",
     "slug": "model-deployment-canary",
     "date": "2026-03-27",
