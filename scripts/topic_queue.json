@@ -29072,7 +29072,7 @@
       "训练目标"
     ],
     "brief": "BERT 风格模型使用随机 token 掩码，而 SpanBERT、MASS、T5 等模型采用 span 级掩码、连续段落掩码或“span corruption”策略。不同掩码策略对应不同的信息重建难度和语义建模能力，对下游任务有显著影响。分析掩码比例、span 长度分布和动态掩码的设计取舍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "抽取式问答中的 Span 表示学习",

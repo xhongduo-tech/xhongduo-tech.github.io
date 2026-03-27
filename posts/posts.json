@@ -1,5 +1,18 @@
 [
   {
+    "title": "预训练语言模型的掩码策略设计",
+    "slug": "pretraining-masking-strategies",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "预训练模型",
+      "训练目标"
+    ],
+    "summary": "掩码策略决定模型学习单位，token适合理解任务，span更利于实体、短语与生成能力。"
+  },
+  {
     "title": "多模态模型的可解释性研究",
     "slug": "multimodal-model-interpretability",
     "date": "2026-03-27",
