@@ -1,5 +1,17 @@
 [
   {
+    "title": "边缘计算与模型部署：从云到端",
+    "slug": "edge-computing-model-deployment",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘计算",
+      "端侧推理"
+    ],
+    "summary": "边缘部署的本质是用压缩、编译和边云协同，在设备约束下换取低延迟、隐私和带宽收益"
+  },
+  {
     "title": "性能测试与基准评估：从实验室到生产",
     "slug": "performance-testing-benchmarking",
     "date": "2026-03-27",
