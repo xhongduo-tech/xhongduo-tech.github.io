@@ -1,5 +1,17 @@
 [
   {
+    "title": "大数定律",
+    "slug": "math-prob-law-of-large-numbers",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "大数定律说明样本均值会逼近真实期望，是 Monte Carlo、MCMC 与 SGD 稳定性的基础"
+  },
+  {
     "title": "概率公理与条件概率",
     "slug": "math-prob-probability-axioms-conditional",
     "date": "2026-03-27",
