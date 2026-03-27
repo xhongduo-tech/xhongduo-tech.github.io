@@ -1,5 +1,17 @@
 [
   {
+    "title": "稀疏矩阵与压缩存储",
+    "slug": "math-la-sparse-matrix-storage",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "稀疏矩阵用 COO/CSR 只存非零项，把空间和 SpMV 成本从总规模压到 nnz 级别。"
+  },
+  {
     "title": "张量与张量分解",
     "slug": "math-la-tensor-decomposition",
     "date": "2026-03-27",
