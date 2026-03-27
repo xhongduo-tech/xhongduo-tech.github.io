@@ -9201,7 +9201,7 @@
       "批处理"
     ],
     "brief": "静态批处理：等待固定 batch size。动态批处理：等待超时或达到 batch size。连续批处理：vLLM 的 iteration-level scheduling。延迟与吞吐的权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux 网络编程：Socket、epoll",

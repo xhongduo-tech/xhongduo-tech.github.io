@@ -1,5 +1,17 @@
 [
   {
+    "title": "批处理策略：动态 Batching",
+    "slug": "dynamic-batching-inference",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理",
+      "批处理"
+    ],
+    "summary": "动态批处理用“满批或超时”触发，在在线推理中平衡延迟与吞吐。"
+  },
+  {
     "title": "Linux 网络编程：Socket、epoll",
     "slug": "linux-network-socket-epoll",
     "date": "2026-03-27",
