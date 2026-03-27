@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练成本控制：预算规划与资源管理",
+    "slug": "training-cost-control",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "成本控制",
+      "资源管理"
+    ],
+    "summary": "训练降本的核心是拆清硬件、电力、人力三类成本，再用调度、混合精度和分层资源策略提高利用率。"
+  },
+  {
     "title": "模型并行策略：张量并行与流水线并行",
     "slug": "model-parallelism-strategies",
     "date": "2026-03-27",
