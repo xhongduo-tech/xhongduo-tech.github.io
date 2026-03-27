@@ -29168,7 +29168,7 @@
       "奖励建模"
     ],
     "brief": "在 RLHF 中，reward model 同时编码有用性与安全性。讨论安全相关标签 schema（有害类别、多级风险）、多维奖励建模（utility vs safety）、以及用拒答/缩放策略在 RL 阶段强化安全。分析 reward hacking 和分布外行为的典型失败案例。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "内容过滤系统：规则、分类器与混合架构",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "安全奖励建模：RLHF 中的安全约束设计",
+    "slug": "rlhf-safety-reward-modeling",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全与对齐",
+      "RLHF",
+      "奖励建模"
+    ],
+    "summary": "安全奖励建模用帮助性与风险双信号约束 RLHF，核心是让高危输出即使“有用”也拿不到高净奖励。"
+  },
+  {
     "title": "差分隐私 SGD：在训练阶段保护用户数据",
     "slug": "differential-privacy-sgd-in-llms",
     "date": "2026-03-27",
