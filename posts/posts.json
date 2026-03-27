@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLM 应用的压测与调优",
+    "slug": "llm-load-testing-optimization",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "性能",
+      "调优"
+    ],
+    "summary": "LLM压测要同时看吞吐、尾延迟和错误率，再按模型、网络、数据库逐层定位并迭代调优"
+  },
+  {
     "title": "多 Agent 协作模式实战",
     "slug": "multi-agent-collaboration",
     "date": "2026-03-27",

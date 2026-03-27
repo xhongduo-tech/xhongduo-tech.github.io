@@ -9141,7 +9141,7 @@
       "调优"
     ],
     "brief": "压测工具：Locust、k6。关键指标：QPS、延迟分布、错误率。瓶颈分析：模型推理、网络、数据库。调优策略：批处理、缓存、异步。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度累积：大 batch size 的显存优化",
