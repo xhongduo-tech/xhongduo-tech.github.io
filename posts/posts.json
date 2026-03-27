@@ -1,5 +1,17 @@
 [
   {
+    "title": "多区域部署：高可用性与灾备",
+    "slug": "multi-region-deployment",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "高可用性",
+      "灾备"
+    ],
+    "summary": "多区域部署的本质是用架构、复制和路由交换更高可用，但必须用 RTO/RPO 约束复杂度。"
+  },
+  {
     "title": "负载均衡策略：从 Round Robin 到自适应",
     "slug": "load-balancing-strategies",
     "date": "2026-03-27",
