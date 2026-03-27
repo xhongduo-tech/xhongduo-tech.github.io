@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据备份与恢复：保障数据安全",
+    "slug": "data-backup-recovery",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "数据备份",
+      "灾备"
+    ],
+    "summary": "备份的核心不是多存一份，而是围绕RPO/RTO构建可验证、可恢复、可演练的副本体系"
+  },
+  {
     "title": "服务降级与熔断：保障系统稳定性",
     "slug": "service-degradation-circuit-breaker",
     "date": "2026-03-27",
