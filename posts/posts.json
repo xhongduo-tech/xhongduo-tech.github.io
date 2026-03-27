@@ -1,5 +1,17 @@
 [
   {
+    "title": "安全部署：网络隔离与访问控制",
+    "slug": "secure-deployment-network-isolation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "安全",
+      "网络隔离"
+    ],
+    "summary": "模型安全部署的核心是隔离网络、收紧权限、加密链路并持续审计。"
+  },
+  {
     "title": "多区域部署：高可用性与灾备",
     "slug": "multi-region-deployment",
     "date": "2026-03-27",

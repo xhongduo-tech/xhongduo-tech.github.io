@@ -29818,7 +29818,7 @@
       "网络隔离"
     ],
     "brief": "大模型部署的安全挑战：模型窃取、数据泄露、恶意攻击。网络隔离策略：VPC、子网、安全组、防火墙。访问控制：IAM、RBAC、API 密钥管理、请求签名。加密传输：HTTPS、TLS、SSL。安全监控与审计：入侵检测、日志审计、异常检测。安全部署的最佳实践与合规要求。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "监控系统：Prometheus 与 Grafana 实践",
