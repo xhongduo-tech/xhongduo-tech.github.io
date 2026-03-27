@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型服务的灰度发布",
+    "slug": "model-deployment-canary",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "部署",
+      "灰度"
+    ],
+    "summary": "灰度发布用小流量验证新模型，靠分桶、护栏和回滚把全量上线风险压到最低"
+  },
+  {
     "title": "Prompt 工程模板库",
     "slug": "prompt-engineering-templates",
     "date": "2026-03-27",
