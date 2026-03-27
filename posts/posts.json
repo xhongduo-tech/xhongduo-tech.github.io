@@ -1,5 +1,17 @@
 [
   {
+    "title": "微调策略：全参数微调到参数高效微调",
+    "slug": "fine-tuning-strategies-comprehensive",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "微调",
+      "PEFT"
+    ],
+    "summary": "微调先看资源与任务边界，大多数团队应先用 LoRA/QLoRA 验证收益。"
+  },
+  {
     "title": "对抗训练：提高模型鲁棒性的训练方法",
     "slug": "adversarial-training-deep-learning",
     "date": "2026-03-27",
