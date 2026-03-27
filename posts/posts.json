@@ -1,5 +1,19 @@
 [
   {
+    "title": "SAC",
+    "slug": "sac-maximum-entropy",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "最大熵",
+      "Actor-Critic"
+    ],
+    "summary": "SAC用最大熵目标平衡奖励与探索，是连续控制里稳定且省样本的强基线"
+  },
+  {
     "title": "PPO",
     "slug": "ppo-clip-objective",
     "date": "2026-03-27",
