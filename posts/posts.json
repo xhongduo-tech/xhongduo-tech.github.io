@@ -1,5 +1,17 @@
 [
   {
+    "title": "批处理优化：动态批处理与混合精度",
+    "slug": "batch-processing-optimization",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "性能优化",
+      "批处理"
+    ],
+    "summary": "动态批处理减少padding，AMP释放显存并提速，两者配合是训练吞吐优化的主路线"
+  },
+  {
     "title": "权重衰减与正则化：理论与实践",
     "slug": "weight-decay-regularization",
     "date": "2026-03-27",
