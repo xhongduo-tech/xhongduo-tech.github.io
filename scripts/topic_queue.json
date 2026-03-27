@@ -9093,7 +9093,7 @@
       "源码"
     ],
     "brief": "Chain 组件：顺序执行与分支。Agent 组件：决策循环与工具调用。Memory 组件：对话历史管理。Callback 系统：日志与监控。自定义扩展点。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LlamaIndex 索引策略",

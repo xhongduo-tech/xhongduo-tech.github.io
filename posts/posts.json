@@ -1,5 +1,17 @@
 [
   {
+    "title": "LangChain 核心组件源码分析",
+    "slug": "langchain-core-components-analysis",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "LangChain",
+      "源码"
+    ],
+    "summary": "LangChain 用 Chain、Agent、Memory、Callback 组合出可控、可观测的模型工作流。"
+  },
+  {
     "title": "LlamaIndex 索引策略",
     "slug": "llamaindex-indexing-strategies",
     "date": "2026-03-27",
