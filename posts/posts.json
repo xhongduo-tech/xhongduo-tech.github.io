@@ -1,5 +1,17 @@
 [
   {
+    "title": "DevOps 实践：自动化部署与持续集成",
+    "slug": "devops-practices-llm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "DevOps",
+      "自动化"
+    ],
+    "summary": "大模型服务的DevOps核心是把代码、模型、环境和监控全部版本化并纳入CI/CD自动交付。"
+  },
+  {
     "title": "模型更新与版本控制：无缝部署与回滚",
     "slug": "model-update-version-control",
     "date": "2026-03-27",

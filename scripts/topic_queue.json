@@ -29698,7 +29698,7 @@
       "自动化"
     ],
     "brief": "大模型服务的 DevOps 流程：代码管理、构建自动化、测试自动化、部署自动化、监控自动化。CI/CD 流水线：GitHub Actions、GitLab CI、Jenkins。自动化测试：单元测试、集成测试、端到端测试。配置管理：基础设施即代码（IaC）、配置版本控制。DevOps 工具链的选择与集成。DevOps 实践的最佳实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型部署环境：云服务 vs 本地部署",
