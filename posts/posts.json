@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练后处理：模型评估与部署准备",
+    "slug": "post-training-processing",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "评估",
+      "部署"
+    ],
+    "summary": "训练后处理要把选模、评估、导出、量化和版本管理串成同一条闭环"
+  },
+  {
     "title": "训练成本控制：预算规划与资源管理",
     "slug": "training-cost-control",
     "date": "2026-03-27",
