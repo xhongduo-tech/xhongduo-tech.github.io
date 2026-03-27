@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据库原理：B+ 树与 LSM 树",
+    "slug": "database-internals-btree-lsm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "存储",
+      "数据库"
+    ],
+    "summary": "B+树强在稳定读和范围查，LSM强在高写入吞吐，选型取决于读写模式与放大控制。"
+  },
+  {
     "title": "模型服务框架对比：vLLM、TGI、TensorRT-LLM",
     "slug": "model-serving-frameworks-comparison",
     "date": "2026-03-27",

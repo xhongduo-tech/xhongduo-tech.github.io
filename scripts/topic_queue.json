@@ -9237,7 +9237,7 @@
       "数据库"
     ],
     "brief": "B+ 树：聚簇索引、非聚簇索引、范围查询优化。LSM 树：写入优化、MemTable、SSTable、Compaction。读放大、写放大、空间放大。不同工作负载的选择。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Redis 核心数据结构",
