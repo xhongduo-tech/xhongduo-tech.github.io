@@ -1,5 +1,18 @@
 [
   {
+    "title": "检索增强生成（RAG）在 NLP 任务中的设计模式",
+    "slug": "rag-design-patterns-nlp",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "检索增强生成",
+      "RAG"
+    ],
+    "summary": "RAG 的关键不只是加检索，而是让粒度、排序和融合方式与任务匹配。"
+  },
+  {
     "title": "大模型的多语言能力：词表设计与参数共享",
     "slug": "multilingual-llm-vocabulary-and-sharing",
     "date": "2026-03-27",
