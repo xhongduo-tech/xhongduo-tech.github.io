@@ -1,5 +1,18 @@
 [
   {
+    "title": "差分隐私 SGD：在训练阶段保护用户数据",
+    "slug": "differential-privacy-sgd-in-llms",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "隐私保护",
+      "训练算法"
+    ],
+    "summary": "DP-SGD用裁剪和加噪限制单样本影响，以精度和算力代价换取训练阶段隐私保证"
+  },
+  {
     "title": "内容过滤系统：规则、分类器与混合架构",
     "slug": "content-filtering-systems-for-llms",
     "date": "2026-03-27",
