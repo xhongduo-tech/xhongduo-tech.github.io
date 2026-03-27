@@ -1,5 +1,18 @@
 [
   {
+    "title": "红队测试流程：从攻击面建模到案例复盘",
+    "slug": "red-teaming-process-for-llms",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试",
+      "流程设计"
+    ],
+    "summary": "红队测试的核心不是攻击本身，而是把发现持续回写到规则、流程和模型更新闭环。"
+  },
+  {
     "title": "上线后的安全监控与回滚策略",
     "slug": "post-deployment-safety-monitoring",
     "date": "2026-03-27",
