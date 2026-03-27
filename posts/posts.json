@@ -1,5 +1,17 @@
 [
   {
+    "title": "API 网关与服务网格：微服务架构",
+    "slug": "api-gateway-service-mesh",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "微服务",
+      "API 网关"
+    ],
+    "summary": "API网关管外部入口，服务网格管内部通信，二者协同支撑大模型微服务治理。"
+  },
+  {
     "title": "模型注册与管理：模型仓库与版本控制",
     "slug": "model-registry-management",
     "date": "2026-03-27",
