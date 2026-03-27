@@ -1,5 +1,17 @@
 [
   {
+    "title": "自监督学习：从对比学习到掩码建模",
+    "slug": "self-supervised-learning-comprehensive",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "自监督学习",
+      "预训练"
+    ],
+    "summary": "自监督学习用对比、掩码、生成三类目标，在无标签数据上学习可迁移表示。"
+  },
+  {
     "title": "微调策略：全参数微调到参数高效微调",
     "slug": "fine-tuning-strategies-comprehensive",
     "date": "2026-03-27",
