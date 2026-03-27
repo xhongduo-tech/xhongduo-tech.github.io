@@ -1,5 +1,17 @@
 [
   {
+    "title": "Prompt 工程模板库",
+    "slug": "prompt-engineering-templates",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Prompt",
+      "模板"
+    ],
+    "summary": "Prompt 模板库的本质是用分层约束把模型输出收敛为可复用、可校验的工程接口。"
+  },
+  {
     "title": "LLM 应用的可观测性",
     "slug": "llm-observability",
     "date": "2026-03-27",
