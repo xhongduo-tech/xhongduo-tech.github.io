@@ -8922,7 +8922,7 @@
       "嵌入"
     ],
     "brief": "三元组 (anchor, positive, negative)。目标：d(a,p) + margin < d(a,n)。困难负样本挖掘策略。在人脸识别、行人重识别中的应用。与对比损失的比较。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "L1/L2 正则化：稀疏性与权重衰减",
