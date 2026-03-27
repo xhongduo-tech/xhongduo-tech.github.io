@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型注册与管理：模型仓库与版本控制",
+    "slug": "model-registry-management",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "模型管理",
+      "版本控制"
+    ],
+    "summary": "模型注册解决“哪个模型能上线”，模型管理解决“为什么它能上线以及如何回滚”。"
+  },
+  {
     "title": "边缘计算与模型部署：从云到端",
     "slug": "edge-computing-model-deployment",
     "date": "2026-03-27",

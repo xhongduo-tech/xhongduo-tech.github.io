@@ -29758,7 +29758,7 @@
       "版本控制"
     ],
     "brief": "模型注册与管理的重要性：版本控制、模型追踪、权限管理。模型仓库：MLflow Model Registry、Azure ML Model Registry、AWS Model Registry。模型版本控制：语义化版本、标签管理、模型 lineage。模型管理的最佳实践：元数据管理、模型评估结果存储、部署审批流程。模型管理对 MLOps 的支持。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "API 网关与服务网格：微服务架构",
