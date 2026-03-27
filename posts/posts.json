@@ -1,5 +1,19 @@
 [
   {
+    "title": "PPO",
+    "slug": "ppo-clip-objective",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "优化",
+      "PPO"
+    ],
+    "summary": "PPO 用概率比剪裁替代 TRPO 的硬 KL 约束，以一阶优化实现稳定的小步策略更新。"
+  },
+  {
     "title": "Actor-Critic：价值引导的策略更新",
     "slug": "actor-critic",
     "date": "2026-03-27",
