@@ -1,5 +1,18 @@
 [
   {
+    "title": "抽取式问答中的 Span 表示学习",
+    "slug": "span-representation-extractive-qa",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "问答系统",
+      "表示学习"
+    ],
+    "summary": "抽取式问答的关键不是找起点和终点，而是把候选 span 作为整体统一表示与比较"
+  },
+  {
     "title": "预训练语言模型的掩码策略设计",
     "slug": "pretraining-masking-strategies",
     "date": "2026-03-27",

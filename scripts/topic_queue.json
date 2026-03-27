@@ -29084,7 +29084,7 @@
       "表示学习"
     ],
     "brief": "抽取式问答需要为候选 span 建立精细表示。经典做法是分别预测起始/结束位置，也可以对任意 span 组合打分。介绍基于跨 token 交互的 span 表示（如 endpoint + attention pooling）、高效枚举和剪枝策略，以及与自然语言推理等任务的共性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "大模型的多语言能力：词表设计与参数共享",
