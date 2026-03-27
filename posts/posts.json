@@ -1,5 +1,18 @@
 [
   {
+    "title": "大模型的多语言能力：词表设计与参数共享",
+    "slug": "multilingual-llm-vocabulary-and-sharing",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "多语言",
+      "预训练模型"
+    ],
+    "summary": "多语言能力来自统一词表与共享参数，但覆盖、公平性和负迁移必须靠分词、采样与adapter共同调节"
+  },
+  {
     "title": "任务型对话系统中的对话状态跟踪",
     "slug": "task-oriented-dialogue-state-tracking",
     "date": "2026-03-27",
