@@ -1,5 +1,17 @@
 [
   {
+    "title": "向量空间与线性无关",
+    "slug": "math-la-vector-space-linear-independence",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "向量空间关心线性结构，线性无关、秩与维数共同决定表示能力。"
+  },
+  {
     "title": "矩阵的QR分解",
     "slug": "math-la-matrix-qr-decomposition",
     "date": "2026-03-27",
