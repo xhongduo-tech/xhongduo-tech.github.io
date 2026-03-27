@@ -1,5 +1,18 @@
 [
   {
+    "title": "指令数据构造：从自然语料到高质量指令集",
+    "slug": "instruction-data-construction-nlp",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "指令微调",
+      "数据工程"
+    ],
+    "summary": "高质量指令集依赖模板生成、去重过滤与验证三者协同。"
+  },
+  {
     "title": "大模型越狱攻击模式与防御思路",
     "slug": "llm-jailbreak-patterns-and-defenses",
     "date": "2026-03-27",
