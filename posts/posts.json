@@ -1,5 +1,17 @@
 [
   {
+    "title": "线性变换与矩阵表示",
+    "slug": "math-la-linear-transformation-matrix",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "矩阵是线性变换在基下的坐标写法，换基对应相似变换，性质看不变量。"
+  },
+  {
     "title": "数据库原理：B+ 树与 LSM 树",
     "slug": "database-internals-btree-lsm",
     "date": "2026-03-27",
