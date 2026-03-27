@@ -29722,7 +29722,7 @@
       "Kubernetes"
     ],
     "brief": "容器编排平台：Kubernetes、Docker Swarm、Mesos。Kubernetes 的核心组件：Pod、Service、Deployment、ConfigMap、Secret。Docker Swarm 的特点：简单易用、与 Docker 集成紧密。容器编排的优势：自动化部署、弹性扩缩容、服务发现、负载均衡。容器编排的最佳实践：资源配置、健康检查、网络配置。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型导出与格式转换：ONNX、TorchScript 与 TensorRT",

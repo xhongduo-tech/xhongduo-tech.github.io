@@ -1,5 +1,17 @@
 [
   {
+    "title": "容器编排：Kubernetes 与 Docker Swarm",
+    "slug": "container-orchestration-kubernetes-docker-swarm",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "容器编排",
+      "Kubernetes"
+    ],
+    "summary": "容器编排的核心是声明期望状态，Kubernetes 强在能力与生态，Swarm 强在简单与低门槛。"
+  },
+  {
     "title": "模型部署环境：云服务 vs 本地部署",
     "slug": "model-deployment-environments",
     "date": "2026-03-27",
