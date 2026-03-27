@@ -1,5 +1,18 @@
 [
   {
+    "title": "Actor-Critic：价值引导的策略更新",
+    "slug": "actor-critic",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "价值学习"
+    ],
+    "summary": "Actor-Critic用价值估计指导策略梯度更新，核心在优势函数与TD误差。"
+  },
+  {
     "title": "关系抽取",
     "slug": "relation-extraction",
     "date": "2026-03-27",

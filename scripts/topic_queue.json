@@ -8848,7 +8848,7 @@
       "价值学习"
     ],
     "brief": "Actor 用策略梯度更新策略，Critic 估计价值函数。Critic 用 TD 误差训练。优势函数 A(s,a) = Q(s,a) - V(s) 减少方差。A2C/A3C 的同步与异步。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PPO",
