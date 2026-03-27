@@ -9153,7 +9153,7 @@
       "显存"
     ],
     "brief": "小显存无法放下大 batch。梯度累积：多次前向后向，累积梯度，一次更新。等效 batch size = batch_size × accumulation_steps。与 BatchNorm 的交互。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度裁剪：防止梯度爆炸",

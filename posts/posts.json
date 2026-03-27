@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度累积：大 batch size 的显存优化",
+    "slug": "gradient-accumulation",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化",
+      "显存"
+    ],
+    "summary": "梯度累积用多次小批次累加梯度，模拟大batch更新，但需正确处理loss缩放、步频和BatchNorm。"
+  },
+  {
     "title": "构建代码生成 Agent",
     "slug": "build-code-generation-agent",
     "date": "2026-03-27",
