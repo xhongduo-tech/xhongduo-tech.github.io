@@ -9473,7 +9473,7 @@
       "概率论"
     ],
     "brief": "变分推断（VI）将难以处理的后验 p(z|x) 近似为参数族 q(z;φ)，通过最大化 ELBO = E_q[log p(x,z)] - E_q[log q(z)] = log p(x) - KL(q||p) 来优化 φ。ELBO 推导：log p(x) = ELBO + KL(q||p) ≥ ELBO，因 KL≥0。平均场近似假设 q(z) = ∏ᵢq(zᵢ) 分解为独立因子，得到坐标上升 VI（CAVI）更新规则 log q*(zᵢ) = E_{-i}[log p(x,z)] + const。VAE 是摊销 VI 的典型实例：用神经网络 q(z|x;φ) 参数化变分分布，通过重参数化 z=μ+σ·ε 使梯度可以反向传播。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "凸集与凸函数",
