@@ -1,5 +1,18 @@
 [
   {
+    "title": "大模型越狱攻击模式与防御思路",
+    "slug": "llm-jailbreak-patterns-and-defenses",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱攻击",
+      "大模型安全"
+    ],
+    "summary": "越狱攻击本质是重写任务语境，防御关键是多层审查、权限隔离和持续红队。"
+  },
+  {
     "title": "检索增强生成（RAG）在 NLP 任务中的设计模式",
     "slug": "rag-design-patterns-nlp",
     "date": "2026-03-27",
