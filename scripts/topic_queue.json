@@ -8836,7 +8836,7 @@
       "无模型"
     ],
     "brief": "直接优化策略参数 θ。目标函数 J(θ) = E[Σ r_t]。梯度 ∇J = E[∇log π(a|s) · G_t]。REINFORCE 用蒙特卡洛采样估计 G_t。高方差问题。基线的方差缩减。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Actor-Critic：价值引导的策略更新",

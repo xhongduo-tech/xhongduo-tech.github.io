@@ -1,5 +1,18 @@
 [
   {
+    "title": "Policy Gradient：REINFORCE",
+    "slug": "policy-gradient-reinforce",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "无模型"
+    ],
+    "summary": "REINFORCE直接优化策略，但高方差；加状态基线可无偏降噪。"
+  },
+  {
     "title": "Focal Loss：难样本的加权",
     "slug": "focal-loss-hard-examples",
     "date": "2026-03-27",
@@ -1118,19 +1131,6 @@
       "DQN"
     ],
     "summary": "DQN 用神经网络近似 Q 值，依靠经验回放和目标网络稳定训练。"
-  },
-  {
-    "title": "Policy Gradient：REINFORCE",
-    "slug": "policy-gradient-reinforce",
-    "date": "2026-03-27",
-    "author": "both",
-    "tags": [
-      "模型训练",
-      "强化学习",
-      "策略梯度",
-      "无模型"
-    ],
-    "summary": "REINFORCE直接优化策略，用采样回报做梯度上升，简单但高方差，baseline是关键稳定器"
   },
   {
     "title": "Q-Learning：off-policy 的价值学习",

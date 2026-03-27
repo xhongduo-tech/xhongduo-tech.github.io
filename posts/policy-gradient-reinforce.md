@@ -1,311 +1,317 @@
 ## 核心结论
 
-REINFORCE 是最基础的策略梯度方法。策略梯度的意思是：不先学“这个状态值多少钱”，而是直接调策略参数 $\theta$，让策略 $\pi_\theta(a|s)$ 更容易选到高回报动作。它优化的目标是整条轨迹的期望回报：
+REINFORCE 是最基础的策略梯度方法。策略梯度的白话解释是：不先学“这个状态值多少钱”，而是直接学“这个状态下每个动作该给多大概率”。它直接优化策略参数 $\theta$，目标是最大化期望回报
 
 $$
-J(\theta)=\mathbb{E}_{\tau \sim \pi_\theta}\left[\sum_{t=0}^{T} r_t\right]
+J(\theta)=\mathbb{E}_{\tau \sim \pi_\theta}\left[\sum_{t=0}^{T-1} r_t\right]
 $$
 
-REINFORCE 的核心更新式是：
+其中 $\tau$ 表示一条轨迹，也就是一次完整交互序列 $(s_0,a_0,r_0,\dots)$。
+
+REINFORCE 的核心更新式是
 
 $$
-\nabla J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{T}\nabla_\theta \log \pi_\theta(a_t|s_t)\, G_t\right]
+\nabla_\theta J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_t \nabla_\theta \log \pi_\theta(a_t|s_t)\cdot G_t\right]
 $$
 
-其中 $G_t$ 是从时刻 $t$ 开始往后的累计回报，通常叫 reward-to-go，白话说就是“这个动作之后实际拿到了多少分”。
+这里 $G_t$ 是从时刻 $t$ 往后的折扣回报，白话解释是“这个动作之后实际拿到了多少总收益”。如果某个动作后续回报高，就增大它的概率；如果后续回报低，就减小它的概率。
 
-这条式子的直观含义很直接：如果某次动作后面带来了高回报，就把这个动作在当时状态下的概率往上推；如果后面回报低，就往下推。REINFORCE 不需要环境模型。无模型的意思是：算法不必知道环境状态转移公式，只要能和环境交互采样就能学。
+它的优点是概念直、推导干净、对离散动作和连续动作都能用。它的缺点也很明确：方差大，样本效率低，而且必须等整条 episode 结束才能更新。
 
-最重要的工程事实有两个。
+最常见的改进是加 baseline。baseline 的白话解释是“先减掉一个正常水平，再看这次到底高了还是低了”。常见写法是
 
-| 结论 | 含义 | 工程影响 |
-|---|---|---|
-| 直接优化策略 | 不通过值迭代，直接对 $\theta$ 做梯度上升 | 适合离散或连续动作策略建模 |
-| 用 Monte Carlo 回报 | Monte Carlo 指整条 episode 跑完后用真实采样回报估计梯度 | 简单，但方差大 |
-| 加 baseline 降方差 | baseline 是一个与动作无关的参照值 | 不改变期望梯度方向，但训练更稳 |
+$$
+\nabla_\theta J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_t \nabla_\theta \log \pi_\theta(a_t|s_t)\cdot (G_t-b(s_t))\right]
+$$
 
-一个最小玩具例子可以先把直觉建立起来。二选一 bandit 可以理解成“只有一步动作的老虎机”。设 $\pi(a_1)=0.5,\pi(a_2)=0.5$，若采样到 $a_1$ 且得到 $G=1$，那么梯度项会推动 $\pi(a_1)$ 增大。如果再设基线 $b=0.7$，更新量变成和 $G-b=0.3$ 成正比，方向仍然是增大 $\pi(a_1)$，但幅度更温和。这说明 baseline 的主要作用不是改目标，而是把更新信号“去中心化”，降低抖动。
+如果 $b(s_t)$ 只依赖状态，不依赖动作，那么这个估计仍然无偏，只是方差更小。工程上最常用的 baseline 是状态值函数 $V^\pi(s)$)。
+
+| 项目 | 数学形式 | 直观含义 | 主要问题 |
+|---|---|---|---|
+| 目标函数 | $J(\theta)=\mathbb{E}[\sum_t r_t]$ | 让策略拿到更高总奖励 | 只能通过采样估计 |
+| REINFORCE | $\nabla \log \pi(a_t|s_t)\cdot G_t$ | 好回报强化产生它的动作 | 方差大 |
+| 带 baseline 的 REINFORCE | $\nabla \log \pi(a_t|s_t)\cdot (G_t-b(s_t))$ | 只强化“高于正常水平”的动作 | 需要额外估计 baseline |
 
 ---
 
 ## 问题定义与边界
 
-REINFORCE 解决的问题是：给定一个可交互环境，直接学习参数化策略 $\pi_\theta(a|s)$，让它在长期回报意义上尽量好。这里的策略可以是一个 softmax 分类器，也可以是一个神经网络。参数化策略的意思是：动作概率不是手写规则，而是由参数 $\theta$ 控制。
+REINFORCE 解决的问题是：环境不可微，奖励可能延迟出现，但策略 $\pi_\theta(a|s)$ 本身可微，这时能否直接对策略参数做梯度上升。答案是可以。
 
-更精确地说，它针对的是 episode 型任务。episode 可以理解成“一局完整过程”，例如一局迷宫、一盘游戏、一次机械臂抓取。每局从初始状态开始，到终止状态结束。REINFORCE 用整局采样到的真实回报来估计梯度，因此它天然依赖完整轨迹。
+它有几个边界条件必须先说清楚。
 
-一个简单迷宫就是典型场景。智能体从入口出发，每一步只能看到当前位置，只有到达终点时才知道这局是否成功。如果中途没有明确指导信号，REINFORCE 仍然可以在 episode 结束后，用整条路径的累计回报去更新路径上各个动作的概率。
+第一，它是 on-policy 方法。on-policy 的白话解释是“只能用当前策略自己采出来的数据更新自己”。这意味着策略一变，旧数据就不再严格匹配当前分布，不能像很多离策略方法那样反复重用经验池。
 
-但它有明确边界。因为每次需要完整 episode，若任务特别长、奖励特别稀疏、观测不完整，REINFORCE 往往会很慢，而且很不稳定。
+第二，它是 Monte Carlo 方法。Monte Carlo 的白话解释是“用完整采样结果近似期望”。因此 REINFORCE 往往要等 episode 结束，拿到完整回报后，才能算每个时间步的 $G_t$。如果任务没有天然终点，通常需要人为截断。
 
-| 维度 | REINFORCE 的适用情况 | 边界 |
-|---|---|---|
-| 输入/输出 | 输入是状态，输出是动作分布 | 状态噪声很大时学习困难 |
-| 动作空间 | 离散动作最直观，连续动作也可做高斯策略 | 高维连续动作方差更大 |
-| 回报反馈延迟 | 能处理延迟奖励，因为看整条轨迹 | 延迟太长时信用分配困难 |
-| 数据来源 | 只需采样，不需环境模型 | 样本效率通常不高 |
-| 训练节奏 | 按 episode 更新 | 超长 episode 会造成更新滞后 |
+第三，它不做 bootstrapping。bootstrapping 的白话解释是“用自己当前的估计去更新未来的估计”。REINFORCE 不这么做，它直接用真实采样到的完整回报，所以无偏，但噪声很大。
 
-这里要区分“能用”和“好用”。REINFORCE 在定义上能处理延迟奖励，但不代表它在长时序任务里效率高。比如 500 步以后才知道输赢的游戏，早期动作的贡献会被巨大的采样噪声淹没，这就是信用分配问题。信用分配的意思是：最终结果出来后，怎么把功劳或责任正确分摊给前面的每一步动作。
+它的基本流程可以写成：
+
+`当前策略采样一整条轨迹 -> 反向计算每个时刻的 G_t -> 计算 log π 的梯度项 -> 累加后更新参数 -> 用新策略再采样下一条轨迹`
+
+这也解释了它的使用边界：
+
+| 维度 | REINFORCE 的边界 |
+|---|---|
+| 数据来源 | 必须来自当前策略 |
+| 更新时机 | 通常 episode 结束后 |
+| 样本效率 | 较低，旧样本难复用 |
+| 方差 | 高，轨迹越长越明显 |
+| 适合任务 | 可模拟、可反复采样、奖励定义清晰 |
+
+玩具例子最容易说明它在做什么。假设一个两步任务，$\gamma=0.9$，奖励序列为 $r_1=1,r_2=0$。那么
+
+$$
+G_1=r_1+\gamma r_2=1+0.9\times 0=1,\quad G_2=r_2=0
+$$
+
+如果在 $s_1$ 有两个动作 $A,B$，当前概率都为 $0.5$，实际采样到 $A$，并最终得到 $G_1=1$，那么更新方向会包含
+
+$$
+\nabla_\theta \log \pi_\theta(A|s_1)\cdot 1
+$$
+
+也就是提升动作 $A$ 的概率。第二步因为 $G_2=0$，这一时刻对更新没有贡献。这个例子把“好动作涨概率”变成了可计算的规则。
 
 ---
 
 ## 核心机制与推导
 
-REINFORCE 的关键推导来自对轨迹概率求梯度。设一条轨迹为 $\tau=(s_0,a_0,\dots,s_T,a_T)$，其概率可写为：
+核心推导从目标函数开始。设一条轨迹的概率为
 
 $$
-p_\theta(\tau)=p(s_0)\prod_{t=0}^{T}\pi_\theta(a_t|s_t)\,p(s_{t+1}|s_t,a_t)
+p_\theta(\tau)=p(s_0)\prod_{t=0}^{T-1}\pi_\theta(a_t|s_t)p(s_{t+1}|s_t,a_t)
 $$
 
-环境转移项 $p(s_{t+1}|s_t,a_t)$ 不依赖策略参数 $\theta$，所以对 $\theta$ 求导时，只剩策略项。
-
-目标函数写成轨迹形式：
+轨迹回报为 $R(\tau)$，则
 
 $$
-J(\theta)=\sum_{\tau} p_\theta(\tau) R(\tau)
+J(\theta)=\mathbb{E}_{\tau\sim p_\theta(\tau)}[R(\tau)]
+=\sum_\tau p_\theta(\tau)R(\tau)
 $$
 
-其中 $R(\tau)$ 是整条轨迹总回报。于是：
+对参数求梯度：
 
 $$
-\nabla_\theta J(\theta)
-=\sum_{\tau}\nabla_\theta p_\theta(\tau) R(\tau)
+\nabla_\theta J(\theta)=\sum_\tau \nabla_\theta p_\theta(\tau)R(\tau)
 $$
 
-利用恒等式
+用似然比技巧。似然比的白话解释是“把概率的梯度改写成概率乘以对数概率的梯度”：
 
 $$
 \nabla_\theta p_\theta(\tau)=p_\theta(\tau)\nabla_\theta \log p_\theta(\tau)
 $$
 
-得到：
+代入得
 
 $$
-\nabla_\theta J(\theta)
-=\sum_{\tau} p_\theta(\tau)\nabla_\theta \log p_\theta(\tau) R(\tau)
-=\mathbb{E}_{\tau\sim\pi_\theta}\left[\nabla_\theta \log p_\theta(\tau) R(\tau)\right]
+\nabla_\theta J(\theta)=\sum_\tau p_\theta(\tau)\nabla_\theta \log p_\theta(\tau)R(\tau)
+=\mathbb{E}_{\tau\sim p_\theta(\tau)}[\nabla_\theta \log p_\theta(\tau)R(\tau)]
 $$
 
-再展开轨迹对数概率：
+再展开 $\log p_\theta(\tau)$。环境转移概率 $p(s_{t+1}|s_t,a_t)$ 与策略参数无关，所以只有策略项留下：
 
 $$
-\log p_\theta(\tau)=\log p(s_0)+\sum_{t=0}^{T}\log \pi_\theta(a_t|s_t)+\sum_{t=0}^{T}\log p(s_{t+1}|s_t,a_t)
+\log p_\theta(\tau)=\log p(s_0)+\sum_t \log \pi_\theta(a_t|s_t)+\sum_t \log p(s_{t+1}|s_t,a_t)
 $$
 
-与 $\theta$ 有关的只有策略项，因此：
+因此
 
 $$
-\nabla_\theta \log p_\theta(\tau)=\sum_{t=0}^{T}\nabla_\theta \log \pi_\theta(a_t|s_t)
+\nabla_\theta \log p_\theta(\tau)=\sum_t \nabla_\theta \log \pi_\theta(a_t|s_t)
 $$
 
-合并后得到：
+于是
 
 $$
-\nabla J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{T}\nabla_\theta \log \pi_\theta(a_t|s_t)\, R(\tau)\right]
+\nabla_\theta J(\theta)=
+\mathbb{E}\left[\sum_t \nabla_\theta \log \pi_\theta(a_t|s_t)\cdot R(\tau)\right]
 $$
 
-进一步把整条轨迹总回报替换成每个时刻之后的 reward-to-go：
+进一步可以把整条轨迹总回报 $R(\tau)$ 换成从时刻 $t$ 开始的回报 $G_t$，因为时刻 $t$ 之前的奖励和当前动作无关，不影响该动作的期望梯度：
 
 $$
-G_t=\sum_{k=t}^{T}\gamma^{k-t}r_k
+G_t=\sum_{k=t}^{T-1}\gamma^{k-t}r_k
 $$
 
-其中 $\gamma \in [0,1]$ 是折扣因子，白话说就是“越远的未来奖励折得越小”。于是常见写法变成：
+所以得到常用形式：
 
 $$
-\nabla J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{T}\nabla_\theta \log \pi_\theta(a_t|s_t)\, G_t\right]
+\nabla_\theta J(\theta)=
+\mathbb{E}\left[\sum_t \nabla_\theta \log \pi_\theta(a_t|s_t)\cdot G_t\right]
 $$
 
-为什么可以用 $G_t$ 替代整局总回报？因为在时刻 $t$ 之前发生的奖励与动作 $a_t$ 无关，把它们乘到该时刻梯度项上只会增加噪声，不提供有效学习信号。
-
-再看 baseline。加入任意与动作无关的函数 $b(s_t)$ 后：
+为什么减 baseline 不会引入偏差？因为对任意只依赖状态的 $b(s_t)$，
 
 $$
-\nabla J(\theta)=\mathbb{E}_{\pi_\theta}\left[\sum_{t=0}^{T}\nabla_\theta \log \pi_\theta(a_t|s_t)\, (G_t-b(s_t))\right]
+\mathbb{E}_{a_t\sim \pi_\theta(\cdot|s_t)}
+[\nabla_\theta \log \pi_\theta(a_t|s_t)\, b(s_t)]
+=
+b(s_t)\sum_{a_t}\pi_\theta(a_t|s_t)\nabla_\theta \log \pi_\theta(a_t|s_t)
 $$
 
-它仍然无偏，原因是：
+而
 
 $$
-\mathbb{E}_{a_t\sim \pi_\theta(\cdot|s_t)}\left[\nabla_\theta \log \pi_\theta(a_t|s_t)\, b(s_t)\right]
-= b(s_t)\sum_{a_t}\pi_\theta(a_t|s_t)\nabla_\theta \log \pi_\theta(a_t|s_t)
+\pi_\theta(a|s)\nabla_\theta \log \pi_\theta(a|s)=\nabla_\theta \pi_\theta(a|s)
 $$
 
-而 $\pi \nabla \log \pi = \nabla \pi$，所以：
+所以
 
 $$
 b(s_t)\sum_{a_t}\nabla_\theta \pi_\theta(a_t|s_t)
-= b(s_t)\nabla_\theta \sum_{a_t}\pi_\theta(a_t|s_t)
-= b(s_t)\nabla_\theta 1
-= 0
+=
+b(s_t)\nabla_\theta \sum_{a_t}\pi_\theta(a_t|s_t)
+=
+b(s_t)\nabla_\theta 1
+=0
 $$
 
-这说明 baseline 不改变期望梯度，只改变方差。
-
-看一个具体玩具例子。假设某个过关游戏在时刻 $t$ 做出动作后，当前即时奖励是 10，后续又得到 3 和 2，那么：
+因此
 
 $$
-G_t = 10 + 3 + 2 = 15
+\mathbb{E}\left[\nabla_\theta \log \pi_\theta(a_t|s_t)\cdot G_t\right]
+=
+\mathbb{E}\left[\nabla_\theta \log \pi_\theta(a_t|s_t)\cdot (G_t-b(s_t))\right]
 $$
 
-如果状态基线估计 $b(s_t)=12$，那真正用于更新的是 $15-12=3$。直觉上，这一步并不是“值 15 分的神奇动作”，而是“比这个状态下的平均发挥好 3 分”。这就比直接用 15 做更新更稳，因为模型不会把偶然偏高的整局结果全部归功到当前动作上。
+这说明 baseline 改变的是方差，不是期望。
+
+从直觉上看，如果某状态下正常回报是 5，这次采样得到 $G_t=8$，那么优势 $A_t=G_t-b(s_t)=3$，说明动作比平均好，应强化；如果这次只有 2，则 $A_t=-3$，说明动作比平均差，应抑制。这里的优势 advantage，就是“比基准线高多少”。
 
 ---
 
 ## 代码实现
 
-REINFORCE 的标准训练 loop 很固定：
-
-1. 用当前策略采样一批完整 episode。
-2. 对每条 episode 反向计算每个时间步的 $G_t$。
-3. 累加损失 $-\log \pi_\theta(a_t|s_t)\cdot (G_t-b_t)$。
-4. 反向传播，执行 `optimizer.step()`。
-
-先给一个最小可运行的 Python 版本，用 bandit 演示“高回报动作概率会上升，加入 baseline 后方向不变但步子更小”。
+下面给一个可运行的最小 Python 版本。它不依赖深度学习框架，只演示 REINFORCE 的核心更新逻辑。策略是单状态二动作 softmax，方便看清数学关系。
 
 ```python
 import math
 
-def sigmoid(x: float) -> float:
-    return 1.0 / (1.0 + math.exp(-x))
+def softmax(theta):
+    m = max(theta)
+    exps = [math.exp(x - m) for x in theta]
+    s = sum(exps)
+    return [x / s for x in exps]
 
-def reinforce_bandit_update(theta: float, action: int, reward: float, baseline: float = 0.0, lr: float = 0.1) -> float:
-    """
-    action: 1 表示选择 a1, 0 表示选择 a2
-    策略: pi(a1) = sigmoid(theta), pi(a2) = 1 - sigmoid(theta)
-    REINFORCE 单步更新: theta += lr * d/dtheta log pi(a|s) * (reward - baseline)
-    """
-    p = sigmoid(theta)
-    grad_log_prob = (1.0 - p) if action == 1 else (-p)
-    advantage = reward - baseline
-    return theta + lr * grad_log_prob * advantage
+def discounted_returns(rewards, gamma):
+    out = [0.0] * len(rewards)
+    g = 0.0
+    for i in range(len(rewards) - 1, -1, -1):
+        g = rewards[i] + gamma * g
+        out[i] = g
+    return out
 
-theta0 = 0.0  # pi(a1)=0.5
-p0 = sigmoid(theta0)
-assert abs(p0 - 0.5) < 1e-8
+def grad_log_softmax(theta, action):
+    p = softmax(theta)
+    grad = [-x for x in p]
+    grad[action] += 1.0
+    return grad
 
-# 采样到更优动作 a1，奖励为 1
-theta1 = reinforce_bandit_update(theta0, action=1, reward=1.0, baseline=0.0, lr=1.0)
-p1 = sigmoid(theta1)
-assert p1 > p0  # 概率上升
+def reinforce_update(theta, actions, rewards, gamma=0.9, lr=0.1, baseline=None):
+    returns = discounted_returns(rewards, gamma)
+    if baseline is None:
+        baseline = [0.0] * len(returns)
 
-# 加 baseline 后方向相同，但更新幅度更小
-theta2 = reinforce_bandit_update(theta0, action=1, reward=1.0, baseline=0.7, lr=1.0)
-p2 = sigmoid(theta2)
-assert p2 > p0
-assert p2 < p1  # 方向不变，幅度变小
+    grad_sum = [0.0 for _ in theta]
+    for a, G, b in zip(actions, returns, baseline):
+        adv = G - b
+        g = grad_log_softmax(theta, a)
+        for i in range(len(theta)):
+            grad_sum[i] += g[i] * adv
 
-print(round(p0, 4), round(p1, 4), round(p2, 4))
+    new_theta = [t + lr * g for t, g in zip(theta, grad_sum)]
+    return new_theta, returns, grad_sum
+
+# 玩具例子：两步轨迹，第一步奖励 1，第二步奖励 0
+theta = [0.0, 0.0]  # 两个动作初始概率都为 0.5
+actions = [0, 1]    # 第一步选 A，第二步选 B
+rewards = [1.0, 0.0]
+
+new_theta, returns, grad_sum = reinforce_update(theta, actions, rewards, gamma=0.9, lr=0.1)
+
+assert returns == [1.0, 0.0]
+assert softmax(theta) == [0.5, 0.5]
+assert new_theta[0] > new_theta[1]  # 动作 A 的参数应上升更多
+assert abs(sum(grad_sum)) < 1e-9    # softmax 的梯度和为 0
+
+print("returns =", returns)
+print("old_probs =", softmax(theta))
+print("new_probs =", softmax(new_theta))
 ```
 
-上面的代码只是一维 bandit，目的是让公式和参数更新一一对应。真实环境会有多步轨迹，因此要显式计算 reward-to-go。下面给出更接近工程代码的伪实现：
+这段代码体现了三个关键步骤：
 
-```python
-import torch
+1. 先从后往前算 $G_t$。
+2. 再算 $\nabla \log \pi(a_t|s_t)$。
+3. 最后用 $G_t-b(s_t)$ 加权梯度并做梯度上升。
 
-def compute_returns(rewards, gamma):
-    returns = []
-    G = 0.0
-    for r in reversed(rewards):
-        G = r + gamma * G
-        returns.append(G)
-    returns.reverse()
-    return torch.tensor(returns, dtype=torch.float32)
+如果换成神经网络版本，结构通常是：
 
-def train_one_batch(policy, optimizer, episodes, gamma=0.99, baseline_fn=None):
-    optimizer.zero_grad()
-    total_loss = 0.0
+`state -> policy network -> action distribution -> sample action -> collect rewards -> compute returns/advantages -> backward policy loss`
 
-    for episode in episodes:
-        states, actions, rewards = episode["states"], episode["actions"], episode["rewards"]
-        returns = compute_returns(rewards, gamma)
-
-        for s, a, G in zip(states, actions, returns):
-            dist = policy(s)                 # 输出动作分布
-            log_prob = dist.log_prob(a)      # log pi(a|s)
-
-            if baseline_fn is None:
-                baseline = 0.0
-            else:
-                baseline = baseline_fn(s).detach()
-
-            advantage = G - baseline
-            total_loss = total_loss - log_prob * advantage
-
-    total_loss.backward()
-    optimizer.step()
-    return float(total_loss)
-```
-
-这里有三个实现细节最重要。
-
-第一，`returns` 最好用 reward-to-go，而不是整条 episode 总回报复制到每个时刻。两者都无偏，但 reward-to-go 通常方差更低。
-
-第二，baseline 常见做法是状态值函数 $V(s)$。状态值函数可以理解成“站在这个状态，未来大概要拿多少回报”。此时 $G_t - V(s_t)$ 就接近优势函数。优势函数的意思是：当前动作比这个状态下的平均表现好多少。
-
-第三，`baseline_fn(s).detach()` 很关键。如果你用单独的值网络学习 baseline，策略损失和价值损失通常分开写，避免梯度路径混乱。
-
-真实工程例子可以看高维机器人控制。比如机械手要控制大量连续动作维度去逼近一个目标姿态，动作空间可能非常高维。纯 REINFORCE 在这种任务上会因为采样噪声过大而极不稳定，因此会配合更强的方差缩减方法，例如状态 baseline、动作分解后的 baseline，甚至结构化估计器。这类场景说明：REINFORCE 的公式虽然简洁，但一旦进入高维连续控制，方差控制就是成败关键。
+真实工程例子可以看公平分类。那类任务里，准确率和公平性指标往往不可微或难直接优化，于是可以把“分类决策”看成策略，把“准确率与公平性的组合目标”看成奖励，再用 REINFORCE 直接优化。论文中的做法不是裸用 $G_t$，而是增加一个 baseline 网络来降低梯度噪声，否则训练非常不稳定。这个例子说明：REINFORCE 不只用于游戏控制，也能用于非微分目标优化。
 
 ---
 
 ## 工程权衡与常见坑
 
-REINFORCE 的最大优点是概念和实现都干净，最大缺点也是明确的：高方差。方差可以理解成“同样的策略参数，在不同采样批次上，估计出的梯度方向和大小波动很大”。波动一大，训练就会抖，甚至完全不收敛。
+REINFORCE 的主要问题不是“不会收敛”，而是“更新太吵”。噪声大的白话解释是：同样一个状态下，偶然碰到高奖励轨迹时，整条轨迹上的动作都会被一起放大，即使其中很多动作只是陪跑。
 
-常见问题和缓解方法可以直接列成表：
+常见坑有五类。
 
-| 问题 | 缓解手段 | 影响 |
-|---|---|---|
-| 梯度高方差 | reward-to-go + baseline + 多 episode 平均 | 更新更平滑 |
-| 回报尺度乱 | 回报标准化、优势标准化 | 学习率更容易调 |
-| episode 太长 | 换 Actor-Critic 或截断更新 | 降低更新延迟 |
-| 稀疏奖励 | 奖励塑形、课程学习、探索增强 | 更容易学到早期策略 |
-| baseline 设计错误 | 保证 baseline 与动作独立 | 避免引入偏差 |
-| 单条轨迹更新 | 批量采样再更新 | 降低估计噪声 |
+第一，直接用原始 $G_t$，方差极大。轨迹长、奖励稀疏、动作空间大时尤其严重。解决办法通常是加状态 baseline，或者进一步用 advantage 标准化。
 
-最容易踩的坑有四个。
+第二，把 baseline 设计成依赖动作。普通 baseline 若依赖动作，通常会破坏无偏性；只有满足特殊推导条件的 action-dependent baseline 才能安全使用。对初学者而言，先坚持 $b(s)$ 最稳妥。
 
-第一，把整条总回报硬塞给每个时间步。这样虽然公式上可以成立，但会把与当前动作无关的早期或后期奖励也记在该动作头上，噪声明显更大。reward-to-go 几乎总是更合理。
+第三，忘了这是 on-policy。旧策略采样的数据不能随便混进新策略更新，否则梯度方向会偏。很多训练发散不是公式错，而是数据分布错。
 
-第二，把 baseline 写成和动作相关的量，却又按“无偏 baseline”来理解。无偏结论成立的前提是 baseline 对动作不显式依赖。若依赖动作，推导要重新做，不能直接套状态 baseline 的结论。高维机器人控制里有 action-dependent baseline 的研究，但那是专门设计过的方差缩减方法，不是随便加一个 $b(s,a)$ 就行。
+第四，episode 太长。因为每个动作都要等未来完整回报，时间跨度越长，信用分配越难。信用分配的白话解释是“最终奖励到底该记到前面哪个动作头上”。
 
-第三，episode 太长还坚持纯 Monte Carlo。比如一个 500 步游戏，每局结束才更新一次，训练信号既晚又吵。你会看到 loss 看起来在变，但策略质量提升很慢。此时问题不一定是代码错，更可能是方法边界到了。
+第五，学习率过大。REINFORCE 更新本身噪声就大，如果再配高学习率，概率分布会迅速塌缩到单一动作，探索直接消失。
 
-第四，把值网络 baseline 当成“越准越好”，却忽略训练稳定性。baseline 理论上不改变期望梯度，但如果值网络训练严重漂移，实际优化过程仍会变差，因为 advantage 分布会乱，导致策略更新尺度异常。
+下面这张表能概括工程上的取舍：
 
-一个简单经验是：如果你发现 REINFORCE 必须靠非常小的学习率、非常大的 batch 才能不炸，通常说明应该考虑 Actor-Critic 或 PPO，而不是继续在纯 Monte Carlo 上硬调参。
+| 方法 | 方差 | 样本效率 | 实现成本 | 适用情况 |
+|---|---|---|---|---|
+| 原始 REINFORCE | 高 | 低 | 低 | 教学、玩具任务、验证公式 |
+| REINFORCE + baseline | 中 | 低到中 | 中 | 大多数可复现实验 |
+| 更强方差缩减方法 | 低 | 中 | 高 | 长时序、高维动作、昂贵采样 |
+
+一个实际判断标准是：如果你发现同一套超参下，不同随机种子结果差异巨大，平均回报曲线忽上忽下，通常不是网络不够大，而是方差控制不够。
 
 ---
 
 ## 替代方案与适用边界
 
-REINFORCE 适合作为策略梯度入门方法和小规模基线方法，但在中大型工程里，常见替代方案通常更实用。
+REINFORCE 值得学，但不一定值得长期直接用在生产级强化学习任务里。
 
-| 方法 | 样本效率 | 稳定性 | 实现复杂度 | 适用场景 |
-|---|---|---|---|---|
-| REINFORCE | 低 | 一般到较差 | 低 | 教学、简单任务、原型验证 |
-| Actor-Critic | 中 | 中到较好 | 中 | 中长时序任务、需要更频繁更新 |
-| PPO | 较高 | 较好 | 中到较高 | 工程主流、需要稳健训练 |
-| TRPO | 中 | 较好 | 高 | 强约束更新、研究型使用 |
+如果任务很简单，episode 短，环境可以便宜地反复采样，那么 vanilla REINFORCE 足够。它的优势是实现极简，推导透明，调试时容易定位“公式错”还是“代码错”。
 
-Actor-Critic 的核心改进是：不再完全依赖整条 episode 的 Monte Carlo 回报，而是用 critic，也就是值函数估计器，去近似未来回报，再构造优势函数更新 actor。这样会引入一些偏差，但通常能显著降低方差，整体更好训。
+如果任务较复杂，最常见替代方案是 Actor-Critic。critic 的白话解释是“专门估计状态价值或优势的辅助网络”。它用估计值替代纯 Monte Carlo 回报，虽然会引入一些偏差，但通常显著降低方差、提升样本效率。A2C、A3C、PPO 本质上都在这条路线上。
 
-PPO 则进一步在更新规则上加约束。它不是简单做一步梯度上升，而是限制新旧策略差异别太大，避免一次更新把策略推坏。对于真实工程，这种“每步别走太猛”的机制很重要。
+如果任务是高维连续控制，比如机械臂抓取、灵巧手操作、长时间稳定控制，那么纯 REINFORCE 往往太浪费样本。每条轨迹都很长，单次采样昂贵，回报延迟又强，这时更适合 Actor-Critic 或带更强控制变量的策略梯度方法。
 
-看一个具体对比。假设你在训练一个 500 步游戏角色。REINFORCE 要等整局结束才能算完整回报，然后更新一次。如果中途第 16 步已经明显暴露出好坏趋势，REINFORCE 也只能等。而 PPO 常见做法是每收集一小段 rollout 就开始更新，不必一直等到 episode 完结。这能明显降低训练延迟，也能提高数据利用率。
+可以用一个简单选择表判断：
 
-所以边界可以概括成一句话：
+| 场景 | 推荐方法 |
+|---|---|
+| 教学、推导、极小实验 | vanilla REINFORCE |
+| 想保留无偏梯度但降低波动 | REINFORCE + state baseline |
+| 长轨迹、昂贵采样、需要更快收敛 | Actor-Critic / PPO |
+| 高维动作且方差特别大 | 更强的方差缩减策略梯度 |
 
-- 如果目标是理解“策略梯度到底在优化什么”，用 REINFORCE。
-- 如果目标是把一个稍微复杂的任务训起来，优先 Actor-Critic 或 PPO。
-- 如果动作空间高维、episode 很长、奖励稀疏，纯 REINFORCE 通常不是首选。
+所以 REINFORCE 的定位很清楚：它不是终点，而是理解策略梯度家族的起点。把它学明白，后面看 advantage、critic、GAE、PPO 时就不会只记结论，不懂来路。
 
 ---
 
 ## 参考资料
 
-- Williams, R. J. “Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning.” 用于理解 REINFORCE 原始提出方式与经典公式推导。https://link.springer.com/article/10.1007/BF00992696
-- Sutton, R. S., and Barto, A. G. *Reinforcement Learning: An Introduction* (Second Edition). 用于系统理解 policy gradient、baseline、actor-critic 的教材。http://incompleteideas.net/book/the-book-2nd.html
-- OpenAI. “Variance reduction for policy gradient with action-dependent factorized baselines.” 用于理解高维动作空间中的高级方差缩减设计。https://openai.com/index/variance-reduction-for-policy-gradient-with-action-dependent-factorized-baselines/
+| 标题 | 年份 | 用途 | 链接 |
+|---|---:|---|---|
+| Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning | 1992 | REINFORCE 原始论文 | DOI: 10.1007/BF00992696 |
+| REINFORCE - Monte Carlo Policy Gradient | 2025 更新 | 复现策略梯度与 baseline 推导 | https://parasdahal.com/notes/reinforce%2B-%2Bmonte%2Bcarlo%2Bpolicy%2Bgradient |
+| REINFORCE Policy Gradient Agent | 持续更新 | 工程实现与 on-policy/Monte Carlo 边界说明 | https://www.mathworks.com/help/reinforcement-learning/ug/reinforce-policy-gradient-agents.html |
+| Fair classification via Monte Carlo policy gradient method | 2021 | 真实工程例子：非可微公平约束优化 | https://doi.org/10.1016/j.engappai.2021.104398 |
+| Variance Reduction for Policy Gradient with Action-Dependent Factorized Baselines | 2018 | 进阶方差缩减与高维动作场景 | https://openai.com/index/variance-reduction-for-policy-gradient-with-action-dependent-factorized-baselines/ |
