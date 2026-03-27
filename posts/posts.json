@@ -1,5 +1,17 @@
 [
   {
+    "title": "损失函数总览：分类、回归、排序",
+    "slug": "loss-functions-overview",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "基础",
+      "选择指南"
+    ],
+    "summary": "按任务类型先定损失大类，再按噪声、类别不平衡和采样难度细化选择。"
+  },
+  {
     "title": "SAC",
     "slug": "sac-maximum-entropy",
     "date": "2026-03-27",

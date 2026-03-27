@@ -8886,7 +8886,7 @@
       "选择指南"
     ],
     "brief": "分类：交叉熵、Focal Loss、Label Smoothing。回归：MSE、MAE、Huber Loss。排序：Triplet Loss、Contrastive Loss。选择依据：任务类型、数据分布、优化难度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Focal Loss：难样本的加权",
