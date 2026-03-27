@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linux 网络编程：Socket、epoll",
+    "slug": "linux-network-socket-epoll",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "网络",
+      "Linux"
+    ],
+    "summary": "socket 抽象连接，epoll 降低海量连接等待成本，ET 必须非阻塞并读写到 EAGAIN"
+  },
+  {
     "title": "梯度裁剪：防止梯度爆炸",
     "slug": "gradient-clipping",
     "date": "2026-03-27",

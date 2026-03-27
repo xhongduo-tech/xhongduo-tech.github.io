@@ -9165,7 +9165,7 @@
       "稳定性"
     ],
     "brief": "RNN/Transformer 训练中的梯度爆炸。按值裁剪：clip(g, -c, c)。按范数裁剪：g × c / ||g||。裁剪阈值的选择。对训练动态的影响。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "梯度检查点（Gradient Checkpointing）",
@@ -9213,7 +9213,7 @@
       "Linux"
     ],
     "brief": "Socket 编程：TCP 连接建立、数据收发。阻塞 vs 非阻塞 IO。select/poll/epoll 的演进。epoll 的边缘触发与水平触发。高并发服务器设计模式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TCP/IP 协议栈详解",
