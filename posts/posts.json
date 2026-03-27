@@ -1,5 +1,17 @@
 [
   {
+    "title": "对抗训练：提高模型鲁棒性的训练方法",
+    "slug": "adversarial-training-deep-learning",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "对抗训练",
+      "鲁棒性"
+    ],
+    "summary": "对抗训练通过最坏扰动优化提升鲁棒性，但计算与调参成本显著增加"
+  },
+  {
     "title": "训练后处理：模型评估与部署准备",
     "slug": "post-training-processing",
     "date": "2026-03-27",
