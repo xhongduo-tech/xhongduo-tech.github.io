@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型服务框架：TGI、vLLM 与 TensorRT-LLM 对比",
+    "slug": "llm-serving-frameworks-comparison",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "模型部署",
+      "服务框架"
+    ],
+    "summary": "TGI重服务化，vLLM重显存调度，TensorRT-LLM重NVIDIA极致加速，三者适合不同推理目标"
+  },
+  {
     "title": "多任务学习：共享表示与任务特定头",
     "slug": "multi-task-learning-deep-learning",
     "date": "2026-03-27",

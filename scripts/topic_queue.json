@@ -29482,7 +29482,7 @@
       "服务框架"
     ],
     "brief": "主流大模型服务框架：Text Generation Inference (TGI)、vLLM、TensorRT-LLM。各框架的核心特性：批处理能力、内存管理、推理加速、生态集成。性能对比：吞吐量、延迟、资源利用率。部署方式：Docker 容器、Kubernetes 集群、云服务。各框架的适用场景与最佳实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推理加速技术：KV Cache、 speculative decoding 与 PagedAttention",
