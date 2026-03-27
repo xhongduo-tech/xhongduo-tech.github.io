@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型更新与版本控制：无缝部署与回滚",
+    "slug": "model-update-version-control",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "版本控制",
+      "部署"
+    ],
+    "summary": "模型更新要把版本、灰度、监控和回滚做成闭环，才能安全上线与快速恢复"
+  },
+  {
     "title": "多模型服务：模型路由与版本管理",
     "slug": "multi-model-serving-strategies",
     "date": "2026-03-27",
