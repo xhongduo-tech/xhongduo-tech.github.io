@@ -1,5 +1,19 @@
 [
   {
+    "title": "学习率调度策略",
+    "slug": "learning-rate-scheduling-comprehensive",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "学习率",
+      "优化策略",
+      "训练治理",
+      "分布式训练"
+    ],
+    "summary": "学习率调度决定训练先快后稳，Warmup-稳定-衰减是大模型最实用范式"
+  },
+  {
     "title": "梯度累积与梯度检查点：内存优化技术",
     "slug": "gradient-accumulation-checkpointing",
     "date": "2026-03-27",

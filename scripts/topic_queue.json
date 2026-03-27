@@ -29290,7 +29290,7 @@
       "分布式训练"
     ],
     "brief": "学习率调度的重要性：影响训练稳定性和最终性能。常见调度策略：constant、step decay、exponential decay、cosine annealing、warmup + cosine annealing。Transformer 原始论文的学习率公式：lr = d_model^{-0.5} · min(step^{-0.5}, step·warmup^{-1.5})。学习率调度的实现方法和最佳实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "权重衰减与正则化：理论与实践",
