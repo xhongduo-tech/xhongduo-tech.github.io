@@ -9057,7 +9057,7 @@
       "工具"
     ],
     "brief": "工具 Schema：JSON Schema 定义输入输出。参数验证与类型转换。错误处理与重试。工具描述的最佳实践。工具组合与编排。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多 Agent 协作模式实战",

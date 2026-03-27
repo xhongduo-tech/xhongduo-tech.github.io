@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 的工具定义规范",
+    "slug": "agent-tool-definition-spec",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Agent",
+      "工具"
+    ],
+    "summary": "工具 Schema 是 Agent 与外部世界的执行契约，输入输出和错误策略都要显式定义。"
+  },
+  {
     "title": "构建私有知识库 RAG",
     "slug": "build-private-knowledge-rag",
     "date": "2026-03-27",
