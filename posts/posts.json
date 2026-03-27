@@ -1,5 +1,17 @@
 [
   {
+    "title": "自动扩缩容：基于指标的弹性伸缩",
+    "slug": "auto-scaling-strategies",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "自动扩缩容",
+      "弹性伸缩"
+    ],
+    "summary": "自动扩缩容本质是按目标指标驱动副本数调整，并靠边界与稳定机制避免抖动。"
+  },
+  {
     "title": "安全部署：网络隔离与访问控制",
     "slug": "secure-deployment-network-isolation",
     "date": "2026-03-27",
