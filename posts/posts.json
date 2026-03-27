@@ -1,5 +1,17 @@
 [
   {
+    "title": "性能测试与基准评估：从实验室到生产",
+    "slug": "performance-testing-benchmarking",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "性能测试",
+      "基准评估"
+    ],
+    "summary": "性能测试的核心是用一致场景、稳定基线和生产灰度验证，把实验室数字变成可靠的上线判断。"
+  },
+  {
     "title": "模型导出与格式转换：ONNX、TorchScript 与 TensorRT",
     "slug": "model-export-format-conversion",
     "date": "2026-03-27",
