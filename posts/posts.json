@@ -1,5 +1,17 @@
 [
   {
+    "title": "多任务学习：共享表示与任务特定头",
+    "slug": "multi-task-learning-deep-learning",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "多任务学习",
+      "迁移学习"
+    ],
+    "summary": "多任务学习用共享骨干加任务头，在参数效率与泛化之间取得更优平衡。"
+  },
+  {
     "title": "自监督学习：从对比学习到掩码建模",
     "slug": "self-supervised-learning-comprehensive",
     "date": "2026-03-27",
