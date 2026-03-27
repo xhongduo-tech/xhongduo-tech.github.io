@@ -29734,7 +29734,7 @@
       "格式转换"
     ],
     "brief": "模型导出的目的：跨平台部署、性能优化、减少依赖。常用模型格式：ONNX、TorchScript、TensorRT、TFLite。模型导出的流程：训练模型 → 导出为中间格式 → 优化 → 部署。不同格式的优缺点：ONNX（通用性强）、TorchScript（PyTorch 原生）、TensorRT（NVIDIA 硬件优化）。格式转换的工具与最佳实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "边缘计算与模型部署：从云到端",
