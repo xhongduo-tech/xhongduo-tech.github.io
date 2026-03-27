@@ -1,5 +1,18 @@
 [
   {
+    "title": "依存句法与成分句法：两种句法分析范式",
+    "slug": "dependency-vs-constituency-parsing",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "句法分析",
+      "结构化预测"
+    ],
+    "summary": "成分句法看短语层级，依存句法看词间关系，算法选择取决于结构需求与延迟约束"
+  },
+  {
     "title": "子词分词：BPE、WordPiece 与 Unigram 对比",
     "slug": "subword-tokenization-bpe-wordpiece-unigram",
     "date": "2026-03-27",
