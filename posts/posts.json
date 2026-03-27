@@ -1,5 +1,17 @@
 [
   {
+    "title": "ZeRO 优化：内存高效的分布式训练",
+    "slug": "zero-optimization-deepspeed",
+    "date": "2026-03-27",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "内存优化"
+    ],
+    "summary": "ZeRO 通过分片优化器、梯度和参数，把数据并行的显存冗余降到接近 1/N。"
+  },
+  {
     "title": "红队测试流程：从攻击面建模到案例复盘",
     "slug": "red-teaming-process-for-llms",
     "date": "2026-03-27",

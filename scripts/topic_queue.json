@@ -29264,7 +29264,7 @@
       "内存优化"
     ],
     "brief": "ZeRO（Zero Redundancy Optimizer）：通过分片优化器状态、梯度和参数来减少内存使用。ZeRO-1（优化器状态分片）、ZeRO-2（梯度分片）、ZeRO-3（参数分片）的工作原理。ZeRO 与混合精度训练的结合。ZeRO-Offload：将部分计算卸载到 CPU 内存。DeepSpeed 中的 ZeRO 实现与性能优化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度累积与梯度检查点：内存优化技术",
