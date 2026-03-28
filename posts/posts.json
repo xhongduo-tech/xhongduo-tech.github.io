@@ -1,5 +1,17 @@
 [
   {
+    "title": "多语言统一分词",
+    "slug": "nlp-token-multilingual-unified-tokenization",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "多语言统一分词的关键是用大词表加平滑采样，在容量受限下平衡高低资源语言覆盖。"
+  },
+  {
     "title": "GloVe的全局共现矩阵",
     "slug": "nlp-emb-glove-global-cooccurrence",
     "date": "2026-03-28",
