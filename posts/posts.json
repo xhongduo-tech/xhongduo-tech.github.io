@@ -1,5 +1,18 @@
 [
   {
+    "title": "相对位置编码",
+    "slug": "relative-positional-encoding-t5",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码",
+      "相对位置"
+    ],
+    "summary": "T5把相对距离映射为注意力偏置，用固定大小的bucket表建模“离我多远”。"
+  },
+  {
     "title": "MoE的量化挑战",
     "slug": "arch-moe-moe-quantization-challenges",
     "date": "2026-03-28",
