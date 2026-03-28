@@ -9814,7 +9814,7 @@
       "Transformer"
     ],
     "brief": "Decoder-only Transformer 前向传播路径：Token IDs → Embedding(V×d) → 逐层 [Pre-RMSNorm → RoPE 注意力(Q=xW_Q, K=xW_K, V=xW_V, 输出=softmax(QKᵀ/√d_k·causal_mask)V·W_O) → 残差加 → Pre-RMSNorm → SwiGLU FFN → 残差加] → 最终 RMSNorm → LM Head(d×V)。FLOP 分布：FFN 约 67%，注意力 QKV 投影约 25%，Score 矩阵约 8%。KV Cache 显存：每层每 token 约 4×d bytes（FP16），LLaMA-2-7B（32 层 d=128 per head，GQA 8 组）推理时每 1K token KV Cache 约 512MB。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Pre-Norm vs Post-Norm的梯度流分析",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer的完整前向传播",
+    "slug": "arch-transformer-transformer-forward-pass-complete",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Decoder-only Transformer前向的关键是Pre-RMSNorm、RoPE、残差与KV Cache的…"
+  },
+  {
     "title": "拉普拉斯变换",
     "slug": "math-calc-laplace-transform",
     "date": "2026-03-28",
