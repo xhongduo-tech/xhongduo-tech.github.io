@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的负载均衡",
+    "slug": "arch-moe-moe-load-balancing",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE"
+    ],
+    "summary": "MoE负载失衡源于路由正反馈，常用辅助损失、噪声、温度与共享专家来抑制专家坍缩"
+  },
+  {
     "title": "DeepSeek-MoE的架构创新",
     "slug": "arch-moe-deepseek-moe-architecture",
     "date": "2026-03-28",

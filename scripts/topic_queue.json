@@ -10045,7 +10045,7 @@
       "MoE"
     ],
     "brief": "专家负载不均的核心原因：路由器梯度强化高频专家，形成正反馈循环。三种缓解方案：①辅助损失（Load Balancing Loss）推动均匀分布；②路由器噪声（Noisy Top-K）：给 logits 加 Gaussian 噪声 N(0,1/N²) 增加随机性；③温度调节：降低 softmax 温度使分布更均匀但牺牲专业化。DeepSeekMoE 用共享专家隔离通用知识，缓解不均压力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Choice Routing",
