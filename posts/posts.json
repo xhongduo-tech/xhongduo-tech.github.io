@@ -1,5 +1,17 @@
 [
   {
+    "title": "常微分方程基础",
+    "slug": "math-calc-ode-basics",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "ODE 关注解的存在、唯一与可计算性；工程上核心是 Lipschitz 条件与合适的数值解器选择"
+  },
+  {
     "title": "重积分与变量代换",
     "slug": "math-calc-multiple-integrals-change-variables",
     "date": "2026-03-28",

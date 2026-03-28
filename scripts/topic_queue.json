@@ -9770,7 +9770,7 @@
       "微积分"
     ],
     "brief": "常微分方程（ODE）：dy/dt = f(t,y)。Picard-Lindelöf 存在唯一性定理：若 f 在 Lipschitz 条件下局部有界，则初值问题局部唯一解存在。数值方法：欧拉法（一阶，误差 O(h)）；Runge-Kutta 4（RK4，四阶精度，误差 O(h⁴)）；自适应步长 RK45（`scipy.solve_ivp` 的默认选择）。在深度学习中：ResNet 的残差连接 x_{t+1}=x_t+f(x_t) 是欧拉法离散化 ODE；神经 ODE（Chen et al. 2018）将残差连接连续化为 dh/dt=f(h,t,θ)，用 ODE solver 前向计算，伴随方法（adjoint method）高效反向传播，参数量减少至 O(depth)→O(1)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "傅里叶级数与变换",
