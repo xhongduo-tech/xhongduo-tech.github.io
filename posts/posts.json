@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度检查点（Gradient Checkpointing）",
+    "slug": "gradient-checkpointing",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化",
+      "显存"
+    ],
+    "summary": "梯度检查点通过重算中间激活换显存，常把激活占用从O(n)降到O(√n)。"
+  },
+  {
     "title": "Jordan标准型",
     "slug": "math-la-jordan-canonical-form",
     "date": "2026-03-28",
