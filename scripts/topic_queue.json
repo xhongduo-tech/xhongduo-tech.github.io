@@ -9825,7 +9825,7 @@
       "Transformer"
     ],
     "brief": "Pre-Norm（层归一化在残差支路前）：x_{l+1}=x_l+F(LN(x_l))，梯度通路直达早期层（∂L/∂x_l 含恒等项），训练稳定，无需 Warmup。Post-Norm（归一化在残差后）：x_{l+1}=LN(x_l+F(x_l))，表示能力更强，但梯度在深层衰减快，GPT-1/BERT 用此方案均需精心调参。实验对比：Pre-Norm 在 12 层以上稳定性远优于 Post-Norm；Post-Norm 在相同层数下 BLEU 高约 0.5-1 分（深层信息利用更充分）。LLaMA/Mistral 均采用 Pre-RMSNorm，Sandwich-LN（DeepNet）则通过缩放初始化让 Post-Norm 恢复稳定性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer的参数量计算",

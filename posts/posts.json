@@ -1,5 +1,17 @@
 [
   {
+    "title": "Pre-Norm vs Post-Norm的梯度流分析",
+    "slug": "arch-transformer-prenorm-postnorm-gradient-flow",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Pre-Norm靠残差恒等项保梯度稳定，Post-Norm上限可更高但深层更难训"
+  },
+  {
     "title": "Transformer的参数量计算",
     "slug": "arch-transformer-transformer-parameter-count",
     "date": "2026-03-28",
