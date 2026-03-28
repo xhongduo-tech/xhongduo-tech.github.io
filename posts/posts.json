@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度裁剪：防止梯度爆炸",
+    "slug": "gradient-clipping",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化",
+      "稳定性"
+    ],
+    "summary": "梯度裁剪通过限制更新步长抑制梯度爆炸，范数裁剪最常用于RNN和Transformer训练。"
+  },
+  {
     "title": "拉格朗日对偶",
     "slug": "math-opt-lagrangian-duality",
     "date": "2026-03-27",
@@ -302,18 +314,6 @@
       "Linux"
     ],
     "summary": "socket 抽象连接，epoll 降低海量连接等待成本，ET 必须非阻塞并读写到 EAGAIN"
-  },
-  {
-    "title": "梯度裁剪：防止梯度爆炸",
-    "slug": "gradient-clipping",
-    "date": "2026-03-27",
-    "author": "both",
-    "tags": [
-      "模型训练",
-      "优化",
-      "稳定性"
-    ],
-    "summary": "梯度裁剪通过限制异常大梯度，避免训练发散或出现NaN。"
   },
   {
     "title": "LLM 应用的压测与调优",
