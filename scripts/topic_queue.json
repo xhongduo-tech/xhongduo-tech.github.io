@@ -10410,7 +10410,7 @@
       "分词"
     ],
     "brief": "中文无天然空格边界，主流策略有三：字级（每汉字=1 token）、词级（jieba切词后BPE）、子词字节级BPE。BERT-base-chinese采用字级（21128 token词表），实验表明字级与词级在大多数NLU任务上差距<1%，且避免了切词错误传播。GPT-4的cl100k词表约1.8字/token；LLaMA-3的128K词表约1.5字/token，已接近字级效率上限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多语言统一分词",

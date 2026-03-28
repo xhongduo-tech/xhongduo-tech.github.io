@@ -1,5 +1,17 @@
 [
   {
+    "title": "中文分词的特殊处理",
+    "slug": "nlp-token-chinese-tokenization",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "中文分词本质是无空格条件下的稳定编码，工程上通常以字级为底、子词为辅。"
+  },
+  {
     "title": "分词与模型性能的关系",
     "slug": "nlp-token-tokenization-model-performance",
     "date": "2026-03-28",
