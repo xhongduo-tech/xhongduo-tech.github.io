@@ -1,5 +1,17 @@
 [
   {
+    "title": "可学习位置编码的局限",
+    "slug": "arch-pos-learnable-pos-encoding-limits",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "LPE简单但不具备自然外推与平移泛化，长上下文任务通常应优先考虑RoPE或ALiBi"
+  },
+  {
     "title": "位置编码的消融实验",
     "slug": "arch-pos-position-encoding-ablation",
     "date": "2026-03-28",
