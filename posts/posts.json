@@ -1,5 +1,17 @@
 [
   {
+    "title": "2D位置编码",
+    "slug": "arch-pos-2d-position-encoding",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "2D位置编码解决二维token的空间歧义；分辨率会变时，RoPE和ALiBi通常比绝对位置更稳。"
+  },
+  {
     "title": "Encoder-only架构详解",
     "slug": "arch-variant-encoder-only-architecture",
     "date": "2026-03-28",
