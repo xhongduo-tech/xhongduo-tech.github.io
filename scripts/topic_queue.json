@@ -10267,7 +10267,7 @@
       "架构变体"
     ],
     "brief": "PaLM（Pathway Language Model，Google 2022）540B 参数，采用的架构创新：①并行 FFN+Attention（并行而非串行），将 Attn 和 FFN 的输入都连接到残差，节省 15% wall-time；②MQA（Multi-Query Attention）：Q 多头，K/V 单头共享，推理 KV Cache 减少 n_heads 倍；③SwiGLU 激活；④RoPE 位置编码；⑤无偏置项；⑥词表 256K（覆盖多语言）。训练规模：6144 TPU v4 芯片（相当于 ~768 个节点），Pathways 框架处理跨 pod 通信。效果：PaLM 在 BIG-bench 上首次展示「跨越临界点」的涌现行为——8B→62B→540B 的性能跳跃远超线性。PaLM-2 将词表扩至 256K，混合更多多语言数据，MMLU 58.0%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaMA的架构细节",

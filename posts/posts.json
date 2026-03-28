@@ -1,5 +1,17 @@
 [
   {
+    "title": "PaLM的架构选择",
+    "slug": "arch-variant-palm-architecture-choices",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "PaLM的核心不是单纯增参，而是并行block与MQA让超大模型更易训练和部署"
+  },
+  {
     "title": "UL2的统一预训练目标",
     "slug": "arch-variant-ul2-unified-pretraining",
     "date": "2026-03-28",
