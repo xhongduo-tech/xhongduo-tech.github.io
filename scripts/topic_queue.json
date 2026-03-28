@@ -9748,7 +9748,7 @@
       "微积分"
     ],
     "brief": "重积分（多维积分）计算 Rⁿ 空间上函数的体积/质量，通过 Fubini 定理拆解为逐维积分。变量代换：∫f(x)dx = ∫f(g(u))|det J_g(u)|du，Jacobian 行列式 |det J| 修正面积/体积缩放比例。高斯积分：∫_{-∞}^{∞}e^{-x²}dx=√π 的多维推广是概率归一化的核心。在机器学习中：变分推断中的期望 E_q[f(z)] 是高维积分，通常用蒙特卡洛近似；概率扩散模型的训练目标是高维边缘分布积分；Normalizing Flow 的密度计算 log p(x) = log p(z) + log|det(∂z/∂x)| 直接用到多维积分的 Jacobian 变换。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "曲线积分与曲面积分",

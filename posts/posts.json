@@ -1,5 +1,17 @@
 [
   {
+    "title": "重积分与变量代换",
+    "slug": "math-calc-multiple-integrals-change-variables",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "重积分靠逐维累加，变量代换靠 Jacobian 修正尺度，二者是概率模型计算的基础"
+  },
+  {
     "title": "雅可比矩阵与隐函数定理",
     "slug": "math-calc-jacobian-implicit-function",
     "date": "2026-03-28",
