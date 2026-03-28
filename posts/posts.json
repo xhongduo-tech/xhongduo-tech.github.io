@@ -1,5 +1,17 @@
 [
   {
+    "title": "GloVe的全局共现矩阵",
+    "slug": "nlp-emb-glove-global-cooccurrence",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "嵌入"
+    ],
+    "summary": "GloVe先统计全局共现，再拟合log共现值，用加权最小二乘学稳定词向量"
+  },
+  {
     "title": "Word2Vec的神经网络视角",
     "slug": "nlp-emb-word2vec-neural-view",
     "date": "2026-03-28",
