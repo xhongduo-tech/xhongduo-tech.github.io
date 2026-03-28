@@ -1,5 +1,17 @@
 [
   {
+    "title": "次梯度与次梯度法",
+    "slug": "math-opt-subgradient-methods",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "次梯度把不可微点变成可更新集合，通用但慢；有结构时优先近端方法。"
+  },
+  {
     "title": "ADMM算法",
     "slug": "math-opt-admm-algorithm",
     "date": "2026-03-28",
