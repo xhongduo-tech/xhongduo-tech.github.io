@@ -10101,7 +10101,7 @@
       "MoE"
     ],
     "brief": "MoE 推理优化面临两个核心挑战：①所有专家权重需驻留内存（内存受限而非计算受限）；②batch size 小时 GPU 利用率低（仅激活 2/N 专家，大量 CUDA core 闲置）。主要优化方向：①Expert offloading：将冷专家 offload 到 CPU/NVMe，按需 prefetch；②专家预测（Expert prediction）：用轻量预测器提前 1-2 步预测路由结果，并行加载专家权重；③Expert compression：对不常用专家量化至 INT4，常用专家保持 FP16（adaptive quantization）；④FlashMoE：融合 gather/GEMM/scatter 操作为单一 kernel，消除中间 buffer；⑤Tensor Parallel for experts：跨卡分割单个专家的 FFN 权重。Mixtral 8x7B 在 A100 上 batch=1 时仅约 10 tok/s，优化后可达 35-50 tok/s。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的量化挑战",

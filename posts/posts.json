@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的推理优化",
+    "slug": "arch-moe-moe-inference-optimization",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE"
+    ],
+    "summary": "MoE推理优化的本质，是用卸载、预测、量化和核融合把随机专家访问改造成连续流水线。"
+  },
+  {
     "title": "Mixtral 8x7B的架构分析",
     "slug": "arch-moe-mixtral-8x7b-analysis",
     "date": "2026-03-28",
