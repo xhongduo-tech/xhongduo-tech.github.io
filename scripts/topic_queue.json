@@ -9759,7 +9759,7 @@
       "微积分"
     ],
     "brief": "曲线积分（第一类：弧长加权；第二类：向量场做功）和曲面积分是向量微积分的核心。三大定理统一了边界与体内积分的关系：Green 定理（二维）∮P dx+Q dy=∬(∂Q/∂x-∂P/∂y)dA；Stokes 定理（三维曲面）∮F·dr=∬(∇×F)·dS；Gauss 散度定理 ∯F·dS=∭div(F)dV。在深度学习中：物理信息神经网络（PINN）的损失函数包含偏微分方程残差，Gauss 散度定理用于边界条件的弱形式；神经 ODE（continuous normalizing flow）中的轨迹积分利用了曲线积分的离散化；图神经网络的消息传递与 Stokes 定理在流形上的离散化有深刻联系。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "常微分方程基础",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "曲线积分与曲面积分",
+    "slug": "math-calc-line-surface-integrals",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "曲线积分算路径累计，曲面积分算法向通量，三大定理把内部导数与边界积分统一起来"
+  },
+  {
     "title": "常微分方程基础",
     "slug": "math-calc-ode-basics",
     "date": "2026-03-28",
