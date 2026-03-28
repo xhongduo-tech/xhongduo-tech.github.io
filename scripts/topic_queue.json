@@ -10157,7 +10157,7 @@
       "位置编码"
     ],
     "brief": "YaRN（Yet another RoPE extensioN）在 NTK-aware 基础上增加两个改进：①频率分组插值：高频维度（θ > t_high）保持不变，低频维度（θ < t_low）线性插值，中频维度 NTK 缩放，各组阈值 t_low=1, t_high=32（经验值）；②注意力温度缩放：将 softmax 温度乘以 0.1×ln(s)+1（s=扩展比例），补偿长序列时熵增导致的注意力发散。效果：LLaMA-2 7B（原训练 4096）经 400 步 fine-tune（10B token）即可在 64K 长度表现良好，PPL 接近在 64K 上直接预训练的水平。与 LongRoPE 对比：LongRoPE 非均匀搜索每个维度的最优插值系数，效果略优但搜索代价高。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "可学习位置编码的局限",
@@ -10190,7 +10190,7 @@
       "位置编码"
     ],
     "brief": "长上下文位置编码的三种主流策略：①Fine-tuning 插值（PI/YaRN）：在目标长度数据上少量训练（1-10B token），将 θ 整体缩放使已见最大旋转角度覆盖新长度；②动态 NTK（inference-time）：每次推理时根据当前实际序列长度动态计算缩放因子，无需 fine-tune 但精度损失约 5-10%；③位置跳跃（position interpolation skip）：将长文档分块，块间用跳跃位置 ID（如 0..1023, 4096..5119）强制低频维度外推，块内保持密集编码。工程实践：Qwen-Long/Kimi-128K/Claude 200K 均采用方案①的变体，配合 training recipe 变化（seq length curriculum）；llama.cpp 的 yarn_ext 实现了方案②，无额外代价。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "2D位置编码",

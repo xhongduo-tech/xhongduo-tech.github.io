@@ -1,5 +1,17 @@
 [
   {
+    "title": "长上下文的位置编码策略",
+    "slug": "arch-pos-long-context-pos-encoding",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "长上下文扩展本质是重设RoPE坐标系，主流路线是PI/YaRN微调、动态NTK补丁和PoSE跳跃编号。"
+  },
+  {
     "title": "YaRN长度外推",
     "slug": "arch-pos-yarn-length-extrapolation",
     "date": "2026-03-28",
