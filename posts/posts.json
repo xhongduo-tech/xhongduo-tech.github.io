@@ -1,5 +1,17 @@
 [
   {
+    "title": "Longformer的局部+全局注意力",
+    "slug": "arch-attention-longformer-local-global",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "Longformer用局部滑窗降复杂度，再用少量全局token补足长程依赖。"
+  },
+  {
     "title": "BigBird的块稀疏注意力",
     "slug": "arch-attention-bigbird-block-sparse",
     "date": "2026-03-28",

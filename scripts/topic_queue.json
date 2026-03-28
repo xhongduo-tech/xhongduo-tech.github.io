@@ -9957,7 +9957,7 @@
       "注意力机制"
     ],
     "brief": "Longformer 组合两种注意力模式：①局部窗口注意力（Local）：每个 token 关注左右 w/2 个邻居，O(n·w)；②全局注意力（Global）：特定 token（[CLS]、问题 token）与所有位置双向注意，处理全局任务理解。设计比例：4096 长度文档中约 10-50 个全局 token，其余全部用 Local。硬件优化：Longformer 实现了 CUDA kernel 使局部注意力中 K/V 按 chunk 排布，比朴素稀疏矩阵快 10×。典型性能：Longformer-base 在 4096 token 上速度比 RoBERTa-full-attention 快 3×，同时在文档级 NLP 任务（WikiHop、TriviaQA）上提升 2-5 F1 分。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BigBird的块稀疏注意力",
