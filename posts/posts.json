@@ -1,5 +1,17 @@
 [
   {
+    "title": "复变函数与留数定理",
+    "slug": "math-calc-complex-analysis-residue",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "解析性约束复函数结构，留数定理把闭路积分化为奇点局部求和。"
+  },
+  {
     "title": "泰勒展开与误差估计",
     "slug": "math-calc-taylor-expansion-error",
     "date": "2026-03-28",
