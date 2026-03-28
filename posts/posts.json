@@ -1,5 +1,17 @@
 [
   {
+    "title": "Grouped-Query Attention (GQA)",
+    "slug": "arch-attention-grouped-query-attention",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "GQA 通过让多个 Query 头共享分组 KV，在接近 MHA 质量下显著压缩 KV cache。"
+  },
+  {
     "title": "Sliding Window Attention",
     "slug": "sliding-window-attention",
     "date": "2026-03-28",

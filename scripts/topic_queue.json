@@ -9935,7 +9935,7 @@
       "注意力机制"
     ],
     "brief": "GQA（Grouped-Query Attention）将 Q 头分成 G 组，每组共享一套 KV，G=1 退化为 MQA，G=h 退化为 MHA。LLaMA-2/3、Mistral 取 G=8（32 个 Q head → 8 组 KV）。相比 MQA 质量损失更小（<0.5%），KV Cache 节省 h/G 倍。GQA 权重可由 MHA checkpoint 通过 mean-pool 初始化，实现无损升级。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sliding Window Attention",
