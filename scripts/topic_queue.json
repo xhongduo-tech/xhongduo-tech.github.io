@@ -10079,7 +10079,7 @@
       "MoE"
     ],
     "brief": "DeepSeekMoE 的两项创新：①细粒度专家：将 N 个大专家拆分为 mN 个小专家，Top-K 扩大为 Top-mK，保持相同激活 FLOP 但提升路由灵活性；②共享专家：固定激活 1-2 个专家存储通用知识，剩余专家专注差异化特征，解决信息冗余问题。DeepSeek-MoE 16B：总参数 16B，激活参数 2.4B，对比同激活参数的稠密模型性能提升约 5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixtral 8x7B的架构分析",

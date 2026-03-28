@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepSeek-MoE的架构创新",
+    "slug": "arch-moe-deepseek-moe-architecture",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE"
+    ],
+    "summary": "DeepSeek-MoE用细粒度专家加共享专家，在相近激活成本下提升了专家分工效率。"
+  },
+  {
     "title": "Expert Choice Routing",
     "slug": "arch-moe-expert-choice-routing-token-allocation",
     "date": "2026-03-28",
