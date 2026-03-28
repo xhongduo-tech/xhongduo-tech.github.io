@@ -10300,7 +10300,7 @@
       "架构变体"
     ],
     "brief": "Qwen 系列（阿里巴巴）架构演进：Qwen 1.5/2 使用 GQA、QK-Norm（在 Q/K 注意力投影后添加 RMSNorm 防止 logit 爆炸）、词表 152K（tiktoken 扩展，中文压缩率高 20%）。Qwen2.5 7B 关键配置：28 层，d=3584，28 头（GQA 4 组），FFN 隐=18944，词表 152K，ctx 支持 128K（YaRN 插值）。独特设计：①Dual Chunk Attention：将长序列按 chunk 切分，chunk 内全注意，chunk 间稀疏（类 SWA 但可训练 chunk 边界注意）；②QK-Norm 在多语言混合训练中显著稳定训练（中英日韩混合数据的梯度方差更大）。性能：Qwen2.5-72B 在 MMLU 86.1%、HumanEval 86.6%，接近 GPT-4o。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gemma的架构分析",

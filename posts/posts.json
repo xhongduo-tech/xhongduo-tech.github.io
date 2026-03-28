@@ -1,5 +1,17 @@
 [
   {
+    "title": "Qwen的架构特点",
+    "slug": "arch-variant-qwen-architecture-features",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "Qwen 的特点不是换掉 Transformer，而是用 GQA、QK-Norm、YaRN 和分块长注意力把长上下文做…"
+  },
+  {
     "title": "Mistral的架构设计",
     "slug": "arch-variant-mistral-architecture-design",
     "date": "2026-03-28",
