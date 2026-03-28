@@ -10256,7 +10256,7 @@
       "架构变体"
     ],
     "brief": "UL2（Unified Language Learner，Tay et al. 2022）通过混合去噪预训练目标统一生成和理解：三类 Denoiser 模式——R-Denoiser（类似 T5 短 span）、S-Denoiser（前缀 LM 模式）、X-Denoiser（大范围文本去噪）。模式选择器 Token：[S2S]、[NLG]、[NLU] 前缀控制推理时使用哪种模式。效果：UL2 20B 在 FLAN 微调后在 MMLU 上达到 52.3%，优于同参数 T5（48.1%）和 GPT-3 175B（51.7%）。关键发现：任务多样性（而非特定预训练目标）是 Few-shot 能力的主要来源；Denoiser 混合训练在生成和理解任务上均提升约 2-5%。后继：Flan-UL2（指令微调版）是 Google 开源的强力基础模型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PaLM的架构选择",

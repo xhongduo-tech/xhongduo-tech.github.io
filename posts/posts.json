@@ -1,5 +1,17 @@
 [
   {
+    "title": "UL2的统一预训练目标",
+    "slug": "arch-variant-ul2-unified-pretraining",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "UL2用多种去噪目标和模式token，把理解、续写、重建统一进同一套预训练框架。"
+  },
+  {
     "title": "Encoder-Decoder架构详解",
     "slug": "arch-variant-encoder-decoder-architecture",
     "date": "2026-03-28",
