@@ -1,5 +1,18 @@
 [
   {
+    "title": "Expert Choice Routing",
+    "slug": "arch-moe-expert-choice-routing-token-allocation",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE",
+      "路由机制"
+    ],
+    "summary": "Expert Choice 让专家按容量主动选 token，自然缓解负载失衡，但排序与通信成本更高。"
+  },
+  {
     "title": "Top-K路由策略",
     "slug": "arch-moe-moe-topk-routing",
     "date": "2026-03-28",

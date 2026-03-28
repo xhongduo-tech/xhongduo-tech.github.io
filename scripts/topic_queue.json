@@ -10057,7 +10057,7 @@
       "路由机制"
     ],
     "brief": "Expert Choice 将分配视角从 token-centric 转为 expert-centric，可缓解热门 token 争抢同一专家问题。其优势在负载均衡更自然，但实现复杂度与排序成本更高。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的训练稳定性",
