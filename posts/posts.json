@@ -1,5 +1,17 @@
 [
   {
+    "title": "分词与模型性能的关系",
+    "slug": "nlp-token-tokenization-model-performance",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "词表大小决定序列压缩与嵌入开销的平衡，最优点来自两者折中。"
+  },
+  {
     "title": "特殊Token的设计",
     "slug": "nlp-token-special-tokens-design",
     "date": "2026-03-28",
