@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度下降的收敛性分析",
+    "slug": "math-opt-gradient-descent-convergence",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "梯度下降的收敛速度由光滑性、凸性与条件数共同决定，强凸线性收敛，凸为O(1/t)，非凸只保一阶稳定。"
+  },
+  {
     "title": "随机梯度下降的收敛性",
     "slug": "math-opt-sgd-convergence-analysis",
     "date": "2026-03-28",
