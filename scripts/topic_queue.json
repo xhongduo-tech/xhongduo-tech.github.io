@@ -9660,7 +9660,7 @@
       "信息论"
     ],
     "brief": "交叉熵 H(p,q)=-Σp(x)log q(x) = H(p) + D_KL(p‖q) ≥ H(p)，等号成立当 p=q。语言模型训练使用交叉熵损失：L=-（1/N）Σlog P_θ(xₜ|x_{<t})，即最小化数据分布 p 与模型 q_θ 的交叉熵。困惑度 PPL=exp(L)=exp(-（1/N）Σlog P(xₜ|x_{<t}))，可理解为模型平均分支因子：PPL=100 表示每步模型对 100 个等可能 token 感到「困惑」。不同分词方式影响 PPL：字符级 PPL 通常低于词级（词表更小），跨模型比较需用 bits-per-byte（BPB）归一化。GPT-3 在 WikiText-103 上 PPL≈20，而简单 n-gram 约 50-100。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据处理的KL视角",

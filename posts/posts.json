@@ -1,5 +1,17 @@
 [
   {
+    "title": "交叉熵与困惑度",
+    "slug": "math-info-cross-entropy-perplexity",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "交叉熵衡量模型对真实数据的平均惊讶度，困惑度是其指数化后的等效分支数。"
+  },
+  {
     "title": "信道容量与编码定理",
     "slug": "math-info-channel-capacity-coding",
     "date": "2026-03-28",
