@@ -1,5 +1,17 @@
 [
   {
+    "title": "Flash Attention 2的优化",
+    "slug": "arch-attention-flash-attention-2-optimization",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "FlashAttention-2 通过延后归一化、Q 外层并行和 causal 块跳过，把精确注意力做得更接近 GPU…"
+  },
+  {
     "title": "Linformer的低秩投影",
     "slug": "arch-attention-linformer-low-rank-projection",
     "date": "2026-03-28",

@@ -10012,7 +10012,7 @@
       "注意力机制"
     ],
     "brief": "FlashAttention-2 针对 v1 的三项改进：①减少非矩阵乘的 FLOP（v1 中 softmax rescale 占 35% 非矩阵运算，v2 重排为 1 次）；②将 Q 的循环放外层、K/V 放内层，利用 Q 的并行性；③支持 causal mask 的早停优化，跳过下三角 0 块。A100 上达到 ~72% 的理论 MFU（v1 约 35%）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的基础架构",
