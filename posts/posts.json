@@ -1,5 +1,17 @@
 [
   {
+    "title": "动量方法的加速机制",
+    "slug": "math-opt-momentum-acceleration",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "NAG 通过在预测点算梯度实现前瞻纠偏，在高条件数问题上通常比普通动量收敛更快、更稳。"
+  },
+  {
     "title": "梯度下降的收敛性分析",
     "slug": "math-opt-gradient-descent-convergence",
     "date": "2026-03-28",

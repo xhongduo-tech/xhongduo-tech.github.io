@@ -9528,7 +9528,7 @@
       "优化理论"
     ],
     "brief": "Polyak 动量（HB）：v_{t+1}=βv_t - η∇f(x_t)，x_{t+1}=x_t+v_{t+1}，β=0.9 是常见选择。Nesterov 加速梯度（NAG）在动量预测点处计算梯度：g=∇f(x_t+βv_t)，使梯度信息更前瞻，理论上凸函数收敛率从 O(1/t) 加速至 O(1/t²)（Nesterov 最优性）。强凸函数时两者均可达到线性收敛，NAG 的系数 (√κ-1)/(√κ+1) 比标准 GD 的 (κ-1)/(κ+1) 更小，收敛更快。在深度学习中，AdamW 集成了 EMA 形式的动量（一阶矩），实验上 NAG 比 Polyak 动量在 Transformer 训练中快约 10-15%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "牛顿法与拟牛顿法",
