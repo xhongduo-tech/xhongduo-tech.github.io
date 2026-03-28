@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixtral 8x7B的架构分析",
+    "slug": "arch-moe-mixtral-8x7b-analysis",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE"
+    ],
+    "summary": "Mixtral 8x7B保留Transformer主干，只把FFN替换为8专家Top-2 MoE，实现大容量低激活。"
+  },
+  {
     "title": "MoE的训练稳定性",
     "slug": "arch-moe-moe-training-stability",
     "date": "2026-03-28",

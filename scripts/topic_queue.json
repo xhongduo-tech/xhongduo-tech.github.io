@@ -10090,7 +10090,7 @@
       "MoE"
     ],
     "brief": "Mixtral 8x7B：标准 Transformer 架构，只将 FFN 替换为 MoE（8 个专家，Top-2 路由），其余（注意力、归一化）不变。关键数值：总参数 46.7B（8×7B FFN 参数），每 token 激活参数 12.9B（≈ 2 个专家 FFN + 所有共享注意力权重）；32 层，d_model=4096，32 注意力头（GQA 8 组），序列长度 32768。性能：在 MMLU/HumanEval/GSM8K 等基准上优于 LLaMA-2-70B，接近 GPT-3.5，激活参数仅为 70B 的 18%。量化部署：INT4 量化后约 24GB，可在单张 A100 80GB 上以约 32 tok/s 推理。局限：8 个专家参数全部驻留内存（需要 48GB+ 显存 FP16），不如稠密模型显存高效。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的推理优化",
