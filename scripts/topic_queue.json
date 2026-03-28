@@ -10001,7 +10001,7 @@
       "注意力机制"
     ],
     "brief": "线性注意力用核函数 k(q,k) 替代 softmax(qᵀk)：注意力 = Σⱼk(q,kⱼ)vⱼ / Σⱼk(q,kⱼ)。关联矩阵分解：设 k(q,k)=φ(q)ᵀφ(k)，则 Attn(Q,K,V) = D⁻¹·(φ(Q)·(φ(K)ᵀV))，利用矩阵乘法结合律将复杂度从 O(n²d) 降至 O(nd²)。自回归推理时等价为 RNN（循环状态 S_t=S_{t-1}+φ(kₜ)vₜᵀ），O(1) 时间解码，成为 RetNet/GLA 的理论基础。实际问题：简单 ELU 核的线性注意力性能显著差于 softmax（困惑度差 5-20%），原因是 softmax 的 normalization 约束使注意力具有锐化聚焦能力，而线性核缺乏此特性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Flash Attention 2的优化",

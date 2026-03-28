@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linear Attention的矩阵分解",
+    "slug": "arch-attention-linear-attention-matrix",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "线性注意力靠核分解与结合律降复杂度，但表达力通常弱于softmax。"
+  },
+  {
     "title": "Flash Attention 2的优化",
     "slug": "arch-attention-flash-attention-2-optimization",
     "date": "2026-03-28",
