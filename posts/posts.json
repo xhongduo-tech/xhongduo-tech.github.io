@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linformer的低秩投影",
+    "slug": "arch-attention-linformer-low-rank-projection",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "Linformer用低秩投影压缩K/V，把注意力复杂度从O(n²)降到O(nk)，适合编码器长序列任务"
+  },
+  {
     "title": "Performer的随机特征方法",
     "slug": "arch-attention-performer-random-features",
     "date": "2026-03-28",
