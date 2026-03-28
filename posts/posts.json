@@ -1,5 +1,17 @@
 [
   {
+    "title": "BigBird的块稀疏注意力",
+    "slug": "arch-attention-bigbird-block-sparse",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "BigBird用局部、全局、随机三类块稀疏连接，把长序列注意力从平方复杂度降到近似线性。"
+  },
+  {
     "title": "Grouped-Query Attention (GQA)",
     "slug": "arch-attention-grouped-query-attention",
     "date": "2026-03-28",

@@ -9968,7 +9968,7 @@
       "注意力机制"
     ],
     "brief": "BigBird 使用三种注意力模式的混合：①Random attention（随机连接，每 token 随机关注 r 个全局 token，r=3）；②Local window attention（窗口大小 3-7）；③Global token attention（前几个 token 全局连接）。理论保证：三者组合构成 sparse graph，满足「sparse attention 是 Turing complete」的条件（BigBird 论文核心结论），可近似全注意力。实现细节：Block sparse 矩阵（每 block 64×64），GPU 上 block sparse GEMM 比元素级 sparse 快 5-10×。典型应用：BigBird 支持 4096 token，在基因组序列分析（DNA 长序列）和长文档问答上优于 Longformer 约 3-5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linformer的低秩投影",
