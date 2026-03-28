@@ -1,5 +1,17 @@
 [
   {
+    "title": "信息论与泛化误差",
+    "slug": "math-info-information-theory-generalization",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "泛化误差可视为模型对训练集记忆量的函数，正则化本质是在限制信息流入参数。"
+  },
+  {
     "title": "数据处理的KL视角",
     "slug": "math-info-data-processing-kl-view",
     "date": "2026-03-28",
