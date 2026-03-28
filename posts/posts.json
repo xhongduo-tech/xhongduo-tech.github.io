@@ -1,5 +1,17 @@
 [
   {
+    "title": "近端梯度法",
+    "slug": "math-opt-proximal-gradient-method",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "近端梯度法把光滑下降与非光滑结构约束分开处理，是稀疏优化的基础工具。"
+  },
+  {
     "title": "牛顿法与拟牛顿法",
     "slug": "math-opt-newton-quasi-newton",
     "date": "2026-03-28",

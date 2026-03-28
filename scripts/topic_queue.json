@@ -9550,7 +9550,7 @@
       "优化理论"
     ],
     "brief": "近端算子：prox_{αg}(x) = argmin_z {g(z) + (1/2α)‖z-x‖²}，将不可微正则化项 g 的优化分离为简单子问题。对 L1 正则化 g(z)=λ‖z‖₁，近端算子为软阈值：prox(x)ᵢ=sign(xᵢ)·max(|xᵢ|-λα,0)；对 L2，prox(x)=x/(1+λα)。近端梯度法（ISTA）：xₜ₊₁=prox_{αg}(xₜ-α∇f(xₜ))，收敛率 O(1/t)。FISTA（Fast ISTA）引入 Nesterov 动量加速至 O(1/t²)。在 PEFT（如 LoRA 剪枝）和稀疏注意力中，稀疏性约束通常通过近端算子或近端更新来实施。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ADMM算法",
