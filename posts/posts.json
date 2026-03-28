@@ -1,5 +1,17 @@
 [
   {
+    "title": "KL散度的信息论解释",
+    "slug": "math-info-kl-divergence-information",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "KL散度衡量错用近似分布的额外信息代价，方向性决定模式覆盖还是模式寻求。"
+  },
+  {
     "title": "香农熵的数学性质",
     "slug": "math-info-shannon-entropy-properties",
     "date": "2026-03-28",

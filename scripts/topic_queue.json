@@ -9605,7 +9605,7 @@
       "信息论"
     ],
     "brief": "KL 散度 D_KL(p‖q)=Σp(x)log(p(x)/q(x)) ≥ 0（Gibbs 不等式），等号成立当且仅当 p=q；非对称性 D_KL(p‖q)≠D_KL(q‖p)。前向 KL（inclusive）最小化：D_KL(p‖q)→ q 覆盖 p 的全部支持域，模式覆盖（mode-covering）；反向 KL（exclusive）最小化：D_KL(q‖p)→ q 聚焦 p 的主要模式，模式寻求（mode-seeking）。VAE 的 ELBO：-E_q[log p(x|z)] + D_KL(q(z|x)‖p(z))，KL 项鼓励后验接近标准正态先验。DPO 的损失推导也涉及 KL 散度：惩罚策略偏离参考模型的 KL 散度项 D_KL(π_θ‖π_ref) 出现在 RLHF 目标函数中。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "互信息与特征选择",
