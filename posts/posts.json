@@ -1,5 +1,17 @@
 [
   {
+    "title": "自然梯度与Fisher信息矩阵",
+    "slug": "math-opt-natural-gradient-fisher",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "自然梯度用 Fisher 定义局部 KL 几何，本质是按分布变化而非参数数值做最速下降。"
+  },
+  {
     "title": "次梯度与次梯度法",
     "slug": "math-opt-subgradient-methods",
     "date": "2026-03-28",

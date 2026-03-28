@@ -9583,7 +9583,7 @@
       "优化理论"
     ],
     "brief": "自然梯度考虑参数空间的黎曼度量：Fisher 信息矩阵 F(θ)=E[∇log p(x|θ)∇log p(x|θ)ᵀ] 度量参数变化对分布的影响。自然梯度更新：θ_{t+1}=θ_t - η·F(θ)⁻¹∇L，等价于在分布空间（KL 度量下）最速下降，不受参数化方式影响（参数化不变性）。TRPO 的约束优化 max J(θ) s.t. KL(π_old‖π_new)≤δ，一阶近似给出自然策略梯度。实际挑战：F 的计算 O(n²p)、求逆 O(p³) 代价高昂。K-FAC（Kronecker-factored Approximate Curvature）用 Kronecker 积近似 F，使大规模自然梯度实用化，在 Transformer 预训练加速约 20-40%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "香农熵的数学性质",
