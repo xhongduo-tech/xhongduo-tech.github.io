@@ -10289,7 +10289,7 @@
       "架构变体"
     ],
     "brief": "Mistral 7B 在 LLaMA 架构基础上两项关键改进：①Sliding Window Attention（SWA）：每层 attention window=4096，通过 32 层叠加实际接受域约 131K token，显存随序列长度恒定（非 O(n)）；②GQA（8 组 KV 头）：相比全 MHA 节省推理 KV Cache 4×，同等推理成本下支持更大 batch。具体配置：32 层，d=4096，32 注意力头（GQA 8 组），FFN 隐层=14336，词表=32000，RoPE。性能：Mistral 7B 在 MMLU/HumanEval 上优于 LLaMA-2 13B（参数量少 46%），推理吞吐量约高 40%。Mistral NeMo 12B（2024）：词表扩至 131K（Tekken tokenizer，特别针对代码和多语言），ctx=128K，在相同参数下 benchmark 全面领先。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Qwen的架构特点",
