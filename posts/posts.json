@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer的FLOP计算",
+    "slug": "arch-transformer-transformer-flop-calculation",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Transformer单层前向主项是24BND²+4BN²D，KV Cache只把解码中的注意力重算从平方降到线性。"
+  },
+  {
     "title": "Pre-Norm vs Post-Norm的梯度流分析",
     "slug": "arch-transformer-prenorm-postnorm-gradient-flow",
     "date": "2026-03-28",

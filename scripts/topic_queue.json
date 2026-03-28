@@ -9847,7 +9847,7 @@
       "Transformer"
     ],
     "brief": "Transformer 前向传播 FLOP 计算：注意力 QKV 投影 6Bsd²，attention score BMN（N=序列长，s=头数），FFN 16Bsd²，总 ≈ 24Bsd²（B=batch）。注意力的 O(n²d) 来自 score 矩阵的 n×n 规模。KV Cache 推理阶段将注意力 FLOP 从 O(n²) 降至 O(n)，每 token 计算量约 2Nd²（N=已生成长度）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "注意力机制的尺度缩放",
