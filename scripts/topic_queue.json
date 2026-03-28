@@ -10123,7 +10123,7 @@
       "位置编码"
     ],
     "brief": "ALiBi（Attention with Linear Biases）：在注意力 score 中加线性偏置 -m×|i-j|（m 为头相关斜率，按等比数列设置），无可学习参数。相对距离越大惩罚越重，天然编码相对位置。关键优势：训练 1024 token，推理可外推至 2048+ 而 perplexity 不显著上升（RoPE 外推时 PPL 通常崩溃）。代价：对超长上下文（>8K）表现弱于 YaRN/RoPE。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "相对位置编码",

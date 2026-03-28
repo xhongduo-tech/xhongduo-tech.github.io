@@ -1,5 +1,17 @@
 [
   {
+    "title": "ALiBi位置编码",
+    "slug": "arch-pos-alibi-position-encoding",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "ALiBi用线性距离惩罚替代位置向量，低成本支持中等长度外推，但不适合超长上下文。"
+  },
+  {
     "title": "相对位置编码",
     "slug": "relative-positional-encoding-t5",
     "date": "2026-03-28",
