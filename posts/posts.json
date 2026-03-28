@@ -1,5 +1,17 @@
 [
   {
+    "title": "WordPiece分词算法",
+    "slug": "nlp-token-wordpiece-tokenization",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "WordPiece按似然增益合并子词，在控制词表规模的同时减少OOV。"
+  },
+  {
     "title": "Unigram Language Model分词",
     "slug": "nlp-token-unigram-lm-tokenization",
     "date": "2026-03-28",

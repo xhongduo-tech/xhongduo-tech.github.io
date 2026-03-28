@@ -10333,7 +10333,7 @@
       "分词"
     ],
     "brief": "WordPiece以似然最大化为目标，选择合并后使语言模型训练数据对数似然增益最大的符号对，即选score=freq(AB)/(freq(A)×freq(B))最大的pair；这与BPE的纯频率贪婪合并形成对比。BERT采用WordPiece（词表30522 tokens），非词首子词以“##”前缀标注，如“playing”→[\"play\",\"##ing\"]。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Unigram Language Model分词",
