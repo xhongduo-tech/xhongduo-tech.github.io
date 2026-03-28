@@ -10344,7 +10344,7 @@
       "分词"
     ],
     "brief": "Unigram LM从大词表出发逐步裁剪：假设子词独立，候选分词序列的概率为∏P(x_i)，用EM算法估计子词概率；每轮删除使总损失增加最少的子词，直至词表缩减到目标大小。与BPE的贪婪合并相反，Unigram自上而下剪枝，天然支持多候选分词，配合Viterbi解码找最优切分，是SentencePiece的默认后端之一。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SentencePiece的设计理念",

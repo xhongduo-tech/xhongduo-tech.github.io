@@ -1,5 +1,17 @@
 [
   {
+    "title": "Unigram Language Model分词",
+    "slug": "nlp-token-unigram-lm-tokenization",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "Unigram分词先建大词表，再用EM估计概率并按似然损失剪枝，最终得到固定大小的高质量子词表"
+  },
+  {
     "title": "BPE算法的完整实现",
     "slug": "nlp-token-bpe-algorithm-implementation",
     "date": "2026-03-28",
