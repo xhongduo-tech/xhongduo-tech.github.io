@@ -1,5 +1,17 @@
 [
   {
+    "title": "Encoder-only架构详解",
+    "slug": "arch-variant-encoder-only-architecture",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "Encoder-only 用双向注意力一次编码全文，强在理解、检索和排序，不强在长文本生成"
+  },
+  {
     "title": "长上下文的位置编码策略",
     "slug": "arch-pos-long-context-pos-encoding",
     "date": "2026-03-28",

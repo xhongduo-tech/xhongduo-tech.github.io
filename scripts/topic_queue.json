@@ -10212,7 +10212,7 @@
       "架构变体"
     ],
     "brief": "Encoder-only 架构（代表：BERT/RoBERTa/DeBERTa）使用双向自注意力（无因果掩码），每个 token 可关注全序列。关键特性：①预训练任务 MLM（15% token 替换/掩盖，非自回归）；②CLS token 聚合全文语义，适合分类/检索；③双向上下文理解能力强于 Decoder-only（实体识别 F1 高约 5%，但无法生成文本）。参数效率对比：BERT-base 110M 参数，BERT-large 340M；RoBERTa 去掉 NSP 任务、更多数据，GLUE 提升约 2-3%；DeBERTa 分解注意力（内容+位置独立计算），在 SuperGLUE 上超过 RoBERTa 约 3%。当前主要应用：嵌入模型（BGE/E5/GTE）和 reranker 模型仍广泛使用 Encoder-only 架构，不被 LLM 替代的原因是推理速度快（非自回归，一次 forward 得到全序列编码）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Decoder-only架构详解",
