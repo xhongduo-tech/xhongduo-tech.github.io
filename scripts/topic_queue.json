@@ -10366,7 +10366,7 @@
       "分词"
     ],
     "brief": "字节级BPE以256个UTF-8字节为初始词表，彻底消除OOV，任意Unicode文本均可表示。GPT-2首采此方案（词表50257 tokens），GPT-4的TikToken（cl100k_base）扩至100K。代价是非英文语言压缩效率显著偏低：同等文本中文token数约为英文的2-3倍，直接影响推理成本与上下文利用效率。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分词器的训练数据影响",

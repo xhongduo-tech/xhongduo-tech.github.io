@@ -1,5 +1,17 @@
 [
   {
+    "title": "字节级BPE",
+    "slug": "nlp-token-byte-level-bpe",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "字节级BPE用256个UTF-8字节消除OOV，但中文等多字节语言的token成本通常显著高于英文"
+  },
+  {
     "title": "WordPiece分词算法",
     "slug": "nlp-token-wordpiece-tokenization",
     "date": "2026-03-28",
