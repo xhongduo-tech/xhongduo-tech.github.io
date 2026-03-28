@@ -9836,7 +9836,7 @@
       "Transformer"
     ],
     "brief": "精确计算 Transformer 参数量是理解模型规模的基础：Embedding 层 V×d；注意力层每头 4 个投影矩阵（Q/K/V/O），多头时共 4d²；FFN 两层 d×4d + 4d×d；LayerNorm 2d；总参数量 ≈ 12Ld² + Vd（L=层数，V=词表大小）。GPT-3 175B 的来源即此公式推导。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer的FLOP计算",

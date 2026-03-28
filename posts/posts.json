@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer的参数量计算",
+    "slug": "arch-transformer-transformer-parameter-count",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Transformer参数量主项是12Ld²，加上词嵌入Vd即可估算绝大多数规模。"
+  },
+  {
     "title": "Transformer的完整前向传播",
     "slug": "arch-transformer-transformer-forward-pass-complete",
     "date": "2026-03-28",
