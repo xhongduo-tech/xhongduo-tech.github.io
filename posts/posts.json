@@ -1,5 +1,17 @@
 [
   {
+    "title": "多维随机变量与协方差",
+    "slug": "math-prob-multivariate-random-variables",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "联合分布决定边缘与独立性，协方差只刻画线性关系，VAE常用对角协方差做工程折中"
+  },
+  {
     "title": "正定矩阵与半正定矩阵",
     "slug": "math-la-positive-definite-matrix",
     "date": "2026-03-28",
