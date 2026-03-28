@@ -1,5 +1,17 @@
 [
   {
+    "title": "傅里叶级数与变换",
+    "slug": "math-calc-fourier-series-transform",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "傅里叶方法把信号拆成频率成分，连接了频谱分析、FFT 加速卷积和现代序列模型。"
+  },
+  {
     "title": "曲线积分与曲面积分",
     "slug": "math-calc-line-surface-integrals",
     "date": "2026-03-28",

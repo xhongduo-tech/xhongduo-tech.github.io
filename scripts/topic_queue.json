@@ -9781,7 +9781,7 @@
       "微积分"
     ],
     "brief": "傅里叶级数将周期函数展开为正交基 {sin(nωt),cos(nωt)}，Parseval 定理保证能量守恒。连续傅里叶变换 F(ω)=∫f(t)e^{-iωt}dt，性质：时域卷积=频域相乘（卷积定理）；时域微分=频域乘 iω。DFT（离散形式）及 FFT O(NlogN) 算法是信号处理的基础。在深度学习中：卷积神经网络通过 FFT 加速大核卷积（核大小 k≥32 时 FFT 卷积比 im2col 快）；FNet 用 FFT 替代 Transformer 的注意力层，保留 92% BERT 性能但速度快 7 倍；RoPE 位置编码的旋转矩阵在频域视角下是相位偏移；S4/Mamba 状态空间模型的高效计算依赖卷积定理进行并行扫描。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "拉普拉斯变换",
