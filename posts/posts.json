@@ -1,5 +1,17 @@
 [
   {
+    "title": "分词器的训练数据影响",
+    "slug": "nlp-token-tokenizer-training-data",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "分词器是否高效，核心取决于词表训练语料分布与词表规模权衡。"
+  },
+  {
     "title": "SentencePiece的设计理念",
     "slug": "nlp-token-sentencepiece-design",
     "date": "2026-03-28",
