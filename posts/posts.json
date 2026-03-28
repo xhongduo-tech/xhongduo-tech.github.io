@@ -1,5 +1,17 @@
 [
   {
+    "title": "特殊Token的设计",
+    "slug": "nlp-token-special-tokens-design",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "特殊Token本质是输入协议，负责聚合、分段、控制和隔离四类结构能力"
+  },
+  {
     "title": "分词器的训练数据影响",
     "slug": "nlp-token-tokenizer-training-data",
     "date": "2026-03-28",

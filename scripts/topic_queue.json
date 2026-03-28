@@ -10388,7 +10388,7 @@
       "分词"
     ],
     "brief": "BERT的[CLS]在序列首部充当全局语义聚合位置，最终隐状态接分类头；[SEP]标记句子边界，使模型区分NSP任务中的句对A与B。GPT系列用<|endoftext|>（token id 50256）标记文档边界，防止跨文档注意力泄漏。现代指令模型还引入<|im_start|>/<|im_end|>等对话控制token，pad token在注意力掩码中被显式屏蔽以避免参与注意力计算。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分词与模型性能的关系",
