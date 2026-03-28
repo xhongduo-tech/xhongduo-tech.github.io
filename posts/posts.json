@@ -1,5 +1,17 @@
 [
   {
+    "title": "拉普拉斯变换",
+    "slug": "math-calc-laplace-transform",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "拉普拉斯变换把连续时间微分问题转成频域代数问题，极点位置决定系统稳定性与记忆能力"
+  },
+  {
     "title": "复变函数与留数定理",
     "slug": "math-calc-complex-analysis-residue",
     "date": "2026-03-28",
