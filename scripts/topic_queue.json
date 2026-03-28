@@ -9616,7 +9616,7 @@
       "信息论"
     ],
     "brief": "互信息 I(X;Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)=H(X)+H(Y)-H(X,Y) ≥ 0，衡量 X 与 Y 的相互依赖程度，消除任意单调变换（参数化无关）。特征选择：互信息特征选择（MIFS）选择与标签 Y 互信息最大的特征，mRMR 同时最大化与标签的 MI、最小化特征间 MI（冗余）。神经网络中的互信息估计：MINE（Mutual Information Neural Estimation）用神经网络最大化 Donsker-Varadhan 下界；InfoNCE（SimCLR、CLIP）提供 MI 下界估计 I(X;Y) ≥ log(N)-L_InfoNCE。对比学习的理论基础：InfoNCE loss 最大化对应视图间 MI，是 self-supervised representation learning 的信息论核心。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "率失真理论",

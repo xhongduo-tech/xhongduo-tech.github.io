@@ -1,5 +1,17 @@
 [
   {
+    "title": "互信息与特征选择",
+    "slug": "math-info-mutual-information-feature-selection",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "互信息衡量变量依赖，MIFS看相关，mRMR再去冗余，InfoNCE与MINE把它扩展到表示学习。"
+  },
+  {
     "title": "KL散度的信息论解释",
     "slug": "math-info-kl-divergence-information",
     "date": "2026-03-28",
