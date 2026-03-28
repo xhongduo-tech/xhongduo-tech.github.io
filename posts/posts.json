@@ -1,5 +1,17 @@
 [
   {
+    "title": "正定矩阵与半正定矩阵",
+    "slug": "math-la-positive-definite-matrix",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "正定看所有方向都严格为正，半正定允许零方向；特征值、主子式与Cholesky可互证。"
+  },
+  {
     "title": "梯度检查点（Gradient Checkpointing）",
     "slug": "gradient-checkpointing",
     "date": "2026-03-28",
