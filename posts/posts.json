@@ -1,5 +1,17 @@
 [
   {
+    "title": "信道容量与编码定理",
+    "slug": "math-info-channel-capacity-coding",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "信道容量给出可靠通信上限，BSC 与 AWGN 容量公式是工程设计与信息传递分析的基础。"
+  },
+  {
     "title": "率失真理论",
     "slug": "math-info-rate-distortion-theory",
     "date": "2026-03-28",
