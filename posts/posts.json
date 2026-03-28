@@ -1,5 +1,17 @@
 [
   {
+    "title": "Word2Vec的神经网络视角",
+    "slug": "nlp-emb-word2vec-neural-view",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "嵌入"
+    ],
+    "summary": "Word2Vec本质是单隐层神经网络，靠局部上下文预测与负采样高效学出静态词向量。"
+  },
+  {
     "title": "中文分词的特殊处理",
     "slug": "nlp-token-chinese-tokenization",
     "date": "2026-03-28",

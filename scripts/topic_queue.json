@@ -10432,7 +10432,7 @@
       "嵌入"
     ],
     "brief": "Word2Vec是单隐层神经网络：one-hot输入→嵌入矩阵W（V×d）→d维隐藏表示→输出矩阵W'→softmax，训练后W的行即词向量。Skip-gram以中心词预测上下文，CBOW反之；负采样（NEG）用k个随机负例替代全词表softmax，训练速度提升约100倍。嵌入空间存在线性类比结构：v(king)-v(man)+v(woman)≈v(queen)，典型维度d=300。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GloVe的全局共现矩阵",
