@@ -1,5 +1,17 @@
 [
   {
+    "title": "信息瓶颈理论",
+    "slug": "math-info-information-bottleneck",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "信息瓶颈用互信息刻画“保留任务信息、压缩无关输入”的表示学习目标。"
+  },
+  {
     "title": "互信息与特征选择",
     "slug": "math-info-mutual-information-feature-selection",
     "date": "2026-03-28",
