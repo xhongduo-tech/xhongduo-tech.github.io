@@ -1,5 +1,17 @@
 [
   {
+    "title": "香农熵的数学性质",
+    "slug": "math-info-shannon-entropy-properties",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "香农熵度量平均不确定性，链式法则和互信息揭示条件信息、相关性与压缩极限。"
+  },
+  {
     "title": "自然梯度与Fisher信息矩阵",
     "slug": "math-opt-natural-gradient-fisher",
     "date": "2026-03-28",
