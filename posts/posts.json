@@ -1,5 +1,17 @@
 [
   {
+    "title": "Multi-Query Attention (MQA)",
+    "slug": "arch-attention-multi-query-attention",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "MQA用共享KV换显存和吞吐，核心收益在长上下文推理部署。"
+  },
+  {
     "title": "Transformer的Dropout策略",
     "slug": "arch-transformer-transformer-dropout-strategies",
     "date": "2026-03-28",
