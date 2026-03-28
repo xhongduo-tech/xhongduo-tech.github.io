@@ -10234,7 +10234,7 @@
       "架构变体"
     ],
     "brief": "Encoder-Decoder 架构（代表：T5/BART/mT5）：Encoder 双向处理输入（source），Decoder 单向生成输出（target），通过 cross-attention 连接（Decoder 的 Q 来自 target，K/V 来自 Encoder 输出）。优势：长输入短输出任务（翻译/摘要/问答）上参数效率高——Encoder 深度处理输入，Decoder 专注于生成；T5 11B 在机器翻译 WMT 上优于同参数量 Decoder-only 约 2-3 BLEU。劣势：KV Cache 需存储 Encoder 输出（内存开销等比于输入长度），生成速度不如 Decoder-only；Cross-attention 每层额外参数约 4d²，总参数比同层数 Decoder-only 多约 50%。当前趋势：Seq2Seq 任务逐渐被 Decoder-only LLM 接管（GPT-4 的翻译达到 T5 水平），但 Encoder-Decoder 在极低延迟场景（短文摘要 API）和专有任务（代码 diff）仍有优势。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Prefix LM架构",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Encoder-Decoder架构详解",
+    "slug": "arch-variant-encoder-decoder-architecture",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "Encoder-Decoder把输入理解与输出生成拆开，最适合长输入短输出的Seq2Seq任务。"
+  },
+  {
     "title": "Prefix LM架构",
     "slug": "arch-variant-prefix-lm-architecture",
     "date": "2026-03-28",
