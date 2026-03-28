@@ -1,5 +1,17 @@
 [
   {
+    "title": "ADMM算法",
+    "slug": "math-opt-admm-algorithm",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "ADMM通过交替更新原始变量与对偶变量，解决可分目标加线性耦合约束问题。"
+  },
+  {
     "title": "近端梯度法",
     "slug": "math-opt-proximal-gradient-method",
     "date": "2026-03-28",
