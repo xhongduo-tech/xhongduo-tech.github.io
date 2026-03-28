@@ -1,5 +1,17 @@
 [
   {
+    "title": "泰勒展开与误差估计",
+    "slug": "math-calc-taylor-expansion-error",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "泰勒展开把优化更新写成一阶下降加二阶曲率修正，步长、裁剪和二阶近似本质上都在控制误差。"
+  },
+  {
     "title": "傅里叶级数与变换",
     "slug": "math-calc-fourier-series-transform",
     "date": "2026-03-28",
