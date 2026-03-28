@@ -1,5 +1,17 @@
 [
   {
+    "title": "YaRN长度外推",
+    "slug": "arch-pos-yarn-length-extrapolation",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "YaRN用分频RoPE插值加注意力温度校正，把短上下文模型稳定扩到更长窗口。"
+  },
+  {
     "title": "可学习位置编码的局限",
     "slug": "arch-pos-learnable-pos-encoding-limits",
     "date": "2026-03-28",

@@ -10157,7 +10157,7 @@
       "位置编码"
     ],
     "brief": "YaRN（Yet another RoPE extensioN）在 NTK-aware 基础上增加两个改进：①频率分组插值：高频维度（θ > t_high）保持不变，低频维度（θ < t_low）线性插值，中频维度 NTK 缩放，各组阈值 t_low=1, t_high=32（经验值）；②注意力温度缩放：将 softmax 温度乘以 0.1×ln(s)+1（s=扩展比例），补偿长序列时熵增导致的注意力发散。效果：LLaMA-2 7B（原训练 4096）经 400 步 fine-tune（10B token）即可在 64K 长度表现良好，PPL 接近在 64K 上直接预训练的水平。与 LongRoPE 对比：LongRoPE 非均匀搜索每个维度的最优插值系数，效果略优但搜索代价高。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "可学习位置编码的局限",
