@@ -10023,7 +10023,7 @@
       "MoE"
     ],
     "brief": "MoE 由 N 个独立 FFN（专家）+ 一个路由器（router）组成，每个 token 只激活 Top-K 个专家（K=1 或 2），总参数量 N 倍增但 FLOP 不变。路由器输出 softmax 权重，取 Top-K 后对专家输出加权求和。稀疏激活的关键假设：不同 token 具有不同语义特征，由对应专家专门处理。负载均衡是核心挑战。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Top-K路由策略",
