@@ -10034,7 +10034,7 @@
       "MoE"
     ],
     "brief": "Top-K 路由的实现：router(x) = softmax(W_r × x)，取 top-k 索引和对应权重。负载均衡问题：若路由器过度集中，部分专家永远不被激活（expert collapse），有效专家数退化至 1。辅助损失 L_aux = α × sum(f_i × P_i)（f_i=专家实际负载比，P_i=路由概率均值）鼓励均匀分布。Switch Transformer 实验中 α=0.01 效果最佳。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE的负载均衡",

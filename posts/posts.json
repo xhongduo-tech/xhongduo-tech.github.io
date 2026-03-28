@@ -1,5 +1,17 @@
 [
   {
+    "title": "Top-K路由策略",
+    "slug": "arch-moe-moe-topk-routing",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE"
+    ],
+    "summary": "Top-K 路由通过稀疏激活降计算，配合负载均衡损失避免专家塌缩。"
+  },
+  {
     "title": "MoE的基础架构",
     "slug": "arch-moe-moe-basic-architecture",
     "date": "2026-03-28",
