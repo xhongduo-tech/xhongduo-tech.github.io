@@ -1,5 +1,17 @@
 [
   {
+    "title": "率失真理论",
+    "slug": "math-info-rate-distortion-theory",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "率失真理论给出有损压缩极限：在失真约束下，最少要保留多少信息。"
+  },
+  {
     "title": "信息瓶颈理论",
     "slug": "math-info-information-bottleneck",
     "date": "2026-03-28",
