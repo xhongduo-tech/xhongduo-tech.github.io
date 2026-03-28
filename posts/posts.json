@@ -1,5 +1,17 @@
 [
   {
+    "title": "Decoder-only架构详解",
+    "slug": "arch-variant-decoder-only-architecture",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "Decoder-only 以因果掩码统一理解与生成，优势在统一训练目标与高效缓存推理。"
+  },
+  {
     "title": "2D位置编码",
     "slug": "arch-pos-2d-position-encoding",
     "date": "2026-03-28",

@@ -10201,7 +10201,7 @@
       "位置编码"
     ],
     "brief": "2D 位置编码用于图像、视频、表格等二维输入的位置感知。主要方案：①分解式 2D RoPE（ViT）：x 方向和 y 方向各分配 d/2 维度，各自应用 1D RoPE；②可学习 2D 位置嵌入：h×w 个独立向量（ViT 原始方案，224×224/16² = 196 个 patch）；③2D ALiBi：行和列分别施加线性斜率偏置，适合文档版面分析；④VisionLLM 中动态分辨率处理：将高分辨率图像切分为 patch，按 row-major 顺序拼接为 1D 序列，用 1D RoPE 编码（InternVL-1.5 的动态分辨率策略，支持 1-6 个 sub-images 拼接）。关键数值：ViT-L 处理 448×448 图像时 patch 数量从 196 增至 784，显存和延迟增加 4×。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Encoder-only架构详解",
@@ -10223,7 +10223,7 @@
       "架构变体"
     ],
     "brief": "Decoder-only 架构（代表：GPT/LLaMA/Mistral）使用因果掩码单向自注意力，每个 token 只关注左侧 token。主导地位的原因：①统一了生成和理解（next token prediction 既是生成任务也是表示学习），无需任务特定预训练目标；②KV Cache 使自回归生成高效（每步增量 O(1) 而非 O(n)）；③Scaling Law 在 Decoder-only 上有更多验证数据。典型配置（LLaMA-2-7B）：32 层，d=4096，32 注意力头（GQA 4 组），FFN 隐层=11008（SwiGLU，约 2.67×d），词表=32000，ctx=4096，总参数=6.7B。推理效率：prefill 阶段吞吐量约 10-20× 单 token decode，两阶段分离（disaggregated prefill/decode）是生产部署的重要优化方向。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Encoder-Decoder架构详解",
