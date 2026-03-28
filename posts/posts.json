@@ -1,5 +1,17 @@
 [
   {
+    "title": "多元函数的极限与连续",
+    "slug": "math-calc-multivariate-limits-continuity",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "多元极限要求任意路径同趋一值，连续性是极限等于函数值，工程上直接关系到训练稳定性。"
+  },
+  {
     "title": "信息论在对比学习中的应用",
     "slug": "math-info-info-theory-contrastive-learning",
     "date": "2026-03-28",
