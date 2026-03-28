@@ -10245,7 +10245,7 @@
       "架构变体"
     ],
     "brief": "Prefix LM（前缀语言模型）介于 Encoder-only 和 Decoder-only 之间：prefix 部分（输入）使用全注意力（双向），suffix 部分（生成）使用因果注意力（单向）。掩码矩阵：prefix 内全 1（双向），prefix→suffix 因果，suffix 内因果。代表：GLM（General Language Model）；UniLM 用统一预训练混合不同掩码模式。T5 的 span corruption 也等价于在 Decoder 使用因果掩码时生成被掩盖的 span。优势：prefix 部分可充分利用双向上下文，对长 prompt 理解能力优于纯 Decoder-only；劣势：prefix 部分无法参与 KV Cache 的增量解码优化，适合 prompt 较短的场景。GLM-130B 实验显示 Prefix LM 在摘要任务上优于同参数 GPT 约 2-5 ROUGE。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "UL2的统一预训练目标",

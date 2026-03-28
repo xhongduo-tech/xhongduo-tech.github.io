@@ -1,5 +1,17 @@
 [
   {
+    "title": "Prefix LM架构",
+    "slug": "arch-variant-prefix-lm-architecture",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "Prefix LM用双向前缀加因果后缀，在理解与生成之间做结构化折中。"
+  },
+  {
     "title": "Decoder-only架构详解",
     "slug": "arch-variant-decoder-only-architecture",
     "date": "2026-03-28",
