@@ -10278,7 +10278,7 @@
       "架构变体"
     ],
     "brief": "LLaMA（Meta, 2023）的架构选择成为后续开源模型的事实标准：①Pre-RMSNorm（LN 前置，无 bias）；②SwiGLU FFN（三个投影矩阵，隐层 8/3×d 取近似整数）；③RoPE 位置编码；④无绝对位置 embedding；⑤词表 32K BPE。LLaMA-2 改进：GQA（8 组 KV 头 for 34B/70B）、ctx 增至 4096。LLaMA-3 进一步：词表扩至 128K（tiktoken BPE），ctx=8192，GQA 8 组（all sizes），GroupNorm→保留 RMSNorm。参数规模对比：LLaMA-1 7B（d=4096, 32层, 32头）vs LLaMA-2 7B（相同但 GQA 4组）vs LLaMA-3 8B（d=4096, 32层, GQA 8组, 词表 128K, 实际参数 8B）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mistral的架构设计",

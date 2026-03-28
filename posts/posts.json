@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLaMA的架构细节",
+    "slug": "arch-variant-llama-architecture-details",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "LLaMA 以 pre-RMSNorm、SwiGLU、RoPE 和 GQA 形成了兼顾训练稳定与推理成本的主流基线"
+  },
+  {
     "title": "PaLM的架构选择",
     "slug": "arch-variant-palm-architecture-choices",
     "date": "2026-03-28",
