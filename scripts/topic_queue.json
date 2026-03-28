@@ -10068,7 +10068,7 @@
       "MoE"
     ],
     "brief": "MoE 训练不稳定的三个来源：①路由器梯度消失（top-k 的 argmax 不可微，用 straight-through estimator）；②专家初始化差异导致路由偏向（用相同初始化 + 小随机扰动）；③router z-loss：惩罚 logits 过大 L_z = (1/B)Σ(log Σ exp(x_i))²，避免路由器输出极端值。GShard 实验显示 Router z-loss 可将训练 loss spike 频率降低 50%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSeek-MoE的架构创新",

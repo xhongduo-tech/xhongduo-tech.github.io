@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的训练稳定性",
+    "slug": "arch-moe-moe-training-stability",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE"
+    ],
+    "summary": "MoE训练失稳主要来自稀疏梯度、初始化偏置和logit漂移，z-loss负责压制路由器极端化。"
+  },
+  {
     "title": "MoE的负载均衡",
     "slug": "arch-moe-moe-load-balancing",
     "date": "2026-03-28",
