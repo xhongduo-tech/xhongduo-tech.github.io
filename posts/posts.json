@@ -1,5 +1,17 @@
 [
   {
+    "title": "位置编码的消融实验",
+    "slug": "arch-pos-position-encoding-ablation",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "位置编码决定 Transformer 的长度泛化，ALiBi 最稳，RoPE 需缩放，Learnable 不适合外推"
+  },
+  {
     "title": "旋转位置编码RoPE深入",
     "slug": "arch-pos-rope-deep-dive",
     "date": "2026-03-28",

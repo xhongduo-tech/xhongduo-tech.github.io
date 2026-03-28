@@ -10179,7 +10179,7 @@
       "位置编码"
     ],
     "brief": "位置编码消融关键数据（ROPE vs ALiBi vs Learnable vs Sinusoidal vs None）：①无位置编码（NoPE）在短序列上 PPL 仅比 RoPE 高 0.5-1（NoPE 模型依赖注意力模式的隐式位置推断）；②Sinusoidal 在超出训练长度时 PPL 上升约 10-30%；③ALiBi 外推 4× 时 PPL 上升 <1%；④RoPE 直接外推 2× 时 PPL 上升约 20%，NTK 缩放后降至 3%；⑤Learnable 位置编码在训练长度内与其他方案持平，但超长序列完全失效。实验设计建议：控制架构/数据/参数量，仅变换位置编码；评估 4 个长度：训练长度、1.5×、2×、4×；记录 PPL 和 passkey retrieval accuracy。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "长上下文的位置编码策略",
