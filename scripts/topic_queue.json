@@ -9539,7 +9539,7 @@
       "优化理论"
     ],
     "brief": "牛顿法：利用 Hessian ∇²f(x) 二阶信息，更新 x_{t+1}=x_t - [∇²f(x_t)]⁻¹∇f(x_t)，强凸时超线性收敛（局部二阶收敛率，误差平方缩小）。但 n 维问题 Hessian 计算 O(n²)、求逆 O(n³) 代价过大。BFGS 拟牛顿法：用秩2更新 B_{k+1}=B_k+... 逼近 H⁻¹，超线性收敛，计算 O(n²)。L-BFGS：只存储最近 m 步的 {sᵢ,yᵢ} 对（m=10-20），内存从 O(n²) 降至 O(mn)，两步递推计算 H⁻¹g。大模型中的应用：L-BFGS 在小规模 Fine-tuning 和二阶优化研究（K-FAC、Shampoo）中常作为基线。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "近端梯度法",

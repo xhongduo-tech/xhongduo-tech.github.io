@@ -1,5 +1,17 @@
 [
   {
+    "title": "牛顿法与拟牛顿法",
+    "slug": "math-opt-newton-quasi-newton",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "牛顿法最准确但代价高，BFGS与L-BFGS用更低成本逼近二阶信息。"
+  },
+  {
     "title": "动量方法的加速机制",
     "slug": "math-opt-momentum-acceleration",
     "date": "2026-03-28",
