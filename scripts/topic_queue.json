@@ -10311,7 +10311,7 @@
       "架构变体"
     ],
     "brief": "Gemma（Google DeepMind）架构特色：①GeGLU 激活（区别于 LLaMA 的 SwiGLU，GeGLU 用 GeLU 而非 Swish 门控，性能相近但平滑性略有差异）；②Logit Soft-capping：在最终 LM Head 前将 logits 除以 cap（30 或 50）再 tanh 再乘回，防止 logits 发散（Gemma 1/2 均使用）；③MQA or GQA（Gemma 2 用 GQA）；④Sliding Window Attention（Gemma 2 交替 SWA 和全注意力层）。Gemma 2 9B：42 层，8 个全注意 + 6×4 个 SWA，d=3584，每层交替不同注意类型。性能亮点：Gemma 2 9B 在 MMLU 71.3%（超越 Llama-3 8B 66.6%），Gemma 2 27B 与 LLaMA-3 70B 相当（参数量少 61%）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BPE算法的完整实现",

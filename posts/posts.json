@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gemma的架构分析",
+    "slug": "arch-variant-gemma-architecture-analysis",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "架构变体"
+    ],
+    "summary": "Gemma 2 的核心是 GeGLU、soft-capping、GQA 与局部/全局交替注意力。"
+  },
+  {
     "title": "Qwen的架构特点",
     "slug": "arch-variant-qwen-architecture-features",
     "date": "2026-03-28",
