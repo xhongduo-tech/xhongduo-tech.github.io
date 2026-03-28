@@ -1,5 +1,17 @@
 [
   {
+    "title": "SentencePiece的设计理念",
+    "slug": "nlp-token-sentencepiece-design",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "SentencePiece把空格也纳入建模，用统一子词框架解决多语言分词与部署一致性问题"
+  },
+  {
     "title": "字节级BPE",
     "slug": "nlp-token-byte-level-bpe",
     "date": "2026-03-28",

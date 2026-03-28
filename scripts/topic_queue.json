@@ -10355,7 +10355,7 @@
       "分词"
     ],
     "brief": "SentencePiece将原始文本（含空格）直接视为Unicode字节序列，用▁标记词首空格，从而实现语言无关的端到端分词，无需预先做词边界切分。内部支持BPE和Unigram LM两种算法；子词正则化在训练时对同一文本随机采样多种分词方案（alpha参数控制采样强度），起数据增强效果，可提升机器翻译BLEU约1-2个点。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "字节级BPE",
