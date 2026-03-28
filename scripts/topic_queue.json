@@ -9316,7 +9316,7 @@
       "线性代数"
     ],
     "brief": "若矩阵代数重数>几何重数则不可对角化，相似于Jordan标准型J=P^-1AP，由Jordan块J_k(λ)组成（对角线为λ，上次对角线为1）。最小多项式的每个因子(λ-λ_i)的最高幂次等于对应λ_i的最大Jordan块大小。矩阵指数e^A通过Jordan形计算：e^J=block-diag(e^{J_k})，e^{J_k(λ)}为上三角矩阵，是求解线性ODE系统dx/dt=Ax解析解的基础。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "正定矩阵与半正定矩阵",

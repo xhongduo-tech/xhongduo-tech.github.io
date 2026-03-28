@@ -1,5 +1,17 @@
 [
   {
+    "title": "Jordan标准型",
+    "slug": "math-la-jordan-canonical-form",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "线性代数"
+    ],
+    "summary": "Jordan标准型刻画不可对角化结构，并直接决定最小多项式与矩阵指数形式"
+  },
+  {
     "title": "梯度裁剪：防止梯度爆炸",
     "slug": "gradient-clipping",
     "date": "2026-03-28",
