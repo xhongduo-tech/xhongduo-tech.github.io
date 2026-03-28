@@ -9990,7 +9990,7 @@
       "注意力机制"
     ],
     "brief": "Performer 用正交随机特征（FAVOR+）近似 softmax 注意力核：softmax(qᵀk) ≈ φ(q)ᵀφ(k)，其中 φ 是随机特征映射（m 个随机向量，m~O(d·logd)）。核技巧允许将注意力分解为 (Qφ)·(Kφ)ᵀ·V，计算顺序先算 (Kφ)ᵀV（n×m·m×d=n×d），时间 O(n·m·d)，优于 O(n²·d)。正交随机特征的优势：与独立随机特征相比，方差降低 ~50%（相同 m 下精度更高）。实验：m=256 时在 Long Range Arena 基准上 Performer 与全注意力差距 <1%，n=8192 下速度快 5×。局限：近似误差是无偏但有方差，长序列任务上累积误差导致困惑度高于 Flash Attention。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linear Attention的矩阵分解",

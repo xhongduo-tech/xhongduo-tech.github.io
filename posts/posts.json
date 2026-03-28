@@ -1,5 +1,17 @@
 [
   {
+    "title": "Performer的随机特征方法",
+    "slug": "arch-attention-performer-random-features",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "Performer 用 FAVOR+ 把 softmax 注意力改写为随机特征内积，将长序列复杂度从平方级降到线性级。"
+  },
+  {
     "title": "Longformer的局部+全局注意力",
     "slug": "arch-attention-longformer-local-global",
     "date": "2026-03-28",
