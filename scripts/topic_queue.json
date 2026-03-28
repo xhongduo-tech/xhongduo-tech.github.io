@@ -9913,7 +9913,7 @@
       "Transformer"
     ],
     "brief": "残差连接 x_{l+1}=x_l+F(x_l) 使梯度直接从损失流到输入（恒等梯度路径），解决了深层 Transformer 的梯度消失。关键设计细节：①残差缩放（residual scaling）：DeepNet 将残差乘以 α=（2N）^(1/4)，权重初始化乘以 β，使 Post-Norm 深度 Transformer（1000 层）可稳定训练；②激活检查点（gradient checkpointing）通过重算残差块节省 ~33% 显存，以 30-40% 计算开销为代价；③残差连接与 LoRA：LoRA 的 ΔW=BA 以残差形式加在原权重上，与残差连接的设计思想一致；④Skip connection 与信息旁路：研究表明 Transformer 深层 attention 头的残差路径信息占比 >90%，表示「早停」层对 FFN 有高依赖性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Multi-Query Attention (MQA)",
