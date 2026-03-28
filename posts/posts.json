@@ -1,5 +1,17 @@
 [
   {
+    "title": "偏导数与全微分",
+    "slug": "math-calc-partial-derivative-total-differential",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "偏导描述单轴变化，全微分描述整体线性近似，链式法则把局部导数串成反向传播。"
+  },
+  {
     "title": "多元函数的极限与连续",
     "slug": "math-calc-multivariate-limits-continuity",
     "date": "2026-03-28",
