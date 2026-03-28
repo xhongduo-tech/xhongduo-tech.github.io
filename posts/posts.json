@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer中的LayerNorm",
+    "slug": "arch-transformer-transformer-layernorm",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "LayerNorm做中心化加缩放，RMSNorm只做定幅；现代深层LLM多选RMSNorm，并常配合QK-Norm稳住…"
+  },
+  {
     "title": "Transformer的残差连接设计",
     "slug": "arch-transformer-transformer-residual-design",
     "date": "2026-03-28",
