@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sliding Window Attention",
+    "slug": "sliding-window-attention",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "滑动窗口注意力用局部窗口替代全局两两计算，把复杂度从平方降到近线性。"
+  },
+  {
     "title": "Transformer中的LayerNorm",
     "slug": "arch-transformer-transformer-layernorm",
     "date": "2026-03-28",
