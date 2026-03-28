@@ -1,5 +1,17 @@
 [
   {
+    "title": "Embedding层的实现细节",
+    "slug": "arch-transformer-embedding-layer-details",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Embedding层本质是查表；大模型常用权重绑定、pad冻结与词表补齐来保证参数效率和训练稳定性。"
+  },
+  {
     "title": "因果掩码的实现与优化",
     "slug": "arch-transformer-causal-mask-implementation",
     "date": "2026-03-28",

@@ -9880,7 +9880,7 @@
       "Transformer"
     ],
     "brief": "Embedding 层（nn.Embedding）本质是查找表：E[token_id] 索引到 d 维向量。关键细节：①初始化方案——标准正态 N(0,1) 或截断正态（std=0.02），不建议 Xavier/He（离散 embedding 无梯度消失问题）；②tied embeddings（权重绑定）：LM Head 与 embedding 矩阵共享同一权重 E，节省 V×d 参数（GPT 系列标准做法，V=32K d=768 时节省约 25M 参数）；③词表对齐：多 GPU 时 V 必须是 tp_size 的整数倍，常填充至 128 的倍数；④padding token 的 gradient_zeroing：PAD token 的 embedding 梯度需清零。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer中的LayerNorm",
