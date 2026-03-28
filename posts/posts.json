@@ -1,5 +1,17 @@
 [
   {
+    "title": "BPE算法的完整实现",
+    "slug": "nlp-token-bpe-algorithm-implementation",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "分词"
+    ],
+    "summary": "BPE按最高频相邻符号对迭代合并，核心是边界处理与pair频率的增量维护。"
+  },
+  {
     "title": "Gemma的架构分析",
     "slug": "arch-variant-gemma-architecture-analysis",
     "date": "2026-03-28",
