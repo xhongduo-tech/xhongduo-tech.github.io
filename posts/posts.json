@@ -1,5 +1,17 @@
 [
   {
+    "title": "随机梯度下降的收敛性",
+    "slug": "math-opt-sgd-convergence-analysis",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "SGD 的收敛速度由步长、批量与梯度噪声共同决定，大批量能降噪但存在临界批量边界。"
+  },
+  {
     "title": "多维随机变量与协方差",
     "slug": "math-prob-multivariate-random-variables",
     "date": "2026-03-28",
