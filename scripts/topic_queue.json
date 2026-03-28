@@ -9693,7 +9693,7 @@
       "信息论"
     ],
     "brief": "InfoNCE 损失：L=-E[log(exp(f(x,x+)/τ) / (exp(f(x,x+)/τ) + Σexp(f(x,xᵢ⁻)/τ)))]，N-1 个负样本，τ 为温度。信息论分析：L_InfoNCE ≤ log(N) - I(X;X+)，最小化 InfoNCE 等价于最大化互信息的下界。SimCLR 的实验：负样本数 N 越大，MI 估计越紧（需更大批次 4096+）。CLIP 将文本和图像视为两个视图，InfoNCE 最大化图文对互信息。实践限制：InfoNCE MI 下界仅在负样本足够时有效，小批量下 MI 估计偏低；对比学习的成功也不完全依赖于 MI 最大化（均匀性和对齐性才是更直接的度量）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多元函数的极限与连续",
