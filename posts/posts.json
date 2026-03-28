@@ -1,5 +1,17 @@
 [
   {
+    "title": "注意力机制的尺度缩放",
+    "slug": "arch-transformer-attention-scale-factor",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "QKᵀ除以√d_k的本质是把点积方差从d_k拉回1，避免softmax饱和并保持梯度可传播"
+  },
+  {
     "title": "Transformer的FLOP计算",
     "slug": "arch-transformer-transformer-flop-calculation",
     "date": "2026-03-28",
