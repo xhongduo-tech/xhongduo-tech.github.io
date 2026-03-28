@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据处理的KL视角",
+    "slug": "math-info-data-processing-kl-view",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "DPI说明后处理不能增信息，深层表示、KL正则与Dropout都受这一上界约束"
+  },
+  {
     "title": "交叉熵与困惑度",
     "slug": "math-info-cross-entropy-perplexity",
     "date": "2026-03-28",
