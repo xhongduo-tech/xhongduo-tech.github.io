@@ -9726,7 +9726,7 @@
       "微积分"
     ],
     "brief": "Jacobian 矩阵 J_{ij}=∂fᵢ/∂xⱼ 是向量函数 f:Rⁿ→Rᵐ 的一阶线性近似。行列式 |J| 在积分变量变换中出现：∫f(g(x))dx = ∫f(y)|J|⁻¹dy。隐函数定理：若 F(x,y)=0 且 ∂F/∂y 在某点可逆，则局部存在 y=g(x) 使 F(x,g(x))=0，且 ∂g/∂x=-（∂F/∂y）⁻¹∂F/∂x。在深度学习中：Jacobian-向量积（JVP）和向量-Jacobian积（VJP）是前向模式和反向模式自动微分的基础；PyTorch 的 `torch.autograd.functional.jacobian` 用于梯度惩罚（GAN 的 Lipschitz 约束）；Flow 模型依赖 log|J| 计算密度变换。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "泰勒展开与误差估计",
