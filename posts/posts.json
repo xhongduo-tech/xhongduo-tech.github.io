@@ -1,5 +1,17 @@
 [
   {
+    "title": "MoE的量化挑战",
+    "slug": "arch-moe-moe-quantization-challenges",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE"
+    ],
+    "summary": "MoE量化难在专家样本稀疏、分布失衡和路由翻转，实用解法是FFN低比特、路由高精度、按专家频率混合位宽。"
+  },
+  {
     "title": "MoE的推理优化",
     "slug": "arch-moe-moe-inference-optimization",
     "date": "2026-03-28",
