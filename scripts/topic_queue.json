@@ -9869,7 +9869,7 @@
       "Transformer"
     ],
     "brief": "因果掩码（causal mask）确保自回归生成的单向注意力：将 score 矩阵上三角设为 -inf，softmax 后上三角为 0。朴素实现：创建 (seq_len, seq_len) 布尔矩阵，显存 O(n²)，seq_len=32K 时约 4GB（FP32）。优化方案：①Flash Attention 直接在 CUDA kernel 内处理因果掩码，避免实化全矩阵（显存 O(n)）；②对角分块（block-wise causal）：下三角块全注意，上三角跳过；③packed sequence（变长批次）需用 attention bias 而非 mask；④sliding window mask 与 causal mask 组合是 Mistral 的实现方式。推理时单 token 解码无需 mask（历史 KV 已缓存）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Embedding层的实现细节",
