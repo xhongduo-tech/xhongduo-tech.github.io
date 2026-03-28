@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer的Dropout策略",
+    "slug": "arch-transformer-transformer-dropout-strategies",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "Transformer 的 Dropout 要按输入、注意力、残差和层级四个位置分别理解。"
+  },
+  {
     "title": "Embedding层的实现细节",
     "slug": "arch-transformer-embedding-layer-details",
     "date": "2026-03-28",

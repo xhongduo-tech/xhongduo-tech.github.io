@@ -9902,7 +9902,7 @@
       "Transformer"
     ],
     "brief": "Transformer 中常见的正则化位置至少有四类：Embedding Dropout 作用于词向量输入，Attention Dropout 作用于 softmax 后的注意力权重，Residual Dropout 作用于子层输出再加残差，DropPath/Stochastic Depth 则按层随机跳过整个残差分支。它们抑制的过拟合来源不同：前两者抑制特征共适应，后两者缓解深层堆叠导致的训练不稳定。推理阶段 Dropout 全部关闭，但 LayerNorm 统计不会像 BatchNorm 那样发生漂移。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer的残差连接设计",
