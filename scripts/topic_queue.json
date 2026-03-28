@@ -10146,7 +10146,7 @@
       "位置编码"
     ],
     "brief": "RoPE（Su et al. 2021）将位置编码融入注意力计算：qᵢ→Rᵢq，kⱼ→Rⱼk，旋转矩阵 Rₘ 使 qᵢᵀkⱼ = f(i-j)（只依赖相对距离）。频率基 θₙ=10000^{-2n/d}（n=0..d/2），低频维度缓慢旋转（好外推），高频维度快速旋转（细粒度局部）。外推问题：训练时 max_pos=4096，推理时 8192 的旋转角度超出训练分布，PPL 骤升（直接外推失败）。NTK-aware 缩放：将 θₙ 整体缩放为 (α·base)^{-2n/d}，α=context_length/training_length，在不 fine-tune 的情况下可外推 2-4× 序列长度且 PPL 上升 <5%。LLaMA/Mistral/Qwen 全系列使用 RoPE。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "YaRN长度外推",

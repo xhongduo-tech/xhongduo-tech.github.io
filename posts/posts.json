@@ -1,5 +1,17 @@
 [
   {
+    "title": "旋转位置编码RoPE深入",
+    "slug": "arch-pos-rope-deep-dive",
+    "date": "2026-03-28",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "RoPE用旋转把位置写进注意力，核心优势是相对位置建模，长上下文需配合缩放策略。"
+  },
+  {
     "title": "ALiBi位置编码",
     "slug": "arch-pos-alibi-position-encoding",
     "date": "2026-03-28",
