@@ -9891,7 +9891,7 @@
       "Transformer"
     ],
     "brief": "LayerNorm：y=(x-μ)/σ·γ+β（μ、σ 沿特征维计算），γ/β 是可学习缩放和偏移（2d 参数）。RMSNorm 去掉均值中心化：y=x/RMS(x)·γ，RMS=√(mean(x²))；无 β 参数，计算量约为 LN 的 60%，训练稳定性持平甚至略优（LLaMA 系列标准做法）。关键配置：①Bias：大规模模型通常去掉 bias（减少参数，改善 Tensor Parallel 通信）；②QK-Norm（Llama-3/Qwen）：在 Q/K 投影后加 RMSNorm，防止注意力 logit 爆炸（特别是长序列时 QKᵀ 方差随 d 线性增长的问题）；③ε=1e-5（FP32）或 1e-6（BF16/FP16），过小会导致数值不稳定。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer的Dropout策略",

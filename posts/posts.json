@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer中的LayerNorm",
+    "slug": "arch-transformer-transformer-layernorm",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "LayerNorm控中心和尺度，RMSNorm只控幅度；现代LLM多用RMSNorm并配合QK-Norm。"
+  },
+  {
     "title": "YaRN长度外推",
     "slug": "arch-pos-yarn-length-extrapolation",
     "date": "2026-03-29",
@@ -564,18 +576,6 @@
       "注意力机制"
     ],
     "summary": "滑动窗口注意力用局部窗口替代全局两两计算，把复杂度从平方降到近线性。"
-  },
-  {
-    "title": "Transformer中的LayerNorm",
-    "slug": "arch-transformer-transformer-layernorm",
-    "date": "2026-03-28",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "模型架构",
-      "Transformer"
-    ],
-    "summary": "LayerNorm做中心化加缩放，RMSNorm只做定幅；现代深层LLM多选RMSNorm，并常配合QK-Norm稳住…"
   },
   {
     "title": "Transformer的残差连接设计",
