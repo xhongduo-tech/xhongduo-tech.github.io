@@ -10652,7 +10652,7 @@
       "优化器"
     ],
     "brief": "SGD with Momentum：v_t=β·v_{t-1}+η·∇L，θ_t=θ_{t-1}-v_t，动量系数 β=0.9 为常用默认值。Nesterov 变体（NAG）在动量预测点处计算梯度（更前瞻），凸函数下收敛率从 O(1/t) 提升至 O(1/t²)。实际应用场景：大模型预训练通常用 AdamW（二阶矩自适应学习率更稳定），但 SGD+Momentum 在 CV 任务（ResNet 训练）中仍优于 Adam（泛化性能更好，对应最近的研究发现 Adam 的自适应性有时导致过拟合）；Muon 优化器（2024）本质是带 Newton 步归一化的 Nesterov，在 LLM 微调中性能接近 AdamW。PyTorch 中 `momentum_buffer_list` 管理各参数的动量状态，显存开销 = 参数量（约 8GB for 7B FP32）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Adam的完整实现",
