@@ -1,5 +1,16 @@
 [
   {
+    "title": "Adam的完整实现",
+    "slug": "train-opt-adam-complete-implementation",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "Adam通过一阶矩、二阶矩和偏差修正，实现稳定的自适应参数更新。"
+  },
+  {
     "title": "语言模型的生成策略",
     "slug": "nlp-lm-lm-generation-strategies",
     "date": "2026-03-29",

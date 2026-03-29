@@ -10663,7 +10663,7 @@
       "优化器"
     ],
     "brief": "Adam 维护一阶矩 m_t=β₁m_{t-1}+(1-β₁)g 和二阶矩 v_t=β₂v_{t-1}+(1-β₂)g²，偏差修正后 m̂_t=m_t/(1-β₁ᵗ)，v̂_t=v_t/(1-β₂ᵗ)，更新 θ_t=θ_{t-1}-η·m̂_t/(√v̂_t+ε)。默认超参：β₁=0.9, β₂=0.999, ε=1e-8（大模型中有时调为 1e-6 防数值不稳）。内存开销：每参数存 m 和 v 两份 FP32 状态，7B 模型 = 3×7B×4 bytes ≈ 84GB（fp32 params+m+v），ZeRO-1 按设备数 N 分片这部分。常见问题：①初始步骤 m̂/v̂ 偏差修正导致前几步学习率有效值较小（warmup 的必要性）；②long context fine-tune 时 ε 过小导致 NaN；③梯度累积时 m/v 的 batch size 等效需额外调整。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AdamW的权重衰减解耦",
