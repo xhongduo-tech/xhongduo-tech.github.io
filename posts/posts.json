@@ -1,5 +1,17 @@
 [
   {
+    "title": "FastText的子词嵌入",
+    "slug": "nlp-emb-fasttext-subword-embedding",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "嵌入"
+    ],
+    "summary": "FastText用字符n-gram向量求和构词向量，显著提升OOV与形态变体泛化，但模型更大。"
+  },
+  {
     "title": "Sentence-BERT的句子嵌入",
     "slug": "nlp-emb-sentence-bert-embedding",
     "date": "2026-03-29",

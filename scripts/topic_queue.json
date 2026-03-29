@@ -10454,7 +10454,7 @@
       "嵌入"
     ],
     "brief": "FastText将词表示为字符n-gram嵌入之和（n=3-6），词“apple”的向量由多个子串向量聚合而成，使其能处理训练集外的形态变体和OOV词。在捷克语等形态丰富语言的词类比任务上FastText比Word2Vec高约10个百分点；代价是需存储所有n-gram的嵌入表，模型体积通常比Word2Vec大3-5倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "上下文嵌入vs静态嵌入",
