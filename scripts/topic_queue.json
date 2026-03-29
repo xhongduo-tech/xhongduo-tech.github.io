@@ -10575,7 +10575,7 @@
       "语言模型"
     ],
     "brief": "LSTM通过遗忘门f_t=σ(W_f[h_{t-1},x_t])和记忆单元C_t=f_t⊙C_{t-1}+i_t⊙C~_t选择性读写记忆，梯度可沿C_t的加法路径稳定回传数百步。PTB上单层LSTM（1500维）PPL约77，双层+variational dropout可进一步降到约65；AWD-LSTM在Transformer出现前长期是最强神经语言模型之一。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自回归语言模型的数学定义",

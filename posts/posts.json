@@ -1,5 +1,17 @@
 [
   {
+    "title": "LSTM语言模型",
+    "slug": "nlp-lm-lstm-language-model",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "语言模型"
+    ],
+    "summary": "LSTM用门控读写细胞状态，让梯度沿加法记忆通路稳定回传，长期优于普通RNN。"
+  },
+  {
     "title": "神经语言模型的前身",
     "slug": "nlp-lm-neural-lm-predecessors",
     "date": "2026-03-29",
