@@ -1,5 +1,17 @@
 [
   {
+    "title": "2D位置编码",
+    "slug": "arch-pos-2d-position-encoding",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "2D位置编码的核心是把二维相对位移显式注入attention，常见方案是2DRoPE、2DALiBi和拼块后1DRoP…"
+  },
+  {
     "title": "Transformer中的LayerNorm",
     "slug": "arch-transformer-transformer-layernorm",
     "date": "2026-03-29",
@@ -274,18 +286,6 @@
       "架构变体"
     ],
     "summary": "Decoder-only 以因果掩码统一理解与生成，优势在统一训练目标与高效缓存推理。"
-  },
-  {
-    "title": "2D位置编码",
-    "slug": "arch-pos-2d-position-encoding",
-    "date": "2026-03-28",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "模型架构",
-      "位置编码"
-    ],
-    "summary": "2D位置编码解决二维token的空间歧义；分辨率会变时，RoPE和ALiBi通常比绝对位置更稳。"
   },
   {
     "title": "Encoder-only架构详解",

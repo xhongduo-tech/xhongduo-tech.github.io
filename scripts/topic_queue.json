@@ -10201,7 +10201,7 @@
       "位置编码"
     ],
     "brief": "2D 位置编码用于图像、视频、表格等二维输入的位置感知。主要方案：①分解式 2D RoPE（ViT）：x 方向和 y 方向各分配 d/2 维度，各自应用 1D RoPE；②可学习 2D 位置嵌入：h×w 个独立向量（ViT 原始方案，224×224/16² = 196 个 patch）；③2D ALiBi：行和列分别施加线性斜率偏置，适合文档版面分析；④VisionLLM 中动态分辨率处理：将高分辨率图像切分为 patch，按 row-major 顺序拼接为 1D 序列，用 1D RoPE 编码（InternVL-1.5 的动态分辨率策略，支持 1-6 个 sub-images 拼接）。关键数值：ViT-L 处理 448×448 图像时 patch 数量从 196 增至 784，显存和延迟增加 4×。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Encoder-only架构详解",

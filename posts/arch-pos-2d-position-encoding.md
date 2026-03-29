@@ -1,269 +1,263 @@
 ## 核心结论
 
-2D 位置编码的任务，是把“这个 patch 在二维平面上的哪里”注入到 Transformer。patch 可以理解成“把图像切成很多小方块后，每个小方块对应的 token”。如果没有位置编码，注意力只看到一堆向量，不知道左上角和右下角的区别。
+2D 位置编码的作用，是让 Transformer 在处理图像、视频帧、表格版面这类二维网格输入时，显式知道“谁在左边、谁在上面、谁离得更远”。如果没有这层信息，模型只看到一串 token，无法稳定区分“左右相邻”和“上下相邻”。
 
-对二维输入，主流方案有四类：
+二维场景里常见的做法有四类：
 
-| 方案 | 核心做法 | 优点 | 短板 | 典型场景 |
+| 方法 | 核心思路 | 是否保留二维方向信息 | 分辨率外推 | 典型场景 |
 | --- | --- | --- | --- | --- |
-| 可学习 2D 绝对位置嵌入 | 每个网格位置学一个独立向量 | 简单直接 | 分辨率变化时外推差 | 固定分辨率 ViT |
-| 分解式 2D RoPE | x 轴和 y 轴各占一半维度，分别做旋转编码 | 相对位置一致，扩展到新分辨率更稳 | 实现比 absolute 稍复杂 | ViT、多模态模型 |
-| 2D ALiBi | 在 attention logit 上加与行列距离成线性的偏置 | 参数少，易接入 | 方向设计不当会退化 | 文档、表格、版面理解 |
-| 动态分辨率 + 1D/2D RoPE | 多个 tile 展平成序列，再统一编码 | 工程上最灵活 | token 数暴涨 | 高分辨率 VisionLLM |
+| 可学习 2D 位置嵌入 | 给每个网格位置一个独立向量 | 强 | 弱，超出训练分辨率要插值 | 原始 ViT |
+| 分解式 2D RoPE | 行、列各分一半维度，分别做旋转 | 强 | 较强 | ViT、视觉 Transformer |
+| 2D ALiBi | 在 attention 分数上按二维距离加线性偏置 | 中，偏重相对距离 | 强 | 遥感、文档版面 |
+| 拼块后 1D RoPE | 先把二维 patch 按固定顺序排成序列，再做 1D 编码 | 间接保留 | 强，但依赖顺序一致 | VisionLLM、InternVL |
 
-最关键的判断标准不是“哪种更先进”，而是“输入分辨率和纵横比会不会变”。如果输入长期固定在 `224×224`，绝对位置嵌入仍然可用；如果输入会从 `14×14 patch` 变成 `22×44 patch`，或者需要把多张子图拼成一个序列，RoPE 或 ALiBi 更稳。
+对初学者来说，可以先记住一句话：2D RoPE 是“旋转向量让相对位移进入点积”，2D ALiBi 是“给远距离 token 额外扣分”。二者都在解决同一个问题：让注意力分数不再只依赖内容，还依赖二维空间关系。
 
-2D RoPE 的核心性质可以写成：
-
-$$
-R_{(i,j)}^\top R_{(k,l)} = R_{(k-i,l-j)}
-$$
-
-意思是：两个位置之间的相互作用，只依赖相对偏移 $(\Delta x,\Delta y)$，而不是依赖它们各自的绝对编号。这正是它适合多分辨率泛化的原因。
+一个玩具例子：把一张图片切成 $14\times14$ 个 patch。左上角 patch 与它右边的 patch 只相差一列；左上角 patch 与右下角 patch 则相差很多行和列。加入 2D 位置编码后，模型会自然学到前者更“近”，后者更“远”，注意力不再把它们当成同样普通的两个 token。
 
 ---
 
 ## 问题定义与边界
 
-二维输入的问题，不是“有没有顺序”，而是“有没有平面坐标”。文本只有前后顺序，图像、视频帧、表格单元格、文档块都有横向和纵向两个方向。模型必须区分：
+问题先定义清楚。图像、表格、版面天然是二维网格，每个 token 都有坐标 $(x,y)$。但标准 Transformer 的 self-attention 只对一维序列定义，原始公式里没有“横向”和“纵向”的概念。也就是说，如果只把 patch 展平成序列，模型看到的是第 37 个 token、第 38 个 token，却不知道它们到底是左右相邻还是换行后的上下相邻。
 
-1. 两个 token 是否在同一行
-2. 是否在同一列
-3. 谁在左，谁在右
-4. 谁在上，谁在下
-5. 距离有多远
+这里的“位置编码”，白话说就是给 token 加一份“坐标感”。目标不是简单记住绝对编号，而是让注意力能反映二维空间关系，尤其是相对位移。理想情况下，token $i$ 和 token $j$ 的相关性应当与 $(x_i-x_j, y_i-y_j)$ 有稳定关系，而不是仅与一维下标 $i-j$ 有关系。
 
-如果只把二维网格按 row-major，也就是“按行展开”的方式拉成一维序列，模型虽然拿到了顺序，但没有天然拿到完整的二维几何关系。比如序列上相邻的两个 token，可能真的是左右相邻，也可能是一行结尾和下一行开头。
+这件事有三个边界：
 
-另一个边界是成本。设图像大小为 $H\times W$，patch 大小为 $P\times P$，那么 token 数是：
+1. 需要处理的是二维网格，不是纯文本序列。
+2. 希望模型能适配不同分辨率，而不是只记住训练时那一张固定大小的网格。
+3. 位置编码不能把计算代价抬得过高，否则高分辨率输入会直接拖垮 attention。
 
-$$
-N=\frac{H}{P}\cdot\frac{W}{P}
-$$
+下面这张表可以看出几种方案解决问题的角度不同：
 
-注意力矩阵规模近似是 $N^2$。这意味着分辨率翻倍时，token 数先变成 4 倍，attention 的核心计算和激活内存又会进一步放大。
-
-下面这个表最直观：
-
-| 输入分辨率 | patch 大小 | patch 网格 | token 数 | 相对 `224×224` 的 token 倍数 |
+| 方案 | 输入坐标 | 输出作用位置 | 覆盖的空间关系 | 主要限制 |
 | --- | --- | --- | --- | --- |
-| `224×224` | `16×16` | `14×14` | 196 | 1x |
-| `448×448` | `16×16` | `28×28` | 784 | 4x |
-| `352×704` | `16×16` | `22×44` | 968 | 4.94x |
+| 1D RoPE | 一维序列位置 $i$ | Q/K 向量 | 只覆盖序列相对位移 | 二维结构被展平后会失真 |
+| 2D RoPE | 二维坐标 $(x,y)$ | Q/K 向量 | 同时覆盖行差与列差 | 维度切分必须严格正确 |
+| 2D ALiBi | 二维坐标 $(x,y)$ | attention logits | 直接编码距离衰减 | 只表达相对距离，不保绝对坐标 |
 
-玩具例子：一张 `352×704` 的长图切成 `22×44 patch`。如果你用固定 `14×14` 学出来的绝对位置表，新增出来的大量位置并没有稳定语义，通常只能靠插值“猜”一个向量；但如果你用 2D RoPE，`(3,5)` 到 `(3,6)` 的“向右一步”和 `(10,20)` 到 `(10,21)` 的“向右一步”仍然对应同一类相对偏移模式，注意力更容易保持一致。
-
-真实工程例子：ViT-L 从 `224×224` 升到 `448×448` 时，patch 数从 196 变成 784，光 token 数就是 4 倍。实际显存和延迟通常也接近 4 倍甚至更高，所以高分辨率系统往往不能只“把图放大”，还要配套 tile、稀疏注意力或 token 压缩。
+新手版理解可以这样想：两个 patch 如果在图上左右相邻或上下相邻，模型应该觉得它们更容易互相参考；如果隔着很远的区域，attention 分数应该更低。二维位置编码本质上就是把这种“近邻优先”的结构性知识显式写进模型。
 
 ---
 
 ## 核心机制与推导
 
-### 1. 分解式 2D RoPE
+### 1. 2D RoPE：把二维坐标变成向量旋转
 
-RoPE 是“用旋转代替相加的位置编码”。旋转的意思是：不往向量里加一个位置向量，而是按位置对 query 和 key 的二维子空间做角度变换。
+RoPE 的全称是 Rotary Position Embedding，白话说是“用旋转角度表达位置”。一维 RoPE 的关键性质是：对 query 和 key 同时施加与位置相关的旋转后，它们的点积只依赖相对位置差，而不是绝对位置本身。
 
-在 2D 场景里，最常见的做法是把 embedding 维度 $d$ 拆成两半：
+二维版做法通常是把 embedding 维度分成两半：
 
-- 前 `d/2` 维负责 x 方向
-- 后 `d/2` 维负责 y 方向
+- 前 $d/2$ 维给行坐标 $x$
+- 后 $d/2$ 维给列坐标 $y$
 
-每两个通道构成一个可旋转的 2 维小块。于是位置 $(x,y)$ 上的编码可写成两个独立旋转块的直和。白话说，就是“横坐标转一半维度，纵坐标再转另一半维度”。
-
-简化图示：
-
-| 维度块 | 编码什么 | 操作 |
-| --- | --- | --- |
-| `0 ~ d/2-1` | x 轴位置 | 按 `x` 生成 `sin/cos` 并旋转 |
-| `d/2 ~ d-1` | y 轴位置 | 按 `y` 生成 `sin/cos` 并旋转 |
-
-于是 attention 的相互作用从原来的
+每两个维度组成一个二维小块，对这个小块应用旋转矩阵：
 
 $$
-\frac{q^\top k}{\sqrt d}
+R(\theta)=
+\begin{bmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{bmatrix}
 $$
 
-变成
+如果 token 位于坐标 $(x,y)$，那么它的 query 和 key 分别被行角度 $\theta_x$、列角度 $\theta_y$ 旋转。于是，二维位置编码后的点积可以写成“行方向相对位移贡献 + 列方向相对位移贡献”的组合。直观上，模型不再只知道“你是第几个 token”，而是知道“你和我差几行、差几列”。
+
+玩具例子：patch A 在 $(1,2)$，patch B 在 $(2,3)$。A 和 B 的相对位移是 $(-1,-1)$。2D RoPE 并不直接把这个差值写成一个数字塞进模型，而是通过对 Q/K 的旋转，让最终 attention score 只依赖这组差值。这样，位于别的位置、但同样相差一行一列的 patch 对，也会产生相似的空间关系响应。这就是“平移不变性”，白话说就是整体平移后，相对关系不变。
+
+### 2. 2D ALiBi：把二维距离直接写进分数
+
+ALiBi 的全称是 Attention with Linear Biases，白话说是“给注意力分数加一个按距离变化的偏置”。它不去旋转向量，而是直接在 logits 上动手：
 
 $$
-\frac{(R_{(i,j)}q)^\top(R_{(k,l)}k)}{\sqrt d}
+\text{score}_{ij}
 =
-\frac{q^\top R_{(i,j)}^\top R_{(k,l)}k}{\sqrt d}
-=
-\frac{q^\top R_{(k-i,l-j)}k}{\sqrt d}
+\frac{\mathbf{q}_i \cdot \mathbf{k}_j}{\sqrt{d}}
+-
+\text{dist}((x_i,y_i),(x_j,y_j)) \cdot m_h
 $$
 
-所以它天然只依赖相对偏移。这里的“相对偏移”就是“横向差几格、纵向差几格”。
+其中：
 
-更抽象一点说，2D RoPE 的旋转生成元可以看成 `so(4)` 里可交换的 block。对工程实现来说，不需要理解 Lie 代数细节，只要抓住两个事实：
+- $\text{dist}$ 是二维距离，可以是欧氏距离，也可以是曼哈顿距离
+- $m_h$ 是第 $h$ 个注意力头的斜率
+- 斜率常按几何级数分配，让不同头关注不同距离尺度
 
-1. x、y 可以分别控制
-2. 点积只依赖相对位移
+这条公式的意思很直接：内容相似度先算出来，再对远距离 token 扣分。离得越远，扣得越多。于是有的头更偏向局部，有的头可以看更远。
 
-### 2. 2D ALiBi
-
-ALiBi 的思路更直接：不旋转向量，直接改 attention 分数。它在 logit 上加一个“距离越远，惩罚越大”的偏置。
-
-1D 形式是：
+如果还是看 A$(1,2)$ 和 B$(2,3)$，两者欧氏距离是：
 
 $$
-a_{ij}=\frac{q_i^\top k_j}{\sqrt d}-m_h\cdot |i-j|
+\sqrt{(1-2)^2 + (2-3)^2} = \sqrt{2}
 $$
 
-扩展到 2D 后，可以把距离拆成行和列两个部分。一个常见写法是：
+若另一个 patch C 在 $(10,10)$，那么 A 和 C 的距离远大于 $\sqrt{2}$，它们的分数会被减去更大的偏置，因此更难产生高注意力。
 
-$$
-a_{(i,j),(k,l)}=
-\frac{q_{(i,j)}^\top k_{(k,l)}}{\sqrt d}
--\alpha_h\cdot |i-k|
--\beta_h\cdot |j-l|
-$$
+### 3. 为什么这两类方法都有效
 
-如果还要显式区分方向，可以继续分成：
+从机制上看，2D RoPE 和 2D ALiBi 分别把位置注入到两个不同地方：
 
-- 向左 / 向上：`r_before`
-- 向右 / 向下：`r_after`
+- 2D RoPE 注入 Q/K 表示空间，是“先改向量，再算分数”
+- 2D ALiBi 注入 logits 表示空间，是“先算内容，再按距离修正”
 
-这在文档和表格任务里很重要。因为“标题在正文上方”和“脚注在正文下方”不是同一种关系，只用一个无方向斜率会把它们混在一起。
+二者都在逼近同一个目标：让 attention 分数与二维相对位移相关。差别在于，RoPE 更像把几何关系编码进表示空间；ALiBi 更像在决策层面加规则。
 
-玩具例子：在表格里，单元格 `(5,3)` 对 `(5,4)` 是“同一行向右一格”，对 `(6,3)` 是“同一列向下一格”。2D ALiBi 可以给这两种关系不同偏置，迫使某些头更偏好“横向读表”，另一些头更偏好“纵向聚合”。
+一个真实工程例子是文档版面分析。表格单元格、标题、页眉、页脚常常要求模型理解“上下对齐”和“左右邻接”。这类任务中，2D ALiBi 很实用，因为它直接把二维距离偏置加到 attention 上，不需要为每个分辨率都重新学一套绝对位置向量。
 
 ---
 
 ## 代码实现
 
-下面给出一个可运行的最小实现。它不依赖深度学习框架，只展示 2D RoPE 和 2D ALiBi 的核心计算。
+下面先给一个最小可运行的 Python 示例，演示两件事：
+
+1. 如何为二维网格生成 2D RoPE 角度并做旋转
+2. 如何为 2D ALiBi 生成距离偏置矩阵
 
 ```python
 import math
 import numpy as np
 
-
-def token_count(h, w, patch):
-    assert h % patch == 0 and w % patch == 0
-    return (h // patch) * (w // patch)
-
-
-def build_2d_coords(h, w):
-    coords = []
-    for y in range(h):
-        for x in range(w):
-            coords.append((x, y))
-    return np.array(coords, dtype=np.int32)
-
+def rope_angles(length, dim_half):
+    assert dim_half % 2 == 0
+    freqs = 1.0 / (10000 ** (np.arange(0, dim_half, 2) / dim_half))
+    pos = np.arange(length)[:, None]
+    angles = pos * freqs[None, :]
+    return angles  # [length, dim_half/2]
 
 def rotate_half(x):
-    # x shape: (..., dim), dim 必须是偶数
+    assert x.shape[-1] % 2 == 0
     x1 = x[..., 0::2]
     x2 = x[..., 1::2]
-    out = np.empty_like(x)
-    out[..., 0::2] = -x2
-    out[..., 1::2] = x1
-    return out
+    return np.stack([-x2, x1], axis=-1).reshape(x.shape)
 
-
-def apply_1d_rope(x, pos, base=10000.0):
-    # x: [n, dim], pos: [n]
-    n, dim = x.shape
-    assert dim % 2 == 0
-    half = dim // 2
-    freq = 1.0 / (base ** (np.arange(0, half, 1) / half))
-    angles = pos[:, None] * freq[None, :]
-    cos = np.repeat(np.cos(angles), 2, axis=1)
-    sin = np.repeat(np.sin(angles), 2, axis=1)
+def apply_1d_rope(x, angles):
+    # x: [dim_half], angles: [dim_half/2]
+    cos = np.cos(angles).repeat(2, axis=-1)
+    sin = np.sin(angles).repeat(2, axis=-1)
     return x * cos + rotate_half(x) * sin
 
+def apply_2d_rope(vec, row, col, row_angles, col_angles):
+    d = vec.shape[-1]
+    assert d % 2 == 0
+    half = d // 2
+    row_part = apply_1d_rope(vec[:half], row_angles[row])
+    col_part = apply_1d_rope(vec[half:], col_angles[col])
+    return np.concatenate([row_part, col_part], axis=0)
 
-def apply_2d_rope(x, coords):
-    # x: [n, dim], coords: [n, 2], coords[:,0]=x, coords[:,1]=y
-    n, dim = x.shape
-    assert dim % 4 == 0
-    half = dim // 2
-    x_part = apply_1d_rope(x[:, :half], coords[:, 0])
-    y_part = apply_1d_rope(x[:, half:], coords[:, 1])
-    return np.concatenate([x_part, y_part], axis=-1)
+def alibi_bias(coords, slope):
+    n = len(coords)
+    bias = np.zeros((n, n), dtype=np.float32)
+    for i, (x1, y1) in enumerate(coords):
+        for j, (x2, y2) in enumerate(coords):
+            dist = math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+            bias[i, j] = -dist * slope
+    return bias
 
+# 2x2 网格，embedding 维度 8，其中 4 维给行，4 维给列
+coords = [(0, 0), (0, 1), (1, 0), (1, 1)]
+row_angles = rope_angles(length=2, dim_half=4)
+col_angles = rope_angles(length=2, dim_half=4)
 
-def build_2d_alibi_bias(coords, alpha=1.0, beta=1.0):
-    # bias[i, j] = -alpha*|dy| - beta*|dx|
-    dx = np.abs(coords[:, None, 0] - coords[None, :, 0])
-    dy = np.abs(coords[:, None, 1] - coords[None, :, 1])
-    return -(alpha * dy + beta * dx)
+v = np.array([1., 2., 3., 4., 5., 6., 7., 8.], dtype=np.float32)
+v00 = apply_2d_rope(v, 0, 0, row_angles, col_angles)
+v11 = apply_2d_rope(v, 1, 1, row_angles, col_angles)
 
+assert v00.shape == (8,)
+assert v11.shape == (8,)
+assert not np.allclose(v00, v11)
 
-# 基本断言
-assert token_count(224, 224, 16) == 196
-assert token_count(448, 448, 16) == 784
-
-coords = build_2d_coords(2, 3)  # 2 行 3 列，共 6 个位置
-x = np.random.randn(6, 8).astype(np.float64)
-
-x_rope = apply_2d_rope(x, coords)
-assert x_rope.shape == x.shape
-
-bias = build_2d_alibi_bias(coords, alpha=2.0, beta=1.0)
-assert bias.shape == (6, 6)
+bias = alibi_bias(coords, slope=0.5)
+assert bias.shape == (4, 4)
 assert bias[0, 0] == 0.0
-assert bias[0, 1] == -1.0   # 同行右移一格
-assert bias[0, 3] == -2.0   # 同列下移一格
+assert bias[0, 3] < bias[0, 1]  # 更远的点惩罚更大
+
+print("2D RoPE and 2D ALiBi toy example passed.")
 ```
 
-如果换成 PyTorch，接入点通常只有两个：
+这个例子里，`apply_2d_rope` 的核心就是“前半维看行，后半维看列”。如果这里分错了，比如把某些行维度和列维度混在一起，模型得到的就不是稳定的二维相对关系，而是一种扭曲的位置映射。
 
-1. RoPE：在 `q, k` 投影后、attention 前做旋转
-2. ALiBi：在 `q @ k^T / sqrt(d)` 之后加 bias matrix
+如果写成伪代码，结构更直观：
 
-真实工程例子：InternVL-1.5 的动态分辨率策略会先把输入图像按分辨率和纵横比分成多个 `448×448` tile。训练时通常是 `1` 到 `12` 个 tile，测试时可以扩到 `40` 个 tile，且每个 `448×448` tile 经过像素重排后对应 256 个视觉 token。工程上的重点不是“每种分辨率写一套模型”，而是“把所有 tile 变成统一 token 序列，再复用同一套位置编码逻辑”。这就是为什么相对位置方案在 VisionLLM 里更自然。
+```python
+for row in range(H):
+    for col in range(W):
+        q[row, col] = rotate_row(q[row, col][:d//2], theta_x[row]) \
+                    + rotate_col(q[row, col][d//2:], theta_y[col])
+```
+
+2D ALiBi 的实现重点则是预计算所有 patch 对之间的距离：
+
+```python
+for i, (x1, y1) in enumerate(coords):
+    for j, (x2, y2) in enumerate(coords):
+        dx = x1 - x2
+        dy = y1 - y2
+        bias[h, i, j] = -math.sqrt(dx * dx + dy * dy) * slope[h]
+```
+
+真实工程里，常见做法不是手写双重循环，而是一次性用张量广播生成 $N \times N$ 的距离矩阵，再按头数扩展成 `num_heads x N x N`。否则高分辨率下会很慢。
+
+再看一个真实工程例子。VisionLLM 或 InternVL 一类系统处理高分辨率图片时，通常先把大图切成多个子图，再把每个子图切成 patch，最后按 row-major，也就是“行主序”拼成一条长序列。此时它不一定显式做 2D RoPE，而是把“二维切块顺序”固定好，再沿这条一维序列应用 1D RoPE。这个方案本质上是用严格的拼接规则，间接保留二维邻接关系。
 
 ---
 
 ## 工程权衡与常见坑
 
-第一类坑是把 absolute embedding 硬拉伸。很多初学者会把训练好的 `14×14` 位置表，直接 `repeat` 到 `28×28`。这几乎总会出问题，因为复制出来的新位置没有真实几何含义。正确做法至少要做 2D 插值，或者直接改用相对位置方案。
+第一个权衡是表达能力与实现复杂度。可学习 2D 位置嵌入最直观，每个位置一个向量，但分辨率变了就麻烦，往往需要插值。2D RoPE 的外推性更好，因为它依赖坐标生成旋转角，不要求为每个新位置重新学习参数。2D ALiBi 更轻，因为它只是加偏置，但它表达的是相对距离，不直接携带绝对位置标签。
 
-第二类坑是误以为“RoPE 免费”。RoPE 本身参数少，但它并不能解决 token 爆炸。它解决的是“位置泛化”，不是“计算复杂度”。`448×448` 比 `224×224` 多 4 倍 token，这个成本依然在。
+第二个权衡是显存。注意力复杂度和序列长度平方相关，即 $O(N^2)$。图像分辨率翻倍后，patch 数不是翻倍，而是通常变成四倍。比如 ViT-L 使用 $16\times16$ patch：
 
-第三类坑是 2D ALiBi 只设一组斜率。这样会让“向左一格”和“向下一格”被同样惩罚，方向感会变弱。做文档版面分析、表格理解时，最好区分行列，必要时再区分 before/after。
+| 输入分辨率 | 网格大小 | patch 数 $N$ | attention 复杂度近似 | 相对 224 的 attention 存储倍数 |
+| --- | --- | --- | --- | --- |
+| 224×224 | 14×14 | 196 | $196^2$ | 1× |
+| 448×448 | 28×28 | 784 | $784^2$ | 16× |
 
-下面是工程上常见的对比：
+这里要分清两个量：
 
-| 方案 | 额外参数 | 分辨率外推 | 方向感 | 计算开销 | 常见坑 |
-| --- | --- | --- | --- | --- | --- |
-| 绝对位置嵌入 | 有 | 弱 | 中 | 低 | 直接拉伸到新网格 |
-| 2D RoPE | 无或极少 | 强 | 中到强 | 低 | 维度拆分写错，x/y 对不上 |
-| 2D ALiBi | 极少 | 强 | 强，但依赖设计 | 低 | 只用单一斜率导致方向退化 |
+- patch 数从 196 变到 784，是 4 倍
+- attention 矩阵大小从 $196^2$ 变到 $784^2$，是 16 倍
 
-新手警告：如果你把 `196` 个绝对位置向量简单复制到更高分辨率，会经常看到 attention map 异常集中在少数固定位置。这不是模型“更自信”，而是位置结构已经退化了。
+这就是为什么高分辨率视觉模型很容易爆显存。很多初学者只盯着“token 变 4 倍”，没意识到 attention 是平方增长。
+
+第三个常见坑是顺序一致性。无论是显式 2D 编码，还是拼块后做 1D RoPE，只要你定义了某种空间顺序，训练和推理就必须一致。比如把 $2\times2$ 图块按下面顺序拼：
+
+- 正确：左上 → 右上 → 左下 → 右下
+- 错误：左下 → 右下 → 左上 → 右上
+
+如果顺序搞反，1D RoPE 看到的相对距离就变了。模型原本以为相邻的 token，现在可能来自完全不同的图像区域，空间一致性直接被破坏。
+
+第四个坑是 2D RoPE 的维度切分。它要求每个轴各拿一半维度，而且每一半内部仍按成对维度旋转。如果 `d/2` 不是偶数，或者实现里把行角度误用到了列向量上，理论上的相对性就不成立。表现上往往不是立刻报错，而是训练效果差、外推不稳定、换分辨率后退化明显，这类问题最难排查。
 
 ---
 
 ## 替代方案与适用边界
 
-如果任务长期固定输入，比如工业质检永远是 `224×224`，并且目标主要是分类而不是复杂空间推理，那么可学习 2D 绝对位置嵌入仍然是简单有效的基线。
+如果任务主要依赖固定分辨率，比如经典图像分类，可学习 2D 位置嵌入仍然是简单有效的基线。原始 ViT 就是这样做的：224×224 图像配合 patch size 16，会得到 $14\times14=196$ 个 patch，于是直接学习 196 个位置向量。这种方案训练简单，但超出训练分辨率时需要插值，泛化不如 RoPE/ALiBi 稳定。
 
-如果任务经常变分辨率、变纵横比，或者要处理大图切片，多数情况下 2D RoPE 更合适。因为它和 LLM 里的 RoPE 思路一致，便于多模态系统统一实现。
+如果任务强调跨分辨率推理，例如遥感大图、文档长页、多页拼接，2D ALiBi 往往更合适。因为它只依赖距离偏置，不需要额外学习新的绝对位置参数。代价是它不能恢复绝对坐标。白话说，它知道“你离我多远”，但不天然知道“你在页面左上角还是右下角”。因此做版面理解时，常要额外加入 layout token、bbox 信息或显式坐标特征。
 
-如果任务特别依赖“方向性偏好”，比如文档版面分析、表格单元格关系建模、OCR 区块阅读顺序，那么 2D ALiBi 很有吸引力。它直接在 logit 上塑形，调试也更可解释。
+如果系统最终要接到 LLM 上，常见折中是“动态拼块 + 1D RoPE”。也就是先把二维图像切成多个子图，再把 token 展开为一维序列送进语言模型。这种做法的好处是工程复用高，可以直接复用 LLM 的位置编码和上下文窗口机制；坏处是空间关系依赖拼接顺序，必须统一 raster scan，也就是固定行主序扫描。
 
-可以这样选：
+下面这张表总结适用边界：
 
-| 场景 | 更适合的方案 | 原因 |
-| --- | --- | --- |
-| 固定 `224×224` 分类 | 绝对位置嵌入 | 实现最简单，足够用 |
-| 多分辨率 ViT 训练 / 推理 | 2D RoPE | 相对偏移一致，外推更稳 |
-| 文档、表格、OCR 版面 | 2D ALiBi 或 2D RoPE+偏置 | 方向关系重要 |
-| 多 tile 4K VisionLLM | 动态分辨率 + RoPE | 易和长序列架构兼容 |
+| 方案 | 是否保留绝对位置 | 是否突出相对距离 | 显存负担 | 分辨率扩展性 | 适用边界 |
+| --- | --- | --- | --- | --- | --- |
+| 2D RoPE | 弱，重点不在绝对坐标 | 强 | 中 | 强 | 通用视觉 Transformer |
+| 2D ALiBi | 弱 | 很强 | 较低 | 很强 | 遥感、文档、长距离外推 |
+| 1D RoPE（拼块后） | 依赖拼接顺序间接保留 | 中 | 中 | 强 | VisionLLM、多模态接 LLM |
+| 可学习 2D 嵌入 | 强 | 弱 | 中 | 弱 | 固定分辨率分类/预训练 |
 
-边界也要讲清楚。RoPE 不是所有视觉任务的唯一答案。对于强局部先验任务，卷积、窗口注意力、层级结构仍然重要。位置编码只解决“坐标怎么表示”，不解决“计算预算怎么压缩”。
+一个新手容易忽略的点是：没有一种方案在所有任务上都最优。若任务要求“知道版心、页边距、页码区域这些绝对版面结构”，只靠 ALiBi 通常不够；若任务要求高分辨率外推，可学习绝对嵌入又会比较吃亏。工程里通常不是争论谁最先进，而是先看你的输入是否会变分辨率、是否需要强几何外推、是否受限于现有 LLM 框架。
 
 ---
 
 ## 参考资料
 
-- [Rotary Position Embedding for Vision Transformer](https://arxiv.org/abs/2403.13298)：Heo 等人在 2024 年提出将 RoPE 系统化用于 ViT，重点讨论视觉分辨率外推。
-- [2D Rotary Position Embedding (RoPE) - Emergent Mind](https://www.emergentmind.com/topics/2d-rotary-position-embedding-rope)：总结 2D RoPE 的轴向分解、代数性质与视觉应用。
-- [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://openreview.net/forum?id=YicbFdNTTy)：ViT 原始论文，固定 patch 网格和可学习位置嵌入的代表。
-- [How To Compute The Token Consumption Of Vision Transformers?](https://ml-digest.com/computing-vision-transformer-tokens/)：给出 `224×224 -> 196 token` 与 `448×448 -> 784 token` 的直观计算。
-- [InternVL 1.5: How Far Are We to GPT-4V?](https://internvl.github.io/blog/2024-04-30-InternVL-1.5/)：2024 年 4 月 30 日官方博客，说明动态分辨率、`448×448` tile、训练最多 12 tile、测试最多 40 tile，以及每 tile 256 visual tokens。
-- [Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation](https://openreview.net/forum?id=R8sQPpGCv0)：ALiBi 原始思想来源，核心是在线性距离上给 attention 加 bias。
-- [Positional Embeddings in Transformer Models: Evolution from Text to Vision Domains](https://openreview.net/forum?id=Y0z5fIOk7z)：ICLR 2025 Blogpost Track，对 absolute、RoPE、ALiBi 及其视觉扩展做了统一综述。
+| 来源 | 内容摘要 | 用途 |
+| --- | --- | --- |
+| [EmergentMind: RoPE-2D](https://www.emergentmind.com/topics/rope-2d?utm_source=openai) | 解释 2D RoPE 的轴向拆分、旋转原理与相对位置性质 | 理解 2D RoPE 数学机制 |
+| [NeurIPS 2023 CROMA Paper](https://proceedings.neurips.cc/paper_files/paper/2023/file/11822e84689e631615199db3b75cd0e4-Paper-Conference.pdf) | 给出 2D-ALiBi/X-ALiBi，并展示高分辨率外推结果 | 理解 2D ALiBi 与遥感应用 |
+| [Michael Brenndoerfer: Vision Encoders for VLMs](https://mbrenndoerfer.com/writing/vision-encoders-vlms-siglip-resolution-architecture) | 说明 ViT 分辨率变化、patch 数增长与显存代价 | 理解 224→448 的复杂度变化 |
+| [InternVL 1.5 Introduction](https://internvl.readthedocs.io/en/latest/internvl1.5/introduction.html?utm_source=openai) | 介绍动态分辨率、子图切分、token 压缩与 LLM 接口 | 理解高分辨率视觉输入的工程落地 |
+| [REOrder 项目说明](https://d3tk.github.io/REOrder/?utm_source=openai) | 讨论 token 顺序对视觉建模的影响 | 理解拼块顺序错误带来的位置失真 |
