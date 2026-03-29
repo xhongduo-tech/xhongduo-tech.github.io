@@ -1,5 +1,17 @@
 [
   {
+    "title": "N-gram语言模型",
+    "slug": "nlp-lm-ngram-language-model",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "语言模型"
+    ],
+    "summary": "N-gram语言模型用固定窗口近似完整上下文，trigram常用，Kneser-Ney平滑是解决零频与工程部署的关键。"
+  },
+  {
     "title": "BGE的中文嵌入模型",
     "slug": "nlp-emb-bge-chinese-embedding",
     "date": "2026-03-29",

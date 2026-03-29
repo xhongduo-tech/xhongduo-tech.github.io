@@ -10542,7 +10542,7 @@
       "语言模型"
     ],
     "brief": "N-gram LM基于马尔可夫假设：P(w_t|context)≈P(w_t|w_{t-n+1}..w_{t-1})，trigram最常用。零频n-gram需平滑，Kneser-Ney通过“续延概率”替代原始计数，是效果最优的统计平滑方法，PTB上trigram PPL约150-200。与神经LM相比N-gram无长距依赖建模能力，但推理为O(1)表格查询，至今仍用于语音识别解码束搜索。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "神经语言模型的前身",
