@@ -10553,7 +10553,7 @@
       "语言模型"
     ],
     "brief": "Bengio 2003的NNLM将n-1个词嵌入拼接后送入单层tanh前馈网络，softmax预测下一词，首次证明分布式表示能系统性地缓解维度灾难。在PTB上PPL从N-gram的270降至约217，但训练比N-gram慢2-3个数量级。其副产品词嵌入矩阵是Word2Vec的前身；真正普及静态词向量的是2013年Word2Vec的负采样加速。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "循环神经网络语言模型",

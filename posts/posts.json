@@ -1,5 +1,17 @@
 [
   {
+    "title": "神经语言模型的前身",
+    "slug": "nlp-lm-neural-lm-predecessors",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "语言模型"
+    ],
+    "summary": "NNLM首次把词向量与条件概率联合学习，显著优于N-gram，但全量softmax训练极慢。"
+  },
+  {
     "title": "自回归语言模型的数学定义",
     "slug": "nlp-lm-autoregressive-lm-math",
     "date": "2026-03-29",
