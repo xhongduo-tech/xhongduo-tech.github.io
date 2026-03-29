@@ -1,5 +1,17 @@
 [
   {
+    "title": "BGE的中文嵌入模型",
+    "slug": "nlp-emb-bge-chinese-embedding",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "嵌入"
+    ],
+    "summary": "BGE 的核心是 RetroMAE 预训练加对比学习对齐；中文检索先用 BGE-large-zh，复杂 RAG 再上 …"
+  },
+  {
     "title": "嵌入空间的几何分析",
     "slug": "nlp-emb-embedding-space-geometry",
     "date": "2026-03-29",

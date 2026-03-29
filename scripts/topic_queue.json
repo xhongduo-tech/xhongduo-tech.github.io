@@ -10520,7 +10520,7 @@
       "嵌入"
     ],
     "brief": "BGE（BAAI General Embedding）采用RetroMAE预训练再接对比学习微调，训练数据含中文问答对、百科等约1.2亿对。BGE-large-zh在C-MTEB中文检索基准Recall@10约88，优于mE5-large约3个点。BGE-M3还支持多粒度检索：稠密向量+稀疏词频+ColBERT风格多向量，通过混合检索可进一步提升RAG召回率约5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "嵌入空间的几何分析",
