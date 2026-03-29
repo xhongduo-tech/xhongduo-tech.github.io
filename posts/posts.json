@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sentence-BERT的句子嵌入",
+    "slug": "nlp-emb-sentence-bert-embedding",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "嵌入"
+    ],
+    "summary": "SBERT把BERT变成可缓存句向量模型，显著降低语义检索成本。"
+  },
+  {
     "title": "SimCSE的无监督句子嵌入",
     "slug": "nlp-emb-simcse-unsupervised-embedding",
     "date": "2026-03-29",

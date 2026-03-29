@@ -10487,7 +10487,7 @@
       "嵌入"
     ],
     "brief": "SBERT在BERT上加mean pooling得到固定维度句子向量，用孪生网络+NLI三元组损失训练。与直接让BERT成对编码相比，SBERT将语义相似度计算从O(n²)降为O(n)：先离线算向量，再用余弦相似度检索。在STS-B上Spearman相关从0.29提升至0.77；all-MiniLM-L6-v2（384维）推理约14K句/秒，是RAG向量检索常用backbone。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SimCSE的无监督句子嵌入",
