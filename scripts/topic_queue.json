@@ -10509,7 +10509,7 @@
       "嵌入"
     ],
     "brief": "E5采用两阶段训练：弱监督预训练（10亿级网络挖掘的query-passage对，对比学习）→监督微调（MSMARCO、NLI等高质量标注集）。推理时需加“query:”或“passage:”前缀区分检索方向，这是与SBERT的显著差异。E5-large在BEIR基准平均nDCG@10约54，比SBERT提升约4点；e5-mistral-7b以LLM为骨干，通过自然语言任务描述控制嵌入语义。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BGE的中文嵌入模型",
