@@ -10476,7 +10476,7 @@
       "嵌入"
     ],
     "brief": "BERT token表示=WordPiece嵌入+可学习位置嵌入（最大512位）+段嵌入，三者相加后过LayerNorm。[CLS]的最后隐状态作分类头输入，汇聚全局语义；[SEP]标记句边界支持NSP任务。与ELMo不同，BERT的位置编码是随机初始化的可学习参数而非正弦函数；base版嵌入维度768，词表嵌入矩阵参数约占模型总参数的22%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sentence-BERT的句子嵌入",
