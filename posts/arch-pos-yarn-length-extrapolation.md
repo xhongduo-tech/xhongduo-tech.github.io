@@ -1,305 +1,164 @@
 ## 核心结论
 
-YaRN 是一种把 RoPE 做“按频率分段处理”的长度外推方法。RoPE 是旋转位置编码，它不是给每个 token 直接加一个位置向量，而是把位置信息写进 query、key 的旋转角度里。这样一来，注意力分数天然带有相对位置信息。
+YaRN 是一种把 RoPE 上下文窗口从 4K、8K 扩到 64K 甚至更长的轻量方法。RoPE 是“旋转位置编码”，白话说，就是把位置信息写进向量旋转角度里，让注意力知道“谁在前、谁在后”。YaRN 的核心不是重做注意力结构，而是在原有 RoPE 上打两个补丁：
 
-YaRN 的关键点不在于“把所有维度统一拉长”，而在于承认不同频率的维度负责的信息不同，再按频率分别处理：
+1. 对不同频率维度做分段处理：低频缩放、中频平滑过渡、高频保持不变。
+2. 对 attention logits 再乘一个与扩展倍率 $s$ 相关的温度校正，防止长序列时注意力变得过平。
 
-| 频段 | 负责的信息 | 处理方式 | 目的 |
-|---|---|---|---|
-| 低频 | 长距离结构 | 按 $1/s$ 缩放 | 让模型看得更远 |
-| 中频 | 过渡信息 | 原始角度与缩放角度线性插值 | 避免频段切换过硬 |
-| 高频 | 局部细节 | 保持不变 | 保住短程精度 |
+它的价值在于“最小侵入”。模型参数主体不变，KV cache 逻辑不变，FlashAttention 这类高性能实现也基本不用重写。对工程侧来说，修改点通常只在“RoPE 角度生成”和“softmax 前的 logits 缩放”。
 
-其中 $s=L'/L$ 是扩展比例，表示目标上下文长度 $L'$ 相对原始训练长度 $L$ 放大了多少倍。
+下面这张表先给出最重要的前后对比。
 
-YaRN 相比“所有频率统一缩放”的做法，多了两个决定性设计：
+| 对比项 | 普通长度外推 / 统一插值 | YaRN |
+|---|---|---|
+| 频率处理 | 所有频率统一缩放 | 低频缩放、中频插值、高频保持 |
+| 局部细节 | 容易损失 | 保留更好 |
+| 长距离一致性 | 可能不足 | 更稳定 |
+| 注意力温度 | 固定 | 随 $s$ 调整 |
+| 推理实现改动 | 小 | 同样很小 |
+| 训练成本 | 较低 | 仍低，只多少量微调 |
 
-1. 频率分组插值：低频缩放，中频平滑过渡，高频保留原样。
-2. 注意力温度缩放：把 softmax 的有效锐度按 $0.1\ln(s)+1$ 做补偿，抵消长序列下注意力容易变平的问题。
-
-一个新手版例子：原模型训练到 4K，目标推理到 64K，那么 $s=16$。此时不是把全部角度统一除以 16，而是只让低频部分完整除以 16，中频部分介于“除以 16”和“保持不变”之间，高频部分保持原样；同时再对注意力 logits 乘一个和 $\ln(16)$ 相关的修正项，避免长上下文下注意力过散。
-
-简化写法可以记成：
-
-$$
-\theta'=(1-\gamma(r))\cdot \frac{\theta}{s}+\gamma(r)\cdot \theta
-$$
-
-以及
-
-$$
-\sqrt{\frac{1}{t}}\approx 0.1\ln s+1
-\quad\Rightarrow\quad
-t\approx \frac{1}{(0.1\ln s+1)^2}
-$$
-
-这里：
-
-- $\theta$ 是原始旋转角度
-- $\theta'$ 是外推后的角度
-- $\gamma(r)$ 是频率区间上的插值权重
-- $t$ 是 softmax 中的温度参数
-
-一句话概括：YaRN 不是“把位置编码整体压扁”，而是“只让适合负责远距离的那部分频率去负责外推”。
+如果原模型训练窗口是 4096，而目标推理长度是 65536，那么扩展倍率是 $s=16$。YaRN 不需要重写 attention，也不需要改缓存格式，通常只要做数百步长上下文微调，就能让模型在 64K 长度上恢复到可用水平。
 
 ---
 
 ## 问题定义与边界
 
-问题很明确：一个只在 4K 长度上训练过的 Transformer，能不能在不重新做大规模长序列预训练的前提下，稳定跑到 32K、64K，甚至更长？
+问题本质不是“模型看不见更长文本”，而是“模型对长距离位置的相位关系失真”。相位，白话说，就是旋转角度之间的相对关系。RoPE 通过不同频率的旋转，把位置差映射到注意力里；一旦长度超过训练区间，原来没见过的角度组合会大量出现，模型就会出现两类退化：
 
-难点在于，RoPE 里的不同频率承担的职责不同。高频维度更偏局部细节，擅长区分近邻 token 的相对位置；低频维度更偏全局结构，适合表达较远距离上的依赖。统一缩放会同时伤害这两类能力。
+1. 高频信息失真。
+高频可以理解为“细粒度位置刻度”，它负责区分邻近 token 的精细差别。直接外推时，高频角度变化过快，超出训练分布后容易错乱。
 
-先把文章里会用到的量定义清楚：
+2. 低频分辨率不足。
+低频可以理解为“粗粒度长距离刻度”，它负责跨很远位置建立联系。如果仍沿用原频率，在 64K 这样的范围上会不够平滑，导致远距离依赖不稳定。
 
-| 变量 | 含义 | 作用 |
+所以 YaRN 解决的不是“让模型无限长”，而是在不改 Transformer 主体结构的前提下，把已有 RoPE 模型稳定地拉到更长上下文。
+
+边界也要说清楚。YaRN 不是免费午餐，它不能保证“未经训练直接百万 token 仍然稳定”，也不能替代真正的长上下文预训练。它更像一个工程上性价比很高的补丁：用较小代价把 4K/8K 训练模型扩到 32K、64K、128K 这类常见区间。
+
+| 维度 | RoPE 本质限制 | YaRN 目标 |
 |---|---|---|
-| $L$ | 原始训练长度 | 模型原本学到的位置范围 |
-| $L'$ | 目标推理长度 | 希望扩展到的范围 |
-| $s=L'/L$ | 伸长比例 | 上下文扩大多少倍 |
-| $\lambda$ | 对应频率的波长 | 越大越低频 |
-| $r=L/\lambda$ | 频率比 | 用来判断该频率落在哪个区间 |
-| $\theta=p\omega$ | 第 $p$ 个位置对应的旋转角 | RoPE 真正进入旋转矩阵的量 |
+| 上下文长度 | 训练外相位分布失真 | 延长到数万 token 仍可用 |
+| 模型结构 | 不想改注意力主干 | 保持原架构 |
+| 推理实现 | 不想重写缓存和算子 | 继续兼容标准实现 |
+| 训练成本 | 不希望重新长程预训练 | 用少量微调修复 |
+| 精度目标 | 不追求理论最优 | 追求低成本下的稳健可用 |
 
-这里最容易卡住的新手点是：为什么要引入“波长” $\lambda$？
-
-因为 RoPE 的每个二维子空间都对应一个角频率 $\omega$。频率越高，角度随位置变化得越快；频率越低，变化越慢。把它换成更直观的量就是波长：
-
-$$
-\lambda=\frac{2\pi}{\omega}
-$$
-
-- $\lambda$ 大：低频，适合表达慢变化、长距离结构
-- $\lambda$ 小：高频，适合表达快变化、局部相对关系
-
-所以 YaRN 实际上是在回答一个具体问题：哪些频率应该被“拉长”，哪些不应该？
-
-YaRN 的边界也要说清楚：
-
-1. 它解决的是“长度外推”，不是让模型凭空获得新知识。
-2. 它通常需要少量继续训练或长上下文微调，不能理解成纯推理时零成本魔法。
-3. 它常用于把上下文扩到原长度的数倍到几十倍；伸长比越大，越需要额外调参、数据和训练步骤。
-4. 它只能缓解位置编码失配，不能解决注意力计算本身的二次复杂度，也不能自动提升检索、规划、记忆质量。
-
-玩具例子：
-
-- 一个维度主要编码“段首和段尾是否呼应”，这是低频。
-- 另一个维度主要编码“两个相邻 token 的顺序差异”，这是高频。
-
-如果这两类维度都统一除以 16，确实能让模型在角度空间里覆盖更远的位置，但高频维度原本负责的近邻区分会被压平。实际结果往往是：
-
-- 短程语法边界更模糊
-- 代码符号、标点、子词组合更容易错
-- 长文虽然“看起来能放进去”，但局部精度先掉
-
-YaRN 的思路就是承认：长距离结构和局部细节不是同一类任务，不该用同一个缩放公式粗暴处理。
+玩具例子可以这样看。假设训练时模型只学会了“1 米刻度尺”，现在突然要求它量“16 米距离”。如果你把整把尺子等比例拉长，近处刻度会变粗，细节变差；如果完全不拉长，远处又量不准。YaRN 的做法是：粗刻度拉长，细刻度保留，中间刻度平滑过渡。
 
 ---
 
 ## 核心机制与推导
 
-YaRN 的机制可以分成两部分：RoPE 角度插值和注意力温度校正。
+先定义几个量：
 
-### 1. RoPE 角度插值
+- $L$：原始训练上下文长度。
+- $L'$：目标上下文长度。
+- $s = L'/L$：扩展倍率。
+- $\theta$：RoPE 某一维原始旋转角。
+- $\lambda$：对应维度的波长。波长，白话说，就是“这一维旋转一圈需要跨多远位置”。
+- $r = L / \lambda$：该维度相对训练窗口的频率比。
 
-RoPE 的核心操作是把 query、key 的偶数维和奇数维两两配对，在二维平面中按位置旋转。对第 $i$ 个二维子空间，位置 $p$ 的旋转角可以写成：
+YaRN 的直觉是：不要把所有维度一刀切地缩放。因为不同维度承担的信息粒度不同。
 
-$$
-\theta_i(p)=p\omega_i
-$$
-
-其中 $\omega_i$ 是该维度对应的角频率。
-
-如果直接做统一缩放，那么新角度就是：
-
-$$
-\theta_i'(p)=\frac{\theta_i(p)}{s}
-$$
-
-这等价于把所有频率都按同一比例降低。它的好处是简单，但问题也很直接：低频和高频被一视同仁。
-
-YaRN 改成按频率比 $r=L/\lambda$ 分段：
-
-- 当 $r<\alpha$，视为低频，完全采用缩放版本
-- 当 $\alpha\le r\le \beta$，视为中频，原始角度和缩放角度线性混合
-- 当 $r>\beta$，视为高频，保持原角度不变
-
-经验上常见的阈值是 $\alpha=1,\beta=32$。插值函数写成：
+设经验阈值 $\alpha=1,\ \beta=32$。定义插值函数：
 
 $$
 \gamma(r)=
 \begin{cases}
-0, & r<\alpha \\
-\frac{r-\alpha}{\beta-\alpha}, & \alpha\le r\le \beta \\
-1, & r>\beta
+0, & r < \alpha \\\\
+\dfrac{r-\alpha}{\beta-\alpha}, & \alpha \le r \le \beta \\\\
+1, & r > \beta
 \end{cases}
 $$
 
-于是最终角度为：
+它的含义是：
+
+- 当 $r$ 很小，说明是低频维度，优先做长度缩放。
+- 当 $r$ 很大，说明是高频维度，尽量保持原状。
+- 中间区域做线性过渡，避免硬切换。
+
+于是新角度写成：
 
 $$
-\theta'=(1-\gamma(r))\cdot \frac{\theta}{s}+\gamma(r)\cdot \theta
+\theta' = (1-\gamma(r)) \cdot \frac{\theta}{s} + \gamma(r) \cdot \theta
 $$
 
-这个式子很好读：
+这个式子直接对应三段逻辑：
 
-- 低频：$\gamma=0$，所以 $\theta'=\theta/s$
-- 高频：$\gamma=1$，所以 $\theta'=\theta$
-- 中频：介于两者之间，平滑过渡
+- 低频：$\theta' \approx \theta/s$
+- 高频：$\theta' \approx \theta$
+- 中频：在两者之间平滑过渡
 
-为什么这样合理？因为长度外推真正要扩的是“模型可区分的长距离范围”，这本来就更应该由低频承担；而高频本来就负责局部精度，如果也一起拉长，最先坏掉的就是短程建模能力。
+为什么低频要除以 $s$？因为上下文变长了，如果低频不拉伸，远距离位置之间的相位变化仍然过快，无法覆盖新的大范围区间。为什么高频不动？因为高频主要刻画局部邻近关系，改太多会伤害短程分辨率。
 
-### 2. 为什么用 $r=L/\lambda$
+但只改频率还不够。长序列下，注意力分布会变得更“平”。这里的“平”是指 softmax 熵变大，概率更平均，焦点更难集中。熵，白话说，就是“不确定性有多大”。为了补偿这个现象，YaRN 再对 attention 温度做缩放。
 
-这个比值的含义是：在原始训练长度 $L$ 内，一个波长 $\lambda$ 会重复多少次。
-
-$$
-r=\frac{L}{\lambda}
-$$
-
-- 若 $r\ll 1$：说明在训练窗口内这个频率变化很慢，属于低频
-- 若 $r\gg 1$：说明它在训练窗口内已经绕了很多圈，属于高频
-
-所以 $r$ 天然就是判断“该不该缩放”的指标。
-
-用这个量来分段，比直接按维度编号分段更合理，因为真正决定语义角色的是频率，不是维度下标本身。
-
-### 3. 注意力温度校正
-
-只改位置编码还不够。上下文变长后，参与竞争的位置变多，注意力分布更容易变平。注意力一旦过平，模型虽然“能看见”很多 token，但不愿意把权重集中到真正相关的位置。
-
-YaRN 的做法是对 softmax 前的 logits 做一个额外校正。论文里给出经验近似：
+标准 attention logits 形式可写为：
 
 $$
-\sqrt{\frac{1}{t}}\approx 0.1\ln s+1
+A = \text{softmax}\left(\frac{QK^\top}{\sqrt{D}}\right)
 $$
 
-等价地：
+YaRN 引入温度参数 $t$ 后，变成：
 
 $$
-t\approx \frac{1}{(0.1\ln s+1)^2}
+A = \text{softmax}\left(\frac{QK^\top}{t\sqrt{D}}\right)
 $$
 
-放进注意力里可以写成：
+经验上使用：
 
 $$
-\text{softmax}\left(\frac{QK^\top}{t\sqrt{d}}\right)
+\sqrt{\frac{1}{t}} \approx 0.1 \ln(s) + 1
 $$
 
-因为当 $s>1$ 时，通常有 $t<1$，所以分母变小，logits 的有效幅度会变大，softmax 会更尖一些。这一步的作用不是“让模型更激进”，而是补偿长上下文导致的熵增。
+这意味着：
 
-这里给一个直觉解释：
+- $s$ 越大，补偿越强。
+- 分母里的 $t$ 会小于 1，于是 logits 实际上被适度放大。
+- logits 放大后，softmax 不会因为序列太长而过分均匀。
 
-- 不做温度校正：候选位置变多，注意力更平均
-- 做温度校正：把 logits 拉开一点，让真正相关的位置重新凸显出来
-
-### 4. 代入数字看一遍
-
-继续用例子：原长度 $L=4096$，目标长度 $L'=65536$，所以
+看一个最小数值例子。原始长度 4096，目标长度 65536，则：
 
 $$
-s=\frac{65536}{4096}=16
+s = \frac{65536}{4096} = 16
 $$
 
-再看三种频率：
-
-1. 若某维度 $r=0.5<1$，属于低频，则 $\gamma=0$：
+又因为 $\ln 16 \approx 2.77$，所以：
 
 $$
-\theta'=\frac{\theta}{16}
+\sqrt{\frac{1}{t}} \approx 0.1 \times 2.77 + 1 = 1.277
 $$
 
-2. 若某维度 $r=40>32$，属于高频，则 $\gamma=1$：
+于是：
 
 $$
-\theta'=\theta
+t \approx \frac{1}{1.277^2} \approx 0.613
 $$
 
-3. 若某维度 $r=4$，属于中频，则
+这表示在 64K 推理时，attention logits 要比原来略微“更尖锐”一些，用来抵消长序列带来的扩散趋势。
 
-$$
-\gamma=\frac{4-1}{32-1}=\frac{3}{31}\approx 0.097
-$$
+把频率段对应关系总结一下：
 
-于是
-
-$$
-\theta'\approx 0.903\cdot \frac{\theta}{16}+0.097\cdot \theta
-$$
-
-再看温度项：
-
-$$
-0.1\ln(16)+1 \approx 1.277
-$$
-
-所以
-
-$$
-t\approx \frac{1}{1.277^2}\approx 0.613
-$$
-
-这意味着注意力中的有效缩放大约会额外乘上：
-
-$$
-\frac{1}{t}\approx 1.63
-$$
-
-这就是 YaRN 的完整直觉：
-
-- 低频负责把视野拉远
-- 高频负责把局部细节保住
-- 中频负责避免硬切换
-- 温度校正负责避免长上下文下注意力塌成一片“平均分配”
-
-### 5. 和 NTK-aware 的差别
-
-把 YaRN 只理解成“另一种插值公式”是不够的。更准确的说法是：YaRN 在 NTK-aware/PI 这类位置缩放思路上，又补了两层工程上真正重要的修正。
-
-| 方案 | 对频率的处理 | 是否做过渡区 | 是否补偿长上下文熵增 |
+| 频率段 | 条件 | 处理方式 | 目标 |
 |---|---|---|---|
-| 统一 PI / 简单缩放 | 全部同一比例缩放 | 否 | 否 |
-| NTK-aware 风格修正 | 主要是整体频率重标定 | 弱或无 | 通常不作为核心部分 |
-| YaRN | 低频缩放、高频保留、中频插值 | 是 | 是 |
+| 低频 | $r < 1$ | $\theta \to \theta/s$ | 拉长全局感受范围 |
+| 中频 | $1 \le r \le 32$ | 线性插值 | 平滑过渡，减少分布突变 |
+| 高频 | $r > 32$ | $\theta$ 保持不变 | 保住局部细节 |
 
-因此 YaRN 的优势不是“它更复杂”，而是它把两个实际问题都单独处理了：
-
-1. 统一缩放会破坏高频局部信息。
-2. 长序列会让注意力竞争格局变化，单改位置编码不够。
+真实工程例子是 LLaMA-2 7B。它原本训练窗口是 4096，通过 YaRN 扩展后，可以在 64K 上保持较好的困惑度表现，而且推理时仍然走标准 RoPE 和 FlashAttention 路径。这里最关键的不是“绝对最优”，而是“少量额外训练就能换来可部署的长上下文”。
 
 ---
 
 ## 代码实现
 
-下面给一个可运行的 Python 玩具实现。它不依赖第三方库，直接演示 YaRN 的两个核心步骤：
-
-1. 按 RoPE 频率计算每个维度的波长和频率比 $r$
-2. 生成 YaRN 修正后的角度
-3. 计算温度修正项
-4. 用一个最小示例打印结果
+下面给一个可运行的 Python 玩具实现。它不依赖深度学习框架，只演示 YaRN 的两个改动点：频率插值和 attention 温度。
 
 ```python
 import math
-from typing import List, Tuple
 
 
-def build_inv_freq(head_dim: int, base: float = 10000.0) -> List[float]:
-    """
-    RoPE 常见写法中的 inverse frequency。
-    只为每个二维子空间生成一个频率，因此长度是 head_dim // 2。
-    """
-    assert head_dim % 2 == 0, "head_dim must be even"
-    return [1.0 / (base ** (2.0 * i / head_dim)) for i in range(head_dim // 2)]
-
-
-def wavelength_from_inv_freq(inv_freq: float) -> float:
-    """
-    若角频率 omega = inv_freq，则波长 lambda = 2*pi / omega。
-    """
-    return 2.0 * math.pi / inv_freq
-
-
-def gamma_of_r(r: float, alpha: float = 1.0, beta: float = 32.0) -> float:
+def yarn_gamma(r: float, alpha: float = 1.0, beta: float = 32.0) -> float:
     if r < alpha:
         return 0.0
     if r > beta:
@@ -307,271 +166,137 @@ def gamma_of_r(r: float, alpha: float = 1.0, beta: float = 32.0) -> float:
     return (r - alpha) / (beta - alpha)
 
 
-def yarn_theta(theta: float, s: float, r: float, alpha: float = 1.0, beta: float = 32.0) -> float:
-    gamma = gamma_of_r(r, alpha=alpha, beta=beta)
-    return (1.0 - gamma) * (theta / s) + gamma * theta
+def yarn_theta(theta: float, r: float, s: float, alpha: float = 1.0, beta: float = 32.0) -> float:
+    g = yarn_gamma(r, alpha, beta)
+    return (1.0 - g) * (theta / s) + g * theta
 
 
-def yarn_temperature_gain(s: float) -> float:
-    """
-    对应 sqrt(1/t) ≈ 0.1 ln(s) + 1
-    这是直接乘到 logits 上更直观的形式。
-    """
-    if s <= 0:
-        raise ValueError("s must be positive")
-    return 0.1 * math.log(s) + 1.0
+def yarn_temperature(s: float) -> float:
+    scale = 0.1 * math.log(s) + 1.0
+    return 1.0 / (scale * scale)
 
 
-def yarn_temperature_t(s: float) -> float:
-    gain = yarn_temperature_gain(s)
-    return 1.0 / (gain ** 2)
+# 玩具例子：4096 -> 65536
+L = 4096
+L_new = 65536
+s = L_new / L
+t = yarn_temperature(s)
 
+assert s == 16.0
+assert abs(t - 0.613) < 0.02
 
-def rope_theta(position: int, inv_freq: float) -> float:
-    return position * inv_freq
+# 低频：r < 1，几乎等于 theta / s
+theta = 8.0
+low_r = 0.5
+theta_low = yarn_theta(theta, low_r, s)
+assert abs(theta_low - theta / s) < 1e-9
 
+# 高频：r > 32，几乎等于 theta
+high_r = 40.0
+theta_high = yarn_theta(theta, high_r, s)
+assert abs(theta_high - theta) < 1e-9
 
-def yarn_angles_for_position(
-    position: int,
-    head_dim: int,
-    train_len: int,
-    target_len: int,
-    base: float = 10000.0,
-    alpha: float = 1.0,
-    beta: float = 32.0,
-) -> List[Tuple[int, float, float, float, float]]:
-    """
-    返回每个二维子空间的:
-    (index, lambda, r, theta_original, theta_yarn)
-    """
-    inv_freqs = build_inv_freq(head_dim=head_dim, base=base)
-    s = target_len / train_len
-    result = []
+# 中频：应当落在两者之间
+mid_r = 8.0
+theta_mid = yarn_theta(theta, mid_r, s)
+assert theta / s < theta_mid < theta
 
-    for i, inv_freq in enumerate(inv_freqs):
-        wavelength = wavelength_from_inv_freq(inv_freq)
-        r = train_len / wavelength
-        theta = rope_theta(position=position, inv_freq=inv_freq)
-        theta_new = yarn_theta(theta=theta, s=s, r=r, alpha=alpha, beta=beta)
-        result.append((i, wavelength, r, theta, theta_new))
-
-    return result
-
-
-def demo():
-    # 例子: 4K -> 64K
-    train_len = 4096
-    target_len = 65536
-    s = target_len / train_len
-    assert s == 16
-
-    head_dim = 16
-    position = 6000  # 故意超过原始 4K，模拟长上下文位置
-
-    rows = yarn_angles_for_position(
-        position=position,
-        head_dim=head_dim,
-        train_len=train_len,
-        target_len=target_len,
-    )
-
-    print(f"s = {s}")
-    print(f"logit gain ~= {yarn_temperature_gain(s):.6f}")
-    print(f"t ~= {yarn_temperature_t(s):.6f}")
-    print()
-
-    print("idx | wavelength | r=L/lambda | theta_orig | theta_yarn | band")
-    print("-" * 78)
-    for idx, wavelength, r, theta, theta_new in rows:
-        if r < 1.0:
-            band = "low"
-        elif r > 32.0:
-            band = "high"
-        else:
-            band = "mid"
-        print(
-            f"{idx:>3} | "
-            f"{wavelength:>10.3f} | "
-            f"{r:>10.3f} | "
-            f"{theta:>10.6f} | "
-            f"{theta_new:>10.6f} | "
-            f"{band}"
-        )
-
-    # 基本正确性检查
-    theta = 2.0
-    low = yarn_theta(theta, s=s, r=0.5)
-    mid = yarn_theta(theta, s=s, r=4.0)
-    high = yarn_theta(theta, s=s, r=40.0)
-
-    assert abs(low - theta / 16.0) < 1e-12
-    assert theta / 16.0 < mid < theta
-    assert abs(high - theta) < 1e-12
-    assert yarn_temperature_gain(s) > 1.0
-    assert yarn_temperature_t(s) < 1.0
-
-    print()
-    print("sanity checks passed")
-
-
-if __name__ == "__main__":
-    demo()
+print("s =", s)
+print("temperature t =", round(t, 4))
+print("low/mid/high =", round(theta_low, 4), round(theta_mid, 4), round(theta_high, 4))
 ```
 
-这段代码可以直接运行，输出里你会看到一个很直观的现象：
+这段代码可以直接运行，输出结果会验证三个事实：
 
-- 某些维度被标成 `low`，其角度明显按 $1/s$ 缩小
-- 某些维度被标成 `high`，其角度几乎不动
-- 中间那一段维度处于 `mid`，被平滑过渡
+1. 低频维度会明显缩放。
+2. 高频维度保持原值。
+3. 中频位于两者之间。
+4. 温度 $t$ 会随着 $s$ 增大而减小，从而增强 logits。
 
-这比只写一个 `theta / s` 更贴近真实实现，因为它把“先算频率，再按频率决定缩放方式”的过程完整展示出来了。
-
-如果放到真实模型里，改动点通常在两处：
-
-| 模块 | 改动内容 | 目的 |
-|---|---|---|
-| RoPE 角度生成 | 按 $r$ 计算 $\gamma$，生成 $\theta'$ 或等价的 `inv_freq'` | 做分频外推 |
-| Attention logits | 用 $t$ 或等价缩放修正 $QK^\top$ | 抵消长序列熵增 |
-
-伪代码如下：
+如果把它嵌入实际模型，改动通常集中在下面两个位置：
 
 ```python
-# 1. 位置编码侧
-gamma = clip((r - alpha) / (beta - alpha), 0.0, 1.0)
-theta_scaled = theta / s
-theta_new = (1.0 - gamma) * theta_scaled + gamma * theta
+# 改动点 1：生成 RoPE 角度时，根据维度频率做 YaRN 插值
+for each_freq_dim:
+    r = L / wavelength[d]
+    gamma = clamp((r - alpha) / (beta - alpha), 0, 1)
+    theta_prime[d] = (1 - gamma) * theta[d] / s + gamma * theta[d]
 
-# 2. 注意力侧
-gain = 0.1 * math.log(s) + 1.0   # 对应 sqrt(1/t)
-t = 1.0 / (gain ** 2)
-
-scores = (Q @ K.T) / (math.sqrt(d) * t)
-attn = softmax(scores, dim=-1)
+# 改动点 2：attention softmax 前做温度校正
+t = 1 / (0.1 * ln(s) + 1)^2
+logits = (Q @ K.T) / (sqrt(D) * t)
+attn = softmax(logits)
 ```
 
-工程上还要补三个实现细节：
+工程里要注意，插值发生在“角度”层，而不是对最终 embedding 向量做后处理。原因是 RoPE 的几何结构本来就定义在旋转角上，在这里改最自然，也最不破坏原实现。
 
-1. 很多框架不是显式改 $\theta$，而是改 `inv_freq` 或预先缓存的 `cos/sin`。本质等价，关键是最终旋转进去的角度满足上面的分段逻辑。
-2. 不同实现对“温度校正”写法不同，有的改 `t`，有的直接乘一个 gain 到 logits。只要数学上等价即可。
-3. 真正部署时要保证训练和推理对 RoPE 的实现一致，否则很容易出现“离线验证正常，线上长文本退化”的错配。
+如果你在 PyTorch 中接入，典型流程是：
+
+1. 保留原有 `inv_freq` 或等价频率表。
+2. 在生成位置角度时，根据维度对应波长算出 $r$。
+3. 生成 $\theta'$ 而不是直接用 $\theta$。
+4. 在 attention 前把 logits 除以 `t * sqrt(head_dim)`。
+
+真实工程例子是把 LLaMA-2 7B 从 4K 扩到 64K。你不需要换掉 MHA、GQA、KV cache 或 FlashAttention 内核，只要让 RoPE 与温度逻辑对新的 `max_position` 感知即可。这就是 YaRN 被认为“部署友好”的原因。
 
 ---
 
 ## 工程权衡与常见坑
 
-YaRN 不是“把上下文长度配置项改大”这么简单。真正容易踩坑的地方，基本都出在“理论公式落到工程实现”这一层。
+YaRN 的优势是便宜，但也因此带来几个典型风险。
 
-| 常见坑 | 现象 | 原因 | 规避方式 |
-|---|---|---|---|
-| 统一做 $\theta/s$ | 局部语法、拼写、代码 token 精度下降 | 高频细节被破坏 | 必须分频处理 |
-| 不做温度校正 | 长上下文注意力发散、输出重复、主题漂移 | softmax 熵增 | 按 $\ln s$ 做 logits 补偿 |
-| 只改推理不做继续训练 | 能跑长输入，但结果不稳定 | 模型没适应新的位置分布 | 做少量长文本继续训练 |
-| $\alpha,\beta$ 机械照搬 | 某些模型效果波动大 | 频段切分和模型头维度、训练长度相关 | 结合验证集调参 |
-| RoPE cache 实现不一致 | 训练正常，推理错位 | 角度缓存和实际公式不匹配 | 检查 `inv_freq/cos/sin` 全链路 |
-| 只看 loss 不看注意力统计 | 线上长文本突然退化 | 问题先出现在机制层而非最终 loss | 同时看熵、logit 幅度、长短上下文分桶指标 |
-
-一个典型错误是只做位置缩放，不做温度校正。模型表面上可以接收更长输入，但实际生成会出现这些症状：
-
-- 重复段落
-- 摘要时漏掉远端关键信息
-- 代码补全中段还能对齐，尾部开始发散
-- 长对话里更依赖最近几轮，较早上下文召回差
-
-这类问题本质上不是“模型没看到远处 token”，而是“它看到了，但没有把足够的注意力分过去”。
-
-真实工程里建议至少监控三类指标：
-
-| 指标 | 看什么 | 作用 |
+| 风险 | 引发原因 | 应对策略 |
 |---|---|---|
-| PPL / loss | 长度变长后整体语言建模能力是否恶化 | 结果层监控 |
-| Attention entropy | 注意力是否过平或过尖 | 机制层监控 |
-| Gradient norm / update norm | 微调时训练是否失稳 | 优化层监控 |
+| 高频失真 | 扩展倍率过大，高频区完全未训练 | 调整 $\alpha,\beta$，让更多维度进入插值；补充长上下文微调 |
+| 注意力过平 | 忽略温度补偿，长序列 softmax 熵上升 | 加入随 $s$ 变化的温度因子 |
+| 短上下文退化 | 频率改动过激，局部结构被破坏 | 保持高频维度不动，或缩小低频改动范围 |
+| 长距离仍不稳 | 只改推理，不做适配训练 | 做少量长上下文 continued pretraining / fine-tune |
+| 参数迁移不一致 | 训练和推理使用了不同 YaRN 配置 | 固定同一组 $s,\alpha,\beta,t$ 配置并写入模型配置文件 |
 
-如果要做得更稳，可以再补两类对照实验：
+第一个常见坑是“想一步拉太长”。比如原始 4K 模型直接冲到 $s=64$，也就是 256K。此时很多高频维度仍保持原状，但模型从未在这么长的跨度上见过这种组合，结果通常是局部还行，全局注意力开始发散。你会看到模型似乎“每个位置都看一点”，但又没有明确焦点。
 
-| 对照实验 | 目的 |
-|---|---|
-| 短上下文回归测试 | 确保扩窗后 4K 内性能没有明显回退 |
-| 长短混合验证集 | 看模型是不是只会在长文本上“勉强能跑”，而非真正稳定 |
+第二个常见坑是“只做频率插值，不做温度修正”。这在短一点的扩展上可能还能勉强工作，但到了 32K、64K，经常会出现 softmax 过平。表面看模型没有报错，实际上长距离检索能力会明显下降，困惑度也会上升。
 
-一个务实的工程判断标准不是“能不能塞进 64K”，而是下面三个问题能否同时回答“是”：
+第三个坑是误以为 YaRN 可以完全替代长上下文训练。不能。YaRN 提供的是更好的初始化和更合理的外推路径，但模型仍需要少量适配，才能把新的相位分布真正学稳。LLaMA-2 7B 扩到 64K 的案例里，关键不是“零训练直接生效”，而是“只需几百步额外训练”。
 
-1. 短上下文性能没有明显退化。
-2. 长上下文指标不是偶尔好、偶尔崩。
-3. 输出质量提升来自真正使用远处信息，而不是随机运气。
-
-如果 $s$ 很大，比如远超 32，YaRN 仍然可能有效，但不要把默认阈值和默认温度公式当成定理。伸长比越大，它越像“一个强基线”，而不是“最终答案”。
+还有一个实践细节：$\alpha=1,\beta=32$ 是经验值，不是理论常数。经验值，白话说，就是“在多个实验中通常好用的默认参数”。如果模型规模、RoPE 基数、训练长度、目标长度差异很大，这组阈值不一定仍然最佳。
 
 ---
 
 ## 替代方案与适用边界
 
-YaRN 的主要优势是便宜、直接、容易落地。它适合这种场景：已经有一个中等规模模型，原始窗口较短，现在希望在不重做完整长序列预训练的前提下，把上下文扩到 32K 或 64K，并愿意接受少量继续训练。
+YaRN 不是唯一方案。理解它的适用边界，必须与另外两类方法对比：统一 Position Interpolation 和 LongRoPE。
 
-和常见替代方案对比更清楚：
-
-| 方案 | 核心思路 | 复杂度 | 适合的伸长范围 | 代价 |
+| 方法 | 频率控制 | 温度校正 | 典型目标长度 | 调整成本 |
 |---|---|---|---|---|
-| YaRN | 分频插值 + 温度校正 | 中 | 中等倍数扩窗更常见 | 低到中 |
-| LongRoPE | 对不同维度做非均匀搜索和渐进外推 | 高 | 更激进的超长外推 | 中到高 |
-| 重新预训练 | 从训练阶段直接支持长上下文 | 最高 | 理论最稳 | 极高 |
+| Position Interpolation | 全维统一缩放 | 通常无 | 8K 到 32K | 低 |
+| YaRN | 分段插值 | 有 | 32K 到 128K | 低到中 |
+| LongRoPE | 每维非均匀搜索 | 可结合其他策略 | 超长，甚至百万级 | 高 |
 
-LongRoPE 的强项是更细粒度。它不是只分三段，而是对不同维度寻找更合适的非均匀伸缩系数，再配合渐进式扩窗。因此在极端长上下文上更有潜力，但工程成本也更高：
+先看 Position Interpolation。它的思想很直接：既然位置太长，就把所有位置按比例压回训练区间。这种方法简单，但缺点也明显，因为它默认所有频率维度都应该一样处理，容易牺牲局部细节。对于入门场景，它是一个“能跑”的方案；对于更高质量的长上下文，它往往不够稳。
 
-- 搜索空间更大
-- 验证流程更复杂
-- 调参与复现成本更高
+YaRN 比它更进一步，承认不同频率承担不同职责，因此做分段处理。它的优势是：比统一插值更稳，比大规模搜索更便宜。对于 32K、64K、128K 这种工程常见长度，它通常是更均衡的选择。
 
-怎么选更实际：
+LongRoPE 则是另一条路。它会为不同维度搜索更细粒度、非均匀的插值系数。搜索，白话说，就是“不是先拍脑袋定规则，而是让算法试很多组参数再选更优的”。这通常能带来更强的极长上下文能力，比如冲到百万 token 量级，但代价是配置、实验和训练成本都显著提高。
 
-1. 从 4K 扩到 32K 或 64K，资源有限，优先 YaRN。
-2. 想从 4K 直接冲到 128K、200K 甚至更高，YaRN 往往不是终点，开始考虑 LongRoPE 或其他多尺度位置方案。
-3. 如果长上下文是模型的核心卖点，而且训练数据、预算、时间都充足，重新预训练仍然是最稳的路线。
+因此选择逻辑很明确：
 
-也要明确 YaRN 的非适用边界：
+- 如果你只是把 4K 模型扩到 16K、32K，统一插值可能已经够用。
+- 如果你想把 4K/8K 模型扩到 64K，并希望改动尽量小，YaRN 是很强的默认选项。
+- 如果你追求极长上下文、极低困惑度，并能接受复杂搜索和更高训练成本，LongRoPE 更合适。
 
-| 场景 | 为什么 YaRN 不是核心解法 |
-|---|---|
-| 想降低长上下文推理显存和算力 | YaRN 不改变注意力复杂度 |
-| 想提升模型知识量 | 它只改位置泛化，不补知识 |
-| 想让模型更会检索、规划、工具使用 | 这些更多取决于数据和训练目标 |
-| 超长上下文下要求极高稳定性 | 往往需要更强的位置方案和更系统的长序列训练 |
+可以把三者理解成三个层级：
 
-一句话概括边界：YaRN 更像“高性价比扩容”，不是“无限外推许可证”。
+1. Position Interpolation：统一缩放，简单但粗。
+2. YaRN：分段缩放，加温度校正，精度和成本更平衡。
+3. LongRoPE：按维度精调，效果更强，但工程成本最高。
 
 ---
 
 ## 参考资料
 
-下面这部分建议分成“先看论文”和“再看工程实现”两层。
-
-| 资料 | 年份 | 侧重点 |
-|---|---|---|
-| YaRN 原始论文《YaRN: Efficient Context Window Extension of Large Language Models》 | 2023 | 方法定义、公式、实验结果 |
-| LongRoPE 论文《LongRoPE: Extending LLM Context Window Beyond 2 Million Tokens》 | 2024 | 极长上下文下的非均匀插值与渐进扩窗 |
-| jquesnelle/yarn 开源仓库与模型发布 | 2023-2024 | 社区实现、参数设置、LLaMA 扩窗实践 |
-| 各类 RoPE / PI / NTK-aware 技术解读文章 | 2023-2025 | 建立直觉，帮助理解 YaRN 为什么要分频处理 |
-
-如果你的目标是“把公式搞明白”，阅读顺序建议如下：
-
-1. 先看 YaRN 原论文，弄清楚分频插值和温度修正各自解决什么问题。
-2. 再看 LongRoPE，理解为什么极长上下文下需要更细粒度的非均匀缩放。
-3. 最后看社区实现，确认这些公式在工程上到底落在 `inv_freq`、RoPE cache、还是 attention logits 上。
-
-如果你的目标是“把代码改对”，重点检查这三项：
-
-| 检查项 | 说明 |
-|---|---|
-| 角度生成位置 | 是直接改 $\theta$，还是改 `inv_freq` / `cos,sin cache` |
-| 训练推理一致性 | 长短上下文下是否走同一套 RoPE 逻辑 |
-| 长文本验证集 | 是否真的使用远处信息，而不是仅仅支持更长输入长度 |
-
-几个可直接查找的资料名：
-
-- YaRN: Efficient Context Window Extension of Large Language Models
-- LongRoPE: Extending LLM Context Window Beyond 2 Million Tokens
-- `jquesnelle/yarn`
-- “RoPE positional interpolation”
-- “NTK-aware scaled RoPE”
-
-如果只看一篇，优先 YaRN 原始论文；如果要判断它在你的场景里是不是够用，则必须把 LongRoPE 一起看，因为两者对应的是不同强度的扩窗需求。
+1. YaRN 原始论文：Peng et al., “YaRN: Efficient Context Window Extension of Large Language Models”.
+2. Emergent Mind 对 YaRN 的技术解读，包含分段频率插值与温度缩放的总结。
+3. NousResearch 的 YaRN-LLaMA-2-7B-64K 相关模型资料与社区报告，展示了 400 步左右长上下文微调的实践效果。
+4. LongRoPE 论文与微软研究资料，用于理解非均匀频率搜索在超长上下文中的优势与代价。
+5. RoPE 与 NTK-aware scaling 相关资料，用于理解 YaRN 所在的方法演化路径。

@@ -9891,7 +9891,7 @@
       "Transformer"
     ],
     "brief": "LayerNorm：y=(x-μ)/σ·γ+β（μ、σ 沿特征维计算），γ/β 是可学习缩放和偏移（2d 参数）。RMSNorm 去掉均值中心化：y=x/RMS(x)·γ，RMS=√(mean(x²))；无 β 参数，计算量约为 LN 的 60%，训练稳定性持平甚至略优（LLaMA 系列标准做法）。关键配置：①Bias：大规模模型通常去掉 bias（减少参数，改善 Tensor Parallel 通信）；②QK-Norm（Llama-3/Qwen）：在 Q/K 投影后加 RMSNorm，防止注意力 logit 爆炸（特别是长序列时 QKᵀ 方差随 d 线性增长的问题）；③ε=1e-5（FP32）或 1e-6（BF16/FP16），过小会导致数值不稳定。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Transformer的Dropout策略",
@@ -9913,7 +9913,7 @@
       "Transformer"
     ],
     "brief": "残差连接 x_{l+1}=x_l+F(x_l) 使梯度直接从损失流到输入（恒等梯度路径），解决了深层 Transformer 的梯度消失。关键设计细节：①残差缩放（residual scaling）：DeepNet 将残差乘以 α=（2N）^(1/4)，权重初始化乘以 β，使 Post-Norm 深度 Transformer（1000 层）可稳定训练；②激活检查点（gradient checkpointing）通过重算残差块节省 ~33% 显存，以 30-40% 计算开销为代价；③残差连接与 LoRA：LoRA 的 ΔW=BA 以残差形式加在原权重上，与残差连接的设计思想一致；④Skip connection 与信息旁路：研究表明 Transformer 深层 attention 头的残差路径信息占比 >90%，表示「早停」层对 FFN 有高依赖性。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Multi-Query Attention (MQA)",
@@ -10157,7 +10157,7 @@
       "位置编码"
     ],
     "brief": "YaRN（Yet another RoPE extensioN）在 NTK-aware 基础上增加两个改进：①频率分组插值：高频维度（θ > t_high）保持不变，低频维度（θ < t_low）线性插值，中频维度 NTK 缩放，各组阈值 t_low=1, t_high=32（经验值）；②注意力温度缩放：将 softmax 温度乘以 0.1×ln(s)+1（s=扩展比例），补偿长序列时熵增导致的注意力发散。效果：LLaMA-2 7B（原训练 4096）经 400 步 fine-tune（10B token）即可在 64K 长度表现良好，PPL 接近在 64K 上直接预训练的水平。与 LongRoPE 对比：LongRoPE 非均匀搜索每个维度的最优插值系数，效果略优但搜索代价高。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "可学习位置编码的局限",
@@ -10201,7 +10201,7 @@
       "位置编码"
     ],
     "brief": "2D 位置编码用于图像、视频、表格等二维输入的位置感知。主要方案：①分解式 2D RoPE（ViT）：x 方向和 y 方向各分配 d/2 维度，各自应用 1D RoPE；②可学习 2D 位置嵌入：h×w 个独立向量（ViT 原始方案，224×224/16² = 196 个 patch）；③2D ALiBi：行和列分别施加线性斜率偏置，适合文档版面分析；④VisionLLM 中动态分辨率处理：将高分辨率图像切分为 patch，按 row-major 顺序拼接为 1D 序列，用 1D RoPE 编码（InternVL-1.5 的动态分辨率策略，支持 1-6 个 sub-images 拼接）。关键数值：ViT-L 处理 448×448 图像时 patch 数量从 196 增至 784，显存和延迟增加 4×。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Encoder-only架构详解",
@@ -10465,7 +10465,7 @@
       "嵌入"
     ],
     "brief": "静态嵌入（Word2Vec/GloVe）为每个词型分配唯一向量，无法区分“bank”的多义。ELMo用双向LSTM各层隐状态加权求和得到上下文向量；BERT用Transformer编码全局上下文，同一词在不同句中的嵌入余弦相似度在多义词上可低至0.2，而功能词可高达0.9。在WSD基准上BERT比Word2Vec高约20个百分点，但上下文嵌入不支持离线索引，检索时需在线计算。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "BERT的词片嵌入",
@@ -10476,7 +10476,7 @@
       "嵌入"
     ],
     "brief": "BERT token表示=WordPiece嵌入+可学习位置嵌入（最大512位）+段嵌入，三者相加后过LayerNorm。[CLS]的最后隐状态作分类头输入，汇聚全局语义；[SEP]标记句边界支持NSP任务。与ELMo不同，BERT的位置编码是随机初始化的可学习参数而非正弦函数；base版嵌入维度768，词表嵌入矩阵参数约占模型总参数的22%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Sentence-BERT的句子嵌入",
@@ -10487,7 +10487,7 @@
       "嵌入"
     ],
     "brief": "SBERT在BERT上加mean pooling得到固定维度句子向量，用孪生网络+NLI三元组损失训练。与直接让BERT成对编码相比，SBERT将语义相似度计算从O(n²)降为O(n)：先离线算向量，再用余弦相似度检索。在STS-B上Spearman相关从0.29提升至0.77；all-MiniLM-L6-v2（384维）推理约14K句/秒，是RAG向量检索常用backbone。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "SimCSE的无监督句子嵌入",
@@ -10498,7 +10498,7 @@
       "嵌入"
     ],
     "brief": "SimCSE用同一句子两次独立前向传播（不同Dropout mask，p=0.1）作为正例对，批内其他句子作为负例，最小化InfoNCE损失：L=-log(e^(sim(h_i,h_i')/τ)/Σe^(sim(h_i,h_j')/τ))。这种“Dropout噪声即增强”方案无需标注数据，在STS-B上Spearman达0.76，接近监督SBERT；监督版SimCSE引入NLI硬负例可进一步提升到0.86左右。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "E5的文本嵌入训练",
@@ -10509,7 +10509,7 @@
       "嵌入"
     ],
     "brief": "E5采用两阶段训练：弱监督预训练（10亿级网络挖掘的query-passage对，对比学习）→监督微调（MSMARCO、NLI等高质量标注集）。推理时需加“query:”或“passage:”前缀区分检索方向，这是与SBERT的显著差异。E5-large在BEIR基准平均nDCG@10约54，比SBERT提升约4点；e5-mistral-7b以LLM为骨干，通过自然语言任务描述控制嵌入语义。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "BGE的中文嵌入模型",
@@ -10520,7 +10520,7 @@
       "嵌入"
     ],
     "brief": "BGE（BAAI General Embedding）采用RetroMAE预训练再接对比学习微调，训练数据含中文问答对、百科等约1.2亿对。BGE-large-zh在C-MTEB中文检索基准Recall@10约88，优于mE5-large约3个点。BGE-M3还支持多粒度检索：稠密向量+稀疏词频+ColBERT风格多向量，通过混合检索可进一步提升RAG召回率约5%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "嵌入空间的几何分析",
@@ -10531,7 +10531,7 @@
       "嵌入"
     ],
     "brief": "预训练模型嵌入空间存在各向异性：高频词占据极小锥形区域，余弦相似度均值可达0.6-0.9，导致语义鉴别力差。白化变换W=Σ^(-1/2)可把嵌入转换为更接近各向同性分布，STS任务Spearman常提升5-10点；均匀化也可通过去除top-k主成分实现。SimCSE的对比学习目标会同时优化alignment和uniformity，从而缓解该问题。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "N-gram语言模型",
@@ -10542,7 +10542,7 @@
       "语言模型"
     ],
     "brief": "N-gram LM基于马尔可夫假设：P(w_t|context)≈P(w_t|w_{t-n+1}..w_{t-1})，trigram最常用。零频n-gram需平滑，Kneser-Ney通过“续延概率”替代原始计数，是效果最优的统计平滑方法，PTB上trigram PPL约150-200。与神经LM相比N-gram无长距依赖建模能力，但推理为O(1)表格查询，至今仍用于语音识别解码束搜索。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "神经语言模型的前身",
