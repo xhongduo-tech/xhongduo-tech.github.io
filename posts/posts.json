@@ -1,5 +1,17 @@
 [
   {
+    "title": "SimCSE的无监督句子嵌入",
+    "slug": "nlp-emb-simcse-unsupervised-embedding",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "嵌入"
+    ],
+    "summary": "SimCSE用双dropout构造正例，配合InfoNCE，在无标签场景下训练强句向量。"
+  },
+  {
     "title": "上下文嵌入vs静态嵌入",
     "slug": "nlp-emb-contextual-vs-static-embedding",
     "date": "2026-03-29",
