@@ -10685,7 +10685,7 @@
       "优化器"
     ],
     "brief": "LAMB（Layer-wise Adaptive Moments optimizer for Batch training，You et al. 2019）在 AdamW 基础上添加逐层自适应步长缩放：r_l = ‖θ_l‖ / ‖AdamW_update_l‖（层 l 的参数 L2 范数与更新量范数之比），更新 θ_l -= η · r_l · AdamW_update_l。核心意义：使不同层可以使用不同的有效学习率，浅层参数（范数大）自动获得更大更新，适合超大批量训练（batch=8K-32K）。实验：BERT 预训练时，LAMB 在 batch=32768 下 76 分钟完成（Adam 需要 3 天），且精度持平（SQUAD F1 91.3 vs 91.1）。限制：LAMB 的自适应缩放引入额外的 ‖θ_l‖ 计算（distributed training 需同步），且对超参敏感（warm-up 调整不当会发散）。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Lion优化器",
@@ -10696,7 +10696,7 @@
       "优化器"
     ],
     "brief": "Lion（EvoLved Sign Momentum，Chen et al. 2023）由神经架构搜索（program search）发现的优化器：更新量 = sign(β₁·m_{t-1}+(1-β₁)·g)，m_t = β₁·m_{t-1}+(1-β₁)·g。相比 AdamW：①只需存一阶矩（显存节省 33%，7B 模型约减少 28GB）；②所有参数使用相同步长幅值（sign 函数）；③等效学习率比 AdamW 建议小 3-10× 而重量衰减大 3-10×。实验（原论文）：ViT-L/16 在 ImageNet 上 88.3%（优于 AdamW 88.1%），BERT 预训练接近；但后续研究发现 Lion 在 LLM 预训练中表现参差不齐（部分任务差 0.5-2 PPL）。当前状态：在资源受限场景（消费级 GPU 微调）有显存优势，生产级预训练仍以 AdamW 为主。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Shampoo优化器",
@@ -10707,7 +10707,7 @@
       "优化器"
     ],
     "brief": "Shampoo（Gupta et al. 2018）是矩阵参数（W∈R^{m×n}）的全矩阵预条件优化器：分别累积行梯度统计 L_t=L_{t-1}+GGᵀ（m×m）和列梯度统计 R_t=R_{t-1}+GᵀG（n×n），更新 W -= η·L_t^{-1/4}·G·R_t^{-1/4}（四次根）。近似二阶方法，比 AdamW 每步更新的参数方向质量更高。计算挑战：L, R 矩阵的求逆/开根代价 O(m³)+O(n³)，大型权重矩阵不可行。分布式 Shampoo（Google 2023）：跨设备分片 L/R 矩阵，实现千亿参数预训练；Google 报告在 LLM 上 Shampoo 比 AdamW 快约 30% wall-time（相同 loss 下）。实践中通常每 20-100 步才更新一次预条件子，摊销计算开销。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Adafactor优化器",
@@ -10718,7 +10718,7 @@
       "优化器"
     ],
     "brief": "Adafactor（Shazeer & Stern 2018）通过低秩分解减少二阶矩存储：矩阵参数的二阶矩 v_t 分解为行向量 r_t 和列向量 c_t 的外积 v_t ≈ r_t·cₜᵀ/1（秩 1 近似），将 O(m×n) 存储降至 O(m+n)。全局显存节省：约节省 Adam 二阶矩的 50-80%（取决于矩阵形状）。关键细节：①不使用动量（一阶矩 = 0，进一步节省），用二阶矩自适应替代；②相对学习率：lr_t=max(ε₂, RMS(θ_{t-1}))·ρ_t（ρ_t 依赖步数），无需手动设置 lr；③适合极端内存受限场景（T5 11B 可在 24GB GPU 上 fine-tune）。局限：无一阶矩（动量）使收敛稍慢，且相对 lr 在梯度方差大时不稳定，通常推荐加 clip 处理。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Sophia优化器",
@@ -10729,7 +10729,7 @@
       "优化器"
     ],
     "brief": "Sophia（Second-order Clipped Stochastic Optimization，Liu et al. 2023）用对角 Hessian 估计代替 Adam 的梯度平方二阶矩。Hessian 对角线估计：每隔 k 步用 Hutchinson 估计 h = E[z·(∂²L/∂θ²)·z]（z 为随机向量），额外代价仅 1 次额外 backward；更新 θ -= lr·m / max(γ·h, ε)（γ=0.01 防止 Hessian 噪声导致步长过大，clip 机制）。实验（GPT-2 中型 355M）：Sophia 比 Adam 快约 2× wall-time 达到相同 val loss；LLM 预训练中 Hessian 对角线具有明显的层间差异，能够自适应这种差异是优势所在。局限：k=10 的更新频率是经验调参结果，不同模型可能需要重调；大模型（70B+）Hutchinson 估计的通信开销尚未充分优化。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Muon优化器",
@@ -10740,7 +10740,7 @@
       "优化器"
     ],
     "brief": "Muon（Momentum + Newton-Schulz 归一化，Kosson et al. 2024）将 Nesterov SGD 的动量更新 G 归一化为正交矩阵：G_orthog = Newton-Schulz(G)（5 步迭代将奇异值归一化到 [0,1]），更新 W -= η·G_orthog。核心直觉：网络函数对权重矩阵的奇异值变化不均匀，归一化使每个方向更新量相等（类似按谱范数归一化的梯度）。实验结果：Muon 在 GPT/LLaMA 微调中接近 AdamW，有时略优（特别是较大 batch 下）；对于语言模型预训练，有报告 Muon 在 50B token 规模下与 AdamW 无显著差异。局限：Newton-Schulz 迭代需要矩阵乘法，对非矩阵参数（embedding、LN）不适用，混合使用 Muon（矩阵）+ AdamW（其他）是推荐的实践方式。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "8-bit优化器",
@@ -10751,7 +10751,7 @@
       "优化器"
     ],
     "brief": "8-bit 优化器（bitsandbytes，Dettmers et al. 2022）将 Adam 的一阶矩 m 和二阶矩 v 从 FP32 量化为 8-bit，节省约 75% 优化器状态显存（7B 模型从 ~56GB → ~14GB）。关键技术：动态量化——每个 block（2048 个参数）独立计算量化范围（block-wise absolute max quantization）；梯度统计量用 FP32 计算（不量化），只存储 8-bit 状态；反量化在更新时即时执行（不额外占显存）。实验（BERT/GPT-2）：8-bit Adam 与 FP32 Adam 精度差距 <0.3%，训练时间基本相同（量化/反量化操作速度快）。实践使用：QLoRA 的核心组件之一，使 65B 模型在单卡 48GB GPU 上 fine-tune 成为可能。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数据并行的实现",
@@ -10762,7 +10762,7 @@
       "分布式训练"
     ],
     "brief": "数据并行（DP）：N 个 worker 各持完整模型副本，各处理不同 mini-batch，梯度通过 All-Reduce 同步后统一更新。朴素 PS 方式带宽瓶颈在参数服务器；Ring All-Reduce 每卡互为 peer，通信均匀，带宽利用率 ≈ (N-1)/N。通信量：每步 2×P 个参数（Reduce-Scatter + All-Gather，Ring All-Reduce 的标准实现）。关键限制：每张 GPU 存完整模型（7B FP16=14GB），适合 10B 以内；更大模型需配合 ZeRO。线性缩放规则：N 倍 batch size 时 lr 乘 N，实践中 batch>4096 时常用 warmup 1000 步缓解收敛。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "分布式数据并行DDP",
@@ -10773,7 +10773,7 @@
       "分布式训练"
     ],
     "brief": "PyTorch DDP（DistributedDataParallel）：forward 各自独立，backward 时 hook 触发梯度桶的 All-Reduce；桶大小默认 25MB（可调 bucket_cap_mb）。通信计算重叠（overlap）：DDP 在 backward 完成一个桶后立即开始 All-Reduce，不等待所有梯度准备好，实现通信与后续梯度计算并行。关键配置：①find_unused_parameters=True 允许动态图（but 性能开销约 10%）；②static_graph=True 用于静态图，触发进一步优化；③`broadcast_buffers=False`（BN running stats）在大规模时减少通信；④gradient_as_bucket_view=True 节省峰值显存约 5%。典型 All-Reduce 速度：A100 NVLink 400GB/s，跨节点 InfiniBand 200Gbps（~25GB/s），通信带宽差约 16×。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "模型并行的基本概念",
@@ -10784,7 +10784,7 @@
       "分布式训练"
     ],
     "brief": "模型并行（MP）将模型权重分布到多个设备，解决单设备内存不足的问题。两种基本方式：①张量并行（TP）：将单层的权重矩阵按行/列切分，设备间并行计算同一层；②流水线并行（PP）：将模型按层切分，设备间串行处理不同 micro-batch（流水线）。显存收益：N 卡 TP 或 PP，每卡权重降至 1/N，激活值也相应降低（TP 完全分片，PP 部分分片）。通信开销对比：TP 需要频繁 All-Reduce（每层 2 次），跨节点带宽要求高（建议 NVLink 节点内 TP，跨节点 PP）；PP 通信为点对点 Send/Recv（每 micro-batch 边界），带宽需求低但存在流水线气泡（bubble fraction = (N-1)/(M+N-1)，N=PP度，M=micro-batch数）。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "张量并行Megatron-LM",
@@ -10795,7 +10795,7 @@
       "分布式训练"
     ],
     "brief": "Megatron-LM 张量并行（Shoeybi et al. 2019）：MHA 的 Q/K/V 投影按列切分（N 卡各计算 1/N 的头），O 投影按行切分（输入已分片，输出通过 All-Reduce 合并）；FFN 第一层按列切分（N 卡各计算 1/N 神经元），第二层按行切分。每层 2 次 All-Reduce（Attn 和 FFN 各一次）。通信量：2×seq_len×batch×d×(N-1)/N per layer per forward（约等于 2×P_layer/N 参数量数据量）。8 卡 TP 的 All-Reduce 用时约占单步计算的 20-40%（InfiniBand 200Gbps，A100 HGX），因此 TP 强烈建议在 NVLink 节点内（NVLink 带宽高 10-20×）。与 SP（序列并行）结合：激活值按序列维度分片，LayerNorm 分布到各卡，进一步降低激活显存。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ZeRO优化器状态切分",
@@ -10806,7 +10806,7 @@
       "分布式训练"
     ],
     "brief": "ZeRO（Zero Redundancy Optimizer，Rajbhandari et al. 2020）消除数据并行中的冗余存储。原始 DP 每卡存储：参数 P（16B） + 梯度 G（16B） + 优化器状态 OS（FP32 参数+m+v，= 12P/N bytes）= 共 16Ψ bytes（Ψ=参数量字节数）。三级分片：ZeRO-1 切分 OS（每卡存 1/N，12Ψ→4Ψ bytes）；ZeRO-2 同时切分梯度（每卡存 1/N，(12+2)Ψ→2Ψ bytes）；ZeRO-3 进一步切分参数（每卡存 1/N，16Ψ→2Ψ bytes，额外通信）。7B 模型（FP16 训练）在 ZeRO-3 下：每卡显存从 ~112GB → ~14GB（8 卡），通信量增加约 1.5×（全量梯度 All-Reduce → Reduce-Scatter+All-Gather）。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "FSDP完全分片数据并行",
@@ -10817,7 +10817,7 @@
       "分布式训练"
     ],
     "brief": "FSDP完全分片数据并行 关注 `模型训练 / 分布式训练` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "3D并行",
@@ -10828,7 +10828,7 @@
       "分布式训练"
     ],
     "brief": "3D并行 关注 `模型训练 / 分布式训练` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "序列并行",
@@ -10839,7 +10839,7 @@
       "分布式训练"
     ],
     "brief": "序列并行 关注 `模型训练 / 分布式训练` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "训练Loss突刺的诊断",
@@ -10850,7 +10850,7 @@
       "训练稳定性"
     ],
     "brief": "训练Loss突刺的诊断 关注 `模型训练 / 训练稳定性` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "梯度裁剪的策略",
@@ -10861,7 +10861,7 @@
       "训练稳定性"
     ],
     "brief": "梯度裁剪的策略 关注 `模型训练 / 训练稳定性` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "权重初始化对训练的影响",
@@ -10872,7 +10872,7 @@
       "训练稳定性"
     ],
     "brief": "权重初始化对训练的影响 关注 `模型训练 / 训练稳定性` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LayerScale的训练稳定",
@@ -10883,7 +10883,7 @@
       "训练稳定性"
     ],
     "brief": "LayerScale的训练稳定 关注 `模型训练 / 训练稳定性` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "μP (Maximal Update Parametrization)",
@@ -10895,7 +10895,7 @@
       "超参数"
     ],
     "brief": "μP 提供了一套参数化方案，使得从 proxy 模型（小模型）调优的超参数可以直接迁移到大模型。核心思想：调整权重初始化和学习率的缩放规则，使每层的激活和梯度在不同宽度下保持稳定。在 GPT-3、PaLM 等模型上验证有效，减少大模型的超参数搜索成本。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "训练中的梯度NaN诊断",
@@ -10906,7 +10906,7 @@
       "训练稳定性"
     ],
     "brief": "训练中的梯度NaN诊断 关注 `模型训练 / 训练稳定性` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "学习率过大的症状",
@@ -10917,7 +10917,7 @@
       "训练稳定性"
     ],
     "brief": "学习率过大的症状 关注 `模型训练 / 训练稳定性` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "批量大小的缩放规则",
@@ -10928,7 +10928,7 @@
       "训练稳定性"
     ],
     "brief": "批量大小的缩放规则 关注 `模型训练 / 训练稳定性` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "预训练数据的去重策略",
@@ -10939,7 +10939,7 @@
       "数据处理"
     ],
     "brief": "预训练数据的去重策略 关注 `模型训练 / 数据处理` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数据质量过滤",
@@ -10950,7 +10950,7 @@
       "数据处理"
     ],
     "brief": "数据质量过滤 关注 `模型训练 / 数据处理` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数据混合策略",
@@ -10961,7 +10961,7 @@
       "数据处理"
     ],
     "brief": "数据混合策略 关注 `模型训练 / 数据处理` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "课程学习在LLM中的应用",
@@ -10972,7 +10972,7 @@
       "数据处理"
     ],
     "brief": "课程学习在LLM中的应用 关注 `模型训练 / 数据处理` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "数据增强的NLP实践",
@@ -10983,7 +10983,7 @@
       "数据处理"
     ],
     "brief": "数据增强的NLP实践 关注 `模型训练 / 数据处理` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "合成数据的使用",
