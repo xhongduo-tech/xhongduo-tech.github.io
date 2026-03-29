@@ -1,5 +1,17 @@
 [
   {
+    "title": "Transformer的残差连接设计",
+    "slug": "arch-transformer-transformer-residual-design",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer"
+    ],
+    "summary": "残差连接给 Transformer 提供恒等梯度路径，DeepNorm、checkpoint 与 LoRA分别解决深度…"
+  },
+  {
     "title": "2D位置编码",
     "slug": "arch-pos-2d-position-encoding",
     "date": "2026-03-29",
@@ -576,18 +588,6 @@
       "注意力机制"
     ],
     "summary": "滑动窗口注意力用局部窗口替代全局两两计算，把复杂度从平方降到近线性。"
-  },
-  {
-    "title": "Transformer的残差连接设计",
-    "slug": "arch-transformer-transformer-residual-design",
-    "date": "2026-03-28",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "模型架构",
-      "Transformer"
-    ],
-    "summary": "残差连接保住Transformer主干信息与梯度，DeepNorm、LoRA、checkpointing都是围绕“稳定…"
   },
   {
     "title": "Multi-Query Attention (MQA)",

@@ -1,263 +1,199 @@
 ## 核心结论
 
 Transformer 的残差连接写成
-$$
-x_{l+1}=x_l+F_l(x_l)
-$$
-其中 $x_l$ 是第 $l$ 层输入，$F_l$ 是这一层的注意力或前馈网络变换。它的核心作用不是“多加一条路”这么简单，而是提供一条**恒等路径**。恒等路径就是输入几乎不变地直接传到下一层的通道。反向传播时，梯度可以沿着这条路径直接回到前面层，因此深层网络不会像普通堆叠那样很快出现梯度消失。
+$$x_{l+1}=x_l+F_l(x_l)$$
+其中残差连接就是“把旧表示直接绕过去的加法旁路”，白话说是给每一层保留一条不必经过复杂变换的直通车。它的核心价值不是“让网络更深”这么简单，而是让梯度在反向传播时始终保留一条恒等路径：
+$$\frac{\partial \mathcal L}{\partial x_l}=\frac{\partial \mathcal L}{\partial x_{l+1}}\left(I+\frac{\partial F_l}{\partial x_l}\right)$$
+这里的 $I$ 是单位映射，白话说是“哪怕子层学得一般，梯度也不会完全断掉”。
 
-对初学者最重要的理解是：残差块不需要每层都“重写全部表示”，它只需要学习一个增量，也就是“在原表示上改一点点”。这也是为什么深层 Transformer 能堆起来。没有残差时，每层都要负责完整变换；有残差时，子层只负责局部修正，主干信息继续向前流。
+对零基础读者，最实用的理解是一个玩具例子：把残差流看成高速公路，$F_l(x_l)$ 只是每一层在匝道口加的一点修正。高速公路本身负责把主干语义一路送到高层，匝道负责局部修补。因此深层模型能训练，首先依赖的不是每层都很强，而是主干信息不被层层改坏。
 
-一个玩具例子：把 100 层网络想成 100 次连续修稿。没有残差时，第 100 次修稿只能看到第 99 次版本，早期信息容易被反复改坏；有残差时，每次修稿都在“原稿 + 小修正”上进行，原稿主干始终还在，所以梯度和信息都更容易保留下来。
-
-| 设计 | 前向信息流 | 反向梯度流 | 深层训练风险 |
-| --- | --- | --- | --- |
-| 无残差 | 每层都完全改写表示 | 梯度必须穿过所有非线性层 | 梯度消失/爆炸明显 |
-| 有残差 | 主干表示直接传递，子层只加增量 | 存在近似恒等的直通路径 | 可训练层数显著增加 |
-
-经验上，残差流在很多 Transformer 中是表示的主载体。也就是说，大部分信息沿主干流动，attention 和 FFN 更多是在主干上写入增量，而不是每层重新编码全部语义。因此，残差连接不是附属结构，它本身就是 Transformer 深度扩展的基本条件。
+最近针对 Llama 3.1、Qwen 3 的分析还给出一个重要现象：模型后半段层对残差流的改变量明显变小，说明早层往往已经完成了大部分主干表示，后半层更多是在精修分布而不是重写语义。这进一步说明残差流不是“辅助结构”，而是 Transformer 的主干。
 
 ---
 
 ## 问题定义与边界
 
-这里讨论的是**深层 Transformer**，尤其是几十层到上千层的模型。问题不在于“残差有没有用”，而在于“只有普通残差够不够”。答案是：层数一深，普通 Post-Norm 写法往往不够。
+问题不是“残差连接有没有用”，而是“当 Transformer 深到 100 层、200 层甚至 1000 层时，残差流如何仍然稳定”。这里的稳定有两层含义：
 
-Post-Norm 指的是先做残差相加，再做 LayerNorm，即：
-$$
-x_{l+1}=\mathrm{LayerNorm}(x_l+F_l(x_l))
-$$
-Pre-Norm 则是先归一化再进子层。LayerNorm 可以理解成“把一层向量重新拉回稳定尺度”的归一化操作。两者都用残差，但训练稳定性差异很大。普通 Post-Norm 在深层时容易出现更新量累积失控，训练直接发散。DeepNorm 的工作正是解决这个问题。
-
-第二个边界是显存。层数增加后，反向传播要保存更多中间激活。激活就是前向计算时每层的中间结果。即使梯度稳定了，显存也会先撑爆，所以工程上必须考虑 gradient checkpointing，也就是**激活检查点**。它的做法是少存一些中间结果，在反向时重算一部分前向。
-
-第三个边界是微调。很多人把“残差设计”和“LoRA 微调”分开看，其实它们思想一致。LoRA 不是重训整个权重，而是在原权重上叠加一个低秩增量：
-$$
-\Delta W=BA
-$$
-低秩的意思是用两个更小的矩阵近似一个大矩阵更新，参数更省。它本质上也是“保留主干，只学差分”。
-
-| 问题 | 边界 | 解决方案 |
+| 目标 | 含义 | 失败现象 |
 | --- | --- | --- |
-| 深层梯度消失 | 普通深堆叠难训练 | 残差提供恒等梯度路径 |
-| Post-Norm 发散 | 层数很深时更新量累积过大 | DeepNorm 的 $\alpha,\beta$ 缩放 |
-| 激活显存过高 | 层数和序列长度都大时显存先爆 | Gradient checkpointing |
-| 全量微调成本高 | 大模型难以训练和部署 | LoRA 只学习 $\Delta W$ |
+| 前向稳定 | 表示幅度不随层数无控制地增大 | 激活爆炸、LayerNorm 前数值失控 |
+| 反向稳定 | 梯度能从顶层回到底层 | 梯度消失、深层几乎学不到 |
 
-DeepNorm 常见写法会引入按层数定义的系数。对 encoder-only 或常见简化讨论，可以先抓住这两个量：
-$$
-\alpha=(2N)^{1/4},\qquad \beta=(8N)^{-1/4}
-$$
-其中 $N$ 是总层数。直觉上，$\alpha$ 用来增强主干残差，$\beta$ 用来压低子层更新。这样深层累积后的总更新量仍能维持在可控范围。
+没有残差时，深层网络等于不断复合非线性变换，梯度容易在连乘中衰减。只有残差但不控制尺度也不够，因为你在做的是
+$$x_{l+1}=x_l+F_l(x_l)$$
+如果 200 层都往同一个方向“多写一点”，总量仍然会失控。
+
+新手可以用一个简单边界来理解：如果前 100 层已经写入主要信息，后 100 层就不该继续用同样强度重写主干；否则模型相当于反复覆盖旧表示，收益递减，甚至破坏已形成的结构。
+
+这也是为什么“深层可训练”不等于“随便堆层”。残差连接提供了信息旁路，但还需要缩放、归一化和训练技巧来约束每层写入量。
 
 ---
 
 ## 核心机制与推导
 
-先看最基本的反向传播。若
-$$
-x_{l+1}=x_l+F_l(x_l)
-$$
-那么对上一层输入求导：
-$$
-\frac{\partial x_{l+1}}{\partial x_l}=I+\frac{\partial F_l(x_l)}{\partial x_l}
-$$
-这里的 $I$ 是单位映射，也就是“直接把自己传过去”的那部分。关键点在于，即使 $\frac{\partial F_l}{\partial x_l}$ 很小，梯度里仍然保留一条来自 $I$ 的直通项。这就是残差能缓解梯度消失的数学原因。
+先看梯度。把一层展开：
+$$x_{l+1}=x_l+F_l(x_l)$$
+则反向有
+$$g_l=g_{l+1}\left(I+J_l\right),\quad J_l=\frac{\partial F_l}{\partial x_l}$$
+即使 $J_l$ 很小，$I$ 仍然存在，所以不会像纯堆叠网络那样只剩连乘的微小导数。这就是“恒等梯度路径”。
 
-但到了深层 Post-Norm，仅有这条直通路径还不够。因为每层子模块输出如果尺度不受控，很多层叠加后总更新会越来越大。DeepNorm 的思路是把残差主干和子层增量明确区分开：
-$$
-x_{l+1}=\mathrm{LayerNorm}(\alpha x_l+G_l(x_l;\theta_l))
-$$
-同时在初始化或投影层上配合 $\beta$ 缩放。可以把它理解成“放大主干、压小支路”。这样训练时模型主要沿着稳定主干传播，子层做细粒度修正。
+但恒等路径只解决“能传回去”，不自动解决“数值会不会炸”。DeepNet 给出的 DeepNorm 做法是对白话里的“旧主干”和“新修正”重新配平。其编码器形式可写成：
+$$x_{l+1}=\mathrm{LayerNorm}(\alpha x_l+G_l(x_l))$$
+同时对子层内部部分权重乘以初始化系数 $\beta$。对 $N$ 层编码器，论文给出的稳定缩放是：
+$$\alpha=(2N)^{1/4},\qquad \beta=(8N)^{-1/4}$$
 
-用 12 层做玩具数值例子：
-$$
-\alpha=(2\times 12)^{1/4}\approx 2.21,\qquad \beta=(8\times 12)^{-1/4}\approx 0.32
-$$
-不同结构下实现细节会略有差异，但直觉不变：主干被明确保住，增量被明确约束。很多面向工程的二手资料会给出近似“缩到一半”的口径，本质上是在强调“增量必须明显小于主干”，而不是要求你死记某个四舍五入数。
+这里的残差缩放就是“先把主干量级调到合适，再允许子层往上加修正”；$\beta$ 则是在初始化时压低子层写入强度，避免早期训练直接把残差流冲坏。
 
-可以把这一层想成文字示意图：
+一个关键数值要算对。按 DeepNet 的编码器公式：
 
-`输入 x_l`  
-`├─ 恒等路径: 乘 alpha，直接往后传`  
-`└─ 子层路径: Attention/FFN 产生更新，再按 beta 缩放`  
-`最后把两条路相加，再做 LayerNorm`
+| 编码器层数 $N$ | $\alpha=(2N)^{1/4}$ | $\beta=(8N)^{-1/4}$ |
+| --- | ---: | ---: |
+| 100 | 3.761 | 0.188 |
+| 200 | 4.472 | 0.158 |
+| 1000 | 6.687 | 0.106 |
 
-LoRA 也符合这个结构。原层是
-$$
-y=Wx
-$$
-LoRA 后变成
-$$
-y=(W+\Delta W)x=(W+BA)x
-$$
-其中 $W$ 冻结，只训练 $A,B$。这说明 LoRA 不是替换原有能力，而是在原能力之上叠加一个低秩修正。它和残差的共同思想是：**先保住主路径，再学习小更新**。
+注意：$N=100$ 时 $\beta$ 约为 0.188，不是 0.37。这个差别不只是算术问题，而是直接影响子层初始写入量。
 
-真实工程例子是训练超深翻译模型或大语言模型底座。假设你要训一个 1000 层 Post-Norm Transformer。只用普通 Xavier 初始化，子层输出会在深堆叠下逐步放大，loss 很容易在早期爆掉。工程上通常会同时做三件事：
+LoRA 可以从同一个“残差更新”视角理解。LoRA 的低秩适配就是“用很小的矩阵去近似原权重需要补上的改动”，即
+$$W=W_0+\Delta W=W_0+BA$$
+其中低秩是“用更少参数表示一个大矩阵更新”。前向变成
+$$h=W_0x+BAx$$
+这本质上仍然是“保留原路径，再叠加一个可控修正”。所以 LoRA 和残差连接虽然作用位置不同，一个在层输出上加，一个在权重上加，但设计思想一致：先保留基座，再叠加小更新。
 
-1. 用 DeepNorm 或类似缩放控制残差更新。
-2. 用 checkpointing 减少激活存储。
-3. 微调阶段不用全量训练，而是在 Q/K/V/FFN 上挂 LoRA。
-
-这三者不是彼此独立的技巧，而是围绕同一目标展开：让主干稳定，让增量可控，让资源可承受。
+真实工程例子是 DeepNet：它报告 200 层、3.2B 参数模型在大规模多语翻译上超过 48 层、12B 的基线。这说明深度不是不能扩，只是必须先把残差流稳定下来。
 
 ---
 
 ## 代码实现
 
-下面给一个可运行的 Python 玩具实现。它不是完整 Transformer，而是把残差、DeepNorm 风格缩放和 LoRA 的核心结构抽出来，便于理解。
+先给一个可运行的玩具实现，用纯 Python 演示残差、DeepNorm 系数和 LoRA 更新：
 
 ```python
 import math
 
-def layer_norm(vec, eps=1e-5):
-    mean = sum(vec) / len(vec)
-    var = sum((x - mean) ** 2 for x in vec) / len(vec)
-    return [(x - mean) / math.sqrt(var + eps) for x in vec]
+def residual_stack(x, n_layers, delta):
+    for _ in range(n_layers):
+        x = x + delta
+    return x
 
-def linear(vec, weight):
-    out = []
-    for row in weight:
-        out.append(sum(a * b for a, b in zip(row, vec)))
-    return out
+def deepnorm_coeff(n):
+    alpha = (2 * n) ** 0.25
+    beta = (8 * n) ** -0.25
+    return alpha, beta
 
-def add(a, b):
-    return [x + y for x, y in zip(a, b)]
+def matvec(W, x):
+    return [sum(wij * xj for wij, xj in zip(wi, x)) for wi in W]
 
-def scale(a, s):
-    return [x * s for x in a]
+def lora_forward(W0, A, B, x):
+    # W0: d x k, A: r x k, B: d x r
+    base = matvec(W0, x)
+    ax = matvec(A, x)
+    bax = matvec(B, ax)
+    return [u + v for u, v in zip(base, bax)]
 
-def deepnorm_block(x, sublayer, alpha, beta):
-    # alpha 控制恒等路径强度
-    residual = scale(x, alpha)
-    # beta 控制子层更新幅度
-    delta = scale(sublayer(x), beta)
-    return layer_norm(add(residual, delta))
+alpha, beta = deepnorm_coeff(100)
+assert round(alpha, 3) == 3.761
+assert round(beta, 3) == 0.188
 
-def make_lora_delta(x, A, B):
-    low_rank = linear(x, A)      # 降维
-    return linear(low_rank, B)   # 升维
+# 残差恒等路径：如果子层不写入，输出应保持不变
+x = 5.0
+assert residual_stack(x, 10, 0.0) == 5.0
 
-def lora_linear(x, W, A, B, lora_scale=1.0):
-    base = linear(x, W)
-    delta = scale(make_lora_delta(x, A, B), lora_scale)
-    return add(base, delta)
-
-# 玩具输入
-x = [1.0, 2.0, -1.0]
-
-# 3 -> 3 的子层
-W_sub = [
-    [0.2, 0.0, 0.1],
-    [0.1, 0.3, -0.2],
-    [0.0, 0.2, 0.4],
-]
-
-def sublayer(v):
-    return linear(v, W_sub)
-
-N = 12
-alpha = (2 * N) ** 0.25
-beta = (8 * N) ** (-0.25)
-
-y = deepnorm_block(x, sublayer, alpha, beta)
-assert len(y) == 3
-assert abs(sum(y) / len(y)) < 1e-4  # LayerNorm 后均值接近 0
-
-# LoRA: W 是冻结主权重，A/B 是可训练低秩增量
-W = [
-    [1.0, 0.0, 0.0],
-    [0.0, 1.0, 0.0],
-]
-
-A = [
-    [0.1, 0.0, 0.2],
-]  # 1 x 3
-
-B = [
-    [0.5],
-    [-0.3],
-]  # 2 x 1
-
-out = lora_linear(x, W, A, B, lora_scale=0.8)
-assert len(out) == 2
-
-base = linear(x, W)
-assert out != base  # LoRA 确实添加了增量
+# LoRA 玩具例子：W0x + BAx
+W0 = [[1.0, 0.0], [0.0, 1.0]]
+A = [[2.0, 0.0]]      # r=1
+B = [[1.0], [3.0]]
+x = [1.0, 2.0]
+y = lora_forward(W0, A, B, x)
+assert y == [3.0, 8.0]
 ```
 
-如果换成 PyTorch，核心 forward 结构通常类似这样：
+上面这个玩具例子表达的是结构，不是训练速度。真正工程里会用 PyTorch，把残差块、LoRA 和 checkpoint 放在一起：
 
 ```python
-def forward(self, x):
-    x_main = self.alpha * x
-    x_delta = self.beta * self.sublayer(x)
-    return self.ln(x_main + x_delta)
+import torch
+import torch.nn as nn
+from torch.utils.checkpoint import checkpoint
+
+class LoRALinear(nn.Module):
+    def __init__(self, in_dim, out_dim, rank=8, alpha=16):
+        super().__init__()
+        self.weight = nn.Parameter(torch.randn(out_dim, in_dim) * 0.02)
+        self.weight.requires_grad_(False)
+        self.A = nn.Parameter(torch.randn(rank, in_dim) * 0.02)
+        self.B = nn.Parameter(torch.zeros(out_dim, rank))
+        self.scale = alpha / rank
+
+    def forward(self, x):
+        delta = (x @ self.A.t()) @ self.B.t()
+        return x @ self.weight.t() + self.scale * delta
+
+class ResidualBlock(nn.Module):
+    def __init__(self, dim, rank=8):
+        super().__init__()
+        self.norm = nn.LayerNorm(dim)
+        self.proj = LoRALinear(dim, dim, rank=rank)
+
+    def _forward(self, x):
+        h = self.proj(self.norm(x))
+        return x + h
+
+    def forward(self, x, use_checkpoint=False):
+        if use_checkpoint and self.training:
+            return checkpoint(self._forward, x, use_reentrant=False)
+        return self._forward(x)
 ```
 
-LoRA 则常见为：
-
-```python
-def forward(self, x):
-    return self.base(x) + self.scale * self.B(self.A(x))
-```
-
-这两段代码背后的共同点很重要：原路径始终存在，训练只是在原路径上叠加受控变化。
+这里 checkpoint 的意思是“前向时少存中间激活，反向时重算一遍”；LoRA 的意思是“冻结原权重，只训练低秩增量”。
 
 ---
 
 ## 工程权衡与常见坑
 
-残差连接能让模型训起来，但工程上最常见的问题不是“有没有残差”，而是“残差尺度、显存策略、微调范围是否匹配”。
+真正训练超深 Transformer，不是只会写残差公式就够了。常见权衡如下：
 
-| 坑 | 后果 | 规避 |
-| --- | --- | --- |
-| 深层 Post-Norm 直接套普通初始化 | 训练前期更新爆炸，loss 发散 | 用 DeepNorm 或等价缩放 |
-| 子层输出不做深度相关缩放 | 后层更新累积失控 | 用 $\alpha,\beta$ 控制主干和增量 |
-| checkpoint 过密 | 重算太多，训练明显变慢 | 按 $\sqrt{n}$ 量级分段更常见 |
-| checkpoint 太稀 | 显存节省不明显 | 结合层数和序列长度调粒度 |
-| LoRA rank 太小 | 表达能力不足，任务学不动 | 从小 rank 起步，再按层数/任务加大 |
-| LoRA rank 太大 | 参数和显存回升，失去 PEFT 意义 | 只在关键投影层上加适中 rank |
-| 误把残差当“可有可无” | 深层性能和稳定性一起掉 | 不要轻易删主干路径 |
+| 技术 | 峰值显存 | 计算开销 | 主要作用 |
+| --- | --- | --- | --- |
+| Gradient checkpointing | 常见可降约 33% 左右 | 常见慢 20% 到 30%，有时更高 | 用重算换显存 |
+| DeepNorm scaling | 几乎不增加显存 | 额外代价很小 | 控制深层残差写入量 |
+| LoRA | 显著减少可训练参数 | 推理可合并，几乎无额外延迟 | 下游高效微调 |
 
-显存方面，gradient checkpointing 的理论经典结果是把激活存储从 $O(n)$ 降到 $O(\sqrt{n})$。工程里常见做法不是每层都 checkpoint，而是每隔若干层打一段。经验公式可以写成：
-$$
-\text{checkpoint interval}\approx \sqrt{n}
-$$
-其中 $n$ 是总层数。它不是精确最优解，而是常用起点。代价是反向传播需要重算部分前向，因此训练时间通常会上升，经典论文和很多工程经验都报告过大约 30% 左右额外开销，实际会随框架、序列长度和 kernel 优化波动。
+常见坑有四个。
 
-还有一个经常被忽略的点：如果残差流承载了大部分稳定信息，那么 FFN 和 attention 的职责更像“增量编辑器”。这意味着做剪枝、早停、低秩适配时，不能只盯 attention，FFN 容量也很关键。否则主干虽然还在，但缺少足够的增量编辑能力，模型表达会明显下降。
+第一，只加残差、不做尺度控制。结果通常是浅层还能跑，层数一深就出现 loss spike，白话说是“每层都在往主干上用力写字，最后把纸写穿了”。
+
+第二，把 DeepNorm 系数算错。尤其是 $\beta$，它直接决定子层初始化强度，数值错一倍，训练稳定性会明显变差。
+
+第三，把 checkpoint 当成“白拿显存”。它本质是拿计算换内存，显存越紧张越值得开，但吞吐会下降。显存不是瓶颈时，盲目开启往往不划算。
+
+第四，把 LoRA 当成“从零训练深模型”的替代品。它不是。LoRA 解决的是下游适配成本，不解决超深主干从头训练的稳定性。
 
 ---
 
 ## 替代方案与适用边界
 
-如果你不是在训练极深 Post-Norm 模型，未必一定要上 DeepNorm。不同方案的适用边界很明确。
+如果任务是从零训练 100 层以上的 Transformer，优先考虑的是 DeepNorm 这类残差稳定方案，因为问题根源在主干深度扩展。
 
-| 方案 | 适用场景 | 优点 | 代价/边界 |
+如果任务是已有大模型做下游微调，优先考虑 LoRA，因为它保留 $W_0$，只学习 $\Delta W=BA$，训练参数和显存都更省，合并后也不会引入额外推理路径。
+
+如果任务受限于 GPU 显存，而不是参数量，那么 gradient checkpointing 往往最直接。它不改变模型表达能力，只改变训练时存激活的策略。
+
+| 方法 | 核心改动 | 最适合的场景 | 不适合的场景 |
 | --- | --- | --- | --- |
-| Pre-Norm | 中深层 Transformer，训练稳定优先 | 好训，工程成熟 | 有时最终性能不如优化好的 Post-Norm |
-| Post-Norm + DeepNorm | 很深的 Transformer，想保留 Post-Norm 优势 | 可把层数推到很深 | 需要特殊缩放和初始化配套 |
-| LoRA 微调 | 预训练模型下游适配 | 参数少，显存省，部署灵活 | 不解决从零训练的深层稳定性 |
-| Checkpointing | 显存成为瓶颈时 | 不改模型结构，直接省显存 | 增加重算开销 |
+| DeepNorm | 调整残差和初始化的尺度 | 训练 100+ 层 Transformer | 只做轻量下游微调 |
+| LoRA | 用低秩增量 $BA$ 叠加到 $W_0$ | PEFT、任务适配 | 替代深层主干稳定训练 |
+| Gradient checkpointing | 反向时重算激活 | 显存受限训练 | 吞吐敏感、显存富余 |
 
-简单决策可以这样看：
-
-如果你是在训练几十层到一两百层模型，并且更看重稳定和简单，优先用 Pre-Norm。  
-如果你明确要做很深的 Post-Norm 设计，或者要复现 DeepNet 一类路线，就必须把残差缩放和初始化一起考虑。  
-如果你不是从零训练，而是在现有大模型上做任务适配，优先考虑 LoRA，而不是动全部参数。  
-如果模型本身已经稳定，但显存不够，再加 checkpointing；它解决的是资源问题，不是残差稳定性本身。
-
-要特别避免一个误区：LoRA 不能替代 DeepNorm。LoRA 解决的是“怎么高效改参数”，DeepNorm 解决的是“深层网络怎么稳定训练”。两者关注点不同，但它们都遵循“保主干、学增量”的残差思想。
+所以实践上的组合通常是：超深从头训练用 DeepNorm 保残差流稳定；显存不够时叠加 checkpoint；下游任务再用 LoRA 做低成本适配。三者能组合，但解决的是三个不同层面的瓶颈。
 
 ---
 
 ## 参考资料
 
-- Vaswani et al., *Attention Is All You Need*. Transformer 原始结构，定义了 attention/FFN 外的残差连接。https://arxiv.org/abs/1706.03762
-- He et al., *Deep Residual Learning for Image Recognition*. 残差学习的经典起点，解释了恒等映射为何能帮助深层训练。https://arxiv.org/abs/1512.03385
-- Wang et al., *DeepNet: Scaling Transformers to 1,000 Layers*. DeepNorm 的核心来源，讨论深层 Post-Norm 的稳定训练与层数扩展。https://arxiv.org/abs/2203.00555
-- Hu et al., *LoRA: Low-Rank Adaptation of Large Language Models*. 给出 $\Delta W=BA$ 的低秩增量微调形式。https://arxiv.org/abs/2106.09685
-- Chen et al., *Training Deep Nets with Sublinear Memory Cost*. 激活检查点的经典论文，给出 $O(\sqrt{n})$ 内存-计算折中。https://arxiv.org/abs/1604.06174
-- Anthropic, *Privileged Bases in the Transformer Residual Stream*. 讨论 residual stream 作为 Transformer 主信息通道的重要性。https://transformer-circuits.pub/2023/privileged-basis/index.html
-- Guangxuan Xiao, *Stacking Your Transformer Layers? Better Keep the Residual*. 面向实践的经验分析，讨论 skip connection 对深层信息流和 FFN 依赖的启发。https://guangxuanx.com/blog/stacking-swa.html
+- DeepNet: Scaling Transformers to 1,000 Layers. arXiv:2203.00555. https://arxiv.org/abs/2203.00555
+- LoRA: Low-Rank Adaptation of Large Language Models. arXiv:2106.09685. https://arxiv.org/abs/2106.09685
+- Do Language Models Use Their Depth Efficiently? arXiv:2505.13898. https://arxiv.org/abs/2505.13898
+- Hugging Face Transformers 文档，Gradient Checkpointing. https://huggingface.co/docs/transformers/en/main_classes/trainer
+- Hugging Face Performance Guide，Gradient Checkpointing. https://huggingface.co/docs/transformers/v4.17.0/performance
