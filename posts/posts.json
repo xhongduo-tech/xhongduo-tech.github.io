@@ -1,5 +1,17 @@
 [
   {
+    "title": "循环神经网络语言模型",
+    "slug": "nlp-lm-rnn-language-model",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "语言模型"
+    ],
+    "summary": "RNN语言模型靠递归状态建模历史，能超越n-gram，但受梯度与串行瓶颈限制。"
+  },
+  {
     "title": "E5的文本嵌入训练",
     "slug": "nlp-emb-e5-text-embedding-training",
     "date": "2026-03-29",
