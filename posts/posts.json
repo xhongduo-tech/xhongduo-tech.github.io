@@ -1,5 +1,16 @@
 [
   {
+    "title": "AdamW的权重衰减解耦",
+    "slug": "train-opt-adamw-weight-decay-decoupled",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "AdamW把权重衰减从Adam的自适应梯度中解耦，恢复了可解释、统一的参数收缩。"
+  },
+  {
     "title": "Shampoo优化器",
     "slug": "train-opt-shampoo-optimizer",
     "date": "2026-03-29",
