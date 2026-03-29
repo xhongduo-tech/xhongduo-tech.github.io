@@ -1,5 +1,17 @@
 [
   {
+    "title": "语言模型的困惑度",
+    "slug": "nlp-lm-language-model-perplexity",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "语言模型"
+    ],
+    "summary": "困惑度衡量语言模型不确定性，但必须在统一分词器和评测协议下比较。"
+  },
+  {
     "title": "LSTM语言模型",
     "slug": "nlp-lm-lstm-language-model",
     "date": "2026-03-29",
