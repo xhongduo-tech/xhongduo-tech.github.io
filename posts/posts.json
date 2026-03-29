@@ -1,5 +1,17 @@
 [
   {
+    "title": "语言模型的生成策略",
+    "slug": "nlp-lm-lm-generation-strategies",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "语言模型"
+    ],
+    "summary": "生成策略决定语言模型在稳定性、多样性与吞吐之间如何取舍。"
+  },
+  {
     "title": "因果语言模型与自回归",
     "slug": "nlp-lm-causal-lm-autoregressive",
     "date": "2026-03-29",
