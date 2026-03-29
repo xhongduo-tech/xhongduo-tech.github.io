@@ -10465,7 +10465,7 @@
       "嵌入"
     ],
     "brief": "静态嵌入（Word2Vec/GloVe）为每个词型分配唯一向量，无法区分“bank”的多义。ELMo用双向LSTM各层隐状态加权求和得到上下文向量；BERT用Transformer编码全局上下文，同一词在不同句中的嵌入余弦相似度在多义词上可低至0.2，而功能词可高达0.9。在WSD基准上BERT比Word2Vec高约20个百分点，但上下文嵌入不支持离线索引，检索时需在线计算。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BERT的词片嵌入",
