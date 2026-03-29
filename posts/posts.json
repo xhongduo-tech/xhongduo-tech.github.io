@@ -1,5 +1,17 @@
 [
   {
+    "title": "语言模型的校准问题",
+    "slug": "nlp-lm-lm-calibration",
+    "date": "2026-03-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "语言模型"
+    ],
+    "summary": "校准要求置信度接近真实正确率；温度缩放能降过度自信，R-Tuning进一步教模型在不知道时拒答。"
+  },
+  {
     "title": "Adam的完整实现",
     "slug": "train-opt-adam-complete-implementation",
     "date": "2026-03-29",
