@@ -1,5 +1,17 @@
 [
   {
+    "title": "扩散模型的数学基础",
+    "slug": "mm-imgen-diffusion-model-math-basics",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "扩散模型本质是多噪声尺度下的去噪学习，核心是用 score 近似支撑逆向采样。"
+  },
+  {
     "title": "InstructBLIP的指令感知检索",
     "slug": "mm-vlm-instructblip-instruction-aware",
     "date": "2026-04-03",
