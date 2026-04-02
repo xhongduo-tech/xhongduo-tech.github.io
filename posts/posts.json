@@ -1,5 +1,16 @@
 [
   {
+    "title": "Agent的规划算法",
+    "slug": "agent-arch-agent-planning-algorithms",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "规划算法的核心不是排步骤，而是维护因果链、约束和可执行性的统一结构。"
+  },
+  {
     "title": "Code Interpreter的沙箱",
     "slug": "agent-arch-code-interpreter-sandbox",
     "date": "2026-04-03",
