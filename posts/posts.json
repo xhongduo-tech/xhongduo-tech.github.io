@@ -1,5 +1,17 @@
 [
   {
+    "title": "ViT的图像分块嵌入",
+    "slug": "mm-vision-vit-image-patch-embedding",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "ViT分块嵌入把图像改写为带位置的token序列，是视觉进入Transformer的统一入口。"
+  },
+  {
     "title": "ViT的注意力模式分析",
     "slug": "mm-vision-vit-attention-pattern-analysis",
     "date": "2026-04-03",
