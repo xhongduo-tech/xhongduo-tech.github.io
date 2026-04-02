@@ -1,5 +1,16 @@
 [
   {
+    "title": "LayerScale的训练稳定",
+    "slug": "train-stab-layerscale-training-stability",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "summary": "LayerScale用极小的逐通道残差缩放，先稳住深层ViT，再逐步放开残差贡献。"
+  },
+  {
     "title": "权重初始化对训练的影响",
     "slug": "train-stab-weight-initialization-training-impact",
     "date": "2026-04-02",
