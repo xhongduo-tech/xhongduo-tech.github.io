@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建写作助手Agent",
+    "slug": "agent-app-build-writing-assistant-agent",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "summary": "写作助手Agent的核心不是会写，而是有预算、阶段门控和反馈闭环。"
+  },
+  {
     "title": "构建研究助手Agent",
     "slug": "agent-app-build-research-assistant-agent",
     "date": "2026-04-03",
