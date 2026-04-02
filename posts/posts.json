@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型并行的基本概念",
+    "slug": "train-dist-model-parallel-basics",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "模型并行通过切权重或切层解决显存瓶颈，工程上常用节点内TP、节点间PP。"
+  },
+  {
     "title": "Sophia优化器",
     "slug": "train-opt-sophia-optimizer",
     "date": "2026-04-02",

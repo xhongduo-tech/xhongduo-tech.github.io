@@ -10784,7 +10784,7 @@
       "分布式训练"
     ],
     "brief": "模型并行（MP）将模型权重分布到多个设备，解决单设备内存不足的问题。两种基本方式：①张量并行（TP）：将单层的权重矩阵按行/列切分，设备间并行计算同一层；②流水线并行（PP）：将模型按层切分，设备间串行处理不同 micro-batch（流水线）。显存收益：N 卡 TP 或 PP，每卡权重降至 1/N，激活值也相应降低（TP 完全分片，PP 部分分片）。通信开销对比：TP 需要频繁 All-Reduce（每层 2 次），跨节点带宽要求高（建议 NVLink 节点内 TP，跨节点 PP）；PP 通信为点对点 Send/Recv（每 micro-batch 边界），带宽需求低但存在流水线气泡（bubble fraction = (N-1)/(M+N-1)，N=PP度，M=micro-batch数）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "张量并行Megatron-LM",
