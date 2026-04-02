@@ -1,5 +1,16 @@
 [
   {
+    "title": "Multi-Agent协作模式",
+    "slug": "agent-arch-multi-agent-collaboration-patterns",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "多智能体协作的本质是分工加通信，用可控协调换取长链任务中的记忆、规划与鲁棒性提升"
+  },
+  {
     "title": "Agent的记忆架构",
     "slug": "agent-arch-agent-memory-architecture",
     "date": "2026-04-03",
