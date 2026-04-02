@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLaVA的Projector设计",
+    "slug": "mm-vlm-llava-projector-design",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "LLaVA 的 Projector 是把视觉 patch token 映射到 LLM 隐藏空间的轻量连接器。"
+  },
+  {
     "title": "InternVL的架构设计",
     "slug": "mm-vlm-internvl-architecture",
     "date": "2026-04-03",
