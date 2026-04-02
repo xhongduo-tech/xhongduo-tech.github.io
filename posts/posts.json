@@ -1,5 +1,16 @@
 [
   {
+    "title": "批量大小的缩放规则",
+    "slug": "train-stab-batch-size-scaling-rules",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "summary": "批量放大通常要同步放大学习率，并用 warmup 避免训练初期失稳。"
+  },
+  {
     "title": "训练中的梯度NaN诊断",
     "slug": "train-stab-gradient-nan-diagnosis",
     "date": "2026-04-02",
