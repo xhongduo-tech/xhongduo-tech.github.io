@@ -1,5 +1,16 @@
 [
   {
+    "title": "Sophia优化器",
+    "slug": "train-opt-sophia-optimizer",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "Sophia用对角Hessian替代Adam二阶矩，并用逐坐标裁剪在更快收敛与稳定性之间取平衡"
+  },
+  {
     "title": "数据并行的实现",
     "slug": "train-dist-data-parallel-implementation",
     "date": "2026-04-02",

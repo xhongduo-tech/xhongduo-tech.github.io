@@ -10729,7 +10729,7 @@
       "优化器"
     ],
     "brief": "Sophia（Second-order Clipped Stochastic Optimization，Liu et al. 2023）用对角 Hessian 估计代替 Adam 的梯度平方二阶矩。Hessian 对角线估计：每隔 k 步用 Hutchinson 估计 h = E[z·(∂²L/∂θ²)·z]（z 为随机向量），额外代价仅 1 次额外 backward；更新 θ -= lr·m / max(γ·h, ε)（γ=0.01 防止 Hessian 噪声导致步长过大，clip 机制）。实验（GPT-2 中型 355M）：Sophia 比 Adam 快约 2× wall-time 达到相同 val loss；LLM 预训练中 Hessian 对角线具有明显的层间差异，能够自适应这种差异是优势所在。局限：k=10 的更新频率是经验调参结果，不同模型可能需要重调；大模型（70B+）Hutchinson 估计的通信开销尚未充分优化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Muon优化器",
