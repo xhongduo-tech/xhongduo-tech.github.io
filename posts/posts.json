@@ -1,5 +1,16 @@
 [
   {
+    "title": "RAG的检索-生成联合优化",
+    "slug": "agent-rag-rag-retrieval-generation-joint",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "联合优化让查询重写、检索与生成共享目标，核心价值是减少证据与答案失配。"
+  },
+  {
     "title": "合成数据的使用",
     "slug": "train-data-synthetic-data-usage",
     "date": "2026-04-03",
