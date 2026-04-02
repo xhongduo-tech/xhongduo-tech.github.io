@@ -1,5 +1,17 @@
 [
   {
+    "title": "CogVLM的视觉专家模块",
+    "slug": "mm-vlm-cogvlm-visual-expert",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "CogVLM通过每层视觉专家逐层翻译图像token，在冻结LLM前提下实现深度图文融合。"
+  },
+  {
     "title": "DDPM的训练目标",
     "slug": "mm-imgen-ddpm-training-objective",
     "date": "2026-04-03",
