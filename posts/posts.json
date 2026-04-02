@@ -1,5 +1,16 @@
 [
   {
+    "title": "Sparse Retrieval BM25实现",
+    "slug": "agent-rag-sparse-retrieval-bm25",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "BM25用词频、稀有度和长度归一化做稀疏召回，适合RAG首层检索但不替代语义理解"
+  },
+  {
     "title": "Dense Retrieval的索引构建",
     "slug": "agent-rag-dense-retrieval-indexing",
     "date": "2026-04-03",
