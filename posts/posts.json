@@ -1,5 +1,17 @@
 [
   {
+    "title": "Qwen-VL的动态分辨率",
+    "slug": "mm-vlm-qwen-vl-dynamic-resolution",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "Qwen2-VL用动态分辨率在细节保留与视觉token预算之间做受控折中。"
+  },
+  {
     "title": "LLaVA的Projector设计",
     "slug": "mm-vlm-llava-projector-design",
     "date": "2026-04-03",
