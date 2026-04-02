@@ -1,5 +1,16 @@
 [
   {
+    "title": "FSDP完全分片数据并行",
+    "slug": "train-dist-fsdp-fully-sharded",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "FSDP用按rank分片加临时聚合，把整模型常驻显存改成按层峰值显存。"
+  },
+  {
     "title": "ZeRO优化器状态切分",
     "slug": "train-dist-zero-optimizer-state-sharding",
     "date": "2026-04-02",
