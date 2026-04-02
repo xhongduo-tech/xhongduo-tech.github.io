@@ -1,5 +1,16 @@
 [
   {
+    "title": "8-bit优化器",
+    "slug": "train-opt-8bit-optimizers",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "8-bit优化器把Adam状态压成INT8存储，基本保精度并节省约75%状态显存。"
+  },
+  {
     "title": "分布式数据并行DDP",
     "slug": "train-dist-distributed-data-parallel",
     "date": "2026-04-02",

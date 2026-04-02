@@ -10751,7 +10751,7 @@
       "优化器"
     ],
     "brief": "8-bit 优化器（bitsandbytes，Dettmers et al. 2022）将 Adam 的一阶矩 m 和二阶矩 v 从 FP32 量化为 8-bit，节省约 75% 优化器状态显存（7B 模型从 ~56GB → ~14GB）。关键技术：动态量化——每个 block（2048 个参数）独立计算量化范围（block-wise absolute max quantization）；梯度统计量用 FP32 计算（不量化），只存储 8-bit 状态；反量化在更新时即时执行（不额外占显存）。实验（BERT/GPT-2）：8-bit Adam 与 FP32 Adam 精度差距 <0.3%，训练时间基本相同（量化/反量化操作速度快）。实践使用：QLoRA 的核心组件之一，使 65B 模型在单卡 48GB GPU 上 fine-tune 成为可能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据并行的实现",
