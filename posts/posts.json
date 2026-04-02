@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建DevOps Agent",
+    "slug": "agent-app-build-devops-agent",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "summary": "DevOps Agent要管理的是行为版本，并用统计测试与语义观测保证可回滚、可审计。"
+  },
+  {
     "title": "构建自动化测试Agent",
     "slug": "agent-app-build-test-automation-agent",
     "date": "2026-04-03",
