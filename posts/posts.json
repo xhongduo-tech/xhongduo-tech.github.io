@@ -1,5 +1,17 @@
 [
   {
+    "title": "CLIP的对比学习",
+    "slug": "mm-vision-clip-contrastive-learning",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "CLIP通过对称对比学习把图文拉到共享空间，强在零样本泛化，弱在结构细节与域偏移。"
+  },
+  {
     "title": "ViT的图像分块嵌入",
     "slug": "mm-vision-vit-image-patch-embedding",
     "date": "2026-04-03",
