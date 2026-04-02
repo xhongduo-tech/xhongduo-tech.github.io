@@ -1,5 +1,16 @@
 [
   {
+    "title": "GraphRAG的图检索",
+    "slug": "agent-rag-graphrag-graph-retrieval",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "GraphRAG把检索单位升级为子图，适合多跳关系、流程与因果问题。"
+  },
+  {
     "title": "RAG的查询扩展",
     "slug": "agent-rag-rag-query-expansion",
     "date": "2026-04-03",
