@@ -1,5 +1,17 @@
 [
   {
+    "title": "μP (Maximal Update Parametrization)",
+    "slug": "mup-maximal-update-parametrization",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "超参数"
+    ],
+    "summary": "μP 通过控制初始化与更新尺度，让小模型调好的超参数更稳定地迁移到大模型"
+  },
+  {
     "title": "梯度裁剪的策略",
     "slug": "train-stab-gradient-clipping-strategies",
     "date": "2026-04-02",
