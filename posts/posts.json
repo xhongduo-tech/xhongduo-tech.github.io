@@ -1,5 +1,16 @@
 [
   {
+    "title": "课程学习在LLM中的应用",
+    "slug": "train-data-curriculum-learning-llm",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "课程学习通过难度节奏控制样本暴露，可稳住LLM早期优化，但依赖正确的难度定义与动态调度。"
+  },
+  {
     "title": "数据质量过滤",
     "slug": "train-data-data-quality-filtering",
     "date": "2026-04-02",
