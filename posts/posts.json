@@ -1,5 +1,16 @@
 [
   {
+    "title": "Agent的记忆架构",
+    "slug": "agent-arch-agent-memory-architecture",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "Agent记忆架构的核心是分层存储、按需检索与受控同步，而不是无上限保留历史。"
+  },
+  {
     "title": "Self-Reflection的自我修正",
     "slug": "agent-arch-self-reflection-correction",
     "date": "2026-04-03",
