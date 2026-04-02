@@ -1,5 +1,16 @@
 [
   {
+    "title": "3D并行",
+    "slug": "train-dist-3d-parallelism",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "3D并行用DP、TP、PP同时分担吞吐、显存与通信，是超大模型训练的基础扩展手段。"
+  },
+  {
     "title": "张量并行Megatron-LM",
     "slug": "train-dist-tensor-parallel-megatron",
     "date": "2026-04-02",
