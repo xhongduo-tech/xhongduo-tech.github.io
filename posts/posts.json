@@ -1,5 +1,16 @@
 [
   {
+    "title": "合成数据的使用",
+    "slug": "train-data-synthetic-data-usage",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "合成数据适合补齐真实数据缺口，但必须经质量控制后与真实数据混合使用。"
+  },
+  {
     "title": "数据增强的NLP实践",
     "slug": "train-data-data-augmentation-nlp",
     "date": "2026-04-03",
