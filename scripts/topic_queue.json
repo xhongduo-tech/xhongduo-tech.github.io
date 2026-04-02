@@ -10762,7 +10762,7 @@
       "分布式训练"
     ],
     "brief": "数据并行（DP）：N 个 worker 各持完整模型副本，各处理不同 mini-batch，梯度通过 All-Reduce 同步后统一更新。朴素 PS 方式带宽瓶颈在参数服务器；Ring All-Reduce 每卡互为 peer，通信均匀，带宽利用率 ≈ (N-1)/N。通信量：每步 2×P 个参数（Reduce-Scatter + All-Gather，Ring All-Reduce 的标准实现）。关键限制：每张 GPU 存完整模型（7B FP16=14GB），适合 10B 以内；更大模型需配合 ZeRO。线性缩放规则：N 倍 batch size 时 lr 乘 N，实践中 batch>4096 时常用 warmup 1000 步缓解收敛。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分布式数据并行DDP",

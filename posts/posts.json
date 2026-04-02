@@ -1,5 +1,16 @@
 [
   {
+    "title": "数据并行的实现",
+    "slug": "train-dist-data-parallel-implementation",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "数据并行靠多卡复制模型并同步梯度提速，瓶颈在通信与显存，工程上常配合 Ring All-Reduce、warmup 和…"
+  },
+  {
     "title": "8-bit优化器",
     "slug": "train-opt-8bit-optimizers",
     "date": "2026-04-02",
