@@ -1,5 +1,17 @@
 [
   {
+    "title": "Yi-VL的双语视觉语言模型",
+    "slug": "mm-vlm-yi-vl-bilingual",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "Yi-VL 适合单图中英问答，核心是视觉特征对齐到语言空间，但需警惕分辨率和幻觉边界"
+  },
+  {
     "title": "扩散模型的数学基础",
     "slug": "mm-imgen-diffusion-model-math-basics",
     "date": "2026-04-03",
