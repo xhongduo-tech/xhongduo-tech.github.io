@@ -1,5 +1,16 @@
 [
   {
+    "title": "Self-Reflection的自我修正",
+    "slug": "agent-arch-self-reflection-correction",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "Self-Reflection 用门控反思闭环修正当前输出，并通过保守记忆写入提升长期稳定性。"
+  },
+  {
     "title": "Plan-and-Execute架构",
     "slug": "agent-arch-plan-execute-architecture",
     "date": "2026-04-03",
