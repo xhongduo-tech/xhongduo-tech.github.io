@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建游戏AI Agent",
+    "slug": "agent-app-build-game-ai-agent",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "summary": "游戏AI Agent的核心是把规划、学习和工程约束接成可闭环运行的系统。"
+  },
+  {
     "title": "构建DevOps Agent",
     "slug": "agent-app-build-devops-agent",
     "date": "2026-04-03",
