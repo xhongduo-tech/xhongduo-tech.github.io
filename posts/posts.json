@@ -1,5 +1,17 @@
 [
   {
+    "title": "MiniGPT-4的训练策略",
+    "slug": "mm-vlm-minigpt4-training",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "MiniGPT-4靠冻结大模型、只训练桥接层，以两阶段对齐实现低成本多模态能力接入。"
+  },
+  {
     "title": "Qwen-VL的动态分辨率",
     "slug": "mm-vlm-qwen-vl-dynamic-resolution",
     "date": "2026-04-03",
