@@ -1,5 +1,16 @@
 [
   {
+    "title": "RAG的记忆机制",
+    "slug": "agent-rag-rag-memory-mechanism",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "RAG的记忆机制本质是给检索生成系统增加可写、可分层、可治理的外部状态。"
+  },
+  {
     "title": "GraphRAG的图检索",
     "slug": "agent-rag-graphrag-graph-retrieval",
     "date": "2026-04-03",
