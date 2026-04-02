@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建代码助手Agent",
+    "slug": "agent-app-build-code-assistant-agent",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "summary": "代码助手Agent的关键不在补全能力，而在上下文选择、工具治理与可审计执行。"
+  },
+  {
     "title": "Agent的规划算法",
     "slug": "agent-arch-agent-planning-algorithms",
     "date": "2026-04-03",
