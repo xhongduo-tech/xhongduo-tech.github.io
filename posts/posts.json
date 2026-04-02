@@ -1,5 +1,16 @@
 [
   {
+    "title": "序列并行",
+    "slug": "train-dist-sequence-parallelism",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "序列并行通过切分序列维并在attention前后做all-to-all，用通信换显存，适合长上下文训练。"
+  },
+  {
     "title": "3D并行",
     "slug": "train-dist-3d-parallelism",
     "date": "2026-04-02",
