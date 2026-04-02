@@ -1,5 +1,16 @@
 [
   {
+    "title": "Adafactor优化器",
+    "slug": "train-opt-adafactor-optimizer",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "Adafactor用行列二阶矩近似替代完整状态，以较小收敛代价换取显著显存节省。"
+  },
+  {
     "title": "因果语言模型与自回归",
     "slug": "nlp-lm-causal-lm-autoregressive",
     "date": "2026-04-02",
