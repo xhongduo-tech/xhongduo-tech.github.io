@@ -1,5 +1,17 @@
 [
   {
+    "title": "视觉编码器的分辨率适应",
+    "slug": "mm-vision-vision-encoder-resolution",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "分辨率适应的本质，是把有限视觉 token 优先分配给关键细节区域。"
+  },
+  {
     "title": "视觉编码器的特征金字塔",
     "slug": "mm-vision-vision-feature-pyramid",
     "date": "2026-04-03",
