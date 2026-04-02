@@ -1,5 +1,17 @@
 [
   {
+    "title": "BLIP-2的Q-Former",
+    "slug": "mm-vlm-blip2-qformer",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "Q-Former用固定可学习查询压缩视觉token，是BLIP-2连接冻结视觉编码器与LLM的核心桥梁。"
+  },
+  {
     "title": "MiniGPT-4的训练策略",
     "slug": "mm-vlm-minigpt4-training",
     "date": "2026-04-03",
