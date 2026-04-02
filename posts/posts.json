@@ -1,5 +1,16 @@
 [
   {
+    "title": "权重初始化对训练的影响",
+    "slug": "train-stab-weight-initialization-training-impact",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "summary": "权重初始化的本质是把前向激活和反向梯度控制在可训练的稳定方差带内。"
+  },
+  {
     "title": "μP (Maximal Update Parametrization)",
     "slug": "mup-maximal-update-parametrization",
     "date": "2026-04-02",
