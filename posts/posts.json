@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLaVA的视觉指令微调",
+    "slug": "mm-vlm-llava-visual-instruction-tuning",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "LLaVA通过视觉投影加两阶段指令微调，把看图能力接入LLM并形成可用的多模态对话能力"
+  },
+  {
     "title": "视觉编码器的分辨率适应",
     "slug": "mm-vision-vision-encoder-resolution",
     "date": "2026-04-03",
