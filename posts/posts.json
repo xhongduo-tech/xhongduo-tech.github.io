@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建客服Agent",
+    "slug": "agent-app-build-customer-service-agent",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "summary": "客服Agent不是会聊天就够，而是要把意图、工具、验证和人控做成受限闭环"
+  },
+  {
     "title": "构建数据分析Agent",
     "slug": "agent-app-build-data-analysis-agent",
     "date": "2026-04-03",
