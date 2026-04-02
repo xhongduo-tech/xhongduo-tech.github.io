@@ -1,5 +1,16 @@
 [
   {
+    "title": "数据混合策略",
+    "slug": "train-data-data-mixing-strategies",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "数据混合的本质是按目标能力分配训练分布，并用重复率约束过采样风险"
+  },
+  {
     "title": "课程学习在LLM中的应用",
     "slug": "train-data-curriculum-learning-llm",
     "date": "2026-04-03",
