@@ -1,5 +1,16 @@
 [
   {
+    "title": "梯度裁剪的策略",
+    "slug": "train-stab-gradient-clipping-strategies",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "summary": "梯度裁剪通过限制全局梯度范数，抑制训练中的异常大更新，但不能替代学习率与整体稳定性设计。"
+  },
+  {
     "title": "训练Loss突刺的诊断",
     "slug": "train-stab-training-loss-spike-diagnosis",
     "date": "2026-04-02",
