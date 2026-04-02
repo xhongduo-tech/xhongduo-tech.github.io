@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建数据分析Agent",
+    "slug": "agent-app-build-data-analysis-agent",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "summary": "数据分析Agent的本质是受控多步执行，不是会聊天的SQL生成器"
+  },
+  {
     "title": "Agent的执行监控",
     "slug": "agent-arch-agent-execution-monitoring",
     "date": "2026-04-03",
