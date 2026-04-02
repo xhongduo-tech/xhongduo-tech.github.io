@@ -1,5 +1,16 @@
 [
   {
+    "title": "Plan-and-Execute架构",
+    "slug": "agent-arch-plan-execute-architecture",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "Plan-and-Execute通过规划与执行分层，加上执行反馈闭环，提高长任务的可控性与可审查性。"
+  },
+  {
     "title": "ReAct的推理-行动循环",
     "slug": "agent-arch-react-reasoning-action-loop",
     "date": "2026-04-03",
