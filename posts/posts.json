@@ -1,5 +1,17 @@
 [
   {
+    "title": "EVA-CLIP的大规模预训练",
+    "slug": "mm-vision-eva-clip-pretraining",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "EVA-CLIP用更强初始化与更省算训练，在较低成本下提升CLIP零样本能力"
+  },
+  {
     "title": "SigLIP的Sigmoid损失",
     "slug": "mm-vision-siglip-sigmoid-loss",
     "date": "2026-04-03",
