@@ -1,5 +1,16 @@
 [
   {
+    "title": "数据增强的NLP实践",
+    "slug": "train-data-data-augmentation-nlp",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "NLP数据增强的关键不是多生成句子，而是在标签不漂移的前提下扩大有效语义覆盖。"
+  },
+  {
     "title": "数据混合策略",
     "slug": "train-data-data-mixing-strategies",
     "date": "2026-04-03",
