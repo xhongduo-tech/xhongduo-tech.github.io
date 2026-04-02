@@ -1,5 +1,16 @@
 [
   {
+    "title": "RAG的上下文压缩",
+    "slug": "agent-rag-rag-context-compression",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "RAG 上下文压缩是在生成前提纯检索结果，用更少 token 保留更高密度的有效证据。"
+  },
+  {
     "title": "RAG的重排序",
     "slug": "agent-rag-rag-reranking",
     "date": "2026-04-03",
