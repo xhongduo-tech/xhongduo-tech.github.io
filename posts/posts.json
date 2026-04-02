@@ -1,5 +1,17 @@
 [
   {
+    "title": "SigLIP的Sigmoid损失",
+    "slug": "mm-vision-siglip-sigmoid-loss",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "SigLIP用逐对sigmoid替代全局softmax，降低大batch依赖，但检索排序常需额外校准"
+  },
+  {
     "title": "CLIP的零样本分类",
     "slug": "mm-vision-clip-zero-shot-classification",
     "date": "2026-04-03",
