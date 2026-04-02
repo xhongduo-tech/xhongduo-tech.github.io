@@ -1,5 +1,16 @@
 [
   {
+    "title": "Agent的执行监控",
+    "slug": "agent-arch-agent-execution-monitoring",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "Agent执行监控的核心是基于因果路径做可干预闭环，而不是事后看日志。"
+  },
+  {
     "title": "构建代码助手Agent",
     "slug": "agent-app-build-code-assistant-agent",
     "date": "2026-04-03",
