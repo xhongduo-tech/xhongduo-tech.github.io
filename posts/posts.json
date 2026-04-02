@@ -1,5 +1,16 @@
 [
   {
+    "title": "Function Calling的实现",
+    "slug": "agent-arch-function-calling-implementation",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "Function Calling 本质是模型产生命令、应用执行并回流结果，可靠性取决于 schema、guardrai…"
+  },
+  {
     "title": "Agent的工具学习",
     "slug": "agent-arch-agent-tool-learning",
     "date": "2026-04-03",
