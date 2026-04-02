@@ -1,5 +1,16 @@
 [
   {
+    "title": "RAG的重排序",
+    "slug": "agent-rag-rag-reranking",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "RAG重排序用二阶段设计在可控延迟内提升检索精度，核心前提是先保证召回，再用细排压缩高置信上下文"
+  },
+  {
     "title": "RAG的Chunk策略",
     "slug": "agent-rag-rag-chunking-strategies",
     "date": "2026-04-03",
