@@ -1,5 +1,16 @@
 [
   {
+    "title": "Dense Retrieval的索引构建",
+    "slug": "agent-rag-dense-retrieval-indexing",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "Dense Retrieval的索引构建核心不在向量化本身，而在chunk、metadata与更新策略的协同设计"
+  },
+  {
     "title": "多语言数据平衡",
     "slug": "train-data-multilingual-data-balancing",
     "date": "2026-04-03",
