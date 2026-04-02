@@ -10608,7 +10608,7 @@
       "语言模型"
     ],
     "brief": "因果LM通过下三角注意力掩码实现：位置t只能看到≤t的token，确保P(x_t|x_<t)的条件独立性。与MLM的关键差异是CLM对全部token计算损失（训练利用率100% vs MLM的15%），但每位置只有左侧上下文。GPT系列均为CLM；小规模CLM在NLU任务上通常比同规模BERT低5-10个点，但在生成任务上天然占优。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "语言模型的困惑度",

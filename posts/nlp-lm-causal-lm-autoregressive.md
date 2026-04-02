@@ -1,289 +1,303 @@
 ## 核心结论
 
-因果语言模型，英文常写作 Causal Language Model，简称 CLM。白话说，它是一种只能按“已经看到的内容”来预测下一个词的语言模型。
+因果语言模型，英文通常写作 Causal Language Model，简称 CLM。它的核心约束很简单：预测第 $t$ 个 token 时，只允许看见第 $t$ 个位置之前的内容，不能偷看未来位置。token 可以先理解成“模型切分文本后的最小处理单位”，可能是字、词、词片段或符号。
 
-它的训练目标是把整段文本拆成一连串“根据前文预测当前词”的小任务。形式上：
+这个约束对应的概率展开是：
 
 $$
-P(x_{1:T})=\prod_{t=1}^{T}P(x_t\mid x_{<t})
+P(x_{1:T})=\prod_{t=1}^T P(x_t\mid x_{<t})
 $$
 
-这条公式的意思很直接：一句话的总概率，等于每个位置在“只看左边内容”条件下的条件概率连乘。
+这里 $x_{1:T}$ 表示整段序列，$x_{<t}$ 表示位置 $t$ 之前的前缀。这个式子的含义是：整句话的概率，等于“第一个 token 的概率”乘上“第二个 token 在前一个 token 条件下的概率”乘上“第三个 token 在前两个 token 条件下的概率”……一直乘到结尾。
 
-CLM 的关键不是“名字里有 causal”，而是它在注意力层用了严格的下三角掩码。掩码，mask，白话说就是“哪些位置允许看、哪些位置强制不许看”的规则。对位置 $t$ 来说，它只能访问 $\le t$ 的 token，不能访问未来 token，所以训练目标和推理过程天然一致。
+CLM 在 Transformer 里的实现关键，不是“逐个 token 慢慢训练”，而是一次性把整条序列送进模型，同时用下三角注意力掩码限制可见范围。注意力掩码可以先理解成“一张可见性规则表”，规定每个位置能看哪些位置。下三角 mask 保证位置 $t$ 只能访问 $\le t$ 的 token，因此严格满足因果自回归。自回归可以先理解成“用已有输出继续预测下一个输出”的生成方式。
 
-这带来两个直接后果：
+一个最小玩具例子是序列“我 / 是 / Codex”。如果模型给出：
 
-| 结论 | 含义 | 工程影响 |
-| --- | --- | --- |
-| 训练是自回归的 | 自回归，autoregressive，白话说就是“一个词接一个词往后写” | 适合续写、对话、代码补全 |
-| 每个位置都能计算损失 | 损失，loss，白话说就是“模型在这个位置错了多少” | 训练信号密度高 |
-| 只能看左侧上下文 | 上下文，context，白话说就是“模型当前可依赖的信息” | 理解类任务通常弱于双向模型 |
+- $P(\text{“我”})=0.2$
+- $P(\text{“是”}\mid \text{“我”})=0.3$
+- $P(\text{“Codex”}\mid \text{“我，是”})=0.4$
 
-因此，GPT 系列本质上都是 CLM。它们在生成任务上天然占优，因为任务形式和模型结构完全一致；但在纯理解型任务上，同规模下通常不如 BERT 这类 MLM。
+那么整条序列的负对数似然，也就是训练里常见的交叉熵目标，可以写成：
+
+$$
+-\log(0.2\times 0.3\times 0.4)
+$$
+
+这说明 CLM 的训练目标与生成过程是同一套因果规则，没有训练时偷看未来、推理时又禁止偷看的不一致问题。
+
+CLM 和 MLM 的关键差异可以先看下表。MLM 是 Masked Language Model，意思是“遮盖部分 token，再让模型补回来”。
+
+| 维度 | CLM | MLM |
+|---|---|---|
+| 上下文方向 | 只看左侧历史 | 同时看左侧和右侧 |
+| 训练监督范围 | 全部 token 都参与损失 | 常见设置仅约 15% 被遮盖 token 有直接预测损失 |
+| 训练利用率 | 高，接近 100% | 较低，未被遮盖 token 通常无直接预测损失 |
+| 推理方式 | 天然逐 token 生成 | 不天然适合左到右连续生成 |
+| 典型代表 | GPT 系列 | BERT 系列 |
+
+结论可以压缩成一句话：CLM 天然适合生成、补全和流式输出；MLM 更适合理解型任务，因为它能同时利用左右文。
 
 ---
 
 ## 问题定义与边界
 
-要理解 CLM，先要明确它解决的不是“看完整句话再判断”，而是“在当前位置继续往后写”。
+CLM 解决的问题，不是“怎样最好地理解一句话的全局语义”，而是“怎样在严格因果约束下预测下一个 token”。这决定了它最自然的架构是 Decoder-only，也就是只有解码器堆叠，没有单独的 encoder。decoder 可以先理解成“负责按顺序往后生成内容的模块”。
 
-问题定义可以写成：
+它的标准训练目标是：
 
-给定前缀 $x_{<t}$，预测当前位置 $x_t$ 的分布。
+$$
+\mathcal{L}_{\text{CLM}}=-\sum_{t=1}^T\log P_\theta(x_t\mid x_{<t})
+$$
 
-这和 MLM，Masked Language Model，掩码语言模型，有根本差别。MLM 的白话解释是：把一句话里部分词遮住，再让模型根据左右两边一起恢复被遮住的词。BERT 就属于这一类。
+这个损失的意思是：序列中每个位置都要预测自己的真实 token，然后把所有位置的负对数概率加起来。$\theta$ 表示模型参数。
 
-一个最小玩具例子就能说明边界。
+对初学者，最重要的边界是下面这句话：CLM 训练时只能从历史拿信息，不能从未来拿信息。所以它擅长“接着写”，不擅长“同时综合左右文后再判断”。这也是它在很多纯理解任务上通常不如双向模型的根本原因。
 
-句子是：
+可以用一个直观例子说明。句子是：
 
-`今天天气很好`
+“这家餐厅虽然贵，但是味道很好。”
 
-如果要预测“很”这个位置：
+如果要判断情感倾向，双向模型在看到“虽然贵”和“味道很好”后，更容易做整体判断；而纯 CLM 在处理到前半句时，还没看到后面的转折信息。虽然最终也能通过整句训练学到模式，但单个位置的表示没有右侧上下文，理解型任务上会吃亏。
 
-- 在 CLM 里，模型只能看到 `今天 天气` 以及此前已经生成出的内容，不能看右边的“好”。
-- 在 MLM 里，如果把“很”遮住，模型可以同时看左边的“天气”和右边的“好”。
+下表给出边界对比：
 
-这意味着两类模型优化的是不同问题：
+| 场景 | 是否强依赖右文 | CLM 适配度 | 说明 |
+|---|---|---|---|
+| 对话生成 | 否 | 高 | 只需根据前缀持续生成 |
+| 代码补全 | 否 | 高 | 编辑器场景通常按光标前文预测 |
+| 实时流式输出 | 否 | 高 | 逐 token 产出最自然 |
+| 分类任务 | 中到高 | 中 | 需要整句全局语义时不占优 |
+| 阅读理解/抽取式 QA | 高 | 较低 | 问题和证据常需双向对齐 |
+| 句子匹配/自然语言推断 | 高 | 较低 | 左右文联合建模更重要 |
 
-| 模型 | 可见上下文 | 训练问题 | 天然擅长 |
-| --- | --- | --- | --- |
-| CLM | 仅左侧前缀 | 预测下一个 token | 文本生成、对话、代码补全 |
-| MLM | 左右双向 | 恢复被遮蔽 token | 分类、匹配、阅读理解 |
-
-token，词元，白话说就是模型实际处理的最小文本单位，可能是字、词、子词，甚至标点。
-
-所以 CLM 的边界非常清楚：它不是“更通用的语言模型”，而是“更贴近生成过程的语言模型”。如果任务要求模型严格按时间顺序展开内容，比如写回复、续写文章、补全代码，那么 CLM 是结构上正确的选择。反过来，如果任务核心是“看完整句后做判断”，比如情感分类、句子匹配、自然语言推断，那么纯 CLM 往往不是最优。
-
-用户常见误解是：“语言模型都能做分类，所以 CLM 也应该一样强。”这不成立。能做，不代表训练目标最适合做。CLM 可以通过 prompt 或增加任务头完成理解任务，但其基础表示是单向约束的，这个约束不会自动消失。
+因此，CLM 的边界不是“不能做理解任务”，而是“在同等参数规模下，若任务强依赖双向上下文，它通常不是最优选择”。研究摘要里提到的小规模基准对比就符合这个规律：GPT-base 在 GLUE/QA 上通常比同规模 BERT-base 低几个点，常见量级大约是 5 到 10 个点，示例数据约为 79.6 对 75.1。
 
 ---
 
 ## 核心机制与推导
 
-CLM 的核心是链式分解和因果注意力。
+CLM 的关键机制是 causal mask，也叫因果掩码。它的作用是把“只能看历史”这个概率条件，硬编码到注意力计算里。注意力可以先理解成“当前 token 去哪些上下文位置取信息，以及取多少”的加权检索过程。
 
-先看目标函数。负对数似然，negative log-likelihood，白话说就是“如果真实答案概率越低，惩罚越大”。CLM 的训练损失通常写成：
-
-$$
-\mathcal{L}=-\sum_{t=1}^{T}\log P_\theta(x_t\mid x_{<t})
-$$
-
-这表示整段文本中，每个位置都参与训练。相比 MLM 通常只在被 mask 的一小部分位置上算损失，CLM 的训练利用率更高。
-
-再看注意力。注意力，attention，白话说就是“当前位置应该把多少注意力分给哪些历史位置”。标准 self-attention 会先计算分数矩阵：
+Transformer 中单头注意力的核心计算是：
 
 $$
-\text{scores}_{t,u}=\frac{Q_tK_u^\top}{\sqrt{d}}
+\mathrm{Attention}(Q,K,V)=\mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M\right)V
 $$
 
-其中 $Q$ 是 query，查询向量；$K$ 是 key，键向量；$d$ 是维度。白话说，这一步是在衡量“位置 $t$ 要不要关注位置 $u$”。
+其中：
 
-CLM 的关键修改是加入 causal mask：
+- $Q$ 是 Query，表示“当前位置要找什么信息”
+- $K$ 是 Key，表示“每个位置提供什么索引”
+- $V$ 是 Value，表示“每个位置真正提供什么内容”
+- $M$ 是 mask 矩阵，用来限制可见性
+
+在 CLM 中，$M$ 定义为：
 
 $$
-\text{scores}_{t,u}=\frac{Q_tK_u^\top}{\sqrt{d}}+\begin{cases}
-0,& u\leq t\\
--\infty,& u>t
+M_{ij}=
+\begin{cases}
+0, & j\le i \\
+-\infty, & j>i
 \end{cases}
 $$
 
-为什么是 $-\infty$？因为 softmax 之后，$e^{-\infty}=0$，未来位置的注意力权重就会变成 0，相当于完全不可见。
+含义是：第 $i$ 个位置查询第 $j$ 个位置时，如果 $j$ 比 $i$ 大，说明这是未来 token，就把分数加上 $-\infty$。softmax 之后，这些位置的概率会变成 0，于是完全不可见。
 
-玩具例子：序列 `[A, B, C, D]`。
+3×3 的玩具 mask 如下，1 表示可见，0 表示不可见：
 
-如果当前处理位置是 `C`，也就是第 3 个 token，那么 mask 后允许访问的是 `A, B, C`，禁止访问的是 `D`。分数矩阵对应这一行会变成：
+| Query\Key | 位置1 | 位置2 | 位置3 |
+|---|---:|---:|---:|
+| 位置1 | 1 | 0 | 0 |
+| 位置2 | 1 | 1 | 0 |
+| 位置3 | 1 | 1 | 1 |
+
+这张表就是所谓“下三角 mask”。位置 1 只能看自己，位置 2 可以看位置 1 和自己，位置 3 可以看前三个位置。
+
+如果不加 mask，会变成全 1：
+
+| Query\Key | 位置1 | 位置2 | 位置3 |
+|---|---:|---:|---:|
+| 位置1 | 1 | 1 | 1 |
+| 位置2 | 1 | 1 | 1 |
+| 位置3 | 1 | 1 | 1 |
+
+这时训练会发生“信息泄漏”：位置 1 在预测自己对应的目标时，可能直接看到未来位置，从而破坏 $P(x_t\mid x_{<t})$ 的定义。模型看起来训练损失很低，但推理时由于未来 token 不存在，性能会明显失真。
+
+把这个机制放回“我 / 是 / Codex”例子里就更直观了：
+
+- 预测“我”时，只能看起始符或自身位置规则，不能看“是 / Codex”
+- 预测“是”时，只能看“我”
+- 预测“Codex”时，只能看“我 / 是”
+
+所以联合概率严格等于：
 
 $$
-[\text{score}(C,A),\ \text{score}(C,B),\ \text{score}(C,C),\ -\infty]
+P(\text{我，是，Codex})=P(\text{我})P(\text{是}\mid \text{我})P(\text{Codex}\mid \text{我，是})
 $$
 
-softmax 后，最后一个位置权重必为 0。于是模型在生成 `C` 相关表示时，不会偷看未来的 `D`。
-
-这个约束解决了一个很重要的问题：训练和推理一致。
-
-- 训练时，模型只能看历史 token。
-- 推理时，模型本来也只有历史 token。
-
-如果训练时允许偷看未来，推理时却看不到，就会产生暴露偏差之外更直接的目标错位。CLM 用结构约束避免了这个问题。
-
-还可以从矩阵形状理解下三角 mask。长度为 4 时，mask 大致是：
+而损失就是这三个位置损失之和：
 
 $$
-\begin{bmatrix}
-1&0&0&0\\
-1&1&0&0\\
-1&1&1&0\\
-1&1&1&1
-\end{bmatrix}
+\mathcal{L}= -\log P(\text{我})-\log P(\text{是}\mid \text{我})-\log P(\text{Codex}\mid \text{我，是})
 $$
 
-第 $t$ 行前 $t$ 列可见，后面全部不可见。这就是“下三角”名字的来源。
-
-真实工程例子是代码补全。用户输入：
-
-```text
-def is_even(n):
-    return
-```
-
-CLM 在生成 `n % 2 == 0` 时，只能依赖已经出现的函数名、参数名和前面代码。这和真实补全场景完全一致，因为编辑器里未来代码本来就不存在。反过来，MLM 依赖左右文恢复中间空位，这和“向右生成”的交互式补全并不完全一致。
+这里还有一个经常被忽略的点：CLM 虽然“每次只看左边”，但训练时并不是只有最后一个 token 参与监督。恰恰相反，序列里每个位置都在预测一个目标，因此监督密度非常高。这就是为什么常说 CLM 的 token 利用率接近 100%。
 
 ---
 
 ## 代码实现
 
-下面用纯 Python 写一个最小可运行例子，演示“下三角 mask 会屏蔽未来位置”。这个例子不依赖深度学习框架，但逻辑和 Transformer 一致。
+下面给一个最小可运行的 Python 实现，展示两件事：
+
+1. 如何构造下三角 mask  
+2. 如何按 CLM 方式计算整条序列损失
 
 ```python
 import math
 
-def softmax(xs):
-    m = max(xs)
-    exps = [math.exp(x - m) if x != float("-inf") else 0.0 for x in xs]
-    s = sum(exps)
-    return [e / s for e in exps]
-
-def causal_mask(seq_len):
+def causal_mask(seq_len: int):
+    # 1 表示可见，0 表示不可见
     return [[1 if j <= i else 0 for j in range(seq_len)] for i in range(seq_len)]
 
-def apply_causal_mask(scores):
-    n = len(scores)
-    mask = causal_mask(n)
-    masked = []
-    for i in range(n):
-        row = []
-        for j in range(n):
-            row.append(scores[i][j] if mask[i][j] == 1 else float("-inf"))
-        masked.append(row)
-    return masked
+def clm_negative_log_likelihood(probs):
+    # probs[t] 表示第 t 个位置真实 token 的条件概率
+    return -sum(math.log(p) for p in probs)
 
-scores = [
-    [1.0, 2.0, 3.0, 4.0],
-    [1.5, 2.5, 3.5, 4.5],
-    [2.0, 3.0, 4.0, 5.0],
-    [2.5, 3.5, 4.5, 5.5],
+mask = causal_mask(3)
+expected_mask = [
+    [1, 0, 0],
+    [1, 1, 0],
+    [1, 1, 1],
 ]
+assert mask == expected_mask
 
-masked = apply_causal_mask(scores)
+# 玩具例子："我 / 是 / Codex"
+probs = [0.2, 0.3, 0.4]
+loss = clm_negative_log_likelihood(probs)
 
-# 第 3 行表示位置 2（从 0 开始）只能看见 0,1,2，看不见未来位置 3
-assert masked[2][0] == 2.0
-assert masked[2][1] == 3.0
-assert masked[2][2] == 4.0
-assert masked[2][3] == float("-inf")
+expected = -math.log(0.2 * 0.3 * 0.4)
+assert abs(loss - expected) < 1e-12
+assert round(loss, 6) == round(3.7297014486341915, 6)
 
-weights = softmax(masked[2])
-
-# softmax 后未来位置权重为 0
-assert abs(weights[3] - 0.0) < 1e-12
-assert abs(sum(weights) - 1.0) < 1e-12
-
-print("causal mask works")
+print("causal mask =", mask)
+print("clm loss =", loss)
 ```
 
-如果换成 PyTorch，核心逻辑通常只有几行：
+如果把它翻译成更接近 Transformer 的伪代码，可以写成：
 
 ```python
-import math
-import torch
+# x: [batch, seq_len] 的 token id
+# decoder-only transformer
+h = token_embedding(x) + position_embedding(x)
 
-def causal_attention_scores(Q, K):
-    seq_len = Q.size(-2)
-    head_dim = Q.size(-1)
-    scores = (Q @ K.transpose(-2, -1)) / math.sqrt(head_dim)
-    mask = torch.tril(torch.ones(seq_len, seq_len, device=Q.device))
-    scores = scores.masked_fill(mask == 0, float("-inf"))
-    return scores
+mask = lower_triangular_mask(seq_len=x.shape[1])   # [seq_len, seq_len]
+
+for block in decoder_blocks:
+    h = block.self_attention(h, attn_mask=mask)
+    h = block.mlp(h)
+
+logits = lm_head(h)  # [batch, seq_len, vocab_size]
+
+# 左移目标：位置 t 的输出预测位置 t 的真实 token
+shift_logits = logits[:, :-1, :]
+shift_labels = x[:, 1:]
+
+loss = cross_entropy(shift_logits, shift_labels)
 ```
 
-这里的 `torch.tril` 就是“取下三角”。`masked_fill` 的含义是：凡是不允许看的位置，直接填成负无穷。
+这里有两个实现细节很关键。
 
-真实工程中，如果你用 Hugging Face 微调 GPT 类模型，通常不需要自己手写 mask，因为 `AutoModelForCausalLM` 已经内置了因果注意力约束。典型流程是：
+第一，所谓“预测第 $t$ 个 token”，在代码里通常表现为“位置 $t-1$ 的隐藏状态去预测位置 $t$ 的标签”。所以工程实现常见 `shift_logits` 和 `shift_labels` 这样的左移操作。
 
-1. 用 tokenizer 把文本切成 token。
-2. 把 `input_ids` 右移一位后作为预测目标。
-3. 使用 `AutoModelForCausalLM` 训练。
-4. 推理时逐步生成，并缓存 KV。
+第二，CLM 不需要 encoder，因为任务定义本身就是“给定前缀，继续生成后缀”。只要 decoder 自注意力能读取历史前缀，它就已经具备生成所需的信息流。
 
-KV cache，键值缓存，白话说就是“把前面算过的注意力中间结果存起来，后续生成时不用重复算”。它不改变模型结果，只是减少重复计算，所以在长文本生成里非常关键。
+一个真实工程例子是编辑器代码补全。假设用户已经输入：
+
+```python
+def add(a, b):
+    return 
+```
+
+模型只需要根据光标前面的前缀继续预测，比如 `a + b`。这个场景天然符合 CLM：不存在必须读取“光标后内容”的需求，因此 decoder-only 架构最直接，也最容易做流式输出。模型可以每次生成一个 token，把新 token 接回上下文，再预测下一个 token，这就是 token-by-token 解码。
+
+同样的机制也适用于聊天机器人和实时摘要。服务端可以边生成边回传，不必等整句全部完成再一次性输出。
 
 ---
 
 ## 工程权衡与常见坑
 
-CLM 最大的工程优势是训练目标简单，而且每个位置都有监督信号。假设序列长度是 $T$，那么一次前向通常能为接近 $T-1$ 个位置提供 loss；而 MLM 如果只 mask 15% token，那么大部分位置虽然参与了前向计算，却不直接贡献损失。
+CLM 的工程优势很明确，但代价也明确。最核心的权衡是：生成能力强，双向理解弱。
 
-这就是“训练利用率”的差别。
+先看一个对比表：
 
-但高利用率不等于对所有任务都更强。CLM 的根本限制是单向上下文。这个限制在生成里是优点，在理解里往往是缺点。
+| 方案 | 上下文 | 生成能力 | 理解能力 | 典型问题 | 常见改进 |
+|---|---|---|---|---|---|
+| 纯 CLM | 左到右 | 强 | 中到偏弱 | 缺少右文 | 加入混合目标 |
+| 纯 MLM | 双向 | 弱或不自然 | 强 | 不适合连续生成 | 配合 seq2seq 或额外解码器 |
+| Hybrid | 左右文 + 因果目标 | 较强 | 较强 | 训练更复杂 | 多任务或交替训练 |
 
-可以把常见权衡整理成表：
+研究中常见现象是：小规模纯 CLM 在 GLUE、SQuAD 一类理解任务上落后于同规模 BERT。给出的示例成绩是 BERT-base 79.6，GPT-base 75.1，差约 4.5 个点。这个差距不是因为 CLM “不会理解”，而是因为它的位置表示天生没有右侧证据，很多判断只能依赖左侧累积信息。
 
-| 维度 | CLM | MLM |
-| --- | --- | --- |
-| 训练目标 | 下一 token 预测 | 被遮蔽 token 恢复 |
-| 损失覆盖率 | 高，几乎每个位置都算 | 低，只在被 mask 位置算 |
-| 上下文视野 | 左侧单向 | 双向 |
-| 生成能力 | 强，天然匹配 | 弱，通常需改造 |
-| 理解能力 | 同规模下常偏弱 | 通常更强 |
+真实工程里，这会带来几个常见坑。
 
-几个常见坑比理论本身更重要。
+1. 把 CLM 当成通用理解器直接拿去做分类  
+很多新手会认为“大模型什么都能做”，于是直接用纯生成式提示去做高精度分类、匹配、抽取。问题在于，小模型或中等规模模型在这类任务上，往往不如专门的双向编码器稳定。规避方式是：如果任务是离线分类、召回重排、信息抽取，优先评估 encoder 或 hybrid，而不是默认 CLM。
 
-第一，很多人把 teacher forcing 和“模型看见未来”混为一谈。teacher forcing，教师强制，白话说就是训练时把真实前缀喂给模型，而不是喂模型自己上一步生成的结果。它不等于允许模型偷看未来。CLM 在 teacher forcing 下依然只能看左边，只是左边来自真实序列。
+2. 忽略训练和推理的一致性  
+如果训练时没有正确加 causal mask，模型会偷看未来 token。训练 loss 可能很好看，但上线生成时会明显退化。规避方式是：单元测试里直接检查 mask 是否为严格下三角，并检查 `shift_labels` 是否正确左移。
 
-第二，数据构造时标签对齐经常出错。CLM 的标准做法不是“输入预测自己”，而是“输入预测右移一位后的目标”。如果对齐错了，loss 会看起来正常下降，但模型学到的是无意义映射。
+3. 误以为“全部 token 都参与损失”就一定更省算力  
+CLM 的监督密度高，但这不等于任何场景下都更高效。序列很长时，自注意力仍然是 $O(T^2)$，KV cache、批处理策略、上下文窗口管理都会影响吞吐。监督密度高，解决的是“每次前向的训练信号是否充分”，不是“计算复杂度自动更低”。
 
-第三，padding 处理容易和 causal mask 混淆。padding，填充，白话说就是为了把不同长度样本补成同一长度加入的占位符。实际训练里常常同时需要两种 mask：
-- causal mask：禁止看未来
-- padding mask：禁止看补齐出来的空位
+4. 在理解任务上忽略右文补偿  
+如果业务同时需要生成和理解，纯 CLM 往往不够。更稳妥的方法是加入混合训练目标，比如在预训练阶段交替做 CLM 与 MLM，或者使用 GPT-BERT hybrid、AntLM 这类兼顾双向建模与生成能力的方案。
 
-只加前者不加后者，模型会把 padding 当成真实上下文；只加后者不加前者，又会破坏因果约束。
+5. 把流式生成等同于高质量生成  
+CLM 天然支持流式输出，但流式输出只说明“能一边生成一边返回”，不说明“答案一定好”。真实系统里还要配合温度、top-k、top-p、重复惩罚、停止词、长度控制等解码策略，否则容易出现复读、跑题或过早终止。
 
-第四，不要把 CLM 在 NLU 上的劣势理解为“完全不能做理解”。更准确的说法是：同规模、同训练预算下，纯 CLM 在很多理解 benchmark 上通常低于双向 MLM，大致常见差距可到 5 到 10 个点，小模型上更明显。但如果模型足够大、数据足够多，或者通过 instruction tuning、任务格式改造，也能获得可用结果。
-
-真实工程例子：做客服问答机器人时，底座模型通常选 CLM，因为它要持续生成回复；但如果还要做“工单分类”“意图识别”“相似问题匹配”，团队常常会额外部署一个双向编码器，或者采用混合训练目标，而不是指望一个纯 CLM 同时在所有理解任务上最优。
+可以把工程判断压缩成一句话：如果系统目标是“顺着前缀持续写”，CLM 是默认选项；如果系统目标是“看完整体后做判定”，CLM 往往不是第一选择。
 
 ---
 
 ## 替代方案与适用边界
 
-如果任务既要生成，又要强理解，只用纯 CLM 往往不够。这时常见替代方案有三类。
+最直接的替代方案是 MLM，也就是 BERT 类双向编码器。它的核心思想是：随机遮住一部分 token，让模型同时利用左文和右文去补预测。常见设置里，大约只有 15% token 被选作预测目标，所以未被遮盖的大部分 token 虽然参与前向计算，但没有直接预测损失。
 
-第一类是 MLM。它适合离线理解任务，比如文本分类、检索重排、句子匹配。它的问题不是能力弱，而是生成方式不自然，不适合直接做连续文本输出。
+这也是为什么可以用一句很通俗的话区分两者：
 
-第二类是 encoder-decoder。编码器-解码器结构，白话说就是“前半部分负责双向理解输入，后半部分负责自回归生成输出”。T5、BART 属于这类。它适合翻译、摘要、问答这类“输入明确、输出也要生成”的任务。
+- CLM：每个 token 都训练，但每次只能看左边
+- MLM：可以同时看左右边，但通常只有少部分 token 有直接训练信号
 
-第三类是混合目标训练。常见形式是：
+对比表如下：
 
-$$
-L_{\text{mix}}=\lambda L_{\text{CLM}}+(1-\lambda)L_{\text{MLM}},\quad \lambda\in[0,1]
-$$
+| 方案 | 可见上下文 | 直接训练信号 | 生成是否自然 | 适用任务 |
+|---|---|---|---|---|
+| CLM | 仅左侧 | 全部 token | 是 | 对话、写作、代码补全、流式输出 |
+| MLM | 左右双向 | 常见约 15% token | 否 | 分类、匹配、抽取、检索表示 |
+| Hybrid | 视设计而定 | 多目标联合 | 较自然 | 既要生成又要理解的复杂系统 |
 
-这里 $\lambda$ 表示 CLM 部分权重。$\lambda$ 越大，训练越偏向生成；越小，越偏向双向理解。
+还有一类替代是 Hybrid，也就是混合方案。它不完全放弃 CLM，也不完全放弃 MLM，而是在训练中加入多个目标，希望同时保留“生成自然”和“理解充分”两种能力。代价是训练流程更复杂，目标权重更难调，工程实现和评估也更麻烦。
 
-它的意义很实际：不是在“选边站”，而是在算力预算有限时，把不同能力合并到一个训练流程里。比如先用 CLM 进行 warm-up，让模型快速获得语言建模和生成能力；再插入 MLM 阶段，补足双向语义建模。也有一些工作会直接交替 batch 或交替阶段训练。
+适用边界可以这样判断：
 
-适用边界可以总结为：
+| 场景 | 首选方案 | 原因 |
+|---|---|---|
+| 实时聊天 | CLM | 支持逐 token 输出，因果约束天然匹配 |
+| 代码续写 | CLM | 光标前缀即条件，任务本质是补全 |
+| 文本分类 | MLM 或 Hybrid | 需要全句双向语义 |
+| 检索向量编码 | MLM 或 Encoder-only | 双向表示通常更稳定 |
+| 生成式问答 | CLM 或 Hybrid | 既要生成答案，又要较强条件建模 |
+| 复杂企业 NLP 平台 | Hybrid | 同时覆盖理解与生成更现实 |
 
-| 场景 | 更合适的方案 | 原因 |
-| --- | --- | --- |
-| 聊天、写作、代码补全 | CLM | 推理过程就是逐 token 生成 |
-| 情感分类、句子匹配 | MLM/双向编码器 | 需要完整上下文做判断 |
-| 摘要、翻译、问答生成 | Encoder-decoder 或强 CLM | 既要理解输入又要生成输出 |
-| 一套模型兼顾生成与理解 | 混合目标 | 用训练目标折中能力分布 |
-
-因此，CLM 不是“语言模型的终极形式”，而是“在生成任务上最符合问题结构的形式”。如果你的任务本质是向右展开文本，优先选 CLM；如果你的任务本质是看完整信息再判断，优先考虑双向模型；如果两者都要，就用混合目标或分工架构。
+所以，“哪种模型更好”不是一个独立问题，而要落到任务定义上。若任务要求严格左到右、实时、连续生成，CLM 是结构上最自然的选择。若任务要求对整段输入做充分理解、判断、对齐和比较，双向模型往往更合适。若两种能力都要，混合方案才值得考虑。
 
 ---
 
 ## 参考资料
 
-- Causal Language Models in NLP: https://www.emergentmind.com/topics/causal-language-models-clms
-- Understanding Attention: A Code-First Journey Through Transformers: https://www.gada.space/posts/transformers-from-scratch/
-- Hugging Face Transformers, Causal language modeling: https://huggingface.co/docs/transformers/v4.33.2/tasks/language_modeling
-- Causal language modeling vs Masked language modeling: https://www.aimodels.fyi/research-topics/causal-language-modeling
-- Should You Mask 15% in Masked Language Modeling?: https://www.emergentmind.com/papers/2202.08005
-- Hybrid Masked-Causal Language Modeling: https://www.emergentmind.com/topics/hybrid-masked-causal-language-modeling
-- AntLM: Bridging Causal and Masked Language Models: https://www.emergentmind.com/papers/2412.03275
+- EmergentMind,《Causal Language Modeling (CLM)》, 2025。主要贡献：给出 CLM 的概率展开、因果约束定义、下三角 mask 与训练目标说明。
+- Columbia Emerging Technologies,《The Basics of Language Modeling, Transformers, and BERT》, 2025 页面版本。主要贡献：解释 BERT 的 MLM 机制与约 15% 遮盖训练方式，帮助对比双向上下文利用。
+- ResearchGate,《Comparative Evaluation of GPT, BERT and XLNet: Insights into Their Performance and Applicability in NLP Tasks》, 2025 可检索版本。主要贡献：汇总 GPT、BERT、XLNet 在 GLUE、SQuAD 等任务上的表现差异，用于说明纯 CLM 在小规模 NLU 上的劣势。
+- Python Giant,《GPT From Scratch》, 2025 页面版本。主要贡献：提供从零实现 GPT 的直观示例，可用于理解 causal mask 与自回归预测流程。
+- Next.gr,《Decoder vs Encoder in Transformer Models》, 2025 页面版本。主要贡献：从工程角度解释 decoder-only 架构为何适合流式生成与连续补全场景。
