@@ -1,5 +1,17 @@
 [
   {
+    "title": "DDIM的确定性采样",
+    "slug": "mm-imgen-ddim-deterministic-sampling",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "DDIM把逆扩散改成可跳步的确定性映射，用更少步数换取大幅加速与可复现性。"
+  },
+  {
     "title": "CogVLM的视觉专家模块",
     "slug": "mm-vlm-cogvlm-visual-expert",
     "date": "2026-04-03",
