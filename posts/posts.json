@@ -1,5 +1,16 @@
 [
   {
+    "title": "RAG的Chunk策略",
+    "slug": "agent-rag-rag-chunking-strategies",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "RAG 的 chunk 关键是语义完整、预算可控，并用 overlap 或结构信息补边界。"
+  },
+  {
     "title": "Hybrid检索策略",
     "slug": "agent-rag-hybrid-retrieval-strategies",
     "date": "2026-04-03",
