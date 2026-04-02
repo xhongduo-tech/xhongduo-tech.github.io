@@ -1,5 +1,16 @@
 [
   {
+    "title": "张量并行Megatron-LM",
+    "slug": "train-dist-tensor-parallel-megatron",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "Megatron-LM 通过列切分与行切分交替实现层内并行，代价是每层固定的高频通信。"
+  },
+  {
     "title": "FSDP完全分片数据并行",
     "slug": "train-dist-fsdp-fully-sharded",
     "date": "2026-04-02",

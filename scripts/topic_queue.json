@@ -10795,7 +10795,7 @@
       "分布式训练"
     ],
     "brief": "Megatron-LM 张量并行（Shoeybi et al. 2019）：MHA 的 Q/K/V 投影按列切分（N 卡各计算 1/N 的头），O 投影按行切分（输入已分片，输出通过 All-Reduce 合并）；FFN 第一层按列切分（N 卡各计算 1/N 神经元），第二层按行切分。每层 2 次 All-Reduce（Attn 和 FFN 各一次）。通信量：2×seq_len×batch×d×(N-1)/N per layer per forward（约等于 2×P_layer/N 参数量数据量）。8 卡 TP 的 All-Reduce 用时约占单步计算的 20-40%（InfiniBand 200Gbps，A100 HGX），因此 TP 强烈建议在 NVLink 节点内（NVLink 带宽高 10-20×）。与 SP（序列并行）结合：激活值按序列维度分片，LayerNorm 分布到各卡，进一步降低激活显存。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ZeRO优化器状态切分",
