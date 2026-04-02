@@ -10740,7 +10740,7 @@
       "优化器"
     ],
     "brief": "Muon（Momentum + Newton-Schulz 归一化，Kosson et al. 2024）将 Nesterov SGD 的动量更新 G 归一化为正交矩阵：G_orthog = Newton-Schulz(G)（5 步迭代将奇异值归一化到 [0,1]），更新 W -= η·G_orthog。核心直觉：网络函数对权重矩阵的奇异值变化不均匀，归一化使每个方向更新量相等（类似按谱范数归一化的梯度）。实验结果：Muon 在 GPT/LLaMA 微调中接近 AdamW，有时略优（特别是较大 batch 下）；对于语言模型预训练，有报告 Muon 在 50B token 规模下与 AdamW 无显著差异。局限：Newton-Schulz 迭代需要矩阵乘法，对非矩阵参数（embedding、LN）不适用，混合使用 Muon（矩阵）+ AdamW（其他）是推荐的实践方式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "8-bit优化器",

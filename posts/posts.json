@@ -1,5 +1,16 @@
 [
   {
+    "title": "Muon优化器",
+    "slug": "train-opt-muon-optimizer",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "Muon 用动量加 Newton-Schulz 正交化矩阵更新，适合线性层并常与 AdamW 混用。"
+  },
+  {
     "title": "LAMB优化器",
     "slug": "train-opt-lamb-optimizer",
     "date": "2026-04-02",
