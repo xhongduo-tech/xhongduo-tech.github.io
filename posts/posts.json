@@ -1,5 +1,16 @@
 [
   {
+    "title": "Agent的工具学习",
+    "slug": "agent-arch-agent-tool-learning",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "工具学习的核心不是接API，而是在预算与噪声约束下学会何时、选谁、怎样调用工具。"
+  },
+  {
     "title": "Multi-Agent协作模式",
     "slug": "agent-arch-multi-agent-collaboration-patterns",
     "date": "2026-04-03",
