@@ -1,5 +1,16 @@
 [
   {
+    "title": "Hybrid检索策略",
+    "slug": "agent-rag-hybrid-retrieval-strategies",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "Hybrid检索用词法加语义共同召回证据，再经重排与过滤降低RAG幻觉。"
+  },
+  {
     "title": "Sparse Retrieval BM25实现",
     "slug": "agent-rag-sparse-retrieval-bm25",
     "date": "2026-04-03",
