@@ -1,5 +1,16 @@
 [
   {
+    "title": "预训练数据的去重策略",
+    "slug": "train-data-pretraining-deduplication",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "预训练去重要在成本、多样性和公平性之间平衡，核心是多阶段筛重而非盲目删数据"
+  },
+  {
     "title": "学习率过大的症状",
     "slug": "train-stab-learning-rate-too-large-symptoms",
     "date": "2026-04-02",
