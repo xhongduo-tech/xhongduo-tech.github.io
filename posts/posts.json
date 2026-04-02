@@ -1,5 +1,17 @@
 [
   {
+    "title": "Fuyu的纯Decoder架构",
+    "slug": "mm-vlm-fuyu-pure-decoder",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "Fuyu把图像patch直接并入文本token流，用纯Decoder统一处理多模态输入。"
+  },
+  {
     "title": "BLIP-2的Q-Former",
     "slug": "mm-vlm-blip2-qformer",
     "date": "2026-04-03",
