@@ -1,5 +1,16 @@
 [
   {
+    "title": "训练中的梯度NaN诊断",
+    "slug": "train-stab-gradient-nan-diagnosis",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "summary": "梯度NaN本质是计算图中出现非有限值，定位第一处异常算子并切断失控链是关键。"
+  },
+  {
     "title": "LayerScale的训练稳定",
     "slug": "train-stab-layerscale-training-stability",
     "date": "2026-04-02",
