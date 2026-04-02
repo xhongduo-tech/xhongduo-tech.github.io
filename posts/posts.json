@@ -1,5 +1,16 @@
 [
   {
+    "title": "Code Interpreter的沙箱",
+    "slug": "agent-arch-code-interpreter-sandbox",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "Code Interpreter 的核心不是会跑代码，而是把任意代码执行收进可控、可审计的沙箱边界。"
+  },
+  {
     "title": "Function Calling的实现",
     "slug": "agent-arch-function-calling-implementation",
     "date": "2026-04-03",
