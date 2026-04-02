@@ -10685,7 +10685,7 @@
       "优化器"
     ],
     "brief": "LAMB（Layer-wise Adaptive Moments optimizer for Batch training，You et al. 2019）在 AdamW 基础上添加逐层自适应步长缩放：r_l = ‖θ_l‖ / ‖AdamW_update_l‖（层 l 的参数 L2 范数与更新量范数之比），更新 θ_l -= η · r_l · AdamW_update_l。核心意义：使不同层可以使用不同的有效学习率，浅层参数（范数大）自动获得更大更新，适合超大批量训练（batch=8K-32K）。实验：BERT 预训练时，LAMB 在 batch=32768 下 76 分钟完成（Adam 需要 3 天），且精度持平（SQUAD F1 91.3 vs 91.1）。限制：LAMB 的自适应缩放引入额外的 ‖θ_l‖ 计算（distributed training 需同步），且对超参敏感（warm-up 调整不当会发散）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Lion优化器",

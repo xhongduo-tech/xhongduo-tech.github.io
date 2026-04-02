@@ -1,5 +1,16 @@
 [
   {
+    "title": "LAMB优化器",
+    "slug": "train-opt-lamb-optimizer",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "LAMB在AdamW上加入逐层trust ratio，核心价值是让超大batch训练保持分层步长稳定。"
+  },
+  {
     "title": "Adafactor优化器",
     "slug": "train-opt-adafactor-optimizer",
     "date": "2026-04-02",
