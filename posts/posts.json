@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建自动化测试Agent",
+    "slug": "agent-app-build-test-automation-agent",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent应用"
+    ],
+    "summary": "自动化测试Agent的本质是带反馈闭环的测试系统，而不是会写脚本的大模型"
+  },
+  {
     "title": "构建写作助手Agent",
     "slug": "agent-app-build-writing-assistant-agent",
     "date": "2026-04-03",
