@@ -1,5 +1,16 @@
 [
   {
+    "title": "数据质量过滤",
+    "slug": "train-data-data-quality-filtering",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "数据质量过滤的本质，是把训练资源优先分配给高价值、低风险且方向一致的样本。"
+  },
+  {
     "title": "预训练数据的去重策略",
     "slug": "train-data-pretraining-deduplication",
     "date": "2026-04-02",
