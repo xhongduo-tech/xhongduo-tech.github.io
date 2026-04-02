@@ -11137,7 +11137,7 @@
       "Agent架构"
     ],
     "brief": "ReAct的推理-行动循环 关注 `智能体 / Agent架构` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Plan-and-Execute架构",

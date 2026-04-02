@@ -1,5 +1,16 @@
 [
   {
+    "title": "ReAct的推理-行动循环",
+    "slug": "agent-arch-react-reasoning-action-loop",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "Agent架构"
+    ],
+    "summary": "ReAct通过思考、行动、观测闭环，把语言推理和工具调用绑定到同一条执行链上。"
+  },
+  {
     "title": "RAG的记忆机制",
     "slug": "agent-rag-rag-memory-mechanism",
     "date": "2026-04-03",
