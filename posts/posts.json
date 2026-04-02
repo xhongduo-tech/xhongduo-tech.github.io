@@ -1,5 +1,16 @@
 [
   {
+    "title": "Lion优化器",
+    "slug": "train-opt-lion-optimizer",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器"
+    ],
+    "summary": "Lion 用 sign 动量换取更低优化器内存，适合显存紧张微调，不是 AdamW 的稳定替代品"
+  },
+  {
     "title": "AdamW的权重衰减解耦",
     "slug": "train-opt-adamw-weight-decay-decoupled",
     "date": "2026-03-29",
