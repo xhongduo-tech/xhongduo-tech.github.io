@@ -1,5 +1,16 @@
 [
   {
+    "title": "学习率过大的症状",
+    "slug": "train-stab-learning-rate-too-large-symptoms",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "summary": "学习率过大本质是步长超出稳定区间，典型症状是震荡、尖峰和发散。"
+  },
+  {
     "title": "批量大小的缩放规则",
     "slug": "train-stab-batch-size-scaling-rules",
     "date": "2026-04-02",
