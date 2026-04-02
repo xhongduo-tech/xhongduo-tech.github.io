@@ -1,5 +1,17 @@
 [
   {
+    "title": "DDPM的训练目标",
+    "slug": "mm-imgen-ddpm-training-objective",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "DDPM训练目标本质是ELBO约束下的噪声预测MSE，它稳定且有概率解释，但部署常受采样成本限制"
+  },
+  {
     "title": "Yi-VL的双语视觉语言模型",
     "slug": "mm-vlm-yi-vl-bilingual",
     "date": "2026-04-03",
