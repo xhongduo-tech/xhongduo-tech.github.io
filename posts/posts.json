@@ -1,5 +1,16 @@
 [
   {
+    "title": "RAG的查询扩展",
+    "slug": "agent-rag-rag-query-expansion",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG"
+    ],
+    "summary": "查询扩展通过多视角检索提升RAG召回，但必须受控生成、融合排序并配合过滤。"
+  },
+  {
     "title": "RAG的上下文压缩",
     "slug": "agent-rag-rag-context-compression",
     "date": "2026-04-03",
