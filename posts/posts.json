@@ -1,5 +1,16 @@
 [
   {
+    "title": "多语言数据平衡",
+    "slug": "train-data-multilingual-data-balancing",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "多语言数据平衡本质是用验证集反馈动态控制语言采样，避免高资源语言长期主导训练。"
+  },
+  {
     "title": "RAG的检索-生成联合优化",
     "slug": "agent-rag-rag-retrieval-generation-joint",
     "date": "2026-04-03",
