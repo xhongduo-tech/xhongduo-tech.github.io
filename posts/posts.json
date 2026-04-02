@@ -1,5 +1,17 @@
 [
   {
+    "title": "InternVL的架构设计",
+    "slug": "mm-vlm-internvl-architecture",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "InternVL本质是视觉底座、连接器与语言模型协同对齐的模块化多模态架构。"
+  },
+  {
     "title": "LLaVA的视觉指令微调",
     "slug": "mm-vlm-llava-visual-instruction-tuning",
     "date": "2026-04-03",
