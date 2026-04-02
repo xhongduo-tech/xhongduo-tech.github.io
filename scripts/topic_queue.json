@@ -10806,7 +10806,7 @@
       "分布式训练"
     ],
     "brief": "ZeRO（Zero Redundancy Optimizer，Rajbhandari et al. 2020）消除数据并行中的冗余存储。原始 DP 每卡存储：参数 P（16B） + 梯度 G（16B） + 优化器状态 OS（FP32 参数+m+v，= 12P/N bytes）= 共 16Ψ bytes（Ψ=参数量字节数）。三级分片：ZeRO-1 切分 OS（每卡存 1/N，12Ψ→4Ψ bytes）；ZeRO-2 同时切分梯度（每卡存 1/N，(12+2)Ψ→2Ψ bytes）；ZeRO-3 进一步切分参数（每卡存 1/N，16Ψ→2Ψ bytes，额外通信）。7B 模型（FP16 训练）在 ZeRO-3 下：每卡显存从 ~112GB → ~14GB（8 卡），通信量增加约 1.5×（全量梯度 All-Reduce → Reduce-Scatter+All-Gather）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FSDP完全分片数据并行",

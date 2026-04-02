@@ -1,5 +1,16 @@
 [
   {
+    "title": "ZeRO优化器状态切分",
+    "slug": "train-dist-zero-optimizer-state-sharding",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "ZeRO通过分片优化器状态、梯度和参数，消除数据并行冗余，以通信换显存。"
+  },
+  {
     "title": "模型并行的基本概念",
     "slug": "train-dist-model-parallel-basics",
     "date": "2026-04-02",
