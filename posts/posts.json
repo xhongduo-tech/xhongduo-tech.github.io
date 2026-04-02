@@ -1,5 +1,17 @@
 [
   {
+    "title": "ViT的注意力模式分析",
+    "slug": "mm-vision-vit-attention-pattern-analysis",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "ViT注意力分析的核心，是量化各head对CLS、局部与全局模式的分工及其工程边界"
+  },
+  {
     "title": "构建游戏AI Agent",
     "slug": "agent-app-build-game-ai-agent",
     "date": "2026-04-03",
