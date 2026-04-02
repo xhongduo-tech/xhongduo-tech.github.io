@@ -1,5 +1,16 @@
 [
   {
+    "title": "训练Loss突刺的诊断",
+    "slug": "train-stab-training-loss-spike-diagnosis",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性"
+    ],
+    "summary": "Loss突刺本质是高曲率方向越过稳定阈值，诊断重点是监控梯度范数、曲率估计与学习率关系"
+  },
+  {
     "title": "序列并行",
     "slug": "train-dist-sequence-parallelism",
     "date": "2026-04-02",
