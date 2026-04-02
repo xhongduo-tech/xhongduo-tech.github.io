@@ -1,5 +1,17 @@
 [
   {
+    "title": "CLIP的零样本分类",
+    "slug": "mm-vision-clip-zero-shot-classification",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "CLIP零样本分类本质是图像与类描述在共享语义空间中的相似度匹配。"
+  },
+  {
     "title": "CLIP的对比学习",
     "slug": "mm-vision-clip-contrastive-learning",
     "date": "2026-04-03",
