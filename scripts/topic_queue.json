@@ -10773,7 +10773,7 @@
       "分布式训练"
     ],
     "brief": "PyTorch DDP（DistributedDataParallel）：forward 各自独立，backward 时 hook 触发梯度桶的 All-Reduce；桶大小默认 25MB（可调 bucket_cap_mb）。通信计算重叠（overlap）：DDP 在 backward 完成一个桶后立即开始 All-Reduce，不等待所有梯度准备好，实现通信与后续梯度计算并行。关键配置：①find_unused_parameters=True 允许动态图（but 性能开销约 10%）；②static_graph=True 用于静态图，触发进一步优化；③`broadcast_buffers=False`（BN running stats）在大规模时减少通信；④gradient_as_bucket_view=True 节省峰值显存约 5%。典型 All-Reduce 速度：A100 NVLink 400GB/s，跨节点 InfiniBand 200Gbps（~25GB/s），通信带宽差约 16×。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型并行的基本概念",

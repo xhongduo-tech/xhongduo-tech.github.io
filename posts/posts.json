@@ -1,5 +1,16 @@
 [
   {
+    "title": "分布式数据并行DDP",
+    "slug": "train-dist-distributed-data-parallel",
+    "date": "2026-04-02",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练"
+    ],
+    "summary": "DDP 的本质是反向传播时按梯度桶异步 All-Reduce，并用通信计算重叠提升吞吐。"
+  },
+  {
     "title": "Muon优化器",
     "slug": "train-opt-muon-optimizer",
     "date": "2026-04-02",
