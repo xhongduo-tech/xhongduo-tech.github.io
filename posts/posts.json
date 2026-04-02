@@ -1,5 +1,17 @@
 [
   {
+    "title": "视觉编码器的特征金字塔",
+    "slug": "mm-vision-vision-feature-pyramid",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码"
+    ],
+    "summary": "特征金字塔通过跨层细节引导和像素级模态权重，实现多模态视觉中的稳健多尺度融合"
+  },
+  {
     "title": "EVA-CLIP的大规模预训练",
     "slug": "mm-vision-eva-clip-pretraining",
     "date": "2026-04-03",
