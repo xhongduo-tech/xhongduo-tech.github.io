@@ -1,5 +1,16 @@
 [
   {
+    "title": "Alpaca的数据构建",
+    "slug": "ft-sft-alpaca-data-construction",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "Alpaca把Self-Instruct工程化为低成本SFT数据流水线，强在可复制，弱在同源偏差与安全不足"
+  },
+  {
     "title": "Self-Instruct的自动生成",
     "slug": "ft-sft-self-instruct-auto-generation",
     "date": "2026-04-03",

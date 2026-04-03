@@ -12228,7 +12228,7 @@
       "指令微调"
     ],
     "brief": "Alpaca的数据构建本质上是对Self-Instruct的工程化简化：从175条人工种子出发，用text-davinci-003扩展出约52K条instruction-output，对每条做模板化清洗后直接用于SFT。它的价值不在数据量大，而在低成本复制，公开估算生成成本约500美元级；但答案风格高度同源，容易形成统一腔调和事实性噪声。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "WizardLM的演进指令",
