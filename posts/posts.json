@@ -1,5 +1,17 @@
 [
   {
+    "title": "策略迭代算法",
+    "slug": "rl-basic-policy-iteration-algorithm",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "策略迭代通过评估当前策略并按Q值贪心改进，在已知模型下稳定收敛到最优策略"
+  },
+  {
     "title": "资格迹Eligibility Traces",
     "slug": "rl-basic-eligibility-traces",
     "date": "2026-04-03",
