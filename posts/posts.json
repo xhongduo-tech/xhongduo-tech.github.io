@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令微调的数据规模",
+    "slug": "ft-sft-sft-data-scale",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "指令微调看有效token，不看样本条数；收益通常先快后慢。"
+  },
+  {
     "title": "指令微调的超参选择",
     "slug": "ft-sft-sft-hyperparameter-selection",
     "date": "2026-04-03",
