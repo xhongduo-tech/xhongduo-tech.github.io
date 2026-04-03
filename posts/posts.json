@@ -1,5 +1,17 @@
 [
   {
+    "title": "语音识别的CTC解码",
+    "slug": "mm-speech-asr-ctc-decoding",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "CTC解码用blank与beam search把逐帧字符概率恢复成文本，核心难点是路径合并与LM权衡。"
+  },
+  {
     "title": "Whisper的架构分析",
     "slug": "mm-speech-whisper-architecture-analysis",
     "date": "2026-04-03",
