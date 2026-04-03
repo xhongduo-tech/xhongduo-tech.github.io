@@ -12118,7 +12118,7 @@
       "PEFT"
     ],
     "brief": "QLoRA把底座权重量化到4-bit存储，常用NF4数据类型，并用double quantization继续压缩量化常数；训练时仍通过LoRA更新少量可训练参数，梯度不回传到量化权重。再配合paged optimizer缓解显存峰值，可在单张48GB卡上微调65B级模型。它的关键不是4-bit训练，而是4-bit冻结底座加高精度适配器。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Prefix Tuning的虚拟Token",

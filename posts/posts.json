@@ -1,5 +1,16 @@
 [
   {
+    "title": "QLoRA的4-bit量化",
+    "slug": "ft-peft-qlora-4bit-quantization",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "QLoRA通过4-bit冻结底座加高精度LoRA训练，把大模型微调显存压到单卡可承受范围"
+  },
+  {
     "title": "LoRA的合并与部署",
     "slug": "ft-peft-lora-merging-deployment",
     "date": "2026-04-03",
