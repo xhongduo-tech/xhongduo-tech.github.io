@@ -1,5 +1,16 @@
 [
   {
+    "title": "Self-Instruct的自动生成",
+    "slug": "ft-sft-self-instruct-auto-generation",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "Self-Instruct靠模型自举扩数据，但真正决定效果的是去重与质量过滤。"
+  },
+  {
     "title": "指令数据的多样性",
     "slug": "ft-sft-instruction-data-diversity",
     "date": "2026-04-03",
