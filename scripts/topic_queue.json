@@ -11931,7 +11931,7 @@
       "深度RL"
     ],
     "brief": "Rainbow把Double DQN、优先级回放、Dueling、n-step return、Noisy Nets与C51集成为单一DQN框架。关键不在简单叠加，而在各模块互补：Double抑制高估，PER提高样本利用，n-step加速信用传播，C51增强目标表达。论文中的性能提升主要来自系统集成与消融优化，而非某一个组件单独决定。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "REINFORCE的方差分析",

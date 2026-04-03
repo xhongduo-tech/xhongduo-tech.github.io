@@ -1,5 +1,17 @@
 [
   {
+    "title": "Rainbow的集成改进",
+    "slug": "rl-deep-rainbow-integration",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "Rainbow 的关键不是堆模块，而是让 6 个改进在目标构造、采样和估值上形成互补。"
+  },
+  {
     "title": "A2C的同步并行",
     "slug": "rl-deep-a2c-synchronous-parallel",
     "date": "2026-04-03",
