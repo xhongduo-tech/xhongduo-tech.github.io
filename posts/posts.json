@@ -1,5 +1,17 @@
 [
   {
+    "title": "SD3的MMDiT架构",
+    "slug": "mm-imgen-sd3-mmdit",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "MMDiT通过统一自注意力让图像与文本在每层双向对齐，适合复杂提示与可读文字生成"
+  },
+  {
     "title": "TTS的文本到频谱生成",
     "slug": "mm-speech-tts-text-to-spectrogram",
     "date": "2026-04-03",
