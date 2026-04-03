@@ -1,5 +1,17 @@
 [
   {
+    "title": "C51的分布式价值函数",
+    "slug": "rl-deep-c51-distributed-value",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "C51把Q值建模为固定支撑上的离散回报分布，用投影加交叉熵训练。"
+  },
+  {
     "title": "Rainbow的集成改进",
     "slug": "rl-deep-rainbow-integration",
     "date": "2026-04-03",

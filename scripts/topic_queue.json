@@ -11920,7 +11920,7 @@
       "深度RL"
     ],
     "brief": "C51不直接预测期望Q，而预测离散支撑点z_i上的回报分布Z(s,a)，通常取51个原子。目标分布经Bellman更新后再投影回固定支撑区间[V_min,V_max]，训练用交叉熵最小化类别分布差异。相比标量Q，分布表示保留了风险与不确定性信息，经验上在Atari上常优于普通DQN。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Rainbow的集成改进",
