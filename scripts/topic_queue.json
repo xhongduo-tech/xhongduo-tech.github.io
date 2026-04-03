@@ -12151,7 +12151,7 @@
       "PEFT"
     ],
     "brief": "P-Tuning在软提示基础上加入提示编码器，早期版本常用LSTM或MLP将少量虚拟token映射为更有结构的连续提示，再送入模型。这样做的目的不是增加参数量本身，而是增强提示表达能力和训练稳定性。与Prompt Tuning直接优化embedding相比，P-Tuning更依赖编码器设计；与Prefix Tuning相比，它更多发生在输入侧而非逐层注入。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "IA³的缩放向量",

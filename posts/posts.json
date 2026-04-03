@@ -1,5 +1,16 @@
 [
   {
+    "title": "P-Tuning的编码器设计",
+    "slug": "ft-peft-p-tuning-encoder",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "P-Tuning用提示编码器生成结构化软提示，在参数效率与训练稳定性之间取得折中。"
+  },
+  {
     "title": "Prompt Tuning的软提示",
     "slug": "ft-peft-prompt-tuning-soft-prompts",
     "date": "2026-04-03",
