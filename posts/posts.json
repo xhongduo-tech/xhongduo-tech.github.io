@@ -1,5 +1,17 @@
 [
   {
+    "title": "Whisper的架构分析",
+    "slug": "mm-speech-whisper-architecture-analysis",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "Whisper用控制token统一多语音任务，鲁棒性强，但固定30秒窗口和自回归解码限制了实时性。"
+  },
+  {
     "title": "Stable Diffusion的U-Net",
     "slug": "mm-imgen-stable-diffusion-unet",
     "date": "2026-04-03",
