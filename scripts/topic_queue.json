@@ -11887,7 +11887,7 @@
       "深度RL"
     ],
     "brief": "DQN用同一个max操作同时做动作选择与价值评估，若Q含噪声，max会系统性高估。Double DQN把两者拆开：a*=argmax_a Q_theta(s',a)，再用Q_{theta-}(s',a*)评估目标y=r+gamma*Q_{theta-}(s',a*)。这种解耦不会消除所有误差，但能显著降低过估计偏差，尤其在动作多、奖励噪声高时更明显。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Dueling DQN的网络架构",

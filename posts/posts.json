@@ -1,5 +1,17 @@
 [
   {
+    "title": "Double DQN的过估计消除",
+    "slug": "rl-deep-double-dqn-overestimation",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "Double DQN通过拆分选动作与估值，显著降低DQN在max操作中的系统性过估计。"
+  },
+  {
     "title": "Dueling DQN的网络架构",
     "slug": "rl-deep-dueling-dqn-architecture",
     "date": "2026-04-03",
