@@ -1,5 +1,17 @@
 [
   {
+    "title": "Flux的整流流架构",
+    "slug": "mm-imgen-flux-rectified-flow",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "Flux 用整流流速度场替代高步扩散，优势是少步、确定性和多参考一致性。"
+  },
+  {
     "title": "IP-Adapter的图像提示",
     "slug": "mm-imgen-ip-adapter-image-prompt",
     "date": "2026-04-03",
