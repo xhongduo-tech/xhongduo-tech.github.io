@@ -1,5 +1,16 @@
 [
   {
+    "title": "Adapter的结构设计",
+    "slug": "ft-peft-adapter-structure-design",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "Adapter用瓶颈残差模块承载任务增量，省参数、易多任务切换，但推理时延高于可合并的LoRA"
+  },
+  {
     "title": "IA³的缩放向量",
     "slug": "ft-peft-ia3-scaling-vectors",
     "date": "2026-04-03",
