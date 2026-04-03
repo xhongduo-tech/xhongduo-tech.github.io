@@ -11876,7 +11876,7 @@
       "深度RL"
     ],
     "brief": "目标网络把DQN目标写为y=r+gamma*max_a' Q_{theta-}(s',a')，其中theta-在若干步后才从在线网络theta同步一次，避免预测值和目标值同时移动导致训练发散。硬更新每C步复制一次参数，软更新则用theta-<-tau*theta+(1-tau)*theta-平滑追踪。它主要降低目标漂移，而不是直接解决过估计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Double DQN的过估计消除",

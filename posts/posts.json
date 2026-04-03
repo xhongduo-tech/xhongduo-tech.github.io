@@ -1,5 +1,17 @@
 [
   {
+    "title": "DQN的目标网络",
+    "slug": "rl-deep-dqn-target-network",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "目标网络用延迟参数稳定DQN的TD目标，缓解目标漂移但不直接解决过估计"
+  },
+  {
     "title": "Model-based RL的规划",
     "slug": "rl-basic-model-based-rl-planning",
     "date": "2026-04-03",
