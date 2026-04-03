@@ -11942,7 +11942,7 @@
       "深度RL"
     ],
     "brief": "REINFORCE用策略梯度定理直接优化J(theta)，梯度形式为grad J=E[Sigma_t grad log pi_theta(a_t|s_t) * G_t]。它无偏，但因为G_t包含整条轨迹随机性，方差很大，导致更新方向噪声重。加入与动作无关的基线b(s)后，梯度变为grad log pi(a|s) * (G_t-b(s))，期望不变却可显著降方差，这也是Actor-Critic的起点。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "A2C的同步并行",

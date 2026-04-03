@@ -1,5 +1,17 @@
 [
   {
+    "title": "REINFORCE的方差分析",
+    "slug": "rl-deep-reinforce-variance-analysis",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "REINFORCE无偏但高方差，减去与动作无关的baseline可保持期望不变并显著稳定训练"
+  },
+  {
     "title": "Noisy Nets的探索",
     "slug": "rl-deep-noisy-nets-exploration",
     "date": "2026-04-03",
