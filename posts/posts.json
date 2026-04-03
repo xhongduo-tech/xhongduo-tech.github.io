@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令数据的多样性",
+    "slug": "ft-sft-instruction-data-diversity",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "指令数据多样性本质是分布覆盖，不是堆数量；覆盖任务、长度、格式与拒答，泛化才稳"
+  },
+  {
     "title": "指令数据的格式设计",
     "slug": "ft-sft-instruction-data-format",
     "date": "2026-04-03",
