@@ -1,5 +1,17 @@
 [
   {
+    "title": "奖励模型的过拟合防护",
+    "slug": "rl-rlhf-reward-model-overfitting",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "奖励模型最怕背模板而非学偏好，监控应盯验证排序能力和分数间隔。"
+  },
+  {
     "title": "DPO的直接偏好优化",
     "slug": "rl-rlhf-dpo-direct-preference-optimization",
     "date": "2026-04-03",

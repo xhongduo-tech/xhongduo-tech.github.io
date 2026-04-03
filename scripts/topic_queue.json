@@ -11997,7 +11997,7 @@
       "RLHF"
     ],
     "brief": "奖励模型最常见问题不是训练损失高，而是记住标注偏好模板。防护手段包括按prompt去重切分、控制模型容量、dropout和L2、早停、对抗验证和长度归一化。监控指标应看验证集pairwise accuracy与r(y+)-r(y-)间隔，而不是只看训练loss。若训练分数持续升高但在线采样质量下降，通常已经进入reward overfit。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PPO的KL散度约束",
