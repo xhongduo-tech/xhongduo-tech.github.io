@@ -1,5 +1,17 @@
 [
   {
+    "title": "Fuyu的纯Decoder架构",
+    "slug": "mm-vlm-fuyu-pure-decoder",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言"
+    ],
+    "summary": "Fuyu把图像patch与文本统一成一条Decoder序列，简化多模态推理，但训练稳定性与视觉监督要求更高"
+  },
+  {
     "title": "CLIP的对比学习",
     "slug": "mm-vision-clip-contrastive-learning",
     "date": "2026-04-03",
@@ -82,18 +94,6 @@
       "视觉语言"
     ],
     "summary": "InstructBLIP通过指令感知Q-Former在冻结骨干下实现高效多任务视觉语言适配。"
-  },
-  {
-    "title": "Fuyu的纯Decoder架构",
-    "slug": "mm-vlm-fuyu-pure-decoder",
-    "date": "2026-04-03",
-    "author": "both",
-    "tags": [
-      "前沿追踪",
-      "多模态",
-      "视觉语言"
-    ],
-    "summary": "Fuyu把图像patch直接并入文本token流，用纯Decoder统一处理多模态输入。"
   },
   {
     "title": "BLIP-2的Q-Former",
