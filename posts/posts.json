@@ -1,5 +1,17 @@
 [
   {
+    "title": "Whisper的鲁棒性分析",
+    "slug": "mm-speech-whisper-robustness-analysis",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "Whisper 的鲁棒性来自大规模多任务训练，但真实效果仍受 chunk、口音与前端增强策略约束"
+  },
+  {
     "title": "端到端语音识别的注意力机制",
     "slug": "mm-speech-e2e-asr-attention",
     "date": "2026-04-03",
