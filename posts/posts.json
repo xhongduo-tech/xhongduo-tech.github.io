@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令数据的构建",
+    "slug": "train-data-instruction-data-construction",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "数据处理"
+    ],
+    "summary": "指令数据构建的核心不是多，而是高质量、多样性与可验证的子集选择。"
+  },
+  {
     "title": "SigLIP的Sigmoid损失",
     "slug": "mm-vision-siglip-sigmoid-loss",
     "date": "2026-04-03",
