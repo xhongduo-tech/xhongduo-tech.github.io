@@ -1,5 +1,17 @@
 [
   {
+    "title": "DPO的直接偏好优化",
+    "slug": "rl-rlhf-dpo-direct-preference-optimization",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "DPO把偏好学习改写成直接分类优化，省掉RM和PPO，但强依赖离线偏好数据覆盖。"
+  },
+  {
     "title": "PPO的KL散度约束",
     "slug": "rl-rlhf-ppo-kl-constraint",
     "date": "2026-04-03",
