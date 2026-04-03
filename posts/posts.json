@@ -1,5 +1,17 @@
 [
   {
+    "title": "A3C的异步并行",
+    "slug": "rl-deep-a3c-asynchronous-parallel",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "A3C用异步多worker并行采样和Hogwild更新，换吞吐与多样性，也引入陈旧梯度噪声。"
+  },
+  {
     "title": "RLHF的三阶段训练",
     "slug": "rl-rlhf-rlhf-three-stages",
     "date": "2026-04-03",
