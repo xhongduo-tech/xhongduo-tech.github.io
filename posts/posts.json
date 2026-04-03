@@ -1,5 +1,17 @@
 [
   {
+    "title": "奖励黑客的检测与防护",
+    "slug": "rl-rlhf-reward-hacking-detection",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "奖励黑客是模型讨好RM而非用户，检测要看reward gap、多指标和OOD表现。"
+  },
+  {
     "title": "奖励模型的过拟合防护",
     "slug": "rl-rlhf-reward-model-overfitting",
     "date": "2026-04-03",
