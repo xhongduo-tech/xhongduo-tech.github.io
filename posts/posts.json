@@ -1,5 +1,17 @@
 [
   {
+    "title": "PPO的KL散度约束",
+    "slug": "rl-rlhf-ppo-kl-constraint",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "PPO的KL约束是在偏好提升与分布稳定之间做动态折中，beta决定约束强度。"
+  },
+  {
     "title": "奖励模型的数据构建",
     "slug": "rl-rlhf-reward-model-data-construction",
     "date": "2026-04-03",

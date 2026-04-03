@@ -12008,7 +12008,7 @@
       "RLHF"
     ],
     "brief": "RLHF中的PPO常优化E[r]-beta*KL(pi||pi_ref)，KL项约束新策略不要偏离参考模型太远。beta太小会追着奖励模型漏洞跑，beta太大又几乎退化成原模型复读。实践里常用自适应KL：若实测KL高于目标值则增大beta，反之减小。它本质是在探索偏好提升和维持语言分布稳定之间做动态拉平。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "奖励黑客的检测与防护",
