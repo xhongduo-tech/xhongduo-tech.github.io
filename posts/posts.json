@@ -1,5 +1,17 @@
 [
   {
+    "title": "Noisy Nets的探索",
+    "slug": "rl-deep-noisy-nets-exploration",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "Noisy Nets把探索写进参数本身，用可学习噪声替代手工epsilon调度。"
+  },
+  {
     "title": "Double DQN的过估计消除",
     "slug": "rl-deep-double-dqn-overestimation",
     "date": "2026-04-03",

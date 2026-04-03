@@ -11909,7 +11909,7 @@
       "深度RL"
     ],
     "brief": "Noisy Nets把线性层参数写成w=mu_w+sigma_w*epsilon、b=mu_b+sigma_b*epsilon，用可学习噪声替代手工epsilon-greedy。探索强度由sigma自动调节，训练后期会自然衰减，不再需要显式退火epsilon。与动作层随机化相比，参数噪声会在整个值函数上产生结构化扰动，通常带来更持久的深度探索，但训练方差也可能更大。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "C51的分布式价值函数",
