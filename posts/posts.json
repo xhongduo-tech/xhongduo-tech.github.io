@@ -1,5 +1,17 @@
 [
   {
+    "title": "KTO的Kahneman-Tversky优化",
+    "slug": "rl-rlhf-kto-kahneman-tversky",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "KTO用前景理论重写偏好学习，适合单条二元反馈与高风险对齐任务。"
+  },
+  {
     "title": "奖励黑客的检测与防护",
     "slug": "rl-rlhf-reward-hacking-detection",
     "date": "2026-04-03",
