@@ -1,5 +1,17 @@
 [
   {
+    "title": "RLHF的三阶段训练",
+    "slug": "rl-rlhf-rlhf-three-stages",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "RLHF分三段：SFT定基线，RM学偏好，PPO在奖励与KL约束间优化策略"
+  },
+  {
     "title": "C51的分布式价值函数",
     "slug": "rl-deep-c51-distributed-value",
     "date": "2026-04-03",
