@@ -1,5 +1,17 @@
 [
   {
+    "title": "TTS的文本到频谱生成",
+    "slug": "mm-speech-tts-text-to-spectrogram",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "文本到频谱生成的核心，是先定时间骨架，再生成一致的mel频谱供声码器重建语音"
+  },
+  {
     "title": "Whisper的鲁棒性分析",
     "slug": "mm-speech-whisper-robustness-analysis",
     "date": "2026-04-03",
