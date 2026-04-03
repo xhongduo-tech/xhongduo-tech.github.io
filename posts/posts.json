@@ -1,5 +1,17 @@
 [
   {
+    "title": "实时语音识别的流式处理",
+    "slug": "mm-speech-realtime-asr-streaming",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "流式语音识别的核心，是在低延迟约束下稳定决定“继续等”还是“立刻输出”。"
+  },
+  {
     "title": "探索策略的设计",
     "slug": "rl-basic-exploration-strategies",
     "date": "2026-04-03",
