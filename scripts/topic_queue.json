@@ -12063,7 +12063,7 @@
       "RLHF"
     ],
     "brief": "ORPO把监督学习与偏好优化合到单阶段，通过odds ratio形式直接提升chosen相对rejected的条件概率，无需额外参考模型，常见写法是在SFT loss上叠加对数胜率项。这样显存与工程复杂度都低于DPO或PPO，特别适合资源受限微调。代价是约束能力较弱，若偏好数据噪声高，容易把底座原有分布拉偏。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RLAIF的AI反馈训练",

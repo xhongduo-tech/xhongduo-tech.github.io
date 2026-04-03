@@ -1,5 +1,17 @@
 [
   {
+    "title": "ORPO的 odds ratio优化",
+    "slug": "rl-rlhf-orpo-odds-ratio",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "ORPO把SFT与偏好优化合成单阶段，用odds ratio直接拉开chosen与rejected概率差。"
+  },
+  {
     "title": "KTO的Kahneman-Tversky优化",
     "slug": "rl-rlhf-kto-kahneman-tversky",
     "date": "2026-04-03",
