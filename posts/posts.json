@@ -1,5 +1,17 @@
 [
   {
+    "title": "语音克隆的零样本学习",
+    "slug": "mm-speech-voice-cloning-zero-shot",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "零样本语音克隆依赖声线与内容解耦，强在即时泛化，弱在噪声、分布外语言和控制失衡。"
+  },
+  {
     "title": "Conformer的卷积-注意力混合",
     "slug": "mm-speech-conformer-conv-attention",
     "date": "2026-04-03",
