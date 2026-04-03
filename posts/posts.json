@@ -1,5 +1,17 @@
 [
   {
+    "title": "A2C的同步并行",
+    "slug": "rl-deep-a2c-synchronous-parallel",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "A2C用同步并行采样统一算优势并批量更新，稳定且适合GPU，但会受最慢环境拖累。"
+  },
+  {
     "title": "REINFORCE的方差分析",
     "slug": "rl-deep-reinforce-variance-analysis",
     "date": "2026-04-03",
