@@ -12074,7 +12074,7 @@
       "RLHF"
     ],
     "brief": "RLAIF用强模型或规则系统替代人工给反馈，核心流程仍是生成候选、做偏好比较、再训练策略，只是监督源从human feedback换成AI feedback。Constitutional AI进一步把原则写成宪法，让模型先自我批评再修正。优点是标注成本和扩展性显著更好；风险是反馈模型偏见会被放大，形成闭环自证。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LoRA的矩阵分解原理",

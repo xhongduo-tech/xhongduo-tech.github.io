@@ -1,5 +1,17 @@
 [
   {
+    "title": "RLAIF的AI反馈训练",
+    "slug": "rl-rlhf-rlaif-ai-feedback",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "RLAIF用AI替代人工偏好反馈，显著降成本提规模，但必须防止评审偏见闭环放大。"
+  },
+  {
     "title": "ORPO的 odds ratio优化",
     "slug": "rl-rlhf-orpo-odds-ratio",
     "date": "2026-04-03",
