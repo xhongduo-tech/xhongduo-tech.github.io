@@ -1,5 +1,17 @@
 [
   {
+    "title": "IP-Adapter的图像提示",
+    "slug": "mm-imgen-ip-adapter-image-prompt",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "IP-Adapter通过独立图像注意力把参考图变成可调条件，实现图文共存生成。"
+  },
+  {
     "title": "LoRA在图像生成中的应用",
     "slug": "mm-imgen-lora-image-generation",
     "date": "2026-04-03",
