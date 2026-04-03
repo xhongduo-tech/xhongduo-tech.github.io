@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令数据的格式设计",
+    "slug": "ft-sft-instruction-data-format",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "指令数据格式的核心是角色边界和loss mask，而不是JSON外壳"
+  },
+  {
     "title": "LLaMA-Adapter的早期层注入",
     "slug": "ft-peft-llama-adapter-early-layer",
     "date": "2026-04-03",
