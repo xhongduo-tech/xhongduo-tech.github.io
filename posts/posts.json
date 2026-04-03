@@ -1,5 +1,17 @@
 [
   {
+    "title": "Stable Diffusion的潜在空间",
+    "slug": "mm-imgen-stable-diffusion-latent-space",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "Stable Diffusion用VAE把图像压到潜在空间，再在其中做条件扩散，以较低成本生成语义一致的图像。"
+  },
+  {
     "title": "指令数据的构建",
     "slug": "train-data-instruction-data-construction",
     "date": "2026-04-03",
