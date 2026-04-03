@@ -1,5 +1,17 @@
 [
   {
+    "title": "Model-based RL的规划",
+    "slug": "rl-basic-model-based-rl-planning",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "Model-based RL 用模型内规划换样本效率，但模型偏差会被多次备份放大。"
+  },
+  {
     "title": "DQN的经验回放",
     "slug": "rl-deep-dqn-experience-replay",
     "date": "2026-04-03",
