@@ -1,5 +1,16 @@
 [
   {
+    "title": "IA³的缩放向量",
+    "slug": "ft-peft-ia3-scaling-vectors",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "IA³用逐通道缩放向量门控激活流，极省参数，但表达力弱于LoRA。"
+  },
+  {
     "title": "P-Tuning的编码器设计",
     "slug": "ft-peft-p-tuning-encoder",
     "date": "2026-04-03",
