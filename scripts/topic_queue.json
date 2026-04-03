@@ -11830,7 +11830,7 @@
       "RL基础"
     ],
     "brief": "探索策略的核心不是多试几个动作，而是控制不确定性与即时收益的权衡。epsilon-greedy实现简单但区分不了不确定性来源；UCB用均值加置信上界 a*=argmax(Q(a)+c*sqrt(ln t / N(a)))；Thompson Sampling从后验采样，适合贝叶斯建模。三者在冷启动、非平稳和稀疏奖励场景下表现差异明显。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Model-based RL的规划",

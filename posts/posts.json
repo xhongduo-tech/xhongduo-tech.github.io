@@ -1,5 +1,17 @@
 [
   {
+    "title": "探索策略的设计",
+    "slug": "rl-basic-exploration-strategies",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "探索策略的本质是把不确定性编码进决策，而不是简单增加随机试错。"
+  },
+  {
     "title": "策略迭代算法",
     "slug": "rl-basic-policy-iteration-algorithm",
     "date": "2026-04-03",
