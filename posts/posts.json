@@ -1,5 +1,17 @@
 [
   {
+    "title": "资格迹Eligibility Traces",
+    "slug": "rl-basic-eligibility-traces",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "资格迹用衰减记忆把单步TD误差回传到过去状态，加快多步信用分配。"
+  },
+  {
     "title": "TD学习的偏差-方差权衡",
     "slug": "rl-basic-td-learning-bias-variance",
     "date": "2026-04-03",

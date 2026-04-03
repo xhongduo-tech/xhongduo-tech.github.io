@@ -11819,7 +11819,7 @@
       "RL基础"
     ],
     "brief": "资格迹把单步TD误差信号沿时间反向传播。前向视角把目标写成lambda-return，后向视角维护e_t=gamma*lambda*e_{t-1}+grad V(s_t)或表格版访问迹，再按delta_t更新参数。两种视角在线性函数逼近下等价。资格迹能在不等回合结束的前提下近似多步回报，加快信用分配，但内存与实现复杂度高于TD(0)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "探索策略的设计",
