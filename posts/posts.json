@@ -1,5 +1,17 @@
 [
   {
+    "title": "LoRA在图像生成中的应用",
+    "slug": "mm-imgen-lora-image-generation",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "LoRA用低秩增量低成本适配图像生成，但多LoRA组合必须做权重控制与冲突管理"
+  },
+  {
     "title": "ControlNet的条件控制",
     "slug": "mm-imgen-controlnet-conditioning",
     "date": "2026-04-03",
