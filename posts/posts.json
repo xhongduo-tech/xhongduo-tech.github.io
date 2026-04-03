@@ -1,5 +1,19 @@
 [
   {
+    "title": "离线强化学习",
+    "slug": "rl-basic-offline-reinforcement-learning",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础",
+      "离线RL",
+      "批量"
+    ],
+    "summary": "离线强化学习在固定日志上学策略，关键是抑制分布外动作的Q值高估。"
+  },
+  {
     "title": "实时语音识别的流式处理",
     "slug": "mm-speech-realtime-asr-streaming",
     "date": "2026-04-03",
