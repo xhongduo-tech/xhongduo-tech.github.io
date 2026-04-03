@@ -1,5 +1,17 @@
 [
   {
+    "title": "IPO的KL正则化",
+    "slug": "rl-rlhf-ipo-kl-regularization",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "IPO把优劣回答的对数概率差拉向固定margin，比DPO更平滑，常在小数据高噪声偏好训练中更稳"
+  },
+  {
     "title": "RLAIF的AI反馈训练",
     "slug": "rl-rlhf-rlaif-ai-feedback",
     "date": "2026-04-03",
