@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令微调的超参选择",
+    "slug": "ft-sft-sft-hyperparameter-selection",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "SFT调参先守住底座：低学习率、适中有效batch、少量epoch，并用验证集而非训练loss做判断"
+  },
+  {
     "title": "WizardLM的演进指令",
     "slug": "ft-sft-wizardlm-evol-instruct",
     "date": "2026-04-03",
