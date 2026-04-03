@@ -1,5 +1,16 @@
 [
   {
+    "title": "Prefix Tuning的虚拟Token",
+    "slug": "ft-peft-prefix-tuning-virtual-tokens",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "Prefix Tuning是在每层K/V前加可学习虚拟token，以极少参数完成任务适配。"
+  },
+  {
     "title": "QLoRA的4-bit量化",
     "slug": "ft-peft-qlora-4bit-quantization",
     "date": "2026-04-03",

@@ -12129,7 +12129,7 @@
       "PEFT"
     ],
     "brief": "Prefix Tuning在每层注意力前注入一段可学习前缀，本质是为K/V增加虚拟token，让后续真实token在注意力时可读取任务条件。常见做法用小MLP把短前缀重参数化成各层可用的key/value。相比LoRA它不改线性层权重，参数更少；但前缀长度过短表达力不足，过长则推理开销线性增加。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Prompt Tuning的软提示",
