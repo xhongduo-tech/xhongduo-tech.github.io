@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLaMA-Adapter的早期层注入",
+    "slug": "ft-peft-llama-adapter-early-layer",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "LLaMA-Adapter用高层Prompt加零门控，以极少参数稳定注入新条件。"
+  },
+  {
     "title": "Adapter的结构设计",
     "slug": "ft-peft-adapter-structure-design",
     "date": "2026-04-03",
