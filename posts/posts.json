@@ -1,5 +1,16 @@
 [
   {
+    "title": "AdaLoRA的自适应秩",
+    "slug": "ft-peft-adalora-adaptive-rank",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "AdaLoRA把低秩微调改成预算调度问题，把rank动态留给更重要的层和方向"
+  },
+  {
     "title": "Prefix Tuning的虚拟Token",
     "slug": "ft-peft-prefix-tuning-virtual-tokens",
     "date": "2026-04-03",
