@@ -1,5 +1,16 @@
 [
   {
+    "title": "WizardLM的演进指令",
+    "slug": "ft-sft-wizardlm-evol-instruct",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "Evol-Instruct通过递归加码简单指令，构造高难样本并筛选后微调模型。"
+  },
+  {
     "title": "Alpaca的数据构建",
     "slug": "ft-sft-alpaca-data-construction",
     "date": "2026-04-03",
