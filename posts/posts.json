@@ -1,5 +1,17 @@
 [
   {
+    "title": "Dueling DQN的网络架构",
+    "slug": "rl-deep-dueling-dqn-architecture",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "Dueling DQN把Q拆成状态价值和动作优势，在动作冗余场景里更高效。"
+  },
+  {
     "title": "DQN的目标网络",
     "slug": "rl-deep-dqn-target-network",
     "date": "2026-04-03",

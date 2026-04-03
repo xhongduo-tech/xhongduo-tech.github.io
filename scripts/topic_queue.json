@@ -11898,7 +11898,7 @@
       "深度RL"
     ],
     "brief": "Dueling DQN把Q(s,a)分解为状态价值V(s)和动作优势A(s,a)，再用Q(s,a)=V(s)+A(s,a)-mean_a A(s,a)做可辨识化组合。这样在很多动作价值接近时，网络可先学这个状态值不值得停留，不必对每个动作都重复估计。其额外参数很少，但在存在大量冗余动作的任务上常优于普通DQN。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Noisy Nets的探索",
