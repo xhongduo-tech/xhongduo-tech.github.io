@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令微调的灾难遗忘",
+    "slug": "ft-sft-sft-catastrophic-forgetting",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "SFT会把模型拉向窄域指令分布；混入少量预训练数据是缓解灾难遗忘的最稳工程办法。"
+  },
+  {
     "title": "指令微调的数据规模",
     "slug": "ft-sft-sft-data-scale",
     "date": "2026-04-03",

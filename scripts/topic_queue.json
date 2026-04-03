@@ -12272,7 +12272,7 @@
       "指令微调"
     ],
     "brief": "灾难遗忘的根源是SFT把模型分布从预训练语料p_pretrain强行拉向窄域指令分布p_sft，于是通用续写、冷门知识和语言建模能力下滑。常见缓解是混合目标L=lambda*L_sft+(1-lambda)*L_pt，或在SFT中回放5%到20%预训练片段。若只盯着指令集分数，模型可能看似更听话，但MMLU、PPL和长尾知识已明显退化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "KV Cache的内存计算",
