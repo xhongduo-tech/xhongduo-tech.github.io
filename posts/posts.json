@@ -1,5 +1,17 @@
 [
   {
+    "title": "MDP与POMDP的区别",
+    "slug": "rl-basic-mdp-pomdp-difference",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "MDP假设状态可见，POMDP只能见观测，必须靠belief做决策。"
+  },
+  {
     "title": "贝尔曼方程的推导",
     "slug": "rl-basic-bellman-equation-derivation",
     "date": "2026-04-03",
