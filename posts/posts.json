@@ -1,5 +1,17 @@
 [
   {
+    "title": "价值迭代算法",
+    "slug": "rl-basic-value-iteration-algorithm",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "价值迭代用贝尔曼最优更新直接逼近最优值函数，评估与改进合并，已知模型时高效实用"
+  },
+  {
     "title": "MDP与POMDP的区别",
     "slug": "rl-basic-mdp-pomdp-difference",
     "date": "2026-04-03",
