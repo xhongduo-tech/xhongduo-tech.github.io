@@ -11709,7 +11709,7 @@
       "语音处理"
     ],
     "brief": "神经声码器 关注 `多模态 / 语音处理` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "语音大模型的统一建模",
@@ -11764,7 +11764,7 @@
       "RL基础"
     ],
     "brief": "贝尔曼方程来自回报G_t=r_t+gamma*G_{t+1}的递归展开。对任意策略pi，有V^pi(s)=Sigma_a pi(a|s) Sigma_{s',r} P(s',r|s,a)[r+gamma*V^pi(s')]；最优值函数满足V*(s)=max_a Sigma_{s',r} P(s',r|s,a)[r+gamma*V*(s')]。其本质是把长期优化拆成一步奖励与未来价值两部分，并依赖gamma压缩映射保证唯一不动点。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "策略迭代算法",

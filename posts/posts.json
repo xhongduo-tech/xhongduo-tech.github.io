@@ -1,5 +1,17 @@
 [
   {
+    "title": "贝尔曼方程的推导",
+    "slug": "rl-basic-bellman-equation-derivation",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "贝尔曼方程把长期回报拆成一步奖励与未来价值，并以压缩映射保证收敛。"
+  },
+  {
     "title": "语音大模型的统一建模",
     "slug": "mm-speech-speech-lm-unified",
     "date": "2026-04-03",
