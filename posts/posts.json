@@ -1,5 +1,17 @@
 [
   {
+    "title": "DQN的经验回放",
+    "slug": "rl-deep-dqn-experience-replay",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "深度RL"
+    ],
+    "summary": "经验回放通过随机重采样打破相关性，PER再聚焦高TD误差样本并用权重修正偏差"
+  },
+  {
     "title": "离线强化学习",
     "slug": "rl-basic-offline-reinforcement-learning",
     "date": "2026-04-03",
