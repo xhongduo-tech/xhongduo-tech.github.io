@@ -1,5 +1,16 @@
 [
   {
+    "title": "Prompt Tuning的软提示",
+    "slug": "ft-peft-prompt-tuning-soft-prompts",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "Prompt Tuning只训练输入端软提示，极省参数，适合大模型轻量适配，但复杂任务常不如LoRA。"
+  },
+  {
     "title": "AdaLoRA的自适应秩",
     "slug": "ft-peft-adalora-adaptive-rank",
     "date": "2026-04-03",
