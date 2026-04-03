@@ -1,5 +1,17 @@
 [
   {
+    "title": "端到端语音识别的注意力机制",
+    "slug": "mm-speech-e2e-asr-attention",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "端到端ASR注意力的本质是统一对齐与生成，流式变体用受限上下文换低延迟。"
+  },
+  {
     "title": "语音识别的CTC解码",
     "slug": "mm-speech-asr-ctc-decoding",
     "date": "2026-04-03",
