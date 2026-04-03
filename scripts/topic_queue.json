@@ -11808,7 +11808,7 @@
       "RL基础"
     ],
     "brief": "TD学习用目标r+gamma*V(s')替代完整回报G_t，因bootstrap引入偏差，却显著降低方差并支持在线更新。MC近似无偏但方差大，TD(0)偏差更高却更稳。TD(lambda)用lambda在n-step回报间加权：lambda越大越接近MC，越小越接近TD(0)，本质是在偏差、方差和延迟之间做连续调节。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "资格迹Eligibility Traces",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "TD学习的偏差-方差权衡",
+    "slug": "rl-basic-td-learning-bias-variance",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "TD学习用可控偏差换低方差与低延迟，TD(lambda)是在MC与TD(0)之间做连续折中"
+  },
+  {
     "title": "蒙特卡洛策略评估",
     "slug": "rl-basic-monte-carlo-policy-evaluation",
     "date": "2026-04-03",
