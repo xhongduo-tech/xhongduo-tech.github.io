@@ -1,5 +1,17 @@
 [
   {
+    "title": "Stable Diffusion的U-Net",
+    "slug": "mm-imgen-stable-diffusion-unet",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "Stable Diffusion的U-Net本质是latent空间中的条件噪声预测器。"
+  },
+  {
     "title": "Flux的整流流架构",
     "slug": "mm-imgen-flux-rectified-flow",
     "date": "2026-04-03",
