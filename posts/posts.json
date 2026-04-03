@@ -1,5 +1,17 @@
 [
   {
+    "title": "蒙特卡洛策略评估",
+    "slug": "rl-basic-monte-carlo-policy-evaluation",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RL基础"
+    ],
+    "summary": "MC策略评估用完整回合回报均值估计状态价值，无偏直观，但方差高且更新必须等回合结束"
+  },
+  {
     "title": "价值迭代算法",
     "slug": "rl-basic-value-iteration-algorithm",
     "date": "2026-04-03",
