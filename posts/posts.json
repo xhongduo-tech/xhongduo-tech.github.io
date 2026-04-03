@@ -1,5 +1,16 @@
 [
   {
+    "title": "KV Cache的内存计算",
+    "slug": "deploy-infer-kv-cache-memory-calculation",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "KV Cache 显存随层数、上下文和并发线性增长，长上下文部署常先卡缓存而非权重"
+  },
+  {
     "title": "指令微调的灾难遗忘",
     "slug": "ft-sft-sft-catastrophic-forgetting",
     "date": "2026-04-03",

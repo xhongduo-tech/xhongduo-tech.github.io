@@ -12283,7 +12283,7 @@
       "推理优化"
     ],
     "brief": "KV Cache显存主要按bytes约等于2*L*B*S*H*D*dtype_bytes计算，其中2表示K和V。若H*D=d_model，也可写成2*L*B*S*d_model*bytes。以7B、32层、32头、head_dim=128、fp16为例，单请求4k上下文约占2GB KV；batch翻4倍，缓存也近似翻4倍，所以长上下文常先卡KV而不是权重。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PagedAttention的内存池",
