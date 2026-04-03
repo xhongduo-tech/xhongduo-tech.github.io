@@ -1,5 +1,17 @@
 [
   {
+    "title": "ControlNet的条件控制",
+    "slug": "mm-imgen-controlnet-conditioning",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成"
+    ],
+    "summary": "ControlNet通过零初始化残差分支，把结构条件渐进注入扩散主干而不破坏原语义。"
+  },
+  {
     "title": "Stable Diffusion的潜在空间",
     "slug": "mm-imgen-stable-diffusion-latent-space",
     "date": "2026-04-03",
