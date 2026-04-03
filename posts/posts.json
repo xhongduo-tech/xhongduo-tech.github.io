@@ -1,5 +1,17 @@
 [
   {
+    "title": "Conformer的卷积-注意力混合",
+    "slug": "mm-speech-conformer-conv-attention",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "Conformer 用注意力抓全局、用卷积保局部边界，是语音编码器里精度与可部署性的平衡结构"
+  },
+  {
     "title": "SD3的MMDiT架构",
     "slug": "mm-imgen-sd3-mmdit",
     "date": "2026-04-03",
