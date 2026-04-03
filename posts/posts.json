@@ -1,5 +1,16 @@
 [
   {
+    "title": "LoRA的矩阵分解原理",
+    "slug": "ft-peft-lora-matrix-factorization",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "LoRA把大权重更新拆成低秩矩阵乘积，只训练少量参数完成高效微调"
+  },
+  {
     "title": "IPO的KL正则化",
     "slug": "rl-rlhf-ipo-kl-regularization",
     "date": "2026-04-03",
