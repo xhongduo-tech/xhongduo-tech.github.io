@@ -1,5 +1,17 @@
 [
   {
+    "title": "语音大模型的统一建模",
+    "slug": "mm-speech-speech-lm-unified",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "统一建模把语音和文本放进同一 token 流，适合长上下文、多说话人和结构化转写任务"
+  },
+  {
     "title": "语音克隆的零样本学习",
     "slug": "mm-speech-voice-cloning-zero-shot",
     "date": "2026-04-03",
