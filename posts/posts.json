@@ -1,5 +1,17 @@
 [
   {
+    "title": "奖励模型的数据构建",
+    "slug": "rl-rlhf-reward-model-data-construction",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "RLHF"
+    ],
+    "summary": "奖励模型数据的核心是高质量偏好对，不是绝对打分和盲目扩量"
+  },
+  {
     "title": "A3C的异步并行",
     "slug": "rl-deep-a3c-asynchronous-parallel",
     "date": "2026-04-03",
