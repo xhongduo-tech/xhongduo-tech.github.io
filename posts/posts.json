@@ -1,5 +1,16 @@
 [
   {
+    "title": "LoRA的合并与部署",
+    "slug": "ft-peft-lora-merging-deployment",
+    "date": "2026-04-03",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT"
+    ],
+    "summary": "LoRA部署核心在于在线叠加与离线合并的取舍，低延迟通常选先合并再量化。"
+  },
+  {
     "title": "LoRA的矩阵分解原理",
     "slug": "ft-peft-lora-matrix-factorization",
     "date": "2026-04-03",
