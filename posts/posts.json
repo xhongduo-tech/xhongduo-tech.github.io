@@ -1,5 +1,17 @@
 [
   {
+    "title": "MMMU的多模态评测",
+    "slug": "eval-mmmu-multimodal-evaluation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "MMMU评的是图文联合、知识调用与推理，不应只看总准确率。"
+  },
+  {
     "title": "BFCL的函数调用评测",
     "slug": "eval-bfcl-function-calling",
     "date": "2026-04-04",
