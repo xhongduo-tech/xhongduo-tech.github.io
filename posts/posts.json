@@ -1,5 +1,17 @@
 [
   {
+    "title": "评测污染的检测",
+    "slug": "eval-evaluation-contamination-detection",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "评测污染检测要区分记忆与泛化，可靠做法是直接匹配、语义检索和统计旁证联合判定。"
+  },
+  {
     "title": "MMMU的多模态评测",
     "slug": "eval-mmmu-multimodal-evaluation",
     "date": "2026-04-04",
