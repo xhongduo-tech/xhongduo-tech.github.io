@@ -1,5 +1,17 @@
 [
   {
+    "title": "IFEval的指令遵循评测",
+    "slug": "eval-ifeval-instruction-following",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "IFEval用可程序验证约束评测指令遵循，核心看strict/loose与prompt/inst四类指标。"
+  },
+  {
     "title": "GPQA的研究生级评测",
     "slug": "eval-gpqa-graduate-evaluation",
     "date": "2026-04-04",
