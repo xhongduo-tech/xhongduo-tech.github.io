@@ -1,5 +1,17 @@
 [
   {
+    "title": "在线学习排序",
+    "slug": "rec-rank-online-learning-ranking",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "在线学习排序用实时反馈微调模型，收益在时效性，难点在偏差控制与稳定性保障。"
+  },
+  {
     "title": "多目标排序的融合",
     "slug": "rec-rank-multi-objective-ranking-fusion",
     "date": "2026-04-04",
