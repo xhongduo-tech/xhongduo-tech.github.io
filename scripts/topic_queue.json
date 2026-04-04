@@ -13336,7 +13336,7 @@
       "最佳实践"
     ],
     "brief": "LLM应用的成本优化 关注 `工程实践 / 最佳实践` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LLM应用的延迟优化",
@@ -14184,7 +14184,7 @@
       "常识推理"
     ],
     "brief": "WinoGrande 包含 44K 个填空式代词消歧问题。基于 Winograd Schema 扩展，测试常识推理和世界知识。采用对抗性筛选确保问题难度。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "StrategyQA 多跳策略问答",
@@ -14195,7 +14195,7 @@
       "多跳推理"
     ],
     "brief": "StrategyQA 包含 2280 个需要多步推理的是非问题。每个问题平均需要 1.8 个推理步骤，测试模型分解问题并整合多源知识的能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MBPP 数学编程问题基准",
@@ -14206,7 +14206,7 @@
       "代码生成"
     ],
     "brief": "MBPP（Mostly Basic Python Problems）包含 974 个入门级 Python 编程任务。每个任务配有问题描述、参考解法和 3 个测试用例。测试基础编程能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CodeContests 竞赛级代码评测",
@@ -14217,7 +14217,7 @@
       "代码生成"
     ],
     "brief": "CodeContests 从 Codeforces 收集竞赛题目，包含问题描述、多语言解法和测试用例。题目难度从 Div.2 A 到 Div.1 E，测试算法设计与实现能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "SWE-bench 真实软件工程任务",
@@ -14228,7 +14228,7 @@
       "代码生成"
     ],
     "brief": "SWE-bench 从 12 个流行 Python 仓库提取 2291 个真实 GitHub Issue。模型需定位问题并生成符合测试的 PR 代码。测试端到端软件工程能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MATH 数据集与数学竞赛评测",
@@ -14239,7 +14239,7 @@
       "数学推理"
     ],
     "brief": "MATH 包含 12500 道高中数学竞赛题目，涵盖代数、数论、几何等 7 个类别。需要形式化推理和符号计算能力，难度高于 GSM8K。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AIME 数学推理极限评测",
@@ -14250,7 +14250,7 @@
       "数学推理"
     ],
     "brief": "AIME（美国数学邀请赛）包含高难度数学竞赛题。2024 年 GPT-4 在 AIME 上首次达到显著高于随机的准确率，成为数学推理能力的里程碑测试。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LongBench 长文本理解基准",
@@ -14261,7 +14261,7 @@
       "长文本"
     ],
     "brief": "LongBench 包含 6 类长文本任务：单文档QA、多文档QA、摘要、Few-shot学习、代码、合成任务。平均长度 6711 词，测试长程依赖建模能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "L-Eval 长上下文语言模型评测",
@@ -14272,7 +14272,7 @@
       "长文本"
     ],
     "brief": "L-Eval 包含 20 个子任务，文本长度从 4K 到 100K tokens。采用指令跟随格式，测试模型在真实长文本场景下的理解和生成能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "大海捞针 (Needle In A Haystack) 测试",
@@ -14283,7 +14283,7 @@
       "长文本"
     ],
     "brief": "大海捞针测试在长上下文中插入一个随机事实，要求模型精确定位并回答。测试上下文长度与信息检索准确率的关系，揭示模型的中间位置注意力问题。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "VQAv2 视觉问答基准",
@@ -14294,7 +14294,7 @@
       "多模态"
     ],
     "brief": "VQAv2 包含 110 万个关于 COCO 图像的问题。通过平衡策略减少语言先验偏差，每个问题有 10 个可信答案。测试视觉理解与语言推理的结合。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "TextVQA 自然场景文本理解",
@@ -14305,7 +14305,7 @@
       "多模态"
     ],
     "brief": "TextVQA 包含 28408 个关于自然图像中可见文本的问题。要求模型识别场景文字（招牌、标签等）并推理回答。测试 OCR 能力与视觉语言推理的结合。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MMBench 多模态模型综合评测",
@@ -14316,7 +14316,7 @@
       "多模态"
     ],
     "brief": "MMBench 包含 3000+ 道选择题，覆盖 20 个能力维度。设计了 Circular 策略消除位置偏差，提供细粒度能力画像。支持中英双语评测。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "TruthfulQA 真实性评测",
@@ -14327,7 +14327,7 @@
       "安全性"
     ],
     "brief": "TruthfulQA 包含 817 个容易引发模型模仿人类误解的问题。测试模型是否会产生常见错误观念或虚假信息。采用对抗性设计，专门针对模型的幻觉问题。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Harmfulness Bench 安全性评测",
@@ -14338,7 +14338,7 @@
       "安全性"
     ],
     "brief": "Harmfulness Bench 包含多种潜在有害请求类型：非法活动、伤害他人、隐私侵犯等。测试模型拒绝不当请求的能力，评估安全对齐效果。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Few-shot vs Zero-shot 评测方法论",
@@ -14349,7 +14349,7 @@
       "评测方法"
     ],
     "brief": "Few-shot 提供示例帮助模型理解任务格式，Zero-shot 直接测试泛化能力。不同基准采用不同 shot 数量（MMLU 用 5-shot，GSM8K 用 8-shot），影响模型表现可比性。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Chain-of-Thought Prompting 对评测的影响",
