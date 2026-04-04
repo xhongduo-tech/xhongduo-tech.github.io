@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱的构建流水线",
+    "slug": "kg-kg-construction-pipeline",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "知识图谱构建是端到端ETL，核心难点在误差传播、质量控制与增量版本治理"
+  },
+  {
     "title": "知识图谱与LLM的结合",
     "slug": "kg-kg-llm-integration",
     "date": "2026-04-04",
