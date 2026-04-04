@@ -1,5 +1,17 @@
 [
   {
+    "title": "多目标排序的融合",
+    "slug": "rec-rank-multi-objective-ranking-fusion",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "多目标排序本质是把多任务收益压成一个可控排序决策，核心难点是冲突、量纲和长期收益保护"
+  },
+  {
     "title": "LTR的Lambda梯度",
     "slug": "rec-rank-ltr-lambda-gradient",
     "date": "2026-04-04",
