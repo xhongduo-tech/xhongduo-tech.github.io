@@ -1,5 +1,16 @@
 [
   {
+    "title": "HuggingFace Datasets的流式加载",
+    "slug": "eng-fw-hf-datasets-streaming",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "流式加载用持续I/O换取秒级启动和极低磁盘占用，适合超大数据与快速试跑。"
+  },
+  {
     "title": "Accelerate库的分布式抽象",
     "slug": "eng-fw-accelerate-distributed-abstraction",
     "date": "2026-04-04",
