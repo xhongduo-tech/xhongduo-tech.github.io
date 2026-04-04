@@ -1,5 +1,16 @@
 [
   {
+    "title": "HuggingFace Transformers的使用",
+    "slug": "eng-fw-hf-transformers-usage",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "Transformers 的核心价值是统一接口，先用高阶封装跑通，再按显存、延迟和可控性逐步下沉优化。"
+  },
+  {
     "title": "PyTorch的分布式训练",
     "slug": "eng-fw-pytorch-distributed-training",
     "date": "2026-04-04",
