@@ -1,5 +1,16 @@
 [
   {
+    "title": "PagedAttention的内存池",
+    "slug": "deploy-infer-pagedattention-memory-pool",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "PagedAttention用固定block页管理KV Cache，核心价值是降碎片、提并发、支持前缀共享。"
+  },
+  {
     "title": "KV Cache的内存计算",
     "slug": "deploy-infer-kv-cache-memory-calculation",
     "date": "2026-04-03",
