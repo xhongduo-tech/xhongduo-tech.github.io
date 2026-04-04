@@ -14173,7 +14173,7 @@
       "常识推理"
     ],
     "brief": "ARC（Abstraction and Reasoning Corpus）包含 400 个视觉抽象推理任务。要求模型从少量示例中归纳规则并泛化到新输入。测试纯抽象推理能力，与语言能力解耦。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "WinoGrande 大规模常识推理",
