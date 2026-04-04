@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建代码审查助手",
+    "slug": "eng-proj-build-code-review-assistant",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "代码审查助手的关键是检索补上下文，再按语义把任务路由给合适模型。"
+  },
+  {
     "title": "构建语音助手",
     "slug": "eng-proj-build-voice-assistant",
     "date": "2026-04-04",
