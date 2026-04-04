@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱的表示学习",
+    "slug": "kg-kg-representation-learning",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "知识图谱表示学习用向量几何近似三元组语义，TransE轻量，RotatE更擅长复杂关系，ConvE更强但更重"
+  },
+  {
     "title": "关系抽取的远程监督",
     "slug": "kg-relation-extraction-distant",
     "date": "2026-04-04",
