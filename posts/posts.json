@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建智能客服系统",
+    "slug": "eng-proj-build-intelligent-customer-service",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "智能客服不是单点模型能力，而是接入、路由、知识、生成与人工兜底的工程闭环。"
+  },
+  {
     "title": "LlamaIndex的索引构建",
     "slug": "eng-fw-llamaindex-index-construction",
     "date": "2026-04-04",
