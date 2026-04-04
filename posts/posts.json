@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建私有ChatGPT",
+    "slug": "eng-proj-build-private-chatgpt",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "私有ChatGPT的核心不是自训模型，而是受控检索、权限边界与可审计生成。"
+  },
+  {
     "title": "vLLM的高吞吐推理",
     "slug": "eng-fw-vllm-high-throughput-inference",
     "date": "2026-04-04",
