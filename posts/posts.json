@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据增强的自动化",
+    "slug": "data-eng-data-augmentation-automation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "数据增强自动化的关键不是多生成，而是用约束和过滤保证标签不漂移。"
+  },
+  {
     "title": "合成数据的生成与验证",
     "slug": "data-eng-synthetic-data-generation-validation",
     "date": "2026-04-04",
