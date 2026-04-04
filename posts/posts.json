@@ -1,5 +1,17 @@
 [
   {
+    "title": "主动学习的数据选择",
+    "slug": "data-eng-active-learning-data-selection",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "主动学习通过优先标注高信息量样本，在固定预算下更快改进模型边界。"
+  },
+  {
     "title": "数据增强的自动化",
     "slug": "data-eng-data-augmentation-automation",
     "date": "2026-04-04",
