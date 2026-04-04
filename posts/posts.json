@@ -1,5 +1,17 @@
 [
   {
+    "title": "神经声码器",
+    "slug": "mm-speech-neural-vocoder",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理"
+    ],
+    "summary": "神经声码器负责把低维声学条件还原成高保真波形，核心是速度、保真度与稳定性的系统级权衡"
+  },
+  {
     "title": "Conformer的卷积-注意力混合",
     "slug": "mm-speech-conformer-conv-attention",
     "date": "2026-04-04",
