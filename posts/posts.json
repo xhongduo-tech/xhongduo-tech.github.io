@@ -1,5 +1,17 @@
 [
   {
+    "title": "HumanEval的代码评测",
+    "slug": "eval-humaneval-code-evaluation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "HumanEval用隐藏测试和Pass@k衡量代码生成是否真正可执行，而非文本相似度。"
+  },
+  {
     "title": "MMLU的评测设计",
     "slug": "eval-mmlu-evaluation-design",
     "date": "2026-04-04",
