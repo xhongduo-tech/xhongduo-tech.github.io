@@ -1,5 +1,16 @@
 [
   {
+    "title": "SpQR的稀疏量化",
+    "slug": "deploy-quant-spqr-sparse-quantization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "SpQR用3-bit主干加稀疏高精度离群权重，在近乎无损前提下把大模型压到单卡可部署范围"
+  },
+  {
     "title": "SmoothQuant的平滑量化",
     "slug": "deploy-quant-smoothquant-smooth-quantization",
     "date": "2026-04-04",
