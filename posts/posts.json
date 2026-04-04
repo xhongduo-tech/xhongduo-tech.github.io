@@ -1,5 +1,16 @@
 [
   {
+    "title": "混合精度量化策略",
+    "slug": "deploy-quant-mixed-precision-quantization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "混合精度量化是在预算约束下，把高位宽留给敏感层，把低位宽给高开销但更鲁棒的层。"
+  },
+  {
     "title": "QuIP#的向量量化",
     "slug": "deploy-quant-quip-hash-vector-quantization",
     "date": "2026-04-04",
