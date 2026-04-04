@@ -1,5 +1,17 @@
 [
   {
+    "title": "排序模型的延迟约束",
+    "slug": "rec-rank-ranking-latency-constraint",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "延迟约束下的排序建模，本质是在效果、特征成本和推理资源之间找可上线的Pareto最优点"
+  },
+  {
     "title": "排序模型的校准",
     "slug": "rec-rank-ranking-model-calibration",
     "date": "2026-04-04",
