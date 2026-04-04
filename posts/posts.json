@@ -1,5 +1,17 @@
 [
   {
+    "title": "大规模数据的ETL流程",
+    "slug": "data-eng-large-scale-etl-pipeline",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "大规模ETL的核心是用幂等、去重和批流协同，在吞吐、延迟与正确性之间做平衡"
+  },
+  {
     "title": "长上下文评测LongBench",
     "slug": "eval-longbench-long-context",
     "date": "2026-04-04",
