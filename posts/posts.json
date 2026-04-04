@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据版本管理",
+    "slug": "data-eng-data-version-control",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "数据版本管理用内容寻址快照把数据、代码和流水线绑定到同一可复现历史。"
+  },
+  {
     "title": "主动学习的数据选择",
     "slug": "data-eng-active-learning-data-selection",
     "date": "2026-04-04",
