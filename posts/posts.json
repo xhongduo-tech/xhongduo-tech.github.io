@@ -1,5 +1,19 @@
 [
   {
+    "title": "模型窃取攻击",
+    "slug": "sec-model-stealing-attack",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全",
+      "模型安全",
+      "窃取"
+    ],
+    "summary": "模型窃取依赖大量API查询与蒸馏训练，防御核心是限制信息粒度、查询规模与异常访问。"
+  },
+  {
     "title": "知识图谱的链接预测",
     "slug": "kg-kg-link-prediction",
     "date": "2026-04-04",
