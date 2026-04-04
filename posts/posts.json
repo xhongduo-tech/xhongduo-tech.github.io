@@ -1,5 +1,17 @@
 [
   {
+    "title": "特征存储的设计",
+    "slug": "data-eng-feature-store-design",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "特征存储的核心是用统一定义解决训练与在线推理的特征一致性问题"
+  },
+  {
     "title": "数据血缘追踪",
     "slug": "data-eng-data-lineage-tracking",
     "date": "2026-04-04",
