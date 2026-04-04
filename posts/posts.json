@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据标注的众包平台",
+    "slug": "data-eng-data-annotation-crowdsourcing",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "众包标注平台的核心是用校验、冗余、仲裁和信誉闭环，以低成本稳定产出标签。"
+  },
+  {
     "title": "TGI的部署架构",
     "slug": "deploy-infer-tgi-deployment-architecture",
     "date": "2026-04-04",
