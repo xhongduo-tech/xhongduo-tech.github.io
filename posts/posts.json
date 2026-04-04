@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建翻译服务",
+    "slug": "eng-proj-build-translation-service",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "翻译服务本质是带缓存、回退、质控和观测能力的可控流水线。"
+  },
+  {
     "title": "构建企业知识库问答",
     "slug": "eng-proj-build-enterprise-knowledge-qa",
     "date": "2026-04-04",
