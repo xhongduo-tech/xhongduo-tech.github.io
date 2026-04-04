@@ -12613,7 +12613,7 @@
       "排序"
     ],
     "brief": "LambdaRank和LambdaMART用隐式梯度直接优化排序指标，核心思想是对交换两个文档位置造成的DeltaNDCG分配梯度强度。常见形式为lambda_ij = -sigma / (1 + exp(sigma(s_i-s_j)))乘以|DeltaNDCG|，避免显式求不可导排名函数。其优势是目标与评估一致，但需要高效生成pair并处理大query下的复杂度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "排序模型的位置感知",

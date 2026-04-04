@@ -1,5 +1,17 @@
 [
   {
+    "title": "LTR的Lambda梯度",
+    "slug": "rec-rank-ltr-lambda-gradient",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "Lambda梯度把交换文档对带来的DeltaNDCG直接变成训练信号，使排序训练更贴近真实评估指标"
+  },
+  {
     "title": "排序模型的位置感知",
     "slug": "rec-rank-ranking-position-aware",
     "date": "2026-04-04",
