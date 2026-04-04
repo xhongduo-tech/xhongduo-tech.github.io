@@ -12173,7 +12173,7 @@
       "PEFT"
     ],
     "brief": "Adapter在Transformer层内插入瓶颈模块，典型结构是down-project到m维、过非线性后再up-project回d维，并与残差相加。训练参数约为2dm，远低于全参微调，但推理时会增加额外层计算。与LoRA相比，Adapter表达力直观、模块边界清晰，适合多任务切换；缺点是时延更高，且插入位置会明显影响效果。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaMA-Adapter的早期层注入",
