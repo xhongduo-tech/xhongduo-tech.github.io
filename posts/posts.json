@@ -1,5 +1,17 @@
 [
   {
+    "title": "GSM8K的数学推理评测",
+    "slug": "eval-gsm8k-math-reasoning",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "GSM8K评测的是多步算术稳定性，标准看最终答案exact match，适合做提示与解码策略对比。"
+  },
+  {
     "title": "HumanEval的代码评测",
     "slug": "eval-humaneval-code-evaluation",
     "date": "2026-04-04",

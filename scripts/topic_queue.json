@@ -12872,7 +12872,7 @@
       "能力评测"
     ],
     "brief": "GSM8K评测小学到初中级别的数学文字题，核心不是知识记忆，而是多步算术与中间变量维护。标准评分通常按最终答案exact match，不要求推理过程逐步一致，因此容易出现答案对但过程错或反之。比较时常看zero-shot、CoT、self-consistency等提示策略带来的增益。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "HumanEval的代码评测",
