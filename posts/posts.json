@@ -1,5 +1,16 @@
 [
   {
+    "title": "GGUF的文件格式",
+    "slug": "deploy-quant-gguf-file-format",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "GGUF把量化权重、配置与元数据封装成可mmap单文件，核心价值是低资源设备上的稳定部署。"
+  },
+  {
     "title": "AWQ的激活感知量化",
     "slug": "deploy-quant-awq-activation-aware",
     "date": "2026-04-04",
