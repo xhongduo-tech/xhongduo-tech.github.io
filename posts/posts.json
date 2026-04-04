@@ -1,5 +1,16 @@
 [
   {
+    "title": "DeepSpeed的ZeRO实现",
+    "slug": "eng-fw-deepspeed-zero-implementation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "ZeRO通过分区优化器状态、梯度和参数，把数据并行的显存复制冗余压到约1/N。"
+  },
+  {
     "title": "HuggingFace Transformers的使用",
     "slug": "eng-fw-hf-transformers-usage",
     "date": "2026-04-04",
