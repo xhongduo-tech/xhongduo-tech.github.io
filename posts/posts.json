@@ -1,5 +1,16 @@
 [
   {
+    "title": "流式输出的实现",
+    "slug": "deploy-infer-streaming-output-implementation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "流式输出的关键不是边传边发，而是把prefill与decode分离并在调度上压低TTFT。"
+  },
+  {
     "title": "TensorRT-LLM的图优化",
     "slug": "deploy-infer-tensorrt-llm-graph-optimization",
     "date": "2026-04-04",
