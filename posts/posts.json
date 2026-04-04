@@ -1,5 +1,17 @@
 [
   {
+    "title": "召回层的负采样",
+    "slug": "rec-recall-recall-negative-sampling",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回"
+    ],
+    "summary": "负采样决定召回模型学到什么边界，采样策略、k值和损失函数必须一起设计"
+  },
+  {
     "title": "长尾物品的召回增强",
     "slug": "rec-recall-long-tail-recall-enhancement",
     "date": "2026-04-04",
