@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLM的内容安全过滤",
+    "slug": "sec-llm-content-safety-filtering",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "summary": "LLM内容安全过滤依赖输入、模型、输出三层协同，核心是用指标权衡风险与可用性"
+  },
+  {
     "title": "数据投毒攻击",
     "slug": "sec-data-poisoning-attack",
     "date": "2026-04-04",
