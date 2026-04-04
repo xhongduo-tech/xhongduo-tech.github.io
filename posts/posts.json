@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的安全防护",
+    "slug": "eng-bp-llm-security-protection",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "LLM安全的本质是全链路零信任治理，而不是只给模型加几条提示词。"
+  },
+  {
     "title": "LLM应用的延迟优化",
     "slug": "eng-bp-llm-latency-optimization",
     "date": "2026-04-04",
