@@ -1,5 +1,17 @@
 [
   {
+    "title": "MMLU的评测设计",
+    "slug": "eval-mmlu-evaluation-design",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "MMLU用57科选择题测广覆盖知识与基础推理，易复现但受污染、题噪声和提示模板影响明显。"
+  },
+  {
     "title": "红队测试的实践",
     "slug": "sec-red-teaming-practice",
     "date": "2026-04-04",
