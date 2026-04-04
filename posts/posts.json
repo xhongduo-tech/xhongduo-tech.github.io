@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的测试策略",
+    "slug": "eng-bp-llm-testing-strategies",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "LLM测试应覆盖prompt、流程、回归与生产监控，并把线上失败持续回流为新case。"
+  },
+  {
     "title": "LLM应用的可观测性",
     "slug": "eng-bp-llm-observability",
     "date": "2026-04-04",
