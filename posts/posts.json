@@ -1,5 +1,16 @@
 [
   {
+    "title": "LangChain的链式调用",
+    "slug": "eng-fw-langchain-chain-calls",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "LangChain链式调用的本质是统一接口下的多步流水线编排，核心价值是可组合、可观测、可治理。"
+  },
+  {
     "title": "构建私有ChatGPT",
     "slug": "eng-proj-build-private-chatgpt",
     "date": "2026-04-04",
