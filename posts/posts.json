@@ -1,5 +1,17 @@
 [
   {
+    "title": "BFCL的函数调用评测",
+    "slug": "eval-bfcl-function-calling",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "BFCL评估的是工具调用全链路能力，不只是会不会输出函数名。"
+  },
+  {
     "title": "IFEval的指令遵循评测",
     "slug": "eval-ifeval-instruction-following",
     "date": "2026-04-04",
