@@ -1,5 +1,16 @@
 [
   {
+    "title": "Lookahead Decoding的前瞻解码",
+    "slug": "deploy-infer-lookahead-decoding",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "Lookahead Decoding用主模型并行提出并验证n-gram，以额外FLOPs换更少解码步数。"
+  },
+  {
     "title": "投机采样的加速原理",
     "slug": "deploy-infer-speculative-decoding-acceleration",
     "date": "2026-04-04",
