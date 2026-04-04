@@ -1,5 +1,17 @@
 [
   {
+    "title": "图召回的邻域扩展",
+    "slug": "rec-recall-graph-recall-neighborhood",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回"
+    ],
+    "summary": "图召回用多跳传播把高阶共现变成候选，关键是传播深度、边权衰减与热门抑制。"
+  },
+  {
     "title": "召回层的效果评估",
     "slug": "rec-recall-recall-evaluation",
     "date": "2026-04-04",
