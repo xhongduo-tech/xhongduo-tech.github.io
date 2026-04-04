@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的延迟优化",
+    "slug": "eng-bp-llm-latency-optimization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "LLM延迟优化本质是全链路压缩、并行与缓存协同，优先把TTFT稳定压低。"
+  },
+  {
     "title": "LLM应用的缓存策略",
     "slug": "eng-bp-llm-caching-strategies",
     "date": "2026-04-04",
