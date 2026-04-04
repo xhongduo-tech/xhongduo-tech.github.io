@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱的推理路径",
+    "slug": "kg-kg-reasoning-paths",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "推理路径用多跳关系链解释三元组，可解释且能学习，但必须靠剪枝控制指数级搜索空间"
+  },
+  {
     "title": "实体链接的候选生成",
     "slug": "kg-entity-linking-candidate-generation",
     "date": "2026-04-04",
