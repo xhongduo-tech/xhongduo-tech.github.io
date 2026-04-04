@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建语音助手",
+    "slug": "eng-proj-build-voice-assistant",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "语音助手的核心是把延迟、准确率与可审计性放进同一条工程闭环里。"
+  },
+  {
     "title": "构建数据分析平台",
     "slug": "eng-proj-build-data-analysis-platform",
     "date": "2026-04-04",
