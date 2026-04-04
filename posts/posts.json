@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理的异步处理",
+    "slug": "deploy-infer-inference-async-processing",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "异步推理通过队列和后台调度解耦用户等待与模型吞吐，但必须配套过期、重试和幂等治理。"
+  },
+  {
     "title": "Medusa的多头解码",
     "slug": "deploy-infer-medusa-multi-head-decoding",
     "date": "2026-04-04",
