@@ -1,5 +1,17 @@
 [
   {
+    "title": "Prompt注入攻击的原理",
+    "slug": "sec-prompt-injection-attack",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "summary": "Prompt注入本质是利用上下文拼接混淆指令优先级，劫持模型、检索和工具执行。"
+  },
+  {
     "title": "知识图谱的构建流水线",
     "slug": "kg-kg-construction-pipeline",
     "date": "2026-04-04",
