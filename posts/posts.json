@@ -1,5 +1,17 @@
 [
   {
+    "title": "排序模型的特征工程",
+    "slug": "rec-rank-ranking-feature-engineering",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "排序特征工程的关键，是把用户、物品和上下文稳定编码成可泛化、可上线的排序信号。"
+  },
+  {
     "title": "排序模型的训练目标",
     "slug": "rec-rank-ranking-training-objective",
     "date": "2026-04-04",
