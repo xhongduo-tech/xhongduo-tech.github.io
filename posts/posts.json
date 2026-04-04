@@ -1,5 +1,17 @@
 [
   {
+    "title": "越狱攻击的分类",
+    "slug": "sec-jailbreak-attack-classification",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "summary": "越狱攻击本质是重写任务语境，防守重点应转向多轮、迁移与鲁棒性评估。"
+  },
+  {
     "title": "Prompt注入攻击的原理",
     "slug": "sec-prompt-injection-attack",
     "date": "2026-04-04",
