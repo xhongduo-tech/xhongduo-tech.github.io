@@ -1,5 +1,16 @@
 [
   {
+    "title": "vLLM的高吞吐推理",
+    "slug": "eng-fw-vllm-high-throughput-inference",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "vLLM靠连续分批、分页KV与异步调度，把多请求推理的GPU吞吐显著做高。"
+  },
+  {
     "title": "HuggingFace Datasets的流式加载",
     "slug": "eng-fw-hf-datasets-streaming",
     "date": "2026-04-04",
