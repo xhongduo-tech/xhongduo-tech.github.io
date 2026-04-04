@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPQA 研究生级别科学问答",
+    "slug": "gpqa-graduate-science-qa",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "科学推理"
+    ],
+    "summary": "GPQA用专家命题和多轮筛选，专测无法靠简单检索完成的研究生级科学推理。"
+  },
+  {
     "title": "AGIEval 人工智能通用能力评测",
     "slug": "agieval-general-intelligence",
     "date": "2026-04-04",
