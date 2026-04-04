@@ -1,5 +1,17 @@
 [
   {
+    "title": "关系抽取的远程监督",
+    "slug": "kg-relation-extraction-distant",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "远程监督用知识库换标注成本，但核心挑战是噪声，主流解法是多实例学习与注意力去噪"
+  },
+  {
     "title": "知识图谱的推理路径",
     "slug": "kg-kg-reasoning-paths",
     "date": "2026-04-04",
