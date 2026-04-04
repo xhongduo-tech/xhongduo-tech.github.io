@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的提示工程",
+    "slug": "eng-bp-llm-prompt-engineering",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "提示工程的本质是把 LLM 包装成可验证、可控、可回归测试的生产组件。"
+  },
+  {
     "title": "多路召回的融合策略",
     "slug": "rec-recall-multi-channel-recall-fusion",
     "date": "2026-04-04",
