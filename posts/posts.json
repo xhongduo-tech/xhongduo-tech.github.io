@@ -1,5 +1,17 @@
 [
   {
+    "title": "排序模型的位置感知",
+    "slug": "rec-rank-ranking-position-aware",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "点击不是相关性；训练时要拆掉位置偏差，推理时不要把位置再喂回排序模型"
+  },
+  {
     "title": "排序模型的特征工程",
     "slug": "rec-rank-ranking-feature-engineering",
     "date": "2026-04-04",

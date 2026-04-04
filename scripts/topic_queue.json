@@ -12624,7 +12624,7 @@
       "排序"
     ],
     "brief": "位置感知排序关注点击既受相关性影响，也受展示位置影响。若直接用点击作标签，模型会把高位曝光优势误学成相关性。常见方案包括加入position bias特征、采用examination model、做IPS反偏估计，或训练时显式建模P(click)=P(exam)*P(rel)。推理时通常不能直接使用位置特征，需要做去偏替代设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多目标排序的融合",
