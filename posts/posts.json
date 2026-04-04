@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的错误处理",
+    "slug": "eng-bp-llm-error-handling",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "LLM错误处理的核心是用指标、trace和故障分类把答错问题变成可定位、可修复的系统问题"
+  },
+  {
     "title": "LLM应用的提示工程",
     "slug": "eng-bp-llm-prompt-engineering",
     "date": "2026-04-04",
