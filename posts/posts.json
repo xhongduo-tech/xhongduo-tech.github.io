@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建文档摘要系统",
+    "slug": "eng-proj-build-document-summarization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "文档摘要系统本质是受约束的端到端流水线，不是单次模型调用"
+  },
+  {
     "title": "构建智能客服系统",
     "slug": "eng-proj-build-intelligent-customer-service",
     "date": "2026-04-04",
