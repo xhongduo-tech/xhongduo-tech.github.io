@@ -1,5 +1,16 @@
 [
   {
+    "title": "INT4量化的挑战",
+    "slug": "deploy-quant-int4-quantization-challenges",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "INT4难点不在存成4位，而在如何控制离群点、缩放误差和运行时反量化开销。"
+  },
+  {
     "title": "INT8量化的精度分析",
     "slug": "deploy-quant-int8-quantization-accuracy",
     "date": "2026-04-04",
