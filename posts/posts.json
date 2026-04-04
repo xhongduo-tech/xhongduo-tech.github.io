@@ -1,5 +1,16 @@
 [
   {
+    "title": "TGI的部署架构",
+    "slug": "deploy-infer-tgi-deployment-architecture",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "TGI用三层架构解决大模型在线推理的并发、延迟与显存权衡。"
+  },
+  {
     "title": "构建翻译服务",
     "slug": "eng-proj-build-translation-service",
     "date": "2026-04-04",
