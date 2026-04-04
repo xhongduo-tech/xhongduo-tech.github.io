@@ -1,5 +1,16 @@
 [
   {
+    "title": "Medusa的多头解码",
+    "slug": "deploy-infer-medusa-multi-head-decoding",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "Medusa用多头预测加树状验证减少解码轮数，收益取决于前缀接受率而非attention降复杂度"
+  },
+  {
     "title": "Lookahead Decoding的前瞻解码",
     "slug": "deploy-infer-lookahead-decoding",
     "date": "2026-04-04",
