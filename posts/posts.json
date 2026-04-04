@@ -1,5 +1,17 @@
 [
   {
+    "title": "AGIEval 人工智能通用能力评测",
+    "slug": "agieval-general-intelligence",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "通用智能"
+    ],
+    "summary": "AGIEval用人类标准化考试衡量模型在理解、知识、推理、计算上的真实通用能力。"
+  },
+  {
     "title": "Linux网络协议栈",
     "slug": "sys-linux-linux-network-stack",
     "date": "2026-04-04",
