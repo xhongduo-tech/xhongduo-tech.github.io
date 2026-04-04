@@ -1,5 +1,16 @@
 [
   {
+    "title": "QuIP#的向量量化",
+    "slug": "deploy-quant-quip-hash-vector-quantization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "QuIP#用Hadamard球形化加E8向量量化，在3-bit附近实现更稳的低比特大模型部署。"
+  },
+  {
     "title": "SpQR的稀疏量化",
     "slug": "deploy-quant-spqr-sparse-quantization",
     "date": "2026-04-04",
