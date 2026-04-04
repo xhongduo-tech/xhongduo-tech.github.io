@@ -1,5 +1,16 @@
 [
   {
+    "title": "TensorRT-LLM的图优化",
+    "slug": "deploy-infer-tensorrt-llm-graph-optimization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "AutoDeploy把PyTorch模型自动变成适合TensorRT-LLM runtime执行的优化图。"
+  },
+  {
     "title": "vLLM的连续批处理",
     "slug": "deploy-infer-vllm-continuous-batching",
     "date": "2026-04-04",
