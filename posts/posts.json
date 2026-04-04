@@ -1,5 +1,17 @@
 [
   {
+    "title": "冷启动的召回策略",
+    "slug": "rec-recall-cold-start-recall-strategy",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回"
+    ],
+    "summary": "冷启动召回依赖内容、上下文与探索机制，关键是先产出候选并保证新品持续曝光"
+  },
+  {
     "title": "实时召回的架构设计",
     "slug": "rec-recall-realtime-recall-architecture",
     "date": "2026-04-04",

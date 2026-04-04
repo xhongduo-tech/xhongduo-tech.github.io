@@ -12558,7 +12558,7 @@
       "召回"
     ],
     "brief": "冷启动召回的目标是在缺少交互历史时仍生成可消费候选，因此更依赖内容特征、规则先验和探索机制。用户冷启动常用注册信息、上下文、人群映射；物品冷启动常用文本、图像、类目embedding。工程上需在exploitation与exploration间平衡，可用epsilon-greedy或Thompson Sampling避免新物品长期零曝光。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "长尾物品的召回增强",
