@@ -1,5 +1,17 @@
 [
   {
+    "title": "向量召回的ANN索引",
+    "slug": "rec-recall-vector-recall-ann-index",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回"
+    ],
+    "summary": "ANN索引选型本质是召回率、延迟和内存三者之间的工程权衡。"
+  },
+  {
     "title": "混合精度量化策略",
     "slug": "deploy-quant-mixed-precision-quantization",
     "date": "2026-04-04",

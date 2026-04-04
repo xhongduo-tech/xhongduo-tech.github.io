@@ -12503,7 +12503,7 @@
       "召回"
     ],
     "brief": "ANN索引的选择本质是召回率、延迟和内存三者换取。HNSW靠多层图导航，查询快、召回高，但内存大；IVF先粗聚类再在倒排桶内搜，适合大库；PQ把向量压成短码，能把768维float32从约3KB压到几十字节，但会引入量化误差。线上调参通常盯Recall@K、P95 latency和bytes per vector三个指标，而不是只看单机QPS。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图召回的邻域扩展",
