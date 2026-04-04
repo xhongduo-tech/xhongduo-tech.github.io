@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱与LLM的结合",
+    "slug": "kg-kg-llm-integration",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "知识图谱负责事实约束，LLM负责理解与表达，关键权衡是准确率、时延与系统复杂度。"
+  },
+  {
     "title": "知识图谱的表示学习",
     "slug": "kg-kg-representation-learning",
     "date": "2026-04-04",
