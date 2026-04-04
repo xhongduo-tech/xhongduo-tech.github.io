@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建内容审核系统",
+    "slug": "eng-proj-build-content-moderation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "内容审核首先是容量受限的风险处置系统，核心是平衡动作率、质量误差与SLA时效。"
+  },
+  {
     "title": "数据标注的众包平台",
     "slug": "data-eng-data-annotation-crowdsourcing",
     "date": "2026-04-04",
