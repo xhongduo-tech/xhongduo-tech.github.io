@@ -1,5 +1,16 @@
 [
   {
+    "title": "PyTorch的分布式训练",
+    "slug": "eng-fw-pytorch-distributed-training",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "PyTorch分布式训练的核心是多进程同步梯度，重点在通信正确性、数据切分和工程容错。"
+  },
+  {
     "title": "PyTorch的自动求导机制",
     "slug": "eng-fw-pytorch-autograd-mechanism",
     "date": "2026-04-04",
