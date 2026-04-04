@@ -1,5 +1,17 @@
 [
   {
+    "title": "长上下文评测LongBench",
+    "slug": "eval-longbench-long-context",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "LongBench评测的重点不是窗口多大，而是长文本里关键信息还能否被稳定利用。"
+  },
+  {
     "title": "评测污染的检测",
     "slug": "eval-evaluation-contamination-detection",
     "date": "2026-04-04",
