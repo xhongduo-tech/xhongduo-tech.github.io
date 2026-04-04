@@ -13413,7 +13413,7 @@
       "Linux"
     ],
     "brief": "Linux文件系统以inode、目录项、页缓存和块分配为核心，Ext4通过extent、journal与延迟分配在一致性和性能间折中。顺序IO通常受页缓存和预读加速，随机小IO更依赖块布局与设备特性。元数据操作较多时，日志模式、挂载参数和fsync频率会显著影响吞吐与尾延迟。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux网络协议栈",

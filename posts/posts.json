@@ -1,5 +1,16 @@
 [
   {
+    "title": "Linux文件系统",
+    "slug": "sys-linux-linux-filesystem",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "summary": "Linux文件系统的核心是inode、extent、页缓存与journal，它们共同决定性能与一致性边界"
+  },
+  {
     "title": "Linux进程调度原理",
     "slug": "sys-linux-linux-process-scheduling",
     "date": "2026-04-04",
