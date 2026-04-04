@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的可观测性",
+    "slug": "eng-bp-llm-observability",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "LLM可观测性要把链路、评测与成本统一起来，否则系统会在“表面正常”中持续答错。"
+  },
+  {
     "title": "LLM应用的安全防护",
     "slug": "eng-bp-llm-security-protection",
     "date": "2026-04-04",
