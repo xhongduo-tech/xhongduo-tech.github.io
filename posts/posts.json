@@ -1,5 +1,16 @@
 [
   {
+    "title": "PyTorch的自动求导机制",
+    "slug": "eng-fw-pytorch-autograd-mechanism",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "Autograd 在前向动态建图、后向按链式法则回溯，是 PyTorch 训练机制的核心。"
+  },
+  {
     "title": "特征存储的设计",
     "slug": "data-eng-feature-store-design",
     "date": "2026-04-04",
