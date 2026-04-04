@@ -1,5 +1,17 @@
 [
   {
+    "title": "对抗样本的生成",
+    "slug": "sec-adversarial-example-generation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "summary": "对抗样本是在最小扰动约束下，用梯度或搜索让模型误判，评估必须兼顾成功率与自然度。"
+  },
+  {
     "title": "越狱攻击的分类",
     "slug": "sec-jailbreak-attack-classification",
     "date": "2026-04-04",
