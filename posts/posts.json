@@ -1,5 +1,17 @@
 [
   {
+    "title": "长尾物品的召回增强",
+    "slug": "rec-recall-long-tail-recall-enhancement",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回"
+    ],
+    "summary": "长尾召回增强的核心，是用加权、采样和校准纠正头部曝光偏置。"
+  },
+  {
     "title": "冷启动的召回策略",
     "slug": "rec-recall-cold-start-recall-strategy",
     "date": "2026-04-04",
