@@ -1,5 +1,16 @@
 [
   {
+    "title": "llama.cpp的CPU推理",
+    "slug": "deploy-quant-llamacpp-cpu-inference",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "llama.cpp 的 CPU 推理核心是 GGUF 量化减重，加 SIMD 内核把低比特矩阵乘法跑快。"
+  },
+  {
     "title": "GGUF的文件格式",
     "slug": "deploy-quant-gguf-file-format",
     "date": "2026-04-04",

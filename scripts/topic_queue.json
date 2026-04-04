@@ -12448,7 +12448,7 @@
       "量化"
     ],
     "brief": "llama.cpp的CPU推理依赖两件事：一是GGUF量化把权重压到Q4_K、Q5_K、Q8_0等格式，二是用AVX2、AVX-512或NEON做矩阵核优化。对7B模型，Q4_K_M常把内存压到4到5GB量级，桌面级CPU可跑到约10到30 tok/s；代价是量化越激进，困惑度和长尾事实准确率越容易下降，尤其在3bit/4bit边界更明显。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SmoothQuant的平滑量化",
