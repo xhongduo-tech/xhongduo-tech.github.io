@@ -1,5 +1,17 @@
 [
   {
+    "title": "召回层的效果评估",
+    "slug": "rec-recall-recall-evaluation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回"
+    ],
+    "summary": "召回评估要同时看命中、可排序性、覆盖质量和成本，不能只看Recall@K"
+  },
+  {
     "title": "向量召回的ANN索引",
     "slug": "rec-recall-vector-recall-ann-index",
     "date": "2026-04-04",
