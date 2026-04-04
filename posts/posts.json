@@ -1,5 +1,16 @@
 [
   {
+    "title": "Megatron-LM的张量并行",
+    "slug": "eng-fw-megatron-tensor-parallel",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "张量并行通过按行列切分单层大矩阵，把显存压力分摊到多卡，但收益受维度整除和通信带宽约束。"
+  },
+  {
     "title": "DeepSpeed的ZeRO实现",
     "slug": "eng-fw-deepspeed-zero-implementation",
     "date": "2026-04-04",
