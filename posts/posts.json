@@ -1,5 +1,17 @@
 [
   {
+    "title": "事件抽取的结构化",
+    "slug": "kg-event-extraction-structuring",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "结构化事件抽取的核心，是把触发词、角色和关系统一约束到schema内输出。"
+  },
+  {
     "title": "排序模型的延迟约束",
     "slug": "rec-rank-ranking-latency-constraint",
     "date": "2026-04-04",
