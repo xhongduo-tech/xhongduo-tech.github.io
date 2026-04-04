@@ -1,5 +1,17 @@
 [
   {
+    "title": "实体链接的候选生成",
+    "slug": "kg-entity-linking-candidate-generation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "候选生成先保住正确实体，再用精排消歧，关键是高召回下控制K的大小"
+  },
+  {
     "title": "事件抽取的结构化",
     "slug": "kg-event-extraction-structuring",
     "date": "2026-04-04",
