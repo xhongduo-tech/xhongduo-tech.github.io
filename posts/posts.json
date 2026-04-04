@@ -1,5 +1,19 @@
 [
   {
+    "title": "成员推断攻击",
+    "slug": "sec-membership-inference-attack",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全",
+      "隐私",
+      "推断"
+    ],
+    "summary": "成员推断通过置信度、损失或困惑度差异判断样本是否进过训练集。"
+  },
+  {
     "title": "模型窃取攻击",
     "slug": "sec-model-stealing-attack",
     "date": "2026-04-04",
