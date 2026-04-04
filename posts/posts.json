@@ -1,5 +1,17 @@
 [
   {
+    "title": "红队测试的实践",
+    "slug": "sec-red-teaming-practice",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全"
+    ],
+    "summary": "红队测试要做成可复现、可归因、可回归的闭环工程，而不是一次越狱演示"
+  },
+  {
     "title": "LLM的内容安全过滤",
     "slug": "sec-llm-content-safety-filtering",
     "date": "2026-04-04",
