@@ -1,5 +1,17 @@
 [
   {
+    "title": "Big-Bench Hard (BBH) 挑战性任务集",
+    "slug": "bigbench-hard-tasks",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "推理能力"
+    ],
+    "summary": "BBH用少量高难推理题测模型真推理能力，关键在受限输出与严格自动判分。"
+  },
+  {
     "title": "GPQA 研究生级别科学问答",
     "slug": "gpqa-graduate-science-qa",
     "date": "2026-04-04",
