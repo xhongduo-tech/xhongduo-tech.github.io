@@ -1,5 +1,16 @@
 [
   {
+    "title": "INT8量化的精度分析",
+    "slug": "deploy-quant-int8-quantization-accuracy",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "INT8精度关键不在位宽本身，而在scale、outlier与敏感层处理是否正确"
+  },
+  {
     "title": "推理的异步处理",
     "slug": "deploy-infer-inference-async-processing",
     "date": "2026-04-04",
