@@ -1,5 +1,16 @@
 [
   {
+    "title": "LlamaIndex的索引构建",
+    "slug": "eng-fw-llamaindex-index-construction",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "LlamaIndex索引构建的本质，是把原始文档变成可检索、可追踪的语义节点流水线。"
+  },
+  {
     "title": "LangChain的链式调用",
     "slug": "eng-fw-langchain-chain-calls",
     "date": "2026-04-04",
