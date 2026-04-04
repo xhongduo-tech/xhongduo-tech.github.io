@@ -1,5 +1,16 @@
 [
   {
+    "title": "投机采样的加速原理",
+    "slug": "deploy-infer-speculative-decoding-acceleration",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "投机采样用小模型打草稿、大模型并行验收，在保持原分布下减少昂贵解码轮数。"
+  },
+  {
     "title": "流式输出的实现",
     "slug": "deploy-infer-streaming-output-implementation",
     "date": "2026-04-04",
