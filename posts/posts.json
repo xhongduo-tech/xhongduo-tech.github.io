@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的缓存策略",
+    "slug": "eng-bp-llm-caching-strategies",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "LLM缓存的核心是多层复用，但必须用版本、TTL和校验约束错误命中。"
+  },
+  {
     "title": "LLM应用的错误处理",
     "slug": "eng-bp-llm-error-handling",
     "date": "2026-04-04",
