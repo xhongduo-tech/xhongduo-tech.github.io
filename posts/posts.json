@@ -1,5 +1,16 @@
 [
   {
+    "title": "SmoothQuant的平滑量化",
+    "slug": "deploy-quant-smoothquant-smooth-quantization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "SmoothQuant通过通道级尺度迁移压平激活outlier，在不微调下实现更稳的W8A8推理。"
+  },
+  {
     "title": "llama.cpp的CPU推理",
     "slug": "deploy-quant-llamacpp-cpu-inference",
     "date": "2026-04-04",
