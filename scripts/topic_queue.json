@@ -12305,7 +12305,7 @@
       "推理优化"
     ],
     "brief": "vLLM的连续批处理把调度粒度从整请求降到每次解码迭代，每步把新到达请求插入批次、把完成请求移出，于是GPU在prefill和decode阶段都更少空转。它优化的核心指标是吞吐而非单请求最短延迟；在中高并发下，iteration-level调度常比静态batch提升2到4倍token/s，同时把长短请求混跑带来的尾延迟拉平。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TensorRT-LLM的图优化",

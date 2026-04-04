@@ -1,5 +1,16 @@
 [
   {
+    "title": "vLLM的连续批处理",
+    "slug": "deploy-infer-vllm-continuous-batching",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化"
+    ],
+    "summary": "连续批处理把调度粒度降到每次解码迭代，用动态补位提升 vLLM 在中高并发下的吞吐。"
+  },
+  {
     "title": "神经声码器",
     "slug": "mm-speech-neural-vocoder",
     "date": "2026-04-04",
