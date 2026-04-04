@@ -1,5 +1,19 @@
 [
   {
+    "title": "数据血缘追踪",
+    "slug": "data-eng-data-lineage-tracking",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理",
+      "数据血缘",
+      "数据治理"
+    ],
+    "summary": "数据血缘追踪用依赖图串起表、任务、模型和报表，核心在可追溯、可量化、可落地。"
+  },
+  {
     "title": "数据版本管理",
     "slug": "data-eng-data-version-control",
     "date": "2026-04-04",
