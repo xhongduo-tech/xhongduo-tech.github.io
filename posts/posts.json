@@ -1,5 +1,19 @@
 [
   {
+    "title": "数据投毒攻击",
+    "slug": "sec-data-poisoning-attack",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对抗安全",
+      "数据安全",
+      "投毒"
+    ],
+    "summary": "数据投毒通过污染训练集植入错误规则，后门攻击以高CA和高ASR并存最具隐蔽性"
+  },
+  {
     "title": "成员推断攻击",
     "slug": "sec-membership-inference-attack",
     "date": "2026-04-04",
