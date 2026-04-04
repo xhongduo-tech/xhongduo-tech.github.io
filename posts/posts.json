@@ -1,5 +1,17 @@
 [
   {
+    "title": "合成数据的生成与验证",
+    "slug": "data-eng-synthetic-data-generation-validation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "合成数据的核心不是像真，而是标签对、分布稳、隐私安全且对下游任务有效。"
+  },
+  {
     "title": "文本数据的预处理流水线",
     "slug": "data-eng-text-preprocessing-pipeline",
     "date": "2026-04-04",
