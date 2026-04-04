@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据清洗的质量规则",
+    "slug": "data-eng-data-cleaning-quality-rules",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据处理"
+    ],
+    "summary": "数据清洗质量规则的核心是把脏数据判断、处置和追责流程化。"
+  },
+  {
     "title": "大规模数据的ETL流程",
     "slug": "data-eng-large-scale-etl-pipeline",
     "date": "2026-04-04",
