@@ -1,5 +1,16 @@
 [
   {
+    "title": "GPTQ的逐层量化",
+    "slug": "deploy-quant-gptq-layerwise-quantization",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "GPTQ用近似二阶信息逐列量化并补偿误差，使大模型可在低比特下保持接近原精度部署"
+  },
+  {
     "title": "INT4量化的挑战",
     "slug": "deploy-quant-int4-quantization-challenges",
     "date": "2026-04-04",
