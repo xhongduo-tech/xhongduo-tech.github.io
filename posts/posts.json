@@ -1,5 +1,16 @@
 [
   {
+    "title": "AWQ的激活感知量化",
+    "slug": "deploy-quant-awq-activation-aware",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "AWQ用激活统计保护少数关键通道，在4-bit权重量化中以低成本换取更稳精度。"
+  },
+  {
     "title": "GPTQ的逐层量化",
     "slug": "deploy-quant-gptq-layerwise-quantization",
     "date": "2026-04-04",
