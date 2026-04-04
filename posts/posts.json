@@ -1,5 +1,16 @@
 [
   {
+    "title": "Linux进程调度原理",
+    "slug": "sys-linux-linux-process-scheduling",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "summary": "Linux 默认用 CFS 按 vruntime 公平分配 CPU，实时场景需结合 RT 策略与隔离核调优"
+  },
+  {
     "title": "Linux内存管理",
     "slug": "sys-linux-linux-memory-management",
     "date": "2026-04-04",

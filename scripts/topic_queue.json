@@ -13391,7 +13391,7 @@
       "Linux"
     ],
     "brief": "Linux进程调度以CFS为默认策略，核心是按虚拟运行时间vruntime维护红黑树，优先选择最该运行的任务。普通进程受nice映射权重影响，实时类走FIFO或RR。调度复杂度通常为O(log N)，适合多任务公平分配，但极低延迟场景常需结合CPU亲和性、隔离核与抢占参数调优。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux内存管理",
