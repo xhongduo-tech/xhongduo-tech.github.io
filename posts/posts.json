@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱的链接预测",
+    "slug": "kg-kg-link-prediction",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "信息抽取"
+    ],
+    "summary": "链接预测的核心是对三元组打分排序，工程成败主要取决于负采样和filtered评估。"
+  },
+  {
     "title": "对抗样本的生成",
     "slug": "sec-adversarial-example-generation",
     "date": "2026-04-04",

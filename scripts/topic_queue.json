@@ -12734,7 +12734,7 @@
       "信息抽取"
     ],
     "brief": "链接预测根据已知三元组预测缺失头实体、尾实体或关系，通常通过打分函数f(h,r,t)对候选排序。训练多用margin ranking loss或logistic loss，推理时计算filtered MRR、Hits@K。关键工程问题是负采样质量和评估泄漏，若把训练集中等价真三元组当负例，会显著扭曲指标与模型学习边界。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识图谱与LLM的结合",
