@@ -1,5 +1,16 @@
 [
   {
+    "title": "构建数据分析平台",
+    "slug": "eng-proj-build-data-analysis-platform",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "项目实战"
+    ],
+    "summary": "数据分析平台的本质是把可信度与交付速度同时工程化，而不是只堆数据和工具"
+  },
+  {
     "title": "构建内容审核系统",
     "slug": "eng-proj-build-content-moderation",
     "date": "2026-04-04",
