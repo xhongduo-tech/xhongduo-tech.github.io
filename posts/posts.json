@@ -1,5 +1,16 @@
 [
   {
+    "title": "Accelerate库的分布式抽象",
+    "slug": "eng-fw-accelerate-distributed-abstraction",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "框架工具"
+    ],
+    "summary": "Accelerate把分布式训练的启动、状态与包装集中抽象，核心价值是让同一份PyTorch脚本跨后端稳定复用。"
+  },
+  {
     "title": "Megatron-LM的张量并行",
     "slug": "eng-fw-megatron-tensor-parallel",
     "date": "2026-04-04",
