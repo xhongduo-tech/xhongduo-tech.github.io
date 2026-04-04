@@ -1,5 +1,17 @@
 [
   {
+    "title": "排序模型的训练目标",
+    "slug": "rec-rank-ranking-training-objective",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "排序训练目标的本质，是在单点概率、相对顺序和整页指标之间做工程取舍。"
+  },
+  {
     "title": "召回层的负采样",
     "slug": "rec-recall-recall-negative-sampling",
     "date": "2026-04-04",

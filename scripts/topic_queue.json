@@ -12602,7 +12602,7 @@
       "排序"
     ],
     "brief": "排序训练目标反映了业务对相对次序还是绝对概率的关注。Pointwise常用logloss，优化简单但不直接对顺序负责；Pairwise如BPR、hinge loss建模样本对偏好；Listwise近似优化NDCG、MAP，更接近真实目标但训练复杂。选择时要同时考虑标注形态、曝光偏差、样本规模与线上可解释性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LTR的Lambda梯度",
