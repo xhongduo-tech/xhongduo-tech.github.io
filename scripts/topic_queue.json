@@ -13402,7 +13402,7 @@
       "Linux"
     ],
     "brief": "Linux内存管理基于虚拟内存、分级页表、页缓存与按需分配，缺页中断负责把未映射页装入物理内存。匿名页和文件页回收路径不同，回收压力过大时会触发direct reclaim或OOM Killer。页大小通常为4KB，也可使用HugePage降低TLB miss，但会增加碎片与回收难度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linux文件系统",

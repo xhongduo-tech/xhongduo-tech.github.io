@@ -1,5 +1,16 @@
 [
   {
+    "title": "Linux内存管理",
+    "slug": "sys-linux-linux-memory-management",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "Linux"
+    ],
+    "summary": "Linux 内存管理用虚拟内存、页表和回收机制，在有限物理页上维持隔离与按需分配。"
+  },
+  {
     "title": "LLM应用的测试策略",
     "slug": "eng-bp-llm-testing-strategies",
     "date": "2026-04-04",
