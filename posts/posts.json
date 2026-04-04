@@ -1,5 +1,17 @@
 [
   {
+    "title": "MATH的竞赛数学评测",
+    "slug": "eval-math-competition-evaluation",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "能力评测"
+    ],
+    "summary": "MATH用竞赛题和\\boxed{}规范答案严格评测推理，正式评分靠exact match，工程上需加规范化与抽检降噪。"
+  },
+  {
     "title": "GSM8K的数学推理评测",
     "slug": "eval-gsm8k-math-reasoning",
     "date": "2026-04-04",
