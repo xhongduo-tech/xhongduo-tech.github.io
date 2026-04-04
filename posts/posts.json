@@ -1,5 +1,17 @@
 [
   {
+    "title": "排序模型的校准",
+    "slug": "rec-rank-ranking-model-calibration",
+    "date": "2026-04-04",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序"
+    ],
+    "summary": "排序校准把模型分数变成真实概率，避免出价、重排和融合策略被错误置信度误导"
+  },
+  {
     "title": "在线学习排序",
     "slug": "rec-rank-online-learning-ranking",
     "date": "2026-04-04",

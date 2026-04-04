@@ -12668,7 +12668,7 @@
       "排序"
     ],
     "brief": "排序校准关注模型分数是否可解释为真实概率，尤其在出价、重排和多目标融合时非常关键。常见方法有Platt Scaling、Isotonic Regression、Temperature Scaling和分桶校准。评估上除了AUC，更要看LogLoss、Brier Score、ECE/MCE，因为排序好不代表概率准，未校准分数会放大策略层的决策误差。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "实体链接的候选生成",
