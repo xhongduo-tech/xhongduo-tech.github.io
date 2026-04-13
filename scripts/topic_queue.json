@@ -14261,7 +14261,7 @@
       "长文本"
     ],
     "brief": "LongBench 包含 6 类长文本任务：单文档QA、多文档QA、摘要、Few-shot学习、代码、合成任务。平均长度 6711 词，测试长程依赖建模能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "L-Eval 长上下文语言模型评测",
@@ -14283,7 +14283,7 @@
       "长文本"
     ],
     "brief": "大海捞针测试在长上下文中插入一个随机事实，要求模型精确定位并回答。测试上下文长度与信息检索准确率的关系，揭示模型的中间位置注意力问题。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "VQAv2 视觉问答基准",
@@ -14294,7 +14294,7 @@
       "多模态"
     ],
     "brief": "VQAv2 包含 110 万个关于 COCO 图像的问题。通过平衡策略减少语言先验偏差，每个问题有 10 个可信答案。测试视觉理解与语言推理的结合。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "TextVQA 自然场景文本理解",
@@ -14305,7 +14305,7 @@
       "多模态"
     ],
     "brief": "TextVQA 包含 28408 个关于自然图像中可见文本的问题。要求模型识别场景文字（招牌、标签等）并推理回答。测试 OCR 能力与视觉语言推理的结合。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MMBench 多模态模型综合评测",
@@ -14316,7 +14316,7 @@
       "多模态"
     ],
     "brief": "MMBench 包含 3000+ 道选择题，覆盖 20 个能力维度。设计了 Circular 策略消除位置偏差，提供细粒度能力画像。支持中英双语评测。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "TruthfulQA 真实性评测",
@@ -14338,7 +14338,7 @@
       "安全性"
     ],
     "brief": "Harmfulness Bench 包含多种潜在有害请求类型：非法活动、伤害他人、隐私侵犯等。测试模型拒绝不当请求的能力，评估安全对齐效果。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Few-shot vs Zero-shot 评测方法论",
