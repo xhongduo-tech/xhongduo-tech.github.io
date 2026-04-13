@@ -1,5 +1,17 @@
 [
   {
+    "title": "StrategyQA 多跳策略问答",
+    "slug": "strategyqa-multi-hop-reasoning",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "多跳推理"
+    ],
+    "summary": "StrategyQA评测的核心不是yes/no本身，而是显式分解隐含推理策略并逐步验证证据。"
+  },
+  {
     "title": "WinoGrande 大规模常识推理",
     "slug": "winogrande-commonsense-reasoning",
     "date": "2026-04-13",
