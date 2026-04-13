@@ -1,5 +1,17 @@
 [
   {
+    "title": "L-Eval 长上下文语言模型评测",
+    "slug": "leval-long-context-evaluation",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "长文本"
+    ],
+    "summary": "L-Eval 用长度约束加裁判式评分，评估模型是否真正完成长文本指令任务。"
+  },
+  {
     "title": "LongBench 长文本理解基准",
     "slug": "longbench-long-context",
     "date": "2026-04-13",
