@@ -1,5 +1,17 @@
 [
   {
+    "title": "CodeContests 竞赛级代码评测",
+    "slug": "codecontests-competitive-programming",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "代码生成"
+    ],
+    "summary": "CodeContests用真实竞赛题和私测评估模型，核心是用n@k衡量多候选中是否真有可过题解。"
+  },
+  {
     "title": "StrategyQA 多跳策略问答",
     "slug": "strategyqa-multi-hop-reasoning",
     "date": "2026-04-13",
