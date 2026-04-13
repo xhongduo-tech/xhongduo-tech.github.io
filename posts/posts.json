@@ -1,5 +1,17 @@
 [
   {
+    "title": "WinoGrande 大规模常识推理",
+    "slug": "winogrande-commonsense-reasoning",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "常识推理"
+    ],
+    "summary": "WinoGrande用对抗筛选放大常识消歧难度，适合做模型常识推理主评测，但需配合跨数据集验证。"
+  },
+  {
     "title": "LLM应用的成本优化",
     "slug": "eng-bp-llm-cost-optimization",
     "date": "2026-04-13",

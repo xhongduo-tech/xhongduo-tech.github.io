@@ -14184,7 +14184,7 @@
       "常识推理"
     ],
     "brief": "WinoGrande 包含 44K 个填空式代词消歧问题。基于 Winograd Schema 扩展，测试常识推理和世界知识。采用对抗性筛选确保问题难度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "StrategyQA 多跳策略问答",
