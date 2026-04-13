@@ -1,5 +1,17 @@
 [
   {
+    "title": "MBPP 数学编程问题基准",
+    "slug": "mbpp-python-programming",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "代码生成"
+    ],
+    "summary": "MBPP 是面向基础 Python 函数生成的标准化基准，适合做快速回归检查，不适合单独代表真实工程能力"
+  },
+  {
     "title": "SWE-bench 真实软件工程任务",
     "slug": "swebench-software-engineering",
     "date": "2026-04-13",
