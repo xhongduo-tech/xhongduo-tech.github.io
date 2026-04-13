@@ -1,5 +1,16 @@
 [
   {
+    "title": "LLM应用的成本优化",
+    "slug": "eng-bp-llm-cost-optimization",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "最佳实践"
+    ],
+    "summary": "LLM降本的关键是批处理、缓存和模型路由的组合优化，并用成功请求成本衡量收益"
+  },
+  {
     "title": "ARC 挑战集与推理能力评测",
     "slug": "arc-challenge-reasoning",
     "date": "2026-04-04",
