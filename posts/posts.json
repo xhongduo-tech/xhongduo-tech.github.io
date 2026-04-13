@@ -1,5 +1,17 @@
 [
   {
+    "title": "MATH 数据集与数学竞赛评测",
+    "slug": "math-dataset-competition",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "数学推理"
+    ],
+    "summary": "MATH 是高难度数学推理基准，核心在多步符号推导与规范化 `\\boxed` 答案评测。"
+  },
+  {
     "title": "AIME 数学推理极限评测",
     "slug": "aime-mathematical-reasoning",
     "date": "2026-04-13",
