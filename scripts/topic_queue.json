@@ -14228,7 +14228,7 @@
       "代码生成"
     ],
     "brief": "SWE-bench 从 12 个流行 Python 仓库提取 2291 个真实 GitHub Issue。模型需定位问题并生成符合测试的 PR 代码。测试端到端软件工程能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MATH 数据集与数学竞赛评测",

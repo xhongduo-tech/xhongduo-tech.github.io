@@ -1,5 +1,17 @@
 [
   {
+    "title": "SWE-bench 真实软件工程任务",
+    "slug": "swebench-software-engineering",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "代码生成"
+    ],
+    "summary": "SWE-bench用真实issue到PR链路评测模型端到端修复真实软件缺陷的能力"
+  },
+  {
     "title": "CodeContests 竞赛级代码评测",
     "slug": "codecontests-competitive-programming",
     "date": "2026-04-13",
