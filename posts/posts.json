@@ -1,5 +1,17 @@
 [
   {
+    "title": "AIME 数学推理极限评测",
+    "slug": "aime-mathematical-reasoning",
+    "date": "2026-04-13",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "数学推理"
+    ],
+    "summary": "AIME 2024用15道整数题检验模型数学推理极限，核心差异常来自多采样与重评分。"
+  },
+  {
     "title": "MBPP 数学编程问题基准",
     "slug": "mbpp-python-programming",
     "date": "2026-04-13",
