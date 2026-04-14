@@ -1,5 +1,17 @@
 [
   {
+    "title": "Query投影矩阵的数学推导与实现",
+    "slug": "arch-transformer-query-projection-matrix",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "Transformer组件"
+    ],
+    "summary": "W_Q本质是线性投影；多头是并行子空间映射，等价于大矩阵一次投影后切分。"
+  },
+  {
     "title": "TextVQA 自然场景文本理解",
     "slug": "textvqa-scene-text",
     "date": "2026-04-14",
