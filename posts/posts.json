@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱评估基准：FB15k-237 与 WN18RR",
+    "slug": "kg-benchmarks",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "评估"
+    ],
+    "summary": "FB15k-237与WN18RR的核心价值，是去掉逆关系泄漏后更真实地评估知识图谱链接预测能力。"
+  },
+  {
     "title": "医疗知识图谱：疾病诊断与药物推理",
     "slug": "medical-kg-diagnosis",
     "date": "2026-04-14",

@@ -15232,7 +15232,7 @@
       "评估"
     ],
     "brief": "FB15k-237：Freebase 子集，14k 实体，237 关系。WN18RR：WordNet 子集，40k 实体，11 关系。评估陷阱：测试集泄露、逆关系偏差。选择合适 benchmark 对模型评估至关重要。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分布式爬虫架构设计",
