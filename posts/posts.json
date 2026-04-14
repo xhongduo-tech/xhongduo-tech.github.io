@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sparse Autoencoder：稀疏自编码器分解特征",
+    "slug": "sparse-autoencoder-feature-decomposition",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "可解释性"
+    ],
+    "summary": "SAE用过完备字典加稀疏约束，把混合激活拆成更可解释的单语义特征。"
+  },
+  {
     "title": "Probing：探针分类器检测内部表征",
     "slug": "probing-classifier-representation",
     "date": "2026-04-14",

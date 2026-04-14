@@ -16343,7 +16343,7 @@
       "可解释性"
     ],
     "brief": "稀疏自编码器将密集的模型激活分解为可解释的稀疏特征，解决 superposition 问题。每个特征对应一个可解释的语义。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer Circuits：注意力与 MLP 的功能解析",
