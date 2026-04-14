@@ -1,5 +1,17 @@
 [
   {
+    "title": "Relative Position Encoding",
+    "slug": "relative-position-encoding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "相对位置编码把距离偏置直接加到注意力分数中，更利于顺序建模与长度泛化"
+  },
+  {
     "title": "Sequence Parallelism",
     "slug": "sequence-parallelism",
     "date": "2026-04-14",

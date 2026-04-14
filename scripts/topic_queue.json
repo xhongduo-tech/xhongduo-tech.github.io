@@ -16752,7 +16752,7 @@
       "分布式训练"
     ],
     "brief": "将序列维度切分到多个 GPU：每个设备处理部分 token，通过 all-gather 和 reduce-scatter 通信。与 Tensor Parallelism 配合使用，支持超长序列训练。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Expert Parallelism",
@@ -16785,7 +16785,7 @@
       "位置编码"
     ],
     "brief": "对相对位置而非绝对位置建模：在 attention score 中加入相对位置偏置。T5、Transformer-XL 等模型采用此方案，能更好地泛化到不同长度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LogN-Attention",
