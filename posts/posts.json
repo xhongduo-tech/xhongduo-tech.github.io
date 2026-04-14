@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱质量评估：完整性与正确性",
+    "slug": "kg-quality-assessment",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合",
+      "质量评估"
+    ],
+    "summary": "知识图谱质量评估要同时看准确性、完整性、一致性和时效性，并用抽样、规则、金标准组合落地。"
+  },
+  {
     "title": "知识图谱子图匹配：模式查询优化",
     "slug": "subgraph-matching-optimization",
     "date": "2026-04-14",
