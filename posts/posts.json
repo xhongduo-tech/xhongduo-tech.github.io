@@ -1,5 +1,17 @@
 [
   {
+    "title": "SafetyBench：安全性评测基准分析",
+    "slug": "safety-bench-evaluation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "安全评估"
+    ],
+    "summary": "SafetyBench 的核心价值不在总分，而在定位模型各类安全薄弱链路。"
+  },
+  {
     "title": "LLM-as-Judge：模型作为评估器的可靠性与偏见",
     "slug": "llm-as-judge-reliability-bias",
     "date": "2026-04-14",
