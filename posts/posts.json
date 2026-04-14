@@ -1,5 +1,17 @@
 [
   {
+    "title": "SummEval 文本摘要评测",
+    "slug": "summeval-text-summarization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "文本生成"
+    ],
+    "summary": "SummEval把人工四维评分与多种自动指标统一对齐，用于更可靠地评测新闻摘要模型。"
+  },
+  {
     "title": "BEA-2019 语法错误纠正评测",
     "slug": "bea2019-grammar-correction",
     "date": "2026-04-14",

@@ -14668,7 +14668,7 @@
       "文本生成"
     ],
     "brief": "SummEval 包含 1600+ CNN/DailyMail 文章的模型摘要和人工评分。从一致性、流畅性、相关性、 coherence 四个维度评估摘要质量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "嵌套实体识别：叠层 NER 的识别策略",
