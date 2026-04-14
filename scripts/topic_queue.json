@@ -16763,7 +16763,7 @@
       "分布式训练"
     ],
     "brief": "专为 MoE 设计的并行策略：将不同专家放置在不同 GPU 上，通过 all-to-all 通信将 token 路由到对应专家。是大规模 MoE 训练的关键技术。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ALiBi (Attention with Linear Biases)",

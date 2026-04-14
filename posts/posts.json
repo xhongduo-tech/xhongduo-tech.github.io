@@ -1,5 +1,17 @@
 [
   {
+    "title": "Expert Parallelism",
+    "slug": "expert-parallelism",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "分布式训练"
+    ],
+    "summary": "专家并行把 MoE 专家分布到不同 GPU，用 all-to-all 路由 token，核心收益是省显存，核心挑战是通…"
+  },
+  {
     "title": "Relative Position Encoding",
     "slug": "relative-position-encoding",
     "date": "2026-04-14",
