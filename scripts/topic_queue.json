@@ -15914,7 +15914,7 @@
       "对齐算法"
     ],
     "brief": "ORPO 在 SFT 阶段直接融入偏好学习，使用 odds ratio 作为偏好信号。无需单独的 reward model 或两阶段训练，效率更高。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RRHF：Rank Responses to Align 模型对齐",

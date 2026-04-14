@@ -1,5 +1,17 @@
 [
   {
+    "title": "ORPO：Odds Ratio Preference Optimization 详解",
+    "slug": "orpo-odds-ratio-preference-optimization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "ORPO把偏好学习直接并入SFT，用odds ratio同时优化回答质量与偏好排序。"
+  },
+  {
     "title": "KTO：Kahneman-Tversky Optimization 偏好建模",
     "slug": "kto-kahneman-tversky-optimization",
     "date": "2026-04-14",
