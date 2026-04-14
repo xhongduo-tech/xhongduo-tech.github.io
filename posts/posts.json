@@ -1,5 +1,17 @@
 [
   {
+    "title": "CMRC 2018 中文机器阅读理解",
+    "slug": "cmrc2018-chinese-reading-comprehension",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "中文NLP"
+    ],
+    "summary": "CMRC 2018是中文抽取式阅读理解基准，核心在原文连续片段定位与EM/F1评估。"
+  },
+  {
     "title": "PIQA 物理常识推理",
     "slug": "piqa-physical-commonsense",
     "date": "2026-04-14",
