@@ -14624,7 +14624,7 @@
       "中文NLP"
     ],
     "brief": "FewCLUE 是中文小样本学习基准，包含 9 个任务。每个任务仅有 16-64 个标注样本，测试模型在低资源场景下的泛化能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SuperGLUE 通用语言理解评测",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "FewCLUE 小样本学习评测",
+    "slug": "fewclue-few-shot-learning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "中文NLP"
+    ],
+    "summary": "FewCLUE 用极少标注样本评测中文模型的低资源泛化能力，重点不只是分数，更是稳定性与方法选择。"
+  },
+  {
     "title": "SuperGLUE 通用语言理解评测",
     "slug": "superglue-language-understanding",
     "date": "2026-04-14",
