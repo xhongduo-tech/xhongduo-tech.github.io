@@ -16585,7 +16585,7 @@
       "混合架构"
     ],
     "brief": "首个生产级 Transformer-Mamba 混合模型：在 Transformer 层中交替插入 Mamba 层和 Attention 层。结合 Mamba 的效率和 Attention 的能力，支持 140K 上下文。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mamba-2 (SSD Theory)",

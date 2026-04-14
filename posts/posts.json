@@ -1,5 +1,17 @@
 [
   {
+    "title": "Jamba (Jamba-v0.1)",
+    "slug": "jamba-architecture",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "混合架构"
+    ],
+    "summary": "Jamba 用 Attention+Mamba+MoE 混合设计，在保留建模能力的同时显著降低长上下文显存压力。"
+  },
+  {
     "title": "RetNet (Retentive Network)",
     "slug": "retnet-architecture",
     "date": "2026-04-14",
