@@ -1,5 +1,17 @@
 [
   {
+    "title": "水印攻击：Paraphrase 与 Translation 绕过",
+    "slug": "watermark-attacks-paraphrase-translation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "水印技术"
+    ],
+    "summary": "同义改写与翻译能打散 token 水印，语义级水印与检索防御才更抗绕过"
+  },
+  {
     "title": "水印检测：统计检验与误报控制",
     "slug": "watermark-detection-statistical-test",
     "date": "2026-04-14",
