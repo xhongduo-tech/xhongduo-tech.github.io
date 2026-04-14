@@ -1,5 +1,17 @@
 [
   {
+    "title": "Helpfulness 评测：有用性评估的权衡与指标",
+    "slug": "helpfulness-evaluation-metrics",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "安全评估"
+    ],
+    "summary": "Helpfulness 要和 ASR、ORR 一起看，本质是在安全曲线上为具体场景选平衡点"
+  },
+  {
     "title": "Harmlessness 评测：无害性评估基准与方法",
     "slug": "harmlessness-evaluation-benchmark",
     "date": "2026-04-14",

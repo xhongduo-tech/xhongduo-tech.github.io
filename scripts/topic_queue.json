@@ -16112,7 +16112,7 @@
       "安全评估"
     ],
     "brief": "Helpfulness 评估模型响应是否有效解决用户问题。与 harmlessness 存在 trade-off，过度安全可能导致拒绝正常请求。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Truthfulness 评测：真实性检测与幻觉评估",
