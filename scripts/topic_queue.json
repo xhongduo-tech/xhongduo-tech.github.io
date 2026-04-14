@@ -16664,7 +16664,7 @@
       "解码策略"
     ],
     "brief": "在选择下一个 token 时平衡概率与退化惩罚：选择高概率 token 的同时，惩罚与已生成内容的相似度。在开放域生成中保持连贯性和多样性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Best-of-N Sampling",
