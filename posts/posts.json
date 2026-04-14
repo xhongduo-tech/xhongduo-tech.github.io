@@ -1,5 +1,18 @@
 [
   {
+    "title": "Neo4j 图数据库：Cypher 查询语言入门",
+    "slug": "neo4j-cypher-basics",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库",
+      "Neo4j"
+    ],
+    "summary": "Cypher 用图模式描述查询目标，核心在 MATCH、MERGE 和索引驱动的锚点查询。"
+  },
+  {
     "title": "知识图谱补全：链接预测与三元组分类",
     "slug": "knowledge-graph-completion",
     "date": "2026-04-14",

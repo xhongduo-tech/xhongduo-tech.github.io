@@ -14968,7 +14968,7 @@
       "Neo4j"
     ],
     "brief": "Cypher 是 Neo4j 的声明式查询语言。基本语法：MATCH (n:Person)-[:KNOWS]->(m) RETURN n, m。节点和关系的 CRUD 操作。索引创建与查询优化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Neo4j 图算法：中心性与社区发现",
