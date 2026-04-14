@@ -1,5 +1,17 @@
 [
   {
+    "title": "大海捞针 (Needle In A Haystack) 测试",
+    "slug": "needle-haystack-retrieval",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "长文本"
+    ],
+    "summary": "大海捞针测试衡量长上下文检索能力，核心问题是长度增长与中段埋针导致准确率下滑。"
+  },
+  {
     "title": "低资源 NER：少样本学习与数据增强",
     "slug": "low-resource-ner",
     "date": "2026-04-14",
