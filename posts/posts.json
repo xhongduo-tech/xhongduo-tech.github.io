@@ -1,5 +1,17 @@
 [
   {
+    "title": "LePE (Locally Enhanced Position Encoding)",
+    "slug": "lepe-encoding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "LePE 用逐通道深度卷积给 Value 补局部位置信息，与全局注意力相加实现全局与局部兼顾"
+  },
+  {
     "title": "LogN-Attention",
     "slug": "logn-attention",
     "date": "2026-04-14",

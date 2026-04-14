@@ -16807,7 +16807,7 @@
       "位置编码"
     ],
     "brief": "结合局部卷积的位置编码方案：在 attention 输出后应用深度卷积，注入局部位置信息。用于 GLA（Gated Linear Attention）等架构，平衡全局与局部信息。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gated Linear Attention (GLA)",
