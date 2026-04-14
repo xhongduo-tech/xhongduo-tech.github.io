@@ -14635,7 +14635,7 @@
       "通用评测"
     ],
     "brief": "SuperGLUE 是 GLUE 的升级版，包含 8 个更难的任务。引入了 CB、COPA、MultiRC 等需要推理的任务，设计初衷是让人类表现成为上限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "XTREME-R 跨语言迁移评测",

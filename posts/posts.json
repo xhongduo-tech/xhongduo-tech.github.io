@@ -1,5 +1,17 @@
 [
   {
+    "title": "SuperGLUE 通用语言理解评测",
+    "slug": "superglue-language-understanding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "通用评测"
+    ],
+    "summary": "SuperGLUE 用 8 个高难任务衡量模型真实语言理解，重点暴露推理与共指短板。"
+  },
+  {
     "title": "CMRC 2018 中文机器阅读理解",
     "slug": "cmrc2018-chinese-reading-comprehension",
     "date": "2026-04-14",
