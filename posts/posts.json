@@ -1,5 +1,17 @@
 [
   {
+    "title": "Logit Lens：逐层解码观察模型推理过程",
+    "slug": "logit-lens-layer-decoding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "可解释性"
+    ],
+    "summary": "Logit Lens 用最终输出头提前解码中间层，适合观察信息如何逐层累积与修正，但不具备严格因果解释力。"
+  },
+  {
     "title": "Sparse Autoencoder：稀疏自编码器分解特征",
     "slug": "sparse-autoencoder-feature-decomposition",
     "date": "2026-04-14",

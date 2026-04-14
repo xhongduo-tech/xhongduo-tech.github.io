@@ -16321,7 +16321,7 @@
       "可解释性"
     ],
     "brief": "Logit Lens 把中间层 residual stream 提前投影回词表空间，从而观察模型在每一层“已经倾向输出什么”。它不是严格因果分析工具，但非常适合用来直观查看信息是如何逐层累积、修正和重排的。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Probing：探针分类器检测内部表征",
