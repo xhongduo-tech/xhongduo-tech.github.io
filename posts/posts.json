@@ -1,5 +1,18 @@
 [
   {
+    "title": "事件关系抽取：因果关系与时序关系",
+    "slug": "event-relation-extraction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "事件抽取",
+      "事件关系"
+    ],
+    "summary": "事件关系抽取要把因果与时序分开建模，再用文档级图与约束推理统一判断。"
+  },
+  {
     "title": "事件检测：从文本中识别事件触发词",
     "slug": "event-detection-trigger",
     "date": "2026-04-14",
