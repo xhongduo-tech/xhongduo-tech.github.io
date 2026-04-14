@@ -16708,7 +16708,7 @@
       "量化技术"
     ],
     "brief": "基于最优脑量化（OBQ）的快速训练后量化：按列量化权重，用 Hessian 矩阵逆更新未量化权重。4-bit 量化下保持接近原始模型的性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GGUF Format",

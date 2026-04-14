@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPTQ (Post-Training Quantization)",
+    "slug": "gptq-quantization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "量化技术"
+    ],
+    "summary": "GPTQ 用 Hessian 逆逐列补偿量化误差，让 4-bit 大模型逼近原始精度。"
+  },
+  {
     "title": "Contrastive Search",
     "slug": "contrastive-search",
     "date": "2026-04-14",
