@@ -14956,7 +14956,7 @@
       "补全"
     ],
     "brief": "预测缺失的三元组：(h, r, ?) 或 (?, r, t)。评估指标：(1) MRR 平均倒数排名；(2) Hits@K 前 K 命中率；(3) AUC-ROC。FB15k-237 是标准 benchmark，SOTA MRR 约 36%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Neo4j 图数据库：Cypher 查询语言入门",

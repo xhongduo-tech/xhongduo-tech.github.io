@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱补全：链接预测与三元组分类",
+    "slug": "knowledge-graph-completion",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "补全"
+    ],
+    "summary": "知识图谱补全用评分函数为三元组排序或判真伪，核心在 filtered 评估与指标理解。"
+  },
+  {
     "title": "多跳推理：路径查询与推理链",
     "slug": "multi-hop-reasoning-paths",
     "date": "2026-04-14",
