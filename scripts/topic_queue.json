@@ -15518,7 +15518,7 @@
       "数据标注"
     ],
     "brief": "LLM 作为标注器：Prompt 设计、Few-shot 示例、输出格式约束。LLM 标注与人工标注的一致性评估。LLM 标注的置信度与人工复核策略。成本分析：LLM API 成本 vs 人工标注成本。LLM 标注的偏见与局限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLM 合成数据生成",

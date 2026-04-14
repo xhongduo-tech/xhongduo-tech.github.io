@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLM 辅助自动标注",
+    "slug": "data-eng-llm-assisted-annotation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据标注"
+    ],
+    "summary": "LLM 自动标注的关键不是替代人工，而是结构化输出、置信度分流和人工闭环。"
+  },
+  {
     "title": "众包标注平台集成",
     "slug": "data-eng-crowdsourcing-platform-integration",
     "date": "2026-04-14",
