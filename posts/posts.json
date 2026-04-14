@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepInception：深度角色扮演的越狱攻击",
+    "slug": "deepinception-roleplay-jailbreak",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试"
+    ],
+    "summary": "DeepInception通过多层角色与剧情一致性，让模型在多轮上下文中发生身份漂移。"
+  },
+  {
     "title": "自动红队测试：自动化攻击样本生成",
     "slug": "auto-red-teaming-attack-generation",
     "date": "2026-04-14",

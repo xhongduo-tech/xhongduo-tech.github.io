@@ -16035,7 +16035,7 @@
       "红队测试"
     ],
     "brief": "DeepInception 通过多层嵌套的虚构世界、角色代理和故事上下文，把原本明显有害的请求包装进“剧情推演”中，诱导模型在弱安全边界下继续生成危险内容。它利用的不是简单关键词绕过，而是模型对角色扮演和上下文一致性的偏好。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PAIR：Prompt-level Adversarial 攻击迭代优化",
