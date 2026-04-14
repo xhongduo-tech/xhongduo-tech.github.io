@@ -1,5 +1,17 @@
 [
   {
+    "title": "MuTual 多轮对话推理评测",
+    "slug": "mutual-dialogue-reasoning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "对话能力"
+    ],
+    "summary": "MuTual 适合做检索式多轮对话 reranker 的离线回归评测，核心看 R@k 与 MRR。"
+  },
+  {
     "title": "IFEval 指令跟随评测",
     "slug": "ifeval-instruction-following",
     "date": "2026-04-14",
