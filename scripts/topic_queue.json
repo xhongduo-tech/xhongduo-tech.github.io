@@ -14788,7 +14788,7 @@
       "少样本"
     ],
     "brief": "新领域关系类型缺乏样本。方法：(1) MAML 元学习快速适应；(2) ProtoNet 原型网络；(3) Prompt-based RE，将关系抽取转为完形填空任务。FewRel 2.0 基准 5-way-1-shot 准确率 80.5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "事件检测：从文本中识别事件触发词",

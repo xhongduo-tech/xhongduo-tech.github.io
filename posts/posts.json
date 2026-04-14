@@ -1,5 +1,18 @@
 [
   {
+    "title": " Few-shot 关系抽取：元学习与提示学习",
+    "slug": "few-shot-relation-extraction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "关系抽取",
+      "少样本"
+    ],
+    "summary": "Few-shot关系抽取依靠prototype、元学习与prompt融合，在极少样本下快速适配新关系。"
+  },
+  {
     "title": "实体指代消解：识别文本中的共指关系",
     "slug": "coreference-resolution",
     "date": "2026-04-14",
