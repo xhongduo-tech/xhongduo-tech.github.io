@@ -1,5 +1,17 @@
 [
   {
+    "title": "MT-Bench：多轮对话能力评测",
+    "slug": "mt-bench-multiturn-evaluation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "安全评估"
+    ],
+    "summary": "MT-Bench用多轮题和LLM评委，专门测模型在连续对话中的记忆、切换与一致性。"
+  },
+  {
     "title": "SafetyBench：安全性评测基准分析",
     "slug": "safety-bench-evaluation",
     "date": "2026-04-14",
