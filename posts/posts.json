@@ -1,5 +1,17 @@
 [
   {
+    "title": "MMMU 多模态多领域大学级评测",
+    "slug": "mmmu-multimodal-university",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "多模态"
+    ],
+    "summary": "MMMU 用大学级图文混合题评估模型的专业多模态理解与推理能力。"
+  },
+  {
     "title": "Few-shot vs Zero-shot 评测方法论",
     "slug": "fewshot-zeroshot-methodology",
     "date": "2026-04-14",
