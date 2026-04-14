@@ -1,5 +1,17 @@
 [
   {
+    "title": "人工红队测试：流程设计与质量保障",
+    "slug": "human-red-teaming-process",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试"
+    ],
+    "summary": "人工红队的关键不是多测案例，而是把人的经验沉淀成可评分、可去重、可复测的流程。"
+  },
+  {
     "title": "TAP：Tree of Attacks with Pruning 攻击搜索",
     "slug": "tap-tree-attacks-pruning",
     "date": "2026-04-14",
