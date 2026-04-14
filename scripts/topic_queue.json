@@ -16464,7 +16464,7 @@
       "注意力机制"
     ],
     "brief": "MQA 与 MHA 的折中方案：将 query 头分成 g 组，每组共享一组 KV。当 g=1 时退化为 MQA，g=h 时为 MHA。LLaMA 2 70B 采用 g=8 的配置，在保持推理效率的同时减少质量损失。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Flash Attention 2",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Grouped Query Attention (GQA)",
+    "slug": "grouped-query-attention",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "GQA 通过让多组 Query 共享较少的 KV 头，在 MHA 与 MQA 之间取得推理效率和模型质量的折中。"
+  },
+  {
     "title": "多模态水印：图像与文本的联合溯源",
     "slug": "multimodal-watermarking-image-text",
     "date": "2026-04-14",
