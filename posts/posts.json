@@ -1,5 +1,17 @@
 [
   {
+    "title": "SynthID：Google 的神经网络水印技术",
+    "slug": "synthid-google-watermarking",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "水印技术"
+    ],
+    "summary": "SynthID 通过密钥驱动的 logits 微调，把隐蔽统计水印嵌入文本采样过程，并可离线检测。"
+  },
+  {
     "title": "隐 watermark vs 显 watermark：方案对比",
     "slug": "implicit-explicit-watermark-comparison",
     "date": "2026-04-14",

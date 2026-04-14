@@ -16409,7 +16409,7 @@
       "水印技术"
     ],
     "brief": "SynthID 将水印嵌入模型的 logits 调整中，使用两个神经网络（插入器和检测器）协同工作。兼顾隐蔽性和鲁棒性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "隐 watermark vs 显 watermark：方案对比",
