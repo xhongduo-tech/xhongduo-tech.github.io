@@ -16365,7 +16365,7 @@
       "可解释性"
     ],
     "brief": "超对齐研究如何用弱于目标模型的监督者来对齐超人类 AI。核心挑战是 supervisor 无法可靠评估 model 输出。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLM 水印技术：KGWatermark 原理与实践",

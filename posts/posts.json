@@ -1,5 +1,17 @@
 [
   {
+    "title": "Superalignment：超人类模型的对齐挑战",
+    "slug": "superalignment-challenges",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "可解释性"
+    ],
+    "summary": "Superalignment 的核心不是放大 RLHF，而是让强模型在弱监督下学会超越弱监督的盲点。"
+  },
+  {
     "title": "Activation Patching：激活修补定位关键组件",
     "slug": "activation-patching-localization",
     "date": "2026-04-14",
