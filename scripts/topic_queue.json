@@ -15004,7 +15004,7 @@
       "RDF/OWL"
     ],
     "brief": "RDF 三元组。RDFS 定义类和属性层次。OWL 增加更丰富的表达能力：等价类、逆属性、基数约束。OWL 2 EL/Q/RL 配置文件针对不同推理需求。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLM + KG 知识注入：预训练增强",
