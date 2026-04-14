@@ -1,5 +1,17 @@
 [
   {
+    "title": "DROP 离散推理评测",
+    "slug": "drop-discrete-reasoning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "推理能力"
+    ],
+    "summary": "DROP评测的是段落理解加离散推理，关键在官方EM/F1打分一致性与CI回归门禁。"
+  },
+  {
     "title": "Open LLM Leaderboard 排行榜解读",
     "slug": "open-llm-leaderboard",
     "date": "2026-04-14",
