@@ -15650,7 +15650,7 @@
       "预训练数据集"
     ],
     "brief": "Common Crawl 的数据格式：WARC/WAT/WET 文件。数据的获取方式：AWS S3/HTTP。处理流程：语言识别、内容提取、质量过滤、去重。CC 的数据质量问题与改进方案（如 CC-Net、CC-Stories）。处理大规模 CC 数据的分布式架构。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "The Pile 数据集分析",

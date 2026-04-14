@@ -1,5 +1,17 @@
 [
   {
+    "title": "Common Crawl 数据处理",
+    "slug": "data-eng-common-crawl-processing",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "Common Crawl 是网页原料仓库，核心在于选对入口并建立抽取、过滤、去重的分布式流水线"
+  },
+  {
     "title": "数据质量监控与告警",
     "slug": "data-eng-data-quality-monitoring",
     "date": "2026-04-14",
