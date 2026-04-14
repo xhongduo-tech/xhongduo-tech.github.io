@@ -14716,7 +14716,7 @@
       "细粒度"
     ],
     "brief": "Coarse-grained NER（PER/LOC/ORG）→ Fine-grained（演员/导演/运动员）。挑战：类别不平衡（长尾分布）、层次结构（人物→艺术家→演员）。方案：(1) 层次化分类；(2) 负采样平衡训练；(3) 类型约束解码。FIGER 数据集 112 类，Micro-F1 达 68.7%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "实体指代消解：识别文本中的共指关系",
