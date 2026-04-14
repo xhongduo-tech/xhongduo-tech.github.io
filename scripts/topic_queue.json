@@ -15859,7 +15859,7 @@
       "数据管线"
     ],
     "brief": "dbt 的核心概念：Model、Test、Macro、Docs。SQL 模块的化与复用。数据测试的自动化。增量模型的实现策略。dbt 与数据仓库（Snowflake/BigQuery）的集成。dbt 项目的 CI/CD 最佳实践。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SlimPajama 数据集分析",

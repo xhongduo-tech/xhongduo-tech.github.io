@@ -1,5 +1,17 @@
 [
   {
+    "title": "dbt 数据转换工程化",
+    "slug": "data-eng-dbt-transformation-engineering",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据管线"
+    ],
+    "summary": "dbt把SQL转换做成可依赖、可测试、可复用、可发布的数据工程项目"
+  },
+  {
     "title": "Feature Store 架构设计",
     "slug": "data-eng-feature-store-architecture",
     "date": "2026-04-14",
