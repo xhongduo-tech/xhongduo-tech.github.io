@@ -1,5 +1,17 @@
 [
   {
+    "title": "越狱攻击分类：语义攻击与语法攻击",
+    "slug": "jailbreak-attack-classification",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱防护"
+    ],
+    "summary": "越狱攻击可分语义与语法两类，真实场景常混合出现，防御必须做多层联防。"
+  },
+  {
     "title": "Adversarial Training：对抗训练增强鲁棒性",
     "slug": "adversarial-training-robustness",
     "date": "2026-04-14",
