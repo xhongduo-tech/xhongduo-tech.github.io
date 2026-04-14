@@ -15463,7 +15463,7 @@
       "数据标注"
     ],
     "brief": "主流众包平台对比：Amazon MTurk、Label Studio、Scale AI。标注任务的 API 集成：任务创建、结果拉取、状态同步。标注者质量控制：金标准题目、一致性检验。众包成本与质量的权衡策略。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "标注一致性评估",
@@ -15540,7 +15540,7 @@
       "合成数据"
     ],
     "brief": "Self-Instruct 的核心流程：种子任务 → 指令生成 → 响应生成 → 过滤。指令多样性的保证：温度调节、采样策略。响应质量的过滤：长度、格式、相关性。Self-Instruct 在 Alpaca/Vicuna 中的应用案例。迭代扩展与质量退化问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据增强技术综述",
