@@ -1,5 +1,17 @@
 [
   {
+    "title": "CSL 中文科学文献评测",
+    "slug": "csl-chinese-scientific-literature",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "中文NLP"
+    ],
+    "summary": "CSL 是面向中文科研任务的结构化数据集，适合关键词生成与学科分类基线构建。"
+  },
+  {
     "title": "SIQA 社会常识推理",
     "slug": "siqa-social-commonsense",
     "date": "2026-04-14",
