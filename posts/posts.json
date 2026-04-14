@@ -1,5 +1,17 @@
 [
   {
+    "title": "DVC 数据版本控制",
+    "slug": "data-eng-dvc-data-versioning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据管线"
+    ],
+    "summary": "DVC 用 Git 管元信息、用缓存和远端管真实数据与管线，实现可复现的数据工程协作"
+  },
+  {
     "title": "流式 ETL 管线实现",
     "slug": "data-eng-streaming-etl-pipeline",
     "date": "2026-04-14",
