@@ -1,5 +1,17 @@
 [
   {
+    "title": "QuALITY 长文本阅读理解",
+    "slug": "quality-long-text-comprehension",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "长文本"
+    ],
+    "summary": "QuALITY 用长文、强干扰选项和限时验证，专门检验模型是否真的理解全文。"
+  },
+  {
     "title": "MuTual 多轮对话推理评测",
     "slug": "mutual-dialogue-reasoning",
     "date": "2026-04-14",

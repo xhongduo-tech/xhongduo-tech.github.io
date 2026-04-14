@@ -14448,7 +14448,7 @@
       "长文本"
     ],
     "brief": "QuALITY 包含多篇文章（平均 1000+ tokens）和需要深度理解的问题。设计了干扰性问题，测试模型是否真正理解而非表面匹配。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Open LLM Leaderboard 排行榜解读",
