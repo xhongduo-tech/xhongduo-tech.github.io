@@ -16730,7 +16730,7 @@
       "内存优化"
     ],
     "brief": "训练时只保存部分层的激活值，其他层在反向传播时重新计算。以计算换内存，支持更大的 batch size 和模型规模。是分布式训练的标准技术。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FSDP (Fully Sharded Data Parallel)",

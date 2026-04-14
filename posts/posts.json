@@ -1,5 +1,17 @@
 [
   {
+    "title": "Activation Checkpointing",
+    "slug": "activation-checkpointing",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "内存优化"
+    ],
+    "summary": "Activation Checkpointing 通过重算中间激活，以额外算力换取显著显存释放。"
+  },
+  {
     "title": "KV Cache Optimization",
     "slug": "kv-cache-optimization",
     "date": "2026-04-14",
