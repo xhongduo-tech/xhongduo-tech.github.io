@@ -15100,7 +15100,7 @@
       "分布式"
     ],
     "brief": "知识图谱规模超 10 亿三元组需分布式方案。策略：(1) 水平切分；(2) 垂直切分（按关系）；(3) 图分区（minimizing edge cut）。Neo4j Fabric、JanusGraph 分布式方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识图谱增量更新：流式知识获取",

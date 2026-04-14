@@ -1,5 +1,18 @@
 [
   {
+    "title": "大规模知识图谱分布式存储",
+    "slug": "distributed-kg-storage",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库",
+      "分布式"
+    ],
+    "summary": "10亿级知识图谱要靠分区策略平衡负载与跨机通信，RF/LF是核心指标。"
+  },
+  {
     "title": "知识图谱时序建模：TKG 嵌入与预测",
     "slug": "temporal-kg-embedding",
     "date": "2026-04-14",
