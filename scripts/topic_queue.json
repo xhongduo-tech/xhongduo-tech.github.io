@@ -14470,7 +14470,7 @@
       "评测平台"
     ],
     "brief": "HELM（Holistic Evaluation of Language Models）从准确性、校准性、鲁棒性、公平性、偏差、毒性、效率等多维度评测模型。超越单一准确率指标。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DecodingTrust 大语言模型可信度评测",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "HELM 全面语言模型评测",
+    "slug": "helm-holistic-evaluation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "评测平台"
+    ],
+    "summary": "HELM 用多场景、多指标、多提示适配评估语言模型，核心价值是发现准确率之外的部署风险。"
+  },
+  {
     "title": "QuALITY 长文本阅读理解",
     "slug": "quality-long-text-comprehension",
     "date": "2026-04-14",
