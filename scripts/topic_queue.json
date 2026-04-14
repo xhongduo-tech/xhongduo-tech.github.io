@@ -15947,7 +15947,7 @@
       "对齐算法"
     ],
     "brief": "ReMax 使用期望回报最大化替代 PPO 的 clipped objective，通过 reward baseline 降低方差。理论上更接近标准 RL 目标。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Iterative DPO：迭代式直接偏好优化",

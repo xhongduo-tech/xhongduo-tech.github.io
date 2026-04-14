@@ -1,5 +1,17 @@
 [
   {
+    "title": "ReMax：Reward Maximization 的强化学习对齐",
+    "slug": "remax-reward-maximization-alignment",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "ReMax 用 greedy reward 做 baseline，直接优化期望回报，省去 value net，更贴合 …"
+  },
+  {
     "title": "Iterative DPO：迭代式直接偏好优化",
     "slug": "iterative-dpo-boosting",
     "date": "2026-04-14",
