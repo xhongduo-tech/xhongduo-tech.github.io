@@ -1,5 +1,17 @@
 [
   {
+    "title": "VQAv2 视觉问答基准",
+    "slug": "vqav2-visual-question-answering",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "多模态"
+    ],
+    "summary": "VQAv2 通过互补图像与共识评分，降低语言猜题收益，检验模型是否真正结合视觉与文本作答。"
+  },
+  {
     "title": "L-Eval 长上下文语言模型评测",
     "slug": "leval-long-context-evaluation",
     "date": "2026-04-13",

@@ -14019,7 +14019,7 @@
       "Transformer组件"
     ],
     "brief": "Query投影W_Q将输入x映射到查询空间。推导W_Q的维度选择(d_model × d_k)，分析初始化策略对注意力分布的影响，展示多头拆分的等效性证明。包含PyTorch实现与数值验证。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Key投影矩阵的设计考量",
@@ -14283,7 +14283,7 @@
       "长文本"
     ],
     "brief": "大海捞针测试在长上下文中插入一个随机事实，要求模型精确定位并回答。测试上下文长度与信息检索准确率的关系，揭示模型的中间位置注意力问题。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "VQAv2 视觉问答基准",
@@ -14294,7 +14294,7 @@
       "多模态"
     ],
     "brief": "VQAv2 包含 110 万个关于 COCO 图像的问题。通过平衡策略减少语言先验偏差，每个问题有 10 个可信答案。测试视觉理解与语言推理的结合。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "TextVQA 自然场景文本理解",
@@ -14305,7 +14305,7 @@
       "多模态"
     ],
     "brief": "TextVQA 包含 28408 个关于自然图像中可见文本的问题。要求模型识别场景文字（招牌、标签等）并推理回答。测试 OCR 能力与视觉语言推理的结合。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MMBench 多模态模型综合评测",
@@ -14316,7 +14316,7 @@
       "多模态"
     ],
     "brief": "MMBench 包含 3000+ 道选择题，覆盖 20 个能力维度。设计了 Circular 策略消除位置偏差，提供细粒度能力画像。支持中英双语评测。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "TruthfulQA 真实性评测",
@@ -14327,7 +14327,7 @@
       "安全性"
     ],
     "brief": "TruthfulQA 包含 817 个容易引发模型模仿人类误解的问题。测试模型是否会产生常见错误观念或虚假信息。采用对抗性设计，专门针对模型的幻觉问题。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Harmfulness Bench 安全性评测",
@@ -14338,7 +14338,7 @@
       "安全性"
     ],
     "brief": "Harmfulness Bench 包含多种潜在有害请求类型：非法活动、伤害他人、隐私侵犯等。测试模型拒绝不当请求的能力，评估安全对齐效果。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Few-shot vs Zero-shot 评测方法论",
@@ -14349,7 +14349,7 @@
       "评测方法"
     ],
     "brief": "Few-shot 提供示例帮助模型理解任务格式，Zero-shot 直接测试泛化能力。不同基准采用不同 shot 数量（MMLU 用 5-shot，GSM8K 用 8-shot），影响模型表现可比性。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Chain-of-Thought Prompting 对评测的影响",
@@ -14360,7 +14360,7 @@
       "评测方法"
     ],
     "brief": "CoT prompting 要求模型输出中间推理步骤。在 GSM8K、MATH、BBH 等推理任务上显著提升性能，但对知识类任务（MMLU）影响较小。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CMMLU 中文综合能力评测",
@@ -14371,7 +14371,7 @@
       "中文NLP"
     ],
     "brief": "CMMLU 覆盖 67 个学科的中文选择题。与 C-Eval 互补，更强调本土化知识和文化背景。包含中国特色科目（中医、中国历史等）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MMMU 多模态多领域大学级评测",
@@ -14382,7 +14382,7 @@
       "多模态"
     ],
     "brief": "MMMU 包含 11.5K 道大学级别多模态问题，覆盖 6 个学科 30 个子领域。题目包含图表、图像、示意图等，测试专业领域的多模态理解能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "IFEval 指令跟随评测",
@@ -14393,7 +14393,7 @@
       "指令跟随"
     ],
     "brief": "IFEval 包含 541 个带有精确约束的指令（字数限制、格式要求、关键词包含等）。采用可编程验证，避免 LLM-as-judge 的主观偏差。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MT-Bench 多轮对话评测",
@@ -14404,7 +14404,7 @@
       "对话能力"
     ],
     "brief": "MT-Bench 包含 8 类多轮对话任务，使用 GPT-4 作为评判。测试模型在连续对话中保持上下文、遵循指令、提供有帮助回答的能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AlpacaEval 指令遵循自动评测",
@@ -14415,7 +14415,7 @@
       "指令跟随"
     ],
     "brief": "AlpacaEval 使用 GPT-4 或 Claude 作为评判，比较模型输出与参考回答的胜率。提供低成本、可重复的指令遵循能力评估。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MuTual 多轮对话推理评测",
@@ -14426,7 +14426,7 @@
       "对话能力"
     ],
     "brief": "MuTual 多轮对话推理评测 要放进完整工程流程中讨论，写清输入输出、评测口径、回归风险与上线门槛，避免只停留在工具清单或经验口号。正文最好补齐自动化检查、核心指标和可回滚条件。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DROP 离散推理评测",
@@ -14437,7 +14437,7 @@
       "推理能力"
     ],
     "brief": "DROP 包含 96K 个需要离散推理（加、减、排序、计数）的问题。要求从段落中提取多个数值并进行操作，测试数值推理能力。正文最好补齐自动化检查、核心指标和可回滚条件。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "QuALITY 长文本阅读理解",
@@ -14448,7 +14448,7 @@
       "长文本"
     ],
     "brief": "QuALITY 包含多篇文章（平均 1000+ tokens）和需要深度理解的问题。设计了干扰性问题，测试模型是否真正理解而非表面匹配。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Open LLM Leaderboard 排行榜解读",
@@ -14459,7 +14459,7 @@
       "评测平台"
     ],
     "brief": "Hugging Face Open LLM Leaderboard 基于 6 个基准（ARC、HellaSwag、MMLU、Winogrande、GSM8K、TruthfulQA）对开源模型排名。是开源 LLM 的主要比较平台。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "HELM 全面语言模型评测",
@@ -14470,7 +14470,7 @@
       "评测平台"
     ],
     "brief": "HELM（Holistic Evaluation of Language Models）从准确性、校准性、鲁棒性、公平性、偏差、毒性、效率等多维度评测模型。超越单一准确率指标。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DecodingTrust 大语言模型可信度评测",
@@ -14481,7 +14481,7 @@
       "安全性"
     ],
     "brief": "DecodingTrust 从 8 个维度评测 LLM 可信度：毒性、刻板印象、对抗鲁棒性、OOD 鲁棒性、隐私、公平性、机器伦理、软件工程。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "API-Bank 工具调用能力评测",
@@ -14492,7 +14492,7 @@
       "工具使用"
     ],
     "brief": "API-Bank 包含 73 个工具和 568 个 API 调用场景。测试模型选择合适工具、组合多个 API、处理返回结果的能力。评估 LLM 作为 Agent 的工具使用能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "ToolBench 工具学习评测",
@@ -14503,7 +14503,7 @@
       "工具使用"
     ],
     "brief": "ToolBench 包含 16463 个真实 API 工具和指令。覆盖天气、金融、购物等多个领域，测试模型在开放工具集上的泛化和规划能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AgentBench 智能体能力评测",
@@ -14514,7 +14514,7 @@
       "智能体"
     ],
     "brief": "AgentBench 包含 8 个不同环境的智能体任务：多轮对话、网页浏览、游戏、操作系统、知识图谱等。测试 LLM 作为智能体的综合能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "C-Bugs 中文代码调试评测",
@@ -14525,7 +14525,7 @@
       "代码生成"
     ],
     "brief": "C-Bugs 包含中文描述的代码调试任务。模型需要理解中文问题描述、定位代码错误并修复。测试中文语境下的代码理解和调试能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Natural Questions 自然问答基准",
