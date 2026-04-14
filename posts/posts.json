@@ -1,5 +1,17 @@
 [
   {
+    "title": "多格式数据标准化",
+    "slug": "data-eng-multi-format-normalization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据清洗"
+    ],
+    "summary": "多格式数据标准化的核心是字段对齐、类型推断、时间单位编码统一。"
+  },
+  {
     "title": "Lookahead Decoding",
     "slug": "arch-lookahead-decoding-tree-verification",
     "date": "2026-04-14",
