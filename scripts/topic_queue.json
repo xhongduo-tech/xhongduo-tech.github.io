@@ -16873,7 +16873,7 @@
       "MoE优化"
     ],
     "brief": "MoE 训练中的辅助损失：鼓励 token 均匀分配到各专家。通常包含 expert importance 和 routing probability 两项，权重需仔细调优以避免过度均衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Capacity Factor",

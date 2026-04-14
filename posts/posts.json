@@ -1,5 +1,17 @@
 [
   {
+    "title": "Load Balancing Loss",
+    "slug": "load-balancing-loss",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE优化"
+    ],
+    "summary": "Load balancing loss 通过约束 MoE 路由负载分布，缓解专家崩塌，但系数过强会伤害主任务。"
+  },
+  {
     "title": "Base Layer (Groq)",
     "slug": "base-layer-groq",
     "date": "2026-04-14",
