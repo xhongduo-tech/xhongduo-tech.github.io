@@ -1,5 +1,17 @@
 [
   {
+    "title": "S4 (Structured State Space)",
+    "slug": "s4-structured-state-space",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "状态空间模型"
+    ],
+    "summary": "S4 用结构化状态空间把长序列建模改写成全局卷积与在线递推。"
+  },
+  {
     "title": "Mamba (Selective SSM)",
     "slug": "mamba-selective-ssm",
     "date": "2026-04-14",

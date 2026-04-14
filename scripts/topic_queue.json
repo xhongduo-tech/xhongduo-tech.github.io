@@ -16530,7 +16530,7 @@
       "状态空间模型"
     ],
     "brief": "通过对角结构化状态矩阵（HiPPO 初始化）解决长距离依赖问题。将连续系统的状态空间模型离散化后用于序列建模，实现 O(n·d²) 复杂度的全局感受野。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RWKV (Receptance Weighted Key Value)",
