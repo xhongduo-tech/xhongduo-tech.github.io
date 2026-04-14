@@ -15220,7 +15220,7 @@
       "预训练"
     ],
     "brief": "将 BERT 架构应用于 KG 任务。KG-BERT：三元组作为序列输入。PeterParser：生成式知识图谱补全。限制：计算成本、长尾实体处理。KG-BERT 在链接预测上 MRR 约 29%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识图谱评估基准：FB15k-237 与 WN18RR",

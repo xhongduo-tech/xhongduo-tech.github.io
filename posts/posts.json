@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱预训练模型：KG-BERT 与 PeterParser",
+    "slug": "kg-pretrained-models",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "LLM+KG",
+      "预训练"
+    ],
+    "summary": "KG-BERT把三元组改写成文本判真，适合文本丰富KG；PeterParser目前更像文档预处理工具。"
+  },
+  {
     "title": "网页渲染型数据的采集",
     "slug": "data-eng-javascript-rendering-crawling",
     "date": "2026-04-14",
