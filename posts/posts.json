@@ -1,5 +1,18 @@
 [
   {
+    "title": "LLM 辅助知识图谱构建：自动化抽取流水线",
+    "slug": "llm-kg-construction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "LLM+KG",
+      "构建"
+    ],
+    "summary": "LLM构图要靠schema与provenance约束，能回溯才可入库。"
+  },
+  {
     "title": "知识图谱问答：KBQA 技术解析",
     "slug": "kbqa-techniques",
     "date": "2026-04-14",
