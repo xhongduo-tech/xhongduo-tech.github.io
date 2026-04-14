@@ -1,5 +1,17 @@
 [
   {
+    "title": "KV Cache Optimization",
+    "slug": "kv-cache-optimization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "推理优化"
+    ],
+    "summary": "KV Cache 优化靠量化、分页与剪枝降低显存，占用随长度线性增长，INT8/INT4是最常见手段"
+  },
+  {
     "title": "GGUF Format",
     "slug": "gguf-format",
     "date": "2026-04-14",

@@ -16697,7 +16697,7 @@
       "推理优化"
     ],
     "brief": "缓存已计算的 Key 和 Value 避免重复计算，是自回归推理的核心优化。通过量化（INT8/INT4）、压缩（H2O）、剪枝等策略减少显存占用，支持更长上下文。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPTQ (Post-Training Quantization)",
