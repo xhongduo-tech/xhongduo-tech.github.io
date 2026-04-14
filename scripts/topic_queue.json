@@ -15342,7 +15342,7 @@
       "数据清洗"
     ],
     "brief": "常用清洗正则表达式：邮箱/URL/电话/身份证提取与脱敏。HTML 实体解码。特殊 Unicode 字符处理：零宽字符、控制字符。正则性能优化：预编译、避免回溯爆炸。规则库的组织与复用：配置文件驱动的规则管理。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MinHash LSH 近似去重原理",
@@ -15375,7 +15375,7 @@
       "数据去重"
     ],
     "brief": "Bloom Filter 原理：位数组、哈希函数、假阳性率计算。Scalable Bloom Filter 的动态扩容。Counting Bloom Filter 支持删除。Bloom Filter vs Cuckoo Filter 的对比。在大规模 URL 去重中的应用：内存效率与假阳性权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "文档级与段落级去重",
