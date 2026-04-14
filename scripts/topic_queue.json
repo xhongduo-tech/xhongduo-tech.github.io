@@ -16519,7 +16519,7 @@
       "状态空间模型"
     ],
     "brief": "在 S4 基础上引入选择性机制：让状态空间参数依赖于输入，实现内容感知的压缩。线性复杂度、常数级显存占用，在长序列任务上超越同等规模的 Transformer。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "S4 (Structured State Space)",

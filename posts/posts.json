@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba (Selective SSM)",
+    "slug": "mamba-selective-ssm",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "状态空间模型"
+    ],
+    "summary": "Mamba用输入驱动的状态更新替代固定SSM，实现内容感知的线性序列建模。"
+  },
+  {
     "title": "LongRoPE",
     "slug": "longrope",
     "date": "2026-04-14",
