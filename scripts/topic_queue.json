@@ -15903,7 +15903,7 @@
       "对齐算法"
     ],
     "brief": "KTO 基于前景理论的 Kahneman-Tversky 效应，只需求 pairwise 数据中的正向或负向反馈，无需成对偏好。适合收集成本低、标注噪声大的场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ORPO：Odds Ratio Preference Optimization 详解",

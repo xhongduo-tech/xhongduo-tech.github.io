@@ -1,5 +1,17 @@
 [
   {
+    "title": "KTO：Kahneman-Tversky Optimization 偏好建模",
+    "slug": "kto-kahneman-tversky-optimization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "KTO用单条好差反馈建模人类效用，适合稀疏、便宜且难配对的对齐数据场景"
+  },
+  {
     "title": "IPO：Identity Preference Optimization 原理解析",
     "slug": "ipo-identity-preference-optimization",
     "date": "2026-04-14",
