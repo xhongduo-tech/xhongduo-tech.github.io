@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码数据清洗流程",
+    "slug": "data-eng-code-data-cleaning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "代码数据清洗本质是六道可审计筛子：语言、许可、质量、去重、对齐、隐私。"
+  },
+  {
     "title": "FineWeb 数据集解析",
     "slug": "data-eng-fineweb-dataset-analysis",
     "date": "2026-04-14",

@@ -15705,7 +15705,7 @@
       "预训练数据集"
     ],
     "brief": "代码数据的来源：GitHub、StackOverflow、Kaggle。清洗流程：语言过滤、许可证过滤、质量过滤（lint、测试通过率）、去重。代码与文本的对齐数据提取。代码数据的隐私问题：密钥检测、PII 脱敏。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多语言数据采集与处理",
