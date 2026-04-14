@@ -14503,7 +14503,7 @@
       "工具使用"
     ],
     "brief": "ToolBench 包含 16463 个真实 API 工具和指令。覆盖天气、金融、购物等多个领域，测试模型在开放工具集上的泛化和规划能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AgentBench 智能体能力评测",

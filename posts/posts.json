@@ -1,5 +1,17 @@
 [
   {
+    "title": "ToolBench 工具学习评测",
+    "slug": "toolbench-tool-learning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "工具使用"
+    ],
+    "summary": "ToolBench用真实API与标准调用序列，量化评测模型的工具选择、参数结构与多步规划能力"
+  },
+  {
     "title": "DROP 离散推理评测",
     "slug": "drop-discrete-reasoning",
     "date": "2026-04-14",
