@@ -1,5 +1,18 @@
 [
   {
+    "title": "文档级事件抽取：跨句事件组装",
+    "slug": "document-level-event-extraction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "事件抽取",
+      "文档级"
+    ],
+    "summary": "文档级事件抽取的核心是跨句归并触发词、角色与共指链，最终填成统一事件表。"
+  },
+  {
     "title": "实体对齐：跨知识图谱的实体匹配",
     "slug": "entity-alignment-kgs",
     "date": "2026-04-14",
