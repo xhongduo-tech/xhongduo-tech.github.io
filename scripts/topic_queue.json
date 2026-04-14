@@ -15991,7 +15991,7 @@
       "对齐算法"
     ],
     "brief": "SPPO（Self-Play Preference Optimization）借鉴自博弈思想，让模型与自身历史版本或不同采样策略生成的回答相互比较，再从胜负关系中构造偏好训练信号。它的价值在于减少对人工偏好标注的依赖，同时通过历史对手池避免模型只在单一分布上自我强化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SimPO：Simple Preference Optimization 无需参考模型",

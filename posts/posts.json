@@ -1,5 +1,17 @@
 [
   {
+    "title": "SPPO：Self-Play Preference Optimization 自博弈对齐",
+    "slug": "sppo-self-play-preference-optimization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "SPPO用自博弈生成偏好信号，直接提高优质回答概率，较适合稀疏偏好和稳定对齐场景"
+  },
+  {
     "title": "SimPO：Simple Preference Optimization 无需参考模型",
     "slug": "simpo-simple-preference-optimization",
     "date": "2026-04-14",
