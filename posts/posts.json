@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱推理可解释性：路径推理可视化",
+    "slug": "kg-reasoning-interpretability",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "可解释性"
+    ],
+    "summary": "路径推理可解释性的关键，不是展示高权重，而是用反事实证明路径确实支撑结论"
+  },
+  {
     "title": "LLM 辅助知识图谱构建：自动化抽取流水线",
     "slug": "llm-kg-construction",
     "date": "2026-04-14",
