@@ -16332,7 +16332,7 @@
       "可解释性"
     ],
     "brief": "Probing 训练线性分类器从内部表征预测属性（如语法、事实），判断模型是否编码了特定信息。需控制探针复杂度避免过拟合。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sparse Autoencoder：稀疏自编码器分解特征",

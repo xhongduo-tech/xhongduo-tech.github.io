@@ -1,5 +1,29 @@
 [
   {
+    "title": "Probing：探针分类器检测内部表征",
+    "slug": "probing-classifier-representation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "可解释性"
+    ],
+    "summary": "Probing 用线性分类器检测表征中的可读信息，但只能说明可读性，不能直接证明因果使用。"
+  },
+  {
+    "title": "Activation Patching：激活修补定位关键组件",
+    "slug": "activation-patching-key-components",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "模型解析",
+      "机制解释"
+    ],
+    "summary": "Activation patching 通过替代干净激活并结合 tracing/scrubbing，定位关键子空间。"
+  },
+  {
     "title": "Mechanistic Interpretability：机械可解释性导论",
     "slug": "mechanistic-interpretability-intro",
     "date": "2026-04-14",
@@ -22,18 +46,6 @@
       "偏见与公平性"
     ],
     "summary": "StereoSet 用 LMS、SS、ICAT 同时衡量语境理解与刻板印象偏向。"
-  },
-  {
-    "title": "Activation Patching：激活修补定位关键组件",
-    "slug": "activation-patching-key-components",
-    "date": "2026-04-14",
-    "author": "both",
-    "tags": [
-      "智能体",
-      "模型解析",
-      "机制解释"
-    ],
-    "summary": "Activation patching 通过替代干净激活并结合 tracing/scrubbing，定位关键子空间。"
   },
   {
     "title": "公平性评测：Demographic Parity 与 Equalized Odds",
