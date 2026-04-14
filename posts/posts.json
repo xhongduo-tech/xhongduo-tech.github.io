@@ -1,5 +1,17 @@
 [
   {
+    "title": "Circuit Breakers：电路断路器防御机制",
+    "slug": "circuit-breakers-defense-mechanism",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱防护"
+    ],
+    "summary": "Circuit Breaker 在模型或代理运行时提前切断危险生成与动作链路，核心价值是快速止损，但必须配合回测、日志…"
+  },
+  {
     "title": "SafePrompt：安全提示模板增强防御",
     "slug": "safeprompt-defense-template",
     "date": "2026-04-14",
