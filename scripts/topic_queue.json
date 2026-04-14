@@ -14920,7 +14920,7 @@
       "GNN"
     ],
     "brief": "R-GCN：关系特定权重矩阵，消息传递 h_i = σ(Σ_r W_r h_j)。CompGCN：关系嵌入参与节点更新，参数更少更高效。CompGCN 在 FB15k-237 上 MRR 35.3%，比 R-GCN 高 2.1%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "规则推理：一阶逻辑规则挖掘",

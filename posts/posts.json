@@ -1,5 +1,18 @@
 [
   {
+    "title": "图神经网络知识推理：R-GCN 与 CompGCN",
+    "slug": "gnn-knowledge-reasoning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "GNN"
+    ],
+    "summary": "R-GCN按关系分矩阵，CompGCN把关系嵌入卷进消息，通常更省参数且推理更强"
+  },
+  {
     "title": "规则推理：一阶逻辑规则挖掘",
     "slug": "rule-based-knowledge-reasoning",
     "date": "2026-04-14",
