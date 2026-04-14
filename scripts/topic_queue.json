@@ -15353,7 +15353,7 @@
       "数据去重"
     ],
     "brief": "MinHash 签名生成：k-shingle 特征、哈希函数族、签名矩阵压缩。LSH（Locality Sensitive Hashing）分桶策略：桶数量与阈值的权衡。Jaccard 相似度估计与精确去重的对比。datasketch 库的使用与参数调优。近似去重的召回率/精确率权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SimHash 文档指纹去重",
