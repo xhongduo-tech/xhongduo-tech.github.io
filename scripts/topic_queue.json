@@ -16277,7 +16277,7 @@
       "偏见与公平性"
     ],
     "brief": "BBQ (Bias Benchmark for QA) 是评估 LLM 偏见的基准，通过 ambiguous context 测试模型对刻板印象的依赖。分析题目设计和评测方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "StereoSet：刻板印象检测基准",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "BBQ 偏见评测基准分析",
+    "slug": "bbq-bias-benchmark-analysis",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "偏见与公平性"
+    ],
+    "summary": "BBQ 用模糊与清晰上下文对照，测量模型在缺信息时是否用刻板印象作答。"
+  },
+  {
     "title": "去偏见技术",
     "slug": "debiasing-representation-surgery",
     "date": "2026-04-14",
