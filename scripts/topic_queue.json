@@ -16354,7 +16354,7 @@
       "可解释性"
     ],
     "brief": "Transformer Circuits 分析注意力头和 MLP 层如何协同实现复杂功能，如 induction head、copying head。揭示模型的算法实现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Superalignment：超人类模型的对齐挑战",

@@ -1,5 +1,29 @@
 [
   {
+    "title": "Transformer Circuits：注意力与 MLP 的功能解析",
+    "slug": "transformer-circuits-attention-mlp",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "可解释性"
+    ],
+    "summary": "Transformer circuits 可视为注意力定位重复模式、MLP 放大复制信号的协同电路。"
+  },
+  {
+    "title": "Activation Patching：激活修补定位关键组件",
+    "slug": "activation-patching-key-components",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "模型解析",
+      "机制解释"
+    ],
+    "summary": "Activation patching 通过替代干净激活并结合 tracing/scrubbing，定位关键子空间。"
+  },
+  {
     "title": "Logit Lens：逐层解码观察模型推理过程",
     "slug": "logit-lens-layer-decoding",
     "date": "2026-04-14",
