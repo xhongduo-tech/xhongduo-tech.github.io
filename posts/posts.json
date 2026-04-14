@@ -1,5 +1,17 @@
 [
   {
+    "title": "PAIR：Prompt-level Adversarial 攻击迭代优化",
+    "slug": "pair-prompt-adversarial-iteration",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试"
+    ],
+    "summary": "PAIR 是一种黑盒友好的反馈闭环搜索方法，核心价值在于把失败原因转成下一轮提示优化方向。"
+  },
+  {
     "title": "人工红队测试：流程设计与质量保障",
     "slug": "human-red-teaming-process",
     "date": "2026-04-14",

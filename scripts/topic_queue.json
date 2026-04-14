@@ -16046,7 +16046,7 @@
       "红队测试"
     ],
     "brief": "PAIR（Prompt Automatic Iterative Refinement）使用攻击者模型不断改写攻击提示，再由 judge 或目标模型反馈攻击成功度，形成自动化闭环优化流程。相比一次性手工越狱，它的强项在于能持续试探安全边界并针对目标模型做自适应搜索。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TAP：Tree of Attacks with Pruning 攻击搜索",
