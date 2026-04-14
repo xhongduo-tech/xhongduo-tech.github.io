@@ -15672,7 +15672,7 @@
       "预训练数据集"
     ],
     "brief": "RefinedWeb 的设计理念：严格的过滤与去重。处理流程：URL 去重 → 文档去重 → 段落去重 → 质量过滤。RefinedWeb vs The Pile 的对比。基于 RefinedWeb 的模型训练效果。RefinedWeb 的可复现性分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FineWeb 数据集解析",

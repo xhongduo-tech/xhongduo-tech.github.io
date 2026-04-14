@@ -1,5 +1,17 @@
 [
   {
+    "title": "RefinedWeb 数据集处理",
+    "slug": "data-eng-refinedweb-processing",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "RefinedWeb用多级过滤与去重，把普通网页原料变成可复现的高质量预训练语料。"
+  },
+  {
     "title": "Common Crawl 数据处理",
     "slug": "data-eng-common-crawl-processing",
     "date": "2026-04-14",
