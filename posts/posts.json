@@ -1,5 +1,17 @@
 [
   {
+    "title": "The Pile 数据集分析",
+    "slug": "data-eng-the-pile-dataset-analysis",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "The Pile 是按来源组织的大模型预训练语料，价值在多样性、可控加权与高质量子集，但也面临去重、成本与版权权衡。"
+  },
+  {
     "title": "DVC 数据版本控制",
     "slug": "data-eng-dvc-data-versioning",
     "date": "2026-04-14",

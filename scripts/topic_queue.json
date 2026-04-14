@@ -15661,7 +15661,7 @@
       "预训练数据集"
     ],
     "brief": "The Pile 的构成：22 个子集的来源与特点。高质量子集（PubMed、arXiv、GitHub）的价值。数据预处理流程：去重、过滤、分词。The Pile 的局限性与批评。后续数据集（Pile-CC、SlimPajama）的改进。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RefinedWeb 数据集处理",
