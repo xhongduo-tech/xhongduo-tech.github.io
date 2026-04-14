@@ -1,5 +1,17 @@
 [
   {
+    "title": "MMBench 多模态模型综合评测",
+    "slug": "mmbench-multimodal-benchmark",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "多模态"
+    ],
+    "summary": "MMBench 用双语细粒度题库加 CircularEval，更可靠地测出多模态模型真实能力短板"
+  },
+  {
     "title": "Query投影矩阵的数学推导与实现",
     "slug": "arch-transformer-query-projection-matrix",
     "date": "2026-04-14",
