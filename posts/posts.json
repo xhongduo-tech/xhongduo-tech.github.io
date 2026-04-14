@@ -1,5 +1,17 @@
 [
   {
+    "title": "Truthfulness 评测：真实性检测与幻觉评估",
+    "slug": "truthfulness-hallucination-evaluation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "安全评估"
+    ],
+    "summary": "Truthfulness 评测关注模型是否基于事实作答，可用 truth_score 作为高风险场景上线门槛。"
+  },
+  {
     "title": "Helpfulness 评测：有用性评估的权衡与指标",
     "slug": "helpfulness-evaluation-metrics",
     "date": "2026-04-14",

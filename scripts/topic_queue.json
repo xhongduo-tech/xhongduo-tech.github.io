@@ -16123,7 +16123,7 @@
       "安全评估"
     ],
     "brief": "Truthfulness 评估模型输出是否准确可靠，核心是幻觉检测。分析事实核查方法和评估基准如 TruthfulQA。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "HHH 评估框架：Helpful, Honest, Harmless 综合评测",
