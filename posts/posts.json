@@ -1,5 +1,17 @@
 [
   {
+    "title": "IFEval 指令跟随评测",
+    "slug": "ifeval-instruction-following",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "指令跟随"
+    ],
+    "summary": "IFEval 用可编程规则评估模型是否真正按约束输出，是指令跟随能力的硬指标。"
+  },
+  {
     "title": "AlpacaEval 指令遵循自动评测",
     "slug": "alpacaeval-instruction-following",
     "date": "2026-04-14",

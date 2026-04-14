@@ -14393,7 +14393,7 @@
       "指令跟随"
     ],
     "brief": "IFEval 包含 541 个带有精确约束的指令（字数限制、格式要求、关键词包含等）。采用可编程验证，避免 LLM-as-judge 的主观偏差。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MT-Bench 多轮对话评测",
@@ -14415,7 +14415,7 @@
       "指令跟随"
     ],
     "brief": "AlpacaEval 使用 GPT-4 或 Claude 作为评判，比较模型输出与参考回答的胜率。提供低成本、可重复的指令遵循能力评估。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "MuTual 多轮对话推理评测",
