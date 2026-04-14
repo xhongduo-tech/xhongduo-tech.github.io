@@ -16719,7 +16719,7 @@
       "模型格式"
     ],
     "brief": "llama.cpp 使用的模型格式：支持多种量化方案（Q4_0、Q5_1 等）、单文件打包、自描述元数据。使大模型能在消费级硬件上运行，是开源社区的主流格式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Activation Checkpointing",

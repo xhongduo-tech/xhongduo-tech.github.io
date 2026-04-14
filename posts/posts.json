@@ -1,5 +1,17 @@
 [
   {
+    "title": "GGUF Format",
+    "slug": "gguf-format",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "模型格式"
+    ],
+    "summary": "GGUF 用单文件打包模型、元数据与量化权重，是 llama.cpp 本地推理的核心格式。"
+  },
+  {
     "title": "GPTQ (Post-Training Quantization)",
     "slug": "gptq-quantization",
     "date": "2026-04-14",
