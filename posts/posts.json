@@ -1,5 +1,17 @@
 [
   {
+    "title": "XTREME-R 跨语言迁移评测",
+    "slug": "xtreme-cross-lingual-transfer",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "多语言"
+    ],
+    "summary": "XTREME-R 的核心价值不是总分，而是按任务与语言定位跨语言迁移风险。"
+  },
+  {
     "title": "FewCLUE 小样本学习评测",
     "slug": "fewclue-few-shot-learning",
     "date": "2026-04-14",
