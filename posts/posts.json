@@ -1,5 +1,17 @@
 [
   {
+    "title": "TruthfulQA 真实性评测",
+    "slug": "truthfulqa-hallucination",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "安全性"
+    ],
+    "summary": "TruthfulQA 用 817 道诱导题测模型是否会复读常见错误，是上线前检查幻觉风险的重要真实性基准。"
+  },
+  {
     "title": "MMBench 多模态模型综合评测",
     "slug": "mmbench-multimodal-benchmark",
     "date": "2026-04-14",

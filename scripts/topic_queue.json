@@ -14327,7 +14327,7 @@
       "安全性"
     ],
     "brief": "TruthfulQA 包含 817 个容易引发模型模仿人类误解的问题。测试模型是否会产生常见错误观念或虚假信息。采用对抗性设计，专门针对模型的幻觉问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Harmfulness Bench 安全性评测",
