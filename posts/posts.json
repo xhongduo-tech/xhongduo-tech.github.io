@@ -1,5 +1,17 @@
 [
   {
+    "title": "SafePrompt：安全提示模板增强防御",
+    "slug": "safeprompt-defense-template",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱防护"
+    ],
+    "summary": "SafePrompt 通过模型前置审查拦截提示注入，部署快但不能替代模型对齐与多层防御"
+  },
+  {
     "title": "SmoothLLM：平滑防御对抗性扰动",
     "slug": "smoothllm-perturbation-defense",
     "date": "2026-04-14",
