@@ -1,5 +1,17 @@
 [
   {
+    "title": "BEA-2019 语法错误纠正评测",
+    "slug": "bea2019-grammar-correction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "文本生成"
+    ],
+    "summary": "BEA-2019 用 ERRANT F0.5 评估 GEC，核心是统一自动化评测并抑制过度纠错"
+  },
+  {
     "title": "XTREME-R 跨语言迁移评测",
     "slug": "xtreme-cross-lingual-transfer",
     "date": "2026-04-14",
