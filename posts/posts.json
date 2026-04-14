@@ -1,5 +1,18 @@
 [
   {
+    "title": "低资源 NER：少样本学习与数据增强",
+    "slug": "low-resource-ner",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "实体识别",
+      "少样本学习"
+    ],
+    "summary": "低资源NER的可行路线是ProtoNet做few-shot判别，再用增强、伪标签与LLM生成补足样本覆盖。"
+  },
+  {
     "title": "正则表达式清洗规则库",
     "slug": "data-eng-regex-cleaning-rules",
     "date": "2026-04-14",

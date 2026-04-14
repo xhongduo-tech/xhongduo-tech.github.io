@@ -14704,7 +14704,7 @@
       "少样本学习"
     ],
     "brief": "领域 NER 常面临标注稀缺问题。解决方案：(1) ProtoNet 原型网络，每个类只需 5-10 样本；(2) Mixup 实体替换增强；(3) 远程监督生成伪标签；(4) LLM few-shot prompting 生成训练数据。Few-NERD 基准上 5-shot F1 达 52.3%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "细粒度实体识别：从 4 类到 100+ 类的挑战",
