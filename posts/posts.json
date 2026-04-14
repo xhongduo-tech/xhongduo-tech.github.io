@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱时序建模：TKG 嵌入与预测",
+    "slug": "temporal-kg-embedding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "时序"
+    ],
+    "summary": "时序知识图谱把时间纳入嵌入与评分，TTransE轻量，TA-DistMult更细，RE-NET适合多步预测"
+  },
+  {
     "title": "知识图谱多模态融合：图像与文本对齐",
     "slug": "multimodal-kg-fusion",
     "date": "2026-04-14",
