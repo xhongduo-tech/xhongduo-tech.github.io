@@ -14848,7 +14848,7 @@
       "实体对齐"
     ],
     "brief": "DBpedia 的「Michael Jordan」与 Wikidata 的对应实体。方法：(1) 属性相似度匹配；(2) 结构嵌入对齐（GCN-Align）；3) 多模态对齐（名称+属性+邻居）。DBP15K 数据集 Hits@1 达 91.3%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "本体匹配：跨本体概念对齐",
