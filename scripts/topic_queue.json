@@ -14884,7 +14884,7 @@
       "嵌入"
     ],
     "brief": "TransE 假设 h + r ≈ t，简单但无法建模 1-N/N-1 关系。变体：(1) TransH 投影到超平面；(2) TransR 关系特定空间；(3) TransD 动态投影。WN18RR 上 TransE MRR 22.6%，TransR 23.1%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RotatE：复数空间旋转模型",
