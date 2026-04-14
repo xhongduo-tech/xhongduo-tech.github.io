@@ -1,5 +1,17 @@
 [
   {
+    "title": "SmoothLLM：平滑防御对抗性扰动",
+    "slug": "smoothllm-perturbation-defense",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱防护"
+    ],
+    "summary": "SmoothLLM 用多次随机扰动加投票聚合，削弱格式敏感型越狱后缀的控制力。"
+  },
+  {
     "title": "SafeDecoding：安全解码策略防御越狱",
     "slug": "safedecoding-defense-strategy",
     "date": "2026-04-14",
