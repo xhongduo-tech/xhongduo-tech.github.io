@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixtral 8x7B",
+    "slug": "mixtral-8x7b",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE模型"
+    ],
+    "summary": "Mixtral 8x7B 用 8 专家中激活 2 个的 MoE 结构，在长上下文与多语高吞吐场景实现更高成本效率"
+  },
+  {
     "title": "Mamba-2 (SSD Theory)",
     "slug": "mamba-2-ssd",
     "date": "2026-04-14",

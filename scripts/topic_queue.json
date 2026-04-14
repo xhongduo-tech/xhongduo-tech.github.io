@@ -16607,7 +16607,7 @@
       "MoE模型"
     ],
     "brief": "Mistral AI 的开源 MoE 模型：8 个专家，每个 token 激活 2 个，实际参数量 47B，推理计算量相当于 14B。在多数基准上超越 LLaMA 2 70B，同时推理速度快 6 倍。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Grok-1 (314B MoE)",
