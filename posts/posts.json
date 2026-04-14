@@ -1,5 +1,17 @@
 [
   {
+    "title": "Parallel Decoding",
+    "slug": "parallel-decoding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "解码策略"
+    ],
+    "summary": "并行解码用少轮并行修正替代逐词生成，显著提速，但质量受条件独立假设限制。"
+  },
+  {
     "title": "Best-of-N Sampling",
     "slug": "best-of-n-sampling",
     "date": "2026-04-14",

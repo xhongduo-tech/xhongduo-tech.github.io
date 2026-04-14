@@ -16686,7 +16686,7 @@
       "解码策略"
     ],
     "brief": "非自回归生成：一次性输出完整序列，通过条件解耦或迭代精炼解决多模态问题。在机器翻译等场景实现 10 倍以上加速，但质量仍有差距。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "KV Cache Optimization",
