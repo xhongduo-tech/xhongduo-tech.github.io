@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据质量监控与告警",
+    "slug": "data-eng-data-quality-monitoring",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据管线"
+    ],
+    "summary": "用 SLA 约束新鲜度、完整性、一致性和分布偏移，才能把数据监控做成可追责的工程系统"
+  },
+  {
     "title": "The Pile 数据集分析",
     "slug": "data-eng-the-pile-dataset-analysis",
     "date": "2026-04-14",

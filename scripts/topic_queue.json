@@ -15639,7 +15639,7 @@
       "数据管线"
     ],
     "brief": "质量监控的指标设计：新鲜度、完整性、一致性、分布偏移。监控框架选型：Great Expectations、dbt tests、自研方案。告警策略：阈值选择、告警聚合、降噪。质量 SLA 的定义与追踪。数据停机时间（Downtime）监控。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Common Crawl 数据处理",
