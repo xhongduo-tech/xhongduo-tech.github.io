@@ -16255,7 +16255,7 @@
       "偏见与公平性"
     ],
     "brief": "Representation Surgery 试图直接在模型内部表示空间中识别与偏见相关的方向或子空间，再通过投影、消融或约束训练削弱这些成分。与数据增强相比，它更像从表征层动刀，目标是在尽量不破坏主任务能力的前提下降低偏见暴露。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "公平性评测：Demographic Parity 与 Equalized Odds",
