@@ -14459,7 +14459,7 @@
       "评测平台"
     ],
     "brief": "Hugging Face Open LLM Leaderboard 基于 6 个基准（ARC、HellaSwag、MMLU、Winogrande、GSM8K、TruthfulQA）对开源模型排名。是开源 LLM 的主要比较平台。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "HELM 全面语言模型评测",

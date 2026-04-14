@@ -1,5 +1,17 @@
 [
   {
+    "title": "Open LLM Leaderboard 排行榜解读",
+    "slug": "open-llm-leaderboard",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "评测平台"
+    ],
+    "summary": "Open LLM Leaderboard 适合统一比较开源模型，但不能替代面向业务的专项评测"
+  },
+  {
     "title": "HELM 全面语言模型评测",
     "slug": "helm-holistic-evaluation",
     "date": "2026-04-14",
