@@ -16552,7 +16552,7 @@
       "注意力变体"
     ],
     "brief": "提出 retention 机制替代 attention：使用指数衰减的加权求和实现并行训练、循环推理。支持三种推理模式（并行、循环、分块），在效率和性能上取得平衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Hyena Hierarchy",

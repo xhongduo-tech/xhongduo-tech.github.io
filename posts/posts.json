@@ -1,5 +1,17 @@
 [
   {
+    "title": "RetNet (Retentive Network)",
+    "slug": "retnet-architecture",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力变体"
+    ],
+    "summary": "RetNet用指数衰减的retention替代attention，实现并行训练与低缓存递归推理。"
+  },
+  {
     "title": "RWKV (Receptance Weighted Key Value)",
     "slug": "rwkv-architecture",
     "date": "2026-04-14",
