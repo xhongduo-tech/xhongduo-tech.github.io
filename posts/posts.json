@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据增强技术综述",
+    "slug": "data-eng-data-augmentation-techniques",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "合成数据"
+    ],
+    "summary": "文本数据增强的关键不在多生成，而在语义约束、质量过滤和自动策略选择。"
+  },
+  {
     "title": "ETL 数据管线设计",
     "slug": "data-eng-etl-pipeline-design",
     "date": "2026-04-14",
