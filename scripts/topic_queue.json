@@ -14932,7 +14932,7 @@
       "规则学习"
     ],
     "brief": "挖掘规则：grandparent(X,Z) ← parent(X,Y) ∧ parent(Y,Z)。方法：(1) AMIE+ 规则挖掘；(2) Neural LP 可微规则学习；(3) DRUM 神经规则模型。规则可解释性好，但覆盖率低。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多跳推理：路径查询与推理链",

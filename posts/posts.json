@@ -1,5 +1,18 @@
 [
   {
+    "title": "规则推理：一阶逻辑规则挖掘",
+    "slug": "rule-based-knowledge-reasoning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "规则学习"
+    ],
+    "summary": "规则推理把三元组归纳成 Horn 规则，解释性强，但覆盖率常低，工程上常与神经或嵌入方法混合使用。"
+  },
+  {
     "title": "ComplEx 与 HolE：复数与相关性嵌入",
     "slug": "complex-hole-embedding",
     "date": "2026-04-14",
