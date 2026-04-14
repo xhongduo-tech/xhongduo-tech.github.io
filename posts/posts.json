@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mechanistic Interpretability：机械可解释性导论",
+    "slug": "mechanistic-interpretability-intro",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "可解释性"
+    ],
+    "summary": "机械可解释性关注模型内部 feature 与 circuit，目标是重建可验证的因果计算链。"
+  },
+  {
     "title": "StereoSet：刻板印象检测基准",
     "slug": "stereoset-stereotype-detection",
     "date": "2026-04-14",

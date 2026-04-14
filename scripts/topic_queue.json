@@ -16299,7 +16299,7 @@
       "可解释性"
     ],
     "brief": "机械可解释性研究模型内部的计算机制，识别实现特定功能的 circuits（电路）。目标是理解模型如何推理而非仅看输入输出。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Activation Patching：激活修补定位关键组件",
