@@ -16266,7 +16266,7 @@
       "偏见与公平性"
     ],
     "brief": "公平性评测指标包括 Demographic Parity、Equalized Odds、Calibration 等，各有适用场景和局限。分析指标定义和权衡关系。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BBQ 偏见评测基准分析",

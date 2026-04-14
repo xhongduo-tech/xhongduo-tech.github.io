@@ -1,5 +1,17 @@
 [
   {
+    "title": "公平性评测：Demographic Parity 与 Equalized Odds",
+    "slug": "fairness-evaluation-metrics",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "偏见与公平性"
+    ],
+    "summary": "Demographic Parity管分配比例，Equalized Odds管错误率，Calibration管分数可信…"
+  },
+  {
     "title": "BBQ 偏见评测基准分析",
     "slug": "bbq-bias-benchmark-analysis",
     "date": "2026-04-14",
