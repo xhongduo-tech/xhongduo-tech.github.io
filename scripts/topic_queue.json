@@ -16508,7 +16508,7 @@
       "分布式训练"
     ],
     "brief": "专为长序列设计的并行策略：将序列维度切分到多个设备，结合 Ring Attention 实现跨设备注意力。支持百万级 token 的训练，是长上下文模型的关键技术。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mamba (Selective SSM)",

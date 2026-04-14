@@ -1,5 +1,17 @@
 [
   {
+    "title": "Context Parallelism",
+    "slug": "context-parallelism",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "分布式训练"
+    ],
+    "summary": "Context Parallelism通过切分序列并环形交换注意力张量，实现百万级长上下文的多卡扩展。"
+  },
+  {
     "title": "S4 (Structured State Space)",
     "slug": "s4-structured-state-space",
     "date": "2026-04-14",
