@@ -15683,7 +15683,7 @@
       "预训练数据集"
     ],
     "brief": "FineWeb 的设计目标：大规模、高质量、可复现。数据处理管线：URL 去重、MinHash 去重、质量分类、NSFW 过滤。FineWeb 的 token 规模与语言分布。FineWeb-Edu 的教育质量过滤。与其他数据集的性能对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "预训练数据的配比优化",

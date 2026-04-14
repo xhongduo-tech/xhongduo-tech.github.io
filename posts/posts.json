@@ -1,5 +1,17 @@
 [
   {
+    "title": "FineWeb 数据集解析",
+    "slug": "data-eng-fineweb-dataset-analysis",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "FineWeb把网页原料变成可复现预训练语料，FineWeb-Edu再筛出更适合知识学习的高质量子集"
+  },
+  {
     "title": "RefinedWeb 数据集处理",
     "slug": "data-eng-refinedweb-processing",
     "date": "2026-04-14",
