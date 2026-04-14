@@ -1,5 +1,17 @@
 [
   {
+    "title": "主动学习采样策略",
+    "slug": "data-eng-active-learning-sampling",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据标注"
+    ],
+    "summary": "主动学习通过不确定性、多样性和模型改变信号，在有限预算下优先标最有价值的数据。"
+  },
+  {
     "title": "标注者管理与培训",
     "slug": "data-eng-annotator-management-training",
     "date": "2026-04-14",
