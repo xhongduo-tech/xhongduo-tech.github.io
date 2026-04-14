@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱增量更新：流式知识获取",
+    "slug": "incremental-kg-update",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合",
+      "增量更新"
+    ],
+    "summary": "增量更新的关键不在只写得快，而在准确识别变化、稳定映射、可追溯回滚。"
+  },
+  {
     "title": "大规模知识图谱分布式存储",
     "slug": "distributed-kg-storage",
     "date": "2026-04-14",
