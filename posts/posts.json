@@ -1,5 +1,17 @@
 [
   {
+    "title": "TextVQA 自然场景文本理解",
+    "slug": "textvqa-scene-text",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "多模态"
+    ],
+    "summary": "TextVQA测试模型在自然场景中读字、看图并联合推理回答问题的能力。"
+  },
+  {
     "title": "VQAv2 视觉问答基准",
     "slug": "vqav2-visual-question-answering",
     "date": "2026-04-14",
