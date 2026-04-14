@@ -1,5 +1,17 @@
 [
   {
+    "title": "合成数据质量验证",
+    "slug": "data-eng-synthetic-data-validation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "合成数据"
+    ],
+    "summary": "合成数据验证必须同时检查分布、任务效果、真实性与治理可追溯性。"
+  },
+  {
     "title": "数据增强技术综述",
     "slug": "data-eng-data-augmentation-techniques",
     "date": "2026-04-14",
