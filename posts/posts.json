@@ -1,5 +1,17 @@
 [
   {
+    "title": "Best-of-N Sampling",
+    "slug": "best-of-n-sampling",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "解码策略"
+    ],
+    "summary": "Best-of-N是在推理阶段多采样多打分，再返回最高分候选的对齐基线。"
+  },
+  {
     "title": "合成指令数据的多样性控制",
     "slug": "data-eng-synthetic-instruction-diversity",
     "date": "2026-04-14",

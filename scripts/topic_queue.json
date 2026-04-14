@@ -16675,7 +16675,7 @@
       "解码策略"
     ],
     "brief": "生成 N 个候选输出，用奖励模型或 verifier 选择最优。简单但有效，在 RLHF 流程中作为 baseline。推理成本增加 N 倍，但质量显著提升。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Parallel Decoding",
