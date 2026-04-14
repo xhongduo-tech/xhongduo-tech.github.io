@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱多模态融合：图像与文本对齐",
+    "slug": "multimodal-kg-fusion",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合",
+      "多模态"
+    ],
+    "summary": "多模态知识图谱通过统一空间对齐图像、文本和结构，实现补全与跨模态检索。"
+  },
+  {
     "title": "知识图谱推理可解释性：路径推理可视化",
     "slug": "kg-reasoning-interpretability",
     "date": "2026-04-14",
