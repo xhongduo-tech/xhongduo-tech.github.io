@@ -16774,7 +16774,7 @@
       "位置编码"
     ],
     "brief": "用线性衰减的偏置替代位置编码：attention score 减去 m × |i-j|，其中 m 为每个头的斜率。支持训练长度的平滑外推，无需额外参数。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Relative Position Encoding",
@@ -16796,7 +16796,7 @@
       "注意力机制"
     ],
     "brief": "通过 log(N) 缩放注意力温度，使模型在更长序列上保持稳定的注意力分布。无需重新训练即可扩展上下文长度，是简单有效的长度外推技术。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LePE (Locally Enhanced Position Encoding)",

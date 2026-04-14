@@ -1,5 +1,17 @@
 [
   {
+    "title": "LogN-Attention",
+    "slug": "logn-attention",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "LogN-Attention 在推理时用 log(N) 放大注意力温度，低成本缓解长上下文注意力扩散。"
+  },
+  {
     "title": "ALiBi (Attention with Linear Biases)",
     "slug": "alibi-attention",
     "date": "2026-04-14",
