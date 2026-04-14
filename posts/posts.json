@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据血缘追踪系统",
+    "slug": "data-eng-data-lineage-system",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据管线"
+    ],
+    "summary": "数据血缘系统用静态解析加动态捕获构建依赖图，支撑溯源、影响分析与治理。"
+  },
+  {
     "title": "Airflow DAG 编排最佳实践",
     "slug": "data-eng-airflow-dag-best-practices",
     "date": "2026-04-14",
