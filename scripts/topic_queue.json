@@ -14415,7 +14415,7 @@
       "指令跟随"
     ],
     "brief": "AlpacaEval 使用 GPT-4 或 Claude 作为评判，比较模型输出与参考回答的胜率。提供低成本、可重复的指令遵循能力评估。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MuTual 多轮对话推理评测",

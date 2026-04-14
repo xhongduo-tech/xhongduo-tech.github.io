@@ -1,5 +1,17 @@
 [
   {
+    "title": "AlpacaEval 指令遵循自动评测",
+    "slug": "alpacaeval-instruction-following",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "指令跟随"
+    ],
+    "summary": "AlpacaEval用强模型做成对裁决，以胜率和长度控制胜率低成本评估指令遵循能力"
+  },
+  {
     "title": "MT-Bench 多轮对话评测",
     "slug": "mtbench-multi-turn-dialogue",
     "date": "2026-04-14",
