@@ -1,5 +1,17 @@
 [
   {
+    "title": "Base Layer (Groq)",
+    "slug": "base-layer-groq",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "推理架构"
+    ],
+    "summary": "Groq 通过静态调度和片上流水线换取极低且可预测的 token 级推理延迟。"
+  },
+  {
     "title": "DeltaNet",
     "slug": "deltanet-architecture",
     "date": "2026-04-14",
