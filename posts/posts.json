@@ -1,5 +1,17 @@
 [
   {
+    "title": "网页渲染型数据的采集",
+    "slug": "data-eng-javascript-rendering-crawling",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据采集"
+    ],
+    "summary": "JS 渲染型采集的核心是浏览器执行脚本后，再等待稳定并抓取最终 DOM。"
+  },
+  {
     "title": "API 数据源的集成模式",
     "slug": "data-eng-api-data-integration-patterns",
     "date": "2026-04-14",

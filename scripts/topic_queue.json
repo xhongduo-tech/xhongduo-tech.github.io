@@ -15265,7 +15265,7 @@
       "数据采集"
     ],
     "brief": "RESTful API 的数据拉取策略：分页处理、限流应对、错误重试与指数退避。GraphQL 批量查询优化。OAuth2.0 认证流程与 Token 刷新机制。API 响应的 Schema 推断与异构数据统一。Webhook 推送模式与轮询拉取模式的选择。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "网页渲染型数据的采集",
@@ -15276,7 +15276,7 @@
       "数据采集"
     ],
     "brief": "JavaScript 渲染页面采集方案对比：Headless Chrome（Puppeteer/Playwright）vs Selenium vs Requests-HTML。渲染等待策略：显式等待、隐式等待、网络空闲检测。反检测技术：WebDriver 标志隐藏、指纹伪装。渲染资源优化：图片/字体/广告拦截。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "爬虫请求调度与优先级队列",
