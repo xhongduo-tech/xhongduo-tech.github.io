@@ -14547,7 +14547,7 @@
       "问答系统"
     ],
     "brief": "TriviaQA 包含 95K 个问答对，答案需要从多个文档中检索。问题来源于 trivia 网站，测试事实知识检索和整合能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BoolQ 布尔问答评测",

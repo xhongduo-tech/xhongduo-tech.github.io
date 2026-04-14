@@ -1,5 +1,17 @@
 [
   {
+    "title": "TriviaQA 问答系统评测",
+    "slug": "triviaqa-question-answering",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "问答系统"
+    ],
+    "summary": "TriviaQA评测的是开放域问答系统的检索、融合与抽取协同能力。"
+  },
+  {
     "title": "BoolQ 布尔问答评测",
     "slug": "boolq-boolean-question-answering",
     "date": "2026-04-14",
