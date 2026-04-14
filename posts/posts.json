@@ -1,5 +1,18 @@
 [
   {
+    "title": "RotatE：复数空间旋转模型",
+    "slug": "rotate-complex-embedding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "嵌入"
+    ],
+    "summary": "RotatE把关系建模为复数空间旋转，靠旋转几何自然处理互逆、对称与组合关系。"
+  },
+  {
     "title": "知识融合去重：冲突检测与真值发现",
     "slug": "knowledge-fusion-deduplication",
     "date": "2026-04-14",
