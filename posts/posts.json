@@ -1,5 +1,17 @@
 [
   {
+    "title": "FSDP (Fully Sharded Data Parallel)",
+    "slug": "fsdp-sharding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "分布式训练"
+    ],
+    "summary": "FSDP 用全分片替代全量常驻，是大模型训练控制显存的原生标准方案"
+  },
+  {
     "title": "Activation Checkpointing",
     "slug": "activation-checkpointing",
     "date": "2026-04-14",
