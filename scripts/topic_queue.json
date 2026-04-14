@@ -15848,7 +15848,7 @@
       "数据管线"
     ],
     "brief": "Feature Store 的核心功能：特征定义、计算、存储、服务。在线特征服务：低延迟查询、特征新鲜度。离线特征存储：历史特征、点在时间正确性。Feast/Hopsworks 的架构对比。特征共享与复用的治理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "dbt 数据转换工程化",

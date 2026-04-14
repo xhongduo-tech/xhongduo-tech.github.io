@@ -1,5 +1,17 @@
 [
   {
+    "title": "Feature Store 架构设计",
+    "slug": "data-eng-feature-store-architecture",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据管线"
+    ],
+    "summary": "Feature Store 的本质是用统一时间语义与治理机制保证训练和推理特征一致。"
+  },
+  {
     "title": "预训练数据的配比优化",
     "slug": "data-eng-pretraining-data-mixing",
     "date": "2026-04-14",
