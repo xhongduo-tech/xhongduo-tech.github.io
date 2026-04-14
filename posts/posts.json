@@ -1,5 +1,18 @@
 [
   {
+    "title": "多跳推理：路径查询与推理链",
+    "slug": "multi-hop-reasoning-paths",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "多跳推理"
+    ],
+    "summary": "多跳推理是在知识图谱上沿关系链逐步搜索答案，核心在控搜索、稳奖励、保组合性"
+  },
+  {
     "title": "图神经网络知识推理：R-GCN 与 CompGCN",
     "slug": "gnn-knowledge-reasoning",
     "date": "2026-04-14",
