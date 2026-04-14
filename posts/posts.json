@@ -1,5 +1,17 @@
 [
   {
+    "title": "Iterative DPO：迭代式直接偏好优化",
+    "slug": "iterative-dpo-boosting",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "Iterative DPO把DPO放进多轮采样标注训练闭环，持续扩展偏好数据并修复当前模型弱点。"
+  },
+  {
     "title": "RRHF：Rank Responses to Align 模型对齐",
     "slug": "rrhf-rank-responses-align",
     "date": "2026-04-14",

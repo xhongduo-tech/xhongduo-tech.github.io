@@ -15958,7 +15958,7 @@
       "对齐算法"
     ],
     "brief": "Iterative DPO 通过多轮采样-标注-训练迭代提升模型。每轮使用当前模型生成新样本，扩展偏好数据集，类似 boosting 思想。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Nash Learning：纳什均衡视角的对齐方法",
