@@ -1,5 +1,17 @@
 [
   {
+    "title": "水印检测：统计检验与误报控制",
+    "slug": "watermark-detection-statistical-test",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "水印技术"
+    ],
+    "summary": "文本水印检测本质是统计检验，关键是固定误报率下衡量整段 token 分布偏移。"
+  },
+  {
     "title": "LLM 水印技术：KGWatermark 原理与实践",
     "slug": "llm-watermark-kgtwatermark",
     "date": "2026-04-14",
