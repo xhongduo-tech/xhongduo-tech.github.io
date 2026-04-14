@@ -16642,7 +16642,7 @@
       "推理优化"
     ],
     "brief": "Lookahead decoding 通过构建候选树并批量验证，降低自回归解码的串行瓶颈。分析候选分支宽度、验证批次大小与显存占用的平衡，避免验证成本吞噬收益。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Beam Search",
@@ -16917,7 +16917,7 @@
       "稀疏计算"
     ],
     "brief": "利用激活值的上下文稀疏性：预测哪些神经元是活跃的，只计算这些神经元。在保持质量的同时实现 80% 以上的稀疏度，显著加速推理。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "PowerInfer (CPU-GPU Hybrid)",
@@ -16928,7 +16928,7 @@
       "推理优化"
     ],
     "brief": "利用激活稀疏性的 CPU-GPU 混合推理：稀疏神经元在 CPU 计算，稠密神经元在 GPU。在消费级硬件上实现接近服务器级的推理速度。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Multi-Token Prediction",
@@ -16939,7 +16939,7 @@
       "训练目标"
     ],
     "brief": "同时预测多个未来 token：在共享 backbone 上添加多个预测头，分别预测 t+1, t+2, ..., t+n。提升模型的前瞻能力，加速推理时的 speculative decoding。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Fill-in-the-Middle (FIM)",
@@ -16950,7 +16950,7 @@
       "训练目标"
     ],
     "brief": "为代码生成设计的训练目标：给定前缀和后缀，预测中间内容。使模型具备双向上下文理解能力，是 CodeLlama、DeepSeek-Coder 的关键技术。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Ulv2 (Unidirectional Language Model)",
@@ -16961,7 +16961,7 @@
       "训练目标"
     ],
     "brief": "统一多种预训练目标：将 span corruption、prefix LM、因果 LM 统一为同一框架。通过 mode token 指定目标类型，单一模型支持多种能力。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Dense Connection (DenseNet)",
@@ -16972,7 +16972,7 @@
       "连接模式"
     ],
     "brief": "每层与所有前层直接连接：concat 所有前置层的输出作为输入。缓解梯度消失，鼓励特征复用。在视觉任务上成功，但在 NLP 中应用有限。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Pre-Norm vs Post-Norm",
@@ -16985,7 +16985,7 @@
       "Transformer"
     ],
     "brief": "LayerNorm 放在 attention/FFN 前还是后：Pre-norm 训练更稳定，梯度流动更顺畅，是现代 LLM 的标准选择。Post-norm 原始 Transformer 设计，需要 warmup。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Sandwich Norm",
@@ -16996,7 +16996,7 @@
       "归一化位置"
     ],
     "brief": "在子层前后都应用 LayerNorm：Norm → Attention → Norm → Residual。在某些架构（如 RetNet）中使用，提供更强的训练稳定性。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeepNorm",
@@ -17010,7 +17010,7 @@
       "深层网络"
     ],
     "brief": "DeepNorm 要写清核心更新公式、关键超参数和稳定性信号，比较不同配置对收敛速度、最终指标、显存与吞吐的影响，并说明何时会出现发散或退化。正文最好补齐训练曲线、关键超参数和异常信号，说明如何定位训练失败。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "QK-Norm",
@@ -17021,7 +17021,7 @@
       "归一化策略"
     ],
     "brief": "对 Query 和 Key 分别进行归一化：在 attention 前对 Q 和 K 应用 LayerNorm 或 RMSNorm。解决大模型训练中的 attention score 爆炸问题，提升训练稳定性。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "SwiGLU Activation",
@@ -17032,7 +17032,7 @@
       "激活函数"
     ],
     "brief": "Swish + GLU 的组合激活：Swish(xW₁) ⊙ (xW₂)，其中 ⊙ 为逐元素乘。相比 ReLU/GELU 在 FFN 中表现更好，是 LLaMA、PaLM 的标准选择。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GeGLU Activation",
@@ -17043,7 +17043,7 @@
       "激活函数"
     ],
     "brief": "GELU + GLU 的组合激活：GELU(xW₁) ⊙ (xW₂)。在 T5、Flan-PaLM 中使用，相比标准 FFN 提升性能，代价是参数量增加 50%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Squared ReLU",
@@ -17054,7 +17054,7 @@
       "激活函数"
     ],
     "brief": "ReLU² 激活函数：(max(0, x))²，用于 Primer 架构。相比 ReLU 增加非线性，在高效 Transformer 变体中表现良好。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Parallel Attention-FFN",
@@ -17065,7 +17065,7 @@
       "层结构"
     ],
     "brief": "将 Attention 和 FFN 并行执行而非串行：output = x + Attention(x) + FFN(x)。减少层深度，在相同计算量下支持更多参数。被 PaLM、Grokd 等采用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Depth-Down Architecture",
@@ -17076,7 +17076,7 @@
       "层结构"
     ],
     "brief": "Depth-Down Architecture 需要从形式化定义、关键公式与可证明性质三层讲清，说明它如何影响模型表达能力、误差界或信息流，并比较相近方法在假设条件和适用范围上的差异。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Layer Scaling",
@@ -17087,7 +17087,7 @@
       "初始化策略"
     ],
     "brief": "按层深缩放初始化方差或残差权重：深层使用更小的方差或残差系数。缓解深层网络的训练不稳定，支持 100+ 层 Transformer。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Tie Word Embeddings",
@@ -17098,7 +17098,7 @@
       "参数共享"
     ],
     "brief": "共享输入 embedding 和输出 projection：减少参数量，尤其在词表大时显著。ALBERT、GPT-2 等采用此技术，但可能影响模型容量。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ALBERT Factorization",
@@ -17120,7 +17120,7 @@
       "参数共享"
     ],
     "brief": "跨层共享参数：多个层使用相同的权重。ALBERT 中每隔 N 层共享一次，大幅减少参数但增加计算（需要更多前向传播）。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Universal Transformer",
@@ -17131,7 +17131,7 @@
       "自适应计算"
     ],
     "brief": "循环执行同一组 Transformer 层：通过 halting mechanism 动态决定循环次数。自适应计算，简单样本少循环、复杂样本多循环。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Dynamic Depth",

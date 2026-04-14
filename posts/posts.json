@@ -1,5 +1,19 @@
 [
   {
+    "title": "Lookahead Decoding",
+    "slug": "arch-lookahead-decoding-tree-verification",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "解码优化",
+      "解码架构",
+      "推理优化"
+    ],
+    "summary": "Lookahead Decoding 用候选树加批量验证减少串行解码步数，关键是平衡 W、N、G 与显存成本。"
+  },
+  {
     "title": "Medusa (Multi-head Decoding)",
     "slug": "medusa-multi-head-decoding",
     "date": "2026-04-14",
