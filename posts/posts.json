@@ -1,5 +1,17 @@
 [
   {
+    "title": "水印评估基准：WOMD 与 Mark My Words 分析",
+    "slug": "watermark-benchmarks-evaluation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "水印技术"
+    ],
+    "summary": "水印基准要同时评估检测性、质量影响与鲁棒性，Mark My Words 与 UWBench 分别覆盖部署与无偏性问题"
+  },
+  {
     "title": "Grouped Query Attention (GQA)",
     "slug": "grouped-query-attention",
     "date": "2026-04-14",

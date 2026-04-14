@@ -16442,7 +16442,7 @@
       "水印技术"
     ],
     "brief": "水印评估需权衡 detectability、quality-impact、robustness 三个维度。分析 WOMD、Mark My Words 等基准的评测方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Linear Attention",
