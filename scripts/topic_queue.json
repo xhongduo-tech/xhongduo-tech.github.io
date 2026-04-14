@@ -14404,7 +14404,7 @@
       "对话能力"
     ],
     "brief": "MT-Bench 包含 8 类多轮对话任务，使用 GPT-4 作为评判。测试模型在连续对话中保持上下文、遵循指令、提供有帮助回答的能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AlpacaEval 指令遵循自动评测",

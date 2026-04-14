@@ -1,5 +1,17 @@
 [
   {
+    "title": "MT-Bench 多轮对话评测",
+    "slug": "mtbench-multi-turn-dialogue",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "对话能力"
+    ],
+    "summary": "MT-Bench用GPT-4评审多轮对话，核心价值是测上下文连续性与稳定性。"
+  },
+  {
     "title": "MMMU 多模态多领域大学级评测",
     "slug": "mmmu-multimodal-university",
     "date": "2026-04-14",
