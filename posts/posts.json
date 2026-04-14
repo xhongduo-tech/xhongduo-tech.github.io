@@ -1,5 +1,17 @@
 [
   {
+    "title": "Adversarial Training：对抗训练增强鲁棒性",
+    "slug": "adversarial-training-robustness",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱防护"
+    ],
+    "summary": "对抗训练通过最坏样本驱动学习鲁棒性，关键难点是防止只记住已知攻击模板。"
+  },
+  {
     "title": "越狱防御：输入过滤与输出检测策略",
     "slug": "jailbreak-defense-input-output-filtering",
     "date": "2026-04-14",
