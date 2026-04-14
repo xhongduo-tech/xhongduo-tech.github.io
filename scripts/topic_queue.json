@@ -15936,7 +15936,7 @@
       "对齐算法"
     ],
     "brief": "RAFT 结合 rejection sampling 和 fine-tuning，使用 reward model 筛选高质量样本进行迭代训练。适合资源受限场景的轻量对齐方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ReMax：Reward Maximization 的强化学习对齐",

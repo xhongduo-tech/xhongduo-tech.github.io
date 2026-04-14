@@ -1,5 +1,17 @@
 [
   {
+    "title": "RAFT：Reward-ranked Fine-tuning 原理与实践",
+    "slug": "raft-reward-ranked-finetuning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "RAFT 用奖励排序筛出 top-1 样本，再以普通微调完成轻量对齐。"
+  },
+  {
     "title": "ORPO：Odds Ratio Preference Optimization 详解",
     "slug": "orpo-odds-ratio-preference-optimization",
     "date": "2026-04-14",
