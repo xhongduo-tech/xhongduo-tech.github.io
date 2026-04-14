@@ -1,5 +1,17 @@
 [
   {
+    "title": "Beam Search",
+    "slug": "beam-search",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "解码策略"
+    ],
+    "summary": "Beam Search 通过每步保留 top-k 候选，在质量与计算成本之间做近似最优折中。"
+  },
+  {
     "title": "NSFW 与有害内容过滤",
     "slug": "data-eng-nsfw-content-filtering",
     "date": "2026-04-14",

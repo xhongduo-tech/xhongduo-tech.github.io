@@ -16653,7 +16653,7 @@
       "解码策略"
     ],
     "brief": "维护 beam size 个最优候选序列，每步扩展并保留 top-k。相比贪心解码能找到更优解，但计算量增加 beam 倍。常用于机器翻译等需要高质量输出的场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Contrastive Search",
