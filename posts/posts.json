@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱子图匹配：模式查询优化",
+    "slug": "subgraph-matching-optimization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库",
+      "子图匹配"
+    ],
+    "summary": "子图匹配优化的本质是缩小候选、尽早剪枝，并复用已知失败状态。"
+  },
+  {
     "title": "知识图谱增量更新：流式知识获取",
     "slug": "incremental-kg-update",
     "date": "2026-04-14",
