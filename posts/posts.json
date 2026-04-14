@@ -1,5 +1,17 @@
 [
   {
+    "title": "合成指令数据的多样性控制",
+    "slug": "data-eng-synthetic-instruction-diversity",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "合成数据"
+    ],
+    "summary": "合成指令多样性应在语义、词法和任务分布三维度闭环控制，并与质量过滤联动。"
+  },
+  {
     "title": "Beam Search",
     "slug": "beam-search",
     "date": "2026-04-14",
