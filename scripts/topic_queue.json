@@ -16310,7 +16310,7 @@
       "可解释性"
     ],
     "brief": "Activation Patching 通过替换特定层的激活，定位对输出有关键影响的组件。分为 causal tracing 和 causal scrubbing 方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Logit Lens：逐层解码观察模型推理过程",

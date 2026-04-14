@@ -1,5 +1,17 @@
 [
   {
+    "title": "Activation Patching：激活修补定位关键组件",
+    "slug": "activation-patching-localization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "可解释性"
+    ],
+    "summary": "Activation Patching 通过替换中间激活，定位真正影响模型输出的关键组件。"
+  },
+  {
     "title": "Transformer Circuits：注意力与 MLP 的功能解析",
     "slug": "transformer-circuits-attention-mlp",
     "date": "2026-04-14",
