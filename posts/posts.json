@@ -1,5 +1,17 @@
 [
   {
+    "title": "Linear Attention",
+    "slug": "linear-attention",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制"
+    ],
+    "summary": "线性注意力用核化重排避免显式注意力矩阵，将长序列成本从平方级降到线性级。"
+  },
+  {
     "title": "SynthID：Google 的神经网络水印技术",
     "slug": "synthid-google-watermarking",
     "date": "2026-04-14",

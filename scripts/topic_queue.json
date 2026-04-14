@@ -16453,7 +16453,7 @@
       "注意力机制"
     ],
     "brief": "通过 kernel 化将 softmax(QK^T)V 分解为 Q(K^TV)，将复杂度从 O(n²) 降至 O(n·d²)。Performer、Linear Transformer 等方案使用随机特征近似 softmax kernel，在保持线性复杂度的同时逼近标准注意力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Grouped Query Attention (GQA)",
