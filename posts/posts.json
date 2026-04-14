@@ -1,5 +1,18 @@
 [
   {
+    "title": "医疗知识图谱：疾病诊断与药物推理",
+    "slug": "medical-kg-diagnosis",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "应用",
+      "医疗"
+    ],
+    "summary": "医疗知识图谱把症状、疾病、检查、药物连成可推理网络，用于诊断辅助与用药安全审查。"
+  },
+  {
     "title": "知识图谱嵌入降维：可视化与解释",
     "slug": "kg-embedding-visualization",
     "date": "2026-04-14",
