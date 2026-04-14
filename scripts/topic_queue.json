@@ -15243,7 +15243,7 @@
       "数据采集"
     ],
     "brief": "Scrapy-Redis 分布式爬虫的架构设计：请求队列的 Redis 共享、去重集合的 Bloom Filter 实现、爬虫节点的负载均衡与故障恢复。URL 调度策略：广度优先、深度优先、优先级队列。反爬策略：代理池轮换、请求速率限制、User-Agent 池、Cookie 管理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "增量数据采集策略",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "分布式爬虫架构设计",
+    "slug": "data-eng-distributed-crawler-architecture",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据采集"
+    ],
+    "summary": "分布式爬虫的核心是共享队列、全局去重、可控调度与反爬协同。"
+  },
+  {
     "title": "知识图谱与因果推理：反事实与干预",
     "slug": "causal-kg-reasoning",
     "date": "2026-04-14",
