@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPTFuzzer：基于模糊测试的越狱攻击框架",
+    "slug": "gptfuzzer-jailbreak-fuzzing",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试"
+    ],
+    "summary": "GPTFuzzer用种子变异与自动评估闭环，高效发现LLM黑盒越狱漏洞。"
+  },
+  {
     "title": "SPPO：Self-Play Preference Optimization 自博弈对齐",
     "slug": "sppo-self-play-preference-optimization",
     "date": "2026-04-14",

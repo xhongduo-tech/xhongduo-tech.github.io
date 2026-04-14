@@ -16024,7 +16024,7 @@
       "红队测试"
     ],
     "brief": "GPTFuzzer 将软件模糊测试思想引入 LLM 安全测试，通过 seed mutation 生成大量变体攻击，自动发现越狱漏洞。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepInception：深度角色扮演的越狱攻击",
