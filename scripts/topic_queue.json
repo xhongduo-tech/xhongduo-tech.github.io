@@ -15208,7 +15208,7 @@
       "因果推理"
     ],
     "brief": "传统 KG 是相关性建模，因果推理增加干预和反事实。方法：(1) 因果图构建；(2) do-calculus 查询；(3) 反事实解释生成。应用：决策支持、公平性分析。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识图谱预训练模型：KG-BERT 与 PeterParser",
