@@ -1,5 +1,17 @@
 [
   {
+    "title": "文本质量分类器训练",
+    "slug": "data-eng-text-quality-classifier",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据质量"
+    ],
+    "summary": "用 fastText 训练文本质量分类器，关键在样本构造、分数校准和按语言设阈值。"
+  },
+  {
     "title": "数据质量评分模型",
     "slug": "data-eng-data-quality-scoring",
     "date": "2026-04-14",
