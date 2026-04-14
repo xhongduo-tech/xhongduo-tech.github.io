@@ -1,5 +1,17 @@
 [
   {
+    "title": "PIQA 物理常识推理",
+    "slug": "piqa-physical-commonsense",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "常识推理"
+    ],
+    "summary": "PIQA用二选一物理常识题评估模型是否真正理解现实中的可行操作。"
+  },
+  {
     "title": "CSL 中文科学文献评测",
     "slug": "csl-chinese-scientific-literature",
     "date": "2026-04-14",

@@ -14580,7 +14580,7 @@
       "常识推理"
     ],
     "brief": "PIQA（Physical Interaction QA）包含 16113 个关于物理交互的是非问题。测试对日常物理现象（如物体如何移动、如何操作工具）的常识理解。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SIQA 社会常识推理",
