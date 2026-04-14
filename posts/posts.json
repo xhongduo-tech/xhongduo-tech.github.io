@@ -1,5 +1,18 @@
 [
   {
+    "title": "事件角色标注：识别事件的论元",
+    "slug": "event-argument-role-labeling",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "事件抽取",
+      "角色标注"
+    ],
+    "summary": "事件角色标注是围绕触发词给事件填槽，把文本转成Agent、Victim、Place等结构化论元。"
+  },
+  {
     "title": "联合抽取：实体和关系同时识别",
     "slug": "joint-entity-relation-extraction",
     "date": "2026-04-14",

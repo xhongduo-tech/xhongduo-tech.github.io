@@ -14812,7 +14812,7 @@
       "角色标注"
     ],
     "brief": "「张三在北京抢劫了李四」→ 抢劫事件：Agent=张三, Place=北京, Victim=李四。方法：(1) 角色问答模型；(2) Token-level 分类；(3) Span-level 预测。ACE2005 角色标注 F1 达 68.7%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "文档级事件抽取：跨句事件组装",
