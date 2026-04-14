@@ -16541,7 +16541,7 @@
       "RNN变体"
     ],
     "brief": "结合 RNN 的线性复杂度与 Transformer 的可并行训练：推理时为 RNN 模式（常数显存），训练时为 Transformer 模式（并行）。通过 time-mixing 和 channel-mixing 块实现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RetNet (Retentive Network)",

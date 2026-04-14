@@ -1,5 +1,17 @@
 [
   {
+    "title": "RWKV (Receptance Weighted Key Value)",
+    "slug": "rwkv-architecture",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "RNN变体"
+    ],
+    "summary": "RWKV 用 time-mix 和 channel-mix 把并行训练与常数显存推理统一到同一架构里"
+  },
+  {
     "title": "Context Parallelism",
     "slug": "context-parallelism",
     "date": "2026-04-14",
