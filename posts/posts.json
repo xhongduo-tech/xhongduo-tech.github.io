@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱嵌入降维：可视化与解释",
+    "slug": "kg-embedding-visualization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "可视化"
+    ],
+    "summary": "KG嵌入降维主要用于解释与诊断，PCA看全局，t-SNE看局部，UMAP做折中。"
+  },
+  {
     "title": "知识图谱联邦学习：隐私保护下的协同训练",
     "slug": "federated-kg-learning",
     "date": "2026-04-14",
