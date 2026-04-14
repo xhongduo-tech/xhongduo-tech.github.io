@@ -1,5 +1,18 @@
 [
   {
+    "title": "嵌套实体识别：叠层 NER 的识别策略",
+    "slug": "nested-ner-recognition",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "实体识别",
+      "NER"
+    ],
+    "summary": "嵌套NER通过允许实体边界包含关系，解决flat NER漏识别内外层实体的问题。"
+  },
+  {
     "title": "细粒度实体识别：从 4 类到 100+ 类的挑战",
     "slug": "fine-grained-ner",
     "date": "2026-04-14",
