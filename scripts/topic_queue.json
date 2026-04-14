@@ -15892,7 +15892,7 @@
       "对齐算法"
     ],
     "brief": "IPO 是 DPO 的变体，使用 identity mapping 替代 logistic 变换，理论上更稳定。分析 IPO 与 DPO 的数学差异，以及在什么场景下 IPO 更优。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "KTO：Kahneman-Tversky Optimization 偏好建模",

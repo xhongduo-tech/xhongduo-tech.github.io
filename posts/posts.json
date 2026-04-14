@@ -1,5 +1,17 @@
 [
   {
+    "title": "IPO：Identity Preference Optimization 原理解析",
+    "slug": "ipo-identity-preference-optimization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "IPO 用固定边界平方差替代 DPO 的持续推高机制，核心优势是偏好训练更稳、更不易过拟合。"
+  },
+  {
     "title": "PPO 算法在 RLHF 中的数学原理与实现",
     "slug": "ppo-rlhf-math-implementation",
     "date": "2026-04-14",
