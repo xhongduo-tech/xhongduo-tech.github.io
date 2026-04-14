@@ -1,5 +1,17 @@
 [
   {
+    "title": "Nash Learning：纳什均衡视角的对齐方法",
+    "slug": "nash-learning-alignment",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "NLHF把对齐训练改写成博弈，目标不是单次高分，而是在judge变化下仍稳定的策略。"
+  },
+  {
     "title": "ReMax：Reward Maximization 的强化学习对齐",
     "slug": "remax-reward-maximization-alignment",
     "date": "2026-04-14",
