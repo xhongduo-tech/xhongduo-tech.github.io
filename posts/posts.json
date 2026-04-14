@@ -1,5 +1,17 @@
 [
   {
+    "title": "TAP：Tree of Attacks with Pruning 攻击搜索",
+    "slug": "tap-tree-attacks-pruning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试"
+    ],
+    "summary": "TAP把越狱优化变成攻击树搜索，用评分与剪枝在有限预算内保留最高潜力分支"
+  },
+  {
     "title": "红队测试数据集：HarmBench 与 adv-bench 分析",
     "slug": "red-team-benchmarks-harmbench",
     "date": "2026-04-14",

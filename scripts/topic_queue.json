@@ -16057,7 +16057,7 @@
       "红队测试"
     ],
     "brief": "TAP（Tree of Attacks with Pruning）把越狱提示的生成与变体扩展看作一棵搜索树，通过评分和剪枝只保留更有潜力的攻击分支。它的核心优势是把攻击优化从线性迭代升级为结构化搜索，从而在有限查询预算下覆盖更大的攻击空间。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "红队测试数据集：HarmBench 与 adv-bench 分析",
