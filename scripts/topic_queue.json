@@ -15309,7 +15309,7 @@
       "数据清洗"
     ],
     "brief": "文本清洗的多阶段流水线：HTML 标签去除（BeautifulSoup/lxml）、特殊字符处理、空白规范化。编码问题处理：charset 检测与转换、乱码修复。语言特定清洗：中文分词预处理的空格处理、英文词形还原。清洗规则的 Pipeline 组合与配置化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "网页噪声过滤技术",

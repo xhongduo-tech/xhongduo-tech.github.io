@@ -1,5 +1,17 @@
 [
   {
+    "title": "大规模文本清洗流水线",
+    "slug": "data-eng-text-cleaning-pipeline",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据清洗"
+    ],
+    "summary": "文本清洗应采用可配置多阶段流水线，先解码，再抽正文，再做规范化与语言处理。"
+  },
+  {
     "title": "爬虫请求调度与优先级队列",
     "slug": "data-eng-crawler-request-scheduling",
     "date": "2026-04-14",
