@@ -1,5 +1,18 @@
 [
   {
+    "title": "ComplEx 与 HolE：复数与相关性嵌入",
+    "slug": "complex-hole-embedding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识推理",
+      "嵌入"
+    ],
+    "summary": "ComplEx用复数建模方向性，HolE用圆相关压缩交互，二者理论等价，工程上常以ComplEx-N3为强基线"
+  },
+  {
     "title": "TransE 系列：平移模型与变体",
     "slug": "transe-variants",
     "date": "2026-04-14",

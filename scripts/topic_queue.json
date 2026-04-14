@@ -14908,7 +14908,7 @@
       "嵌入"
     ],
     "brief": "ComplEx：复数内积评分，可建模对称和反对称关系。HolE：循环相关性评分，压缩表示。ComplEx-N3（带负采样正则）在 WN18RR 上 MRR 达 47.6%。两者的理论联系。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图神经网络知识推理：R-GCN 与 CompGCN",
