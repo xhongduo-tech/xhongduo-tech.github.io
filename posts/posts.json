@@ -1,5 +1,18 @@
 [
   {
+    "title": "SPARQL：RDF 知识图谱查询语言",
+    "slug": "sparql-query-rdf",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库",
+      "SPARQL"
+    ],
+    "summary": "SPARQL 用三元组模式匹配 RDF 图，适合知识图谱查询、聚合与跨源联邦访问。"
+  },
+  {
     "title": "Neo4j 图算法：中心性与社区发现",
     "slug": "neo4j-graph-algorithms",
     "date": "2026-04-14",

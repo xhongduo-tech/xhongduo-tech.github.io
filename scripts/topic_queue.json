@@ -14992,7 +14992,7 @@
       "SPARQL"
     ],
     "brief": "SPARQL 是 RDF 图的标准查询语言。SELECT ?name WHERE { ?person foaf:name ?name }。支持 FILTER、OPTIONAL、UNION。联邦查询跨多个 RDF 数据源。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RDF 与 OWL：知识图谱表示语言",
