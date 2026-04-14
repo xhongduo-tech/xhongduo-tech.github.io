@@ -15529,7 +15529,7 @@
       "合成数据"
     ],
     "brief": "合成数据的生成策略：指令数据（Self-Instruct、Evol-Instruct）、对话数据、推理链数据。质量控制的多种方法：规则过滤、分类器过滤、LLM 自评。合成数据与真实数据的混合配比。合成数据的分布偏移问题与缓解。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Self-Instruct 数据生成流程",
