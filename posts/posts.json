@@ -1,5 +1,18 @@
 [
   {
+    "title": "OpenIE：开放式关系抽取",
+    "slug": "openie-relation-extraction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "关系抽取",
+      "OpenIE"
+    ],
+    "summary": "OpenIE在无预定义关系模式下抽取三元组，适合通用文本，但上线必须结合阈值校准与后处理。"
+  },
+  {
     "title": "文档级关系抽取",
     "slug": "document-level-relation-extraction",
     "date": "2026-04-14",

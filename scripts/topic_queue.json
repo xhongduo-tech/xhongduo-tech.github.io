@@ -14740,7 +14740,7 @@
       "OpenIE"
     ],
     "brief": "无预定义关系模式，从自由文本抽取 (Arg1, Rel, Arg2) 三元组。经典系统：(1) OIE6 基于依存句法规则；(2) OpenIE-4.0 结合自监督学习；(3) 神经 OpenIE 用序列标注预测关系位置。OIE6 在 OIE2016 基准上 AUC 达 52.1%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "文档级关系抽取",
