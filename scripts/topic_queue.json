@@ -16563,7 +16563,7 @@
       "注意力替代"
     ],
     "brief": "用长卷积和门控机制替代注意力：通过 implicit filter parametrization 生成超长卷积核。在 PQMF 等长序列任务上达到 Transformer 水平，复杂度为 O(n log n)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "H3 (Hungry Hungry Hippos)",

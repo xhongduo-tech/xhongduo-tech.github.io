@@ -1,5 +1,17 @@
 [
   {
+    "title": "Hyena Hierarchy",
+    "slug": "hyena-hierarchy",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力替代"
+    ],
+    "summary": "Hyena 用隐式长卷积加门控替代注意力，在超长序列上以更低复杂度逼近 Transformer 效果"
+  },
+  {
     "title": "H3 (Hungry Hungry Hippos)",
     "slug": "h3-attention",
     "date": "2026-04-14",
