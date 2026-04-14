@@ -1,5 +1,17 @@
 [
   {
+    "title": "Few-shot vs Zero-shot 评测方法论",
+    "slug": "fewshot-zeroshot-methodology",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "评测方法"
+    ],
+    "summary": "Few-shot评测测的是示范后的适应能力，Zero-shot评测测的是纯泛化，两者不能直接混比。"
+  },
+  {
     "title": "CMMLU 中文综合能力评测",
     "slug": "cmmlu-chinese-comprehensive",
     "date": "2026-04-14",

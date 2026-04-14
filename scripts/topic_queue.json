@@ -14349,7 +14349,7 @@
       "评测方法"
     ],
     "brief": "Few-shot 提供示例帮助模型理解任务格式，Zero-shot 直接测试泛化能力。不同基准采用不同 shot 数量（MMLU 用 5-shot，GSM8K 用 8-shot），影响模型表现可比性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Chain-of-Thought Prompting 对评测的影响",
