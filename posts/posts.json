@@ -1,5 +1,17 @@
 [
   {
+    "title": "红队测试数据集：HarmBench 与 adv-bench 分析",
+    "slug": "red-team-benchmarks-harmbench",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试"
+    ],
+    "summary": "HarmBench重统一评测流水线，AdvBench重快速验证攻击是否逼出危险输出。"
+  },
+  {
     "title": "DeepInception：深度角色扮演的越狱攻击",
     "slug": "deepinception-roleplay-jailbreak",
     "date": "2026-04-14",
