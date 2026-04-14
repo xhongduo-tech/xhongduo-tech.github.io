@@ -1,5 +1,17 @@
 [
   {
+    "title": "SimHash 文档指纹去重",
+    "slug": "data-eng-simhash-document-fingerprint",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据去重"
+    ],
+    "summary": "SimHash 用加权投票生成短指纹，适合海量文档近重复去重。"
+  },
+  {
     "title": "MinHash LSH 近似去重原理",
     "slug": "data-eng-minhash-lsh-deduplication",
     "date": "2026-04-14",

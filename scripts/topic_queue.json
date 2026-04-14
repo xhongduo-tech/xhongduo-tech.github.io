@@ -15331,7 +15331,7 @@
       "数据清洗"
     ],
     "brief": "异构数据源的格式统一：JSON/XML/CSV/Parquet 的互转。Schema 推断与对齐：字段映射、类型推断、缺失字段补全。日期时间格式标准化：ISO 8601 规范、时区处理。数值标准化：单位转换、精度统一。文本编码标准化：UTF-8 统一与 BOM 处理。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "正则表达式清洗规则库",
@@ -15364,7 +15364,7 @@
       "数据去重"
     ],
     "brief": "SimHash 算法原理：特征权重、加权哈希、签名合并。汉明距离与相似度阈值。SimHash vs MinHash 的适用场景对比。大规模 SimHash 检索：倒排索引加速、分段匹配。SimHash 在搜索引擎去重中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "精确去重与 Bloom Filter",
