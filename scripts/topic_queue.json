@@ -16101,7 +16101,7 @@
       "安全评估"
     ],
     "brief": "Harmlessness 评估模型输出是否存在危害性内容，涵盖暴力、歧视、危险建议等类别。分析评估指标和常用 benchmark。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Helpfulness 评测：有用性评估的权衡与指标",

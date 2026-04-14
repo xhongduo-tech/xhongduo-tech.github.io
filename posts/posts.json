@@ -1,5 +1,17 @@
 [
   {
+    "title": "Harmlessness 评测：无害性评估基准与方法",
+    "slug": "harmlessness-evaluation-benchmark",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "安全评估"
+    ],
+    "summary": "Harmlessness评测衡量模型在保持有用性的同时，是否稳定避免输出危险与伤害性内容。"
+  },
+  {
     "title": "多模态红队测试：图像与音频的对抗攻击",
     "slug": "multimodal-red-teaming-attacks",
     "date": "2026-04-14",
