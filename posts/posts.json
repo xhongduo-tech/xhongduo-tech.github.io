@@ -1,5 +1,17 @@
 [
   {
+    "title": "SafeDecoding：安全解码策略防御越狱",
+    "slug": "safedecoding-defense-strategy",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱防护"
+    ],
+    "summary": "SafeDecoding 在推理前几步融合原模型与安全 expert 概率，压低越狱 token 而无需重训主模型"
+  },
+  {
     "title": "越狱攻击分类：语义攻击与语法攻击",
     "slug": "jailbreak-attack-classification",
     "date": "2026-04-14",

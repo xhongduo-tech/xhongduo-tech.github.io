@@ -16211,7 +16211,7 @@
       "越狱防护"
     ],
     "brief": "SafeDecoding 在解码阶段调整 token 概率分布，降低有害 token 的采样概率。无需重训模型，作为推理时防御手段。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SafePrompt：安全提示模板增强防御",
