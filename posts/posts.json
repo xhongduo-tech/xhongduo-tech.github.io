@@ -1,5 +1,17 @@
 [
   {
+    "title": "合成数据在 SFT 中的应用",
+    "slug": "data-eng-synthetic-data-for-sft",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "合成数据"
+    ],
+    "summary": "合成数据适合做SFT冷启动和覆盖扩展，最终效果通常取决于与人工数据的混合比例与过滤质量"
+  },
+  {
     "title": "合成数据质量验证",
     "slug": "data-eng-synthetic-data-validation",
     "date": "2026-04-14",
