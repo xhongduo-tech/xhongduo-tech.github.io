@@ -16829,7 +16829,7 @@
       "注意力变体"
     ],
     "brief": "结合线性注意力与门控机制：使用 Simple Linear Attention 作为核心，配合 TokenMixing 和 ChannelMixing。在保持线性复杂度的同时提升性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeltaNet",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "TransNormerLLM",
+    "slug": "transnormer-llm",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力变体"
+    ],
+    "summary": "TransNormerLLM用线性注意力配合GLA与SGLU，在长序列下以更低复杂度保留全局建模能力"
+  },
+  {
     "title": "Gated Linear Attention (GLA)",
     "slug": "gated-linear-attention",
     "date": "2026-04-14",
