@@ -1,5 +1,17 @@
 [
   {
+    "title": "爬虫请求调度与优先级队列",
+    "slug": "data-eng-crawler-request-scheduling",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据采集"
+    ],
+    "summary": "爬虫调度的核心是按域名就绪时间轮询，在礼貌抓取前提下再做优先级选择。"
+  },
+  {
     "title": "知识图谱预训练模型：KG-BERT 与 PeterParser",
     "slug": "kg-pretrained-models",
     "date": "2026-04-14",
