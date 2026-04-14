@@ -1,5 +1,17 @@
 [
   {
+    "title": "PPO 算法在 RLHF 中的数学原理与实现",
+    "slug": "ppo-rlhf-math-implementation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "PPO 在 RLHF 中用 clip、KL 与 GAE 控制策略小步更新，核心是稳而不是猛。"
+  },
+  {
     "title": "SlimPajama 数据集分析",
     "slug": "data-eng-slimpajama-dataset-analysis",
     "date": "2026-04-14",

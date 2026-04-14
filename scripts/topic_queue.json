@@ -15881,7 +15881,7 @@
       "对齐算法"
     ],
     "brief": "Proximal Policy Optimization 的核心思想：置信域约束、 clipped objective、GAE 估计。代码层面剖析 PPO 在 RLHF 中的具体实现，包括 value head、reward model 交互、KL penalty。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "IPO：Identity Preference Optimization 原理解析",
