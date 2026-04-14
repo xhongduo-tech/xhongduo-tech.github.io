@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态水印：图像与文本的联合溯源",
+    "slug": "multimodal-watermarking-image-text",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "水印技术"
+    ],
+    "summary": "多模态水印的核心不是多处打标，而是让图文音共享并互证同一来源。"
+  },
+  {
     "title": "Linear Attention",
     "slug": "linear-attention",
     "date": "2026-04-14",
