@@ -15595,7 +15595,7 @@
       "数据管线"
     ],
     "brief": "DAG 设计原则：任务粒度、依赖表达、幂等性。Sensor 的使用：外部依赖等待。动态 DAG 生成。任务重试与错误处理策略。资源管理：Pool、Queue、Priority。DAG 的测试与 CI/CD 集成。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据血缘追踪系统",

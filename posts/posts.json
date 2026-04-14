@@ -1,5 +1,17 @@
 [
   {
+    "title": "Airflow DAG 编排最佳实践",
+    "slug": "data-eng-airflow-dag-best-practices",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据管线"
+    ],
+    "summary": "Airflow DAG 的关键在于幂等任务、显式依赖、资源限流与可测试发布。"
+  },
+  {
     "title": "合成数据在 SFT 中的应用",
     "slug": "data-eng-synthetic-data-for-sft",
     "date": "2026-04-14",
