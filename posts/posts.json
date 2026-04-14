@@ -1,5 +1,17 @@
 [
   {
+    "title": "CommonsenseQA 常识问答",
+    "slug": "commonsenseqa-reasoning",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "常识推理"
+    ],
+    "summary": "CommonsenseQA用ConceptNet构造五选一常识题，核心指标是准确率，适合评估无上下文常识推理能力。"
+  },
+  {
     "title": "C-Bugs 中文代码调试评测",
     "slug": "cbugs-chinese-code-debugging",
     "date": "2026-04-14",

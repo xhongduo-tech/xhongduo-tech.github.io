@@ -14569,7 +14569,7 @@
       "常识推理"
     ],
     "brief": "CommonsenseQA 包含 12102 个需要常识推理的多选题。基于 ConceptNet 构建，测试模型对日常概念间关系的理解。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PIQA 物理常识推理",
