@@ -14728,7 +14728,7 @@
       "共指消解"
     ],
     "brief": "「乔布斯去世了，他的遗产由库克继承」中「他」→「乔布斯」。核心方法：(1) Mention-Ranking 模型，排序候选先行词；(2) Span-BERT 联合预测 span 是否实体 + 共指关系；(3) 端到端神经共指模型。CoNLL-2012 基准 F1 达 83.5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "OpenIE：开放式关系抽取",
