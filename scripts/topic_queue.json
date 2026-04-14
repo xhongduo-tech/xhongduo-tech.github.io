@@ -14558,7 +14558,7 @@
       "问答系统"
     ],
     "brief": "BoolQ 包含 15942 个是非问题，答案来自 Wikipedia 段落。测试模型对隐式信息和推理的把握，而非简单关键词匹配。正文最好补齐自动化检查、核心指标和可回滚条件。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CommonsenseQA 常识问答",

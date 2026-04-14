@@ -1,5 +1,17 @@
 [
   {
+    "title": "BoolQ 布尔问答评测",
+    "slug": "boolq-boolean-question-answering",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "问答系统"
+    ],
+    "summary": "BoolQ适合做问答系统的最低门槛评测，但必须结合accuracy gate与规范化逻辑使用"
+  },
+  {
     "title": "Natural Questions 自然问答基准",
     "slug": "natural-questions-benchmark",
     "date": "2026-04-14",
