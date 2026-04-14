@@ -1,5 +1,17 @@
 [
   {
+    "title": "f-Divergence DPO：f-散度泛化的偏好优化",
+    "slug": "f-divergence-dpo-generalization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "f-PO把DPO推广为可选散度族，用不同f函数在稳定性、鲁棒性和尾部行为间做工程权衡"
+  },
+  {
     "title": "Nash Learning：纳什均衡视角的对齐方法",
     "slug": "nash-learning-alignment",
     "date": "2026-04-14",

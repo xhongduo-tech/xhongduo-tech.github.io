@@ -15980,7 +15980,7 @@
       "对齐算法"
     ],
     "brief": "f-Divergence DPO 将 KL 散度泛化为 f-散度族（如 JS、Chi-squared），提供更灵活的正则化选择。不同 f-散度有不同的鲁棒性表现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SPPO：Self-Play Preference Optimization 自博弈对齐",
