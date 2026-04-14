@@ -1,5 +1,17 @@
 [
   {
+    "title": "Natural Questions 自然问答基准",
+    "slug": "natural-questions-benchmark",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "问答系统"
+    ],
+    "summary": "NQ用真实搜索查询评测“先定位段落、再抽短答案”的开放域问答能力。"
+  },
+  {
     "title": "AgentBench 智能体能力评测",
     "slug": "agentbench-agent-evaluation",
     "date": "2026-04-14",

@@ -14536,7 +14536,7 @@
       "问答系统"
     ],
     "brief": "Natural Questions 包含从真实 Google 搜索查询构建的问答对。答案从 Wikipedia 页面中抽取，测试开放域问答和信息检索能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TriviaQA 问答系统评测",
