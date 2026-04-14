@@ -1,5 +1,17 @@
 [
   {
+    "title": "Capacity Factor",
+    "slug": "moe-capacity-factor",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE优化"
+    ],
+    "summary": "Capacity Factor 本质是 MoE 专家单批次容量上限，过大浪费算力，过小会丢 token。"
+  },
+  {
     "title": "Load Balancing Loss",
     "slug": "load-balancing-loss",
     "date": "2026-04-14",

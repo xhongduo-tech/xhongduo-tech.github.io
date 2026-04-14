@@ -16884,7 +16884,7 @@
       "MoE优化"
     ],
     "brief": "MoE 中每个专家的最大负载倍数：capacity = (batch_size / num_experts) × capacity_factor。因子 > 1 时允许溢出到其他专家，< 1 时丢弃超出 token。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Offloading",
