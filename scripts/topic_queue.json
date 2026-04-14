@@ -14776,7 +14776,7 @@
       "联合抽取"
     ],
     "brief": "Pipeline 方式（先 NER 后 RE）存在误差传播。联合抽取：(1) CasRel 级联指针网络；(2) TPLinker 实体关系统一标注；(3) SPN Set Prediction 无序预测。TPLinker 在 NYT 上 F1 达 91.3%，比 pipeline 高 4.2%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": " Few-shot 关系抽取：元学习与提示学习",

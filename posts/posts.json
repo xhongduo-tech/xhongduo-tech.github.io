@@ -1,5 +1,18 @@
 [
   {
+    "title": "联合抽取：实体和关系同时识别",
+    "slug": "joint-entity-relation-extraction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "关系抽取",
+      "联合抽取"
+    ],
+    "summary": "联合抽取把实体与关系端到端联合建模，核心价值是减少误差传播并更好覆盖重叠三元组。"
+  },
+  {
     "title": " Few-shot 关系抽取：元学习与提示学习",
     "slug": "few-shot-relation-extraction",
     "date": "2026-04-14",
