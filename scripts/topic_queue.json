@@ -16013,7 +16013,7 @@
       "红队测试"
     ],
     "brief": "使用 LLM 自动生成对抗性 prompt，通过 mutation、paraphrase、role-play 等策略探索模型漏洞。代表性方法包括 GPTFuzzer、DeepInception。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPTFuzzer：基于模糊测试的越狱攻击框架",
