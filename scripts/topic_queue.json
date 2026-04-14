@@ -16574,7 +16574,7 @@
       "注意力替代"
     ],
     "brief": "将 attention 替换为 SSM + 门的组合：state space 用于存储历史信息，门控用于选择性记忆。是 Hyena、Mamba 等后续工作的基础，展示了 SSM 在语言建模的潜力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Jamba (Jamba-v0.1)",

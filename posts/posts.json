@@ -1,5 +1,17 @@
 [
   {
+    "title": "H3 (Hungry Hungry Hippos)",
+    "slug": "h3-attention",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力替代"
+    ],
+    "summary": "H3用两个SSM加乘性门控，把长程记忆与条件检索合并进状态更新。"
+  },
+  {
     "title": "Jamba (Jamba-v0.1)",
     "slug": "jamba-architecture",
     "date": "2026-04-14",
