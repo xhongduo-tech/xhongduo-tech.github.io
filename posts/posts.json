@@ -1,5 +1,17 @@
 [
   {
+    "title": "LongRoPE",
+    "slug": "longrope",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "LongRoPE用分维RoPE缩放与渐进式训练，把短窗模型扩到超长上下文并尽量保住短窗性能"
+  },
+  {
     "title": "YaRN (Yet another RoPE extensioN)",
     "slug": "yarn-rope-extension",
     "date": "2026-04-14",
