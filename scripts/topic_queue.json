@@ -16774,7 +16774,7 @@
       "位置编码"
     ],
     "brief": "用线性衰减的偏置替代位置编码：attention score 减去 m × |i-j|，其中 m 为每个头的斜率。支持训练长度的平滑外推，无需额外参数。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Relative Position Encoding",

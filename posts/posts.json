@@ -1,5 +1,17 @@
 [
   {
+    "title": "ALiBi (Attention with Linear Biases)",
+    "slug": "alibi-attention",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "ALiBi用线性距离罚分替代位置编码，在因果注意力中以零参数支持更平滑的长度外推。"
+  },
+  {
     "title": "Expert Parallelism",
     "slug": "expert-parallelism",
     "date": "2026-04-14",
