@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱与推荐系统融合",
+    "slug": "kg-recommendation-fusion",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "应用",
+      "推荐系统"
+    ],
+    "summary": "知识图谱通过语义关系补强协同过滤，注意力传播是融合推荐与冷启动缓解的关键。"
+  },
+  {
     "title": "知识图谱负采样策略：对抗与自对抗",
     "slug": "negative-sampling-kg",
     "date": "2026-04-14",
