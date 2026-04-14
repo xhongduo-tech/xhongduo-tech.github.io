@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据质量评分模型",
+    "slug": "data-eng-data-quality-scoring",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据质量"
+    ],
+    "summary": "用多维打分加权聚合与阈值分层，可把数据可用性变成可执行的工程决策。"
+  },
+  {
     "title": "文档级与段落级去重",
     "slug": "data-eng-document-paragraph-dedup",
     "date": "2026-04-14",
