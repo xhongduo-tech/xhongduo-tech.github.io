@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sequence Parallelism",
+    "slug": "sequence-parallelism",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "分布式训练"
+    ],
+    "summary": "Sequence Parallelism 通过切分序列激活到多卡，用通信换内存，适合 TP 场景下的长序列训练。"
+  },
+  {
     "title": "FSDP (Fully Sharded Data Parallel)",
     "slug": "fsdp-sharding",
     "date": "2026-04-14",

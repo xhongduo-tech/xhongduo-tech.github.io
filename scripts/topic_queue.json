@@ -16752,7 +16752,7 @@
       "分布式训练"
     ],
     "brief": "将序列维度切分到多个 GPU：每个设备处理部分 token，通过 all-gather 和 reduce-scatter 通信。与 Tensor Parallelism 配合使用，支持超长序列训练。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Expert Parallelism",
