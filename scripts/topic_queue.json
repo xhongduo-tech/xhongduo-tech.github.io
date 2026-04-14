@@ -16442,7 +16442,7 @@
       "水印技术"
     ],
     "brief": "水印评估需权衡 detectability、quality-impact、robustness 三个维度。分析 WOMD、Mark My Words 等基准的评测方法。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Linear Attention",
@@ -16486,7 +16486,7 @@
       "位置编码"
     ],
     "brief": "结合位置插值（PI）与 NTK-aware scaling，通过温度因子调整注意力分布，实现训练长度的 64 倍扩展。相比单纯的位置插值，在长文本任务上保持更好的质量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LongRoPE",

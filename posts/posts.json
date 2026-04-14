@@ -1,5 +1,17 @@
 [
   {
+    "title": "YaRN (Yet another RoPE extensioN)",
+    "slug": "yarn-rope-extension",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "YaRN 通过分段 RoPE 插值与注意力温度校正，把长上下文扩展做得比单纯 PI/NTK 更稳。"
+  },
+  {
     "title": "Flash Attention 2",
     "slug": "flash-attention-2",
     "date": "2026-04-14",
