@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识融合去重：冲突检测与真值发现",
+    "slug": "knowledge-fusion-deduplication",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合",
+      "去重"
+    ],
+    "summary": "多源知识融合去重要先检测冲突，再结合来源可信度与迭代真值发现输出一致结果"
+  },
+  {
     "title": "本体匹配：跨本体概念对齐",
     "slug": "ontology-matching",
     "date": "2026-04-14",
