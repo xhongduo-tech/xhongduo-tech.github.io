@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeltaNet",
+    "slug": "deltanet-architecture",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力变体"
+    ],
+    "summary": "DeltaNet 用误差驱动的 delta rule 更新状态，在保持线性复杂度时实现可控记忆与遗忘。"
+  },
+  {
     "title": "TransNormerLLM",
     "slug": "transnormer-llm",
     "date": "2026-04-14",
