@@ -16002,7 +16002,7 @@
       "对齐算法"
     ],
     "brief": "SimPO 移除 DPO 中的 reference model，直接使用 length-normalized average log probability 作为偏好信号，大幅降低显存占用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自动红队测试：自动化攻击样本生成",

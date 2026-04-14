@@ -1,5 +1,17 @@
 [
   {
+    "title": "SimPO：Simple Preference Optimization 无需参考模型",
+    "slug": "simpo-simple-preference-optimization",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "SimPO 用长度归一化平均 log 概率替代 reference reward，以更低成本完成偏好优化。"
+  },
+  {
     "title": "f-Divergence DPO：f-散度泛化的偏好优化",
     "slug": "f-divergence-dpo-generalization",
     "date": "2026-04-14",
