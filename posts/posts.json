@@ -1,5 +1,17 @@
 [
   {
+    "title": "预训练数据的配比优化",
+    "slug": "data-eng-pretraining-data-mixing",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "预训练配比优化的核心，是在固定预算下重分配数据权重，补短板而不打薄语言底座"
+  },
+  {
     "title": "代码数据清洗流程",
     "slug": "data-eng-code-data-cleaning",
     "date": "2026-04-14",
