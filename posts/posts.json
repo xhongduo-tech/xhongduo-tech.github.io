@@ -1,5 +1,17 @@
 [
   {
+    "title": "SIQA 社会常识推理",
+    "slug": "siqa-social-commonsense",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "常识推理"
+    ],
+    "summary": "SIQA用三选一社交场景问答，衡量模型对意图、情绪与社会规范的推理能力。"
+  },
+  {
     "title": "CommonsenseQA 常识问答",
     "slug": "commonsenseqa-reasoning",
     "date": "2026-04-14",
