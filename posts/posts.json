@@ -1,5 +1,17 @@
 [
   {
+    "title": "数据完整性校验",
+    "slug": "data-eng-data-integrity-validation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据质量"
+    ],
+    "summary": "完整性校验要把 Schema、业务规则、统计校验联成一套可执行、可告警、可阻断的机制"
+  },
+  {
     "title": "异常数据检测规则",
     "slug": "data-eng-anomaly-detection-rules",
     "date": "2026-04-14",

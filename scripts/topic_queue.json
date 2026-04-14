@@ -15441,7 +15441,7 @@
       "数据质量"
     ],
     "brief": "完整性校验的类型：Schema 校验、业务规则校验、统计校验。校验规则的表达与执行：JSON Schema、Great Expectations。校验结果的处理：阻断/警告/修复。数据质量报告的生成与监控。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "NSFW 与有害内容过滤",
