@@ -1,5 +1,17 @@
 [
   {
+    "title": "增量数据采集策略",
+    "slug": "data-eng-incremental-data-collection",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据采集"
+    ],
+    "summary": "增量采集依赖位点管理，只抓变化数据；需在效率、一致性和删除感知之间权衡。"
+  },
+  {
     "title": "分布式爬虫架构设计",
     "slug": "data-eng-distributed-crawler-architecture",
     "date": "2026-04-14",
