@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱增强 RAG：GraphRAG 架构",
+    "slug": "graph-rag-architecture",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "LLM+KG",
+      "RAG"
+    ],
+    "summary": "GraphRAG 用图保留多跳关系链，再与向量检索融合，适合跨文档关系型问答。"
+  },
+  {
     "title": "LLM + KG 知识注入：预训练增强",
     "slug": "llm-knowledge-injection",
     "date": "2026-04-14",
