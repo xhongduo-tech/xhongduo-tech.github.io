@@ -1,5 +1,17 @@
 [
   {
+    "title": "C-Bugs 中文代码调试评测",
+    "slug": "cbugs-chinese-code-debugging",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "代码生成"
+    ],
+    "summary": "中文代码调试评测的关键不在会写代码，而在中文理解、错误定位与可验证修复的联动。"
+  },
+  {
     "title": "TriviaQA 问答系统评测",
     "slug": "triviaqa-question-answering",
     "date": "2026-04-14",

@@ -14525,7 +14525,7 @@
       "代码生成"
     ],
     "brief": "C-Bugs 包含中文描述的代码调试任务。模型需要理解中文问题描述、定位代码错误并修复。测试中文语境下的代码理解和调试能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Natural Questions 自然问答基准",
