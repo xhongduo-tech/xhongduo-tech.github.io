@@ -16376,7 +16376,7 @@
       "水印技术"
     ],
     "brief": "KGWatermark 通过在生成过程中注入统计不可见的水印，实现输出溯源。使用密钥控制的随机数影响 token 采样。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "水印检测：统计检验与误报控制",
