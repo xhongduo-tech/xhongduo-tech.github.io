@@ -1,5 +1,17 @@
 [
   {
+    "title": "Medusa (Multi-head Decoding)",
+    "slug": "medusa-multi-head-decoding",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "解码优化"
+    ],
+    "summary": "Medusa 用多个轻量解码头并行预测未来 token，并借助树注意力验证候选路径，在不引入草稿模型下实现推理加速"
+  },
+  {
     "title": "Grok-1 (314B MoE)",
     "slug": "grok-1-moe",
     "date": "2026-04-14",

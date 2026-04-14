@@ -16618,7 +16618,7 @@
       "MoE模型"
     ],
     "brief": "xAI 开源的 314B 参数 MoE 模型，采用 8 个专家，每个 token 激活 2 个。在推理时只需计算 86B 参数的等价量，展示了超大规模 MoE 的可行性。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Medusa (Multi-head Decoding)",
@@ -16629,7 +16629,7 @@
       "解码优化"
     ],
     "brief": "在原始模型上添加多个解码头，每个头预测不同位置的未来 token。无需单独的 draft model，通过树形结构管理多个候选路径，实现 2-3 倍加速。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Lookahead Decoding",
@@ -16653,7 +16653,7 @@
       "解码策略"
     ],
     "brief": "维护 beam size 个最优候选序列，每步扩展并保留 top-k。相比贪心解码能找到更优解，但计算量增加 beam 倍。常用于机器翻译等需要高质量输出的场景。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Contrastive Search",
@@ -16664,7 +16664,7 @@
       "解码策略"
     ],
     "brief": "在选择下一个 token 时平衡概率与退化惩罚：选择高概率 token 的同时，惩罚与已生成内容的相似度。在开放域生成中保持连贯性和多样性。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Best-of-N Sampling",
@@ -16675,7 +16675,7 @@
       "解码策略"
     ],
     "brief": "生成 N 个候选输出，用奖励模型或 verifier 选择最优。简单但有效，在 RLHF 流程中作为 baseline。推理成本增加 N 倍，但质量显著提升。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Parallel Decoding",
@@ -16686,7 +16686,7 @@
       "解码策略"
     ],
     "brief": "非自回归生成：一次性输出完整序列，通过条件解耦或迭代精炼解决多模态问题。在机器翻译等场景实现 10 倍以上加速，但质量仍有差距。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "KV Cache Optimization",
@@ -16697,7 +16697,7 @@
       "推理优化"
     ],
     "brief": "缓存已计算的 Key 和 Value 避免重复计算，是自回归推理的核心优化。通过量化（INT8/INT4）、压缩（H2O）、剪枝等策略减少显存占用，支持更长上下文。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GPTQ (Post-Training Quantization)",
@@ -16708,7 +16708,7 @@
       "量化技术"
     ],
     "brief": "基于最优脑量化（OBQ）的快速训练后量化：按列量化权重，用 Hessian 矩阵逆更新未量化权重。4-bit 量化下保持接近原始模型的性能。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "GGUF Format",
@@ -16719,7 +16719,7 @@
       "模型格式"
     ],
     "brief": "llama.cpp 使用的模型格式：支持多种量化方案（Q4_0、Q5_1 等）、单文件打包、自描述元数据。使大模型能在消费级硬件上运行，是开源社区的主流格式。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Activation Checkpointing",
@@ -16730,7 +16730,7 @@
       "内存优化"
     ],
     "brief": "训练时只保存部分层的激活值，其他层在反向传播时重新计算。以计算换内存，支持更大的 batch size 和模型规模。是分布式训练的标准技术。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "FSDP (Fully Sharded Data Parallel)",
@@ -16741,7 +16741,7 @@
       "分布式训练"
     ],
     "brief": "PyTorch 的 ZeRO 实现：将模型参数、梯度、优化器状态完全分片。支持 CPU offloading、混合精度、activation checkpointing，是大规模训练的标准方案。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Sequence Parallelism",
@@ -16752,7 +16752,7 @@
       "分布式训练"
     ],
     "brief": "将序列维度切分到多个 GPU：每个设备处理部分 token，通过 all-gather 和 reduce-scatter 通信。与 Tensor Parallelism 配合使用，支持超长序列训练。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Expert Parallelism",
@@ -16763,7 +16763,7 @@
       "分布式训练"
     ],
     "brief": "专为 MoE 设计的并行策略：将不同专家放置在不同 GPU 上，通过 all-to-all 通信将 token 路由到对应专家。是大规模 MoE 训练的关键技术。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ALiBi (Attention with Linear Biases)",
@@ -16774,7 +16774,7 @@
       "位置编码"
     ],
     "brief": "用线性衰减的偏置替代位置编码：attention score 减去 m × |i-j|，其中 m 为每个头的斜率。支持训练长度的平滑外推，无需额外参数。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Relative Position Encoding",
@@ -16785,7 +16785,7 @@
       "位置编码"
     ],
     "brief": "对相对位置而非绝对位置建模：在 attention score 中加入相对位置偏置。T5、Transformer-XL 等模型采用此方案，能更好地泛化到不同长度。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LogN-Attention",
@@ -16796,7 +16796,7 @@
       "注意力机制"
     ],
     "brief": "通过 log(N) 缩放注意力温度，使模型在更长序列上保持稳定的注意力分布。无需重新训练即可扩展上下文长度，是简单有效的长度外推技术。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LePE (Locally Enhanced Position Encoding)",
@@ -16807,7 +16807,7 @@
       "位置编码"
     ],
     "brief": "结合局部卷积的位置编码方案：在 attention 输出后应用深度卷积，注入局部位置信息。用于 GLA（Gated Linear Attention）等架构，平衡全局与局部信息。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Gated Linear Attention (GLA)",
@@ -16818,7 +16818,7 @@
       "注意力变体"
     ],
     "brief": "在线性注意力中引入门控机制：通过 forget gate 控制信息保留，通过 output gate 控制信息输出。实现内容感知的选择性记忆，接近 Mamba 的能力。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "TransNormerLLM",
@@ -16829,7 +16829,7 @@
       "注意力变体"
     ],
     "brief": "结合线性注意力与门控机制：使用 Simple Linear Attention 作为核心，配合 TokenMixing 和 ChannelMixing。在保持线性复杂度的同时提升性能。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "DeltaNet",
@@ -16840,7 +16840,7 @@
       "注意力变体"
     ],
     "brief": "基于增量规则的序列建模：用 delta rule 更新状态，类似在线学习。结合线性注意力的效率与更强的表达能力，在语言建模上展示竞争力。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Base Layer (Groq)",
@@ -16851,7 +16851,7 @@
       "推理架构"
     ],
     "brief": "Groq 的专用推理架构：极端的确定性与流水线设计，单芯片 5500 TOPS INT8。通过软件定义硬件实现极致低延迟，但灵活性受限。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Sparse MoE Routing",
@@ -16862,7 +16862,7 @@
       "MoE路由"
     ],
     "brief": "稀疏激活的专家路由：每个 token 只激活 top-k 个专家，大幅减少计算量。路由分数通常基于 token 与专家的相似度，辅以负载均衡损失。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Load Balancing Loss",
@@ -16873,7 +16873,7 @@
       "MoE优化"
     ],
     "brief": "MoE 训练中的辅助损失：鼓励 token 均匀分配到各专家。通常包含 expert importance 和 routing probability 两项，权重需仔细调优以避免过度均衡。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Capacity Factor",
@@ -16884,7 +16884,7 @@
       "MoE优化"
     ],
     "brief": "MoE 中每个专家的最大负载倍数：capacity = (batch_size / num_experts) × capacity_factor。因子 > 1 时允许溢出到其他专家，< 1 时丢弃超出 token。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Expert Offloading",
@@ -16895,7 +16895,7 @@
       "MoE优化"
     ],
     "brief": "将不活跃的专家卸载到 CPU 内存，只保留热门专家在 GPU。支持在有限显存上运行大规模 MoE（如 Mixtral 8x7B），代价是增加延迟。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Activation Sparsity",
@@ -16906,7 +16906,7 @@
       "稀疏计算"
     ],
     "brief": "利用 ReLU 等激活函数的稀疏性跳过计算：只计算非零激活对应的神经元。在 ReLU 激活的模型上可实现 30-50% 的计算加速。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Deja Vu (Contextual Sparsity)",
