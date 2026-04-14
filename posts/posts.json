@@ -1,5 +1,18 @@
 [
   {
+    "title": "Neo4j 图算法：中心性与社区发现",
+    "slug": "neo4j-graph-algorithms",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库",
+      "图算法"
+    ],
+    "summary": "GDS 可在同一图投影上串联 PageRank、Louvain 和最短路径，完成排名、分群与链路分析。"
+  },
+  {
     "title": "RDF 与 OWL：知识图谱表示语言",
     "slug": "rdf-owl-representation",
     "date": "2026-04-14",

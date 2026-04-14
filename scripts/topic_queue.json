@@ -14980,7 +14980,7 @@
       "图算法"
     ],
     "brief": "Neo4j Graph Data Science 库提供 50+ 图算法。PageRank 识别重要节点，Louvain 社区发现，最短路径查询。应用：影响力分析、欺诈检测团伙、推荐系统。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SPARQL：RDF 知识图谱查询语言",
