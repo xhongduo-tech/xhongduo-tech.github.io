@@ -16818,7 +16818,7 @@
       "注意力变体"
     ],
     "brief": "在线性注意力中引入门控机制：通过 forget gate 控制信息保留，通过 output gate 控制信息输出。实现内容感知的选择性记忆，接近 Mamba 的能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TransNormerLLM",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gated Linear Attention (GLA)",
+    "slug": "gated-linear-attention",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力变体"
+    ],
+    "summary": "GLA 在线性注意力中加入遗忘门和输出门，用固定状态实现可选择的长期记忆与读出。"
+  },
+  {
     "title": "LePE (Locally Enhanced Position Encoding)",
     "slug": "lepe-encoding",
     "date": "2026-04-14",
