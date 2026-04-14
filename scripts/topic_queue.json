@@ -15375,7 +15375,7 @@
       "数据去重"
     ],
     "brief": "Bloom Filter 原理：位数组、哈希函数、假阳性率计算。Scalable Bloom Filter 的动态扩容。Counting Bloom Filter 支持删除。Bloom Filter vs Cuckoo Filter 的对比。在大规模 URL 去重中的应用：内存效率与假阳性权衡。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "文档级与段落级去重",
@@ -15386,7 +15386,7 @@
       "数据去重"
     ],
     "brief": "文档级去重：整体哈希、阈值判断。段落级去重：滑动窗口、n-gram 去重。去重粒度选择：文档级漏检 vs 段落级过度删除。嵌套去重策略：URL 级 → 文档级 → 段落级。预训练数据去重的标准流程（如 FineWeb 的三阶段去重）。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "URL 去重与规范化",
@@ -15397,7 +15397,7 @@
       "数据去重"
     ],
     "brief": "URL 规范化：协议/大小写/排序/锚点/跟踪参数处理。规范化哈希生成。URL 去重存储：Redis Set vs Bloom Filter vs 数据库。增量场景的 URL 去重：持久化与恢复。URL 去重在爬虫中的性能瓶颈与优化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据质量评分模型",
@@ -15419,7 +15419,7 @@
       "数据质量"
     ],
     "brief": "质量分类器的标注策略：Wikipedia/Reddit 作为高质量源、随机网页作为低质量源。fastText 轻量分类器训练。质量分数的校准与阈值选择。多语言质量分类器的挑战与解决方案。质量分类器在预训练数据清洗中的应用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "异常数据检测规则",
