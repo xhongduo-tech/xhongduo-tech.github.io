@@ -15518,7 +15518,7 @@
       "数据标注"
     ],
     "brief": "LLM 作为标注器：Prompt 设计、Few-shot 示例、输出格式约束。LLM 标注与人工标注的一致性评估。LLM 标注的置信度与人工复核策略。成本分析：LLM API 成本 vs 人工标注成本。LLM 标注的偏见与局限。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LLM 合成数据生成",
@@ -15584,7 +15584,7 @@
       "数据管线"
     ],
     "brief": "ETL vs ELT 的架构选择。数据抽取层：增量 vs 全量、CDC 集成。数据转换层：转换规则的表达与执行、批处理 vs 流处理。数据加载层：幂等性、Upsert 策略。管线的监控与告警设计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Airflow DAG 编排最佳实践",

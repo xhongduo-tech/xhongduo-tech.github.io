@@ -1,5 +1,17 @@
 [
   {
+    "title": "ETL 数据管线设计",
+    "slug": "data-eng-etl-pipeline-design",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据管线"
+    ],
+    "summary": "ETL重前置治理，ELT重后置灵活，工程上常以CDC增量源同时支撑两者。"
+  },
+  {
     "title": "LLM 合成数据生成",
     "slug": "data-eng-llm-synthetic-data-generation",
     "date": "2026-04-14",
