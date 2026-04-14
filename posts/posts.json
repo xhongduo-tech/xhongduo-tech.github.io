@@ -1,5 +1,17 @@
 [
   {
+    "title": "越狱防御：输入过滤与输出检测策略",
+    "slug": "jailbreak-defense-input-output-filtering",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "越狱防护"
+    ],
+    "summary": "越狱防御应以输入审查和输出检测形成双层闭环，并辅以上下文、权限隔离和人工兜底。"
+  },
+  {
     "title": "MT-Bench：多轮对话能力评测",
     "slug": "mt-bench-multiturn-evaluation",
     "date": "2026-04-14",
