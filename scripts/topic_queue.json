@@ -16475,7 +16475,7 @@
       "注意力优化"
     ],
     "brief": "在 Flash Attention 基础上进一步优化：减少非矩阵乘法操作、并行化 attention loop、优化线程块分配。实现 2 倍于 Flash Attention 的加速，接近理论算力上限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "YaRN (Yet another RoPE extensioN)",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Flash Attention 2",
+    "slug": "flash-attention-2",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力优化"
+    ],
+    "summary": "FlashAttention-2用更细粒度并行和在线块归一化，把注意力计算更彻底地变成适合Tensor Core的流程。"
+  },
+  {
     "title": "水印评估基准：WOMD 与 Mark My Words 分析",
     "slug": "watermark-benchmarks-evaluation",
     "date": "2026-04-14",
