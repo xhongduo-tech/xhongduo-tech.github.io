@@ -1,5 +1,17 @@
 [
   {
+    "title": "正则表达式清洗规则库",
+    "slug": "data-eng-regex-cleaning-rules",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据清洗"
+    ],
+    "summary": "正则清洗规则库的关键是配置化、可复用、可控性能与统一治理。"
+  },
+  {
     "title": "URL 去重与规范化",
     "slug": "data-eng-url-dedup-normalization",
     "date": "2026-04-14",
