@@ -1,5 +1,17 @@
 [
   {
+    "title": "异常数据检测规则",
+    "slug": "data-eng-anomaly-detection-rules",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据质量"
+    ],
+    "summary": "异常检测应结合统计、文本、结构规则，并通过人工复核闭环持续迭代。"
+  },
+  {
     "title": "文本质量分类器训练",
     "slug": "data-eng-text-quality-classifier",
     "date": "2026-04-14",
