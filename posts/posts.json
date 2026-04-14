@@ -1,5 +1,17 @@
 [
   {
+    "title": "AgentBench 智能体能力评测",
+    "slug": "agentbench-agent-evaluation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "智能体"
+    ],
+    "summary": "AgentBench用8类真实交互任务评估LLM执行能力，核心是分环境打分、归一化后再加权汇总。"
+  },
+  {
     "title": "API-Bank 工具调用能力评测",
     "slug": "api-bank-tool-calling",
     "date": "2026-04-14",

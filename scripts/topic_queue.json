@@ -14514,7 +14514,7 @@
       "智能体"
     ],
     "brief": "AgentBench 包含 8 个不同环境的智能体任务：多轮对话、网页浏览、游戏、操作系统、知识图谱等。测试 LLM 作为智能体的综合能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "C-Bugs 中文代码调试评测",
