@@ -1,5 +1,18 @@
 [
   {
+    "title": "文档级关系抽取",
+    "slug": "document-level-relation-extraction",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "关系抽取",
+      "文档级"
+    ],
+    "summary": "文档级关系抽取通过跨句、共指和图推理，从全文恢复实体关系三元组。"
+  },
+  {
     "title": "嵌套实体识别：叠层 NER 的识别策略",
     "slug": "nested-ner-recognition",
     "date": "2026-04-14",
