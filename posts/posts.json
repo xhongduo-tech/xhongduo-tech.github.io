@@ -1,5 +1,17 @@
 [
   {
+    "title": "API 数据源的集成模式",
+    "slug": "data-eng-api-data-integration-patterns",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据采集"
+    ],
+    "summary": "API 集成的关键是把分页、限流、认证刷新和 Schema 统一成可恢复的同步策略"
+  },
+  {
     "title": "增量数据采集策略",
     "slug": "data-eng-incremental-data-collection",
     "date": "2026-04-14",
