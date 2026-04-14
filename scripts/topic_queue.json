@@ -15925,7 +15925,7 @@
       "对齐算法"
     ],
     "brief": "RRHF 通过 rank-based loss 对齐模型，无需显式 reward model。将多个回复按偏好排序，使用 listwise ranking loss 训练。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RAFT：Reward-ranked Fine-tuning 原理与实践",

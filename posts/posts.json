@@ -1,5 +1,17 @@
 [
   {
+    "title": "RRHF：Rank Responses to Align 模型对齐",
+    "slug": "rrhf-rank-responses-align",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "对齐算法"
+    ],
+    "summary": "RRHF用排序损失加SFT做对齐，省去reward model，适合低复杂度偏好训练。"
+  },
+  {
     "title": "RAFT：Reward-ranked Fine-tuning 原理与实践",
     "slug": "raft-reward-ranked-finetuning",
     "date": "2026-04-14",
