@@ -15628,7 +15628,7 @@
       "数据管线"
     ],
     "brief": "流式 ETL 架构：Kafka/Flink/Pulsar 的角色分工。有界 vs 无界数据处理。流式 JOIN 的实现。状态管理与检查点。Exactly-once 语义的保证。流式 ETL 的监控与背压处理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "数据质量监控与告警",
