@@ -14481,7 +14481,7 @@
       "安全性"
     ],
     "brief": "DecodingTrust 从 8 个维度评测 LLM 可信度：毒性、刻板印象、对抗鲁棒性、OOD 鲁棒性、隐私、公平性、机器伦理、软件工程。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "API-Bank 工具调用能力评测",

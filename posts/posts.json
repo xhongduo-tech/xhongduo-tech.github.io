@@ -1,5 +1,17 @@
 [
   {
+    "title": "DecodingTrust 大语言模型可信度评测",
+    "slug": "decodingtrust-llm-trustworthiness",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "安全性"
+    ],
+    "summary": "DecodingTrust用8个维度衡量LLM可信度，核心价值是把标准、系统提示和对抗提示一起纳入评测。"
+  },
+  {
     "title": "ToolBench 工具学习评测",
     "slug": "toolbench-tool-learning",
     "date": "2026-04-14",
