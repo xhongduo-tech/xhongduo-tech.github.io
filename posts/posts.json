@@ -1,5 +1,17 @@
 [
   {
+    "title": "多模态红队测试：图像与音频的对抗攻击",
+    "slug": "multimodal-red-teaming-attacks",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "红队测试"
+    ],
+    "summary": "多模态红队测试的关键不是多喂几种输入，而是识别跨模态证据链如何共同触发风险。"
+  },
+  {
     "title": "PAIR：Prompt-level Adversarial 攻击迭代优化",
     "slug": "pair-prompt-adversarial-iteration",
     "date": "2026-04-14",
