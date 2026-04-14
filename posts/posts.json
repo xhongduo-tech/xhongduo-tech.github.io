@@ -1,5 +1,17 @@
 [
   {
+    "title": "HHH 评估框架：Helpful, Honest, Harmless 综合评测",
+    "slug": "hhh-evaluation-framework",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "安全评估"
+    ],
+    "summary": "HHH 用 Helpful、Honest、Harmless 三维联合约束模型，核心是平衡而非单点最优。"
+  },
+  {
     "title": "Truthfulness 评测：真实性检测与幻觉评估",
     "slug": "truthfulness-hallucination-evaluation",
     "date": "2026-04-14",

@@ -16134,7 +16134,7 @@
       "安全评估"
     ],
     "brief": "HHH（Helpful, Honest, Harmless）框架试图同时评估模型是否有帮助、是否真实诚实、以及是否安全无害，避免单一维度优化把模型推向极端。它的重要性在于揭示三者并非天然一致，例如过度追求 harmless 可能导致正常问题也被拒答。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MT-Bench：多轮对话能力评测",
