@@ -1,5 +1,18 @@
 [
   {
+    "title": "跨语言 NER：零样本迁移与多语言预训练",
+    "slug": "cross-lingual-ner",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "实体识别",
+      "多语言"
+    ],
+    "summary": "跨语言 NER 的主线是用多语言预训练、翻译投影和表示对齐，把高资源语言监督稳定迁移到低资源语言。"
+  },
+  {
     "title": "SummEval 文本摘要评测",
     "slug": "summeval-text-summarization",
     "date": "2026-04-14",
