@@ -1,5 +1,17 @@
 [
   {
+    "title": "Harmfulness Bench 安全性评测",
+    "slug": "harmfulness-benchmark-safety",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "安全性"
+    ],
+    "summary": "HarmBench用统一攻击、分类与流程，把大模型安全评测变成可复现、可比较的工程基线。"
+  },
+  {
     "title": "TruthfulQA 真实性评测",
     "slug": "truthfulqa-hallucination",
     "date": "2026-04-14",

@@ -14338,7 +14338,7 @@
       "安全性"
     ],
     "brief": "Harmfulness Bench 包含多种潜在有害请求类型：非法活动、伤害他人、隐私侵犯等。测试模型拒绝不当请求的能力，评估安全对齐效果。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Few-shot vs Zero-shot 评测方法论",
