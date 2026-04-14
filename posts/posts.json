@@ -1,5 +1,17 @@
 [
   {
+    "title": "网页噪声过滤技术",
+    "slug": "data-eng-web-noise-filtering",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "数据清洗"
+    ],
+    "summary": "网页噪声过滤本质是用多轮 DOM 与密度打分，把正文从模板噪声里稳定分离出来"
+  },
+  {
     "title": "SimHash 文档指纹去重",
     "slug": "data-eng-simhash-document-fingerprint",
     "date": "2026-04-14",

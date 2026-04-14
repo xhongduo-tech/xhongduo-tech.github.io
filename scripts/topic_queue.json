@@ -15320,7 +15320,7 @@
       "数据清洗"
     ],
     "brief": "网页正文提取算法：Readability、DRCT、正文密度法。噪声元素识别：导航栏、广告、评论区、版权信息。基于 DOM 结构的噪声过滤：节点深度、链接密度、文本密度。机器学习方法： boilerplate removal 的分类器方案。多轮清洗的累积效果。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多格式数据标准化",
