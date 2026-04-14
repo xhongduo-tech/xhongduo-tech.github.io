@@ -1,5 +1,18 @@
 [
   {
+    "title": "知识图谱问答：KBQA 技术解析",
+    "slug": "kbqa-techniques",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "LLM+KG",
+      "问答"
+    ],
+    "summary": "KBQA 的本质是把自然语言还原成可执行图查询，关键在结构约束而不只在生成模型。"
+  },
+  {
     "title": "知识图谱增强 RAG：GraphRAG 架构",
     "slug": "graph-rag-architecture",
     "date": "2026-04-14",
