@@ -1,5 +1,17 @@
 [
   {
+    "title": "CMMLU 中文综合能力评测",
+    "slug": "cmmlu-chinese-comprehensive",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "中文NLP"
+    ],
+    "summary": "CMMLU用67学科中文选择题衡量模型知识与推理，是评估中文本土化能力的重要基准。"
+  },
+  {
     "title": "Chain-of-Thought Prompting 对评测的影响",
     "slug": "cot-prompting-evaluation",
     "date": "2026-04-14",
