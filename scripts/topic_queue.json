@@ -16618,7 +16618,7 @@
       "MoE模型"
     ],
     "brief": "xAI 开源的 314B 参数 MoE 模型，采用 8 个专家，每个 token 激活 2 个。在推理时只需计算 86B 参数的等价量，展示了超大规模 MoE 的可行性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Medusa (Multi-head Decoding)",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Grok-1 (314B MoE)",
+    "slug": "grok-1-moe",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE模型"
+    ],
+    "summary": "Grok-1 用 8 专家选 2 专家的 MoE 结构，把 314B 容量与较低单步计算部分解耦。"
+  },
+  {
     "title": "Mixtral 8x7B",
     "slug": "mixtral-8x7b",
     "date": "2026-04-14",
