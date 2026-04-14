@@ -1,5 +1,18 @@
 [
   {
+    "title": "事件检测：从文本中识别事件触发词",
+    "slug": "event-detection-trigger",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "事件抽取",
+      "事件检测"
+    ],
+    "summary": "事件检测的核心是找准触发词，再用上下文和重平衡机制稳住类型判断。"
+  },
+  {
     "title": "事件角色标注：识别事件的论元",
     "slug": "event-argument-role-labeling",
     "date": "2026-04-14",
