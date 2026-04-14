@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mamba-2 (SSD Theory)",
+    "slug": "mamba-2-ssd",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "状态空间模型"
+    ],
+    "summary": "SSD把选择性SSM与半可分注意力统一为同一结构化矩阵变换，可在递归与matmul实现间切换。"
+  },
+  {
     "title": "Hyena Hierarchy",
     "slug": "hyena-hierarchy",
     "date": "2026-04-14",

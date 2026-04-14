@@ -16596,7 +16596,7 @@
       "状态空间模型"
     ],
     "brief": "建立 SSM 与 Attention 的统一理论框架（SSD: State Space Duality），发现 Mamba 的选择性机制等价于半可分离矩阵。在此基础上优化算法，实现 2-8 倍加速。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mixtral 8x7B",
