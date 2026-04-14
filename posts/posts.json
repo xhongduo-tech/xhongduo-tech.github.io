@@ -1,5 +1,18 @@
 [
   {
+    "title": "LLM + KG 知识注入：预训练增强",
+    "slug": "llm-knowledge-injection",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "LLM+KG",
+      "知识注入"
+    ],
+    "summary": "知识图谱在预训练阶段注入，可让语言模型同时学习文本语义与结构化事实，适合强知识约束任务。"
+  },
+  {
     "title": "SPARQL：RDF 知识图谱查询语言",
     "slug": "sparql-query-rdf",
     "date": "2026-04-14",

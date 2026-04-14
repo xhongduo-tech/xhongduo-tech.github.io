@@ -14992,7 +14992,7 @@
       "SPARQL"
     ],
     "brief": "SPARQL 是 RDF 图的标准查询语言。SELECT ?name WHERE { ?person foaf:name ?name }。支持 FILTER、OPTIONAL、UNION。联邦查询跨多个 RDF 数据源。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "RDF 与 OWL：知识图谱表示语言",
@@ -15016,7 +15016,7 @@
       "知识注入"
     ],
     "brief": "将知识图谱嵌入注入 LLM 预训练。方法：(1) ERNIE 实体嵌入融合；(2) K-BERT 知识图谱嵌入层；(3) CoLAKE 联合语料与图谱预训练。ERNIE 3.0 在知识驱动任务上提升 3-8%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识图谱增强 RAG：GraphRAG 架构",
