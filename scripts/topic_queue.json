@@ -16288,7 +16288,7 @@
       "偏见与公平性"
     ],
     "brief": "StereoSet 评估模型在性别、种族、宗教等维度的刻板印象倾向。通过 intra-sentence 测试任务的偏好。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Mechanistic Interpretability：机械可解释性导论",

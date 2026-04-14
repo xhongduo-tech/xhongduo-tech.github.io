@@ -1,5 +1,29 @@
 [
   {
+    "title": "StereoSet：刻板印象检测基准",
+    "slug": "stereoset-stereotype-detection",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "偏见与公平性"
+    ],
+    "summary": "StereoSet 用 LMS、SS、ICAT 同时衡量语境理解与刻板印象偏向。"
+  },
+  {
+    "title": "Activation Patching：激活修补定位关键组件",
+    "slug": "activation-patching-key-components",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "模型解析",
+      "机制解释"
+    ],
+    "summary": "Activation patching 通过替代干净激活并结合 tracing/scrubbing，定位关键子空间。"
+  },
+  {
     "title": "公平性评测：Demographic Parity 与 Equalized Odds",
     "slug": "fairness-evaluation-metrics",
     "date": "2026-04-14",
