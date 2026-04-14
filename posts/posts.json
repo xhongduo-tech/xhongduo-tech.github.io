@@ -1,5 +1,18 @@
 [
   {
+    "title": "本体匹配：跨本体概念对齐",
+    "slug": "ontology-matching",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合",
+      "本体匹配"
+    ],
+    "summary": "跨本体概念对齐要把术语、结构和向量语义联合评分，才能稳定把不同本体中的同一概念映射出来。"
+  },
+  {
     "title": "文档级事件抽取：跨句事件组装",
     "slug": "document-level-event-extraction",
     "date": "2026-04-14",
