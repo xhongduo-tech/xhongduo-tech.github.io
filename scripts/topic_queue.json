@@ -14492,7 +14492,7 @@
       "工具使用"
     ],
     "brief": "API-Bank 包含 73 个工具和 568 个 API 调用场景。测试模型选择合适工具、组合多个 API、处理返回结果的能力。评估 LLM 作为 Agent 的工具使用能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ToolBench 工具学习评测",

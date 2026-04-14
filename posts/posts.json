@@ -1,5 +1,17 @@
 [
   {
+    "title": "API-Bank 工具调用能力评测",
+    "slug": "api-bank-tool-calling",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "工具使用"
+    ],
+    "summary": "API-Bank用真实API、多步对话与调用日志，系统评测LLM的检索、规划与执行能力。"
+  },
+  {
     "title": "DecodingTrust 大语言模型可信度评测",
     "slug": "decodingtrust-llm-trustworthiness",
     "date": "2026-04-14",
