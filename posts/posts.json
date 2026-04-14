@@ -1,5 +1,17 @@
 [
   {
+    "title": "SlimPajama 数据集分析",
+    "slug": "data-eng-slimpajama-dataset-analysis",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "预训练数据集"
+    ],
+    "summary": "SlimPajama 的价值在于多源保真、强去重和可直接训练，不在于单纯更大。"
+  },
+  {
     "title": "dbt 数据转换工程化",
     "slug": "data-eng-dbt-transformation-engineering",
     "date": "2026-04-14",

@@ -15837,7 +15837,7 @@
       "合成数据"
     ],
     "brief": "指令多样性的度量：语义聚类、词法多样性、任务类型分布。提升多样性的策略：种子池扩展、温度调节、采样策略。多样性 vs 质量的权衡。过度多样性带来的噪声问题。多样性控制在 Evol-Instruct 中的应用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Feature Store 架构设计",
@@ -15870,7 +15870,7 @@
       "预训练数据集"
     ],
     "brief": "SlimPajama 的设计目标：The Pile 的精简与清洗版本。数据来源与配比：CommonCrawl、C4、GitHub、Books、Wikipedia、StackExchange。去重策略：Exact + Approximate。SlimPajama 与 The Pile 的 token 规模对比。使用 SlimPajama 训练模型的经验。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PPO 算法在 RLHF 中的数学原理与实现",
