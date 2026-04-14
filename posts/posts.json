@@ -1,5 +1,17 @@
 [
   {
+    "title": "Chain-of-Thought Prompting 对评测的影响",
+    "slug": "cot-prompting-evaluation",
+    "date": "2026-04-14",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "评测方法"
+    ],
+    "summary": "CoT 主要提升多步推理评测，对事实回忆任务通常收益有限且成本更高"
+  },
+  {
     "title": "Harmfulness Bench 安全性评测",
     "slug": "harmfulness-benchmark-safety",
     "date": "2026-04-14",

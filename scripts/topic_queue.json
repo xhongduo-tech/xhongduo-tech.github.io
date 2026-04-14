@@ -14360,7 +14360,7 @@
       "评测方法"
     ],
     "brief": "CoT prompting 要求模型输出中间推理步骤。在 GSM8K、MATH、BBH 等推理任务上显著提升性能，但对知识类任务（MMLU）影响较小。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CMMLU 中文综合能力评测",
