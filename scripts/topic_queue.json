@@ -17464,7 +17464,7 @@
       "扩散模型"
     ],
     "brief": "SD3 用 MMDiT（Multimodal Diffusion Transformer）替代 U-Net，文本和图像使用独立的 Transformer 权重并在注意力层交互。支持 T5-XXL + CLIP 双文本编码器。分析其 Rectified Flow 训练目标与改进的采样效率。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FLUX：Flow Matching 与 T5 编码器的图像生成",

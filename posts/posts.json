@@ -1,5 +1,18 @@
 [
   {
+    "title": "SD3：Stable Diffusion 的 Multimodal Diffusion Transformer",
+    "slug": "sd3-multimodal-diffusion-transformer",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成",
+      "扩散模型"
+    ],
+    "summary": "SD3 用 MMDiT 和 Rectified Flow 替代旧扩散主干与目标，更强于文本理解、版式控制和少步采样。"
+  },
+  {
     "title": "Multilingual CLIP：跨语言视觉语言模型",
     "slug": "multilingual-clip-cross-lingual",
     "date": "2026-04-15",
