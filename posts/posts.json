@@ -1,5 +1,17 @@
 [
   {
+    "title": "PowerInfer (CPU-GPU Hybrid)",
+    "slug": "powerinfer-hybrid",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "推理优化"
+    ],
+    "summary": "PowerInfer 用激活稀疏性做 CPU-GPU 混合推理，以更聪明的放置策略换显存与速度。"
+  },
+  {
     "title": "Fill-in-the-Middle (FIM)",
     "slug": "fill-in-middle",
     "date": "2026-04-15",
