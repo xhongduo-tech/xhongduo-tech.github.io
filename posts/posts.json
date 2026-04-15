@@ -1,5 +1,17 @@
 [
   {
+    "title": "ALBERT Factorization",
+    "slug": "albert-factorization",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "参数共享"
+    ],
+    "summary": "ALBERT 将词嵌入拆成两段，小维度存词义，大维度做上下文建模，显著压缩 embedding 参数。"
+  },
+  {
     "title": "Layer Scaling",
     "slug": "layer-scaling",
     "date": "2026-04-15",

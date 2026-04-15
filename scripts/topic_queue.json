@@ -17109,7 +17109,7 @@
       "参数共享"
     ],
     "brief": "将 embedding 分解为两个小矩阵：V × H → V × E + E × H，其中 E << H。大幅减少 embedding 参数，允许更大的 hidden size。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Cross-Layer Sharing",
