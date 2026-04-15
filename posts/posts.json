@@ -1,5 +1,18 @@
 [
   {
+    "title": "SVD：Stable Video Diffusion 的图像到视频",
+    "slug": "svd-stable-video-diffusion",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视频生成",
+      "图像动画"
+    ],
+    "summary": "SVD 是面向单图短视频生成的 latent diffusion，核心优势是短时稳定而非长时强控制。"
+  },
+  {
     "title": "Wan 2.1：万兴的视频生成开源模型",
     "slug": "wan21-video-generation",
     "date": "2026-04-15",

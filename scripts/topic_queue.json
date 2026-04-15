@@ -17512,7 +17512,7 @@
       "图像动画"
     ],
     "brief": "SVD 是 Stability AI 的图像到视频模型，基于 LDM 架构扩展时序维度。采用帧堆叠的 Latent 编码，3D U-Net 处理时序信息。分析其训练数据（LVD-F 数据集）的构建、帧数与分辨率的权衡、以及与 AnimateDiff 的设计差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CogVideo：文本到视频的 Transformer 架构",
