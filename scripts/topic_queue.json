@@ -17488,7 +17488,7 @@
       "级联生成"
     ],
     "brief": "DeepFloyd IF 采用三级级联：64px 文本对齐 → 256px 细节增强 → 1024px 超分辨率。全程在像素空间而非潜空间操作。分析其级联训练的稳定性、SR 模块的文本条件设计，以及 vs 潜空间扩散的生成质量差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AnimateDiff：视频生成的运动模块注入",

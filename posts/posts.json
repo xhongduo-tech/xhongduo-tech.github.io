@@ -1,5 +1,18 @@
 [
   {
+    "title": "DeepFloyd IF：像素空间的级联扩散生成",
+    "slug": "deepfloyd-if-pixel-cascade-diffusion",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成",
+      "级联生成"
+    ],
+    "summary": "DeepFloyd IF 先用像素级低分辨率定结构，再逐级补细节；1024 放大常是外接模块。"
+  },
+  {
     "title": "AnimateDiff：视频生成的运动模块注入",
     "slug": "animatediff-motion-module",
     "date": "2026-04-15",
