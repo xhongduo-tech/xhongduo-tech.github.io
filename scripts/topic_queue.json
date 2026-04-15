@@ -17298,7 +17298,7 @@
       "Transformer"
     ],
     "brief": "视频 Transformer 需同时建模空间（帧内）和时间（帧间）信息。分析分离时空注意力（先空间后时间）vs 联合时空注意力的计算复杂度与效果差异。介绍 TimeSformer、ViViT、Video Swin 三种代表性架构的设计选择。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图文对比学习：InfoNCE 损失与温度参数",

@@ -1,5 +1,19 @@
 [
   {
+    "title": "视频 Transformer",
+    "slug": "video-transformer-spatial-temporal-attention",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视频理解",
+      "视频Transformer",
+      "Transformer"
+    ],
+    "summary": "视频 Transformer 的核心是高效建模帧内空间关系与帧间时间关系。"
+  },
+  {
     "title": "语音克隆 GPT-SoVITS：少样本音色迁移",
     "slug": "gpt-sovits-voice-cloning",
     "date": "2026-04-15",
