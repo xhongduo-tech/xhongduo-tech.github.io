@@ -1,5 +1,18 @@
 [
   {
+    "title": "图文交错数据：MMC4 与 OBELISC 数据集分析",
+    "slug": "interleaved-image-text-mmc4-obelisc",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "数据集",
+      "图文交错"
+    ],
+    "summary": "MMC4重对齐，OBELICS重保序清洗，二者共同支撑多图长上下文多模态预训练"
+  },
+  {
     "title": "3D Gaussian Splatting：实时神经渲染技术",
     "slug": "3d-gaussian-splatting-realtime-rendering",
     "date": "2026-04-15",
