@@ -1,5 +1,17 @@
 [
   {
+    "title": "AudioLLM：音频理解与语言模型的结合",
+    "slug": "audiollm-understanding-language",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "音频处理"
+    ],
+    "summary": "AudioLLM 的关键是先把音频压成语义表示，再交给 LLM 做统一理解与生成"
+  },
+  {
     "title": "SVD：Stable Video Diffusion 的图像到视频",
     "slug": "svd-stable-video-diffusion",
     "date": "2026-04-15",

@@ -17558,7 +17558,7 @@
       "音频处理"
     ],
     "brief": "AudioLLM 系列将音频编码器（如 AudioDec、Whisper）与 LLM 连接，实现音频理解、描述、问答。分析不同音频编码器的特征质量、音频 token 压缩策略、以及环境音、音乐、语音的统一处理方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MusicGen：Meta 的文本到音乐生成",
