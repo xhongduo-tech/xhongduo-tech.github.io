@@ -17524,7 +17524,7 @@
       "Transformer"
     ],
     "brief": "CogVideo 采用 Cognet 架构，在预训练文本 GPT（CogView2）基础上扩展视频生成能力。视频 token 通过滑动窗口注意力处理长序列。分析其多阶段训练策略（文本→图像→视频）、帧率控制、及 CogVideoX 的改进。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Wan 2.1：万兴的视频生成开源模型",

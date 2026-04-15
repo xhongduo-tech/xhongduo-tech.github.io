@@ -1,5 +1,18 @@
 [
   {
+    "title": "CogVideo：文本到视频的 Transformer 架构",
+    "slug": "cogvideo-text-to-video-transformer",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视频生成",
+      "Transformer"
+    ],
+    "summary": "CogVideo从自回归分层生成演进到CogVideoX的latent扩散，核心是降低视频时空建模复杂度。"
+  },
+  {
     "title": "AudioLLM：音频理解与语言模型的结合",
     "slug": "audiollm-understanding-language",
     "date": "2026-04-15",
