@@ -1,5 +1,17 @@
 [
   {
+    "title": "Wan 2.1：万兴的视频生成开源模型",
+    "slug": "wan21-video-generation",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视频生成"
+    ],
+    "summary": "Wan 2.1 用潜空间与 Flow Matching 做多任务视频生成，中文场景和工程落地价值突出"
+  },
+  {
     "title": "LLM 驱动的 TTS：语音合成与语言模型的融合",
     "slug": "llm-driven-tts-synthesis",
     "date": "2026-04-15",
