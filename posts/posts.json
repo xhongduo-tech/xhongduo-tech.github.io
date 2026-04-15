@@ -1,5 +1,17 @@
 [
   {
+    "title": "Depth-Down Architecture",
+    "slug": "depth-down-architecture",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "层结构"
+    ],
+    "summary": "Depth-Down 本质是逐层压缩换效率与语义，但细节会损失，分割等任务必须配细节回流机制。"
+  },
+  {
     "title": "Parallel Attention-FFN",
     "slug": "parallel-attention-ffn",
     "date": "2026-04-15",

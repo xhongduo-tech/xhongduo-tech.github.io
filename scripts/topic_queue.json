@@ -17076,7 +17076,7 @@
       "层结构"
     ],
     "brief": "Depth-Down Architecture 需要从形式化定义、关键公式与可证明性质三层讲清，说明它如何影响模型表达能力、误差界或信息流，并比较相近方法在假设条件和适用范围上的差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Layer Scaling",
