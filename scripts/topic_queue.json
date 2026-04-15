@@ -17249,7 +17249,7 @@
       "LoRA"
     ],
     "brief": "LoRA 通过低秩分解将 U-Net 权重更新分解为两个小矩阵，实现 1% 参数量完成风格/角色微调。分析 rank 值（4/16/32）对微调效果的影响，alpha 参数的缩放机制，以及在 cross-attention 层 vs 全层的微调策略差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Whisper 架构：大规模弱监督语音识别",

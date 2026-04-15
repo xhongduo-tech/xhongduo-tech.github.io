@@ -1,5 +1,19 @@
 [
   {
+    "title": "LoRA 微调 Stable Diffusion",
+    "slug": "lora-stable-diffusion-finetuning",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成",
+      "高效微调",
+      "LoRA"
+    ],
+    "summary": "LoRA 用低秩增量补丁微调 SD，低成本适合角色与风格，不适合大幅改写模型表达。"
+  },
+  {
     "title": "Qwen2-VL：Native 分辨率与视频理解的统一架构",
     "slug": "qwen2-vl-native-resolution",
     "date": "2026-04-15",
