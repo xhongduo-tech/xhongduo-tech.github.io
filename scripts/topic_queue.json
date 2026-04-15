@@ -16917,7 +16917,7 @@
       "稀疏计算"
     ],
     "brief": "利用激活值的上下文稀疏性：预测哪些神经元是活跃的，只计算这些神经元。在保持质量的同时实现 80% 以上的稀疏度，显著加速推理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PowerInfer (CPU-GPU Hybrid)",

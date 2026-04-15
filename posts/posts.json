@@ -1,5 +1,17 @@
 [
   {
+    "title": "Deja Vu (Contextual Sparsity)",
+    "slug": "deja-vu-sparsity",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "稀疏计算"
+    ],
+    "summary": "Deja Vu通过预测活跃头和神经元，只计算当前真正有用的子集，从而在尽量保质量的前提下降低大模型推理延迟"
+  },
+  {
     "title": "Expert Offloading",
     "slug": "expert-offloading",
     "date": "2026-04-15",
