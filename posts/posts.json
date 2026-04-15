@@ -1,5 +1,19 @@
 [
   {
+    "title": "DeepNorm",
+    "slug": "deepnorm-deep-transformer-normalization",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "模型架构",
+      "归一化策略",
+      "归一化",
+      "深层网络"
+    ],
+    "summary": "DeepNorm 用残差缩放与初始化缩放稳定深层 Transformer 训练。"
+  },
+  {
     "title": "SwiGLU Activation",
     "slug": "swiglu-activation",
     "date": "2026-04-15",
