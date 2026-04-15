@@ -1,5 +1,17 @@
 [
   {
+    "title": "EVA-CLIP：大规模视觉编码器的训练稳定性与效率",
+    "slug": "eva-clip-training-stability",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码器"
+    ],
+    "summary": "EVA-CLIP 先用 MIM 视觉初始化稳住大模型，再用渐进分辨率和图文对齐完成扩展。"
+  },
+  {
     "title": "SigLIP：Sigmoid 损失函数的对比学习改进",
     "slug": "siglip-sigmoid-loss",
     "date": "2026-04-15",

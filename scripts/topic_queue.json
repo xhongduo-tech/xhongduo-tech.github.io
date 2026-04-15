@@ -17153,7 +17153,7 @@
       "视觉编码器"
     ],
     "brief": "EVA-CLIP 通过 MIM 预训练初始化和渐进式分辨率训练实现 10 亿参数视觉编码器的稳定收敛。分析其 LayerScale、渐进式分辨率扩展（224→448→560）对训练动态的影响，以及在 ImageNet-22K 与 LAION-2B 混合数据上的配比策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SigLIP：Sigmoid 损失函数的对比学习改进",
