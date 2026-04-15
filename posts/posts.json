@@ -1,5 +1,18 @@
 [
   {
+    "title": "DINOv2：自监督视觉特征学习的统一框架",
+    "slug": "dinov2-self-supervised-vision",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码器",
+      "自监督学习"
+    ],
+    "summary": "DINOv2 用统一自监督框架同时学习整图语义与局部 patch 结构，核心价值是冻结后也能强迁移。"
+  },
+  {
     "title": "EVA-CLIP：大规模视觉编码器的训练稳定性与效率",
     "slug": "eva-clip-training-stability",
     "date": "2026-04-15",

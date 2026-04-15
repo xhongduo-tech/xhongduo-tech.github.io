@@ -17177,7 +17177,7 @@
       "自监督学习"
     ],
     "brief": "DINOv2 整合 iBOT、DINO、SwAV 三种自监督目标，通过知识蒸馏和掩码图像建模联合训练。分析其 patch 级别与图像级别的双重损失设计、Laion-2B + ImageNet-22K 数据流水线、及无需微调直接迁移的性能表现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "InternVL 2.0：渐进式多模态预训练策略",
