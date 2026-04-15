@@ -16961,7 +16961,7 @@
       "训练目标"
     ],
     "brief": "统一多种预训练目标：将 span corruption、prefix LM、因果 LM 统一为同一框架。通过 mode token 指定目标类型，单一模型支持多种能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Dense Connection (DenseNet)",

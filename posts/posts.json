@@ -1,5 +1,17 @@
 [
   {
+    "title": "Ulv2 (Unidirectional Language Model)",
+    "slug": "ul2-objective",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "训练目标"
+    ],
+    "summary": "UL2 用 mode token 和多种训练目标统一理解、补全、生成能力。"
+  },
+  {
     "title": "Dense Connection (DenseNet)",
     "slug": "dense-connection",
     "date": "2026-04-15",
