@@ -1,5 +1,18 @@
 [
   {
+    "title": "3D Gaussian Splatting：实时神经渲染技术",
+    "slug": "3d-gaussian-splatting-realtime-rendering",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "3D生成",
+      "神经渲染"
+    ],
+    "summary": "3DGS用可优化3D高斯替代隐式场查询，在质量接近SOTA时实现实时新视角渲染。"
+  },
+  {
     "title": "文本到 3D：DreamFusion 与 Score Distillation",
     "slug": "text-to-3d-dreamfusion-sds",
     "date": "2026-04-15",

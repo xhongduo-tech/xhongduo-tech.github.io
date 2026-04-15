@@ -17593,7 +17593,7 @@
       "神经渲染"
     ],
     "brief": "3D Gaussian Splatting 用 3D 高斯原语表示场景，支持实时渲染。结合可微光栅化实现从图像重建 3D。分析其高斯参数（位置、协方差、不透明度、球谐系数）、自适应密度控制、与 NeRF 的质量-速度权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图文交错数据：MMC4 与 OBELISC 数据集分析",
