@@ -1,5 +1,17 @@
 [
   {
+    "title": "文本到 3D：DreamFusion 与 Score Distillation",
+    "slug": "text-to-3d-dreamfusion-sds",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "3D生成"
+    ],
+    "summary": "DreamFusion用SDS把2D扩散模型的文本先验蒸馏到NeRF，实现无3D数据的文本到3D原型生成。"
+  },
+  {
     "title": "MusicGen：Meta 的文本到音乐生成",
     "slug": "musicgen-text-to-music",
     "date": "2026-04-15",

@@ -17581,7 +17581,7 @@
       "3D生成"
     ],
     "brief": "DreamFusion 使用 2D 扩散模型（如 Imagen）通过 Score Distillation Sampling（SDS）指导 3D NeRF 优化。无需 3D 训练数据。分析 SDS 损失的数学推导、NeRF 参数化选择、及与 ProlificDreamer 的改进对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "3D Gaussian Splatting：实时神经渲染技术",
