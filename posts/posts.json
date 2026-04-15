@@ -1,5 +1,17 @@
 [
   {
+    "title": "QK-Norm",
+    "slug": "qk-norm",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "归一化策略"
+    ],
+    "summary": "QK-Norm先约束Q和K的尺度，再用可学习缩放恢复表达力，核心价值是稳定attention训练。"
+  },
+  {
     "title": "Sandwich Norm",
     "slug": "sandwich-norm",
     "date": "2026-04-15",
