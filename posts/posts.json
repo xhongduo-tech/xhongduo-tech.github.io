@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sandwich Norm",
+    "slug": "sandwich-norm",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "归一化位置"
+    ],
+    "summary": "Sandwich Norm 在子层前后都做 LayerNorm，用额外归一化换更稳的深层训练。"
+  },
+  {
     "title": "Pre-Norm vs Post-Norm",
     "slug": "prenorm-postnorm",
     "date": "2026-04-15",

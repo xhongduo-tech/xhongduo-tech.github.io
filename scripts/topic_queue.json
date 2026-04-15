@@ -16996,7 +16996,7 @@
       "归一化位置"
     ],
     "brief": "在子层前后都应用 LayerNorm：Norm → Attention → Norm → Residual。在某些架构（如 RetNet）中使用，提供更强的训练稳定性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepNorm",
