@@ -17188,7 +17188,7 @@
       "视觉语言模型"
     ],
     "brief": "InternVL 2.0 采用三阶段渐进式训练：视觉-语言对齐→多任务指令微调→高质量数据精调。引入动态分辨率策略（Variable Visual Token Count），支持 4K 分辨率图像理解。分析其 InternViT-300M 视觉编码器与 Qwen2-72B 语言模型的融合方式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Qwen2-VL：Native 分辨率与视频理解的统一架构",

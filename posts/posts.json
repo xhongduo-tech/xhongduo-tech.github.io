@@ -1,5 +1,17 @@
 [
   {
+    "title": "InternVL 2.0：渐进式多模态预训练策略",
+    "slug": "internvl2-progressive-pretraining",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型"
+    ],
+    "summary": "InternVL 2.0 的关键不是参数更大，而是 ViT-MLP-LLM 融合、动态分辨率和渐进训练。"
+  },
+  {
     "title": "DINOv2：自监督视觉特征学习的统一框架",
     "slug": "dinov2-self-supervised-vision",
     "date": "2026-04-15",
