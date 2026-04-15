@@ -17131,7 +17131,7 @@
       "自适应计算"
     ],
     "brief": "循环执行同一组 Transformer 层：通过 halting mechanism 动态决定循环次数。自适应计算，简单样本少循环、复杂样本多循环。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Dynamic Depth",

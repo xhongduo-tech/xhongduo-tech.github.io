@@ -1,5 +1,17 @@
 [
   {
+    "title": "Universal Transformer",
+    "slug": "universal-transformer",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "自适应计算"
+    ],
+    "summary": "Universal Transformer 通过共享层循环与位置级停止机制，实现按 token 动态分配计算深度。"
+  },
+  {
     "title": "Cross-Layer Sharing",
     "slug": "cross-layer-sharing",
     "date": "2026-04-15",
