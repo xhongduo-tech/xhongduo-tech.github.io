@@ -1,5 +1,18 @@
 [
   {
+    "title": "数据合成：GPT-4V 标注的图文数据流水线",
+    "slug": "data-synthesis-gpt4v-captioning",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "数据合成",
+      "视觉语言模型"
+    ],
+    "summary": "GPT-4V 图文合成的关键是先细描述，再生成问答与解释，并用质量控制筛掉低质样本。"
+  },
+  {
     "title": "图文交错数据：MMC4 与 OBELISC 数据集分析",
     "slug": "interleaved-image-text-mmc4-obelisc",
     "date": "2026-04-15",
