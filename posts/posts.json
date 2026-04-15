@@ -1,5 +1,17 @@
 [
   {
+    "title": "Dynamic Depth",
+    "slug": "dynamic-depth-network",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "自适应计算"
+    ],
+    "summary": "Dynamic Depth 把网络深度变成可动态分配的计算资源，而不是固定结构。"
+  },
+  {
     "title": "Universal Transformer",
     "slug": "universal-transformer",
     "date": "2026-04-15",
