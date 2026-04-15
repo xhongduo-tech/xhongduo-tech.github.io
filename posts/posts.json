@@ -1,5 +1,18 @@
 [
   {
+    "title": "InstructBLIP：指令感知的视觉特征提取",
+    "slug": "instructblip-instruction-aware-vision",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "指令微调"
+    ],
+    "summary": "InstructBLIP 的关键是让指令先参与视觉抽取，再交给语言模型生成答案。"
+  },
+  {
     "title": "跨模态检索：双塔 vs 融合架构的权衡",
     "slug": "cross-modal-retrieval-dual-vs-fusion",
     "date": "2026-04-15",
