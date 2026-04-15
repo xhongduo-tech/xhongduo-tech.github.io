@@ -17570,7 +17570,7 @@
       "音乐生成"
     ],
     "brief": "MusicGen 采用单阶段 Transformer 直接预测音频 codebook token，无需级联。使用 EnCodec 压缩音频为离散 token，支持文本条件控制。分析其延迟并行解码、多 codebook 预测策略、以及与 MusicLM 的架构差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "文本到 3D：DreamFusion 与 Score Distillation",

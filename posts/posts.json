@@ -1,5 +1,18 @@
 [
   {
+    "title": "MusicGen：Meta 的文本到音乐生成",
+    "slug": "musicgen-text-to-music",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "音频处理",
+      "音乐生成"
+    ],
+    "summary": "MusicGen 用单阶段 Transformer 直接生成 EnCodec 音频 token，以更短链路实现文本到音…"
+  },
+  {
     "title": "CogVideo：文本到视频的 Transformer 架构",
     "slug": "cogvideo-text-to-video-transformer",
     "date": "2026-04-15",
