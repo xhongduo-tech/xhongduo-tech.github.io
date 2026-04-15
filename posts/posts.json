@@ -1,5 +1,17 @@
 [
   {
+    "title": "Parallel Attention-FFN",
+    "slug": "parallel-attention-ffn",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "层结构"
+    ],
+    "summary": "Parallel Attention-FFN把层内串行改为并行，核心收益是缩短关键路径而非天然省算力。"
+  },
+  {
     "title": "Squared ReLU",
     "slug": "squared-relu",
     "date": "2026-04-15",

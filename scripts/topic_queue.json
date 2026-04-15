@@ -17065,7 +17065,7 @@
       "层结构"
     ],
     "brief": "将 Attention 和 FFN 并行执行而非串行：output = x + Attention(x) + FFN(x)。减少层深度，在相同计算量下支持更多参数。被 PaLM、Grokd 等采用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Depth-Down Architecture",
