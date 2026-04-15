@@ -1,5 +1,18 @@
 [
   {
+    "title": "Whisper 架构：大规模弱监督语音识别",
+    "slug": "whisper-weakly-supervised-asr",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理",
+      "语音识别"
+    ],
+    "summary": "Whisper 用 30 秒 log-Mel 和任务前缀统一完成转录、翻译与语言识别，强在通用性，难点在长音频与工程控制"
+  },
+  {
     "title": "LoRA 微调 Stable Diffusion",
     "slug": "lora-stable-diffusion-finetuning",
     "date": "2026-04-15",

@@ -17261,7 +17261,7 @@
       "语音识别"
     ],
     "brief": "Whisper 在 68 万小时弱标注音频上训练，采用 Log-Mel Spectrogram 输入 + Encoder-Decoder Transformer 架构。支持 99 种语言的转录与翻译。分析其多任务训练格式（transcribe/translate/language_id）、长音频的分段处理策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "语音合成 VITS：端到端 TTS 的 GAN-Flow 架构",
