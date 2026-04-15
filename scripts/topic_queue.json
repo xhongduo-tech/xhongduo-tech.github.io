@@ -16985,7 +16985,7 @@
       "Transformer"
     ],
     "brief": "LayerNorm 放在 attention/FFN 前还是后：Pre-norm 训练更稳定，梯度流动更顺畅，是现代 LLM 的标准选择。Post-norm 原始 Transformer 设计，需要 warmup。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sandwich Norm",

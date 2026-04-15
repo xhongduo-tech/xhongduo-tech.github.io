@@ -1,5 +1,19 @@
 [
   {
+    "title": "Pre-Norm vs Post-Norm",
+    "slug": "prenorm-postnorm",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "归一化位置",
+      "归一化",
+      "Transformer"
+    ],
+    "summary": "Pre-Norm保留更直通的残差梯度路径，深层Transformer训练通常比Post-Norm更稳定。"
+  },
+  {
     "title": "Ulv2 (Unidirectional Language Model)",
     "slug": "ul2-objective",
     "date": "2026-04-15",
