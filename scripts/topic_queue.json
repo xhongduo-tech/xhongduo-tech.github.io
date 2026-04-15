@@ -17098,7 +17098,7 @@
       "参数共享"
     ],
     "brief": "共享输入 embedding 和输出 projection：减少参数量，尤其在词表大时显著。ALBERT、GPT-2 等采用此技术，但可能影响模型容量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ALBERT Factorization",
