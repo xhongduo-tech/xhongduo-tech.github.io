@@ -1,5 +1,18 @@
 [
   {
+    "title": "Florence-2：微软统一视觉任务的编码器-解码器",
+    "slug": "florence2-unified-vision-tasks",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码器",
+      "多任务学习"
+    ],
+    "summary": "Florence-2 用图像加任务提示统一检测、OCR、分割和描述，关键在统一文本输出与后处理解析。"
+  },
+  {
     "title": "LLaVA-NeXT：AnyRes 动态分辨率与视频理解",
     "slug": "llava-next-anyres-video",
     "date": "2026-04-15",

@@ -17392,7 +17392,7 @@
       "多任务学习"
     ],
     "brief": "Florence-2 采用统一的编码器-解码器架构处理目标检测、分割、OCR、Caption 等任务。通过 prompt 格式统一不同任务的输出格式。分析其在 0.23B 参数实现多任务 SOTA 的关键：多阶段预训练与任务特定指令格式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CLIPA：CLIP 的训练加速与效率优化",
