@@ -1,351 +1,298 @@
 ## 核心结论
 
-Sequence Parallelism，简称 SP，指的是把一段输入里的 token 按序列维度分到多张 GPU 上，每张卡只保存并计算自己那一段的激活。白话说，就是“不让每张卡都背完整篇文章，而是每张卡只背其中几段”。
+Sequence Parallelism，简称 SP，可以理解为“把一条长序列的 token 分给多张 GPU 保管和计算”。它的核心作用不是减少参数，也不是减少优化器状态，而是减少**激活**占用。激活就是前向传播时为了反向传播暂存的中间结果，长序列训练里它常常比参数更早把显存撑满。
 
-它解决的核心问题不是“模型参数太大”，而是“长序列时中间激活太占内存”。当序列长度从 2K 增长到 32K、128K 甚至更长时，单卡往往先被激活内存压垮，而不是先被参数压垮。
-
-SP 通常和 Tensor Parallelism，简称 TP，一起使用。TP 是“把一层的权重切到多卡”，SP 是“把一批 token 切到多卡”。两者叠加后，单卡同时少拿一部分参数视图和一部分序列激活，长上下文训练才有现实可行性。
-
-一个常用配置检查公式是：
+设输入张量为 $X \in \mathbb{R}^{S \times B \times H}$，其中 $S$ 是序列长度，$B$ 是 batch size，$H$ 是 hidden size。SP 会把序列维切成 $t$ 份，每张卡只保存
 
 $$
-dp\_replicate\_size \times dp\_shard\_size \times sp\_size = \text{总进程数}
+X_i \in \mathbb{R}^{(S/t) \times B \times H}
 $$
 
-它表达的是：数据并行副本数、数据分片数、序列并行组大小三者相乘，必须正好覆盖全部 GPU。
+这意味着，当 `t=4` 时，每张 GPU 常驻保存的 token 激活大约缩小为原来的四分之一。这里说的是“常驻布局”，不是说所有算子都永远只看局部 token。遇到必须看到完整序列的算子，仍然要通过通信把分片临时拼回去。
 
-玩具例子：输入长度是 1024，`sp_size=4`。原来 4 张卡都要各自拿 1024 个 token 的激活；现在改成每张卡只拿 256 个 token。后续某些层前后再通过 `all-gather` 或 `reduce-scatter` 交换结果，把“局部片段”恢复成“全局视图”。
+一个最短结论可以直接记住：
 
-| 对比项 | 原始做法 | 启用 SP 后 |
-|---|---|---|
-| 每卡持有的序列激活 | 全部 token | 仅本卡负责的 token 分片 |
-| 主要收益 | 实现简单 | 单卡激活内存显著下降 |
-| 额外代价 | 通信少 | 需要 `all-gather` / `reduce-scatter` / 某些实现中的 `all-to-all` |
-| 与 TP 的关系 | 可单独使用 TP | SP 通常依赖 `tensor_parallel > 1` |
-| 适用场景 | 中短序列 | 长序列、超长上下文训练 |
+| 方案 | 切分对象 | 主要节省什么 | 典型通信 |
+|---|---|---|---|
+| Data Parallelism | 数据批次 | 不直接省单卡显存 | 梯度同步 |
+| Tensor Parallelism | 权重或 hidden 维 | 参数、部分激活 | all-reduce |
+| Sequence Parallelism | 序列维 | 激活 | all-gather / reduce-scatter |
+
+玩具例子很直接。假设 `S=8, t=2`，原来每张卡都要保留 8 个 token 的激活。开启 SP 后，GPU0 只保留 token `0~3`，GPU1 只保留 token `4~7`。局部能算的就在本地算，必须看全序列时再临时通信。这就是它支持超长上下文训练的根本原因。
 
 ---
 
 ## 问题定义与边界
 
-先明确问题。Attention，注意力机制，白话说就是“每个 token 去看别的 token，有选择地聚合信息”。如果直接按朴素形式实现，注意力分数矩阵大小接近 $L \times L$，其中 $L$ 是序列长度。所以序列越长，内存压力增长越快。
+SP 解决的问题是：**长序列训练时，激活内存过大**。这里的“长序列”通常指 4k、8k、32k 甚至更长上下文。模型不一定是算不动，很多时候是中间结果放不下。
 
-例如，`seq_len=4096` 时，单头注意力矩阵就有：
+对初级工程师，一个常见误解是：既然分布式训练已经把模型摊到多卡上了，为什么还会爆显存。原因在于，参数只是一部分，训练时还要保存大量中间张量。Transformer 在长序列下，许多层的激活大小会随着 $S$ 线性甚至更敏感地增长，最终先卡死的是激活，而不是权重文件。
 
-$$
-4096^2 = 16{,}777{,}216
-$$
+SP 的边界也必须说清楚：
 
-个元素。多头、多层、反向传播再叠加后，激活内存很容易成为瓶颈。
-
-这里要区分三个概念：
-
-| 概念 | 解决什么问题 | 白话解释 |
+| 维度 | SP 是否直接优化 | 说明 |
 |---|---|---|
-| Data Parallelism | 吞吐和全局 batch | 多张卡各自跑不同样本 |
-| Tensor Parallelism | 单层参数太大 | 一层权重拆给多张卡 |
-| Sequence Parallelism | 长序列激活太大 | 一段输入拆给多张卡 |
+| 激活内存 | 是 | 主要收益来源 |
+| 参数内存 | 否 | 参数仍按原并行方式存放 |
+| 优化器状态 | 否 | Adam 的一阶二阶状态不变 |
+| 通信总量 | 不一定显著下降 | 主要改变通信形态和时机 |
+| 长序列可训练性 | 是 | 尤其适合激活成为瓶颈时 |
 
-SP 的边界也必须说清楚。
+因此，SP 不是“万能省显存开关”。如果你的瓶颈是参数过大，比如单个模型权重已经塞不进单卡，那么更优先的是 Tensor Parallelism、FSDP 或 ZeRO 这类方案。如果瓶颈是优化器状态，也要找针对状态切分的策略。SP 只针对“每层中间结果太大”这一类问题。
 
-第一，它通常不是“单独开关”。在很多工程实现里，SP 只有在 `tensor_model_parallel_size > 1` 时才真正生效。NVIDIA NeMo 文档对这一点写得很明确：`sequence_parallel=True` 只有在 `tensor_model_parallel_size` 大于 1 时有效。
+还有两个边界条件常被忽略。
 
-第二，不同框架下“SP”这个词有两个常见语境。
+第一，$t$ 是序列切分数，不是 batch 切分数。也就是说，SP 切的是一条样本内部的 token 轴，不是把不同样本分给不同卡。
 
-1. Megatron/NeMo 语境：把某些层的激活按序列维度切开，典型通信模式是 `reduce-scatter -> 局部算子 -> all-gather`。
-2. Ulysses/DeepSpeed/Accelerate 语境：为了让 attention 在更长序列上可扩展，会同时涉及序列分片和 head 维度重排，底层常见 `all-to-all` 通信。
-
-因此，初学者最稳妥的理解方式不是死记某个算子名，而是抓住共同抽象：序列维度被切分，本地只算局部片段，必要时通过集体通信恢复完整上下文。
-
-第三，约束条件不能忽略。对于 Ulysses 一类实现，注意力头数通常要能被参与该副本的 GPU 数整除。可以写成：
-
-$$
-sp\_size \ge 2,\quad \text{并且 attention\_heads} \bmod sp\_size = 0
-$$
-
-更准确地说，这个整除约束在很多实现里是“参与单个 SP 副本的 GPU 数必须能和 head 切分兼容”。
-
-真实工程例子：如果一个 32-head 的模型在 4 卡上做 Ulysses SP，那么每张卡可以稳定接到 8 个 head；但如果你把 `sp_size` 设成 3，就会在 head 分配或重排阶段直接出错，因为 32 不能整除 3。
+第二，若 $S \bmod t \neq 0$，通常需要 padding。padding 就是先补齐到能整除的长度，再切片；否则 shape 会不对齐，通信和 kernel 实现都会变复杂。
 
 ---
 
 ## 核心机制与推导
 
-先看最朴素的抽象。设输入隐藏状态是：
+SP 的机制可以概括成一句话：**局部算子本地算，全局算子通信后再算，然后把输出重新切回局部布局**。
+
+这里“局部算子”是指只依赖单个 token 或本地张量统计的算子，例如 LayerNorm。LayerNorm 可以理解为“对每个 token 的特征维做标准化”，它不需要看到别的 token，因此天然适合在本地分片上执行。Dropout 也是类似情况，它只是对本地激活做随机失活。
+
+相反，“全局算子”是指它的输入或输出语义要求完整序列布局，或者它和 Tensor Parallelism 的输出归并耦合在一起。这时就不能继续只拿着半截序列硬算。
+
+形式化地写，输入切分为：
 
 $$
-H \in \mathbb{R}^{L \times d}
+X \in \mathbb{R}^{S \times B \times H}
+\quad \rightarrow \quad
+X_i \in \mathbb{R}^{(S/t) \times B \times H}, \; i=0,\dots,t-1
 $$
 
-其中 $L$ 是序列长度，$d$ 是 hidden size。若 `sp_size = s`，则把序列均匀切成 $s$ 段，每张卡只保留：
+本地算子直接作用在分片上：
 
 $$
-H_i \in \mathbb{R}^{\frac{L}{s} \times d}
+Y_i = \text{LN}(X_i), \quad Z_i = \text{Dropout}(Y_i)
 $$
 
-这一步可以抽象记成：
+如果后续某一步需要完整序列，就执行 all-gather。all-gather 可以理解为“每张卡把自己的局部片段发给所有卡，最终每张卡都拼出完整序列”：
 
 $$
-H_{sp} = \text{ReduceScatter}(H)
+Z = AG(Z_0, Z_1, \dots, Z_{t-1})
 $$
 
-这里的 `ReduceScatter` 可以理解为“先做需要的聚合，再把结果分发成每卡一段”。白话说，它不是简单切片，而是“切片前把该归并的信息先归并掉”。
-
-当某些逐 token 算子只依赖本 token，不依赖全序列时，例如 LayerNorm，层归一化，白话说就是“对每个 token 自己的通道做标准化”，就可以直接在本地分片上算：
+如果后续某一步的输出还要回到分片布局，则执行 reduce-scatter。reduce-scatter 可以理解为“先把各卡待合并结果按位置求和，再把结果切回各卡各自负责的一段”：
 
 $$
-\widetilde{H}_i = \text{LayerNorm}(H_i)
+O_i = RS(O^{(0)}, O^{(1)}, \dots, O^{(t-1)})
 $$
 
-MLP，多层感知机，白话说就是“对每个 token 独立做前馈变换”，也可以本地计算：
+很多资料会强调一个重要关系：all-reduce 本质上可以拆成 reduce-scatter 加 all-gather。这意味着 SP 不是发明一种全新通信，而是在原本并行训练已有的通信图上，重新安排“何时完整、何时分片”的激活布局。
 
-$$
-Y_i = \text{MLP}(\widetilde{H}_i)
-$$
+看一个玩具例子。设 `S=8, B=1, H=2, t=2`。
 
-如果后续模块需要完整序列，再通过：
+- GPU0 持有 `X_0`，shape 是 `[4,1,2]`，对应 token `0~3`
+- GPU1 持有 `X_1`，shape 是 `[4,1,2]`，对应 token `4~7`
 
-$$
-Y = \text{AllGather}(Y_i)
-$$
+处理流程可以写成：
 
-恢复为全序列视图：
+1. GPU0、GPU1 各自在本地对 `[4,1,2]` 做 LayerNorm 和 Dropout。
+2. 如果接下来某个模块要求完整序列，则两张卡做 all-gather，各自拿到 `[8,1,2]`。
+3. 执行该全局模块。
+4. 若后续继续按 SP 布局走，则把输出通过 reduce-scatter 切回 `[4,1,2]`。
 
-$$
-Y \in \mathbb{R}^{L \times d}
-$$
+这个流程的关键不是数学复杂，而是**张量布局切换**。训练系统要持续知道：当前张量到底是“完整序列布局”还是“序列分片布局”。很多 bug 都不是算子公式错，而是布局状态错。
 
-这就是很多 SP 资料里反复出现的链路：
-
-$$
-\text{ReduceScatter} \rightarrow \text{LayerNorm} \rightarrow \text{MLP} \rightarrow \text{AllGather}
-$$
-
-### 玩具例子：`seq_len=1024, sp_size=4`
-
-输入 `hidden_states` 的形状是 `[1024, hidden]`。切分后，每张卡各拿 `[256, hidden]`。
-
-1. 通信后，本卡只保留第 0 到 255、256 到 511、512 到 767、768 到 1023 中的一段。
-2. LayerNorm 在本地做，因为它只看单个 token 的 hidden 维。
-3. MLP 在本地做，因为它也是逐 token 前馈。
-4. 如果下一步需要完整序列布局，就把四段 `all-gather` 回 `[1024, hidden]`。
-
-残差连接也要注意形状一致。设残差输入是 $R$，主分支输出是 $Y$。如果两者都已经按序列切成同样分片，那么每张卡先局部相加：
-
-$$
-Z_i = R_i + Y_i
-$$
-
-最后再决定是否 `all-gather`。顺序的关键不是“先 gather 再加”，而是“确保相加双方的分片边界一致”。
-
-下面这段 Python 不依赖分布式库，但能模拟这个过程：
-
-```python
-import numpy as np
-
-def split_sequence(x, sp_size):
-    assert x.shape[0] % sp_size == 0
-    chunk = x.shape[0] // sp_size
-    return [x[i * chunk:(i + 1) * chunk].copy() for i in range(sp_size)]
-
-def all_gather(chunks):
-    return np.concatenate(chunks, axis=0)
-
-def layer_norm(x, eps=1e-5):
-    mean = x.mean(axis=-1, keepdims=True)
-    var = ((x - mean) ** 2).mean(axis=-1, keepdims=True)
-    return (x - mean) / np.sqrt(var + eps)
-
-def mlp(x, w1, w2):
-    hidden = np.maximum(0.0, x @ w1)  # ReLU
-    return hidden @ w2
-
-# toy example: seq_len=8, hidden=4, sp_size=2
-x = np.arange(32, dtype=np.float32).reshape(8, 4)
-residual = x.copy()
-sp_size = 2
-
-chunks = split_sequence(x, sp_size)
-res_chunks = split_sequence(residual, sp_size)
-
-w1 = np.ones((4, 6), dtype=np.float32) * 0.1
-w2 = np.ones((6, 4), dtype=np.float32) * 0.2
-
-out_chunks = []
-for local_x, local_res in zip(chunks, res_chunks):
-    y = layer_norm(local_x)
-    y = mlp(y, w1, w2)
-    z = y + local_res
-    out_chunks.append(z)
-
-full = all_gather(out_chunks)
-
-assert full.shape == (8, 4)
-assert np.allclose(full[:4], out_chunks[0])
-assert np.allclose(full[4:], out_chunks[1])
-```
-
-这段代码对应的就是“先按序列分片，本地做 LayerNorm 和 MLP，本地加 residual，最后再拼回完整序列”。
-
-需要再强调一次：对 attention 本体，实际工程实现往往比这个玩具例子复杂。Ulysses 一类实现会在“序列切分”和“head 切分”之间做额外重排，以保证每张卡仍能完成自己那部分注意力计算。这也是为什么官方文档会强调 Deepspeed 后端、通信拓扑、head 整除等约束。
+真实工程例子更典型。训练长上下文 GPT 时，常见配置是 `TP=4/8 + sequence_parallel=True`。这样做的目标不是减少参数，而是让 8k、16k、32k 上下文下的激活更容易塞进显存，并减少必须做 activation checkpointing 的范围。activation checkpointing 可以理解为“前向时少存，反向时重算”，它能省显存，但会增加计算时间。SP 的价值就在于：先把激活常驻内存压低，再把不得不重算的部分缩到更小。
 
 ---
 
 ## 代码实现
 
-如果你从 Hugging Face Accelerate 或 DeepSpeed 角度落地，核心不是手写通信算子，而是把并行配置对齐。
+实现 SP 时，重点不是写出复杂算法，而是把三件事做对：
 
-下面是一个贴近官方接口含义的配置示意：
+| 代码点 | 要求 |
+|---|---|
+| shape 管理 | 明确哪些张量是 `[S/t,B,H]`，哪些是 `[S,B,H]` |
+| 通信时机 | 只在确实需要完整序列时通信 |
+| 结果回切 | 全局算子之后及时切回分片布局 |
 
-```python
-from accelerate import Accelerator
-from accelerate.utils import ParallelismConfig, DeepSpeedSequenceParallelConfig
-
-parallelism_config = ParallelismConfig(
-    sp_backend="deepspeed",
-    sp_size=4,
-    dp_shard_size=1,
-    sp_handler=DeepSpeedSequenceParallelConfig(
-        sp_seq_length=4096,
-        sp_seq_length_is_variable=True,
-        sp_attn_implementation="flash_attention_2",
-    ),
-)
-
-accelerator = Accelerator(
-    parallelism_config=parallelism_config,
-)
-```
-
-如果写成更接近工程讨论的伪配置，也可以这样理解：
+下面先给一个可运行的 Python 玩具实现。它不依赖真实多卡通信，而是用列表模拟 `all-gather` 和 `reduce-scatter` 的语义，方便看清数据流。
 
 ```python
-ds_like_config = {
-    "tensor_parallel": {
-        "tp_world_size": 4,
-        "sequence_parallel": True,
-        "sp_size": 4,
-    },
-    "attention": {
-        "impl": "flash_attention_2",
-    },
-}
+import math
+
+def split_sequence(x, parts):
+    assert len(x) % parts == 0
+    chunk = len(x) // parts
+    return [x[i * chunk:(i + 1) * chunk] for i in range(parts)]
+
+def all_gather(chunks):
+    full = []
+    for c in chunks:
+        full.extend(c)
+    return [full[:] for _ in chunks]
+
+def reduce_scatter(full_outputs, parts):
+    # 这里模拟“先求和再按序列切分”
+    # full_outputs: 每个 rank 都有一份完整输出，形状一致
+    assert len(full_outputs) > 0
+    length = len(full_outputs[0])
+    for out in full_outputs:
+        assert len(out) == length
+
+    reduced = [0.0] * length
+    for out in full_outputs:
+        for i, v in enumerate(out):
+            reduced[i] += v
+
+    return split_sequence(reduced, parts)
+
+def local_layer_norm(chunk):
+    # 简化版 LN：对每个 token 的特征向量做归一化
+    result = []
+    for token in chunk:
+        mean = sum(token) / len(token)
+        var = sum((v - mean) ** 2 for v in token) / len(token)
+        std = math.sqrt(var + 1e-5)
+        result.append([(v - mean) / std for v in token])
+    return result
+
+def global_op(full_seq):
+    # 一个假设需要完整序列的操作：把每个 token 加上全序列均值
+    hidden = len(full_seq[0])
+    seq_mean = [sum(token[h] for token in full_seq) / len(full_seq) for h in range(hidden)]
+    return [[token[h] + seq_mean[h] for h in range(hidden)] for token in full_seq]
+
+# toy input: S=8, H=2, t=2
+x = [
+    [1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 5.0],
+    [5.0, 6.0], [6.0, 7.0], [7.0, 8.0], [8.0, 9.0],
+]
+
+parts = 2
+chunks = split_sequence(x, parts)
+assert len(chunks) == 2
+assert len(chunks[0]) == 4 and len(chunks[1]) == 4
+
+# 1) local ops
+local_chunks = [local_layer_norm(c) for c in chunks]
+
+# 2) all-gather to full sequence
+gathered = all_gather(local_chunks)
+assert len(gathered) == 2
+assert len(gathered[0]) == 8
+
+# 3) global op on each rank
+full_outputs = [global_op(full) for full in gathered]
+
+# 4) reduce-scatter back
+scattered = reduce_scatter(full_outputs, parts)
+assert len(scattered) == 2
+assert len(scattered[0]) == 4 and len(scattered[1]) == 4
+
+print("rank0 local tokens:", len(scattered[0]))
+print("rank1 local tokens:", len(scattered[1]))
 ```
 
-参数含义最好单独列清楚：
+这个例子里，`local_layer_norm` 在分片上本地执行；`global_op` 则故意设计成依赖全序列均值，强制展示为什么必须先 all-gather。最后再 reduce-scatter 回去，保持每张卡只持有自己的 token 片段。
 
-| 参数 | 含义 | 常见检查 |
-|---|---|---|
-| `tensor_model_parallel_size` / `tp_world_size` | TP 组大小 | 必须大于 1，很多 SP 实现才生效 |
-| `sp_size` | 一组里有多少张卡共同切序列 | 一般要求能和 head 数兼容 |
-| `sequence_parallel=True` | 打开 SP 逻辑 | 不开就不会走相应通信路径 |
-| `dp_replicate_size` | 数据并行副本数 | 与总 GPU 数一起核对 |
-| `dp_shard_size` | 数据并行分片数 | 与 `sp_size` 相乘后要匹配进程数 |
-| `sp_seq_length_is_variable` | 是否允许不同 batch 序列长度变化 | 动态长序列训练常设为 `True` |
-| `sp_attn_implementation` | attention 后端实现 | 常见为 `sdpa` 或 `flash_attention_*` |
+如果换成真实工程中的 PyTorch 分布式代码，思路并不变，只是通信原语来自 `torch.distributed`：
 
-真实工程例子：4 卡训练一个 32-head 模型，想把长序列从 8K 拉到 32K。你可以设 `tp=4, sp_size=4, dp_shard_size=1`。这样 4 张卡共同服务一个 batch 的一段长序列，每张卡只保留约四分之一序列激活。如果再叠加 FlashAttention 和 activation checkpoint，往往能把“原本直接 OOM”的配置压到可训练区间。
+```python
+# x: [S/t, B, H] on each rank
 
-这里还有一个经常被忽略的检查式：
+x = layer_norm(x)          # local op
+x = dropout(x)             # local op
 
-$$
-dp\_replicate\_size \times dp\_shard\_size \times sp\_size = \text{GPU 总数}
-$$
+xs = [torch.empty_like(x) for _ in range(world_size)]
+dist.all_gather(xs, x, group=group)
+x_full = torch.cat(xs, dim=0)    # [S, B, H]
 
-比如你有 8 张卡，若 `sp_size=4`，同时想做两路数据并行，那么可以取：
+y_full = global_op(x_full)       # op requiring full sequence
 
-$$
-1 \times 2 \times 4 = 8
-$$
+input_for_rs = y_full.contiguous()
+y_local = torch.empty_like(x)
+dist.reduce_scatter_tensor(y_local, input_for_rs, group=group)
+```
 
-这表示两组样本流，每组内部再用 4 卡做 SP。
+真实工程里要额外关注两点。
+
+第一，某些层是否真的“需要完整序列”，取决于实现细节，而不是看名字拍脑袋判断。第二，和 Tensor Parallelism 组合时，输出布局常常会在“TP 分片”和“SP 分片”之间切换，所以 shape 注释必须写清楚，否则调试成本很高。
 
 ---
 
 ## 工程权衡与常见坑
 
-SP 的收益来自“单卡少存激活”，代价来自“卡间多通信”。所以它不是白送性能，而是用通信换内存。
+SP 的收益主要来自显存下降，但它不是免费午餐。只要做了更多布局切换和通信，就会带来实现复杂度与性能权衡。
 
-最关键的权衡是下面这张表：
+先看收益和代价：
 
-| 问题 | 影响 | 规避方法 |
-|---|---|---|
-| `tensor_model_parallel_size <= 1` 还想开 SP | 配置不生效或收益极小 | 先确认后端是否要求 TP>1 |
-| `attention_heads % sp_size != 0` | head 分配失败，直接报错 | 让 head 数能整除参与 SP 的卡数 |
-| 序列太短 | 通信开销大于内存收益 | 中短序列优先考虑 FlashAttention |
-| 网络延迟高 | `all-gather` / `all-to-all` 成为瓶颈 | 尽量在同机高速互联内做 SP |
-| 忘记核对总进程公式 | 并行组划分错误 | 检查 `dp × dp_shard × sp = GPU数` |
-| 以为 SP 能替代一切优化 | 仍然 OOM 或吞吐差 | 与 checkpoint、FlashAttention 叠加 |
+| 维度 | SP 的典型效果 |
+|---|---|
+| 显存占用 | 明显下降，尤其是长序列 |
+| 训练吞吐 | 可能提升，也可能因通信受限 |
+| 实现复杂度 | 中等到高 |
+| 调试难度 | 高于纯 DP |
+| 长序列收益 | 很高 |
+| 短序列收益 | 可能不明显 |
 
-一个典型坑是：4 卡环境里把 `sp_size=3`。如果模型是 32 个 attention heads，那么不管你从逻辑上怎么解释，“32 个头分给 3 张卡”都无法均匀切分，很多实现会在初始化或第一次 forward 时抛错。
+最常见的坑有五类。
 
-另一个典型坑是：序列只有 512 或 1024，却强行开启 SP。此时 attention 本身并不大，反而是通信固定成本占主导。vllm-ascend 文档给出的经验值是，Ascend 上 `num_tokens < 1000` 时，SP 甚至可能带来负收益，因此提供了 `sp_min_token_num` 这样的门槛。
+第一，忘记在全局依赖层前做 all-gather。后果最危险，因为模型可能不会报错，只是 silently wrong。也就是代码能跑，但语义错了。比如本应依赖完整序列统计的操作，只看到了半截 token，结果训练变差，却不容易定位。
 
-还有一个理解误区：很多人看到“按序列切分”，就以为每张卡从头到尾只看自己的 token，不再需要和别人通信。这是不对的。对于 transformer，某些步骤是逐 token 独立的，可以本地算；但注意力、残差布局恢复、某些归并阶段仍然需要集体通信。SP 不是“去掉通信”，而是“改变通信发生的位置和粒度”。
+第二，误以为 SP 会减少参数显存。不会。参数量、优化器状态、梯度副本这些问题，SP 都不是直接解法。如果判断错瓶颈，就会选错优化方向。
+
+第三，认为通信成本可以忽略。SP 常见通信是 `all-gather` 和 `reduce-scatter`。从大 O 量级看，它未必比原本的 TP 通信更夸张，但在真实集群上，kernel latency、链路带宽、拓扑结构都会影响效果。特别是小 batch、强同步场景，通信延迟容易放大。
+
+第四，忽略 padding。若 `S` 不能被切分数整除，很多实现会先补齐到最近的倍数。补齐后不仅要处理通信，还要在 loss 或 mask 中消除 padding 对训练的影响。
+
+第五，只开 TP 不开 SP，却期待激活显存明显下降。在 Megatron-LM 风格实现里，SP 通常就是 TP 的配套优化。TP 解决的是参数和部分计算分摊，SP 进一步把激活布局切开，两者联用才更完整。
+
+真实工程例子里，训练 8k 或 32k 上下文 LLM 时，经常会遇到这样一个现象：参数能装下，batch 也不算太大，但一开长序列显存就炸。此时单纯压 batch size 常常不够，因为问题根源不是样本数，而是单样本内部序列太长。SP 的价值就在这里非常直接。
 
 ---
 
 ## 替代方案与适用边界
 
-SP 不是唯一办法。它最适合的情况是：序列非常长，单卡主要卡在激活内存，而你又已经具备多卡和较好的互联。
+SP 适合的前提是：**长序列、激活是主要瓶颈、并且训练系统已经在用或计划用 Tensor Parallelism**。如果这三个条件不成立，收益可能就不值得额外复杂度。
 
-常见替代方案如下：
+可以和其他方案对比着看：
 
-| 方案 | 主要解决点 | 通信代价 | 实现复杂度 | 更适合什么情况 |
-|---|---|---|---|---|
-| FlashAttention | 降低 attention 内存与访存开销 | 低 | 中 | 单卡或少卡，中长序列 |
-| Activation Checkpoint | 以重算换内存 | 低 | 低 | 先做基础降内存 |
-| Tensor Parallelism | 切参数与部分激活 | 中 | 中 | 模型层本身太大 |
-| Sequence Parallelism | 切序列激活 | 中到高 | 高 | 长序列、TP 已开启 |
-| Context Parallelism | 更广义地切整个上下文计算 | 中到高 | 高 | 更长序列，特定后端 |
+| 方案 | 适合什么问题 | 主要节省什么 | 主要代价 |
+|---|---|---|---|
+| Sequence Parallelism | 长序列激活过大 | 激活 | 通信、实现复杂度 |
+| Activation Checkpointing | 前向缓存过多 | 激活 | 反向重算 |
+| Tensor Parallelism | 参数或单层计算过大 | 参数、部分激活 | 通信 |
+| Data Parallelism | 扩大总体吞吐 | 不直接省单卡显存 | 梯度同步 |
+| Pipeline Parallelism | 层数过深、单卡放不下整网 | 层驻留压力 | pipeline bubble |
 
-可以用一句话概括它们的分工：
+判断是否该上 SP，可以按下面的逻辑做。
 
-1. FlashAttention 优先优化“attention 这一步怎么更省”。
-2. Checkpoint 优先优化“中间值少存一点，回头再算”。
-3. SP 优先优化“别让每张卡都背完整序列”。
+如果显存报告显示参数和优化器状态占了大头，那优先考虑参数切分或状态切分方案，而不是 SP。
 
-如果只是 `seq_len <= 2048`，而且只有 1 到 2 张卡，通常先上 FlashAttention 和 activation checkpoint 就够了。此时 SP 的通信和工程复杂度往往不划算。
+如果显存主要爆在中间激活，尤其在序列长度翻倍时显存明显上升，那 SP 非常值得评估。
 
-如果是 `seq_len > 2048`，尤其是 8K、32K、128K 甚至更长，并且已经在做 TP，那么 SP 才会明显进入“值得考虑”的区间。可以把经验边界粗写成：
+如果序列本来很短，比如 512 token 左右，而集群通信又一般，那么 SP 可能得不偿失。因为这时节省的激活不大，通信与实现开销反而更突出。
 
-$$
-seq\_len \text{ 足够长} \land tensor\_parallel > 1 \land 网络延迟可控
-$$
+如果已经用了 activation checkpointing，也不代表 SP 没价值。两者经常是互补关系：SP 先把常驻激活压低，checkpointing 再进一步减少必须保存的部分。工程上常见的最优点不是二选一，而是组合使用。
 
-此时优先级通常是：先确认 FlashAttention 可用，再评估 checkpoint，最后在长序列场景下叠加 SP。
-
-一个简单对比配置如下：
-
-```python
-# 只用 FlashAttention
-config_a = {
-    "tensor_parallel": 1,
-    "sequence_parallel": False,
-    "attn_impl": "flash_attention_2",
-}
-
-# TP + SP
-config_b = {
-    "tensor_parallel": 4,
-    "sequence_parallel": True,
-    "sp_size": 4,
-    "attn_impl": "flash_attention_2",
-}
-```
-
-前者更适合“先把单卡做到极限”；后者更适合“长序列已经超过单卡极限，只能靠多卡切序列继续往上推”。
+一句实用判断可以记住：**当“激活”比“参数”更先成为长序列训练的上限时，优先考虑 SP；当“参数/状态”先成为上限时，优先看别的并行方案。**
 
 ---
 
 ## 参考资料
 
-| 文档 | 重点介绍 |
+| 想确认什么 | 优先看哪里 |
 |---|---|
-| Hugging Face Accelerate Sequence Parallelism Concept Guide | SP 的动机、`sp_size` 配置、与 DeepSpeed/Ulysses 的关系、`dp_replicate_size × dp_shard_size × sp_size = num_processes` 的配置约束 |
-| vllm-ascend Sequence Parallelism | Ascend 场景下的 SP 开关、`sp_min_token_num` 经验值、通信开销在小 token 数下可能反超收益 |
-| NVIDIA NeMo Parallelisms 文档 | SP 在 Megatron/NeMo 体系中的位置，以及“只有 `tensor_model_parallel_size > 1` 时才有效”的边界 |
+| SP 的原理、收益和与重算的关系 | Korthikanti 等人的 MLSys 2023 论文 |
+| `all_gather`、`reduce_scatter_tensor` 的 API 语义 | PyTorch 官方文档 |
+| 在 Megatron-LM 训练栈中的使用方式 | Hugging Face Accelerate 的 Megatron-LM 指南 |
+| 真实工程实现细节 | NVIDIA/Megatron-LM 源码 |
 
-- Hugging Face Accelerate: https://huggingface.co/docs/accelerate/en/concept_guides/sequence_parallelism
-- vllm-ascend: https://docs.vllm.ai/projects/ascend/en/main/user_guide/feature_guide/sequence_parallelism.html
-- NVIDIA NeMo: https://docs.nvidia.com/nemo-framework/user-guide/25.04/nemotoolkit/features/parallelisms.html
+1. Korthikanti et al., *Reducing Activation Recomputation in Large Transformer Models*, MLSys 2023  
+   https://proceedings.mlsys.org/paper_files/paper/2023/file/80083951326cf5b35e5100260d64ed81-Abstract-mlsys2023.html
+
+2. PyTorch Distributed Documentation: `all_gather`, `reduce_scatter_tensor`  
+   https://docs.pytorch.org/docs/stable/distributed.html
+
+3. Hugging Face Accelerate, Megatron-LM usage guide, including Sequence Parallelism  
+   https://huggingface.co/docs/accelerate/main/en/usage_guides/megatron_lm
+
+4. NVIDIA Megatron-LM repository  
+   https://github.com/NVIDIA/Megatron-LM

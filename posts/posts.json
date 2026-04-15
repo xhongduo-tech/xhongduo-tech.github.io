@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sequence Parallelism",
+    "slug": "sequence-parallelism",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "分布式训练"
+    ],
+    "summary": "Sequence Parallelism按序列切分激活，靠all-gather与reduce-scatter支持长序列…"
+  },
+  {
     "title": "Sparse MoE Routing",
     "slug": "sparse-moe-routing",
     "date": "2026-04-15",
@@ -142,18 +154,6 @@
       "位置编码"
     ],
     "summary": "相对位置编码把距离偏置直接加到注意力分数中，更利于顺序建模与长度泛化"
-  },
-  {
-    "title": "Sequence Parallelism",
-    "slug": "sequence-parallelism",
-    "date": "2026-04-14",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "模型架构",
-      "分布式训练"
-    ],
-    "summary": "Sequence Parallelism 通过切分序列激活到多卡，用通信换内存，适合 TP 场景下的长序列训练。"
   },
   {
     "title": "FSDP (Fully Sharded Data Parallel)",
