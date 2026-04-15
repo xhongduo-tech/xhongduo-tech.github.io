@@ -17087,7 +17087,7 @@
       "初始化策略"
     ],
     "brief": "按层深缩放初始化方差或残差权重：深层使用更小的方差或残差系数。缓解深层网络的训练不稳定，支持 100+ 层 Transformer。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Tie Word Embeddings",

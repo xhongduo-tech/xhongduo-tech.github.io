@@ -1,5 +1,17 @@
 [
   {
+    "title": "Layer Scaling",
+    "slug": "layer-scaling",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "初始化策略"
+    ],
+    "summary": "Layer Scaling通过按层压小残差或初始化尺度，提升超深Transformer训练稳定性。"
+  },
+  {
     "title": "Depth-Down Architecture",
     "slug": "depth-down-architecture",
     "date": "2026-04-15",
