@@ -1,5 +1,18 @@
 [
   {
+    "title": "Multilingual CLIP：跨语言视觉语言模型",
+    "slug": "multilingual-clip-cross-lingual",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "多语言",
+      "视觉编码器"
+    ],
+    "summary": "Multilingual CLIP 先做多语蒸馏，再做图文对比学习，以较低标注成本实现跨语言搜图。"
+  },
+  {
     "title": "SDXL：Stable Diffusion 的高分辨率扩展",
     "slug": "sdxl-high-resolution-diffusion",
     "date": "2026-04-15",

@@ -17440,7 +17440,7 @@
       "视觉编码器"
     ],
     "brief": "Multilingual CLIP 将英语预训练的 CLIP 扩展到多语言场景。方法包括翻译蒸馏（翻译英语 Caption）和多语言对比学习。分析其在 XTD-10 多语言检索基准上的表现，以及零样本迁移到低资源语言的能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SDXL：Stable Diffusion 的高分辨率扩展",
