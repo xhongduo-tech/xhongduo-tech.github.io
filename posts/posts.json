@@ -1,5 +1,17 @@
 [
   {
+    "title": "GeGLU Activation",
+    "slug": "geglu-activation",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "激活函数"
+    ],
+    "summary": "GeGLU用GELU门控线性分支，提升FFN表达力，但参数和算力通常增加约50%。"
+  },
+  {
     "title": "DeepNorm",
     "slug": "deepnorm-deep-transformer-normalization",
     "date": "2026-04-15",

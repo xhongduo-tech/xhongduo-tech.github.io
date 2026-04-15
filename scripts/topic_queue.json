@@ -17043,7 +17043,7 @@
       "激活函数"
     ],
     "brief": "GELU + GLU 的组合激活：GELU(xW₁) ⊙ (xW₂)。在 T5、Flan-PaLM 中使用，相比标准 FFN 提升性能，代价是参数量增加 50%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Squared ReLU",
