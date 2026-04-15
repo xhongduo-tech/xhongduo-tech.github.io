@@ -1,5 +1,18 @@
 [
   {
+    "title": "语音合成 VITS：端到端 TTS 的 GAN-Flow 架构",
+    "slug": "vits-end-to-end-tts",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理",
+      "语音合成"
+    ],
+    "summary": "VITS把对齐、时长、潜变量和波形生成统一进端到端TTS框架。"
+  },
+  {
     "title": "Whisper 架构：大规模弱监督语音识别",
     "slug": "whisper-weakly-supervised-asr",
     "date": "2026-04-15",

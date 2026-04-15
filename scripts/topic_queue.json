@@ -17273,7 +17273,7 @@
       "语音合成"
     ],
     "brief": "VITS 整合 Transformer 文本编码器、Flow-based 波形生成、GAN 判别器实现端到端 TTS。无需声码器级联，直接从文本生成波形。分析其 Stochastic Duration Predictor 的韵律建模、单说话人 vs 多说话人训练策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "语音克隆 GPT-SoVITS：少样本音色迁移",
