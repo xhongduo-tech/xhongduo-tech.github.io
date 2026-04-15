@@ -1,5 +1,17 @@
 [
   {
+    "title": "LLaVA 架构：投影层与视觉编码器的选择",
+    "slug": "llava-architecture-projector-design",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型"
+    ],
+    "summary": "LLaVA 的关键不在投影层越深越好，而在视觉编码器、对齐头和训练数据是否匹配"
+  },
+  {
     "title": "BLIP-2：Q-Former 的轻量级多模态对齐",
     "slug": "blip2-q-former-alignment",
     "date": "2026-04-15",

@@ -17357,7 +17357,7 @@
       "视觉语言模型"
     ],
     "brief": "LLaVA 采用 MLP 投影层将 CLIP 视觉特征映射到语言模型空间。分析不同视觉编码器（CLIP-ViT-L/14、EVA-CLIP、DINOv2）对最终性能的影响，以及线性投影 vs MLP 投影 vs Q-Former 的设计权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaVA-NeXT：AnyRes 动态分辨率与视频理解",
