@@ -1,5 +1,17 @@
 [
   {
+    "title": "Squared ReLU",
+    "slug": "squared-relu",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "激活函数"
+    ],
+    "summary": "ReLU²保留负值截断，同时用平方放大强正激活，适合高效Transformer中的简单激活替代"
+  },
+  {
     "title": "GeGLU Activation",
     "slug": "geglu-activation",
     "date": "2026-04-15",

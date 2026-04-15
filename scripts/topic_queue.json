@@ -17054,7 +17054,7 @@
       "激活函数"
     ],
     "brief": "ReLU² 激活函数：(max(0, x))²，用于 Primer 架构。相比 ReLU 增加非线性，在高效 Transformer 变体中表现良好。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Parallel Attention-FFN",
