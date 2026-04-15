@@ -1,5 +1,17 @@
 [
   {
+    "title": "Cohere Embed 3：多模态嵌入的工业级实现",
+    "slug": "cohere-embed3-multimodal-embedding",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "多模态嵌入"
+    ],
+    "summary": "Cohere Embed 3 的价值在于统一图文向量空间，但维度、吞吐与召回必须按真实业务评估。"
+  },
+  {
     "title": "InternVL 2.0：渐进式多模态预训练策略",
     "slug": "internvl2-progressive-pretraining",
     "date": "2026-04-15",
