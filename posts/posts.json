@@ -1,5 +1,18 @@
 [
   {
+    "title": "LLaVA-NeXT：AnyRes 动态分辨率与视频理解",
+    "slug": "llava-next-anyres-video",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "视频理解"
+    ],
+    "summary": "LLaVA-NeXT 用 AnyRes 保空间细节，视频版再靠抽帧与压缩控制 token 预算。"
+  },
+  {
     "title": "LLaVA 架构：投影层与视觉编码器的选择",
     "slug": "llava-architecture-projector-design",
     "date": "2026-04-15",
