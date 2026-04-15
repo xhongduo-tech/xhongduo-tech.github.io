@@ -1,5 +1,18 @@
 [
   {
+    "title": "FLUX：Flow Matching 与 T5 编码器的图像生成",
+    "slug": "flux-flow-matching-generation",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成",
+      "Flow Matching"
+    ],
+    "summary": "FLUX 用 Flow Matching 学速度场，并用 T5+CLIP 与蒸馏机制提升长提示词成图质量"
+  },
+  {
     "title": "SD3：Stable Diffusion 的 Multimodal Diffusion Transformer",
     "slug": "sd3-multimodal-diffusion-transformer",
     "date": "2026-04-15",

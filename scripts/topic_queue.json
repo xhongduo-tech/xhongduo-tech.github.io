@@ -17476,7 +17476,7 @@
       "Flow Matching"
     ],
     "brief": "FLUX 系列采用 Flow Matching 训练目标，T5-XXL 文本编码器，以及双流 DiT 架构。FLUX.1 [dev] 支持 12B 参数的高质量生成。分析 Flow Matching 与扩散模型的训练动态差异，以及 Guidance Distillation 的实现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepFloyd IF：像素空间的级联扩散生成",
