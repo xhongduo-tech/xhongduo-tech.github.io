@@ -1,5 +1,17 @@
 [
   {
+    "title": "SwiGLU Activation",
+    "slug": "swiglu-activation",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "激活函数"
+    ],
+    "summary": "SwiGLU 用 Swish 门控和值分支相乘，提升 FFN 表达力，但需配合缩小中间维度控制成本"
+  },
+  {
     "title": "QK-Norm",
     "slug": "qk-norm",
     "date": "2026-04-15",

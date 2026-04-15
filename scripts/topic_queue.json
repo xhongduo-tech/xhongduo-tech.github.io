@@ -17032,7 +17032,7 @@
       "激活函数"
     ],
     "brief": "Swish + GLU 的组合激活：Swish(xW₁) ⊙ (xW₂)，其中 ⊙ 为逐元素乘。相比 ReLU/GELU 在 FFN 中表现更好，是 LLaMA、PaLM 的标准选择。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GeGLU Activation",
