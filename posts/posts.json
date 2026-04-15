@@ -1,5 +1,18 @@
 [
   {
+    "title": "BLIP-2：Q-Former 的轻量级多模态对齐",
+    "slug": "blip2-q-former-alignment",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "多模态对齐"
+    ],
+    "summary": "BLIP-2 用 Q-Former 把图像压成 LLM 可读前缀，以低成本完成多模态对齐"
+  },
+  {
     "title": "InstructBLIP：指令感知的视觉特征提取",
     "slug": "instructblip-instruction-aware-vision",
     "date": "2026-04-15",

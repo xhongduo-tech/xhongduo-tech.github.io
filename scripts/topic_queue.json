@@ -17334,7 +17334,7 @@
       "多模态对齐"
     ],
     "brief": "BLIP-2 引入 Q-Former（轻量级 Transformer）作为视觉编码器与 LLM 的桥梁。Q-Former 通过可学习查询向量从冻结视觉编码器提取特征，再输入冻结 LLM。分析其 Bootstrap Language-Image Pre-training 数据合成策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "InstructBLIP：指令感知的视觉特征提取",
