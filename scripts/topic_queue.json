@@ -16939,7 +16939,7 @@
       "训练目标"
     ],
     "brief": "同时预测多个未来 token：在共享 backbone 上添加多个预测头，分别预测 t+1, t+2, ..., t+n。提升模型的前瞻能力，加速推理时的 speculative decoding。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Fill-in-the-Middle (FIM)",

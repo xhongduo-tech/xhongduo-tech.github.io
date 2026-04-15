@@ -1,5 +1,17 @@
 [
   {
+    "title": "Multi-Token Prediction",
+    "slug": "multi-token-prediction",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "训练目标"
+    ],
+    "summary": "MTP是在共享backbone上同时监督多个未来token，可增强局部前瞻并服务推测式解码。"
+  },
+  {
     "title": "Deja Vu (Contextual Sparsity)",
     "slug": "deja-vu-sparsity",
     "date": "2026-04-15",
