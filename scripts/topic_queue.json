@@ -17500,7 +17500,7 @@
       "图像动画"
     ],
     "brief": "AnimateDiff 在冻结的图像 Diffusion 模型中注入可训练的运动模块，实现文生视频。运动模块是时序 Transformer，建模帧间依赖。分析其与图像模型的兼容性、运动强度控制、及 Community LoRA 的结合使用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SVD：Stable Video Diffusion 的图像到视频",

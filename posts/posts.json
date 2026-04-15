@@ -1,5 +1,18 @@
 [
   {
+    "title": "AnimateDiff：视频生成的运动模块注入",
+    "slug": "animatediff-motion-module",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视频生成",
+      "图像动画"
+    ],
+    "summary": "AnimateDiff通过向冻结图像扩散模型注入时序模块，实现低成本短视频生成。"
+  },
+  {
     "title": "FLUX：Flow Matching 与 T5 编码器的图像生成",
     "slug": "flux-flow-matching-generation",
     "date": "2026-04-15",
