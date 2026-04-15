@@ -1,5 +1,18 @@
 [
   {
+    "title": "SDXL：Stable Diffusion 的高分辨率扩展",
+    "slug": "sdxl-high-resolution-diffusion",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成",
+      "扩散模型"
+    ],
+    "summary": "SDXL通过双编码器与base/refiner两阶段去噪，在1024分辨率下更稳地兼顾构图、语义和细节。"
+  },
+  {
     "title": "SynthCLIP：合成数据驱动的视觉语言预训练",
     "slug": "synthclip-synthetic-pretraining",
     "date": "2026-04-15",

@@ -17452,7 +17452,7 @@
       "扩散模型"
     ],
     "brief": "SDXL 采用双文本编码器（OpenCLIP-ViT-G + CLIP-ViT-L）和 U-Net 扩展（2.6B 参数）。默认生成 1024x1024 分辨率图像。分析其 refinement 模型的两阶段生成策略、不同长宽比的训练策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SD3：Stable Diffusion 的 Multimodal Diffusion Transformer",
