@@ -16895,7 +16895,7 @@
       "MoE优化"
     ],
     "brief": "将不活跃的专家卸载到 CPU 内存，只保留热门专家在 GPU。支持在有限显存上运行大规模 MoE（如 Mixtral 8x7B），代价是增加延迟。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Activation Sparsity",

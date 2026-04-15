@@ -1,5 +1,17 @@
 [
   {
+    "title": "Expert Offloading",
+    "slug": "expert-offloading",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE优化"
+    ],
+    "summary": "Expert Offloading 用 CPU 换显存，让大 MoE 在小显卡上可运行，但延迟通常会上升。"
+  },
+  {
     "title": "Activation Sparsity",
     "slug": "activation-sparsity",
     "date": "2026-04-15",
