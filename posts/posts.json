@@ -1,5 +1,17 @@
 [
   {
+    "title": "Cross-Layer Sharing",
+    "slug": "cross-layer-sharing",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "参数共享"
+    ],
+    "summary": "跨层共享保留执行深度、压缩参数规模，适合参数预算紧但不极致追求低延迟的场景"
+  },
+  {
     "title": "Tie Word Embeddings",
     "slug": "tie-word-embeddings",
     "date": "2026-04-15",

@@ -17120,7 +17120,7 @@
       "参数共享"
     ],
     "brief": "跨层共享参数：多个层使用相同的权重。ALBERT 中每隔 N 层共享一次，大幅减少参数但增加计算（需要更多前向传播）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Universal Transformer",
