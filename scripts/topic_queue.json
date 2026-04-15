@@ -17224,7 +17224,7 @@
       "ControlNet"
     ],
     "brief": "ControlNet 通过零卷积将条件控制信号注入 Stable Diffusion 的 U-Net 各层，实现边缘、深度、姿态等条件控制。核心是可训练的 ControlNet 分支与冻结的原始网络并行，保持原有生成能力。分析不同条件类型对生成质量的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "IP-Adapter：图像提示的解耦交叉注意力",

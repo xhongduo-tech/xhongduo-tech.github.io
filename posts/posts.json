@@ -1,5 +1,19 @@
 [
   {
+    "title": "ControlNet",
+    "slug": "controlnet-conditional-generation",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成",
+      "条件控制",
+      "ControlNet"
+    ],
+    "summary": "ControlNet 通过冻结主干加可训练控制分支，把姿态、边缘、深度等条件稳定注入扩散生成。"
+  },
+  {
     "title": "Cohere Embed 3：多模态嵌入的工业级实现",
     "slug": "cohere-embed3-multimodal-embedding",
     "date": "2026-04-15",
