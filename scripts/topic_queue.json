@@ -17428,7 +17428,7 @@
       "视觉编码器"
     ],
     "brief": "SynthCLIP 使用纯合成图像-文本对训练 CLIP 模型，通过 Diffusion 模型生成图像 + LLM 生成描述。分析合成数据与真实数据的性能差距，以及合成数据规模 vs 质量的权衡。讨论合成数据的版权与偏见问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Multilingual CLIP：跨语言视觉语言模型",

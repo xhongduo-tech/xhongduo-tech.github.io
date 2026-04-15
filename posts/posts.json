@@ -1,5 +1,18 @@
 [
   {
+    "title": "SynthCLIP：合成数据驱动的视觉语言预训练",
+    "slug": "synthclip-synthetic-pretraining",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "数据合成",
+      "视觉编码器"
+    ],
+    "summary": "SynthCLIP把CLIP预训练数据从网页抓取改为模型合成，规模可补差，但不能消除真实分布差。"
+  },
+  {
     "title": "DFN：数据过滤网络提升对比学习质量",
     "slug": "dfn-data-filtering-network",
     "date": "2026-04-15",
