@@ -16862,7 +16862,7 @@
       "MoE路由"
     ],
     "brief": "稀疏激活的专家路由：每个 token 只激活 top-k 个专家，大幅减少计算量。路由分数通常基于 token 与专家的相似度，辅以负载均衡损失。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Load Balancing Loss",

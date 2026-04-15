@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sparse MoE Routing",
+    "slug": "sparse-moe-routing",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "MoE路由"
+    ],
+    "summary": "Sparse MoE routing 用 top-k 专家选择把参数规模与实际计算解耦，但成败取决于负载均衡、容量控制…"
+  },
+  {
     "title": "ALiBi (Attention with Linear Biases)",
     "slug": "alibi-attention",
     "date": "2026-04-15",
