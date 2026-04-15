@@ -1,5 +1,18 @@
 [
   {
+    "title": "SigLIP：Sigmoid 损失函数的对比学习改进",
+    "slug": "siglip-sigmoid-loss",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码器",
+      "对比学习"
+    ],
+    "summary": "SigLIP 用逐对 sigmoid 损失替代 CLIP 的 softmax，对小批次和假阴性更稳。"
+  },
+  {
     "title": "Dynamic Depth",
     "slug": "dynamic-depth-network",
     "date": "2026-04-15",

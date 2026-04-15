@@ -17165,7 +17165,7 @@
       "对比学习"
     ],
     "brief": "SigLIP 将 CLIP 的 Softmax 交叉熵替换为 Sigmoid 二分类损失，解决大批次依赖问题。在小批次（<4096）下性能优于 CLIP，且对负样本数量不敏感。分析 Sigmoid 损失的梯度特性及其对假阴性样本的鲁棒性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DINOv2：自监督视觉特征学习的统一框架",
