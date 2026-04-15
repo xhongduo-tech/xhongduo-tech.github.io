@@ -16906,7 +16906,7 @@
       "稀疏计算"
     ],
     "brief": "利用 ReLU 等激活函数的稀疏性跳过计算：只计算非零激活对应的神经元。在 ReLU 激活的模型上可实现 30-50% 的计算加速。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Deja Vu (Contextual Sparsity)",

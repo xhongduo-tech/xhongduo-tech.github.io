@@ -1,5 +1,17 @@
 [
   {
+    "title": "Activation Sparsity",
+    "slug": "activation-sparsity",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "稀疏计算"
+    ],
+    "summary": "激活稀疏的价值不在于参数变少，而在于非零激活足够少且实现支持时，后续层能少算并少搬数据。"
+  },
+  {
     "title": "Sequence Parallelism",
     "slug": "sequence-parallelism",
     "date": "2026-04-15",
