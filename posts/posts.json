@@ -1,5 +1,17 @@
 [
   {
+    "title": "ALiBi (Attention with Linear Biases)",
+    "slug": "alibi-attention",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码"
+    ],
+    "summary": "ALiBi 用线性距离惩罚替代位置向量，简单、零参数，且更适合长度外推。"
+  },
+  {
     "title": "Capacity Factor",
     "slug": "moe-capacity-factor",
     "date": "2026-04-14",
@@ -94,18 +106,6 @@
       "注意力机制"
     ],
     "summary": "LogN-Attention 在推理时用 log(N) 放大注意力温度，低成本缓解长上下文注意力扩散。"
-  },
-  {
-    "title": "ALiBi (Attention with Linear Biases)",
-    "slug": "alibi-attention",
-    "date": "2026-04-14",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "模型架构",
-      "位置编码"
-    ],
-    "summary": "ALiBi用线性距离罚分替代位置编码，在因果注意力中以零参数支持更平滑的长度外推。"
   },
   {
     "title": "Expert Parallelism",

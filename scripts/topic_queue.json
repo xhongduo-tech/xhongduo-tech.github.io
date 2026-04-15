@@ -16752,7 +16752,7 @@
       "分布式训练"
     ],
     "brief": "将序列维度切分到多个 GPU：每个设备处理部分 token，通过 all-gather 和 reduce-scatter 通信。与 Tensor Parallelism 配合使用，支持超长序列训练。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Expert Parallelism",
@@ -16774,7 +16774,7 @@
       "位置编码"
     ],
     "brief": "用线性衰减的偏置替代位置编码：attention score 减去 m × |i-j|，其中 m 为每个头的斜率。支持训练长度的平滑外推，无需额外参数。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "Relative Position Encoding",
@@ -16840,7 +16840,7 @@
       "注意力变体"
     ],
     "brief": "基于增量规则的序列建模：用 delta rule 更新状态，类似在线学习。结合线性注意力的效率与更强的表达能力，在语言建模上展示竞争力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Base Layer (Groq)",
