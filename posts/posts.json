@@ -1,5 +1,18 @@
 [
   {
+    "title": "DFN：数据过滤网络提升对比学习质量",
+    "slug": "dfn-data-filtering-network",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "数据质量",
+      "对比学习"
+    ],
+    "summary": "DFN先用高质量样本学过滤规则，再筛海量图文数据，核心价值是用更干净的数据训练出更强的CLIP。"
+  },
+  {
     "title": "CLIPA：CLIP 的训练加速与效率优化",
     "slug": "clipa-efficient-clip-training",
     "date": "2026-04-15",

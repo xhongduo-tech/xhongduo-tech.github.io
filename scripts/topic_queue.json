@@ -17380,7 +17380,7 @@
       "视觉语言模型"
     ],
     "brief": "Molmo 采用 ViT-Large 视觉编码器 + MLP 投影 + OLMo-E-1.7B 语言模型的轻量组合。核心创新是高质量数据流水线，包含 PixMo 数据集的详细标注策略。分析其在 OCR、图表理解任务上的优势及 72B 模型的扩展性能。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Florence-2：微软统一视觉任务的编码器-解码器",
@@ -17416,7 +17416,7 @@
       "对比学习"
     ],
     "brief": "DFN 使用高质量数据训练分类器过滤噪声数据，将 LAION-2B 过滤为 DFN-2B。过滤标准包括图文相关性、文本质量、图像质量。分析过滤后数据训练的模型在 ImageNet Zero-shot 及检索任务上的性能提升。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SynthCLIP：合成数据驱动的视觉语言预训练",
