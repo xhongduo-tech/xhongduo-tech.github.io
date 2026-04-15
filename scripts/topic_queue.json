@@ -17404,7 +17404,7 @@
       "训练效率"
     ],
     "brief": "CLIPA 通过减少图像 token 数量（ViT-L/14 而非 ViT-L/16）和调整图文配比实现训练加速。提出 2:1 的图文比例优于 1:1，验证小模型 + 大数据的 Scaling Law。分析其 1/4 训练算力达到 CLIP 性能的实现细节。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DFN：数据过滤网络提升对比学习质量",

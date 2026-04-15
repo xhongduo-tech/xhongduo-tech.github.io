@@ -1,5 +1,18 @@
 [
   {
+    "title": "CLIPA：CLIP 的训练加速与效率优化",
+    "slug": "clipa-efficient-clip-training",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉编码器",
+      "训练效率"
+    ],
+    "summary": "CLIPA 不改 CLIP 目标，只靠短 token 预训练加全 token 微调，用更低算力逼近原始性能"
+  },
+  {
     "title": "Florence-2：微软统一视觉任务的编码器-解码器",
     "slug": "florence2-unified-vision-tasks",
     "date": "2026-04-15",
