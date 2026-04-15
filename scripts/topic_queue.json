@@ -16972,7 +16972,7 @@
       "连接模式"
     ],
     "brief": "每层与所有前层直接连接：concat 所有前置层的输出作为输入。缓解梯度消失，鼓励特征复用。在视觉任务上成功，但在 NLP 中应用有限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Pre-Norm vs Post-Norm",

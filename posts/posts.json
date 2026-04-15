@@ -1,5 +1,17 @@
 [
   {
+    "title": "Dense Connection (DenseNet)",
+    "slug": "dense-connection",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "连接模式"
+    ],
+    "summary": "DenseNet用通道拼接复用全部历史特征，缓解梯度问题，但需警惕通道和显存膨胀。"
+  },
+  {
     "title": "PowerInfer (CPU-GPU Hybrid)",
     "slug": "powerinfer-hybrid",
     "date": "2026-04-15",
