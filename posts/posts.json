@@ -1,5 +1,18 @@
 [
   {
+    "title": "IP-Adapter：图像提示的解耦交叉注意力",
+    "slug": "ip-adapter-decoupled-cross-attention",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "图像生成",
+      "图像提示"
+    ],
+    "summary": "IP-Adapter 用独立图像条件分支增强参考图控制，标准版更稳，Plus 更像参考图。"
+  },
+  {
     "title": "ControlNet",
     "slug": "controlnet-conditional-generation",
     "date": "2026-04-15",

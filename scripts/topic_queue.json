@@ -17236,7 +17236,7 @@
       "图像提示"
     ],
     "brief": "IP-Adapter 通过解耦交叉注意力实现图像作为提示的细粒度控制。图像特征通过独立的交叉注意力层注入，与文本特征分离。分析其与 IP-Adapter Plus（使用 PH-Transformer）的性能差异，以及在风格迁移和角色一致性任务上的表现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LoRA 微调 Stable Diffusion",
