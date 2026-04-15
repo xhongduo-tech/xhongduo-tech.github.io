@@ -16950,7 +16950,7 @@
       "训练目标"
     ],
     "brief": "为代码生成设计的训练目标：给定前缀和后缀，预测中间内容。使模型具备双向上下文理解能力，是 CodeLlama、DeepSeek-Coder 的关键技术。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Ulv2 (Unidirectional Language Model)",

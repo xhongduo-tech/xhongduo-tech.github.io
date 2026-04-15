@@ -1,5 +1,17 @@
 [
   {
+    "title": "Fill-in-the-Middle (FIM)",
+    "slug": "fill-in-middle",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "训练目标"
+    ],
+    "summary": "FIM让模型同时利用前后文补中间代码，更适合插入、局部修改和缺口补全。"
+  },
+  {
     "title": "Multi-Token Prediction",
     "slug": "multi-token-prediction",
     "date": "2026-04-15",
