@@ -1,5 +1,18 @@
 [
   {
+    "title": "语音克隆 GPT-SoVITS：少样本音色迁移",
+    "slug": "gpt-sovits-voice-cloning",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理",
+      "语音克隆"
+    ],
+    "summary": "GPT-SoVITS把文本语义与音色解耦，用短参考音频实现少样本跨语言语音克隆。"
+  },
+  {
     "title": "语音合成 VITS：端到端 TTS 的 GAN-Flow 架构",
     "slug": "vits-end-to-end-tts",
     "date": "2026-04-15",

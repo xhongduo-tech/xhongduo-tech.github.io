@@ -17285,7 +17285,7 @@
       "语音克隆"
     ],
     "brief": "GPT-SoVITS 通过参考编码器提取说话人音色特征，GPT 模型预测语义 token，SoVITS 解码器生成波形。支持 5 秒参考音频完成零样本克隆。分析其语义-音色解耦设计、中文跨语言克隆能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "视频 Transformer",
