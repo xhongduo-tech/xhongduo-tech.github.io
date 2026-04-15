@@ -1,5 +1,18 @@
 [
   {
+    "title": "Qwen2-VL：Native 分辨率与视频理解的统一架构",
+    "slug": "qwen2-vl-native-resolution",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "视频理解"
+    ],
+    "summary": "Qwen2-VL 用原生分辨率与动态 token 压缩，统一处理高分辨率图像、多图和长视频。"
+  },
+  {
     "title": "IP-Adapter：图像提示的解耦交叉注意力",
     "slug": "ip-adapter-decoupled-cross-attention",
     "date": "2026-04-15",

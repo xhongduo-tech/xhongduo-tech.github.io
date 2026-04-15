@@ -17200,7 +17200,7 @@
       "视频理解"
     ],
     "brief": "Qwen2-VL 支持 Native 分辨率处理，无需图像 resize，通过 NaViT 机制动态生成视觉 token 数量。视频理解采用 2 秒/帧的采样策略，最长支持 20 分钟视频。分析其 C-Abstractor 视觉 token 压缩机制与多图理解能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Cohere Embed 3：多模态嵌入的工业级实现",
