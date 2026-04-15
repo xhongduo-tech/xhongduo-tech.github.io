@@ -1,5 +1,18 @@
 [
   {
+    "title": "跨模态检索：双塔 vs 融合架构的权衡",
+    "slug": "cross-modal-retrieval-dual-vs-fusion",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "多模态对齐",
+      "跨模态检索"
+    ],
+    "summary": "跨模态检索通常不是双塔或融合二选一，而是召回加重排的分层架构。"
+  },
+  {
     "title": "图文对比学习：InfoNCE 损失与温度参数",
     "slug": "image-text-contrastive-infonce",
     "date": "2026-04-15",
