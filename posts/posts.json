@@ -1,5 +1,18 @@
 [
   {
+    "title": "LLM 驱动的 TTS：语音合成与语言模型的融合",
+    "slug": "llm-driven-tts-synthesis",
+    "date": "2026-04-15",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "语音处理",
+      "语音合成"
+    ],
+    "summary": "LLM 驱动 TTS 的本质，是用语言模型生成离散语音 token，再解码成波形。"
+  },
+  {
     "title": "DeepFloyd IF：像素空间的级联扩散生成",
     "slug": "deepfloyd-if-pixel-cascade-diffusion",
     "date": "2026-04-15",

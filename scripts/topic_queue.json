@@ -17547,7 +17547,7 @@
       "语音合成"
     ],
     "brief": "LLM 驱动的 TTS 将语音视为语言 token 序列，用 LLM 直接预测。代表工作包括 VALL-E（用 EnCodec token）、Bark（GPT 风格）、SpeechGPT。分析离散语音 token 的设计选择、与神经声码器的级联方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AudioLLM：音频理解与语言模型的结合",
