@@ -16840,7 +16840,7 @@
       "注意力变体"
     ],
     "brief": "基于增量规则的序列建模：用 delta rule 更新状态，类似在线学习。结合线性注意力的效率与更强的表达能力，在语言建模上展示竞争力。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "Base Layer (Groq)",
@@ -17380,7 +17380,7 @@
       "视觉语言模型"
     ],
     "brief": "Molmo 采用 ViT-Large 视觉编码器 + MLP 投影 + OLMo-E-1.7B 语言模型的轻量组合。核心创新是高质量数据流水线，包含 PixMo 数据集的详细标注策略。分析其在 OCR、图表理解任务上的优势及 72B 模型的扩展性能。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Florence-2：微软统一视觉任务的编码器-解码器",
@@ -17629,7 +17629,7 @@
       "MoE"
     ],
     "brief": "DeepSeek-VL2 采用 DeepSeekMoE 架构扩展多模态理解能力，支持动态分辨率。视觉编码器使用 SigLIP，通过 MLP 投影连接 LLM。分析其 MoE 专家路由在多模态任务上的激活模式、与 Dense 模型的效率对比。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CogVLM：深度融合的视觉语言模型",
@@ -17640,7 +17640,7 @@
       "视觉语言模型"
     ],
     "brief": "CogVLM 在 LLM 的每一层都引入可训练的视觉专家模块，实现深度融合。不同于浅层投影方案，视觉专家参与每一层的注意力计算。分析其与 LLaVA 架构的性能差异、训练策略（冻结 vs 全参数）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Mini-Gemini：双编码器的多模态理解",
@@ -17663,7 +17663,7 @@
       "视频理解"
     ],
     "brief": "Video-LLaVA 统一处理图像和视频输入，使用相同的视觉编码器和投影层。视频通过均匀帧采样处理。分析图像与视频联合训练的数据配比、时序信息编码方式、及纯视频 vs 图像-视频混合训练的效果。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "mPLUG-Owl：视觉抽象与语言生成的解耦",
@@ -17674,7 +17674,7 @@
       "视觉语言模型"
     ],
     "brief": "mPLUG-Owl 引入 Visual Abstractor 模块，将视觉特征压缩为少量抽象 token 再输入 LLM。减少视觉 token 数量以降低计算成本。分析 Abstractor 的设计（查询数量、注意力机制）、压缩率与性能的权衡。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "BakLLaVA：高效微调的视觉语言模型",
@@ -17686,7 +17686,7 @@
       "高效微调"
     ],
     "brief": "BakLLaVA 在 LLaVA 架构基础上优化训练效率，使用 Mistral-7B 作为语言模型。分析其数据效率（更少数据达到相同性能）、训练超参数调优、以及与 LLaVA-1.5 的架构差异。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Yi-VL：零一万物的多模态模型",
@@ -17697,7 +17697,7 @@
       "视觉语言模型"
     ],
     "brief": "Yi-VL 基于 Yi-34B 语言模型，使用 CLIP-ViT-H/14 视觉编码器。在中文多模态任务上表现优异。分析其训练数据配比（中英双语）、中文 OCR 能力、以及 6B/34B 版本的性能-效率曲线。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "ShareGPT4V：GPT-4V 合成数据训练的视觉语言模型",
@@ -17709,7 +17709,7 @@
       "数据合成"
     ],
     "brief": "ShareGPT4V 使用 GPT-4V 生成的 10 万高质量图像描述训练 VLM。描述包含空间关系、细节描述、推理过程。分析合成数据与原始数据的混合比例、数据质量对模型性能的影响。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "TextVQA 与 OCRVQA：文本视觉问答基准分析",
@@ -17721,7 +17721,7 @@
       "OCR"
     ],
     "brief": "TextVQA 和 OCRVQA 评测 VLM 读取图像中文本并回答问题的能力。分析数据集特点（自然场景文字 vs 文档）、VLM 的 OCR 能力瓶颈、以及专用 OCR 模型辅助的方案。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MMBench：多模态能力的细粒度评测",
@@ -17732,7 +17732,7 @@
       "基准评测"
     ],
     "brief": "MMBench 将多模态能力划分为 20+ 细粒度维度（属性识别、空间推理、关系推理等）。使用 Circular 策略避免选择题的位置偏差。分析各维度的能力分布、模型弱点识别。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MME：多模态评估的综合基准",
@@ -17743,7 +17743,7 @@
       "基准评测"
     ],
     "brief": "MME 包含感知（存在、数量、位置等）和认知（推理、代码、数学）两大类共 14 个子任务。使用 Yes/No 格式减少格式偏差。分析不同 VLM 在感知 vs 认知任务的性能差距。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MMMU：大学水平多学科多模态理解评测",
@@ -17754,7 +17754,7 @@
       "基准评测"
     ],
     "brief": "MMMU 包含 30 个学科领域、11.5K 问题，评测大学水平的多模态推理能力。涵盖 STEM、人文、社科。分析 GPT-4V 等模型的专业知识局限、图表/公式理解能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MathVista：数学视觉推理评测",
@@ -17766,7 +17766,7 @@
       "数学推理"
     ],
     "brief": "MathVista 评测 VLM 理解数学图表（函数图、几何图、表格）并进行推理的能力。包含 6K 问题，覆盖 FQA、几何、代数等题型。分析 VLM 在视觉数学推理的主要失败模式。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DocVQA 与 InfographicVQA：文档理解评测",
@@ -17778,7 +17778,7 @@
       "文档理解"
     ],
     "brief": "DocVQA 评测扫描文档的理解能力，InfographicVQA 聚焦信息图表。需要模型理解复杂版面、表格、图表。分析不同分辨率策略对文档理解的影响、长文档的滑动窗口方案。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "POPE：幻觉评测的 Polling-based 方法",
@@ -17790,7 +17790,7 @@
       "幻觉"
     ],
     "brief": "POPE 通过询问物体是否存在（Yes/No）评测 VLM 的幻觉问题。使用 MSCOCO 物体标签作为 Ground Truth。分析 VLM 的过度肯定倾向、负样本设计（随机 vs 流行 vs 对抗）的影响。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "HallusionBench：视觉语言模型的幻觉与错误推理评测",
@@ -17802,7 +17802,7 @@
       "幻觉"
     ],
     "brief": "HallusionBench 区分视觉幻觉（图像中不存在）和语言幻觉（逻辑错误）。包含 4K+ 问题，涵盖反事实、细节、逻辑推理。分析不同类型幻觉的成因与缓解策略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "VQAv2 与 GQA：视觉问答的基础基准",

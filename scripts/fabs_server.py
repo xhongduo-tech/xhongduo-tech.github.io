@@ -41,15 +41,15 @@ CONFIG_FILE = Path(__file__).parent / "fabs_config.json"
 # Model catalogue
 # ──────────────────────────────────────────────────────────────
 AVAILABLE_MODELS: list[tuple[str, str]] = [
-    ("gpt-5-codex-mini", "GPT-5 Codex Mini (Cost Saver)"),
+    ("gpt-5.4-mini", "GPT-5.4 Mini (Cost Saver)"),
     ("gpt-5.4", "GPT-5.4 (High Quality)"),
 ]
 
 DEFAULT_MODELS = {
-    "research": "gpt-5-codex-mini",
-    "outline": "gpt-5-codex-mini",
+    "research": "gpt-5.4-mini",
+    "outline": "gpt-5.4-mini",
     "write": "gpt-5.4",
-    "review": "gpt-5-codex-mini",
+    "review": "gpt-5.4-mini",
     "refine": "gpt-5.4",
 }
 

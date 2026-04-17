@@ -6,10 +6,10 @@
   "git_push_ref": "HEAD",
   "min_content_chars": 2200,
   "concurrent_workers": 4,
-  "research": "gpt-5-codex-mini",
-  "outline": "gpt-5-codex-mini",
+  "research": "gpt-5.4-mini",
+  "outline": "gpt-5.4-mini",
   "write": "gpt-5.4",
-  "review": "gpt-5-codex-mini",
+  "review": "gpt-5.4-mini",
   "refine": "gpt-5.4",
   "refine_enabled": false
 }
