@@ -1,5 +1,18 @@
 [
   {
+    "title": "DeepSeek-VL2：MoE 架构的多模态理解",
+    "slug": "deepseek-vl2-moe-multimodal",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "MoE"
+    ],
+    "summary": "DeepSeek-VL2 用动态视觉编码与 MoE 稀疏路由处理复杂图文输入"
+  },
+  {
     "title": "CogVLM：深度融合的视觉语言模型",
     "slug": "cogvlm-deep-fusion-vlm",
     "date": "2026-04-18",

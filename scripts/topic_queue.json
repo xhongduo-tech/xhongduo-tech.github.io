@@ -17629,7 +17629,7 @@
       "MoE"
     ],
     "brief": "DeepSeek-VL2 采用 DeepSeekMoE 架构扩展多模态理解能力，支持动态分辨率。视觉编码器使用 SigLIP，通过 MLP 投影连接 LLM。分析其 MoE 专家路由在多模态任务上的激活模式、与 Dense 模型的效率对比。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CogVLM：深度融合的视觉语言模型",
