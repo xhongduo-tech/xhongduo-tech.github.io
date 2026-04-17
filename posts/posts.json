@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mini-Gemini：双编码器的多模态理解",
+    "slug": "mini-gemini-dual-encoder",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型"
+    ],
+    "summary": "Mini-Gemini 用双视觉编码器在低 token 成本下补足高清细节"
+  },
+  {
     "title": "DeepSeek-VL2：MoE 架构的多模态理解",
     "slug": "deepseek-vl2-moe-multimodal",
     "date": "2026-04-18",
