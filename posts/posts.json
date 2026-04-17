@@ -1,5 +1,17 @@
 [
   {
+    "title": "Molmo：像素级多模态理解架构",
+    "slug": "molmo-pixel-multimodal",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型"
+    ],
+    "summary": "Molmo 的优势来自高质量视觉监督、高分辨率多裁剪和轻量连接器。"
+  },
+  {
     "title": "DeltaNet",
     "slug": "deltanet-architecture",
     "date": "2026-04-18",

@@ -17380,7 +17380,7 @@
       "视觉语言模型"
     ],
     "brief": "Molmo 采用 ViT-Large 视觉编码器 + MLP 投影 + OLMo-E-1.7B 语言模型的轻量组合。核心创新是高质量数据流水线，包含 PixMo 数据集的详细标注策略。分析其在 OCR、图表理解任务上的优势及 72B 模型的扩展性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Florence-2：微软统一视觉任务的编码器-解码器",
