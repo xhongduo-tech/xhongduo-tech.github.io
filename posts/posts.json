@@ -1,5 +1,17 @@
 [
   {
+    "title": "CogVLM：深度融合的视觉语言模型",
+    "slug": "cogvlm-deep-fusion-vlm",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型"
+    ],
+    "summary": "CogVLM 通过逐层视觉专家实现深度融合，更适合细粒度视觉推理。"
+  },
+  {
     "title": "Molmo：像素级多模态理解架构",
     "slug": "molmo-pixel-multimodal",
     "date": "2026-04-18",
