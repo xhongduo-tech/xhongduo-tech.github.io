@@ -1,5 +1,17 @@
 [
   {
+    "title": "Wasserstein距离与最优传输",
+    "slug": "math-wasserstein-distance-optimal-transport",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "Wasserstein距离用最小运输代价衡量分布差异，兼具几何解释与工程价值"
+  },
+  {
     "title": "DSSM 深度语义匹配模型",
     "slug": "dssm-deep-semantic-similarity",
     "date": "2026-04-18",
