@@ -17813,7 +17813,7 @@
       "基准评测"
     ],
     "brief": "VQAv2 和 GQA 是视觉问答的基础基准，评测基本视觉理解能力。GQA 强调组合推理和多步问题。分析 VLM 在简单 vs 复杂问题的性能差距、一致性评测方法。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "视频理解基准：ActivityNet-QA 与 Video-MME",
@@ -17837,7 +17837,7 @@
       "幻觉"
     ],
     "brief": "RLHF-V 通过细粒度偏好数据训练 VLM，减少幻觉。人工标注正确描述与幻觉描述的 token 级别差异。分析 DPO 在多模态场景的应用、视觉条件下的偏好学习。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LLaVA-RLHF：视觉语言模型的人类反馈对齐",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "RLHF-V：视觉语言模型的细粒度幻觉纠正",
+    "slug": "rlhf-v-hallucination-correction",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "对齐",
+      "幻觉"
+    ],
+    "summary": "RLHF-V 用细粒度偏好数据定向纠正 VLM 视觉幻觉"
+  },
+  {
     "title": "VQAv2 与 GQA：视觉问答的基础基准",
     "slug": "vqav2-gqa-visual-qa-benchmark",
     "date": "2026-04-18",
