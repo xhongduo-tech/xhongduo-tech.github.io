@@ -18718,7 +18718,7 @@
       "召回模型"
     ],
     "brief": "Google 2016 年的经典工业实践，将推荐问题建模为极端多分类（百万级视频 Softmax）。训练阶段用负采样近似，线上阶段用 ANN 检索 Top-K。用户历史观看序列平均池化作为特征。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "基于 Knowledge Graph 的召回",

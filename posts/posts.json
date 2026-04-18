@@ -1,5 +1,17 @@
 [
   {
+    "title": "YouTube 深度召回网络",
+    "slug": "youtube-dnn-retrieval",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "YouTube 深度召回将推荐建模为大规模多分类，并用负采样训练、ANN 线上检索。"
+  },
+  {
     "title": "积分变换与特征函数",
     "slug": "math-integral-transform-characteristic-function",
     "date": "2026-04-19",
