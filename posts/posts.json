@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度检查的数值实现",
+    "slug": "math-numerical-gradient-checking",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "数值计算"
+    ],
+    "summary": "中心差分梯度检查用于验证 backward，关键在步长、精度和稳定前向。"
+  },
+  {
     "title": "数值稳定性的浮点数分析",
     "slug": "math-numerical-floating-point-stability",
     "date": "2026-04-18",
