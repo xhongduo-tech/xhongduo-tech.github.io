@@ -1,5 +1,17 @@
 [
   {
+    "title": "Radon-Nikodym定理与概率密度",
+    "slug": "math-radon-nikodym-theorem-density",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "测度论"
+    ],
+    "summary": "RN导数是测度相对参考测度的密度，pdf只是其特例"
+  },
+  {
     "title": "测度论基础与概率空间",
     "slug": "math-measure-theory-probability-space",
     "date": "2026-04-19",
