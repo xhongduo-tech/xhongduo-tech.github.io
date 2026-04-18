@@ -17825,7 +17825,7 @@
       "视频理解"
     ],
     "brief": "ActivityNet-QA 评测视频问答能力，Video-MME 提供全面的视频理解评测框架。分析短视频 vs 长视频理解的差异、时序推理评测设计、以及多帧信息融合的评测方法。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "RLHF-V：视觉语言模型的细粒度幻觉纠正",
@@ -18234,7 +18234,7 @@
       "优化理论"
     ],
     "brief": "凸优化问题的标准形式。Lagrange对偶函数与对偶问题。强对偶性与Slater条件。KKT条件的充分必要性。对偶间隙的解释。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "约束优化的障碍法与内点法",

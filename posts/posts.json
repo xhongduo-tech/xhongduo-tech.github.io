@@ -1,5 +1,17 @@
 [
   {
+    "title": "凸优化的对偶理论",
+    "slug": "math-opt-convex-duality-theory",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "对偶理论把约束转成最强下界，并用强对偶与KKT刻画最优。"
+  },
+  {
     "title": "HallusionBench：视觉语言模型的幻觉与错误推理评测",
     "slug": "hallusionbench-visual-hallucination",
     "date": "2026-04-18",
