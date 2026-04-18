@@ -1,5 +1,18 @@
 [
   {
+    "title": "HallusionBench：视觉语言模型的幻觉与错误推理评测",
+    "slug": "hallusionbench-visual-hallucination",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测",
+      "幻觉"
+    ],
+    "summary": "HallusionBench 用受控成对问题评测多模态模型幻觉与推理一致性"
+  },
+  {
     "title": "RLHF-V：视觉语言模型的细粒度幻觉纠正",
     "slug": "rlhf-v-hallucination-correction",
     "date": "2026-04-18",
