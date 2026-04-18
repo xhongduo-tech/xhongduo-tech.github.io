@@ -1,5 +1,17 @@
 [
   {
+    "title": "Cauchy-Schwarz不等式及其推广",
+    "slug": "math-cauchy-schwarz-inequality-generalization",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "分析学"
+    ],
+    "summary": "C-S控制乘积，Hölder推广幂次，Minkowski控制范数求和"
+  },
+  {
     "title": "Jensen不等式及其应用",
     "slug": "math-jensen-inequality-applications",
     "date": "2026-04-18",
