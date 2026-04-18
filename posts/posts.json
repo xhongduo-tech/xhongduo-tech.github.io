@@ -1,5 +1,18 @@
 [
   {
+    "title": "TextVQA 与 OCRVQA：文本视觉问答基准分析",
+    "slug": "textvqa-ocrvqa-benchmark",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测",
+      "OCR"
+    ],
+    "summary": "TextVQA/OCR-VQA核心是读图中文字并复制作答。"
+  },
+  {
     "title": "MMBench：多模态能力的细粒度评测",
     "slug": "mmbench-fine-grained-evaluation",
     "date": "2026-04-18",

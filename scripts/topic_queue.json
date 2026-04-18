@@ -17721,7 +17721,7 @@
       "OCR"
     ],
     "brief": "TextVQA 和 OCRVQA 评测 VLM 读取图像中文本并回答问题的能力。分析数据集特点（自然场景文字 vs 文档）、VLM 的 OCR 能力瓶颈、以及专用 OCR 模型辅助的方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MMBench：多模态能力的细粒度评测",
