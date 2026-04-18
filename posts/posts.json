@@ -1,5 +1,17 @@
 [
   {
+    "title": "积分变换与特征函数",
+    "slug": "math-integral-transform-characteristic-function",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "特征函数用频域表示分布，把独立求和转化为乘法。"
+  },
+  {
     "title": "算子范数与谱半径",
     "slug": "math-operator-norm-spectral-radius",
     "date": "2026-04-19",
@@ -203,18 +215,6 @@
       "召回模型"
     ],
     "summary": "DSSM 用双塔向量相似度解决语义召回问题。"
-  },
-  {
-    "title": "积分变换与特征函数",
-    "slug": "math-integral-transform-characteristic-function",
-    "date": "2026-04-18",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "数学基础",
-      "概率论"
-    ],
-    "summary": "特征函数把分布问题转化为傅里叶域中的乘法、反演与极限分析"
   },
   {
     "title": "Poincare不等式与收敛速度",
