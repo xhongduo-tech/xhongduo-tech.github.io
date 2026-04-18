@@ -1,5 +1,17 @@
 [
   {
+    "title": "算子范数与谱半径",
+    "slug": "math-operator-norm-spectral-radius",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "泛函分析"
+    ],
+    "summary": "算子范数看单步放大，谱半径决定长期稳定性"
+  },
+  {
     "title": "Cauchy-Schwarz不等式及其推广",
     "slug": "math-cauchy-schwarz-inequality-generalization",
     "date": "2026-04-19",
