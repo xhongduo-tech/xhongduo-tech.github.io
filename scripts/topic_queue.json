@@ -18267,7 +18267,7 @@
       "优化理论"
     ],
     "brief": "精确Hessian的计算代价。BFGS的秩二更新公式。L-BFGS的有限内存实现。对角Hessian近似与K-FAC。自然梯度与Fisher信息矩阵。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "动量方法与Nesterov加速",

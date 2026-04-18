@@ -1,5 +1,17 @@
 [
   {
+    "title": "二阶优化方法的Hessian近似",
+    "slug": "math-opt-second-order-hessian-approximation",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "Hessian近似用低成本曲率信息改进梯度下降方向"
+  },
+  {
     "title": "Adam优化器的收敛性分析",
     "slug": "math-opt-adam-convergence-analysis",
     "date": "2026-04-18",
