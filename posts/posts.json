@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeepFM 特征交互模型",
+    "slug": "deepfm-feature-interaction",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "DeepFM 通过共享 embedding 同时建模二阶交叉和高阶交互。"
+  },
+  {
     "title": "DIN 深度兴趣网络",
     "slug": "din-deep-interest-network",
     "date": "2026-04-19",

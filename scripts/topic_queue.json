@@ -18784,7 +18784,7 @@
       "排序模型"
     ],
     "brief": "结合 FM 的二阶特征交叉能力和 DNN 的高阶交互能力，共享 Embedding 输入。FM Component 显式建模低阶交互，Deep Component 隐式学习高阶交互。端到端训练无需特征工程。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DIN 深度兴趣网络",
