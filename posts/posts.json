@@ -1,5 +1,17 @@
 [
   {
+    "title": "Renyi熵与alpha散度",
+    "slug": "math-info-renyi-entropy-alpha-divergence",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "Rényi熵与α散度用参数α调节尾部覆盖和主峰偏好"
+  },
+  {
     "title": "正则化的贝叶斯解释",
     "slug": "math-regularization-bayesian-interpretation",
     "date": "2026-04-19",
@@ -407,18 +419,6 @@
       "信息论"
     ],
     "summary": "DPI说明后处理不会增加关于源变量的信息"
-  },
-  {
-    "title": "Renyi熵与alpha散度",
-    "slug": "math-info-renyi-entropy-alpha-divergence",
-    "date": "2026-04-18",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "数学基础",
-      "信息论"
-    ],
-    "summary": "Rényi熵和α散度用参数α调节尾部与主峰偏好。"
   },
   {
     "title": "互信息的估计方法",
