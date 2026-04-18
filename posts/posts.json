@@ -1,5 +1,17 @@
 [
   {
+    "title": "信息论中的数据处理不等式",
+    "slug": "math-info-data-processing-inequality",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "DPI说明后处理不会增加关于源变量的信息"
+  },
+  {
     "title": "Renyi熵与alpha散度",
     "slug": "math-info-renyi-entropy-alpha-divergence",
     "date": "2026-04-18",
