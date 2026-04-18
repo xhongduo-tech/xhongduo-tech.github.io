@@ -17697,7 +17697,7 @@
       "视觉语言模型"
     ],
     "brief": "Yi-VL 基于 Yi-34B 语言模型，使用 CLIP-ViT-H/14 视觉编码器。在中文多模态任务上表现优异。分析其训练数据配比（中英双语）、中文 OCR 能力、以及 6B/34B 版本的性能-效率曲线。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ShareGPT4V：GPT-4V 合成数据训练的视觉语言模型",

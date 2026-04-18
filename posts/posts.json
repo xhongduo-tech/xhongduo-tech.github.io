@@ -1,5 +1,17 @@
 [
   {
+    "title": "Yi-VL：零一万物的多模态模型",
+    "slug": "yi-vl-multimodal-model",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型"
+    ],
+    "summary": "Yi-VL 用视觉编码器对齐 Yi 语言模型，适合中文单图问答。"
+  },
+  {
     "title": "Video-LLaVA：图像与视频的统一预训练",
     "slug": "video-llava-unified-video-image",
     "date": "2026-04-18",
