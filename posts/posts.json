@@ -1,5 +1,18 @@
 [
   {
+    "title": "MathVista：数学视觉推理评测",
+    "slug": "mathvista-math-visual-reasoning",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测",
+      "数学推理"
+    ],
+    "summary": "MathVista 评测 VLM 从图像中读数学信息并推理出标准答案的能力"
+  },
+  {
     "title": "MMMU：大学水平多学科多模态理解评测",
     "slug": "mmmu-university-level-multimodal",
     "date": "2026-04-18",

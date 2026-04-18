@@ -17766,7 +17766,7 @@
       "数学推理"
     ],
     "brief": "MathVista 评测 VLM 理解数学图表（函数图、几何图、表格）并进行推理的能力。包含 6K 问题，覆盖 FQA、几何、代数等题型。分析 VLM 在视觉数学推理的主要失败模式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DocVQA 与 InfographicVQA：文档理解评测",
