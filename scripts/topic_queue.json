@@ -17778,7 +17778,7 @@
       "文档理解"
     ],
     "brief": "DocVQA 评测扫描文档的理解能力，InfographicVQA 聚焦信息图表。需要模型理解复杂版面、表格、图表。分析不同分辨率策略对文档理解的影响、长文档的滑动窗口方案。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "POPE：幻觉评测的 Polling-based 方法",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "DocVQA 与 InfographicVQA：文档理解评测",
+    "slug": "docvqa-document-understanding",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测",
+      "文档理解"
+    ],
+    "summary": "DocVQA重文本证据，InfographicVQA重图文数值联合理解。"
+  },
+  {
     "title": "MathVista：数学视觉推理评测",
     "slug": "mathvista-math-visual-reasoning",
     "date": "2026-04-18",
