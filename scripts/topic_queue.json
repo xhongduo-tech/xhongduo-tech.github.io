@@ -18608,7 +18608,7 @@
       "分析学"
     ],
     "brief": "Cauchy-Schwarz不等式的向量、积分、期望形式。Holder不等式作为推广。三角不等式与Minkowski不等式。在内积空间中的应用。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "大偏差理论初步",
@@ -18619,7 +18619,7 @@
       "概率论"
     ],
     "brief": "大偏差原理的数学表述。Cramer定理：样本均值的尾概率衰减率。Sanov定理：经验分布的大偏差。在稀有事件分析中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Stein引理与Stein无偏风险估计",

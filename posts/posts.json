@@ -1,5 +1,17 @@
 [
   {
+    "title": "大偏差理论初步",
+    "slug": "math-large-deviation-theory-intro",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "大偏差理论用速率函数刻画稀有事件的指数级衰减。"
+  },
+  {
     "title": "Cauchy-Schwarz不等式及其推广",
     "slug": "math-cauchy-schwarz-inequality-generalization",
     "date": "2026-04-18",
