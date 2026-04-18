@@ -1,5 +1,17 @@
 [
   {
+    "title": "MME：多模态评估的综合基准",
+    "slug": "mme-multimodal-evaluation-benchmark",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测"
+    ],
+    "summary": "MME 用 14 个 yes/no 子任务拆分评估 VLM 的感知与认知能力"
+  },
+  {
     "title": "TextVQA 与 OCRVQA：文本视觉问答基准分析",
     "slug": "textvqa-ocrvqa-benchmark",
     "date": "2026-04-18",
