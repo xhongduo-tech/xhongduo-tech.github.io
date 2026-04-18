@@ -1,5 +1,17 @@
 [
   {
+    "title": "DIN 深度兴趣网络",
+    "slug": "din-deep-interest-network",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "DIN用候选感知注意力为不同候选物品选择相关历史行为"
+  },
+  {
     "title": "Wide & Deep 学习框架",
     "slug": "wide-deep-learning",
     "date": "2026-04-19",

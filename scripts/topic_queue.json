@@ -18773,7 +18773,7 @@
       "排序模型"
     ],
     "brief": "Google 提出的经典排序架构，Wide 侧 Memorization 记忆高频模式，Deep 侧 Generalization 泛化稀疏特征。联合训练平衡两者，避免单独 Wide 的过拟合和单独 Deep 的欠拟合。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "DeepFM 特征交互模型",
@@ -18795,7 +18795,7 @@
       "排序模型"
     ],
     "brief": "阿里提出的注意力机制建模用户历史行为与候选物品的相关性。通过 Local Activation Unit 自适应聚合历史行为，不同候选物品关注不同的历史子集。解决了固定长度用户向量表达不足的问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DIEN 深度兴趣演化网络",
