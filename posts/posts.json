@@ -1,5 +1,17 @@
 [
   {
+    "title": "高斯过程回归的数学基础",
+    "slug": "math-gaussian-process-regression-math",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "GPR用核函数定义函数相关性，并输出预测均值与不确定性。"
+  },
+  {
     "title": "凸优化的对偶理论",
     "slug": "math-opt-convex-duality-theory",
     "date": "2026-04-18",
