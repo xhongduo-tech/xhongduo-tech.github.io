@@ -1,5 +1,18 @@
 [
   {
+    "title": "ShareGPT4V：GPT-4V 合成数据训练的视觉语言模型",
+    "slug": "sharegpt4v-synthetic-data-vlm",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "数据合成"
+    ],
+    "summary": "ShareGPT4V用高密度合成caption提升视觉语言对齐质量"
+  },
+  {
     "title": "BakLLaVA：高效微调的视觉语言模型",
     "slug": "bakllava-efficient-finetuning",
     "date": "2026-04-18",
