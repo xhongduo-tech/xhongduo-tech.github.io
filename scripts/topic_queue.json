@@ -18399,7 +18399,7 @@
       "数值计算"
     ],
     "brief": "IEEE 754浮点数表示。机器精度ε与舍入误差。 catastrophic cancellation。数值稳定的算法设计原则。log-sum-exp技巧。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "条件数与数值稳定性",

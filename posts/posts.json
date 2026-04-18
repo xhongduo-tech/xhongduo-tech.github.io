@@ -1,5 +1,17 @@
 [
   {
+    "title": "数值稳定性的浮点数分析",
+    "slug": "math-numerical-floating-point-stability",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "数值计算"
+    ],
+    "summary": "数值稳定性关注浮点舍入误差是否被算法结构放大"
+  },
+  {
     "title": "条件数与数值稳定性",
     "slug": "math-numerical-condition-number-stability",
     "date": "2026-04-18",
