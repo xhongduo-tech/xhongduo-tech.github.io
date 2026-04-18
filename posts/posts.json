@@ -1,5 +1,29 @@
 [
   {
+    "title": "条件数与优化问题的预处理",
+    "slug": "math-opt-condition-number-preconditioning",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "条件数刻画优化地形扁长程度，预处理通过变量变换降低条件数。"
+  },
+  {
+    "title": "正定核与再生核希尔伯特空间",
+    "slug": "positive-definite-kernel-rkhs",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "泛函分析"
+    ],
+    "summary": "正定核把非线性学习写成可计算的内积。"
+  },
+  {
     "title": "mPLUG-Owl：视觉抽象与语言生成的解耦",
     "slug": "mplug-owl-visual-abstraction",
     "date": "2026-04-19",
