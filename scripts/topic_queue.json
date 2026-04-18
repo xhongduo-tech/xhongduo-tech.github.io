@@ -18597,7 +18597,7 @@
       "分析学"
     ],
     "brief": "Jensen不等式的陈述：E[φ(X)]≥φ(E[X]) for convex φ。在EM算法、变分推断、KL散度证明中的应用。反向Jensen不等式。正文最好至少落到一个公式、复杂度边界、反例或数值验证上，避免只停留在概念解释。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Cauchy-Schwarz不等式及其推广",
