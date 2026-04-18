@@ -1,5 +1,18 @@
 [
   {
+    "title": "POPE：幻觉评测的 Polling-based 方法",
+    "slug": "pope-hallucination-evaluation",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测",
+      "幻觉"
+    ],
+    "summary": "POPE用yes/no对象存在性问题评测VLM幻觉。"
+  },
+  {
     "title": "DocVQA 与 InfographicVQA：文档理解评测",
     "slug": "docvqa-document-understanding",
     "date": "2026-04-18",

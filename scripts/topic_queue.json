@@ -17790,7 +17790,7 @@
       "幻觉"
     ],
     "brief": "POPE 通过询问物体是否存在（Yes/No）评测 VLM 的幻觉问题。使用 MSCOCO 物体标签作为 Ground Truth。分析 VLM 的过度肯定倾向、负样本设计（随机 vs 流行 vs 对抗）的影响。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "HallusionBench：视觉语言模型的幻觉与错误推理评测",
