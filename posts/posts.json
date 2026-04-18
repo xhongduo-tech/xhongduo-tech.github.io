@@ -1,5 +1,17 @@
 [
   {
+    "title": "向量检索与 ANN 加速",
+    "slug": "ann-vector-retrieval",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "ANN 用可控近似误差换取向量召回的低延迟与低内存。"
+  },
+  {
     "title": "YouTube 深度召回网络",
     "slug": "youtube-dnn-retrieval",
     "date": "2026-04-19",
