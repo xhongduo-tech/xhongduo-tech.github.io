@@ -1,5 +1,17 @@
 [
   {
+    "title": "KL散度的变分性质",
+    "slug": "math-info-kl-divergence-variational-properties",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "KL散度可写成对打分函数的变分优化，MINE用神经网络估计该下界"
+  },
+  {
     "title": "分布式优化的通信效率",
     "slug": "math-opt-distributed-optimization-communication",
     "date": "2026-04-18",

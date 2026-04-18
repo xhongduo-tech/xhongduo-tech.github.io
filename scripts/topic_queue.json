@@ -18322,7 +18322,7 @@
       "信息论"
     ],
     "brief": "KL散度的变分表示：D_KL(P||Q)=sup_E[E_P[f]-log E_Q[e^f]]。Donsker-Varadhan表示。在互信息神经估计(MINE)中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "互信息的估计方法",
