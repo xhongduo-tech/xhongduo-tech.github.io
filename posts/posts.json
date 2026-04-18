@@ -1,5 +1,17 @@
 [
   {
+    "title": "测度论基础与概率空间",
+    "slug": "math-measure-theory-probability-space",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "测度论"
+    ],
+    "summary": "测度论用概率空间、可测函数和积分统一定义概率、随机变量与期望"
+  },
+  {
     "title": "自动微分的前向与反向模式",
     "slug": "math-automatic-differentiation-forward-reverse",
     "date": "2026-04-19",
@@ -287,18 +299,6 @@
       "泛函分析"
     ],
     "summary": "压缩映射在完备空间中保证唯一不动点与迭代收敛。"
-  },
-  {
-    "title": "测度论基础与概率空间",
-    "slug": "math-measure-theory-probability-space",
-    "date": "2026-04-18",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "数学基础",
-      "测度论"
-    ],
-    "summary": "概率空间用样本空间、事件集合和概率测度统一定义随机性"
   },
   {
     "title": "随机过程的平稳性与遍历性",
