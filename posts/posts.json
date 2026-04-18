@@ -1,5 +1,17 @@
 [
   {
+    "title": "Hoeffding不等式与集中不等式",
+    "slug": "math-concentration-hoeffding-inequality",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "Hoeffding、McDiarmid和次高斯都用于控制有界影响下的偏差概率"
+  },
+  {
     "title": "压缩映射与Banach不动点定理",
     "slug": "math-contraction-mapping-banach-fixed-point",
     "date": "2026-04-18",
