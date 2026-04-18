@@ -1,5 +1,17 @@
 [
   {
+    "title": "经验贝叶斯方法",
+    "slug": "math-stat-empirical-bayes",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "经验贝叶斯用数据估计先验，再对小样本组做收缩推断。"
+  },
+  {
     "title": "向量检索与 ANN 加速",
     "slug": "vector-retrieval-ann-acceleration",
     "date": "2026-04-18",
