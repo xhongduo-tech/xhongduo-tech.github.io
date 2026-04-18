@@ -1,5 +1,17 @@
 [
   {
+    "title": "约束优化的障碍法与内点法",
+    "slug": "math-opt-barrier-interior-point-methods",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "障碍法用对数障碍构造中心路径，内点法沿其逼近约束最优解"
+  },
+  {
     "title": "高斯过程回归的数学基础",
     "slug": "math-gaussian-process-regression-math",
     "date": "2026-04-18",
