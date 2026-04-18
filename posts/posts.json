@@ -1,5 +1,17 @@
 [
   {
+    "title": "互信息的估计方法",
+    "slug": "math-info-mutual-information-estimation",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "信息论"
+    ],
+    "summary": "互信息估计要按数据形态选择，KSG重数值，MINE/JS重可优化下界"
+  },
+  {
     "title": "KL散度的变分性质",
     "slug": "math-info-kl-divergence-variational-properties",
     "date": "2026-04-18",
