@@ -1,5 +1,17 @@
 [
   {
+    "title": "MIND 多兴趣召回网络",
+    "slug": "mind-multi-interest-retrieval",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "MIND用动态路由生成多兴趣向量，提升召回覆盖与多样性"
+  },
+  {
     "title": "Swish 召回模型",
     "slug": "swish-retrieval-model",
     "date": "2026-04-19",
