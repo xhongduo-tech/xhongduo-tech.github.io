@@ -1,5 +1,17 @@
 [
   {
+    "title": "Poincare不等式与收敛速度",
+    "slug": "math-poincare-inequality-convergence-rate",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "泛函分析"
+    ],
+    "summary": "Poincaré不等式用能量控制方差，谱隙决定马尔可夫链的L2收敛速度"
+  },
+  {
     "title": "Bregman散度与优化",
     "slug": "math-bregman-divergence-optimization",
     "date": "2026-04-18",
