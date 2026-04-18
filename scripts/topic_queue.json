@@ -17686,7 +17686,7 @@
       "高效微调"
     ],
     "brief": "BakLLaVA 在 LLaVA 架构基础上优化训练效率，使用 Mistral-7B 作为语言模型。分析其数据效率（更少数据达到相同性能）、训练超参数调优、以及与 LLaVA-1.5 的架构差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Yi-VL：零一万物的多模态模型",

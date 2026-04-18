@@ -1,5 +1,18 @@
 [
   {
+    "title": "BakLLaVA：高效微调的视觉语言模型",
+    "slug": "bakllava-efficient-finetuning",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "高效微调"
+    ],
+    "summary": "BakLLaVA 用 Mistral-7B 接 LLaVA 架构，提高多模态微调与部署效率"
+  },
+  {
     "title": "mPLUG-Owl：视觉抽象与语言生成的解耦",
     "slug": "mplug-owl-visual-abstraction",
     "date": "2026-04-18",
