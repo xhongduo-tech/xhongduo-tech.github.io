@@ -1,5 +1,17 @@
 [
   {
+    "title": "条件数与数值稳定性",
+    "slug": "math-numerical-condition-number-stability",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "数值计算"
+    ],
+    "summary": "条件数衡量问题对扰动的敏感度，用于区分问题病态和算法不稳。"
+  },
+  {
     "title": "梯度消失与爆炸的数学根源",
     "slug": "math-calc-vanishing-exploding-gradients",
     "date": "2026-04-18",
