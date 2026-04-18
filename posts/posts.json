@@ -1,5 +1,17 @@
 [
   {
+    "title": "压缩映射与Banach不动点定理",
+    "slug": "math-contraction-mapping-banach-fixed-point",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "泛函分析"
+    ],
+    "summary": "压缩映射在完备空间中保证唯一不动点与迭代收敛。"
+  },
+  {
     "title": "测度论基础与概率空间",
     "slug": "math-measure-theory-probability-space",
     "date": "2026-04-18",
