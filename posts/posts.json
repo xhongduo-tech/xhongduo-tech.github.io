@@ -1,5 +1,30 @@
 [
   {
+    "title": "VQAv2 与 GQA：视觉问答的基础基准",
+    "slug": "vqav2-gqa-visual-qa-benchmark",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测"
+    ],
+    "summary": "VQAv2测基础视觉问答，GQA更强调组合推理与一致性"
+  },
+  {
+    "title": "HallusionBench：视觉语言模型的幻觉与错误推理评测",
+    "slug": "hallusionbench-vlm-hallucination-eval",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测",
+      "幻觉"
+    ],
+    "summary": "HallusionBench 用控制组区分视觉幻觉与语言幻觉，评测 VLM 的图像上下文推理"
+  },
+  {
     "title": "POPE：幻觉评测的 Polling-based 方法",
     "slug": "pope-hallucination-evaluation",
     "date": "2026-04-18",
