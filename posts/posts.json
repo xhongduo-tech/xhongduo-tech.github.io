@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度消失与爆炸的数学根源",
+    "slug": "math-calc-vanishing-exploding-gradients",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "梯度消失与爆炸源于深层反向传播中的雅可比矩阵连乘。"
+  },
+  {
     "title": "雅可比矩阵的链式法则",
     "slug": "math-calc-jacobian-chain-rule",
     "date": "2026-04-18",
