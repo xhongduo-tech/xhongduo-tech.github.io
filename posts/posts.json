@@ -1,5 +1,17 @@
 [
   {
+    "title": "积分变换与特征函数",
+    "slug": "math-integral-transform-characteristic-function",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "特征函数把分布问题转化为傅里叶域中的乘法、反演与极限分析"
+  },
+  {
     "title": "Poincare不等式与收敛速度",
     "slug": "math-poincare-inequality-convergence-rate",
     "date": "2026-04-18",
