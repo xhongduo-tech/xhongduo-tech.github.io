@@ -1,5 +1,29 @@
 [
   {
+    "title": "拉格朗日乘子法的几何解释",
+    "slug": "math-opt-lagrange-multipliers-geometry",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "拉格朗日乘子法用相切几何解释约束最优条件"
+  },
+  {
+    "title": "自动微分的前向与反向模式",
+    "slug": "math-calc-autodiff-forward-reverse",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "前向模式算JVP，反向模式算VJP；计算图前向构建、反向遍历。"
+  },
+  {
     "title": "矩阵运算的数值稳定性",
     "slug": "math-numerical-matrix-computation-stability",
     "date": "2026-04-18",
