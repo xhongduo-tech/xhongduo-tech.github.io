@@ -17674,7 +17674,7 @@
       "视觉语言模型"
     ],
     "brief": "mPLUG-Owl 引入 Visual Abstractor 模块，将视觉特征压缩为少量抽象 token 再输入 LLM。减少视觉 token 数量以降低计算成本。分析 Abstractor 的设计（查询数量、注意力机制）、压缩率与性能的权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BakLLaVA：高效微调的视觉语言模型",

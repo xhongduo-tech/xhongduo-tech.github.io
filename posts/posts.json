@@ -1,5 +1,17 @@
 [
   {
+    "title": "mPLUG-Owl：视觉抽象与语言生成的解耦",
+    "slug": "mplug-owl-visual-abstraction",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型"
+    ],
+    "summary": "Visual Abstractor 用固定 query 压缩视觉 token，降低 LLM 成本但会损失细节"
+  },
+  {
     "title": "Yi-VL：零一万物的多模态模型",
     "slug": "yi-vl-multimodal-model",
     "date": "2026-04-18",
