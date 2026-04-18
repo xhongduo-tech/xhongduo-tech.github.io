@@ -1,5 +1,17 @@
 [
   {
+    "title": "Cauchy-Schwarz不等式及其推广",
+    "slug": "math-cauchy-schwarz-inequality-generalization",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "分析学"
+    ],
+    "summary": "Cauchy-Schwarz用范数乘积控制内积，是二阶估计的基础。"
+  },
+  {
     "title": "Radon-Nikodym定理与概率密度",
     "slug": "math-radon-nikodym-theorem-density",
     "date": "2026-04-19",
@@ -251,18 +263,6 @@
       "概率论"
     ],
     "summary": "大偏差理论用速率函数刻画稀有事件的指数级衰减。"
-  },
-  {
-    "title": "Cauchy-Schwarz不等式及其推广",
-    "slug": "math-cauchy-schwarz-inequality-generalization",
-    "date": "2026-04-18",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "数学基础",
-      "分析学"
-    ],
-    "summary": "C-S控制乘积，Hölder推广幂次，Minkowski控制范数求和"
   },
   {
     "title": "Jensen不等式及其应用",

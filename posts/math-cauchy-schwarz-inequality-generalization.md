@@ -1,370 +1,348 @@
 ## 核心结论
 
-Cauchy-Schwarz 不等式给出一个总约束：相乘结果受能量约束。这里的“能量”可以先理解为对象自身大小的平方，例如向量的 $\|x\|_2^2$、函数的 $\int |f|^2$、随机变量的 $\mathbb E[X^2]$。
-
-它的基本形式是：
+Cauchy-Schwarz 不等式的核心结论是：**内积的绝对值不超过两边范数的乘积**。
 
 $$
-|\langle x,y\rangle| \le \|x\|_2\|y\|_2
+|\langle x,y\rangle|\le \|x\|\,\|y\|
 $$
 
-其中，内积 $\langle x,y\rangle$ 是一种“先逐项相乘，再求和”的运算；范数 $\|x\|_2$ 是向量长度。把两个向量看成两根箭头，内积表示它们朝同方向的程度。即使两根箭头完全同向，内积也不会超过两根箭头长度的乘积。
+内积是衡量两个对象“相互对齐程度”的运算；范数是由内积诱导出的长度。这个不等式说明：两个对象的对齐程度有上界，最大不会超过两个对象长度的乘积。
 
-同一思想有三种常见形式：
-
-| 场景 | 形式 | 含义 |
-|---|---|---|
-| 向量 | $|\langle x,y\rangle| \le \|x\|_2\|y\|_2$ | 点乘不超过长度乘积 |
-| 积分 | $\left|\int fg\,d\mu\right| \le \|f\|_p\|g\|_q$ | 乘完再积分受两个函数大小控制 |
-| 期望 | $|\mathbb E[XY]| \le \sqrt{\mathbb E[X^2]\mathbb E[Y^2]}$ | 乘完再平均受二阶矩控制 |
-
-Hölder 不等式是 Cauchy-Schwarz 的推广。它把平方结构推广到一组共轭指数 $p,q$，满足：
+玩具例子：取向量 \(x=(1,2)\)，\(y=(2,4)\)。
 
 $$
-\frac{1}{p}+\frac{1}{q}=1
+\langle x,y\rangle=1\cdot2+2\cdot4=10
 $$
 
-Minkowski 不等式是 $L^p$ 空间里的三角不等式，管的是“长度求和”：
-
 $$
-\|f+g\|_p \le \|f\|_p+\|g\|_p
-$$
-
-简化判断规则是：控制乘积用 Cauchy-Schwarz 或 Hölder；控制和的长度用 Minkowski。
-
----
-
-## 问题定义与边界
-
-本文只讨论标准版本，不展开退化情形，例如 $p=1,q=\infty$ 的边界版本、半范数空间、广义函数空间等。
-
-先区分三个场景。
-
-| 场景 | 对象 | 基本运算 | 白话解释 |
-|---|---|---|---|
-| 有限维内积空间 | 向量 $x,y$ | $\langle x,y\rangle$ | 点乘：逐项相乘后求和 |
-| 测度空间 | 函数 $f,g$ | $\int fg\,d\mu$ | 乘完后对整个空间累加 |
-| 概率空间 | 随机变量 $X,Y$ | $\mathbb E[XY]$ | 乘完后按概率加权平均 |
-
-测度空间是带有“可积分大小”定义的集合，例如区间、离散点集、概率空间。$L^p$ 空间是满足 $\int |f|^p\,d\mu < \infty$ 的函数集合。它的大小定义为：
-
-$$
-\|f\|_p=\left(\int |f|^p\,d\mu\right)^{1/p}
-$$
-
-概率空间可以看成一种特殊测度空间，概率测度记作 $\mathbb P$，期望就是积分：
-
-$$
-\mathbb E[X]=\int X\,d\mathbb P
-$$
-
-边界条件必须写清楚：
-
-| 不等式 | 条件 | 不能忽略的边界 |
-|---|---|---|
-| Cauchy-Schwarz | 内积存在，平方可积 | 不需要额外共轭指数 |
-| Hölder | $1/p+1/q=1$ | 标准形式通常要求 $p,q>1$ |
-| Minkowski | $p\ge 1$ | $0<p<1$ 时 $\|\cdot\|_p$ 不是范数 |
-
-玩具例子：向量 $x=(1,2)$，$y=(2,1)$。点乘是：
-
-$$
-\langle x,y\rangle=1\cdot 2+2\cdot 1=4
-$$
-
-两个向量长度都是 $\sqrt 5$，所以：
-
-$$
-|\langle x,y\rangle|=4\le 5=\|x\|_2\|y\|_2
-$$
-
-这就是 Cauchy-Schwarz 的最小二维检验。
-
-一个常见反例边界是 $0<p<1$。例如在实数上取 $p=1/2$，表达式 $\left(|a|^p+|b|^p\right)^{1/p}$ 不满足三角不等式，因此不能当作真正的长度来用。Minkowski 依赖范数结构，不能直接套到 $0<p<1$。
-
----
-
-## 核心机制与推导
-
-Cauchy-Schwarz 的标准证明思路是：平方长度永远非负。对任意实数或复数参数 $t$，都有：
-
-$$
-\|x-ty\|_2^2\ge 0
-$$
-
-展开得到：
-
-$$
-\|x-ty\|_2^2
-=
-\|x\|_2^2
--2\operatorname{Re}(t\langle x,y\rangle)
-+|t|^2\|y\|_2^2
-$$
-
-在实数情形下，这就是关于 $t$ 的二次函数。一个二次函数对所有 $t$ 都非负，判别式不能大于 $0$，于是得到：
-
-$$
-|\langle x,y\rangle|^2\le \|x\|_2^2\|y\|_2^2
-$$
-
-两边开方：
-
-$$
-|\langle x,y\rangle|\le \|x\|_2\|y\|_2
-$$
-
-这个证明的关键不是“向量图像”，而是“平方项非负”。图像帮助理解，证明依赖代数结构。
-
-Hölder 把 Cauchy-Schwarz 的二次结构换成 $p-q$ 共轭结构：
-
-$$
-\left|\int_\Omega fg\,d\mu\right|
-\le
-\|f\|_p\|g\|_q,
-\quad
-\frac{1}{p}+\frac{1}{q}=1
-$$
-
-当 $p=q=2$ 时，Hölder 就退化为 Cauchy-Schwarz 的积分形式。
-
-Minkowski 则处理函数和的长度：
-
-$$
-\|f+g\|_p\le \|f\|_p+\|g\|_p
-$$
-
-新手可以把它理解为：“先合并再量长度”不会比“分别量长度再相加”更大。这和欧氏平面里的三角不等式一致。
-
-三者关系可以这样看：
-
-| 关系 | 说明 |
-|---|---|
-| Cauchy-Schwarz $\rightarrow$ Hölder | C-S 是 Hölder 在 $p=q=2$ 时的特例 |
-| Hölder $\rightarrow$ Minkowski | 标准证明中可用 Hölder 控制交叉项 |
-| Cauchy-Schwarz $\rightarrow$ 三角不等式 | 在 $p=2$ 的内积空间里可直接推出 |
-
-在内积空间中，三角不等式可由 Cauchy-Schwarz 推出：
-
-$$
-\|x+y\|_2^2
-=
-\|x\|_2^2+2\operatorname{Re}\langle x,y\rangle+\|y\|_2^2
-$$
-
-由 Cauchy-Schwarz：
-
-$$
-2\operatorname{Re}\langle x,y\rangle
-\le
-2|\langle x,y\rangle|
-\le
-2\|x\|_2\|y\|_2
+\|x\|=\sqrt{1^2+2^2}=\sqrt5,\quad
+\|y\|=\sqrt{2^2+4^2}=2\sqrt5
 $$
 
 所以：
 
 $$
-\|x+y\|_2^2
-\le
-(\|x\|_2+\|y\|_2)^2
+|\langle x,y\rangle|=10=\sqrt5\cdot 2\sqrt5=\|x\|\,\|y\|
 $$
 
-开方得到：
+等号成立，因为 \(y=2x\)，两个向量线性相关。线性相关的白话解释是：一个向量可以由另一个向量乘上常数得到。
 
-$$
-\|x+y\|_2\le \|x\|_2+\|y\|_2
-$$
+| 对象 | 含义 | 在例子中的值 |
+|---|---|---|
+| \(\langle x,y\rangle\) | 内积，衡量对齐程度 | \(10\) |
+| \(\|x\|\) | \(x\) 的长度 | \(\sqrt5\) |
+| \(\|y\|\) | \(y\) 的长度 | \(2\sqrt5\) |
+| 等号条件 | 两个对象成比例 | \(y=2x\) |
+
+Cauchy-Schwarz 不等式不是孤立公式。它是投影、相关性估计、误差分析、最小二乘、收敛证明中的基础工具。它的向量形式、积分形式、期望形式，本质上是同一个结构：把“点积”换成对应空间里的内积。
 
 ---
 
-## 代码实现
+## 问题定义与边界
 
-程序里的重点不是证明不等式，而是检查输入条件、计算左右两边、避免误用。数值验证只能检验给定样本，不等于数学证明。
+先定义工作对象，才能避免误用公式。
 
-| 步骤 | 做什么 | 对应风险 |
-|---|---|---|
-| 输入 | 读入向量、函数采样或随机样本 | 维度不一致、样本为空 |
-| 计算左边 | 内积、积分近似或样本均值 | 忘记取绝对值 |
-| 计算右边 | 范数乘积 | 指数条件写错 |
-| 比较结果 | 允许浮点误差 | 把数值检验当证明 |
-
-下面代码可直接运行，分别验证向量版、离散积分版和期望版。
-
-```python
-import math
-import random
-
-def dot(x, y):
-    assert len(x) == len(y)
-    return sum(a * b for a, b in zip(x, y))
-
-def lp_norm(values, p):
-    assert p >= 1
-    return sum(abs(v) ** p for v in values) ** (1 / p)
-
-def cauchy_schwarz(x, y, eps=1e-12):
-    left = abs(dot(x, y))
-    right = lp_norm(x, 2) * lp_norm(y, 2)
-    assert left <= right + eps
-    return left, right
-
-def holder(f, g, p, q, eps=1e-12):
-    assert len(f) == len(g)
-    assert p > 1 and q > 1
-    assert abs(1 / p + 1 / q - 1) < eps
-
-    left = abs(sum(a * b for a, b in zip(f, g)))
-    right = lp_norm(f, p) * lp_norm(g, q)
-    assert left <= right + eps
-    return left, right
-
-def minkowski(f, g, p, eps=1e-12):
-    assert len(f) == len(g)
-    assert p >= 1
-
-    left = lp_norm([a + b for a, b in zip(f, g)], p)
-    right = lp_norm(f, p) + lp_norm(g, p)
-    assert left <= right + eps
-    return left, right
-
-def expectation_cauchy_schwarz(xs, ys, eps=1e-12):
-    assert len(xs) == len(ys)
-    n = len(xs)
-    assert n > 0
-
-    exy = sum(x * y for x, y in zip(xs, ys)) / n
-    ex2 = sum(x * x for x in xs) / n
-    ey2 = sum(y * y for y in ys) / n
-
-    left = abs(exy)
-    right = math.sqrt(ex2 * ey2)
-    assert left <= right + eps
-    return left, right
-
-# 玩具例子：二维向量
-left, right = cauchy_schwarz([1, 2], [2, 1])
-assert left == 4
-assert abs(right - 5) < 1e-12
-
-# 离散积分例子：把 sum 看成积分近似
-left, right = holder([1, 2, 3], [4, 5, 6], p=3, q=1.5)
-assert left <= right + 1e-12
-
-# Minkowski 例子
-left, right = minkowski([1, -2, 3], [4, 1, -1], p=2)
-assert left <= right + 1e-12
-
-# 随机变量例子：样本均值近似期望
-random.seed(0)
-xs = [random.gauss(0, 1) for _ in range(1000)]
-ys = [2 * x + random.gauss(0, 0.5) for x in xs]
-left, right = expectation_cauchy_schwarz(xs, ys)
-assert left <= right + 1e-12
-```
-
-真实工程例子：通信和雷达里的匹配滤波。观测信号 $r$ 与模板信号 $s$ 做相关：
+内积空间是带有内积运算的向量空间。白话说，它不仅能做加法和数乘，还能计算两个对象之间的“对齐程度”。在实向量空间里，常见内积就是点积：
 
 $$
-\langle r,s\rangle
+\langle x,y\rangle=\sum_{i=1}^n x_i y_i
+$$
+
+范数是长度，通常由内积定义：
+
+$$
+\|x\|=\sqrt{\langle x,x\rangle}
+$$
+
+在复数空间里，内积必须包含共轭。共轭的白话解释是：把复数 \(a+bi\) 变成 \(a-bi\)。例如函数空间里的复数内积通常写成：
+
+$$
+\langle f,g\rangle=\int_\Omega f\,\overline g\,d\mu
+$$
+
+这里 \(\Omega\) 是积分所在的空间，\(\mu\) 是测度。测度可以先理解为一种抽象的“长度、面积、概率分布”的统一表达。
+
+\(L^2\) 是平方可积函数空间。白话说，函数 \(f\) 属于 \(L^2\)，意思是 \(\int |f|^2\) 是有限的：
+
+$$
+\int_\Omega |f|^2\,d\mu<\infty
+$$
+
+随机变量版本也类似。若 \(X,Y\in L^2\)，也就是：
+
+$$
+\mathbb E|X|^2<\infty,\quad \mathbb E|Y|^2<\infty
+$$
+
+则有：
+
+$$
+|\mathbb E[X\overline Y]|
+\le
+\big(\mathbb E|X|^2\big)^{1/2}
+\big(\mathbb E|Y|^2\big)^{1/2}
+$$
+
+\(\mathbb E\) 是期望，白话说就是按概率加权后的平均值。
+
+| 场景 | 内积写法 | C-S 适用条件 | 常见误用 |
+|---|---|---|---|
+| 实向量 | \(\sum x_i y_i\) | 有限维实向量 | 漏掉绝对值 |
+| 复向量 | \(\sum x_i\overline{y_i}\) | 有限维复向量 | 漏掉共轭 |
+| 函数 | \(\int f\overline g\,d\mu\) | \(f,g\in L^2\) | 积分发散仍硬套 |
+| 随机变量 | \(\mathbb E[X\overline Y]\) | \(X,Y\in L^2\) | 二阶矩不存在 |
+
+边界条件很重要。Cauchy-Schwarz 不等式处理的是二阶结构，也就是平方、内积、均方意义下的对象。如果对象没有有限范数，右边可能是无穷大，公式就不能提供有效估计。
+
+---
+
+## 核心机制与推导
+
+最稳的证明思路是看一个永远非负的量：
+
+$$
+\|x-\lambda y\|^2\ge 0
+$$
+
+这里 \(\lambda\) 是一个标量。先看实内积空间，展开：
+
+$$
+\|x-\lambda y\|^2
+=
+\langle x-\lambda y,x-\lambda y\rangle
+$$
+
+$$
+=
+\|x\|^2-2\lambda\langle x,y\rangle+\lambda^2\|y\|^2
+$$
+
+这是关于 \(\lambda\) 的二次多项式。因为它对所有 \(\lambda\) 都非负，所以判别式不能为正：
+
+$$
+(-2\langle x,y\rangle)^2-4\|y\|^2\|x\|^2\le 0
+$$
+
+化简得到：
+
+$$
+\langle x,y\rangle^2\le \|x\|^2\|y\|^2
+$$
+
+两边开方：
+
+$$
+|\langle x,y\rangle|\le \|x\|\,\|y\|
+$$
+
+如果 \(y=0\)，右边是 \(0\)，左边也是 \(0\)，不等式直接成立。因此推导中通常只需要处理 \(y\ne0\) 的情况。
+
+复数情形可以取：
+
+$$
+\lambda=\frac{\langle x,y\rangle}{\|y\|^2}
+$$
+
+然后利用 \(\|x-\lambda y\|^2\ge0\) 推出同样结论。复数情形的关键不是形式更复杂，而是内积展开时必须尊重共轭。
+
+向量形式推广到函数形式，只是把求和换成积分：
+
+$$
+\left|\int_\Omega f\,\overline g\,d\mu\right|
+\le
+\left(\int_\Omega |f|^2\,d\mu\right)^{1/2}
+\left(\int_\Omega |g|^2\,d\mu\right)^{1/2}
+$$
+
+再推广到随机变量形式，只是把积分换成期望：
+
+$$
+|\mathbb E[X\overline Y]|
+\le
+\big(\mathbb E|X|^2\big)^{1/2}
+\big(\mathbb E|Y|^2\big)^{1/2}
+$$
+
+真实工程例子：在信号处理中，一个接收信号 \(r(t)\) 和模板信号 \(s(t)\) 的相关输出常写成：
+
+$$
+\int r(t)\overline{s(t)}\,dt
 $$
 
 Cauchy-Schwarz 给出：
 
 $$
-|\langle r,s\rangle|\le \|r\|_2\|s\|_2
+\left|\int r(t)\overline{s(t)}\,dt\right|
+\le
+\left(\int |r(t)|^2dt\right)^{1/2}
+\left(\int |s(t)|^2dt\right)^{1/2}
 $$
 
-因此相关输出的上界由两者能量决定。工程上常用归一化相关系数：
+这说明相关器输出不可能无限大，它被两个信号能量的平方根乘积控制。匹配滤波、归一化相关、最小二乘估计里都会用到这个上界。
+
+Cauchy-Schwarz 还有两个重要相关结论。
+
+Hölder 不等式是它的推广。若 \(p,q\ge1\)，并且：
 
 $$
-\rho=\frac{\langle r,s\rangle}{\|r\|_2\|s\|_2}
+\frac1p+\frac1q=1
 $$
 
-由 Cauchy-Schwarz 可知 $|\rho|\le 1$。这个结论用于阈值检测、模板匹配、信噪比分析。阈值不应只依赖原始相关值，因为原始相关值会随信号能量放大；归一化后才更适合比较不同样本。
+则：
+
+$$
+\left|\int_\Omega f\,\overline g\,d\mu\right|
+\le
+\|f\|_p\,\|g\|_q
+$$
+
+其中：
+
+$$
+\|f\|_p=\left(\int_\Omega |f|^p\,d\mu\right)^{1/p}
+$$
+
+当 \(p=q=2\) 时，Hölder 不等式就退化成 Cauchy-Schwarz 不等式。
+
+Minkowski 不等式是 \(L^p\) 空间里的三角不等式。三角不等式的白话解释是：两段路合起来的长度不超过分别走完两段路的长度之和。公式是：
+
+$$
+\|f+g\|_p\le \|f\|_p+\|g\|_p,\quad p\ge1
+$$
+
+当 \(p=2\) 时，它对应内积空间中由 Cauchy-Schwarz 推出的范数三角不等式。
+
+---
+
+## 代码实现
+
+下面的 Python 代码验证有限维向量里的 Cauchy-Schwarz 不等式。代码重点是四步：定义内积、定义范数、计算两边、比较大小。
+
+```python
+import math
+
+def dot(x, y):
+    assert len(x) == len(y)
+    return sum(a * b for a, b in zip(x, y))
+
+def norm(x):
+    return math.sqrt(dot(x, x))
+
+def cauchy_schwarz_holds(x, y, eps=1e-12):
+    lhs = abs(dot(x, y))
+    rhs = norm(x) * norm(y)
+    return lhs <= rhs + eps, lhs, rhs
+
+x = [1, 2]
+y = [2, 4]
+
+ok, lhs, rhs = cauchy_schwarz_holds(x, y)
+
+print(lhs, rhs, ok)
+
+assert ok
+assert abs(lhs - 10.0) < 1e-12
+assert abs(rhs - 10.0) < 1e-12
+```
+
+输出中 `lhs` 是 \(|\langle x,y\rangle|\)，`rhs` 是 \(\|x\|\|y\|\)。对于这个例子，两者相等，因为两个向量成比例。
+
+也可以用离散数组近似函数积分。假设在区间 \([0,1]\) 上采样，积分可以用求和近似：
+
+```python
+import math
+
+def discrete_inner(f_values, g_values, dx):
+    assert len(f_values) == len(g_values)
+    return sum(f * g * dx for f, g in zip(f_values, g_values))
+
+def discrete_l2_norm(values, dx):
+    return math.sqrt(sum(v * v * dx for v in values))
+
+n = 1000
+dx = 1.0 / n
+grid = [(i + 0.5) * dx for i in range(n)]
+
+f = [t for t in grid]
+g = [1.0 - t for t in grid]
+
+lhs = abs(discrete_inner(f, g, dx))
+rhs = discrete_l2_norm(f, dx) * discrete_l2_norm(g, dx)
+
+print(lhs, rhs, lhs <= rhs + 1e-12)
+
+assert lhs <= rhs + 1e-12
+```
+
+这里的 `f` 和 `g` 是函数采样值。`dx` 是每个小区间的宽度。这个例子不是精确积分，而是数值近似，因此比较时使用 `eps` 容忍浮点误差。工程里不要用 `lhs == rhs` 判断不等式是否达到等号，因为浮点数计算会有舍入误差。
 
 ---
 
 ## 工程权衡与常见坑
 
-最大的问题是混淆“形式相似”和“条件成立”。看到 $\int fg$ 不能自动套 Hölder，必须先检查 $p,q$ 是否共轭；看到 $\|f+g\|_p$ 不能自动套 Minkowski，必须确认 $p\ge 1$。
+Cauchy-Schwarz 在工程中常用于“先给出上界”。它不一定给出最紧的估计，但它简单、稳定、适用面广。对于初级工程师，关键不是背公式，而是先判断对象是否在正确空间里。
 
-| 常见坑 | 错误写法或想法 | 正确处理 |
+| 错误写法或想法 | 正确写法或判断 | 影响 |
 |---|---|---|
-| 共轭指数写错 | $1/p+1/q\ne 1$ 仍套 Hölder | 先验证指数条件 |
-| 指数范围错 | $0<p<1$ 仍当范数 | Minkowski 标准形式要求 $p\ge 1$ |
-| 二阶矩不存在 | 直接写 $\mathbb E[X^2]$ | 先确认平方可积 |
-| 绝对值位置错 | 把 $|\int fg|$ 混成 $\int |fg|$ | 前者是目标，后者常用于上界过程 |
-| 等号条件误判 | “相关”就能取等 | 需要同方向或几乎处处成比例 |
+| 复数内积写成 \(\sum x_i y_i\) | 写成 \(\sum x_i\overline{y_i}\) | 相位和能量解释错误 |
+| 期望形式直接套任意随机变量 | 要求 \(X,Y\in L^2\) | 二阶矩可能发散 |
+| 认为等号条件总是“线性相关” | 函数和随机变量里是几乎处处成比例 | 忽略零测集差异 |
+| Hölder 任意 \(p,q\) 都能用 | 必须 \(1/p+1/q=1\) | 指数条件错误 |
+| Minkowski 用在 \(p<1\) | 一般要求 \(p\ge1\) | \(p<1\) 时不是范数 |
+| 用严格等号比较浮点结果 | 用误差容忍比较 | 数值测试不稳定 |
 
-“几乎处处”是测度论术语，意思是除了一个测度为零的集合之外都成立。对概率问题来说，就是除了概率为零的异常情况之外都成立。
+“几乎处处”的白话解释是：除了一个测度为零的集合以外都成立。在概率里，可以理解为“除了概率为零的异常情况以外都成立”。
 
-期望形式尤其容易误用。Cauchy-Schwarz 的概率版本是：
+复数共轭是信号处理里的高频坑。例如无线通信或频域分析中，信号常常是复数。如果相关计算漏掉共轭，结果就不再对应标准内积，相关强度、能量解释、匹配滤波输出都会偏离预期。
 
-$$
-|\mathbb E[XY]|
-\le
-\sqrt{\mathbb E[X^2]\mathbb E[Y^2]}
-$$
+随机变量场景里，常见问题是只看到了 \(\mathbb E[XY]\)，却没有检查 \(\mathbb E|X|^2\) 和 \(\mathbb E|Y|^2\) 是否有限。若二阶矩发散，Cauchy-Schwarz 不能给出有效有限上界。
 
-它要求 $X,Y$ 至少有有限二阶矩。如果随机变量服从某些重尾分布，$\mathbb E[X^2]$ 可能发散，右边不是有限数，这时不能把公式当作有效有限上界。
-
-协方差界是期望形式的典型应用。协方差衡量两个随机变量中心化后的共同变化：
-
-$$
-\operatorname{Cov}(X,Y)=\mathbb E[(X-\mathbb E X)(Y-\mathbb E Y)]
-$$
-
-对中心化变量应用 Cauchy-Schwarz：
-
-$$
-|\operatorname{Cov}(X,Y)|
-\le
-\sqrt{\mathbb E[(X-\mathbb E X)^2]\mathbb E[(Y-\mathbb E Y)^2]}
-=
-\sigma_X\sigma_Y
-$$
-
-其中 $\sigma_X$ 是标准差，表示随机变量偏离均值的典型尺度。
-
-工程上，上界的作用不是替代真实计算，而是限制可能范围。匹配滤波、归一化相关系数、SNR 分析都需要这种约束：如果没有 $|\rho|\le 1$，相关分数就很难跨样本比较；如果没有能量上界，阈值设计就会被信号幅度直接污染。
+等号条件也要写准确。有限维向量里，等号成立当且仅当两个向量线性相关。函数空间里，等号成立对应 \(f\) 和 \(g\) 几乎处处成比例。随机变量里，对应 \(X\) 和 \(Y\) 几乎必然成比例。这里“几乎必然”的白话解释是：事件发生的概率为 \(1\)。
 
 ---
 
 ## 替代方案与适用边界
 
-选择不等式时，先看表达式结构。
+Cauchy-Schwarz 适合处理二阶结构。如果问题里天然出现内积、平方、均方误差、相关性、投影，就优先考虑它。
 
-| 问题形态 | 优先工具 | 原因 |
+但它不是所有估计问题的唯一选择。当指数不是 \(2\)，或者需要处理更一般的 \(L^p\) 范数时，应升级到 Hölder 或 Minkowski。
+
+| 目标问题 | 推荐工具 | 适用条件 |
 |---|---|---|
-| $\langle x,y\rangle$、$\mathbb E[XY]$ | Cauchy-Schwarz | 二次结构，直接控制乘积 |
-| $\int fg$ 且幂次不是 $2$ | Hölder | 适合 $L^p-L^q$ 配对 |
-| $\|f+g\|_p$、距离估计 | Minkowski | 控制和的长度 |
-| $\mathbb E[\phi(X)]$ 与 $\phi(\mathbb E X)$ | Jensen | 依赖凸函数结构 |
-| $ab$ 拆成 $a^p,b^q$ | Young | 常用于乘积拆分 |
-| 正数和与积 | AM-GM | 适合基础代数界 |
+| 控制内积大小 | Cauchy-Schwarz | 内积空间，或 \(L^2\) 对象 |
+| 控制 \(\int fg\) 且指数不是 2 | Hölder | \(p,q\ge1\)，且 \(1/p+1/q=1\) |
+| 控制 \(\|f+g\|_p\) | Minkowski | \(p\ge1\) |
+| 控制均方误差 | Cauchy-Schwarz / 投影定理 | 二阶矩有限 |
+| 控制非二阶重尾变量 | 更专门的概率不等式 | 需要额外分布条件 |
+| 处理 \(p<1\) | 不直接用范数三角结构 | 通常是准范数，不满足 Minkowski |
 
-新手选择策略可以更直接：
+什么时候用 Cauchy-Schwarz：看到 \(\langle x,y\rangle\)、\(\int f\overline g\)、\(\mathbb E[X\overline Y]\)，并且两边都有平方可积结构时。
 
-| 看到什么 | 先想什么 |
-|---|---|
-| 点乘、相关、内积 | Cauchy-Schwarz |
-| 乘积再积分 | Hölder |
-| 随机变量乘积再取期望 | Cauchy-Schwarz 或 Hölder |
-| 两个函数相加后的范数 | Minkowski |
-| 协方差上界 | 对中心化变量用 Cauchy-Schwarz |
+什么时候升级到 Hölder：看到 \(\int fg\)，但自然控制量是 \(\|f\|_p\) 和 \(\|g\|_q\)，而不是 \(L^2\) 范数时。
 
-这些工具都依赖空间结构，不能脱离定义域直接使用。内积空间要有内积，$L^p$ 空间要有可积性，概率空间要有对应矩存在。公式本身短，但条件决定公式能不能用。
+什么时候用 Minkowski：目标不是估计乘积或内积，而是估计和的范数，例如：
 
-替代方案不是“更高级”，而是目标不同。若目标是证明均值经过凸函数后的关系，Jensen 更直接；若目标是把 $ab$ 拆成 $\frac{a^p}{p}+\frac{b^q}{q}$，Young 更合适；若只是正数代数估计，AM-GM 往往足够。硬套 Cauchy-Schwarz 会得到正确但粗糙的界，甚至因为条件不满足而得到无效结论。
+$$
+\|f+g\|_p\le \|f\|_p+\|g\|_p
+$$
+
+Cauchy-Schwarz 的适用边界可以概括为一句话：它是内积和二阶可积结构中的基础估计，不负责解决所有非线性、非二阶、非范数问题。
 
 ---
 
 ## 参考资料
 
-1. [Cauchy-Schwarz inequality - Encyclopedia of Mathematics](https://encyclopediaofmath.org/wiki/Cauchy_Schwarz_inequality)：定义与标准形式。
-2. [Hölder inequality - Encyclopedia of Mathematics](https://encyclopediaofmath.org/wiki/H%C3%B6lder_inequality)：推广形式与共轭指数条件。
-3. [Minkowski inequality - Encyclopedia of Mathematics](https://encyclopediaofmath.org/wiki/Minkowski_inequality)：$L^p$ 三角不等式。
-4. [MIT OCW: Introduction to Functional Analysis](https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2009/resources/mit18_102s09_lec08/)：内积空间与函数空间证明。
-5. [MIT OCW: Generalized Minkowski Inequality](https://ocw.mit.edu/courses/18-125-measure-and-integration-fall-2003/resources/18125_lec24/)：Minkowski 推广与测度论语境。
-6. [Parameter bounds under misspecified models](https://experts.azregents.edu/en/publications/parameter-bounds-under-misspecified-models/)：协方差不等式的应用背景。
+1. MIT OpenCourseWare, *Measure and Integration, Lecture 14: Hölder and Minkowski Inequalities*  
+   https://ocw.mit.edu/courses/18-125-measure-and-integration-fall-2003/resources/18125_lec14/
+
+2. MIT OpenCourseWare, *Measure and Integration, Lecture 24: Generalized Minkowski Inequality*  
+   https://ocw.mit.edu/courses/18-125-measure-and-integration-fall-2003/resources/18125_lec24/
+
+3. Eric W. Weisstein / MathWorld, *Cauchy-Schwarz Integral Inequality*  
+   https://archive.lib.msu.edu/crcmath/math/math/c/c138.htm
+
+4. Iosif Pinelis, *On the Hölder and Cauchy-Schwarz inequalities*, American Mathematical Monthly, 2015  
+   https://digitalcommons.mtu.edu/michigantech-p/14239/
+
+5. Harvey Mudd College notes, *Inner Product Space*  
+   https://pages.hmc.edu/ruye/e161/lectures/algebra/node1.html
