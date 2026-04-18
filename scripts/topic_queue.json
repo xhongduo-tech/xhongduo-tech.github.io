@@ -17825,7 +17825,7 @@
       "视频理解"
     ],
     "brief": "ActivityNet-QA 评测视频问答能力，Video-MME 提供全面的视频理解评测框架。分析短视频 vs 长视频理解的差异、时序推理评测设计、以及多帧信息融合的评测方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RLHF-V：视觉语言模型的细粒度幻觉纠正",
