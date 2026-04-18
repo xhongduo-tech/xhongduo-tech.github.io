@@ -1,5 +1,17 @@
 [
   {
+    "title": "分布式优化的通信效率",
+    "slug": "math-opt-distributed-optimization-communication",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "分布式优化是在通信、计算和收敛误差之间做系统折中"
+  },
+  {
     "title": "随机优化的方差缩减技术",
     "slug": "math-opt-stochastic-variance-reduction",
     "date": "2026-04-18",
