@@ -1,5 +1,17 @@
 [
   {
+    "title": "双塔模型架构演进",
+    "slug": "two-tower-model-evolution",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "双塔模型用独立用户塔和物品塔实现高效大规模召回"
+  },
+  {
     "title": "Wasserstein距离与最优传输",
     "slug": "math-wasserstein-distance-optimal-transport",
     "date": "2026-04-18",
