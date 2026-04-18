@@ -1,5 +1,17 @@
 [
   {
+    "title": "Adam优化器的收敛性分析",
+    "slug": "math-opt-adam-convergence-analysis",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "Adam用一阶矩定方向、二阶矩调步长，但经典形式不保证收敛。"
+  },
+  {
     "title": "约束优化的障碍法与内点法",
     "slug": "math-opt-barrier-interior-point-methods",
     "date": "2026-04-18",

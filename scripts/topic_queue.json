@@ -18256,7 +18256,7 @@
       "优化理论"
     ],
     "brief": "Adam的自适应学习率机制。一阶矩与二阶矩的指数移动平均。偏差校正的数学推导。非凸收敛性保证的条件。AMSGrad的改进。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "二阶优化方法的Hessian近似",
