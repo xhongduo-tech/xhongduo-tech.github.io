@@ -17674,7 +17674,7 @@
       "视觉语言模型"
     ],
     "brief": "mPLUG-Owl 引入 Visual Abstractor 模块，将视觉特征压缩为少量抽象 token 再输入 LLM。减少视觉 token 数量以降低计算成本。分析 Abstractor 的设计（查询数量、注意力机制）、压缩率与性能的权衡。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BakLLaVA：高效微调的视觉语言模型",
@@ -17813,7 +17813,7 @@
       "基准评测"
     ],
     "brief": "VQAv2 和 GQA 是视觉问答的基础基准，评测基本视觉理解能力。GQA 强调组合推理和多步问题。分析 VLM 在简单 vs 复杂问题的性能差距、一致性评测方法。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "视频理解基准：ActivityNet-QA 与 Video-MME",
@@ -17825,7 +17825,7 @@
       "视频理解"
     ],
     "brief": "ActivityNet-QA 评测视频问答能力，Video-MME 提供全面的视频理解评测框架。分析短视频 vs 长视频理解的差异、时序推理评测设计、以及多帧信息融合的评测方法。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "RLHF-V：视觉语言模型的细粒度幻觉纠正",
