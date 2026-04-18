@@ -1,5 +1,17 @@
 [
   {
+    "title": "自动微分的前向与反向模式",
+    "slug": "math-automatic-differentiation-forward-reverse",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "数值计算"
+    ],
+    "summary": "自动微分沿计算图传播导数，前向算Jv，反向算uJ。"
+  },
+  {
     "title": "Renyi熵与alpha散度",
     "slug": "math-info-renyi-entropy-alpha-divergence",
     "date": "2026-04-19",
