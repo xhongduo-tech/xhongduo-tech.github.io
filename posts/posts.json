@@ -1,5 +1,17 @@
 [
   {
+    "title": "Swish 召回模型",
+    "slug": "swish-retrieval-model",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "Swish 双塔用平滑激活、归一化和对比学习稳定召回向量训练"
+  },
+  {
     "title": "向量检索与 ANN 加速",
     "slug": "ann-vector-retrieval",
     "date": "2026-04-19",

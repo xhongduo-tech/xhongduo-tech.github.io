@@ -18751,7 +18751,7 @@
       "召回模型"
     ],
     "brief": "阿里提出的极简双塔召回，核心是用 Swish 激活函数替代 ReLU，配合 Layer Normalization 提升训练稳定性。通过对比学习增强正样本相似度、推远负样本。支持多种负采样策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MIND 多兴趣召回网络",
