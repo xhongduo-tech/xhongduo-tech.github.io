@@ -1,5 +1,17 @@
 [
   {
+    "title": "Stein引理与Stein无偏风险估计",
+    "slug": "math-stein-lemma-unbiased-risk-estimator",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "Stein引理用导数替代高斯交叉项，SURE据此无偏估计风险"
+  },
+  {
     "title": "大偏差理论初步",
     "slug": "math-large-deviation-theory-intro",
     "date": "2026-04-18",
