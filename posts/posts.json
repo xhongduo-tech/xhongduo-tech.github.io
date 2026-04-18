@@ -1,5 +1,17 @@
 [
   {
+    "title": "正则化的贝叶斯解释",
+    "slug": "math-regularization-bayesian-interpretation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "L2、L1与Elastic Net可由不同参数先验的MAP估计推出"
+  },
+  {
     "title": "条件数与优化问题的预处理",
     "slug": "math-opt-condition-number-preconditioning",
     "date": "2026-04-19",
