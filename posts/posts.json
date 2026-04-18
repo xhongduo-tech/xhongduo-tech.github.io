@@ -1,5 +1,17 @@
 [
   {
+    "title": "Azuma-Hoeffding不等式与鞅",
+    "slug": "math-concentration-azuma-hoeffding-martingale",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "Azuma-Hoeffding用有界鞅差控制顺序过程的最终偏差。"
+  },
+  {
     "title": "Hoeffding不等式与集中不等式",
     "slug": "math-concentration-hoeffding-inequality",
     "date": "2026-04-18",
