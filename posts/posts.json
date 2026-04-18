@@ -1,5 +1,17 @@
 [
   {
+    "title": "雅可比矩阵的链式法则",
+    "slug": "math-calc-jacobian-chain-rule",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "微积分"
+    ],
+    "summary": "雅可比链式法则把局部线性近似按顺序相乘，反向传播使用雅可比转置回传梯度"
+  },
+  {
     "title": "海森矩阵与二阶优化",
     "slug": "math-calc-hessian-matrix-second-order",
     "date": "2026-04-18",
