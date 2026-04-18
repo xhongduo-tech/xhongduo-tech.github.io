@@ -1,5 +1,17 @@
 [
   {
+    "title": "VQAv2 与 GQA：视觉问答的基础基准",
+    "slug": "vqav2-gqa-visual-qa-benchmark",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测"
+    ],
+    "summary": "VQAv2测基础视觉问答，GQA测组合推理与一致性"
+  },
+  {
     "title": "经验贝叶斯方法",
     "slug": "math-stat-empirical-bayes",
     "date": "2026-04-19",
@@ -492,18 +504,6 @@
       "幻觉"
     ],
     "summary": "RLHF-V 用细粒度偏好数据定向纠正 VLM 视觉幻觉"
-  },
-  {
-    "title": "VQAv2 与 GQA：视觉问答的基础基准",
-    "slug": "vqav2-gqa-visual-qa-benchmark",
-    "date": "2026-04-18",
-    "author": "both",
-    "tags": [
-      "前沿追踪",
-      "多模态",
-      "基准评测"
-    ],
-    "summary": "VQAv2测基础视觉问答，GQA更强调组合推理与一致性"
   },
   {
     "title": "HallusionBench：视觉语言模型的幻觉与错误推理评测",
