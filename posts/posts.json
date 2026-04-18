@@ -1,5 +1,17 @@
 [
   {
+    "title": "DSSM 深度语义匹配模型",
+    "slug": "dssm-deep-semantic-similarity",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "DSSM 用双塔向量相似度解决语义召回问题。"
+  },
+  {
     "title": "积分变换与特征函数",
     "slug": "math-integral-transform-characteristic-function",
     "date": "2026-04-18",
