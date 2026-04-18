@@ -1,5 +1,17 @@
 [
   {
+    "title": "动量方法与Nesterov加速",
+    "slug": "math-opt-nesterov-accelerated-gradient",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "NAG 与 HB 的关键差别是外推点求梯度，并在凸光滑问题中达到 O(1/k²)。"
+  },
+  {
     "title": "二阶优化方法的Hessian近似",
     "slug": "math-opt-second-order-hessian-approximation",
     "date": "2026-04-18",
