@@ -1,5 +1,17 @@
 [
   {
+    "title": "Bregman散度与优化",
+    "slug": "math-bregman-divergence-optimization",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "Bregman散度用凸函数定义非欧氏几何，支撑镜像下降与分布式优化。"
+  },
+  {
     "title": "Copula函数与依赖结构建模",
     "slug": "math-copula-dependence-structure",
     "date": "2026-04-18",

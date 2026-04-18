@@ -18652,7 +18652,7 @@
       "优化理论"
     ],
     "brief": "Bregman散度的定义：D_φ(x,y)=φ(x)-φ(y)-∇φ(y)·(x-y)。常见例子：平方欧氏、KL散度。Bregman投影与镜像下降算法。在分布式优化中的应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Poincare不等式与收敛速度",
