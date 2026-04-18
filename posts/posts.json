@@ -1,5 +1,17 @@
 [
   {
+    "title": "随机优化的方差缩减技术",
+    "slug": "math-opt-stochastic-variance-reduction",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "优化理论"
+    ],
+    "summary": "方差缩减用控制变量降低随机梯度噪声，连接 SGD 与全梯度法。"
+  },
+  {
     "title": "动量方法与Nesterov加速",
     "slug": "math-opt-nesterov-accelerated-gradient",
     "date": "2026-04-18",
