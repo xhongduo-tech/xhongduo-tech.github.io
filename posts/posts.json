@@ -1,5 +1,17 @@
 [
   {
+    "title": "矩阵运算的数值稳定性",
+    "slug": "math-numerical-matrix-computation-stability",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "数值计算"
+    ],
+    "summary": "矩阵稳定性核心是控制误差传播，优先用 LU、QR、SVD 而非显式求逆。"
+  },
+  {
     "title": "梯度检查的数值实现",
     "slug": "math-numerical-gradient-checking",
     "date": "2026-04-18",

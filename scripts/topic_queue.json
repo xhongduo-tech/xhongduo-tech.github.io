@@ -18432,7 +18432,7 @@
       "数值计算"
     ],
     "brief": "LU分解的部分主元选取。Householder变换的数值稳定性。奇异值计算的Golub-Kahan算法。避免显式求逆的数值技巧。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "正则化的贝叶斯解释",
