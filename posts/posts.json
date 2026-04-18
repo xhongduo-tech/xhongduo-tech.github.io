@@ -1,5 +1,18 @@
 [
   {
+    "title": "Video-LLaVA：图像与视频的统一预训练",
+    "slug": "video-llava-unified-video-image",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉语言模型",
+      "视频理解"
+    ],
+    "summary": "Video-LLaVA用共享视觉编码器和投影层统一图像与视频理解"
+  },
+  {
     "title": "Mini-Gemini：双编码器的多模态理解",
     "slug": "mini-gemini-dual-encoder",
     "date": "2026-04-18",
