@@ -18630,7 +18630,7 @@
       "统计学"
     ],
     "brief": "Stein引理：高斯变量的期望与函数导数的关系。SURE（Stein无偏风险估计）的推导。在去噪和收缩估计中的应用。James-Stein估计的理论基础。",
-    "status": "done"
+    "status": "failed"
   },
   {
     "title": "Copula函数与依赖结构建模",
@@ -18641,7 +18641,7 @@
       "概率论"
     ],
     "brief": "Sklar定理：Copula分解联合分布。常用Copula族：Gaussian, Clayton, Gumbel。尾部依赖的刻画。在金融风险建模中的应用。正文最好至少落到一个公式、复杂度边界、反例或数值验证上，避免只停留在概念解释。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Bregman散度与优化",

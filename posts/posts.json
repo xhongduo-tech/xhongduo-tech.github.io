@@ -1,5 +1,17 @@
 [
   {
+    "title": "Copula函数与依赖结构建模",
+    "slug": "math-copula-dependence-structure",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "概率论"
+    ],
+    "summary": "Copula 将边缘分布与依赖结构分离，用于刻画联合分布和尾部共振"
+  },
+  {
     "title": "Stein引理与Stein无偏风险估计",
     "slug": "math-stein-lemma-unbiased-risk-estimator",
     "date": "2026-04-18",
