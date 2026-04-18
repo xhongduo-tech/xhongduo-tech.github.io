@@ -1,5 +1,17 @@
 [
   {
+    "title": "MMMU：大学水平多学科多模态理解评测",
+    "slug": "mmmu-university-level-multimodal",
+    "date": "2026-04-18",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测"
+    ],
+    "summary": "MMMU评测图文联合理解与大学水平多学科推理能力"
+  },
+  {
     "title": "MME：多模态评估的综合基准",
     "slug": "mme-multimodal-evaluation-benchmark",
     "date": "2026-04-18",
