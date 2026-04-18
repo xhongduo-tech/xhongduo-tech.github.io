@@ -1,5 +1,17 @@
 [
   {
+    "title": "DIEN 深度兴趣演化网络",
+    "slug": "dien-interest-evolution",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "DIEN 用 GRU 提取兴趣序列，用 AUGRU 按候选物品演化兴趣。"
+  },
+  {
     "title": "DeepFM 特征交互模型",
     "slug": "deepfm-feature-interaction",
     "date": "2026-04-19",

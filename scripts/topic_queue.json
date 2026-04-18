@@ -18806,7 +18806,7 @@
       "排序模型"
     ],
     "brief": "DIN 的演进版本，显式建模用户兴趣的时序演化过程。Interest Extractor Layer 用 GRU 提取兴趣序列，Interest Evolving Layer 用 AUGRU 模拟兴趣与候选物品的交互演化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BST 行为序列 Transformer",
