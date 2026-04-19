@@ -1,5 +1,19 @@
 [
   {
+    "title": "成分句法分析",
+    "slug": "constituency-parsing",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "依存句法分析",
+      "句法分析",
+      "成分"
+    ],
+    "summary": "成分句法分析用动态规划搜索最优短语树结构。"
+  },
+  {
     "title": "语义解析",
     "slug": "semantic-parsing",
     "date": "2026-04-19",

@@ -19679,7 +19679,7 @@
       "成分"
     ],
     "brief": "成分句法分析将句子解析为嵌套的短语结构树（NP、VP、PP 等）。CKY 算法使用动态规划处理上下文无关文法。神经成分分析器用 BiLSTM 或 Transformer 编码，Chart 解码器找到最优树。句法树可用于信息抽取、情感分析等下游任务。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "语义解析",
