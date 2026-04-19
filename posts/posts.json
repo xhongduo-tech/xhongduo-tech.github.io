@@ -1,5 +1,17 @@
 [
   {
+    "title": "命名实体识别特征工程",
+    "slug": "ner-feature-engineering",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "NER 特征工程把词形、上下文、词典等信号编码给序列标注模型。"
+  },
+  {
     "title": "话题模型 LDA",
     "slug": "topic-model-lda",
     "date": "2026-04-19",
