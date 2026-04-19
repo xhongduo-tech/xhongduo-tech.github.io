@@ -18927,7 +18927,7 @@
       "序列推荐"
     ],
     "brief": "借鉴 BERT 的双向 Transformer 建模用户序列，通过 Cloze 任务随机 Mask 部分行为并预测。相比 SASRec 的单向建模，双向 Attention 能捕捉更丰富的上下文信息。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "S3Rec 自监督序列推荐",

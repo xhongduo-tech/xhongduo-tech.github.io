@@ -1,5 +1,17 @@
 [
   {
+    "title": "BERT4Rec 双向序列推荐",
+    "slug": "bert4rec-bidirectional-sequence",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "序列推荐"
+    ],
+    "summary": "BERT4Rec用双向Transformer和随机Mask学习用户序列依赖。"
+  },
+  {
     "title": "SASRec 自注意力序列推荐",
     "slug": "sasrec-self-attentive-sequence",
     "date": "2026-04-19",
