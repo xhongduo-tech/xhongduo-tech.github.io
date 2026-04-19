@@ -1,5 +1,17 @@
 [
   {
+    "title": "BST 行为序列 Transformer",
+    "slug": "bst-behavior-sequence-transformer",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "BST 用 Self-Attention 建模用户行为序列并预测排序分数"
+  },
+  {
     "title": "Wide & Deep 学习框架",
     "slug": "wide-deep-learning",
     "date": "2026-04-19",

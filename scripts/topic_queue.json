@@ -18817,7 +18817,7 @@
       "排序模型"
     ],
     "brief": "阿里将 Transformer 引入推荐排序，用 Self-Attention 建模用户历史行为的序列关系。相比 GRU/LSTM，Transformer 的并行计算和长距离依赖建模能力更强。位置编码捕捉行为顺序。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DCN 深度交叉网络",
