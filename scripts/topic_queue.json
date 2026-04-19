@@ -19666,7 +19666,7 @@
       "词向量与预训练"
     ],
     "brief": "子词分词在词与字符间取得平衡，解决开放词表问题。BPE 迭代合并最高频的字符对，生成子词词表。WordPiece 类似 BPE 但基于语言模型得分选择合并。Unigram 基于概率模型反向选择子词。SentencePiece 支持端到端训练无需预分词。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "成分句法分析",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "子词分词算法",
+    "slug": "subword-tokenization",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "子词分词用有限词表稳定覆盖开放文本，在词级与字符级之间取平衡。"
+  },
+  {
     "title": "中文分词算法",
     "slug": "chinese-word-segmentation",
     "date": "2026-04-19",
