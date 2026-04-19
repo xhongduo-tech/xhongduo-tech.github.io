@@ -1,5 +1,17 @@
 [
   {
+    "title": "注意力机制原理",
+    "slug": "attention-mechanism",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "机器翻译基础"
+    ],
+    "summary": "注意力机制通过打分、归一化和加权求和动态读取序列信息。"
+  },
+  {
     "title": "多跳问答推理",
     "slug": "multi-hop-question-answering",
     "date": "2026-04-19",
