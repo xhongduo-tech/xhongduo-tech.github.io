@@ -1,5 +1,17 @@
 [
   {
+    "title": "事件抽取",
+    "slug": "event-extraction",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "事件抽取将文本结构化为触发词、事件类型与论元角色。"
+  },
+  {
     "title": "文本蕴含识别",
     "slug": "textual-entailment-recognition",
     "date": "2026-04-19",
