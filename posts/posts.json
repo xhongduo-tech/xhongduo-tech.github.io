@@ -1,5 +1,17 @@
 [
   {
+    "title": "生成式文本摘要",
+    "slug": "abstractive-text-summarization",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本摘要"
+    ],
+    "summary": "生成式摘要通过条件生成、复制机制和覆盖机制实现压缩改写。"
+  },
+  {
     "title": "PEGASUS 预训练摘要模型",
     "slug": "pegasus-pretrained-summarization",
     "date": "2026-04-19",

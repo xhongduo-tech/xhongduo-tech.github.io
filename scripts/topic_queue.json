@@ -19576,7 +19576,7 @@
       "文本摘要"
     ],
     "brief": "生成式摘要用 Seq2Seq 模型生成新的摘要文本，可以改写、概括和重组信息。指针网络允许复制原文中的罕见词或专有名词。覆盖度机制追踪已关注内容，避免重复。BERTSUM、BART、PEGASUS 是该领域的代表模型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PEGASUS 预训练摘要模型",
