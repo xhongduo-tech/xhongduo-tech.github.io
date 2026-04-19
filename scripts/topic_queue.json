@@ -18872,7 +18872,7 @@
       "多任务学习"
     ],
     "brief": "Google 提出的多任务学习框架，多个 Expert 网络共享底层表征，Gate 网络为每个任务学习 Expert 的加权组合。通过参数共享提升数据效率，Gate 机制允许任务差异化使用 Expert。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PLE 递进式多任务学习",
