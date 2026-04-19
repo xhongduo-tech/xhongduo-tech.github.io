@@ -1,5 +1,17 @@
 [
   {
+    "title": "主动学习标注优化",
+    "slug": "active-learning-annotation-optimization",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "主动学习通过不确定性与多样性选样，用更少标注提升NLP模型效率"
+  },
+  {
     "title": "停用词处理策略",
     "slug": "stopword-handling-strategies",
     "date": "2026-04-19",
