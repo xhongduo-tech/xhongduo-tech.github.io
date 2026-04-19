@@ -19587,7 +19587,7 @@
       "文本摘要"
     ],
     "brief": "PEGASUS 引入间隔句子生成（GSG）预训练任务，遮蔽文档中的整句，用剩余句子生成被遮蔽句。自回归编码器使用 Transformer 架构。在低资源摘要任务上表现尤为突出。该预训练目标与摘要任务高度对齐。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer 机器翻译",

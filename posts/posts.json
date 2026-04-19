@@ -1,5 +1,17 @@
 [
   {
+    "title": "PEGASUS 预训练摘要模型",
+    "slug": "pegasus-pretrained-summarization",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本摘要"
+    ],
+    "summary": "PEGASUS 用 GSG 预训练，让摘要模型从剩余文本生成关键句。"
+  },
+  {
     "title": "抽取式文本摘要",
     "slug": "extractive-text-summarization",
     "date": "2026-04-19",
