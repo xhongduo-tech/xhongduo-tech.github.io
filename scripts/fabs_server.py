@@ -178,6 +178,7 @@ WRITE_PROMPT = """\
 - 术语首次出现时用一句白话解释
 - 正文（不含参考资料）建议 2200-4200 中文字
 - 文末最后一行单独输出：{{"summary":"不超过60字的核心摘要"}}
+- ## 参考资料 章节至少包含 3 条格式为 `1. [标题](https://...)` 的带 URL 条目
 
 ---
 
@@ -196,9 +197,10 @@ REFINE_PROMPT = """\
 在保持结构、标题、章节顺序和核心结论不变的前提下，改写并补全文章。
 
 重点修复：
-1) 章节缺失、代码不可运行、表格/公式/参考资料不足
+1) 章节缺失、代码不可运行、表格/公式不足
 2) 篇幅与深度不够
 3) 对新手不友好（术语堆砌、例子不足）
+4) ## 参考资料 章节必须包含至少 3 条格式为 `1. [标题](https://...)` 的带 URL 条目
 
 Title: {title}
 
@@ -288,6 +290,7 @@ class FABSManager:
         self._pipeline_task: Optional[asyncio.Task] = None
         self._worker_tasks: set[asyncio.Task] = set()
         self._ws_clients: set[WebSocket] = set()
+        self._git_lock = asyncio.Lock()  # serialise concurrent git push
         self._sync_runtime_state()
         self._load_queue()
 
@@ -464,45 +467,46 @@ class FABSManager:
         return proc.returncode, out, err
 
     async def _git_commit_push_single(self, slug: str) -> None:
-        await self._broadcast_log("info", f"[git] committing {slug}")
-        add_rc, _, add_err = await self._run_git_cmd("add", "posts/posts.json", "scripts/topic_queue.json", f"posts/{slug}.md")
-        if add_rc != 0:
-            raise RuntimeError(f"git add failed: {add_err}")
+        async with self._git_lock:
+            await self._broadcast_log("info", f"[git] committing {slug}")
+            add_rc, _, add_err = await self._run_git_cmd("add", "posts/posts.json", "scripts/topic_queue.json", f"posts/{slug}.md")
+            if add_rc != 0:
+                raise RuntimeError(f"git add failed: {add_err}")
 
-        diff_rc, _, diff_err = await self._run_git_cmd("diff", "--cached", "--quiet")
-        if diff_rc == 0:
-            await self._broadcast_log("warn", f"[git] no staged changes for {slug}, skip commit/push")
-            return
-        if diff_rc not in (0, 1):
-            raise RuntimeError(f"git diff --cached failed: {diff_err}")
+            diff_rc, _, diff_err = await self._run_git_cmd("diff", "--cached", "--quiet")
+            if diff_rc == 0:
+                await self._broadcast_log("warn", f"[git] no staged changes for {slug}, skip commit/push")
+                return
+            if diff_rc not in (0, 1):
+                raise RuntimeError(f"git diff --cached failed: {diff_err}")
 
-        msg = (
-            f"post: {slug}\n\n"
-            "Generated with Codex staged pipeline.\n\n"
-            "Co-Authored-By: Codex <noreply@openai.com>\n"
-        )
-        msg_file = tempfile.NamedTemporaryFile(prefix="fabs_git_msg_", suffix=".txt", delete=False)
-        msg_file.write(msg.encode("utf-8"))
-        msg_file.close()
-        msg_path = Path(msg_file.name)
+            msg = (
+                f"post: {slug}\n\n"
+                "Generated with Codex staged pipeline.\n\n"
+                "Co-Authored-By: Codex <noreply@openai.com>\n"
+            )
+            msg_file = tempfile.NamedTemporaryFile(prefix="fabs_git_msg_", suffix=".txt", delete=False)
+            msg_file.write(msg.encode("utf-8"))
+            msg_file.close()
+            msg_path = Path(msg_file.name)
 
-        try:
-            commit_rc, _, commit_err = await self._run_git_cmd("commit", "-F", str(msg_path))
-            if commit_rc != 0:
-                raise RuntimeError(f"git commit failed: {commit_err}")
-
-            remote = self._config.get("git_push_remote", "origin")
-            ref = self._config.get("git_push_ref", "HEAD")
-            push_rc, _, push_err = await self._run_git_cmd("push", remote, ref)
-            if push_rc != 0:
-                raise RuntimeError(f"git push {remote} {ref} failed: {push_err}")
-        finally:
             try:
-                msg_path.unlink(missing_ok=True)
-            except Exception:
-                pass
+                commit_rc, _, commit_err = await self._run_git_cmd("commit", "-F", str(msg_path))
+                if commit_rc != 0:
+                    raise RuntimeError(f"git commit failed: {commit_err}")
 
-        await self._broadcast_log("info", f"[git] pushed {slug}")
+                remote = self._config.get("git_push_remote", "origin")
+                ref = self._config.get("git_push_ref", "HEAD")
+                push_rc, _, push_err = await self._run_git_cmd("push", remote, ref)
+                if push_rc != 0:
+                    raise RuntimeError(f"git push {remote} {ref} failed: {push_err}")
+            finally:
+                try:
+                    msg_path.unlink(missing_ok=True)
+                except Exception:
+                    pass
+
+            await self._broadcast_log("info", f"[git] pushed {slug}")
 
     # ── WebSocket broadcast ────────────────────────────────────
     async def _broadcast(self, msg: dict) -> None:

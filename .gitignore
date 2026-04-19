@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 posts/_failed/
 .DS_Store
+.claude/
