@@ -1,5 +1,17 @@
 [
   {
+    "title": "文本蕴含识别",
+    "slug": "textual-entailment-recognition",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "文本蕴含识别判断前提是否支持、反驳或无法确定假设。"
+  },
+  {
     "title": "成分句法分析",
     "slug": "constituency-parsing",
     "date": "2026-04-19",
