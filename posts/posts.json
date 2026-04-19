@@ -1,5 +1,17 @@
 [
   {
+    "title": "泛函导数与变分法",
+    "slug": "math-functional-derivative-calculus-variations",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "泛函分析"
+    ],
+    "summary": "泛函导数是函数空间中的梯度，变分法用一阶扰动推出连续优化条件。"
+  },
+  {
     "title": "视频理解基准：ActivityNet-QA 与 Video-MME",
     "slug": "video-benchmarks-activitynet-videomme",
     "date": "2026-04-19",
