@@ -1,5 +1,17 @@
 [
   {
+    "title": "正定核与再生核希尔伯特空间",
+    "slug": "math-kernel-positive-definite-rkhs",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "泛函分析"
+    ],
+    "summary": "正定核通过RKHS再生性质把非线性问题化为核矩阵计算"
+  },
+  {
     "title": "VQAv2 与 GQA：视觉问答的基础基准",
     "slug": "vqav2-gqa-visual-qa-benchmark",
     "date": "2026-04-19",
