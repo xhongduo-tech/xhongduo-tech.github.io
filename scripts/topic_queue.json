@@ -18949,7 +18949,7 @@
       "序列推荐"
     ],
     "brief": "将 GRU 应用于基于会话的推荐，处理用户匿名或历史缺失的场景。通过 Session-parallel Mini-batch 提升训练效率，Ranking Loss 增强排序能力。是序列推荐的经典基线。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "NARM 神经注意力会话模型",

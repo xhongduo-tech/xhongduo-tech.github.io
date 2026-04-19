@@ -1,5 +1,17 @@
 [
   {
+    "title": "GRU4Rec 会话推荐",
+    "slug": "gru4rec-session-recommendation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "序列推荐"
+    ],
+    "summary": "GRU4Rec 用会话内序列预测下一项，是匿名短会话推荐经典基线"
+  },
+  {
     "title": "多任务梯度冲突处理",
     "slug": "multi-task-gradient-conflict",
     "date": "2026-04-19",
