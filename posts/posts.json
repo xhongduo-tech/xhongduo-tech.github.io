@@ -1,5 +1,17 @@
 [
   {
+    "title": "语言模型困惑度",
+    "slug": "language-model-perplexity",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本生成"
+    ],
+    "summary": "PPL 是平均负对数似然的指数，衡量下一个 token 预测质量。"
+  },
+  {
     "title": "文本聚类算法",
     "slug": "text-clustering-algorithms",
     "date": "2026-04-19",
