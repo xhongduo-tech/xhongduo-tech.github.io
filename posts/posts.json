@@ -1,5 +1,17 @@
 [
   {
+    "title": "DeBERTa 解耦注意力机制",
+    "slug": "deberta-disentangled-attention",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "DeBERTa 将内容与位置解耦，在注意力中精细建模词序关系"
+  },
+  {
     "title": "RoBERTa 优化策略",
     "slug": "roberta-optimization-strategies",
     "date": "2026-04-19",
