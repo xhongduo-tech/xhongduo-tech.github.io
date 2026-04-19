@@ -1,5 +1,17 @@
 [
   {
+    "title": "xDeepFM 压缩交互网络",
+    "slug": "xdeepfm-compressed-interaction",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "xDeepFM 用 CIN 显式学习有限阶高阶特征交互。"
+  },
+  {
     "title": "DCN 深度交叉网络",
     "slug": "dcn-deep-cross-network",
     "date": "2026-04-19",

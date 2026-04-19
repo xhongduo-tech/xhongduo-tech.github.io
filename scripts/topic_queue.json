@@ -18839,7 +18839,7 @@
       "排序模型"
     ],
     "brief": "DCN 的改进版本，提出 CIN（Compressed Interaction Network）学习向量级的高阶特征交互。每层输出通过外积 + 卷积生成，显式控制在有限阶数内。与 Deep、Linear 部分联合训练。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AutoInt 自动特征交互",
