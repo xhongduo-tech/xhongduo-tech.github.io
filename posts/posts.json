@@ -1,5 +1,17 @@
 [
   {
+    "title": "VQAv2 与 GQA：视觉问答的基础基准",
+    "slug": "vqav2-gqa-visual-qa-benchmark",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测"
+    ],
+    "summary": "VQAv2测基础视觉问答，GQA测组合推理与一致性。"
+  },
+  {
     "title": "谱图理论的特征值分析",
     "slug": "math-graph-spectral-theory-eigenvalues",
     "date": "2026-04-19",
@@ -263,18 +275,6 @@
       "视频理解"
     ],
     "summary": "ActivityNet-QA测长视频证据定位，Video-MME拆解时长与多模态增益。"
-  },
-  {
-    "title": "VQAv2 与 GQA：视觉问答的基础基准",
-    "slug": "vqav2-gqa-visual-qa-benchmark",
-    "date": "2026-04-19",
-    "author": "both",
-    "tags": [
-      "前沿追踪",
-      "多模态",
-      "基准评测"
-    ],
-    "summary": "VQAv2测基础视觉问答，GQA测组合推理与一致性"
   },
   {
     "title": "经验贝叶斯方法",

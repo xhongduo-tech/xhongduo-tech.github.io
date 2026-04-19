@@ -1,285 +1,241 @@
 ## 核心结论
 
-VQAv2 和 GQA 都是视觉问答基准。视觉问答，指模型输入一张图像和一个自然语言问题，然后输出一个简短答案。二者的共同任务形式是：
+VQAv2 和 GQA 都是视觉问答基准。视觉问答，指模型输入一张图像和一个自然语言问题，输出一个简短答案。两者都测“模型是否看懂图”，但侧重点不同。
 
-$$
-f(x, q) \rightarrow \hat{a}
-$$
+VQAv2 解决的是“视觉问答会不会被语言偏置骗分”的问题。语言偏置，指模型不看图也能靠问题模式猜答案，例如看到 `What color is the sky?` 就猜 `blue`。VQAv2 通过构造相似问题和互补图像，降低这种猜题收益，因此适合衡量基础视觉理解是否稳定。
 
-其中 $x$ 是图像，$q$ 是问题，$\hat{a}$ 是模型预测答案。
+GQA 进一步把问题推进到“模型是否真的能做组合推理和多步推断”。组合推理，指把多个条件合在一起判断；多步推断，指答案不能一步得到，必须先定位对象、判断属性、分析关系，再输出结果。GQA 更适合检验图像理解是否可解释、可追踪、可约束。
 
-VQAv2 的核心价值是“削弱语言偏置后的标准视觉问答基准”。语言偏置，指模型不认真看图，只根据问题模板和训练集分布猜答案。例如看到问题 “What color is the banana?” 就倾向回答 “yellow”。VQAv2 通过“相似图片、相同问题、不同答案”的配对设计，迫使模型更多依赖图像内容。
+玩具例子：同样问“这张图里有没有车”，VQAv2 主要看模型能不能给出符合标注分布的答案。如果问题变成“左边那个红杯子旁边有没有叉子”，GQA 会要求模型先定位“左边”“红杯子”，再判断“旁边”关系，最后确认“叉子”是否存在。
 
-GQA 的核心价值是“组合推理与一致性评测基准”。组合推理，指模型不能只识别单个物体，而要把颜色、位置、关系、数量等条件连起来判断。例如“左边那个红色盒子里有几个苹果”需要先定位左边盒子，再确认红色属性，再识别盒内物体，最后计数。
-
-| 基准 | 目标 | 题型特点 | 主要指标 | 适用场景 |
+| 基准 | 任务目标 | 问题类型 | 评测重点 | 常见失真 |
 |---|---|---|---|---|
-| VQAv2 | 衡量模型是否真的看图，而不是只靠语言猜测 | 常规问答、属性识别、yes/no、简单计数 | VQA accuracy | 通用视觉问答、基础识别、去语言偏置评测 |
-| GQA | 衡量组合推理、多步判断和答案自洽性 | 属性、关系、空间、计数、多跳问题 | accuracy、consistency、validity、plausibility | 复杂视觉推理、关系理解、一致性诊断 |
-
-玩具例子可以这样理解：问“这个球是什么颜色”，VQAv2 更关注模型是否能从图中识别出 “red”。问“左边红色盒子里有几个苹果”，GQA 更关注模型是否完成了“找左边物体 -> 判断颜色 -> 找内部物体 -> 计数”这条推理链。
-
-对初级工程师来说，结论很直接：VQAv2 更适合看模型的基础视觉问答能力，GQA 更适合看模型在复杂问题上的推理能力和自洽性。一个 VLM 在 VQAv2 上高分，不代表它已经能稳定解决真实业务里的多条件视觉判断。
+| VQAv2 | 基础视觉问答 | 颜色、数量、存在性、物体类别 | 减少语言偏置后的答案准确率 | 把软评分误当 exact match |
+| GQA | 诊断型视觉推理 | 关系、属性、位置、多条件组合 | 准确率、一致性、有效性、可追踪性 | 只看 overall accuracy，忽略推理链 |
+| 二者结合 | 上线前基础验收 | 简单问答 + 关系链问题 | 简单题稳定性与复杂题可靠性差距 | 简单题高分被误读为复杂理解能力强 |
 
 ---
 
 ## 问题定义与边界
 
-VQAv2 和 GQA 都可以写成同一个任务：
+形式化地说，视觉问答任务输入图像 $I$ 和问题 $q$，模型输出预测答案 $\hat a$，评测系统把 $\hat a$ 与标注答案集合 $A$ 对齐后打分。这里的标注答案集合，指同一道题由多个人类标注者给出的答案列表。
 
-$$
-f(x, q) = \hat{a}
-$$
+| 术语 | 白话解释 |
+|---|---|
+| 图像 $I$ | 被提问的图片 |
+| 问题 $q$ | 针对图片提出的自然语言问题 |
+| 预测答案 $\hat a$ | 模型给出的答案 |
+| 标注答案集合 $A$ | 多个人类标注者给出的参考答案 |
+| 根问题 | GQA 中被重点评估的主问题 |
+| entailed question | 由根问题语义推出的相关问题，用来检查答案是否一致 |
 
-输入是图像 $x$ 和问题 $q$，输出是预测答案 $\hat{a}$。评测时再把 $\hat{a}$ 和标准答案比较。区别不在任务接口，而在数据构造、问题复杂度和指标设计。
+VQAv2 的边界是“基础视觉问答基准”。它不要求复杂推理，但要求模型答案尽量不被语言先验主导。例如 `What color is the bus?` 可以理解为“直接看公交车颜色就能答”。如果模型真正看图，应该能区分黄色公交车、红色公交车、白色公交车，而不是只记住训练集中常见颜色。
 
-VQAv2 主要覆盖常规问答与去偏置识别。它关心模型是否能在相似图片之间给出不同答案。例如同样问“桌子上是什么水果”，一张图是苹果，另一张图是香蕉，模型不能只靠问题模板猜“banana”。
+GQA 的边界是“诊断型推理基准”。它不只是测单题对错，还测根问题与推论问题之间的一致性。例如 `What is on the table next to the plate?` 可以理解为“先找桌子，再找盘子，再看盘子旁边是什么”。模型如果主问题答“fork”，但在相关问题里又说“盘子旁边没有叉子”，就暴露出内部理解不一致。
 
-GQA 主要覆盖场景图驱动的组合推理。场景图，指把图像中的物体、属性和关系表示成结构化图，例如 `apple --on--> plate`、`box --left of--> cup`。GQA 的问题通常由功能程序生成。功能程序，指一组可执行的推理步骤，例如先筛选红色物体，再找它左边的对象，再判断类别。
-
-同一张厨房图片里，问“这是苹果吗”更接近 VQAv2 风格，因为它主要测试基础识别。问“苹果在盘子左边还是右边、数量是否一致、是否被遮挡”更接近 GQA 风格，因为它测试空间关系、计数和条件组合。
-
-| 问题类型 | 含义 | VQAv2 覆盖程度 | GQA 覆盖程度 |
-|---|---|---:|---:|
-| yes/no | 判断命题是否成立，例如“这是猫吗” | 高 | 高 |
-| 属性 | 识别颜色、材质、形状等属性 | 高 | 高 |
-| 关系 | 判断物体之间的位置或语义关系 | 中 | 高 |
-| 计数 | 输出物体数量 | 中 | 高 |
-| 多跳组合推理 | 多个条件连续推导，例如“左边红盒里的水果数量” | 低到中 | 高 |
-
-边界也要明确。VQAv2 和 GQA 都不等价于开放世界对话。开放世界对话，指模型可以围绕图像进行多轮、长上下文、带常识扩展的交流。它们也不等价于 OCR 密集型文档理解。OCR，指识别图像中的文字；如果任务是读票据、合同、海报或菜单，VQAv2/GQA 只能提供部分参考，不能替代专门的文档理解评测。
-
-因此，使用这两个基准时要先问清楚业务目标：你是在测“模型能不能看懂常见图像问题”，还是在测“模型能不能执行多步视觉推理”。前者更偏 VQAv2，后者更偏 GQA。
+什么时候用 VQAv2：当目标是确认模型是否具备基础看图问答能力，例如颜色、数量、物体存在性、常见属性。什么时候用 GQA：当目标是确认模型能否处理关系链、组合条件和多步定位。什么时候两者都不够：当问题依赖读图中文字、外部常识、开放域知识、长链跨图推理或视频时，VQAv2 和 GQA 都只能覆盖一部分能力。
 
 ---
 
 ## 核心机制与推导
 
-VQAv2 的标准准确率不是简单的 0/1 分类。它使用多人标注容错。多人标注容错，指同一道题允许多个合理人类答案存在，模型只要和足够多的人类答案一致，就可以得到满分。
-
-常见写法是：
+VQAv2 使用软准确率，不是严格 exact match。软准确率，指答案不是只有 0 分和 1 分，而是按有多少标注者同意来给部分分。常用简化公式是：
 
 $$
-Acc_{vqa} = avg_i \min(\frac{n_i}{3}, 1)
+Acc_{VQA}(q) = \min(m/3, 1)
 $$
 
-其中 $n_i$ 是第 $i$ 道题中，10 个人工答案里与模型预测答案完全匹配的数量。`avg_i` 表示对所有题目取平均。
-
-玩具例子：某题 10 个人工答案里有 7 个是 `red`，模型预测 `red`，则：
+其中 $m$ 是 10 个标注答案中与模型预测 $\hat a$ 一致的个数。例子：10 个标注里 8 个写 `yes`，模型答 `yes`，则：
 
 $$
-Acc_{vqa} = \min(\frac{7}{3}, 1) = 1
+Acc_{VQA} = \min(8/3, 1) = 1
 $$
 
-如果只有 1 个人回答 `red`，模型预测 `red`，则得分是：
+如果只有 1 个标注者写 `yes`，模型答 `yes`，分数就是 $\min(1/3, 1)=0.333$。这比普通 accuracy 更适合 VQA，因为自然语言答案存在同义表达、标注差异和轻微歧义。
+
+GQA 的核心不是单题准确率，而是一组诊断指标。consistency 表示一致性；validity 表示答案是否属于合理答案空间；plausibility 表示答案对该问题类型是否合理；grounding 表示模型是否把问题和图像区域对应起来；distribution 表示预测分布是否异常集中。
+
+GQA 一致性可以写成：
 
 $$
-\min(\frac{1}{3}, 1) = 0.333
+Cons = \frac{1}{|Q|}\sum_{q \in Q}\frac{1}{|E_q|}\sum_{q' \in E_q}\mathbf{1}[\hat a(q') = a(q')]
 $$
 
-这说明 VQAv2 看的是“模型答案和人类共识有多接近”，不是只看唯一标准答案。
+其中 $Q$ 是答对的根问题集合，$E_q$ 是根问题 $q$ 对应的 entailed question 集合。例子：根问题答对，但 2 个 entailed 问题只对 1 个，则该根问题一致性是 $1/2=50\%$。
 
-GQA 除了准确率，还强调一致性。一致性，指模型答对一个源问题后，对由这个答案推出的相关问题也应该答对。例如源问题是“红色盒子在桌子上吗”，模型回答“是”。那么蕴含问题可能包括“桌子上有盒子吗”“盒子是什么颜色”“红色物体在哪里”。蕴含问题，指可以从原问题和答案中逻辑推出的问题。
-
-GQA 的一致性可以写成：
-
-$$
-Cons = \frac{1}{|Q^+|} \sum_{q \in Q^+} \frac{1}{|E_q|} \sum_{q' \in E_q} \mathbf{1}[f(x,q') = a(q')]
-$$
-
-其中 $Q^+$ 是模型答对的源问题集合，$E_q$ 是由源问题 $q$ 可推出的蕴含问题集合，$\mathbf{1}[\cdot]$ 是指示函数：条件成立为 1，不成立为 0。
-
-数值例子：某个源问题对应 4 个蕴含问题，模型答对 3 个，则该源问题的一致性是：
-
-$$
-\frac{3}{4} = 75\%
-$$
-
-新手版解释是：VQAv2 看你和人类答案有多接近，GQA 看你答对一个问题后，相关问题是否也自洽。
-
-从源问题到蕴含问题的推导可以写成：
+机制流程图：
 
 ```text
-源问题：左边的红色盒子里有几个苹果？
-答案：2
-
-可推出的问题：
-1. 图中有盒子吗？ -> yes
-2. 盒子是什么颜色？ -> red
-3. 苹果在哪里？ -> in the box
-4. 盒子里有几个苹果？ -> 2
+图像 + 问题
+    |
+    v
+模型预测
+    |
+    v
+答案归一化 / 对齐
+    |
+    v
+评分
+    |
+    +--> VQAv2: 与 10 个标注答案做软匹配
+    |
+    +--> GQA: 按根问题和 entailed questions 统计一致性
 ```
 
-| 指标 | 含义 | 主要回答的问题 |
+| 项目 | VQAv2 软评分 | GQA 一致性评分 |
 |---|---|---|
-| 准确率 accuracy | 预测答案是否等于标准答案 | 单题有没有答对 |
-| 一致性 consistency | 答对源问题后，相关蕴含问题是否也答对 | 推理结果是否自洽 |
-| 有效性 validity | 答案是否属于该问题类型允许的答案空间 | 答案格式是否合理 |
-| 合理性 plausibility | 答案是否符合常识或数据分布 | 答案是否像一个可能答案 |
+| 基本单位 | 单个问题 | 根问题及其推论问题组 |
+| 关键输入 | 10 个人类答案 | 根问题、推论问题、标准答案 |
+| 得分逻辑 | 至少 3 人同意通常即可满分 | 根问题答对后检查推论问题是否自洽 |
+| 主要目的 | 容忍自然语言标注差异 | 暴露多步推理矛盾 |
 
-这几个指标不能互相替代。模型可能准确率不低，但一致性差；也可能输出格式有效，但视觉判断错误。工程评测必须把它们拆开看。
+最小推导是：VQAv2 不能用普通 accuracy 直接算，因为同一道题可能有多个合理答案。比如图片里有一只小狗，有人答 `dog`，有人答 `puppy`，严格字符串匹配会把合理差异误判为错。GQA 需要按根问题分组统计，因为它关心“同一个视觉事实链条是否一致”。如果把所有 entailed questions 打散成普通题目，就看不出模型是在某个推理链上稳定失败，还是随机错了几个孤立问题。
 
 ---
 
 ## 代码实现
 
-实现评测时，应把数据加载、答案归一化、指标计算、分类型统计拆开。答案归一化，指把模型输出和标准答案转换成可比较形式，例如去空格、转小写、统一数字格式。否则 `Red`、` red ` 和 `red` 会被误判成不同答案。
+实现 VQAv2 评测的关键是答案归一化和与 10 个标注的软匹配，不能直接做字符串 exact match。答案归一化，指把大小写、空格、常见数字写法等处理成统一形式。真实评测应尽量使用官方脚本；下面代码只展示最小机制。
 
-下面是一个可运行的最小 Python 例子，展示 VQAv2 分数、GQA 一致性和按题型汇总的基本结构：
+伪代码 1：VQAv2 评分流程。
 
-```python
-from collections import defaultdict
-
-def normalize(ans):
-    return str(ans).strip().lower()
-
-def vqav2_score(pred, human_answers):
-    n = sum(normalize(a) == normalize(pred) for a in human_answers)
-    return min(n / 3.0, 1.0)
-
-def gqa_consistency(model, image, entailment_qs, gold_answers):
-    correct = 0
-    for q, gold in zip(entailment_qs, gold_answers):
-        pred = model(image, q)
-        correct += int(normalize(pred) == normalize(gold))
-    return correct / max(len(entailment_qs), 1)
-
-def summarize_by_type(records):
-    bucket = defaultdict(list)
-    for r in records:
-        bucket[r["type"]].append(r["score"])
-    return {k: sum(v) / len(v) for k, v in bucket.items()}
-
-def toy_model(image, question):
-    answers = {
-        "what color is the box?": "red",
-        "is there a box?": "yes",
-        "what is in the box?": "apple",
-        "how many apples are in the box?": "2",
-    }
-    return answers.get(normalize(question), "unknown")
-
-# VQAv2 toy example
-human_answers = ["red", "red", "red", "red", "red", "red", "red", "orange", "pink", "red"]
-assert vqav2_score("red", human_answers) == 1.0
-assert round(vqav2_score("orange", human_answers), 3) == 0.333
-
-# GQA toy example
-entailment_qs = [
-    "Is there a box?",
-    "What color is the box?",
-    "What is in the box?",
-    "How many apples are in the box?",
-]
-gold_answers = ["yes", "red", "apple", "2"]
-assert gqa_consistency(toy_model, "toy_image.jpg", entailment_qs, gold_answers) == 1.0
-
-# Type-level summary
-records = [
-    {"type": "attribute", "score": vqav2_score("red", human_answers)},
-    {"type": "counting", "score": 0.5},
-    {"type": "relation", "score": 0.25},
-]
-summary = summarize_by_type(records)
-assert summary["attribute"] == 1.0
-assert summary["relation"] == 0.25
+```text
+输入: 模型答案 pred，10 个标注答案 answers
+pred_norm = normalize_answer(pred)
+m = 0
+for a in answers:
+    if normalize_answer(a) == pred_norm:
+        m += 1
+return min(m / 3, 1)
 ```
 
-实际工程中，VQAv2 和 GQA 的评测代码最好分开写，但共享同一套输入接口。这样同一个 VLM 可以被放到两类评测中比较：基础识别问题用 VQAv2 风格指标，复杂推理问题用 GQA 风格指标。
+伪代码 2：GQA consistency 评分流程。
 
-| 流水线阶段 | 输入 | 处理 | 输出 | 日志记录项 |
-|---|---|---|---|---|
-| 数据加载 | image、question、gold answer、type | 校验字段和文件路径 | 标准样本对象 | 样本 ID、题型、数据版本 |
-| 模型推理 | image、question | 调用 VLM 生成答案 | raw prediction | prompt、模型版本、耗时 |
-| 答案归一化 | raw prediction、gold answer | 小写、去空格、规则替换 | normalized answer | 归一化前后文本 |
-| 指标计算 | prediction、gold answer | 计算 VQA score 或 consistency | 分数 | 指标名、题型、是否命中 |
-| 汇总分析 | 多条样本分数 | 按题型、难度、场景聚合 | 报告 | 总分、分组分数、失败样本 |
+```text
+输入: 根问题列表 root_questions，预测表 pred，标准答案表 gt
+total = 0
+count = 0
+for root in root_questions:
+    if pred[root] != gt[root]:
+        continue
+    local = root 的 entailed questions 正确率
+    total += local
+    count += 1
+return total / count
+```
 
-核心原则是：不要让模型输出逻辑和评测逻辑混在一起。模型可以升级，评测脚本必须稳定；数据可以扩展，指标定义必须可复现。
+代码结构建议保持三个函数：`normalize_answer()` 负责归一化；`score_vqa()` 负责 VQAv2 单题软评分；`score_gqa_consistency()` 负责 GQA 分组一致性。
+
+```python
+import re
+
+_NUMBER_WORDS = {
+    "zero": "0",
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+}
+
+def normalize_answer(text):
+    text = text.lower().strip()
+    text = re.sub(r"[^\w\s]", "", text)
+    text = re.sub(r"\s+", " ", text)
+    return _NUMBER_WORDS.get(text, text)
+
+def score_vqa(pred, answers):
+    pred_norm = normalize_answer(pred)
+    m = sum(pred_norm == normalize_answer(a) for a in answers)
+    return min(m / 3.0, 1.0)
+
+def score_gqa_consistency(root_questions, pred, gt):
+    total = 0.0
+    count = 0
+
+    for root in root_questions:
+        root_id = root["id"]
+        entailed = root.get("entailed", [])
+
+        if normalize_answer(pred[root_id]) != normalize_answer(gt[root_id]):
+            continue
+        if not entailed:
+            continue
+
+        correct = sum(
+            normalize_answer(pred[eid]) == normalize_answer(gt[eid])
+            for eid in entailed
+        )
+        total += correct / len(entailed)
+        count += 1
+
+    return total / count if count else 0.0
+
+answers = ["yes", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "no", "no"]
+assert score_vqa("YES", answers) == 1.0
+
+answers_number = ["two", "2", "two", "three", "two", "2", "two", "one", "two", "two"]
+assert score_vqa("2", answers_number) == 1.0
+
+roots = [{"id": "q_root", "entailed": ["q_e1", "q_e2"]}]
+pred = {"q_root": "yes", "q_e1": "red", "q_e2": "fork"}
+gt = {"q_root": "yes", "q_e1": "red", "q_e2": "knife"}
+assert score_gqa_consistency(roots, pred, gt) == 0.5
+```
+
+新手版 VQAv2 流程可以概括为：先把模型输出统一成标准答案格式，再统计它和 10 个标注答案的重合次数，最后套用 $\min(m/3,1)$。新手版 GQA 流程可以概括为：先找到一组“主问题 + 推论问题”，主问题答对后，再检查推论问题是否都自洽。
+
+真实工程例子：你在做一个电商多模态助手，用户上传货架照片并提问“红色包装旁边有几瓶饮料”。VQAv2 类测试能检查模型是否看得见颜色、数量和物体；GQA 类测试能检查模型是否稳定处理“红色包装”“旁边”“饮料”这几个约束。两类测试都过，才更接近可上线的基础视觉问答能力。
 
 ---
 
 ## 工程权衡与常见坑
 
-只看总准确率是最常见的误判来源。一个模型可能在 yes/no 和颜色题上表现很好，但在关系题、计数题和多跳题上明显掉分。总分会把简单题的高分和复杂题的低分平均掉，让问题不明显。
+VQAv2 的常见坑是把它当成严格分类题，忽略官方答案归一化和软评分，导致离线分数和官方分数不一致。比如 `two` 和 `2` 是否算同一个答案，取决于官方归一化流程，不是自己手写几条规则就能完全替代。
 
-| 题型 | 示例 | 常见模型表现 | 工程风险 |
-|---|---|---|---|
-| yes/no | “这是苹果吗” | 容易做高 | 可能靠分布猜测 |
-| 属性 | “盒子是什么颜色” | 相对稳定 | 光照、遮挡会影响结果 |
-| 关系 | “苹果在盘子左边吗” | 容易掉分 | 空间判断错误 |
-| 计数 | “有几个瓶子” | 容易不稳定 | 密集物体误计数 |
-| 组合推理 | “左边红盒里的苹果有几个” | 最容易掉分 | 多条件任一步错都会失败 |
+GQA 的常见坑是只看 overall accuracy，不看 question type、reasoning steps、validity、grounding。overall accuracy，指所有题目混在一起算一个总准确率。这个数字容易把“会猜简单题”误判成“会理解复杂图像”。如果模型在 `yes/no` 上很高，但在三步关系推理上很低，单个总分会掩盖风险。
 
-真实工程例子：零售货架巡检模型需要判断商品是否摆放正确。VQAv2 类问题可以测“这是什么商品”“包装是什么颜色”。GQA 类问题更接近真实需求，例如“这个商品是否在盒子左边”“是否被遮挡”“同类商品数量是否一致”。如果只报一个总准确率，模型可能看起来可上线，但上线后在遮挡、错位、数量不一致这些场景里持续失败。
-
-一个简短失败日志可能是这样：
-
-```text
-image_id=store_1027
-q1="What product is this?" pred="milk" gold="milk" score=1
-q2="Is the milk carton left of the red box?" pred="yes" gold="no" score=0
-q3="How many milk cartons are behind the box?" pred="3" gold="2" score=0
-overall_sample_score=0.33
-```
-
-如果评测集里大量是 q1 这种简单识别题，总分会被拉高；但业务真正关心的是 q2 和 q3。
-
-| 坑 | 后果 | 规避方法 |
+| 坑点 | 影响 | 规避方式 |
 |---|---|---|
-| 只看总准确率 | 掩盖复杂题失败 | 按题型、场景、难度分组统计 |
-| 忽略答案归一化 | 同义格式被误判 | 固定 normalize 规则并记录版本 |
-| 把 VQAv2 高分等同于推理强 | 高估模型能力 | 同时报告 GQA 或自建组合题 |
-| 只测单题，不测一致性 | 同图同义问题自相矛盾 | 加入改写题、蕴含题、反事实题 |
-| 测试集过于接近训练分布 | 线上泛化差 | 加入真实业务图片和失败样本回放 |
-| 不记录 prompt 和模型版本 | 结果不可复现 | 每次评测保留完整元数据 |
+| VQAv2 用 exact match | 离线分数偏低或偏高 | 使用官方归一化和软评分 |
+| 忽略 `two` 与 `2` | 数字题评分不稳定 | 对照官方 evaluation 脚本 |
+| 只看 overall accuracy | 简单题掩盖复杂题失败 | 按问题类型和推理步数分桶 |
+| GQA 根问题答错仍统计 entailed | 把错误传播放大成评测噪声 | consistency 只在根问题答对样本上算 |
+| 不查答案分布 | 模型可能大量输出高频答案 | 监控 distribution 与类别分布 |
+| 不查 grounding | 模型可能答对但没看对区域 | 结合区域标注或可解释性检查 |
 
-一致性评测也不能只看单题。改写题，指同一个问题换一种说法，例如“盒子是什么颜色”和“这个箱子的颜色是什么”。反事实题，指改变某个条件后重新提问，例如把“红色盒子”改成“蓝色盒子”。如果模型对这些问题给出互相矛盾的答案，说明它可能没有稳定理解图像。
+上线验收可以分两层。第一层用 VQAv2 类测试检查基础问答：颜色、数量、有没有、是什么。第二层用 GQA 类测试检查关系链和约束一致性：左边、右边、旁边、同色、包含、被遮挡、多对象组合。对于多模态助手，尤其要跑一致性测试，因为用户很容易在同一张图上连续追问。如果模型前一句说“桌上有叉子”，后一句又说“盘子旁边没有餐具”，体验上就是明显不可靠。
+
+指标分桶建议至少包括：VQAv2 按 `yes/no`、`number`、`other` 分桶；GQA 按 `question type`、`reasoning steps`、关系类型、属性类型分桶。这样才能看到简单问题和复杂问题的性能差距。简单题高分是必要条件，不是充分条件；复杂题低分通常更接近真实产品风险。
 
 ---
 
 ## 替代方案与适用边界
 
-VQAv2 更适合衡量通用视觉问答与去偏置能力，但不适合单独代表复杂推理、长链推理或强一致性要求的场景。长链推理，指问题需要多个连续步骤才能得到答案。VQAv2 能告诉你模型是否具备基础看图问答能力，但不能充分说明模型是否能可靠处理多条件业务规则。
+如果目标是测抗语言偏置，VQAv2 是基础基线，但 VQA-CP 这类更偏向偏置控制的数据集可能更敏感。VQA-CP 的核心思路是改变训练集和测试集中的答案分布，让靠语言先验猜题的模型更容易暴露问题。
 
-GQA 更适合衡量组合推理和自洽性，但它也不是万能指标。如果任务更偏 OCR、文档、开放域常识问答或真实对话，单靠 GQA 仍不够。比如票据识别需要读金额、日期、商户名；菜单理解需要识别文字和版式；海报理解需要文字、图像、设计元素共同解析。这些任务应该额外使用 OCR 和文档理解类基准。
+如果目标是测特定能力，GQA 之外还需要其他数据集补足短板。CLEVR 更强调合成场景下的可控组合推理；TextVQA 专门测图中文字读取；OK-VQA 更依赖外部常识；这些能力不是 VQAv2 和 GQA 的主要覆盖范围。
 
-| 基准 | 更适合解决的问题 | 不适合单独代表的问题 |
-|---|---|---|
-| VQAv2 | 通用视觉问答、基础识别、削弱语言偏置 | 多步推理、强一致性、业务规则链 |
-| GQA | 场景图关系、组合推理、一致性诊断 | OCR 密集文档、开放世界长对话 |
-| VQA-CP | 检查模型是否过度依赖语言先验 | 全面视觉能力评估 |
-| VQA-Rephrasings | 检查同义改写下是否稳定 | 复杂空间推理和计数能力 |
+| 任务目标 | 推荐基准 | 适用原因 | 不足 |
+|---|---|---|---|
+| 看图就能答 | VQAv2 | 覆盖基础视觉问答，标注成熟 | 复杂推理诊断不足 |
+| 抗语言偏置 | VQA-CP | 训练和测试答案分布变化更明显 | 可能过度强调分布迁移 |
+| 多条件组合 | GQA | 有问题结构和一致性指标 | 仍不能覆盖开放域知识 |
+| 可控逻辑推理 | CLEVR | 合成数据可精确控制推理链 | 与真实图像分布有差距 |
+| 读图中文字 | TextVQA | 专门考察 OCR 与视觉文本理解 | 不代表一般视觉推理能力 |
+| 常识问答 | OK-VQA | 需要图像信息加外部知识 | 答案空间更开放，评测更难 |
 
-选择基准时可以按任务目标判断：
+新手理解版可以这样选：想测“看图就能答”，优先 VQAv2；想测“图里多个条件能不能一起满足”，优先 GQA；想测“读图中文字”，要换 TextVQA；想测“常识推理”，要看 OK-VQA。
 
-| 业务目标 | 更合适的评测方向 |
-|---|---|
-| 识别商品是什么 | VQAv2 风格指标更直接 |
-| 判断货架上左边红盒是否被遮挡 | GQA 风格组合推理更接近需求 |
-| 判断数量是否匹配 | GQA 加自建计数测试 |
-| 读取票据、海报、菜单 | 需要 OCR 或文档理解基准 |
-| 检查同一图多种问法是否稳定 | VQA-Rephrasings 或自建改写集 |
-| 检查模型是否只靠问题猜答案 | VQAv2、VQA-CP 都有参考价值 |
-
-工程上更稳妥的做法是组合评测：用 VQAv2 风格题检查基础识别，用 GQA 风格题检查关系和推理，用改写题检查一致性，用真实业务数据检查上线风险。单个公开基准不能替代完整验收，只能回答一部分能力问题。
+边界总结：VQAv2 和 GQA 都不能完整覆盖读字、常识、开放域知识、长链跨图推理、视频时序理解和真实交互式对话。它们的价值在于建立基础能力坐标：VQAv2 告诉你模型是否有稳定的基础视觉问答能力，GQA 告诉你模型在组合约束和多步推理上是否可靠。工程上应把它们当作验收矩阵的一部分，而不是唯一结论。
 
 ---
 
 ## 参考资料
 
-### 官方站点
-
-- [VQAv2 官方站](https://visualqa.org/)：数据版本、任务说明、评测入口和数据规模说明。
-- [GQA 官方站](https://cs.stanford.edu/people/dorarad/gqa/about.html)：场景图、功能程序、多步推理和一致性指标说明。
-- [GQA 评测页](https://cs.stanford.edu/people/dorarad/gqa/evaluate.html)：accuracy、consistency、validity、plausibility 等指标定义。
-
-### 论文
-
-- [VQAv2 论文：Making the V in VQA Matter](https://arxiv.org/abs/1612.00837)：提出通过配对相似图片、不同答案来削弱语言偏置。
-- [GQA 论文：arXiv 1902.09506](https://arxiv.org/abs/1902.09506)：介绍基于场景图和功能程序的数据构造方法，以及细粒度诊断指标。
-
-### 扩展评测
-
-- [VQA-Rephrasings / Cycle-Consistency for Robust Visual Question Answering](https://arxiv.org/abs/1902.05660)：使用问题改写和循环一致性评测模型稳定性。
-- VQA-CP：用于观察模型是否依赖训练集中的语言先验，适合补充分析语言偏置问题。
+1. [VQA 官方站](https://visualqa.org/)
+2. [VQA evaluation](https://visualqa.org/evaluation.html)
+3. [Making the V in VQA Matter: Elevating the Role of Image Understanding in Visual Question Answering](https://arxiv.org/abs/1612.00837)
+4. [GQA 官方站](https://cs.stanford.edu/people/dorarad/gqa/about.html)
+5. [GQA evaluate](https://cs.stanford.edu/people/dorarad/gqa/evaluate.html)
+6. [GQA: A New Dataset for Real-World Visual Reasoning and Compositional Question Answering](https://arxiv.org/abs/1902.09506)
