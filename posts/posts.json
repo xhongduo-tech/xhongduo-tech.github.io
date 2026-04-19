@@ -1,5 +1,17 @@
 [
   {
+    "title": "LightGCN 简化图卷积推荐",
+    "slug": "lightgcn-simplified-graph-convolution",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "图神经网络"
+    ],
+    "summary": "LightGCN 用极简邻居聚合提升隐式反馈推荐效率与效果"
+  },
+  {
     "title": "NGCF 神经图协同过滤",
     "slug": "ngcf-neural-graph-collaborative-filtering",
     "date": "2026-04-19",
