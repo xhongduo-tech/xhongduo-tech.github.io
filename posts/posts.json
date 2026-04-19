@@ -1,5 +1,17 @@
 [
   {
+    "title": "对比学习在召回中的应用",
+    "slug": "contrastive-learning-retrieval",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "对比学习通过拉近正样本、推远负样本，提升召回向量质量。"
+  },
+  {
     "title": "Interleaving 快速实验方法",
     "slug": "interleaving-rapid-experimentation",
     "date": "2026-04-19",
