@@ -18630,7 +18630,7 @@
       "统计学"
     ],
     "brief": "Stein引理：高斯变量的期望与函数导数的关系。SURE（Stein无偏风险估计）的推导。在去噪和收缩估计中的应用。James-Stein估计的理论基础。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Copula函数与依赖结构建模",

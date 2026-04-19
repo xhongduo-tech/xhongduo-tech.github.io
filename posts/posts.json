@@ -1,5 +1,17 @@
 [
   {
+    "title": "Stein引理与Stein无偏风险估计",
+    "slug": "math-stein-lemma-unbiased-risk-estimator",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "统计学"
+    ],
+    "summary": "Stein引理把高斯相关性转为导数期望，SURE据此无标签估计风险。"
+  },
+  {
     "title": "泛函导数与变分法",
     "slug": "math-functional-derivative-calculus-variations",
     "date": "2026-04-19",
@@ -395,18 +407,6 @@
       "概率论"
     ],
     "summary": "Copula 将边缘分布与依赖结构分离，用于刻画联合分布和尾部共振"
-  },
-  {
-    "title": "Stein引理与Stein无偏风险估计",
-    "slug": "math-stein-lemma-unbiased-risk-estimator",
-    "date": "2026-04-18",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "数学基础",
-      "统计学"
-    ],
-    "summary": "Stein引理用导数替代高斯交叉项，SURE据此无偏估计风险"
   },
   {
     "title": "大偏差理论初步",
