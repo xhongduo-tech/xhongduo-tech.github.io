@@ -1,5 +1,17 @@
 [
   {
+    "title": "S3Rec 自监督序列推荐",
+    "slug": "s3rec-self-supervised-sequence",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "序列推荐"
+    ],
+    "summary": "S3Rec 用四类自监督任务预训练序列表示，再微调 next-item 推荐。"
+  },
+  {
     "title": "生成式问答系统",
     "slug": "generative-question-answering",
     "date": "2026-04-19",

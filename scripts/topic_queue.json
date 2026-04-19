@@ -18762,7 +18762,7 @@
       "召回模型"
     ],
     "brief": "阿里提出的动态路由机制建模用户多兴趣，一个用户生成多个兴趣向量。基于 Capsule Network 的路由聚类历史行为，每个兴趣向量独立召回候选。线上通过 Label-Aware Attention 聚合。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Wide & Deep 学习框架",
@@ -18938,7 +18938,7 @@
       "序列推荐"
     ],
     "brief": "通过自监督预训练增强序列推荐，设计四种自监督任务：Attribute Prediction、Masked Item Prediction、Item-Attribute Prediction、Segment Prediction。预训练后微调下游推荐任务。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "GRU4Rec 会话推荐",
@@ -18971,7 +18971,7 @@
       "图神经网络"
     ],
     "brief": "Pinterest 的大规模图神经网络推荐系统，在 Pin-Board 二部图上用 GraphSAGE 聚合邻居信息。通过 Random Walk 采样控制邻居规模，Importance Pooling 加权聚合。工业级 GNN 的标杆。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LightGCN 简化图卷积推荐",
@@ -19026,7 +19026,7 @@
       "冷启动"
     ],
     "brief": "通过元学习快速适应新用户或新物品的冷启动场景。MAML 学习好的初始化参数，Few-shot Learning 从少量样本快速泛化。典型应用包括 MeLU、MAMO 等推荐元学习模型。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "冷启动之 Embedding ID 化",
@@ -19048,7 +19048,7 @@
       "冷启动"
     ],
     "brief": "用多臂老虎机算法平衡冷启动物品的探索与利用。典型方法包括 ε-Greedy、UCB、Thompson Sampling。LinUCB 和 Contextual Bandit 引入上下文特征提升冷启动效率。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "长尾物品推荐策略",
@@ -19103,7 +19103,7 @@
       "评估方法"
     ],
     "brief": "离线指标提升不保证在线效果提升，存在训练-服务偏差、数据分布漂移、指标不匹配等问题。提升一致性的方法包括：更贴近业务的离线指标、无偏估计、因果推断校正。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "推荐系统偏差与去偏",
@@ -19235,7 +19235,7 @@
       "序列推荐"
     ],
     "brief": "位置编码为序列模型提供顺序信息。在推荐场景，除了绝对位置编码，相对位置编码（时间差）、可学习位置编码、层次化位置编码（小时-天-周）都有应用。设计需考虑用户行为的非均匀性。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "会话推荐的实时性挑战",
@@ -19246,7 +19246,7 @@
       "序列推荐"
     ],
     "brief": "会话推荐依赖用户当前会话的实时行为，要求模型推理延迟低、更新频率高。典型优化包括：增量更新（仅更新当前状态）、模型蒸馏（大模型→小模型）、特征缓存（预计算静态特征）。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "图神经网络的过平滑问题",
@@ -19279,7 +19279,7 @@
       "模型压缩"
     ],
     "brief": "知识蒸馏将大模型（Teacher）的知识迁移到小模型（Student），降低在线推理延迟。典型方法包括：软标签蒸馏、中间层蒸馏、对抗蒸馏。推荐场景还需处理排序结构的知识迁移。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "推荐模型的量化与剪枝",
@@ -19378,7 +19378,7 @@
       "词向量与预训练"
     ],
     "brief": "SpanBERT 随机遮蔽连续词元跨度而非独立词元，迫使模型学习跨度级别的语义理解。跨度边界目标预测被遮蔽跨度的内容，仅使用边界词元的表示。在问答、共指消解等需要跨度理解的任务上显著提升。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "CRF 序列标注原理",
@@ -19466,7 +19466,7 @@
       "词向量与预训练"
     ],
     "brief": "对比学习通过拉近相似样本、推远不同样本学习文本表示。正样本通过数据增强（删除、替换、重排序）生成，负样本来自批次内其他样本。SimCSE 用 Dropout 作为正样本增强，无需标注数据即可训练。学到的表示在语义相似度任务上表现优异。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "抽取式问答系统",
@@ -19510,7 +19510,7 @@
       "问答系统"
     ],
     "brief": "多跳问答需要跨越多个文档或推理步骤才能回答问题。HotpotQA 要求模型同时给出答案和支持句子，验证推理过程。图神经网络可以建模文档间的关系，支持结构化推理。思维链提示使大模型能够展示逐步推理过程。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Seq2Seq 序列到序列模型",
