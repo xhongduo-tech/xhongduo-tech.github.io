@@ -1,5 +1,17 @@
 [
   {
+    "title": "排序模型的特征工程实践",
+    "slug": "ranking-feature-engineering",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "排序特征工程要把可见信号转为稳定、无泄漏、可复用的模型输入"
+  },
+  {
     "title": "多目标排序的融合策略",
     "slug": "multi-objective-ranking-fusion",
     "date": "2026-04-19",
