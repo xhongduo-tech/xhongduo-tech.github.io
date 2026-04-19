@@ -1,5 +1,19 @@
 [
   {
+    "title": "中文分词算法",
+    "slug": "chinese-word-segmentation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注",
+      "分词",
+      "中文"
+    ],
+    "summary": "中文分词的核心是确定词边界，方法包括词典路径搜索和序列标注。"
+  },
+  {
     "title": "语义角色标注",
     "slug": "semantic-role-labeling",
     "date": "2026-04-19",
