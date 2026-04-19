@@ -18894,7 +18894,7 @@
       "多任务学习"
     ],
     "brief": "阿里针对 CVR 预估提出的多任务框架，将 CVR 建模分解为 pCTR × pCVR = pCTCVR。在全空间（所有曝光样本）上训练，解决 CVR 的样本选择偏差和数据稀疏问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多任务梯度冲突处理",

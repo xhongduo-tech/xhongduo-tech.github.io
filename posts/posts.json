@@ -1,5 +1,17 @@
 [
   {
+    "title": "ESMM 全空间多任务模型",
+    "slug": "essm-entire-space-multi-task",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "多任务学习"
+    ],
+    "summary": "ESMM 用全曝光多任务学习缓解 CVR 样本偏差与稀疏问题"
+  },
+  {
     "title": "PLE 递进式多任务学习",
     "slug": "ple-progressive-layered-extraction",
     "date": "2026-04-19",
