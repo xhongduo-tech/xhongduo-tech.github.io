@@ -1,5 +1,17 @@
 [
   {
+    "title": "BiLSTM-CRF 序列标注",
+    "slug": "bilstm-crf-sequence-labeling",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "BiLSTM-CRF用上下文发射分数与全局转移约束完成序列标注"
+  },
+  {
     "title": "SpanBERT 跨度级预训练",
     "slug": "spanbert-span-level-pretraining",
     "date": "2026-04-19",
