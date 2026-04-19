@@ -19900,7 +19900,7 @@
       "大Batch训练"
     ],
     "brief": "LAMB (Layer-wise Adaptive Moments optimizer for Batch training) 针对 BERT 大 Batch 训练设计。核心创新：逐层自适应学习率缩放，将每层的更新幅度归一化到 trust region 内。支持 32768 的 Batch Size 而不损失性能，训练时间从 3 天缩短到 76 分钟。与 LARS 的区别在于结合了 Adam 的动量估计。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Lion 优化器：Google 的极简自适应优化器",

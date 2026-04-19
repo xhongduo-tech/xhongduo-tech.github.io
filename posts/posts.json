@@ -1,5 +1,17 @@
 [
   {
+    "title": "LAMB 优化器：大 Batch 训练的自适应学习率缩放",
+    "slug": "lamb-optimizer-large-batch-training",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "大Batch训练"
+    ],
+    "summary": "LAMB 在 Adam 基础上加入逐层缩放，稳定大 Batch 训练。"
+  },
+  {
     "title": "文本分类类别不平衡处理",
     "slug": "class-imbalance-text-classification",
     "date": "2026-04-19",
