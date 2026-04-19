@@ -18773,7 +18773,7 @@
       "排序模型"
     ],
     "brief": "Google 提出的经典排序架构，Wide 侧 Memorization 记忆高频模式，Deep 侧 Generalization 泛化稀疏特征。联合训练平衡两者，避免单独 Wide 的过拟合和单独 Deep 的欠拟合。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepFM 特征交互模型",

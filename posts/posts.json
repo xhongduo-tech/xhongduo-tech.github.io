@@ -1,5 +1,17 @@
 [
   {
+    "title": "Wide & Deep 学习框架",
+    "slug": "wide-deep-learning",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "Wide & Deep 用联合训练同时记忆高频规则并泛化长尾组合"
+  },
+  {
     "title": "YouTube 深度召回网络",
     "slug": "youtube-dnn-retrieval",
     "date": "2026-04-19",
@@ -143,18 +155,6 @@
       "排序模型"
     ],
     "summary": "DIN用候选感知注意力为不同候选物品选择相关历史行为"
-  },
-  {
-    "title": "Wide & Deep 学习框架",
-    "slug": "wide-deep-learning",
-    "date": "2026-04-19",
-    "author": "both",
-    "tags": [
-      "工程实践",
-      "推荐系统",
-      "排序模型"
-    ],
-    "summary": "Wide & Deep 用联合训练同时保留记忆高频规则和泛化稀疏特征的能力"
   },
   {
     "title": "MIND 多兴趣召回网络",
