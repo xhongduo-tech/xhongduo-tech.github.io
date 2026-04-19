@@ -1,5 +1,17 @@
 [
   {
+    "title": "PLE 递进式多任务学习",
+    "slug": "ple-progressive-layered-extraction",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "多任务学习"
+    ],
+    "summary": "PLE用私有专家与共享专家分层路由，缓解多任务负迁移"
+  },
+  {
     "title": "MMOE 多专家混合模型",
     "slug": "mmoe-multi-gate-mixture-of-experts",
     "date": "2026-04-19",

@@ -18883,7 +18883,7 @@
       "多任务学习"
     ],
     "brief": "腾讯提出的 MMOE 改进版本，将 Expert 分为任务独享和共享两类。任务独享 Expert 学习任务特定模式，共享 Expert 学习通用模式。通过多层级递进提取，减少任务间的负迁移。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ESMM 全空间多任务模型",
