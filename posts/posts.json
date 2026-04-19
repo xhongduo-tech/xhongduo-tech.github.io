@@ -1,5 +1,17 @@
 [
   {
+    "title": "HAN 层次注意力网络",
+    "slug": "hierarchical-attention-network",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "HAN 用词级和句级注意力建模长文本分类。"
+  },
+  {
     "title": "BIAFFINE 依存句法分析",
     "slug": "biaffine-dependency-parsing",
     "date": "2026-04-19",
