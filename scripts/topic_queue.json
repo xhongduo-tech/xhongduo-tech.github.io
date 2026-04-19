@@ -19912,7 +19912,7 @@
       "高效训练"
     ],
     "brief": "Lion (EvoLved Sign Momentum) 通过符号追踪梯度方向，仅缓存动量状态。内存占用是 Adam 的一半，训练速度提升 2-15%。核心公式：update = sign(momentum) 而非 momentum 本身。在 ViT、Diffusion、LLM 上均表现优异，适合大规模训练场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Sophia 优化器：LLM 训练的 Hessian 预条件",
@@ -19936,7 +19936,7 @@
       "二阶优化"
     ],
     "brief": "Shampoo 对参数矩阵的每维维护独立的预条件矩阵，捕获参数的结构化几何信息。计算复杂度 O(n^2) 而非 K-FAC 的 O(n^3)，适合大规模模型。通过 SVD 分解的定期更新降低计算开销。在深度推荐系统和语音模型上表现优异。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Adafactor 优化器：TPU 训练的内存高效方案",

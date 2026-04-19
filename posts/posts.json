@@ -1,5 +1,17 @@
 [
   {
+    "title": "Lion 优化器：Google 的极简自适应优化器",
+    "slug": "lion-optimizer-minimal-adaptive",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "高效训练"
+    ],
+    "summary": "Lion 用一阶动量和符号更新换取更低状态开销与更高训练效率"
+  },
+  {
     "title": "LAMB 优化器：大 Batch 训练的自适应学习率缩放",
     "slug": "lamb-optimizer-large-batch-training",
     "date": "2026-04-19",
