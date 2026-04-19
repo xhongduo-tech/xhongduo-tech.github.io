@@ -1,5 +1,17 @@
 [
   {
+    "title": "文本去重与查重",
+    "slug": "text-deduplication",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "文本去重先表示文本，再用哈希或相似度阈值判断重复。"
+  },
+  {
     "title": "文本相似度计算",
     "slug": "text-similarity-calculation",
     "date": "2026-04-19",
