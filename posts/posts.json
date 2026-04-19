@@ -1,5 +1,17 @@
 [
   {
+    "title": "位置编码演进",
+    "slug": "positional-encoding-evolution",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "机器翻译基础"
+    ],
+    "summary": "位置编码让 Transformer 感知顺序，演进方向是从输入叠加到注意力内建模。"
+  },
+  {
     "title": "词性标注原理",
     "slug": "part-of-speech-tagging",
     "date": "2026-04-19",
