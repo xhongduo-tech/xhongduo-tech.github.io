@@ -1,5 +1,17 @@
 [
   {
+    "title": "PinSage 图神经网络推荐",
+    "slug": "pinsage-graph-neural-recommendation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "图神经网络"
+    ],
+    "summary": "PinSage用随机游走采样和加权聚合学习大规模推荐图向量"
+  },
+  {
     "title": "S3Rec 自监督序列推荐",
     "slug": "s3rec-self-supervised-sequence",
     "date": "2026-04-19",

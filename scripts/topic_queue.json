@@ -18971,7 +18971,7 @@
       "图神经网络"
     ],
     "brief": "Pinterest 的大规模图神经网络推荐系统，在 Pin-Board 二部图上用 GraphSAGE 聚合邻居信息。通过 Random Walk 采样控制邻居规模，Importance Pooling 加权聚合。工业级 GNN 的标杆。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LightGCN 简化图卷积推荐",
