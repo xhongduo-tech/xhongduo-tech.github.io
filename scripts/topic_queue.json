@@ -18916,7 +18916,7 @@
       "序列推荐"
     ],
     "brief": "将 Transformer 的 Self-Attention 应用于序列推荐，建模用户历史行为的长期依赖。相比 RNN 方法，SASRec 可并行训练且长距离建模能力更强。通过 Causal Masking 保证自回归特性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BERT4Rec 双向序列推荐",

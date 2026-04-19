@@ -1,5 +1,17 @@
 [
   {
+    "title": "SASRec 自注意力序列推荐",
+    "slug": "sasrec-self-attentive-sequence",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "序列推荐"
+    ],
+    "summary": "SASRec用因果自注意力建模用户序列，预测下一项推荐。"
+  },
+  {
     "title": "ESMM 全空间多任务模型",
     "slug": "essm-entire-space-multi-task",
     "date": "2026-04-19",
