@@ -1,5 +1,17 @@
 [
   {
+    "title": "推荐模型的量化与剪枝",
+    "slug": "recommendation-quantization-pruning",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "模型压缩"
+    ],
+    "summary": "推荐模型压缩应优先处理Embedding，并用QAT、混合精度和结构化剪枝平衡精度与成本"
+  },
+  {
     "title": "图推荐的大规模训练优化",
     "slug": "graph-recommendation-large-scale-training",
     "date": "2026-04-19",
