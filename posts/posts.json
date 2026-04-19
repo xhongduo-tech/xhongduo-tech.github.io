@@ -1,5 +1,17 @@
 [
   {
+    "title": "NGCF 神经图协同过滤",
+    "slug": "ngcf-neural-graph-collaborative-filtering",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "图神经网络"
+    ],
+    "summary": "NGCF通过用户-物品图传播高阶协同信号，用于推荐召回。"
+  },
+  {
     "title": "NARM 神经注意力会话模型",
     "slug": "narm-neural-attention-session",
     "date": "2026-04-19",
