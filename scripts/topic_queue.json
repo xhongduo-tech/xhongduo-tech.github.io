@@ -18828,7 +18828,7 @@
       "排序模型"
     ],
     "brief": "Google 提出的显式特征交叉网络，Cross Network 通过多层交叉层学习有界阶数的特征交互。每一层的输出是输入与上一层的元素级乘积，多项式阶数逐层递增。与 Deep 部分联合训练。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "xDeepFM 压缩交互网络",
