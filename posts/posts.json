@@ -1,5 +1,17 @@
 [
   {
+    "title": "排序模型的位置偏差处理",
+    "slug": "ranking-position-bias",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "位置偏差要拆开曝光概率与内容相关性，避免排序模型学习历史位置捷径"
+  },
+  {
     "title": "排序模型的特征工程实践",
     "slug": "ranking-feature-engineering",
     "date": "2026-04-19",
