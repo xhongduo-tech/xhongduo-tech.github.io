@@ -1,5 +1,29 @@
 [
   {
+    "title": "MMOE 多专家混合模型",
+    "slug": "mmoe-multi-gate-mixture-of-experts",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "多任务学习"
+    ],
+    "summary": "MMoE 用多专家共享与任务独立门控缓解多任务负迁移"
+  },
+  {
+    "title": "FGNN 特征图神经网络",
+    "slug": "fgnn-feature-graph-neural-network",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "Fi-GNN 将字段建成图，通过消息传递学习 CTR 特征交互。"
+  },
+  {
     "title": "xDeepFM 压缩交互网络",
     "slug": "xdeepfm-compressed-interaction",
     "date": "2026-04-19",
