@@ -1,5 +1,17 @@
 [
   {
+    "title": "语义角色标注",
+    "slug": "semantic-role-labeling",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "SRL 用谓词、论元和角色标签刻画句子的动作参与者结构"
+  },
+  {
     "title": "位置编码演进",
     "slug": "positional-encoding-evolution",
     "date": "2026-04-19",
