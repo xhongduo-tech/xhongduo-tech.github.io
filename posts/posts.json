@@ -1,5 +1,17 @@
 [
   {
+    "title": "多语言预训练模型",
+    "slug": "multilingual-pretrained-models",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "多语言预训练通过共享表示实现跨语言迁移，适合零样本与低资源任务。"
+  },
+  {
     "title": "Transformer 机器翻译",
     "slug": "transformer-machine-translation",
     "date": "2026-04-19",
