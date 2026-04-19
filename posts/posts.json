@@ -1,5 +1,17 @@
 [
   {
+    "title": "冷启动之 Bandit 探索策略",
+    "slug": "cold-start-bandit-exploration",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "冷启动"
+    ],
+    "summary": "Bandit 用受控探索解决新物品冷启动，核心是收益、后悔值与特征迁移。"
+  },
+  {
     "title": "PinSage 图神经网络推荐",
     "slug": "pinsage-graph-neural-recommendation",
     "date": "2026-04-19",

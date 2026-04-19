@@ -19048,7 +19048,7 @@
       "冷启动"
     ],
     "brief": "用多臂老虎机算法平衡冷启动物品的探索与利用。典型方法包括 ε-Greedy、UCB、Thompson Sampling。LinUCB 和 Contextual Bandit 引入上下文特征提升冷启动效率。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "长尾物品推荐策略",
