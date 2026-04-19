@@ -1,5 +1,17 @@
 [
   {
+    "title": "跨域文本分类迁移",
+    "slug": "cross-domain-text-classification",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "跨域文本分类迁移通过源域监督训练和目标域对齐提升目标域性能"
+  },
+  {
     "title": "序列标注评估指标",
     "slug": "sequence-labeling-evaluation-metrics",
     "date": "2026-04-19",
