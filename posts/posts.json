@@ -1,5 +1,17 @@
 [
   {
+    "title": "文本生成采样策略",
+    "slug": "text-generation-sampling-strategies",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本生成"
+    ],
+    "summary": "采样策略通过温度、top-k、top-p和重复惩罚控制生成质量与多样性"
+  },
+  {
     "title": "Beam Search 解码策略",
     "slug": "beam-search-decoding",
     "date": "2026-04-19",
