@@ -1,5 +1,17 @@
 [
   {
+    "title": "MIND 多兴趣召回网络",
+    "slug": "mind-multi-interest-retrieval",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "MIND 用动态路由生成多个用户兴趣向量，提升推荐召回覆盖率。"
+  },
+  {
     "title": "冷启动之 Bandit 探索策略",
     "slug": "cold-start-bandit-exploration",
     "date": "2026-04-19",
@@ -911,18 +923,6 @@
       "排序模型"
     ],
     "summary": "DIN用候选感知注意力为不同候选物品选择相关历史行为"
-  },
-  {
-    "title": "MIND 多兴趣召回网络",
-    "slug": "mind-multi-interest-retrieval",
-    "date": "2026-04-19",
-    "author": "both",
-    "tags": [
-      "工程实践",
-      "推荐系统",
-      "召回模型"
-    ],
-    "summary": "MIND用动态路由生成多兴趣向量，提升召回覆盖与多样性"
   },
   {
     "title": "Swish 召回模型",

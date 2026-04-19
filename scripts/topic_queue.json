@@ -18762,7 +18762,7 @@
       "召回模型"
     ],
     "brief": "阿里提出的动态路由机制建模用户多兴趣，一个用户生成多个兴趣向量。基于 Capsule Network 的路由聚类历史行为，每个兴趣向量独立召回候选。线上通过 Label-Aware Attention 聚合。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Wide & Deep 学习框架",
