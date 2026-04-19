@@ -1,5 +1,17 @@
 [
   {
+    "title": "冷启动之 Embedding ID 化",
+    "slug": "cold-start-embedding-id-embedding",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "冷启动"
+    ],
+    "summary": "冷启动物品向量应由内容、图结构或预训练编码器生成"
+  },
+  {
     "title": "冷启动之元学习方法",
     "slug": "cold-start-meta-learning",
     "date": "2026-04-19",
