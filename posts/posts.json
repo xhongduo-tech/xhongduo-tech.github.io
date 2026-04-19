@@ -1,5 +1,17 @@
 [
   {
+    "title": "词性标注原理",
+    "slug": "part-of-speech-tagging",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "词性标注是在上下文中为每个词选择最合理的语法标签序列"
+  },
+  {
     "title": "多语言预训练模型",
     "slug": "multilingual-pretrained-models",
     "date": "2026-04-19",
