@@ -1,5 +1,17 @@
 [
   {
+    "title": "多任务梯度冲突处理",
+    "slug": "multi-task-gradient-conflict",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "多任务学习"
+    ],
+    "summary": "多任务梯度冲突可通过动态权重或梯度投影减少负干扰"
+  },
+  {
     "title": "BERT4Rec 双向序列推荐",
     "slug": "bert4rec-bidirectional-sequence",
     "date": "2026-04-19",
