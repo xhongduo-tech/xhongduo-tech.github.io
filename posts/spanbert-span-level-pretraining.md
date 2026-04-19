@@ -1,318 +1,268 @@
 ## 核心结论
 
-SpanBERT 是一种跨度级预训练方法：它随机遮蔽连续词元跨度，并让模型只靠跨度两侧的边界表示恢复整段被遮蔽内容。
+SpanBERT 是一种跨度级预训练方法：它把随机遮蔽从“单个词元”改成“连续文本片段”，再用跨度边界目标只依赖左右边界表示来恢复整段被遮蔽内容。
 
-普通 BERT 的 masked language modeling，简称 MLM，核心目标是“补被遮住的 token”。token 是模型处理文本的最小单位，可以是一个词，也可以是一个子词片段。SpanBERT 的重点不是简单把多个 `[MASK]` 连在一起，而是把“连续文本片段”作为训练对象。普通 MLM 像补单词，SpanBERT 像补整段短语。前者更关心词和词之间的局部关系，后者更关心一段连续文本整体是什么。
+普通 BERT 的核心训练信号是 Masked Language Modeling，简称 MLM，白话说就是“把某些位置盖住，让模型猜原来的词”。SpanBERT 保留了这种补全思想，但改变了补全单位。它不再只关注某个孤立位置像什么词，而是让模型学习“这一段连续文本整体是什么语义片段”。
 
-SpanBERT 的核心由两部分组成：
+关键变化有两部分：
 
-| 机制 | 作用 | 关键变化 |
+| 对比项 | BERT | SpanBERT |
 |---|---|---|
-| span masking | 按连续跨度遮蔽文本 | 不再只随机遮蔽独立 token |
-| SBO | 用边界表示预测跨度内部内容 | 迫使模型从外部上下文恢复整段语义 |
-| 去掉 NSP | 不再训练下一句预测 | 采用单段文本预训练设置 |
+| 遮蔽单位 | 独立 token | 连续 span |
+| 预测目标 | 单 token 预测 | span 内 token 预测 |
+| 主要依赖 | 被遮蔽位置自身的上下文表示 | span 外侧左右边界表示 |
+| 训练重点 | 位置级补全 | 跨度级语义恢复 |
+| 更适合任务 | 通用语言理解、分类 | 问答、共指消解、实体抽取、片段匹配 |
 
-SBO 是 Span Boundary Objective，中文可译为“跨度边界目标”。它的白话解释是：模型不能直接依赖被遮蔽位置自己的表示，而要根据左边界、右边界和相对位置，推断中间到底是什么。
+玩具例子：句子“我 喜欢 北京 烤鸭 和 啤酒”中，如果遮蔽“北京 烤鸭”，普通 MLM 更像是在两个位置上分别猜“北京”和“烤鸭”。SpanBERT 的目标更严格：模型要根据左边界“喜欢”和右边界“和”，恢复中间整段 span。这里 span 是“连续文本片段”，白话说就是句子里相邻的一串词。
 
-这使 SpanBERT 更适合 span-centric 任务。span-centric 任务是指答案、实体、指代对象本身就是一段连续文本的任务，例如抽取式问答、共指消解和短语级表示学习。
-
-| 任务类型 | 是否适合 SpanBERT | 原因 |
-|---|---:|---|
-| 抽取式问答 | 高 | 答案通常是连续文本片段 |
-| 共指消解 | 高 | 需要判断多个 mention span 是否指向同一对象 |
-| 实体识别 | 中到高 | 实体常是短语或连续词组 |
-| 句子分类 | 中到低 | 主要依赖整体句向量，不一定需要显式 span 表示 |
-| 生成任务 | 低到中 | SpanBERT 是编码器式预训练，不是生成式模型 |
-
-SpanBERT 的准确理解是：它不是“BERT 加连续 `[MASK]`”，而是“通过跨度遮蔽和边界预测，让编码器学习更强的跨度表示”。
+SpanBERT 的核心不是“把 BERT 变强一点”，而是把预训练目标改成更贴近下游任务的数据结构。抽取式问答里的答案通常是一段连续文本，共指消解里的 mention 也是一段连续文本。SpanBERT 直接在预训练阶段强化这种结构，因此在 span-centric 任务上更有优势。
 
 ---
 
 ## 问题定义与边界
 
-先定义输入序列：
+SpanBERT 要解决的问题是：普通 BERT 虽然能做遮蔽词预测，但它对“连续片段”的整体建模不够直接。很多 NLP 任务的输出不是一个孤立词，而是一段连续文本。span-centric 任务就是这类以文本片段为核心输入或输出的任务，白话说就是“答案、实体、指代对象都要按一段文本来处理”。
 
-$$
-X = (x_1, x_2, ..., x_n)
-$$
+抽取式问答是典型场景。给定问题“这道菜叫什么？”和上下文“我喜欢北京烤鸭和啤酒”，答案是“北京烤鸭”，不是单独的“北京”或“烤鸭”。模型需要判断答案 span 的起点和终点，还要理解这两个词合在一起表示一道菜。
 
-其中 $x_i$ 是第 $i$ 个 token。一个被遮蔽的跨度可以写成：
+任务边界可以这样看：
 
-$$
-Y = (x_s, x_{s+1}, ..., x_e)
-$$
+| 适合任务 | 不一定适合任务 |
+|---|---|
+| 抽取式问答：答案通常是连续 span | 句级分类：只需要判断整句类别 |
+| 共指消解：mention 是连续片段 | 情感分类：多数情况下关注整体极性 |
+| 命名实体识别：实体通常是连续词组 | 短文本意图识别：常由关键词或句级语义决定 |
+| 片段匹配：需要比较两个 span 的语义 | 单词级词性标注：主要依赖局部 token 判断 |
 
-这里 $s$ 是跨度起点，$e$ 是跨度终点。span 的白话解释是：原文本里一段连续出现的词或 token。例如在句子 `The neural network machine` 中，`neural network` 就是一个跨度。
+真实工程例子：在一个客服知识库问答系统中，用户问“退款多久到账”，系统需要从文档中抽取“3 到 5 个工作日”作为答案。这个答案天然是连续 span。SpanBERT 的预训练方式会让模型更关注边界和片段内部的关系，因此更适合这种答案抽取任务。
 
-SpanBERT 关心的是“词级跨度”。词级跨度是先在自然语言词层面决定遮蔽哪几个词，再映射到 tokenizer 产生的子词 token。subword token 是分词器为了处理生僻词和词形变化而切出来的子词片段，例如 `playing` 可能被切成 `play` 和 `##ing`。SpanBERT 不希望随机只遮住一个词的一半，因为那会让任务变成补词形碎片，而不是理解完整短语。
-
-| 对比项 | 词级跨度 | 子词级 token |
-|---|---|---|
-| 基本单位 | 自然词 | tokenizer 输出片段 |
-| 示例 | `neural network` | `ne`, `##ural`, `network` 等可能片段 |
-| 训练目标 | 恢复完整短语结构 | 恢复局部 token |
-| 主要风险 | 需要词到 token 的对齐 | 容易遮住半个词，任务变形 |
-
-玩具例子：句子 `The neural network machine`，如果遮蔽的是 `neural network`，SpanBERT 的目标不是分别猜 `neural` 和 `network` 两个独立词，而是根据 `The` 与 `machine` 判断中间大概率是一个描述机器类型的名词短语。
-
-真实工程例子：抽取式问答系统中，问题是 `Who won Super Bowl 50?`，文章里答案是 `Denver Broncos`。答案不是一个分类标签，而是原文中的连续 span。模型需要判断哪个起点和终点组成最合适的答案片段。SpanBERT 的训练目标与这种下游任务更一致。
-
-SpanBERT 的边界也要说清楚。它解决的是“如何让编码器更懂连续片段”，不是保证所有 NLP 任务都提升。
-
-| 任务 | SpanBERT 的价值 | 边界 |
-|---|---|---|
-| 抽取式问答 | 学到更强答案 span 表示 | 仍需要 start/end 打分头 |
-| 共指消解 | 更好表示 mention span | 仍依赖候选生成和聚类策略 |
-| NER | 有助于实体短语表示 | 短实体任务收益可能有限 |
-| 文本分类 | 可能有帮助 | 不一定优于普通强编码器 |
-| 检索召回 | 不一定明显 | 通常更依赖句向量或双塔训练 |
-
-因此，SpanBERT 的问题定义不是“改进 BERT 的所有能力”，而是“在预训练阶段显式学习跨度表示”。
+但 SpanBERT 不是所有任务的固定最优解。如果任务只是判断“这句话是正面还是负面”，或者只需要短上下文内的单词级分类，SpanBERT 的额外训练复杂度未必带来明显收益。工程上不能把“在问答、共指上更强”误读成“所有任务都更强”。
 
 ---
 
 ## 核心机制与推导
 
-SpanBERT 的训练可以拆成两步：先采样连续跨度并遮蔽，再用 SBO 从边界恢复跨度内部内容。
+SpanBERT 的第一步是 span masking。masking 是“遮蔽”，白话说就是把原文的一部分替换成特殊符号，让模型根据剩余上下文恢复原文。Span masking 不是随机打散 token，而是先采样连续跨度，再整体遮蔽。论文中 span 长度通常按几何分布采样，默认参数约为 $p=0.2$，并截断到 $l_{\max}=10$，总遮蔽预算约为 15%。
 
-第一步是 span masking。SpanBERT 不是独立采样若干 token，而是采样若干连续词跨度。跨度长度近似来自几何分布：
+几何分布的直观含义是：短 span 更常见，长 span 也可能出现，但概率逐渐下降。可以写成：
 
 $$
-l \sim Geo(p)
+P(l=k)=(1-p)^{k-1}p
 $$
 
-论文中常用 $p = 0.2$，并把最大跨度长度截断到 10。几何分布的白话解释是：它会产生较多短跨度，也保留一部分较长跨度。这样训练数据里既有短实体，也有多词短语。
+其中 $l$ 是 span 长度，$k$ 是具体长度。截断到 $l_{\max}=10$ 表示最长只取 10 个词左右，避免训练目标过难。
 
-例如原句：
+第二步是 SBO，Span Boundary Objective，中文可译为“跨度边界目标”。它的白话解释是：预测被遮蔽内容时，不直接使用 span 内部位置的最终表示，而是只使用 span 外侧两个边界的表示，再加上相对位置嵌入。相对位置嵌入表示“当前要预测的是 span 内第几个 token”。
+
+设输入序列为 $X=(x_1,\dots,x_n)$，被遮蔽跨度为 $(x_s,\dots,x_e)$。对跨度内第 $i$ 个 token，SpanBERT 构造：
+
+$$
+h_0=[c_{s-1};c_{e+1};p_{i-s+1}]
+$$
+
+$$
+h_1=\mathrm{LayerNorm}(\mathrm{GeLU}(W_1h_0))
+$$
+
+$$
+y_i=\mathrm{LayerNorm}(\mathrm{GeLU}(W_2h_1))
+$$
+
+其中 $c_{s-1}$ 是左边界 token 的 Transformer 输出表示，$c_{e+1}$ 是右边界 token 的 Transformer 输出表示，$p_{i-s+1}$ 是相对位置嵌入。GeLU 是一种神经网络激活函数，白话说就是给线性变换后的数值加上非线性能力。LayerNorm 是层归一化，白话说就是让表示的数值范围更稳定。
+
+总损失可以写成：
+
+$$
+L_i=L_{\mathrm{MLM}}(x_i)+L_{\mathrm{SBO}}(x_i)
+=-\log P(x_i\mid c_i)-\log P(x_i\mid y_i)
+$$
+
+直观上就是两条训练信号同时存在：MLM 让模型会做上下文补全，SBO 让模型必须从边界恢复整段内容。
+
+流程图可以写成：
 
 ```text
-The neural network machine works well.
+输入句子
+  ↓
+连续 span 遮蔽
+  ↓
+Transformer 编码
+  ↓
+取左右边界表示 c_{s-1}, c_{e+1}
+  ↓
+结合相对位置 p_{i-s+1}
+  ↓
+预测被遮蔽 token
+  ↓
+计算 MLM loss + SBO loss
 ```
 
-采样跨度：
+最小数值例子：句子“我 喜欢 北京 烤鸭 和 啤酒”，遮蔽跨度是“北京 烤鸭”。边界是“喜欢”和“和”。假设模型给出：
 
-```text
-neural network
-```
+| token | $P(x_i\mid c_i)$ | $P(x_i\mid y_i)$ | 损失 |
+|---|---:|---:|---:|
+| 北京 | 0.6 | 0.5 | $-\log 0.6-\log 0.5\approx1.204$ |
+| 烤鸭 | 0.2 | 0.4 | $-\log 0.2-\log 0.4\approx2.525$ |
 
-mask 后输入：
-
-```text
-The [MASK] [MASK] machine works well.
-```
-
-真实监督目标是：
-
-```text
-neural network
-```
-
-第二步是 SBO。SpanBERT 不让模型直接使用跨度内部每个 `[MASK]` 位置的最终表示去预测对应词，而是只使用跨度外部边界表示。设被遮蔽跨度是 $(x_s, ..., x_e)$，左边界是 $x_{s-1}$，右边界是 $x_{e+1}$。对跨度内部第 $i$ 个位置，构造：
-
-$$
-y_i = f([x_{s-1}; x_{e+1}; p_i])
-$$
-
-其中 $p_i$ 是相对位置嵌入，表示当前位置在跨度内部的第几个位置；$f$ 是两层前馈网络；`[;]` 表示向量拼接。相对位置嵌入的白话解释是：同样在 `The ___ ___ machine` 中，第一个空和第二个空角色不同，模型需要知道当前要预测的是第几个空。
-
-SBO 损失可以写成：
-
-$$
-L_{SBO} = \sum_{i=s}^{e} CE(softmax(Wy_i), x_i)
-$$
-
-其中 CE 是交叉熵损失。交叉熵的白话解释是：真实词概率越高，损失越低；真实词概率越低，损失越高。总损失可写成：
-
-$$
-L = L_{MLM} + L_{SBO}
-$$
-
-一个最小数值例子：句子是 `The [MASK] [MASK] machine`，真实跨度是 `neural network`。边界 token 是 `The` 和 `machine`。假设模型对第一个位置预测 $P(neural)=0.8$，第二个位置预测 $P(network)=0.6$，则：
-
-$$
-L_{SBO} = -\ln(0.8) - \ln(0.6) \approx 0.223 + 0.511 = 0.734
-$$
-
-这个损失表达的是：如果边界表示足够理解中间短语，模型就能给真实词更高概率，损失就更低。
-
-SpanBERT 还去掉了 BERT 的 NSP。NSP 是 Next Sentence Prediction，中文可译为“下一句预测”，目标是判断两个句子是否相邻。SpanBERT 采用单段输入训练，避免把训练能力分散到句间二分类任务上。对 span-centric 任务来说，跨度内部语义和边界上下文通常比“这两句是否相邻”更直接。
-
-机制有效的原因可以概括为一句话：span masking 增加了被恢复对象的结构性，SBO 限制了可用信息来源，迫使模型把边界和内部短语之间的关系学进表示里。
+该 span 总损失约为 $3.729$。这个例子说明，SpanBERT 不是只在空位上分别猜词，而是在训练模型使用边界语境恢复连续片段。
 
 ---
 
 ## 代码实现
 
-实现 SpanBERT 思路时，可以拆成三层：跨度采样、输入构造、SBO 预测头。
+实现 SpanBERT 思路时，关键顺序是：先按完整词采样连续 span，再遮蔽这些 span，然后编码，最后对每个 span 使用左右边界表示计算 SBO。完整词是指不把一个词随意拆开处理；在 WordPiece 或 BPE 这类 subword 分词里，一个词可能被切成多个子词，采样时要按原始词边界组织。
 
-预训练流程伪代码如下：
+PyTorch 风格伪代码如下：
 
-```text
-for sentence in corpus:
-    words = split_to_words(sentence)
-    spans = sample_word_spans(words)
-    tokens, align = tokenize_and_align(words)
-    masked_tokens = replace_span_tokens_with_mask(tokens, spans, align)
+```python
+# 1) 采样连续 span 并构造 mask
+spans = sample_spans(tokens, mask_budget=0.15, geometric_p=0.2, max_len=10)
 
-    hidden = encoder(masked_tokens)
+# 2) 送入 Transformer
+hidden = encoder(masked_tokens)
 
-    for each masked span:
-        left = hidden[start - 1]
-        right = hidden[end + 1]
-        for position inside span:
-            y = FFN(concat(left, right, relative_position_embedding))
-            loss += CE(vocab_projection(y), original_token)
+# 3) 对每个被遮蔽 span 取左右边界
+left = hidden[s - 1]
+right = hidden[e + 1]
+
+# 4) 结合相对位置，构造 SBO 表示
+pos = position_embedding(i - s + 1)
+h0 = torch.cat([left, right, pos], dim=-1)
+y = sbo_mlp(h0)
+
+# 5) 同时计算 MLM loss 和 SBO loss
+loss = mlm_loss(hidden, labels) + sbo_loss(y, labels)
 ```
 
-一个数据处理表：
+索引示意图：
 
-| 原句 | 采样跨度 | mask 后输入 | 边界 token | 监督目标 |
-|---|---|---|---|---|
-| `The neural network machine works` | `neural network` | `The [MASK] [MASK] machine works` | `The`, `machine` | `neural`, `network` |
-| `Denver Broncos won the game` | `Denver Broncos` | `[MASK] [MASK] won the game` | `[BOS]`, `won` | `Denver`, `Broncos` |
+```text
+位置:   0    1     2     3    4    5
+token: 我  喜欢  北京  烤鸭  和  啤酒
+             ↑     ↑    ↑    ↑
+           s-1     s    e   e+1
 
-下面是一个简化但可运行的 Python 代码块，用来演示 span 采样、SBO 输入构造和损失计算。它不是完整神经网络训练代码，但保留了关键数据结构和损失逻辑。
+span = [s, e] = [2, 3]
+预测“北京”时: i=2, i-s+1=1
+预测“烤鸭”时: i=3, i-s+1=2
+```
+
+下面是一段可运行的 Python 代码，用最小逻辑演示 span 采样、边界索引和损失计算。它不是完整训练代码，但能验证核心索引是否正确。
 
 ```python
 import math
 import random
 
-def sample_span(words, max_len=10, p=0.2, rng=None):
-    rng = rng or random.Random(0)
-    start = rng.randrange(0, len(words))
-    length = 1
-    while length < max_len and start + length < len(words) and rng.random() > p:
-        length += 1
-    end = start + length - 1
-    return start, end
+def sample_one_span(tokens, start, length):
+    assert 0 < start
+    assert start + length < len(tokens)
+    s = start
+    e = start + length - 1
+    return s, e
 
-def build_sbo_input(words, start, end, mask_token="[MASK]"):
-    masked = list(words)
-    targets = words[start:end + 1]
-    for i in range(start, end + 1):
-        masked[i] = mask_token
+def sbo_boundaries(tokens, s, e):
+    left = tokens[s - 1]
+    right = tokens[e + 1]
+    rel_positions = [i - s + 1 for i in range(s, e + 1)]
+    return left, right, rel_positions
 
-    left_boundary = words[start - 1] if start > 0 else "[BOS]"
-    right_boundary = words[end + 1] if end + 1 < len(words) else "[EOS]"
-    relative_positions = list(range(1, len(targets) + 1))
+def token_loss(p_mlm, p_sbo):
+    return -math.log(p_mlm) - math.log(p_sbo)
 
-    return {
-        "masked": masked,
-        "left_boundary": left_boundary,
-        "right_boundary": right_boundary,
-        "relative_positions": relative_positions,
-        "targets": targets,
-    }
+tokens = ["我", "喜欢", "北京", "烤鸭", "和", "啤酒"]
+s, e = sample_one_span(tokens, start=2, length=2)
+left, right, rel = sbo_boundaries(tokens, s, e)
 
-def compute_sbo_loss(targets, predicted_probs):
-    loss = 0.0
-    for target in targets:
-        prob = predicted_probs[target]
-        loss += -math.log(prob)
-    return loss
+assert (s, e) == (2, 3)
+assert left == "喜欢"
+assert right == "和"
+assert rel == [1, 2]
 
-words = "The neural network machine works".split()
-start, end = 1, 2
-example = build_sbo_input(words, start, end)
+loss_beijing = token_loss(0.6, 0.5)
+loss_kaoya = token_loss(0.2, 0.4)
+span_loss = loss_beijing + loss_kaoya
 
-assert example["masked"] == ["The", "[MASK]", "[MASK]", "machine", "works"]
-assert example["left_boundary"] == "The"
-assert example["right_boundary"] == "machine"
-assert example["targets"] == ["neural", "network"]
-
-loss = compute_sbo_loss(
-    example["targets"],
-    {"neural": 0.8, "network": 0.6}
-)
-
-assert round(loss, 3) == 0.734
+assert round(loss_beijing, 3) == 1.204
+assert round(loss_kaoya, 3) == 2.526
+assert round(span_loss, 3) == 3.730
 ```
 
-在真实模型里，`left_boundary` 和 `right_boundary` 不是字符串，而是 Transformer 编码后的向量。Transformer 是一种基于注意力机制的神经网络结构，白话解释是：它能让每个 token 根据整段上下文更新自己的表示。SBO 预测头通常接收三个向量：左边界表示、右边界表示、相对位置嵌入，然后经过前馈网络和词表投影得到每个词的概率分布。
+训练流程图：
 
-下游问答通常还要设计 span scoring。一个简化接口可以写成：
-
-```python
-def score_answer_span(hidden, start, end, scorer):
-    start_vec = hidden[start]
-    end_vec = hidden[end]
-    span_vec = start_vec + end_vec
-    return scorer(span_vec)
+```text
+原始 tokens
+  ↓
+按完整词边界采样 span
+  ↓
+替换 span 为 [MASK] 或其他遮蔽形式
+  ↓
+Transformer 得到每个位置的 hidden state
+  ↓
+MLM: 用被遮蔽位置表示预测原 token
+  ↓
+SBO: 用 hidden[s-1]、hidden[e+1]、相对位置预测原 token
+  ↓
+合并损失并反向传播
 ```
 
-这个接口表达的是：候选答案不是单个 token，而是由 start 和 end 组成的连续片段。SpanBERT 的预训练刚好强化了边界表示对内部短语的概括能力，因此更容易迁移到这类任务。
+这里最容易写错的是边界。SBO 使用的是 span 外侧的 $x_{s-1}$ 和 $x_{e+1}$，不是 $x_s$ 和 $x_e$。如果拿 span 内部 token 的表示做边界，模型就可能直接从被遮蔽区域泄漏信息，训练目标会偏离 SpanBERT 的设计。
 
 ---
 
 ## 工程权衡与常见坑
 
-SpanBERT 的收益集中在 span-centric 任务，不能默认迁移到所有任务。复现时最常见的错误，是只做连续 mask，但没有实现 SBO，也没有调整训练设置。
+SpanBERT 的工程价值来自目标设计，不只是遮蔽形式。只做 span masking 但不做 SBO，模型更像在做“连续版 mask 填空”，没有被强制学习“边界表示如何概括中间片段”。这会削弱 SpanBERT 对抽取式问答和共指消解的优势。
 
-| 错误做法 | 正确做法 | 影响 |
+常见坑如下：
+
+| 错误做法 | 正确做法 | 会导致什么问题 |
 |---|---|---|
-| 只把连续 token 换成 `[MASK]` | 同时实现 span masking 和 SBO | 否则只是普通 MLM 的轻微变体 |
-| 按 subword 随机采样跨度 | 先按词级采样，再映射到 subword | 避免遮住半个词 |
-| 继续使用 NSP | 使用单段训练设置 | 减少与跨度目标无关的训练信号 |
-| 下游仍只用 `[CLS]` | 问答和共指中显式建模 span | 预训练收益无法充分释放 |
-| 期待分类任务大幅提升 | 根据任务是否 span-centric 判断 | 避免错误选型 |
+| 把 span 按 subword 随意切碎 | 按完整词组成连续 span | 破坏片段语义一致性 |
+| 使用 $x_s$、$x_e$ 当 SBO 边界 | 使用外侧 $x_{s-1}$、$x_{e+1}$ | 边界目标不成立，可能泄漏内部信息 |
+| 只做 span masking，忽略 SBO | 同时计算 MLM loss 和 SBO loss | 退化成弱化版遮蔽训练 |
+| 把 SpanBERT 当成所有任务必胜方案 | 根据任务是否 span-centric 选择 | 在分类任务上收益可能有限 |
+| 遮蔽预算过大 | 保持约 15% 的遮蔽比例 | 上下文过少，训练过难 |
+| span 长度无限制 | 使用最大长度截断，例如 $l_{\max}=10$ | 长 span 太难恢复，训练不稳定 |
 
-一个典型失败案例是：把 `The neural network machine` 中的 `neural network` 换成两个 `[MASK]`，但仍然让每个 `[MASK]` 位置用自己的最终 hidden state 做 MLM 预测。这通常无法复现 SpanBERT 的主要收益，因为模型仍可以依赖 `[MASK]` 位置的上下文混合表示，而不是被迫从边界压缩出整段信息。
+仍以“我 喜欢 北京 烤鸭 和 啤酒”为例。错误做法是把“北京 烤鸭”拆成两个无关片段，分别遮蔽“北京”和“烤鸭”，甚至在 subword 级别只遮住某个碎片。这样模型学到的是局部补全，不是“北京烤鸭”作为一个菜名 span 的整体语义。正确做法是把“北京 烤鸭”视为连续片段整体遮蔽，再用“喜欢”和“和”两个外侧边界恢复内部内容。
 
-另一个坑是“span”和“token”混用。假设一个词被 tokenizer 切成多个 subword，如果直接在 subword 级别随机选跨度，可能只遮住词的一部分。这样模型学到的可能是词形补全，而不是短语恢复。SpanBERT 的重点是让模型恢复自然语言中的连续片段，因此采样粒度要尽量贴近词和短语。
-
-训练配置至少要检查这些项：
-
-| 配置项 | 建议 |
-|---|---|
-| mask 粒度 | 词级 span，而不是独立 token |
-| span 长度 | 近似几何分布，常用 $p=0.2$，最大长度 10 |
-| SBO | 使用边界表示和相对位置预测内部 token |
-| NSP | 关闭 |
-| 下游任务 | 问答、共指、实体任务优先验证 |
-| 评估方式 | 不只看预训练 loss，要看下游 span 任务指标 |
-
-真实工程里还要考虑成本。SpanBERT 的训练复杂度和实现复杂度都高于直接使用现成 BERT。若团队只是做评论情感分类、主题分类或粗粒度检索，普通预训练编码器可能已经足够。若系统核心指标来自抽取式问答、文档理解、实体链接或共指消解，SpanBERT 的机制才更值得投入。
+真实工程中还要考虑成本。SpanBERT 需要修改数据预处理、mask 策略和训练头。如果团队只是微调现成模型，使用公开的 SpanBERT checkpoint 成本较低；如果要从头预训练，则需要额外实现和验证。对资源有限的团队，除非下游任务明显依赖 span，否则优先使用成熟 BERT 或 RoBERTa 系列模型通常更稳。
 
 ---
 
 ## 替代方案与适用边界
 
-SpanBERT 不是唯一的 span 表示方法。它的优势在于：在预训练阶段就显式学习“用边界恢复跨度”。如果下游任务不依赖连续片段，其他方法可能更简单。
+SpanBERT 不是唯一的 span 建模路线。可以把它放在 BERT、Whole Word Masking 和其他实体增强预训练方法之间理解。Whole Word Masking 是“整词遮蔽”，白话说就是如果一个词被拆成多个 subword，要一起遮住这个词的所有子词。它比普通 BERT 更尊重词边界，但仍不等于 SpanBERT，因为它没有 SBO，也不一定强调连续多词 span 的边界恢复。
 
-| 方法 | 核心目标 | 优势 | 适用边界 |
-|---|---|---|---|
-| BERT MLM | 随机预测被遮蔽 token | 简单、通用、生态成熟 | span 表示不是训练重点 |
-| SpanBERT | 从边界恢复被遮蔽跨度 | 对问答和共指更直接 | 实现和复现更复杂 |
-| RoBERTa 类方法 | 强化 MLM 训练策略 | 通用性能强 | 不专门建模 span 边界 |
-| T5/BART 类去噪模型 | 重建被破坏文本 | 更适合生成和序列到序列任务 | 架构目标不同 |
-| 任务内 span pooling | 下游阶段聚合 span | 实现成本低 | 缺少预训练阶段的显式约束 |
+| 方法 | 核心目标 | 优势 | 局限 | 适用任务 |
+|---|---|---|---|---|
+| BERT | 随机 token MLM + 下一句预测 | 通用、实现成熟、生态完整 | 对连续 span 的目标设计不直接 | 分类、匹配、序列标注、通用理解 |
+| Whole Word Masking | 按完整词遮蔽 | 避免 subword 碎片化 | 仍主要是词级补全 | 中文/英文词级语义增强、通用微调 |
+| SpanBERT | 连续 span masking + SBO | 强化跨度边界和片段恢复 | 实现更复杂，非 span 任务收益不稳定 | 抽取式问答、共指消解、实体抽取 |
+| 实体增强预训练 | 引入实体链接或知识库信号 | 对实体密集任务有帮助 | 依赖额外标注或知识资源 | 知识问答、实体链接、领域搜索 |
 
-适用任务矩阵如下：
+如果你做的是句子级情感分类，比如判断“这家店服务不错”是正面还是负面，SpanBERT 的优势通常不会像在抽取式问答中那么明显。因为分类任务最终只需要一个句级标签，不一定要求模型精确恢复连续文本片段。
 
-| 任务 | 推荐程度 | 说明 |
-|---|---:|---|
-| 抽取式问答 | 高 | 答案天然是 span |
-| 共指消解 | 高 | mention 表示依赖边界和内部内容 |
-| NER | 中到高 | 实体 span 有明确边界 |
-| 文本分类 | 中低 | `[CLS]` 或句向量通常更关键 |
-| 粗粒度语义检索 | 中低 | 双塔、对比学习可能更直接 |
-| 摘要/翻译 | 低 | 更适合生成式或 encoder-decoder 模型 |
+如果你做的是 SQuAD、MRQA 或企业文档问答，答案天然是连续 span，SpanBERT 的目标与任务结构更一致。模型在预训练阶段已经练习过“根据边界恢复内部片段”，微调时再学习“从上下文里找答案起止位置”，目标之间的差距更小。
 
-选择建议可以直接写成三条：
+工程选择可以按三条原则判断：
 
-第一，如果任务输出就是原文中的连续片段，优先考虑 SpanBERT 或至少使用 span-aware 表示方式。
+| 判断问题 | 选择倾向 |
+|---|---|
+| 下游输出是否经常是连续文本片段？ | 是：优先考虑 SpanBERT |
+| 是否只做句级分类或短文本判断？ | 是：BERT 或 RoBERTa 通常足够 |
+| 是否有能力维护自定义预训练流程？ | 否：优先使用现成 checkpoint |
+| 是否需要按实体、答案、mention 精确定位？ | 是：SpanBERT 更值得评估 |
 
-第二，如果任务只是句子级分类，不要为了 SBO 引入额外复杂度，先用普通强编码器建立基线。
-
-第三，如果任务需要生成新文本，SpanBERT 不是最直接选择，T5、BART 或其他生成式预训练模型通常更合适。
-
-SpanBERT 的价值不是取代所有预训练方法，而是把“跨度理解”这个目标提前放进预训练阶段。它适合的问题越接近“从上下文中识别、恢复、比较连续文本片段”，收益越可能稳定。
+结论是：SpanBERT 的适用边界很清楚。它不是替代所有 BERT 类模型的通用答案，而是当任务核心对象从“单个位置”变成“连续片段”时，更匹配问题结构的预训练方法。
 
 ---
 
 ## 参考资料
 
-1. [SpanBERT: Improving Pre-training by Representing and Predicting Spans](https://a11y2.apps.allenai.org/paper?id=81f5810fbbab9b7203b9556f4ce3c741875407bc)：论文 HTML，用于核对 span masking、SBO、去掉 NSP 等机制。
-2. [facebookresearch/SpanBERT](https://github.com/facebookresearch/SpanBERT)：官方代码仓库，用于核对模型发布、任务脚本和复现入口。
-3. [Princeton publication page: SpanBERT](https://collaborate.princeton.edu/en/publications/spanbert-improving-pre-training-by-representing-and-predicting-sp)：论文发布页，用于核对论文元信息和发表信息。
-4. [Hugging Face Papers: 1907.10529](https://huggingface.co/papers/1907.10529)：论文索引页，用于快速查看摘要、引用入口和社区元信息。
+1. [SpanBERT: Improving Pre-training by Representing and Predicting Spans](https://aclanthology.org/2020.tacl-1.5/)
+2. [facebookresearch/SpanBERT](https://github.com/facebookresearch/SpanBERT)
+3. [AllenAI paper-to-html](https://a11y2.apps.allenai.org/paper?id=81f5810fbbab9b7203b9556f4ce3c741875407bc)
+4. [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://aclanthology.org/N19-1423/)
+5. [The Stanford Question Answering Dataset](https://rajpurkar.github.io/SQuAD-explorer/)

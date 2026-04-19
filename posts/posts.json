@@ -1,5 +1,17 @@
 [
   {
+    "title": "SpanBERT 跨度级预训练",
+    "slug": "spanbert-span-level-pretraining",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "SpanBERT 用连续跨度遮蔽和边界目标强化片段级语义建模"
+  },
+  {
     "title": "会话推荐的实时性挑战",
     "slug": "session-recommendation-realtime",
     "date": "2026-04-19",
@@ -178,18 +190,6 @@
       "序列标注"
     ],
     "summary": "BiLSTM-CRF用上下文发射分数与全局转移约束完成序列标注"
-  },
-  {
-    "title": "SpanBERT 跨度级预训练",
-    "slug": "spanbert-span-level-pretraining",
-    "date": "2026-04-19",
-    "author": "both",
-    "tags": [
-      "理论基础",
-      "NLP基础",
-      "词向量与预训练"
-    ],
-    "summary": "SpanBERT 用跨度遮蔽和边界预测强化连续片段表示。"
   },
   {
     "title": "CRF 序列标注原理",
