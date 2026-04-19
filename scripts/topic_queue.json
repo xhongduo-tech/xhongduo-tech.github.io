@@ -19048,7 +19048,7 @@
       "冷启动"
     ],
     "brief": "用多臂老虎机算法平衡冷启动物品的探索与利用。典型方法包括 ε-Greedy、UCB、Thompson Sampling。LinUCB 和 Contextual Bandit 引入上下文特征提升冷启动效率。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "长尾物品推荐策略",
@@ -19081,7 +19081,7 @@
       "评估方法"
     ],
     "brief": "AUC 衡量模型的整体排序能力，但在推荐场景受用户偏差影响。GAUC（Group AUC）按用户分组计算 AUC 后加权平均，更准确反映个性化排序效果。权重设计影响 GAUC 的稳定性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "NDCG 与位置衰减",

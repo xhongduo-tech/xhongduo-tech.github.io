@@ -1,5 +1,17 @@
 [
   {
+    "title": "AUC 与 GAUC 深度解析",
+    "slug": "auc-gauc-deep-analysis",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "评估方法"
+    ],
+    "summary": "AUC看全局排序，GAUC按用户内排序加权，更适合推荐评估"
+  },
+  {
     "title": "长尾物品推荐策略",
     "slug": "long-tail-recommendation",
     "date": "2026-04-19",
