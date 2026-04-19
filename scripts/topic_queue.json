@@ -19158,7 +19158,7 @@
       "召回模型"
     ],
     "brief": "融合文本、图像、视频、音频等多模态内容进行推荐。典型方法包括：早期融合（特征拼接）、晚期融合（分数融合）、注意力融合（动态权重）。解决内容理解与用户偏好的对齐问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "召回模型训练目标对比",
@@ -19169,7 +19169,7 @@
       "召回模型"
     ],
     "brief": "召回模型的训练目标影响表征学习质量。典型目标包括：Pointwise（二分类）、Pairwise（BPR）、Listwise（Softmax）、Contrastive（InfoNCE）。不同目标对应不同的损失函数和采样策略。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图召回与向量召回融合",

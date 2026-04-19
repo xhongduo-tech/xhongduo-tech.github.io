@@ -1,5 +1,29 @@
 [
   {
+    "title": "召回模型训练目标对比",
+    "slug": "retrieval-training-objectives",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "召回训练目标决定模型学习单点概率、相对排序还是可检索向量空间"
+  },
+  {
+    "title": "多模态内容推荐",
+    "slug": "multimodal-content-recommendation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "多模态推荐用内容向量补足冷启动与稀疏行为场景。"
+  },
+  {
     "title": "对比学习在召回中的应用",
     "slug": "contrastive-learning-retrieval",
     "date": "2026-04-19",
