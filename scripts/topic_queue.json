@@ -18729,7 +18729,7 @@
       "召回模型"
     ],
     "brief": "利用知识图谱建模物品间的语义关联，缓解数据稀疏和冷启动。典型方法包括基于 embedding 的 RippleNet、基于路径的 KGAT、以及联合训练的 MKM-SR。通过多跳推理发现隐式关联。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "向量检索与 ANN 加速",

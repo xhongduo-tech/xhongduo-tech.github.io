@@ -1,5 +1,17 @@
 [
   {
+    "title": "基于 Knowledge Graph 的召回",
+    "slug": "kg-based-retrieval",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "召回模型"
+    ],
+    "summary": "KG 召回通过多跳语义关系扩展候选，适合稀疏与冷启动场景"
+  },
+  {
     "title": "BST 行为序列 Transformer",
     "slug": "bst-behavior-sequence-transformer",
     "date": "2026-04-19",
