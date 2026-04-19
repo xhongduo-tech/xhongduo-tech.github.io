@@ -1,5 +1,17 @@
 [
   {
+    "title": "对比学习文本表示",
+    "slug": "contrastive-text-representation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "对比学习通过拉近同义句、推远无关句来学习可检索的文本向量。"
+  },
+  {
     "title": "BERT 文本分类微调",
     "slug": "bert-text-classification-finetuning",
     "date": "2026-04-19",
