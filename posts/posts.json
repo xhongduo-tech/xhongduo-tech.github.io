@@ -1,5 +1,17 @@
 [
   {
+    "title": "IGMC 归纳式图矩阵补全",
+    "slug": "igmc-inductive-graph-matrix-completion",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "图神经网络"
+    ],
+    "summary": "IGMC将矩阵补全转为局部子图预测，适合有少量交互的新节点推荐。"
+  },
+  {
     "title": "LightGCN 简化图卷积推荐",
     "slug": "lightgcn-simplified-graph-convolution",
     "date": "2026-04-19",
