@@ -1,5 +1,17 @@
 [
   {
+    "title": "关键词提取算法",
+    "slug": "keyword-extraction-algorithms",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "关键词提取按代表性排序，方法选择取决于统计、结构、语义与工程约束"
+  },
+  {
     "title": "文本去重与查重",
     "slug": "text-deduplication",
     "date": "2026-04-19",
