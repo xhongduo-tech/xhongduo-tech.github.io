@@ -1,5 +1,17 @@
 [
   {
+    "title": "文本分类类别不平衡处理",
+    "slug": "class-imbalance-text-classification",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "类别不平衡需从数据、损失、阈值三层纠偏，并用F1与召回评估"
+  },
+  {
     "title": "跨域文本分类迁移",
     "slug": "cross-domain-text-classification",
     "date": "2026-04-19",
