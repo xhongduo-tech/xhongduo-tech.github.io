@@ -1,5 +1,29 @@
 [
   {
+    "title": "图推荐的大规模训练优化",
+    "slug": "graph-recommendation-large-scale-training",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "图神经网络"
+    ],
+    "summary": "大规模图推荐训练要控制采样规模、子图密度和跨机通信。"
+  },
+  {
+    "title": "图推荐的大规模训练优化",
+    "slug": "graph-recommendation-large-scale-training-optimization",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "图神经网络"
+    ],
+    "summary": "图推荐大规模训练的核心是采样、聚类分批和分区通信控制。"
+  },
+  {
     "title": "图神经网络的过平滑问题",
     "slug": "gnn-oversmoothing-problem",
     "date": "2026-04-19",
