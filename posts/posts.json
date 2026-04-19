@@ -1,5 +1,17 @@
 [
   {
+    "title": "零样本文本分类",
+    "slug": "zero-shot-text-classification",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "零样本分类用预训练语义能力，在无标注样本时完成标签选择。"
+  },
+  {
     "title": "少样本文本分类",
     "slug": "few-shot-text-classification",
     "date": "2026-04-19",
