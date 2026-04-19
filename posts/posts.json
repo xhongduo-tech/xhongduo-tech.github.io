@@ -1,5 +1,29 @@
 [
   {
+    "title": "ALBERT 轻量化策略",
+    "slug": "albert-lightweight-strategies",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "ALBERT 通过嵌入因子分解和跨层共享大幅减少参数。"
+  },
+  {
+    "title": "ELECTRA 预训练效率优化",
+    "slug": "electra-pretraining-efficiency",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "ELECTRA 用替换词检测提升预训练监督密度。"
+  },
+  {
     "title": "DeBERTa 解耦注意力机制",
     "slug": "deberta-disentangled-attention",
     "date": "2026-04-19",
