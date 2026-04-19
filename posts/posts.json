@@ -1,5 +1,17 @@
 [
   {
+    "title": "长尾物品推荐策略",
+    "slug": "long-tail-recommendation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "冷启动"
+    ],
+    "summary": "长尾推荐要在稀疏证据下补训练信号、表征和高阶关联。"
+  },
+  {
     "title": "冷启动之 Embedding ID 化",
     "slug": "cold-start-embedding-id-embedding",
     "date": "2026-04-19",
