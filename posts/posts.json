@@ -1,5 +1,17 @@
 [
   {
+    "title": "语义解析",
+    "slug": "semantic-parsing",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "问答系统"
+    ],
+    "summary": "语义解析把自然语言转换为可执行、可验证的结构化表示。"
+  },
+  {
     "title": "子词分词算法",
     "slug": "subword-tokenization",
     "date": "2026-04-19",
