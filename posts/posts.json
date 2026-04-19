@@ -1,5 +1,17 @@
 [
   {
+    "title": "RoBERTa 优化策略",
+    "slug": "roberta-optimization-strategies",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "RoBERTa 通过优化 BERT 预训练配方提升表征能力。"
+  },
+  {
     "title": "推荐系统的特征重要性分析",
     "slug": "feature-importance-analysis",
     "date": "2026-04-19",

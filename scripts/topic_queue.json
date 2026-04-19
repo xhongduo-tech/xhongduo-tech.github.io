@@ -19323,7 +19323,7 @@
       "词向量与预训练"
     ],
     "brief": "RoBERTa 通过动态掩码、更大批次、更长训练时间和更多数据显著提升了 BERT 性能。移除了 Next Sentence Prediction 任务，简化了预训练目标。采用字节对编码（BPE）替代 WordPiece，减少了未知词数量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeBERTa 解耦注意力机制",
