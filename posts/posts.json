@@ -1,5 +1,17 @@
 [
   {
+    "title": "BERT 文本分类微调",
+    "slug": "bert-text-classification-finetuning",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "BERT 分类微调用 [CLS] 表示接分类头完成任务适配"
+  },
+  {
     "title": "TextCNN 文本分类",
     "slug": "textcnn-text-classification",
     "date": "2026-04-19",
