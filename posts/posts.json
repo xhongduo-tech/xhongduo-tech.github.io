@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识增强问答",
+    "slug": "knowledge-enhanced-question-answering",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "问答系统"
+    ],
+    "summary": "知识增强问答通过检索外部证据约束生成，提升事实问答准确性。"
+  },
+  {
     "title": "抽取式问答系统",
     "slug": "extractive-question-answering",
     "date": "2026-04-19",
