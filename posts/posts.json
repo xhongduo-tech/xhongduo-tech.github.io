@@ -1,5 +1,17 @@
 [
   {
+    "title": "停用词处理策略",
+    "slug": "stopword-handling-strategies",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "停用词应按任务选择删除、保留或降权，不能机械套表。"
+  },
+  {
     "title": "槽位填充对话理解",
     "slug": "slot-filling-dialogue-understanding",
     "date": "2026-04-19",
