@@ -19213,7 +19213,7 @@
       "排序模型"
     ],
     "brief": "推荐系统优化多个目标（点击、转化、时长、互动），需要融合多个模型的预测分。融合策略包括：加权求和、乘法融合、排序融合、LTR（Learning to Rank）。权重设计依赖业务目标和 AB 测试。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Learning to Rank 在推荐中的应用",

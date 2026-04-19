@@ -1,5 +1,17 @@
 [
   {
+    "title": "多目标排序的融合策略",
+    "slug": "multi-objective-ranking-fusion",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "多目标排序先校准分数，再按业务偏好融合成统一排序分。"
+  },
+  {
     "title": "图召回与向量召回融合",
     "slug": "graph-vector-retrieval-fusion",
     "date": "2026-04-19",
