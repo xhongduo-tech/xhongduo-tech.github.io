@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识蒸馏在推荐中的应用",
+    "slug": "knowledge-distillation-recommendation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "模型压缩"
+    ],
+    "summary": "推荐蒸馏用教师模型迁移排序知识，让小模型低延迟保住Top-K效果"
+  },
+  {
     "title": "SpanBERT 跨度级预训练",
     "slug": "spanbert-span-level-pretraining",
     "date": "2026-04-19",
