@@ -19092,7 +19092,7 @@
       "评估方法"
     ],
     "brief": "NDCG（Normalized Discounted Cumulative Gain）考虑位置的重要性，靠前位置的准确预测获得更高权重。DCG 通过对数衰减函数降低后续位置的贡献，IDCG 归一化处理不同查询的差异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "离线在线一致性分析",
