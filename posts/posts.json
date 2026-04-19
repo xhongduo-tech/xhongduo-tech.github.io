@@ -1,5 +1,17 @@
 [
   {
+    "title": "AutoInt 自动特征交互",
+    "slug": "autoint-feature-interaction",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "AutoInt 用字段级自注意力自动学习推荐排序中的高阶特征交互"
+  },
+  {
     "title": "基于 Knowledge Graph 的召回",
     "slug": "kg-based-retrieval",
     "date": "2026-04-19",
