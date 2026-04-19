@@ -1,5 +1,17 @@
 [
   {
+    "title": "抽取式文本摘要",
+    "slug": "extractive-text-summarization",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本摘要"
+    ],
+    "summary": "抽取式摘要通过选取原文关键句生成可回溯摘要。"
+  },
+  {
     "title": "文本生成采样策略",
     "slug": "text-generation-sampling-strategies",
     "date": "2026-04-19",
