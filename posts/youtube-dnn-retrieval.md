@@ -1,320 +1,309 @@
 ## 核心结论
 
-YouTube 深度召回网络的核心，是把推荐系统里的“下一次最可能观看哪个视频”建模成一个极端多分类问题。极端多分类指类别数量非常大，不是几十类，而是百万级、千万级视频都作为候选类别。
+深度召回不是逐个算所有视频，而是先把用户和视频都映射到同一向量空间，再用相似度找候选。
 
-它不是一个“用户喜不喜欢某个视频”的二分类模型，而是一个“在全量视频库里，哪个视频最可能成为下一次观看目标”的多分类模型。模型先把用户历史和上下文编码成用户向量 $u$，再把每个视频表示成视频向量 $v_i$，用点积打分：
+YouTube 深度召回网络的本质，是把“从百万级视频里找候选”建模为一个极端多分类问题。极端多分类，指类别数量非常大，例如每个视频都是一个类别，类别数达到百万级。模型训练时学习“在给定用户上下文时，下一个被观看的视频更可能是哪一个”；线上服务时不再计算完整分类概率，而是生成用户向量，用近似最近邻检索，也就是 ANN，从视频向量库中找 Top-K 候选。
 
-$$
-s_i = u^\top v_i
-$$
-
-如果对全量视频做 Softmax，某个视频 $i$ 被观看的概率可以写成：
+核心公式是：
 
 $$
-p(i\mid u)=\frac{e^{s_i}}{\sum_{j\in\mathcal V} e^{s_j}}
+s(u,v)=h_u^\top e_v,\quad \operatorname{TopK}(u)=\mathrm{ANN}(h_u,\{e_v\}_{v\in V})
 $$
 
-其中 $\mathcal V$ 是全部视频集合。分母要遍历所有视频，所以训练和线上都不能直接暴力计算。YouTube 的做法是：训练阶段用负采样近似 Softmax，线上阶段用 ANN 检索 Top-K 视频。
+其中 $h_u$ 是用户向量，$e_v$ 是视频向量，$s(u,v)$ 是用户和视频的匹配分数。点积越大，表示二者在向量空间里越匹配。
 
-ANN 是 Approximate Nearest Neighbor，意思是近似最近邻检索。它不保证每次都找到数学上绝对精确的最近向量，但能在巨大向量库中快速找到足够接近的候选。
+这套方法解决的不是“最终排序谁最好”，而是“先把可能相关的候选找全”。推荐系统通常分成召回、排序、重排等阶段。召回层负责从大库里快速缩小候选集合，排序层再用更复杂的特征和模型做精细判断。
 
-| 维度 | 二分类推荐 | 多分类召回 |
-|---|---|---|
-| 问题形式 | 判断用户是否喜欢某个视频 | 从全量视频中预测下一个观看视频 |
-| 输出 | 一个点击率或偏好分数 | 一批 Top-K 候选视频 |
-| 类别规模 | 单个样本二分类 | 百万级视频类别 |
-| 典型位置 | 排序层、精排层 | 召回层 |
-| 主要目标 | 更准地排序 | 更全地找回可能相关内容 |
+| 层级 | 目标 | 计算量 | 输出 |
+|---|---|---:|---|
+| 召回 | 找到可能相关的候选 | 低 | 几百到几千条 |
+| 排序 | 精细判断最终顺序 | 高 | 最终列表 |
+| 重排 | 处理多样性、规则、体验约束 | 中 | 展示结果 |
 
-一个玩具例子：假设视频库只有 3 个视频，用户向量是 $u=[1,2]$，三个视频向量分别是 $v_1=[2,0]$、$v_2=[0,1]$、$v_3=[1,1]$。点积分数分别是 $2,2,3$，所以第三个视频更可能被召回。
+玩具例子：用户最近一直在看篮球视频，系统把这些观看行为压成一个用户向量。如果某个视频的向量也靠近“篮球、比赛、NBA”这一类方向，它和用户向量的点积就更大，更可能被召回。这里没有逐个理解每个标题，也没有对全站视频逐条精排，而是先用向量空间做一次快速筛选。
 
-一个真实工程例子：首页推荐先用召回模型从千万级视频库中找出 200 个候选视频，再交给排序模型结合缩略图、频道偏好、地域、设备、时效性等特征重排。召回层的目标不是最终展示顺序，而是尽量把用户可能感兴趣的视频先找出来。
+真实工程例子：用户打开 YouTube 首页时，系统不能对百万级视频逐条跑复杂排序模型。更合理的流程是：召回层先从大库中取出几百个候选视频，排序层再结合标题、封面、上下文、用户短期意图、时效性等信号，决定最终展示顺序。
 
 ---
 
 ## 问题定义与边界
 
-召回是推荐系统的第一层筛选。它的白话定义是：先从巨大内容库里找出一批“可能相关”的候选项，缩小后续排序模型的处理范围。
+YouTube 深度召回网络要解决的问题是：如何从百万级候选视频中，快速找出几百个可能相关的视频。它不是完整推荐系统，也不是最终排序模型。
 
-Top-K 是指按分数取前 K 个结果。例如 Top-200 就是取分数最高的 200 个视频。候选集是召回层输出的一批待排序内容。排序是指在候选集内部重新打分，决定最终展示顺序。
+输入主要包括：
 
-YouTube 深度召回网络的输入不是单个行为，而是一组用户历史和上下文特征。典型输入包括观看历史、搜索词、设备、地域、年龄段、时间等。输出也不是最终推荐列表，而是一批候选视频。
-
-用户表示可以抽象为：
-
-$$
-u = f(h, q, d, r, t, \cdots)
-$$
-
-其中 $h$ 是观看历史表示，$q$ 是搜索词表示，$d$ 是设备特征，$r$ 是地域特征，$t$ 是时间特征，$f$ 是多层神经网络。
-
-| 项目 | 内容 | 说明 |
+| 输入 | 含义 | 示例 |
 |---|---|---|
-| 输入特征 | 历史观看、搜索词、设备、地域、时间 | 用来描述用户当前状态 |
-| 输出目标 | 下一次观看的视频 | 训练标签来自真实观看行为 |
-| 召回层职责 | 找出一批可能相关候选 | 追求覆盖率和检索效率 |
-| 排序层职责 | 对候选视频精细排序 | 追求最终点击、观看时长、满意度等目标 |
+| 观看历史 | 用户过去看过的视频序列 | 最近 50 次观看 |
+| 搜索历史 | 用户过去输入过的查询 | 最近 50 次搜索 |
+| 上下文特征 | 当前请求相关信息 | 地区、设备、年龄段 |
+| 稠密特征 | 连续数值特征 | 用户活跃度、历史观看时长 |
 
-边界要划清：召回层不负责解决所有推荐问题。它不应该直接承担缩略图吸引力、频道疲劳、内容安全、广告混排、精细时效性等复杂目标。它只负责在大规模视频库里把可能相关的视频找出来。
+输出是候选视频 Top-K，而不是最终推荐列表。Top-K，指分数最高的 K 个候选，例如从 100 万视频里取出 200 个候选。
 
-例如，一个用户刚连续看了多个篮球集锦。召回层不需要立刻判断他到底喜欢“篮球运动”“某个球星”还是“某个频道”。它只需要先把篮球、体育、相似频道、相似观看人群喜欢的视频召回出来。排序层再结合更细特征决定哪些视频排在前面。
+新手版解释：如果首页有 100 万个视频，浏览器或服务端不可能先把每个视频都用复杂模型算一遍分数再排序。计算量太大，延迟也不可控。因此推荐系统先用召回层把范围缩小到几百个，再交给精排模型。
+
+边界也很重要。如果问题是“用户是否会点击这个标题党视频”，那已经偏排序或重排。因为它需要理解标题、封面、用户当前上下文、疲劳度、内容质量等更细粒度特征。召回层只需要把可能相关的内容找回来，不能承担所有业务目标。
+
+数据边界同样关键：训练样本只能使用历史时刻之前的信息。比如预测用户在 10:00 观看的视频，只能使用 10:00 之前的观看、搜索和上下文，不能把 10:05 的点击放进特征。否则模型在离线评估中会“提前知道答案”，上线后这个信息不存在，效果会明显下降。
+
+召回层的目标可以概括为三个词：覆盖、速度、稳定。覆盖，指尽量不要漏掉用户可能感兴趣的视频；速度，指请求必须在低延迟内完成；稳定，指向量生成、索引更新、特征处理都要在线上长期可靠。
 
 ---
 
 ## 核心机制与推导
 
-YouTube 深度召回网络的核心机制是向量匹配。向量是由一组数字组成的表示，例如 $[0.2, -0.7, 1.3]$。模型把用户编码成向量 $u$，把视频编码成向量 $v_i$，然后用点积计算匹配分数：
+模型先把用户历史和上下文编码成用户向量，再把每个视频表示成视频向量。向量，指一组数字组成的表示，例如 `[0.2, -0.1, 0.7]`，模型用它承载语义和偏好信息。
+
+设用户观看历史为 $H_w$，搜索历史为 $H_s$，嵌入表为 $E(\cdot)$，其他稠密特征为 $x$。嵌入，指把离散 ID 转成可训练的连续向量。用户表示可以写成：
 
 $$
-s_i = u^\top v_i
+h_u = f\Big([\operatorname{mean}(E(H_w)),\ \operatorname{mean}(E(H_s)),\ x]\Big)
 $$
 
-点积越大，说明用户向量和视频向量方向越接近，模型认为该视频越可能被观看。
+这里 $\operatorname{mean}$ 是平均池化。平均池化，指把多个行为向量求平均，得到一个固定长度向量。$f$ 是多层神经网络，用来把历史行为和稠密特征变成最终用户向量。
 
-观看历史通常先做平均池化。池化是把多个向量合成一个固定长度向量的方法。若最近观看序列为 $(x_1,\dots,x_m)$，每个视频的 embedding 是 $e(x_t)$，历史表示可以写成：
-
-$$
-h=\frac{1}{m}\sum_{t=1}^{m} e(x_t)
-$$
-
-embedding 是离散对象的稠密向量表示。白话说，就是把视频 ID、搜索词、地域这类离散符号转换成模型能计算的一串数字。
-
-完整训练目标接近全量 Softmax：
+视频侧也有向量 $e_v$。在 YouTube 2016 这类召回设定里，视频可以被看作一个类别，输出层每个视频都有对应向量。用户和视频的匹配分数为：
 
 $$
-p(i^+\mid u)=\frac{e^{u^\top v_{i^+}}}{\sum_{j\in\mathcal V}e^{u^\top v_j}}
+s(u,v)=h_u^\top e_v
 $$
 
-其中 $i^+$ 是真实被观看的视频。但当 $\mathcal V$ 有百万级视频时，每个训练样本都计算全部视频的分母成本太高。
+点积，指两个向量对应位置相乘再求和。例如 $[0.5,0.5]$ 和 $[0,1.2]$ 的点积是 $0.5\times0+0.5\times1.2=0.6$。
 
-所以训练时使用 sampled softmax。sampled softmax 是一种近似训练方法：每次只取真实正样本和一小批负样本来估计全量 Softmax。形式上可以写成：
+玩具例子：
 
-$$
-p(i^+\mid u,\mathcal N)\approx
-\frac{e^{u^\top v_{i^+}}}
-{e^{u^\top v_{i^+}}+\sum_{j\in\mathcal N}e^{u^\top v_j}}
-$$
+| 向量 | 数值 | 与用户点积 |
+|---|---|---:|
+| 用户 $h_u$ | $(0.5, 0.5)$ | - |
+| 视频 A $e_A$ | $(1, 0)$ | $0.5$ |
+| 视频 B $e_B$ | $(0, 1.2)$ | $0.6$ |
 
-其中 $\mathcal N$ 是采样出来的负样本集合。为了减轻采样分布和真实分布不一致的问题，工程上常加入抽样概率修正，例如对候选 $j$ 使用：
+因为 $s(u,B)>s(u,A)$，所以召回时 B 应该排在 A 前面。
 
-$$
-\tilde{s}_j = u^\top v_j - \log Q(j)
-$$
-
-其中 $Q(j)$ 是视频 $j$ 被采样为负样本的概率。
-
-上线阶段也不能对全量视频逐个点积。做法是提前把所有视频向量建成 ANN 索引，然后把用户向量 $u$ 放进索引里查 Top-K：
+如果做完整多分类，概率可以写成：
 
 $$
-\operatorname{TopK}(u)=\arg\max_{i\in\mathcal V}^{K} u^\top v_i
+p(v\mid u)=\frac{\exp(s(u,v))}{\sum_{v'\in V}\exp(s(u,v'))}
 $$
 
-| 阶段 | 计算方式 | 为什么这样做 |
-|---|---|---|
-| 训练阶段 | 正样本 + 采样负样本 | 避免每步计算百万级 Softmax |
-| 离线评估 | 可用候选集指标或近似全量评估 | 检查召回质量，不等同于线上效果 |
-| 上线阶段 | ANN 检索 Top-K | 在低延迟下搜索巨大视频库 |
-| 后续排序 | 精排模型重打分 | 用更丰富特征优化最终展示 |
+Softmax，指把多个类别分数归一化成概率分布。但这里的问题是 $V$ 很大，视频库可能有 100 万个类别。每个训练样本都对 100 万个视频计算分母，代价过高。
 
-流程可以写成：
+因此训练阶段使用 sampled softmax。负采样，指每次只抽一小部分非目标视频作为负类，而不是遍历全部视频。近似损失为：
+
+$$
+\mathcal L \approx -\log \frac{\exp(s(u,y))}{\exp(s(u,y))+\sum_{n\in N}\exp(s(u,n))}
+$$
+
+其中 $y$ 是真实观看的视频，$N$ 是采样出来的负样本集合。训练目标是让真类分数高于负类分数。若真类 logit 是 2.0，两个负类分别是 1.0 和 0.0，则：
+
+$$
+p(y)\approx \frac{e^2}{e^2+e^1+e^0}\approx 0.67
+$$
+
+如果这个概率还不够高，loss 会推动模型继续提高真类分数，或压低负类分数。
+
+线上阶段不需要计算 softmax。原因很直接：召回只关心 Top-K，不关心完整概率分布。系统会离线生成所有视频向量并写入 ANN 索引。请求到来时，在线生成用户向量，然后在索引中检索最接近的 Top-K 视频。
+
+训练和线上流程可以写成：
 
 ```text
-用户历史观看 -> embedding lookup -> 平均池化 -> 拼接上下文特征
--> MLP 得到用户向量 -> ANN 匹配视频向量 -> 返回 Top-K 候选
+训练阶段:
+用户历史 + 上下文
+        |
+        v
+用户编码器 -> 用户向量 h_u
+        |
+        v
+真视频 y + 负样本 N
+        |
+        v
+sampled softmax loss
+
+线上阶段:
+用户历史 + 上下文
+        |
+        v
+用户编码器 -> 用户向量 h_u
+        |
+        v
+ANN 视频向量索引
+        |
+        v
+Top-K 候选 -> 排序模型
 ```
+
+ANN，近似最近邻检索，指不保证精确找出全库最相似向量，但能在大规模向量库中以很低延迟找到足够接近的候选。召回层通常接受这种近似，因为它追求的是候选覆盖和速度平衡。
 
 ---
 
 ## 代码实现
 
-下面是一个可运行的最小 Python 例子。它不依赖深度学习框架，只演示三件事：历史平均池化、点积打分、Top-K 召回。
+代码实现可以拆成三层：数据构造、模型训练、线上检索。训练和上线的关键不是“有没有一个神经网络”，而是“向量表示能否稳定生成，并被索引系统消费”。
+
+| 模块 | 输入 | 输出 | 备注 |
+|---|---|---|---|
+| 用户编码器 | 历史行为 + 稠密特征 | 用户向量 | 线上实时生成 |
+| 视频编码器 | 视频 ID / 内容特征 | 视频向量 | 离线批量更新 |
+| 训练损失 | 真类 + 负样本 | loss | 用 sampled softmax |
+| 检索引擎 | 用户向量 + 视频索引 | Top-K 候选 | 用 ANN |
+
+一个最小线上流程如下：
 
 ```python
-import math
+user_vec = encoder(watch_history, search_history, dense_features)
+candidate_ids = ann_index.search(user_vec, top_k=200)
+ranked = ranker.score(user_vec, candidate_ids)
+return ranked[:N]
+```
 
-def mean_pool(vectors):
-    n = len(vectors)
-    dim = len(vectors[0])
-    return [sum(v[i] for v in vectors) / n for i in range(dim)]
+下面是一个可运行的 Python 玩具实现。它不依赖深度学习框架，只演示 embedding、mean pooling、点积打分和 Top-K 检索这几个核心环节。
 
-def dot(a, b):
-    return sum(x * y for x, y in zip(a, b))
+```python
+import numpy as np
 
-def softmax(scores):
-    exps = [math.exp(s) for s in scores]
-    total = sum(exps)
-    return [x / total for x in exps]
-
-def top_k(user_vec, video_vecs, k):
-    scored = [(video_id, dot(user_vec, vec)) for video_id, vec in video_vecs.items()]
-    return sorted(scored, key=lambda x: x[1], reverse=True)[:k]
-
-video_embeddings = {
-    "basketball_1": [2.0, 0.0],
-    "programming_1": [0.0, 1.0],
-    "basketball_mix": [1.0, 1.0],
+video_emb = {
+    "basketball_1": np.array([1.0, 0.0, 0.2]),
+    "basketball_2": np.array([0.8, 0.1, 0.3]),
+    "cooking_1": np.array([0.0, 1.0, 0.1]),
+    "music_1": np.array([0.1, 0.2, 1.0]),
 }
 
-watched = [
-    video_embeddings["basketball_1"],
-    video_embeddings["basketball_mix"],
-]
+search_emb = {
+    "nba": np.array([1.0, 0.0, 0.0]),
+    "final": np.array([0.7, 0.1, 0.0]),
+}
 
-user_vec = mean_pool(watched)
-scores = [dot(user_vec, v) for v in video_embeddings.values()]
-probs = softmax(scores)
-candidates = top_k(user_vec, video_embeddings, k=2)
+def mean_pool(vectors):
+    return np.mean(np.stack(vectors), axis=0)
 
-assert user_vec == [1.5, 0.5]
-assert candidates[0][0] == "basketball_1"
-assert len(probs) == 3
-assert abs(sum(probs) - 1.0) < 1e-9
+def encode_user(watch_history, search_history):
+    watch_vec = mean_pool([video_emb[v] for v in watch_history])
+    search_vec = mean_pool([search_emb[q] for q in search_history])
+    user_vec = 0.7 * watch_vec + 0.3 * search_vec
+    return user_vec / np.linalg.norm(user_vec)
+
+def topk(user_vec, candidate_emb, k=2):
+    scores = {
+        vid: float(np.dot(user_vec, emb / np.linalg.norm(emb)))
+        for vid, emb in candidate_emb.items()
+    }
+    return sorted(scores.items(), key=lambda x: x[1], reverse=True)[:k]
+
+user = encode_user(
+    watch_history=["basketball_1", "basketball_2"],
+    search_history=["nba", "final"],
+)
+
+result = topk(user, video_emb, k=2)
+assert result[0][0] in {"basketball_1", "basketball_2"}
+assert len(result) == 2
+print(result)
 ```
 
-更接近工程实现时，可以拆成训练路径和上线路径：
+这个例子里，用户历史主要是篮球视频和 NBA 搜索词，所以篮球视频向量与用户向量更接近。真实工程里，视频数不是 4 个，而是百万级；向量维度可能是 256；用户历史可能取最近 50 次观看和最近 50 次搜索；检索也不会用 Python 排序全量扫描，而会使用专门的 ANN 索引。
 
-```python
-# 伪代码：训练路径
-history_emb = mean(lookup(video_embedding_table, watched_video_ids))
-search_emb = lookup(search_embedding_table, search_tokens)
-device_emb = lookup(device_embedding_table, device_id)
-region_emb = lookup(region_embedding_table, region_id)
+数据准备通常包括：
 
-context_emb = concat([history_emb, search_emb, device_emb, region_emb])
-user_vec = mlp(context_emb)
+| 步骤 | 说明 |
+|---|---|
+| 截断 | 只取最近 N 次行为，例如最近 50 次观看 |
+| padding | 不足长度时补齐，方便批处理 |
+| embedding | 把视频 ID、搜索词 ID 转成向量 |
+| pooling | 把变长历史压成固定长度表示 |
+| 采样 | 为每个正样本抽取负样本 |
 
-pos_video_vec = lookup(video_embedding_table, watched_next_video_id)
-neg_video_vecs = sample_negative_video_vectors(batch_size=100)
+模型结构可以很朴素：观看历史 embedding 平均池化，搜索历史 embedding 平均池化，再拼接年龄、地区、设备等稠密特征，送入多层感知机。多层感知机，指由若干线性层和非线性激活函数组成的前馈神经网络。
 
-pos_score = dot(user_vec, pos_video_vec)
-neg_scores = matmul(neg_video_vecs, user_vec)
-loss = sampled_softmax_loss(pos_score, neg_scores)
-```
-
-```python
-# 伪代码：上线路径
-history_emb = mean(lookup(video_embedding_table, recent_watched_video_ids))
-context_emb = concat([history_emb, search_emb, device_emb, region_emb])
-user_vec = mlp(context_emb)
-
-candidates = ann_index.search(user_vec, top_k=200)
-return candidates
-```
-
-| 环节 | 训练时 | 上线时 |
-|---|---|---|
-| 输入 | 历史行为、上下文、下一次观看标签 | 当前历史行为、当前上下文 |
-| 标签 | 真实下一个观看视频 | 无标签 |
-| 负样本 | 从视频库采样 | 不采样 |
-| 损失 | sampled softmax loss | 不计算 loss |
-| 输出 | 更新模型参数 | Top-K 候选视频 |
-| 检索方式 | 正负样本打分 | ANN 索引检索 |
-
-这段拆分很重要。训练阶段的 sampled softmax 是为了让模型学到向量空间；上线阶段的 ANN 是为了从向量空间中快速找候选。两者都在近似全量计算，但近似目的不同。
+损失函数使用 sampled softmax。它的工程价值是避免每个样本都遍历百万视频类。在线召回则把训练得到的视频向量离线批量生成，写入 ANN 索引。请求到来时只需要生成用户向量并检索 Top-K。
 
 ---
 
 ## 工程权衡与常见坑
 
-第一类常见坑是负样本分布偏差。训练时采样的负样本集合 $\mathcal N$ 通常不等于线上真实视频分布。如果采样方式过于简单，模型可能只学会区分正样本和“很容易的负样本”，离线 loss 很好看，但线上召回质量不高。
+深度召回最大的工程约束是延迟，不是模型表达能力。召回层追求“够快且够全”，不是“每条都算得最精确”。如果一个召回模型效果很好但请求延迟不可控，它仍然不能直接上线。
 
-一种修正思路是使用抽样概率：
+训练和线上存在明显差异：
 
-$$
-\tilde{s}_j = s_j - \log Q(j)
-$$
+| 项目 | 训练阶段 | 线上阶段 |
+|---|---|---|
+| 目标 | 学会区分真视频和负样本 | 快速找 Top-K 候选 |
+| 候选规模 | 真类 + 采样负类 | 全量视频索引 |
+| 计算方式 | sampled softmax | ANN 检索 |
+| 输入约束 | 严格按时间构造样本 | 使用请求时可得特征 |
+| 输出 | loss 和参数更新 | 候选视频 ID |
 
-其中 $Q(j)$ 表示样本 $j$ 被采中的概率。高频视频更容易被采中，如果不修正，模型可能对热门视频产生额外偏置。
+常见问题如下：
 
-第二类常见坑是平均池化丢失顺序。平均池化稳定、简单、计算快，但它把早期行为和最近行为一视同仁。若用户上午看篮球，晚上连续看编程教程，简单平均可能把兴趣混在一起。
+| 坑 | 表现 | 规避方式 |
+|---|---|---|
+| 未来信息泄漏 | 离线高、线上差 | 按时间回滚构样本 |
+| 负采样不合理 | 模型偏置 | 设计分布一致的负样本 |
+| 索引更新慢 | 新视频召不出来 | 定期刷新 ANN 索引 |
+| 只看点击 | 目标单一 | 加入 watch / watch time |
+| 顺序信息丢失 | 召回粗糙 | 需要时引入序列编码 |
 
-可以使用时间衰减池化。时间衰减是指越新的行为权重越大：
+数据泄漏是最常见也最隐蔽的问题。新手版解释：如果把未来点击也放进输入特征里，模型会“提前知道答案”，离线指标会虚高，上线效果会崩。正确做法是以样本发生时间为边界，只读取此前的行为和特征。
 
-$$
-h=\frac{\sum_{t=1}^{m} w_t e(x_t)}{\sum_{t=1}^{m}w_t},\quad w_t=e^{-\lambda \Delta t}
-$$
+负采样也会影响模型学习方向。如果负样本全是非常冷门、用户几乎不可能看到的视频，模型只学会区分热门正样本和无关冷门视频，不能学会在相似视频之间做区分。更合理的负样本通常要考虑曝光分布、热门度、内容类别和训练效率。
 
-其中 $\Delta t$ 是行为距离当前的时间间隔，$\lambda$ 控制衰减速度。
+索引更新滞后是另一个真实工程问题。假设一个新视频刚上传，排序模型可能认为它质量很高，但如果它的视频向量还没有写入 ANN 索引，召回层根本拿不到它。最终表现就是“模型知道用户可能喜欢新内容，但系统没有把新内容放进候选池”。
 
-```python
-import math
+平均池化简单有效，但会丢失顺序信息。用户先看“篮球教学”再看“球鞋测评”，和先看“球鞋测评”再看“篮球教学”，平均池化后可能非常接近。对粗召回来说这通常可以接受，因为它只需要找大方向；对精排来说就不够了，因为排序需要判断短期意图和上下文变化。
 
-def weighted_pool(items):
-    # items: [(embedding, hours_ago)]
-    weights = [math.exp(-0.1 * hours_ago) for _, hours_ago in items]
-    dim = len(items[0][0])
-    total = sum(weights)
-    pooled = []
-    for i in range(dim):
-        pooled.append(sum(vec[i] * w for (vec, _), w in zip(items, weights)) / total)
-    return pooled
-
-old_basketball = ([2.0, 0.0], 24)
-recent_programming = ([0.0, 2.0], 1)
-
-h = weighted_pool([old_basketball, recent_programming])
-assert h[1] > h[0]
-```
-
-第三类常见坑是训练集泄漏未来信息。泄漏未来信息是指模型训练时看到了预测时本不该知道的数据。例如预测用户第 10 次观看，却把第 11 次、第 12 次观看也放进历史输入。这会让离线指标虚高。
-
-| 常见坑 | 产生原因 | 影响 | 规避方式 |
-|---|---|---|---|
-| 负样本分布偏差 | 采样分布不等于真实分布 | 离线指标虚高 | 使用采样修正，做线上 A/B |
-| 平均池化丢失顺序 | 所有历史同权 | 短期兴趣被稀释 | 时间衰减、分桶、序列模型 |
-| 未来信息泄漏 | 构造样本时用了目标之后的行为 | 评估不可信 | rollback history，只用目标前历史 |
-| 训练和推断混用近似 | 把 sampled softmax 当线上检索 | 行为不一致 | 训练、评估、ANN 推断分开 |
-| 召回和排序目标混淆 | 用召回层承担精排目标 | 系统复杂且效果不稳 | 两阶段建模，职责分离 |
-
-rollback history 是论文中很重要的样本构造思想。白话说，就是把用户历史回滚到目标观看发生之前，只用当时已经发生的行为预测下一次观看。
-
-真实工程里，首页召回通常不会只依赖一个召回源。YouTube 深度召回网络可以提供强个性化候选，但系统还会混入热门内容、订阅频道更新、地域热点、冷启动内容等召回源。这样做的原因是单一神经召回模型很难同时覆盖新视频、突发热点和长尾兴趣。
+sampled softmax 的工程动机可以概括为：全量归一化代价过高。百万类别下，完整 softmax 分母需要对每个类别计算 $\exp(s(u,v'))$，训练吞吐会明显下降。采样近似牺牲一部分精确性，换来可训练性和工程可扩展性。
 
 ---
 
 ## 替代方案与适用边界
 
-YouTube 深度召回网络适合内容库很大、用户行为丰富、需要个性化召回的场景。它不是所有推荐系统的默认答案。
+深度召回不是所有场景的默认答案。是否需要 YouTube 式深度召回，主要取决于候选规模、延迟预算和特征丰富度。
 
-如果内容库只有几千条，比如一个内部知识库或小型课程平台，直接用规则检索、关键词检索、向量检索可能更简单。深度召回网络需要训练数据、特征管道、向量索引、在线服务和监控体系，工程成本并不低。
-
-| 方案 | 适用场景 | 优点 | 缺点 |
+| 方案 | 优点 | 缺点 | 适用场景 |
 |---|---|---|---|
-| 规则召回 | 业务规则明确、规模小 | 可解释、上线快 | 泛化能力弱 |
-| 协同过滤 | 用户-物品交互矩阵较稳定 | 实现简单，效果基线强 | 冷启动困难 |
-| 双塔召回 | 用户侧和物品侧可分开编码 | 适合 ANN 检索 | 交叉特征表达弱 |
-| YouTube 深度召回 | 大规模内容库和丰富行为日志 | 工业可扩展，个性化强 | 训练和系统复杂 |
-| 序列模型 | 短期兴趣、会话意图重要 | 能捕捉行为顺序 | 推理成本和训练复杂度更高 |
-| 混合召回 | 大型线上推荐系统 | 覆盖更全面 | 合并、去重、配额策略复杂 |
+| 规则召回 | 简单、稳定 | 覆盖有限 | 小规模场景 |
+| 协同过滤 | 直观 | 冷启动差 | 行为稠密场景 |
+| 两塔召回 | 可扩展 | 依赖训练数据 | 大规模推荐 |
+| 强排序模型 | 精度高 | 延迟高 | 精排/重排 |
 
-YouTube 方案本质上也是双塔召回的一种经典形态：用户塔输出用户向量，视频塔或视频 embedding 表输出视频向量，再通过向量相似度检索。双塔模型是指用户侧和物品侧分别编码，最后用点积或余弦相似度匹配。
+规则召回，指按人工规则取候选，例如同类目热门、同作者最新、最近浏览相关内容。它便宜、可解释、上线快，但很难覆盖复杂兴趣。
 
-当业务强依赖行为顺序时，可以考虑序列模型。序列模型是把用户行为按时间顺序建模的模型，例如 RNN、Transformer 或 DIN/DIEN 一类结构。它比平均池化更能表达“刚刚发生的行为”。
+协同过滤，指根据用户和物品的交互相似性做推荐。比如喜欢同一批视频的用户，可能继续喜欢相似视频。它在行为数据稠密时有效，但对新用户、新视频冷启动较弱。
 
-当业务目标是新闻、短视频热点、直播等强时效内容时，单纯依赖历史兴趣可能不够。需要额外加入实时召回、热门召回和新内容探索。否则模型会更偏向历史稳定兴趣，错过突发内容。
+两塔召回，指用户塔生成用户向量，物品塔生成物品向量，再用向量相似度检索。YouTube 深度召回可以看作这类思想的重要工业实践之一。它适合候选空间巨大、需要低延迟召回的场景。
 
-结论是：当你有百万级以上内容库、足够行为数据、需要低延迟个性化召回，并且后面还有排序层时，YouTube 深度召回网络是一个合理方案。当内容规模小、数据少、排序目标简单，或者主要依赖关键词匹配时，不必强行使用这套架构。
+强排序模型适合精排或重排。它可以使用更多交叉特征，例如“用户是否常点这类封面”“当前时间是否适合长视频”“标题和用户搜索词是否强匹配”。但它通常不能直接跑在百万候选上，因为计算成本太高。
+
+新手版解释：如果只有几千个商品，用规则、协同过滤或轻量向量检索就够了，不一定要上复杂的深度召回。复杂模型会增加训练、部署、监控和索引维护成本。
+
+一个垂直内容池例子：某个企业内部学习平台只有 3000 门课程，用户行为也不多。此时可以先用类目、关键词、热门度、最近学习记录做召回，再用简单排序模型处理。如果直接上百万类别 sampled softmax，不一定带来收益。
+
+判断边界可以简化为：
+
+| 条件 | 建议 |
+|---|---|
+| 候选少 | 不必复杂化 |
+| 延迟紧 | 优先向量召回 |
+| 特征简单 | 别过度追求重模型 |
+| 冷启动严重 | 引入内容特征或混合召回 |
+| 目标复杂 | 交给排序或重排处理 |
+
+真实工程中通常会使用混合召回。混合召回，指多个召回通道同时产出候选，例如深度召回、热门召回、关注作者召回、搜索相关召回、新内容召回。这样可以降低单一模型失效带来的风险，也能覆盖不同业务目标。
 
 ---
 
 ## 参考资料
 
-- 论文原文：Deep Neural Networks for YouTube Recommendations  
-  https://research.google/pubs/deep-neural-networks-for-youtube-recommendations/  
-  用来理解 YouTube 两阶段推荐架构、候选生成模型和工程动机。
+| 资料 | 用途 |
+|---|---|
+| Covington, Adams, Sargin, 2016: Deep Neural Networks for YouTube Recommendations | 主论文，核心方法来源 |
+| Google Research 论文页 | 论文简介和官方入口 |
+| `tf.nn.sampled_softmax_loss` | sampled softmax 的实现参考 |
+| Google Research ScaNN README | ANN 近似检索参考 |
 
-- 论文 PDF：Deep Neural Networks for YouTube Recommendations  
-  https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45530.pdf  
-  用来查看候选生成网络、样本构造、负采样和线上服务细节。
+1. [Deep Neural Networks for YouTube Recommendations](https://research.google.com/pubs/archive/45530.pdf)
+2. [Google Research: Deep Neural Networks for YouTube Recommendations](https://research.google.com/pubs/deep-neural-networks-for-youtube-recommendations/)
+3. [TensorFlow: tf.nn.sampled_softmax_loss](https://www.tensorflow.org/api_docs/python/tf/nn/sampled_softmax_loss)
+4. [Google Research ScaNN README](https://github.com/google-research/google-research/blob/master/scann/README.md)
 
-- TensorFlow 文档：tf.nn.sampled_softmax_loss  
-  https://www.tensorflow.org/api_docs/python/tf/nn/sampled_softmax_loss  
-  用来理解 sampled softmax 在训练大规模分类模型时的接口和约束。
-
-- ScaNN：Google Research 的向量近邻检索工具  
-  https://github.com/google-research/google-research/blob/master/scann/README.md  
-  用来理解 ANN 检索如何服务于大规模向量召回。
-
-- Faiss：Meta 开源的向量检索库  
-  https://github.com/facebookresearch/faiss/wiki  
-  用来了解工业里常见的向量索引、近邻搜索和相似度检索实现。
+本文依据 YouTube 2016 论文中的大规模分类设定、sampled softmax 训练、向量点积召回和 ANN 检索流程。理论、训练、检索三部分分别对应论文、loss API 和 ANN 工具。
