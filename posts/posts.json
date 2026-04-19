@@ -1,5 +1,17 @@
 [
   {
+    "title": "生成式问答系统",
+    "slug": "generative-question-answering",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "问答系统"
+    ],
+    "summary": "生成式问答先检索证据，再逐token生成受证据约束的答案"
+  },
+  {
     "title": "知识增强问答",
     "slug": "knowledge-enhanced-question-answering",
     "date": "2026-04-19",
