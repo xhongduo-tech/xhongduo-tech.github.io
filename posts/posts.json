@@ -1,5 +1,17 @@
 [
   {
+    "title": "抽取式问答系统",
+    "slug": "extractive-question-answering",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "问答系统"
+    ],
+    "summary": "抽取式问答通过预测起止边界，从给定上下文中定位答案片段"
+  },
+  {
     "title": "对比学习文本表示",
     "slug": "contrastive-text-representation",
     "date": "2026-04-19",
