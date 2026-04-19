@@ -1,5 +1,17 @@
 [
   {
+    "title": "XLNet 排列语言模型",
+    "slug": "xlnet-permutation-language-model",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "XLNet 通过排列预测顺序，在自回归框架中学习双向上下文。"
+  },
+  {
     "title": "ALBERT 轻量化策略",
     "slug": "albert-lightweight-strategies",
     "date": "2026-04-19",
