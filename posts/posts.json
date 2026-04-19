@@ -1,5 +1,17 @@
 [
   {
+    "title": "离线在线一致性分析",
+    "slug": "offline-online-consistency",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "评估方法"
+    ],
+    "summary": "离线提升不等于线上收益，需校正曝光偏差并验证指标一致性"
+  },
+  {
     "title": "A/B 测试设计原则",
     "slug": "ab-testing-design-principles",
     "date": "2026-04-19",
