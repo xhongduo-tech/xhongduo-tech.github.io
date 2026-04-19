@@ -1,5 +1,17 @@
 [
   {
+    "title": "离线评估指标体系",
+    "slug": "offline-evaluation-metrics",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "评估方法"
+    ],
+    "summary": "离线评估需联合准确率、覆盖率、多样性与新颖性判断模型。"
+  },
+  {
     "title": "AUC 与 GAUC 深度解析",
     "slug": "auc-gauc-deep-analysis",
     "date": "2026-04-19",

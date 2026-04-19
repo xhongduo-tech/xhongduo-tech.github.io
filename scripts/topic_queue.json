@@ -19070,7 +19070,7 @@
       "评估方法"
     ],
     "brief": "离线评估从准确率、覆盖率、多样性、新颖性等多维度衡量模型效果。准确率指标包括 AUC、GAUC、NDCG、MRR；覆盖率指标包括 Item Coverage、Catalog Coverage；多样性指标包括 ILS、Entropy。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AUC 与 GAUC 深度解析",
