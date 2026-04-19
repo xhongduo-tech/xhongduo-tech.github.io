@@ -1,5 +1,17 @@
 [
   {
+    "title": "推荐系统的特征重要性分析",
+    "slug": "feature-importance-analysis",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "模型可解释性"
+    ],
+    "summary": "特征重要性解释模型依赖，需结合参数、置换、SHAP与field聚合。"
+  },
+  {
     "title": "ELMo 双向语言模型",
     "slug": "elmo-bidirectional-language-model",
     "date": "2026-04-19",
