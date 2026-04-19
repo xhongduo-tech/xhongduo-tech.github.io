@@ -1,5 +1,17 @@
 [
   {
+    "title": "少样本文本分类",
+    "slug": "few-shot-text-classification",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "少样本文本分类用原型、prompt或元学习在极少标注下完成分类"
+  },
+  {
     "title": "主动学习标注优化",
     "slug": "active-learning-annotation-optimization",
     "date": "2026-04-19",
