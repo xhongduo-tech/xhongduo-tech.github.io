@@ -1,5 +1,17 @@
 [
   {
+    "title": "ELMo 双向语言模型",
+    "slug": "elmo-bidirectional-language-model",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "ELMo 用双向语言模型生成上下文相关词向量，解决静态词向量一词多义问题。"
+  },
+  {
     "title": "推荐模型的量化与剪枝",
     "slug": "recommendation-quantization-pruning",
     "date": "2026-04-19",
