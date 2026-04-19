@@ -19026,7 +19026,7 @@
       "冷启动"
     ],
     "brief": "通过元学习快速适应新用户或新物品的冷启动场景。MAML 学习好的初始化参数，Few-shot Learning 从少量样本快速泛化。典型应用包括 MeLU、MAMO 等推荐元学习模型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "冷启动之 Embedding ID 化",

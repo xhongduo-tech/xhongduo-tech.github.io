@@ -1,5 +1,17 @@
 [
   {
+    "title": "冷启动之元学习方法",
+    "slug": "cold-start-meta-learning",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "冷启动"
+    ],
+    "summary": "元学习通过少量样本快速适配新用户或新物品冷启动。"
+  },
+  {
     "title": "冷启动之迁移学习方案",
     "slug": "cold-start-transfer-learning",
     "date": "2026-04-19",
