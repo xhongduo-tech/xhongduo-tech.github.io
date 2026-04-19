@@ -1,5 +1,17 @@
 [
   {
+    "title": "Interleaving 快速实验方法",
+    "slug": "interleaving-rapid-experimentation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "评估方法"
+    ],
+    "summary": "Interleaving 用同页混排点击快速比较两个排序器优劣。"
+  },
+  {
     "title": "推荐系统偏差与去偏",
     "slug": "recommendation-bias-debiasing",
     "date": "2026-04-19",

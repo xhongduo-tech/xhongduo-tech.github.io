@@ -19136,7 +19136,7 @@
       "评估方法"
     ],
     "brief": "Interleaving 将两个算法的推荐结果混合展示给同一用户，通过用户选择判断算法优劣。相比传统 A/B，Interleaving 样本需求更少、灵敏度更高。适用于快速迭代和早期筛选。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "对比学习在召回中的应用",
