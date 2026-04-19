@@ -19224,7 +19224,7 @@
       "排序模型"
     ],
     "brief": "将信息检索的 LTR 方法迁移到推荐排序。典型方法包括：Pointwise（单点预测）、Pairwise（成对比较）、Listwise（整体排序）。LambdaLoss 结合 NDCG 的梯度设计，直接优化排序指标。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "序列推荐的位置编码设计",

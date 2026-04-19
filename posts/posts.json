@@ -1,5 +1,17 @@
 [
   {
+    "title": "Learning to Rank 在推荐中的应用",
+    "slug": "learning-to-rank-recommendation",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "LTR 将推荐精排建模为排序学习，并优先对齐 top-K 指标。"
+  },
+  {
     "title": "排序模型的位置偏差处理",
     "slug": "ranking-position-bias",
     "date": "2026-04-19",
