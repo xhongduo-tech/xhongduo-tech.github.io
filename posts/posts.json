@@ -1,5 +1,17 @@
 [
   {
+    "title": "序列推荐的位置编码设计",
+    "slug": "sequential-recommendation-positional-encoding",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "序列推荐"
+    ],
+    "summary": "序列推荐位置编码需同时建模顺序、时间差与周期。"
+  },
+  {
     "title": "Learning to Rank 在推荐中的应用",
     "slug": "learning-to-rank-recommendation",
     "date": "2026-04-19",
