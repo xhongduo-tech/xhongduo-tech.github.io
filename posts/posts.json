@@ -1,5 +1,17 @@
 [
   {
+    "title": "CRF 序列标注原理",
+    "slug": "crf-sequence-labeling",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "CRF 通过全局路径打分建模标签转移，用 Viterbi 找最优序列"
+  },
+  {
     "title": "XLNet 排列语言模型",
     "slug": "xlnet-permutation-language-model",
     "date": "2026-04-19",
