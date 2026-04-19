@@ -1,5 +1,29 @@
 [
   {
+    "title": "话题模型 LDA",
+    "slug": "topic-model-lda",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "LDA 将文档表示为话题混合，将话题表示为词分布。"
+  },
+  {
+    "title": "停用词处理策略",
+    "slug": "stopword-processing-strategy",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "停用词是否删除，要看任务、特征和模型，不宜一刀切。"
+  },
+  {
     "title": "关键词提取算法",
     "slug": "keyword-extraction-algorithms",
     "date": "2026-04-19",
