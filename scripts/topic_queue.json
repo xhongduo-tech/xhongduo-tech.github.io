@@ -19015,7 +19015,7 @@
       "冷启动"
     ],
     "brief": "利用源域的丰富数据迁移到目标域的冷启动场景。典型方法包括 Domain Adaptation（对齐特征分布）、Domain Adversarial Training（对抗学习域不变特征）、Fine-tuning（微调预训练模型）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "冷启动之元学习方法",

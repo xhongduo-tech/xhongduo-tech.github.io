@@ -1,5 +1,17 @@
 [
   {
+    "title": "冷启动之迁移学习方案",
+    "slug": "cold-start-transfer-learning",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "冷启动"
+    ],
+    "summary": "冷启动迁移学习通过微调与域对齐复用源域知识。"
+  },
+  {
     "title": "IGMC 归纳式图矩阵补全",
     "slug": "igmc-inductive-graph-matrix-completion",
     "date": "2026-04-19",
