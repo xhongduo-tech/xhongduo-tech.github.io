@@ -1,5 +1,17 @@
 [
   {
+    "title": "图神经网络的过平滑问题",
+    "slug": "gnn-oversmoothing-problem",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "图神经网络"
+    ],
+    "summary": "GNN过平滑源于反复邻居平均，深层会削弱节点区分能力。"
+  },
+  {
     "title": "序列推荐的位置编码设计",
     "slug": "sequential-recommendation-positional-encoding",
     "date": "2026-04-19",
