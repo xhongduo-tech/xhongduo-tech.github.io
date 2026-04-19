@@ -1,5 +1,17 @@
 [
   {
+    "title": "序列标注评估指标",
+    "slug": "sequence-labeling-evaluation-metrics",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "序列标注评估应区分词级与实体级，NER 主结果通常看 strict 实体级 F1。"
+  },
+  {
     "title": "零样本文本分类",
     "slug": "zero-shot-text-classification",
     "date": "2026-04-19",
