@@ -1,5 +1,17 @@
 [
   {
+    "title": "Seq2Seq 序列到序列模型",
+    "slug": "seq2seq-sequence-to-sequence",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本生成"
+    ],
+    "summary": "Seq2Seq 用编码器读入序列，解码器逐步生成，attention 缓解长序列瓶颈。"
+  },
+  {
     "title": "注意力机制原理",
     "slug": "attention-mechanism",
     "date": "2026-04-19",
