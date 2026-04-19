@@ -1,5 +1,17 @@
 [
   {
+    "title": "Beam Search 解码策略",
+    "slug": "beam-search-decoding",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本生成"
+    ],
+    "summary": "Beam Search 通过保留 top-k 候选，在质量、成本和长度偏置之间折中。"
+  },
+  {
     "title": "Seq2Seq 序列到序列模型",
     "slug": "seq2seq-sequence-to-sequence",
     "date": "2026-04-19",
