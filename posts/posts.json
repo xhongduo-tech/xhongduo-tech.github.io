@@ -1,5 +1,17 @@
 [
   {
+    "title": "SpanBERT 跨度级预训练",
+    "slug": "spanbert-span-level-pretraining",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "词向量与预训练"
+    ],
+    "summary": "SpanBERT 用跨度遮蔽和边界预测强化连续片段表示。"
+  },
+  {
     "title": "CRF 序列标注原理",
     "slug": "crf-sequence-labeling",
     "date": "2026-04-19",
