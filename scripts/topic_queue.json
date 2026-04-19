@@ -19411,7 +19411,7 @@
       "序列标注"
     ],
     "brief": "BERT-CRF 用 BERT 替代 BiLSTM 作为编码器，利用预训练语言模型的强大表示能力。BERT 输出的词元向量直接输入 CRF 层进行序列解码。在标准 NER 数据集上达到或超越更复杂的架构，是目前工业界的主流选择。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BIAFFINE 依存句法分析",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "BERT-CRF 命名实体识别",
+    "slug": "bert-crf-named-entity-recognition",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "BERT-CRF 用 BERT 表示语义，用 CRF 稳定解码实体边界"
+  },
+  {
     "title": "BiLSTM-CRF 序列标注",
     "slug": "bilstm-crf-sequence-labeling",
     "date": "2026-04-19",
