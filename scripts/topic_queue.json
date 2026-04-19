@@ -19125,7 +19125,7 @@
       "评估方法"
     ],
     "brief": "A/B 测试是在线评估的金标准，需要保证样本量充足、分组随机、指标灵敏。典型设计包括：正交实验分层、Switchback 实验处理网络效应、Interleaving 实验提升灵敏度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Interleaving 快速实验方法",

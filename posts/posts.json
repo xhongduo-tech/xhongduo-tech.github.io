@@ -1,5 +1,17 @@
 [
   {
+    "title": "A/B 测试设计原则",
+    "slug": "ab-testing-design-principles",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "评估方法"
+    ],
+    "summary": "A/B 测试的可信度取决于随机化、实验单元和数据质量。"
+  },
+  {
     "title": "NDCG 与位置衰减",
     "slug": "ndcg-position-discount",
     "date": "2026-04-19",
