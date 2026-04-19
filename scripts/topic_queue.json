@@ -18960,7 +18960,7 @@
       "序列推荐"
     ],
     "brief": "结合 GRU 和 Attention 的会话推荐模型，分为全局编码器（捕捉整体序列模式）和局部编码器（关注当前意图）。通过 Attention 聚合历史行为，生成混合意图表示。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PinSage 图神经网络推荐",

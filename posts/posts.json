@@ -1,5 +1,17 @@
 [
   {
+    "title": "NARM 神经注意力会话模型",
+    "slug": "narm-neural-attention-session",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "序列推荐"
+    ],
+    "summary": "NARM 用 GRU 建模全局顺序，用 Attention 捕捉当前会话意图。"
+  },
+  {
     "title": "GRU4Rec 会话推荐",
     "slug": "gru4rec-session-recommendation",
     "date": "2026-04-19",
