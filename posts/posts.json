@@ -1,5 +1,18 @@
 [
   {
+    "title": "视频理解基准：ActivityNet-QA 与 Video-MME",
+    "slug": "video-benchmarks-activitynet-videomme",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "基准评测",
+      "视频理解"
+    ],
+    "summary": "ActivityNet-QA评开放式短答案，Video-MME评多模态长视频多选理解"
+  },
+  {
     "title": "正定核与再生核希尔伯特空间",
     "slug": "math-kernel-positive-definite-rkhs",
     "date": "2026-04-19",
@@ -274,19 +287,6 @@
       "视觉语言模型"
     ],
     "summary": "mPLUG-Owl 用 Visual Abstractor 压缩视觉 token，降低 LLM 成本但牺牲部分细节。"
-  },
-  {
-    "title": "视频理解基准：ActivityNet-QA 与 Video-MME",
-    "slug": "video-benchmarks-activitynet-videomme",
-    "date": "2026-04-19",
-    "author": "both",
-    "tags": [
-      "前沿追踪",
-      "多模态",
-      "基准评测",
-      "视频理解"
-    ],
-    "summary": "ActivityNet-QA测长视频证据定位，Video-MME拆解时长与多模态增益。"
   },
   {
     "title": "经验贝叶斯方法",
