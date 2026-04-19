@@ -17813,7 +17813,7 @@
       "基准评测"
     ],
     "brief": "VQAv2 和 GQA 是视觉问答的基础基准，评测基本视觉理解能力。GQA 强调组合推理和多步问题。分析 VLM 在简单 vs 复杂问题的性能差距、一致性评测方法。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "视频理解基准：ActivityNet-QA 与 Video-MME",
@@ -17825,7 +17825,7 @@
       "视频理解"
     ],
     "brief": "ActivityNet-QA 评测视频问答能力，Video-MME 提供全面的视频理解评测框架。分析短视频 vs 长视频理解的差异、时序推理评测设计、以及多帧信息融合的评测方法。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "RLHF-V：视觉语言模型的细粒度幻觉纠正",
@@ -18454,7 +18454,7 @@
       "泛函分析"
     ],
     "brief": "正定核与 RKHS 把“在高维甚至无限维特征空间里做线性方法”变成了可操作的计算框架，是核 SVM、核岭回归和高斯过程背后的统一数学基础。其关键不是抽象空间本身，而是再生性质让点值评价变成了内积运算。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "谱图理论的特征值分析",
@@ -18465,7 +18465,7 @@
       "图论"
     ],
     "brief": "谱图理论通过研究图 Laplacian 的特征值和特征向量，把图结构问题转化为线性代数问题，因此在谱聚类、图信号处理和图神经网络中都非常核心。尤其是小特征值对应的结构信息，直接反映了图的连通性与社区边界。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "正交多项式与高斯积分",
@@ -18476,7 +18476,7 @@
       "数值计算"
     ],
     "brief": "正交多项式的三项递推关系。高斯积分的节点与权重。Legendre多项式与Gauss-Legendre积分。在贝叶斯推断中的数值积分应用。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "自动微分的前向与反向模式",
@@ -18542,7 +18542,7 @@
       "泛函分析"
     ],
     "brief": "泛函导数与变分法研究的是“函数的函数”如何变化，因此它是连续优化、最优控制和许多物理定律推导的核心语言。对机器学习而言，理解泛函导数有助于看懂分布优化、梯度流和某些 PDE 视角下的训练过程。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "压缩映射与Banach不动点定理",
@@ -18630,7 +18630,7 @@
       "统计学"
     ],
     "brief": "Stein引理：高斯变量的期望与函数导数的关系。SURE（Stein无偏风险估计）的推导。在去噪和收缩估计中的应用。James-Stein估计的理论基础。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Copula函数与依赖结构建模",
@@ -18718,7 +18718,7 @@
       "召回模型"
     ],
     "brief": "Google 2016 年的经典工业实践，将推荐问题建模为极端多分类（百万级视频 Softmax）。训练阶段用负采样近似，线上阶段用 ANN 检索 Top-K。用户历史观看序列平均池化作为特征。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "基于 Knowledge Graph 的召回",
@@ -18729,7 +18729,7 @@
       "召回模型"
     ],
     "brief": "利用知识图谱建模物品间的语义关联，缓解数据稀疏和冷启动。典型方法包括基于 embedding 的 RippleNet、基于路径的 KGAT、以及联合训练的 MKM-SR。通过多跳推理发现隐式关联。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "向量检索与 ANN 加速",
@@ -18762,7 +18762,7 @@
       "召回模型"
     ],
     "brief": "阿里提出的动态路由机制建模用户多兴趣，一个用户生成多个兴趣向量。基于 Capsule Network 的路由聚类历史行为，每个兴趣向量独立召回候选。线上通过 Label-Aware Attention 聚合。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Wide & Deep 学习框架",
@@ -18773,7 +18773,7 @@
       "排序模型"
     ],
     "brief": "Google 提出的经典排序架构，Wide 侧 Memorization 记忆高频模式，Deep 侧 Generalization 泛化稀疏特征。联合训练平衡两者，避免单独 Wide 的过拟合和单独 Deep 的欠拟合。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "DeepFM 特征交互模型",

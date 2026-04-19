@@ -1,5 +1,29 @@
 [
   {
+    "title": "谱图理论的特征值分析",
+    "slug": "math-graph-spectral-theory-eigenvalues",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "图论"
+    ],
+    "summary": "谱图理论用 Laplacian 特征值刻画连通性、切分与平滑性。"
+  },
+  {
+    "title": "xDeepFM 压缩交互网络",
+    "slug": "xdeepfm-compressed-interaction-network",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "排序模型"
+    ],
+    "summary": "xDeepFM 用 CIN 显式学习向量级高阶交互，并与 Linear、DNN 联合训练。"
+  },
+  {
     "title": "DIEN 深度兴趣演化网络",
     "slug": "dien-interest-evolution",
     "date": "2026-04-19",
