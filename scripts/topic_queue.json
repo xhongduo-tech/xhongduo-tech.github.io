@@ -18476,7 +18476,7 @@
       "数值计算"
     ],
     "brief": "正交多项式的三项递推关系。高斯积分的节点与权重。Legendre多项式与Gauss-Legendre积分。在贝叶斯推断中的数值积分应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "自动微分的前向与反向模式",

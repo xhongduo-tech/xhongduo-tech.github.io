@@ -1,5 +1,17 @@
 [
   {
+    "title": "正交多项式与高斯积分",
+    "slug": "math-orthogonal-polynomials-gaussian-quadrature",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "数学基础",
+      "数值计算"
+    ],
+    "summary": "正交多项式通过三项递推生成高斯积分节点与权重。"
+  },
+  {
     "title": "Stein引理与Stein无偏风险估计",
     "slug": "math-stein-lemma-unbiased-risk-estimator",
     "date": "2026-04-19",
