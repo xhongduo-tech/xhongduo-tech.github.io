@@ -1,5 +1,29 @@
 [
   {
+    "title": "BIAFFINE 依存句法分析",
+    "slug": "biaffine-dependency-parsing",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "依存句法分析"
+    ],
+    "summary": "Biaffine 用词对双仿射打分预测依存弧和标签，再用解码器保证合法树"
+  },
+  {
+    "title": "TextCNN 文本分类",
+    "slug": "textcnn-text-classification",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "文本分类"
+    ],
+    "summary": "TextCNN 用多尺寸卷积核和最大池化提取局部 n-gram 特征，适合短文本分类"
+  },
+  {
     "title": "BERT-CRF 命名实体识别",
     "slug": "bert-crf-named-entity-recognition",
     "date": "2026-04-19",

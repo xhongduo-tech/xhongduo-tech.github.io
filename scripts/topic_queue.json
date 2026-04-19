@@ -19422,7 +19422,7 @@
       "依存句法分析"
     ],
     "brief": "Biaffine Parser 用双仿射注意力建模词对之间的依存关系，分别预测头词和依存弧标签。两个 MLP 分别提取头词和依存词的表示，双仿射变换计算所有词对的得分。Eisner 算法或 MST 解码器保证输出合法的依存树。该架构在多个树库上达到 SOTA。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TextCNN 文本分类",
