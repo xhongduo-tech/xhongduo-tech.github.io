@@ -1,5 +1,17 @@
 [
   {
+    "title": "槽位填充对话理解",
+    "slug": "slot-filling-dialogue-understanding",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "NLP基础",
+      "序列标注"
+    ],
+    "summary": "槽位填充用序列标注抽取对话中的结构化字段。"
+  },
+  {
     "title": "命名实体识别特征工程",
     "slug": "ner-feature-engineering",
     "date": "2026-04-19",
