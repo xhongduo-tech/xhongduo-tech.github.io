@@ -1,5 +1,17 @@
 [
   {
+    "title": "会话推荐的实时性挑战",
+    "slug": "session-recommendation-realtime",
+    "date": "2026-04-19",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "推荐系统",
+      "序列推荐"
+    ],
+    "summary": "会话推荐的实时性核心是增量状态、特征缓存与低延迟推理"
+  },
+  {
     "title": "MIND 多兴趣召回网络",
     "slug": "mind-multi-interest-retrieval",
     "date": "2026-04-19",
