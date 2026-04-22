@@ -1,5 +1,17 @@
 [
   {
+    "title": "Weight Standardization：卷积权重标准化",
+    "slug": "weight-standardization-convolution-weight",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "归一化",
+      "CNN训练"
+    ],
+    "summary": "WS 标准化卷积权重，常与 GN 配合稳定小 batch 训练"
+  },
+  {
     "title": "InstanceNorm：实例级归一化",
     "slug": "instancenorm-instance-normalization",
     "date": "2026-04-22",

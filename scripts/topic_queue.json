@@ -20154,7 +20154,7 @@
       "CNN训练"
     ],
     "brief": "Weight Standardization 对卷积核权重进行标准化，配合 GroupNorm 实现与 BatchNorm 无关的训练。公式：W' = (W - mean(W)) / std(W)。在 Micro-Batch 训练（BS=1-2）上效果显著，在目标检测和分割任务上被广泛采用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Spectral Normalization：频谱归一化",
