@@ -20092,7 +20092,7 @@
       "RNN训练"
     ],
     "brief": "Zoneout 随机将 RNN 隐状态替换为前一时间步的值，而非置零。这种策略保持 RNN 的记忆能力同时提供正则化效果。zoneout 概率通常设为 0.1-0.5。在语言模型和语音识别任务上优于标准 Dropout，尤其适合长序列。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Label Smoothing：软标签正则化",

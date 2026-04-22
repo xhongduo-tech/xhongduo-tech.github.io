@@ -1,5 +1,17 @@
 [
   {
+    "title": "Zoneout：RNN 的随机状态保留",
+    "slug": "zoneout-rnn-state-preservation",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "RNN训练"
+    ],
+    "summary": "Zoneout 通过随机保留旧隐状态稳定 RNN 长序列记忆"
+  },
+  {
     "title": "Stochastic Depth：深度随机正则化",
     "slug": "stochastic-depth-random-layer-depth",
     "date": "2026-04-22",
