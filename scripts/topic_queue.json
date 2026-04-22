@@ -20262,7 +20262,7 @@
       "调试"
     ],
     "brief": "梯度 NaN 的常见原因：除零（softmax 后全零）、log(0)、exp 溢出、权重初始化不当。诊断工具：torch.autograd.detect_anomaly()、torch.isnan().any()。逐层检查梯度，定位首次出现 NaN 的位置。预防策略：梯度裁剪、数值稳定 softmax、合适的初始化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LayerScale：深层 Vision Transformer 的训练稳定性",

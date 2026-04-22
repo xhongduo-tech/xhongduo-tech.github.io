@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度 NaN 诊断：数值异常的根因分析",
+    "slug": "gradient-nan-diagnosis-numerical-anomaly",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "调试"
+    ],
+    "summary": "梯度 NaN 要定位第一处异常，再用稳定算子和训练策略修复。"
+  },
+  {
     "title": "Paged Attention：KV Cache 的分页管理",
     "slug": "paged-attention-kv-cache-paging",
     "date": "2026-04-22",
