@@ -20385,7 +20385,7 @@
       "通信优化"
     ],
     "brief": "梯度压缩通过减少传输数据量加速分布式训练。常用方法：Top-K sparsification（只传最大的 K% 梯度）、量化（fp16/int8）、1-bit quantization。DeepGradientCompression 提出 momentum correction 和 local gradient clipping 保证收敛。在低带宽网络下可达 10 倍加速。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分布式训练的容错与 Checkpoint",

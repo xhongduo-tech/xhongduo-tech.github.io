@@ -1,5 +1,17 @@
 [
   {
+    "title": "梯度压缩：分布式训练的带宽优化",
+    "slug": "gradient-compression-bandwidth-optimization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "通信优化"
+    ],
+    "summary": "梯度压缩用稀疏化或量化减少同步通信，需配合误差补偿稳定收敛"
+  },
+  {
     "title": "Efficient Dataparallel：异步参数同步",
     "slug": "efficient-dataparallel-async-sync",
     "date": "2026-04-22",
