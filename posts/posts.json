@@ -1,5 +1,17 @@
 [
   {
+    "title": "Token Dropout：语言模型的随机 Token 屏蔽",
+    "slug": "token-dropout-language-model-masking",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "语言模型"
+    ],
+    "summary": "Token Dropout 通过随机屏蔽输入提升语言模型鲁棒性"
+  },
+  {
     "title": "训练效率度量：TFLOPS、MFU 与实际吞吐",
     "slug": "training-efficiency-metrics-tflops-mfu",
     "date": "2026-04-22",

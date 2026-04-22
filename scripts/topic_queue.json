@@ -20493,7 +20493,7 @@
       "语言模型"
     ],
     "brief": "Token Dropout 随机将部分 token 的 embedding 置零或替换为 [MASK]，强迫模型从上下文推断信息。与 BERT MLM 的区别：训练时所有位置都参与预测，不只是 masked 位置。dropout rate 通常为 0.1-0.2。在 T5、GPT 等模型中应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "训练效率度量：TFLOPS、MFU 与实际吞吐",
