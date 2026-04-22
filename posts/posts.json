@@ -1,5 +1,17 @@
 [
   {
+    "title": "弹性训练：动态调整 Worker 数量",
+    "slug": "elastic-training-dynamic-worker-scaling",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "弹性调度"
+    ],
+    "summary": "弹性训练通过重组网、完整恢复状态和动态调整 batch，使节点变化后训练可继续。"
+  },
+  {
     "title": "模型权重的 EMA (Exponential Moving Average)",
     "slug": "ema-model-weights-averaging",
     "date": "2026-04-22",

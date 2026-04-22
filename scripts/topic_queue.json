@@ -20409,7 +20409,7 @@
       "弹性调度"
     ],
     "brief": "弹性训练支持在运行时动态增减 worker 数量，适应抢占式云实例和共享集群。PyTorch Elastic 和 DeepSpeed Elastic 提供实现。关键技术：一致性 hash 确保数据分片稳定、动态 batch size 调整、从最近的 checkpoint 恢复。适合 Spot Instance 训练场景。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型权重的 EMA (Exponential Moving Average)",
