@@ -1,5 +1,16 @@
 [
   {
+    "title": "Alpaca 高质量指令数据集构建",
+    "slug": "alpaca-instruction-dataset",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "Alpaca 用少量种子合成 52K 指令数据，低成本构建单轮指令微调基线"
+  },
+  {
     "title": "WizardLM 复杂指令微调",
     "slug": "wizardlm-complex-instruction",
     "date": "2026-04-22",

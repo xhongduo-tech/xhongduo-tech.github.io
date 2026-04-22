@@ -20660,7 +20660,7 @@
       "指令微调"
     ],
     "brief": "Alpaca 使用 Self-Instruct 方法，基于 text-davinci-003 生成了 52K 指令数据，证明了少量成本（<600 美元）即可训练出接近 GPT-3.5 能力的模型。其数据格式和清洗策略成为后续工作的基准参考。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "WizardLM 复杂指令微调",
