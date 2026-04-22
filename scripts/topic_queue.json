@@ -20274,7 +20274,7 @@
       "Vision Transformer"
     ],
     "brief": "LayerScale 在每个残差块的输出乘以可学习的对角矩阵，初始化为极小值（如 1e-5）。这使得深层网络（ViT-L/H）的训练更加稳定，避免梯度爆炸。在 ViT-22B 和 DINOv2 等大规模视觉模型中被广泛采用。与 LayerNorm 配合使用效果最佳。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "训练监控指标：MFU、Loss Scale、梯度统计",

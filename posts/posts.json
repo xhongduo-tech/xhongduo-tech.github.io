@@ -1,5 +1,17 @@
 [
   {
+    "title": "LayerScale：深层 Vision Transformer 的训练稳定性",
+    "slug": "layerscale-deep-vit-stability",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "Vision Transformer"
+    ],
+    "summary": "LayerScale 用极小可学习残差缩放稳定深层 ViT 训练"
+  },
+  {
     "title": "Loss Spike 诊断：大模型训练的崩溃检测与恢复",
     "slug": "loss-spike-diagnosis-training-crash",
     "date": "2026-04-22",
