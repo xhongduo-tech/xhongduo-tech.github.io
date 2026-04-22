@@ -20847,7 +20847,7 @@
       "数据构建"
     ],
     "brief": "TagGPT 使用大模型自动为指令数据生成标签和质量评分。通过 prompt engineering 让模型评估指令难度、领域、质量等维度，实现大规模数据的自动化筛选和分类。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "微调学习率选择策略",

@@ -1,14 +1,14 @@
 [
   {
-    "title": "响应多样性增强",
-    "slug": "response-diversity-enhancement",
+    "title": "TagGPT 自动化数据标注",
+    "slug": "taggpt-automated-data-annotation",
     "date": "2026-04-22",
     "author": "both",
     "tags": [
       "模型微调",
       "数据构建"
     ],
-    "summary": "响应多样性要靠多候选生成与筛选，而不是单纯调高温度"
+    "summary": "TagGPT 用大模型为指令数据生成标签和质量分数，服务筛选与分桶。"
   },
   {
     "title": "指令微调的 Epoch 与过拟合",
@@ -21,6 +21,17 @@
       "过拟合防止"
     ],
     "summary": "指令微调通常只需 1-3 个 epoch，过长训练会放大过拟合并降低输出多样性。"
+  },
+  {
+    "title": "响应多样性增强",
+    "slug": "response-diversity-enhancement",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "数据构建"
+    ],
+    "summary": "响应多样性要靠多候选生成与筛选，而不是单纯调高温度"
   },
   {
     "title": "指令数据质量评估",
