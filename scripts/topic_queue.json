@@ -20792,7 +20792,7 @@
       "对齐微调"
     ],
     "brief": "RRHF (Rank Responses to Align Human Feedback) 通过排序损失学习人类偏好，同时保留 SFT 目标。相比 PPO 更稳定，相比 DPO 能利用更多样的响应数据。在安全性和有用性平衡上表现优异。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "指令数据质量评估",

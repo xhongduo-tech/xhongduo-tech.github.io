@@ -1,5 +1,16 @@
 [
   {
+    "title": "RRHF 响应排序微调",
+    "slug": "rrhf-response-ranking",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "对齐微调"
+    ],
+    "summary": "RRHF 用多候选排序损失结合 SFT，稳定学习人类偏好。"
+  },
+  {
     "title": "Llama-2-Chat RLHF 微调流程",
     "slug": "llama2-chat-rlhf-pipeline",
     "date": "2026-04-22",
