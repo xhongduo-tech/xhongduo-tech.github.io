@@ -20104,7 +20104,7 @@
       "分类任务"
     ],
     "brief": "Label Smoothing 将 one-hot 标签替换为 (1-ε) * one_hot + ε/K 的软标签，防止模型过度自信。ε 通常取 0.1。在 ImageNet 分类上提升 Inception-v3 精度 0.2%。同时改善模型校准度，使预测概率更接近真实准确率。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RMSNorm",

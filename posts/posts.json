@@ -1,5 +1,17 @@
 [
   {
+    "title": "Label Smoothing：软标签正则化",
+    "slug": "label-smoothing-soft-label-regularization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "分类任务"
+    ],
+    "summary": "Label Smoothing 用软标签降低过度自信，改善泛化与校准。"
+  },
+  {
     "title": "Zoneout：RNN 的随机状态保留",
     "slug": "zoneout-rnn-state-preservation",
     "date": "2026-04-22",
