@@ -1,5 +1,17 @@
 [
   {
+    "title": "8-bit 优化器：量化状态的大模型训练",
+    "slug": "8bit-optimizer-quantized-states",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "量化训练"
+    ],
+    "summary": "8-bit Adam 量化优化器状态，用动态分块量化显著降低训练显存。"
+  },
+  {
     "title": "Lion 优化器：Google 的极简自适应优化器",
     "slug": "lion-optimizer-minimal-adaptive",
     "date": "2026-04-19",
