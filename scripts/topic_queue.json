@@ -20310,7 +20310,7 @@
       "混合精度"
     ],
     "brief": "混合精度训练中，梯度通常在 fp16 范围外，需要 Loss Scaling 放大梯度。动态 scaling 根据梯度最大值自动调整 scale，静态 scaling 使用固定值。动态策略更稳定，但静态策略计算开销更小。推荐初始 scale 为 2^15-2^16，遇到 inf/nan 时减半。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FP8 训练：H100 的 8 位浮点训练",

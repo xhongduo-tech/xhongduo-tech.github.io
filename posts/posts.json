@@ -1,5 +1,17 @@
 [
   {
+    "title": "混合精度训练的 Loss Scaling 策略",
+    "slug": "mixed-precision-loss-scaling-strategies",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "混合精度"
+    ],
+    "summary": "Loss Scaling 通过放大 loss 保住 fp16 小梯度，动态策略更稳。"
+  },
+  {
     "title": "Learning Rate Finder：自动确定最优学习率",
     "slug": "learning-rate-finder-optimal-lr",
     "date": "2026-04-22",
