@@ -1,5 +1,16 @@
 [
   {
+    "title": "微调 Epoch 与过拟合",
+    "slug": "finetuning-epochs-overfitting",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "训练技巧"
+    ],
+    "summary": "SFT 的 epoch 是上限，应按验证集最优点早停并回退最佳模型。"
+  },
+  {
     "title": "微调学习率选择策略",
     "slug": "finetuning-learning-rate-selection",
     "date": "2026-04-22",

@@ -20869,7 +20869,7 @@
       "训练技巧"
     ],
     "brief": "指令微调通常只需 1-3 个 epoch 即可达到最佳效果，过长的训练会导致过拟合和输出多样性下降。对于小数据集（<10K），early stopping 尤为重要。监控验证集 loss 和生成质量是关键。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "微调数据配比策略",
@@ -20891,7 +20891,7 @@
       "训练技巧"
     ],
     "brief": "Gradient Checkpointing 通过在反向传播时重新计算中间激活来节省显存，代价是增加约 20% 的计算时间。对于大模型微调，这是在有限显存下增大 batch size 的有效方法。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "混合精度微调 (FP16/BF16)",
@@ -20902,7 +20902,7 @@
       "训练技巧"
     ],
     "brief": "混合精度训练使用 FP16/BF16 进行前向和反向计算，FP32 存储权重副本。BF16 相比 FP16 有更大的动态范围，更适合大模型训练。需要配合 loss scaling 防止梯度下溢。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "长上下文微调数据构建",
@@ -20913,7 +20913,7 @@
       "长上下文"
     ],
     "brief": "长上下文微调需要构建具有长距离依赖的训练数据。方法包括：拼接相关文档、使用书籍/代码等长文本、构建多轮对话。关键是确保数据真正需要长距离推理，而非简单的局部拼接。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "位置编码外推技术",
@@ -20924,7 +20924,7 @@
       "长上下文"
     ],
     "brief": "位置编码外推让训练时短上下文的模型能处理更长输入。技术包括：位置插值（PI）、NTK-aware scaling、YaRN 等。这些方法通过修改位置编码计算，使模型外推到训练长度数倍的上下文。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LongLoRA 高效长上下文微调",
@@ -20935,7 +20935,7 @@
       "长上下文"
     ],
     "brief": "LongLoRA 结合了 LoRA 的参数高效性和专门的长上下文训练策略。通过 shift short attention 机制，在保持全局注意力效果的同时大幅降低计算开销，能在单卡上微调 100K 上下文模型。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Ring Attention 超长上下文训练",
@@ -20946,7 +20946,7 @@
       "长上下文"
     ],
     "brief": "Ring Attention 通过分布式计算实现超长上下文（100K+ tokens）训练。将序列分割到多个设备，使用环形通信传递 KV 块，使注意力计算复杂度随设备数线性扩展。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MoE 模型微调策略",
@@ -20957,7 +20957,7 @@
       "架构适配"
     ],
     "brief": "Mixture-of-Experts 模型的微调需要考虑专家路由的稳定性。可以直接微调所有参数，或仅微调 gate 和特定专家。LoRA 可以应用于每个专家的 FFN，但需要处理专家间的不均衡问题。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "多模态模型微调 (LLaVA)",
