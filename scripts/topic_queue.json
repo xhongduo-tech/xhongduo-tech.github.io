@@ -20130,7 +20130,7 @@
       "小Batch训练"
     ],
     "brief": "GroupNorm 将通道分组，在组内进行归一化，独立于 Batch Size。在 Batch Size 极小（1-2）时表现远优于 BatchNorm。分组数 G 通常取 32，可学习的缩放和偏置参数与 BatchNorm 相同。在目标检测、分割、视频分析等显存受限场景中常用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "InstanceNorm：实例级归一化",

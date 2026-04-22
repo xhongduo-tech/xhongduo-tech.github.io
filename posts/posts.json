@@ -1,5 +1,17 @@
 [
   {
+    "title": "GroupNorm：分组归一化",
+    "slug": "groupnorm-group-normalization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "归一化",
+      "小Batch训练"
+    ],
+    "summary": "GroupNorm按通道分组并在样本内归一化，适合小Batch训练。"
+  },
+  {
     "title": "RMSNorm",
     "slug": "rmsnorm-root-mean-square-normalization",
     "date": "2026-04-22",
