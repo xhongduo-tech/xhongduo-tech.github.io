@@ -1,5 +1,17 @@
 [
   {
+    "title": "Long Sequence Training：序列并行的实现策略",
+    "slug": "long-sequence-training-sequence-parallelism",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "长序列"
+    ],
+    "summary": "序列并行把长上下文切到多卡，通过KV通信完成全局attention。"
+  },
+  {
     "title": "Token Dropout：语言模型的随机 Token 屏蔽",
     "slug": "token-dropout-language-model-masking",
     "date": "2026-04-22",

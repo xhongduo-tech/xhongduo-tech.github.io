@@ -20517,7 +20517,7 @@
       "长序列"
     ],
     "brief": "长序列训练（>8K tokens）面临显存和计算的线性增长。解决方案：Ring Attention（将序列分片到多 GPU）、DistFlashAttention（分布式 flash attention）、Context Parallelism（Megatron 的序列并行）。Ring Attention 通过环形通信实现跨设备注意力计算。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AdaLoRA 自适应秩分配微调",
