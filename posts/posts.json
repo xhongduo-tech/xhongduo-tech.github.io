@@ -1,5 +1,16 @@
 [
   {
+    "title": "LoKr 低秩克罗内克适应",
+    "slug": "lokr-low-rank-kronecker",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "LoKr 用克罗内克积生成结构化低参数更新，适合大模型领域适配。"
+  },
+  {
     "title": "FLAN 指令微调范式",
     "slug": "flan-instruction-tuning",
     "date": "2026-04-22",
