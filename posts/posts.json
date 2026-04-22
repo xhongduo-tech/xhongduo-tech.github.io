@@ -1,5 +1,17 @@
 [
   {
+    "title": "Stochastic Depth：深度随机正则化",
+    "slug": "stochastic-depth-random-layer-depth",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "深层网络"
+    ],
+    "summary": "Stochastic Depth 通过训练时随机跳过残差分支，使超深残差网络更易训练并改善泛化。"
+  },
+  {
     "title": "DropBlock：CNN 特征图块级正则化",
     "slug": "dropblock-feature-map-block-dropout",
     "date": "2026-04-22",

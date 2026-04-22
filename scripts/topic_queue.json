@@ -20080,7 +20080,7 @@
       "深层网络"
     ],
     "brief": "Stochastic Depth 在训练时随机跳过残差块，等效于训练更浅的网络，测试时使用完整深度。每个块的存活概率 p_l 从 1（第一层）线性衰减到 0.5（最后一层）。使训练 1202 层 ResNet 成为可能，同时减少训练时间。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Zoneout：RNN 的随机状态保留",
