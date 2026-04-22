@@ -20561,7 +20561,7 @@
       "参数高效微调"
     ],
     "brief": "Prompt Tuning 仅在输入层添加可学习的连续 prompt embedding，无需修改模型内部结构。相比离散 prompt，软提示可以端到端优化，但需要更多训练数据。随着模型规模增大，其效果逐渐接近全参数微调。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "P-Tuning v2 深层提示调优",

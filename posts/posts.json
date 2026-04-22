@@ -1,5 +1,16 @@
 [
   {
+    "title": "Prompt Tuning 软提示调优",
+    "slug": "prompt-tuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "Prompt Tuning 冻结底座模型，只训练输入层软提示以低成本适配任务"
+  },
+  {
     "title": "DoRA 权重分解低秩适应",
     "slug": "dora-weight-decomposition",
     "date": "2026-04-22",
