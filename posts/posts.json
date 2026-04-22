@@ -1,5 +1,17 @@
 [
   {
+    "title": "InstanceNorm：实例级归一化",
+    "slug": "instancenorm-instance-normalization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "归一化",
+      "风格迁移"
+    ],
+    "summary": "InstanceNorm 按样本和通道独立归一化，适合小 batch、风格迁移和图像生成。"
+  },
+  {
     "title": "GroupNorm：分组归一化",
     "slug": "groupnorm-group-normalization",
     "date": "2026-04-22",

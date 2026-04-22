@@ -20142,7 +20142,7 @@
       "风格迁移"
     ],
     "brief": "InstanceNorm 在每个样本的每个通道上独立归一化，等效于 GroupNorm 的分组数等于通道数。主要用于风格迁移和图像生成任务。在训练时和测试时行为一致，不依赖 batch 统计。与 AdaIN (Adaptive Instance Norm) 结合用于条件生成。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Weight Standardization：卷积权重标准化",
