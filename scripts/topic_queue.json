@@ -20445,7 +20445,7 @@
       "模型压缩"
     ],
     "brief": "知识蒸馏使用教师模型的软标签（softmax with temperature）指导学生模型训练。温度 T 越高，软标签越平滑；T=1 退化为硬标签。常用策略：T 从高到低调度（先学分布后学判别）。损失函数：α * hard_loss + (1-α) * KL(soft_teacher || soft_student)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Progressive Resizing：渐进式分辨率训练",

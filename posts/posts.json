@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识蒸馏的训练技巧与温度调度",
+    "slug": "knowledge-distillation-temperature-scheduling",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练技巧",
+      "模型压缩"
+    ],
+    "summary": "知识蒸馏用温度软标签与硬标签共同训练小模型。"
+  },
+  {
     "title": "SWA (Stochastic Weight Averaging)：随机权重平均",
     "slug": "swa-stochastic-weight-averaging",
     "date": "2026-04-22",
