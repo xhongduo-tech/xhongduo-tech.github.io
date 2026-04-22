@@ -1,5 +1,16 @@
 [
   {
+    "title": "T0 多任务提示微调",
+    "slug": "t0-multitask-prompt-tuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "多任务微调"
+    ],
+    "summary": "T0 通过多任务提示微调，把多种 NLP 任务统一为文本生成并提升零样本泛化。"
+  },
+  {
     "title": "Orca 渐进式复杂度学习",
     "slug": "orca-progressive-learning",
     "date": "2026-04-22",
