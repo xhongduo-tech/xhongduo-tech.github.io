@@ -1,5 +1,17 @@
 [
   {
+    "title": "Loss Spike 诊断：大模型训练的崩溃检测与恢复",
+    "slug": "loss-spike-diagnosis-training-crash",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "故障恢复"
+    ],
+    "summary": "Loss spike 是训练失稳信号，应结合梯度、AMP、数据与 checkpoint 诊断恢复"
+  },
+  {
     "title": "训练监控指标：MFU、Loss Scale、梯度统计",
     "slug": "training-monitoring-mfu-loss-scale-gradients",
     "date": "2026-04-22",

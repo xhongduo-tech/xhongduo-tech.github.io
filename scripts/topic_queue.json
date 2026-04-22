@@ -20250,7 +20250,7 @@
       "故障恢复"
     ],
     "brief": "Loss Spike 指训练过程中 loss 突然增大几个数量级的现象。常见原因：学习率过大、梯度爆炸、数据异常、混合精度溢出。诊断策略：监控梯度范数、检查 attention score 分布、审查异常数据样本。恢复方案：回滚到最近的稳定 checkpoint，降低学习率重启。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "梯度 NaN 诊断：数值异常的根因分析",
