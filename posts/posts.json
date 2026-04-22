@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型权重的 EMA (Exponential Moving Average)",
+    "slug": "ema-model-weights-averaging",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练技巧",
+      "模型优化"
+    ],
+    "summary": "EMA 用影子权重平滑训练参数，常提升评估与推理稳定性"
+  },
+  {
     "title": "分布式训练的容错与 Checkpoint",
     "slug": "distributed-training-fault-tolerance-checkpoint",
     "date": "2026-04-22",

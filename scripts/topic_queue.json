@@ -20421,7 +20421,7 @@
       "模型优化"
     ],
     "brief": "EMA 对模型权重维护指数移动平均，decay 通常设为 0.999-0.9999。训练时使用原始权重，推理/评估时使用 EMA 权重。在生成模型（扩散模型、GAN）和半监督学习中广泛使用，可提升 0.5-2% 的精度。实现简单但效果显著。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SWA (Stochastic Weight Averaging)：随机权重平均",
