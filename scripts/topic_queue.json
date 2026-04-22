@@ -20226,7 +20226,7 @@
       "注意力优化"
     ],
     "brief": "FlashAttention-3 针对 H100 的 Tensor Core 和 TMA (Tensor Memory Accelerator) 进行优化。采用异步操作重叠计算和数据传输，使用 FP8 量化进一步提升吞吐量。相比 FlashAttention-2 在 H100 上速度提升 1.5-2 倍，在长序列训练中达到 1.2 PFLOPS。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Paged Attention：KV Cache 的分页管理",

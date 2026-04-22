@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention-3：H100 GPU 的异步优化",
+    "slug": "flashattention3-h100-async-optimization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "注意力优化"
+    ],
+    "summary": "FlashAttention-3 用异步流水线压榨 H100 attention 吞吐"
+  },
+  {
     "title": "Selective Activation Recomputation：选择性激活重计算",
     "slug": "selective-activation-recomputation",
     "date": "2026-04-22",
