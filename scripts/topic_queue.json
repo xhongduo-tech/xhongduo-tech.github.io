@@ -20166,7 +20166,7 @@
       "GAN训练"
     ],
     "brief": "Spectral Normalization 使用权重矩阵的谱范数（最大奇异值）进行归一化，约束判别器的 Lipschitz 常数。通过幂迭代法高效估计谱范数。在 GAN 训练中大幅提升稳定性，被 SNGAN、SAGAN 等模型采用。额外的计算开销约为前向传播的 10%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gradient Checkpointing：激活值重计算策略",

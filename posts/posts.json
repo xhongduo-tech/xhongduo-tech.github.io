@@ -1,5 +1,17 @@
 [
   {
+    "title": "Spectral Normalization：频谱归一化",
+    "slug": "spectral-normalization-gan-training",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "归一化",
+      "GAN训练"
+    ],
+    "summary": "SN 用谱范数约束判别器每层放大能力，提升 GAN 训练稳定性"
+  },
+  {
     "title": "Weight Standardization：卷积权重标准化",
     "slug": "weight-standardization-convolution-weight",
     "date": "2026-04-22",
