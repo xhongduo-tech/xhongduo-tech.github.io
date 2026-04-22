@@ -20361,7 +20361,7 @@
       "性能优化"
     ],
     "brief": "在分布式训练中，梯度同步（AllReduce）是主要瓶颈。重叠策略：在计算当前层梯度时同步上一层的梯度。实现方式：gradient bucketing（将梯度分桶）+ 异步 allreduce。在 PyTorch DDP 和 DeepSpeed 中默认开启，可隐藏 50-80% 的通信开销。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Efficient Dataparallel：异步参数同步",
