@@ -1,5 +1,16 @@
 [
   {
+    "title": "WizardLM 数据复杂度评分",
+    "slug": "wizardlm-data-complexity-scoring",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "数据构建"
+    ],
+    "summary": "WizardLM 用模型评分筛选高复杂度指令，提高微调数据的信息密度。"
+  },
+  {
     "title": "指令数据去重与多样性",
     "slug": "instruction-data-deduplication-diversity",
     "date": "2026-04-22",
