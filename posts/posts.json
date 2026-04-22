@@ -1,5 +1,17 @@
 [
   {
+    "title": "Curriculum Learning：课程学习的数据排序",
+    "slug": "curriculum-learning-data-ordering",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练技巧",
+      "数据策略"
+    ],
+    "summary": "课程学习通过易到难排序训练数据，改善优化稳定性但依赖可靠难度定义"
+  },
+  {
     "title": "Progressive Resizing：渐进式分辨率训练",
     "slug": "progressive-resizing-resolution-training",
     "date": "2026-04-22",
