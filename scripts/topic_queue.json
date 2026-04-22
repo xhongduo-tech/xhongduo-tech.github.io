@@ -20880,7 +20880,7 @@
       "训练技巧"
     ],
     "brief": "多任务微调的数据配比直接影响模型能力分布。常用策略包括：任务均衡采样、按数据量反比采样、难度加权采样。FLAN 和 T0 的实验表明，任务多样性比数据量更重要。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gradient Checkpointing 显存优化",
@@ -20968,7 +20968,7 @@
       "架构适配"
     ],
     "brief": "LLaVA 采用两阶段微调：先冻结视觉编码器训练投影层，再端到端微调。指令数据将图像描述转化为对话格式。关键设计包括：MLP 投影层、多轮对话数据格式、图像分辨率选择。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "参数高效微调与全参数微调对比",
@@ -20979,7 +20979,7 @@
       "方法对比"
     ],
     "brief": "PEFT 方法（LoRA、Prefix Tuning 等）在参数效率上显著优于全参数微调（0.1% vs 100%），但在某些任务上存在性能差距。随着模型规模增大，PEFT 的性能逐渐逼近全参数微调，差距可忽略。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "指令微调与预训练的关系",
@@ -20990,7 +20990,7 @@
       "理论基础"
     ],
     "brief": "指令微调主要激发模型的指令遵循能力，而非注入新知识。LIMA 实验表明，预训练已蕴含大量知识，指令微调主要学习输出格式。这也解释了为何少量高质量指令数据即可有效。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "微调中的灾难性遗忘",
@@ -21001,7 +21001,7 @@
       "训练挑战"
     ],
     "brief": "灾难性遗忘指微调后模型丢失预训练获得的能力。缓解方法包括：学习率控制、EWC 正则化、混合预训练数据 replay、参数高效微调（天然缓解遗忘）。需要在任务适应和通用能力间平衡。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "微调模型评估基准",
@@ -21012,7 +21012,7 @@
       "评估方法"
     ],
     "brief": "微调模型评估需要覆盖多个维度：任务性能（MMLU、GSM8K 等）、指令遵循（IFEval）、安全性（Red Teaming）、通用能力（通用 NLP 任务）。单一指标无法全面反映微调效果。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "MT-Bench 多轮对话评估",
@@ -21023,7 +21023,7 @@
       "评估方法"
     ],
     "brief": "MT-Bench 使用 GPT-4 作为评判者，评估模型的多轮对话能力。包含 8 个类别的 80 个多轮问题，评估维度包括：有用性、推理能力、数学、编程、创意写作等。是目前最广泛使用的对齐评估基准之一。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "AlpacaEval 自动化评估",
@@ -21034,7 +21034,7 @@
       "评估方法"
     ],
     "brief": "AlpacaEval 使用 GPT-4 Turbo 对比评估模型输出与参考模型的质量。通过 win rate 计算分数，提供可复现的自动化评估。相比人工评估更快，但可能存在 judge bias。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "微调超参数搜索",
@@ -21045,7 +21045,7 @@
       "工程实践"
     ],
     "brief": "微调超参数（学习率、batch size、LoRA rank、dropout）对效果影响显著。推荐使用 grid search 或 Bayesian optimization 进行搜索。对于大型模型，可以先在小模型上搜索，再迁移到目标模型。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LoRA rank 和 alpha 选择",
@@ -21067,7 +21067,7 @@
       "工程实践"
     ],
     "brief": "模型合并（Model Merging）将多个微调模型融合为一个模型，继承多个任务能力。技术包括：线性加权、Task Arithmetic、TIES-Merging、DARE 等。合并后无需重新训练即可获得多任务能力。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "QLoRA 量化微调实战",
@@ -21078,7 +21078,7 @@
       "工程实践"
     ],
     "brief": "QLoRA 将基础模型量化为 4-bit，仅 LoRA 参数保持高精度，使 65B 模型能在单张 24GB GPU 上微调。关键技术：NF4 量化、双重量化、分页优化器。训练速度约为 LoRA 的 70%，但显存占用降低 75%。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "LlamaFactory 微调框架",

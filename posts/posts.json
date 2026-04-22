@@ -1,5 +1,16 @@
 [
   {
+    "title": "微调数据配比策略",
+    "slug": "finetuning-data-mixing-ratio",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "训练技巧"
+    ],
+    "summary": "微调数据配比是在多任务训练中分配梯度预算。"
+  },
+  {
     "title": "微调 Epoch 与过拟合",
     "slug": "finetuning-epochs-overfitting",
     "date": "2026-04-22",
