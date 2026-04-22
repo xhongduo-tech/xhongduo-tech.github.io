@@ -20322,7 +20322,7 @@
       "量化训练"
     ],
     "brief": "H100 支持 FP8 (E4M3, E5M2) 格式，相比 FP16 提供 2 倍的吞吐量和显存节省。训练策略：激活和权重使用 E4M3（更高精度），梯度使用 E5M2（更大范围）。需要配合 scaling factor 调整，防止数值溢出。在 Transformer Engine 中有实现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gradient Accumulation：大 Batch 的模拟训练",

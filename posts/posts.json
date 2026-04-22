@@ -1,5 +1,17 @@
 [
   {
+    "title": "FP8 训练：H100 的 8 位浮点训练",
+    "slug": "fp8-training-h100-8bit-floating",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "量化训练"
+    ],
+    "summary": "FP8 训练依赖缩放、E4M3/E5M2 和 H100 Tensor Core 的受控混合精度路径"
+  },
+  {
     "title": "Gradient Accumulation：大 Batch 的模拟训练",
     "slug": "gradient-accumulation-large-batch-simulation",
     "date": "2026-04-22",
