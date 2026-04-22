@@ -20583,7 +20583,7 @@
       "参数高效微调"
     ],
     "brief": "IA3 (Infused Adapter by Inhibiting and Amplifying) 通过在注意力输出和 FFN 输出处引入可学习的缩放向量来微调模型。仅需调整约 0.01% 参数，通过抑制或放大激活来适应下游任务，训练极其高效。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LoRA+ 高效低秩适应改进",

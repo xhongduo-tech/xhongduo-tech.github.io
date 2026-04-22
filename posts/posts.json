@@ -1,5 +1,16 @@
 [
   {
+    "title": "IA3 通过缩放因子微调",
+    "slug": "ia3-rescaling-factors",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "IA3 冻结基座模型，只训练缩放向量完成轻量任务适配。"
+  },
+  {
     "title": "LoRA+ 高效低秩适应改进",
     "slug": "loraplus-efficient-lora",
     "date": "2026-04-22",
