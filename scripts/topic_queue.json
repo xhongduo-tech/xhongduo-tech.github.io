@@ -20298,7 +20298,7 @@
       "超参数"
     ],
     "brief": "LR Finder 从极小学习率开始指数递增，记录每个 step 的 loss，选择 loss 下降最快的点作为最优学习率。通常选择 loss 曲线最陡峭下降段的前一个数量级。在 fast.ai 和 PyTorch Lightning 中有实现。适合快速确定初始学习率，减少手动调参。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "混合精度训练的 Loss Scaling 策略",

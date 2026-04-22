@@ -1,5 +1,17 @@
 [
   {
+    "title": "Learning Rate Finder：自动确定最优学习率",
+    "slug": "learning-rate-finder-optimal-lr",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "超参数"
+    ],
+    "summary": "LR Finder 用短训练扫描学习率，找到 loss 快速下降的初始候选区间"
+  },
+  {
     "title": "LayerScale：深层 Vision Transformer 的训练稳定性",
     "slug": "layerscale-deep-vit-stability",
     "date": "2026-04-22",
