@@ -20627,7 +20627,7 @@
       "指令微调"
     ],
     "brief": "FLAN (Finetuned Language Net) 是 Google 提出的指令微调先驱工作，通过在超过 60 个 NLP 数据集上混合训练，使模型学会遵循指令。核心发现是：指令微调能显著提升模型的零样本泛化能力，且效果随任务多样性增加。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Self-Instruct 自举指令数据生成",
