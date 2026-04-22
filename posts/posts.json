@@ -1,5 +1,16 @@
 [
   {
+    "title": "CodeLlama 代码微调策略",
+    "slug": "codellama-code-finetuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "领域适应"
+    ],
+    "summary": "Code Llama 通过代码持续预训练、FIM 和 LCFT 适配代码生成与补全。"
+  },
+  {
     "title": "BioMedLM 医疗领域微调",
     "slug": "biomedlm-medical-finetuning",
     "date": "2026-04-22",

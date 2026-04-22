@@ -20770,7 +20770,7 @@
       "领域适应"
     ],
     "brief": "CodeLlama 在 Llama 2 基础上进行代码领域持续预训练，使用 500B code tokens。通过特定的数据配比（多种编程语言混合）和长上下文微调，在代码生成任务上达到 GPT-4 级别性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Llama-2-Chat RLHF 微调流程",
