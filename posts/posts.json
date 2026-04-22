@@ -1,5 +1,16 @@
 [
   {
+    "title": "微调学习率选择策略",
+    "slug": "finetuning-learning-rate-selection",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "训练技巧"
+    ],
+    "summary": "微调学习率要在任务适应和保留预训练能力之间取平衡"
+  },
+  {
     "title": "TagGPT 自动化数据标注",
     "slug": "taggpt-automated-data-annotation",
     "date": "2026-04-22",
