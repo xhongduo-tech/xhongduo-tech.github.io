@@ -1,5 +1,16 @@
 [
   {
+    "title": "AdaLoRA 自适应秩分配微调",
+    "slug": "adalora-adaptive-rank-allocation",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "AdaLoRA 通过重要性评分动态分配 LoRA 秩预算。"
+  },
+  {
     "title": "Long Sequence Training：序列并行的实现策略",
     "slug": "long-sequence-training-sequence-parallelism",
     "date": "2026-04-22",
