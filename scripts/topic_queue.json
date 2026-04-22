@@ -20190,7 +20190,7 @@
       "显存优化"
     ],
     "brief": "Activation Offloading 将部分激活值存储到 CPU 内存，在需要时传输回 GPU。与 Gradient Checkpointing 结合使用可进一步降低显存占用。关键挑战：PCIe 带宽瓶颈（约 32GB/s）需要精心设计预取策略。在 DeepSpeed 和 FSDP 中均有实现。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Selective Activation Recomputation：选择性激活重计算",
