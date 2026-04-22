@@ -20020,7 +20020,7 @@
       "训练稳定性"
     ],
     "brief": "Warmup 在训练初期从极小学习率线性增加到目标 LR，避免早期梯度不稳定导致的参数崩溃。对于 Adam 类优化器尤其重要，因为初期二阶矩估计不准确。主流方案：线性 warmup（GPT-3）或常数 warmup（BERT）。warmup 步数通常为总步数的 1-5%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "One-Cycle 策略：超收敛的单周期训练",

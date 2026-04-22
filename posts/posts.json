@@ -1,5 +1,17 @@
 [
   {
+    "title": "Warmup 策略：训练初期的学习率预热",
+    "slug": "warmup-strategy-learning-rate-preheating",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "学习率调度",
+      "训练稳定性"
+    ],
+    "summary": "Warmup 用低学习率启动训练，降低早期优化不稳定风险"
+  },
+  {
     "title": "Spatial Dropout：卷积层的特征图级正则化",
     "slug": "spatial-dropout-convolution-regularization",
     "date": "2026-04-22",
