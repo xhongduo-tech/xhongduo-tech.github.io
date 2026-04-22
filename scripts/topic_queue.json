@@ -20334,7 +20334,7 @@
       "显存优化"
     ],
     "brief": "Gradient Accumulation 在多个 micro-batch 上累积梯度后一次性更新，等效于更大的 Batch Size。公式：effective_batch = micro_batch * accumulation_steps。在显存受限时是扩大 Batch 的唯一方法。注意：BatchNorm 等依赖 batch 统计的层需要特殊处理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Prefetching：数据加载与计算的重叠",

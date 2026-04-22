@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gradient Accumulation：大 Batch 的模拟训练",
+    "slug": "gradient-accumulation-large-batch-simulation",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "显存优化"
+    ],
+    "summary": "梯度累积通过多次小批次反向后统一更新，模拟更大的有效 Batch。"
+  },
+  {
     "title": "混合精度训练的 Loss Scaling 策略",
     "slug": "mixed-precision-loss-scaling-strategies",
     "date": "2026-04-22",
