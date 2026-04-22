@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练效率度量：TFLOPS、MFU 与实际吞吐",
+    "slug": "training-efficiency-metrics-tflops-mfu",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "性能分析",
+      "基准测试"
+    ],
+    "summary": "TFLOPS看计算吞吐，MFU看有效训练计算占理论峰值的比例"
+  },
+  {
     "title": "Mixed-Precision BatchNorm：混合精度的归一化挑战",
     "slug": "mixed-precision-batchnorm-challenges",
     "date": "2026-04-22",

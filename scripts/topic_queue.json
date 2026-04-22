@@ -20505,7 +20505,7 @@
       "基准测试"
     ],
     "brief": "TFLOPS 衡量硬件利用率，MFU (Model FLOPs Utilization) 衡量相对于理论峰值的实际效率。MFU = (实际 tokens/s) / (理论 FLOPS / 每token FLOPS)。优秀的 MFU：A100 约 40-50%，H100 约 45-55%。关键影响因素：通信开销、显存带宽、kernel 融合程度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Long Sequence Training：序列并行的实现策略",
