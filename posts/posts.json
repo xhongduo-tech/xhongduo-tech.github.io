@@ -1,5 +1,16 @@
 [
   {
+    "title": "BioMedLM 医疗领域微调",
+    "slug": "biomedlm-medical-finetuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "领域适应"
+    ],
+    "summary": "BioMedLM 通过 PubMed 语料和领域 tokenizer 提升医学文献任务表现。"
+  },
+  {
     "title": "持续预训练与领域适应",
     "slug": "continued-pretraining-domain-adaptation",
     "date": "2026-04-22",

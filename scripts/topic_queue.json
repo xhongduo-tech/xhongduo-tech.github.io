@@ -20759,7 +20759,7 @@
       "领域适应"
     ],
     "brief": "BioMedLM 专门针对生物医学文献进行预训练和微调。使用 PubMed 数据构建领域语料，通过领域特定 tokenization 和词汇表优化，在生物医学问答和关系抽取任务上超越通用大模型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CodeLlama 代码微调策略",
