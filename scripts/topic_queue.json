@@ -20605,7 +20605,7 @@
       "参数高效微调"
     ],
     "brief": "LoHa (Low-Rank Hadamard Adaptation) 使用哈达玛积而非矩阵乘法来组合低秩分解，相比 LoRA 具有更强的参数效率。通过元素级乘法，在相同秩下能表达更复杂的变换，同时保持线性的训练和推理复杂度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LoKr 低秩克罗内克适应",

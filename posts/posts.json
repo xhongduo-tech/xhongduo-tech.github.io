@@ -1,5 +1,16 @@
 [
   {
+    "title": "LoHa 低秩哈达玛适应",
+    "slug": "loha-low-rank-hadamard",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "LoHa 用两组低秩分解的逐元素乘积提升微调表达力"
+  },
+  {
     "title": "IA3 通过缩放因子微调",
     "slug": "ia3-rescaling-factors",
     "date": "2026-04-22",
