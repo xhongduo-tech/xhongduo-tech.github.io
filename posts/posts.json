@@ -1,5 +1,16 @@
 [
   {
+    "title": "DoRA 权重分解低秩适应",
+    "slug": "dora-weight-decomposition",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "DoRA 将权重拆成幅度和方向，用低秩更新方向并单独学习幅度。"
+  },
+  {
     "title": "AdaLoRA 自适应秩分配微调",
     "slug": "adalora-adaptive-rank-allocation",
     "date": "2026-04-22",
