@@ -1,5 +1,17 @@
 [
   {
+    "title": "DropConnect：权重正则化的随机断连",
+    "slug": "dropconnect-weight-regularization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "过拟合防止"
+    ],
+    "summary": "DropConnect 通过随机置零权重连接，提供更细粒度的正则化。"
+  },
+  {
     "title": "One-Cycle 策略：超收敛的单周期训练",
     "slug": "one-cycle-policy-superconvergence",
     "date": "2026-04-22",

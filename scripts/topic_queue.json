@@ -20044,7 +20044,7 @@
       "过拟合防止"
     ],
     "brief": "DropConnect 随机置零权重矩阵的元素而非激活值，提供比 Dropout 更强的正则化效果。置零概率通常为 0.5。在 CNN 全连接层上效果显著，但训练时间更长（需要每个样本采样不同的权重掩码）。在过参数化模型上效果优于 Dropout。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Spatial Dropout：卷积层的特征图级正则化",
