@@ -20481,7 +20481,7 @@
       "归一化"
     ],
     "brief": "BatchNorm 的 running mean/var 在 fp32 精度下累积，但计算在 fp16 下进行。这导致精度不匹配问题。解决方案：使用 SyncBatchNorm（跨 GPU 同步）、Ghost BatchNorm（小 batch 分组）、或切换到 GroupNorm。在 detection 和 segmentation 中尤其重要。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Token Dropout：语言模型的随机 Token 屏蔽",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mixed-Precision BatchNorm：混合精度的归一化挑战",
+    "slug": "mixed-precision-batchnorm-challenges",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "混合精度",
+      "归一化"
+    ],
+    "summary": "混合精度下 BN 的核心风险是统计量与精度口径不一致。"
+  },
+  {
     "title": "Curriculum Learning：课程学习的数据排序",
     "slug": "curriculum-learning-data-ordering",
     "date": "2026-04-22",
