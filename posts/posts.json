@@ -1,5 +1,16 @@
 [
   {
+    "title": "WizardLM 复杂指令微调",
+    "slug": "wizardlm-complex-instruction",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "WizardLM 用 Evol-Instruct 构造复杂指令梯度，提升模型复杂任务跟随能力"
+  },
+  {
     "title": "Evol-Instruct 进化式指令生成",
     "slug": "evol-instruct",
     "date": "2026-04-22",
