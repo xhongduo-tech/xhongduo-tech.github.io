@@ -1,5 +1,19 @@
 [
   {
+    "title": "RMSNorm",
+    "slug": "rmsnorm-root-mean-square-normalization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "归一化",
+      "Transformer",
+      "模型架构",
+      "RMSNorm"
+    ],
+    "summary": "RMSNorm只按均方根缩放hidden state，不做均值中心化。"
+  },
+  {
     "title": "Label Smoothing：软标签正则化",
     "slug": "label-smoothing-soft-label-regularization",
     "date": "2026-04-22",

@@ -20118,7 +20118,7 @@
       "RMSNorm"
     ],
     "brief": "RMSNorm 移除 LayerNorm 的均值中心化步骤，仅使用均方根进行缩放。计算量减少约 10%，在 LLaMA、Gopher 等 LLM 中广泛应用。对长序列训练更稳定，因为没有均值计算的数值问题。公式：x / sqrt(mean(x^2) + ε) * γ。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GroupNorm：分组归一化",
