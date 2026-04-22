@@ -1,5 +1,17 @@
 [
   {
+    "title": "Polynomial 学习率调度：可控衰减曲线",
+    "slug": "polynomial-learning-rate-schedule",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "学习率调度",
+      "训练策略"
+    ],
+    "summary": "Polynomial decay 用幂函数控制学习率平滑下降曲线。"
+  },
+  {
     "title": "8-bit 优化器：量化状态的大模型训练",
     "slug": "8bit-optimizer-quantized-states",
     "date": "2026-04-22",

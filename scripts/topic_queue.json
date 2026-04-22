@@ -19996,7 +19996,7 @@
       "训练策略"
     ],
     "brief": "Polynomial decay 使用幂函数控制学习率衰减速度，power 参数决定曲线形状。power=1 退化为线性衰减，power>1 前期衰减慢后期快，power<1 前期快后期慢。在 ResNet 训练中 power=2 表现最佳，Transformer 训练偏好 power=1（线性）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Layer-wise 学习率：差异化层训练策略",
