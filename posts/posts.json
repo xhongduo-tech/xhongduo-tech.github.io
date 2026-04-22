@@ -1,5 +1,17 @@
 [
   {
+    "title": "One-Cycle 策略：超收敛的单周期训练",
+    "slug": "one-cycle-policy-superconvergence",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "学习率调度",
+      "快速训练"
+    ],
+    "summary": "One-Cycle 通过学习率先升后降和动量反向调度，加速获得可用模型。"
+  },
+  {
     "title": "Layer-wise 学习率：差异化层训练策略",
     "slug": "layerwise-learning-rate-differential",
     "date": "2026-04-22",
