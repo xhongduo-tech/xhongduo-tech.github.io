@@ -20726,7 +20726,7 @@
       "能力扩展"
     ],
     "brief": "ToolFormer 让语言模型学会调用外部 API（计算器、搜索引擎、翻译器等）。通过自监督方式生成 API 调用样本，模型在需要时自动插入 API 调用并使用返回结果，无需人工标注工具使用数据。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Gorilla API 调用微调",

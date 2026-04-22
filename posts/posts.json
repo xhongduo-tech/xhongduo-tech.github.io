@@ -1,5 +1,16 @@
 [
   {
+    "title": "ToolFormer 工具使用微调",
+    "slug": "toolformer-tool-use-finetuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "能力扩展"
+    ],
+    "summary": "ToolFormer 用自监督筛选让模型学会何时调用工具。"
+  },
+  {
     "title": "FLAN-UL2 统一指令微调",
     "slug": "flan-ul2-unified-instruction",
     "date": "2026-04-22",
