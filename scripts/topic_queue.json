@@ -20202,7 +20202,7 @@
       "显存优化"
     ],
     "brief": "Selective Recomputation 不是均匀地保存 checkpoint，而是根据激活值大小和重计算成本进行选择。Attention 的激活值大但重计算便宜，适合重计算；MLP 的激活值小但重计算贵，适合保存。这种策略在相同显存下比均匀策略快 20-30%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention-2：IO 感知的精确注意力",

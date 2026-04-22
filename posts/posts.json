@@ -1,5 +1,17 @@
 [
   {
+    "title": "Selective Activation Recomputation：选择性激活重计算",
+    "slug": "selective-activation-recomputation",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "显存优化"
+    ],
+    "summary": "Selective 重算按显存收益与重算代价选择激活。"
+  },
+  {
     "title": "Gradient Checkpointing：激活值重计算策略",
     "slug": "gradient-checkpointing-activation-recomputation",
     "date": "2026-04-22",
