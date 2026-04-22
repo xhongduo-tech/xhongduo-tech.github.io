@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令数据质量评估",
+    "slug": "instruction-data-quality-evaluation",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "数据构建"
+    ],
+    "summary": "指令数据评估要同时看样本质量与整体多样性。"
+  },
+  {
     "title": "WizardLM 数据复杂度评分",
     "slug": "wizardlm-data-complexity-scoring",
     "date": "2026-04-22",
