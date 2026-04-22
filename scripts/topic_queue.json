@@ -20214,7 +20214,7 @@
       "注意力优化"
     ],
     "brief": "FlashAttention-2 通过分块计算和 IO 感知优化，将注意力的显存访问从 O(N^2) 降到 O(N)。关键创新：tiling 策略使 softmax 在 SRAM 内完成，避免 HBM 读写中间矩阵。相比 FlashAttention-1 速度提升 2 倍，达到理论计算峰值的 72%。支持序列长度 256K。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashAttention-3：H100 GPU 的异步优化",

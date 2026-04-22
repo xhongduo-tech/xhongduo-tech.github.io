@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashAttention-2：IO 感知的精确注意力",
+    "slug": "flashattention2-io-aware-exact-attention",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "注意力优化"
+    ],
+    "summary": "FlashAttention-2 通过分块和在线 softmax 减少显存 IO，实现精确注意力加速"
+  },
+  {
     "title": "FlashAttention-3：H100 GPU 的异步优化",
     "slug": "flashattention3-h100-async-optimization",
     "date": "2026-04-22",
