@@ -1,5 +1,16 @@
 [
   {
+    "title": "FLAN-T5 大规模指令微调",
+    "slug": "flan-t5-instruction-tuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "多任务微调"
+    ],
+    "summary": "FLAN-T5 通过大规模指令微调提升 T5 的跨任务泛化能力"
+  },
+  {
     "title": "T0 多任务提示微调",
     "slug": "t0-multitask-prompt-tuning",
     "date": "2026-04-22",
