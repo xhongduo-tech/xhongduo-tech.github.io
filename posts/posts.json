@@ -1,5 +1,16 @@
 [
   {
+    "title": "FLAN-UL2 统一指令微调",
+    "slug": "flan-ul2-unified-instruction",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "多任务微调"
+    ],
+    "summary": "FLAN-UL2 用统一去噪预训练叠加指令微调，兼顾通用能力与任务泛化"
+  },
+  {
     "title": "FLAN-T5 大规模指令微调",
     "slug": "flan-t5-instruction-tuning",
     "date": "2026-04-22",

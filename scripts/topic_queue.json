@@ -20715,7 +20715,7 @@
       "多任务微调"
     ],
     "brief": "FLAN-UL2 将 FLAN 指令微调应用于 UL2 模型，结合了 Mixture-of-Denoisers 预训练目标和指令微调。证明了统一的预训练-微调范式能在多种任务上达到 SOTA，同时保持模型的通用性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ToolFormer 工具使用微调",
