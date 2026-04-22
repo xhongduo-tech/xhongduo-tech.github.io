@@ -1,5 +1,17 @@
 [
   {
+    "title": "Paged Attention：KV Cache 的分页管理",
+    "slug": "paged-attention-kv-cache-paging",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "显存优化"
+    ],
+    "summary": "Paged Attention 用分页管理 KV cache，降低碎片并支持前缀共享。"
+  },
+  {
     "title": "FlashAttention-2：IO 感知的精确注意力",
     "slug": "flashattention2-io-aware-exact-attention",
     "date": "2026-04-22",

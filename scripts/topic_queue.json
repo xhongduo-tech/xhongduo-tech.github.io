@@ -20238,7 +20238,7 @@
       "显存优化"
     ],
     "brief": "Paged Attention 借鉴操作系统的虚拟内存管理，将 KV Cache 存储在非连续的内存块中。支持内存共享（beam search 中多个候选共享前缀），内存利用率从 20-40% 提升到 90%+。在 vLLM 中实现，支持批量推理和长上下文训练。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Loss Spike 诊断：大模型训练的崩溃检测与恢复",
