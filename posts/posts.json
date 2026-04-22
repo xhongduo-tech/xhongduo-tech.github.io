@@ -1,5 +1,16 @@
 [
   {
+    "title": "Prefix Tuning 前缀调优",
+    "slug": "prefix-tuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "Prefix Tuning 冻结基座模型，只训练注意力前缀参数适配生成任务。"
+  },
+  {
     "title": "Prompt Tuning 软提示调优",
     "slug": "prompt-tuning",
     "date": "2026-04-22",

@@ -20550,7 +20550,7 @@
       "参数高效微调"
     ],
     "brief": "Prefix Tuning 在每一层 transformer 注意力中插入可学习的前缀向量，冻结原始模型参数。这些虚拟 token 作为上下文引导模型生成，仅需训练不到 0.1% 参数即可达到接近全参数微调效果，特别适合生成任务。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Prompt Tuning 软提示调优",
