@@ -20397,7 +20397,7 @@
       "工程实践"
     ],
     "brief": "大规模分布式训练面临硬件故障（GPU 失效、网络中断）风险。容错策略：定期异步 checkpoint（不影响训练）、检查点存储到分布式文件系统、支持从任意 rank 恢复。Megatron-LM 和 DeepSpeed 提供分布式 checkpoint 实现，存储效率通过 deduplication 优化。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "弹性训练：动态调整 Worker 数量",

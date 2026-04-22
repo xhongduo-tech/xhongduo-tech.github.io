@@ -1,5 +1,17 @@
 [
   {
+    "title": "分布式训练的容错与 Checkpoint",
+    "slug": "distributed-training-fault-tolerance-checkpoint",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "工程实践"
+    ],
+    "summary": "分布式训练容错依赖完整、分片、可重分片的 checkpoint。"
+  },
+  {
     "title": "梯度压缩：分布式训练的带宽优化",
     "slug": "gradient-compression-bandwidth-optimization",
     "date": "2026-04-22",
