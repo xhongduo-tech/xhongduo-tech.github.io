@@ -20008,7 +20008,7 @@
       "微调策略"
     ],
     "brief": "Layer-wise LR 为不同层分配不同学习率：底层使用较小 LR 保留预训练知识，顶层使用较大 LR 快速适应下游任务。在 BERT fine-tuning 中，底层 LR 为顶层的 0.1-0.5 倍。UDO (Universal Deep Learning) 提供自动层间 LR 分配算法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Warmup 策略：训练初期的学习率预热",

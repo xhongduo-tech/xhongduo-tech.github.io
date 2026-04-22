@@ -1,5 +1,17 @@
 [
   {
+    "title": "Layer-wise 学习率：差异化层训练策略",
+    "slug": "layerwise-learning-rate-differential",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "学习率调度",
+      "微调策略"
+    ],
+    "summary": "Layer-wise LR 通过底层小步、顶层大步平衡预训练保留与任务适配"
+  },
+  {
     "title": "Cosine 学习率调度：平滑衰减的理论与实践",
     "slug": "cosine-learning-rate-schedule",
     "date": "2026-04-22",
