@@ -1,5 +1,16 @@
 [
   {
+    "title": "Orca 渐进式复杂度学习",
+    "slug": "orca-progressive-learning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "Orca 通过学习教师解释轨迹，让小模型获得更强复杂推理能力"
+  },
+  {
     "title": "Alpaca 高质量指令数据集构建",
     "slug": "alpaca-instruction-dataset",
     "date": "2026-04-22",
