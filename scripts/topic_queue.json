@@ -20457,7 +20457,7 @@
       "快速训练"
     ],
     "brief": "Progressive Resizing 从低分辨率开始训练，逐步增加到目标分辨率。低分辨率训练速度快，高分辨率提供最终精度。典型配置：128 -> 224 -> 384（每个阶段训练 1/3 的 epoch）。总训练时间可减少 30-50%，最终精度损失通常小于 1%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Curriculum Learning：课程学习的数据排序",

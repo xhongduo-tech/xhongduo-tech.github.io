@@ -1,5 +1,17 @@
 [
   {
+    "title": "Progressive Resizing：渐进式分辨率训练",
+    "slug": "progressive-resizing-resolution-training",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练技巧",
+      "快速训练"
+    ],
+    "summary": "Progressive Resizing 用低分辨率省前期计算，高分辨率补最终精度。"
+  },
+  {
     "title": "知识蒸馏的训练技巧与温度调度",
     "slug": "knowledge-distillation-temperature-scheduling",
     "date": "2026-04-22",
