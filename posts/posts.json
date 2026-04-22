@@ -1,5 +1,16 @@
 [
   {
+    "title": "指令数据去重与多样性",
+    "slug": "instruction-data-deduplication-diversity",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "数据构建"
+    ],
+    "summary": "指令数据应先去重再控分布，减少冗余并保留任务多样性"
+  },
+  {
     "title": "RRHF 响应排序微调",
     "slug": "rrhf-response-ranking",
     "date": "2026-04-22",
