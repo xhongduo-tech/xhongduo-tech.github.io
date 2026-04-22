@@ -1,5 +1,17 @@
 [
   {
+    "title": "Spatial Dropout：卷积层的特征图级正则化",
+    "slug": "spatial-dropout-convolution-regularization",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "CNN训练"
+    ],
+    "summary": "Spatial Dropout 按通道丢弃卷积特征图，适合空间相关强的 CNN 正则化。"
+  },
+  {
     "title": "DropConnect：权重正则化的随机断连",
     "slug": "dropconnect-weight-regularization",
     "date": "2026-04-22",

@@ -20056,7 +20056,7 @@
       "CNN训练"
     ],
     "brief": "Spatial Dropout 以特征图为单位进行 dropout，同一通道的所有空间位置共享掩码。相比标准 Dropout 的元素级置零，Spatial Dropout 更适合卷积网络，因为相邻像素高度相关。在语义分割和目标检测中广泛应用，dropout rate 通常设为 0.1-0.2。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DropBlock：CNN 特征图块级正则化",
