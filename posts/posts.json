@@ -1,5 +1,16 @@
 [
   {
+    "title": "LoRA+ 高效低秩适应改进",
+    "slug": "loraplus-efficient-lora",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "LoRA+ 通过分离 A/B 学习率改善 LoRA 训练节奏"
+  },
+  {
     "title": "P-Tuning v2 深层提示调优",
     "slug": "ptuning-v2",
     "date": "2026-04-22",
