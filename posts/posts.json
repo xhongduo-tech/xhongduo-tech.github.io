@@ -1,5 +1,17 @@
 [
   {
+    "title": "Cosine 学习率调度：平滑衰减的理论与实践",
+    "slug": "cosine-learning-rate-schedule",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "学习率调度",
+      "预训练"
+    ],
+    "summary": "Cosine 调度用 warmup 加余弦衰减实现长训练中的平滑学习率变化"
+  },
+  {
     "title": "Polynomial 学习率调度：可控衰减曲线",
     "slug": "polynomial-learning-rate-schedule",
     "date": "2026-04-22",

@@ -19984,7 +19984,7 @@
       "预训练"
     ],
     "brief": "Cosine 调度按余弦曲线从峰值衰减到最小值，提供比 step decay 更平滑的训练曲线。被 GPT-3、LLaMA、PaLM 等主流 LLM 采用。关键参数：warmup 步数、最小学习率比例（通常 0.1）。与 linear decay 相比，中期训练更稳定。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Polynomial 学习率调度：可控衰减曲线",
