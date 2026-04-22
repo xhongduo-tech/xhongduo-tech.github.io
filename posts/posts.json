@@ -1,5 +1,16 @@
 [
   {
+    "title": "Llama-2-Chat RLHF 微调流程",
+    "slug": "llama2-chat-rlhf-pipeline",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "对齐微调"
+    ],
+    "summary": "Llama-2-Chat 通过 SFT、奖励模型和 PPO 迭代完成对齐微调"
+  },
+  {
     "title": "CodeLlama 代码微调策略",
     "slug": "codellama-code-finetuning",
     "date": "2026-04-22",

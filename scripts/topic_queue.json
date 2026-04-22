@@ -20781,7 +20781,7 @@
       "对齐微调"
     ],
     "brief": "Llama-2-Chat 展示了完整的 RLHF 流程：SFT → Reward Model 训练 → PPO 迭代优化。通过多轮 RLHF 迭代和持续的数据收集，在有用性和无害性两个维度上达到平衡。Meta 开源了完整的技术细节。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RRHF 响应排序微调",
