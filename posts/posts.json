@@ -1,5 +1,16 @@
 [
   {
+    "title": "Self-Instruct 自举指令数据生成",
+    "slug": "self-instruct",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "指令微调"
+    ],
+    "summary": "Self-Instruct 用少量种子任务自举生成指令数据，降低微调数据成本。"
+  },
+  {
     "title": "LoKr 低秩克罗内克适应",
     "slug": "lokr-low-rank-kronecker",
     "date": "2026-04-22",
