@@ -20572,7 +20572,7 @@
       "参数高效微调"
     ],
     "brief": "P-Tuning v2 将 Prompt Tuning 扩展到 transformer 的每一层，解决了原始 P-Tuning 在小模型和序列标注任务上的性能瓶颈。通过在每层插入可学习 prompt，实现了与全参数微调相当的效果，同时保持参数高效性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "IA3 通过缩放因子微调",

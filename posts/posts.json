@@ -1,5 +1,27 @@
 [
   {
+    "title": "P-Tuning v2 深层提示调优",
+    "slug": "ptuning-v2",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "P-Tuning v2 通过每层注入可学习 prompt 提升 NLU 参数高效微调效果"
+  },
+  {
+    "title": "IA3：用缩放因子做参数高效微调",
+    "slug": "ia3-scaling-factor-finetuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "参数高效微调"
+    ],
+    "summary": "IA3 用可学习缩放向量做万分之一级微调。"
+  },
+  {
     "title": "Prefix Tuning 前缀调优",
     "slug": "prefix-tuning",
     "date": "2026-04-22",
