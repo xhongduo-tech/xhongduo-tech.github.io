@@ -1,5 +1,16 @@
 [
   {
+    "title": "Gorilla API 调用微调",
+    "slug": "gorilla-api-call-finetuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "能力扩展"
+    ],
+    "summary": "Gorilla 通过检索文档和微调生成，提高 API 调用准确率。"
+  },
+  {
     "title": "ToolFormer 工具使用微调",
     "slug": "toolformer-tool-use-finetuning",
     "date": "2026-04-22",
