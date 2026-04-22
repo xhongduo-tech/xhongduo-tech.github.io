@@ -20178,7 +20178,7 @@
       "显存优化"
     ],
     "brief": "Gradient Checkpointing 在前向传播时只保存部分激活值，反向传播时重计算丢弃的激活值。典型方案：每 k 层保存一个 checkpoint，中间层的激活值在反向时重新计算。以约 20-30% 的计算开销换取 O(sqrt(n)) 的显存占用，适合长序列和深层模型训练。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Activation Offloading：激活值卸载到 CPU",

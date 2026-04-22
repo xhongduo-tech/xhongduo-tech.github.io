@@ -1,5 +1,17 @@
 [
   {
+    "title": "Gradient Checkpointing：激活值重计算策略",
+    "slug": "gradient-checkpointing-activation-recomputation",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "显存优化"
+    ],
+    "summary": "Gradient Checkpointing 用反向重算换取更低激活显存。"
+  },
+  {
     "title": "Activation Offloading：激活值卸载到 CPU",
     "slug": "activation-offloading-cpu-memory",
     "date": "2026-04-22",
