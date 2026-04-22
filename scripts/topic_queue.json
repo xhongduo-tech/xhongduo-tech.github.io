@@ -20346,7 +20346,7 @@
       "数据流水线"
     ],
     "brief": "Prefetching 在 GPU 计算当前 batch 时，CPU 预加载下一个 batch 到 GPU。PyTorch DataLoader 的 num_workers 控制预取进程数，prefetch_factor 控制每个进程的预取队列长度。理想状态：数据加载时间完全被计算时间覆盖。可通过 D2H 传输时间判断瓶颈。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "通信与计算重叠",

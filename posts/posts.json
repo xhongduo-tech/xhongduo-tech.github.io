@@ -1,5 +1,17 @@
 [
   {
+    "title": "Prefetching：数据加载与计算的重叠",
+    "slug": "prefetching-data-loading-overlap",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "高效训练",
+      "数据流水线"
+    ],
+    "summary": "Prefetching 用预取队列重叠数据路径与 GPU 计算"
+  },
+  {
     "title": "FP8 训练：H100 的 8 位浮点训练",
     "slug": "fp8-training-h100-8bit-floating",
     "date": "2026-04-22",
