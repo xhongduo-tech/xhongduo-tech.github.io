@@ -20748,7 +20748,7 @@
       "领域适应"
     ],
     "brief": "持续预训练（Continued Pretraining）在通用预训练后，使用领域数据进行二次预训练，使模型适应特定领域（医疗、法律、代码等）。关键在于平衡领域知识与通用能力，避免灾难性遗忘。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "BioMedLM 医疗领域微调",

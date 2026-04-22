@@ -1,5 +1,27 @@
 [
   {
+    "title": "持续预训练与领域适应",
+    "slug": "continued-pretraining-domain-adaptation",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "领域适应"
+    ],
+    "summary": "持续预训练用领域语料补齐分布差异，关键是收益与遗忘控制。"
+  },
+  {
+    "title": "BioMedLM 医疗领域微调",
+    "slug": "biomedlm-medical-domain-finetuning",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "生物医学"
+    ],
+    "summary": "BioMedLM 用 PubMed 语料和领域 tokenizer 提升生物医学问答与关系抽取能力"
+  },
+  {
     "title": "Gorilla API 调用微调",
     "slug": "gorilla-api-call-finetuning",
     "date": "2026-04-22",
