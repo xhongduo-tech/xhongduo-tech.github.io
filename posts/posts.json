@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练监控指标：MFU、Loss Scale、梯度统计",
+    "slug": "training-monitoring-mfu-loss-scale-gradients",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "监控"
+    ],
+    "summary": "MFU看效率，Loss Scale看稳定，梯度统计看反向传播健康"
+  },
+  {
     "title": "梯度 NaN 诊断：数值异常的根因分析",
     "slug": "gradient-nan-diagnosis-numerical-anomaly",
     "date": "2026-04-22",

@@ -20286,7 +20286,7 @@
       "监控"
     ],
     "brief": "关键监控指标：MFU (Model FLOPs Utilization) 衡量计算效率，优秀值为 40-50%；Loss Scale 反映混合精度训练稳定性，过低表明梯度异常；梯度范数应在稳定范围内，突然增大预示训练问题。建议建立实时仪表盘，设置异常告警阈值。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Learning Rate Finder：自动确定最优学习率",
