@@ -20068,7 +20068,7 @@
       "CNN训练"
     ],
     "brief": "DropBlock 随机丢弃特征图的连续区域而非独立像素，强迫网络学习更具判别力的特征。block_size 控制丢弃区域大小，keep_prob 控制丢弃比例。在 ResNet-50 上提升 ImageNet 精度 1-2%。特别适合检测和分割等下游任务。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Stochastic Depth：深度随机正则化",

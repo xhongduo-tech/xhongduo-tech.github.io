@@ -1,5 +1,17 @@
 [
   {
+    "title": "DropBlock：CNN 特征图块级正则化",
+    "slug": "dropblock-feature-map-block-dropout",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "正则化",
+      "CNN训练"
+    ],
+    "summary": "DropBlock 通过丢弃连续特征块提升 CNN 泛化能力"
+  },
+  {
     "title": "Warmup 策略：训练初期的学习率预热",
     "slug": "warmup-strategy-learning-rate-preheating",
     "date": "2026-04-22",
