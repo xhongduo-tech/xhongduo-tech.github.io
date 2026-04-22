@@ -1,5 +1,17 @@
 [
   {
+    "title": "Efficient Dataparallel：异步参数同步",
+    "slug": "efficient-dataparallel-async-sync",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "分布式训练",
+      "数据并行"
+    ],
+    "summary": "异步参数同步用更高吞吐换取可控参数陈旧度。"
+  },
+  {
     "title": "通信与计算重叠",
     "slug": "communication-computation-overlap-distributed",
     "date": "2026-04-22",
