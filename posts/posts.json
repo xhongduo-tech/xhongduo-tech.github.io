@@ -1,5 +1,17 @@
 [
   {
+    "title": "SWA (Stochastic Weight Averaging)：随机权重平均",
+    "slug": "swa-stochastic-weight-averaging",
+    "date": "2026-04-22",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练技巧",
+      "泛化优化"
+    ],
+    "summary": "SWA 通过后期权重等权平均获得更平坦、更稳的泛化解"
+  },
+  {
     "title": "弹性训练：动态调整 Worker 数量",
     "slug": "elastic-training-dynamic-worker-scaling",
     "date": "2026-04-22",
