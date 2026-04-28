@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理请求队列管理",
+    "slug": "inference-request-queue-management",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "请求管理"
+    ],
+    "summary": "推理队列管理的重点是优先级、超时、拒绝和背压协同设计，避免高峰期整体雪崩"
+  },
+  {
     "title": "模型版本管理与回滚",
     "slug": "model-version-management-rollback",
     "date": "2026-04-28",
