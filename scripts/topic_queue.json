@@ -21182,7 +21182,7 @@
       "分布强化"
     ],
     "brief": "标准 RL 估计 E[Σγ^t r_t]，Distributional RL 估计整个回报分布。C51 将连续价值离散化为 51 个原子 {z_i}，输出每个原子的概率 p_i(s,a)。投影 Bellman 更新到离散支撑集，用交叉熵损失训练。分布信息可用于风险敏感决策。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Noisy Nets：参数空间噪声替代动作空间探索",

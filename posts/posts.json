@@ -1,5 +1,18 @@
 [
   {
+    "title": "Distributional RL：C51 与价值分布的显式建模",
+    "slug": "distributional-rl-c51",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "分布强化"
+    ],
+    "summary": "C51把值函数从均值预测升级为回报分布预测，核心在固定原子、投影更新与交叉熵训练。"
+  },
+  {
     "title": "Prioritized Experience Replay：按 TD 误差优先回放",
     "slug": "prioritized-experience-replay",
     "date": "2026-04-28",
