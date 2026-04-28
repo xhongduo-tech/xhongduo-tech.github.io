@@ -1,5 +1,18 @@
 [
   {
+    "title": "UCB 探索：上置信界算法的数学基础",
+    "slug": "ucb-upper-confidence-bound",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "探索策略",
+      "多臂老虎机"
+    ],
+    "summary": "UCB 用均值加置信上界做定向探索，能在多臂老虎机中实现可解释的低悔恨决策"
+  },
+  {
     "title": "模型预测控制 (MPC) 在 RL 中的应用",
     "slug": "mpc-model-predictive-control",
     "date": "2026-04-28",

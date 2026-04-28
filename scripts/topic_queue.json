@@ -21400,7 +21400,7 @@
       "多臂老虎机"
     ],
     "brief": "多臂老虎机中 ε-greedy 不区分动作不确定性。UCB 选 arm = argmax(μ_a + c√(log N / n_a))，μ_a 是估计均值，n_a 是该臂被拉次数。加号项代表不确定性，被拉越少不确定性越大。Hoeffding 不等式保证上界是真实价值的高概率界。UCB1 对数悔恨界。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Thompson Sampling：贝叶斯探索策略",
