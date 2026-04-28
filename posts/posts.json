@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型格式 ONNX 转换工具",
+    "slug": "model-conversion-onnx-tools",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "格式转换"
+    ],
+    "summary": "ONNX 转换的难点不在导出文件，而在形状、算子和后端兼容能否闭环。"
+  },
+  {
     "title": "流式推理实现方案",
     "slug": "streaming-inference-implementation",
     "date": "2026-04-28",

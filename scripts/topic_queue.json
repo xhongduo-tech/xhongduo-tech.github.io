@@ -21816,7 +21816,7 @@
       "格式转换"
     ],
     "brief": "ONNX转换的核心难点在于动态形状传播、算子等价映射和运行时兼容。导出成功不代表可部署，若动态轴、attention mask或自定义算子处理不当，模型会在推理阶段出现形状爆炸、精度漂移或无法落到TensorRT等高性能后端。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "safetensors 格式与安全加载",
