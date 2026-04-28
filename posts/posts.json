@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理日志分析优化",
+    "slug": "inference-log-analysis-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "日志分析"
+    ],
+    "summary": "慢请求优化的关键不是看平均值，而是按阶段拆分并与 trace 关联定位 P99 根因"
+  },
+  {
     "title": "模型热更新机制",
     "slug": "model-hot-update-mechanism",
     "date": "2026-04-28",
