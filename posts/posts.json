@@ -1,5 +1,17 @@
 [
   {
+    "title": "GCN图卷积网络详解",
+    "slug": "gcn-graph-convolutional-network",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图神经网络"
+    ],
+    "summary": "GCN本质是归一化邻居聚合加共享线性变换，适合半监督节点分类，但深层和大图场景受限。"
+  },
+  {
     "title": "GraphSAGE采样策略",
     "slug": "graphsage-sampling-strategy",
     "date": "2026-04-29",
