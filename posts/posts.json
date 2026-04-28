@@ -1,5 +1,17 @@
 [
   {
+    "title": "Sophia 优化器：LLM 训练的 Hessian 预条件",
+    "slug": "sophia-optimizer-hessian-preconditioning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "LLM训练"
+    ],
+    "summary": "Sophia 用对角 Hessian 近似做预条件，并用逐坐标裁剪在大模型预训练中减少达到同等 loss 的步数。"
+  },
+  {
     "title": "Adafactor 优化器：TPU 训练的内存高效方案",
     "slug": "adafactor-optimizer-memory-efficient",
     "date": "2026-04-28",

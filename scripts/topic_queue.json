@@ -19924,7 +19924,7 @@
       "LLM训练"
     ],
     "brief": "Sophia (Second-order Clipped Stochastic Optimization) 使用对角 Hessian 近似作为预条件器。每 K 步估计一次 Hessian 对角，通过 clipping 避免梯度爆炸。在 GPT-2 和 LLaMA 上比 Adam 快 2 倍达到相同 loss。Hessian 估计采用 Hutchinson 迹估计器的轻量变体。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Shampoo 优化器：结构化二阶优化",
