@@ -1,5 +1,17 @@
 [
   {
+    "title": "GraphSAGE采样策略",
+    "slug": "graphsage-sampling-strategy",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图神经网络"
+    ],
+    "summary": "GraphSAGE用固定邻居采样把GNN变成可归纳、可扩展的大图学习方案。"
+  },
+  {
     "title": "GAT图注意力网络",
     "slug": "gat-graph-attention-network",
     "date": "2026-04-29",
