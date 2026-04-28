@@ -1,5 +1,29 @@
 [
   {
+    "title": "异构图神经网络",
+    "slug": "heterogeneous-graph-neural-network",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图神经网络"
+    ],
+    "summary": "异构图神经网络的核心是按关系传消息、按类型聚合，并在完整工程口径中验证其收益与风险"
+  },
+  {
+    "title": "GNN过平滑与过压缩",
+    "slug": "gnn-oversmoothing-oversquashing",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "图神经网络",
+      "深层GNN"
+    ],
+    "summary": "区分 GNN 过平滑与过压缩，并对应到不同缓解手段。"
+  },
+  {
     "title": "RGCN关系图卷积",
     "slug": "rgcn-relational-gcn",
     "date": "2026-04-29",
