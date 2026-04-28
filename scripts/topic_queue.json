@@ -21772,7 +21772,7 @@
       "TensorRT"
     ],
     "brief": "TensorRT-LLM引擎配置本质是在上下文长度、批大小、KV cache预留和量化位宽之间做显存预算。更大的max batch与context会抬高显存占用，FP16、INT8、FP8会改变算子实现与吞吐上限，构建期profile直接决定线上TTFT、TPOT和并发容量。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "vLLM 张量并行推理",

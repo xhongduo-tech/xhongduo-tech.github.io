@@ -1,5 +1,16 @@
 [
   {
+    "title": "TensorRT-LLM 推理引擎配置",
+    "slug": "tensorrt-llm-engine-config",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "TensorRT"
+    ],
+    "summary": "TensorRT-LLM 引擎配置本质是按 workload 做显存与形状预算。"
+  },
+  {
     "title": "Hierarchical RL：分层策略的结构化决策",
     "slug": "hierarchical-rl-options",
     "date": "2026-04-28",
