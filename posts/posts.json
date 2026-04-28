@@ -1,5 +1,18 @@
 [
   {
+    "title": "Double DQN：解决 Q 值过高估计问题",
+    "slug": "double-dqn-overestimation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "DQN变体"
+    ],
+    "summary": "Double DQN通过分离选动作与评估动作，显著缓解DQN的Q值系统性高估。"
+  },
+  {
     "title": "DeepSpeed ZeRO 微调优化",
     "slug": "deepspeed-zero-finetuning",
     "date": "2026-04-28",

@@ -21134,7 +21134,7 @@
       "DQN变体"
     ],
     "brief": "标准 DQN 的 max 操作导致系统性 Q 值过高估计：E[max(Q)] ≥ max(E[Q])。Double DQN 解耦动作选择与评估：y = r + γ Q(s', argmax_a' Q(s',a';θ); θ⁻)，用在线网络选动作，目标网络评估价值。理论证明可消除正向偏差。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Dueling DQN：分离状态价值与动作优势",
