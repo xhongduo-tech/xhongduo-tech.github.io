@@ -1,5 +1,16 @@
 [
   {
+    "title": "LoRA 推理合并",
+    "slug": "lora-inference-merging",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "LoRA"
+    ],
+    "summary": "LoRA推理合并把低秩增量写回基座权重，用更少热路径开销换取更低的动态切换灵活性"
+  },
+  {
     "title": "模型蒸馏推理加速",
     "slug": "knowledge-distillation-inference",
     "date": "2026-04-28",
