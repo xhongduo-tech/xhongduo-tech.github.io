@@ -1,5 +1,16 @@
 [
   {
+    "title": "多模态模型微调 (LLaVA)",
+    "slug": "llava-multimodal-finetuning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "架构适配"
+    ],
+    "summary": "LLaVA 的本质是先对齐视觉特征到语言空间，再用图文指令把模型教会按问题回答。"
+  },
+  {
     "title": "LongLoRA 高效长上下文微调",
     "slug": "longlora-efficient-long-context",
     "date": "2026-04-28",
