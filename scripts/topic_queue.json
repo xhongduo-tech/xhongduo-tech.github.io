@@ -21292,7 +21292,7 @@
       "离策略学习"
     ],
     "brief": "Agent 用行为策略 β 采样，目标策略 π 需要修正。重要性采样权重 ρ_t = π(a_t|s_t)/β(a_t|s_t)。V-trace 目标 v_s = V(s) + Σ c_i ρ_i δ_i，其中 c_i = min(c̄, ρ_i) 截断保证稳定性。IMPALA 分布式 RL 用 V-trace 实现高效离策略学习。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "A2C vs A3C：同步与异步的权衡",

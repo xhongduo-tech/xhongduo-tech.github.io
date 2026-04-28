@@ -1,5 +1,18 @@
 [
   {
+    "title": "V-trace：重要性采样修正的离策略学习",
+    "slug": "v-trace-importance-sampling",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "离策略学习"
+    ],
+    "summary": "V-trace 用截断重要性采样修正 actor-learner 的分布偏移，在可控方差下复用旧轨迹。"
+  },
+  {
     "title": "GAE：广义优势估计的 λ 权衡",
     "slug": "gae-generalized-advantage-estimation",
     "date": "2026-04-28",
