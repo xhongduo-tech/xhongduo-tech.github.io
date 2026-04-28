@@ -21534,7 +21534,7 @@
       "策略梯度"
     ],
     "brief": "COMA 的核心是反事实基线：如果 agent i 采取不同动作，全局回报会如何变化？用 Critic Q(s, a) 计算基线 b_i(s, a_{-i}) = Σ_a' π_i(a'|s_i) Q(s, (a', a_{-i}))。优势 A_i = Q(s, a) - b_i(s, a_{-i})，仅归因于 agent i 的动作贡献。需要中心化 Critic。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "离线 RL：从静态数据集学习策略",

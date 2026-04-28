@@ -1,5 +1,18 @@
 [
   {
+    "title": "COMA：反事实基线的多智能体策略梯度",
+    "slug": "coma-counterfactual-baseline",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "多智能体",
+      "策略梯度"
+    ],
+    "summary": "COMA 用反事实基线把团队回报拆成单个 agent 的边际贡献。"
+  },
+  {
     "title": "MAPPO：多智能体 PPO 的中心化训练",
     "slug": "mappo-centralized-training",
     "date": "2026-04-28",
