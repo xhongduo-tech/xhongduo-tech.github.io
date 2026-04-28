@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型分片存储优化",
+    "slug": "model-sharding-storage-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "存储"
+    ],
+    "summary": "模型分片存储用索引加多文件缓解单文件瓶颈，但粒度过细会被元数据和随机IO反噬"
+  },
+  {
     "title": "推理框架性能对比",
     "slug": "inference-framework-performance-comparison",
     "date": "2026-04-28",
