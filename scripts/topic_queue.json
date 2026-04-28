@@ -21034,7 +21034,7 @@
       "评估方法"
     ],
     "brief": "AlpacaEval 使用 GPT-4 Turbo 对比评估模型输出与参考模型的质量。通过 win rate 计算分数，提供可复现的自动化评估。相比人工评估更快，但可能存在 judge bias。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "微调超参数搜索",
@@ -21486,7 +21486,7 @@
       "价值学习"
     ],
     "brief": "IQL 完全避免查询 OOD 动作的 Q 值。用期望回归学习 Q 值：L = E[(Q(s,a) - r - γ V(s'))²]，但 V 通过 expectile 回归从 Q 中提取：L = E[L_τ(Q(s,a) - V(s))]。只评估数据集中的动作，无需行为策略显式建模。简单高效，是离线 RL 的新基准。",
-    "status": "failed"
+    "status": "done"
   },
   {
     "title": "VDN：价值分解网络的加法假设",
@@ -21726,7 +21726,7 @@
       "奖励设计"
     ],
     "brief": "人工设计的密集奖励可加速学习。基于势能的塑形 F(s,s') = γΦ(s') - Φ(s) 保证最优策略不变。Φ(s) 可以是到目标的距离启发。非势能塑形会改变最优策略，可能引入次优行为。Reward Engineering 是实践中的重要挑战。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "课程学习：从简单到困难",
@@ -21738,7 +21738,7 @@
       "训练策略"
     ],
     "brief": "从简单任务开始，逐步增加难度。自动课程生成：根据 agent 当前能力选择任务。Domain Randomization：训练时随机化环境参数，提升泛化。Reverse Curriculum：从目标状态反向生成起始状态。在机器人控制和复杂游戏中广泛应用。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Hierarchical RL：分层策略的结构化决策",
@@ -21750,7 +21750,7 @@
       "分层学习"
     ],
     "brief": "Options 框架定义高层动作 (option) = (启动条件, 策略, 终止条件)。Manager 选择 option，Worker 执行 option 内策略。分层自动生成子目标（如 FeUdal Networks）。HIRO 和 HAC 用 hindsight relabeling 训练分层策略。解决长期依赖和稀疏奖励问题。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "ONNX Runtime 推理性能优化",

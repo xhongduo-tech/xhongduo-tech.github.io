@@ -1,5 +1,20 @@
 [
   {
+    "title": "IQL",
+    "slug": "iql-offline-implicit-q",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "多智能体",
+      "独立学习",
+      "离线RL",
+      "价值学习"
+    ],
+    "summary": "IQL 通过 expectile value 与加权行为克隆避开 OOD 动作评估，是离线 RL 的高效稳健基线"
+  },
+  {
     "title": "策略迭代与值迭代：动态规划的两种视角",
     "slug": "policy-value-iteration",
     "date": "2026-04-28",
