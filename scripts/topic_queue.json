@@ -21630,7 +21630,7 @@
       "估计方法"
     ],
     "brief": "用行为策略 β 采样估计目标策略 π 的价值。重要性采样权重 ρ = π(a|s)/β(a|s) 修正分布差异。V_π = E_β[ρ·G] 是无偏估计，但方差可能极大（当 π 与 β 差异大时）。加权的 IS（Weighted Importance Sampling）有偏但方差更低：V = Σρ_i·G_i / Σρ_i。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Model-Based RL：规划与学习的权衡",

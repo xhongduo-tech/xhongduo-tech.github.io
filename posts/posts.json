@@ -1,5 +1,18 @@
 [
   {
+    "title": "重要性采样：异策略评估的数学基础",
+    "slug": "importance-sampling-off-policy",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "估计方法"
+    ],
+    "summary": "重要性采样用概率比修正异策略日志，无偏但高方差，工程上常用更稳的 WIS。"
+  },
+  {
     "title": "SARSA：同策略 TD 控制算法",
     "slug": "sarsa-on-policy",
     "date": "2026-04-28",
