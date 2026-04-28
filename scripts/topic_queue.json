@@ -21738,7 +21738,7 @@
       "训练策略"
     ],
     "brief": "从简单任务开始，逐步增加难度。自动课程生成：根据 agent 当前能力选择任务。Domain Randomization：训练时随机化环境参数，提升泛化。Reverse Curriculum：从目标状态反向生成起始状态。在机器人控制和复杂游戏中广泛应用。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Hierarchical RL：分层策略的结构化决策",

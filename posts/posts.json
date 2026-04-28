@@ -1,5 +1,18 @@
 [
   {
+    "title": "课程学习：从简单到困难",
+    "slug": "curriculum-learning-rl",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "工程实践",
+      "训练策略"
+    ],
+    "summary": "课程学习本质是控制训练分布演化，让模型始终学习“当前能学但略有挑战”的任务。"
+  },
+  {
     "title": "ONNX Runtime 推理性能优化",
     "slug": "onnx-runtime-inference-optimization",
     "date": "2026-04-28",
