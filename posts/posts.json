@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱嵌入评估",
+    "slug": "kg-embedding-evaluation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识嵌入"
+    ],
+    "summary": "知识图谱嵌入评估本质是链接预测排序，核心是 filtered setting 下的 MRR 与 Hits@K。"
+  },
+  {
     "title": "ComplEx复数嵌入",
     "slug": "complex-embedding-model",
     "date": "2026-04-29",
