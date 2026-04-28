@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型格式兼容性处理",
+    "slug": "model-format-compatibility",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "格式转换"
+    ],
+    "summary": "模型格式兼容性的核心不是导出成功，而是训练语义在部署运行时保持一致。"
+  },
+  {
     "title": "多模型共享推理",
     "slug": "multi-model-shared-inference",
     "date": "2026-04-28",
