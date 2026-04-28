@@ -1,5 +1,17 @@
 [
   {
+    "title": "Shampoo 优化器：结构化二阶优化",
+    "slug": "shampoo-optimizer-structured-second-order",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "二阶优化"
+    ],
+    "summary": "Shampoo按参数各维维护二阶统计，用结构化预条件换取更强收敛与更高工程成本"
+  },
+  {
     "title": "Muon 优化器：动量正交化的新型优化器",
     "slug": "muon-optimizer-momentum-orthogonalization",
     "date": "2026-04-28",
