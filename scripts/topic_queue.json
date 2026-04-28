@@ -21268,7 +21268,7 @@
       "算法架构"
     ],
     "brief": "Actor 用策略梯度更新 π_θ，Critic 用 TD 误差更新 V_φ。Actor 需要优势函数估计，Critic 提供低方差的优势估计。网络可以共享底层特征提取器，也可完全独立。同步 A2C 与异步 A3C 的区别：A3C 多线程并行，无需经验回放。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GAE：广义优势估计的 λ 权衡",

@@ -1,5 +1,19 @@
 [
   {
+    "title": "Actor-Critic 架构",
+    "slug": "actor-critic-architecture",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "架构设计",
+      "算法架构"
+    ],
+    "summary": "Actor-Critic用Critic降低策略梯度方差，让Actor更新更稳定，是连续控制中的基础架构。"
+  },
+  {
     "title": "TRPO",
     "slug": "trpo-trust-region",
     "date": "2026-04-28",
