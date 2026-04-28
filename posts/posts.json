@@ -1,5 +1,18 @@
 [
   {
+    "title": "SARSA：同策略 TD 控制算法",
+    "slug": "sarsa-on-policy",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "TD学习"
+    ],
+    "summary": "SARSA 用当前策略真实采样的下一动作更新价值，因此会把探索风险一起学进去。"
+  },
+  {
     "title": "TD Learning：时序差分的核心思想",
     "slug": "td-learning-temporal-difference",
     "date": "2026-04-28",
