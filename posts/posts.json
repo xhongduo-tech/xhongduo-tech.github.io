@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务弹性伸缩",
+    "slug": "inference-service-elastic-scaling",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "自动扩缩"
+    ],
+    "summary": "推理服务弹性伸缩的关键不在自动加机器，而在用正确指标控制副本数。"
+  },
+  {
     "title": "推理服务灰度监控",
     "slug": "inference-service-canary-monitoring",
     "date": "2026-04-29",
