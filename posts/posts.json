@@ -1,5 +1,16 @@
 [
   {
+    "title": "Azure ML 推理端点配置",
+    "slug": "azure-ml-inference-endpoint",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Azure"
+    ],
+    "summary": "Azure ML 在线端点配置的关键在容量、流量切换、探针与安全边界的联动。"
+  },
+  {
     "title": "AWS SageMaker 模型部署",
     "slug": "aws-sagemaker-model-deployment",
     "date": "2026-04-28",
