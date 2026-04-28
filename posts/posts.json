@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型推理异步处理",
+    "slug": "model-inference-async-processing",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "异步"
+    ],
+    "summary": "异步推理本质是解耦接入与执行，提升入口稳定性，不会减少单次模型计算时间。"
+  },
+  {
     "title": "多 GPU 显存均衡分配",
     "slug": "multi-gpu-memory-balanced-allocation",
     "date": "2026-04-28",
