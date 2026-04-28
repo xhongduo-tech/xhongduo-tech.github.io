@@ -1,5 +1,16 @@
 [
   {
+    "title": "DeepSpeed ZeRO 微调优化",
+    "slug": "deepspeed-zero-finetuning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "ZeRO 通过分片训练态显著降低显存，ZeRO-3 是大模型微调落地的关键方案。"
+  },
+  {
     "title": "Axolotl 微调配置实践",
     "slug": "axolotl-finetuning-configuration",
     "date": "2026-04-28",

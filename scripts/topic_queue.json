@@ -21111,7 +21111,7 @@
       "工程实践"
     ],
     "brief": "DeepSpeed ZeRO 通过分片优化器状态、梯度和参数，大幅降低显存占用。ZeRO-3 可训练 100B+ 参数模型。与 LoRA 结合时，可选择仅分片基础模型权重，保持 LoRA 参数本地化以减少通信。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FSDP 完全分片数据并行",
