@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务灰度发布",
+    "slug": "inference-service-canary-release",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "发布"
+    ],
+    "summary": "灰度发布用真实流量验证新模型，关键在样本量、在线指标与可回滚能力。"
+  },
+  {
     "title": "模型推理成本分析",
     "slug": "model-inference-cost-analysis",
     "date": "2026-04-28",
