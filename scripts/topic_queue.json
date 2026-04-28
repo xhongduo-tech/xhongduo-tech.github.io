@@ -21460,7 +21460,7 @@
       "集成学习"
     ],
     "brief": "用集成 Q 网络或策略网络估计不确定性。探索奖励 = 集成成员的方差或最大分歧。Bootstrap DQN：每个成员用不同的 bootstrap 样本训练。Sunshine：用集成方差调制 UCB 探索。不确定性高的状态值得探索。集成方法结合深度学习效果好。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多智能体 RL：从独立学习到联合优化",

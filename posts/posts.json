@@ -1,5 +1,18 @@
 [
   {
+    "title": "Exploration by Dissent：集成不确定性估计",
+    "slug": "exploration-by-dissent",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "探索策略",
+      "集成学习"
+    ],
+    "summary": "用多个Q网络的分歧估计认知不确定性，并把它转成更有效的探索信号。"
+  },
+  {
     "title": "Count-based Exploration：基于计数的状态新颖性",
     "slug": "count-based-exploration",
     "date": "2026-04-28",
