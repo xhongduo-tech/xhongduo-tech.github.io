@@ -21761,7 +21761,7 @@
       "ONNX"
     ],
     "brief": "ONNX Runtime的性能主要由执行提供器、图融合和内存复用决定。CPU、CUDA、TensorRT EP会改变算子落点与数据搬运路径，图优化可减少kernel启动次数，arena分配器可压低峰值显存与碎片率，最终影响单请求延迟、批量吞吐和并发上限。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TensorRT-LLM 推理引擎配置",
