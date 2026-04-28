@@ -21472,7 +21472,7 @@
       "基础框架"
     ],
     "brief": "多智能体环境中每个 agent 的奖励依赖于其他 agent 的策略。独立学习把其他 agent 当环境，非平稳问题。完全联合学习动作空间指数增长。Dec-POMDP 是合作多智能体的标准形式，所有 agent 共享同一奖励函数。通信与协调是核心挑战。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "IQL",

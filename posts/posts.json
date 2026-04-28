@@ -1,5 +1,18 @@
 [
   {
+    "title": "多智能体 RL：从独立学习到联合优化",
+    "slug": "multi-agent-rl-basics",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "多智能体",
+      "基础框架"
+    ],
+    "summary": "多智能体RL的核心矛盾是非平稳与联合动作爆炸，工程上常用CTDE或价值分解折中。"
+  },
+  {
     "title": "Exploration by Dissent：集成不确定性估计",
     "slug": "exploration-by-dissent",
     "date": "2026-04-28",
