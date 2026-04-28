@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识图谱Schema映射",
+    "slug": "knowledge-graph-schema-mapping",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合"
+    ],
+    "summary": "Schema映射的本质是语义对齐，候选映射必须经过约束和查询验证后才能落地"
+  },
+  {
     "title": "远程监督噪声处理",
     "slug": "distant-supervision-noise-handling",
     "date": "2026-04-29",
