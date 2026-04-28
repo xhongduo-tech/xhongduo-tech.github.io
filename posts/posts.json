@@ -1,5 +1,18 @@
 [
   {
+    "title": "REINFORCE 与基线：方差缩减的关键技术",
+    "slug": "reinforce-baseline-variance",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "方差缩减"
+    ],
+    "summary": "基线不改变策略梯度期望，但能把“绝对回报”变成“相对表现”，显著降低 REINFORCE 方差。"
+  },
+  {
     "title": "策略梯度定理：直接优化策略的数学基础",
     "slug": "policy-gradient-theorem",
     "date": "2026-04-28",

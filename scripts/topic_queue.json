@@ -21230,7 +21230,7 @@
       "方差缩减"
     ],
     "brief": "REINFORCE 梯度 ∇J = E[∇log π(a|s)·G] 方差极高。引入基线 b(s)：∇J = E[∇log π(a|s)·(G - b(s))]，期望不变方差降低。最优基线是 E[G|s]，实践中常用状态价值函数 V(s)。Actor-Critic 用 V(s) 的实时估计作为基线。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TRPO",
