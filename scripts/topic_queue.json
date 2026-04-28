@@ -21702,7 +21702,7 @@
       "动态规划"
     ],
     "brief": "策略迭代：评估当前策略 V^π → 改进策略 π' = greedy(V^π) → 重复直到收敛。值迭代：直接迭代 V_{k+1}(s) = max_a E[r + γV_k(s')]。两者都收敛到最优值函数，策略迭代每次迭代计算量大但迭代次数少。广义策略迭代 (GPI) 是大部分 RL 算法的框架。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "连续动作空间的 Q 函数最大化",
@@ -21726,7 +21726,7 @@
       "奖励设计"
     ],
     "brief": "人工设计的密集奖励可加速学习。基于势能的塑形 F(s,s') = γΦ(s') - Φ(s) 保证最优策略不变。Φ(s) 可以是到目标的距离启发。非势能塑形会改变最优策略，可能引入次优行为。Reward Engineering 是实践中的重要挑战。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "课程学习：从简单到困难",
@@ -21738,7 +21738,7 @@
       "训练策略"
     ],
     "brief": "从简单任务开始，逐步增加难度。自动课程生成：根据 agent 当前能力选择任务。Domain Randomization：训练时随机化环境参数，提升泛化。Reverse Curriculum：从目标状态反向生成起始状态。在机器人控制和复杂游戏中广泛应用。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "Hierarchical RL：分层策略的结构化决策",
@@ -21750,7 +21750,7 @@
       "分层学习"
     ],
     "brief": "Options 框架定义高层动作 (option) = (启动条件, 策略, 终止条件)。Manager 选择 option，Worker 执行 option 内策略。分层自动生成子目标（如 FeUdal Networks）。HIRO 和 HAC 用 hindsight relabeling 训练分层策略。解决长期依赖和稀疏奖励问题。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "ONNX Runtime 推理性能优化",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "策略迭代与值迭代：动态规划的两种视角",
+    "slug": "policy-value-iteration",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "动态规划"
+    ],
+    "summary": "策略迭代先评估再改进，值迭代直接做最优备份，二者都可视为 GPI。"
+  },
+  {
     "title": "Bellman 方程：动态规划的核心递归",
     "slug": "bellman-equation-dynamic-programming",
     "date": "2026-04-28",
