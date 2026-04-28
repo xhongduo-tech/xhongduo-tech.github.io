@@ -1,5 +1,18 @@
 [
   {
+    "title": "Thompson Sampling：贝叶斯探索策略",
+    "slug": "thompson-sampling-bayesian",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "探索策略",
+      "贝叶斯方法"
+    ],
+    "summary": "Thompson Sampling用后验采样做决策，能用不确定性自动平衡探索与利用。"
+  },
+  {
     "title": "UCB 探索：上置信界算法的数学基础",
     "slug": "ucb-upper-confidence-bound",
     "date": "2026-04-28",
