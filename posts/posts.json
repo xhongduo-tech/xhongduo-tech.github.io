@@ -1,5 +1,18 @@
 [
   {
+    "title": "Decision Transformer",
+    "slug": "decision-transformer",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "离线RL",
+      "Transformer"
+    ],
+    "summary": "Decision Transformer把离线强化学习改写为带目标回报条件的序列建模问题。"
+  },
+  {
     "title": "CQL：保守 Q 学习的理论保证",
     "slug": "cql-conservative-q-learning",
     "date": "2026-04-28",

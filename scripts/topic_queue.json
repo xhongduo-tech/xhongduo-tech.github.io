@@ -21582,7 +21582,7 @@
       "Transformer"
     ],
     "brief": "DT 把 RL 当作序列建模问题：输入 (R̂_1, s_1, a_1, R̂_2, s_2, a_2, ...)，输出 a_t。R̂_t 是期望回报（推理时可设定）。Transformer 自回归生成动作，无需显式价值函数或策略梯度。在离线数据集上表现与 CQL 相当，推理时可指定目标回报。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TD Learning：时序差分的核心思想",
