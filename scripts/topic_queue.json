@@ -21570,7 +21570,7 @@
       "Q正则化"
     ],
     "brief": "CQL 在标准 Bellman 误差上加入 Q 值惩罚：α(E_π[Q(s,a)] - E_D[Q(s,a)])。这使 Q 值对数据集外的动作保持低估，避免盲目外推。理论上证明学到的 Q 是真实值的下界。实践中简单有效，是离线 RL 的强基准。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Decision Transformer",

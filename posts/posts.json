@@ -1,5 +1,18 @@
 [
   {
+    "title": "CQL：保守 Q 学习的理论保证",
+    "slug": "cql-conservative-q-learning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "离线RL",
+      "Q正则化"
+    ],
+    "summary": "CQL 通过给 Q 学习加保守正则，压低数据外动作高估值，给离线策略提供更稳的价值下界。"
+  },
+  {
     "title": "离线 RL：从静态数据集学习策略",
     "slug": "offline-rl-basics",
     "date": "2026-04-28",
