@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型压缩率评估",
+    "slug": "model-compression-ratio-evaluation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "模型压缩"
+    ],
+    "summary": "评估模型压缩率必须同时看存储、显存、延迟、吞吐和精度，而不是只看参数量或文件大小"
+  },
+  {
     "title": "推理负载均衡策略",
     "slug": "inference-load-balancing",
     "date": "2026-04-28",
