@@ -1,5 +1,16 @@
 [
   {
+    "title": "动态批处理算法分析",
+    "slug": "dynamic-batching-algorithm",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "批处理"
+    ],
+    "summary": "动态批处理的关键是在线决定何时合批与何时放行，在吞吐提升和尾延迟之间做调度平衡"
+  },
+  {
     "title": "GPU 资源调度策略",
     "slug": "gpu-resource-scheduling",
     "date": "2026-04-28",
