@@ -21364,7 +21364,7 @@
       "Dreamer"
     ],
     "brief": "Dreamer 分三步：1) RSSM 学习潜变量动态模型；2) 在潜空间想象轨迹并计算回报；3) 用想象轨迹的策略梯度训练。关键是用重参数化技巧使想象过程可微。DreamerV2 在 Atari 200M 帧达到人类水平，V3 进一步扩展到 Minecraft。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MuZero：无模型学习的规划与学习统一",

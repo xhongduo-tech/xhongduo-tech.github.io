@@ -1,5 +1,18 @@
 [
   {
+    "title": "Dreamer：在潜空间进行想象规划",
+    "slug": "dreamer-latent-planning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "世界模型",
+      "Dreamer"
+    ],
+    "summary": "Dreamer先学世界模型，再在潜空间想象未来，用可微想象轨迹训练策略。"
+  },
+  {
     "title": "世界模型：学习环境动力学进行规划",
     "slug": "world-model-dynamics",
     "date": "2026-04-28",
