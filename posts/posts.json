@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理 GPU 利用率分析",
+    "slug": "inference-gpu-utilization-analysis",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "GPU"
+    ],
+    "summary": "推理GPU利用率要分解为空洞、SM、Tensor Core与带宽，先定位瓶颈再优化。"
+  },
+  {
     "title": "边缘模型协同推理",
     "slug": "edge-model-collaborative-inference",
     "date": "2026-04-28",

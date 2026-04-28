@@ -22201,7 +22201,7 @@
       "GPU"
     ],
     "brief": "GPU利用率分析要拆开看SM占用、显存带宽、Tensor Core活跃度和kernel空洞。在线推理经常不是算力不够，而是batch太小、访存受限或CPU送数太慢，导致GPU看似忙碌但有效吞吐不高。只有剖到kernel级别，优化方向才明确。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推理流水线并行优化",
