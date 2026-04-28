@@ -1,5 +1,16 @@
 [
   {
+    "title": "LoRA rank 和 alpha 选择",
+    "slug": "lora-rank-alpha-selection",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "LoRA里rank管容量，alpha管缩放；选参要联动看任务复杂度、数据量与训练稳定性。"
+  },
+  {
     "title": "微调超参数搜索",
     "slug": "finetuning-hyperparameter-search",
     "date": "2026-04-28",
