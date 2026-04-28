@@ -21146,7 +21146,7 @@
       "网络架构"
     ],
     "brief": "Q(s,a) = V(s) + A(s,a)，状态价值 V(s) 与动作相对优势 A(s,a) 学不同东西。 Dueling 架构共享特征提取，分叉成两个流后合并。在动作对结果影响小的状态下（如赛车游戏中直线行驶），V(s) 学习更快。合并时用 A(s,a) - mean(A) 保证可识别性。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Prioritized Experience Replay：按 TD 误差优先回放",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "Dueling DQN：分离状态价值与动作优势",
+    "slug": "dueling-dqn-advantage",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "网络架构"
+    ],
+    "summary": "Dueling DQN把Q拆成状态价值和动作优势，提升动作差异较小时的值函数学习效率"
+  },
+  {
     "title": "Double DQN：解决 Q 值过高估计问题",
     "slug": "double-dqn-overestimation",
     "date": "2026-04-28",
