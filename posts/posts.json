@@ -1,5 +1,17 @@
 [
   {
+    "title": "命名空间URI规范管理",
+    "slug": "namespace-uri-management",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识表示"
+    ],
+    "summary": "实体URI应稳定不变，schema演进通过命名空间版本和别名映射管理。"
+  },
+  {
     "title": "RDF三元组存储模型设计",
     "slug": "rdf-triple-storage-model",
     "date": "2026-04-29",
