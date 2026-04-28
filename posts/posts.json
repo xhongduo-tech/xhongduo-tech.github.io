@@ -1,5 +1,27 @@
 [
   {
+    "title": "推理服务配置管理",
+    "slug": "inference-service-config-management",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "配置管理"
+    ],
+    "summary": "推理服务配置管理的核心是声明目标状态，并安全地让运行态收敛到它。"
+  },
+  {
+    "title": "模型推理性能回归",
+    "slug": "model-inference-performance-regression",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能测试"
+    ],
+    "summary": "模型推理性能回归要看稳定基线、尾延迟、吞吐和错误率，不能只看平均值。"
+  },
+  {
     "title": "推理服务 SLA 配置",
     "slug": "inference-service-sla-configuration",
     "date": "2026-04-28",
