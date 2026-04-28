@@ -1,5 +1,16 @@
 [
   {
+    "title": "多模态推理优化",
+    "slug": "multimodal-inference-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模态"
+    ],
+    "summary": "多模态推理常先卡在视觉编码与融合，核心优化是控视觉token、拆阶段、管显存。"
+  },
+  {
     "title": "推理自动扩缩容配置",
     "slug": "inference-autoscaling-configuration",
     "date": "2026-04-28",
