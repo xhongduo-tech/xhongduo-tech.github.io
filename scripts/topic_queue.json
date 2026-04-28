@@ -21089,7 +21089,7 @@
       "工程实践"
     ],
     "brief": "LlamaFactory 是开源的一站式大模型微调框架，支持多种 PEFT 方法（LoRA、Prefix Tuning 等）、多种训练策略（SFT、RLHF、DPO）、多种模型架构。提供 Web UI 和命令行两种使用方式。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Axolotl 微调配置实践",

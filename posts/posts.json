@@ -1,5 +1,16 @@
 [
   {
+    "title": "LlamaFactory 微调框架",
+    "slug": "llamafactory-finetuning-framework",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "LlamaFactory 用统一入口把大模型微调、对齐、导出和推理串成了低门槛工程闭环"
+  },
+  {
     "title": "QLoRA 量化微调实战",
     "slug": "qlora-quantized-finetuning-practice",
     "date": "2026-04-28",
