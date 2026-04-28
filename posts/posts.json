@@ -1,5 +1,16 @@
 [
   {
+    "title": "MT-Bench 多轮对话评估",
+    "slug": "mt-bench-multi-turn-evaluation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "评估方法"
+    ],
+    "summary": "MT-Bench 用 GPT-4 评估 80 个双轮问题，核心价值是衡量模型在连续追问中的稳定性。"
+  },
+  {
     "title": "微调中的灾难性遗忘",
     "slug": "catastrophic-forgetting-in-finetuning",
     "date": "2026-04-28",
