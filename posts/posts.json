@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型权重加密存储",
+    "slug": "model-weight-encryption-storage",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "安全"
+    ],
+    "summary": "权重加密主要防静态泄露，但会把问题转移到解密性能与密钥运维。"
+  },
+  {
     "title": "推理服务限流策略",
     "slug": "inference-service-rate-limiting",
     "date": "2026-04-28",
