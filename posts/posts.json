@@ -1,5 +1,16 @@
 [
   {
+    "title": "多模态推理缓存",
+    "slug": "multimodal-inference-cache",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模态"
+    ],
+    "summary": "多模态推理缓存本质是复用媒体编码与前缀KV，收益取决于重复输入而非生成速度"
+  },
+  {
     "title": "推理服务弹性伸缩",
     "slug": "inference-service-elastic-scaling",
     "date": "2026-04-29",
