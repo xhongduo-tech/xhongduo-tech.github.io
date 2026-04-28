@@ -1,5 +1,18 @@
 [
   {
+    "title": "TD Learning：时序差分的核心思想",
+    "slug": "td-learning-temporal-difference",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "TD学习"
+    ],
+    "summary": "TD学习用一步奖励加下一状态估计值做在线更新，是连接MC、DP与现代强化学习控制算法的基础。"
+  },
+  {
     "title": "Eligibility Traces：资格迹与 TD(λ)",
     "slug": "eligibility-traces-td-lambda",
     "date": "2026-04-28",

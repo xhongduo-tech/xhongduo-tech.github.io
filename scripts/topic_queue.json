@@ -21594,7 +21594,7 @@
       "TD学习"
     ],
     "brief": "TD 学习结合 Monte Carlo（用真实回报）和 DP（用估计值）。TD(0) 更新 V(s) ← V(s) + α(r + γV(s') - V(s))，用单步估计替代完整回报。自举有偏但方差低。TD(λ) 用资格迹加权 n 步回报。TD 是 Q-learning 和 Actor-Critic 的基础。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Eligibility Traces：资格迹与 TD(λ)",
