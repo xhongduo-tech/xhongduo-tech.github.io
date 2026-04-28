@@ -1,5 +1,16 @@
 [
   {
+    "title": "QLoRA 量化微调实战",
+    "slug": "qlora-quantized-finetuning-practice",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "QLoRA 通过冻结4-bit量化底座并只训练LoRA适配器，把大模型微调压缩到单卡更可行的显存范围。"
+  },
+  {
     "title": "微调模型合并技术",
     "slug": "finetuned-model-merging",
     "date": "2026-04-28",

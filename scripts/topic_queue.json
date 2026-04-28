@@ -21078,7 +21078,7 @@
       "工程实践"
     ],
     "brief": "QLoRA 将基础模型量化为 4-bit，仅 LoRA 参数保持高精度，使 65B 模型能在单张 24GB GPU 上微调。关键技术：NF4 量化、双重量化、分页优化器。训练速度约为 LoRA 的 70%，但显存占用降低 75%。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LlamaFactory 微调框架",
