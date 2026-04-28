@@ -1,5 +1,16 @@
 [
   {
+    "title": "MoE 模型微调策略",
+    "slug": "moe-model-finetuning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "架构适配"
+    ],
+    "summary": "MoE 微调的关键不是少训参数，而是稳住 gate、控制专家失衡并按路由热点分配微调预算"
+  },
+  {
     "title": "Ring Attention 超长上下文训练",
     "slug": "ring-attention-context-parallelism",
     "date": "2026-04-28",

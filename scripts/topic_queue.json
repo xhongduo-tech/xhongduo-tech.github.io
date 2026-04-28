@@ -20957,7 +20957,7 @@
       "架构适配"
     ],
     "brief": "Mixture-of-Experts 模型的微调需要考虑专家路由的稳定性。可以直接微调所有参数，或仅微调 gate 和特定专家。LoRA 可以应用于每个专家的 FFN，但需要处理专家间的不均衡问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模态模型微调 (LLaVA)",
