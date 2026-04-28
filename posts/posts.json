@@ -1,5 +1,18 @@
 [
   {
+    "title": "世界模型：学习环境动力学进行规划",
+    "slug": "world-model-dynamics",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "世界模型",
+      "模型学习"
+    ],
+    "summary": "世界模型先学习环境动力学，再在潜空间中想象未来，用更少真实试错完成强化学习规划。"
+  },
+  {
     "title": "DDPG：深度确定性策略梯度",
     "slug": "ddpg-deep-deterministic",
     "date": "2026-04-28",
