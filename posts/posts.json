@@ -1,5 +1,17 @@
 [
   {
+    "title": "知识一致性校验",
+    "slug": "knowledge-consistency-validation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合"
+    ],
+    "summary": "知识一致性校验判断事实能否同时成立，核心是三层校验与三档输出。"
+  },
+  {
     "title": "时序知识融合",
     "slug": "temporal-knowledge-fusion",
     "date": "2026-04-29",
