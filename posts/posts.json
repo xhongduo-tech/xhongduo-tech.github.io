@@ -1,5 +1,16 @@
 [
   {
+    "title": "参数高效微调与全参数微调对比",
+    "slug": "peft-vs-full-finetuning-comparison",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "方法对比"
+    ],
+    "summary": "PEFT用极少参数适配任务，成本远低于全参；效果常接近但不保证等价。"
+  },
+  {
     "title": "指令微调与预训练的关系",
     "slug": "instruction-tuning-vs-pretraining",
     "date": "2026-04-28",
