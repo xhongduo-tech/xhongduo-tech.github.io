@@ -21666,7 +21666,7 @@
       "实验分析"
     ],
     "brief": "Rainbow 集成七种技术，但各组件贡献不均。消融实验显示：Multi-step 和 Priority 对 Atari 最关键，Distributional 和 Dueling 提供稳定增益，Double 和 Noisy 在特定游戏有效。实践中 Multi-step n=3、Priority α=0.5、Noisy 作为唯一探索方式效果最好。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DQN 目标网络：稳定训练的关键机制",

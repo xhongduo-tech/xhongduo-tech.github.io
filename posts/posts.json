@@ -1,5 +1,31 @@
 [
   {
+    "title": "RAINBOW 消融：各组件贡献度分析",
+    "slug": "rainbow-ablation-study",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "实验分析"
+    ],
+    "summary": "Rainbow 的核心收益主要来自 n-step 与 PER，其余组件提供稳定补强或场景化增益"
+  },
+  {
+    "title": "Bellman 方程：动态规划的核心递归",
+    "slug": "bellman-equation-dynamic-programming-core-recursion",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "动态规划"
+    ],
+    "summary": "Bellman 方程把长期回报拆成一步奖励和下一状态价值，是值迭代、策略迭代与 Q 学习的共同基础。"
+  },
+  {
     "title": "Soft Actor-Critic：熵正则化的 Actor-Critic",
     "slug": "soft-actor-critic-entropy",
     "date": "2026-04-28",
