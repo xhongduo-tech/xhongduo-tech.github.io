@@ -1,5 +1,28 @@
 [
   {
+    "title": "模型推理性能调优",
+    "slug": "model-inference-performance-tuning",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能优化"
+    ],
+    "summary": "推理调优的核心是围绕KV缓存、带宽与调度，平衡TTFT、吞吐和尾延迟。"
+  },
+  {
+    "title": "推理服务灰度监控",
+    "slug": "inference-service-canary-monitoring",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "灰度发布",
+      "监控"
+    ],
+    "summary": "推理服务灰度监控的核心是用真实流量、同窗对比和硬门限决定继续放量还是回滚。"
+  },
+  {
     "title": "推理服务性能基准",
     "slug": "inference-service-performance-benchmark",
     "date": "2026-04-29",
