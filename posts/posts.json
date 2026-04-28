@@ -1,5 +1,18 @@
 [
   {
+    "title": "奖励塑形：加速学习的潜在函数",
+    "slug": "reward-shaping-potential",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "工程实践",
+      "奖励设计"
+    ],
+    "summary": "势能型奖励塑形用中间反馈加速训练，同时在条件满足时保持最优策略不变"
+  },
+  {
     "title": "IQL",
     "slug": "iql-offline-implicit-q",
     "date": "2026-04-28",
