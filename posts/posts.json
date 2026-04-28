@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务故障恢复",
+    "slug": "inference-service-failure-recovery",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "高可用"
+    ],
+    "summary": "推理服务故障恢复的关键是先摘流再替换，用冗余、探针和灰度回滚维持连续可用。"
+  },
+  {
     "title": "推理服务容量规划",
     "slug": "inference-service-capacity-planning",
     "date": "2026-04-29",
@@ -20,17 +31,6 @@
       "监控"
     ],
     "summary": "推理精度监控的核心是用标签回流计算真实精度，并在标签延迟时用代理信号提前预警。"
-  },
-  {
-    "title": "推理服务故障恢复",
-    "slug": "inference-service-failure-recovery",
-    "date": "2026-04-28",
-    "author": "both",
-    "tags": [
-      "模型部署",
-      "高可用"
-    ],
-    "summary": "按故障域切流、按 RTO/RPO 恢复推理服务，关键看探针、重试和状态外置。"
   },
   {
     "title": "多模态推理流水线",
