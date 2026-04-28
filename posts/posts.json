@@ -1,5 +1,16 @@
 [
   {
+    "title": "多模型推理路由",
+    "slug": "multi-model-inference-routing",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模型"
+    ],
+    "summary": "多模型推理路由的本质，是按请求难度在质量、成本、延迟之间做最划算选择。"
+  },
+  {
     "title": "边缘推理缓存优化",
     "slug": "edge-inference-cache-optimization",
     "date": "2026-04-29",
@@ -31,17 +42,6 @@
       "资源管理"
     ],
     "summary": "模型推理资源隔离的核心，是把 GPU 时间、显存和队列切成租户边界，避免长上下文和突发流量互相拖垮。"
-  },
-  {
-    "title": "多模型推理路由",
-    "slug": "multi-model-inference-routing",
-    "date": "2026-04-29",
-    "author": "both",
-    "tags": [
-      "模型部署",
-      "多模型"
-    ],
-    "summary": "多模型推理路由的核心，是按请求特征在质量、成本和延迟之间做条件选择。"
   },
   {
     "title": "模型推理精度监控",
