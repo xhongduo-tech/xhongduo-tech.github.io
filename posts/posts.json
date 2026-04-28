@@ -1,5 +1,16 @@
 [
   {
+    "title": "向量检索增强推理",
+    "slug": "rag-vector-retrieval-inference",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "RAG"
+    ],
+    "summary": "RAG 的核心瓶颈多在检索、重排和上下文管理，而不在生成本身"
+  },
+  {
     "title": "模型量化后校准",
     "slug": "quantization-post-training-calibration",
     "date": "2026-04-28",
