@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理缓存策略设计",
+    "slug": "inference-caching-strategy",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "缓存"
+    ],
+    "summary": "推理缓存要分清KV、前缀与输出三层，命中收益与显存占用始终需要一起设计"
+  },
+  {
     "title": "多租户模型隔离",
     "slug": "multi-tenant-model-isolation",
     "date": "2026-04-28",
