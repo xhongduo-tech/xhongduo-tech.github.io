@@ -1,5 +1,16 @@
 [
   {
+    "title": "混合精度微调 (FP16/BF16)",
+    "slug": "mixed-precision-finetuning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "训练技巧"
+    ],
+    "summary": "混合精度微调用低精度算、用高精度更，BF16更稳，FP16常需loss scaling"
+  },
+  {
     "title": "Gradient Checkpointing 显存优化",
     "slug": "gradient-checkpointing-memory-optimization",
     "date": "2026-04-28",
