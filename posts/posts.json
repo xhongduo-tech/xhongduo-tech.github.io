@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型推理性能回归",
+    "slug": "model-inference-performance-regression",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能测试"
+    ],
+    "summary": "性能回归的核心是用稳定基线比较尾延迟、吞吐和错误率，并在可比负载下判断是否持续变差。"
+  },
+  {
     "title": "多模型推理调度",
     "slug": "multi-model-inference-scheduling",
     "date": "2026-04-28",
@@ -20,17 +31,6 @@
       "配置管理"
     ],
     "summary": "推理服务配置管理的核心是声明目标状态，并安全地让运行态收敛到它。"
-  },
-  {
-    "title": "模型推理性能回归",
-    "slug": "model-inference-performance-regression",
-    "date": "2026-04-28",
-    "author": "both",
-    "tags": [
-      "模型部署",
-      "性能测试"
-    ],
-    "summary": "模型推理性能回归要看稳定基线、尾延迟、吞吐和错误率，不能只看平均值。"
   },
   {
     "title": "推理服务 SLA 配置",
