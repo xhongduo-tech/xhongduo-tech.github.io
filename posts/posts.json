@@ -1,5 +1,17 @@
 [
   {
+    "title": "实体消歧候选生成策略",
+    "slug": "entity-disambiguation-candidate-generation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "实体链接"
+    ],
+    "summary": "候选生成的任务是低成本保高召回，把真值尽量送进Top-K再交给精排。"
+  },
+  {
     "title": "实体链接排序算法",
     "slug": "entity-linking-ranking-algorithm",
     "date": "2026-04-29",
