@@ -1,5 +1,27 @@
 [
   {
+    "title": "多 GPU 显存均衡分配",
+    "slug": "multi-gpu-memory-balanced-allocation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "GPU"
+    ],
+    "summary": "多GPU显存均衡的关键不是总量，而是单卡实时容量、KV增长、碎片与粘性成本的联合调度"
+  },
+  {
+    "title": "推理服务性能剖析",
+    "slug": "inference-service-performance-profiling",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能剖析"
+    ],
+    "summary": "分层剖析推理慢点，区分调度、搬运与算子瓶颈"
+  },
+  {
     "title": "边缘模型量化加速",
     "slug": "edge-model-quantization-acceleration",
     "date": "2026-04-28",
