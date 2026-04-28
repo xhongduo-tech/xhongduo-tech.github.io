@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型推理错误处理",
+    "slug": "model-inference-error-handling",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "错误处理"
+    ],
+    "summary": "推理错误处理的关键是先分型，再按预算决定重试、降级、熔断或摘流。"
+  },
+  {
     "title": "推理服务灰度发布",
     "slug": "inference-service-canary-release",
     "date": "2026-04-28",
