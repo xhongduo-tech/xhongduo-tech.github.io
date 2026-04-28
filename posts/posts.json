@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理监控指标设计",
+    "slug": "inference-monitoring-metrics",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "监控"
+    ],
+    "summary": "推理监控要把首字、续写、排队、资源和错误码放进同一套SLA视角里看"
+  },
+  {
     "title": "推理缓存策略设计",
     "slug": "inference-caching-strategy",
     "date": "2026-04-28",
