@@ -1,5 +1,29 @@
 [
   {
+    "title": "Ring Attention 超长上下文训练",
+    "slug": "ring-attention-context-parallelism",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "长上下文"
+    ],
+    "summary": "Ring Attention 用环形传递 KV 块，在多卡上精确训练超长上下文 attention。"
+  },
+  {
+    "title": "LongLoRA：高效长上下文微调",
+    "slug": "longlora-efficient-long-context-finetuning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "PEFT",
+      "长上下文",
+      "LoRA"
+    ],
+    "summary": "LongLoRA 用 LoRA + S²-Attention 低成本扩展长上下文"
+  },
+  {
     "title": "长上下文微调数据构建",
     "slug": "long-context-finetuning-data",
     "date": "2026-04-28",

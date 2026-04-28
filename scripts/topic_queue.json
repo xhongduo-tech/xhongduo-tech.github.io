@@ -20946,7 +20946,7 @@
       "长上下文"
     ],
     "brief": "Ring Attention 通过分布式计算实现超长上下文（100K+ tokens）训练。将序列分割到多个设备，使用环形通信传递 KV 块，使注意力计算复杂度随设备数线性扩展。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MoE 模型微调策略",
