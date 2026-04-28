@@ -1,5 +1,16 @@
 [
   {
+    "title": "GGUF 量化参数选择",
+    "slug": "gguf-quantization-params",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "GGUF"
+    ],
+    "summary": "GGUF 量化选择本质是权重、KV cache、精度与吞吐之间的预算分配。"
+  },
+  {
     "title": "safetensors 格式与安全加载",
     "slug": "safetensors-secure-loading",
     "date": "2026-04-28",

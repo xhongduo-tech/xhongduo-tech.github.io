@@ -21838,7 +21838,7 @@
       "GGUF"
     ],
     "brief": "GGUF量化选择本质是在位宽、块大小和混合量化策略之间平衡体积、精度与CPU推理速度。Q4_K_M能显著压缩显存或内存占用，Q5或Q8保留更多数值精度，但吞吐与可部署设备范围不同，长上下文下KV cache往往会重新成为主导成本。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "AWS SageMaker 模型部署",
