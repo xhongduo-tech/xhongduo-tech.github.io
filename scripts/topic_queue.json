@@ -21194,7 +21194,7 @@
       "探索策略"
     ],
     "brief": "ε-greedy 探索是动作空间的随机，Noisy Nets 在参数空间加噪声。线性层 y = (μ_w + σ_w⊙ε_w)x + μ_b + σ_b⊙ε_b，ε 是随机噪声。每次前向传播自动产生不同探索行为，且探索与状态相关。相比 ε-greedy 更一致、更高效。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Multi-step Learning：n 步回报平衡偏差与方差",
