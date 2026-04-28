@@ -1,5 +1,16 @@
 [
   {
+    "title": "FP8 推理实现",
+    "slug": "fp8-inference-implementation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "FP8推理的核心是用缩放因子把大矩阵乘法压到8位浮点，并依赖原生硬件与合理定标换取吞吐收益"
+  },
+  {
     "title": "LoRA 推理合并",
     "slug": "lora-inference-merging",
     "date": "2026-04-28",
