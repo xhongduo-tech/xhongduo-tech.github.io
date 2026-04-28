@@ -1,5 +1,16 @@
 [
   {
+    "title": "多模型编排架构",
+    "slug": "multi-model-orchestration",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模型"
+    ],
+    "summary": "多模型编排用路由器把简单请求留给小模型，把少量高价值复杂请求升级到大模型。"
+  },
+  {
     "title": "推理显存优化技术",
     "slug": "inference-memory-optimization",
     "date": "2026-04-28",
