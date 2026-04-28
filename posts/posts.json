@@ -1,5 +1,17 @@
 [
   {
+    "title": "Adafactor 优化器：TPU 训练的内存高效方案",
+    "slug": "adafactor-optimizer-memory-efficient",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "内存优化"
+    ],
+    "summary": "Adafactor 用行列统计量近似二阶矩，以更强近似换取大模型训练所需的显著内存节省。"
+  },
+  {
     "title": "微调数据配比策略",
     "slug": "finetuning-data-mixing-ratio",
     "date": "2026-04-22",

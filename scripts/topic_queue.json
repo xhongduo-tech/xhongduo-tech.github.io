@@ -19948,7 +19948,7 @@
       "内存优化"
     ],
     "brief": "Adafactor 移除 Adam 的动量存储，使用参数矩阵的行/列统计量替代完整的二阶矩矩阵。内存从 O(n^2) 降到 O(n)，适合 TPU 上的大规模训练。被 T5、PaLM 等模型采用。关键技巧：使用移动平均的乘积重建二阶矩近似。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Muon 优化器：动量正交化的新型优化器",
@@ -20891,7 +20891,7 @@
       "训练技巧"
     ],
     "brief": "Gradient Checkpointing 通过在反向传播时重新计算中间激活来节省显存，代价是增加约 20% 的计算时间。对于大模型微调，这是在有限显存下增大 batch size 的有效方法。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "混合精度微调 (FP16/BF16)",
@@ -20902,7 +20902,7 @@
       "训练技巧"
     ],
     "brief": "混合精度训练使用 FP16/BF16 进行前向和反向计算，FP32 存储权重副本。BF16 相比 FP16 有更大的动态范围，更适合大模型训练。需要配合 loss scaling 防止梯度下溢。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "长上下文微调数据构建",
@@ -20913,7 +20913,7 @@
       "长上下文"
     ],
     "brief": "长上下文微调需要构建具有长距离依赖的训练数据。方法包括：拼接相关文档、使用书籍/代码等长文本、构建多轮对话。关键是确保数据真正需要长距离推理，而非简单的局部拼接。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "位置编码外推技术",
@@ -20924,7 +20924,7 @@
       "长上下文"
     ],
     "brief": "位置编码外推让训练时短上下文的模型能处理更长输入。技术包括：位置插值（PI）、NTK-aware scaling、YaRN 等。这些方法通过修改位置编码计算，使模型外推到训练长度数倍的上下文。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LongLoRA 高效长上下文微调",
@@ -20935,7 +20935,7 @@
       "长上下文"
     ],
     "brief": "LongLoRA 结合了 LoRA 的参数高效性和专门的长上下文训练策略。通过 shift short attention 机制，在保持全局注意力效果的同时大幅降低计算开销，能在单卡上微调 100K 上下文模型。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "Ring Attention 超长上下文训练",
@@ -20946,7 +20946,7 @@
       "长上下文"
     ],
     "brief": "Ring Attention 通过分布式计算实现超长上下文（100K+ tokens）训练。将序列分割到多个设备，使用环形通信传递 KV 块，使注意力计算复杂度随设备数线性扩展。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MoE 模型微调策略",
@@ -20957,7 +20957,7 @@
       "架构适配"
     ],
     "brief": "Mixture-of-Experts 模型的微调需要考虑专家路由的稳定性。可以直接微调所有参数，或仅微调 gate 和特定专家。LoRA 可以应用于每个专家的 FFN，但需要处理专家间的不均衡问题。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "多模态模型微调 (LLaVA)",
@@ -20968,7 +20968,7 @@
       "架构适配"
     ],
     "brief": "LLaVA 采用两阶段微调：先冻结视觉编码器训练投影层，再端到端微调。指令数据将图像描述转化为对话格式。关键设计包括：MLP 投影层、多轮对话数据格式、图像分辨率选择。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "参数高效微调与全参数微调对比",
@@ -20979,7 +20979,7 @@
       "方法对比"
     ],
     "brief": "PEFT 方法（LoRA、Prefix Tuning 等）在参数效率上显著优于全参数微调（0.1% vs 100%），但在某些任务上存在性能差距。随着模型规模增大，PEFT 的性能逐渐逼近全参数微调，差距可忽略。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "指令微调与预训练的关系",
@@ -20990,7 +20990,7 @@
       "理论基础"
     ],
     "brief": "指令微调主要激发模型的指令遵循能力，而非注入新知识。LIMA 实验表明，预训练已蕴含大量知识，指令微调主要学习输出格式。这也解释了为何少量高质量指令数据即可有效。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "微调中的灾难性遗忘",
@@ -21001,7 +21001,7 @@
       "训练挑战"
     ],
     "brief": "灾难性遗忘指微调后模型丢失预训练获得的能力。缓解方法包括：学习率控制、EWC 正则化、混合预训练数据 replay、参数高效微调（天然缓解遗忘）。需要在任务适应和通用能力间平衡。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "微调模型评估基准",
@@ -21012,7 +21012,7 @@
       "评估方法"
     ],
     "brief": "微调模型评估需要覆盖多个维度：任务性能（MMLU、GSM8K 等）、指令遵循（IFEval）、安全性（Red Teaming）、通用能力（通用 NLP 任务）。单一指标无法全面反映微调效果。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "MT-Bench 多轮对话评估",
@@ -21023,7 +21023,7 @@
       "评估方法"
     ],
     "brief": "MT-Bench 使用 GPT-4 作为评判者，评估模型的多轮对话能力。包含 8 个类别的 80 个多轮问题，评估维度包括：有用性、推理能力、数学、编程、创意写作等。是目前最广泛使用的对齐评估基准之一。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "AlpacaEval 自动化评估",
@@ -21034,7 +21034,7 @@
       "评估方法"
     ],
     "brief": "AlpacaEval 使用 GPT-4 Turbo 对比评估模型输出与参考模型的质量。通过 win rate 计算分数，提供可复现的自动化评估。相比人工评估更快，但可能存在 judge bias。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "微调超参数搜索",
@@ -21045,7 +21045,7 @@
       "工程实践"
     ],
     "brief": "微调超参数（学习率、batch size、LoRA rank、dropout）对效果影响显著。推荐使用 grid search 或 Bayesian optimization 进行搜索。对于大型模型，可以先在小模型上搜索，再迁移到目标模型。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LoRA rank 和 alpha 选择",
@@ -21067,7 +21067,7 @@
       "工程实践"
     ],
     "brief": "模型合并（Model Merging）将多个微调模型融合为一个模型，继承多个任务能力。技术包括：线性加权、Task Arithmetic、TIES-Merging、DARE 等。合并后无需重新训练即可获得多任务能力。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "QLoRA 量化微调实战",
@@ -21078,7 +21078,7 @@
       "工程实践"
     ],
     "brief": "QLoRA 将基础模型量化为 4-bit，仅 LoRA 参数保持高精度，使 65B 模型能在单张 24GB GPU 上微调。关键技术：NF4 量化、双重量化、分页优化器。训练速度约为 LoRA 的 70%，但显存占用降低 75%。",
-    "status": "failed"
+    "status": "pending"
   },
   {
     "title": "LlamaFactory 微调框架",
