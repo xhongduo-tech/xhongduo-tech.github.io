@@ -1,5 +1,18 @@
 [
   {
+    "title": "策略梯度定理：直接优化策略的数学基础",
+    "slug": "policy-gradient-theorem",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "理论基础"
+    ],
+    "summary": "策略梯度定理把“高回报动作更常发生”变成可微分、可采样的策略更新公式。"
+  },
+  {
     "title": "Multi-step Learning：n 步回报平衡偏差与方差",
     "slug": "multi-step-learning-n-step",
     "date": "2026-04-28",
