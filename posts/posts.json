@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型推理精度监控",
+    "slug": "model-inference-accuracy-monitoring",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "监控"
+    ],
+    "summary": "模型推理精度监控的核心，是上线后复算真实指标；无标签时只能用校准概率做短期估计。"
+  },
+  {
     "title": "模型推理并行策略",
     "slug": "model-inference-parallel-strategy",
     "date": "2026-04-29",
@@ -31,17 +42,6 @@
       "容量规划"
     ],
     "summary": "容量规划本质是同时受算力、显存和排队延迟约束的稳定负载估算"
-  },
-  {
-    "title": "模型推理精度监控",
-    "slug": "model-inference-accuracy-monitoring",
-    "date": "2026-04-28",
-    "author": "both",
-    "tags": [
-      "模型部署",
-      "监控"
-    ],
-    "summary": "推理精度监控的核心是用标签回流计算真实精度，并在标签延迟时用代理信号提前预警。"
   },
   {
     "title": "多模态推理流水线",
