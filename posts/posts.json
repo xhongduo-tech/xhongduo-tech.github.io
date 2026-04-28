@@ -1,5 +1,16 @@
 [
   {
+    "title": "微调超参数搜索",
+    "slug": "finetuning-hyperparameter-search",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "微调效果取决于学习率、batch size、LoRA rank、dropout 的组合，应在统一预算下系统搜索。"
+  },
+  {
     "title": "MT-Bench 多轮对话评估",
     "slug": "mt-bench-multi-turn-evaluation",
     "date": "2026-04-28",

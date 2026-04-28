@@ -21045,7 +21045,7 @@
       "工程实践"
     ],
     "brief": "微调超参数（学习率、batch size、LoRA rank、dropout）对效果影响显著。推荐使用 grid search 或 Bayesian optimization 进行搜索。对于大型模型，可以先在小模型上搜索，再迁移到目标模型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LoRA rank 和 alpha 选择",
