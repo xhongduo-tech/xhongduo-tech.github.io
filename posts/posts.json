@@ -1,5 +1,16 @@
 [
   {
+    "title": "微调模型评估基准",
+    "slug": "finetuned-model-evaluation-benchmarks",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "评估方法"
+    ],
+    "summary": "微调评估必须同时看任务、指令、安全、通用能力，单一分数不足以上线决策"
+  },
+  {
     "title": "参数高效微调与全参数微调对比",
     "slug": "peft-vs-full-finetuning-comparison",
     "date": "2026-04-28",

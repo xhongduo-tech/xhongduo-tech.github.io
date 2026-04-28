@@ -21012,7 +21012,7 @@
       "评估方法"
     ],
     "brief": "微调模型评估需要覆盖多个维度：任务性能（MMLU、GSM8K 等）、指令遵循（IFEval）、安全性（Red Teaming）、通用能力（通用 NLP 任务）。单一指标无法全面反映微调效果。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MT-Bench 多轮对话评估",
