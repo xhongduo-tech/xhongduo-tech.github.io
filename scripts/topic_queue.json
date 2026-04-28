@@ -21376,7 +21376,7 @@
       "MuZero"
     ],
     "brief": "MuZero 不显式学习完整世界模型，只学习：表示函数 h(o)、动态函数 g(s,a)、奖励函数 f(s) 和价值函数。MCTS 在学到的模型上进行规划。隐藏状态不需要有物理意义，只要求价值预测准确。AlphaZero + MuZero 统一了棋类和 Atari。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型预测控制 (MPC) 在 RL 中的应用",

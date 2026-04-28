@@ -1,5 +1,18 @@
 [
   {
+    "title": "MuZero：无模型学习的规划与学习统一",
+    "slug": "muzero-model-free-planning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "世界模型",
+      "MuZero"
+    ],
+    "summary": "MuZero 学的不是完整世界，而是足以支撑搜索与决策的隐模型。"
+  },
+  {
     "title": "Dreamer：在潜空间进行想象规划",
     "slug": "dreamer-latent-planning",
     "date": "2026-04-28",
