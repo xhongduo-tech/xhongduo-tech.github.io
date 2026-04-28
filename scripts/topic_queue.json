@@ -22949,7 +22949,7 @@
       "图数据库"
     ],
     "brief": "图数据库（Neo4j）的 ACID 事务通过 MVCC（多版本并发控制）实现：读操作访问事务开始时的快照，写操作创建新版本。死锁检测：等待图（waits-for graph）中寻找环，发现即回滚代价最小的事务。多跳查询（如 3 跳邻居）的事务隔离确保遍历一致性（避免幻读）。Neo4j 4.x 引入 causal clustering，通过 Raft 保证多副本事务顺序。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "分布式图遍历算法",

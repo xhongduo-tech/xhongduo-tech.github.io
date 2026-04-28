@@ -1,5 +1,17 @@
 [
   {
+    "title": "图数据库ACID事务实现",
+    "slug": "graph-database-transaction-acid",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库"
+    ],
+    "summary": "Neo4j 事务核心是读已提交、写锁控制、死锁检测与 Raft 顺序提交，不等于默认全局快照隔离"
+  },
+  {
     "title": "图数据库分片策略",
     "slug": "graph-database-sharding",
     "date": "2026-04-29",
