@@ -21243,7 +21243,7 @@
       "TRPO"
     ],
     "brief": "策略更新步长过大导致性能崩溃。TRPO 约束策略变化：max_θ E[π_θ(a|s)/π_θ_old(a|s)·A] s.t. KL(π_old||π_θ) ≤ δ。用共轭梯度法解这个约束优化，无需计算完整 Fisher 信息矩阵。单调改进保证：若 KL 约束满足则性能不下降。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "PPO 实现细节：GAE、价值函数剪裁与熵正则",

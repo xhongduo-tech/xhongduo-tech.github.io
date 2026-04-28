@@ -1,5 +1,19 @@
 [
   {
+    "title": "TRPO",
+    "slug": "trpo-trust-region",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "二阶优化",
+      "TRPO"
+    ],
+    "summary": "TRPO用KL信赖域限制策略更新幅度，在安全步长内提升回报，核心价值是稳定训练。"
+  },
+  {
     "title": "REINFORCE 与基线：方差缩减的关键技术",
     "slug": "reinforce-baseline-variance",
     "date": "2026-04-28",
