@@ -1,5 +1,17 @@
 [
   {
+    "title": "基于嵌入的相似度计算",
+    "slug": "embedding-based-similarity",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识嵌入"
+    ],
+    "summary": "嵌入相似度是否可靠，关键不在选哪个公式，而在训练、归一化和检索度量是否一致"
+  },
+  {
     "title": "知识图谱嵌入评估",
     "slug": "kg-embedding-evaluation",
     "date": "2026-04-29",
