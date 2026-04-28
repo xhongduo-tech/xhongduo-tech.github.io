@@ -1,5 +1,27 @@
 [
   {
+    "title": "推理服务容器优化",
+    "slug": "inference-service-container-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "容器"
+    ],
+    "summary": "容器优化解决的是推理外围浪费，核心收益来自更快启动、更稳资源边界和更高GPU利用率。"
+  },
+  {
+    "title": "模型推理异步处理",
+    "slug": "deploy-infer-async-processing",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "异步"
+    ],
+    "summary": "模型推理异步处理的核心是把请求接入和模型执行解耦，用队列、worker 和回调控制吞吐、尾延迟与背压。"
+  },
+  {
     "title": "推理批大小自适应",
     "slug": "inference-batch-size-adaptive",
     "date": "2026-04-28",
