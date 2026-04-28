@@ -1,5 +1,16 @@
 [
   {
+    "title": "长上下文微调数据构建",
+    "slug": "long-context-finetuning-data",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "长上下文"
+    ],
+    "summary": "长上下文微调的关键不是长度，而是样本必须真实依赖跨远距离信息。"
+  },
+  {
     "title": "位置编码外推技术",
     "slug": "positional-extrapolation-techniques",
     "date": "2026-04-28",
