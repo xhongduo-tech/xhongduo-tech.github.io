@@ -23048,7 +23048,7 @@
       "知识嵌入"
     ],
     "brief": "RotatE 把实体与关系表示在复数空间中，并把关系解释为逐维相位旋转：`t = h ⊙ r`，其中 `|r_i| = 1`。这种设计天然适合表示对称、反对称、反演和组合关系，比简单平移更灵活。比如若 `r` 的相位为 0，可近似对称关系；相位取反可表达逆关系。RotatE 通常配合 self-adversarial negative sampling，在链接预测任务上比 TransE 更稳，尤其适合复杂关系模式较多的图谱。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ComplEx复数嵌入",

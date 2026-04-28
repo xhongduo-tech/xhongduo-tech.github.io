@@ -1,5 +1,17 @@
 [
   {
+    "title": "RotatE旋转嵌入模型",
+    "slug": "rotate-embedding-model",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识嵌入"
+    ],
+    "summary": "RotatE用复数空间逐维旋转建模关系，较擅长逆关系、对称性与组合结构的链接预测。"
+  },
+  {
     "title": "TransE嵌入模型原理",
     "slug": "transe-embedding-model",
     "date": "2026-04-29",
