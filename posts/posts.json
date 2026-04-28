@@ -1,5 +1,16 @@
 [
   {
+    "title": "流式推理实现方案",
+    "slug": "streaming-inference-implementation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "流式推理"
+    ],
+    "summary": "流式推理的关键是缩短首token时间，并稳定后续token输出节奏。"
+  },
+  {
     "title": "vLLM 张量并行推理",
     "slug": "vllm-tensor-parallel-inference",
     "date": "2026-04-28",
