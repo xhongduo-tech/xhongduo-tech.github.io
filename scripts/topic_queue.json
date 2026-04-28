@@ -21750,7 +21750,7 @@
       "分层学习"
     ],
     "brief": "Options 框架定义高层动作 (option) = (启动条件, 策略, 终止条件)。Manager 选择 option，Worker 执行 option 内策略。分层自动生成子目标（如 FeUdal Networks）。HIRO 和 HAC 用 hindsight relabeling 训练分层策略。解决长期依赖和稀疏奖励问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ONNX Runtime 推理性能优化",

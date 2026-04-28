@@ -1,5 +1,18 @@
 [
   {
+    "title": "Hierarchical RL：分层策略的结构化决策",
+    "slug": "hierarchical-rl-options",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "分层学习"
+    ],
+    "summary": "HRL 通过高层子目标与低层执行分工，缓解长任务中的稀疏奖励与长期信用分配问题。"
+  },
+  {
     "title": "课程学习：从简单到困难",
     "slug": "curriculum-learning-rl",
     "date": "2026-04-28",
