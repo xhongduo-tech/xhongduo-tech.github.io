@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理成本优化分析",
+    "slug": "inference-cost-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "成本优化"
+    ],
+    "summary": "推理成本优化看的是每百万有效token成本，不是裸GPU单价。"
+  },
+  {
     "title": "多模型编排架构",
     "slug": "multi-model-orchestration",
     "date": "2026-04-28",
