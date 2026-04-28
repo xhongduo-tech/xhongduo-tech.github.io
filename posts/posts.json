@@ -1,5 +1,18 @@
 [
   {
+    "title": "DQN 目标网络：稳定训练的关键机制",
+    "slug": "dqn-target-network",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "训练稳定性"
+    ],
+    "summary": "目标网络通过延迟更新固定短期 TD 目标，是 DQN 稳定训练的核心机制。"
+  },
+  {
     "title": "RAINBOW 消融：各组件贡献度分析",
     "slug": "rainbow-ablation-study",
     "date": "2026-04-28",
