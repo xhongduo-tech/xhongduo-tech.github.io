@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理自动扩缩容配置",
+    "slug": "inference-autoscaling-configuration",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "自动扩缩"
+    ],
+    "summary": "推理扩缩容要把冷启动和预热算进去，主看队列、并发、GPU与预测负载。"
+  },
+  {
     "title": "模型压缩率评估",
     "slug": "model-compression-ratio-evaluation",
     "date": "2026-04-28",
