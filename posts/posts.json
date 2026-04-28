@@ -1,5 +1,16 @@
 [
   {
+    "title": "分布式推理通信优化",
+    "slug": "distributed-inference-comm-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "分布式"
+    ],
+    "summary": "长上下文张量并行推理常被层内同步卡住，核心优化是少发 collective，并把通信藏进计算里。"
+  },
+  {
     "title": "模型安全与防护",
     "slug": "model-security-inference-protection",
     "date": "2026-04-28",

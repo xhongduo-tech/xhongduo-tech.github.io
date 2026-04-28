@@ -22102,7 +22102,7 @@
       "分布式"
     ],
     "brief": "张量并行推理中，每个 All-Reduce 通信量为 2×B×S×d bytes（B=batch，S=seq_len，d=hidden），单层两次 All-Reduce（attention + FFN 各一次）。InfiniBand 400Gbps 下 32K token、hidden=8192 的通信延迟约 1ms/层，TP=8 时累计 ~100ms/token。优化：减少通信次数（fusion）、算子融合（overlap compute with comm）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推理负载均衡策略",
