@@ -1,5 +1,16 @@
 [
   {
+    "title": "边缘部署模型剪枝",
+    "slug": "edge-deployment-model-pruning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘部署"
+    ],
+    "summary": "边缘部署剪枝要删真实结构单元，让网络形状变小，参数减少不等于延迟变快"
+  },
+  {
     "title": "移动端推理 CoreML",
     "slug": "mobile-inference-coreml",
     "date": "2026-04-28",
