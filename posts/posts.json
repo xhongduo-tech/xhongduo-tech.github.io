@@ -1,5 +1,18 @@
 [
   {
+    "title": "BCQ：批量约束 Q 学习",
+    "slug": "bcq-batch-constrained",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "离线RL",
+      "约束策略"
+    ],
+    "summary": "BCQ 的本质是把 Q 学习限制在历史数据支持集附近，降低离线 RL 中 OOD 动作高估风险"
+  },
+  {
     "title": "COMA：反事实基线的多智能体策略梯度",
     "slug": "coma-counterfactual-baseline",
     "date": "2026-04-28",
