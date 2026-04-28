@@ -1,5 +1,18 @@
 [
   {
+    "title": "Bellman 方程：动态规划的核心递归",
+    "slug": "bellman-equation-dynamic-programming",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "动态规划"
+    ],
+    "summary": "Bellman方程把长期回报拆成当前奖励与未来价值，是动态规划和强化学习的递归基础"
+  },
+  {
     "title": "DQN 目标网络：稳定训练的关键机制",
     "slug": "dqn-target-network",
     "date": "2026-04-28",

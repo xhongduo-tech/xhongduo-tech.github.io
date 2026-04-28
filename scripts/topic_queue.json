@@ -21690,7 +21690,7 @@
       "动态规划"
     ],
     "brief": "Bellman 期望方程：V^π(s) = E[r + γV^π(s')]。Bellman 最优方程：V*(s) = max_a E[r + γV*(s')]。这是值迭代和策略迭代的数学基础。解的存在性由压缩映射定理保证。γ<1 保证迭代收敛。Q 函数的 Bellman 方程类似：Q(s,a) = E[r + γQ(s',a')]。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "策略迭代与值迭代：动态规划的两种视角",
