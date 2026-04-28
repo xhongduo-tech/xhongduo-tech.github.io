@@ -1,5 +1,16 @@
 [
   {
+    "title": "vLLM 张量并行推理",
+    "slug": "vllm-tensor-parallel-inference",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "vLLM"
+    ],
+    "summary": "vLLM 张量并行靠分片降单卡显存，但短序列低 batch 下通信常先成为瓶颈"
+  },
+  {
     "title": "Triton 推理服务器动态批处理",
     "slug": "triton-inference-dynamic-batching",
     "date": "2026-04-28",

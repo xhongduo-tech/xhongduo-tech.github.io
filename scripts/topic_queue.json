@@ -21783,7 +21783,7 @@
       "vLLM"
     ],
     "brief": "vLLM张量并行把同一层权重切到多张GPU，前向阶段依赖all-reduce或all-gather汇总结果。GPU数增加能降低单卡显存压力并支撑更大模型，但通信开销会侵蚀吞吐，特别是在短序列和低batch下，跨卡延迟常比计算更早成为瓶颈。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Triton 推理服务器动态批处理",
