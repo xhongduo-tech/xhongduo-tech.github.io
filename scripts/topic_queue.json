@@ -22069,7 +22069,7 @@
       "性能优化"
     ],
     "brief": "LLM 服务冷启动延迟包含：模型权重加载（从 NVMe SSD 读取，70B≈140GB，约 3-5s）、CUDA context 初始化（约 0.5s）、KV Cache 预分配（PagedAttention 按页分配）。缓解策略：权重常驻显存（热备）、多副本轮换（不下线）、权重分层（按层流式加载）。Triton Inference Server 支持 model_warm_up 配置。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推理请求队列管理",

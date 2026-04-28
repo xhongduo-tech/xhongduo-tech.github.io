@@ -1,5 +1,16 @@
 [
   {
+    "title": "冷启动延迟优化",
+    "slug": "cold-start-latency-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能优化"
+    ],
+    "summary": "LLM 冷启动是加载、CUDA 初始化与 KV 准备的叠加，应通过预热和切流前移到用户路径之外"
+  },
+  {
     "title": "推理请求队列管理",
     "slug": "inference-request-queue-management",
     "date": "2026-04-28",
