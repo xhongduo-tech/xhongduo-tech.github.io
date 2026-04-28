@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务性能剖析",
+    "slug": "inference-service-profiling",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能剖析"
+    ],
+    "summary": "推理服务剖析必须分层到应用、框架和GPU，否则很容易优化错路径"
+  },
+  {
     "title": "模型推理异步处理",
     "slug": "model-inference-async-processing",
     "date": "2026-04-28",

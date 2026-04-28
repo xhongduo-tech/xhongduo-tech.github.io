@@ -22355,7 +22355,7 @@
       "性能剖析"
     ],
     "brief": "推理服务性能剖析要覆盖应用层、框架层和GPU层。PyTorch Profiler适合看算子与调度，Nsight适合看kernel与拷贝，二者结合才能判断慢在Python调度、数据搬运还是算子本身；没有分层剖析，优化经常落到次要路径上。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模型推理成本分析",
