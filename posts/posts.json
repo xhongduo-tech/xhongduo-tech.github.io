@@ -1,5 +1,18 @@
 [
   {
+    "title": "Eligibility Traces：资格迹与 TD(λ)",
+    "slug": "eligibility-traces-td-lambda",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "TD学习"
+    ],
+    "summary": "资格迹用衰减记忆把当前TD误差分给历史状态，是TD(0)与Monte Carlo之间的高效折中。"
+  },
+  {
     "title": "Decision Transformer",
     "slug": "decision-transformer",
     "date": "2026-04-28",
