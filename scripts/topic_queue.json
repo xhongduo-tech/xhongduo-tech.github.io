@@ -21498,7 +21498,7 @@
       "价值分解"
     ],
     "brief": "VDN 假设联合 Q 函数 Q_tot = Σ_i Q_i(s_i, a_i)，每个 agent 学局部 Q 值。加法结构保证 argmax Q_tot = [argmax Q_1, ..., argmax Q_n]，可去中心化执行。局限性：无法表示非加法合作（如协调游戏）。是 QMIX 的前身。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "QMIX：单调性约束的价值分解",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "VDN：价值分解网络的加法假设",
+    "slug": "vdn-value-decomposition",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "多智能体",
+      "价值分解"
+    ],
+    "summary": "VDN把联合Q拆成各agent局部Q之和，适合可加协作，但难表达强协调关系"
+  },
+  {
     "title": "多智能体 RL：从独立学习到联合优化",
     "slug": "multi-agent-rl-basics",
     "date": "2026-04-28",
