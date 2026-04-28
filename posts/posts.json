@@ -1,5 +1,16 @@
 [
   {
+    "title": "移动端推理 CoreML",
+    "slug": "mobile-inference-coreml",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘部署"
+    ],
+    "summary": "Core ML 部署的关键不是转格式，而是让算子稳定映射到高性能后端并避免回退"
+  },
+  {
     "title": "GCP Vertex AI 模型部署",
     "slug": "gcp-vertex-ai-deployment",
     "date": "2026-04-28",
