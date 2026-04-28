@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型推理优化迭代",
+    "slug": "model-inference-optimization-iteration",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能优化"
+    ],
+    "summary": "推理优化的核心不是单点提速，而是按瓶颈减少重算、等待和串行成本。"
+  },
+  {
     "title": "推理服务成本预测",
     "slug": "inference-service-cost-prediction",
     "date": "2026-04-29",
