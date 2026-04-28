@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务限流策略",
+    "slug": "inference-service-rate-limiting",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "限流"
+    ],
+    "summary": "限流的核心是守住推理系统稳定边界，而不是尽量少拒绝请求"
+  },
+  {
     "title": "推理流水线并行优化",
     "slug": "inference-pipeline-parallel-optimization",
     "date": "2026-04-28",
