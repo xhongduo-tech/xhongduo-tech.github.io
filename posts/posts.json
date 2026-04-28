@@ -1,5 +1,18 @@
 [
   {
+    "title": "好奇心驱动探索：ICM 与预测误差",
+    "slug": "curiosity-driven-icm",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "探索策略",
+      "内在动机"
+    ],
+    "summary": "ICM把前向预测误差变成内在奖励，缓解稀疏奖励下的探索不足，但要警惕随机噪声误导。"
+  },
+  {
     "title": "Thompson Sampling：贝叶斯探索策略",
     "slug": "thompson-sampling-bayesian",
     "date": "2026-04-28",
