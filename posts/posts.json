@@ -1,5 +1,16 @@
 [
   {
+    "title": "微调模型合并技术",
+    "slug": "finetuned-model-merging",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "模型合并是在同一 base 上组合多个微调补丁，用低成本换取多任务能力整合。"
+  },
+  {
     "title": "LoRA rank 和 alpha 选择",
     "slug": "lora-rank-alpha-selection",
     "date": "2026-04-28",

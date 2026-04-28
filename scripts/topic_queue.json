@@ -21034,7 +21034,7 @@
       "评估方法"
     ],
     "brief": "AlpacaEval 使用 GPT-4 Turbo 对比评估模型输出与参考模型的质量。通过 win rate 计算分数，提供可复现的自动化评估。相比人工评估更快，但可能存在 judge bias。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "微调超参数搜索",
@@ -21067,7 +21067,7 @@
       "工程实践"
     ],
     "brief": "模型合并（Model Merging）将多个微调模型融合为一个模型，继承多个任务能力。技术包括：线性加权、Task Arithmetic、TIES-Merging、DARE 等。合并后无需重新训练即可获得多任务能力。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "QLoRA 量化微调实战",
