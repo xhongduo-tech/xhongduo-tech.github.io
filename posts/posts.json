@@ -1,5 +1,18 @@
 [
   {
+    "title": "Rainbow DQN：集成七种改进的终极 DQN",
+    "slug": "rainbow-dqn",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "DQN变体"
+    ],
+    "summary": "Rainbow DQN 是把 6 个互补改进叠加到 DQN 上的离散动作强化学习增强框架。"
+  },
+  {
     "title": "Distributional RL：C51 与价值分布的显式建模",
     "slug": "distributional-rl-c51",
     "date": "2026-04-28",

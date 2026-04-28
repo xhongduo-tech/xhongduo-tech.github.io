@@ -21170,7 +21170,7 @@
       "DQN变体"
     ],
     "brief": "Rainbow 集成：Double DQN、Dueling、PER、Multi-step、Distributional RL、Noisy Nets、价值函数逼近。Multi-step 用 n 步回报平衡偏差与方差。Distributional RL 输出价值分布而非期望值。Noisy Nets 用参数噪声替代 ε-greedy 探索。各组件消融实验显示贡献度。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Distributional RL：C51 与价值分布的显式建模",
