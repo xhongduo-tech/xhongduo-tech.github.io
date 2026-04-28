@@ -1,5 +1,27 @@
 [
   {
+    "title": "推理服务成本优化实践",
+    "slug": "inference-service-cost-optimization-practice",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "成本优化"
+    ],
+    "summary": "推理降本的核心是提升单位GPU秒产出的可接受token，而不是只追求单卡吞吐。"
+  },
+  {
+    "title": "推理服务容量弹性",
+    "slug": "inference-service-capacity-elasticity",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "容量规划"
+    ],
+    "summary": "推理服务容量弹性本质是用副本、批处理、队列和显存共同满足延迟SLO。"
+  },
+  {
     "title": "边缘模型性能优化",
     "slug": "edge-model-performance-optimization",
     "date": "2026-04-29",
