@@ -22993,7 +22993,7 @@
       "图神经网络"
     ],
     "brief": "R-GCN 面向知识图谱等多关系图，核心是在消息传递时为不同关系类型使用不同变换矩阵：`h_i^{(l+1)} = σ(Σ_r Σ_{j∈N_i^r} 1/c_{i,r} W_r^{(l)} h_j^{(l)} + W_0 h_i^{(l)})`。如果每个关系都单独学完整矩阵，参数会随关系数线性爆炸，因此论文提出 basis decomposition 和 block decomposition 两种权重共享方式。R-GCN 常用于实体分类和链接预测编码器，但在关系类型很多时仍需 carefully regularize。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GraphSAGE采样策略",

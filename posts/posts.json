@@ -1,5 +1,17 @@
 [
   {
+    "title": "RGCN关系图卷积",
+    "slug": "rgcn-relational-gcn",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图神经网络"
+    ],
+    "summary": "R-GCN用关系专属变换建模多关系图，并靠参数共享缓解关系数带来的参数爆炸。"
+  },
+  {
     "title": "GCN图卷积网络详解",
     "slug": "gcn-graph-convolutional-network",
     "date": "2026-04-29",
