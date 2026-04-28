@@ -1,5 +1,18 @@
 [
   {
+    "title": "MAPPO：多智能体 PPO 的中心化训练",
+    "slug": "mappo-centralized-training",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "多智能体",
+      "策略梯度"
+    ],
+    "summary": "MAPPO 用中心化 Critic 稳定多智能体 PPO，训练看全局，执行看局部。"
+  },
+  {
     "title": "QMIX：单调性约束的价值分解",
     "slug": "qmix-mixing-network",
     "date": "2026-04-28",

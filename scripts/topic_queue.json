@@ -21486,7 +21486,7 @@
       "价值学习"
     ],
     "brief": "IQL 完全避免查询 OOD 动作的 Q 值。用期望回归学习 Q 值：L = E[(Q(s,a) - r - γ V(s'))²]，但 V 通过 expectile 回归从 Q 中提取：L = E[L_τ(Q(s,a) - V(s))]。只评估数据集中的动作，无需行为策略显式建模。简单高效，是离线 RL 的新基准。",
-    "status": "pending"
+    "status": "failed"
   },
   {
     "title": "VDN：价值分解网络的加法假设",
@@ -21522,7 +21522,7 @@
       "策略梯度"
     ],
     "brief": "MAPPO 是 PPO 的多智能体扩展。中心化 Critic 用全局状态 s 计算优势，Actor 只用局部观察 o_i。CTDE (Centralized Training Decentralized Execution) 范式。PPO 的稳定性在多智能体场景同样适用。添加 PopArt 归一化价值函数可大幅提升性能。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "COMA：反事实基线的多智能体策略梯度",
