@@ -1,5 +1,17 @@
 [
   {
+    "title": "实体链接排序算法",
+    "slug": "entity-linking-ranking-algorithm",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "实体链接"
+    ],
+    "summary": "实体链接排序是在候选实体中融合上下文、名称、先验与一致性后选出最匹配实体。"
+  },
+  {
     "title": "跨语言实体对齐方法",
     "slug": "cross-lingual-entity-alignment",
     "date": "2026-04-29",

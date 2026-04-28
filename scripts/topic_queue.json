@@ -22806,7 +22806,7 @@
       "实体链接"
     ],
     "brief": "实体链接排序阶段要在候选集中找出与 mention 上下文最一致的实体，因此打分通常融合四类特征：局部上下文语义、mention 与实体名称相似度、候选实体先验流行度、文档内实体共现一致性。传统做法用学习排序或 pairwise ranking，现代系统更常用 cross-encoder 对“上下文+实体描述”做联合编码。若文档中多个 mention 相关联，还可加入 collective linking，让候选实体在同一主题子图中相互增强。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识库覆盖补全方法",
