@@ -1,5 +1,17 @@
 [
   {
+    "title": "TransE嵌入模型原理",
+    "slug": "transe-embedding-model",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识嵌入"
+    ],
+    "summary": "TransE把关系看成向量平移，简单高效，适合知识图谱入门 baseline，但复杂关系表达能力有限"
+  },
+  {
     "title": "异构图神经网络",
     "slug": "heterogeneous-graph-neural-network",
     "date": "2026-04-29",
