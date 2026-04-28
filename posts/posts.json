@@ -1,5 +1,17 @@
 [
   {
+    "title": "OWL本体推理引擎实现",
+    "slug": "owl-ontology-reasoning-engine",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识表示"
+    ],
+    "summary": "OWL 推理本质是模型可满足性判断，工程落地关键在算法与 profile 选择"
+  },
+  {
     "title": "属性图建模最佳实践",
     "slug": "property-graph-modeling-best-practices",
     "date": "2026-04-29",
