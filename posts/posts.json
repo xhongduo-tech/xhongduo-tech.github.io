@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务链路追踪",
+    "slug": "inference-service-tracing",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "可观测性"
+    ],
+    "summary": "用 trace_id 串起推理全链路，才能定位慢点、重试和尾延迟放大来源"
+  },
+  {
     "title": "边缘模型更新策略",
     "slug": "edge-model-update-strategy",
     "date": "2026-04-28",
