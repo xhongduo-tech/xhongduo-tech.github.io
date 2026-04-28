@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理流水线并行优化",
+    "slug": "inference-pipeline-parallel-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "流水线"
+    ],
+    "summary": "流水线并行先解决大模型装不下，再通过微批、均衡切分和高速互联争取吞吐。"
+  },
+  {
     "title": "推理 GPU 利用率分析",
     "slug": "inference-gpu-utilization-analysis",
     "date": "2026-04-28",
