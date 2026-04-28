@@ -1,5 +1,16 @@
 [
   {
+    "title": "边缘模型量化加速",
+    "slug": "edge-model-quantization-acceleration",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘部署"
+    ],
+    "summary": "量化加速成立的前提，是低位宽数值真正命中目标硬件的原生整数算子路径"
+  },
+  {
     "title": "推理服务容器优化",
     "slug": "inference-service-container-optimization",
     "date": "2026-04-28",
