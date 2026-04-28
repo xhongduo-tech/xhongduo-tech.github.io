@@ -1,5 +1,17 @@
 [
   {
+    "title": "RDFS类层次继承机制",
+    "slug": "rdfs-class-hierarchy-inheritance",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识表示"
+    ],
+    "summary": "RDFS 用子类、子属性、domain、range 做轻量闭包推理，适合工程补全，不适合强校验"
+  },
+  {
     "title": "命名空间URI规范管理",
     "slug": "namespace-uri-management",
     "date": "2026-04-29",

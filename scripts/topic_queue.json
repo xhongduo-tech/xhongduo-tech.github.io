@@ -22762,7 +22762,7 @@
       "知识表示"
     ],
     "brief": "RDFS 的推理能力虽然弱于 OWL，但对工程系统已经足够实用。`rdfs:subClassOf` 和 `rdfs:subPropertyOf` 具备传递性，可形成层次闭包；`rdfs:domain` 与 `rdfs:range` 则可根据谓词使用情况反推出实体类型。比如 `teaches` 的 domain 是 `Professor`，当图中出现 `Alice teaches CS101` 时即可推导 `Alice rdf:type Professor`。风险在于 domain/range 是蕴含规则而非校验规则，错误声明会把大量实体误推到错误类型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "实体识别命名实体识别",
