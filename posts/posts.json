@@ -1,5 +1,16 @@
 [
   {
+    "title": "AWS SageMaker 模型部署",
+    "slug": "aws-sagemaker-model-deployment",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "AWS"
+    ],
+    "summary": "SageMaker部署先过显存与吞吐门槛，再用端点模式和扩缩容平衡成本与SLA"
+  },
+  {
     "title": "GGUF 量化参数选择",
     "slug": "gguf-quantization-params",
     "date": "2026-04-28",

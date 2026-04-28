@@ -21849,7 +21849,7 @@
       "AWS"
     ],
     "brief": "SageMaker部署要同时看实例规格、端点模式和扩缩容策略。单模型端点简单但利用率有限，多模型端点能摊薄成本却会引入冷加载；ml.g5、p4d等实例差异直接反映到显存容量、吞吐和每百万token成本，最终决定是否能守住SLA。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Azure ML 推理端点配置",
