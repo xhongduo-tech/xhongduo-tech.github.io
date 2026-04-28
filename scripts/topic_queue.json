@@ -21034,7 +21034,7 @@
       "评估方法"
     ],
     "brief": "AlpacaEval 使用 GPT-4 Turbo 对比评估模型输出与参考模型的质量。通过 win rate 计算分数，提供可复现的自动化评估。相比人工评估更快，但可能存在 judge bias。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "微调超参数搜索",

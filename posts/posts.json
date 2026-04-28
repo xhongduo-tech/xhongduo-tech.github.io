@@ -1,5 +1,16 @@
 [
   {
+    "title": "AlpacaEval 自动化评估",
+    "slug": "alpacaeval-automated-evaluation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "评估方法"
+    ],
+    "summary": "AlpacaEval用LLM裁判比较模型输出，核心看相对胜率，适合快速筛选，不适合单独做上线决策。"
+  },
+  {
     "title": "奖励塑形：加速学习的潜在函数",
     "slug": "reward-shaping-potential",
     "date": "2026-04-28",
