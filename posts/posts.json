@@ -1,5 +1,27 @@
 [
   {
+    "title": "模型热更新机制",
+    "slug": "model-hot-update-mechanism",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "热更新"
+    ],
+    "summary": "模型热更新的本质是新旧并存、先验收再灰度切流，而不是进程内直接替换权重"
+  },
+  {
+    "title": "多模型共享推理",
+    "slug": "multi-model-shared-inference",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模型"
+    ],
+    "summary": "多模型共享推理用动态加载和缓存复用提高长尾模型的资源利用率。"
+  },
+  {
     "title": "模型权重加密存储",
     "slug": "model-weight-encryption-storage",
     "date": "2026-04-28",
