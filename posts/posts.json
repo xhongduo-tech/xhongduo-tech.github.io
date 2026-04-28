@@ -1,5 +1,16 @@
 [
   {
+    "title": "边缘推理隐私保护",
+    "slug": "edge-inference-privacy-protection",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘部署"
+    ],
+    "summary": "边缘推理隐私保护的核心是压缩暴露面，而不是简单把模型搬到端上"
+  },
+  {
     "title": "模型推理优化迭代",
     "slug": "model-inference-optimization-iteration",
     "date": "2026-04-29",
