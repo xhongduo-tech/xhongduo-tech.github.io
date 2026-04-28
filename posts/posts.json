@@ -1,5 +1,16 @@
 [
   {
+    "title": "LongLoRA 高效长上下文微调",
+    "slug": "longlora-efficient-long-context",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "长上下文"
+    ],
+    "summary": "LongLoRA 用 LoRA 与错位局部注意力，低成本完成长上下文微调"
+  },
+  {
     "title": "MoE 模型微调策略",
     "slug": "moe-model-finetuning",
     "date": "2026-04-28",

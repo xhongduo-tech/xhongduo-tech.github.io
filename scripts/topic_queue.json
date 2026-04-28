@@ -20935,7 +20935,7 @@
       "长上下文"
     ],
     "brief": "LongLoRA 结合了 LoRA 的参数高效性和专门的长上下文训练策略。通过 shift short attention 机制，在保持全局注意力效果的同时大幅降低计算开销，能在单卡上微调 100K 上下文模型。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Ring Attention 超长上下文训练",
