@@ -1,5 +1,16 @@
 [
   {
+    "title": "边缘模型性能优化",
+    "slug": "edge-model-performance-optimization",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘部署"
+    ],
+    "summary": "边缘模型优化的关键，不是只做量化，而是让模型、算子、运行时与硬件路径整体对齐。"
+  },
+  {
     "title": "模型推理服务治理",
     "slug": "model-inference-service-governance",
     "date": "2026-04-29",
