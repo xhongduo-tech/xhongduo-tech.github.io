@@ -21158,7 +21158,7 @@
       "经验回放"
     ],
     "brief": "均匀采样经验回放效率低，简单转移容易被过度学习。PER 按 |TD-error| 大小采样：误差大的样本携带更多信息。实现用 Sum Tree 数据结构，O(log n) 采样。引入重要性采样权重修正偏差：w_i = (N·P(i))^(-β)。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Rainbow DQN：集成七种改进的终极 DQN",

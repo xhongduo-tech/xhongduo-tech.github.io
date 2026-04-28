@@ -1,5 +1,18 @@
 [
   {
+    "title": "Prioritized Experience Replay：按 TD 误差优先回放",
+    "slug": "prioritized-experience-replay",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "经验回放"
+    ],
+    "summary": "PER 用 TD 误差重排回放概率，并用重要性采样修正偏差，以更高效复用关键经验"
+  },
+  {
     "title": "FSDP 完全分片数据并行",
     "slug": "fsdp-fully-sharded-data-parallel",
     "date": "2026-04-28",
