@@ -22839,7 +22839,7 @@
       "关系抽取"
     ],
     "brief": "远程监督默认“若知识库中实体对存在关系，则所有提到该实体对的句子都表达该关系”，这会引入大量噪声。多实例学习的基本修正是把同一实体对的句子打包成 bag，仅要求 bag 中至少一条句子真实表达该关系；句子注意力、selective attention 与 denoising policy 都是在估计哪条句子可信。更进一步还会结合 relation prototype、对比学习或 curriculum learning，把极噪声样本从训练早期剔除。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "模式层与数据层融合",

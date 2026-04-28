@@ -1,5 +1,17 @@
 [
   {
+    "title": "远程监督噪声处理",
+    "slug": "distant-supervision-noise-handling",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "关系抽取"
+    ],
+    "summary": "远程监督降噪的本质，是在句子、bag、样本三层估计可信度并控制训练权重。"
+  },
+  {
     "title": "模式层与数据层融合",
     "slug": "schema-data-level-fusion",
     "date": "2026-04-29",
