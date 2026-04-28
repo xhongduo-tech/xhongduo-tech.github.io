@@ -1,5 +1,17 @@
 [
   {
+    "title": "模式层与数据层融合",
+    "slug": "schema-data-level-fusion",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合"
+    ],
+    "summary": "schema 与 instance 联合优化，能用双向证据降低知识融合错配与错误传播"
+  },
+  {
     "title": "基于依存句法的关系抽取",
     "slug": "dependency-parsing-relation-extraction",
     "date": "2026-04-29",
