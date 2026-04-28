@@ -21388,7 +21388,7 @@
       "控制方法"
     ],
     "brief": "MPC 在每步求解有限视野优化：max_{a_t:t+H} Σ_{k=0}^H r(s_{t+k}, a_{t+k})。需要已知或学习环境模型。与学习策略不同，MPC 在线规划，可以处理约束。结合学习到的世界模型，MPC 成为强大的 model-based 方法。CEM（Cross-Entropy Method）是常用优化器。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "UCB 探索：上置信界算法的数学基础",

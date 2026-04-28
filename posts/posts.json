@@ -1,5 +1,18 @@
 [
   {
+    "title": "模型预测控制 (MPC) 在 RL 中的应用",
+    "slug": "mpc-model-predictive-control",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "世界模型",
+      "控制方法"
+    ],
+    "summary": "MPC 在 RL 中的本质是基于模型的在线重规划，优势在于显式约束与短期最优控制。"
+  },
+  {
     "title": "MuZero：无模型学习的规划与学习统一",
     "slug": "muzero-model-free-planning",
     "date": "2026-04-28",
