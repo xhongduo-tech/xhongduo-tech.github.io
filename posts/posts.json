@@ -1,5 +1,27 @@
 [
   {
+    "title": "边缘推理缓存优化",
+    "slug": "edge-inference-cache-optimization",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘部署"
+    ],
+    "summary": "边缘推理缓存的关键不在做大，而在高命中率复用高成本前缀并控制隔离与内存预算"
+  },
+  {
+    "title": "推理服务安全加固",
+    "slug": "inference-service-security-hardening",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "安全"
+    ],
+    "summary": "推理服务安全要同时控制身份、链路、权限、模型来源和资源上限。"
+  },
+  {
     "title": "模型推理资源隔离",
     "slug": "model-inference-resource-isolation",
     "date": "2026-04-29",
@@ -20,17 +42,6 @@
       "多模型"
     ],
     "summary": "多模型推理路由的核心，是按请求特征在质量、成本和延迟之间做条件选择。"
-  },
-  {
-    "title": "边缘推理缓存优化",
-    "slug": "edge-inference-cache-optimization",
-    "date": "2026-04-29",
-    "author": "both",
-    "tags": [
-      "模型部署",
-      "边缘部署"
-    ],
-    "summary": "边缘推理缓存优化的核心，是在小内存约束下复用前缀和 KV cache，稳定降低首 token 延迟。"
   },
   {
     "title": "模型推理精度监控",
