@@ -1,5 +1,16 @@
 [
   {
+    "title": "边缘模型协同推理",
+    "slug": "edge-model-collaborative-inference",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘协同"
+    ],
+    "summary": "边缘协同推理的核心是按时延、带宽和样本复杂度切分推理路径，而不是简单把模型搬到边缘"
+  },
+  {
     "title": "推理服务高可用设计",
     "slug": "inference-service-high-availability",
     "date": "2026-04-28",
