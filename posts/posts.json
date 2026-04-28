@@ -1,5 +1,16 @@
 [
   {
+    "title": "GCP Vertex AI 模型部署",
+    "slug": "gcp-vertex-ai-deployment",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "GCP"
+    ],
+    "summary": "Vertex AI 部署的关键在容器职责、资源副本规划与同区域访问。"
+  },
+  {
     "title": "Azure ML 推理端点配置",
     "slug": "azure-ml-inference-endpoint",
     "date": "2026-04-28",
