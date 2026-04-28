@@ -1,5 +1,16 @@
 [
   {
+    "title": "GPU 资源调度策略",
+    "slug": "gpu-resource-scheduling",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "GPU调度"
+    ],
+    "summary": "GPU调度的关键是显存、算力和尾延迟可预测，而不是单纯把利用率拉满"
+  },
+  {
     "title": "Kubernetes GPU 资源分配",
     "slug": "kubernetes-gpu-allocation",
     "date": "2026-04-28",
