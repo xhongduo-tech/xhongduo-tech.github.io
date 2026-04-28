@@ -1,5 +1,18 @@
 [
   {
+    "title": "Multi-step Learning：n 步回报平衡偏差与方差",
+    "slug": "multi-step-learning-n-step",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "值函数方法",
+      "TD学习"
+    ],
+    "summary": "n 步回报用“前 n 步真实奖励 + 一次 bootstrap”在 TD 与 Monte Carlo 之间做偏差方差折中"
+  },
+  {
     "title": "Noisy Nets：参数空间噪声替代动作空间探索",
     "slug": "noisy-nets-exploration",
     "date": "2026-04-28",

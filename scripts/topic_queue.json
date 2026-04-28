@@ -21206,7 +21206,7 @@
       "TD学习"
     ],
     "brief": "1 步 TD 偏差小方差大，Monte Carlo 无偏方差极大。n 步回报 R_t^(n) = Σ_{k=0}^{n-1} γ^k r_{t+k} + γ^n max Q(s_{t+n}) 折中。n 越大传播越快但方差越高。Forward-view 与 backward-view 的等价性，λ-return 的几何加权。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "策略梯度定理：直接优化策略的数学基础",
