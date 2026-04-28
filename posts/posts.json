@@ -1,5 +1,38 @@
 [
   {
+    "title": "多模态推理流水线",
+    "slug": "multimodal-inference-pipeline",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模态"
+    ],
+    "summary": "多模态推理是串联系统，瓶颈常在预处理、编码、排队与解码协同。"
+  },
+  {
+    "title": "推理服务故障恢复",
+    "slug": "inference-service-failure-recovery",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "高可用"
+    ],
+    "summary": "按故障域切流、按 RTO/RPO 恢复推理服务，关键看探针、重试和状态外置。"
+  },
+  {
+    "title": "模型推理并行策略",
+    "slug": "deploy-infer-parallel-strategy",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "并行"
+    ],
+    "summary": "模型推理并行的核心，是用副本、张量切分、流水线切分和连续批处理，在权重、KV cache 与通信约束下稳定提升吞吐"
+  },
+  {
     "title": "推理服务链路追踪",
     "slug": "inference-service-tracing",
     "date": "2026-04-28",
