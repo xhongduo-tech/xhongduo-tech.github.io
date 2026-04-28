@@ -1,5 +1,17 @@
 [
   {
+    "title": "多源数据实体对齐",
+    "slug": "multi-source-entity-alignment",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合"
+    ],
+    "summary": "实体对齐不只是匹配记录，还要可追溯地合并多源数据并防止脏源污染"
+  },
+  {
     "title": "知识图谱Schema映射",
     "slug": "knowledge-graph-schema-mapping",
     "date": "2026-04-29",
