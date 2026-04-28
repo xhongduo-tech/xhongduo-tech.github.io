@@ -1,5 +1,18 @@
 [
   {
+    "title": "TD3：解决连续控制中的 Q 值过高估计",
+    "slug": "td3-twin-delayed-ddpg",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "DDPG改进"
+    ],
+    "summary": "TD3 通过双Q取min、目标平滑和延迟更新，专门压制连续控制中的Q值过高估计。"
+  },
+  {
     "title": "SAC 实现细节：双 Q 网络、目标策略平滑",
     "slug": "sac-implementation-details",
     "date": "2026-04-28",
