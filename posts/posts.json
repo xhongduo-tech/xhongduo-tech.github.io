@@ -1,5 +1,16 @@
 [
   {
+    "title": "微调中的灾难性遗忘",
+    "slug": "catastrophic-forgetting-in-finetuning",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "训练挑战"
+    ],
+    "summary": "微调遗忘本质是参数冲突，常用缓解手段是控学习率、加约束、做 replay 和用 PEFT。"
+  },
+  {
     "title": "微调模型评估基准",
     "slug": "finetuned-model-evaluation-benchmarks",
     "date": "2026-04-28",
@@ -31,18 +42,6 @@
       "理论基础"
     ],
     "summary": "指令微调主要训练模型按要求作答，知识底座仍主要来自预训练。"
-  },
-  {
-    "title": "微调中的灾难性遗忘",
-    "slug": "catastrophic-forgetting-in-finetuning",
-    "date": "2026-04-28",
-    "author": "both",
-    "tags": [
-      "模型微调",
-      "训练技巧",
-      "灾难性遗忘"
-    ],
-    "summary": "微调会覆盖旧能力；用低学习率、EWC、回放和PEFT平衡新任务与通用能力"
   },
   {
     "title": "多模态模型微调 (LLaVA)",
