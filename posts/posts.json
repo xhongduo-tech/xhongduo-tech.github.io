@@ -1,5 +1,18 @@
 [
   {
+    "title": "Model-Based RL：规划与学习的权衡",
+    "slug": "model-based-vs-model-free",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "理论基础",
+      "模型学习"
+    ],
+    "summary": "Model-based RL 先学环境模型再规划，省样本但容易受模型偏差放大。"
+  },
+  {
     "title": "重要性采样：异策略评估的数学基础",
     "slug": "importance-sampling-off-policy",
     "date": "2026-04-28",

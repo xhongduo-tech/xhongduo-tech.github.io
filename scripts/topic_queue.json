@@ -21642,7 +21642,7 @@
       "模型学习"
     ],
     "brief": "Model-based RL 学习环境模型 p(s',r|s,a) 并用模型规划。Model-free 直接学习价值或策略。Model-based 样本效率高但可能有模型偏差。Dyna 架构结合两者：用真实样本学习模型，用模型生成模拟样本。AlphaZero 用 MCTS 在学到的模型上搜索。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Soft Actor-Critic：熵正则化的 Actor-Critic",
