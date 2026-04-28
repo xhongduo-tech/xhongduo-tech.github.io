@@ -1,5 +1,16 @@
 [
   {
+    "title": "FSDP 完全分片数据并行",
+    "slug": "fsdp-fully-sharded-data-parallel",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "FSDP通过按需聚齐和稳态分片，把大模型全参训练从显存不可行变成工程可行。"
+  },
+  {
     "title": "Dueling DQN：分离状态价值与动作优势",
     "slug": "dueling-dqn-advantage",
     "date": "2026-04-28",
