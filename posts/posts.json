@@ -1,5 +1,16 @@
 [
   {
+    "title": "Kubernetes GPU 资源分配",
+    "slug": "kubernetes-gpu-allocation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "GPU调度"
+    ],
+    "summary": "Kubernetes GPU 分配的关键不只在卡够不够，还在拓扑对齐与共享策略。"
+  },
+  {
     "title": "边缘部署模型剪枝",
     "slug": "edge-deployment-model-pruning",
     "date": "2026-04-28",
