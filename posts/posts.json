@@ -1,5 +1,17 @@
 [
   {
+    "title": "跨语言实体对齐方法",
+    "slug": "cross-lingual-entity-alignment",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "实体链接"
+    ],
+    "summary": "跨语言实体对齐本质是跨图判断同一实体，核心依赖名称、文本、结构三类信号联合建模"
+  },
+  {
     "title": "实体识别命名实体识别",
     "slug": "named-entity-recognition-ner",
     "date": "2026-04-29",
