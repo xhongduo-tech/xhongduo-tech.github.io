@@ -22960,7 +22960,7 @@
       "图数据库"
     ],
     "brief": "分布式图遍历通常遵循 Pregel 或 BSP（Bulk Synchronous Parallel）思想：每轮 superstep 中节点并行处理收到的消息，更新状态，再把新消息发送给邻居。BFS、最短路、连通分量等算法都能写成这种“消息传递 + 全局同步”的形式。瓶颈并不在单机算力，而在跨分区消息量、超级节点导致的倾斜和同步屏障等待，因此遍历算法必须同时优化分区、消息压缩和 frontier 管理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GCN图卷积网络详解",

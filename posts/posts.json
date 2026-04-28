@@ -1,5 +1,17 @@
 [
   {
+    "title": "分布式图遍历算法",
+    "slug": "distributed-graph-traversal",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库"
+    ],
+    "summary": "分布式图遍历的核心是 superstep 消息传播，瓶颈主要在通信、倾斜和同步。"
+  },
+  {
     "title": "图数据库ACID事务实现",
     "slug": "graph-database-transaction-acid",
     "date": "2026-04-29",
