@@ -21255,7 +21255,7 @@
       "工程实践"
     ],
     "brief": "PPO 工程细节决定成败：GAE(λ) 计算优势函数平衡偏差方差；价值函数也做剪裁或使用 Huber 损失；熵正则 β·H(π) 鼓励探索；梯度裁剪、学习率退火、观察归一化。Mini-batch 多轮更新，early stopping 如果 KL 超阈值。PPO + LSTM 处理部分可观测环境。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Actor-Critic 架构",

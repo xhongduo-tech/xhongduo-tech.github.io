@@ -1,5 +1,18 @@
 [
   {
+    "title": "PPO 实现细节：GAE、价值函数剪裁与熵正则",
+    "slug": "ppo-implementation-details",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "策略梯度",
+      "工程实践"
+    ],
+    "summary": "PPO 的稳定来自 GAE、策略剪裁、价值约束与熵正则的协同，而不是单一公式。"
+  },
+  {
     "title": "Actor-Critic 架构",
     "slug": "actor-critic-architecture",
     "date": "2026-04-28",
