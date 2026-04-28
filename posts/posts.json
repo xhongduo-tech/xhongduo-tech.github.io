@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型安全与防护",
+    "slug": "model-security-inference-protection",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "安全"
+    ],
+    "summary": "模型安全要覆盖输入、生成和输出全链路，并量化防护带来的延迟与吞吐成本"
+  },
+  {
     "title": "冷启动延迟优化",
     "slug": "cold-start-latency-optimization",
     "date": "2026-04-28",
