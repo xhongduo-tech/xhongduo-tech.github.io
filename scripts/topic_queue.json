@@ -21448,7 +21448,7 @@
       "表格方法"
     ],
     "brief": "最直观的新颖性度量：状态访问次数 N(s)。探索奖励 r_novel = β/√N(s)，访问越少奖励越高。高维状态空间需要哈希或密度模型近似。SimHash 将状态映射到二进制码，用哈希冲突计数。简单高效但在连续状态空间不如神经网络方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Exploration by Dissent：集成不确定性估计",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "Count-based Exploration：基于计数的状态新颖性",
+    "slug": "count-based-exploration",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "探索策略",
+      "表格方法"
+    ],
+    "summary": "用访问次数衡量状态新颖性，低频状态给更高奖励，是稀疏奖励任务中最直接的探索基线。"
+  },
+  {
     "title": "RND：随机网络蒸馏作为探索奖励",
     "slug": "rnd-random-network-distillation",
     "date": "2026-04-28",
