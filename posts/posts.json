@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务高可用设计",
+    "slug": "inference-service-high-availability",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "高可用"
+    ],
+    "summary": "推理高可用的核心是按故障域隔离，并在RTO/RPO目标内完成切流与状态恢复"
+  },
+  {
     "title": "模型分片存储优化",
     "slug": "model-sharding-storage-optimization",
     "date": "2026-04-28",
