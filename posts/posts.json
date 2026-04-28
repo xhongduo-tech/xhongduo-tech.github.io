@@ -1,5 +1,16 @@
 [
   {
+    "title": "Axolotl 微调配置实践",
+    "slug": "axolotl-finetuning-configuration",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "工程实践"
+    ],
+    "summary": "Axolotl 用 YAML 把模型微调流程配置化，核心价值是复现、切换和工程管理。"
+  },
+  {
     "title": "LlamaFactory 微调框架",
     "slug": "llamafactory-finetuning-framework",
     "date": "2026-04-28",

@@ -21100,7 +21100,7 @@
       "工程实践"
     ],
     "brief": "Axolotl 是 YAML 配置驱动的微调框架，简化了复杂训练流程的配置。支持多 GPU 分布式训练、各种数据格式、深度集成 Weights & Biases。配置即代码的设计便于实验复现和版本管理。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "DeepSpeed ZeRO 微调优化",
