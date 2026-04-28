@@ -1,5 +1,16 @@
 [
   {
+    "title": "多模型推理调度",
+    "slug": "multi-model-inference-scheduling",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模型"
+    ],
+    "summary": "多模型推理调度的本质，是在显存预算内用驻留、路由、批处理和驱逐共同守住尾延迟。"
+  },
+  {
     "title": "推理服务配置管理",
     "slug": "inference-service-config-management",
     "date": "2026-04-28",
@@ -31,17 +42,6 @@
       "SLA"
     ],
     "summary": "SLA必须从业务承诺倒推到TTFT、TPOT、E2E、可用性与错误预算，并绑定告警和自动处置"
-  },
-  {
-    "title": "多模型推理调度",
-    "slug": "multi-model-inference-scheduling",
-    "date": "2026-04-28",
-    "author": "both",
-    "tags": [
-      "模型部署",
-      "多模型"
-    ],
-    "summary": "多模型推理调度的核心是联合决定驻留、路由、批处理和驱逐，在显存预算内守住尾延迟。"
   },
   {
     "title": "模型推理错误处理",
