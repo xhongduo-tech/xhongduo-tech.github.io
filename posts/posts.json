@@ -1,5 +1,17 @@
 [
   {
+    "title": "属性图建模最佳实践",
+    "slug": "property-graph-modeling-best-practices",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识表示"
+    ],
+    "summary": "属性图建模的关键是按查询模式划分节点、边、属性与中间节点，避免关系过胖和遍历膨胀"
+  },
+  {
     "title": "多模型推理编排",
     "slug": "multi-model-inference-orchestration",
     "date": "2026-04-29",
