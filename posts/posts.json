@@ -1,5 +1,17 @@
 [
   {
+    "title": "Neo4j索引策略设计",
+    "slug": "neo4j-index-strategy",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库"
+    ],
+    "summary": "Neo4j 索引应围绕查询谓词设计，优先高选择性复合过滤与约束，而不是给所有属性建索引"
+  },
+  {
     "title": "Neo4j Cypher查询优化",
     "slug": "neo4j-cypher-query-optimization",
     "date": "2026-04-29",
