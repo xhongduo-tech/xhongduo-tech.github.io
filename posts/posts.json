@@ -1,5 +1,28 @@
 [
   {
+    "title": "模型版本管理与回滚",
+    "slug": "model-version-management-rollback",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "版本管理"
+    ],
+    "summary": "模型版本管理的重点不是换文件，而是让灰度、验证和回滚成为可审计、可快速执行的流程。"
+  },
+  {
+    "title": "LLM 服务冷启动延迟优化",
+    "slug": "llm-cold-start-latency-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能优化",
+      "冷启动"
+    ],
+    "summary": "LLM冷启动要拆成权重、CUDA和KV三段分别优化"
+  },
+  {
     "title": "推理监控指标设计",
     "slug": "inference-monitoring-metrics",
     "date": "2026-04-28",
