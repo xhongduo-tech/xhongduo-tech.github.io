@@ -1,5 +1,17 @@
 [
   {
+    "title": "时序知识融合",
+    "slug": "temporal-knowledge-fusion",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识融合"
+    ],
+    "summary": "时序知识融合的关键是同时建模事实成立时间与系统获知时间，并保留多版本历史。"
+  },
+  {
     "title": "多源数据实体对齐",
     "slug": "multi-source-entity-alignment",
     "date": "2026-04-29",
