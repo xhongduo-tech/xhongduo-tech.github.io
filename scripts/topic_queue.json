@@ -20924,7 +20924,7 @@
       "长上下文"
     ],
     "brief": "位置编码外推让训练时短上下文的模型能处理更长输入。技术包括：位置插值（PI）、NTK-aware scaling、YaRN 等。这些方法通过修改位置编码计算，使模型外推到训练长度数倍的上下文。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "LongLoRA 高效长上下文微调",

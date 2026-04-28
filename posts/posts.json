@@ -1,5 +1,16 @@
 [
   {
+    "title": "位置编码外推技术",
+    "slug": "positional-extrapolation-techniques",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "长上下文"
+    ],
+    "summary": "位置编码外推通过重写 RoPE 映射，让短上下文模型尽量稳定地处理更长输入。"
+  },
+  {
     "title": "混合精度微调 (FP16/BF16)",
     "slug": "mixed-precision-finetuning",
     "date": "2026-04-28",
