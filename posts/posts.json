@@ -1,5 +1,17 @@
 [
   {
+    "title": "基于依存句法的关系抽取",
+    "slug": "dependency-parsing-relation-extraction",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "关系抽取"
+    ],
+    "summary": "依存句法关系抽取用最短依存路径降噪，长句更稳，但强依赖句法分析质量。"
+  },
+  {
     "title": "知识库覆盖补全方法",
     "slug": "knowledge-base-completion",
     "date": "2026-04-29",
