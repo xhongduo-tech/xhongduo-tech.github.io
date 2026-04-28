@@ -1,5 +1,17 @@
 [
   {
+    "title": "GAT图注意力网络",
+    "slug": "gat-graph-attention-network",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图神经网络"
+    ],
+    "summary": "GAT 用可学习注意力替代固定邻接归一化，适合邻居重要性明显不均匀的图任务"
+  },
+  {
     "title": "ArangoDB多模型查询",
     "slug": "arangodb-multi-model-query",
     "date": "2026-04-29",
