@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理服务资源配额",
+    "slug": "inference-service-resource-quota",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "资源管理"
+    ],
+    "summary": "资源配额的核心是接单前做容量判定，把显存、并发和排队风险变成可调度边界"
+  },
+  {
     "title": "模型推理性能回归",
     "slug": "model-inference-performance-regression",
     "date": "2026-04-28",
