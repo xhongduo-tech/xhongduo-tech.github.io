@@ -22718,7 +22718,7 @@
       "知识表示"
     ],
     "brief": "RDF 的基本存储单元是 `(subject, predicate, object)` 三元组，核心工程问题不是“如何存下来”，而是如何为 SPARQL 的不同绑定模式高效检索。工业实现通常维护 SPO、POS、OSP 等多种排列索引，或使用六索引/列式压缩来减少连接代价；谓词基数低时还能按 predicate 垂直分表。查询优化重点在选择性估计、join 顺序、字典编码与 URI 压缩，否则多跳模式匹配会迅速退化为大规模自连接。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "OWL本体推理引擎实现",
