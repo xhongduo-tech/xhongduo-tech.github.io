@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理负载均衡策略",
+    "slug": "inference-load-balancing",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "负载均衡"
+    ],
+    "summary": "推理负载均衡要按真实 token 成本和实例状态分流，而不是只按连接数平均分配"
+  },
+  {
     "title": "分布式推理通信优化",
     "slug": "distributed-inference-comm-optimization",
     "date": "2026-04-28",
