@@ -1,5 +1,17 @@
 [
   {
+    "title": "GNN过平滑问题",
+    "slug": "gnn-over-smoothing-problem",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图神经网络"
+    ],
+    "summary": "GNN 变深不一定更强，过平滑抹平差异，过压缩堵塞长程信息，修法必须分病因。"
+  },
+  {
     "title": "RotatE旋转嵌入模型",
     "slug": "rotate-embedding-model",
     "date": "2026-04-29",
