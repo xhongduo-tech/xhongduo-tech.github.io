@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型蒸馏推理加速",
+    "slug": "knowledge-distillation-inference",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "模型压缩"
+    ],
+    "summary": "蒸馏加速的本质是迁移 teacher 行为分布，并用更适配后端的 student 换取真实推理收益"
+  },
+  {
     "title": "推理成本优化分析",
     "slug": "inference-cost-optimization",
     "date": "2026-04-28",
