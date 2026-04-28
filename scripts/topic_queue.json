@@ -22773,7 +22773,7 @@
       "实体识别"
     ],
     "brief": "命名实体识别是从非结构化文本抽取图谱节点的入口任务，目标不仅是找边界，还要赋予实体类型。传统 BiLSTM-CRF 通过序列标注建模 BIO/BIES 标签转移，适合平面实体；而金融、医疗场景常出现嵌套实体，需要改用 span classification、pointer network 或 layered tagging。现代方案还会把词典匹配、上下文预训练模型和文档级共指信息结合，以提升召回并减少实体切分错误向下游实体链接传播。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "跨语言实体对齐方法",

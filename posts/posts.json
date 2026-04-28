@@ -1,5 +1,17 @@
 [
   {
+    "title": "实体识别命名实体识别",
+    "slug": "named-entity-recognition-ner",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "实体识别"
+    ],
+    "summary": "NER 是图谱节点抽取入口，平面实体适合序列标注，嵌套实体应改用 span、pointer 或分层方法。"
+  },
+  {
     "title": "RDFS类层次继承机制",
     "slug": "rdfs-class-hierarchy-inheritance",
     "date": "2026-04-29",
