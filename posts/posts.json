@@ -1,5 +1,16 @@
 [
   {
+    "title": "多租户模型隔离",
+    "slug": "multi-tenant-model-isolation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多租户"
+    ],
+    "summary": "多租户隔离要分层做，先控显存与队列，再谈算力绑定和缓存复用"
+  },
+  {
     "title": "向量检索增强推理",
     "slug": "rag-vector-retrieval-inference",
     "date": "2026-04-28",
