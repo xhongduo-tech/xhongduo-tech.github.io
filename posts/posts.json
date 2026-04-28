@@ -1,5 +1,18 @@
 [
   {
+    "title": "Soft Actor-Critic：熵正则化的 Actor-Critic",
+    "slug": "soft-actor-critic-entropy",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "最大熵"
+    ],
+    "summary": "SAC 用熵正则把高回报与探索统一起来，是连续控制中更稳的 Actor-Critic。"
+  },
+  {
     "title": "Model-Based RL：规划与学习的权衡",
     "slug": "model-based-vs-model-free",
     "date": "2026-04-28",

@@ -21654,7 +21654,7 @@
       "最大熵"
     ],
     "brief": "SAC 将熵正则加入目标：J(π) = E[Σγ^t(r_t + αH(π(·|s_t)))]。Soft policy iteration：Soft 策略评估计算 Soft Q，Soft 策略改进用 KL 散度。推导得到 practical 算法：Critic 学 Soft Q，Actor 最大化 E[Q - α log π]。自动温度调整使熵稳定在目标值。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RAINBOW 消融：各组件贡献度分析",
