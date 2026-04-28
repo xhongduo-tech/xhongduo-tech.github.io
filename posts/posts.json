@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理显存优化技术",
+    "slug": "inference-memory-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "显存优化"
+    ],
+    "summary": "推理显存要分开看权重与KV Cache，长上下文服务里后者常是首要瓶颈"
+  },
+  {
     "title": "动态批处理算法分析",
     "slug": "dynamic-batching-algorithm",
     "date": "2026-04-28",

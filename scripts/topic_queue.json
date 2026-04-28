@@ -21937,7 +21937,7 @@
       "显存优化"
     ],
     "brief": "LLM 推理显存由三部分组成：模型权重（FP16 下约 2 bytes/param）、KV Cache（2×L×h×d×seq_len bytes）、激活值（通常可忽略）。70B 模型 FP16 权重 140GB，4096 token KV Cache 约 80GB（32 层，每层 8 heads，128 dim）。优化手段：量化（W4 可压缩至 35GB）、GQA（KV Cache 降至 1/4）、KV Cache 量化（INT8 再减半）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "多模型编排架构",
