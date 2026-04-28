@@ -1,5 +1,16 @@
 [
   {
+    "title": "边缘模型更新策略",
+    "slug": "edge-model-update-strategy",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "边缘部署"
+    ],
+    "summary": "边缘模型更新的核心不是发模型，而是在受限设备上安全灰度、切换与回滚。"
+  },
+  {
     "title": "推理服务资源配额",
     "slug": "inference-service-resource-quota",
     "date": "2026-04-28",
