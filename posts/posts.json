@@ -1,5 +1,32 @@
 [
   {
+    "title": "A2C vs A3C：同步与异步的权衡",
+    "slug": "a2c-vs-a3c-sync-async",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "分布式训练"
+    ],
+    "summary": "A3C 与 A2C 的核心差别是异步与同步更新，现代工程通常更偏向 A2C。"
+  },
+  {
+    "title": "DDPG：深度确定性策略梯度",
+    "slug": "ddpg-deterministic-policy-gradient",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "连续控制",
+      "Actor-Critic",
+      "DDPG"
+    ],
+    "summary": "DDPG 用确定性策略直接输出连续动作，再用 Critic 的梯度反传优化 Actor，是 TD3 和 SAC 的前身。"
+  },
+  {
     "title": "V-trace：重要性采样修正的离策略学习",
     "slug": "v-trace-importance-sampling",
     "date": "2026-04-28",
