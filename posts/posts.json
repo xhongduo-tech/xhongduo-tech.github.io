@@ -1,5 +1,18 @@
 [
   {
+    "title": "SAC 实现细节：双 Q 网络、目标策略平滑",
+    "slug": "sac-implementation-details",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "工程实践"
+    ],
+    "summary": "SAC 用双Q抑制过估计，用随机策略与熵约束提升连续控制中的探索稳定性。"
+  },
+  {
     "title": "A2C vs A3C：同步与异步的权衡",
     "slug": "a2c-vs-a3c-sync-async",
     "date": "2026-04-28",
