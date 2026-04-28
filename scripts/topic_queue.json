@@ -20891,7 +20891,7 @@
       "训练技巧"
     ],
     "brief": "Gradient Checkpointing 通过在反向传播时重新计算中间激活来节省显存，代价是增加约 20% 的计算时间。对于大模型微调，这是在有限显存下增大 batch size 的有效方法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "混合精度微调 (FP16/BF16)",

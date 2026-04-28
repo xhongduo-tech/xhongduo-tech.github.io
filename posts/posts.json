@@ -1,5 +1,16 @@
 [
   {
+    "title": "Gradient Checkpointing 显存优化",
+    "slug": "gradient-checkpointing-memory-optimization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "训练技巧"
+    ],
+    "summary": "Gradient Checkpointing 用重算中间激活换显存，适合长序列大模型微调，但会明显变慢。"
+  },
+  {
     "title": "Shampoo 优化器：结构化二阶优化",
     "slug": "shampoo-optimizer-structured-second-order",
     "date": "2026-04-28",
