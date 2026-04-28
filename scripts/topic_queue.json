@@ -21827,7 +21827,7 @@
       "safetensors"
     ],
     "brief": "safetensors通过显式元数据和零拷贝mmap避开pickle反序列化风险，加载路径更安全也更可控。它不会减少权重本身大小，但常能降低启动阶段CPU峰值内存和加载抖动，对多副本部署、冷启动SLA和镜像安全审计更友好。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GGUF 量化参数选择",

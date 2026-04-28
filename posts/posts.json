@@ -1,5 +1,16 @@
 [
   {
+    "title": "safetensors 格式与安全加载",
+    "slug": "safetensors-secure-loading",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "safetensors"
+    ],
+    "summary": "safetensors用显式头部和mmap安全加载权重，提升部署可控性而非压缩模型大小"
+  },
+  {
     "title": "模型格式 ONNX 转换工具",
     "slug": "model-conversion-onnx-tools",
     "date": "2026-04-28",
