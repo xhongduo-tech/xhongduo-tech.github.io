@@ -1,5 +1,16 @@
 [
   {
+    "title": "推理批大小自适应",
+    "slug": "inference-batch-size-adaptive",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "批处理"
+    ],
+    "summary": "自适应批大小是在吞吐、延迟和显存约束下做运行时联合调度。"
+  },
+  {
     "title": "模型格式兼容性处理",
     "slug": "model-format-compatibility",
     "date": "2026-04-28",
