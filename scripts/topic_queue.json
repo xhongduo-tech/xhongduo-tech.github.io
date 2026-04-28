@@ -23059,7 +23059,7 @@
       "知识嵌入"
     ],
     "brief": "ComplEx 将实体和关系嵌入到复数向量空间 ℝ^d→ℂ^d，评分函数 φ(s,r,o) = Re(⟨e_s, w_r, ē_o⟩) = Re(Σ w_r^k · e_s^k · ē_o^k)。复数内积的实部可展开为 Re(s)·Re(r)·Re(o) + Re(s)·Im(r)·Im(o) + Im(s)·Re(r)·Im(o) - Im(s)·Im(r)·Re(o)，天然捕获对称（Re 分量主导）和反对称（Im 分量主导）关系。FB15k-237 上 MRR≈0.247，优于 TransE（0.209）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "知识图谱嵌入评估",

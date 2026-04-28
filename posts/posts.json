@@ -1,5 +1,17 @@
 [
   {
+    "title": "ComplEx复数嵌入",
+    "slug": "complex-embedding-model",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "知识嵌入"
+    ],
+    "summary": "ComplEx 用复数嵌入和共轭打分，同时建模相似性与方向性，适合知识图谱补全。"
+  },
+  {
     "title": "GNN过平滑问题",
     "slug": "gnn-over-smoothing-problem",
     "date": "2026-04-29",
