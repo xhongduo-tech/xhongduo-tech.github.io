@@ -21436,7 +21436,7 @@
       "内在动机"
     ],
     "brief": "RND 用固定随机网络 f* 和可训练网络 f_θ 对状态编码。预测误差 ||f*(s) - f_θ(s)||² 作为新奇奖励。新状态预测误差大，已见状态误差小。相比 ICM 不需要逆动力学模型。与 PPO 结合在 Montezuma's Revenge 首次发现所有房间。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Count-based Exploration：基于计数的状态新颖性",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "RND：随机网络蒸馏作为探索奖励",
+    "slug": "rnd-random-network-distillation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "探索策略",
+      "内在动机"
+    ],
+    "summary": "RND 用随机目标网络的预测误差刻画新奇度，为稀疏奖励任务提供直接有效的探索奖励"
+  },
+  {
     "title": "好奇心驱动探索：ICM 与预测误差",
     "slug": "curiosity-driven-icm",
     "date": "2026-04-28",
