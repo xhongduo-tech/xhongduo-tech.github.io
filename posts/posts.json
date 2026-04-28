@@ -1,5 +1,18 @@
 [
   {
+    "title": "连续动作空间的 Q 函数最大化",
+    "slug": "continuous-action-maximization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "连续控制"
+    ],
+    "summary": "连续动作的关键不是算Q，而是用解析、Actor或采样法近似求argmax。"
+  },
+  {
     "title": "AlpacaEval 自动化评估",
     "slug": "alpacaeval-automated-evaluation",
     "date": "2026-04-28",

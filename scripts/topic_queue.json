@@ -21714,7 +21714,7 @@
       "连续控制"
     ],
     "brief": "离散动作 max Q(s,a) 可枚举，连续动作需要优化。NAF 用特殊网络结构使 Q(s,a) 对 a 解析可最大化。DDPG/TD3/SAC 用 Actor 网络近似 argmax。Cross-Entropy Method (CEM) 采样优化也是选项。SAC 用重参数化技巧使采样可微，直接优化 Q。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "奖励塑形：加速学习的潜在函数",
