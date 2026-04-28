@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型推理并行策略",
+    "slug": "model-inference-parallel-strategy",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "并行"
+    ],
+    "summary": "推理并行的本质是围绕显存、通信与尾延迟做组合优化，而不是盲目加卡。"
+  },
+  {
     "title": "推理服务故障恢复",
     "slug": "inference-service-failure-recovery",
     "date": "2026-04-29",
