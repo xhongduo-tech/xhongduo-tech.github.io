@@ -1,5 +1,17 @@
 [
   {
+    "title": "Muon 优化器：动量正交化的新型优化器",
+    "slug": "muon-optimizer-momentum-orthogonalization",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "优化器",
+      "收敛加速"
+    ],
+    "summary": "Muon 先累积动量，再把矩阵更新正交化，适合大模型主干 2D 权重，不适合全参数通用替换。"
+  },
+  {
     "title": "Sophia 优化器：LLM 训练的 Hessian 预条件",
     "slug": "sophia-optimizer-hessian-preconditioning",
     "date": "2026-04-28",
