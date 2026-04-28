@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型推理服务治理",
+    "slug": "model-inference-service-governance",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "服务治理"
+    ],
+    "summary": "推理服务治理的本质，是在SLO下控制流量、资源和版本切换的稳定性。"
+  },
+  {
     "title": "多模态推理缓存",
     "slug": "multimodal-inference-cache",
     "date": "2026-04-29",
