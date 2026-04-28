@@ -22905,7 +22905,7 @@
       "图数据库"
     ],
     "brief": "Cypher 优化的关键不在语法技巧，而在让执行器尽早缩小起点集合并减少路径爆炸。常见低效模式包括无选择性的起始节点扫描、可变长路径滥用、先扩展后过滤以及对大结果集重复 `OPTIONAL MATCH`。Neo4j 会根据统计信息选择 index seek、label scan、expand 等算子，因此优化通常围绕选择更窄的起点、提前过滤、拆分查询和避免笛卡尔积展开。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Neo4j索引策略设计",

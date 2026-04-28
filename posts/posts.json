@@ -1,5 +1,17 @@
 [
   {
+    "title": "Neo4j Cypher查询优化",
+    "slug": "neo4j-cypher-query-optimization",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库"
+    ],
+    "summary": "Cypher 优化的核心是尽早缩小起点集合，控制扩展和中间结果爆炸"
+  },
+  {
     "title": "知识一致性校验",
     "slug": "knowledge-consistency-validation",
     "date": "2026-04-29",
