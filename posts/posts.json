@@ -1,5 +1,27 @@
 [
   {
+    "title": "推理服务降级策略",
+    "slug": "inference-service-degradation-strategy",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "降级"
+    ],
+    "summary": "降级的目标不是保住所有请求质量，而是在过载时用可控降质守住关键请求的时延与可用性。"
+  },
+  {
+    "title": "模型格式兼容性处理",
+    "slug": "model-format-compatibility-handling",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "格式兼容"
+    ],
+    "summary": "模型格式兼容性的核心是对齐算子版本、动态 shape、dtype 和广播语义，避免导出成功但运行失败。"
+  },
+  {
     "title": "推理日志分析优化",
     "slug": "inference-log-analysis-optimization",
     "date": "2026-04-28",
