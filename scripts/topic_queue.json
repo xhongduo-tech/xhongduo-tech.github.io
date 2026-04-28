@@ -22927,7 +22927,7 @@
       "图数据库"
     ],
     "brief": "ArangoDB 的多模型优势在于图、文档和 KV 可以共享同一套存储与 AQL 查询层，这使图谱场景中的“结构遍历 + 属性过滤 + 聚合分析”能在一个执行计划里完成。性能瓶颈常出现在图遍历结果回表、无选择性 FILTER、以及图集合与文档集合之间频繁 materialize。理解 AQL 执行节点、索引利用、遍历深度和 late materialization，才能真正发挥多模型查询的优势。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "图数据库分片策略",

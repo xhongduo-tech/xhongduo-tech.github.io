@@ -1,5 +1,17 @@
 [
   {
+    "title": "ArangoDB多模型查询",
+    "slug": "arangodb-multi-model-query",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "知识图谱",
+      "图数据库"
+    ],
+    "summary": "ArangoDB 多模型查询的关键不在模型多，而在一条 AQL 内完成遍历、过滤与聚合。"
+  },
+  {
     "title": "分布式图遍历算法",
     "slug": "distributed-graph-traversal",
     "date": "2026-04-29",
@@ -34,18 +46,6 @@
       "图数据库"
     ],
     "summary": "图数据库分片本质是在跨片遍历成本、复制开销与负载均衡之间做折中"
-  },
-  {
-    "title": "ArangoDB 多模型查询",
-    "slug": "arangodb-multi-model-query",
-    "date": "2026-04-29",
-    "author": "both",
-    "tags": [
-      "工程实践",
-      "ArangoDB",
-      "AQL"
-    ],
-    "summary": "AQL把图遍历、属性过滤和聚合放进同一执行计划，瓶颈通常在回表和低选择性过滤。"
   },
   {
     "title": "Neo4j索引策略设计",
