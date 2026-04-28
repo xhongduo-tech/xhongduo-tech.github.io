@@ -1,5 +1,16 @@
 [
   {
+    "title": "模型量化后校准",
+    "slug": "quantization-post-training-calibration",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "量化"
+    ],
+    "summary": "量化后校准的关键不在于样本多少，而在于是否真实覆盖线上激活分布。"
+  },
+  {
     "title": "FP8 推理实现",
     "slug": "fp8-inference-implementation",
     "date": "2026-04-28",
