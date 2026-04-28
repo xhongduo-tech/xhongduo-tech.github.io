@@ -21280,7 +21280,7 @@
       "优势函数"
     ],
     "brief": "优势函数 A(s,a) = Q(s,a) - V(s) 难以直接估计。TD 残差 δ_t = r_t + γV(s_{t+1}) - V(s_t) 是 A 的有偏估计。GAE 通过指数加权 A_t^GAE = Σ(γλ)^l δ_{t+l} 平衡偏差与方差。λ=0 退化为 TD(0)，λ=1 退化为 Monte Carlo。λ≈0.95 实践中效果好。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "V-trace：重要性采样修正的离策略学习",

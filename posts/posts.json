@@ -1,5 +1,18 @@
 [
   {
+    "title": "GAE：广义优势估计的 λ 权衡",
+    "slug": "gae-generalized-advantage-estimation",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "Actor-Critic",
+      "优势函数"
+    ],
+    "summary": "GAE用TD残差的指数加权估计优势函数，靠λ在偏差与方差之间做连续折中。"
+  },
+  {
     "title": "PPO 实现细节：GAE、价值函数剪裁与熵正则",
     "slug": "ppo-implementation-details",
     "date": "2026-04-28",
