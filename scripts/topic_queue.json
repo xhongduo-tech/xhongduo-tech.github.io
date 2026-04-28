@@ -21794,7 +21794,7 @@
       "Triton"
     ],
     "brief": "Triton动态批处理通过在队列窗口内聚合请求提升GPU利用率，但会以额外排队时间换吞吐。max_queue_delay、preferred_batch_size和实例副本数共同决定P95延迟、QPS上限和尾延迟抖动，配置失衡时容易出现吞吐上升而SLA失守。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "流式推理实现方案",

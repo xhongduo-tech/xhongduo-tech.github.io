@@ -1,5 +1,16 @@
 [
   {
+    "title": "Triton 推理服务器动态批处理",
+    "slug": "triton-inference-dynamic-batching",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "Triton"
+    ],
+    "summary": "Triton动态批处理用排队时间换GPU吞吐，关键在延迟窗口、优选batch和实例数的平衡。"
+  },
+  {
     "title": "TensorRT-LLM 推理引擎配置",
     "slug": "tensorrt-llm-engine-config",
     "date": "2026-04-28",
