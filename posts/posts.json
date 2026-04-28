@@ -1,5 +1,27 @@
 [
   {
+    "title": "推理服务成本预测",
+    "slug": "inference-service-cost-prediction",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "成本优化"
+    ],
+    "summary": "推理服务成本预测本质是用延迟约束下的实测吞吐反推实例数，再折算成年成本与单位 token 成本。"
+  },
+  {
+    "title": "推理服务性能基准",
+    "slug": "inference-service-performance-benchmark",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "性能测试"
+    ],
+    "summary": "推理服务性能基准的核心，是在固定负载下比较 TTFT、TPOT、吞吐和尾延迟，并区分 prefill 与 decode 瓶颈"
+  },
+  {
     "title": "多模型推理路由",
     "slug": "multi-model-inference-routing",
     "date": "2026-04-29",
