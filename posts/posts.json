@@ -1,5 +1,16 @@
 [
   {
+    "title": "多模型推理编排",
+    "slug": "multi-model-inference-orchestration",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "多模型"
+    ],
+    "summary": "多模型推理编排的本质，是按难度和风险分配算力预算，而不是简单堆模型。"
+  },
+  {
     "title": "推理服务成本优化实践",
     "slug": "inference-service-cost-optimization-practice",
     "date": "2026-04-29",
