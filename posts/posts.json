@@ -1,5 +1,18 @@
 [
   {
+    "title": "离线 RL：从静态数据集学习策略",
+    "slug": "offline-rl-basics",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "离线RL",
+      "基础框架"
+    ],
+    "summary": "离线RL的核心不是探索，而是约束策略与价值估计避免跑出数据支持集"
+  },
+  {
     "title": "BCQ：批量约束 Q 学习",
     "slug": "bcq-batch-constrained",
     "date": "2026-04-28",
