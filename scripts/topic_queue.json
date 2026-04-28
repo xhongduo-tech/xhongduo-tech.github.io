@@ -21510,7 +21510,7 @@
       "价值分解"
     ],
     "brief": "QMIX 放宽 VDN 的加法假设为单调性：∂Q_tot/∂Q_i ≥ 0。用 Mixing Network 保证单调性（所有权重非负）。超网络从状态生成 Mixing Network 的权重。单调性仍可去中心化执行，且能表示更多合作结构。是 StarCraft 微操任务的基准算法。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "MAPPO：多智能体 PPO 的中心化训练",

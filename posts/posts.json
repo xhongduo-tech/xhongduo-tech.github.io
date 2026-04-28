@@ -1,5 +1,18 @@
 [
   {
+    "title": "QMIX：单调性约束的价值分解",
+    "slug": "qmix-mixing-network",
+    "date": "2026-04-28",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "强化学习",
+      "多智能体",
+      "价值分解"
+    ],
+    "summary": "QMIX用单调混合替代简单加法，在保留分散执行的同时提升多智能体协作表达能力"
+  },
+  {
     "title": "VDN：价值分解网络的加法假设",
     "slug": "vdn-value-decomposition",
     "date": "2026-04-28",
