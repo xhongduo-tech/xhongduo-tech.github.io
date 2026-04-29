@@ -25763,7 +25763,7 @@
       "Poetry"
     ],
     "brief": "Poetry 依赖管理的价值在于把依赖解析、锁文件、构建发布和项目元数据统一到 `pyproject.toml` 这一入口中。它试图解决的不是“少打一条命令”，而是 Python 项目长期最痛的可复现与协作问题。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Conda vs venv：虚拟环境选型指南",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "Poetry 依赖管理：现代 Python 项目标配",
+    "slug": "poetry-dependency-management",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "依赖管理",
+      "Poetry"
+    ],
+    "summary": "Poetry把声明、求解、锁定、安装统一进同一链路，核心价值是让Python项目依赖可复现。"
+  },
+  {
     "title": "成本控制：训练与推理 FLOPs 预算",
     "slug": "cost-control-training-inference-flops",
     "date": "2026-04-29",
