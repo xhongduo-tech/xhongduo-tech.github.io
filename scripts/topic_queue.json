@@ -25150,7 +25150,7 @@
       "架构技巧"
     ],
     "brief": "超深层 Transformer 常因残差累计、梯度爆炸或训练早期不稳定而难以收敛。DeepNorm 与 ResiDual 代表了两类典型思路：通过重新设计残差缩放和归一化路径，把原本只能训练几十层的架构推向数百甚至上千层。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Transformer-XL：段级递归与相对位置",

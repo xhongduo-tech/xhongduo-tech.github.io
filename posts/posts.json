@@ -1,5 +1,17 @@
 [
   {
+    "title": "预训练稳定性：DeepNorm 与 ResiDual",
+    "slug": "pretraining-stability-deepnorm-residual",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "训练稳定性",
+      "架构技巧"
+    ],
+    "summary": "DeepNorm靠残差缩放与初始化稳住超深训练，ResiDual用双残差路径兼顾稳定性和表达能力"
+  },
+  {
     "title": "Transformer-XL：段级递归与相对位置",
     "slug": "transformer-xl-segment-recurrence",
     "date": "2026-04-29",
