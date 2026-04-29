@@ -1,5 +1,17 @@
 [
   {
+    "title": "Paged KV Cache 的多租户隔离",
+    "slug": "paged-kv-cache-multitenant-isolation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "多租户"
+    ],
+    "summary": "多租户 Paged KV Cache 的核心是用 salt、调度和回收策略约束共享边界。"
+  },
+  {
     "title": "Prefill 与 Decode 分离的吞吐优化",
     "slug": "prefill-decode-separation-throughput",
     "date": "2026-04-29",
