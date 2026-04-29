@@ -1,5 +1,18 @@
 [
   {
+    "title": "推理评测：GSM8K、MATH 与 ARC",
+    "slug": "reasoning-evaluation-gsm8k-math-arc",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "推理",
+      "Benchmark"
+    ],
+    "summary": "GSM8K、MATH、ARC测的是三类不同推理结构，联合使用才更能诊断模型真实能力。"
+  },
+  {
     "title": "代码生成评测：HumanEval+ 与 MBPP+",
     "slug": "code-generation-evaluation-humaneval-mbpp-plus",
     "date": "2026-04-29",
