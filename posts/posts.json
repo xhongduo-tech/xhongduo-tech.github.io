@@ -1,5 +1,18 @@
 [
   {
+    "title": "偏见评测：公平性指标与基准",
+    "slug": "bias-evaluation-fairness-benchmarks",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "公平性",
+      "偏见"
+    ],
+    "summary": "偏见评测衡量同条件下不同群体是否被模型系统性区别对待，必须结合分组指标与配对基准一起看。"
+  },
+  {
     "title": "模型水印的鲁棒性评测",
     "slug": "model-watermark-robustness-evaluation",
     "date": "2026-04-29",
