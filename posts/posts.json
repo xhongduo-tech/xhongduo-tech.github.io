@@ -1,5 +1,17 @@
 [
   {
+    "title": "Python 开发环境搭建：从零到高效工作流",
+    "slug": "python-dev-environment-setup",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "开发环境",
+      "Python"
+    ],
+    "summary": "高效 Python 环境的核心，是固定版本、隔离依赖并统一运行调试入口"
+  },
+  {
     "title": "模型蒸馏到边缘设备部署",
     "slug": "model-distillation-edge-deployment",
     "date": "2026-04-29",
