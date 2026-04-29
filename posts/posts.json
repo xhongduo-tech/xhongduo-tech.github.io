@@ -1,5 +1,17 @@
 [
   {
+    "title": "ML Pipeline 测试：数据与模型测试策略",
+    "slug": "ml-pipeline-testing",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "测试",
+      "ML"
+    ],
+    "summary": "ML Pipeline 测试的核心是把数据合法性、分布稳定性和模型切片质量做成发布门禁"
+  },
+  {
     "title": "GitHub Actions：AI 项目 CI/CD 实践",
     "slug": "github-actions-ai-projects",
     "date": "2026-04-29",
