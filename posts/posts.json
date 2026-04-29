@@ -1,5 +1,30 @@
 [
   {
+    "title": "超参数迁移：μP 实践指南",
+    "slug": "hyperparameter-transfer-mup-guide",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "超参数",
+      "μP"
+    ],
+    "summary": "μP通过统一宽度缩放规则，让小模型调好的超参数更稳定地迁移到大模型。"
+  },
+  {
+    "title": "成本控制：训练与推理 FLOPs 预算",
+    "slug": "training-inference-flops-budget",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "成本控制",
+      "FLOPs预算",
+      "推理服务"
+    ],
+    "summary": "训练与推理 FLOPs 预算要同时约束规模、token、吞吐和 SLA。"
+  },
+  {
     "title": "训练监控：Loss Spike 诊断",
     "slug": "training-monitoring-loss-spike-diagnosis",
     "date": "2026-04-29",
