@@ -1,5 +1,17 @@
 [
   {
+    "title": "KV Cache 量化：INT8 与 FP8 方案",
+    "slug": "kv-cache-quantization-int8-fp8",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "量化"
+    ],
+    "summary": "KV Cache 量化优先解决推理缓存显存瓶颈，核心价值是换取更长上下文与更高并发。"
+  },
+  {
     "title": "Decoder-only 与 Encoder-Decoder 的任务适配",
     "slug": "decoder-only-vs-encoder-decoder-task-fit",
     "date": "2026-04-29",
