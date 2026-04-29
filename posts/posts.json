@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 规划：Tree-of-Thoughts",
+    "slug": "agent-planning-tree-of-thoughts",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "推理",
+      "规划"
+    ],
+    "summary": "ToT把中间思路变成可搜索的树，适合需要分叉、比较和回溯的复杂推理与规划任务"
+  },
+  {
     "title": "RAG 引用对齐与可追溯性",
     "slug": "rag-citation-alignment-traceability",
     "date": "2026-04-29",

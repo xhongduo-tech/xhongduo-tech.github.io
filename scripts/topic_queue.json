@@ -25414,7 +25414,7 @@
       "规划"
     ],
     "brief": "Tree-of-Thoughts 把大模型推理从单一路径生成扩展为显式搜索问题，让模型能够在多个候选思路之间比较、扩展和回溯。它更像是把“想法生成器”接到了“启发式搜索器”上，因此特别适合复杂规划与高难推理任务。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Agent 反思：Self-Refine 与 Reflexion",
