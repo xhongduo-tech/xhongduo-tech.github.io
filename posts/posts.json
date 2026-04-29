@@ -1,5 +1,18 @@
 [
   {
+    "title": "Transformer-XL：段级递归与相对位置",
+    "slug": "transformer-xl-segment-recurrence",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "长序列",
+      "Transformer-XL"
+    ],
+    "summary": "Transformer-XL 用段级递归和相对位置编码，把固定窗口扩展成可复用的跨段记忆。"
+  },
+  {
     "title": "多语种数据采样与平衡",
     "slug": "multilingual-data-sampling-balance",
     "date": "2026-04-29",

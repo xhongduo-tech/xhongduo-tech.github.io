@@ -25162,7 +25162,7 @@
       "Transformer-XL"
     ],
     "brief": "Transformer-XL 通过段级递归把前一段的隐藏状态缓存为可复用 memory，使模型在不把序列无限拉长的前提下仍能建模更长上下文依赖。它既是长序列建模的重要历史节点，也是后续缓存式架构设计的关键启发来源。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "ALiBi 位置偏置：线性外推方案",
