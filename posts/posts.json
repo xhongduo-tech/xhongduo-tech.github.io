@@ -1,5 +1,17 @@
 [
   {
+    "title": "RMSNorm 变体与性能对比",
+    "slug": "rmsnorm-variants-performance",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型训练",
+      "归一化",
+      "RMSNorm"
+    ],
+    "summary": "RMSNorm 只做幅度缩放，不做均值中心化，是大模型里常见的轻量归一化选择"
+  },
+  {
     "title": "共享参数架构：ALBERT 的效率设计",
     "slug": "parameter-sharing-albert",
     "date": "2026-04-29",

@@ -25210,7 +25210,7 @@
       "RMSNorm"
     ],
     "brief": "RMSNorm 通过去掉均值中心化、只保留均方根缩放，降低了归一化算子的复杂度和数值不稳定来源。在大模型训练中，它常被视为 LayerNorm 的更轻量替代，并催生出一系列兼顾速度与稳定性的归一化变体。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "SwiGLU 与 GeLU 的算子效率",
