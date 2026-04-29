@@ -25294,7 +25294,7 @@
       "vLLM"
     ],
     "brief": "vLLM 调度器与抢占策略的核心价值，在于把长短请求混跑、多租户竞争和显存分页管理统一到一套高吞吐调度逻辑中。理解它，不只是理解一个开源框架，而是理解现代 LLM serving 系统为什么能把 GPU 利用率拉高。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "TensorRT-LLM 的编译与算子融合",

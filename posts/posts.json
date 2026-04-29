@@ -1,5 +1,17 @@
 [
   {
+    "title": "vLLM 调度器与抢占策略",
+    "slug": "vllm-scheduler-preemption",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "vLLM"
+    ],
+    "summary": "vLLM 用分页 KV 与抢占调度，把长短请求混跑下的显存与吞吐问题统一解决。"
+  },
+  {
     "title": "Paged KV Cache 的多租户隔离",
     "slug": "paged-kv-cache-multitenant-isolation",
     "date": "2026-04-29",
