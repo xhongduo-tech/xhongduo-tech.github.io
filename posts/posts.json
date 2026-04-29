@@ -1,5 +1,17 @@
 [
   {
+    "title": "Pytest 进阶：Fixture 与参数化测试",
+    "slug": "pytest-advanced-fixtures",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "测试",
+      "Pytest"
+    ],
+    "summary": "fixture 负责环境编排，parametrize 负责输入展开，二者合起来才是可维护的工程化测试。"
+  },
+  {
     "title": "Docker 多阶段构建：镜像体积优化",
     "slug": "docker-multi-stage-builds",
     "date": "2026-04-29",
