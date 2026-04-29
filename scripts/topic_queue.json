@@ -25318,7 +25318,7 @@
       "解码"
     ],
     "brief": "FlashDecoding 与 Split-K 并行针对的是生成阶段最顽固的瓶颈之一：decode 过程通常受内存带宽限制而非纯算力限制。通过重新组织并行粒度，它能在长序列和大批量场景下显著改善解码吞吐。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "GPU 显存碎片化与分配器设计",

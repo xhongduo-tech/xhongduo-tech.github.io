@@ -1,5 +1,17 @@
 [
   {
+    "title": "FlashDecoding 与 Split-K 并行",
+    "slug": "flashdecoding-split-k-parallel",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "解码"
+    ],
+    "summary": "FlashDecoding本质是decode attention上的Split-K并行，用分块softmax规约提升长…"
+  },
+  {
     "title": "TensorRT-LLM 的编译与算子融合",
     "slug": "tensorrt-llm-compilation-operator-fusion",
     "date": "2026-04-29",
