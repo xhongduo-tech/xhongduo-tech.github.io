@@ -1,5 +1,17 @@
 [
   {
+    "title": "PyCharm 专业版技巧：调试与性能分析",
+    "slug": "pycharm-debug-profiling-tips",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "IDE",
+      "PyCharm"
+    ],
+    "summary": "Debug 负责解释执行状态，Profiler 负责解释耗时结构，先分清问题再选工具。"
+  },
+  {
     "title": "VS Code 深度配置：AI 开发者的高效 IDE",
     "slug": "vscode-ai-developer-setup",
     "date": "2026-04-29",
