@@ -1,5 +1,18 @@
 [
   {
+    "title": "模型水印的鲁棒性评测",
+    "slug": "model-watermark-robustness-evaluation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "水印",
+      "评测"
+    ],
+    "summary": "模型水印真正要测的是文本被改写和攻击后还能否在低误报下稳定检出。"
+  },
+  {
     "title": "训练数据中毒与后门检测",
     "slug": "data-poisoning-backdoor-detection",
     "date": "2026-04-29",
