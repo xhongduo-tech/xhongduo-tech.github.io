@@ -1,5 +1,17 @@
 [
   {
+    "title": "模型蒸馏到边缘设备部署",
+    "slug": "model-distillation-edge-deployment",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "模型压缩",
+      "蒸馏"
+    ],
+    "summary": "蒸馏是端侧部署起点，真正落地还要和量化、算子优化、真机实测一起做。"
+  },
+  {
     "title": "超参数迁移：μP 实践指南",
     "slug": "hyperparameter-transfer-mup-guide",
     "date": "2026-04-29",
