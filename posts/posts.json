@@ -1,5 +1,17 @@
 [
   {
+    "title": "Git LFS：大模型权重版本管理",
+    "slug": "git-lfs-model-weights",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Git",
+      "大文件"
+    ],
+    "summary": "Git LFS用指针替代Git中的大模型权重本体，核心价值是减轻仓库历史负担而非增强语义版本管理"
+  },
+  {
     "title": "代码审查清单：AI 项目 PR 审查要点",
     "slug": "code-review-checklist-ai",
     "date": "2026-04-29",
