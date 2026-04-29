@@ -25222,7 +25222,7 @@
       "SwiGLU"
     ],
     "brief": "SwiGLU 与 GeLU 的比较不只是激活函数之争，而是 FFN 结构、门控机制与算子效率的综合权衡。SwiGLU 往往在相近计算预算下提供更好的表达能力和训练收益，因此逐渐成为现代 LLM 的默认 FFN 设计之一。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Decoder-only 与 Encoder-Decoder 的任务适配",

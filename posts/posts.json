@@ -1,5 +1,18 @@
 [
   {
+    "title": "SwiGLU 与 GeLU 的算子效率",
+    "slug": "swiglu-vs-gelu-operator-efficiency",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "激活函数",
+      "SwiGLU"
+    ],
+    "summary": "SwiGLU胜在预算内表达力，GeLU胜在链路更短与实现更朴素。"
+  },
+  {
     "title": "RMSNorm 变体与性能对比",
     "slug": "rmsnorm-variants-performance",
     "date": "2026-04-29",
