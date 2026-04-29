@@ -1,5 +1,17 @@
 [
   {
+    "title": "Git 分支策略：Git Flow vs GitHub Flow vs Trunk-Based",
+    "slug": "git-branching-strategies",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Git",
+      "分支策略"
+    ],
+    "summary": "三种分支策略的本质区别，是把集成与发布风险放在哪个阶段处理。"
+  },
+  {
     "title": "pdb 与 ipdb：Python 命令行调试深度指南",
     "slug": "pdb-ipdb-debugging-guide",
     "date": "2026-04-29",
