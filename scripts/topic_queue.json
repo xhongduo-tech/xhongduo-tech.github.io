@@ -25378,7 +25378,7 @@
       "检索"
     ],
     "brief": "RAG Chunking 策略决定了知识切片的粒度，也就决定了检索召回、上下文噪声和答案可引用性的上限。它看起来只是预处理步骤，实际却常常是 RAG 系统效果最敏感的超参数之一。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RAG 重排序：Cross-Encoder 与 LLM Reranker",

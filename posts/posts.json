@@ -1,5 +1,17 @@
 [
   {
+    "title": "RAG Chunking 策略与召回",
+    "slug": "rag-chunking-strategies-retrieval",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG",
+      "检索"
+    ],
+    "summary": "Chunking 决定 RAG 的最小检索单元，直接影响召回、噪声与引用完整性。"
+  },
+  {
     "title": "多租户 LLM Serving 的 QoS 控制",
     "slug": "multitenant-llm-serving-qos",
     "date": "2026-04-29",
