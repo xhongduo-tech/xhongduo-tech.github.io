@@ -1,5 +1,18 @@
 [
   {
+    "title": "工具调用评测：BFCL 与 ToolBench",
+    "slug": "tool-use-evaluation-bfcl-toolbench",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "工具调用",
+      "Agent"
+    ],
+    "summary": "BFCL测调用结构正确性，ToolBench测真实任务链完成度，二者适合组合使用。"
+  },
+  {
     "title": "代码执行沙箱：安全与资源限制",
     "slug": "code-execution-sandbox-safety",
     "date": "2026-04-29",
