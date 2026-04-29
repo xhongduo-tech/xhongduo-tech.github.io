@@ -1,5 +1,17 @@
 [
   {
+    "title": "Agent 反思：Self-Refine 与 Reflexion",
+    "slug": "agent-reflection-self-refine-reflexion",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "推理",
+      "反思"
+    ],
+    "summary": "Self-Refine修当前答案，Reflexion存失败经验，核心是让反馈真正改变后续决策"
+  },
+  {
     "title": "Agent 规划：Tree-of-Thoughts",
     "slug": "agent-planning-tree-of-thoughts",
     "date": "2026-04-29",
