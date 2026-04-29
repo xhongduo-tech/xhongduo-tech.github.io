@@ -1,5 +1,18 @@
 [
   {
+    "title": "音频-文本对齐与说话人信息",
+    "slug": "audio-text-alignment-speaker-information",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "音频",
+      "对齐"
+    ],
+    "summary": "该任务要联合建模文本、时间和说话人，目标是输出谁在什么时间说了什么。"
+  },
+  {
     "title": "多模态指令微调数据构建",
     "slug": "multimodal-instruction-tuning-data",
     "date": "2026-04-29",
