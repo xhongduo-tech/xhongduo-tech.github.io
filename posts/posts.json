@@ -1,5 +1,17 @@
 [
   {
+    "title": "VS Code 深度配置：AI 开发者的高效 IDE",
+    "slug": "vscode-ai-developer-setup",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "IDE",
+      "VSCode"
+    ],
+    "summary": "VS Code 深度配置的本质，是把 AI 开发入口做成可版本化、可验证、可回滚的工程系统"
+  },
+  {
     "title": "Conda vs venv：虚拟环境选型指南",
     "slug": "conda-vs-venv-comparison",
     "date": "2026-04-29",
