@@ -1,5 +1,17 @@
 [
   {
+    "title": "RAG 引用对齐与可追溯性",
+    "slug": "rag-citation-alignment-traceability",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG",
+      "引用"
+    ],
+    "summary": "RAG 可追溯性的关键是逐条结论都能被可定位且真实支持的证据复核。"
+  },
+  {
     "title": "RAG 重排序：Cross-Encoder 与 LLM Reranker",
     "slug": "rag-reranking-cross-encoder-llm",
     "date": "2026-04-29",
