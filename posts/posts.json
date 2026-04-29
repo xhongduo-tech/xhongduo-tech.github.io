@@ -1,5 +1,17 @@
 [
   {
+    "title": "训练监控：Loss Spike 诊断",
+    "slug": "training-monitoring-loss-spike-diagnosis",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "训练监控",
+      "稳定性"
+    ],
+    "summary": "Loss Spike 是训练崩溃前最早的局部异常信号，必须结合 step loss、梯度与 AMP 联动监控。"
+  },
+  {
     "title": "可解释性",
     "slug": "interpretability-attention-flow-attribution",
     "date": "2026-04-29",
