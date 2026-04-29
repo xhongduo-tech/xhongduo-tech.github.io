@@ -1,5 +1,17 @@
 [
   {
+    "title": "cProfile 与 line_profiler：性能分析双雄",
+    "slug": "cprofile-line-profiler-guide",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "性能分析",
+      "Profiler"
+    ],
+    "summary": "先用 cProfile 找慢函数，再用 line_profiler 找慢行，形成 Python 性能排查闭环"
+  },
+  {
     "title": "memory_profiler：Python 内存分析实战",
     "slug": "memory-profiler-python",
     "date": "2026-04-29",
