@@ -1,5 +1,17 @@
 [
   {
+    "title": "pdb 与 ipdb：Python 命令行调试深度指南",
+    "slug": "pdb-ipdb-debugging-guide",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "调试",
+      "pdb"
+    ],
+    "summary": "pdb解决可用性，ipdb优化交互；核心是用断点查看单次执行现场。"
+  },
+  {
     "title": "cProfile 与 line_profiler：性能分析双雄",
     "slug": "cprofile-line-profiler-guide",
     "date": "2026-04-29",

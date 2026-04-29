@@ -25835,7 +25835,7 @@
       "pdb"
     ],
     "brief": "pdb 与 ipdb：Python 命令行调试深度指南 关注 `工程实践 / 调试 / pdb` 在真实系统或方法设计中的核心机制、关键约束与典型权衡。重点不是罗列概念，而是讲清它为什么成立、适用边界在哪里，以及常见失败模式是什么。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "cProfile 与 line_profiler：性能分析双雄",
