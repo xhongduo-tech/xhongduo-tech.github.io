@@ -1,5 +1,17 @@
 [
   {
+    "title": "GPU 显存碎片化与分配器设计",
+    "slug": "gpu-memory-fragmentation-allocator-design",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "系统基础",
+      "GPU",
+      "内存管理"
+    ],
+    "summary": "显存碎片化本质是可分配形状恶化，分配器设计直接决定服务稳定性与尾延迟"
+  },
+  {
     "title": "FlashDecoding 与 Split-K 并行",
     "slug": "flashdecoding-split-k-parallel",
     "date": "2026-04-29",
