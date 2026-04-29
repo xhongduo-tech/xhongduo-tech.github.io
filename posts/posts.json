@@ -1,5 +1,18 @@
 [
   {
+    "title": "多模态对齐：图文对齐损失",
+    "slug": "multimodal-alignment-image-text-loss",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "对齐",
+      "对比学习"
+    ],
+    "summary": "图文对齐损失决定图像和文本能否进入同一语义空间，是多模态底座训练的关键。"
+  },
+  {
     "title": "安全对齐中的拒绝校准",
     "slug": "safety-alignment-refusal-calibration",
     "date": "2026-04-29",
