@@ -1,5 +1,17 @@
 [
   {
+    "title": "Prefill 与 Decode 分离的吞吐优化",
+    "slug": "prefill-decode-separation-throughput",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "性能"
+    ],
+    "summary": "P/D 分离用不同 GPU 承担 prefill 与 decode，以 KV 传输换取更高吞吐和更稳延迟。"
+  },
+  {
     "title": "注意力头剪枝与重分配",
     "slug": "attention-head-pruning-reallocation",
     "date": "2026-04-29",

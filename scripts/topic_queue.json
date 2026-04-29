@@ -25270,7 +25270,7 @@
       "性能"
     ],
     "brief": "Disaggregated Prefill/Decode（P/D 分离）：将计算密集的 prefill（矩阵乘，compute-bound）与内存密集的 decode（逐 token，memory-bound）拆分到不同 GPU 实例。prefill 实例收到请求后计算 KV cache 并通过 RDMA 传输至 decode 实例，避免长 prefill 占用 decode 槽位导致 TTFT 升高。PD 分离可使系统吞吐提升 1.5-3x（OSDI 24 'Mooncake' 实测）。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "Paged KV Cache 的多租户隔离",
