@@ -1,5 +1,18 @@
 [
   {
+    "title": "图像 OCR 与视觉文本融合",
+    "slug": "image-ocr-visual-text-fusion",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视觉理解",
+      "OCR"
+    ],
+    "summary": "OCR 与视觉融合的关键，是把文字、位置、图像联合建模，并控制 OCR 误差传播。"
+  },
+  {
     "title": "多模态对齐：图文对齐损失",
     "slug": "multimodal-alignment-image-text-loss",
     "date": "2026-04-29",
