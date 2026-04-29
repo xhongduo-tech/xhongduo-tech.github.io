@@ -1,5 +1,17 @@
 [
   {
+    "title": "多租户 LLM Serving 的 QoS 控制",
+    "slug": "multitenant-llm-serving-qos",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "服务化",
+      "多租户"
+    ],
+    "summary": "多租户 LLM QoS 的核心是按 token 成本调度，并用切块、准入和配额稳定延迟与公平"
+  },
+  {
     "title": "LoRA 即插即用与权重合并",
     "slug": "lora-hot-swap-weight-merge",
     "date": "2026-04-29",
