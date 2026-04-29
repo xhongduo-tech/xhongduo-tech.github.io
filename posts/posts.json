@@ -1,5 +1,17 @@
 [
   {
+    "title": "网页交互代理：WebArena 与 BrowserGym",
+    "slug": "web-agent-webarena-browsergym",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "评测",
+      "WebAgent"
+    ],
+    "summary": "WebArena负责评测网页任务是否真完成，BrowserGym负责统一网页环境接口与实验流程"
+  },
+  {
     "title": "多智能体协作：角色分工与协议",
     "slug": "multi-agent-collaboration-roles-protocols",
     "date": "2026-04-29",
