@@ -1,5 +1,18 @@
 [
   {
+    "title": "可解释性",
+    "slug": "interpretability-attention-flow-attribution",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "可解释性",
+      "注意力",
+      "SAE"
+    ],
+    "summary": "注意力流看信息路由，IG看输出贡献；二者解释目标不同，结果不应直接等价"
+  },
+  {
     "title": "推理评测：GSM8K、MATH 与 ARC",
     "slug": "reasoning-evaluation-gsm8k-math-arc",
     "date": "2026-04-29",
