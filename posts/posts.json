@@ -1,5 +1,30 @@
 [
   {
+    "title": "IPython 魔法命令：交互式调试神器",
+    "slug": "ipython-magic-commands",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "调试",
+      "IPython"
+    ],
+    "summary": "IPython 调试魔法命令本质是控制层，用来把异常现场、调用栈和交互式调试器接起来"
+  },
+  {
+    "title": "pdb 与 ipdb：Python 命令行调试深度指南",
+    "slug": "pdb-ipdb-python-cli-debugging-guide",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "调试",
+      "pdb",
+      "ipdb"
+    ],
+    "summary": "pdb 管理执行流，ipdb 提升交互效率，但都受进程内 trace 机制约束。"
+  },
+  {
     "title": "Jupyter Notebook 生产化：从原型到工程",
     "slug": "jupyter-to-production",
     "date": "2026-04-29",
