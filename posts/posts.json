@@ -1,5 +1,17 @@
 [
   {
+    "title": "memory_profiler：Python 内存分析实战",
+    "slug": "memory-profiler-python",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "性能分析",
+      "内存"
+    ],
+    "summary": "memory_profiler适合定位Python进程内存峰值与热点路径，不适合对象级精确归因"
+  },
+  {
     "title": "IPython 魔法命令：交互式调试神器",
     "slug": "ipython-magic-commands",
     "date": "2026-04-29",
