@@ -1,5 +1,17 @@
 [
   {
+    "title": "Conda vs venv：虚拟环境选型指南",
+    "slug": "conda-vs-venv-comparison",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "虚拟环境",
+      "Conda"
+    ],
+    "summary": "纯 Python 依赖优先 venv；涉及 native、CUDA、ABI 约束时优先 conda。"
+  },
+  {
     "title": "Poetry 依赖管理：现代 Python 项目标配",
     "slug": "poetry-dependency-management",
     "date": "2026-04-29",
