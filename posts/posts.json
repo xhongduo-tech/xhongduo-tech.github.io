@@ -1,5 +1,18 @@
 [
   {
+    "title": "代码生成评测：HumanEval+ 与 MBPP+",
+    "slug": "code-generation-evaluation-humaneval-mbpp-plus",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "代码生成",
+      "评测方法"
+    ],
+    "summary": "HumanEval+与MBPP+通过大幅扩展测试集，修正原始代码评测易侥幸通过的问题。"
+  },
+  {
     "title": "RAG 事实性与忠实度评测",
     "slug": "rag-faithfulness-factuality-evaluation",
     "date": "2026-04-29",

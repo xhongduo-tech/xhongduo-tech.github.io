@@ -25666,7 +25666,7 @@
       "评测方法"
     ],
     "brief": "HumanEval+ 与 MBPP+ 之所以重要，是因为它们用更严格、更全面的测试集修正了原始代码 benchmark 容易被侥幸通过的问题。它们更接近“代码是否真的可靠”而不是“样例能否碰巧跑通”。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "推理评测：GSM8K、MATH 与 ARC",
