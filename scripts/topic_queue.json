@@ -25654,7 +25654,7 @@
       "评测方法"
     ],
     "brief": "LongBench 与 RULER 代表了两种长上下文评测思路：前者更强调真实任务多样性，后者更强调长度、位置与检索能力的诊断性。理解两者差异，比单看排行榜分数更有价值。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "代码生成评测：HumanEval+ 与 MBPP+",

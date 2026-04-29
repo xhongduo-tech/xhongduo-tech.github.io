@@ -1,5 +1,18 @@
 [
   {
+    "title": "长上下文理解评测：LongBench 与 RULER",
+    "slug": "long-context-evaluation-longbench-ruler",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "长上下文",
+      "评测方法"
+    ],
+    "summary": "LongBench看真实任务综合能力，RULER看长上下文退化边界，工程上两者必须配合使用。"
+  },
+  {
     "title": "音频-文本对齐与说话人信息",
     "slug": "audio-text-alignment-speaker-information",
     "date": "2026-04-29",
