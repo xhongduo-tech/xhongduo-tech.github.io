@@ -1,5 +1,17 @@
 [
   {
+    "title": "Jupyter Notebook 生产化：从原型到工程",
+    "slug": "jupyter-to-production",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "开发环境",
+      "Jupyter"
+    ],
+    "summary": "Notebook 生产化的核心不是文件上线，而是受控执行、可验证结果与可回退流程"
+  },
+  {
     "title": "PyCharm 专业版技巧：调试与性能分析",
     "slug": "pycharm-debug-profiling-tips",
     "date": "2026-04-29",
