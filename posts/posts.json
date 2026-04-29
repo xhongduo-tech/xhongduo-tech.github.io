@@ -1,5 +1,18 @@
 [
   {
+    "title": "安全对齐中的拒绝校准",
+    "slug": "safety-alignment-refusal-calibration",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型微调",
+      "安全与对齐",
+      "对齐",
+      "拒绝"
+    ],
+    "summary": "拒绝校准的核心不是更会拒绝，而是把拒绝边界放准。"
+  },
+  {
     "title": "偏见评测：公平性指标与基准",
     "slug": "bias-evaluation-fairness-benchmarks",
     "date": "2026-04-29",
