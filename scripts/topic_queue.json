@@ -25186,7 +25186,7 @@
       "Prefix LM"
     ],
     "brief": "Prefix LM 通过把输入分成“可被双向读取的条件前缀”和“必须自回归生成的后缀”两部分，构造出一种介于编码器-解码器与纯 decoder-only 之间的注意力结构。它特别适合条件生成、指令跟随和文档补全等任务。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "共享参数架构：ALBERT 的效率设计",

@@ -1,5 +1,18 @@
 [
   {
+    "title": "Prefix LM 与分块因果注意力",
+    "slug": "prefix-lm-blockwise-causal-attention",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "注意力机制",
+      "Prefix LM"
+    ],
+    "summary": "Prefix LM 用“前缀双向、后缀因果”的掩码，在统一解码接口下增强条件生成能力"
+  },
+  {
     "title": "ALiBi 位置偏置：线性外推方案",
     "slug": "alibi-positional-bias",
     "date": "2026-04-29",
