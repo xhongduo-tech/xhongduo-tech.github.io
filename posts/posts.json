@@ -1,5 +1,18 @@
 [
   {
+    "title": "对话数据去毒与安全过滤",
+    "slug": "dialogue-data-detox-safety-filtering",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "数据过滤",
+      "安全"
+    ],
+    "summary": "对话数据去毒要按显式风险、上下文、注入和元特征分层过滤，不能只删脏词"
+  },
+  {
     "title": "基于嵌入的相似度计算",
     "slug": "embedding-based-similarity",
     "date": "2026-04-29",
