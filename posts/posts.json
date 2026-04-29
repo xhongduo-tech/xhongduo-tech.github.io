@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码执行沙箱：安全与资源限制",
+    "slug": "code-execution-sandbox-safety",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "工具链",
+      "安全"
+    ],
+    "summary": "沙箱的本质是用白名单、资源预算和隔离边界，把不可信代码的风险压缩到可控范围"
+  },
+  {
     "title": "Agent 记忆管理：短期、长期与情节记忆",
     "slug": "agent-memory-short-long-episodic",
     "date": "2026-04-29",
