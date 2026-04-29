@@ -1,5 +1,30 @@
 [
   {
+    "title": "训练数据中毒与后门检测",
+    "slug": "data-poisoning-backdoor-detection",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "数据安全",
+      "后门"
+    ],
+    "summary": "后门攻击用少量投毒样本植入触发规则，必须同时用数据、表示和行为三层检测。"
+  },
+  {
+    "title": "模型水印的鲁棒性评测",
+    "slug": "llm-watermark-robustness-evaluation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "水印",
+      "评测"
+    ],
+    "summary": "评测水印在改写、翻译、压缩和攻击后还能否稳定检出。"
+  },
+  {
     "title": "PII 泄露与训练数据记忆",
     "slug": "pii-leakage-training-data-memorization",
     "date": "2026-04-29",
