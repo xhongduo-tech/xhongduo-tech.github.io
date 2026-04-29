@@ -1,5 +1,29 @@
 [
   {
+    "title": "Pre-commit Hooks：代码质量门禁",
+    "slug": "pre-commit-hooks-setup",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "代码质量",
+      "Git"
+    ],
+    "summary": "pre-commit 是提交前本地门禁，适合快筛，不能替代 CI 终审"
+  },
+  {
+    "title": "语义化版本控制：从 0.1.0 到 1.0.0",
+    "slug": "semantic-versioning-0-1-0-to-1-0-0",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "版本控制",
+      "SemVer"
+    ],
+    "summary": "SemVer 用主次修订号表达兼容性；ML 库里权重格式和 tokenizer 语义变化通常应按 MAJOR 处理。"
+  },
+  {
     "title": "Git LFS：大模型权重版本管理",
     "slug": "git-lfs-model-weights",
     "date": "2026-04-29",
