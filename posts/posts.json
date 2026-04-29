@@ -1,5 +1,30 @@
 [
   {
+    "title": "安全评测：毒性与越狱 Benchmark",
+    "slug": "safety-evaluation-toxicity-jailbreak",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "安全",
+      "红队"
+    ],
+    "summary": "毒性与越狱 benchmark 测的是攻击分布下的整体风险暴露，而不是单次拒答。"
+  },
+  {
+    "title": "训练数据中毒与后门检测",
+    "slug": "agent-training-data-poisoning-backdoor-detection",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "数据安全",
+      "后门攻击"
+    ],
+    "summary": "少量投毒样本就可能让模型平时正常、触发时失控；本文整理定义、机制、例子、工程场景和检测方法。"
+  },
+  {
     "title": "工具调用评测：BFCL 与 ToolBench",
     "slug": "tool-use-evaluation-bfcl-toolbench",
     "date": "2026-04-29",
