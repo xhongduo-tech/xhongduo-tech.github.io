@@ -1,5 +1,17 @@
 [
   {
+    "title": "成本控制：训练与推理 FLOPs 预算",
+    "slug": "cost-control-training-inference-flops",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "成本",
+      "训练推理"
+    ],
+    "summary": "训练与推理是两本算力账，预算建错比模型不先进更致命"
+  },
+  {
     "title": "Python 开发环境搭建：从零到高效工作流",
     "slug": "python-dev-environment-setup",
     "date": "2026-04-29",
