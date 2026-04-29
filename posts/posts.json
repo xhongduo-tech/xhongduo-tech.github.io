@@ -1,5 +1,17 @@
 [
   {
+    "title": "代码审查清单：AI 项目 PR 审查要点",
+    "slug": "code-review-checklist-ai",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "代码审查",
+      "最佳实践"
+    ],
+    "summary": "AI 项目 PR 审查要先守住数据、安全、评测和回滚底线，再讨论代码质量优化"
+  },
+  {
     "title": "Git 提交规范：Conventional Commits 实践",
     "slug": "conventional-commits-practice",
     "date": "2026-04-29",
