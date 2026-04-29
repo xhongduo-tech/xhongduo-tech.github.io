@@ -1,5 +1,17 @@
 [
   {
+    "title": "GitHub Actions：AI 项目 CI/CD 实践",
+    "slug": "github-actions-ai-projects",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "CI/CD",
+      "GitHub Actions"
+    ],
+    "summary": "AI 项目的 GitHub Actions 应同时管正确性、性能、显存与发布审批。"
+  },
+  {
     "title": "CHANGELOG 自动生成：从 Git 历史到发布说明",
     "slug": "changelog-auto-generation",
     "date": "2026-04-29",
