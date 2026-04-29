@@ -1,5 +1,18 @@
 [
   {
+    "title": "PII 泄露与训练数据记忆",
+    "slug": "pii-leakage-training-data-memorization",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "安全与对齐",
+      "隐私",
+      "数据泄露"
+    ],
+    "summary": "PII泄露本质是模型记住并可复现训练中的唯一敏感片段，必须用审计而非平均指标判断风险"
+  },
+  {
     "title": "安全评测：毒性与越狱 Benchmark",
     "slug": "safety-evaluation-toxicity-jailbreak",
     "date": "2026-04-29",
