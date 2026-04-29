@@ -1,5 +1,18 @@
 [
   {
+    "title": "RAG 事实性与忠实度评测",
+    "slug": "rag-faithfulness-factuality-evaluation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "评测与基准",
+      "RAG",
+      "评测方法"
+    ],
+    "summary": "RAG评测要把检索召回、答案忠实度和外部事实性拆开看，才能真正定位错误来源"
+  },
+  {
     "title": "长上下文理解评测：LongBench 与 RULER",
     "slug": "long-context-evaluation-longbench-ruler",
     "date": "2026-04-29",
