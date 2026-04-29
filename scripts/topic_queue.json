@@ -25931,7 +25931,7 @@
       "SemVer"
     ],
     "brief": "SemVer（语义版本）规范：MAJOR.MINOR.PATCH。PATCH 向后兼容的 bug fix；MINOR 新增功能但向后兼容（如新 API，旧 API 保留）；MAJOR 破坏性变更（如 transformers 4.x→5.x 删除旧 API）。ML 库特殊性：模型权重格式变更（safetensors vs bin）、tokenizer 行为变更（影响结果）均属 MAJOR。建议用 CHANGELOG + deprecation warning 管理迁移路径。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "CHANGELOG 自动生成：从 Git 历史到发布说明",

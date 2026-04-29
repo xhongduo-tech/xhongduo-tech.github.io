@@ -1,5 +1,17 @@
 [
   {
+    "title": "语义化版本控制：从 0.1.0 到 1.0.0",
+    "slug": "semantic-versioning-guide",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "版本控制",
+      "SemVer"
+    ],
+    "summary": "SemVer 的本质是用版本号表达兼容性承诺，1.0.0 表示稳定接口开始对外生效"
+  },
+  {
     "title": "Pre-commit Hooks：代码质量门禁",
     "slug": "pre-commit-hooks-setup",
     "date": "2026-04-29",
