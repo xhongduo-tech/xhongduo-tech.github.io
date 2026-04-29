@@ -1,5 +1,17 @@
 [
   {
+    "title": "RAG 重排序：Cross-Encoder 与 LLM Reranker",
+    "slug": "rag-reranking-cross-encoder-llm",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "RAG",
+      "检索排序"
+    ],
+    "summary": "RAG重排序提升的是证据精度，是否值得上线要同时看成功率、延迟、成本和恢复能力"
+  },
+  {
     "title": "RAG Chunking 策略与召回",
     "slug": "rag-chunking-strategies-retrieval",
     "date": "2026-04-29",
