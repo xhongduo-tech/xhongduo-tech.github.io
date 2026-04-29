@@ -1,5 +1,17 @@
 [
   {
+    "title": "低延迟流式输出的 Backpressure 控制",
+    "slug": "streaming-output-backpressure-control",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "服务化",
+      "流式输出"
+    ],
+    "summary": "背压的本质是让上游跟随下游能力变化，保证流式输出低延迟且队列有界。"
+  },
+  {
     "title": "GPU 显存碎片化与分配器设计",
     "slug": "gpu-memory-fragmentation-allocator-design",
     "date": "2026-04-29",
