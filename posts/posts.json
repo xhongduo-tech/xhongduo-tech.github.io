@@ -1,5 +1,17 @@
 [
   {
+    "title": "Git 提交规范：Conventional Commits 实践",
+    "slug": "conventional-commits-practice",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Git",
+      "提交规范"
+    ],
+    "summary": "Conventional Commits 的本质是可解析提交协议，用于驱动自动发版、版本判断和回滚治理。"
+  },
+  {
     "title": "Git 分支策略：Git Flow vs GitHub Flow vs Trunk-Based",
     "slug": "git-branching-strategies",
     "date": "2026-04-29",
