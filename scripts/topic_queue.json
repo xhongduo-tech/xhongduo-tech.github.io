@@ -25198,7 +25198,7 @@
       "ALBERT"
     ],
     "brief": "ALBERT 的效率设计不只是简单缩小 BERT，而是通过跨层参数共享和 embedding factorization 大幅压缩参数规模，同时尽量保留表示能力。它展示了“参数少”与“算力省”并不完全等价，也揭示了共享参数对表达力的边界。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "RMSNorm 变体与性能对比",

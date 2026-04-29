@@ -1,5 +1,18 @@
 [
   {
+    "title": "共享参数架构：ALBERT 的效率设计",
+    "slug": "parameter-sharing-albert",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "参数共享",
+      "ALBERT"
+    ],
+    "summary": "ALBERT 通过 embedding 分解和跨层共享压缩参数，但参数少不等于推理更快"
+  },
+  {
     "title": "Prefix LM 与分块因果注意力",
     "slug": "prefix-lm-blockwise-causal-attention",
     "date": "2026-04-29",
