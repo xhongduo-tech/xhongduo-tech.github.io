@@ -25306,7 +25306,7 @@
       "编译优化"
     ],
     "brief": "TensorRT-LLM 的编译与算子融合 应围绕延迟、吞吐、显存和实现复杂度展开分析，说明它改变了哪一段推理链路、收益来自哪里，以及在哪些负载和上下文长度下不再划算。",
-    "status": "pending"
+    "status": "done"
   },
   {
     "title": "FlashDecoding 与 Split-K 并行",

@@ -1,5 +1,17 @@
 [
   {
+    "title": "TensorRT-LLM 的编译与算子融合",
+    "slug": "tensorrt-llm-compilation-operator-fusion",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "推理优化",
+      "编译优化"
+    ],
+    "summary": "TensorRT-LLM 通过编译、融合与调度优化，减少 launch、显存往返和 padding 浪费，换取更低延迟…"
+  },
+  {
     "title": "vLLM 调度器与抢占策略",
     "slug": "vllm-scheduler-preemption",
     "date": "2026-04-29",
