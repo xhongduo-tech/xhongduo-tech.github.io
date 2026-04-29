@@ -1,5 +1,17 @@
 [
   {
+    "title": "多智能体协作：角色分工与协议",
+    "slug": "multi-agent-collaboration-roles-protocols",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "智能体",
+      "多智能体",
+      "协作"
+    ],
+    "summary": "多智能体协作的关键不在“多”，而在清晰分工、显式协议与可控交接成本。"
+  },
+  {
     "title": "Toolformer：自动生成工具调用数据",
     "slug": "toolformer-automatic-tool-data",
     "date": "2026-04-29",
