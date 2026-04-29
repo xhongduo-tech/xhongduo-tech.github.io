@@ -1,5 +1,18 @@
 [
   {
+    "title": "ALiBi 位置偏置：线性外推方案",
+    "slug": "alibi-positional-bias",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "理论基础",
+      "模型架构",
+      "位置编码",
+      "ALiBi"
+    ],
+    "summary": "ALiBi在注意力分数上加入线性距离惩罚，用极小改造成本提升长上下文外推能力。"
+  },
+  {
     "title": "预训练稳定性：DeepNorm 与 ResiDual",
     "slug": "pretraining-stability-deepnorm-residual",
     "date": "2026-04-29",
