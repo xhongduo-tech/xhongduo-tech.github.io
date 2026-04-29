@@ -1,5 +1,17 @@
 [
   {
+    "title": "Docker 多阶段构建：镜像体积优化",
+    "slug": "docker-multi-stage-builds",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "Docker",
+      "优化"
+    ],
+    "summary": "多阶段构建通过分离构建与运行阶段，只把必要产物带入最终镜像。"
+  },
+  {
     "title": "ML Pipeline 测试：数据与模型测试策略",
     "slug": "ml-pipeline-testing",
     "date": "2026-04-29",
