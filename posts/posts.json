@@ -1,5 +1,17 @@
 [
   {
+    "title": "CHANGELOG 自动生成：从 Git 历史到发布说明",
+    "slug": "changelog-auto-generation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "文档",
+      "发布"
+    ],
+    "summary": "CHANGELOG 自动生成的关键不在工具，而在规范输入、可验证规则和发布门槛。"
+  },
+  {
     "title": "语义化版本控制：从 0.1.0 到 1.0.0",
     "slug": "semantic-versioning-guide",
     "date": "2026-04-29",
