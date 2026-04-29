@@ -1,5 +1,17 @@
 [
   {
+    "title": "LoRA 即插即用与权重合并",
+    "slug": "lora-hot-swap-weight-merge",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "微调",
+      "LoRA"
+    ],
+    "summary": "LoRA 挂载重灵活，权重合并重低延迟，生产系统通常按任务稳定性动态折中"
+  },
+  {
     "title": "低延迟流式输出的 Backpressure 控制",
     "slug": "streaming-output-backpressure-control",
     "date": "2026-04-29",
