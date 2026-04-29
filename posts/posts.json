@@ -1,5 +1,17 @@
 [
   {
+    "title": "注意力头剪枝与重分配",
+    "slug": "attention-head-pruning-reallocation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "模型部署",
+      "模型压缩",
+      "注意力机制"
+    ],
+    "summary": "注意力头剪枝要先做消融测重要度，真正收益常来自结构删除与向 GQA/MQA 的预算重分配"
+  },
+  {
     "title": "KV Cache 量化：INT8 与 FP8 方案",
     "slug": "kv-cache-quantization-int8-fp8",
     "date": "2026-04-29",
