@@ -1,5 +1,18 @@
 [
   {
+    "title": "视频问答中的时序对齐",
+    "slug": "video-qa-temporal-alignment",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "视频理解",
+      "时序"
+    ],
+    "summary": "视频问答的关键不是看见内容，而是把问题中的时间关系对准视频事件边界。"
+  },
+  {
     "title": "图像 OCR 与视觉文本融合",
     "slug": "image-ocr-visual-text-fusion",
     "date": "2026-04-29",
