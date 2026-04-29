@@ -1,5 +1,31 @@
 [
   {
+    "title": "多模态指令微调数据构建",
+    "slug": "multimodal-instruction-tuning-data",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "前沿追踪",
+      "多模态",
+      "指令微调",
+      "数据构建"
+    ],
+    "summary": "多模态指令微调的关键不在拼图文，而在图像、问题、答案与格式四者严格对齐。"
+  },
+  {
+    "title": "RAG 事实性与忠实度评测",
+    "slug": "rag-factuality-faithfulness-evaluation",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "RAG",
+      "评测与基准",
+      "忠实度"
+    ],
+    "summary": "RAG 事实性与忠实度评测要分开看检索错误和生成错误，避免把证据缺失和幻觉扩写混成一类问题。"
+  },
+  {
     "title": "视频问答中的时序对齐",
     "slug": "video-qa-temporal-alignment",
     "date": "2026-04-29",
