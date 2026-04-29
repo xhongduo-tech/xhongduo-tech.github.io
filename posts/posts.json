@@ -1,5 +1,18 @@
 [
   {
+    "title": "多语种数据采样与平衡",
+    "slug": "multilingual-data-sampling-balance",
+    "date": "2026-04-29",
+    "author": "both",
+    "tags": [
+      "工程实践",
+      "数据工程",
+      "多语言",
+      "预训练"
+    ],
+    "summary": "多语种采样的关键是压平而非平均，在高资源效率与低资源保留之间做折中"
+  },
+  {
     "title": "对话数据去毒与安全过滤",
     "slug": "dialogue-data-detox-safety-filtering",
     "date": "2026-04-29",
