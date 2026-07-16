@@ -5,6 +5,7 @@
     "date": "2026-07-07",
     "author": "both",
     "tags": ["模型部署", "CUDA", "GPU 虚拟化"],
-    "summary": "NVIDIA MPS 通过共享 CUDA Context 让多进程并发提交内核，提升小负载场景下的 GPU 利用率；本文说明其工作原理、适用场景与限制。"
+    "summary": "NVIDIA MPS 通过共享 CUDA Context 让多进程并发提交内核，提升小负载场景下的 GPU 利用率；本文说明其工作原理、适用场景与限制。",
+    "url": "posts/what-is-nvidia-mps.html"
   }
 ]

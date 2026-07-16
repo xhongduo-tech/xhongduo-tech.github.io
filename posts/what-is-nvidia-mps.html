@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>什么是 NVIDIA MPS · xhd.log</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-theme" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var t = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="nav-logo"><span class="prompt">></span>xhd</a>
+        <div class="nav-links">
+          <a href="../index.html">posts</a>
+          <a href="../projects.html">projects</a>
+          <a href="../about.html">about</a>
+          <a href="https://github.com/xhongduo-tech" class="github-btn" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+          <button id="theme-toggle" class="theme-btn" aria-label="切换主题">[dark]</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="post-article">
+      <header class="post-header">
+        <h1>什么是 NVIDIA MPS</h1>
+        <div class="post-meta">
+          <span class="post-date">2026-07-07</span>
+          <span class="post-category">模型部署</span>
+          <div class="post-tags-inline">
+            <span class="tag">CUDA</span>
+            <span class="tag">GPU 虚拟化</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="prose">
+        <h2>一句话定义</h2>
+        <p>NVIDIA Multi-Process Service（MPS）是一个运行在 GPU 与用户 CUDA 进程之间的守护进程，它让多个进程共享同一个 CUDA Context，从而把原本被上下文切换和串行执行浪费掉的算力利用起来。</p>
+
+        <hr>
+
+        <h2>为什么需要 MPS</h2>
+        <p>默认情况下，每个 CUDA 进程独占一个 CUDA Context。GPU 在同一时刻只能挂起一个 Context，当多个进程都要提交内核时，驱动只能在它们之间快速切换。这种切换本身就会带来开销，而且很多小型内核因为无法真正并行，导致 SM 利用率低下。</p>
+        <p>典型场景：</p>
+        <ul>
+          <li>一个推理服务同时承载多个小 batch 的请求，每个请求一个进程</li>
+          <li>训练框架把每个 worker 作为独立进程启动，单卡需要服务多个 worker</li>
+          <li>HPC 作业由多个 MPI rank 组成，每个 rank 提交的核函数规模很小</li>
+        </ul>
+        <p>在这些场景下，单进程的算力需求往往填不满整卡，而多进程之间又互相抢占 Context，结果 GPU 很忙但有效吞吐不高。</p>
+
+        <hr>
+
+        <h2>MPS 的工作方式</h2>
+        <p>MPS 的核心结构是一个 MPS Server 和一组 MPS Client。</p>
+        <table>
+          <thead>
+            <tr><th>组件</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>MPS Server</td><td>持有真正的 GPU Context，接收并调度多个 Client 的内核与显存请求</td></tr>
+            <tr><td>MPS Client</td><td>用户进程，通过 MPS 提供的 IPC 通道把 CUDA 调用转发给 Server</td></tr>
+            <tr><td>CUDA Driver</td><td>看到的是一个统一上下文，因此不同 Client 的内核可以在不同 SM 上并发执行</td></tr>
+          </tbody>
+        </table>
+        <p>Client 进程启动时设置环境变量 <code>CUDA_VISIBLE_DEVICES</code> 和 <code>CUDA_MPS_PIPE_DIRECTORY</code>，即可把调用路由到 Server。Server 负责合并提交队列、管理显存分配、并在内核满足条件时并发调度。</p>
+
+        <div class="code-wrapper">
+          <span class="code-lang">bash</span>
+          <button class="copy-btn">copy</button>
+          <pre><code class="language-bash"># 启动 MPS 控制守护进程
+export CUDA_VISIBLE_DEVICES=0
+nvidia-cuda-mps-control -d
+
+# Client 进程在环境中指定 MPS 管道目录后启动
+cd /your/app && CUDA_MPS_PIPE_DIRECTORY=/tmp/nvidia-mps ./your_program
+
+# 关闭 MPS
+echo quit | nvidia-cuda-mps-control
+</code></pre>
+        </div>
+
+        <hr>
+
+        <h2>能带来什么收益</h2>
+        <p>MPS 的收益高度依赖负载特征：</p>
+        <table>
+          <thead>
+            <tr><th>负载特征</th><th>预期效果</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>大量小内核、低占用</td><td>显著提升 SM 利用率和吞吐</td></tr>
+            <tr><td>单进程已占满整卡</td><td>几乎无收益，反而可能引入调度开销</td></tr>
+            <tr><td>内核规模差异大</td><td>大内核可能阻塞小内核，收益不稳定</td></tr>
+            <tr><td>需要严格的时延保证</td><td>MPS 不做抢占式 QoS，时延可控性有限</td></tr>
+          </tbody>
+        </table>
+        <p>实际观察中，MPS 最常见的作用是提升 <strong>多进程小 batch 推理</strong> 的总吞吐，而不是降低单个请求的延迟。</p>
+
+        <hr>
+
+        <h2>限制与风险</h2>
+        <p>MPS 不是虚拟化，也不是隔离方案。使用前需要明确以下限制：</p>
+        <table>
+          <thead>
+            <tr><th>限制项</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>显存共享</td><td>所有 Client 共享同一块物理显存，任一进程 OOM 会导致整卡受影响</td></tr>
+            <tr><td>故障传播</td><td>一个 Client 崩溃可能拖垮 MPS Server，进而影响所有 Client</td></tr>
+            <tr><td>单 Server 限制</td><td>一块 GPU 通常只能绑定一个 MPS Server</td></tr>
+            <tr><td>计算能力要求</td><td>需要 Compute Capability 3.5 及以上</td></tr>
+            <tr><td>与 MIG 互斥</td><td>MPS 不能与 NVIDIA MIG 在同一 GPU 上同时使用</td></tr>
+          </tbody>
+        </table>
+        <p>因此，MPS 更适合内部可控的推理集群或训练 worker，不适合多租户、强隔离环境。</p>
+
+        <hr>
+
+        <h2>MPS 与 MIG 的对比</h2>
+        <p>两者都用于提升单卡利用率，但设计目标不同。</p>
+        <table>
+          <thead>
+            <tr><th>维度</th><th>MPS</th><th>MIG</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>隔离级别</td><td>软件层共享，无硬隔离</td><td>硬件级分区，显存与计算单元隔离</td></tr>
+            <tr><td>适用场景</td><td>同信任域内的多进程</td><td>多租户、需要 QoS 保障的环境</td></tr>
+            <tr><td>显存</td><td>共享</td><td>固定切分</td></tr>
+            <tr><td>调度粒度</td><td>内核级并发</td><td>实例级独占</td></tr>
+            <tr><td>可用硬件</td><td>Kepler 及以后</td><td>Ampere 及以后</td></tr>
+          </tbody>
+        </table>
+        <p>如果目标是让多个进程安全地共用一张卡，优先评估 MIG；如果硬件不支持 MIG 且负载可信任，MPS 是更轻量的替代。</p>
+
+        <hr>
+
+        <h2>总结</h2>
+        <p>MPS 通过共享 CUDA Context 让多个进程的内核并发执行，解决的是「单进程填不满 GPU，多进程又互相切换」的问题。它不是资源隔离方案，也不能凭空增加算力，但在受控环境下，对提升小负载并发吞吐有明显价值。选型时应当先确认负载是否以小内核为主、是否能接受共享显存带来的故障传播风险，再决定是否启用。</p>
+      </div>
+
+      <div class="post-actions">
+        <a class="btn" href="https://github.com/xhongduo-tech/xhongduo-tech.github.io/issues/new?title=%5B%E9%94%99%E8%AF%AF%5D%20%E4%BB%80%E4%B9%88%E6%98%AF%20NVIDIA%20MPS" target="_blank" rel="noopener">报告问题 →</a>
+      </div>
+
+      <nav class="post-nav" id="post-nav">
+        <span></span>
+        <span></span>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="../js/site.js"></script>
+  <script src="../js/post.js"></script>
+</body>
+</html>

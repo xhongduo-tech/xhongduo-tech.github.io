@@ -6,118 +6,6 @@
   <title>about · xhd.log</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
-  <style>
-    /* ── About page extras ── */
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin: 28px 0 36px;
-    }
-    .about-stat {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .about-stat-num {
-      font-family: var(--font-mono);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .about-stat-label {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-    .about-section-label {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      margin: 0 0 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .about-section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    .about-blockquote {
-      border-left: 3px solid var(--accent);
-      padding: 12px 20px;
-      margin: 0 0 32px;
-      background: var(--bg-2);
-      border-radius: 0 var(--radius) var(--radius) 0;
-    }
-    .about-blockquote p {
-      font-size: 0.92rem;
-      color: var(--text);
-      line-height: 1.75;
-      margin: 0;
-    }
-    .about-blockquote p + p { margin-top: 10px; }
-    .focus-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 32px;
-    }
-    .focus-item {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      transition: border-color .15s;
-    }
-    .focus-item:hover { border-color: var(--accent); }
-    .focus-icon { font-size: 1rem; line-height: 1.4; flex-shrink: 0; }
-    .focus-text strong {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text);
-      display: block;
-      margin-bottom: 3px;
-    }
-    .focus-text span {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .contact-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .contact-btn {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 7px 16px;
-      text-decoration: none;
-      transition: border-color .15s, background .15s;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .contact-btn:hover { border-color: var(--accent); background: var(--bg-2); }
-    @media (max-width: 640px) {
-      .about-stats { grid-template-columns: repeat(2, 1fr); }
-      .focus-grid  { grid-template-columns: 1fr; }
-    }
-  </style>
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
@@ -130,9 +18,7 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a href="index.html" class="nav-logo">
-          <span class="prompt">&gt;</span>xhd
-        </a>
+        <a href="index.html" class="nav-logo"><span class="prompt">></span>xhd</a>
         <div class="nav-links">
           <a href="index.html">posts</a>
           <a href="projects.html">projects</a>
@@ -142,27 +28,137 @@
               <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
             </svg>
           </a>
-          <button id="theme-toggle" class="theme-btn" aria-label="切换主题">[light]</button>
+          <button id="theme-toggle" class="theme-btn" aria-label="切换主题">[dark]</button>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <article class="post-article about-page">
-
-      <section class="hero">
-        <div class="hero-cmd">
-          <span class="prompt">$</span> cat about.md
-        </div>
-        <h1>xhd<span class="blink">_</span></h1>
-        <p class="hero-sub">大模型 · 智能体 · 认知架构</p>
-      </section>
-
-      <div class="post-body">
-
+    <article class="about-hero">
+      <div class="hero-cmd">
+        <span class="prompt">$</span> cat about.md
+      </div>
+      <h1>徐鸿铎 / Hongduo XU</h1>
+      <p class="about-role">服务端开发工程师 · 北京</p>
+      <div class="post-actions">
+        <a class="btn" href="mailto:x.hongduo@hotmail.com">Email →</a>
+        <a class="btn" href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">GitHub →</a>
       </div>
     </article>
+
+    <section class="about-section">
+      <h2 class="about-section-title">简介</h2>
+      <div class="about-summary">
+        <p>我是徐鸿铎，香港理工大学人工智能与大数据计算硕士，本科毕业于北方工业大学计算机科学与技术专业。过去几年，我一直围绕大模型推理、Agent 系统与工程落地打转：从底层 CUDA Context、GPU 调度到上层 API 平台与 RAG/Agent 应用，习惯同时从硬件资源与软件架构两个视角去拆问题。</p>
+        <p>本科到硕士期间做过 VR 游戏、计算机视觉平台、小程序与硬件课程设计，也发表过一篇 IJCNN 论文。工作后聚焦金融级大模型基础设施建设，统筹 A100/V100/Ascend 混合集群，做量化、PD 分离、MPS/MTP/TEI 等推理优化，同时用 Vibe Coding 快速验证平台原型。</p>
+        <p>我喜欢折腾模型，也喜欢研究策略，向往在国内顶尖的研究与工程环境中持续学习。这个博客用来沉淀技术笔记，强迫自己把模糊的理解写成清晰的文字。</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="about-section-title">工作经历</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">中国工商银行总行 · 业务研发中心</div>
+              <div class="timeline-role">大模型架构工程师</div>
+            </div>
+            <div class="timeline-date">2023.09 – 至今</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>统筹中心研究领域算力资源（A100、V100、华为昇腾 910B3），负责异构集群的大模型部署与推理架构研究。</li>
+              <li>牵头落地 Qwen、Gemma、DeepSeek-V4-Flash、GLM 等开源大模型，覆盖对话、代码、文档、检索与精排、OCR 全链路。</li>
+              <li>研究并落地容器化部署、动态优先级调度、PD 分离、MTP 多 Token 预测、NVIDIA MPS、DP 多实例并行、TEI 向量推理引擎等技术方案。</li>
+              <li>自研梯度算力部署方案，在有限、老旧的算力设备上通过 llama.cpp、vLLM、vllm-ascend 等推理加速方案支撑全中心近 50 个重点场景。</li>
+              <li>5 天通过 Vibe Coding 构建中心大模型开放平台（API Platform）全栈，兼容 OpenAI/Anthropic 接口格式，支持 14+ 模型在线管理与 API 智能路由。</li>
+              <li>2024 年带队完成初版中心大模型 API 统一接入平台、内网 PyPI 私有包管理平台，并引入 RagFlow、Dify 等开源框架支撑业务 RAG 与 Agent 需求。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-title">中国气象局华云集团</div>
+              <div class="timeline-role">全栈工程师 · 计算机软件</div>
+            </div>
+            <div class="timeline-date">2021.09 – 2022.08</div>
+          </div>
+          <div class="timeline-body">
+            <ul>
+              <li>基于风速和风向数据完成风羽图绘制功能，并在二维/三维图像中完成实时绘制。</li>
+              <li>参与卫星火情监测和预测小组，基于算法构建业务系统。</li>
+              <li>参与管理卫星数据库，涉及二进制数据、国内气象卫星（FY3E/FY4B）及日本、美国气象卫星图像数据。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="about-section-title">教育经历</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">香港理工大学 · 人工智能与大数据计算</div>
+            <div class="timeline-date">2022.09 – 2023.09</div>
+          </div>
+          <div class="timeline-body">工学硕士。课程涵盖机器学习、深度学习、大数据计算、计算机视觉、人机交互、扩展现实、软件工程等方向。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">北方工业大学 · 计算机科学与技术</div>
+            <div class="timeline-date">2017.09 – 2021.06</div>
+          </div>
+          <div class="timeline-body">工学学士。本科期间参与计算机视觉平台、微信小程序、VR 游戏、数据库分析、智能硬件与 Verilog CPU 设计等项目。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="about-section-title">技能</h2>
+      <div class="skill-cloud">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Go</span>
+        <span class="skill-tag">C / C++</span>
+        <span class="skill-tag">CUDA</span>
+        <span class="skill-tag">LLM 推理优化</span>
+        <span class="skill-tag">vLLM</span>
+        <span class="skill-tag">llama.cpp</span>
+        <span class="skill-tag">模型量化</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Kubernetes</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">Agent</span>
+        <span class="skill-tag">LangGraph</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Redis</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">FastAPI</span>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="about-section-title">论文 / 发表</h2>
+      <div class="about-summary">
+        <p><strong>Hand acupoint detection based on improved HRNet</strong> · 2022 International Joint Conference on Neural Networks (IJCNN)，第二作者。提出一种改进的高分辨率网络（HRNet）方法，用于手部穴位自动检测。</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="about-section-title">荣誉与活动</h2>
+      <div class="awards-list">
+        <div class="award-item">2021 年北京市优秀毕业生、北方工业大学优秀毕业生</div>
+        <div class="award-item">2018–2020 年连续 3 年一等奖学金，连续 2 年校级三好学生</div>
+        <div class="award-item">蓝桥杯编程竞赛二、三等奖，互联网+大赛等比赛获奖，VEX 机器人获奖</div>
+        <div class="award-item">2019 国庆庆典活动志愿者、马拉松志愿者、故宫志愿者</div>
+        <div class="award-item">CSDN Perseverance Award（2022）</div>
+        <div class="award-item">Coursera：Mathematics for Machine Learning、Stanford Machine Learning Specialization、Data Science Python Specialization 等</div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -171,6 +167,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>
