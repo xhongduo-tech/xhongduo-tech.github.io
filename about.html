@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>about · xhd.log</title>
+  <meta name="description" content="徐鸿铎（Hongduo XU）的个人简介：服务端开发工程师，专注于大模型推理、Agent 工程与 CUDA/GPU 系统实践。" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
   <script>
@@ -36,19 +37,19 @@
 
   <main class="container">
     <article class="about-hero">
-      <div class="hero-cmd">
-        <span class="prompt">$</span> cat about.md
-      </div>
+      <div class="hero-overline">about</div>
       <h1>徐鸿铎 / Hongduo XU</h1>
       <p class="about-role">服务端开发工程师 · 北京</p>
-      <div class="post-actions">
-        <a class="btn" href="mailto:x.hongduo@hotmail.com">Email →</a>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:x.hongduo@hotmail.com">Email →</a>
         <a class="btn" href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">GitHub →</a>
       </div>
     </article>
 
     <section class="about-section">
-      <h2 class="about-section-title">简介</h2>
+      <div class="about-section-header">
+        <h2 class="about-section-title">简介</h2>
+      </div>
       <div class="about-summary">
         <p>我是徐鸿铎，香港理工大学人工智能与大数据计算硕士，本科毕业于北方工业大学计算机科学与技术专业。过去几年，我一直围绕大模型推理、Agent 系统与工程落地打转：从底层 CUDA Context、GPU 调度到上层 API 平台与 RAG/Agent 应用，习惯同时从硬件资源与软件架构两个视角去拆问题。</p>
         <p>本科到硕士期间做过 VR 游戏、计算机视觉平台、小程序与硬件课程设计，也发表过一篇 IJCNN 论文。工作后聚焦金融级大模型基础设施建设，统筹 A100/V100/Ascend 混合集群，做量化、PD 分离、MPS/MTP/TEI 等推理优化，同时用 Vibe Coding 快速验证平台原型。</p>
@@ -57,7 +58,9 @@
     </section>
 
     <section class="about-section">
-      <h2 class="about-section-title">工作经历</h2>
+      <div class="about-section-header">
+        <h2 class="about-section-title">工作经历</h2>
+      </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-header">
@@ -99,7 +102,9 @@
     </section>
 
     <section class="about-section">
-      <h2 class="about-section-title">教育经历</h2>
+      <div class="about-section-header">
+        <h2 class="about-section-title">教育经历</h2>
+      </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-header">
@@ -119,7 +124,9 @@
     </section>
 
     <section class="about-section">
-      <h2 class="about-section-title">技能</h2>
+      <div class="about-section-header">
+        <h2 class="about-section-title">技能</h2>
+      </div>
       <div class="skill-cloud">
         <span class="skill-tag">Python</span>
         <span class="skill-tag">Go</span>
@@ -142,15 +149,19 @@
     </section>
 
     <section class="about-section">
-      <h2 class="about-section-title">论文 / 发表</h2>
+      <div class="about-section-header">
+        <h2 class="about-section-title">论文 / 发表</h2>
+      </div>
       <div class="about-summary">
         <p><strong>Hand acupoint detection based on improved HRNet</strong> · 2022 International Joint Conference on Neural Networks (IJCNN)，第二作者。提出一种改进的高分辨率网络（HRNet）方法，用于手部穴位自动检测。</p>
       </div>
     </section>
 
     <section class="about-section">
-      <h2 class="about-section-title">荣誉与活动</h2>
-      <div class="awards-list">
+      <div class="about-section-header">
+        <h2 class="about-section-title">荣誉与活动</h2>
+      </div>
+      <div class="awards-grid">
         <div class="award-item">2021 年北京市优秀毕业生、北方工业大学优秀毕业生</div>
         <div class="award-item">2018–2020 年连续 3 年一等奖学金，连续 2 年校级三好学生</div>
         <div class="award-item">蓝桥杯编程竞赛二、三等奖，互联网+大赛等比赛获奖，VEX 机器人获奖</div>
@@ -163,7 +174,14 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+      <div class="site-footer-inner">
+        <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+        <div class="footer-links">
+          <a href="index.html">posts</a>
+          <a href="projects.html">projects</a>
+          <a href="about.html">about</a>
+        </div>
+      </div>
     </div>
   </footer>
 

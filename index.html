@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>xhd.log · 徐鸿铎的技术笔记</title>
+  <meta name="description" content="徐鸿铎的技术笔记：大模型推理、Agent 工程、CUDA/GPU 与系统实践。" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
   <script>
@@ -36,30 +37,44 @@
 
   <main class="container">
     <section class="hero">
-      <div class="hero-cmd">
-        <span class="prompt">$</span> ls ./notes
-      </div>
-      <h1>徐鸿铎的技术笔记<span class="blink"></span></h1>
+      <div class="hero-overline">xhd.log</div>
+      <h1>徐鸿铎的技术笔记</h1>
       <p class="hero-sub">记录大模型推理、Agent 工程、CUDA/GPU 与系统实践的笔记与思考。</p>
-      <div id="blog-stats" class="blog-stats"></div>
+      <div class="hero-actions">
+        <a href="about.html" class="btn btn-primary">关于我</a>
+        <a href="https://github.com/xhongduo-tech" class="btn" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </section>
+
+    <section class="featured-section" id="featured-section"></section>
 
     <div class="filter-bar">
       <div id="category-tabs" class="category-tabs"></div>
-      <div class="search-wrap">
-        <input type="text" id="search-input" placeholder="搜索文章..." class="search-input" />
-      </div>
+      <input type="text" id="search-input" class="search-input" placeholder="搜索文章..." />
       <div id="tag-filter" class="tag-filter"></div>
     </div>
 
-    <div id="post-list" class="post-list">
-      <p class="loading">加载中</p>
-    </div>
+    <section class="blog-section">
+      <div class="section-header">
+        <h2 class="section-title">全部文章</h2>
+        <a href="posts/posts.json" class="section-link" target="_blank" rel="noopener">RSS / JSON →</a>
+      </div>
+      <div id="post-list" class="blog-grid">
+        <p class="empty-state">加载中...</p>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+      <div class="site-footer-inner">
+        <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+        <div class="footer-links">
+          <a href="index.html">posts</a>
+          <a href="projects.html">projects</a>
+          <a href="about.html">about</a>
+        </div>
+      </div>
     </div>
   </footer>
 

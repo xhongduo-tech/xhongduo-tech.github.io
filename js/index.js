@@ -1,5 +1,5 @@
 /* ===================================================
-   Index page: post list, categories, tags, search
+   Index page: featured post, blog grid, categories, tags, search
    =================================================== */
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('post-list')) {
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function initIndexPage() {
   const CATEGORY_ORDER = [
+    '全部',
     'LLM 推理',
     'Agents',
     'CUDA / GPU',
@@ -21,41 +22,39 @@ async function initIndexPage() {
 
   let posts = [];
   const listEl = document.getElementById('post-list');
+  const featuredEl = document.getElementById('featured-section');
+
   try {
     const res = await fetch('posts/posts.json');
     if (!res.ok) throw new Error('fetch failed');
     posts = await res.json();
   } catch (e) {
     listEl.innerHTML = '<p class="empty-state">// 暂无文章 · 请添加 posts/posts.json</p>';
+    if (featuredEl) featuredEl.style.display = 'none';
     return;
   }
 
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // Stats
-  const statsEl = document.getElementById('blog-stats');
-  if (statsEl) {
-    const cats = new Set(posts.map(p => p.tags?.[0]).filter(Boolean));
-    const tags = new Set(posts.flatMap(p => p.tags?.slice(1) || []).filter(Boolean));
-    statsEl.innerHTML = `
-      <div class="stat"><span class="stat-num">${posts.length}</span><span class="stat-label">文章</span></div>
-      <div class="stat"><span class="stat-num">${cats.size}</span><span class="stat-label">分类</span></div>
-      <div class="stat"><span class="stat-num">${tags.size}</span><span class="stat-label">标签</span></div>
-    `;
-  }
-
-  let activeCategory = 'all';
+  let activeCategory = '全部';
   let activeTag = null;
   let searchQuery = '';
+
+  // Featured post: most recent (only when 2+ posts)
+  if (featuredEl && posts.length > 1) {
+    featuredEl.innerHTML = featuredCardHtml(posts[0]);
+  } else if (featuredEl) {
+    featuredEl.style.display = 'none';
+  }
 
   // Category tabs
   const catTabsEl = document.getElementById('category-tabs');
   if (catTabsEl) {
-    ['all', ...CATEGORY_ORDER].forEach(cat => {
+    CATEGORY_ORDER.forEach(cat => {
       const btn = document.createElement('button');
-      btn.className = 'category-tab' + (cat === 'all' ? ' active' : '');
+      btn.className = 'category-tab' + (cat === '全部' ? ' active' : '');
       btn.dataset.cat = cat;
-      btn.textContent = cat === 'all' ? '全部' : cat;
+      btn.textContent = cat;
       catTabsEl.appendChild(btn);
     });
     catTabsEl.addEventListener('click', e => {
@@ -70,13 +69,10 @@ async function initIndexPage() {
     });
   }
 
-  // Tag filter (use tags[1+] excluding category)
+  // Tag filter
   const tagFilterEl = document.getElementById('tag-filter');
   const allTags = [...new Set(
-    posts.flatMap(p => {
-      const tags = p.tags || [];
-      return tags.slice(1);
-    }).filter(Boolean)
+    posts.flatMap(p => (p.tags || []).slice(1)).filter(Boolean)
   )].sort();
   if (tagFilterEl) {
     allTags.forEach(tag => {
@@ -105,7 +101,7 @@ async function initIndexPage() {
   function renderList() {
     const filtered = posts.filter(p => {
       const cat = p.tags?.[0];
-      const matchCat = activeCategory === 'all' || cat === activeCategory;
+      const matchCat = activeCategory === '全部' || cat === activeCategory;
       const matchTag = !activeTag || (p.tags || []).includes(activeTag);
       const q = searchQuery;
       const matchSearch = !q ||
@@ -120,46 +116,83 @@ async function initIndexPage() {
       return;
     }
 
-    if (activeCategory === 'all' && !activeTag && !searchQuery) {
-      const groups = {};
-      CATEGORY_ORDER.forEach(c => { groups[c] = []; });
-      filtered.forEach(p => {
-        const cat = p.tags?.[0];
-        if (cat && groups[cat]) groups[cat].push(p);
-      });
-      listEl.innerHTML = CATEGORY_ORDER
-        .filter(c => groups[c].length > 0)
-        .map(c => `
-          <section class="post-group">
-            <h2 class="group-title">${escapeHtml(c)}</h2>
-            ${groups[c].map(postCardHtml).join('')}
-          </section>
-        `)
-        .join('');
-    } else {
-      listEl.innerHTML = `
-        <section class="post-group">
-          ${filtered.map(postCardHtml).join('')}
-        </section>
-      `;
-    }
+    // Hide featured post from grid when showing all without filters and there are 2+ posts
+    const showFeaturedInGrid = activeCategory === '全部' && !activeTag && !searchQuery && posts.length > 1;
+    const gridPosts = showFeaturedInGrid ? filtered.slice(1) : filtered;
+
+    listEl.innerHTML = gridPosts.map(blogCardHtml).join('');
   }
 
-  function postCardHtml(p) {
+  function featuredCardHtml(p) {
     const tags = p.tags || [];
     const category = tags[0] || '未分类';
-    const extraTags = tags.slice(1);
     return `
-      <a class="post-card" href="${escapeHtml(p.url || `posts/${p.slug}.html`)}">
-        <div class="post-meta">
-          <span class="post-date">${escapeHtml(p.date)}</span>
-          <span class="post-category">${escapeHtml(category)}</span>
-          ${extraTags.length ? `<div class="post-tags-inline">${extraTags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+      <a class="featured-card" href="${escapeHtml(p.url || `posts/${p.slug}.html`)}">
+        <div class="featured-image">
+          ${placeholderImage(p.title, p.slug)}
         </div>
-        <h3 class="post-title">${escapeHtml(p.title)}</h3>
-        ${p.summary ? `<p class="post-summary">${escapeHtml(p.summary)}</p>` : ''}
+        <div class="featured-content">
+          <div class="featured-meta">
+            <span class="featured-category">${escapeHtml(category)}</span>
+            <span class="featured-date">${escapeHtml(p.date)}</span>
+          </div>
+          <h2 class="featured-title">${escapeHtml(p.title)}</h2>
+          <p class="featured-summary">${escapeHtml(p.summary || '')}</p>
+          <span class="featured-link">阅读文章 →</span>
+        </div>
       </a>
     `;
+  }
+
+  function blogCardHtml(p) {
+    const tags = p.tags || [];
+    const category = tags[0] || '未分类';
+    return `
+      <a class="blog-card" href="${escapeHtml(p.url || `posts/${p.slug}.html`)}">
+        <div class="blog-card-image">
+          ${placeholderImage(p.title, p.slug)}
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span class="blog-card-category">${escapeHtml(category)}</span>
+            <span class="blog-card-date">${escapeHtml(p.date)}</span>
+          </div>
+          <h3 class="blog-card-title">${escapeHtml(p.title)}</h3>
+          <p class="blog-card-summary">${escapeHtml(p.summary || '')}</p>
+          <span class="blog-card-link">阅读文章 →</span>
+        </div>
+      </a>
+    `;
+  }
+
+  function placeholderImage(title, seed) {
+    const hue = stringHash(seed || title) % 360;
+    const hue2 = (hue + 40) % 360;
+    const id = 'img-' + Math.abs(stringHash(seed || title)).toString(36);
+    const label = escapeHtml(title.slice(0, 18));
+    return `
+      <svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="${id}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="hsl(${hue}, 70%, 88%)" />
+            <stop offset="100%" stop-color="hsl(${hue2}, 65%, 78%)" />
+          </linearGradient>
+        </defs>
+        <rect width="400" height="225" fill="url(#${id})" />
+        <circle cx="320" cy="50" r="80" fill="hsla(${hue2}, 70%, 60%, 0.18)" />
+        <circle cx="80" cy="180" r="60" fill="hsla(${hue}, 70%, 55%, 0.14)" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="hsla(${hue}, 60%, 30%, 0.45)">${label}</text>
+      </svg>
+    `;
+  }
+
+  function stringHash(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = (h << 5) - h + str.charCodeAt(i);
+      h |= 0;
+    }
+    return Math.abs(h);
   }
 
   renderList();

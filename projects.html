@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>projects · xhd.log</title>
+  <meta name="description" content="徐鸿铎的手工项目展示页：大模型平台、推理优化、Agent 系统与工程工具。" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>" />
   <script>
@@ -36,26 +37,107 @@
 
   <main class="container">
     <section class="hero">
-      <div class="hero-cmd">
-        <span class="prompt">$</span> ls ./projects
-      </div>
-      <h1>Projects<span class="blink"></span></h1>
-      <p class="hero-sub">这里将展示我手工维护的项目：大模型平台、推理优化、Agent 系统与工程工具。</p>
+      <div class="hero-overline">projects</div>
+      <h1>手工项目集</h1>
+      <p class="hero-sub">这里将展示我逐一手写维护的项目：大模型平台、推理优化、Agent 系统与工程工具。</p>
     </section>
 
-    <div class="project-grid" id="project-list">
-      <!-- 项目卡片模板：后续在此处手工添加 -->
-    </div>
+    <p class="projects-intro">
+      历史项目不再在此展示。下面的卡片是后续项目的结构模板，我会逐个替换为真实的项目背景、技术栈、我的角色与可公开链接。
+    </p>
 
-    <div class="placeholder-note">
-      <strong>// 项目页面正在重构中</strong><br>
-      历史项目不再在此展示。新的项目条目会由我逐一手写补充，包括项目背景、技术栈、我的角色与可公开链接。
+    <div class="project-grid">
+      <article class="project-card">
+        <div class="project-card-image">
+          <svg viewBox="0 0 400 225" aria-hidden="true">
+            <rect width="400" height="225" fill="#f5f4f0" />
+            <circle cx="200" cy="112" r="70" fill="rgba(217,119,6,0.12)" />
+            <rect x="160" y="92" width="80" height="40" rx="8" fill="rgba(217,119,6,0.25)" />
+          </svg>
+        </div>
+        <div class="project-card-content">
+          <div class="project-card-header">
+            <h3 class="project-card-title">大模型 API 平台</h3>
+            <span class="project-card-status planned">planned</span>
+          </div>
+          <p class="project-card-desc">统一接入多厂商、多框架的大模型推理服务，提供 OpenAI 兼容接口、智能路由与用量观测。</p>
+          <div class="project-card-tech">
+            <span>FastAPI</span>
+            <span>vLLM</span>
+            <span>React</span>
+          </div>
+          <div class="project-card-footer">
+            <span>2025</span>
+            <span class="project-card-link"> coming soon</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card-image">
+          <svg viewBox="0 0 400 225" aria-hidden="true">
+            <rect width="400" height="225" fill="#f5f4f0" />
+            <circle cx="200" cy="112" r="70" fill="rgba(16,185,129,0.10)" />
+            <path d="M170 112 L200 82 L230 112 L200 142 Z" fill="rgba(16,185,129,0.25)" />
+          </svg>
+        </div>
+        <div class="project-card-content">
+          <div class="project-card-header">
+            <h3 class="project-card-title">推理加速工具箱</h3>
+            <span class="project-card-status planned">planned</span>
+          </div>
+          <p class="project-card-desc">整理量化、PD 分离、MTP、投机解码等推理优化方案的实验脚本与对比数据。</p>
+          <div class="project-card-tech">
+            <span>CUDA</span>
+            <span>Python</span>
+            <span>Docker</span>
+          </div>
+          <div class="project-card-footer">
+            <span>2025</span>
+            <span class="project-card-link"> coming soon</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card-image">
+          <svg viewBox="0 0 400 225" aria-hidden="true">
+            <rect width="400" height="225" fill="#f5f4f0" />
+            <circle cx="200" cy="112" r="70" fill="rgba(99,102,241,0.10)" />
+            <circle cx="185" cy="112" r="22" fill="rgba(99,102,241,0.25)" />
+            <circle cx="215" cy="112" r="22" fill="rgba(99,102,241,0.15)" />
+          </svg>
+        </div>
+        <div class="project-card-content">
+          <div class="project-card-header">
+            <h3 class="project-card-title">Agent 编排框架</h3>
+            <span class="project-card-status planned">planned</span>
+          </div>
+          <p class="project-card-desc">基于 LangGraph / Dify 构建的 RAG + Agent 工作流示例，覆盖检索、工具调用与多轮状态管理。</p>
+          <div class="project-card-tech">
+            <span>LangGraph</span>
+            <span>Dify</span>
+            <span>RAG</span>
+          </div>
+          <div class="project-card-footer">
+            <span>2025</span>
+            <span class="project-card-link"> coming soon</span>
+          </div>
+        </div>
+      </article>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+      <div class="site-footer-inner">
+        <p>© <span id="year"></span> xhd · built with GitHub Pages</p>
+        <div class="footer-links">
+          <a href="index.html">posts</a>
+          <a href="projects.html">projects</a>
+          <a href="about.html">about</a>
+        </div>
+      </div>
     </div>
   </footer>
 
