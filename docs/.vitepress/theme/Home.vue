@@ -1,297 +1,498 @@
 <script setup>
-import HomeStats from './HomeStats.vue'
+import { ref, reactive, computed, onMounted } from 'vue'
+import data from '../data/progress.json'
+
+/* ---------- 数据 ---------- */
+const cats = Object.values(data)
+const topics = cats.reduce((s, c) => s + c.total, 0)
+const done = cats.reduce((s, c) => s + c.done, 0)
+const pct = computed(() => (topics ? Math.round((done / topics) * 100) : 0))
+const asciiBar = computed(() => {
+  const n = Math.round(pct.value / 5)
+  return '█'.repeat(n) + '░'.repeat(20 - n)
+})
 
 const focus = [
-  {
-    title: '大模型推理架构',
-    desc: 'PD 分离、MTP 多 Token 预测、动态优先级调度、量化推理（AWQ / GGUF / w8a8），在生产环境落地 vLLM、llama.cpp、TEI 等推理引擎。',
-  },
-  {
-    title: '异构算力调度',
-    desc: '统筹 NVIDIA A100 / V100 与华为昇腾 910B3 混合集群，自研梯度算力部署方案，支撑近 50 个大模型重点场景。',
-  },
-  {
-    title: '大模型平台工程',
-    desc: '独立全栈开发大模型开放平台：14+ 模型在线管理，OpenAI / Anthropic 兼容接口，KV Cache 感知的 API 智能路由。',
-  },
-  {
-    title: 'AI 应用落地',
-    desc: '提示词工程 + RAG 驱动的业务系统：需求项检查、履历合规校验、检索与精排、OCR 全链路。',
-  },
+  ['llm-inference/', 'PD 分离 · MTP · 量化推理 · vLLM / llama.cpp'],
+  ['heterogeneous-compute/', 'A100 / V100 / 昇腾 910B3 · 梯度算力方案'],
+  ['platform-eng/', '大模型开放平台 · API 智能路由 · 全栈'],
+  ['applied-ai/', 'RAG · Agent · 业务系统落地'],
 ]
 
 const stack = [
   'Python', 'PyTorch', 'vLLM', 'SGLang', 'llama.cpp', 'TEI',
-  'CUDA', 'Ascend CANN', 'Docker', 'Kubernetes',
-  'Vue', 'FastAPI', 'RAG', 'Agent', 'RagFlow', 'Dify',
+  'CUDA', 'Ascend-CANN', 'Docker', 'K8s', 'Vue', 'FastAPI',
 ]
 
 const tiers = [
-  {
-    no: '01', name: '基础科学', link: '/posts/foundations/math/',
-    desc: '数学、物理、化学、生物，及天文、地学、认知、心理、逻辑、科哲、经济学 —— 一切的地基。',
-  },
-  {
-    no: '02', name: '进阶数理', link: '/posts/intermediate/advanced-math/',
-    desc: '高等数学、概率统计、线性代数、离散数学，直到实变、泛函、拓扑与微分几何。',
-  },
-  {
-    no: '03', name: '计算机基础', link: '/posts/cs/data-structures/',
-    desc: '数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统 —— CS 核心课全集。',
-  },
-  {
-    no: '04', name: '高阶专题', link: '/posts/advanced/llm-principles/',
-    desc: '机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，直至 AI 安全与量子计算。',
-  },
+  ['01', '基础科学', '/posts/foundations/math/', '数理生化 + 天文地学认知心理逻辑科哲经济'],
+  ['02', '进阶数理', '/posts/intermediate/advanced-math/', '高数概率线代，直到实变泛函拓扑'],
+  ['03', '计算机基础', '/posts/cs/data-structures/', 'CS 核心课全集：从数据结构到分布式'],
+  ['04', '高阶专题', '/posts/advanced/llm-principles/', 'ML/DL/RL 到大模型原理、部署、微调'],
 ]
+
+/* ---------- 窗口布局与拖拽 ---------- */
+const defaults = {
+  whoami: { x: 40, y: 28 },
+  focus: { x: 520, y: 28 },
+  clock: { x: 520, y: 330 },
+  stack: { x: 40, y: 340 },
+  tiers: { x: 40, y: 540 },
+  progress: { x: 520, y: 470 },
+}
+const pos = reactive(JSON.parse(JSON.stringify(defaults)))
+const z = reactive(Object.fromEntries(Object.keys(defaults).map((k) => [k, 1])))
+let top = 1
+
+const STORAGE_KEY = 'home-terminal-layout'
+
+function onDragStart(e, key) {
+  if (e.pointerType === 'touch') return // 触屏走纵向堆叠布局
+  const el = e.currentTarget.closest('.win')
+  const parent = el.parentElement.getBoundingClientRect()
+  const rect = el.getBoundingClientRect()
+  const offX = e.clientX - rect.left
+  const offY = e.clientY - rect.top
+  z[key] = ++top
+
+  const move = (ev) => {
+    pos[key].x = Math.min(Math.max(ev.clientX - parent.left - offX, 0), parent.width - 80)
+    pos[key].y = Math.min(Math.max(ev.clientY - parent.top - offY, 0), parent.height - 40)
+  }
+  const up = () => {
+    window.removeEventListener('pointermove', move)
+    window.removeEventListener('pointerup', up)
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(pos))
+    } catch {}
+  }
+  window.addEventListener('pointermove', move)
+  window.addEventListener('pointerup', up)
+}
+
+function resetLayout() {
+  Object.assign(pos, JSON.parse(JSON.stringify(defaults)))
+  try {
+    localStorage.removeItem(STORAGE_KEY)
+  } catch {}
+}
+
+/* ---------- 时钟 ---------- */
+const now = ref('')
+onMounted(() => {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null')
+    if (saved) for (const k of Object.keys(defaults)) if (saved[k]) Object.assign(pos[k], saved[k])
+  } catch {}
+  const tick = () => {
+    const d = new Date()
+    const p = (n) => String(n).padStart(2, '0')
+    now.value = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`
+  }
+  tick()
+  setInterval(tick, 1000)
+})
 </script>
 
 <template>
-  <div class="home">
-    <!-- Hero：工程师身份卡 -->
-    <section class="hero">
-      <p class="hero-eyebrow">徐鸿铎 · Xu Hongduo</p>
-      <h1 class="hero-title">从极限到大模型</h1>
-      <p class="hero-role">
-        大模型架构工程师<span class="hero-at"> @ </span>中国工商银行总行 · 业务研发中心
-      </p>
-      <p class="hero-tagline">
-        白天做大模型推理架构与异构算力调度，晚上写一个自下而上的知识体系 ——
-        从高中数理出发，经大学数学物理与计算机科学，抵达 AI 与大模型前沿。
-      </p>
-      <div class="hero-actions">
-        <a href="/posts/" class="btn btn-brand">博文总览</a>
-        <a href="/projects/" class="btn">项目</a>
-        <a href="/about/" class="btn">关于我</a>
-      </div>
-    </section>
-
-    <!-- 专注领域 -->
-    <section class="section">
-      <h2 class="section-title">专注领域</h2>
-      <div class="focus-grid">
-        <div v-for="f in focus" :key="f.title" class="focus-card">
-          <h3 class="focus-title">{{ f.title }}</h3>
-          <p class="focus-desc">{{ f.desc }}</p>
+  <div class="term-home">
+    <div class="desktop">
+      <!-- whoami -->
+      <div
+        class="win win-whoami"
+        :style="{ left: pos.whoami.x + 'px', top: pos.whoami.y + 'px', zIndex: z.whoami }"
+      >
+        <div class="win-bar" @pointerdown="onDragStart($event, 'whoami')">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="win-title">whoami — zsh</span>
+        </div>
+        <div class="win-body">
+          <p class="cmd">$ whoami</p>
+          <h1 class="me">徐鸿铎</h1>
+          <p class="role">大模型架构工程师 @ 中国工商银行总行</p>
+          <p class="cmd">$ cat motto.txt</p>
+          <p class="motto">
+            白天做大模型推理架构与异构算力调度，<br />
+            晚上写一个从高中数理到大模型的完整知识体系。
+          </p>
+          <p class="cmd">$ ls ./nav</p>
+          <div class="nav-row">
+            <a href="/posts/" class="nav-link">博文总览</a>
+            <a href="/projects/" class="nav-link">项目</a>
+            <a href="/about/" class="nav-link">关于我</a>
+            <a href="https://github.com/xhongduo-tech" class="nav-link">GitHub</a>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- 技术栈 -->
-    <section class="section">
-      <h2 class="section-title">技术栈</h2>
-      <div class="stack">
-        <span v-for="s in stack" :key="s" class="stack-tag">{{ s }}</span>
-      </div>
-    </section>
-
-    <!-- 写作体系 -->
-    <section class="section">
-      <h2 class="section-title">写作体系</h2>
-      <p class="section-desc">
-        60 个学科、5800+ 个选题，对标经典教材逐节写作。这不是博客的目录，是一份学习计划。
-      </p>
-      <div class="tier-grid">
-        <a v-for="t in tiers" :key="t.no" :href="t.link" class="tier-card">
-          <div class="tier-head">
-            <span class="tier-no">{{ t.no }}</span>
-            <span class="tier-name">{{ t.name }}</span>
+      <!-- focus -->
+      <div
+        class="win win-focus"
+        :style="{ left: pos.focus.x + 'px', top: pos.focus.y + 'px', zIndex: z.focus }"
+      >
+        <div class="win-bar" @pointerdown="onDragStart($event, 'focus')">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="win-title">focus — zsh</span>
+        </div>
+        <div class="win-body">
+          <p class="cmd">$ ls -l ~/focus</p>
+          <div v-for="f in focus" :key="f[0]" class="ls-row">
+            <span class="ls-name">{{ f[0] }}</span>
+            <span class="ls-desc">{{ f[1] }}</span>
           </div>
-          <p class="tier-desc">{{ t.desc }}</p>
-        </a>
+        </div>
       </div>
-      <HomeStats />
-    </section>
+
+      <!-- clock -->
+      <div
+        class="win win-clock"
+        :style="{ left: pos.clock.x + 'px', top: pos.clock.y + 'px', zIndex: z.clock }"
+      >
+        <div class="win-bar" @pointerdown="onDragStart($event, 'clock')">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="win-title">date — zsh</span>
+        </div>
+        <div class="win-body">
+          <p class="cmd">$ date</p>
+          <p class="clock">{{ now || 'loading…' }}</p>
+        </div>
+      </div>
+
+      <!-- stack -->
+      <div
+        class="win win-stack"
+        :style="{ left: pos.stack.x + 'px', top: pos.stack.y + 'px', zIndex: z.stack }"
+      >
+        <div class="win-bar" @pointerdown="onDragStart($event, 'stack')">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="win-title">stack — zsh</span>
+        </div>
+        <div class="win-body">
+          <p class="cmd">$ cat ~/stack.txt</p>
+          <div class="tags">
+            <span v-for="s in stack" :key="s" class="tag">{{ s }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- tiers -->
+      <div
+        class="win win-tiers"
+        :style="{ left: pos.tiers.x + 'px', top: pos.tiers.y + 'px', zIndex: z.tiers }"
+      >
+        <div class="win-bar" @pointerdown="onDragStart($event, 'tiers')">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="win-title">tiers — zsh</span>
+        </div>
+        <div class="win-body">
+          <p class="cmd">$ open ~/writing-system <span class="comment"># 60 学科 · {{ topics.toLocaleString() }} 选题</span></p>
+          <a v-for="t in tiers" :key="t[0]" :href="t[2]" class="tier-row">
+            <span class="tier-no">{{ t[0] }}</span>
+            <span class="tier-name">{{ t[1] }}</span>
+            <span class="tier-desc">{{ t[3] }}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- progress -->
+      <div
+        class="win win-progress"
+        :style="{ left: pos.progress.x + 'px', top: pos.progress.y + 'px', zIndex: z.progress }"
+      >
+        <div class="win-bar" @pointerdown="onDragStart($event, 'progress')">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="win-title">progress — zsh</span>
+        </div>
+        <div class="win-body">
+          <p class="cmd">$ ./progress --all</p>
+          <p class="prog-line">
+            <span class="prog-bar">{{ asciiBar }}</span> {{ pct }}%
+          </p>
+          <p class="prog-stat">{{ done }} / {{ topics.toLocaleString() }} 篇 · {{ cats.length }} 个学科</p>
+          <p class="cmd">$ <a href="/posts/" class="term-link">open /posts</a><span class="cursor">▊</span></p>
+        </div>
+      </div>
+
+      <button class="reset" title="复位布局" @click="resetLayout">reset</button>
+    </div>
+    <p class="hint">拖动窗口标题栏可以自由摆放，布局会自动保存</p>
   </div>
 </template>
 
 <style scoped>
-.home {
-  max-width: 960px;
+.term-home {
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 64px 24px 32px;
+  padding: 24px 20px 8px;
 }
 
-/* Hero */
-.hero {
-  padding: 32px 0 48px;
-}
-.hero-eyebrow {
-  font-family: var(--vp-font-family-mono);
-  font-size: 14px;
-  color: var(--vp-c-brand-1);
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
-}
-.hero-title {
-  font-size: clamp(2.4rem, 6vw, 3.8rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--vp-c-text-1);
-}
-.hero-role {
-  margin-top: 16px;
-  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-  font-weight: 600;
-  color: var(--vp-c-text-2);
-}
-.hero-at {
-  color: var(--vp-c-brand-1);
-}
-.hero-tagline {
-  margin-top: 16px;
-  max-width: 680px;
-  font-size: 16px;
-  line-height: 1.9;
-  color: var(--vp-c-text-2);
-}
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 32px;
-  flex-wrap: wrap;
-}
-.btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-divider);
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
-  text-decoration: none !important;
-  transition: border-color 0.2s, background 0.2s;
-}
-.btn:hover {
-  border-color: var(--vp-c-brand-1);
-}
-.btn-brand {
-  background: var(--vp-c-brand-1);
-  border-color: var(--vp-c-brand-1);
-  color: #fff;
-}
-.btn-brand:hover {
-  background: var(--vp-c-brand-2);
-}
-
-/* Sections */
-.section {
-  padding: 40px 0;
-  border-top: 1px solid var(--vp-c-divider);
-}
-.section-title {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--vp-c-text-3);
-  margin-bottom: 24px;
-}
-.section-desc {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--vp-c-text-2);
-  max-width: 680px;
-  margin-bottom: 24px;
-}
-
-/* 专注领域 */
-.focus-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-.focus-card {
-  border: 1px solid var(--vp-c-divider);
+/* 桌面 */
+.desktop {
+  position: relative;
+  height: 760px;
   border-radius: 12px;
-  padding: 24px;
-  transition: border-color 0.2s;
+  border: 1px solid #21262d;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(63, 185, 80, 0.06), transparent 55%),
+    linear-gradient(rgba(88, 166, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 166, 255, 0.025) 1px, transparent 1px),
+    #0d1117;
+  background-size: auto, 32px 32px, 32px 32px, auto;
+  overflow: hidden;
 }
-.focus-card:hover {
-  border-color: var(--vp-c-brand-1);
+
+/* 窗口 */
+.win {
+  position: absolute;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: rgba(13, 17, 23, 0.92);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  font-family: var(--vp-font-family-mono);
+  user-select: none;
 }
-.focus-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  margin-bottom: 10px;
+.win-whoami { width: 440px; }
+.win-focus { width: 460px; }
+.win-clock { width: 460px; }
+.win-stack { width: 440px; }
+.win-tiers { width: 440px; }
+.win-progress { width: 460px; }
+
+.win-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  border-radius: 8px 8px 0 0;
+  cursor: grab;
+  touch-action: none;
 }
-.focus-desc {
-  font-size: 14.5px;
-  line-height: 1.8;
-  color: var(--vp-c-text-2);
+.win-bar:active {
+  cursor: grabbing;
+}
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.dot.r { background: #ff5f57; }
+.dot.y { background: #febc2e; }
+.dot.g { background: #28c840; }
+.win-title {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #7d8590;
+}
+.win-body {
+  padding: 14px 16px 16px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #adbac7;
+}
+
+.cmd {
+  color: #3fb950;
+  margin: 10px 0 6px;
+}
+.cmd:first-child {
+  margin-top: 0;
+}
+.comment {
+  color: #484f58;
+}
+.term-link {
+  color: #58a6ff;
+  text-decoration: none;
+}
+.term-link:hover {
+  text-decoration: underline;
+}
+.cursor {
+  color: #3fb950;
+  animation: blink 1.1s steps(1) infinite;
+  margin-left: 4px;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* whoami */
+.me {
+  font-size: 30px;
+  font-weight: 800;
+  color: #e6edf3;
+  letter-spacing: 0.02em;
+  margin: 2px 0 4px;
+}
+.role {
+  color: #58a6ff;
   margin: 0;
 }
-
-/* 技术栈 */
-.stack {
+.motto {
+  color: #adbac7;
+  margin: 0;
+  font-family: var(--vp-font-family-base);
+  line-height: 1.8;
+}
+.nav-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-.stack-tag {
-  font-family: var(--vp-font-family-mono);
-  font-size: 13px;
-  padding: 5px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--vp-c-divider);
-  color: var(--vp-c-text-2);
-  transition: border-color 0.2s, color 0.2s;
+.nav-link {
+  font-size: 12.5px;
+  padding: 4px 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #3fb950;
+  text-decoration: none !important;
+  transition: border-color 0.2s, background 0.2s;
 }
-.stack-tag:hover {
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-brand-1);
+.nav-link:hover {
+  border-color: #3fb950;
+  background: rgba(63, 185, 80, 0.1);
 }
 
-/* 写作体系 */
-.tier-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+/* focus ls */
+.ls-row {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.tier-card {
-  display: block;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 24px;
-  text-decoration: none !important;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+.ls-name {
+  color: #58a6ff;
+  flex-shrink: 0;
 }
-.tier-card:hover {
-  border-color: var(--vp-c-brand-1);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+.ls-desc {
+  color: #7d8590;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--vp-font-family-base);
+  font-size: 12.5px;
 }
-.dark .tier-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+/* clock */
+.clock {
+  font-size: 26px;
+  font-weight: 700;
+  color: #e6edf3;
+  font-variant-numeric: tabular-nums;
+  margin: 4px 0 2px;
 }
-.tier-head {
+
+/* stack */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  font-size: 12px;
+  padding: 3px 10px;
+  border: 1px solid #30363d;
+  border-radius: 999px;
+  color: #adbac7;
+  transition: border-color 0.2s, color 0.2s;
+}
+.tag:hover {
+  border-color: #3fb950;
+  color: #3fb950;
+}
+
+/* tiers */
+.tier-row {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  margin-bottom: 10px;
+  padding: 5px 0;
+  text-decoration: none !important;
+  border-bottom: 1px dashed #21262d;
+}
+.tier-row:last-child {
+  border-bottom: none;
 }
 .tier-no {
-  font-family: var(--vp-font-family-mono);
-  font-size: 14px;
-  color: var(--vp-c-brand-1);
+  color: #3fb950;
 }
 .tier-name {
-  font-size: 18px;
+  color: #e6edf3;
   font-weight: 700;
-  color: var(--vp-c-text-1);
+  font-family: var(--vp-font-family-base);
+}
+.tier-row:hover .tier-name {
+  color: #58a6ff;
 }
 .tier-desc {
-  font-size: 14.5px;
-  line-height: 1.8;
-  color: var(--vp-c-text-2);
-  margin: 0;
+  color: #7d8590;
+  font-size: 12px;
+  font-family: var(--vp-font-family-base);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@media (max-width: 640px) {
-  .focus-grid,
-  .tier-grid {
-    grid-template-columns: 1fr;
+/* progress */
+.prog-line {
+  margin: 4px 0;
+  color: #e6edf3;
+}
+.prog-bar {
+  color: #3fb950;
+  letter-spacing: 1px;
+}
+.prog-stat {
+  color: #7d8590;
+  margin: 0 0 4px;
+}
+
+/* reset & hint */
+.reset {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  color: #484f58;
+  background: none;
+  border: 1px solid #21262d;
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.reset:hover {
+  color: #3fb950;
+  border-color: #3fb950;
+}
+.hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  margin: 10px 0 0;
+}
+
+/* 移动端：堆叠为纵向列表，禁用拖拽 */
+@media (max-width: 900px) {
+  .desktop {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    overflow: visible;
+  }
+  .win {
+    position: static !important;
+    width: 100%;
+  }
+  .win-bar {
+    cursor: default;
+  }
+  .reset {
+    display: none;
   }
 }
 </style>
