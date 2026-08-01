@@ -9,8 +9,8 @@ const base = repo && !repo.endsWith('.github.io') ? `/${repo}/` : '/'
 export default defineConfig({
   base,
   lang: 'zh-CN',
-  title: '我的博客', // TODO: 改成你的站点名
-  description: '数学 · 物理 · 计算机 · 大模型', // TODO: 改成你的简介
+  title: '从极限到大模型',
+  description: '徐宏铎的个人知识库：从数理基础到大模型的系统化写作计划',
   cleanUrls: true,
   lastUpdated: true,
 
@@ -126,8 +126,8 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/xhongduo-tech' },
     ],
     footer: {
-      message: 'Simple is professional.',
-      copyright: 'Copyright © 2026',
+      message: '从极限到大模型 · From Limits to LLMs',
+      copyright: 'Copyright © 2026 徐宏铎',
     },
   },
 })
