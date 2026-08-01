@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/llm-deployment" />
+
+
 ### 第一篇 推理基础
 
 - [ ] 自回归生成的基本原理

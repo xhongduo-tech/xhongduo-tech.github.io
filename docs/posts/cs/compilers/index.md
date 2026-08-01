@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/compilers" />
+
+
 ### 第一篇 编译器概述
 
 - [ ] 编译器的结构：分析与综合

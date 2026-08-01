@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/distributed-systems" />
+
+
 ### 第 1 篇 分布式系统概述
 
 - [ ] 什么是分布式系统：动机与定义

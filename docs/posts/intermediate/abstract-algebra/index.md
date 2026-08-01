@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/abstract-algebra" />
+
+
 ### 第一篇 代数系统与同态同构
 
 - [ ] 集合、映射与运算

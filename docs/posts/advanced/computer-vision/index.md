@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/computer-vision" />
+
+
 ### 图像形成与成像几何
 
 - [ ] 光的物理性质与光谱：可见光、色度学基础

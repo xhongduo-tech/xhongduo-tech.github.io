@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/database" />
+
+
 ### 第一篇 关系数据库与 SQL
 
 #### 第 1 章 数据库系统引论

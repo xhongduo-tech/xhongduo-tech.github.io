@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/embodied-ai" />
+
+
 ### 第一篇 机器人学基础（对标 Craig《机器人学导论》、Lynch & Park《Modern Robotics》）
 
 #### 第 1 章 空间描述与坐标变换

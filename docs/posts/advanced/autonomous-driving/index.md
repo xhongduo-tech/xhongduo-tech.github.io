@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/autonomous-driving" />
+
+
 ### 自动驾驶概述
 
 - [ ] 自动驾驶的发展历程与产业格局

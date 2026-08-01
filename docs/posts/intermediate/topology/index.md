@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/topology" />
+
+
 ### 第一篇 拓扑空间与连续映射
 
 - [ ] 从度量空间到拓扑空间：为什么要抽象出「开集」

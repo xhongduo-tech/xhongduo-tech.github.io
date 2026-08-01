@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/ai-infra" />
+
+
 ### 第一篇 GPU 体系结构与 CUDA 编程
 
 - [ ] GPU 与 CPU 的设计哲学差异：吞吐优先 vs 延迟优先

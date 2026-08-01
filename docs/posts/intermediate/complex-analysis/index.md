@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/complex-analysis" />
+
+
 ### 第一章 复数与复变函数
 
 - [ ] 复数及其代数运算

@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/information-retrieval" />
+
+
 ### 第一篇 信息检索概述与评测
 
 - [ ] 什么是信息检索：从结构化查询到非结构化文本检索

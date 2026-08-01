@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/mathematical-analysis" />
+
+
 ### 第一章 实数集与函数
 
 - [ ] 实数及其性质：有序域、阿基米德性质、稠密性与常用不等式

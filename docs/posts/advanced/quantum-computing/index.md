@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/quantum-computing" />
+
+
 ### 第零篇 量子计算概述
 
 - [ ] 量子计算的起源：Feynman 的提议与量子模拟

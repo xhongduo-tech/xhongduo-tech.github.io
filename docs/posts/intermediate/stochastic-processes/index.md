@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/stochastic-processes" />
+
+
 ### 第一篇 预备知识
 
 - [ ] 随机过程的基本概念：样本轨道与有限维分布族

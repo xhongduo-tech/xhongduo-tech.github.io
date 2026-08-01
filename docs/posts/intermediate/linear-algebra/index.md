@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/linear-algebra" />
+
+
 ### 第一篇 行列式
 
 - [ ] 二阶与三阶行列式

@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/computer-organization" />
+
+
 ### 第一篇 计算机系统概述
 
 - [ ] 计算机的产生与发展：从电子管到超大规模集成电路

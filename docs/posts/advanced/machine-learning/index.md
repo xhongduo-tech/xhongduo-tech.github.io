@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/machine-learning" />
+
+
 ### 第1章 绪论
 - [ ] 基本术语
 - [ ] 假设空间

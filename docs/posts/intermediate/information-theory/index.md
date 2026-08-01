@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/information-theory" />
+
+
 ### 第一篇 熵、相对熵与互信息
 
 - [ ] 自信息（Self-information）与熵的定义

@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/advanced-physics" />
+
+
 ### 第一篇 力学｜第一章 质点运动学
 
 - [ ] 质点、参考系与坐标系

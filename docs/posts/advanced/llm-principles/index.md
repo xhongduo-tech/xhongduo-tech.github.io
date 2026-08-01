@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/llm-principles" />
+
+
 ### 第一篇 发展脉络与缩放定律
 
 - [ ] 从统计语言模型到神经语言模型：N-gram、Word2Vec 与 RNNLM

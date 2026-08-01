@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/logic" />
+
+
 ### 第一篇 逻辑学导论
 
 - [ ] 什么是逻辑：逻辑学的研究对象与历史

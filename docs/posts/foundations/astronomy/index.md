@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/astronomy" />
+
+
 ### 第一章 天球与天球坐标系
 
 - [ ] 天球的概念与基本点圈（天极、天赤道、黄道、天顶）

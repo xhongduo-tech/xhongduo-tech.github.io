@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/earth-science" />
+
+
 ### 第一篇 地球的形成与圈层结构
 
 - [ ] 太阳系的起源与星云假说

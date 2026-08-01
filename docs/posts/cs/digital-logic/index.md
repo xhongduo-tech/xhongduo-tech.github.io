@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/digital-logic" />
+
+
 ### 第一篇 数制与码制
 
 - [ ] 数字信号与数字电路概述

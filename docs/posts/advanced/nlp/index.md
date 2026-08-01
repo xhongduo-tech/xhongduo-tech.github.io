@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/nlp" />
+
+
 ### 第一篇 NLP 概述
 
 - [ ] 什么是自然语言处理：定义、任务与研究内容

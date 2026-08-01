@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/numerical-analysis" />
+
+
 ### 误差与数值算法稳定性
 
 - [ ] 数值分析的研究对象与特点

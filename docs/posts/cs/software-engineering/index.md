@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/software-engineering" />
+
+
 ### 第 1 章 软件工程概述
 
 - [ ] 软件的本质与软件危机

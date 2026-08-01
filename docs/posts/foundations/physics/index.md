@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/physics" />
+
+
 ### 必修第一册 · 第一章 运动的描述
 
 - [ ] 质点 参考系

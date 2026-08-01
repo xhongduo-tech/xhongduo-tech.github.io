@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/biology" />
+
+
 ### 必修1《分子与细胞》第1章 走近细胞
 
 - [ ] 细胞是生命活动的基本单位

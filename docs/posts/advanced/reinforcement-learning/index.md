@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/reinforcement-learning" />
+
+
 ### 第一篇 引言（第1章）
 - [ ] 强化学习：一种试错与延迟奖励驱动的学习范式
 - [ ] 强化学习的要素：策略、奖励信号、价值函数与环境模型

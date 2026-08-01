@@ -4,6 +4,9 @@ AI 安全与对齐研究如何确保能力不断增强的人工智能系统可�
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/ai-safety" />
+
+
 ### 第一篇 对齐问题（The Alignment Problem）
 
 #### 第 1 章 对齐问题总论

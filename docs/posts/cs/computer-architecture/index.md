@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/computer-architecture" />
+
+
 ### 第一篇 体系结构基础与量化分析
 
 - [ ] 计算机体系结构的定义：指令集、组成与实现的分工

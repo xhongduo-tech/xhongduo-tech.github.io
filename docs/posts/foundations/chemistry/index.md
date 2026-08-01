@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/chemistry" />
+
+
 ### 必修第一册 · 第一章 物质及其变化
 
 - [ ] 物质的分类及转化

@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/differential-geometry" />
+
+
 ### 第一篇 曲线论
 
 - [ ] 参数曲线与正则曲线（parametrized curve / regular curve）

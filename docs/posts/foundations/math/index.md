@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/math" />
+
+
 ### 集合与常用逻辑用语
 
 - [ ] 集合的概念

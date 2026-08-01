@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/functional-analysis" />
+
+
 ### 第一章 度量空间（Metric Space）
 
 - [ ] 度量空间的定义与基本例子

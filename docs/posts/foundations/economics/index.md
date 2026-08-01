@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/economics" />
+
+
 ### 第一篇 微观经济学
 
 #### 第 1 章 经济学十大原理

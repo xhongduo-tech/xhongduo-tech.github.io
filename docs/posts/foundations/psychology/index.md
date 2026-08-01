@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/psychology" />
+
+
 ### 心理学的研究对象与方法
 
 - [ ] 心理学是研究心理现象的科学：研究对象、任务与学科性质

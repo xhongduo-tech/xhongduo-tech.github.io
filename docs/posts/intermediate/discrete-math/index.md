@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/discrete-math" />
+
+
 ### 第一篇 逻辑与证明
 
 - [ ] 命题逻辑：命题、联结词与真值表

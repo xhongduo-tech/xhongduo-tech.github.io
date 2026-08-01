@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/ai4science" />
+
+
 ### 第一篇 AI4Science 概述与范式
 
 - [ ] AI for Science 的兴起：从实验、理论、计算到数据驱动的第四范式

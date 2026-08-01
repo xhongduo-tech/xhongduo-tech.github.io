@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/optimization" />
+
+
 ### 第一篇 凸集与凸函数
 
 - [ ] 仿射集与凸集：定义与基本例子

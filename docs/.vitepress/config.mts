@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import taskLists from 'markdown-it-task-lists'
 
 // GitHub Pages base 路径：
 // - 普通项目仓库（如 user/blog）-> '/blog/'
@@ -17,6 +18,9 @@ export default defineConfig({
   markdown: {
     math: true, // 内置数学公式支持，直接写 $...$ / $$...$$
     lineNumbers: true,
+    config: (md) => {
+      md.use(taskLists) // 让 - [ ] / - [x] 渲染为真正的复选框
+    },
   },
 
   themeConfig: {

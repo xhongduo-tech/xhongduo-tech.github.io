@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/advanced-math" />
+
+
 ### 第一章 函数与极限
 
 - [ ] 映射与函数

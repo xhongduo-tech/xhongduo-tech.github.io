@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/deep-learning" />
+
+
 ### 第一篇 数学基础回顾
 
 - [ ] 线性代数：标量、向量、矩阵与张量

@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="intermediate/probability" />
+
+
 ### 第一篇 概率论的基本概念
 
 - [ ] 随机试验与随机事件

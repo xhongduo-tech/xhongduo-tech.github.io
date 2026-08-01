@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/ontology" />
+
+
 ### 第一篇 哲学源流：存在之问
 
 - [ ] 本体论的问题意识：作为存在的存在（being qua being）

@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/computer-graphics" />
+
+
 ### 第一篇 图形学概述
 
 - [ ] 什么是计算机图形学：研究内容、与计算机视觉/图像处理的关系

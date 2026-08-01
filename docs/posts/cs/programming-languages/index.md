@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="cs/programming-languages" />
+
+
 ### 第一篇 语言设计与评价
 
 - [ ] 学习程序设计语言原理的意义

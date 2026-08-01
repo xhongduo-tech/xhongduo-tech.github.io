@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/recommender-systems" />
+
+
 ### 第一篇 推荐系统概述与评估
 
 - [ ] 什么是推荐系统：信息过载与长尾问题

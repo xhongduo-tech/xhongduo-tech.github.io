@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/cognitive-science" />
+
+
 ### 第一篇：认知科学导论与历史范式
 
 - [ ] 什么是认知科学：跨学科的认知研究（心理学、神经科学、语言学、哲学、计算机科学、人类学）

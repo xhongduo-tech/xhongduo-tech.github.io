@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/speech" />
+
+
 ### 语音的产生与感知基础
 
 - [ ] 发音器官与语音产生机理：声源—滤波器模型

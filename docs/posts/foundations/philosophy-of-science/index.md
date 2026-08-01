@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="foundations/philosophy-of-science" />
+
+
 ### 古代科学：希腊自然哲学
 
 - [ ] 科学的起源：泰勒斯与米利都学派的本原之问（Arche）

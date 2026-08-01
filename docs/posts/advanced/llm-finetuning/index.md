@@ -4,6 +4,9 @@
 
 ## 主题规划
 
+<ProgressGrid cat="advanced/llm-finetuning" />
+
+
 ### 第一篇 微调范式
 
 - [ ] 微调范式总览：从预训练、指令微调到对齐的三阶段
