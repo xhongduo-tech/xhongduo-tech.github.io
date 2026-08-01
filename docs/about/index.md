@@ -20,7 +20,7 @@
 
 ## 联系方式
 
-- GitHub：[@your-username](https://github.com/your-username)
+- GitHub：[@xhongduo-tech](https://github.com/xhongduo-tech)
 - Email：you@example.com
 
 ## 关于本站

@@ -81,8 +81,7 @@ export default defineConfig({
     docFooter: { prev: '上一篇', next: '下一篇' },
     search: { provider: 'local' },
     socialLinks: [
-      // TODO: 改成你的 GitHub 地址
-      { icon: 'github', link: 'https://github.com/your-username' },
+      { icon: 'github', link: 'https://github.com/xhongduo-tech' },
     ],
     footer: {
       message: 'Simple is professional.',
