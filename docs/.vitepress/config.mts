@@ -35,6 +35,7 @@ export default defineConfig({
       '/posts/': [
         { text: '博文总览', link: '/posts/' },
         { text: '如何发布博文', link: '/posts/how-to-publish' },
+        { text: '样式演示', link: '/posts/style-demo' },
         {
           text: '基础科学',
           collapsed: false,

@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 信息检索
 
 对标《Introduction to Information Retrieval》（Manning）与现代搜索体系，从倒排索引与经典检索模型一路写到语义检索、学习排序与 RAG，覆盖一个工业级搜索系统所需的全部理论与实践。

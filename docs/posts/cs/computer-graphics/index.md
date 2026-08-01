@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 计算机图形学
 
 学完计算机图形学 = 写完以下全部博文。选题体系对标 GAMES101（闫令琪）与《Fundamentals of Computer Graphics》(虎书) 的章节结构，覆盖从数学基础、光栅化、几何、光线追踪到动画模拟与神经渲染的完整内容。

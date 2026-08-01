@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 信息论
 
 对标 Cover & Thomas《Elements of Information Theory》的核心章节，从熵与互信息出发，覆盖信源编码、信道容量、率失真理论与科尔莫戈罗夫复杂度，并延伸至信息论与统计、机器学习的联系。

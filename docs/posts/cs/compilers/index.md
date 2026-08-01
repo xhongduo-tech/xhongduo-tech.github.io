@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 编译原理
 
 对标《编译原理》（龙书，Compilers: Principles, Techniques, and Tools），从词法分析一路写到代码优化，并补充垃圾回收、JIT、LLVM 等现代专题。

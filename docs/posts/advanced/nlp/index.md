@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 自然语言处理
 
 本分类对标《自然语言处理》（宗成庆）与 Jurafsky《Speech and Language Processing》的经典体系，覆盖大模型之前（及并行发展）的 NLP 全部内容：从文本预处理、语言模型到句法语义分析、机器翻译、信息抽取、对话与摘要等核心任务。

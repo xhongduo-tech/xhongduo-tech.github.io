@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 数据库
 
 数据库篇覆盖大学数据库课程的全部内容，以《数据库系统概念》（Database System Concepts, Silberschatz）为主线，外加分布式数据库专题。目标：学完每一章，写完对应的每一节博文。

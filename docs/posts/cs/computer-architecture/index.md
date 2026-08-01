@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 计算机体系结构
 
 以量化研究方法（Quantitative Approach）系统进阶计算机体系结构，对标 Hennessy & Patterson《Computer Architecture: A Quantitative Approach》章节体系，覆盖从指令级并行到仓库级计算机的完整内容。本科「计算机组成原理」基础见 [/posts/cs/computer-organization/](/posts/cs/computer-organization/)，本分类聚焦进阶量化视角。

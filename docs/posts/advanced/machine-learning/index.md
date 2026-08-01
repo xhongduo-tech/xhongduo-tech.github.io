@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 机器学习
 
 学完机器学习 = 写完周志华《机器学习》（西瓜书）全部 16 章对应的博文，外加 GBDT/XGBoost/LightGBM、特征工程、调参与 AutoML 三个工程专题。

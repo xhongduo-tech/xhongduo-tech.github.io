@@ -238,3 +238,79 @@
   font-size: 13px;
   color: var(--vp-c-text-3);
 }
+
+/* ============================================
+   博文排版强化
+   ============================================ */
+
+/* ---------- 多级标题：教材式编号 1 / 1.1 / 1.1.1 ---------- */
+.vp-doc {
+  counter-reset: h2;
+}
+.vp-doc h2 {
+  counter-increment: h2;
+  counter-reset: h3;
+}
+.vp-doc h3 {
+  counter-increment: h3;
+  counter-reset: h4;
+}
+.vp-doc h4 {
+  counter-increment: h4;
+}
+.vp-doc h2::before {
+  content: counter(h2);
+  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--vp-c-brand-1);
+  margin-right: 0.5em;
+}
+.vp-doc h3::before {
+  content: counter(h2) '.' counter(h3);
+  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--vp-c-brand-1);
+  opacity: 0.75;
+  margin-right: 0.5em;
+}
+.vp-doc h4::before {
+  content: counter(h2) '.' counter(h3) '.' counter(h4);
+  font-family: var(--vp-font-family-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--vp-c-text-3);
+  margin-right: 0.5em;
+}
+
+/* 非文章页（分类规划页、总览、关于、项目）不编号 */
+.plain-doc .vp-doc :is(h2, h3, h4)::before {
+  content: none;
+  margin: 0;
+}
+
+/* 层级视觉：h3 左侧强调标记、h4 弱化 */
+.vp-doc h3 {
+  font-size: 1.28rem;
+}
+.vp-doc h4 {
+  font-size: 1.08rem;
+  color: var(--vp-c-text-2);
+}
+
+/* ---------- 数学公式 / 化学方程式（MathJax + mhchem） ---------- */
+.vp-doc mjx-container {
+  font-size: 1.04em;
+}
+.vp-doc mjx-container[display='true'] {
+  margin: 2em 0;
+  padding: 0.6em 0.2em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-top: 1px solid var(--vp-c-divider);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+/* 行内公式不与中文混排时过挤 */
+.vp-doc p mjx-container {
+  margin: 0 0.1em;
+}

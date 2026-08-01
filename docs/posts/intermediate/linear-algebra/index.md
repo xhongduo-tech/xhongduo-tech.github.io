@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 线性代数
 
 理解高维空间的工具，深度学习的几何语言。本分类对标同济大学《线性代数》全部章节，并以 Gilbert Strang《Introduction to Linear Algebra》补充四个基本子空间、最小二乘、SVD 与数据科学应用等专题。

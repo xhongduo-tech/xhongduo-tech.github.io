@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 密码学与信息安全
 
 密码学是信息安全的数学根基，信息安全则是密码学在系统与网络中的工程落地。本分类对标 William Stallings《密码编码学与网络安全——原理与实践》（Cryptography and Network Security: Principles and Practice）的章节体系，覆盖从古典密码到后量子密码、从协议到系统安全的完整知识链路。

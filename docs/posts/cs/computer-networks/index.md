@@ -1,3 +1,7 @@
+---
+pageClass: plain-doc
+---
+
 # 计算机网络
 
 对标谢希仁《计算机网络》与 Tanenbaum《Computer Networks》的完整章节体系，从体系结构到现代专题逐节写透。
