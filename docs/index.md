@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: 从极限到大模型
-  text: 徐宏铎的个人知识库
+  text: 徐鸿铎的个人知识库
   tagline: 一个自下而上的写作计划 —— 从高中数理出发，经大学数学物理与计算机科学，抵达 AI 与大模型前沿。60 个学科，5800+ 个选题，一篇一篇写完。
   actions:
     - theme: brand

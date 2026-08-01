@@ -10,7 +10,7 @@ export default defineConfig({
   base,
   lang: 'zh-CN',
   title: '从极限到大模型',
-  description: '徐宏铎的个人知识库：从数理基础到大模型的系统化写作计划',
+  description: '徐鸿铎的个人知识库：从数理基础到大模型的系统化写作计划',
   cleanUrls: true,
   lastUpdated: true,
 
@@ -127,7 +127,7 @@ export default defineConfig({
     ],
     footer: {
       message: '从极限到大模型 · From Limits to LLMs',
-      copyright: 'Copyright © 2026 徐宏铎',
+      copyright: 'Copyright © 2026 徐鸿铎',
     },
   },
 })
