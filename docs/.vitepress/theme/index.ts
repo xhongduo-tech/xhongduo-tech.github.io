@@ -4,6 +4,10 @@ import HomeStats from './HomeStats.vue'
 import ProgressGrid from './ProgressGrid.vue'
 import ProgressOverview from './ProgressOverview.vue'
 import ProjectList from './ProjectList.vue'
+import './fonts.css'
+import './tufte-base.css'
+import './tufted.css'
+import './theme.css'
 import './custom.css'
 
 export default {

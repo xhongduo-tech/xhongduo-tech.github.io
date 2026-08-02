@@ -1,66 +1,43 @@
 <script setup>
-import { useData, withBase } from 'vitepress'
-import { ref, computed, onMounted } from 'vue'
+import { withBase, useRoute } from 'vitepress'
+import { onMounted, watch, nextTick } from 'vue'
+import { initEnhancements, enhancePage } from './enhance'
 
-const { page } = useData()
+const route = useRoute()
 
-const dark = ref(false)
 onMounted(() => {
-  dark.value = document.documentElement.classList.contains('dark')
+  initEnhancements()
+  enhancePage()
 })
-function toggleTheme() {
-  dark.value = !dark.value
-  document.documentElement.classList.toggle('dark', dark.value)
-  try {
-    localStorage.setItem('tuf-theme', dark.value ? 'dark' : 'light')
-  } catch {}
-}
-
-const lastUpdated = computed(() => {
-  const ts = page.value.lastUpdated
-  if (!ts) return ''
-  const d = new Date(ts)
-  const p = (n) => String(n).padStart(2, '0')
-  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`
-})
-
-const navs = [
-  { text: '博文', link: '/posts/' },
-  { text: '项目', link: '/projects/' },
-  { text: '关于我', link: '/about/' },
-]
+watch(
+  () => route.path,
+  () => nextTick(() => enhancePage()),
+)
 </script>
 
 <template>
-  <div class="tuf-layout">
-    <header class="site-head">
-      <a class="site-title" :href="withBase('/')">从极限到大模型</a>
+  <div>
+    <header class="site-header">你好，这里是「从极限到大模型」—— 徐鸿铎的个人知识库</header>
+    <header class="site-header">
       <nav class="site-nav">
-        <a
-          v-for="n in navs"
-          :key="n.link"
-          :href="withBase(n.link)"
-          :class="{ active: page.relativePath.startsWith(n.link.slice(1, -1) + '/') }"
-        >
-          {{ n.text }}
-        </a>
-        <a href="https://github.com/xhongduo-tech" target="_blank" rel="noopener">GitHub</a>
-        <button class="theme-btn" :title="dark ? '切换到亮色' : '切换到暗色'" @click="toggleTheme">
-          {{ dark ? '☀ 亮色' : '☾ 暗色' }}
-        </button>
+        <a :href="withBase('/')">首页</a>
+        <a :href="withBase('/posts/')">博文</a>
+        <a :href="withBase('/projects/')">项目</a>
+        <a :href="withBase('/about/')">关于我</a>
+        <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener">GitHub</a>
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="切换主题"></button>
       </nav>
     </header>
 
-    <main class="tuf-main">
-      <article class="tuf-doc">
+    <article class="tuf-article">
+      <section>
         <Content />
-      </article>
-      <p v-if="lastUpdated" class="last-updated">最后更新于 {{ lastUpdated }}</p>
-    </main>
+      </section>
+    </article>
 
-    <footer class="site-foot">
-      从极限到大模型 · 徐鸿铎 · 本站由 VitePress 构建，源码托管于
-      <a href="https://github.com/xhongduo-tech/blog">GitHub</a>
+    <footer class="site-footer">
+      从极限到大模型 · 徐鸿铎 · Powered by VitePress ·
+      <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener">源码</a>
     </footer>
   </div>
 </template>

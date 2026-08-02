@@ -17,18 +17,18 @@ export default defineConfig({
   appearance: false, // 暗色模式由自定义主题管理
 
   head: [
-    // 首屏前确定亮/暗主题，避免闪烁
+    // 首屏前确定亮/暗主题（sessionStorage，跟随系统，语义与 Tufted-Blog 一致）
     [
       'script',
       {},
-      `(function(){var t=null;try{t=localStorage.getItem('tuf-theme')}catch(e){}if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.classList.toggle('dark',t==='dark')})()`,
+      `(function(){var t=null;try{t=sessionStorage.getItem('theme-preference')}catch(e){}if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})()`,
     ],
   ],
 
   markdown: {
     math: true, // MathJax（含 mhchem），直接写 $...$ / $$...$$ / \ce{...}
-    lineNumbers: true,
-    theme: { light: 'vitesse-light', dark: 'vitesse-dark' },
+    lineNumbers: false, // 行号由主题 JS 生成（与模板一致）
+    theme: 'min-light', // 颜色由主题 CSS 统一为素色（与模板一致）
     config: (md) => {
       md.use(taskLists) // 让 - [ ] / - [x] 渲染为复选框
     },
