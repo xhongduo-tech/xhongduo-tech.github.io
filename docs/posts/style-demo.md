@@ -89,3 +89,16 @@ def lora_forward(x, W0, A, B, alpha, r):
 > 如无必要，勿增实体。 —— 奥卡姆的威廉
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把对应条目改为 `- [x] [标题](./xxx)`。
+
+## 引语与边注
+
+页首引语（epigraph）：
+
+<div class="epigraph">
+<p>我从不假设，因为假设是科学研究的大敌。</p>
+<footer>—— 艾萨克 · 牛顿</footer>
+</div>
+
+正文段落中使用边注<span class="marginnote">这是一条边注（marginnote），在宽屏下排入右侧留白，窄屏下自动收回正文。</span>，适合放置补充说明、出处或旁白。
+
+带编号的脚注式边注<span class="sidenote-number"></span><span class="sidenote">这是一条 sidenote，自动编号，类似书籍页边的脚注。</span>，连续使用会依次计数<span class="sidenote-number"></span><span class="sidenote">第二条 sidenote。</span>。

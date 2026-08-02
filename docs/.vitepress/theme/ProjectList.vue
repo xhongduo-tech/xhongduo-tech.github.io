@@ -60,91 +60,55 @@ const projects = [
 </script>
 
 <template>
-  <div class="pj-grid">
-    <div v-for="p in projects" :key="p.name" class="pj-card">
+  <div class="pj-list">
+    <section v-for="p in projects" :key="p.name" class="pj">
       <div class="pj-head">
         <span class="pj-name">{{ p.name }}</span>
         <span class="pj-period">{{ p.period }}</span>
       </div>
-      <div class="pj-role">{{ p.role }}</div>
+      <div class="pj-meta">{{ p.role }} · {{ p.tags.join(' · ') }}</div>
       <p class="pj-desc">{{ p.desc }}</p>
-      <div class="pj-tags">
-        <span v-for="t in p.tags" :key="t" class="pj-tag">{{ t }}</span>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <style scoped>
-.pj-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin: 16px 0 24px;
+.pj-list {
+  border-top: 2px solid var(--tuf-ink);
+  margin: 1.5rem 0 2rem;
 }
-.pj-card {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-.pj-card:hover {
-  border-color: var(--vp-c-brand-1);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-}
-.dark .pj-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+.pj {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--tuf-rule);
 }
 .pj-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 12px;
+  gap: 16px;
 }
 .pj-name {
-  font-size: 16.5px;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  line-height: 1.4;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--tuf-ink);
 }
 .pj-period {
   font-family: var(--vp-font-family-mono);
   font-size: 12.5px;
-  color: var(--vp-c-text-3);
+  color: var(--tuf-faint);
   flex-shrink: 0;
 }
-.pj-role {
-  margin-top: 6px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--vp-c-brand-1);
+.pj-meta {
+  margin-top: 4px;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  color: var(--tuf-accent);
 }
 .pj-desc {
-  margin: 12px 0;
-  font-size: 14px;
+  margin: 10px 0 0;
+  font-size: 0.95rem;
   line-height: 1.8;
-  color: var(--vp-c-text-2);
-  flex: 1;
-}
-.pj-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.pj-tag {
-  font-family: var(--vp-font-family-mono);
-  font-size: 12px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--vp-c-bg-soft);
-  color: var(--vp-c-text-2);
-}
-@media (max-width: 720px) {
-  .pj-grid {
-    grid-template-columns: 1fr;
-  }
+  color: var(--tuf-muted);
 }
 </style>

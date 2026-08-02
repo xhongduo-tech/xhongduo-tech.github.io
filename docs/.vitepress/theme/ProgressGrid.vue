@@ -20,7 +20,7 @@ function seq(chIndex, i) {
 </script>
 
 <template>
-  <div v-if="cat" class="pg">
+  <figure v-if="cat" class="pg">
     <div class="pg-head">
       <span class="pg-title">写作进度</span>
       <span class="pg-stat">{{ cat.done }} / {{ cat.total }} 篇 · {{ pct }}%</span>
@@ -44,86 +44,85 @@ function seq(chIndex, i) {
         </span>
       </div>
     </div>
-  </div>
+  </figure>
 </template>
 
 <style scoped>
 .pg {
-  background: #0d1117;
-  border: 1px solid #21262d;
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin: 16px 0 24px;
-  font-family: var(--vp-font-family-mono);
+  border-top: 2px solid var(--tuf-ink);
+  border-bottom: 2px solid var(--tuf-ink);
+  padding: 14px 0 18px;
+  margin: 2rem 0;
 }
 .pg-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 .pg-title {
-  color: #e6edf3;
-  font-size: 14px;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 0.95rem;
   font-weight: 600;
+  color: var(--tuf-ink);
 }
 .pg-stat {
-  color: #7d8590;
+  font-family: var(--vp-font-family-mono);
   font-size: 12px;
+  color: var(--tuf-muted);
 }
 .pg-bar {
-  height: 6px;
-  background: #21262d;
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 16px;
+  height: 3px;
+  background: var(--tuf-rule);
+  margin-bottom: 14px;
 }
 .pg-bar-fill {
   height: 100%;
-  background: #3fb950;
-  border-radius: 3px;
+  background: var(--tuf-accent);
   transition: width 0.4s ease;
 }
 .pg-ch-title {
-  color: #7d8590;
-  font-size: 12px;
-  margin: 14px 0 6px;
-  font-family: var(--vp-font-family-base);
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+  color: var(--tuf-faint);
+  margin: 14px 0 4px;
 }
 .pg-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2px 16px;
+  gap: 1px 20px;
 }
 .pg-item {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  font-size: 12px;
-  line-height: 1.8;
+  font-size: 12.5px;
+  line-height: 1.7;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #6e7681;
+  color: var(--tuf-faint);
 }
 .pg-seq {
-  color: #484f58;
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
   flex-shrink: 0;
 }
 .pg-mark {
   width: 12px;
   flex-shrink: 0;
-  color: #3fb950;
+  color: var(--tuf-done);
 }
 .pg-name {
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: var(--vp-font-family-base);
 }
 .pg-item.done {
-  color: #adbac7;
+  color: var(--tuf-ink);
 }
 .pg-item.done .pg-seq {
-  color: #3fb950;
+  color: var(--tuf-done);
 }
 </style>

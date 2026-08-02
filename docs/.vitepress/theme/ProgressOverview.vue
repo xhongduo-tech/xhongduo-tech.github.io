@@ -1,4 +1,5 @@
 <script setup>
+import { withBase } from 'vitepress'
 import data from '../data/progress.json'
 
 const tiers = [
@@ -22,64 +23,57 @@ function pct(c) {
 <template>
   <div v-for="t in tiers" :key="t.key" class="po-tier">
     <h3>{{ t.name }}</h3>
-    <div class="po-grid">
-      <a v-for="c in catsOf(t.key)" :key="c.path" :href="c.path" class="po-card">
-        <div class="po-row">
-          <span class="po-name">{{ c.name }}</span>
-          <span class="po-stat">{{ c.done }}/{{ c.total }}</span>
-        </div>
-        <div class="po-bar">
-          <div class="po-bar-fill" :style="{ width: pct(c) + '%' }"></div>
-        </div>
+    <div class="po-list">
+      <a v-for="c in catsOf(t.key)" :key="c.path" :href="withBase(c.path)" class="po-row">
+        <span class="po-name">{{ c.name }}</span>
+        <span class="po-bar"><span class="po-bar-fill" :style="{ width: pct(c) + '%' }"></span></span>
+        <span class="po-stat">{{ c.done }}/{{ c.total }}</span>
       </a>
     </div>
   </div>
 </template>
 
 <style scoped>
-.po-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 10px;
-  margin: 12px 0 8px;
-}
-.po-card {
-  display: block;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  padding: 10px 14px;
-  text-decoration: none !important;
-  transition: border-color 0.2s;
-}
-.po-card:hover {
-  border-color: var(--vp-c-brand-1);
+.po-list {
+  margin: 0.5rem 0 1rem;
+  border-top: 1px solid var(--tuf-rule);
 }
 .po-row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 8px;
+  align-items: center;
+  gap: 16px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--tuf-rule);
+  text-decoration: none !important;
 }
 .po-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--vp-c-text-1);
+  width: 200px;
+  flex-shrink: 0;
+  color: var(--tuf-ink);
+  font-size: 0.95rem;
 }
-.po-stat {
-  font-size: 12px;
-  color: var(--vp-c-text-3);
-  font-family: var(--vp-font-family-mono);
+.po-row:hover .po-name {
+  color: var(--tuf-accent);
 }
 .po-bar {
-  height: 4px;
-  background: var(--vp-c-divider);
-  border-radius: 2px;
-  overflow: hidden;
+  flex: 1;
+  height: 3px;
+  background: var(--tuf-rule);
 }
 .po-bar-fill {
+  display: block;
   height: 100%;
-  background: var(--vp-c-brand-1);
-  border-radius: 2px;
-  transition: width 0.4s ease;
+  background: var(--tuf-accent);
+}
+.po-stat {
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  color: var(--tuf-muted);
+  flex-shrink: 0;
+}
+@media (max-width: 720px) {
+  .po-name {
+    width: 120px;
+  }
 }
 </style>

@@ -1,316 +1,445 @@
-/* ============================================
-   从极限到大模型 · 设计系统
-   原则：奥卡姆 —— 以排版为核心，色彩克制，留白充分
-   ============================================ */
+/* ============================================================
+   从极限到大模型 · Tufte 设计系统
+   灵感：Edward Tufte 书籍排版 / tufte-css / Tufted-Blog
+   ============================================================ */
+
+/* ---------- ET Book 字体（自托管） ---------- */
+@font-face {
+  font-family: 'et-book';
+  src: url('../fonts/et-book/et-book-roman-line-figures.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'et-book';
+  src: url('../fonts/et-book/et-book-display-italic-old-style-figures.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'et-book';
+  src: url('../fonts/et-book/et-book-semi-bold-old-style-figures.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'et-book';
+  src: url('../fonts/et-book/et-book-bold-line-figures.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ---------- 设计变量 ---------- */
 :root {
-  /* 品牌色：深青蓝 */
-  --vp-c-brand-1: #2563eb;
-  --vp-c-brand-2: #1d4ed8;
-  --vp-c-brand-3: #1e40af;
-  --vp-c-brand-soft: rgba(37, 99, 235, 0.1);
+  --tuf-bg: #fffff8;
+  --tuf-ink: #111111;
+  --tuf-muted: #555550;
+  --tuf-faint: #8a8878;
+  --tuf-accent: #8c2f2f;
+  --tuf-rule: #d8d4c0;
+  --tuf-soft: #f5f3e8;
+  --tuf-done: #2e7d32;
 
-  /* 字体：系统字体栈（不依赖外部 webfont，国内访问稳定） */
   --vp-font-family-base:
-    'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+    'et-book', 'Songti SC', 'STSong', 'Noto Serif CJK SC', 'SimSun', Georgia, serif;
   --vp-font-family-mono:
     'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
-
-  /* 首页 Hero 名称：纯色（去掉默认渐变，更克制） */
-  --vp-home-hero-name-color: var(--vp-c-text-1);
-  --vp-home-hero-name-background: none;
-
-  /* 选中色 */
-  --vp-c-selection-bg: rgba(37, 99, 235, 0.16);
 }
 
-.dark {
-  --vp-c-brand-1: #60a5fa;
-  --vp-c-brand-2: #3b82f6;
-  --vp-c-brand-3: #2563eb;
-  --vp-c-brand-soft: rgba(96, 165, 250, 0.14);
-  --vp-c-selection-bg: rgba(96, 165, 250, 0.22);
+html.dark {
+  --tuf-bg: #1b1b17;
+  --tuf-ink: #e8e4d4;
+  --tuf-muted: #a8a394;
+  --tuf-faint: #77735f;
+  --tuf-accent: #e0907f;
+  --tuf-rule: #3a382c;
+  --tuf-soft: #242320;
+  --tuf-done: #7bc47f;
 }
 
-::selection {
-  background: var(--vp-c-selection-bg);
+/* ---------- 基础 ---------- */
+html {
+  background: var(--tuf-bg);
 }
-
-/* ---------- 导航 ---------- */
-.VPNav {
-  backdrop-filter: saturate(1.5) blur(12px);
-}
-.VPNavBar.has-sidebar .content {
-  padding-right: 24px;
-}
-.VPNavBarTitle .title {
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-.VPNavBarMenuLink {
-  font-size: 14px;
-}
-
-/* ---------- 首页 Hero ---------- */
-.VPHero .name,
-.VPHero .text {
-  max-width: 760px;
-  letter-spacing: -0.02em;
-}
-.VPHero .name {
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-  font-weight: 800;
-  line-height: 1.15;
-}
-.VPHero .text {
-  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-  font-weight: 500;
-  color: var(--vp-c-text-2);
-  margin-top: 12px;
-}
-.VPHero .tagline {
-  max-width: 640px;
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--vp-c-text-2);
-  margin-top: 20px;
-}
-.VPHero .actions {
-  margin-top: 32px;
-}
-
-/* 首页按钮：直角感收敛、填充更厚实 */
-.VPButton {
-  border-radius: 8px;
-  font-weight: 600;
-}
-
-/* ---------- 首页 Features（层级卡片） ---------- */
-.VPFeatures .items {
-  gap: 16px;
-}
-.VPFeature {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  background: var(--vp-c-bg);
-  padding: 28px;
-  transition:
-    border-color 0.25s,
-    box-shadow 0.25s,
-    transform 0.25s;
-}
-.VPFeature:hover {
-  border-color: var(--vp-c-brand-1);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-  transform: translateY(-2px);
-}
-.dark .VPFeature:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-.VPFeature .title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--vp-c-text-1);
-}
-.VPFeature .details {
-  font-size: 14.5px;
-  line-height: 1.8;
-  color: var(--vp-c-text-2);
-}
-.VPFeature .link-text {
-  font-weight: 600;
-}
-
-/* 卡片标题中的层级编号（01 ·）用等宽数字突出 */
-.VPFeature .title {
-  font-variant-numeric: tabular-nums;
-}
-
-/* ---------- 正文排版 ---------- */
-.vp-doc {
+body {
+  background: var(--tuf-bg);
+  color: var(--tuf-ink);
+  font-family: var(--vp-font-family-base);
   font-size: 16.5px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
-.vp-doc p {
-  line-height: 1.9;
-  margin: 20px 0;
-}
-.vp-doc li {
-  line-height: 1.85;
-}
-.vp-doc h1,
-.vp-doc h2,
-.vp-doc h3,
-.vp-doc h4 {
-  letter-spacing: -0.015em;
-  font-weight: 700;
-}
-.vp-doc h1 {
-  font-size: 2rem;
-  line-height: 1.25;
-}
-.vp-doc h2 {
-  margin-top: 56px;
-  padding-top: 28px;
-  border-top: 1px solid var(--vp-c-divider);
-}
-.vp-doc h3 {
-  margin-top: 40px;
-}
-.vp-doc a {
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-.vp-doc a:hover {
-  border-bottom-color: var(--vp-c-brand-1);
+::selection {
+  background: rgba(140, 47, 47, 0.14);
 }
 
-/* 引用块：去掉左侧重色条，改为细线 + 灰字 */
-.vp-doc blockquote {
-  border-left: 3px solid var(--vp-c-divider);
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
-  border-radius: 0 8px 8px 0;
-  padding: 12px 20px;
+/* ---------- 站点框架（Layout.vue） ---------- */
+.tuf-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-.vp-doc blockquote > p {
-  margin: 8px 0;
-  font-size: 14.5px;
-}
-
-/* 表格：斑马纹 + 细边框 */
-.vp-doc table {
+.site-head {
+  max-width: 1400px;
+  margin: 0 auto;
   width: 100%;
-  font-size: 14.5px;
-  border-collapse: collapse;
+  padding: 28px 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--tuf-rule);
 }
-.vp-doc th {
-  background: var(--vp-c-bg-soft);
+.site-title {
+  font-size: 1.25rem;
   font-weight: 600;
-  text-align: left;
+  letter-spacing: 0.06em;
+  color: var(--tuf-ink);
+  text-decoration: none;
 }
-.vp-doc th,
-.vp-doc td {
-  padding: 10px 14px;
-  border: 1px solid var(--vp-c-divider);
+.site-nav {
+  display: flex;
+  gap: 26px;
+  align-items: baseline;
 }
-.vp-doc tr:nth-child(2n) td {
-  background: var(--vp-c-bg-soft);
+.site-nav a {
+  color: var(--tuf-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--tuf-accent);
+}
+.theme-btn {
+  background: none;
+  border: none;
+  color: var(--tuf-muted);
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+.theme-btn:hover {
+  color: var(--tuf-accent);
+}
+.tuf-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 40px 80px;
+}
+.site-foot {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 24px 40px 40px;
+  border-top: 1px solid var(--tuf-rule);
+  font-size: 0.85rem;
+  color: var(--tuf-faint);
 }
 
-/* 代码：更紧凑 */
-.vp-doc code {
-  font-size: 0.875em;
-  padding: 0.15em 0.4em;
-  border-radius: 5px;
+/* ---------- 文章版心：55% 主栏 + 右侧边注区 ---------- */
+.tuf-doc > * {
+  width: 55%;
+  max-width: 720px;
 }
-.vp-doc div[class*='language-'] {
-  border-radius: 8px;
-  font-size: 13.5px;
-}
-
-/* 任务列表（- [ ] / - [x]）：贴合正文、复选框对齐 */
-.vp-doc .task-list-item {
-  list-style: none;
-}
-.vp-doc .task-list-item input[type='checkbox'] {
-  margin-right: 8px;
-  accent-color: var(--vp-c-brand-1);
-}
-.vp-doc ul:has(.task-list-item) {
-  padding-left: 8px;
+/* 宽元素：表格、宽图、组件 */
+.tuf-doc > .fullwidth,
+.tuf-doc > table,
+.tuf-doc > div[class*='language-'],
+.tuf-doc > .pg,
+.tuf-doc > .po-tier,
+.tuf-doc > .pj-grid,
+.tuf-doc > .hs-band {
+  width: 100%;
+  max-width: 100%;
 }
 
-/* ---------- 大纲 / 侧栏 ---------- */
-.VPDocAsideOutline .content {
-  font-size: 13px;
-}
-.VPSidebarItem .text {
-  font-size: 14px;
+/* 非文章页（分类规划、总览、关于、项目、首页）：整栏宽 */
+.plain-doc .tuf-doc > * {
+  width: 100%;
+  max-width: 880px;
 }
 
-/* ---------- 页脚 ---------- */
-.VPFooter {
-  font-size: 13px;
-  color: var(--vp-c-text-3);
+@media (max-width: 1080px) {
+  .tuf-doc > *,
+  .plain-doc .tuf-doc > * {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 720px) {
+  .site-head,
+  .site-foot {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .tuf-main {
+    padding: 16px 20px 60px;
+  }
+  .site-head {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
-/* ============================================
-   博文排版强化
-   ============================================ */
-
-/* ---------- 多级标题：教材式编号 1 / 1.1 / 1.1.1 ---------- */
-.vp-doc {
+/* ---------- 标题 ---------- */
+.tuf-doc h1 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 2.5rem 0 1rem;
+  letter-spacing: 0.01em;
+}
+.tuf-doc h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 3.2rem 0 1.2rem;
+}
+.tuf-doc h3 {
+  font-size: 1.35rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 2.4rem 0 1rem;
+}
+.tuf-doc h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 2rem 0 0.8rem;
+}
+/* 文章页标题编号（教材式），非文章页豁免 */
+.tuf-doc {
   counter-reset: h2;
 }
-.vp-doc h2 {
+.tuf-doc h2 {
   counter-increment: h2;
   counter-reset: h3;
 }
-.vp-doc h3 {
+.tuf-doc h3 {
   counter-increment: h3;
   counter-reset: h4;
 }
-.vp-doc h4 {
+.tuf-doc h4 {
   counter-increment: h4;
 }
-.vp-doc h2::before {
-  content: counter(h2);
-  font-family: var(--vp-font-family-mono);
-  font-variant-numeric: tabular-nums;
-  color: var(--vp-c-brand-1);
-  margin-right: 0.5em;
+.tuf-doc h2::before {
+  content: counter(h2) '.\2002';
+  font-style: normal;
+  color: var(--tuf-accent);
 }
-.vp-doc h3::before {
-  content: counter(h2) '.' counter(h3);
-  font-family: var(--vp-font-family-mono);
-  font-variant-numeric: tabular-nums;
-  font-weight: 500;
-  color: var(--vp-c-brand-1);
-  opacity: 0.75;
-  margin-right: 0.5em;
+.tuf-doc h3::before {
+  content: counter(h2) '.\2002' counter(h3) '.\2002';
+  font-style: normal;
+  color: var(--tuf-accent);
+  opacity: 0.8;
 }
-.vp-doc h4::before {
-  content: counter(h2) '.' counter(h3) '.' counter(h4);
-  font-family: var(--vp-font-family-mono);
-  font-variant-numeric: tabular-nums;
-  font-weight: 500;
-  color: var(--vp-c-text-3);
-  margin-right: 0.5em;
+.tuf-doc h4::before {
+  content: counter(h2) '.' counter(h3) '.' counter(h4) '.\2002';
+  color: var(--tuf-faint);
+  font-weight: 400;
 }
-
-/* 非文章页（分类规划页、总览、关于、项目）不编号 */
-.plain-doc .vp-doc :is(h2, h3, h4)::before {
+.plain-doc .tuf-doc :is(h2, h3, h4)::before {
   content: none;
-  margin: 0;
 }
 
-/* 层级视觉：h3 左侧强调标记、h4 弱化 */
-.vp-doc h3 {
-  font-size: 1.28rem;
+/* ---------- 段落与行内 ---------- */
+.tuf-doc p {
+  margin: 1.3em 0;
 }
-.vp-doc h4 {
-  font-size: 1.08rem;
-  color: var(--vp-c-text-2);
+.tuf-doc a {
+  color: var(--tuf-accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(140, 47, 47, 0.35);
+  text-underline-offset: 3px;
+}
+.tuf-doc a:hover {
+  text-decoration-color: var(--tuf-accent);
+}
+.tuf-doc ul,
+.tuf-doc ol {
+  padding-left: 1.6em;
+  margin: 1.2em 0;
+}
+.tuf-doc li {
+  margin: 0.35em 0;
+}
+.tuf-doc strong {
+  font-weight: 600;
+}
+.tuf-doc hr {
+  border: none;
+  border-top: 1px solid var(--tuf-rule);
+  margin: 3rem 0;
 }
 
-/* ---------- 数学公式 / 化学方程式（MathJax + mhchem） ---------- */
-.vp-doc mjx-container {
-  font-size: 1.04em;
+/* ---------- 引语（epigraph）与引用块 ---------- */
+.tuf-doc .epigraph {
+  margin: 2.5rem 0;
+  font-style: italic;
 }
-.vp-doc mjx-container[display='true'] {
+.tuf-doc .epigraph p {
+  margin: 0.4em 0;
+  font-size: 1.05rem;
+  color: var(--tuf-muted);
+}
+.tuf-doc .epigraph footer {
+  text-align: right;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--tuf-faint);
+}
+.tuf-doc blockquote {
+  margin: 1.6em 0;
+  padding: 0 0 0 1.2em;
+  border-left: 1px solid var(--tuf-rule);
+  color: var(--tuf-muted);
+  font-style: italic;
+}
+.tuf-doc blockquote > p {
+  margin: 0.6em 0;
+}
+
+/* ---------- 边注（marginnote / sidenote） ---------- */
+.marginnote,
+.sidenote {
+  float: right;
+  clear: right;
+  width: 38%;
+  margin-right: -45%;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--tuf-muted);
+}
+.sidenote-number {
+  counter-increment: sidenote;
+}
+.sidenote-number::after,
+.sidenote::before {
+  content: counter(sidenote);
+  font-size: 0.75em;
+  vertical-align: super;
+  color: var(--tuf-accent);
+}
+.sidenote::before {
+  margin-right: 0.3em;
+}
+.tuf-doc {
+  counter-reset: sidenote;
+}
+@media (max-width: 1080px) {
+  .marginnote,
+  .sidenote {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 1rem 0;
+    padding: 0.6rem 1rem;
+    background: var(--tuf-soft);
+    border-left: 1px solid var(--tuf-rule);
+  }
+}
+
+/* ---------- 表格（booktabs 三线表） ---------- */
+.tuf-doc table {
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.92rem;
+  border-top: 2px solid var(--tuf-ink);
+  border-bottom: 2px solid var(--tuf-ink);
+}
+.tuf-doc th {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 16px 8px 0;
+  border-bottom: 1px solid var(--tuf-ink);
+}
+.tuf-doc td {
+  padding: 8px 16px 8px 0;
+  border-bottom: 1px solid var(--tuf-rule);
+  vertical-align: top;
+}
+.tuf-doc tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------- 代码 ---------- */
+.tuf-doc code {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.82em;
+  background: var(--tuf-soft);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+.tuf-doc div[class*='language-'] {
+  margin: 1.8rem 0;
+  border-top: 1px solid var(--tuf-rule);
+  border-bottom: 1px solid var(--tuf-rule);
+  border-radius: 0;
+  background: var(--tuf-soft);
+}
+.tuf-doc div[class*='language-'] pre {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  padding: 1rem 0.5rem;
+}
+.tuf-doc div[class*='language-'] code {
+  background: none;
+  padding: 0;
+}
+
+/* ---------- 复选框清单 ---------- */
+.tuf-doc .task-list-item {
+  list-style: none;
+}
+.tuf-doc .task-list-item input[type='checkbox'] {
+  margin-right: 8px;
+  accent-color: var(--tuf-accent);
+}
+.tuf-doc ul:has(.task-list-item) {
+  padding-left: 4px;
+}
+
+/* ---------- 数学公式 / 化学方程式 ---------- */
+.tuf-doc mjx-container {
+  font-size: 1.02em;
+}
+.tuf-doc mjx-container[display='true'] {
   margin: 2em 0;
-  padding: 0.6em 0.2em;
+  padding: 0.5em 0.2em;
   overflow-x: auto;
   overflow-y: hidden;
-  border-top: 1px solid var(--vp-c-divider);
-  border-bottom: 1px solid var(--vp-c-divider);
 }
-/* 行内公式不与中文混排时过挤 */
-.vp-doc p mjx-container {
+.tuf-doc p mjx-container {
   margin: 0 0.1em;
+}
+
+/* ---------- 图片与图注 ---------- */
+.tuf-doc img {
+  max-width: 100%;
+}
+.tuf-doc figure {
+  margin: 2rem 0;
+}
+.tuf-doc figcaption {
+  font-size: 0.85rem;
+  color: var(--tuf-faint);
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+/* ---------- 最后更新 ---------- */
+.last-updated {
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: var(--tuf-faint);
+  font-style: italic;
 }
