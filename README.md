@@ -23,11 +23,9 @@ npm run docs:build    # 构建到 docs/.vitepress/dist
 
 详见站内页面「如何发布博文」。
 
-## 部署到 GitHub
+## 部署
 
-1. 在 GitHub 新建仓库（如 `blog`），把本项目 push 到 `main` 分支
-2. 仓库 Settings → Pages → Source 选择 **GitHub Actions**
-3. 推送后自动部署，访问 `https://<用户名>.github.io/<仓库名>/`
-4. 若仓库名为 `<用户名>.github.io`，则直接部署到根路径（配置已自动处理）
-
-部署前记得修改 `docs/.vitepress/config.mts` 中的站点标题与 GitHub 链接。
+- 仓库：`xhongduo-tech/xhongduo-tech.github.io`
+- 源码在 `source` 分支（默认分支，日常提交到这里），GitHub Actions 构建后把 `docs/.vitepress/dist` 强推到 `main` 分支
+- `main` 分支是 GitHub Pages 的发布源（legacy 模式），站点地址：`https://xhongduo-tech.github.io/`
+- 日常写作只需 `git push`（当前分支为 `source`），约 1-2 分钟后线上更新
