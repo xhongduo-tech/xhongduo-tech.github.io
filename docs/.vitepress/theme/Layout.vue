@@ -1,30 +1,68 @@
 <script setup>
 import { withBase, useRoute, useData } from 'vitepress'
-import { computed, onMounted, watch, nextTick } from 'vue'
+import { computed, onMounted, watch, nextTick, ref } from 'vue'
 import { initEnhancements, enhancePage } from './enhance'
 
 const route = useRoute()
 const { page } = useData()
 
 const pageClass = computed(() => page.value.frontmatter?.pageClass || '')
-const isEn = computed(() => page.value.relativePath.startsWith('en/'))
+
+// 语言偏好：博文/项目目前没有英文翻译，relativePath 不会带 en/ 前缀。
+// 只用 relativePath 判断语言会导致「选了英文再点博文/项目，整个页面
+// chrome（问候语、导航、页脚）又弹回中文」。这里用 sessionStorage 记住
+// 用户上一次的显式选择（与主题切换同一套持久化方式），未翻译页面沿用
+// 该偏好，只有正文内容本身仍是中文——比一整页突然切回中文更符合预期。
+const LANG_KEY = 'lang-preference'
+function getStoredLang() {
+  try {
+    return sessionStorage.getItem(LANG_KEY)
+  } catch {
+    return null
+  }
+}
+function setStoredLang(lang) {
+  try {
+    sessionStorage.setItem(LANG_KEY, lang)
+  } catch {}
+}
+
+const langPreference = ref(getStoredLang())
+
+const isEn = computed(() => {
+  if (page.value.relativePath.startsWith('en/')) return true
+  return langPreference.value === 'en'
+})
+
+function switchLang() {
+  const next = isEn.value ? 'zh' : 'en'
+  langPreference.value = next
+  setStoredLang(next)
+}
+
 const t = computed(() =>
   isEn.value
     ? {
         greeting: 'Hi, this is "From Limits to LLMs" — Xu Hongduo’s knowledge base',
         home: 'Home',
+        homeLink: '/en/',
         posts: 'Posts',
         projects: 'Projects',
         lang: '中文',
         langLink: '/',
+        footer: 'From Limits to LLMs · Xu Hongduo · Powered by VitePress ·',
+        source: 'Source',
       }
     : {
         greeting: '你好，这里是「从极限到大模型」—— 徐鸿铎的个人知识库',
         home: '首页',
+        homeLink: '/',
         posts: '博文',
         projects: '项目',
         lang: 'EN',
         langLink: '/en/',
+        footer: '从极限到大模型 · 徐鸿铎 · Powered by VitePress ·',
+        source: '源码',
       },
 )
 
@@ -36,6 +74,20 @@ watch(
   () => route.path,
   () => nextTick(() => enhancePage()),
 )
+
+// 真正落在 en/ 目录下的页面才代表内容本身是英文，同步偏好；
+// 未翻译页面保留用户之前的选择，不强制覆盖。immediate: true 确保首次
+// 加载 /en/ 页面时也能同步（而不是只在“路由发生变化”时才生效）。
+watch(
+  () => page.value.relativePath,
+  (relativePath) => {
+    if (relativePath.startsWith('en/')) {
+      langPreference.value = 'en'
+      setStoredLang('en')
+    }
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
@@ -44,12 +96,18 @@ watch(
       <p class="site-greeting">{{ t.greeting }}</p>
       <nav class="site-nav">
         <span class="nav-links">
-          <a :href="withBase('/')">{{ t.home }}</a>
+          <a :href="withBase(t.homeLink)">{{ t.home }}</a>
           <a :href="withBase('/posts/')">{{ t.posts }}</a>
           <a :href="withBase('/projects/')">{{ t.projects }}</a>
         </span>
         <span class="nav-tools">
-          <a class="nav-icon-btn lang-btn" :href="withBase(t.langLink)" :aria-label="t.lang">{{ t.lang }}</a>
+          <a
+            class="nav-icon-btn lang-btn"
+            :href="withBase(t.langLink)"
+            :aria-label="t.lang"
+            @click="switchLang"
+            >{{ t.lang }}</a
+          >
           <a
             class="nav-icon-btn"
             href="https://github.com/xhongduo-tech/blog"
@@ -73,8 +131,8 @@ watch(
     </article>
 
     <footer class="site-footer">
-      从极限到大模型 · 徐鸿铎 · Powered by VitePress ·
-      <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener">源码</a>
+      {{ t.footer }}
+      <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener">{{ t.source }}</a>
     </footer>
   </div>
 </template>
