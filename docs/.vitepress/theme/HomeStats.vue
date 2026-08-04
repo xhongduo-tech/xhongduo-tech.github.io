@@ -1,16 +1,24 @@
 <script setup>
+import { useData } from 'vitepress'
 import data from '../data/progress.json'
+
+const { page } = useData()
+const isEn = page.value.relativePath.startsWith('en/')
 
 const cats = Object.values(data)
 const topics = cats.reduce((s, c) => s + c.total, 0)
 const done = cats.reduce((s, c) => s + c.done, 0)
 const pct = topics ? Math.round((done / topics) * 100) : 0
 
+const labels = isEn
+  ? ['Disciplines', 'Topics', 'Finished', 'Progress']
+  : ['学科', '选题', '已完成', '总进度']
+
 const stats = [
-  { label: '学科', value: cats.length },
-  { label: '选题', value: topics.toLocaleString('en-US') },
-  { label: '已完成', value: done },
-  { label: '总进度', value: pct + '%' },
+  { label: labels[0], value: cats.length },
+  { label: labels[1], value: topics.toLocaleString('en-US') },
+  { label: labels[2], value: done },
+  { label: labels[3], value: pct + '%' },
 ]
 </script>
 

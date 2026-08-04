@@ -16,6 +16,11 @@ export default defineConfig({
   lastUpdated: true,
   appearance: false, // 暗色模式由自定义主题管理
 
+  locales: {
+    root: { lang: 'zh-CN', label: '中文' },
+    en: { lang: 'en', label: 'English' },
+  },
+
   head: [
     // 首屏前确定亮/暗主题（sessionStorage，跟随系统，语义与 Tufted-Blog 一致）
     [
