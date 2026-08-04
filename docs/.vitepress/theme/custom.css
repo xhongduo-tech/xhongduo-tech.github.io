@@ -296,3 +296,55 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   响应式修正（浏览器宽度适配）
+   ============================================================ */
+
+/* 横向溢出兜底（clip 不创建滚动容器，不影响 fixed 元素） */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* 左侧 TOC：容器居中后，仅当左侧留白足够时才显示，并跟随容器左缘。
+   计算：容器半宽 650px + TOC 宽约 11rem，故 1680px 起才有足够空间。 */
+.toc-sidebar {
+  top: 15rem;
+  left: max(1rem, calc(50% - 650px - 12rem));
+  width: 10.5rem;
+}
+@media (max-width: 1679px) {
+  .toc-sidebar {
+    display: none !important;
+  }
+}
+@media (min-width: 1680px) {
+  .toc-sidebar {
+    display: block;
+  }
+}
+
+/* plain-doc（整栏宽）页面：表格与图片居中于整栏，而不是 55% 正文栏 */
+.plain-doc .tuf-article section > table,
+.plain-doc .tuf-article section > img,
+.plain-doc .tuf-article section > svg {
+  left: 50%;
+}
+
+/* 窄屏（<760px）：组件与正文同宽，避免留白挤压 */
+@media (max-width: 760px) {
+  .tuf-article section > .pg,
+  .tuf-article section > .po-tier,
+  .tuf-article section > .pj-list,
+  .tuf-article section > .hs-band {
+    width: 100%;
+  }
+  .po-row {
+    gap: 8px;
+  }
+  .po-name {
+    width: 110px;
+    font-size: 0.9rem;
+  }
+}
