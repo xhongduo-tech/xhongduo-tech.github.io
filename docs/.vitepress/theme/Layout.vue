@@ -1,18 +1,19 @@
 <script setup>
-import { withBase, useRoute, useData } from 'vitepress'
+import { withBase, useRoute, useData, useRouter } from 'vitepress'
 import { computed, onMounted, watch, nextTick, ref } from 'vue'
 import { initEnhancements, enhancePage } from './enhance'
 
 const route = useRoute()
 const { page } = useData()
+const router = useRouter()
 
 const pageClass = computed(() => page.value.frontmatter?.pageClass || '')
 
 // 语言偏好：博文/项目目前没有英文翻译，relativePath 不会带 en/ 前缀。
-// 只用 relativePath 判断语言会导致「选了英文再点博文/项目，整个页面
-// chrome（问候语、导航、页脚）又弹回中文」。这里用 sessionStorage 记住
-// 用户上一次的显式选择（与主题切换同一套持久化方式），未翻译页面沿用
-// 该偏好，只有正文内容本身仍是中文——比一整页突然切回中文更符合预期。
+// 语言按钮是「原地切换」——在当前页面直接切换 chrome（问候语、导航、
+// 页脚）的语言，不跳转到别的页面；偏好用 sessionStorage 记住（与主题
+// 切换同一套持久化方式）。只有首页内容有中/英两份翻译：在首页时切语言
+// 会跳转到对应语言的首页（/ 或 /en/），其余页面原地切换，正文保持原样。
 const LANG_KEY = 'lang-preference'
 function getStoredLang() {
   try {
@@ -38,6 +39,12 @@ function switchLang() {
   const next = isEn.value ? 'zh' : 'en'
   langPreference.value = next
   setStoredLang(next)
+  // 首页才有本地化内容（/ 与 /en/ 是两份翻译），切语言时跳转到对应首页；
+  // 其余页面没有英文翻译，原地切换 chrome 即可，不让用户被拽走。
+  const rel = page.value.relativePath
+  if (rel === 'index.md' || rel === 'en/index.md') {
+    router.go(withBase(next === 'en' ? '/en/' : '/'))
+  }
 }
 
 const t = computed(() =>
@@ -49,7 +56,6 @@ const t = computed(() =>
         posts: 'Posts',
         projects: 'Projects',
         lang: '中文',
-        langLink: '/',
         footer: 'From Limits to LLMs · Xu Hongduo · Powered by VitePress ·',
         source: 'Source',
       }
@@ -60,7 +66,6 @@ const t = computed(() =>
         posts: '博文',
         projects: '项目',
         lang: 'EN',
-        langLink: '/en/',
         footer: '从极限到大模型 · 徐鸿铎 · Powered by VitePress ·',
         source: '源码',
       },
@@ -101,12 +106,12 @@ watch(
           <a :href="withBase('/projects/')">{{ t.projects }}</a>
         </span>
         <span class="nav-tools">
-          <a
+          <button
             class="nav-icon-btn lang-btn"
-            :href="withBase(t.langLink)"
+            type="button"
             :aria-label="t.lang"
             @click="switchLang"
-            >{{ t.lang }}</a
+            >{{ t.lang }}</button
           >
           <a
             class="nav-icon-btn"

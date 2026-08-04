@@ -160,6 +160,11 @@ html[data-theme='dark'] .nav-icon-btn {
 .lang-btn {
   font-variant: small-caps;
   letter-spacing: 0.04em;
+  /* lang-btn 是按钮而非链接：清掉浏览器默认的按钮样式 */
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 @media (max-width: 760px) {
   .nav-tools {
