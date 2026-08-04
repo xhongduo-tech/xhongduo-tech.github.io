@@ -63,6 +63,7 @@
 ## 技术栈
 
 - **大模型**：vLLM / SGLang / llama.cpp / TEI<span class="marginnote">vLLM 以 PagedAttention 管理 KV Cache 见长，SGLang 面向复杂采样与结构化输出，llama.cpp 是 CPU 与边缘端轻量推理的首选。</span> · 推理优化（PD 分离 / 量化 / MTP）· RAG / Agent
+- **AI 协同开发**：Claude Code / Codex<span class="marginnote">Claude Code 是 Anthropic 出品的终端原生智能体编程工具，Codex 是 OpenAI 的同类产品——两者都能自主读写代码库、执行多步骤任务，而不只是行内补全。</span> 深度使用，日常承担编码与架构决策；GLM-5.2、Kimi K3<span class="marginnote">GLM 是智谱 AI 的旗舰模型系列，Kimi 是月之暗面的旗舰模型系列——日常用于与 OpenAI / Anthropic 模型对比评测与长上下文场景验证。</span> 等前沿模型高频调用，token 消耗积累超千亿<span class="marginnote">统计口径为云端 API 调用的输入与输出 token 总和，主要来自日常编码、代码审查与技术写作。</span>
 - **工程**：Python / PyTorch / Docker / Kubernetes<span class="marginnote">Kubernetes 承载推理服务的编排与扩缩容。</span> / Vue<span class="marginnote">Vue 负责平台前端。</span> / FastAPI<span class="marginnote">FastAPI 是 Python 生态的主流异步 Web 框架。</span>
 - **算力**：NVIDIA CUDA / 华为昇腾 CANN<span class="marginnote">CANN（昇腾 AI 计算架构）是华为对标 CUDA 的异构计算平台，提供算子库、图编译与运行时。</span>
 
