@@ -2,13 +2,13 @@
 
 <div class="epigraph">
 <p>如无必要，勿增实体。</p>
-<footer>—— 奥卡姆的威廉</footer>
+<footer>—— 奥卡姆的威廉<span class="marginnote">奥卡姆剃刀是这个网站的方法论底色：无论是白天做架构取舍，还是夜晚写作取材，标准都是同一条——先做减法，能不加的实体、能不写的段落，就不加、不写。</span></footer>
 </div>
 
-我是**徐鸿铎**，大模型架构工程师，就职于国企数据中心。
+我是**徐鸿铎**<span class="marginnote">联系方式：<br>GitHub <a href="https://github.com/xhongduo-tech">@xhongduo-tech</a><br>Email x.hongduo@hotmail.com</span>，大模型架构工程师，就职于国企数据中心。
 白天的工作是让大模型在有限的算力上跑得更快——推理架构、异构集群、量化与调度；
-夜晚与周末，我在写这个网站：一个从高中数理出发，经大学数学物理与计算机科学，
-最终抵达 AI 与大模型前沿的完整知识体系。<span class="marginnote">联系方式：<br>GitHub <a href="https://github.com/xhongduo-tech">@xhongduo-tech</a><br>Email x.hongduo@hotmail.com</span>
+夜晚与周末，我在写这个网站<span class="marginnote">本站由 VitePress 构建，排版致敬 <a href="https://edwardtufte.github.io/tufte-css/" target="_blank" rel="noopener noreferrer">Tufte 风格</a>：衬线字体、类纸张背景、边注与正文并排。<br>源码在 <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener noreferrer">GitHub</a> 开源。</span>：一个从高中数理出发，经大学数学物理与计算机科学，
+最终抵达 AI 与大模型前沿的完整知识体系。
 
 ## 专注领域
 
@@ -25,13 +25,13 @@
 本站的内容按四级递进组织。这不是博客的目录，是一份长期学习计划——
 每个学科对标经典教材，逐章逐节写作。<span class="marginnote">全部 60 个学科的知识地图与实时写作进度见 [博文总览](/posts/)。</span>
 
-**第一级 · [基础科学](/posts/foundations/math/)** —— 数学、物理、化学、生物，及天文、地学、认知、心理、逻辑、科哲、经济学：一切的地基。
+**第一级 · [基础科学](/posts/foundations/math/)** —— 数学、物理、化学、生物，及天文、地学、认知、心理、逻辑、科哲、经济学：一切的地基。<span class="marginnote">第一级共 11 个学科，对标高中到大学低年级的教材体系，全部清单见 [知识地图](/posts/)。</span>
 
-**第二级 · [进阶数理](/posts/intermediate/advanced-math/)** —— 高等数学、概率统计、线性代数、离散数学，直到实变、泛函、拓扑与微分几何。
+**第二级 · [进阶数理](/posts/intermediate/advanced-math/)** —— 高等数学、概率统计、线性代数、离散数学，直到实变、泛函、拓扑与微分几何。<span class="marginnote">第二级共 17 个学科：从微积分、概率、线代一路到实变、泛函、拓扑与微分几何，是大学数学的主干。</span>
 
-**第三级 · [计算机基础](/posts/cs/data-structures/)** —— 数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统：CS 核心课全集。
+**第三级 · [计算机基础](/posts/cs/data-structures/)** —— 数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统：CS 核心课全集。<span class="marginnote">第三级共 14 门 CS 核心课，对标考研 408 科目与 CMU 经典课程体系。</span>
 
-**第四级 · [高阶专题](/posts/advanced/llm-principles/)** —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，直至 AI 安全与量子计算。
+**第四级 · [高阶专题](/posts/advanced/llm-principles/)** —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，直至 AI 安全与量子计算。<span class="marginnote">第四级共 18 个学科：从机器学习、深度学习到 LLM 原理、微调、部署与 AI 基础设施，直抵前沿。</span>
 
 <HomeStats />
 
@@ -39,35 +39,35 @@
 
 **国企数据中心 — 大模型架构工程师**（2023.09 至今）<span class="marginnote">入职初期从事金融领域大数据分析，后主动转岗大模型方向。</span>
 
-- **算力统筹**：管理 A100、V100、昇腾 910B3 混合集群，自研梯度算力部署方案，支撑全中心近 50 个大模型重点场景
+- **算力统筹**：管理 A100、V100、昇腾 910B3 混合集群，自研梯度算力部署方案，支撑全中心近 50 个大模型重点场景<span class="marginnote">“梯度”指按任务优先级与算力需求分级投放资源：高优任务独占 A100，长尾任务共享 V100 与昇腾。</span>
 - **推理架构**：落地容器化部署、动态优先级调度、PD 分离、MTP、NVIDIA MPS、TEI 向量推理引擎<span class="marginnote">NVIDIA MPS（Multi-Process Service）：让多个进程共享同一张 GPU 的计算资源，避免多任务抢占带来的上下文切换开销。</span>
-- **模型部署**：牵头部署 Qwen、Gemma、DeepSeek、GLM 等系列开源大模型，覆盖对话、代码、文档、检索精排、OCR 全链路
-- **平台建设**：牵头大模型 API 统一接入平台，搭建内网 PyPI 平台，引入 RagFlow、Dify 支撑 RAG 与 Agent 需求
-- **业务落地**：BRDM 需求项智能检查系统（Qwen2-72B）、员工履历检查系统（提示词 + RAG）
+- **模型部署**：牵头部署 Qwen、Gemma、DeepSeek、GLM 等系列开源大模型，覆盖对话、代码、文档、检索精排、OCR 全链路<span class="marginnote">Qwen、Gemma、DeepSeek、GLM 等系列覆盖对话、代码、文档、检索精排与 OCR 全链路，按场景选型部署。</span>
+- **平台建设**：牵头大模型 API 统一接入平台，搭建内网 PyPI 平台，引入 RagFlow、Dify 支撑 RAG 与 Agent 需求<span class="marginnote">RagFlow 是面向 RAG 的开源知识库引擎，Dify 是 LLMOps 平台，两者配合支撑检索增强与 Agent 业务。</span>
+- **业务落地**：BRDM 需求项智能检查系统（Qwen2-72B）、员工履历检查系统（提示词 + RAG）<span class="marginnote">BRDM：用 Qwen2-72B 对需求文档做条目抽取与逐条校验，替代人工评审中的重复劳动。</span>
 
-**中国气象局华云集团 — 全栈工程师**（2021.09 – 2022.08）
+**中国气象局华云集团 — 全栈工程师**（2021.09 – 2022.08）<span class="marginnote">校招实习期间的第一段全栈开发经历，服务于气象数据可视化场景，是从学生阶段走向工程实践的起点。</span>
 
-- 基于风速风向数据实现风羽图二维 / 三维实时绘制；参与卫星火情监测预测系统与 FY3E / FY4B 卫星数据库管理
+- 基于风速风向数据实现风羽图二维 / 三维实时绘制；参与卫星火情监测预测系统与 FY3E / FY4B 卫星数据库管理<span class="marginnote">风羽图（wind barb）：气象学中表示风向与风速的图形语言，由指向杆与羽片组成，每根长羽代表 10 节。</span>
 
 ## 教育与论文
 
-- **香港理工大学** · 人工智能与大数据，硕士（2022 – 2023）
-- **北方工业大学** · 计算机科学与技术，学士（2017 – 2021）
-- 《基于改进的 HRNet 的手部穴位检测》，**IJCNN 2022**，第二作者（中科院计算所实习期间）<span class="marginnote">IJCNN（国际神经网络联合会议）由 IEEE 计算智能学会与国际神经网络学会联合主办，是机器学习与神经网络方向的重要国际会议之一。</span>
+- **香港理工大学** · 人工智能与大数据，硕士（2022 – 2023）<span class="marginnote">香港理工大学电子计算学系开设，课程覆盖机器学习、大数据系统与云计算，是从计算机本科走向大模型方向的关键过渡。</span>
+- **北方工业大学** · 计算机科学与技术，学士（2017 – 2021）<span class="marginnote">本科阶段打下数据结构、操作系统、计算机网络等 CS 核心课基础——这也是本站「第三级 · 计算机基础」模块的选题依据。</span>
+- 《基于改进的 HRNet<span class="marginnote">HRNet（高分辨率网络）：全程保持高分辨率特征、反复与低分辨率特征融合，是姿态估计与关键点检测的经典主干。</span> 的手部穴位检测》，**IJCNN 2022**<span class="marginnote">IJCNN（国际神经网络联合会议）由 IEEE 计算智能学会与国际神经网络学会联合主办，是机器学习与神经网络方向的重要国际会议之一。</span>，第二作者（中科院计算所实习期间）
 
 ## 荣誉
 
-- 北京市优秀毕业生（2021）；连续三年一等奖学金（2018 – 2020）
+- 北京市优秀毕业生（2021）；连续三年一等奖学金（2018 – 2020）<span class="marginnote">北京市优秀毕业生是市教委面向应届生的综合荣誉，覆盖学业成绩与科研、实践表现。</span>
 - 蓝桥杯编程竞赛多次获奖，VEX 机器人竞赛获奖<span class="marginnote">蓝桥杯侧重算法与程序设计能力，VEX 则是涵盖机械设计、编程与团队协作的机器人竞赛体系，二者训练的是两类互补的工程能力。</span>
 
 ## 技术栈
 
-- **大模型**：vLLM / SGLang / llama.cpp / TEI · 推理优化（PD 分离 / 量化 / MTP）· RAG / Agent
-- **工程**：Python / PyTorch / Docker / Kubernetes / Vue / FastAPI
-- **算力**：NVIDIA CUDA / 华为昇腾 CANN
+- **大模型**：vLLM / SGLang / llama.cpp / TEI · 推理优化（PD 分离 / 量化 / MTP）· RAG / Agent<span class="marginnote">vLLM 以 PagedAttention 管理 KV Cache 见长，SGLang 面向复杂采样与结构化输出，llama.cpp 是 CPU 与边缘端轻量推理的首选。</span>
+- **工程**：Python / PyTorch / Docker / Kubernetes / Vue / FastAPI<span class="marginnote">FastAPI 是 Python 生态的主流异步 Web 框架，Vue 负责平台前端，Kubernetes 承载推理服务的编排与扩缩容。</span>
+- **算力**：NVIDIA CUDA / 华为昇腾 CANN<span class="marginnote">CANN（昇腾 AI 计算架构）是华为对标 CUDA 的异构计算平台，提供算子库、图编译与运行时。</span>
 
 ## 从这里开始
 
-- [博文总览](/posts/) —— 60 个学科的完整知识地图与写作进度
-- [项目](/projects/) —— 我做过的东西：推理架构、开放平台、业务系统与论文
-- [样式演示](/posts/style-demo) —— 本站支持的排版能力（公式、化学方程式、边注）
+- [博文总览](/posts/) —— 60 个学科的完整知识地图与写作进度<span class="marginnote">60 个学科、5832 个选题的完整知识地图，写作进度实时更新；本站源码在 GitHub 开源，欢迎 star 与 issue。</span>
+- [项目](/projects/) —— 我做过的东西：推理架构、开放平台、业务系统与论文<span class="marginnote">8 个项目，横跨 2021–2026：从卫星可视化的全栈实习，到大模型推理架构与开放平台的独立开发，部分运行于内网环境。</span>
+- [样式演示](/posts/style-demo) —— 本站支持的排版能力（公式、化学方程式、边注）<span class="marginnote">多级标题、行内与块级公式、化学方程式、代码高亮、表格与边注——写博文前不妨先看一眼这份排版参考。</span>
