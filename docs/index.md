@@ -5,20 +5,26 @@
 <footer>—— 奥卡姆的威廉<span class="marginnote">奥卡姆剃刀是这个网站的方法论底色：无论是白天做架构取舍，还是夜晚写作取材，标准都是同一条——先做减法，能不加的实体、能不写的段落，就不加、不写。</span></footer>
 </div>
 
-我是**徐鸿铎**<span class="marginnote">联系方式：<br>GitHub <a href="https://github.com/xhongduo-tech">@xhongduo-tech</a><br>Email x.hongduo@hotmail.com</span>，大模型架构工程师，就职于国企数据中心。
+我是**徐鸿铎**<span class="marginnote">联系方式：<br>GitHub <a href="https://github.com/xhongduo-tech">@xhongduo-tech</a><br>CSDN <a href="https://blog.csdn.net/weixin_43098506" target="_blank" rel="noopener noreferrer">@weixin_43098506</a><br>Email x.hongduo@hotmail.com</span>，大模型架构工程师，就职于国企数据中心。
 白天的工作是让大模型在有限的算力上跑得更快——推理架构、异构集群、量化与调度；
 夜晚与周末，我在写这个网站<span class="marginnote">本站由 VitePress 构建，排版致敬 <a href="https://edwardtufte.github.io/tufte-css/" target="_blank" rel="noopener noreferrer">Tufte 风格</a>：衬线字体、类纸张背景、边注与正文并排。<br>源码在 <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener noreferrer">GitHub</a> 开源。</span>：一个从高中数理出发，经大学数学物理与计算机科学，
 最终抵达 AI 与大模型前沿的完整知识体系。
 
 ## 专注领域
 
-**大模型推理架构** —— PD 分离<span class="marginnote">把 Prefill（预填充）与 Decode（解码）拆到不同实例上分别扩缩容——前者算力密集，后者显存与延迟敏感。</span>、MTP 多 Token 预测<span class="marginnote">一步预测多个后续 token，用多余算力换取更少的解码轮数。</span>、动态优先级调度、量化推理（AWQ / GGUF / w8a8），在生产环境落地 vLLM、llama.cpp、TEI 等推理引擎。
+**大模型推理架构** —— 显存带宽与请求延迟是两个互相拉扯的约束，压榨算力就是在两者间找平衡：PD 分离<span class="marginnote">把 Prefill（预填充）与 Decode（解码）拆到不同实例上分别扩缩容——前者算力密集，后者显存与延迟敏感。</span>、MTP 多 Token 预测<span class="marginnote">一步预测多个后续 token，用多余算力换取更少的解码轮数。</span>、动态优先级调度、量化推理（AWQ / GGUF / w8a8），在生产环境落地 vLLM、llama.cpp、TEI 等推理引擎。
 
-**异构算力调度** —— 统筹 NVIDIA A100 / V100 与华为昇腾 910B3<span class="marginnote">昇腾 910B3 与 NVIDIA 系显卡的算子库、编译链路完全不同，混合调度的核心是在两套生态之上抹平差异，让上层任务无感知。</span> 混合集群，自研梯度算力部署方案，支撑近 50 个大模型重点场景。
+**异构算力调度** —— 让业务方感知不到底层差异是核心目标：统筹 NVIDIA A100 / V100 与华为昇腾 910B3<span class="marginnote">昇腾 910B3 与 NVIDIA 系显卡的算子库、编译链路完全不同，混合调度的核心是在两套生态之上抹平差异，让上层任务无感知。</span> 混合集群，自研梯度算力部署方案，支撑近 50 个大模型重点场景。
 
-**大模型平台工程** —— 独立全栈开发大模型开放平台：14+ 模型在线管理，OpenAI / Anthropic 兼容接口，KV Cache 感知的 API 智能路由<span class="marginnote">KV Cache 感知路由：把请求优先转发到已缓存对应上下文 KV 的实例，命中时可跳过重复的前缀计算，是多实例部署里常见的推理加速手段。</span>。
+**大模型平台工程** —— 从 0 到 1 独立设计并实现大模型开放平台：14+ 模型在线管理，兼容 OpenAI / Anthropic 接口以降低业务方接入成本，KV Cache 感知的 API 智能路由<span class="marginnote">KV Cache 感知路由：把请求优先转发到已缓存对应上下文 KV 的实例，命中时可跳过重复的前缀计算，是多实例部署里常见的推理加速手段。</span>。
 
-**AI 应用落地** —— 提示词工程 + RAG<span class="marginnote">RAG（检索增强生成）：先从知识库中检索相关片段，再交给大模型生成回答，用来缓解大模型的知识时效性与幻觉问题。</span> 驱动的业务系统：需求项检查、履历合规校验、检索与精排、OCR 全链路。
+**AI 应用落地** —— 提示词工程 + RAG<span class="marginnote">RAG（检索增强生成）：先从知识库中检索相关片段，再交给大模型生成回答，用来缓解大模型的知识时效性与幻觉问题。</span> 驱动的业务系统，且各自有明确的验收门槛：需求项检查要求逐条可追溯，履历合规校验容错空间极小，检索精排与 OCR 全链路要接住上游数据的脏乱。
+
+## 工程方法论
+
+- **先测量，再决策**：架构选型从硬件约束倒推——显存带宽、请求延迟、GPU 利用率里哪个是真正瓶颈，决定了该上 PD 分离还是量化，该垂直扩容还是水平调度。
+- **复用优先，自研聚焦**：vLLM、RagFlow、Dify 等开源组件承担通用能力；自研精力放在业务强相关、开源方案覆盖不到的部分——路由策略、梯度调度、合规校验规则。
+- **先跑通，再规模化**：新系统先以最小可用方案验证业务价值，跑通后再补齐监控、灰度<span class="marginnote">灰度发布：先在小比例流量上验证新版本，观察指标正常后再逐步放量，是控制上线风险的常见手段。</span>、批量处理等工程化能力，不为还不存在的规模提前投入。
 
 ## 写作体系
 
@@ -40,8 +46,8 @@
 **国企数据中心 — 大模型架构工程师**<span class="marginnote">入职初期从事金融领域大数据分析，后主动转岗大模型方向。</span>（2023.09 至今）
 
 - **算力统筹**：管理 A100、V100、昇腾 910B3 混合集群，自研梯度算力部署方案<span class="marginnote">"梯度"指按任务优先级与算力需求分级投放资源：高优任务独占 A100，长尾任务共享 V100 与昇腾。</span>，支撑全中心近 50 个大模型重点场景
-- **推理架构**：落地容器化部署、动态优先级调度、PD 分离、MTP、NVIDIA MPS<span class="marginnote">NVIDIA MPS（Multi-Process Service）：让多个进程共享同一张 GPU 的计算资源，避免多任务抢占带来的上下文切换开销。</span>、TEI 向量推理引擎
-- **模型部署**：牵头部署 Qwen、Gemma、DeepSeek、GLM 等系列开源大模型<span class="marginnote">Qwen、Gemma、DeepSeek、GLM 等系列覆盖对话、代码、文档、检索精排与 OCR 全链路，按场景选型部署。</span>，覆盖对话、代码、文档、检索精排、OCR 全链路
+- **推理架构**：为提升 GPU 利用率，落地容器化部署、动态优先级调度、PD 分离、MTP、NVIDIA MPS<span class="marginnote">NVIDIA MPS（Multi-Process Service）：让多个进程共享同一张 GPU 的计算资源，避免多任务抢占带来的上下文切换开销。</span>、TEI 向量推理引擎
+- **模型部署**：牵头技术选型与部署 Qwen、Gemma、DeepSeek、GLM 等系列开源大模型<span class="marginnote">Qwen、Gemma、DeepSeek、GLM 等系列覆盖对话、代码、文档、检索精排与 OCR 全链路，按场景选型部署。</span>，覆盖对话、代码、文档、检索精排、OCR 全链路
 - **平台建设**：牵头大模型 API 统一接入平台，搭建内网 PyPI 平台，引入 RagFlow、Dify<span class="marginnote">RagFlow 是面向 RAG 的开源知识库引擎，Dify 是 LLMOps 平台，两者配合支撑检索增强与 Agent 业务。</span> 支撑 RAG 与 Agent 需求
 - **业务落地**：BRDM<span class="marginnote">BRDM：用 Qwen2-72B 对需求文档做条目抽取与逐条校验，替代人工评审中的重复劳动。</span> 需求项智能检查系统（Qwen2-72B）、员工履历检查系统（提示词 + RAG）
 
