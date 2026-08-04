@@ -5,7 +5,7 @@
 <footer>—— William of Ockham</footer>
 </div>
 
-I'm **Xu Hongduo**, an LLM Infrastructure Engineer at the R&D Center of ICBC Head Office.
+I'm **Xu Hongduo**, an LLM Infrastructure Engineer at a state-owned enterprise data center.
 By day, I make large models run faster on limited hardware — inference architecture,
 heterogeneous clusters, quantization and scheduling. By night, I write this site:
 a complete knowledge system that starts from high-school math and physics,
@@ -40,7 +40,7 @@ written chapter by chapter, section by section.<span class="marginnote">The full
 
 ## Experience
 
-**ICBC Head Office, R&D Center — LLM Infrastructure Engineer** (2023.09 – present)<span class="marginnote">Started as a data analyst in mortgage and risk domains; transferred to the LLM track by choice.</span>
+**State-owned Enterprise Data Center — LLM Infrastructure Engineer** (2023.09 – present)<span class="marginnote">Started as a data analyst in financial domains; transferred to the LLM track by choice.</span>
 
 - **Compute**: managing A100 / V100 / Ascend 910B3 clusters; tiered deployment scheme supporting ~50 key scenarios
 - **Inference**: containerized deployment, dynamic priority scheduling, PD disaggregation, MTP, NVIDIA MPS, TEI

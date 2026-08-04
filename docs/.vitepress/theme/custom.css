@@ -2,8 +2,9 @@
    站点附加样式（Tufted 复刻的补充层）
    ============================================================ */
 
-/* #app 不干扰 body 的 flex 布局 */
-#app {
+/* #app 与布局根节点不干扰 body 的 flex 布局 */
+#app,
+#app > div {
   display: contents;
 }
 
@@ -159,5 +160,139 @@ html[data-theme='dark'] .nav-icon-btn {
   .nav-tools {
     margin-right: 0;
     margin-top: 0.5em;
+  }
+}
+
+/* ============================================================
+   布局标准化：统一容器 + 导航对齐 + 克制的动效
+   （覆盖 tufte-base/tufted 中的分散宽度与 margin 规则）
+   ============================================================ */
+
+/* ---------- 统一容器：所有区块同一条左边线，宽屏居中 ---------- */
+body {
+  width: auto;
+  max-width: none;
+  padding-left: 0;
+  margin: 0;
+}
+.site-header,
+.site-footer,
+.tuf-article {
+  width: min(87.5%, 1300px);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+@media (max-width: 760px) {
+  .site-header,
+  .site-footer,
+  .tuf-article {
+    width: auto;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+  }
+}
+
+/* ---------- 导航：单行 flex，工具区与链接严格同一水平线 ---------- */
+header.site-header {
+  margin: 0;
+}
+.site-greeting {
+  font-size: 1rem;
+  color: var(--theme-line-numbers-text);
+  margin: 1.2em 0 0.2em;
+  line-height: 1.6;
+}
+header nav.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin: 0;
+  padding-bottom: 0.6em;
+  border-bottom: 1px solid var(--theme-table-border);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.site-nav a:any-link {
+  margin-top: 0; /* 覆盖 tufted 的 margin-top:1em */
+}
+.nav-tools {
+  margin: 0 0 0 auto; /* 覆盖此前的 margin-top/right */
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.nav-tools .theme-toggle-btn {
+  margin: 0;
+}
+@media (max-width: 760px) {
+  header nav.site-nav {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- 动效：克制、专业 ---------- */
+@keyframes tuf-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.site-header {
+  animation: tuf-in 0.4s ease both;
+}
+.tuf-article {
+  animation: tuf-in 0.5s ease 0.05s both;
+}
+.site-footer {
+  animation: tuf-in 0.5s ease 0.1s both;
+}
+
+a {
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.theme-toggle-btn svg,
+.nav-icon-btn svg {
+  transition: transform 0.35s ease;
+}
+.theme-toggle-btn:hover svg {
+  transform: rotate(40deg);
+}
+.nav-icon-btn:hover svg {
+  transform: scale(1.12);
+}
+
+.marginnote {
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+.marginnote:hover {
+  background: var(--highlight-weak, rgba(128, 128, 128, 0.2));
+}
+
+.pg-bar-fill,
+.po-bar-fill {
+  transition: width 0.6s ease;
+}
+
+/* 尊重系统的减弱动效设置 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -39,12 +39,14 @@ watch(
 
 <template>
   <div>
-    <header class="site-header">{{ t.greeting }}</header>
     <header class="site-header">
+      <p class="site-greeting">{{ t.greeting }}</p>
       <nav class="site-nav">
-        <a :href="withBase('/')">{{ t.home }}</a>
-        <a :href="withBase('/posts/')">{{ t.posts }}</a>
-        <a :href="withBase('/projects/')">{{ t.projects }}</a>
+        <span class="nav-links">
+          <a :href="withBase('/')">{{ t.home }}</a>
+          <a :href="withBase('/posts/')">{{ t.posts }}</a>
+          <a :href="withBase('/projects/')">{{ t.projects }}</a>
+        </span>
         <span class="nav-tools">
           <a class="nav-icon-btn lang-btn" :href="withBase(t.langLink)" :aria-label="t.lang">{{ t.lang }}</a>
           <a
