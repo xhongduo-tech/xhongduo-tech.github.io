@@ -259,6 +259,15 @@ a {
   background: var(--highlight-weak, rgba(128, 128, 128, 0.2));
 }
 
+/* ---------- 边注编号：正文上标数字 + 边注前缀数字（复用 tufte-base 的
+   sidenote-counter 计数器；enhance.ts 的 numberMarginNotes() 负责在正文中
+   插入 .sidenote-number 锚点，编号本身完全由下面的 CSS 计数器生成） ---------- */
+.marginnote::before {
+  content: counter(sidenote-counter) '. ';
+  font-family: et-book-roman-old-style, et-book, serif;
+  font-size: 1rem;
+}
+
 .pg-bar-fill,
 .po-bar-fill {
   transition: width 0.6s ease;

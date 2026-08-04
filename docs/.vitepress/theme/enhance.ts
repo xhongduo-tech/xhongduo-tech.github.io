@@ -157,6 +157,19 @@ function enhanceCodeBlocks() {
   })
 }
 
+/* ---------- 边注编号：正文中插入上标数字，与边注内容前缀对应 ----------
+   复用 tufte-base.css 自带的 sidenote-counter 计数器与 .sidenote-number
+   视觉样式；只在正文里插入一个空 <span> 作为编号锚点，具体数字由 CSS
+   计数器渲染，因此增删边注会自动重新编号，无需手动维护序号。 */
+function numberMarginNotes() {
+  document.querySelectorAll('.tuf-article .marginnote').forEach((note) => {
+    if (note.previousElementSibling?.classList.contains('sidenote-number')) return
+    const marker = document.createElement('span')
+    marker.className = 'sidenote-number'
+    note.parentNode?.insertBefore(marker, note)
+  })
+}
+
 /* ---------- 左侧浮动 TOC（toc.js，≥3 个三级标题时启用） ---------- */
 function buildToc() {
   document.querySelector('.toc-sidebar')?.remove()
@@ -217,5 +230,6 @@ function buildToc() {
 export function enhancePage() {
   formatHeadings()
   enhanceCodeBlocks()
+  numberMarginNotes()
   buildToc()
 }
