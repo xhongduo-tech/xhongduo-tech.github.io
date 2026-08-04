@@ -87,28 +87,33 @@ ul div[class*='language-'] {
   padding-left: 6px;
 }
 
-/* ---------- 非文章页（分类规划/总览/关于/项目/首页）：整栏宽 ---------- */
-.plain-doc .tuf-article section > p,
-.plain-doc .tuf-article section > ul,
-.plain-doc .tuf-article section > ol,
-.plain-doc .tuf-article section > dl,
-.plain-doc .tuf-article section > blockquote,
-.plain-doc .tuf-article section > h1,
-.plain-doc .tuf-article section > h2,
-.plain-doc .tuf-article section > h3,
-.plain-doc .tuf-article section > h4,
-.plain-doc .tuf-article section > h5,
-.plain-doc .tuf-article section > pre,
-.plain-doc .tuf-article section > div[class*='language-'],
-.plain-doc .tuf-article section > mjx-container[display='true'] {
+/* ---------- 非文章页（分类规划/总览/关于/项目/首页）：整栏宽 ----------
+   用后代选择器：VitePress 的 <Content/> 会在 section 与内容间插入无 class 的
+   包裹 div（用于锚点定位），直接子选择器 section > x 会失配，见上方同类注释 */
+.plain-doc .tuf-article section p,
+.plain-doc .tuf-article section ul,
+.plain-doc .tuf-article section ol,
+.plain-doc .tuf-article section dl,
+.plain-doc .tuf-article section h1,
+.plain-doc .tuf-article section h2,
+.plain-doc .tuf-article section h3,
+.plain-doc .tuf-article section h4,
+.plain-doc .tuf-article section h5,
+.plain-doc .tuf-article section pre,
+.plain-doc .tuf-article section div[class*='language-'],
+.plain-doc .tuf-article section mjx-container[display='true'] {
   width: 100%;
 }
 
+.plain-doc .tuf-article section blockquote {
+  width: 100% !important;
+}
+
 /* ---------- 组件宽度（进度面板/总览/项目/统计带） ---------- */
-.tuf-article section > .pg,
-.tuf-article section > .po-tier,
-.tuf-article section > .pj-list,
-.tuf-article section > .hs-band {
+.tuf-article section .pg,
+.tuf-article section .po-tier,
+.tuf-article section .pj-list,
+.tuf-article section .hs-band {
   width: 100%;
 }
 
@@ -326,18 +331,18 @@ body {
 }
 
 /* plain-doc（整栏宽）页面：表格与图片居中于整栏，而不是 55% 正文栏 */
-.plain-doc .tuf-article section > table,
-.plain-doc .tuf-article section > img,
-.plain-doc .tuf-article section > svg {
+.plain-doc .tuf-article section table,
+.plain-doc .tuf-article section img,
+.plain-doc .tuf-article section svg {
   left: 50%;
 }
 
 /* 窄屏（<760px）：组件与正文同宽，避免留白挤压 */
 @media (max-width: 760px) {
-  .tuf-article section > .pg,
-  .tuf-article section > .po-tier,
-  .tuf-article section > .pj-list,
-  .tuf-article section > .hs-band {
+  .tuf-article section .pg,
+  .tuf-article section .po-tier,
+  .tuf-article section .pj-list,
+  .tuf-article section .hs-band {
     width: 100%;
   }
   .po-row {

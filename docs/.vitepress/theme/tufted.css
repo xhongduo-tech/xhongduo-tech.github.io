@@ -56,30 +56,28 @@ img[loading="lazy"] {
    Shared logic for images, SVGs
 */
 
-/* 1. Content centered in the main text column (55% width) */
-section > img,
-section > svg {
+/* 1. Content centered in the main text column (55% width)
+   （用后代选择器：VitePress 的 <Content/> 会在 section 与内容间插入无 class 的
+   包裹 div 用于锚点定位，直接子选择器 section > img 会失配） */
+section img,
+section svg {
 	max-width: 55%;
 	position: relative;
 	left: 27.5%;
 	transform: translateX(-50%);
-}
-
-section > img,
-section > svg {
 	display: block;
 }
 
-/* 2. Content centered in figures (100% of figure width) */
-section > figure:not(.fullwidth) > img,
-section > figure:not(.fullwidth) > svg {
+/* 2. Content centered in figures (100% of figure width)
+   优先级（3 个类型选择器 + :not()）高于上一条，重置其定位属性 */
+section figure:not(.fullwidth) img,
+section figure:not(.fullwidth) svg {
 	max-width: 100%;
+	position: static;
+	left: auto;
+	transform: none;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-section > figure:not(.fullwidth) > img,
-section > figure:not(.fullwidth) > svg {
 	display: block;
 }
 
@@ -454,7 +452,7 @@ table {
 }
 
 /* Naked tables behave like the main text column */
-section > table {
+section table {
 	width: auto;
 	position: relative;
 	left: 27.5%;
@@ -492,7 +490,7 @@ table tbody tr:hover {
 	}
 
 	/* Reset naked table positioning on mobile */
-	section > table {
+	section table {
 		left: 0;
 		transform: none;
 		margin: 1.5em auto;
@@ -596,8 +594,8 @@ RESPONSIVE LAYOUT
 	}
 
 	/* Full-width tables and images on mobile */
-	section > img,
-	section > svg {
+	section img,
+	section svg {
 		max-width: 100%;
 		left: 0;
 		transform: none;

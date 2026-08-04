@@ -103,26 +103,22 @@ sup {
     line-height: 0;
 }
 
-/* Chapter Epigraphs */
+/* Chapter Epigraphs
+   本站约定 <div class="epigraph"><p>…</p><footer>…</footer></div>，不嵌套
+   blockquote/cite（原 Typst 模板会产出 blockquote，这里按实际标记调整选择器） */
 div.epigraph {
     margin: 5em 0;
 }
 
-div.epigraph > blockquote {
-    margin-top: 3em;
-    margin-bottom: 3em;
-}
-
-div.epigraph > blockquote,
-div.epigraph > blockquote > p {
+div.epigraph > p {
     font-style: italic;
 }
 
-div.epigraph > blockquote > footer {
+div.epigraph > footer {
     font-style: normal;
 }
 
-div.epigraph > blockquote > footer > cite {
+div.epigraph > footer > cite {
     font-style: italic;
 }
 /* end chapter epigraphs styles */
@@ -142,16 +138,18 @@ blockquote footer {
     text-align: right;
 }
 
-section > p,
-section > footer,
-section > table {
+/* 用后代选择器而非直接子选择器：VitePress 的 <Content/> 会在 section 与实际
+   内容之间插入若干层无 class 的包裹 div（用于锚点定位），直接子选择器会失配 */
+section p,
+section footer,
+section table {
     width: 55%;
 }
 
 /* 50 + 5 == 55, to be the same width as paragraph */
-section > dl,
-section > ol,
-section > ul {
+section dl,
+section ol,
+section ul {
     width: 50%;
     -webkit-padding-start: 5%;
 }
@@ -346,9 +344,9 @@ label.margin-toggle:not(.sidenote-number) {
     }
 
     hr,
-    section > p,
-    section > footer,
-    section > table {
+    section p,
+    section footer,
+    section table {
         width: 100%;
     }
 
@@ -356,9 +354,9 @@ label.margin-toggle:not(.sidenote-number) {
         width: 97%;
     }
 
-    section > dl,
-    section > ol,
-    section > ul {
+    section dl,
+    section ol,
+    section ul {
         width: 90%;
     }
 

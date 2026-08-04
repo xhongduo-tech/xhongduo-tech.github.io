@@ -14,13 +14,13 @@ and arrives at the frontier of AI and large language models.<span class="marginn
 
 ## Focus Areas
 
-**LLM Inference Architecture** — PD disaggregation, multi-token prediction (MTP), dynamic priority scheduling, quantized inference (AWQ / GGUF / w8a8), running vLLM, llama.cpp and TEI in production.
+**LLM Inference Architecture** — PD disaggregation, multi-token prediction (MTP), dynamic priority scheduling, quantized inference (AWQ / GGUF / w8a8), running vLLM, llama.cpp and TEI in production.<span class="marginnote">PD disaggregation: splitting Prefill and Decode onto separate instances that scale independently — the former is compute-bound, the latter is memory- and latency-sensitive. MTP: predicting several future tokens per step, trading extra compute for fewer decode rounds.</span>
 
-**Heterogeneous Compute Scheduling** — managing mixed NVIDIA A100 / V100 and Huawei Ascend 910B3 clusters; a self-designed tiered deployment scheme supporting ~50 key LLM scenarios.
+**Heterogeneous Compute Scheduling** — managing mixed NVIDIA A100 / V100 and Huawei Ascend 910B3 clusters; a self-designed tiered deployment scheme supporting ~50 key LLM scenarios.<span class="marginnote">Ascend 910B3 and NVIDIA GPUs differ end-to-end — kernel libraries, compiler toolchains, everything. Scheduling across both means papering over that gap so upper layers stay agnostic.</span>
 
-**LLM Platform Engineering** — independently built a full-stack open platform: 14+ models online, OpenAI / Anthropic compatible APIs, KV-Cache-aware intelligent routing.
+**LLM Platform Engineering** — independently built a full-stack open platform: 14+ models online, OpenAI / Anthropic compatible APIs, KV-Cache-aware intelligent routing.<span class="marginnote">KV-cache-aware routing: forwarding requests to whichever instance already holds the matching context's KV cache, skipping redundant prefix computation on a hit — a common optimization in multi-instance serving.</span>
 
-**Applied AI** — prompt engineering + RAG business systems: requirement review, resume compliance checking, retrieval & re-ranking, OCR pipelines.
+**Applied AI** — prompt engineering + RAG business systems: requirement review, resume compliance checking, retrieval & re-ranking, OCR pipelines.<span class="marginnote">RAG (Retrieval-Augmented Generation): retrieve relevant passages first, then hand them to the model for generation — used to offset an LLM's stale knowledge and hallucination.</span>
 
 ## The Writing System
 
@@ -43,7 +43,7 @@ written chapter by chapter, section by section.<span class="marginnote">The full
 **State-owned Enterprise Data Center — LLM Infrastructure Engineer** (2023.09 – present)<span class="marginnote">Started as a data analyst in financial domains; transferred to the LLM track by choice.</span>
 
 - **Compute**: managing A100 / V100 / Ascend 910B3 clusters; tiered deployment scheme supporting ~50 key scenarios
-- **Inference**: containerized deployment, dynamic priority scheduling, PD disaggregation, MTP, NVIDIA MPS, TEI
+- **Inference**: containerized deployment, dynamic priority scheduling, PD disaggregation, MTP, NVIDIA MPS, TEI<span class="marginnote">NVIDIA MPS (Multi-Process Service): lets multiple processes share a single GPU's compute resources, avoiding the context-switch overhead of preemptive multitasking.</span>
 - **Models**: deployed Qwen, Gemma, DeepSeek, GLM families covering chat, code, docs, retrieval & OCR
 - **Platforms**: unified LLM API gateway, intranet PyPI, RagFlow & Dify adoption for RAG and Agents
 - **Applications**: BRDM requirement review system (Qwen2-72B), resume compliance checker (prompt + RAG)
@@ -56,12 +56,12 @@ written chapter by chapter, section by section.<span class="marginnote">The full
 
 - **The Hong Kong Polytechnic University** — MSc, Artificial Intelligence & Big Data (2022 – 2023)
 - **North China University of Technology** — BEng, Computer Science (2017 – 2021)
-- *Hand Acupoint Detection with an Improved HRNet*, **IJCNN 2022**, second author (during internship at ICT, CAS)
+- *Hand Acupoint Detection with an Improved HRNet*, **IJCNN 2022**, second author (during internship at ICT, CAS)<span class="marginnote">IJCNN (the International Joint Conference on Neural Networks) is jointly organized by the IEEE Computational Intelligence Society and the International Neural Network Society — a major venue for machine learning and neural networks.</span>
 
 ## Honors
 
 - Beijing Outstanding Graduate (2021); First-class Scholarship for three consecutive years (2018 – 2020)
-- Multiple awards in Lanqiao Cup programming contest and VEX robotics
+- Multiple awards in Lanqiao Cup programming contest and VEX robotics<span class="marginnote">Lanqiao Cup emphasizes algorithms and programming; VEX robotics spans mechanical design, embedded programming and team collaboration — two complementary flavors of engineering practice.</span>
 
 ## Tech Stack
 
