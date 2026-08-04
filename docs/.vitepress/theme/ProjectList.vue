@@ -1,5 +1,11 @@
 <script setup>
-const projects = [
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+
+const { page } = useData()
+const isEn = computed(() => page.value.relativePath.startsWith('en/'))
+
+const projectsZh = [
   {
     name: 'BRDC.ai 大模型开放平台',
     period: '2026',
@@ -57,6 +63,67 @@ const projects = [
     tags: ['可视化', '卫星数据', '全栈'],
   },
 ]
+
+const projectsEn = [
+  {
+    name: 'BRDC.ai LLM Open Platform',
+    period: '2026',
+    role: 'Solo',
+    desc: 'A full-stack LLM open platform: 14+ models managed online, OpenAI / Anthropic-compatible APIs, GPU KV-cache-aware intelligent routing, dynamic priority scheduling, token-tiered routing (8K–128K), auto-inspection and operations analytics.',
+    tags: ['Full-stack', 'OpenAI-compatible', 'Smart routing', 'Dynamic scheduling'],
+  },
+  {
+    name: 'Model Deployment & Inference Optimization on Heterogeneous Clusters',
+    period: '2026',
+    role: 'Lead',
+    desc: 'Orchestrated mixed NVIDIA A100 / V100 and Huawei Ascend 910B3 clusters in a fully intranet environment to deploy the Qwen, Gemma, DeepSeek and GLM families. Shipped PD disaggregation, MTP, MPS, TEI, and AWQ / GGUF / w8a8 quantization, with a self-designed tiered compute scheme supporting ~50 key scenarios.',
+    tags: ['vLLM', 'llama.cpp', 'PD disaggregation', 'Quantized inference', 'Ascend'],
+  },
+  {
+    name: 'Unified LLM API Gateway',
+    period: '2024',
+    role: 'Initiated',
+    desc: 'Modeled on DeepSeek’s official site, the initial unified LLM API gateway: key management, API documentation, call logs and usage analytics.',
+    tags: ['API gateway', 'Key management', 'Usage analytics'],
+  },
+  {
+    name: 'Intranet PyPI Package Registry',
+    period: '2024',
+    role: 'Built',
+    desc: 'A private Python package registry for the intranet, solving dependency isolation and version management in offline environments.',
+    tags: ['PyPI', 'Intranet', 'Dependency management'],
+  },
+  {
+    name: 'BRDM Requirement-Item Review System',
+    period: '2023',
+    role: 'Initiated',
+    desc: 'Automatic checking of requirement-item names and descriptions powered by Qwen2-72B and prompt engineering — the first LLM deployment in banking business.',
+    tags: ['Qwen', 'Prompt engineering', 'Business deployment'],
+  },
+  {
+    name: 'Resume Compliance Checker',
+    period: '2023',
+    role: 'Initiated',
+    desc: 'A prompt + RAG pipeline for precise extraction and compliance validation of unstructured resumes, used in annual rotation checks before being handed to the development center.',
+    tags: ['RAG', 'Information extraction', 'Compliance'],
+  },
+  {
+    name: 'Hand Acupoint Detection (Improved HRNet)',
+    period: '2022',
+    role: 'Second author · IJCNN',
+    desc: 'Internship work at ICT, CAS: an improved High-Resolution Network (HRNet) for automatic hand-acupoint detection, published at IJCNN 2022.',
+    tags: ['HRNet', 'Keypoint detection', 'Paper'],
+  },
+  {
+    name: 'Satellite Fire Monitoring & Wind-Field Visualization',
+    period: '2021–2022',
+    role: 'Full-stack Engineer',
+    desc: 'At Huayun Group, China Meteorological Administration: real-time 2D/3D wind-barb rendering from wind data, contributing to the satellite fire-monitoring prediction system and FY3E / FY4B satellite database management.',
+    tags: ['Visualization', 'Satellite data', 'Full-stack'],
+  },
+]
+
+const projects = computed(() => (isEn.value ? projectsEn : projectsZh))
 </script>
 
 <template>

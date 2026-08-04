@@ -1,6 +1,6 @@
 <script setup>
 import { withBase, useRoute, useData, useRouter } from 'vitepress'
-import { computed, onMounted, watch, nextTick, ref } from 'vue'
+import { computed, onMounted, watch, nextTick } from 'vue'
 import { initEnhancements, enhancePage } from './enhance'
 
 const route = useRoute()
@@ -9,42 +9,23 @@ const router = useRouter()
 
 const pageClass = computed(() => page.value.frontmatter?.pageClass || '')
 
-// 语言偏好：博文/项目目前没有英文翻译，relativePath 不会带 en/ 前缀。
-// 语言按钮是「原地切换」——在当前页面直接切换 chrome（问候语、导航、
-// 页脚）的语言，不跳转到别的页面；偏好用 sessionStorage 记住（与主题
-// 切换同一套持久化方式）。只有首页内容有中/英两份翻译：在首页时切语言
-// 会跳转到对应语言的首页（/ 或 /en/），其余页面原地切换，正文保持原样。
-const LANG_KEY = 'lang-preference'
-function getStoredLang() {
-  try {
-    return sessionStorage.getItem(LANG_KEY)
-  } catch {
-    return null
-  }
-}
-function setStoredLang(lang) {
-  try {
-    sessionStorage.setItem(LANG_KEY, lang)
-  } catch {}
-}
+// 语言由内容驱动：每个页面都有中/英两个版本（/posts/foo 与 /en/posts/foo
+// 是一对镜像），页面落在 en/ 目录下即为英文。语言按钮跳到当前页面的
+// 另一语言版本，不再依赖存储的偏好。
+const isEn = computed(() => page.value.relativePath.startsWith('en/'))
 
-const langPreference = ref(getStoredLang())
-
-const isEn = computed(() => {
-  if (page.value.relativePath.startsWith('en/')) return true
-  return langPreference.value === 'en'
-})
+// 相对路径 -> 站点路径：'posts/foo/index.md' -> '/posts/foo/'，'en/index.md' -> '/en/'
+function urlFromRelativePath(rel) {
+  const noExt = rel.replace(/\.md$/, '')
+  const dir = noExt.replace(/(^|\/)index$/, '$1')
+  return '/' + dir
+}
 
 function switchLang() {
-  const next = isEn.value ? 'zh' : 'en'
-  langPreference.value = next
-  setStoredLang(next)
-  // 首页才有本地化内容（/ 与 /en/ 是两份翻译），切语言时跳转到对应首页；
-  // 其余页面没有英文翻译，原地切换 chrome 即可，不让用户被拽走。
   const rel = page.value.relativePath
-  if (rel === 'index.md' || rel === 'en/index.md') {
-    router.go(withBase(next === 'en' ? '/en/' : '/'))
-  }
+  const isEnPage = rel.startsWith('en/')
+  const targetRel = isEnPage ? rel.slice(3) : 'en/' + rel
+  router.go(withBase(urlFromRelativePath(targetRel)))
 }
 
 const t = computed(() =>
@@ -54,7 +35,9 @@ const t = computed(() =>
         home: 'Home',
         homeLink: '/en/',
         posts: 'Posts',
+        postsLink: '/en/posts/',
         projects: 'Projects',
+        projectsLink: '/en/projects/',
         lang: '中文',
         footer: 'From Limits to LLMs · Xu Hongduo · Powered by VitePress ·',
         source: 'Source',
@@ -64,7 +47,9 @@ const t = computed(() =>
         home: '首页',
         homeLink: '/',
         posts: '博文',
+        postsLink: '/posts/',
         projects: '项目',
+        projectsLink: '/projects/',
         lang: 'EN',
         footer: '从极限到大模型 · 徐鸿铎 · Powered by VitePress ·',
         source: '源码',
@@ -79,20 +64,6 @@ watch(
   () => route.path,
   () => nextTick(() => enhancePage()),
 )
-
-// 真正落在 en/ 目录下的页面才代表内容本身是英文，同步偏好；
-// 未翻译页面保留用户之前的选择，不强制覆盖。immediate: true 确保首次
-// 加载 /en/ 页面时也能同步（而不是只在“路由发生变化”时才生效）。
-watch(
-  () => page.value.relativePath,
-  (relativePath) => {
-    if (relativePath.startsWith('en/')) {
-      langPreference.value = 'en'
-      setStoredLang('en')
-    }
-  },
-  { immediate: true },
-)
 </script>
 
 <template>
@@ -102,8 +73,8 @@ watch(
       <nav class="site-nav">
         <span class="nav-links">
           <a :href="withBase(t.homeLink)">{{ t.home }}</a>
-          <a :href="withBase('/posts/')">{{ t.posts }}</a>
-          <a :href="withBase('/projects/')">{{ t.projects }}</a>
+          <a :href="withBase(t.postsLink)">{{ t.posts }}</a>
+          <a :href="withBase(t.projectsLink)">{{ t.projects }}</a>
         </span>
         <span class="nav-tools">
           <button

@@ -32,15 +32,15 @@ and arrives at the frontier of AI and large language models.
 
 Content here is organized in four ascending tiers. This is not a blog index —
 it is a long-term study plan: every discipline follows a classic textbook,
-written chapter by chapter, section by section.<span class="marginnote">The full map of 60 disciplines and live writing progress: see [Posts](/posts/).</span>
+written chapter by chapter, section by section.<span class="marginnote">The full map of 60 disciplines and live writing progress: see [Posts](/en/posts/).</span>
 
-**Tier 1 · [Foundations](/posts/foundations/math/)**<span class="marginnote">Tier 1 covers 11 disciplines, mirroring high-school to early-undergraduate textbooks; the full map lives at [Posts](/posts/).</span> — math, physics, chemistry, biology, plus astronomy, earth science, cognitive science, psychology, logic, philosophy of science and economics.
+**Tier 1 · [Foundations](/en/posts/foundations/math/)**<span class="marginnote">Tier 1 covers 11 disciplines, mirroring high-school to early-undergraduate textbooks; the full map lives at [Posts](/en/posts/).</span> — math, physics, chemistry, biology, plus astronomy, earth science, cognitive science, psychology, logic, philosophy of science and economics.
 
-**Tier 2 · [Intermediate Mathematics](/posts/intermediate/advanced-math/)**<span class="marginnote">Tier 2 covers 17 disciplines — the backbone of undergraduate mathematics, from calculus to real analysis, functional analysis, topology and differential geometry.</span> — calculus, probability, linear algebra, discrete math, up to real analysis, functional analysis, topology and differential geometry.
+**Tier 2 · [Intermediate Mathematics](/en/posts/intermediate/advanced-math/)**<span class="marginnote">Tier 2 covers 17 disciplines — the backbone of undergraduate mathematics, from calculus to real analysis, functional analysis, topology and differential geometry.</span> — calculus, probability, linear algebra, discrete math, up to real analysis, functional analysis, topology and differential geometry.
 
-**Tier 3 · [Computer Science](/posts/cs/data-structures/)**<span class="marginnote">Tier 3 covers 14 CS core courses, mirroring the classic undergraduate curriculum.</span> — data structures, computer organization, operating systems, networks, databases, compilers, distributed systems: the complete CS core.
+**Tier 3 · [Computer Science](/en/posts/cs/data-structures/)**<span class="marginnote">Tier 3 covers 14 CS core courses, mirroring the classic undergraduate curriculum.</span> — data structures, computer organization, operating systems, networks, databases, compilers, distributed systems: the complete CS core.
 
-**Tier 4 · [Advanced Topics](/posts/advanced/llm-principles/)**<span class="marginnote">Tier 4 covers 18 disciplines — from machine learning and deep learning to LLM principles, fine-tuning, deployment and AI infrastructure, right up to the frontier.</span> — machine learning, deep learning, reinforcement learning, LLM principles, fine-tuning, deployment and infrastructure, up to AI safety and quantum computing.
+**Tier 4 · [Advanced Topics](/en/posts/advanced/llm-principles/)**<span class="marginnote">Tier 4 covers 18 disciplines — from machine learning and deep learning to LLM principles, fine-tuning, deployment and AI infrastructure, right up to the frontier.</span> — machine learning, deep learning, reinforcement learning, LLM principles, fine-tuning, deployment and infrastructure, up to AI safety and quantum computing.
 
 <HomeStats />
 
@@ -78,6 +78,6 @@ written chapter by chapter, section by section.<span class="marginnote">The full
 
 ## Start Here
 
-- [Posts](/posts/)<span class="marginnote">60 disciplines, 5832 topics, live writing progress; the source of this site is open on GitHub — stars and issues welcome.</span> — the full map of 60 disciplines with live progress
-- [Projects](/projects/)<span class="marginnote">8 projects spanning 2021–2026: from a full-stack internship in satellite visualization to independent work on LLM inference architecture and open platforms, some running on intranets only.</span> — inference architecture, open platforms, business systems and publications
-- [Style Demo](/posts/style-demo)<span class="marginnote">Heading levels, inline and block math, chemical equations, syntax-highlighted code, tables and margin notes — worth a look before you start writing a post.</span> — typography this site supports (math, chemistry, margin notes)
+- [Posts](/en/posts/)<span class="marginnote">60 disciplines, 5832 topics, live writing progress; the source of this site is open on GitHub — stars and issues welcome.</span> — the full map of 60 disciplines with live progress
+- [Projects](/en/projects/)<span class="marginnote">8 projects spanning 2021–2026: from a full-stack internship in satellite visualization to independent work on LLM inference architecture and open platforms, some running on intranets only.</span> — inference architecture, open platforms, business systems and publications
+- [Style Demo](/en/posts/style-demo)<span class="marginnote">Heading levels, inline and block math, chemical equations, syntax-highlighted code, tables and margin notes — worth a look before you start writing a post.</span> — typography this site supports (math, chemistry, margin notes)

@@ -1,18 +1,34 @@
 <script setup>
-import { withBase } from 'vitepress'
-import data from '../data/progress.json'
+import { computed } from 'vue'
+import { withBase, useData } from 'vitepress'
+import dataZh from '../data/progress.json'
+import dataEn from '../data/progress.en.json'
 
-const tiers = [
-  { key: 'foundations', name: '第一级 · 基础科学' },
-  { key: 'intermediate', name: '第二级 · 进阶数理' },
-  { key: 'cs', name: '第三级 · 计算机基础' },
-  { key: 'advanced', name: '第四级 · 高阶专题' },
-]
+const { page } = useData()
+const isEn = computed(() => page.value.relativePath.startsWith('en/'))
+const data = computed(() => (isEn.value ? dataEn : dataZh))
+
+const tiers = computed(() =>
+  isEn.value
+    ? [
+        { key: 'foundations', name: 'Level 1 · Foundations' },
+        { key: 'intermediate', name: 'Level 2 · Intermediate Mathematics' },
+        { key: 'cs', name: 'Level 3 · Computer Science' },
+        { key: 'advanced', name: 'Level 4 · Advanced Topics' },
+      ]
+    : [
+        { key: 'foundations', name: '第一级 · 基础科学' },
+        { key: 'intermediate', name: '第二级 · 进阶数理' },
+        { key: 'cs', name: '第三级 · 计算机基础' },
+        { key: 'advanced', name: '第四级 · 高阶专题' },
+      ],
+)
 
 function catsOf(tier) {
-  return Object.entries(data)
+  const prefix = isEn.value ? '/en/posts/' : '/posts/'
+  return Object.entries(data.value)
     .filter(([k]) => k.startsWith(tier + '/'))
-    .map(([k, v]) => ({ path: `/posts/${k}/`, ...v }))
+    .map(([k, v]) => ({ path: prefix + k + '/', ...v }))
 }
 
 function pct(c) {

@@ -1,12 +1,17 @@
 <script setup>
 import { computed } from 'vue'
-import data from '../data/progress.json'
+import { useData } from 'vitepress'
+import dataZh from '../data/progress.json'
+import dataEn from '../data/progress.en.json'
 
 const props = defineProps({
   cat: { type: String, required: true },
 })
 
-const cat = computed(() => data[props.cat])
+const { page } = useData()
+const isEn = computed(() => page.value.relativePath.startsWith('en/'))
+const data = computed(() => (isEn.value ? dataEn : dataZh))
+const cat = computed(() => data.value[props.cat])
 const pct = computed(() =>
   cat.value?.total ? Math.round((cat.value.done / cat.value.total) * 100) : 0,
 )
@@ -22,8 +27,10 @@ function seq(chIndex, i) {
 <template>
   <figure v-if="cat" class="pg">
     <div class="pg-head">
-      <span class="pg-title">写作进度</span>
-      <span class="pg-stat">{{ cat.done }} / {{ cat.total }} 篇 · {{ pct }}%</span>
+      <span class="pg-title">{{ isEn ? 'Writing Progress' : '写作进度' }}</span>
+      <span class="pg-stat"
+        >{{ cat.done }} / {{ cat.total }} {{ isEn ? 'topics' : '篇' }} · {{ pct }}%</span
+      >
     </div>
     <div class="pg-bar">
       <div class="pg-bar-fill" :style="{ width: pct + '%' }"></div>
