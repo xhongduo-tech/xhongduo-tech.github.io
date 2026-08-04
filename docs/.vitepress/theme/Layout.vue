@@ -6,6 +6,7 @@ import { initEnhancements, enhancePage } from './enhance'
 const route = useRoute()
 const { page } = useData()
 
+const pageClass = computed(() => page.value.frontmatter?.pageClass || '')
 const isEn = computed(() => page.value.relativePath.startsWith('en/'))
 const t = computed(() =>
   isEn.value
@@ -38,7 +39,7 @@ watch(
 </script>
 
 <template>
-  <div>
+  <div :class="pageClass">
     <header class="site-header">
       <p class="site-greeting">{{ t.greeting }}</p>
       <nav class="site-nav">

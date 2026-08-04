@@ -164,44 +164,17 @@ html[data-theme='dark'] .nav-icon-btn {
 @media (max-width: 760px) {
   .nav-tools {
     margin-right: 0;
-    margin-top: 0.5em;
   }
 }
 
 /* ============================================================
-   布局标准化：统一容器 + 导航对齐 + 克制的动效
-   （覆盖 tufte-base/tufted 中的分散宽度与 margin 规则）
+   布局：完全采用 Tufted-Blog 参考站点的结构选型——
+   body 87.5% 宽 + 12.5% 左侧内边距（tufte-base 提供），
+   正文栏占 55%，右侧 45% 留给边注（marginnote）。
+   此处只保留导航的对齐与少量覆盖。
    ============================================================ */
 
-/* ---------- 统一容器：所有区块同一条左边线，宽屏居中 ---------- */
-body {
-  width: auto;
-  max-width: none;
-  padding-left: 0;
-  margin: 0;
-}
-.site-header,
-.site-footer,
-.tuf-article {
-  width: min(87.5%, 1300px);
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-}
-@media (max-width: 760px) {
-  .site-header,
-  .site-footer,
-  .tuf-article {
-    width: auto;
-    margin-left: 1.2rem;
-    margin-right: 1.2rem;
-  }
-}
-
 /* ---------- 导航：单行 flex，工具区与链接严格同一水平线 ---------- */
-header.site-header {
-  margin: 0;
-}
 .site-greeting {
   font-size: 1rem;
   color: var(--theme-line-numbers-text);
@@ -214,7 +187,6 @@ header nav.site-nav {
   gap: 1.2em;
   margin: 0;
   padding-bottom: 0.6em;
-  border-bottom: 1px solid var(--theme-table-border);
 }
 .nav-links {
   display: flex;
@@ -312,23 +284,8 @@ body {
   overflow-x: clip;
 }
 
-/* 左侧 TOC：容器居中后，仅当左侧留白足够时才显示，并跟随容器左缘。
-   计算：容器半宽 650px + TOC 宽约 11rem，故 1680px 起才有足够空间。 */
-.toc-sidebar {
-  top: 15rem;
-  left: max(1rem, calc(50% - 650px - 12rem));
-  width: 10.5rem;
-}
-@media (max-width: 1679px) {
-  .toc-sidebar {
-    display: none !important;
-  }
-}
-@media (min-width: 1680px) {
-  .toc-sidebar {
-    display: block;
-  }
-}
+/* 左侧 TOC：随 tufted.css 的固定定位（left: 1%、≥1200px 显示），
+   与参考站点行为一致，无需额外覆盖 */
 
 /* plain-doc（整栏宽）页面：表格与图片居中于整栏，而不是 55% 正文栏 */
 .plain-doc .tuf-article section table,
