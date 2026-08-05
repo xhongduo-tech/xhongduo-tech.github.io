@@ -156,7 +156,7 @@ section ul {
 
 dt:not(:first-child),
 li:not(:first-child) {
-    margin-top: 0.25rem;
+    margin-top: 0.4rem;
 }
 
 figure {
@@ -190,8 +190,8 @@ figure.fullwidth figcaption {
 a:link,
 a:visited {
     color: inherit;
-    text-underline-offset: 0.1em;
-    text-decoration-thickness: 0.05em;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 0.08em;
 }
 
 /* Sidenotes, margin notes, figures, captions */

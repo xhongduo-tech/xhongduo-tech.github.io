@@ -52,23 +52,28 @@ ul div[class*='language-'] {
   }
 }
 
-/* ---------- MathJax（对齐模板 .math-block / .math-inline 表现） ---------- */
+/* ---------- MathJax（对齐模板 .math-block / .math-inline 表现） ----------
+   注意：markdown-it-mathjax3 通过 juice 将 MathJax 的默认样式内联为
+   inline style（display/text-align/margin），因此需要 !important 覆盖。 */
 .tuf-article mjx-container[display='true'] {
-  display: block;
+  display: block !important;
   width: 55%;
-  text-align: center;
-  margin: 1em 0;
-  padding: 0.5em 0;
-  font-size: 1.4em;
-  line-height: 1.2;
-  white-space: nowrap;
+  text-align: center !important;
+  margin: 1.8em 0 !important;
+  padding: 0.3em 0;
+  font-size: 1.7em;
+  line-height: 1.5;
   overflow-x: auto;
   overflow-y: hidden;
+}
+.tuf-article mjx-container[display='true'] > svg {
+  display: inline-block;
 }
 .tuf-article p mjx-container {
   display: inline-block;
   vertical-align: baseline;
   margin: 0 0.1em;
+  font-size: 1.08em;
 }
 @media (max-width: 760px) {
   .tuf-article mjx-container[display='true'] {
