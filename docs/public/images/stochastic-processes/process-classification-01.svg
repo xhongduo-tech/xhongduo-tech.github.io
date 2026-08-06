@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 580" width="640" height="580">
+  <title>随机过程的四类样本轨道</title>
+  <desc>按参数集（离散/连续时间）与状态空间（离散/连续状态）两个坐标轴划分的四类随机过程样本轨道示意图，依次为随机游动、时间序列、泊松过程与布朗运动。</desc>
+  <style>
+    text { font-family: sans-serif; fill: #333; }
+    .axis { stroke: #999; stroke-width: 1.2; }
+    .qtitle { font-size: 15px; font-weight: bold; }
+    .qsub { font-size: 13px; }
+    .path-red { stroke: #c0392b; stroke-width: 2; fill: none; }
+    .path-teal { stroke: #1f6f8b; stroke-width: 2; fill: none; }
+    .quad { fill: #faf9f5; stroke: #d8d2c8; }
+    .maintitle { font-size: 18px; font-weight: bold; }
+  </style>
+
+  <text x="320" y="34" text-anchor="middle" class="maintitle">随机过程的四类样本轨道</text>
+
+  <!-- 象限1：离散时间 · 离散状态 -->
+  <rect x="20" y="70" width="290" height="230" class="quad"/>
+  <text x="165" y="92" text-anchor="middle" class="qtitle">离散时间 · 离散状态</text>
+  <text x="165" y="110" text-anchor="middle" class="qsub" fill="#666">随机游动</text>
+  <line x1="40" y1="285" x2="295" y2="285" class="axis"/>
+  <line x1="40" y1="95" x2="40" y2="285" class="axis"/>
+  <text x="300" y="300" text-anchor="end" class="qsub">t</text>
+  <text x="30" y="100" text-anchor="end" class="qsub">X</text>
+  <polyline class="path-red" points="55,230 90,185 125,230 160,140 195,185 230,140 265,140 300,95"/>
+  <circle cx="55" cy="230" r="3" fill="#c0392b"/>
+  <circle cx="90" cy="185" r="3" fill="#c0392b"/>
+  <circle cx="125" cy="230" r="3" fill="#c0392b"/>
+  <circle cx="160" cy="140" r="3" fill="#c0392b"/>
+  <circle cx="195" cy="185" r="3" fill="#c0392b"/>
+  <circle cx="230" cy="140" r="3" fill="#c0392b"/>
+  <circle cx="265" cy="140" r="3" fill="#c0392b"/>
+  <circle cx="300" cy="95" r="3" fill="#c0392b"/>
+
+  <!-- 象限2：离散时间 · 连续状态 -->
+  <rect x="330" y="70" width="290" height="230" class="quad"/>
+  <text x="475" y="92" text-anchor="middle" class="qtitle">离散时间 · 连续状态</text>
+  <text x="475" y="110" text-anchor="middle" class="qsub" fill="#666">时间序列</text>
+  <line x1="350" y1="285" x2="605" y2="285" class="axis"/>
+  <line x1="350" y1="95" x2="350" y2="285" class="axis"/>
+  <text x="610" y="300" text-anchor="end" class="qsub">t</text>
+  <text x="340" y="100" text-anchor="end" class="qsub">X</text>
+  <polyline class="path-teal" points="365,180 400,135 435,170 470,110 505,160 540,95 575,145 610,105"/>
+  <circle cx="365" cy="180" r="3.5" fill="#1f6f8b"/>
+  <circle cx="400" cy="135" r="3.5" fill="#1f6f8b"/>
+  <circle cx="435" cy="170" r="3.5" fill="#1f6f8b"/>
+  <circle cx="470" cy="110" r="3.5" fill="#1f6f8b"/>
+  <circle cx="505" cy="160" r="3.5" fill="#1f6f8b"/>
+  <circle cx="540" cy="95" r="3.5" fill="#1f6f8b"/>
+  <circle cx="575" cy="145" r="3.5" fill="#1f6f8b"/>
+  <circle cx="610" cy="105" r="3.5" fill="#1f6f8b"/>
+
+  <!-- 象限3：连续时间 · 离散状态 -->
+  <rect x="20" y="320" width="290" height="230" class="quad"/>
+  <text x="165" y="342" text-anchor="middle" class="qtitle">连续时间 · 离散状态</text>
+  <text x="165" y="360" text-anchor="middle" class="qsub" fill="#666">泊松过程</text>
+  <line x1="40" y1="535" x2="295" y2="535" class="axis"/>
+  <line x1="40" y1="345" x2="40" y2="535" class="axis"/>
+  <text x="300" y="550" text-anchor="end" class="qsub">t</text>
+  <text x="30" y="350" text-anchor="end" class="qsub">X</text>
+  <polyline class="path-red" points="40,520 105,520 105,480 150,480 150,440 210,440 210,400 265,400 265,360 300,360"/>
+
+  <!-- 象限4：连续时间 · 连续状态 -->
+  <rect x="330" y="320" width="290" height="230" class="quad"/>
+  <text x="475" y="342" text-anchor="middle" class="qtitle">连续时间 · 连续状态</text>
+  <text x="475" y="360" text-anchor="middle" class="qsub" fill="#666">布朗运动</text>
+  <line x1="350" y1="535" x2="605" y2="535" class="axis"/>
+  <line x1="350" y1="345" x2="350" y2="535" class="axis"/>
+  <text x="610" y="550" text-anchor="end" class="qsub">t</text>
+  <text x="340" y="350" text-anchor="end" class="qsub">X</text>
+  <polyline class="path-teal" points="355,470 370,450 385,462 400,430 415,445 430,410 445,425 460,395 475,412 490,380 505,398 520,375 535,392 550,378 565,405 580,380 595,398 610,385"/>
+</svg>

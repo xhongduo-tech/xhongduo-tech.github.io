@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一章 度量空间（Metric Space）
 
 - [x] [度量空间的定义与基本例子](./metric-space)
-- [ ] 度量空间中的极限、稠密集与可分空间
-- [ ] 连续映射
-- [ ] 柯西点列与完备度量空间
-- [ ] 度量空间的完备化
+- [x] [度量空间中的极限、稠密集与可分空间](./limit-dense-separable)
+- [x] [连续映射](./continuous-mapping)
+- [x] [柯西点列与完备度量空间](./cauchy-complete-metric)
+- [x] [度量空间的完备化](./completion-metric-space)
 - [ ] 压缩映像原理（Banach 不动点定理）
 - [ ] 压缩映像原理在微分方程与积分方程中的应用
 - [ ] 列紧集与紧集

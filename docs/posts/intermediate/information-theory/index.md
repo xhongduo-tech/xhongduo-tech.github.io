@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 熵、相对熵与互信息
 
 - [x] [自信息（Self-information）与熵的定义](./self-information-and-entropy)
-- [ ] 熵的性质：非负性、对称性与可加性
-- [ ] 联合熵（Joint Entropy）与条件熵（Conditional Entropy）
-- [ ] 熵的链式法则（Chain Rule for Entropy）
-- [ ] 相对熵（KL 散度，Relative Entropy）的定义与性质
+- [x] [熵的性质：非负性、对称性与可加性](./entropy-properties)
+- [x] [联合熵（Joint Entropy）与条件熵（Conditional Entropy）](./joint-and-conditional-entropy)
+- [x] [熵的链式法则（Chain Rule for Entropy）](./chain-rule-for-entropy)
+- [x] [相对熵（KL 散度，Relative Entropy）的定义与性质](./relative-entropy)
 - [ ] 互信息（Mutual Information）的定义与多种等价表达
 - [ ] 条件互信息与互信息的链式法则
 - [ ] 熵、条件熵与互信息之间的 Venn 图关系

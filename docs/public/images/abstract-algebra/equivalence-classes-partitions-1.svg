@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="sans-serif">
+  <title>整数集 Z 按同余模 3 划分为三个等价类</title>
+  <desc>一个大矩形示意整数集 Z，被同余模 3 的等价关系分成三个互不相交的区域，分别标为等价类 [0]、[1]、[2]，每个区域里列出若干代表元素，说明三块两两不相交且并集铺满 Z。</desc>
+  <rect x="0" y="0" width="720" height="400" fill="#faf9f5"/>
+  <text x="360" y="36" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">整数集 Z 按同余模 3 划分为三个等价类</text>
+  <rect x="40" y="56" width="640" height="290" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+  <text x="360" y="80" text-anchor="middle" font-size="14" fill="#333">Z</text>
+  <path d="M40 56 L250 56 L250 346 L40 346 Z" fill="#1f6f8b" fill-opacity="0.18" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="145" y="130" text-anchor="middle" font-size="17" fill="#1f6f8b" font-weight="bold">[0]</text>
+  <text x="145" y="164" text-anchor="middle" font-size="14" fill="#333">…, -6, -3, 0, 3, 6, …</text>
+  <text x="145" y="196" text-anchor="middle" font-size="13" fill="#1f6f8b">被 3 整除</text>
+  <path d="M250 56 L450 56 L450 346 L250 346 Z" fill="#c0392b" fill-opacity="0.15" stroke="#c0392b" stroke-width="2"/>
+  <text x="350" y="130" text-anchor="middle" font-size="17" fill="#c0392b" font-weight="bold">[1]</text>
+  <text x="350" y="164" text-anchor="middle" font-size="14" fill="#333">…, -5, -2, 1, 4, 7, …</text>
+  <text x="350" y="196" text-anchor="middle" font-size="13" fill="#c0392b">余 1</text>
+  <path d="M450 56 L680 56 L680 346 L450 346 Z" fill="#333" fill-opacity="0.10" stroke="#333" stroke-width="2"/>
+  <text x="565" y="130" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">[2]</text>
+  <text x="565" y="164" text-anchor="middle" font-size="14" fill="#333">…, -4, -1, 2, 5, 8, …</text>
+  <text x="565" y="196" text-anchor="middle" font-size="13" fill="#333">余 2</text>
+  <line x1="40" y1="262" x2="680" y2="262" stroke="#333" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="360" y="292" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">两两不相交 ∩ = ∅，且并集恰好铺满 Z —— 这就是 Z 的一个分类</text>
+  <text x="360" y="322" text-anchor="middle" font-size="13" fill="#333">等价关系与分类一一对应</text>
+</svg>

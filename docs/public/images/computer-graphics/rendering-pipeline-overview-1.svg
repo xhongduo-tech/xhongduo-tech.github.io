@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">渲染管线总览：从三维场景到帧缓冲</title>
+  <desc id="desc">示意图：渲染管线按顺序经历五个阶段——(1) 三维场景（网格、材质、光源、相机）作为输入；(2) 顶点处理，用模型、视图、投影变换把顶点坐标搬进裁剪/标准化设备坐标；(3) 光栅化，把三角形离散成屏幕上的片元并插值；(4) 片元处理，逐片元着色与贴图；(5) 输出合并到帧缓冲，做深度测试与混合。实时渲染（如游戏）每 16.7 毫秒把这条管线完整跑一遍。</desc>
+
+  <!-- 纸底 -->
+  <rect width="760" height="320" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="380" y="36" font-size="19" fill="#333" text-anchor="middle" font-weight="bold">渲染管线：三维场景到帧缓冲的五段旅程</text>
+
+  <!-- 阶段 1：三维场景 -->
+  <rect x="16" y="82" width="128" height="104" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="80" y="108" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">三维场景</text>
+  <text x="80" y="132" font-size="13" fill="#333" text-anchor="middle">网格 / 材质</text>
+  <text x="80" y="152" font-size="13" fill="#333" text-anchor="middle">光源 / 相机</text>
+  <text x="80" y="172" font-size="13" fill="#777" text-anchor="middle">输入的描述</text>
+
+  <!-- 阶段 2：顶点处理 -->
+  <rect x="172" y="82" width="128" height="104" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="236" y="108" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">顶点处理</text>
+  <text x="236" y="132" font-size="13" fill="#333" text-anchor="middle">模型 M · 视图 V</text>
+  <text x="236" y="152" font-size="13" fill="#333" text-anchor="middle">投影 P</text>
+  <text x="236" y="172" font-size="13" fill="#777" text-anchor="middle">3D → NDC 坐标</text>
+
+  <!-- 阶段 3：光栅化 -->
+  <rect x="328" y="82" width="128" height="104" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="392" y="108" font-size="14" fill="#c0392b" text-anchor="middle" font-weight="bold">光栅化</text>
+  <text x="392" y="132" font-size="13" fill="#333" text-anchor="middle">三角形 → 片元</text>
+  <text x="392" y="152" font-size="13" fill="#333" text-anchor="middle">覆盖率判定</text>
+  <text x="392" y="172" font-size="13" fill="#777" text-anchor="middle">属性插值</text>
+
+  <!-- 阶段 4：片元处理 -->
+  <rect x="484" y="82" width="128" height="104" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="548" y="108" font-size="14" fill="#c0392b" text-anchor="middle" font-weight="bold">片元处理</text>
+  <text x="548" y="132" font-size="13" fill="#333" text-anchor="middle">逐片元着色</text>
+  <text x="548" y="152" font-size="13" fill="#333" text-anchor="middle">纹理采样</text>
+  <text x="548" y="172" font-size="13" fill="#777" text-anchor="middle">算出颜色</text>
+
+  <!-- 阶段 5：帧缓冲 -->
+  <rect x="640" y="82" width="104" height="104" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="692" y="108" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">帧缓冲</text>
+  <text x="692" y="132" font-size="13" fill="#333" text-anchor="middle">深度测试</text>
+  <text x="692" y="152" font-size="13" fill="#333" text-anchor="middle">混合</text>
+  <text x="692" y="172" font-size="13" fill="#777" text-anchor="middle">最终像素</text>
+
+  <!-- 箭头 -->
+  <polygon points="152,134 148,126 156,126" fill="#333"/>
+  <line x1="144" y1="134" x2="158" y2="134" stroke="#333" stroke-width="2"/>
+  <polygon points="308,134 304,126 312,126" fill="#333"/>
+  <line x1="300" y1="134" x2="314" y2="134" stroke="#333" stroke-width="2"/>
+  <polygon points="464,134 460,126 468,126" fill="#333"/>
+  <line x1="456" y1="134" x2="470" y2="134" stroke="#333" stroke-width="2"/>
+  <polygon points="620,134 616,126 624,126" fill="#333"/>
+  <line x1="612" y1="134" x2="626" y2="134" stroke="#333" stroke-width="2"/>
+
+  <!-- 阶段说明：几何阶段（上） vs 片元阶段（下） -->
+  <text x="236" y="222" font-size="13" fill="#777" text-anchor="middle">几何阶段：坐标变换，不产生像素</text>
+  <text x="548" y="222" font-size="13" fill="#777" text-anchor="middle">片元阶段：逐片元计算颜色</text>
+
+  <!-- 底部说明：实时循环 -->
+  <line x1="692" y1="186" x2="692" y2="258" stroke="#333" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="692,268 686,258 698,258" fill="#333"/>
+  <line x1="80" y1="258" x2="692" y2="258" stroke="#333" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="80,258 90,252 90,264" fill="#333"/>
+  <text x="380" y="252" font-size="13" fill="#333" text-anchor="middle">游戏等实时渲染：每 16.7 ms（60 fps）整条管线循环一遍</text>
+  <text x="380" y="300" font-size="13" fill="#777" text-anchor="middle">影视离线渲染：不设时间预算，一帧可以算几小时</text>
+</svg>

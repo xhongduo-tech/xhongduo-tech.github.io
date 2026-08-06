@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第 1 篇 分布式系统概述
 
 - [x] [什么是分布式系统：动机与定义](./what-is-distributed-systems)
-- [ ] 分布式系统的核心挑战：部分失败与不确定性
-- [ ] 分布式计算的谬误（Fallacies of Distributed Computing）
-- [ ] 系统模型：同步、异步与部分异步
-- [ ] 故障模型：崩溃故障、拜占庭故障与网络分区
+- [x] [分布式系统的核心挑战：部分失败与不确定性](./partial-failure-and-uncertainty)
+- [x] [分布式计算的谬误（Fallacies of Distributed Computing）](./fallacies-of-distributed-computing)
+- [x] [系统模型：同步、异步与部分异步](./system-models)
+- [x] [故障模型：崩溃故障、拜占庭故障与网络分区](./failure-models)
 - [ ] 可扩展性、可用性与性能度量
 - [ ] CAP 定理及其正确解读
 - [ ] BASE 与最终一致性

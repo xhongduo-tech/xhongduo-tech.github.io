@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 误差与数值算法稳定性
 
 - [x] [数值分析的研究对象与特点](./what-is-numerical-analysis)
-- [ ] 误差的来源与分类：模型误差、观测误差、截断误差、舍入误差
-- [ ] 绝对误差、相对误差与有效数字
-- [ ] 函数运算的误差估计
-- [ ] 病态问题与条件数（condition number）
+- [x] [误差的来源与分类：模型误差、观测误差、截断误差、舍入误差](./error-sources-classification)
+- [x] [绝对误差、相对误差与有效数字](./absolute-relative-error)
+- [x] [函数运算的误差估计](./error-propagation)
+- [x] [病态问题与条件数（condition number）](./condition-number)
 - [ ] 算法的数值稳定性
 - [ ] 避免误差危害的若干原则：避免相近数相减、避免大数吃小数、减少运算次数
 - [ ] 秦九韶算法（Horner 算法）与多项式求值

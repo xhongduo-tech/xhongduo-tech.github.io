@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 代数系统与同态同构
 
 - [x] [集合、映射与运算](./sets-mappings-operations)
-- [ ] 关系与等价关系
-- [ ] 等价关系与集合的分类
-- [ ] 代数运算与代数系统
-- [ ] 运算律：结合律、交换律与分配律
+- [x] [关系与等价关系](./relations-and-equivalence)
+- [x] [等价关系与集合的分类](./equivalence-classes-partitions)
+- [x] [代数运算与代数系统](./algebraic-operations-systems)
+- [x] [运算律：结合律、交换律与分配律](./operation-laws)
 - [ ] 同态与同构（Homomorphism & Isomorphism）
 - [ ] 同构的意义：代数系统的分类思想
 

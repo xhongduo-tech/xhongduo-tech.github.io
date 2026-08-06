@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 概率论的基本概念
 
 - [x] [随机试验与随机事件](./random-experiments-and-events)
-- [ ] 样本空间与事件的运算
-- [ ] 频率与概率
-- [ ] 等可能概型（古典概型）
-- [ ] 几何概型
+- [x] [样本空间与事件的运算](./sample-space-and-event-operations)
+- [x] [频率与概率](./frequency-and-probability)
+- [x] [等可能概型（古典概型）](./classical-probability)
+- [x] [几何概型](./geometric-probability)
 - [ ] 条件概率
 - [ ] 乘法定理
 - [ ] 全概率公式与贝叶斯公式

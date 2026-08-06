@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">循环流向图：货币与物品服务在两个市场与两类决策者之间的流动</title>
+  <desc id="desc">四个方框分别代表家庭、企业、物品与服务市场、生产要素市场，它们围成一圈。红色箭头表示货币沿顺时针流动：家庭在物品与服务市场支出购买物品与服务，企业在生产要素市场支付工资、租金与利润作为收入付给家庭。青色箭头表示物品与生产要素沿逆时针流动：企业生产的物品与服务经物品市场流向家庭，家庭拥有的劳动、土地与资本经要素市场流向企业。</desc>
+
+  <defs>
+    <marker id="money-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="goods-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <!-- 货币流向（顺时针，红色外环） -->
+  <g fill="none" stroke="#c0392b" stroke-width="2">
+    <path d="M 115 223 A 225 175 0 0 1 340 48" marker-end="url(#money-arrow)"/>
+    <path d="M 340 48 A 225 175 0 0 1 565 223" marker-end="url(#money-arrow)"/>
+    <path d="M 565 223 A 225 175 0 0 1 340 398" marker-end="url(#money-arrow)"/>
+    <path d="M 340 398 A 225 175 0 0 1 115 223" marker-end="url(#money-arrow)"/>
+  </g>
+
+  <!-- 物品与要素流向（逆时针，青色内环） -->
+  <g fill="none" stroke="#1f6f8b" stroke-width="2">
+    <path d="M 525 223 A 185 135 0 0 0 340 88" marker-end="url(#goods-arrow)"/>
+    <path d="M 340 88 A 185 135 0 0 0 155 223" marker-end="url(#goods-arrow)"/>
+    <path d="M 155 223 A 185 135 0 0 0 340 358" marker-end="url(#goods-arrow)"/>
+    <path d="M 340 358 A 185 135 0 0 0 525 223" marker-end="url(#goods-arrow)"/>
+  </g>
+
+  <!-- 四个方框 -->
+  <g fill="#faf9f5" stroke="#333" stroke-width="1.5">
+    <rect x="268" y="30" width="144" height="44" rx="4"/>
+    <rect x="268" y="396" width="144" height="44" rx="4"/>
+    <rect x="45" y="195" width="140" height="56" rx="4"/>
+    <rect x="495" y="195" width="140" height="56" rx="4"/>
+  </g>
+
+  <!-- 方框内文字 -->
+  <g font-size="15" fill="#333" text-anchor="middle">
+    <text x="340" y="58">物品与服务市场</text>
+    <text x="340" y="424">生产要素市场</text>
+    <text x="115" y="232">家庭</text>
+    <text x="565" y="232">企业</text>
+  </g>
+
+  <!-- 货币流向标注（红色） -->
+  <g font-size="13" fill="#c0392b">
+    <text x="52" y="128" text-anchor="start">支出（货币）</text>
+    <text x="440" y="120" text-anchor="start">购买物品与服务（货币）</text>
+    <text x="448" y="352" text-anchor="start">收入：工资·租金·利润</text>
+    <text x="132" y="382" text-anchor="start">收入（货币）</text>
+  </g>
+
+  <!-- 物品与要素流向标注（青色） -->
+  <g font-size="13" fill="#1f6f8b">
+    <text x="340" y="175" text-anchor="middle">物品与服务</text>
+    <text x="340" y="300" text-anchor="middle">生产要素（劳动·土地·资本）</text>
+  </g>
+
+  <!-- 图注 -->
+  <text x="340" y="462" text-anchor="middle" font-size="13" fill="#777">红色箭头：货币流向（顺时针）　青色箭头：物品与服务、生产要素流向（逆时针）</text>
+</svg>

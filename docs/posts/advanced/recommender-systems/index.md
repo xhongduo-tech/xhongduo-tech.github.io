@@ -14,8 +14,8 @@ pageClass: plain-doc
 ### 第一篇 推荐系统概述与评估
 
 - [x] [什么是推荐系统：信息过载与长尾问题](./what-is-recommender-system)
-- [ ] 推荐系统的数据来源：显式反馈与隐式反馈
-- [ ] 推荐系统实验方法：离线实验、用户调查与在线实验
+- [x] [推荐系统的数据来源：显式反馈与隐式反馈](./data-sources-explicit-implicit-feedback)
+- [x] [推荐系统实验方法：离线实验、用户调查与在线实验](./experiment-methods-offline-user-online)
 - [ ] 离线评估指标：准确率、召回率、RMSE 与 MAE
 - [ ] 排序指标：MAP、NDCG 与 AUC
 - [ ] 超越准确性：多样性、新颖性、惊喜度与覆盖率

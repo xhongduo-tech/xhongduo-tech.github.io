@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 400" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">信息加工范式：一条信息如何穿过心智</title>
+  <desc id="desc">信息加工范式示意图。左侧环境输入（刺激）依次经过感觉登记、注意与模式识别、短时记忆（带复述回路）、长时记忆，最终产生行为反应；长时记忆有一条自上而下的反馈弧线回到注意与模式识别，表示已有知识会反过来影响知觉。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="740" height="400" fill="#faf9f5"/>
+
+  <!-- 六个加工阶段 -->
+  <g>
+    <rect x="34"  y="150" width="82" height="64" rx="10" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+    <text x="75"  y="176" font-size="14" fill="#333" text-anchor="middle">环境输入</text>
+    <text x="75"  y="198" font-size="13" fill="#777" text-anchor="middle">刺激</text>
+
+    <rect x="146" y="150" width="82" height="64" rx="10" fill="#faf9f5" stroke="#1f6f8b" stroke-width="1.6"/>
+    <text x="187" y="176" font-size="14" fill="#1f6f8b" text-anchor="middle">感觉登记</text>
+    <text x="187" y="198" font-size="13" fill="#777" text-anchor="middle">约 0.5 秒</text>
+
+    <rect x="258" y="150" width="82" height="64" rx="10" fill="#faf9f5" stroke="#1f6f8b" stroke-width="1.6"/>
+    <text x="299" y="176" font-size="14" fill="#1f6f8b" text-anchor="middle">注意与</text>
+    <text x="299" y="193" font-size="14" fill="#1f6f8b" text-anchor="middle">模式识别</text>
+
+    <rect x="370" y="150" width="82" height="64" rx="10" fill="#faf9f5" stroke="#c0392b" stroke-width="1.6"/>
+    <text x="411" y="176" font-size="14" fill="#c0392b" text-anchor="middle">短时记忆</text>
+    <text x="411" y="198" font-size="13" fill="#777" text-anchor="middle">容量 7±2</text>
+
+    <rect x="482" y="150" width="82" height="64" rx="10" fill="#faf9f5" stroke="#c0392b" stroke-width="1.6"/>
+    <text x="523" y="176" font-size="14" fill="#c0392b" text-anchor="middle">长时记忆</text>
+    <text x="523" y="198" font-size="13" fill="#777" text-anchor="middle">近乎无限</text>
+
+    <rect x="594" y="150" width="82" height="64" rx="10" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+    <text x="635" y="176" font-size="14" fill="#333" text-anchor="middle">行为反应</text>
+    <text x="635" y="198" font-size="13" fill="#777" text-anchor="middle">输出</text>
+  </g>
+
+  <!-- 阶段间的水平箭头 -->
+  <g stroke="#333" stroke-width="1.6" fill="none">
+    <line x1="116" y1="182" x2="140" y2="182" marker-end="url(#arrow)"/>
+    <line x1="228" y1="182" x2="252" y2="182" marker-end="url(#arrow)"/>
+    <line x1="340" y1="182" x2="364" y2="182" marker-end="url(#arrow)"/>
+    <line x1="452" y1="182" x2="476" y2="182" marker-end="url(#arrow)"/>
+    <line x1="564" y1="182" x2="588" y2="182" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- 复述回路：短时记忆上方的弧形箭头 -->
+  <path d="M 382 150 C 382 112, 448 112, 452 150" fill="none" stroke="#c0392b" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="417" y="120" font-size="13" fill="#c0392b" text-anchor="middle">复述</text>
+
+  <!-- 自上而下的反馈：长时记忆回到注意与模式识别 -->
+  <path d="M 523 150 C 523 66, 299 66, 299 150" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="411" y="64" font-size="13" fill="#333" text-anchor="middle">已有知识（自上而下加工）</text>
+
+  <!-- 图注 -->
+  <text x="370" y="362" font-size="13" fill="#777" text-anchor="middle">信息加工范式：在「刺激—反应」之间拆出一串可观测的加工阶段（多存储模型示意）</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 250" font-family="sans-serif">
+  <title>误差来源的完整链条</title>
+  <desc>从实际问题到近似结果的处理流程，依次标注模型误差、观测误差、截断误差、舍入误差四类误差各自出场的位置。</desc>
+  <rect width="840" height="250" fill="#faf9f5"/>
+  <text x="420" y="36" text-anchor="middle" font-size="18" fill="#333">从物理世界到近似结果：四类误差各自出场的位置</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <rect x="16" y="70" width="140" height="60" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="86" y="99" text-anchor="middle" font-size="15" fill="#333">实际问题</text>
+  <text x="86" y="120" text-anchor="middle" font-size="13" fill="#666">物理世界</text>
+
+  <line x1="158" y1="100" x2="180" y2="100" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="169" y="158" text-anchor="middle" font-size="13" fill="#c0392b">模型误差</text>
+
+  <rect x="182" y="70" width="140" height="60" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="252" y="99" text-anchor="middle" font-size="15" fill="#333">数学模型</text>
+  <text x="252" y="120" text-anchor="middle" font-size="13" fill="#666">PDE / 公式</text>
+
+  <line x1="324" y1="100" x2="346" y2="100" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="335" y="158" text-anchor="middle" font-size="13" fill="#c0392b">观测误差</text>
+
+  <rect x="348" y="70" width="140" height="60" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="418" y="99" text-anchor="middle" font-size="15" fill="#333">输入数据</text>
+  <text x="418" y="120" text-anchor="middle" font-size="13" fill="#666">测量值</text>
+
+  <line x1="490" y1="100" x2="512" y2="100" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="501" y="158" text-anchor="middle" font-size="13" fill="#c0392b">截断误差</text>
+
+  <rect x="514" y="70" width="140" height="60" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="584" y="99" text-anchor="middle" font-size="15" fill="#333">数值算法</text>
+  <text x="584" y="120" text-anchor="middle" font-size="13" fill="#666">离散化 · 有限步</text>
+
+  <line x1="656" y1="100" x2="678" y2="100" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="667" y="158" text-anchor="middle" font-size="13" fill="#c0392b">舍入误差</text>
+
+  <rect x="680" y="70" width="140" height="60" rx="8" fill="#fff3f3" stroke="#c0392b" stroke-width="2"/>
+  <text x="750" y="99" text-anchor="middle" font-size="15" fill="#333">近似结果</text>
+  <text x="750" y="120" text-anchor="middle" font-size="13" fill="#666">带误差的数字</text>
+
+  <text x="420" y="212" text-anchor="middle" font-size="14" fill="#666">前两类来自「问题」本身，后两类来自「算法 + 计算机」——数值分析只负责后两类</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" width="680" height="340" font-family="sans-serif">
+  <title>自然语言处理三大范式的演进时间线</title>
+  <desc>1950 年代至今自然语言处理的三次范式浪潮：规则方法（1950s—1985）、统计方法（1985—2005）、神经网络方法（2005—今），以及各自的代表年份事件。</desc>
+  <rect width="680" height="340" fill="#faf9f5"/>
+  <rect x="40" y="56" width="280" height="244" fill="#c0392b" opacity="0.06"/>
+  <rect x="320" y="56" width="160" height="244" fill="#1f6f8b" opacity="0.06"/>
+  <rect x="480" y="56" width="160" height="244" fill="#c0392b" opacity="0.06"/>
+  <text x="180" y="84" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">规则方法</text>
+  <text x="400" y="84" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">统计方法</text>
+  <text x="560" y="84" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">神经网络方法</text>
+  <text x="180" y="104" text-anchor="middle" font-size="13" fill="#666">1950 – 1985</text>
+  <text x="400" y="104" text-anchor="middle" font-size="13" fill="#666">1985 – 2005</text>
+  <text x="560" y="104" text-anchor="middle" font-size="13" fill="#666">2005 – 今</text>
+  <line x1="30" y1="200" x2="650" y2="200" stroke="#333" stroke-width="2"/>
+  <text x="40" y="188" text-anchor="middle" font-size="13" fill="#999">1950</text>
+  <text x="640" y="188" text-anchor="middle" font-size="13" fill="#999">2025</text>
+  <circle cx="72" cy="200" r="5" fill="#c0392b"/>
+  <text x="72" y="228" text-anchor="middle" font-size="13" fill="#333">1954 乔治城实验</text>
+  <circle cx="168" cy="200" r="5" fill="#c0392b"/>
+  <text x="168" y="176" text-anchor="middle" font-size="13" fill="#333">1966 ALPAC 报告 · 寒冬</text>
+  <circle cx="384" cy="200" r="5" fill="#1f6f8b"/>
+  <text x="384" y="228" text-anchor="middle" font-size="13" fill="#333">1993 IBM 统计机器翻译</text>
+  <circle cx="464" cy="200" r="5" fill="#1f6f8b"/>
+  <text x="464" y="176" text-anchor="middle" font-size="13" fill="#333">2003 神经语言模型</text>
+  <circle cx="544" cy="200" r="5" fill="#c0392b"/>
+  <text x="544" y="228" text-anchor="middle" font-size="13" fill="#333">2013 Word2Vec</text>
+  <circle cx="576" cy="200" r="5" fill="#c0392b"/>
+  <text x="630" y="176" text-anchor="end" font-size="13" fill="#333">2017 Transformer</text>
+  <text x="340" y="306" text-anchor="middle" font-size="13" fill="#666">2018 之后：BERT / GPT 与大规模语言模型（LLM）时代</text>
+</svg>

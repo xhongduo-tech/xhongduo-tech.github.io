@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 预备知识
 
 - [x] [随机过程的基本概念：样本轨道与有限维分布族](./basic-concepts)
-- [ ] 随机过程的分类：离散/连续时间与离散/连续状态
-- [ ] 条件概率与条件期望的回顾
-- [ ] 条件期望的严格定义：关于 σ-代数的期望
-- [ ] 条件期望的性质：塔性质、取己知量、独立性
+- [x] [随机过程的分类：离散/连续时间与离散/连续状态](./process-classification)
+- [x] [条件概率与条件期望的回顾](./conditional-expectation-review)
+- [x] [条件期望的严格定义：关于 σ-代数的期望](./conditional-expectation-sigma-algebra)
+- [x] [条件期望的性质：塔性质、取己知量、独立性](./conditional-expectation-properties)
 - [ ] 全期望公式与条件方差公式
 - [ ] 矩母函数（Moment Generating Function）与特征函数
 - [ ] 常用分布的矩母函数与独立和的卷积

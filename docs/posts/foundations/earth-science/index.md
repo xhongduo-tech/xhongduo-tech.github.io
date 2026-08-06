@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 地球的形成与圈层结构
 
 - [x] [太阳系的起源与星云假说](./nebular-hypothesis)
-- [ ] 地球的形成与早期演化（冥古宙的地球）
-- [ ] 地球的形状、大小与表面形态
-- [ ] 地球的物理性质：重力、磁性、地热
-- [ ] 地球的内部圈层：地壳、地幔与地核
+- [x] [地球的形成与早期演化（冥古宙的地球）](./earth-formation-hadean)
+- [x] [地球的形状、大小与表面形态](./earth-shape-size-surface)
+- [x] [地球的物理性质：重力、磁性、地热](./earth-physical-properties)
+- [x] [地球的内部圈层：地壳、地幔与地核](./earth-interior-layers)
 - [ ] 地震波与地球内部结构的探测
 - [ ] 地壳的结构：大陆地壳与大洋地壳
 

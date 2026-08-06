@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">混淆矩阵：二分类预测的四种结局</title>
+  <desc id="desc">一张 2x2 混淆矩阵示意图。列表示模型的预测：预测为「相关」与预测为「不相关」；行表示真实情况：真实为「相关」与真实为「不相关」。四个格子分别是：左上 TP 真正例（预测相关且真实相关，模型判对，红色高亮）；右上 FN 假反例（预测不相关但真实相关，漏掉了本应推荐的）；左下 FP 假正例（预测相关但真实不相关，推荐了用户不喜欢的）；右下 TN 真反例（预测不相关且真实不相关，模型判对，青色高亮）。图底给出两个公式：准确率 Precision = TP / (TP + FP)，召回率 Recall = TP / (TP + FN)。</desc>
+
+  <!-- 纸底 -->
+  <rect width="760" height="480" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="380" y="34" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">混淆矩阵：二分类预测的四种结局</text>
+
+  <!-- 列头 -->
+  <text x="295" y="102" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">预测为「相关」（正例）</text>
+  <text x="465" y="102" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">预测为「不相关」（负例）</text>
+
+  <!-- 行头 -->
+  <text x="128" y="200" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">真实为<br/>「相关」</text>
+  <text x="128" y="340" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">真实为<br/>「不相关」</text>
+
+  <!-- 单元格边框 -->
+  <rect x="210" y="125" width="170" height="140" fill="#c0392b" fill-opacity="0.13" stroke="#c0392b" stroke-width="1.6"/>
+  <rect x="380" y="125" width="170" height="140" fill="#faf9f5" stroke="#888" stroke-width="1.2"/>
+  <rect x="210" y="265" width="170" height="140" fill="#faf9f5" stroke="#888" stroke-width="1.2"/>
+  <rect x="380" y="265" width="170" height="140" fill="#1f6f8b" fill-opacity="0.13" stroke="#1f6f8b" stroke-width="1.6"/>
+
+  <!-- TP -->
+  <text x="295" y="168" text-anchor="middle" font-size="18" fill="#c0392b" font-weight="bold">TP 真正例</text>
+  <text x="295" y="196" text-anchor="middle" font-size="13" fill="#333">预测相关 ∧ 真实相关</text>
+  <text x="295" y="222" text-anchor="middle" font-size="13" fill="#333">模型判对了（推荐命中）</text>
+
+  <!-- FN -->
+  <text x="465" y="168" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">FN 假反例</text>
+  <text x="465" y="196" text-anchor="middle" font-size="13" fill="#333">预测不相关，真实相关</text>
+  <text x="465" y="222" text-anchor="middle" font-size="13" fill="#333">漏掉了本应推荐的</text>
+
+  <!-- FP -->
+  <text x="295" y="308" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">FP 假正例</text>
+  <text x="295" y="336" text-anchor="middle" font-size="13" fill="#333">预测相关，真实不相关</text>
+  <text x="295" y="362" text-anchor="middle" font-size="13" fill="#333">推荐了用户不喜欢的</text>
+
+  <!-- TN -->
+  <text x="465" y="308" text-anchor="middle" font-size="18" fill="#1f6f8b" font-weight="bold">TN 真反例</text>
+  <text x="465" y="336" text-anchor="middle" font-size="13" fill="#333">预测不相关 ∧ 真实不相关</text>
+  <text x="465" y="362" text-anchor="middle" font-size="13" fill="#333">模型判对了（不打扰用户）</text>
+
+  <!-- 底部公式 -->
+  <text x="295" y="434" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">准确率 Precision = TP / (TP + FP)</text>
+  <text x="465" y="434" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">召回率 Recall = TP / (TP + FN)</text>
+  <text x="380" y="464" text-anchor="middle" font-size="13" fill="#666">准确率在意误报（FP），召回率在意漏报（FN）</text>
+</svg>

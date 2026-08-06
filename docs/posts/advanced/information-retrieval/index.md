@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 信息检索概述与评测
 
 - [x] [什么是信息检索：从结构化查询到非结构化文本检索](./what-is-information-retrieval)
-- [ ] 检索系统的基本任务：相关性与用户需求
-- [ ] 倒排索引的一个例子：莎士比亚文集检索
-- [ ] 检索评测方法：测试集、查询集与相关性判定
-- [ ] 查准率与查全率（Precision / Recall）及其权衡
+- [x] [检索系统的基本任务：相关性与用户需求](./retrieval-system-tasks-relevance)
+- [x] [倒排索引的一个例子：莎士比亚文集检索](./shakespeare-inverted-index-example)
+- [x] [检索评测方法：测试集、查询集与相关性判定](./retrieval-evaluation-methodology)
+- [x] [查准率与查全率（Precision / Recall）及其权衡](./precision-recall-tradeoff)
 - [ ] F 值（F-Measure）与插值查准率
 - [ ] 平均查准率（MAP）与 R-Precision
 - [ ] 排序评测指标：NDCG、MRR 与 ERR

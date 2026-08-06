@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 编译器概述
 
 - [x] [编译器的结构：分析与综合](./compiler-structure)
-- [ ] 编译器各阶段：词法、语法、语义、中间代码生成、优化、代码生成
-- [ ] 符号表管理与错误处理
-- [ ] 编译器、解释器与混合执行模型
-- [ ] 编译器的演化：从单遍编译到多遍编译
+- [x] [编译器各阶段：词法、语法、语义、中间代码生成、优化、代码生成](./compiler-phases)
+- [x] [符号表管理与错误处理](./symbol-table-error-handling)
+- [x] [编译器、解释器与混合执行模型](./compiler-interpreter-models)
+- [x] [编译器的演化：从单遍编译到多遍编译](./compiler-evolution)
 - [ ] 编译器构造工具与编译器-编译器（Compiler-Compiler）
 
 ### 第二篇 词法分析

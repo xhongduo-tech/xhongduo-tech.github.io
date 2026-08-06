@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" font-family="sans-serif" role="img">
+  <title>取指令阶段的数据流</title>
+  <desc>① PC 把指令地址送入 MAR；② 控制器发出读命令，主存按地址读出；③ 指令字送入 MDR；④ MDR 送入 IR；⑤ PC+1 指向下一条指令。</desc>
+  <rect x="0" y="0" width="980" height="420" fill="#faf9f5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 寄存器 / 部件 -->
+  <rect x="30" y="150" width="140" height="100" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="100" y="205" text-anchor="middle" font-size="18" fill="#333">PC</text>
+  <text x="100" y="232" text-anchor="middle" font-size="13" fill="#666">程序计数器</text>
+
+  <rect x="210" y="150" width="140" height="100" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="280" y="205" text-anchor="middle" font-size="18" fill="#333">MAR</text>
+  <text x="280" y="232" text-anchor="middle" font-size="13" fill="#666">地址寄存器</text>
+
+  <rect x="390" y="130" width="200" height="140" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="490" y="190" text-anchor="middle" font-size="18" fill="#333">主存（存储器）</text>
+  <text x="490" y="222" text-anchor="middle" font-size="13" fill="#666">按地址译码 · 读出</text>
+
+  <rect x="630" y="150" width="140" height="100" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="700" y="205" text-anchor="middle" font-size="18" fill="#333">MDR</text>
+  <text x="700" y="232" text-anchor="middle" font-size="13" fill="#666">数据寄存器</text>
+
+  <rect x="810" y="150" width="140" height="100" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="880" y="205" text-anchor="middle" font-size="18" fill="#333">IR</text>
+  <text x="880" y="232" text-anchor="middle" font-size="13" fill="#666">指令寄存器</text>
+
+  <!-- ① PC → MAR -->
+  <line x1="170" y1="200" x2="210" y2="200" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="190" y="186" text-anchor="middle" font-size="14" fill="#1f6f8b">① PC → MAR</text>
+
+  <!-- ② 地址 -->
+  <line x1="350" y1="200" x2="390" y2="200" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="370" y="186" text-anchor="middle" font-size="14" fill="#1f6f8b">② 地址</text>
+
+  <!-- ③ 指令字 -->
+  <line x1="590" y1="200" x2="630" y2="200" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="610" y="186" text-anchor="middle" font-size="14" fill="#1f6f8b">③ 指令字</text>
+
+  <!-- ④ MDR → IR -->
+  <line x1="770" y1="200" x2="810" y2="200" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="790" y="186" text-anchor="middle" font-size="14" fill="#1f6f8b">④ MDR → IR</text>
+
+  <!-- ⑤ PC+1 自增回环 -->
+  <path d="M80,250 C80,320 40,320 40,268" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="92" y="305" font-size="14" fill="#333">⑤ PC + 1 → PC</text>
+
+  <!-- 控制器读命令 -->
+  <line x1="490" y1="60" x2="490" y2="126" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrC)"/>
+  <text x="500" y="92" font-size="13" fill="#c0392b">读命令（控制器发出）</text>
+
+  <!-- 底部说明 -->
+  <text x="490" y="390" text-anchor="middle" font-size="15" fill="#666">取指阶段：① 送地址 ② 主存按地址读出 ③ 指令字送入 IR ④ PC 自增，指向下一条指令</text>
+</svg>

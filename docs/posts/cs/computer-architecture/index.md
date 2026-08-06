@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 体系结构基础与量化分析
 
 - [x] [计算机体系结构的定义：指令集、组成与实现的分工](./architecture-definition)
-- [ ] 计算机的分类与 Flynn 分类法
-- [ ] 量化分析的基本原则：以大概率事件为快
-- [ ] 性能度量：CPU 时间、CPI 与 MIPS 的陷阱
-- [ ] 基准测试程序：SPEC、TPC 与基准测试的选择
+- [x] [计算机的分类与 Flynn 分类法](./computer-classification-flynn)
+- [x] [量化分析的基本原则：以大概率事件为快](./quantitative-principles)
+- [x] [性能度量：CPU 时间、CPI 与 MIPS 的陷阱](./performance-metrics-cpu-cpi)
+- [x] [基准测试程序：SPEC、TPC 与基准测试的选择](./benchmarks-spec-tpc)
 - [ ] Amdahl 定律：加速比的量化推导与应用
 - [ ] 局部性原理与常见场景的加速比估算
 - [ ] 功耗墙（Power Wall）：动态功耗与静态功耗

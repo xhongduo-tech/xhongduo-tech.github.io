@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一章 复数与复变函数
 
 - [x] [复数及其代数运算](./complex-number-algebra)
-- [ ] 复数的几何表示：复平面、模与辐角
-- [ ] 复数的三角表示与指数表示
-- [ ] 复数的乘幂与方根
-- [ ] 复球面与无穷远点
+- [x] [复数的几何表示：复平面、模与辐角](./complex-plane-modulus-argument)
+- [x] [复数的三角表示与指数表示](./trig-exponential-form)
+- [x] [复数的乘幂与方根](./powers-and-roots)
+- [x] [复球面与无穷远点](./riemann-sphere)
 - [ ] 复平面上的点集：区域、曲线与连通性
 - [ ] 复变函数的概念与映射
 - [ ] 复变函数的极限与连续性

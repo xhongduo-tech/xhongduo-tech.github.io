@@ -22,13 +22,13 @@ pageClass: plain-doc
 ### 一元二次函数、方程和不等式
 
 - [x] [等式性质与不等式性质](./equality-and-inequality)
-- [ ] 基本不等式
-- [ ] 二次函数与一元二次方程、不等式
+- [x] [基本不等式](./basic-inequality)
+- [x] [二次函数与一元二次方程、不等式](./quadratic-inequality)
 
 ### 函数的概念与性质
 
-- [ ] 函数的概念及其表示
-- [ ] 函数的基本性质（单调性与最大（小）值）
+- [x] [函数的概念及其表示](./function-concept)
+- [x] [函数的基本性质（单调性与最大（小）值）](./function-monotonicity)
 - [ ] 函数的基本性质（奇偶性）
 - [ ] 幂函数
 - [ ] 函数的应用（一）

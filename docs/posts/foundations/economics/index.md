@@ -16,13 +16,13 @@ pageClass: plain-doc
 #### 第 1 章 经济学十大原理
 
 - [x] [人们如何做出决策：权衡取舍、机会成本与边际变动](./how-people-make-decisions)
-- [ ] 人们如何相互影响：贸易、市场与政府的角色
-- [ ] 整体经济如何运行：生产率、通货膨胀与菲利普斯曲线
+- [x] [人们如何相互影响：贸易、市场与政府的角色](./how-people-interact)
+- [x] [整体经济如何运行：生产率、通货膨胀与菲利普斯曲线](./economy-as-a-whole)
 
 #### 第 2 章 像经济学家一样思考
 
-- [ ] 作为科学家的经济学家：科学方法与假设的作用
-- [ ] 第一个经济模型：循环流向图（Circular-flow Diagram）
+- [x] [作为科学家的经济学家：科学方法与假设的作用](./economist-as-scientist)
+- [x] [第一个经济模型：循环流向图（Circular-flow Diagram）](./circular-flow-diagram)
 - [ ] 第二个经济模型：生产可能性边界（Production Possibilities Frontier）
 - [ ] 实证表述与规范表述：经济学家意见分歧的原因
 

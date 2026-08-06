@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">点积的几何意义：投影与夹角余弦</title>
+  <desc id="desc">示意图：从原点 O 出发有向量 a（沿水平方向，青色）与向量 b（右上方向，红色），两向量夹角为 θ。从向量 b 的终点向 a 所在直线作垂线，垂足为 P，O 到 P 的长度即为 b 在 a 方向上的投影，等于 |b|cosθ。因此点积 a·b = |a||b|cosθ：两个单位向量的点积直接等于夹角余弦。当 θ 小于 90 度时点积为正（两向量同向），θ 等于 90 度时为零（垂直），θ 大于 90 度时为负（反向）。</desc>
+
+  <!-- 纸底 -->
+  <rect width="720" height="380" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="360" y="34" font-size="19" fill="#333" text-anchor="middle" font-weight="bold">点积 a·b = |a||b|cosθ：b 在 a 方向上的投影</text>
+
+  <!-- 坐标轴（淡灰） -->
+  <line x1="60" y1="300" x2="660" y2="300" stroke="#ccc" stroke-width="1"/>
+  <line x1="120" y1="360" x2="120" y2="60" stroke="#ccc" stroke-width="1"/>
+
+  <!-- 向量 a（水平向右，青色） -->
+  <line x1="120" y1="300" x2="500" y2="300" stroke="#1f6f8b" stroke-width="3"/>
+  <polygon points="512,300 498,294 498,306" fill="#1f6f8b"/>
+  <text x="528" y="306" font-size="16" fill="#1f6f8b" font-weight="bold">a</text>
+
+  <!-- 向量 b（右上，红色） -->
+  <line x1="120" y1="300" x2="430" y2="165" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="442,161 427,158 432,171" fill="#c0392b"/>
+  <text x="448" y="152" font-size="16" fill="#c0392b" font-weight="bold">b</text>
+
+  <!-- 投影：b 终点向 a 作垂线（虚线） -->
+  <line x1="430" y1="165" x2="430" y2="300" stroke="#333" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- 直角标记 -->
+  <polyline points="430,300 420,300 420,290 430,290" fill="none" stroke="#333" stroke-width="1.2"/>
+
+  <!-- 投影段高亮：O → P -->
+  <line x1="120" y1="312" x2="430" y2="312" stroke="#333" stroke-width="2.5"/>
+  <text x="262" y="336" font-size="14" fill="#333" text-anchor="middle">投影 = |b|cosθ</text>
+
+  <!-- 角度弧与 θ 标注 -->
+  <path d="M 163 300 A 45 45 0 0 0 161 283" fill="none" stroke="#777" stroke-width="1.5"/>
+  <text x="186" y="287" font-size="14" fill="#777">θ</text>
+
+  <!-- 原点标注 -->
+  <text x="104" y="316" font-size="14" fill="#333">O</text>
+
+  <!-- 底部的公式与辨析 -->
+  <text x="360" y="244" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">θ &lt; 90°：a·b &gt; 0（同向）　|　θ = 90°：a·b = 0（垂直）　|　θ &gt; 90°：a·b &lt; 0（反向）</text>
+
+  <!-- 底部说明 -->
+  <text x="360" y="360" font-size="13" fill="#777" text-anchor="middle">若 a、b 都是单位向量，a·b = cosθ 直接给出夹角余弦——这就是光照里 N·L 的来源</text>
+</svg>

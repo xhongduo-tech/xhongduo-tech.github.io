@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 570" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">DMA：数据搬运绕开 CPU</title>
+  <desc id="desc">数据路径图。上方为 CPU，左下方为设备控制器，右下方为 DMA 控制器，底部为主存。四步流程：① CPU 配置 DMA 控制器（地址、字节数、方向）；② CPU 命令设备开始传输；③ 数据沿设备到 DMA 控制器、再到主存整块搬运，不经过 CPU；④ 传输完成后 DMA 控制器向 CPU 发出中断。CPU 只参与首尾，中间的整块搬运完全交给 DMA 控制器。</desc>
+
+  <defs>
+    <marker id="darr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="carr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="rarr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="570" fill="#faf9f5"/>
+
+  <text x="380" y="34" font-size="19" fill="#333" text-anchor="middle">DMA：数据搬运绕开 CPU</text>
+  <text x="380" y="56" font-size="13" fill="#777" text-anchor="middle">CPU 只做① 配置与④ 收尾，③ 整块搬运交给 DMA 控制器 —— 《操作系统概念》第1章 §1.2.3</text>
+
+  <!-- CPU -->
+  <rect x="300" y="70" width="180" height="100" rx="8" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="390" y="100" font-size="18" fill="#333" text-anchor="middle">CPU</text>
+  <text x="390" y="124" font-size="13" fill="#555" text-anchor="middle">发起 I/O、收尾处理</text>
+  <text x="390" y="150" font-size="13" fill="#777" text-anchor="middle">③ 期间执行其他程序</text>
+
+  <!-- 设备控制器 -->
+  <rect x="40" y="230" width="190" height="100" rx="8" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="135" y="264" font-size="16" fill="#333" text-anchor="middle">设备控制器</text>
+  <text x="135" y="290" font-size="13" fill="#555" text-anchor="middle">磁盘 / 网卡 / 键盘</text>
+
+  <!-- DMA 控制器 -->
+  <rect x="530" y="230" width="190" height="100" rx="8" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="625" y="264" font-size="16" fill="#333" text-anchor="middle">DMA 控制器</text>
+  <text x="625" y="290" font-size="13" fill="#555" text-anchor="middle">专门的搬运硬件</text>
+
+  <!-- 主存 -->
+  <rect x="300" y="400" width="180" height="120" rx="8" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="390" y="452" font-size="18" fill="#333" text-anchor="middle">主存（RAM）</text>
+  <text x="390" y="478" font-size="13" fill="#555" text-anchor="middle">数据缓冲区</text>
+
+  <!-- ① 配置 DMA（CPU → DMA） -->
+  <line x1="380" y1="170" x2="585" y2="228" stroke="#1f6f8b" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#carr)"/>
+  <text x="386" y="186" font-size="13" fill="#1f6f8b">① 配置 DMA（地址 / 字节数 / 方向）</text>
+
+  <!-- ② 命令设备（CPU → 设备控制器） -->
+  <line x1="340" y1="170" x2="220" y2="228" stroke="#333" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#darr)"/>
+  <text x="248" y="196" font-size="13" fill="#555">② 命令设备开始传输</text>
+
+  <!-- ③ 数据整块搬运（设备 → DMA） -->
+  <line x1="230" y1="280" x2="528" y2="280" stroke="#1f6f8b" stroke-width="4" marker-end="url(#carr)"/>
+  <text x="380" y="266" font-size="13" fill="#1f6f8b" text-anchor="middle">③ 数据整块搬运（不经过 CPU）</text>
+
+  <!-- 数据写入主存（DMA → 主存） -->
+  <polyline points="600,330 600,460 482,460" fill="none" stroke="#1f6f8b" stroke-width="4" marker-end="url(#carr)"/>
+  <text x="500" y="442" font-size="13" fill="#1f6f8b">数据写入主存</text>
+
+  <!-- ④ 完成中断（DMA → CPU） -->
+  <polyline points="690,230 690,105 482,105" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#rarr)"/>
+  <text x="620" y="94" font-size="13" fill="#c0392b">④ 完成中断</text>
+
+  <!-- 底部小结 -->
+  <text x="380" y="552" font-size="13" fill="#555" text-anchor="middle">CPU 只碰首尾（① 配置、④ 中断收尾），中间的整块搬运完全交给 DMA 控制器</text>
+</svg>

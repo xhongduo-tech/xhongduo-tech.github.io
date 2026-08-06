@@ -1,0 +1,24 @@
+<svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">二次函数与一元二次不等式：y&gt;0 与 y&lt;0 的区间</title>
+<desc id="desc">抛物线 y=0.5(x-1)(x-3) 开口向上，与 x 轴交于 x1=1、x2=3。两根之外 y&gt;0（红色区段），两根之间 y&lt;0（青色区段）。解 ax^2+bx+c&gt;0 即取两根之外。</desc>
+<rect width="560" height="320" fill="#faf9f5"/>
+<text x="40" y="36" font-family="sans-serif" font-size="15" fill="#333">抛物线 y = 0.5(x−1)(x−3)（a &gt; 0，开口向上）</text>
+<line x1="40" y1="220" x2="545" y2="220" stroke="#333" stroke-width="1.5"/>
+<line x1="250" y1="30" x2="250" y2="300" stroke="#333" stroke-width="1.5"/>
+<polygon points="532,215 532,225 545,220" fill="#333"/>
+<polygon points="245,43 255,43 250,30" fill="#333"/>
+<text x="548" y="214" font-family="sans-serif" font-size="15" fill="#333">x</text>
+<text x="228" y="36" font-family="sans-serif" font-size="15" fill="#333">y</text>
+<rect x="40" y="215" width="265" height="10" fill="#c0392b" opacity="0.35"/>
+<rect x="415" y="215" width="130" height="10" fill="#c0392b" opacity="0.35"/>
+<rect x="305" y="215" width="110" height="10" fill="#1f6f8b" opacity="0.35"/>
+<polyline points="195,132 222.5,162.25 250,187 277.5,206.25 305,220 332.5,228.25 360,231 387.5,228.25 415,220 442.5,206.25 470,187 497.5,162.25 525,132" fill="none" stroke="#333" stroke-width="2.5"/>
+<line x1="305" y1="220" x2="305" y2="228" stroke="#333" stroke-width="1.5"/>
+<line x1="415" y1="220" x2="415" y2="228" stroke="#333" stroke-width="1.5"/>
+<text x="298" y="245" font-family="sans-serif" font-size="15" fill="#333">x₁=1</text>
+<text x="408" y="245" font-family="sans-serif" font-size="15" fill="#333">x₂=3</text>
+<circle cx="360" cy="231" r="3.5" fill="#1f6f8b"/>
+<text x="120" y="206" font-family="sans-serif" font-size="15" fill="#c0392b">y&gt;0</text>
+<text x="330" y="250" font-family="sans-serif" font-size="15" fill="#1f6f8b">y&lt;0</text>
+<text x="452" y="206" font-family="sans-serif" font-size="15" fill="#c0392b">y&gt;0</text>
+</svg>

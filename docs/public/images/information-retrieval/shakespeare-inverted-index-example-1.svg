@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="sans-serif">
+  <title>倒排索引结构：词典与倒排表</title>
+  <desc>以莎士比亚四部剧为例，词典中的每个词项（括号内为文档频率 df）通过箭头指向其有序的倒排表，倒排表存放出现该词项的文档编号（升序）。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="34" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">倒排索引：词典 + 倒排表（莎士比亚四部剧）</text>
+
+  <text x="145" y="74" text-anchor="middle" font-size="14" fill="#1f6f8b">词典 Dictionary（含文档频率 df）</text>
+  <text x="520" y="74" text-anchor="middle" font-size="14" fill="#1f6f8b">倒排表 Postings（文档编号，升序）</text>
+
+  <!-- 词项：brutus（df=2）→ [1, 2] -->
+  <rect x="40" y="96" width="210" height="44" rx="8" fill="#faf9f5" stroke="#333" stroke-width="1.5"/>
+  <text x="145" y="124" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">brutus <tspan fill="#c0392b">df=2</tspan></text>
+  <line x1="252" y1="118" x2="314" y2="118" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="320" y="96" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="351" y="124" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">1</text>
+  <rect x="392" y="96" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="423" y="124" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">2</text>
+
+  <!-- 词项：caesar（df=4）→ [1, 2, 3, 4] -->
+  <rect x="40" y="148" width="210" height="44" rx="8" fill="#faf9f5" stroke="#333" stroke-width="1.5"/>
+  <text x="145" y="176" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">caesar <tspan fill="#c0392b">df=4</tspan></text>
+  <line x1="252" y1="170" x2="314" y2="170" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="320" y="148" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="351" y="176" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">1</text>
+  <rect x="392" y="148" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="423" y="176" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">2</text>
+  <rect x="464" y="148" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="495" y="176" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">3</text>
+  <rect x="536" y="148" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="567" y="176" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">4</text>
+
+  <!-- 词项：calpurnia（df=1）→ [2] -->
+  <rect x="40" y="200" width="210" height="44" rx="8" fill="#faf9f5" stroke="#333" stroke-width="1.5"/>
+  <text x="145" y="228" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">calpurnia <tspan fill="#c0392b">df=1</tspan></text>
+  <line x1="252" y1="222" x2="314" y2="222" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="320" y="200" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="351" y="228" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">2</text>
+
+  <!-- 词项：cleopatra（df=1）→ [4] -->
+  <rect x="40" y="252" width="210" height="44" rx="8" fill="#faf9f5" stroke="#333" stroke-width="1.5"/>
+  <text x="145" y="280" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">cleopatra <tspan fill="#c0392b">df=1</tspan></text>
+  <line x1="252" y1="274" x2="314" y2="274" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="320" y="252" width="62" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="351" y="280" text-anchor="middle" dominant-baseline="central" font-size="15" fill="#333">4</text>
+
+  <text x="360" y="320" text-anchor="middle" font-size="13" fill="#666">每个词项指向一个有序的文档编号列表；查询只需沿词项找倒排表，不必扫描全文</text>
+</svg>

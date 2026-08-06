@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">GPT 与 BERT：同一座 Transformer 的两种切法</title>
+  <desc id="desc">三面板对比图。左：原始 Transformer 为编码器-解码器结构，编码器双向自注意力、解码器掩码自注意力；中：GPT-1 仅取解码器，因果掩码、只看左侧，做下一个词预测；右：BERT 仅取编码器，双向自注意力、左右全看，做掩码语言建模。底部标注共同点：均基于 Transformer 与无标注预训练，确立预训练范式。</desc>
+
+  <defs>
+    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="10" orient="auto">
+      <path d="M0,0 L10,0 L5,10 Z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <!-- 纸底 -->
+  <rect width="720" height="470" fill="#faf9f5"/>
+
+  <!-- 主标题 -->
+  <text x="360" y="34" text-anchor="middle" font-size="20" fill="#333">GPT 与 BERT：同一座 Transformer 的两种切法</text>
+
+  <!-- ========== 面板 1：原始 Transformer ========== -->
+  <rect x="16" y="52" width="214" height="270" fill="#f7f1e6" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="28" y="76" font-size="15" fill="#333" font-weight="bold">① 原始 Transformer</text>
+  <text x="28" y="94" font-size="13" fill="#555">编码器-解码器（2017）</text>
+
+  <rect x="28" y="106" width="190" height="28" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="123" y="124" text-anchor="middle" font-size="13" fill="#333">输入序列（翻译源句）</text>
+
+  <rect x="28" y="142" width="190" height="52" fill="#e8f1f3" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="123" y="162" text-anchor="middle" font-size="13" fill="#333">编码器 × 6 层</text>
+  <text x="123" y="180" text-anchor="middle" font-size="13" fill="#555">自注意力（双向）+ FFN</text>
+
+  <rect x="28" y="202" width="190" height="52" fill="#e8f1f3" stroke="#c0392b" stroke-width="1.2" rx="4"/>
+  <text x="123" y="222" text-anchor="middle" font-size="13" fill="#333">解码器 × 6 层</text>
+  <text x="123" y="240" text-anchor="middle" font-size="13" fill="#555">掩码自注意力 + 交叉注意力</text>
+
+  <rect x="28" y="262" width="190" height="28" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="123" y="280" text-anchor="middle" font-size="13" fill="#333">输出序列（翻译目标句）</text>
+
+  <line x1="123" y1="134" x2="123" y2="140" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <line x1="123" y1="194" x2="123" y2="200" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <line x1="123" y1="254" x2="123" y2="260" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown)"/>
+
+  <text x="123" y="306" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">用途：机器翻译 / 序列到序列</text>
+
+  <!-- ========== 面板 2：GPT-1 ========== -->
+  <rect x="252" y="52" width="214" height="270" fill="#e8f1f3" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="264" y="76" font-size="15" fill="#333" font-weight="bold">② GPT-1：解码器 Decoder-only</text>
+  <text x="264" y="94" font-size="13" fill="#555">生成式预训练（2018）</text>
+
+  <rect x="264" y="106" width="190" height="28" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="359" y="124" text-anchor="middle" font-size="13" fill="#333">文本 token 序列</text>
+
+  <rect x="264" y="142" width="190" height="74" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="359" y="162" text-anchor="middle" font-size="13" fill="#333">解码器 × 12 层</text>
+  <text x="359" y="180" text-anchor="middle" font-size="13" fill="#555">掩码自注意力 + FFN</text>
+  <text x="359" y="200" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">因果：只看左侧</text>
+
+  <rect x="264" y="224" width="190" height="28" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="359" y="242" text-anchor="middle" font-size="13" fill="#333">预测下一个词（LM 头）</text>
+
+  <line x1="359" y1="134" x2="359" y2="140" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <line x1="359" y1="216" x2="359" y2="222" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown)"/>
+
+  <text x="359" y="268" text-anchor="middle" font-size="13" fill="#555">预训练目标：下一个词预测</text>
+  <text x="359" y="306" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">天生擅长：生成</text>
+
+  <!-- ========== 面板 3：BERT ========== -->
+  <rect x="490" y="52" width="214" height="270" fill="#f7e9e6" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="502" y="76" font-size="15" fill="#333" font-weight="bold">③ BERT：编码器 Encoder-only</text>
+  <text x="502" y="94" font-size="13" fill="#555">掩码语言建模（2018）</text>
+
+  <rect x="502" y="106" width="190" height="28" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="597" y="124" text-anchor="middle" font-size="13" fill="#333">文本 token 序列（含 [MASK]）</text>
+
+  <rect x="502" y="142" width="190" height="74" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="597" y="162" text-anchor="middle" font-size="13" fill="#333">编码器 × 12 层</text>
+  <text x="597" y="180" text-anchor="middle" font-size="13" fill="#555">自注意力（双向）+ FFN</text>
+  <text x="597" y="200" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">双向：左右全看</text>
+
+  <rect x="502" y="224" width="190" height="28" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="597" y="242" text-anchor="middle" font-size="13" fill="#333">预测被掩码的词（MLM 头）</text>
+
+  <line x1="597" y1="134" x2="597" y2="140" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown)"/>
+  <line x1="597" y1="216" x2="597" y2="222" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown)"/>
+
+  <text x="597" y="268" text-anchor="middle" font-size="13" fill="#555">预训练目标：MLM + NSP</text>
+  <text x="597" y="306" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">天生擅长：理解</text>
+
+  <!-- 底部共同点 -->
+  <rect x="16" y="344" width="688" height="58" fill="#333" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="360" y="368" text-anchor="middle" font-size="15" fill="#faf9f5" font-weight="bold">共同点：同一座 Transformer + 无标注文本上的自监督预训练</text>
+  <text x="360" y="390" text-anchor="middle" font-size="13" fill="#e8f1f3">「先学通用、再学专用」——预训练范式由此确立</text>
+
+  <!-- 底部说明 -->
+  <text x="360" y="438" text-anchor="middle" font-size="14" fill="#777">生成取向选 GPT 路线，理解取向选 BERT 路线；今天的 LLM 多为 decoder-only</text>
+</svg>

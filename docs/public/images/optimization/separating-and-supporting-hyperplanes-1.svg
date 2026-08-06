@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 320" font-family="sans-serif">
+  <title>两个凸集的分离超平面</title>
+  <desc>凸集 C 与 D 被一条分离超平面隔开，最近点对 x̄ 与 ȳ 的连线垂直于该超平面。</desc>
+  <rect width="460" height="320" fill="#faf9f5"/>
+  <!-- C -->
+  <ellipse cx="134" cy="180" rx="62" ry="90" fill="#dcecef" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="134" y="175" text-anchor="middle" font-size="15" fill="#1f6f8b">C</text>
+  <!-- D -->
+  <ellipse cx="298" cy="170" rx="56" ry="86" fill="#f6e3e0" stroke="#c0392b" stroke-width="2"/>
+  <text x="298" y="165" text-anchor="middle" font-size="15" fill="#c0392b">D</text>
+  <!-- 分离超平面 -->
+  <line x1="203" y1="102" x2="235" y2="248" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="210" y="108" font-size="13" fill="#c0392b">分离</text>
+  <text x="210" y="122" font-size="13" fill="#c0392b">超平面</text>
+  <!-- 最近点连线 -->
+  <line x1="196" y1="180" x2="242" y2="170" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <!-- 点 -->
+  <circle cx="196" cy="180" r="4" fill="#1f6f8b"/>
+  <text x="199" y="192" font-size="13" fill="#1f6f8b">x̄</text>
+  <circle cx="242" cy="170" r="4" fill="#c0392b"/>
+  <text x="227" y="160" font-size="13" fill="#c0392b">ȳ</text>
+  <!-- 中点 -->
+  <circle cx="219" cy="175" r="3" fill="#333"/>
+  <!-- 法向量 a -->
+  <line x1="219" y1="175" x2="239" y2="170.8" stroke="#333" stroke-width="2"/>
+  <polygon points="239,170.8 234,167.6 234,174.1" fill="#333"/>
+  <text x="224" y="167" font-size="13" fill="#333">a</text>
+  <text x="230" y="308" text-anchor="middle" font-size="13" fill="#666">法向量 a 垂直于分离超平面；C 与 D 分居两侧</text>
+</svg>

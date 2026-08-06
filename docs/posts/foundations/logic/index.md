@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 逻辑学导论
 
 - [x] [什么是逻辑：逻辑学的研究对象与历史](./what-is-logic)
-- [ ] 命题与语句：真值承担者
-- [ ] 论证的结构：前提、结论与论证的识别
-- [ ] 演绎与归纳：两种推理方式
-- [ ] 有效性（validity）与可靠性（soundness）
+- [x] [命题与语句：真值承担者](./proposition-and-sentence)
+- [x] [论证的结构：前提、结论与论证的识别](./structure-of-arguments)
+- [x] [演绎与归纳：两种推理方式](./deduction-and-induction)
+- [x] [有效性（validity）与可靠性（soundness）](./validity-and-soundness)
 - [ ] 真与有效：形式逻辑为什么只问形式
 - [ ] 逻辑形式与逻辑常项
 - [ ] 逻辑的三大基本规律：同一律、矛盾律、排中律

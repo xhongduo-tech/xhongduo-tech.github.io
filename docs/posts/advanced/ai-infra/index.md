@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 GPU 体系结构与 CUDA 编程
 
 - [x] [GPU 与 CPU 的设计哲学差异：吞吐优先 vs 延迟优先](./gpu-vs-cpu)
-- [ ] 流式多处理器（SM）的内部结构：CUDA Core、Tensor Core、寄存器与调度器
-- [ ] SIMT 执行模型与 warp（线程束）的工作原理
-- [ ] 线程层次：Grid、Block、Thread 的组织与索引
-- [ ] warp 调度与分支分化（divergence）的代价
+- [x] [流式多处理器（SM）的内部结构：CUDA Core、Tensor Core、寄存器与调度器](./sm-internal-structure)
+- [x] [SIMT 执行模型与 warp（线程束）的工作原理](./simt-warp)
+- [x] [线程层次：Grid、Block、Thread 的组织与索引](./thread-hierarchy)
+- [x] [warp 调度与分支分化（divergence）的代价](./warp-scheduling-divergence)
 - [ ] GPU 内存层次：寄存器、Shared Memory、L1/L2 缓存、全局内存
 - [ ] 全局内存合并访存（coalescing）与 bank conflict
 - [ ] Shared Memory 编程与 `__syncthreads()` 同步语义

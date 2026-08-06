@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">训练误差与泛化误差随模型复杂度的变化</title>
+  <desc id="desc">横轴为模型复杂度（训练程度），纵轴为误差。青色曲线为训练误差，随复杂度增大单调下降；红色曲线为泛化误差，先降后升，在最佳分界点处取极小。左侧欠拟合区域两者误差都高，右侧过拟合区域训练误差很低而泛化误差回升。</desc>
+
+  <!-- 绘图区背景 -->
+  <rect x="60" y="50" width="630" height="250" fill="#faf9f5" stroke="#ddd" stroke-width="1"/>
+
+  <!-- 坐标轴 -->
+  <line x1="60" y1="300" x2="695" y2="300" stroke="#333" stroke-width="1.6"/>
+  <line x1="60" y1="40" x2="60" y2="300" stroke="#333" stroke-width="1.6"/>
+
+  <!-- 轴标签 -->
+  <text x="375" y="330" font-size="14" fill="#333" text-anchor="middle">模型复杂度 / 训练程度 →</text>
+  <text x="30" y="180" font-size="14" fill="#333" text-anchor="middle" transform="rotate(-90 30 180)">误差 →</text>
+
+  <!-- 最佳分界点竖虚线 -->
+  <line x1="430" y1="50" x2="430" y2="300" stroke="#777" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="430" y="70" font-size="13" fill="#777" text-anchor="middle">最佳分界点</text>
+
+  <!-- 欠拟合 / 过拟合 区域 -->
+  <text x="150" y="120" font-size="15" fill="#1f6f8b" text-anchor="middle" font-weight="bold">欠拟合</text>
+  <text x="150" y="142" font-size="13" fill="#555" text-anchor="middle">训练、泛化误差都高</text>
+  <text x="615" y="150" font-size="15" fill="#c0392b" text-anchor="middle" font-weight="bold">过拟合</text>
+  <text x="615" y="172" font-size="13" fill="#555" text-anchor="middle">训练误差低，泛化误差回升</text>
+
+  <!-- 训练误差曲线（青色，单调下降） -->
+  <path d="M 60 250 C 240 210, 420 130, 690 62" fill="none" stroke="#1f6f8b" stroke-width="2.6"/>
+
+  <!-- 泛化误差曲线（红色，先降后升） -->
+  <path d="M 60 195 C 210 160, 340 115, 430 108 C 520 101, 600 165, 690 255" fill="none" stroke="#c0392b" stroke-width="2.6"/>
+
+  <!-- 图例 -->
+  <rect x="470" y="205" width="190" height="70" rx="10" fill="#faf9f5" stroke="#ddd" stroke-width="1"/>
+  <line x1="482" y1="230" x2="520" y2="230" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="530" y="234" font-size="13" fill="#333">训练误差</text>
+  <line x1="482" y1="258" x2="520" y2="258" stroke="#c0392b" stroke-width="3"/>
+  <text x="530" y="262" font-size="13" fill="#333">泛化误差</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">Flynn 分类法：按指令流与数据流的数量划分的四类计算机</title>
+  <desc id="desc">2×2 象限图。横轴为数据流（左「单」右「多」），纵轴为指令流（上「单」下「多」）。左上 SISD：单指令流·单数据流，经典单核处理器、冯·诺依曼机；右上 SIMD：单指令流·多数据流，向量机 Cray-1、x86 的 SSE/AVX、GPU 内的线程束；左下 MISD：多指令流·单数据流，罕见，无主流商用实例，脉动阵列等近似；右下 MIMD：多指令流·多数据流，多核 CPU、多处理器、GPU、集群与数据中心。图底部说明：Flynn 分类法描述的是逻辑上的流，现代处理器是 MIMD 与 SIMD 的混合。</desc>
+
+  <rect x="0" y="0" width="720" height="500" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="360" y="34" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">Flynn 分类法：按「流」的多少划分四类计算机</text>
+
+  <!-- 象限：SISD 左上 -->
+  <rect x="90" y="70" width="285" height="185" rx="10" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+  <text x="110" y="98" font-size="20" font-weight="bold" fill="#333">SISD</text>
+  <text x="110" y="122" font-size="14" fill="#333">单指令流 · 单数据流</text>
+  <text x="110" y="150" font-size="13" fill="#555">一条指令处理一个数据。</text>
+  <text x="110" y="170" font-size="13" fill="#555">冯·诺依曼机的经典形态。</text>
+  <text x="110" y="198" font-size="13" fill="#999">实例：经典单核处理器</text>
+
+  <!-- 象限：SIMD 右上 -->
+  <rect x="375" y="70" width="285" height="185" rx="10" fill="#faf9f5" stroke="#c0392b" stroke-width="2"/>
+  <text x="395" y="98" font-size="20" font-weight="bold" fill="#c0392b">SIMD</text>
+  <text x="395" y="122" font-size="14" fill="#333">单指令流 · 多数据流</text>
+  <text x="395" y="150" font-size="13" fill="#555">一条指令同时对多个数据</text>
+  <text x="395" y="170" font-size="13" fill="#555">执行同一运算（数据级并行）。</text>
+  <text x="395" y="198" font-size="13" fill="#999">实例：Cray-1 · x86 AVX · GPU 线程束</text>
+
+  <!-- 象限：MISD 左下 -->
+  <rect x="90" y="255" width="285" height="185" rx="10" fill="#faf9f5" stroke="#999" stroke-width="2"/>
+  <text x="110" y="283" font-size="20" font-weight="bold" fill="#888">MISD</text>
+  <text x="110" y="307" font-size="14" fill="#333">多指令流 · 单数据流</text>
+  <text x="110" y="335" font-size="13" fill="#555">多条指令处理同一个数据。</text>
+  <text x="110" y="355" font-size="13" fill="#555">几乎无主流商用实例。</text>
+  <text x="110" y="383" font-size="13" fill="#999">近似：脉动阵列 · 容错冗余执行</text>
+
+  <!-- 象限：MIMD 右下 -->
+  <rect x="375" y="255" width="285" height="185" rx="10" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="395" y="283" font-size="20" font-weight="bold" fill="#1f6f8b">MIMD</text>
+  <text x="395" y="307" font-size="14" fill="#333">多指令流 · 多数据流</text>
+  <text x="395" y="335" font-size="13" fill="#555">多条指令各自处理自己的数据。</text>
+  <text x="395" y="355" font-size="13" fill="#555">今天的通用并行主流。</text>
+  <text x="395" y="383" font-size="13" fill="#999">实例：多核 CPU · GPU · 集群</text>
+
+  <!-- 坐标轴标签 -->
+  <!-- 横轴：数据流 -->
+  <line x1="90" y1="470" x2="660" y2="470" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="232" y="458" font-size="13" fill="#333" text-anchor="middle">单数据流</text>
+  <text x="517" y="458" font-size="13" fill="#333" text-anchor="middle">多数据流</text>
+  <text x="660" y="488" font-size="14" font-weight="bold" fill="#333" text-anchor="end">数据流（Data Stream）→</text>
+
+  <!-- 纵轴：指令流 -->
+  <line x1="70" y1="70" x2="70" y2="440" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="58" y="162" font-size="13" fill="#333" text-anchor="middle">单指令流</text>
+  <text x="58" y="348" font-size="13" fill="#333" text-anchor="middle">多指令流</text>
+  <text x="26" y="255" font-size="14" font-weight="bold" fill="#333" text-anchor="middle" transform="rotate(-90 26 255)">指令流（Instruction Stream）→</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 底部说明 -->
+  <text x="360" y="497" font-size="13" fill="#777" text-anchor="middle">Flynn 分类法描述的是「逻辑上的流」——现代处理器往往是 MIMD 与 SIMD 的混合体</text>
+</svg>

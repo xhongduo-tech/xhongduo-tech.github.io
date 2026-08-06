@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 偏微分方程的基本概念
 
 - [x] [偏微分方程的定义与实例（数学物理中的三类典型方程）](./what-is-pde)
-- [ ] 方程的阶、线性与非线性、齐次与非齐次
-- [ ] 解、通解与特解的概念
-- [ ] 定解条件：初始条件与边界条件
-- [ ] 三类边界条件（Dirichlet、Neumann、Robin）
+- [x] [方程的阶、线性与非线性、齐次与非齐次](./order-linearity-homogeneous)
+- [x] [解、通解与特解的概念](./solutions-general-particular)
+- [x] [定解条件：初始条件与边界条件](./initial-boundary-conditions)
+- [x] [三类边界条件（Dirichlet、Neumann、Robin）](./boundary-condition-types)
 - [ ] 定解问题的提法与适定性（存在性、唯一性、稳定性）
 - [ ] 叠加原理
 

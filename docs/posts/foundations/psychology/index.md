@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 心理学的研究对象与方法
 
 - [x] [心理学是研究心理现象的科学：研究对象、任务与学科性质](./what-is-psychology)
-- [ ] 心理学的主要流派：构造主义、机能主义与格式塔学派
-- [ ] 心理学的主要流派：行为主义与精神分析
-- [ ] 心理学的主要流派：人本主义与认知心理学
-- [ ] 观察法、心理测验法与相关法
+- [x] [心理学的主要流派：构造主义、机能主义与格式塔学派](./schools-structuralism-functionalism-gestalt)
+- [x] [心理学的主要流派：行为主义与精神分析](./schools-behaviorism-psychoanalysis)
+- [x] [心理学的主要流派：人本主义与认知心理学](./schools-humanism-cognitive)
+- [x] [观察法、心理测验法与相关法](./observation-tests-correlation)
 - [ ] 实验法：变量、实验组与控制组
 - [ ] 个案法与心理学研究中的伦理问题
 

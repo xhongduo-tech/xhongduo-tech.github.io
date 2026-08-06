@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 微调范式
 
 - [x] [微调范式总览：从预训练、指令微调到对齐的三阶段](./finetuning-paradigms)
-- [ ] 继续预训练（Continual Pre-Training）：语料选择、混合配比与训练策略
-- [ ] 领域自适应预训练与通用能力保持的权衡
-- [ ] 有监督微调（SFT）：指令微调的任务定义与训练目标
-- [ ] 指令泛化：任务多样性、规模效应与指令演化（Evol-Instruct）
+- [x] [继续预训练（Continual Pre-Training）：语料选择、混合配比与训练策略](./continual-pre-training)
+- [x] [领域自适应预训练与通用能力保持的权衡](./domain-adaptive-pretraining)
+- [x] [有监督微调（SFT）：指令微调的任务定义与训练目标](./supervised-finetuning)
+- [x] [指令泛化：任务多样性、规模效应与指令演化（Evol-Instruct）](./instruction-generalization)
 - [ ] 对齐范式总览：RLHF 与直接偏好优化两大路线
 - [ ] 微调的缩放定律：数据量、模型规模与下游收益
 - [ ] 小样本高效微调：LIMA「表面对齐假说」及其争议

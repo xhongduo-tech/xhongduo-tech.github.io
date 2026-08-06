@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 曲线论
 
 - [x] [参数曲线与正则曲线（parametrized curve / regular curve）](./parametrized-curves)
-- [ ] 切向量与切线（tangent vector / tangent line）
-- [ ] 弧长与弧长参数化（arc length / arc-length parametrization）
-- [ ] 弧长参数的不变性与曲线论中的基本引理
-- [ ] 曲率的概念及其几何意义（curvature）
+- [x] [切向量与切线（tangent vector / tangent line）](./tangent-vector-tangent-line)
+- [x] [弧长与弧长参数化（arc length / arc-length parametrization）](./arc-length-parametrization)
+- [x] [弧长参数的不变性与曲线论中的基本引理](./arc-length-invariance-basic-lemma)
+- [x] [曲率的概念及其几何意义（curvature）](./curvature)
 - [ ] 密切平面与副法向量（osculating plane / binormal）
 - [ ] Frenet 标架（Frenet frame）
 - [ ] 挠率的概念及其几何意义（torsion）

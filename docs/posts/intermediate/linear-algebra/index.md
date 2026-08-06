@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 行列式
 
 - [x] [二阶与三阶行列式](./determinants)
-- [ ] 全排列、逆序数与对换
-- [ ] n 阶行列式的定义
-- [ ] 行列式的性质
-- [ ] 行列式按行（列）展开：余子式与代数余子式
+- [x] [全排列、逆序数与对换](./permutations-inversions)
+- [x] [n 阶行列式的定义](./n-order-determinant)
+- [x] [行列式的性质](./determinant-properties)
+- [x] [行列式按行（列）展开：余子式与代数余子式](./cofactor-expansion)
 - [ ] 范德蒙德行列式
 - [ ] 克拉默法则
 

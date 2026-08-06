@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">初边值问题的时空区域示意</title>
+  <desc id="desc">在 x-t 平面中，区域 Ω 是带形：0 &lt; x &lt; l 且 t &gt; 0。底面 t=0 的粗红线是初始条件所在的位置，标出 u(x,0)=φ(x) 与 u_t(x,0)=ψ(x)；左墙 x=0 与右墙 x=l 的粗青线是边界条件所在的位置。区域内部标出一个点 (x0,t0)，解 u(x0,t0) 在该点取值。图的目的是说明：初始条件约束时空域的底面，边界条件约束左右两侧墙，方程则在整个区域内成立。</desc>
+
+  <defs>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+  </defs>
+
+  <!-- 纸底 -->
+  <rect x="0" y="0" width="680" height="470" fill="#faf9f5"/>
+
+  <!-- 顶部标题 -->
+  <text x="340" y="34" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">初边值问题的时空区域</text>
+
+  <!-- 区域 Ω：0 &lt; x &lt; l, t &gt; 0 -->
+  <rect x="130" y="80" width="470" height="300" fill="#eef3f5"/>
+
+  <!-- 底部初始线 t=0（粗红线，带箭头表示 x 方向） -->
+  <line x1="130" y1="380" x2="600" y2="380" stroke="#c0392b" stroke-width="3.2" marker-end="url(#arrow-red)"/>
+
+  <!-- 左墙 x=0（t 轴，粗青线） -->
+  <line x1="130" y1="380" x2="130" y2="80" stroke="#1f6f8b" stroke-width="3.2" marker-end="url(#arrow-cyan)"/>
+
+  <!-- 右墙 x=l（粗青线） -->
+  <line x1="600" y1="380" x2="600" y2="80" stroke="#1f6f8b" stroke-width="3.2"/>
+
+  <!-- 原点标注 O 与坐标刻度 -->
+  <text x="118" y="398" font-size="14" fill="#333">O</text>
+  <text x="606" y="370" font-size="14" fill="#333">x = l</text>
+  <text x="108" y="74" font-size="14" fill="#333">t</text>
+
+  <!-- 内部一点 (x0, t0) -->
+  <circle cx="380" cy="200" r="5" fill="#333"/>
+  <text x="390" y="192" font-size="14" fill="#333">(x₀, t₀)</text>
+  <text x="390" y="212" font-size="14" fill="#333">解在此取值 u(x₀,t₀)</text>
+
+  <!-- 区域标注 -->
+  <text x="340" y="116" font-size="15" font-weight="bold" fill="#1f6f8b" text-anchor="middle">Ω：0 &lt; x &lt; l，t &gt; 0</text>
+  <text x="340" y="138" font-size="14" fill="#333" text-anchor="middle">方程在整个区域内成立</text>
+
+  <!-- 左墙边界条件标注（竖排文字） -->
+  <text x="76" y="250" font-size="15" fill="#1f6f8b" transform="rotate(-90 76 250)" text-anchor="middle">边界条件（x = 0）</text>
+
+  <!-- 右墙边界条件标注（竖排文字） -->
+  <text x="654" y="250" font-size="15" fill="#1f6f8b" transform="rotate(-90 654 250)" text-anchor="middle">边界条件（x = l）</text>
+
+  <!-- 底部初始条件标注 -->
+  <text x="365" y="412" font-size="15" font-weight="bold" fill="#c0392b" text-anchor="middle">初始条件（t = 0）</text>
+  <text x="365" y="436" font-size="14" fill="#c0392b" text-anchor="middle">u(x,0)=φ(x)，u_t(x,0)=ψ(x)</text>
+</svg>

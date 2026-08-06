@@ -1,0 +1,55 @@
+<svg viewBox="0 0 820 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">超时背后的三种可能</title>
+  <desc id="desc">发送方等待响应超时，无法区分请求丢失、接收方崩溃、接收方缓慢三种情况</desc>
+  <rect width="820" height="330" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <text x="410" y="30" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#333">超时了，但到底发生了什么？</text>
+
+  <!-- 可能 1：消息丢失 -->
+  <rect x="40" y="62" width="110" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="95" y="89" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">发送方 S</text>
+  <circle cx="152" cy="58" r="12" fill="#1f6f8b"/>
+  <text x="152" y="63" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">?</text>
+
+  <rect x="620" y="62" width="140" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="690" y="89" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">接收方 R</text>
+
+  <line x1="152" y1="82" x2="600" y2="82" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="375" y="74" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">请求</text>
+  <text x="290" y="60" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#c0392b">✗ 丢包</text>
+  <text x="410" y="122" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">可能 1：请求在网络中丢失，根本没到对方</text>
+
+  <!-- 可能 2：接收方崩溃 -->
+  <rect x="40" y="157" width="110" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="95" y="184" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">发送方 S</text>
+  <circle cx="152" cy="153" r="12" fill="#1f6f8b"/>
+  <text x="152" y="158" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">?</text>
+
+  <rect x="620" y="157" width="140" height="52" rx="6" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="690" y="180" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">接收方 R</text>
+  <text x="690" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">已崩溃</text>
+
+  <line x1="152" y1="177" x2="600" y2="177" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="375" y="169" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">请求</text>
+  <text x="410" y="222" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">可能 2：对方已崩溃，响应永远不会来</text>
+
+  <!-- 可能 3：接收方缓慢 -->
+  <rect x="40" y="252" width="110" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="95" y="279" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">发送方 S</text>
+  <circle cx="152" cy="248" r="12" fill="#1f6f8b"/>
+  <text x="152" y="253" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">?</text>
+
+  <rect x="620" y="252" width="140" height="46" rx="6" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="690" y="279" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">接收方 R</text>
+
+  <line x1="152" y1="283" x2="600" y2="283" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="375" y="275" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">请求</text>
+  <line x1="600" y1="261" x2="152" y2="261" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+  <text x="375" y="253" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">响应（很慢）</text>
+  <text x="410" y="314" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">可能 3：对方活着，但响应慢得像失败</text>
+</svg>

@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 推理基础
 
 - [x] [自回归生成的基本原理](./autoregressive-generation)
-- [ ] Prefill 与 Decode 两阶段的计算特征
-- [ ] 算术强度与 Roofline 模型
-- [ ] 访存瓶颈：为什么 Decode 是 Memory-Bound
-- [ ] KV Cache 的原理与数据结构
+- [x] [Prefill 与 Decode 两阶段的计算特征](./prefill-decode-compute)
+- [x] [算术强度与 Roofline 模型](./arithmetic-intensity-roofline)
+- [x] [访存瓶颈：为什么 Decode 是 Memory-Bound](./decode-memory-bound)
+- [x] [KV Cache 的原理与数据结构](./kv-cache-data-structure)
 - [ ] KV Cache 显存占用估算与数值实例
 - [ ] 推理吞吐、延迟与批大小的基本关系
 - [ ] 模型加载与权重显存布局

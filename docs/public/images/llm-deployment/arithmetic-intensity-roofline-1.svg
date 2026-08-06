@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">Roofline 模型：算力屋顶与带宽屋顶围成的可达到性能边界</title>
+  <desc id="desc">以对数坐标绘制的 Roofline 性能模型。横轴为算术强度 I（FLOP/byte，0.1 到 10⁴），纵轴为可达到性能（TFLOP/s，0.1 到 1000）。青色对角线为带宽屋顶 β×I（A100 约 2 TB/s），红色水平线为算力屋顶 π（A100 FP16 约 312 TFLOPS），两者交于脊点 I≈156 FLOP/byte。Decode 落在 I≈1 的带宽屋顶上（访存受限），Prefill 落在 I≈10³ 的算力屋顶上（计算受限）。</desc>
+
+  <defs>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="570" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="450" y="40" text-anchor="middle" font-size="22" fill="#333" font-weight="bold">Roofline：一台 GPU 的能力边界</text>
+  <text x="450" y="64" text-anchor="middle" font-size="14" fill="#777">可达到性能 = min（算力屋顶 π，带宽屋顶 β × 算术强度 I）—— 以 A100 为例</text>
+
+  <!-- 网格线 -->
+  <line x1="100" y1="382.5" x2="860" y2="382.5" stroke="#e6e0d4" stroke-width="1"/>
+  <line x1="100" y1="285" x2="860" y2="285" stroke="#e6e0d4" stroke-width="1"/>
+  <line x1="100" y1="187.5" x2="860" y2="187.5" stroke="#e6e0d4" stroke-width="1"/>
+  <line x1="252" y1="90" x2="252" y2="480" stroke="#e6e0d4" stroke-width="1"/>
+  <line x1="404" y1="90" x2="404" y2="480" stroke="#e6e0d4" stroke-width="1"/>
+  <line x1="556" y1="90" x2="556" y2="480" stroke="#e6e0d4" stroke-width="1"/>
+  <line x1="708" y1="90" x2="708" y2="480" stroke="#e6e0d4" stroke-width="1"/>
+
+  <!-- 坐标轴 -->
+  <line x1="100" y1="90" x2="100" y2="480" stroke="#333" stroke-width="1.5"/>
+  <line x1="100" y1="480" x2="860" y2="480" stroke="#333" stroke-width="1.5"/>
+
+  <!-- 带宽屋顶（青色对角线）：β×I，从 I=0.1 到脊点 -->
+  <line x1="100" y1="451" x2="585" y2="139" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- 算力屋顶（红色水平线）：π，从脊点到右边界 -->
+  <line x1="585" y1="139" x2="860" y2="139" stroke="#c0392b" stroke-width="3"/>
+
+  <!-- 区域标注 -->
+  <text x="330" y="438" text-anchor="middle" font-size="14" fill="#1f6f8b">访存受限（带宽屋顶 β·I）</text>
+  <text x="765" y="258" text-anchor="middle" font-size="14" fill="#c0392b">计算受限（算力屋顶 π）</text>
+
+  <!-- 脊点 -->
+  <circle cx="585" cy="139" r="5" fill="#333"/>
+  <text x="600" y="175" text-anchor="start" font-size="14" fill="#333">脊点 I ≈ 156 FLOP/byte</text>
+
+  <!-- Decode 数据点 -->
+  <circle cx="252" cy="353" r="7" fill="#1f6f8b" stroke="#faf9f5" stroke-width="2"/>
+  <text x="265" y="340" text-anchor="start" font-size="14" fill="#333">Decode</text>
+  <text x="265" y="358" text-anchor="start" font-size="13" fill="#777">I ≈ 1</text>
+
+  <!-- Prefill 数据点 -->
+  <circle cx="710" cy="139" r="7" fill="#c0392b" stroke="#faf9f5" stroke-width="2"/>
+  <text x="726" y="120" text-anchor="start" font-size="14" fill="#333">Prefill</text>
+  <text x="726" y="138" text-anchor="start" font-size="13" fill="#777">I ≈ 10³</text>
+
+  <!-- X 轴刻度 -->
+  <text x="102" y="500" text-anchor="start" font-size="13" fill="#333">0.1</text>
+  <text x="252" y="500" text-anchor="middle" font-size="13" fill="#333">1</text>
+  <text x="404" y="500" text-anchor="middle" font-size="13" fill="#333">10</text>
+  <text x="556" y="500" text-anchor="middle" font-size="13" fill="#333">100</text>
+  <text x="708" y="500" text-anchor="middle" font-size="13" fill="#333">10³</text>
+  <text x="858" y="500" text-anchor="end" font-size="13" fill="#333">10⁴</text>
+  <text x="480" y="532" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">算术强度 I（FLOP/byte）</text>
+
+  <!-- Y 轴刻度（TFLOP/s） -->
+  <text x="88" y="485" text-anchor="end" font-size="13" fill="#333">0.1</text>
+  <text x="88" y="387" text-anchor="end" font-size="13" fill="#333">1</text>
+  <text x="88" y="290" text-anchor="end" font-size="13" fill="#333">10</text>
+  <text x="88" y="192" text-anchor="end" font-size="13" fill="#333">100</text>
+  <text x="88" y="95" text-anchor="end" font-size="13" fill="#333">1000</text>
+  <text x="38" y="285" text-anchor="middle" font-size="15" fill="#333" font-weight="bold" transform="rotate(-90 38 285)">可达到性能（TFLOP/s）</text>
+
+  <!-- 图例 -->
+  <rect x="690" y="493" width="168" height="58" rx="6" fill="#fff" stroke="#9a907d" stroke-width="1"/>
+  <line x1="702" y1="512" x2="726" y2="512" stroke="#c0392b" stroke-width="3"/>
+  <text x="734" y="516" text-anchor="start" font-size="13" fill="#333">算力屋顶 π</text>
+  <line x1="702" y1="536" x2="726" y2="536" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="734" y="540" text-anchor="start" font-size="13" fill="#333">带宽屋顶 β·I</text>
+</svg>

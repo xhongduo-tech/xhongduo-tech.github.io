@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 凸集与凸函数
 
 - [x] [仿射集与凸集：定义与基本例子](./affine-and-convex-sets)
-- [ ] 凸组合、凸包与凸锥
-- [ ] 超平面、半空间与多面体
-- [ ] 保凸运算：仿射变换、透视函数与线性分式函数
-- [ ] 分离超平面定理与支撑超平面定理
+- [x] [凸组合、凸包与凸锥](./convex-hull-and-cone)
+- [x] [超平面、半空间与多面体](./hyperplanes-halfspaces-polyhedra)
+- [x] [保凸运算：仿射变换、透视函数与线性分式函数](./convexity-preserving-operations)
+- [x] [分离超平面定理与支撑超平面定理](./separating-and-supporting-hyperplanes)
 - [ ] 凸函数的定义与等价刻画
 - [ ] 凸函数的一阶条件与二阶条件
 - [ ] 上镜图（epigraph）与下水平集

@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇：认知科学导论与历史范式
 
 - [x] [什么是认知科学：跨学科的认知研究（心理学、神经科学、语言学、哲学、计算机科学、人类学）](./what-is-cognitive-science)
-- [ ] 哲学渊源：从柏拉图、亚里士多德到笛卡尔与经验主义的心智观
-- [ ] 行为主义（Behaviorism）的兴起与局限
-- [ ] 认知革命与信息加工范式（Information-Processing Paradigm）
-- [ ] 计算机隐喻：心智作为符号操作系统
+- [x] [哲学渊源：从柏拉图、亚里士多德到笛卡尔与经验主义的心智观](./philosophical-origins)
+- [x] [行为主义（Behaviorism）的兴起与局限](./behaviorism)
+- [x] [认知革命与信息加工范式（Information-Processing Paradigm）](./cognitive-revolution)
+- [x] [计算机隐喻：心智作为符号操作系统](./computer-metaphor)
 - [ ] 联结主义（Connectionism）与并行分布式加工（PDP）
 - [ ] 认知神经科学的兴起与多方法整合的研究取向
 

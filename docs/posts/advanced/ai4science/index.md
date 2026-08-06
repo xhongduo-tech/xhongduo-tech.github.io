@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 AI4Science 概述与范式
 
 - [x] [AI for Science 的兴起：从实验、理论、计算到数据驱动的第四范式](./fourth-paradigm)
-- [ ] 科学机器学习（Scientific Machine Learning, SciML）的问题分类与研究版图
-- [ ] 科学数据的特点：多尺度、稀疏、噪声与物理约束
-- [ ] 对称性与等变性：群论视角下的神经网络设计原则
-- [ ] 可微分编程与科学计算：自动微分在物理模拟中的角色
+- [x] [科学机器学习（Scientific Machine Learning, SciML）的问题分类与研究版图](./sciml-taxonomy)
+- [x] [科学数据的特点：多尺度、稀疏、噪声与物理约束](./scientific-data-characteristics)
+- [x] [对称性与等变性：群论视角下的神经网络设计原则](./symmetry-equivariance-groups)
+- [x] [可微分编程与科学计算：自动微分在物理模拟中的角色](./differentiable-programming-autodiff)
 - [ ] AI 科学家的工作流：假设生成、实验设计、数据分析与自动化闭环
 
 ### 第二篇 蛋白质结构预测

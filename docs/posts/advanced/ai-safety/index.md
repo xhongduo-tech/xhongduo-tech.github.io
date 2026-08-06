@@ -15,12 +15,12 @@ AI 安全与对齐研究如何确保能力不断增强的人工智能系统可�
 
 #### 第 1 章 对齐问题总论
 - [x] [什么是对齐问题：意图对齐与价值学习的概念框架](./what-is-alignment)
-- [ ] 工具性趋同（Instrumental Convergence）：为何足够智能的系统会争夺资源
-- [ ] 正交性论点（Orthogonality Thesis）：智能与目标无关性
-- [ ] 规范博弈（Specification Gaming）与奖励黑客（Reward Hacking）实例分析
+- [x] [工具性趋同（Instrumental Convergence）：为何足够智能的系统会争夺资源](./instrumental-convergence)
+- [x] [正交性论点（Orthogonality Thesis）：智能与目标无关性](./orthogonality-thesis)
+- [x] [规范博弈（Specification Gaming）与奖励黑客（Reward Hacking）实例分析](./specification-gaming)
 
 #### 第 2 章 外部对齐与内部对齐
-- [ ] 外部对齐（Outer Alignment）：奖励函数能否正确表达人类意图
+- [x] [外部对齐（Outer Alignment）：奖励函数能否正确表达人类意图](./outer-alignment)
 - [ ] 内部对齐（Inner Alignment）：目标错位的mesa优化器（Mesa-Optimizer）
 - [ ] 欺骗性对齐（Deceptive Alignment）：模型为何可能伪装对齐
 - [ ] 古德哈特定律（Goodhart's Law）在奖励建模中的四种形态

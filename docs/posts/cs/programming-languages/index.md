@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 语言设计与评价
 
 - [x] [学习程序设计语言原理的意义](./why-study-pl)
-- [ ] 编程语言的四大评价标准：可读性、可写性、可靠性与成本
-- [ ] 影响语言设计的因素：计算机体系结构与编程方法学
-- [ ] 语言的实现方法：编译、解释与混合实现
-- [ ] 语言的演化历程：从 Plankalkül 到现代多范式语言
+- [x] [编程语言的四大评价标准：可读性、可写性、可靠性与成本](./language-evaluation-criteria)
+- [x] [影响语言设计的因素：计算机体系结构与编程方法学](./language-design-factors)
+- [x] [语言的实现方法：编译、解释与混合实现](./language-implementation-methods)
+- [x] [语言的演化历程：从 Plankalkül 到现代多范式语言](./language-evolution)
 
 ### 第二篇 语法描述
 

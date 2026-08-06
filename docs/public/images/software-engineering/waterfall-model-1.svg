@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 520" font-family="sans-serif">
+  <title>瀑布模型：线性顺序 + 有限反馈</title>
+  <desc>沟通、策划、建模、构建、部署五个阶段自上而下依次执行，虚线表示可回退的反馈回环。</desc>
+  <rect width="460" height="520" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <text x="230" y="30" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">瀑布模型：线性顺序 + 有限反馈</text>
+
+  <g stroke="#333" stroke-width="2">
+    <line x1="230" y1="128" x2="230" y2="148" marker-end="url(#arrow)"/>
+    <line x1="230" y1="216" x2="230" y2="236" marker-end="url(#arrow)"/>
+    <line x1="230" y1="304" x2="230" y2="324" marker-end="url(#arrow)"/>
+    <line x1="230" y1="392" x2="230" y2="412" marker-end="url(#arrow)"/>
+  </g>
+
+  <g>
+    <rect x="130" y="72" width="200" height="56" rx="8" fill="#1f6f8b"/>
+    <text x="230" y="95" text-anchor="middle" font-size="15" fill="#fff">沟通（Communication）</text>
+    <text x="230" y="116" text-anchor="middle" font-size="12" fill="#e8f1f5">需求收集与理解</text>
+  </g>
+  <g>
+    <rect x="130" y="160" width="200" height="56" rx="8" fill="#1f6f8b"/>
+    <text x="230" y="183" text-anchor="middle" font-size="15" fill="#fff">策划（Planning）</text>
+    <text x="230" y="204" text-anchor="middle" font-size="12" fill="#e8f1f5">项目计划与排期</text>
+  </g>
+  <g>
+    <rect x="130" y="248" width="200" height="56" rx="8" fill="#1f6f8b"/>
+    <text x="230" y="271" text-anchor="middle" font-size="15" fill="#fff">建模（Modeling）</text>
+    <text x="230" y="292" text-anchor="middle" font-size="12" fill="#e8f1f5">分析与设计</text>
+  </g>
+  <g>
+    <rect x="130" y="336" width="200" height="56" rx="8" fill="#1f6f8b"/>
+    <text x="230" y="359" text-anchor="middle" font-size="15" fill="#fff">构建（Construction）</text>
+    <text x="230" y="380" text-anchor="middle" font-size="12" fill="#e8f1f5">编码与测试</text>
+  </g>
+  <g>
+    <rect x="130" y="424" width="200" height="56" rx="8" fill="#1f6f8b"/>
+    <text x="230" y="447" text-anchor="middle" font-size="15" fill="#fff">部署（Deployment）</text>
+    <text x="230" y="468" text-anchor="middle" font-size="12" fill="#e8f1f5">交付与反馈</text>
+  </g>
+
+  <path d="M 330 452 C 380 452, 380 100, 330 100" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow-red)"/>
+  <text x="416" y="290" text-anchor="middle" font-size="13" fill="#c0392b">反馈</text>
+  <text x="416" y="307" text-anchor="middle" font-size="13" fill="#c0392b">回环</text>
+</svg>

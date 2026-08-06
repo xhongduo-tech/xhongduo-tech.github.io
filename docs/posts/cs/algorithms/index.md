@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇：算法基础与渐进记号
 
 - [x] [算法的定义、性质与作为一门技术的地位](./what-is-an-algorithm)
-- [ ] 插入排序（Insertion Sort）：循环不变式与正确性证明
-- [ ] 算法分析框架：最坏情况、平均情况与渐近效率
-- [ ] 渐进记号（Asymptotic Notation）：Θ、O、Ω、o、ω 的严格定义与性质
-- [ ] 常用函数的增长率比较与求和技巧（级数、积分近似、调和数）
+- [x] [插入排序（Insertion Sort）：循环不变式与正确性证明](./insertion-sort)
+- [x] [算法分析框架：最坏情况、平均情况与渐近效率](./algorithm-analysis)
+- [x] [渐进记号（Asymptotic Notation）：Θ、O、Ω、o、ω 的严格定义与性质](./asymptotic-notation)
+- [x] [常用函数的增长率比较与求和技巧（级数、积分近似、调和数）](./growth-functions-summations)
 
 ### 第二篇：分治与递归
 

@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 发展脉络与缩放定律
 
 - [x] [从统计语言模型到神经语言模型：N-gram、Word2Vec 与 RNNLM](./from-statistical-to-neural-lm)
-- [ ] Transformer 与预训练范式的确立：GPT-1 与 BERT
-- [ ] GPT-2 与 GPT-3：规模即能力，上下文学习的出现
-- [ ] T5 与统一文本到文本（Text-to-Text）范式
-- [ ] InstructGPT 与 ChatGPT：指令微调与人类反馈对齐
+- [x] [Transformer 与预训练范式的确立：GPT-1 与 BERT](./transformer-and-pretraining-paradigm)
+- [x] [GPT-2 与 GPT-3：规模即能力，上下文学习的出现](./gpt2-gpt3-scale-and-in-context-learning)
+- [x] [T5 与统一文本到文本（Text-to-Text）范式](./t5-unified-text-to-text)
+- [x] [InstructGPT 与 ChatGPT：指令微调与人类反馈对齐](./instructgpt-and-chatgpt-alignment)
 - [ ] GPT-4 之后与开源生态：LLaMA 系谱与社区爆发
 - [ ] Kaplan 缩放定律：损失与模型、数据、算力的幂律关系
 - [ ] Chinchilla 缩放定律：计算最优下的参数-数据配比

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 320" font-family="sans-serif">
+  <title>若干点的凸包</title>
+  <desc>散布的点集被最小的凸多边形（凸包）包住，内部点可写成顶点的凸组合。</desc>
+  <rect width="460" height="320" fill="#faf9f5"/>
+  <text x="230" y="30" text-anchor="middle" font-size="15" fill="#333">凸包 = 包住所有点的最小凸区域</text>
+  <!-- 凸包多边形 -->
+  <polygon points="80,250 150,275 260,265 330,225 305,145 235,105 155,130 105,185" fill="#dcecef" stroke="#1f6f8b" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- 内部点 -->
+  <circle cx="200" cy="220" r="4" fill="#c0392b"/>
+  <circle cx="260" cy="185" r="4" fill="#c0392b"/>
+  <circle cx="150" cy="195" r="4" fill="#c0392b"/>
+  <circle cx="205" cy="170" r="4.5" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="213" y="163" font-size="13" fill="#c0392b">内部点 x</text>
+  <!-- 顶点 -->
+  <circle cx="235" cy="105" r="4" fill="#333"/>
+  <circle cx="150" cy="275" r="4" fill="#333"/>
+  <text x="242" y="99" font-size="13" fill="#333">顶点</text>
+  <text x="115" y="288" font-size="13" fill="#333">顶点</text>
+  <text x="230" y="306" text-anchor="middle" font-size="13" fill="#666">内部点可写成顶点（至多 n+1 个）的凸组合</text>
+</svg>

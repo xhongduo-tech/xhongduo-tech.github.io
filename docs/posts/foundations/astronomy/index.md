@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一章 天球与天球坐标系
 
 - [x] [天球的概念与基本点圈（天极、天赤道、黄道、天顶）](./celestial-sphere)
-- [ ] 地平坐标系与赤道坐标系（时角、赤经赤纬）
-- [ ] 黄道坐标系与银道坐标系
-- [ ] 各坐标系之间的换算
-- [ ] 岁差、章动、极移与恒星的周日视运动
+- [x] [地平坐标系与赤道坐标系（时角、赤经赤纬）](./horizontal-equatorial-coordinates)
+- [x] [黄道坐标系与银道坐标系](./ecliptic-galactic-coordinates)
+- [x] [各坐标系之间的换算](./coordinate-transformations)
+- [x] [岁差、章动、极移与恒星的周日视运动](./precession-nutation-polar-motion)
 
 ### 第二章 时间与历法
 

@@ -14,13 +14,13 @@ pageClass: plain-doc
 ### 第一篇 力学｜第一章 质点运动学
 
 - [x] [质点、参考系与坐标系](./particle-reference-coordinates)
-- [ ] 位置矢量、位移、速度与加速度：以抛体运动为例
-- [ ] 圆周运动：角速度与角加速度
-- [ ] 相对运动与伽利略变换
+- [x] [位置矢量、位移、速度与加速度：以抛体运动为例](./position-velocity-acceleration)
+- [x] [圆周运动：角速度与角加速度](./circular-motion)
+- [x] [相对运动与伽利略变换](./relative-motion-galilean)
 
 ### 第一篇 力学｜第二章 牛顿运动定律
 
-- [ ] 牛顿三定律
+- [x] [牛顿三定律](./newton-three-laws)
 - [ ] 常见的力：重力、弹力与摩擦力
 - [ ] 牛顿定律的应用：受力分析与动力学方程
 - [ ] 非惯性系与惯性力

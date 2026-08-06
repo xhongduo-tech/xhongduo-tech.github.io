@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">函数极限的 ε-δ 定义</title>
+  <desc id="desc">坐标平面内一条平滑曲线 y=f(x)。在点 (x₀, A) 处，红色虚线标出以 A 为中心的横向邻域带 (A−ε, A+ε)，蓝色虚线标出以 x₀ 为中心的纵向邻域带 (x₀−δ, x₀+δ)。曲线在横带内的那一段被整个框在竖带以内：只要 0&lt;|x−x₀|&lt;δ，就有 |f(x)−A|&lt;ε。</desc>
+
+  <!-- 标题 -->
+  <text x="350" y="30" font-size="16" fill="#333" text-anchor="middle">函数极限：0 &lt; |x−x₀| &lt; δ  ⟹  |f(x)−A| &lt; ε</text>
+
+  <!-- 坐标轴 -->
+  <line x1="90" y1="270" x2="650" y2="270" stroke="#333" stroke-width="1.6"/>
+  <polygon points="650,266 662,270 650,274" fill="#333"/>
+  <line x1="90" y1="270" x2="90" y2="46" stroke="#333" stroke-width="1.6"/>
+  <polygon points="86,46 90,34 94,46" fill="#333"/>
+  <text x="652" y="290" font-size="14" fill="#333" text-anchor="start">x</text>
+  <text x="72" y="52" font-size="14" fill="#333" text-anchor="end">y</text>
+
+  <!-- 横向 ε 带 -->
+  <rect x="90" y="117.8" width="560" height="66" fill="#c0392b" opacity="0.10" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="330" y="110" font-size="13" fill="#c0392b" text-anchor="middle">横带 (A−ε, A+ε)</text>
+
+  <!-- 纵向 δ 带 -->
+  <rect x="266.6" y="46" width="176.7" height="224" fill="#1f6f8b" opacity="0.10" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="355" y="322" font-size="13" fill="#1f6f8b" text-anchor="middle">竖带 (x₀−δ, x₀+δ)</text>
+
+  <!-- 曲线 y=f(x) -->
+  <path d="M 90 226 Q 150 205 200 182 Q 260 160 355 150.8 Q 430 140 500 118 Q 580 92 640 79.3"
+        fill="none" stroke="#333" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- 点 P(x₀, A) -->
+  <circle cx="355" cy="150.8" r="5" fill="#c0392b"/>
+  <text x="366" y="140" font-size="14" fill="#c0392b" text-anchor="start">P(x₀, A)</text>
+
+  <!-- 从 P 到坐标轴的虚线 -->
+  <line x1="355" y1="150.8" x2="355" y2="270" stroke="#888" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="90" y1="150.8" x2="355" y2="150.8" stroke="#888" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- x 轴刻度与标签 -->
+  <g stroke="#333" stroke-width="1.2">
+    <line x1="266.6" y1="270" x2="266.6" y2="278"/>
+    <line x1="355" y1="270" x2="355" y2="278"/>
+    <line x1="443.3" y1="270" x2="443.3" y2="278"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <text x="266.6" y="298">x₀−δ</text>
+    <text x="355" y="298">x₀</text>
+    <text x="443.3" y="298">x₀+δ</text>
+  </g>
+
+  <!-- y 轴刻度与标签 -->
+  <g stroke="#333" stroke-width="1.2">
+    <line x1="82" y1="117.8" x2="90" y2="117.8"/>
+    <line x1="82" y1="150.8" x2="90" y2="150.8"/>
+    <line x1="82" y1="183.8" x2="90" y2="183.8"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="end">
+    <text x="78" y="121">A+ε</text>
+    <text x="78" y="154">A</text>
+    <text x="78" y="187">A−ε</text>
+  </g>
+
+  <!-- 曲线标注 -->
+  <text x="150" y="220" font-size="14" fill="#333" text-anchor="start">y = f(x)</text>
+</svg>

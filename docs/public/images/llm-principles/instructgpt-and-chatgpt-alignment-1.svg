@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 450" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">RLHF 三阶段流水线：SFT、奖励模型与 PPO</title>
+  <desc id="desc">三面板流程图。左：SFT 阶段，预训练模型用约 1.3 万条示范数据监督微调得到策略 π^SFT；中：奖励模型阶段，π^SFT 对每个提示采样 K 个回答，标注者排序后拆成两两比较，训练奖励模型 r_θ；右：PPO 阶段，策略 π^RL 采样回答，奖励模型打分并加 KL 惩罚，再更新策略。三阶段间箭头标注「初始化」「打分」。底部注明数据源为约 80% 用户提示 + 20% 标注者编写，以及两个核心公式。</desc>
+
+  <defs>
+    <marker id="arrowDown2" markerWidth="10" markerHeight="10" refX="5" refY="10" orient="auto">
+      <path d="M0,0 L10,0 L5,10 Z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrowRight2" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 Z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <!-- 纸底 -->
+  <rect width="720" height="450" fill="#faf9f5"/>
+
+  <!-- 主标题 -->
+  <text x="360" y="34" text-anchor="middle" font-size="20" fill="#333">RLHF 三阶段流水线：SFT → 奖励模型 → PPO</text>
+
+  <!-- ========== 面板 1：SFT ========== -->
+  <rect x="16" y="52" width="200" height="272" fill="#f7f1e6" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="116" y="78" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">① SFT 监督微调</text>
+
+  <rect x="28" y="92" width="176" height="40" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="116" y="110" text-anchor="middle" font-size="13" fill="#333">预训练模型 GPT-3</text>
+  <text x="116" y="126" text-anchor="middle" font-size="13" fill="#555">下一个词预测</text>
+
+  <line x1="116" y1="132" x2="116" y2="142" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown2)"/>
+
+  <rect x="28" y="146" width="176" height="54" fill="#fff" stroke="#c0392b" stroke-width="1.2" rx="4"/>
+  <text x="116" y="166" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">示范数据（约 1.3 万条）</text>
+  <text x="116" y="184" text-anchor="middle" font-size="13" fill="#555">标注者写「理想回答」</text>
+
+  <line x1="116" y1="200" x2="116" y2="210" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown2)"/>
+
+  <rect x="28" y="214" width="176" height="40" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="116" y="232" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">SFT 策略 π^SFT</text>
+  <text x="116" y="248" text-anchor="middle" font-size="13" fill="#555">学会「回答」的格式</text>
+
+  <text x="116" y="286" text-anchor="middle" font-size="13" fill="#555">最大似然（普通监督训练）</text>
+  <text x="116" y="306" text-anchor="middle" font-size="13" fill="#555">能模仿，难以超越示范者</text>
+
+  <!-- 面板间箭头：SFT → RM -->
+  <line x1="218" y1="178" x2="248" y2="178" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowRight2)"/>
+  <text x="233" y="168" text-anchor="middle" font-size="13" fill="#1f6f8b">采样 K 个回答</text>
+
+  <!-- ========== 面板 2：奖励模型 ========== -->
+  <rect x="252" y="52" width="200" height="272" fill="#e8f1f3" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="352" y="78" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">② 奖励模型 RM</text>
+
+  <rect x="264" y="92" width="176" height="40" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="352" y="110" text-anchor="middle" font-size="13" fill="#333">每个提示采样 K=4–9 个回答</text>
+  <text x="352" y="126" text-anchor="middle" font-size="13" fill="#555">来自 π^SFT</text>
+
+  <line x1="352" y1="132" x2="352" y2="142" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown2)"/>
+
+  <rect x="264" y="146" width="176" height="54" fill="#fff" stroke="#c0392b" stroke-width="1.2" rx="4"/>
+  <text x="352" y="162" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">人类排序（约 3.3 万条）</text>
+  <text x="352" y="178" text-anchor="middle" font-size="13" fill="#555">最好 → 最差</text>
+  <text x="352" y="194" text-anchor="middle" font-size="13" fill="#555">拆成两两比较对</text>
+
+  <line x1="352" y1="200" x2="352" y2="210" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown2)"/>
+
+  <rect x="264" y="214" width="176" height="40" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="352" y="232" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">奖励模型 r_θ(x, y)</text>
+  <text x="352" y="248" text-anchor="middle" font-size="13" fill="#555">输出标量分数</text>
+
+  <text x="352" y="286" text-anchor="middle" font-size="13" fill="#555">Bradley-Terry 偏好损失</text>
+  <text x="352" y="306" text-anchor="middle" font-size="13" fill="#555">只学「相对好坏」</text>
+
+  <!-- 面板间箭头：RM → PPO -->
+  <line x1="454" y1="178" x2="484" y2="178" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowRight2)"/>
+  <text x="469" y="168" text-anchor="middle" font-size="13" fill="#1f6f8b">打分</text>
+
+  <!-- ========== 面板 3：PPO ========== -->
+  <rect x="488" y="52" width="200" height="272" fill="#f7e9e6" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="588" y="78" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">③ PPO 强化学习</text>
+
+  <rect x="500" y="92" width="176" height="40" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="588" y="110" text-anchor="middle" font-size="13" fill="#333">策略 π^RL 采样回答</text>
+  <text x="588" y="126" text-anchor="middle" font-size="13" fill="#555">从 π^SFT 初始化</text>
+
+  <line x1="588" y1="132" x2="588" y2="142" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown2)"/>
+
+  <rect x="500" y="146" width="176" height="54" fill="#fff" stroke="#c0392b" stroke-width="1.2" rx="4"/>
+  <text x="588" y="162" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">RM 打分 + KL 惩罚</text>
+  <text x="588" y="178" text-anchor="middle" font-size="13" fill="#555">+ 预训练梯度混合</text>
+  <text x="588" y="194" text-anchor="middle" font-size="13" fill="#555">防「奖励黑客」</text>
+
+  <line x1="588" y1="200" x2="588" y2="210" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowDown2)"/>
+
+  <rect x="500" y="214" width="176" height="40" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="588" y="232" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">更新策略 π^RL</text>
+  <text x="588" y="248" text-anchor="middle" font-size="13" fill="#555">沿高分方向迭代</text>
+
+  <text x="588" y="286" text-anchor="middle" font-size="13" fill="#555">目标 = 奖励 − β·KL + γ·预训练</text>
+  <text x="588" y="306" text-anchor="middle" font-size="13" fill="#555">输出：对齐后的策略</text>
+
+  <!-- 底部说明 -->
+  <rect x="16" y="344" width="688" height="58" fill="#333" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="360" y="366" text-anchor="middle" font-size="14" fill="#faf9f5" font-weight="bold">数据源：约 80% 真实用户提示 + 20% 标注者编写，PII 过滤</text>
+  <text x="360" y="388" text-anchor="middle" font-size="13" fill="#e8f1f3">核心公式：Bradley-Terry 偏好损失 与 带 KL 惩罚的 PPO 目标</text>
+
+  <!-- 底部结论 -->
+  <text x="360" y="432" text-anchor="middle" font-size="14" fill="#777">对齐让模型「听话」：InstructGPT-175B 在偏好比较中以 73% 概率优于 GPT-3-175B</text>
+</svg>

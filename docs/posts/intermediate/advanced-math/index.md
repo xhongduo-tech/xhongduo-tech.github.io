@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一章 函数与极限
 
 - [x] [映射与函数](./mapping-and-function)
-- [ ] 数列的极限
-- [ ] 函数的极限
-- [ ] 无穷小与无穷大
-- [ ] 极限运算法则
+- [x] [数列的极限](./sequence-limit)
+- [x] [函数的极限](./function-limit)
+- [x] [无穷小与无穷大](./infinitesimal-and-infinity)
+- [x] [极限运算法则](./limit-laws)
 - [ ] 极限存在准则与两个重要极限
 - [ ] 无穷小的比较
 - [ ] 函数的连续性与间断点

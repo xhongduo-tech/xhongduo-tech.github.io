@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 古代科学：希腊自然哲学
 
 - [x] [科学的起源：泰勒斯与米利都学派的本原之问（Arche）](./thales-and-milesians)
-- [ ] 毕达哥拉斯学派：数是万物的本原
-- [ ] 原子论的先驱：德谟克利特与留基伯
-- [ ] 柏拉图的数学宇宙观与「拯救现象」（Saving the Appearances）
-- [ ] 亚里士多德的自然哲学：四因说与地心体系
+- [x] [毕达哥拉斯学派：数是万物的本原](./pythagoreans-and-number)
+- [x] [原子论的先驱：德谟克利特与留基伯](./atomists-democritus-leucippus)
+- [x] [柏拉图的数学宇宙观与「拯救现象」（Saving the Appearances）](./plato-mathematical-cosmology)
+- [x] [亚里士多德的自然哲学：四因说与地心体系](./aristotle-natural-philosophy)
 - [ ] 欧几里得《几何原本》与阿基米德：公理化方法的古希腊典范
 - [ ] 托勒密《天文学大成》：本轮-均轮体系
 

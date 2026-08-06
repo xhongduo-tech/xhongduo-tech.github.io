@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 726 300" font-family="sans-serif">
+  <title>软件过程框架：五项普适性活动与伞形活动</title>
+  <desc>沟通、策划、建模、构建、部署五项普适性活动依次连接，并以迭代回路闭环；伞形活动在全程贯穿于过程框架之下。</desc>
+  <rect width="726" height="300" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <text x="363" y="30" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">软件过程框架：五项普适性活动</text>
+
+  <g>
+    <rect x="40" y="70" width="110" height="54" rx="8" fill="#1f6f8b"/>
+    <text x="95" y="101" text-anchor="middle" font-size="15" fill="#fff">沟通</text>
+    <rect x="174" y="70" width="110" height="54" rx="8" fill="#1f6f8b"/>
+    <text x="229" y="101" text-anchor="middle" font-size="15" fill="#fff">策划</text>
+    <rect x="308" y="70" width="110" height="54" rx="8" fill="#1f6f8b"/>
+    <text x="363" y="101" text-anchor="middle" font-size="15" fill="#fff">建模</text>
+    <rect x="442" y="70" width="110" height="54" rx="8" fill="#1f6f8b"/>
+    <text x="497" y="101" text-anchor="middle" font-size="15" fill="#fff">构建</text>
+    <rect x="576" y="70" width="110" height="54" rx="8" fill="#1f6f8b"/>
+    <text x="631" y="101" text-anchor="middle" font-size="15" fill="#fff">部署</text>
+  </g>
+
+  <g stroke="#333" stroke-width="2">
+    <line x1="152" y1="97" x2="170" y2="97" marker-end="url(#arrow)"/>
+    <line x1="286" y1="97" x2="304" y2="97" marker-end="url(#arrow)"/>
+    <line x1="420" y1="97" x2="438" y2="97" marker-end="url(#arrow)"/>
+    <line x1="554" y1="97" x2="572" y2="97" marker-end="url(#arrow)"/>
+  </g>
+
+  <path d="M 631 124 C 631 158, 95 158, 95 124" fill="none" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="363" y="176" text-anchor="middle" font-size="14" fill="#c0392b">迭代 / 反馈</text>
+
+  <rect x="40" y="190" width="646" height="80" rx="8" fill="#faf9f5" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="363" y="216" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">伞形活动（全程贯穿）</text>
+  <text x="363" y="248" text-anchor="middle" font-size="13" fill="#333">项目跟踪 · 风险管理 · 质量保证 · 配置管理 · 度量 · 评审</text>
+</svg>

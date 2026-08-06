@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 古典密码与密码分析基础
 
 - [x] [密码学的基本概念：明文、密文、密钥与密码体制五元组](./basic-concepts)
-- [ ] 攻击模型与威胁分类：被动攻击与主动攻击
-- [ ] 科克霍夫原则（Kerckhoffs's Principle）与现代密码设计假设
-- [ ] 单表替换密码：凯撒密码、仿射密码与任意单表替换
-- [ ] 单表替换密码的统计分析：字母频率攻击
+- [x] [攻击模型与威胁分类：被动攻击与主动攻击](./attack-models-threats)
+- [x] [科克霍夫原则（Kerckhoffs's Principle）与现代密码设计假设](./kerckhoffs-principle)
+- [x] [单表替换密码：凯撒密码、仿射密码与任意单表替换](./monoalphabetic-ciphers)
+- [x] [单表替换密码的统计分析：字母频率攻击](./frequency-analysis)
 - [ ] 多表替换密码：维吉尼亚密码（Vigenère Cipher）
 - [ ] 多表替换密码的分析：卡西斯基试验与重合指数
 - [ ] 置换密码：栅栏密码与列置换密码

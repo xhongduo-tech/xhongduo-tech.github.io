@@ -14,10 +14,10 @@ pageClass: plain-doc
 ### 第一篇 数制与码制
 
 - [x] [数字信号与数字电路概述](./digital-signals-overview)
-- [ ] 常用数制：二进制、八进制、十进制、十六进制
-- [ ] 不同数制之间的相互转换
-- [ ] 二进制算术运算：原码、反码与补码
-- [ ] 常用编码：BCD 码、格雷码（Gray Code）、ASCII 码与奇偶校验码
+- [x] [常用数制：二进制、八进制、十进制、十六进制](./number-systems)
+- [x] [不同数制之间的相互转换](./radix-conversion)
+- [x] [二进制算术运算：原码、反码与补码](./signed-number-representation)
+- [x] [常用编码：BCD 码、格雷码（Gray Code）、ASCII 码与奇偶校验码](./binary-codes)
 
 ### 第二篇 逻辑代数基础
 
