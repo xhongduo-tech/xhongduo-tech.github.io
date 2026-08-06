@@ -14,17 +14,25 @@ const labels = isEn
   ? ['Disciplines', 'Topics', 'Finished', 'Progress']
   : ['学科', '选题', '已完成', '总进度']
 
+const icons = [
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>',
+]
+
 const stats = [
-  { label: labels[0], value: cats.length },
-  { label: labels[1], value: topics.toLocaleString('en-US') },
-  { label: labels[2], value: done },
-  { label: labels[3], value: pct + '%' },
+  { label: labels[0], value: cats.length, icon: icons[0] },
+  { label: labels[1], value: topics.toLocaleString('en-US'), icon: icons[1] },
+  { label: labels[2], value: done, icon: icons[2] },
+  { label: labels[3], value: pct + '%', icon: icons[3] },
 ]
 </script>
 
 <template>
   <div class="hs-band">
     <div v-for="s in stats" :key="s.label" class="hs-item">
+      <div class="hs-icon" v-html="s.icon"></div>
       <div class="hs-value">{{ s.value }}</div>
       <div class="hs-label">{{ s.label }}</div>
     </div>
@@ -44,6 +52,20 @@ const stats = [
 }
 .hs-item {
   text-align: center;
+}
+.hs-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7em;
+  height: 1.7em;
+  margin-bottom: 6px;
+  color: var(--accent);
+  opacity: 0.85;
+}
+.hs-icon :deep(svg) {
+  width: 1.5em;
+  height: 1.5em;
 }
 .hs-value {
   font-size: 2rem;

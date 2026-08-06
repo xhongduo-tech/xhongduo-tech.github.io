@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第一篇 推理基础
 
-- [ ] 自回归生成的基本原理
+- [x] [自回归生成的基本原理](./autoregressive-generation)
 - [ ] Prefill 与 Decode 两阶段的计算特征
 - [ ] 算术强度与 Roofline 模型
 - [ ] 访存瓶颈：为什么 Decode 是 Memory-Bound

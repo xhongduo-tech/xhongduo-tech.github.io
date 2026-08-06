@@ -54,6 +54,11 @@ function pct(c) {
   margin: 0.5rem 0 1rem;
   border-top: 1px solid var(--tuf-rule);
 }
+.po-tier :deep(h3) {
+  width: 100%;
+  max-width: none;
+  margin-top: 1.6rem;
+}
 .po-row {
   display: flex;
   align-items: center;

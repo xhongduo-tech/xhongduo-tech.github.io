@@ -12,7 +12,7 @@ pageClass: plain-doc
 
 
 ### 第1章 绪论
-- [ ] 基本术语
+- [x] [基本术语](./basic-terminology)
 - [ ] 假设空间
 - [ ] 归纳偏好
 

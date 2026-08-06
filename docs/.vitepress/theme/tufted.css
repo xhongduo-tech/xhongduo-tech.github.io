@@ -28,7 +28,7 @@ body {
 /* Main content fills remaining space */
 .tuf-article {
 	flex: 1 0 auto;
-	padding: 4.5rem 0 1.5rem;
+	padding: 5rem 0 1.5rem;
 }
 
 /* Footer stays at bottom */
@@ -693,6 +693,7 @@ header.site-header {
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 	margin-left: 0.35em;
+	margin-right: 1.5em;
 }
 
 footer {
@@ -838,12 +839,15 @@ TABLE OF CONTENTS
 
 .toc-sidebar {
 	position: fixed;
-	top: 15rem;
-	left: 1%;
+	top: 14rem;
+	/* body 居中、width 78% + padding-left 12.5%，左留白约 14.5vw。
+	   TOC 朴素地放在这片左留白内，不做卡片/悬浮装饰。 */
+	left: 2%;
 	z-index: 10;
 	display: none;
-	width: 10.5%;
-	max-height: calc(100vh - 11rem);
+	width: 11%;
+	max-width: 180px;
+	max-height: calc(100vh - 16rem);
 	overflow-y: auto;
 	color: var(--theme-line-numbers-text, #aaa);
 }
@@ -865,11 +869,11 @@ TABLE OF CONTENTS
 .toc-sidebar a:any-link {
 	display: block;
 	color: inherit;
-	font-size: 0.95rem;
-	line-height: 1.1;
+	font-size: 0.92rem;
+	line-height: 1.35;
 	text-decoration: none;
 	border-left: 1px solid transparent;
-	padding-left: 0.6em;
+	padding: 0.15em 0 0.15em 0.6em;
 	transition:
 		border-color 120ms ease,
 		color 120ms ease;
@@ -881,6 +885,12 @@ TABLE OF CONTENTS
 	color: var(--theme-copy-btn-hover-text, #333);
 	border-left-color: currentColor;
 	outline: none;
+}
+
+html[data-theme='dark'] .toc-sidebar a:hover,
+html[data-theme='dark'] .toc-sidebar a:focus-visible,
+html[data-theme='dark'] .toc-sidebar a.is-active {
+	color: var(--theme-heading, #eee);
 }
 
 @media (min-width: 1200px) {

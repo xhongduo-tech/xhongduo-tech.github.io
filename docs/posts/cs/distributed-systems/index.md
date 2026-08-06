@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第 1 篇 分布式系统概述
 
-- [ ] 什么是分布式系统：动机与定义
+- [x] [什么是分布式系统：动机与定义](./what-is-distributed-systems)
 - [ ] 分布式系统的核心挑战：部分失败与不确定性
 - [ ] 分布式计算的谬误（Fallacies of Distributed Computing）
 - [ ] 系统模型：同步、异步与部分异步

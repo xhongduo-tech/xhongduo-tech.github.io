@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">CPU 与 GPU 的芯片布局对比（示意）</title>
+  <desc id="desc">左右并排两块芯片的示意布局。左侧 CPU：红色「控制单元」占约 60%，青色「缓存 L1/L2/L3」占约 30%，灰色「算力单元 ALU」仅占约 10%，且算力区是少量大块（少量大核）——大量晶体管投给控制与缓存，用于降低单条指令的延迟，即延迟优先。右侧 GPU：红色「控制单元」只占约 5%，青色「缓存与共享内存」占约 15%，灰色「算力单元」占约 80%，内部是密密麻麻的细网格代表数千个小型 CUDA 核心——晶体管几乎全部投给算力单元，用于同时执行更多指令，即吞吐优先。图底部为图例（控制单元、缓存/共享内存、算力单元）与一句话总结：同样一颗芯片的硅面积预算，CPU 投给「让单条指令更快」，GPU 投给「同时执行更多指令」。图中比例为示意比例，并非精确实测。</desc>
+
+  <rect x="0" y="0" width="960" height="540" fill="#faf9f5"/>
+
+  <defs>
+    <pattern id="coregrid" width="30" height="26" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="28" height="24" rx="3" fill="#d8d2c7"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="480" y="38" font-size="22" font-weight="bold" fill="#333" text-anchor="middle">CPU 与 GPU 的芯片布局对比（示意比例，非精确实测）</text>
+
+  <!-- ============ CPU 卡片 ============ -->
+  <rect x="30" y="60" width="430" height="410" rx="14" fill="#ffffff" stroke="#333" stroke-width="1.6"/>
+  <text x="58" y="88" font-size="18" font-weight="bold" fill="#c0392b">CPU：延迟优先</text>
+  <text x="58" y="108" font-size="13" fill="#777">少量大核 · 复杂控制 · 大缓存</text>
+
+  <!-- CPU die -->
+  <rect x="60" y="120" width="370" height="332" rx="4" fill="#f3f1ec" stroke="#999" stroke-width="1"/>
+
+  <!-- CPU 控制单元 -->
+  <rect x="72" y="132" width="346" height="108" rx="4" fill="#f8e0da" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="245" y="162" font-size="15" font-weight="bold" fill="#c0392b" text-anchor="middle">控制单元（占比大，≈60%）</text>
+  <text x="245" y="188" font-size="13" fill="#333" text-anchor="middle">乱序执行 · 分支预测 · 超标量调度</text>
+  <text x="245" y="208" font-size="13" fill="#333" text-anchor="middle">把晶体管用来「让单条指令更快」</text>
+  <text x="245" y="228" font-size="13" fill="#777" text-anchor="middle">延迟优先 —— 最小化单次耗时</text>
+
+  <!-- CPU 缓存 -->
+  <rect x="72" y="250" width="346" height="118" rx="4" fill="#dceaf0" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="245" y="280" font-size="15" font-weight="bold" fill="#1f6f8b" text-anchor="middle">缓存（占比大，≈30%）</text>
+  <text x="245" y="306" font-size="13" fill="#333" text-anchor="middle">L1 / L2 / L3，可达数十 MB</text>
+  <text x="245" y="328" font-size="13" fill="#333" text-anchor="middle">命中率越高，平均访存延迟越低</text>
+  <text x="245" y="352" font-size="13" fill="#777" text-anchor="middle">（局部性原理的硬件兑现）</text>
+
+  <!-- CPU 算力单元：少量大核 -->
+  <rect x="72" y="378" width="346" height="62" rx="4" fill="#e7e2d9" stroke="#777" stroke-width="1.5"/>
+  <text x="245" y="402" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">算力单元 ALU（占比小，≈10%）</text>
+  <text x="245" y="426" font-size="13" fill="#333" text-anchor="middle">少量大核 · 高主频（个位到几十个核）</text>
+
+  <!-- ============ GPU 卡片 ============ -->
+  <rect x="500" y="60" width="430" height="410" rx="14" fill="#ffffff" stroke="#333" stroke-width="1.6"/>
+  <text x="528" y="88" font-size="18" font-weight="bold" fill="#1f6f8b">GPU：吞吐优先</text>
+  <text x="528" y="108" font-size="13" fill="#777">海量小核 · 精简控制 · 高带宽</text>
+
+  <!-- GPU die -->
+  <rect x="530" y="120" width="370" height="332" rx="4" fill="#f3f1ec" stroke="#999" stroke-width="1"/>
+
+  <!-- GPU 控制单元：精简 -->
+  <rect x="542" y="132" width="346" height="44" rx="4" fill="#f8e0da" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="715" y="152" font-size="13" fill="#333" text-anchor="middle">控制单元（精简，≈5%）</text>
+  <text x="715" y="170" font-size="13" fill="#777" text-anchor="middle">warp 级统一调度，不做激进预测</text>
+
+  <!-- GPU 缓存 + 共享内存：较小 -->
+  <rect x="542" y="186" width="346" height="52" rx="4" fill="#dceaf0" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="715" y="208" font-size="13" fill="#333" text-anchor="middle">缓存 + 共享内存（≈15%，远小于 CPU）</text>
+  <text x="715" y="228" font-size="13" fill="#777" text-anchor="middle">靠「线程级并行 + 隐藏延迟」而非大缓存</text>
+
+  <!-- GPU 算力单元：海量小核 -->
+  <rect x="542" y="248" width="346" height="192" rx="4" fill="#e7e2d9" stroke="#777" stroke-width="1.5"/>
+  <rect x="556" y="260" width="318" height="148" rx="2" fill="url(#coregrid)"/>
+  <text x="715" y="428" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">数千个 CUDA 核心 / 流处理器（≈80%）</text>
+
+  <!-- 图例 -->
+  <rect x="30" y="494" width="18" height="18" rx="3" fill="#f8e0da" stroke="#c0392b" stroke-width="1.2"/>
+  <text x="54" y="508" font-size="13" fill="#333">控制单元</text>
+  <rect x="170" y="494" width="18" height="18" rx="3" fill="#dceaf0" stroke="#1f6f8b" stroke-width="1.2"/>
+  <text x="194" y="508" font-size="13" fill="#333">缓存 / 共享内存</text>
+  <rect x="330" y="494" width="18" height="18" rx="3" fill="#e7e2d9" stroke="#777" stroke-width="1.2"/>
+  <text x="354" y="508" font-size="13" fill="#333">算力单元（ALU / CUDA 核心）</text>
+
+  <!-- 底部总结 -->
+  <text x="480" y="532" font-size="14" fill="#333" text-anchor="middle">同样一颗芯片的硅面积预算：CPU 投给「让单条指令更快」，GPU 投给「同时执行更多指令」</text>
+</svg>

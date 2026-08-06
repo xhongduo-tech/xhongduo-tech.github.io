@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">发音器官剖面与声源—滤波器模型示意</title>
+  <desc id="desc">左栏为人类发声器官矢状面剖面示意，标注肺、气管、喉、声带、会厌、咽、口腔、舌、软腭、硬腭与鼻腔，青色箭头表示气流从肺经气管、声门、咽上行至口腔与鼻腔；右栏为声源—滤波器模型框图，肺为动力源，声带调制产生激励 e[n]（浊音为周期脉冲串、清音为噪声），经声道滤波器 H(z) 整形后输出语音 s[n]，底部三张频谱小图示意激励频谱与声道响应相乘得到输出频谱。</desc>
+
+  <defs>
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 左右分栏虚线 -->
+  <line x1="412" y1="24" x2="412" y2="458" stroke="#ccc" stroke-width="1.2" stroke-dasharray="4 4"/>
+
+  <!-- 面板标题 -->
+  <text x="205" y="24" text-anchor="middle" font-size="15" fill="#1f6f8b">发音器官剖面</text>
+  <text x="648" y="24" text-anchor="middle" font-size="15" fill="#1f6f8b">声源—滤波器模型</text>
+
+  <!-- ================= 左栏：发音器官剖面 ================= -->
+
+  <!-- 头颈外轮廓（面朝右） -->
+  <path d="M 190 32
+           C 220 32 234 42 238 55
+           C 242 68 246 76 252 86
+           C 259 98 266 106 261 112
+           C 256 118 251 123 249 129
+           C 248 133 246 136 244 140
+           C 242 144 240 148 239 154
+           C 236 164 233 174 229 188
+           C 224 208 220 226 218 248
+           C 216 272 214 298 213 330
+           C 212 338 198 341 182 339
+           C 158 337 136 337 118 331
+           C 115 317 112 293 110 269
+           C 108 245 106 215 104 187
+           C 102 159 102 131 110 103
+           C 118 75 140 53 162 39
+           C 170 34 180 32 190 32 Z"
+        fill="#f5efe3" stroke="#333" stroke-width="2"/>
+
+  <!-- 硬腭 -->
+  <line x1="245" y1="130" x2="172" y2="126" stroke="#333" stroke-width="2"/>
+  <!-- 软腭（阀门） -->
+  <path d="M 172 126 C 161 130 153 139 150 149 C 158 145 164 137 166 129 Z" fill="#ede5d3" stroke="#333" stroke-width="1.4"/>
+  <!-- 口腔气道（白色） -->
+  <path d="M 172 132 L 245 134 L 244 139 L 170 139 Z" fill="#fff"/>
+  <!-- 舌 -->
+  <path d="M 150 158 C 178 148 214 148 235 155 C 240 161 238 169 230 174 C 200 183 166 183 152 173 C 148 168 148 162 150 158 Z" fill="#ede5d3" stroke="#333" stroke-width="1.4"/>
+  <!-- 咽 -->
+  <rect x="148" y="146" width="22" height="92" fill="#fff" stroke="#999" stroke-width="1.3"/>
+  <!-- 鼻腔 -->
+  <rect x="204" y="80" width="40" height="13" rx="5" fill="#fff" stroke="#999" stroke-width="1.3"/>
+  <!-- 会厌 -->
+  <path d="M 158 240 C 150 235 147 227 151 221 C 156 225 158 231 158 240 Z" fill="#ede5d3" stroke="#333" stroke-width="1.3"/>
+  <!-- 喉 -->
+  <rect x="150" y="242" width="22" height="32" fill="#fff" stroke="#333" stroke-width="1.6"/>
+  <!-- 声带（声门） -->
+  <line x1="154" y1="254" x2="161" y2="260" stroke="#333" stroke-width="2.4"/>
+  <line x1="168" y1="254" x2="161" y2="260" stroke="#333" stroke-width="2.4"/>
+  <!-- 气管 -->
+  <rect x="152" y="274" width="18" height="66" fill="#fff" stroke="#999" stroke-width="1.3"/>
+  <!-- 支气管 -->
+  <path d="M 158 340 Q 150 336 140 338" fill="none" stroke="#999" stroke-width="1.4"/>
+  <path d="M 163 340 Q 172 336 180 340" fill="none" stroke="#999" stroke-width="1.4"/>
+  <!-- 肺 -->
+  <ellipse cx="132" cy="378" rx="30" ry="46" fill="#f5efe3" stroke="#333" stroke-width="1.5"/>
+  <ellipse cx="182" cy="382" rx="28" ry="42" fill="#f5efe3" stroke="#333" stroke-width="1.5"/>
+
+  <!-- 气流箭头（青色） -->
+  <line x1="160" y1="342" x2="160" y2="278" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <line x1="160" y1="270" x2="160" y2="242" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <line x1="160" y1="238" x2="160" y2="158" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <path d="M 163 156 C 190 144 214 139 238 138" fill="none" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <path d="M 152 154 C 146 132 150 114 158 106 C 182 98 208 92 234 88" fill="none" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+
+  <!-- 左栏标注 -->
+  <line x1="263" y1="89" x2="241" y2="88" stroke="#777" stroke-width="1"/>
+  <text x="267" y="92" font-size="14" fill="#333">鼻腔</text>
+  <line x1="263" y1="115" x2="232" y2="127" stroke="#777" stroke-width="1"/>
+  <text x="267" y="119" font-size="14" fill="#333">硬腭</text>
+  <line x1="263" y1="138" x2="245" y2="139" stroke="#777" stroke-width="1"/>
+  <text x="267" y="142" font-size="14" fill="#333">口腔</text>
+  <line x1="138" y1="134" x2="152" y2="140" stroke="#777" stroke-width="1"/>
+  <text x="134" y="136" text-anchor="end" font-size="14" fill="#333">软腭</text>
+  <line x1="136" y1="194" x2="148" y2="196" stroke="#777" stroke-width="1"/>
+  <text x="132" y="196" text-anchor="end" font-size="14" fill="#333">咽</text>
+  <line x1="178" y1="224" x2="157" y2="228" stroke="#777" stroke-width="1"/>
+  <text x="182" y="226" font-size="14" fill="#333">会厌</text>
+  <line x1="134" y1="260" x2="150" y2="258" stroke="#777" stroke-width="1"/>
+  <text x="130" y="262" text-anchor="end" font-size="14" fill="#333">喉</text>
+  <line x1="176" y1="256" x2="165" y2="257" stroke="#777" stroke-width="1"/>
+  <text x="180" y="258" font-size="14" fill="#333">声带</text>
+  <line x1="176" y1="304" x2="170" y2="306" stroke="#777" stroke-width="1"/>
+  <text x="180" y="306" font-size="14" fill="#333">气管</text>
+  <text x="158" y="442" text-anchor="middle" font-size="14" fill="#333">肺</text>
+
+  <!-- ================= 右栏：声源—滤波器模型 ================= -->
+
+  <!-- 块 1：肺（动力源） -->
+  <rect x="580" y="62" width="120" height="46" rx="6" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+  <text x="640" y="80" text-anchor="middle" font-size="14" fill="#333">肺（动力源）</text>
+  <text x="640" y="97" text-anchor="middle" font-size="13" fill="#555">恒定气流</text>
+  <line x1="640" y1="108" x2="640" y2="134" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+
+  <!-- 块 2：声源 -->
+  <rect x="580" y="136" width="120" height="56" rx="6" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+  <text x="640" y="156" text-anchor="middle" font-size="14" fill="#333">声源（声门调制）</text>
+  <text x="640" y="177" text-anchor="middle" font-size="13" fill="#555">e[n]：脉冲串/噪声</text>
+  <line x1="640" y1="192" x2="640" y2="218" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+
+  <!-- 块 3：声道滤波器 -->
+  <rect x="580" y="220" width="120" height="56" rx="6" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+  <text x="640" y="240" text-anchor="middle" font-size="14" fill="#333">声道滤波器 H(z)</text>
+  <text x="640" y="261" text-anchor="middle" font-size="13" fill="#555">口腔/鼻腔共振整形</text>
+  <line x1="640" y1="276" x2="640" y2="302" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+
+  <!-- 块 4：输出 -->
+  <rect x="580" y="304" width="120" height="46" rx="6" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+  <text x="640" y="332" text-anchor="middle" font-size="14" fill="#333">输出语音 s[n]</text>
+
+  <!-- 核心公式 -->
+  <text x="640" y="368" text-anchor="middle" font-size="16" fill="#c0392b">S(z) = E(z)·H(z)</text>
+  <text x="640" y="386" text-anchor="middle" font-size="13" fill="#555">时域：s(n) = e(n) ∗ h(n)</text>
+
+  <!-- 频谱三连图 -->
+  <rect x="434" y="402" width="128" height="56" fill="none" stroke="#ccc" stroke-width="1.2"/>
+  <text x="498" y="414" text-anchor="middle" font-size="13" fill="#1f6f8b">激励频谱</text>
+  <line x1="444" y1="456" x2="444" y2="414" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="455" y1="456" x2="455" y2="418" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="466" y1="456" x2="466" y2="422" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="477" y1="456" x2="477" y2="426" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="488" y1="456" x2="488" y2="430" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="499" y1="456" x2="499" y2="434" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="510" y1="456" x2="510" y2="438" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="521" y1="456" x2="521" y2="441" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="532" y1="456" x2="532" y2="444" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="543" y1="456" x2="543" y2="447" stroke="#1f6f8b" stroke-width="2.2"/>
+  <line x1="554" y1="456" x2="554" y2="449" stroke="#1f6f8b" stroke-width="2.2"/>
+  <text x="574" y="436" text-anchor="middle" font-size="20" fill="#c0392b">×</text>
+
+  <rect x="586" y="402" width="128" height="56" fill="none" stroke="#ccc" stroke-width="1.2"/>
+  <text x="650" y="414" text-anchor="middle" font-size="13" fill="#c0392b">声道响应</text>
+  <path d="M 594 456 C 602 450 607 444 613 447 C 620 432 628 428 636 437 C 643 428 651 426 658 435 C 665 438 672 442 678 447 C 686 450 696 452 706 453" fill="none" stroke="#c0392b" stroke-width="2.2"/>
+  <text x="726" y="436" text-anchor="middle" font-size="20" fill="#c0392b">＝</text>
+
+  <rect x="738" y="402" width="128" height="56" fill="none" stroke="#ccc" stroke-width="1.2"/>
+  <text x="802" y="414" text-anchor="middle" font-size="13" fill="#c0392b">输出频谱</text>
+  <line x1="748" y1="456" x2="748" y2="447" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="759" y1="456" x2="759" y2="442" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="770" y1="456" x2="770" y2="434" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="781" y1="456" x2="781" y2="426" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="792" y1="456" x2="792" y2="418" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="803" y1="456" x2="803" y2="414" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="814" y1="456" x2="814" y2="420" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="825" y1="456" x2="825" y2="429" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="836" y1="456" x2="836" y2="438" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="847" y1="456" x2="847" y2="445" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="858" y1="456" x2="858" y2="449" stroke="#c0392b" stroke-width="2.2"/>
+</svg>

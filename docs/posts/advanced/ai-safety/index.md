@@ -14,7 +14,7 @@ AI 安全与对齐研究如何确保能力不断增强的人工智能系统可�
 ### 第一篇 对齐问题（The Alignment Problem）
 
 #### 第 1 章 对齐问题总论
-- [ ] 什么是对齐问题：意图对齐与价值学习的概念框架
+- [x] [什么是对齐问题：意图对齐与价值学习的概念框架](./what-is-alignment)
 - [ ] 工具性趋同（Instrumental Convergence）：为何足够智能的系统会争夺资源
 - [ ] 正交性论点（Orthogonality Thesis）：智能与目标无关性
 - [ ] 规范博弈（Specification Gaming）与奖励黑客（Reward Hacking）实例分析

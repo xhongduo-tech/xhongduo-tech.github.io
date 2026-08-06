@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    width: 87.5%;
+    width: 78%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 12.5%;
@@ -51,7 +51,7 @@ h3 {
 hr {
     display: block;
     height: 1px;
-    width: 55%;
+    width: var(--col-text);
     border: 0;
     border-top: 1px solid #ccc;
     margin: 1em 0;
@@ -128,12 +128,12 @@ blockquote {
 }
 
 blockquote p {
-    width: 55%;
+    width: var(--col-text);
     margin-right: 40px;
 }
 
 blockquote footer {
-    width: 55%;
+    width: var(--col-text);
     font-size: 1.1rem;
     text-align: right;
 }
@@ -143,7 +143,7 @@ blockquote footer {
 section p,
 section footer,
 section table {
-    width: 55%;
+    width: var(--col-text);
 }
 
 /* 50 + 5 == 55, to be the same width as paragraph */
@@ -165,7 +165,7 @@ figure {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    max-width: 55%;
+    max-width: var(--col-text);
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
     margin: 0 0 3em 0;
@@ -208,8 +208,8 @@ figure.fullwidth img {
 .marginnote {
     float: right;
     clear: right;
-    margin-right: -60%;
-    width: 50%;
+    margin-right: var(--col-note-margin);
+    width: var(--col-note);
     margin-top: 0.3rem;
     margin-bottom: 0;
     font-size: 1.1rem;

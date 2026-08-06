@@ -2,6 +2,29 @@
    站点附加样式（Tufted 复刻的补充层）
    ============================================================ */
 
+:root {
+  /* 正文栏宽度（占 body 内容盒的百分比）—— 与原版 Tufte 一致 */
+  --col-text: 55%;
+  /* 边注栏宽度与右侧负边距 —— 与原版 Tufte 一致 */
+  --col-note: 50%;
+  --col-note-margin: -60%;
+
+  /* 统一强调色：克制的赭红，呼应 Tufte 边注编号色，用于图标/标签/激活态 */
+  --accent: #a0463a;
+  --accent-soft: rgba(160, 70, 58, 0.1);
+  --accent-ink: #8a3a2f;
+}
+
+/* ---------- plain-doc 页面（博文总览/项目/领域详情）：内容块整体居中 ----------
+   body(content-box) 由 width + padding-left 构成，正文从左 padding 之后开始、
+   右侧顶到边框盒，天然非对称——这是文章页为边注预留右侧空间的设计。
+   plain-doc 页没有边注，给 article 加 margin-right:12.5%（= padding-left 占
+   内容盒的比例），由于 body 左右外边距对称，内容块即在视口内左右留白一致、整体居中。
+   窄屏由下方媒体查询清除（tufte-base 已给 body 对称 padding）。 */
+.plain-doc .tuf-article {
+  margin-right: 12.5%;
+}
+
 /* #app 与布局根节点不干扰 body 的 flex 布局 */
 #app,
 #app > div {
@@ -59,21 +82,31 @@ ul div[class*='language-'] {
   display: block !important;
   width: 55%;
   text-align: center !important;
-  margin: 1.8em 0 !important;
-  padding: 0.3em 0;
-  font-size: 1.7em;
-  line-height: 1.5;
+  margin: 1.6em 0 !important;
+  padding: 0.2em 0;
+  font-size: 1.15em;
+  line-height: 1.4;
   overflow-x: auto;
   overflow-y: hidden;
 }
 .tuf-article mjx-container[display='true'] > svg {
   display: inline-block;
 }
-.tuf-article p mjx-container {
-  display: inline-block;
-  vertical-align: baseline;
+/* 行内公式：覆盖 p/li/td 等所有行内容器。
+   必须用 inline-block：mjx-container 内含固定尺寸的 SVG，inline 会令容器
+   尺寸丢失导致公式溢出错位；vertical-align 交由 MathJax 内联的精确值，不覆盖。
+   MathJax 行内公式默认 script size 偏小，与中文正文不匹配。这里不用 font-size
+   放大（会连 SVG 的 ex 布局宽度一起放大、在公式与后文间挤出空隙），
+   而用 transform:scale 等比放大——布局宽度不变，仅视觉上放大，不产生空隙。 */
+.tuf-article mjx-container:not([display='true']) {
+  display: inline-block !important;
   margin: 0 0.1em;
-  font-size: 1.08em;
+  font-size: 1em;
+}
+.tuf-article mjx-container:not([display='true']) > svg {
+  display: inline-block;
+  transform: scale(1.14);
+  transform-origin: 50% 60%;
 }
 @media (max-width: 760px) {
   .tuf-article mjx-container[display='true'] {
@@ -92,9 +125,9 @@ ul div[class*='language-'] {
   padding-left: 6px;
 }
 
-/* ---------- 非文章页（分类规划/总览/关于/项目/首页）：整栏宽 ----------
+/* ---------- 非文章页（分类规划/总览/关于/项目/首页）：内容填满居中块 ----------
    用后代选择器：VitePress 的 <Content/> 会在 section 与内容间插入无 class 的
-   包裹 div（用于锚点定位），直接子选择器 section > x 会失配，见上方同类注释 */
+   包裹 div（用于锚点定位），直接子选择器 section > x 会失配。 */
 .plain-doc .tuf-article section p,
 .plain-doc .tuf-article section ul,
 .plain-doc .tuf-article section ol,
@@ -108,18 +141,104 @@ ul div[class*='language-'] {
 .plain-doc .tuf-article section div[class*='language-'],
 .plain-doc .tuf-article section mjx-container[display='true'] {
   width: 100%;
+  max-width: none;
 }
 
 .plain-doc .tuf-article section blockquote {
   width: 100% !important;
+  max-width: none;
 }
 
-/* ---------- 组件宽度（进度面板/总览/项目/统计带） ---------- */
-.tuf-article section .pg,
-.tuf-article section .po-tier,
-.tuf-article section .pj-list,
-.tuf-article section .hs-band {
+/* 列表：覆盖 tufte-base 的窄宽度 + padding */
+.plain-doc .tuf-article section ul,
+.plain-doc .tuf-article section ol,
+.plain-doc .tuf-article section dl {
+  -webkit-padding-start: 1.6em;
+  padding-inline-start: 1.6em;
+}
+
+/* 表格/图片：重置 tufte 为「在正文栏居中」而设的 left/translate */
+.plain-doc .tuf-article section table,
+.plain-doc .tuf-article section img,
+.plain-doc .tuf-article section svg {
+  max-width: 100%;
+  left: auto;
+  transform: none;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* ---------- 组件宽度（进度面板/总览/项目/统计带） ----------
+   仅在 plain-doc 页填满居中内容块；首页等普通页面保留组件自身的宽度克制 */
+.plain-doc .tuf-article section .pg,
+.plain-doc .tuf-article section .po-tier,
+.plain-doc .tuf-article section .pj-list,
+.plain-doc .tuf-article section .hs-band {
   width: 100%;
+  max-width: none;
+}
+
+/* ---------- 首页四级介绍（图标 + 段落） ---------- */
+.tier {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1.1em 0;
+  width: var(--col-text);
+}
+.tier-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1em;
+  height: 2.1em;
+  margin-top: 0.1em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 8px;
+}
+.tier-icon svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+.tier p {
+  width: auto !important;
+  margin: 0;
+  flex: 1;
+}
+
+/* ---------- 正文：链接与标题的克制强调色 ---------- */
+.tuf-article section a:any-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.tuf-article section a:any-link:hover {
+  color: var(--accent-ink);
+  border-bottom-color: var(--accent-ink);
+}
+/* 边注内的链接保持克制，不加下划边框 */
+.tuf-article .marginnote a:any-link,
+.tuf-article .sidenote a:any-link {
+  border-bottom: none;
+}
+/* 博文二级标题：左侧细色条点缀（plain-doc 列表页不适用） */
+.tuf-article:not(.plain-doc) section h2 {
+  position: relative;
+  padding-left: 0.6em;
+}
+.tuf-article:not(.plain-doc) section h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  bottom: 0.12em;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0.75;
 }
 
 /* ---------- 页脚 ---------- */
@@ -178,9 +297,8 @@ html[data-theme='dark'] .nav-icon-btn {
 }
 
 /* ============================================================
-   布局：完全采用 Tufted-Blog 参考站点的结构选型——
-   body 87.5% 宽 + 12.5% 左侧内边距（tufte-base 提供），
-   正文栏占 55%，右侧 45% 留给边注（marginnote）。
+   布局：body 87.5% 宽 + 左右各 6% 内边距（tufte-base 提供），
+   正文栏占 57%，右侧留给边注（marginnote）。
    此处只保留导航的对齐与少量覆盖。
    ============================================================ */
 
@@ -205,9 +323,28 @@ header nav.site-nav {
 }
 .site-nav a:any-link {
   margin-top: 0; /* 覆盖 tufted 的 margin-top:1em */
+  position: relative;
+  transition: color 120ms ease;
+}
+.site-nav a:any-link:hover {
+  color: var(--accent);
+}
+.site-nav a.active {
+  color: var(--accent);
+}
+.site-nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25em;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
 }
 .nav-tools {
-  margin: 0 0 0 auto; /* 覆盖此前的 margin-top/right */
+  margin: 0 0 0 auto;
+  padding-right: 0.5em;
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -303,23 +440,20 @@ body {
   overflow-x: clip;
 }
 
-/* 左侧 TOC：随 tufted.css 的固定定位（left: 1%、≥1200px 显示），
-   与参考站点行为一致，无需额外覆盖 */
+/* 左侧 TOC：固定定位见 tufted.css，落在左留白内 */
 
-/* plain-doc（整栏宽）页面：表格与图片居中于整栏，而不是 55% 正文栏 */
-.plain-doc .tuf-article section table,
-.plain-doc .tuf-article section img,
-.plain-doc .tuf-article section svg {
-  left: 50%;
-}
-
-/* 窄屏（<760px）：组件与正文同宽，避免留白挤压 */
+/* 窄屏（<760px）：tufte-base 已给 body 左右对称 padding，
+   去掉 plain-doc 的补偿 margin，组件全宽 */
 @media (max-width: 760px) {
+  .plain-doc .tuf-article {
+    margin-right: 0;
+  }
   .tuf-article section .pg,
   .tuf-article section .po-tier,
   .tuf-article section .pj-list,
   .tuf-article section .hs-band {
     width: 100%;
+    max-width: none;
   }
   .po-row {
     gap: 8px;

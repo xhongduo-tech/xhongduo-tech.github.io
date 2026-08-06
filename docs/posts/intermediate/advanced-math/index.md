@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第一章 函数与极限
 
-- [ ] 映射与函数
+- [x] [映射与函数](./mapping-and-function)
 - [ ] 数列的极限
 - [ ] 函数的极限
 - [ ] 无穷小与无穷大

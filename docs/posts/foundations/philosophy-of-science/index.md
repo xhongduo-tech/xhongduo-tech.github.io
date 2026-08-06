@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 古代科学：希腊自然哲学
 
-- [ ] 科学的起源：泰勒斯与米利都学派的本原之问（Arche）
+- [x] [科学的起源：泰勒斯与米利都学派的本原之问（Arche）](./thales-and-milesians)
 - [ ] 毕达哥拉斯学派：数是万物的本原
 - [ ] 原子论的先驱：德谟克利特与留基伯
 - [ ] 柏拉图的数学宇宙观与「拯救现象」（Saving the Appearances）

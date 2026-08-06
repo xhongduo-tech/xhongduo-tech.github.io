@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 580" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">物质的树状分类图</title>
+  <desc id="desc">物质的树状分类示意图。顶端的「物质」按组成分为「混合物」与「纯净物」两支：混合物以空气、合金、食盐水为例，用红色标注；纯净物按元素组成再分为「单质」与「化合物」，用青色标注。单质分金属单质与非金属单质，分别举例 Fe、Cu、Na 与 O₂、S、He；化合物按组成与性质分为氧化物、酸、碱、盐，分别举例 CaO、CO₂ 与 H₂SO₄、HCl 与 NaOH、Ca(OH)₂ 与 NaCl、Na₂CO₃。</desc>
+
+  <rect width="1020" height="580" fill="#faf9f5"/>
+
+  <g stroke-width="1.5" stroke="#999">
+    <!-- 物质 → 混合物 / 纯净物 -->
+    <line x1="510" y1="83" x2="200" y2="132"/>
+    <line x1="510" y1="83" x2="710" y2="132"/>
+    <!-- 混合物 → 三种实例 -->
+    <line x1="200" y1="178" x2="70" y2="233"/>
+    <line x1="200" y1="178" x2="200" y2="233"/>
+    <line x1="200" y1="178" x2="330" y2="233"/>
+    <!-- 纯净物 → 单质 / 化合物 -->
+    <line x1="710" y1="178" x2="530" y2="232"/>
+    <line x1="710" y1="178" x2="850" y2="232"/>
+    <!-- 单质 → 金属单质 / 非金属单质 -->
+    <line x1="530" y1="278" x2="410" y2="348"/>
+    <line x1="530" y1="278" x2="610" y2="348"/>
+    <!-- 化合物 → 氧化物 / 酸 / 碱 / 盐 -->
+    <line x1="850" y1="278" x2="730" y2="348"/>
+    <line x1="850" y1="278" x2="810" y2="348"/>
+    <line x1="850" y1="278" x2="890" y2="348"/>
+    <line x1="850" y1="278" x2="970" y2="348"/>
+  </g>
+
+  <!-- 顶层：物质 -->
+  <rect x="445" y="37" width="130" height="46" rx="8" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <text x="510" y="68" font-size="19" fill="#333" text-anchor="middle" font-weight="bold">物质</text>
+
+  <!-- 第一级：混合物（红）与纯净物（青） -->
+  <rect x="135" y="132" width="130" height="46" rx="8" fill="#fdf0ee" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="200" y="163" font-size="17" fill="#333" text-anchor="middle">混合物</text>
+
+  <rect x="645" y="132" width="130" height="46" rx="8" fill="#eaf4f5" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="710" y="163" font-size="17" fill="#333" text-anchor="middle">纯净物</text>
+
+  <!-- 混合物的实例 -->
+  <g stroke="#c0392b" stroke-width="1.8" fill="#fff">
+    <rect x="20" y="233" width="100" height="44" rx="8"/>
+    <rect x="150" y="233" width="100" height="44" rx="8"/>
+    <rect x="280" y="233" width="100" height="44" rx="8"/>
+  </g>
+  <g font-size="15" fill="#333" text-anchor="middle">
+    <text x="70" y="262">空气</text>
+    <text x="200" y="262">合金</text>
+    <text x="330" y="262">食盐水</text>
+  </g>
+
+  <!-- 第二级：单质与化合物 -->
+  <rect x="465" y="232" width="130" height="46" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="530" y="263" font-size="17" fill="#333" text-anchor="middle">单质</text>
+
+  <rect x="785" y="232" width="130" height="46" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="850" y="263" font-size="17" fill="#333" text-anchor="middle">化合物</text>
+
+  <!-- 单质的细分 -->
+  <g stroke="#1f6f8b" stroke-width="1.8" fill="#fff">
+    <rect x="350" y="348" width="120" height="54" rx="8"/>
+    <rect x="550" y="348" width="120" height="54" rx="8"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="410" y="370" font-size="14" fill="#333">金属单质</text>
+    <text x="410" y="390" font-size="13" fill="#555">Fe、Cu、Na</text>
+    <text x="610" y="370" font-size="14" fill="#333">非金属单质</text>
+    <text x="610" y="390" font-size="13" fill="#555">O₂、S、He</text>
+  </g>
+
+  <!-- 化合物的细分 -->
+  <g stroke="#1f6f8b" stroke-width="1.8" fill="#fff">
+    <rect x="682.5" y="348" width="95" height="54" rx="8"/>
+    <rect x="762.5" y="348" width="95" height="54" rx="8"/>
+    <rect x="842.5" y="348" width="95" height="54" rx="8"/>
+    <rect x="922.5" y="348" width="95" height="54" rx="8"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="730" y="370" font-size="14" fill="#333">氧化物</text>
+    <text x="730" y="390" font-size="13" fill="#555">CaO、CO₂</text>
+    <text x="810" y="370" font-size="14" fill="#333">酸</text>
+    <text x="810" y="390" font-size="13" fill="#555">H₂SO₄、HCl</text>
+    <text x="890" y="370" font-size="14" fill="#333">碱</text>
+    <text x="890" y="390" font-size="13" fill="#555">NaOH、Ca(OH)₂</text>
+    <text x="970" y="370" font-size="14" fill="#333">盐</text>
+    <text x="970" y="390" font-size="13" fill="#555">NaCl、Na₂CO₃</text>
+  </g>
+
+  <!-- 图例 -->
+  <g font-size="13" fill="#333">
+    <rect x="150" y="505" width="14" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <text x="172" y="517">混合物分支</text>
+    <rect x="330" y="505" width="14" height="14" rx="2" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="352" y="517">纯净物分支</text>
+  </g>
+  <text x="510" y="558" font-size="13" fill="#666" text-anchor="middle">注：判断纯净物与混合物的标准是「含几种物质」，而不是外观是否干净。</text>
+</svg>

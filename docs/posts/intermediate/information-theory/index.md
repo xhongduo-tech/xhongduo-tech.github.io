@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第一篇 熵、相对熵与互信息
 
-- [ ] 自信息（Self-information）与熵的定义
+- [x] [自信息（Self-information）与熵的定义](./self-information-and-entropy)
 - [ ] 熵的性质：非负性、对称性与可加性
 - [ ] 联合熵（Joint Entropy）与条件熵（Conditional Entropy）
 - [ ] 熵的链式法则（Chain Rule for Entropy）

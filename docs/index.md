@@ -31,13 +31,25 @@
 本站的内容按四级递进组织。这不是博客的目录，是一份长期学习计划——
 每个学科对标经典教材，逐章逐节写作。<span class="marginnote">全部 60 个学科的知识地图与实时写作进度见 [博文总览](/posts/)。</span>
 
-**第一级 · [基础科学](/posts/foundations/math/)**<span class="marginnote">第一级共 11 个学科，对标高中到大学低年级的教材体系，全部清单见 [知识地图](/posts/)。</span> —— 数学、物理、化学、生物，及天文、地学、认知、心理、逻辑、科哲、经济学：一切的地基。
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a14 14 0 0 1 0 18M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/></svg></span>
+  <p><strong>第一级 · <a href="/posts/foundations/math/">基础科学</a></strong><span class="marginnote">第一级共 11 个学科，对标高中到大学低年级的教材体系，全部清单见 <a href="/posts/">知识地图</a>。</span> —— 数学、物理、化学、生物，及天文、地学、认知、心理、逻辑、科哲、经济学：一切的地基。</p>
+</div>
 
-**第二级 · [进阶数理](/posts/intermediate/advanced-math/)**<span class="marginnote">第二级共 17 个学科：从微积分、概率、线代一路到实变、泛函、拓扑与微分几何。</span> —— 高等数学、概率统计、线性代数、离散数学，直到实变、泛函、拓扑与微分几何。
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-6"/></svg></span>
+  <p><strong>第二级 · <a href="/posts/intermediate/advanced-math/">进阶数理</a></strong><span class="marginnote">第二级共 17 个学科：从微积分、概率、线代一路到实变、泛函、拓扑与微分几何。</span> —— 高等数学、概率统计、线性代数、离散数学，直到实变、泛函、拓扑与微分几何。</p>
+</div>
 
-**第三级 · [计算机基础](/posts/cs/data-structures/)**<span class="marginnote">第三级共 14 门 CS 核心课，对标考研 408 科目与 CMU 经典课程体系。</span> —— 数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统：CS 核心课全集。
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span>
+  <p><strong>第三级 · <a href="/posts/cs/data-structures/">计算机基础</a></strong><span class="marginnote">第三级共 14 门 CS 核心课，对标考研 408 科目与 CMU 经典课程体系。</span> —— 数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统：CS 核心课全集。</p>
+</div>
 
-**第四级 · [高阶专题](/posts/advanced/llm-principles/)**<span class="marginnote">第四级共 18 个学科：从机器学习、深度学习到 LLM 原理、微调、部署与 AI 基础设施，直抵前沿。</span> —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，直至 AI 安全与量子计算。
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-3 6.6A4 4 0 0 0 7 21h10a4 4 0 0 0 2-7.4A4 4 0 0 0 16 7V6a4 4 0 0 0-4-4z"/><path d="M12 8v5M12 16h.01"/></svg></span>
+  <p><strong>第四级 · <a href="/posts/advanced/llm-principles/">高阶专题</a></strong><span class="marginnote">第四级共 18 个学科：从机器学习、深度学习到 LLM 原理、微调、部署与 AI 基础设施，直抵前沿。</span> —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，直至 AI 安全与量子计算。</p>
+</div>
 
 <HomeStats />
 

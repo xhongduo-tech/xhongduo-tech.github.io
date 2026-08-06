@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">监督学习的一般流程</title>
+  <desc id="desc">上半部分为训练阶段：训练集 D 中每个样本都带标记 (xᵢ,yᵢ)，学习算法从中学得模型 h；下半部分为预测阶段：未标记的新样本 x 输入模型，模型输出预测标记 ŷ = h(x)。模型对训练时未见过的新样本的适应能力称为泛化。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 阶段标题 -->
+  <g font-size="14" fill="#1f6f8b" text-anchor="middle">
+    <text x="360" y="42">① 训练阶段</text>
+    <text x="360" y="205">② 预测阶段</text>
+  </g>
+
+  <!-- 训练集 -->
+  <g>
+    <rect x="30" y="55" width="190" height="90" rx="10" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+    <text x="125" y="86" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">训练集 D</text>
+    <text x="125" y="112" font-size="13" fill="#555" text-anchor="middle">带标记的样本</text>
+    <text x="125" y="132" font-size="13" fill="#555" text-anchor="middle">(x₁,y₁),…,(xₘ,yₘ)</text>
+  </g>
+
+  <!-- 箭头：训练集 -> 学习算法 -->
+  <line x1="220" y1="100" x2="280" y2="100" stroke="#777" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="250" y="90" font-size="13" fill="#555" text-anchor="middle">训练</text>
+
+  <!-- 学习算法 -->
+  <g>
+    <rect x="280" y="72" width="140" height="56" rx="10" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+    <text x="350" y="105" font-size="16" fill="#333" text-anchor="middle">学习算法</text>
+  </g>
+
+  <!-- 箭头：学习算法 -> 模型 -->
+  <line x1="420" y1="100" x2="480" y2="100" stroke="#777" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- 模型 -->
+  <g>
+    <rect x="480" y="55" width="210" height="90" rx="10" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="585" y="86" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">模型 h</text>
+    <text x="585" y="112" font-size="13" fill="#555" text-anchor="middle">从数据学得的规律</text>
+    <text x="585" y="132" font-size="13" fill="#555" text-anchor="middle">h : 𝒳 → 𝒴</text>
+  </g>
+
+  <!-- 箭头：新样本 -> 模型 -->
+  <path d="M 125 210 L 125 178 L 510 178 L 510 145" fill="none" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+  <text x="300" y="170" font-size="13" fill="#c0392b" text-anchor="middle">预测（泛化）</text>
+
+  <!-- 新样本 -->
+  <g>
+    <rect x="30" y="210" width="190" height="60" rx="10" fill="#faf9f5" stroke="#333" stroke-width="1.6"/>
+    <text x="125" y="234" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">新样本 x</text>
+    <text x="125" y="256" font-size="13" fill="#555" text-anchor="middle">（测试样本，未标记）</text>
+  </g>
+
+  <!-- 箭头：模型 -> 预测标记 -->
+  <line x1="585" y1="145" x2="585" y2="240" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+  <text x="598" y="192" font-size="13" fill="#555" text-anchor="start">输出预测</text>
+
+  <!-- 预测标记 -->
+  <g>
+    <rect x="480" y="240" width="210" height="56" rx="10" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="585" y="268" font-size="16" fill="#333" text-anchor="middle">预测标记 ŷ = h(x)</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="360" y="312" font-size="13" fill="#555" text-anchor="middle">模型对未见过的新样本的适应能力，就是泛化（generalization）</text>
+</svg>

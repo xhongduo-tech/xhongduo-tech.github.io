@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第一篇 GPU 体系结构与 CUDA 编程
 
-- [ ] GPU 与 CPU 的设计哲学差异：吞吐优先 vs 延迟优先
+- [x] [GPU 与 CPU 的设计哲学差异：吞吐优先 vs 延迟优先](./gpu-vs-cpu)
 - [ ] 流式多处理器（SM）的内部结构：CUDA Core、Tensor Core、寄存器与调度器
 - [ ] SIMT 执行模型与 warp（线程束）的工作原理
 - [ ] 线程层次：Grid、Block、Thread 的组织与索引

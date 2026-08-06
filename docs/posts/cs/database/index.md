@@ -15,7 +15,7 @@ pageClass: plain-doc
 
 #### 第 1 章 数据库系统引论
 
-- [ ] 数据库系统的目标：从文件系统到 DBMS
+- [x] [数据库系统的目标：从文件系统到 DBMS](./from-filesystem-to-dbms)
 - [ ] 数据视图：数据抽象、实例与模式、数据模型
 - [ ] 数据库语言：DDL 与 DML
 - [ ] 关系数据库：表、DML 与数据库设计

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">自然语言分析的四个层次：词法、句法、语义与语用</title>
+  <desc id="desc">金字塔示意图：对一段自然语言文本的理解由底向上分为四个层次——词法层负责切词、词性标注与命名实体识别等词汇级加工，句法层分析词与词之间的结构关系，语义层解读句子表达的意义，语用层结合语境与意图理解话语的真实功能。自底向上，处理对象从离散的符号走向抽象的意义，对上下文与常识的依赖逐渐加深。</desc>
+
+  <!-- 纸底 -->
+  <rect width="720" height="540" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="360" y="40" font-size="20" fill="#333" text-anchor="middle">自然语言分析的四个层次</text>
+  <text x="360" y="62" font-size="13" fill="#777" text-anchor="middle">词法 → 句法 → 语义 → 语用</text>
+
+  <!-- 金字塔外轮廓（浅色底衬） -->
+  <polygon points="60,460 660,460 360,110" fill="none" stroke="#333" stroke-width="1.5" opacity="0.2"/>
+
+  <!-- 词法层（底层，最宽） -->
+  <polygon points="60,460 660,460 591,380 129,380" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="360" y="408" font-size="17" fill="#333" text-anchor="middle" font-weight="bold">词法层</text>
+  <text x="360" y="432" font-size="13" fill="#333" text-anchor="middle">分词 · 词性标注 · 命名实体识别</text>
+
+  <!-- 句法层 -->
+  <polygon points="129,380 591,380 514,290 206,290" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="360" y="322" font-size="17" fill="#1f6f8b" text-anchor="middle" font-weight="bold">句法层</text>
+  <text x="360" y="346" font-size="13" fill="#333" text-anchor="middle">成分 / 依存句法分析</text>
+
+  <!-- 语义层 -->
+  <polygon points="206,290 514,290 446,210 274,210" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="360" y="238" font-size="17" fill="#c0392b" text-anchor="middle" font-weight="bold">语义层</text>
+  <text x="360" y="262" font-size="13" fill="#333" text-anchor="middle">词义消歧 · 语义角色 · 文本蕴含</text>
+
+  <!-- 语用层（顶层，最窄） -->
+  <polygon points="334,140 386,140 446,210 274,210" fill="#fdf1ef" stroke="#c0392b" stroke-width="2"/>
+  <text x="360" y="168" font-size="17" fill="#c0392b" text-anchor="middle" font-weight="bold">语用层</text>
+  <text x="360" y="194" font-size="13" fill="#333" text-anchor="middle">意图 · 语境 · 对话</text>
+
+  <!-- 左侧纵向标注 -->
+  <text x="22" y="300" font-size="14" fill="#777" text-anchor="middle" transform="rotate(-90 22 300)">表层符号 → 深层意义</text>
+
+  <!-- 右侧纵向标注 -->
+  <text x="698" y="300" font-size="14" fill="#777" text-anchor="middle" transform="rotate(-90 698 300)">上下文与常识依赖递增</text>
+
+  <!-- 底部说明 -->
+  <text x="360" y="506" font-size="13" fill="#777" text-anchor="middle">四层自底向上：先加工离散符号，再逐步还原意义，最上层才回到真实语境</text>
+  <text x="360" y="528" font-size="13" fill="#777" text-anchor="middle">Morphology · Syntax · Semantics · Pragmatics</text>
+</svg>

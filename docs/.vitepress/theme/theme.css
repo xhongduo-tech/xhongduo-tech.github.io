@@ -72,6 +72,11 @@ html[data-theme='dark'] {
   --tuf-rule: #383838;
   --tuf-soft: #2d2d2d;
   --tuf-done: #5fda9d;
+
+  /* 暗色下的强调色：略提亮，保持克制 */
+  --accent: #d98a7d;
+  --accent-soft: rgba(217, 138, 125, 0.14);
+  --accent-ink: #e6a499;
 }
 
 html {

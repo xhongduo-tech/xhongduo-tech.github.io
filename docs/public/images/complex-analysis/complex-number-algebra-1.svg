@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">复数 z=a+bi 在复平面上的表示：模 r、辐角 θ 与共轭</title>
+  <desc id="desc">复平面示意图。水平实轴与竖直虚轴交于原点 O。点 z(a,b) 在第一象限，从原点指向 z 的箭头线段长为模 r，与实轴正方向的夹角为辐角 θ（红色弧线标出）。a、b 分别为 z 在实轴与虚轴上的垂直投影。z 关于实轴的镜像点 z̄=a−bi 用青色虚线相连，表示共轭复数。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 实轴 -->
+  <line x1="60" y1="260" x2="672" y2="260" stroke="#333" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <!-- 虚轴 -->
+  <line x1="330" y1="452" x2="330" y2="40" stroke="#333" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- 投影虚线：z 到实轴 -->
+  <line x1="520" y1="140" x2="520" y2="260" stroke="#999" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <!-- 投影虚线：z 到虚轴 -->
+  <line x1="330" y1="140" x2="520" y2="140" stroke="#999" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <!-- 共轭连线（青色虚线） -->
+  <line x1="520" y1="140" x2="520" y2="380" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <!-- z̄ 到实轴的投影 -->
+  <line x1="520" y1="380" x2="520" y2="260" stroke="#1f6f8b" stroke-width="1.1" stroke-dasharray="4 4"/>
+
+  <!-- 向量 z -->
+  <line x1="330" y1="260" x2="520" y2="140" stroke="#333" stroke-width="2.2" marker-end="url(#arrow)"/>
+
+  <!-- 辐角弧 θ（红色） -->
+  <path d="M 376 260 A 46 46 0 0 0 368.9 235.4" fill="none" stroke="#c0392b" stroke-width="1.8"/>
+
+  <!-- 直角标记 -->
+  <path d="M 512 260 L 512 252 L 520 252" fill="none" stroke="#999" stroke-width="1.1"/>
+  <path d="M 330 132 L 338 132 L 338 140" fill="none" stroke="#999" stroke-width="1.1"/>
+
+  <!-- 关键点 -->
+  <g fill="#333">
+    <circle cx="330" cy="260" r="3.5"/>
+    <circle cx="520" cy="260" r="3"/>
+    <circle cx="330" cy="140" r="3"/>
+  </g>
+  <circle cx="520" cy="140" r="4.5" fill="#333"/>
+  <circle cx="520" cy="380" r="4" fill="#1f6f8b"/>
+
+  <!-- 文字标注 -->
+  <g font-size="15" fill="#333">
+    <text x="310" y="286">原点 O</text>
+    <text x="632" y="248">实轴</text>
+    <text x="356" y="38">虚轴</text>
+    <text x="534" y="126">z = a + bi</text>
+    <text x="398" y="190">r</text>
+    <text x="520" y="288">a</text>
+    <text x="306" y="132">b</text>
+  </g>
+  <text x="348" y="242" font-size="17" fill="#c0392b">θ</text>
+  <text x="534" y="372" font-size="15" fill="#1f6f8b">z̄ = a − bi</text>
+</svg>

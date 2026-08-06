@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">数据库系统三层抽象与数据独立性</title>
+  <desc id="desc">三层堆叠结构：最上层为视图层，含用户 A 与用户 B 两个视图；中间为概念层（逻辑层），含关系表 student 与 course；最下层为物理层，含磁盘页、B+ 树索引与顺序记录。层与层之间的双箭头表示数据抽象：上层隐藏下层细节。视图层与概念层之间标注「逻辑数据独立性」，概念层与物理层之间标注「物理数据独立性」。</desc>
+
+  <defs>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 纸底 -->
+  <rect width="720" height="470" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="360" y="34" text-anchor="middle" font-size="20" fill="#333">数据库系统：三层抽象与数据独立性</text>
+
+  <!-- 视图层（顶层） -->
+  <rect x="40" y="58" width="480" height="96" fill="#f7f1e6" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="56" y="80" font-size="15" fill="#333" font-weight="bold">视图层（View Level）</text>
+  <rect x="56" y="94" width="210" height="46" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="161" y="114" text-anchor="middle" font-size="14" fill="#333">用户 A 的视图</text>
+  <text x="161" y="132" text-anchor="middle" font-size="13" fill="#555">姓名 / 班级 / 学号</text>
+  <rect x="280" y="94" width="220" height="46" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="390" y="114" text-anchor="middle" font-size="14" fill="#333">用户 B 的视图</text>
+  <text x="390" y="132" text-anchor="middle" font-size="13" fill="#555">各系选课统计（只读）</text>
+
+  <!-- 概念层（中间层） -->
+  <rect x="40" y="206" width="480" height="96" fill="#e8f1f3" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="56" y="228" font-size="15" fill="#333" font-weight="bold">概念层（逻辑层 · Conceptual Level）</text>
+  <rect x="56" y="242" width="210" height="46" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="161" y="262" text-anchor="middle" font-size="13" fill="#333">关系表 student</text>
+  <text x="161" y="280" text-anchor="middle" font-size="13" fill="#555">(学号, 姓名, 系别)</text>
+  <rect x="280" y="242" width="220" height="46" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="390" y="262" text-anchor="middle" font-size="13" fill="#333">关系表 course</text>
+  <text x="390" y="280" text-anchor="middle" font-size="13" fill="#555">(课程号, 名称, 学分)</text>
+
+  <!-- 物理层（底层） -->
+  <rect x="40" y="354" width="480" height="76" fill="#f7e9e6" stroke="#333" stroke-width="1.5" rx="6"/>
+  <text x="56" y="376" font-size="15" fill="#333" font-weight="bold">物理层（Physical Level）</text>
+  <rect x="56" y="390" width="140" height="30" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="126" y="409" text-anchor="middle" font-size="13" fill="#333">磁盘页 / 块</text>
+  <rect x="210" y="390" width="140" height="30" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="280" y="409" text-anchor="middle" font-size="13" fill="#333">B+ 树索引</text>
+  <rect x="364" y="390" width="140" height="30" fill="#fff" stroke="#1f6f8b" stroke-width="1.2" rx="4"/>
+  <text x="434" y="409" text-anchor="middle" font-size="13" fill="#333">顺序记录</text>
+
+  <!-- 视图层与概念层之间的双箭头：逻辑数据独立性 -->
+  <line x1="548" y1="168" x2="548" y2="194" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrowTeal)" marker-start="url(#arrowTeal)"/>
+  <text x="558" y="185" font-size="14" fill="#1f6f8b">逻辑数据独立性</text>
+
+  <!-- 概念层与物理层之间的双箭头：物理数据独立性 -->
+  <line x1="548" y1="312" x2="548" y2="338" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowRed)" marker-start="url(#arrowRed)"/>
+  <text x="558" y="329" font-size="14" fill="#c0392b">物理数据独立性</text>
+
+  <!-- 底部说明 -->
+  <text x="360" y="456" text-anchor="middle" font-size="14" fill="#777">数据抽象：上层隐藏下层细节；存储结构改变不影响上层应用</text>
+</svg>

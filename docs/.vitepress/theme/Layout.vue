@@ -72,9 +72,9 @@ watch(
       <p class="site-greeting">{{ t.greeting }}</p>
       <nav class="site-nav">
         <span class="nav-links">
-          <a :href="withBase(t.homeLink)">{{ t.home }}</a>
-          <a :href="withBase(t.postsLink)">{{ t.posts }}</a>
-          <a :href="withBase(t.projectsLink)">{{ t.projects }}</a>
+          <a :class="{ active: route.path === t.homeLink }" :href="withBase(t.homeLink)">{{ t.home }}</a>
+          <a :class="{ active: route.path.startsWith(t.postsLink) }" :href="withBase(t.postsLink)">{{ t.posts }}</a>
+          <a :class="{ active: route.path.startsWith(t.projectsLink) }" :href="withBase(t.projectsLink)">{{ t.projects }}</a>
         </span>
         <span class="nav-tools">
           <button

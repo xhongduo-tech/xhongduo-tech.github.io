@@ -171,8 +171,13 @@ function numberMarginNotes() {
 }
 
 /* ---------- 左侧浮动 TOC（toc.js，≥3 个三级标题时启用） ---------- */
+let tocCleanup: (() => void) | null = null
+
 function buildToc() {
   document.querySelector('.toc-sidebar')?.remove()
+  tocCleanup?.()
+  tocCleanup = null
+
   const section = document.querySelector('.tuf-article > section')
   if (!section) return
   const headings = Array.from(section.querySelectorAll('h2, h3')) as HTMLElement[]
@@ -211,18 +216,42 @@ function buildToc() {
   })
 
   const linksById = new Map(
-    Array.from(nav.querySelectorAll('a')).map((l) => [l.hash.slice(1), l]),
+    Array.from(nav.querySelectorAll('a')).map((l) => {
+      l.classList.add('toc-link')
+      l.setAttribute('data-target', l.hash.slice(1))
+      return [l.hash.slice(1), l as HTMLAnchorElement]
+    }),
   )
   const setActive = (id: string) => {
     nav.querySelector('a.is-active')?.classList.remove('is-active')
     linksById.get(id)?.classList.add('is-active')
   }
-  setActive(headings[0].id)
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.isIntersecting && setActive((e.target as HTMLElement).id)),
-    { rootMargin: '0px 0px -70% 0px', threshold: 0 },
-  )
-  headings.forEach((h) => observer.observe(h))
+
+  // 滚动监听：取最后一个顶部越过触发线（视口上 1/3）的标题
+  let ticking = false
+  const update = () => {
+    ticking = false
+    const trigger = window.innerHeight * 0.33
+    let currentId = headings[0].id
+    for (const h of headings) {
+      if (h.getBoundingClientRect().top <= trigger) currentId = h.id
+      else break
+    }
+    setActive(currentId)
+  }
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(update)
+      ticking = true
+    }
+  }
+  update()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onScroll, { passive: true })
+  tocCleanup = () => {
+    window.removeEventListener('scroll', onScroll)
+    window.removeEventListener('resize', onScroll)
+  }
 
   document.body.insertBefore(nav, document.querySelector('#app'))
 }

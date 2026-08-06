@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第一篇 曲线论
 
-- [ ] 参数曲线与正则曲线（parametrized curve / regular curve）
+- [x] [参数曲线与正则曲线（parametrized curve / regular curve）](./parametrized-curves)
 - [ ] 切向量与切线（tangent vector / tangent line）
 - [ ] 弧长与弧长参数化（arc length / arc-length parametrization）
 - [ ] 弧长参数的不变性与曲线论中的基本引理

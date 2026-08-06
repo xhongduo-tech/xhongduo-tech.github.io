@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">二阶与三阶行列式的几何意义</title>
+  <desc id="desc">左图为二阶行列式：从原点 O 出发的两列向量 u 与 v 张成一个平行四边形，其面积等于二阶行列式的绝对值 |D|。右图为三阶行列式：从原点 O 出发的三个向量 u、v、w 张成一个平行六面体，其体积等于三阶行列式的绝对值 |D|；反号表示取到相反方向。</desc>
+
+  <defs>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+  </defs>
+
+  <!-- 面板标题 -->
+  <text x="210" y="52" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">二阶行列式：平行四边形面积</text>
+  <text x="620" y="52" font-size="18" font-weight="bold" fill="#333" text-anchor="middle">三阶行列式：平行六面体体积</text>
+
+  <!-- ================= 左：二阶 ================= -->
+  <polygon points="110,380 290,320 360,130 180,190" fill="#ece7d9" stroke="#333" stroke-width="1.4"/>
+  <line x1="110" y1="380" x2="290" y2="320" stroke="#c0392b" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+  <line x1="110" y1="380" x2="180" y2="190" stroke="#1f6f8b" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+  <text x="235" y="252" font-size="17" font-weight="bold" fill="#c0392b" text-anchor="middle">面积 = |D|</text>
+  <text x="200" y="344" font-size="16" fill="#c0392b">u</text>
+  <text x="138" y="290" font-size="16" fill="#1f6f8b">v</text>
+  <text x="372" y="128" font-size="14" fill="#777">u + v</text>
+  <text x="88" y="400" font-size="14" fill="#777">O</text>
+
+  <!-- ================= 右：三阶 ================= -->
+  <!-- 三个可见面（先画面，再画边） -->
+  <polygon points="560,200 646.6,250 581.65,287.5 495.05,237.5" fill="#ece7d9" stroke="#333" stroke-width="1.4"/>
+  <polygon points="560,350 646.6,400 646.6,250 560,200" fill="#e2ded2" stroke="#333" stroke-width="1.4"/>
+  <polygon points="560,350 495.05,387.5 495.05,237.5 560,200" fill="#f1ecdf" stroke="#333" stroke-width="1.4"/>
+
+  <!-- 隐藏边（虚线） -->
+  <g stroke="#999" stroke-width="1.2" stroke-dasharray="5 4">
+    <line x1="646.6" y1="400" x2="581.65" y2="437.5"/>
+    <line x1="495.05" y1="387.5" x2="581.65" y2="437.5"/>
+    <line x1="581.65" y1="437.5" x2="581.65" y2="287.5"/>
+  </g>
+
+  <!-- 可见棱边（不含三个向量） -->
+  <g stroke="#333" stroke-width="1.6" fill="none">
+    <line x1="560" y1="200" x2="646.6" y2="250"/>
+    <line x1="560" y1="200" x2="495.05" y2="237.5"/>
+    <line x1="646.6" y1="250" x2="581.65" y2="287.5"/>
+    <line x1="495.05" y1="237.5" x2="581.65" y2="287.5"/>
+    <line x1="646.6" y1="400" x2="646.6" y2="250"/>
+    <line x1="495.05" y1="387.5" x2="495.05" y2="237.5"/>
+  </g>
+
+  <!-- 三个向量（带箭头） -->
+  <line x1="560" y1="350" x2="646.6" y2="400" stroke="#c0392b" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+  <line x1="560" y1="350" x2="495.05" y2="387.5" stroke="#1f6f8b" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+  <line x1="560" y1="350" x2="560" y2="200" stroke="#777" stroke-width="2.4" marker-end="url(#arrowGray)"/>
+
+  <!-- 体积标注与向量标签 -->
+  <text x="571" y="240" font-size="17" font-weight="bold" fill="#c0392b" text-anchor="middle">体积 = |D|</text>
+  <text x="620" y="362" font-size="16" fill="#c0392b">u</text>
+  <text x="506" y="404" font-size="16" fill="#1f6f8b">v</text>
+  <text x="574" y="300" font-size="16" fill="#777">w</text>
+  <text x="536" y="368" font-size="14" fill="#777">O</text>
+
+  <!-- 底部说明 -->
+  <text x="400" y="485" font-size="14" fill="#555" text-anchor="middle">两列（或三列）向量张成的面积 / 体积 = 行列式的绝对值 |D|，负号表示取到相反方向。</text>
+</svg>

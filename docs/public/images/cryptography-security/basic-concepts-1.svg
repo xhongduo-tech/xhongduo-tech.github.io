@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 300" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">密码体制五元组与加解密流程</title>
+  <desc id="desc">加密解密过程示意：明文 P 经加密变换 E_k 得到密文 C，密文 C 经解密变换 D_k 还原为明文 P；密钥 k 同时送入加密与解密两端，构成对称密码。箭头旁标注 C = E_k(P) 与 P = D_k(C)。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="390" y="28" font-size="16" fill="#333" text-anchor="middle">密码体制五元组 (P, C, K, E, D) 与加解密流程</text>
+
+  <!-- 顶部回环：对称密钥往返 -->
+  <path d="M 695 52 Q 390 6 75 52" fill="none" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow-accent)"/>
+  <text x="390" y="22" font-size="13" fill="#1f6f8b" text-anchor="middle">对称密码：加密与解密使用同一把密钥 k</text>
+
+  <!-- 主流程方框 -->
+  <g fill="#faf9f5" stroke="#333" stroke-width="1.6">
+    <rect x="20"  y="70" width="110" height="64" rx="8"/>
+    <rect x="175" y="70" width="110" height="64" rx="8"/>
+    <rect x="330" y="70" width="110" height="64" rx="8"/>
+    <rect x="485" y="70" width="110" height="64" rx="8"/>
+    <rect x="640" y="70" width="110" height="64" rx="8"/>
+  </g>
+
+  <!-- 方框内文字 -->
+  <g font-size="16" fill="#333" text-anchor="middle">
+    <text x="75"  y="96">明文 P</text>
+    <text x="230" y="96">加密 E_k</text>
+    <text x="385" y="96">密文 C</text>
+    <text x="540" y="96">解密 D_k</text>
+    <text x="695" y="96">明文 P</text>
+  </g>
+  <g font-size="13" fill="#555" text-anchor="middle">
+    <text x="75"  y="120">明文空间 P</text>
+    <text x="230" y="120">加密变换 E</text>
+    <text x="385" y="120">密文空间 C</text>
+    <text x="540" y="120">解密变换 D</text>
+    <text x="695" y="120">明文空间 P</text>
+  </g>
+
+  <!-- 主流程箭头 -->
+  <g stroke="#777" stroke-width="1.6" marker-end="url(#arrow)">
+    <line x1="132" y1="102" x2="171" y2="102"/>
+    <line x1="287" y1="102" x2="326" y2="102"/>
+    <line x1="442" y1="102" x2="481" y2="102"/>
+    <line x1="597" y1="102" x2="636" y2="102"/>
+  </g>
+
+  <!-- 公式标注 -->
+  <g font-size="13" fill="#1f6f8b" text-anchor="middle">
+    <text x="152" y="150">C = E_k(P)</text>
+    <text x="462" y="150">P = D_k(C)</text>
+  </g>
+
+  <!-- 密钥方框 -->
+  <rect x="320" y="196" width="160" height="56" rx="8" fill="#faf9f5" stroke="#c0392b" stroke-width="1.6"/>
+  <text x="400" y="220" font-size="16" fill="#c0392b" text-anchor="middle">密钥 K</text>
+  <text x="400" y="240" font-size="13" fill="#555" text-anchor="middle">k ∈ K（秘密共享）</text>
+
+  <!-- 密钥到加密/解密的连线 -->
+  <g stroke="#c0392b" stroke-width="1.4" marker-end="url(#arrow-accent)">
+    <line x1="352" y1="196" x2="250" y2="139"/>
+    <line x1="448" y1="196" x2="510" y2="139"/>
+  </g>
+
+  <!-- 底部小结 -->
+  <text x="390" y="285" font-size="13" fill="#555" text-anchor="middle">五元组 (P, C, K, E, D)：明文空间、密文空间、密钥空间、加密变换、解密变换</text>
+</svg>

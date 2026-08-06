@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 640" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">经典比特与量子比特对比及 2ⁿ 状态空间增长</title>
+  <desc id="desc">上图左侧为经典比特：一条水平线上只有 0 与 1 两个离散状态点，任一时刻只能是二者之一；右侧为量子比特：一个单位圆（布洛赫球截面）上，状态可指向任意方向，叠加态记作 |ψ⟩ = α|0⟩ + β|1⟩，α、β 为复数且 |α|²+|β|²=1。下图折线展示 n 个量子比特的状态数 2ⁿ 随 n 指数增长，n=1 到 6 的状态数依次为 2、4、8、16、32、64，并标注 n=50 时约为 10¹⁵ 个复数、n=300 时约为 10⁹⁰（超过可观测宇宙原子数）。</desc>
+
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 纸底 -->
+  <rect x="0" y="0" width="880" height="640" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="410" y="46" text-anchor="middle" font-size="24" fill="#333">经典比特 vs 量子比特</text>
+  <text x="410" y="76" text-anchor="middle" font-size="15" fill="#666">左：离散的 0/1 状态　右：连续叠加的量子态</text>
+
+  <!-- 分隔线 -->
+  <line x1="30" y1="358" x2="850" y2="358" stroke="#ddd" stroke-width="1.4"/>
+
+  <!-- ================= 左面板：经典比特 ================= -->
+  <text x="40" y="122" font-size="17" fill="#1f6f8b" font-weight="bold">经典比特（1 bit）</text>
+  <line x1="90" y1="195" x2="310" y2="195" stroke="#999" stroke-width="1.4" stroke-dasharray="5 5"/>
+  <circle cx="110" cy="195" r="7" fill="#333"/>
+  <circle cx="290" cy="195" r="7" fill="#333"/>
+  <text x="110" y="227" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">0</text>
+  <text x="290" y="227" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">1</text>
+  <text x="200" y="256" text-anchor="middle" font-size="14" fill="#333">任一时刻只能是 0 或 1</text>
+  <text x="200" y="280" text-anchor="middle" font-size="14" fill="#666">n 个比特：只需存 n 个数</text>
+
+  <!-- ================= 右面板：量子比特 ================= -->
+  <text x="440" y="122" font-size="17" fill="#c0392b" font-weight="bold">量子比特（1 qubit）</text>
+  <circle cx="610" cy="195" r="80" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="610" y1="115" x2="610" y2="275" stroke="#999" stroke-width="1.3" stroke-dasharray="4 4"/>
+  <text x="610" y="106" text-anchor="middle" font-size="16" fill="#333">|0⟩</text>
+  <text x="610" y="292" text-anchor="middle" font-size="16" fill="#333">|1⟩</text>
+  <line x1="610" y1="195" x2="671" y2="142" stroke="#c0392b" stroke-width="2.4" marker-end="url(#arrow-red)"/>
+  <circle cx="675" cy="140" r="4" fill="#c0392b"/>
+  <text x="684" y="134" font-size="15" fill="#c0392b">|ψ⟩</text>
+  <path d="M 640 195 A 30 30 0 0 0 635 184" fill="none" stroke="#c0392b" stroke-width="1.4"/>
+  <text x="624" y="192" font-size="13" fill="#c0392b">θ</text>
+  <text x="610" y="318" text-anchor="middle" font-size="15" fill="#c0392b">叠加态 |ψ⟩ = α|0⟩ + β|1⟩</text>
+  <text x="610" y="340" text-anchor="middle" font-size="14" fill="#666">α、β 为复数，且 |α|² + |β|² = 1</text>
+
+  <!-- ================= 底面板：2ⁿ 增长 ================= -->
+  <text x="40" y="392" font-size="16" fill="#1f6f8b" font-weight="bold">2ⁿ 状态空间：每多 1 个量子比特，状态数翻倍</text>
+
+  <!-- 大 n 注释（红色） -->
+  <text x="765" y="380" font-size="13" fill="#c0392b">n=50 → ≈10¹⁵</text>
+  <text x="765" y="398" font-size="13" fill="#c0392b">n=300 → ≈10⁹⁰</text>
+  <text x="765" y="416" font-size="13" fill="#c0392b">超过宇宙原子数</text>
+
+  <!-- 坐标轴 -->
+  <line x1="90" y1="410" x2="90" y2="560" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-ink)"/>
+  <line x1="90" y1="560" x2="750" y2="560" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-ink)"/>
+
+  <!-- 曲线（y = 2ⁿ，n = 1…6） -->
+  <polyline points="140,555 256,551 372,541 488,523 604,485 720,410" fill="none" stroke="#1f6f8b" stroke-width="2.4" stroke-linejoin="round"/>
+  <g fill="#1f6f8b">
+    <circle cx="140" cy="555" r="4"/>
+    <circle cx="256" cy="551" r="4"/>
+    <circle cx="372" cy="541" r="4"/>
+    <circle cx="488" cy="523" r="4"/>
+    <circle cx="604" cy="485" r="4"/>
+    <circle cx="720" cy="410" r="4.5"/>
+  </g>
+
+  <!-- 曲线数值标注 -->
+  <text x="488" y="511" text-anchor="middle" font-size="13" fill="#666">16</text>
+  <text x="604" y="473" text-anchor="middle" font-size="13" fill="#666">32</text>
+  <text x="720" y="398" text-anchor="middle" font-size="13" fill="#666">64</text>
+  <text x="100" y="422" font-size="13" fill="#1f6f8b">y = 2ⁿ</text>
+
+  <!-- y 轴刻度线与标签 -->
+  <g stroke="#999" stroke-width="1">
+    <line x1="86" y1="560" x2="94" y2="560"/>
+    <line x1="86" y1="522.5" x2="94" y2="522.5"/>
+    <line x1="86" y1="485" x2="94" y2="485"/>
+    <line x1="86" y1="447.5" x2="94" y2="447.5"/>
+    <line x1="86" y1="410" x2="94" y2="410"/>
+  </g>
+  <g font-size="13" fill="#333" text-anchor="end">
+    <text x="82" y="563">0</text>
+    <text x="82" y="525">16</text>
+    <text x="82" y="487">32</text>
+    <text x="82" y="449">48</text>
+    <text x="82" y="412">64</text>
+  </g>
+
+  <!-- x 轴刻度线与标签 -->
+  <g stroke="#999" stroke-width="1">
+    <line x1="140" y1="556" x2="140" y2="564"/>
+    <line x1="256" y1="556" x2="256" y2="564"/>
+    <line x1="372" y1="556" x2="372" y2="564"/>
+    <line x1="488" y1="556" x2="488" y2="564"/>
+    <line x1="604" y1="556" x2="604" y2="564"/>
+    <line x1="720" y1="556" x2="720" y2="564"/>
+  </g>
+  <g font-size="13" fill="#333" text-anchor="middle">
+    <text x="140" y="580">1</text>
+    <text x="256" y="580">2</text>
+    <text x="372" y="580">3</text>
+    <text x="488" y="580">4</text>
+    <text x="604" y="580">5</text>
+    <text x="720" y="580">6</text>
+  </g>
+
+  <!-- 坐标轴标题与底部注 -->
+  <text x="58" y="480" text-anchor="middle" font-size="14" fill="#333" transform="rotate(-90 58 480)">状态数 2ⁿ</text>
+  <text x="430" y="598" text-anchor="middle" font-size="14" fill="#333">n（量子比特数）</text>
+  <text x="430" y="620" text-anchor="middle" font-size="13" fill="#666">n=50 时，按 16 字节存一个复数，约需 18 PB 内存</text>
+</svg>

@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第一篇：算法基础与渐进记号
 
-- [ ] 算法的定义、性质与作为一门技术的地位
+- [x] [算法的定义、性质与作为一门技术的地位](./what-is-an-algorithm)
 - [ ] 插入排序（Insertion Sort）：循环不变式与正确性证明
 - [ ] 算法分析框架：最坏情况、平均情况与渐近效率
 - [ ] 渐进记号（Asymptotic Notation）：Θ、O、Ω、o、ω 的严格定义与性质

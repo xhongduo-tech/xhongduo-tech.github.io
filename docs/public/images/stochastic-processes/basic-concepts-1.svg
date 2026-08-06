@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">多条随机游走的样本轨道示意图</title>
+  <desc id="desc">同一个随机游走过程在三个不同随机结果 ω₁、ω₂、ω₃ 下的三条样本轨道。横轴为时间（步数 n，取 0 到 24），纵轴为状态（位置 Sₙ）。三条轨道从同一起点 S₀=0 出发：墨色轨道 ω₁ 在起点附近上下徘徊，青色轨道 ω₂ 总体向上漂移，红色轨道 ω₃ 总体向下漂移。图中用水平虚线标出起点位置 S₀=0，可见不同轨道即使起点相同，之后也各自演化、互不相同——这正是「固定 ω 得一条样本轨道」的直观体现。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 纸底 -->
+  <rect x="0" y="0" width="680" height="430" fill="#faf9f5"/>
+
+  <!-- 坐标轴 -->
+  <line x1="60" y1="45" x2="60" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="60" y1="350" x2="625" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 起点参考线 S₀=0（虚线） -->
+  <line x1="60" y1="200" x2="625" y2="200" stroke="#999" stroke-width="1.4" stroke-dasharray="5 5"/>
+
+  <!-- 刻度：n = 0, 12, 24 -->
+  <line x1="60" y1="350" x2="60" y2="357" stroke="#333" stroke-width="1.6"/>
+  <line x1="336" y1="350" x2="336" y2="357" stroke="#333" stroke-width="1.6"/>
+  <line x1="612" y1="350" x2="612" y2="357" stroke="#333" stroke-width="1.6"/>
+
+  <!-- 样本轨道 ω₁（墨色，起点附近徘徊） -->
+  <path d="M 60 200 H 83 V 187 H 106 V 200 H 129 V 187 H 152 V 174 H 175 V 187 H 198 V 174 H 221 V 187 H 244 V 200 H 267 V 187 H 290 V 174 H 313 V 187 H 336 V 174 H 359 V 187 H 382 V 200 H 405 V 187 H 428 V 174 H 451 V 161 H 474 V 174 H 497 V 161 H 520 V 174 H 543 V 187 H 566 V 174 H 589 V 187 H 612 V 174" fill="none" stroke="#333" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- 样本轨道 ω₂（青色，总体向上漂移） -->
+  <path d="M 60 200 H 83 V 187 H 106 V 174 H 129 V 187 H 152 V 174 H 175 V 161 H 198 V 174 H 221 V 161 H 244 V 148 H 267 V 161 H 290 V 148 H 313 V 161 H 336 V 148 H 359 V 135 H 382 V 148 H 405 V 135 H 428 V 148 H 451 V 135 H 474 V 122 H 497 V 135 H 520 V 122 H 543 V 109 H 566 V 122 H 589 V 109 H 612 V 122" fill="none" stroke="#1f6f8b" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- 样本轨道 ω₃（红色，总体向下漂移） -->
+  <path d="M 60 200 H 83 V 213 H 106 V 200 H 129 V 213 H 152 V 226 H 175 V 213 H 198 V 226 H 221 V 239 H 244 V 226 H 267 V 239 H 290 V 252 H 313 V 239 H 336 V 252 H 359 V 265 H 382 V 252 H 405 V 265 H 428 V 278 H 451 V 265 H 474 V 278 H 497 V 291 H 520 V 278 H 543 V 291 H 566 V 304 H 589 V 291 H 612 V 304" fill="none" stroke="#c0392b" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- 图例 -->
+  <rect x="440" y="48" width="185" height="98" fill="#fff" stroke="#ccc" stroke-width="1.2" rx="4"/>
+  <line x1="452" y1="70" x2="486" y2="70" stroke="#333" stroke-width="2.6"/>
+  <text x="494" y="75" font-size="14" fill="#333">样本轨道 ω₁</text>
+  <line x1="452" y1="94" x2="486" y2="94" stroke="#1f6f8b" stroke-width="2.6"/>
+  <text x="494" y="99" font-size="14" fill="#333">样本轨道 ω₂</text>
+  <line x1="452" y1="118" x2="486" y2="118" stroke="#c0392b" stroke-width="2.6"/>
+  <text x="494" y="123" font-size="14" fill="#333">样本轨道 ω₃</text>
+
+  <!-- 刻度文字 -->
+  <text x="60" y="372" font-size="13" fill="#333" text-anchor="middle">n = 0</text>
+  <text x="336" y="372" font-size="13" fill="#333" text-anchor="middle">n = 12</text>
+  <text x="612" y="372" font-size="13" fill="#333" text-anchor="middle">n = 24</text>
+  <text x="46" y="205" font-size="13" fill="#777" text-anchor="end">S₀ = 0</text>
+
+  <!-- 轴标题 -->
+  <text x="330" y="398" font-size="15" fill="#333" text-anchor="middle">时间（步数 n）</text>
+  <text transform="rotate(-90 36 195)" x="36" y="195" font-size="15" fill="#333" text-anchor="middle">位置 Sₙ</text>
+
+  <!-- 主标题 -->
+  <text x="330" y="28" font-size="17" fill="#333" text-anchor="middle">多条随机游走的样本轨道</text>
+
+  <!-- 底部注释 -->
+  <text x="330" y="418" font-size="13" fill="#777" text-anchor="middle">三条轨道是同一过程在不同 ω 下的表现：起点相同，之后各自演化</text>
+</svg>

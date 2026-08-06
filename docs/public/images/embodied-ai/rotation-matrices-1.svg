@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">刚体坐标系相对参考系的三个基本旋转</title>
+  <desc id="desc">刚体坐标系 {B} 相对参考系 {A} 的三个基本旋转 R_x、R_y、R_z 示意图。三个面板分别表示绕 X 轴旋转角 α、绕 Y 轴旋转角 β、绕 Z 轴旋转角 γ。每个面板中，灰色虚线是参考系 {A} 的两个在平面内的坐标轴，红/青实线是体坐标系 {B} 旋转后的坐标轴，旋转轴以「⊙」（指向纸外）标出，圆弧标出旋转角度。旋转矩阵的每一列正是 {B} 的基向量在 {A} 中的投影。</desc>
+
+  <defs>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <!-- 图题 -->
+  <text x="400" y="42" font-size="19" font-weight="bold" fill="#333" text-anchor="middle">刚体坐标系 {B} 相对参考系 {A}：三个基本旋转 R_x、R_y、R_z</text>
+
+  <!-- 面板标题 -->
+  <text x="150" y="148" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">绕 X 轴旋转 α</text>
+  <text x="400" y="148" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">绕 Y 轴旋转 β</text>
+  <text x="650" y="148" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">绕 Z 轴旋转 γ</text>
+
+  <!-- ================= 面板 1：绕 X 轴（α=35°） ================= -->
+  <g>
+    <line x1="150" y1="280" x2="235" y2="280" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="150" y1="280" x2="150" y2="195" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="150" y1="280" x2="219.6" y2="231.3" stroke="#c0392b" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+    <line x1="150" y1="280" x2="101.3" y2="210.4" stroke="#1f6f8b" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+    <path d="M 176 280 A 26 26 0 0 0 171.3 265.1" fill="none" stroke="#777" stroke-width="1.6"/>
+    <circle cx="150" cy="280" r="3" fill="#333"/>
+    <circle cx="150" cy="280" r="8" fill="none" stroke="#333" stroke-width="1.4"/>
+    <circle cx="150" cy="280" r="2.4" fill="#333"/>
+    <text x="164" y="271" font-size="14" fill="#333">X ⊙</text>
+    <text x="242" y="284" font-size="14" fill="#777">Z</text>
+    <text x="152" y="188" font-size="14" fill="#777">Y</text>
+    <text x="226" y="222" font-size="14" fill="#c0392b">Z_B</text>
+    <text x="86" y="214" font-size="14" fill="#1f6f8b">Y_B</text>
+    <text x="184" y="273" font-size="15" font-weight="bold" fill="#555">α</text>
+    <text x="132" y="300" font-size="13" fill="#555">{A}</text>
+  </g>
+
+  <!-- ================= 面板 2：绕 Y 轴（β=35°） ================= -->
+  <g>
+    <line x1="400" y1="280" x2="485" y2="280" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="400" y1="280" x2="400" y2="195" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="400" y1="280" x2="469.6" y2="231.3" stroke="#c0392b" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+    <line x1="400" y1="280" x2="351.3" y2="210.4" stroke="#1f6f8b" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+    <path d="M 426 280 A 26 26 0 0 0 421.3 265.1" fill="none" stroke="#777" stroke-width="1.6"/>
+    <circle cx="400" cy="280" r="3" fill="#333"/>
+    <circle cx="400" cy="280" r="8" fill="none" stroke="#333" stroke-width="1.4"/>
+    <circle cx="400" cy="280" r="2.4" fill="#333"/>
+    <text x="414" y="271" font-size="14" fill="#333">Y ⊙</text>
+    <text x="492" y="284" font-size="14" fill="#777">X</text>
+    <text x="402" y="188" font-size="14" fill="#777">Z</text>
+    <text x="476" y="222" font-size="14" fill="#c0392b">X_B</text>
+    <text x="338" y="214" font-size="14" fill="#1f6f8b">Z_B</text>
+    <text x="434" y="273" font-size="15" font-weight="bold" fill="#555">β</text>
+    <text x="382" y="300" font-size="13" fill="#555">{A}</text>
+  </g>
+
+  <!-- ================= 面板 3：绕 Z 轴（γ=35°） ================= -->
+  <g>
+    <line x1="650" y1="280" x2="735" y2="280" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="650" y1="280" x2="650" y2="195" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <line x1="650" y1="280" x2="719.6" y2="231.3" stroke="#c0392b" stroke-width="2.4" marker-end="url(#arrowRed)"/>
+    <line x1="650" y1="280" x2="601.3" y2="210.4" stroke="#1f6f8b" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+    <path d="M 676 280 A 26 26 0 0 0 671.3 265.1" fill="none" stroke="#777" stroke-width="1.6"/>
+    <circle cx="650" cy="280" r="3" fill="#333"/>
+    <circle cx="650" cy="280" r="8" fill="none" stroke="#333" stroke-width="1.4"/>
+    <circle cx="650" cy="280" r="2.4" fill="#333"/>
+    <text x="664" y="271" font-size="14" fill="#333">Z ⊙</text>
+    <text x="742" y="284" font-size="14" fill="#777">X</text>
+    <text x="652" y="188" font-size="14" fill="#777">Y</text>
+    <text x="726" y="222" font-size="14" fill="#c0392b">X_B</text>
+    <text x="590" y="214" font-size="14" fill="#1f6f8b">Y_B</text>
+    <text x="684" y="273" font-size="15" font-weight="bold" fill="#555">γ</text>
+    <text x="632" y="300" font-size="13" fill="#555">{A}</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="400" y="432" font-size="14" fill="#555" text-anchor="middle">灰色虚线为参考系 {A} 的坐标轴，红/青实线为旋转后的体坐标系 {B} 坐标轴；旋转轴以 ⊙ 指向纸外，正角度沿右手定则绕轴旋转（图中画为逆时针），具体符号以文中公式为准。</text>
+</svg>

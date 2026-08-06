@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">原行星盘坍缩与太阳系形成分阶段示意</title>
+  <desc id="desc">太阳系起源的四阶段示意图。① 一团缓慢自转的星际分子云；② 引力坍缩使云团压扁、自转加快（红色四向箭头表示收缩）；③ 形成中央原恒星与扁平的原行星盘，盘中红色虚线表示雪线（冰凝结线，约 2.7 AU），雪线以内只有岩石金属、以外还有冰；④ 在盘中吸积形成行星，内侧为类地行星（红点）、外侧为巨行星（青点），同心圆为行星公转轨道。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 顶部标题 -->
+  <text x="480" y="34" text-anchor="middle" font-size="17" fill="#333">原行星盘坍缩与太阳系形成</text>
+
+  <!-- 四个面板底 -->
+  <g fill="#f5f2e9" stroke="#d9d4c5" stroke-width="1">
+    <rect x="18" y="60" width="215" height="250" rx="10"/>
+    <rect x="255" y="60" width="215" height="250" rx="10"/>
+    <rect x="492" y="60" width="215" height="250" rx="10"/>
+    <rect x="729" y="60" width="215" height="250" rx="10"/>
+  </g>
+
+  <!-- 面板间箭头 -->
+  <g stroke="#333" stroke-opacity="0.5" stroke-width="1.5">
+    <line x1="238" y1="185" x2="250" y2="185" marker-end="url(#arrow)"/>
+    <line x1="475" y1="185" x2="487" y2="185" marker-end="url(#arrow)"/>
+    <line x1="712" y1="185" x2="724" y2="185" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- ① 星际分子云：缓慢自转的冷云团 -->
+  <g>
+    <circle cx="125.5" cy="185" r="55" fill="#1f6f8b" opacity="0.08"/>
+    <circle cx="100" cy="170" r="22" fill="#1f6f8b" opacity="0.22"/>
+    <circle cx="146" cy="158" r="18" fill="#1f6f8b" opacity="0.18"/>
+    <circle cx="118" cy="210" r="26" fill="#1f6f8b" opacity="0.18"/>
+    <circle cx="156" cy="202" r="16" fill="#1f6f8b" opacity="0.25"/>
+    <circle cx="94" cy="196" r="14" fill="#1f6f8b" opacity="0.28"/>
+    <circle cx="130" cy="162" r="12" fill="#1f6f8b" opacity="0.32"/>
+    <circle cx="112" cy="188" r="10" fill="#1f6f8b" opacity="0.38"/>
+    <circle cx="140" cy="192" r="8" fill="#1f6f8b" opacity="0.32"/>
+    <circle cx="118" cy="172" r="5" fill="#333" opacity="0.55"/>
+    <circle cx="137" cy="182" r="4" fill="#333" opacity="0.55"/>
+    <circle cx="110" cy="198" r="4" fill="#333" opacity="0.5"/>
+    <circle cx="128" cy="200" r="3" fill="#333" opacity="0.5"/>
+    <path d="M 62 150 A 72 72 0 0 1 191 150" fill="none" stroke="#777" stroke-width="1.4" marker-end="url(#arrow)"/>
+    <text x="125" y="98" text-anchor="middle" font-size="13" fill="#777">缓慢自转</text>
+  </g>
+
+  <!-- ② 引力坍缩：压扁成盘、自转加快 -->
+  <g>
+    <ellipse cx="362.5" cy="185" rx="80" ry="45" fill="#1f6f8b" opacity="0.16" stroke="#1f6f8b" stroke-opacity="0.5"/>
+    <ellipse cx="362.5" cy="185" rx="52" ry="28" fill="#1f6f8b" opacity="0.24"/>
+    <g stroke="#c0392b" stroke-width="2">
+      <line x1="362.5" y1="118" x2="362.5" y2="148" marker-end="url(#arrow-red)"/>
+      <line x1="362.5" y1="252" x2="362.5" y2="222" marker-end="url(#arrow-red)"/>
+      <line x1="278" y1="185" x2="308" y2="185" marker-end="url(#arrow-red)"/>
+      <line x1="447" y1="185" x2="417" y2="185" marker-end="url(#arrow-red)"/>
+    </g>
+    <path d="M 298 150 A 72 72 0 0 1 427 150" fill="none" stroke="#777" stroke-width="1.4" marker-end="url(#arrow)"/>
+    <text x="362" y="98" text-anchor="middle" font-size="13" fill="#c0392b">自转加快</text>
+  </g>
+
+  <!-- ③ 原行星盘与雪线 -->
+  <g>
+    <circle cx="599.5" cy="185" r="18" fill="#c0392b" opacity="0.18"/>
+    <circle cx="599.5" cy="185" r="13" fill="#c0392b"/>
+    <ellipse cx="599.5" cy="185" rx="92" ry="26" fill="#1f6f8b" opacity="0.14" stroke="#1f6f8b" stroke-opacity="0.45"/>
+    <ellipse cx="599.5" cy="185" rx="52" ry="15" fill="#c0392b" opacity="0.14"/>
+    <ellipse cx="599.5" cy="185" rx="68" ry="20" fill="none" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="5 4"/>
+    <text x="622" y="166" font-size="13" fill="#333">原恒星</text>
+    <text x="516" y="206" font-size="13" fill="#c0392b">雪线</text>
+    <text x="516" y="222" font-size="13" fill="#777">冰凝结线 ≈ 2.7 AU</text>
+  </g>
+
+  <!-- ④ 行星系统：内岩外气 -->
+  <g>
+    <circle cx="836.5" cy="185" r="17" fill="#c0392b" opacity="0.18"/>
+    <circle cx="836.5" cy="185" r="12" fill="#c0392b"/>
+    <g fill="none" stroke="#333" stroke-opacity="0.4" stroke-width="1.2">
+      <circle cx="836.5" cy="185" r="30"/>
+      <circle cx="836.5" cy="185" r="48"/>
+      <circle cx="836.5" cy="185" r="66"/>
+      <circle cx="836.5" cy="185" r="84"/>
+    </g>
+    <circle cx="806.5" cy="185" r="3.5" fill="#c0392b"/>
+    <circle cx="836.5" cy="137" r="3.5" fill="#c0392b"/>
+    <circle cx="920.5" cy="185" r="5" fill="#1f6f8b"/>
+    <circle cx="836.5" cy="251" r="5" fill="#1f6f8b"/>
+    <text x="750" y="92" font-size="13" fill="#c0392b">类地行星</text>
+    <text x="922" y="92" text-anchor="end" font-size="13" fill="#1f6f8b">巨行星</text>
+    <text x="809" y="214" text-anchor="middle" font-size="13" fill="#333">太阳</text>
+  </g>
+
+  <!-- 阶段标题 -->
+  <g text-anchor="middle" font-size="14" fill="#333">
+    <text x="125.5" y="330">① 星际分子云</text>
+    <text x="362.5" y="330">② 引力坍缩 · 自转加快</text>
+    <text x="599.5" y="330">③ 原行星盘与雪线</text>
+    <text x="836.5" y="330">④ 行星系统</text>
+  </g>
+  <g text-anchor="middle" font-size="13" fill="#777">
+    <text x="125.5" y="350">缓慢自转的冷云团</text>
+    <text x="362.5" y="350">压扁成盘 · 越转越快</text>
+    <text x="599.5" y="350">盘内吸积 · 温度分带</text>
+    <text x="836.5" y="350">内岩质 · 外气态</text>
+  </g>
+</svg>

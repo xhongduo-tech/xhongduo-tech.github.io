@@ -13,7 +13,7 @@ pageClass: plain-doc
 
 ### 第一篇 发展脉络与缩放定律
 
-- [ ] 从统计语言模型到神经语言模型：N-gram、Word2Vec 与 RNNLM
+- [x] [从统计语言模型到神经语言模型：N-gram、Word2Vec 与 RNNLM](./from-statistical-to-neural-lm)
 - [ ] Transformer 与预训练范式的确立：GPT-1 与 BERT
 - [ ] GPT-2 与 GPT-3：规模即能力，上下文学习的出现
 - [ ] T5 与统一文本到文本（Text-to-Text）范式

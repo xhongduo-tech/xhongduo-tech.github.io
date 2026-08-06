@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 520" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">位置矢量与三种坐标系示意</title>
+  <desc id="desc">平面运动示意图：原点 O 处有互相垂直的 x、y 轴（直角坐标），青色轨迹曲线自左上向右下延伸，其上一点 P 用红色位置矢量 r 从 O 指向 P；过 P 的虚线与坐标轴交于两个投影点，标出坐标 x 与 y；O 处红色小圆弧标出极角 θ，P 处沿径向与横向的红色箭头为极坐标单位矢量 e_r、e_θ；沿轨迹切向与法向的青色箭头为自然坐标系单位矢量 e_τ、e_n。</desc>
+
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <!-- 纸底 -->
+  <rect x="0" y="0" width="780" height="520" fill="#faf9f5"/>
+
+  <!-- 运动轨迹（青色） -->
+  <path d="M 180 140 C 250 160, 340 200, 420 260 C 500 320, 570 355, 620 385" fill="none" stroke="#1f6f8b" stroke-width="2.2" marker-end="url(#arrow-teal)"/>
+
+  <!-- 坐标轴（墨色） -->
+  <line x1="50" y1="400" x2="735" y2="400" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-ink)"/>
+  <line x1="150" y1="470" x2="150" y2="55" stroke="#333" stroke-width="1.6" marker-end="url(#arrow-ink)"/>
+
+  <!-- 位置矢量 r（红色，止于 P 前留出箭头空间） -->
+  <line x1="150" y1="400" x2="410" y2="265" stroke="#c0392b" stroke-width="2.4" marker-end="url(#arrow-red)"/>
+
+  <!-- 投影虚线 -->
+  <line x1="420" y1="260" x2="420" y2="400" stroke="#777" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="420" y1="260" x2="150" y2="260" stroke="#777" stroke-width="1.2" stroke-dasharray="4 4"/>
+
+  <!-- 极角 θ 圆弧（红色） -->
+  <path d="M 196 400 A 46 46 0 0 0 190.8 378.8" fill="none" stroke="#c0392b" stroke-width="1.6"/>
+
+  <!-- 极坐标单位矢量 e_r、e_θ（红色，尾在 P） -->
+  <line x1="420" y1="260" x2="459" y2="240" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+  <line x1="420" y1="260" x2="440" y2="299" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrow-red)"/>
+
+  <!-- 自然坐标单位矢量 e_τ、e_n（青色，尾在 P） -->
+  <line x1="420" y1="260" x2="455" y2="286" stroke="#1f6f8b" stroke-width="1.8" marker-end="url(#arrow-teal)"/>
+  <line x1="420" y1="260" x2="394" y2="295" stroke="#1f6f8b" stroke-width="1.8" marker-end="url(#arrow-teal)"/>
+
+  <!-- 关键点 -->
+  <g fill="#333">
+    <circle cx="150" cy="400" r="3.5"/>
+    <circle cx="420" cy="260" r="4"/>
+    <circle cx="420" cy="400" r="2.6"/>
+    <circle cx="150" cy="260" r="2.6"/>
+  </g>
+
+  <!-- 文字标注 -->
+  <g font-size="14" fill="#333">
+    <text x="134" y="418">O</text>
+    <text x="428" y="248">P</text>
+    <text x="740" y="396">x</text>
+    <text x="146" y="44">y</text>
+    <text x="298" y="392">x</text>
+    <text x="134" y="330">y</text>
+    <text x="230" y="176" fill="#1f6f8b">运动轨迹</text>
+    <text x="240" y="322" fill="#c0392b">位置矢量 r</text>
+    <text x="212" y="386" fill="#c0392b">θ</text>
+    <text x="468" y="234" fill="#c0392b">e_r</text>
+    <text x="446" y="312" fill="#c0392b">e_θ</text>
+    <text x="462" y="280" fill="#1f6f8b">e_τ</text>
+    <text x="378" y="298" fill="#1f6f8b">e_n</text>
+    <!-- 图例 -->
+    <text x="565" y="60">直角坐标 (x, y)</text>
+    <text x="565" y="84" fill="#c0392b">极坐标 (r, θ)</text>
+    <text x="565" y="108" fill="#1f6f8b">自然坐标 (e_τ, e_n)</text>
+  </g>
+</svg>

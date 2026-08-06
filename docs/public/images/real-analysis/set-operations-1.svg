@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">集合的四种基本运算：并集、交集、差集与补集的文氏图</title>
+  <desc id="desc">四个面板的文氏图。每个面板中，矩形代表全集 X，圆 A 与圆 B 部分相交。面板一（并集）：两圆全部着色；面板二（交集）：仅两圆重叠的透镜部分着色；面板三（差集）：仅圆 A 中不在圆 B 内的左月牙部分着色；面板四（补集）：矩形内圆 A 之外的部分着色，圆 A 内留白，表示 A 相对于全集 X 的补集。</desc>
+
+  <!-- Panel 1: 并集 A∪B -->
+  <g transform="translate(10,30)">
+    <text x="175" y="-10" font-size="16" fill="#333" text-anchor="middle">并集 A ∪ B</text>
+    <rect x="0" y="0" width="350" height="165" fill="none" stroke="#333" stroke-width="1.4"/>
+    <circle cx="145" cy="85" r="52" fill="#c0392b" fill-opacity="0.35" stroke="#333" stroke-width="1.6"/>
+    <circle cx="235" cy="85" r="52" fill="#c0392b" fill-opacity="0.35" stroke="#333" stroke-width="1.6"/>
+    <text x="112" y="78" font-size="18" fill="#333">A</text>
+    <text x="220" y="78" font-size="18" fill="#333">B</text>
+    <text x="328" y="15" font-size="14" fill="#666">X</text>
+  </g>
+
+  <!-- Panel 2: 交集 A∩B -->
+  <g transform="translate(390,30)">
+    <text x="175" y="-10" font-size="16" fill="#333" text-anchor="middle">交集 A ∩ B</text>
+    <rect x="0" y="0" width="350" height="165" fill="none" stroke="#333" stroke-width="1.4"/>
+    <circle cx="145" cy="85" r="52" fill="none" stroke="#333" stroke-width="1.6"/>
+    <circle cx="235" cy="85" r="52" fill="none" stroke="#333" stroke-width="1.6"/>
+    <path d="M 190 58.94 A 52 52 0 0 1 190 111.06 A 52 52 0 0 1 190 58.94 Z" fill="#c0392b" fill-opacity="0.35" stroke="#333" stroke-width="1.2"/>
+    <text x="112" y="78" font-size="18" fill="#333">A</text>
+    <text x="220" y="78" font-size="18" fill="#333">B</text>
+    <text x="328" y="15" font-size="14" fill="#666">X</text>
+  </g>
+
+  <!-- Panel 3: 差集 A＼B -->
+  <g transform="translate(10,225)">
+    <text x="175" y="-10" font-size="16" fill="#333" text-anchor="middle">差集 A ＼ B</text>
+    <rect x="0" y="0" width="350" height="165" fill="none" stroke="#333" stroke-width="1.4"/>
+    <circle cx="145" cy="85" r="52" fill="none" stroke="#333" stroke-width="1.6"/>
+    <circle cx="235" cy="85" r="52" fill="none" stroke="#333" stroke-width="1.6"/>
+    <path d="M 190 58.94 A 52 52 0 1 0 190 111.06 A 52 52 0 0 1 190 58.94 Z" fill="#c0392b" fill-opacity="0.35" stroke="#333" stroke-width="1.2"/>
+    <text x="112" y="78" font-size="18" fill="#333">A</text>
+    <text x="220" y="78" font-size="18" fill="#333">B</text>
+    <text x="328" y="15" font-size="14" fill="#666">X</text>
+  </g>
+
+  <!-- Panel 4: 补集 Aᶜ（相对 X） -->
+  <g transform="translate(390,225)">
+    <text x="175" y="-10" font-size="16" fill="#333" text-anchor="middle">补集 Aᶜ（相对 X）</text>
+    <rect x="0" y="0" width="350" height="165" fill="none" stroke="#333" stroke-width="1.4"/>
+    <path d="M 0 0 H 350 V 165 H 0 Z M 93 85 A 52 52 0 1 0 197 85 A 52 52 0 1 0 93 85 Z" fill="#c0392b" fill-opacity="0.35" fill-rule="evenodd"/>
+    <circle cx="145" cy="85" r="52" fill="none" stroke="#333" stroke-width="1.6"/>
+    <text x="112" y="78" font-size="18" fill="#333">A</text>
+    <text x="328" y="15" font-size="14" fill="#666">X</text>
+  </g>
+</svg>
