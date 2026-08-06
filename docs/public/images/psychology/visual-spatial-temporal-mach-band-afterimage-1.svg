@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">马赫带：明暗交界处的亮度错觉</title>
+  <desc id="desc">物理亮度在明暗交界处为阶跃变化，而感知亮度在暗侧出现更暗的暗带、在亮侧出现更亮的亮带</desc>
+  <rect width="800" height="360" fill="#faf9f5"/>
+  <text x="400" y="32" text-anchor="middle" font-size="16" fill="#333333" font-weight="bold">马赫带：物理阶跃，感知过冲</text>
+  <!-- 图例 -->
+  <line x1="540" y1="44" x2="600" y2="44" stroke="#333333" stroke-width="3"/>
+  <text x="606" y="49" font-size="14" fill="#333333">物理亮度（实际刺激）</text>
+  <line x1="540" y1="66" x2="600" y2="66" stroke="#c0392b" stroke-width="3" stroke-dasharray="6 4"/>
+  <text x="606" y="71" font-size="14" fill="#c0392b">感知亮度（主观）</text>
+  <!-- 坐标轴 -->
+  <line x1="90" y1="60" x2="90" y2="300" stroke="#333333" stroke-width="2"/>
+  <line x1="90" y1="300" x2="720" y2="300" stroke="#333333" stroke-width="2"/>
+  <text x="58" y="190" font-size="14" fill="#333333" transform="rotate(-90 58 190)">亮度</text>
+  <text x="405" y="330" font-size="14" fill="#333333">空间位置</text>
+  <!-- 物理亮度阶跃 -->
+  <path d="M 90 230 H 400 V 120 H 720" fill="none" stroke="#333333" stroke-width="3"/>
+  <text x="200" y="218" font-size="14" fill="#666666">L1（暗）</text>
+  <text x="560" y="108" font-size="14" fill="#666666">L2（亮）</text>
+  <!-- 感知亮度曲线 -->
+  <path d="M 96 231 C 260 226, 320 246, 350 256 C 385 252, 402 102, 428 92 C 520 100, 620 114, 714 122" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="6 4"/>
+  <!-- 暗带标注 -->
+  <line x1="352" y1="268" x2="357" y2="257" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="350" y="284" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">暗带（主观更暗）</text>
+  <!-- 亮带标注 -->
+  <line x1="432" y1="78" x2="430" y2="93" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="432" y="70" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">亮带（主观更亮）</text>
+  <!-- 明暗交界 -->
+  <text x="412" y="150" font-size="13" fill="#666666">明暗交界</text>
+</svg>

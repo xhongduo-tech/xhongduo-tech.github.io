@@ -40,15 +40,15 @@ pageClass: plain-doc
 - [x] [语言模型概述：概率定义与链式法则](./language-model-probability-chain-rule)
 - [x] [n-gram 模型：马尔可夫假设与参数估计](./ngram-markov-estimation)
 - [x] [数据平滑：加法平滑与古德-图灵估计（Good-Turing）](./data-smoothing-additive-good-turing)
-- [ ] 数据平滑：插值法与 Kneser-Ney 平滑
-- [ ] 困惑度（Perplexity）与语言模型的评价
-- [ ] 神经网络语言模型（NNLM）与循环神经网络语言模型（RNNLM）
+- [x] [数据平滑：插值法与 Kneser-Ney 平滑](./data-smoothing-interpolation-kneser-ney)
+- [x] [困惑度（Perplexity）与语言模型的评价](./perplexity-lm-evaluation)
+- [x] [神经网络语言模型（NNLM）与循环神经网络语言模型（RNNLM）](./nnlm-rnnlm)
 
 ### 第五篇 词向量与分布式表示
 
-- [ ] 分布式假设与分布式语义表示
-- [ ] Word2Vec：CBOW 与 Skip-gram 模型
-- [ ] Word2Vec 的训练技巧：负采样与层次 Softmax
+- [x] [分布式假设与分布式语义表示](./distributional-semantics)
+- [x] [Word2Vec：CBOW 与 Skip-gram 模型](./word2vec-cbow-skipgram)
+- [x] [Word2Vec 的训练技巧：负采样与层次 Softmax](./word2vec-negative-sampling-hierarchical-softmax)
 - [ ] GloVe：基于全局词共现统计的词向量
 - [ ] FastText：子词（Subword）信息与未登录词表示
 - [ ] 词向量的评价：词相似度与类比任务

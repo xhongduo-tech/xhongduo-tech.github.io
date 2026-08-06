@@ -39,14 +39,14 @@ pageClass: plain-doc
 - [x] [带偏置项的矩阵分解（BiasSVD）](./biassvd-matrix-factorization)
 - [x] [隐式反馈的矩阵分解：加权交替最小二乘（ALS-WR）](./implicit-feedback-als-wr)
 - [x] [SVD++：融合显式与隐式反馈](./svd-plus-plus)
-- [ ] 矩阵分解的局限：泛化能力弱与特征利用不足
+- [x] [矩阵分解的局限：泛化能力弱与特征利用不足](./matrix-factorization-limitations)
 
 ### 第四篇 基于内容的推荐
 
-- [ ] 基于内容推荐的基本框架：物品画像与用户画像
-- [ ] 文本内容的表示：TF-IDF 与词袋模型
-- [ ] 从 TF-IDF 到词向量：Word2Vec 与物品 Embedding
-- [ ] 内容特征下的用户兴趣建模与相似度匹配
+- [x] [基于内容推荐的基本框架：物品画像与用户画像](./content-based-filtering-framework-item-user-profiles)
+- [x] [文本内容的表示：TF-IDF 与词袋模型](./text-representation-tfidf-bag-of-words)
+- [x] [从 TF-IDF 到词向量：Word2Vec 与物品 Embedding](./word2vec-item-embedding)
+- [x] [内容特征下的用户兴趣建模与相似度匹配](./content-based-user-profiling-similarity-matching)
 - [ ] 基于内容的推荐与协同过滤的混合策略
 
 ### 第五篇 召回策略

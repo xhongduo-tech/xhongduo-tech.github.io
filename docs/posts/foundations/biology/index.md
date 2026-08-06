@@ -44,14 +44,14 @@ pageClass: plain-doc
 
 ### 必修1《分子与细胞》第6章 细胞的生命历程
 
-- [ ] 细胞的增殖
-- [ ] 细胞的分化
-- [ ] 细胞的衰老和死亡
+- [x] [细胞的增殖](./cell-proliferation)
+- [x] [细胞的分化](./cell-differentiation)
+- [x] [细胞的衰老和死亡](./cell-senescence-death)
 
 ### 必修2《遗传与进化》第1章 遗传因子的发现
 
-- [ ] 孟德尔的豌豆杂交实验（一）
-- [ ] 孟德尔的豌豆杂交实验（二）
+- [x] [孟德尔的豌豆杂交实验（一）](./mendel-monohybrid-cross)
+- [x] [孟德尔的豌豆杂交实验（二）](./mendel-dihybrid-cross)
 
 ### 必修2《遗传与进化》第2章 基因和染色体的关系
 

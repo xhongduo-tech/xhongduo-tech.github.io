@@ -40,13 +40,13 @@ pageClass: plain-doc
 - [x] [单比特量子态的测量与基的选择](./single-qubit-measurement-basis)
 - [x] [多量子比特系统与纠缠态](./multiqubit-systems-entanglement)
 - [x] [不可克隆定理（no-cloning theorem）](./no-cloning-theorem)
-- [ ] 量子隐形传态（quantum teleportation）
-- [ ] 超密编码（superdense coding）
+- [x] [量子隐形传态（quantum teleportation）](./quantum-teleportation)
+- [x] [超密编码（superdense coding）](./superdense-coding)
 
 ### 第三篇 量子门与量子线路
 
-- [ ] 量子线路模型与线路图约定
-- [ ] 单比特门：X、Y、Z 与 Pauli 门
+- [x] [量子线路模型与线路图约定](./quantum-circuit-model)
+- [x] [单比特门：X、Y、Z 与 Pauli 门](./single-qubit-gates-pauli)
 - [ ] Hadamard 门与相位门（S、T 门）
 - [ ] 旋转门：Rx、Ry、Rz 与任意单比特门分解
 - [ ] 受控门：CNOT、CZ 与受控-U

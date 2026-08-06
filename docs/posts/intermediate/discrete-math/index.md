@@ -29,20 +29,20 @@ pageClass: plain-doc
 - [x] [集合运算：并、交、补、差与对称差](./set-operations)
 - [x] [集合恒等式与文氏图](./set-identities-venn-diagrams)
 - [x] [幂集与笛卡尔积](./power-set-cartesian-product)
-- [ ] 集合的划分与带计算机表示的集合运算
+- [x] [集合的划分与带计算机表示的集合运算](./set-partitions-computer-representation)
 
 ### 第三篇 函数
 
-- [ ] 函数的定义：定义域、值域与像
-- [ ] 单射、满射与双射（一对一、映上与一一对应）
-- [ ] 逆函数与函数复合
-- [ ] 取整函数：下取整（floor）与上取整（ceiling）
-- [ ] 基数与可数性：可数集与康托尔对角线法
+- [x] [函数的定义：定义域、值域与像](./functions-definition-domain-codomain)
+- [x] [单射、满射与双射（一对一、映上与一一对应）](./injective-surjective-bijective)
+- [x] [逆函数与函数复合](./inverse-functions-composition)
+- [x] [取整函数：下取整（floor）与上取整（ceiling）](./floor-ceiling)
+- [x] [基数与可数性：可数集与康托尔对角线法](./cardinality-countability)
 
 ### 第四篇 序列与求和
 
-- [ ] 序列：等差序列、等比序列与递推定义的序列
-- [ ] 求和记号与常用求和公式
+- [x] [序列：等差序列、等比序列与递推定义的序列](./sequences-arithmetic-geometric-recurrence)
+- [x] [求和记号与常用求和公式](./summation-notation)
 - [ ] 双重求和与伸缩求和（telescoping sum）
 
 ### 第五篇 算法与复杂度

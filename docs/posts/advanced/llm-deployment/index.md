@@ -36,10 +36,10 @@ pageClass: plain-doc
 - [x] [Continuous Batching 的原理与实现](./continuous-batching)
 - [x] [Chunked Prefill：长输入的分块调度](./chunked-prefill)
 - [x] [Prefix Caching：共享前缀的缓存复用](./prefix-caching)
-- [ ] vLLM 调度器源码分析（一）：请求生命周期
-- [ ] vLLM 调度器源码分析（二）：抢占与换入换出
-- [ ] vLLM V0 到 V1 架构演进
-- [ ] vLLM 的采样、停止条件与后处理
+- [x] [vLLM 调度器源码分析（一）：请求生命周期](./vllm-scheduler-lifecycle)
+- [x] [vLLM 调度器源码分析（二）：抢占与换入换出](./vllm-scheduler-preemption)
+- [x] [vLLM V0 到 V1 架构演进](./vllm-v0-to-v1-architecture)
+- [x] [vLLM 的采样、停止条件与后处理](./vllm-sampling-stopping)
 - [ ] vLLM 多 LoRA 服务原理
 
 ### 第四篇 SGLang

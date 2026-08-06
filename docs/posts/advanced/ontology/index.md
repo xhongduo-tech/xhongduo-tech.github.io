@@ -35,8 +35,8 @@ pageClass: plain-doc
 - [x] [逻辑原子主义：世界作为事实的总和](./logical-atomism)
 - [x] [卡尔纳普：语言框架与本体论问题的内/外区分](./carnap-linguistic-frameworks)
 - [x] [奎因《论何物存在》：存在就是成为约束变量的值](./quine-on-what-there-is)
-- [ ] 本体论承诺：识别一个理论的实体库存
-- [ ] 自然化的本体论：哲学追随科学
+- [x] [本体论承诺：识别一个理论的实体库存](./ontological-commitment)
+- [x] [自然化的本体论：哲学追随科学](./naturalized-ontology)
 - [ ] 迈农对象理论与「不存在之物」问题
 
 ### 第三篇 当代议题：模态、部分与随附

@@ -37,10 +37,10 @@ pageClass: plain-doc
 - [x] [异步动态规划与广义策略迭代（GPI）](./asynchronous-dp-generalized-policy-iteration)
 
 ### 第五篇 蒙特卡洛方法（第5章）
-- [ ] 蒙特卡洛预测与动作价值估计
-- [ ] 蒙特卡洛控制与探索起点
-- [ ] 基于重要性采样的离策略预测
-- [ ] 离策略蒙特卡洛控制
+- [x] [蒙特卡洛预测与动作价值估计](./monte-carlo-prediction-action-values)
+- [x] [蒙特卡洛控制与探索起点](./monte-carlo-control-exploring-starts)
+- [x] [基于重要性采样的离策略预测](./off-policy-prediction-importance-sampling)
+- [x] [离策略蒙特卡洛控制](./off-policy-monte-carlo-control)
 - [ ] 折扣感知与每决策重要性采样
 
 ### 第六篇 时序差分学习（第6章）

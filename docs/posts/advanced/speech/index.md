@@ -39,10 +39,10 @@ pageClass: plain-doc
 
 ### 听觉特征提取
 
-- [ ] 梅尔频率倒谱系数（MFCC）完整流程
-- [ ] 滤波器组特征（FBank / log-Mel Spectrogram）
-- [ ] 感知线性预测系数（PLP）
-- [ ] 一阶二阶差分：Delta 与 Delta-Delta 特征
+- [x] [梅尔频率倒谱系数（MFCC）完整流程](./mfcc-complete-pipeline)
+- [x] [滤波器组特征（FBank / log-Mel Spectrogram）](./fbank-log-mel-spectrogram)
+- [x] [感知线性预测系数（PLP）](./plp-perceptual-linear-prediction)
+- [x] [一阶二阶差分：Delta 与 Delta-Delta 特征](./delta-delta-delta-features)
 - [ ] 音高（Pitch）与韵律特征的提取
 - [ ] 倒谱均值方差归一化（CMVN）与特征增强
 

@@ -33,12 +33,12 @@ pageClass: plain-doc
 - [x] [多传感器融合：前融合、特征级融合与后融合](./multi-sensor-fusion)
 - [x] [时序融合与 StreamPETR 式流式感知](./streaming-perception)
 - [x] [车道线与可行驶区域检测](./lane-drivable-area-detection)
-- [ ] 交通信号灯与交通标志识别
-- [ ] 在线矢量地图构建（HDMapNet、MapTR）
+- [x] [交通信号灯与交通标志识别](./traffic-light-sign-recognition)
+- [x] [在线矢量地图构建（HDMapNet、MapTR）](./online-hd-map-construction)
 
 ### 高精地图与定位
 
-- [ ] 高精地图的要素、格式与制作流程
+- [x] [高精地图的要素、格式与制作流程](./hd-map-elements-formats)
 - [ ] GNSS/RTK 定位原理与误差来源
 - [ ] 惯性导航与组合导航（GNSS+IMU 紧耦合）
 - [ ] LiDAR SLAM：LOAM 系列与回环检测

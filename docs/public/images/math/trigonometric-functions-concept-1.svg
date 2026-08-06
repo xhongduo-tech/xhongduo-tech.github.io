@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 380" width="100%" role="img" aria-labelledby="title desc">
+  <title id="title">单位圆定义三角函数</title>
+  <desc id="desc">终边与单位圆交于点 P(x,y)，sin α 等于纵坐标 y，cos α 等于横坐标 x。</desc>
+  <rect width="420" height="380" fill="#faf9f5"/>
+  <line x1="30" y1="190" x2="390" y2="190" stroke="#333" stroke-width="1.5"/>
+  <line x1="210" y1="340" x2="210" y2="40" stroke="#333" stroke-width="1.5"/>
+  <polygon points="390,190 382,186 382,194" fill="#333"/>
+  <polygon points="210,40 206,48 214,48" fill="#333"/>
+  <circle cx="210" cy="190" r="120" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="210" y1="190" x2="295" y2="105" stroke="#333" stroke-width="2"/>
+  <path d="M 262 190 A 52 52 0 0 0 254 149" fill="none" stroke="#888" stroke-width="1"/>
+  <text x="234" y="178" font-family="sans-serif" font-size="14" fill="#333">α</text>
+  <line x1="295" y1="190" x2="295" y2="105" stroke="#c0392b" stroke-width="3"/>
+  <line x1="210" y1="105" x2="295" y2="105" stroke="#1f6f8b" stroke-width="3"/>
+  <circle cx="295" cy="105" r="4" fill="#333"/>
+  <text x="300" y="152" font-family="sans-serif" font-size="15" fill="#c0392b">sin α = y</text>
+  <text x="238" y="98" font-family="sans-serif" font-size="15" fill="#1f6f8b">cos α = x</text>
+  <text x="300" y="112" font-family="sans-serif" font-size="14" fill="#333">P(x, y)</text>
+  <text x="190" y="212" font-family="sans-serif" font-size="14" fill="#333">O</text>
+  <text x="296" y="205" font-family="sans-serif" font-size="14" fill="#333">x</text>
+  <text x="342" y="182" font-family="sans-serif" font-size="14" fill="#333">1</text>
+  <text x="196" y="352" font-family="sans-serif" font-size="14" fill="#333">-1</text>
+  <text x="28" y="182" font-family="sans-serif" font-size="14" fill="#333">-1</text>
+  <text x="396" y="176" font-family="sans-serif" font-size="14" fill="#333">x 轴</text>
+  <text x="216" y="52" font-family="sans-serif" font-size="14" fill="#333">y 轴</text>
+</svg>

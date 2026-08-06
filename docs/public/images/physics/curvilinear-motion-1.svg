@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" font-family="sans-serif">
+  <title>曲线运动的速度方向沿轨迹切线</title>
+  <desc>一条曲线轨迹上，P 点的瞬时速度沿该点的切线方向；割线 PQ 随 Q 逼近 P 而趋于切线，其极限方向就是速度方向。</desc>
+  <rect width="560" height="340" fill="#faf9f5"/>
+  <!-- 轨迹：圆弧的一部分，圆心 O(150,300)，半径 220 -->
+  <path d="M 188 83 A 220 220 0 0 1 357 375" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- 圆心 -->
+  <circle cx="150" cy="300" r="3" fill="#333"/>
+  <text x="112" y="322" font-size="14" fill="#333">圆心 O</text>
+  <!-- 割线（平均速度方向）Q -> P -->
+  <line x1="260" y1="109" x2="306" y2="144" stroke="#6b7f8c" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="218" y="98" font-size="13" fill="#6b7f8c">割线 Δr</text>
+  <!-- 曲线上的 Q 点 -->
+  <circle cx="260" cy="109" r="3" fill="#6b7f8c"/>
+  <text x="268" y="106" font-size="14" fill="#6b7f8c">Q</text>
+  <!-- P 点 -->
+  <circle cx="306" cy="144" r="4" fill="#333"/>
+  <text x="316" y="140" font-size="15" fill="#333">P</text>
+  <!-- 速度矢量 v 沿切线 -->
+  <line x1="306" y1="144" x2="363" y2="201" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="363,201 349,195 357,213" fill="#c0392b"/>
+  <text x="368" y="214" font-size="15" fill="#c0392b">速度 v（沿切线）</text>
+  <!-- 图题 -->
+  <text x="60" y="40" font-size="15" fill="#333">运动轨迹（曲线）</text>
+  <text x="60" y="62" font-size="13" fill="#6b7f8c">速度方向随位置不断改变，始终与轨迹相切</text>
+</svg>

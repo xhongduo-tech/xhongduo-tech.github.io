@@ -43,16 +43,16 @@ pageClass: plain-doc
 - [x] [聚集函数与分组（GROUP BY / HAVING）](./sql-aggregation-group-by)
 - [x] [嵌套子查询与集合成员比较](./sql-nested-subqueries)
 - [x] [空值与三值逻辑](./sql-null-and-three-valued-logic)
-- [ ] 数据库修改：INSERT、UPDATE、DELETE
+- [x] [数据库修改：INSERT、UPDATE、DELETE](./sql-modification-insert-update-delete)
 
 #### 第 4 章 中级 SQL
 
-- [ ] 连接表达式：内连接、外连接与自然连接
-- [ ] 视图：定义、查询与更新
-- [ ] 事务的 SQL 语义
-- [ ] 完整性约束：主码、外码、CHECK 与断言
-- [ ] SQL 的数据类型与模式
-- [ ] 授权：权限、角色与收回
+- [x] [连接表达式：内连接、外连接与自然连接](./sql-join-expressions)
+- [x] [视图：定义、查询与更新](./sql-views)
+- [x] [事务的 SQL 语义](./sql-transaction-semantics)
+- [x] [完整性约束：主码、外码、CHECK 与断言](./sql-integrity-constraints)
+- [x] [SQL 的数据类型与模式](./sql-data-types-and-schemas)
+- [x] [授权：权限、角色与收回](./sql-authorization)
 - [ ] 视图与授权的递归
 
 #### 第 5 章 高级 SQL

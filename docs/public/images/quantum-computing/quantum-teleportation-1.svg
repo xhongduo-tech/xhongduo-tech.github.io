@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" font-family="sans-serif" role="img">
+  <title>量子隐形传态线路图</title>
+  <desc>三根量子线：Alice 的未知态 |ψ⟩、共享贝尔对 |Φ+⟩ 的两个量子比特。Alice 先制备贝尔对，再对未知态执行 CNOT 与 H，测量前两个比特得到两个经典比特，Bob 依据经典比特在第三个比特上施加 Z 与 X 校正门，最终重建 |ψ⟩。</desc>
+  <rect width="820" height="320" fill="#faf9f5"/>
+
+  <!-- 小节标注 -->
+  <text x="100" y="38" font-size="13" fill="#8a8a8a">① 制备贝尔对</text>
+  <text x="262" y="38" font-size="13" fill="#8a8a8a">② Alice 操作</text>
+  <text x="410" y="38" font-size="13" fill="#8a8a8a">③ 测量</text>
+  <text x="600" y="38" font-size="13" fill="#8a8a8a">④ Bob 校正</text>
+
+  <!-- 量子线 -->
+  <line x1="70" y1="80" x2="440" y2="80" stroke="#333" stroke-width="2"/>
+  <line x1="70" y1="150" x2="500" y2="150" stroke="#333" stroke-width="2"/>
+  <line x1="70" y1="220" x2="790" y2="220" stroke="#333" stroke-width="2"/>
+
+  <!-- 输入端标签 -->
+  <text x="30" y="86" font-size="16" fill="#333">|ψ⟩</text>
+  <text x="30" y="156" font-size="16" fill="#333">|0⟩</text>
+  <text x="30" y="226" font-size="16" fill="#333">|0⟩</text>
+
+  <!-- ① H 门在 q1 -->
+  <rect x="110" y="134" width="34" height="32" rx="3" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="127" y="159" font-size="16" font-weight="bold" text-anchor="middle" fill="#1f6f8b">H</text>
+
+  <!-- ① CNOT q1→q2 (控制点 q1, 目标 q2) -->
+  <circle cx="185" cy="150" r="4.5" fill="#333"/>
+  <line x1="185" y1="150" x2="185" y2="220" stroke="#333" stroke-width="2"/>
+  <circle cx="185" cy="220" r="9" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <line x1="176" y1="220" x2="194" y2="220" stroke="#333" stroke-width="2"/>
+  <line x1="185" y1="211" x2="185" y2="229" stroke="#333" stroke-width="2"/>
+
+  <!-- ② CNOT q0→q1 (控制点 q0, 目标 q1) -->
+  <circle cx="275" cy="80" r="4.5" fill="#333"/>
+  <line x1="275" y1="80" x2="275" y2="150" stroke="#333" stroke-width="2"/>
+  <circle cx="275" cy="150" r="9" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <line x1="266" y1="150" x2="284" y2="150" stroke="#333" stroke-width="2"/>
+  <line x1="275" y1="141" x2="275" y2="159" stroke="#333" stroke-width="2"/>
+
+  <!-- ② H 门在 q0 -->
+  <rect x="345" y="64" width="34" height="32" rx="3" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="362" y="89" font-size="16" font-weight="bold" text-anchor="middle" fill="#1f6f8b">H</text>
+
+  <!-- ③ 测量 q0 -->
+  <rect x="425" y="67" width="30" height="26" rx="3" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="440" y="86" font-size="13" text-anchor="middle" fill="#333">M</text>
+
+  <!-- ③ 测量 q1 -->
+  <rect x="485" y="137" width="30" height="26" rx="3" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="500" y="156" font-size="13" text-anchor="middle" fill="#333">M</text>
+
+  <!-- ③ 经典比特线 (双线, 红色) -->
+  <line x1="438" y1="93" x2="438" y2="260" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="442" y1="93" x2="442" y2="260" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="498" y1="163" x2="498" y2="260" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="502" y1="163" x2="502" y2="260" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="438" y1="260" x2="770" y2="260" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="438" y1="264" x2="770" y2="264" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="600" y="285" font-size="13" fill="#c0392b">两个经典比特（经典信道）</text>
+
+  <!-- ④ Bob 校正门 Z^{c0} 与 X^{c1} -->
+  <line x1="618" y1="264" x2="618" y2="236" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="622" y1="264" x2="622" y2="236" stroke="#c0392b" stroke-width="1.5"/>
+  <rect x="596" y="204" width="48" height="32" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+  <text x="620" y="229" font-size="16" font-weight="bold" text-anchor="middle" fill="#c0392b">
+    <tspan>Z</tspan><tspan dy="-6" font-size="11">c₀</tspan>
+  </text>
+
+  <line x1="688" y1="264" x2="688" y2="236" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="692" y1="264" x2="692" y2="236" stroke="#c0392b" stroke-width="1.5"/>
+  <rect x="666" y="204" width="48" height="32" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+  <text x="690" y="229" font-size="16" font-weight="bold" text-anchor="middle" fill="#c0392b">
+    <tspan>X</tspan><tspan dy="-6" font-size="11">c₁</tspan>
+  </text>
+
+  <!-- 输出端标签 -->
+  <text x="786" y="226" font-size="16" text-anchor="end" fill="#333">|ψ⟩</text>
+</svg>

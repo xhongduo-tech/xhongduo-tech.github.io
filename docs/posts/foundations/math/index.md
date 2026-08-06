@@ -48,9 +48,9 @@ pageClass: plain-doc
 ### 三角函数
 
 - [x] [任意角](./arbitrary-angles)
-- [ ] 弧度制
-- [ ] 三角函数的概念
-- [ ] 同角三角函数的基本关系
+- [x] [弧度制](./radian-measure)
+- [x] [三角函数的概念](./trigonometric-functions-concept)
+- [x] [同角三角函数的基本关系](./trigonometric-identities)
 - [ ] 诱导公式
 - [ ] 正弦函数、余弦函数的图象与性质
 - [ ] 正切函数的图象与性质

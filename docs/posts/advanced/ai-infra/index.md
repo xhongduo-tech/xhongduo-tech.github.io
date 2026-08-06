@@ -34,9 +34,9 @@ pageClass: plain-doc
 - [x] [集合通信原语总览：Broadcast、Reduce、AllReduce、AllGather、ReduceScatter、AllToAll](./collective-communication-primitives)
 - [x] [Ring AllReduce 的算法推导与带宽最优性](./ring-allreduce)
 - [x] [Tree AllReduce 与 Double Binary Tree：延迟与带宽的权衡](./tree-allreduce-double-binary-tree)
-- [ ] NCCL 架构：拓扑检测、通道（Channel）与协议选择
-- [ ] NCCL 调优：环境变量、拓扑感知与常见性能陷阱
-- [ ] PCIe、NVLink、NVSwitch 的带宽层级与拓扑
+- [x] [NCCL 架构：拓扑检测、通道（Channel）与协议选择](./nccl-architecture)
+- [x] [NCCL 调优：环境变量、拓扑感知与常见性能陷阱](./nccl-tuning)
+- [x] [PCIe、NVLink、NVSwitch 的带宽层级与拓扑](./pcie-nvlink-nvswitch)
 - [ ] RDMA 原理：内核旁路、零拷贝与队列对（QP）
 - [ ] RoCE v2 与 InfiniBand：无损网络、PFC 与拥塞控制（DCQCN）
 - [ ] 通信计算重叠（overlap）的实现机制

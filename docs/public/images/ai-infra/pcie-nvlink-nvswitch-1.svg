@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>GPU 数据通路的带宽层级：HBM → NVLink → PCIe → InfiniBand</title>
+  <desc>从 GPU 显存 HBM 到跨节点 InfiniBand 的带宽层级阶梯。HBM 约 2 TB/s，NVLink 4.0 每卡 900 GB/s，PCIe 5.0 x16 约 64 GB/s，InfiniBand NDR 400Gb/s 约 50 GB/s，RoCE 200Gb/s 约 25 GB/s。NVLink 与 PCIe 之间存在约 14 倍的带宽悬崖，NVLink 到跨节点 IB 又差约 18 倍。右边标注各层对应的并行策略：TP 中间结果走 HBM，TP 每层通信走 NVLink，GPU 与网卡/CPU 交换走 PCIe，DP 梯度同步与 PP 激活跨节点走 IB/RoCE。</desc>
+  <rect width="900" height="560" fill="#faf9f5"/>
+  <text x="420" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">GPU 数据通路的带宽层级（对数刻度）</text>
+
+  <!-- 五个层级条：x 从 210 起，宽 = (log10(B)-1.0)*150 -->
+  <!-- HBM 2000 -> (3.30-1.0)*150 = 345 -->
+  <rect x="210" y="80" width="345" height="34" fill="#7f8c8d"/>
+  <text x="200" y="103" text-anchor="end" font-size="15" font-weight="bold" fill="#333">GPU 显存 HBM</text>
+  <text x="565" y="103" font-size="14" fill="#333">≈ 2 TB/s</text>
+  <text x="620" y="103" font-size="13" fill="#666">TP 中间结果 / 权重驻留</text>
+
+  <!-- NVLink 4.0 900 -> (2.95-1.0)*150 = 293 -->
+  <rect x="210" y="150" width="293" height="34" fill="#1f6f8b"/>
+  <text x="200" y="173" text-anchor="end" font-size="15" font-weight="bold" fill="#333">NVLink 4.0</text>
+  <text x="513" y="173" font-size="14" fill="#333">≈ 900 GB/s（每卡）</text>
+  <text x="620" y="173" font-size="13" fill="#666">TP 每层通信（激活/部分和）</text>
+
+  <!-- PCIe 5.0 x16 64 -> (1.81-1.0)*150 = 121 -->
+  <rect x="210" y="220" width="121" height="34" fill="#d4956a"/>
+  <text x="200" y="243" text-anchor="end" font-size="15" font-weight="bold" fill="#333">PCIe 5.0 x16</text>
+  <text x="341" y="243" font-size="14" fill="#333">≈ 64 GB/s（单方向）</text>
+  <text x="620" y="243" font-size="13" fill="#666">GPU ↔ 网卡 / CPU / 存储</text>
+
+  <!-- InfiniBand NDR 50 -> (1.70-1.0)*150 = 105 -->
+  <rect x="210" y="290" width="105" height="34" fill="#c0392b"/>
+  <text x="200" y="313" text-anchor="end" font-size="15" font-weight="bold" fill="#333">InfiniBand NDR</text>
+  <text x="325" y="313" font-size="14" fill="#333">≈ 50 GB/s（400Gb/s）</text>
+  <text x="620" y="313" font-size="13" fill="#666">DP 梯度同步 / PP 激活（跨节点）</text>
+
+  <!-- RoCE 200Gb/s 25 -> (1.40-1.0)*150 = 60 -->
+  <rect x="210" y="360" width="60" height="34" fill="#7b6d8d"/>
+  <text x="200" y="383" text-anchor="end" font-size="15" font-weight="bold" fill="#333">RoCE 200Gb/s</text>
+  <text x="280" y="383" font-size="14" fill="#333">≈ 25 GB/s</text>
+  <text x="620" y="383" font-size="13" fill="#666">低成本跨节点备选</text>
+
+  <!-- 带宽悬崖标注 -->
+  <text x="620" y="250" font-size="13" fill="#c0392b" font-weight="bold">带宽悬崖：</text>
+  <text x="620" y="268" font-size="13" fill="#c0392b">NVLink 比 PCIe 快约 14×</text>
+  <text x="620" y="288" font-size="13" fill="#c0392b">NVLink 比 IB 快约 18×</text>
+
+  <line x1="600" y1="160" x2="600" y2="395" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- 底部说明 -->
+  <text x="420" y="435" text-anchor="middle" font-size="14" fill="#333">并行策略 = 通信层级的软件映射</text>
+  <text x="420" y="460" text-anchor="middle" font-size="14" fill="#333">通信频繁的切分（TP）放 NVLink，偶尔同步的（DP/PP）才跨节点</text>
+  <text x="420" y="485" text-anchor="middle" font-size="14" fill="#333">8 卡 A100 节点内聚合 4.8 TB/s vs 跨节点 100 GB/s —— 差 48 倍</text>
+  <text x="420" y="510" text-anchor="middle" font-size="13" fill="#666">横轴为对数刻度：条宽 = log₁₀(带宽)×150，避免 2 TB/s 把其余层级压成一条线</text>
+</svg>
