@@ -39,7 +39,7 @@ pageClass: plain-doc
 
 - [x] [语言模型概述：概率定义与链式法则](./language-model-probability-chain-rule)
 - [x] [n-gram 模型：马尔可夫假设与参数估计](./ngram-markov-estimation)
-- [ ] 数据平滑：加法平滑与古德-图灵估计（Good-Turing）
+- [x] [数据平滑：加法平滑与古德-图灵估计（Good-Turing）](./data-smoothing-additive-good-turing)
 - [ ] 数据平滑：插值法与 Kneser-Ney 平滑
 - [ ] 困惑度（Perplexity）与语言模型的评价
 - [ ] 神经网络语言模型（NNLM）与循环神经网络语言模型（RNNLM）

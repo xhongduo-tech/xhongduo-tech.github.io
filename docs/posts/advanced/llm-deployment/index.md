@@ -34,8 +34,8 @@ pageClass: plain-doc
 - [x] [PagedAttention：KV Cache 的页式内存管理](./paged-attention)
 - [x] [块表（Block Table）与逻辑物理块映射](./block-table)
 - [x] [Continuous Batching 的原理与实现](./continuous-batching)
-- [ ] Chunked Prefill：长输入的分块调度
-- [ ] Prefix Caching：共享前缀的缓存复用
+- [x] [Chunked Prefill：长输入的分块调度](./chunked-prefill)
+- [x] [Prefix Caching：共享前缀的缓存复用](./prefix-caching)
 - [ ] vLLM 调度器源码分析（一）：请求生命周期
 - [ ] vLLM 调度器源码分析（二）：抢占与换入换出
 - [ ] vLLM V0 到 V1 架构演进

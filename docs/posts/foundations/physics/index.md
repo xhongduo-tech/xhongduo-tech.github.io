@@ -35,10 +35,10 @@ pageClass: plain-doc
 
 ### 必修第一册 · 第四章 运动和力的关系
 
-- [ ] 牛顿第一定律
-- [ ] 实验：探究加速度与力、质量的关系
-- [ ] 牛顿第二定律
-- [ ] 力学单位制
+- [x] [牛顿第一定律](./newton-first-law)
+- [x] [实验：探究加速度与力、质量的关系](./experiment-acceleration-force-mass)
+- [x] [牛顿第二定律](./newton-second-law)
+- [x] [力学单位制](./mechanical-unit-system)
 - [ ] 牛顿运动定律的应用
 - [ ] 超重和失重
 

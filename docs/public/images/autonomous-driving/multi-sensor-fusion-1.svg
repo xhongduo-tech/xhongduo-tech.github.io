@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">多传感器融合的三个层次：后融合、特征级融合与前融合</title>
+  <desc id="desc">三列纵向流程图，左侧为后融合（各传感器独立感知后做目标级融合），中间为特征级融合（特征对齐拼接后统一解码），右侧为前融合（原始数据对齐到统一坐标系后输入端到端网络）。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="400" fill="#faf9f5" rx="12"/>
+
+  <text x="480" y="30" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#333">多传感器融合的三个层次</text>
+
+  <!-- 列标题 -->
+  <text x="170" y="60" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#c0392b">后融合 · Late</text>
+  <text x="485" y="60" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#c0392b">特征级融合 · Feature</text>
+  <text x="805" y="60" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#c0392b">前融合 · Early</text>
+
+  <!-- 列 1：后融合 -->
+  <rect x="55" y="78" width="120" height="34" rx="6" fill="#eaf2f5" stroke="#333" stroke-width="1.5"/>
+  <text x="115" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">相机感知</text>
+  <rect x="185" y="78" width="120" height="34" rx="6" fill="#f7f0e8" stroke="#333" stroke-width="1.5"/>
+  <text x="245" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">LiDAR 感知</text>
+
+  <line x1="115" y1="112" x2="115" y2="146" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="245" y1="112" x2="245" y2="146" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="85" y="150" width="170" height="34" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="170" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">目标列表 ×2</text>
+
+  <line x1="170" y1="184" x2="170" y2="226" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="65" y="230" width="210" height="46" rx="6" fill="#ece5d8" stroke="#333" stroke-width="1.5"/>
+  <text x="170" y="250" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">目标级融合</text>
+  <text x="170" y="267" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">匹配 · 合并 · 航迹</text>
+
+  <line x1="170" y1="276" x2="170" y2="316" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="90" y="320" width="160" height="32" rx="6" fill="#cfe0e6" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="170" y="341" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">目标 / 轨迹</text>
+
+  <!-- 列 2：特征级融合 -->
+  <rect x="385" y="78" width="120" height="34" rx="6" fill="#eaf2f5" stroke="#333" stroke-width="1.5"/>
+  <text x="445" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">相机特征</text>
+  <rect x="515" y="78" width="120" height="34" rx="6" fill="#f7f0e8" stroke="#333" stroke-width="1.5"/>
+  <text x="575" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">LiDAR 特征</text>
+
+  <line x1="445" y1="112" x2="445" y2="146" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="575" y1="112" x2="575" y2="146" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="395" y="150" width="180" height="34" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="485" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">特征对齐 + 拼接</text>
+
+  <line x1="485" y1="184" x2="485" y2="226" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="395" y="230" width="180" height="46" rx="6" fill="#ece5d8" stroke="#333" stroke-width="1.5"/>
+  <text x="485" y="250" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">统一解码网络</text>
+  <text x="485" y="267" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">一个模型，端到端训练</text>
+
+  <line x1="485" y1="276" x2="485" y2="316" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="400" y="320" width="170" height="32" rx="6" fill="#cfe0e6" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="485" y="341" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">目标 / 占用 / 轨迹</text>
+
+  <!-- 列 3：前融合 -->
+  <rect x="705" y="78" width="120" height="34" rx="6" fill="#eaf2f5" stroke="#333" stroke-width="1.5"/>
+  <text x="765" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">相机原始数据</text>
+  <rect x="835" y="78" width="120" height="34" rx="6" fill="#f7f0e8" stroke="#333" stroke-width="1.5"/>
+  <text x="895" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">LiDAR 原始点云</text>
+
+  <line x1="765" y1="112" x2="765" y2="146" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="895" y1="112" x2="895" y2="146" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="715" y="150" width="180" height="34" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="805" y="172" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">对齐到统一坐标系</text>
+
+  <line x1="805" y1="184" x2="805" y2="226" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="715" y="230" width="180" height="46" rx="6" fill="#ece5d8" stroke="#333" stroke-width="1.5"/>
+  <text x="805" y="250" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">端到端网络</text>
+  <text x="805" y="267" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">从原始数据学到输出</text>
+
+  <line x1="805" y1="276" x2="805" y2="316" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="725" y="320" width="160" height="32" rx="6" fill="#cfe0e6" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="805" y="341" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">目标 / 占用 / 轨迹</text>
+
+  <!-- 底部注解 -->
+  <text x="480" y="382" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">融合点越靠前，信息保留越完整、对标定与算力的要求也越高；量产常做多级混合融合</text>
+</svg>

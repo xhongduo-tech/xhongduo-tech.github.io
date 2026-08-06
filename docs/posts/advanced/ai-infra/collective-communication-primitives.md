@@ -18,7 +18,7 @@ date: 2026-08-07
 
 第一篇我们全程在**一张 GPU** 里打转：内存层次、occupancy、矩阵乘、FlashAttention。但从数据并行开始，训练要横跨几十上百张 GPU，数据不再在寄存器和 HBM 之间流动，而是在**机器的网络之间流动**。多卡并行的第一课，就是认识这些「数据流动」的基本动作——**集合通信（collective communication）**。
 
-集合通信是 MPI 时代就存在的标准词汇：一组进程之间，把数据按某种模式整体地搬运、聚合。现代大规模训练（NCCL、Horovod、DeepSpeed、PyTorch 分布式）全部建立在六个原语之上。你后面会反复撞见它们：数据并行的梯度同步是 AllReduce，ZeRO/FSDP 的梯度切分是 ReduceScatter，MoE 的 token 路由是 AllToAll。**这一课是整篇《集合通信》的词汇表**——先把六个词的意思和账单讲清楚，后面讲 Ring、讲 NCCL、讲 RDMA 才有地基。<span class="marginnote">为什么要先学「原语」而不是直接学 NCCL？因为原语定义的是「做什么、花多少通信量」，与实现无关；NCCL 只是这些原语在 GPU 网络上的高效实现。<strong>先把通信量账单算明白，后面看任何实现的优化都是在还这张账单的价。</strong></span>
+集合通信是 MPI 时代就存在的标准词汇：一组进程之间，把数据按某种模式整体地搬运、聚合（第三级《分布式系统》会以 CPU 集群与 MPI 的视角见到同一套原语）。现代大规模训练（NCCL、Horovod、DeepSpeed、PyTorch 分布式）全部建立在六个原语之上。你后面会反复撞见它们：数据并行的梯度同步是 AllReduce，ZeRO/FSDP 的梯度切分是 ReduceScatter，MoE 的 token 路由是 AllToAll。**这一课是整篇《集合通信》的词汇表**——先把六个词的意思和账单讲清楚，后面讲 Ring、讲 NCCL、讲 RDMA 才有地基。<span class="marginnote">为什么要先学「原语」而不是直接学 NCCL？因为原语定义的是「做什么、花多少通信量」，与实现无关；NCCL 只是这些原语在 GPU 网络上的高效实现。<strong>先把通信量账单算明白，后面看任何实现的优化都是在还这张账单的价。</strong></span>
 
 ## 1 从点对点通信到集合通信
 

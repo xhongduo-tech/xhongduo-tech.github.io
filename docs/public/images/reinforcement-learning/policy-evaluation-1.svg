@@ -1,0 +1,57 @@
+<svg viewBox="0 0 500 560" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>4×4 网格世界在随机策略下的最终价值函数</title>
+  <desc>一个 4×4 的网格世界，左上角与右下角为终止状态（价值 0），其余格子标着在等概率随机策略下收敛后的状态价值，全部为负，越靠近终止状态的格子负得越少。</desc>
+  <rect x="0" y="0" width="500" height="560" fill="#faf9f5"/>
+  <text x="250" y="42" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">4×4 网格世界 · 随机策略下的 v_π</text>
+
+  <g stroke="#333" stroke-width="1.5">
+    <!-- Row 0 -->
+    <rect x="30" y="80" width="110" height="110" fill="#f6ded9" stroke="#c0392b" stroke-width="2"/>
+    <rect x="140" y="80" width="110" height="110" fill="#faf9f5"/>
+    <rect x="250" y="80" width="110" height="110" fill="#faf9f5"/>
+    <rect x="360" y="80" width="110" height="110" fill="#faf9f5"/>
+    <!-- Row 1 -->
+    <rect x="30" y="190" width="110" height="110" fill="#faf9f5"/>
+    <rect x="140" y="190" width="110" height="110" fill="#faf9f5"/>
+    <rect x="250" y="190" width="110" height="110" fill="#faf9f5"/>
+    <rect x="360" y="190" width="110" height="110" fill="#faf9f5"/>
+    <!-- Row 2 -->
+    <rect x="30" y="300" width="110" height="110" fill="#faf9f5"/>
+    <rect x="140" y="300" width="110" height="110" fill="#faf9f5"/>
+    <rect x="250" y="300" width="110" height="110" fill="#faf9f5"/>
+    <rect x="360" y="300" width="110" height="110" fill="#faf9f5"/>
+    <!-- Row 3 -->
+    <rect x="30" y="410" width="110" height="110" fill="#faf9f5"/>
+    <rect x="140" y="410" width="110" height="110" fill="#faf9f5"/>
+    <rect x="250" y="410" width="110" height="110" fill="#faf9f5"/>
+    <rect x="360" y="410" width="110" height="110" fill="#f6ded9" stroke="#c0392b" stroke-width="2"/>
+  </g>
+
+  <g text-anchor="middle" font-size="26" fill="#333">
+    <!-- Row 0 -->
+    <text x="85" y="142" fill="#c0392b" font-weight="bold">0</text>
+    <text x="195" y="142">−14</text>
+    <text x="305" y="142">−20</text>
+    <text x="415" y="142">−22</text>
+    <!-- Row 1 -->
+    <text x="85" y="252">−14</text>
+    <text x="195" y="252">−18</text>
+    <text x="305" y="252">−20</text>
+    <text x="415" y="252">−20</text>
+    <!-- Row 2 -->
+    <text x="85" y="362">−20</text>
+    <text x="195" y="362">−20</text>
+    <text x="305" y="362">−18</text>
+    <text x="415" y="362">−14</text>
+    <!-- Row 3 -->
+    <text x="85" y="472">−22</text>
+    <text x="195" y="472">−20</text>
+    <text x="305" y="472">−14</text>
+    <text x="415" y="472" fill="#c0392b" font-weight="bold">0</text>
+  </g>
+
+  <text x="85" y="120" text-anchor="middle" font-size="13" fill="#c0392b">终止</text>
+  <text x="415" y="450" text-anchor="middle" font-size="13" fill="#c0392b">终止</text>
+
+  <text x="250" y="548" text-anchor="middle" font-size="14" fill="#333">每步（含走向终止）奖励 −1；数值为收敛后 v_π 的近似值</text>
+</svg>

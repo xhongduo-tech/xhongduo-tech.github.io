@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">有氧呼吸的三个阶段示意图</title>
+  <desc id="desc">有氧呼吸三个阶段示意：第一阶段在细胞质基质，葡萄糖分解为丙酮酸和[H]并释放少量能量；第二阶段在线粒体基质，丙酮酸与水反应生成二氧化碳和[H]并释放少量能量；第三阶段在线粒体内膜，[H]与氧气结合生成水并释放大量能量。箭头标明丙酮酸依次流向第二阶段，[H]流向第三阶段，氧气从外部进入第三阶段。</desc>
+
+  <rect x="0" y="0" width="800" height="460" fill="#faf9f5"/>
+  <text x="400" y="34" font-size="17" fill="#333" text-anchor="middle" font-weight="bold">有氧呼吸的三个阶段</text>
+
+  <!-- 三个阶段方框 -->
+  <g stroke="#1f6f8b" stroke-width="1.6" fill="#eef4f6">
+    <rect x="80"  y="120" width="200" height="130" rx="8"/>
+    <rect x="300" y="120" width="200" height="130" rx="8"/>
+    <rect x="520" y="120" width="200" height="130" rx="8"/>
+  </g>
+
+  <!-- 方框标题 -->
+  <text x="180" y="145" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">第一阶段</text>
+  <text x="180" y="164" font-size="13" fill="#333" text-anchor="middle">细胞质基质</text>
+  <text x="400" y="145" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">第二阶段</text>
+  <text x="400" y="164" font-size="13" fill="#333" text-anchor="middle">线粒体基质</text>
+  <text x="620" y="145" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">第三阶段</text>
+  <text x="620" y="164" font-size="13" fill="#333" text-anchor="middle">线粒体内膜</text>
+
+  <!-- 反应式文字 -->
+  <text x="180" y="190" font-size="13" fill="#333" text-anchor="middle">葡萄糖 → 丙酮酸</text>
+  <text x="180" y="210" font-size="13" fill="#333" text-anchor="middle">C6H12O6 → 2C3H4O3</text>
+  <text x="180" y="230" font-size="13" fill="#c0392b" text-anchor="middle">+ 4[H] + 少量能量</text>
+
+  <text x="400" y="190" font-size="13" fill="#333" text-anchor="middle">丙酮酸 + 水 → 二氧化碳</text>
+  <text x="400" y="210" font-size="13" fill="#333" text-anchor="middle">2C3H4O3 + 6H2O → 6CO2</text>
+  <text x="400" y="230" font-size="13" fill="#c0392b" text-anchor="middle">+ 20[H] + 少量能量</text>
+
+  <text x="620" y="190" font-size="13" fill="#333" text-anchor="middle">[H] + 氧 → 水</text>
+  <text x="620" y="210" font-size="13" fill="#333" text-anchor="middle">24[H] + 6O2 → 12H2O</text>
+  <text x="620" y="230" font-size="13" fill="#c0392b" text-anchor="middle">+ 大量能量</text>
+
+  <!-- 阶段间箭头：丙酮酸 与 [H] -->
+  <line x1="282" y1="180" x2="296" y2="180" stroke="#333" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="289" y="172" font-size="13" fill="#333" text-anchor="middle">丙酮酸</text>
+  <line x1="502" y1="180" x2="516" y2="180" stroke="#333" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="509" y="172" font-size="13" fill="#333" text-anchor="middle">[H]</text>
+
+  <!-- 输入输出：葡萄糖 / 氧气 / 二氧化碳 / 水 -->
+  <text x="180" y="98" font-size="13" fill="#333" text-anchor="middle">葡萄糖 C6H12O6</text>
+  <line x1="180" y1="104" x2="180" y2="118" stroke="#333" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <text x="400" y="98" font-size="13" fill="#c0392b" text-anchor="middle">二氧化碳 CO2</text>
+  <line x1="400" y1="118" x2="400" y2="104" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <text x="620" y="98" font-size="13" fill="#333" text-anchor="middle">氧气 O2</text>
+  <line x1="620" y1="104" x2="620" y2="118" stroke="#333" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <text x="620" y="272" font-size="13" fill="#1f6f8b" text-anchor="middle">水 H2O</text>
+  <line x1="620" y1="252" x2="620" y2="266" stroke="#1f6f8b" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <text x="400" y="438" font-size="13" fill="#333" text-anchor="middle">能量逐级释放：第三阶段释放最多、合成大量 ATP；CO2 在第二阶段产生，O2 在第三阶段参与</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

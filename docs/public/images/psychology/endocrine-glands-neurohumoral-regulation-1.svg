@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <title id="title">神经—体液调节：下丘脑—垂体—肾上腺皮质轴（HPA 轴）与负反馈</title>
+  <desc id="desc">示意图：下丘脑分泌 CRH 刺激腺垂体分泌 ACTH，ACTH 刺激肾上腺皮质分泌皮质醇，皮质醇作用于全身靶细胞；皮质醇浓度升高后经负反馈抑制下丘脑与垂体。上方注明下丘脑受神经系统（大脑皮层、边缘系统）调控。</desc>
+
+  <rect x="0" y="0" width="800" height="470" fill="#faf9f5"/>
+
+  <text x="400" y="28" font-size="17" fill="#333" text-anchor="middle" font-weight="bold">神经—体液调节：下丘脑—垂体—肾上腺皮质轴（HPA 轴）与负反馈</text>
+
+  <!-- 神经系统输入 -->
+  <rect x="250" y="52" width="300" height="34" rx="8" fill="#e8f2f5" stroke="#1f6f8b" stroke-width="1.6"/>
+  <text x="400" y="73" font-size="13" fill="#1f6f8b" text-anchor="middle">神经系统（大脑皮层、边缘系统）→ 下丘脑</text>
+
+  <!-- 三级轴：主链 -->
+  <g stroke-width="2" fill="none">
+    <line x1="400" y1="130" x2="400" y2="172" stroke="#1f6f8b" marker-end="url(#arrow)"/>
+    <line x1="400" y1="224" x2="400" y2="266" stroke="#1f6f8b" marker-end="url(#arrow)"/>
+    <line x1="400" y1="318" x2="400" y2="360" stroke="#1f6f8b" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- 激素名称标注（主链右侧） -->
+  <text x="412" y="150" font-size="13" fill="#1f6f8b">CRH（释放激素）</text>
+  <text x="412" y="244" font-size="13" fill="#1f6f8b">ACTH（促激素）</text>
+  <text x="412" y="338" font-size="13" fill="#1f6f8b">皮质醇（糖皮质激素）</text>
+
+  <!-- 四个环节 -->
+  <g font-size="15" text-anchor="middle">
+    <rect x="300" y="86" width="200" height="44" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="400" y="113" fill="#333" font-weight="bold">下丘脑</text>
+
+    <rect x="300" y="172" width="200" height="52" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="400" y="196" fill="#333" font-weight="bold">腺垂体（前叶）</text>
+    <text x="400" y="214" font-size="13" fill="#666">分泌促激素</text>
+
+    <rect x="300" y="266" width="200" height="52" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="400" y="290" fill="#333" font-weight="bold">肾上腺皮质</text>
+    <text x="400" y="308" font-size="13" fill="#666">分泌皮质醇</text>
+
+    <rect x="300" y="360" width="200" height="44" rx="10" fill="#fdf3e2" stroke="#c0392b" stroke-width="2"/>
+    <text x="400" y="387" fill="#333" font-weight="bold">全身靶细胞</text>
+  </g>
+
+  <!-- 负反馈回路 -->
+  <path d="M 500 292 L 580 292 L 580 108 L 500 108" fill="none" stroke="#c0392b" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arrowR)"/>
+  <path d="M 580 198 L 500 198" fill="none" stroke="#c0392b" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#arrowR)"/>
+  <text x="598" y="196" font-size="13" fill="#c0392b" font-weight="bold">负反馈</text>
+  <text x="598" y="212" font-size="13" fill="#c0392b">（抑制）</text>
+
+  <!-- 底部补充说明 -->
+  <line x1="60" y1="420" x2="740" y2="420" stroke="#ddd" stroke-width="1"/>
+  <text x="400" y="444" font-size="14" fill="#333" text-anchor="middle">快速应激通路（交感—肾上腺髓质，秒级）不在本图内：它由交感神经直接支配，是应激的「快车道」。</text>
+</svg>

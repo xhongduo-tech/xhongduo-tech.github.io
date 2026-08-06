@@ -32,10 +32,10 @@ pageClass: plain-doc
 
 - [x] [离散傅里叶变换（DFT）与短时傅里叶变换（STFT）](./dft-stft)
 - [x] [语谱图（Spectrogram）的生成与解读](./spectrogram)
-- [ ] 线性预测分析（LPC）与 LPC 系数
-- [ ] 倒谱分析：同态滤波与复倒谱
-- [ ] 基音周期估计：自相关法与 YIN 算法
-- [ ] 共振峰估计与声道参数提取
+- [x] [线性预测分析（LPC）与 LPC 系数](./lpc-linear-prediction)
+- [x] [倒谱分析：同态滤波与复倒谱](./cepstrum-homomorphic-analysis)
+- [x] [基音周期估计：自相关法与 YIN 算法](./pitch-period-estimation)
+- [x] [共振峰估计与声道参数提取](./formant-estimation)
 
 ### 听觉特征提取
 

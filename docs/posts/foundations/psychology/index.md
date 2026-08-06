@@ -25,10 +25,10 @@ pageClass: plain-doc
 
 - [x] [神经元、神经冲动与突触传递](./neurons-nerve-impulse-synaptic-transmission)
 - [x] [神经系统的结构：周围神经系统与中枢神经系统](./nervous-system-structure-pns-cns)
-- [ ] 大脑皮层的分区与机能定位
-- [ ] 大脑两半球的一侧化优势：裂脑人研究
-- [ ] 脑功能学说：定位说、整体说与机能系统学说
-- [ ] 内分泌腺与神经—体液调节
+- [x] [大脑皮层的分区与机能定位](./cerebral-cortex-localization-function)
+- [x] [大脑两半球的一侧化优势：裂脑人研究](./split-brain-hemispheric-lateralization)
+- [x] [脑功能学说：定位说、整体说与机能系统学说](./brain-function-theories)
+- [x] [内分泌腺与神经—体液调节](./endocrine-glands-neurohumoral-regulation)
 
 ### 感觉
 

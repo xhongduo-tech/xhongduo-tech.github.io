@@ -37,12 +37,12 @@ pageClass: plain-doc
 #### 第 3 章 SQL 基础
 
 - [x] [SQL 查询语言概览与数据定义（DDL）](./sql-overview-and-ddl)
-- [ ] 单关系查询：SELECT 基本结构
-- [ ] 多关系查询：连接与笛卡儿积
-- [ ] 集合运算：并、交、差
-- [ ] 聚集函数与分组（GROUP BY / HAVING）
-- [ ] 嵌套子查询与集合成员比较
-- [ ] 空值与三值逻辑
+- [x] [单关系查询：SELECT 基本结构](./sql-single-relation-select)
+- [x] [多关系查询：连接与笛卡儿积](./sql-multi-relation-joins)
+- [x] [集合运算：并、交、差](./sql-set-operations)
+- [x] [聚集函数与分组（GROUP BY / HAVING）](./sql-aggregation-group-by)
+- [x] [嵌套子查询与集合成员比较](./sql-nested-subqueries)
+- [x] [空值与三值逻辑](./sql-null-and-three-valued-logic)
 - [ ] 数据库修改：INSERT、UPDATE、DELETE
 
 #### 第 4 章 中级 SQL

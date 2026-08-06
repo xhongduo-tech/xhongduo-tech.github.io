@@ -1,0 +1,80 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>同态解卷积流程</title>
+  <desc>语音经幅度谱、对数谱、反变换到倒谱，再经低时 / 高时倒滤波分成谱包络与激励</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#888"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="720" height="340" fill="#faf9f5"/>
+  <text x="360" y="32" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">同态解卷积：卷积 → 加法 → 倒频率轴分离</text>
+
+  <!-- stage boxes -->
+  <g stroke="#1f6f8b" stroke-width="1.5" fill="#f5f1e8">
+    <rect x="30" y="68" width="140" height="48" rx="6"/>
+    <rect x="212" y="68" width="130" height="48" rx="6"/>
+    <rect x="384" y="68" width="160" height="48" rx="6"/>
+    <rect x="586" y="68" width="110" height="48" rx="6"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <text x="100" y="88">语音 s(n)</text>
+    <text x="100" y="106">s = e * h</text>
+    <text x="277" y="88">幅度谱 |S(k)|</text>
+    <text x="277" y="106">S = E · H</text>
+    <text x="464" y="88">对数谱 log|S|</text>
+    <text x="464" y="106" fill="#c0392b">= log|E| + log|H|</text>
+    <text x="641" y="88">倒谱 c(n)</text>
+    <text x="641" y="106">IDFT</text>
+  </g>
+
+  <!-- top arrows -->
+  <g stroke="#888" stroke-width="1.6" marker-end="url(#arrow)">
+    <line x1="172" y1="92" x2="206" y2="92"/>
+    <line x1="344" y1="92" x2="378" y2="92"/>
+    <line x1="546" y1="92" x2="580" y2="92"/>
+  </g>
+  <g font-size="13" fill="#777" text-anchor="middle">
+    <text x="189" y="82">DFT</text>
+    <text x="361" y="82">log|·|</text>
+    <text x="563" y="82">IDFT</text>
+  </g>
+
+  <!-- down arrows from cepstrum -->
+  <g stroke="#888" stroke-width="1.6" marker-end="url(#arrow)">
+    <line x1="641" y1="116" x2="641" y2="152"/>
+    <line x1="641" y1="152" x2="255" y2="152"/>
+    <line x1="641" y1="152" x2="490" y2="152"/>
+    <line x1="255" y1="152" x2="255" y2="180"/>
+    <line x1="490" y1="152" x2="490" y2="180"/>
+  </g>
+
+  <!-- lifter boxes -->
+  <g stroke="#c0392b" stroke-width="1.5" fill="#fdf2ef">
+    <rect x="145" y="180" width="220" height="48" rx="6"/>
+    <rect x="380" y="180" width="220" height="48" rx="6"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <text x="255" y="200">低时倒滤波</text>
+    <text x="255" y="218" font-size="13" fill="#555">保留 n 小的一段（如 n ≤ 20）</text>
+    <text x="490" y="200">高时倒滤波</text>
+    <text x="490" y="218" font-size="13" fill="#555">保留 n ≈ T0 附近</text>
+  </g>
+
+  <!-- output arrows -->
+  <g stroke="#888" stroke-width="1.6" marker-end="url(#arrow)">
+    <line x1="255" y1="228" x2="255" y2="260"/>
+    <line x1="490" y1="228" x2="490" y2="260"/>
+  </g>
+
+  <!-- outputs -->
+  <g stroke="#1f6f8b" stroke-width="1.5" fill="#eef6f8">
+    <rect x="145" y="260" width="220" height="48" rx="6"/>
+    <rect x="380" y="260" width="220" height="48" rx="6"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <text x="255" y="280">谱包络</text>
+    <text x="255" y="298" font-size="13" fill="#555">→ 共振峰估计</text>
+    <text x="490" y="280">激励（基频峰）</text>
+    <text x="490" y="298" font-size="13" fill="#555">→ 基音周期估计</text>
+  </g>
+</svg>

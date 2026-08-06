@@ -41,13 +41,13 @@ pageClass: plain-doc
 - [x] [对数的概念与运算](./logarithms)
 - [x] [对数函数的概念、图象和性质](./logarithmic-functions)
 - [x] [不同函数增长的差异](./function-growth-differences)
-- [ ] 函数的零点与方程的解
-- [ ] 用二分法求方程的近似解
-- [ ] 函数模型的应用
+- [x] [函数的零点与方程的解](./function-zeros)
+- [x] [用二分法求方程的近似解](./bisection-method)
+- [x] [函数模型的应用](./function-models)
 
 ### 三角函数
 
-- [ ] 任意角
+- [x] [任意角](./arbitrary-angles)
 - [ ] 弧度制
 - [ ] 三角函数的概念
 - [ ] 同角三角函数的基本关系

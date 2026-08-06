@@ -36,10 +36,10 @@ pageClass: plain-doc
 ### 第二篇 量子比特与布洛赫球
 
 - [x] [量子比特：|0⟩、|1⟩ 与叠加态](./qubit-superposition)
-- [ ] 布洛赫球（Bloch sphere）表示
-- [ ] 单比特量子态的测量与基的选择
-- [ ] 多量子比特系统与纠缠态
-- [ ] 不可克隆定理（no-cloning theorem）
+- [x] [布洛赫球（Bloch sphere）表示](./bloch-sphere-representation)
+- [x] [单比特量子态的测量与基的选择](./single-qubit-measurement-basis)
+- [x] [多量子比特系统与纠缠态](./multiqubit-systems-entanglement)
+- [x] [不可克隆定理（no-cloning theorem）](./no-cloning-theorem)
 - [ ] 量子隐形传态（quantum teleportation）
 - [ ] 超密编码（superdense coding）
 

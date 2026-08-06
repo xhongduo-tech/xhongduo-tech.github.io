@@ -33,7 +33,7 @@ pageClass: plain-doc
 
 - [x] [集合通信原语总览：Broadcast、Reduce、AllReduce、AllGather、ReduceScatter、AllToAll](./collective-communication-primitives)
 - [x] [Ring AllReduce 的算法推导与带宽最优性](./ring-allreduce)
-- [ ] Tree AllReduce 与 Double Binary Tree：延迟与带宽的权衡
+- [x] [Tree AllReduce 与 Double Binary Tree：延迟与带宽的权衡](./tree-allreduce-double-binary-tree)
 - [ ] NCCL 架构：拓扑检测、通道（Channel）与协议选择
 - [ ] NCCL 调优：环境变量、拓扑感知与常见性能陷阱
 - [ ] PCIe、NVLink、NVSwitch 的带宽层级与拓扑

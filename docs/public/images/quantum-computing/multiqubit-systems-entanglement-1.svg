@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">制备贝尔态 |Φ⁺⟩ 的量子线路</title>
+  <desc id="desc">两比特量子线路图。上方量子比特 q0 输入 |0⟩，经过 Hadamard 门 H 变为叠加态 (|0⟩+|1⟩)/√2，再作为 CNOT 门的控制位；下方量子比特 q1 输入 |0⟩ 作为 CNOT 的目标位。施加 CNOT 后整体输出贝尔态 |Φ⁺⟩ = (|00⟩+|11⟩)/√2。CNOT 的实心圆点是控制位，带加号的大圆是目标位。</desc>
+
+  <rect x="0" y="0" width="700" height="280" fill="#faf9f5"/>
+
+  <text x="350" y="40" text-anchor="middle" font-size="22" fill="#333">制备贝尔态 |Φ⁺⟩ 的量子线路</text>
+
+  <!-- 量子线 -->
+  <line x1="70" y1="100" x2="560" y2="100" stroke="#333" stroke-width="1.6"/>
+  <line x1="70" y1="180" x2="560" y2="180" stroke="#333" stroke-width="1.6"/>
+
+  <!-- 输入标签 -->
+  <text x="46" y="106" font-size="18" fill="#333" font-weight="bold">|0⟩</text>
+  <text x="46" y="186" font-size="18" fill="#333" font-weight="bold">|0⟩</text>
+
+  <!-- 量子比特名 -->
+  <text x="70" y="78" font-size="15" fill="#666">q0</text>
+  <text x="70" y="158" font-size="15" fill="#666">q1</text>
+
+  <!-- H 门 -->
+  <rect x="190" y="76" width="52" height="48" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="216" y="108" text-anchor="middle" font-size="22" fill="#1f6f8b" font-weight="bold">H</text>
+
+  <!-- H 门后 q0 的状态 -->
+  <text x="285" y="88" font-size="15" fill="#666">(|0⟩+|1⟩)/√2</text>
+
+  <!-- CNOT 门 -->
+  <circle cx="400" cy="100" r="5" fill="#c0392b"/>
+  <line x1="400" y1="100" x2="400" y2="180" stroke="#c0392b" stroke-width="1.8"/>
+  <circle cx="400" cy="180" r="12" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <line x1="392" y1="180" x2="408" y2="180" stroke="#c0392b" stroke-width="2"/>
+  <line x1="400" y1="172" x2="400" y2="188" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- CNOT 门标注 -->
+  <text x="400" y="66" text-anchor="middle" font-size="14" fill="#c0392b">控制位</text>
+  <text x="400" y="230" text-anchor="middle" font-size="14" fill="#c0392b">目标位</text>
+
+  <!-- 输出 -->
+  <text x="470" y="106" font-size="17" fill="#333" font-weight="bold">|0⟩</text>
+  <text x="470" y="186" font-size="17" fill="#333" font-weight="bold">|0⟩</text>
+
+  <text x="350" y="260" text-anchor="middle" font-size="15" fill="#333">输入 |00⟩ →（H⊗I）→ (|00⟩+|10⟩)/√2 →（CNOT）→ |Φ⁺⟩ = (|00⟩+|11⟩)/√2</text>
+</svg>

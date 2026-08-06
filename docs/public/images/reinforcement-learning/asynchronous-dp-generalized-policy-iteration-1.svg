@@ -1,0 +1,34 @@
+<svg viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>广义策略迭代（GPI）：评估与改进两个过程的相互作用</title>
+  <desc>一个六角星形示意图：向下的青色三角形代表策略评估（把价值函数拉向当前策略的真实价值），向上的红色三角形代表策略改进（把策略拉向当前价值函数的贪心），两股力在中心交汇，趋向最优价值与最优策略的交点。</desc>
+  <rect x="0" y="0" width="500" height="480" fill="#faf9f5"/>
+
+  <!-- 评估（青色，向下） -->
+  <polygon points="80,100 420,100 250,410" fill="#1f6f8b" fill-opacity="0.16" stroke="#1f6f8b" stroke-width="2.5"/>
+  <!-- 改进（红色，向上） -->
+  <polygon points="80,380 420,380 250,70" fill="#c0392b" fill-opacity="0.16" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- 中心交点的标签底 -->
+  <rect x="150" y="205" width="200" height="70" rx="8" fill="#faf9f5" stroke="#333" stroke-width="1.5"/>
+  <text x="250" y="234" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">v ≈ v_π</text>
+  <text x="250" y="258" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">π ≈ greedy(v)</text>
+
+  <text x="250" y="56" text-anchor="middle" font-size="18" fill="#c0392b" font-weight="bold">策略改进（贪心）</text>
+  <text x="250" y="438" text-anchor="middle" font-size="18" fill="#1f6f8b" font-weight="bold">策略评估（迭代 v_π）</text>
+
+  <!-- 评估向内的小箭头（青色） -->
+  <line x1="200" y1="320" x2="230" y2="282" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow1)"/>
+  <line x1="300" y1="320" x2="270" y2="282" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow1)"/>
+  <!-- 改进向内的小箭头（红色） -->
+  <line x1="200" y1="160" x2="230" y2="198" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow2)"/>
+  <line x1="300" y1="160" x2="270" y2="198" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow2)"/>
+
+  <defs>
+    <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

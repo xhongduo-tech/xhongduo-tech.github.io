@@ -68,7 +68,8 @@ date: 2026-08-07
 **词干提取**：用规则砍掉词的词缀，得到「词干」。最经典的是波特词干器（Porter Stemmer，1980），它对英语制定了一整套后缀替换规则。例子：
 
 - `cats` → `cat`
-- `running` → `runn`（直接砍掉 `ing`，不保证结果是一个合法词）
+- `running` → `run`（Porter 的双写辅音规则同时处理了 `ing`）
+- `relational` → `relat`（把 `-ational` 砍成 `-at`，结果不是一个词——词干提取不保证产出合法词）
 - `went` → `went`（不规则形式，规则法无能为力）
 
 ### 词形还原（Lemmatization）
@@ -140,8 +141,8 @@ wnl = WordNetLemmatizer()
 lemmas = [wnl.lemmatize(t, pos="v") for t in tokens]  # 按动词还原
 
 print(tokens)   # ['cats', 'running', 'faster', 'foxes', 'dr', 'smith', 'born', '08072026']
-print(stems)    # ['cat', 'run', 'faster', 'foxe', 'dr', 'smith', 'born', '08072026']
-print(lemmas)   # ['cat', 'run', 'fast', 'fox', 'dr', 'smith', 'bear', '08072026']
+print(stems)    # ['cat', 'run', 'faster', 'fox', 'dr', 'smith', 'born', '08072026']
+print(lemmas)   # ['cat', 'run', 'faster', 'fox', 'dr', 'smith', 'bear', '08072026']
 ```
 
 注意 `08072026` 是一串「规范」的数字——真正的工程里会用正则把 `08/07/2026` 先捕获成日期再格式化；这也是为什么规范化流水线里正则与实体规范化总是搭配出现。

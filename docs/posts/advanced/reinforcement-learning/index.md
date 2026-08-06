@@ -31,10 +31,10 @@ pageClass: plain-doc
 - [x] [最优价值函数、贝尔曼最优方程与最优策略](./optimal-value-functions-bellman-optimality)
 
 ### 第四篇 动态规划（第4章）
-- [ ] 策略评估（预测）
-- [ ] 策略改进与策略迭代
-- [ ] 值迭代
-- [ ] 异步动态规划与广义策略迭代（GPI）
+- [x] [策略评估（预测）](./policy-evaluation)
+- [x] [策略改进与策略迭代](./policy-improvement-policy-iteration)
+- [x] [值迭代](./value-iteration)
+- [x] [异步动态规划与广义策略迭代（GPI）](./asynchronous-dp-generalized-policy-iteration)
 
 ### 第五篇 蒙特卡洛方法（第5章）
 - [ ] 蒙特卡洛预测与动作价值估计

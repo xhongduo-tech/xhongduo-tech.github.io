@@ -36,9 +36,9 @@ pageClass: plain-doc
 
 - [x] [隐语义模型（LFM）的基本思想：隐因子与兴趣分类](./latent-factor-model-lfm-basics)
 - [x] [基于 SVD 的矩阵分解：Funk-SVD 与梯度下降求解](./funk-svd-matrix-factorization)
-- [ ] 带偏置项的矩阵分解（BiasSVD）
-- [ ] 隐式反馈的矩阵分解：加权交替最小二乘（ALS-WR）
-- [ ] SVD++：融合显式与隐式反馈
+- [x] [带偏置项的矩阵分解（BiasSVD）](./biassvd-matrix-factorization)
+- [x] [隐式反馈的矩阵分解：加权交替最小二乘（ALS-WR）](./implicit-feedback-als-wr)
+- [x] [SVD++：融合显式与隐式反馈](./svd-plus-plus)
 - [ ] 矩阵分解的局限：泛化能力弱与特征利用不足
 
 ### 第四篇 基于内容的推荐

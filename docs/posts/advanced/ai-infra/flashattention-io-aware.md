@@ -18,7 +18,7 @@ date: 2026-08-07
 
 上一课的 Roofline 图给出了一个令人不安的读数：**标准注意力的核心算子 $\mathbf{S} = \mathbf{Q}\mathbf{K}^\top$，算术强度只有头维度 $d$（约 128），远低于 H100 的 ridge point 295**。也就是说，注意力是被内存卡住的——你优化它的矩阵乘指令、给它堆 Tensor Core，都够不着那条算力天花板。FlashAttention 就是冲着这个读数来的：它不去「把注意力算得更快」，而是去「让注意力少搬几趟东西」。
 
-FlashAttention（Dao et al., 2022）是近年最成功的 kernel 优化之一：同样的精度、同样的结果（它是**精确**算法，不是近似），却把注意力的显存占用从 $O(N^2)$ 压到 $O(N)$，把 HBM 访问从 $O(N^2)$ 量级降到 $O(N^2 d^2 / M)$。它背后的思想只有一句：**让注意力在片上 SRAM 里「一次成型」，中间矩阵永不落回 HBM**。这一课把它拆开，你会看到它其实是 Roofline、算子融合、在线 softmax 三样东西的合体。<span class="marginnote">注意力机制在 Transformer 里的完整位置，见第四级《大模型原理》——那里讲的是「为什么要有注意力」；本课回答的是「<strong>怎么让注意力跑得快</strong>」。两者的分界，正是算法与基础设施的分工。</span><span class="marginnote">FlashAttention 是「从极限到大模型」主线上的明星：<strong>长上下文（10 万 token）与长序列训练之所以可能，很大程度上归功于把注意力的 O(N²) 显存需求降成 O(N)</strong>。它同时是第四级第一篇所有技巧（内存层次、融合、Roofline）的集大成案例。</span>
+FlashAttention（Dao et al., 2022）是近年最成功的 kernel 优化之一：同样的精度、同样的结果（它是**精确**算法，不是近似），却把注意力的显存占用从 $O(N^2)$ 压到 $O(N)$，把 HBM 访问从 $O(N^2)$ 量级降到 $O(N^2 d^2 / M)$。它背后的思想只有一句：**让注意力在片上 SRAM 里「一次成型」，中间矩阵永不落回 HBM**。这一课把它拆开，你会看到它其实是 Roofline、算子融合、在线 softmax 三样东西的合体。<span class="marginnote">FlashAttention 是「从极限到大模型」主线上的明星：<strong>长上下文（10 万 token）与长序列训练之所以可能，很大程度上归功于把注意力的 O(N²) 显存需求降成 O(N)</strong>。它同时是第四级第一篇所有技巧（内存层次、融合、Roofline）的集大成案例。注意力机制在 Transformer 里的完整位置见第四级《大模型原理》——那里讲「为什么要有注意力」，本课讲「<strong>怎么让注意力跑得快</strong>」。</span>
 
 ## 1 标准注意力为什么慢
 

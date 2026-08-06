@@ -32,10 +32,10 @@ pageClass: plain-doc
 - [x] [天文望远镜的光学原理与类型（折射、反射、折反射）](./telescope-optics)
 - [x] [望远镜的性能指标：口径、极限星等、分辨率与视场](./telescope-performance)
 - [x] [大气窗口、大气消光、视宁度与自适应光学](./atmosphere-seeing-adaptive-optics)
-- [ ] 辐射探测器：照相底片、CCD 与 CMOS
-- [ ] 测光系统与星等、天体分光学基础
-- [ ] 射电天文与空间天文观测（红外、紫外、X 射线、γ 射线）
-- [ ] 天体测量学基础：三角视差与依巴谷、盖亚卫星
+- [x] [辐射探测器：照相底片、CCD 与 CMOS](./radiation-detectors)
+- [x] [测光系统与星等、天体分光学基础](./photometry-spectroscopy)
+- [x] [射电天文与空间天文观测（红外、紫外、X 射线、γ 射线）](./radio-space-astronomy)
+- [x] [天体测量学基础：三角视差与依巴谷、盖亚卫星](./astrometry-parallax)
 
 ### 第四章 地月系
 

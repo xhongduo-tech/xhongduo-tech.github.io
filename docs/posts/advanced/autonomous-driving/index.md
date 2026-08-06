@@ -30,9 +30,9 @@ pageClass: plain-doc
 - [x] [BEVFormer：基于 Transformer 的多相机 BEV 感知](./bevformer)
 - [x] [LSS 与 BEVDepth：显式深度估计的 BEV 方案](./lss-bevdepth)
 - [x] [Occupancy 占用网络：从检测框到体素化场景表达](./occupancy-network)
-- [ ] 多传感器融合：前融合、特征级融合与后融合
-- [ ] 时序融合与 StreamPETR 式流式感知
-- [ ] 车道线与可行驶区域检测
+- [x] [多传感器融合：前融合、特征级融合与后融合](./multi-sensor-fusion)
+- [x] [时序融合与 StreamPETR 式流式感知](./streaming-perception)
+- [x] [车道线与可行驶区域检测](./lane-drivable-area-detection)
 - [ ] 交通信号灯与交通标志识别
 - [ ] 在线矢量地图构建（HDMapNet、MapTR）
 
