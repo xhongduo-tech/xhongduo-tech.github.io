@@ -19,7 +19,7 @@ pageClass: plain-doc
 - [x] [心理学的主要流派：人本主义与认知心理学](./schools-humanism-cognitive)
 - [x] [观察法、心理测验法与相关法](./observation-tests-correlation)
 - [x] [实验法：变量、实验组与控制组](./experimental-method-variables-groups)
-- [ ] 个案法与心理学研究中的伦理问题
+- [x] [个案法与心理学研究中的伦理问题](./case-study-research-ethics)
 
 ### 心理的神经生理机制
 

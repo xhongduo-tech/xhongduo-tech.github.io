@@ -19,9 +19,9 @@ pageClass: plain-doc
 ### 第二篇 多臂老虎机（第2章）
 - [x] [k臂老虎机问题与动作价值方法](./k-armed-bandits)
 - [x] [ε-贪心策略与增量式实现](./epsilon-greedy-incremental)
-- [ ] 乐观初始值与置信度上界（UCB）动作选择
-- [ ] 梯度老虎机算法
-- [ ] 关联搜索与上下文老虎机（Contextual Bandits）
+- [x] [乐观初始值与置信度上界（UCB）动作选择](./optimistic-initial-values-ucb)
+- [x] [梯度老虎机算法](./gradient-bandits)
+- [x] [关联搜索与上下文老虎机（Contextual Bandits）](./contextual-bandits)
 
 ### 第三篇 有限马尔可夫决策过程（第3章）
 - [ ] 智能体-环境交互接口与马尔可夫性质

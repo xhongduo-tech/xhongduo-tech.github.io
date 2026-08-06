@@ -24,7 +24,7 @@ pageClass: plain-doc
 ### 第二篇 协同过滤
 
 - [x] [协同过滤的基本思想与邻域方法框架](./collaborative-filtering-basics-neighborhood-methods)
-- [ ] 相似度计算：余弦相似度、皮尔逊相关系数与 Jaccard
+- [x] [相似度计算：余弦相似度、皮尔逊相关系数与 Jaccard](./similarity-cosine-pearson-jaccard)
 - [ ] 基于用户的协同过滤（UserCF）：原理与实现
 - [ ] UserCF 的相似度改进：对热门物品的惩罚（IUF 思想）
 - [ ] 基于物品的协同过滤（ItemCF）：原理与实现

@@ -20,7 +20,7 @@ pageClass: plain-doc
 - [x] [数据库语言：DDL 与 DML](./database-languages)
 - [x] [关系数据库：表、DML 与数据库设计](./relational-databases)
 - [x] [数据库引擎：存储管理器与查询处理器](./database-engine)
-- [ ] 数据库与应用架构：两层与三层架构
+- [x] [数据库与应用架构：两层与三层架构](./application-architecture)
 - [ ] 数据库用户与管理员（DBA）
 - [ ] 数据库系统的历史与发展
 

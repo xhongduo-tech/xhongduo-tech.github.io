@@ -22,9 +22,9 @@ pageClass: plain-doc
 - [x] [全局内存合并访存（coalescing）与 bank conflict](./memory-coalescing-bank-conflict)
 - [x] [Shared Memory 编程与 `__syncthreads()` 同步语义](./shared-memory-syncthreads)
 - [x] [Occupancy（占用率）的计算与调优](./occupancy-tuning)
-- [ ] CUDA Stream 与异步执行、事件计时
-- [ ] kernel 启动开销与 kernel fusion（算子融合）的收益
-- [ ] 矩阵乘法 kernel 优化实战：从 naive 到 tiling
+- [x] [CUDA Stream 与异步执行、事件计时](./cuda-stream-async-events)
+- [x] [kernel 启动开销与 kernel fusion（算子融合）的收益](./kernel-launch-overhead-fusion)
+- [x] [矩阵乘法 kernel 优化实战：从 naive 到 tiling](./matmul-kernel-optimization)
 - [ ] Tensor Core 与 WMMA/mma 指令编程
 - [ ] Roofline 模型：判断 kernel 是计算瓶颈还是访存瓶颈
 - [ ] FlashAttention 的 IO 感知设计思想解析

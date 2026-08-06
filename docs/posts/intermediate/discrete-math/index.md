@@ -19,8 +19,8 @@ pageClass: plain-doc
 - [x] [嵌套量词：量词的顺序与否定](./nested-quantifiers)
 - [x] [推理规则：有效论证与常见谬误](./rules-of-inference)
 - [x] [命题逻辑的推理规则：假言推理、拒取式与归结](./inference-forms-resolution)
-- [ ] 证明导论：定理、公理与猜想
-- [ ] 直接证明、反证法与归谬法
+- [x] [证明导论：定理、公理与猜想](./proof-introduction)
+- [x] [直接证明、反证法与归谬法](./direct-proof-contradiction)
 - [ ] 证明方法综述：分情形证明、存在性证明与唯一性证明
 
 ### 第二篇 集合

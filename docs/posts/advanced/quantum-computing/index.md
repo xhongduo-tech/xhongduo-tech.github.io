@@ -24,7 +24,7 @@ pageClass: plain-doc
 
 - [x] [复数域上的向量空间与内积](./complex-vector-spaces-inner-product)
 - [x] [Dirac 记号（bra-ket）：右矢、左矢与内外积](./dirac-notation-bra-ket)
-- [ ] 线性算符与矩阵表示
+- [x] [线性算符与矩阵表示](./linear-operators-matrix-representation)
 - [ ] 厄米算符与幺正算符
 - [ ] 本征值、本征向量与谱分解
 - [ ] 张量积（tensor product）：多体系统的状态空间

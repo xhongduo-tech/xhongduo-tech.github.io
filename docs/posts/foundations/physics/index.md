@@ -21,8 +21,8 @@ pageClass: plain-doc
 ### 必修第一册 · 第二章 匀变速直线运动的研究
 
 - [x] [实验：探究小车速度随时间变化的规律](./experiment-cart-velocity)
-- [ ] 匀变速直线运动的速度与时间的关系
-- [ ] 匀变速直线运动的位移与时间的关系
+- [x] [匀变速直线运动的速度与时间的关系](./velocity-time-relation)
+- [x] [匀变速直线运动的位移与时间的关系](./displacement-time-relation)
 - [ ] 自由落体运动
 
 ### 必修第一册 · 第三章 相互作用——力
