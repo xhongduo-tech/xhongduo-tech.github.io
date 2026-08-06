@@ -80,6 +80,29 @@ $$
 \vec{i} = \frac{1}{m} \sum_{j=1}^{m} v_{w_j} \quad \text{或} \quad \vec{i} = \frac{\sum_j tfidf(w_j)\, v_{w_j}}{\sum_j tfidf(w_j)}
 $$
 
+对标题、简介这类短文本，这条路线简单有效，直接喂给上一篇的打分公式即可。用代码落地这一聚合：
+
+```python
+import numpy as np
+
+# 预训练词向量表：word2vec[k] 是词典里第 k 个词的 K 维向量
+# 假设已用 gensim / fastText 等在语料上训练完毕
+def item_vector(words, word2vec, idf=None):
+    vecs, ws = [], []
+    for w in words:
+        if w in word2vec:
+            vecs.append(word2vec[w])
+            ws.append(idf[w] if idf is not None else 1.0)  # TF-IDF 加权或等权
+    if not vecs:
+        return np.zeros(next(iter(word2vec.values())).shape)
+    vecs = np.stack(vecs)
+    ws = np.asarray(ws, dtype=float)
+    return (vecs * ws[:, None]).sum(axis=0) / ws.sum()     # 加权平均
+
+brief = "末日之后，人工智能与人类伦理的冲突"          # 物品简介
+item = item_vector(tokenize(brief), word2vec, idf)   # 一个稠密物品向量
+```
+
 对标题、简介这类短文本，这条路线简单有效，直接喂给上一篇的打分公式即可。
 
 **路线二：Item2Vec。** 2016 年 Barkan 与 Koenigstein 提出一个漂亮的移花接木：**把用户的行为序列当作「句子」，把物品当作「词」，直接跑 Skip-gram**——用户依次看过 A、B、C，就得到「句子」AB C，其中「A 的邻居是 B」等价于「A 与 B 常被同一个用户先后消费」。这样训练出的物品向量**根本不需要文本**，纯粹从行为共现中长出来。<span class="marginnote">Item2Vec 的「邻居」定义比语言更自由：可以是一段会话、一次加购序列、一个播放列表。<strong>它让「内容特征」与「协同行为」第一次在 Embedding 里握手</strong>——这是第五篇《向量召回》、第七篇《序列推荐》的直接前身。</span>
