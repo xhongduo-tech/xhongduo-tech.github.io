@@ -49,7 +49,7 @@ pageClass: plain-doc
 - [x] [分布式假设与分布式语义表示](./distributional-semantics)
 - [x] [Word2Vec：CBOW 与 Skip-gram 模型](./word2vec-cbow-skipgram)
 - [x] [Word2Vec 的训练技巧：负采样与层次 Softmax](./word2vec-negative-sampling-hierarchical-softmax)
-- [ ] GloVe：基于全局词共现统计的词向量
+- [x] [GloVe：基于全局词共现统计的词向量](./glove-global-vectors)
 - [ ] FastText：子词（Subword）信息与未登录词表示
 - [ ] 词向量的评价：词相似度与类比任务
 - [ ] 上下文相关的词表示：CoVe 与 ELMo

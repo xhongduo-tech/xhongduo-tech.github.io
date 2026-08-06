@@ -39,7 +39,7 @@ pageClass: plain-doc
 ### 高精地图与定位
 
 - [x] [高精地图的要素、格式与制作流程](./hd-map-elements-formats)
-- [ ] GNSS/RTK 定位原理与误差来源
+- [x] [GNSS/RTK 定位原理与误差来源](./gnss-rtk-localization)
 - [ ] 惯性导航与组合导航（GNSS+IMU 紧耦合）
 - [ ] LiDAR SLAM：LOAM 系列与回环检测
 - [ ] 视觉 SLAM 与视觉惯性里程计（VIO）在定位中的应用
