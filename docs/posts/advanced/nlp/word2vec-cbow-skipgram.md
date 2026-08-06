@@ -97,6 +97,25 @@ $$
 
 **重点：** 米科洛夫在原文中建议，语料规模不大或关注低频词时首选 Skip-gram，追求速度与高频词质量时选 CBOW。两个超参数最要紧：**窗口大小**（决定上下文范围，常见 5～10）与**向量维度**（常见 100～300）。窗口越大，向量越偏「主题/领域」相似；窗口越小，越偏「语法/搭配」相似。
 
+两种模型对同一句话生成的训练样本，差异可以用一段伪代码看得更清楚：
+
+```python
+# 伪代码：同一句话生成 CBOW 与 Skip-gram 的训练样本（窗口半径 k=1）
+sentence = ["我", "喜欢", "猫", "和", "狗"]
+k = 1
+for t, center in enumerate(sentence):
+    left  = sentence[max(0, t - k):t]
+    right = sentence[t + 1:min(len(sentence), t + k + 1)]
+    ctx   = left + right
+    # CBOW：输入=上下文词列表，标签=中心词
+    yield ("CBOW", ctx, center)
+    # Skip-gram：输入=中心词，标签=每个上下文词（分别成对）
+    for w in ctx:
+        yield ("Skip-gram", [center], w)
+```
+
+可以看到：CBOW 一个中心词只产出一个样本（上下文聚合为一次预测），而 Skip-gram 一个中心词产出 $2k$ 个样本——这正是它隐式重采样、对低频词更友好的来源。
+
 ## 6 易错辨析：Word2Vec 不是语言模型
 
 **辨析｜易错点：** 一个流传很广的误解是把 Word2Vec 当作「语言模型」。它**不做**「给定上文预测下一个词」这种序列任务，它的目标函数里根本没有「句子的概率」，只有「共现对的概率」。Word2Vec 是一个**表示学习（representation learning）**方法：语言模型只是它的远房亲戚，而不是它的身份。<span class="marginnote">因此 Word2Vec 生成的向量也无法直接用于生成文本——大模型里的「词嵌入」只是它庞大网络的第一层，生成能力来自之后的 Transformer 堆叠，而非嵌入本身。</span>
