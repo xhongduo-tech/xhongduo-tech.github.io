@@ -32,8 +32,8 @@ pageClass: plain-doc
 ### 第三篇 vLLM
 
 - [x] [PagedAttention：KV Cache 的页式内存管理](./paged-attention)
-- [ ] 块表（Block Table）与逻辑物理块映射
-- [ ] Continuous Batching 的原理与实现
+- [x] [块表（Block Table）与逻辑物理块映射](./block-table)
+- [x] [Continuous Batching 的原理与实现](./continuous-batching)
 - [ ] Chunked Prefill：长输入的分块调度
 - [ ] Prefix Caching：共享前缀的缓存复用
 - [ ] vLLM 调度器源码分析（一）：请求生命周期

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 252" width="1000" height="252" font-family="sans-serif">
+  <title>五种集合运算的文氏图</title>
+  <desc>并集、交集、差集、补集与对称差的文氏图。A 用红色圆表示，B 用青色圆表示，着色区域表示该运算的结果集合。</desc>
+  <rect x="0" y="0" width="1000" height="252" fill="#faf9f5"/>
+  <text x="500" y="26" font-size="17" fill="#333" text-anchor="middle">五种集合运算：着色区域即运算结果</text>
+
+  <defs>
+    <clipPath id="clipA"><circle cx="76" cy="128" r="45"/></clipPath>
+    <clipPath id="clipB"><circle cx="136" cy="128" r="45"/></clipPath>
+  </defs>
+
+  <!-- 并集 A ∪ B -->
+  <g transform="translate(0,0)">
+    <text x="95" y="46" font-size="16" fill="#333" text-anchor="middle">并集</text>
+    <rect x="8" y="54" width="174" height="150" rx="12" fill="#ffffff" stroke="#bbbbbb"/>
+    <circle cx="76" cy="128" r="45" fill="#c0392b22"/>
+    <circle cx="136" cy="128" r="45" fill="#c0392b22"/>
+    <circle cx="76" cy="128" r="45" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <circle cx="136" cy="128" r="45" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="95" y="230" font-size="15" fill="#333" text-anchor="middle">A ∪ B</text>
+  </g>
+
+  <!-- 交集 A ∩ B -->
+  <g transform="translate(200,0)">
+    <text x="95" y="46" font-size="16" fill="#333" text-anchor="middle">交集</text>
+    <rect x="8" y="54" width="174" height="150" rx="12" fill="#ffffff" stroke="#bbbbbb"/>
+    <circle cx="76" cy="128" r="45" fill="#c0392b22" clip-path="url(#clipB)"/>
+    <circle cx="76" cy="128" r="45" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <circle cx="136" cy="128" r="45" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="95" y="230" font-size="15" fill="#333" text-anchor="middle">A ∩ B</text>
+  </g>
+
+  <!-- 差集 A − B -->
+  <g transform="translate(400,0)">
+    <text x="95" y="46" font-size="16" fill="#333" text-anchor="middle">差集</text>
+    <rect x="8" y="54" width="174" height="150" rx="12" fill="#ffffff" stroke="#bbbbbb"/>
+    <circle cx="76" cy="128" r="45" fill="#c0392b22"/>
+    <circle cx="136" cy="128" r="45" fill="#ffffff"/>
+    <circle cx="76" cy="128" r="45" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <circle cx="136" cy="128" r="45" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="95" y="230" font-size="15" fill="#333" text-anchor="middle">A − B</text>
+  </g>
+
+  <!-- 补集 Ā -->
+  <g transform="translate(600,0)">
+    <text x="95" y="46" font-size="16" fill="#333" text-anchor="middle">补集</text>
+    <rect x="8" y="54" width="174" height="150" rx="12" fill="#ffffff" stroke="#bbbbbb"/>
+    <rect x="8" y="54" width="174" height="150" rx="12" fill="#1f6f8b22"/>
+    <circle cx="76" cy="128" r="45" fill="#ffffff"/>
+    <circle cx="76" cy="128" r="45" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <circle cx="136" cy="128" r="45" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="95" y="230" font-size="15" fill="#333" text-anchor="middle">Ā</text>
+  </g>
+
+  <!-- 对称差 A ⊕ B -->
+  <g transform="translate(800,0)">
+    <text x="95" y="46" font-size="16" fill="#333" text-anchor="middle">对称差</text>
+    <rect x="8" y="54" width="174" height="150" rx="12" fill="#ffffff" stroke="#bbbbbb"/>
+    <circle cx="76" cy="128" r="45" fill="#c0392b22"/>
+    <circle cx="136" cy="128" r="45" fill="#c0392b22"/>
+    <circle cx="76" cy="128" r="45" fill="#ffffff" clip-path="url(#clipB)"/>
+    <circle cx="76" cy="128" r="45" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <circle cx="136" cy="128" r="45" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="95" y="230" font-size="15" fill="#333" text-anchor="middle">A ⊕ B</text>
+  </g>
+</svg>

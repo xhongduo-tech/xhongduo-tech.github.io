@@ -32,13 +32,13 @@ pageClass: plain-doc
 - [x] [基于词典的分词方法：最大匹配法与最短路径分词](./dictionary-segmentation)
 - [x] [基于统计的分词方法：由字构词（字标注）分词](./character-based-segmentation)
 - [x] [词性标注（POS Tagging）：标注集与标注方法](./pos-tagging)
-- [ ] 命名实体规范化、停用词与词形还原（Stemming & Lemmatization）
-- [ ] 文本表示基础：词袋模型（BoW）与 TF-IDF
+- [x] [命名实体规范化、停用词与词形还原（Stemming & Lemmatization）](./normalization-stopwords-stemming)
+- [x] [文本表示基础：词袋模型（BoW）与 TF-IDF](./bag-of-words-tfidf)
 
 ### 第四篇 n-gram 语言模型
 
-- [ ] 语言模型概述：概率定义与链式法则
-- [ ] n-gram 模型：马尔可夫假设与参数估计
+- [x] [语言模型概述：概率定义与链式法则](./language-model-probability-chain-rule)
+- [x] [n-gram 模型：马尔可夫假设与参数估计](./ngram-markov-estimation)
 - [ ] 数据平滑：加法平滑与古德-图灵估计（Good-Turing）
 - [ ] 数据平滑：插值法与 Kneser-Ney 平滑
 - [ ] 困惑度（Perplexity）与语言模型的评价

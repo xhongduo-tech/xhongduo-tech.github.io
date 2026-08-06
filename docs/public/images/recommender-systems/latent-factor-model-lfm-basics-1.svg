@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="sans-serif">
+  <title>低秩矩阵分解示意：R ≈ P · Qᵀ</title>
+  <desc>稀疏的用户-物品矩阵 R（U×I）被分解为用户-隐因子矩阵 P（U×K）与隐因子-物品矩阵 Qᵀ（K×I）的乘积，K 是共享的隐因子数。</desc>
+
+  <!-- 纸底与墨色边框 -->
+  <rect x="0" y="0" width="720" height="360" fill="#faf9f5"/>
+  <rect x="14" y="10" width="692" height="340" fill="none" stroke="#e0dad0" stroke-width="1"/>
+
+  <!-- 标题 -->
+  <text x="360" y="40" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">低秩分解：R ≈ P · Qᵀ</text>
+
+  <!-- ===== R：U×I 稀疏矩阵 ===== -->
+  <rect x="20" y="80" width="200" height="180" fill="#f2eee8" stroke="#999" stroke-width="1.5"/>
+  <!-- 网格线 -->
+  <g stroke="#ddd6ca" stroke-width="1">
+    <line x1="20" y1="100" x2="220" y2="100"/><line x1="20" y1="120" x2="220" y2="120"/>
+    <line x1="20" y1="140" x2="220" y2="140"/><line x1="20" y1="160" x2="220" y2="160"/>
+    <line x1="20" y1="180" x2="220" y2="180"/><line x1="20" y1="200" x2="220" y2="200"/>
+    <line x1="20" y1="220" x2="220" y2="220"/><line x1="20" y1="240" x2="220" y2="240"/>
+    <line x1="40" y1="80" x2="40" y2="260"/><line x1="60" y1="80" x2="60" y2="260"/>
+    <line x1="80" y1="80" x2="80" y2="260"/><line x1="100" y1="80" x2="100" y2="260"/>
+    <line x1="120" y1="80" x2="120" y2="260"/><line x1="140" y1="80" x2="140" y2="260"/>
+    <line x1="160" y1="80" x2="160" y2="260"/><line x1="180" y1="80" x2="180" y2="260"/>
+    <line x1="200" y1="80" x2="200" y2="260"/>
+  </g>
+  <!-- 已知评分（红色小格） -->
+  <g fill="#c0392b">
+    <rect x="20" y="80" width="20" height="20"/><rect x="100" y="80" width="20" height="20"/>
+    <rect x="160" y="100" width="20" height="20"/><rect x="40" y="120" width="20" height="20"/>
+    <rect x="120" y="120" width="20" height="20"/><rect x="20" y="140" width="20" height="20"/>
+    <rect x="60" y="140" width="20" height="20"/><rect x="140" y="160" width="20" height="20"/>
+    <rect x="20" y="180" width="20" height="20"/><rect x="80" y="180" width="20" height="20"/>
+    <rect x="180" y="200" width="20" height="20"/><rect x="40" y="220" width="20" height="20"/>
+    <rect x="100" y="220" width="20" height="20"/><rect x="160" y="240" width="20" height="20"/>
+    <rect x="60" y="240" width="20" height="20"/>
+  </g>
+  <!-- 行/列标记 -->
+  <text x="120" y="278" text-anchor="middle" font-size="14" fill="#666">U 个用户（行）</text>
+  <text x="120" y="296" text-anchor="middle" font-size="14" fill="#666">I 个物品（列）</text>
+
+  <!-- ≈ -->
+  <text x="250" y="185" text-anchor="middle" font-size="44" fill="#333">≈</text>
+
+  <!-- ===== P：U×K ===== -->
+  <g>
+    <rect x="280" y="80" width="120" height="180" fill="#eef4f6" stroke="#1f6f8b" stroke-width="1.5"/>
+    <rect x="280" y="80" width="40" height="180" fill="#1f6f8b" opacity="0.85"/>
+    <rect x="320" y="80" width="40" height="180" fill="#3a8aa0" opacity="0.85"/>
+    <rect x="360" y="80" width="40" height="180" fill="#56a7bb" opacity="0.85"/>
+  </g>
+  <text x="340" y="278" text-anchor="middle" font-size="14" fill="#666">P：U × K</text>
+  <text x="340" y="296" text-anchor="middle" font-size="14" fill="#666">每行 = 用户 u 的隐兴趣向量</text>
+
+  <!-- × -->
+  <text x="425" y="185" text-anchor="middle" font-size="40" fill="#333">×</text>
+
+  <!-- ===== Qᵀ：K×I ===== -->
+  <g>
+    <rect x="450" y="80" width="220" height="90" fill="#f6efe3" stroke="#8a6d3b" stroke-width="1.5"/>
+    <rect x="450" y="80" width="220" height="30" fill="#8a6d3b" opacity="0.75"/>
+    <rect x="450" y="110" width="220" height="30" fill="#a5854f" opacity="0.75"/>
+    <rect x="450" y="140" width="220" height="30" fill="#c2a465" opacity="0.75"/>
+  </g>
+  <text x="560" y="278" text-anchor="middle" font-size="14" fill="#666">Qᵀ：K × I</text>
+  <text x="560" y="296" text-anchor="middle" font-size="14" fill="#666">每列 = 物品 i 的隐属性向量</text>
+
+  <!-- 共享维度 K 标注 -->
+  <line x1="404" y1="80" x2="404" y2="260" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="450" y1="175" x2="670" y2="175" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="412" y="62" font-size="14" fill="#c0392b">K 个隐因子（P 的列数）</text>
+  <text x="512" y="200" font-size="14" fill="#c0392b">K 个隐因子（Qᵀ 的行数）</text>
+
+  <!-- 底部结论 -->
+  <rect x="180" y="216" width="360" height="40" rx="6" fill="#c0392b" opacity="0.08"/>
+  <text x="360" y="242" text-anchor="middle" font-size="17" fill="#c0392b" font-weight="bold">共享的 K 个隐因子，把两个低维矩阵缝合在一起</text>
+</svg>

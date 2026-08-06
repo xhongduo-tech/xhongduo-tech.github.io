@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" font-family="sans-serif">
+  <title>笛卡尔积 A × B 的网格</title>
+  <desc>A = {1,2,3} 与 B = {a,b} 的笛卡尔积共有 3×2 个有序对，排成网格，其中红色点代表 (2,b)，其余为黑色点。</desc>
+  <rect x="0" y="0" width="720" height="400" fill="#faf9f5"/>
+  <text x="360" y="34" font-size="17" fill="#333" text-anchor="middle">笛卡尔积 A × B：所有有序对组成的网格</text>
+
+  <!-- 坐标轴 -->
+  <line x1="200" y1="340" x2="200" y2="120" stroke="#333" stroke-width="2"/>
+  <line x1="200" y1="340" x2="580" y2="340" stroke="#333" stroke-width="2"/>
+  <text x="186" y="128" font-size="15" fill="#333" text-anchor="end">B</text>
+  <text x="586" y="345" font-size="15" fill="#333">A</text>
+
+  <!-- B 轴刻度 -->
+  <text x="188" y="306" font-size="14" fill="#333" text-anchor="end">a</text>
+  <text x="188" y="226" font-size="14" fill="#333" text-anchor="end">b</text>
+
+  <!-- A 轴刻度 -->
+  <text x="240" y="364" font-size="14" fill="#333" text-anchor="middle">1</text>
+  <text x="360" y="364" font-size="14" fill="#333" text-anchor="middle">2</text>
+  <text x="480" y="364" font-size="14" fill="#333" text-anchor="middle">3</text>
+
+  <!-- 网格虚线 -->
+  <g stroke="#bbbbbb" stroke-width="1" stroke-dasharray="4 3">
+    <line x1="200" y1="300" x2="520" y2="300"/>
+    <line x1="200" y1="220" x2="520" y2="220"/>
+    <line x1="240" y1="120" x2="240" y2="340"/>
+    <line x1="360" y1="120" x2="360" y2="340"/>
+    <line x1="480" y1="120" x2="480" y2="340"/>
+  </g>
+
+  <!-- 六个元素点 -->
+  <circle cx="240" cy="300" r="5" fill="#333"/>
+  <circle cx="240" cy="220" r="5" fill="#333"/>
+  <circle cx="360" cy="300" r="5" fill="#333"/>
+  <circle cx="360" cy="220" r="5" fill="#c0392b"/>
+  <circle cx="480" cy="300" r="5" fill="#333"/>
+  <circle cx="480" cy="220" r="5" fill="#333"/>
+
+  <!-- 点的标注 -->
+  <text x="250" y="318" font-size="13" fill="#333">(1, a)</text>
+  <text x="250" y="238" font-size="13" fill="#333">(1, b)</text>
+  <text x="370" y="318" font-size="13" fill="#333">(2, a)</text>
+  <text x="370" y="238" font-size="13" fill="#c0392b">(2, b)</text>
+  <text x="490" y="318" font-size="13" fill="#333">(3, a)</text>
+  <text x="490" y="238" font-size="13" fill="#333">(3, b)</text>
+
+  <text x="360" y="388" font-size="14" fill="#333" text-anchor="middle">|A| = 3，|B| = 2，故 |A × B| = 3 × 2 = 6 个元素</text>
+</svg>

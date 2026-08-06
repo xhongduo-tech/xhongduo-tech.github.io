@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320">
+  <title>状态价值函数的回溯图（Backup Diagram）</title>
+  <desc>展示贝尔曼方程如何把状态 s 的价值回溯到后续状态 s'：从状态 s 按策略 π 分支到各动作 a，再由动态 p 分支到后续状态 s'，价值的期望沿树向根部回传。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <rect width="480" height="320" fill="#faf9f5"/>
+  <text x="240" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">状态价值函数 v&#8320;(s) 的回溯</text>
+
+  <!-- 状态 s -->
+  <circle cx="240" cy="58" r="15" fill="#333"/>
+  <text x="240" y="63" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#faf9f5">s</text>
+
+  <!-- 动作节点 -->
+  <circle cx="90" cy="150" r="11" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="90" y="155" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">a</text>
+  <circle cx="240" cy="150" r="11" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="240" y="155" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">a</text>
+  <circle cx="390" cy="150" r="11" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="390" y="155" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">a</text>
+
+  <!-- s -> 动作 -->
+  <line x1="240" y1="73" x2="90" y2="139" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="240" y1="73" x2="240" y2="139" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="240" y1="73" x2="390" y2="139" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="150" y="96" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">π(a|s)</text>
+  <text x="262" y="92" text-anchor="start" font-family="sans-serif" font-size="13" fill="#1f6f8b">π(a|s)</text>
+  <text x="320" y="96" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">π(a|s)</text>
+
+  <!-- 后续状态 s' -->
+  <circle cx="30" cy="250" r="11" fill="#333"/>
+  <text x="30" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+  <circle cx="90" cy="250" r="11" fill="#333"/>
+  <text x="90" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+  <circle cx="150" cy="250" r="11" fill="#333"/>
+  <text x="150" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+
+  <circle cx="180" cy="250" r="11" fill="#333"/>
+  <text x="180" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+  <circle cx="240" cy="250" r="11" fill="#333"/>
+  <text x="240" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+  <circle cx="300" cy="250" r="11" fill="#333"/>
+  <text x="300" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+
+  <circle cx="330" cy="250" r="11" fill="#333"/>
+  <text x="330" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+  <circle cx="390" cy="250" r="11" fill="#333"/>
+  <text x="390" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+  <circle cx="450" cy="250" r="11" fill="#333"/>
+  <text x="450" y="255" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#faf9f5">s&#8242;</text>
+
+  <!-- 动作 -> s' -->
+  <line x1="90" y1="161" x2="35" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="90" y1="161" x2="90" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="90" y1="161" x2="145" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="240" y1="161" x2="185" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="240" y1="161" x2="240" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="240" y1="161" x2="295" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="390" y1="161" x2="335" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="390" y1="161" x2="390" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="390" y1="161" x2="445" y2="239" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 动态标注 -->
+  <text x="90" y="178" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">p(s&#8242;,r|s,a)</text>
+  <text x="240" y="178" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">p(s&#8242;,r|s,a)</text>
+  <text x="390" y="178" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">p(s&#8242;,r|s,a)</text>
+
+  <!-- 延续 -->
+  <text x="30" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="90" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="150" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="180" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="240" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="300" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="330" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="390" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+  <text x="450" y="282" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8a8a8a">···</text>
+
+  <!-- 图例 -->
+  <circle cx="70" cy="306" r="8" fill="#333"/>
+  <text x="84" y="310" text-anchor="start" font-family="sans-serif" font-size="13" fill="#333">状态节点</text>
+  <circle cx="190" cy="306" r="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="204" y="310" text-anchor="start" font-family="sans-serif" font-size="13" fill="#333">动作节点</text>
+  <text x="300" y="310" text-anchor="start" font-family="sans-serif" font-size="13" fill="#c0392b">r 与 s&#8242; 由 p 联合给出</text>
+</svg>

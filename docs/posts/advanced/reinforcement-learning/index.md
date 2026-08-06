@@ -25,10 +25,10 @@ pageClass: plain-doc
 
 ### 第三篇 有限马尔可夫决策过程（第3章）
 - [x] [智能体-环境交互接口与马尔可夫性质](./agent-environment-interface)
-- [ ] 目标、奖励、回报与折扣
-- [ ] 统一回合式任务与持续性任务的记号
-- [ ] 价值函数与贝尔曼方程
-- [ ] 最优价值函数、贝尔曼最优方程与最优策略
+- [x] [目标、奖励、回报与折扣](./goals-rewards-returns-discounting)
+- [x] [统一回合式任务与持续性任务的记号](./episodic-continuing-notation)
+- [x] [价值函数与贝尔曼方程](./value-functions-bellman-equations)
+- [x] [最优价值函数、贝尔曼最优方程与最优策略](./optimal-value-functions-bellman-optimality)
 
 ### 第四篇 动态规划（第4章）
 - [ ] 策略评估（预测）

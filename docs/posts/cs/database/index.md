@@ -27,16 +27,16 @@ pageClass: plain-doc
 #### 第 2 章 关系模型
 
 - [x] [关系数据库的结构：关系、元组与属性](./relational-structure)
-- [ ] 数据库模式与关系实例
-- [ ] 码：超码、候选码、主码与外码
-- [ ] 模式图与关系模式设计
-- [ ] 关系查询语言概览
-- [ ] 关系代数：基本运算
-- [ ] 关系代数：附加运算与扩展运算
+- [x] [数据库模式与关系实例](./database-schema-and-instances)
+- [x] [码：超码、候选码、主码与外码](./keys-super-candidate-primary-foreign)
+- [x] [模式图与关系模式设计](./schema-diagram-and-relation-design)
+- [x] [关系查询语言概览](./relational-query-language-overview)
+- [x] [关系代数：基本运算](./relational-algebra-basic-operations)
+- [x] [关系代数：附加运算与扩展运算](./relational-algebra-extra-operations)
 
 #### 第 3 章 SQL 基础
 
-- [ ] SQL 查询语言概览与数据定义（DDL）
+- [x] [SQL 查询语言概览与数据定义（DDL）](./sql-overview-and-ddl)
 - [ ] 单关系查询：SELECT 基本结构
 - [ ] 多关系查询：连接与笛卡儿积
 - [ ] 集合运算：并、交、差

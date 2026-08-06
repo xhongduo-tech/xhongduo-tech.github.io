@@ -1,0 +1,63 @@
+<svg viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">零点存在性定理</title>
+<desc id="desc">一条连续曲线 y=f(x) 在区间 [a,b] 的两端符号相反：f(a) 小于 0（曲线在 x 轴下方），f(b) 大于 0（曲线在 x 轴上方）。由于曲线连续，它必然在 (a,b) 内至少穿过一次 x 轴，交点的横坐标 c 就是函数的零点。区间 [a,b] 在 x 轴上以浅色带标出。</desc>
+<rect width="700" height="440" fill="#faf9f5"/>
+<text x="40" y="36" font-family="sans-serif" font-size="15" fill="#333">零点存在性定理</text>
+<text x="40" y="60" font-family="sans-serif" font-size="13" fill="#888">f(a) &lt; 0 且 f(b) &gt; 0，且图象连续 ⟹ 在 (a, b) 内至少有一个零点 c</text>
+
+<!-- interval band on x-axis -->
+<rect x="170" y="206" width="360" height="8" fill="#1f6f8b" opacity="0.15"/>
+
+<!-- grid -->
+<line x1="170" y1="30" x2="170" y2="390" stroke="#eee" stroke-width="1"/>
+<line x1="260" y1="30" x2="260" y2="390" stroke="#eee" stroke-width="1"/>
+<line x1="350" y1="30" x2="350" y2="390" stroke="#eee" stroke-width="1"/>
+<line x1="440" y1="30" x2="440" y2="390" stroke="#eee" stroke-width="1"/>
+<line x1="530" y1="30" x2="530" y2="390" stroke="#eee" stroke-width="1"/>
+
+<!-- axes -->
+<line x1="80" y1="210" x2="620" y2="210" stroke="#333" stroke-width="1.5"/>
+<line x1="80" y1="30" x2="80" y2="390" stroke="#333" stroke-width="1.5"/>
+<polygon points="608,205 608,215 622,210" fill="#333"/>
+<polygon points="75,42 85,42 80,30" fill="#333"/>
+<text x="628" y="204" font-family="sans-serif" font-size="15" fill="#333">x</text>
+<text x="86" y="40" font-family="sans-serif" font-size="15" fill="#333">y</text>
+
+<!-- x tick labels -->
+<text x="170" y="408" font-family="sans-serif" font-size="13" fill="#333">1</text>
+<text x="260" y="408" font-family="sans-serif" font-size="13" fill="#333">2</text>
+<text x="350" y="408" font-family="sans-serif" font-size="13" fill="#333">3</text>
+<text x="440" y="408" font-family="sans-serif" font-size="13" fill="#333">4</text>
+<text x="530" y="408" font-family="sans-serif" font-size="13" fill="#333">5</text>
+<text x="82" y="224" font-family="sans-serif" font-size="13" fill="#333">0</text>
+
+<!-- y tick labels -->
+<text x="70" y="349" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">-3</text>
+<text x="70" y="304" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">-2</text>
+<text x="70" y="259" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">-1</text>
+<text x="70" y="169" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">1</text>
+<text x="70" y="124" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">2</text>
+<text x="70" y="79" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">3</text>
+
+<!-- dashed drop lines -->
+<line x1="170" y1="285" x2="170" y2="210" stroke="#999" stroke-width="1.2" stroke-dasharray="4 4"/>
+<line x1="530" y1="135" x2="530" y2="210" stroke="#999" stroke-width="1.2" stroke-dasharray="4 4"/>
+
+<!-- the continuous curve -->
+<polyline points="80,378.8 125,324.8 170,285.0 215,256.4 260,236.3 305,221.7 350,210.0 395,198.3 440,183.8 485,163.6 530,135.0 575,95.2 620,41.3" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<text x="548" y="70" font-family="sans-serif" font-size="14" fill="#c0392b">y = f(x)</text>
+
+<!-- key points -->
+<circle cx="170" cy="285.0" r="4.5" fill="#c0392b"/>
+<circle cx="530" cy="135.0" r="4.5" fill="#c0392b"/>
+<circle cx="350" cy="210.0" r="5" fill="#faf9f5" stroke="#c0392b" stroke-width="2"/>
+
+<!-- labels -->
+<text x="180" y="306" font-family="sans-serif" font-size="13" fill="#333">f(a) &lt; 0（x 轴下方）</text>
+<text x="400" y="150" font-family="sans-serif" font-size="13" fill="#333">f(b) &gt; 0（x 轴上方）</text>
+<text x="358" y="198" font-family="sans-serif" font-size="13" fill="#c0392b">零点 c</text>
+<text x="170" y="430" font-family="sans-serif" font-size="14" fill="#1f6f8b">a</text>
+<text x="350" y="430" font-family="sans-serif" font-size="14" fill="#1f6f8b">c</text>
+<text x="530" y="430" font-family="sans-serif" font-size="14" fill="#1f6f8b">b</text>
+<text x="308" y="236" font-family="sans-serif" font-size="13" fill="#1f6f8b">区间 [a, b]</text>
+</svg>

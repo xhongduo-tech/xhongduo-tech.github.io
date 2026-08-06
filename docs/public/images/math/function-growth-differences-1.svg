@@ -1,0 +1,69 @@
+<svg viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">四种增函数的增长比较</title>
+<desc id="desc">比较 y=x、y=x^2、y=2^x 与 y=log_2 x 四条曲线。线性 y=x 匀速上升；二次 y=x^2 加速但温和；指数 y=2^x 在 x 足够大后迅速飙升并超过二次函数；对数 y=log_2 x 增长极慢，几乎贴着 x 轴。在 x=2 与 x=4 处，y=x^2 与 y=2^x 取值相等（4 与 16）。</desc>
+<rect width="700" height="440" fill="#faf9f5"/>
+<text x="40" y="36" font-family="sans-serif" font-size="15" fill="#333">四种增函数的增长比较（x ≥ 0）</text>
+<text x="40" y="60" font-family="sans-serif" font-size="13" fill="#888">在 x = 2 与 x = 4 处，y = x² 与 y = 2^x 相交（取值同为 4、16），此后 2^x 一骑绝尘</text>
+
+<!-- grid -->
+<line x1="188" y1="30" x2="188" y2="370" stroke="#eee" stroke-width="1"/>
+<line x1="296" y1="30" x2="296" y2="370" stroke="#eee" stroke-width="1"/>
+<line x1="404" y1="30" x2="404" y2="370" stroke="#eee" stroke-width="1"/>
+<line x1="512" y1="30" x2="512" y2="370" stroke="#eee" stroke-width="1"/>
+<line x1="620" y1="30" x2="620" y2="370" stroke="#eee" stroke-width="1"/>
+<line x1="80" y1="322.8" x2="620" y2="322.8" stroke="#eee" stroke-width="1"/>
+<line x1="80" y1="275.6" x2="620" y2="275.6" stroke="#eee" stroke-width="1"/>
+<line x1="80" y1="228.3" x2="620" y2="228.3" stroke="#eee" stroke-width="1"/>
+<line x1="80" y1="181.1" x2="620" y2="181.1" stroke="#eee" stroke-width="1"/>
+<line x1="80" y1="133.9" x2="620" y2="133.9" stroke="#eee" stroke-width="1"/>
+<line x1="80" y1="86.7" x2="620" y2="86.7" stroke="#eee" stroke-width="1"/>
+
+<!-- axes -->
+<line x1="80" y1="370" x2="620" y2="370" stroke="#333" stroke-width="1.5"/>
+<line x1="80" y1="30" x2="80" y2="420" stroke="#333" stroke-width="1.5"/>
+<polygon points="608,365 608,375 622,370" fill="#333"/>
+<polygon points="75,42 85,42 80,30" fill="#333"/>
+<text x="628" y="364" font-family="sans-serif" font-size="15" fill="#333">x</text>
+<text x="86" y="40" font-family="sans-serif" font-size="15" fill="#333">y</text>
+
+<!-- x tick labels -->
+<text x="188" y="388" font-family="sans-serif" font-size="13" fill="#333">1</text>
+<text x="296" y="388" font-family="sans-serif" font-size="13" fill="#333">2</text>
+<text x="404" y="388" font-family="sans-serif" font-size="13" fill="#333">3</text>
+<text x="512" y="388" font-family="sans-serif" font-size="13" fill="#333">4</text>
+<text x="620" y="388" font-family="sans-serif" font-size="13" fill="#333">5</text>
+<text x="82" y="384" font-family="sans-serif" font-size="13" fill="#333">0</text>
+
+<!-- y tick labels -->
+<text x="70" y="326.8" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">5</text>
+<text x="70" y="279.6" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">10</text>
+<text x="70" y="232.3" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">15</text>
+<text x="70" y="185.1" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">20</text>
+<text x="70" y="137.9" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">25</text>
+<text x="70" y="90.7" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">30</text>
+<text x="70" y="43.4" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">35</text>
+
+<!-- y = 2^x (red, exponential) -->
+<polyline points="80,360.6 134,356.6 188,351.1 242,343.3 296,332.2 350,316.6 404,294.4 458,263.2 512,218.9 566,156.3 620,67.8" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<circle cx="296" cy="332.2" r="4" fill="#faf9f5" stroke="#c0392b" stroke-width="1.5"/>
+<circle cx="512" cy="218.9" r="4" fill="#faf9f5" stroke="#c0392b" stroke-width="1.5"/>
+<text x="628" y="62" font-family="sans-serif" font-size="14" fill="#c0392b">y = 2^x</text>
+
+<!-- y = x^2 (cyan, quadratic) -->
+<polyline points="80,370 134,367.6 188,360.6 242,348.8 296,332.2 350,311.0 404,285.0 458,254.3 512,218.9 566,178.8 620,133.9" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+<circle cx="296" cy="332.2" r="4" fill="#faf9f5" stroke="#1f6f8b" stroke-width="1.5"/>
+<circle cx="512" cy="218.9" r="4" fill="#faf9f5" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="628" y="128" font-family="sans-serif" font-size="14" fill="#1f6f8b">y = x^2</text>
+
+<!-- y = x (gray, linear) -->
+<polyline points="80,370 188,360.6 296,351.1 404,341.7 512,332.2 620,322.8" fill="none" stroke="#888" stroke-width="2.2"/>
+<text x="628" y="317" font-family="sans-serif" font-size="14" fill="#888">y = x</text>
+
+<!-- y = log_2 x (dashed gray, logarithmic) -->
+<polyline points="188,370 242,364.5 296,360.6 350,357.5 404,355.0 458,352.9 512,351.1 566,349.5 620,348.1" fill="none" stroke="#888" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="628" y="342" font-family="sans-serif" font-size="14" fill="#888">y = log_2 x</text>
+
+<!-- annotation -->
+<text x="300" y="250" font-family="sans-serif" font-size="13" fill="#c0392b">指数：后期爆炸式反超</text>
+<text x="180" y="290" font-family="sans-serif" font-size="13" fill="#888">对数：几乎贴着 x 轴</text>
+</svg>

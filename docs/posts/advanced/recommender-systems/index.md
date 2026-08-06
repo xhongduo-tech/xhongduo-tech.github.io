@@ -25,17 +25,17 @@ pageClass: plain-doc
 
 - [x] [协同过滤的基本思想与邻域方法框架](./collaborative-filtering-basics-neighborhood-methods)
 - [x] [相似度计算：余弦相似度、皮尔逊相关系数与 Jaccard](./similarity-cosine-pearson-jaccard)
-- [ ] 基于用户的协同过滤（UserCF）：原理与实现
-- [ ] UserCF 的相似度改进：对热门物品的惩罚（IUF 思想）
-- [ ] 基于物品的协同过滤（ItemCF）：原理与实现
-- [ ] ItemCF 的归一化与活跃用户惩罚
-- [ ] UserCF 与 ItemCF 的对比与适用场景
-- [ ] 协同过滤的优缺点：稀疏性、冷启动与可解释性
+- [x] [基于用户的协同过滤（UserCF）：原理与实现](./usercf-principle-and-implementation)
+- [x] [UserCF 的相似度改进：对热门物品的惩罚（IUF 思想）](./usercf-similarity-improvement-iuf)
+- [x] [基于物品的协同过滤（ItemCF）：原理与实现](./itemcf-principle-and-implementation)
+- [x] [ItemCF 的归一化与活跃用户惩罚](./itemcf-normalization-active-user-penalty)
+- [x] [UserCF 与 ItemCF 的对比与适用场景](./usercf-vs-itemcf-comparison-scenarios)
+- [x] [协同过滤的优缺点：稀疏性、冷启动与可解释性](./collaborative-filtering-pros-cons-sparsity-cold-start)
 
 ### 第三篇 隐语义模型与矩阵分解
 
-- [ ] 隐语义模型（LFM）的基本思想：隐因子与兴趣分类
-- [ ] 基于 SVD 的矩阵分解：Funk-SVD 与梯度下降求解
+- [x] [隐语义模型（LFM）的基本思想：隐因子与兴趣分类](./latent-factor-model-lfm-basics)
+- [x] [基于 SVD 的矩阵分解：Funk-SVD 与梯度下降求解](./funk-svd-matrix-factorization)
 - [ ] 带偏置项的矩阵分解（BiasSVD）
 - [ ] 隐式反馈的矩阵分解：加权交替最小二乘（ALS-WR）
 - [ ] SVD++：融合显式与隐式反馈

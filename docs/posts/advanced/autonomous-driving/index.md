@@ -29,7 +29,7 @@ pageClass: plain-doc
 - [x] [BEV 感知的由来与核心思想](./bev-perception-origins)
 - [x] [BEVFormer：基于 Transformer 的多相机 BEV 感知](./bevformer)
 - [x] [LSS 与 BEVDepth：显式深度估计的 BEV 方案](./lss-bevdepth)
-- [ ] Occupancy 占用网络：从检测框到体素化场景表达
+- [x] [Occupancy 占用网络：从检测框到体素化场景表达](./occupancy-network)
 - [ ] 多传感器融合：前融合、特征级融合与后融合
 - [ ] 时序融合与 StreamPETR 式流式感知
 - [ ] 车道线与可行驶区域检测

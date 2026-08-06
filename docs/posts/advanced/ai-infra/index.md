@@ -26,13 +26,13 @@ pageClass: plain-doc
 - [x] [kernel 启动开销与 kernel fusion（算子融合）的收益](./kernel-launch-overhead-fusion)
 - [x] [矩阵乘法 kernel 优化实战：从 naive 到 tiling](./matmul-kernel-optimization)
 - [x] [Tensor Core 与 WMMA/mma 指令编程](./tensor-core-wmma)
-- [ ] Roofline 模型：判断 kernel 是计算瓶颈还是访存瓶颈
-- [ ] FlashAttention 的 IO 感知设计思想解析
+- [x] [Roofline 模型：判断 kernel 是计算瓶颈还是访存瓶颈](./roofline-model)
+- [x] [FlashAttention 的 IO 感知设计思想解析](./flashattention-io-aware)
 
 ### 第二篇 集合通信
 
-- [ ] 集合通信原语总览：Broadcast、Reduce、AllReduce、AllGather、ReduceScatter、AllToAll
-- [ ] Ring AllReduce 的算法推导与带宽最优性
+- [x] [集合通信原语总览：Broadcast、Reduce、AllReduce、AllGather、ReduceScatter、AllToAll](./collective-communication-primitives)
+- [x] [Ring AllReduce 的算法推导与带宽最优性](./ring-allreduce)
 - [ ] Tree AllReduce 与 Double Binary Tree：延迟与带宽的权衡
 - [ ] NCCL 架构：拓扑检测、通道（Channel）与协议选择
 - [ ] NCCL 调优：环境变量、拓扑感知与常见性能陷阱

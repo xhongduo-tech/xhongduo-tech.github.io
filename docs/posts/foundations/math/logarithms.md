@@ -65,7 +65,7 @@ $$\log_a M^n=n\log_a M$$
 
 **例 3**：$\log_5\sqrt{125}=\log_5 125^{\frac12}=\frac12\log_5 125=\frac12\times3=\frac32$。
 
-**辨析｜易错点（本节第一坑）：对数只能「拆乘除」，不能「拆加减」。** $\log_a(M+N)\neq\log_a M+\log_a N$，$\log_a(M-N)\neq\log_a M-\log_a N$，这两条**没有对应的公式**。<span class="marginnote">为什么？因为指数运算里没有「$a^x+a^y$ 化简单」这一条——$a^x+a^y$ 加不起来，它的对数自然也就拆不开。记住：**对数运算法则只服务于「真数内部的乘、除、幂」**。</span>
+**辨析｜易错点（本节第一坑）：对数只能「拆乘除」，不能「拆加减」。** $\log_a(M+N)\neq\log_a M+\log_a N$，$\log_a(M-N)\neq\log_a M-\log_a N$，这两条**没有对应的公式**。<span class="marginnote">为什么？因为指数运算里没有「$a^x+a^y$ 化简单」这一条——$a^x+a^y$ 加不起来，它的对数自然也就拆不开。记住：<strong>对数运算法则只服务于「真数内部的乘、除、幂」</strong>。</span>
 
 ## 4 公式解析：换底公式
 

@@ -29,13 +29,13 @@ pageClass: plain-doc
 - [x] [本征值、本征向量与谱分解](./eigenvalues-spectral-decomposition)
 - [x] [张量积（tensor product）：多体系统的状态空间](./tensor-product-multipartite)
 - [x] [量子力学的基本假设：状态、演化、测量](./postulates-quantum-mechanics)
-- [ ] 投影测量与广义测量（POVM）
-- [ ] 密度算符：混合态与部分迹
-- [ ] Schmidt 分解与纯化
+- [x] [投影测量与广义测量（POVM）](./projection-measurement-povm)
+- [x] [密度算符：混合态与部分迹](./density-operator-mixed-states)
+- [x] [Schmidt 分解与纯化](./schmidt-decomposition-purification)
 
 ### 第二篇 量子比特与布洛赫球
 
-- [ ] 量子比特：|0⟩、|1⟩ 与叠加态
+- [x] [量子比特：|0⟩、|1⟩ 与叠加态](./qubit-superposition)
 - [ ] 布洛赫球（Bloch sphere）表示
 - [ ] 单比特量子态的测量与基的选择
 - [ ] 多量子比特系统与纠缠态

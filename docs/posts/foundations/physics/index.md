@@ -28,10 +28,10 @@ pageClass: plain-doc
 ### 必修第一册 · 第三章 相互作用——力
 
 - [x] [重力与弹力](./gravity-and-elastic-force)
-- [ ] 摩擦力
-- [ ] 牛顿第三定律
-- [ ] 力的合成和分解
-- [ ] 共点力的平衡
+- [x] [摩擦力](./friction)
+- [x] [牛顿第三定律](./newton-third-law)
+- [x] [力的合成和分解](./force-composition-and-resolution)
+- [x] [共点力的平衡](./equilibrium-of-concurrent-forces)
 
 ### 必修第一册 · 第四章 运动和力的关系
 

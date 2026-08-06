@@ -24,8 +24,8 @@ pageClass: plain-doc
 - [x] [斯宾诺莎：实体一元论与样式](./spinoza-substance-modes)
 - [x] [莱布尼茨：单子论与前定和谐](./leibniz-monads)
 - [x] [休谟：束理论（bundle theory）与实体观念的瓦解](./hume-bundle-theory)
-- [ ] 康德《纯粹理性批判》：先验演绎与范畴体系
-- [ ] 物自体与现象：本体论的界限
+- [x] [康德《纯粹理性批判》：先验演绎与范畴体系](./kant-transcendental-deduction)
+- [x] [物自体与现象：本体论的界限](./thing-in-itself-phenomena)
 
 ### 第二篇 分析传统：从弗雷格到奎因
 

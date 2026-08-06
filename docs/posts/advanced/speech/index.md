@@ -25,13 +25,13 @@ pageClass: plain-doc
 - [x] [采样与量化：奈奎斯特定理与混叠](./sampling-quantization-nyquist)
 - [x] [预加重与直流分量去除](./preemphasis-dc-removal)
 - [x] [分帧与加窗：短时平稳假设与常用窗函数](./framing-windowing)
-- [ ] 短时能量与短时过零率
-- [ ] 端点检测（VAD）：能量法与模型法
+- [x] [短时能量与短时过零率](./short-time-energy-zcr)
+- [x] [端点检测（VAD）：能量法与模型法](./vad-endpoint-detection)
 
 ### 频谱与倒谱分析
 
-- [ ] 离散傅里叶变换（DFT）与短时傅里叶变换（STFT）
-- [ ] 语谱图（Spectrogram）的生成与解读
+- [x] [离散傅里叶变换（DFT）与短时傅里叶变换（STFT）](./dft-stft)
+- [x] [语谱图（Spectrogram）的生成与解读](./spectrogram)
 - [ ] 线性预测分析（LPC）与 LPC 系数
 - [ ] 倒谱分析：同态滤波与复倒谱
 - [ ] 基音周期估计：自相关法与 YIN 算法
