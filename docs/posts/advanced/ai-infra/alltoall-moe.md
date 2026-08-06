@@ -1,0 +1,109 @@
+---
+title: AllToAll 在 MoE 场景下的通信模式与优化
+date: 2026-08-07
+---
+
+# AllToAll 在 MoE 场景下的通信模式与优化
+
+<div class="epigraph">
+<p>The whole is greater than the sum of its parts.</p>
+<p>整体大于部分之和。</p>
+<footer>—— 亚里士多德（Aristotle），常被引述的箴言</footer>
+</div>
+
+<div class="article-byline">
+<p>第四级 · AI 基础设施 ｜ AI基础设施技术栈 集合通信·MoE ｜ 2026-08-07</p>
+</div>
+
+## 为什么从 AllToAll 开始
+
+前面的文章里，我们看到的通信几乎都是 **AllReduce**——数据并行里人人持有同样的梯度，把它们归约成一份再广播回去。但有一类模型的通信主角不是 AllReduce，而是 **AllToAll**（全到全）：**混合专家模型（Mixture-of-Experts，MoE）**。MoE 把 Transformer 里的 FFN 层替换成一组「专家」，每个 token 只激活其中 top-k 个专家——于是在训练时，**token 必须被搬去「持有它目标专家」的那张卡上**。这就产生了全网「每张卡都给每张卡发数据」的通信模式，也就是 AllToAll。<span class="marginnote">一句话记住两种通信的气质差异：AllReduce 是「人人一份，归约合一」——数据有去有回、量不随规模涨；AllToAll 是「各取所需，换人换货」——纯搬运、量随规模线性涨。MoE 用的是后者，这也是它被称为「通信密集型」的根源。</span>
+
+## 1 MoE 的一步前向：路由与分发
+
+MoE 层把原来的单个 FFN 换成 $E$ 个专家 FFN 与一个**门控网络（gating network）**。前向时，每个 token 先经过门控，选中最相关的 top-k 个专家：
+
+$$g(x) = \operatorname{softmax}\left(x \cdot W_g\right), \qquad k\text{-top experts selected}$$
+
+- $x$：token 的隐藏向量（hidden state）；
+- $W_g$：门控权重矩阵，形状 $d \times E$；
+- $g(x)$：$E$ 维的概率向量，$g_i(x)$ 是「token $x$ 分给专家 $i$」的分数。
+
+这行式子读作：**先对「token 与每个专家的亲密度」做 softmax，取分数最高的 k 个专家干活。** 经典配置：GShard 用 top-2，Switch Transformer 激进地只用 top-1，Mixtral 8×7B 用 8 个专家 + top-2——虽然总参数量 47B，但每个 token 只激活约 13B，算力成本接近 13B 稠密模型。<span class="marginnote">MoE 的「大模型幻觉」由此而来：总参数多到像超大模型，单次前向的算力却接近小模型。代价就是——参数分散在专家里，token 得四处去找它们，通信随之暴涨。</span>
+
+路由结果决定了通信：**每个 token 都要去它选中专家所在的 rank**。假设 $E$ 个专家被分布到 $P$ 个 rank 上（每个 rank 持有 $E/P$ 个专家），那么 token 的去向分布完全取决于路由，**与数据并行的「固定拓扑」不同，MoE 的通信模式是动态的、由数据决定的**。
+
+这种把专家切开、分到各 rank 的做法叫**专家并行（Expert Parallelism，EP）**。它与数据并行（DP，每 rank 一份完整模型、各算各的数据）、张量并行（TP，把单个算子切开）是正交的：DP 切数据、TP 切算子、EP 切专家。真实训练里三者常叠加（EP + DP + TP），而 MoE 层**必须**用 EP 才能把专家塞进显存——专家总参数量太大了，单卡放不下。EP 付出的代价，就是本文要讲的 AllToAll 通信。<span class="marginnote">EP 与 DP 的一个关键差异：DP 的 AllReduce 之后人人仍持有**完整梯度**；EP 的 AllToAll 之后，每个 rank 只拥有**属于自己那批专家**的梯度——所以 EP 的优化器状态也天然按专家分片，不需要 ZeRO 再切。</span>
+
+## 2 AllToAll 原语回顾与两个阶段
+
+**AllToAll（全到全）**：每个 rank 把**不同的数据**分别发给其他 $P-1$ 个 rank（与发给自己的那部分合起来，正好构成全部数据）。数学上它就是一个**矩阵转置**——把「按发送方组织」的数据重排成「按接收方组织」。
+
+MoE 层的通信分两个阶段，各做一次 AllToAll：
+
+- **分发（dispatch）**：路由决定每个 token 的目标 rank 后，把 token 连同其编号搬过去。本地的输出是「每个目标 rank 一个分桶」。
+- **收集（combine）**：专家算完 token 的前向后，把结果按来源 rank 送回。通信量与分发完全相同，方向相反。
+
+在 NCCL 里对应 `ncclAllToAll`（等长）与 `ncclAllToAllv`（变长——MoE 几乎必然用这个，因为每个 rank 发给各方的 token 数不固定）；在 PyTorch 里是 `torch.distributed.all_to_all`，输入是「给每个 rank 的 tensor 列表」。<span class="marginnote">对比上一节：AllReduce 每 rank 的数据量 $2(P-1)N/P \approx 2N$ 与 $P$ 无关；而 AllToAll 是**纯搬运**，网络上的总搬移量随 rank 数增长——这是两种原语最本质的区别，也是 MoE 训练「通信重」的结构性原因。</span>
+
+**收集阶段的隐藏细节**：分发时搬走的是 token，收集时要把「专家输出」按来源还回去。为了让 token 回到正确的位置，分发时每个 token 必须随身携带**原始序号**（token id）与位置掩码，接收方在 combine 时按序号把结果插回原序列。这些「元数据」虽然很小，却让 AllToAll 的缓冲管理与索引重建变得繁琐——也是 MoE 实现容易出 bug 的地方。
+
+## 3 公式解析：一次 Token AllToAll 到底搬了多少数据
+
+把通信量算清楚，才能明白 MoE 的优化往哪儿使劲。设每个 rank 有 $B$ 个 token，每个 token 是隐藏维 $d$、精度 $\tau$ 字节的向量，记单个 token 的大小为 $s = d \times \tau$。路由均衡时，一个 token 的专家在本 rank 的概率是 $1/P$（本 rank 持有 $E/P$ 个专家、共 $E$ 个），所以每个 rank 发出的**跨机 token 数**为：
+
+$$B \times \frac{P-1}{P}$$
+
+- **第一步，算单个 rank 的发出量**：$B(P-1)/P$ 个 token 要离开本机，每 token $s$ 字节，故单个 rank 的跨机字节数为 $B(P-1)/P \times s$。剩下的 $B/P$ 个 token 命中的是本地专家，走 NVLink 或直接路由，不算「网络」通信。
+- **第二步，算全网总量**：$P$ 个 rank 各发 $B(P-1)/P$，全网总搬移量为：
+
+$$V_{\text{alltoall}} = P \times \frac{B(P-1)}{P} \times s = B(P-1)\, s$$
+
+- **第三步，看规模趋势**：若固定每 rank 的 $B$，$V_{\text{alltoall}}$ 随 $P$ **线性增长**——rank 越多，同样的 token 被拆得越碎、搬得越远，总通信越大。对比数据并行的 AllReduce（量约 $2N$ 与 $P$ 无关），**MoE 的专家并行是「通信随规模涨」的并行方式**。这也是为什么 MoE 训练对互连带宽极度敏感：搬的是和计算等量的数据，网络带宽几乎决定了扩展效率。
+
+**代入一组具体数字**。设一个 MoE 层有 $E=8$ 个专家、分布在 $P=8$ 个 rank，每 rank 有 $B=1024$ 个 token，隐藏维 $d=4096$，BF16（$\tau=2$ 字节），则 $s = 4096 \times 2 = 8$ KB。每 rank 跨机 token 数为 $1024 \times 7/8 = 896$，即每 rank 每次分发搬 $896 \times 8$ KB $= 7$ MB；全网共 $8 \times 7 = 56$ MB。**分发 + 收集要跑两遍**，所以单层每步实际搬 $112$ MB。一个 32 层的 MoE 模型，光 AllToAll 每步就搬约 3.6 GB——**通信量已经与梯度同步相当，甚至更高**。
+
+## 4 通信特征与瓶颈
+
+除了量大，MoE 的 AllToAll 还有三个与稠密模型截然不同的特征：
+
+**特征一：突发且不可预测。** 路由由数据决定，每步的 AllToAll 量都在变。梯度同步是「固定周期、固定大小」，可以用预算好的方式重叠；MoE 的通信大小在 kernel 运行时才知道，**通信与计算的依赖也更紧**——必须先知道路由结果才能组包，这让重叠（overlap）比稠密模型难做得多。<span class="marginnote">工程上的对策是「按层重叠」：上一层专家算前向的同时，下一层的路由与分发 AllToAll 已经在另一个流上跑了。把「路由-分发-计算-收集」四条流水错开，是 MoE 推理/训练引擎的核心技巧。</span>
+
+**特征二：负载不均。** 现实中路由不会完美均衡，某些专家会「爆单」。为此引入 **capacity factor（容量因子）$c$**：每个专家最多处理 $\lceil c \times \frac{B \cdot k}{E}\rceil$ 个 token，超出的 token 要么被丢弃（Switch Transformer 的做法），要么溢出到其他机制。$c$ 越大越不丢数据，但通信与空转也越多——**$c$ 是「精度 vs 效率」的旋钮**。
+
+**特征三：变长消息。** 每个 rank 发给各方的 token 数不等，必须用 AllToAllv 而非定长 AllToAll。变长消息让网卡难以预取、让通信调度更难，也放大了「小报文」效应——某些方向的报文可能小到填不满一个 MTU，协议开销占比飙升。
+
+## 5 优化手段：把搬移量压下去、把搬移藏起来
+
+**手段一：辅助负载均衡损失（aux load-balancing loss）。** 与其被动承受偏斜，不如在路由上加一个惩罚项，逼门控把 token 摊均匀。经典形式（Switch Transformer）：
+
+$$L_{\text{aux}} = \alpha \cdot E \sum_{i=1}^{E} f_i \cdot g_i$$
+
+其中 $f_i$ 是分给专家 $i$ 的 token 比例，$g_i$ 是门控平均分数。两者乘积在「分得多且分数高」时最小——**鼓励每个专家被均匀、稳定地选中**，从源头上减少偏斜与「爆单」。
+
+**手段二：分组 / 层次 AllToAll（grouped / hierarchical all-to-all）。** 先在本机内用 NVLink 做一次「局部交换」，把**本机内就能满足**的 token 消化掉，只把真正要出机的 token 送上跨机网络。这样跨机 AllToAll 的 $P$ 从「全 rank 数」缩小到「机架/节点数」，总搬移量与跨机跳数都大幅下降。<span class="marginnote">这就是「两层拓扑匹配两层通信」：NVLink 管机内、RDMA 管网间，token 只在其目标专家真正在别处时才跨机。配合《训练集群的网络拓扑》一节的 rail-optimized 拓扑，跨机带宽也能喂满。</span>
+
+层次 AllToAll 的实现思路是把一次全局 AllToAll 拆成「先机内、再机间、再机内」三段：先按「目标 rank 是否在本机」分两组，本机的走 NVLink 直接送达，要出机的先汇总到本机的「出口 buffer」，再做一次**只发生在机与机之间的** AllToAll，最后由目标机内部再分发一次。这样跨机通信的报文从「碎小的单 token 束」变成「按节点聚合的大块」，协议效率更高，也更容易喂满网卡。
+
+**手段三：通信计算重叠。** 利用上一节的机制：分发的 AllToAll 与**上一层**专家计算重叠，收集的 AllToAll 与**本层**专家计算重叠。因为 MoE 层内「先路由后计算」依赖紧密，重叠只能做到「层与层之间」与「分组内错开」，比稠密模型更精细，也需要更多缓冲。
+
+**手段四：选型与工程参数。** 用 `AllToAllv` 减少定长填充浪费；给通信留独立流与足够缓冲；在部署上**优先把常被同时选中的专家放在同机/同机架**（专家共置，expert co-location），让跨机流量最小化。下面是一段 PyTorch 层的分发骨架：
+
+```python
+# MoE 分发阶段：按目标 rank 分桶后 AllToAll（示意）
+send_buckets = [tok[x == r] for r in range(world_size)]   # x 是路由出的目标 rank
+recv_buckets = [torch.empty(len(b), hidden, dtype=tok.dtype,
+                            device=tok.device) for b in send_buckets]
+dist.all_to_all(recv_buckets, send_buckets)               # 变长时用 all_to_all_single
+# recv_buckets[j]: 从 rank j 收到的 token，交给本地专家计算
+```
+
+## 6 小结
+
+- **MoE 把通信从 AllReduce 换成 AllToAll**：token 按路由结果搬到目标专家所在的 rank，通信是**纯搬运、无归约**。
+- 路由由门控决定：$g(x)=\operatorname{softmax}(xW_g)$ 取 top-k；通信模式**动态、随数据变化**。
+- 一次 AllToAll 全网搬移 $V = B(P-1)s$，**随 rank 数线性增长**——与 AllReduce 的「量不随 $P$ 变」形成鲜明对比。
+- 特征与瓶颈：**突发、负载不均（capacity factor）、变长消息**。
+- 优化四手段：**辅助负载均衡损失、分组/层次 AllToAll、通信计算重叠、专家共置与工程参数**。
+
+在下一节，我们将进入并行策略的正式第一课：**数据并行（DP）原理：梯度同步的实现与开销分析**——从单卡训练到多卡训练的第一次跃迁。

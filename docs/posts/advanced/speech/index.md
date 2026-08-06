@@ -43,13 +43,13 @@ pageClass: plain-doc
 - [x] [滤波器组特征（FBank / log-Mel Spectrogram）](./fbank-log-mel-spectrogram)
 - [x] [感知线性预测系数（PLP）](./plp-perceptual-linear-prediction)
 - [x] [一阶二阶差分：Delta 与 Delta-Delta 特征](./delta-delta-delta-features)
-- [ ] 音高（Pitch）与韵律特征的提取
-- [ ] 倒谱均值方差归一化（CMVN）与特征增强
+- [x] [音高（Pitch）与韵律特征的提取](./pitch-prosodic-features)
+- [x] [倒谱均值方差归一化（CMVN）与特征增强](./cmvn-feature-enhancement)
 
 ### 隐马尔可夫模型与 GMM-HMM 声学模型
 
-- [ ] 马尔可夫链与隐马尔可夫模型（HMM）三要素
-- [ ] HMM 三大问题：评估、解码与学习
+- [x] [马尔可夫链与隐马尔可夫模型（HMM）三要素](./hmm-three-elements)
+- [x] [HMM 三大问题：评估、解码与学习](./hmm-three-problems)
 - [ ] 前向—后向算法与维特比（Viterbi）算法
 - [ ] Baum-Welch 算法与 EM 训练
 - [ ] 高斯混合模型（GMM）与连续密度 HMM

@@ -43,7 +43,7 @@ pageClass: plain-doc
 
 - [x] [模态逻辑基础：可能世界语义学](./modal-logic-possible-worlds)
 - [x] [克里普克《命名与必然性》：严格指示词与本质主义](./kripke-naming-necessity)
-- [ ] 刘易斯的模态实在论：可能世界是否真实存在
+- [x] [刘易斯的模态实在论：可能世界是否真实存在](./lewis-modal-realism)
 - [ ] 分体论（mereology）：部分—整体的形式理论
 - [ ] 随附性（supervenience）：心理属性与物理属性
 - [ ] 时间中的存在：延续论与接续论（endurantism vs perdurantism）

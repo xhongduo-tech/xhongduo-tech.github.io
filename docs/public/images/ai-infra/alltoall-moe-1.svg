@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" font-family="sans-serif">
+  <title>MoE 专家并行的 Token AllToAll：4×4 分发矩阵（P=4）</title>
+  <desc>每个 rank 持有 B 个 token，路由后按目标专家所在 rank 分桶。矩阵第 i 行是 rank i 发给各 rank 的 token 数量，对角线留在本机，非对角线跨机传输。行和为 B，列和为各 rank 收到的 token 数，路由均衡时每列约等于 B。</desc>
+  <rect width="860" height="470" fill="#faf9f5"/>
+  <text x="430" y="34" text-anchor="middle" font-size="19" font-weight="bold" fill="#333">MoE 专家并行的 Token AllToAll（P = 4）</text>
+
+  <!-- 列标签 -->
+  <text x="178" y="98" text-anchor="middle" font-size="14" fill="#333">→ G0</text>
+  <text x="268" y="98" text-anchor="middle" font-size="14" fill="#333">→ G1</text>
+  <text x="358" y="98" text-anchor="middle" font-size="14" fill="#333">→ G2</text>
+  <text x="448" y="98" text-anchor="middle" font-size="14" fill="#333">→ G3</text>
+
+  <!-- 行标签 -->
+  <text x="78" y="156" text-anchor="end" font-size="14" fill="#333">G0 发</text>
+  <text x="78" y="246" text-anchor="end" font-size="14" fill="#333">G1 发</text>
+  <text x="78" y="336" text-anchor="end" font-size="14" fill="#333">G2 发</text>
+  <text x="78" y="426" text-anchor="end" font-size="14" fill="#333">G3 发</text>
+
+  <!-- 颜色：目标 G0 青 #1f6f8b，G1 红 #c0392b，G2 金 #d4a017，G3 绿 #6b8e23 -->
+  <!-- 第 0 行：G0 发 -->
+  <rect x="130" y="118" width="76" height="66" fill="#bcd6e0" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="168" y="142" text-anchor="middle" font-size="13" fill="#333">本机</text>
+  <text x="168" y="162" text-anchor="middle" font-size="12" fill="#1f6f8b">n₀₀</text>
+  <rect x="220" y="118" width="76" height="66" fill="#e6c3c3" stroke="#c0392b" stroke-width="2"/>
+  <text x="258" y="156" text-anchor="middle" font-size="13" fill="#333">n₀₁</text>
+  <rect x="310" y="118" width="76" height="66" fill="#efdda5" stroke="#d4a017" stroke-width="2"/>
+  <text x="348" y="156" text-anchor="middle" font-size="13" fill="#333">n₀₂</text>
+  <rect x="400" y="118" width="76" height="66" fill="#d4ddc2" stroke="#6b8e23" stroke-width="2"/>
+  <text x="438" y="156" text-anchor="middle" font-size="13" fill="#333">n₀₃</text>
+
+  <!-- 第 1 行：G1 发 -->
+  <rect x="130" y="208" width="76" height="66" fill="#e6c3c3" stroke="#c0392b" stroke-width="2"/>
+  <text x="168" y="246" text-anchor="middle" font-size="13" fill="#333">n₁₀</text>
+  <rect x="220" y="208" width="76" height="66" fill="#bcd6e0" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="258" y="232" text-anchor="middle" font-size="13" fill="#333">本机</text>
+  <text x="258" y="252" text-anchor="middle" font-size="12" fill="#1f6f8b">n₁₁</text>
+  <rect x="310" y="208" width="76" height="66" fill="#efdda5" stroke="#d4a017" stroke-width="2"/>
+  <text x="348" y="246" text-anchor="middle" font-size="13" fill="#333">n₁₂</text>
+  <rect x="400" y="208" width="76" height="66" fill="#d4ddc2" stroke="#6b8e23" stroke-width="2"/>
+  <text x="438" y="246" text-anchor="middle" font-size="13" fill="#333">n₁₃</text>
+
+  <!-- 第 2 行：G2 发 -->
+  <rect x="130" y="298" width="76" height="66" fill="#e6c3c3" stroke="#c0392b" stroke-width="2"/>
+  <text x="168" y="336" text-anchor="middle" font-size="13" fill="#333">n₂₀</text>
+  <rect x="220" y="298" width="76" height="66" fill="#efdda5" stroke="#d4a017" stroke-width="2"/>
+  <text x="258" y="336" text-anchor="middle" font-size="13" fill="#333">n₂₁</text>
+  <rect x="310" y="298" width="76" height="66" fill="#bcd6e0" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="348" y="322" text-anchor="middle" font-size="13" fill="#333">本机</text>
+  <text x="348" y="342" text-anchor="middle" font-size="12" fill="#1f6f8b">n₂₂</text>
+  <rect x="400" y="298" width="76" height="66" fill="#d4ddc2" stroke="#6b8e23" stroke-width="2"/>
+  <text x="438" y="336" text-anchor="middle" font-size="13" fill="#333">n₂₃</text>
+
+  <!-- 第 3 行：G3 发 -->
+  <rect x="130" y="388" width="76" height="66" fill="#e6c3c3" stroke="#c0392b" stroke-width="2"/>
+  <text x="168" y="426" text-anchor="middle" font-size="13" fill="#333">n₃₀</text>
+  <rect x="220" y="388" width="76" height="66" fill="#efdda5" stroke="#d4a017" stroke-width="2"/>
+  <text x="258" y="426" text-anchor="middle" font-size="13" fill="#333">n₃₁</text>
+  <rect x="310" y="388" width="76" height="66" fill="#d4ddc2" stroke="#6b8e23" stroke-width="2"/>
+  <text x="348" y="426" text-anchor="middle" font-size="13" fill="#333">n₃₂</text>
+  <rect x="400" y="388" width="76" height="66" fill="#bcd6e0" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="438" y="412" text-anchor="middle" font-size="13" fill="#333">本机</text>
+  <text x="438" y="432" text-anchor="middle" font-size="12" fill="#1f6f8b">n₃₃</text>
+
+  <!-- 右侧说明 -->
+  <rect x="520" y="90" width="320" height="364" fill="#fdfcf8" stroke="#ccc"/>
+  <text x="680" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">读矩阵的方式</text>
+  <text x="540" y="150" font-size="13" fill="#333">第 i 行：rank i 发出的 token 去往各 rank；</text>
+  <text x="540" y="172" font-size="13" fill="#333">　行和 = B（每 rank 共 B 个 token）。</text>
+  <text x="540" y="198" font-size="13" fill="#333">第 j 列：rank j 收到的 token 数；</text>
+  <text x="540" y="220" font-size="13" fill="#333">　列和 = 该 rank 的专家负载。</text>
+  <text x="540" y="246" font-size="13" fill="#333">路由均衡时，每列和 ≈ B；</text>
+  <text x="540" y="268" font-size="13" fill="#333">某列明显偏大 → 负载偏斜。</text>
+  <text x="540" y="300" font-size="13" fill="#333">对角线（本机）：留在本地专家，</text>
+  <text x="540" y="322" font-size="13" fill="#333">　走 NVLink/直接路由；</text>
+  <text x="540" y="344" font-size="13" fill="#333">非对角线：跨机，走 RDMA 网络。</text>
+  <text x="540" y="382" font-size="14" font-weight="bold" fill="#c0392b">非对角线元素之和 × token 大小</text>
+  <text x="540" y="404" font-size="14" font-weight="bold" fill="#c0392b">= 一次 AllToAll 的网络搬移量</text>
+  <text x="540" y="432" font-size="13" fill="#666">颜色 = 目标 rank：青=G0 红=G1 金=G2 绿=G3</text>
+
+  <!-- 图例色块 -->
+  <rect x="540" y="440" width="14" height="14" fill="#bcd6e0" stroke="#1f6f8b"/>
+  <rect x="586" y="440" width="14" height="14" fill="#e6c3c3" stroke="#c0392b"/>
+  <rect x="632" y="440" width="14" height="14" fill="#efdda5" stroke="#d4a017"/>
+  <rect x="678" y="440" width="14" height="14" fill="#d4ddc2" stroke="#6b8e23"/>
+</svg>

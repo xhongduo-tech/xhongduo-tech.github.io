@@ -21,7 +21,7 @@ date: 2026-08-07
 
 ## 1 通信为什么拖慢训练：先算后传的串行时间
 
-在没有任何重叠的朴素实现里，一步训练的墙钟时间是「计算」与「通信」的简单相加：
+在没有任何重叠的朴素实现里，一步训练的墙钟时间是「计算」与「通信」的简单相加：<span class="marginnote">「通信占比」在 GPU 上可以用 `nsys` 直接读出来：把 AllReduce 相关 kernel 的总时长除以一步总时长，就是 $T_{\text{comm}}/(T_{\text{comp}}+T_{\text{comm}})$。</span>
 
 $$T_{\text{serial}} = T_{\text{comp}} + T_{\text{comm}}$$
 
