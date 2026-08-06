@@ -41,7 +41,7 @@ pageClass: plain-doc
 
 - [x] [地球的形状、大小与自转](./earth-shape-rotation)
 - [x] [月球的运动（朔望月与恒星月）与月相](./lunar-motion-phases)
-- [ ] 月球的表面形貌、内部结构与起源学说
+- [x] [月球的表面形貌、内部结构与起源学说](./lunar-surface-internal-origin)
 - [ ] 日食与月食的原理、类型与沙罗周期
 - [ ] 潮汐现象与引潮力、月球探测简史
 
