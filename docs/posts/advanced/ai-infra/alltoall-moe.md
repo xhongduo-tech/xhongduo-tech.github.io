@@ -33,18 +33,20 @@ $$g(x) = \operatorname{softmax}\left(x \cdot W_g\right), \qquad k\text{-top expe
 
 路由结果决定了通信：**每个 token 都要去它选中专家所在的 rank**。假设 $E$ 个专家被分布到 $P$ 个 rank 上（每个 rank 持有 $E/P$ 个专家），那么 token 的去向分布完全取决于路由，**与数据并行的「固定拓扑」不同，MoE 的通信模式是动态的、由数据决定的**。
 
-这种把专家切开、分到各 rank 的做法叫**专家并行（Expert Parallelism，EP）**。它与数据并行（DP，每 rank 一份完整模型、各算各的数据）、张量并行（TP，把单个算子切开）是正交的：DP 切数据、TP 切算子、EP 切专家。真实训练里三者常叠加（EP + DP + TP），而 MoE 层**必须**用 EP 才能把专家塞进显存——专家总参数量太大了，单卡放不下。EP 付出的代价，就是本文要讲的 AllToAll 通信。<span class="marginnote">EP 与 DP 的一个关键差异：DP 的 AllReduce 之后人人仍持有**完整梯度**；EP 的 AllToAll 之后，每个 rank 只拥有**属于自己那批专家**的梯度——所以 EP 的优化器状态也天然按专家分片，不需要 ZeRO 再切。</span>
+这种把专家切开、分到各 rank 的做法叫**专家并行（Expert Parallelism，EP）**。它与数据并行（DP，每 rank 一份完整模型、各算各的数据）、张量并行（TP，把单个算子切开）是正交的：DP 切数据、TP 切算子、EP 切专家。真实训练里三者常叠加（EP + DP + TP），而 MoE 层**必须**用 EP 才能把专家塞进显存——专家总参数量太大了，单卡放不下。EP 付出的代价，就是本文要讲的 AllToAll 通信。<span class="marginnote">EP 与 DP 的一个关键差异：DP 的 AllReduce 之后人人仍持有<strong>完整梯度</strong>；EP 的 AllToAll 之后，每个 rank 只拥有<strong>属于自己那批专家</strong>的梯度——所以 EP 的优化器状态也天然按专家分片，不需要 ZeRO 再切。</span>
 
 ## 2 AllToAll 原语回顾与两个阶段
 
-**AllToAll（全到全）**：每个 rank 把**不同的数据**分别发给其他 $P-1$ 个 rank（与发给自己的那部分合起来，正好构成全部数据）。数学上它就是一个**矩阵转置**——把「按发送方组织」的数据重排成「按接收方组织」。
+**AllToAll（全到全）**：每个 rank 把**不同的数据**分别发给其他 $P-1$ 个 rank（与发给自己的那部分合起来，正好构成全部数据）。数学上它就是一个**矩阵转置**——把「按发送方组织」的数据重排成「按接收方组织」。MoE 场景下这张「分发矩阵」的行和列分别对应「每 rank 发出多少」与「每 rank 收到多少」，下图给出 $P=4$ 的直观示意。
+
+![MoE 专家并行的 Token AllToAll 分发矩阵（P=4）](/images/ai-infra/alltoall-moe-1.svg)
 
 MoE 层的通信分两个阶段，各做一次 AllToAll：
 
 - **分发（dispatch）**：路由决定每个 token 的目标 rank 后，把 token 连同其编号搬过去。本地的输出是「每个目标 rank 一个分桶」。
 - **收集（combine）**：专家算完 token 的前向后，把结果按来源 rank 送回。通信量与分发完全相同，方向相反。
 
-在 NCCL 里对应 `ncclAllToAll`（等长）与 `ncclAllToAllv`（变长——MoE 几乎必然用这个，因为每个 rank 发给各方的 token 数不固定）；在 PyTorch 里是 `torch.distributed.all_to_all`，输入是「给每个 rank 的 tensor 列表」。<span class="marginnote">对比上一节：AllReduce 每 rank 的数据量 $2(P-1)N/P \approx 2N$ 与 $P$ 无关；而 AllToAll 是**纯搬运**，网络上的总搬移量随 rank 数增长——这是两种原语最本质的区别，也是 MoE 训练「通信重」的结构性原因。</span>
+在 NCCL 里对应 `ncclAllToAll`（等长）与 `ncclAllToAllv`（变长——MoE 几乎必然用这个，因为每个 rank 发给各方的 token 数不固定）；在 PyTorch 里是 `torch.distributed.all_to_all`，输入是「给每个 rank 的 tensor 列表」。<span class="marginnote">对比上一节：AllReduce 每 rank 的数据量 $2(P-1)N/P \approx 2N$ 与 $P$ 无关；而 AllToAll 是<strong>纯搬运</strong>，网络上的总搬移量随 rank 数增长——这是两种原语最本质的区别，也是 MoE 训练「通信重」的结构性原因。</span>
 
 **收集阶段的隐藏细节**：分发时搬走的是 token，收集时要把「专家输出」按来源还回去。为了让 token 回到正确的位置，分发时每个 token 必须随身携带**原始序号**（token id）与位置掩码，接收方在 combine 时按序号把结果插回原序列。这些「元数据」虽然很小，却让 AllToAll 的缓冲管理与索引重建变得繁琐——也是 MoE 实现容易出 bug 的地方。
 
