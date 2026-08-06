@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [等价关系与集合的分类](./equivalence-classes-partitions)
 - [x] [代数运算与代数系统](./algebraic-operations-systems)
 - [x] [运算律：结合律、交换律与分配律](./operation-laws)
-- [ ] 同态与同构（Homomorphism & Isomorphism）
-- [ ] 同构的意义：代数系统的分类思想
+- [x] [同态与同构（Homomorphism & Isomorphism）](./homomorphism-isomorphism)
+- [x] [同构的意义：代数系统的分类思想](./isomorphism-and-classification)
 
 ### 第二篇 群的基本概念
 
-- [ ] 群的定义与等价刻画
-- [ ] 群的基本性质：消去律、单位元与逆元的唯一性
+- [x] [群的定义与等价刻画](./group-definition-equivalent-characterizations)
+- [x] [群的基本性质：消去律、单位元与逆元的唯一性](./group-properties-cancellation-uniqueness)
 - [ ] 元素的阶（Order of an Element）
 - [ ] 子群及其判定定理
 - [ ] 子群的交与由子集生成的子群

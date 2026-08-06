@@ -18,10 +18,10 @@ pageClass: plain-doc
 - [x] [倒排索引的一个例子：莎士比亚文集检索](./shakespeare-inverted-index-example)
 - [x] [检索评测方法：测试集、查询集与相关性判定](./retrieval-evaluation-methodology)
 - [x] [查准率与查全率（Precision / Recall）及其权衡](./precision-recall-tradeoff)
-- [ ] F 值（F-Measure）与插值查准率
-- [ ] 平均查准率（MAP）与 R-Precision
-- [ ] 排序评测指标：NDCG、MRR 与 ERR
-- [ ] 用户满意度评测：点击率、停留时间与线上 A/B 测试
+- [x] [F 值（F-Measure）与插值查准率](./f-measure-interpolated-precision)
+- [x] [平均查准率（MAP）与 R-Precision](./map-and-r-precision)
+- [x] [排序评测指标：NDCG、MRR 与 ERR](./ranking-metrics-ndcg-mrr-err)
+- [x] [用户满意度评测：点击率、停留时间与线上 A/B 测试](./user-satisfaction-evaluation)
 
 ### 第二篇 布尔检索与倒排索引
 

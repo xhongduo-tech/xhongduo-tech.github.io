@@ -18,10 +18,10 @@ pageClass: plain-doc
 - [x] [第一实体与第二实体：个体与属种](./primary-secondary-substance)
 - [x] [四因说：质料、形式、动力、目的](./four-causes)
 - [x] [中世纪共相之争：实在论与唯名论](./problem-of-universals)
-- [ ] 托马斯·阿奎那：存在（esse）与本质的区分
-- [ ] 奥卡姆的剃刀：如无必要，勿增实体
-- [ ] 笛卡尔：我思与心物二元论
-- [ ] 斯宾诺莎：实体一元论与样式
+- [x] [托马斯·阿奎那：存在（esse）与本质的区分](./thomas-aquinas-esse-essentia)
+- [x] [奥卡姆的剃刀：如无必要，勿增实体](./occams-razor)
+- [x] [笛卡尔：我思与心物二元论](./descartes-cogito-dualism)
+- [x] [斯宾诺莎：实体一元论与样式](./spinoza-substance-modes)
 - [ ] 莱布尼茨：单子论与前定和谐
 - [ ] 休谟：束理论（bundle theory）与实体观念的瓦解
 - [ ] 康德《纯粹理性批判》：先验演绎与范畴体系

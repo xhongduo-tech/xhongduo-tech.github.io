@@ -19,12 +19,12 @@ pageClass: plain-doc
 - [x] [数字图像的采样与量化：奈奎斯特采样定理与混叠](./sampling-and-quantization)
 - [x] [颜色空间：RGB、HSV、Lab 与 Bayer 阵列](./color-spaces)
 - [x] [2D 与 3D 几何变换：平移、旋转、相似、仿射与投影变换](./geometric-transformations)
-- [ ] 齐次坐标与变换矩阵的组合
+- [x] [齐次坐标与变换矩阵的组合](./homogeneous-coordinates)
 
 ### 图像处理基础
 
-- [ ] 点运算：灰度变换、直方图均衡化与直方图匹配
-- [ ] 线性滤波：卷积与互相关、可分离滤波器
+- [x] [点运算：灰度变换、直方图均衡化与直方图匹配](./point-operations)
+- [x] [线性滤波：卷积与互相关、可分离滤波器](./linear-filtering)
 - [ ] 平滑滤波：盒式滤波、高斯滤波与边界处理
 - [ ] 非线性滤波：中值滤波、双边滤波与导向滤波
 - [ ] 图像金字塔：高斯金字塔与拉普拉斯金字塔

@@ -21,10 +21,10 @@ pageClass: plain-doc
 ### 第二篇 语言学与语料库基础
 
 - [x] [语言学基础：语音、词法、句法、语义与语用](./linguistics-basics)
-- [ ] 语料库的类型与构建：生语料库与标注语料库
-- [ ] 常用中文与英文语料库（Penn Treebank、CTB、人民日报语料等）
-- [ ] 语料统计基础：词频、齐普夫定律（Zipf's Law）与稀疏性问题
-- [ ] 正则表达式与文本匹配
+- [x] [语料库的类型与构建：生语料库与标注语料库](./corpus-types-construction)
+- [x] [常用中文与英文语料库（Penn Treebank、CTB、人民日报语料等）](./common-corpora)
+- [x] [语料统计基础：词频、齐普夫定律（Zipf's Law）与稀疏性问题](./corpus-statistics-zipf)
+- [x] [正则表达式与文本匹配](./regex-text-matching)
 
 ### 第三篇 文本预处理
 

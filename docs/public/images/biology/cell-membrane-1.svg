@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">细胞膜的流动镶嵌模型（截面示意）</title>
+  <desc id="desc">细胞膜截面示意：上下两层磷脂的疏水尾部相对构成磷脂双分子层。贯穿膜蛋白横跨整个双层；镶嵌蛋白嵌在上层磷脂中；糖蛋白位于膜外侧，其上伸出糖链构成糖被；外周蛋白附着于膜内表面。磷脂与蛋白质均可运动，体现膜的流动性。</desc>
+
+  <rect x="0" y="0" width="800" height="460" fill="#faf9f5"/>
+
+  <text x="400" y="30" font-size="17" fill="#333" text-anchor="middle" font-weight="bold">细胞膜（流动镶嵌模型）截面示意</text>
+
+  <text x="60" y="60" font-size="14" fill="#1f6f8b" font-weight="bold">细胞外（外）</text>
+  <text x="60" y="420" font-size="14" fill="#1f6f8b" font-weight="bold">细胞内（内）</text>
+
+  <!-- 磷脂双分子层 -->
+  <g stroke="#555" stroke-width="1.6">
+    <!-- 上层：亲水头部朝上，疏水尾部朝下 -->
+    <g fill="#ffffff" stroke="#333" stroke-width="1.8">
+      <circle cx="70" cy="135" r="11"/><circle cx="120" cy="135" r="11"/><circle cx="170" cy="135" r="11"/>
+      <circle cx="220" cy="135" r="11"/><circle cx="270" cy="135" r="11"/><circle cx="320" cy="135" r="11"/>
+      <circle cx="370" cy="135" r="11"/><circle cx="420" cy="135" r="11"/><circle cx="470" cy="135" r="11"/>
+      <circle cx="520" cy="135" r="11"/><circle cx="570" cy="135" r="11"/><circle cx="620" cy="135" r="11"/><circle cx="670" cy="135" r="11"/>
+    </g>
+    <line x1="64" y1="146" x2="62" y2="196"/><line x1="76" y1="146" x2="78" y2="196"/>
+    <line x1="114" y1="146" x2="112" y2="196"/><line x1="126" y1="146" x2="128" y2="196"/>
+    <line x1="164" y1="146" x2="162" y2="196"/><line x1="176" y1="146" x2="178" y2="196"/>
+    <line x1="214" y1="146" x2="212" y2="196"/><line x1="226" y1="146" x2="228" y2="196"/>
+    <line x1="264" y1="146" x2="262" y2="196"/><line x1="276" y1="146" x2="278" y2="196"/>
+    <line x1="314" y1="146" x2="312" y2="196"/><line x1="326" y1="146" x2="328" y2="196"/>
+    <line x1="364" y1="146" x2="362" y2="196"/><line x1="376" y1="146" x2="378" y2="196"/>
+    <line x1="414" y1="146" x2="412" y2="196"/><line x1="426" y1="146" x2="428" y2="196"/>
+    <line x1="464" y1="146" x2="462" y2="196"/><line x1="476" y1="146" x2="478" y2="196"/>
+    <line x1="514" y1="146" x2="512" y2="196"/><line x1="526" y1="146" x2="528" y2="196"/>
+    <line x1="564" y1="146" x2="562" y2="196"/><line x1="576" y1="146" x2="578" y2="196"/>
+    <line x1="614" y1="146" x2="612" y2="196"/><line x1="626" y1="146" x2="628" y2="196"/>
+    <line x1="664" y1="146" x2="662" y2="196"/><line x1="676" y1="146" x2="678" y2="196"/>
+
+    <!-- 下层：亲水头部朝下，疏水尾部朝上 -->
+    <g fill="#ffffff" stroke="#333" stroke-width="1.8">
+      <circle cx="70" cy="272" r="11"/><circle cx="120" cy="272" r="11"/><circle cx="170" cy="272" r="11"/>
+      <circle cx="220" cy="272" r="11"/><circle cx="270" cy="272" r="11"/><circle cx="320" cy="272" r="11"/>
+      <circle cx="370" cy="272" r="11"/><circle cx="420" cy="272" r="11"/><circle cx="470" cy="272" r="11"/>
+      <circle cx="520" cy="272" r="11"/><circle cx="570" cy="272" r="11"/><circle cx="620" cy="272" r="11"/><circle cx="670" cy="272" r="11"/>
+    </g>
+    <line x1="64" y1="261" x2="62" y2="211"/><line x1="76" y1="261" x2="78" y2="211"/>
+    <line x1="114" y1="261" x2="112" y2="211"/><line x1="126" y1="261" x2="128" y2="211"/>
+    <line x1="164" y1="261" x2="162" y2="211"/><line x1="176" y1="261" x2="178" y2="211"/>
+    <line x1="214" y1="261" x2="212" y2="211"/><line x1="226" y1="261" x2="228" y2="211"/>
+    <line x1="264" y1="261" x2="262" y2="211"/><line x1="276" y1="261" x2="278" y2="211"/>
+    <line x1="314" y1="261" x2="312" y2="211"/><line x1="326" y1="261" x2="328" y2="211"/>
+    <line x1="364" y1="261" x2="362" y2="211"/><line x1="376" y1="261" x2="378" y2="211"/>
+    <line x1="414" y1="261" x2="412" y2="211"/><line x1="426" y1="261" x2="428" y2="211"/>
+    <line x1="464" y1="261" x2="462" y2="211"/><line x1="476" y1="261" x2="478" y2="211"/>
+    <line x1="514" y1="261" x2="512" y2="211"/><line x1="526" y1="261" x2="528" y2="211"/>
+    <line x1="564" y1="261" x2="562" y2="211"/><line x1="576" y1="261" x2="578" y2="211"/>
+    <line x1="614" y1="261" x2="612" y2="211"/><line x1="626" y1="261" x2="628" y2="211"/>
+    <line x1="664" y1="261" x2="662" y2="211"/><line x1="676" y1="261" x2="678" y2="211"/>
+  </g>
+
+  <!-- 贯穿膜蛋白（通道蛋白） -->
+  <rect x="226" y="118" width="38" height="166" rx="9" fill="#e8f2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="240" y="132" width="10" height="138" rx="4" fill="#ffffff" stroke="#9db8c2" stroke-width="1.2"/>
+
+  <!-- 镶嵌蛋白（上层磷脂中） -->
+  <rect x="527" y="142" width="38" height="68" rx="8" fill="#e8f2f5" stroke="#1f6f8b" stroke-width="1.8"/>
+
+  <!-- 糖蛋白：蛋白 + 糖链 -->
+  <rect x="377" y="142" width="38" height="70" rx="8" fill="#e8f2f5" stroke="#1f6f8b" stroke-width="1.8"/>
+  <line x1="400" y1="142" x2="400" y2="90" stroke="#c0392b" stroke-width="1.8"/>
+  <circle cx="400" cy="82" r="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.6"/>
+  <line x1="410" y1="142" x2="414" y2="100" stroke="#c0392b" stroke-width="1.8"/>
+  <circle cx="416" cy="92" r="7" fill="#fdecea" stroke="#c0392b" stroke-width="1.6"/>
+  <line x1="390" y1="142" x2="386" y2="98" stroke="#c0392b" stroke-width="1.8"/>
+  <circle cx="384" cy="90" r="7" fill="#fdecea" stroke="#c0392b" stroke-width="1.6"/>
+
+  <!-- 外周蛋白（内表面） -->
+  <rect x="122" y="290" width="46" height="46" rx="8" fill="#e8f2f5" stroke="#1f6f8b" stroke-width="1.8"/>
+  <line x1="145" y1="290" x2="145" y2="283" stroke="#1f6f8b" stroke-width="1.6"/>
+
+  <!-- 标注与引线 -->
+  <g font-size="13" fill="#333">
+    <text x="405" y="55" text-anchor="middle" fill="#c0392b" font-weight="bold">糖蛋白（糖被）</text>
+    <line x1="405" y1="59" x2="405" y2="78" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+
+    <text x="245" y="352" text-anchor="middle">贯穿膜蛋白</text>
+    <text x="245" y="368" text-anchor="middle" fill="#1f6f8b">（如通道蛋白）</text>
+    <line x1="245" y1="344" x2="245" y2="286" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+
+    <text x="546" y="352" text-anchor="middle">镶嵌蛋白</text>
+    <line x1="546" y1="344" x2="546" y2="212" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+
+    <text x="145" y="378" text-anchor="middle">外周蛋白</text>
+    <line x1="145" y1="368" x2="145" y2="336" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+
+    <text x="300" y="420" text-anchor="middle">磷脂与蛋白质均可运动 → 膜具有流动性</text>
+  </g>
+
+  <!-- 右侧：亲水头部 / 疏水尾部 -->
+  <g font-size="13" fill="#333">
+    <text x="712" y="139" text-anchor="start">亲水头部</text>
+    <line x1="704" y1="135" x2="682" y2="135" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="712" y="203" text-anchor="start">疏水尾部</text>
+    <line x1="704" y1="200" x2="682" y2="200" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="712" y="276" text-anchor="start">亲水头部</text>
+    <line x1="704" y1="272" x2="682" y2="272" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+</svg>

@@ -18,12 +18,12 @@ pageClass: plain-doc
 - [x] [量子计算为什么可能更快：量子并行性与纠缠](./why-faster-parallelism-entanglement)
 - [x] [量子计算的计算模型：线路模型、绝热计算与测量量子计算](./computational-models)
 - [x] [量子计算的误区澄清：指数加速不是免费的](./myths-exponential-speedup)
-- [ ] 量子信息的基本任务：计算、通信、密码与模拟
+- [x] [量子信息的基本任务：计算、通信、密码与模拟](./basic-tasks-quantum-information)
 
 ### 第一篇 线性代数与量子力学基础
 
-- [ ] 复数域上的向量空间与内积
-- [ ] Dirac 记号（bra-ket）：右矢、左矢与内外积
+- [x] [复数域上的向量空间与内积](./complex-vector-spaces-inner-product)
+- [x] [Dirac 记号（bra-ket）：右矢、左矢与内外积](./dirac-notation-bra-ket)
 - [ ] 线性算符与矩阵表示
 - [ ] 厄米算符与幺正算符
 - [ ] 本征值、本征向量与谱分解

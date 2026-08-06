@@ -24,7 +24,7 @@ pageClass: plain-doc
 - [x] [瀑布模型及其适用场景](./waterfall-model)
 - [x] [增量模型与迭代模型](./incremental-and-iterative-models)
 - [x] [原型模型（快速原型与演化式原型）](./prototype-model)
-- [ ] 螺旋模型与风险驱动开发
+- [x] [螺旋模型与风险驱动开发](./spiral-model)
 - [ ] 敏捷开发与敏捷宣言
 - [ ] Scrum：角色、事件与工件
 - [ ] 极限编程（XP）：实践与价值观

@@ -22,9 +22,9 @@ pageClass: plain-doc
 ### 感知
 
 - [x] [基于相机的 2D 目标检测在自动驾驶中的应用](./camera-2d-object-detection)
-- [ ] 单目与双目 3D 目标检测
-- [ ] LiDAR 点云处理：地面分割与聚类
-- [ ] 基于点云的 3D 目标检测（PointPillars、VoxelNet、CenterPoint）
+- [x] [单目与双目 3D 目标检测](./mono-stereo-3d-detection)
+- [x] [LiDAR 点云处理：地面分割与聚类](./lidar-point-cloud-processing)
+- [x] [基于点云的 3D 目标检测（PointPillars、VoxelNet、CenterPoint）](./point-cloud-3d-detection)
 - [ ] 毫米波雷达感知与 4D 成像雷达
 - [ ] BEV 感知的由来与核心思想
 - [ ] BEVFormer：基于 Transformer 的多相机 BEV 感知

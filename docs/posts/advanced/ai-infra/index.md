@@ -20,8 +20,8 @@ pageClass: plain-doc
 - [x] [warp 调度与分支分化（divergence）的代价](./warp-scheduling-divergence)
 - [x] [GPU 内存层次：寄存器、Shared Memory、L1/L2 缓存、全局内存](./gpu-memory-hierarchy)
 - [x] [全局内存合并访存（coalescing）与 bank conflict](./memory-coalescing-bank-conflict)
-- [ ] Shared Memory 编程与 `__syncthreads()` 同步语义
-- [ ] Occupancy（占用率）的计算与调优
+- [x] [Shared Memory 编程与 `__syncthreads()` 同步语义](./shared-memory-syncthreads)
+- [x] [Occupancy（占用率）的计算与调优](./occupancy-tuning)
 - [ ] CUDA Stream 与异步执行、事件计时
 - [ ] kernel 启动开销与 kernel fusion（算子融合）的收益
 - [ ] 矩阵乘法 kernel 优化实战：从 naive 到 tiling

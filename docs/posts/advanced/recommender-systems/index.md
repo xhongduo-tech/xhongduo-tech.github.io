@@ -18,12 +18,12 @@ pageClass: plain-doc
 - [x] [推荐系统实验方法：离线实验、用户调查与在线实验](./experiment-methods-offline-user-online)
 - [x] [离线评估指标：准确率、召回率、RMSE 与 MAE](./offline-evaluation-metrics)
 - [x] [排序指标：MAP、NDCG 与 AUC](./ranking-metrics-map-ndcg-auc)
-- [ ] 超越准确性：多样性、新颖性、惊喜度与覆盖率
-- [ ] A/B 测试：分流、分层实验与指标显著性
+- [x] [超越准确性：多样性、新颖性、惊喜度与覆盖率](./beyond-accuracy-diversity-novelty-serendipity-coverage)
+- [x] [A/B 测试：分流、分层实验与指标显著性](./ab-testing-traffic-splitting-stratified-experiments)
 
 ### 第二篇 协同过滤
 
-- [ ] 协同过滤的基本思想与邻域方法框架
+- [x] [协同过滤的基本思想与邻域方法框架](./collaborative-filtering-basics-neighborhood-methods)
 - [ ] 相似度计算：余弦相似度、皮尔逊相关系数与 Jaccard
 - [ ] 基于用户的协同过滤（UserCF）：原理与实现
 - [ ] UserCF 的相似度改进：对热门物品的惩罚（IUF 思想）

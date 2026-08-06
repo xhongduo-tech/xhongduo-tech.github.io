@@ -1,0 +1,92 @@
+<svg viewBox="0 0 780 320" xmlns="http://www.w3.org/2000/svg">
+  <title>可分离滤波器：二维高斯核分解为两个一维核的外积</title>
+  <desc>一个 5x5 的二维高斯核 K 可以分解成竖直一维核 g 与水平一维核 g 的外积 K[i,j]=g[i]*g[j]，从而把每像素 25 次乘加降为两次一维卷积的 10 次乘加。</desc>
+  <rect width="780" height="320" fill="#faf9f5"/>
+  <text x="30" y="28" font-family="sans-serif" font-size="16" font-weight="bold" fill="#333">可分离滤波器：K[i,j] = g[i] · g[j]（外积）</text>
+
+  <!-- 二维核 5x5 -->
+  <g>
+    <text x="30" y="50" font-family="sans-serif" font-size="13" fill="#666">二维核 K（5×5）</text>
+    <rect x="30" y="60" width="220" height="220" fill="none" stroke="#999" stroke-width="1"/>
+    <line x1="74" y1="60" x2="74" y2="280" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="118" y1="60" x2="118" y2="280" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="162" y1="60" x2="162" y2="280" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="206" y1="60" x2="206" y2="280" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="30" y1="104" x2="250" y2="104" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="30" y1="148" x2="250" y2="148" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="30" y1="192" x2="250" y2="192" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="30" y1="236" x2="250" y2="236" stroke="#ccc" stroke-width="0.8"/>
+    <text x="52"  y="88"  font-family="sans-serif" font-size="13" fill="#333">.003</text>
+    <text x="96"  y="88"  font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <text x="140" y="88"  font-family="sans-serif" font-size="13" fill="#333">.022</text>
+    <text x="184" y="88"  font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <text x="228" y="88"  font-family="sans-serif" font-size="13" fill="#333">.003</text>
+    <text x="52"  y="132" font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <text x="96"  y="132" font-family="sans-serif" font-size="13" fill="#333">.060</text>
+    <text x="140" y="132" font-family="sans-serif" font-size="13" fill="#333">.098</text>
+    <text x="184" y="132" font-family="sans-serif" font-size="13" fill="#333">.060</text>
+    <text x="228" y="132" font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <rect x="162" y="148" width="44" height="44" fill="#c0392b" opacity="0.18"/>
+    <text x="52"  y="176" font-family="sans-serif" font-size="13" fill="#333">.022</text>
+    <text x="96"  y="176" font-family="sans-serif" font-size="13" fill="#333">.098</text>
+    <text x="138" y="176" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c0392b">.162</text>
+    <text x="184" y="176" font-family="sans-serif" font-size="13" fill="#333">.098</text>
+    <text x="228" y="176" font-family="sans-serif" font-size="13" fill="#333">.022</text>
+    <text x="52"  y="220" font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <text x="96"  y="220" font-family="sans-serif" font-size="13" fill="#333">.060</text>
+    <text x="140" y="220" font-family="sans-serif" font-size="13" fill="#333">.098</text>
+    <text x="184" y="220" font-family="sans-serif" font-size="13" fill="#333">.060</text>
+    <text x="228" y="220" font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <text x="52"  y="264" font-family="sans-serif" font-size="13" fill="#333">.003</text>
+    <text x="96"  y="264" font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <text x="140" y="264" font-family="sans-serif" font-size="13" fill="#333">.022</text>
+    <text x="184" y="264" font-family="sans-serif" font-size="13" fill="#333">.013</text>
+    <text x="228" y="264" font-family="sans-serif" font-size="13" fill="#333">.003</text>
+    <text x="30" y="300" font-family="sans-serif" font-size="13" fill="#666">每像素 5×5 = 25 次乘加</text>
+  </g>
+
+  <!-- 外积符号 -->
+  <text x="262" y="170" font-family="sans-serif" font-size="26" fill="#333">⊗</text>
+
+  <!-- 竖直一维核 -->
+  <g>
+    <text x="300" y="50" font-family="sans-serif" font-size="13" fill="#1f6f8b">竖直一维核 g</text>
+    <rect x="300" y="60" width="44" height="220" fill="none" stroke="#1f6f8b" stroke-width="1"/>
+    <line x1="300" y1="104" x2="344" y2="104" stroke="#9dc6d3" stroke-width="0.8"/>
+    <line x1="300" y1="148" x2="344" y2="148" stroke="#9dc6d3" stroke-width="0.8"/>
+    <line x1="300" y1="192" x2="344" y2="192" stroke="#9dc6d3" stroke-width="0.8"/>
+    <line x1="300" y1="236" x2="344" y2="236" stroke="#9dc6d3" stroke-width="0.8"/>
+    <rect x="300" y="148" width="44" height="44" fill="#1f6f8b" opacity="0.25"/>
+    <text x="313" y="88"  font-family="sans-serif" font-size="13" fill="#1f6f8b">.054</text>
+    <text x="313" y="132" font-family="sans-serif" font-size="13" fill="#1f6f8b">.244</text>
+    <text x="310" y="176" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f6f8b">.403</text>
+    <text x="313" y="220" font-family="sans-serif" font-size="13" fill="#1f6f8b">.244</text>
+    <text x="313" y="264" font-family="sans-serif" font-size="13" fill="#1f6f8b">.054</text>
+  </g>
+
+  <!-- 水平一维核 -->
+  <g>
+    <text x="360" y="50" font-family="sans-serif" font-size="13" fill="#1f6f8b">水平一维核 g</text>
+    <rect x="360" y="60" width="220" height="44" fill="none" stroke="#1f6f8b" stroke-width="1"/>
+    <line x1="404" y1="60" x2="404" y2="104" stroke="#9dc6d3" stroke-width="0.8"/>
+    <line x1="448" y1="60" x2="448" y2="104" stroke="#9dc6d3" stroke-width="0.8"/>
+    <line x1="492" y1="60" x2="492" y2="104" stroke="#9dc6d3" stroke-width="0.8"/>
+    <line x1="536" y1="60" x2="536" y2="104" stroke="#9dc6d3" stroke-width="0.8"/>
+    <rect x="448" y="60" width="44" height="44" fill="#1f6f8b" opacity="0.25"/>
+    <text x="376" y="88" font-family="sans-serif" font-size="13" fill="#1f6f8b">.054</text>
+    <text x="420" y="88" font-family="sans-serif" font-size="13" fill="#1f6f8b">.244</text>
+    <text x="461" y="88" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f6f8b">.403</text>
+    <text x="505" y="88" font-family="sans-serif" font-size="13" fill="#1f6f8b">.244</text>
+    <text x="549" y="88" font-family="sans-serif" font-size="13" fill="#1f6f8b">.054</text>
+    <text x="360" y="150" font-family="sans-serif" font-size="13" fill="#666">先竖直后水平，各一次一维卷积</text>
+    <text x="360" y="170" font-family="sans-serif" font-size="13" fill="#666">每像素 5 + 5 = 10 次乘加</text>
+  </g>
+
+  <!-- 右侧说明 -->
+  <text x="610" y="90"  font-family="sans-serif" font-size="14" fill="#333">K[i,j] = g[i] × g[j]</text>
+  <text x="610" y="115" font-family="sans-serif" font-size="14" fill="#333">二维卷积拆成两步：</text>
+  <text x="610" y="140" font-family="sans-serif" font-size="14" fill="#333">先竖直、后水平。</text>
+  <text x="610" y="175" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">N²·k² → N²·2k</text>
+  <text x="610" y="200" font-family="sans-serif" font-size="13" fill="#666">k=5、N 很大时，</text>
+  <text x="610" y="220" font-family="sans-serif" font-size="13" fill="#666">加速比 ≈ k/2 = 2.5 倍</text>
+</svg>

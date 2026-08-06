@@ -18,7 +18,7 @@ pageClass: plain-doc
 - [x] [心理学的主要流派：行为主义与精神分析](./schools-behaviorism-psychoanalysis)
 - [x] [心理学的主要流派：人本主义与认知心理学](./schools-humanism-cognitive)
 - [x] [观察法、心理测验法与相关法](./observation-tests-correlation)
-- [ ] 实验法：变量、实验组与控制组
+- [x] [实验法：变量、实验组与控制组](./experimental-method-variables-groups)
 - [ ] 个案法与心理学研究中的伦理问题
 
 ### 心理的神经生理机制

@@ -30,12 +30,12 @@ pageClass: plain-doc
 - [x] [函数的概念及其表示](./function-concept)
 - [x] [函数的基本性质（单调性与最大（小）值）](./function-monotonicity)
 - [x] [函数的基本性质（奇偶性）](./function-parity)
-- [ ] 幂函数
-- [ ] 函数的应用（一）
+- [x] [幂函数](./power-functions)
+- [x] [函数的应用（一）](./function-applications)
 
 ### 指数函数与对数函数
 
-- [ ] n次方根与分数指数幂
+- [x] [n次方根与分数指数幂](./nth-roots-fractional-exponents)
 - [ ] 无理数指数幂及其运算性质
 - [ ] 指数函数的概念、图象和性质
 - [ ] 对数的概念与运算
