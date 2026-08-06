@@ -1,0 +1,71 @@
+<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>实验室制取氯气的装置</title>
+<desc>圆底烧瓶与分液漏斗作发生装置，气体依次通过饱和食盐水除氯化氢、浓硫酸干燥，用向上排空气法收集，尾气通入氢氧化钠溶液吸收。</desc>
+
+<rect x="0" y="0" width="760" height="320" fill="#faf9f5"/>
+
+<text x="380" y="30" font-size="15" fill="#333" text-anchor="middle">实验室制取氯气装置</text>
+<text x="380" y="50" font-size="13" fill="#666" text-anchor="middle">气体流向见箭头</text>
+
+<defs>
+<clipPath id="flaskClip"><circle cx="75" cy="172" r="46"/></clipPath>
+</defs>
+
+<!-- ================= ① 发生装置 ================= -->
+<text x="75" y="36" font-size="13" fill="#333" text-anchor="middle">浓盐酸</text>
+<ellipse cx="75" cy="52" rx="17" ry="13" stroke="#333" stroke-width="2" fill="#d9e4e8"/>
+<ellipse cx="75" cy="52" rx="13" ry="9" fill="#bcd6e0"/>
+<rect x="70" y="58" width="10" height="34" stroke="#333" stroke-width="2" fill="#faf9f5"/>
+<rect x="69" y="72" width="12" height="7" fill="#8b9aa0" stroke="#333"/>
+<rect x="63" y="92" width="24" height="9" fill="#8b9aa0" stroke="#333"/>
+<rect x="67" y="101" width="16" height="30" stroke="#333" stroke-width="2" fill="#faf9f5"/>
+<circle cx="75" cy="172" r="46" stroke="#333" stroke-width="2" fill="#faf9f5"/>
+<rect x="29" y="186" width="92" height="38" fill="#efe3c8" clip-path="url(#flaskClip)"/>
+<text x="75" y="207" font-size="13" fill="#333" text-anchor="middle">MnO₂</text>
+
+<!-- 酒精灯 -->
+<path d="M 75 212 Q 84 222 75 230 Q 66 222 75 212" fill="#c0392b"/>
+<rect x="71" y="228" width="8" height="6" fill="#333"/>
+<path d="M 55 246 L 95 246 L 89 232 L 61 232 Z" fill="#e8dcc8" stroke="#333"/>
+<rect x="52" y="246" width="46" height="5" fill="#c9bfa8" stroke="#333"/>
+
+<text x="75" y="268" font-size="15" fill="#333" text-anchor="middle">发生装置</text>
+<text x="75" y="290" font-size="13" fill="#666" text-anchor="middle">MnO₂ + 浓盐酸，酒精灯加热</text>
+
+<!-- ================= 导管与箭头 ================= -->
+<path d="M 86 97 H 198 V 214" stroke="#333" stroke-width="4" fill="none"/>
+<polygon points="180,97 172,93 172,101" fill="#333"/>
+
+<!-- ================= ② 除杂（饱和食盐水） ================= -->
+<rect x="181" y="150" width="58" height="88" stroke="#333" stroke-width="2" fill="#faf9f5"/>
+<rect x="186" y="145" width="48" height="6" fill="#8b9aa0" stroke="#333"/>
+<rect x="181" y="200" width="58" height="38" fill="#cfe3ea"/>
+<path d="M 216 150 H 318" stroke="#333" stroke-width="3" fill="none"/>
+<polygon points="300,150 292,146 292,154" fill="#333"/>
+<text x="210" y="268" font-size="13" fill="#333" text-anchor="middle">饱和食盐水（除 HCl）</text>
+
+<!-- ================= ③ 干燥（浓硫酸） ================= -->
+<rect x="301" y="150" width="58" height="88" stroke="#333" stroke-width="2" fill="#faf9f5"/>
+<rect x="306" y="145" width="48" height="6" fill="#8b9aa0" stroke="#333"/>
+<rect x="301" y="200" width="58" height="38" fill="#f2e2b8"/>
+<path d="M 318 150 V 214" stroke="#333" stroke-width="3" fill="none"/>
+<path d="M 336 150 H 448" stroke="#333" stroke-width="3" fill="none"/>
+<polygon points="430,150 422,146 422,154" fill="#333"/>
+<text x="330" y="268" font-size="13" fill="#333" text-anchor="middle">浓硫酸（干燥）</text>
+
+<!-- ================= ④ 收集（向上排空气法） ================= -->
+<rect x="431" y="150" width="58" height="88" stroke="#333" stroke-width="2" fill="#faf9f5"/>
+<rect x="436" y="145" width="48" height="6" fill="#8b9aa0" stroke="#333"/>
+<rect x="431" y="200" width="58" height="38" fill="#dce9c4"/>
+<path d="M 448 150 V 218" stroke="#333" stroke-width="3" fill="none"/>
+<path d="M 465 150 H 592 V 214" stroke="#333" stroke-width="3" fill="none"/>
+<polygon points="575,150 567,146 567,154" fill="#333"/>
+<text x="460" y="224" font-size="13" fill="#333" text-anchor="middle">Cl₂</text>
+<text x="460" y="268" font-size="13" fill="#333" text-anchor="middle">向上排空气法收集</text>
+<text x="460" y="290" font-size="13" fill="#666" text-anchor="middle">湿润淀粉-KI 试纸验满</text>
+
+<!-- ================= ⑤ 尾气吸收（NaOH 溶液） ================= -->
+<path d="M 578 160 L 585 238 L 615 238 L 622 160" stroke="#333" stroke-width="2" fill="#faf9f5"/>
+<rect x="582" y="200" width="36" height="38" fill="#c9d9f2"/>
+<text x="600" y="268" font-size="13" fill="#333" text-anchor="middle">NaOH 溶液（尾气吸收）</text>
+</svg>

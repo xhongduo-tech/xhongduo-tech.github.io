@@ -23,11 +23,11 @@ pageClass: plain-doc
 - [x] [实验：探究小车速度随时间变化的规律](./experiment-cart-velocity)
 - [x] [匀变速直线运动的速度与时间的关系](./velocity-time-relation)
 - [x] [匀变速直线运动的位移与时间的关系](./displacement-time-relation)
-- [ ] 自由落体运动
+- [x] [自由落体运动](./free-fall)
 
 ### 必修第一册 · 第三章 相互作用——力
 
-- [ ] 重力与弹力
+- [x] [重力与弹力](./gravity-and-elastic-force)
 - [ ] 摩擦力
 - [ ] 牛顿第三定律
 - [ ] 力的合成和分解

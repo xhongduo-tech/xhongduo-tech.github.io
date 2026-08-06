@@ -25,10 +25,10 @@ pageClass: plain-doc
 - [x] [复数域上的向量空间与内积](./complex-vector-spaces-inner-product)
 - [x] [Dirac 记号（bra-ket）：右矢、左矢与内外积](./dirac-notation-bra-ket)
 - [x] [线性算符与矩阵表示](./linear-operators-matrix-representation)
-- [ ] 厄米算符与幺正算符
-- [ ] 本征值、本征向量与谱分解
-- [ ] 张量积（tensor product）：多体系统的状态空间
-- [ ] 量子力学的基本假设：状态、演化、测量
+- [x] [厄米算符与幺正算符](./hermitian-unitary-operators)
+- [x] [本征值、本征向量与谱分解](./eigenvalues-spectral-decomposition)
+- [x] [张量积（tensor product）：多体系统的状态空间](./tensor-product-multipartite)
+- [x] [量子力学的基本假设：状态、演化、测量](./postulates-quantum-mechanics)
 - [ ] 投影测量与广义测量（POVM）
 - [ ] 密度算符：混合态与部分迹
 - [ ] Schmidt 分解与纯化

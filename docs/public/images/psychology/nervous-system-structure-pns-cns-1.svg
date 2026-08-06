@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">神经系统的组成与层次</title>
+  <desc id="desc">树状图：神经系统分中枢神经系统与周围神经系统。中枢神经系统含脑与脊髓，脑再分为大脑、间脑、小脑、脑干。周围神经系统含躯体神经系统与自主神经系统，自主神经系统又分交感神经与副交感神经。图下方注明：中枢负责整合与控制；躯体神经受意识支配，自主神经不受意识支配；交感动员（战斗—逃跑），副交感休整（休息—消化）。</desc>
+
+  <rect x="0" y="0" width="800" height="470" fill="#faf9f5"/>
+
+  <text x="400" y="18" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">神经系统的组成与层次</text>
+
+  <!-- 连线 -->
+  <g stroke="#999" stroke-width="1.6">
+    <line x1="400" y1="64" x2="200" y2="102"/>
+    <line x1="400" y1="64" x2="600" y2="102"/>
+    <line x1="200" y1="138" x2="140" y2="197"/>
+    <line x1="200" y1="138" x2="290" y2="197"/>
+    <line x1="140" y1="233" x2="60" y2="292"/>
+    <line x1="140" y1="233" x2="140" y2="292"/>
+    <line x1="140" y1="233" x2="220" y2="292"/>
+    <line x1="140" y1="233" x2="300" y2="292"/>
+    <line x1="600" y1="138" x2="540" y2="197"/>
+    <line x1="600" y1="138" x2="680" y2="197"/>
+    <line x1="680" y1="233" x2="620" y2="292"/>
+    <line x1="680" y1="233" x2="740" y2="292"/>
+  </g>
+
+  <!-- 根节点 -->
+  <rect x="350" y="28" width="100" height="36" rx="8" fill="#333"/>
+  <text x="400" y="51" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">神经系统</text>
+
+  <!-- 第一层：中枢 / 周围 -->
+  <g fill="#e8f2f5" stroke="#1f6f8b" stroke-width="2">
+    <rect x="140" y="102" width="120" height="36" rx="8"/>
+    <rect x="540" y="102" width="120" height="36" rx="8"/>
+  </g>
+  <text x="200" y="125" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">中枢神经系统</text>
+  <text x="600" y="125" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">周围神经系统</text>
+
+  <!-- 第二层：中枢的两个分支 -->
+  <g fill="#ffffff" stroke="#1f6f8b" stroke-width="1.8">
+    <rect x="90" y="197" width="100" height="36" rx="8"/>
+    <rect x="240" y="197" width="100" height="36" rx="8"/>
+    <rect x="475" y="197" width="130" height="36" rx="8"/>
+    <rect x="615" y="197" width="130" height="36" rx="8"/>
+  </g>
+  <text x="140" y="220" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">脑</text>
+  <text x="290" y="220" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">脊髓</text>
+  <text x="540" y="220" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">躯体神经系统</text>
+  <text x="680" y="220" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">自主神经系统</text>
+
+  <!-- 第三层：脑的四个部分 -->
+  <g fill="#fdf3e2" stroke="#c0392b" stroke-width="1.8">
+    <rect x="25" y="292" width="70" height="36" rx="8"/>
+    <rect x="105" y="292" width="70" height="36" rx="8"/>
+    <rect x="185" y="292" width="70" height="36" rx="8"/>
+    <rect x="265" y="292" width="70" height="36" rx="8"/>
+    <rect x="575" y="292" width="90" height="36" rx="8"/>
+    <rect x="695" y="292" width="90" height="36" rx="8"/>
+  </g>
+  <text x="60" y="315" font-size="14" fill="#333" text-anchor="middle">大脑</text>
+  <text x="140" y="315" font-size="14" fill="#333" text-anchor="middle">间脑</text>
+  <text x="220" y="315" font-size="14" fill="#333" text-anchor="middle">小脑</text>
+  <text x="300" y="315" font-size="14" fill="#333" text-anchor="middle">脑干</text>
+  <text x="620" y="315" font-size="14" fill="#333" text-anchor="middle">交感神经</text>
+  <text x="740" y="315" font-size="14" fill="#333" text-anchor="middle">副交感神经</text>
+
+  <!-- 功能注记 -->
+  <text x="620" y="352" font-size="13" fill="#c0392b" text-anchor="middle">动员 · 战斗—逃跑</text>
+  <text x="740" y="352" font-size="13" fill="#c0392b" text-anchor="middle">休整 · 休息—消化</text>
+  <text x="180" y="352" font-size="13" fill="#666" text-anchor="middle">脑干：延髓 · 脑桥 · 中脑</text>
+
+  <!-- 底部图例 -->
+  <text x="400" y="412" font-size="14" fill="#333" text-anchor="middle">中枢神经系统：整合与控制（脑 + 脊髓）</text>
+  <text x="400" y="434" font-size="14" fill="#333" text-anchor="middle">周围神经系统：联络与传导（躯体神经受意识支配 · 自主神经不受意识支配）</text>
+  <text x="400" y="456" font-size="14" fill="#1f6f8b" text-anchor="middle">自主神经两分支功能拮抗，共同维持内环境稳定</text>
+</svg>

@@ -23,8 +23,8 @@ pageClass: plain-doc
 
 ### 心理的神经生理机制
 
-- [ ] 神经元、神经冲动与突触传递
-- [ ] 神经系统的结构：周围神经系统与中枢神经系统
+- [x] [神经元、神经冲动与突触传递](./neurons-nerve-impulse-synaptic-transmission)
+- [x] [神经系统的结构：周围神经系统与中枢神经系统](./nervous-system-structure-pns-cns)
 - [ ] 大脑皮层的分区与机能定位
 - [ ] 大脑两半球的一侧化优势：裂脑人研究
 - [ ] 脑功能学说：定位说、整体说与机能系统学说

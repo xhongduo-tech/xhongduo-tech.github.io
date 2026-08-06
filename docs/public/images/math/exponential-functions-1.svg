@@ -1,0 +1,61 @@
+<svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">指数函数 y=2^x 与 y=(1/2)^x 的图象</title>
+<desc id="desc">y=2^x 与 y=(1/2)^x 的图象，都过点 (0,1)。前者随 x 增大而递增，后者随 x 增大而递减；x 轴 y=0 是水平渐近线，两曲线关于 y 轴对称。</desc>
+<rect width="560" height="420" fill="#faf9f5"/>
+<text x="40" y="36" font-family="sans-serif" font-size="15" fill="#333">指数函数 y = 2^x 与 y = (1/2)^x 的图象</text>
+
+<!-- grid lines -->
+<line x1="120" y1="260" x2="440" y2="260" stroke="#e0dcd2" stroke-width="1"/>
+<line x1="120" y1="180" x2="440" y2="180" stroke="#e0dcd2" stroke-width="1"/>
+<line x1="120" y1="100" x2="440" y2="100" stroke="#e0dcd2" stroke-width="1"/>
+<line x1="200" y1="80" x2="200" y2="420" stroke="#e0dcd2" stroke-width="1"/>
+<line x1="240" y1="80" x2="240" y2="420" stroke="#e0dcd2" stroke-width="1"/>
+<line x1="320" y1="80" x2="320" y2="420" stroke="#e0dcd2" stroke-width="1"/>
+<line x1="360" y1="80" x2="360" y2="420" stroke="#e0dcd2" stroke-width="1"/>
+<line x1="400" y1="80" x2="400" y2="420" stroke="#e0dcd2" stroke-width="1"/>
+
+<!-- axes -->
+<line x1="120" y1="340" x2="440" y2="340" stroke="#333" stroke-width="1.5"/>
+<line x1="280" y1="60" x2="280" y2="400" stroke="#333" stroke-width="1.5"/>
+<polygon points="428,335 428,345 442,340" fill="#333"/>
+<polygon points="275,72 285,72 280,60" fill="#333"/>
+<text x="446" y="334" font-family="sans-serif" font-size="15" fill="#333">x</text>
+<text x="286" y="56" font-family="sans-serif" font-size="15" fill="#333">y</text>
+
+<!-- tick labels x -->
+<text x="154" y="360" font-family="sans-serif" font-size="13" fill="#333">-3</text>
+<text x="194" y="360" font-family="sans-serif" font-size="13" fill="#333">-2</text>
+<text x="234" y="360" font-family="sans-serif" font-size="13" fill="#333">-1</text>
+<text x="318" y="360" font-family="sans-serif" font-size="13" fill="#333">1</text>
+<text x="358" y="360" font-family="sans-serif" font-size="13" fill="#333">2</text>
+<text x="398" y="360" font-family="sans-serif" font-size="13" fill="#333">3</text>
+<!-- tick labels y -->
+<text x="262" y="264" font-family="sans-serif" font-size="13" fill="#333">2</text>
+<text x="262" y="184" font-family="sans-serif" font-size="13" fill="#333">4</text>
+<text x="262" y="104" font-family="sans-serif" font-size="13" fill="#333">6</text>
+<text x="262" y="36" font-family="sans-serif" font-size="13" fill="#333">8</text>
+<line x1="276" y1="260" x2="284" y2="260" stroke="#333" stroke-width="1.2"/>
+<line x1="276" y1="180" x2="284" y2="180" stroke="#333" stroke-width="1.2"/>
+<line x1="276" y1="100" x2="284" y2="100" stroke="#333" stroke-width="1.2"/>
+
+<!-- asymptote label -->
+<text x="398" y="382" font-family="sans-serif" font-size="13" fill="#888">y = 0（渐近线）</text>
+
+<!-- y = 2^x (red) -->
+<polyline points="160,335 180,332.9 200,330 220,325.9 240,320 260,311.7 280,300 300,283.4 320,260 340,226.9 360,180 380,113.7 400,20" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+
+<!-- y = (1/2)^x (cyan) -->
+<polyline points="160,20 180,113.7 200,180 220,226.9 240,260 260,283.4 280,300 300,311.7 320,320 340,325.9 360,330 380,332.9 400,335" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+
+<!-- common point (0,1) -->
+<circle cx="280" cy="300" r="4.5" fill="none" stroke="#333" stroke-width="1.6"/>
+<text x="290" y="292" font-family="sans-serif" font-size="14" fill="#333">(0, 1)</text>
+
+<!-- legend -->
+<rect x="406" y="52" width="134" height="78" rx="4" fill="#faf9f5" stroke="#c9c2b2" stroke-width="1"/>
+<line x1="414" y1="68" x2="442" y2="68" stroke="#c0392b" stroke-width="2.5"/>
+<text x="448" y="72" font-family="sans-serif" font-size="14" fill="#333">y = 2^x</text>
+<line x1="414" y1="98" x2="442" y2="98" stroke="#1f6f8b" stroke-width="2.5"/>
+<text x="448" y="102" font-family="sans-serif" font-size="14" fill="#333">y = (1/2)^x</text>
+<text x="414" y="122" font-family="sans-serif" font-size="13" fill="#333">关于 y 轴对称</text>
+</svg>

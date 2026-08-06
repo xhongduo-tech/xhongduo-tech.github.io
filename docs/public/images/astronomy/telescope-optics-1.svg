@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 330" font-family="sans-serif">
+  <title>三种天文望远镜的光学构型</title>
+  <desc>并排示意开普勒折射式、牛顿反射式、施密特-卡塞格林折反射式三种望远镜的光路：红色为星光路径，青色为光学元件。</desc>
+  <rect x="0" y="0" width="920" height="330" fill="#faf9f5"/>
+
+  <!-- ============ Panel 1: Refractor (Keplerian) ============ -->
+  <text x="155" y="40" font-size="16" fill="#333" text-anchor="middle">折射望远镜（开普勒式）</text>
+  <rect x="60" y="85" width="210" height="110" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <ellipse cx="90" cy="140" rx="4" ry="48" fill="#1f6f8b" fill-opacity="0.35"/>
+  <text x="90" y="224" font-size="13" fill="#333" text-anchor="middle">物镜</text>
+  <path d="M42 105 L90 105 L180 140" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <path d="M42 140 L180 140" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <path d="M42 175 L90 175 L180 140" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <circle cx="180" cy="140" r="3" fill="#c0392b"/>
+  <text x="180" y="206" font-size="13" fill="#333" text-anchor="middle">焦点</text>
+  <ellipse cx="225" cy="140" rx="3" ry="34" fill="#1f6f8b" fill-opacity="0.35"/>
+  <text x="225" y="224" font-size="13" fill="#333" text-anchor="middle">目镜</text>
+
+  <!-- ============ Panel 2: Newtonian reflector ============ -->
+  <text x="440" y="40" font-size="16" fill="#333" text-anchor="middle">反射望远镜（牛顿式）</text>
+  <rect x="325" y="85" width="230" height="110" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <path d="M545 85 Q578 140 545 195" stroke="#1f6f8b" stroke-width="3" fill="none"/>
+  <text x="545" y="224" font-size="13" fill="#333" text-anchor="middle">主镜</text>
+  <line x1="415" y1="152" x2="445" y2="122" stroke="#1f6f8b" stroke-width="4"/>
+  <text x="430" y="178" font-size="13" fill="#333" text-anchor="middle">副镜</text>
+  <ellipse cx="430" cy="64" rx="30" ry="3" fill="#1f6f8b" fill-opacity="0.35"/>
+  <text x="430" y="50" font-size="13" fill="#333" text-anchor="middle">目镜</text>
+  <circle cx="430" cy="70" r="3" fill="#c0392b"/>
+  <text x="442" y="74" font-size="13" fill="#333">焦点</text>
+  <path d="M330 105 L545 105 L420 147 L430 70" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <path d="M330 140 L545 140 L430 137 L430 70" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <path d="M330 175 L545 175 L442 125 L430 70" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+
+  <!-- ============ Panel 3: Schmidt-Cassegrain ============ -->
+  <text x="740" y="40" font-size="16" fill="#333" text-anchor="middle">折反射望远镜（施密特-卡塞格林）</text>
+  <rect x="605" y="85" width="250" height="110" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <path d="M640 85 Q648 140 640 195" stroke="#1f6f8b" stroke-width="3" fill="none"/>
+  <text x="640" y="224" font-size="13" fill="#333" text-anchor="middle">改正镜</text>
+  <path d="M815 85 Q845 140 815 195" stroke="#1f6f8b" stroke-width="3" fill="none"/>
+  <text x="815" y="224" font-size="13" fill="#333" text-anchor="middle">主镜</text>
+  <path d="M725 118 Q690 140 725 162" stroke="#1f6f8b" stroke-width="3" fill="none"/>
+  <text x="725" y="52" font-size="13" fill="#333" text-anchor="middle">副镜</text>
+  <circle cx="840" cy="140" r="3" fill="#c0392b"/>
+  <text x="840" y="206" font-size="13" fill="#333" text-anchor="middle">焦点</text>
+  <path d="M600 115 L640 115 L815 115 L706 128 L840 140" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <path d="M600 140 L815 140 L703 140 L840 140" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <path d="M600 165 L640 165 L815 165 L706 152 L840 140" stroke="#c0392b" stroke-width="1.5" fill="none"/>
+  <text x="740" y="246" font-size="12" fill="#666" text-anchor="middle">光路穿过主镜中央小孔到达焦点</text>
+
+  <text x="460" y="316" font-size="12" fill="#666" text-anchor="middle">红：星光路径　·　青：光学元件</text>
+</svg>

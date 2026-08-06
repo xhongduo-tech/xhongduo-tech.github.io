@@ -24,7 +24,7 @@ pageClass: plain-doc
 - [x] [关联搜索与上下文老虎机（Contextual Bandits）](./contextual-bandits)
 
 ### 第三篇 有限马尔可夫决策过程（第3章）
-- [ ] 智能体-环境交互接口与马尔可夫性质
+- [x] [智能体-环境交互接口与马尔可夫性质](./agent-environment-interface)
 - [ ] 目标、奖励、回报与折扣
 - [ ] 统一回合式任务与持续性任务的记号
 - [ ] 价值函数与贝尔曼方程

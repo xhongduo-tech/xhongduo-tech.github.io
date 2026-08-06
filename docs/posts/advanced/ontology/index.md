@@ -22,8 +22,8 @@ pageClass: plain-doc
 - [x] [奥卡姆的剃刀：如无必要，勿增实体](./occams-razor)
 - [x] [笛卡尔：我思与心物二元论](./descartes-cogito-dualism)
 - [x] [斯宾诺莎：实体一元论与样式](./spinoza-substance-modes)
-- [ ] 莱布尼茨：单子论与前定和谐
-- [ ] 休谟：束理论（bundle theory）与实体观念的瓦解
+- [x] [莱布尼茨：单子论与前定和谐](./leibniz-monads)
+- [x] [休谟：束理论（bundle theory）与实体观念的瓦解](./hume-bundle-theory)
 - [ ] 康德《纯粹理性批判》：先验演绎与范畴体系
 - [ ] 物自体与现象：本体论的界限
 

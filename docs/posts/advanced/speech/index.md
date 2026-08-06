@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [音素、音节与韵律：语音学的基本单位](./phonemes-syllables-prosody)
 - [x] [人耳听觉系统与听觉掩蔽效应](./auditory-system-masking)
 - [x] [临界频带与 Mel 刻度、Bark 刻度](./critical-bands-mel-bark)
-- [ ] 响度、音高感知与等响曲线
+- [x] [响度、音高感知与等响曲线](./loudness-pitch-perception)
 
 ### 语音信号的数字化与预处理
 
-- [ ] 采样与量化：奈奎斯特定理与混叠
-- [ ] 预加重与直流分量去除
-- [ ] 分帧与加窗：短时平稳假设与常用窗函数
+- [x] [采样与量化：奈奎斯特定理与混叠](./sampling-quantization-nyquist)
+- [x] [预加重与直流分量去除](./preemphasis-dc-removal)
+- [x] [分帧与加窗：短时平稳假设与常用窗函数](./framing-windowing)
 - [ ] 短时能量与短时过零率
 - [ ] 端点检测（VAD）：能量法与模型法
 

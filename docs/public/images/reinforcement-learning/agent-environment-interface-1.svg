@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">智能体—环境交互回路与一步动态</title>
+  <desc id="desc">智能体—环境交互回路示意图。左侧青色边框方框为智能体，标注「观察状态 S_t」「选择动作 A_t」「目标：累积回报最大」；右侧红色边框方框为环境，标注「状态转移 p(s', r | s, a)」「产生奖励」「下一步状态与奖励」。两框之间有三条箭头：上方箭头由智能体指向环境，标注「动作 A_t」；中部红色箭头由环境指向智能体，标注「奖励 R_{t+1}」；下方青色箭头由环境指向智能体，标注「状态 S_{t+1}」。底部两行文字分别强调：动作只经由环境起作用，环境以奖励与新状态回应；以及马尔可夫性质——状态 S_t 要包含预测未来所需的全部历史信息。</desc>
+
+  <rect x="0" y="0" width="760" height="310" fill="#faf9f5"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="380" y="36" font-size="19" fill="#333" text-anchor="middle" font-weight="bold">智能体—环境交互回路</text>
+  <text x="380" y="60" font-size="14" fill="#777" text-anchor="middle">状态 · 动作 · 奖励 · 一步动态</text>
+
+  <!-- 智能体 -->
+  <rect x="60" y="85" width="230" height="150" rx="14" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="175" y="118" font-size="18" fill="#1f6f8b" text-anchor="middle" font-weight="bold">智能体</text>
+  <text x="175" y="150" font-size="14" fill="#555" text-anchor="middle">观察状态 S<tspan dy="3" font-size="11">t</tspan></text>
+  <text x="175" y="176" font-size="14" fill="#555" text-anchor="middle">选择动作 A<tspan dy="3" font-size="11">t</tspan></text>
+  <text x="175" y="202" font-size="14" fill="#555" text-anchor="middle">目标：累积回报最大</text>
+
+  <!-- 环境 -->
+  <rect x="470" y="85" width="230" height="150" rx="14" fill="#faf9f5" stroke="#c0392b" stroke-width="2"/>
+  <text x="585" y="118" font-size="18" fill="#c0392b" text-anchor="middle" font-weight="bold">环境</text>
+  <text x="585" y="150" font-size="14" fill="#555" text-anchor="middle">状态转移 p(s′, r | s, a)</text>
+  <text x="585" y="176" font-size="14" fill="#555" text-anchor="middle">产生奖励</text>
+  <text x="585" y="202" font-size="14" fill="#555" text-anchor="middle">给出下一步状态与奖励</text>
+
+  <!-- 动作 A_t：智能体 -> 环境 -->
+  <line x1="292" y1="130" x2="468" y2="130" stroke="#333" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="380" y="120" font-size="16" fill="#333" text-anchor="middle">动作 A<tspan dy="3" font-size="11">t</tspan></text>
+
+  <!-- 奖励 R_{t+1}：环境 -> 智能体 -->
+  <line x1="468" y1="185" x2="292" y2="185" stroke="#333" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="380" y="176" font-size="16" fill="#c0392b" text-anchor="middle">奖励 R<tspan dy="3" font-size="11">t+1</tspan></text>
+
+  <!-- 状态 S_{t+1}：环境 -> 智能体 -->
+  <line x1="468" y1="215" x2="292" y2="215" stroke="#333" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="380" y="206" font-size="16" fill="#1f6f8b" text-anchor="middle">状态 S<tspan dy="3" font-size="11">t+1</tspan></text>
+
+  <!-- 底部注解与图注 -->
+  <text x="380" y="270" font-size="14" fill="#c0392b" text-anchor="middle">动作只经由环境起作用：A_t 改变环境，环境以 R_{t+1} 与 S_{t+1} 回应</text>
+  <text x="380" y="294" font-size="14" fill="#777" text-anchor="middle">马尔可夫性质：状态 S_t 要包含预测未来所需的全部历史信息</text>
+</svg>

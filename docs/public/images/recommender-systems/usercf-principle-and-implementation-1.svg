@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="sans-serif">
+  <title>UserCF 用户相似度计算示意</title>
+  <desc>用户与物品构成的二部图：小明与小红共同喜欢《Matrix》与《Inception》，相似度较高；小刚只与小明共同喜欢《Inception》。</desc>
+  <rect width="800" height="480" fill="#faf9f5"/>
+  <text x="400" y="36" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">UserCF：共同喜欢的物品把相似用户连在一起</text>
+
+  <g fill="#1f6f8b">
+    <circle cx="180" cy="110" r="22"/>
+    <circle cx="180" cy="230" r="22"/>
+    <circle cx="180" cy="350" r="22"/>
+  </g>
+  <g fill="#ffffff" font-size="14" text-anchor="middle" font-weight="bold">
+    <text x="180" y="115">小明</text>
+    <text x="180" y="235">小红</text>
+    <text x="180" y="355">小刚</text>
+  </g>
+  <g fill="#666" font-size="13" text-anchor="middle">
+    <text x="180" y="148">用户 u1</text>
+    <text x="180" y="268">用户 u2</text>
+    <text x="180" y="388">用户 u3</text>
+  </g>
+
+  <g>
+    <circle cx="600" cy="90" r="20" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <circle cx="600" cy="180" r="20" fill="#fdecea" stroke="#c0392b" stroke-width="2.5"/>
+    <circle cx="600" cy="270" r="20" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <circle cx="600" cy="360" r="20" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  </g>
+  <g fill="#333" font-size="14" text-anchor="middle">
+    <text x="600" y="94">i1</text>
+    <text x="600" y="184">i2</text>
+    <text x="600" y="274">i3</text>
+    <text x="600" y="364">i4</text>
+  </g>
+  <g fill="#555" font-size="13" text-anchor="start">
+    <text x="632" y="94">《Matrix》</text>
+    <text x="632" y="184" fill="#c0392b">《Inception》</text>
+    <text x="632" y="274">《Titanic》</text>
+    <text x="632" y="364">《Coco》</text>
+  </g>
+
+  <g stroke="#c9c2b5" stroke-width="1.5">
+    <line x1="180" y1="110" x2="600" y2="90"/>
+    <line x1="180" y1="110" x2="600" y2="180"/>
+    <line x1="180" y1="230" x2="600" y2="90"/>
+    <line x1="180" y1="230" x2="600" y2="180"/>
+    <line x1="180" y1="230" x2="600" y2="270"/>
+    <line x1="180" y1="350" x2="600" y2="180"/>
+    <line x1="180" y1="350" x2="600" y2="360"/>
+  </g>
+  <g stroke="#c0392b" stroke-width="2.5">
+    <line x1="180" y1="110" x2="600" y2="90"/>
+    <line x1="180" y1="110" x2="600" y2="180"/>
+    <line x1="180" y1="230" x2="600" y2="90"/>
+    <line x1="180" y1="230" x2="600" y2="180"/>
+  </g>
+
+  <text x="400" y="430" text-anchor="middle" font-size="15" fill="#333">小明与小红共同喜欢《Matrix》与《Inception》，交集为 2</text>
+  <text x="400" y="458" text-anchor="middle" font-size="15" fill="#c0392b">w(小明, 小红) = 2 / √(2×3) ≈ 0.816</text>
+</svg>

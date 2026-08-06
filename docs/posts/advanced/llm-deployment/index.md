@@ -25,13 +25,13 @@ pageClass: plain-doc
 ### 第二篇 推理引擎总览
 
 - [x] [LLM 推理引擎要解决的核心问题](./llm-inference-engine-core-problems)
-- [ ] 主流引擎对比：vLLM、SGLang、TensorRT-LLM、TGI
-- [ ] 推理框架与训练框架的本质区别
-- [ ] 如何阅读和评估一个推理引擎的源码
+- [x] [主流引擎对比：vLLM、SGLang、TensorRT-LLM、TGI](./engine-comparison)
+- [x] [推理框架与训练框架的本质区别](./inference-vs-training-framework)
+- [x] [如何阅读和评估一个推理引擎的源码](./how-to-read-engine-source-code)
 
 ### 第三篇 vLLM
 
-- [ ] PagedAttention：KV Cache 的页式内存管理
+- [x] [PagedAttention：KV Cache 的页式内存管理](./paged-attention)
 - [ ] 块表（Block Table）与逻辑物理块映射
 - [ ] Continuous Batching 的原理与实现
 - [ ] Chunked Prefill：长输入的分块调度

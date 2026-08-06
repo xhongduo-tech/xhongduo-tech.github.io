@@ -86,6 +86,44 @@ $$H_{t+1}(a) = H_t(a) + \alpha\left(R_t - \bar{R}_t\right)\left(\mathbf{1}_{A_t 
 
 与 ε-贪心、UCB 相比，梯度老虎机在动作偏好差异很大的问题上常表现更好，因为它把「概率的倾斜程度」本身也纳入了学习——而在非平稳环境下，用常数 $\alpha$ 持续追踪即可，与上一节结论一致。
 
+### 一个带数字的手算例子
+
+把上面的定性推演落到具体数字上。设两臂老虎机，某时刻偏好 $H(1) = H(2) = 0$，于是 $\pi(1) = \pi(2) = 0.5$。设第 $t$ 步选了臂 1，拿到奖励 $R = 1$，而当前基线 $\bar{R} = 0.5$，步长 $\alpha = 0.1$。则 $\delta = R - \bar{R} = 0.5$，更新：
+
+$$H(1) \leftarrow 0 + 0.1 \times 0.5 \times (1 - 0.5) = 0.025, \qquad H(2) \leftarrow 0 - 0.1 \times 0.5 \times 0.5 = -0.025$$
+
+新的偏好 $(0.025, -0.025)$ 对应新分布 $\pi(1) = e^{0.025}/(e^{0.025} + e^{-0.025}) \approx 0.5125$——臂 1 因为「高于平均表现」而被小幅抬升。注意这个抬升是**渐进的**：一次高于基线的奖励只把概率推高 1.25%，而不是像 ε-贪心那样「这次奖励好，以后就死守臂 1」。若要追平与最优策略的差距，需要许多步正基线奖励的累积——这也解释了为什么梯度老虎机收敛偏慢、但最终更精细。
+
+### 代码实现：一个梯度老虎机
+
+更新规则恰好可以向量化成一行 $H \leftarrow H + \alpha\delta(\mathbf{1}_{A_t} - \pi)$，代码几乎就是公式的直译：
+
+```python
+import numpy as np
+
+class GradientBandit:
+    def __init__(self, k, alpha=0.1):
+        self.k = k
+        self.alpha = alpha
+        self.H = np.zeros(k)     # 动作偏好
+        self.avg_reward = 0.0    # 基线 \bar{R}_t
+        self.t = 0
+
+    def choose(self):
+        exp_h = np.exp(self.H - self.H.max())   # 减去最大值：数值稳定，不改变分布
+        self.pi = exp_h / exp_h.sum()
+        return int(np.random.choice(self.k, p=self.pi))
+
+    def update(self, a, r):
+        self.t += 1
+        self.avg_reward += (r - self.avg_reward) / self.t   # 在线更新基线
+        delta = r - self.avg_reward
+        one_hot = np.zeros(self.k); one_hot[a] = 1.0
+        self.H += self.alpha * delta * (one_hot - self.pi)  # 梯度上升的一步
+```
+
+把 `choose` 里的 softmax 换成神经网络输出、把「单臂奖励」换成「一条轨迹的累积回报」，你就已经摸到第十三篇 REINFORCE 的门口——**这个类几乎就是策略梯度算法的骨架**。<span class="marginnote">`exp_h = np.exp(self.H - self.H.max())` 是 softmax 的数值稳定写法：同时减去最大值不改变比例，却避免了指数上溢。这是深度网络里 softmax 层的标准实现，你会在任何深度学习框架里见到同款。</span>
+
 ## 5 小结
 
 - **梯度老虎机**：不估计价值，直接学习动作偏好 $H_t(a)$，按 softmax 分布 $\pi_t(a) = e^{H_t(a)}/\sum_b e^{H_t(b)}$ 选动作。

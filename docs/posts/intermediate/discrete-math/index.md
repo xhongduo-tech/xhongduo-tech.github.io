@@ -21,7 +21,7 @@ pageClass: plain-doc
 - [x] [命题逻辑的推理规则：假言推理、拒取式与归结](./inference-forms-resolution)
 - [x] [证明导论：定理、公理与猜想](./proof-introduction)
 - [x] [直接证明、反证法与归谬法](./direct-proof-contradiction)
-- [ ] 证明方法综述：分情形证明、存在性证明与唯一性证明
+- [x] [证明方法综述：分情形证明、存在性证明与唯一性证明](./proof-methods-survey)
 
 ### 第二篇 集合
 

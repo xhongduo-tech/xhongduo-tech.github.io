@@ -28,10 +28,10 @@ pageClass: plain-doc
 
 ### 第三篇 文本预处理
 
-- [ ] 中文分词问题：歧义切分与未登录词识别
-- [ ] 基于词典的分词方法：最大匹配法与最短路径分词
-- [ ] 基于统计的分词方法：由字构词（字标注）分词
-- [ ] 词性标注（POS Tagging）：标注集与标注方法
+- [x] [中文分词问题：歧义切分与未登录词识别](./chinese-segmentation-ambiguity-oov)
+- [x] [基于词典的分词方法：最大匹配法与最短路径分词](./dictionary-segmentation)
+- [x] [基于统计的分词方法：由字构词（字标注）分词](./character-based-segmentation)
+- [x] [词性标注（POS Tagging）：标注集与标注方法](./pos-tagging)
 - [ ] 命名实体规范化、停用词与词形还原（Stemming & Lemmatization）
 - [ ] 文本表示基础：词袋模型（BoW）与 TF-IDF
 

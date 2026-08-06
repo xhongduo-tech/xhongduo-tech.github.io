@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 470" font-family="sans-serif">
+  <title>多相机 BEV 感知示意图</title>
+  <desc>自车位于中央，六路相机视锥投影到以自车为中心的鸟瞰（BEV）网格上，网格中分布前车、行人、骑行者等目标；右下角高亮一个 BEV 网格单元，示意该位置聚合落在其中的所有视角证据。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="660" height="470" fill="#faf9f5"/>
+  <text x="330" y="30" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">把六路相机视锥投影到以自车为中心的 BEV 网格</text>
+
+  <!-- 道路 -->
+  <rect x="70" y="55" width="520" height="360" rx="8" fill="#efece4"/>
+
+  <!-- BEV 网格 -->
+  <g stroke="#d8d2c6" stroke-width="1" fill="none">
+    <line x1="110" y1="85" x2="110" y2="365"/>
+    <line x1="150" y1="85" x2="150" y2="365"/>
+    <line x1="190" y1="85" x2="190" y2="365"/>
+    <line x1="230" y1="85" x2="230" y2="365"/>
+    <line x1="270" y1="85" x2="270" y2="365"/>
+    <line x1="310" y1="85" x2="310" y2="365"/>
+    <line x1="350" y1="85" x2="350" y2="365"/>
+    <line x1="390" y1="85" x2="390" y2="365"/>
+    <line x1="430" y1="85" x2="430" y2="365"/>
+    <line x1="470" y1="85" x2="470" y2="365"/>
+    <line x1="510" y1="85" x2="510" y2="365"/>
+    <line x1="550" y1="85" x2="550" y2="365"/>
+    <line x1="110" y1="85" x2="550" y2="85"/>
+    <line x1="110" y1="125" x2="550" y2="125"/>
+    <line x1="110" y1="165" x2="550" y2="165"/>
+    <line x1="110" y1="205" x2="550" y2="205"/>
+    <line x1="110" y1="245" x2="550" y2="245"/>
+    <line x1="110" y1="285" x2="550" y2="285"/>
+    <line x1="110" y1="325" x2="550" y2="325"/>
+    <line x1="110" y1="365" x2="550" y2="365"/>
+  </g>
+
+  <!-- 六路相机视锥 -->
+  <g fill="#1f6f8b" fill-opacity="0.10" stroke="#1f6f8b" stroke-opacity="0.55" stroke-width="1.2">
+    <polygon points="330,214 255,72 405,72"/>
+    <polygon points="305,228 135,96 265,66"/>
+    <polygon points="355,228 395,66 525,96"/>
+    <polygon points="330,286 258,408 402,408"/>
+    <polygon points="308,250 98,186 98,314"/>
+    <polygon points="352,250 562,186 562,314"/>
+  </g>
+
+  <!-- 场景目标 -->
+  <rect x="318" y="138" width="24" height="44" rx="6" fill="#c0392b" opacity="0.85"/>
+  <text x="330" y="128" text-anchor="middle" font-size="13" fill="#333">前车</text>
+
+  <circle cx="152" cy="300" r="9" fill="#1f6f8b" opacity="0.85"/>
+  <text x="152" y="326" text-anchor="middle" font-size="13" fill="#333">行人</text>
+
+  <rect x="502" y="146" width="16" height="34" rx="5" fill="#1f6f8b" opacity="0.8"/>
+  <text x="510" y="196" text-anchor="middle" font-size="13" fill="#333">骑行者</text>
+
+  <!-- 自车 -->
+  <rect x="310" y="210" width="40" height="80" rx="12" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="330" y="316" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">自车</text>
+
+  <!-- 高亮网格单元 -->
+  <rect x="270" y="325" width="40" height="40" fill="#c0392b" fill-opacity="0.14" stroke="#c0392b" stroke-width="2"/>
+  <line x1="238" y1="382" x2="282" y2="350" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="122" y="390" font-size="13" fill="#333">一个 BEV 网格单元（如 0.5 m×0.5 m）</text>
+  <text x="122" y="410" font-size="13" fill="#333">聚合落在其中的所有视角证据</text>
+
+  <text x="100" y="452" font-size="13" fill="#666">网格坐标 = 世界坐标：每帧都把证据写回同一张以自车为中心的画布</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">欠采样导致频谱折返（混叠）</title>
+  <desc id="desc">横轴为频率（0 到 fs），纵轴为频谱幅度。fs/2 是折返轴。一个高于 fs/2 的真实分量（青色三角形，峰值位于 f0）在采样后，会被关于 fs/2 镜面折返，在 fa = fs - f0 处产生一个不存在的假分量（红色虚线三角形）。以 fs = 8 kHz 为例：真实的 6 kHz 分量会被折返成 2 kHz 假分量，混进可见频段 [0, fs/2]。</desc>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="880" height="420" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="440" y="26" text-anchor="middle" font-size="16" fill="#333">欠采样：高于 fs/2 的频率被「折返」进可见频段</text>
+
+  <!-- 可见频段底色 [0, fs/2] -->
+  <rect x="90" y="40" width="370" height="290" fill="#f0ebe1"/>
+
+  <!-- 坐标轴 -->
+  <line x1="90" y1="330" x2="830" y2="330" stroke="#333" stroke-width="1.6"/>
+  <line x1="90" y1="40"  x2="90" y2="330" stroke="#333" stroke-width="1.6"/>
+
+  <!-- 折返轴 fs/2 -->
+  <line x1="460" y1="40" x2="460" y2="330" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="460" y="60" text-anchor="middle" font-size="13" fill="#333">折返轴 fs/2</text>
+
+  <!-- 真实频谱（> fs/2）三角形 -->
+  <polygon points="460,330 608,120 770,330" fill="#d7e8ea" stroke="#1f6f8b" stroke-width="2.4"/>
+  <!-- 混叠分量（镜像）三角形 -->
+  <polygon points="150,330 312,120 460,330" fill="#f6e2df" stroke="#c0392b" stroke-width="2.4" stroke-dasharray="6 4"/>
+
+  <!-- 峰值标注 -->
+  <text x="608" y="100" text-anchor="middle" font-size="14" fill="#1f6f8b">真实分量 f0</text>
+  <text x="608" y="116" text-anchor="middle" font-size="12" fill="#1f6f8b">（高于 fs/2）</text>
+  <text x="312" y="100" text-anchor="middle" font-size="14" fill="#c0392b">混叠分量 fa</text>
+  <text x="312" y="116" text-anchor="middle" font-size="12" fill="#c0392b">（fs − f0，本不存在）</text>
+
+  <!-- 折返箭头 -->
+  <path d="M 590,150 Q 460,88 338,150" fill="none" stroke="#555" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#555"/>
+    </marker>
+  </defs>
+  <text x="452" y="78" text-anchor="middle" font-size="13" fill="#555">折返（folding）</text>
+
+  <!-- 可见频段标注 -->
+  <text x="275" y="318" text-anchor="middle" font-size="13" fill="#333">可见频段 [0, fs/2]：混入了假分量</text>
+
+  <!-- 横轴标注 -->
+  <text x="90"  y="352" text-anchor="middle" font-size="13" fill="#333">0</text>
+  <text x="460" y="352" text-anchor="middle" font-size="13" fill="#333">fs/2</text>
+  <text x="830" y="352" text-anchor="middle" font-size="13" fill="#333">fs</text>
+  <text x="460" y="380" text-anchor="middle" font-size="14" fill="#555">频率 f</text>
+
+  <!-- 示例 -->
+  <text x="440" y="406" text-anchor="middle" font-size="14" fill="#c0392b">例：fs = 8 kHz，真实 6 kHz 分量 → 被折返成 2 kHz 假分量</text>
+</svg>

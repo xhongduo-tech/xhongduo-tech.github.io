@@ -21,12 +21,12 @@ pageClass: plain-doc
 - [x] [关系数据库：表、DML 与数据库设计](./relational-databases)
 - [x] [数据库引擎：存储管理器与查询处理器](./database-engine)
 - [x] [数据库与应用架构：两层与三层架构](./application-architecture)
-- [ ] 数据库用户与管理员（DBA）
-- [ ] 数据库系统的历史与发展
+- [x] [数据库用户与管理员（DBA）](./database-users-and-dba)
+- [x] [数据库系统的历史与发展](./database-system-history)
 
 #### 第 2 章 关系模型
 
-- [ ] 关系数据库的结构：关系、元组与属性
+- [x] [关系数据库的结构：关系、元组与属性](./relational-structure)
 - [ ] 数据库模式与关系实例
 - [ ] 码：超码、候选码、主码与外码
 - [ ] 模式图与关系模式设计

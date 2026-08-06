@@ -36,10 +36,10 @@ pageClass: plain-doc
 ### 指数函数与对数函数
 
 - [x] [n次方根与分数指数幂](./nth-roots-fractional-exponents)
-- [ ] 无理数指数幂及其运算性质
-- [ ] 指数函数的概念、图象和性质
-- [ ] 对数的概念与运算
-- [ ] 对数函数的概念、图象和性质
+- [x] [无理数指数幂及其运算性质](./irrational-exponents)
+- [x] [指数函数的概念、图象和性质](./exponential-functions)
+- [x] [对数的概念与运算](./logarithms)
+- [x] [对数函数的概念、图象和性质](./logarithmic-functions)
 - [ ] 不同函数增长的差异
 - [ ] 函数的零点与方程的解
 - [ ] 用二分法求方程的近似解
