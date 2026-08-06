@@ -21,7 +21,7 @@ pageClass: plain-doc
 
 ### 感知
 
-- [ ] 基于相机的 2D 目标检测在自动驾驶中的应用
+- [x] [基于相机的 2D 目标检测在自动驾驶中的应用](./camera-2d-object-detection)
 - [ ] 单目与双目 3D 目标检测
 - [ ] LiDAR 点云处理：地面分割与聚类
 - [ ] 基于点云的 3D 目标检测（PointPillars、VoxelNet、CenterPoint）

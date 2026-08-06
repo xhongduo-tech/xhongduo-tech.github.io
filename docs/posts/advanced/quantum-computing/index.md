@@ -17,7 +17,7 @@ pageClass: plain-doc
 - [x] [量子计算的发展简史：从 Deutsch 到 NISQ](./history-deutsch-to-nisq)
 - [x] [量子计算为什么可能更快：量子并行性与纠缠](./why-faster-parallelism-entanglement)
 - [x] [量子计算的计算模型：线路模型、绝热计算与测量量子计算](./computational-models)
-- [ ] 量子计算的误区澄清：指数加速不是免费的
+- [x] [量子计算的误区澄清：指数加速不是免费的](./myths-exponential-speedup)
 - [ ] 量子信息的基本任务：计算、通信、密码与模拟
 
 ### 第一篇 线性代数与量子力学基础

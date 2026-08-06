@@ -19,8 +19,8 @@ pageClass: plain-doc
 ### 第2章 模型评估与选择
 - [x] [经验误差与过拟合](./empirical-error-overfitting)
 - [x] [评估方法（留出法、交叉验证法、自助法）](./evaluation-methods)
-- [ ] 性能度量（错误率与精度、查准率与查全率、ROC 与 AUC、代价敏感错误率）
-- [ ] 比较检验（假设检验、交叉验证 t 检验、McNemar 检验、Friedman 检验与 Nemenyi 后续检验）
+- [x] [性能度量（错误率与精度、查准率与查全率、ROC 与 AUC、代价敏感错误率）](./performance-measures)
+- [x] [比较检验（假设检验、交叉验证 t 检验、McNemar 检验、Friedman 检验与 Nemenyi 后续检验）](./comparative-testing)
 - [ ] 偏差与方差
 
 ### 第3章 线性模型

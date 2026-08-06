@@ -1,0 +1,52 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+  <title>二维几何变换层级：同一正方形在不同变换下的像</title>
+  <desc>同一个 70x70 的正方形，依次经过刚体变换（旋转）、相似变换（旋转加缩放）、仿射变换（斜切，平行线仍平行）与投影变换（透视，平行线交于灭点）后的不同形状。</desc>
+  <rect width="760" height="300" fill="#faf9f5"/>
+  <text x="15" y="24" font-family="sans-serif" font-size="16" font-weight="bold" fill="#333">二维变换层级：同一个正方形被不同变换拉扯</text>
+
+  <!-- 面板 1：刚体 -->
+  <g>
+    <text x="15" y="52" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">刚体 rigid（3 自由度）</text>
+    <g transform="translate(95 165) rotate(18)">
+      <rect x="-35" y="-35" width="70" height="70" fill="none" stroke="#333" stroke-width="2"/>
+      <line x1="0" y1="-35" x2="0" y2="35" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="-35" y1="0" x2="35" y2="0" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+    </g>
+    <text x="15" y="288" font-family="sans-serif" font-size="13" fill="#666">只旋转、平移：边长与角度都不变</text>
+  </g>
+
+  <!-- 面板 2：相似 -->
+  <g>
+    <text x="200" y="52" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">相似 similarity（4 自由度）</text>
+    <g transform="translate(280 165) rotate(30) scale(1.35)">
+      <rect x="-35" y="-35" width="70" height="70" fill="none" stroke="#333" stroke-width="2"/>
+      <line x1="0" y1="-35" x2="0" y2="35" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="-35" y1="0" x2="35" y2="0" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+    </g>
+    <text x="200" y="288" font-family="sans-serif" font-size="13" fill="#666">均匀缩放 + 旋转：形状相似，角度保持</text>
+  </g>
+
+  <!-- 面板 3：仿射 -->
+  <g>
+    <text x="385" y="52" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">仿射 affine（6 自由度）</text>
+    <g transform="translate(465 165) skewX(28)">
+      <rect x="-35" y="-35" width="70" height="70" fill="none" stroke="#333" stroke-width="2"/>
+      <line x1="0" y1="-35" x2="0" y2="35" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+      <line x1="-35" y1="0" x2="35" y2="0" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+    </g>
+    <text x="385" y="288" font-family="sans-serif" font-size="13" fill="#666">斜切/非均匀缩放：平行线仍然是平行线</text>
+  </g>
+
+  <!-- 面板 4：投影 -->
+  <g>
+    <text x="570" y="52" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">投影 projective（8 自由度）</text>
+    <polygon points="35,95 135,95 155,235 15,235" fill="none" stroke="#333" stroke-width="2"/>
+    <line x1="55" y1="150" x2="130" y2="150" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+    <line x1="32" y1="195" x2="140" y2="195" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 3"/>
+    <line x1="35" y1="95" x2="-8" y2="-12" stroke="#c0392b" stroke-width="1" stroke-dasharray="5 4"/>
+    <line x1="135" y1="95" x2="178" y2="-12" stroke="#c0392b" stroke-width="1" stroke-dasharray="5 4"/>
+    <circle cx="85" cy="-88" r="4" fill="#c0392b"/>
+    <text x="98" y="-88" font-family="sans-serif" font-size="13" fill="#c0392b">灭点（无穷远点）</text>
+    <text x="570" y="288" font-family="sans-serif" font-size="13" fill="#666">透视：平行边在灭点相交，直线仍为直线</text>
+  </g>
+</svg>

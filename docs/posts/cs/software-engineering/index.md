@@ -21,9 +21,9 @@ pageClass: plain-doc
 
 ### 第 2 章 软件过程模型
 
-- [ ] 瀑布模型及其适用场景
-- [ ] 增量模型与迭代模型
-- [ ] 原型模型（快速原型与演化式原型）
+- [x] [瀑布模型及其适用场景](./waterfall-model)
+- [x] [增量模型与迭代模型](./incremental-and-iterative-models)
+- [x] [原型模型（快速原型与演化式原型）](./prototype-model)
 - [ ] 螺旋模型与风险驱动开发
 - [ ] 敏捷开发与敏捷宣言
 - [ ] Scrum：角色、事件与工件

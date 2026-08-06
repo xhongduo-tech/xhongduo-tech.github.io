@@ -18,8 +18,8 @@ pageClass: plain-doc
 - [x] [SIMT 执行模型与 warp（线程束）的工作原理](./simt-warp)
 - [x] [线程层次：Grid、Block、Thread 的组织与索引](./thread-hierarchy)
 - [x] [warp 调度与分支分化（divergence）的代价](./warp-scheduling-divergence)
-- [ ] GPU 内存层次：寄存器、Shared Memory、L1/L2 缓存、全局内存
-- [ ] 全局内存合并访存（coalescing）与 bank conflict
+- [x] [GPU 内存层次：寄存器、Shared Memory、L1/L2 缓存、全局内存](./gpu-memory-hierarchy)
+- [x] [全局内存合并访存（coalescing）与 bank conflict](./memory-coalescing-bank-conflict)
 - [ ] Shared Memory 编程与 `__syncthreads()` 同步语义
 - [ ] Occupancy（占用率）的计算与调优
 - [ ] CUDA Stream 与异步执行、事件计时

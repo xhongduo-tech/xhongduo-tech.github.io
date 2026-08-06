@@ -14,9 +14,9 @@ pageClass: plain-doc
 ### 语音的产生与感知基础
 
 - [x] [发音器官与语音产生机理：声源—滤波器模型](./speech-production)
-- [ ] 语音的声学分类：元音、辅音与协同发音
-- [ ] 音素、音节与韵律：语音学的基本单位
-- [ ] 人耳听觉系统与听觉掩蔽效应
+- [x] [语音的声学分类：元音、辅音与协同发音](./speech-sound-classification)
+- [x] [音素、音节与韵律：语音学的基本单位](./phonemes-syllables-prosody)
+- [x] [人耳听觉系统与听觉掩蔽效应](./auditory-system-masking)
 - [ ] 临界频带与 Mel 刻度、Bark 刻度
 - [ ] 响度、音高感知与等响曲线
 

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 500" font-family="sans-serif">
+  <title>ROC 曲线与 AUC</title>
+  <desc>以假正例率 FPR 为横轴、真正例率 TPR 为纵轴的 ROC 曲线图：虚线为随机猜测对角线，青色曲线为强分类器（AUC 大），红色曲线为弱分类器，阴影区为 AUC。</desc>
+  <rect x="0" y="0" width="560" height="500" fill="#faf9f5"/>
+
+  <!-- 绘图区：原点 (80, 400)，宽 450，高 360 -->
+  <!-- 网格线 -->
+  <g stroke="#d8d3c8" stroke-width="1">
+    <line x1="80" y1="400" x2="530" y2="400"/>
+    <line x1="192.5" y1="400" x2="192.5" y2="40"/>
+    <line x1="305" y1="400" x2="305" y2="40"/>
+    <line x1="417.5" y1="400" x2="417.5" y2="40"/>
+    <line x1="530" y1="400" x2="530" y2="40"/>
+    <line x1="80" y1="310" x2="530" y2="310"/>
+    <line x1="80" y1="220" x2="530" y2="220"/>
+    <line x1="80" y1="130" x2="530" y2="130"/>
+    <line x1="80" y1="40" x2="530" y2="40"/>
+  </g>
+
+  <!-- 随机猜测对角线 -->
+  <line x1="80" y1="400" x2="530" y2="40" stroke="#999" stroke-width="1.5" stroke-dasharray="7,5"/>
+
+  <!-- AUC 阴影：强分类器曲线下方 -->
+  <path d="M80,400 C 190,318 300,150 530,40 L530,400 Z" fill="#1f6f8b" opacity="0.14"/>
+
+  <!-- 强分类器 ROC 曲线（青） -->
+  <path d="M80,400 C 190,318 300,150 530,40" fill="none" stroke="#1f6f8b" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- 弱分类器 ROC 曲线（红） -->
+  <path d="M80,400 C 200,345 400,215 530,40" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- 完美点 (0,1) -->
+  <circle cx="80" cy="40" r="5" fill="#c0392b"/>
+  <text x="92" y="34" font-size="14" fill="#333">完美点 (0,1)</text>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="400" x2="80" y2="30" stroke="#333" stroke-width="2"/>
+  <line x1="70" y1="400" x2="540" y2="400" stroke="#333" stroke-width="2"/>
+
+  <!-- 刻度值 -->
+  <g font-size="13" fill="#333" text-anchor="middle">
+    <text x="80" y="418">0</text>
+    <text x="192.5" y="418">0.25</text>
+    <text x="305" y="418">0.5</text>
+    <text x="417.5" y="418">0.75</text>
+    <text x="530" y="418">1</text>
+  </g>
+  <g font-size="13" fill="#333" text-anchor="end">
+    <text x="68" y="405">0</text>
+    <text x="68" y="315">0.25</text>
+    <text x="68" y="225">0.5</text>
+    <text x="68" y="135">0.75</text>
+    <text x="68" y="45">1</text>
+  </g>
+
+  <!-- 轴标签 -->
+  <text x="305" y="452" font-size="15" fill="#333" text-anchor="middle">假正例率 FPR（负例被误判的比例）</text>
+  <text x="30" y="215" font-size="15" fill="#333" text-anchor="middle" transform="rotate(-90 30 215)">真正例率 TPR（正例被认出的比例）</text>
+
+  <!-- 图例 -->
+  <g font-size="14" fill="#333">
+    <line x1="200" y1="472" x2="236" y2="472" stroke="#1f6f8b" stroke-width="3"/>
+    <text x="244" y="477">强分类器（AUC 大）</text>
+    <line x1="395" y1="472" x2="431" y2="472" stroke="#c0392b" stroke-width="2.5"/>
+    <text x="439" y="477">弱分类器</text>
+    <line x1="200" y1="492" x2="236" y2="492" stroke="#999" stroke-width="1.5" stroke-dasharray="7,5"/>
+    <text x="244" y="497">随机猜测（AUC = 0.5）</text>
+  </g>
+</svg>

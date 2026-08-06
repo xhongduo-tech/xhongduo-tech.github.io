@@ -29,7 +29,7 @@ pageClass: plain-doc
 
 - [x] [函数的概念及其表示](./function-concept)
 - [x] [函数的基本性质（单调性与最大（小）值）](./function-monotonicity)
-- [ ] 函数的基本性质（奇偶性）
+- [x] [函数的基本性质（奇偶性）](./function-parity)
 - [ ] 幂函数
 - [ ] 函数的应用（一）
 

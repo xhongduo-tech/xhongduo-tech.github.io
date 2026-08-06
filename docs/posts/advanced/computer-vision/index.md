@@ -18,7 +18,7 @@ pageClass: plain-doc
 - [x] [镜头与景深：光圈、焦距、弥散圆](./lens-and-depth-of-field)
 - [x] [数字图像的采样与量化：奈奎斯特采样定理与混叠](./sampling-and-quantization)
 - [x] [颜色空间：RGB、HSV、Lab 与 Bayer 阵列](./color-spaces)
-- [ ] 2D 与 3D 几何变换：平移、旋转、相似、仿射与投影变换
+- [x] [2D 与 3D 几何变换：平移、旋转、相似、仿射与投影变换](./geometric-transformations)
 - [ ] 齐次坐标与变换矩阵的组合
 
 ### 图像处理基础

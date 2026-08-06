@@ -34,6 +34,8 @@ $$\text{FLOPs}_{\text{prefill}} \approx 2 \cdot N \cdot P$$
 
 在这段计算里，权重矩阵被**反复复用**：同一个 $W_K$ 要同时和 $P$ 个位置的输入相乘。算得越多、每字节数据被用的次数越多，因此 Prefill 的算术强度很高，倾向于**计算受限**——GPU 的矩阵单元（Tensor Core）才是它的瓶颈。Prefill 的总耗时决定了 **TTFT（Time To First Token）**：你输入完问题后，等第一个字出现要多久。
 
+Prefill 的产出其实有两样：一是最后一个位置的隐状态，它直接推出第一个输出 token 的概率分布；二是**为整段 prompt 建好的初始 KV Cache**——之后每一步 Decode 都要从这份缓存里取 K、V。所以 Prefill 不只是「算一遍」，它是在为整段对话铺设地基。长 prompt 时这段「铺设」尤为昂贵，于是有了 Chunked Prefill 这类把地基分块施工、避免饿死 Decode 的技巧（第三篇）。
+
 ## 2 Decode：每步只产出一个 token 的「串行散步」
 
 Prefill 结束后，模型手里握着全部 prompt 的 K、V 缓存，然后进入 Decode。**Decode（解码）**：每一步只计算**一个新位置**，产出下一个 token 的概率分布，选出 token 拼回序列，如此循环直到 EOS 或长度上限。<span class="marginnote">「Decode」这个名字在部署语境里特指「逐 token 生成的每一小步」，它对应的是 TPOT（Time Per Output Token）——每输出一个 token 所花的时间。注意它和我们熟悉的「解码策略」（贪心/采样）不是一回事，后者只是生成末端的一次轻量选择。</span>
@@ -62,6 +64,29 @@ $$\text{FLOPs}_{\text{decode}} \approx 2 \cdot N \cdot 1$$
 | 典型优化 | FlashAttention、Chunked Prefill | KV Cache、批处理、投机解码 |
 
 表格里「算术强度 $\approx P$」这一行，正是下一节 Roofline 模型的入口。这里先记住结论：**Prefill 是「算」的问题，Decode 是「搬」的问题**。两个阶段会往两个完全不同的方向去优化——这也是为什么主流引擎必须把二者区分开来分别调度。
+
+「分开调度」落到代码上，一个极简调度器的骨架长这样：
+
+```python
+def schedule_one_step(running_seqs):
+    prefill = [s for s in running_seqs if s.phase == "prefill"]
+    decode  = [s for s in running_seqs if s.phase == "decode"]
+
+    # Prefill：整段 prompt 一次前向，产出首 token 与初始 KV Cache
+    for seq in prefill:
+        seq.logits = model.prefill(seq.prompt_tokens)
+        seq.kv_cache = seq.prompt_kv          # 地基铺好，进入 decode
+        seq.phase = "decode"
+
+    # Decode：若干序列拼成一批，共享读一遍权重
+    batch = pack_decode_batch(decode)
+    next_tokens = model.decode(batch, [s.kv_cache for s in decode])
+    for seq, tok in zip(decode, next_tokens):
+        seq.kv_cache.append_kv(tok)           # 新 token 的 K、V 追加进缓存
+    return next_tokens
+```
+
+这段骨架暴露了两阶段在引擎里的两种待遇：Prefill 一步把 $P$ 个 token 全算完、顺势建好初始 KV Cache，属于「一次投入、一次性产出」；Decode 则把多条序列拼成批，共享读一遍权重，每步只让每条序列长出一个 token。后续 vLLM 的调度器、Continuous Batching、Chunked Prefill，全是在这两条分支上做文章。
 
 ## 4 公式解析：为什么算术强度随序列长度线性增长
 

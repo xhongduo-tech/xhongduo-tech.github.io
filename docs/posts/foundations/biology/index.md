@@ -21,8 +21,8 @@ pageClass: plain-doc
 - [x] [细胞中的元素和化合物](./cell-elements-compounds)
 - [x] [细胞中的无机物](./cell-inorganics)
 - [x] [细胞中的糖类和脂质](./cell-sugars-lipids)
-- [ ] 蛋白质是生命活动的主要承担者
-- [ ] 核酸是遗传信息的携带者
+- [x] [蛋白质是生命活动的主要承担者](./protein)
+- [x] [核酸是遗传信息的携带者](./nucleic-acid)
 
 ### 必修1《分子与细胞》第3章 细胞的基本结构
 

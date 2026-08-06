@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="sans-serif">
+  <title>GPU 内存层次示意图</title>
+  <desc>从寄存器到全局内存的五层存储层次：自上而下容量增大、延迟增大、带宽减小。寄存器、Shared Memory、全局内存为程序员管理，L1、L2 为硬件自动缓存。</desc>
+  <rect width="900" height="700" fill="#faf9f5"/>
+  <text x="440" y="52" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">GPU 内存层次：自上而下容量增大、延迟增大</text>
+  <text x="440" y="78" text-anchor="middle" font-size="14" fill="#666">带宽与延迟为 A100 / H100 典型值（教学近似）</text>
+
+  <rect x="120" y="115" width="16" height="16" fill="#c0392b"/>
+  <text x="144" y="128" font-size="14" fill="#333">程序员显式管理（寄存器 / Shared / 全局）</text>
+  <rect x="430" y="115" width="16" height="16" fill="#1f6f8b"/>
+  <text x="454" y="128" font-size="14" fill="#333">硬件自动缓存（L1 / L2）</text>
+
+  <defs>
+    <marker id="arrowUp" markerWidth="10" markerHeight="10" refX="5" refY="0" orient="auto">
+      <path d="M0,10 L5,0 L10,10 z" fill="#666"/>
+    </marker>
+    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="10" orient="auto">
+      <path d="M0,0 L5,10 L10,0 z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <line x1="95" y1="200" x2="95" y2="640" stroke="#666" stroke-width="1.5" marker-end="url(#arrowUp)"/>
+  <text x="88" y="340" text-anchor="end" font-size="14" fill="#666">带宽增大</text>
+  <text x="88" y="358" text-anchor="end" font-size="14" fill="#666">延迟减小</text>
+  <line x1="805" y1="640" x2="805" y2="200" stroke="#666" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+  <text x="813" y="340" font-size="14" fill="#666">容量增大</text>
+  <text x="813" y="358" font-size="14" fill="#666">延迟增大</text>
+
+  <rect x="285" y="200" width="270" height="66" fill="#f2ead9" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="224" text-anchor="middle" font-size="15" font-weight="bold" fill="#c0392b">寄存器 Register File</text>
+  <text x="420" y="244" text-anchor="middle" font-size="13" fill="#333">64K × 32bit / SM ｜ 每线程私有 ｜ ~1 周期</text>
+  <text x="420" y="260" text-anchor="middle" font-size="13" fill="#333">编译器自动分配（每线程 ≤ 255）｜ on-chip</text>
+
+  <rect x="250" y="288" width="340" height="66" fill="#f2ead9" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="312" text-anchor="middle" font-size="15" font-weight="bold" fill="#c0392b">Shared Memory</text>
+  <text x="420" y="332" text-anchor="middle" font-size="13" fill="#333">164 / 228 KB · SM ｜ ~20–30 周期 ｜ on-chip</text>
+  <text x="420" y="348" text-anchor="middle" font-size="13" fill="#333">程序员显式管理 · 块内共享</text>
+
+  <rect x="210" y="376" width="420" height="66" fill="#f2ead9" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="400" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f6f8b">L1 缓存</text>
+  <text x="420" y="420" text-anchor="middle" font-size="13" fill="#333">128–256 KB / SM ｜ ~30 周期 ｜ on-chip</text>
+  <text x="420" y="436" text-anchor="middle" font-size="13" fill="#333">硬件缓存 · 与 Shared 共享片上 SRAM</text>
+
+  <rect x="160" y="464" width="520" height="66" fill="#f2ead9" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="488" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f6f8b">L2 缓存</text>
+  <text x="420" y="508" text-anchor="middle" font-size="13" fill="#333">40 / 50 MB ｜ 芯片级共享 ｜ ~200 周期</text>
+  <text x="420" y="524" text-anchor="middle" font-size="13" fill="#333">硬件缓存 · 缓存全局内存的内容</text>
+
+  <rect x="120" y="552" width="640" height="108" fill="#f2ead9" stroke="#333" stroke-width="1.5"/>
+  <text x="420" y="578" text-anchor="middle" font-size="15" font-weight="bold" fill="#c0392b">全局内存 Global Memory（HBM）</text>
+  <text x="420" y="600" text-anchor="middle" font-size="13" fill="#333">40–80 GB ｜ 整卡共享 ｜ 片外 off-chip</text>
+  <text x="420" y="620" text-anchor="middle" font-size="13" fill="#333">~400–800 周期 ｜ 聚合带宽 2–3.4 TB/s</text>
+  <text x="420" y="640" text-anchor="middle" font-size="13" fill="#333">所有进出显存的数据都要经过它</text>
+</svg>
