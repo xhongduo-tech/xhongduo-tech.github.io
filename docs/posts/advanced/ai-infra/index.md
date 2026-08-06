@@ -38,7 +38,7 @@ pageClass: plain-doc
 - [x] [NCCL 调优：环境变量、拓扑感知与常见性能陷阱](./nccl-tuning)
 - [x] [PCIe、NVLink、NVSwitch 的带宽层级与拓扑](./pcie-nvlink-nvswitch)
 - [x] [RDMA 原理：内核旁路、零拷贝与队列对（QP）](./rdma-principle)
-- [ ] RoCE v2 与 InfiniBand：无损网络、PFC 与拥塞控制（DCQCN）
+- [x] [RoCE v2 与 InfiniBand：无损网络、PFC 与拥塞控制（DCQCN）](./roce-v2-infiniband)
 - [ ] 通信计算重叠（overlap）的实现机制
 - [ ] AllToAll 在 MoE 场景下的通信模式与优化
 
