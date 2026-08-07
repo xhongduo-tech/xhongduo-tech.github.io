@@ -18,10 +18,10 @@ pageClass: plain-doc
 - [x] [量化分析的基本原则：以大概率事件为快](./quantitative-principles)
 - [x] [性能度量：CPU 时间、CPI 与 MIPS 的陷阱](./performance-metrics-cpu-cpi)
 - [x] [基准测试程序：SPEC、TPC 与基准测试的选择](./benchmarks-spec-tpc)
-- [ ] Amdahl 定律：加速比的量化推导与应用
-- [ ] 局部性原理与常见场景的加速比估算
-- [ ] 功耗墙（Power Wall）：动态功耗与静态功耗
-- [ ] Dennard 缩放的终结与「暗硅」（Dark Silicon）问题
+- [x] [Amdahl 定律：加速比的量化推导与应用](./amdahls-law)
+- [x] [局部性原理与常见场景的加速比估算](./locality-principle)
+- [x] [功耗墙（Power Wall）：动态功耗与静态功耗](./power-wall)
+- [x] [Dennard 缩放的终结与「暗硅」（Dark Silicon）问题](./dark-silicon)
 - [ ] 从单核到多核：功耗约束下的设计转向
 - [ ] 成本、可靠性与可用性的量化度量
 - [ ] 体系结构的谬误与易犯的错误（Pitfalls and Fallacies）

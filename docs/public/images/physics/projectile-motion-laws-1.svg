@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" font-family="sans-serif">
+  <title>平抛运动的轨迹与速度分解</title>
+  <desc>从抛出点 O 到当前点 P 的抛物线轨迹上，画出水平分速度 v_x、竖直分速度 v_y、合速度 v，以及位移 s 与速度偏角 θ、位移偏角 α。</desc>
+  <rect width="560" height="360" fill="#faf9f5"/>
+  <!-- 坐标轴 -->
+  <line x1="80" y1="250" x2="430" y2="250" stroke="#333" stroke-width="1.5"/>
+  <polygon points="430,250 418,244 418,256" fill="#333"/>
+  <line x1="80" y1="250" x2="80" y2="352" stroke="#333" stroke-width="1.5"/>
+  <polygon points="80,352 74,340 86,340" fill="#333"/>
+  <text x="436" y="246" font-size="14" fill="#333">x（水平）</text>
+  <text x="58" y="352" font-size="14" fill="#333">y（竖直向下）</text>
+  <!-- 原点 O 与初速度 v0 -->
+  <circle cx="80" cy="250" r="3.5" fill="#333"/>
+  <text x="66" y="240" font-size="15" fill="#333">抛出点 O</text>
+  <line x1="80" y1="250" x2="160" y2="250" stroke="#1f6f8b" stroke-width="3"/>
+  <polygon points="160,250 150,245 150,255" fill="#1f6f8b"/>
+  <text x="112" y="240" font-size="14" fill="#1f6f8b">v₀</text>
+  <!-- 轨迹：抛物线 -->
+  <path d="M 80 250 C 150 256, 220 276, 300 300" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- 当前点 P -->
+  <circle cx="300" cy="300" r="4" fill="#333"/>
+  <text x="308" y="296" font-size="15" fill="#333">P（x, y）</text>
+  <!-- 位移 s（虚线） -->
+  <line x1="80" y1="250" x2="300" y2="300" stroke="#6b7f8c" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="168" y="262" font-size="13" fill="#6b7f8c">位移 s</text>
+  <!-- 水平分速度 v_x -->
+  <line x1="300" y1="300" x2="372" y2="300" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="372,300 362,295 362,305" fill="#c0392b"/>
+  <text x="326" y="290" font-size="14" fill="#c0392b">v_x</text>
+  <!-- 竖直分速度 v_y -->
+  <line x1="300" y1="300" x2="300" y2="348" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="300,348 295,338 305,338" fill="#c0392b"/>
+  <text x="308" y="346" font-size="14" fill="#c0392b">v_y</text>
+  <!-- 合速度 v -->
+  <line x1="300" y1="300" x2="356" y2="336" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="356,336 342,333 349,348" fill="#c0392b"/>
+  <text x="360" y="330" font-size="14" fill="#c0392b">合速度 v</text>
+  <!-- 速度偏角 θ 的弧线 -->
+  <path d="M 352 300 A 52 52 0 0 0 347 325" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="308" y="318" font-size="15" fill="#333">θ</text>
+  <!-- 位移偏角 α 的弧线 -->
+  <path d="M 110 250 A 30 30 0 0 0 105 266" fill="none" stroke="#6b7f8c" stroke-width="1.5"/>
+  <text x="100" y="268" font-size="14" fill="#6b7f8c">α</text>
+  <!-- 说明文字 -->
+  <text x="60" y="40" font-size="15" fill="#333">轨迹是抛物线：y = gx²/(2v₀²)</text>
+  <text x="60" y="62" font-size="13" fill="#6b7f8c">速度偏角 θ 的正切是位移偏角 α 正切的两倍：tanθ = 2tanα</text>
+</svg>

@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [科克霍夫原则（Kerckhoffs's Principle）与现代密码设计假设](./kerckhoffs-principle)
 - [x] [单表替换密码：凯撒密码、仿射密码与任意单表替换](./monoalphabetic-ciphers)
 - [x] [单表替换密码的统计分析：字母频率攻击](./frequency-analysis)
-- [ ] 多表替换密码：维吉尼亚密码（Vigenère Cipher）
-- [ ] 多表替换密码的分析：卡西斯基试验与重合指数
-- [ ] 置换密码：栅栏密码与列置换密码
+- [x] [多表替换密码：维吉尼亚密码（Vigenère Cipher）](./polyalphabetic-ciphers-vigenere)
+- [x] [多表替换密码的分析：卡西斯基试验与重合指数](./kasiski-test-coincidence-index)
+- [x] [置换密码：栅栏密码与列置换密码](./transposition-ciphers)
 
 ### 第二篇 信息论安全与一次一密
 
-- [ ] 香农保密系统理论：熵、条件熵与疑义度
+- [x] [香农保密系统理论：熵、条件熵与疑义度](./shannon-entropy-equivocation)
 - [ ] 完善保密性（Perfect Secrecy）的定义与判定
 - [ ] 一次一密（One-Time Pad）及其安全性证明
 - [ ] 一次一密的工程局限与唯密文攻击的意义

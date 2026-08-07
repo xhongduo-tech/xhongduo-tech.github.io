@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" font-family="sans-serif" font-size="14">
+  <title>高斯金字塔与拉普拉斯金字塔的层级结构</title>
+  <desc>高斯金字塔自底向上分辨率逐级减半，每一级由平滑与下采样得到；右侧对应拉普拉斯残差层记录该级丢失的细节。</desc>
+  <rect x="0" y="0" width="560" height="360" fill="#faf9f5"/>
+  <text x="280" y="30" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">高斯金字塔与拉普拉斯金字塔</text>
+
+  <!-- 高斯金字塔右侧对齐的叠层 -->
+  <rect x="250" y="40"  width="60"  height="34" fill="#1f6f8b" opacity="0.65" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="280" y="62"  text-anchor="middle" font-size="13" fill="#faf9f5">G₃</text>
+
+  <rect x="220" y="95"  width="120" height="34" fill="#1f6f8b" opacity="0.75" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="280" y="117" text-anchor="middle" font-size="13" fill="#faf9f5">G₂</text>
+
+  <rect x="170" y="150" width="220" height="34" fill="#1f6f8b" opacity="0.85" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="280" y="172" text-anchor="middle" font-size="13" fill="#faf9f5">G₁</text>
+
+  <rect x="90"  y="205" width="380" height="34" fill="#1f6f8b" opacity="0.95" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="280" y="227" text-anchor="middle" font-size="13" fill="#faf9f5">G₀（原始图像，分辨率最高）</text>
+
+  <!-- REDUCE 箭头 -->
+  <line x1="140" y1="200" x2="205" y2="150" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <line x1="190" y1="145" x2="240" y2="96"  stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <line x1="255" y1="90"  x2="280" y2="76"  stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <text x="120" y="182" font-size="13" fill="#c0392b">REDUCE：平滑 + 下采样</text>
+
+  <!-- 右侧拉普拉斯残差层说明 -->
+  <rect x="440" y="60"  width="100" height="28" fill="#e8d9d3" stroke="#c0392b" stroke-width="1"/>
+  <rect x="440" y="115" width="100" height="28" fill="#e8d9d3" stroke="#c0392b" stroke-width="1"/>
+  <rect x="440" y="170" width="100" height="28" fill="#e8d9d3" stroke="#c0392b" stroke-width="1"/>
+  <text x="490" y="79"  text-anchor="middle" font-size="13" fill="#c0392b">L₂</text>
+  <text x="490" y="134" text-anchor="middle" font-size="13" fill="#c0392b">L₁</text>
+  <text x="490" y="189" text-anchor="middle" font-size="13" fill="#c0392b">L₀</text>
+  <text x="490" y="225" text-anchor="middle" font-size="12" fill="#c0392b">Lₖ = Gₖ − EXPAND(Gₖ₊₁)</text>
+  <text x="490" y="248" text-anchor="middle" font-size="12" fill="#555">存残差：只记丢失的细节</text>
+
+  <!-- 重建箭头 -->
+  <line x1="280" y1="245" x2="280" y2="245" stroke="none"/>
+  <text x="280" y="280" text-anchor="middle" font-size="13" fill="#333">重建：从顶层开始逐层</text>
+  <text x="280" y="298" text-anchor="middle" font-size="13" fill="#333">EXPAND 放大 + 加残差 → 无损还原 G₀</text>
+
+  <text x="280" y="338" text-anchor="middle" font-size="12" fill="#555">拉普拉斯层 ≈ 带通：每层只留一个频带的细节</text>
+
+  <defs>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

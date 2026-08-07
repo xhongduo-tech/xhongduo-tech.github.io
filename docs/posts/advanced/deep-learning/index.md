@@ -18,10 +18,10 @@ pageClass: plain-doc
 - [x] [范数、迹运算与伪逆](./norms-trace-pseudoinverse)
 - [x] [概率论基础：随机变量与概率分布](./probability-basics)
 - [x] [常见分布：伯努利、高斯、指数族分布](./common-distributions)
-- [ ] 条件概率、期望、方差与协方差
-- [ ] 最大似然估计与贝叶斯统计
-- [ ] 信息论：熵、交叉熵与 KL 散度
-- [ ] 数值计算：上溢、下溢与病态条件
+- [x] [条件概率、期望、方差与协方差](./conditional-probability-expectation-covariance)
+- [x] [最大似然估计与贝叶斯统计](./maximum-likelihood-bayesian-statistics)
+- [x] [信息论：熵、交叉熵与 KL 散度](./information-theory-entropy-kl)
+- [x] [数值计算：上溢、下溢与病态条件](./numerical-computation-underflow-overflow)
 - [ ] 梯度与雅可比矩阵、黑塞矩阵
 - [ ] 微积分与自动微分基础
 

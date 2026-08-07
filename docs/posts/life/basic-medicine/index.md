@@ -12,10 +12,10 @@ pageClass: plain-doc
 
 ### 第一篇 系统解剖学（人卫第9版）
 
-- [ ] 绪论：人体结构的基本单位与方位术语
-- [ ] 骨学总论：骨的分类与构造
-- [ ] 中轴骨：脊柱（椎骨与椎间盘）
-- [ ] 中轴骨：胸廓
+- [x] [绪论：人体结构的基本单位与方位术语](./anatomical-terms-and-body-organization)
+- [x] [骨学总论：骨的分类与构造](./osteology-bone-classification-structure)
+- [x] [中轴骨：脊柱（椎骨与椎间盘）](./vertebral-column-and-intervertebral-discs)
+- [x] [中轴骨：胸廓](./thoracic-cage)
 - [ ] 颅骨：脑颅骨
 - [ ] 颅骨：面颅骨
 - [ ] 颅骨：颅的整体观

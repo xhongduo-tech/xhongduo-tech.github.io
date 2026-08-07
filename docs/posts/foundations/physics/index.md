@@ -46,13 +46,13 @@ pageClass: plain-doc
 
 - [x] [曲线运动](./curvilinear-motion)
 - [x] [运动的合成与分解](./motion-composition-and-resolution)
-- [ ] 实验：探究平抛运动的特点
-- [ ] 抛体运动的规律
+- [x] [实验：探究平抛运动的特点](./experiment-projectile-motion)
+- [x] [抛体运动的规律](./projectile-motion-laws)
 
 ### 必修第二册 · 第六章 圆周运动
 
-- [ ] 圆周运动
-- [ ] 向心力
+- [x] [圆周运动](./circular-motion)
+- [x] [向心力](./centripetal-force)
 - [ ] 向心加速度
 - [ ] 生活中的圆周运动
 

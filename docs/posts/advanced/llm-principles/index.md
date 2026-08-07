@@ -18,8 +18,8 @@ pageClass: plain-doc
 - [x] [GPT-2 与 GPT-3：规模即能力，上下文学习的出现](./gpt2-gpt3-scale-and-in-context-learning)
 - [x] [T5 与统一文本到文本（Text-to-Text）范式](./t5-unified-text-to-text)
 - [x] [InstructGPT 与 ChatGPT：指令微调与人类反馈对齐](./instructgpt-and-chatgpt-alignment)
-- [ ] GPT-4 之后与开源生态：LLaMA 系谱与社区爆发
-- [ ] Kaplan 缩放定律：损失与模型、数据、算力的幂律关系
+- [x] [GPT-4 之后与开源生态：LLaMA 系谱与社区爆发](./gpt4-and-open-source-llama)
+- [x] [Kaplan 缩放定律：损失与模型、数据、算力的幂律关系](./kaplan-scaling-laws)
 - [ ] Chinchilla 缩放定律：计算最优下的参数-数据配比
 - [ ] 涌现能力：现象描述、机理解释与"度量假象"之争
 

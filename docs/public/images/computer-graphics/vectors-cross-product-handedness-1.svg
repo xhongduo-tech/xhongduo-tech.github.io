@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">右手定则与叉积方向：x × y = z</title>
+  <desc id="desc">右手坐标系示意图：x 轴指向右（红色），y 轴指向上（青色），z 轴指向屏幕外（观众方向，用带点的圆表示）。右手定则：四指从 x 向 y 弯曲，拇指指向的方向就是 x×y = z 的方向。若把 y 与 x 顺序对调，y×x 的拇指方向反转，指向屏幕内，恰好等于 -z，说明叉积反对称 a×b = -(b×a)。</desc>
+
+  <!-- 纸底 -->
+  <rect width="720" height="380" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="360" y="34" font-size="19" fill="#333" text-anchor="middle" font-weight="bold">右手定则：x × y = z（z 指向屏幕外）</text>
+
+  <!-- x 轴（向右，红色） -->
+  <line x1="140" y1="210" x2="560" y2="210" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="572,210 558,204 558,216" fill="#c0392b"/>
+  <text x="584" y="216" font-size="18" fill="#c0392b" font-weight="bold">x</text>
+
+  <!-- y 轴（向上，青色） -->
+  <line x1="330" y1="330" x2="330" y2="80" stroke="#1f6f8b" stroke-width="3"/>
+  <polygon points="330,68 324,82 336,82" fill="#1f6f8b"/>
+  <text x="344" y="76" font-size="18" fill="#1f6f8b" font-weight="bold">y</text>
+
+  <!-- z 轴（指向屏幕外，用点表示） -->
+  <circle cx="330" cy="210" r="9" fill="none" stroke="#333" stroke-width="2.5"/>
+  <circle cx="330" cy="210" r="3" fill="#333"/>
+  <text x="348" y="204" font-size="18" fill="#333" font-weight="bold">z（出屏）</text>
+
+  <!-- 原点 O -->
+  <text x="308" y="238" font-size="14" fill="#333">O</text>
+
+  <!-- 弯曲箭头示意四指从 x 弯向 y -->
+  <path d="M 470 226 A 60 60 0 0 0 358 138" fill="none" stroke="#777" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <polygon points="358,138 348,150 362,150" fill="#777"/>
+
+  <!-- 公式 -->
+  <text x="360" y="300" font-size="17" fill="#333" text-anchor="middle" font-weight="bold">x × y = +z　|　y × x = −z（顺序对调，方向反转）</text>
+
+  <!-- 底部说明 -->
+  <text x="360" y="352" font-size="14" fill="#777" text-anchor="middle">叉积方向垂直于 a、b 张成的平面，大小 |a×b| = |a||b|sinθ 等于平行四边形面积；a、b 平行时叉积为零向量</text>
+</svg>

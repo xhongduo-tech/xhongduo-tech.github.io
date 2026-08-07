@@ -25,10 +25,10 @@ pageClass: plain-doc
 
 - [x] [点运算：灰度变换、直方图均衡化与直方图匹配](./point-operations)
 - [x] [线性滤波：卷积与互相关、可分离滤波器](./linear-filtering)
-- [ ] 平滑滤波：盒式滤波、高斯滤波与边界处理
-- [ ] 非线性滤波：中值滤波、双边滤波与导向滤波
-- [ ] 图像金字塔：高斯金字塔与拉普拉斯金字塔
-- [ ] 傅里叶变换与频域滤波
+- [x] [平滑滤波：盒式滤波、高斯滤波与边界处理](./smoothing-filters)
+- [x] [非线性滤波：中值滤波、双边滤波与导向滤波](./nonlinear-filters)
+- [x] [图像金字塔：高斯金字塔与拉普拉斯金字塔](./image-pyramids)
+- [x] [傅里叶变换与频域滤波](./frequency-domain-filtering)
 - [ ] 边缘检测：Sobel、Prewitt、LoG 与 Canny 算子
 - [ ] 角点检测：Harris 角点与 Shi-Tomasi 角点
 - [ ] 图像形态学：腐蚀、膨胀、开运算与闭运算

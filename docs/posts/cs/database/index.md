@@ -53,13 +53,13 @@ pageClass: plain-doc
 - [x] [完整性约束：主码、外码、CHECK 与断言](./sql-integrity-constraints)
 - [x] [SQL 的数据类型与模式](./sql-data-types-and-schemas)
 - [x] [授权：权限、角色与收回](./sql-authorization)
-- [ ] 视图与授权的递归
+- [x] [视图与授权的递归](./sql-views-and-authorization-recursion)
 
 #### 第 5 章 高级 SQL
 
-- [ ] 函数与过程：PL/SQL 风格的存储过程
-- [ ] 触发器：定义、事件与语义
-- [ ] 递归查询：WITH RECURSIVE
+- [x] [函数与过程：PL/SQL 风格的存储过程](./sql-functions-and-procedures)
+- [x] [触发器：定义、事件与语义](./sql-triggers)
+- [x] [递归查询：WITH RECURSIVE](./sql-recursive-queries)
 - [ ] 高级聚集：窗口函数、排名与分桶
 - [ ] OLAP 操作：CUBE、ROLLUP 与数据立方体
 

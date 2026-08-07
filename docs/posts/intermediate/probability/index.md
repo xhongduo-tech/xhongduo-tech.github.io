@@ -18,10 +18,10 @@ pageClass: plain-doc
 - [x] [频率与概率](./frequency-and-probability)
 - [x] [等可能概型（古典概型）](./classical-probability)
 - [x] [几何概型](./geometric-probability)
-- [ ] 条件概率
-- [ ] 乘法定理
-- [ ] 全概率公式与贝叶斯公式
-- [ ] 事件的独立性
+- [x] [条件概率](./conditional-probability)
+- [x] [乘法定理](./multiplication-rule)
+- [x] [全概率公式与贝叶斯公式](./law-of-total-probability-and-bayes)
+- [x] [事件的独立性](./independence-of-events)
 - [ ] 伯努利概型与二项概率公式
 
 ### 第二章 随机变量及其分布

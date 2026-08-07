@@ -21,10 +21,10 @@ pageClass: plain-doc
 
 ### 第二篇 线性表
 
-- [ ] 线性表的类型定义
-- [ ] 线性表的顺序表示和实现
-- [ ] 线性表的链式表示和实现（单链表）
-- [ ] 循环链表与双向链表
+- [x] [线性表的类型定义](./linear-list-type-definition)
+- [x] [线性表的顺序表示和实现](./sequential-list)
+- [x] [线性表的链式表示和实现（单链表）](./linked-list)
+- [x] [循环链表与双向链表](./circular-and-doubly-linked-list)
 - [ ] 一元多项式的表示及相加
 
 ### 第三篇 栈和队列

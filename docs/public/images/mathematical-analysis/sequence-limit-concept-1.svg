@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="sans-serif">
+  <title>ε-N 定义几何意义：数列收敛于 a</title>
+  <desc>点列 a_n 中，从 n>N 起的所有点都落入以 a 为中心、半径为 ε 的带状邻域内，且 n 越大越贴近中心线 a，不再逃出。</desc>
+
+  <!-- 坐标轴 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <line x1="60" y1="300" x2="620" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="60" y1="320" x2="60" y2="40" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="622" y="320" fill="#333" font-size="15" text-anchor="end">n</text>
+  <text x="40" y="42" fill="#333" font-size="15" text-anchor="middle">a_n</text>
+
+  <!-- ε 邻域带 -->
+  <rect x="80" y="120" width="540" height="120" fill="#1f6f8b" opacity="0.12"/>
+  <line x1="80" y1="120" x2="620" y2="120" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="80" y1="240" x2="620" y2="240" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="74" y="126" fill="#1f6f8b" font-size="14" text-anchor="end">a+ε</text>
+  <text x="74" y="245" fill="#1f6f8b" font-size="14" text-anchor="end">a−ε</text>
+  <text x="598" y="112" fill="#1f6f8b" font-size="14" text-anchor="end">a 的 ε 邻域带</text>
+
+  <!-- 中心线 a -->
+  <line x1="80" y1="180" x2="620" y2="180" stroke="#333" stroke-width="1.2" stroke-dasharray="2 3"/>
+  <text x="74" y="185" fill="#333" font-size="15" text-anchor="end">a</text>
+
+  <!-- 点列：x(n)=90+47*(n-1)，n=1..11 -->
+  <g fill="#c0392b">
+    <circle cx="90"  cy="70"  r="5"/>
+    <circle cx="137" cy="295" r="5"/>
+    <circle cx="184" cy="95"  r="5"/>
+    <circle cx="231" cy="260" r="5"/>
+    <circle cx="278" cy="135" r="5"/>
+    <circle cx="325" cy="215" r="5"/>
+    <circle cx="372" cy="162" r="5"/>
+    <circle cx="419" cy="198" r="5"/>
+    <circle cx="466" cy="174" r="5"/>
+    <circle cx="513" cy="186" r="5"/>
+    <circle cx="560" cy="180" r="5"/>
+  </g>
+
+  <!-- N 界线 -->
+  <line x1="278" y1="60" x2="278" y2="300" stroke="#333" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="278" y="330" fill="#333" font-size="15" text-anchor="middle">N</text>
+  <text x="179" y="350" fill="#333" font-size="14" text-anchor="middle">n ≤ N：前有限项可任意摆动</text>
+  <text x="449" y="350" fill="#333" font-size="14" text-anchor="middle">n &gt; N：全部落在带内</text>
+</svg>

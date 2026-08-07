@@ -21,10 +21,10 @@ pageClass: plain-doc
 
 ### 第二篇：分治与递归
 
-- [ ] 归并排序（Merge Sort）：分治范式与递归树分析
-- [ ] 求解递归式的代入法（Substitution Method）
-- [ ] 递归树方法（Recursion Tree）：展开与求和
-- [ ] 主定理（Master Theorem）：三种情形与间隙讨论
+- [x] [归并排序（Merge Sort）：分治范式与递归树分析](./merge-sort)
+- [x] [求解递归式的代入法（Substitution Method）](./substitution-method)
+- [x] [递归树方法（Recursion Tree）：展开与求和](./recursion-tree)
+- [x] [主定理（Master Theorem）：三种情形与间隙讨论](./master-theorem)
 - [ ] 分治经典案例：最大子数组问题
 - [ ] 分治经典案例：矩阵乘法（Strassen 算法）
 
