@@ -29,7 +29,7 @@
 ## 写作体系
 
 本站的内容按**九级递进**组织。这不是博客的目录，是一份长期学习计划——
-每个学科对标经典教材，逐章逐节写作，从数理基础一路延伸到全人类知识。<span class="marginnote">全部 116 个学科的知识地图与实时写作进度见 [博文总览](/posts/)。完整分级方案见 <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener noreferrer">CURRICULUM.md</a>。</span>
+每个学科对标经典教材，逐章逐节写作，从数理基础一路延伸到全人类知识。<span class="marginnote">全部 181 个学科的知识地图与实时写作进度见 [博文总览](/posts/)。完整分级方案见 <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener noreferrer">CURRICULUM.md</a>。</span>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a14 14 0 0 1 0 18M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/></svg></span>
@@ -38,42 +38,42 @@
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-6"/></svg></span>
-  <p><strong>第二级 · <a href="/posts/intermediate/advanced-math/">进阶数理</a></strong><span class="marginnote">第二级共 17 个学科：从微积分、概率、线代一路到实变、泛函、拓扑与微分几何。</span> —— 高等数学、概率统计、线性代数、离散数学，直到实变、泛函、拓扑与微分几何。</p>
+  <p><strong>第二级 · <a href="/posts/intermediate/advanced-math/">进阶数理</a></strong><span class="marginnote">第二级共 26 个学科：从微积分、概率、线代一路到实变、泛函、拓扑、微分几何，并深化四大力学、数论、博弈论与计算复杂性。</span> —— 数学分析、线性代数、概率统计、离散数学，直至实变、泛函、拓扑、微分几何与理论力学、电动力学、量子力学、统计力学。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span>
-  <p><strong>第三级 · <a href="/posts/cs/data-structures/">计算机基础</a></strong><span class="marginnote">第三级共 14 门 CS 核心课，对标考研 408 科目与 CMU 经典课程体系。</span> —— 数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统：CS 核心课全集。</p>
+  <p><strong>第三级 · <a href="/posts/cs/data-structures/">计算机基础</a></strong><span class="marginnote">第三级共 17 门 CS 核心课，对标考研 408 科目、CMU 经典课程，并补充云计算、高性能计算与区块链。</span> —— 数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统、云计算、高性能计算、区块链：CS 核心课全集。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-3 6.6A4 4 0 0 0 7 21h10a4 4 0 0 0 2-7.4A4 4 0 0 0 16 7V6a4 4 0 0 0-4-4z"/><path d="M12 8v5M12 16h.01"/></svg></span>
-  <p><strong>第四级 · <a href="/posts/advanced/llm-principles/">高阶专题</a></strong><span class="marginnote">第四级共 18 个学科：从机器学习、深度学习到 LLM 原理、微调、部署与 AI 基础设施，直抵前沿。</span> —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，直至 AI 安全与量子计算。</p>
+  <p><strong>第四级 · <a href="/posts/advanced/llm-principles/">高阶专题</a></strong><span class="marginnote">第四级共 22 个学科：从机器学习、深度学习到 LLM 原理、微调、部署与 AI 基础设施，并深化图神经网络、生成模型、多模态与 AI 智能体。</span> —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，图神经网络、生成模型、多模态与智能体，直至 AI 安全与量子计算。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></span>
-  <p><strong>第五级 · <a href="/posts/life/basic-medicine/">生命与健康</a></strong><span class="marginnote">第五级共 11 个学科，对标人卫教材与 Kandel《神经科学原理》等体系。</span> —— 基础医学、临床医学、药学、公共卫生、护理、口腔、中医、兽医、农学、生态学、神经科学：生命的完整图景。</p>
+  <p><strong>第五级 · <a href="/posts/life/basic-medicine/">生命与健康</a></strong><span class="marginnote">第五级共 23 个学科，对标人卫教材、农学与生命科学体系。</span> —— 基础/临床/口腔/中医/康复医学、药学、公共卫生、护理、兽医、农学、畜牧、水产、林学、草学、生态、神经、生物技术、生物信息学、食品科学、体育科学：生命的完整图景。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4L14 12l-2-2z"/></svg></span>
-  <p><strong>第六级 · <a href="/posts/engineering/mechanical-engineering/">工程技术</a></strong><span class="marginnote">第六级共 15 个学科，覆盖工科主干课程体系。</span> —— 机械、电气、土木、化工、材料、航空航天、船舶、核能、电子、通信、控制、环境、生医工、动力、微电子。</p>
+  <p><strong>第六级 · <a href="/posts/engineering/mechanical-engineering/">工程技术</a></strong><span class="marginnote">第六级共 32 个学科，覆盖全部工科主干学科。</span> —— 机械、电气、土木、化工、材料、航空航天、船舶、核能、电子、通信、控制、环境、生医工、动力、微电子，及水利、测绘、矿业、石油、纺织、轻工、交通、农业、林业工程等：工科全谱。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
-  <p><strong>第七级 · <a href="/posts/humanities/chinese-literature/">人文与艺术</a></strong><span class="marginnote">第七级共 13 个学科，对标文学史、艺术史、语言学等经典体系。</span> —— 中外文学、文学理论、中外历史、艺术史、音乐、建筑、设计、语言学、翻译、宗教、哲学深化。</p>
+  <p><strong>第七级 · <a href="/posts/humanities/chinese-literature/">人文与艺术</a></strong><span class="marginnote">第七级共 19 个学科，对标文学史、艺术史、语言学、考古学等经典体系。</span> —— 中外文学、文学理论、中外历史、考古、艺术史、音乐、舞蹈、戏剧影视、建筑、设计、语言、翻译、宗教、图书情报、民俗学、文化研究、哲学深化。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
-  <p><strong>第八级 · <a href="/posts/social/law/">社会科学</a></strong><span class="marginnote">第八级共 11 个学科，对标法学、社会学、管理学等学科体系。</span> —— 法学、社会学、政治学、教育学、管理学、工商管理、公共管理、新闻传播、人类学、国际关系、心理学应用。</p>
+  <p><strong>第八级 · <a href="/posts/social/law/">社会科学</a></strong><span class="marginnote">第八级共 17 个学科，对标法学、社会学、管理学、政治学等学科体系。</span> —— 法学、社会学、政治学、教育学、管理学、工商管理、公共管理、新闻传播、人类学、国际关系、心理学应用、马克思主义理论、军事学、公安学、民族学、人口学、城市研究。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h8M8 18h8M6 8v8M18 8v8"/></svg></span>
-  <p><strong>第九级 · <a href="/posts/frontier/complexity-science/">交叉与前沿</a></strong><span class="marginnote">第九级共 6 个学科：复杂性与跨学科研究的前沿。</span> —— 复杂性科学、网络科学、系统科学、计算社会科学、科学计量学、数据科学。</p>
+  <p><strong>第九级 · <a href="/posts/frontier/complexity-science/">交叉与前沿</a></strong><span class="marginnote">第九级共 14 个学科：复杂性与跨学科研究的前沿。</span> —— 复杂性科学、网络科学、系统科学、计算社会科学、科学计量学、数据科学、合成生物学、数字人文、未来学、认知计算、遥感、智能科学、国家安全学、区域国别学。</p>
 </div>
 
 <HomeStats />

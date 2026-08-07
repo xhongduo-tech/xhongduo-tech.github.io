@@ -49,6 +49,15 @@ pageClass: plain-doc
 | [拓扑学](/posts/intermediate/topology/) | 点集拓扑、基本群、覆盖空间 |
 | [微分几何](/posts/intermediate/differential-geometry/) | 曲线曲面论、Gauss-Bonnet、流形初步 |
 | [偏微分方程](/posts/intermediate/pde/) | 波动、热、拉普拉斯方程与格林函数 |
+| [理论力学](/posts/intermediate/theoretical-mechanics/) | 周衍柏体系：分析力学、拉格朗日与哈密顿 |
+| [电动力学](/posts/intermediate/electrodynamics/) | 郭硕鸿体系：麦克斯韦方程组、电磁波、辐射 |
+| [量子力学](/posts/intermediate/quantum-mechanics/) | 曾谨言体系：薛定谔方程、角动量、近似方法 |
+| [统计力学与热力学](/posts/intermediate/statistical-mechanics/) | 汪志诚体系：玻尔兹曼与量子统计、系综理论 |
+| [常微分方程](/posts/intermediate/ordinary-differential-equations/) | 丁同仁体系：一阶/高阶方程、稳定性 |
+| [数论](/posts/intermediate/number-theory/) | 潘承洞体系：同余、素数、二次互反律 |
+| [组合数学](/posts/intermediate/combinatorics/) | 曹汝成体系：计数、容斥、生成函数 |
+| [博弈论](/posts/intermediate/game-theory/) | 张维迎体系：纳什均衡、动态与不完全信息博弈 |
+| [计算复杂性理论](/posts/intermediate/computational-complexity/) | Sipser 体系：P/NP、NP 完全、空间复杂性 |
 
 ### 第三级 · 计算机基础
 
@@ -68,6 +77,9 @@ pageClass: plain-doc
 | [分布式系统](/posts/cs/distributed-systems/) | MIT 6.824 + DDIA 体系 |
 | [计算机图形学](/posts/cs/computer-graphics/) | GAMES101：光栅化、光线追踪、神经渲染 |
 | [密码学与信息安全](/posts/cs/cryptography-security/) | Stallings 体系 + 隐私保护与后量子密码 |
+| [云计算](/posts/cs/cloud-computing/) | 虚拟化、容器编排、云原生、多云 |
+| [高性能计算](/posts/cs/high-performance-computing/) | 并行计算模型、MPI/OpenMP/CUDA、Top500 |
+| [区块链](/posts/cs/blockchain/) | 共识机制、智能合约、DeFi、Web3 |
 
 ### 第四级 · 高阶专题
 
@@ -91,6 +103,10 @@ pageClass: plain-doc
 | [AI 基础设施](/posts/advanced/ai-infra/) | CUDA、NCCL、并行训练、集群与成本 |
 | [量子计算](/posts/advanced/quantum-computing/) | Nielsen & Chuang 体系 + Qiskit 实践 |
 | [本体论](/posts/advanced/ontology/) | 哲学本体、知识表示、知识图谱 |
+| [图神经网络](/posts/advanced/graph-neural-networks/) | Hamilton 体系：GCN/GAT/GraphSAGE、图表示学习 |
+| [生成模型](/posts/advanced/generative-models/) | VAE/GAN/扩散模型、文生图与视频生成 |
+| [多模态学习](/posts/advanced/multimodal-learning/) | 多模态表示、VLM、GPT-4V 体系 |
+| [AI 智能体](/posts/advanced/ai-agents/) | ReAct/工具使用、多智能体、Agent 评估 |
 
 ### 第五级 · 生命与健康科学
 
@@ -107,6 +123,18 @@ pageClass: plain-doc
 | [农学](/posts/life/agriculture/) | 植物生理、作物栽培、植物保护、土壤、园艺 |
 | [生态学](/posts/life/ecology/) | 孙儒泳《普通生态学》体系 |
 | [神经科学](/posts/life/neuroscience/) | Kandel《神经科学原理》 |
+| [中西医结合](/posts/life/integrated-medicine/) | 中西医理论比较与临床实践 |
+| [中药学与中药鉴定](/posts/life/traditional-chinese-pharmacy/) | 中药鉴定、中药化学、炮制 |
+| [医学技术](/posts/life/medical-technology/) | 医学影像技术、临床检验、分子诊断 |
+| [康复医学](/posts/life/rehabilitation-medicine/) | 康复评定、物理/作业治疗、各系统康复 |
+| [畜牧学](/posts/life/animal-husbandry/) | 动物遗传育种、营养、繁殖 |
+| [水产学](/posts/life/aquaculture-fisheries/) | 鱼类学、水产养殖、渔业管理 |
+| [林学](/posts/life/forestry/) | 森林培育、森林经理、林业生态 |
+| [草学](/posts/life/grassland-science/) | 草地生态、牧草栽培、草业管理 |
+| [生物技术与生物工程](/posts/life/biotechnology/) | 基因工程、发酵工程、生物过程 |
+| [生物信息学](/posts/life/bioinformatics/) | 序列分析、组学数据、AI 结构预测 |
+| [食品科学与工程](/posts/life/food-science/) | 食品化学、食品工艺、食品安全 |
+| [体育科学](/posts/life/sports-science/) | 运动生理、运动训练、体育社会 |
 
 ### 第六级 · 工程技术
 
@@ -127,6 +155,23 @@ pageClass: plain-doc
 | [生物医学工程](/posts/engineering/biomedical-engineering/) | 医学成像、生物信号与仪器、神经接口 |
 | [动力工程及工程热物理](/posts/engineering/energy-power/) | 工程热力学、传热学、流体力学、动力机械 |
 | [微电子与集成电路](/posts/engineering/microelectronics/) | 半导体器件物理、数字/模拟集成电路、工艺测试 |
+| [水利工程](/posts/engineering/water-conservancy/) | 水力学、水文、水工建筑物 |
+| [测绘科学与技术](/posts/engineering/surveying-mapping/) | 测量学、大地测量、摄影测量、GIS |
+| [矿业工程](/posts/engineering/mining-engineering/) | 采矿学、岩石力学、选矿 |
+| [石油与天然气工程](/posts/engineering/petroleum-gas/) | 油层物理、钻井、采油、油气藏工程 |
+| [纺织科学与工程](/posts/engineering/textile-engineering/) | 纺织材料、纺纱织造、染整 |
+| [轻工技术与工程](/posts/engineering/light-industry/) | 发酵、制浆造纸、日用化工 |
+| [交通运输工程](/posts/engineering/transportation-engineering/) | 交通工程、道路工程、智能交通 |
+| [农业工程](/posts/engineering/agricultural-engineering/) | 农业机械、农业水土、智慧农业 |
+| [林业工程](/posts/engineering/forestry-engineering/) | 木材科学、木制品、林产化工 |
+| [兵器科学与技术](/posts/engineering/military-engineering/) | 弹药、武器系统、火控 |
+| [安全科学与工程](/posts/engineering/safety-engineering/) | 安全系统、风险评价、安全管理 |
+| [地质资源与地质工程](/posts/engineering/geological-engineering/) | 矿床学、工程地质、勘查技术 |
+| [冶金工程](/posts/engineering/metallurgical-engineering/) | 冶金原理、钢铁冶金、有色冶金 |
+| [光学工程](/posts/engineering/optical-engineering/) | 工程光学、光电技术、激光原理 |
+| [仪器科学与技术](/posts/engineering/instrumentation/) | 精密机械、传感器、测试技术 |
+| [城乡规划学](/posts/engineering/urban-planning/) | 城市总体规划、城市设计、规划管理 |
+| [风景园林学](/posts/engineering/landscape-architecture/) | 园林规划设计、园林植物、景观生态 |
 
 ### 第七级 · 人文与艺术
 
@@ -145,6 +190,12 @@ pageClass: plain-doc
 | [翻译学](/posts/humanities/translation-studies/) | 翻译理论、英汉互译、当代译论 |
 | [宗教学](/posts/humanities/religious-studies/) | 宗教学通论、世界宗教史、宗教理论 |
 | [哲学深化](/posts/humanities/philosophy-deepening/) | 中国哲学史、西方哲学史、伦理、美学 |
+| [考古学](/posts/humanities/archaeology/) | 考古学理论、中国考古、科技考古 |
+| [戏剧与影视学](/posts/humanities/drama-film/) | 戏剧学、电影学、影视创作 |
+| [舞蹈学](/posts/humanities/dance/) | 舞蹈概论、中外舞蹈史、舞蹈编导 |
+| [图书情报与档案管理](/posts/humanities/library-information/) | 图书馆学、情报学、档案学 |
+| [民俗学](/posts/humanities/folklore/) | 民俗学概论、民俗志、非遗 |
+| [文化研究](/posts/humanities/cultural-studies/) | 文化理论、大众文化、媒介文化 |
 
 ### 第八级 · 社会科学
 
@@ -161,6 +212,12 @@ pageClass: plain-doc
 | [人类学](/posts/social/anthropology/) | 文化人类学、田野调查、体质考古 |
 | [国际关系](/posts/social/international-relations/) | 国际关系理论、国际关系史、中国外交 |
 | [心理学应用深化](/posts/social/psychology-deepening/) | 社会、发展、变态心理学、组织行为学 |
+| [马克思主义理论](/posts/social/marxist-theory/) | 马克思主义哲学、政治经济学、科学社会主义 |
+| [军事学](/posts/social/military-science/) | 军事思想、战略学、战役学 |
+| [公安学](/posts/social/public-security/) | 公安学基础、侦查学、治安管理 |
+| [民族学](/posts/social/ethnology/) | 民族学通论、中国民族志、民族政策 |
+| [人口学](/posts/social/demography/) | 人口统计、生育死亡迁移、人口政策 |
+| [城市研究](/posts/social/urban-studies/) | 城市社会学、城市治理、智慧城市 |
 
 ### 第九级 · 交叉与前沿
 
@@ -172,6 +229,14 @@ pageClass: plain-doc
 | [计算社会科学](/posts/frontier/computational-social-science/) | 数字痕迹、社会计算、多智能体仿真 |
 | [科学计量学](/posts/frontier/scientometrics/) | 文献计量、引文分析、科学地图 |
 | [数据科学](/posts/frontier/data-science/) | 数据获取、统计学习、数据工程、数据应用 |
+| [合成生物学](/posts/frontier/synthetic-biology/) | 基因回路、细胞工厂、生物制造 |
+| [数字人文](/posts/frontier/digital-humanities/) | 文本挖掘、历史 GIS、数字文化遗产 |
+| [未来学](/posts/frontier/futurology/) | 预测方法、技术社会未来、全球议题 |
+| [认知计算](/posts/frontier/cognitive-computing/) | 认知架构、知识推理、认知应用 |
+| [遥感科学与技术](/posts/frontier/remote-sensing/) | 遥感基础、影像处理、SAR/高光谱 |
+| [智能科学与技术](/posts/frontier/intelligent-science/) | 智能模型、感知认知、人机融合 |
+| [国家安全学](/posts/frontier/national-security/) | 总体国家安全观、各领域安全、治理 |
+| [区域国别学](/posts/frontier/area-studies/) | 区域理论、国别研究、区域治理 |
 
 ## 如何发布新博文
 
