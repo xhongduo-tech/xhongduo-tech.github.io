@@ -77,6 +77,9 @@ git add -A && git commit -m "..." && git push
 ```
 推送 `source` 分支后 GitHub Actions 自动构建部署。**红线/构建不过不许提交**。
 
+> **站点体积**：VitePress 会把路由哈希表（`__VP_HASH_MAP__`）内联到每页——10000+ 页时达数百 KB/页，全站 8GB+ 超 GitHub Pages 1GB 上限。
+> `docs:build` 末尾的 `scripts/externalize-hashmap.mjs` 已把它外置为共享 `/hash-map.js`，全站降至 ~325MB。
+>
 > **MathJax 已改客户端渲染（2026-08-08 关键变更）**：10257 页若用服务端内联 SVG，构建需 ~64GB（CI 必挂）。
 > 现改为 markdown-it-mathjax3 仅 tokenize、输出 `\(…\)`/`\[…\]`，由浏览器端 MathJax（head 里的 CDN 脚本）排版；
 > `enhance.ts` 在路由切换后调 `MathJax.typesetPromise()`。数学内容中的 `< > &` 已转义。
