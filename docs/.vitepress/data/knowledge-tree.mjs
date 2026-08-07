@@ -14,7 +14,7 @@ export const trees = [
         level: '基础',
         nodes: [
           { name: '基础数学', path: 'foundations/math' },
-          { name: '初等几何与三角', path: 'foundations/math', tag: 'add' },
+          { name: '初等几何与三角', path: 'foundations/elementary-geometry-trigonometry' },
         ],
       },
       {
@@ -36,8 +36,8 @@ export const trees = [
           { name: '拓扑学', path: 'intermediate/topology' },
           { name: '微分几何', path: 'intermediate/differential-geometry' },
           { name: '泛函分析', path: 'intermediate/functional-analysis' },
-          { name: '数理逻辑', path: '', tag: 'add' },
-          { name: '图论', path: '', tag: 'add' },
+          { name: '数理逻辑', path: 'intermediate/mathematical-logic' },
+          { name: '图论', path: 'intermediate/graph-theory' },
         ],
       },
       {
@@ -51,7 +51,7 @@ export const trees = [
           { name: '数论', path: 'intermediate/number-theory' },
           { name: '组合数学', path: 'intermediate/combinatorics' },
           { name: '计算复杂性理论', path: 'intermediate/computational-complexity' },
-          { name: '计算几何', path: '', tag: 'add' },
+          { name: '计算几何', path: 'intermediate/computational-geometry' },
         ],
       },
       {
@@ -59,7 +59,7 @@ export const trees = [
         nodes: [
           { name: '随机过程', path: 'intermediate/stochastic-processes' },
           { name: '博弈论', path: 'intermediate/game-theory' },
-          { name: '数学物理方法', path: '', tag: 'add' },
+          { name: '数学物理方法', path: 'intermediate/mathematical-physics-methods' },
           { name: '统计学习理论', path: 'advanced/machine-learning', tag: 'ref' },
         ],
       },
@@ -96,18 +96,18 @@ export const trees = [
         nodes: [
           { name: '光学工程（引用工程树）', path: 'engineering/optical-engineering', tag: 'ref' },
           { name: '天文学（引用地球空间树）', path: 'foundations/astronomy', tag: 'ref' },
-          { name: '相对论', path: '', tag: 'add' },
-          { name: '粒子物理', path: '', tag: 'add' },
-          { name: '凝聚态物理', path: '', tag: 'add' },
+          { name: '相对论', path: 'intermediate/relativity' },
+          { name: '粒子物理', path: 'advanced/particle-physics' },
+          { name: '凝聚态物理', path: 'advanced/condensed-matter-physics' },
         ],
       },
       {
         level: '前沿',
         nodes: [
           { name: '量子计算（引用计算机树）', path: 'advanced/quantum-computing', tag: 'ref' },
-          { name: '量子场论', path: '', tag: 'add' },
-          { name: '天体物理', path: '', tag: 'add' },
-          { name: '宇宙学', path: '', tag: 'add' },
+          { name: '量子场论', path: 'advanced/quantum-field-theory' },
+          { name: '天体物理', path: 'advanced/astrophysics' },
+          { name: '宇宙学', path: 'advanced/cosmology' },
         ],
       },
     ],
@@ -125,19 +125,19 @@ export const trees = [
       {
         level: '核心',
         nodes: [
-          { name: '无机化学', path: 'foundations/chemistry', tag: 'add' },
-          { name: '有机化学', path: 'foundations/chemistry', tag: 'add' },
-          { name: '物理化学', path: 'foundations/chemistry', tag: 'add' },
-          { name: '分析化学', path: 'foundations/chemistry', tag: 'add' },
+          { name: '无机化学', path: 'intermediate/inorganic-chemistry' },
+          { name: '有机化学', path: 'intermediate/organic-chemistry' },
+          { name: '物理化学', path: 'intermediate/physical-chemistry' },
+          { name: '分析化学', path: 'intermediate/analytical-chemistry' },
         ],
       },
       {
         level: '进阶',
         nodes: [
-          { name: '结构化学', path: '', tag: 'add' },
-          { name: '量子化学', path: '', tag: 'add' },
+          { name: '结构化学', path: 'intermediate/structural-chemistry' },
+          { name: '量子化学', path: 'advanced/quantum-chemistry' },
           { name: '高分子化学', path: 'engineering/materials-science', tag: 'ref' },
-          { name: '化学生物学', path: '', tag: 'add' },
+          { name: '化学生物学', path: 'advanced/chemical-biology' },
         ],
       },
       {
@@ -152,8 +152,8 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
-          { name: '计算化学', path: '', tag: 'add' },
-          { name: '电化学与储能', path: '', tag: 'add' },
+          { name: '计算化学', path: 'advanced/computational-chemistry' },
+          { name: '电化学与储能', path: 'advanced/electrochemistry-energy-storage' },
         ],
       },
     ],
@@ -171,10 +171,10 @@ export const trees = [
       {
         level: '核心',
         nodes: [
-          { name: '分子生物学', path: 'foundations/biology', tag: 'add' },
-          { name: '细胞生物学', path: 'foundations/biology', tag: 'add' },
-          { name: '遗传学', path: 'foundations/biology', tag: 'add' },
-          { name: '进化论', path: 'foundations/biology', tag: 'add' },
+          { name: '分子生物学', path: 'intermediate/molecular-biology' },
+          { name: '细胞生物学', path: 'intermediate/cell-biology' },
+          { name: '遗传学', path: 'intermediate/genetics' },
+          { name: '进化论', path: 'intermediate/evolution' },
         ],
       },
       {
@@ -199,8 +199,8 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
-          { name: '基因组学与精准医学', path: '', tag: 'add' },
-          { name: '计算神经科学', path: '', tag: 'add' },
+          { name: '基因组学与精准医学', path: 'advanced/genomics-precision-medicine' },
+          { name: '计算神经科学', path: 'advanced/computational-neuroscience' },
         ],
       },
     ],
@@ -222,9 +222,9 @@ export const trees = [
         level: '核心',
         nodes: [
           { name: '普通地质学', path: 'foundations/earth-science', tag: 'ref' },
-          { name: '地理学（自然地理）', path: '', tag: 'add' },
-          { name: '大气科学', path: '', tag: 'add' },
-          { name: '海洋科学', path: '', tag: 'add' },
+          { name: '地理学（自然地理）', path: 'foundations/physical-geography' },
+          { name: '大气科学', path: 'foundations/atmospheric-science' },
+          { name: '海洋科学', path: 'foundations/oceanography' },
         ],
       },
       {
@@ -239,8 +239,8 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
-          { name: '地球系统科学', path: '', tag: 'add' },
-          { name: '行星科学', path: '', tag: 'add' },
+          { name: '地球系统科学', path: 'advanced/earth-system-science' },
+          { name: '行星科学', path: 'advanced/planetary-science' },
         ],
       },
     ],
@@ -481,7 +481,7 @@ export const trees = [
         nodes: [
           { name: '生物医学工程（工程树）', path: 'engineering/biomedical-engineering', tag: 'ref' },
           { name: '兽医学（引用农学树）', path: 'life/veterinary', tag: 'ref' },
-          { name: '精准医学', path: '', tag: 'add' },
+          { name: '精准医学', path: 'advanced/precision-medicine' },
         ],
       },
     ],
@@ -550,7 +550,7 @@ export const trees = [
           { name: '微观经济学', path: 'foundations/economics', tag: 'ref' },
           { name: '宏观经济学', path: 'foundations/economics', tag: 'ref' },
           { name: '博弈论（数学树）', path: 'intermediate/game-theory', tag: 'ref' },
-          { name: '金融学', path: '', tag: 'add' },
+          { name: '金融学', path: 'social/finance' },
           { name: '会计学', path: 'social/business-management', tag: 'ref' },
           { name: '工商管理', path: 'social/business-management' },
         ],
@@ -590,7 +590,7 @@ export const trees = [
         nodes: [
           { name: '心理学应用深化', path: 'social/psychology-deepening' },
           { name: '认知科学（生命树）', path: 'foundations/cognitive-science', tag: 'ref' },
-          { name: '行为经济学', path: 'foundations/economics', tag: 'add' },
+          { name: '行为经济学', path: 'social/behavioral-economics' },
         ],
       },
       {
@@ -664,7 +664,7 @@ export const trees = [
         level: '前沿',
         nodes: [
           { name: '数字人文（交叉树）', path: 'frontier/digital-humanities', tag: 'ref' },
-          { name: '环境人文', path: '', tag: 'add' },
+          { name: '环境人文', path: 'humanities/environmental-humanities' },
         ],
       },
     ],

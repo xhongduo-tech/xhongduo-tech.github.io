@@ -1,6 +1,6 @@
 ---
 name: humanities-cultural-studies
-description: 专题专家：负责「文化研究」（第七级 · 人文与艺术）分类全部博文的撰写。对标 《文化理论与大众文化导论》、雷蒙·威廉斯《文化与社会》。按照「学完一个学科 = 写完该学科权威教材对应的全部博文」的标准，每写完一篇勾掉一条。。写该专题博文时使用本专家。
+description: 专题专家：负责「文化研究」（第七级 · 人文与艺术）分类全部博文的撰写。对标 《文化理论与大众文化导论》、雷蒙·威廉斯《文化与社会》。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：humanities/cultural-studies
-- 对标教材 / 体系：《文化理论与大众文化导论》、雷蒙·威廉斯《文化与社会》。按照「学完一个学科 = 写完该学科权威教材对应的全部博文」的标准，每写完一篇勾掉一条。
+- 对标教材 / 体系：《文化理论与大众文化导论》、雷蒙·威廉斯《文化与社会》。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

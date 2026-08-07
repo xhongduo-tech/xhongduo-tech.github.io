@@ -2,6 +2,9 @@
 // 数据源：CURRICULUM.md 总纲。运行：node scripts/gen-new-curriculum.mjs
 import { writeFileSync, mkdirSync } from 'node:fs'
 
+import { existsSync } from 'node:fs'
+import { ADDITIONS } from './curriculum-additions.mjs'
+
 const TIER_META = {
   foundations: { name: '基础科学', num: '第一级' },
   intermediate: { name: '进阶数理', num: '第二级' },
@@ -15,7 +18,7 @@ const TIER_META = {
 }
 
 // [tier, key, 专题名, 对标教材, [ [章标题, [条目,...]], ... ]]
-const TOPICS = [
+const BASE_TOPICS = [
   // ============ 第五级 生命与健康 ============
   ['life', 'basic-medicine', '基础医学', '人卫第 9 版：系统解剖学、医学生理学、生物化学与分子生物学、病理学、药理学、医学免疫学、医学微生物学', [
     ['第一篇 系统解剖学（人卫第9版）', ['绪论：人体结构的基本单位与方位术语', '骨学总论：骨的分类与构造', '中轴骨：脊柱（椎骨与椎间盘）', '中轴骨：胸廓', '颅骨：脑颅骨', '颅骨：面颅骨', '颅骨：颅的整体观', '附肢骨：上肢骨', '附肢骨：下肢骨', '关节学总论', '椎骨间连结与脊柱整体观', '颞下颌关节', '肩关节与肘关节', '桡腕关节与手关节', '髋关节与膝关节', '距小腿关节与足关节', '肌学总论', '头颈肌', '躯干肌', '上肢肌', '下肢肌', '内脏学总论', '消化系统：口腔', '消化系统：咽与食管', '消化系统：胃', '消化系统：小肠', '消化系统：大肠', '消化系统：肝与胰', '呼吸系统：鼻与喉', '呼吸系统：气管支气管与肺', '泌尿系统：肾', '泌尿系统：输尿管膀胱尿道', '生殖系统：男性', '生殖系统：女性', '腹膜', '心血管系统：心', '心血管系统：动脉', '心血管系统：静脉', '淋巴系统', '视器', '前庭蜗器', '神经系统总论', '脊神经', '脑神经', '内脏神经', '脊髓', '脑干', '小脑', '间脑', '端脑', '传导通路', '脑脊髓膜与血管', '内分泌系统']],
@@ -763,6 +766,8 @@ const TOPICS = [
   ]],
 ]
 
+const TOPICS = [...BASE_TOPICS, ...ADDITIONS]
+
 function genIndex(tier, key, name, benchmark, chapters) {
   const meta = TIER_META[tier]
   const md = [
@@ -793,8 +798,11 @@ function genIndex(tier, key, name, benchmark, chapters) {
 let n = 0
 for (const [tier, key, name, benchmark, chapters] of TOPICS) {
   const dir = `docs/posts/${tier}/${key}`
+  const idx = `${dir}/index.md`
+  // 已存在规划（含已勾选进度）则跳过，绝不覆盖
+  if (existsSync(idx)) continue
   mkdirSync(dir, { recursive: true })
-  writeFileSync(`${dir}/index.md`, genIndex(tier, key, name, benchmark, chapters))
+  writeFileSync(idx, genIndex(tier, key, name, benchmark, chapters))
   n++
 }
-console.log(`已生成 ${n} 个新专题规划文件`)
+console.log(`新增 ${n} 个专题规划文件（已存在的跳过）`)
