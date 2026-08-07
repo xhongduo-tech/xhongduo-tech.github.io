@@ -1,6 +1,6 @@
 ---
 name: intermediate-optimization
-description: 专题专家：负责「最优化理论」（第二级 · 进阶数理）分类全部博文的撰写。对标 Boyd《Convex Optimization》、《最优化方法》。写该专题博文时使用本专家。
+description: 专题专家：负责「最优化理论」（第二级 · 进阶数理）分类全部博文的撰写。对标 对标《最优化方法》与 Boyd《Convex Optimization》入门部分，从凸分析基础出发，系统覆盖线性规划、无约束与约束优化的经典算法，并延伸到整数规划、多目标、随机与全局优化的入门内容。学完这一分类，即具备阅读优化领域文献与建模。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/optimization
-- 对标教材 / 体系：Boyd《Convex Optimization》、《最优化方法》
+- 对标教材 / 体系：对标《最优化方法》与 Boyd《Convex Optimization》入门部分，从凸分析基础出发，系统覆盖线性规划、无约束与约束优化的经典算法，并延伸到整数规划、多目标、随机与全局优化的入门内容。学完这一分类，即具备阅读优化领域文献与建模
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

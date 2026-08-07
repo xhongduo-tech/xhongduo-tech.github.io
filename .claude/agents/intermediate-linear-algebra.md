@@ -1,6 +1,6 @@
 ---
 name: intermediate-linear-algebra
-description: 专题专家：负责「线性代数」（第二级 · 进阶数理）分类全部博文的撰写。对标 同济《线性代数》、Gilbert Strang《Introduction to Linear Algebra》。写该专题博文时使用本专家。
+description: 专题专家：负责「线性代数」（第二级 · 进阶数理）分类全部博文的撰写。对标 理解高维空间的工具，深度学习的几何语言。本分类对标同济大学《线性代数》全部章节，并以 Gilbert Strang《Introduction to Linear Algebra》补充四个基本子空间、最小二乘、SVD 与数据科学应用等专题。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/linear-algebra
-- 对标教材 / 体系：同济《线性代数》、Gilbert Strang《Introduction to Linear Algebra》
+- 对标教材 / 体系：理解高维空间的工具，深度学习的几何语言。本分类对标同济大学《线性代数》全部章节，并以 Gilbert Strang《Introduction to Linear Algebra》补充四个基本子空间、最小二乘、SVD 与数据科学应用等专题。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

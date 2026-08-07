@@ -44,9 +44,39 @@ for (const tier of readdirSync(root, { withFileTypes: true })) {
     const total = chapters.reduce((s, c) => s + c.items.length, 0)
     const done = chapters.reduce((s, c) => s + c.items.filter((i) => i.done).length, 0)
     data[`${tier.name}/${cat.name}`] = { name, chapters, total, done }
+
+    // 收集该学科下所有独立博文（非 index.md 的 .md 文件），仅保留元数据
+    for (const f of readdirSync(catDir, { withFileTypes: true })) {
+      if (!f.isFile() || !f.name.endsWith('.md') || f.name === 'index.md') continue
+      let postMd
+      try {
+        postMd = readFileSync(join(catDir, f.name), 'utf8')
+      } catch {
+        continue
+      }
+      // 标题：优先 frontmatter.title，否则取首个 # 标题
+      let title = ''
+      const fm = postMd.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/)
+      if (fm) {
+        const fmTitle = fm[1].match(/^title:\s*(.+)$/m)
+        if (fmTitle) title = fmTitle[1].trim().replace(/^["']|["']$/g, '')
+      }
+      if (!title) {
+        const h1 = postMd.match(/^#\s+(.+)/m)
+        if (h1) title = h1[1].trim()
+      }
+      if (!title) title = f.name.replace(/\.md$/, '')
+      const route = `/posts/${tier.name}/${cat.name}/${f.name.replace(/\.md$/, '')}`
+      posts.push({ path: route, title, category: `${tier.name}/${cat.name}` })
+    }
   }
 }
 
+// 按路径排序，保证同级顺序稳定
+posts.sort((a, b) => a.path.localeCompare(b.path))
+
 mkdirSync('docs/.vitepress/data', { recursive: true })
 writeFileSync('docs/.vitepress/data/progress.json', JSON.stringify(data))
+writeFileSync('docs/.vitepress/data/posts.json', JSON.stringify(posts))
 console.log(`progress.json: ${Object.keys(data).length} categories`)
+console.log(`posts.json: ${posts.length} posts`)

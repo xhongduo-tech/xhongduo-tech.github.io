@@ -1,6 +1,6 @@
 ---
 name: advanced-llm-principles
-description: 专题专家：负责「大模型原理」（第四级 · 高阶专题）分类全部博文的撰写。对标 LLM 完整知识树（Tokenizer/架构/预训练/推理/评测）。写该专题博文时使用本专家。
+description: 专题专家：负责「大模型原理」（第四级 · 高阶专题）分类全部博文的撰写。对标 系统性拆解大语言模型的完整知识树：从发展脉络、Tokenizer、架构细节、预训练，到长上下文、多模态、推理、RAG、Agent、幻觉安全与评测。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/llm-principles
-- 对标教材 / 体系：LLM 完整知识树（Tokenizer/架构/预训练/推理/评测）
+- 对标教材 / 体系：系统性拆解大语言模型的完整知识树：从发展脉络、Tokenizer、架构细节、预训练，到长上下文、多模态、推理、RAG、Agent、幻觉安全与评测。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

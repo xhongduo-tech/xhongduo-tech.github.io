@@ -15,12 +15,22 @@ const tiers = computed(() =>
         { key: 'intermediate', name: 'Level 2 · Intermediate Mathematics' },
         { key: 'cs', name: 'Level 3 · Computer Science' },
         { key: 'advanced', name: 'Level 4 · Advanced Topics' },
+        { key: 'life', name: 'Level 5 · Life & Health' },
+        { key: 'engineering', name: 'Level 6 · Engineering' },
+        { key: 'humanities', name: 'Level 7 · Humanities & Arts' },
+        { key: 'social', name: 'Level 8 · Social Sciences' },
+        { key: 'frontier', name: 'Level 9 · Interdisciplinary & Frontier' },
       ]
     : [
         { key: 'foundations', name: '第一级 · 基础科学' },
         { key: 'intermediate', name: '第二级 · 进阶数理' },
         { key: 'cs', name: '第三级 · 计算机基础' },
         { key: 'advanced', name: '第四级 · 高阶专题' },
+        { key: 'life', name: '第五级 · 生命与健康' },
+        { key: 'engineering', name: '第六级 · 工程技术' },
+        { key: 'humanities', name: '第七级 · 人文与艺术' },
+        { key: 'social', name: '第八级 · 社会科学' },
+        { key: 'frontier', name: '第九级 · 交叉与前沿' },
       ],
 )
 

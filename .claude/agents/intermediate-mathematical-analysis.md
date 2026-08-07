@@ -1,6 +1,6 @@
 ---
 name: intermediate-mathematical-analysis
-description: 专题专家：负责「数学分析」（第二级 · 进阶数理）分类全部博文的撰写。对标 华东师范大学《数学分析》。写该专题博文时使用本专家。
+description: 专题专家：负责「数学分析」（第二级 · 进阶数理）分类全部博文的撰写。对标 数学分析是严格化的微积分，以 ε-δ 语言和实数完备性为基石，重建极限、连续、微分、积分与级数的整个证明体系。本分类对标华东师范大学《数学分析》章节体系，与面向工程应用的《高等数学》（同济）形成互补：那里重计算，这里重证明。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/mathematical-analysis
-- 对标教材 / 体系：华东师范大学《数学分析》
+- 对标教材 / 体系：数学分析是严格化的微积分，以 ε-δ 语言和实数完备性为基石，重建极限、连续、微分、积分与级数的整个证明体系。本分类对标华东师范大学《数学分析》章节体系，与面向工程应用的《高等数学》（同济）形成互补：那里重计算，这里重证明。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

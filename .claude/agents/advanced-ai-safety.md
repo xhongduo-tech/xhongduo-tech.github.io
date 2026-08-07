@@ -1,6 +1,6 @@
 ---
 name: advanced-ai-safety
-description: 专题专家：负责「AI 安全与对齐」（第四级 · 高阶专题）分类全部博文的撰写。对标 对齐问题/可解释性/鲁棒性/AI 治理经典课程体系。写该专题博文时使用本专家。
+description: 专题专家：负责「AI 安全与对齐」（第四级 · 高阶专题）分类全部博文的撰写。对标 AI 安全与对齐研究如何确保能力不断增强的人工智能系统可靠地服务于人类意图与价值。本篇按对齐问题、可解释性、鲁棒性、对齐技术、评估监测与 AI 治理的经典课程体系梳理全部选题。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/ai-safety
-- 对标教材 / 体系：对齐问题/可解释性/鲁棒性/AI 治理经典课程体系
+- 对标教材 / 体系：AI 安全与对齐研究如何确保能力不断增强的人工智能系统可靠地服务于人类意图与价值。本篇按对齐问题、可解释性、鲁棒性、对齐技术、评估监测与 AI 治理的经典课程体系梳理全部选题。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

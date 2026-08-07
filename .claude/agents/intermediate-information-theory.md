@@ -1,6 +1,6 @@
 ---
 name: intermediate-information-theory
-description: 专题专家：负责「信息论」（第二级 · 进阶数理）分类全部博文的撰写。对标 Cover & Thomas《Elements of Information Theory》。写该专题博文时使用本专家。
+description: 专题专家：负责「信息论」（第二级 · 进阶数理）分类全部博文的撰写。对标 对标 Cover & Thomas《Elements of Information Theory》的核心章节，从熵与互信息出发，覆盖信源编码、信道容量、率失真理论与科尔莫戈罗夫复杂度，并延伸至信息论与统计、机器学习的联系。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/information-theory
-- 对标教材 / 体系：Cover & Thomas《Elements of Information Theory》
+- 对标教材 / 体系：对标 Cover & Thomas《Elements of Information Theory》的核心章节，从熵与互信息出发，覆盖信源编码、信道容量、率失真理论与科尔莫戈罗夫复杂度，并延伸至信息论与统计、机器学习的联系。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

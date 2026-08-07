@@ -1,6 +1,6 @@
 ---
 name: intermediate-topology
-description: 专题专家：负责「拓扑学」（第二级 · 进阶数理）分类全部博文的撰写。对标 尤承业《基础拓扑学讲义》、Munkres《Topology》。写该专题博文时使用本专家。
+description: 专题专家：负责「拓扑学」（第二级 · 进阶数理）分类全部博文的撰写。对标 拓扑学研究空间在连续变形下保持不变的性质，是分析、几何与代数的共同语言。本分类对标尤承业《基础拓扑学讲义》与 Munkres《Topology》入门部分的章节体系，覆盖点集拓扑与代数拓扑初步的全部核心内容。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/topology
-- 对标教材 / 体系：尤承业《基础拓扑学讲义》、Munkres《Topology》
+- 对标教材 / 体系：拓扑学研究空间在连续变形下保持不变的性质，是分析、几何与代数的共同语言。本分类对标尤承业《基础拓扑学讲义》与 Munkres《Topology》入门部分的章节体系，覆盖点集拓扑与代数拓扑初步的全部核心内容。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

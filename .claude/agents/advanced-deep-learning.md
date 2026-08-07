@@ -1,6 +1,6 @@
 ---
 name: advanced-deep-learning
-description: 专题专家：负责「深度学习」（第四级 · 高阶专题）分类全部博文的撰写。对标 Goodfellow《深度学习》（花书）、李沐《动手学深度学习》。写该专题博文时使用本专家。
+description: 专题专家：负责「深度学习」（第四级 · 高阶专题）分类全部博文的撰写。对标 对标 Goodfellow《深度学习》（花书）与李沐《动手学深度学习》的章节体系，覆盖从数学基础到工程实践的完整学习路径。学完一本经典教材 = 写完其全部章节对应的博文。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/deep-learning
-- 对标教材 / 体系：Goodfellow《深度学习》（花书）、李沐《动手学深度学习》
+- 对标教材 / 体系：对标 Goodfellow《深度学习》（花书）与李沐《动手学深度学习》的章节体系，覆盖从数学基础到工程实践的完整学习路径。学完一本经典教材 = 写完其全部章节对应的博文。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

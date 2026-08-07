@@ -1,6 +1,6 @@
 ---
 name: foundations-chemistry
-description: 专题专家：负责「化学」（第一级 · 基础科学）分类全部博文的撰写。对标 人教版高中化学（必修两册 + 选择性必修三册）。写该专题博文时使用本专家。
+description: 专题专家：负责「化学」（第一级 · 基础科学）分类全部博文的撰写。对标 化学是在原子、分子层次上研究物质组成、结构、性质与变化规律的科学。本分类对标人教版高中化学（必修两册 + 选择性必修三册），学完即写完。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：foundations/chemistry
-- 对标教材 / 体系：人教版高中化学（必修两册 + 选择性必修三册）
+- 对标教材 / 体系：化学是在原子、分子层次上研究物质组成、结构、性质与变化规律的科学。本分类对标人教版高中化学（必修两册 + 选择性必修三册），学完即写完。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

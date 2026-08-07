@@ -1,6 +1,6 @@
 ---
 name: cs-compilers
-description: 专题专家：负责「编译原理」（第三级 · 计算机基础）分类全部博文的撰写。对标 龙书《编译原理》。写该专题博文时使用本专家。
+description: 专题专家：负责「编译原理」（第三级 · 计算机基础）分类全部博文的撰写。对标 对标《编译原理》（龙书，Compilers: Principles, Techniques, and Tools），从词法分析一路写到代码优化，并补充垃圾回收、JIT、LLVM 等现代专题。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/compilers
-- 对标教材 / 体系：龙书《编译原理》
+- 对标教材 / 体系：对标《编译原理》（龙书，Compilers: Principles, Techniques, and Tools），从词法分析一路写到代码优化，并补充垃圾回收、JIT、LLVM 等现代专题。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

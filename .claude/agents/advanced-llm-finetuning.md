@@ -1,6 +1,6 @@
 ---
 name: advanced-llm-finetuning
-description: 专题专家：负责「大模型微调」（第四级 · 高阶专题）分类全部博文的撰写。对标 继续预训练/指令微调/偏好对齐知识树。写该专题博文时使用本专家。
+description: 专题专家：负责「大模型微调」（第四级 · 高阶专题）分类全部博文的撰写。对标 让通用模型适配特定任务与价值观：从继续预训练、指令微调到偏好对齐的完整知识树。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/llm-finetuning
-- 对标教材 / 体系：继续预训练/指令微调/偏好对齐知识树
+- 对标教材 / 体系：让通用模型适配特定任务与价值观：从继续预训练、指令微调到偏好对齐的完整知识树。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

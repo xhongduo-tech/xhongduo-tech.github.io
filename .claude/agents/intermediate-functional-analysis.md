@@ -1,6 +1,6 @@
 ---
 name: intermediate-functional-analysis
-description: 专题专家：负责「泛函分析」（第二级 · 进阶数理）分类全部博文的撰写。对标 程其襄、张恭庆《泛函分析》。写该专题博文时使用本专家。
+description: 专题专家：负责「泛函分析」（第二级 · 进阶数理）分类全部博文的撰写。对标 泛函分析是研究无穷维空间及其上线性算子的学科，是现代分析数学的核心框架。本篇对标《泛函分析》（程其襄、张恭庆）的章节体系，覆盖从度量空间到谱理论初步的全部入门内容。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/functional-analysis
-- 对标教材 / 体系：程其襄、张恭庆《泛函分析》
+- 对标教材 / 体系：泛函分析是研究无穷维空间及其上线性算子的学科，是现代分析数学的核心框架。本篇对标《泛函分析》（程其襄、张恭庆）的章节体系，覆盖从度量空间到谱理论初步的全部入门内容。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

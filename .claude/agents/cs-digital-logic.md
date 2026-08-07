@@ -1,6 +1,6 @@
 ---
 name: cs-digital-logic
-description: 专题专家：负责「数字逻辑」（第三级 · 计算机基础）分类全部博文的撰写。对标 阎石《数字电子技术基础》。写该专题博文时使用本专家。
+description: 专题专家：负责「数字逻辑」（第三级 · 计算机基础）分类全部博文的撰写。对标 本分类对标阎石《数字电子技术基础》的全部章节，并补充硬件描述语言与 CPU 构成两条进阶路线。目标：写完这本教材对应的全部博文，即学完数字逻辑这门学科。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/digital-logic
-- 对标教材 / 体系：阎石《数字电子技术基础》
+- 对标教材 / 体系：本分类对标阎石《数字电子技术基础》的全部章节，并补充硬件描述语言与 CPU 构成两条进阶路线。目标：写完这本教材对应的全部博文，即学完数字逻辑这门学科。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

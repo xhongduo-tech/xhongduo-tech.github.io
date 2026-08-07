@@ -1,6 +1,6 @@
 ---
 name: foundations-psychology
-description: 专题专家：负责「心理学基础」（第一级 · 基础科学）分类全部博文的撰写。对标 彭聃龄《普通心理学》。写该专题博文时使用本专家。
+description: 专题专家：负责「心理学基础」（第一级 · 基础科学）分类全部博文的撰写。对标 学完普通心理学 = 写完这个分类。对标彭聃龄《普通心理学》的章节体系，覆盖心理学的研究对象、生理基础、基本心理过程与个性心理，并延伸到发展、社会、异常与积极心理学。知觉、注意、记忆、语言的认知机制归 [认知科学](../cognitive-。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：foundations/psychology
-- 对标教材 / 体系：彭聃龄《普通心理学》
+- 对标教材 / 体系：学完普通心理学 = 写完这个分类。对标彭聃龄《普通心理学》的章节体系，覆盖心理学的研究对象、生理基础、基本心理过程与个性心理，并延伸到发展、社会、异常与积极心理学。知觉、注意、记忆、语言的认知机制归 [认知科学](../cognitive-
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

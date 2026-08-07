@@ -1,6 +1,6 @@
 ---
 name: advanced-ai4science
-description: 专题专家：负责「AI for Science」（第四级 · 高阶专题）分类全部博文的撰写。对标 各领域经典论文、课程与专著体系。写该专题博文时使用本专家。
+description: 专题专家：负责「AI for Science」（第四级 · 高阶专题）分类全部博文的撰写。对标 用深度学习重塑科学研究的范式：从蛋白质结构到天气气候，从分子药物到定理证明。本篇覆盖 AI4Science 的核心方向，对标各领域的经典论文、课程与专著体系。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/ai4science
-- 对标教材 / 体系：各领域经典论文、课程与专著体系
+- 对标教材 / 体系：用深度学习重塑科学研究的范式：从蛋白质结构到天气气候，从分子药物到定理证明。本篇覆盖 AI4Science 的核心方向，对标各领域的经典论文、课程与专著体系。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

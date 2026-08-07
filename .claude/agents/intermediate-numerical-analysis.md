@@ -1,6 +1,6 @@
 ---
 name: intermediate-numerical-analysis
-description: 专题专家：负责「数值分析」（第二级 · 进阶数理）分类全部博文的撰写。对标 李庆扬《数值分析》。写该专题博文时使用本专家。
+description: 专题专家：负责「数值分析」（第二级 · 进阶数理）分类全部博文的撰写。对标 对标李庆扬《数值分析》，覆盖数值算法的基本理论与九大核心主题，逐节成文。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/numerical-analysis
-- 对标教材 / 体系：李庆扬《数值分析》
+- 对标教材 / 体系：对标李庆扬《数值分析》，覆盖数值算法的基本理论与九大核心主题，逐节成文。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

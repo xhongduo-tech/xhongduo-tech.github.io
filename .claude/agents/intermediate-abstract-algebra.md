@@ -1,6 +1,6 @@
 ---
 name: intermediate-abstract-algebra
-description: 专题专家：负责「抽象代数」（第二级 · 进阶数理）分类全部博文的撰写。对标 杨子胥《近世代数》、丘维声《抽象代数基础》。写该专题博文时使用本专家。
+description: 专题专家：负责「抽象代数」（第二级 · 进阶数理）分类全部博文的撰写。对标 学完近世代数：从代数系统与同态同构出发，系统覆盖群、环、域三大代数结构及 Galois 理论初步，对标杨子胥《近世代数》、丘维声《抽象代数基础》的章节体系，每节对应一篇博文。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/abstract-algebra
-- 对标教材 / 体系：杨子胥《近世代数》、丘维声《抽象代数基础》
+- 对标教材 / 体系：学完近世代数：从代数系统与同态同构出发，系统覆盖群、环、域三大代数结构及 Galois 理论初步，对标杨子胥《近世代数》、丘维声《抽象代数基础》的章节体系，每节对应一篇博文。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

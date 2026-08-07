@@ -4,7 +4,7 @@ pageClass: plain-doc
 
 # 博文总览
 
-博文按**四级递进**组织：先打牢数理与自然科学基础，再进阶到大学数理，然后是计算机科学核心，最后进入 AI 与大模型前沿。
+博文按**九级递进**组织：先打牢数理与自然科学基础，再进阶到大学数理与计算机科学、AI 前沿，随后向生命健康、工程技术、人文艺术、社会科学与交叉前沿全面展开。每个学科对标权威教材，写完一本教材即学完一门学科。完整分级方案见仓库 `CURRICULUM.md`。
 
 ## 写作进度
 
@@ -91,6 +91,87 @@ pageClass: plain-doc
 | [AI 基础设施](/posts/advanced/ai-infra/) | CUDA、NCCL、并行训练、集群与成本 |
 | [量子计算](/posts/advanced/quantum-computing/) | Nielsen & Chuang 体系 + Qiskit 实践 |
 | [本体论](/posts/advanced/ontology/) | 哲学本体、知识表示、知识图谱 |
+
+### 第五级 · 生命与健康科学
+
+| 分类 | 内容 |
+| --- | --- |
+| [基础医学](/posts/life/basic-medicine/) | 解剖、生理、生化、病理、药理、免疫、微生物 |
+| [临床医学](/posts/life/clinical-medicine/) | 诊断学、内科学、外科学、妇产、儿科、神经、精神 |
+| [药学](/posts/life/pharmacy/) | 药物化学、药剂学、药物分析、药事管理 |
+| [公共卫生与预防医学](/posts/life/public-health/) | 流行病学、卫生统计、营养、环境、职业卫生 |
+| [护理学](/posts/life/nursing/) | 基础护理、内科护理、外科护理 |
+| [口腔医学](/posts/life/stomatology/) | 口腔解剖生理、口腔内科、口腔颌面外科 |
+| [中医学](/posts/life/traditional-chinese-medicine/) | 中医基础理论、诊断、中药、方剂、针灸 |
+| [兽医学](/posts/life/veterinary/) | 动物解剖、兽医病理、传染病、内科 |
+| [农学](/posts/life/agriculture/) | 植物生理、作物栽培、植物保护、土壤、园艺 |
+| [生态学](/posts/life/ecology/) | 孙儒泳《普通生态学》体系 |
+| [神经科学](/posts/life/neuroscience/) | Kandel《神经科学原理》 |
+
+### 第六级 · 工程技术
+
+| 分类 | 内容 |
+| --- | --- |
+| [机械工程](/posts/engineering/mechanical-engineering/) | 理论力学、材料力学、机械原理、机械设计、制造工艺 |
+| [电气工程](/posts/engineering/electrical-engineering/) | 电路、模电、电机、电力系统、高电压 |
+| [土木工程](/posts/engineering/civil-engineering/) | 结构力学、土力学、混凝土/钢结构、基础工程 |
+| [化学工程](/posts/engineering/chemical-engineering/) | 化工原理、化工热力学、反应工程、传递过程 |
+| [材料科学与工程](/posts/engineering/materials-science/) | 材料科学基础、金属热处理、材料物理性能、高分子 |
+| [航空航天](/posts/engineering/aerospace-engineering/) | 空气动力学、飞行器设计、航空发动机、飞行控制 |
+| [船舶与海洋工程](/posts/engineering/naval-architecture/) | 船舶原理、船舶设计、结构力学、海洋工程 |
+| [核科学与技术](/posts/engineering/nuclear-engineering/) | 核物理、反应堆物理、反应堆工程 |
+| [电子科学与技术](/posts/engineering/electronic-science/) | 半导体物理、微电子器件、集成电路、DSP |
+| [信息与通信工程](/posts/engineering/communications/) | 信号与系统、通信原理、微波工程、信息论 |
+| [控制科学与工程](/posts/engineering/control-engineering/) | 自动控制原理、现代控制、智能控制 |
+| [环境科学与工程](/posts/engineering/environmental-engineering/) | 环境工程原理、水/大气污染控制、固废处理 |
+| [生物医学工程](/posts/engineering/biomedical-engineering/) | 医学成像、生物信号与仪器、神经接口 |
+| [动力工程及工程热物理](/posts/engineering/energy-power/) | 工程热力学、传热学、流体力学、动力机械 |
+| [微电子与集成电路](/posts/engineering/microelectronics/) | 半导体器件物理、数字/模拟集成电路、工艺测试 |
+
+### 第七级 · 人文与艺术
+
+| 分类 | 内容 |
+| --- | --- |
+| [中国文学](/posts/humanities/chinese-literature/) | 袁行霈《中国文学史》+ 现当代文学 |
+| [外国文学](/posts/humanities/foreign-literature/) | 郑克鲁《外国文学史》体系 |
+| [文学理论](/posts/humanities/literary-theory/) | 童庆炳《文学理论教程》+ 西方文论 |
+| [中国历史](/posts/humanities/chinese-history/) | 古代、近代、现代通史 + 史学入门 |
+| [世界历史](/posts/humanities/world-history/) | 世界古代、近代、现代通史 |
+| [艺术史](/posts/humanities/art-history/) | 贡布里希《艺术的故事》+ 中西美术史 |
+| [音乐](/posts/humanities/music/) | 乐理、和声、曲式、中西音乐史 |
+| [建筑](/posts/humanities/architecture-history/) | 中国建筑史、外国建筑史、建筑初步 |
+| [设计学](/posts/humanities/design/) | 设计学概论、工业设计史、设计心理学 |
+| [语言学](/posts/humanities/linguistics/) | 叶蜚声《语言学纲要》+ 句法音系 |
+| [翻译学](/posts/humanities/translation-studies/) | 翻译理论、英汉互译、当代译论 |
+| [宗教学](/posts/humanities/religious-studies/) | 宗教学通论、世界宗教史、宗教理论 |
+| [哲学深化](/posts/humanities/philosophy-deepening/) | 中国哲学史、西方哲学史、伦理、美学 |
+
+### 第八级 · 社会科学
+
+| 分类 | 内容 |
+| --- | --- |
+| [法学](/posts/social/law/) | 法理、宪法、民法、刑法、行政法、国际法 |
+| [社会学](/posts/social/sociology/) | 社会学概论、研究方法、社会心理学 |
+| [政治学](/posts/social/political-science/) | 政治学原理、比较政治、国际政治 |
+| [教育学](/posts/social/education/) | 教育学基础、教育心理学、课程与教学论 |
+| [管理学](/posts/social/management/) | 罗宾斯《管理学》体系 |
+| [工商管理](/posts/social/business-management/) | 战略、营销、人力、运营、会计、财务 |
+| [公共管理](/posts/social/public-management/) | 公共管理学、公共政策、行政管理 |
+| [新闻传播学](/posts/social/communication/) | 郭庆光《传播学教程》+ 新闻学 |
+| [人类学](/posts/social/anthropology/) | 文化人类学、田野调查、体质考古 |
+| [国际关系](/posts/social/international-relations/) | 国际关系理论、国际关系史、中国外交 |
+| [心理学应用深化](/posts/social/psychology-deepening/) | 社会、发展、变态心理学、组织行为学 |
+
+### 第九级 · 交叉与前沿
+
+| 分类 | 内容 |
+| --- | --- |
+| [复杂性科学](/posts/frontier/complexity-science/) | 涌现、自组织、复杂适应系统、人工生命 |
+| [网络科学](/posts/frontier/network-science/) | 巴拉巴西《网络科学》+ 纽曼《网络导论》 |
+| [系统科学](/posts/frontier/systems-science/) | 系统论、控制论、系统工程、系统动力学 |
+| [计算社会科学](/posts/frontier/computational-social-science/) | 数字痕迹、社会计算、多智能体仿真 |
+| [科学计量学](/posts/frontier/scientometrics/) | 文献计量、引文分析、科学地图 |
+| [数据科学](/posts/frontier/data-science/) | 数据获取、统计学习、数据工程、数据应用 |
 
 ## 如何发布新博文
 

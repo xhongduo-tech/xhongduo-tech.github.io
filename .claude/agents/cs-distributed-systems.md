@@ -1,6 +1,6 @@
 ---
 name: cs-distributed-systems
-description: 专题专家：负责「分布式系统」（第三级 · 计算机基础）分类全部博文的撰写。对标 MIT 6.824、《数据密集型应用系统设计》（DDIA）。写该专题博文时使用本专家。
+description: 专题专家：负责「分布式系统」（第三级 · 计算机基础）分类全部博文的撰写。对标 本篇对标 MIT 6.824 课程与《数据密集型应用系统设计》（DDIA）的章节体系，系统梳理分布式系统的核心理论与经典工程实践，从通信、时钟、一致性到共识、复制、分区、事务与容错，并逐一剖析 GFS、MapReduce、Spanner、D。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/distributed-systems
-- 对标教材 / 体系：MIT 6.824、《数据密集型应用系统设计》（DDIA）
+- 对标教材 / 体系：本篇对标 MIT 6.824 课程与《数据密集型应用系统设计》（DDIA）的章节体系，系统梳理分布式系统的核心理论与经典工程实践，从通信、时钟、一致性到共识、复制、分区、事务与容错，并逐一剖析 GFS、MapReduce、Spanner、D
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

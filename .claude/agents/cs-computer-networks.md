@@ -1,6 +1,6 @@
 ---
 name: cs-computer-networks
-description: 专题专家：负责「计算机网络」（第三级 · 计算机基础）分类全部博文的撰写。对标 谢希仁《计算机网络》、Tanenbaum《Computer Networks》。写该专题博文时使用本专家。
+description: 专题专家：负责「计算机网络」（第三级 · 计算机基础）分类全部博文的撰写。对标 对标谢希仁《计算机网络》与 Tanenbaum《Computer Networks》的完整章节体系，从体系结构到现代专题逐节写透。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/computer-networks
-- 对标教材 / 体系：谢希仁《计算机网络》、Tanenbaum《Computer Networks》
+- 对标教材 / 体系：对标谢希仁《计算机网络》与 Tanenbaum《Computer Networks》的完整章节体系，从体系结构到现代专题逐节写透。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

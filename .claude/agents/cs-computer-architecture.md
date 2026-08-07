@@ -1,6 +1,6 @@
 ---
 name: cs-computer-architecture
-description: 专题专家：负责「计算机体系结构」（第三级 · 计算机基础）分类全部博文的撰写。对标 Hennessy & Patterson《Computer Architecture: A Quantitative Approach》。写该专题博文时使用本专家。
+description: 专题专家：负责「计算机体系结构」（第三级 · 计算机基础）分类全部博文的撰写。对标 以量化研究方法（Quantitative Approach）系统进阶计算机体系结构，对标 Hennessy & Patterson《Computer Architecture: A Quantitative Approach》章节体系，覆盖。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/computer-architecture
-- 对标教材 / 体系：Hennessy & Patterson《Computer Architecture: A Quantitative Approach》
+- 对标教材 / 体系：以量化研究方法（Quantitative Approach）系统进阶计算机体系结构，对标 Hennessy & Patterson《Computer Architecture: A Quantitative Approach》章节体系，覆盖
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

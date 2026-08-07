@@ -1,6 +1,6 @@
 ---
 name: foundations-astronomy
-description: 专题专家：负责「天文学」（第一级 · 基础科学）分类全部博文的撰写。对标 刘学富《基础天文学》。写该专题博文时使用本专家。
+description: 专题专家：负责「天文学」（第一级 · 基础科学）分类全部博文的撰写。对标 学完大学天文通识的全部内容，对标刘学富《基础天文学》的章节体系，每写完一篇博文勾掉一条。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：foundations/astronomy
-- 对标教材 / 体系：刘学富《基础天文学》
+- 对标教材 / 体系：学完大学天文通识的全部内容，对标刘学富《基础天文学》的章节体系，每写完一篇博文勾掉一条。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

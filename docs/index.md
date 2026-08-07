@@ -28,8 +28,8 @@
 
 ## 写作体系
 
-本站的内容按四级递进组织。这不是博客的目录，是一份长期学习计划——
-每个学科对标经典教材，逐章逐节写作。<span class="marginnote">全部 60 个学科的知识地图与实时写作进度见 [博文总览](/posts/)。</span>
+本站的内容按**九级递进**组织。这不是博客的目录，是一份长期学习计划——
+每个学科对标经典教材，逐章逐节写作，从数理基础一路延伸到全人类知识。<span class="marginnote">全部 116 个学科的知识地图与实时写作进度见 [博文总览](/posts/)。完整分级方案见 <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener noreferrer">CURRICULUM.md</a>。</span>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a14 14 0 0 1 0 18M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/></svg></span>
@@ -49,6 +49,31 @@
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-3 6.6A4 4 0 0 0 7 21h10a4 4 0 0 0 2-7.4A4 4 0 0 0 16 7V6a4 4 0 0 0-4-4z"/><path d="M12 8v5M12 16h.01"/></svg></span>
   <p><strong>第四级 · <a href="/posts/advanced/llm-principles/">高阶专题</a></strong><span class="marginnote">第四级共 18 个学科：从机器学习、深度学习到 LLM 原理、微调、部署与 AI 基础设施，直抵前沿。</span> —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，直至 AI 安全与量子计算。</p>
+</div>
+
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></span>
+  <p><strong>第五级 · <a href="/posts/life/basic-medicine/">生命与健康</a></strong><span class="marginnote">第五级共 11 个学科，对标人卫教材与 Kandel《神经科学原理》等体系。</span> —— 基础医学、临床医学、药学、公共卫生、护理、口腔、中医、兽医、农学、生态学、神经科学：生命的完整图景。</p>
+</div>
+
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4L14 12l-2-2z"/></svg></span>
+  <p><strong>第六级 · <a href="/posts/engineering/mechanical-engineering/">工程技术</a></strong><span class="marginnote">第六级共 15 个学科，覆盖工科主干课程体系。</span> —— 机械、电气、土木、化工、材料、航空航天、船舶、核能、电子、通信、控制、环境、生医工、动力、微电子。</p>
+</div>
+
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+  <p><strong>第七级 · <a href="/posts/humanities/chinese-literature/">人文与艺术</a></strong><span class="marginnote">第七级共 13 个学科，对标文学史、艺术史、语言学等经典体系。</span> —— 中外文学、文学理论、中外历史、艺术史、音乐、建筑、设计、语言学、翻译、宗教、哲学深化。</p>
+</div>
+
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+  <p><strong>第八级 · <a href="/posts/social/law/">社会科学</a></strong><span class="marginnote">第八级共 11 个学科，对标法学、社会学、管理学等学科体系。</span> —— 法学、社会学、政治学、教育学、管理学、工商管理、公共管理、新闻传播、人类学、国际关系、心理学应用。</p>
+</div>
+
+<div class="tier">
+  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h8M8 18h8M6 8v8M18 8v8"/></svg></span>
+  <p><strong>第九级 · <a href="/posts/frontier/complexity-science/">交叉与前沿</a></strong><span class="marginnote">第九级共 6 个学科：复杂性与跨学科研究的前沿。</span> —— 复杂性科学、网络科学、系统科学、计算社会科学、科学计量学、数据科学。</p>
 </div>
 
 <HomeStats />

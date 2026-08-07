@@ -1,6 +1,6 @@
 ---
 name: advanced-llm-deployment
-description: 专题专家：负责「大模型部署」（第四级 · 高阶专题）分类全部博文的撰写。对标 vLLM/SGLang/TensorRT-LLM 等推理引擎与部署工程体系。写该专题博文时使用本专家。
+description: 专题专家：负责「大模型部署」（第四级 · 高阶专题）分类全部博文的撰写。对标 大模型部署是将训练好的 LLM 高效转化为可用服务的完整工程体系。本篇以推理原理为根基，以 vLLM、SGLang、TensorRT-LLM 等主流引擎为主线，系统梳理从内核优化、量化、解码加速到分布式与服务化的全链路知识。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/llm-deployment
-- 对标教材 / 体系：vLLM/SGLang/TensorRT-LLM 等推理引擎与部署工程体系
+- 对标教材 / 体系：大模型部署是将训练好的 LLM 高效转化为可用服务的完整工程体系。本篇以推理原理为根基，以 vLLM、SGLang、TensorRT-LLM 等主流引擎为主线，系统梳理从内核优化、量化、解码加速到分布式与服务化的全链路知识。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

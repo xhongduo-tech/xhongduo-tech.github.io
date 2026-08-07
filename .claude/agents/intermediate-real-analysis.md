@@ -1,6 +1,6 @@
 ---
 name: intermediate-real-analysis
-description: 专题专家：负责「实变函数与测度论」（第二级 · 进阶数理）分类全部博文的撰写。对标 周民强《实变函数论》、那汤松《实变函数论》。写该专题博文时使用本专家。
+description: 专题专家：负责「实变函数与测度论」（第二级 · 进阶数理）分类全部博文的撰写。对标 实变函数论是数学分析的深化：以集合论与测度论为工具，重建积分理论（Lebesgue 积分），并研究函数的可测性、可积性与微分结构。本篇对标周民强《实变函数论》与那汤松《实变函数论》的章节体系，从集合与基数讲起，经测度、可测函数、Lebesg。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/real-analysis
-- 对标教材 / 体系：周民强《实变函数论》、那汤松《实变函数论》
+- 对标教材 / 体系：实变函数论是数学分析的深化：以集合论与测度论为工具，重建积分理论（Lebesgue 积分），并研究函数的可测性、可积性与微分结构。本篇对标周民强《实变函数论》与那汤松《实变函数论》的章节体系，从集合与基数讲起，经测度、可测函数、Lebesg
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

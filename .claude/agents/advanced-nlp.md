@@ -1,6 +1,6 @@
 ---
 name: advanced-nlp
-description: 专题专家：负责「自然语言处理」（第四级 · 高阶专题）分类全部博文的撰写。对标 宗成庆《自然语言处理》、Jurafsky《Speech and Language Processing》。写该专题博文时使用本专家。
+description: 专题专家：负责「自然语言处理」（第四级 · 高阶专题）分类全部博文的撰写。对标 本分类对标《自然语言处理》（宗成庆）与 Jurafsky《Speech and Language Processing》的经典体系，覆盖大模型之前（及并行发展）的 NLP 全部内容：从文本预处理、语言模型到句法语义分析、机器翻译、信息抽取、。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/nlp
-- 对标教材 / 体系：宗成庆《自然语言处理》、Jurafsky《Speech and Language Processing》
+- 对标教材 / 体系：本分类对标《自然语言处理》（宗成庆）与 Jurafsky《Speech and Language Processing》的经典体系，覆盖大模型之前（及并行发展）的 NLP 全部内容：从文本预处理、语言模型到句法语义分析、机器翻译、信息抽取、
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

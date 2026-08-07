@@ -1,6 +1,6 @@
 ---
 name: cs-programming-languages
-description: 专题专家：负责「程序设计语言」（第三级 · 计算机基础）分类全部博文的撰写。对标 Sebesta《程序设计语言原理》、PLT 课程体系。写该专题博文时使用本专家。
+description: 专题专家：负责「程序设计语言」（第三级 · 计算机基础）分类全部博文的撰写。对标 本分类以《程序设计语言原理》（Sebesta）与 PLT 课程体系为纲，系统覆盖程序设计语言的设计原理、语法语义、类型系统、编程范式与运行时机制。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/programming-languages
-- 对标教材 / 体系：Sebesta《程序设计语言原理》、PLT 课程体系
+- 对标教材 / 体系：本分类以《程序设计语言原理》（Sebesta）与 PLT 课程体系为纲，系统覆盖程序设计语言的设计原理、语法语义、类型系统、编程范式与运行时机制。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

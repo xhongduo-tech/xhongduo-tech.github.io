@@ -1,6 +1,6 @@
 ---
 name: cs-algorithms
-description: 专题专家：负责「算法设计与分析」（第三级 · 计算机基础）分类全部博文的撰写。对标 CLRS《算法导论》。写该专题博文时使用本专家。
+description: 专题专家：负责「算法设计与分析」（第三级 · 计算机基础）分类全部博文的撰写。对标 以《算法导论》（CLRS）为纲，覆盖算法设计与分析的经典内容：从渐进记号、分治与随机化，到动态规划、贪心、图算法、NP 完全性，再到近似算法、字符串匹配、计算几何、数论算法、并行与外部存储算法。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/algorithms
-- 对标教材 / 体系：CLRS《算法导论》
+- 对标教材 / 体系：以《算法导论》（CLRS）为纲，覆盖算法设计与分析的经典内容：从渐进记号、分治与随机化，到动态规划、贪心、图算法、NP 完全性，再到近似算法、字符串匹配、计算几何、数论算法、并行与外部存储算法。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

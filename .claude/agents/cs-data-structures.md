@@ -1,6 +1,6 @@
 ---
 name: cs-data-structures
-description: 专题专家：负责「数据结构」（第三级 · 计算机基础）分类全部博文的撰写。对标 严蔚敏《数据结构（C语言版）》。写该专题博文时使用本专家。
+description: 专题专家：负责「数据结构」（第三级 · 计算机基础）分类全部博文的撰写。对标 学完数据结构 = 写完严蔚敏《数据结构（C语言版）》全部章节对应的博文，并补齐常用算法专题。每篇博文对应教材的一节，写完一篇勾掉一条。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/data-structures
-- 对标教材 / 体系：严蔚敏《数据结构（C语言版）》
+- 对标教材 / 体系：学完数据结构 = 写完严蔚敏《数据结构（C语言版）》全部章节对应的博文，并补齐常用算法专题。每篇博文对应教材的一节，写完一篇勾掉一条。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

@@ -1,6 +1,6 @@
 ---
 name: intermediate-differential-geometry
-description: 专题专家：负责「微分几何」（第二级 · 进阶数理）分类全部博文的撰写。对标 陈维桓《微分几何》、Do Carmo《曲线和曲面的微分几何》。写该专题博文时使用本专家。
+description: 专题专家：负责「微分几何」（第二级 · 进阶数理）分类全部博文的撰写。对标 本分类覆盖微分几何入门的全部内容，以陈维桓《微分几何》与 Do Carmo《曲线和曲面的微分几何》入门部分的章节体系为对标，从经典曲线曲面论一直写到流形与黎曼几何初步。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/differential-geometry
-- 对标教材 / 体系：陈维桓《微分几何》、Do Carmo《曲线和曲面的微分几何》
+- 对标教材 / 体系：本分类覆盖微分几何入门的全部内容，以陈维桓《微分几何》与 Do Carmo《曲线和曲面的微分几何》入门部分的章节体系为对标，从经典曲线曲面论一直写到流形与黎曼几何初步。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

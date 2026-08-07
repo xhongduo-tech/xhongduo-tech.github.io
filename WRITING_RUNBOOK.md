@@ -1,7 +1,7 @@
 # 写作工厂运行手册
 
-目标：把全站 **5832 篇**规划博文全部写完（当前约 300+ 篇完成，进度见 `docs/.vitepress/data/progress.json`）。
-本文档是任何会话（或任何助手）续跑写作流水线的操作手册。**每篇写完即落盘并勾选 index.md，进度天然持久化，跨会话无损续跑。**
+目标：把全站规划博文全部写完（四级 60 专题 + 第五至第九级新增 56 专题，规划条目见 `docs/.vitepress/data/progress.json`）。
+总纲与全人类知识分级方案见 `CURRICULUM.md`。本文档是任何会话（或任何助手）续跑写作流水线的操作手册。**每篇写完即落盘并勾选 index.md，进度天然持久化，跨会话无损续跑。**
 
 ## 一、核心设施（已就绪，勿重建）
 
@@ -9,7 +9,8 @@
 | --- | --- | --- |
 | 编辑章程 | `.claude/writing-charter.md` | 文章结构/标注体系/公式解析/配图/SVG 规范/质量底线（最高约束） |
 | 60 个专题团队定义 | `.claude/agents/<tier>-<topic>.md` | 每个专题的域简报（对标教材 + 工作方法） |
-| 团队生成器 | `scripts/gen-teams.mjs` | 由内置表重建 60 个团队文件 |
+| 团队生成器 | `scripts/gen-teams.mjs` | 自动扫描全部 index.md 生成团队（新增专题后重跑即可） |
+| 新专题脚手架 | `scripts/gen-new-curriculum.mjs` | 由内置表生成第五至九级新专题的 index.md（新增领域后重跑） |
 | 进度数据 | `docs/.vitepress/data/progress.json` | 由 `scripts/gen-progress.mjs` 从 index.md 重生成 |
 | 风格范本 | `docs/posts/foundations/math/set-concept.md` | 一篇完美博文的样子 |
 

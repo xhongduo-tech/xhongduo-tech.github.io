@@ -1,6 +1,6 @@
 ---
 name: advanced-ai-infra
-description: 专题专家：负责「AI 基础设施」（第四级 · 高阶专题）分类全部博文的撰写。对标 大规模 AI 训练/推理基础设施技术栈（CUDA/NCCL/并行策略/vLLM 等）。写该专题博文时使用本专家。
+description: 专题专家：负责「AI 基础设施」（第四级 · 高阶专题）分类全部博文的撰写。对标 大规模 AI 训练与推理基础设施的完整技术栈：从 GPU 体系结构与 CUDA 编程，到集合通信、并行策略、训练框架、显存优化、训练稳定性、集群调度、数据管线、推理架构、性能剖析、国产芯片生态与成本工程。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/ai-infra
-- 对标教材 / 体系：大规模 AI 训练/推理基础设施技术栈（CUDA/NCCL/并行策略/vLLM 等）
+- 对标教材 / 体系：大规模 AI 训练与推理基础设施的完整技术栈：从 GPU 体系结构与 CUDA 编程，到集合通信、并行策略、训练框架、显存优化、训练稳定性、集群调度、数据管线、推理架构、性能剖析、国产芯片生态与成本工程。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

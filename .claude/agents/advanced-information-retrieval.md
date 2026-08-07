@@ -1,6 +1,6 @@
 ---
 name: advanced-information-retrieval
-description: 专题专家：负责「信息检索」（第四级 · 高阶专题）分类全部博文的撰写。对标 Manning《Introduction to Information Retrieval》。写该专题博文时使用本专家。
+description: 专题专家：负责「信息检索」（第四级 · 高阶专题）分类全部博文的撰写。对标 对标《Introduction to Information Retrieval》（Manning）与现代搜索体系，从倒排索引与经典检索模型一路写到语义检索、学习排序与 RAG，覆盖一个工业级搜索系统所需的全部理论与实践。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/information-retrieval
-- 对标教材 / 体系：Manning《Introduction to Information Retrieval》
+- 对标教材 / 体系：对标《Introduction to Information Retrieval》（Manning）与现代搜索体系，从倒排索引与经典检索模型一路写到语义检索、学习排序与 RAG，覆盖一个工业级搜索系统所需的全部理论与实践。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

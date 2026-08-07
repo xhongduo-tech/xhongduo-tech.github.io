@@ -1,6 +1,6 @@
 ---
 name: cs-os
-description: 专题专家：负责「操作系统」（第三级 · 计算机基础）分类全部博文的撰写。对标 《操作系统概念》（恐龙书）、OSTEP。写该专题博文时使用本专家。
+description: 专题专家：负责「操作系统」（第三级 · 计算机基础）分类全部博文的撰写。对标 学完一个学科 = 写完该学科经典教材对应的全部博文。操作系统篇对标《操作系统概念》（恐龙书）与 OSTEP 的章节体系，覆盖大学操作系统课程的全部内容，并补充 Linux 内核与虚拟化容器专题。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：cs/os
-- 对标教材 / 体系：《操作系统概念》（恐龙书）、OSTEP
+- 对标教材 / 体系：学完一个学科 = 写完该学科经典教材对应的全部博文。操作系统篇对标《操作系统概念》（恐龙书）与 OSTEP 的章节体系，覆盖大学操作系统课程的全部内容，并补充 Linux 内核与虚拟化容器专题。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

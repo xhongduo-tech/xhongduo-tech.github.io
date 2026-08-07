@@ -1,6 +1,6 @@
 ---
 name: advanced-autonomous-driving
-description: 专题专家：负责「自动驾驶」（第四级 · 高阶专题）分类全部博文的撰写。对标 模块化栈 + 端到端新范式技术全景。写该专题博文时使用本专家。
+description: 专题专家：负责「自动驾驶」（第四级 · 高阶专题）分类全部博文的撰写。对标 本篇覆盖自动驾驶技术全景：从感知、定位、预测、规划、控制的经典模块化栈，到端到端与大模型驱动的新范式，再到仿真、数据闭环与量产工程化。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：advanced/autonomous-driving
-- 对标教材 / 体系：模块化栈 + 端到端新范式技术全景
+- 对标教材 / 体系：本篇覆盖自动驾驶技术全景：从感知、定位、预测、规划、控制的经典模块化栈，到端到端与大模型驱动的新范式，再到仿真、数据闭环与量产工程化。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）

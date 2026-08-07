@@ -1,6 +1,6 @@
 ---
 name: intermediate-discrete-math
-description: 专题专家：负责「离散数学」（第二级 · 进阶数理）分类全部博文的撰写。对标 Kenneth H. Rosen《离散数学及其应用》。写该专题博文时使用本专家。
+description: 专题专家：负责「离散数学」（第二级 · 进阶数理）分类全部博文的撰写。对标 学完一个学科，就是写完该学科经典教材对应的全部博文。本分类对标 Kenneth H. Rosen《离散数学及其应用》，覆盖从逻辑基础到计算模型的完整知识体系，每篇博文对应教材的一节。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/discrete-math
-- 对标教材 / 体系：Kenneth H. Rosen《离散数学及其应用》
+- 对标教材 / 体系：学完一个学科，就是写完该学科经典教材对应的全部博文。本分类对标 Kenneth H. Rosen《离散数学及其应用》，覆盖从逻辑基础到计算模型的完整知识体系，每篇博文对应教材的一节。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）
