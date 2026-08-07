@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" width="640" height="340" font-family="sans-serif">
+  <title>等高线与坡度示意图</title>
+  <desc>左图为山的等高线平面图，等高线越密表示坡度越陡；右图为剖面图，展示坡度 i 等于高差除以水平距离。</desc>
+  <rect width="640" height="340" fill="#faf9f5"/>
+  <text x="20" y="30" font-size="16" fill="#333" font-weight="bold">平面：等高线图（等高距 1 m）</text>
+  <text x="350" y="30" font-size="16" fill="#333" font-weight="bold">剖面：坡度 i = Δh / L</text>
+
+  <!-- 平面面板：同心椭圆等高线 -->
+  <g stroke="#1f6f8b" stroke-width="1.6" fill="none">
+    <ellipse cx="180" cy="170" rx="130" ry="100"/>
+    <ellipse cx="180" cy="170" rx="100" ry="77"/>
+    <ellipse cx="180" cy="170" rx="72" ry="55"/>
+    <ellipse cx="180" cy="170" rx="46" ry="35"/>
+    <ellipse cx="180" cy="170" rx="22" ry="17"/>
+  </g>
+  <g fill="#333" font-size="13">
+    <text x="70" y="250">100</text>
+    <text x="96" y="224">101</text>
+    <text x="122" y="202">102</text>
+    <text x="146" y="184">103</text>
+    <text x="172" y="165">104</text>
+  </g>
+  <text x="196" y="148" font-size="13" fill="#c0392b">山顶 104</text>
+  <text x="40" y="300" font-size="13" fill="#333">等高线越密 → 坡度越陡</text>
+
+  <!-- 剖面面板：山形曲线 -->
+  <polyline points="360,230 420,165 455,100 490,55 520,95 560,160 620,230"
+            fill="none" stroke="#c0392b" stroke-width="2.4"/>
+
+  <!-- 坡度直角三角形 -->
+  <line x1="420" y1="165" x2="455" y2="165" stroke="#333" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="455" y1="100" x2="455" y2="165" stroke="#333" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="420" y1="165" x2="455" y2="100" stroke="#1f6f8b" stroke-width="1.8"/>
+  <text x="428" y="188" font-size="13" fill="#333">L = 35 m</text>
+  <text x="460" y="136" font-size="13" fill="#333">Δh = 3.5 m</text>
+  <text x="410" y="90" font-size="13" fill="#333">α（坡度角）</text>
+
+  <text x="400" y="290" font-size="14" fill="#333">i = Δh / L = 3.5 / 35 = 10%</text>
+  <text x="400" y="314" font-size="13" fill="#333">坡度 10% ≈ 5.7°（平缓坡）</text>
+</svg>

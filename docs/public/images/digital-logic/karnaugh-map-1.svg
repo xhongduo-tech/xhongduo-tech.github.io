@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 460" font-family="sans-serif">
+<title>四变量卡诺图</title>
+<desc>四变量卡诺图的格子排列：行与列都按格雷码排序，相邻格（含最左与最右、最上与最下的卷绕相邻）只有一个变量不同。</desc>
+<rect x="0" y="0" width="560" height="460" fill="#faf9f5"/>
+<text x="280" y="30" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">四变量卡诺图（格雷码排序）</text>
+<text x="150" y="56" text-anchor="end" font-size="14" fill="#333">CD</text>
+<text x="350" y="30" text-anchor="middle" font-size="14" fill="#333">AB</text>
+<g stroke="#333" stroke-width="1.5">
+<rect x="150" y="60" width="360" height="320" fill="none"/>
+<line x1="240" y1="60" x2="240" y2="380"/>
+<line x1="330" y1="60" x2="330" y2="380"/>
+<line x1="420" y1="60" x2="420" y2="380"/>
+<line x1="150" y1="140" x2="510" y2="140"/>
+<line x1="150" y1="220" x2="510" y2="220"/>
+<line x1="150" y1="300" x2="510" y2="300"/>
+</g>
+<g font-size="14" fill="#1f6f8b" text-anchor="middle">
+<text x="70" y="95">AB=00</text>
+<text x="70" y="175">01</text>
+<text x="70" y="255">11</text>
+<text x="70" y="335">10</text>
+<text x="195" y="50">CD=00</text>
+<text x="285" y="50">01</text>
+<text x="375" y="50">11</text>
+<text x="465" y="50">10</text>
+</g>
+<g font-size="15" fill="#333" text-anchor="middle">
+<text x="195" y="108">m0</text>
+<text x="285" y="108">m1</text>
+<text x="375" y="108">m3</text>
+<text x="465" y="108">m2</text>
+<text x="195" y="188">m4</text>
+<text x="285" y="188">m5</text>
+<text x="375" y="188">m7</text>
+<text x="465" y="188">m6</text>
+<text x="195" y="268">m12</text>
+<text x="285" y="268">m13</text>
+<text x="375" y="268">m15</text>
+<text x="465" y="268">m14</text>
+<text x="195" y="348">m8</text>
+<text x="285" y="348">m9</text>
+<text x="375" y="348">m11</text>
+<text x="465" y="348">m10</text>
+</g>
+<rect x="195" y="140" width="180" height="80" fill="#c0392b" opacity="0.15"/>
+<rect x="195" y="140" width="180" height="80" fill="none" stroke="#c0392b" stroke-width="2"/>
+<text x="285" y="212" text-anchor="middle" font-size="13" fill="#c0392b">2×2 圈：m1+m3+m5+m7 = C</text>
+<g font-size="13" fill="#333">
+<text x="25" y="410">相邻规则：上下左右（含卷绕）相邻的格，二进制只有 1 位不同。</text>
+<text x="25" y="432">例如 m5 与 m7 相邻（C 不同）→ 可并项消去 C；m1 与 m9 卷绕相邻（A 不同）→ 可并项消去 A。</text>
+</g>
+</svg>

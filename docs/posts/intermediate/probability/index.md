@@ -22,150 +22,150 @@ pageClass: plain-doc
 - [x] [乘法定理](./multiplication-rule)
 - [x] [全概率公式与贝叶斯公式](./law-of-total-probability-and-bayes)
 - [x] [事件的独立性](./independence-of-events)
-- [ ] 伯努利概型与二项概率公式
+- [x] [伯努利概型与二项概率公式](./bernoulli-trials-and-binomial-probability)
 
 ### 第二章 随机变量及其分布
 
-- [ ] 随机变量的概念
-- [ ] 离散型随机变量及其分布律
-- [ ] 0-1 分布与伯努利试验
-- [ ] 二项分布
-- [ ] 泊松分布与泊松定理
-- [ ] 几何分布与超几何分布
-- [ ] 随机变量的分布函数
-- [ ] 连续型随机变量及其概率密度
-- [ ] 均匀分布
-- [ ] 指数分布与无记忆性
-- [ ] 正态分布与标准正态分布
-- [ ] 随机变量的函数的分布
+- [x] [随机变量的概念](./random-variables)
+- [x] [离散型随机变量及其分布律](./discrete-random-variables)
+- [x] [0-1 分布与伯努利试验](./zero-one-distribution)
+- [x] [二项分布](./binomial-distribution)
+- [x] [泊松分布与泊松定理](./poisson-distribution)
+- [x] [几何分布与超几何分布](./geometric-and-hypergeometric)
+- [x] [随机变量的分布函数](./distribution-function)
+- [x] [连续型随机变量及其概率密度](./continuous-random-variables)
+- [x] [均匀分布](./uniform-distribution)
+- [x] [指数分布与无记忆性](./exponential-distribution)
+- [x] [正态分布与标准正态分布](./normal-distribution)
+- [x] [随机变量的函数的分布](./functions-of-random-variables)
 
 ### 第三章 多维随机变量及其分布
 
-- [ ] 二维随机变量与联合分布函数
-- [ ] 二维离散型随机变量
-- [ ] 二维连续型随机变量与联合概率密度
-- [ ] 边缘分布
-- [ ] 条件分布
-- [ ] 相互独立的随机变量
-- [ ] 二维均匀分布与二维正态分布
-- [ ] 两个随机变量的函数的分布：Z = X + Y
-- [ ] 商的分布与积的分布
-- [ ] 极值分布：M = max(X, Y) 与 N = min(X, Y)
-- [ ] n 维随机变量简介
+- [x] [二维随机变量与联合分布函数](./joint-distribution-function)
+- [x] [二维离散型随机变量](./joint-discrete-random-variables)
+- [x] [二维连续型随机变量与联合概率密度](./joint-continuous-random-variables)
+- [x] [边缘分布](./marginal-distribution)
+- [x] [条件分布](./conditional-distribution)
+- [x] [相互独立的随机变量](./independence-of-random-variables)
+- [x] [二维均匀分布与二维正态分布](./bivariate-uniform-normal)
+- [x] [两个随机变量的函数的分布：Z = X + Y](./sum-of-two-random-variables)
+- [x] [商的分布与积的分布](./ratio-and-product-distributions)
+- [x] [极值分布：M = max(X, Y) 与 N = min(X, Y)](./extreme-value-distributions)
+- [x] [n 维随机变量简介](./n-dimensional-random-vectors)
 
 ### 第四章 随机变量的数字特征
 
-- [ ] 数学期望的定义与计算
-- [ ] 随机变量函数的数学期望
-- [ ] 数学期望的性质
-- [ ] 方差的定义与计算
-- [ ] 方差的性质与切比雪夫不等式
-- [ ] 常见分布的期望与方差汇总
-- [ ] 协方差与相关系数
-- [ ] 不相关与独立的关系
-- [ ] 矩、协方差矩阵
-- [ ] n 维正态分布及其性质
+- [x] [数学期望的定义与计算](./mathematical-expectation)
+- [x] [随机变量函数的数学期望](./expectation-of-functions)
+- [x] [数学期望的性质](./properties-of-expectation)
+- [x] [方差的定义与计算](./variance)
+- [x] [方差的性质与切比雪夫不等式](./variance-properties-chebyshev)
+- [x] [常见分布的期望与方差汇总](./expectations-variances-common-distributions)
+- [x] [协方差与相关系数](./covariance-and-correlation)
+- [x] [不相关与独立的关系](./uncorrelated-vs-independent)
+- [x] [矩、协方差矩阵](./moments-covariance-matrix)
+- [x] [n 维正态分布及其性质](./multivariate-normal)
 
 ### 第五章 大数定律及中心极限定理
 
-- [ ] 大数定律：依概率收敛
-- [ ] 切比雪夫大数定律
-- [ ] 伯努利大数定律与辛钦大数定律
-- [ ] 中心极限定理：独立同分布中心极限定理
-- [ ] 棣莫弗—拉普拉斯中心极限定理
-- [ ] 中心极限定理的应用与近似计算
+- [x] [大数定律：依概率收敛](./convergence-in-probability)
+- [x] [切比雪夫大数定律](./chebyshev-lln)
+- [x] [伯努利大数定律与辛钦大数定律](./bernoulli-khintchine-lln)
+- [x] [中心极限定理：独立同分布中心极限定理](./central-limit-theorem)
+- [x] [棣莫弗—拉普拉斯中心极限定理](./de-moivre-laplace)
+- [x] [中心极限定理的应用与近似计算](./clt-applications)
 
 ### 第六章 样本及抽样分布
 
-- [ ] 总体、个体与随机样本
-- [ ] 统计量与常用统计量
-- [ ] 经验分布函数与直方图
-- [ ] χ² 分布
-- [ ] t 分布
-- [ ] F 分布
-- [ ] 正态总体的样本均值与样本方差的分布
-- [ ] 抽样分布基本定理
+- [x] [总体、个体与随机样本](./population-and-sample)
+- [x] [统计量与常用统计量](./statistics-and-sampling)
+- [x] [经验分布函数与直方图](./empirical-distribution-histogram)
+- [x] [χ² 分布](./chi-square-distribution)
+- [x] [t 分布](./t-distribution)
+- [x] [F 分布](./f-distribution)
+- [x] [正态总体的样本均值与样本方差的分布](./sample-mean-variance-normal)
+- [x] [抽样分布基本定理](./sampling-distribution-theorems)
 
 ### 第七章 参数估计
 
-- [ ] 点估计问题与矩估计法
-- [ ] 最大似然估计法
-- [ ] 常见分布参数的最大似然估计
-- [ ] 基于截尾样本的最大似然估计
-- [ ] 估计量的评选标准：无偏性
-- [ ] 估计量的评选标准：有效性与相合性
-- [ ] 区间估计的基本概念
-- [ ] 单个正态总体均值的区间估计
-- [ ] 单个正态总体方差的区间估计
-- [ ] 两个正态总体均值差的区间估计
-- [ ] 两个正态总体方差比的区间估计
-- [ ] (0-1) 分布参数的区间估计
-- [ ] 单侧置信区间
+- [x] [点估计问题与矩估计法](./point-estimation-method-of-moments)
+- [x] [最大似然估计法](./maximum-likelihood-estimation)
+- [x] [常见分布参数的最大似然估计](./mle-common-distributions)
+- [x] [基于截尾样本的最大似然估计](./mle-censored-data)
+- [x] [估计量的评选标准：无偏性](./unbiasedness)
+- [x] [估计量的评选标准：有效性与相合性](./efficiency-and-consistency)
+- [x] [区间估计的基本概念](./interval-estimation)
+- [x] [单个正态总体均值的区间估计](./ci-mean-single-normal)
+- [x] [单个正态总体方差的区间估计](./ci-variance-single-normal)
+- [x] [两个正态总体均值差的区间估计](./ci-difference-means)
+- [x] [两个正态总体方差比的区间估计](./ci-ratio-variances)
+- [x] [(0-1) 分布参数的区间估计](./ci-bernoulli-proportion)
+- [x] [单侧置信区间](./one-sided-confidence-intervals)
 
 ### 第八章 假设检验
 
-- [ ] 假设检验的基本思想与两类错误
-- [ ] 显著性水平、检验统计量与拒绝域
-- [ ] 单个正态总体均值的检验（Z 检验与 t 检验）
-- [ ] 两个正态总体均值差的检验
-- [ ] 基于成对数据的检验
-- [ ] 正态总体方差的检验（χ² 检验与 F 检验）
-- [ ] 单边检验与 p 值
-- [ ] 分布拟合检验：χ² 拟合优度检验
-- [ ] 偏度、峰度检验
-- [ ] 秩和检验
-- [ ] 假设检验与置信区间的对偶关系
+- [x] [假设检验的基本思想与两类错误](./hypothesis-testing-basics)
+- [x] [显著性水平、检验统计量与拒绝域](./significance-level-rejection-region)
+- [x] [单个正态总体均值的检验（Z 检验与 t 检验）](./z-test-t-test-mean)
+- [x] [两个正态总体均值差的检验](./two-sample-mean-test)
+- [x] [基于成对数据的检验](./paired-data-test)
+- [x] [正态总体方差的检验（χ² 检验与 F 检验）](./variance-tests)
+- [x] [单边检验与 p 值](./one-sided-tests-p-value)
+- [x] [分布拟合检验：χ² 拟合优度检验](./chi-square-goodness-of-fit)
+- [x] [偏度、峰度检验](./skewness-kurtosis-test)
+- [x] [秩和检验](./rank-sum-test)
+- [x] [假设检验与置信区间的对偶关系](./duality-testing-confidence-intervals)
 
 ### 第九章 方差分析及回归分析
 
-- [ ] 单因素试验的方差分析：模型与思想
-- [ ] 单因素方差分析的平方和分解与检验
-- [ ] 双因素试验的方差分析：无重复试验
-- [ ] 双因素等重复试验的方差分析与交互作用
-- [ ] 一元线性回归：模型与最小二乘估计
-- [ ] 回归系数估计量的分布与 σ² 的估计
-- [ ] 线性假设的显著性检验
-- [ ] 回归系数的置信区间与预测
-- [ ] 可化为一元线性回归的曲线回归
-- [ ] 多元线性回归简介
+- [x] [单因素试验的方差分析：模型与思想](./one-way-anova)
+- [x] [单因素方差分析的平方和分解与检验](./one-way-anova-decomposition)
+- [x] [双因素试验的方差分析：无重复试验](./two-way-anova-no-replication)
+- [x] [双因素等重复试验的方差分析与交互作用](./two-way-anova-interaction)
+- [x] [一元线性回归：模型与最小二乘估计](./simple-linear-regression)
+- [x] [回归系数估计量的分布与 σ² 的估计](./regression-estimator-distribution)
+- [x] [线性假设的显著性检验](./regression-significance-test)
+- [x] [回归系数的置信区间与预测](./regression-confidence-interval-prediction)
+- [x] [可化为一元线性回归的曲线回归](./curvilinear-regression)
+- [x] [多元线性回归简介](./multiple-linear-regression)
 
 ### 第十章 bootstrap 方法
 
-- [ ] 非参数 bootstrap：模拟与再抽样
-- [ ] 用 bootstrap 估计标准误与均方误差
-- [ ] bootstrap 置信区间
-- [ ] 参数 bootstrap 方法
-- [ ] bootstrap-t 方法与假设检验中的应用
+- [x] [非参数 bootstrap：模拟与再抽样](./nonparametric-bootstrap)
+- [x] [用 bootstrap 估计标准误与均方误差](./bootstrap-standard-error)
+- [x] [bootstrap 置信区间](./bootstrap-confidence-interval)
+- [x] [参数 bootstrap 方法](./parametric-bootstrap)
+- [x] [bootstrap-t 方法与假设检验中的应用](./bootstrap-t)
 
 ### 第十一章 随机过程及其统计描述
 
-- [ ] 随机过程的概念与分类
-- [ ] 随机过程的统计描述：分布函数族
-- [ ] 均值函数、方差函数与相关函数
-- [ ] 二维随机过程与互相关函数
-- [ ] 泊松过程：定义与性质
-- [ ] 泊松过程的等待时间与到达时间间隔
-- [ ] 非齐次泊松过程
-- [ ] 维纳过程：定义与性质
-- [ ] 布朗运动与正态过程
+- [x] [随机过程的概念与分类](./stochastic-processes)
+- [x] [随机过程的统计描述：分布函数族](./stochastic-process-distribution)
+- [x] [均值函数、方差函数与相关函数](./mean-variance-correlation-functions)
+- [x] [二维随机过程与互相关函数](./two-dimensional-process-cross-correlation)
+- [x] [泊松过程：定义与性质](./poisson-process)
+- [x] [泊松过程的等待时间与到达时间间隔](./poisson-process-waiting-times)
+- [x] [非齐次泊松过程](./nonhomogeneous-poisson-process)
+- [x] [维纳过程：定义与性质](./wiener-process)
+- [x] [布朗运动与正态过程](./brownian-motion-gaussian-process)
 
 ### 第十二章 马尔可夫链
 
-- [ ] 马尔可夫过程与马尔可夫性
-- [ ] 马尔可夫链与一步转移概率矩阵
-- [ ] 多步转移概率与 C-K 方程
-- [ ] 状态的分类：常返与暂留
-- [ ] 状态的周期性与互通性
-- [ ] 遍历性与极限分布
-- [ ] 平稳分布与马氏链的应用举例
+- [x] [马尔可夫过程与马尔可夫性](./markov-property)
+- [x] [马尔可夫链与一步转移概率矩阵](./markov-chain-transition-matrix)
+- [x] [多步转移概率与 C-K 方程](./chapman-kolmogorov)
+- [x] [状态的分类：常返与暂留](./state-classification-recurrent-transient)
+- [x] [状态的周期性与互通性](./state-periodicity-communication)
+- [x] [遍历性与极限分布](./ergodicity-limit-distribution)
+- [x] [平稳分布与马氏链的应用举例](./stationary-distribution)
 
 ### 第十三章 平稳随机过程
 
-- [ ] 平稳随机过程的概念：严平稳与宽平稳
-- [ ] 各态历经性
-- [ ] 相关函数的性质
-- [ ] 平稳随机过程的功率谱密度
-- [ ] 维纳—辛钦公式
-- [ ] 白噪声与线性系统中的平稳过程
+- [x] [平稳随机过程的概念：严平稳与宽平稳](./stationary-process)
+- [x] [各态历经性](./ergodicity)
+- [x] [相关函数的性质](./correlation-function-properties)
+- [x] [平稳随机过程的功率谱密度](./power-spectral-density)
+- [x] [维纳—辛钦公式](./wiener-khinchin)
+- [x] [白噪声与线性系统中的平稳过程](./white-noise-linear-systems)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

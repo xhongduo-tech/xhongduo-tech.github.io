@@ -12,47 +12,47 @@ pageClass: plain-doc
 
 ### 第一篇 自动控制原理
 
-- [ ] 控制系统基本概念
-- [ ] 控制系统数学模型（微分方程/传递函数）
-- [ ] 结构图与信号流图
-- [ ] 时域分析（一阶/二阶）
-- [ ] 稳定性判据（劳斯）
-- [ ] 稳态误差
-- [ ] 根轨迹法
-- [ ] 频率响应（Bode/Nyquist）
-- [ ] Nyquist稳定性判据
-- [ ] 控制系统的校正（串联/反馈）
-- [ ] PID控制
-- [ ] 复合控制
+- [x] [控制系统基本概念](./control-system-basic-concepts)
+- [x] [控制系统数学模型（微分方程/传递函数）](./mathematical-model-transfer-function)
+- [x] [结构图与信号流图](./block-diagram-signal-flow-graph)
+- [x] [时域分析（一阶/二阶）](./time-domain-analysis-first-second-order)
+- [x] [稳定性判据（劳斯）](./stability-routh-criterion)
+- [x] [稳态误差](./steady-state-error)
+- [x] [根轨迹法](./root-locus-method)
+- [x] [频率响应（Bode/Nyquist）](./frequency-response-bode-nyquist)
+- [x] [Nyquist稳定性判据](./nyquist-stability-criterion)
+- [x] [控制系统的校正（串联/反馈）](./control-system-compensation)
+- [x] [PID控制](./pid-control)
+- [x] [复合控制](./composite-control)
 
 ### 第二篇 现代控制理论
 
-- [ ] 状态空间描述
-- [ ] 状态方程求解
-- [ ] 能控性与能观性
-- [ ] 李雅普诺夫稳定性
-- [ ] 状态反馈与极点配置
-- [ ] 状态观测器
-- [ ] 最优控制（LQR）
-- [ ] 动态规划与变分法
-- [ ] 卡尔曼滤波
-- [ ] 随机控制
+- [x] [状态空间描述](./state-space-description)
+- [x] [状态方程求解](./state-equation-solution)
+- [x] [能控性与能观性](./controllability-observability)
+- [x] [李雅普诺夫稳定性](./lyapunov-stability)
+- [x] [状态反馈与极点配置](./state-feedback-pole-placement)
+- [x] [状态观测器](./state-observer)
+- [x] [最优控制（LQR）](./optimal-control-lqr)
+- [x] [动态规划与变分法](./dynamic-programming-calculus-of-variations)
+- [x] [卡尔曼滤波](./kalman-filter)
+- [x] [随机控制](./stochastic-control)
 
 ### 第三篇 智能控制
 
-- [ ] 模糊集合与模糊逻辑
-- [ ] 模糊控制设计
-- [ ] 神经网络控制
-- [ ] 自适应控制
-- [ ] 模型预测控制（MPC）
-- [ ] 滑模控制
-- [ ] 鲁棒控制
-- [ ] 智能优化算法（遗传/粒子群）
-- [ ] 强化学习控制
-- [ ] 工业过程控制
-- [ ] 运动控制（伺服）
-- [ ] 机器人控制
-- [ ] 飞行器与车辆控制
-- [ ] 控制系统工程实践
+- [x] [模糊集合与模糊逻辑](./fuzzy-set-fuzzy-logic)
+- [x] [模糊控制设计](./fuzzy-control-design)
+- [x] [神经网络控制](./neural-network-control)
+- [x] [自适应控制](./adaptive-control)
+- [x] [模型预测控制（MPC）](./model-predictive-control)
+- [x] [滑模控制](./sliding-mode-control)
+- [x] [鲁棒控制](./robust-control)
+- [x] [智能优化算法（遗传/粒子群）](./intelligent-optimization-algorithms)
+- [x] [强化学习控制](./reinforcement-learning-control)
+- [x] [工业过程控制](./industrial-process-control)
+- [x] [运动控制（伺服）](./motion-control-servo)
+- [x] [机器人控制](./robot-control)
+- [x] [飞行器与车辆控制](./flight-vehicle-control)
+- [x] [控制系统工程实践](./control-system-engineering-practice)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

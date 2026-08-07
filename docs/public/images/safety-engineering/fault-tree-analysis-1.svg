@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" font-family="sans-serif">
+  <title>故障树分析示例：储罐爆炸</title>
+  <desc>顶事件"储罐爆炸"经或门分为"超压爆裂"与"外力撞击"两条支路；"超压爆裂"再经与门由"压力超限"与"泄压保护失效"两个基本事件共同导致。</desc>
+  <rect width="600" height="420" fill="#faf9f5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <g stroke="#333" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <line x1="300" y1="80" x2="300" y2="98"/>
+    <line x1="300" y1="144" x2="220" y2="186"/>
+    <line x1="300" y1="144" x2="430" y2="186"/>
+    <line x1="220" y1="234" x2="220" y2="256"/>
+    <line x1="220" y1="304" x2="120" y2="328"/>
+    <line x1="220" y1="304" x2="320" y2="328"/>
+  </g>
+  <rect x="190" y="30" width="220" height="50" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="300" y="60" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">顶事件：储罐爆炸</text>
+  <rect x="255" y="100" width="90" height="44" rx="6" fill="#1f6f8b"/>
+  <text x="300" y="127" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">或门 OR</text>
+  <rect x="140" y="260" width="160" height="44" rx="6" fill="#1f6f8b"/>
+  <text x="220" y="287" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">与门 AND</text>
+  <rect x="140" y="190" width="160" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="220" y="217" text-anchor="middle" font-size="14" fill="#333">超压爆裂</text>
+  <circle cx="430" cy="212" r="26" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="430" y="217" text-anchor="middle" font-size="13" fill="#333">外力</text>
+  <text x="430" y="233" text-anchor="middle" font-size="13" fill="#333">撞击</text>
+  <circle cx="120" cy="352" r="26" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="120" y="357" text-anchor="middle" font-size="13" fill="#333">压力</text>
+  <text x="120" y="373" text-anchor="middle" font-size="13" fill="#333">超限</text>
+  <circle cx="320" cy="352" r="30" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="320" y="348" text-anchor="middle" font-size="12" fill="#333">泄压保护</text>
+  <text x="320" y="364" text-anchor="middle" font-size="12" fill="#333">失效</text>
+</svg>

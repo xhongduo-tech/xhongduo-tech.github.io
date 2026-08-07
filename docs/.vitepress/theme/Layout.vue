@@ -36,6 +36,8 @@ const t = computed(() =>
         homeLink: '/en/',
         posts: 'Posts',
         postsLink: '/en/posts/',
+        knowledge: 'Knowledge Tree',
+        knowledgeLink: '/en/knowledge-tree/',
         projects: 'Projects',
         projectsLink: '/en/projects/',
         lang: '中文',
@@ -48,6 +50,8 @@ const t = computed(() =>
         homeLink: '/',
         posts: '博文',
         postsLink: '/posts/',
+        knowledge: '知识树',
+        knowledgeLink: '/knowledge-tree/',
         projects: '项目',
         projectsLink: '/projects/',
         lang: 'EN',
@@ -74,6 +78,7 @@ watch(
         <span class="nav-links">
           <a :class="{ active: route.path === t.homeLink }" :href="withBase(t.homeLink)">{{ t.home }}</a>
           <a :class="{ active: route.path.startsWith(t.postsLink) }" :href="withBase(t.postsLink)">{{ t.posts }}</a>
+          <a :class="{ active: route.path.startsWith(t.knowledgeLink) }" :href="withBase(t.knowledgeLink)">{{ t.knowledge }}</a>
           <a :class="{ active: route.path.startsWith(t.projectsLink) }" :href="withBase(t.projectsLink)">{{ t.projects }}</a>
         </span>
         <span class="nav-tools">

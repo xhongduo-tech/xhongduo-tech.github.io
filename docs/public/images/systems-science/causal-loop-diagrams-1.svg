@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" font-family="sans-serif">
+  <title>因果回路图：增强回路与平衡回路</title>
+  <desc>左侧银行存款—利息构成增强回路（R），右侧温度偏差—制热功率构成平衡回路（B）。</desc>
+  <rect width="680" height="380" fill="#faf9f5"/>
+  <!-- 图例 -->
+  <text x="30" y="26" font-size="14" fill="#333">＋：同向变化　－：反向变化</text>
+  <!-- R 回路（左） -->
+  <text x="30" y="52" font-size="15" fill="#c0392b" font-weight="bold">R 增强回路（正反馈）</text>
+  <rect x="45" y="270" width="150" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="120" y="297" font-size="14" fill="#333" text-anchor="middle">存款余额</text>
+  <rect x="45" y="66" width="150" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="120" y="93" font-size="14" fill="#333" text-anchor="middle">年利息收入</text>
+  <path d="M120,270 C 40,270 40,110 120,110" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="120,94 111,112 129,112" fill="#c0392b"/>
+  <text x="42" y="195" font-size="15" fill="#c0392b" font-weight="bold">＋</text>
+  <path d="M120,110 C 200,110 200,270 120,270" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="120,286 111,268 129,268" fill="#c0392b"/>
+  <text x="192" y="195" font-size="15" fill="#c0392b" font-weight="bold">＋</text>
+  <text x="230" y="190" font-size="14" fill="#c0392b" text-anchor="middle">利率不变时，余额越多</text>
+  <text x="230" y="210" font-size="14" fill="#c0392b" text-anchor="middle">利息越多，自我放大</text>
+  <!-- B 回路（右） -->
+  <text x="380" y="52" font-size="15" fill="#1f6f8b" font-weight="bold">B 平衡回路（负反馈）</text>
+  <rect x="405" y="270" width="170" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="490" y="297" font-size="14" fill="#333" text-anchor="middle">温度偏差（目标−室温）</text>
+  <rect x="405" y="66" width="170" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="490" y="93" font-size="14" fill="#333" text-anchor="middle">制热功率</text>
+  <path d="M490,270 C 400,270 400,110 490,110" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <polygon points="490,94 481,112 499,112" fill="#1f6f8b"/>
+  <text x="408" y="195" font-size="15" fill="#1f6f8b" font-weight="bold">＋</text>
+  <path d="M490,110 C 580,110 580,270 490,270" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <polygon points="490,286 481,268 499,268" fill="#1f6f8b"/>
+  <text x="588" y="195" font-size="15" fill="#1f6f8b" font-weight="bold">−</text>
+  <text x="560" y="340" font-size="14" fill="#333" text-anchor="middle">偏差越大加热越猛，</text>
+  <text x="560" y="360" font-size="14" fill="#333" text-anchor="middle">温度回升则偏差缩小，趋向设定值</text>
+</svg>

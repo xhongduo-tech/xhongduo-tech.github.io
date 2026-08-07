@@ -38,7 +38,7 @@ $$
 G_{\text{where}} = \{\text{<wh},\ \text{whe},\ \text{her},\ \text{ere},\ \text{re>}\}
 $$
 
-除了这些片段，FastText 还要求把**整词本身**（记作 <where>）也作为一个单元放进集合，保证高频词的完整表示仍被直接学习。下图演示了这次分解：
+除了这些片段，FastText 还要求把**整词本身**（记作 `<where>`）也作为一个单元放进集合，保证高频词的完整表示仍被直接学习。下图演示了这次分解：
 
 ![FastText 的字符 n-gram 分解](/images/nlp/fasttext-subword-oov-1.svg)
 

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" font-family="sans-serif">
+  <title>向心加速度的方向：Δv 指向圆心</title>
+  <desc>左侧为圆周轨道，物体从 A 运动到 B，速度 v₁、v₂ 均沿切线、方向转过 Δθ；右侧将 v₁、v₂ 平移到同一起点构成速度三角形，Δv = v₂ − v₁ 连接两速度矢量的末端。当 Δθ 趋于零时，Δv 垂直于速度且指向圆心，这就是向心加速度的方向。</desc>
+  <rect width="560" height="340" fill="#faf9f5"/>
+
+  <!-- 左侧：圆周轨道 -->
+  <circle cx="170" cy="185" r="105" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="170" cy="185" r="3.5" fill="#333"/>
+  <text x="126" y="204" font-size="14" fill="#333">圆心 O</text>
+
+  <!-- 半径 OA（40°）、OB（70°） -->
+  <line x1="170" y1="185" x2="250" y2="253" stroke="#6b7f8c" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="170" y1="185" x2="206" y2="284" stroke="#6b7f8c" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- Δθ 弧 -->
+  <path d="M 201 211 A 40 40 0 0 1 184 223" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="176" y="210" font-size="14" fill="#333">Δθ</text>
+
+  <!-- 点 A、B -->
+  <circle cx="250" cy="253" r="3.5" fill="#1f6f8b"/>
+  <text x="257" y="249" font-size="14" fill="#1f6f8b">A</text>
+  <circle cx="206" cy="284" r="3.5" fill="#1f6f8b"/>
+  <text x="212" y="280" font-size="14" fill="#1f6f8b">B</text>
+
+  <!-- v₁ 在 A：沿切线，左下，长 40 -->
+  <line x1="250" y1="253" x2="225" y2="283" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="225,283 238,278 229,293" fill="#c0392b"/>
+  <text x="240" y="294" font-size="14" fill="#c0392b">v₁</text>
+
+  <!-- v₂ 在 B：沿切线，左下，长 40 -->
+  <line x1="206" y1="284" x2="168" y2="297" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="168,297 181,298 173,309" fill="#c0392b"/>
+  <text x="142" y="316" font-size="14" fill="#c0392b">v₂</text>
+
+  <!-- 左侧说明 -->
+  <text x="40" y="40" font-size="15" fill="#333">速度沿切线，方向随位置转过 Δθ</text>
+  <text x="40" y="62" font-size="13" fill="#6b7f8c">v₁、v₂ 大小相等，但方向不同，因此有 Δv</text>
+
+  <!-- 右侧：速度三角形 -->
+  <line x1="350" y1="180" x2="435" y2="180" stroke="#c9c2b6" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- v₁：水平向右，长 80 -->
+  <line x1="350" y1="180" x2="428" y2="180" stroke="#1f6f8b" stroke-width="3"/>
+  <polygon points="428,180 414,174 414,186" fill="#1f6f8b"/>
+  <text x="368" y="171" font-size="14" fill="#1f6f8b">v₁</text>
+  <!-- v₂：转过 Δθ=30°，右上 -->
+  <line x1="350" y1="180" x2="416" y2="142" stroke="#1f6f8b" stroke-width="3"/>
+  <polygon points="416,142 409,156 401,145" fill="#1f6f8b"/>
+  <text x="420" y="136" font-size="14" fill="#1f6f8b">v₂</text>
+  <!-- Δv：v₁ 末端 → v₂ 末端 -->
+  <line x1="428" y1="180" x2="416" y2="142" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="416,142 426,152 413,157" fill="#c0392b"/>
+  <text x="434" y="168" font-size="14" fill="#c0392b">Δv = v₂ − v₁</text>
+  <!-- Δθ 标注 -->
+  <path d="M 396 180 A 46 46 0 0 0 390 151" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="400" y="166" font-size="13" fill="#333">Δθ</text>
+
+  <!-- 右侧说明 -->
+  <text x="360" y="252" font-size="14" fill="#333">将 v₁、v₂ 平移，共起点</text>
+  <text x="360" y="274" font-size="13" fill="#6b7f8c">Δθ→0 时，Δv 垂直于 v、指向圆心</text>
+</svg>

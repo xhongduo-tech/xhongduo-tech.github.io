@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" width="860" height="380" font-family="sans-serif">
+  <title>带宽对数字信号的影响</title>
+  <desc>同一串方波 10110 经过不同带宽信道后的波形失真程度对比。</desc>
+  <rect x="0" y="0" width="860" height="380" fill="#faf9f5"/>
+  <text x="430" y="28" font-size="16" font-weight="bold" fill="#333" text-anchor="middle">带宽 W 对数字方波的影响</text>
+
+  <!-- 原始信号 -->
+  <text x="60" y="70" font-size="14" font-weight="bold" fill="#c0392b">原始方波（理想）</text>
+  <line x1="40" y1="108" x2="820" y2="108" stroke="#ccc" stroke-width="1"/>
+  <path d="M 60 108 L 60 62 L 105 62 L 105 108 L 150 108 L 150 62 L 195 62 L 195 108 L 240 108 L 240 62 L 285 62 L 285 108 L 330 108 L 330 62 L 375 62 L 375 108 L 420 108 L 420 62 L 465 62 L 465 108 L 510 108 L 510 62 L 555 62 L 555 108 L 600 108 L 600 62 L 645 62 L 645 108 L 690 108 L 690 62 L 735 62 L 735 108 L 780 108 L 780 62 L 820 62 L 820 108"
+        fill="none" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- 带宽足够 -->
+  <text x="60" y="155" font-size="14" font-weight="bold" fill="#333">带宽足够（保留多次谐波）</text>
+  <line x1="40" y1="193" x2="820" y2="193" stroke="#ccc" stroke-width="1"/>
+  <path d="M 60 193 L 60 147 L 105 147 L 105 193 L 150 193 L 150 147 L 195 147 L 195 193 L 240 193 L 240 147 L 285 147 L 285 193 L 330 193 L 330 147 L 375 147 L 375 193 L 420 193 L 420 147 L 465 147 L 465 193 L 510 193 L 510 147 L 555 147 L 555 193 L 600 193 L 600 147 L 645 147 L 645 193 L 690 193 L 690 147 L 735 147 L 735 193 L 780 193 L 780 147 L 820 147 L 820 193"
+        fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="360" cy="170" r="3" fill="#333"/><circle cx="390" cy="170" r="3" fill="#333"/><circle cx="420" cy="170" r="3" fill="#333"/>
+
+  <!-- 带宽受限 -->
+  <text x="60" y="240" font-size="14" font-weight="bold" fill="#333">带宽受限（谐波被切）——波形失真</text>
+  <line x1="40" y1="278" x2="820" y2="278" stroke="#ccc" stroke-width="1"/>
+  <path d="M 60 278 L 60 232 C 90 232 90 232 105 232 C 120 232 120 278 150 278 C 165 278 165 232 195 232 C 210 232 210 278 240 278 C 255 278 255 232 285 232 C 300 232 300 278 330 278 C 345 278 345 232 375 232 C 390 232 390 278 420 278 C 435 278 435 232 465 232 C 480 232 480 278 510 278 C 525 278 525 232 555 232 C 570 232 570 278 600 278 C 615 278 615 232 645 232 C 660 232 660 278 690 278 C 705 278 705 232 735 232 C 750 232 750 278 780 278 C 795 278 795 232 820 232 L 820 278"
+        fill="none" stroke="#1f6f8b" stroke-width="2"/>
+
+  <!-- 严重受限 -->
+  <text x="60" y="322" font-size="14" font-weight="bold" fill="#333">带宽严重受限——几乎无法分辨码元</text>
+  <line x1="40" y1="360" x2="820" y2="360" stroke="#ccc" stroke-width="1"/>
+  <path d="M 60 360 C 120 316 180 316 240 360 C 300 316 360 316 420 360 C 480 316 540 316 600 360 C 660 316 720 316 780 360 C 800 340 810 340 820 340"
+        fill="none" stroke="#c0392b" stroke-width="2"/>
+
+  <text x="800" y="90" font-size="13" fill="#666" text-anchor="end">10110…</text>
+</svg>

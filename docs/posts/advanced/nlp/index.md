@@ -57,119 +57,119 @@ pageClass: plain-doc
 ### 第六篇 序列标注
 
 - [x] [序列标注问题与标注策略（BIO/BIOES）](./sequence-labeling-bio)
-- [ ] 隐马尔可夫模型（HMM）：模型定义与三个基本问题
-- [ ] HMM 的学习与解码：前向算法、维特比算法（Viterbi）
-- [ ] 最大熵马尔可夫模型（MEMM）与标注偏置问题
-- [ ] 条件随机场（CRF）：模型定义与特征函数
-- [ ] CRF 的参数估计与推断
-- [ ] BiLSTM-CRF：神经网络与结构化预测的结合
+- [x] [隐马尔可夫模型（HMM）：模型定义与三个基本问题](./hmm-model-definition)
+- [x] [HMM 的学习与解码：前向算法、维特比算法（Viterbi）](./hmm-forward-viterbi)
+- [x] [最大熵马尔可夫模型（MEMM）与标注偏置问题](./memm-label-bias)
+- [x] [条件随机场（CRF）：模型定义与特征函数](./crf-model-features)
+- [x] [CRF 的参数估计与推断](./crf-parameter-estimation-inference)
+- [x] [BiLSTM-CRF：神经网络与结构化预测的结合](./bilstm-crf)
 
 ### 第七篇 文本分类与情感分析
 
-- [ ] 文本分类问题与特征工程
-- [ ] 朴素贝叶斯文本分类器
-- [ ] 逻辑回归与支持向量机（SVM）分类器
-- [ ] 基于 CNN 的文本分类（TextCNN）
-- [ ] 基于 RNN 与注意力机制的文本分类
-- [ ] 情感分析：情感词典方法与篇章级情感分类
-- [ ] 方面级情感分析（Aspect-Based Sentiment Analysis）
+- [x] [文本分类问题与特征工程](./text-classification-features)
+- [x] [朴素贝叶斯文本分类器](./naive-bayes-text-classification)
+- [x] [逻辑回归与支持向量机（SVM）分类器](./logistic-regression-svm-classifier)
+- [x] [基于 CNN 的文本分类（TextCNN）](./textcnn)
+- [x] [基于 RNN 与注意力机制的文本分类](./rnn-attention-text-classification)
+- [x] [情感分析：情感词典方法与篇章级情感分类](./sentiment-analysis-lexicon-document)
+- [x] [方面级情感分析（Aspect-Based Sentiment Analysis）](./aspect-based-sentiment-analysis)
 
 ### 第八篇 句法分析
 
-- [ ] 句法分析概述：短语结构语法与依存语法
-- [ ] 上下文无关文法（CFG）与概率上下文无关文法（PCFG）
-- [ ] 成分句法分析：CYK 算法与基于 PCFG 的统计 parsing
-- [ ] 依存句法分析：基于转移的方法（Arc-Standard / Arc-Eager）
-- [ ] 依存句法分析：基于图的方法与神经依存分析器
+- [x] [句法分析概述：短语结构语法与依存语法](./syntax-analysis-overview)
+- [x] [上下文无关文法（CFG）与概率上下文无关文法（PCFG）](./cfg-pcfg)
+- [x] [成分句法分析：CYK 算法与基于 PCFG 的统计 parsing](./cyk-pcfg-parsing)
+- [x] [依存句法分析：基于转移的方法（Arc-Standard / Arc-Eager）](./dependency-parsing-transition-based)
+- [x] [依存句法分析：基于图的方法与神经依存分析器](./dependency-parsing-graph-neural)
 
 ### 第九篇 语义分析
 
-- [ ] 词义消歧（Word Sense Disambiguation）：有监督与基于词典的方法
-- [ ] 语义角色标注（Semantic Role Labeling）
-- [ ] FrameNet 与 PropBank 语义资源
-- [ ] 语义组合性与分布组合语义
-- [ ] 文本蕴含与自然语言推理（NLI）
-- [ ] 语义解析（Semantic Parsing）与 SQL 生成
+- [x] [词义消歧（Word Sense Disambiguation）：有监督与基于词典的方法](./word-sense-disambiguation)
+- [x] [语义角色标注（Semantic Role Labeling）](./semantic-role-labeling)
+- [x] [FrameNet 与 PropBank 语义资源](./framenet-propbank)
+- [x] [语义组合性与分布组合语义](./compositional-semantics)
+- [x] [文本蕴含与自然语言推理（NLI）](./textual-entailment-nli)
+- [x] [语义解析（Semantic Parsing）与 SQL 生成](./semantic-parsing-sql)
 
 ### 第十篇 机器翻译
 
-- [ ] 机器翻译概述：发展历史与评价方法（BLEU）
-- [ ] 统计机器翻译：基于词与基于短语的模型
-- [ ] 统计机器翻译：IBM 模型与词对齐
-- [ ] 神经机器翻译：编码器-解码器框架（Seq2Seq）
-- [ ] 注意力机制（Attention）在机器翻译中的应用
-- [ ] Transformer：自注意力与多头注意力机制
-- [ ] 机器翻译中的未登录词处理与子词切分（BPE）
+- [x] [机器翻译概述：发展历史与评价方法（BLEU）](./machine-translation-overview-bleu)
+- [x] [统计机器翻译：基于词与基于短语的模型](./smt-word-phrase-based)
+- [x] [统计机器翻译：IBM 模型与词对齐](./ibm-models-word-alignment)
+- [x] [神经机器翻译：编码器-解码器框架（Seq2Seq）](./nmt-seq2seq)
+- [x] [注意力机制（Attention）在机器翻译中的应用](./attention-in-mt)
+- [x] [Transformer：自注意力与多头注意力机制](./transformer-self-attention)
+- [x] [机器翻译中的未登录词处理与子词切分（BPE）](./bpe-subword)
 
 ### 第十一篇 信息抽取
 
-- [ ] 信息抽取概述：任务体系与评测会议（MUC/ACE）
-- [ ] 命名实体识别（NER）：序列标注方法与嵌套实体识别
-- [ ] 实体识别与实体链接（Entity Linking）
-- [ ] 关系抽取：基于模式、监督学习与远程监督方法
-- [ ] 事件抽取：事件检测与论元抽取
-- [ ] 指代消解（Coreference Resolution）
-- [ ] 开放域信息抽取（Open IE）
+- [x] [信息抽取概述：任务体系与评测会议（MUC/ACE）](./information-extraction-overview)
+- [x] [命名实体识别（NER）：序列标注方法与嵌套实体识别](./ner-sequences-nested)
+- [x] [实体识别与实体链接（Entity Linking）](./entity-linking)
+- [x] [关系抽取：基于模式、监督学习与远程监督方法](./relation-extraction)
+- [x] [事件抽取：事件检测与论元抽取](./event-extraction)
+- [x] [指代消解（Coreference Resolution）](./coreference-resolution)
+- [x] [开放域信息抽取（Open IE）](./open-information-extraction)
 
 ### 第十二篇 知识图谱与 NLP
 
-- [ ] 知识图谱概述：表示、构建与应用
-- [ ] 知识图谱构建中的 NLP 技术：实体与关系获取
-- [ ] 知识表示学习：TransE 及其扩展模型
-- [ ] 知识图谱补全与知识推理
-- [ ] 知识图谱在 NLP 任务中的应用
+- [x] [知识图谱概述：表示、构建与应用](./knowledge-graph-overview)
+- [x] [知识图谱构建中的 NLP 技术：实体与关系获取](./kg-construction-nlp)
+- [x] [知识表示学习：TransE 及其扩展模型](./transe-knowledge-embedding)
+- [x] [知识图谱补全与知识推理](./kg-completion-reasoning)
+- [x] [知识图谱在 NLP 任务中的应用](./kg-applications-nlp)
 
 ### 第十三篇 问答系统
 
-- [ ] 问答系统概述：发展历程与任务类型
-- [ ] 基于检索的问答与知识库问答（KBQA）
-- [ ] 机器阅读理解（MRC）：数据集与经典模型
-- [ ] 机器阅读理解：BiDAF、QANet 与基于预训练模型的方法
-- [ ] 开放域问答（Open-domain QA）：检索-阅读两阶段框架
+- [x] [问答系统概述：发展历程与任务类型](./qa-system-overview)
+- [x] [基于检索的问答与知识库问答（KBQA）](./retrieval-kbqa)
+- [x] [机器阅读理解（MRC）：数据集与经典模型](./mrc-datasets-models)
+- [x] [机器阅读理解：BiDAF、QANet 与基于预训练模型的方法](./mrc-bidaf-qanet-pretrained)
+- [x] [开放域问答（Open-domain QA）：检索-阅读两阶段框架](./open-domain-qa)
 
 ### 第十四篇 对话系统
 
-- [ ] 对话系统概述：任务型对话与开放域闲聊
-- [ ] 任务型对话系统：对话状态跟踪与对话策略
-- [ ] 自然语言理解（NLU）：意图识别与槽位填充
-- [ ] 基于检索与基于生成的对话回复生成
-- [ ] 对话系统的评价与端到端对话系统
+- [x] [对话系统概述：任务型对话与开放域闲聊](./dialogue-system-overview)
+- [x] [任务型对话系统：对话状态跟踪与对话策略](./task-oriented-dialogue-dst-policy)
+- [x] [自然语言理解（NLU）：意图识别与槽位填充](./nlu-intent-slot)
+- [x] [基于检索与基于生成的对话回复生成](./dialogue-response-generation)
+- [x] [对话系统的评价与端到端对话系统](./dialogue-evaluation-e2e)
 
 ### 第十五篇 文本摘要
 
-- [ ] 自动文本摘要概述：抽取式与生成式方法
-- [ ] 抽取式摘要：TextRank、LexRank 与监督学习方法
-- [ ] 生成式摘要：Seq2Seq 模型与指针生成网络（Pointer-Generator）
-- [ ] 摘要的评价：ROUGE 与人工评价
-- [ ] 多文档摘要与查询导向摘要
+- [x] [自动文本摘要概述：抽取式与生成式方法](./text-summarization-overview)
+- [x] [抽取式摘要：TextRank、LexRank 与监督学习方法](./extractive-summarization-textrank)
+- [x] [生成式摘要：Seq2Seq 模型与指针生成网络（Pointer-Generator）](./abstractive-summarization-pointer-generator)
+- [x] [摘要的评价：ROUGE 与人工评价](./summarization-evaluation-rouge)
+- [x] [多文档摘要与查询导向摘要](./multi-document-query-focused-summarization)
 
 ### 第十六篇 文本生成
 
-- [ ] 自然语言生成（NLG）概述与任务类型
-- [ ] 文本生成的解码策略：贪心搜索、集束搜索与采样
-- [ ] 数据到文本生成（Data-to-Text）
-- [ ] 文本风格迁移与可控文本生成
-- [ ] 文本生成的评价与暴露偏差问题
+- [x] [自然语言生成（NLG）概述与任务类型](./nlg-overview)
+- [x] [文本生成的解码策略：贪心搜索、集束搜索与采样](./decoding-strategies)
+- [x] [数据到文本生成（Data-to-Text）](./data-to-text-generation)
+- [x] [文本风格迁移与可控文本生成](./style-transfer-controlled-generation)
+- [x] [文本生成的评价与暴露偏差问题](./text-generation-evaluation-exposure-bias)
 
 ### 第十七篇 篇章分析
 
-- [ ] 篇章分析概述：连贯性与衔接性
-- [ ] 修辞结构理论（RST）与篇章结构分析
-- [ ] 篇章关系识别与 PDTB 语料
-- [ ] 篇章连贯性建模与话题分割
+- [x] [篇章分析概述：连贯性与衔接性](./discourse-analysis-overview)
+- [x] [修辞结构理论（RST）与篇章结构分析](./rst-discourse-structure)
+- [x] [篇章关系识别与 PDTB 语料](./pdtb-discourse-relations)
+- [x] [篇章连贯性建模与话题分割](./discourse-coherence-topic-segmentation)
 
 ### 第十八篇 跨语言与低资源 NLP
 
-- [ ] 跨语言 NLP 概述：语言差异与迁移问题
-- [ ] 跨语言词向量与多语言词表示
-- [ ] 低资源 NLP：迁移学习、数据增强与半监督方法
-- [ ] 多语言模型（mBERT、XLM）与零样本跨语言迁移
+- [x] [跨语言 NLP 概述：语言差异与迁移问题](./cross-lingual-nlp-overview)
+- [x] [跨语言词向量与多语言词表示](./cross-lingual-word-vectors)
+- [x] [低资源 NLP：迁移学习、数据增强与半监督方法](./low-resource-nlp)
+- [x] [多语言模型（mBERT、XLM）与零样本跨语言迁移](./multilingual-models-mbert-xlm)
 
 ### 第十九篇 NLP 评测
 
-- [ ] NLP 评测方法：准确率、召回率、F1 值与显著性检验
-- [ ] 基准数据集与评测榜单（GLUE、CLUE）
-- [ ] 生成类任务的自动评价与人工评价
-- [ ] 数据集的偏差、鲁棒性与泛化能力评测
+- [x] [NLP 评测方法：准确率、召回率、F1 值与显著性检验](./nlp-evaluation-metrics)
+- [x] [基准数据集与评测榜单（GLUE、CLUE）](./benchmark-datasets-glue-clue)
+- [x] [生成类任务的自动评价与人工评价](./generation-task-evaluation)
+- [x] [数据集的偏差、鲁棒性与泛化能力评测](./dataset-bias-robustness)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

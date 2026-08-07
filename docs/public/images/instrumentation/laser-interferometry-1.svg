@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="title desc">
+  <title>迈克耳孙激光干涉测量原理</title>
+  <desc>激光经分光镜分为参考臂与测量臂两束光，测量镜移动使两束光光程差变化，在探测器上产生明暗条纹。</desc>
+  <rect x="0" y="0" width="720" height="300" fill="#faf9f5"/>
+  <g font-family="sans-serif" font-size="15" fill="#333">
+    <!-- 激光器 -->
+    <rect x="20" y="130" width="90" height="40" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="65" y="156" text-anchor="middle">激光器</text>
+    <!-- 分光镜 -->
+    <polygon points="250,70 250,230 330,230 330,70" fill="#fff" stroke="#c0392b" stroke-width="2" transform="rotate(45 290 150)"/>
+    <text x="290" y="260" text-anchor="middle" font-size="13" fill="#c0392b">分光镜</text>
+    <!-- 参考镜 -->
+    <rect x="130" y="40" width="50" height="16" rx="3" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="155" y="30" text-anchor="middle" font-size="13">固定镜</text>
+    <!-- 测量镜 -->
+    <rect x="470" y="190" width="50" height="16" rx="3" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="495" y="230" text-anchor="middle" font-size="13">测量镜</text>
+    <text x="495" y="248" text-anchor="middle" font-size="13" fill="#c0392b">移动 d</text>
+    <!-- 入射光 -->
+    <line x1="110" y1="150" x2="240" y2="150" stroke="#c0392b" stroke-width="2"/>
+    <polygon points="245,150 235,145 235,155" fill="#c0392b"/>
+    <text x="170" y="140" text-anchor="middle" font-size="13" fill="#c0392b">入射光</text>
+    <!-- 参考臂 -->
+    <line x1="290" y1="150" x2="290" y2="60" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="5,4"/>
+    <line x1="290" y1="48" x2="290" y2="40" stroke="#1f6f8b" stroke-width="2"/>
+    <polygon points="290,48 285,55 295,55" fill="#1f6f8b"/>
+    <text x="305" y="100" text-anchor="start" font-size="13" fill="#1f6f8b">参考臂</text>
+    <!-- 测量臂 -->
+    <line x1="290" y1="150" x2="290" y2="198" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="5,4"/>
+    <line x1="290" y1="210" x2="290" y2="218" stroke="#1f6f8b" stroke-width="2"/>
+    <polygon points="290,210 285,203 295,203" fill="#1f6f8b"/>
+    <line x1="290" y1="198" x2="466" y2="198" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="5,4"/>
+    <polygon points="470,198 460,193 460,203" fill="#1f6f8b"/>
+    <text x="380" y="190" text-anchor="middle" font-size="13" fill="#1f6f8b">测量臂</text>
+    <!-- 探测器 -->
+    <rect x="520" y="130" width="90" height="40" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="565" y="156" text-anchor="middle">探测器</text>
+    <line x1="335" y1="150" x2="516" y2="150" stroke="#333" stroke-width="2"/>
+    <polygon points="520,150 510,145 510,155" fill="#333"/>
+    <text x="430" y="140" text-anchor="middle" font-size="13">干涉光</text>
+    <!-- 图注 -->
+    <text x="20" y="286" font-size="13" fill="#1f6f8b">d = N·λ/2：条纹变化 N 次即测量镜移动 N 个半波长</text>
+  </g>
+</svg>

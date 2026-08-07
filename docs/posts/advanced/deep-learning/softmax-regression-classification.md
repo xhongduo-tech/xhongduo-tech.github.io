@@ -1,0 +1,120 @@
+---
+title: Softmax 回归与分类问题
+date: 2026-08-07
+---
+
+# Softmax 回归与分类问题
+
+<div class="epigraph">
+<p>一切事物在合适的概率下都可能发生，只是可能性不同。</p>
+<footer>—— 皮埃尔-西蒙 · 拉普拉斯（Pierre-Simon Laplace）</footer>
+</div>
+
+<div class="article-byline">
+<p>第四级 · 深度学习 ｜ 花书《深度学习》§6.2.2、李沐《动手学深度学习》§3.4 ｜ 2026-08-07</p>
+</div>
+
+## 为什么从 Softmax 回归开始
+
+线性回归回答了「输出一个实数」的问题。但深度学习更大的战场是**分类**：图像里是猫还是狗、邮件是垃圾还是正常、医疗影像里是良性还是恶性。分类与回归的本质区别在于**输出的语义**：回归输出一个数，分类输出**对每个类别的信念程度**——一个落在 $[0,1]$、且总和为 1 的概率分布。**Softmax 回归**就是「线性回归 + 多类分类」的最小完整模型：它把线性层的得分变成概率，再用交叉熵度量「预测分布与真实分布的距离」。
+
+Softmax 回归在概念史上是理解深度网络的**跳板**：它本身是一个无隐藏层的线性分类器，但它的两个部件——**Softmax 函数**与**交叉熵损失**——会被原封不动地移植到一切分类网络的输出层。也就是说，**今天所有图像分类、文本分类网络的最后一层，都还是 Softmax 回归**。把这节吃透，后面的网络只是换掉了中间的「特征提取器」。<span class="marginnote">Softmax 回归与第一级《概率论》的接口：它输出的正是「给定输入 $x$ 时，各类别的条件概率分布 $P(y \mid \boldsymbol{x})$」。理解它需要先有熵与 KL 散度的直觉，可回看第一篇《信息论：熵、交叉熵与 KL 散度》。</span>
+
+## 1 从回归到分类：输出一个分布
+
+二分类可以用单个 Sigmoid 输出 $P(y=1\mid\boldsymbol{x})$，$1-$ 它即得另一类概率。**多分类**需要输出 $k$ 个类别的概率。先看朴素做法会踩的坑：
+
+**易错点：** 不能直接对线性得分做归一化 $\frac{\text{score}_j}{\sum_j \text{score}_j}$。因为得分可以是负的（线性层输出无下界），归一化后会出现负概率；且得分之间是**加法关系**，对「得分差」的语义表达很弱。
+
+**Softmax 函数**的精确做法是先取指数再归一化：对得分向量 $\boldsymbol{o} \in \mathbb{R}^k$（称为**logits，对数几率**），
+
+$$
+\hat{y}_j = \text{softmax}(\boldsymbol{o})_j = \frac{\exp(o_j)}{\sum_{i=1}^{k} \exp(o_i)}
+$$
+
+三条性质使它成为分类输出的标准选择：
+
+- **非负**：指数函数恒正，所有输出 $> 0$。
+- **归一化**：分母是全部指数的和，输出总和恒为 1。
+- **单调保序**：得分越大，概率越大——Softmax 保持得分间的排序关系。
+
+**指数为什么必要？** 因为指数把「得分差」变成「概率比」：$\frac{\hat{y}_j}{\hat{y}_l} = e^{o_j - o_l}$。Softmax 不关心得分的绝对大小，只关心**相对差**——这是它「soft」之名的由来：它做的是「软的」max，把 argmax 的独裁选择软化为概率分布。<span class="marginnote">「Softmax」可拆成 Soft + Max：当某类得分远大于其他类时，它的概率趋近 1（逼近硬 max）；得分接近时，概率被摊平。温度参数 $T$（把 $o_j$ 换成 $o_j/T$）可以调节这个「软硬程度」，$T \to 0$ 时退化为 argmax，$T \to \infty$ 时退化为均匀分布——温度采样在语言模型生成里至关重要，见第六篇《GPT 系列》。</span>
+
+## 2 交叉熵损失：度量两个分布的距离
+
+分类的标签用**独热编码（one-hot encoding）**表示：真实类别对应的分量是 1，其余是 0。设真实分布为 $\boldsymbol{y}$，预测分布为 $\hat{\boldsymbol{y}}$，用**交叉熵（cross-entropy）**作为损失：
+
+$$
+L = H(\boldsymbol{y}, \hat{\boldsymbol{y}}) = -\sum_{j=1}^{k} y_j \log \hat{y}_j = -\log \hat{y}_{\text{true}}
+$$
+
+第二个等号是因为独热编码下只有真实类别的 $y_{\text{true}}=1$，其余项为 0。**交叉熵损失 = 预测分布给真实类别分配的概率的对数，取负号**。
+
+三步拆解这个损失：
+
+- **第一步，看含义**：$\hat{y}_{\text{true}}$ 是模型认为「真实类别」的概率。它越接近 1，$-\log \hat{y}_{\text{true}}$ 越接近 0；它越小（模型很不确信），损失越大——**损失惩罚「对真实类别没信心」**。
+- **第二步，看与 KL 散度的关系**：交叉熵 $H(\boldsymbol{y},\hat{\boldsymbol{y}}) = H(\boldsymbol{y}) + D_{\text{KL}}(\boldsymbol{y}\,\|\,\hat{\boldsymbol{y}})$。真实分布 $\boldsymbol{y}$ 的熵 $H(\boldsymbol{y})$ 是常数（独热熵为 0），所以**最小化交叉熵 = 最小化 KL 散度**——即让预测分布逼近真实分布。
+- **第三步，看与最大似然的关系**：最小化交叉熵等价于**最大化对数似然**——这正是 Softmax 回归「最大似然估计」身份的体现，与线性回归用 MSE 同理。<span class="marginnote">「分类用交叉熵、回归用均方误差」不是习惯问题而是概率问题：交叉熵对应<strong>类别分布</strong>（多项分布）的负对数似然，MSE 对应<strong>高斯噪声</strong>的负对数似然。在分类问题上硬用 MSE，会得到「对概率做最小二乘」的别扭优化面，收敛更慢且梯度更小——这是初学者最常犯的损失函数错误。</span>
+
+## 3 从线性回归到 Softmax 回归
+
+Softmax 回归的完整结构就是「线性层 + Softmax + 交叉熵」：
+
+1. **得分**：$\boldsymbol{o} = \boldsymbol{X}\boldsymbol{W} + \boldsymbol{b}$，其中 $\boldsymbol{W} \in \mathbb{R}^{d \times k}$、$\boldsymbol{b} \in \mathbb{R}^k$。
+2. **概率**：$\hat{\boldsymbol{Y}} = \text{softmax}(\boldsymbol{o})$，逐行归一化。
+3. **损失**：$L = -\frac{1}{n}\sum_i \log \hat{y}^{(i)}_{\text{true}^{(i)}}$，对全部样本平均。
+
+用 PyTorch 从零实现核心前向与损失（仍不用高层 API）：
+
+```python
+import torch
+
+X = torch.randn(256, 28 * 28)          # 256 个 28×28 图像（Fashion-MNIST 风格）
+y = torch.randint(0, 10, (256,))       # 10 类标签
+W = torch.zeros((28 * 28, 10), requires_grad=True)
+b = torch.zeros(10, requires_grad=True)
+
+logits = X @ W + b
+# Softmax + 交叉熵合一实现（数值稳定的写法）
+max_logits = logits.max(dim=1, keepdim=True).values
+exp = (logits - max_logits).exp()
+probs = exp / exp.sum(dim=1, keepdim=True)
+loss = -probs[torch.arange(256), y].log().mean()
+
+loss.backward()
+print("loss =", loss.item())
+```
+
+这段代码有两个工程细节值得注意。**数值稳定性**：先减去 `max_logits` 再做指数，防止 $\exp(o_j)$ 上溢（$o_j$ 很大时 $\exp$ 爆到无穷）；这个减法不改变 Softmax 结果，因为分子分母同除一个常数。**索引技巧**：`probs[arange, y]` 一次性取出每个样本真实类别对应的概率——正是上面「$-\log \hat{y}_{\text{true}}$」的向量化实现。<span class="marginnote">「Softmax 与交叉熵一起实现」是另一个稳定性要点：$\frac{\partial L}{\partial o_j}$ 化简后等于 $\hat{y}_j - y_j$（预测概率减独热标签），指数项恰好抵消。框架里 `CrossEntropyLoss(logits, y)` 都是把这个组合写死的——这也是为什么你传进 `CrossEntropyLoss` 的是 logits 而非概率。</span>
+
+## 4 易错点：Softmax 回归的三个经典坑
+
+**易错点一：交叉熵收到概率而非 logits。** 若手写 `softmax` 再喂给 `cross_entropy`，会遭遇双重归一化与数值不稳定；框架的 `CrossEntropyLoss` 内部只做一次归一化。牢记：**给交叉熵的输入是 logits，不是概率**。
+
+**易错点二：类别不平衡时准确率失真。** 若 99% 样本是「正常」类，一个「全预测正常」的模型准确率高达 99%，却毫无用处。此时要看**混淆矩阵**与各类别精确率/召回率，或对损失按类别加权——这个主题在第九篇《性能指标》展开。
+
+**易错点三：Softmax 对分布外输入过度自信。** Softmax 输出的是「相对得分」而非「校准概率」：即便输入完全陌生（如训练时没见过的图像风格），模型仍会自信地给出接近 1 的概率。这是「预测概率 ≠ 真实置信度」的典型例子，也是校准（calibration）与不确定性估计研究的动机。<span class="marginnote">把「Softmax 概率」当「真实不确定性」是深度学习部署中最危险的习惯之一。医疗、自动驾驶等安全攸关场景要求校准过的概率——见第四级《AI 安全与对齐》对过度自信与校准的讨论。</span>
+
+## 5 Softmax 回归在分类家族中的位置
+
+用一个对照表把本节的模型与前后模型放清楚：
+
+| 模型 | 输出 | 损失 | 决策面 | 位置 |
+| --- | --- | --- | --- | --- |
+| 线性回归 | 1 个实数 | MSE | 超平面 | 上一节 |
+| Softmax 回归 | $k$ 类概率 | 交叉熵 | 超平面（类间） | 本节 |
+| 感知机 | 符号 | 0-1 损失（不可导） | 超平面 | 下一节 |
+| 多层感知机 | 任意 | 任意 | 非线性 | 再下一节 |
+
+Softmax 回归的**决策边界仍是线性超平面**——它只能分开「线性可分」的数据。真正打破线性局限的是引入隐藏层与非线性激活，这正是下两节的内容。<span class="marginnote">「Softmax 回归是线性的」这句判断常被忽略：许多号称「深度学习」的图像分类器，若去掉隐藏层，其可分性上限就是线性边界。深度网络的威力不在输出层，而在前面的特征提取层把数据变成「线性可分」的新表示。</span>
+
+## 6 小结
+
+- 多分类要求输出**概率分布**；**Softmax** 通过取指数再归一化，把得分变概率，且保序。
+- 标签用**独热编码**；**交叉熵损失** $-\log \hat{y}_{\text{true}}$ 等价于最大化对数似然、最小化 KL 散度。
+- **Softmax 回归 = 线性层 + Softmax + 交叉熵**，是无隐藏层的线性分类器。
+- 数值稳定写法：先减 max 再取指数；框架里交叉熵吃的是 **logits**。
+- Softmax 概率是「相对得分」而非校准置信度，对分布外输入会过度自信。
+- 它只能提供**线性决策面**，突破线性要靠隐藏层。
+
+在下一节，我们回到神经网络历史上第一个学习算法，看一个线性分类器如何通过简单的规则学会分类——这就是**感知机与多层感知机**。

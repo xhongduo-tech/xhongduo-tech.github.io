@@ -12,31 +12,31 @@ pageClass: plain-doc
 
 ### 第一篇 数字人文基础
 
-- [ ] 数字人文的内涵
-- [ ] 人文数据的数字化
-- [ ] 文本数字化与OCR
-- [ ] 语料库构建
-- [ ] 数字档案与数据库
+- [x] [数字人文的内涵](./digital-humanities-connotation)
+- [x] [人文数据的数字化](./humanities-data-digitization)
+- [x] [文本数字化与OCR](./ocr-text-digitization)
+- [x] [语料库构建](./corpus-construction)
+- [x] [数字档案与数据库](./digital-archives-databases)
 
 ### 第二篇 方法与工具
 
-- [ ] 文本挖掘与词频分析
-- [ ] 主题建模
-- [ ] 网络分析在人文的应用
-- [ ] 空间分析（历史GIS）
-- [ ] 机器学习与人文研究
-- [ ] 数据可视化与叙事
-- [ ] 数字出版与平台
+- [x] [文本挖掘与词频分析](./text-mining-word-frequency)
+- [x] [主题建模](./topic-modeling)
+- [x] [网络分析在人文的应用](./network-analysis-humanities)
+- [x] [空间分析（历史GIS）](./spatial-analysis-historical-gis)
+- [x] [机器学习与人文研究](./machine-learning-humanities)
+- [x] [数据可视化与叙事](./data-visualization-narrative)
+- [x] [数字出版与平台](./digital-publishing-platforms)
 
 ### 第三篇 应用与批判
 
-- [ ] 文学计算研究
-- [ ] 历史学与数字史学
-- [ ] 艺术与图像计算
-- [ ] 音乐的数字研究
-- [ ] 数字文化遗产
-- [ ] 数字人文批评与伦理
-- [ ] 数字人文与知识图谱
-- [ ] 数字人文项目实践
+- [x] [文学计算研究](./computational-literary-studies)
+- [x] [历史学与数字史学](./digital-history)
+- [x] [艺术与图像计算](./art-image-computation)
+- [x] [音乐的数字研究](./digital-music-studies)
+- [x] [数字文化遗产](./digital-cultural-heritage)
+- [x] [数字人文批评与伦理](./digital-humanities-critique-ethics)
+- [x] [数字人文与知识图谱](./digital-humanities-knowledge-graphs)
+- [x] [数字人文项目实践](./digital-humanities-project-practice)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

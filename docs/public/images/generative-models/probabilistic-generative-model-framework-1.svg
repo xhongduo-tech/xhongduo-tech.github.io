@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="sans-serif">
+  <title>生成模型分类树</title>
+  <desc>按密度是否显式、是否可解，将生成模型划分为自回归、归一化流、VAE、扩散模型与 GAN 五大流派</desc>
+  <rect width="720" height="400" fill="#faf9f5"/>
+  <!-- 根节点 -->
+  <rect x="260" y="24" width="200" height="52" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="360" y="46" text-anchor="middle" font-size="15" fill="#333">概率生成模型</text>
+  <text x="360" y="66" text-anchor="middle" font-size="14" fill="#c0392b">p<sub>θ</sub>(x) ≈ p<sub>data</sub>(x)</text>
+  <!-- 分叉线 -->
+  <line x1="360" y1="76" x2="180" y2="128" stroke="#333" stroke-width="1.5"/>
+  <line x1="360" y1="76" x2="540" y2="128" stroke="#333" stroke-width="1.5"/>
+  <text x="252" y="102" text-anchor="middle" font-size="13" fill="#1f6f8b">显式密度</text>
+  <text x="468" y="102" text-anchor="middle" font-size="13" fill="#1f6f8b">隐式密度</text>
+  <!-- 显式 / 隐式 两大阵营 -->
+  <rect x="80" y="128" width="200" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="180" y="156" text-anchor="middle" font-size="15" fill="#333">显式密度模型</text>
+  <rect x="440" y="128" width="200" height="44" rx="6" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="540" y="156" text-anchor="middle" font-size="15" fill="#333">隐式密度模型</text>
+  <!-- 显式下再分 -->
+  <line x1="180" y1="172" x2="100" y2="220" stroke="#333" stroke-width="1.5"/>
+  <line x1="180" y1="172" x2="280" y2="220" stroke="#333" stroke-width="1.5"/>
+  <rect x="30" y="220" width="140" height="40" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="100" y="245" text-anchor="middle" font-size="14" fill="#1f6f8b">可解密度</text>
+  <rect x="210" y="220" width="140" height="40" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="280" y="245" text-anchor="middle" font-size="14" fill="#1f6f8b">近似密度</text>
+  <!-- 叶子：可解 -->
+  <line x1="100" y1="260" x2="100" y2="286" stroke="#333" stroke-width="1.5"/>
+  <rect x="20" y="286" width="160" height="34" rx="5" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="100" y="308" text-anchor="middle" font-size="13" fill="#333">自回归模型</text>
+  <rect x="20" y="330" width="160" height="34" rx="5" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="100" y="352" text-anchor="middle" font-size="13" fill="#333">归一化流</text>
+  <!-- 叶子：近似 -->
+  <line x1="280" y1="260" x2="280" y2="286" stroke="#333" stroke-width="1.5"/>
+  <rect x="200" y="286" width="160" height="34" rx="5" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="280" y="308" text-anchor="middle" font-size="13" fill="#333">变分自编码器</text>
+  <rect x="200" y="330" width="160" height="34" rx="5" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="280" y="352" text-anchor="middle" font-size="13" fill="#333">扩散模型</text>
+  <!-- 叶子：隐式 -->
+  <line x1="540" y1="172" x2="540" y2="220" stroke="#333" stroke-width="1.5"/>
+  <rect x="460" y="220" width="160" height="40" rx="6" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="540" y="245" text-anchor="middle" font-size="14" fill="#c0392b">生成对抗网络</text>
+  <text x="540" y="285" text-anchor="middle" font-size="13" fill="#333">只学采样，不写密度</text>
+</svg>

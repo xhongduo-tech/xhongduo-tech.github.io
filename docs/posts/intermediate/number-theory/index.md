@@ -12,35 +12,35 @@ pageClass: plain-doc
 
 ### 第一篇 整除理论
 
-- [ ] 整除性与带余除法
-- [ ] 最大公因数与辗转相除法
-- [ ] 最小公倍数
-- [ ] 素数及其性质
-- [ ] 算术基本定理
-- [ ] 埃拉托斯特尼筛法
-- [ ] 素数的分布
+- [x] [整除性与带余除法](./divisibility-and-euclidean-division)
+- [x] [最大公因数与辗转相除法](./gcd-and-euclidean-algorithm)
+- [x] [最小公倍数](./least-common-multiple)
+- [x] [素数及其性质](./prime-numbers-and-properties)
+- [x] [算术基本定理](./fundamental-theorem-of-arithmetic)
+- [x] [埃拉托斯特尼筛法](./sieve-of-eratosthenes)
+- [x] [素数的分布](./distribution-of-primes)
 
 ### 第二篇 同余理论
 
-- [ ] 同余的概念与性质
-- [ ] 完全剩余系与既约剩余系
-- [ ] 一次同余方程
-- [ ] 中国剩余定理
-- [ ] 高次同余方程
-- [ ] 威尔逊定理
-- [ ] 欧拉定理与费马小定理
-- [ ] 乘性函数
+- [x] [同余的概念与性质](./congruence-concepts-and-properties)
+- [x] [完全剩余系与既约剩余系](./complete-and-reduced-residue-systems)
+- [x] [一次同余方程](./linear-congruences)
+- [x] [中国剩余定理](./chinese-remainder-theorem)
+- [x] [高次同余方程](./higher-degree-congruences)
+- [x] [威尔逊定理](./wilsons-theorem)
+- [x] [欧拉定理与费马小定理](./eulers-theorem-and-fermats-little-theorem)
+- [x] [乘性函数](./multiplicative-functions)
 
 ### 第三篇 二次剩余与指数
 
-- [ ] 二次剩余
-- [ ] 勒让德与雅可比符号
-- [ ] 二次互反律
-- [ ] 原根与指数
-- [ ] 离散对数
-- [ ] 连分数理论
-- [ ] 丢番图方程
-- [ ] 数论函数与ζ函数
-- [ ] 数论在密码学与编码中的应用
+- [x] [二次剩余](./quadratic-residues)
+- [x] [勒让德与雅可比符号](./legendre-and-jacobi-symbols)
+- [x] [二次互反律](./quadratic-reciprocity-law)
+- [x] [原根与指数](./primitive-roots-and-indices)
+- [x] [离散对数](./discrete-logarithms)
+- [x] [连分数理论](./continued-fractions)
+- [x] [丢番图方程](./diophantine-equations)
+- [x] [数论函数与ζ函数](./number-theoretic-functions-and-zeta)
+- [x] [数论在密码学与编码中的应用](./number-theory-in-cryptography)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

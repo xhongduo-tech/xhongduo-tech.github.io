@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="sans-serif">
+<title>收敛点列进入 a 的 δ 邻域</title>
+<desc>平面 R² 中，中心在 a、半径为 δ 的开球 B(a,δ)；点列 p1,p2,p3,… 从球外逐渐接近 a，最终全部落入球内。</desc>
+<rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+<!-- 坐标轴 -->
+<line x1="40" y1="360" x2="610" y2="360" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="30" x2="60" y2="380" stroke="#333" stroke-width="1.5"/>
+<text x="600" y="378" font-size="15" fill="#333">x₁</text>
+<text x="40" y="44" font-size="15" fill="#333">x₂</text>
+<!-- 开球：虚线边界 + 浅色填充 -->
+<circle cx="300" cy="210" r="130" fill="#f0ece2" stroke="#1f6f8b" stroke-width="2.5" stroke-dasharray="10 7"/>
+<text x="300" y="368" font-size="16" fill="#1f6f8b" text-anchor="middle">B(a, δ)：a 的 δ 邻域（开球）</text>
+<!-- 半径 δ -->
+<line x1="300" y1="210" x2="430" y2="210" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="352" y="198" font-size="14" fill="#1f6f8b">δ</text>
+<!-- 中心点 a -->
+<circle cx="300" cy="210" r="6" fill="#c0392b"/>
+<text x="296" y="196" font-size="16" fill="#c0392b" text-anchor="end">a</text>
+<!-- 收敛点列 -->
+<g fill="#333">
+<circle cx="500" cy="70" r="5"/>
+<circle cx="455" cy="115" r="5"/>
+<circle cx="415" cy="150" r="5"/>
+<circle cx="380" cy="175" r="5"/>
+<circle cx="350" cy="192" r="5"/>
+<circle cx="328" cy="202" r="5"/>
+<circle cx="312" cy="207" r="5"/>
+</g>
+<polyline points="500,70 455,115 415,150 380,175 350,192 328,202 312,207" fill="none" stroke="#333" stroke-width="1.2" stroke-dasharray="4 4"/>
+<text x="505" y="60" font-size="15" fill="#333">p₁</text>
+<text x="442" y="128" font-size="15" fill="#333">p₂</text>
+<text x="408" y="166" font-size="15" fill="#333">p₃</text>
+<text x="376" y="190" font-size="15" fill="#333">p₄</text>
+<!-- 箭头指示 p_k → a -->
+<text x="486" y="330" font-size="16" fill="#333">当 k 足够大，p_k 全部落入 B(a, δ)</text>
+<path d="M 200 315 L 240 285" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+<path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+</marker>
+</defs>
+</svg>

@@ -1,0 +1,121 @@
+---
+title: 线段树的建树与单点修改、区间查询
+date: 2026-08-07
+---
+
+# 线段树的建树与单点修改、区间查询
+
+<div class="epigraph">
+<p>把区间切成段，每段一个结点——查询就是拼段。</p>
+<footer>—— 线段树格言</footer>
+</div>
+
+<div class="article-byline">
+<p>第三级 · 数据结构 ｜ 严蔚敏《数据结构》 专题篇·线段树与树状数组 ｜ 2026-08-07</p>
+</div>
+
+## 为什么需要线段树
+
+树状数组擅长「前缀和」类问题，但对「区间最值」「区间任意合并」无能为力。**线段树（segment tree）**是树状数组的全面升级：**把区间递归对半切成若干「段」，每段一个结点存「该段的聚合值」（和、最大、最小……）**。于是区间查询 =「把目标区间拆成若干个完整段拼起来」，单点修改 =「沿叶子到根更新路径」。任意满足「可合并」的区间操作，线段树都能 $O(\log n)$ 完成。它牺牲代码长度与常数，换来了**通用性**——竞赛与工程里「区间数据结构」的默认主力。
+
+## 1 线段树的结构：区间二分
+
+线段树把 $[1, n]$ 递归对半切分：
+
+- **每个结点代表一个区间** `[l, r]`，存该区间的聚合值（如区间和）；
+- 结点 `[l, r]` 的左孩子是 `[l, mid]`、右孩子是 `[mid+1, r]`，`mid = (l+r)/2`；
+- 叶子是单元素区间 `[i, i]`，存 `a[i]`。
+
+```
+            [1,8]: sum(1..8)
+           /              \
+    [1,4]: sum(1..4)   [5,8]: sum(5..8)
+      /      \          /      \
+   [1,2]   [3,4]    [5,6]   [7,8]
+   /  \    /  \      /  \    /  \
+  1    2  3    4    5    6  7    8
+```
+
+**重点：线段树是「区间到结点的双射」——任何区间都能拆成若干「完整结点段」**，这是区间查询 $O(\log n)$ 的结构基础。<span class="marginnote">「<strong>区间二分 = 完全二叉树的区间版</strong>」：<strong>每个结点是一个区间，父子是「对半」关系</strong>。<strong>这棵树有 $2n-1$ 个结点（约），数组开 4 倍 $n$ 即可装下</strong>。<strong>「区间即结点」让「聚合值」天然挂在正确粒度上</strong>。</span>
+
+## 2 建树：递归聚合
+
+建树 = 自底向上聚合：先建叶子、再把两个孩子聚合到父：
+
+```c
+void Build(int node, int l, int r, int *a) {
+    if (l == r) { tree[node] = a[l]; return; }   /* 叶子：单元素 */
+    int mid = (l + r) / 2;
+    Build(node*2, l, mid, a);                    /* 左半 */
+    Build(node*2+1, mid+1, r, a);                /* 右半 */
+    tree[node] = tree[node*2] + tree[node*2+1];  /* 聚合（此处是求和） */
+}
+```
+
+**重点：建树是「后序递归」——先建完孩子，再算父。** 每个结点只访问一次，$O(n)$ 建树。<span class="marginnote">「<strong>建树 = 后序聚合</strong>」：<strong>递归到底建叶子，回溯时把两个孩子合并成父</strong>——正是「先修子树、再修大树」的分治。<strong>聚合运算只要求「可结合」（和、最值、gcd 都行）</strong>——线段树因此通用。</span>
+
+## 3 区间查询：拼段
+
+查询区间 `[ql, qr]` 的和：
+
+1. 当前结点区间 `[l, r]` 若**完全被** `[ql, qr]` 包含 → 直接返回 `tree[node]`；
+2. 否则递归左右孩子，**返回两边的部分和之和**。
+
+```c
+int Query(int node, int l, int r, int ql, int qr) {
+    if (ql <= l && r <= qr) return tree[node];   /* 完全覆盖：整段取用 */
+    int mid = (l + r) / 2, res = 0;
+    if (ql <= mid) res += Query(node*2, l, mid, ql, qr);     /* 左段有交集 */
+    if (qr > mid)  res += Query(node*2+1, mid+1, r, ql, qr); /* 右段有交集 */
+    return res;
+}
+```
+
+**重点：区间查询的核心是「完全覆盖就取、否则递归拼」**——目标区间被拆成 $O(\log n)$ 个完整段，拼接即结果。<span class="marginnote">「<strong>区间查询 = 拆段拼接</strong>」：<strong>一个查询区间恰好覆盖 $O(\log n)$ 个线段树结点</strong>——不多不少。<strong>「完全覆盖直接返回」让每层至多深入两个分支</strong>，这是 $O(\log n)$ 的几何保证。<strong>「拆段」是线段树一切查询的通用骨架</strong>。</span>
+
+## 4 公式解析：线段树的复杂度
+
+设区间长 $n$，线段树高 $h = \lceil \log_2 n \rceil + 1$：
+
+$$
+\begin{aligned}
+T_{\text{建树}} &= O(n) \quad \text{（每个结点聚合一次）} \\
+T_{\text{单点修改}} &= O(\log n) \quad \text{（叶子到根，更新一条路径）} \\
+T_{\text{区间查询}} &= O(\log n) \quad \text{（拆成 } O(\log n) \text{ 个完整段）} \\
+S &= O(4n) \quad \text{（数组 4 倍大小）}
+\end{aligned}
+$$
+
+- **第一步，读「建树 $O(n)$」**：$2n-1$ 个结点，各聚合一次。
+- **第二步，读「单点改 $O(\log n)$」**：改叶子后，沿父链更新每个祖先的聚合值——一条路径。
+- **第三步，读「区间查 $O(\log n)$」**：为什么不是「扫区间」？因为完整段直接取、不全的段每层最多两支——总共 $O(\log n)$ 段。<span class="marginnote">「<strong>$O(\log n)$ 段 = 区间查询的核心定理</strong>」：<strong>任何区间都能被拆成恰好 $O(\log n)$ 个「线段树完整结点」</strong>——这是「二分区间」的数学礼物。<strong>有了它，区间操作从 $O(n)$ 降到 $O(\log n)$</strong>。</span>
+
+## 5 单点修改：叶子到根
+
+修改 `a[pos] = newval`：
+
+1. 递归到叶子 `[pos, pos]`，更新 `tree` 为 `newval`；
+2. 回溯时重新聚合每个祖先。
+
+```c
+void Update(int node, int l, int r, int pos, int val) {
+    if (l == r) { tree[node] = val; return; }    /* 叶子 */
+    int mid = (l + r) / 2;
+    if (pos <= mid) Update(node*2, l, mid, pos, val);
+    else Update(node*2+1, mid+1, r, pos, val);
+    tree[node] = tree[node*2] + tree[node*2+1];  /* 重新聚合 */
+}
+```
+
+**重点：单点修改 =「叶子更新 + 路径重聚合」，$O(\log n)$。** 这棵树从根到叶子有一条唯一路径，只改这条路径上的结点。<span class="marginnote">「<strong>单点改只动一条根叶路径</strong>」是线段树高效的又一来源：<strong>改一个点，只有「含这个点的区间结点」需要变</strong>——恰好一条路径 $O(\log n)$ 个。<strong>「局部影响、路径修复」是所有树结构的共同节拍</strong>。</span>
+
+## 6 小结
+
+- 线段树：区间递归对半切，每结点存区间聚合值。
+- 建树：后序递归聚合，$O(n)$。
+- 区间查询：完全覆盖直接取、否则递归拼，$O(\log n)$。
+- 单点修改：叶子更新 + 路径重聚合，$O(\log n)$。
+- 空间 $O(4n)$；聚合只需「可结合」（和、最值、gcd）。
+- 线段树是区间数据结构的通用主力，树状数组是其轻量特例。
+
+在下一节，我们给线段树装上「区间修改」的加速器——**懒惰标记与区间修改**。

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>含电压源与电阻的简单电路，标注参考方向</title>
+  <desc>电压源 u_s 与电阻 R 串联成闭合回路，电流 i 沿回路流动；电阻两端标注电压 u_R 的极性，全部为参考方向。</desc>
+  <rect x="0" y="0" width="440" height="260" fill="#faf9f5"/>
+  <path d="M 95 55 H 335" stroke="#333" stroke-width="2.5" fill="none"/>
+  <path d="M 95 205 H 335" stroke="#333" stroke-width="2.5" fill="none"/>
+  <path d="M 95 55 V 95" stroke="#333" stroke-width="2.5" fill="none"/>
+  <path d="M 95 165 V 205" stroke="#333" stroke-width="2.5" fill="none"/>
+  <path d="M 335 55 V 95" stroke="#333" stroke-width="2.5" fill="none"/>
+  <path d="M 335 165 V 205" stroke="#333" stroke-width="2.5" fill="none"/>
+  <circle cx="95" cy="130" r="30" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="86" y="115" font-family="sans-serif" font-size="18" fill="#c0392b" font-weight="bold">+</text>
+  <text x="86" y="153" font-family="sans-serif" font-size="18" fill="#c0392b" font-weight="bold">−</text>
+  <text x="122" y="126" font-family="sans-serif" font-size="17" fill="#333">u<tspan dy="4" font-size="12">s</tspan></text>
+  <rect x="325" y="96" width="20" height="68" fill="#faf9f5" stroke="#333" stroke-width="2.5"/>
+  <text x="350" y="134" font-family="sans-serif" font-size="17" fill="#333">R</text>
+  <text x="358" y="80" font-family="sans-serif" font-size="15" fill="#1f6f8b">u<tspan dy="3" font-size="11">R</tspan></text>
+  <text x="368" y="80" font-family="sans-serif" font-size="15" fill="#1f6f8b">+</text>
+  <text x="358" y="222" font-family="sans-serif" font-size="15" fill="#1f6f8b">−</text>
+  <defs>
+    <marker id="arrow1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <line x1="150" y1="205" x2="285" y2="205" stroke="#333" stroke-width="2.5" marker-end="url(#arrow1)"/>
+  <text x="195" y="195" font-family="sans-serif" font-size="16" fill="#333">i</text>
+  <text x="40" y="238" font-family="sans-serif" font-size="13" fill="#888">箭头与 +/− 均为参考方向</text>
+</svg>

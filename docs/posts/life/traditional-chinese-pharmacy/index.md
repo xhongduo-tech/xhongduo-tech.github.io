@@ -12,36 +12,36 @@ pageClass: plain-doc
 
 ### 第一篇 中药学基础
 
-- [ ] 中药的性能与功效
-- [ ] 中药材资源与道地药材
-- [ ] 中药材采收加工与贮藏
-- [ ] 中药鉴定总论（来源/性状）
-- [ ] 中药鉴定（显微/理化/生物鉴定）
+- [x] [中药的性能与功效](./properties-and-efficacies)
+- [x] [中药材资源与道地药材](./resources-and-daodi-herbs)
+- [x] [中药材采收加工与贮藏](./harvest-processing-storage)
+- [x] [中药鉴定总论（来源/性状）](./identification-overview)
+- [x] [中药鉴定（显微/理化/生物鉴定）](./identification-methods)
 
 ### 第二篇 中药化学
 
-- [ ] 中药化学成分与有效成分
-- [ ] 生物碱类成分
-- [ ] 苷类成分
-- [ ] 黄酮类与蒽醌类成分
-- [ ] 萜类与挥发油
-- [ ] 皂苷与鞣质
-- [ ] 中药成分的提取分离与结构鉴定
+- [x] [中药化学成分与有效成分](./chemical-constituents-active-principles)
+- [x] [生物碱类成分](./alkaloids)
+- [x] [苷类成分](./glycosides)
+- [x] [黄酮类与蒽醌类成分](./flavonoids-anthraquinones)
+- [x] [萜类与挥发油](./terpenoids-volatile-oils)
+- [x] [皂苷与鞣质](./saponins-tannins)
+- [x] [中药成分的提取分离与结构鉴定](./extraction-separation-structure-determination)
 
 ### 第三篇 中药炮制与制剂
 
-- [ ] 中药炮制理论
-- [ ] 常用炮制方法（炒/炙/煅/蒸）
-- [ ] 中药饮片与配方颗粒
-- [ ] 中药制剂（汤剂/丸散膏丹/注射剂）
-- [ ] 中药质量与药典标准
+- [x] [中药炮制理论](./processing-theory)
+- [x] [常用炮制方法（炒/炙/煅/蒸）](./processing-methods)
+- [x] [中药饮片与配方颗粒](./yinpian-formula-granules)
+- [x] [中药制剂（汤剂/丸散膏丹/注射剂）](./dosage-forms)
+- [x] [中药质量与药典标准](./quality-and-pharmacopoeia)
 
 ### 第四篇 中药药理与应用
 
-- [ ] 中药药理学基础
-- [ ] 补益/活血/清热中药药理
-- [ ] 中药毒理与安全性
-- [ ] 中成药临床应用
-- [ ] 中药现代化与国际化
+- [x] [中药药理学基础](./pharmacology-basics)
+- [x] [补益/活血/清热中药药理](./pharmacology-classes)
+- [x] [中药毒理与安全性](./toxicology-safety)
+- [x] [中成药临床应用](./proprietary-chinese-medicines)
+- [x] [中药现代化与国际化](./modernization-internationalization)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

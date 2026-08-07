@@ -12,35 +12,35 @@ pageClass: plain-doc
 
 ### 第一篇 完全信息静态博弈
 
-- [ ] 博弈要素与分类
-- [ ] 占优策略与劣策略消除
-- [ ] 纳什均衡的定义
-- [ ] 纯策略纳什均衡
-- [ ] 混合策略纳什均衡
-- [ ] 纳什均衡存在性
-- [ ] 多重均衡与精炼
+- [x] [博弈要素与分类](./game-elements-classification)
+- [x] [占优策略与劣策略消除](./dominant-strategy-elimination)
+- [x] [纳什均衡的定义](./nash-equilibrium-definition)
+- [x] [纯策略纳什均衡](./pure-strategy-nash-equilibrium)
+- [x] [混合策略纳什均衡](./mixed-strategy-nash-equilibrium)
+- [x] [纳什均衡存在性](./nash-existence)
+- [x] [多重均衡与精炼](./multiple-equilibria-refinement)
 
 ### 第二篇 动态博弈
 
-- [ ] 扩展式博弈与博弈树
-- [ ] 逆向归纳法
-- [ ] 子博弈精炼纳什均衡
-- [ ] 承诺与可信威胁
-- [ ] 重复博弈与无名氏定理
-- [ ] 讨价还价模型
-- [ ] Stackelberg 博弈
+- [x] [扩展式博弈与博弈树](./extensive-form-game-tree)
+- [x] [逆向归纳法](./backward-induction)
+- [x] [子博弈精炼纳什均衡](./subgame-perfect-equilibrium)
+- [x] [承诺与可信威胁](./commitment-credible-threats)
+- [x] [重复博弈与无名氏定理](./repeated-games-folk-theorem)
+- [x] [讨价还价模型](./bargaining-models)
+- [x] [Stackelberg 博弈](./stackelberg-game)
 
 ### 第三篇 不完全信息博弈
 
-- [ ] 贝叶斯博弈与类型空间
-- [ ] 贝叶斯纳什均衡
-- [ ] 完美贝叶斯均衡
-- [ ] 信号传递模型
-- [ ] 信息甄别与筛选
-- [ ] 机制设计理论
-- [ ] 显示原理
-- [ ] 拍卖理论
-- [ ] 合作博弈与核
-- [ ] 博弈论应用
+- [x] [贝叶斯博弈与类型空间](./bayesian-games-type-spaces)
+- [x] [贝叶斯纳什均衡](./bayesian-nash-equilibrium)
+- [x] [完美贝叶斯均衡](./perfect-bayesian-equilibrium)
+- [x] [信号传递模型](./signaling-games)
+- [x] [信息甄别与筛选](./screening)
+- [x] [机制设计理论](./mechanism-design)
+- [x] [显示原理](./revelation-principle)
+- [x] [拍卖理论](./auction-theory)
+- [x] [合作博弈与核](./cooperative-games-core)
+- [x] [博弈论应用](./game-theory-applications)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

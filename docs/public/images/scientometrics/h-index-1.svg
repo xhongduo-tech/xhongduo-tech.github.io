@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 560" font-family="sans-serif">
+  <title>h 指数的几何示意</title>
+  <desc>论文按被引数降序排列的曲线与对角线 c=r 相交，交点对应 h 指数，阴影方块为 h 篇论文各被引至少 h 次。</desc>
+  <rect width="660" height="560" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow-h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#555"/>
+    </marker>
+  </defs>
+  <style>
+    .ax{stroke:#333;stroke-width:2}
+    .dash{stroke:#c0392b;stroke-width:2;stroke-dasharray:7 6}
+    .curve{stroke:#1f6f8b;stroke-width:3.5;fill:none}
+    .shade{fill:#c0392b;fill-opacity:0.14}
+    .lbl{fill:#333;font-size:16px}
+    .note{fill:#555;font-size:15px}
+    .head{fill:#333;font-size:19px;font-weight:bold}
+  </style>
+  <text x="330" y="32" text-anchor="middle" class="head">h 指数：曲线与对角线的交点</text>
+
+  <!-- 坐标轴 -->
+  <line x1="70" y1="540" x2="570" y2="540" class="ax"/>
+  <line x1="70" y1="540" x2="70" y2="40" class="ax"/>
+  <text x="315" y="556" text-anchor="middle" class="lbl">论文排名 r（按被引次数降序）</text>
+  <text x="44" y="300" text-anchor="middle" class="lbl" transform="rotate(-90 44 300)">被引次数 c</text>
+
+  <!-- 对角线 c = r -->
+  <line x1="70" y1="540" x2="570" y2="40" class="dash"/>
+  <text x="575" y="52" class="note" fill="#c0392b">c = r</text>
+
+  <!-- h×h 方块阴影 -->
+  <rect x="70" y="310" width="230" height="230" class="shade"/>
+
+  <!-- 排序曲线：由高被引到低被引 -->
+  <polyline class="curve" points="76,72 110,118 145,160 180,205 215,248 250,280 285,302 300,310 340,338 380,388 415,430 450,462 485,492 520,514 555,533"/>
+
+  <!-- 交点标注 -->
+  <circle cx="300" cy="310" r="7" fill="#c0392b"/>
+  <text x="308" y="300" class="lbl">交点 → h 指数</text>
+  <line x1="300" y1="310" x2="300" y2="540" class="ax" opacity="0.35"/>
+  <line x1="70" y1="310" x2="300" y2="310" class="ax" opacity="0.35"/>
+  <text x="86" y="296" class="note">h 篇论文</text>
+  <text x="112" y="528" class="note">每篇被引 ≥ h 次</text>
+
+  <text x="330" y="504" text-anchor="middle" class="note">阴影 h×h 方块：论文数 = h，被引数 ≥ h——正是 h 指数的定义区域</text>
+</svg>

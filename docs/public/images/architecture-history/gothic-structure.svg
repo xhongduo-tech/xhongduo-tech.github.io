@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" font-family="sans-serif">
+  <title>哥特教堂结构示意（剖面）</title>
+  <desc>中厅以尖拱与肋拱覆盖，墙体开大面积彩色玻璃窗；飞扶壁把中厅拱顶的侧推力传导至外侧粗壮扶壁柱，从而解放墙体。</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+  <text x="320" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">哥特教堂结构示意（横剖面）</text>
+  <!-- 中厅 -->
+  <rect x="180" y="120" width="280" height="200" fill="#fff" stroke="#333" stroke-width="2"/>
+  <!-- 中厅尖拱（肋拱轮廓） -->
+  <path d="M 180 120 Q 220 50 320 50 Q 420 50 460 120" fill="none" stroke="#c0392b" stroke-width="4"/>
+  <path d="M 200 120 Q 240 60 320 60 Q 400 60 440 120" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <path d="M 230 120 Q 270 72 320 72 Q 370 72 410 120" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <!-- 中厅高侧窗（彩色玻璃窗） -->
+  <rect x="255" y="140" width="45" height="80" rx="18" fill="#1f6f8b" stroke="#333" stroke-width="1.5"/>
+  <rect x="340" y="140" width="45" height="80" rx="18" fill="#1f6f8b" stroke="#333" stroke-width="1.5"/>
+  <!-- 侧廊 -->
+  <rect x="60" y="230" width="120" height="90" fill="#fff" stroke="#333" stroke-width="2"/>
+  <rect x="460" y="230" width="120" height="90" fill="#fff" stroke="#333" stroke-width="2"/>
+  <path d="M 60 230 L 180 230 L 180 200 L 60 200 Z" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <path d="M 460 230 L 580 230 L 580 200 L 460 200 Z" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <!-- 侧廊小圆窗 -->
+  <circle cx="120" cy="255" r="20" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="520" cy="255" r="20" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- 左侧飞扶壁 -->
+  <path d="M 180 120 Q 140 200 96 230" fill="none" stroke="#c0392b" stroke-width="5"/>
+  <path d="M 96 230 L 96 320 L 70 320 L 70 230 Z" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- 右侧扶壁柱 -->
+  <rect x="470" y="230" width="26" height="90" fill="#e8e2d5" stroke="#333" stroke-width="2"/>
+  <!-- 地面 -->
+  <line x1="30" y1="320" x2="610" y2="320" stroke="#333" stroke-width="4"/>
+  <!-- 标注 -->
+  <text x="320" y="46" text-anchor="middle" font-size="13" fill="#c0392b">尖拱 / 肋拱</text>
+  <text x="278" y="196" text-anchor="middle" font-size="13" fill="#1f6f8b">彩色玻璃窗</text>
+  <text x="96" y="212" text-anchor="middle" font-size="13" fill="#c0392b">飞扶壁</text>
+  <text x="120" y="348" text-anchor="middle" font-size="13" fill="#333">侧廊</text>
+  <text x="320" y="348" text-anchor="middle" font-size="13" fill="#333">中厅</text>
+  <text x="520" y="348" text-anchor="middle" font-size="13" fill="#333">侧廊</text>
+  <text x="560" y="250" text-anchor="middle" font-size="13" fill="#333">扶壁柱</text>
+</svg>

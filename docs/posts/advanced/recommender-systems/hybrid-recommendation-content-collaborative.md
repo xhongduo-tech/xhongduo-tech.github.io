@@ -43,7 +43,7 @@ $$
 \hat{r}_{ui} = \lambda \cdot \hat{r}^{\text{CF}}_{ui} + (1 - \lambda) \cdot \hat{r}^{\text{CB}}_{ui}
 $$
 
-$\lambda$ 是**混合权重**，控制两类信号的信任比例。它的直觉是「两个专家投票，权重大的专家说了算」。<span class="marginnote">$\lambda$ 可以固定，也可以动态：新用户历史行为少，CF 不可信，就调小 $\lambda$ 让 CB 主导；老用户行为充足，再逐步调大 $\lambda$。**按用户成熟度动态调权**是工业界常见的「冷启动温启动」手法。</span>
+$\lambda$ 是**混合权重**，控制两类信号的信任比例。它的直觉是「两个专家投票，权重大的专家说了算」。<span class="marginnote">$\lambda$ 可以固定，也可以动态：新用户历史行为少，CF 不可信，就调小 $\lambda$ 让 CB 主导；老用户行为充足，再逐步调大 $\lambda$。<strong>按用户成熟度动态调权</strong>是工业界常见的「冷启动温启动」手法。</span>
 
 ### 切换式（Switching）
 

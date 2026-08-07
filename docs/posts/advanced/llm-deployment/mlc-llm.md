@@ -1,0 +1,72 @@
+---
+title: MLC LLM：面向移动端与浏览器的编译部署
+date: 2026-08-07
+---
+
+# MLC LLM：面向移动端与浏览器的编译部署
+
+<div class="epigraph">
+<p>同一个模型，在手机、浏览器、GPU 上都能跑——这是编译的魔法。</p>
+<footer>—— MLC LLM 团队理念（陈天奇，Tianqi Chen）</footer>
+</div>
+
+<div class="article-byline">
+<p>第四级 · 大模型部署 ｜ MLC LLM 论文与文档（Apache TVM 生态） ｜ 2026-08-07</p>
+</div>
+
+## 为什么从 MLC LLM 开始
+
+llama.cpp 靠「手写大量 CPU/GPU 内核」适配不同硬件——每加一种硬件，就要写一批新 kernel。MLC LLM 走另一条路：**编译**。它基于 Apache TVM，把模型编译成「针对目标硬件的机器码」，一次定义、多端生成——手机、浏览器（WebGPU/WASM）、消费级 GPU、云 GPU，同一个模型自动适配。<span class="marginnote">本专题《TensorRT 图优化》讲过「编译路线」在 GPU 上的威力；MLC LLM 把<strong>同一思想带到端侧</strong>——不是「为每种硬件写 kernel」，而是「让编译器为每种硬件生成 kernel」。</span>
+
+本篇讲 MLC LLM 的编译路线、它如何覆盖移动端与浏览器、以及编译方案相对手写内核方案的取舍。
+
+## 1 编译路线：一次定义，多端生成
+
+MLC LLM 的架构分三层：
+
+1. **模型定义层**：用标准格式（HF 权重）描述模型，与硬件无关。
+2. **编译层（TVM）**：把模型的计算图 + 算子，针对目标硬件做优化与代码生成——生成 CUDA（GPU）、Metal（Apple）、WebGPU（浏览器）、WASM（浏览器 CPU）、Vulkan（通用 GPU）等后端的代码。<span class="marginnote">TVM 的核心是「<strong>调度（schedule）与代码生成分离</strong>」：算子的数学定义与「怎么并行」（tiling、向量化、融合）分开写，编译器按硬件自动选择调度并生成代码。</span>
+3. **运行时层**：每个平台一个轻量 runtime，加载编译产物并执行。
+
+**对比手写 kernel（llama.cpp）**：手写方案对某个硬件「最优」但开发成本随硬件数量线性增长；编译方案一次投入、覆盖面广，但对每个硬件的极致性能可能不如手写。**MLC LLM 是「覆盖面优先」的路线**。
+
+## 2 移动端：手机的模型推理
+
+移动端推理的难点是硬件碎片化：iOS 只有 Apple GPU（Metal）、Android 有 Adreno/Mali 等各家 GPU（Vulkan 统一入口）。MLC LLM 的策略：
+
+- **iOS**：编译成 Metal 后端，利用 Apple 的 GPU 与统一内存。
+- **Android**：编译成 Vulkan 后端（跨厂商 GPU 标准），一套代码覆盖不同手机 GPU。
+- **CPU 兜底**：Vulkan 不可用时退回 CPU（WASM/本地）。
+
+移动端推理还受「内存与功耗」双重约束（见下一篇）——MLC LLM 同样依赖量化（支持 4-bit 权重）把模型压到手机内存装得下。<span class="marginnote">移动端的关键数字：<strong>7B 模型 4-bit 约 4 GB，主流手机内存 8–16 GB</strong>——刚装得下。小模型（1–3B）是移动端的舒适区，延迟与发热都可控。</span>
+
+## 3 浏览器：WebGPU 与 WASM
+
+浏览器是 MLC LLM 最独特的目标平台——把模型跑在网页里，无需安装、无需服务器。两条路径：
+
+- **WebGPU**：浏览器访问 GPU 的现代标准。MLC LLM 编译出 WebGPU shader，在 GPU 上跑，性能接近原生。需要支持 WebGPU 的浏览器（Chrome/Edge 最新版）。<span class="marginnote">WebGPU 是浏览器里的「CUDA」：<strong>它暴露 GPU 的计算能力（compute shader）给网页</strong>。MLC LLM 用它跑矩阵乘与注意力，性能比 WASM（纯 CPU）快一个数量级。</span>
+- **WASM（WebAssembly）**：CPU 路线，兼容所有现代浏览器，性能受限于 CPU 与单线程/多线程支持。
+
+浏览器推理的意义：**「打开网页就能用 LLM」的零门槛体验**——私密（数据不出设备）、无需登录、无需下载。代价是性能受浏览器沙箱限制，且模型需随网页下载（首次加载慢）。
+
+## 4 公式解析：编译 vs 手写的性能-成本权衡
+
+编译路线的取舍用「覆盖率 × 单点性能」度量。设目标平台数 $K$，每个平台手写 kernel 的开发成本 $c_{\text{hand}}$、性能系数 $p_{\text{hand}}$；编译方案一次性成本 $C_{\text{compile}}$、每平台性能系数 $p_{\text{compile}}$（≤ $p_{\text{hand}}$，编译生成通常略逊于手写极致优化）。
+
+- **第一步，写手写方案总成本**：$C_{\text{hand-total}} = K \cdot c_{\text{hand}}$，性能每平台 $p_{\text{hand}}$。
+- **第二步，写编译方案总成本**：$C_{\text{compile-total}} = C_{\text{compile}}$（一次投入），性能每平台 $p_{\text{compile}}$。
+- **第三步，比盈亏平衡**：编译方案占优当 $K$ 大（覆盖平台多）且 $C_{\text{compile}} < K \cdot c_{\text{hand}}$——**平台越多，编译越划算**；当追求「单平台极致性能」（如只部署在 H100）时，手写 kernel 更优。
+
+$$K_{\text{break-even}} = \frac{C_{\text{compile}}}{c_{\text{hand}}}$$
+
+MLC LLM 的价值在于：**它的「一次编译、多端运行」正好命中「端侧平台碎片化」这个场景**——手机型号、浏览器、操作系统组合成几十个目标，逐个手写 kernel 是不可能的。
+
+## 5 小结
+
+- **MLC LLM 用编译代替手写 kernel**：基于 TVM，一次模型定义编译成 CUDA/Metal/Vulkan/WebGPU/WASM 多端代码。
+- **移动端**：iOS 走 Metal、Android 走 Vulkan，一套代码覆盖碎片化 GPU；靠量化把模型压进手机内存。
+- **浏览器**：WebGPU 走 GPU（性能接近原生）、WASM 走 CPU（兼容所有浏览器），「打开网页即用 LLM」。
+- **编译 vs 手写**：平台越多编译越划算（盈亏平衡点 $K^* = C_{\text{compile}}/c_{\text{hand}}$），单平台极致性能仍靠手写。
+- **MLC LLM 是「覆盖面优先」路线**，与 llama.cpp 的「单点极致」互补。
+
+在下一节，我们看端侧部署的物理约束——**端侧部署的内存与功耗约束**。

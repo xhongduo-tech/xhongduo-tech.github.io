@@ -1,0 +1,51 @@
+<svg viewBox="0 0 720 480" width="720" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>ER 图符号总览</title>
+<desc>实体集矩形、联系集菱形、属性椭圆、主码下划线、多值属性双椭圆、派生属性虚线椭圆、弱实体集双矩形、总量参与双线的图例</desc>
+<rect x="0" y="0" width="720" height="480" fill="#faf9f5"/>
+<!-- 实体集 -->
+<rect x="40" y="40" width="130" height="60" fill="#fff" stroke="#333" stroke-width="2"/>
+<text x="105" y="78" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333">学生</text>
+<text x="210" y="78" font-family="sans-serif" font-size="14" fill="#555">实体集（矩形）</text>
+<!-- 主码属性 -->
+<ellipse cx="105" cy="160" rx="70" ry="26" fill="#fff" stroke="#333" stroke-width="2"/>
+<line x1="105" y1="134" x2="105" y2="146" stroke="#333" stroke-width="2"/>
+<text x="105" y="167" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333" text-decoration="underline">学号（主码）</text>
+<text x="210" y="167" font-family="sans-serif" font-size="14" fill="#555">属性（椭圆）</text>
+<line x1="105" y1="100" x2="105" y2="134" stroke="#333" stroke-width="2"/>
+<!-- 普通属性 -->
+<ellipse cx="105" cy="230" rx="60" ry="24" fill="#fff" stroke="#333" stroke-width="2"/>
+<line x1="105" y1="204" x2="105" y2="206" stroke="#333" stroke-width="2"/>
+<text x="105" y="237" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">姓名</text>
+<line x1="105" y1="186" x2="105" y2="206" stroke="#333" stroke-width="2"/>
+<!-- 多值属性 -->
+<ellipse cx="330" cy="78" rx="70" ry="26" fill="#fff" stroke="#333" stroke-width="4"/>
+<text x="330" y="85" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">电话（多值）</text>
+<text x="430" y="85" font-family="sans-serif" font-size="14" fill="#555">双椭圆（多值属性）</text>
+<!-- 派生属性 -->
+<ellipse cx="330" cy="170" rx="60" ry="24" fill="#fff" stroke="#333" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="330" y="177" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">年龄（派生）</text>
+<text x="430" y="177" font-family="sans-serif" font-size="14" fill="#555">虚线椭圆（派生属性）</text>
+<!-- 联系集 -->
+<polygon points="330,280 430,230 330,180 230,230" fill="#fff" stroke="#333" stroke-width="2"/>
+<text x="330" y="236" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">选修</text>
+<text x="470" y="236" font-family="sans-serif" font-size="14" fill="#555">联系集（菱形）</text>
+<text x="470" y="258" font-family="sans-serif" font-size="14" fill="#555">联系属性连菱形</text>
+<!-- 弱实体集 -->
+<rect x="40" y="330" width="150" height="60" fill="#fff" stroke="#333" stroke-width="4"/>
+<text x="115" y="368" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">大纲（弱实体）</text>
+<text x="210" y="345" font-family="sans-serif" font-size="14" fill="#555">双矩形（弱实体集）</text>
+<!-- 总量参与双线 -->
+<line x1="40" y1="390" x2="40" y2="420" stroke="#333" stroke-width="2"/>
+<line x1="52" y1="390" x2="52" y2="420" stroke="#333" stroke-width="2"/>
+<text x="80" y="412" font-family="sans-serif" font-size="14" fill="#555">双线 = 总量参与</text>
+<!-- 基数标注 -->
+<text x="80" y="450" font-family="sans-serif" font-size="14" fill="#333">基数：边上标 1 / n</text>
+<line x1="280" y1="450" x2="400" y2="450" stroke="#333" stroke-width="2"/>
+<circle cx="280" cy="450" r="3" fill="#333"/>
+<circle cx="400" cy="450" r="3" fill="#333"/>
+<text x="340" y="442" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">m:n</text>
+<!-- 右侧码/关系标注 -->
+<text x="540" y="300" font-family="sans-serif" font-size="14" fill="#555">下划线椭圆 = 主码</text>
+<text x="540" y="322" font-family="sans-serif" font-size="14" fill="#555">双菱形 = 标识联系</text>
+<text x="540" y="344" font-family="sans-serif" font-size="14" fill="#555">波浪下划线 = 部分码</text>
+</svg>

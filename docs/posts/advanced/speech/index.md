@@ -54,93 +54,93 @@ pageClass: plain-doc
 - [x] [Baum-Welch 算法与 EM 训练](./baum-welch-em-training)
 - [x] [高斯混合模型（GMM）与连续密度 HMM](./gmm-continuous-density-hmm)
 - [x] [三音子模型与决策树状态绑定](./triphone-decision-tree-state-tying)
-- [ ] 强制对齐与发音词典
-- [ ] 加权有限状态转换器（WFST）解码
+- [x] [强制对齐与发音词典](./forced-alignment-pronunciation-dictionary)
+- [x] [加权有限状态转换器（WFST）解码](./wfst-decoding)
 
 ### 端到端语音识别
 
-- [ ] 连接时序分类（CTC）：对齐自由序列建模
-- [ ] 基于注意力机制的编码器—解码器（LAS 模型）
-- [ ] RNN-Transducer（RNN-T）：流式识别框架
-- [ ] CTC 与 Attention 的混合多任务学习
-- [ ] Conformer：卷积增强的 Transformer 声学模型
-- [ ] 流式识别：Chunk-based 与 U2/U2++ 框架
-- [ ] Whisper：大规模弱监督多语言识别模型
-- [ ] 语言模型融合：浅融合、深融合与冷融合
+- [x] [连接时序分类（CTC）：对齐自由序列建模](./ctc-sequence-modeling)
+- [x] [基于注意力机制的编码器—解码器（LAS 模型）](./las-attention-encoder-decoder)
+- [x] [RNN-Transducer（RNN-T）：流式识别框架](./rnn-transducer)
+- [x] [CTC 与 Attention 的混合多任务学习](./ctc-attention-multitask)
+- [x] [Conformer：卷积增强的 Transformer 声学模型](./conformer)
+- [x] [流式识别：Chunk-based 与 U2/U2++ 框架](./streaming-asr-chunk-u2)
+- [x] [Whisper：大规模弱监督多语言识别模型](./whisper)
+- [x] [语言模型融合：浅融合、深融合与冷融合](./lm-fusion-shallow-deep-cold)
 
 ### 语音合成（TTS）
 
-- [ ] 语音合成系统概览：前端文本分析与后端声学建模
-- [ ] 文本前端：分词、注音与韵律预测
-- [ ] 拼接合成与参数合成：传统方法回顾
-- [ ] Tacotron / Tacotron 2：端到端序列到序列合成
-- [ ] FastSpeech / FastSpeech 2：非自回归快速合成与时长建模
-- [ ] VITS：变分推断与对抗训练的端到端合成
-- [ ] 声码器原理：从 Griffin-Lim 到神经网络声码器
-- [ ] WaveNet 与 WaveRNN：自回归波形生成
-- [ ] HiFi-GAN：生成对抗网络声码器
-- [ ] 扩散声码器：DiffWave 与基于扩散的波形生成
-- [ ] 多说话人合成与音色克隆（Voice Cloning）
-- [ ] 情感与风格可控的语音合成
+- [x] [语音合成系统概览：前端文本分析与后端声学建模](./tts-overview-frontend-backend)
+- [x] [文本前端：分词、注音与韵律预测](./tts-text-frontend)
+- [x] [拼接合成与参数合成：传统方法回顾](./concatenative-parametric-tts)
+- [x] [Tacotron / Tacotron 2：端到端序列到序列合成](./tacotron-tacotron2)
+- [x] [FastSpeech / FastSpeech 2：非自回归快速合成与时长建模](./fastspeech-fastspeech2)
+- [x] [VITS：变分推断与对抗训练的端到端合成](./vits)
+- [x] [声码器原理：从 Griffin-Lim 到神经网络声码器](./vocoder-griffinlim-neural)
+- [x] [WaveNet 与 WaveRNN：自回归波形生成](./wavenet-wavernn)
+- [x] [HiFi-GAN：生成对抗网络声码器](./hifi-gan)
+- [x] [扩散声码器：DiffWave 与基于扩散的波形生成](./diffusion-vocoder-diffwave)
+- [x] [多说话人合成与音色克隆（Voice Cloning）](./multi-speaker-tts-voice-cloning)
+- [x] [情感与风格可控的语音合成](./emotion-style-tts)
 
 ### 声音转换与歌声合成
 
-- [ ] 声音转换（Voice Conversion）任务定义与范式
-- [ ] 基于内容—音色解耦的声音转换
-- [ ] 零样本声音转换与 any-to-any 转换
-- [ ] 歌声合成（SVS）：从乐谱到歌声，音高与节奏建模
-- [ ] 歌声转换（Singing Voice Conversion）与 so-vits-svc 实践
+- [x] [声音转换（Voice Conversion）任务定义与范式](./voice-conversion-task-definition)
+- [x] [基于内容—音色解耦的声音转换](./content-timbre-disentanglement-vc)
+- [x] [零样本声音转换与 any-to-any 转换](./zero-shot-vc-any-to-any)
+- [x] [歌声合成（SVS）：从乐谱到歌声，音高与节奏建模](./singing-voice-synthesis)
+- [x] [歌声转换（Singing Voice Conversion）与 so-vits-svc 实践](./singing-voice-conversion-sovits)
 
 ### 声纹识别与说话人技术
 
-- [ ] 声纹识别任务：确认（Verification）与辨认（Identification）
-- [ ] i-vector 与 PLDA：传统说话人建模
-- [ ] x-vector 与深度说话人嵌入
-- [ ] ECAPA-TDNN 与时延神经网络说话人模型
-- [ ] 说话人嵌入的损失函数：AAM-Softmax 与度量学习
-- [ ] 说话人日志（Diarization）：谁在什么时候说话
+- [x] [声纹识别任务：确认（Verification）与辨认（Identification）](./speaker-recognition-verification-identification)
+- [x] [i-vector 与 PLDA：传统说话人建模](./ivector-plda)
+- [x] [x-vector 与深度说话人嵌入](./xvector-speaker-embedding)
+- [x] [ECAPA-TDNN 与时延神经网络说话人模型](./ecapa-tdnn)
+- [x] [说话人嵌入的损失函数：AAM-Softmax 与度量学习](./speaker-embedding-loss-aam-softmax)
+- [x] [说话人日志（Diarization）：谁在什么时候说话](./speaker-diarization)
 
 ### 语音增强与降噪
 
-- [ ] 语音增强问题定义：降噪、去混响与回声消除
-- [ ] 谱减法与维纳滤波：经典单通道降噪
-- [ ] 波束形成与麦克风阵列信号处理
-- [ ] 基于掩蔽（Mask）的深度学习方法：IRM 与 PSM
-- [ ] 回声消除（AEC）与双讲检测
-- [ ] 语音分离：Deep Clustering、Conv-TasNet 与目标说话人提取
+- [x] [语音增强问题定义：降噪、去混响与回声消除](./speech-enhancement-problem-definition)
+- [x] [谱减法与维纳滤波：经典单通道降噪](./spectral-subtraction-wiener)
+- [x] [波束形成与麦克风阵列信号处理](./beamforming-mic-array)
+- [x] [基于掩蔽（Mask）的深度学习方法：IRM 与 PSM](./mask-based-dnn-enhancement-irm-psm)
+- [x] [回声消除（AEC）与双讲检测](./aec-double-talk)
+- [x] [语音分离：Deep Clustering、Conv-TasNet 与目标说话人提取](./speech-separation-convtasnet)
 
 ### 关键词唤醒与前端应用
 
-- [ ] 关键词唤醒（KWS）系统框架与误唤醒指标
-- [ ] 基于 HMM 的填充词模型唤醒方法
-- [ ] 基于小型深度网络的唤醒模型
-- [ ] 远场语音交互：前端处理与识别联调
+- [x] [关键词唤醒（KWS）系统框架与误唤醒指标](./kws-system-framework)
+- [x] [基于 HMM 的填充词模型唤醒方法](./hmm-based-kws)
+- [x] [基于小型深度网络的唤醒模型](./dnn-based-kws)
+- [x] [远场语音交互：前端处理与识别联调](./far-field-speech-interaction)
 
 ### 语音大模型与音频基础模型
 
-- [ ] 自监督语音预训练：wav2vec 2.0 与对比学习
-- [ ] HuBERT 与 WavLM：掩蔽预测式语音表征
-- [ ] 音频神经编解码器：SoundStream 与 EnCodec
-- [ ] AudioLM 与 MusicLM：音频的语言模型化
-- [ ] 离散语音单元（Speech Token）与语音语言模型
-- [ ] GPT-4o 语音模式与端到端语音对话架构
-- [ ] 全双工语音对话：同时听说与打断建模
+- [x] [自监督语音预训练：wav2vec 2.0 与对比学习](./wav2vec2-self-supervised)
+- [x] [HuBERT 与 WavLM：掩蔽预测式语音表征](./hubert-wavlm)
+- [x] [音频神经编解码器：SoundStream 与 EnCodec](./neural-audio-codec-soundstream-encodec)
+- [x] [AudioLM 与 MusicLM：音频的语言模型化](./audioml-musiclm)
+- [x] [离散语音单元（Speech Token）与语音语言模型](./speech-token-speechlm)
+- [x] [GPT-4o 语音模式与端到端语音对话架构](./gpt4o-voice-e2e-dialogue)
+- [x] [全双工语音对话：同时听说与打断建模](./full-duplex-speech-dialogue)
 
 ### 音乐信息检索（MIR）
 
-- [ ] 音乐信号的特征：色度特征（Chroma）与节拍
-- [ ] 自动音乐转录（AMT）与多音高估计
-- [ ] 音乐流派分类与标签预测
-- [ ] 音频指纹与听歌识曲
-- [ ] 哼唱检索（Query by Humming）
-- [ ] 音源分离：人声与伴奏分离
+- [x] [音乐信号的特征：色度特征（Chroma）与节拍](./chroma-beat-features)
+- [x] [自动音乐转录（AMT）与多音高估计](./automatic-music-transcription)
+- [x] [音乐流派分类与标签预测](./music-genre-classification)
+- [x] [音频指纹与听歌识曲](./audio-fingerprinting)
+- [x] [哼唱检索（Query by Humming）](./query-by-humming)
+- [x] [音源分离：人声与伴奏分离](./source-separation-vocal-accompaniment)
 
 ### 语音系统的评测指标
 
-- [ ] 词错误率（WER）与字错误率（CER）的计算
-- [ ] 语音质量客观评测：PESQ 与 STOI
-- [ ] 主观评测：MOS 平均意见分与 ABX 偏好测试
-- [ ] 说话人识别评测：EER 与 minDCF
-- [ ] 语音增强与合成的评测协议设计
+- [x] [词错误率（WER）与字错误率（CER）的计算](./wer-cer)
+- [x] [语音质量客观评测：PESQ 与 STOI](./pesq-stoi)
+- [x] [主观评测：MOS 平均意见分与 ABX 偏好测试](./mos-abx)
+- [x] [说话人识别评测：EER 与 minDCF](./eer-mindcf)
+- [x] [语音增强与合成的评测协议设计](./enhancement-tts-evaluation-protocol)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="sans-serif" font-size="16">
+  <title>区域与连通性：单连通区域与多连通区域</title>
+  <desc>左图是一个单连通的开圆盘区域 D，标注内点、边界点与外点，并画出连接两点的折线；右图是一个多连通的圆环区域，标注内外两支边界与一条绕洞的简单闭曲线。</desc>
+  <rect width="820" height="420" fill="#faf9f5"/>
+  <!-- 左图：单连通区域 -->
+  <text x="200" y="44" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">单连通区域 D（开圆盘）</text>
+  <circle cx="200" cy="210" r="130" fill="#dbe9ee" stroke="#1f6f8b" stroke-width="2"/>
+  <circle cx="200" cy="180" r="6" fill="#c0392b"/>
+  <text x="220" y="175" font-size="15" fill="#333">内点 z₀</text>
+  <circle cx="330" cy="210" r="6" fill="#c0392b"/>
+  <text x="348" y="210" font-size="15" fill="#333">边界点</text>
+  <circle cx="70" cy="90" r="6" fill="#c0392b"/>
+  <text x="20" y="76" font-size="15" fill="#333">外点</text>
+  <polyline points="140,270 220,300 285,255" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="120" y="340" font-size="15" fill="#333">D 内任意两点可用折线连接</text>
+  <!-- 右图：多连通区域 -->
+  <text x="600" y="44" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">多连通区域 D′（圆环）</text>
+  <circle cx="600" cy="210" r="140" fill="#dbe9ee" stroke="#1f6f8b" stroke-width="2"/>
+  <circle cx="600" cy="210" r="55" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="756" y="215" font-size="15" fill="#333">外边界 Γ₁</text>
+  <text x="618" y="142" font-size="15" fill="#333">内边界 Γ₂</text>
+  <path d="M 540 210 a 60 60 0 1 1 120 0 a 60 60 0 1 1 -120 0" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="600" y="300" text-anchor="middle" font-size="15" fill="#c0392b">绕洞闭曲线 γ：不能缩成一点</text>
+</svg>

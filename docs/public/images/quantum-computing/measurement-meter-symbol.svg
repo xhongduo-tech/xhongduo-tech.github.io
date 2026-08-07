@@ -1,0 +1,15 @@
+<svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>量子测量仪表符号</title>
+  <desc>线路图中单比特标准基测量的仪表符号：量子线左端进入，表盘读出结果 m，结果从双线引出进入经典世界。</desc>
+  <rect width="640" height="240" fill="#faf9f5" />
+  <line x1="60" y1="120" x2="300" y2="120" stroke="#333" stroke-width="3" />
+  <line x1="340" y1="120" x2="360" y2="120" stroke="#333" stroke-width="3" />
+  <rect x="300" y="85" width="40" height="70" rx="6" fill="#fff" stroke="#333" stroke-width="3" />
+  <path d="M 320 100 A 20 20 0 0 1 320 140" fill="none" stroke="#c0392b" stroke-width="3" />
+  <line x1="320" y1="120" x2="320" y2="100" stroke="#333" stroke-width="2" />
+  <line x1="360" y1="120" x2="560" y2="120" stroke="#333" stroke-width="3" stroke-dasharray="8 6" />
+  <text x="140" y="90" font-family="sans-serif" font-size="16" fill="#333">量子线</text>
+  <text x="455" y="110" font-family="sans-serif" font-size="16" fill="#333">经典双线</text>
+  <text x="285" y="60" font-family="sans-serif" font-size="18" fill="#1f6f8b">仪表符号</text>
+  <text x="330" y="180" font-family="sans-serif" font-size="16" fill="#333">结果 m</text>
+</svg>

@@ -12,35 +12,35 @@ pageClass: plain-doc
 
 ### 第一篇 弹药工程
 
-- [ ] 弹药基本构造
-- [ ] 发射药与装药
-- [ ] 弹道学（内/外/终点）
-- [ ] 毁伤机理
-- [ ] 杀伤弹/穿甲弹/破甲弹
-- [ ] 弹药设计
-- [ ] 引信技术
-- [ ] 火工品
+- [x] [弹药基本构造](./ammunition-basic-structure)
+- [x] [发射药与装药](./propellant-charge)
+- [x] [弹道学（内/外/终点）](./ballistics-interior-exterior-terminal)
+- [x] [毁伤机理](./damage-mechanism)
+- [x] [杀伤弹/穿甲弹/破甲弹](./ammo-types-anti-personnel-ap-heat)
+- [x] [弹药设计](./ammunition-design)
+- [x] [引信技术](./fuze-technology)
+- [x] [火工品](./pyrotechnics-initiating-devices)
 
 ### 第二篇 武器系统
 
-- [ ] 枪械设计
-- [ ] 火炮与自动武器
-- [ ] 坦克与装甲车辆
-- [ ] 导弹总体设计
-- [ ] 制导与控制
-- [ ] 火箭与发射装置
-- [ ] 火控系统
-- [ ] 武器系统仿真
+- [x] [枪械设计](./small-arms-design)
+- [x] [火炮与自动武器](./artillery-automatic-weapons)
+- [x] [坦克与装甲车辆](./tanks-armored-vehicles)
+- [x] [导弹总体设计](./missile-overall-design)
+- [x] [制导与控制](./guidance-control)
+- [x] [火箭与发射装置](./rockets-launchers)
+- [x] [火控系统](./fire-control-systems)
+- [x] [武器系统仿真](./weapon-system-simulation)
 
 ### 第三篇 爆炸与防护
 
-- [ ] 爆炸力学
-- [ ] 冲击波与爆轰
-- [ ] 防护工程
-- [ ] 弹药安全
-- [ ] 靶场试验
-- [ ] 灵巧弹药与巡飞弹
-- [ ] 电磁发射技术
-- [ ] 激光武器与高功率微波
+- [x] [爆炸力学](./explosion-mechanics)
+- [x] [冲击波与爆轰](./shock-wave-detonation)
+- [x] [防护工程](./protective-engineering)
+- [x] [弹药安全](./ammunition-safety)
+- [x] [靶场试验](./range-testing)
+- [x] [灵巧弹药与巡飞弹](./smart-ammunition-loitering-munitions)
+- [x] [电磁发射技术](./electromagnetic-launch)
+- [x] [激光武器与高功率微波](./laser-weapons-hpm)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

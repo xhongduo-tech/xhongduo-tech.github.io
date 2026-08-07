@@ -12,34 +12,34 @@ pageClass: plain-doc
 
 ### 第一篇 一阶微分方程
 
-- [ ] 基本概念与几何意义
-- [ ] 可分离变量方程
-- [ ] 齐次方程
-- [ ] 一阶线性方程与伯努利方程
-- [ ] 全微分方程与积分因子
-- [ ] 隐式方程与奇解
-- [ ] 解的存在唯一性定理
-- [ ] 解对初值的依赖
+- [x] [基本概念与几何意义](./basic-concepts-geometric-meaning)
+- [x] [可分离变量方程](./separable-equations)
+- [x] [齐次方程](./homogeneous-equations)
+- [x] [一阶线性方程与伯努利方程](./first-order-linear-bernoulli)
+- [x] [全微分方程与积分因子](./exact-equations-integrating-factor)
+- [x] [隐式方程与奇解](./implicit-equations-singular-solutions)
+- [x] [解的存在唯一性定理](./existence-uniqueness-theorem)
+- [x] [解对初值的依赖](./dependence-on-initial-conditions)
 
 ### 第二篇 高阶线性微分方程
 
-- [ ] 线性方程解的结构
-- [ ] 常系数齐次线性方程
-- [ ] 常系数非齐次方程
-- [ ] 欧拉方程
-- [ ] 变系数方程与降阶法
-- [ ] 幂级数解法
-- [ ] 正则奇点与广义幂级数
+- [x] [线性方程解的结构](./linear-equations-structure-of-solutions)
+- [x] [常系数齐次线性方程](./constant-coefficient-homogeneous)
+- [x] [常系数非齐次方程](./constant-coefficient-nonhomogeneous)
+- [x] [欧拉方程](./euler-equation)
+- [x] [变系数方程与降阶法](./variable-coefficient-reduction-order)
+- [x] [幂级数解法](./power-series-solutions)
+- [x] [正则奇点与广义幂级数](./regular-singular-point-frobenius)
 
 ### 第三篇 方程组与定性理论
 
-- [ ] 一阶线性方程组
-- [ ] 常系数线性方程组
-- [ ] 非线性方程与线性化
-- [ ] 相平面与奇点分类
-- [ ] 李雅普诺夫稳定性
-- [ ] 边值问题与格林函数
-- [ ] 周期解
-- [ ] 摄动方法初步
+- [x] [一阶线性方程组](./first-order-linear-systems)
+- [x] [常系数线性方程组](./constant-coefficient-linear-systems)
+- [x] [非线性方程与线性化](./nonlinear-systems-linearization)
+- [x] [相平面与奇点分类](./phase-plane-critical-points)
+- [x] [李雅普诺夫稳定性](./lyapunov-stability)
+- [x] [边值问题与格林函数](./boundary-value-problems-green-function)
+- [x] [周期解](./periodic-solutions)
+- [x] [摄动方法初步](./perturbation-methods)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

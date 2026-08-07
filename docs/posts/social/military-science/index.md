@@ -12,36 +12,36 @@ pageClass: plain-doc
 
 ### 第一篇 军事思想
 
-- [ ] 军事思想的本质
-- [ ] 中国军事思想史
-- [ ] 孙子兵法
-- [ ] 毛泽东军事思想
-- [ ] 邓小平新时期军队建设思想
-- [ ] 习近平强军思想
-- [ ] 西方军事思想（克劳塞维茨）
-- [ ] 战争观
+- [x] [军事思想的本质](./nature-of-military-thought)
+- [x] [中国军事思想史](./chinese-military-thought-history)
+- [x] [孙子兵法](./art-of-war)
+- [x] [毛泽东军事思想](./mao-zedong-military-thought)
+- [x] [邓小平新时期军队建设思想](./deng-xiaoping-military-thought)
+- [x] [习近平强军思想](./xi-jinping-military-thought)
+- [x] [西方军事思想（克劳塞维茨）](./clausewitz-and-western-military-thought)
+- [x] [战争观](./view-of-war)
 
 ### 第二篇 战争与军事历史
 
-- [ ] 战争史（古代）
-- [ ] 战争史（近代/两次世界大战）
-- [ ] 中国革命战争史
-- [ ] 现代战争形态
-- [ ] 军事革命（RMA）
-- [ ] 信息化战争
+- [x] [战争史（古代）](./ancient-warfare-history)
+- [x] [战争史（近代/两次世界大战）](./modern-warfare-history-wwi-wwii)
+- [x] [中国革命战争史](./chinese-revolutionary-war-history)
+- [x] [现代战争形态](./modern-warfare-form)
+- [x] [军事革命（RMA）](./revolution-in-military-affairs)
+- [x] [信息化战争](./information-warfare)
 
 ### 第三篇 战略与指挥
 
-- [ ] 战略学基础
-- [ ] 国家战略与国防战略
-- [ ] 战役学
-- [ ] 战术学
-- [ ] 军队指挥
-- [ ] 联合作战
-- [ ] 后勤保障与装备保障
-- [ ] 国防动员
-- [ ] 军事训练
-- [ ] 军队政治工作
-- [ ] 国际军事合作
+- [x] [战略学基础](./fundamentals-of-strategy)
+- [x] [国家战略与国防战略](./national-strategy-and-national-defense-strategy)
+- [x] [战役学](./operational-art)
+- [x] [战术学](./tactics)
+- [x] [军队指挥](./military-command)
+- [x] [联合作战](./joint-operations)
+- [x] [后勤保障与装备保障](./logistics-and-equipment-support)
+- [x] [国防动员](./national-defense-mobilization)
+- [x] [军事训练](./military-training)
+- [x] [军队政治工作](./military-political-work)
+- [x] [国际军事合作](./international-military-cooperation)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

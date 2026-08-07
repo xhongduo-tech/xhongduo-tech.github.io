@@ -12,35 +12,35 @@ pageClass: plain-doc
 
 ### 第一篇 动物解剖与生理
 
-- [ ] 动物体基本结构
-- [ ] 动物运动系统
-- [ ] 动物消化系统解剖
-- [ ] 动物呼吸与泌尿生殖系统
-- [ ] 动物心血管与神经内分泌系统
-- [ ] 动物生理基础（消化/循环/内分泌）
+- [x] [动物体基本结构](./basic-structure)
+- [x] [动物运动系统](./locomotor-system)
+- [x] [动物消化系统解剖](./digestive-system-anatomy)
+- [x] [动物呼吸与泌尿生殖系统](./respiratory-urinary-reproductive)
+- [x] [动物心血管与神经内分泌系统](./cardiovascular-neuroendocrine)
+- [x] [动物生理基础（消化/循环/内分泌）](./physiology-basics)
 
 ### 第二篇 兽医病理与药理
 
-- [ ] 动物组织损伤与修复
-- [ ] 血液循环障碍
-- [ ] 炎症与肿瘤病理
-- [ ] 各系统病理
-- [ ] 兽医药理学基础
-- [ ] 抗微生物与抗寄生虫药物
+- [x] [动物组织损伤与修复](./tissue-damage-repair)
+- [x] [血液循环障碍](./circulatory-disturbances)
+- [x] [炎症与肿瘤病理](./inflammation-neoplasia)
+- [x] [各系统病理](./systemic-pathology)
+- [x] [兽医药理学基础](./veterinary-pharmacology)
+- [x] [抗微生物与抗寄生虫药物](./antimicrobial-antiparasitic)
 
 ### 第三篇 兽医传染病与寄生虫病
 
-- [ ] 传染病流行与防控
-- [ ] 病毒性传染病（口蹄疫/禽流感/猪瘟）
-- [ ] 细菌性传染病（炭疽/结核/布病）
-- [ ] 寄生虫病（蠕虫/原虫/外寄生虫）
+- [x] [传染病流行与防控](./epidemic-prevention-control)
+- [x] [病毒性传染病（口蹄疫/禽流感/猪瘟）](./viral-infectious-diseases)
+- [x] [细菌性传染病（炭疽/结核/布病）](./bacterial-infectious-diseases)
+- [x] [寄生虫病（蠕虫/原虫/外寄生虫）](./parasitic-diseases)
 
 ### 第四篇 兽医临床与公共卫生
 
-- [ ] 兽医内科（消化/呼吸/代谢病）
-- [ ] 兽医外科与手术
-- [ ] 动物营养代谢病
-- [ ] 动物检疫与兽医公共卫生
-- [ ] 人畜共患病防控
+- [x] [兽医内科（消化/呼吸/代谢病）](./veterinary-internal-medicine)
+- [x] [兽医外科与手术](./veterinary-surgery)
+- [x] [动物营养代谢病](./nutritional-metabolic-diseases)
+- [x] [动物检疫与兽医公共卫生](./quarantine-public-health)
+- [x] [人畜共患病防控](./zoonoses-control)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

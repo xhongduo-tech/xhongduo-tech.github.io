@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "progress": "node scripts/gen-progress.mjs",
-    "docs:dev": "npm run progress && vitepress dev docs",
-    "docs:build": "npm run progress && vitepress build docs",
+    "docs:dev": "npm run progress && NODE_OPTIONS=--max-old-space-size=8192 vitepress dev docs",
+    "docs:build": "npm run progress && NODE_OPTIONS=--max-old-space-size=65536 vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {

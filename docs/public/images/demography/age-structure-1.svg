@@ -1,0 +1,98 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>人口金字塔的三种类型</title>
+  <desc>对比扩张型、静止型、收缩型三种人口金字塔：扩张型底部宽大，收缩型底部狭窄、中上部膨出，静止型各年龄组大致相当。</desc>
+  <rect width="800" height="360" fill="#faf9f5"/>
+
+  <!-- 面板标题 -->
+  <text x="140" y="34" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">扩张型（年轻型）</text>
+  <text x="400" y="34" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">静止型（稳定型）</text>
+  <text x="660" y="34" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">收缩型（老年型）</text>
+
+  <!-- 中轴线 -->
+  <line x1="140" y1="60" x2="140" y2="320" stroke="#999" stroke-width="1"/>
+  <line x1="400" y1="60" x2="400" y2="320" stroke="#999" stroke-width="1"/>
+  <line x1="660" y1="60" x2="660" y2="320" stroke="#999" stroke-width="1"/>
+
+  <!-- 年龄标签 -->
+  <g font-size="13" fill="#333">
+    <text x="30" y="83">70+</text>
+    <text x="30" y="114">60-69</text>
+    <text x="30" y="145">50-59</text>
+    <text x="30" y="176">40-49</text>
+    <text x="30" y="207">30-39</text>
+    <text x="30" y="238">20-29</text>
+    <text x="30" y="269">10-19</text>
+    <text x="30" y="300">0-9</text>
+  </g>
+
+  <!-- 扩张型：底部宽、顶部尖 -->
+  <g fill="#1f6f8b">
+    <rect x="137" y="70" width="3" height="26"/>
+    <rect x="133" y="101" width="7" height="26"/>
+    <rect x="127" y="132" width="13" height="26"/>
+    <rect x="118" y="163" width="22" height="26"/>
+    <rect x="106" y="194" width="34" height="26"/>
+    <rect x="92" y="225" width="48" height="26"/>
+    <rect x="79" y="256" width="61" height="26"/>
+    <rect x="70" y="287" width="70" height="26"/>
+  </g>
+  <g fill="#c0392b">
+    <rect x="140" y="70" width="3" height="26"/>
+    <rect x="140" y="101" width="7" height="26"/>
+    <rect x="140" y="132" width="13" height="26"/>
+    <rect x="140" y="163" width="22" height="26"/>
+    <rect x="140" y="194" width="34" height="26"/>
+    <rect x="140" y="225" width="48" height="26"/>
+    <rect x="140" y="256" width="61" height="26"/>
+    <rect x="140" y="287" width="70" height="26"/>
+  </g>
+
+  <!-- 静止型：各年龄组大致相当 -->
+  <g fill="#1f6f8b">
+    <rect x="382" y="70" width="18" height="26"/>
+    <rect x="368" y="101" width="32" height="26"/>
+    <rect x="359" y="132" width="41" height="26"/>
+    <rect x="354" y="163" width="46" height="26"/>
+    <rect x="353" y="194" width="47" height="26"/>
+    <rect x="354" y="225" width="46" height="26"/>
+    <rect x="357" y="256" width="43" height="26"/>
+    <rect x="359" y="287" width="41" height="26"/>
+  </g>
+  <g fill="#c0392b">
+    <rect x="400" y="70" width="18" height="26"/>
+    <rect x="400" y="101" width="32" height="26"/>
+    <rect x="400" y="132" width="41" height="26"/>
+    <rect x="400" y="163" width="46" height="26"/>
+    <rect x="400" y="194" width="47" height="26"/>
+    <rect x="400" y="225" width="46" height="26"/>
+    <rect x="400" y="256" width="43" height="26"/>
+    <rect x="400" y="287" width="41" height="26"/>
+  </g>
+
+  <!-- 收缩型：底部窄、中上部膨出 -->
+  <g fill="#1f6f8b">
+    <rect x="634" y="70" width="26" height="26"/>
+    <rect x="610" y="101" width="50" height="26"/>
+    <rect x="599" y="132" width="61" height="26"/>
+    <rect x="605" y="163" width="55" height="26"/>
+    <rect x="619" y="194" width="41" height="26"/>
+    <rect x="634" y="225" width="26" height="26"/>
+    <rect x="641" y="256" width="19" height="26"/>
+    <rect x="644" y="287" width="16" height="26"/>
+  </g>
+  <g fill="#c0392b">
+    <rect x="660" y="70" width="26" height="26"/>
+    <rect x="660" y="101" width="50" height="26"/>
+    <rect x="660" y="132" width="61" height="26"/>
+    <rect x="660" y="163" width="55" height="26"/>
+    <rect x="660" y="194" width="41" height="26"/>
+    <rect x="660" y="225" width="26" height="26"/>
+    <rect x="660" y="256" width="19" height="26"/>
+    <rect x="660" y="287" width="16" height="26"/>
+  </g>
+
+  <!-- 底部图例与说明 -->
+  <text x="400" y="338" text-anchor="middle" font-size="14" fill="#333">
+    男性（青色，左） ｜ 女性（红色，右）　一条横杠 = 一个年龄组的人口占比
+  </text>
+</svg>

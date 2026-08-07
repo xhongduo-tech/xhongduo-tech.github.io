@@ -45,32 +45,57 @@
 6. 返回简短报告：4 篇标题/slug/行数 + 剩余条目数。
 ```
 
-## 三、并发与节奏
+## 三、会话纪律（一专题一 session，防上下文爆墙）
 
-- **并发上限 20**（`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`）。一次并行启动 ≤20 个批处理代理。
-- **滚动补位**：每完成一个，立即为下一个仍有 `- [ ]` 条目的专题启动新批，保持 20 满载。
-- **填满顺序**：按层级 第一级→第二级→第三级→第四级、组内按 index.md 顺序。
-- **每波耗时**：20 组 × 4 篇 ≈ 80 篇/波，约 1 小时。
-- **全程预估**：约 5540 篇剩余 ≈ 70 波 ≈ 2.5–3 天连续运行（跨多会话）。
+> **经验教训（2026-08-07）**：旧做法是「一个主控 session 跨多波滚动补位」，结果 session 上下文
+> 累积到 ~937k token，加上 131k completion 预算即突破 1M 硬上限，触发
+> `API Error 400 … maximum context length is 1048576`，整条流水线不可恢复地死掉。
+> 根治办法 = **把 session 切小，按专题隔离**。
+
+- **一专题一 session**：每个 Claude Code 会话只负责一个专题（如「基础物理」「化学」「天文学」）。
+  该 session 内只用**该专题**的批处理代理（第二节模板），滚动写到该专题 `index.md` 没有 `- [ ]` 为止。
+- **上下文预算**：模型 1M 上下文。**主动压缩红线：上下文用到 ~70–80% 就 `/compact`**，
+  不要等撞 1M 硬墙——撞墙的 400 不可恢复，只能丢弃上下文重开。判断标准：
+  `对话很长/已写多篇` 时先 `/compact` 再继续；或用 `/context` 看用量。
+- **最大输出限制**：最大 384K 输出（写作单篇用不满，但 batch 代理一次连写 4 篇需要大预算）。
+- **写完一个专题**：该专题无 `- [ ]` 后 → 执行第四节检查点（gen-progress + commit + push）→
+  **关闭本 session**，开新 session 接下一个专题。
+- **并行度**：批处理代理仍 ≤20 并发（`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`），
+  但**只在本专题内部滚动补位**，不跨专题。这个 20 是 Claude Code 的子代理并发上限，
+  与 DeepSeek API 的账号并发（数千级）无关——单 session 内 20 个子代理已是实际吞吐极限。
+- **填满顺序**：按层级 第一级→第二级→第三级→第四级、组内按 index.md 顺序；推荐每个
+  session 从「该层剩余条目最多」的专题开始。
 
 ## 四、检查点（防丢失）
 
-每完成一批或每 ~100 篇，执行：
+写完一个专题（或每 ~100 篇）时，执行：
 ```bash
 node scripts/gen-progress.mjs        # 重生成进度
+node scripts/lint-html.mjs           # 静态红线扫描（四类炸构建问题）
+npm run docs:build                   # 全量构建（含 dead-link），必须全绿
 git add -A && git commit -m "..." && git push
 ```
-推送 `source` 分支后 GitHub Actions 自动构建部署。
+推送 `source` 分支后 GitHub Actions 自动构建部署。**红线/构建不过不许提交**。
 
 ## 五、构建安全红线（代理易犯，主控必查）
 
-- **marginnote/sidenote span 内禁止 markdown `**`**（会导致 `<strong>` 未闭合、构建失败）。
-  需强调时用 `<strong>…</strong>`。主控在每波后扫描：
-  ```bash
-  # 扫描 span 内 **
-  node -e '... 检查 <span ...> 到 </span> 之间是否有 ** ...'
-  ```
-- 每波后 `npm run docs:build` 验证一次。
+**每次检查点前必跑**（本地构建已加大堆，跑起来约 2 分钟）：
+
+```bash
+node scripts/lint-html.mjs     # 静态红线扫描：四类会炸 Vue 编译的问题
+npm run docs:build             # 全量构建（含 dead-link 检查）
+```
+
+`scripts/lint-html.mjs` 覆盖四类代理高频错误（历史翻车记录）：
+- **A. 表格行内联代码里的裸 `|`**：GFM 把 `|` 当单元格分隔符，切断代码 span，
+  残留 `<A>`/`<B>` 被 Vue 当未闭合标签 → `Element is missing end tag`。表格内要写 `\|`。
+- **B. marginnote/sidenote span 内的 markdown `**`**：需强调时改用 `<strong>…</strong>`。
+- **C. 代码围栏/数学/行内代码之外未闭合的合法 HTML 标签**（如 `<s>` 句子起始记号写成裸标签）。
+- **D. 裸尖括号记号**：`<where>`/`<eos>`/`<pad>`/`<id>` 这类非 HTML 记号必须用反引号包裹 `` `<where>` ``，
+  否则被 Vue 当作自定义元素 → 未闭合标签错误。
+
+已修复的历史事故（教训模板）：`bnf-and-ebnf.md`（表格内 `| <B> |`）、`fasttext-subword-oov.md`（裸 `<where>`）、
+`earth-science/*`（相对路径 `../../physics/` 应为 `../physics/`，VitePress 会报 dead link）。
 
 ## 六、质检要点（抽查）
 
@@ -79,9 +104,10 @@ git add -A && git commit -m "..." && git push
 - byline/frontmatter 日期一致、SVG XML 合法、文章引用的 `/images/...` 路径存在。
 - 数值/公式与对标教材一致（拿不准的让代理联网核实）。
 
-## 七、续跑清单
+## 七、续跑清单（每 session 一次）
 
 1. `node scripts/gen-progress.mjs` 看当前 done 数。
-2. 找还有 `- [ ]` 条目的专题（`grep -l -- '- \[ \]' docs/posts/*/*/index.md`）。
-3. 按本手册第二节模板启动批处理代理，≤20 并发，滚动补位。
-4. 每 ~100 篇做一次检查点提交。
+2. 选一个还有 `- [ ]` 条目的专题（优先「当前层级剩余条目最多」），**本 session 只做它**。
+3. 按本手册第二节模板启动**该专题**的批处理代理，≤20 并发、专题内滚动补位。
+4. 上下文到 ~70–80% 时 `/compact`；写完该专题 → 检查点提交 → **关闭本 session**。
+5. 检查点必做：`node scripts/lint-html.mjs` + `npm run docs:build` 全绿后才 `git commit && git push`。

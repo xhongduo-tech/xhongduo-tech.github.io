@@ -1,0 +1,34 @@
+<svg viewBox="0 0 470 270" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>戴维南等效：含源一端口网络折叠为一个电压源与一个电阻</title>
+  <desc>左侧黑箱表示线性含源一端口网络，端子 a、b；右侧是戴维南等效电路：开路电压 u_oc 串联等效电阻 R_eq。</desc>
+  <rect x="0" y="0" width="470" height="270" fill="#faf9f5"/>
+  <rect x="30" y="70" width="130" height="120" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="52" y="122" font-family="sans-serif" font-size="15" fill="#1f6f8b">线性含源</text>
+  <text x="52" y="146" font-family="sans-serif" font-size="15" fill="#1f6f8b">一端口网络</text>
+  <line x1="95" y1="70" x2="95" y2="48" stroke="#333" stroke-width="2.5"/>
+  <circle cx="95" cy="48" r="4" fill="#333"/>
+  <text x="106" y="52" font-family="sans-serif" font-size="15" fill="#333">a</text>
+  <line x1="95" y1="190" x2="95" y2="215" stroke="#333" stroke-width="2.5"/>
+  <circle cx="95" cy="215" r="4" fill="#333"/>
+  <text x="106" y="219" font-family="sans-serif" font-size="15" fill="#333">b</text>
+  <line x1="180" y1="130" x2="225" y2="130" stroke="#333" stroke-width="2.5" marker-end="url(#arrowt)"/>
+  <text x="172" y="116" font-family="sans-serif" font-size="15" fill="#333">等效</text>
+  <defs>
+    <marker id="arrowt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <circle cx="380" cy="50" r="4" fill="#333"/>
+  <text x="391" y="54" font-family="sans-serif" font-size="15" fill="#333">a</text>
+  <line x1="380" y1="50" x2="380" y2="90" stroke="#333" stroke-width="2.5"/>
+  <circle cx="380" cy="120" r="28" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="371" y="106" font-family="sans-serif" font-size="16" fill="#c0392b" font-weight="bold">+</text>
+  <text x="371" y="142" font-family="sans-serif" font-size="16" fill="#c0392b" font-weight="bold">−</text>
+  <text x="414" y="116" font-family="sans-serif" font-size="15" fill="#333">u<tspan dy="3" font-size="11">oc</tspan></text>
+  <line x1="380" y1="148" x2="380" y2="176" stroke="#333" stroke-width="2.5"/>
+  <rect x="372" y="176" width="16" height="42" fill="#faf9f5" stroke="#333" stroke-width="2.5"/>
+  <text x="396" y="202" font-family="sans-serif" font-size="15" fill="#333">R<tspan dy="3" font-size="11">eq</tspan></text>
+  <line x1="380" y1="218" x2="380" y2="230" stroke="#333" stroke-width="2.5"/>
+  <circle cx="380" cy="230" r="4" fill="#333"/>
+  <text x="391" y="234" font-family="sans-serif" font-size="15" fill="#333">b</text>
+</svg>

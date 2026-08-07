@@ -24,9 +24,7 @@ date: 2026-08-07
 
 与我们已学的两类线性模型对比，LDA 的独特性一望即知：线性回归的最小二乘与对数几率回归的极大似然，都在「拟合一个输出的映射」；LDA 则完全跳过映射，直接问一个几何问题——**往哪个方向看，两类最容易被分开？** 这个「几何优先」的姿态，让它天然适合可视化：把高维样本投影到一两条直线上，人眼就能直接看出类别是否可分。
 
-## 1 投影后的两类距离怎么度量
-
-设给定数据集 $D = \{(\mathbf{x}_i, y_i)\}$，$y_i \in \{0, 1\}$。记第 $i$ 类的样本集合为 $\mathbf{X}_i$、均值向量为 $\boldsymbol{\mu}_i$、协方差矩阵为 $\boldsymbol{\Sigma}_i$。把全部样本投影到方向 $\mathbf{w}$ 上：
+## 1 投影后的两类距离怎么度量设给定数据集 $D = \{(\mathbf{x}_i, y_i)\}$，$y_i \in \{0, 1\}$。记第 $i$ 类的样本集合为 $\mathbf{X}_i$、均值向量为 $\boldsymbol{\mu}_i$、协方差矩阵为 $\boldsymbol{\Sigma}_i$。把全部样本投影到方向 $\mathbf{w}$ 上：
 
 - 两类**中心**投影后分别落在 $\mathbf{w}^{\mathrm{T}}\boldsymbol{\mu}_0$ 与 $\mathbf{w}^{\mathrm{T}}\boldsymbol{\mu}_1$；
 - 两类投影后的**分散程度**（协方差）分别是 $\mathbf{w}^{\mathrm{T}}\boldsymbol{\Sigma}_0\mathbf{w}$ 与 $\mathbf{w}^{\mathrm{T}}\boldsymbol{\Sigma}_1\mathbf{w}$。
@@ -39,9 +37,7 @@ $$J = \frac{\left\| \mathbf{w}^{\mathrm{T}}\boldsymbol{\mu}_0 - \mathbf{w}^{\mat
 
 **重点：比值形式的目标有一个隐蔽但极有用的性质——它关于 $\mathbf{w}$ 的缩放不变。** 把 $\mathbf{w}$ 放大 10 倍，分子分母同时放大 100 倍，比值 $J$ 纹丝不动。这意味着「方向」才重要，「长度」无所谓——我们可以自由地给 $\mathbf{w}$ 加一个归一化约束来方便求解。
 
-## 2 公式解析：从瑞利商到特征向量
-
-把分子用散度矩阵写开。定义**类内散度矩阵（within-class scatter matrix）**与**类间散度矩阵（between-class scatter matrix）**：
+## 2 公式解析：从瑞利商到特征向量把分子用散度矩阵写开。定义**类内散度矩阵（within-class scatter matrix）**与**类间散度矩阵（between-class scatter matrix）**：
 
 $$\mathbf{S}_w = \boldsymbol{\Sigma}_0 + \boldsymbol{\Sigma}_1 = \sum_{\mathbf{x} \in \mathbf{X}_0} (\mathbf{x} - \boldsymbol{\mu}_0)(\mathbf{x} - \boldsymbol{\mu}_0)^{\mathrm{T}} + \sum_{\mathbf{x} \in \mathbf{X}_1} (\mathbf{x} - \boldsymbol{\mu}_1)(\mathbf{x} - \boldsymbol{\mu}_1)^{\mathrm{T}}$$
 
@@ -61,9 +57,7 @@ $$\mathbf{w} = \mathbf{S}_w^{-1}(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$$
 
 **辨析｜易错点：** 一个高频误会是「LDA 就是 PCA」。两者确实都做投影，但**目标完全不同**：PCA（主成分分析，第 10 章）找的是「数据方差最大」的方向，**完全不看类别标签**；LDA 找的是「类间/类内散度最大」的方向，**必须使用标签**。所以 PCA 是无监督降维，LDA 是监督降维——一个「哪里分散往哪投」，一个「哪里可分往哪投」。<span class="marginnote">费希尔 1936 年的论文标题是《The Use of Multiple Measurements in Taxonomic Problems》，LDA 的诞生比「机器学习」这个词早了几十年。它的思想后来启发了一整族「投影后判类」的方法，包括线性判别式、二次判别式（QDA），以及核化的变体。</span>
 
-## 3 多分类情形：求一组投影方向
-
-当类别数 $N > 2$ 时，一条投影线不够用，需要投影到一个**低维子空间**。此时定义**全局散度矩阵** $\mathbf{S}_t = \mathbf{S}_b + \mathbf{S}_w$，目标变成最大化一个矩阵版本的瑞利商：
+## 3 多分类情形：求一组投影方向当类别数 $N > 2$ 时，一条投影线不够用，需要投影到一个**低维子空间**。此时定义**全局散度矩阵** $\mathbf{S}_t = \mathbf{S}_b + \mathbf{S}_w$，目标变成最大化一个矩阵版本的瑞利商：
 
 $$\max_{\mathbf{W}} \frac{\operatorname{tr}\!\left(\mathbf{W}^{\mathrm{T}}\mathbf{S}_b\mathbf{W}\right)}{\operatorname{tr}\!\left(\mathbf{W}^{\mathrm{T}}\mathbf{S}_w\mathbf{W}\right)}$$
 
@@ -71,9 +65,7 @@ $$\max_{\mathbf{W}} \frac{\operatorname{tr}\!\left(\mathbf{W}^{\mathrm{T}}\mathb
 
 投影完成后，多分类 LDA 的判类方式是把测试样本投影到子空间，再与各类中心比较距离（最近邻思想）——这为第 9 章《聚类》与第 10 章《k 近邻学习》埋下了伏笔。
 
-## 4 用代码看 LDA 的投影
-
-LDA 的实现只需一行，但它的输出值得仔细读：
+## 4 用代码看 LDA 的投影LDA 的实现只需一行，但它的输出值得仔细读：
 
 ```python
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
@@ -96,9 +88,7 @@ pred = (score > thr).astype(int)
 
 `lda.coef_` 就是 $\mathbf{S}_w^{-1}(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$ 方向上的权重向量。把每个样本点「砸」到这根线上，两类就变成一维直线上两个分离的区间——**分类从二维问题降成了一维问题，阈值切分从此变得容易**。这就是 LDA 作为降维工具最直观的演示。<span class="marginnote">scikit-learn 的 `LinearDiscriminantAnalysis` 默认用的是精确求解（直接解广义特征值问题），当样本量远大于特征数时稳定高效；遇到高维小样本时，则可用 `shrinkage` 参数做收缩估计，这与第 11 章讲 L1/L2 正则化的「用正则换取稳定」是同一种思想。</span>
 
-## 5 LDA 在全书中的坐标
-
-LDA 看似是第 3 章的一个小节，其实它串起了半本书：
+## 5 LDA 在全书中的坐标LDA 看似是第 3 章的一个小节，其实它串起了半本书：
 
 - **与线性回归 / 对数几率回归**：三者都是「线性投影 + 阈值」，区别只在目标函数——最小二乘、负对数似然、瑞利商；
 - **与 PCA / 度量学习**：第 10 章里 PCA 是无监督投影、LDA 是监督投影，两者并列为「线性降维」的两大支柱；
@@ -107,9 +97,7 @@ LDA 看似是第 3 章的一个小节，其实它串起了半本书：
 
 **重点：LDA 的深层启示是「降维与分类可以是一件事」。** 与其在高维空间里硬找一条边界，不如先找一个「让类别分得最开」的低维子空间，把问题变简单再做分类。这个「先投影、后决策」的思想，会一路贯穿到深度学习里「表征学习」的核心主张——**好的特征是让类别天然分开的特征**。
 
-## 6 小结
-
-- **LDA 的目标**：最大化广义瑞利商 $J = \frac{\mathbf{w}^{\mathrm{T}}\mathbf{S}_b\mathbf{w}}{\mathbf{w}^{\mathrm{T}}\mathbf{S}_w\mathbf{w}}$，即类间散度最大、类内散度最小。
+## 6 小结- **LDA 的目标**：最大化广义瑞利商 $J = \frac{\mathbf{w}^{\mathrm{T}}\mathbf{S}_b\mathbf{w}}{\mathbf{w}^{\mathrm{T}}\mathbf{S}_w\mathbf{w}}$，即类间散度最大、类内散度最小。
 - **两个散度矩阵**：$\mathbf{S}_w$（类内，各样本相对类中心的散布）与 $\mathbf{S}_b = (\boldsymbol{\mu}_0-\boldsymbol{\mu}_1)(\boldsymbol{\mu}_0-\boldsymbol{\mu}_1)^{\mathrm{T}}$（类间，两中心的外积）。
 - **二分类解**：$\mathbf{w} = \mathbf{S}_w^{-1}(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$，来自拉格朗日乘子法解广义特征方程。
 - **多分类**：对 $\mathbf{S}_w^{-1}\mathbf{S}_b$ 做特征分解，取前 $d' \le N-1$ 个特征向量构成投影矩阵 $\mathbf{W}$。
@@ -117,5 +105,31 @@ LDA 看似是第 3 章的一个小节，其实它串起了半本书：
 - **地位**：监督降维的标杆，也是分类器；与贝叶斯分类器在高斯同协方差假设下等价。
 
 最后补一句实践的提醒：LDA 假设各类的协方差矩阵大致相同，当这个假设明显不成立（例如一类分布极扁、另一类接近正圆）时，投影效果会打折，此时可考虑二次判别分析（QDA）或直接换用非线性的降维方法（第 10 章）。**它是「假设美好、边界清晰」的线性时代代表，理解它的代价，也理解它的适用边界。**
+
+## 本节路线图
+
+- **第1节**：投影后的两类距离怎么度量
+- **第2节**：公式解析：从瑞利商到特征向量
+- **第3节**：多分类情形：求一组投影方向
+- **第4节**：用代码看 LDA 的投影
+- **第5节**：LDA 在全书中的坐标
+- **小结**：要点复盘与下一课衔接
+
+## 复习自查清单
+
+读完后，试着不翻书复述以下各点：
+
+- [ ] **LDA 的目标**：最大化广义瑞利商 $J = \frac{\mathbf{w}^{\mathrm{T}}\mathbf{S}_b\mathbf{w}}{\mathbf{w}^{\mathrm{T}}\mathbf{S}_w\mathbf{w}}$，即类间散度最大、类内散度最小。
+- [ ] **两个散度矩阵**：$\mathbf{S}_w$（类内，各样本相对类中心的散布）与 $\mathbf{S}_b = (\boldsymbol{\mu}_0-\boldsymbol{\mu}_1)(\boldsymbol{\mu}_0-\boldsymbol{\mu}_1)^{\mathrm{T}}$（类间，两中心的外积）。
+- [ ] **二分类解**：$\mathbf{w} = \mathbf{S}_w^{-1}(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$，来自拉格朗日乘子法解广义特征方程。
+- [ ] **多分类**：对 $\mathbf{S}_w^{-1}\mathbf{S}_b$ 做特征分解，取前 $d' \le N-1$ 个特征向量构成投影矩阵 $\mathbf{W}$。
+- [ ] **易错**：LDA ≠ PCA——LDA 用标签、找「可分」方向；PCA 不用标签、找「分散」方向。
+- [ ] **地位**：监督降维的标杆，也是分类器；与贝叶斯分类器在高斯同协方差假设下等价。
+- [ ] **第1节**：投影后的两类距离怎么度量
+- [ ] **第2节**：公式解析：从瑞利商到特征向量
+- [ ] **第3节**：多分类情形：求一组投影方向
+- [ ] **第4节**：用代码看 LDA 的投影
+- [ ] **第5节**：LDA 在全书中的坐标
+- [ ] **小结**：要点复盘与下一课衔接
 
 在下一节，我们把目光从「两类」移向「多类」：当类别数超过两个时，怎么把一个多分类问题拆成多个二分类问题来解？——这就是**多分类学习**。

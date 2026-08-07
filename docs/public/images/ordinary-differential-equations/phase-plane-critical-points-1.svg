@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="sans-serif">
+  <title>线性系统奇点的四种类型</title>
+  <desc>稳定结点、鞍点、稳定焦点与中心四种相平面奇点的轨道示意图，展示轨道箭头指向与整体形状。</desc>
+  <rect width="800" height="480" fill="#faf9f5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <text x="400" y="30" text-anchor="middle" font-size="20" fill="#333">线性系统相平面：四种基本奇点</text>
+
+  <!-- 面板 A：稳定结点 -->
+  <g stroke="#999" stroke-width="1">
+    <line x1="55" y1="130" x2="325" y2="130"/>
+    <line x1="190" y1="52" x2="190" y2="208"/>
+  </g>
+  <g stroke="#c0392b" stroke-width="1.6" fill="none" marker-end="url(#arr)">
+    <line x1="60" y1="130" x2="187" y2="130"/>
+    <line x1="320" y1="130" x2="193" y2="130"/>
+    <line x1="190" y1="58" x2="190" y2="127"/>
+    <line x1="190" y1="202" x2="190" y2="133"/>
+    <line x1="72" y1="64" x2="183" y2="123"/>
+    <line x1="308" y1="64" x2="197" y2="123"/>
+    <line x1="72" y1="196" x2="183" y2="137"/>
+    <line x1="308" y1="196" x2="197" y2="137"/>
+  </g>
+  <circle cx="190" cy="130" r="3.5" fill="#333"/>
+  <text x="190" y="235" text-anchor="middle" font-size="15" fill="#333">稳定结点（实根同号，均 &lt; 0）</text>
+
+  <!-- 面板 B：鞍点 -->
+  <g stroke="#999" stroke-width="1">
+    <line x1="475" y1="130" x2="745" y2="130"/>
+    <line x1="610" y1="52" x2="610" y2="208"/>
+  </g>
+  <g stroke="#c0392b" stroke-width="1.6" fill="none">
+    <line x1="480" y1="130" x2="607" y2="130" marker-end="url(#arr)"/>
+    <line x1="610" y1="130" x2="740" y2="130" marker-end="url(#arr)"/>
+    <line x1="610" y1="58" x2="610" y2="127" marker-end="url(#arr)"/>
+    <line x1="610" y1="202" x2="610" y2="133" marker-end="url(#arr)"/>
+    <path d="M 612,72 C 645,92 695,110 736,128" marker-end="url(#arr)"/>
+    <path d="M 608,72 C 575,92 525,110 484,128" marker-end="url(#arr)"/>
+    <path d="M 612,188 C 645,168 695,150 736,132" marker-end="url(#arr)"/>
+    <path d="M 608,188 C 575,168 525,150 484,132" marker-end="url(#arr)"/>
+  </g>
+  <circle cx="610" cy="130" r="3.5" fill="#333"/>
+  <text x="610" y="235" text-anchor="middle" font-size="15" fill="#333">鞍点（实根异号）</text>
+
+  <!-- 面板 C：稳定焦点（螺旋） -->
+  <g stroke="#999" stroke-width="1">
+    <line x1="55" y1="355" x2="325" y2="355"/>
+    <line x1="190" y1="277" x2="190" y2="433"/>
+  </g>
+  <g fill="none" stroke="#c0392b" stroke-width="1.6">
+    <g transform="rotate(0 190 355)">
+      <path d="M 285 355 A 95 55 0 1 1 95 355 A 95 55 0 0 1 190 410" marker-end="url(#arr)"/>
+    </g>
+    <g transform="rotate(35 190 355)">
+      <path d="M 252 355 A 62 34 0 1 1 128 355 A 62 34 0 0 1 190 389" marker-end="url(#arr)"/>
+    </g>
+    <g transform="rotate(70 190 355)">
+      <path d="M 222 355 A 32 18 0 1 1 158 355 A 32 18 0 0 1 190 373" marker-end="url(#arr)"/>
+    </g>
+  </g>
+  <circle cx="190" cy="355" r="3.5" fill="#333"/>
+  <text x="190" y="460" text-anchor="middle" font-size="15" fill="#333">稳定焦点（共轭复根，实部 &lt; 0）</text>
+
+  <!-- 面板 D：中心 -->
+  <g stroke="#999" stroke-width="1">
+    <line x1="475" y1="355" x2="745" y2="355"/>
+    <line x1="610" y1="277" x2="610" y2="433"/>
+  </g>
+  <g fill="none" stroke="#c0392b" stroke-width="1.6">
+    <path d="M 705 355 A 95 55 0 1 1 515 355 A 95 55 0 0 1 610 410" marker-end="url(#arr)"/>
+    <path d="M 672 355 A 62 34 0 1 1 548 355 A 62 34 0 0 1 610 389" marker-end="url(#arr)"/>
+    <path d="M 642 355 A 32 18 0 1 1 578 355 A 32 18 0 0 1 610 373" marker-end="url(#arr)"/>
+  </g>
+  <circle cx="610" cy="355" r="3.5" fill="#333"/>
+  <text x="610" y="460" text-anchor="middle" font-size="15" fill="#333">中心（纯虚根，实部为 0，非双曲）</text>
+</svg>

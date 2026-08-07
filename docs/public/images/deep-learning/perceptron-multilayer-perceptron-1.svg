@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="sans-serif">
+  <title>XOR 问题与隐藏层表示</title>
+  <desc>左图：XOR 的四个点无法用一条直线分开；右图：经隐藏层（AND/OR）变换后，四个点在新坐标下可以被一条直线分开。</desc>
+  <rect width="640" height="320" fill="#faf9f5" />
+  <text x="170" y="30" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">XOR 问题：一条线分不开</text>
+  <text x="470" y="30" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">隐藏层变换后：线性可分</text>
+
+  <!-- 左图坐标轴 -->
+  <line x1="60" y1="240" x2="240" y2="240" stroke="#333" stroke-width="1.5" />
+  <line x1="60" y1="240" x2="60" y2="60" stroke="#333" stroke-width="1.5" />
+  <text x="240" y="258" font-size="13" fill="#333" text-anchor="middle">x1</text>
+  <text x="42" y="62" font-size="13" fill="#333" text-anchor="middle">x2</text>
+
+  <!-- 左图四个点 -->
+  <circle cx="60" cy="240" r="10" fill="#faf9f5" stroke="#333" stroke-width="2" />
+  <text x="60" y="276" font-size="13" fill="#333" text-anchor="middle">(0,0)→0</text>
+  <circle cx="220" cy="240" r="10" fill="#c0392b" stroke="#333" stroke-width="2" />
+  <text x="220" y="276" font-size="13" fill="#333" text-anchor="middle">(1,0)→1</text>
+  <circle cx="60" cy="60" r="10" fill="#c0392b" stroke="#333" stroke-width="2" />
+  <text x="60" y="42" font-size="13" fill="#333" text-anchor="middle">(0,1)→1</text>
+  <circle cx="220" cy="60" r="10" fill="#faf9f5" stroke="#333" stroke-width="2" />
+  <text x="220" y="42" font-size="13" fill="#333" text-anchor="middle">(1,1)→0</text>
+
+  <!-- 尝试一条直线：失败 -->
+  <line x1="95" y1="240" x2="185" y2="60" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6,5" />
+  <text x="150" y="152" font-size="13" fill="#1f6f8b" text-anchor="middle">任一直线都会</text>
+  <text x="150" y="170" font-size="13" fill="#1f6f8b" text-anchor="middle">切错至少一个点</text>
+
+  <!-- 右图坐标轴：h1 = x1 AND x2，h2 = x1 OR x2 -->
+  <line x1="380" y1="240" x2="560" y2="240" stroke="#333" stroke-width="1.5" />
+  <line x1="380" y1="240" x2="380" y2="60" stroke="#333" stroke-width="1.5" />
+  <text x="560" y="258" font-size="13" fill="#333" text-anchor="middle">h1 = x1 AND x2</text>
+  <text x="360" y="58" font-size="13" fill="#333" text-anchor="middle">h2 = x1 OR x2</text>
+
+  <!-- 右图四个点（变换后） -->
+  <circle cx="380" cy="240" r="10" fill="#faf9f5" stroke="#333" stroke-width="2" />
+  <text x="380" y="276" font-size="13" fill="#333" text-anchor="middle">(0,0)</text>
+  <circle cx="380" cy="80" r="10" fill="#c0392b" stroke="#333" stroke-width="2" />
+  <text x="380" y="44" font-size="13" fill="#333" text-anchor="middle">(0,1)与(1,0)</text>
+  <circle cx="540" cy="80" r="10" fill="#faf9f5" stroke="#333" stroke-width="2" />
+  <text x="540" y="44" font-size="13" fill="#333" text-anchor="middle">(1,1)</text>
+
+  <!-- 右图分隔线：h2 = h1 + 0.5 -->
+  <line x1="380" y1="160" x2="500" y2="40" stroke="#1f6f8b" stroke-width="2" />
+  <text x="478" y="168" font-size="13" fill="#1f6f8b" text-anchor="middle">一条直线</text>
+  <text x="478" y="186" font-size="13" fill="#1f6f8b" text-anchor="middle">即可分开</text>
+
+  <!-- 图例 -->
+  <circle cx="80" cy="300" r="8" fill="#faf9f5" stroke="#333" stroke-width="2" />
+  <text x="96" y="304" font-size="13" fill="#333">类别 0（空心）</text>
+  <circle cx="300" cy="300" r="8" fill="#c0392b" stroke="#333" stroke-width="2" />
+  <text x="316" y="304" font-size="13" fill="#333">类别 1（实心）</text>
+</svg>

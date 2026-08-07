@@ -1,0 +1,75 @@
+---
+title: 与黎曼积分的关系：R 可积必 L 可积且相等
+date: 2026-08-07
+---
+
+# 与黎曼积分的关系：R 可积必 L 可积且相等
+
+<div class="epigraph">
+<p>Lebesgue 积分不是黎曼积分的敌人，而是它的继承者——一切黎曼可积的函数，Lebesgue 都平静地给出同一个答案。</p>
+<footer>—— 亨利 · 勒贝格（Henri Lebesgue）</footer>
+</div>
+
+<div class="article-byline">
+<p>第二级 · 实变函数与测度论 ｜ 周民强《实变函数论》§5.6 ｜ 2026-08-07</p>
+</div>
+
+## 为什么从黎曼积分的关系开始
+
+黎曼积分是每个学微积分的人都熟悉的「老朋友」，Lebesgue 积分则是新的「更强大的继承者」。本节回答那个必然的问题：**黎曼可积的函数，Lebesgue 积分是否给出同样的值？** 答案是肯定的——R 可积 ⇒ L 可积，且积分值相等。这意味着 Lebesgue 积分是黎曼积分的**真扩张**：老积分算得动的，它全算得动且答案不变；老积分算不动的，它还能算。
+
+这个结论的意义在于「兼容性」：**数学理论的推广必须保持旧结果**。Lebesgue 积分没有推翻微积分——牛顿-莱布尼茨公式、分部积分、换元法在 L 积分下全部保留，只是适用范围更广。<span class="marginnote">「R 可积 ⇒ L 可积且相等」的证明通常借助<strong>达布上下和（Darboux sums）</strong>：R 可积等价于「上积分 = 下积分」，而上下积分分别对应 L 积分意义下「取上/下阶梯函数」的逼近。测度的正则性保证「上积分的 L 版本 = 下积分的 L 版本 = 共同值」。</span>
+
+## 1 R 可积的回忆与 L 视角
+
+**Riemann 可积**：$f$ 在 $[a,b]$ 上有界，其黎曼上积分与下积分相等时，称 R 可积，公共值记 $\int_a^bf(x)dx$。上积分是「用阶梯函数从上逼近」的下确界，下积分是「从下逼近」的上确界。
+
+**Lebesgue 视角的关键差异**：Riemann 逼近用的阶梯函数 $\varphi$ 是「分片常数且底为区间」的；Lebesgue 逼近用底为可测集的简单函数。**区间只是可测集的特例**，所以 Riemann 的逼近族 ⊂ Lebesgue 的逼近族——Lebesgue 的下积分「从下方覆盖得更充分」，可能大于等于 Riemann 的下积分。
+
+**重点：直观上，L 积分「看得到」更多函数。** 例：$\chi_{\mathbb{Q}\cap[0,1]}$ 不是 R 可积（处处间断，上积分 1 下积分 0），但 L 可积且 $\int=0$（零测集上的指示函数）。**L 积分把「跳动在零测集上」的函数当成良民**——这正是它的宽容所在。
+
+## 2 定理：R 可积 ⇒ L 可积且相等
+
+**定理（R 与 L 积分一致）**：设 $f$ 在 $[a,b]$ 上有界且 R 可积。则 $f$ 是 Lebesgue 可积的，且
+
+$$\int_a^bf(x)\,dx=\int_{[a,b]}f\,dm$$
+
+**证明思路**（用阶梯函数与单调收敛）：
+
+- **第一步，取 R 的阶梯逼近列**：由 R 可积，存在阶梯函数列 $\varphi_k\le f\le\psi_k$（$\varphi_k$ 从下、$\psi_k$ 从上），使 $\int\varphi_k\uparrow\int f$，$\int\psi_k\downarrow\int f$（上下和逼近公共值）。
+- **第二步，转成 L 积分的单调列**：令 $u_k=\max(\varphi_1,\dots,\varphi_k)\uparrow$（单调），$v_k=\min(\psi_1,\dots,\psi_k)\downarrow$。由 Levi 单调收敛，$u_k\uparrow u\le f$，$\int_{[a,b]}u_k\to\int_{[a,b]}u$；而 $\int_{[a,b]}u_k=\int_a^b u_k(x)dx$（阶梯函数 R/L 一致，平凡验证）。故 $\int u=\int f$（夹逼：$\int u_k\le\int f\le\int v_k$ 且两端都收敛到 $\int f$）。
+- **第三步，得 a.e. 重合**：$u\le f\le v$ 且 $\int u=\int v$（$v$ 同理），故 $\int(v-u)=0$，$u=f=v$ a.e.。于是 $f$ 与可测函数 $u$ a.e. 相等，$f$ 可测，$\int f=\int u=\int_a^b fdx$。<span class="marginnote">证明的核心是「<strong>上下和夹逼 + 单调收敛</strong>」：R 可积给出上下逼近列，L 的单调收敛让夹逼极限合法化。最后用「$\int(v-u)=0\Rightarrow v=u$ a.e.」证明 $f$ 落在上下极限之间且 a.e. 相等——可测性与积分值同时到手。</span>
+
+## 3 推论：R 可积的 L 意义
+
+**推论一（R 可积函数可测）**：R 可积 ⇒ L 可测。因此黎曼理论里遇到的函数（连续、分段连续、单调有界……）全部可测。
+
+**推论二（R 与 L 的积分相等，推广）**：$f$ 在 $[a,b]$ R 可积，则对任意可测子集 $E\subset[a,b]$，$\int_Ef\,dm$ 与「$\int_a^bf\chi_E$ 的 R 意义」一致（若 $\chi_E$ 使 R 有意义）。
+
+**推论三（牛顿-莱布尼茨兼容）**：R 意义下的换元、分部、FTC 在 L 意义下全部保持——**L 积分是 R 积分的无痛升级**。今后可以放心用 L 记号写 $\int_a^b$，结论不变。
+
+**辨析｜易错点：反向不成立——L 可积未必 R 可积。** 例子太多：$\chi_{\mathbb{Q}\cap[0,1]}$ L 可积但不 R 可积；无界函数的反常积分（$\tfrac1{\sqrt x}$ 在 $(0,1]$）L 可积但无 R（R 只处理有界）。**L 积分严格比 R 积分大**——这正是它的存在理由。<span class="marginnote">「L ⊋ R」的精确图景：R 可积函数必 L 可积且同值；L 可积函数可能不 R 可积。下一节将给出完整的刻画——<strong>R 可积 ⇔ 间断点集零测（Lebesgue 判据）</strong>，它精确划出 R 的边界。</span>
+
+## 4 公式解析：阶梯逼近的夹逼
+
+把 R→L 的证明浓缩成夹逼链：
+
+$$\int_a^bu_k(x)\,dx\ \uparrow\ \int_{[a,b]}u\,dm\ \le\ \int_{[a,b]}f\,dm\ \le\ \int_{[a,b]}v\,dm\ \uparrow\ \int_a^bv_k(x)\,dx$$
+
+$$u_k\uparrow u,\quad v_k\downarrow v,\quad \int u=\int v=\int_a^bf\,dx$$
+
+- **第一步，读「$u_k\uparrow u\le f$」**：$u_k=\max(\varphi_1,\dots,\varphi_k)$ 单调递增、从下方逼近 $f$。**「逐点取最大」让阶梯逼近列单调化**——每个 $\varphi_j$ 的贡献被逐步积累。
+- **第二步，读「两边夹到同一值」**：$\int u_k\uparrow$、$\int v_k\downarrow$，而 R 可积保证它们的极限都是 $\int_a^bfdx$（上下和收敛到同一数）。**「上下夹到同一点」是 R 可积的定义性内容**——L 积分只是让它合法地取极限。
+- **第三步，读「$\int(v-u)=0\Rightarrow u=v$ a.e.」**：$u\le f\le v$，$\int v-\int u=0$，故 $v-u\ge0$ 且积分为 0，由「非负积分零 ⇒ a.e. 零」（前节），$v=u$ a.e.，进而 $f=u=v$ a.e.——**$f$ 与可测函数 a.e. 相等，可测且积分值确定**。
+
+**「夹逼 + 归零」**是 R→L 兼容性证明的标准收尾：上下夹到同值，中间函数自动可测。
+
+## 5 小结
+
+- **兼容定理**：R 可积 ⇒ L 可积且积分值相等——L 是 R 的真扩张。
+- **证明**：阶梯上下逼近 → 单调化 → Levi 单调收敛 → 夹逼归零。
+- **推论**：R 可积函数可测；FTC、换元、分部全部兼容。
+- **边界**：L ⊋ R——$\chi_{\mathbb{Q}\cap[0,1]}$、无界函数是 L 独享的。
+- **意义**：Lebesgue 没有推翻微积分，而是给它更宽阔的舞台。
+
+在下一节，我们给出 **R 可积的完整刻画**：黎曼可积 ⇔ 间断点集为零测集——Lebesgue 判据。

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 470" font-family="sans-serif">
+  <title>对当方阵</title>
+  <desc>四种直言命题 A、E、I、O 之间的四种逻辑关系：矛盾、反对、下反对与差等。</desc>
+  <rect width="520" height="470" fill="#faf9f5"/>
+  <style>
+    text { fill: #333; }
+    .rel { font-size: 13px; fill: #1f6f8b; }
+    .note { font-size: 13px; fill: #666; }
+    .letter { font-size: 26px; font-weight: bold; }
+    .sub { font-size: 13px; }
+  </style>
+
+  <!-- A-E 反对关系（上边线） -->
+  <line x1="182" y1="96" x2="338" y2="96" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="260" y="74" text-anchor="middle" class="rel">反对（不可同真，可同假）</text>
+
+  <!-- I-O 下反对关系（下边线） -->
+  <line x1="182" y1="352" x2="338" y2="352" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="260" y="392" text-anchor="middle" class="rel">下反对（不可同假，可同真）</text>
+
+  <!-- A-I 差等关系（左边线） -->
+  <line x1="134" y1="144" x2="134" y2="304" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="102" y="230" text-anchor="middle" class="rel">差等</text>
+  <text x="102" y="248" text-anchor="middle" class="note">全称真⇒特称真</text>
+
+  <!-- E-O 差等关系（右边线） -->
+  <line x1="386" y1="144" x2="386" y2="304" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="418" y="230" text-anchor="middle" class="rel">差等</text>
+  <text x="418" y="248" text-anchor="middle" class="note">全称真⇒特称真</text>
+
+  <!-- A-O 矛盾关系（左上-右下对角线） -->
+  <line x1="164" y1="116" x2="356" y2="332" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="238" y="206" text-anchor="middle" class="rel" fill="#c0392b">矛盾</text>
+  <text x="238" y="224" text-anchor="middle" class="note" fill="#c0392b">一真一假</text>
+
+  <!-- E-I 矛盾关系（右上-左下对角线） -->
+  <line x1="356" y1="116" x2="164" y2="332" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="282" y="238" text-anchor="middle" class="rel" fill="#c0392b">矛盾</text>
+  <text x="282" y="256" text-anchor="middle" class="note" fill="#c0392b">一真一假</text>
+
+  <!-- A 节点 -->
+  <circle cx="134" cy="96" r="46" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="134" y="92" text-anchor="middle" class="letter">A</text>
+  <text x="134" y="112" text-anchor="middle" class="sub">所有 S 是 P</text>
+
+  <!-- E 节点 -->
+  <circle cx="386" cy="96" r="46" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="386" y="92" text-anchor="middle" class="letter">E</text>
+  <text x="386" y="112" text-anchor="middle" class="sub">没有 S 是 P</text>
+
+  <!-- I 节点 -->
+  <circle cx="134" cy="352" r="46" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="134" y="348" text-anchor="middle" class="letter">I</text>
+  <text x="134" y="368" text-anchor="middle" class="sub">有些 S 是 P</text>
+
+  <!-- O 节点 -->
+  <circle cx="386" cy="352" r="46" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="386" y="348" text-anchor="middle" class="letter">O</text>
+  <text x="386" y="368" text-anchor="middle" class="sub">有些 S 不是 P</text>
+</svg>

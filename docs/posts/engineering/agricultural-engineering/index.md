@@ -12,40 +12,40 @@ pageClass: plain-doc
 
 ### 第一篇 农业机械
 
-- [ ] 农业机械化概论
-- [ ] 土壤耕作机械
-- [ ] 种植机械
-- [ ] 田间管理机械
-- [ ] 收获机械（谷物/棉花）
-- [ ] 农产品加工机械
-- [ ] 农业动力机械（拖拉机）
-- [ ] 精准农业装备
-- [ ] 农业机器人
+- [x] [农业机械化概论](./agricultural-mechanization-overview)
+- [x] [土壤耕作机械](./tillage-machinery)
+- [x] [种植机械](./planting-machinery)
+- [x] [田间管理机械](./field-management-machinery)
+- [x] [收获机械（谷物/棉花）](./harvesting-machinery)
+- [x] [农产品加工机械](./agricultural-product-processing-machinery)
+- [x] [农业动力机械（拖拉机）](./tractors-agricultural-power)
+- [x] [精准农业装备](./precision-agriculture-equipment)
+- [x] [农业机器人](./agricultural-robots)
 
 ### 第二篇 农业水土工程
 
-- [ ] 灌溉原理与方式
-- [ ] 喷灌与微灌
-- [ ] 渠道与输配水
-- [ ] 排水工程
-- [ ] 水土保持
-- [ ] 农田水利工程
+- [x] [灌溉原理与方式](./irrigation-principles-methods)
+- [x] [喷灌与微灌](./sprinkler-drip-irrigation)
+- [x] [渠道与输配水](./canal-water-delivery)
+- [x] [排水工程](./farmland-drainage)
+- [x] [水土保持](./soil-water-conservation)
+- [x] [农田水利工程](./farmland-water-conservancy)
 
 ### 第三篇 农业生物环境与设施
 
-- [ ] 设施农业（温室）
-- [ ] 环境调控（温光水气）
-- [ ] 畜禽舍环境
-- [ ] 贮藏保鲜设施
-- [ ] 农产品干燥
-- [ ] 农业废弃物处理
+- [x] [设施农业（温室）](./protected-agriculture-greenhouse)
+- [x] [环境调控（温光水气）](./greenhouse-environment-control)
+- [x] [畜禽舍环境](./livestock-housing-environment)
+- [x] [贮藏保鲜设施](./storage-freshkeeping-facilities)
+- [x] [农产品干燥](./agricultural-product-drying)
+- [x] [农业废弃物处理](./agricultural-waste-treatment)
 
 ### 第四篇 农业信息化
 
-- [ ] 农业传感与物联网
-- [ ] 农业遥感
-- [ ] 农业大数据
-- [ ] 智慧农业系统
-- [ ] 农机智能化与自动驾驶
+- [x] [农业传感与物联网](./agricultural-sensing-iot)
+- [x] [农业遥感](./agricultural-remote-sensing)
+- [x] [农业大数据](./agricultural-big-data)
+- [x] [智慧农业系统](./smart-agriculture-systems)
+- [x] [农机智能化与自动驾驶](./intelligent-machinery-autonomous-driving)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

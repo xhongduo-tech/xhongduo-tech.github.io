@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <title>弹道学的三个阶段示意</title>
+  <desc>一门火炮从炮口射出弹丸，弹道分为炮膛内的内弹道、空中飞行的外弹道（真空抛物线高于实际弹道）与命中目标的终点弹道。</desc>
+  <rect x="0" y="0" width="800" height="400" fill="#faf9f5"/>
+  <!-- 地面 -->
+  <line x1="40" y1="350" x2="760" y2="350" stroke="#333" stroke-width="2"/>
+  <text x="740" y="372" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">地面</text>
+  <!-- 炮身与炮架 -->
+  <line x1="80" y1="318" x2="175" y2="252" stroke="#555" stroke-width="20" stroke-linecap="round"/>
+  <rect x="52" y="300" width="58" height="50" rx="4" fill="#8a8a8a" stroke="#555" stroke-width="2"/>
+  <text x="95" y="242" font-family="sans-serif" font-size="14" fill="#333">炮口</text>
+  <!-- 射角标注 -->
+  <path d="M 168 262 A 22 22 0 0 0 160 276" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="138" y="284" font-family="sans-serif" font-size="14" fill="#333">θ₀</text>
+  <!-- 真空弹道（理想抛物线） -->
+  <path d="M 175 252 C 260 100 345 80 430 80 C 515 80 600 220 685 350" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="300" y="98" font-family="sans-serif" font-size="14" fill="#1f6f8b">真空弹道（理想）</text>
+  <!-- 实际弹道 -->
+  <path d="M 175 252 C 290 170 370 140 440 140 C 520 150 590 250 655 350" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="452" y="205" font-family="sans-serif" font-size="14" fill="#c0392b">实际弹道（受空气阻力）</text>
+  <!-- 内弹道与外弹道标签 -->
+  <text x="88" y="352" font-family="sans-serif" font-size="15" fill="#333">内弹道</text>
+  <text x="400" y="300" font-family="sans-serif" font-size="15" fill="#333">外弹道</text>
+  <!-- 目标与终点弹道 -->
+  <rect x="640" y="305" width="70" height="45" rx="3" fill="#333"/>
+  <rect x="654" y="292" width="30" height="16" rx="2" fill="#333"/>
+  <line x1="684" y1="295" x2="712" y2="282" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+  <text x="700" y="352" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">目标</text>
+  <text x="596" y="332" font-family="sans-serif" font-size="15" fill="#333">终点弹道</text>
+</svg>
