@@ -384,4 +384,13 @@ export function enhancePage() {
   buildToc()
   insertReadingTime()
   insertPrevNext()
+  typesetMath()
+}
+
+// 客户端 MathJax：SPA 路由切换后重新排版 \(...\) / \[...\]
+function typesetMath() {
+  const mj = (window as any).MathJax
+  if (mj?.typesetPromise) {
+    mj.typesetPromise().catch(() => {})
+  }
 }

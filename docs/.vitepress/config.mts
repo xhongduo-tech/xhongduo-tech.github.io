@@ -28,6 +28,17 @@ export default defineConfig({
       {},
       `(function(){var t=null;try{t=sessionStorage.getItem('theme-preference')}catch(e){}if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.setAttribute('data-theme',t)})()`,
     ],
+    // 客户端 MathJax 配置：排版 \(...\) / \[...\]（含 mhchem 化学式）
+    [
+      'script',
+      { type: 'text/javascript', id: 'MathJax-config' },
+      `window.MathJax={tex:{inlineMath:[['\\\\\\\\(','\\\\\\\\)']],displayMath:[['\\\\[','\\\\]']]},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};`,
+    ],
+    [
+      'script',
+      { type: 'text/javascript', id: 'MathJax-script', src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js', defer: true },
+      '',
+    ],
   ],
 
   markdown: {
@@ -36,6 +47,11 @@ export default defineConfig({
     theme: 'min-light', // 颜色由主题 CSS 统一为素色（与模板一致）
     config: (md) => {
       md.use(taskLists) // 让 - [ ] / - [x] 渲染为复选框
+      // 客户端 MathJax：mathjax3 只负责 tokenize 保护 $...$，渲染输出 \(...\) / \[...\]
+      // 由浏览器端 MathJax 排版。避免服务端内联 SVG（10257 页导致构建 OOM / 页面臃肿）。
+      const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      md.renderer.rules.math_inline = (tokens, idx) => '\\(' + esc(tokens[idx].content) + '\\)'
+      md.renderer.rules.math_block = (tokens, idx) => '\\[' + esc(tokens[idx].content) + '\\]'
     },
   },
 })
