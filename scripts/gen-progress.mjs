@@ -5,6 +5,7 @@ import { join } from 'node:path'
 
 const root = 'docs/posts'
 const data = {}
+const posts = [] // { path, title, category } —— 仅元数据，供篇末导航使用
 
 for (const tier of readdirSync(root, { withFileTypes: true })) {
   if (!tier.isDirectory()) continue

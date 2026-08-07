@@ -22,6 +22,8 @@ jobs:
       - run: npm ci
 
       - name: Build site
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
         run: npm run docs:build
 
       - name: Publish dist to main (GitHub Pages legacy source)
