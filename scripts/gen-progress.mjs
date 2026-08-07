@@ -10,10 +10,11 @@ for (const tier of readdirSync(root, { withFileTypes: true })) {
   if (!tier.isDirectory()) continue
   for (const cat of readdirSync(join(root, tier.name), { withFileTypes: true })) {
     if (!cat.isDirectory()) continue
-    const file = join(root, tier.name, cat.name, 'index.md')
+    const catDir = join(root, tier.name, cat.name)
+    const indexFile = join(catDir, 'index.md')
     let md
     try {
-      md = readFileSync(file, 'utf8')
+      md = readFileSync(indexFile, 'utf8')
     } catch {
       continue
     }
@@ -33,8 +34,6 @@ for (const tier of readdirSync(root, { withFileTypes: true })) {
           cur = { title: '', items: [] }
           chapters.push(cur)
         }
-        // 选题标题可能内嵌 Markdown 链接：- [x] [集合的概念](./set-concept)
-        // 这里只取链接的显示文本「集合的概念」，去掉 url 与括号。
         const raw = it[2].trim()
         const link = raw.match(/^\[([^\]]+)\]\(([^)]+)\)/)
         const title = link ? link[1].trim() : raw.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')

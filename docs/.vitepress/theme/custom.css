@@ -241,6 +241,105 @@ ul div[class*='language-'] {
   opacity: 0.75;
 }
 
+/* ---------- 阅读进度条（顶部 2px 细条） ---------- */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 80ms linear;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* ---------- 阅读时长 ---------- */
+.reading-time {
+  color: var(--theme-line-numbers-text, #999);
+  font-size: 1.1rem;
+}
+
+/* ---------- 篇末导航（上一篇/下一篇） ---------- */
+.prev-next-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 3rem 0 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--theme-table-border, #ddd);
+  width: 55%;
+}
+.prev-next-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  color: var(--theme-text, #111);
+  text-decoration: none;
+  max-width: 48%;
+}
+.prev-next-nav a:hover {
+  color: var(--accent);
+}
+.pn-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--theme-line-numbers-text, #999);
+  text-transform: uppercase;
+}
+.pn-title {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.pn-next {
+  text-align: right;
+  margin-left: auto;
+}
+@media (max-width: 760px) {
+  .prev-next-nav {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .prev-next-nav a {
+    max-width: none;
+  }
+}
+
+/* ---------- 重点内容标注 / 核心知识点提醒 ---------- */
+.key-point {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin: 1.5em 0;
+  padding: 0.9em 1.1em;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.92em;
+  line-height: 1.6;
+}
+.key-point .kp-icon {
+  flex: 0 0 auto;
+  width: 1.2em;
+  height: 1.2em;
+  margin-top: 0.15em;
+  color: var(--accent);
+}
+.key-point .kp-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.key-point p {
+  margin: 0;
+  width: auto !important;
+}
+.key-point strong {
+  color: var(--accent-ink);
+}
+
 /* ---------- 页脚 ---------- */
 .site-footer {
   font-size: 1.1rem;

@@ -77,7 +77,7 @@ $$
 
 沿用前面两篇的小语料。设测试句「猫 坐在 垫子 上」，用已学好的二元概率做手算（假设这些概率恰好等于上一篇平滑前的相对频率，且句首句尾已处理）：
 
-- $P(\text{猫} \mid \text{`<s>`}) = \frac{2}{3}$，$P(\text{坐在} \mid \text{猫}) = 1$，$P(\text{垫子} \mid \text{坐在}) = \frac{1}{2}$，$P(\text{上} \mid \text{垫子}) = 1$，$P(\text{`</s>`} \mid \text{上}) = 1$。
+- $P(\text{猫} \mid \text{〈s〉}) = \frac{2}{3}$，$P(\text{坐在} \mid \text{猫}) = 1$，$P(\text{垫子} \mid \text{坐在}) = \frac{1}{2}$，$P(\text{上} \mid \text{垫子}) = 1$，$P(\text{〈/s〉} \mid \text{上}) = 1$。
 
 逐步拆解：
 

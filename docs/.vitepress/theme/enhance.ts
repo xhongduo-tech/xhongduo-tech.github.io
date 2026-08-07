@@ -3,6 +3,8 @@
  * 主题切换、返回顶部、代码块行号+复制按钮、左侧 TOC、标题内英文斜体。
  * initEnhancements 每会话执行一次；enhancePage 每次路由变化后执行。
  */
+import { withBase } from 'vitepress'
+import postsData from '../data/posts'
 
 const ICONS = {
   sun: `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0-11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,1,16,0V216a8,8,0,0,0-8-8Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg>`,
@@ -50,6 +52,124 @@ function initBackToTop() {
   window.addEventListener('scroll', update, { passive: true })
 }
 
+/* ---------- 阅读进度条（顶部 2px 细条，随滚动增长） ---------- */
+function initReadingProgress() {
+  const bar = document.createElement('div')
+  bar.id = 'reading-progress'
+  bar.className = 'reading-progress'
+  document.body.appendChild(bar)
+  let raf = false
+  const update = () => {
+    raf = false
+    const doc = document.documentElement
+    const total = doc.scrollHeight - doc.clientHeight
+    const pct = total > 0 ? Math.min(100, (window.scrollY / total) * 100) : 0
+    bar.style.transform = `scaleX(${pct / 100})`
+  }
+  const onScroll = () => {
+    if (!raf) {
+      requestAnimationFrame(update)
+      raf = true
+    }
+  }
+  update()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onScroll, { passive: true })
+}
+
+/* ---------- 阅读时长提示（基于正文字数估算） ---------- */
+function insertReadingTime() {
+  const existing = document.querySelector('.reading-time')
+  if (existing) existing.remove()
+  const article = document.querySelector('.tuf-article section')
+  if (!article) return
+  // 只统计可见文本（排除边注、代码块等干扰）
+  const clone = article.cloneNode(true) as HTMLElement
+  clone.querySelectorAll('.marginnote, .sidenote, pre, code, .toc-sidebar, figure').forEach((el) => el.remove())
+  const text = clone.textContent || ''
+  // 中文按 400 字/分钟，英文按 200 词/分钟
+  const cjk = (text.match(/[一-鿿　-〿＀-￯]/g) || []).length
+  const enWords = text.replace(/[一-鿿　-〿＀-￯]/g, ' ').split(/\s+/).filter(Boolean).length
+  const minutes = Math.max(1, Math.round(cjk / 400 + enWords / 200))
+  const isEn = location.pathname.startsWith('/en/')
+  const label = isEn ? `${minutes} min read` : `约 ${minutes} 分钟`
+  const byline = document.querySelector('.article-byline')
+  if (byline) {
+    const span = document.createElement('span')
+    span.className = 'reading-time'
+    span.textContent = ` · ${label}`
+    byline.appendChild(span)
+  }
+}
+
+/* ---------- 篇末导航（上一篇/下一篇） ----------
+   数据来自构建时生成的博文索引（data/posts.ts）。仅在博文详情页显示，
+   且限定在同一分类（tier/category）内按路径排序提供上下篇，保证阅读连贯；
+   分类索引页（/posts/<tier>/<cat>）不显示。路径匹配剥离 base 与 .html，
+   与索引中的路由（无 base、无 .html）对齐。 */
+const SITE_BASE = import.meta.env.BASE_URL || '/'
+
+function currentRoutePath(): string {
+  let p = location.pathname
+  if (SITE_BASE !== '/' && p.startsWith(SITE_BASE)) p = p.slice(SITE_BASE.length - 1)
+  return p.replace(/\.html$/, '').replace(/\/+$/, '')
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(
+    /[&<>"']/g,
+    (c) =>
+      c === '&'
+        ? '&amp;'
+        : c === '<'
+          ? '&lt;'
+          : c === '>'
+            ? '&gt;'
+            : c === '"'
+              ? '&quot;'
+              : '&#39;',
+  )
+}
+
+function insertPrevNext() {
+  const existing = document.querySelector('.prev-next-nav')
+  if (existing) existing.remove()
+  const article = document.querySelector('.tuf-article section')
+  if (!article) return
+  const here = currentRoutePath()
+  // 仅博文详情页：/posts/<tier>/<cat>/<slug>（4 段）
+  if (!here.startsWith('/posts/')) return
+  const segs = here.slice(1).split('/')
+  if (segs.length < 4) return
+  const category = `${segs[1]}/${segs[2]}`
+  // 同分类文章（前缀 /posts/<tier>/<cat>/ 自然排除分类索引页），按路径排序
+  const prefix = `/posts/${category}/`
+  const siblings = postsData.filter((p) => p.path.startsWith(prefix))
+  const idx = siblings.findIndex((p) => p.path === here)
+  if (idx < 0) return
+  const prev = idx > 0 ? siblings[idx - 1] : null
+  const next = idx < siblings.length - 1 ? siblings[idx + 1] : null
+  if (!prev && !next) return
+  const nav = document.createElement('nav')
+  nav.className = 'prev-next-nav'
+  nav.setAttribute('aria-label', '上下篇')
+  if (prev) {
+    const a = document.createElement('a')
+    a.className = 'pn-prev'
+    a.href = withBase(prev.path)
+    a.innerHTML = `<span class="pn-label">上一篇</span><span class="pn-title">${escapeHtml(prev.title)}</span>`
+    nav.appendChild(a)
+  }
+  if (next) {
+    const a = document.createElement('a')
+    a.className = 'pn-next'
+    a.href = withBase(next.path)
+    a.innerHTML = `<span class="pn-label">下一篇</span><span class="pn-title">${escapeHtml(next.title)}</span>`
+    nav.appendChild(a)
+  }
+  article.appendChild(nav)
+}
+
 export function initEnhancements() {
   // 主题切换
   const button = document.getElementById('theme-toggle')
@@ -73,6 +193,7 @@ export function initEnhancements() {
     }
   })
   initBackToTop()
+  initReadingProgress()
 }
 
 /* ---------- 标题内英文片段斜体（format-headings.js） ---------- */
@@ -261,4 +382,6 @@ export function enhancePage() {
   enhanceCodeBlocks()
   numberMarginNotes()
   buildToc()
+  insertReadingTime()
+  insertPrevNext()
 }
