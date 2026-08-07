@@ -43,13 +43,13 @@ pageClass: plain-doc
 
 - [x] [序列：等差序列、等比序列与递推定义的序列](./sequences-arithmetic-geometric-recurrence)
 - [x] [求和记号与常用求和公式](./summation-notation)
-- [ ] 双重求和与伸缩求和（telescoping sum）
+- [x] [双重求和与伸缩求和（telescoping sum）](./double-summation-telescoping)
 
 ### 第五篇 算法与复杂度
 
-- [ ] 算法的概念与伪代码描述
-- [ ] 搜索算法：线性搜索与二分搜索
-- [ ] 排序算法：冒泡排序与插入排序
+- [x] [算法的概念与伪代码描述](./algorithms-concept-pseudocode)
+- [x] [搜索算法：线性搜索与二分搜索](./searching-linear-binary)
+- [x] [排序算法：冒泡排序与插入排序](./sorting-bubble-insertion)
 - [ ] 贪心算法及其正确性论证
 - [ ] 算法增长：大 O 记号
 - [ ] 大 Ω 与大 Θ 记号

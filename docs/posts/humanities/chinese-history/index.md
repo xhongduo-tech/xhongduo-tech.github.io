@@ -12,10 +12,10 @@ pageClass: plain-doc
 
 ### 第一篇 史学理论与方法
 
-- [ ] 历史学的对象与任务
-- [ ] 历史分期与体系
-- [ ] 史料学（文献/考古/口述）
-- [ ] 考据与辨伪
+- [x] [历史学的对象与任务](./history-object-task)
+- [x] [历史分期与体系](./history-periodization)
+- [x] [史料学（文献/考古/口述）](./historical-sources)
+- [x] [考据与辨伪](./textual-criticism)
 - [ ] 历史研究法
 - [ ] 中国历史编纂学（纪传/编年/纪事本末）
 - [ ] 史学名著导读（《史记》等）

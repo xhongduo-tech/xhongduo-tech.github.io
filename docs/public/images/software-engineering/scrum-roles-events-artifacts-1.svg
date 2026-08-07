@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 660" font-family="sans-serif">
+  <title>Scrum 的一个 Sprint：角色、事件与工件</title>
+  <desc>流程图：产品待办列表经冲刺计划会成为冲刺待办列表，进入冲刺容器（内含每日站会），产出满足完成的定义的增量，经冲刺评审与冲刺回顾，下方列出产品负责人、Scrum 教练与开发团队三个角色。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="780" height="660" fill="#faf9f5"/>
+
+  <!-- 标题 -->
+  <text x="390" y="36" font-size="21" font-weight="bold" fill="#333" text-anchor="middle">Scrum 的一个 Sprint：角色、事件与工件</text>
+  <text x="390" y="60" font-size="13" fill="#666" text-anchor="middle">经验式过程控制 · 三个角色 · 五个事件 · 三件工件</text>
+
+  <!-- 第一行：三件工件中的两件 + 计划会 -->
+  <g>
+    <rect x="30" y="100" width="210" height="56" rx="6" fill="#e8f1f3" stroke="#1f6f8b" stroke-width="1.5"/>
+    <text x="135" y="124" font-size="15" font-weight="bold" fill="#1f6f8b" text-anchor="middle">产品待办列表</text>
+    <text x="135" y="142" font-size="12" fill="#333" text-anchor="middle">Product Backlog</text>
+
+    <rect x="285" y="100" width="200" height="56" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <text x="385" y="124" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">冲刺计划会</text>
+    <text x="385" y="142" font-size="12" fill="#333" text-anchor="middle">Sprint Planning</text>
+
+    <rect x="530" y="100" width="210" height="56" rx="6" fill="#e8f1f3" stroke="#1f6f8b" stroke-width="1.5"/>
+    <text x="635" y="124" font-size="15" font-weight="bold" fill="#1f6f8b" text-anchor="middle">冲刺待办列表</text>
+    <text x="635" y="142" font-size="12" fill="#333" text-anchor="middle">Sprint Backlog</text>
+
+    <line x1="240" y1="128" x2="280" y2="128" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="485" y1="128" x2="525" y2="128" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- 冲刺容器 -->
+  <g>
+    <rect x="120" y="210" width="620" height="150" rx="10" fill="#f7fbfc" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="7 4"/>
+    <text x="430" y="234" font-size="16" font-weight="bold" fill="#1f6f8b" text-anchor="middle">Sprint（冲刺：2–4 周，周期恒定）</text>
+    <circle cx="430" cy="310" r="50" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <text x="430" y="303" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">每日站会</text>
+    <text x="430" y="320" font-size="11" fill="#333" text-anchor="middle">Daily Scrum</text>
+    <text x="430" y="336" font-size="11" fill="#333" text-anchor="middle">15 分钟</text>
+    <line x1="635" y1="156" x2="635" y2="206" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- 增量 -->
+  <g>
+    <rect x="230" y="400" width="400" height="56" rx="6" fill="#e8f1f3" stroke="#1f6f8b" stroke-width="1.5"/>
+    <text x="430" y="424" font-size="15" font-weight="bold" fill="#1f6f8b" text-anchor="middle">Increment（增量）</text>
+    <text x="430" y="442" font-size="12" fill="#333" text-anchor="middle">满足 Definition of Done（完成的定义）</text>
+    <line x1="430" y1="360" x2="430" y2="396" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- 评审与回顾 -->
+  <g>
+    <rect x="90" y="490" width="250" height="56" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <text x="215" y="514" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">冲刺评审</text>
+    <text x="215" y="532" font-size="12" fill="#333" text-anchor="middle">Sprint Review：检视增量</text>
+
+    <rect x="470" y="490" width="250" height="56" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <text x="595" y="514" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">冲刺回顾</text>
+    <text x="595" y="532" font-size="12" fill="#333" text-anchor="middle">Sprint Retrospective：检视流程</text>
+
+    <path d="M 430 456 L 430 475 L 215 475 L 215 486" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <path d="M 430 456 L 430 475 L 595 475 L 595 486" fill="none" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="340" y1="518" x2="466" y2="518" stroke="#333" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+    <text x="403" y="510" font-size="11" fill="#666" text-anchor="middle">评审结论</text>
+  </g>
+
+  <!-- 角色条 -->
+  <g>
+    <rect x="60" y="580" width="200" height="60" rx="6" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="160" y="604" font-size="15" font-weight="bold" fill="#c0392b" text-anchor="middle">产品负责人</text>
+    <text x="160" y="624" font-size="12" fill="#333" text-anchor="middle">Product Owner · 价值最大化</text>
+
+    <rect x="290" y="580" width="200" height="60" rx="6" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="390" y="604" font-size="15" font-weight="bold" fill="#c0392b" text-anchor="middle">Scrum 教练</text>
+    <text x="390" y="624" font-size="12" fill="#333" text-anchor="middle">Scrum Master · 清除障碍</text>
+
+    <rect x="520" y="580" width="200" height="60" rx="6" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="620" y="604" font-size="15" font-weight="bold" fill="#c0392b" text-anchor="middle">开发团队</text>
+    <text x="620" y="624" font-size="12" fill="#333" text-anchor="middle">Developers · 自管理跨职能</text>
+  </g>
+
+  <text x="390" y="654" font-size="12" fill="#666" text-anchor="middle">评审与回顾的结论会回填产品待办列表，开启下一轮 Sprint</text>
+</svg>

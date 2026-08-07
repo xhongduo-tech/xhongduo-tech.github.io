@@ -25,10 +25,10 @@ pageClass: plain-doc
 
 ### 第3章 线性模型
 - [x] [基本形式](./linear-model-basics)
-- [ ] 线性回归
-- [ ] 对数几率回归
-- [ ] 线性判别分析
-- [ ] 多分类学习
+- [x] [线性回归](./linear-regression)
+- [x] [对数几率回归](./logistic-regression)
+- [x] [线性判别分析](./linear-discriminant-analysis)
+- [x] [多分类学习](./multi-class-learning)
 - [ ] 类别不平衡问题
 
 ### 第4章 决策树

@@ -21,10 +21,10 @@ pageClass: plain-doc
 ### 第二篇 线性代数回顾
 
 - [x] [向量：点积及其在光照中的应用](./vectors-dot-product-lighting)
-- [ ] 向量：叉积与左右手坐标系
-- [ ] 向量：法向量与正交基
-- [ ] 矩阵：矩阵乘法与线性变换的表示
-- [ ] 矩阵：逆矩阵、转置与正交矩阵
+- [x] [向量：叉积与左右手坐标系](./vectors-cross-product-handedness)
+- [x] [向量：法向量与正交基](./vectors-normals-orthonormal-basis)
+- [x] [矩阵：矩阵乘法与线性变换的表示](./matrix-multiplication-linear-transformations)
+- [x] [矩阵：逆矩阵、转置与正交矩阵](./matrix-inverse-transpose-orthogonal)
 - [ ] 行列式与变换的朝向判定
 
 ### 第三篇 变换

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 370" font-family="sans-serif">
+  <title>表达式 id + id * id 的语法分析树</title>
+  <desc>在文法 E→E+T|T、T→T*F|F、F→id|(E) 下，表达式 id + id * id 的语法分析树：根为 E，左子树推出 id，右子树推出 id * id；红色椭圆表示非终结符，青色椭圆表示终结符。</desc>
+  <rect width="480" height="370" fill="#faf9f5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 边：先画，结点椭圆覆盖端点 -->
+  <g stroke="#8a8a8a" stroke-width="1.5">
+    <line x1="230" y1="56" x2="90" y2="114"/>
+    <line x1="230" y1="56" x2="230" y2="114"/>
+    <line x1="230" y1="56" x2="370" y2="114"/>
+    <line x1="90" y1="146" x2="90" y2="204"/>
+    <line x1="370" y1="146" x2="290" y2="204"/>
+    <line x1="370" y1="146" x2="370" y2="204"/>
+    <line x1="370" y1="146" x2="450" y2="204"/>
+    <line x1="90" y1="236" x2="90" y2="274"/>
+    <line x1="290" y1="236" x2="290" y2="274"/>
+    <line x1="450" y1="236" x2="450" y2="274"/>
+    <line x1="90" y1="306" x2="90" y2="324"/>
+    <line x1="290" y1="306" x2="290" y2="324"/>
+  </g>
+
+  <!-- 非终结符（红色边框） -->
+  <g fill="#fff" stroke="#c0392b" stroke-width="2">
+    <ellipse cx="230" cy="40" rx="22" ry="16"/>
+    <ellipse cx="90" cy="130" rx="22" ry="16"/>
+    <ellipse cx="370" cy="130" rx="22" ry="16"/>
+    <ellipse cx="90" cy="220" rx="22" ry="16"/>
+    <ellipse cx="290" cy="220" rx="22" ry="16"/>
+    <ellipse cx="450" cy="220" rx="22" ry="16"/>
+    <ellipse cx="90" cy="290" rx="22" ry="16"/>
+    <ellipse cx="290" cy="290" rx="22" ry="16"/>
+  </g>
+
+  <!-- 终结符（青色边框） -->
+  <g fill="#fff" stroke="#1f6f8b" stroke-width="2">
+    <ellipse cx="230" cy="130" rx="16" ry="16"/>
+    <ellipse cx="370" cy="220" rx="16" ry="16"/>
+    <ellipse cx="450" cy="290" rx="22" ry="16"/>
+    <ellipse cx="90" cy="340" rx="22" ry="16"/>
+    <ellipse cx="290" cy="340" rx="22" ry="16"/>
+  </g>
+
+  <!-- 标签 -->
+  <g text-anchor="middle" font-size="15" fill="#333">
+    <text x="230" y="45">E</text>
+    <text x="90" y="135">E</text>
+    <text x="230" y="135">+</text>
+    <text x="370" y="135">T</text>
+    <text x="90" y="225">T</text>
+    <text x="290" y="225">T</text>
+    <text x="370" y="225">*</text>
+    <text x="450" y="225">F</text>
+    <text x="90" y="295">F</text>
+    <text x="290" y="295">F</text>
+    <text x="450" y="295">id</text>
+    <text x="90" y="345">id</text>
+    <text x="290" y="345">id</text>
+  </g>
+</svg>

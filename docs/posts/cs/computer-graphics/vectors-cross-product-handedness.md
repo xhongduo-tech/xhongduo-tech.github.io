@@ -116,7 +116,7 @@ $$
 叉积方向依赖右手定则，而「右手」本身就预设了一个**坐标系约定**。区分两个系统：
 
 - **右手坐标系（right-handed）**：$\mathbf{x} \times \mathbf{y} = \mathbf{z}$。拇指指向 $\mathbf{x}$，食指指向 $\mathbf{y}$，中指指向 $\mathbf{z}$，三者成右手势。OpenGL、数学惯例多用右手系。
-- **左手坐标系（left-handed）**：$\mathbf{x} \times \mathbf{y} = -\mathbf{z}$。用左手比划同样动作，中指方向恰好反过来。DirectX、Unity 世界坐标系常用左手系。<span class="marginnote">左手/右手只是「镜像关系」：把其中一个的所有坐标整体镜像（例如 $\mathbf{x} \to -\mathbf{x}$），右手系就变成左手系。真正的物理空间不分左右，分左右的是我们**建立坐标轴的方式**。</span>
+- **左手坐标系（left-handed）**：$\mathbf{x} \times \mathbf{y} = -\mathbf{z}$。用左手比划同样动作，中指方向恰好反过来。DirectX、Unity 世界坐标系常用左手系。<span class="marginnote">左手/右手只是「镜像关系」：把其中一个的所有坐标整体镜像（例如 $\mathbf{x} \to -\mathbf{x}$），右手系就变成左手系。真正的物理空间不分左右，分左右的是我们建立坐标轴的方式。</span>
 
 **如何快速判断一个坐标系是左还是右？** 把手伸向 $\mathbf{x}$、$\mathbf{y}$ 轴的正方向做叉积，看 $\mathbf{z}$ 是否朝向约定方向。更实用的判据：**绕 $\mathbf{z}$ 轴正方向逆时针旋转时，$\mathbf{x}$ 是否转到 $\mathbf{y}$**——在右手系里 $R_z(90°)$ 把 $\mathbf{x}$ 转到 $\mathbf{y}$。
 

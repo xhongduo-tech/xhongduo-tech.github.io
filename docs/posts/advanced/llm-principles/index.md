@@ -20,8 +20,8 @@ pageClass: plain-doc
 - [x] [InstructGPT 与 ChatGPT：指令微调与人类反馈对齐](./instructgpt-and-chatgpt-alignment)
 - [x] [GPT-4 之后与开源生态：LLaMA 系谱与社区爆发](./gpt4-and-open-source-llama)
 - [x] [Kaplan 缩放定律：损失与模型、数据、算力的幂律关系](./kaplan-scaling-laws)
-- [ ] Chinchilla 缩放定律：计算最优下的参数-数据配比
-- [ ] 涌现能力：现象描述、机理解释与"度量假象"之争
+- [x] [Chinchilla 缩放定律：计算最优下的参数-数据配比](./chinchilla-scaling-laws)
+- [x] [涌现能力：现象描述、机理解释与"度量假象"之争](./emergent-abilities)
 
 ### 第二篇 Tokenizer 与分词
 

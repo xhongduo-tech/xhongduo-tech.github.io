@@ -12,10 +12,10 @@ pageClass: plain-doc
 
 ### 第一篇 先秦文学
 
-- [ ] 中国文学史绪论
-- [ ] 上古神话
-- [ ] 《诗经》概说
-- [ ] 《诗经》风雅颂
+- [x] [中国文学史绪论](./chinese-literary-history-intro)
+- [x] [上古神话](./ancient-mythology)
+- [x] [《诗经》概说](./shijing-overview)
+- [x] [《诗经》风雅颂](./shijing-feng-ya-song)
 - [ ] 《诗经》艺术成就
 - [ ] 历史散文（《左传》《国语》《战国策》）
 - [ ] 诸子散文（《论语》《孟子》）

@@ -54,7 +54,7 @@ pageClass: plain-doc
 - [x] [诱导公式](./reduction-formulas)
 - [x] [正弦函数、余弦函数的图象与性质](./sine-cosine-graphs)
 - [x] [正切函数的图象与性质](./tangent-graph)
-- [ ] 两角和与差的正弦、余弦和正切公式
+- [x] [两角和与差的正弦、余弦和正切公式](./sum-and-difference-formulas)
 - [ ] 二倍角的正弦、余弦、正切公式
 - [ ] 简单的三角恒等变换
 - [ ] 函数 y = A sin(ωx + φ) 的图象

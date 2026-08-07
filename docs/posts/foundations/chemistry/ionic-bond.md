@@ -56,7 +56,7 @@ $$\ce{Na -> Na+ + e-},\qquad \ce{Cl2 + 2e- -> 2Cl-}$$
 
 - 钠的电子式：$\ce{Na}\cdot$（符号右侧 1 个点）。
 - 氯的电子式：$\cdot\ce{Cl}:$（三面共 7 个点，每侧最多 2 个点）。
-- 氯离子的电子式：$[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\ce{Cl}}}:\;]^{-}$（8 个点，加方括号、标电荷）。
+- 氯离子的电子式：$[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\mathrm{Cl}}}:\;]^{-}$（8 个点，加方括号、标电荷）。
 
 电子式是「化学的示意图」而非严格的数学公式，但它把最外层的电子数、电子的转移去向、离子的电荷全部可视化——这正是《电解质电离》里「$\ce{NaCl -> Na+ + Cl-}$」的电离方程式所看不到的那一面。
 
@@ -67,7 +67,7 @@ $$\ce{Na -> Na+ + e-},\qquad \ce{Cl2 + 2e- -> 2Cl-}$$
 用电子式表示「形成过程」，是这一节的核心技能。规则只有一条：**左边写原子的电子式，右边写离子的电子式，中间用箭头连起**。以氯化钠为例：
 
 $$
-\ce{Na}\cdot \; + \; \cdot\ce{Cl}: \;\longrightarrow\; \ce{Na+}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\ce{Cl}}}:\;]^{-}
+\mathrm{Na}\cdot + \cdot\mathrm{Cl}: \longrightarrow \mathrm{Na}^{+}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\mathrm{Cl}}}:\;]^{-}
 $$
 
 拆解三步：
@@ -79,11 +79,11 @@ $$
 再举两个多电子转移的例子：
 
 $$
-\ce{Mg}\cdot\cdot \; + \; 2\,\cdot\ce{Cl}: \;\longrightarrow\; \ce{Mg^{2+}}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\ce{Cl}}}:\;]^{-}_{2}
+\mathrm{Mg}\cdot\cdot + 2\,\cdot\mathrm{Cl}: \longrightarrow \mathrm{Mg}^{2+}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\mathrm{Cl}}}:\;]^{-}_{2}
 $$
 
 $$
-2\,\ce{Na}\cdot \; + \; \cdot\overset{\cdot\cdot}{\underset{\cdot\cdot}{\ce{O}}}\cdot \; \longrightarrow\; \ce{Na+}_{2}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\ce{O}}}:\;]^{2-}
+2\,\mathrm{Na}\cdot + \cdot\overset{\cdot\cdot}{\underset{\cdot\cdot}{\mathrm{O}}}\cdot \longrightarrow \mathrm{Na}^{+}_{2}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\mathrm{O}}}:\;]^{2-}
 $$
 
 镁要失去 2 个电子（$\ce{Mg^{2+}}$），所以需要 2 个氯来接纳；钠是 1 个电子，而氧需要 2 个电子，所以 2 个钠配 1 个氧（$\ce{Na2O}$）。**失电子总数 = 得电子总数**，这个守恒关系与《氧化还原反应》里的电子守恒一脉相承——写形成过程时，先数清谁失几个、谁得几个，再配对。
@@ -115,7 +115,7 @@ $$
 
 - **分析电子数**：钾最外层 1 个电子，硫最外层 6 个电子、需要 2 个电子。
 - **配对**：1 个硫需要 2 个钾各失去 1 个电子，得 $\ce{K+}_{2}$ 与 $\ce{S^{2-}}$。
-- **书写**：$2\,\ce{K}\cdot + \cdot\overset{\cdot\cdot}{\underset{\cdot\cdot}{\ce{S}}}\cdot \longrightarrow \ce{K+}_{2}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\ce{S}}}:\;]^{2-}$
+- **书写**：$2\,\mathrm{K}\cdot + \cdot\overset{\cdot\cdot}{\underset{\cdot\cdot}{\mathrm{S}}}\cdot \longrightarrow \mathrm{K}^{+}_{2}[\;:\overset{\cdot\cdot}{\underset{\cdot\cdot}{\mathrm{S}}}:\;]^{2-}$
 - **结论**：硫离子带 2 个单位负电荷，$\ce{K+}$ 与 $\ce{S^{2-}}$ 靠静电作用结合为离子键。
 
 这道题把「最外层电子数 → 得失电子数 → 离子电荷 → 形成过程」完整串了一遍。能独立写出来，离子键这一节就过关了。

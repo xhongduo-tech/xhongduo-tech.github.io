@@ -18,10 +18,10 @@ pageClass: plain-doc
 - [x] [冯·诺依曼计算机的基本思想与特点](./von-neumann)
 - [x] [计算机的基本组成：运算器、控制器、存储器、输入输出设备](./computer-composition)
 - [x] [计算机的工作过程：取指令、分析指令、执行指令](./instruction-cycle)
-- [ ] 计算机系统的层次结构：从微程序机器级到高级语言机器级
-- [ ] 计算机体系结构与计算机组成的区别
-- [ ] 计算机硬件的主要技术指标：机器字长、存储容量、运算速度
-- [ ] 性能评价：CPU 执行时间、CPI、MIPS 与 MFLOPS
+- [x] [计算机系统的层次结构：从微程序机器级到高级语言机器级](./computer-hierarchy)
+- [x] [计算机体系结构与计算机组成的区别](./architecture-vs-organization)
+- [x] [计算机硬件的主要技术指标：机器字长、存储容量、运算速度](./hardware-indicators)
+- [x] [性能评价：CPU 执行时间、CPI、MIPS 与 MFLOPS](./performance-evaluation)
 - [ ] 阿姆达尔定律与系统性能改进
 - [ ] 程序的编译、汇编、链接与装载过程
 - [ ] 信息的二进制表示与程序的机器级视角
