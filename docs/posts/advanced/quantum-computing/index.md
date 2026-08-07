@@ -47,10 +47,10 @@ pageClass: plain-doc
 
 - [x] [量子线路模型与线路图约定](./quantum-circuit-model)
 - [x] [单比特门：X、Y、Z 与 Pauli 门](./single-qubit-gates-pauli)
-- [ ] Hadamard 门与相位门（S、T 门）
-- [ ] 旋转门：Rx、Ry、Rz 与任意单比特门分解
-- [ ] 受控门：CNOT、CZ 与受控-U
-- [ ] Toffoli 门与 Fredkin 门
+- [x] [Hadamard 门与相位门（S、T 门）](./hadamard-phase-gates)
+- [x] [旋转门：Rx、Ry、Rz 与任意单比特门分解](./rotation-gates-single-qubit-decomposition)
+- [x] [受控门：CNOT、CZ 与受控-U](./controlled-gates-cnot-cz)
+- [x] [Toffoli 门与 Fredkin 门](./toffoli-fredkin-gates)
 - [ ] 量子测量的线路表示与延迟测量原理
 - [ ] 通用量子门集：CNOT + 单比特门
 - [ ] Solovay-Kitaev 定理与门的近似

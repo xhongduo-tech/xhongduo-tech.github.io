@@ -21,12 +21,12 @@ pageClass: plain-doc
 
 #### 第 2 章 正运动学与逆运动学
 - [x] [连杆参数与 D-H 约定](./dh-parameters)
-- [ ] 正运动学：连乘齐次变换与 POE（指数积）公式
-- [ ] 逆运动学的解析解法：Pieper 准则与常见六轴构型
-- [ ] 逆运动学的数值解法：牛顿迭代、阻尼最小二乘与冗余机械臂的零空间运动
+- [x] [正运动学：连乘齐次变换与 POE（指数积）公式](./forward-kinematics-poe)
+- [x] [逆运动学的解析解法：Pieper 准则与常见六轴构型](./inverse-kinematics-analytical)
+- [x] [逆运动学的数值解法：牛顿迭代、阻尼最小二乘与冗余机械臂的零空间运动](./inverse-kinematics-numerical)
 
 #### 第 3 章 雅可比矩阵与静力学
-- [ ] 速度传播与几何雅可比、解析雅可比
+- [x] [速度传播与几何雅可比、解析雅可比](./jacobian-geometric-analytic)
 - [ ] 运动旋量与空间雅可比（基于 POE）
 - [ ] 奇异性分析与可操作度椭球
 - [ ] 力雅可比与静力平衡：力-速度对偶性

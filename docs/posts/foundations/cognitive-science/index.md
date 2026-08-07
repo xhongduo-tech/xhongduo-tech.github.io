@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [行为主义（Behaviorism）的兴起与局限](./behaviorism)
 - [x] [认知革命与信息加工范式（Information-Processing Paradigm）](./cognitive-revolution)
 - [x] [计算机隐喻：心智作为符号操作系统](./computer-metaphor)
-- [ ] 联结主义（Connectionism）与并行分布式加工（PDP）
-- [ ] 认知神经科学的兴起与多方法整合的研究取向
+- [x] [联结主义（Connectionism）与并行分布式加工（PDP）](./connectionism-pdp)
+- [x] [认知神经科学的兴起与多方法整合的研究取向](./cognitive-neuroscience-rise)
 
 ### 第二篇：脑与神经系统基础
 
-- [ ] 神经元与神经冲动的传导
-- [ ] 突触传递与神经递质
+- [x] [神经元与神经冲动的传导](./neuron-nerve-impulse)
+- [x] [突触传递与神经递质](./synaptic-transmission-neurotransmitters)
 - [ ] 大脑的基本结构：脑干、小脑、边缘系统与大脑皮层
 - [ ] 大脑皮层的分区与功能定位：额叶、顶叶、颞叶、枕叶
 - [ ] 两半球功能不对称与裂脑人研究

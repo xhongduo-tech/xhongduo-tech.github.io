@@ -40,11 +40,11 @@ pageClass: plain-doc
 - [x] [vLLM 调度器源码分析（二）：抢占与换入换出](./vllm-scheduler-preemption)
 - [x] [vLLM V0 到 V1 架构演进](./vllm-v0-to-v1-architecture)
 - [x] [vLLM 的采样、停止条件与后处理](./vllm-sampling-stopping)
-- [ ] vLLM 多 LoRA 服务原理
+- [x] [vLLM 多 LoRA 服务原理](./vllm-multi-lora-serving)
 
 ### 第四篇 SGLang
 
-- [ ] RadixAttention：前缀树的 KV Cache 共享
+- [x] [RadixAttention：前缀树的 KV Cache 共享](./radix-attention)
 - [ ] 结构化生成与有限状态机约束解码
 - [ ] 前后端分离架构：Router 与 Runtime
 - [ ] Cache-aware 路由与负载感知调度

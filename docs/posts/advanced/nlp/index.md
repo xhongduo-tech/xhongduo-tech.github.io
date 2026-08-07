@@ -50,13 +50,13 @@ pageClass: plain-doc
 - [x] [Word2Vec：CBOW 与 Skip-gram 模型](./word2vec-cbow-skipgram)
 - [x] [Word2Vec 的训练技巧：负采样与层次 Softmax](./word2vec-negative-sampling-hierarchical-softmax)
 - [x] [GloVe：基于全局词共现统计的词向量](./glove-global-vectors)
-- [ ] FastText：子词（Subword）信息与未登录词表示
-- [ ] 词向量的评价：词相似度与类比任务
-- [ ] 上下文相关的词表示：CoVe 与 ELMo
+- [x] [FastText：子词（Subword）信息与未登录词表示](./fasttext-subword-oov)
+- [x] [词向量的评价：词相似度与类比任务](./word-vector-evaluation)
+- [x] [上下文相关的词表示：CoVe 与 ELMo](./contextual-embeddings-cove-elmo)
 
 ### 第六篇 序列标注
 
-- [ ] 序列标注问题与标注策略（BIO/BIOES）
+- [x] [序列标注问题与标注策略（BIO/BIOES）](./sequence-labeling-bio)
 - [ ] 隐马尔可夫模型（HMM）：模型定义与三个基本问题
 - [ ] HMM 的学习与解码：前向算法、维特比算法（Viterbi）
 - [ ] 最大熵马尔可夫模型（MEMM）与标注偏置问题

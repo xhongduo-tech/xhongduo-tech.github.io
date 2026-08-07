@@ -25,10 +25,10 @@ pageClass: plain-doc
 - [x] [增量模型与迭代模型](./incremental-and-iterative-models)
 - [x] [原型模型（快速原型与演化式原型）](./prototype-model)
 - [x] [螺旋模型与风险驱动开发](./spiral-model)
-- [ ] 敏捷开发与敏捷宣言
-- [ ] Scrum：角色、事件与工件
-- [ ] 极限编程（XP）：实践与价值观
-- [ ] MSF 与典型团队开发流程（《构建之法》视角）
+- [x] [敏捷开发与敏捷宣言](./agile-development-and-manifesto)
+- [x] [Scrum：角色、事件与工件](./scrum-roles-events-artifacts)
+- [x] [极限编程（XP）：实践与价值观](./extreme-programming-practices-and-values)
+- [x] [MSF 与典型团队开发流程（《构建之法》视角）](./msf-and-team-development-process)
 
 ### 第 3 章 需求工程
 

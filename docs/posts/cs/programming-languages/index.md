@@ -21,10 +21,10 @@ pageClass: plain-doc
 
 ### 第二篇 语法描述
 
-- [ ] 语法与语义的基本概念
-- [ ] 上下文无关文法与推导
-- [ ] BNF 与扩展 BNF（EBNF）
-- [ ] 二义性、运算符优先级与结合性
+- [x] [语法与语义的基本概念](./syntax-semantics-basics)
+- [x] [上下文无关文法与推导](./context-free-grammar-and-derivation)
+- [x] [BNF 与扩展 BNF（EBNF）](./bnf-and-ebnf)
+- [x] [二义性、运算符优先级与结合性](./ambiguity-precedence-associativity)
 - [ ] 属性文法：静态语义的描述方法
 
 ### 第三篇 语义学基础

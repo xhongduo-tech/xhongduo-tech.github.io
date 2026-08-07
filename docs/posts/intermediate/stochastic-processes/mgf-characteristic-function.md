@@ -50,11 +50,19 @@ $$
 \varphi_X(t) = \mathbb{E}\bigl[e^{itX}\bigr] = \mathbb{E}[\cos(tX)] + i\,\mathbb{E}[\sin(tX)]
 $$
 
-**特征函数总是存在**，因为 $|e^{itX}| = 1$，期望必有限。<span class="marginnote">$e^{itX}$ 是单位圆上的点，模长恒为 1，因此特征函数对**一切**分布都有定义——这是它比 MGF 更「结实」的地方，也是证明中心极限定理时选它而非 MGF 的原因。</span>
+**特征函数总是存在**，因为 $|e^{itX}| = 1$，期望必有限。<span class="marginnote">$e^{itX}$ 是单位圆上的点，模长恒为 1，因此特征函数对<strong>一切</strong>分布都有定义——这是它比 MGF 更「结实」的地方，也是证明中心极限定理时选它而非 MGF 的原因。</span>
 
 它同样是「分布身份证」，且更强：
 
 **唯一性定理（Lévy）**：$\varphi_X \equiv \varphi_Y$ 当且仅当 $X$ 与 $Y$ 同分布。更进一步，若 $\varphi_{X_n}(t) \to \varphi_X(t)$ 逐点成立且 $\varphi_X$ 在 $0$ 处连续，则 $X_n$ 依分布收敛到 $X$——这就是下一批《收敛性概念》里依分布收敛的**判定工具**，也是中心极限定理的标准证明路线。
+
+**一个立刻的算例**：设 $X$ 服从伯努利分布，$P(X=1)=p$，$P(X=0)=1-p$。则
+
+$$
+\varphi_X(t) = \mathbb{E}[e^{itX}] = (1-p) e^{it\cdot 0} + p\, e^{it\cdot 1} = 1 - p + p e^{it}
+$$
+
+取 $p = 1/2$（抛一枚公平硬币），特征函数就是 $\varphi(t) = (1+e^{it})/2$。求导得 $\varphi'(t) = i p e^{it}$，故 $\varphi'(0) = ip = i\mathbb{E}[X]$，正好印证 $k=1$ 时的矩公式 $\varphi_X^{(1)}(0) = i\mathbb{E}[X]$；再求二阶导 $\varphi''(t) = -p e^{it}$，$\varphi''(0) = -p = i^2\mathbb{E}[X^2]$，也与公式吻合。这个例子虽小，却完整演示了「求导—代零—得矩」的机器在特征函数上的运作方式。
 
 ## 3 矩的提取：把 MGF 展开成幂级数
 

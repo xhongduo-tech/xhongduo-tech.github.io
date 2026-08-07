@@ -44,10 +44,10 @@ pageClass: plain-doc
 
 ### 第三篇 并行策略
 
-- [ ] 数据并行（DP）原理：梯度同步的实现与开销分析
-- [ ] 张量并行（TP）：按行/按列切分矩阵乘的推导
-- [ ] 张量并行的通信量分析与 Megatron 的 1D 切分方案
-- [ ] 流水线并行（PP）：micro-batch、GPipe 调度与气泡率
+- [x] [数据并行（DP）原理：梯度同步的实现与开销分析](./data-parallelism)
+- [x] [张量并行（TP）：按行/按列切分矩阵乘的推导](./tensor-parallelism)
+- [x] [张量并行的通信量分析与 Megatron 的 1D 切分方案](./tensor-parallel-communication-megatron)
+- [x] [流水线并行（PP）：micro-batch、GPipe 调度与气泡率](./pipeline-parallelism)
 - [ ] 1F1B 调度：减少流水线气泡的显存均衡策略
 - [ ] 序列并行（SP）与 Context Parallel：长序列训练的切分
 - [ ] 专家并行（EP）：MoE 路由与负载均衡问题

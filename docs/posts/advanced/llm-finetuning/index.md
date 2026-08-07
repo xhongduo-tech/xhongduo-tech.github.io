@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [领域自适应预训练与通用能力保持的权衡](./domain-adaptive-pretraining)
 - [x] [有监督微调（SFT）：指令微调的任务定义与训练目标](./supervised-finetuning)
 - [x] [指令泛化：任务多样性、规模效应与指令演化（Evol-Instruct）](./instruction-generalization)
-- [ ] 对齐范式总览：RLHF 与直接偏好优化两大路线
-- [ ] 微调的缩放定律：数据量、模型规模与下游收益
-- [ ] 小样本高效微调：LIMA「表面对齐假说」及其争议
+- [x] [对齐范式总览：RLHF 与直接偏好优化两大路线](./alignment-paradigms)
+- [x] [微调的缩放定律：数据量、模型规模与下游收益](./finetuning-scaling-laws)
+- [x] [小样本高效微调：LIMA「表面对齐假说」及其争议](./lima-superficial-alignment)
 
 ### 第二篇 数据工程
 
-- [ ] 指令数据的三大来源：人工标注、模型蒸馏与自生成
+- [x] [指令数据的三大来源：人工标注、模型蒸馏与自生成](./instruction-data-sources)
 - [ ] Self-Instruct：自动指令生成流水线与过滤策略
 - [ ] WizardLM 的指令演化：深度演化与广度演化
 - [ ] 数据质量筛选：困惑度、IFD（指令遵循难度）与去重去污染

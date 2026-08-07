@@ -43,13 +43,13 @@ pageClass: plain-doc
 - [x] [月球的运动（朔望月与恒星月）与月相](./lunar-motion-phases)
 - [x] [月球的表面形貌、内部结构与起源学说](./lunar-surface-internal-origin)
 - [x] [日食与月食的原理、类型与沙罗周期](./solar-lunar-eclipses-saros)
-- [ ] 潮汐现象与引潮力、月球探测简史
+- [x] [潮汐现象与引潮力、月球探测简史](./tides-tidal-force-lunar-exploration)
 
 ### 第五章 太阳系行星与卫星
 
-- [ ] 太阳系的总体结构与开普勒三定律
-- [ ] 万有引力定律、二体问题与轨道要素
-- [ ] 提丢斯—波得定则与行星的分类
+- [x] [太阳系的总体结构与开普勒三定律](./solar-system-kepler-laws)
+- [x] [万有引力定律、二体问题与轨道要素](./gravitation-two-body-orbital-elements)
+- [x] [提丢斯—波得定则与行星的分类](./titius-bode-rule-planet-classification)
 - [ ] 类地行星：水星、金星与火星
 - [ ] 巨行星：木星与土星（含光环）
 - [ ] 远日行星：天王星与海王星

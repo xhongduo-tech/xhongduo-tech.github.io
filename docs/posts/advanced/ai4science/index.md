@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [科学数据的特点：多尺度、稀疏、噪声与物理约束](./scientific-data-characteristics)
 - [x] [对称性与等变性：群论视角下的神经网络设计原则](./symmetry-equivariance-groups)
 - [x] [可微分编程与科学计算：自动微分在物理模拟中的角色](./differentiable-programming-autodiff)
-- [ ] AI 科学家的工作流：假设生成、实验设计、数据分析与自动化闭环
+- [x] [AI 科学家的工作流：假设生成、实验设计、数据分析与自动化闭环](./ai-scientist-workflow)
 
 ### 第二篇 蛋白质结构预测
 
-- [ ] 蛋白质折叠问题：从 Anfinsen 原理到 Levinthal 悖论
-- [ ] 多序列比对（MSA）与共进化信息的提取
-- [ ] AlphaFold2 架构解析：Evoformer 与三角注意力更新
+- [x] [蛋白质折叠问题：从 Anfinsen 原理到 Levinthal 悖论](./protein-folding-anfinsen-levinthal)
+- [x] [多序列比对（MSA）与共进化信息的提取](./msa-coevolution)
+- [x] [AlphaFold2 架构解析：Evoformer 与三角注意力更新](./alphafold2-evoformer)
 - [ ] AlphaFold2 的结构模块：不变点注意力（IPA）与端到端可微优化
 - [ ] 置信度评估：pLDDT 与 PAE 的含义与解读
 - [ ] ESMFold：用语言模型绕开 MSA 的快速结构预测

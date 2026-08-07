@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" font-family="sans-serif">
+  <title>大陆地壳与大洋地壳结构对比示意图</title>
+  <desc>大陆地壳厚（30–50 千米）、成分为长英质、密度较轻，下有深入上地幔的“山根”；大洋地壳薄（6–7 千米）、成分为镁铁质、密度较大，上面覆盖海水。两者以莫霍面与上地幔分界。</desc>
+
+  <!-- 上地幔（背景） -->
+  <path d="M 40 320 L 400 320 L 440 300 L 720 292 L 720 520 L 40 520 Z" fill="#c58c5f"/>
+
+  <!-- 大洋地壳（右侧，层状） -->
+  <rect x="400" y="230" width="320" height="10" fill="#8d6e63"/>
+  <rect x="400" y="240" width="320" height="24" fill="#5d6d7e"/>
+  <rect x="400" y="264" width="320" height="28" fill="#4a5568"/>
+
+  <!-- 海水 -->
+  <rect x="400" y="180" width="320" height="50" fill="#85c1e9" opacity="0.75"/>
+
+  <!-- 大陆地壳（左侧） -->
+  <!-- 下部（麻粒岩/玄武质）与山根 -->
+  <path d="M 40 270 L 390 270 L 390 320 L 250 358 L 130 366 L 40 320 Z" fill="#a67c52"/>
+  <!-- 上部（花岗质） -->
+  <path d="M 40 150 L 390 150 L 390 270 L 40 270 Z" fill="#d9b08c"/>
+  <!-- 山地 -->
+  <polygon points="60,150 120,95 175,150" fill="#b7a18a" stroke="#333" stroke-width="1"/>
+
+  <!-- 海平面线 -->
+  <line x1="300" y1="180" x2="720" y2="180" stroke="#1f6f8b" stroke-width="1.2" stroke-dasharray="7 4"/>
+  <text x="690" y="172" text-anchor="end" font-size="13" fill="#1f6f8b">海平面</text>
+
+  <!-- 莫霍面（虚线） -->
+  <path d="M 40 320 L 120 362 L 220 344 L 390 320 L 440 300 L 720 292" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- 标注 -->
+  <text x="150" y="128" text-anchor="middle" font-size="13" fill="#333">大陆地壳（花岗质，长英质）</text>
+  <text x="150" y="144" text-anchor="middle" font-size="13" fill="#333">厚 30–50 km，密度约 2.7 g/cm³</text>
+  <text x="130" y="298" text-anchor="middle" font-size="13" fill="#fff">下部地壳</text>
+  <text x="130" y="380" text-anchor="middle" font-size="13" fill="#333">山根（地壳均衡）</text>
+  <line x1="130" y1="368" x2="130" y2="385" stroke="#333" stroke-width="1"/>
+
+  <text x="560" y="212" text-anchor="middle" font-size="13" fill="#1f6f8b">海水</text>
+  <text x="560" y="245" text-anchor="middle" font-size="13" fill="#fff">深海沉积物</text>
+  <text x="560" y="257" text-anchor="middle" font-size="13" fill="#fff">玄武岩（枕状熔岩＋岩墙）</text>
+  <text x="560" y="282" text-anchor="middle" font-size="13" fill="#fff">辉长岩</text>
+  <text x="560" y="300" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">大洋地壳 6–7 km</text>
+  <text x="560" y="316" text-anchor="middle" font-size="13" fill="#333">玄武质（镁铁质），密度约 3.0 g/cm³</text>
+
+  <text x="90" y="460" font-size="13" fill="#333">上地幔（橄榄岩为主）</text>
+
+  <!-- 莫霍面标注 -->
+  <line x1="430" y1="298" x2="470" y2="348" stroke="#333" stroke-width="1"/>
+  <text x="474" y="356" font-size="13" fill="#333">莫霍面（Moho）</text>
+
+  <!-- 底部说明 -->
+  <text x="380" y="505" text-anchor="middle" font-size="13" fill="#666">注：大陆地壳厚而轻、浮得高，山根深深扎入地幔；大洋地壳薄而重、又压着海水，沉得低——这是地表高程双峰的根源。</text>
+</svg>

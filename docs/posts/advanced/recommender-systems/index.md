@@ -47,13 +47,13 @@ pageClass: plain-doc
 - [x] [文本内容的表示：TF-IDF 与词袋模型](./text-representation-tfidf-bag-of-words)
 - [x] [从 TF-IDF 到词向量：Word2Vec 与物品 Embedding](./word2vec-item-embedding)
 - [x] [内容特征下的用户兴趣建模与相似度匹配](./content-based-user-profiling-similarity-matching)
-- [ ] 基于内容的推荐与协同过滤的混合策略
+- [x] [基于内容的推荐与协同过滤的混合策略](./hybrid-recommendation-content-collaborative)
 
 ### 第五篇 召回策略
 
-- [ ] 推荐系统整体架构：召回、粗排、精排与重排
-- [ ] 多路召回的设计原则：互补性与融合策略
-- [ ] 向量召回：双塔模型的结构与训练目标
+- [x] [推荐系统整体架构：召回、粗排、精排与重排](./recsys-overall-architecture-recall-ranking-reranking)
+- [x] [多路召回的设计原则：互补性与融合策略](./multi-channel-recall-design-principles)
+- [x] [向量召回：双塔模型的结构与训练目标](./two-tower-model-vector-recall)
 - [ ] 双塔召回中的负采样：batch 内负采样与难负样本
 - [ ] 多兴趣召回：MIND 与 ComiRec
 - [ ] 图召回：Graph Embedding（DeepWalk、Node2Vec、EGES）与 PinSage

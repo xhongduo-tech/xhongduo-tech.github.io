@@ -18,7 +18,7 @@ pageClass: plain-doc
 - [x] [联合熵（Joint Entropy）与条件熵（Conditional Entropy）](./joint-and-conditional-entropy)
 - [x] [熵的链式法则（Chain Rule for Entropy）](./chain-rule-for-entropy)
 - [x] [相对熵（KL 散度，Relative Entropy）的定义与性质](./relative-entropy)
-- [ ] 互信息（Mutual Information）的定义与多种等价表达
+- [x] [互信息（Mutual Information）的定义与多种等价表达](./mutual-information)
 - [ ] 条件互信息与互信息的链式法则
 - [ ] 熵、条件熵与互信息之间的 Venn 图关系
 - [ ] 相对熵的性质：非负性与吉布斯不等式

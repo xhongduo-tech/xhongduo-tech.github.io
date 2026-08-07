@@ -25,10 +25,10 @@ pageClass: plain-doc
 
 ### 第二篇 布尔检索与倒排索引
 
-- [ ] 布尔检索模型与布尔查询处理
-- [ ] 倒排索引的结构：词典与倒排表
-- [ ] 倒排索引的构建：内存式构建流程
-- [ ] 基于块排序的索引构建（BSBI）
+- [x] [布尔检索模型与布尔查询处理](./boolean-retrieval-model)
+- [x] [倒排索引的结构：词典与倒排表](./inverted-index-structure)
+- [x] [倒排索引的构建：内存式构建流程](./in-memory-index-construction)
+- [x] [基于块排序的索引构建（BSBI）](./bsbi-index-construction)
 - [ ] 基于哈希的内存单次扫描构建（SPIMI）
 - [ ] 分布式索引构建：MapReduce 方案
 - [ ] 动态索引：辅助索引与即时合并策略

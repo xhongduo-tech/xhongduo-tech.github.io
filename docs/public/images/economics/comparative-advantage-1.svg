@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 330" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">贸易价格的合理区间：肉的价格必须落在双方机会成本之间</title>
+  <desc id="desc">数轴上横轴表示 1 盎司肉的价格（以盎司土豆计）。牧牛人的机会成本为 2 盎司土豆，农夫的机会成本为 4 盎司土豆。两者之间的阴影区间 (2, 4) 是双方都能从贸易中获益的合理价格区间。实际贸易价格为 3 盎司土豆每盎司肉，恰好落在区间之内。</desc>
+
+  <!-- 数轴 -->
+  <line x1="80" y1="180" x2="600" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 互惠区间 (2,4) 阴影 -->
+  <rect x="253" y="170" width="173" height="20" fill="#c0392b" opacity="0.12"/>
+
+  <!-- 刻度 -->
+  <g stroke="#333" stroke-width="1.2">
+    <line x1="80" y1="176" x2="80" y2="184"/>
+    <line x1="167" y1="176" x2="167" y2="184"/>
+    <line x1="253" y1="176" x2="253" y2="184"/>
+    <line x1="340" y1="176" x2="340" y2="184"/>
+    <line x1="427" y1="176" x2="427" y2="184"/>
+    <line x1="513" y1="176" x2="513" y2="184"/>
+    <line x1="600" y1="176" x2="600" y2="184"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <text x="80" y="204">0</text>
+    <text x="167" y="204">1</text>
+    <text x="253" y="204">2</text>
+    <text x="340" y="204">3</text>
+    <text x="427" y="204">4</text>
+    <text x="513" y="204">5</text>
+    <text x="600" y="204">6</text>
+  </g>
+
+  <!-- 数轴标题 -->
+  <text x="340" y="240" text-anchor="middle" font-size="15" fill="#333">1 盎司肉的价格（以盎司土豆计）</text>
+
+  <!-- 机会成本标注 -->
+  <line x1="253" y1="180" x2="253" y2="120" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="253" y="106" text-anchor="middle" font-size="14" fill="#1f6f8b">牧牛人产肉的机会成本 = 2</text>
+
+  <line x1="427" y1="180" x2="427" y2="120" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="427" y="106" text-anchor="middle" font-size="14" fill="#1f6f8b">农夫产肉的机会成本 = 4</text>
+
+  <!-- 贸易价格 -->
+  <line x1="340" y1="180" x2="340" y2="262" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="340" cy="180" r="5" fill="#c0392b"/>
+  <text x="340" y="284" text-anchor="middle" font-size="15" fill="#c0392b">贸易价格 = 3（互惠区间内）</text>
+
+  <!-- 区间标注 -->
+  <text x="340" y="164" text-anchor="middle" font-size="13" fill="#c0392b">双方都获益的区间</text>
+
+  <!-- 图注 -->
+  <text x="340" y="312" text-anchor="middle" font-size="13" fill="#777">价格低于 2：牧牛人不愿卖　价格高于 4：农夫不愿买　2 与 4 之间：双方都获益</text>
+</svg>

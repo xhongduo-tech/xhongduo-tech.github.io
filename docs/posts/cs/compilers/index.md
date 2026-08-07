@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [符号表管理与错误处理](./symbol-table-error-handling)
 - [x] [编译器、解释器与混合执行模型](./compiler-interpreter-models)
 - [x] [编译器的演化：从单遍编译到多遍编译](./compiler-evolution)
-- [ ] 编译器构造工具与编译器-编译器（Compiler-Compiler）
+- [x] [编译器构造工具与编译器-编译器（Compiler-Compiler）](./compiler-construction-tools)
 
 ### 第二篇 词法分析
 
-- [ ] 词法分析器的作用与接口
-- [ ] 记号、模式与词素（Token、Pattern、Lexeme）
-- [ ] 输入缓冲与哨兵（Sentinel）技术
+- [x] [词法分析器的作用与接口](./lexer-role-interface)
+- [x] [记号、模式与词素（Token、Pattern、Lexeme）](./token-pattern-lexeme)
+- [x] [输入缓冲与哨兵（Sentinel）技术](./input-buffering-sentinel)
 - [ ] 正则表达式与正则定义
 - [ ] 有限自动机：NFA 与 DFA
 - [ ] 从正则表达式到 NFA：Thompson 构造法

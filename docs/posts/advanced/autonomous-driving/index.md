@@ -40,10 +40,10 @@ pageClass: plain-doc
 
 - [x] [高精地图的要素、格式与制作流程](./hd-map-elements-formats)
 - [x] [GNSS/RTK 定位原理与误差来源](./gnss-rtk-localization)
-- [ ] 惯性导航与组合导航（GNSS+IMU 紧耦合）
-- [ ] LiDAR SLAM：LOAM 系列与回环检测
-- [ ] 视觉 SLAM 与视觉惯性里程计（VIO）在定位中的应用
-- [ ] 基于高精地图的点云匹配定位（NDT、ICP）
+- [x] [惯性导航与组合导航（GNSS+IMU 紧耦合）](./inertial-navigation-gnss-imu)
+- [x] [LiDAR SLAM：LOAM 系列与回环检测](./lidar-slam-loam-loop-closure)
+- [x] [视觉 SLAM 与视觉惯性里程计（VIO）在定位中的应用](./visual-slam-vio-localization)
+- [x] [基于高精地图的点云匹配定位（NDT、ICP）](./point-cloud-matching-ndt-icp)
 - [ ] 多传感器融合定位与定位完整性监测
 
 ### 预测

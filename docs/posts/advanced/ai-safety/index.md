@@ -21,14 +21,14 @@ AI 安全与对齐研究如何确保能力不断增强的人工智能系统可�
 
 #### 第 2 章 外部对齐与内部对齐
 - [x] [外部对齐（Outer Alignment）：奖励函数能否正确表达人类意图](./outer-alignment)
-- [ ] 内部对齐（Inner Alignment）：目标错位的mesa优化器（Mesa-Optimizer）
-- [ ] 欺骗性对齐（Deceptive Alignment）：模型为何可能伪装对齐
-- [ ] 古德哈特定律（Goodhart's Law）在奖励建模中的四种形态
+- [x] [内部对齐（Inner Alignment）：目标错位的mesa优化器（Mesa-Optimizer）](./inner-alignment)
+- [x] [欺骗性对齐（Deceptive Alignment）：模型为何可能伪装对齐](./deceptive-alignment)
+- [x] [古德哈特定律（Goodhart's Law）在奖励建模中的四种形态](./goodharts-law)
 
 ### 第二篇 可解释性（Interpretability）
 
 #### 第 3 章 特征可视化与探针
-- [ ] 神经元激活可视化与特征可视化（Feature Visualization）
+- [x] [神经元激活可视化与特征可视化（Feature Visualization）](./feature-visualization)
 - [ ] 探针方法（Probing）：线性探针与网络内部表征诊断
 - [ ] 显著性图与归因方法：Integrated Gradients 与 Grad-CAM
 

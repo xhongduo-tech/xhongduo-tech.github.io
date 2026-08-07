@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 470" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">生产可能性边界：向外凸的曲线、效率点与不可达点</title>
+  <desc id="desc">坐标平面中，横轴为小麦产量，纵轴为计算机产量。向外凸的曲线代表生产可能性边界，曲线上的点 A 是有效率点，曲线内侧的点 B 是无效率点，曲线外侧的点 C 是不可达点。虚线为直线型 PPF，对应机会成本不变的情形。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 坐标轴 -->
+  <g fill="none" stroke="#333" stroke-width="1.5">
+    <line x1="70" y1="420" x2="620" y2="420" marker-end="url(#arrow)"/>
+    <line x1="70" y1="420" x2="70" y2="50" marker-end="url(#arrow)"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <text x="340" y="448">小麦产量（万吨）</text>
+    <text x="40" y="230" transform="rotate(-90 40 230)">计算机产量（万台）</text>
+    <text x="585" y="438">0</text>
+  </g>
+
+  <!-- 直线型 PPF（虚线，机会成本不变） -->
+  <line x1="70" y1="60" x2="620" y2="420" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="500" y="320" font-size="13" fill="#1f6f8b">直线型 PPF：机会成本不变</text>
+
+  <!-- 向外凸的 PPF（实线，机会成本递增） -->
+  <path d="M 70 60 C 250 130, 470 240, 620 420" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <text x="190" y="120" font-size="13" fill="#c0392b">向外凸的 PPF：机会成本递增</text>
+
+  <!-- 可行区域（浅色） -->
+  <path d="M 70 60 C 250 130, 470 240, 620 420 L 70 420 Z" fill="#c0392b" opacity="0.06"/>
+
+  <!-- 点 A：有效率 -->
+  <circle cx="356" cy="191" r="5" fill="#333"/>
+  <text x="368" y="180" font-size="14" fill="#333">A（有效率）</text>
+
+  <!-- 点 B：无效率（内侧） -->
+  <circle cx="356" cy="250" r="5" fill="#333"/>
+  <text x="368" y="266" font-size="14" fill="#333">B（无效率：资源闲置）</text>
+
+  <!-- 点 C：不可达（外侧） -->
+  <circle cx="356" cy="130" r="5" fill="#333"/>
+  <text x="368" y="118" font-size="14" fill="#333">C（不可达：超出能力）</text>
+
+  <!-- 图注 -->
+  <text x="340" y="462" text-anchor="middle" font-size="13" fill="#777">曲线上的点有效率　曲线内侧无效率　曲线外侧不可达</text>
+</svg>

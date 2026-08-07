@@ -18,7 +18,7 @@ pageClass: plain-doc
 - [x] [开集与闭集：闭集公理与对偶性](./open-sets-and-closed-sets)
 - [x] [邻域与邻域系](./neighborhoods)
 - [x] [常见拓扑举例：离散拓扑、平凡拓扑、余有限拓扑](./common-topologies-examples)
-- [ ] 基（Basis）的定义与判定条件
+- [x] [基（Basis）的定义与判定条件](./basis-definition)
 - [ ] 由基生成拓扑：欧氏拓扑与序拓扑
 - [ ] 子基（Subbasis）与拓扑的生成
 - [ ] 闭包（Closure）的定义与性质

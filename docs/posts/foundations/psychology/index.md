@@ -36,13 +36,13 @@ pageClass: plain-doc
 - [x] [视觉的适宜刺激与感光机制](./visual-stimulus-photoreceptors)
 - [x] [颜色视觉：三色说与拮抗过程说](./color-vision-trichromatic-opponent)
 - [x] [视觉的空间与时间特性：马赫带、后像与闪光融合](./visual-spatial-temporal-mach-band-afterimage)
-- [ ] 听觉理论：频率理论、共鸣理论与行波理论
-- [ ] 肤觉、嗅觉、味觉与内部感觉
+- [x] [听觉理论：频率理论、共鸣理论与行波理论](./hearing-theories-frequency-resonance-traveling-wave)
+- [x] [肤觉、嗅觉、味觉与内部感觉](./skin-smell-taste-internal-senses)
 
 ### 知觉
 
-- [ ] 知觉概述：感觉与知觉的关系、自上而下与自下而上的加工
-- [ ] 知觉的基本特性：选择性、整体性、理解性与恒常性
+- [x] [知觉概述：感觉与知觉的关系、自上而下与自下而上的加工](./perception-overview-sensation-bottomup-topdown)
+- [x] [知觉的基本特性：选择性、整体性、理解性与恒常性](./perception-properties-selectivity-wholeness-constancy)
 - [ ] 空间知觉：形状、大小与深度知觉的线索
 - [ ] 时间知觉与运动知觉
 - [ ] 似动现象：动景运动、诱发运动与自主运动

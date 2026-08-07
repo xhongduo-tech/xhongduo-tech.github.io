@@ -74,7 +74,7 @@ $$\hat{\mathbf{w}}^* = \arg\min_{\hat{\mathbf{w}}} (\mathbf{y} - \mathbf{X}\hat{
 
 $$\hat{\mathbf{w}}^* = (\mathbf{X}^{\mathrm{T}}\mathbf{X})^{-1} \mathbf{X}^{\mathrm{T}} \mathbf{y}$$
 
-<span class="marginnote">$(\mathbf{X}^{\mathrm{T}}\mathbf{X})^{-1}\mathbf{X}^{\mathrm{T}}$ 是 $\mathbf{X}$ 的**广义逆 / 伪逆**（当 $\mathbf{X}$ 列满秩时）。它把「解线性方程组」推广到了「方程组个数多于未知数」的情形——不再要求精确满足每个方程，而是找一个让总误差最小的近似解。这与第二级《线性代数》里最小二乘、四个基本子空间的内容一脉相承。</span>
+<span class="marginnote">$(\mathbf{X}^{\mathrm{T}}\mathbf{X})^{-1}\mathbf{X}^{\mathrm{T}}$ 是 $\mathbf{X}$ 的广义逆 / 伪逆（当 $\mathbf{X}$ 列满秩时）。它把「解线性方程组」推广到了「方程组个数多于未知数」的情形——不再要求精确满足每个方程，而是找一个让总误差最小的近似解。这与第二级《线性代数》里最小二乘、四个基本子空间的内容一脉相承。</span>
 
 这条式子是「多元线性回归的全部秘密」：**把数据矩阵转置相乘、求逆、再乘一次，就得到了最优权重**。用代码实现它短得惊人：
 

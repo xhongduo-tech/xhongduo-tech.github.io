@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [绝对误差、相对误差与有效数字](./absolute-relative-error)
 - [x] [函数运算的误差估计](./error-propagation)
 - [x] [病态问题与条件数（condition number）](./condition-number)
-- [ ] 算法的数值稳定性
-- [ ] 避免误差危害的若干原则：避免相近数相减、避免大数吃小数、减少运算次数
-- [ ] 秦九韶算法（Horner 算法）与多项式求值
+- [x] [算法的数值稳定性](./numerical-stability)
+- [x] [避免误差危害的若干原则：避免相近数相减、避免大数吃小数、减少运算次数](./avoid-error-hazards)
+- [x] [秦九韶算法（Horner 算法）与多项式求值](./qin-jiushao-horner)
 
 ### 插值法
 
-- [ ] 插值问题的提法与多项式插值的存在唯一性
+- [x] [插值问题的提法与多项式插值的存在唯一性](./interpolation-existence-uniqueness)
 - [ ] 拉格朗日插值多项式（Lagrange interpolation）
 - [ ] 插值余项与误差估计
 - [ ] 均差（差商）与牛顿插值多项式（Newton interpolation）

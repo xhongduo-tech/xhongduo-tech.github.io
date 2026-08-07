@@ -94,7 +94,7 @@ thr = (score[y == 0].mean() + score[y == 1].mean()) / 2
 pred = (score > thr).astype(int)
 ```
 
-`lda.coef_` 就是 $\mathbf{S}_w^{-1}(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$ 方向上的权重向量。把每个样本点「砸」到这根线上，两类就变成一维直线上两个分离的区间——**分类从二维问题降成了一维问题，阈值切分从此变得容易**。这就是 LDA 作为降维工具最直观的演示。<span class="marginnote">scikit-learn 的 `LinearDiscriminantAnalysis` 默认用的是**精确求解**（直接解广义特征值问题），当样本量远大于特征数时稳定高效；遇到高维小样本时，则可用 `shrinkage` 参数做收缩估计，这与第 11 章讲 L1/L2 正则化的「用正则换取稳定」是同一种思想。</span>
+`lda.coef_` 就是 $\mathbf{S}_w^{-1}(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$ 方向上的权重向量。把每个样本点「砸」到这根线上，两类就变成一维直线上两个分离的区间——**分类从二维问题降成了一维问题，阈值切分从此变得容易**。这就是 LDA 作为降维工具最直观的演示。<span class="marginnote">scikit-learn 的 `LinearDiscriminantAnalysis` 默认用的是精确求解（直接解广义特征值问题），当样本量远大于特征数时稳定高效；遇到高维小样本时，则可用 `shrinkage` 参数做收缩估计，这与第 11 章讲 L1/L2 正则化的「用正则换取稳定」是同一种思想。</span>
 
 ## 5 LDA 在全书中的坐标
 

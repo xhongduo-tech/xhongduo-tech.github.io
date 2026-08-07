@@ -18,13 +18,13 @@ pageClass: plain-doc
 - [x] [地球的形状、大小与表面形态](./earth-shape-size-surface)
 - [x] [地球的物理性质：重力、磁性、地热](./earth-physical-properties)
 - [x] [地球的内部圈层：地壳、地幔与地核](./earth-interior-layers)
-- [ ] 地震波与地球内部结构的探测
-- [ ] 地壳的结构：大陆地壳与大洋地壳
+- [x] [地震波与地球内部结构的探测](./seismic-waves-earth-structure)
+- [x] [地壳的结构：大陆地壳与大洋地壳](./crust-continental-oceanic)
 
 ### 第二篇 矿物
 
-- [ ] 矿物的概念、化学组成与类质同象
-- [ ] 矿物的物理性质：颜色、条痕、光泽与透明度
+- [x] [矿物的概念、化学组成与类质同象](./mineral-concept-composition-isomorphism)
+- [x] [矿物的物理性质：颜色、条痕、光泽与透明度](./mineral-physical-properties)
 - [ ] 矿物的力学性质：解理、断口与硬度
 - [ ] 硅酸盐矿物：架状、链状、层状与岛状结构
 - [ ] 常见造岩矿物鉴定：石英、长石、云母、橄榄石

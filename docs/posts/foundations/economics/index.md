@@ -23,13 +23,13 @@ pageClass: plain-doc
 
 - [x] [作为科学家的经济学家：科学方法与假设的作用](./economist-as-scientist)
 - [x] [第一个经济模型：循环流向图（Circular-flow Diagram）](./circular-flow-diagram)
-- [ ] 第二个经济模型：生产可能性边界（Production Possibilities Frontier）
-- [ ] 实证表述与规范表述：经济学家意见分歧的原因
+- [x] [第二个经济模型：生产可能性边界（Production Possibilities Frontier）](./production-possibilities-frontier)
+- [x] [实证表述与规范表述：经济学家意见分歧的原因](./positive-and-normative-statements)
 
 #### 第 3 章 相互依存性与贸易的好处
 
-- [ ] 一个现代经济寓言：专业化与贸易
-- [ ] 比较优势：专业化的动力（机会成本与比较优势）
+- [x] [一个现代经济寓言：专业化与贸易](./specialization-and-trade)
+- [x] [比较优势：专业化的动力（机会成本与比较优势）](./comparative-advantage)
 - [ ] 比较优势的应用：贸易的价格与利益的分配
 
 #### 第 4 章 供给与需求的市场力量

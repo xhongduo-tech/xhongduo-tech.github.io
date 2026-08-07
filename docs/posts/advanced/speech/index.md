@@ -50,10 +50,10 @@ pageClass: plain-doc
 
 - [x] [马尔可夫链与隐马尔可夫模型（HMM）三要素](./hmm-three-elements)
 - [x] [HMM 三大问题：评估、解码与学习](./hmm-three-problems)
-- [ ] 前向—后向算法与维特比（Viterbi）算法
-- [ ] Baum-Welch 算法与 EM 训练
-- [ ] 高斯混合模型（GMM）与连续密度 HMM
-- [ ] 三音子模型与决策树状态绑定
+- [x] [前向—后向算法与维特比（Viterbi）算法](./forward-backward-viterbi)
+- [x] [Baum-Welch 算法与 EM 训练](./baum-welch-em-training)
+- [x] [高斯混合模型（GMM）与连续密度 HMM](./gmm-continuous-density-hmm)
+- [x] [三音子模型与决策树状态绑定](./triphone-decision-tree-state-tying)
 - [ ] 强制对齐与发音词典
 - [ ] 加权有限状态转换器（WFST）解码
 
