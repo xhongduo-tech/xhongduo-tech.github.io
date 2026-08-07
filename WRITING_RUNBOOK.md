@@ -77,6 +77,11 @@ git add -A && git commit -m "..." && git push
 ```
 推送 `source` 分支后 GitHub Actions 自动构建部署。**红线/构建不过不许提交**。
 
+> **MathJax 已改客户端渲染（2026-08-08 关键变更）**：10257 页若用服务端内联 SVG，构建需 ~64GB（CI 必挂）。
+> 现改为 markdown-it-mathjax3 仅 tokenize、输出 `\(…\)`/`\[…\]`，由浏览器端 MathJax（head 里的 CDN 脚本）排版；
+> `enhance.ts` 在路由切换后调 `MathJax.typesetPromise()`。数学内容中的 `< > &` 已转义。
+> 本地构建 92s、内存正常；CI 用默认 runner 即可。
+
 ## 五、构建安全红线（代理易犯，主控必查）
 
 **每次检查点前必跑**（本地构建已加大堆，跑起来约 2 分钟）：
