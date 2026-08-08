@@ -24,8 +24,8 @@ date: 2026-08-07
 
 角色分工：
 
-- **服务器**：创建套接字 → 绑定地址端口 → 监听 → 接受连接 → 处理请求 → 回复。被动等待，通常长期运行。
-- **客户机**：创建套接字 → 连接服务器 → 发送请求 → 接收响应。主动发起，通常用完即走。
+**服务器**：创建套接字 → 绑定地址端口 → 监听 → 接受连接 → 处理请求 → 回复。被动等待，通常长期运行。
+**客户机**：创建套接字 → 连接服务器 → 发送请求 → 接收响应。主动发起，通常用完即走。
 
 这个模型的好处是**职责清晰、易于扩展**：服务器可以开多线程/多进程并发处理多个客户（见第四篇《线程》）；客户机互不感知、互不影响。
 
@@ -35,32 +35,30 @@ date: 2026-08-07
 
 套接字按类型分两类：
 
-- **流式套接字（SOCK_STREAM）**：基于 TCP，面向连接、可靠、字节流。
-- **数据报套接字（SOCK_DGRAM）**：基于 UDP，无连接、不可靠、有消息边界。
+**流式套接字（SOCK_STREAM）**：基于 TCP，面向连接、可靠、字节流。
+**数据报套接字（SOCK_DGRAM）**：基于 UDP，无连接、不可靠、有消息边界。
 
 一个典型的 TCP 服务器骨架（概念示意）：
 
 ```c
-int sfd = socket(AF_INET, SOCK_STREAM, 0);   // 建套接字
-bind(sfd, &addr, sizeof(addr));               // 绑定地址与端口
-listen(sfd, 10);                              // 监听，允许 10 个排队
-int cfd = accept(sfd, &cli_addr, &cli_len);   // 接受连接
-read(cfd, buf, sizeof(buf));                  // 读请求
-write(cfd, reply, sizeof(reply));             // 回响应
+int s = socket(AF_INET, SOCK_STREAM, 0);   /* 创建流式套接字 */
+bind(s, &addr, sizeof(addr));               /* 绑定地址与端口 */
+listen(s, 128);                             /* 进入监听 */
+int c = accept(s, NULL, NULL);              /* 阻塞等待客户端连接 */
 ```
 
-**辨析｜易错点：** 「套接字 = 网络」是常见窄化理解。套接字可以走网络（`AF_INET`），也可以**不走网络**——`AF_UNIX`（Unix domain socket）让同一台机器的进程通过文件系统路径通信，速度比 TCP 回环快得多，且是 Docker、nginx、数据库本地访问的常用通道。<span class="marginnote">Unix domain socket 常驻「/var/run」或「/tmp」下，`ls -l` 看到类型为 `s` 的文件。它是「本机高效 IPC」与「网络 IPC」的桥梁——同一个 API，两种运输方式。</span>
+**辨析｜易错点：** 「套接字 = 网络」是常见窄化理解。套接字可以走网络（`AF_INET`），也可以**不走网络**——`AF_UNIX`（Unix domain socket）让同一台机器的进程通过文件系统路径通信，速度比 TCP 回环快得多，且是 Docker、nginx、数据库本地访问的常用通道。<span class="marginnote">Unix domain socket 常驻「/var/run」或「/tmp」下，<code>ls -l</code>` 看到类型为 <code>s</code>` 的文件。它是「本机高效 IPC」与「网络 IPC」的桥梁——同一个 API，两种运输方式。</span>
 
 ## 3 RPC：把网络调用伪装成函数调用
 
-**远程过程调用（RPC, Remote Procedure Call）**：一种让程序像调用本地函数一样调用远程机器上的函数的机制。程序员写 `result = add(3, 4)`，实际这个 `add` 的实现在另一台机器上。
+**远程过程调用（RPC, Remote Procedure Call）**：一种让程序像调用本地函数一样调用远程机器上的函数的机制。程序员写 `add(1, 2)` 这样的函数调用，实际这个函数的实现在另一台机器上。
 
 一次 RPC 的旅程（传统 RPC 模型）：
 
-1. **客户端**调用本地桩（stub）函数 `add`。
+1. **客户端**调用本地桩（stub）函数 `add(1, 2)`。
 2. 桩把参数**序列化（marshalling）**成字节流（参数打包成能传输的格式）。
 3. 通过网络把请求发给**服务器端的桩**。
-4. 服务器桩**反序列化**参数，调用真正的 `add` 实现。
+4. 服务器桩**反序列化**参数，调用真正的 `add` 函数实现。
 5. 返回值同样序列化、回传、反序列化，回到客户端调用点。
 
 所以 RPC 的本质是：**本地桩 + 网络传输 + 序列化**。**序列化**是把内存中的数据结构变成字节流（JSON、Protobuf、gRPC 的二进制编码等），是 RPC 性能的关键。<span class="marginnote">现代 RPC 代表是 gRPC（Google 出品，基于 HTTP/2 + Protobuf）与 Thrift。容器与微服务架构里，服务间调用几乎全是 gRPC——你会在大模型部署、分布式系统专题反复碰到它。</span>

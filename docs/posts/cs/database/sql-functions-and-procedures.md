@@ -28,11 +28,11 @@ date: 2026-08-07
 CREATE FUNCTION dept_count(dept_name VARCHAR(20))
 RETURNS INTEGER
 BEGIN
-    DECLARE d_count INTEGER;
-    SELECT COUNT(*) INTO d_count
+    DECLARE count INTEGER;
+    SELECT COUNT(*) INTO count
     FROM instructor
     WHERE instructor.dept_name = dept_name;
-    RETURN d_count;
+    RETURN count;
 END;
 ```
 
@@ -43,14 +43,19 @@ SELECT dept_name, dept_count(dept_name)
 FROM department;
 ```
 
-这样「统计系人数」的逻辑被写了一次，任何查询都能复用。<span class="marginnote">标量函数返回单个值，可以在 SELECT 列表、WHERE 条件里到处用；注意参数名 `dept_name` 与列名同名时，函数体内要小心遮蔽——这是 SQL 函数最容易踩的坑之一。</span>
+这样「统计系人数」的逻辑被写了一次，任何查询都能复用。<span class="marginnote">标量函数返回单个值，可以在 SELECT 列表、WHERE 条件里到处用；注意参数名 `dept_name` 与列名同名时，函数体内要小心遮蔽——必须用 `instructor.dept_name` 显式限定列，裸的 `dept_name` 会被当作参数，这是 SQL 函数最容易踩的坑之一。</span>
 
 SQL 标准还支持**表函数（table function）**：返回的是一整张表（关系），可以直接放进 FROM：
 
 ```sql
-CREATE FUNCTION instructor_of(dept VARCHAR(20))
-RETURNS TABLE (ID VARCHAR(5), name VARCHAR(20))
-...
+CREATE FUNCTION instructors_in(dname VARCHAR(20))
+RETURNS TABLE (ID VARCHAR(5), name VARCHAR(20), salary NUMERIC(8,2))
+BEGIN
+    RETURN QUERY
+    SELECT ID, name, salary
+    FROM instructor
+    WHERE instructor.dept_name = dname;
+END;
 ```
 
 表函数把「一段查询」封装成「一张可查的虚表」，比视图更进一步——它可以带参数。
@@ -60,12 +65,11 @@ RETURNS TABLE (ID VARCHAR(5), name VARCHAR(20))
 **过程（procedure）**与函数的关键差别：**过程不一定返回单值，它通过参数与外部的状态交互**，常用于「执行一段修改数据的操作」。定义用 `CREATE PROCEDURE`：
 
 ```sql
-CREATE PROCEDURE dept_count_proc(IN dept VARCHAR(20),
-                                 OUT count INTEGER)
+CREATE PROCEDURE update_salary(IN emp_id VARCHAR(5), IN pct NUMERIC(4,2))
 BEGIN
-    SELECT COUNT(*) INTO count
-    FROM instructor
-    WHERE instructor.dept_name = dept;
+    UPDATE instructor
+    SET salary = salary * (1 + pct / 100)
+    WHERE ID = emp_id;
 END;
 ```
 
@@ -80,8 +84,7 @@ END;
 调用过程用 `CALL`：
 
 ```sql
-CALL dept_count_proc('Music', @c);
-SELECT @c;  -- 读出输出参数
+CALL update_salary('10211', 5);
 ```
 
 **辨析｜易错点：** 函数与过程的混淆是经典入门错误。记忆口诀：**函数有返回值、过程靠参数**。函数被调用在「表达式里」（SELECT / WHERE），过程被调用在「语句里」（CALL）。对函数执行 `CALL`、或把过程塞进 SELECT 列表，都会报错——它们在语言里是两种不同的可调用体。<span class="marginnote">这对应着编程语言里「纯函数 vs 语句 / 副作用」的区分：函数偏向「算一个值」，过程偏向「做一件事」。第三级《程序设计语言》会从类型系统与副作用的角度再深挖一次。</span>
@@ -91,24 +94,22 @@ SELECT @c;  -- 读出输出参数
 过程体内是一段**过程式程序**，支持变量、条件、循环与异常处理——这就是「SQL 语言里长出编程语言」的地方：
 
 ```sql
-CREATE PROCEDURE update_salary(IN amount NUMERIC(8,2))
+CREATE PROCEDURE give_raise(IN pct NUMERIC(4,2))
 BEGIN
-    DECLARE total NUMERIC(8,2);
-    IF amount < 0 THEN
-        SIGNAL SQLSTATE '45000'
-            SET MESSAGE_TEXT = 'salary cannot be negative';
-    ELSE
-        UPDATE instructor
-        SET salary = salary + amount;
+    DECLARE n INTEGER DEFAULT 0;
+    UPDATE instructor SET salary = salary * (1 + pct / 100);
+    GET DIAGNOSTICS n = ROW_COUNT;
+    IF n = 0 THEN
+        RAISE EXCEPTION '没有教师被更新';
     END IF;
 END;
 ```
 
 常用的控制结构：
 
-- **条件**：`IF ... THEN ... ELSE ... END IF;` 与 `CASE ... WHEN ...`。
-- **循环**：`LOOP ... END LOOP`、`WHILE condition DO ... END WHILE`、`FOR ... IN ... DO`。
-- **异常**：`DECLARE EXIT HANDLER FOR ...` 捕获错误，`SIGNAL SQLSTATE` 主动抛出错误。<span class="marginnote">`SQLSTATE` 是五字符状态码：`'45000'` 是用户自定义异常的约定值。抛出与捕获让过程能「把错误留在数据库里处理」，而不是粗暴地打断整个事务。</span>
+**条件**：`IF` / `ELSIF` 与 `CASE`。
+**循环**：`LOOP`、`WHILE`、`FOR`。
+**异常**：`EXCEPTION` 捕获错误，`RAISE` 主动抛出错误。<span class="marginnote">`SQLSTATE` 是五字符状态码：`'45000'` 是用户自定义异常的约定值。抛出与捕获让过程能「把错误留在数据库里处理」，而不是粗暴地打断整个事务。</span>
 
 这些结构让过程能做「查一步、算一步、写一步」的复合操作，而这一切发生在数据库进程内、离数据最近的地方——省去了往返传输，也便于把一组操作包成一个事务。
 
@@ -119,12 +120,10 @@ END;
 纯 SQL 写循环并不舒服。现代数据库（PostgreSQL、SQLite、MySQL 等）允许用**外部语言**写函数——最常见的是 PL/Python、PL/Java、PL/pgSQL 与 JavaScript：
 
 ```sql
-CREATE FUNCTION add_one(x INTEGER)
-RETURNS INTEGER
-LANGUAGE plpython3u
+CREATE FUNCTION reverse_words(s TEXT) RETURNS TEXT
 AS $$
-    return x + 1
-$$;
+    return ' '.join(reversed(s.split()))
+$$ LANGUAGE plpython3u;
 ```
 
 外部函数把「数据库擅长的事」（集合查询）与「编程语言擅长的事」（复杂算法、字符串处理、科学计算）结合起来。<span class="marginnote">代价是<strong>安全与隔离</strong>：外部函数运行在数据库进程内或近旁，写不好可能造成内存泄漏、卡死连接甚至越权访问。生产系统对外部函数要像对待第三方依赖一样：最小权限、限资源、可审计。</span>
@@ -158,9 +157,9 @@ END;
 逐项拆解这条递归：
 
 - **基例（递归出口）**：`IF n = 0 THEN RETURN 1`——当 $n=0$ 时直接给答案，不再调用自己。没有这一行，递归会无限下潜。
-- **递归步**：`RETURN n * fact(n-1)`——把「算 $n!$」化小为「算 $(n-1)!$ 再乘 $n$」，问题规模每次减一。
+- **递归步**：`RETURN n * fact(n - 1)`——把「算 $n!$」化小为「算 $(n-1)!$ 再乘 $n$」，问题规模每次减一。
 - **调用栈**：`fact(3)` 触发 `fact(2)`，再触发 `fact(1)`、`fact(0)`；`fact(0)` 返回 1 后，依次回填：$1 \to 1 \to 2 \to 6$。<span class="marginnote">递归依赖运行时的调用栈保存每一层状态。层级太深会栈溢出——迭代版本（WHILE 累乘）没有这个风险，这也是为什么生产代码里很多「递归」最终写成迭代。</span>
-- **与查询递归的对照**：这里每层只调一次自己（线性递归），而 `WITH RECURSIVE` 里每层迭代把结果集合扩大一轮——两者共享「基例 + 递推」的骨架，只是数据从「单个值」变成了「整个关系」。
+- **与查询递归的对照**：这里每层只调一次自己（线性递归），而**递归查询（`WITH RECURSIVE`）**里每层迭代把结果集合扩大一轮——两者共享「基例 + 递推」的骨架，只是数据从「单个值」变成了「整个关系」。
 
 理解了函数与过程的语法与语义，我们就有了「把逻辑住进数据库」的全部积木。而下一节将引入一个更「自动」的机制：**触发器**——不用你调用，事件一发生，数据库自己就去执行。
 
@@ -169,7 +168,7 @@ END;
 - **函数（function）**：可带参数、返回一个值的数据库程序，标量函数用于表达式，表函数用于 FROM。
 - **过程（procedure）**：靠 `IN` / `OUT` / `INOUT` 参数与外界交互，用 `CALL` 调用，适合执行修改操作。
 - **函数 vs 过程**：函数有返回值、出现在表达式里；过程靠参数、出现在语句里。
-- **PL/SQL 风格**：过程体内支持 `IF` / `LOOP` / `WHILE` / 异常处理，SQL 语言里长出过程式程序。
+- **PL/SQL 风格**：过程体内支持 `IF` / `WHILE` / `FOR` / 异常处理，SQL 语言里长出过程式程序。
 - **外部语言函数**：用 Python / Java 等写数据库函数，扩展能力强但要注意安全与隔离。
 - **递归函数**：基例 + 递归步；递归简洁但占用调用栈，迭代版本在深度大时更稳妥。
 

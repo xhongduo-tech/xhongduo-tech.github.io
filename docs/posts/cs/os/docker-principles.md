@@ -22,12 +22,11 @@ date: 2026-08-07
 
 **镜像（image）**：容器运行所需的**文件系统快照 + 元数据**——一个只读的模板。**镜像由多层（layer）组成**，每层是一次构建的改动。
 
-```
-镜像（如 ubuntu:22.04）：
-  Layer 4：CMD/ENTRYPOINT（配置层）
-  Layer 3：apt install 的改动（应用层）
-  Layer 2：apt update 的改动（系统层）
-  Layer 1：基础文件系统（ubuntu rootfs）
+```dockerfile
+FROM ubuntu:22.04                              # 层 1：基础镜像
+RUN apt-get update && apt-get install -y nginx # 层 2：安装软件
+COPY index.html /usr/share/nginx/html/         # 层 3：复制文件
+CMD ["nginx", "-g", "daemon off;"]             # 元数据：启动命令
 ```
 
 **分层的好处**：
@@ -41,7 +40,7 @@ date: 2026-08-07
 - **镜像**：只读模板（静态）。
 - **容器**：镜像 + 可写层 + 运行中的进程（动态）——**容器是镜像的实例**。
 
-**镜像的构建**：**Dockerfile** 的每条指令（`RUN`、`COPY`、`ENV`）产生**一层**。
+**镜像的构建**：**Dockerfile** 的每条指令（`RUN`、`COPY`、`ADD`）产生**一层**。
 
 ## 2 联合文件系统（OverlayFS）：层叠的魔法
 
@@ -51,13 +50,13 @@ date: 2026-08-07
 
 - **lowerdir（低层）**：只读的镜像层（多层叠加）。
 - **upperdir（上层）**：容器的**可写层**（空，记录容器的修改）。
-- **merged（合并视图）**：叠加后的统一文件系统——容器看到的 `/`。
+- **merged（合并视图）**：叠加后的统一文件系统——容器看到的合并视图。
 
 ```
-OverlayFS 视图：
-  lowerdir（只读镜像层）:  /bin、/lib、/etc...
-  upperdir（可写层）:      （容器修改写入这里）
-  merged:                  容器看到的完整 /
+# OverlayFS 挂载：把只读镜像层（lowerdir）与可写层（upperdir）叠加成 merged 视图
+mount -t overlay overlay \
+  -o lowerdir=/var/lib/docker/overlay2/l/,upperdir=/var/lib/docker/overlay2/u/,workdir=/var/lib/docker/overlay2/w/ \
+  /merged
 ```
 
 **写入时的行为（copy-up）**：
@@ -86,8 +85,8 @@ $$\text{总磁盘} = S + \sum_{i=1}^{N} W_i \quad \text{（而非 } N \cdot S \t
 
 **容器的创建流程（运行时做四件事）**：
 
-1. **准备 rootfs**：用 OverlayFS 挂载镜像层 + 可写层，`pivot_root` 到合并视图（Mount Namespace）。
-2. **创建 Namespace**：`clone` 带六个 Namespace 标志——PID/Network/UTS/IPC/Mount/User（回顾《Namespace》）。
+1. **准备 rootfs**：用 OverlayFS 挂载镜像层 + 可写层，叠加到合并视图（Mount Namespace）。
+2. **创建 Namespace**：`clone()` 带六个 Namespace 标志——PID/Network/UTS/IPC/Mount/User（回顾《Namespace》）。
 3. **配置 cgroup**：把容器进程加入 cgroup，设置 CPU/内存限制（回顾《cgroup》）。
 4. **启动进程**：执行镜像的 CMD/ENTRYPOINT——容器开始运行。
 

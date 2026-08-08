@@ -65,8 +65,8 @@ $$S(T) = \int_0^T \frac{C_p(T')}{T'}\,\mathrm{d}T'$$
 
 第三定律的实用价值：
 
-- **直接算反应熵变**：$\Delta_r S^\ominus$ 从标准熵表查得，不必再测可逆热。
-- **与 $\Delta_r H^\ominus$ 合并得 $\Delta_r G^\ominus$**：$\Delta_r G^\ominus = \Delta_r H^\ominus - T\Delta_r S^\ominus$，再代入 $\Delta_r G^\ominus = -RT\ln K^\ominus$ 得到平衡常数。**标准生成吉布斯自由能表**就是这样从焓与熵两路数据合成的。<span class="marginnote">注意这里有个精妙的分工：$\Delta_r H^\ominus$ 来自键能（量热或计算），$\Delta_r S^\ominus$ 来自第三定律积分。两条独立的实验道路汇合到同一个 $\Delta_r G^\ominus$，任何不一致都说明某条路有系统误差——这是检验数据自洽性的天然标尺。</span>
+**直接算反应熵变**：$\Delta_r S^\ominus$ 从标准熵表查得，不必再测可逆热。
+**与 $\Delta_r H^\ominus$ 合并得 $\Delta_r G^\ominus$**：$\Delta_r G^\ominus = \Delta_r H^\ominus - T\Delta_r S^\ominus$，再代入 $\Delta_r G^\ominus = -RT\ln K^\ominus$ 得到平衡常数。**标准生成吉布斯自由能表**就是这样从焓与熵两路数据合成的。<span class="marginnote">注意这里有个精妙的分工：$\Delta_r H^\ominus$ 来自键能（量热或计算），$\Delta_r S^\ominus$ 来自第三定律积分。两条独立的实验道路汇合到同一个 $\Delta_r G^\ominus$，任何不一致都说明某条路有系统误差——这是检验数据自洽性的天然标尺。</span>
 - **低温物理的基准**：低温制冷、超导研究都以「逼近绝对零度但不等于」为前提，第三定律规定了热力学冷却的下限。
 
 **重点：绝对零度不可达到，但第三定律保证「熵的零点」可定义。** 这个零点使熵从相对量变为绝对量，统计力学与热力学因此彻底对齐。

@@ -26,44 +26,39 @@ vLLM 提供一组 benchmark 脚本，最核心的是 `benchmark_serving.py`（�
 
 `benchmark_serving.py` 模拟并发请求打向服务，关键参数：
 
-```
+```bash
 python benchmarks/benchmark_serving.py \
-  --backend vllm \
-  --base-url http://localhost:8000 \
-  --model qwen2.5-72b \
-  --num-prompts 500          # 总请求数
-  --request-rate 10          # 每秒发送的请求数（到达率）
-  --max-concurrency 64       # 最大并发
-  --input-len 1024           # 固定输入长度
-  --output-len 512           # 固定输出长度
+    --backend vllm \
+    --model meta-llama/Llama-3.1-8B-Instruct \
+    --endpoint /v1/completions \
+    --request-rate 8 \
+    --num-prompts 500 \
+    --max-input-tokens 1024 --max-output-tokens 128
 ```
 
-- **`--request-rate`**：模拟「每秒来多少请求」。设成 `inf` 就是「打满」压测（压出吞吐上限）；设成固定值就是「负载测试」（在给定 QPS 下看延迟是否达标）。
-- **`--input-len` / `--output-len`**：固定输入输出长度，让结果可比。<span class="marginnote">固定长度是压测的基本功：<strong>长度分布不同，延迟与吞吐就没有可比性</strong>。真实负载通常是分布式的，但压测先「固定长度」找规律，再「混合长度」验真实性。</span>
+**`--request-rate`**：模拟「每秒来多少请求」。设成 `inf` 就是「打满」压测（压出吞吐上限）；设成固定值就是「负载测试」（在给定 QPS 下看延迟是否达标）。
+**`--max-input-tokens` / `--max-output-tokens`**：固定输入输出长度，让结果可比。<span class="marginnote">固定长度是压测的基本功：<strong>长度分布不同，延迟与吞吐就没有可比性</strong>。真实负载通常是分布式的，但压测先「固定长度」找规律，再「混合长度」验真实性。</span>
 
-输出报告：`Input tokens`, `Output tokens`, `TTFT` 的 P50/P95/P99, `TPOT`, `End-to-end latency`, `Request throughput (QPS)`, `Output token throughput (TPS)`。
+输出报告：`TTFT`、`TPOT`、`E2EL` 的 P50/P95/P99，以及请求吞吐、token 吞吐、成功请求数、总耗时。
 
 ## 2 genai-perf：服务层的标准压测
 
 **genai-perf** 是 NVIDIA 推出的 LLM 压测工具（基于 Triton 生态），支持 OpenAI 兼容端点，参数设计更面向「服务」视角：
 
-```
+```bash
 genai-perf profile \
-  --model qwen2.5-72b \
-  --service-kind openai \
-  --endpoint-type chat \
-  --endpoint v1/chat/completions \
-  --concurrency 32 \
-  --synthetic-input-tokens 1024 \
-  --num-output-tokens 512 \
-  --profile-export-file results.json
+    --model meta-llama/Llama-3.1-8B-Instruct \
+    --endpoint-type openai \
+    --endpoint /v1/completions \
+    --concurrency 32 \
+    --input-tokens 1024 --output-tokens 128
 ```
 
 关键差异：
 
-- **`--concurrency`**：直接指定并发数（而不是到达率），更适合「在给定并发下测吞吐与延迟」。
-- **`--synthetic-input-tokens`**：用合成输入（无需真实文本）控制输入长度，省去构造数据集的麻烦。
-- **导出 JSON**：结果可导出，供自动化与后续分析。
+**`--concurrency`**：直接指定并发数（而不是到达率），更适合「在给定并发下测吞吐与延迟」。
+**`--input-tokens`**：用合成输入（无需真实文本）控制输入长度，省去构造数据集的麻烦。
+**导出 JSON**：结果可导出，供自动化与后续分析。
 
 **vLLM bench vs genai-perf 的选型**：vLLM bench 与 vLLM 引擎深度绑定、参数细；genai-perf 面向服务 API、厂商中立、适合「对比不同引擎」。**做引擎调优用 vLLM bench，做服务 SLA 验证用 genai-perf**。
 
@@ -89,7 +84,7 @@ genai-perf profile \
 
 ## 5 小结
 
-- **vLLM bench** 面向引擎：`--request-rate` 模拟到达率、`--input/output-len` 固定长度，输出 TTFT/TPOT/吞吐的分位数。
+- **vLLM bench** 面向引擎：`--request-rate` 模拟到达率、`--max-input-tokens`/`--max-output-tokens` 固定长度，输出 TTFT/TPOT/吞吐的分位数。
 - **genai-perf** 面向服务：`--concurrency` 指定并发、合成输入、厂商中立，适合跨引擎对比与 SLA 验证。
 - **选型**：引擎调优用 vLLM bench，服务验证用 genai-perf。
 - **合格压测五步**：明确问题 → 预热 → 控制变量 → 多档位扫描 → 复现确认。

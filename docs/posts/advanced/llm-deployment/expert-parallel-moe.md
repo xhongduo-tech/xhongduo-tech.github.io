@@ -24,9 +24,9 @@ MoE（Mixture of Experts，混合专家）模型把 FFN 换成一组「专家」
 
 一个 MoE transformer 层 = 共享的 attention + 一个 MoE FFN。MoE FFN 的结构：
 
-- **路由器（router / gate）**：一个线性层，对每个 token 输出「每个专家的权重」，取 top-$k$（通常 $k=1$ 或 $2$）个专家；
-- **被选中的专家**：每个专家就是一个标准 FFN（升维 + 降维）；
-- **输出**：被选专家的输出按路由权重加权求和。
+**路由器（router / gate）**：一个线性层，对每个 token 输出「每个专家的权重」，取 top-$k$（通常 $k=1$ 或 $2$）个专家；
+**被选中的专家**：每个专家就是一个标准 FFN（升维 + 降维）；
+**输出**：被选专家的输出按路由权重加权求和。
 
 推理时每个 token 只经过 $k$ 个专家，所以**计算量只占「全部专家都算」的 $k/E$**（$E$ 是专家总数）——这是 MoE「参数多但算得省」的来源。<span class="marginnote">路由是<strong>逐 token</strong>的：一个 batch 里不同 token 可能被路由到不同的专家。这意味着「专家间的负载天然不均衡」——有的专家忙、有的专家闲，这是 EP 调度的核心难点。</span>
 
@@ -47,8 +47,8 @@ EP 的部署策略：
 
 MoE 层的两种并行切法直接竞争：
 
-- **TP 切专家内部**：每个专家被切成多卡算（把 8 专家的 FFN 矩阵行切）。好处是不用 all-to-all（保持 TP 的通信模式），但**所有卡的注意力都在每个专家上**——token 少时很浪费。
-- **EP 切专家之间**：每个专家独占一张（或几张）卡，token 靠 all-to-all 分发。好处是**每个 token 只在一张卡上算**，专家内部是全量计算，利用率高；坏处是 all-to-all 通信。
+**TP 切专家内部**：每个专家被切成多卡算（把 8 专家的 FFN 矩阵行切）。好处是不用 all-to-all（保持 TP 的通信模式），但**所有卡的注意力都在每个专家上**——token 少时很浪费。
+**EP 切专家之间**：每个专家独占一张（或几张）卡，token 靠 all-to-all 分发。好处是**每个 token 只在一张卡上算**，专家内部是全量计算，利用率高；坏处是 all-to-all 通信。
 
 经验法则：**token 数多（大 batch / 长序列 prefill）时 EP 赢**——每卡收到的 token 多，all-to-all 摊销得薄，专家计算饱满；**token 数少（小 batch / decode）时 TP 赢**——all-to-all 的开销占比过大。<span class="marginnote">这也是为什么主流引擎对 MoE 常采用「<strong>decode 用 TP、prefill 用 EP</strong>」的混合策略（如 DeepSeek、vLLM 的 MoE 支持）。</span>
 

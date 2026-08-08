@@ -80,7 +80,7 @@ $$a_n = \alpha_1 r_1^n + \alpha_2 r_2^n + \dots + \alpha_k r_k^n$$
 
 - 特征方程 $r^2 - 7r + 10 = 0$，根 $r = 2, 5$。
 - 通解 $a_n = \alpha \cdot 2^n + \beta \cdot 5^n$。
-- 初始条件：$\alpha + \beta = 2$，$2\alpha + 5\beta = 3$。解得 $\alpha = 7/3$、$\beta = -1/3$。
+- 初始条件：$\alpha + \beta = 2$，`$2`\alpha + 5\beta = 3$。解得 $\alpha = 7/3$、$\beta = -1/3$。
 - $a_n = \frac{7}{3} \cdot 2^n - \frac{1}{3} \cdot 5^n$。
 
 验算 $a_2 = \frac{7}{3}\times4 - \frac{1}{3}\times25 = \frac{28-25}{3} = 1$，而递推给 $a_2 = 7\times3 - 10\times2 = 1$，一致。∎
@@ -99,7 +99,7 @@ $$a_n = \alpha_1 r_1^n + \alpha_2 r_2^n + \dots + \alpha_k r_k^n$$
 
 **公式解析：把复根写成振幅 × 相位**
 
-$1 + i = \sqrt{2}\, e^{i\pi/4}$（模 $\sqrt2$、辐角 $\pi/4$），于是
+`$1` + i = \sqrt{2}\, e^{i\pi/4}$（模 $\sqrt2$、辐角 $\pi/4$），于是
 
 $$
 a_n = \frac{1}{2i}\left((1+i)^n - (1-i)^n\right) = \frac{(\sqrt2)^n}{2i}\left(e^{in\pi/4} - e^{-in\pi/4}\right) = (\sqrt2)^n \sin\frac{n\pi}{4}
@@ -109,7 +109,7 @@ $$
 - **第二步，读欧拉公式**：$e^{i\theta} - e^{-i\theta} = 2i\sin\theta$ 把指数差化成正弦。
 - **第三步，读形态**：$a_n = (\sqrt2)^n \sin(n\pi/4)$——**振幅按 $\sqrt2^n$ 增长、按 $\sin$ 振荡**。∎
 
-**验算**：$a_2 = 2$（递推 $2\cdot1 - 2\cdot0$）；公式 $(\sqrt2)^2\sin(\pi/2) = 2\cdot1 = 2$ ✓。
+**验算**：$a_2 = 2$（递推 `$2`\cdot1 - 2\cdot0$）；公式 $(\sqrt2)^2\sin(\pi/2) = 2\cdot1 = 2$ ✓。
 
 **为什么重要**：**复特征根 ⟹ 振荡解**（正弦/余弦 × 振幅），这在差分方程与数字信号处理里处处可见——滤波器、振荡器、数字控制系统的差分方程都长这样。**"根决定形态"**：实根指数、复根振荡、重根多项式×指数。
 

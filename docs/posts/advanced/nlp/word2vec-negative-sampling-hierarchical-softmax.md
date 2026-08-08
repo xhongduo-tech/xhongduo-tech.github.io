@@ -56,7 +56,7 @@ $$
 \mathcal{L}(w_t, w_c) = - \log\sigma(v'^{\top}_{w_c} v_{w_t}) \;-\; \sum_{i=1}^{K} \log\sigma(-v'^{\top}_{w_i} v_{w_t})
 $$
 
-**重点：** 正样本的项前面是 `+` 号（sigmoid 后取 log），让「真共现对」的概率趋向 1；负样本的项前面是 `−` 号，等价于让「假共现对」的概率趋向 0。整条式子只涉及 $K+1$ 个词的向量，**不再有对 $V$ 求和**。$K$ 通常取 5～20（语料大时 2～5 即可）。<span class="marginnote">「从噪声里采样负例来当陪练」——这个套路后来在推荐系统负采样、对比学习（SimCLR 等）里被反复发扬光大。它是「负采样」思想最出圈的一次亮相。</span>
+**重点：** 正样本的项前面是 $V$ 号（sigmoid 后取 log），让「真共现对」的概率趋向 1；负样本的项前面是 $K$ 号，等价于让「假共现对」的概率趋向 0。整条式子只涉及 $K+1$ 个词的向量，**不再有对 $V$ 求和**。$K$ 通常取 5～20（语料大时 2～5 即可）。<span class="marginnote">「从噪声里采样负例来当陪练」——这个套路后来在推荐系统负采样、对比学习（SimCLR 等）里被反复发扬光大。它是「负采样」思想最出圈的一次亮相。</span>
 
 ## 4 公式解析：负采样目标函数
 
@@ -86,18 +86,19 @@ $$
 负采样的实现很简单，抽出 $K$ 个词作负样本即可：
 
 ```python
-# 伪代码：构造一个负采样样本的损失（PyTorch 风格）
-import torch, torch.nn.functional as F
+import numpy as np
 
-def nce_loss(center_vec, pos_vec, neg_vecs):
-    # center_vec: [d] 中心词输入向量
-    # pos_vec  : [d] 正样本输出向量
-    # neg_vecs : [K, d] 负样本输出向量
-    pos_score = torch.dot(center_vec, pos_vec)          # a = v'_c · v_t
-    pos_loss  = -F.logsigmoid(pos_score)                # -log σ(a)
-    neg_scores = neg_vecs @ center_vec                  # [K] 每个负样本的 b_i
-    neg_loss   = -F.logsigmoid(-neg_scores).sum()       # -Σ log σ(-b_i)
-    return pos_loss + neg_loss
+# 词表与词频（示意：真实场景下 freq 是全语料的归一化频率）
+vocab = ["的", "了", "在", "是", "和", "我", "你", "猫", "机器学习"]
+freq  = np.array([2000, 1800, 900, 1200, 700, 800, 600, 30, 50], dtype=float)
+
+def neg_sample(K, vocab, freq, alpha=0.75):
+    """按 U(w)^0.75 加权抽样 K 个负样本。"""
+    p = freq ** alpha                # 3/4 次幂加权，照顾中频词
+    p = p / p.sum()                  # 归一化成概率分布
+    return np.random.choice(vocab, size=K, p=p, replace=False)
+
+print(neg_sample(K=5, vocab=vocab, freq=freq))   # 抽出的 5 个负样本
 ```
 
 ## 6 辨析：负采样 ≠ NCE，两把刀怎么选
@@ -105,9 +106,9 @@ def nce_loss(center_vec, pos_vec, neg_vecs):
 **辨析｜易错点：** 负采样常被误写作 NCE（噪声对比估计）。二者确有血缘：负采样借鉴了 NCE「用噪声分布区分真伪」的思想。但 NCE 是一个**有统计学保证的估计器**，它保留归一化项来逼近真实的对数似然，并在样本足够多时渐近无偏；而 word2vec 的负采样**直接丢弃了归一化项**，是一个纯粹以训练效率和向量质量为目标的启发式简化。说「负采样是 NCE 的简化变体」可以，说「负采样就是 NCE」不准确。
 
 **层次 Softmax 与负采样怎么选？**
-- 层次 Softmax 保留了「概率之和为 1」的性质，输出仍可解读为概率；实现稍复杂，对**低频词**更友好（哈夫曼树把低频词放深层，但深层路径反而给了它们更多可更新的参数）。适合词表很大、又要概率输出的场景。
-- 负采样实现极简、无树结构、无词表全局约束，更易并行与扩展；如今是事实上的默认选择。
-- 实践里常先跑一轮对比：语料小、关注低频词时层次 Softmax 与负采样差别不大；语料大时负采样速度优势明显。<span class="marginnote">后来的语言模型（如 BERT 的 MLM）虽然用整词表 softmax，但都配了「子词表 + 负采样/采样」的组合来摊薄成本——你在这里建立的成本直觉，能直接迁移到预训练模型的训练分析里。</span>
+层次 Softmax 保留了「概率之和为 1」的性质，输出仍可解读为概率；实现稍复杂，对**低频词**更友好（哈夫曼树把低频词放深层，但深层路径反而给了它们更多可更新的参数）。适合词表很大、又要概率输出的场景。
+负采样实现极简、无树结构、无词表全局约束，更易并行与扩展；如今是事实上的默认选择。
+实践里常先跑一轮对比：语料小、关注低频词时层次 Softmax 与负采样差别不大；语料大时负采样速度优势明显。<span class="marginnote">后来的语言模型（如 BERT 的 MLM）虽然用整词表 softmax，但都配了「子词表 + 负采样/采样」的组合来摊薄成本——你在这里建立的成本直觉，能直接迁移到预训练模型的训练分析里。</span>
 
 ## 7 小结
 

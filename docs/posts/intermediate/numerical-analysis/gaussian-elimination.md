@@ -92,25 +92,24 @@ $$
 ```python
 import numpy as np
 
-A = np.array([[2., 4, -2],
-              [4, 9, -3],
-              [-2, -3, 7]])
-b = np.array([2., 8, 10])
+def gauss_solve(A, b):
+    """朴素高斯消去法：消去（化上三角）+ 回代（自下而上）。"""
+    A = np.array(A, dtype=float).copy()
+    b = np.array(b, dtype=float).copy()
+    n = A.shape[0]
+    for k in range(n - 1):                      # 消去
+        for i in range(k + 1, n):
+            m = A[i, k] / A[k, k]               # 乘子
+            A[i, k:] -= m * A[k, k:]
+            b[i] -= m * b[k]
+    x = np.zeros(n)
+    for i in range(n - 1, -1, -1):              # 回代
+        x[i] = (b[i] - A[i, i+1:] @ x[i+1:]) / A[i, i]
+    return x
 
-# 手写消去 + 回代
-n = 3
-Ab = np.hstack([A, b.reshape(-1, 1)])
-for k in range(n - 1):
-    for i in range(k + 1, n):
-        m = Ab[i, k] / Ab[k, k]
-        Ab[i, :] -= m * Ab[k, :]
-x = np.zeros(n)
-for i in range(n - 1, -1, -1):
-    x[i] = (Ab[i, -1] - Ab[i, i+1:n] @ x[i+1:n]) / Ab[i, i]
-print(x)  # [-1. 2. 2.]
-
-# 对比 numpy 内置
-print(np.linalg.solve(A, b))  # 同样 [-1. 2. 2.]
+A = [[2, 4, -2], [4, 9, -3], [-2, -3, 7]]
+b = [2, 8, 10]
+print(gauss_solve(A, b))                        # [-1. 2. 2.]
 ```
 
 **实现里最怕的就是主元为 0 或极小**——除法让误差放大。这引出下一节的核心问题：**消去法的数值稳定性取决于主元的选择**。<span class="marginnote">一个警示：上述朴素消去对「主元极小」的矩阵（如 $\begin{pmatrix}\epsilon&1\\1&1\end{pmatrix}$，$\epsilon$ 很小）会得到灾难性结果。<strong>「能解出来」≠「解得对」</strong>——这就要列主元救场。</span>

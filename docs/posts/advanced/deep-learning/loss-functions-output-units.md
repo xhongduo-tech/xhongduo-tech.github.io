@@ -76,7 +76,7 @@ $$
 
 这就是**二元交叉熵（binary cross-entropy）**。它的梯度特别漂亮：$\frac{\partial L}{\partial \boldsymbol{o}} = \hat{y} - y$——**预测概率减真实标签**。这意味着：预测偏高（$\hat{y} > y$）就往低调，偏低就往上调，调整量与误差成正比。梯度里指数项全部抵消，数值极稳定。
 
-**易错点：** 工程上应直接对 logits 用 `BCEWithLogitsLoss`（内部融合 Sigmoid + 交叉熵），而不要先 `sigmoid` 再 `BCELoss`——后者在 $\hat{y}$ 接近 0 或 1 时遭遇 $\log$ 的数值灾难（`log(0)`）。与 Softmax 的情形完全同构。<span class="marginnote">二分类的 Sigmoid 与多分类的 Softmax 是同一枚硬币：Softmax 是「竞争式」归一化（所有类概率和为 1），Sigmoid 是「独立式」概率（每类各自 $(0,1)$，互不相干）。多标签分类（一张图同时有猫和狗）必须用 Sigmoid，因为多个标签可以同时为 1——这是「用哪个输出单元」的经典决策点。</span>
+**易错点：** 工程上应直接对 logits 用 $\hat{y}$（内部融合 Sigmoid + 交叉熵），而不要先 $\log$ 再 $(0,1)$——后者在 $\hat{y}$ 接近 0 或 1 时遭遇 $\log$ 的数值灾难（$\log 0 \to -\infty$，甚至 NaN）。与 Softmax 的情形完全同构。<span class="marginnote">二分类的 Sigmoid 与多分类的 Softmax 是同一枚硬币：Softmax 是「竞争式」归一化（所有类概率和为 1），Sigmoid 是「独立式」概率（每类各自 $(0,1)$，互不相干）。多标签分类（一张图同时有猫和狗）必须用 Sigmoid，因为多个标签可以同时为 1——这是「用哪个输出单元」的经典决策点。</span>
 
 ## 4 多分类的输出单元：Softmax + 多项分布
 

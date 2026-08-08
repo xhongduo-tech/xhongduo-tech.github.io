@@ -29,8 +29,8 @@ date: 2026-08-07
 
 **capability 的意义**：
 
-- 容器内即使「我是 root（UID 0）」，**也只是 UID 0，不是 full root**——关键特权（`CAP_SYS_ADMIN` 等）默认被丢弃。
-- `--cap-drop ALL --cap-add NET_BIND_SERVICE`：丢弃全部、只加必要——**最小特权的显式表达**。
+- 容器内即使「我是 root（UID 0）」，**也只是 UID 0，不是 full root**——关键特权（`CAP_SYS_ADMIN`、`CAP_NET_ADMIN` 等）默认被丢弃。
+- `--cap-drop=ALL`：丢弃全部、只加必要——**最小特权的显式表达**。
 
 **公式解析：capability 收缩攻击面**
 
@@ -48,13 +48,13 @@ $$\text{攻击者可用的特权} \propto |C_{container}|$$
 
 **Seccomp（secure computing mode）**：**限制进程能调用的系统调用**——白名单/黑名单过滤。
 
-- **容器默认 Seccomp 配置**：**阻止危险系统调用**——如 `mount`、`kexec_load`、`open_by_handle_at`（绕过路径检查）、`reboot`、`ptrace`（调试/注入）。
+- **容器默认 Seccomp 配置**：**阻止危险系统调用**——如 `mount`、`keyctl`、`open_by_handle_at`（绕过路径检查）、`bpf`、`ptrace`（调试/注入）。
 - **为什么需要**：Namespace 让容器「看不到」宿主，但**系统调用是内核接口**——若容器能调 `mount` 或 `ptrace`，就可能操纵宿主。**Seccomp 从「系统调用」层面设卡。**
 
 **Seccomp 的机制**：
 
 - 进程设置 seccomp 过滤器（BPF 程序）——每次系统调用被过滤。
-- 默认动作：`ALLOW`（允许）、`ERRNO`（返回错误）、`KILL`（杀死进程）。
+- 默认动作：`SCMP_ACT_ALLOW`（允许）、`SCMP_ACT_ERRNO`（返回错误）、`SCMP_ACT_KILL`（杀死进程）。
 
 **Seccomp 与 Capability 的分工**：
 
@@ -63,14 +63,14 @@ $$\text{攻击者可用的特权} \propto |C_{container}|$$
 
 **Seccomp 的收益**：**即使容器进程被攻破，攻击者想调的危险系统调用（mount、ptrace）直接被杀/报错**——系统调用层面封死。
 
-**辨析｜易错点：** 「Namespace 已经隔离了，不需要 Seccomp」是危险认知。**Namespace 隔离「视图」，不隔离「系统调用」**——容器里的进程可以调任何没被限制的系统调用。**`CAP_SYS_ADMIN` + `mount` 的组合可以让容器「挂载宿主文件系统」突破隔离**——这正是 Seccomp 要封的。**「视图隔离 + 系统调用过滤」缺一不可。**
+**辨析｜易错点：** 「Namespace 已经隔离了，不需要 Seccomp」是危险认知。**Namespace 隔离「视图」，不隔离「系统调用」**——容器里的进程可以调任何没被限制的系统调用。**`unshare` + `mount` 系统调用的组合可以让容器「挂载宿主文件系统」突破隔离**——这正是 Seccomp 要封的。**「视图隔离 + 系统调用过滤」缺一不可。**
 
 ## 3 AppArmor：强制访问控制
 
 **AppArmor（Application Armor）**：Linux 的 **MAC（强制访问控制）** 实现（类似 SELinux，但基于路径）——**限制进程能访问的文件与资源**。
 
 - **AppArmor 配置文件**：定义「进程能读/写/执行哪些路径」。
-- Docker 默认 AppArmor 配置：限制容器**访问宿主敏感路径**（如 `/proc` 的宿主信息、`/sys` 的设备）。
+- Docker 默认 AppArmor 配置：限制容器**访问宿主敏感路径**（如 `/proc/sys/kernel` 的宿主内核信息、`/dev` 的设备）。
 
 **AppArmor vs SELinux**（回顾《SELinux 与 MAC》）：
 
@@ -81,12 +81,26 @@ $$\text{攻击者可用的特权} \propto |C_{container}|$$
 
 **纵深防御（Defense in Depth）**：容器安全是**多层叠加**：
 
-```
-Namespace（视图隔离）
-  → Capability（权限收缩）
-    → Seccomp（系统调用过滤）
-      → AppArmor（文件访问控制）
-        → 只读文件系统 / 非 root 用户（最后防线）
+```text
+容器进程
+   │
+   ▼
+Namespace   （视图隔离：看不到宿主）
+   │
+   ▼
+Capability  （权限收缩：不是真 root）
+   │
+   ▼
+Seccomp     （系统调用过滤：mount/ptrace 被禁）
+   │
+   ▼
+AppArmor    （路径级 MAC：敏感文件受限）
+   │
+   ▼
+只读文件系统 / 非 root 用户
+   │
+   ▼
+宿主内核
 ```
 
 **每一层被攻破，下一层仍在**——攻击者要穿透所有层才能抵达宿主（回顾《SELinux》的纵深防御与《保护域》的最小特权）。

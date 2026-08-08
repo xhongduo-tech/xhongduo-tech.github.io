@@ -29,17 +29,17 @@ date: 2026-08-07
 - **环** $\mathbb{Z}_n$（模算术）：RSA 的加解密都在 $\mathbb{Z}_n$ 里，安全靠 $\mathbb{Z}_n^\times$ 的结构。<span class="marginnote">三种结构的「工作方式」不同：群提供「难算方向」（离散对数），域提供「无零因子的完备算术」（可逆性），环提供「半完备算术」（RSA 里 $\mathbb{Z}_n$ 有零因子但 $\mathbb{Z}_n^\times$ 可逆）。<strong>「结构 + 难度假设」是密码学的配方</strong>——代数结构保证「能算」，难度假设保证「难破」。</span>
 
 **难度假设（hardness assumptions）**：密码学不依赖「绝对不可解」，而依赖「计算上不可行」：
-- **大整数分解**：$n = pq$ 易乘难拆（RSA 安全）；
-- **离散对数**：$g^x$ 易算难逆推 $x$（DH/ElGamal 安全）；
-- **椭圆曲线离散对数**：$[k]P$ 易算难逆推 $k$（ECC 安全）。
+**大整数分解**：$n = pq$ 易乘难拆（RSA 安全）；
+**离散对数**：$g^x$ 易算难逆推 $x$（DH/ElGamal 安全）；
+**椭圆曲线离散对数**：$[k]P$ 易算难逆推 $k$（ECC 安全）。
 
 ## 2 RSA：环 Z_n 与单位群 Z_n^×
 
 **RSA 的代数骨架**：选大素数 $p, q$，$n = pq$，$\varphi(n) = (p-1)(q-1)$，选 $e$ 与 $\varphi(n)$ 互素，$d = e^{-1} \pmod{\varphi(n)}$。
 
-- **加密**：$c = m^e \bmod n$（在环 $\mathbb{Z}_n$ 中做幂运算）；
-- **解密**：$m = c^d \bmod n$（欧拉定理：$m^{\varphi(n)} \equiv 1$，$m^{ed} = m^{1 + k\varphi(n)} = m$）；
-- **安全**：$d$ 由 $\varphi(n)$ 决定，$\varphi(n)$ 由 $p, q$ 决定——**不知道 $p, q$ 就难算 $\varphi(n)$，难解 $d$**。<span class="marginnote">RSA 是「环 $\mathbb{Z}_n$ + 单位群 $\mathbb{Z}_n^\times$」的直接应用：$e, d$ 是 $\mathbb{Z}_{\varphi(n)}^\times$ 里的互逆元，$m^e$ 在 $\mathbb{Z}_n$ 里计算。欧拉定理 $m^{\varphi(n)} \equiv 1$ 保证解密还原。RSA 的安全性「上界」是分解 $n$——而分解 $n$ 等价于「求 $\varphi(n)$」，这正是环论里「$\mathbb{Z}_n^\times$ 的阶 = $\varphi(n)$」这一事实的密码学重量。</span>
+**加密**：$c = m^e \bmod n$（在环 $\mathbb{Z}_n$ 中做幂运算）；
+**解密**：$m = c^d \bmod n$（欧拉定理：$m^{\varphi(n)} \equiv 1$，$m^{ed} = m^{1 + k\varphi(n)} = m$）；
+**安全**：$d$ 由 $\varphi(n)$ 决定，$\varphi(n)$ 由 $p, q$ 决定——**不知道 $p, q$ 就难算 $\varphi(n)$，难解 $d$**。<span class="marginnote">RSA 是「环 $\mathbb{Z}_n$ + 单位群 $\mathbb{Z}_n^\times$」的直接应用：$e, d$ 是 $\mathbb{Z}_{\varphi(n)}^\times$ 里的互逆元，$m^e$ 在 $\mathbb{Z}_n$ 里计算。欧拉定理 $m^{\varphi(n)} \equiv 1$ 保证解密还原。RSA 的安全性「上界」是分解 $n$——而分解 $n$ 等价于「求 $\varphi(n)$」，这正是环论里「$\mathbb{Z}_n^\times$ 的阶 = $\varphi(n)$」这一事实的密码学重量。</span>
 
 **实例**：$p = 61, q = 53$，$n = 3233$，$\varphi(n) = 3120$，取 $e = 17$，$d = 17^{-1} \bmod 3120 = 2753$。加密 $m = 65$：$c = 65^{17} \bmod 3233 = 2790$；解密 $2790^{2753} \bmod 3233 = 65$。$\checkmark$
 
@@ -53,9 +53,9 @@ date: 2026-08-07
 3. 双方算共享密钥 $K = g^{ab}$（$A^b = g^{ab} = B^a$）。<span class="marginnote">Diffie-Hellman 的妙处：信道里只有 $g, g^a, g^b$，窃听者要算 $g^{ab}$ 必须解离散对数（由 $g^a$ 求 $a$）。$a, b$ 是私有指数，$g^{ab}$ 是共享秘密。<strong>「$g^{ab}$ 易算（双方各自一步幂），窃听者难算（需要离散对数）」</strong>——不对称性全部来自「幂易逆难」。</span>
 
 **ElGamal 加密**（在循环群上做公钥加密）：
-- 公钥 $(p, g, h = g^x)$，私钥 $x$；
-- 加密 $m$：选随机 $k$，发 $(c_1, c_2) = (g^k, m \cdot h^k)$；
-- 解密：$m = c_2 \cdot c_1^{-x} = m \cdot g^{xk} \cdot g^{-xk}$。
+公钥 $(p, g, h = g^x)$，私钥 $x$；
+加密 $m$：选随机 $k$，发 $(c_1, c_2) = (g^k, m \cdot h^k)$；
+解密：$m = c_2 \cdot c_1^{-x} = m \cdot g^{xk} \cdot g^{-xk}$。
 
 **群的选择**：DLP 的难度依赖群。$\mathbb{Z}_p^\times$（$p$ 大素数）上 DLP 难（但需 $p-1$ 有大素因子，防 Pohlig-Hellman 攻击）；有限域 $\mathbb{F}_p$ 的「乘法群」最常用。**循环群的「阶的素因子结构」决定 DLP 难度**——这是第五篇西罗/群结构理论的密码学回响。
 
@@ -64,10 +64,10 @@ date: 2026-08-07
 AES 是「有限域算术」的教科书级应用。
 
 **AES 的代数骨架**：
-- 每个字节 $b_7 b_6 \cdots b_0$ 看作 $\mathbb{F}_{2^8} = \mathbb{F}_2[x]/\langle x^8 + x^4 + x^3 + x + 1 \rangle$ 的元素（8 次不可约多项式生成）；
-- 字节加法 = 异或（$\mathbb{F}_2$ 上逐位加）；
-- 字节乘法 = 有限域乘法（模不可约多项式）；
-- S-box 的核心是**求逆**：$b \mapsto b^{-1}$（在 $\mathbb{F}_{2^8}$ 里，每个非零字节可逆）。<span class="marginnote">AES 选 $\mathbb{F}_{2^8}$ 而非「模 256 算术」的根本原因：$\mathbb{Z}_{256}$ 有零因子（偶数不可逆），S-box 需要「每个非零字节都可逆」——只有域（无零因子 + 全可逆）提供。有限域的存在性、唯一性、运算规则（第十篇）全部在 AES 里落地。这是「有限域理论」的工业级应用。</span>
+每个字节 $b_7 b_6 \cdots b_0$ 看作 $\mathbb{F}_{2^8} = \mathbb{F}_2[x]/\langle x^8 + x^4 + x^3 + x + 1 \rangle$ 的元素（8 次不可约多项式生成）；
+字节加法 = 异或（$\mathbb{F}_2$ 上逐位加）；
+字节乘法 = 有限域乘法（模不可约多项式）；
+S-box 的核心是**求逆**：$b \mapsto b^{-1}$（在 $\mathbb{F}_{2^8}$ 里，每个非零字节可逆）。<span class="marginnote">AES 选 $\mathbb{F}_{2^8}$ 而非「模 256 算术」的根本原因：$\mathbb{Z}_{256}$ 有零因子（偶数不可逆），S-box 需要「每个非零字节都可逆」——只有域（无零因子 + 全可逆）提供。有限域的存在性、唯一性、运算规则（第十篇）全部在 AES 里落地。这是「有限域理论」的工业级应用。</span>
 
 **为什么必须是域**：S-box 的非线性来自「求逆 $x \mapsto x^{-1}$」，这在有零因子的环里根本定义不了。**AES 选择有限域，就是选择「无零因子」的结构保证可逆性**——抽象代数的「整环 vs 域」之分，在这里是「能用 vs 不能用」之别。
 

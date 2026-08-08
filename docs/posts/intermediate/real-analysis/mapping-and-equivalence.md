@@ -28,9 +28,9 @@ date: 2026-08-07
 
 三个最要紧的性质：
 
-- **单射（injective / 一一映射）**：$a_1\neq a_2\Longrightarrow f(a_1)\neq f(a_2)$，即不同的元素像不同（「不打重」）。
-- **满射（surjective / 到上映射）**：$f(A)=B$，即陪域里每个元素都被「打中」（「打全」）。
-- **双射（bijective / 一一对应）**：既单又满。
+**单射（injective / 一一映射）**：$a_1\neq a_2\Longrightarrow f(a_1)\neq f(a_2)$，即不同的元素像不同（「不打重」）。
+**满射（surjective / 到上映射）**：$f(A)=B$，即陪域里每个元素都被「打中」（「打全」）。
+**双射（bijective / 一一对应）**：既单又满。
 
 **辨析｜易错点：** 中文「一一映射」与「一一对应」容易混淆。周民强书里：「一一映射」指单射，「一一对应」指双射；英文更清楚，injection 是单射，bijection 才是「一一对应」。单射只保证「不打重」，不保证「打全」；满射只保证「打全」，不保证「不打重」。**「一一对应」= 不重 + 打全，两者缺一不可。**<span class="marginnote">这一字之差在实变函数里处处要命：证明「$A$ 可数」要求「到 $\mathbb{N}$ 的<strong>双射</strong>」；如果只构造出一个<strong>单射</strong> $A\to\mathbb{N}$，结论只是「$A$ 至多可数」。伯恩斯坦定理（§1.6）就是用来把「两个方向的单射」合成「一个双射」的。</span>
 
@@ -98,9 +98,9 @@ $$f(x)=\tan\!\Big(\pi x-\frac{\pi}{2}\Big),\qquad x\in(0,1)$$
 
 对等对常见集合构造是「粘合性」的：
 
-- **笛卡尔积**：$A\sim A'$、$B\sim B'\Longrightarrow A\times B\sim A'\times B'$。取「逐坐标」双射 $(a,b)\mapsto(f(a),g(b))$。
-- **无交并**：$A\sim A'$、$B\sim B'$ 且两对集合分别互不相交 ⟹ $A\cup B\sim A'\cup B'$。把双射「拼」在一起即可。
-- **幂集与特征函数**：对任何 $A$，**幂集 $\mathcal{P}(A)$ 与二值函数集 $\{0,1\}^A$ 对等**。把每个子集 $E\subseteq A$ 映成它的**特征函数（characteristic function）** $\chi_E$：$\chi_E(a)=1$ 当且仅当 $a\in E$。这是双向的一一对应，是第四篇「用简单函数逼近可测函数」的思想源头。
+**笛卡尔积**：$A\sim A'$、$B\sim B'\Longrightarrow A\times B\sim A'\times B'$。取「逐坐标」双射 $(a,b)\mapsto(f(a),g(b))$。
+**无交并**：$A\sim A'$、$B\sim B'$ 且两对集合分别互不相交 ⟹ $A\cup B\sim A'\cup B'$。把双射「拼」在一起即可。
+**幂集与特征函数**：对任何 $A$，**幂集 $\mathcal{P}(A)$ 与二值函数集 $\{0,1\}^A$ 对等**。把每个子集 $E\subseteq A$ 映成它的**特征函数（characteristic function）** $\chi_E$：$\chi_E(a)=1$ 当且仅当 $a\in E$。这是双向的一一对应，是第四篇「用简单函数逼近可测函数」的思想源头。
 
 **辨析｜易错点：** $A\sim B$ 与 $A\subseteq B$ 不要混。对等是比较「大小」的等价关系，包含是比较「成员」的偏序关系；$A\subseteq B$ 推不出 $A\sim B$，反过来也对不上。真正连接二者的桥梁是**基数比较**：$|A|\le|B|$ 定义为「$A$ 对等于 $B$ 的某个子集」——这是下一章基数理论的地基，先在这里立住。
 

@@ -22,8 +22,8 @@ date: 2026-08-07
 
 **属性图（property graph）**由三要素组成：
 
-- **节点（vertex）**：实体，带标签（如 `Person`）与属性（如 `name`）。
-- **边（edge）**：关系，带类型（如 `FRIEND_OF`）、方向、属性。
+- **节点（vertex）**：实体，带标签（如 Person）与属性（如 name, age）。
+- **边（edge）**：关系，带类型（如 FRIEND_OF）、方向、属性。
 - **遍历（traversal）**：从某个节点出发，沿边访问邻居——图查询的基本操作。
 
 **核心要点：边的属性让「关系本身」携带信息。** 关系库把「关系」表达为外键 + 连接表（关系数据散落在多表）；图库把「关系」表达为**实体的边**——关系是数据，直接可查。
@@ -42,20 +42,20 @@ date: 2026-08-07
 **Cypher**（Neo4j 的查询语言）用 ASCII 图形语法描述模式：
 
 ```cypher
-MATCH (a:Person)-[:FRIEND_OF]->(b:Person)-[:FRIEND_OF]->(c:Person)
+MATCH (a:Person)-[:FRIEND_OF]->(b:Person)
 WHERE a.name = 'Alice'
-RETURN c.name
+RETURN b.name
 ```
 
 - `(a:Person)`：节点变量 a，标签 Person。
 - `-[:FRIEND_OF]->`：有向边，类型 FRIEND_OF。
-- `MATCH ... WHERE ... RETURN`：模式匹配 + 过滤 + 返回——**与 SQL 的 SELECT-FROM-WHERE 同构**。
+- `MATCH … WHERE … RETURN …`：模式匹配 + 过滤 + 返回——**与 SQL 的 SELECT-FROM-WHERE 同构**。
 
-**核心要点：Cypher 用「模式（pattern）」描述要匹配的子图。** `MATCH` 声明「要找到这样的结构」，数据库用遍历/索引完成匹配——**声明式（要什么）而非过程式（怎么走）**，与 SQL 的哲学一致。
+**核心要点：Cypher 用「模式（pattern）」描述要匹配的子图。** MATCH 声明「要找到这样的结构」，数据库用遍历/索引完成匹配——**声明式（要什么）而非过程式（怎么走）**，与 SQL 的哲学一致。
 
 **公式解析：模式匹配 = 子图同构搜索**
 
-`MATCH` 匹配「图中与模式同构的子图」：
+MATCH 查询匹配「图中与模式同构的子图」：
 
 $$
 \text{匹配数} = \#\{ \text{子图 } S \subseteq G \mid S \cong \text{模式} \}
@@ -73,11 +73,12 @@ $$
 **SQL（关系库）**：
 
 ```sql
-SELECT c.name
-FROM person a
-JOIN friend f1 ON a.id = f1.a_id AND a.name = 'Alice'
-JOIN friend f2 ON f1.b_id = f2.a_id
-JOIN person c ON f2.b_id = c.id;
+SELECT f2.name
+FROM person f1, friend k1, friend k2, person f2
+WHERE f1.name = 'Alice'
+  AND k1.a = f1.id
+  AND k1.b = k2.a
+  AND k2.b = f2.id;
 ```
 
 - 两跳 = 两次 JOIN；三跳三次 JOIN——**深度增加 = JOIN 数线性增加，且连接代价昂贵**。
@@ -85,7 +86,8 @@ JOIN person c ON f2.b_id = c.id;
 **Cypher（图库）**：
 
 ```cypher
-MATCH (a:Person {name:'Alice'})-[:FRIEND_OF*2]->(c:Person) RETURN c.name
+MATCH (a:Person {name: 'Alice'})-[:FRIEND_OF]->()-[:FRIEND_OF]->(b:Person)
+RETURN b.name
 ```
 
 - 两跳 = 一次模式匹配——**深度变化不改查询形态，遍历沿边走**。
@@ -123,7 +125,7 @@ $$
 ## 5 小结
 
 - **属性图**：节点 + 边 + 属性；遍历是核心操作——关系是数据。
-- **Cypher**：`MATCH` 模式匹配，声明式——与 SQL 哲学同构。
+- **Cypher**：MATCH 模式匹配，声明式——与 SQL 哲学同构。
 - 图库把多跳查询从「多次 JOIN」变成「沿边遍历」——**深度遍历显著更快**。
 - 图查询是子图同构搜索——靠锚定起点 + 剪枝控制规模。
 - 图库适合关系密集型在线查询；通用 OLTP/聚合还是关系库/列存。

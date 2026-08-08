@@ -28,22 +28,22 @@ Dijkstra 算法（《数据结构》已学）很快，但**不能处理负权边
 
 ## 2 Bellman-Ford 算法
 
-```
+```text
 BELLMAN-FORD(G, w, s)
-  initialize d[s] = 0, d[v] = INFINITY
-  for i = 1 to |V| - 1
-    for each edge (u, v) in E
-      RELAX(u, v, w)
-  for each edge (u, v) in E
-    if d[v] > d[u] + w(u, v)
-      return FALSE       // 存在负环
-  return TRUE
+    INITIALIZE-SINGLE-SOURCE(G, s)          // 所有 d = ∞，d[s] = 0
+    for i = 1 to |V| - 1:
+        for each edge (u, v) in G.E:
+            RELAX(u, v, w)                  // 第 i 轮松弛所有边
+    for each edge (u, v) in G.E:
+        if d[v] > d[u] + w(u, v)
+            return FALSE                    // 存在负环
+    return TRUE
 ```
 
 **两阶段**：
 
-- **阶段一（$|V|-1$ 轮松弛）**：每轮对所有边松弛一次。第 $i$ 轮后，$d[v]$ 是「至多含 $i$ 条边」的最短路径长度。因为最短路径至多 $V-1$ 条边，$V-1$ 轮后 $d[v]$ 即真实最短距离。
-- **阶段二（负环检测）**：若还能松弛某条边，说明存在「可以无限变短」的负环——最短距离无定义，返回 FALSE。<span class="marginnote">为什么第 $V$ 轮还能松弛就说明有负环？第 $V$ 轮松弛若能改进 $d$，必然是因为某条最短路径需要 ≥ $V$ 条边——而简单路径最多 $V-1$ 条边，多出来的「边」只能是负环带来的「转圈更短」。负环检测就藏在这一轮。</span>
+**阶段一（$|V|-1$ 轮松弛）**：每轮对所有边松弛一次。第 $i$ 轮后，$d[v]$ 是「至多含 $i$ 条边」的最短路径长度。因为最短路径至多 $V-1$ 条边，$V-1$ 轮后 $d[v]$ 即真实最短距离。
+**阶段二（负环检测）**：若还能松弛某条边，说明存在「可以无限变短」的负环——最短距离无定义，返回 FALSE。<span class="marginnote">为什么第 $V$ 轮还能松弛就说明有负环？第 $V$ 轮松弛若能改进 $d$，必然是因为某条最短路径需要 ≥ $V$ 条边——而简单路径最多 $V-1$ 条边，多出来的「边」只能是负环带来的「转圈更短」。负环检测就藏在这一轮。</span>
 
 **复杂度**：$|V|-1$ 轮 × 每轮 $|E|$ 条边 = $O(VE)$。
 
@@ -51,13 +51,13 @@ BELLMAN-FORD(G, w, s)
 
 DAG 有拓扑排序，这让最短路变得极其简单：**按拓扑序逐个处理顶点，松弛它的所有出边**——每个顶点只需松弛一次。
 
-```
+```text
 DAG-SHORTEST-PATHS(G, w, s)
-  topological sort G
-  initialize d[s] = 0, others INFINITY
-  for each vertex u in topo order
-    for each edge (u, v) in Adj[u]
-      RELAX(u, v, w)
+    拓扑排序 G，得到顶点序
+    INITIALIZE-SINGLE-SOURCE(G, s)          // 所有 d = ∞，d[s] = 0
+    for 按拓扑序的每个顶点 u:
+        for each edge (u, v) in G.Adj[u]:
+            RELAX(u, v, w)                  // 每个顶点只需松弛一次
 ```
 
 **正确性**：按拓扑序处理时，处理到 $u$ 时，所有能到达 $u$ 的顶点都已处理完毕，$d[u]$ 已是真实最短距离；松弛出边把 $d[u]$ 传播给后继。**每个顶点只被处理一次**，无负环问题（DAG 天然无环）。<span class="marginnote">为什么 DAG 版不需要 $V-1$ 轮？因为 Bellman-Ford 的「轮次」本质是「路径边数的逐层推进」；拓扑序一次就把所有「依赖」按序排好了——每个顶点松弛一次，等价于 Bellman-Ford 的所有轮。这是「拓扑序 = 一次性完成所有松弛」的洞察。</span>
@@ -80,9 +80,9 @@ $$d^{(i)}[v] = \min_{\text{路径 } s \rightsquigarrow v,\; \text{边数} \le i}
 
 ## 5 应用
 
-- **货币套利**：汇率 $r_{ab}$ 满足 $w(a,b) = -\log r_{ab}$，则「套利环」= 负环。Bellman-Ford 检测负环即发现套利机会。
-- **差分约束系统**：约束 $x_j - x_i \le b_k$ 转成边 $i \to j$ 权 $b_k$，可行解 = 无负环的最短路距离。
-- **路由协议**：RIP 等距离向量协议与 Bellman-Ford 思想一致（分布式版本）。<span class="marginnote">差分约束是 Bellman-Ford 最精彩的间接应用：把一组线性不等式翻译成图的最短路问题，用「负环检测」判断可行性——这是「算法归约」的典范，把代数问题变成图问题。第十一篇的「归约」课会系统化这个思想。</span>
+**货币套利**：汇率 $r_{ab}$ 满足 $w(a,b) = -\log r_{ab}$，则「套利环」= 负环。Bellman-Ford 检测负环即发现套利机会。
+**差分约束系统**：约束 $x_j - x_i \le b_k$ 转成边 $i \to j$ 权 $b_k$，可行解 = 无负环的最短路距离。
+**路由协议**：RIP 等距离向量协议与 Bellman-Ford 思想一致（分布式版本）。<span class="marginnote">差分约束是 Bellman-Ford 最精彩的间接应用：把一组线性不等式翻译成图的最短路问题，用「负环检测」判断可行性——这是「算法归约」的典范，把代数问题变成图问题。第十一篇的「归约」课会系统化这个思想。</span>
 
 ## 6 小结
 

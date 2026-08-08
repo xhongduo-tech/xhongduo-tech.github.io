@@ -34,9 +34,9 @@ $$
 
 几个熟悉的循环群：
 
-- $(\mathbb{Z}, +)$：生成元为 $1$（或 $-1$），$n = 1 + 1 + \cdots + 1$；
-- $(\mathbb{Z}_n, +)$：生成元为 $1$，$k = \underbrace{1 + \cdots + 1}_{k}$；
-- $(\mathbb{Q}^+, \times)$ 不是循环群：若有生成元 $q$，则 $\mathbb{Q}^+$ 里会出现 $q$ 与 $q^{-1}$ 之间的「缝隙」，如 $\sqrt{q} \notin \langle q \rangle$。<span class="marginnote">「$\mathbb{Q}^+$ 不是循环群」这一例说明：循环群是稀疏的一族。它提示我们，判断「某个群是否循环」通常要用到元素阶的性质，而不是直接尝试枚举所有生成元。</span>
+$(\mathbb{Z}, +)$：生成元为 $1$（或 $-1$），$n = 1 + 1 + \cdots + 1$；
+$(\mathbb{Z}_n, +)$：生成元为 $1$，$k = \underbrace{1 + \cdots + 1}_{k}$；
+$(\mathbb{Q}^+, \times)$ 不是循环群：若有生成元 $q$，则 $\mathbb{Q}^+$ 里会出现 $q$ 与 $q^{-1}$ 之间的「缝隙」，如 $\sqrt{q} \notin \langle q \rangle$。<span class="marginnote">「$\mathbb{Q}^+$ 不是循环群」这一例说明：循环群是稀疏的一族。它提示我们，判断「某个群是否循环」通常要用到元素阶的性质，而不是直接尝试枚举所有生成元。</span>
 
 ## 2 同态视角：从 ℤ 出发的完全刻画
 

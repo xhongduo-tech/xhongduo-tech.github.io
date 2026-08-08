@@ -48,9 +48,9 @@ $$
 
 设特征值 $|\lambda_1|>|\lambda_2|\ge\cdots\ge|\lambda_n|$，且初始向量含 $\mathbf{v}_1$ 分量（$c_1\neq0$）。展开 $\mathbf{x}^{(0)}=\sum_i c_i\mathbf{v}_i$：
 
-- **第一步，展开 $A^k$ 作用。** $A^k\mathbf{x}^{(0)}=\sum_i c_i\lambda_i^k\mathbf{v}_i=\lambda_1^k\left(c_1\mathbf{v}_1+\sum_{i\ge2}c_i\left(\frac{\lambda_i}{\lambda_1}\right)^k\mathbf{v}_i\right)$。
-- **第二步，读出收敛比。** 归一化后方向误差按 $\left|\dfrac{\lambda_2}{\lambda_1}\right|^k$ 衰减——**收敛速度由「主次特征值比」决定**。
-- **第三步，主特征值误差。** 瑞利商的误差 $O\left(\left|\dfrac{\lambda_2}{\lambda_1}\right|^{2k}\right)$——**瑞利商收敛快一倍**（平方速率）。
+**第一步，展开 $A^k$ 作用。** $A^k\mathbf{x}^{(0)}=\sum_i c_i\lambda_i^k\mathbf{v}_i=\lambda_1^k\left(c_1\mathbf{v}_1+\sum_{i\ge2}c_i\left(\frac{\lambda_i}{\lambda_1}\right)^k\mathbf{v}_i\right)$。
+**第二步，读出收敛比。** 归一化后方向误差按 $\left|\dfrac{\lambda_2}{\lambda_1}\right|^k$ 衰减——**收敛速度由「主次特征值比」决定**。
+**第三步，主特征值误差。** 瑞利商的误差 $O\left(\left|\dfrac{\lambda_2}{\lambda_1}\right|^{2k}\right)$——**瑞利商收敛快一倍**（平方速率）。
 
 **关键数字**：$\left|\dfrac{\lambda_2}{\lambda_1}\right|=0.9$ 时，每步误差压到 90%，到 $10^{-6}$ 需约 130 步；$=0.5$ 时只需约 20 步。**主次特征值靠得越近，幂法越慢**——这就是下一节「原点平移加速」的动机。
 
@@ -74,18 +74,25 @@ $$
 ## 4 实现
 
 ```python
-def power_method(A, x0=None, tol=1e-10, max_iter=1000):
-    n = A.shape[0]
-    x = np.random.randn(n) if x0 is None else x0.copy()
-    lam = 0.0
-    for k in range(max_iter):
+import numpy as np
+
+def power_method(A, x0, tol=1e-10, max_iter=1000):
+    """幂法：迭代 x ← Ax/‖Ax‖，瑞利商给出主特征值。"""
+    x = x0 / np.linalg.norm(x0)
+    lam_old = 0.0
+    for _ in range(max_iter):
         y = A @ x
-        x_new = y / np.linalg.norm(y)
-        lam = x_new @ (A @ x_new)          # 瑞利商
-        if np.linalg.norm(x_new - x) < tol:
-            return lam, x_new, k + 1
-        x = x_new
-    return lam, x, max_iter
+        x = y / np.linalg.norm(y)           # 归一化，只让方向演化
+        lam = x @ A @ x                     # 瑞利商 λ ≈ xᵀAx
+        if abs(lam - lam_old) < tol:
+            break
+        lam_old = lam
+    return x, lam
+
+# 例：A = [[2,1],[1,2]]，主特征值 3，主特征向量 ∝ (1,1)
+A = np.array([[2., 1.], [1., 2.]])
+v, lam = power_method(A, np.array([0., 1.]))
+print(v, lam)                               # ≈ [0.707, 0.707], 3.0
 ```
 
 **工程注意**：幂法每步 $O(n^2)$（稠密）或 $O(n)$（稀疏矩阵-向量乘）。**它不碰矩阵结构，只碰矩阵-向量乘**——这是它能处理超大规模矩阵的根本原因。
@@ -94,9 +101,9 @@ def power_method(A, x0=None, tol=1e-10, max_iter=1000):
 
 幂法是「最朴素」的特征值迭代，后面都是它的升级：
 
-- **原点平移 / 瑞利商加速**：改变迭代矩阵让主次比更优（下一节）。
-- **反幂法**：用 $A^{-1}$ 求最小特征值（下下节）。
-- **QR 算法**：把幂法思想推广到全部特征值（后文）。
+**原点平移 / 瑞利商加速**：改变迭代矩阵让主次比更优（下一节）。
+**反幂法**：用 $A^{-1}$ 求最小特征值（下下节）。
+**QR 算法**：把幂法思想推广到全部特征值（后文）。
 
 **辨析｜易错点：** 幂法求的是**模最大**特征值，不是「最大」（实轴上最大）特征值。若谱半径由**负特征值**决定（$|\lambda_1|=|\lambda_n|$ 但 $\lambda_n<0$），幂法收敛到的可能是负的 $\lambda_n$ 而非正的 $\lambda_1$。<span class="marginnote">一句话：<strong>「幂法对模最大、瑞利商对速度、平移对间隔」</strong>——理解幂法 = 理解「$A^k$ 筛方向」这个机制，其余全是它的工程变体。</span>
 

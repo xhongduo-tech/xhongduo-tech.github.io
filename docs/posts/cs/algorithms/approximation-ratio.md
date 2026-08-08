@@ -58,9 +58,9 @@ $$\frac{|C - C^*|}{C^*} \le \varepsilon(n)$$
 
 ## 4 近似方案的层次
 
-- **多项式时间近似方案（PTAS）**：对任意固定 $\varepsilon > 0$，有 $(1+\varepsilon)$-近似算法，时间为 $n^{O(1/\varepsilon)}$——$\varepsilon$ 越小越慢（指数级）。
-- **完全多项式时间近似方案（FPTAS）**：PTAS 且时间为 $\text{poly}(n, 1/\varepsilon)$——多项式地对 $1/\varepsilon$ 也成立。这是「最好」的近似承诺。
-- **常数近似**：固定 $\rho$ 的近似算法（如 2-近似），$\rho$ 不随输入变。
+**多项式时间近似方案（PTAS）**：对任意固定 $\varepsilon > 0$，有 $(1+\varepsilon)$-近似算法，时间为 $n^{O(1/\varepsilon)}$——$\varepsilon$ 越小越慢（指数级）。
+**完全多项式时间近似方案（FPTAS）**：PTAS 且时间为 $\text{poly}(n, 1/\varepsilon)$——多项式地对 $1/\varepsilon$ 也成立。这是「最好」的近似承诺。
+**常数近似**：固定 $\rho$ 的近似算法（如 2-近似），$\rho$ 不随输入变。
 
 **辨析｜易错点：** PTAS 与 FPTAS 的差别在「$1/\varepsilon$ 是否进多项式」。$n^{1/\varepsilon}$ 是 PTAS（$\varepsilon$ 进指数）；$(n/\varepsilon)^3$ 是 FPTAS。<span class="marginnote">某些问题<strong>不存在</strong> PTAS（除非 P=NP）——例如一般 TSP 连常数近似都不存在；带三角不等式的 TSP 有 2-近似但无 PTAS（除非 P=NP，因为 3-近似以内就太强了）。「能做到哪个层次的近似」本身也是问题的复杂性特征。</span>
 

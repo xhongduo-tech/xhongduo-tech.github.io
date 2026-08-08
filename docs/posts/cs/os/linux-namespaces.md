@@ -43,7 +43,7 @@ Linux 提供多种 Namespace，容器主要用六个：
 
 **PID Namespace**（最常用）：容器内第一个进程 PID = 1（像 init）——容器内 `ps` 只看得到容器内进程；**容器内 PID 与宿主 PID 是两套编号**（映射关系由内核管理）。
 
-**Mount Namespace**：容器有自己独立的挂载点树——**容器的 `/` 是它的 rootfs**（镜像的根文件系统），宿主机的目录树被「隐藏」；容器可自由挂载而不影响宿主。
+**Mount Namespace**：容器有自己独立的挂载点树——**容器的 `/`（根目录）是它的 rootfs**（镜像的根文件系统），宿主机的目录树被「隐藏」；容器可自由挂载而不影响宿主。
 
 **Network Namespace**：每个容器有自己的**网络栈**（网卡、IP、路由表）——容器间的网络像「独立的机器」互连（通过 veth/网桥）。
 
@@ -65,22 +65,23 @@ $$\text{ns 内 PID} = \text{该 Namespace 内看到的编号} \neq \text{宿主 
 
 **创建 Namespace**：
 
-- **`clone(flags)`**：创建子进程时指定 `CLONE_NEWPID`、`CLONE_NEWNET` 等——子进程进入新 Namespace。
-- **`unshare(flags)`**：当前进程进入新的 Namespace（不创建子进程）。
-- **`setns(fd, flags)`**：加入已有的 Namespace。
+- **`clone`**：创建子进程时指定 `CLONE_NEWPID`、`CLONE_NEWNET` 等——子进程进入新 Namespace。
+- **`unshare`**：当前进程进入新的 Namespace（不创建子进程）。
+- **`setns`**：加入已有的 Namespace。
 
-```c
-// 创建容器式的隔离进程（概念）
-clone(child_fn, stack,
-      CLONE_NEWPID | CLONE_NEWNET | CLONE_NEWUTS |
-      CLONE_NEWIPC | CLONE_NEWNS | SIGCHLD, NULL);
+```
+# 创建新 PID + 网络 Namespace，并 fork 一个 bash 进入
+$ sudo unshare --pid --net --fork /bin/bash
+
+# 进入进程 1234 的 Network Namespace（容器内执行网络排查）
+$ sudo nsenter --target 1234 --net /bin/bash
 ```
 
 **Docker 的实践**：Docker 用 `clone` 创建容器进程，指定六个 Namespace 标志——容器就「看到」独立的系统视图。**这六个标志是容器的「六块墙」。**
 
 **管理命令**：`lsns`（列出 Namespace）、`nsenter`（进入 Namespace）、`unshare`（创建并进入）。
 
-**辨析｜易错点：** 「Namespace = 沙箱安全」是过度简化。**Namespace 提供「视图隔离」，不是「安全边界」**——它让进程「看不见」其他视图，但**攻击者若突破（如利用内核漏洞、`CAP_SYS_ADMIN`），视图隔离挡不住**。**安全隔离需要 Namespace + cgroup + Capability + Seccomp 的组合**（见《容器安全》）。**「看不见 ≠ 碰不到」。**
+**辨析｜易错点：** 「Namespace = 沙箱安全」是过度简化。**Namespace 提供「视图隔离」，不是「安全边界」**——它让进程「看不见」其他视图，但**攻击者若突破（如利用内核漏洞、滥用 `CAP_SYS_ADMIN`），视图隔离挡不住**。**安全隔离需要 Namespace + cgroup + Capability + Seccomp 的组合**（见《容器安全》）。**「看不见 ≠ 碰不到」。**
 
 ## 4 核心对比表：虚拟机 vs 容器
 

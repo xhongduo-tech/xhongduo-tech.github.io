@@ -32,7 +32,7 @@ $$
 
 若 B 非零，则 $\Delta W = \frac{\alpha}{r} BA \neq 0$——**模型一开始就不是从基座出发**，而是在「被扰动过的权重」上训练。这会带来两个问题：其一，训练初期 loss 比预期高（模型被推离了预训练的好点）；其二，更重要的是，**随机扰动若幅度失控，训练可能直接不稳定**。
 
-B 置零后，训练开始时 $\Delta W = 0$，模型行为与基座完全一致——「从零开始」学增量。这与 Adapter 把 `up` 权重清零（上一篇）是同一个设计基因：**旁路方法都从「恒等映射」出发**。
+B 置零后，训练开始时 $\Delta W = 0$，模型行为与基座完全一致——「从零开始」学增量。这与 Adapter 把 **down-projection** 权重清零（上一篇）是同一个设计基因：**旁路方法都从「恒等映射」出发**。
 
 工程上的进一步细节：
 
@@ -55,7 +55,7 @@ $$
 
 于是 α 与 r 的关系变得关键：
 
-- **r 变了，α 要不要跟着变？** 若 r 翻倍而 α 不变，$\alpha/r$ 减半，**有效学习率减半**——训练可能突然变慢。这就是为什么实践中常用「$\alpha$ 随 r 成比例」：HF PEFT 的默认是 `lora_alpha = r`，有些实践用 `α = 2r`；
+- **r 变了，α 要不要跟着变？** 若 r 翻倍而 α 不变，$\alpha/r$ 减半，**有效学习率减半**——训练可能突然变慢。这就是为什么实践中常用「$\alpha$ 随 r 成比例」：HF PEFT 的默认是 $\alpha = r$，有些实践用 $\alpha = 2r$；
 - **α 是个可调超参**：增大 α 等于放大更新步幅（更激进、更快但更险），减小 α 更稳但更慢。调参时 α 与学习率 η 的效果高度耦合——**改 α 相当于改学习率**，别两个一起乱调。
 
 一个实用建议：**先固定 α = r（默认），把模型训通；再用评测决定是否调 α**。大多数任务默认即可，少数任务调大 α（如 2r）有明显增益。<span class="marginnote">「秩稳定缩放（rsLoRA）」专门研究了这个比例问题：它发现当 r 很大时，$\alpha/r$ 的线性缩放并不最优，需要按 $\sqrt{r}$ 调整——那是后文 LoRA+ 与 rsLoRA 一篇的内容。这里先记住基线：<strong>α 随 r 变，别让 $\alpha/r$ 悄悄改变</strong>。</span>
@@ -76,8 +76,8 @@ $$
 
 工程上的合并有几种姿势：
 
-1. **合并进内存（merge）**：`model = model.merge_and_unload()`（HF PEFT）——把 LoRA 写进基座、卸载适配器，得到一个纯基座模型。适合「训完就部署」。
-2. **合并但不卸载（merge）**：`model.merge_adapter()`——权重合并了但适配器还在，方便「合并后还想反悔」。
+1. **合并进内存（merge）**：`model.merge_and_unload()`（HF PEFT）——把 LoRA 写进基座、卸载适配器，得到一个纯基座模型。适合「训完就部署」。
+2. **合并但不卸载（merge）**：`model.merge()`——权重合并了但适配器还在，方便「合并后还想反悔」。
 3. **不合并，推理时动态计算**：前向时显式算 $W_0x + \frac{\alpha}{r}BAx$——这样每份基座可同时挂多个 LoRA、按需切换（多适配器部署），代价是每次前向多算一次低秩矩阵乘法。
 
 **合并 vs 不合并**是部署的核心决策：要「零延迟」就合并成单一权重；要「一基座多适配器」就不合并、动态切换。两者都对，取决于你想省延迟还是省存储。
@@ -85,15 +85,17 @@ $$
 代码里两种姿势一目了然：
 
 ```python
-# 姿势一：合并成单一权重（零延迟部署）
-merged = model.merge_and_unload()      # LoRA 写回基座，卸载适配器
-merged.save_pretrained("final_model")  # 得到一个普通模型
+from peft import PeftModel
 
-# 姿势二：挂多个适配器，动态切换
-model.load_adapter("lora_math", adapter_name="math")
-model.load_adapter("lora_code", adapter_name="code")
-model.set_adapter("math")              # 当前生效的是数学 LoRA
-model.set_adapter("code")              # 切换成代码 LoRA
+model = PeftModel.from_pretrained(base_model, "path/to/lora_adapter")
+
+# 姿势一：合并进内存并卸载 → 交付一个干净模型
+merged = model.merge_and_unload()
+merged.save_pretrained("qwen-merged")     # 与普通模型无异，推理零开销
+
+# 姿势二：合并但不卸载 → 反悔时还能 unmerge 回去
+model.merge()                             # 权重已合并，adapter 仍在
+model.unmerge()                           # 想反悔就切回适配器形态
 ```
 
 第一种姿势交付「一个干净的模型」，第二种姿势交付「一个基座 + 多个几 MB 的适配器」。多数线上服务用第二种——换任务不换模型，只要换适配器文件。
@@ -103,8 +105,8 @@ model.set_adapter("code")              # 切换成代码 LoRA
 LoRA 的工程闭环还包含保存与加载，几个要点：
 
 - **保存**：只保存适配器权重（$A$、$B$ 与超参），通常几 MB 到几十 MB，比完整模型小几个数量级。HF 的 adapter 目录包含 `adapter_model.safetensors` 与 `adapter_config.json`；
-- **加载**：`PeftModel.from_pretrained(base, adapter_dir)`——把适配器挂到一份基座权重上，基座可以是本地、量化、或远程的；
-- **多适配器**：`model.load_adapter(path2, adapter_name="task2")`，用 `set_adapter("task1")` 切换。同一份基座 + N 个适配器，服务 N 个任务——这就是「一鱼多吃」的部署形态；
+- **加载**：`PeftModel.from_pretrained(base_model, adapter_path)`——把适配器挂到一份基座权重上，基座可以是本地、量化、或远程的；
+- **多适配器**：`load_adapter()` 逐个加载，用 `set_adapter()` 切换。同一份基座 + N 个适配器，服务 N 个任务——这就是「一鱼多吃」的部署形态；
 - **精度对齐**：合并/加载时基座与适配器的 dtype 要一致（BF16 基座配 BF16 LoRA），混精度会出现静默的精度损耗。
 
 ## 5 常见错误清单
@@ -114,7 +116,7 @@ LoRA 的工程闭环还包含保存与加载，几个要点：
 1. **漏乘缩放系数**：合并时 $W' = W_0 + BA$ 而不是 $W' = W_0 + \frac{\alpha}{r}BA$——权重偏大，输出漂移。
 2. **B 没从零初始化**：训练起点被扰动，稳定性和最终效果都受损。
 3. **改 r 忘了调 α**：有效学习率悄悄变化，训练行为突变却找不到原因。
-4. **训练时没冻结基座**：如果 `requires_grad` 设错，基座也被更新——LoRA 退化成了「双份全参」，显存白省。
+4. **训练时没冻结基座**：如果优化器参数组设错、把基座参数也放进去，基座也被更新——LoRA 退化成了「双份全参」，显存白省。
 5. **合并时机错误**：训完直接部署但没合并（走推理路径时 LoRA 分支没生效），或合并后又继续训练（增量叠加出错）。
 6. **dropout 加错位置**：dropout 加在主路径上，冻结的基座被随机扰动。
 

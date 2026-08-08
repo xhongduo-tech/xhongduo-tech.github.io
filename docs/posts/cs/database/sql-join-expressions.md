@@ -24,51 +24,58 @@ date: 2026-08-07
 
 设两个关系 $R$ 与 $S$，用「匹配」表示满足连接条件的元组对，四种连接的关系是：
 
-- **内连接（inner join）**：$R \bowtie S$，只保留匹配的元组对。
-- **左外连接（left outer join）**：内连接的结果，**加上 $R$ 中所有未匹配的元组**，它们右侧的 $S$ 属性填 NULL。
-- **右外连接（right outer join）**：内连接的结果，**加上 $S$ 中所有未匹配的元组**，它们左侧的 $R$ 属性填 NULL。
-- **全外连接（full outer join）**：内连接的结果，**加上两侧所有未匹配的元组**，对面属性一律填 NULL。
+**内连接（inner join）**：$R \bowtie S$，只保留匹配的元组对。
+**左外连接（left outer join）**：内连接的结果，**加上 $R$ 中所有未匹配的元组**，它们右侧的 $S$ 属性填 NULL。
+**右外连接（right outer join）**：内连接的结果，**加上 $S$ 中所有未匹配的元组**，它们左侧的 $R$ 属性填 NULL。
+**全外连接（full outer join）**：内连接的结果，**加上两侧所有未匹配的元组**，对面属性一律填 NULL。
 
 直觉上：内连接是「只留成双成对的」，外连接是「成双的留下，落单的也要登场，只是空着半边座位」。SQL 里它们写作：
 
 ```sql
--- 内连接（第3章逗号写法是它的简写）
-SELECT * FROM course JOIN prereq ON course.course_id = prereq.course_id;
--- 左外 / 右外 / 全外
-SELECT * FROM course LEFT OUTER JOIN prereq ON course.course_id = prereq.course_id;
-SELECT * FROM course RIGHT OUTER JOIN prereq ON course.course_id = prereq.course_id;
-SELECT * FROM course FULL OUTER JOIN prereq ON course.course_id = prereq.course_id;
+-- 内连接：只保留匹配的行
+SELECT * FROM course INNER JOIN prereq
+  ON course.course_id = prereq.course_id;
+-- 左外连接：再补上左表未匹配的行
+SELECT * FROM course LEFT OUTER JOIN prereq
+  ON course.course_id = prereq.course_id;
+-- 右外连接：再补上右表未匹配的行
+SELECT * FROM course RIGHT OUTER JOIN prereq
+  ON course.course_id = prereq.course_id;
+-- 全外连接：两侧未匹配的都补上
+SELECT * FROM course FULL OUTER JOIN prereq
+  ON course.course_id = prereq.course_id;
 ```
 
-`OUTER` 关键字可以省略，`LEFT JOIN` 与 `LEFT OUTER JOIN` 是同一回事。<span class="marginnote">兼容性提醒：三种外连接里，LEFT 与 RIGHT 几乎人人支持；FULL OUTER JOIN 在 MySQL 里至今没有直接实现，需要用 LEFT JOIN UNION RIGHT JOIN 手工拼。</span>
+`OUTER` 关键字可以省略，`INNER JOIN` 与 `JOIN` 是同一回事。<span class="marginnote">兼容性提醒：三种外连接里，LEFT 与 RIGHT 几乎人人支持；FULL OUTER JOIN 在 MySQL 里至今没有直接实现，需要用 LEFT JOIN UNION RIGHT JOIN 手工拼。</span>
 
 ## 2 左外连接的实战：找出没有先修课的课程
 
 Silberschatz 的经典例子是「列出所有课程及其先修课，没有先修课的课程也要出现，先修课列填 NULL」：
 
 ```sql
-SELECT course_id, title
-FROM course NATURAL LEFT OUTER JOIN prereq
-WHERE prereq_id IS NULL;
+SELECT course.course_id, title, prereq_id
+FROM course LEFT OUTER JOIN prereq
+  ON course.course_id = prereq.course_id;
 ```
 
-这里 `NATURAL LEFT OUTER JOIN` 在共同属性 `course_id` 上做左外连接，再筛出 `prereq_id` 为 NULL 的行——它们正是**没有任何先修课的课程**。若换成内连接，这些行在第一阶段就被吞掉了，`WHERE prereq_id IS NULL` 将一条也查不出。
+这里 `course` 在共同属性 `course_id` 上做左外连接，再筛出 `prereq_id` 为 NULL 的行——它们正是**没有任何先修课的课程**。若换成内连接，这些行在第一阶段就被吞掉了，`IS NULL` 将一条也查不出。
 
 **辨析｜易错点：外连接 + WHERE 的经典陷阱。** 看这条「想列出所有课程，只要 CS-101 的先修信息」的错误写法：
 
 ```sql
-SELECT course_id, title
+SELECT course.course_id, title, prereq_id
 FROM course LEFT OUTER JOIN prereq
-     ON course.course_id = prereq.course_id
-WHERE prereq_id = 'CS-101';
+  ON course.course_id = prereq.course_id
+WHERE prereq.course_id = 'CS-101';
 ```
 
-看起来是左外连接，但 **WHERE 在连接完成之后才执行**。先左外连接补齐了 NULL，再被 `prereq_id = 'CS-101'` 一筛，所有补了 NULL 的行（NULL = 'CS-101' 是 UNKNOWN，不满足）全被删掉——结果退化成内连接，未匹配的课程依旧消失。**判断条件是「连接条件」还是「筛选条件」，决定了它该进 ON 还是 WHERE**。想要「右表只按 CS-101 匹配、但左表行一个不少」，条件必须写进 ON：
+看起来是左外连接，但 **WHERE 在连接完成之后才执行**。先左外连接补齐了 NULL，再被 `WHERE` 一筛，所有补了 NULL 的行（NULL = 'CS-101' 是 UNKNOWN，不满足）全被删掉——结果退化成内连接，未匹配的课程依旧消失。**判断条件是「连接条件」还是「筛选条件」，决定了它该进 ON 还是 WHERE**。想要「右表只按 CS-101 匹配、但左表行一个不少」，条件必须写进 ON：
 
 ```sql
-SELECT course_id, title
+SELECT course.course_id, title, prereq_id
 FROM course LEFT OUTER JOIN prereq
-     ON course.course_id = prereq.course_id AND prereq_id = 'CS-101';
+  ON course.course_id = prereq.course_id
+ AND prereq.course_id = 'CS-101';
 ```
 
 ## 3 自然连接与它的隐患
@@ -80,16 +87,16 @@ SELECT name, course_id
 FROM instructor NATURAL JOIN teaches;
 ```
 
-`instructor(ID, name, dept_name, salary)` 与 `teaches(ID, course_id, sec_id, semester, year)` 的共同属性是 ID，于是自动在 `ID` 上连接——结果与显式 `ON instructor.ID = teaches.ID` 一致。
+`instructor` 与 `teaches` 的共同属性是 ID，于是自动在 `ID` 上连接——结果与显式 `JOIN ... USING (ID)` 一致。
 
 **但省事正是危险的来源。** 自然连接的连接条件由**属性名**决定，而不是由人明确指定。一旦某张表的模式多出一个与对面同名的属性，连接条件就悄悄变了。设想你随手写出：
 
 ```sql
-SELECT *
-FROM instructor NATURAL JOIN course;
+SELECT name, course_id
+FROM instructor NATURAL JOIN teaches NATURAL JOIN course;
 ```
 
-`instructor` 与 `course(course_id, title, dept_name, credits)` 的共同属性是 `dept_name`，于是这条查询返回的是「**同一系**的教师与课程的笛卡儿积式组合」——这很可能根本不是用户想要的东西，但它**不报错、不警告**，静默地给出一个庞大而错误的答案。<span class="marginnote">正是出于这种「schema 一改、语义就漂移」的不确定性，工程规范普遍要求：生产代码禁用 NATURAL JOIN，一律显式写 JOIN ... ON 或 JOIN ... USING。可读性、可维护性、正确性三方面它都吃亏。</span>
+`instructor` 与 `course` 的共同属性是 `dept_name`，于是这条查询返回的是「**同一系**的教师与课程的笛卡儿积式组合」——这很可能根本不是用户想要的东西，但它**不报错、不警告**，静默地给出一个庞大而错误的答案。<span class="marginnote">正是出于这种「schema 一改、语义就漂移」的不确定性，工程规范普遍要求：生产代码禁用 NATURAL JOIN，一律显式写 JOIN ... ON 或 JOIN ... USING。可读性、可维护性、正确性三方面它都吃亏。</span>
 
 ## 4 公式解析：左外连接的集合定义
 
@@ -113,7 +120,7 @@ $$
 | CS-301, Algorithms | |
 | MUS-101, Music Appreciation | |
 
-左外连接 `course ⟕ prereq` 的结果有 **3 行**：CS-301 与 prereq 匹配上，得到 `(CS-301, Algorithms, CS-101)`；CS-101 与 MUS-101 在 prereq 里找不到以自己为 course_id 的行，于是右侧补 NULL。若换成内连接，结果只有 1 行——**多出来的 2 行，正是外连接「一个都不能少」的承诺**。
+左外连接 `course` 的结果有 **3 行**：CS-301 与 prereq 匹配上，得到 `(CS-301, CS-101)` 这一行；CS-101 与 MUS-101 在 prereq 里找不到以自己为 course_id 的行，于是右侧补 NULL。若换成内连接，结果只有 1 行——**多出来的 2 行，正是外连接「一个都不能少」的承诺**。
 
 ## 5 辨析：NATURAL JOIN、USING 与 ON 三选一
 
@@ -123,16 +130,16 @@ $$
 | --- | --- | --- |
 | `NATURAL JOIN` | 所有共同属性，自动 | 只保留一份 |
 | `JOIN ... USING (A)` | 显式指定的属性 A | 只保留一份 |
-| `JOIN ... ON 条件` | 完全由你写 | 两个表各一份（需前缀区分） |
+| `JOIN ... ON` | 完全由你写 | 两个表各一份（需前缀区分） |
 
 `USING` 是折中：连接条件由人指定，避免了自然连接的「模式漂移」，结果又像自然连接那样合并共同属性。`ON` 最灵活，可以写任意条件（包括非等值连接、复合条件），代价是两个表的同名属性都要带前缀访问。
 
-**辨析｜易错点：** `JOIN ... ON` 里如果两个表恰好都有同名属性，结果会同时出现 `R.ID` 与 `S.ID` 两列；此时 SELECT 里写裸 `ID` 会报「列引用不明确」。这是从「逗号连接 + WHERE」迁移到显式 JOIN 语法时最常见的编译错误——给列加上表前缀即可。
+**辨析｜易错点：** `ON` 里如果两个表恰好都有同名属性，结果会同时出现 `course.course_id` 与 `prereq.course_id` 两列；此时 SELECT 里写裸 `course_id` 会报「列引用不明确」。这是从「逗号连接 + WHERE」迁移到显式 JOIN 语法时最常见的编译错误——给列加上表前缀即可。
 
 ## 6 小结
 
 - **内连接**只保留两侧匹配的行；**外连接**额外保留落单的行并用 NULL 补齐（左外保左、右外保右、全外全保）。
-- 外连接的经典用途：找「没有对应项」的数据（如没有先修课的课程），先外连接再 `WHERE 右表列 IS NULL`。
+- 外连接的经典用途：找「没有对应项」的数据（如没有先修课的课程），先外连接再 `IS NULL` 过滤。
 - **WHERE 在连接之后执行**：把右表的筛选条件写进 WHERE 会把外连接退化成内连接，应写进 ON。
 - **NATURAL JOIN 由属性名自动决定连接条件**，schema 一变语义就漂移，生产环境慎用。
 - 控制粒度排序：NATURAL JOIN（最省事）＜ USING（指定列）＜ ON（任意条件，最灵活）。

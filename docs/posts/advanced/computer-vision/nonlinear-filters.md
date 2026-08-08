@@ -43,8 +43,7 @@ $$g(x, y) = \operatorname{median}\big\{\, f(x+i, y+j) \mid (i,j) \in W \,\big\}$
 实现上，OpenCV 一行即可调用：
 
 ```python
-import cv2
-out = cv2.medianBlur(img, ksize=5)   # 5×5 窗口的中值滤波
+cv2.medianBlur(img, ksize)   # ksize 必须为奇数
 ```
 
 注意 `ksize` 必须是**奇数**（保证有唯一中位）；窗口越大，抗脉冲能力越强，但对细结构的侵蚀也越重——这又是一个「去噪 vs. 保细节」的旋钮。
@@ -70,7 +69,7 @@ $$
 OpenCV 的双边滤波接口同时指定空间与亮度两个 σ：
 
 ```python
-out = cv2.bilateralFilter(img, d=9, sigmaColor=75, sigmaSpace=75)
+cv2.bilateralFilter(img, d, sigmaColor, sigmaSpace)
 ```
 
 `d` 是窗口直径，`sigmaColor` 对应公式里的 $\sigma_r$（亮度门宽），`sigmaSpace` 对应 $\sigma_s$（空间范围）。经验取值：$\sigma_s$ 取目标纹理尺度的 1.5–2 倍，$\sigma_r$ 取灰度标准差的 0.1–0.3 倍。
@@ -88,13 +87,7 @@ $$q_i = a_k I_i + b_k, \qquad \forall\, i \in \omega_k$$
 导向滤波有三个让它成为工业宠儿的优点：$O(N)$ 线性时间（用盒式滤波 + 积分图像实现，与核大小无关）、**无梯度反转**、且对参数不敏感。<span class="marginnote">它把「保边平滑」从启发式推进到了「解一个局部线性最小二乘」——这个「把算子变成优化问题」的思想，正是后面深度学习里一切可学习滤波器（如可变形卷积）的精神先驱。</span>
 
 ```python
-import cv2
-
-img = cv2.imread('noisy.png', cv2.IMREAD_GRAYSCALE)
-
-# 引导图 = 输入本身 → 保边平滑
-smooth = cv2.ximgproc.guidedFilter(
-    guide=img, src=img, radius=8, eps=0.01 * 255 * 255)
+cv2.ximgproc.guidedFilter(guide, src, radius, eps)
 ```
 
 其中 `radius` 对应窗口半径，`eps` 对应平滑强度（越大越平）。三行代码，效果接近双边滤波，速度却快一个量级。

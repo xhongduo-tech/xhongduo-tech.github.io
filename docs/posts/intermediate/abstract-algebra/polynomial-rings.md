@@ -71,13 +71,13 @@ $R[x]$ 继承 $R$ 的程度，是第九篇分解理论的主线。
 
 把「次数乘法法则」从机制上拆透，它是整环性的直接果实。
 
-- **第一步，写下首项。** $f = a_n x^n + (\text{低次项})$，$g = b_m x^m + (\text{低次项})$，$a_n, b_m \ne 0$。
+**第一步，写下首项。** $f = a_n x^n + (\text{低次项})$，$g = b_m x^m + (\text{低次项})$，$a_n, b_m \ne 0$。
 
-- **第二步，展开乘积的首项。** $fg$ 的最高次项来自「$x^n$ 项 × $x^m$ 项」：$a_n b_m x^{n+m}$。任何其他组合（$x^i x^j$，$i + j < n + m$）次数都更低。
+**第二步，展开乘积的首项。** $fg$ 的最高次项来自「$x^n$ 项 × $x^m$ 项」：$a_n b_m x^{n+m}$。任何其他组合（$x^i x^j$，$i + j < n + m$）次数都更低。
 
-- **第三步，系数非零是关键。** $a_n b_m \ne 0$ 需要 $R$ **无零因子**。若 $a_n b_m = 0$，首项消失，$fg$ 次数塌缩（甚至 $fg = 0$）。
+**第三步，系数非零是关键。** $a_n b_m \ne 0$ 需要 $R$ **无零因子**。若 $a_n b_m = 0$，首项消失，$fg$ 次数塌缩（甚至 $fg = 0$）。
 
-- **第四步，结论。** 整环上 $\deg(fg) = \deg f + \deg g$，且 $fg \ne 0$（若 $f, g \ne 0$）。**次数加法法则 ⟺ $R[x]$ 是整环**。这条法则也是「带余除法中商与余数次数」计算的基础（下一篇）。
+**第四步，结论。** 整环上 $\deg(fg) = \deg f + \deg g$，且 $fg \ne 0$（若 $f, g \ne 0$）。**次数加法法则 ⟺ $R[x]$ 是整环**。这条法则也是「带余除法中商与余数次数」计算的基础（下一篇）。
 
 ## 5 例子：从 R[x] 到多变量与商环
 
@@ -86,9 +86,9 @@ $R[x]$ 继承 $R$ 的程度，是第九篇分解理论的主线。
 **多变量多项式环**：$R[x, y] = (R[x])[y]$——先对 $x$ 取多项式，再对 $y$ 取多项式。$R[x, y]$ 仍继承 $R$ 的整环性/UFD 性，但一般不是 PID（$\langle x, y \rangle$ 不是主理想）。
 
 **多项式环上的商环**（第八篇主角）：
-- $F[x]/\langle f \rangle$：$f$ 不可约时是域（有限域 $\mathbb{F}_{p^n}$ 的来源）；
-- $\mathbb{R}[x]/\langle x^2 + 1 \rangle \cong \mathbb{C}$；
-- $F[x]/\langle x \rangle \cong F$（代入 $x = 0$）。
+$F[x]/\langle f \rangle$：$f$ 不可约时是域（有限域 $\mathbb{F}_{p^n}$ 的来源）；
+$\mathbb{R}[x]/\langle x^2 + 1 \rangle \cong \mathbb{C}$；
+$F[x]/\langle x \rangle \cong F$（代入 $x = 0$）。
 
 **求值同态（evaluation homomorphism）**：对 $a \in R$，$\varphi_a : R[x] \to R$，$\varphi_a(f) = f(a)$（代入 $a$）是环同态，$\ker \varphi_a = \langle x - a \rangle$。它把「多项式」与「函数」连接起来——**但作为环同态，核是主理想 $\langle x - a \rangle$，这依赖带余除法（下一篇）**。<span class="marginnote">求值同态 $\varphi_a$ 的核是 $\langle x - a \rangle$ 这件事并不平凡：$f(a) = 0$ ⟺ $x - a$ 整除 $f$，这正是「因子定理」——它需要带余除法（下一篇）证明。多项式环的「取值」理论全部建立在带余除法上，这是 $F[x]$ 与 $\mathbb{Z}$ 惊人相似的又一例。</span>
 

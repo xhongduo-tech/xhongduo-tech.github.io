@@ -42,9 +42,9 @@ $$A + Bu - Cv + D(u^2+v^2) = 0$$
 
 **例：** $w=\frac{z-1}{z+1}$，问实轴映成什么？取实轴上三点 $z=0,1,\infty$：
 
-- $z=0\Rightarrow w=-1$；
-- $z=1\Rightarrow w=0$；
-- $z=\infty\Rightarrow w=1$（因为 $\frac{z-1}{z+1}\to1$）。
+$z=0\Rightarrow w=-1$；
+$z=1\Rightarrow w=0$；
+$z=\infty\Rightarrow w=1$（因为 $\frac{z-1}{z+1}\to1$）。
 
 三点 $-1,0,1$ 都在实轴上，故实轴映到**实轴**（直线）。**而 $z=i$（上半平面点）映到 $w=\frac{i-1}{i+1}=\frac{(i-1)(-i+1)}{2}=\frac{2i}{2}=i$**——上半平面点仍在上半平面！故 $w=\frac{z-1}{z+1}$ 把**上半平面映到上半平面**。<span class="marginnote">「三点定圆」是保圆性最实用的推论：想验证「上半平面 → 上半平面」，不必证明整条边界，只需取边界三点看像、再取一个内部点定方向。工程里构造映射时的「取样验证」都是这套。</span>
 

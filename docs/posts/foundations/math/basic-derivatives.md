@@ -43,9 +43,9 @@ date: 2026-08-07
 
 选两个代表性公式，重温定义推导，理解「公式表不是天上掉下来的」。
 
-- **第一步，$(x^2)'$**：$\dfrac{\Delta y}{\Delta x}=\dfrac{(x+\Delta x)^2-x^2}{\Delta x}=\dfrac{2x\Delta x+(\Delta x)^2}{\Delta x}=2x+\Delta x$。令 $\Delta x\to0$，得 $2x$。**展开后约去 $\Delta x$，含 $\Delta x$ 的项消失**——这是幂函数求导的普遍模式。
-- **第二步，$(e^x)'$**：$\dfrac{e^{x+\Delta x}-e^x}{\Delta x}=e^x\cdot\dfrac{e^{\Delta x}-1}{\Delta x}$。关键极限 $\lim_{\Delta x\to0}\dfrac{e^{\Delta x}-1}{\Delta x}=1$（$e$ 的定义保证），所以导数为 $e^x$。
-- **第三步，对比**：幂函数靠「展开约分」，指数函数靠「提取 $e^x$ 后那个关键极限」——同一套三步流程，两种化简思路。
+**第一步，$(x^2)'$**：$\dfrac{\Delta y}{\Delta x}=\dfrac{(x+\Delta x)^2-x^2}{\Delta x}=\dfrac{2x\Delta x+(\Delta x)^2}{\Delta x}=2x+\Delta x$。令 $\Delta x\to0$，得 $2x$。**展开后约去 $\Delta x$，含 $\Delta x$ 的项消失**——这是幂函数求导的普遍模式。
+**第二步，$(e^x)'$**：$\dfrac{e^{x+\Delta x}-e^x}{\Delta x}=e^x\cdot\dfrac{e^{\Delta x}-1}{\Delta x}$。关键极限 $\lim_{\Delta x\to0}\dfrac{e^{\Delta x}-1}{\Delta x}=1$（$e$ 的定义保证），所以导数为 $e^x$。
+**第三步，对比**：幂函数靠「展开约分」，指数函数靠「提取 $e^x$ 后那个关键极限」——同一套三步流程，两种化简思路。
 
 <span class="marginnote">「$e^x$ 的导数是自身」是 $e$ 存在的意义之一：在所有指数函数 $a^x$ 中，只有 $a=e$ 时导数等于自身。这个「自相似」性质让 $e$ 成为微积分里最重要的常数——它让含指数的方程、微分方程变得自洽。<strong>记住 $e^x$ 的独特地位：求导不变</strong>，这是它频繁出场的原因。</span> 这些推导现在不必每题重做，但理解「公式从定义来」，用起来才有底气。
 
@@ -53,9 +53,9 @@ date: 2026-08-07
 
 **幂函数求导公式**：$(x^\alpha)'=\alpha x^{\alpha-1}$ 对任意实数 $\alpha$ 成立。由此可推：
 
-- $(x^3)'=3x^2$，$(x^{-2})'=-2x^{-3}$（把 $\frac{1}{x^2}=x^{-2}$ 用公式）。
-- $(\sqrt{x})'=\left(x^{1/2}\right)'=\frac12x^{-1/2}=\dfrac{1}{2\sqrt{x}}$。
-- $\left(\dfrac1x\right)'=\left(x^{-1}\right)'=-x^{-2}=-\dfrac{1}{x^2}$。
+$(x^3)'=3x^2$，$(x^{-2})'=-2x^{-3}$（把 $\frac{1}{x^2}=x^{-2}$ 用公式）。
+$(\sqrt{x})'=\left(x^{1/2}\right)'=\frac12x^{-1/2}=\dfrac{1}{2\sqrt{x}}$。
+$\left(\dfrac1x\right)'=\left(x^{-1}\right)'=-x^{-2}=-\dfrac{1}{x^2}$。
 
 <span class="marginnote">「把根式、分式先写成幂的形式，再用统一公式」是幂函数求导的万能手法：$\sqrt{x}=x^{1/2}$、$\frac1{x^2}=x^{-2}$。指数为分数、负数时公式照常成立。<strong>看到根号与分式，第一反应是「改写成幂」</strong>——这是幂函数求导的唯一技巧。</span> 常数函数 $f(x)=C$ 的导数为 0，可视作「$\alpha=0$」的幂函数（$Cx^0$ 的导数是 $0\cdot Cx^{-1}=0$）。
 
@@ -71,9 +71,9 @@ date: 2026-08-07
 
 求导公式的考题考「认类型 + 查表」。看一道题：求 $f(x)=\sqrt{x}+\dfrac{1}{x}+3^x$ 的导数。
 
-- **第一步，认类型**：三项分别是幂函数（$\sqrt{x}=x^{1/2}$）、幂函数（$\frac1x=x^{-1}$）、指数函数（$3^x$）——各查各的公式。
-- **第二步，逐项求导**：$(\sqrt{x})'=(x^{1/2})'=\frac12x^{-1/2}=\frac1{2\sqrt{x}}$；$\left(\frac1x\right)'=(x^{-1})'=-x^{-2}=-\frac1{x^2}$；$(3^x)'=3^x\ln3$。
-- **第三步，合并**：$f'(x)=\frac1{2\sqrt{x}}-\frac1{x^2}+3^x\ln3$——和差法则逐项相加。
+**第一步，认类型**：三项分别是幂函数（$\sqrt{x}=x^{1/2}$）、幂函数（$\frac1x=x^{-1}$）、指数函数（$3^x$）——各查各的公式。
+**第二步，逐项求导**：$(\sqrt{x})'=(x^{1/2})'=\frac12x^{-1/2}=\frac1{2\sqrt{x}}$；$\left(\frac1x\right)'=(x^{-1})'=-x^{-2}=-\frac1{x^2}$；$(3^x)'=3^x\ln3$。
+**第三步，合并**：$f'(x)=\frac1{2\sqrt{x}}-\frac1{x^2}+3^x\ln3$——和差法则逐项相加。
 
 <span class="marginnote">「认类型 → 查表 → 组合」是求导的总纲：<strong>$\sqrt{x}$ 与 $\frac1x$ 都先改写成幂的形式（$x^{1/2},x^{-1}$），再套幂函数公式 $(\alpha x^{\alpha-1})$</strong>。指数函数 $3^x$ 要乘 $\ln3$（只有 $e^x$ 不用乘）。三个类型三种公式，识别错了就套错。<strong>「根式、分式改写成幂」是第一动作</strong>——这个习惯让幂函数公式一网打尽所有幂的形式。</span>
 

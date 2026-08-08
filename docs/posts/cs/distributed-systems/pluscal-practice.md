@@ -16,59 +16,79 @@ date: 2026-08-07
 
 ## 为什么从 PlusCal 与工程实践开始
 
-TLA+ 表达力强但符号化，劝退了很多工程师。**PlusCal** 是 Lamport 设计的「算法语言」——它长得像伪代码（`while`、`either`、`await`、`goto`），却能被翻译成 TLA+ 用 TLC 验证。它让「写形式化规约」的门槛降到「会写伪代码」。本篇也是形式化验证篇的收官——回到工程实践，回答「什么时候值得用、怎么用」。<span class="marginnote">PlusCal（发音 "plus-cal"）由 Lamport 在 2009 年随 TLA+ 2 发布。它不取代 TLA+——PlusCal 描述「算法流程」，TLA+ 描述「系统性质」，前者被工具翻译成后者再交给 TLC。亚马逊、微软、MongoDB 的工程师用它验证真实系统。</span>
+TLA+ 表达力强但符号化，劝退了很多工程师。**PlusCal** 是 Lamport 设计的「算法语言」——它长得像伪代码（变量声明、赋值、进程、标号），却能被翻译成 TLA+ 用 TLC 验证。它让「写形式化规约」的门槛降到「会写伪代码」。本篇也是形式化验证篇的收官——回到工程实践，回答「什么时候值得用、怎么用」。<span class="marginnote">PlusCal（发音 "plus-cal"）由 Lamport 在 2009 年随 TLA+ 2 发布。它不取代 TLA+——PlusCal 描述「算法流程」，TLA+ 描述「系统性质」，前者被工具翻译成后者再交给 TLC。亚马逊、微软、MongoDB 的工程师用它验证真实系统。</span>
 
 ## 1 PlusCal：把规约写成伪代码
 
 PlusCal 的代码长这样（一个简单的「两个进程递增共享计数」）：
 
-```
---algorithm counter {
-  variables x = 0;
-  process P \in {1, 2} {
-    L: x := x + 1;
-  }
-}
+```tla
+---- MODULE Increment ----
+EXTENDS Naturals, TLC
+
+(* --algorithm increment
+variables
+  x = 0;
+
+process P \in 1..2
+begin
+  inc:
+    x := x + 1;
+end process;
+
+end algorithm *)
+====================
 ```
 
 关键语法：
 
-- `variables`：声明共享变量。
-- `process`：定义一组进程，`\in {1,2}` 生成两个进程实例。
-- `:=`：赋值（非原子——PlusCal 会在每条语句之间插入「可能的交错点」）。
-- 标号（`L:`）：标号间的语句是**原子的**——标号定义「状态转移的粒度」。
+`variables x = 0;`：声明共享变量。
+`process P \in 1..2`：定义一组进程，`\in 1..2` 生成两个进程实例。
+`x := x + 1;`：赋值（非原子——PlusCal 会在每条语句之间插入「可能的交错点」）。
+标号（label）：标号间的语句是**原子的**——标号定义「状态转移的粒度」。
 
-**PlusCal 与 TLA+ 的关系**：`{1,2}` 两个进程对 `x := x + 1` 的交错执行——TLA+ 翻译后是「状态机」，TLC 检查 `Inv == x = 0 \/ x = 1 \/ x = 2`（x 的合法值）。如果期望「两个进程都加一，x 最终 = 2」，而模型显示 x 可能 = 1（两个进程同时读到 0）——**交错 bug 被自动抓到**。
+**PlusCal 与 TLA+ 的关系**：翻译器把两个进程对 `x` 的交错执行展开成 TLA+ 状态机，TLC 检查所有可达状态（x 的合法取值）。如果期望「两个进程都加一，x 最终 = 2」，而模型显示 x 可能 = 1（两个进程同时读到 0）——**交错 bug 被自动抓到**。
 
-PlusCal 的语法糖（`either/or`、`await`、`with`）让它能表达复杂的并发流程，而「标号 → 原子粒度」让工程师精确控制「哪些步骤可能交错」——这是 PlusCal 建模的核心能力。
+PlusCal 的语法糖（`when`、`either`、`with`）让它能表达复杂的并发流程，而「标号 → 原子粒度」让工程师精确控制「哪些步骤可能交错」——这是 PlusCal 建模的核心能力。
 
 ## 2 PlusCal 建模一个共识协议
 
 用 PlusCal 写「简化 Paxos」的骨架，感受它描述真实协议的流畅度：
 
-```
---algorithm consensus {
-  variables chosen = [p \in Proc |-> NULL], proposed;
-  process (Proposer \in Proposers) {
-    v: with (val \in proposed) {
-         chosen[self] := val;          \* 提议
-       }
-  }
-  process (Acceptor \in Acceptors) {
-    a: await \E p \in Proposers : chosen[p] /= NULL;
-       chosen[self] := chosen[Choose(p)];  \* 学别人的选择
-  }
-}
+```tla
+---- MODULE PaxosSkeleton ----
+EXTENDS Naturals, TLC
+
+(* --algorithm Paxos
+variables
+  chosen = {};  \* 已选择的值集合
+
+process Proposer = "p1"
+begin
+  propose:
+    with v \in {0, 1} do
+      chosen := chosen \cup {v};
+    end with;
+end process;
+
+process Acceptor \in 1..2
+begin
+  learn:
+    await chosen /= {};
+end process;
+
+end algorithm *)
+====================
 ```
 
 拆解：
 
-- **两个进程类**：Proposer（提议者）与 Acceptor（接受者）——对应 Paxos 的角色。
-- **`with`**：非确定性地选一个提议值——模拟「提议任意值」。
-- **`await`**：Acceptor 等「某个 Proposer 已选择」——模拟「学到已提交的值」。
-- **原子粒度**：标号 `v:`、`a:` 定义「一步」——Proposer 的提议是一步原子，Acceptor 的等待与学习是一步原子。
+**两个进程类**：Proposer（提议者）与 Acceptor（接受者）——对应 Paxos 的角色。
+**`with v \in {0, 1}`**：非确定性地选一个提议值——模拟「提议任意值」。
+**`await chosen /= {}`**：Acceptor 等「某个 Proposer 已选择」——模拟「学到已提交的值」。
+**原子粒度**：标号 `propose`、`learn` 定义「一步」——Proposer 的提议是一步原子，Acceptor 的等待与学习是一步原子。
 
-这个骨架可以验证 `Agreement`（所有 chosen 相同）——如果 PlusCal 模型显示「两个 Acceptor 学到的值不同」，说明协议缺了「多数派相交」的约束——**用 PlusCal 推演协议，bug 在建模阶段就暴露**。真实 Paxos 的 PlusCal 规约加上轮次号、多数派投票、消息队列，几百行内可以完整建模。
+这个骨架可以验证一致性不变量（所有 chosen 相同）——如果 PlusCal 模型显示「两个 Acceptor 学到的值不同」，说明协议缺了「多数派相交」的约束——**用 PlusCal 推演协议，bug 在建模阶段就暴露**。真实 Paxos 的 PlusCal 规约加上轮次号、多数派投票、消息队列，几百行内可以完整建模。
 
 ## 3 工程实践：什么时候用、怎么用
 
@@ -76,9 +96,9 @@ PlusCal 的语法糖（`either/or`、`await`、`with`）让它能表达复杂的
 
 **什么时候值得用**：
 
-- **核心协议**：共识、事务、分布式锁、复制协议——错误代价高，且测试测不出边界。
-- **设计阶段**：写代码之前验证设计——改设计的成本远低于改代码。
-- **复杂交错**：任何「并发 + 网络 + 故障」组合的系统——交错空间大，人工推理不可靠。
+**核心协议**：共识、事务、分布式锁、复制协议——错误代价高，且测试测不出边界。
+**设计阶段**：写代码之前验证设计——改设计的成本远低于改代码。
+**复杂交错**：任何「并发 + 网络 + 故障」组合的系统——交错空间大，人工推理不可靠。
 
 **实践流程**（亚马逊/微软的经验）：
 
@@ -125,7 +145,7 @@ $$
 ## 6 小结
 
 - **PlusCal**：类伪代码的算法语言，翻译成 TLA+ 交给 TLC 验证——降低形式化门槛。
-- 核心能力：`process` 定义进程、标号定义原子粒度、`either/await/with` 表达并发与等待。
+- 核心能力：`process` 定义进程、标号定义原子粒度、`either` / `await` 表达并发与等待。
 - 工程实践：**核心协议（共识/事务/锁）在设计阶段验证**，渐进建模，反例驱动修复。
 - 价值：抓测试测不出的交错 bug、无歧义设计文档、倒逼假设显式化。
 - 局限：模型 ≠ 实现、学习曲线、状态爆炸——不是银弹，是「核武器」。

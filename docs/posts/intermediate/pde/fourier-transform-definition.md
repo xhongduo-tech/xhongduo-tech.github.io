@@ -81,10 +81,10 @@ $$
 
 验证「变换再逆变换还原 $f$」，是定义的自洽性检查。对 Schwartz 类函数：
 
-- **第一步，代入定义。** $\frac{1}{2\pi}\int\hat f(\omega)e^{i\omega x}d\omega = \frac{1}{2\pi}\int\int f(\xi)e^{-i\omega\xi}d\xi\,e^{i\omega x}d\omega$。
-- **第二步，交换积分（Fubini）。** $= \frac{1}{2\pi}\int f(\xi)\Big[\int e^{i\omega(x-\xi)}d\omega\Big]d\xi$。
-- **第三步，认出 δ。** 内层 $\int e^{i\omega(x-\xi)}d\omega = 2\pi\,\delta(x-\xi)$（广义函数意义）。
-- **第四步，还原。** $= \int f(\xi)\delta(x-\xi)d\xi = f(x)$ ✓。
+**第一步，代入定义。** $\frac{1}{2\pi}\int\hat f(\omega)e^{i\omega x}d\omega = \frac{1}{2\pi}\int\int f(\xi)e^{-i\omega\xi}d\xi\,e^{i\omega x}d\omega$。
+**第二步，交换积分（Fubini）。** $= \frac{1}{2\pi}\int f(\xi)\Big[\int e^{i\omega(x-\xi)}d\omega\Big]d\xi$。
+**第三步，认出 δ。** 内层 $\int e^{i\omega(x-\xi)}d\omega = 2\pi\,\delta(x-\xi)$（广义函数意义）。
+**第四步，还原。** $= \int f(\xi)\delta(x-\xi)d\xi = f(x)$ ✓。
 
 **互逆性的本质：平面波系 $\{e^{i\omega x}\}$ 是完备的「连续正交基」。** 变换是「求坐标」，逆变换是「按坐标重装」。上式中的 δ 正是「连续正交性」：不同频率的平面波「内积」为 δ，与级数中 $\int e^{i(n-m)\pi x/L}dx = 2L\delta_{nm}$ 完全平行。
 

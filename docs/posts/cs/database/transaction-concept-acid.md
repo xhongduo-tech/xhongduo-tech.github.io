@@ -26,8 +26,10 @@ date: 2026-08-07
 
 ```sql
 BEGIN;
-UPDATE account SET balance = balance - 100 WHERE id = 'A';
-UPDATE account SET balance = balance + 100 WHERE id = 'B';
+UPDATE account SET balance = balance - 100
+  WHERE account_no = 'A-101';
+UPDATE account SET balance = balance + 100
+  WHERE account_no = 'A-201';
 COMMIT;
 ```
 
@@ -74,7 +76,7 @@ $$
 
 ## 5 小结
 
-- **事务** = 原子执行单元：`BEGIN ... COMMIT/ROLLBACK`，全部成功或全部回滚。
+- **事务** = 原子执行单元：**要么 `COMMIT` 要么 `ROLLBACK`**，全部成功或全部回滚。
 - **ACID**：原子性、一致性、隔离性、持久性。
 - 一致性是**应用 + 约束**的责任；A/I/D 是数据库机制的承诺。
 - 机制归属：原子性→回滚，隔离性→并发控制，持久性→重做日志。

@@ -102,19 +102,22 @@ $$
 ```python
 import numpy as np
 
-def update_gmm(X, gamma_j):
-    """给定状态 j 的观测 X:(N,D) 与该状态占用权重 gamma_j:(N,)
-    重估单个 GMM 的 c, mu, Sigma（M 个分量，对角协方差）"""
-    N, D = X.shape
-    M = gamma_j.shape[1]
-    c, mu, var = np.zeros(M), np.zeros((M, D)), np.zeros((M, D))
+def gmm_mstep(gamma_jm, x):
+    """GMM 的 M 步：用分量后验软计数重估权重 c、均值 mu、对角协方差 Sigma。
+    gamma_jm: (M, T) 分量后验 γ_t(j,m)，x: (T, D) 特征矩阵
+    返回 (c, mu, Sigma)，Sigma 为对角方差（每分量 D 维）。
+    """
+    M, T = gamma_jm.shape
+    D = x.shape[1]
+    count = gamma_jm.sum(axis=1)                # 分量 m 的期望占用次数
+    c = count / count.sum()                     # 权重 Ĉ_jm
+    mu = np.zeros((M, D))
+    Sigma = np.zeros((M, D))
     for m in range(M):
-        w = gamma_j[:, m]                       # 分量 m 的后验权重
-        denom = w.sum() + 1e-10
-        c[m] = denom / N
-        mu[m] = (w[:, None] * X).sum(axis=0) / denom
-        var[m] = (w[:, None] * (X - mu[m])**2).sum(axis=0) / denom
-    return c, mu, var
+        mu[m] = (gamma_jm[m] @ x) / count[m]    # 加权平均均值
+        diff = x - mu[m]
+        Sigma[m] = (gamma_jm[m, :, None] * diff ** 2).sum(axis=0) / count[m]
+    return c, mu, Sigma
 ```
 
 配合外层 HMM 的 $\gamma_t(j)$，把每个时刻的 $\gamma_t(j)$ 按「帧属于状态 $j$ 的哪个分量」再细分，就得到 $\gamma_t(j,m)$，喂进上面的函数即可。**整个 CDHMM 训练里，HMM 层负责时间结构（状态怎么转移），GMM 层负责声学形状（状态听起来像什么）——两层各司其职，通过 $\gamma_t(j,m)$ 这一个软计数接口咬合。**

@@ -48,9 +48,9 @@ $$Y = \left(1 + \frac{D_0 \cdot A}{\alpha}\right)^{-\alpha}$$
 
 可靠性回答「这东西平均能撑多久」。核心度量：
 
-- **MTTF（Mean Time To Failure）**：平均无故障时间。
-- **FIT（Failures In Time）**：每 $10^9$ 设备小时发生故障的次数，$1\ \text{FIT} = \frac{1}{10^9 \text{小时}}$。
-- 两者的关系：$\text{MTTF} = \frac{10^9}{\text{FIT}}$（小时）。一个 FIT 约等于 114,000 年一次故障——**单个器件极其可靠，但百万级器件凑在一起故障就成了日常**。<span class="marginnote">这套语言在第四篇的 ECC 与 RAID（[[raid-ecc-reliability]]）、第八篇的仓库级计算机里被反复使用：当你有 10 万台服务器、每台有几百个器件时，<strong>故障不是异常，是常态</strong>，系统必须在「随时有部件坏掉」的前提下继续工作。</span>
+**MTTF（Mean Time To Failure）**：平均无故障时间。
+**FIT（Failures In Time）**：每 $10^9$ 设备小时发生故障的次数，$1\ \text{FIT} = \frac{1}{10^9 \text{小时}}$。
+两者的关系：$\text{MTTF} = \frac{10^9}{\text{FIT}}$（小时）。一个 FIT 约等于 114,000 年一次故障——**单个器件极其可靠，但百万级器件凑在一起故障就成了日常**。<span class="marginnote">这套语言在第四篇的 ECC 与 RAID（[[raid-ecc-reliability]]）、第八篇的仓库级计算机里被反复使用：当你有 10 万台服务器、每台有几百个器件时，<strong>故障不是异常，是常态</strong>，系统必须在「随时有部件坏掉」的前提下继续工作。</span>
 
 器件的失效率随寿命呈**浴盆曲线（bathtub curve）**：早期失效（制造缺陷导致，靠「老化/burn-in」剔除）、随机失效期（中期平稳，MTTF 就指这一段）、磨损失效期（末期上升）。
 

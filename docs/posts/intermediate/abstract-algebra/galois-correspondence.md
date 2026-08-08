@@ -46,10 +46,10 @@ $$
 
 **例：** $E = \mathbb{Q}(\sqrt2, \sqrt3)$，$G = \operatorname{Gal}(E/\mathbb{Q}) \cong \mathbb{Z}_2 \times \mathbb{Z}_2$（元素：$\mathrm{id}$、$\sigma_1$（$\sqrt2\mapsto-\sqrt2$）、$\sigma_2$（$\sqrt3\mapsto-\sqrt3$）、$\sigma_1\sigma_2$）。
 
-- $E^{\langle \sigma_1 \rangle} = \mathbb{Q}(\sqrt3)$（$\sigma_1$ 只动 $\sqrt2$，不动 $\sqrt3$）；
-- $E^{\langle \sigma_2 \rangle} = \mathbb{Q}(\sqrt2)$；
-- $E^{\langle \sigma_1\sigma_2 \rangle} = \mathbb{Q}(\sqrt6)$（$\sigma_1\sigma_2$ 同时翻转两个根，$\sqrt6 = \sqrt2\sqrt3$ 不动）；
-- $E^{\langle \mathrm{id}\rangle} = E$，$E^{G} = \mathbb{Q}$。
+$E^{\langle \sigma_1 \rangle} = \mathbb{Q}(\sqrt3)$（$\sigma_1$ 只动 $\sqrt2$，不动 $\sqrt3$）；
+$E^{\langle \sigma_2 \rangle} = \mathbb{Q}(\sqrt2)$；
+$E^{\langle \sigma_1\sigma_2 \rangle} = \mathbb{Q}(\sqrt6)$（$\sigma_1\sigma_2$ 同时翻转两个根，$\sqrt6 = \sqrt2\sqrt3$ 不动）；
+$E^{\langle \mathrm{id}\rangle} = E$，$E^{G} = \mathbb{Q}$。
 
 四个中间子域 $\mathbb{Q}, \mathbb{Q}(\sqrt2), \mathbb{Q}(\sqrt3), \mathbb{Q}(\sqrt6), E$ ↔ 五个子群——**子域格与子群格完全同构**。
 
@@ -78,26 +78,26 @@ $$
 
 把「不动域回到基域」的证明核心拆透，它是对应定理成立的支点。
 
-- **第一步，问题。** 要证 $E^G = F$：被 Galois 群全体固定 ⟹ 属于基域。
+**第一步，问题。** 要证 $E^G = F$：被 Galois 群全体固定 ⟹ 属于基域。
 
-- **第二步，Artin 引理。** 一般地：对有限群 $H \le \operatorname{Aut}(E)$，$[E : E^H] \le |H|$。证明用「线性无关的自同构」：若 $x_1, \dots, x_n \in E$ 在 $E^H$ 上线性无关，则 $n \le |H|$（构造 Vandermonde 型矩阵，用 $H$ 元素作用出线性方程组，反证矛盾）。
+**第二步，Artin 引理。** 一般地：对有限群 $H \le \operatorname{Aut}(E)$，$[E : E^H] \le |H|$。证明用「线性无关的自同构」：若 $x_1, \dots, x_n \in E$ 在 $E^H$ 上线性无关，则 $n \le |H|$（构造 Vandermonde 型矩阵，用 $H$ 元素作用出线性方程组，反证矛盾）。
 
-- **第三步，代入 $H = G$。** $[E : E^G] \le |G| = [E:F]$（Galois 扩张大小恒等式），而 $E^G \supseteq F$ 给 $[E:E^G] \le [E:F]$。两者合起来 $[E : E^G] = [E : F]$（Artin 给出 ≤，包含给 ≤……实际是 Artin 给 $[E:E^G] \le |G| = [E:F]$，且 $F \subseteq E^G$ 给 $[E:F] = [E:E^G][E^G:F] \ge [E:E^G]$，故相等且 $[E^G:F] = 1$），$E^G = F$。$\blacksquare$
+**第三步，代入 $H = G$。** $[E : E^G] \le |G| = [E:F]$（Galois 扩张大小恒等式），而 $E^G \supseteq F$ 给 $[E:E^G] \le [E:F]$。两者合起来 $[E : E^G] = [E : F]$（Artin 给出 ≤，包含给 ≤……实际是 Artin 给 $[E:E^G] \le |G| = [E:F]$，且 $F \subseteq E^G$ 给 $[E:F] = [E:E^G][E^G:F] \ge [E:E^G]$，故相等且 $[E^G:F] = 1$），$E^G = F$。$\blacksquare$
 
-- **第四步，意义。** Artin 引理把「群大小」与「扩张次数」连起来：$H$ 越大，不动域越小（$[E:E^H]$ 越大）。它是「$E^H$ 有多大」的精确回答，也是对应定理的证明心脏。
+**第四步，意义。** Artin 引理把「群大小」与「扩张次数」连起来：$H$ 越大，不动域越小（$[E:E^H]$ 越大）。它是「$E^H$ 有多大」的精确回答，也是对应定理的证明心脏。
 
 ## 5 例子：x^3 - 2 的完整对应
 
 把伽罗瓦对应在 $E = \mathbb{Q}(\sqrt[3]2, \omega)$、$G = S_3$ 上完整画出，这是最经典的对应图。
 
-- $G = S_3$ 的子群：$\{e\}$、$A_3 = \langle (123) \rangle$（3 阶）、三个 $\langle (12) \rangle$ 型（2 阶）、$S_3$。
-- **不动域**：
-  - $E^{\{e\}} = E$；
-  - $E^{A_3} = \mathbb{Q}(\omega)$（$A_3$ 由三循环生成，保持 $\omega$ 不动；$\sqrt[3]2$ 被三循环搬动）；
-  - $E^{\langle (12) \rangle} = \mathbb{Q}(\sqrt[3]2)$（固定 $A_3$ 的 2 阶子群对应固定 $\sqrt[3]2$ 的域）；
-  - $E^{S_3} = \mathbb{Q}$。
-- **对应验证**：$\mathbb{Q} \subseteq \mathbb{Q}(\sqrt[3]2) \subseteq E$ 对应 $S_3 \supseteq \langle (12)\rangle \supseteq \{e\}$（反序）。
-- **正规子群**：$A_3 \trianglelefteq S_3$ 对应 $\mathbb{Q}(\omega)/\mathbb{Q}$ 正规（$x^2+x+1$ 分裂域）；$\langle (12)\rangle$ 不正规对应 $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$ 不正规（缺另两根）。$\checkmark$<span class="marginnote">$x^3-2$ 的对应图是 Galois 理论的「hello world」：$S_3$ 的四个子群 ↔ 四个中间子域，反序对应，正规子群 ↔ 正规扩张。尤其「$\langle (12)\rangle \leftrightarrow \mathbb{Q}(\sqrt[3]2)$」与「$\langle (12)\rangle$ 不正规 ↔ $\mathbb{Q}(\sqrt[3]2)$ 不正规」——正规性在两边同步失败，正是对应定理性质 2 的现场演示。</span>
+$G = S_3$ 的子群：$\{e\}$、$A_3 = \langle (123) \rangle$（3 阶）、三个 $\langle (12) \rangle$ 型（2 阶）、$S_3$。
+**不动域**：
+$E^{\{e\}} = E$；
+$E^{A_3} = \mathbb{Q}(\omega)$（$A_3$ 由三循环生成，保持 $\omega$ 不动；$\sqrt[3]2$ 被三循环搬动）；
+$E^{\langle (12) \rangle} = \mathbb{Q}(\sqrt[3]2)$（固定 $A_3$ 的 2 阶子群对应固定 $\sqrt[3]2$ 的域）；
+$E^{S_3} = \mathbb{Q}$。
+**对应验证**：$\mathbb{Q} \subseteq \mathbb{Q}(\sqrt[3]2) \subseteq E$ 对应 $S_3 \supseteq \langle (12)\rangle \supseteq \{e\}$（反序）。
+**正规子群**：$A_3 \trianglelefteq S_3$ 对应 $\mathbb{Q}(\omega)/\mathbb{Q}$ 正规（$x^2+x+1$ 分裂域）；$\langle (12)\rangle$ 不正规对应 $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$ 不正规（缺另两根）。$\checkmark$<span class="marginnote">$x^3-2$ 的对应图是 Galois 理论的「hello world」：$S_3$ 的四个子群 ↔ 四个中间子域，反序对应，正规子群 ↔ 正规扩张。尤其「$\langle (12)\rangle \leftrightarrow \mathbb{Q}(\sqrt[3]2)$」与「$\langle (12)\rangle$ 不正规 ↔ $\mathbb{Q}(\sqrt[3]2)$ 不正规」——正规性在两边同步失败，正是对应定理性质 2 的现场演示。</span>
 
 ## 6 小结
 

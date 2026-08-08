@@ -44,9 +44,9 @@ $$
 
 **拓扑空间（topological space）**：设 $X$ 是非空集合，$\mathcal{T}$ 是 $X$ 的若干子集组成的集族（即 $\mathcal{T} \subset 2^X$）。若 $\mathcal{T}$ 满足：
 
-- $X \in \mathcal{T}$，$\emptyset \in \mathcal{T}$；
-- $\mathcal{T}$ 中任意多个成员的并仍在 $\mathcal{T}$ 中；
-- $\mathcal{T}$ 中有限多个成员的交仍在 $\mathcal{T}$ 中；
+$X \in \mathcal{T}$，$\emptyset \in \mathcal{T}$；
+$\mathcal{T}$ 中任意多个成员的并仍在 $\mathcal{T}$ 中；
+$\mathcal{T}$ 中有限多个成员的交仍在 $\mathcal{T}$ 中；
 
 则称 $\mathcal{T}$ 为 $X$ 上的一个**拓扑（topology）**，$\mathcal{T}$ 的成员叫作**开集**，$(X, \mathcal{T})$ 叫作**拓扑空间**。
 

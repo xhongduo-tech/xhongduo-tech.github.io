@@ -44,7 +44,7 @@ SGLang 集群中，每个推理实例（runtime）会周期性地上报自己的
 
 - **连接数 / 正在处理的请求数**：最便宜，但完全看不出「一个请求是 1 个 token 还是 10 万 token」。
 - **GPU 显存中 KV Cache 的占用比例**：直接反映该实例的批大小上限快到了没有，是 SGLang 实际使用的核心指标之一。
-- **排队中的 token 总量**：vLLM 等引擎用 `running + waiting seqs` 的 token 数估计排队深度，比请求数精确得多。
+- **排队中的 token 总量**：vLLM 等引擎用 waiting/running 队列中的 token 数估计排队深度，比请求数精确得多。
 - **预估的 prefill 负载**：新请求自身要 prefill 的 token 数，加上它期望复用的命中部分被剔除后的净新增量。
 
 **请求在 CPU 上排队不等价于 GPU 忙**。GPU 是流式处理器：一个 batch 正在 decode 的时候，prefill 请求还在 CPU 侧做 tokenization 与调度决策。Router 若只看请求数，会把「已经在 GPU 上跑了大 batch」的实例当作空闲，导致它被塞进更多请求、decode 变慢。所以现代调度器用的是「批内 token 总量 + 显存占用」这类更贴近 GPU 工作量的度量。

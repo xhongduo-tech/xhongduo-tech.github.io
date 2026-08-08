@@ -66,10 +66,10 @@ $$
 
 单卡 MFU 的头号敌人是**内存墙**：许多算子不是算力瓶颈，而是**带宽瓶颈**——算得再快，也在等数据从显存搬进寄存器。对这类算子（如 LayerNorm、激活函数、逐元素操作），GPU 的计算单元大量闲置。对策：
 
-- **融合 kernel（kernel fusion）**：把多个算子合成一个（如 FlashAttention 把 attention 的读、算、写融成一个 kernel），减少显存往返；
-- **大 batch / 长序列**：把「每 token 的固定开销」摊薄，让 GPU 更多时间在「密集矩阵乘」这种高 MFU 算子上；
-- **避免 CPU-GPU 同步**：Python 里一句 `tensor.item()` 就会阻塞流水线，训练循环里要杜绝；
-- **避免小张量、循环式操作**：把多次小前向合成一次大前向（batch 上做文章），kernel 启动开销才摊得开。
+**融合 kernel（kernel fusion）**：把多个算子合成一个（如 FlashAttention 把 attention 的读、算、写融成一个 kernel），减少显存往返；
+**大 batch / 长序列**：把「每 token 的固定开销」摊薄，让 GPU 更多时间在「密集矩阵乘」这种高 MFU 算子上；
+**避免 CPU-GPU 同步**：Python 里一句 `loss.item()`（或 `.cpu()`）就会阻塞流水线，训练循环里要杜绝；
+**避免小张量、循环式操作**：把多次小前向合成一次大前向（batch 上做文章），kernel 启动开销才摊得开。
 
 一句话：**单卡 MFU 高不高，看「密集计算占比」**——让 GPU 的大多数时间在跑 GEMM（通用矩阵乘），而不是在等数据、切 kernel。
 
@@ -77,7 +77,7 @@ $$
 
 多卡之后，MFU 的新敌人是**通信**。每次 all-reduce / all-gather 都在让 GPU 停下等网络。多卡 MFU 优化有三大招：
 
-**第一招：通信-计算重叠**。ZeRO/FSDP 的通信应该与「相邻层的计算」同时进行——计算当前层时，后台通信下一层。框架默认开重叠，但要检查是否真的生效（比如 `overlap_comm`、`reduce_scatter` 选项）。**这是多卡 MFU 的头号杠杆**：不开重叠，8 卡 MFU 可能从 42% 掉到 25%。
+**第一招：通信-计算重叠**。ZeRO/FSDP 的通信应该与「相邻层的计算」同时进行——计算当前层时，后台通信下一层。框架默认开重叠，但要检查是否真的生效（比如 FSDP 的 `overlap_comm=True`、DeepSpeed 的 `zero_optimization.overlap_comm` 选项）。**这是多卡 MFU 的头号杠杆**：不开重叠，8 卡 MFU 可能从 42% 掉到 25%。
 
 **第二招：梯度累积要适度**。梯度累积把通信频率降为原来的 $1/G$（G 为累积步数），但每步的 batch 变小、单步 MFU 下降。平衡点通常在「累积到让通信占比 <20%」附近——累积太多，单步算力利用率反而下降。
 
@@ -89,24 +89,32 @@ $$
 
 | 症状 | 可能的根因 | 排查方向 |
 | --- | --- | --- |
-| GPU 利用率 <80% | 数据加载饥饿、CPU-GPU 同步 | 检查 dataloader worker、`item()` 调用 |
+| GPU 利用率 <80% | 数据加载饥饿、CPU-GPU 同步 | 检查 dataloader worker、`.item()` 同步调用 |
 | GPU 满载但 MFU <20% | kernel 碎片化、带宽瓶颈 | 开 FlashAttention、融合算子 |
-| 多卡 MFU 骤降 | 通信未重叠、带宽不足 | 查 `overlap_comm`、节点拓扑 |
+| 多卡 MFU 骤降 | 通信未重叠、带宽不足 | 查 `overlap_comm` 配置、节点拓扑 |
 | MFU 正常但吞吐低 | batch 太小、序列太短 | 放大 batch / 序列，摊薄固定开销 |
 | 显存够但频繁换页 | 分页优化器抖动 | 减小 batch，或主动 offload |
 
-记住一句总纲：**MFU 是果，不是因**——它告诉你「病在哪」，但病因要靠上面的分类去定位。测 MFU 用「训练器内置的 `torch.profiler` + 手动计时」组合，每调整一个旋钮就重测一次，用数字说话。
+记住一句总纲：**MFU 是果，不是因**——它告诉你「病在哪」，但病因要靠上面的分类去定位。测 MFU 用「训练器内置的 profiler + 手动计时」组合，每调整一个旋钮就重测一次，用数字说话。
 
 一段最朴素的 MFU 测量代码（预热后计时若干步取均值）：
 
 ```python
-def measure_mfu(model, tokens_per_step, peak_flops, warmup=3, steps=10):
-    for _ in range(warmup): model.train_step()          # 预热，填满缓存
-    t0 = time.perf_counter()
-    for _ in range(steps): model.train_step()
-    dt = (time.perf_counter() - t0) / steps
-    n_params = sum(p.numel() for p in model.parameters())
-    return 6 * n_params * tokens_per_step / (peak_flops * dt)
+import torch, time
+
+for _ in range(5):                        # 预热：数据管线 / CUDA 上下文先热起来
+    step()
+
+torch.cuda.synchronize()
+t0 = time.perf_counter()
+for _ in range(10):                       # 计时：跑 10 步取均值
+    step()
+torch.cuda.synchronize()
+dt = (time.perf_counter() - t0) / 10      # 每步耗时（秒）
+
+flops = 6 * N * tokens_per_step           # 每步有效 FLOPs（6N 法则）
+mfu = flops / (n_gpus * peak_flops * dt)
+print(f"MFU = {mfu:.1%}")
 ```
 
 要诀是**预热后再计时**：头几步数据管线、CUDA 上下文还没热起来，测出来会虚低。测完按第 5 节的症状分类去定位瓶颈，改一个旋钮重测一次——调优是「测 → 改 → 再测」的循环，MFU 只是这个循环的仪表盘。

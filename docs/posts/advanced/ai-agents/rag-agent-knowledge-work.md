@@ -70,19 +70,19 @@ RAG 的核心是一条**「检索 → 生成」流水线**，
 即**Agentic RAG**：让检索本身成为一个智能决策过程。
 核心升级有四：
 
-- **查询改写（query rewriting）**：Agent 先把「模糊问题」改写成「多个精确检索词」。
+**查询改写（query rewriting）**：Agent 先把「模糊问题」改写成「多个精确检索词」。
   例如「AI 会取代知识工作吗」改写为「自动化对白领职业的影响」等多路查询。
-- **迭代检索（iterative retrieval）**：第一轮检索结果不够，
+**迭代检索（iterative retrieval）**：第一轮检索结果不够，
   Agent 根据已有线索生成**追问查询**，
   逐步深入。
   这实现了「多跳推理」（multi-hop）：第 2 轮的检索词由第 1 轮的结果决定。
-- **自反思检索（self-reflective retrieval）**：Self-RAG（Asai et al., 2023）让模型在生成中**自检**：「检索到的资料够不够？
+**自反思检索（self-reflective retrieval）**：Self-RAG（Asai et al., 2023）让模型在生成中**自检**：「检索到的资料够不够？
   要不要再检索？
   答案是否忠于资料？
   」用一个「反思 token」显式控制检索的触发与终止。
   <span class="marginnote">Self-RAG 把第 5 篇的「反思」从「事后复盘」前移到了「事中控制」——不是做完了再想对不对，
   而是<strong>边做边判断该不该继续</strong>。
-  它在生成流里插入了`` <retrieve> ``、`` <grounded> ``这样的控制记号，
+  它在生成流里插入了 `[Retrieve]`、`[ISREL]` 这样的反思控制记号，
   让模型自己决定「何时查、何时答、答得是否忠实」。
   </span>
 - **工具化检索（tool-augmented retrieval）**：把检索本身封装成工具（第 3 篇的函数调用），

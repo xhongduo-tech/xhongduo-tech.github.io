@@ -41,8 +41,8 @@ date: 2026-08-07
 
 生物信息学的编程生态由两门语言主导，各有分工：
 
-- **Python**：通用计算与数据处理主力。**Biopython**（序列与格式处理）、**pandas/numpy/scikit-learn**（数据与机器学习）、**pysam**（BAM 文件）、**scanpy**（单细胞）——适合「从文件到结果」的灵活脚本；
-- **R**：统计分析与可视化主力。**Bioconductor** 是 R 的生物信息学中央仓库——**DESeq2、edgeR**（差异表达）、**limma**、**WGCNA**（共表达）、**Seurat**（单细胞）、**ggplot2**（绘图）都在其中。
+**Python**：通用计算与数据处理主力。**Biopython**（序列与格式处理）、**pandas/numpy/scikit-learn**（数据与机器学习）、**pysam**（BAM 文件）、**scanpy**（单细胞）——适合「从文件到结果」的灵活脚本；
+**R**：统计分析与可视化主力。**Bioconductor** 是 R 的生物信息学中央仓库——**DESeq2、edgeR**（差异表达）、**limma**、**WGCNA**（共表达）、**Seurat**（单细胞）、**ggplot2**（绘图）都在其中。
 
 **选语言的经验法则**：机器学习/工程化流程用 Python，统计检验与经典组学分析用 R（Bioconductor 生态最全），前端可视化与报告用 R Markdown/Quarto。<span class="marginnote">不要「只学一门」。真实的生信团队里两者共存：上游数据清洗常是 Python，下游统计与图常是 R。两个生态都要能读、能改——「会用 Seurat 但不会跑 DESeq2」会卡住一半的分析。</span>
 
@@ -100,21 +100,21 @@ date: 2026-08-07
 
 生物信息学软件是「依赖地狱」的重灾区：不同工具要不同 Python 版本、不同库版本、甚至不同系统库。三个层次解决：
 
-- **conda / mamba**：按项目建独立**环境**，锁定工具与依赖版本——`conda create -n rna python=3.9`，一条命令得到隔离环境；
-- **Bioconda**：生物工具包的 conda 频道——绝大多数生信工具都能 `conda install`；
-- **Docker / Singularity**：把「操作系统 + 工具 + 依赖」打包成**容器镜像**——同一镜像在任何机器上运行结果一致；Singularity 在 HPC（超算）上更常用（无需 root）。
+**conda / mamba**：按项目建独立**环境**，锁定工具与依赖版本——如 `conda create -n rnaseq python=3.11 samtools=1.17`，一条命令得到隔离环境；
+**Bioconda**：生物工具包的 conda 频道——绝大多数生信工具都能 `conda install` 一键安装；
+**Docker / Singularity**：把「操作系统 + 工具 + 依赖」打包成**容器镜像**——同一镜像在任何机器上运行结果一致；Singularity 在 HPC（超算）上更常用（无需 root）。
 
-**可复现的最低标准**：① 记录每个工具版本（`--version` 输出保存）；② 固定随机种子（机器学习步骤）；③ 保存工作流定义文件；④ 数据与结果的 hash 校验。<span class="marginnote">「我换了环境，结果变了」是生信里最常见的翻车现场。现代标准是把流水线 + 容器镜像 + 数据版本一起归档——你在大模型工程里对「复现训练实验」的执念，在生物分析里一样必要，且更严格：<strong>生物结论的错误代价是临床决策</strong>。</span>
+**可复现的最低标准**：① 记录每个工具版本（`conda list` / `tool --version` 输出保存）；② 固定随机种子（机器学习步骤）；③ 保存工作流定义文件；④ 数据与结果的 hash 校验。<span class="marginnote">「我换了环境，结果变了」是生信里最常见的翻车现场。现代标准是把流水线 + 容器镜像 + 数据版本一起归档——你在大模型工程里对「复现训练实验」的执念，在生物分析里一样必要，且更严格：<strong>生物结论的错误代价是临床决策</strong>。</span>
 
 ## 6 从工具到生产力：一次真实的小流程
 
 把全篇落到一个具体例子：**「从 RNA-seq 原始数据到差异基因列表」**的完整工具链：
 
-1. **质控**：`fastqc`（原始读长质量）→ `trim_galore`/`cutadapt`（去接头与低质量）；
+1. **质控**：`FastQC`（原始读长质量）→ `fastp`/`Trim Galore`（去接头与低质量）；
 2. **比对**：`STAR`（剪接感知，产出 BAM）；
-3. **定量**：`featureCounts`（基因计数，产出计数矩阵）或 `salmon`（转录本定量）；
+3. **定量**：`featureCounts`（基因计数，产出计数矩阵）或 `Salmon`（转录本定量）；
 4. **差异表达**：R 里跑 `DESeq2`，输出 log2FC 与 FDR；
-5. **注释与可视化**：`VEP` 注释变异、`clusterProfiler` 做 GO/KEGG 富集、`ggplot2` 画火山图与热图；
+5. **注释与可视化**：`biomaRt` 注释变异、`clusterProfiler` 做 GO/KEGG 富集、`EnhancedVolcano`/`pheatmap` 画火山图与热图；
 6. **汇报**：Quarto/R Markdown 生成含全部代码、图、参数的可复现报告。
 
 这一步一步，全专题的知识串成了可执行的生产线——这正是「学完一个学科 = 能完成一个完整分析」的定义。

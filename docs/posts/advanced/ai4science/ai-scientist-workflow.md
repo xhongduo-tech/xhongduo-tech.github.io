@@ -96,7 +96,7 @@ $$
 from scipy.stats import norm
 
 def expected_improvement(mu, sigma, f_best):
-    """mu/sigma: 代理模型在候选点的后验均值/标准差；f_best: 当前最优观测。"""
+    """候选点 x 的预期改进：mu/sigma 是代理模型在 x 处的后验均值与标准差。"""
     z = (mu - f_best) / sigma
     return (mu - f_best) * norm.cdf(z) + sigma * norm.pdf(z)
 ```

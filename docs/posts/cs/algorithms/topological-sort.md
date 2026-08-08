@@ -26,11 +26,11 @@ date: 2026-08-07
 
 **算法（DFS 法）**：
 
-```
-TOPOLOGICAL-SORT(G)
-  call DFS(G) to compute finish times f[v] for each v
-  as each vertex is finished, prepend it to a linked list
-  return the linked list
+```text
+TOPOLOGICAL-SORT(G):
+    DFS(G)                          // 记录每个顶点的完成时间 f[v]
+    把顶点按 f[v] 降序排列
+    return 该排列
 ```
 
 即：**按完成时间 $f[v]$ 降序排列顶点**。

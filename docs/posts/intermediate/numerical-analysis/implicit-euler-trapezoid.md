@@ -88,29 +88,31 @@ $$
 ## 5 实现：线性与非线性情形
 
 ```python
-def backward_euler_linear(lam, y0, h, n):
-    """y' = lam*y 的后退欧拉（线性，闭式解）"""
-    y, ys = y0, [y0]
-    for _ in range(n):
-        y = y / (1 - h*lam)
-        ys.append(y)
-    return ys
+import numpy as np
 
-def backward_euler_general(f, t0, y0, h, n, tol=1e-12):
-    """一般 f 的后退欧拉（每步牛顿迭代）"""
-    from scipy.optimize import newton
-    t, y = t0, y0
+# 线性情形 y' = λy：隐式解有闭式 y_{k+1} = y_k / (1 - hλ)
+def backward_euler_linear(lam, y0, h, n):
+    y = y0
     ys = [y0]
-    for k in range(n):
-        t_next = t + h
-        F = lambda yy: yy - y - h*f(t_next, yy)
-        y = newton(F, y)          # 牛顿解隐式方程
-        t = t_next
+    for _ in range(n):
+        y = y / (1 - h * lam)
         ys.append(y)
-    return ys
+    return np.array(ys)
+
+# 非线性情形：每步解隐式方程（这里用不动点迭代逼近）
+def trapezoid(f, t0, y0, h, n):
+    t, y = t0, y0
+    ts, ys = [t0], [y0]
+    for _ in range(n):
+        y_new = y + h * f(t, y)              # 预测初值（显式欧拉）
+        for _ in range(20):                  # 求解 y = y + h/2 (f_k + f_{k+1})
+            y_new = y + h/2 * (f(t, y) + f(t + h, y_new))
+        y, t = y_new, t + h
+        ts.append(t); ys.append(y)
+    return np.array(ts), np.array(ys)
 ```
 
-**工程注意**：非线性隐式方法每步要迭代（牛顿），**成本高**——但刚性问题上，稳定域带来的收益远超成本。现代库（`solve_ivp` 的 BDF/LSODA）在检测刚性时自动切隐式。
+**工程注意**：非线性隐式方法每步要迭代（牛顿），**成本高**——但刚性问题上，稳定域带来的收益远超成本。现代库（SciPy 的 `solve_ivp` BDF/LSODA）在检测刚性时自动切隐式。
 
 ## 6 小结
 

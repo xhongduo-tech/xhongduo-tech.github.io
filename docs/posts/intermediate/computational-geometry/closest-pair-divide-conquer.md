@@ -57,11 +57,13 @@ $$
 设条带内的点按 $y$ 排序为 $q_1, q_2, \dots, q_m$。合并步骤的算法是：
 
 ```
-for i = 1 .. m:
-    j = i + 1
-    while q_j.y - q_i.y < delta:      # y 差小于 δ 才可能更近
-        update δ with dist(q_i, q_j)
-        j += 1
+best ← δ
+for i ← 1 to m - 1:
+    j ← i + 1
+    while j ≤ m 且 q_j.y − q_i.y < δ:     # y 差 ≥ δ 的点必不相近，直接跳出
+        best ← min(best, ‖q_i − q_j‖²)    # 全程用平方距离比较，避免开平方
+        j ← j + 1
+return best
 ```
 
 证明「内层循环至多执行常数次」分三步：

@@ -60,7 +60,7 @@ $$f(x,y) - f_0 \approx \frac{1}{2}\left(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2\right)
 
 ## 4 二元泰勒的现代应用
 
-- **数值误差分析**：多元函数的误差传播——若 $x,y$ 有误差 $\delta_x,\delta_y$，$f$ 的误差约为一阶截断 $|f_x|\delta_x + |f_y|\delta_y$，二阶截断给出更高精度估计。<span class="marginnote">机器学习里损失函数对参数的二阶泰勒近似是牛顿法的基础：$L(\theta+\Delta) \approx L(\theta) + \nabla L\cdot\Delta + \frac12\Delta^T H \Delta$，牛顿法令导数为零解 $\Delta = -H^{-1}\nabla L$——二阶信息加速收敛。你在这里学的二元泰勒，正是二阶优化器的理论源头。</span>
+**数值误差分析**：多元函数的误差传播——若 $x,y$ 有误差 $\delta_x,\delta_y$，$f$ 的误差约为一阶截断 $|f_x|\delta_x + |f_y|\delta_y$，二阶截断给出更高精度估计。<span class="marginnote">机器学习里损失函数对参数的二阶泰勒近似是牛顿法的基础：$L(\theta+\Delta) \approx L(\theta) + \nabla L\cdot\Delta + \frac12\Delta^T H \Delta$，牛顿法令导数为零解 $\Delta = -H^{-1}\nabla L$——二阶信息加速收敛。你在这里学的二元泰勒，正是二阶优化器的理论源头。</span>
 - **Hessian 矩阵与曲率**：$f_{xx}, f_{yy}, f_{xy}$ 组成的 Hessian 描述曲面局部曲率，特征值定曲率主方向。
 - **计算机视觉**：图像局部的二阶结构（Hessian）用于角点检测（Harris 角点）、尺度空间分析。
 - **经济学**：多元生产函数的二阶展开用于比较静态与二阶条件验证。

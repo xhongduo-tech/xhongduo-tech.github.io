@@ -76,9 +76,9 @@ $$\sum_q (\cdots) \longrightarrow \int g(\omega)(\cdots)\, d\omega$$
 理论预言 $\omega(q)$ 后，需要用实验验证。
 **非弹性中子散射**是标准手段：
 
-- 中子（动量 $\hbar\mathbf{k}$、能量 $E$）打入晶体，吸收或放出一个声子；
-- 能量守恒 $E - E' = \pm \hbar\omega$、动量守恒 $\mathbf{k} - \mathbf{k}' = \mathbf{q} + \mathbf{G}$；
-- 测散射中子的能量与动量改变，直接还原 $\omega(\mathbf{q})$。
+中子（动量 $\hbar\mathbf{k}$、能量 $E$）打入晶体，吸收或放出一个声子；
+能量守恒 $E - E' = \pm \hbar\omega$、动量守恒 $\mathbf{k} - \mathbf{k}' = \mathbf{q} + \mathbf{G}$；
+测散射中子的能量与动量改变，直接还原 $\omega(\mathbf{q})$。
 
 X 射线也可以做（能量分辨率不足），光的非弹性散射（布里渊散射、拉曼散射）只覆盖声子谱的一小段。
 **声子色散是凝聚态物理中少数能「直接测」的量子色散**——能带要靠间接手段，声子却可以被中子一一「点名」。<span class="marginnote">中子法能同时给出声学支与光学支的完整色散，是检验原子间力模型的金标准。

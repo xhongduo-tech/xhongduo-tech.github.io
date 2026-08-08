@@ -123,14 +123,11 @@ $$
 代码里，DPO 损失可以浓缩成几行：
 
 ```python
-import torch
 import torch.nn.functional as F
 
-def dpo_loss(logps_w, logps_l, ref_logps_w, ref_logps_l, beta=0.1):
-    implicit_rw = beta * (logps_w - ref_logps_w)     # 隐含奖励：偏好回答
-    implicit_rl = beta * (logps_l - ref_logps_l)     # 隐含奖励：不偏好回答
-    logits = implicit_rw - implicit_rl
-    return -F.logsigmoid(logits).mean()
+logits_w = beta * (log_π_w - log_ref_w)        # y_w 的隐式奖励
+logits_l = beta * (log_π_l - log_ref_l)        # y_l 的隐式奖励
+loss = -F.logsigmoid(logits_w - logits_l).mean()   # -log σ(r_w - r_l)
 ```
 
 ## 5 两大路线对比与易错辨析

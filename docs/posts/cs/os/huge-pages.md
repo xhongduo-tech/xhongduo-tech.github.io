@@ -46,7 +46,7 @@ $$\text{TLB reach} = \text{TLB 项数} \times \text{页大小}$$
 - **分配粒度粗**：大页必须连续物理内存（2MB/1GB 连续），内存碎片化时分配失败。
 - **按需分页变粗**：请求 1GB 大页时，虽然仍是按需调入，但粒度是 1GB 的块——局部性差时浪费。
 
-**显式大页（Huge Pages, Linux）**：管理员预留大页池（`/sys/kernel/mm/hugepages/`），应用用 `mmap` 时指定 `MAP_HUGETLB` 或 `mmap` + 大页对齐地址。数据库（MySQL、PostgreSQL）、JVM（大堆）常显式启用。
+**显式大页（Huge Pages, Linux）**：管理员预留大页池（`/proc/sys/vm/nr_hugepages`），应用用 `mmap` 时指定 `MAP_HUGETLB` 或 `SHM_HUGETLB` + 大页对齐地址。数据库（MySQL、PostgreSQL）、JVM（大堆）常显式启用。
 
 ## 3 透明大页（THP）：自动使用大页
 
@@ -59,7 +59,7 @@ $$\text{TLB reach} = \text{TLB 项数} \times \text{页大小}$$
 
 - **合并与拆分有开销**：THP 在运行时合并页、在缺页时可能拆分大页，额外 CPU 消耗。
 - **大页碎片影响实时性**：大页分配/合并延迟不稳定，实时应用可能受损。
-- 因此 **THP 常被数据库/实时系统关闭**（`echo never > /sys/kernel/mm/transparent_hugepage/enabled`），显式管理大页更可控。
+- 因此 **THP 常被数据库/实时系统关闭**（启动参数 `transparent_hugepage=never`），显式管理大页更可控。
 
 **辨析｜易错点：** 「THP 一定比小页快」是过度乐观。**THP 在「大块顺序访问 + 大内存」场景收益显著，在「小块随机访问 + 内存碎片」场景可能因合并/拆分开销与碎片而变慢**。数据库社区对 THP 的态度分化，很多生产环境显式关闭 THP、改用显式 Huge Pages——**「自动」不等于「总是最优」，量化场景再决定**。<span class="marginnote">大页的经典案例：Redis 官方文档建议关闭 THP——因为 Redis 用 `fork` + COW 做持久化，THP 大页在写时复制时要整页复制，2MB 大页的复制成本是 4KB 的 512 倍，COW 性能暴跌。<strong>技术没有银弹，只有「场景 → 权衡 → 决策」。</strong></span>
 

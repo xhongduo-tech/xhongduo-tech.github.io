@@ -89,30 +89,34 @@ BF16 时代真正需要盯防的是这两处：
 - **损失函数的下溢**：极小概率的 loss（如 < 10⁻⁴）在 BF16 下精度不足，可考虑对 loss 手动乘一个小 scale；
 - **数值的缓慢漂移**：BF16 相对精度低，超长训练中 FP32 主权重与 BF16 副本之间的来回转换可能累积漂移——**定期对比两个副本的差异**（如 cosine similarity），差异异常增大说明精度保护失效。
 
-一个最朴素的稳定性清单：**优先 BF16（新硬件）、开梯度裁剪、保留 FP32 主权重、用 `torch.autocast` 管理精度范围、用 `nan` 检测兜底**。把这几条做成训练脚本的默认配置，绝大多数数值崩溃都可以避免。
+一个最朴素的稳定性清单：**优先 BF16（新硬件）、开梯度裁剪、保留 FP32 主权重、用 `torch.autocast` 管理精度范围、用 `torch.isnan`/`torch.isinf` 检测兜底**。把这几条做成训练脚本的默认配置，绝大多数数值崩溃都可以避免。
 
 ### 一段真实的混合精度训练循环
 
 BF16 时代的训练循环，比 FP16 时代简洁得多——没有 GradScaler，只有 autocast 与主权重：
 
 ```python
-opt = AdamW(model.parameters(), lr=1e-5)
-master = {n: p.detach().float() for n, p in model.named_parameters()}
-# 每步前把 FP32 主权重拷回 BF16 副本，前向反向在 BF16 下进行
-for batch in loader:
-    model.zero_grad()
-    with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
-        loss = model(batch).loss
-    loss.backward()                                  # 梯度为 BF16
-    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+import torch
+
+model = Model().to(device)                    # 权重以 BF16 载入
+master = {n: p.float().detach().clone() for n, p in model.named_parameters()}  # FP32 主权重
+optimizer = torch.optim.AdamW(master.values(), lr=1e-5)   # 优化器只认 FP32 主权重
+
+for x, y in dataloader:
+    with torch.autocast("cuda", dtype=torch.bfloat16):    # 前向反向用 BF16 计算
+        loss = loss_fn(model(x), y)
+    optimizer.zero_grad()
+    loss.backward()                                        # 梯度落在低精度副本上
+
+    for n, p in model.named_parameters():                 # 低精度梯度转 FP32、回填主权重
+        master[n].grad = p.grad.float()
+    optimizer.step()                                       # 更新发生在 FP32 主权重上
     with torch.no_grad():
         for n, p in model.named_parameters():
-            m = master[n]
-            m.mul_(0.9).add_(p.grad.float(), alpha=0.1)   # 更新在 FP32 主权重上
-            p.copy_(m)                                     # 同步回 BF16 副本
+            p.copy_(master[n].bfloat16())                  # 更新后的主权重转回 BF16
 ```
 
-真实框架（HF Trainer、LLaMA-Factory）把这段封装进了 `bf16=True` 与 `fp16=True` 两个开关，内部还处理了梯度累积、分布式 all-reduce 等细节。读懂这段裸循环，你就看穿了所有框架混合精度配置的底层逻辑——**autocast 管计算，主权重管更新**。若切换成 FP16，唯一多出来的就是 `torch.amp.GradScaler` 的 `scale()` 与 `unscale_()` 两步。
+真实框架（HF Trainer、LLaMA-Factory）把这段封装进了 `bf16` 与 `fp16` 两个开关，内部还处理了梯度累积、分布式 all-reduce 等细节。读懂这段裸循环，你就看穿了所有框架混合精度配置的底层逻辑——**autocast 管计算，主权重管更新**。若切换成 FP16，唯一多出来的就是 `GradScaler` 的 `scale(loss)` 与 `unscale_`/`update` 两步。
 
 ## 5 小结
 

@@ -38,10 +38,10 @@ $$Z = \sum_i\omega_i e^{-\varepsilon_i/(kT)}$$
 
 由配分函数可计算全部宏观量：
 
-- **内能**：$E = NkT^2\frac{\partial\ln Z}{\partial T}$；
-- **自由能**：$F = -NkT\ln Z$；
-- **熵**：$S = k\ln Z + \frac{E}{T}$；
-- **压强**：$p = NkT\frac{\partial\ln Z}{\partial V}$。
+**内能**：$E = NkT^2\frac{\partial\ln Z}{\partial T}$；
+**自由能**：$F = -NkT\ln Z$；
+**熵**：$S = k\ln Z + \frac{E}{T}$；
+**压强**：$p = NkT\frac{\partial\ln Z}{\partial V}$。
 
 **重点：配分函数 $Z$ 是统计物理的「母函数」——由它求导得到内能、自由能、熵、压强。** 一切热力学量都从 $Z$ 中读出。计算统计问题的核心 = 算配分函数。<span class="marginnote">「配分函数是统计物理的中心」：$Z = \sum\omega_i e^{-\varepsilon_i/kT}$ 把微观能级与宏观热力学连接起来。算出了 $Z$，就「算出」了整个系统的热力学。这个「一个函数统摄一切」的结构，与量子力学中「波函数统摄一切」、分析力学中「拉格朗日量统摄一切」同构——物理学追求「一个核心函数」。</span>
 

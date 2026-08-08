@@ -22,10 +22,10 @@ VM 之旅的终点是**WebAssembly（Wasm）**——为 Web 设计的**通用虚
 
 浏览器的性能瓶颈：JavaScript 虽经 JIT 已很快，但仍有局限——动态类型、GC 压力、无法利用 SIMD（向量指令）、二进制数据处理慢。需要「接近原生」的场景：
 
-- **图像/视频处理**：滤镜、编解码（Photoshop 网页版）。
-- **游戏/3D 渲染**：Unity、Unreal 编译到 Wasm。
-- **科学计算/AI 推理**：TensorFlow.js 的 Wasm 后端。
-- **加密/压缩**：需要高性能的二进制运算。
+**图像/视频处理**：滤镜、编解码（Photoshop 网页版）。
+**游戏/3D 渲染**：Unity、Unreal 编译到 Wasm。
+**科学计算/AI 推理**：TensorFlow.js 的 Wasm 后端。
+**加密/压缩**：需要高性能的二进制运算。
 
 Wasm 提供：**接近原生的性能 + 可预测的内存 + 语言无关**——「任何语言都能编译到 Wasm，跑在浏览器」。<span class="marginnote">Wasm 与 asm.js 的关系：asm.js 是「JS 子集」（用 JS 语法表达高性能，靠 JIT 优化），Wasm 是「真正的字节码」（独立格式、更快解析、更小体积）。「从 JS 子集到独立字节码」——Wasm 是浏览器高性能计算的正式化。「一次编写、处处运行」的 Web 版。</span>
 
@@ -33,35 +33,32 @@ Wasm 提供：**接近原生的性能 + 可预测的内存 + 语言无关**—�
 
 Wasm 是一个**面向栈的字节码**（与 JVM 同构），但有独特设计：
 
-```wasm
-;; 一个函数：计算 (a + b) * 2
-(func $calc (param $a i32) (param $b i32) (result i32)
-  local.get $a
-  local.get $b
-  i32.add
-  i32.const 2
-  i32.mul)
+```wat
+;; 一个最小的 Wasm 模块（文本格式 WAT）：导出 add(i32, i32) -> i32
+(module
+  (func (export "add") (param $a i32) (param $b i32) (result i32)
+    local.get $a
+    local.get $b
+    i32.add))
 ```
 
 设计要点：
 
-- **线性内存（linear memory）**：一个连续字节数组——程序通过「指针 + 偏移」访问，**无操作系统、无直接内存访问**。
-- **类型化**：`i32`、`f64` 等类型显式——便于验证与优化。
-- **安全沙箱**：不能任意访问内存/系统——所有访问经 VM 检查（边界、类型），在浏览器沙箱内执行。<span class="marginnote">Wasm 的安全模型：<strong>「无能力系统」</strong>——Wasm 模块只能访问自己的线性内存，不能碰宿主（浏览器）的任意内存、不能直接做系统调用。所有「外界操作」（网络、文件、DOM）必须通过宿主导入的函数（imports）。「沙箱 + 显式导入」让「执行不可信代码」成为可能——这也是 Wasm 能用于插件系统、区块链的原因。</span>
+**线性内存（linear memory）**：一个连续字节数组——程序通过「指针 + 偏移」访问，**无操作系统、无直接内存访问**。
+**类型化**：i32、f64 等类型显式——便于验证与优化。
+**安全沙箱**：不能任意访问内存/系统——所有访问经 VM 检查（边界、类型），在浏览器沙箱内执行。<span class="marginnote">Wasm 的安全模型：<strong>「无能力系统」</strong>——Wasm 模块只能访问自己的线性内存，不能碰宿主（浏览器）的任意内存、不能直接做系统调用。所有「外界操作」（网络、文件、DOM）必须通过宿主导入的函数（imports）。「沙箱 + 显式导入」让「执行不可信代码」成为可能——这也是 Wasm 能用于插件系统、区块链的原因。</span>
 
 ## 3 从语言到 Wasm：编译与工具链
 
 把 C/Rust/Go 编译到 Wasm：
 
 ```bash
-# Rust → Wasm（wasm-pack 工具链）
-cargo build --target wasm32-unknown-unknown
-
-# C → Wasm（Emscripten 工具链）
-emcc main.c -o main.wasm
+rustc --target wasm32-unknown-unknown -O main.rs     # Rust → Wasm
+clang --target=wasm32 -O3 -o main.wasm main.c        # C → Wasm
+GOOS=js GOARCH=wasm go build -o main.wasm main.go    # Go → Wasm
 ```
 
-**工具链**：`wasm-pack`（Rust）、Emscripten（C/C++）、`tinygo`（Go）、`Blazor`（C#）——各语言都有 Wasm 编译路径。**运行**：浏览器 `WebAssembly.instantiate` 加载执行，或 Node.js 直接跑 Wasm。<span class="marginnote">Rust + Wasm 是当前黄金组合：Rust 的「无 GC + 确定内存 + 高性能」正好匹配 Wasm 的「无 GC + 线性内存 + 沙箱」——Rust 编译到 Wasm 几乎零运行时开销。「wasm-bindgen」让 Rust 函数能被 JS 调用、JS 对象能被 Rust 操作——「Rust 写逻辑、JS 写胶水」成为现代前端高性能的标准姿势。</span>
+**工具链**：wasm-pack（Rust）、Emscripten（C/C++）、Go 的 GOARCH=wasm 后端（Go）、Blazor（C#）——各语言都有 Wasm 编译路径。**运行**：浏览器 WebAssembly.instantiate 加载执行，或 Node.js 直接跑 Wasm。<span class="marginnote">Rust + Wasm 是当前黄金组合：Rust 的「无 GC + 确定内存 + 高性能」正好匹配 Wasm 的「无 GC + 线性内存 + 沙箱」——Rust 编译到 Wasm 几乎零运行时开销。「wasm-bindgen」让 Rust 函数能被 JS 调用、JS 对象能被 Rust 操作——「Rust 写逻辑、JS 写胶水」成为现代前端高性能的标准姿势。</span>
 
 ## 4 公式解析：Wasm 的执行与安全
 
@@ -80,7 +77,7 @@ $$
 三步拆解：
 
 - **第一步，沙箱执行**：每条指令在 VM 内执行——访存只对线性内存，无法触碰沙箱外。
-- **第二步，边界检查**：`load/store` 必须验证地址在 `[0, |mem|]`——**越界即 trap（停机）**，不崩溃宿主。这是「内存安全」的 VM 级保证（对比 C 的越界未定义）。
+- **第二步，边界检查**：load/store 必须验证地址在 [0, |mem|]——**越界即 trap（停机）**，不崩溃宿主。这是「内存安全」的 VM 级保证（对比 C 的越界未定义）。
 - **第三步，验证先行**：Wasm 模块在**加载时验证**（类型检查、栈检查）——**验证通过才执行**，与 JVM 字节码验证同源。**「Wasm = 静态验证 + 沙箱执行 + 边界检查」**——这就是「可安全执行不可信代码」的机制。
 
 **辨析｜易错点：** Wasm 的内存是「线性 + 显式」的——**没有 GC**（除非运行时引入）。C/Rust 程序自己管理线性内存（Rust 的所有权、C 的手动）。**「Wasm 不给内存管理，只给内存访问」**——谁编译到 Wasm，谁自己管内存。这既是性能（无 GC 开销）也是约束（需管理内存的语言）。

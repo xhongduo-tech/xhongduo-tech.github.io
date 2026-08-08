@@ -52,19 +52,16 @@ $$
 实现上，LoRA+ 只需要在优化器里把参数分成两组、给不同的学习率：
 
 ```python
-# 按参数名区分 A 与 B：约定 lora_A 前缀的是 A、lora_B 前缀的是 B
-param_groups = [
-    {"params": [p for n, p in model.named_parameters() if "lora_A" in n],
-     "lr": 1e-4},                              # η_A
-    {"params": [p for n, p in model.named_parameters() if "lora_B" in n],
-     "lr": 4e-4},                              # η_B = 4 × η_A
-    {"params": [p for n, p in model.named_parameters() if "lora" not in n],
-     "lr": 0.0},                               # 冻结部分，学习率 0
-]
-optimizer = AdamW(param_groups)
+import torch
+
+optimizer = torch.optim.AdamW([
+    {"params": lora_A.parameters(), "lr": eta},            # A 用基准学习率
+    {"params": lora_B.parameters(), "lr": lambda_ * eta},  # B 用更大的学习率
+    {"params": base_model.parameters(), "lr": 0},          # 基座冻结，学习率置 0
+])
 ```
 
-注意「冻结部分学习率置 0」这行：LoRA+ 要求只有 $A$、$B$ 在动，基座零学习率——这既是 LoRA 的原则，也是分组优化的天然写法。HF PEFT 也把这个封装成了 `loraplus_lr_ratio` 参数，传一个 `loraplus_lr_ratio=4` 即可。
+注意「冻结部分学习率置 0」这行：LoRA+ 要求只有 $A$、$B$ 在动，基座零学习率——这既是 LoRA 的原则，也是分组优化的天然写法。HF PEFT 也把这个封装成了一个配置参数，传一个 $B$ 即可。
 
 ## 3 rsLoRA：秩增大时，缩放系数要跟着改
 
@@ -96,7 +93,7 @@ LoRA+ 与 rsLoRA 都是「改一个数字」的微调，改动成本几乎为零
 
 | 方法 | 改动 | 何时受益 | 实现 |
 | --- | --- | --- | --- |
-| LoRA+ | $\eta_B = \lambda \eta_A$ | 各种规模，尤其大秩/小学习率 | `optimizer` 分组学习率 |
+| LoRA+ | $\eta_B = \lambda \eta_A$ | 各种规模，尤其大秩/小学习率 | 优化器分组学习率 |
 | rsLoRA | $\alpha/\sqrt{r}$ 替代 $\alpha/r$ | 高秩（$r \ge 64$）尤其明显 | 缩放系数直接改 |
 
 实践建议：

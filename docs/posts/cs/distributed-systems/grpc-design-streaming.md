@@ -20,19 +20,19 @@ date: 2026-08-07
 
 ## 1 gRPC 的四个核心设计选择
 
-- **IDL 用 Protobuf**：`.proto` 文件声明 service 与 message，`protoc` 插件生成客户端与服务端骨架。接口即契约，生成代码即实现。
-- **传输层用 HTTP/2**：多路复用（一个连接并发多个请求）、二进制帧、头部压缩（HPACK）、**双向流**。相比 HTTP/1.1 的「一连接一请求」，HTTP/2 让 RPC 能高效长连接复用。
-- **默认使用 Protobuf 二进制编码**：紧凑、快，但也因此失去了 curl 直接调试的便利——gRPC 提供 `grpcurl` 与 reflection 服务弥补。
-- **契约先行的开发流程**：先写 `.proto`，再实现服务端与客户端。契约是团队间、服务间的第一公民，接口改动需要走兼容规则。<span class="marginnote"><strong>辨析｜易错点：</strong>gRPC 不等于「gRPC-Web」。浏览器里跑的是 gRPC-Web 或 Connect，因为浏览器无法直接使用 HTTP/2 的 trailers 与全双工流。凡是在浏览器/移动端调用 gRPC，都要注意这条边界。</span>
+**IDL 用 Protobuf**：`.proto` 文件声明 service 与 message，`protoc` 插件生成客户端与服务端骨架。接口即契约，生成代码即实现。
+**传输层用 HTTP/2**：多路复用（一个连接并发多个请求）、二进制帧、头部压缩（HPACK）、**双向流**。相比 HTTP/1.1 的「一连接一请求」，HTTP/2 让 RPC 能高效长连接复用。
+**默认使用 Protobuf 二进制编码**：紧凑、快，但也因此失去了 curl 直接调试的便利——gRPC 提供 grpcurl 与 reflection 服务弥补。
+**契约先行的开发流程**：先写 `.proto` 契约，再实现服务端与客户端。契约是团队间、服务间的第一公民，接口改动需要走兼容规则。<span class="marginnote"><strong>辨析｜易错点：</strong>gRPC 不等于「gRPC-Web」。浏览器里跑的是 gRPC-Web 或 Connect，因为浏览器无法直接使用 HTTP/2 的 trailers 与全双工流。凡是在浏览器/移动端调用 gRPC，都要注意这条边界。</span>
 
 ## 2 四种调用形态：一元、服务端流、客户端流、双向流
 
 gRPC 最亮眼的特性是**流式调用**。`.proto` 里可以声明四种 service 方法形态：
 
-- **一元（Unary）**：`rpc GetUser(UserId) returns (User)`——一次请求一次响应，最传统的 RPC。
-- **服务端流（Server Streaming）**：`rpc Watch(UserId) returns (stream Event)`——客户端发一次，服务端持续推多个结果。典型：订阅行情、日志 tail、进度推送。
-- **客户端流（Client Streaming）**：`rpc Upload(stream Chunk) returns (Status)`——客户端持续发，服务端最后统一回一个响应。典型：上传大文件、批处理任务。
-- **双向流（Bidirectional Streaming）**：`rpc Chat(stream Msg) returns (stream Msg)`——两端同时发，消息顺序各自独立保证。典型：聊天室、实时代理转发。
+**一元（Unary）**：`rpc GetUser(UserRequest) returns (UserResponse);`——一次请求一次响应，最传统的 RPC。
+**服务端流（Server Streaming）**：`rpc Subscribe(Topic) returns (stream Event);`——客户端发一次，服务端持续推多个结果。典型：订阅行情、日志 tail、进度推送。
+**客户端流（Client Streaming）**：`rpc Upload(stream Chunk) returns (UploadStatus);`——客户端持续发，服务端最后统一回一个响应。典型：上传大文件、批处理任务。
+**双向流（Bidirectional Streaming）**：`rpc Chat(stream Message) returns (stream Message);`——两端同时发，消息顺序各自独立保证。典型：聊天室、实时代理转发。
 
 流式调用的底层是 HTTP/2 的多路复用：同一个连接上可同时跑成百上千个流，每个流独立维护自己的消息序列。<span class="marginnote">理解双向流的语义要点：两个方向的流是<strong>相互独立</strong>的——服务端可以边读边写，不必等客户端发完。但 gRPC 默认不保证不同流的消息全局有序，业务需要时要在消息里自带序号或时间戳，这正好预告后面「逻辑时钟」章节的动机。</span>
 

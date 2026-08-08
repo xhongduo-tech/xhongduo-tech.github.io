@@ -32,14 +32,14 @@ BGP 与 IGP 的根本区别：**IGP 找技术最优，BGP 找策略允许。** B
 
 路径向量的价值：<span class="marginnote">距离向量用「距离数字」防环效果差（计数到无穷），链路状态靠全网拓扑防环，而 BGP 用<strong>「AS 路径」防环——接收方只要发现路径里包含自己的 AS 号，就知道这条路由「绕回了自己」，直接丢弃</strong>。因为 AS 路径是全局唯一的编号序列，环一出现就立刻被识别。</span>
 
-- **防环**：收到路由时若 AS_PATH 里含自己的 AS 号，丢弃——绝不接收「绕回自己」的路由。
-- **可决策**：AS_PATH 长度本身也是一个可用的选路依据（路径短者优先，但策略优先于长度）。
+**防环**：收到路由时若 AS_PATH 里含自己的 AS 号，丢弃——绝不接收「绕回自己」的路由。
+**可决策**：AS_PATH 长度本身也是一个可用的选路依据（路径短者优先，但策略优先于长度）。
 
 **辨析｜易错点：** 路径向量是「距离向量的升级版」：距离向量只传「距离数字」，路径向量传「完整路径」。**升级的收益是天然防环**——环可以通过「路径里有我」直接检测，不需要靠「距离到无穷」来兜底。**「传距离会环，传路径不环」**是一句话概括。
 
 ## 3 eBGP 与 iBGP：BGP 的两种会话
 
-BGP 有两种运行模式：<span class="marginnote"><strong>eBGP</strong>：连接<strong>不同 AS</strong> 的 BGP 路由器（AS 边界路由器之间），交换跨 AS 的路由。<strong>iBGP</strong>：连接<strong>同一 AS 内</strong>的 BGP 路由器，把 eBGP 学到的外部路由在全 AS 内传播。区别的关键：iBGP 传播时<strong>不改写 AS_PATH</strong>，eBGP 则会在路径前追加自己的 AS 号。</span>
+BGP 有两种运行模式：<span class="marginnote"><strong>eBGP</strong>`：连接<strong>不同 AS</strong>` 的 BGP 路由器（AS 边界路由器之间），交换跨 AS 的路由。<strong>iBGP</strong>`：连接<strong>同一 AS 内</strong>的 BGP 路由器，把 eBGP 学到的外部路由在全 AS 内传播。区别的关键：iBGP 传播时<strong>不改写 AS_PATH</strong>`，eBGP 则会在路径前追加自己的 AS 号。</span>
 
 | 对比维度 | eBGP | iBGP |
 | --- | --- | --- |

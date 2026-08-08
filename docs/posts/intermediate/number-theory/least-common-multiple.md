@@ -104,7 +104,7 @@ $$\gcd(a, b) \cdot \operatorname{lcm}(a, b) = ab$$
 **辨析｜易错点：**$\operatorname{lcm}(a, b, c) = abc / \gcd(a, b, c)$ 一般**不成立**，因为 gcd 与 lcm 的「逐素数取 min/max」运算不满足这种简单对消。
 三个数必须两两结合，这是本专题最易踩的公式陷阱之一。
 
-**辨析｜易错点：**求 $\operatorname{lcm}$ 时先算 $\gcd$ 再套 $ab/\gcd$ 最稳妥，但注意 $ab$ 可能溢出（编程场景），需用 `a / gcd * b` 的顺序先除后乘。这是数论公式落进代码时最常见的数值陷阱。
+**辨析｜易错点：**求 $\operatorname{lcm}$ 时先算 $\gcd$ 再套 $ab/\gcd$ 最稳妥，但注意 $ab$ 可能溢出（编程场景），需用 $\operatorname{lcm}$ 的顺序先除后乘。这是数论公式落进代码时最常见的数值陷阱。
 
 **补充：** 若 $a, b$ 很大且你只要 $\operatorname{lcm}$ 而不想要 $ab$ 溢出，先做整除 $a / \gcd(a,b)$ 再乘 $b$——除法先做保证中间量不超过结果本身。这条「先除后乘」的顺序在后续所有用到 $ab/\gcd$ 的场合都值得沿用。
 

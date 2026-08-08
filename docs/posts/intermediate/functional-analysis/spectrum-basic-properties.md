@@ -56,10 +56,10 @@ $$
 
 **证明（用预解式的解析性 + Liouville）**：
 
-- **第一步**：假设 $\sigma(T) = \emptyset$，则 $R_\lambda$ 对一切 $\lambda \in \mathbb{C}$ 有定义。
-- **第二步（解析性）**：$R_\lambda$ 是整函数（全平面解析）——由预解式方程与诺伊曼展开可证 $R_\lambda$ 的强解析性。
-- **第三步（有界性）**：$|\lambda| > 2\|T\|$ 时 $\|R_\lambda\| \le \frac{1}{|\lambda| - \|T\|} \to 0$（$\lambda \to \infty$）——$R_\lambda$ 在无穷远趋于 0。
-- **第四步（Liouville）**：整函数 + 有界（有界性由局部一致 + 无穷远趋于 0 给出）⟹ 常数；但常数且趋于 0 ⟹ $R_\lambda \equiv 0$——矛盾（$R_\lambda$ 是算子，不可能恒为零）。<span class="marginnote">这个证明是复分析进入泛函分析的典范：<strong>用 Liouville 定理（有界整函数是常数）反证谱非空</strong>。它的深刻含义：谱的非空性本质上依赖复数的代数完备性——实 Banach 空间的算子可以没有实谱（旋转矩阵的谱是复的）。</span>
+**第一步**：假设 $\sigma(T) = \emptyset$，则 $R_\lambda$ 对一切 $\lambda \in \mathbb{C}$ 有定义。
+**第二步（解析性）**：$R_\lambda$ 是整函数（全平面解析）——由预解式方程与诺伊曼展开可证 $R_\lambda$ 的强解析性。
+**第三步（有界性）**：$|\lambda| > 2\|T\|$ 时 $\|R_\lambda\| \le \frac{1}{|\lambda| - \|T\|} \to 0$（$\lambda \to \infty$）——$R_\lambda$ 在无穷远趋于 0。
+**第四步（Liouville）**：整函数 + 有界（有界性由局部一致 + 无穷远趋于 0 给出）⟹ 常数；但常数且趋于 0 ⟹ $R_\lambda \equiv 0$——矛盾（$R_\lambda$ 是算子，不可能恒为零）。<span class="marginnote">这个证明是复分析进入泛函分析的典范：<strong>用 Liouville 定理（有界整函数是常数）反证谱非空</strong>。它的深刻含义：谱的非空性本质上依赖复数的代数完备性——实 Banach 空间的算子可以没有实谱（旋转矩阵的谱是复的）。</span>
 
 **辨析｜易错点：** 谱的非空性**依赖复空间**。在实 Banach 空间上，旋转矩阵 $\begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}$ 没有实特征值、实谱为空——只有取复化后谱才非空。所以「谱非空」是复 Banach 空间理论。
 

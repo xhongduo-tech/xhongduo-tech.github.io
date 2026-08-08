@@ -74,7 +74,7 @@ $$
 \frac{\partial L}{\partial x} = \frac{\partial L}{\partial u_3}\left(\frac{\partial u_3}{\partial u_2}\frac{\partial u_2}{\partial u_1}\frac{\partial u_1}{\partial x} + \frac{\partial u_3}{\partial \sin x}\frac{d\sin x}{dx}\right)
 $$
 
-注意 $u_3$ 有两个上游（$u_2$ 与 $\sin x$），所以 $x$ 的梯度是**两条路径贡献之和**。<span class="marginnote">「分叉求和」是反向传播最容易写错的地方之一：忘记给分叉节点的梯度做累加，梯度就会少算一路。PyTorch 里 `.backward()` 默认对梯度累加（`retain_graph`、`accumulate`）正是这条规则的工程化。</span>
+注意 $u_3$ 有两个上游（$u_2$ 与 $\sin x$），所以 $x$ 的梯度是**两条路径贡献之和**。<span class="marginnote">「分叉求和」是反向传播最容易写错的地方之一：忘记给分叉节点的梯度做累加，梯度就会少算一路。PyTorch 里 $u_3$ 默认对梯度累加（$u_2$、$\sin x$）正是这条规则的工程化。</span>
 
 **数值复杂度**：设图上有 $N$ 个节点、$E$ 条边。前向算值 $O(E)$，反向每边一次局部乘加，也是 $O(E)$。**自动微分的总代价是前向的常数倍（通常约 2–3 倍）**，与手推公式的最优结果同阶——这是它能在真实模型上普及的根本原因。
 
@@ -108,7 +108,7 @@ $$
 
 **易错点一：数值差分 $\epsilon$ 不能太小。** $\epsilon$ 取得过小，浮点舍入误差主导，差商反而失真；通常取 $\epsilon \approx 10^{-6}$ 到 $10^{-4}$，在截断误差与舍入误差之间取平衡。
 
-**易错点二：`retain_graph` 与梯度累加。** 反向传播默认释放中间缓存以省显存；同一计算图要反向两次时需保留图。多次 `.backward()` 若不手动清零，梯度会累加——这在批量梯度里是特性（可手工实现梯度累积），在常规训练里是 bug。
+**易错点二：`retain_graph` 与梯度累加。** 反向传播默认释放中间缓存以省显存；同一计算图要反向两次时需 `retain_graph=True` 保留图。多次 `backward()` 若不手动清零，梯度会累加——这在批量梯度里是特性（可手工实现梯度累积），在常规训练里是 bug。
 
 ## 6 小结
 

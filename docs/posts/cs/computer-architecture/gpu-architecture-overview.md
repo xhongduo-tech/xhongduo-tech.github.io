@@ -22,16 +22,16 @@ GPU 生来是为了**图形**：画面里数百万个像素/顶点，每个都�
 
 **核心概念**：现代 GPU 由**数十到上百个流式多处理器（SM, Streaming Multiprocessor）**组成，每个 SM 内含**数百个精简 ALU（CUDA core / SP）**、共享存储与调度器。
 
-```
-GPU：
-  SM 0 ─ 数百个 ALU + 共享内存 + 调度器
-  SM 1 ─ 数百个 ALU + 共享内存 + 调度器
-  ...
-  SM 127 ─ ...
+```text
+GPU
+└── SM 0    SM 1   …   SM N-1        （数十到上百个 SM）
+    └── 每个 SM 内部：
+        SP SP SP … SP                （数百个精简 ALU / CUDA core）
+        + 共享内存  + warp 调度器
 ```
 
-- 单个 ALU：非常简陋，无乱序、无分支预测、缓存极小——**把面积省给 ALU 数量**。
-- 总 ALU 数以万计：一块旗舰 GPU 有 16,000+ 个浮点单元。
+单个 ALU：非常简陋，无乱序、无分支预测、缓存极小——**把面积省给 ALU 数量**。
+总 ALU 数以万计：一块旗舰 GPU 有 16,000+ 个浮点单元。
 
 ## 2 CPU vs GPU：两种处理器的坐标
 
@@ -50,23 +50,28 @@ GPU：
 
 CUDA 把并行组织成三层：
 
-```
-网格（grid）→ 块（block）→ 线程（thread）
-   ↓            ↓             ↓
-整个任务      一个 SM        一个 SP
+```text
+grid（一个内核任务）
+└── block 0   block 1   …   block B-1    （block → SM）
+    └── thread 0  thread 1  …  thread T-1 （thread → CUDA core）
+        └── 每个线程处理一个数据元素
 ```
 
-- **线程（thread）**：最小执行单元，一个数据元素一个线程。
-- **块（block）**：一组线程，驻留在**同一个 SM**，可协作（共享内存、同步）。
-- **网格（grid）**：所有块，对应整个任务；不同块在不同 SM 上并行调度。
+**线程（thread）**：最小执行单元，一个数据元素一个线程。
+**块（block）**：一组线程，驻留在**同一个 SM**，可协作（共享内存、同步）。
+**网格（grid）**：所有块，对应整个任务；不同块在不同 SM 上并行调度。
 
 写代码：
 
 ```cuda
-__global__ void add(int *a, int *b, int *c) {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    c[i] = a[i] + b[i];          // 每个线程处理一个元素
+__global__ void saxpy(int n, float a, float *x, float *y) {
+    int i = blockIdx.x * blockDim.x + threadIdx.x;  // 全局线程号
+    if (i < n)
+        y[i] = a * x[i] + y[i];
 }
+
+// 启动：grid = ⌈n/256⌉ 个块，每块 256 线程
+saxpy<<< (n + 255) / 256, 256 >>>(n, a, x, y);
 ```
 
 ## 4 GPU 的高带宽：内存不是障碍是设计对象

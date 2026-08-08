@@ -22,12 +22,12 @@ date: 2026-08-07
 
 **X.509 证书**是「公钥 + 身份信息 + 有效期 + CA 签名」的绑定文件。一个典型证书（如 HTTPS 服务器证书）包含：
 
-- **主体（Subject）**：公钥持有者（域名、组织、国家）。
-- **主体公钥**：真正的公钥（如 RSA-2048 或 ECDSA 公钥）。
-- **有效期**：生效与过期时间（证书必须定期更换）。
-- **签发者（Issuer）**：签发这张证书的 CA。
-- **CA 的签名**：用 CA 私钥对以上内容签名——**这是证书可信的核心**。
-- **扩展字段**：用途（服务器认证、客户端认证、代码签名）、密钥用法、CRL 地址等。
+**主体（Subject）**：公钥持有者（域名、组织、国家）。
+**主体公钥**：真正的公钥（如 RSA-2048 或 ECDSA 公钥）。
+**有效期**：生效与过期时间（证书必须定期更换）。
+**签发者（Issuer）**：签发这张证书的 CA。
+**CA 的签名**：用 CA 私钥对以上内容签名——**这是证书可信的核心**。
+**扩展字段**：用途（服务器认证、客户端认证、代码签名）、密钥用法、CRL 地址等。
 
 **证书的信任链**：CA 用自己的私钥签名，任何人都能用 CA 的公钥验证证书「确实是 CA 签发的、内容没被改」。所以信任证书 = 信任 CA。<span class="marginnote">X.509 是 ITU-T 定义的「公钥证书目录标准」，1988 年第一版，1996 年 v3 加入扩展字段。今天的证书几乎都是 X.509 v3。<strong>「X.509」指证书格式，「PKI」指签发/验证/吊销这套完整体系</strong>——证书是 PKI 的「公民」，CA 是「户籍机构」。</span>
 
@@ -59,10 +59,10 @@ $$
 X.509 v3 证书的关键字段与生命周期管理：
 
 **字段**：
-- `version`、`serialNumber`（序列号，CA 全局唯一，吊销时用）。
-- `signatureAlgorithm`（签名算法，如 SHA256-RSA）。
-- `issuer`、`validity`（notBefore/notAfter）、`subject`、`subjectPublicKeyInfo`。
-- `extensions`：`keyUsage`（用途限制）、`extendedKeyUsage`（服务器/客户端认证）、`subjectAltName`（SAN，含域名）。
+- Version、SerialNumber（序列号，CA 全局唯一，吊销时用）。
+- SignatureAlgorithm（签名算法，如 SHA256-RSA）。
+- Issuer、Validity（notBefore/notAfter）、Subject、PublicKeyInfo。
+- Extensions：KeyUsage（用途限制）、ExtKeyUsage（服务器/客户端认证）、SubjectAltName（SAN，含域名）。
 
 **生命周期**：
 - **签发**：CA 验证主体身份后签发。

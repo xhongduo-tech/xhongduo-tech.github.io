@@ -25,7 +25,7 @@ date: 2026-08-07
 预训练模型已经「知道」大量世界知识，但「如何调用」取决于输入。提示工程就是在输入上做文章。软提示把「做什么文章」变成可学习参数：
 
 - **离散提示**：输入 = tokenize("请把这段翻译成英文")，每个 token 对应词表里的一个固定词向量；
-- **连续提示**：输入 = `[P_1, P_2, ..., P_l]` + tokenize(原输入)，其中 $P_i \in \mathbb{R}^d$ 是**可训练向量**，不与任何词对应。
+- **连续提示**：输入 = $[P_1, \dots, P_{l_p}]$ + tokenize(原输入)，其中 $P_i \in \mathbb{R}^d$ 是**可训练向量**，不与任何词对应。
 
 训练时，基座模型完全冻结，只有这些 $P_i$ 参与梯度更新。优化目标还是标准的下一个词预测——模型被要求「在看到这些提示向量 + 真实输入后，预测出正确的回答」。于是提示向量被迫学会「最有助于引出正确答案的前缀形态」。
 
@@ -66,7 +66,7 @@ Prompt-Tuning 的一个关键发现是**规模效应**：**在 100 亿参数以�
 两种方法共享同一个训练目标——冻结基座、只优化提示向量，用标准 LM 损失：
 
 $$
-L(\theta_P) = -\sum_{t \in \text{回答}} \log P_{\theta_{\text{frozen}}}\big(y_t \mid [\,P \,\Vert\, \text{前缀输入}\,], y_{<t}\big)
+L(\theta_P) = -\sum_{t \in \text{回答}} \log P_{\theta_{\text{frozen}}}\big(y_t \mid [\,P \,\Vert\, \text{前缀输入}\,], y_{\\lt t}\big)
 $$
 
 逐项拆解：
@@ -90,19 +90,20 @@ $$
 
 ### 与 HuggingFace PEFT 的对接
 
-HF 的 `peft` 库把软提示封装成了 `PromptTuningConfig` / `PrefixTuningConfig`，一行配置即可：
+HF 的 **`peft`** 库把软提示封装成了 **`PromptEmbedding`** / **`PrefixEncoder`**，一行配置即可：
 
 ```python
 from peft import PromptTuningConfig, get_peft_model
+
 config = PromptTuningConfig(
     task_type="CAUSAL_LM",
-    num_virtual_tokens=20,                 # 前缀长度 l_p
-    tokenizer_name_or_path="meta-llama/...",
+    num_virtual_tokens=16,                        # 前缀长度，即公式里的 l_p
+    tokenizer_name_or_path="Qwen/Qwen2.5-7B",     # 词表嵌入初始化需要传入
 )
-model = get_peft_model(base_model, config)
+model = get_peft_model(model, config)
 ```
 
-`num_virtual_tokens` 就是前文公式里的 $l_p$——它是软提示唯一的「模型大小旋钮」，选 8–32 之间通常够用。注意 Prompt-Tuning 在 HF 里**默认用词表嵌入初始化**（会提示你传入 `tokenizer_name_or_path`），这正对应上面「别从随机开始」的原则。
+**`num_virtual_tokens`** 就是前文公式里的 $l_p$——它是软提示唯一的「模型大小旋钮」，选 8–32 之间通常够用。注意 Prompt-Tuning 在 HF 里**默认用词表嵌入初始化**（会提示你传入 `tokenizer_name_or_path`），这正对应上面「别从随机开始」的原则。
 
 
 

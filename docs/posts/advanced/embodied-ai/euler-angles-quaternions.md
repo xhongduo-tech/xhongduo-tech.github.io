@@ -307,33 +307,33 @@ SciPy 提供现成的换算，
 
 ```python
 import numpy as np
-from scipy.spatial.transform import Rotation
 
-def q_mul(q1, q2):
-    w1, v1 = q1[0], q1[1:]
-    w2, v2 = q2[0], q2[1:]
-    w = w1 * w2 - v1 @ v2
-    v = w1 * v2 + w2 * v1 + np.cross(v1, v2)
-    return np.concatenate([[w], v])
+def quat_mul(q, r):
+    """四元数乘法 q ⊗ r（q, r = (w, x, y, z)）"""
+    w1, x1, y1, z1 = q
+    w2, x2, y2, z2 = r
+    return np.array([
+        w1*w2 - x1*x2 - y1*y2 - z1*z2,
+        w1*x2 + x1*w2 + y1*z2 - z1*y2,
+        w1*y2 - x1*z2 + y1*w2 + z1*x2,
+        w1*z2 + x1*y2 - y1*x2 + z1*w2])
 
-# 绕 Z 轴转 90°，绕 X 轴转 90°
-qz = Rotation.from_euler("z", 90, degrees=True).as_quat()  # (x,y,z,w) 顺序
-qx = Rotation.from_euler("x", 90, degrees=True).as_quat()
-# 转为 (w,x,y,z)
-def to_wxyz(q): return np.roll(q, 1)
+def quat_to_R(q):
+    """四元数 → 旋转矩阵（w, x, y, z）"""
+    w, x, y, z = q
+    return np.array([
+        [1 - 2*(y*y + z*z), 2*(x*y - z*w),     2*(x*z + y*w)],
+        [2*(x*y + z*w),     1 - 2*(x*x + z*z), 2*(y*z - x*w)],
+        [2*(x*z - y*w),     2*(y*z + x*w),     1 - 2*(x*x + y*y)]])
 
-q_z, q_x = to_wxyz(qz), to_wxyz(qx)
-print("q_z ⊗ q_x:", q_mul(q_z, q_x))     # 先绕 X 后绕 Z
+# 绕 z 轴转 0.6 rad、绕 x 轴转 0.8 rad 的两个单位四元数
+qz = np.array([np.cos(0.3), 0, 0, np.sin(0.3)])
+qx = np.array([np.cos(0.4), np.sin(0.4), 0, 0])
 
-# 双覆盖：q 与 -q 给出同一旋转矩阵
-R1 = Rotation.from_quat(np.roll(q_z, -1)).as_matrix()
-R2 = Rotation.from_quat(np.roll(-q_z, -1)).as_matrix()
-print("q 与 -q 同旋转:", np.allclose(R1, R2))   # True
-
-# 归一化检查：任意 q 归一化后才合法
-q_raw = np.array([0.3, 0.4, 0.5, 0.6])
-q_unit = q_raw / np.linalg.norm(q_raw)
-print("归一化后模长:", np.linalg.norm(q_unit))   # 1.0
+print(np.allclose(quat_to_R(quat_mul(qz, qx)),
+                  quat_to_R(qz) @ quat_to_R(qx)))   # 乘法同构于矩阵乘法
+print(np.allclose(quat_to_R(qz), quat_to_R(-qz)))   # True：q 与 -q 同旋转
+print(np.allclose(quat_mul(qz, qx), quat_mul(qx, qz)))  # False：不可交换
 ```
 
 代码印证：四元数乘法顺序不可交换（$q_z \otimes q_x \neq q_x \otimes q_z$）、$q$ 与 $-q$ 对应同一旋转矩阵、单位约束是合法性的生命线。

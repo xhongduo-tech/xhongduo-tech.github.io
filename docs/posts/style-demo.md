@@ -9,7 +9,7 @@
 
 ### 这是一个三级标题
 
-正文内容。写作时只需要正常写 `#` 标题，排版由设计系统自动处理。
+正文内容。写作时只需要正常写 undefined 这样的 markdown 标题，排版由设计系统自动处理。
 
 #### 这是一个四级标题
 
@@ -43,7 +43,7 @@ $$
 
 ## 化学方程式
 
-基于 mhchem 宏包，用 `\ce{}` 书写：
+基于 mhchem 宏包，用 undefined 书写：
 
 $$
 \ce{2H2 + O2 ->[点燃] 2H2O}
@@ -65,13 +65,7 @@ $$
 
 ## 代码
 
-```python
-import torch
-
-def lora_forward(x, W0, A, B, alpha, r):
-    """LoRA: W = W0 + (alpha / r) * B @ A"""
-    return x @ W0.T + (alpha / r) * (x @ A.T @ B.T)
-```
+undefined
 
 ## 表格与复选框
 
@@ -88,7 +82,7 @@ def lora_forward(x, W0, A, B, alpha, r):
 
 > 如无必要，勿增实体。 —— 奥卡姆的威廉
 
-> 写作完成后：在本目录新建 `xxx.md`，然后把对应条目改为 `- [x] [标题](./xxx)`。
+> 写作完成后：在本目录新建 undefined，然后把对应条目改为 undefined。
 
 ## 引语与边注
 

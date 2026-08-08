@@ -38,7 +38,7 @@ $$
 
 辐射定标后，影像里仍混着大气贡献：气溶胶散射的程辐射、水汽吸收、邻近像元效应。**大气校正（atmospheric correction）** 的目标是把这些大气项去掉，得到地表真实反射率。主流方法分三类：
 
-- **辐射传输模型法（最物理）**：用 MODTRAN、6S、FLAASH 等模型，输入大气参数（气溶胶光学厚度、水汽含量、能见度等），精确模拟大气透过率与程辐射。精度高，但需要大气参数先验，且计算量大。<span class="marginnote">6S（Second Simulation of a Satellite Signal in the Solar Spectrum）是遥感大气校正的学术标准工具之一；FLAASH 则是它在 ENVI 里的工程实现。这类模型共享同一套辐射传输物理。</span>
+**辐射传输模型法（最物理）**：用 MODTRAN、6S、FLAASH 等模型，输入大气参数（气溶胶光学厚度、水汽含量、能见度等），精确模拟大气透过率与程辐射。精度高，但需要大气参数先验，且计算量大。<span class="marginnote">6S（Second Simulation of a Satellite Signal in the Solar Spectrum）是遥感大气校正的学术标准工具之一；FLAASH 则是它在 ENVI 里的工程实现。这类模型共享同一套辐射传输物理。</span>
 - **图像本身提取法（最实用）**：在影像里找「暗目标」——浓密植被、清洁水体这类反射率接近零的地物，认为它们在近红外等波段的辐射全部来自大气程辐射，据此推算大气参数。**暗像元法（dark object subtraction, DOS）** 是其中最简单常用的一种。
 - **查找表法**：把大气模型按不同参数预先算好一组系数，运行时按输入参数查表插值，兼顾精度与速度。
 

@@ -51,16 +51,15 @@ date: 2026-08-07
 在 HF Trainer 里，断点续训几乎是「一行配置」：
 
 ```python
-from transformers import TrainingArguments
-args = TrainingArguments(
-    output_dir="./runs/exp_001",
+training_args = TrainingArguments(
+    output_dir="./output",
     save_strategy="steps",
-    save_steps=500,                     # 每 500 步存一次 checkpoint
-    save_total_limit=3,                 # 最多保留 3 份，自动清理旧的
-    load_best_model_at_end=True,        # 训练结束加载「最优」checkpoint
+    save_steps=500,                   # 每 500 步存一次 checkpoint
+    save_total_limit=3,               # 磁盘上最多保留最近 3 份
+    load_best_model_at_end=True,      # 训练结束加载最优权重
     metric_for_best_model="eval_loss",
-    # 续训时只需加这一句：从最近 checkpoint 恢复
-    # resume_from_checkpoint=True,
+    greater_is_better=False,
+    resume_from_checkpoint=True,      # 断点续训
 )
 ```
 
@@ -77,11 +76,11 @@ $$
 逐项拆解「可复现」需要什么：
 
 - **配置完整记录**：模型、数据、超参、**框架与库的版本**、**随机种子**——缺一项都复现不了；
-- **随机种子固定**：`seed` 影响数据打乱、模型初始化、采样——**不固定 seed，同一个配置跑两次结果不同**，「比较实验」失去意义；
+- **随机种子固定**：seed 影响数据打乱、模型初始化、采样——**不固定 seed，同一个配置跑两次结果不同**，「比较实验」失去意义；
 - **指标统一**：用「同一套评测、同一个解码配置」测不同实验——**指标口径不一致，比较就是错的**；
-- **运行目录规范**：每个实验一个目录（`runs/exp_<时间戳>/`），里面放「配置 + 日志 + checkpoint + 评测结果」——**一个目录 = 一次可追溯的实验**。
+- **运行目录规范**：每个实验一个目录（如 `run_20260807_lr2e-5_s42`），里面放「配置 + 日志 + checkpoint + 评测结果」——**一个目录 = 一次可追溯的实验**。
 
-**工具**：Weights & Biases / TensorBoard 等——自动记录曲线、对比多次运行。**但工具只是载体**，核心是「记录什么」：**配置（含版本与 seed）+ 曲线（loss/LR/吞吐）+ 产物（checkpoint/评测）**三件套，缺一不可。<span class="marginnote">「可复现」的最大敌人不是「没记录」，而是「<strong>记录不全</strong>」：<strong>忘了记录 seed、忘了记录框架版本、忘了记录数据哈希</strong>——这三样任何一样缺了，别人（或三个月后的你）就无法复现。工程经验：把「配置 + 版本 + seed + 数据指纹」打包成一个 `run_config.json` 放进运行目录，比任何花哨的跟踪工具都实在。</span>
+**工具**：Weights & Biases / TensorBoard 等——自动记录曲线、对比多次运行。**但工具只是载体**，核心是「记录什么」：**配置（含版本与 seed）+ 曲线（loss/LR/吞吐）+ 产物（checkpoint/评测）**三件套，缺一不可。<span class="marginnote">「可复现」的最大敌人不是「没记录」，而是「<strong>记录不全</strong>」：<strong>忘了记录 seed、忘了记录框架版本、忘了记录数据哈希</strong>——这三样任何一样缺了，别人（或三个月后的你）就无法复现。工程经验：把「配置 + 版本 + seed + 数据指纹」打包成一个 `manifest.json` 放进运行目录，比任何花哨的跟踪工具都实在。</span>
 
 ## 4 完整流水线的组装：从数据到迭代
 

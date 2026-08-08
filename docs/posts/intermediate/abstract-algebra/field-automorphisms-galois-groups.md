@@ -56,9 +56,9 @@ $$
 ——**Galois 群嵌入根的置换群**。$E$ 的每个元素都被「根如何置换」决定（$E = F(\alpha_1, \dots, \alpha_n)$，$\sigma$ 由它在根上的作用确定）。<span class="marginnote">「$\sigma$ 由它在根上的作用完全决定」是 Galois 理论的关键观察：因为 $E = F(\alpha_1,\dots,\alpha_n)$ 且每个 $\alpha_i$ 由 $f$ 的多项式关系绑定，$\sigma$ 的像由根的像唯一确定。于是研究 Galois 群 = 研究「根集合上的合法置换」。<strong>「解方程的对称性」=「根的置换群」</strong>——这是伽罗瓦把代数问题翻译成群论问题的核心。</span>
 
 **例：**
-- $\operatorname{Gal}(\mathbb{C}/\mathbb{R}) \cong \mathbb{Z}_2$（$\{ \mathrm{id}, \text{共轭} \}$），作用在 $x^2+1$ 的根 $\{i, -i\}$ 上为 $S_2$；
-- $\operatorname{Gal}(\mathbb{Q}(\sqrt2)/\mathbb{Q}) \cong \mathbb{Z}_2$（$\sqrt2 \mapsto \pm\sqrt2$）；
-- $\operatorname{Gal}(\mathbb{F}_{p^n}/\mathbb{F}_p) \cong \mathbb{Z}_n$（Frobenius 生成，第十篇）。
+$\operatorname{Gal}(\mathbb{C}/\mathbb{R}) \cong \mathbb{Z}_2$（$\{ \mathrm{id}, \text{共轭} \}$），作用在 $x^2+1$ 的根 $\{i, -i\}$ 上为 $S_2$；
+$\operatorname{Gal}(\mathbb{Q}(\sqrt2)/\mathbb{Q}) \cong \mathbb{Z}_2$（$\sqrt2 \mapsto \pm\sqrt2$）；
+$\operatorname{Gal}(\mathbb{F}_{p^n}/\mathbb{F}_p) \cong \mathbb{Z}_n$（Frobenius 生成，第十篇）。
 
 ## 3 分裂域的 Galois 群：x^3 - 2 的完整计算
 
@@ -66,9 +66,9 @@ $$
 
 **例：$f = x^3 - 2$ 在 $\mathbb{Q}$ 上，分裂域 $E = \mathbb{Q}(\sqrt[3]2, \omega)$**（$\omega$ 本原三次单位根），根 $\alpha_1 = \sqrt[3]2$、$\alpha_2 = \omega\sqrt[3]2$、$\alpha_3 = \omega^2\sqrt[3]2$。
 
-- $[E : \mathbb{Q}] = 6$（$x^3-2$ 次数 3、$\omega$ 的 $x^2+x+1$ 次数 2）；
-- Galois 群大小 $= [E:\mathbb{Q}] = 6$（Galois 扩张，下节定理），故 $\operatorname{Gal}(E/\mathbb{Q})$ 是 $S_3$ 的 6 阶子群 = $S_3$ 本身；
-- **置换的实况**：$\sigma \in \operatorname{Gal}$ 必须把根送到根。$\omega = \frac{\alpha_2}{\alpha_1}$，$\sigma(\omega)$ 由 $\sigma(\alpha_i)$ 决定。可以验证：任意根的置换都合法（因为 $\mathbb{Q}$ 上 $x^3-2$ 的判别式为负、无二次子域约束），$\operatorname{Gal} \cong S_3$。<span class="marginnote">$x^3 - 2$ 的 Galois 群是 $S_3$（全部 6 个置换），因为它的分裂域「足够大」（次数 $6 = 3!$）。$S_3$ 可解（有正规子群 $A_3$ 且 $A_3$、$S_3/A_3$ 都循环），所以 $x^3 - 2$ 可根式求解——事实也如此（$\sqrt[3]2$ 是根式）。<strong>「Galois 群是否可解」与「方程可否根式求解」的对应，即将在下下节展开。</strong></span>
+$[E : \mathbb{Q}] = 6$（$x^3-2$ 次数 3、$\omega$ 的 $x^2+x+1$ 次数 2）；
+Galois 群大小 $= [E:\mathbb{Q}] = 6$（Galois 扩张，下节定理），故 $\operatorname{Gal}(E/\mathbb{Q})$ 是 $S_3$ 的 6 阶子群 = $S_3$ 本身；
+**置换的实况**：$\sigma \in \operatorname{Gal}$ 必须把根送到根。$\omega = \frac{\alpha_2}{\alpha_1}$，$\sigma(\omega)$ 由 $\sigma(\alpha_i)$ 决定。可以验证：任意根的置换都合法（因为 $\mathbb{Q}$ 上 $x^3-2$ 的判别式为负、无二次子域约束），$\operatorname{Gal} \cong S_3$。<span class="marginnote">$x^3 - 2$ 的 Galois 群是 $S_3$（全部 6 个置换），因为它的分裂域「足够大」（次数 $6 = 3!$）。$S_3$ 可解（有正规子群 $A_3$ 且 $A_3$、$S_3/A_3$ 都循环），所以 $x^3 - 2$ 可根式求解——事实也如此（$\sqrt[3]2$ 是根式）。<strong>「Galois 群是否可解」与「方程可否根式求解」的对应，即将在下下节展开。</strong></span>
 
 ## 4 公式解析：|Gal(E/F)| = [E:F]（对 Galois 扩张）
 

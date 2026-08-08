@@ -36,7 +36,7 @@ date: 2026-08-07
 
 $$
 \max_{\theta} \sum_{\mathbf{x} \in \mathcal{D}} \log P(\mathbf{x}; \theta)
-= \max_{\theta} \sum_{\mathbf{x} \in \mathcal{D}} \sum_{t} \log P(x_t \mid x_{<t}; \theta)
+= \max_{\theta} \sum_{\mathbf{x} \in \mathcal{D}} \sum_{t} \log P(x_t \mid x_{\\lt t}; \theta)
 $$
 
 逐步拆解：
@@ -69,15 +69,13 @@ GPT-3 论文的题目叫《Language Models are Few-Shot Learners》，核心发�
 一个经典的 few-shot 提示长这样：
 
 ```text
-把英文翻译成法语：
-
-sea otter => loutre de mer
-cheese => fromage
-plush giraffe => girafe en peluche
-house =>
+English: cheese => French: fromage
+English: plum => French: prune
+English: apple => French: pomme
+English: pear => French:
 ```
 
-模型看到前三对「英文 => 法语」的例子，就能推断出第四个该填 `maison`——**没有任何梯度更新，答案完全由提示里的例子引导出来**。<span class="marginnote">这个例子摘自 GPT-3 论文。注意它甚至没告诉模型「你要做翻译」——三个例子本身就把「任务格式」教给了模型。上下文学习的最神奇之处就在这：模型在「接着写」的伪装下，完成了一次「模仿示例」的推理。</span>
+模型看到前三对「英文 => 法语」的例子，就能推断出第四个该填 `poire`——**没有任何梯度更新，答案完全由提示里的例子引导出来**。<span class="marginnote">这个例子摘自 GPT-3 论文。注意它甚至没告诉模型「你要做翻译」——三个例子本身就把「任务格式」教给了模型。上下文学习的最神奇之处就在这：模型在「接着写」的伪装下，完成了一次「模仿示例」的推理。</span>
 
 ## 4 公式解析：In-Context Learning 的概率视角
 

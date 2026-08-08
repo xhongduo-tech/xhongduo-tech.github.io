@@ -18,7 +18,7 @@ date: 2026-08-07
 
 上一节我们有了无模型的价值估计——首次访问 MC 预测。但预测只是开胃菜，这一节要动真格：**控制**，即不给定策略、直接找出最优策略 $\pi_*$。思路顺理成章：套用第四篇的广义策略迭代（GPI）——评估与改进交替进行——只是把「评估」部件从 DP 的贝尔曼迭代换成 MC 的回报平均。骨架不变，血肉更新。
 
-然而 MC 评估动作价值时有一个天生的窟窿，上一节结尾我们已经撞上：**确定性的策略只会光顾被它选中的动作，其余动作的价值永远估不到。** 没有样本，`argmax` 就成了在「垃圾估计」里选秀。要堵上这个窟窿，第五篇请出了它的招牌假设——**探索起点（exploring starts）**：把探索从学习过程里抽出来，直接塞进回合的开头。
+然而 MC 评估动作价值时有一个天生的窟窿，上一节结尾我们已经撞上：**确定性的策略只会光顾被它选中的动作，其余动作的价值永远估不到。** 没有样本，贪心（$\arg\max_a$）就成了在「垃圾估计」里选秀。要堵上这个窟窿，第五篇请出了它的招牌假设——**探索起点（exploring starts）**：把探索从学习过程里抽出来，直接塞进回合的开头。
 
 这一节回答三件事：MC 控制长什么样、为什么绕不开探索、以及探索起点如何把 GPI 的轮子转起来。
 
@@ -54,8 +54,8 @@ date: 2026-08-07
 
 这个假设优雅地把问题一刀切开：
 
-- **探索归起点管**：所有 $(s, a)$ 都会在「回合开头」被尝到，估计不会饿死。
-- **学习归策略管**：回合一旦开始，就放心地走贪心策略——不必再在每一步兼顾探索。
+**探索归起点管**：所有 $(s, a)$ 都会在「回合开头」被尝到，估计不会饿死。
+**学习归策略管**：回合一旦开始，就放心地走贪心策略——不必再在每一步兼顾探索。
 
 **重点：ES 的价值在于把「探索」与「策略学习」解耦。** 它用一个「每个角落都去过」的外部保证，换来了学习过程内部的全然贪心。这就像探险队不必在行进时处处兜圈子，而是派出小队从每个岔路口分别出发，把地图画全之后再放心走最短路。
 
@@ -87,52 +87,38 @@ $$q_\pi\!\left(s, \pi'(s)\right) = \max_a q_\pi(s, a) \;\ge\; \sum_a \pi(a \mid 
 
 ```python
 import random
-from collections import defaultdict
 
-STATES = [1, 2, 3, 4]
-ACTIONS = ["L", "R"]
+Q = {(s, a): 0.0 for s in range(1, 5) for a in (-1, 1)}   # 动作价值
+N = {(s, a): 0 for s in range(1, 5) for a in (-1, 1)}     # 首次访问计数
 
-def run_episode(pi, start_s, start_a, gamma=1.0):
-    """从指定 (s, a) 出发，之后跟随贪心策略 pi，返回 [(s, a, G)]。"""
-    s, a = start_s, start_a
-    traj = []                              # (s, a, r)
-    while True:
-        s2 = s + (1 if a == "R" else -1)
-        traj.append((s, a, -1))
-        if s2 in (0, 5):
+def greedy(s):                         # 贪心策略：取 Q 最大的动作
+    return max((-1, 1), key=lambda a: Q[s, a])
+
+for _ in range(200_000):
+    s = random.choice([1, 2, 3, 4])    # 探索起点：随机起始状态
+    a = random.choice([-1, 1])         # 探索起点：随机起始动作
+    traj = []
+    while s not in (0, 5):
+        traj.append((s, a))            # 记录 (s, a)
+        s += a
+        if s in (0, 5):
             break
-        s, a = s2, pi[s2]
-    out, G = [], 0.0
-    for s, a, r in reversed(traj):         # 从后往前累加回报
-        G = r + gamma * G
-        out.append((s, a, G))
-    out.reverse()
-    return out
+        a = greedy(s)                  # 回合开始后一路贪心
 
-def mc_es_control(num_episodes, gamma=1.0):
-    q = defaultdict(float)                 # q(s, a)，初值为 0
-    n = defaultdict(int)
-    pi = {s: random.choice(ACTIONS) for s in STATES}
-    for _ in range(num_episodes):
-        s0 = random.choice(STATES)         # 探索起点：随机 (s, a)
-        a0 = random.choice(ACTIONS)
-        seen = set()
-        for s, a, G in run_episode(pi, s0, a0, gamma):
-            if (s, a) in seen:             # 首次访问：本回合每对 (s,a) 只算一次
-                continue
-            seen.add((s, a))
-            n[s, a] += 1
-            q[s, a] += (G - q[s, a]) / n[s, a]
-        for s in STATES:                   # 策略改进：贪心
-            pi[s] = max(ACTIONS, key=lambda a: q[s, a])
-    return pi, dict(q)
+    G = 0
+    seen = set()
+    for s, a in reversed(traj):        # 首次访问 MC 更新
+        G += -1                        # 每步奖励 -1
+        if (s, a) in seen:
+            continue
+        seen.add((s, a))               # 每回合每个 (s, a) 只更新一次
+        N[s, a] += 1
+        Q[s, a] += (G - Q[s, a]) / N[s, a]
 
-pi, q = mc_es_control(50_000)
-print("策略:", pi)
-print("Q 表:", {k: round(v, 2) for k, v in q.items()})
+print({s: greedy(s) for s in range(1, 5)})   # {1: -1, 2: -1, 3: 1, 4: 1}
 ```
 
-收敛后策略应是「永远往近的一端走」：状态 $1$、$2$ 向左（更快到 $0$），状态 $3$、$4$ 向右（更快到 $5$）。注意代码里「探索」完全由 `random.choice` 的起始点承担，回合开始后策略一路贪心——**这就是 ES 的兑现：探索只存在于开头。**<span class="marginnote">这段代码的回报计算与上一节完全相同（从后往前累加）；MC ES 的唯一新增是「控制起点」与「每回合结束后立即贪心改进」。把 `run_episode` 里 `pi[s2]` 换成某个软策略、并去掉探索起点，它就退化成同策略（ε-贪心）MC 控制。</span>
+收敛后策略应是「永远往近的一端走」：状态 $1$、$2$ 向左（更快到 $0$），状态 $3$、$4$ 向右（更快到 $5$）。注意代码里「探索」完全由 $0$ 的起始点承担，回合开始后策略一路贪心——**这就是 ES 的兑现：探索只存在于开头。**<span class="marginnote">这段代码的回报计算与上一节完全相同（从后往前累加）；MC ES 的唯一新增是「控制起点」与「每回合结束后立即贪心改进」。把 $3$ 里 $4$ 换成某个软策略、并去掉探索起点，它就退化成同策略（ε-贪心）MC 控制。</span>
 
 ## 6 辨析：探索起点 vs ε-软策略，两条探索路线
 

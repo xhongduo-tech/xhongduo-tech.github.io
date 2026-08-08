@@ -65,8 +65,8 @@ ALiBi 外推能力的根源：**它的偏置对任意距离都有定义，且衰
 
 可学习编码（RoPE/正弦）的问题是：模型在训练中只见过「长度 ≤ 训练长度」的注意力权重分布，超长时那些「新距离」从未被优化，softmax 分布失准。ALiBi 不同：
 
-- 训练时，模型学的是「在 ALiBi 线性衰减的框架下，如何用注意力」——位置规则是**固定的环境**，不是被学的内容。
-- 推理时，长度拉长到 2 万、4 万，衰减公式照常生效，只是「更远的距离享受更低的分数」——**模型不需要见过这个距离，就知道该给多少惩罚**。
+训练时，模型学的是「在 ALiBi 线性衰减的框架下，如何用注意力」——位置规则是**固定的环境**，不是被学的内容。
+推理时，长度拉长到 2 万、4 万，衰减公式照常生效，只是「更远的距离享受更低的分数」——**模型不需要见过这个距离，就知道该给多少惩罚**。
 
 这就像用「已知的物理定律」外推到没测量过的区域：只要定律正确，外推就成立。<span class="marginnote">BLOOM-176B 用 ALiBi 训练在 2048 token，实测能流畅处理远超过训练长度的输入。不过 ALiBi 外推也有代价：它在「训练长度内」的绝对性能通常略低于 RoPE——因为 RoPE 在见过范围内学得更精。这是「见过范围内更强」与「未见过范围更稳」的权衡。</span>
 
@@ -91,11 +91,15 @@ $$
 实现极其简单：
 
 ```python
-# 预计算斜率与偏置矩阵
-slopes = torch.tensor([2**(-8 * (h + 1) / num_heads) for h in range(num_heads)])
-alibi = slopes[:, None, None] * torch.abs(pos_i[:, None] - pos_j[None, :])
-# 加到分数上
-scores = (q @ k.transpose(-2, -1)) / sqrt(d_k) + alibi
+def build_alibi_bias(n_heads, max_len):
+    """构造 ALiBi 偏置矩阵，形状 [1, H, max_len, max_len]。"""
+    m = 2 ** (-8 * torch.arange(1, n_heads + 1, dtype=torch.float32) / n_heads)
+    pos = torch.arange(max_len, dtype=torch.float32)
+    rel = (pos[:, None] - pos[None, :]).abs()        # |i - j|
+    return (-m.view(-1, 1, 1) * rel).unsqueeze(0)    # [1, H, L, L]
+
+# 使用时在 softmax 前加到注意力分数上
+att = (q @ k.transpose(-2, -1)) / d_k ** 0.5 + alibi_bias[:, :, :T, :T]
 ```
 
 | 维度 | RoPE | ALiBi |

@@ -55,9 +55,9 @@ $$
 
 为什么 $\cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta$？用向量证明最简洁，拆三步：
 
-- **第一步，单位圆上的两个点**：角 $\alpha$、$\beta$ 的终边与单位圆分别交于 $A(\cos\alpha, \sin\alpha)$、$B(\cos\beta, \sin\beta)$。
-- **第二步，算两向量夹角的余弦**：$\vec{OA}$ 与 $\vec{OB}$ 的夹角是 $\alpha - \beta$，由向量内积公式 $\cos(\alpha - \beta) = \frac{\vec{OA}\cdot\vec{OB}}{|\vec{OA}||\vec{OB}|}$，而 $|\vec{OA}| = |\vec{OB}| = 1$，$\vec{OA}\cdot\vec{OB} = \cos\alpha\cos\beta + \sin\alpha\sin\beta$。
-- **第三步，直接读出**：$\cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta$。
+**第一步，单位圆上的两个点**：角 $\alpha$、$\beta$ 的终边与单位圆分别交于 $A(\cos\alpha, \sin\alpha)$、$B(\cos\beta, \sin\beta)$。
+**第二步，算两向量夹角的余弦**：$\vec{OA}$ 与 $\vec{OB}$ 的夹角是 $\alpha - \beta$，由向量内积公式 $\cos(\alpha - \beta) = \frac{\vec{OA}\cdot\vec{OB}}{|\vec{OA}||\vec{OB}|}$，而 $|\vec{OA}| = |\vec{OB}| = 1$，$\vec{OA}\cdot\vec{OB} = \cos\alpha\cos\beta + \sin\alpha\sin\beta$。
+**第三步，直接读出**：$\cos(\alpha - \beta) = \cos\alpha\cos\beta + \sin\alpha\sin\beta$。
 
 <span class="marginnote">这个证明展示了「向量内积」的威力：几何角度的差，变成两个单位向量的内积。到第二篇《空间向量与立体几何》你会看到同一思想在三维空间的版本。这也是「数形结合」最优雅的一次合作。</span>
 
@@ -113,9 +113,9 @@ $$
 
 三角恒等变换的三类典型应用：
 
-- **给值求值**：已知 $\sin\alpha = \frac{3}{5}$、$\cos\beta = -\frac{5}{13}$ 等，求 $\sin(\alpha + \beta)$——先分别求出所需函数值（注意象限定符号），再套公式；
-- **给值求角**：已知函数值求角，先求角的范围再定角——范围决定取舍；
-- **证明恒等式**：从左到右、从繁到简、统一函数（都化成 $\sin$、$\cos$）、活用「1」的代换。
+**给值求值**：已知 $\sin\alpha = \frac{3}{5}$、$\cos\beta = -\frac{5}{13}$ 等，求 $\sin(\alpha + \beta)$——先分别求出所需函数值（注意象限定符号），再套公式；
+**给值求角**：已知函数值求角，先求角的范围再定角——范围决定取舍；
+**证明恒等式**：从左到右、从繁到简、统一函数（都化成 $\sin$、$\cos$）、活用「1」的代换。
 
 <span class="marginnote">证明恒等式的通用策略：<strong>从复杂的一边入手，化简到简单的一边</strong>；遇到 $\tan$ 就写成分式；需要统一角度就考虑二倍角/降幂。本质是「朝着目标单向变形」——这正是前面《几何证明的基本方法》里分析法的三角版本。</span>
 

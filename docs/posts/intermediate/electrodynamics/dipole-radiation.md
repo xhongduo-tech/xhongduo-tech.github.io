@@ -62,9 +62,9 @@ $$P = \frac{q^2 a^2}{6\pi\varepsilon_0 c^3}$$
 
 这是全节最反直觉、也最关键的一点：
 
-- **第一步，回顾静态场**：静电场 $E \propto 1/r^2$，穿过大球面的通量 $\int E\cdot\mathrm{d}S \propto (1/r^2)\cdot r^2 = \text{常数}$——总能量静止不动，无辐射。静态场的能量「锁」在源附近。
-- **第二步，看推迟势的结构**：辐射区矢势 $\widetilde{\mathbf{A}} \propto \dfrac{p_0}{r}e^{ikr}$。取旋度 $\nabla\times\widetilde{\mathbf{A}}$ 时，作用在 $e^{ikr}/r$ 上有两类项：作用在 $1/r$ 得 $\propto 1/r^2$（近场、静态型），作用在 $e^{ikr}$ 得 $\propto ik(1/r)$（远场、辐射型）。**辐射场正是「梯度打在相位因子 $e^{ikr}$ 上」产出的那一项**，比静态项慢一个 $r$ 量级。<span class="marginnote">也就是说：推迟势的相位因子 $e^{ikr}$ 是辐射的发动机。没有相位因子（静态源），一切场都按 $1/r^2$ 衰减；有了随距离变化的相位，旋度就能「多扣」出一个 $1/r$ 的辐射项。这个「相位因子 → $1/r$ 场」的结构，是所有辐射问题的共同骨架。</span>
-- **第三步，能量论证**：能流 $|\langle\mathbf{S}\rangle| \propto E^2 \propto 1/r^2$。对半径 $r$ 的球面积分，$P = \int\langle S\rangle\,\mathrm{d}A \propto (1/r^2)\cdot 4\pi r^2 = \text{常数}$——**总辐射功率与 $r$ 无关**，能量离开源永不回头。这正是「辐射」的定义：功率独立于观测距离，源源不断地把源的能量带走。
+**第一步，回顾静态场**：静电场 $E \propto 1/r^2$，穿过大球面的通量 $\int E\cdot\mathrm{d}S \propto (1/r^2)\cdot r^2 = \text{常数}$——总能量静止不动，无辐射。静态场的能量「锁」在源附近。
+**第二步，看推迟势的结构**：辐射区矢势 $\widetilde{\mathbf{A}} \propto \dfrac{p_0}{r}e^{ikr}$。取旋度 $\nabla\times\widetilde{\mathbf{A}}$ 时，作用在 $e^{ikr}/r$ 上有两类项：作用在 $1/r$ 得 $\propto 1/r^2$（近场、静态型），作用在 $e^{ikr}$ 得 $\propto ik(1/r)$（远场、辐射型）。**辐射场正是「梯度打在相位因子 $e^{ikr}$ 上」产出的那一项**，比静态项慢一个 $r$ 量级。<span class="marginnote">也就是说：推迟势的相位因子 $e^{ikr}$ 是辐射的发动机。没有相位因子（静态源），一切场都按 $1/r^2$ 衰减；有了随距离变化的相位，旋度就能「多扣」出一个 $1/r$ 的辐射项。这个「相位因子 → $1/r$ 场」的结构，是所有辐射问题的共同骨架。</span>
+**第三步，能量论证**：能流 $|\langle\mathbf{S}\rangle| \propto E^2 \propto 1/r^2$。对半径 $r$ 的球面积分，$P = \int\langle S\rangle\,\mathrm{d}A \propto (1/r^2)\cdot 4\pi r^2 = \text{常数}$——**总辐射功率与 $r$ 无关**，能量离开源永不回头。这正是「辐射」的定义：功率独立于观测距离，源源不断地把源的能量带走。
 
 ## 5 辐射场与近场、天线
 

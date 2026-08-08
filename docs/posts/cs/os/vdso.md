@@ -22,17 +22,17 @@ date: 2026-08-07
 
 **vDSO（virtual DSO, virtual Dynamic Shared Object）**：内核映射进每个进程地址空间的一小段「虚拟共享库」——它包含一些**可以在用户态直接执行**的内核服务实现。
 
-- 程序调用 `gettimeofday()` → libc 跳转**到 vDSO 里的实现**（在用户态）→ **直接读内核映射的时钟数据** → 返回。
+- 程序调用 `gettimeofday` → libc 跳转**到 vDSO 里的实现**（在用户态）→ **直接读内核映射的时钟数据** → 返回。
 - **全程用户态，零系统调用**。
 
 **vDSO 与普通共享库的区别**：
 
-- 普通 `.so` 来自磁盘文件；**vDSO 由内核在内存中构造**（`linux-vdso.so.1`），随进程映射。
+- 普通 `.so` 共享库来自磁盘文件；**vDSO 由内核在内存中构造**（进程内存映射中显示为 `[vdso]`），随进程映射。
 - 普通库函数要系统调用；**vDSO 里的函数（gettimeofday、clock_gettime、getcpu）无需系统调用**。
 
-```bash
-# 查看进程的 vDSO 映射
-cat /proc/self/maps | grep vdso
+```
+$ cat /proc/self/maps | grep vdso
+7ffe6a1fe000-7ffe6a200000 r-xp 00000000 00:00 0      [vdso]
 ```
 
 ## 2 vDSO 如何工作：数据 + 代码
@@ -40,12 +40,14 @@ cat /proc/self/maps | grep vdso
 **vDSO 的两部分**：
 
 - **共享数据**：内核把「当前时钟值、时区信息」写入**共享页**，映射进用户空间。
-- **用户态代码**：vDSO 里的 `gettimeofday` 实现**直接读共享页**，计算时间并返回。
+- **用户态代码**：vDSO 里的 `clock_gettime` 实现**直接读共享页**，计算时间并返回。
 
 ```
-内核：维护时钟 → 写入共享页（定期更新）
-用户：gettimeofday() → vDSO 实现 → 读共享页 → 返回
-       （零系统调用，纳秒级）
+// 用户态直接读共享页（简化伪代码）
+struct vdso_data *vd = get_vdso_data();          // 共享页
+ts.tv_sec  = vd->clock_data[CLOCK_REALTIME].sec;
+ts.tv_nsec = vd->clock_data[CLOCK_REALTIME].nsec;
+return 0;
 ```
 
 **为什么安全**：vDSO 只读**内核故意公开的数据**（时钟、时区）——不暴露内核其他内容。**「开放哪些数据」由内核严格控制**，用户只能读这些只读数据。
@@ -66,7 +68,7 @@ $$\text{gettimeofday 开销} = \begin{cases} \sim 1\text{µs} & \text{系统调�
 
 **不适用的**：需要内核真正执行的操作（读写文件、分配内存、创建进程）——**这些无法在用户态完成，必须系统调用**。
 
-**辨析｜易错点：** 「vDSO 能加速所有系统调用」是误解。**vDSO 只覆盖「纯读数据」的一小撮操作**——绝大多数系统调用（文件、网络、进程）仍要进内核。**vDSO 的边界是「用户态能不能安全地自己完成」**——只有「只读公开数据」才符合。<span class="marginnote">vDSO 的思想可以概括为「<strong>把只读的共享状态降级到用户态</strong>」——本质是「内核与用户共享一块只读内存」的机制。类似的思路还有：`read` 的 `MAP_SHARED` 共享文件页、`mmap` 的零拷贝（回顾《mmap》）——<strong>「共享只读数据避免模式切换」是系统性能优化的一大门类</strong>。</span>
+**辨析｜易错点：** 「vDSO 能加速所有系统调用」是误解。**vDSO 只覆盖「纯读数据」的一小撮操作**——绝大多数系统调用（文件、网络、进程）仍要进内核。**vDSO 的边界是「用户态能不能安全地自己完成」**——只有「只读公开数据」才符合。<span class="marginnote">vDSO 的思想可以概括为「<strong>把只读的共享状态降级到用户态</strong>」——本质是「内核与用户共享一块只读内存」的机制。类似的思路还有：`mmap` 的文件页共享、`sendfile` 的零拷贝（回顾《mmap》）——<strong>「共享只读数据避免模式切换」是系统性能优化的一大门类</strong>。</span>
 
 ## 4 核心对比表：vDSO vs 系统调用
 

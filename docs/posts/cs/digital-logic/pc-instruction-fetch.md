@@ -27,16 +27,9 @@ CPU 要执行程序，第一步是「**取指令**」——知道下一条指令
 - **顺序执行**：每拍 PC 加 4（32 位指令按字节编址）或加 1（按指令编址）。
 - **跳转**：遇到分支/跳转指令，PC 被改为目标地址。
 
-```verilog
-always @(posedge clk or negedge rst_n) begin
-    if (!rst_n)
-        pc <= 32'h0000_0000;      // 复位从 0 开始
-    else if (branch_taken)
-        pc <= branch_target;      // 跳转
-    else
-        pc <= pc + 4;             // 顺序执行，下一条
-end
-```
+$$
+\text{PC}_{next} = \begin{cases} \text{PC} + 4, & \text{顺序执行} \\ \text{target}, & \text{跳转} \end{cases}
+$$
 
 **关键点**：PC 是**时序寄存器**，每拍更新一次——它驱动整个 CPU 按拍推进。<span class="marginnote">PC 的「<strong>拍节</strong>」就是 CPU 的「节拍」：每来一个时钟，PC 指向下一条指令。顺序 +4、跳转改目标——这就是程序「按顺序又能在分支处拐弯」的硬件机制。现代流水线 CPU 的 PC 每拍推进多条（取多条指令），但基本原理相同。</span>
 
@@ -44,19 +37,15 @@ end
 
 **指令存储器（Instruction Memory）**：存程序代码，用 PC 作为地址读取指令。它可以是 ROM（固定程序）或 RAM（可加载程序）。
 
-```verilog
-// 简化的指令存储器（ROM 形式）
-reg [31:0] imem [0:255];
-assign instr = imem[pc[9:2]];   // 用 PC 取指令
-```
+$$
+\text{Instr} = \text{Mem}[\text{PC}]
+$$
 
 **指令寄存器（Instruction Register, IR）**：暂存刚取出的指令，供译码阶段使用。
 
-```verilog
-always @(posedge clk) begin
-    ir <= instr;    // 每拍锁存当前指令
-end
-```
+$$
+\text{IR} \leftarrow \text{Instr} \quad (\text{每拍时钟边沿锁存})
+$$
 
 **为什么要 IR**：取出的指令要「稳住」供译码使用——如果不锁存，下一拍 PC 变化后指令就没了。IR 把指令「冻结」一个周期。<span class="marginnote">IR 的意义：<strong>「取指与译码解耦」</strong>——取指令这一拍把指令抓进 IR，下一拍译码/执行可以用稳定的指令信号。这在非流水线 CPU 里就已需要，流水线 CPU 里每个阶段之间都要这样「锁存」——IR 是流水线寄存器的雏形。</span>
 
@@ -65,9 +54,23 @@ end
 把三部分连成取指电路：
 
 ```
-PC ──► 指令存储器 ──► 指令 ──► IR ──► 译码
- │
- └──(PC+4 或跳转目标)──► 更新下一拍 PC
+        clk ─────┐
+                 ▼
+   +-----------+     addr      +------------+
+   │    PC     │──────────────▶│ 指令存储器  │
+   │ (时序寄存器)│              +------------+
+   +-----------+                    │
+       ▲    │                       ▼ instr
+       │    │                    +-----------+
+       │    └──────────────────▶ │    IR     │
+       │      (当前 PC 指令)      │ (边沿锁存) │
+       │                         +-----------+
+       │                              │
+       │                              ▼
+   +---+------------+            译码电路
+   │  PC 更新（MUX） │
+   │  +4 / 跳转目标  │
+   +----------------+
 ```
 
 **取指流程**：
@@ -80,22 +83,26 @@ PC ──► 指令存储器 ──► 指令 ──► IR ──► 译码
 **Verilog 完整取指模块**：
 
 ```verilog
-module fetch #(parameter W = 32)(
-    input              clk, rst_n,
-    input              branch_taken,
-    input  [W-1:0]     branch_target,
-    output reg [W-1:0] pc,
-    output [W-1:0]     instr
+module fetch_unit (
+    input  wire        clk,
+    input  wire        rst_n,
+    input  wire        branch_taken,      // 分支跳转信号
+    input  wire [31:0] branch_target,     // 跳转目标地址
+    output reg  [31:0] pc,                // 程序计数器
+    output wire [31:0] instr              // 取出的指令
 );
-    // 指令存储器
-    reg [W-1:0] imem [0:1023];
-    assign instr = imem[pc[11:2]];
+    // 指令存储器：组合读（PC 变、指令立刻出）
+    reg [31:0] imem [0:1023];
+    assign instr = imem[pc[31:2]];
 
-    // PC 更新
+    // PC：时序写（边沿更新）
     always @(posedge clk or negedge rst_n) begin
-        if (!rst_n)         pc <= 32'b0;
-        else if (branch_taken) pc <= branch_target;
-        else                pc <= pc + 4;
+        if (!rst_n)
+            pc <= 32'h0000_0000;
+        else if (branch_taken)
+            pc <= branch_target;          // 跳转
+        else
+            pc <= pc + 32'd4;             // 顺序执行
     end
 endmodule
 ```
@@ -116,14 +123,26 @@ $$\text{PC}_{next} = \text{target}$$
 
 **第三步，分支目标计算**：RISC 常用「PC 相对寻址」：$\text{target} = \text{PC} + \text{offset}$（offset 是指令里的偏移量）。
 
-**第四步，举例**：地址 0x100 处有一条 `beq` 指令，条件成立且 offset=0x08，则跳转到 $0x100 + 8 = 0x108$。若条件不成立，PC+4 = 0x104 继续顺序执行。<span class="marginnote">「PC 相对」是分支寻址的主流（RISC-V、ARM、x86 都用）：<strong>分支目标 = PC + 偏移</strong>。它让代码可以在内存中任意位置运行（位置无关代码），因为偏移是相对的。理解了 `PC+4 或 PC+offset`，就理解了程序的「顺序与分支」如何在硬件上统一。</span>
+**第四步，举例**：地址 0x100 处有一条 <code>beq</code>（条件分支相等跳转）指令，条件成立且 offset=0x08，则跳转到 $0x100 + 8 = 0x108$。若条件不成立，PC+4 = 0x104 继续顺序执行。<span class="marginnote">「PC 相对」是分支寻址的主流（RISC-V、ARM、x86 都用）：<strong>分支目标 = PC + 偏移</strong>。它让代码可以在内存中任意位置运行（位置无关代码），因为偏移是相对的。理解了「PC 相对寻址」，就理解了程序的「顺序与分支」如何在硬件上统一。</span>
 
 ## 5 取指与后续阶段的衔接
 
 取指是「取指-译码-执行」循环的第一步：
 
 ```
-取指（PC→取指令→IR）→ 译码（分析指令→产生控制信号）→ 执行（ALU/访存/写回）
+      ┌─────────── 取指（IF）───────────┐
+      │  PC → 指令存储器 → IR           │
+      └──────────────┬────────────────┘
+                     ▼
+      ┌─────────── 译码（ID）───────────┐
+      │  IR → 操作码 / 寄存器号 / 立即数  │
+      └──────────────┬────────────────┘
+                     ▼
+      ┌─────────── 执行（EX）───────────┐
+      │  ALU 计算 / 访存 / 写回          │
+      └──────────────┬────────────────┘
+                     ▼
+              更新 PC，回到取指
 ```
 
 **下一节**将讲译码：指令从 IR 出来后，如何被拆解成「操作码 + 寄存器号 + 立即数」，进而产生控制信号。取指电路是整个循环的「发动机」——它每拍送出一条指令，驱动后续阶段不断工作。<span class="marginnote">从「从极限到大模型」的视角：<strong>GPU、TPU 里的取指也是同样的 PC + 指令存储器结构</strong>——只不过它们取的是「指令流」、执行的是「向量/矩阵指令」。理解最小 CPU 的取指，就理解了所有处理器的「读程序」起点。</span>

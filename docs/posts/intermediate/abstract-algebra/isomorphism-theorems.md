@@ -46,9 +46,9 @@ $$
 
 **证明：** 取映射 $f : H \to HN/N$，$f(h) = hN$。验证：
 
-- **$f$ 是同态**：$f(h_1h_2) = h_1h_2N = (h_1N)(h_2N) = f(h_1)f(h_2)$；
-- **$f$ 是满射**：$HN/N$ 中任意元素 $(hn)N = hN = f(h)$（$hnN = hN$ 因为 $n \in N$），所以每个陪集都来自某个 $h$；
-- **$\ker f$**：$f(h) = N \iff hN = N \iff h \in N$，故 $\ker f = H \cap N$。
+**$f$ 是同态**：$f(h_1h_2) = h_1h_2N = (h_1N)(h_2N) = f(h_1)f(h_2)$；
+**$f$ 是满射**：$HN/N$ 中任意元素 $(hn)N = hN = f(h)$（$hnN = hN$ 因为 $n \in N$），所以每个陪集都来自某个 $h$；
+**$\ker f$**：$f(h) = N \iff hN = N \iff h \in N$，故 $\ker f = H \cap N$。
 
 由第一同构定理，$H / (H \cap N) \cong HN/N$。$\blacksquare$<span class="marginnote">证明又一次是「构造满同态 + 套第一同构定理」的流水线。核心是 $hnN = hN$ 这一步：$N$ 的元素混进陪集不改变陪集（因为 $nN = N$），这让 $f$ 天然满射。第二同构定理也可以读成：<strong>「$HN$ 里的 $N$ 分量可以被吸收掉」</strong>。</span>
 

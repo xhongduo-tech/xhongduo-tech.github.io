@@ -20,7 +20,7 @@ epoll 有两种触发模式：**水平触发（LT）**与**边缘触发（ET）*
 
 ## 1 水平触发 LT：状态持续则持续通知
 
-**水平触发（LT, Level-Triggered）**：fd **处于就绪状态**期间，每次 `epoll_wait` 都会报告它。
+**水平触发（LT, Level-Triggered）**：fd **处于就绪状态**期间，每次 `epoll_wait()` 都会报告它。
 
 - socket 有数据 → 就绪 → epoll_wait 返回它。
 - **即使你这次没读完**，下次 epoll_wait **还会返回它**（数据还在，状态仍就绪）。
@@ -41,22 +41,23 @@ epoll 有两种触发模式：**水平触发（LT）**与**边缘触发（ET）*
 **ET 的陷阱（经典 bug）**：
 
 ```c
-// ET 模式错误写法：读一次就不读了
-n = read(fd, buf, 1024);
-// 假设 socket 有 10KB 数据，只读了 1KB
-// 剩下 9KB 不会再被通知（没有新数据到达）
-// → 数据永远读不完，连接「卡死」
+/* 错误写法：读完一次就返回 */
+int n = epoll_wait(epfd, events, MAX, -1);
+read(events[0].data.fd, buf, 1024);   /* 只读了一部分 */
+/* 剩余数据不会再通知 → 数据卡死 */
 ```
 
 **ET 的正确写法：必须循环读到 EAGAIN**：
 
 ```c
-// ET 模式正确写法：读到读不动为止
-while (1) {
+/* 正确写法：循环读到 EAGAIN */
+for (;;) {
     n = read(fd, buf, sizeof(buf));
-    if (n > 0) 处理(buf);
-    else if (n == 0) { /* EOF */ break; }
-    else if (errno == EAGAIN) break;   // 读空了，退出
+    if (n < 0) {
+        if (errno == EAGAIN) break;   /* 读完了，退出循环 */
+        break;                        /* 其他错误 */
+    }
+    handle(buf, n);
 }
 ```
 

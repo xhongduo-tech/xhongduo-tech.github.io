@@ -56,9 +56,9 @@ $$
 
 三角形式下的除法同样优雅，拆三步：
 
-- **第一步，写出除法规则**：$\dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\big[\cos(\theta_1-\theta_2)+i\sin(\theta_1-\theta_2)\big]$——**模相除，辐角相减**。这可由乘法规则反推：$z_1=z_2\cdot\frac{z_1}{z_2}$，模和辐角分别相乘相加，解出 $\frac{z_1}{z_2}$ 的模为 $\frac{r_1}{r_2}$、辐角为 $\theta_1-\theta_2$。
-- **第二步，几何直觉**：除以 $z_2$ 是乘 $z_2$ 的逆操作——模收缩 $r_2$ 倍，辐角减去 $\theta_2$。乘法转几圈，除法就转回去几圈，方向相反。
-- **第三步，特例验证**：$\dfrac{1}{i}=\dfrac{\cos 0+i\sin 0}{\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}}=\cos\left(-\frac{\pi}{2}\right)+i\sin\left(-\frac{\pi}{2}\right)=-i$——与上一节 $i^{-1}=-i$ 的结果一致，两套方法互相印证。
+**第一步，写出除法规则**：$\dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\big[\cos(\theta_1-\theta_2)+i\sin(\theta_1-\theta_2)\big]$——**模相除，辐角相减**。这可由乘法规则反推：$z_1=z_2\cdot\frac{z_1}{z_2}$，模和辐角分别相乘相加，解出 $\frac{z_1}{z_2}$ 的模为 $\frac{r_1}{r_2}$、辐角为 $\theta_1-\theta_2$。
+**第二步，几何直觉**：除以 $z_2$ 是乘 $z_2$ 的逆操作——模收缩 $r_2$ 倍，辐角减去 $\theta_2$。乘法转几圈，除法就转回去几圈，方向相反。
+**第三步，特例验证**：$\dfrac{1}{i}=\dfrac{\cos 0+i\sin 0}{\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}}=\cos\left(-\frac{\pi}{2}\right)+i\sin\left(-\frac{\pi}{2}\right)=-i$——与上一节 $i^{-1}=-i$ 的结果一致，两套方法互相印证。
 
 除法的三角形式说明：**复数的四则运算在三角表示下，全部变成「模的代数运算 + 辐角的加减」**——指数级的简洁。<span class="marginnote">这就是为什么工程上做相量计算都用三角或指数形式：乘除变成加减，极大简化了交流电路、振动叠加的运算。欧拉公式 $e^{i\theta}=\cos\theta+i\sin\theta$ 把三角形式升级为指数形式后，这套简洁达到极致——那是大学复变函数的内容。</span>
 
@@ -84,9 +84,9 @@ $$
 
 $z_1=\sqrt2\left(\cos\frac\pi4+i\sin\frac\pi4\right)$，$z_2=2\left(\cos\frac\pi6+i\sin\frac\pi6\right)$，求 $z_1z_2$ 与 $\frac{z_1}{z_2}$。
 
-- **第一步，乘法**：模相乘 $\sqrt2\times2=2\sqrt2$，辐角相加 $\frac\pi4+\frac\pi6=\frac{5\pi}{12}$，$z_1z_2=2\sqrt2\left(\cos\frac{5\pi}{12}+i\sin\frac{5\pi}{12}\right)$。
-- **第二步，除法**：模相除 $\frac{\sqrt2}{2}$，辐角相减 $\frac\pi4-\frac\pi6=\frac{\pi}{12}$，$\frac{z_1}{z_2}=\frac{\sqrt2}{2}\left(\cos\frac{\pi}{12}+i\sin\frac{\pi}{12}\right)$。
-- **第三步，验证代数形式**：$z_1=1+i$，$z_2=\sqrt3+i$，$z_1z_2=(1+i)(\sqrt3+i)=(\sqrt3-1)+(\sqrt3+1)i$——用三角形式算出的模与辐角与之吻合。
+**第一步，乘法**：模相乘 $\sqrt2\times2=2\sqrt2$，辐角相加 $\frac\pi4+\frac\pi6=\frac{5\pi}{12}$，$z_1z_2=2\sqrt2\left(\cos\frac{5\pi}{12}+i\sin\frac{5\pi}{12}\right)$。
+**第二步，除法**：模相除 $\frac{\sqrt2}{2}$，辐角相减 $\frac\pi4-\frac\pi6=\frac{\pi}{12}$，$\frac{z_1}{z_2}=\frac{\sqrt2}{2}\left(\cos\frac{\pi}{12}+i\sin\frac{\pi}{12}\right)$。
+**第三步，验证代数形式**：$z_1=1+i$，$z_2=\sqrt3+i$，$z_1z_2=(1+i)(\sqrt3+i)=(\sqrt3-1)+(\sqrt3+1)i$——用三角形式算出的模与辐角与之吻合。
 
 <span class="marginnote">三角形式乘除的优越性：<strong>不用展开多项式，模相乘除、辐角相加减，一步写出结果</strong>。特别是「开方」——$z^3=w$ 的根用三角形式求：模取 $\sqrt[3]{|w|}$，辐角取 $\frac{\theta+2k\pi}{3}$，$k=0,1,2$ 三个根均匀分布在圆周上。<strong>三角形式是「旋转与缩放」的语言</strong>，凡涉及乘除、幂、开方，它都比代数形式简洁得多。</span>
 
@@ -94,9 +94,9 @@ $z_1=\sqrt2\left(\cos\frac\pi4+i\sin\frac\pi4\right)$，$z_2=2\left(\cos\frac\pi
 
 把 $z=-1+\sqrt3\,i$ 写成三角形式。
 
-- **第一步，求模**：$r=|z|=\sqrt{1+3}=2$。
-- **第二步，求辐角**：$\cos\theta=-\frac12$，$\sin\theta=\frac{\sqrt3}{2}$，点 $(-1,\sqrt3)$ 在第二象限，$\theta=\frac{2\pi}{3}$。
-- **第三步，写三角形式**：$z=2\left(\cos\frac{2\pi}{3}+i\sin\frac{2\pi}{3}\right)$。
+**第一步，求模**：$r=|z|=\sqrt{1+3}=2$。
+**第二步，求辐角**：$\cos\theta=-\frac12$，$\sin\theta=\frac{\sqrt3}{2}$，点 $(-1,\sqrt3)$ 在第二象限，$\theta=\frac{2\pi}{3}$。
+**第三步，写三角形式**：$z=2\left(\cos\frac{2\pi}{3}+i\sin\frac{2\pi}{3}\right)$。
 
 <span class="marginnote">「代数转三角」的三步：<strong>求模 $r=\sqrt{a^2+b^2}$ → 由 $\cos\theta=\frac ar$、$\sin\theta=\frac br$ 定辐角（注意象限）→ 写 $r(\cos\theta+i\sin\theta)$</strong>。由 $\tan\theta=\frac ba$ 反求角时要看点 $(a,b)$ 所在象限，否则辐角可能差 $\pi$。</span>
 

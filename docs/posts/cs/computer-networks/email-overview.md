@@ -22,7 +22,7 @@ date: 2026-08-07
 
 ## 1 电子邮件的组成：三个角色
 
-电子邮件系统由三部分组成：<span class="marginnote"><strong>用户代理（UA，User Agent）</strong>——你用的邮件客户端（Outlook、Gmail 网页、手机邮件 App），负责写信、读信、管理邮件。<strong>邮件服务器</strong>——负责收发与存储邮件的「邮局」，长期在线、随时收信。<strong>邮件协议</strong>——<strong>SMTP</strong>（发送）、<strong>POP3/IMAP</strong>（接收），规定服务器之间与客户端之间的通信规则。<strong>「客户端管读写，服务器管收发存」</strong>是三者分工的一句话。</span>
+电子邮件系统由三部分组成：<span class="marginnote"><strong>用户代理（UA，User Agent）</strong>——你用的邮件客户端（Outlook、Gmail 网页、手机邮件 App），负责写信、读信、管理邮件。<strong>邮件服务器</strong>——负责收发与存储邮件的「邮局」，长期在线、随时收信。<strong>邮件协议</strong>——<strong>SMTP</strong>`（发送）、<strong>POP3/IMAP</strong>`（接收），规定服务器之间与客户端之间的通信规则。<strong>「客户端管读写，服务器管收发存」</strong>是三者分工的一句话。</span>
 
 | 组成 | 职责 | 例子 |
 | --- | --- | --- |

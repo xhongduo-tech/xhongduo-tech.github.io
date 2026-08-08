@@ -72,7 +72,7 @@ $$\nabla(\lambda f + \mu g) = \lambda\nabla f + \mu\nabla g, \qquad \nabla(fg) =
 
 梯度是「从微积分到机器学习」最重要的摆渡人：
 
-- **梯度下降**：$\theta \leftarrow \theta - \eta \nabla L(\theta)$——沿负梯度（最陡下降）更新参数，$\eta$ 是学习率。<span class="marginnote">梯度下降的每一步都「问」梯度：<strong>参数往哪调损失降得最快？答：负梯度方向</strong>。学习率 $\eta$ 控制步长（太大振荡发散、太小收敛缓慢）。深度学习中 SGD、Adam、RMSProp 全是梯度下降的变体——<strong>你在这里学的「负梯度 = 最陡下降」，是全部深度学习训练的核心法则</strong>。</span>
+**梯度下降**：$\theta \leftarrow \theta - \eta \nabla L(\theta)$——沿负梯度（最陡下降）更新参数，$\eta$ 是学习率。<span class="marginnote">梯度下降的每一步都「问」梯度：<strong>参数往哪调损失降得最快？答：负梯度方向</strong>。学习率 $\eta$ 控制步长（太大振荡发散、太小收敛缓慢）。深度学习中 SGD、Adam、RMSProp 全是梯度下降的变体——<strong>你在这里学的「负梯度 = 最陡下降」，是全部深度学习训练的核心法则</strong>。</span>
 - **数值最优化**：梯度信息（一阶）驱动几乎所有现代优化器；梯度为 0 处是驻点（极值或鞍点）。
 - **物理场论**：势场的梯度是力（$\mathbf{F} = -\nabla U$）、温度梯度的负方向是热流方向——「场中势差驱动流动」的数学表述。
 - **图像处理**：图像梯度检测边缘（Sobel 算子等）——灰度变化最剧烈的方向。

@@ -51,7 +51,7 @@ $$
 
 拆三步理解 eCPM 作为排序分数的合理性：
 
-- **第一步，漏斗拆解**：`曝光 → 点击 → 转化` 是条件概率链：$p(\text{conv}) = p(\text{click}) \times p(\text{conv}|\text{click})$（见 [[multi-objective-fusion-weighting]] 的乘法融合）。eCPM 的 CTR × CVR 正是这条链的期望收益。
+- **第一步，漏斗拆解**：$p(\text{conv}) = p(\text{click}) \times p(\text{conv}|\text{click})$ 是条件概率链：$p(\text{conv}) = p(\text{click}) \times p(\text{conv}|\text{click})$（见 [[multi-objective-fusion-weighting]] 的乘法融合）。eCPM 的 CTR × CVR 正是这条链的期望收益。
 - **第二步，三方利益的统一**：平台收入 = 曝光量 × eCPM。**按 eCPM 排序，平台收入最大化**；同时 CTR/CVR 高 = 广告相关、用户爱点，value 高 = 广告主肯出价。**eCPM 高，通常意味着用户、广告主、平台三方都受益**——这是它能成为排序分数的根本原因。
 - **第三步，与自然推荐的对比**：自然推荐按「预估用户满意度」排序（如 CTR）；广告按「eCPM」排序——**广告在「用户相关性」上叠加了「商业价值」**。eCPM 低的广告，即使相关内容，也可能排不到前面。
 

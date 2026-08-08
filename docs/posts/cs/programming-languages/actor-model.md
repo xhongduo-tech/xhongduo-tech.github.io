@@ -22,32 +22,30 @@ date: 2026-08-07
 
 **Actor（行动者）**：一个并发计算实体，由三部分组成：
 
-- **状态（state）**：Actor 私有的数据——只有自己可访问。
-- **行为（behavior）**：收到消息时的处理逻辑（可改变状态、发消息、创建 Actor）。
-- **邮箱（mailbox）**：收到的消息队列——异步送达，先到先处理（或按选择）。
+**状态（state）**：Actor 私有的数据——只有自己可访问。
+**行为（behavior）**：收到消息时的处理逻辑（可改变状态、发消息、创建 Actor）。
+**邮箱（mailbox）**：收到的消息队列——异步送达，先到先处理（或按选择）。
 
-```elixir
-defmodule Counter do                    # Elixir（Erlang VM）
-  def loop(count) do
-    receive do
-      {:increment, from} ->
-        send(from, {:ok, count + 1})
-        loop(count + 1)                 # 更新状态，继续循环
-    end
-  end
-end
+```erlang
+loop(State) ->
+    receive
+        {msg, From, Payload} ->
+            NewState = handle(Payload, State),   % 处理消息：可能改变状态
+            From ! {reply, ok},                  % 发消息给其他 Actor
+            loop(NewState)                       % 递归重入，携带新状态
+    end.
 ```
 
-Actor 的「loop」模式：接收消息 → 处理 → 递归调用自身（携带新状态）——**状态在递归参数里流转**，无共享可变状态。<span class="marginnote">Actor 的状态更新靠「递归重入」而非「修改变量」：`loop(count+1)` 开启「下一个自己」，携带新状态。这继承了函数式「状态即参数」的哲学——Actor 里没有共享的可变内存，只有每个 Actor 自己的状态流转。</span>
+Actor 的「loop」模式：接收消息 → 处理 → 递归调用自身（携带新状态）——**状态在递归参数里流转**，无共享可变状态。<span class="marginnote">Actor 的状态更新靠「递归重入」而非「修改变量」：`loop(NewState)` 开启「下一个自己」，携带新状态。这继承了函数式「状态即参数」的哲学——Actor 里没有共享的可变内存，只有每个 Actor 自己的状态流转。</span>
 
 ## 2 消息的异步性与有序性
 
 Actor 通信是**异步**的：发送方发完即走，消息进接收方邮箱。<span class="marginnote">Erlang 对同一发送方到同一接收方的消息保证<strong>顺序性</strong>——但不同发送方之间的顺序不保证。这个「单源有序」保证让协议设计可预测（请求-响应对不乱序），又保留异步的灵活性。</span>
 
 ```erlang
-Pid ! {msg, self()},   % 发送（! 是发送运算符）
+Pid ! {compute, self()},   % 发送方发完即走，把回信地址 self() 放进消息
 receive
-  {reply, Result} -> Result   % 接收并模式匹配
+    {result, V} -> V       % 收到接收方的回信
 end
 ```
 
@@ -57,10 +55,12 @@ end
 
 Actor 模型最独特的贡献是**容错**：**「让它崩溃（let it crash）」**——Actor 状态出错时，不试图挽救，而是**直接崩溃**，由**监督者（supervisor）**重启它。
 
-```
-supervisor
-  ├─ worker1（崩溃 → 监督者重启）
-  └─ worker2
+```erlang
+Pid = spawn_link(fun worker/0),   % 链接监控：worker 崩溃会通知监督者
+receive
+    {'EXIT', Pid, Reason} ->      % 收到退出信号
+        restart_worker()          % 监督者按重启策略重启
+end
 ```
 
 Erlang 的「监督树（supervision tree）」：监督者监控子 Actor，子崩溃即重启（或升级处理）。**错误隔离**——一个 Actor 崩溃不影响其他 Actor（它们不共享状态）。<span class="marginnote">「让它崩溃」是反直觉但深刻的哲学：与其在错误状态里继续（状态可能已被污染），不如干净地重启。因为 Actor 无共享状态，重启一个 Actor 不牵连他人。这是「错误隔离 + 快速失败 + 自动恢复」的组合，让 Erlang 系统做到「九十九个九」的可用性。</span>
@@ -90,7 +90,7 @@ $$
 ## 5 Actor 模型的工业实现
 
 - **Erlang/Elixir**：Actor 的工业标准——BEAM 虚拟机每 Actor 一进程（轻量），监督树容错。
-- **Akka**（JVM）：Java/Scala 的 Actor 框架——`ActorSystem`、`Props`、`ask`/`tell`。
+- **Akka**（JVM）：Java/Scala 的 Actor 框架——`ActorSystem`、`ActorRef`、`ask`/`tell`。
 - **Orleans**（.NET）：Virtual Actor——「让 Actor 看起来总在运行」的云原生抽象。
 - **现代影响**：微服务、「分布式实体」、以及 LLM 多智能体框架（Actor 思想的软件形态）。<span class="marginnote">Actor 模型已从「并发语言机制」演化为「分布式架构思想」：微服务（每个服务是自治实体、消息通信）、事件驱动架构（异步消息）、以及多智能体系统（每个 agent 独立决策、消息协作）都带有 Actor 的影子。「自治 + 消息 + 容错」是分布式软件的组织范式。</span>
 

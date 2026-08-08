@@ -22,14 +22,14 @@ date: 2026-08-07
 
 **定义**：
 
-- 集合 $A \subset X$ 称为**无处稠密的（nowhere dense）**，若 $\overline{A}$ 的内部为空——即 $A$ 的闭包不含任何开球。
-- $X$ 的子集称为**第一纲的（meager / of first category）**，若它能写成**可数个**无处稠密集的并。
-- 不是第一纲的集合称为**第二纲的（of second category）**。
+集合 $A \subset X$ 称为**无处稠密的（nowhere dense）**，若 $\overline{A}$ 的内部为空——即 $A$ 的闭包不含任何开球。
+$X$ 的子集称为**第一纲的（meager / of first category）**，若它能写成**可数个**无处稠密集的并。
+不是第一纲的集合称为**第二纲的（of second category）**。
 
 **例子**：
 
-- $\mathbb{R}$ 中的 $\mathbb{Q}$ 是第一纲的：$\mathbb{Q} = \bigcup_{n} \{q_n\}$，而单点集无处稠密。
-- 康托集是无处稠密的（闭包不含开区间，但它不是可数的）。<span class="marginnote">「无处稠密」直观上就是「处处稀疏」：集合的闭包在空间里不占任何「体积」。单点集、有限集、康托集都是无处稠密的。「第一纲」就是「可数多个稀疏块的并」——比如有理数，看起来在实轴上「到处都是」，却是第一纲的！</span>
+$\mathbb{R}$ 中的 $\mathbb{Q}$ 是第一纲的：$\mathbb{Q} = \bigcup_{n} \{q_n\}$，而单点集无处稠密。
+康托集是无处稠密的（闭包不含开区间，但它不是可数的）。<span class="marginnote">「无处稠密」直观上就是「处处稀疏」：集合的闭包在空间里不占任何「体积」。单点集、有限集、康托集都是无处稠密的。「第一纲」就是「可数多个稀疏块的并」——比如有理数，看起来在实轴上「到处都是」，却是第一纲的！</span>
 
 **核心要点：纲是一种「大/小」的拓扑度量**——比「稠密」精细得多。有理数稠密却第一纲，这说明「稠密」≠「厚」。
 
@@ -42,9 +42,9 @@ date: 2026-08-07
 
 第 2 条是更常用的形式。它的证明（用「闭球套」技巧）：
 
-- 设 $U_n$ 是稠密开集，$B_0$ 是任意开球，要证 $B_0 \cap (\bigcap U_n) \neq \emptyset$。
-- 取闭球 $\overline{B_1} \subset B_0 \cap U_1$（$U_1$ 稠密保证可找），再取 $\overline{B_2} \subset B_1 \cap U_2$，依次递推，半径 $\to 0$。
-- 嵌套闭球族 $\overline{B_n}$ 的半径趋于 0，由完备性（闭球套定理）交集非空：$\exists x \in \bigcap \overline{B_n} \subset B_0 \cap (\bigcap U_n)$。<span class="marginnote">证明的关键是<strong>完备性的闭球套推论</strong>：半径趋于零的嵌套闭球族交集非空。这正是「柯西列收敛」的几何形态。所以 Baire 定理的适用范围就是「有闭球套性质的空间」——完备度量空间或局部紧空间。</span>
+设 $U_n$ 是稠密开集，$B_0$ 是任意开球，要证 $B_0 \cap (\bigcap U_n) \neq \emptyset$。
+取闭球 $\overline{B_1} \subset B_0 \cap U_1$（$U_1$ 稠密保证可找），再取 $\overline{B_2} \subset B_1 \cap U_2$，依次递推，半径 $\to 0$。
+嵌套闭球族 $\overline{B_n}$ 的半径趋于 0，由完备性（闭球套定理）交集非空：$\exists x \in \bigcap \overline{B_n} \subset B_0 \cap (\bigcap U_n)$。<span class="marginnote">证明的关键是<strong>完备性的闭球套推论</strong>：半径趋于零的嵌套闭球族交集非空。这正是「柯西列收敛」的几何形态。所以 Baire 定理的适用范围就是「有闭球套性质的空间」——完备度量空间或局部紧空间。</span>
 
 ## 3 公式解析：为什么可数个无处稠密集盖不住空间
 

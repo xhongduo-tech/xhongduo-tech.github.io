@@ -60,10 +60,10 @@ $$
 
 基本定理应用的实战是「选基底、统一表示」。看一道经典题：在平行四边形 $ABCD$ 中，$E$ 为 $CD$ 的中点，$F$ 为 $AE$ 与 $BD$ 的交点，用基底 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AD}$ 表示 $\overrightarrow{BF}$。
 
-- **第一步，选基底**：$\vec{a},\vec{b}$ 是不共线的两邻边，构成基底。
-- **第二步，表示已知向量**：$\overrightarrow{BD}=\vec{b}-\vec{a}$，$\overrightarrow{AE}=\overrightarrow{AD}+\overrightarrow{DE}=\vec{b}+\frac12\vec{a}$。
-- **第三步，设分点比**：$F$ 在 $BD$ 上，设 $\overrightarrow{BF}=t\overrightarrow{BD}=t(\vec{b}-\vec{a})$；又 $F$ 在 $AE$ 上，设 $\overrightarrow{AF}=s\overrightarrow{AE}=s(\vec{b}+\frac12\vec{a})$。
-- **第四步，用「同向量唯一分解」列方程**：$\overrightarrow{BF}=\overrightarrow{AF}-\overrightarrow{AB}=s(\vec{b}+\frac12\vec{a})-\vec{a}=s\vec{b}+(\frac s2-1)\vec{a}$。两种表示相等：$t(\vec{b}-\vec{a})=s\vec{b}+(\frac s2-1)\vec{a}$，由系数唯一，$t=s$ 且 $-t=\frac s2-1$，解得 $s=t=\frac23$。故 $\overrightarrow{BF}=\frac23(\vec{b}-\vec{a})$。
+**第一步，选基底**：$\vec{a},\vec{b}$ 是不共线的两邻边，构成基底。
+**第二步，表示已知向量**：$\overrightarrow{BD}=\vec{b}-\vec{a}$，$\overrightarrow{AE}=\overrightarrow{AD}+\overrightarrow{DE}=\vec{b}+\frac12\vec{a}$。
+**第三步，设分点比**：$F$ 在 $BD$ 上，设 $\overrightarrow{BF}=t\overrightarrow{BD}=t(\vec{b}-\vec{a})$；又 $F$ 在 $AE$ 上，设 $\overrightarrow{AF}=s\overrightarrow{AE}=s(\vec{b}+\frac12\vec{a})$。
+**第四步，用「同向量唯一分解」列方程**：$\overrightarrow{BF}=\overrightarrow{AF}-\overrightarrow{AB}=s(\vec{b}+\frac12\vec{a})-\vec{a}=s\vec{b}+(\frac s2-1)\vec{a}$。两种表示相等：$t(\vec{b}-\vec{a})=s\vec{b}+(\frac s2-1)\vec{a}$，由系数唯一，$t=s$ 且 $-t=\frac s2-1$，解得 $s=t=\frac23$。故 $\overrightarrow{BF}=\frac23(\vec{b}-\vec{a})$。
 
 <span class="marginnote">这道题展示了基本定理证明的完整套路：<strong>设分点比例 → 用两种路线表示同一向量 → 系数相等列方程</strong>。两条路线一条走 $BD$、一条走 $AE$，殊途同归到同一个 $\overrightarrow{BF}$，唯一分解保证两套系数必须一致。<strong>「同向量两种表示」是向量法证明的核心引擎</strong>——它在三线共点、定比分点问题里反复出场。解得 $F$ 分 $BD$ 为 $2:1$，这是平行四边形里的一个著名结论。</span>
 

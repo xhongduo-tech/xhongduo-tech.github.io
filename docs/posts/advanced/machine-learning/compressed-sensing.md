@@ -20,7 +20,7 @@ date: 2026-08-07
 
 **压缩感知（compressed sensing）**颠覆了这个铁律：**如果一个信号在某个字典下是稀疏的，那么用远少于奈奎斯特率的「随机线性测量」，也能精确重建原信号。** 它由 Candès、Tao、Donoho 等在 2006 年前后建立，是稀疏学习与信号处理交叉的里程碑。<span class="marginnote">压缩感知让「采样」与「压缩」合二为一：传统流程先按奈奎斯特率采满、再压缩编码（浪费）；压缩感知直接采「压缩后的信息」——用随机测量把高维信号投影到低维，再用稀疏性从低维里恢复高维。它也是第11章「稀疏学习」思想的终极应用。</span>
 
-## 1 核心问题：欠定方程怎么解设原始信号 $\boldsymbol{x} \in \mathbb{R}^{d}$，用**测量矩阵** $\boldsymbol{\Phi} \in \mathbb{R}^{m \times d}$（$m \ll d$）做线性测量，得到观测$$\boldsymbol{y} = \boldsymbol{\Phi}\boldsymbol{x}$$
+## 1 核心问题：欠定方程怎么解设原始信号 $\boldsymbol{x} \in \mathbb{R}^{d}$，用**测量矩阵** $\boldsymbol{\Phi} \in \mathbb{R}^{m \times d}$（$m \ll d$）做线性测量，得到观测`$$`\boldsymbol{y} = \boldsymbol{\Phi}\boldsymbol{x}$$
 $\boldsymbol{y} \in \mathbb{R}^{m}$ 只有 $m$ 个分量，而未知数 $\boldsymbol{x}$ 有 $d$ 个——**$m < d$，方程欠定，有无穷多解**。凭什么能唯一恢复 $\boldsymbol{x}$？凭的就是**稀疏性**：在「所有满足 $\boldsymbol{y} = \boldsymbol{\Phi}\boldsymbol{x}$ 的解」里，真实的 $\boldsymbol{x}$ 是**最稀疏**的那个。
 
 若 $\boldsymbol{x}$ 在字典 $\mathbf{D}$ 下稀疏（$\boldsymbol{x} = \mathbf{D}\boldsymbol{\alpha}$，$\boldsymbol{\alpha}$ 稀疏），则问题变成
@@ -35,7 +35,7 @@ $$\boldsymbol{y} = \boldsymbol{\Phi}\mathbf{D}\boldsymbol{\alpha} = \mathbf{A}\b
 
 **辨析｜易错点：** 压缩感知不是「对任何信号都能少采样」——它**强烈依赖稀疏性假设**。若信号在字典下不稀疏（处处高频、毫无结构），欠定问题仍无解。稀疏性 + 不相干性是两个前提，缺一不可。
 
-## 3 公式解析：L1 重建为什么可行给定观测 $\boldsymbol{y}$，重建稀疏系数 $\boldsymbol{\alpha}$ 的「理想」问题是 L0 最小化：$$\min_{\boldsymbol{\alpha}} \; \|\boldsymbol{\alpha}\|_0 \quad \text{s.t.} \quad \boldsymbol{y} = \mathbf{A}\boldsymbol{\alpha}$$
+## 3 公式解析：L1 重建为什么可行给定观测 $\boldsymbol{y}$，重建稀疏系数 $\boldsymbol{\alpha}$ 的「理想」问题是 L0 最小化：`$$`\min_{\boldsymbol{\alpha}} \; \|\boldsymbol{\alpha}\|_0 \quad \text{s.t.} \quad \boldsymbol{y} = \mathbf{A}\boldsymbol{\alpha}$$
 - **第一步，看 L0 的困境**：$\|\boldsymbol{\alpha}\|_0$ 是非零个数，组合优化、NP 难——直接解不现实。
 - **第二步，换成 L1**：在 $\mathbf{A}$ 满足 RIP 的条件下，L1 最小化给出与 L0 **相同**的解：
 

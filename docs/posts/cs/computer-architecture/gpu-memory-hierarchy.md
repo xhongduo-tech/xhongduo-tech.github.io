@@ -36,12 +36,14 @@ CPU 的缓存层次**硬件自动管理**（程序员看不见）。GPU 恰恰�
 
 典型用法（矩阵分块，对应 [[cache-optimization-compiler]] 的 tiling）：
 
-```cuda
+```c
 __shared__ float tile[BLOCK][BLOCK];
-// 把全局内存的一块搬到共享内存
-tile[tx][ty] = A[row][col];
-__syncthreads();               // 块内同步：等大家搬完
-// 然后从共享内存高速读取，反复重用
+
+/* 每个线程从全局内存搬一块进共享内存 */
+tile[ty][tx] = in[baseY + ty][baseX + tx];
+__syncthreads();   /* 块内屏障：等整块数据就位 */
+
+/* 之后从 tile 反复读取参与计算，不再触碰全局内存 */
 ```
 
 **为什么值得**：全局内存数百周期延迟 vs 共享内存 ~20 周期——**搬一次、用多次，分块越大越赚**。
@@ -50,12 +52,12 @@ __syncthreads();               // 块内同步：等大家搬完
 
 **核心概念**：**内存合并（memory coalescing）**：一个 warp 的 32 个线程访问全局内存时，如果地址**连续**，硬件把它们合并成**一次（或几次）大的内存事务**；如果地址**乱跳**，就是 32 次独立事务——**带宽差 32 倍**。
 
-```cuda
-// 好：连续地址（合并）
-c[i] = a[i] + b[i];          // 线程 i 访 a[i]，连续 → 一次事务
+```c
+/* 合并访问：线程 tid 访问连续地址 → 32 次访存合成 1 次事务 */
+float x = data[tid];
 
-// 差：跨步地址（不合并）
-c[i] = a[i * 4];             // 每隔 4 个元素取一个 → 大量浪费
+/* 非合并访问：地址按 stride 跳（tid * 32）→ 32 次独立事务 */
+float y = data[tid * 32];
 ```
 
 **这是 GPU 性能最著名的陷阱**：代码逻辑一样，访存模式不同，带宽差一个数量级。优化规则只有一条：**让 warp 内的线程访问连续地址**。
@@ -64,8 +66,8 @@ c[i] = a[i * 4];             // 每隔 4 个元素取一个 → 大量浪费
 
 共享内存按 **bank** 组织（如 32 个 bank，每个 bank 一个 32 位字宽），一个 warp 同时访问共享内存时：
 
-- **无冲突**：32 个线程访问**不同 bank** → 一次搞定。
-- **bank 冲突（conflict）**：多个线程访问**同一 bank 的不同地址** → 被串行化，慢 2–32 倍。<span class="marginnote">bank 冲突是 [[dram-internal-organization]] 的 bank 概念在共享内存上的重演：<strong>同一时刻同一 bank 只能服务一次访问</strong>。解法是「padding」——给数组每行多加一个元素，错开 bank 对齐。</span>
+**无冲突**：32 个线程访问**不同 bank** → 一次搞定。
+**bank 冲突（conflict）**：多个线程访问**同一 bank 的不同地址** → 被串行化，慢 2–32 倍。<span class="marginnote">bank 冲突是 [[dram-internal-organization]] 的 bank 概念在共享内存上的重演：<strong>同一时刻同一 bank 只能服务一次访问</strong>。解法是「padding」——给数组每行多加一个元素，错开 bank 对齐。</span>
 
 ## 5 核心对比表：快存储与慢存储
 

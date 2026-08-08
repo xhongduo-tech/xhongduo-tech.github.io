@@ -16,16 +16,17 @@ date: 2026-08-07
 
 ## 为什么从嵌套循环开始
 
-连接（`JOIN`）是关系查询最贵的运算，也是查询优化最大的战场。数据库有三大类连接算法：**嵌套循环（nested-loop）、归并连接（merge join）、哈希连接（hash join）**。这一节讲嵌套循环家族的两种形态——**朴素嵌套循环（nested-loop join, NLJ）**与**块嵌套循环（block nested-loop join, BNLJ）**。朴素版本是「理解起点」但工程几乎不用；块嵌套循环通过**块级缓存**大幅降低 I/O，是 OLTP 小表连接的主力。理解 NLJ 的代价爆炸，你就明白为什么数据库要在连接算法上绞尽脑汁。
+连接（join）是关系查询最贵的运算，也是查询优化最大的战场。数据库有三大类连接算法：**嵌套循环（nested-loop）、归并连接（merge join）、哈希连接（hash join）**。这一节讲嵌套循环家族的两种形态——**朴素嵌套循环（nested-loop join, NLJ）**与**块嵌套循环（block nested-loop join, BNLJ）**。朴素版本是「理解起点」但工程几乎不用；块嵌套循环通过**块级缓存**大幅降低 I/O，是 OLTP 小表连接的主力。理解 NLJ 的代价爆炸，你就明白为什么数据库要在连接算法上绞尽脑汁。
 
 ## 1 朴素嵌套循环连接
 
 **嵌套循环连接（nested-loop join）**：对外层关系 $r$ 的每条记录，扫描内层关系 $s$ 全部记录找匹配。
 
 ```
-for each 记录 tr in r:
-    for each 记录 ts in s:
-        if tr 与 ts 满足连接条件: 输出
+for each 元组 t_r in 关系 r:
+    for each 元组 t_s in 关系 s:
+        if t_r 与 t_s 满足连接条件:
+            把 (t_r, t_s) 加入结果
 ```
 
 **代价分析**：设 $r$ 为外层、$s$ 为内层，$b_r, b_s$ 为块数，$n_r, n_s$ 为记录数：
@@ -43,12 +44,12 @@ $$
 **块嵌套循环连接（block nested-loop join）**：把外层**按块**读入缓冲区，对整块记录一起扫描内层。
 
 ```
-for each 块 Br of r:           # 外层按块
-    把 Br 载入缓冲区
-    for each 块 Bs of s:
-        for 每个 tr in Br:
-            for 每个 ts in Bs:
-                若匹配则输出
+for each 块 B_r in 关系 r:
+    for each 块 B_s in 关系 s:
+        for each 元组 t_r in B_r:
+            for each 元组 t_s in B_s:
+                if t_r 与 t_s 满足连接条件:
+                    把 (t_r, t_s) 加入结果
 ```
 
 **代价分析**：外层按块读，每块一次 I/O 即可扫描整块记录的匹配：

@@ -20,8 +20,8 @@ date: 2026-08-07
 
 ## 1 实验证据：谁更稳、谁更强
 
-- **稳定性**：Pre-LN 大幅胜出。在 60 层以上的深网络、没有 warmup、大学习率下，Post-LN 频繁发散，Pre-LN 稳如泰山。这是为什么 LLaMA 65B、Qwen、Mistral 全部 Pre-LN。
-- **最终性能**：Post-LN 在**中低层数**（如 12 层 BERT、24 层 GPT-2 级别）下往往更好或持平。一些消融实验显示：同样训练步数，Post-LN 的最终 loss 可低 5–10%；但一旦层数加深或学习率拉大，Post-LN 直接训不出来。
+**稳定性**：Pre-LN 大幅胜出。在 60 层以上的深网络、没有 warmup、大学习率下，Post-LN 频繁发散，Pre-LN 稳如泰山。这是为什么 LLaMA 65B、Qwen、Mistral 全部 Pre-LN。
+**最终性能**：Post-LN 在**中低层数**（如 12 层 BERT、24 层 GPT-2 级别）下往往更好或持平。一些消融实验显示：同样训练步数，Post-LN 的最终 loss 可低 5–10%；但一旦层数加深或学习率拉大，Post-LN 直接训不出来。
 
 所以结论是**非对称的**：Pre-LN 是「保底方案」（任何规模都能训），Post-LN 是「上限方案」（只有调得动才更优）。<span class="marginnote">这个「稳定性换容量」的现象在深度学习里反复出现：BatchNorm 也一度被认为「既稳又强」，直到 Normalization-free 研究揭示其隐式正则。归一化设计本质是在「信号保持」与「训练可控」之间找平衡。</span>
 

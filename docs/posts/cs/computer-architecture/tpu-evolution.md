@@ -44,11 +44,14 @@ date: 2026-08-07
 
 **核心概念**：TPU 的杀手锏不止芯片本身，还有**片间互连（ICI）**——把 64 颗（v2/v3）到数千颗（v4）TPU 用高带宽、低延迟的专用网络连成 **Pod**，让它们像**一台巨型计算机**一样协作训练同一个模型。
 
-```
-Pod（如 v4：4096 颗 TPU）：
-  每颗 TPU 通过 4+ 条 ICI 连接邻居
-  梯度 all-reduce 在 Pod 内高速完成
-  软件把「一个超大规模模型」拆到整个 Pod 上
+```text
+每个 Pod 内的芯片由 ICI 连成二维环网（2D torus）：
+
+  TPU ── TPU ── TPU ──┐
+   │      │      │     │
+  TPU ── TPU ── TPU ──┤    行/列两端的芯片与对侧回绕相连，
+   │      │      │     │    形成「环形」而非「断头」的网格；
+  TPU ── TPU ── TPU ──┘    相邻芯片间为高带宽直达链路
 ```
 
 这正呼应 [[warehouse-scale-computer]] 的哲学：**把整间数据中心当作一台计算机**。TPU Pod 是「AI 专用 WSC」。
@@ -57,9 +60,14 @@ Pod（如 v4：4096 颗 TPU）：
 
 TPU 无法用通用框架直接跑——它由 **XLA（Accelerated Linear Algebra）编译器**把 TensorFlow/JAX 的计算图编译成 TPU 指令：
 
-```
-模型（TF/JAX）→ XLA 编译 → TPU 指令
-   高层算子     图优化/布局/融合   直接驱动脉动阵列
+```text
+高层张量计算（TensorFlow / JAX）
+      │  前端：构建计算图
+      ▼
+XLA HLO 中间表示（算子融合、布局分配、循环优化）
+      │  后端：LayoutAssignment → 指令选择
+      ▼
+TPU 指令（MXU 矩阵乘、向量 ALU、片上/片外访存搬运）
 ```
 
 **核心概念**：DSA 的编程模型靠**编译器把高层计算「映射」到底层硬件**——程序员写张量运算，编译器负责把矩阵乘放进脉动阵列、把布局排成访存友好。这正是 [[dsa-programming-model-software]] 里「软件栈挑战」的正面样板。

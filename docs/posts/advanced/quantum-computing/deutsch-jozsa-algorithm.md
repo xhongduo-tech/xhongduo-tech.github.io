@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 Deutsch-Jozsa 算法开始
 
-上一节我们把黑盒模型立了起来，现在用它打第一仗。**Deutsch 问题**（1985）是史上第一个量子算法解决的问题：判定一个单比特函数是常数还是平衡，经典需要 2 次查询，Deutsch 用 1 次；**Deutsch-Jozsa 问题**（1992）把它推广到 $n$ 比特：判定 $f:\{0,1\}^n\to\{0,1\}$ 是常数还是平衡（恰好一半输入输出 0、一半输出 1），经典最坏要 $2^{n-1}+1$ 次查询，而 Deutsch-Jozsa 算法**只用 1 次**——这是史上第一个「指数级查询加速」的证明。<span class="marginnote">Deutsch 发表于 D. Deutsch, "Quantum theory, the Church–Turing principle and the universal quantum computer," <i>Proc. R. Soc. Lond. A</i> 400 (1985) 97；Deutsch &amp; Jozsa 发表于 <i>Proc. R. Soc. Lond. A</i> 439 (1992) 553。问题的学术价值远大于实用价值，但它是理解量子算法「并行+干涉」引擎的最佳样例。</span>本节逐行拆开这台引擎。
+上一节我们把黑盒模型立了起来，现在用它打第一仗。**Deutsch 问题**（1985）是史上第一个量子算法解决的问题：判定一个单比特函数是常数还是平衡，经典需要 2 次查询，Deutsch 用 1 次；**Deutsch-Jozsa 问题**（1992）把它推广到 $n$ 比特：判定 $f:\{0,1\}^n\to\{0,1\}$ 是常数还是平衡（恰好一半输入输出 0、一半输出 1），经典最坏要 $2^{n-1}+1$ 次查询，而 Deutsch-Jozsa 算法**只用 1 次**——这是史上第一个「指数级查询加速」的证明。<span class="marginnote">Deutsch 发表于 D. Deutsch, "Quantum theory, the Church–Turing principle and the universal quantum computer," <i>Proc. R. Soc. Lond. A</i>` 400 (1985) 97；Deutsch &amp; Jozsa 发表于 <i>Proc. R. Soc. Lond. A</i>` 439 (1992) 553。问题的学术价值远大于实用价值，但它是理解量子算法「并行+干涉」引擎的最佳样例。本节逐行拆开这台引擎。</span>
 
 ## 1 Deutsch 算法：单比特版本
 

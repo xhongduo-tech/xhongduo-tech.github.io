@@ -93,25 +93,32 @@ $$\mathrm{sim}(i, j) = \frac{\sum_{u \in U_{ij}} (r_{ui} - \bar{r}_u)(r_{uj} - \
 三种相似度用 Python 实现都很短（可直接运行）：
 
 ```python
-import numpy as np
+import math
 
-def cosine(a, b):
-    return float(a @ b) / (np.linalg.norm(a) * np.linalg.norm(b))
+def cosine(u, v):
+    """u、v 是 {物品: 评分} 字典，只在共同评过的维度上计算。"""
+    common = set(u) & set(v)
+    dot = sum(u[i] * v[i] for i in common)
+    nu = math.sqrt(sum(x * x for x in u.values()))
+    nv = math.sqrt(sum(x * x for x in v.values()))
+    return dot / (nu * nv) if nu and nv else 0.0
 
-def pearson(a, b):
-    a, b = a - a.mean(), b - b.mean()      # 去均值：皮尔逊 = 去均值后的余弦
-    return float(a @ b) / (np.linalg.norm(a) * np.linalg.norm(b))
+def pearson(u, v):
+    common = set(u) & set(v)
+    n = len(common)
+    if n == 0:
+        return 0.0
+    mu_u = sum(u[i] for i in common) / n
+    mu_v = sum(v[i] for i in common) / n
+    num = sum((u[i] - mu_u) * (v[i] - mu_v) for i in common)
+    du = math.sqrt(sum((u[i] - mu_u) ** 2 for i in common))
+    dv = math.sqrt(sum((v[i] - mu_v) ** 2 for i in common))
+    return num / (du * dv) if du and dv else 0.0
 
-def jaccard(set_a, set_b):
-    return len(set_a & set_b) / len(set_a | set_b)
-
-A = np.array([4., 3., 5.]); B = np.array([2., 1., 3.]); C = np.array([4., 1., 5.])
-print(f"cosine(A,B) = {cosine(A,B):.3f}, pearson(A,B) = {pearson(A,B):.3f}")
-# cosine(A,B) = 0.983, pearson(A,B) = 1.000
-print(f"cosine(A,C) = {cosine(A,C):.3f}, pearson(A,C) = {pearson(A,C):.3f}")
-# cosine(A,C) = 0.960, pearson(A,C) = 0.961
-
-print(jaccard({'a','b','c'}, {'a','b','d'}))   # 2 / 4 = 0.5
+def jaccard(A, B):
+    """A、B 是「有过行为的物品集合」。"""
+    union = len(A | B)
+    return len(A & B) / union if union else 0.0
 ```
 
 ## 8 选择建议与辨析

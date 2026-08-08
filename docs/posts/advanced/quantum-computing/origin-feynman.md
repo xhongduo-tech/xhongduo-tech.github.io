@@ -113,17 +113,12 @@ Deutsch 的计算模型第一次让「量子比特的叠加」成为可操作的
 
 ```python
 from qiskit import QuantumCircuit
-from qiskit_aer import AerSimulator
+from qiskit.quantum_info import Statevector
 
-# 1 个量子比特：Hadamard 门把 |0⟩ 变成 (|0⟩ + |1⟩)/√2
 qc = QuantumCircuit(1)
-qc.h(0)
-
-# 状态向量模拟器：内部就是存下 2^1 = 2 个复数振幅
-sim = AerSimulator(method="statevector")
-result = sim.run(qc).result()
-state = result.get_statevector()
-print(state)  # 输出形如 [0.707+0.j, 0.707+0.j]
+qc.h(0)                    # 制备 (|0⟩ + |1⟩)/√2
+sv = Statevector(qc)
+print(sv.data)             # [0.70710678+0.j, 0.70710678+0.j] —— α = β = 1/√2
 ```
 
 输出里的两个复数正是 $\alpha = \beta = 1/\sqrt{2}$ 对应的数值。注意这个「模拟器」之所以叫模拟器，就是因为它真的在经典内存里**硬存** $2^n$ 个振幅——1 个量子比特存 2 个，10 个存 1024 个，30 个就存约 10 亿个。这正是 Feynman 诊断的那堵墙：**经典模拟器不是在计算量子系统，而是在内存里复制它的状态。** 真正的量子计算机，则是让物理系统自己演化，从而绕开这堵墙。

@@ -57,9 +57,9 @@ $$
 即「$X$ 中元素的 $R$-线性组合的全体」。直觉：$\langle X \rangle$ 是「用 $X$ 的元素当『基』，自由地乘上环元素再相加」能得到的全部——这是「$X$ 生成的理想」的完整描述。<span class="marginnote">「$\langle X \rangle$ = $X$ 的元素的线性组合」与「子空间 = 基的线性组合」「子群 = 生成元的整数组合」同构同源。抽象代数里「生成」的通用模板再次出现：最小子结构 = 反复运算的闭包 = 线性组合/多项式组合的全体。</span>
 
 **例：**
-- $\langle a, b \rangle$（两个元素生成）= $\{ ra + sb \}$——$a, b$ 的线性组合；
-- $\mathbb{Z}$ 中 $\langle 6, 10 \rangle = \langle 2 \rangle = 2\mathbb{Z}$（因为 $\gcd(6,10) = 2$，$2 = 6 - 10$ 的组合可表出 2，反之 $6, 10$ 都是 2 的倍数）——**两个数生成的理想 = 它们的最大公因数生成的理想**；
-- $\mathbb{Z}[x]$ 中 $\langle 2, x \rangle$ = 常数项为偶数的多项式——**不是**主理想（第九篇证明）。
+$\langle a, b \rangle$（两个元素生成）= $\{ ra + sb \}$——$a, b$ 的线性组合；
+$\mathbb{Z}$ 中 $\langle 6, 10 \rangle = \langle 2 \rangle = 2\mathbb{Z}$（因为 $\gcd(6,10) = 2$，$2 = 6 - 10$ 的组合可表出 2，反之 $6, 10$ 都是 2 的倍数）——**两个数生成的理想 = 它们的最大公因数生成的理想**；
+$\mathbb{Z}[x]$ 中 $\langle 2, x \rangle$ = 常数项为偶数的多项式——**不是**主理想（第九篇证明）。
 
 **定理（理想的交是理想）**：一族理想的交仍是理想（加法子群 + 吸收性分别验证），因此「含 $X$ 的最小理想」存在且唯一——$\langle X \rangle$ 的严格定义由此奠基（取所有含 $X$ 的理想的交）。
 
@@ -72,9 +72,9 @@ $$
 **理想的积（product）**：$IJ = \langle \{ ab \mid a \in I, b \in J \} \rangle$——由所有「一个取自 $I$、一个取自 $J$」的乘积生成的理想（注意是生成，不是有限和，因为 $ab$ 的线性组合需要生成）。
 
 **例：**
-- $\mathbb{Z}$ 中 $\langle m \rangle + \langle n \rangle = \langle \gcd(m, n) \rangle$；$\langle m \rangle \langle n \rangle = \langle mn \rangle$；
-- $\langle m \rangle \cap \langle n \rangle = \langle \mathrm{lcm}(m, n) \rangle$；
-- $I \cdot J \subseteq I \cap J$（乘积 ⊆ 交，一般真包含）。<span class="marginnote">理想的和/积/交把「理想」变成一台微型算术机：$\langle m\rangle + \langle n\rangle = \langle \gcd\rangle$、$\langle m\rangle\langle n\rangle = \langle mn\rangle$、$\langle m\rangle\cap\langle n\rangle = \langle \mathrm{lcm}\rangle$。gcd/lcm 的语言被理想的运算完全复刻——这是「整除性理论（第九篇）」的代数基础。第八篇中国剩余定理正建立在「互素理想的和 = 全环」之上。</span>
+$\mathbb{Z}$ 中 $\langle m \rangle + \langle n \rangle = \langle \gcd(m, n) \rangle$；$\langle m \rangle \langle n \rangle = \langle mn \rangle$；
+$\langle m \rangle \cap \langle n \rangle = \langle \mathrm{lcm}(m, n) \rangle$；
+$I \cdot J \subseteq I \cap J$（乘积 ⊆ 交，一般真包含）。<span class="marginnote">理想的和/积/交把「理想」变成一台微型算术机：$\langle m\rangle + \langle n\rangle = \langle \gcd\rangle$、$\langle m\rangle\langle n\rangle = \langle mn\rangle$、$\langle m\rangle\cap\langle n\rangle = \langle \mathrm{lcm}\rangle$。gcd/lcm 的语言被理想的运算完全复刻——这是「整除性理论（第九篇）」的代数基础。第八篇中国剩余定理正建立在「互素理想的和 = 全环」之上。</span>
 
 **互素理想（comaximal）**：若 $I + J = R$，则称 $I, J$ **互素**（或共端）。中国剩余定理（第六节）要求的就是互素条件。
 
@@ -84,13 +84,13 @@ $$
 
 **定理：** 在 $\mathbb{Z}$ 中，$\langle a \rangle + \langle b \rangle = \langle \gcd(a, b) \rangle$。
 
-- **第一步，⊇。** $\langle \gcd(a,b) \rangle \subseteq \langle a \rangle + \langle b \rangle$：裴蜀定理给出 $\gcd(a,b) = sa + tb$（$s, t \in \mathbb{Z}$），而 $sa \in \langle a \rangle$、$tb \in \langle b \rangle$，故 $\gcd(a,b)$ 落在和里，其理想也落进去。
+**第一步，⊇。** $\langle \gcd(a,b) \rangle \subseteq \langle a \rangle + \langle b \rangle$：裴蜀定理给出 $\gcd(a,b) = sa + tb$（$s, t \in \mathbb{Z}$），而 $sa \in \langle a \rangle$、$tb \in \langle b \rangle$，故 $\gcd(a,b)$ 落在和里，其理想也落进去。
 
-- **第二步，⊆。** $\langle a \rangle + \langle b \rangle \subseteq \langle \gcd(a,b) \rangle$：$\gcd(a,b)$ 整除 $a$ 与 $b$（$a = \gcd \cdot a'$），故任何 $ra + sb$ 都能写成 $\gcd \cdot (ra' + sb')$，落在 $\langle \gcd(a,b) \rangle$ 里。
+**第二步，⊆。** $\langle a \rangle + \langle b \rangle \subseteq \langle \gcd(a,b) \rangle$：$\gcd(a,b)$ 整除 $a$ 与 $b$（$a = \gcd \cdot a'$），故任何 $ra + sb$ 都能写成 $\gcd \cdot (ra' + sb')$，落在 $\langle \gcd(a,b) \rangle$ 里。
 
-- **第三步，两个方向合一。** $\langle a\rangle + \langle b\rangle = \langle \gcd(a,b)\rangle$。$\blacksquare$ 这解释了「两个整数生成的理想 = 它们 gcd 生成的理想」——裴蜀定理在理想语言里是「和理想等于 gcd 理想」。
+**第三步，两个方向合一。** $\langle a\rangle + \langle b\rangle = \langle \gcd(a,b)\rangle$。$\blacksquare$ 这解释了「两个整数生成的理想 = 它们 gcd 生成的理想」——裴蜀定理在理想语言里是「和理想等于 gcd 理想」。
 
-- **第四步，互素特例。** 若 $\gcd(a,b) = 1$，则 $\langle a\rangle + \langle b\rangle = \langle 1\rangle = \mathbb{Z}$——**互素理想的和是整环**。这正是中国剩余定理的前提：$\langle m \rangle$ 与 $\langle n \rangle$ 互素 ⟺ $\gcd(m,n)=1$。
+**第四步，互素特例。** 若 $\gcd(a,b) = 1$，则 $\langle a\rangle + \langle b\rangle = \langle 1\rangle = \mathbb{Z}$——**互素理想的和是整环**。这正是中国剩余定理的前提：$\langle m \rangle$ 与 $\langle n \rangle$ 互素 ⟺ $\gcd(m,n)=1$。
 
 ## 5 例：PID 与非 PID 的分野
 
@@ -99,9 +99,9 @@ $$
 **主理想整环（PID）**：每个理想都是主理想的整环。$\mathbb{Z}$ 与 $\mathbb{R}[x]$ 是 PID；**一切域是 PID**（只有 $\langle 0 \rangle$ 与 $\langle 1 \rangle$ 两个理想）。
 
 **非 PID 的例子：**
-- $\mathbb{Z}[x]$ **不是 PID**：$\langle 2, x \rangle$（常数项为偶数的多项式）不是主理想。若它是 $\langle f \rangle$，则 $2, x \in \langle f \rangle$，$f \mid 2$ 且 $f \mid x$，只能 $f = \pm 1$，但 $1 \notin \langle 2, x \rangle$——矛盾；
-- $\mathbb{Z}[\sqrt{-5}]$ **不是 UFD** 也不是 PID（第九篇细说）；
-- $k[x, y]$（二元多项式环）**不是 PID**：$\langle x, y \rangle$（常数项为 0）不是主理想。<span class="marginnote">「$\mathbb{Z}[x]$ 不是 PID」的证明套路：假设 $\langle 2, x\rangle = \langle f\rangle$，则 $f$ 同时整除 $2$ 与 $x$，只能取常数为 $\pm 1$，但 $1$ 不在生成集中。这个「整除约束 → 排除单生成元」的手法，是判断「不是 PID」的标准动作。$\mathbb{Z}[x]$ 是 UFD 但不是 PID，说明 PID ⊆ UFD 是严格的包含。</span>
+$\mathbb{Z}[x]$ **不是 PID**：$\langle 2, x \rangle$（常数项为偶数的多项式）不是主理想。若它是 $\langle f \rangle$，则 $2, x \in \langle f \rangle$，$f \mid 2$ 且 $f \mid x$，只能 $f = \pm 1$，但 $1 \notin \langle 2, x \rangle$——矛盾；
+$\mathbb{Z}[\sqrt{-5}]$ **不是 UFD** 也不是 PID（第九篇细说）；
+$k[x, y]$（二元多项式环）**不是 PID**：$\langle x, y \rangle$（常数项为 0）不是主理想。<span class="marginnote">「$\mathbb{Z}[x]$ 不是 PID」的证明套路：假设 $\langle 2, x\rangle = \langle f\rangle$，则 $f$ 同时整除 $2$ 与 $x$，只能取常数为 $\pm 1$，但 $1$ 不在生成集中。这个「整除约束 → 排除单生成元」的手法，是判断「不是 PID」的标准动作。$\mathbb{Z}[x]$ 是 UFD 但不是 PID，说明 PID ⊆ UFD 是严格的包含。</span>
 
 **有限生成理想（finitely generated ideal）**：由有限个元素生成的理想，即 $\langle a_1, \dots, a_k \rangle = \{ \sum r_i a_i \}$。PID 是「每个理想都有限生成（且只需一个生成元）」的环；**Noether 环**是「每个理想都有限生成」的环（比 PID 宽）。理想生成论从这里通向交换代数的 Noether 理论——那是更深一层的地图。
 

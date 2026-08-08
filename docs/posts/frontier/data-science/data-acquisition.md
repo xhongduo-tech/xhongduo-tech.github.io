@@ -22,9 +22,9 @@ date: 2026-08-07
 
 按获取方式，数据来源大致分三类：
 
-- **结构化数据接口（API）**：平台主动提供的数据出口。微博、GitHub、天气、金融行情都提供 RESTful API，返回 JSON 或 XML。<span class="marginnote">API 的全称是 Application Programming Interface。对数据科学家来说，它的意义是「一份数据可以按约定被程序化、可重复地取到」，且通常带鉴权、限流与文档——比爬虫干净得多。调用前先读文档，确认 `rate limit`（速率限制）与字段语义。</span>
-- **网页抓取（爬虫，Web Scraping）**：平台没有 API，或 API 数据不全时，直接从 HTML 页面抽取信息。核心工具链是「请求 → 解析 → 抽取」。
-- **文件与数据库导出**：CSV、Excel、Parquet 等静态文件，或从数据库直接 `SELECT`。这是企业内部最常见的来源，往往要配合数据仓库访问权限。
+**结构化数据接口（API）**：平台主动提供的数据出口。微博、GitHub、天气、金融行情都提供 RESTful API，返回 JSON 或 XML。<span class="marginnote">API 的全称是 Application Programming Interface。对数据科学家来说，它的意义是「一份数据可以按约定被程序化、可重复地取到」，且通常带鉴权、限流与文档——比爬虫干净得多。调用前先读文档，确认 `rate_limit`（速率限制）与字段语义。</span>
+**网页抓取（爬虫，Web Scraping）**：平台没有 API，或 API 数据不全时，直接从 HTML 页面抽取信息。核心工具链是「请求 → 解析 → 抽取」。
+**文件与数据库导出**：CSV、Excel、Parquet 等静态文件，或从数据库直接导出。这是企业内部最常见的来源，往往要配合数据仓库访问权限。
 
 **重点：获取方式的选择顺序应该是「API 优先，爬虫兜底」。** API 有稳定的 schema、明确的使用条款与限流策略；爬虫则要面对页面结构变化、反爬机制与合规风险，维护成本高出一个数量级。能用 API 就不写爬虫，是数据工程界的默认纪律。
 
@@ -43,11 +43,12 @@ date: 2026-08-07
 import requests
 from bs4 import BeautifulSoup
 
-resp = requests.get("https://example.com/news", timeout=10)
+resp = requests.get("https://example.com/posts", timeout=15)
 soup = BeautifulSoup(resp.text, "html.parser")
 
-titles = [h.get_text(strip=True) for h in soup.select("h2.title")]
-print(len(titles), titles[:3])
+# 用 CSS 选择器抽取标题列表
+titles = [a.text.strip() for a in soup.select(".post-title a")]
+print(titles)
 ```
 
 **辨析｜易错点：** 爬虫的「解析」环节最容易被新手搞错：**页面里的数据不一定都在 HTML 里**。现代网站大量使用 JavaScript 动态渲染，`requests` 拿到的 HTML 可能只是个空壳，真实数据藏在额外的 XHR 请求（API 调用）返回的 JSON 里。这种情况下要么改用无头浏览器（`Playwright`、`Selenium`），要么直接找那个 XHR 的 URL——后者往往更高效。
@@ -59,28 +60,21 @@ print(len(titles), titles[:3])
 ```python
 import requests
 
-params = {
-    "query": "人工智能",
-    "page": 1,
-    "size": 20,
-}
-headers = {"Authorization": "Bearer YOUR_TOKEN"}
 resp = requests.get(
-    "https://api.example.com/v1/search",
-    params=params,
-    headers=headers,
+    "https://api.example.com/v1/weather",
+    params={"city": "beijing", "units": "metric"},
+    headers={"Authorization": "Bearer YOUR_API_KEY"},
     timeout=15,
 )
-data = resp.json()          # 解析响应
-records = data["items"]     # 抽取记录列表
+data = resp.json()
 ```
 
 四个关键点要牢记：
 
-- **鉴权（Authentication）**：通常用 API Key 或 OAuth Token，放在请求头里。密钥必须放在环境变量或密钥管理服务里，绝不硬编码进代码仓库。<span class="marginnote">把 API Key 提交进 git 是数据科学项目里最高频的安全事故之一。即使仓库是私有的，也强烈建议用环境变量 + `.gitignore` 规避。数据隐私与安全的细节见第24篇《数据隐私与安全》。</span>
-- **分页（Pagination）**：一次请求通常只返回一页，需要按文档翻页累积。
-- **限流（Rate Limiting）**：服务方限制单位时间请求数，超限会被返回 `429 Too Many Requests`。应对策略是控制频率、加退避重试。
-- **错误处理**：网络抖动、参数非法、配额用尽都会返回非 200 状态码，代码里要按状态码分类处理。
+**鉴权（Authentication）**：通常用 API Key 或 OAuth Token，放在请求头里。密钥必须放在环境变量或密钥管理服务里，绝不硬编码进代码仓库。<span class="marginnote">把 API Key 提交进 git 是数据科学项目里最高频的安全事故之一。即使仓库是私有的，也强烈建议用环境变量 + `.gitignore` 规避。数据隐私与安全的细节见第24篇《数据隐私与安全》。</span>
+**分页（Pagination）**：一次请求通常只返回一页，需要按文档翻页累积。
+**限流（Rate Limiting）**：服务方限制单位时间请求数，超限会被返回 `429` 状态码。应对策略是控制频率、加退避重试。
+**错误处理**：网络抖动、参数非法、配额用尽都会返回非 200 状态码，代码里要按状态码分类处理。
 
 ## 4 数据获取的合规与伦理底线
 
@@ -105,26 +99,36 @@ records = data["items"]     # 抽取记录列表
 **第二步，写一个稳健的拉取函数**。要点是：参数化城市列表、限流（每次请求间隔至少 1 秒）、错误处理（网络失败重试 3 次，超时设置 15 秒）：
 
 ```python
-import requests, time
+import time
+import requests
 
-def fetch_weather(city, lat, lon, api_key):
-    url = "https://api.example.com/weather"
-    params = {"lat": lat, "lon": lon, "appid": api_key}
-    for attempt in range(3):
+def fetch_weather(city, retries=3, timeout=15):
+    url = "https://api.open-meteo.com/v1/forecast"
+    params = {
+        "latitude": city["lat"],
+        "longitude": city["lon"],
+        "daily": ["temperature_2m_max", "temperature_2m_min", "precipitation_sum"],
+    }
+    for attempt in range(retries):
         try:
-            resp = requests.get(url, params=params, timeout=15)
-            resp.raise_for_status()
+            resp = requests.get(url, params=params, timeout=timeout)
+            resp.raise_for_status()      # 非 2xx 状态码直接抛异常
             return resp.json()
         except requests.RequestException:
             time.sleep(2 ** attempt)      # 指数退避
-    return None
+    raise RuntimeError(f"拉取 {city['name']} 失败")
+
+for city in CITIES:
+    data = fetch_weather(city)
+    # 规整成行、按日期去重、入库……
+    time.sleep(1)                         # 限流：每次请求间隔至少 1 秒
 ```
 
 **第三步，规整并记录元数据**。把 JSON 摊平成一张表（城市、日期、最高温、最低温、降水量、空气质量），并记录「来源 URL、拉取时间、字段单位」——这就是第3篇的元数据纪律在起作用。
 
 **第四步，增量更新**。每天定时拉当天数据追加进表，用日期做主键去重（第20篇《数据流水线》的增量思想在这里的雏形）。
 
-**辨析｜易错点：** 这个案例最常踩的坑是「把 `raise_for_status()` 省略」——API 返回 429（限流）或 500（服务端错误）时，`resp.json()` 会解出一个错误对象而不是数据，你的表会悄悄混进垃圾行。**任何拉取函数都必须检查 HTTP 状态码**，这是数据获取的底线。
+**辨析｜易错点：** 这个案例最常踩的坑是「把状态码检查省略」——API 返回 429（限流）或 500（服务端错误）时，`resp.json()` 会解出一个错误对象而不是数据，你的表会悄悄混进垃圾行。**任何拉取函数都必须检查 HTTP 状态码**，这是数据获取的底线。
 
 ## 7 小结
 

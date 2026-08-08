@@ -24,18 +24,18 @@ Graham 扫描先排序再扫描；**Jarvis 步进（gift wrapping）**完全不�
 
 **JARVIS-MARCH**：
 
-```
-JARVIS-MARCH(Q)
-  let p0 be the point with minimum y (tie: min x)
-  p = p0
-  repeat
-    output p
-    q = some point in Q \ {p}          // 初始任意候选
-    for each point r in Q \ {p, q}
-      if DIRECTION(p, q, r) > 0        // r 相对 p→q 是左转（转角更小）
-        q = r
-    p = q
-  until p == p0
+```text
+JARVIS-MARCH(Q):
+    p0 ← Q 中 y 坐标最小（并列时取 x 坐标最小）的点
+    p ← p0
+    repeat
+        output p                                  // 输出当前凸包顶点
+        q ← 任意一个与 p 不同的点
+        for r ∈ Q 且 r ≠ p, r ≠ q:
+            if DIRECTION(p, q, r) > 0             // r 在 p→q 左侧，转角比 q 更小
+                q ← r
+        p ← q
+    until p = p0                                  // 回到起点，闭合
 ```
 
 **关键**：每一步固定当前点 $p$，在所有剩余点里找「$p$ 到该点的方向角最小」的点 $q$——即「从 $p$ 出发，右转到当前方向角度最小」的候选。用叉积判定：若 $\text{DIRECTION}(p, q, r) > 0$，说明 $r$ 在 $p \to q$ 的左侧，即「从 $p \to q$ 到 $p \to r$ 是左转」——$r$ 比 $q$ 更「左转」，转角更小，应替换 $q$。<span class="marginnote">「转角最小 = 最左转」的等价关系：沿凸包逆时针走，下一个顶点是「相对当前边向左转最多的点」。用 DIRECTION(p,q,r) > 0 判定「r 在 p→q 左侧」即「r 的转角更小」——一轮扫描找到转角最小者，它就是下一个凸包顶点。这个「贪心选最左转」与凸包的定义天然吻合。</span>

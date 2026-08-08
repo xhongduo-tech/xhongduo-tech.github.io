@@ -58,7 +58,7 @@ $$\cosh z = \frac{e^z + e^{-z}}{2}, \qquad \sinh z = \frac{e^z - e^{-z}}{2}$$
 
 它们与三角函数的联系一目了然：
 
-$$\sin iz = i\sinh z, \qquad \cos iz = \cosh z, \qquad \cosh^2 z - \sinh^2 z = 1$$<span class="marginnote">这一族关系在物理学里反复出现：阻尼振动、狭义相对论的洛伦兹变换、双曲型偏微分方程（波动方程）的名字都来自 $\cosh, \sinh$。波动方程之所以叫「双曲型」，正是因为其特征形式对应双曲方程。</span>
+$$\sin iz = i\sinh z, \qquad \cos iz = \cosh z, \qquad \cosh^2 z - \sinh^2 z = 1`$$<span class="marginnote">这一族关系在物理学里反复出现：阻尼振动、狭义相对论的洛伦兹变换、双曲型偏微分方程（波动方程）的名字都来自 $\cosh, \sinh$。波动方程之所以叫「双曲型」，正是因为其特征形式对应双曲方程。</span>
 
 **反三角函数**由对数定义，例如：
 

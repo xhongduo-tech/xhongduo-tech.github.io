@@ -22,9 +22,9 @@ date: 2026-08-07
 
 ## 1 一次请求，一张表
 
-vLLM 默认把 KV 切成 **16 token 一块**（`block_size = 16`）。一条序列的 KV 由若干逻辑块组成，逻辑块永远按 0、1、2、3… 连续编号；序列持有一张块表，本质是**一个「逻辑块号 → 物理块号」的数组**。
+vLLM 默认把 KV 切成 **16 token 一块**（`block_size=16`）。一条序列的 KV 由若干逻辑块组成，逻辑块永远按 0、1、2、3… 连续编号；序列持有一张块表，本质是**一个「逻辑块号 → 物理块号」的数组**。
 
-假设一条序列已生成 41 个 token，块大小为 16，则它需要 `$\lceil 41/16 \rceil = 3$` 个逻辑块，块表长这样：
+假设一条序列已生成 41 个 token，块大小为 16，则它需要 3 个逻辑块（$\lceil 41/16 \rceil = 3$），块表长这样：
 
 | 逻辑块号 | 物理块号 | 物理块位置 |
 | --- | --- | --- |
@@ -32,10 +32,21 @@ vLLM 默认把 KV 切成 **16 token 一块**（`block_size = 16`）。一条序�
 | 1 | 3 | 另一处空闲区（可能夹着别人的块） |
 | 2 | 9 | 再一处（由空闲表新分配） |
 
-逻辑块 0、1、2 在序列的视角里是连续的一条线；物理块 7、3、9 在显存里却散落各处、彼此无关。<span class="marginnote">在 Python 侧，vLLM 用 `BlockTable` 类封装这张表：`self._blocks` 保存物理块对象，`append_token_ids()` 负责「写满一块就申请一块新的」，`allocate()` 负责为预填充阶段一次性申请好块。</span>块表表项本身是「物理块号」这样一个整数指针，而真正的 K、V 值存在一块全局的、按块组织的大张量里，形状近似：
+逻辑块 0、1、2 在序列的视角里是连续的一条线；物理块 7、3、9 在显存里却散落各处、彼此无关。<span class="marginnote">在 Python 侧，vLLM 用 `BlockTable` 类封装这张表：`_blocks` 保存物理块对象，`append_token_ids()` 负责「写满一块就申请一块新的」，`allocate()` 负责为预填充阶段一次性申请好块。</span>块表表项本身是「物理块号」这样一个整数指针，而真正的 K、V 值存在一块全局的、按块组织的大张量里，形状近似：
 
-```
-[ num_blocks, 2, num_kv_heads, block_size, head_dim ]
+```python
+# 全局按块组织的 KV 张量：
+# (num_physical_blocks, 2, num_layers, num_heads, block_size, head_dim)
+kv_cache = torch.empty(
+    num_physical_blocks,
+    2,          # K、V 两份
+    num_layers, # 每层一份
+    num_heads,  # 每个 head 一份
+    block_size, # 每块 16 个 token 槽
+    head_dim,
+    dtype=torch.float16,
+    device="cuda",
+)
 ```
 
 其中 `2` 表示 K、V 两份。这个布局说明一件事：**注意力内核不再按「序列」取数，而是按「块」取数**——这是 PagedAttention 与标准注意力在数据面唯一的、也是全部的区别。
@@ -61,63 +72,61 @@ vLLM 默认把 KV 切成 **16 token 一块**（`block_size = 16`）。一条序�
 
 块表常被误以为「很贵」。用 7B 模型算一笔账，结论相反——**块表开销可以忽略不计**。
 
-先算一条序列的 KV 体量。设模型 32 层、每层 KV head 数 32、`head_dim = 128`、FP16 存储（2 字节/token/维），则每个 token 的 KV 占用：
+先算一条序列的 KV 体量。设模型 32 层、每层 KV head 数 32、每个 head 维度 128、FP16 存储（2 字节/token/维），则每个 token 的 KV 占用：
 
 $$
 \text{KV}_{\text{token}} = 32 \text{ 层} \times 2 \times 32 \text{ head} \times 128 \text{ 维} \times 2 \text{ B} = 512 \text{ KB}
 $$
 
-对一条 4096 token 的序列，KV 总量是 `$4096 \times 512\text{ KB} = 2\text{ GB}$`。
+对一条 4096 token 的序列，KV 总量是 **2 GB**（$4096 \times 512\text{ KB} = 2\text{ GiB}$）。
 
-再看块表。块大小 $B = 16$，序列需要 `$\lceil 4096/16 \rceil = 256$` 个表项，每个表项是一个物理块号（8 字节整数）：
+再看块表。块大小 $B = 16$，序列需要 256 个表项（$4096 / 16$），每个表项是一个物理块号（8 字节整数）：
 
 $$
 \text{table}_{\text{size}} = 256 \times 8\text{ B} = 2\text{ KB}
 $$
 
-对比 `$2\text{ GB}$` 的 KV 本体，块表只占 **`$2\text{ KB} / 2\text{ GB} \approx 10^{-6}$`**，即百万分之一。<span class="marginnote">这也是分页思想「几乎免费」的原因：间接层只存指针，不存数据。数据有多大，页表开销基本与之无关——操作系统里的页表同样只占物理内存的极小比例（约 0.1%）。</span>
+对比 **2 GB** 的 KV 本体，块表只占 **2 KB**，即百万分之一。<span class="marginnote">这也是分页思想「几乎免费」的原因：间接层只存指针，不存数据。数据有多大，页表开销基本与之无关——操作系统里的页表同样只占物理内存的极小比例（约 0.1%）。</span>
 
-- **第一步，认每个 token 的 KV**：`2` 是 K、V 两份，`32 head × 128 维` 是一份 KV 的尺寸，乘 2 字节是 FP16 的存储单位。
-- **第二步，乘层数**：模型有多少层，每个 token 的 KV 就要存多少份副本，所以乘 32。
-- **第三步，算表项数**：表项数 = 逻辑块数 = `$\lceil \text{序列长度} / B \rceil$`。
-- **第四步，做除法**：块表显存 ÷ KV 显存 ≈ $10^{-6}$。**结论：块表的显存成本可以无视，PagedAttention 真正的成本在注意力内核的间接访存上**——这正与上一节的结论呼应。
+**第一步，认每个 token 的 KV**：「×2」是 K、V 两份，「×128」是一份 KV（一个 head 维度）的尺寸，乘 2 字节是 FP16 的存储单位。
+**第二步，乘层数**：模型有多少层，每个 token 的 KV 就要存多少份副本，所以乘 32。
+**第三步，算表项数**：表项数 = 逻辑块数 = $4096 / 16 = 256$。
+**第四步，做除法**：块表显存 ÷ KV 显存 ≈ $10^{-6}$。**结论：块表的显存成本可以无视，PagedAttention 真正的成本在注意力内核的间接访存上**——这正与上一节的结论呼应。
 
 ## 4 空闲块管理：BlockAllocator
 
 块表只负责「指路」，真正决定「哪些块能用、用了能不能退」的是**块分配器（BlockAllocator）**。它维护三样东西：
 
-- **空闲块池**：所有未被占用的物理块，按链表组织，取用是 O(1) 的。
-- **引用计数**：每个物理块记一个 `ref_count`，表示「此刻有几条序列的块表指着它」。
-- **哈希索引**：块内容（token 序列）的哈希 → 物理块，这是下一节 Prefix Caching 的地基。
+**空闲块池**：所有未被占用的物理块，按链表组织，取用是 O(1) 的。
+**引用计数**：每个物理块记一个引用计数（`ref_count`），表示「此刻有几条序列的块表指着它」。
+**哈希索引**：块内容（token 序列）的哈希 → 物理块，这是下一节 Prefix Caching 的地基。
 
-分配流程是上一节提过的四步：查空闲池 → 写 KV → 记块表 → 满块轮转。回收流程对称：序列结束（或块被换出）时，`free()` 把每个物理块的 `ref_count` 减一，减到 0 才真正归还空闲池。<span class="marginnote">引用计数从 1 降到 0 的块才能被复用，这保证了「别人还在用的块绝不会被新请求抢走」——它是显存安全的最后一层防线，也是调度器判断能否抢占的依据。</span>
+分配流程是上一节提过的四步：查空闲池 → 写 KV → 记块表 → 满块轮转。回收流程对称：序列结束（或块被换出）时，`BlockAllocator` 把每个物理块的 `ref_count` 减一，减到 0 才真正归还空闲池。<span class="marginnote">引用计数从 1 降到 0 的块才能被复用，这保证了「别人还在用的块绝不会被新请求抢走」——它是显存安全的最后一层防线，也是调度器判断能否抢占的依据。</span>
 
-一个简化版分配器的骨架，约等于 vLLM 里 `BlockAllocator.allocate` 的心智模型：
+一个简化版分配器的骨架，约等于 vLLM 里 `BlockAllocator` 的心智模型：
 
 ```python
 class BlockAllocator:
-    def __init__(self, num_blocks):
-        self.free_blocks = list(range(num_blocks))   # 空闲块号链表
-        self.ref_counts = [0] * num_blocks            # 引用计数
+    def __init__(self, num_blocks: int):
+        self.free = list(range(num_blocks))   # 空闲块池（O(1) 取还）
+        self.ref_count = [0] * num_blocks     # 每个物理块的引用计数
 
     def allocate(self) -> int:
-        if not self.free_blocks:
-            raise MemoryError("no free block")        # 触发调度器抢占/换出
-        pb = self.free_blocks.pop()                   # 取一个空闲块，O(1)
-        self.ref_counts[pb] = 1
-        return pb
+        pb = self.free.pop()                  # O(1) 取一个空闲块
+        self.ref_count[pb] = 1                # 新分配：引用计数置 1
+        return pb                             # 返回物理块号
 
-    def free(self, pb: int) -> None:
-        self.ref_counts[pb] -= 1
-        if self.ref_counts[pb] == 0:
-            self.free_blocks.append(pb)               # 没人用了，归还
+    def free_block(self, pb: int) -> None:
+        self.ref_count[pb] -= 1
+        if self.ref_count[pb] == 0:
+            self.free.append(pb)              # 引用清零才真正归还
 ```
 
-注意 `allocate` 返回的是**物理块号**，而块表保存的正是它。**块分配器管「物理」，块表管「逻辑」，中间没有任何连续性的要求**——碎片化在数据结构层面被彻底消灭。
+注意 `allocate()` 返回的是**物理块号**，而块表保存的正是它。**块分配器管「物理」，块表管「逻辑」，中间没有任何连续性的要求**——碎片化在数据结构层面被彻底消灭。
 
 ## 5 共享与写时复制
 
-引用计数不止用来回收，它还是**共享**的使能器。如果两条序列的前缀 token 完全相同（比如同一段 system prompt），它们的逻辑块 0、1、2 可以**指向同一批物理块**，`ref_count` 变成 2——两份逻辑视图，一份物理存储。
+引用计数不止用来回收，它还是**共享**的使能器。如果两条序列的前缀 token 完全相同（比如同一段 system prompt），它们的逻辑块 0、1、2 可以**指向同一批物理块**，引用计数 `ref_count` 变成 2——两份逻辑视图，一份物理存储。
 
 但共享带来一个安全问题：序列 A 要继续生成、想往共享块的末尾追加 token，而序列 B 还指着这个块。直接改写会污染 B 的 KV。答案就是操作系统的老办法——**写时复制（Copy-on-Write, CoW）**：
 
@@ -136,8 +145,8 @@ CoW 的代价是一次块拷贝——对 16 token 的块来说，是一次微秒
 ## 6 小结
 
 - **块表 = 逻辑块号 → 物理块号的数组**，一次请求一张；逻辑连续、物理分散，翻译四步且每步 O(1)。
-- **KV 数据布局**：`[num_blocks, 2, num_kv_heads, block_size, head_dim]`，内核按块取数，而非按序列取数。
-- **块表显存成本可忽略**：7B 模型 4096 token 场景下约 `$10^{-6}$` 量级，因为间接层只存指针。
+- **KV 数据布局**：按块组织的全局张量，内核按块取数，而非按序列取数。
+- **块表显存成本可忽略**：7B 模型 4096 token 场景下约 **2 KB** 量级，因为间接层只存指针。
 - **BlockAllocator 三件套**：空闲池（O(1) 取还）、引用计数（显存安全防线）、哈希索引（Prefix Caching 的地基）。
 - **共享 + 写时复制**：ref_count > 1 的块被改写前先克隆，安全、微秒级、支撑后续所有共享型优化。
 - **两大易错**：逻辑块号 ≠ 物理块号；共享的最小单位是块，不是 token。

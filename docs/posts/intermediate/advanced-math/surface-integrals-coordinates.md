@@ -68,10 +68,10 @@ $$\iint_\Sigma P\,dy\,dz + Q\,dz\,dx + R\,dx\,dy = \iint_\Sigma (P\cos\alpha + Q
 
 求向量场 $\mathbf{F} = (0, 0, z)$ 穿过上半球面 $z=\sqrt{1-x^2-y^2}$ 上侧的通量：
 
-- **第一步，识别非零项**：$\mathbf{F}\cdot d\mathbf{S} = z\,dx\,dy$（只有 $R=z$ 项）。
-- **第二步，投影并定符号**：上半球面取上侧，符号为正，投影区域是单位圆盘 $D$。
-- **第三步，代 $z$ 并积分**：$\iint_\Sigma z\,dx\,dy = \iint_D \sqrt{1-x^2-y^2}\,dx\,dy$。
-- **第四步，极坐标**：$\int_0^{2\pi}\int_0^1 \sqrt{1-r^2}\,r\,dr\,d\theta = 2\pi\cdot\frac13 = \frac{2\pi}{3}$。
+**第一步，识别非零项**：$\mathbf{F}\cdot d\mathbf{S} = z\,dx\,dy$（只有 $R=z$ 项）。
+**第二步，投影并定符号**：上半球面取上侧，符号为正，投影区域是单位圆盘 $D$。
+**第三步，代 $z$ 并积分**：$\iint_\Sigma z\,dx\,dy = \iint_D \sqrt{1-x^2-y^2}\,dx\,dy$。
+**第四步，极坐标**：$\int_0^{2\pi}\int_0^1 \sqrt{1-r^2}\,r\,dr\,d\theta = 2\pi\cdot\frac13 = \frac{2\pi}{3}$。
 
 **关键**：对坐标曲面积分的四步——**识别 $P,Q,R$ → 投影定符号 → 代曲面方程 → 二重积分**。本题通量 $\frac{2\pi}{3}$ 恰是「单位球的上半球体积」，印证了「通量 = 场穿过的总量」的几何直觉。
 
@@ -79,7 +79,7 @@ $$\iint_\Sigma P\,dy\,dz + Q\,dz\,dx + R\,dx\,dy = \iint_\Sigma (P\cos\alpha + Q
 
 对坐标曲面积分（通量）是场论与工程的核心语言：
 
-- **通量（flux）**：流体流量、电通量 $\Phi_E = \iint \mathbf{E}\cdot d\mathbf{S}$、磁通量 $\Phi_B = \iint \mathbf{B}\cdot d\mathbf{S}$——法拉第定律、高斯定律都用通量表述。<span class="marginnote">通量是「穿过曲面的净流量」：<strong>场从一侧穿入计负、从另一侧穿出计正，净通量 = 穿出减穿入</strong>。闭合曲面外侧的通量 = 曲面内「源与汇」的净强度——这正是下一节高斯公式（散度定理）的物理内容。</span>
+**通量（flux）**：流体流量、电通量 $\Phi_E = \iint \mathbf{E}\cdot d\mathbf{S}$、磁通量 $\Phi_B = \iint \mathbf{B}\cdot d\mathbf{S}$——法拉第定律、高斯定律都用通量表述。<span class="marginnote">通量是「穿过曲面的净流量」：<strong>场从一侧穿入计负、从另一侧穿出计正，净通量 = 穿出减穿入</strong>。闭合曲面外侧的通量 = 曲面内「源与汇」的净强度——这正是下一节高斯公式（散度定理）的物理内容。</span>
 - **闭合曲面的通量**：$\oint\kern{-5pt}\iint_\Sigma \mathbf{F}\cdot d\mathbf{S}$ 表示「单位时间净流出闭合曲面的量」——若为正，内部有源；为负，内部有汇。
 - **曲面的几何应用**：通量计算在电磁学、流体力学、热传导里是标准操作，也是高斯公式（第 68 节）的直接载体。
 

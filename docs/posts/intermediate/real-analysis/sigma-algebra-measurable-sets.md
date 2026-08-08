@@ -24,9 +24,9 @@ date: 2026-08-07
 
 **定义（σ-代数）**：设 $\mathcal{F}$ 是 $X$ 的一族子集。若满足：
 
-- $X\in\mathcal{F}$；
-- **补集封闭**：$E\in\mathcal{F}\Rightarrow E^c\in\mathcal{F}$；
-- **可数并封闭**：$E_k\in\mathcal{F}\ (k\ge1)\Rightarrow\bigcup_{k=1}^{\infty}E_k\in\mathcal{F}$；
+$X\in\mathcal{F}$；
+**补集封闭**：$E\in\mathcal{F}\Rightarrow E^c\in\mathcal{F}$；
+**可数并封闭**：$E_k\in\mathcal{F}\ (k\ge1)\Rightarrow\bigcup_{k=1}^{\infty}E_k\in\mathcal{F}$；
 
 则称 $\mathcal{F}$ 为 $X$ 上的一个 **σ-代数（σ-algebra）**。
 
@@ -40,8 +40,8 @@ date: 2026-08-07
 
 证明分三步：
 
-- **补集封闭**：若 $E$ 可测，则对任意 $T$，$m^*(T)=m^*(T\cap E)+m^*(T\setminus E)$。注意 $T\cap E^c=T\setminus E$，$T\setminus E^c=T\cap E$，交换两项即得 $E^c$ 可测。
-- **有限并封闭**：设 $E_1,E_2$ 可测。对任意 $T$，由 $E_1$ 的可测性 $m^*(T)=m^*(T\cap E_1)+m^*(T\setminus E_1)$；再用 $E_2$ 的可测性处理 $T\setminus E_1$，代入整理得 $m^*(T)\ge m^*(T\cap(E_1\cup E_2))+m^*(T\setminus(E_1\cup E_2))$，故 $E_1\cup E_2$ 可测。<span class="marginnote">有限并证明的本质是「嵌套切」：先用 $E_1$ 把 $T$ 切成两半，再把 $T\setminus E_1$ 用 $E_2$ 切成两半。<strong>「逐刀切」把并集的可测性归结为每把刀的锋利</strong>——这是 Carathéodory 条件最优雅的递归应用。</span>
+**补集封闭**：若 $E$ 可测，则对任意 $T$，$m^*(T)=m^*(T\cap E)+m^*(T\setminus E)$。注意 $T\cap E^c=T\setminus E$，$T\setminus E^c=T\cap E$，交换两项即得 $E^c$ 可测。
+**有限并封闭**：设 $E_1,E_2$ 可测。对任意 $T$，由 $E_1$ 的可测性 $m^*(T)=m^*(T\cap E_1)+m^*(T\setminus E_1)$；再用 $E_2$ 的可测性处理 $T\setminus E_1$，代入整理得 $m^*(T)\ge m^*(T\cap(E_1\cup E_2))+m^*(T\setminus(E_1\cup E_2))$，故 $E_1\cup E_2$ 可测。<span class="marginnote">有限并证明的本质是「嵌套切」：先用 $E_1$ 把 $T$ 切成两半，再把 $T\setminus E_1$ 用 $E_2$ 切成两半。<strong>「逐刀切」把并集的可测性归结为每把刀的锋利</strong>——这是 Carathéodory 条件最优雅的递归应用。</span>
 - **可数并封闭**：设 $\{E_k\}$ 可测。先把它们「去重叠化」：定义 $F_1=E_1$，$F_k=E_k\setminus\bigcup_{i<k}E_i$，则 $\{F_k\}$ 两两不相交且 $\bigcup_kE_k=\bigcup_kF_k$，每个 $F_k$ 可测（有限步补集与并）。对任意 $T$，由有限可加性，$m^*(T)\ge\sum_{k=1}^{N}m^*(T\cap F_k)+m^*(T\setminus\bigcup_{k=1}^{N}F_k)$ 对每个 $N$ 成立；令 $N\to\infty$ 并利用 $m^*(T\setminus\bigcup_{k=1}^{N}F_k)\ge m^*(T\setminus\bigcup_{k=1}^{\infty}F_k)$（单调性），得 $m^*(T)\ge\sum_{k=1}^{\infty}m^*(T\cap F_k)+m^*(T\setminus\bigcup F_k)$。最后由次可加性 $m^*(T\cap\bigcup F_k)\le\sum_k m^*(T\cap F_k)$，代入即得可测。
 
 **推论（σ-代数生成的运算）**：可测集的**可数交**、**差**、**对称差**都是可测集。德摩根律把所有可数并的结论翻成可数交。

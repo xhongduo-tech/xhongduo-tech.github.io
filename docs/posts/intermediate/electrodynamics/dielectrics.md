@@ -22,7 +22,7 @@ date: 2026-08-07
 
 电场作用下，电介质分子发生三种极化：
 
-- **电子极化（electronic polarization）**：原子外层电子云相对原子核微小偏移，原子被拉成瞬时偶极子。所有物质都有，响应最快。<span class="marginnote">电子极化大约在 $10^{-15}\ \mathrm{s}$ 内完成——光频场也能驱动它。这就是为什么玻璃的折射率与它的介电常数相关（麦克斯韦关系 $n \approx \sqrt{\varepsilon_r}$）。</span>
+**电子极化（electronic polarization）**：原子外层电子云相对原子核微小偏移，原子被拉成瞬时偶极子。所有物质都有，响应最快。<span class="marginnote">电子极化大约在 $10^{-15}\ \mathrm{s}$ 内完成——光频场也能驱动它。这就是为什么玻璃的折射率与它的介电常数相关（麦克斯韦关系 $n \approx \sqrt{\varepsilon_r}$）。</span>
 - **离子极化（ionic polarization）**：正负离子在晶格中相对位移。离子晶体（如 NaCl）的特征，响应在红外频段。
 - **取向极化（orientational polarization）**：固有偶极矩的分子（如水 $\ce{H2O}$）在电场下转动排列。响应最慢（微波频段），且受热运动对抗——升温削弱取向极化。
 
@@ -64,9 +64,9 @@ $$\mathbf{D} = \varepsilon_0(1 + \chi_e)\mathbf{E} = \varepsilon_0\varepsilon_r\
 
 这条定义看起来像循环论证（$\mathbf{D}$ 用 $\mathbf{E}$ 和 $\mathbf{P}$ 定义），它的深层含义值得拆解：
 
-- **第一步，从总电荷到两种电荷**：真空高斯定理 $\nabla\cdot\mathbf{E} = \rho/\varepsilon_0$ 中，$\rho$ 包含自由与束缚两种电荷。束缚电荷 $\rho_b = -\nabla\cdot\mathbf{P}$，代入后 $\nabla\cdot\mathbf{E} = (\rho_f - \nabla\cdot\mathbf{P})/\varepsilon_0$。
-- **第二步，移项合并**：把 $\nabla\cdot\mathbf{P}$ 移到左边：$\nabla\cdot(\varepsilon_0\mathbf{E} + \mathbf{P}) = \rho_f$。括号里这个新量正是 $\mathbf{D}$ 的定义。
-- **第三步，读出哲学**：$\mathbf{D}$ 不是「又一个新的场」，而是「把束缚电荷效应并入之后的电场」——它让我们在介质中沿用「电荷是源」的直觉，只不过数的是**自由电荷**。反过来，$\mathbf{P}$ 是「物质对电场的响应」，$\varepsilon_0\mathbf{E}$ 是「真空中的场」，两者相加得到「物质中看得见的场源方程」。<span class="marginnote">注意 $\mathbf{D}$ 的通量性质：$\oint\mathbf{D}\cdot\mathrm{d}\mathbf{S} = Q_{f,\text{内}}$ 对任意闭合面成立。但它不像 $\mathbf{E}$ 那样有简单的库仑源——介质中 $\mathbf{D}$ 的旋度 $\nabla\times\mathbf{D} = \nabla\times\mathbf{P}$ 一般不为零。所以「$\mathbf{D}$ 有源无旋」是错的，$\mathbf{D}$ 只是「源的计算方便」。</span>
+**第一步，从总电荷到两种电荷**：真空高斯定理 $\nabla\cdot\mathbf{E} = \rho/\varepsilon_0$ 中，$\rho$ 包含自由与束缚两种电荷。束缚电荷 $\rho_b = -\nabla\cdot\mathbf{P}$，代入后 $\nabla\cdot\mathbf{E} = (\rho_f - \nabla\cdot\mathbf{P})/\varepsilon_0$。
+**第二步，移项合并**：把 $\nabla\cdot\mathbf{P}$ 移到左边：$\nabla\cdot(\varepsilon_0\mathbf{E} + \mathbf{P}) = \rho_f$。括号里这个新量正是 $\mathbf{D}$ 的定义。
+**第三步，读出哲学**：$\mathbf{D}$ 不是「又一个新的场」，而是「把束缚电荷效应并入之后的电场」——它让我们在介质中沿用「电荷是源」的直觉，只不过数的是**自由电荷**。反过来，$\mathbf{P}$ 是「物质对电场的响应」，$\varepsilon_0\mathbf{E}$ 是「真空中的场」，两者相加得到「物质中看得见的场源方程」。<span class="marginnote">注意 $\mathbf{D}$ 的通量性质：$\oint\mathbf{D}\cdot\mathrm{d}\mathbf{S} = Q_{f,\text{内}}$ 对任意闭合面成立。但它不像 $\mathbf{E}$ 那样有简单的库仑源——介质中 $\mathbf{D}$ 的旋度 $\nabla\times\mathbf{D} = \nabla\times\mathbf{P}$ 一般不为零。所以「$\mathbf{D}$ 有源无旋」是错的，$\mathbf{D}$ 只是「源的计算方便」。</span>
 
 **辨析｜易错点：** 许多教材说「$\mathbf{D}$ 的源是自由电荷」，但这不意味着 $\mathbf{D}$ 就是自由电荷直接产生的场——在介质界面附近，$\mathbf{D}$ 的分布受束缚电荷影响（因为 $\mathbf{P}$ 也在界面跃变）。「$\mathbf{D}$ 只看自由电荷」只在**积分形式**的意义上正确（通量等于面内自由电荷），**逐点**意义上 $\mathbf{D}$ 仍受束缚电荷约束。区分「通量」与「场值」，是介质章节最重要的辨析。
 

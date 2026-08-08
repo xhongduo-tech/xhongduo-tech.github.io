@@ -20,13 +20,13 @@ date: 2026-08-07
 
 ## 1 三种遍历的定义
 
-设二叉树的每个顶点记 `V`，左子树 `L`、右子树 `R`：
+设二叉树的每个顶点记 $v$，左子树 $L$、右子树 $R$：
 
 - **前序遍历（preorder）**：访问根 → 前序左子树 → 前序右子树。**VLR**。
 - **中序遍历（inorder）**：中序左子树 → 访问根 → 中序右子树。**LVR**。
 - **后序遍历（postorder）**：后序左子树 → 后序右子树 → 访问根。**LRV**。
 
-**例**：树根 `+`，左子树是 `a`、右子树是 `*`（其左 `b`、右 `c`）。
+**例**：树根 $+$，左子树是 $a$、右子树是 $*(b, c)$（其左 $b$、右 $c$）。
 
 - 前序：`+ a * b c`
 - 中序：`a + b * c`
@@ -34,11 +34,13 @@ date: 2026-08-07
 
 **递归实现（前序）**：
 
-```
-procedure preorder(v):
-    visit(v)
-    preorder(左子 v)    # 若存在
-    preorder(右子 v)
+```python
+def preorder(node):
+    if node is None:              # 基础情形：空树
+        return
+    print(node.val)               # 访问根（V）
+    preorder(node.left)           # 递归左子树（L）
+    preorder(node.right)          # 递归右子树（R）
 ```
 
 ## 2 遍历的直觉与用途
@@ -55,7 +57,7 @@ procedure preorder(v):
 
 ## 3 公式解析：遍历的递归展开
 
-以中序 `LVR` 为例，看递归如何展开。设树根 $T$，左子树 $T_L$、右子树 $T_R$：
+以中序遍历为例，看递归如何展开。设树根 $T$，左子树 $T_L$、右子树 $T_R$：
 
 $$
 \text{inorder}(T) = \text{inorder}(T_L) + [\text{根}] + \text{inorder}(T_R)
@@ -65,7 +67,7 @@ $$
 - **第二步，递归替换**：$T_L$ 的中序继续按同一公式展开，直到叶（叶是"左空根右空"，输出叶本身）。
 - **第三步，拼接**：层层展开后拼接成完整序列。∎
 
-**实例展开**：树 `+ (a, *(b,c))` 的中序：
+**实例展开**：树 $+(a, *(b,c))$ 的中序：
 
 $$
 \text{inorder}(+) = \text{inorder}(a) + [+] + \text{inorder}(*(b,c)) = a + [ + ] + (b + [*] + c) = a + b * c
@@ -87,7 +89,7 @@ $$
 - 在中序里找根，根左边是左子树中序、右边是右子树中序。
 - 用前序中对应的长度切出左右子树前序，递归重建。
 
-**例**：前序 `ABDEC`、中序 `DBEAC`。根 = A。中序里 A 左是 `DBE`（左子树）、右是 `C`（右子树）。前序里 `BDE` 是左子树前序、`C` 是右子树前序。递归：左子树根 B，中序 `DBE` 中 B 左 `D`、右 `E`……重建完成。
+**例**：前序 $A, B, D, E, C, F$、中序 $D, B, E, A, C, F$。根 = A。中序里 A 左是 $D, B, E$（左子树）、右是 $C, F$（右子树）。前序里 $B, D, E$ 是左子树前序、$C, F$ 是右子树前序。递归：左子树根 B，中序 $D, B, E$ 中 B 左 $D$、右 $E$……重建完成。
 
 **为什么需要两个序列**：单靠前序无法确定左右划分（不知道哪些属于左）；前序 + 中序的组合恰好锁定结构。这在第四级《编译原理》的语法树重建里是基础操作。
 
@@ -99,13 +101,16 @@ $$
 
 **前序的迭代实现（显式栈）**：
 
-```
-procedure preorder_iter(root):
-    stack := [root]
-    while stack 非空:
-        v := stack.pop()
-        visit(v)
-        push(v 的右子); push(v 的左子)   # 先压右，后压左
+```python
+def preorder(root):
+    stack = [root]                # 显式栈：先放根
+    while stack:
+        node = stack.pop()        # 取栈顶
+        if node is None:
+            continue
+        print(node.val)           # 访问根（V）
+        stack.append(node.right)  # 先压右子树
+        stack.append(node.left)   # 再压左子树，左先弹出（L → R）
 ```
 
 **为什么先压右再压左**：栈是 LIFO，后压的左子先弹出——保证"左子树先于右子树"，与前序 VLR 一致。

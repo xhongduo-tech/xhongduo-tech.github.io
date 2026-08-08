@@ -42,7 +42,7 @@ $$
 
 用户画像和物品画像都齐了，最后一步是匹配。**匹配用什么相似度，取决于特征的类型**：
 
-- **文本特征（稠密向量）**：用**余弦相似度**。词向量、TF-IDF 向量都在高维空间里，余弦只关心方向、对尺度不敏感，是最稳的选择。<span class="marginnote">这正是第二篇《相似度计算》里余弦的主角地位：<strong>余弦适合「连续、稠密、方向有意义」的向量</strong>；而 TF-IDF 这种稀疏向量是否要加平滑、要不要按维度加权，属于特征工程细节。</span>
+**文本特征（稠密向量）**：用**余弦相似度**。词向量、TF-IDF 向量都在高维空间里，余弦只关心方向、对尺度不敏感，是最稳的选择。<span class="marginnote">这正是第二篇《相似度计算》里余弦的主角地位：<strong>余弦适合「连续、稠密、方向有意义」的向量</strong>；而 TF-IDF 这种稀疏向量是否要加平滑、要不要按维度加权，属于特征工程细节。</span>
 - **结构化特征（稀疏标签）**：用 **Jaccard 相似度**。两个物品共有的标签数除以总标签数，对「有没有」这类二元属性最自然。
 - **混合特征**：把两类相似度分开算，再加权求和：$\text{sim}(u, i) = \lambda \cos(\vec{u}^{\text{文本}}, \vec{i}^{\text{文本}}) + (1-\lambda)\, \text{Jaccard}(u^{\text{标签}}, i^{\text{标签}})$。$\lambda$ 控制两类特征的信任比例。
 
@@ -82,19 +82,16 @@ $$
 把上面的公式组装成可运行的推荐流程：
 
 ```python
-# 伪代码：带时间衰减的内容推荐
-def content_recommend(user_id, candidates, alpha=0.9, now, K=10):
-    history = load_history(user_id)                # (item_id, 行为权重 w, 时间 t)
-    u_vec = zeros_like(item_dim)
-    weight_sum = 0.0
-    for item_id, w, t in history:
-        decay = alpha ** (now - t)                 # 时间衰减
-        u_vec += decay * w * item_profile[item_id]
-        weight_sum += decay * w
-    u_vec /= weight_sum                            # 加权质心 → 用户画像
-
-    scored = [(iid, cosine(u_vec, item_profile[iid])) for iid in candidates]
-    return [iid for iid, _ in sorted(scored, key=lambda x: -x[1])[:K]]
+def recommend(history, items, alpha=0.9, k=10):
+    """基于内容推荐：历史行为 → 加权质心画像 → 余弦打分 → Top-N。"""
+    profile = zero_vector(); w_sum = 0.0
+    for t_i, w_i, v_i in history:            # (距今天数, 行为权重, 物品向量)
+        decay = alpha ** t_i                 # 时间衰减：旧信号指数级退场
+        profile += decay * w_i * v_i         # 增量累加，无需重新求和
+        w_sum  += decay * w_i
+    profile /= w_sum                         # 用户画像 = 历史物品的加权质心
+    scored = [(cosine(profile, v), item) for item, v in items]
+    return [item for _, item in sorted(scored, reverse=True)[:k]]
 ```
 
 这个流程在线上有一个明确的成本结构：**用户画像的更新是增量的**（来一条新行为就 $\vec{u} \mathrel{+}= \text{decay} \cdot w \cdot \vec{i}$），而候选打分是一个**向量批量运算**，配合第五篇的向量检索可以做到毫秒级。<span class="marginnote">注意用户画像的更新是「加权和」而非「重新求和」——<strong>增量更新的设计让在线实时推荐成为可能</strong>，这与第十二篇《特征平台》里「特征要能增量计算」的工程约束是一致的。</span>
@@ -103,9 +100,9 @@ def content_recommend(user_id, candidates, alpha=0.9, now, K=10):
 
 内容推荐被冷启动困局逼上场，它的长处也恰好在冷启动两端兑现：
 
-- **新物品冷启动**：物品一上线就有属性、有文本，画像立即可建，**不需要等任何用户行为**。这与第三篇 MF「无交互无向量」的窘境形成最鲜明的对照。
-- **解释自然**：「推荐《沙丘》是因为你看过《银翼杀手》」——内容推荐的解释来自物品画像本身，不需要事后编造。可解释性对信任与留存的价值，我们在第一篇就强调过。
-- **隐私友好**：纯内容推荐只用「这个用户自己」的数据，不依赖其他用户的集体行为——这在隐私合规收紧的今天格外重要。<span class="marginnote">这一点在第十四篇《LLM 与推荐》会再次放大：<strong>当模型不再需要「别人看过什么」也能给出好推荐时，隐私与体验的矛盾就有了缓解空间</strong>。</span>
+**新物品冷启动**：物品一上线就有属性、有文本，画像立即可建，**不需要等任何用户行为**。这与第三篇 MF「无交互无向量」的窘境形成最鲜明的对照。
+**解释自然**：「推荐《沙丘》是因为你看过《银翼杀手》」——内容推荐的解释来自物品画像本身，不需要事后编造。可解释性对信任与留存的价值，我们在第一篇就强调过。
+**隐私友好**：纯内容推荐只用「这个用户自己」的数据，不依赖其他用户的集体行为——这在隐私合规收紧的今天格外重要。<span class="marginnote">这一点在第十四篇《LLM 与推荐》会再次放大：<strong>当模型不再需要「别人看过什么」也能给出好推荐时，隐私与体验的矛盾就有了缓解空间</strong>。</span>
 
 ## 6 内容推荐的局限：过度窄化与惊喜度缺失
 

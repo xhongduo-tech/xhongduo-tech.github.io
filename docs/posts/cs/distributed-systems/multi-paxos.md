@@ -22,8 +22,8 @@ Basic Paxos 每达成一个值就要跑一轮完整的 Prepare + Accept——两
 
 Basic Paxos 被描述成「议长投票」：每个议题（一个值）都要两阶段。Multi-Paxos 的升级是把议题排成**日志序号**（log index）：第 1 个议题、第 2 个议题……每个议题仍是一次 Basic Paxos，但有了固定 leader 之后：
 
-- **选主阶段**：先跑一轮完整的两阶段，选出唯一的 leader（proposer 里轮次最高者胜出）。
-- **稳态阶段**：此后 leader 对每个日志序号直接发 Accept，**省略 Prepare**——因为唯一的 leader 不再需要探测「谁持有旧值」，它自己就是那个「知道所有已定值」的人。
+**选主阶段**：先跑一轮完整的两阶段，选出唯一的 leader（proposer 里轮次最高者胜出）。
+**稳态阶段**：此后 leader 对每个日志序号直接发 Accept，**省略 Prepare**——因为唯一的 leader 不再需要探测「谁持有旧值」，它自己就是那个「知道所有已定值」的人。
 
 省略 Prepare 的前提是：**同一个时刻只有一个活跃 leader**。若两个 leader 同时活跃（网络分区等），它们各自发 Accept，可能产生冲突——此时退回到带 Prepare 的完整两阶段来恢复一致性。这是 Multi-Paxos 的「降级通道」：正常时快，异常时慢但安全。<span class="marginnote"><strong>辨析｜易错点：</strong>Multi-Paxos 不是「每轮都选一个新 leader」，而是「选一次 leader 用很久」。选主是低频的（仅在 leader 崩溃或过期时），日志复制是高频的——把高频路径上的 Prepare 省掉，就是它比 Basic Paxos 吞吐高的全部秘密。</span>
 
@@ -31,8 +31,8 @@ Basic Paxos 被描述成「议长投票」：每个议题（一个值）都要�
 
 选主（leader election）是 Multi-Paxos 的关键件。选举机制要回答两个问题：
 
-- **怎么选**：leader 向多数派提出「我要当 leader」（用更高的轮次号 Prepare，获得多数派承诺即当选）。拿到多数派承诺 = 多数派承诺不再接受旧轮次的提议 = 自己是当前唯一合法的 leader。
-- **怎么失效**：leader 周期性发心跳（续期）；follower 若在超时时间内没收到心跳，就认为 leader 失效，发起新一轮选举（提升自己的轮次号，重新 Prepare）。
+**怎么选**：leader 向多数派提出「我要当 leader」（用更高的轮次号 Prepare，获得多数派承诺即当选）。拿到多数派承诺 = 多数派承诺不再接受旧轮次的提议 = 自己是当前唯一合法的 leader。
+**怎么失效**：leader 周期性发心跳（续期）；follower 若在超时时间内没收到心跳，就认为 leader 失效，发起新一轮选举（提升自己的轮次号，重新 Prepare）。
 
 **选举的活性依赖超时**：FLP 告诉我们，没有超时就没有活性保证——Raft/Paxos 的超时时间要足够大，避免频繁误判（抖动），又要足够小，让故障恢复及时。<span class="marginnote">选举有个微妙要求：<strong>新 leader 必须知道「哪些日志序号已经被提交」</strong>。做法是新 leader 在选主时读取多数派里「已接受的最高日志序号」，并强制所有未提交位置失效——保证它不会在旧日志上「分叉」。这一规则在 Raft 里被具体化为「新 leader 的日志必须是最新的」（选举限制，见 Raft 安全篇）。</span>
 
@@ -40,7 +40,7 @@ Basic Paxos 被描述成「议长投票」：每个议题（一个值）都要�
 
 一旦 leader 就位，日志复制的流程固定成：
 
-1. 客户端把操作发给 leader（如 `set x=1`）。
+1. 客户端把操作发给 leader（如 `SET x = 3`）。
 2. leader 把操作追加到自己的日志序号 $i$，向所有 follower 广播 Append。
 3. follower 收到后本地追加并 ack；leader 收到多数派 ack 后，标记序号 $i$ 为**已提交（committed）**，应用该操作，并向客户端返回成功。
 4. follower 之后也会在「已知多数派已提交」时应用该操作——提交点由 leader 决定并传播。

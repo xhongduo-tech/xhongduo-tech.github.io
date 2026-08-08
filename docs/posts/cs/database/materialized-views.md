@@ -60,17 +60,19 @@ $$
 
 **查询改写（query rewriting）**：优化器把用户查询**重写为对物化视图的访问**，若两者语义等价且视图更新鲜。
 
-**例子**：有物化视图 `mv_sales_summary (region, month, total)`，用户查询：
+**例子**：有物化视图 `region_month_sales`（按 region、month 聚合约 1 亿行 sales 的销售额），用户查询：
 
 ```sql
-SELECT region, SUM(amount) FROM sales WHERE month = 202601 GROUP BY region;
+SELECT region, month, SUM(amount) AS total
+FROM sales
+GROUP BY region, month;
 ```
 
-若 `mv_sales_summary` 已按 region+month 聚合，优化器可改写为直接查 `mv_sales_summary`——省掉整次聚合。
+若 `region_month_sales` 已按 region+month 聚合，优化器可改写为直接查 `region_month_sales`——省掉整次聚合。
 
 **核心要点：改写是「优化器自动匹配预计算」。** 匹配条件是：**物化视图包含查询所需的所有信息，且粒度不粗于查询**。粒度匹配失败（视图按年、查询按月）则无法改写。
 
-**辨析｜易错点：** 物化视图不是「缓存」（cache）——**缓存过期自动失效，物化视图过期仍返回旧数据**。新鲜度由维护策略决定：`REFRESH MATERIALIZED VIEW` 手动刷、或定时自动刷。**查物化视图得到的是「快照」，不是实时数据**——业务上要能容忍这个延迟。
+**辨析｜易错点：** 物化视图不是「缓存」（cache）——**缓存过期自动失效，物化视图过期仍返回旧数据**。新鲜度由维护策略决定：可手动刷、或定时自动刷。**查物化视图得到的是「快照」，不是实时数据**——业务上要能容忍这个延迟。
 
 ## 4 查询结果缓存
 
@@ -93,7 +95,7 @@ OLTP 里还有更轻量的**结果缓存（query result cache）**：
 
 ## 5 物化视图的最佳实践
 
-- **识别昂贵且重复的查询**：`pg_stat_statements` 找高频高耗时查询，建对应物化视图。
+- **识别昂贵且重复的查询**：用慢查询日志找高频高耗时查询，建对应物化视图。
 - **与数据仓库配合**：第 20 章数据仓库的「汇总表」就是物化视图思想的工程化。
 - **刷新窗口**：选业务低谷刷新（夜间 batch）。
 - **空间预算**：物化视图也占存储——别过度物化。

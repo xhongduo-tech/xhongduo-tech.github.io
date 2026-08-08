@@ -76,9 +76,9 @@ $$
 
 以 $R_{1,1}=\dfrac{4R_{1,0}-R_{0,0}}{3}$ 为例，拆解外推「为什么用 4 和 3」：
 
-- **第一步，设误差关系。** $R_{0,0}=T_1=I+c_1h^2+\cdots$，$R_{1,0}=T_2=I+c_1(h/2)^2+\cdots=I+\tfrac{c_1h^2}{4}+\cdots$。
-- **第二步，解组合。** 想找 $\alpha R_{1,0}+\beta R_{0,0}=I+O(h^4)$，令 $h^2$ 项系数为零：$\alpha\cdot\tfrac14+\beta\cdot1=0$，且系数和归一 $\alpha+\beta=1$。解得 $\alpha=\tfrac43,\beta=-\tfrac13$。
-- **第三步，规范化。** $\tfrac43R_{1,0}-\tfrac13R_{0,0}=\dfrac{4R_{1,0}-R_{0,0}}{3}$。分母 3 来自 $4-1=4^1-1$。一般地，消 $h^{2k}$ 项的分母是 $4^k-1$——**第 $k$ 次外推消第 $k$ 个偶数次项**。
+**第一步，设误差关系。** $R_{0,0}=T_1=I+c_1h^2+\cdots$，$R_{1,0}=T_2=I+c_1(h/2)^2+\cdots=I+\tfrac{c_1h^2}{4}+\cdots$。
+**第二步，解组合。** 想找 $\alpha R_{1,0}+\beta R_{0,0}=I+O(h^4)$，令 $h^2$ 项系数为零：$\alpha\cdot\tfrac14+\beta\cdot1=0$，且系数和归一 $\alpha+\beta=1$。解得 $\alpha=\tfrac43,\beta=-\tfrac13$。
+**第三步，规范化。** $\tfrac43R_{1,0}-\tfrac13R_{0,0}=\dfrac{4R_{1,0}-R_{0,0}}{3}$。分母 3 来自 $4-1=4^1-1$。一般地，消 $h^{2k}$ 项的分母是 $4^k-1$——**第 $k$ 次外推消第 $k$ 个偶数次项**。
 
 **核心洞察：外推把「已知收敛阶的序列」组合成「更高收敛阶的序列」，组合系数由收敛阶比唯一确定。** 这套逻辑适用于任何收敛序列——后文数值微分、常微分方程里，理查森外推还会反复出场。
 
@@ -89,25 +89,20 @@ $$
 ```python
 import numpy as np
 
-def romberg(f, a, b, k_max=10, tol=1e-10):
-    R = np.zeros((k_max+1, k_max+1))
-    # 第 0 层：梯形序列（增量更新）
-    n = 1
-    h = b - a
-    R[0,0] = h/2 * (f(a) + f(b))
-    for j in range(1, k_max+1):
-        h /= 2
-        n *= 2
-        mids = np.sum(f(a + (2*np.arange(1, n, 2))*h))
-        R[j,0] = 0.5*R[j-1,0] + h*mids            # 增量梯形
-        for k in range(1, j+1):                    # 逐层外推
-            R[j,k] = (4**k * R[j,k-1] - R[j-1,k-1]) / (4**k - 1)
-        if abs(R[j,j] - R[j-1,j-1]) < tol:         # 对角收敛判据
-            break
-    return R[j,j], j
+def romberg(f, a, b, max_j=10):
+    """龙贝格求积：纵向加密复用旧节点，横向外推逐层升阶。"""
+    R = np.zeros((max_j + 1, max_j + 1))
+    R[0, 0] = (b - a) / 2 * (f(a) + f(b))        # 1 段梯形
+    for j in range(1, max_j + 1):
+        n = 2 ** (j - 1)                         # 旧段数
+        h = (b - a) / n
+        mid = (h / 2) * sum(f(a + (i + 0.5) * h) for i in range(n))  # 新增中点
+        R[j, 0] = 0.5 * R[j - 1, 0] + mid
+        for k in range(1, j + 1):
+            R[j, k] = (4 ** k * R[j, k - 1] - R[j - 1, k - 1]) / (4 ** k - 1)
+    return R[max_j, max_j]
 
-I, its = romberg(lambda x: np.exp(x), 0, 1)
-print(I, "迭代层数:", its)   # e-1 ≈ 1.71828182846
+print(romberg(np.sin, 0, np.pi))   # ≈ 2.0，误差 ~1e-14
 ```
 
 **收敛行为**：$f$ 光滑时，$R_{j,k}$ 随外推层数 $k$ 增长指数收敛——**6~8 次外推即可达到双精度极限**。对比纯梯形分半需要 $10^5$ 节点，龙贝格用约 100 个节点就达到同样精度——外推的威力可见一斑。<span class="marginnote">工程注意：外推是「赌博」——它假设误差展开严格成立（$f$ 够光滑）。<strong>$f$ 有奇点时，欧拉-麦克劳林展开失效，外推结果可能反而更差</strong>。用龙贝格前先确认被积函数光滑，或用自适应方法处理奇点。</span>

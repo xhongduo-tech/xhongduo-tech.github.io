@@ -39,9 +39,9 @@ date: 2026-08-07
 
 字标注需要一个序列标注模型。经典选择是**隐马尔可夫模型（HMM）**。在 HMM 视角下：
 
-- **状态** = 每个字的标签（B / M / E / S），一条状态序列就是一句分词标注；
-- **观测** = 每个字的字符本身（以及可选的特征，如「是否数字」「是否字母」「前后字」）；
-- **两个概率表**：状态间的**转移概率** $P(t_k \mid t_{k-1})$（「词首之后是词尾」的倾向），与状态到观测的**发射概率** $P(c_k \mid t_k)$（「标签 E 下看到字『门』的概率」）。
+**状态** = 每个字的标签（B / M / E / S），一条状态序列就是一句分词标注；
+**观测** = 每个字的字符本身（以及可选的特征，如「是否数字」「是否字母」「前后字」）；
+**两个概率表**：状态间的**转移概率** $P(t_k \mid t_{k-1})$（「词首之后是词尾」的倾向），与状态到观测的**发射概率** $P(c_k \mid t_k)$（「标签 E 下看到字『门』的概率」）。
 
 两个概率表都可以从训练语料里用**最大似然估计（MLE）**直接数出来：转移概率 = 某标签后接另一标签的次数 ÷ 该标签总次数；发射概率 = 某标签下出现某字的次数 ÷ 该标签总次数。<span class="marginnote">最大似然估计就是我们《概率论与数理统计》里学的「用频率估计概率」：语料足够大时，频率收敛到真概率。这一小步计数，正是整个统计 NLP 的地基——第四篇《n-gram 语言模型》会把它放大成语言模型。</span>
 
@@ -58,37 +58,45 @@ $$
 其核心与上一篇的最短路径递推是同一件事——「到第 $k$ 个字符、以标签 $s$ 结尾的最优概率，来自第 $k-1$ 个字符某个标签的最优概率 + 一步转移 + 一步发射」。下面是用 BMES 标注还原切分与维特比解码的示意代码：
 
 ```python
-def to_bmes(word_list):
-    """把切分词序列转为 BMES 字标注序列"""
-    labels = []
-    for w in word_list:
-        if len(w) == 1:
-            labels.append('S')                 # 单字成词
-        else:
-            labels += ['B'] + ['M'] * (len(w) - 2) + ['E']
-    return labels
+def viterbi_decode(sentence, log_init, log_trans, log_emit):
+    """维特比解码：给每个字标 BMES，并按标签还原词切分。"""
+    labels = ['B', 'M', 'E', 'S']
+    n = len(sentence)
+    dp = [{} for _ in range(n)]     # dp[i][s]：到第 i 个字、以标签 s 结尾的最大对数概率
+    back = [{} for _ in range(n)]   # 回溯指针
 
-print(to_bmes(['我', '爱', '北京', '天安门']))
-# ['S', 'S', 'B', 'E', 'B', 'M', 'E']
+    for s in labels:
+        dp[0][s] = log_init[s] + log_emit[s][sentence[0]]
 
-def viterbi(obs, states, start_p, trans_p, emit_p):
-    """维特比：找使联合概率最大的标签序列（概率已取 log 以避免下溢）"""
-    V = [{s: start_p[s] + emit_p[s].get(obs[0], -1e9) for s in states}]
-    path = {s: [s] for s in states}
-    for t in range(1, len(obs)):
-        V.append({}); new_path = {}
-        for s in states:
-            prob, prev = max(
-                (V[t-1][s0] + trans_p[s0].get(s, -1e9) + emit_p[s].get(obs[t], -1e9), s0)
-                for s0 in states)
-            V[t][s] = prob
-            new_path[s] = path[prev] + [s]
-        path = new_path
-    best = max(states, key=lambda s: V[-1][s])
-    return path[best]
+    for i in range(1, n):
+        for s in labels:
+            best, best_prev = None, None
+            for prev in labels:
+                val = dp[i - 1][prev] + log_trans[prev][s] + log_emit[s][sentence[i]]
+                if best is None or val > best:
+                    best, best_prev = val, prev
+            dp[i][s], back[i][s] = best, best_prev
+
+    # 回溯得到最优标签序列
+    s = max(labels, key=lambda x: dp[n - 1][x])
+    tags = [None] * n
+    for i in range(n - 1, -1, -1):
+        tags[i] = s
+        s = back[i][s]
+
+    # 由 BMES 标签还原切分：B M* E 连成词，S 单字成词
+    words, buf = [], ''
+    for ch, tag in zip(sentence, tags):
+        buf += ch
+        if tag in ('E', 'S'):
+            words.append(buf)
+            buf = ''
+    if buf:
+        words.append(buf)
+    return words, tags
 ```
 
-`start_p`、`trans_p`、`emit_p` 就是上一步从语料里数出来的对数概率表。
+log_init、log_trans、log_emit 就是上一步从语料里数出来的对数概率表。
 
 ## 4 公式解析：字标注的统计模型
 
@@ -105,7 +113,7 @@ P(T)\,P(C \mid T) \approx \prod_{k=1}^{n} P(t_k \mid t_{k-1}) \cdot \prod_{k=1}^
 $$
 - **第三步，理解每一项**：$P(t_k \mid t_{k-1})$ 是**转移概率**——「词首后紧跟词尾」这类标签接续的倾向，来自语料的标签共现统计；$P(c_k \mid t_k)$ 是**发射概率**——「在词尾标签下看到『门』」这类字-标签亲和度。两者连乘，惩罚那些「标签接续别扭」或「字与标签不搭」的切分，让最自然的那条胜出。
 
-实际实现里，连乘的极小概率会数值下溢（几十个小于 1 的数相乘逼近 0），所以工程上全部取对数、把连乘变成连加，这正是上面代码里用 `+` 而非 `*` 的原因。<span class="marginnote">「取对数把连乘变连加」在概率模型里几乎是本能操作，后面 n-gram 语言模型、神经网络的交叉熵损失全都是它的变体。这个细节虽小，却解释了为什么几乎所有概率式 NLP 代码里出现的都是 log 概率。</span>
+实际实现里，连乘的极小概率会数值下溢（几十个小于 1 的数相乘逼近 0），所以工程上全部取对数、把连乘变成连加，这正是上面代码里用 log 概率而非原始概率的原因。<span class="marginnote">「取对数把连乘变连加」在概率模型里几乎是本能操作，后面 n-gram 语言模型、神经网络的交叉熵损失全都是它的变体。这个细节虽小，却解释了为什么几乎所有概率式 NLP 代码里出现的都是 log 概率。</span>
 
 ## 5 由字构词如何攻克未登录词
 

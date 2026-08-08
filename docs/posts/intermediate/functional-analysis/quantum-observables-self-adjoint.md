@@ -22,13 +22,13 @@ date: 2026-08-07
 
 **位置算子**：$\hat x$：$L^2(\mathbb{R}) \to L^2(\mathbb{R})$，$(\hat x\psi)(x) = x\psi(x)$（乘法算子）。
 
-- **无界、自伴**：$D(\hat x) = \{\psi : x\psi \in L^2\}$。$\sigma(\hat x) = \mathbb{R}$（连续谱）。
-- 自伴性：$\langle x\psi,\varphi\rangle = \int x\psi\bar\varphi = \langle\psi, x\varphi\rangle$（$x$ 实值）。
+**无界、自伴**：$D(\hat x) = \{\psi : x\psi \in L^2\}$。$\sigma(\hat x) = \mathbb{R}$（连续谱）。
+自伴性：$\langle x\psi,\varphi\rangle = \int x\psi\bar\varphi = \langle\psi, x\varphi\rangle$（$x$ 实值）。
 
 **动量算子**：$\hat p = -i\hbar\frac{d}{dx}$，$D(\hat p) = \{\psi : \psi \text{ 绝对连续}, \psi' \in L^2\}$。
 
-- **无界、自伴**（在 $L^2(\mathbb{R})$ 上）。$\sigma(\hat p) = \mathbb{R}$（连续谱）。
-- 特征函数 $e^{ipx/\hbar}$（广义）——不在 $L^2$，需谱分解处理。<span class="marginnote">动量算子的自伴性依赖定义域：<strong>在 $L^2(\\mathbb{R})$ 上 $\\hat p$ 自伴，但在 $L^2(0,1)$（加边界条件）上可能只是对称</strong>（§5.7 的周期 vs Dirichlet 情形）。「自伴 vs 对称」的讨论在量子力学里是实打实的：只有自伴才有实的、物理的谱。</span>
+**无界、自伴**（在 $L^2(\mathbb{R})$ 上）。$\sigma(\hat p) = \mathbb{R}$（连续谱）。
+特征函数 $e^{ipx/\hbar}$（广义）——不在 $L^2$，需谱分解处理。<span class="marginnote">动量算子的自伴性依赖定义域：<strong>在 $L^2(\\mathbb{R})$ 上 $\\hat p$ 自伴，但在 $L^2(0,1)$（加边界条件）上可能只是对称</strong>（§5.7 的周期 vs Dirichlet 情形）。「自伴 vs 对称」的讨论在量子力学里是实打实的：只有自伴才有实的、物理的谱。</span>
 
 **位置与动量的关系**：$\hat x$ 与 $\hat p$ 满足**正则对易关系（canonical commutation relation）**
 

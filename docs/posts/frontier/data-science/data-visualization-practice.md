@@ -22,33 +22,21 @@ date: 2026-08-07
 
 绘图库对数据的组织方式有硬性要求，这是新手最容易卡壳的地方。两种形态：
 
-- **宽表（wide）**：每个变量一列，每行一个观测。适合人眼阅读，也是 Excel 的默认形态。
-- **长表（tidy / long）**：把「变量名」也变成一列，数据规整成「每行是一个观测 × 一个变量」的三列结构（`id`、`variable`、`value`）。**seaborn 要求长表**。
+**宽表（wide）**：每个变量一列，每行一个观测。适合人眼阅读，也是 Excel 的默认形态。
+**长表（tidy / long）**：把「变量名」也变成一列，数据规整成「每行是一个观测 × 一个变量」的三列结构（观测标识、变量名、变量值）。**seaborn 要求长表**。
 
-用 `pandas.melt()` 可以把宽表变成长表：
+用 `pd.melt()` 可以把宽表变成长表：
 
 ```python
 import pandas as pd
 
 wide = pd.DataFrame({
-    "user": ["A", "B", "C"],
-    "january": [10, 20, 15],
-    "february": [12, 22, 18],
+    "name": ["Alice", "Bob"],
+    "jan": [10, 20],
+    "feb": [15, 25],
 })
 
-long = wide.melt(
-    id_vars="user",
-    var_name="month",
-    value_name="spend",
-)
-print(long)
-#   user     month  spend
-# 0    A   january     10
-# 1    B   january     20
-# 2    C   january     15
-# 3    A  february     12
-# 4    B  february     22
-# 5    C  february     18
+long = wide.melt(id_vars="name", var_name="month", value_name="sales")
 ```
 
 **重点：seaborn 的 `x`、`y`、`hue` 三个参数，本质是把长表里的「列名」映射到图形的「通道」。** 理解了这一点，大部分绘图代码都是同一个套路：选定数据列，声明映射。
@@ -61,7 +49,8 @@ print(long)
 
 ```python
 import seaborn as sns
-sns.histplot(df["age"], kde=True, bins=30)
+
+sns.histplot(data=df, x="sales", bins=30, kde=True)
 ```
 
 `bins` 控制分箱数量，`kde=True` 叠加平滑的密度曲线。<span class="marginnote">直方图的形状高度依赖 bin 宽度：bin 太宽会抹平细节，太窄会抖动成锯齿。建议画多档 bin 宽度对比着看，或直接叠加核密度曲线作为稳健的分布印象。</span>
@@ -69,7 +58,7 @@ sns.histplot(df["age"], kde=True, bins=30)
 **箱线图（分组分布对比）**：
 
 ```python
-sns.boxplot(data=df, x="group", y="value")
+sns.boxplot(data=df, x="category", y="value")
 ```
 
 箱线图用一条图表达「中位数、四分位、异常点」，是「类别 × 数值」对比的主力。
@@ -77,18 +66,18 @@ sns.boxplot(data=df, x="group", y="value")
 **散点图 + 回归拟合线（两变量关系）**：
 
 ```python
-sns.scatterplot(data=df, x="x", y="y", alpha=0.5, hue="category")
+sns.scatterplot(data=df, x="x", y="y", alpha=0.6)
 sns.regplot(data=df, x="x", y="y", scatter=False)
 ```
 
-`alpha` 控制透明度，解决点重叠时的遮蔽问题；`regplot` 叠加一条拟合线，辅助阅读趋势。
+`alpha` 控制透明度，解决点重叠时的遮蔽问题；`sns.regplot` 叠加一条拟合线，辅助阅读趋势。
 
 ## 3 图像美化与可读性：从「能画」到「能看」
 
 能画出图只是第一步，可读性决定图是否真的传递信息。四条基本法则：
 
 1. **显式设置图题与轴标签**：默认标签常常缺失或含糊，补全「这张图讲什么、坐标单位是什么」。
-2. **控制颜色**：用 seaborn 的调色板（如 `sns.color_palette("Set2")`），避免默认配色之外的花哨颜色；色盲友好优先。
+2. **控制颜色**：用 seaborn 的调色板（如 `sns.color_palette("colorblind")`），避免默认配色之外的花哨颜色；色盲友好优先。
 3. **统一尺寸与字体**：`plt.figure(figsize=(8, 5))` 显式控制画布，让文字不拥挤、不溢出。
 4. **图表即数据，不留记忆依赖**：图里的每一根线、每一个点都必须由代码从数据生成，绝不手工补画。<span class="marginnote">这条法则的工程含义是：任何「一次性手工修图」都要避免。若读者要求你修改某根线的颜色，你要能通过修改参数重新生成，而不是在图片编辑器里改像素。可复现的图才是数据分析的一部分。</span>
 
@@ -96,13 +85,17 @@ sns.regplot(data=df, x="x", y="y", scatter=False)
 
 ```python
 import matplotlib.pyplot as plt
+import seaborn as sns
 
+sns.set_theme(style="whitegrid")
 plt.figure(figsize=(8, 5))
-ax = sns.boxplot(data=df, x="month", y="revenue", palette="Set2")
-ax.set_title("月度营收分布", fontsize=14)
-ax.set_xlabel("月份")
-ax.set_ylabel("营收（元）")
-plt.tight_layout()
+
+sns.scatterplot(data=df, x="ad_cost", y="sales", hue="channel", alpha=0.7)
+sns.regplot(data=df, x="ad_cost", y="sales", scatter=False)
+
+plt.title("销售额与广告投入的关系")
+plt.xlabel("广告投入")
+plt.ylabel("销售额")
 plt.show()
 ```
 
@@ -116,7 +109,7 @@ plt.show()
 
 ## 5 小结
 
-- 绘图数据形态首选**长表**，`melt()` 是宽转长的标准工具。
+- 绘图数据形态首选**长表**，`pd.melt()` 是宽转长的标准工具。
 - seaborn 的核心是**把列名映射到通道**：`x`、`y`、`hue` 对应数据的三次声明。
 - 三张主力图：**直方图/核密度（分布）、箱线图（分组对比）、散点图+拟合线（关系）**。
 - 可读性四法则：**图题轴标、控制颜色、统一尺寸、图表即数据**。

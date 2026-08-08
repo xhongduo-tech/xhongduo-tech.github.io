@@ -34,7 +34,7 @@ $$\mathcal{E} = -\frac{\mathrm{d}\Phi}{\mathrm{d}t}$$
 
 磁通变化有两种机制，对应两种感应：
 
-- **动生电动势（motional emf）**：回路在磁场中**运动**，导致磁通改变。本质是洛伦兹力——导体中的自由电荷随导体运动，受 $\mathbf{F} = q\mathbf{v}\times\mathbf{B}$ 作用被推到一端，形成电荷积累与电场。此时非静电力就是洛伦兹力。<span class="marginnote">经典例子：在磁场中匀速拉动的矩形导线框。外力做功转化为焦耳热，能量守恒完全落在楞次定律里。发电机就是动生电动势的工业化——转动的线圈切割磁感线。</span>
+**动生电动势（motional emf）**：回路在磁场中**运动**，导致磁通改变。本质是洛伦兹力——导体中的自由电荷随导体运动，受 $\mathbf{F} = q\mathbf{v}\times\mathbf{B}$ 作用被推到一端，形成电荷积累与电场。此时非静电力就是洛伦兹力。<span class="marginnote">经典例子：在磁场中匀速拉动的矩形导线框。外力做功转化为焦耳热，能量守恒完全落在楞次定律里。发电机就是动生电动势的工业化——转动的线圈切割磁感线。</span>
 - **感生电动势（induced emf）**：回路**静止**，磁场随时间变化。此时没有洛伦兹力（电荷静止，$\mathbf{v}=0$），却仍然有电动势——说明变化的磁场在空间中激发出**感应电场**，它推动电荷。
 
 感应电场的出现推翻了一个旧结论：**感应电场不是保守场**。它沿闭合回路的线积分不为零：
@@ -64,9 +64,9 @@ $$\nabla\times\mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}$$
 
 **「为什么是 $\mathrm{d}\Phi/\mathrm{d}t$ 而不是别的？」** 分三步：
 
-- **第一步，磁通的定义展开**：$\Phi = \int_S\mathbf{B}\cdot\mathrm{d}\mathbf{S}$，所以 $\mathrm{d}\Phi/\mathrm{d}t$ 衡量穿过固定回路的磁力线数随时间的变化。磁通变化越大，感应的效果越强。
-- **第二步，回路静止时**：面积分与时间求导可交换，$\dfrac{\mathrm{d}}{\mathrm{d}t}\int\mathbf{B}\cdot\mathrm{d}\mathbf{S} = \int \dfrac{\partial\mathbf{B}}{\partial t}\cdot\mathrm{d}\mathbf{S}$，于是积分形式化为 $\oint\mathbf{E}\cdot\mathrm{d}\mathbf{l} = -\int \partial\mathbf{B}/\partial t \cdot \mathrm{d}\mathbf{S}$。这一步用到了「回路不动」这个条件。
-- **第三步，推广到运动回路**：当回路也在动，时间求导还要作用在面积元上，多出一项——这正是动生电动势的来源。完整的法拉第定律统一了两种感应：总电动势 $= -\mathrm{d}\Phi/\mathrm{d}t$，无论磁通变化来自磁场变还是回路动。把「磁通变化率」作为一个整体来理解，是避免把动生/感生割裂成两套理论的钥匙。<span class="marginnote">「无论磁通怎么变，定律都统一为 $-\mathrm{d}\Phi/\mathrm{d}t$」这一点在狭义相对论中格外漂亮：所谓「动生」与「感生」只是参考系不同——在磁场参考系里是磁通变化，在导体参考系里纯粹是洛伦兹力。两者是同一个物理在不同坐标系下的投影，这正是《电磁场变换与狭义相对论》一节的预告。</span>
+**第一步，磁通的定义展开**：$\Phi = \int_S\mathbf{B}\cdot\mathrm{d}\mathbf{S}$，所以 $\mathrm{d}\Phi/\mathrm{d}t$ 衡量穿过固定回路的磁力线数随时间的变化。磁通变化越大，感应的效果越强。
+**第二步，回路静止时**：面积分与时间求导可交换，$\dfrac{\mathrm{d}}{\mathrm{d}t}\int\mathbf{B}\cdot\mathrm{d}\mathbf{S} = \int \dfrac{\partial\mathbf{B}}{\partial t}\cdot\mathrm{d}\mathbf{S}$，于是积分形式化为 $\oint\mathbf{E}\cdot\mathrm{d}\mathbf{l} = -\int \partial\mathbf{B}/\partial t \cdot \mathrm{d}\mathbf{S}$。这一步用到了「回路不动」这个条件。
+**第三步，推广到运动回路**：当回路也在动，时间求导还要作用在面积元上，多出一项——这正是动生电动势的来源。完整的法拉第定律统一了两种感应：总电动势 $= -\mathrm{d}\Phi/\mathrm{d}t$，无论磁通变化来自磁场变还是回路动。把「磁通变化率」作为一个整体来理解，是避免把动生/感生割裂成两套理论的钥匙。<span class="marginnote">「无论磁通怎么变，定律都统一为 $-\mathrm{d}\Phi/\mathrm{d}t$」这一点在狭义相对论中格外漂亮：所谓「动生」与「感生」只是参考系不同——在磁场参考系里是磁通变化，在导体参考系里纯粹是洛伦兹力。两者是同一个物理在不同坐标系下的投影，这正是《电磁场变换与狭义相对论》一节的预告。</span>
 
 ## 5 感应定律的三个著名应用
 

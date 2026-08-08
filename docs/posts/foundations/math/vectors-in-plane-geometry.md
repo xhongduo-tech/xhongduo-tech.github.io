@@ -53,9 +53,9 @@ $$
 
 设平行四边形 $ABCD$ 的对角线 $AC\perp BD$，证明它是菱形（即邻边相等）。
 
-- **第一步，翻译**：用向量表示两条对角线：$\overrightarrow{AC}=\vec{a}+\vec{b}$，$\overrightarrow{BD}=\vec{b}-\vec{a}$，其中 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AD}$。垂直条件翻译为 $\overrightarrow{AC}\cdot\overrightarrow{BD}=0$。
-- **第二步，展开点乘**：$(\vec{a}+\vec{b})\cdot(\vec{b}-\vec{a})=|\vec{b}|^2-|\vec{a}|^2$。分配律展开时，$\vec{a}\cdot\vec{b}$ 与 $\vec{b}\cdot\vec{a}$ 恰好相消——**垂直条件等价于「两对角线向量点乘为零」**。
-- **第三步，读出结论**：$|\vec{b}|^2-|\vec{a}|^2=0$，即 $|\vec{b}|=|\vec{a}|$，也就是 $AD=AB$，平行四边形邻边相等，故为菱形。证毕。
+**第一步，翻译**：用向量表示两条对角线：$\overrightarrow{AC}=\vec{a}+\vec{b}$，$\overrightarrow{BD}=\vec{b}-\vec{a}$，其中 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AD}$。垂直条件翻译为 $\overrightarrow{AC}\cdot\overrightarrow{BD}=0$。
+**第二步，展开点乘**：$(\vec{a}+\vec{b})\cdot(\vec{b}-\vec{a})=|\vec{b}|^2-|\vec{a}|^2$。分配律展开时，$\vec{a}\cdot\vec{b}$ 与 $\vec{b}\cdot\vec{a}$ 恰好相消——**垂直条件等价于「两对角线向量点乘为零」**。
+**第三步，读出结论**：$|\vec{b}|^2-|\vec{a}|^2=0$，即 $|\vec{b}|=|\vec{a}|$，也就是 $AD=AB$，平行四边形邻边相等，故为菱形。证毕。
 
 这条证明展示了数量积的绝妙之处：**它把「角度条件」变成了「模长条件」**——垂直本来是角度关系，一展开点乘，竟然直接吐出邻边相等的代数事实。<span class="marginnote">数量积像一座桥：桥的这一头是角度（$\cos\theta=0$），桥的那一头是长度（$|\vec{a}|=|\vec{b}|$）。很多看似八竿子打不着的几何量，经过点乘展开就勾连起来。这也是为什么数量积是「几何证明神器」。</span>
 
@@ -71,10 +71,10 @@ $$
 
 向量法在「三点共线」的证明上极其干净。看一道题：在 $\triangle ABC$ 中，$D$ 是 $AB$ 的中点，$E$ 是 $AC$ 上且 $AE=\frac13 AC$ 的点，$BE$ 与 $CD$ 交于 $F$，证明 $F$ 分 $BE$ 的比例为定值。
 
-- **第一步，选基底**：设 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AC}$，则 $\overrightarrow{AD}=\frac12\vec{a}$、$\overrightarrow{AE}=\frac13\vec{b}$。
-- **第二步，设分点**：$F$ 在 $BE$ 上，设 $\overrightarrow{BF}=t\overrightarrow{BE}=t(\vec{b}\cdot\frac13-\vec{a})=\frac t3\vec{b}-t\vec{a}$。$F$ 在 $CD$ 上，设 $\overrightarrow{CF}=s\overrightarrow{CD}=s(\frac12\vec{a}-\vec{b})=\frac s2\vec{a}-s\vec{b}$。
-- **第三步，同向量列方程**：$\overrightarrow{AF}=\overrightarrow{AB}+\overrightarrow{BF}=\vec{a}+\frac t3\vec{b}-t\vec{a}=(1-t)\vec{a}+\frac t3\vec{b}$；又 $\overrightarrow{AF}=\overrightarrow{AC}+\overrightarrow{CF}=\vec{b}+\frac s2\vec{a}-s\vec{b}=\frac s2\vec{a}+(1-s)\vec{b}$。系数相等：$1-t=\frac s2$，$\frac t3=1-s$，解得 $s=\frac45$，$t=\frac35$。
-- **第四步，读结论**：$F$ 分 $BE$ 为 $BF:FE=t:(1-t)=\frac35:\frac25=3:2$。
+**第一步，选基底**：设 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AC}$，则 $\overrightarrow{AD}=\frac12\vec{a}$、$\overrightarrow{AE}=\frac13\vec{b}$。
+**第二步，设分点**：$F$ 在 $BE$ 上，设 $\overrightarrow{BF}=t\overrightarrow{BE}=t(\vec{b}\cdot\frac13-\vec{a})=\frac t3\vec{b}-t\vec{a}$。$F$ 在 $CD$ 上，设 $\overrightarrow{CF}=s\overrightarrow{CD}=s(\frac12\vec{a}-\vec{b})=\frac s2\vec{a}-s\vec{b}$。
+**第三步，同向量列方程**：$\overrightarrow{AF}=\overrightarrow{AB}+\overrightarrow{BF}=\vec{a}+\frac t3\vec{b}-t\vec{a}=(1-t)\vec{a}+\frac t3\vec{b}$；又 $\overrightarrow{AF}=\overrightarrow{AC}+\overrightarrow{CF}=\vec{b}+\frac s2\vec{a}-s\vec{b}=\frac s2\vec{a}+(1-s)\vec{b}$。系数相等：$1-t=\frac s2$，$\frac t3=1-s$，解得 $s=\frac45$，$t=\frac35$。
+**第四步，读结论**：$F$ 分 $BE$ 为 $BF:FE=t:(1-t)=\frac35:\frac25=3:2$。
 
 <span class="marginnote">「设分点 + 同向量系数相等」是向量法证明共线/交比的通用框架：<strong>两条路表示同一向量，基本定理保证系数唯一，于是列方程组解出分点比例</strong>。本题 $F$ 同时落在 $BE$ 与 $CD$ 上，用两条路线表示 $\overrightarrow{AF}$，系数对齐即得 $s,t$。这类「交点定比」问题在几何里要费辅助线，向量法只需代数解方程——<strong>「以算代证」是向量法的灵魂</strong>。</span>
 

@@ -89,56 +89,44 @@ $$Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \frac{W}{C(S_t, A_t)}\left(G - Q(S_t, A_t
 
 ```python
 import random
-from collections import defaultdict
 
-STATES = [1, 2, 3, 4]
-ACTIONS = ["L", "R"]
-B = {"L": 0.5, "R": 0.5}                 # 行为策略 b：均匀随机，保证覆盖
+Q = {(s, a): 0.0 for s in range(1, 5) for a in (-1, 1)}   # 动作价值
+C = {(s, a): 0.0 for s in range(1, 5) for a in (-1, 1)}   # 分母：累计权重
 
-def mc_off_policy_control(num_episodes, gamma=1.0):
-    Q = defaultdict(float)               # q(s, a)，初值 0
-    C = defaultdict(float)               # 累计权重
-    pi = {s: random.choice(ACTIONS) for s in STATES}
-    for _ in range(num_episodes):
-        # 1) 用行为策略 b 生成一个完整回合
-        s = random.choice(STATES)
-        traj = []                        # (s, a, r)
-        while True:
-            a = random.choice(ACTIONS)   # b(s)
-            s2 = s + (1 if a == "R" else -1)
-            traj.append((s, a, -1))
-            if s2 in (0, 5):
-                break
-            s = s2
-        # 2) 从后往前做加权 IS 更新
-        G, W = 0.0, 1.0
-        for s, a, r in reversed(traj):
-            G = r + gamma * G
-            C[s, a] += W
-            Q[s, a] += (W / C[s, a]) * (G - Q[s, a])
-            pi[s] = max(ACTIONS, key=lambda act: Q[s, act])   # 目标策略重新贪心
-            if a != pi[s]:               # 非贪心 → 更早步骤的权重全为 0，终止
-                break
-            W *= 1.0 / B[a]              # 本步一致 → W 乘上 π/b = 1/b
-    return pi, dict(Q)
+def greedy(s):                                             # 目标策略 π = 贪心
+    return max((-1, 1), key=lambda a: Q[s, a])
 
-pi, Q = mc_off_policy_control(100_000)
-print("目标策略:", pi)
+for _ in range(200_000):
+    s = random.choice([1, 2, 3, 4])
+    traj = []
+    while s not in (0, 5):
+        a = random.choice([-1, 1])      # 行为策略 b：均匀随机，覆盖全部动作
+        traj.append((s, a))
+        s += a
+
+    G, W = 0, 1.0                        # 反向遍历回合，W 从末尾开始累积
+    for s, a in reversed(traj):
+        G += -1                          # 每步奖励 -1
+        C[s, a] += W
+        Q[s, a] += (W / C[s, a]) * (G - Q[s, a])   # 加权 IS 更新
+        if a != greedy(s):               # 偏离贪心 → 更早步骤的 ρ 全为 0
+            break                        # 提前终止反向循环
+        W *= 2.0                         # b(A|S)=0.5，W 翻倍（几何膨胀）
 ```
 
 算法正确转起来了，但注意两处「吃力」：
 
-- **`break` 频繁触发**：均匀随机的行为策略每步只有 $1/2$ 概率撞上贪心，回合稍长，`break` 几乎立刻发生。于是只有回合末端的少数 $(s, a)$ 被更新，靠前状态的 $Q$ 长期拿不到样本。
+- **$(s, a)$ 频繁触发**：均匀随机的行为策略每步只有 $1/2$ 概率撞上贪心，回合稍长，$Q$ 几乎立刻发生。于是只有回合末端的少数 $(s, a)$ 被更新，靠前状态的 $Q$ 长期拿不到样本。
 - **W 几何膨胀**：真撑到「全程一致」的回合，$W$ 是 $2^{\text{长度}}$ 量级，一个回合的权重就能主导一整段估计，方差随之拉高。
 
-**辨析｜易错点：别把「收敛」误以为「快」。** 这个算法理论上收敛（加权 IS 保证），但有效样本被 `break` 砍得所剩无几，实际收敛慢得难以接受。教材明确评价：离策略 MC 控制在原则上可行，却「因这些困难而很少被使用」——它在理论史上的价值，是证明了「离策略 + 贪心目标」这条路**能走通**，而不是「好走」。
+**辨析｜易错点：别把「收敛」误以为「快」。** 这个算法理论上收敛（加权 IS 保证），但有效样本被**提前终止（$\rho = 0$）**砍得所剩无几，实际收敛慢得难以接受。教材明确评价：离策略 MC 控制在原则上可行，却「因这些困难而很少被使用」——它在理论史上的价值，是证明了「离策略 + 贪心目标」这条路**能走通**，而不是「好走」。
 
 ## 6 辨析：为什么 TD 才是离策略的解药
 
 蒙特卡洛在这道题上吃亏，根子在**完整回合**：$\rho$ 要连乘整段轨迹，一旦中途有一步偏离贪心，整段作废。下一章要登场的时序差分（TD）方法，恰好把「整段回报」换成「一步自举」，于是离策略立刻变得温顺。
 
 - **TD 只需要一步的修正因子。** TD 更新 $Q(S, A)$ 时，目标只用到 $R + \gamma \cdot \text{(自举值)}$，而非完整回报；因此需要修正的只是「当前这一步动作」的概率比 $\rho_t = \pi(A_t \mid S_t) / b(A_t \mid S_t)$，而不是整段轨迹的连乘。**一步的偏离只作废一步，不连坐整回合。**
-- **Q-learning 干脆不用 ρ。** 第六篇的 Q-learning 是离策略 TD 控制，它的目标里直接写 $\max_{a'} Q(S', a')$——「按目标策略（贪心）取值」被 `max` 一步算完，行为策略只在采样时出现，修正因子根本不需要。
+- **Q-learning 干脆不用 ρ。** 第六篇的 Q-learning 是离策略 TD 控制，它的目标里直接写 $\max_{a'} Q(S', a')$——「按目标策略（贪心）取值」被 $\max_{a'}$ 一步算完，行为策略只在采样时出现，修正因子根本不需要。
 
 $$Q(S, A) \leftarrow Q(S, A) + \alpha\left[ R + \gamma \max_{a'} Q(S', a') - Q(S, A) \right]$$
 

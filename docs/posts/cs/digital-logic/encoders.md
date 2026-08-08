@@ -103,39 +103,56 @@ $$Y_1 = I_3 + I_2, \qquad Y_0 = I_3 + \overline{I_2}\,I_1$$
 **普通编码器（独热输入）**：
 
 ```verilog
-always @(*) begin
-    case (1'b1)
-        y0:       code = 3'd0;
-        y1:       code = 3'd1;
-        y2:       code = 3'd2;
-        // ...
-        default:  code = 3'd0;
-    endcase
-end
+module encoder_8to3 (
+    input  [7:0] in,
+    output reg [2:0] y
+);
+    always @(*) begin
+        casez (in)                  // ? 匹配任意位，命中第一个为 1 的位
+            8'b???????1: y = 3'd0;
+            8'b??????1?: y = 3'd1;
+            8'b?????1??: y = 3'd2;
+            8'b????1???: y = 3'd3;
+            8'b???1????: y = 3'd4;
+            8'b??1?????: y = 3'd5;
+            8'b?1??????: y = 3'd6;
+            8'b1???????: y = 3'd7;
+            default:     y = 3'd0;
+        endcase
+    end
+endmodule
 ```
 
-`case (1'b1)` 是独热编码器的经典写法——匹配第一个为 1 的位，天然实现「唯一有效」。
+`casez` 是独热编码器的经典写法——匹配第一个为 1 的位，天然实现「唯一有效」。
 
 **优先编码器（多个有效取最高）**：
 
 ```verilog
-always @(*) begin
-    if (y7)      code = 3'd7;   // 最高优先级
-    else if (y6) code = 3'd6;
-    else if (y5) code = 3'd5;
-    // ...
-    else if (y0) code = 3'd0;
-    else         code = 3'd0;
-end
+module priority_encoder (
+    input  [7:0] in,
+    output reg [2:0] y
+);
+    always @(*) begin
+        if (in[7])      y = 3'd7;   // 高优先级先判
+        else if (in[6]) y = 3'd6;
+        else if (in[5]) y = 3'd5;
+        else if (in[4]) y = 3'd4;
+        else if (in[3]) y = 3'd3;
+        else if (in[2]) y = 3'd2;
+        else if (in[1]) y = 3'd1;
+        else if (in[0]) y = 3'd0;
+        else            y = 3'd0;
+    end
+endmodule
 ```
 
-`if-else if` 链天然实现优先级——先判高优先级，命中即止。这与硬件的「屏蔽」逻辑（前面推导的 $\overline{I_j}$ 项）完全等价。
+`if-else` 链天然实现优先级——先判高优先级，命中即止。这与硬件的「屏蔽」逻辑（前面推导的 $\overline{I_j}$ 项）完全等价。
 
 **为什么优先编码器用 if-else 链**：硬件上 if-else 链综合成「逐级使能/屏蔽」结构——每级判断自己的输入、屏蔽低优先级——正是优先编码器的硬件本质。理解原理，写代码就有把握；读综合报告也能看懂结构。
 
 **编码器的测试要点**：Testbench 要覆盖「单输入有效」与「多输入有效（验证优先级）」两类情况——只测单输入的 Testbench 测不出优先级逻辑的对错。
 
-**辨析｜易错点：** `case (1'b1)` 匹配第一个为 1 的位，隐含「只有一个 1」假设；`if-else if` 处理「多个 1 取最高」。普通编码器与优先编码器的差别，在 HDL 里就是这两种写法的差别——写错就换了个功能。
+**辨析｜易错点：** `casez` 匹配第一个为 1 的位，隐含「只有一个 1」假设；`if-else` 处理「多个 1 取最高」。普通编码器与优先编码器的差别，在 HDL 里就是这两种写法的差别——写错就换了个功能。
 
 ## 7 小结
 

@@ -21,7 +21,7 @@ date: 2026-08-07
 这一节要建立三件事：为什么需要映射、核技巧如何绕过显式映射、以及什么样的函数才能当核。<span class="marginnote">核方法的影响力远超 SVM 本身：第10章的核化线性降维（KPCA）、第6章末的核方法、甚至高斯过程回归，都用同一套「核 = 隐式高维内积」的语言。学透这一节，等于掌握了整个「核」家族的通关密码。</span>
 
 ## 1 线性不可分怎么办：升维想象一个二维平面上的数据：正样本围成一圈，负样本在圆心。任何一条直线都分不开它们——线性不可分。但若把每个点映射到三维特征空间，例如 $\phi(\boldsymbol{x}) = (x_1, x_2, x_1^2 + x_2^2)$，让「到圆心的距离」成为第三维，那么在三维空间里用一个平面就能切开：**数据在高维空间线性可分了**。**直觉**：维数越高，表达力越强；「分不开」往往只是「在低维看不穿」。「把样本映射到高维特征空间 $\phi(\boldsymbol{x})$，然后在特征空间里学线性 SVM」——这就是非线性 SVM 的思路。但直接算 $\phi(\boldsymbol{x})$ 有两个问题：**映射可能无穷维**（如高斯核对应的映射），且**高维内积计算昂贵**。核技巧正是来救场的。
-## 2 核技巧：不映射，只算内积设 $\phi(\boldsymbol{x})$ 是特征映射，特征空间中的内积为 $\langle \phi(\boldsymbol{x}_i), \phi(\boldsymbol{x}_j)\rangle$。**核函数（kernel function）**定义为一个函数 $k$，使得$$k(\boldsymbol{x}_i, \boldsymbol{x}_j) = \langle \phi(\boldsymbol{x}_i), \phi(\boldsymbol{x}_j)\rangle$$
+## 2 核技巧：不映射，只算内积设 $\phi(\boldsymbol{x})$ 是特征映射，特征空间中的内积为 $\langle \phi(\boldsymbol{x}_i), \phi(\boldsymbol{x}_j)\rangle$。**核函数（kernel function）**定义为一个函数 $k$，使得`$$`k(\boldsymbol{x}_i, \boldsymbol{x}_j) = \langle \phi(\boldsymbol{x}_i), \phi(\boldsymbol{x}_j)\rangle$$
 即：**核函数直接给出高维空间里两个样本的内积，而不用先把样本显式映射过去。** 对偶问题的所有内积 $\boldsymbol{x}_i^{\mathrm{T}}\boldsymbol{x}_j$ 换成 $k(\boldsymbol{x}_i, \boldsymbol{x}_j)$，非线性 SVM 的对偶形式就写成：
 
 $$\max_{\boldsymbol{\alpha}} \; \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i,j} \alpha_i \alpha_j y_i y_j k(\boldsymbol{x}_i, \boldsymbol{x}_j)$$
@@ -38,8 +38,8 @@ $$\max_{\boldsymbol{\alpha}} \; \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i,j}
 **辨析｜易错点：** 高斯核的 $\sigma$ 不是「越大越好」也不是「越小越好」。$\sigma$ 太小，每个样本只在极小的邻域内影响分类，容易把训练集「圈」成一块块孤岛——**过拟合**；$\sigma$ 太大，核近似常数，所有样本彼此几乎不分——**欠拟合**。工程上 $\sigma$ 与惩罚参数 $C$ 一起，是最需要调的 SVM 超参数。
 
 ## 4 公式解析：高斯核为什么「局部」高斯核 $k(\boldsymbol{x}_i, \boldsymbol{x}_j) = \exp\left(-\dfrac{\|\boldsymbol{x}_i - \boldsymbol{x}_j\|^2}{2\sigma^2}\right)$ 拆成四步理解：- **第一步，看自变量**：它是样本**距离** $\|\boldsymbol{x}_i - \boldsymbol{x}_j\|$ 的减函数——两个样本越近，核值越大（越相似）。- **第二步，看极限**：当 $\boldsymbol{x}_i = \boldsymbol{x}_j$ 时 $k = 1$；当距离趋于无穷时 $k \to 0$。核值域落在 $(0, 1]$。
-- **第三步，看 $\sigma$ 的作用**：$\sigma$ 是「尺度」参数。$\sigma$ 大，指数衰减慢，即使距离较远核值仍不小——影响范围大、边界光滑；$\sigma$ 小，核值快速跌到 0——每个样本只影响自己的小邻域。
-- **第四步，看模型含义**：$f(\boldsymbol{x}) = \sum_i \alpha_i y_i k(\boldsymbol{x}_i, \boldsymbol{x}) + b$ 意味着预测时，每个支持向量按它与 $\boldsymbol{x}$ 的相似度「投票」——高斯核下，只有离 $\boldsymbol{x}$ 近的支持向量才有实质影响力，这正是「局部加权」式的决策。
+**第三步，看 $\sigma$ 的作用**：$\sigma$ 是「尺度」参数。$\sigma$ 大，指数衰减慢，即使距离较远核值仍不小——影响范围大、边界光滑；$\sigma$ 小，核值快速跌到 0——每个样本只影响自己的小邻域。
+**第四步，看模型含义**：$f(\boldsymbol{x}) = \sum_i \alpha_i y_i k(\boldsymbol{x}_i, \boldsymbol{x}) + b$ 意味着预测时，每个支持向量按它与 $\boldsymbol{x}$ 的相似度「投票」——高斯核下，只有离 $\boldsymbol{x}$ 近的支持向量才有实质影响力，这正是「局部加权」式的决策。
 
 **直觉一句话**：高斯核把「线性 SVM」升级成了「以每个支持向量为中心、按距离衰减的高斯核加权投票」——一个自动形成的、可解释为局部模板匹配的分类器。
 

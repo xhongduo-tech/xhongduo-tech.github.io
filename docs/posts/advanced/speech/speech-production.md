@@ -141,22 +141,19 @@ $$s(n) = \sum_{k=1}^{p} a_k\, s(n-k) + G\, e(n)$$
 ```python
 import numpy as np
 
-def lpc_autocorr(s, p=12):
-    """自相关法求 p 阶 LPC 系数，返回 a[1..p] 与残差能量。"""
-    n = len(s)
-    r = np.correlate(s, s, mode='full')[n-1:]   # 自相关 r[k]
+def lpc(x, p=12):
+    """Levinson–Durbin 递推求解线性预测系数（Yule–Walker 方程）。
+    返回 a: LPC 系数（不含首项 1）与增益 G。"""
+    N = len(x)
+    r = np.array([x[:N-k] @ x[k:] for k in range(p + 1)])  # 自相关 r[0..p]
     a = np.zeros(p + 1)
-    a[0] = 1.0
-    e = r[0]
+    err = r[0]
     for i in range(1, p + 1):
-        k = (r[i] - np.dot(a[1:i], r[i-1:0:-1])) / e   # 反射系数
-        new = a.copy()
-        for j in range(1, i):
-            new[j] = a[j] - k * a[i - j]
-        new[i] = -k
-        e *= 1.0 - k * k
-        a = new
-    return a[1:], e
+        k = (r[i] - a[1:i] @ r[i-1:0:-1]) / err   # 反射系数
+        a[1:i] -= k * a[1:i][::-1]                # 更新低阶系数
+        a[i] = k                                  # 新一阶的系数
+        err *= 1 - k * k
+    return a[1:], np.sqrt(err)                    # a 与增益 G
 ```
 
 LPC 的意义远超「压缩编码」：声道参数被压缩进少数几个 $a_k$，频谱包络可由它们直接算出，基频由残差 $e(n)$ 的周期性估计——**声源参数与声道参数在这里第一次被显式地分开**。语音编码（如 LPC-10）、共振峰估计、以及后来与 MFCC 竞争的特征都建立在这套模型上。

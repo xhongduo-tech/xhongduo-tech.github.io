@@ -30,9 +30,9 @@ date: 2026-08-07
 
 现实例子俯拾皆是：
 
-- **个性化推荐**：情境是用户画像与页面信息，动作是候选商品，奖励是点击/购买。
-- **医疗用药**：情境是病人的症状与检查指标，动作是备选药物，奖励是疗效指标。
-- **广告竞价**：情境是访客与广告位，动作是素材选择，奖励是转化。
+**个性化推荐**：情境是用户画像与页面信息，动作是候选商品，奖励是点击/购买。
+**医疗用药**：情境是病人的症状与检查指标，动作是备选药物，奖励是疗效指标。
+**广告竞价**：情境是访客与广告位，动作是素材选择，奖励是转化。
 
 这些场景都满足一个关键假设：**这一步的动作不会改变下一个情境**——你给用户推了鞋，用户不会因此「变成另一种画像」。正是这个假设把它们与完整 RL 划开。
 
@@ -86,27 +86,29 @@ $$\pi_*(s) = \underset{a}{\arg\max}\, q_*(s, a)$$
 把「每个情境独立跑一个老虎机」写成代码，你会看到它与上一节 ε-贪心类只差一个「按情境取表」的动作：
 
 ```python
-import numpy as np
-from collections import defaultdict
+import random
 
 class ContextualBandit:
-    def __init__(self, n_actions, alpha=0.1, epsilon=0.1):
-        self.n_actions = n_actions
+    def __init__(self, actions, epsilon=0.1, alpha=0.1):
+        self.actions = actions
+        self.eps = epsilon
         self.alpha = alpha
-        self.epsilon = epsilon
-        self.Q = defaultdict(lambda: np.zeros(n_actions))   # 每个情境一张价值表
+        self.Q = {}                     # 情境 → 价值表：Q[(s, a)] = 估计
 
-    def choose(self, s):
-        if np.random.rand() < self.epsilon:
-            return np.random.randint(self.n_actions)
-        return int(np.argmax(self.Q[s]))
+    def choose(self, s):                # 按情境 s 查它自己的表
+        if random.random() < self.eps:
+            return random.choice(self.actions)            # 探索
+        return max(
+            self.actions,
+            key=lambda a: self.Q.get((s, a), 0.0)         # 利用
+        )
 
     def update(self, s, a, r):
-        q = self.Q[s]                              # 只更新「这个情境」的表
-        q[a] += self.alpha * (r - q[a])
+        old = self.Q.get((s, a), 0.0)
+        self.Q[(s, a)] = old + self.alpha * (r - old)     # 增量式平均
 ```
 
-注意 `self.Q` 是一个「情境 → 价值表」的字典：情境 $s$ 出现时，用 $s$ 自己的 $Q(s, \cdot)$ 决策与更新。这与非关联版本唯一的差别，就是**按情境分表**——也正是这一点，让它在「两个情境各自偏好不同」的例子里能同时做对。<span class="marginnote">把这里的「情境 $s$」从离散编号换成连续特征向量 $\phi(s)$，把「查表」换成「$\theta_a^\top \phi(s)$ 线性打分」，你就得到了<strong>线性上下文老虎机</strong>——在线推荐、广告竞价里最常用的一族模型。那是把「泛化」引入决策的第一步。</span>
+注意 $s$ 是一个「情境 → 价值表」的字典：情境 $s$ 出现时，用 $s$ 自己的 $Q(s, \cdot)$ 决策与更新。这与非关联版本唯一的差别，就是**按情境分表**——也正是这一点，让它在「两个情境各自偏好不同」的例子里能同时做对。<span class="marginnote">把这里的「情境 $s$」从离散编号换成连续特征向量 $\phi(s)$，把「查表」换成「$\theta_a^\top \phi(s)$ 线性打分」，你就得到了<strong>线性上下文老虎机</strong>——在线推荐、广告竞价里最常用的一族模型。那是把「泛化」引入决策的第一步。</span>
 
 ## 5 小结
 

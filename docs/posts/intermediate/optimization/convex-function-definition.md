@@ -122,22 +122,7 @@ $$
 
 一个快速的自检工具：数值上采样大量随机点对，检查「弦是否都在曲线之上」，可以直观感受凸性，但只能当探针、不能当证明。
 
-```python
-import numpy as np
-rng = np.random.default_rng(0)
-
-def is_convex_heuristic(f, n=20000, scale=5.0):
-    for _ in range(n):
-        x, y = rng.uniform(-scale, scale, 2)
-        th = rng.random()
-        mid = th * x + (1 - th) * y
-        if f(mid) > th * f(x) + (1 - th) * f(y) + 1e-9:
-            return False
-    return True
-
-print(is_convex_heuristic(lambda t: t**2))     # True
-print(is_convex_heuristic(lambda t: t**3))     # False，x^3 在 R 上不凸
-```
+**把握凸性的完整判据体系**：定义式是「宪法」，沿直线刻画把多元凸性还原成一元碗形，弦斜率单调则是「不光滑版的导数单调」——三条判据互为印证；再加上定义域先凸、不要求可微这两条铁律，判断一个函数是否凸就成了「查字典」式的机械动作：先看定义域，再看弦与图像的位置关系，必要时用一阶/二阶条件佐证。
 
 ## 8 小结
 

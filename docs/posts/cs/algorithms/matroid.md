@@ -24,17 +24,17 @@ date: 2026-08-07
 
 **拟阵（matroid）** 是一个有序对 $(S, \mathcal{I})$，其中 $S$ 是有限集合，$\mathcal{I}$ 是 $S$ 的某些子集的集合（称为**独立集**），满足：
 
-- **(M1) 空集独立**：$\emptyset \in \mathcal{I}$。
-- **(M2) 遗传性（heredity）**：若 $B \in \mathcal{I}$ 且 $A \subseteq B$，则 $A \in \mathcal{I}$。独立集的子集仍独立。
-- **(M3) 交换性（exchange property）**：若 $A, B \in \mathcal{I}$ 且 $|A| < |B|$，则存在 $x \in B \setminus A$ 使 $A \cup \{x\} \in \mathcal{I}$。<span class="marginnote">交换性是最核心也最抽象的公理：两个独立集，小的那个总能「借」大的那个里的一个元素而保持独立。它正是「贪心每一步都能把集合做大」的数学保证——没有 M3，贪心可能卡在「局部极大」无法到「全局最大」。</span>
+**(M1) 空集独立**：$\emptyset \in \mathcal{I}$。
+**(M2) 遗传性（heredity）**：若 $B \in \mathcal{I}$ 且 $A \subseteq B$，则 $A \in \mathcal{I}$。独立集的子集仍独立。
+**(M3) 交换性（exchange property）**：若 $A, B \in \mathcal{I}$ 且 $|A| < |B|$，则存在 $x \in B \setminus A$ 使 $A \cup \{x\} \in \mathcal{I}$。<span class="marginnote">交换性是最核心也最抽象的公理：两个独立集，小的那个总能「借」大的那个里的一个元素而保持独立。它正是「贪心每一步都能把集合做大」的数学保证——没有 M3，贪心可能卡在「局部极大」无法到「全局最大」。</span>
 
 ## 2 两个关键例子
 
 **图拟阵（graphic matroid）**：$S$ = 无向图 $G=(V,E)$ 的边集，$\mathcal{I}$ = **森林**（无环边集）的集合。
 
-- (M1) 空边集无环，独立。
-- (M2) 森林的子集仍是森林（删边不会造出环）。
-- (M3) 若 $A, B$ 都是森林且 $|A|<|B|$：$B$ 有更多边，其连通分量更少（森林边数 = 顶点数 − 分量数）。$A$ 的某两个分量必然被 $B$ 的一条边连接——加入该边不产生环。交换性成立。
+(M1) 空边集无环，独立。
+(M2) 森林的子集仍是森林（删边不会造出环）。
+(M3) 若 $A, B$ 都是森林且 $|A|<|B|$：$B$ 有更多边，其连通分量更少（森林边数 = 顶点数 − 分量数）。$A$ 的某两个分量必然被 $B$ 的一条边连接——加入该边不产生环。交换性成立。
 
 **最大权独立集**：给每条边赋权，求最大总权森林——**这就是最大生成树**（或最小生成树取负权）。<span class="marginnote">图拟阵把「最小生成树」翻译成「图拟阵上的最大权独立集」——Kruskal 算法的正确性因此由拟阵定理免费给出。这是拟阵「一统贪心」最漂亮的例子：Kruskal 按边权排序贪心，正是「拟阵上贪心」的特例。</span>
 
@@ -56,12 +56,12 @@ date: 2026-08-07
 
 ```
 GREEDY(M, w)
-  sort S by w descending
-  A = empty set
-  for each x in S (descending order)
-    if A ∪ {x} is independent
-      A = A ∪ {x}
-  return A
+1  sort S by decreasing weight w            // 按权降序
+2  A = ∅                                    // 贪心解，初始为空
+3  for each x ∈ S in that order
+4      if A ∪ {x} ∈ 𝓘                       // 能加就加（保持独立）
+5          A = A ∪ {x}
+6  return A
 ```
 
 对图拟阵 + 降权，这就是 **Kruskal 算法**：按边权升序（= 降权取负）扫描，用并查集判断「加边是否成环」。时间复杂度 $O(|E|\log|E|)$（排序主导）——与《数据结构》里 Kruskal 的实现一致。<span class="marginnote">拟阵的价值不在给出新算法，而在「把已熟知的贪心统一到一条定理下」：Kruskal、Prim、活动选择的加权版、最大权独立集……只要验证结构是拟阵，贪心正确性自动成立，不必每题重写交换论证。</span>

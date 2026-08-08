@@ -46,9 +46,9 @@ $$
 
 用一个典型问题演示判定与性质的「接力」：已知平面 $\alpha\parallel\beta$，直线 $a\subset\alpha$，直线 $b\subset\beta$，且 $a\parallel\gamma$（某个平面），证明 $b$ 也与 $b$ 所在某条线平行……我们选一道更清楚的题：**正方体 $ABCD$-$A'B'C'D'$ 中，$E,F$ 分别为棱 $AB,AD$ 的中点，证明 $EF\parallel$ 平面 $A'B'C'D'$。**
 
-- **第一步，找线线平行**：$E,F$ 是 $\triangle ABD$ 的两边中点，由三角形中位线定理，$EF\parallel BD$。这是「线线平行」的来源。
-- **第二步，找面内直线**：$BD\subset$ 平面 $ABCD$，而平面 $ABCD\parallel$ 平面 $A'B'C'D'$（正方体相对面平行）。
-- **第三步，套线面判定**：由面面平行性质定理的推论，$BD\subset\alpha$，$\alpha\parallel\beta$ 时 $BD\parallel\beta$。又 $EF\parallel BD$，由线线平行传递性，$EF\parallel\beta$（注意 $EF\not\subset\beta$）。故 $EF\parallel$ 平面 $A'B'C'D'$。
+**第一步，找线线平行**：$E,F$ 是 $\triangle ABD$ 的两边中点，由三角形中位线定理，$EF\parallel BD$。这是「线线平行」的来源。
+**第二步，找面内直线**：$BD\subset$ 平面 $ABCD$，而平面 $ABCD\parallel$ 平面 $A'B'C'D'$（正方体相对面平行）。
+**第三步，套线面判定**：由面面平行性质定理的推论，$BD\subset\alpha$，$\alpha\parallel\beta$ 时 $BD\parallel\beta$。又 $EF\parallel BD$，由线线平行传递性，$EF\parallel\beta$（注意 $EF\not\subset\beta$）。故 $EF\parallel$ 平面 $A'B'C'D'$。
 
 这条证明的链条是：**中位线（线线）→ 传递性（线线）→ 面面平行性质（线面）→ 判定（线面）**。<span class="marginnote">注意这条链里的方向切换：面面平行「给出」线面平行（性质），线线平行「推出」线面平行（判定）。性质与判定交替使用，就像上下楼梯一样一层层走——每走一层，把「已知」推进一层，最终抵达目标。这种「链式推理」是立体几何证明的标准节奏。</span>
 
@@ -58,8 +58,8 @@ $$
 
 把判定与性质放在一起看，平行关系形成一个闭环网络：
 
-- 线线平行 ⟶（判定）⟶ 线面平行 ⟶（性质）⟶ 线线平行
-- 线面平行 ⟶（判定）⟶ 面面平行 ⟶（性质）⟶ 线面平行、线线平行
+线线平行 ⟶（判定）⟶ 线面平行 ⟶（性质）⟶ 线线平行
+线面平行 ⟶（判定）⟶ 面面平行 ⟶（性质）⟶ 线面平行、线线平行
 
 <span class="marginnote">这张网络图是「立体几何平行题」的导航地图：每道证明题，本质上都是在网络上走一段路——从已知节点出发，沿箭头走到目标节点。熟记这张图，解题时就不必每次从零开始想定理，而是「查图找路」。</span> 除了平行的三角关系，还有一条「垂直通往平行」的通道：**垂直于同一条直线的两个平面平行，垂直于同一个平面的两条直线平行**——垂直关系也能反向导出平行，这在下一节学完垂直判定后会自然浮现。完整的空间关系网，在垂直章节结束后才算拼齐。
 
@@ -67,10 +67,10 @@ $$
 
 面面平行性质的应用常与「等长线段」结合。看一道题：平面 $\alpha\parallel\beta$，线段 $AB$ 夹在 $\alpha,\beta$ 之间（$A\in\alpha,B\in\beta$），线段 $CD$ 也夹在 $\alpha,\beta$ 之间（$C\in\alpha,D\in\beta$），且 $AB\parallel CD$，证明 $AB=CD$。
 
-- **第一步，作辅助平面**：过 $AB$ 与 $CD$ 作平面 $\gamma$——因为 $AB\parallel CD$，由「两平行直线确定一个平面」，$\gamma$ 存在且唯一。
-- **第二步，求交线**：$\gamma\cap\alpha=AC$，$\gamma\cap\beta=BD$——$\gamma$ 与两个平行平面相交。
-- **第三步，套面面平行性质定理**：$\alpha\parallel\beta$，$\gamma$ 同时截两平面，交线 $AC\parallel BD$——两条交线平行。
-- **第四步，判四边形**：四边形 $ABDC$ 中，$AB\parallel CD$ 且 $AC\parallel BD$——两组对边分别平行，是平行四边形，故 $AB=CD$。证毕。
+**第一步，作辅助平面**：过 $AB$ 与 $CD$ 作平面 $\gamma$——因为 $AB\parallel CD$，由「两平行直线确定一个平面」，$\gamma$ 存在且唯一。
+**第二步，求交线**：$\gamma\cap\alpha=AC$，$\gamma\cap\beta=BD$——$\gamma$ 与两个平行平面相交。
+**第三步，套面面平行性质定理**：$\alpha\parallel\beta$，$\gamma$ 同时截两平面，交线 $AC\parallel BD$——两条交线平行。
+**第四步，判四边形**：四边形 $ABDC$ 中，$AB\parallel CD$ 且 $AC\parallel BD$——两组对边分别平行，是平行四边形，故 $AB=CD$。证毕。
 
 <span class="marginnote">「夹在两平行平面之间的平行线段等长」的证明套路：<strong>作辅助平面（由两平行直线确定）→ 用面面平行性质得交线平行 → 判平行四边形 → 得等长</strong>。这条结论本身也是常用工具：求两平行平面间距离、计算平行六面体高时都用它。<strong>面面平行性质把「面」的关系降到「线」的关系</strong>——这是立体几何「降维」的又一次实践。</span>
 

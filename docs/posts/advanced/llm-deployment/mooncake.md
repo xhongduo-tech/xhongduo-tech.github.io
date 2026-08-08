@@ -24,9 +24,9 @@ PD 分离把 KV Cache 从「prefill 节点挪到 decode 节点」，但每次传
 
 PD 分离的朴素实现里，KV Cache 是**一次性消费**的：prefill 算完、传给 decode、decode 用完即弃。下一个相同前缀的请求，又要重新 prefill。Mooncake 的观察：
 
-- **多轮对话与系统提示词**让「相同前缀」的请求极多——每轮追问都带着同一个长前缀；
-- 这些 KV Cache 若**持久化**下来，后续请求直接复用，能省掉大部分 prefill 计算与 KV 传输；
-- KV Cache 不再「跟着请求走」，而是「留在池子里，谁需要谁取」。
+**多轮对话与系统提示词**让「相同前缀」的请求极多——每轮追问都带着同一个长前缀；
+这些 KV Cache 若**持久化**下来，后续请求直接复用，能省掉大部分 prefill 计算与 KV 传输；
+KV Cache 不再「跟着请求走」，而是「留在池子里，谁需要谁取」。
 
 于是 Mooncake 引入**统一的 KV 缓存池（KV Cache Pool）**：一个分布式的、以 KV 块为单位的存储系统。prefill 节点算出的 KV 写入池，decode 节点从池读取，相同前缀的请求直接命中池里的块——**复用取代重算**。<span class="marginnote">这与本专题《RadixAttention》《Prefix Caching》是同一思想，只是从「单实例内」放大到「跨实例集群」：<strong>实例内的前缀树，Mooncake 把它变成集群级的 KV 池</strong>。</span>
 
@@ -34,9 +34,9 @@ PD 分离的朴素实现里，KV Cache 是**一次性消费**的：prefill 算�
 
 Mooncake 的架构由三类角色构成：
 
-- **Prefill 实例**：负责把 prompt 变成 KV Cache（算力密集）；产出后写入 KV 池，同时把首 token 交给 decode 实例。
-- **Decode 实例**：从 KV 池拉取前缀 KV，持续生成 token；生成中新增的 KV 也持续回写池子（供后续复用）。
-- **KV 池 / 调度器**：统一管理 KV 块的分配、放置、复制与调度。调度器决定「请求去哪、KV 放哪、谁复用谁」。
+**Prefill 实例**：负责把 prompt 变成 KV Cache（算力密集）；产出后写入 KV 池，同时把首 token 交给 decode 实例。
+**Decode 实例**：从 KV 池拉取前缀 KV，持续生成 token；生成中新增的 KV 也持续回写池子（供后续复用）。
+**KV 池 / 调度器**：统一管理 KV 块的分配、放置、复制与调度。调度器决定「请求去哪、KV 放哪、谁复用谁」。
 
 调度器的关键决策：**当两个请求共享长前缀时，让它们尽量落在同一组 decode 实例上**——这样 KV 池中的块可以跨请求共享，命中率高。<span class="marginnote">这又回到《Cache-aware 路由》：路由与缓存是同一枚硬币。<strong>Mooncake 把「路由决策」和「KV 放置决策」耦合在一起</strong>——请求去哪，取决于 KV 池里谁有它要的前缀。</span>
 
@@ -44,9 +44,9 @@ Mooncake 的架构由三类角色构成：
 
 「以 KV 为中心」的收益可以从三个角度看到：
 
-- **Prefill 计算量下降**：相同前缀的请求命中缓存，不再重复 prefill。多轮对话场景中，实测可省去 50%–90% 的重复 prefill。<span class="marginnote">缓存复用的收益有上界：<strong>首轮（冷缓存）必须全量 prefill</strong>，且 KV 池的容量、驱逐策略决定命中率上限。多轮对话越深、系统提示词越长，收益越大。</span>
-- **传输开销降低**：命中缓存的请求只需从池「取已存的块」，而不是「传全新算出的块」——网络负载下降。
-- **吞吐与延迟双升**：TTFT 因省去 prefill 而下降；整体吞吐因「算力不再重复浪费」而上升。
+**Prefill 计算量下降**：相同前缀的请求命中缓存，不再重复 prefill。多轮对话场景中，实测可省去 50%–90% 的重复 prefill。<span class="marginnote">缓存复用的收益有上界：<strong>首轮（冷缓存）必须全量 prefill</strong>，且 KV 池的容量、驱逐策略决定命中率上限。多轮对话越深、系统提示词越长，收益越大。
+<strong>传输开销降低</strong>：命中缓存的请求只需从池「取已存的块」，而不是「传全新算出的块」——网络负载下降。
+<strong>吞吐与延迟双升</strong>：TTFT 因省去 prefill 而下降；整体吞吐因「算力不再重复浪费」而上升。</span>
 
 Mooncake 论文报告：在长上下文、多轮对话的高并发负载下，它相对传统 PD 分离可提升约 2 倍的吞吐，同时显著改善 TTFT。
 

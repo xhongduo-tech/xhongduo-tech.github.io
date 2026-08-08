@@ -112,15 +112,11 @@ R-CNN 是检测演进的起点，把它放进完整图景，整个检测史一�
 
 **检测演进的完整脉络**：
 
-```
-滑动窗口+HOG（手工特征）
-  → R-CNN（CNN 特征 + 区域提议）
-  → Fast R-CNN（共享卷积 + RoI）
-  → Faster R-CNN（RPN 端到端）
-  → YOLO/SSD（单阶段）
-  → FPN（多尺度）
-  → Anchor-Free（去锚框）
-  → DETR（集合预测）
+```text
+两阶段家族：  R-CNN (2014) → SPP-Net (2015) → Fast R-CNN (2015)
+             → Faster R-CNN (2015) → Mask R-CNN (2017)
+单阶段家族：  YOLO (2016) → SSD (2016) → YOLO v2/v3 → RetinaNet (2017)
+端到端家族：  DETR (2020) → Deformable DETR (2021) → DINO (2022)
 ```
 
 **每条演进线的本质**：

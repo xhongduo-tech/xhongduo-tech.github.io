@@ -22,7 +22,7 @@ date: 2026-08-07
 
 **第一范式**：关系的每个属性都是**原子**的——不可再分，每个值都是单值而非集合、列表。
 
-**违反 1NF 的例子**：`student(id, name, phone_list)`，其中 `phone_list` 存逗号分隔的多个电话；或一个单元格放一个集合。**1NF 是关系模型的底层约定**——第 7 章「多值属性拆子表」正是为了满足 1NF。
+**违反 1NF 的例子**：`student(id, name, phones)`，其中 `phones` 存逗号分隔的多个电话；或一个单元格放一个集合。**1NF 是关系模型的底层约定**——第 7 章「多值属性拆子表」正是为了满足 1NF。
 
 **辨析｜易错点：** 「原子」是**相对于使用方式**的。一个 JSON 字段存整段结构，若系统从不解析它、只整体存取，也可以算原子；若系统要查「含某 key 的记录」，它就该被拆。**1NF 不是绝对的，是查询需求相对的。**
 
@@ -32,14 +32,11 @@ date: 2026-08-07
 
 **部分依赖**：非主属性被候选码的**真子集**决定。典型场景是**组合候选码**：
 
-```
-enroll(student_id, course_id, student_name, grade)
-候选码 (student_id, course_id)
-```
+**例如**：`takes(student_id, course_id, student_name, grade)`，候选码 `(student_id, course_id)`。
 
 `student_name` 只依赖 `student_id`（候选码的一部分）——**部分依赖**。结果：学生姓名在每个选课行里重复，更新异常再现。
 
-**解决办法**：拆成 `enroll(student_id, course_id, grade)` 与 `student(student_id, student_name)`。
+**解决办法**：拆成 `student(student_id, student_name)` 与 `takes(student_id, course_id, grade)`。
 
 **核心要点：2NF 只处理「组合码下的部分依赖」。** 若候选码都是单属性，不存在部分依赖，模式自动满足 2NF。
 
@@ -49,14 +46,11 @@ enroll(student_id, course_id, student_name, grade)
 
 **传递依赖**：非主属性 $B$ 由非主属性（或非码属性）$A$ 决定，而 $A$ 由候选码决定，形成「码 → A → B」：
 
-```
-account(account_no, branch_name, branch_city)
-候选码 account_no
-```
+**例如**：`account(account_number, branch_name, branch_city)`，候选码 `account_number`。
 
-`branch_city` 依赖 `branch_name`，`branch_name` 依赖 `account_no`——`branch_city` 对候选码**传递依赖**。支行城市信息随账户重复。
+`branch_name` 依赖 `account_number`，`branch_city` 依赖 `branch_name`——`branch_city` 对候选码**传递依赖**。支行城市信息随账户重复。
 
-**解决办法**：拆成 `account(account_no, branch_name)` 与 `branch(branch_name, branch_city)`。
+**解决办法**：拆成 `account(account_number, branch_name)` 与 `branch(branch_name, branch_city)`。
 
 ## 4 BCNF（博伊斯-科德范式）：左侧超码
 
@@ -64,7 +58,7 @@ account(account_no, branch_name, branch_city)
 
 **BCNF 与 3NF 的区别**：3NF 只约束「非主属性」对码的依赖，BCNF 约束**所有**依赖（包括主属性之间的依赖）。所以存在「3NF 但非 BCNF」的模式——当两个候选码有重叠时。
 
-**例子**：`dept_advisor(s_id, i_id, dept_id)`，约束为「每个学生最多一位导师，一位导师只在一个系」。候选码有两个：`(s_id, i_id)` 与 `(s_id, dept_id)`。依赖 $i\_id \to dept\_id$ 成立，但 $i\_id$ 不是超码——**违反 BCNF**，但满足 3NF（$dept\_id$ 是主属性，不属于「非主属性传递依赖」）。
+**例子**：`dept_advisor(student_id, i_id, dept_id)`，约束为「每个学生最多一位导师，一位导师只在一个系」。候选码有两个：`(student_id, dept_id)` 与 `(student_id, i_id)`。依赖 $i\_id \to dept\_id$ 成立，但 $i\_id$ 不是超码——**违反 BCNF**，但满足 3NF（$dept\_id$ 是主属性，不属于「非主属性传递依赖」）。
 
 **公式解析：BCNF 的判定条件**
 

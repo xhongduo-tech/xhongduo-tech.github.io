@@ -22,9 +22,9 @@ date: 2026-08-07
 
 **核心概念**：NAND 闪存的存储单元是**浮栅晶体管**（靠电荷存位）。它的组织与 DRAM 完全不同：
 
-- **页（page）**：读写的最小单位（如 4 KB）。
-- **块（block）**：擦除的最小单位（含几十到几百个页，如 1 MB）。
-- **只读/只写/擦除分离**：可以读/写一个页，但**改写前必须先擦除整个块**——不能原地覆盖。
+**页（page）**：读写的最小单位（如 4 KB）。
+**块（block）**：擦除的最小单位（含几十到几百个页，如 1 MB）。
+**只读/只写/擦除分离**：可以读/写一个页，但**改写前必须先擦除整个块**——不能原地覆盖。
 
 所以闪存的「写」其实是「擦除整块 + 写新块」。这个不对称直接催生了 SSD 内部的复杂软件。
 
@@ -34,9 +34,9 @@ date: 2026-08-07
 
 FTL 干的三件大事：
 
-- **映射与写时复制**：写一个逻辑页 → 写到新的物理页，映射表更新；旧页标记失效。**逻辑地址从不「覆盖」物理页**。
-- **磨损均衡（wear leveling）**：闪存块有擦写寿命（SLC 约 10 万次，TLC 约千次），FTL 把擦写**均摊**到所有块，避免热点块先死。
-- **垃圾回收（garbage collection）**：失效页积累后，把存活页搬走、整块擦除回收。<span class="marginnote">SSD 还有一个隐藏空间：<strong>预留空间（over-provisioning）</strong>——出厂就留一些空白块给垃圾回收用。预留越多，写放大幅度越小、寿命越长。<strong>「写放大」</strong>指逻辑写 1 倍数据，物理实际写 2–4 倍——这是 SSD 性能之谜的核心。</span>
+**映射与写时复制**：写一个逻辑页 → 写到新的物理页，映射表更新；旧页标记失效。**逻辑地址从不「覆盖」物理页**。
+**磨损均衡（wear leveling）**：闪存块有擦写寿命（SLC 约 10 万次，TLC 约千次），FTL 把擦写**均摊**到所有块，避免热点块先死。
+**垃圾回收（garbage collection）**：失效页积累后，把存活页搬走、整块擦除回收。<span class="marginnote">SSD 还有一个隐藏空间：<strong>预留空间（over-provisioning）</strong>——出厂就留一些空白块给垃圾回收用。预留越多，写放大幅度越小、寿命越长。<strong>「写放大」</strong>指逻辑写 1 倍数据，物理实际写 2–4 倍——这是 SSD 性能之谜的核心。</span>
 
 ## 3 新型非易失存储：PCM 与 3D XPoint
 
@@ -56,15 +56,19 @@ FTL 干的三件大事：
 **核心概念**：**存储级内存（Storage-Class Memory, SCM）**把 NVM 放进内存总线的位置，让 CPU 直接**字节寻址地读写持久数据**——不再需要「先读进 DRAM 再算」：
 
 ```c
-// 传统：文件要 mmap 后还要 flush 到磁盘
-// SCM：直接对持久内存指针读写
-pmem[42] = value;          // 写入即持久（配合 clflush/屏障）
+// 传统内存：数据在 DRAM，掉电即失，读写前要复制
+val = mem[addr];                 // 读
+mem[addr] = compute(val);        // 写
+
+// 持久内存（SCM）：字节寻址 + 显式持久化
+pmem[addr] = compute(pmem[addr]);                       // 直接写在持久内存上
+pmem_persist(&pmem[addr], sizeof(pmem[addr]));          // clwb + sfence 刷出 CPU 缓存
 ```
 
 代价与风险：
 
-- **崩溃一致性**：写了一半断电怎么办？需要事务、日志（如 Intel 的 PMDK、Linux DAX 机制）保证一致性。
-- **持久化指令**：要显式 **`clflush`/`sfence`** 把写刷出 CPU 缓存，否则「掉电」时新值还在缓存里——**缓存成为持久性的敌人**。<span class="marginnote">SCM 把「[[precise-exceptions-speculation-recovery]] 式的精确性」从异常扩展到断电：<strong>掉电也要精确</strong>。这是持久内存编程与普通内存编程最大的不同。</span>
+**崩溃一致性**：写了一半断电怎么办？需要事务、日志（如 Intel 的 PMDK、Linux DAX 机制）保证一致性。
+**持久化指令**：要显式 **clwb / sfence** 把写刷出 CPU 缓存，否则「掉电」时新值还在缓存里——**缓存成为持久性的敌人**。<span class="marginnote">SCM 把「[[precise-exceptions-speculation-recovery]] 式的精确性」从异常扩展到断电：<strong>掉电也要精确</strong>。这是持久内存编程与普通内存编程最大的不同。</span>
 
 ## 5 核心对比表
 

@@ -34,19 +34,23 @@ date: 2026-08-07
 一个奖励模型的「换头」实现（HF 风格，理解思想即可）：
 
 ```python
+import torch.nn as nn
+
 class RewardModel(nn.Module):
     def __init__(self, base_model, hidden_size):
         super().__init__()
-        self.base = base_model                       # SFT 骨干，可冻结部分
-        self.reward_head = nn.Linear(hidden_size, 1, bias=False)
+        self.base = base_model                       # 复用 SFT 骨干
+        self.score_head = nn.Linear(hidden_size, 1, bias=False)   # 回归头，无 bias
+
     def forward(self, input_ids, attention_mask):
-        out = self.base(input_ids, attention_mask, output_hidden_states=True)
-        h = out.hidden_states[-1]                    # 最后一层隐藏状态
-        last = h[:, -1, :]                           # 取最后一个 token
-        return self.reward_head(last).squeeze(-1)    # (B,) 每个样本一个分数
+        hidden = self.base(input_ids=input_ids, output_hidden_states=True)
+        last_hidden = hidden.hidden_states[-1]       # (B, T, H) 最后一层
+        last_idx = attention_mask.sum(dim=1) - 1     # 最后一个有效 token 的位置
+        vec = last_hidden[torch.arange(len(input_ids)), last_idx]   # 取「最后 token」的表示
+        return self.score_head(vec).squeeze(-1)      # (B,) 一个标量分数
 ```
 
-两个细节值得注意：其一，**取「最后一个 token」的隐藏状态**作为整段话的表示——这是 RM 的常见约定（最后一个 token 已「看过」全部上文）；其二，**`reward_head` 无 bias**——避免模型用「恒定偏置」偷懒（分数漂移的一个来源）。训练时把这个 RM 与 BT 损失接上，就是完整的奖励模型训练。
+两个细节值得注意：其一，**取「最后一个 token」的隐藏状态**作为整段话的表示——这是 RM 的常见约定（最后一个 token 已「看过」全部上文）；其二，**score head 无 bias**——避免模型用「恒定偏置」偷懒（分数漂移的一个来源）。训练时把这个 RM 与 BT 损失接上，就是完整的奖励模型训练。
 
 ## 2 排序损失：从 BT 模型到训练目标
 

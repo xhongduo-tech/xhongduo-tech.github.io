@@ -36,7 +36,7 @@ date: 2026-08-07
 按用途分层：
 
 - **Linter（代码规范）**：ESLint（JS）、Pylint（Python）、Checkstyle（Java）、golangci-lint（Go）——风格、坏味道、潜在 bug。
-- **编译器静态检查**：编译器（`-Wall`、`-Werror`）、类型检查器（TypeScript、MyPy）——类型错误在编译期拦截。
+- **编译器静态检查**：编译器（GCC、Clang）、类型检查器（TypeScript、MyPy）——类型错误在编译期拦截。
 - **缺陷分析器**：SpotBugs（Java）、SonarQube（多语言）——深度缺陷模式。
 - **安全扫描**：Semgrep、CodeQL、Snyk、OWASP Dependency-Check——注入、漏洞、危险依赖。
 - **格式化器**：Prettier、Black、gofmt——风格统一交给机器，结束"格式之争"。

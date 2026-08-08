@@ -32,18 +32,24 @@ date: 2026-08-07
 2. **客体是什么**（资源）。
 3. **允许什么操作**（权限集）。
 
-**Unix 的经典模型**：每个文件有三个「身份类别」——`owner`（属主）、`group`（属组）、`other`（其他人），每类三个权限——`r`（读）、`w`（写）、`x`（执行）。例如 `-rwxr-xr--` 表示：属主 rwx、属组 r-x、其他人 r--。<span class="marginnote">Unix 权限的读写执行：<strong>`r`=读内容、`w`=改内容、`x`=当程序执行</strong>。对目录来说语义不同：`r`=列出文件名、`w`=增删文件、`x`=进入目录。这套「三三制」简单到极致，但也因此不够精细——ACL 与 SELinux 是对它的扩展。</span>
+**Unix 的经典模型**：每个文件有三个「身份类别」——owner（属主）、group（属组）、other（其他人），每类三个权限——r（读）、w（写）、x（执行）。例如 `rwxr-xr--` 表示：属主 rwx、属组 r-x、其他人 r--。<span class="marginnote">Unix 权限的读写执行：<strong>r=读内容、w=改内容、x=当程序执行</strong>。对目录来说语义不同：r=列出文件名、w=增删文件、x=进入目录。这套「三三制」简单到极致，但也因此不够精细——ACL 与 SELinux 是对它的扩展。</span>
 
 ## 2 从权限位到 ACL：更细的粒度
 
 **权限位**（rwx）只能表达「三档」（owner/group/other），粒度太粗。**ACL（访问控制表，Access Control List）** 把每个客体的权限变成「主体 → 权限」的列表：
 
 ```
-file.txt:  user:alice:rwx, user:bob:r--, group:devs:rw-
+$ getfacl report.txt
+user::rw-
+user:alice:rw-
+group::r--
+group:finance:r--
+mask::rw-
+other::---
 ```
 
-- 每条 ACL 项指定「某个用户/组对某文件有什么权限」。
-- 比 rwx 精细——能表达「Alice 可写、Bob 只读、其他组不可访问」。
+每条 ACL 项指定「某个用户/组对某文件有什么权限」。
+比 rwx 精细——能表达「Alice 可写、Bob 只读、其他组不可访问」。
 
 **Unix ACL**（POSIX ACL / NFSv4 ACL）与 **Windows ACL**（NTFS 的 DACL）是现代系统的标准。ACL 是「DAC」的核心实现（下一节讲 DAC 与 MAC）。<span class="marginnote">ACL 的直观意义：<strong>权限位是「三格抽屉」，ACL 是「一张完整的授权表」</strong>——企业里「财务组能读报表、只有审计员能改」这类需求，权限位表达不了，ACL 正好。</span>
 
@@ -53,14 +59,14 @@ Unix 有 **root（超级用户）**，Windows 有 **Administrator/System**——
 
 **特权的双刃剑**：
 
-- **必要**：系统管理（装驱动、改配置、管用户）需要最高权限。
-- **危险**：被攻破的 root 进程 = 攻击者拥有整台机器——**提权（privilege escalation）** 是系统攻击的核心目标。
+**必要**：系统管理（装驱动、改配置、管用户）需要最高权限。
+**危险**：被攻破的 root 进程 = 攻击者拥有整台机器——**提权（privilege escalation）** 是系统攻击的核心目标。
 
 **现代趋势——特权最小化**：
 
-- **capabilities（Linux 能力）**：把 root 的「全能」拆成几十个独立能力（`CAP_NET_BIND_SERVICE`、`CAP_DAC_READ_SEARCH`）——进程只需「绑定 80 端口」的能力，不必是 root。
-- **降权运行**：服务以普通用户运行，不 root。
-- **权限分离**：需要特权的操作拆到独立小进程（如 OpenSSH 的 privilege separation）。
+**capabilities（Linux 能力）**：把 root 的「全能」拆成几十个独立能力（`CAP_NET_BIND_SERVICE`、`CAP_SYS_ADMIN`）——进程只需「绑定 80 端口」的能力，不必是 root。
+**降权运行**：服务以普通用户运行，不 root。
+**权限分离**：需要特权的操作拆到独立小进程（如 OpenSSH 的 privilege separation）。
 
 **理解 root 的风险，是理解一切系统攻击的钥匙**——「拿到 root = 拿到机器」是攻击者的终极目标，防御者的一切努力都是「让拿到 root 变难」。<span class="marginnote">Linux capabilities 的哲学：<strong>把「全能 root」拆成「按需授权的能力位」</strong>——一个只想绑定 80 端口的服务，只需 `CAP_NET_BIND_SERVICE`，其余能力一概不给。这比「root/非 root」二元模型精细得多，也是容器（Docker 默认丢弃大量能力）安全性的基础。</span>
 

@@ -43,10 +43,19 @@ date: 2026-08-07
 
 **一次典型 DApp 交互**：
 
-```
-用户点击「兑换」→ 钱包弹窗显示交易细节
-→ 用户确认 → 钱包签名 → 交易广播上链
-→ 前端监听事件 → 更新 UI
+```javascript
+import { ethers } from "ethers";
+
+// 连接钱包
+const provider = new ethers.BrowserProvider(window.ethereum);
+const signer = await provider.getSigner();
+
+// 读操作：免费、无需签名
+const balance = await token.balanceOf(signer.address);
+
+// 写操作：必须由钱包签名并支付 Gas
+const tx = await token.transfer(recipient, amount);
+await tx.wait(); // 等待上链确认
 ```
 
 关键：**所有「改变状态」的操作都必须由用户钱包签名**——没有「服务端替你改数据」，这是 DApp 与 Web2 的体验分水岭。
@@ -72,17 +81,17 @@ $$
 
 ## 4 去中心化身份（DID）与 ENS
 
-- **DID（Decentralized Identifier）**：由用户自持、不依赖中心化注册机构的标识符；凭证（资质、学历）由签发方签名、用户选择性披露。
-- **ENS（Ethereum Name Service）**：把 `0xAbC…` 映射为 `alice.eth`，让地址可读、可携带；ENS 域名的所有权即链上 NFT。<span class="marginnote">ENS 的深层价值是「可移植的身份命名」：你的 `name.eth` 跟随钱包走，任何 DApp 都能解析，不依赖某个平台——这正好对 Web2「用邮箱注册被平台锁定」的痛点。ENS 也常被当作「链上身份的入口」，与 DID 体系互相补充。</span>
+**DID（Decentralized Identifier）**：由用户自持、不依赖中心化注册机构的标识符；凭证（资质、学历）由签发方签名、用户选择性披露。
+**ENS（Ethereum Name Service）**：把 `vitalik.eth` 这样的可读名字映射为钱包地址，让地址可读、可携带；ENS 域名的所有权即链上 NFT。<span class="marginnote">ENS 的深层价值是「可移植的身份命名」：你的 ENS 名字跟随钱包走，任何 DApp 都能解析，不依赖某个平台——这正好对 Web2「用邮箱注册被平台锁定」的痛点。ENS 也常被当作「链上身份的入口」，与 DID 体系互相补充。</span>
 
 ## 5 从 DApp 到「应用互联网」
 
 DApp 生态已经超出「加密原生」：
 
-- **DeFi**（金融应用）与 **NFT/游戏**（资产应用）是第一批 DApp。
-- **社交协议**（Farcaster、Lens）：用户关注关系与内容是链上资产，可迁移。
-- **创作者经济**：版税、会员资格用 Token/NFT 表达，去中介化分发。
-- **链上治理应用**：DAO 工具、提案、金库管理（见《DAO 与治理》）。
+**DeFi**（金融应用）与 **NFT/游戏**（资产应用）是第一批 DApp。
+**社交协议**（Farcaster、Lens）：用户关注关系与内容是链上资产，可迁移。
+**创作者经济**：版税、会员资格用 Token/NFT 表达，去中介化分发。
+**链上治理应用**：DAO 工具、提案、金库管理（见《DAO 与治理》）。
 
 **辨析｜易错点：DApp 的「去中心化」是分层的，不是全有或全无。** 一个 DApp 可以「合约去中心、前端中心化、存储混合」——评估一个 DApp 是否名副其实，要分别看逻辑、前端、数据、治理四个维度各有多去中心化。**另一个易错点：「钱包」不是 DApp 的附属品，而是独立的身份层**——同一钱包可以连接无数 DApp，你的身份与资产不属于任何 DApp，这恰恰是 Web3 与 Web2 的本质差异。
 

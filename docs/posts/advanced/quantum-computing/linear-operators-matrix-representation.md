@@ -133,18 +133,13 @@ $$
 from qiskit import QuantumCircuit
 from qiskit.quantum_info import Operator
 
-# X 门：比特翻转
-qc = QuantumCircuit(1)
-qc.x(0)
-print("X =", Operator(qc))
-
-# Z 门：相位翻转
-qc2 = QuantumCircuit(1)
-qc2.z(0)
-print("Z =", Operator(qc2))
+qc_x = QuantumCircuit(1); qc_x.x(0)     # X 门线路
+qc_z = QuantumCircuit(1); qc_z.z(0)     # Z 门线路
+print(Operator(qc_x).data)              # [[0, 1], [1, 0]]
+print(Operator(qc_z).data)              # [[1, 0], [0, -1]]
 ```
 
-输出正是第 4 节的矩阵：`X = [[0+0j, 1+0j], [1+0j, 0+0j]]`，`Z = [[1+0j, 0+0j], [0+0j, -1+0j]]`。<span class="marginnote">在真实实验里，我们永远看不到「矩阵」——硬件执行的是物理脉冲。但一切量子算法、噪声模型、编译优化，最终都要落到这套矩阵表示上才能被经典软件处理。矩阵表示就是量子计算里「经典软件与量子硬件」之间的共同语言。</span>
+输出正是第 4 节的矩阵：`[[0,1],[1,0]]`（$X$）、`[[1,0],[0,-1]]`（$Z$）。<span class="marginnote">在真实实验里，我们永远看不到「矩阵」——硬件执行的是物理脉冲。但一切量子算法、噪声模型、编译优化，最终都要落到这套矩阵表示上才能被经典软件处理。矩阵表示就是量子计算里「经典软件与量子硬件」之间的共同语言。</span>
 
 试着把 `qc.x(0)` 换成 `qc.h(0)`（Hadamard 门），你会看到
 

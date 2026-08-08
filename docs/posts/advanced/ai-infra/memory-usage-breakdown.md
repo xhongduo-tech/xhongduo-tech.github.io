@@ -37,9 +37,9 @@ date: 2026-08-07
 
 以参数量 $\Psi$、Adam 优化器、FP16/BF16 训练为例，**每张卡**（若不做任何切分）要持有：
 
-- **参数**：FP16 存储，$2\Psi$ 字节。
-- **梯度**：FP16，$2\Psi$ 字节。
-- **优化器状态**：FP32 主权重 $4\Psi$ + 一阶动量 $4\Psi$ + 二阶动量 $4\Psi$ = $12\Psi$ 字节。
+**参数**：FP16 存储，$2\Psi$ 字节。
+**梯度**：FP16，$2\Psi$ 字节。
+**优化器状态**：FP32 主权重 $4\Psi$ + 一阶动量 $4\Psi$ + 二阶动量 $4\Psi$ = $12\Psi$ 字节。
 
 合计 $16\Psi$ 字节。<span class="marginnote">为什么主权重是 $4\Psi$ 而不是 $2\Psi$？因为主权重以 FP32 存（4 字节/数）。动量同理。Adam 的「FP32 权重 + m + v」三项各 $4\Psi$，这就是 ZeRO 论文里 $K=12$ 的来历。</span>
 
@@ -49,8 +49,8 @@ date: 2026-08-07
 
 激活值是前向传播中为了后向而暂存的中间张量（每层的输出、attention 分数等）。它不是固定的：**随 batch size、序列长度、层数线性/平方增长**。
 
-- 线性部分：$\text{batch} \times \text{seq} \times \text{hidden}$（MLP、LayerNorm 的激活）。
-- 平方部分：$\text{batch} \times \text{seq}^2 \times \text{heads}$（attention 分数矩阵）。
+线性部分：$\text{batch} \times \text{seq} \times \text{hidden}$（MLP、LayerNorm 的激活）。
+平方部分：$\text{batch} \times \text{seq}^2 \times \text{heads}$（attention 分数矩阵）。
 
 对长序列，激活值可以**超过模型状态**成为显存大头——这是为什么长上下文训练必须开重计算与序列并行。<span class="marginnote">激活值的「可再生」特性让它成为显存工程的第一突破口：同样一个模型，把激活全部重算（activation checkpointing），显存可以从「所有层都存」降到「只存一层」，省一个数量级。</span>
 
@@ -58,12 +58,12 @@ date: 2026-08-07
 
 除了四大类，显存还有几笔「隐性开销」常被忽略：
 
-- **CUDA context 与运行时**：每卡约 0.5–2GB 固定开销（kernel、库、上下文）。
-- **通信 buffer**：NCCL 内部环形/树形算法的通信 buffer，通常每卡数百 MB 到几 GB。
-- **临时算子 buffer**：loss scaling、reshape、concat 等产生的临时张量。
-- **显存碎片**：PyTorch caching allocator 的碎片，模型越大越严重。
+**CUDA context 与运行时**：每卡约 0.5–2GB 固定开销（kernel、库、上下文）。
+**通信 buffer**：NCCL 内部环形/树形算法的通信 buffer，通常每卡数百 MB 到几 GB。
+**临时算子 buffer**：loss scaling、reshape、concat 等产生的临时张量。
+**显存碎片**：PyTorch caching allocator 的碎片，模型越大越严重。
 
-工程上把这类开销统称「overhead」，预算时通常**留 10%–20% 余量**——上一节《并行策略选型》的总校核式里那个 `fragmentation` 项就是它。<span class="marginnote">很多「按公式算明明够、实际却 OOM」的案例，问题就出在漏算了 CUDA context 与通信 buffer。算显存预算永远把「余量」写进公式，而不是最后拍脑袋加 10%。</span>
+工程上把这类开销统称「overhead」，预算时通常**留 10%–20% 余量**——上一节《并行策略选型》的总校核式里那个 Overhead 项就是它。<span class="marginnote">很多「按公式算明明够、实际却 OOM」的案例，问题就出在漏算了 CUDA context 与通信 buffer。算显存预算永远把「余量」写进公式，而不是最后拍脑袋加 10%。</span>
 
 ## 5 公式解析：显存账本的完整公式
 
@@ -97,7 +97,7 @@ $$\text{Mem}_{\text{total}} = \underbrace{\frac{16\Psi}{t \cdot p \cdot z}}_{\te
 
 ## 8 进阶与延伸
 
-**动手看一次显存剖面**：训练一个小模型，用 `torch.cuda.memory_summary()` 在几个关键点（前向结束、后向结束、step 结束）各打一次——你会看到模型状态恒定、激活值涨落的「两类开销」画像，与本篇的四大分类对上号。
+**动手看一次显存剖面**：训练一个小模型，用 torch.cuda.memory_allocated() 在几个关键点（前向结束、后向结束、step 结束）各打一次——你会看到模型状态恒定、激活值涨落的「两类开销」画像，与本篇的四大分类对上号。
 
 **几个值得进一步挖的方向**：
 
@@ -109,8 +109,8 @@ $$\text{Mem}_{\text{total}} = \underbrace{\frac{16\Psi}{t \cdot p \cdot z}}_{\te
 
 ## 9 动手实践清单
 
-- 用 `torch.cuda.memory_summary()` 在前向、后向、step 结束各打一次显存剖面。
-- 算你的模型「模型状态 16Ψ」，与 `nvidia-smi` 的已用显存对比。
+- 用 torch.cuda.memory_allocated() 在前向、后向、step 结束各打一次显存剖面。
+- 算你的模型「模型状态 16Ψ」，与 nvidia-smi 的已用显存对比。
 - 观察 batch/序列翻倍时「激活」项的增长（线性 vs 平方）。
 - 列出你的训练里的「隐性开销」：CUDA context、通信 buffer、碎片。
 - 用「16Ψ/t·p·z + 激活 + overhead」公式估算每卡显存。

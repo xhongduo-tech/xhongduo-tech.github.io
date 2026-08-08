@@ -24,13 +24,14 @@ date: 2026-08-08
 
 **前向渲染** 是经典管线：每个片元在片元着色器里「一次算完」——取材质、遍历光源、算光照、输出颜色。
 
-```
-for 每个物体:
-    for 每个片元:
-        取材质属性
-        for 每个光源:
-            color += 光照(光源, 片元)    # 全遍历
-        写帧缓冲
+```text
+// 前向渲染：片元着色器逐光源累加
+for (mesh : scene)
+    for (fragment : rasterize(mesh))
+        vec3 color = vec3(0.0);
+        for (light : scene.lights)          // 片元 × 光源
+            color += shade(fragment, light);
+        fragment.color = color;             // 一次写入帧缓冲
 ```
 
 **优势**：简单、内存占用小、天然支持 MSAA、透明排序直观。**劣势**：片元 × 光源的复杂度——光源一多（几十上百），每个片元都要遍历所有光源，成本爆炸。<span class="marginnote">前向渲染的「乘法」困境：<strong>片元数（百万）× 光源数（上百）= 上亿次光照求值</strong>——即使每次求值很便宜，总量也扛不住。前向渲染的优化手段是「光源剔除」（只算影响该物体的光源）与「分块」（tiled），但本质仍是「每片元 × 每光源」的结构。</span>
@@ -41,17 +42,29 @@ for 每个物体:
 
 **G-Buffer 阶段**：不照亮，只把几何信息写进多张缓冲（G-Buffer）：
 
-- 位置（或深度）
-- 法线
-- 漫反射颜色（albedo）
-- 材质参数（金属度、粗糙度）
-- 其他（AO、发光）
+位置（或深度）
+法线
+漫反射颜色（albedo）
+材质参数（金属度、粗糙度）
+其他（AO、发光）
 
 **光照阶段**：读 G-Buffer，对每个像素做光照——**每个光源只需要处理屏幕上一个区域**（光源投影到屏幕的包围盒），而不必遍历全部片元。
 
-```
-阶段一：几何 → G-Buffer（不照亮）
-阶段二：每光源 → 在光源覆盖的屏幕区域上做光照 → 累加
+```text
+// 延迟渲染两阶段
+// Pass 1：G-Buffer 阶段——只写几何，不算光照
+for (mesh : scene)
+    for (fragment : rasterize(mesh))
+        gbuffer.position = fragment.position;
+        gbuffer.normal   = fragment.normal;
+        gbuffer.albedo   = fragment.albedo;
+        gbuffer.material = vec2(fragment.metalness, fragment.roughness);
+
+// Pass 2：光照阶段——读 G-Buffer，每个光源只处理其屏幕区域
+for (light : scene.lights)
+    for (pixel : light.screen_bounds)       // 光源投影的包围盒
+        g = load_gbuffer(pixel);
+        pixel.color += shade(g, light);
 ```
 
 光源数不再乘到所有片元——**延迟渲染能同时处理成百上千个光源**。<span class="marginnote">「延迟」的含义：<strong>把「光照」从「几何渲染时」推迟到「几何渲染后」——先攒货（G-Buffer），再统一照灯</strong>。光照阶段的每个光源只处理「它影响的屏幕区域」，光源之间的计算解耦。这让光源数从「乘到全部片元」变成「加在屏幕上」——几十上百个动态光源的实时场景，只有延迟渲染扛得住。</span>
@@ -60,9 +73,9 @@ for 每个物体:
 
 延迟渲染的代价在**存储与带宽**：G-Buffer 多张全屏缓冲，每帧写入 + 读取：
 
-- 常见配置：位置（16 位浮点 RGBA）、法线（16 位 RG）、albedo（8 位 RGB）、材质（8 位 RG）等——总计约 100+ 字节/像素。
-- 1080p 下 G-Buffer 约几十 MB，带宽压力大。
-- 现代实现用「压缩 G-Buffer」（减少缓冲张数、降低位宽）缓解。
+常见配置：位置（16 位浮点 RGBA）、法线（16 位 RG）、albedo（8 位 RGB）、材质（8 位 RG）等——总计约 100+ 字节/像素。
+1080p 下 G-Buffer 约几十 MB，带宽压力大。
+现代实现用「压缩 G-Buffer」（减少缓冲张数、降低位宽）缓解。
 
 「多存一次」换「光源自由」——延迟渲染是典型的「空间/带宽换时间」交易。<span class="marginnote">G-Buffer 的带宽是延迟渲染的头号成本：<strong>每帧要写一次、读多次全屏缓冲，1080p 的 G-Buffer 数据量约几十 MB——在移动端/带宽受限平台上，这个成本可能吃掉一半预算</strong>。现代引擎用「紧凑 G-Buffer」（位置从深度重建、法线用八面体编码、材质参数打包）把带宽压到最低。</span>
 
@@ -93,9 +106,9 @@ for 每个物体:
 
 延迟渲染还有一个隐藏优势：**G-Buffer 是后处理的「免费原料」**：
 
-- SSAO/HBAO 直接读 G-Buffer 的深度 + 法线（上一节）。
-- 延迟光照在 G-Buffer 上做，可以在光照时访问法线/深度做各种效果。
-- 屏幕空间效果（SSR、SSGI）都建立在 G-Buffer 之上。
+SSAO/HBAO 直接读 G-Buffer 的深度 + 法线（上一节）。
+延迟光照在 G-Buffer 上做，可以在光照时访问法线/深度做各种效果。
+屏幕空间效果（SSR、SSGI）都建立在 G-Buffer 之上。
 
 G-Buffer 让「屏幕空间技术」有了统一的数据来源——这是延迟渲染对现代渲染的更大贡献。<span class="marginnote">「G-Buffer 是屏幕空间技术的粮仓」：<strong>SSAO 读深度法线、SSR 读位置法线颜色、SSGI 读全 G-Buffer——延迟渲染产出的 G-Buffer 让一大批「屏幕空间」效果（上一节 AO、后面的实时 GI 近似）有了现成的几何数据</strong>。这也是为什么现代引擎哪怕不「延迟」，也常保留一个「类似 G-Buffer」的缓冲来喂后处理。</span>
 

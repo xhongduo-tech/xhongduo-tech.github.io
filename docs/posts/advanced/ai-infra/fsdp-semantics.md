@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 FSDP 开始
 
-上一节讲完 ZeRO-3，你知道了「参数、梯度、优化器状态都分片」的显存收益。但 ZeRO 是 DeepSpeed 的私有实现，PyTorch 生态需要一套**原生、易用、与 `torch.compile` 和自动微分无缝协作**的等价方案——这就是 **FSDP（Fully Sharded Data Parallel）**。
+上一节讲完 ZeRO-3，你知道了「参数、梯度、优化器状态都分片」的显存收益。但 ZeRO 是 DeepSpeed 的私有实现，PyTorch 生态需要一套**原生、易用、与 DDP 和自动微分无缝协作**的等价方案——这就是 **FSDP（Fully Sharded Data Parallel）**。
 
 FSDP 的语义可以浓缩成一句口诀：**前向时 AllGather 取回全量参数，后向时 ReduceScatter 汇总并摊薄梯度**。它把 ZeRO-3 的每一个动作映射成 PyTorch 用户可感知的 API 行为。理解 FSDP，你就同时理解了 ZeRO-3 的运行时、以及今天 PyTorch 训练大模型的标准姿势。
 
@@ -28,7 +28,7 @@ FSDP 与 ZeRO 的一个关键差别在于**切分的粒度**。ZeRO-3 按「参�
 - **Shard**：把压平后的一维 buffer 切成 $N$ 段，每张卡持有 $1/N$。
 - **状态一并分片**：参数的梯度、优化器状态都建在这个分片 buffer 上，天然也分片。<span class="marginnote">flatten 的副作用是「一个参数可能被切断，分布在两张卡上」。对用户透明，但调试时要知道：FSDP 单元里的参数在内存里不是独立对象，而是共享一个被切分的大 buffer。</span>
 
-**FSDP 的分片粒度是可配置的**：`sharding_strategy` 可以选 `FULL_SHARD`（参数、梯度、优化器状态全分片，即 ZeRO-3）、`SHARD_GRAD_OP`（保留全量参数、只切梯度与优化器状态，即 ZeRO-2）、`NO_SHARD`（纯 DDP 语义）。默认 `FULL_SHARD`。
+**FSDP 的分片粒度是可配置的**：sharding_strategy 可以选 `FULL_SHARD`（参数、梯度、优化器状态全分片，即 ZeRO-3）、`SHARD_GRAD_OP`（保留全量参数、只切梯度与优化器状态，即 ZeRO-2）、`NO_SHARD`（纯 DDP 语义）。默认 `FULL_SHARD`。
 
 ## 2 前向：AllGather 取回全量参数
 
@@ -117,12 +117,12 @@ $$G_i = \text{ReduceScatter}(G^{(0)}, G^{(1)}, \ldots, G^{(N-1)}) \quad \text{�
 
 ## 9 动手实践清单
 
-- 用 `fully_shard` 包装一个模型，打印参数的 `placements` 确认分片声明。
+- 用 FSDP(...) 包装一个模型，打印参数的 shape 确认分片声明。
 - 用 profiler 数一数一个 step 里 AllGather 与 ReduceScatter 的次数。
 - 对比 FSDP 与 DDP 的每步耗时与显存，画「模型规模 vs 谁更优」的切换点。
-- 调整 `sharding_strategy` 三个档位，观察显存与通信的权衡。
+- 调整 sharding_strategy 三个档位，观察显存与通信的权衡。
 - 验证「FSDP 沿 DP 维分片」——叠加 TP 时检查通信组是否正确。
-- 开启 `torch.compile`，对比编译前后的每步耗时。
+- 开启 torch.compile，对比编译前后的每步耗时。
 - 用 16Ψ/z 公式反推「FSDP 后每卡显存」，与实测核对。
 
 在下一节，我们把 DP、TP、PP（以及 SP/EP/CP）拼成一张完整的拼图，看 **3D 混合并行**如何在一个真实集群上分配通信组。

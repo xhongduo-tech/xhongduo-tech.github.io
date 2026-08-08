@@ -67,7 +67,7 @@ $$
 即**逐元素（成对）乘上一个复数旋转因子**。这个视角带来两个洞见：
 
 - **内积成为「相对旋转」**：$q_m \cdot k_n$ 在复数域对应 $q_m \overline{k_n}$，乘上位置因子后得到 $e^{i(m-n)\theta}$——**位置差以相位差的形式出现**，这正是「相对位置」的复数表达。
-- **实现是逐元素乘法**：`complex64` 张量一次乘完所有维度的旋转，GPU 友好，几乎零额外开销。<span class="marginnote">复数视角还解释了 RoPE 为何「可插值」：外推长文本时，只需把 $m\theta_i$ 换成插值后的角度（如 $m\theta_i \cdot \frac{L_{\text{train}}}{L_{\text{target}}}$），相当于把旋转「减速」到训练见过的频率范围——第六篇《位置插值与外推》会用到这个性质。</span>
+- **实现是逐元素乘法**：$m\theta_i$ 张量一次乘完所有维度的旋转，GPU 友好，几乎零额外开销。<span class="marginnote">复数视角还解释了 RoPE 为何「可插值」：外推长文本时，只需把 $m\theta_i$ 换成插值后的角度（如 $m\theta_i \cdot \frac{L_{\text{train}}}{L_{\text{target}}}$），相当于把旋转「减速」到训练见过的频率范围——第六篇《位置插值与外推》会用到这个性质。</span>
 
 ## 4 公式解析：旋转后内积只依赖位置差
 
@@ -89,9 +89,9 @@ $$
 
 ## 5 RoPE 与 LLaMA 系的协同
 
-- **不需要位置嵌入参数**：LLaMA 的 `config.json` 里没有 `wpe`（位置嵌入层），只有 `rope_theta=10000`、`rope_scaling` 等配置。
+- **不需要位置嵌入参数**：LLaMA 的 `config.json` 里没有 `position_embeddings`（位置嵌入层），只有 `rope_theta`、`rope_scaling` 等配置。
 - **每层都旋转**：RoPE 在**每一层**的 Q/K 投影后应用（正弦编码只在入口加一次）。所以 RoPE 是「逐层持续注入位置」，位置信息不会被深层稀释。
-- **与 QK-Norm 兼容**：先旋转再归一化（或反之）都能用，主流实现在 Q/K 上 `apply_rotary_pos_emb` 后再做注意力。
+- **与 QK-Norm 兼容**：先旋转再归一化（或反之）都能用，主流实现在 Q/K 上旋转后再做注意力。
 - **长度扩展**：通过 `rope_theta` 调整（如增大到 500000）或插值（PI、NTK、YaRN）即可扩展上下文——这是长上下文工程的标配入口。
 
 ## 6 小结

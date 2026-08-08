@@ -22,9 +22,9 @@ date: 2026-08-07
 
 ## 1 抢占的触发：KV Cache 是硬约束
 
-回忆上一篇的预算模型：一次前向能容纳的 token 总数被 `max_num_batched_tokens` 卡住，而显存里 KV Cache 的总块数在启动时就已按 `gpu_memory_utilization` 预分配完毕。**decode 阶段的每一个新 token 都要为对应序列分配一个新的 KV 位置**——每 `block_size`（默认 16）个 token 就需要一个新块。当空闲块不够分时，调度器就不能让所有 running 请求都「再走一步」。
+回忆上一篇的预算模型：一次前向能容纳的 token 总数被 `max_num_batched_tokens` 卡住，而显存里 KV Cache 的总块数在启动时就已按 `max_num_seqs × max_model_len` 预分配完毕。**decode 阶段的每一个新 token 都要为对应序列分配一个新的 KV 位置**——每 `block_size`（默认 16）个 token 就需要一个新块。当空闲块不够分时，调度器就不能让所有 running 请求都「再走一步」。
 
-于是 `_schedule_running` 里出现了这样的逻辑：对每个 running 组，先问「能不能给这组分配下一轮的块」，即 `block_manager.can_allocate()` 或等价的能力检查；一旦发现**无法让所有组都留在 running**，就按照优先级从低到高开始「请人下车」。<span class="marginnote">优先级默认是 FCFS（先到先服务），由 `Policy` 类的 `sort_by_priority()` 决定；支持自定义优先级时，`max_priority` 越大的请求越晚被赶。被赶的顺序，就是服务质量的公平性所在。</span>
+于是 `schedule()` 里出现了这样的逻辑：对每个 running 组，先问「能不能给这组分配下一轮的块」，即 `_can_allocate()` 或等价的能力检查；一旦发现**无法让所有组都留在 running**，就按照优先级从低到高开始「请人下车」。<span class="marginnote">优先级默认是 FCFS（先到先服务），由 `SequenceGroup` 类的 `arrival_time` 字段决定；支持自定义优先级时，`priority` 越大的请求越晚被赶。被赶的顺序，就是服务质量的公平性所在。</span>
 
 配置层面对抢占频率影响最大的是三个旋钮：`gpu_memory_utilization`（决定 KV 池多大）、`max_num_seqs`（决定并发上界）、`swap_space`（决定 CPU 换出缓冲多大）。调优的思路从来不是「消灭抢占」，而是「把抢占控制在不伤及 SLO 的频率」。
 
@@ -71,39 +71,45 @@ $$
 RECOMPUTE 的代码路径可以压缩成四步：
 
 ```python
-def _preempt_by_recompute(self, seq_group, ...):
-    # 1) 释放该组在 GPU 上的全部 KV 块
-    self.block_manager.free(seq_group)
-    # 2) 把组从 running 队列剔除，重置进度，标记已抢占
-    seq_group.is_preempted = True
-    seq_group.state.num_computed_tokens = 0
-    # 3) 放回 waiting 队首，尽可能早地被重新调度
+# _preempt_by_recompute(seq_group) 的四步
+def _preempt_by_recompute(self, seq_group):
+    # 1. 归还该组占用的全部 GPU 物理块
+    self.block_manager.remove_all_blocks(seq_group)
+    # 2. 重置每条序列的计算进度（下次调度时从头 prefill）
+    for seq in seq_group.get_seqs():
+        seq.reset_num_computed_tokens()
+    # 3. 放回 waiting 队列队首，状态置回 WAITING
     self.waiting.appendleft(seq_group)
+    seq_group.set_state(SequenceStatus.WAITING)
+    # 4. 记入被抢占列表（供统计与日志）
+    self._preempted_seq_groups.append((seq_group, PreemptionMode.RECOMPUTE))
 ```
 
-注意两个容易被忽略的细节。**其一**，`block_manager.free()` 释放的是 GPU 块，不是序列数据——`prompt_token_ids` 和已生成的 `output_token_ids` 都还在内存里，所以「重算」是指重新对前缀做 prefill、重新生成 KV，而不是重新分词。**其二**，放回的是 `appendleft`（队首），因为被抢占的请求已经等过一轮了，再让它从队尾排起等于双重惩罚。<span class="marginnote">如果开了 Prefix Caching，重算时前缀里被其他请求共享过的部分会命中缓存，实际重算的往往只是「公共前缀之后」的那一段——抢占的代价因此被大幅稀释。</span>
+注意两个容易被忽略的细节。**其一**，RECOMPUTE 释放的是 GPU 块，不是序列数据——`token_ids` 和已生成的 `outputs` 都还在内存里，所以「重算」是指重新对前缀做 prefill、重新生成 KV，而不是重新分词。**其二**，放回的是 `waiting` 队列（队首），因为被抢占的请求已经等过一轮了，再让它从队尾排起等于双重惩罚。<span class="marginnote">如果开了 Prefix Caching，重算时前缀里被其他请求共享过的部分会命中缓存，实际重算的往往只是「公共前缀之后」的那一段——抢占的代价因此被大幅稀释。</span>
 
-被 RECOMPUTE 抢占的组会出现在 `SchedulerOutputs.preempted` 列表里，带上它的 `PreemptionMode`，供引擎统计与日志输出。这类事件通常伴随一条形如「Sequence group ... is preempted by PreemptionMode.RECOMPUTE ...」的警告。
+被 RECOMPUTE 抢占的组会出现在 `_preempted_seq_groups` 列表里，带上它的 `preemption_mode`，供引擎统计与日志输出。这类事件通常伴随一条形如「Sequence group ... is preempted by PreemptionMode.RECOMPUTE ...」的警告。
 
 ## 5 _preempt_by_swap 与换入换出
 
 SWAP 路径则要动「真金白银」的字节：
 
 ```python
-def _preempt_by_swap(self, seq_group, blocks_to_swap_out, ...):
-    # 1) 把 GPU 块复制到 CPU 块分配器，返回被换出的块映射
-    num_swapped_blocks = self.block_manager.swap_out(seq_group)
-    # 2) 组进入 swapped 队列
+# _preempt_by_swap(seq_group) 的核心动作
+def _preempt_by_swap(self, seq_group):
+    # 1. 收集该组当前持有的 GPU 物理块
+    gpu_blocks = self.block_manager.get_all_blocks(seq_group)
+    # 2. swap_out：KV 数据从 GPU 复制到 CPU 块，块表改指 CPU 块
+    self.block_manager.swap_out(seq_group, gpu_blocks, self.cpu_blocks)
+    # 3. 状态置为 SWAPPED，进入 swapped 队列等待换回
     self.swapped.append(seq_group)
-    # 3) 记录换出块，供 worker 在 GPU 上执行真正的拷贝
-    blocks_to_swap_out.update(...)
+    seq_group.set_state(SequenceStatus.SWAPPED)
 ```
 
 **换出（swap_out）**：块管理器把该组所有物理块的 KV 数据从 GPU 显存复制到 CPU 内存，并让块表指向 CPU 块。此时 GPU 显存被立即释放，序列进入 SWAPPED 状态。
 
-**换入（swap_in）**：当某一步 `_schedule_swapped` 发现 GPU 有空闲块且预算允许时，调度器做逆操作——块管理器把 CPU 块复制回 GPU 显存，块表重新指向 GPU 块，序列组移入 running 队列，继续 decode。**被换出的请求优先级高于新来的请求**，因为它们已经持有 CPU 中的 KV 数据，放着不恢复是双重浪费。
+**换入（swap_in）**：当某一步 `schedule()` 发现 GPU 有空闲块且预算允许时，调度器做逆操作——块管理器把 CPU 块复制回 GPU 显存，块表重新指向 GPU 块，序列组移入 running 队列，继续 decode。**被换出的请求优先级高于新来的请求**，因为它们已经持有 CPU 中的 KV 数据，放着不恢复是双重浪费。
 
-CPU 内存的缓冲池大小由 `swap_space` 配置决定（默认 4 GiB）。<span class="marginnote">如果 CPU 内存也被占满，swap_out 会失败，调度器只能回退到 RECOMPUTE。因此「加 `swap_space`」和「加显存」是两条不同的救命通道：前者增大换出缓冲，后者减少换出需求。</span>换入换出在每个 `SchedulerOutputs` 里通过 `blocks_to_swap_out` / `blocks_to_swap_in` 字段传递，真正的大块拷贝发生在 worker 的 cache engine 里，与调度决策解耦。
+CPU 内存的缓冲池大小由 `swap_space` 配置决定（默认 4 GiB）。<span class="marginnote">如果 CPU 内存也被占满，swap_out 会失败，调度器只能回退到 RECOMPUTE。因此「加 `swap_space`」和「加显存」是两条不同的救命通道：前者增大换出缓冲，后者减少换出需求。</span>换入换出在每个 `SchedulerOutputs` 里通过 `swap_in` / `swap_out` 字段传递，真正的大块拷贝发生在 worker 的 cache engine 里，与调度决策解耦。
 
 这套「换出 / 换入」几乎就是操作系统虚拟内存换页在 KV Cache 上的翻版：被换出的页在换入时若被修改要写回磁盘，这里的 KV 块则只读、干净得多。对照第三级《操作系统》的页面置换，以及《计算机组成原理》中 HBM / DRAM / PCIe 的存储层次，抢占的成本直觉会清晰很多——你已经在用经典的操作系统思维，只是换了硬件。
 
@@ -111,13 +117,13 @@ CPU 内存的缓冲池大小由 `swap_space` 配置决定（默认 4 GiB）。<s
 
 几个值得单独记下的工程点：
 
-- **`SchedulingBudget` 与抢占的联动**：`_schedule_running` 在预算不足时调用 `_preempt(victim_seq_group, blocks_to_swap_out)`，把受害者从 running 队列尾部弹出。预算对象用 `subtract_num_batched_tokens` / `subtract_num_seqs` 把被赶走的组占用的额度还回去，保证「赶走多少、腾出多少」账目平衡。
-- **`num_cumulative_preemption`**：调度器维护一个累计抢占计数器，既参与模式启发式的判断，也被写进警告日志（如 `total_cumulative_preemption_cnt=1`），方便运维看到「这台机器被抢占过多少次」。
+- **`SchedulerBudget` 与抢占的联动**：调度器在预算不足时调用 `_preempt`，把受害者从 running 队列尾部弹出；预算对象用 `subtract_num_batched_tokens` / `subtract_num_seqs` 把被赶走的组占用的额度还回去，保证「赶走多少、腾出多少」账目平衡。
+- **`num_preempted` 累计抢占计数器**：调度器维护一个累计抢占计数器，既参与模式启发式的判断，也被写进警告日志（如 `Sequence group ... is preempted by PreemptionMode.RECOMPUTE`），方便运维看到「这台机器被抢占过多少次」。
 - **抢占只发生在「不得不」时**：调度器不会主动为了「更好」的批而抢占，它只在「不赶人就没法让所有人都前进」的时候动手。这是抢占与主动调度的本质区别。
 
 ## 7 辨析｜易错点
 
-**辨析｜易错点：抢占不是中止，请求最终会完成。** 被抢占的请求只是被延迟，`SequenceStatus` 仍是 WAITING 或 SWAPPED，而不是任何 `FINISHED_*`。只有显式 `abort()` 才会进入 `FINISHED_ABORTED`。
+**辨析｜易错点：抢占不是中止，请求最终会完成。** 被抢占的请求只是被延迟，请求的组状态仍是 `WAITING` 或 `SWAPPED`，而不是任何 `FINISHED_*` 状态。只有显式 `abort` 才会进入 `FINISHED_ABORTED`。
 
 **辨析｜易错点：RECOMPUTE 不一定是「白算」。** 开启 Prefix Caching 后，公共前缀会在缓存里被其他请求共享，重算命中的部分几乎零成本。所以「抢占太多 → 关掉 prefix caching」在多数场景是反方向优化。
 
@@ -130,7 +136,7 @@ CPU 内存的缓冲池大小由 `swap_space` 配置决定（默认 4 GiB）。<s
 - 抢占由 **KV Cache 块不足**触发，是显存硬约束下的「优雅腾挪」，不是崩溃。
 - 两种模式：**RECOMPUTE**（释放块、回炉重算，用算力换显存）与 **SWAP**（搬块到 CPU，用带宽换显存）。
 - 代价公式：重算 $T \approx 2 N l / \Gamma_{\text{prefill}}$，换出 $T \approx 2 l b_{\text{kv}} / B_{\text{swap}}$；**比值与序列长度无关**，由硬件与模型决定优势区间。
-- RECOMPUTE 把组放回 waiting 队首并重置进度；SWAP 经 `swap_in`/`swap_out` 在 GPU 与 CPU 块之间搬运，被换出的请求优先恢复。
+- RECOMPUTE 把组放回 waiting 队首并重置进度；SWAP 经 `swap_out`/`swap_in` 在 GPU 与 CPU 块之间搬运，被换出的请求优先恢复。
 - 预算对象保证「赶走多少、腾出多少」账目平衡；`swap_space` 与显存是两条不同的救命通道。
 
 在下一节，我们把视角从「V0 的实现」拉高到「引擎的架构」：调度器在 V0 里背负了太多结构性问题，vLLM 团队选择重写——这就是**V0 到 V1 的架构演进**。

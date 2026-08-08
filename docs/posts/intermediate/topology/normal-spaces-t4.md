@@ -53,8 +53,8 @@ $$T4 \Longrightarrow T3 \Longrightarrow T2 \Longrightarrow T1 \Longrightarrow T0
 
 **重要事实：正则 ⟹ 正规不成立。** 存在 T3 但非 T4 的空间，反例相当有名：
 
-- **Sorgenfrey 平面**（$S \times S$，两个 Sorgenfrey 直线的积）是正则但**非正规**的——虽然每个因子（Sorgenfrey 直线）都正规。这显示「正规性不保乘积」。
-- Munkres 用「反对角线」$L = \{(x, -x)\}$ 与它的补集构造不交闭集，证明无法分离。
+**Sorgenfrey 平面**（$S \times S$，两个 Sorgenfrey 直线的积）是正则但**非正规**的——虽然每个因子（Sorgenfrey 直线）都正规。这显示「正规性不保乘积」。
+Munkres 用「反对角线」$L = \{(x, -x)\}$ 与它的补集构造不交闭集，证明无法分离。
 
 这个反例有双重意义：其一，分离公理阶梯 T3 → T4 是**独立**跨越；其二，**正规性不继承到积空间**（这是 T2、T3 都没有的「缺陷」）。「正规性对子空间、乘积不保」是正规理论最著名的痛点，也是度量化理论绕不开的障碍。<span class="marginnote">Sorgenfrey 平面「正则不正规」是分离公理最重要的反例之一：两个 Sorgenfrey 直线的乘积居然丢掉了正规性。它说明「正规」对积、子空间不封闭——这与 T2、T3 的「继承性」形成鲜明对照。</span>
 

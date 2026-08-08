@@ -34,17 +34,16 @@ $$x_0, x_1 = f(x_0), x_2 = f(x_1), \dots$$
 
 直接「两两比 $x_i$」是 $O(n)$ 个点两两比——太贵。**Floyd 判圈（龟兔赛跑）**只存两个值：
 
-```
-POLLARD-RHO(n)
-  if n is even:  return 2
-  c = random in [1, n-1]
-  x = random in [0, n-1];  y = x;  d = 1
-  while d == 1
-    x = f(x)                    // 龟：走一步
-    y = f(f(y))                 // 兔：走两步
-    d = gcd(|x - y|, n)
-  if d == n:  restart with new c   // 罕见：失败重试
-  return d
+```text
+POLLARD-RHO(n):
+    c ← 随机常数（1 ≤ c ≤ n−1）        // f(x) = (x² + c) mod n
+    x ← y ← 随机起点（2 ≤ x ≤ n−1）
+    d ← 1
+    while d = 1:
+        x ← f(x)                       // 乌龟走一步
+        y ← f(f(y))                    // 兔子走两步
+        d ← gcd(|x − y|, n)
+    return d                           // 若 d = n 说明失败，换 c 重来
 ```
 
 **为什么能撞上**：$x$ 与 $y$ 以不同速度在序列上前进，当 $x_i \bmod d$ 进入周期后，「龟兔」最终会「同余模 $d$」——此时 $\gcd(|x-y|, n)$ 给出 $d$（或其倍数）。<span class="marginnote">Floyd 判圈是「空间 $O(1)$」找周期碰撞的经典：不用存整个序列，只要两个指针不同速度走，必在周期内相遇。这里「相遇」被 $\gcd$ 捕获——碰撞发生时 $x \equiv y \pmod d$，$d | (x-y)$，$\gcd$ 取到 $d$。若 $\gcd = n$（全撞到 $n$ 上），换 $c$ 重来。</span>

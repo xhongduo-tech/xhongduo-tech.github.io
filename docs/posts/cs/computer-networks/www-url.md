@@ -22,7 +22,7 @@ date: 2026-08-07
 
 ## 1 WWW 的三要素：URL、HTTP、HTML
 
-**万维网（WWW）**：分布式、超媒体、按需连接的信息系统——它由三根柱子支撑：<span class="marginnote"><strong>URL</strong>（Uniform Resource Locator，统一资源定位符）——给每个资源一个「全球唯一地址」；<strong>HTTP</strong>（HyperText Transfer Protocol）——规定浏览器与服务器之间「怎么要、怎么给」；<strong>HTML</strong>（HyperText Markup Language）——描述网页内容与结构的标记语言。<strong>「URL 定位、HTTP 传输、HTML 呈现」</strong>三者配合，Web 才能转起来。</span>
+**万维网（WWW）**：分布式、超媒体、按需连接的信息系统——它由三根柱子支撑：<span class="marginnote"><strong>URL</strong>`（Uniform Resource Locator，统一资源定位符）——给每个资源一个「全球唯一地址」；<strong>HTTP</strong>`（HyperText Transfer Protocol）——规定浏览器与服务器之间「怎么要、怎么给」；<strong>HTML</strong>（HyperText Markup Language）——描述网页内容与结构的标记语言。<strong>「URL 定位、HTTP 传输、HTML 呈现」</strong>三者配合，Web 才能转起来。</span>
 
 | 要素 | 职责 | 类比 |
 | --- | --- | --- |
@@ -40,23 +40,23 @@ $$
 \text{URL} = \text{协议} + \text{主机} + \text{端口} + \text{路径} + \text{查询}
 $$
 
-以 `http://www.example.com:8080/path/page.html?id=1` 为例：<span class="marginnote">URL 的五段：<strong><code>http</code></strong>（协议）、<strong><code>www.example.com</code></strong>（主机名，可换成 IP）、<strong><code>8080</code></strong>（端口，默认 http 是 80、https 是 443）、<strong><code>/path/page.html</code></strong>（路径）、<strong><code>?id=1</code></strong>（查询字符串）。URL 不是随便写的——它精确告诉客户端「用什么协议、去哪个主机、哪个端口、取哪个资源、带什么参数」。</span>
+以 `http://www.example.com:8080/path/page.html?id=1` 为例：<span class="marginnote">URL 的五段：<strong><code>http</code>`（协议）、<strong><code>www.example.com</code>`（主机名，可换成 IP）、<strong><code>8080</code>`（端口，默认 http 是 80、https 是 443）、<strong><code>/path/page.html</code>`（路径）、<strong><code>?id=1</code>（查询字符串）。URL 不是随便写的——它精确告诉客户端「用什么协议、去哪个主机、哪个端口、取哪个资源、带什么参数」。</strong></strong></strong></span>
 
-- **协议**：http、https、ftp 等，告诉客户端用什么应用协议。
-- **主机**：域名或 IP，定位服务器。
-- **端口**：可选，默认 80（http）或 443（https）。
-- **路径**：服务器上的资源位置。
-- **查询**：可选，`?参数=值`，传给服务器的参数。
+**协议**：http、https、ftp 等，告诉客户端用什么应用协议。
+**主机**：域名或 IP，定位服务器。
+**端口**：可选，默认 80（http）或 443（https）。
+**路径**：服务器上的资源位置。
+**查询**：可选，以 `?` 开头，传给服务器的参数。
 
-**辨析｜易错点：** URL 与 URI、URN 的区别是经典辨析题：<span class="marginnote"><strong>URI</strong>（统一资源标识符）是「标识符」的统称，<strong>URL 是 URI 的一种</strong>（能用「位置」定位的），<strong>URN</strong>（统一资源名）是 URI 的另一种（用「名字」标识，如 ISBN 书号）。通俗说：<strong>URL 告诉你「去哪找」，URN 告诉你「它叫什么」</strong>。考试通常考「URL 是 URI 的子集」。</span> 简单记：**URL ⊂ URI**，URL 是「能定位的 URI」。
+**辨析｜易错点：** URL 与 URI、URN 的区别是经典辨析题：<span class="marginnote"><strong>URI</strong>`（统一资源标识符）是「标识符」的统称，<strong>URL 是 URI 的一种</strong>（能用「位置」定位的），<strong>URN</strong>`（统一资源名）是 URI 的另一种（用「名字」标识，如 ISBN 书号）。通俗说：<strong>URL 告诉你「去哪找」，URN 告诉你「它叫什么」</strong>。考试通常考「URL 是 URI 的子集」。 简单记：<strong>URL ⊂ URI</strong>，URL 是「能定位的 URI」。</span>
 
 ## 3 Web 的工作方式：一次浏览的旅程
 
 你在浏览器输入网址后，发生了一连串事件：<span class="marginnote">一次网页浏览的完整链路：<strong>DNS 解析域名 → TCP 三次握手 → HTTP 请求 → 服务器响应 → 浏览器渲染</strong>。你上一章学的 TCP 握手、这一章学的 DNS，全部在这里「汇合」——<strong>Web 是前面所有协议的「总集成」</strong>。这也是为什么「网页打不开」时，可以从 DNS、TCP、HTTP 三个层面逐层排查。</span>
 
-1. **DNS 解析**：浏览器把 `www.example.com` 解析成 IP。
+1. **DNS 解析**：浏览器把域名（如 `www.example.com`）解析成 IP。
 2. **TCP 连接**：与服务器建立 TCP 连接（三次握手）。
-3. **发送 HTTP 请求**：浏览器发送 `GET /index.html HTTP/1.1` 请求。
+3. **发送 HTTP 请求**：浏览器发送 HTTP GET 请求。
 4. **服务器响应**：服务器返回 HTML 文档（含状态码 200）。
 5. **浏览器渲染**：解析 HTML、加载图片等子资源、显示页面。
 

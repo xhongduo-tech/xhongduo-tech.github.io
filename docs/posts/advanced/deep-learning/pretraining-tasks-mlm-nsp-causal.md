@@ -25,7 +25,7 @@ BERT 与 GPT 的差异，本质上不是「架构」的差异，而是「**预�
 **任务一：因果语言建模（Causal Language Modeling, CLM）**——预测下一个词（GPT）：
 
 $$
-L = -\sum_t \log P(x_t \mid x_{<t})
+L = -\sum_t \log P(x_t \mid x_{\\lt t})
 $$
 
 - **训练什么**：从左到右的「生成能力」+「因果推理」（预测未来）。
@@ -77,7 +77,7 @@ $$
 **CLM（每个位置都监督，单向）**：
 
 $$
-L_{\text{CLM}} = \sum_{t=1}^{T} \underbrace{-\log P(x_t \mid x_{<t})}_{\text{位置 } t \text{ 的监督}}
+L_{\text{CLM}} = \sum_{t=1}^{T} \underbrace{-\log P(x_t \mid x_{\\lt t})}_{\text{位置 } t \text{ 的监督}}
 $$
 
 **MLM（只监督掩码位置，双向）**：

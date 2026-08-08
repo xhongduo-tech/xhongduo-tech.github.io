@@ -23,7 +23,7 @@ GPT 的预训练目标简单到让人怀疑：**给定前文，预测下一个 t
 给定一段文本 $x = [x_1, x_2, \ldots, x_T]$，CLM 最大化「按顺序预测」的对数似然：
 
 $$
-\mathcal{L}_{\text{CLM}} = \sum_{t=1}^{T} \log p(x_t \mid x_{<t})
+\mathcal{L}_{\text{CLM}} = \sum_{t=1}^{T} \log p(x_t \mid x_{\\lt t})
 $$
 
 训练时：
@@ -59,7 +59,7 @@ CLM 并非万能，它有四个公认的短板：
 CLM 的损失与困惑度直接挂钩。训练损失（平均负对数似然）：
 
 $$
-\mathcal{L} = -\frac{1}{T}\sum_{t=1}^{T} \log p(x_t \mid x_{<t}) = \log \text{PPL}(x)
+\mathcal{L} = -\frac{1}{T}\sum_{t=1}^{T} \log p(x_t \mid x_{\\lt t}) = \log \text{PPL}(x)
 $$
 
 对这条式子做三步拆解：

@@ -32,11 +32,13 @@ date: 2026-08-07
 
 动机是**连接代价**。看这个例子：
 
-```
-order(id, customer_id)          JOIN  customer(id, name, city)
+```sql
+-- 规范化：订单与客户分开存储，查「订单 + 客户城市」必须连接
+SELECT o.order_id, c.city
+FROM orders o JOIN customers c ON o.customer_id = c.customer_id;
 ```
 
-每次查「订单 + 客户城市」都要连接。订单量大时，连接是查询最贵的部分。若在 `order` 表里冗余一个 `customer_city` 列，查询免连接——但客户搬家时，所有历史订单的 `customer_city` 都得更新（更新异常，第 8 章开头的老朋友回来了）。
+每次查「订单 + 客户城市」都要连接。订单量大时，连接是查询最贵的部分。若在 orders 表里冗余一个 `city` 列，查询免连接——但客户搬家时，所有历史订单的 `city` 都得更新（更新异常，第 8 章开头的老朋友回来了）。
 
 **核心要点：反规范化是「用写换读」的权衡。** 读多写少、读性能敏感的报表型查询，冗余划算；写多、一致性敏感的 OLTP，保持范式划算。
 
@@ -44,8 +46,8 @@ order(id, customer_id)          JOIN  customer(id, name, city)
 
 工程上反规范化有几种成熟模式：
 
-1. **冗余列（denormalized column）**：把常连接的属性直接并入主表，如订单表加 `customer_city`。
-2. **派生列（derived column）**：把 `SUM` 结果物化成列，如商品表加 `sold_count`。
+1. **冗余列（denormalized column）**：把常连接的属性直接并入主表，如订单表加 `city` 列。
+2. **派生列（derived column）**：把计算/聚合结果物化成列，如商品表加 `avg_rating`（评分均值，由评价表聚合而来）。
 3. **预连接表（pre-joined table）**：把高频连接结果整表物化，供报表直接查。
 4. **汇总表（summary/aggregate table）**：按维度预聚合，如「每日订单总额」表——这就是数据仓库里的「事实表 + 汇总表」雏形（第 20 章会系统展开）。
 5. **复制表（replicated table）**：把低频变化的小表复制到多个分片上，避免跨分片连接（分布式场景，第 16/17 章）。

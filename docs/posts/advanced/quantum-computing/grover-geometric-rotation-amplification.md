@@ -38,8 +38,8 @@ $$
 
 上一节已经代数验证，这里用几何重述。在平面上：
 
-- **oracle $O$**：关于 $\lvert x^\perp\rangle$ 方向反射（把目标分量变负）。
-- **扩散 $D$**：关于 $\lvert s\rangle$ 方向反射。
+**oracle $O$**：关于 $\lvert x^\perp\rangle$ 方向反射（把目标分量变负）。
+**扩散 $D$**：关于 $\lvert s\rangle$ 方向反射。
 
 **两次反射的复合 = 旋转**。每次 Grover 迭代把态绕「平面原点」旋转 $2\theta$ 角，把 $\lvert s\rangle$ 逐步转向 $\lvert x^*\rangle$。<span class="marginnote">几何常识：绕两条直线各反射一次，等价于绕两线交点旋转「两线夹角的两倍」。oracle 关于 $\lvert x^\perp\rangle$ 反射、扩散关于 $\lvert s\rangle$ 反射，两线夹角恰为 $\theta$，故每次迭代旋转 $2\theta$。</span>
 
@@ -61,9 +61,9 @@ $$
 
 成功概率是目标分量的模方：$P_{\rm succ}(k) = \sin^2\big((2k+1)\theta\big)$。
 
-- **第一步，单次迭代前的概率**：$k=0$ 时 $P = \sin^2\theta = \frac{1}{N}$——正是随机猜一个的概率。
-- **第二步，第一次迭代**：$k=1$ 时 $P = \sin^2 3\theta$。对 $N=4$，$\theta = \frac{\pi}{6}$，$3\theta = \frac{\pi}{2}$，一次迭代就 100% 成功（$N=4$ 是 Grover 的巧合特例）。对 $N$ 很大，$3\theta \approx 3/\sqrt N$，$P \approx 9/N$——第一次迭代把成功概率乘了约 9 倍。
-- **第三步，到顶回落**：$(2k+1)\theta$ 超过 $\frac{\pi}{2}$ 后 $\sin^2$ 开始下降——「转过头了」。最优 $k$ 附近的概率曲线像一座山，峰值在 $\frac{\pi}{4}\sqrt N$。<span class="marginnote">这幅图教会我们两件事：<strong>第一</strong>，Grover 是确定性的概率爬坡，不是「多试几次更稳」；<strong>第二</strong>，若不知道解个数（$\theta$ 未知），就无法确定最优 $k$——这是下下节「多次解与部分解」问题的源头。</span>
+**第一步，单次迭代前的概率**：$k=0$ 时 $P = \sin^2\theta = \frac{1}{N}$——正是随机猜一个的概率。
+**第二步，第一次迭代**：$k=1$ 时 $P = \sin^2 3\theta$。对 $N=4$，$\theta = \frac{\pi}{6}$，$3\theta = \frac{\pi}{2}$，一次迭代就 100% 成功（$N=4$ 是 Grover 的巧合特例）。对 $N$ 很大，$3\theta \approx 3/\sqrt N$，$P \approx 9/N$——第一次迭代把成功概率乘了约 9 倍。
+**第三步，到顶回落**：$(2k+1)\theta$ 超过 $\frac{\pi}{2}$ 后 $\sin^2$ 开始下降——「转过头了」。最优 $k$ 附近的概率曲线像一座山，峰值在 $\frac{\pi}{4}\sqrt N$。<span class="marginnote">这幅图教会我们两件事：<strong>第一</strong>，Grover 是确定性的概率爬坡，不是「多试几次更稳」；<strong>第二</strong>，若不知道解个数（$\theta$ 未知），就无法确定最优 $k$——这是下下节「多次解与部分解」问题的源头。</span>
 
 **辨析｜易错点：** 平面里旋转的是**态矢量**，不是「目标的概率」在平面里转。目标概率 $\sin^2$ 是旋转角的函数，是非线性的——这正是为什么「每次迭代都乘 9 倍」只在前几次成立，越接近顶部增速越慢（$\sin^2$ 在峰值附近是平的）。
 
@@ -71,9 +71,9 @@ $$
 
 几何框架直接给出 Grover 的全部定性结论：
 
-- **$\sqrt N$ 的来源**：旋转一步 $2\theta \approx 2/\sqrt N$，转满 $\pi/2$ 需 $\Theta(\sqrt N)$ 步。
-- **量子 vs 经典**：经典是「直线扫描」（$N$ 步），量子是「圆弧旋转」（$\sqrt N$ 步）——前者线性扫过所有点，后者只用角度定位。
-- **振幅放大是推广**：把「均匀叠加」换成任意「好子空间」，几何照搬（振幅放大一节），旋转角换成就相应变。<span class="marginnote">几何解释还预告了 Grover 的最优性：任何量子算法都必须至少旋转 $\Theta(\sqrt N)$ 次才能「对准」一个未知方向——这是下一节《复杂度分析》里用 adversary 方法证明的 $\Omega(\sqrt N)$ 下界的直观版本。</span>
+**$\sqrt N$ 的来源**：旋转一步 $2\theta \approx 2/\sqrt N$，转满 $\pi/2$ 需 $\Theta(\sqrt N)$ 步。
+**量子 vs 经典**：经典是「直线扫描」（$N$ 步），量子是「圆弧旋转」（$\sqrt N$ 步）——前者线性扫过所有点，后者只用角度定位。
+**振幅放大是推广**：把「均匀叠加」换成任意「好子空间」，几何照搬（振幅放大一节），旋转角换成就相应变。<span class="marginnote">几何解释还预告了 Grover 的最优性：任何量子算法都必须至少旋转 $\Theta(\sqrt N)$ 次才能「对准」一个未知方向——这是下一节《复杂度分析》里用 adversary 方法证明的 $\Omega(\sqrt N)$ 下界的直观版本。</span>
 
 ## 6 小结
 

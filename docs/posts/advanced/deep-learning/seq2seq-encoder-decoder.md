@@ -25,11 +25,17 @@ Seq2Seq 是 2014 年神经机器翻译的开山范式（Sutskever 等、Cho 等�
 **Seq2Seq 的总体结构**：
 
 ```
-源序列 x1 x2 x3 ... xn
-   ↓      （编码器，如 LSTM）
-上下文向量 c = 编码器最终隐状态
-   ↓      （解码器，如 LSTM）
-目标序列 y1 y2 y3 ... ym
+源序列 x₁ x₂ … xₙ
+     ↓
+┌─────────────────────────┐
+│    编码器 RNN            │  逐词读入，更新隐状态 h_t
+└─────────────────────────┘
+     ↓ 上下文向量 c = hₙ
+┌─────────────────────────┐
+│    解码器 RNN            │  以 c 为初始状态，自回归生成
+└─────────────────────────┘
+     ↓
+目标序列 y₁ y₂ … y_m
 ```
 
 **编码器（encoder）**：读入源序列，输出一个**上下文向量（context vector）**$\boldsymbol{c}$——通常取「编码器的最终隐状态」$\boldsymbol{c} = \boldsymbol{h}_n$：
@@ -42,7 +48,7 @@ $$
 
 $$
 \boldsymbol{s}_t = \text{RNN}_{\text{dec}}(\boldsymbol{y}_{t-1}, \boldsymbol{s}_{t-1}, \boldsymbol{c}), \qquad
-P(\boldsymbol{y}_t \mid \boldsymbol{y}_{<t}, \boldsymbol{c}) = \text{softmax}(\boldsymbol{W}\boldsymbol{s}_t)
+P(\boldsymbol{y}_t \mid \boldsymbol{y}_{\\lt t}, \boldsymbol{c}) = \text{softmax}(\boldsymbol{W}\boldsymbol{s}_t)
 $$
 
 **「编码器把源序列压成一个向量，解码器从向量里展开出目标序列」**——这就是 Seq2Seq 的全部。<span class="marginnote">「上下文向量 $\boldsymbol{c}$」是 Seq2Seq 的信息瓶颈：整段源序列的所有信息，都要被压进<strong>一个固定维</strong>的向量。句子短还行，句子长（如一段话）时，这个「单向量压缩」会丢失细节——这就是著名的「长句翻译崩溃」问题，也是注意力机制（下一篇）要根治的：让解码器「直接看」编码器的每一步，而不是只依赖一个压缩向量。</span>
@@ -54,7 +60,7 @@ $$
 Seq2Seq 的训练本质上是「**条件语言模型**」的训练：给定源序列与目标前缀，最大化「下一个目标词」的概率：
 
 $$
-L = -\sum_{t=1}^{m} \log P(\boldsymbol{y}_t \mid \boldsymbol{y}_{<t}, \boldsymbol{c})
+L = -\sum_{t=1}^{m} \log P(\boldsymbol{y}_t \mid \boldsymbol{y}_{\\lt t}, \boldsymbol{c})
 $$
 
 **训练细节**：
@@ -71,8 +77,8 @@ $$
 
 **推断（解码）**：给定源序列，解码器自回归生成目标序列，使用**束搜索（beam search）**而非「贪心」：
 
-- **贪心**：每步只保留 1 个最佳候选。
-- **束搜索**：每步保留 $k$ 个最佳候选（$k$ 为束宽），最后选「整句得分最高」的。
+**贪心**：每步只保留 1 个最佳候选。
+**束搜索**：每步保留 $k$ 个最佳候选（$k$ 为束宽），最后选「整句得分最高」的。
 
 束搜索的详细算法在下一篇，这里先理解它的动机：**贪心「只见局部」，束搜索「看整句」**——翻译质量显著提升（下一节详述）。<span class="marginnote">「束搜索 vs 贪心」是 Seq2Seq 推断质量的分水岭：贪心在「每步最可能」上选择，可能整句「跑偏」；束搜索同时保留多条轨迹，最后按「整句的对数概率」裁决——「多条路探索 + 全局择优」。这个「搜索」思想，与《对抗训练》里「找最坏方向」的 PGD、以及「束搜索在树里剪枝」的算法（第三级《算法》）是同族。</span>
 
@@ -81,7 +87,7 @@ $$
 把「Seq2Seq 生成整句」的数学写清楚。给定源 $\boldsymbol{x}_{1:n}$，目标序列 $\boldsymbol{y}_{1:m}$ 的条件概率是**逐词条件概率的乘积**：
 
 $$
-P(\boldsymbol{y}_{1:m} \mid \boldsymbol{x}_{1:n}) = \prod_{t=1}^{m} P(\boldsymbol{y}_t \mid \boldsymbol{y}_{<t}, \boldsymbol{x}_{1:n})
+P(\boldsymbol{y}_{1:m} \mid \boldsymbol{x}_{1:n}) = \prod_{t=1}^{m} P(\boldsymbol{y}_t \mid \boldsymbol{y}_{\\lt t}, \boldsymbol{x}_{1:n})
 $$
 
 - **第一步，看链式**：整句概率 = 每个「下一个词」条件概率的乘积——**与语言模型同构**，只是条件里多了源序列。

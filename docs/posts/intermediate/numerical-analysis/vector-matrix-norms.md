@@ -84,9 +84,9 @@ $$
 
 谱范数 $\lVert A\rVert_2=\sqrt{\lambda_{\max}(A^\top A)}$ 最常用也最难算，拆解它的来由：
 
-- **第一步，平方展开。** $\lVert A\mathbf{x}\rVert_2^2=(A\mathbf{x})^\top(A\mathbf{x})=\mathbf{x}^\top A^\top A\mathbf{x}$。
-- **第二步，瑞利商。** 最大化 $\dfrac{\mathbf{x}^\top(A^\top A)\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$。由瑞利商定理，最大值是 $A^\top A$ 的**最大特征值** $\lambda_{\max}(A^\top A)$。
-- **第三步，开方。** $\lVert A\rVert_2=\sqrt{\lambda_{\max}(A^\top A)}$。$A^\top A$ 对称半正定，特征值非负，开方合法。
+**第一步，平方展开。** $\lVert A\mathbf{x}\rVert_2^2=(A\mathbf{x})^\top(A\mathbf{x})=\mathbf{x}^\top A^\top A\mathbf{x}$。
+**第二步，瑞利商。** 最大化 $\dfrac{\mathbf{x}^\top(A^\top A)\mathbf{x}}{\mathbf{x}^\top\mathbf{x}}$。由瑞利商定理，最大值是 $A^\top A$ 的**最大特征值** $\lambda_{\max}(A^\top A)$。
+**第三步，开方。** $\lVert A\rVert_2=\sqrt{\lambda_{\max}(A^\top A)}$。$A^\top A$ 对称半正定，特征值非负，开方合法。
 
 **当 $A$ 对称时**：$A^\top A=A^2$，$\lVert A\rVert_2=|\lambda|_{\max}$——**对称矩阵的谱范数就是它的最大特征值绝对值**，这给特征值问题的误差分析铺了路。
 
@@ -100,7 +100,7 @@ $$
 | $\lVert A\rVert_\infty$ | $\max$ 行绝对值和 | 行和范数 | $O(mn)$ |
 | $\lVert A\rVert_2$ | $\sqrt{\lambda_{\max}(A^\top A)}$ | 谱范数 | $O(n^3)$（需特征值） |
 
-**工程事实**：1-与 ∞-范数**算起来便宜**（一次扫描），谱范数贵（要特征值）。但谱范数有最好的几何意义（球变换成椭圆，最大半轴长）。工程估计条件数常用 1-或 ∞-范数（便宜），或直接算谱范数（numpy 的 `np.linalg.norm(A, 2)` 底层走 SVD）。
+**工程事实**：1-与 ∞-范数**算起来便宜**（一次扫描），谱范数贵（要特征值）。但谱范数有最好的几何意义（球变换成椭圆，最大半轴长）。工程估计条件数常用 1-或 ∞-范数（便宜），或直接算谱范数（numpy 的 `np.linalg.norm(A, ord=2)` 底层走 SVD）。
 
 **数值例子**：$A=\begin{pmatrix}1&-2\\-3&4\end{pmatrix}$。$\lVert A\rVert_1=\max(|1|+|{-3}|,\ |{-2}|+|4|)=\max(4,6)=6$；$\lVert A\rVert_\infty=\max(1+2,\ 3+4)=7$；$A^\top A=\begin{pmatrix}10&-14\\-14&20\end{pmatrix}$，特征值 $\lambda_{\max}=30$（解 $\lambda^2-30\lambda+4=0$，$\lambda=15+\sqrt{221}\approx29.87$），$\lVert A\rVert_2\approx5.46$。<span class="marginnote">验证三种范数同尺度的例子：$5.46\le6$ 与 $7$ 相近但不等——<strong>不同范数的具体数值可以不同，但「数量级」一致</strong>。判断病态时看数量级，不纠结精确值。</span>
 

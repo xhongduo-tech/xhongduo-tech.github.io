@@ -26,14 +26,20 @@ date: 2026-08-07
 
 ```
 GRAHAM-SCAN(Q)
-  let p0 be the point with minimum y-coordinate (tie: min x)
-  sort the other points by polar angle with respect to p0
-  let S be an empty stack;  PUSH(p0);  PUSH(p1);  PUSH(p2)
-  for i = 3 to n-1
-    while DIRECTION(TOP-NEXT(S), TOP(S), p_i) <= 0   // 非左转 → 弹出
-      POP(S)
-    PUSH(p_i)
-  return S
+1  let p₀ be the point in Q with the minimum y-coordinate,
+     or the leftmost such point in case of a tie        // 锚点，唯一
+2  let ⟨p₁, p₂, …, pₘ⟩ be the remaining points in Q,
+     sorted by polar angle around p₀ in CCW order       // 极角排序
+3  let S be an empty stack
+4  PUSH(p₀, S)
+5  PUSH(p₁, S)
+6  PUSH(p₂, S)
+7  for i = 3 to m
+8      while the angle formed by points NEXT-TO-TOP(S),
+            TOP(S), and pᵢ makes a nonleft turn          // 非左转（右转或共线）
+9          POP(S)
+10     PUSH(pᵢ, S)
+11 return S
 ```
 
 **关键步骤**：
@@ -58,7 +64,7 @@ $$T(n) = \underbrace{O(n\log n)}_{\text{极角排序}} + \underbrace{O(n)}_{\tex
 
 **要点**：每个点「至多进出栈一次」是摊还论证——弹出总次数 ≤ 压入总次数 = $n$。**排序是唯一超线性的部分**，凸包扫描本身线性。<span class="marginnote">比较极角需要「以 $p_0$ 为原点比较两个点的方向」——用叉积：$p_0 p_a \times p_0 p_b > 0$ 表示 $a$ 的极角小于 $b$。这个比较器避免了浮点角度计算，保持整数精确性。共线点（相同极角）要按距离排序，便于「只保留最远点」。</span>
 
-**辨析｜易错点：** `DIRECTION <= 0` 的共线处理要看需求——若要求「凸包不含共线边上的点」，用 `<= 0`（共线即弹出）；若允许共线边，用 `< 0`。**共线策略影响凸包的顶点集**，实现前先约定。另外最低点 $p_0$ 的选取（y 最小、同 y 最左）必须唯一——若有并列会破坏排序基准。
+**辨析｜易错点：** 三点共线的处理要看需求——若要求「凸包不含共线边上的点」，用 `cross ≤ 0`（共线即弹出）；若允许共线边，用 `cross < 0`。**共线策略影响凸包的顶点集**，实现前先约定。另外最低点 $p_0$ 的选取（y 最小、同 y 最左）必须唯一——若有并列会破坏排序基准。
 
 ## 4 Graham vs 其他凸包算法
 

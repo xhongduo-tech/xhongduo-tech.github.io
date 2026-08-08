@@ -48,10 +48,14 @@ date: 2026-08-07
 import numpy as np
 from scipy.signal import find_peaks
 
-def peak_pick(envelope_freq, envelope_db, n=3):
-    peaks, _ = find_peaks(envelope_db, prominence=3)   # 突出度过滤伪峰
-    top = peaks[np.argsort(envelope_db[peaks])[-n:]]   # 取最高的 n 个
-    return envelope_freq[np.sort(top)]
+# x: 一帧浊音；fs: 采样率；a: LPC 系数（见《线性预测分析》一节）
+N = len(x)
+A = np.fft.rfft(np.r_[1, -a], n=N)            # A(z) = 1 - Σ a_k z^{-k} 的频谱
+envelope = 1.0 / np.abs(A)                    # 全极点谱包络 |1/A|
+freq = np.arange(len(envelope)) * fs / N      # 每个频点对应的 Hz
+
+peaks, _ = find_peaks(envelope, distance=N//500)  # 约 500 Hz 内只留一个峰
+F = freq[peaks][:4]                           # 前 4 个峰 → F1, F2, F3, F4
 ```
 
 **辨析｜易错点：峰值拾取必须在「包络」上做，不能在原始谱上做。** 原始谱里每个谐波都是个尖峰，直接找峰找出来的是基频及谐波，不是共振峰。判断标准很简单：**找出的峰间隔是否约等于 $f_0$？是 → 你找到的是谐波。** 先包络、后找峰，是这一方法唯一正确的顺序。<span class="marginnote">峰数怎么定？成年男性的 F1–F4 大约在 0.5、1.5、2.5、3.5 kHz 附近。一般取前 3–4 个峰做元音分析，够用；F3 以上受发声方式影响大，很少用于元音识别。</span>
@@ -84,23 +88,18 @@ $$
 ```python
 import numpy as np
 
-def formant_from_lpc(a, fs):
-    """a: LPC 系数 a[0]=1, a[1..p]。返回 (频率, 带宽) 列表，按频率升序"""
-    roots = np.roots(a)                      # A(z) = 0 的根
-    roots = roots[np.abs(roots) < 0.995]     # 丢掉过于靠外（近不稳定）的根
-    F, BW = [], []
-    for z in roots:
-        if np.imag(z) == 0:                  # 实根：谱倾斜，非共振峰
-            continue
-        ang = abs(np.angle(z))               # 用 0~pi 半圆
-        if ang > np.pi:
-            ang = 2*np.pi - ang
-        f = ang * fs / (2*np.pi)
-        if 0 < f < fs / 2:
-            F.append(f)
-            BW.append(-fs / np.pi * np.log(abs(z)))
-    order = np.argsort(F)
-    return np.array(F)[order], np.array(BW)[order]
+# a: LPC 系数（不含首项 1）；fs: 采样率
+roots = np.roots(np.r_[1, -a])                 # 求 A(z) = 0 的根
+roots = roots[np.abs(roots) < 1.0]            # 只留单位圆内的根（稳定极点）
+
+angles = np.abs(np.angle(roots))              # 辐角 ω ∈ [0, π]
+radii  = np.abs(roots)                        # 模长 r
+
+F  = angles * fs / (2 * np.pi)                # 共振峰频率（Hz）
+BW = -fs / np.pi * np.log(radii)              # 共振峰带宽（Hz）
+
+order = np.argsort(F)
+F, BW = F[order], BW[order]                   # 升序排列：F1, F2, ...
 ```
 
 **辨析｜易错点：LPC 阶数决定「能看见几个峰」。** 每对共轭根给出一个峰，$p$ 阶多项式最多给出约 $p/2$ 个峰。经验法则 $p \approx f_s/1000 + 2$ 就是为了「刚好」覆盖 0 到 $f_s/2$ 里的共振峰数——$p$ 太大，多余极点会生成**伪峰（spurious peak）**，$p$ 太小则漏峰。伪峰没有声学意义，是「模型过拟合」的表现。

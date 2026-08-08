@@ -78,9 +78,9 @@ $$\boldsymbol{x}' = \begin{pmatrix} 0 & 1 & 0 & \cdots & 0 \\ 0 & 0 & 1 & \cdots
 
 这条公式把「解方程组」压缩成「求基解矩阵」，逐层拆：
 
-- **第一步，为什么 $\Phi$ 的各列是解**：$\Phi$ 的第 $k$ 列 $\boldsymbol{x}_k$ 满足 $\boldsymbol{x}_k' = A\boldsymbol{x}_k$。写成矩阵形式就是 $\Phi' = A\Phi$——**基解矩阵满足同一个矩阵微分方程**。
-- **第二步，为什么 $\boldsymbol{C}$ 是任意向量**：通解 $\Phi\boldsymbol{C}$ 是 $n$ 个解向量的线性组合，$C_k$ 为任意常数。解空间是 $n$ 维，$\Phi$ 的列构成一组基。
-- **第三步，初值怎么定 $\boldsymbol{C}$**：$\boldsymbol{x}(t_0) = \Phi(t_0)\boldsymbol{C} = \boldsymbol{x}_0$，故 $\boldsymbol{C} = \Phi(t_0)^{-1}\boldsymbol{x}_0$。$W(t_0)\neq 0$ 保证 $\Phi(t_0)$ 可逆。<span class="marginnote">有些教材喜欢用「标准基解矩阵」$\Phi(t)\Phi(t_0)^{-1}$，它在 $t_0$ 处等于单位阵，让初值问题变成 $\boldsymbol{x} = \Phi(t)\Phi(t_0)^{-1}\boldsymbol{x}_0$——比记 $\boldsymbol{C}$ 更机械。</span>
+**第一步，为什么 $\Phi$ 的各列是解**：$\Phi$ 的第 $k$ 列 $\boldsymbol{x}_k$ 满足 $\boldsymbol{x}_k' = A\boldsymbol{x}_k$。写成矩阵形式就是 $\Phi' = A\Phi$——**基解矩阵满足同一个矩阵微分方程**。
+**第二步，为什么 $\boldsymbol{C}$ 是任意向量**：通解 $\Phi\boldsymbol{C}$ 是 $n$ 个解向量的线性组合，$C_k$ 为任意常数。解空间是 $n$ 维，$\Phi$ 的列构成一组基。
+**第三步，初值怎么定 $\boldsymbol{C}$**：$\boldsymbol{x}(t_0) = \Phi(t_0)\boldsymbol{C} = \boldsymbol{x}_0$，故 $\boldsymbol{C} = \Phi(t_0)^{-1}\boldsymbol{x}_0$。$W(t_0)\neq 0$ 保证 $\Phi(t_0)$ 可逆。<span class="marginnote">有些教材喜欢用「标准基解矩阵」$\Phi(t)\Phi(t_0)^{-1}$，它在 $t_0$ 处等于单位阵，让初值问题变成 $\boldsymbol{x} = \Phi(t)\Phi(t_0)^{-1}\boldsymbol{x}_0$——比记 $\boldsymbol{C}$ 更机械。</span>
 - **第四步，与标量情形的对偶**：一维时 $\Phi = e^{\int a dt}$，$\boldsymbol{C} = C$——一切齐次线性理论的公式，在向量化之后只是把「函数」换成「矩阵、向量」。这就是线性代数统一一切线性对象的威力。
 
 ## 5 建模例：两容器混合

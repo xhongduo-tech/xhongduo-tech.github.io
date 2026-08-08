@@ -23,7 +23,7 @@ date: 2026-08-07
 **问题**：不断加边，随时问「u、v 是否连通」。
 
 - **离线解法（DFS/BFS）**：每问一次，扫一遍全图 $O(n+e)$；
-- **在线解法（并查集）**：加边 = `Union(u,v)`，问连通 = `Find(u)==Find(v)`——**均摊 $O(\alpha)$**。
+- **在线解法（并查集）**：加边 = `Union(x, y)`，问连通 = `Find(x) == Find(y)`——**均摊 $O(\alpha)$**。
 
 **重点：并查集把「动态加边 + 随时查连通」从 $O(n+e)$ 降到近 $O(1)$**——这正是它相对图遍历的不可替代性。网络链路监控、社交关系增长、动态图问题，全靠这一手。<span class="marginnote">「<strong>在线 vs 离线</strong>」再次成为分界：<strong>DFS 适合「一次性给完整张图」，并查集适合「边一点点到来」</strong>。工程里的「动态图」（网络拓扑变化、数据库的外键关联动态建立），天然是并查集的菜——<strong>它把「每次重算」变成「增量维护」</strong>。</span>
 
@@ -31,20 +31,18 @@ date: 2026-08-07
 
 §7.4 的 Kruskal 算法里，「这条边会不会成环」的判断，正是并查集：
 
-```c
-void Kruskal(Edge *edges, int n, int e) {
-    sort(edges, edges + e);                 /* 边按权排序 */
-    Init();                                  /* 并查集初始化 */
-    int cnt = 0;
-    for (i = 0; i < e && cnt < n - 1; i++) {
-        int u = edges[i].u, v = edges[i].v;
-        if (Find(u) != Find(v)) {           /* 不成环：两端不在同一连通块 */
-            output edges[i];
-            Union(u, v);                     /* 合并 */
-            cnt++;
-        }
+```cpp
+// Kruskal：按边权升序，用并查集判环选边
+sort(edges, edges + e, cmp);                  // 先按权排序
+int cnt = 0, sum = 0;                         // 已选边数、总权值
+for (int i = 0; i < e; ++i) {
+    int u = edges[i].u, v = edges[i].v;
+    if (Find(u) != Find(v)) {                 // 两端未连通 → 不成环
+        Union(u, v);                          // 选这条边，并入同一集合
+        cnt++, sum += edges[i].w;
     }
 }
+// cnt == n - 1 时即得到最小生成树
 ```
 
 **重点：Kruskal 的「判环」= 并查集的「判同集合」**——这是并查集在经典算法中最著名的应用。没有并查集，Kruskal 的判环要维护「连通块集合」，代价会显著上升。<span class="marginnote">「<strong>判环 = 判两端是否已连通</strong>」的直觉：<strong>一条边会成环，当且仅当它的两个端点已经通过别的路径连通</strong>。并查集恰好以近乎 $O(1)$ 维护这个「已连通」信息——<strong>Kruskal 的 $O(e\log e)$ 复杂度，一半来自排序、一半来自并查集的廉价判环</strong>。</span>
@@ -53,24 +51,25 @@ void Kruskal(Edge *edges, int n, int e) {
 
 数「有多少个连通块」：
 
-```c
-int CountComponents(int n) {
-    Init();
-    for (每条边 (u, v)) if (Find(u) != Find(v)) Union(u, v);
-    int cnt = 0;
-    for (i = 0; i < n; i++) if (parent[i] == i) cnt++;   /* 根数 = 分量数 */
-    return cnt;
+```cpp
+int comp = n;                                 // 初始 n 个孤立点 = n 个分量
+for (每次加边 (u, v)) {
+    if (Find(u) != Find(v)) {                 // 不在同一集合
+        Union(u, v);                          // 合并成功 → 分量数减 1
+        comp--;
+    }
 }
+// 最终 comp 即连通分量个数；也可统计根的数量
 ```
 
-**重点：「根的数量 = 连通分量的数量」**——因为每个集合恰有一个根。初始化 $n$ 个孤立点，每 `Union` 一次连通块减 1，最终根数即答案。这与「DFS 启动次数 = 分量数」殊途同归，但**支持动态加边**。<span class="marginnote">「<strong>根数 = 分量数</strong>」是并查集计数的核心：<strong>`Union` 成功一次，分量数 -1</strong>。从「$n$ 个孤立点」到「$k$ 个连通块」的过程，就是「$n-k$ 次成功的 Union」——<strong>用 Union 次数直接计数，连最后数根都省了</strong>。</span>
+**重点：「根的数量 = 连通分量的数量」**——因为每个集合恰有一个根。初始化 $n$ 个孤立点，每 `Union` 一次连通块减 1，最终根数即答案。这与「DFS 启动次数 = 分量数」殊途同归，但**支持动态加边**。<span class="marginnote">「<strong>根数 = 分量数</strong>」是并查集计数的核心：<strong>Union 成功一次，分量数 -1</strong>。从「$n$ 个孤立点」到「$k$ 个连通块」的过程，就是「$n-k$ 次成功的 Union」——<strong>用 Union 次数直接计数，连最后数根都省了</strong>。</span>
 
 ## 4 应用四：冗余连接与环检测
 
 **冗余连接问题**：给一个 $n$ 条边的图（$n$ 个顶点），找一条「删掉后仍连通」的边——即「最后出现的成环边」。
 
-- 逐条处理边，`Find(u) != Find(v)` 则 `Union`；
-- 某条边 `Find(u) == Find(v)` → **这条边是冗余的**（两端已连通，加它必成环）。
+逐条处理边，两端未连通（`Find(x) != Find(y)`）则 `Union(x, y)`；
+某条边 `Find(x) == Find(y)` → **这条边是冗余的**（两端已连通，加它必成环）。
 
 **辨析｜易错点：判环的边一定是「成环边」，但不一定是「唯一冗余边」。** 若图可能有多条冗余边，题目通常要「最后一条」或「按规则选一条」。并查集按顺序处理时，**第一条被判环的边**是「最早出现的成环边」；要「最后一条」，需调整处理顺序。<span class="marginnote">「<strong>成环边 = 两端已连通的边</strong>」是冗余连接的核心判据：<strong>处理到某条边时两端已连通，说明这条边是「多余的桥」</strong>。这类题（LeetCode 684/685）本质就是并查集的「判环 + 追踪」，把 Kruskal 的判环单独拎出来出题。</span>
 
@@ -89,7 +88,7 @@ int CountComponents(int n) {
 ## 6 小结
 
 - 动态连通性：加边 `Union`、查询 `Find`——$O(\alpha)$，优于 DFS 的 $O(n+e)$。
-- Kruskal 判环：`Find(u) != Find(v)` 选边——并查集的经典应用。
+- Kruskal 判环：`Find` 判环后 `Union` 选边——并查集的经典应用。
 - 连通分量计数：根数 = 分量数；`Union` 成功一次分量 -1。
 - 冗余连接检测：`Find` 相等的边即成环边。
 - 全部应用共享「动态维护等价类」这一核心。

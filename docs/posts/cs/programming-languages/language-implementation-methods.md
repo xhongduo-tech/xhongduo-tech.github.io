@@ -26,9 +26,9 @@ date: 2026-08-07
 
 **编译（compilation）**：用一个叫**编译器（compiler）**的程序，把**源程序（source program）**整体翻译成**目标机器码（machine code）**，翻译完成后目标程序直接由硬件执行。GCC 编译 C：
 
-```bash
-gcc hello.c -o hello   # 一次翻译，之后每次运行都不再翻译
-./hello                # 原生执行
+```console
+$ gcc -O2 -o hello hello.c    # 编译：源程序 → 可执行机器码
+$ ./hello                     # 执行：硬件直接运行
 ```
 
 编译是一条流水线，逐阶段把源程序「降级」为机器码：
@@ -46,7 +46,7 @@ gcc hello.c -o hello   # 一次翻译，之后每次运行都不再翻译
 
 ## 2 纯解释：边读边执行
 
-**纯解释（pure interpretation）**：不用先生成机器码，**解释器（interpreter）**直接读取源程序并立即执行——读一条语句，理解它，做它，再读下一条。早期 BASIC 是典型：你敲一行 `PRINT "HI"`，回车它就执行。<span class="marginnote">注意区分两个词：解释器（interpreter，执行解释的语言实现系统）与解释（interpretation，一种实现方法）。「解释型语言」是日常说法，严格说应是「以解释方式实现的语言」——同一门语言可以被解释，也可以被编译，见第 4 节辨析。</span>
+**纯解释（pure interpretation）**：不用先生成机器码，**解释器（interpreter）**直接读取源程序并立即执行——读一条语句，理解它，做它，再读下一条。早期 BASIC 是典型：你敲一行 `PRINT "HELLO"`，回车它就执行。<span class="marginnote">注意区分两个词：解释器（interpreter，执行解释的语言实现系统）与解释（interpretation，一种实现方法）。「解释型语言」是日常说法，严格说应是「以解释方式实现的语言」——同一门语言可以被解释，也可以被编译，见第 4 节辨析。</span>
 
 **优点**：调试友好，出错时直接定位到出错语句；反馈即时，特别适合交互式环境；无需「编译产物」，源码即程序，天然可移植。
 **缺点**：慢——每条语句每次执行都要重新「读一遍、理解一遍」；运行时才发现语法/类型错误；难以做全局优化。
@@ -57,9 +57,9 @@ gcc hello.c -o hello   # 一次翻译，之后每次运行都不再翻译
 
 Java 的路线：
 
-```bash
-javac Hello.java       # 编译 → 生成 Hello.class（字节码）
-java Hello             # JVM 载入字节码，解释执行或即时编译
+```console
+$ javac Hello.java       # 编译：源程序 → 字节码（Hello.class）
+$ java Hello             # JVM 解释/JIT 编译执行字节码
 ```
 
 Python 的路线更隐蔽但本质相同：`.py` 源文件首次执行时被 CPython 编译成 `.pyc` 字节码，随后由 Python 虚拟机逐条解释执行。<span class="marginnote">Python 通常被称作「解释型语言」，但严格说 CPython 是「编译到字节码 + 解释字节码」的混合实现。真正的纯解释器在 Python 生态里几乎绝迹。</span>
@@ -86,8 +86,16 @@ Python 的路线更隐蔽但本质相同：`.py` 源文件首次执行时被 CPy
 
 **预处理（preprocessing）**。严格说，预处理发生在编译之前：C 的 `#include`、`#define` 等指令由预处理器先行展开，把「文本层面的替换」做完，真正的编译器才开始工作。
 
-```bash
-gcc -E hello.c -o hello.i   # 只做预处理，看宏展开后的中间文本
+```c
+/* hello.c 源文件 */
+#include <stdio.h>              /* 预处理器将整行替换为 stdio.h 的全部内容 */
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
+int main(void) {
+    int n = MAX(3, 5);          /* 展开为 int n = ((3) > (5) ? (3) : (5)); */
+    printf("%d\n", n);
+    return 0;
+}
 ```
 
 **源到源翻译（source-to-source translation，转译）**。有些「编译器」的输出不是机器码，而是另一门高级语言——TypeScript 编译成 JavaScript、早期 C++（cfront）编译成 C、Kotlin 可以编译成 JavaScript。这类转译器（transpiler）让新语言能借用旧语言的运行时与生态，是语言推广的常用策略。

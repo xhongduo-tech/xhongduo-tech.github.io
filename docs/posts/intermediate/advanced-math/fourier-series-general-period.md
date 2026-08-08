@@ -50,16 +50,16 @@ $$f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty}a_n\cos\frac{n\pi x}{l}, \qquad a
 
 将 $f(x) = x$（$0 \le x \le l$）展开为余弦级数：
 
-- **第一步，算 $a_0$**：$a_0 = \frac{2}{l}\int_0^l x\,dx = \frac{2}{l}\cdot\frac{l^2}{2} = l$。
-- **第二步，算 $a_n$**：$a_n = \frac{2}{l}\int_0^l x\cos\frac{n\pi x}{l}\,dx$。分部积分：$\frac{2}{l}\left[\frac{lx}{n\pi}\sin\frac{n\pi x}{l} + \frac{l^2}{n^2\pi^2}\cos\frac{n\pi x}{l}\right]_0^l = \frac{2l}{n^2\pi^2}(\cos n\pi - 1)$。
-- **第三步，化简**：$\cos n\pi = (-1)^n$，$a_n = \frac{2l}{n^2\pi^2}[(-1)^n - 1]$——$n$ 偶数时 0，$n$ 奇数时 $-\frac{4l}{n^2\pi^2}$。
-- **第四步，写展开**：$x = \frac{l}{2} - \frac{4l}{\pi^2}\sum_{n\text{ 奇}}\frac{1}{n^2}\cos\frac{n\pi x}{l}$。
+**第一步，算 $a_0$**：$a_0 = \frac{2}{l}\int_0^l x\,dx = \frac{2}{l}\cdot\frac{l^2}{2} = l$。
+**第二步，算 $a_n$**：$a_n = \frac{2}{l}\int_0^l x\cos\frac{n\pi x}{l}\,dx$。分部积分：$\frac{2}{l}\left[\frac{lx}{n\pi}\sin\frac{n\pi x}{l} + \frac{l^2}{n^2\pi^2}\cos\frac{n\pi x}{l}\right]_0^l = \frac{2l}{n^2\pi^2}(\cos n\pi - 1)$。
+**第三步，化简**：$\cos n\pi = (-1)^n$，$a_n = \frac{2l}{n^2\pi^2}[(-1)^n - 1]$——$n$ 偶数时 0，$n$ 奇数时 $-\frac{4l}{n^2\pi^2}$。
+**第四步，写展开**：$x = \frac{l}{2} - \frac{4l}{\pi^2}\sum_{n\text{ 奇}}\frac{1}{n^2}\cos\frac{n\pi x}{l}$。
 
 **关键**：偶延拓后的 $F(x) = |x|$ 在 $[0,l]$ 上等于 $f$，其傅里叶级数是余弦级数。$x=l$ 处（连续点）代入可得 $l = \frac{l}{2} + \frac{4l}{\pi^2}\sum\frac{1}{n^2}$，推出 $\sum_{n\text{ 奇}}\frac{1}{n^2} = \frac{\pi^2}{8}$——**圆周率平方的级数表示**，傅里叶级数再次「算」出数学常数。
 
 ## 5 一般周期傅里叶的应用
 
-- **数学物理方程**：波动方程、热传导方程在任意区间 $[0,l]$ 上的解——分离变量后解是周期 $2l$ 的傅里叶级数。<span class="marginnote">「两端固定的弦」振动解是正弦级数，「两端绝热的杆」温度分布是余弦级数——<strong>边界条件选择级数族</strong>。这是《数学物理方程》的标准方法，你在这里学的「奇偶延拓」直接服务于那些方程的求解。</span>
+**数学物理方程**：波动方程、热传导方程在任意区间 $[0,l]$ 上的解——分离变量后解是周期 $2l$ 的傅里叶级数。<span class="marginnote">「两端固定的弦」振动解是正弦级数，「两端绝热的杆」温度分布是余弦级数——<strong>边界条件选择级数族</strong>。这是《数学物理方程》的标准方法，你在这里学的「奇偶延拓」直接服务于那些方程的求解。</span>
 - **信号处理**：任意周期的音频、振动信号分解成谐波；周期化处理（把非周期信号按周期延拓）是傅里叶变换的前奏。
 - **谐波分析**：齿轮振动、机械故障诊断——特定谐波分量异常指示故障位置。
 - **图像压缩**：JPEG 的 DCT 是余弦级数的离散化，能量集中于低频系数。

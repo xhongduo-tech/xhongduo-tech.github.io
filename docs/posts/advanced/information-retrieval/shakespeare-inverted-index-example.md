@@ -51,25 +51,24 @@ Manning《Introduction to Information Retrieval》全书用同一个例子开宗
 用 Python 写出来，就是一本普通的字典：
 
 ```python
-# 词项 → 文档编号列表（编号从 1 开始）
 inverted_index = {
-    "brutus":    [1, 2],
-    "caesar":    [1, 2, 3, 4],
-    "calpurnia": [2],
-    "cleopatra": [4],
+    "brutus":     [1, 2],
+    "caesar":     [1, 2, 3, 4],
+    "calpurnia":  [2],
+    "cleopatra":  [4],
 }
 ```
 
 注意它和「矩阵」的关系：矩阵第 $t$ 行上所有非零格子所在的列，就是词项 $t$ 的倒排表。**矩阵是「以文档为列」的组织方式，倒排索引是「以词项为入口」的组织方式**——入口不同，查询的开销天差地别。用矩阵回答「Brutus 出现在哪几篇」要扫描整行；用倒排索引，一次哈希查找就拿到 $[1, 2]$。
 
-**辨析｜易错点：倒排索引的键是「规范化后的词项」，不是原文里的单词。** 语料里可能出现 `Brutus`、`brutus`、`BRUTUS` 三种写法，它们必须在索引构建前被统一成一个词项（第 6 节），否则查询 `brutus` 永远匹配不到文档里的 `Brutus`。「查询与文档使用同一套规范化规则」这一条铁律，我们在上一篇就立下了，这里就是它的用武之地。
+**辨析｜易错点：倒排索引的键是「规范化后的词项」，不是原文里的单词。** 语料里可能出现「Brutus」、「brutus」、「BRUTUS」三种写法，它们必须在索引构建前被统一成一个词项（第 6 节），否则查询「brutus」永远匹配不到文档里的「BRUTUS」。「查询与文档使用同一套规范化规则」这一条铁律，我们在上一篇就立下了，这里就是它的用武之地。
 
 ## 3 倒排索引的数据结构：词典 + 倒排表
 
 倒排索引在物理上分两部分：
 
-- **词典（dictionary）**：存放所有出现的词项，以及每个词项的**文档频率（document frequency, df）**——即出现该词项的文档数。词典就是字典的「键」。
-- **倒排表（postings）**：每个词项对应的文档编号列表，按**升序**排列。词典中的每个键都指向一条倒排表。
+**词典（dictionary）**：存放所有出现的词项，以及每个词项的**文档频率（document frequency, df）**——即出现该词项的文档数。词典就是字典的「键」。
+**倒排表（postings）**：每个词项对应的文档编号列表，按**升序**排列。词典中的每个键都指向一条倒排表。
 
 下图把这个结构画出来：左边是词典（含 df），右边是倒排表，箭头表示「词项 → 倒排表」的映射。
 
@@ -85,7 +84,7 @@ $$\text{index}[t] = \left( \text{df}_t,\; \langle d_1, d_2, \ldots, d_{\text{df}
 
 逐项拆解，四步：
 
-- **第一步，$t$ 是词典的键。** $\text{index}[t]$ 表示「对词项 $t$ 取它的索引条目」。在实现里就是字典的一次查找：Python 的 `inverted_index["brutus"]`。
+- **第一步，$t$ 是词典的键。** $\text{index}[t]$ 表示「对词项 $t$ 取它的索引条目」。在实现里就是字典的一次查找：Python 的 $t$。
 - **第二步，$\text{df}_t$ 是文档频率。** 它是「出现词项 $t$ 的文档数量」，和词频（term frequency, tf，一个词在单篇文档里出现多少次）不是一回事。$\text{df}_t$ 的量纲是「篇数」，它衡量的是 $t$ 在**文档层面**有多常见——这是第四篇 IDF 的原料，先在这里记住它。
 - **第三步，$\langle d_1, d_2, \ldots, d_{\text{df}_t} \rangle$ 是倒排表。** 尖括号表示**有序序列**：$d_1 < d_2 < \cdots < d_{\text{df}_t}$，列表长度恰好等于 $\text{df}_t$。对照例子：$\text{index}[\text{caesar}] = (4, \langle 1, 2, 3, 4 \rangle)$。
 - **第四步，为什么是有序序列而不是无序集合。** 因为查询处理的核心操作是「求两个倒排表的交集 / 并集」，有序序列让双指针扫描得以在线性时间内完成（第 5 节）；而无序集合只能靠哈希或嵌套循环，慢一个量级。**「有序」是这个数据结构一切性能承诺的根源。**<span class="marginnote">把「集合」换成「有序序列」正是工程对数学的第一次让步：为了快，我们放弃元素的交换性，牺牲掉一点概念优雅，换来 $O(x+y)$ 的归并。</span>
@@ -95,22 +94,20 @@ $$\text{index}[t] = \left( \text{df}_t,\; \langle d_1, d_2, \ldots, d_{\text{df}
 有了倒排索引，布尔查询「**Brutus AND Caesar**」就变成一条非常干净的算法：把两条倒排表**求交集**。因为两条表都按升序排列，可以用双指针同时扫描，谁小谁前进：
 
 ```python
-def intersect(p1, p2):
+def intersect(x, y):
     i = j = 0
     result = []
-    while i < len(p1) and j < len(p2):
-        if p1[i] == p2[j]:
-            result.append(p1[i])
-            i += 1
-            j += 1
-        elif p1[i] < p2[j]:
+    while i < len(x) and j < len(y):
+        if x[i] == y[j]:
+            result.append(x[i]); i += 1; j += 1
+        elif x[i] < y[j]:
             i += 1
         else:
             j += 1
     return result
 
-intersect(inverted_index["brutus"], inverted_index["caesar"])
-# [1, 2]  —— 两部剧同时出现 Brutus 与 Caesar
+intersect([1, 2, 4, 11, 31, 45, 173, 174],
+          [1, 2, 4, 5, 6, 16, 57, 132])   # [1, 2, 4]
 ```
 
 两条长度分别为 $x$ 与 $y$ 的倒排表求交集，时间复杂度是
@@ -124,11 +121,11 @@ $$O(x + y)$$
 倒排索引的键是词项，但文档里的原始文本不是词项。从原始文本到词典，要经过一条预处理流水线，Manning 称之为**词项化（tokenization）与规范化（normalization）**：
 
 - **分词（tokenization）**：把连续文本切成一个个词元。英文按空格与标点切即可；中文没有空格，需要专门的分词器——这在本专题第三篇《中文检索的特殊性：分词与单字索引》会展开，也与第四级《自然语言处理》的分词一节直接衔接。
-- **大小写折叠（case folding）**：`Brutus`、`brutus`、`BRUTUS` 统一成 `brutus`。
-- **去停用词（stop word removal）**：去掉 `the`、`a`、`of` 这类高频但无检索信息的词，能显著压缩索引体积。
-- **词干化（stemming）**：`retrieval`、`retrieved`、`retrieving` 归并为词干 `retriev`。
+- **大小写折叠（case folding）**：「Brutus」、「brutus」、「BRUTUS」统一成「brutus」。
+- **去停用词（stop word removal）**：去掉「the」、「and」、「of」这类高频但无检索信息的词，能显著压缩索引体积。
+- **词干化（stemming）**：「connected」、「connecting」、「connection」归并为词干「connect」。
 
-**辨析｜易错点：索引时的预处理，必须与查询时的预处理逐字一致。** 如果文档入库时做了词干化而查询没做，`retrieved` 进了索引，查询 `retrieving` 却查不到——召回率瞬间归零。这条「同一套规范化」的铁律，在 RAG 里同样成立：索引时怎么切块分词，查询时就要怎么切块分词。
+**辨析｜易错点：索引时的预处理，必须与查询时的预处理逐字一致。** 如果文档入库时做了词干化而查询没做，「connect」进了索引，查询「connection」却查不到——召回率瞬间归零。这条「同一套规范化」的铁律，在 RAG 里同样成立：索引时怎么切块分词，查询时就要怎么切块分词。
 
 ## 7 小结
 

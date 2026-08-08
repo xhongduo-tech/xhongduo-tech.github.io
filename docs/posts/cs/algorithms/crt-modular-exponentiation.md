@@ -56,12 +56,16 @@ $$a^b = a^{b_0 + 2b_1 + 4b_2 + \cdots} = \prod_{b_i = 1} a^{2^i}$$
 
 ```
 MODULAR-EXPONENTIATION(a, b, n)
-  c = 0;  d = 1
-  for i from high bit down to 0 of b
-    c = 2c;  d = (d*d) mod n
-    if b_i == 1
-      c = c + 1;  d = (d*a) mod n
-  return d
+1  let ⟨b_k, b_{k−1}, …, b_0⟩ be the bits of b
+2  c = 0
+3  d = 1
+4  for i = k downto 0
+5      c = 2c
+6      d = (d · d) mod n        // 每比特平方一次
+7      if b_i == 1
+8          c = c + 1
+9          d = (d · a) mod n    // b_i = 1 时至多再乘一次
+10 return d
 ```
 
 每比特一次平方 + 至多一次乘——$O(\log b)$ 次模乘。<span class="marginnote">快速幂是「二进制展开把乘法次数从线性压到对数」的经典。RSA 的加密/解密 $c = m^e \bmod n$ 全靠它——否则指数 $e$（通常 $2^{16}+1$ 或更大）让直接幂乘完全不可行。这也是「算法设计直接支撑密码系统规模」的例子：没有 $O(\log b)$，RSA 无法实用。</span>

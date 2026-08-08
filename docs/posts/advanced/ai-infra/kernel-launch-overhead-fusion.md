@@ -20,9 +20,9 @@ date: 2026-08-07
 
 ## 1 一次 kernel 启动究竟花掉什么
 
-一次 `kernel<<<...>>>()` 在 CPU 侧并非「一条指令」，而是一串动作：参数打包与校验、内核对象查找、向 GPU 命令队列写入启动指令、必要时触发驱动层的上下文切换。这些动作叠加起来，量级大约在 **3–8 微秒（µs）**——放在 GPU 的纳秒时钟下，这已经是一段相当长的「CPU 时间」。
+一次 **kernel 启动（launch）** 在 CPU 侧并非「一条指令」，而是一串动作：参数打包与校验、内核对象查找、向 GPU 命令队列写入启动指令、必要时触发驱动层的上下文切换。这些动作叠加起来，量级大约在 **3–8 微秒（µs）**——放在 GPU 的纳秒时钟下，这已经是一段相当长的「CPU 时间」。
 
-关键在对比：一个训练模型里的**主计算 kernel**（如矩阵乘）动辄跑几百微秒，3µs 的启动成本只占 1%；但一个**逐元素 kernel**（`x + b`、`relu`、`scale`）可能只跑 5µs，启动开销与执行时间相当，GPU 有一半时间在空转等指令。<span class="marginnote">启动开销的本质是「命令从 CPU 到 GPU 的飞行时间 + 驱动软件的搬运成本」，它几乎与 kernel 本身的规模无关——<strong>所以越小的 kernel，被它压得越狠</strong>。CUDA Graph 能把一串启动固化成一次图捕获，把多次启动摊成一次，是本主题的进阶解法。</span>
+关键在对比：一个训练模型里的**主计算 kernel**（如矩阵乘）动辄跑几百微秒，3µs 的启动成本只占 1%；但一个**逐元素 kernel**（add、mul、relu）可能只跑 5µs，启动开销与执行时间相当，GPU 有一半时间在空转等指令。<span class="marginnote">启动开销的本质是「命令从 CPU 到 GPU 的飞行时间 + 驱动软件的搬运成本」，它几乎与 kernel 本身的规模无关——<strong>所以越小的 kernel，被它压得越狠</strong>。CUDA Graph 能把一串启动固化成一次图捕获，把多次启动摊成一次，是本主题的进阶解法。</span>
 
 更隐蔽的是：如果 host 侧提交命令的速度跟不上 GPU 消费命令的速度，GPU 还会进入「饿肚子（idle）」状态。启动开销真正伤人的场景，不是单次几百微秒的 kernel，而是**几千个微秒级 kernel 排队执行**——累计的启动等待可以轻松吞掉总时间的 30% 以上。
 
@@ -46,34 +46,28 @@ $$
 
 **Kernel fusion（算子融合）**：把多个算子合并进同一个 kernel，让一份数据在寄存器 / 片上完成全部变换，中间结果不再回全局内存。<span class="marginnote">融合的收益不是「省几条指令」，而是<strong>砍掉了中间结果在全局内存的整轮读写</strong>。对算术强度极低的逐元素链，这是把「访存瓶颈」直接翻倍、翻三倍吞吐的杠杆——它的思想与第一篇《GPU 内存层次》的合并访存一脉相承：尽量少碰全局内存。</span>
 
-以经典的三段式 `y = sigmoid(x·w + b)` 为例：
+以经典的三段式逐元素链（乘、加、sigmoid）为例：
 
-```python
-# 未融合：三个 kernel，两个中间结果 t1, t2 写全局内存
-t1 = x * w
-t2 = t1 + b
-y = torch.sigmoid(t2)
-
-# 融合：一个 kernel，x 只读一次、y 只写一次，中间值留在寄存器
-# （torch.compile 或 Triton 编译后，等价于下方的手写 CUDA kernel）
+```cpp
+// 朴素版：三个 kernel 依次启动，中间结果各落一次全局内存
+mul_kernel<<<grid, block>>>(a, b, t1);       // t1 = a * b
+add_kernel<<<grid, block>>>(t1, c, t2);      // t2 = t1 + c
+sigmoid_kernel<<<grid, block>>>(t2, out);    // out = sigmoid(t2)
 ```
 
 手写融合 kernel 的骨架长这样：
 
 ```cpp
-// 每个线程处理若干连续元素，一次读完、一次算完、一次写完
-__global__ void fused_linear_sigmoid(const float* x, const float* w,
-                                     const float* b, float* y, int n) {
+// 融合版：一个 kernel 内完成 out = sigmoid(a * b + c)
+__global__ void fused_mul_add_sigmoid(const float* a, const float* b,
+                                      const float* c, float* out, int n) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
-    if (i < n) {
-        float t = x[i] * w[i];      // 中间量只在寄存器里
-        t = t + b[i];
-        y[i] = 1.0f / (1.0f + expf(-t));
-    }
+    if (i < n)
+        out[i] = 1.0f / (1.0f + expf(-(a[i] * b[i] + c[i])));
 }
 ```
 
-编译器有时会自动做这类融合，但跨 kernel 的融合（尤其涉及复杂数据流时）它常无能为力——这就是 `torch.compile` / Triton / 手写 kernel 存在的意义。而**融合思想的最强代言人是 FlashAttention**：它把「读 Q、K、V → 算注意力 → softmax → 输出」整条链在一个 kernel 内分块完成，成为 IO 感知优化的教科书。<span class="marginnote">FlashAttention 的细节留到本主题收尾篇《FlashAttention 的 IO 感知设计思想解析》；今天你只需抓住它最核心的一句话：<strong>融合 = 让数据在片上多待一会儿，少去全局内存跑一趟</strong>。</span>
+编译器有时会自动做这类融合，但跨 kernel 的融合（尤其涉及复杂数据流时）它常无能为力——这就是 CUTLASS / Triton / 手写 kernel 存在的意义。而**融合思想的最强代言人是 FlashAttention**：它把「读 Q、K、V → 算注意力 → softmax → 输出」整条链在一个 kernel 内分块完成，成为 IO 感知优化的教科书。<span class="marginnote">FlashAttention 的细节留到本主题收尾篇《FlashAttention 的 IO 感知设计思想解析》；今天你只需抓住它最核心的一句话：<strong>融合 = 让数据在片上多待一会儿，少去全局内存跑一趟</strong>。</span>
 
 融合还带来一个常被忽略的间接收益：**L2 缓存的局部性**。未融合时，中间结果写全局内存后，下一个 kernel 再读，中间隔了一次 kernel 启动，数据很可能已被挤出 L2；融合后中间值留在寄存器或片上，L2 压力骤减。对访存密集的算子链，这层收益有时比省启动本身还大。
 
@@ -104,9 +98,9 @@ $$
 ## 5 辨析｜易错点
 
 - **「融合永远更快」**——错。融合会增大单个 kernel 的寄存器压力与 shared 用量，可能降低 occupancy（占用率）；当多个小 kernel 在资源上本可良好并行、融合反而把串行依赖拉长时，融合可能更慢。逐元素链是融合的甜区，不是所有算子都是。
-- **「编译器会替我融合」**——不保证。`-O3` 只做有限的单 kernel 内优化；跨 kernel 融合依赖 `torch.compile`、Triton 或手写。性能敏感路径默认当它不会自动融合。
+- **「编译器会替我融合」**——不保证。`nvcc` 只做有限的单 kernel 内优化；跨 kernel 融合依赖 CUTLASS、Triton 或手写。性能敏感路径默认当它不会自动融合。
 - **「融合不改变结果」**——浮点上会。合并运算改变了中间值的舍入顺序，结果可能有 1 ULP 级的微小差异；对数值稳定性要求苛刻的场景需验证。
-- **「`torch.compile` 融合了所有算子」**——只融合它能静态分析、且符合图模式的算子；含动态控制流、原地修改、视图依赖的算子常常无法融合，落在 fallback 路径。
+- **「torch.compile 融合了所有算子」**——只融合它能静态分析、且符合图模式的算子；含动态控制流、原地修改、视图依赖的算子常常无法融合，落在 fallback 路径。
 
 ## 6 小结
 

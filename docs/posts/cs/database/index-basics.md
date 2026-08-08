@@ -33,7 +33,7 @@ date: 2026-08-07
 
 按索引结构分两大类：
 
-- **顺序索引（ordered index）**：索引项按搜索码值**有序排列**（如 B+ 树、有序数组）。支持**等值查找**（`= `）与**范围查找**（`>`, `<`, `BETWEEN`）。
+- **顺序索引（ordered index）**：索引项按搜索码值**有序排列**（如 B+ 树、有序数组）。支持**等值查找**（\`WHERE ID = '10101'\`）与**范围查找**（\`WHERE salary > 80000\`、\`WHERE salary BETWEEN 40000 AND 80000\`、\`WHERE name LIKE 'C%'\`）。
 - **哈希索引（hash index）**：按哈希函数把码值散列到桶。只支持**等值查找**，范围查找退化为全扫。
 
 **核心要点（对比表）：**
@@ -88,9 +88,9 @@ $$
 
 给一张表设计索引，实战原则：
 
-1. **高频查询的等值条件建索引**：`WHERE id = ?`、`WHERE name = ?`。
-2. **范围/排序条件建 B+ 树索引**：`WHERE price > 100 ORDER BY price`。
-3. **复合索引按「最左前缀」建**：`(a, b, c)` 索引能服务 `a`、`a+b`、`a+b+c` 查询（第 10 章后文）。
+1. **高频查询的等值条件建索引**：如 \`WHERE id = '10101'\`、\`WHERE dept_name = 'CS'\`。
+2. **范围/排序条件建 B+ 树索引**：如 \`WHERE salary > 80000\`、\`ORDER BY name\`。
+3. **复合索引按「最左前缀」建**：\`(dept_name, salary)\` 索引能服务 \`WHERE dept_name = 'CS'\`、\`WHERE dept_name = 'CS' AND salary > 80000\`、\`WHERE dept_name = 'CS' ORDER BY salary\` 查询（第 10 章后文）。
 4. **覆盖索引**：查询只用到索引里的列，免回表。
 5. **小表不建索引**：全表扫描比索引跳转还快（索引有额外 I/O）。
 

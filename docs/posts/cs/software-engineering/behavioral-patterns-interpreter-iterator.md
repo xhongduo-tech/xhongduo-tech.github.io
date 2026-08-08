@@ -22,9 +22,9 @@ date: 2026-08-07
 
 **解释器（Interpreter）**：给定一门语言，**定义其文法表示**，并定义一个解释器来解释该语言中的句子。
 
-结构：`AbstractExpression` 定义解释接口 `interpret()`；`TerminalExpression`（终结符）与 `NonterminalExpression`（非终结符，含子表达式）实现它；`Context` 携带解释所需的全局信息；客户端构建**抽象语法树（AST）**并调用解释。
+结构：**Expression** 定义解释接口 **interpret()**；**TerminalExpression（终结符）**与 **NonterminalExpression（非终结符，含子表达式）**实现它；**Context** 携带解释所需的全局信息；客户端构建**抽象语法树（AST）**并调用解释。
 
-适用场景：**重复出现、且可用文法描述的领域问题**——如正则表达式引擎、SQL 解析、配置文件解析、布尔表达式计算。当"某种语言/表达式"在你的领域频繁出现时，解释器把解析与求值结构化。<span class="marginnote">解释器模式的本质是<strong>文法 → 类结构</strong>：文法的每条规则映射成表达式类，AST 由这些类组合而成，`interpret()` 递归求值。它的代价是<strong>类爆炸</strong>（每条文法规则一个类）与解析复杂性——所以实战中很少手写解释器，而是用解析器生成器（ANTLR、Yacc）或现成的表达式库。解释器模式的<strong>思想</strong>（文法映射类、递归求值）比它的<strong>实现</strong>更值得学——那是编译原理的入门雏形。</span>
+适用场景：**重复出现、且可用文法描述的领域问题**——如正则表达式引擎、SQL 解析、配置文件解析、布尔表达式计算。当"某种语言/表达式"在你的领域频繁出现时，解释器把解析与求值结构化。<span class="marginnote">解释器模式的本质是<strong>文法 → 类结构</strong>：文法的每条规则映射成表达式类，AST 由这些类组合而成，由 `interpret()` 递归求值。它的代价是<strong>类爆炸</strong>（每条文法规则一个类）与解析复杂性——所以实战中很少手写解释器，而是用解析器生成器（ANTLR、Yacc）或现成的表达式库。解释器模式的<strong>思想</strong>（文法映射类、递归求值）比它的<strong>实现</strong>更值得学——那是编译原理的入门雏形。</span>
 
 **辨析｜易错点：** 解释器模式 ≠ "写一个解释器程序"。GoF 的解释器特指"**用类结构表示文法 + 递归求值**"的特定方案。现代实践中，选择**解析器生成器**或**AST 框架**往往更合适——模式的价值在于理解"文法-类-求值"三者的对应，而非强行手写。
 
@@ -32,18 +32,33 @@ date: 2026-08-07
 
 **迭代器（Iterator）**：提供一种方法**顺序访问一个聚合对象中的各元素**，而**不暴露其内部表示**。
 
-结构：`Iterator` 接口声明 `next()`、`hasNext()`（及可选 `remove()`）；`ConcreteIterator` 实现遍历逻辑；`Aggregate`（聚合）提供 `createIterator()` 返回迭代器。
+结构：**Iterator** 接口声明 **next()**、**hasNext()**（及可选 **remove()**）；**ConcreteIterator** 实现遍历逻辑；**Aggregate（聚合）**提供 **iterator()** 返回迭代器。
 
-```
-for (it = list.createIterator(); it.hasNext(); ) {
-  item = it.next()
-  // 处理 item
+```java
+// 迭代器接口
+interface Iterator<T> {
+    boolean hasNext();
+    T next();
+}
+
+// 具体迭代器：封装数组遍历逻辑
+class ArrayListIterator<T> implements Iterator<T> {
+    private T[] items;
+    private int idx;
+    ArrayListIterator(T[] items) { this.items = items; }
+    public boolean hasNext() { return idx < items.length; }
+    public T next() { return items[idx++]; }
+}
+
+// 聚合对象：对外只提供 iterator()，不暴露内部存储
+class ArrayList<T> {
+    Iterator<T> iterator() { return new ArrayListIterator<>(items); }
 }
 ```
 
-迭代器让**遍历与集合解耦**：换一种遍历方式（顺序、倒序、过滤）不需要改集合本身，集合的内部结构（数组、链表、树）被迭代器隔离。客户端只依赖 `Iterator` 接口。<span class="marginnote">迭代器的现代形态是"<strong>语言内建</strong>"：Python 的 `for x in obj`（`__iter__`/`__next__`）、Java 的 `Iterable`/`Iterator`、C# 的 `foreach` 与 `yield`。`yield` 更是把迭代器的"惰性求值"能力带进了函数——生成器按需产出一个元素，内存占用从 O(n) 降到 O(1)。这正是迭代器模式的终极胜利：它如此成功，以至于成为语言的语法。</span>
+迭代器让**遍历与集合解耦**：换一种遍历方式（顺序、倒序、过滤）不需要改集合本身，集合的内部结构（数组、链表、树）被迭代器隔离。客户端只依赖 **Iterator** 接口。<span class="marginnote">迭代器的现代形态是“<strong>语言内建</strong>”：Python 的迭代器协议（`__iter__`/`__next__`）、Java 的 `Iterable`/`Iterator`、C# 的 `IEnumerable` 与 `IEnumerator`。生成器（`yield`）更是把迭代器的“惰性求值”能力带进了函数——生成器按需产出一个元素，内存占用从 O(n) 降到 O(1)。这正是迭代器模式的终极胜利：它如此成功，以至于成为语言的语法。</span>
 
-**辨析｜易错点：** 迭代器 ≠ 索引循环。`for (i = 0; i < n; i++)` 依赖集合"可随机访问 + 已知长度"的内部假设；迭代器只要求"逐个给出元素"。对链表、树、无限流（惰性序列），迭代器是唯一通用的遍历方式。判断标准：**遍历逻辑能否与集合内部结构解耦？** 能，就用迭代器。
+**辨析｜易错点：** 迭代器 ≠ 索引循环。索引循环（如 `for (i = 0; i < n; i++)`）依赖集合“可随机访问 + 已知长度”的内部假设；迭代器只要求“逐个给出元素”。对链表、树、无限流（惰性序列），迭代器是唯一通用的遍历方式。判断标准：**遍历逻辑能否与集合内部结构解耦？** 能，就用迭代器。
 
 ## 3 解释器 vs 迭代器
 

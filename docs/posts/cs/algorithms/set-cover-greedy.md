@@ -24,15 +24,15 @@ date: 2026-08-07
 
 **SET-COVER 贪心**：每次选「性价比最高」的子集——每覆盖一个元素代价最小的那个。
 
-```
-GREEDY-SET-COVER(X, F)
-  U = X                       // 待覆盖元素
-  C = empty set               // 选中的子集族
-  while U is not empty
-    select S in F that maximizes |S ∩ U| / cost(S)
-    U = U \ S
-    C = C ∪ {S}
-  return C
+```text
+GREEDY-SET-COVER(U, ℱ):
+    U′ ← U                                // 尚未覆盖的元素
+    C ← ∅                                 // 已选集合族
+    while U′ ≠ ∅:
+        选 S ∈ ℱ 使 |S ∩ U′| / cost(S) 最大   // 性价比最高的子集
+        C ← C ∪ {S}
+        U′ ← U′ ∖ S                       // 删除新覆盖的元素
+    return C
 ```
 
 每轮选「每元覆盖代价最小」的子集（未覆盖元素按性价比计），删掉它覆盖的元素，继续。<span class="marginnote">「性价比贪心」把问题从「选哪些集」变成「每轮选最划算的」——它不保证最优，但保证一个对数界的次优。注意性价比的分母是<strong>该子集的原始代价</strong>，分子是<strong>新覆盖的元素数</strong>（已覆盖的不算）——「新增覆盖」而非「总覆盖」才是收益。</span>

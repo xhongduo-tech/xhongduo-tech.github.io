@@ -50,7 +50,7 @@ $$\Delta V_T \propto t^{0.16\sim0.25} \cdot \exp\!\left(-\frac{E_a}{kT}\right)$$
 
 ## 4 随时间变化的介质击穿（TDDB）与电迁移（EM）
 
-- **TDDB（Time-Dependent Dielectric Breakdown）**：栅氧化层并非突然击穿，而是先积累缺陷，缺陷足够多时形成导通路径，氧化层短路。寿命随电场与温度指数下降：$t_{BD}\propto \exp(G/E_{ox})$。氧化层每薄 1 纳米，寿命就掉一个量级——这是薄栅氧与漏电之争的幕后黑手。<span class="marginnote">TDDB 给「氧化层能薄到多少」画了硬底线：先进工艺用高 κ 介质替代 $SiO_2$，物理厚度反而加厚，就是在躲避 TDDB 的同时维持电容。</span>
+**TDDB（Time-Dependent Dielectric Breakdown）**：栅氧化层并非突然击穿，而是先积累缺陷，缺陷足够多时形成导通路径，氧化层短路。寿命随电场与温度指数下降：$t_{BD}\propto \exp(G/E_{ox})$。氧化层每薄 1 纳米，寿命就掉一个量级——这是薄栅氧与漏电之争的幕后黑手。<span class="marginnote">TDDB 给「氧化层能薄到多少」画了硬底线：先进工艺用高 κ 介质替代 $SiO_2$，物理厚度反而加厚，就是在躲避 TDDB 的同时维持电容。</span>
 - **电迁移（Electromigration）**：金属互连里，大电流密度推动金属原子「随风飘移」，在阳极堆积成小丘（hillock）、在阴极挖出空洞（void）。空洞使连线电阻上升、最终断路。寿命由**布莱克方程（Black's equation）**给出：
 
 $$t_{50} = A \cdot J^{-n} \exp\!\left(\frac{E_a}{kT}\right)$$

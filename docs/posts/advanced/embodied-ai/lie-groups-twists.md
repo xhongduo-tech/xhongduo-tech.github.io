@@ -297,35 +297,29 @@ $$
 import numpy as np
 from scipy.linalg import expm
 
-def wedge(v, w):
-    """se(3) 矩阵：v 为线速度、w 为角速度（单位向量）"""
-    V = np.zeros((4, 4))
-    V[:3, :3] = np.array([[0, -w[2], w[1]],
-                          [w[2], 0, -w[0]],
-                          [-w[1], w[0], 0]])
-    V[:3, 3] = v
-    return V
+# 运动旋量：ω = (0,0,1)，v = (1,0,0)，θ = 0.7
+w = np.array([0., 0., 1.])
+v = np.array([1., 0., 0.])
+th = 0.7
 
-def exp_twist_closed(v, w, theta):
-    """单位角速度 w 的闭式指数映射"""
-    W = np.array([[0, -w[2], w[1]],
-                  [w[2], 0, -w[0]],
-                  [-w[1], w[0], 0]])
-    R = np.eye(3) + np.sin(theta) * W + (1 - np.cos(theta)) * (W @ W)
-    G = np.eye(3) * theta + (1 - np.cos(theta)) * W + (theta - np.sin(theta)) * (W @ W)
-    T = np.eye(4)
-    T[:3, :3], T[:3, 3] = R, G @ v
-    return T
+# 构造 [V]θ 的 4×4 矩阵
+W = np.array([[0, -w[2], w[1]],
+              [w[2],  0, -w[0]],
+              [-w[1], w[0],  0]])
+V = np.zeros((4, 4))
+V[:3, :3], V[:3, 3] = W, v
 
-w = np.array([0.0, 0.0, 1.0])          # 绕 Z 轴的螺旋
-v = np.array([0.1, 0.0, 0.5])          # 线速度：含沿轴的 0.5 → 螺距 0.5
-theta = np.pi / 2
+# 数值：scipy 矩阵指数
+T_num = expm(V * th)
 
-T1 = expm(wedge(v, w) * theta)          # 数值矩阵指数
-T2 = exp_twist_closed(v, w, theta)      # 闭式公式
-print("闭式 vs 数值一致:", np.allclose(T1, T2, atol=1e-12))   # True
-print("旋转部分(前两列):\n", np.round(T2[:3, :2], 3))
-print("平移部分:", np.round(T2[:3, 3], 3))
+# 闭式：SE(3) 指数公式
+c, s = np.cos(th), np.sin(th)
+G = np.eye(3)*th + (1 - c)*W + (th - s)*(W @ W)
+T_cl = np.eye(4)
+T_cl[:3, :3] = np.eye(3) + s*W + (1 - c)*(W @ W)
+T_cl[:3, 3] = G @ v
+
+print(np.allclose(T_num, T_cl))   # True
 ```
 
 ## 6 小结

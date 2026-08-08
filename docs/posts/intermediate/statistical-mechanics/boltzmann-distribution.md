@@ -64,7 +64,7 @@ $$a_l = e^{-\alpha - \beta\varepsilon_l} = \frac{N}{Z}\,e^{-\beta\varepsilon_l}$
 
 玻尔兹曼分布的用途极其广泛，先尝三个例子：
 
-- **大气标高**：空气分子在重力场中势能 $\varepsilon = mgh$，密度按 $n(h) = n_0 e^{-mgh/k_BT}$ 指数衰减。特征高度 $k_BT/mg \approx 8.5\ \text{km}$——这就是为什么高山缺氧。<span class="marginnote">大气标高的量级估算：$k_BT \approx 4\times10^{-21}\ \text{J}$，除以氮分子重量 $mg \approx 4.6\times10^{-26}\ \text{N}$，得 $h_0 \approx 8.7\ \text{km}$。珠峰顶的气压约为海平面的三分之一，与 $e^{-8.8/8.5}$ 相符。</span>
+**大气标高**：空气分子在重力场中势能 $\varepsilon = mgh$，密度按 $n(h) = n_0 e^{-mgh/k_BT}$ 指数衰减。特征高度 $k_BT/mg \approx 8.5\ \text{km}$——这就是为什么高山缺氧。<span class="marginnote">大气标高的量级估算：$k_BT \approx 4\times10^{-21}\ \text{J}$，除以氮分子重量 $mg \approx 4.6\times10^{-26}\ \text{N}$，得 $h_0 \approx 8.7\ \text{km}$。珠峰顶的气压约为海平面的三分之一，与 $e^{-8.8/8.5}$ 相符。</span>
 - **化学反应速率**：阿伦尼乌斯公式 $k = A e^{-E_a/k_BT}$ 就是玻尔兹曼因子的化身——只有能量超过活化能 $E_a$ 的碰撞才能越过反应势垒。
 - **半导体载流子**：本征半导体的载流子浓度 $n_i \propto e^{-E_g/2k_BT}$ 随温度指数上升——这就是晶体管性能对温度敏感的根本原因。
 

@@ -30,7 +30,7 @@ $$A \to \cdot XYZ, \quad A \to X\cdot YZ, \quad A \to XY\cdot Z, \quad A \to XYZ
 
 四个项表示四种「进度」：还没开始、读完 $X$、读完 $XY$、全部读完（**归约项**，圆点在右端）。
 
-分析之前先做**增广（augmentation）**：引入新开始符号 $S'$ 与产生式 $S' \to S$。<span class="marginnote">增广的目的是给分析器一个明确的「完成标志」：当 `$ S' → S · $` 这个项出现时，说明整个推导完成，可以接受。没有它，「何时接受」没有干净的定义。</span>
+分析之前先做**增广（augmentation）**：引入新开始符号 $S'$ 与产生式 $S' \to S$。<span class="marginnote">增广的目的是给分析器一个明确的「完成标志」：当 $S'$ 这个项出现时，说明整个推导完成，可以接受。没有它，「何时接受」没有干净的定义。</span>
 
 **归约项** $A \to \alpha\cdot$ 的含义：栈顶已攒齐 $\alpha$，可以按 $A \to \alpha$ 归约。**移进项** $A \to \alpha \cdot a\beta$：期待一个终结符 $a$ 到来。**待约项** $A \to \alpha \cdot B\beta$：期待一个非终结符 $B$（需要先归约出 $B$）。
 
@@ -46,9 +46,9 @@ $$A \to \cdot XYZ, \quad A \to X\cdot YZ, \quad A \to XY\cdot Z, \quad A \to XYZ
 
 有了项集族，SLR 分析表按三条规则填充：
 
-- **移进**：对 $\text{GOTO}(I_i, a) = I_j$（$a$ 是终结符），$\text{ACTION}[i, a] = \text{shift } j$。
-- **归约**：对归约项 $A \to \alpha\cdot$（$i \in I_i$），对每个 $a \in \text{FOLLOW}(A)$，$\text{ACTION}[i, a] = \text{reduce } A\to\alpha$。例外：若 $A = S'$，填 accept。
-- **GOTO**：对 $\text{GOTO}(I_i, A) = I_j$（$A$ 是非终结符），$\text{GOTO}[i, A] = j$。
+**移进**：对 $\text{GOTO}(I_i, a) = I_j$（$a$ 是终结符），$\text{ACTION}[i, a] = \text{shift } j$。
+**归约**：对归约项 $A \to \alpha\cdot$（$i \in I_i$），对每个 $a \in \text{FOLLOW}(A)$，$\text{ACTION}[i, a] = \text{reduce } A\to\alpha$。例外：若 $A = S'$，填 accept。
+**GOTO**：对 $\text{GOTO}(I_i, A) = I_j$（$A$ 是非终结符），$\text{GOTO}[i, A] = j$。
 
 **SLR 与 LR(0) 的唯一差别就在归约行**：LR(0) 在全部终结符下都归约（不看 FOLLOW），SLR 只在 FOLLOW 里归约。<span class="marginnote">这一小步变化很大：它把「看到 $a$ 就归约」收窄成「看到 FOLLOW($A$) 才归约」，从而解决了一批 LR(0) 无法处理的冲突。代价是 FOLLOW 是「近似」的——这正是 SLR 弱于规范 LR(1) 的地方。</span>
 
@@ -56,9 +56,9 @@ $$A \to \cdot XYZ, \quad A \to X\cdot YZ, \quad A \to XY\cdot Z, \quad A \to XYZ
 
 对文法 $E \to E+T \mid T$、$T \to T\times F \mid F$、$F \to (E) \mid \textbf{id}$，增广后从 $I_0$ 出发能构造出约 12 个项集。其中典型的一个归约决策：
 
-- 某状态含归约项 $E \to T\cdot$，另有移进项期待 `+`。
-- 若 `+` 同时属于 FOLLOW($E$)，表里会出现「又移进又归约」的**冲突**。
-- 本例中 `+` ∈ FOLLOW($E$)（因为 $E \to E+T$），所以 `E→T` 在 `+` 列归约，而移进也在 `+` 列——**SLR 冲突出现**，需要升级到规范 LR(1)。<span class="marginnote">这就是 SLR 与 LR(1) 的分水岭案例：FOLLOW($E$) 里混着「归约 $E$ 之后不该再出现的 `+`」。FOLLOW 是全局近似，LR(1) 用「局部上下文」修掉它——下一节的核心。</span>
+某状态含归约项 $E \to T\cdot$，另有移进项期待 $T \to T\cdot\times F$。
+若 $\times$ 同时属于 FOLLOW($E$)，表里会出现「又移进又归约」的**冲突**。
+本例中 $\times$ 并不属于 FOLLOW($E$)（FOLLOW($E$) = {\$, +, )}），所以 $\times$ 列只有移进、没有归约——**这台文法其实没有 SLR 冲突**；SLR 冲突只出现在「FOLLOW 越界」的文法里，届时才需要升级到规范 LR(1)。<span class="marginnote">这就是 SLR 与 LR(1) 的分水岭案例：若 FOLLOW($E$) 里混着「归约 $E$ 之后不该再出现的 $\times$」，就会制造伪冲突。FOLLOW 是全局近似，LR(1) 用「局部上下文」修掉它——下一节的核心。</span>
 
 ## 5 公式解析：CLOSURE 的递归闭包
 
@@ -72,7 +72,7 @@ $$\text{CLOSURE}(I) = I \cup \bigcup_{[A \to \alpha \cdot B\beta] \in I} \{ B \t
 
 ## 6 SLR 的局限
 
-SLR 能处理不少文法，但存在 FOLLLOW 近似导致的冲突——即上一节的「`+` 既移进又归约」型冲突。这类冲突迫使分析器要么牺牲文法（改写），要么升级到**规范 LR(1)**：把前瞻信息精确地编码进项本身，而不是事后查 FOLLOW。这正是一篇后的内容。
+SLR 能处理不少文法，但存在 FOLLLOW 近似导致的冲突——即上一节的「既移进又归约」型冲突。这类冲突迫使分析器要么牺牲文法（改写），要么升级到**规范 LR(1)**：把前瞻信息精确地编码进项本身，而不是事后查 FOLLOW。这正是一篇后的内容。
 
 **辨析｜易错点：** SLR 归约条件「$a \in$ FOLLOW($A$)」是**必要不充分**的近似——FOLLOW 是「全局可能」，而此刻能否归约取决于「这个具体位置是否允许 $A$」。把全局近似当局部精确，就会留下伪冲突。规范 LR(1) 修正的正是这一点。
 

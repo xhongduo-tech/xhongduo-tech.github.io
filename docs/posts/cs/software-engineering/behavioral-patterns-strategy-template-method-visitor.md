@@ -22,9 +22,9 @@ date: 2026-08-07
 
 **策略（Strategy）**：定义一族算法，**分别封装**，并使它们**可相互替换**——让算法的变化独立于使用算法的客户端。
 
-结构：`Strategy` 接口声明算法；`ConcreteStrategy` 各自实现；`Context` 持有一个 `Strategy` 引用，在构造或运行时注入，调用 `execute()`。
+结构：**Strategy** 接口声明算法；**ConcreteStrategy** 各自实现；**Context** 持有一个 **Strategy** 引用，在构造或运行时注入，调用 `strategy.execute()`。
 
-经典例子：**排序策略、支付渠道、压缩算法**。`Context`（如购物车结算）持有 `PaymentStrategy`，运行时可注入"支付宝策略"或"信用卡策略"，结算行为随之改变——但 `Context` 代码不涉及任何具体支付实现。
+经典例子：**排序策略、支付渠道、压缩算法**。**Context**（如购物车结算）持有 **Strategy** 引用，运行时可注入"支付宝策略"或"信用卡策略"，结算行为随之改变——但 **Context** 代码不涉及任何具体支付实现。
 
 **辨析｜易错点：** 策略 vs 状态（上一节）：结构相同，意图不同——策略是**客户端主动换算法**（同样的输入，不同算法得出不同结果）；状态是**内部状态转移驱动行为**。判断标准：**切换是"外部选择"还是"内部演化"？** 外部选算法用策略，内部随状态变用状态。<span class="marginnote">策略模式的现代形态是"<strong>函数参数/依赖注入</strong>"：很多语言里一个 lambda 就能当策略传，不需要显式策略类。它的本质是"把算法参数化"——从"if 选算法"变成"注入算法"。第 4 章 OCP 的多态扩展，在策略模式里得到最直接的体现：加一种算法 = 加一个策略类，Context 不动。</span>
 
@@ -32,15 +32,9 @@ date: 2026-08-07
 
 **模板方法（Template Method）**：在抽象类中定义算法的**骨架**（固定步骤序列），**把某些步骤延迟到子类实现**——子类可以不改变算法结构而重定义算法中的某些步骤。
 
-结构：`AbstractClass` 的 `templateMethod()` 规定步骤序列，调用若干 **抽象方法/钩子方法（hook）**；`ConcreteClass` 实现这些步骤。
+结构：**AbstractClass** 的 **templateMethod()** 规定步骤序列，调用若干 **抽象方法/钩子方法（hook）**；**ConcreteClass** 实现这些步骤。
 
-```
-templateMethod():
-  step1()          // 抽象方法，子类实现
-  step2()          // 具体方法，基类实现
-  if (hook())      // 钩子，子类可选覆盖
-    step3()        // 抽象方法，子类实现
-```
+典型实现：`templateMethod()` 内按固定顺序调用 `step1()` → `step2()` → `hook()`；**ConcreteClass** 实现 `step1()`、`step2()`，可选覆盖钩子 `hook()`。
 
 经典例子：**框架的"好莱坞原则"**——"不要调用我们，我们会调用你"。Web 框架的请求处理流程（认证→业务→渲染→异常处理）是模板方法，使用者在子类里填充具体逻辑；JUnit 的测试生命周期（setUp→test→tearDown）也是。<span class="marginnote">模板方法与策略的对比：模板方法是<strong>继承式复用</strong>（子类填充父类骨架的步骤），策略是<strong>组合式复用</strong>（Context 持有注入的算法）。模板方法的骨架固定，适合"流程不变、步骤多变"；策略的算法整体可换，适合"整个算法都要替换"。两者是"骨架复用"与"算法替换"的不同选择。</span>
 
@@ -50,9 +44,9 @@ templateMethod():
 
 **访问者（Visitor）**：**表示一个作用于某对象结构中各元素的操作**，使你能**在不改变各元素类的前提下**定义作用于这些元素的新操作。
 
-结构：`Visitor` 接口声明 `visit(ConcreteElementA)`、`visit(ConcreteElementB)`…；`Element` 接口声明 `accept(Visitor)`；具体元素在自己的 `accept()` 里调用 `visitor.visit(this)`（**双重分派**）；`ObjectStructure` 遍历元素集合。
+结构：**Visitor** 接口声明 `visitConcreteElementA()`、`visitConcreteElementB()`…；**Element** 接口声明 `accept(Visitor)`；具体元素在自己的 `accept()` 里调用 `visitor.visit(this)`（**双重分派**）；**ObjectStructure** 遍历元素集合。
 
-经典例子：**编译器对 AST 的操作**——类型检查、代码生成、打印 AST，都是对同一棵语法树的不同"访问"。若不访问者模式，每加一种操作要改所有 AST 节点类；用访问者，加操作 = 加一个 Visitor，节点类不动。<span class="marginnote">访问者的核心机制是<strong>双重分派（double dispatch）</strong>：调用不仅分派给元素的 `accept`，还分派给 visitor 的 `visit(具体元素类型)`——因此能在运行时确定"哪个元素 × 哪个操作"。代价：<strong>加新元素类型要改所有 Visitor</strong>（OCP 的"操作维度"开放、"类型维度"封闭）。现代编译器中，AST 的 visitor 遍历（Tree-sitter、编译器前端）都是它的直接应用。</span>
+经典例子：**编译器对 AST 的操作**——类型检查、代码生成、打印 AST，都是对同一棵语法树的不同"访问"。若不访问者模式，每加一种操作要改所有 AST 节点类；用访问者，加操作 = 加一个 Visitor，节点类不动。<span class="marginnote">访问者的核心机制是<strong>双重分派（double dispatch）</strong>：调用不仅分派给元素的 `accept()`，还分派给 visitor 的 `visit()`——因此能在运行时确定"哪个元素 × 哪个操作"。代价：<strong>加新元素类型要改所有 Visitor</strong>（OCP 的"操作维度"开放、"类型维度"封闭）。现代编译器中，AST 的 visitor 遍历（Tree-sitter、编译器前端）都是它的直接应用。</span>
 
 **辨析｜易错点：** 访问者 vs 迭代器：迭代器管"怎么遍历"，访问者管"遍历时对每个元素做什么操作"。两者常组合——用迭代器走结构，用访问者做操作。判断是否用访问者：**操作经常增加、元素类型相对稳定**时用；元素类型经常增加时，访问者的"加类型改所有 visitor"代价会反噬。
 

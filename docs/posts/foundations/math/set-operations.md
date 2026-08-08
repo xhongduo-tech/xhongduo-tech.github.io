@@ -127,11 +127,11 @@ $$
 
 | 集合 | 逻辑 | 语言 | 程序/数据库 |
 | --- | --- | --- | --- |
-| $A \cup B$ | 「或」$p \vee q$ | 「…或…」 | 位或 `\|`、SQL `UNION` |
-| $A \cap B$ | 「且」$p \wedge q$ | 「…且…」 | 位与 `&`、SQL `INTERSECT`、`WHERE` 多条件 |
-| $\complement A$ | 「非」$\neg p$ | 「不…」 | 位非 `~`、SQL `NOT IN` |
+| $A \cup B$ | 「或」$p \vee q$ | 「…或…」 | 位或 $A \cup B$、SQL $p \vee q$ |
+| $A \cap B$ | 「且」$p \wedge q$ | 「…且…」 | 位与 $A \cap B$、SQL $p \wedge q$、WHERE 多条件 |
+| $\complement A$ | 「非」$\neg p$ | 「不…」 | 位非 `~`、SQL `NOT` |
 
-这套对照不是巧合，而是同一套结构（布尔代数）的三个化身。<span class="marginnote">SQL 里 `UNION` 去重、`UNION ALL` 不去重，对应集合的并集与多重集；Python 的 `set` 直接提供 `|`、`&`、`-` 运算符，与本节公式一一对应。等你学到第三级《数据库》，会惊讶地发现查询优化器正是在做「集合运算」的等价改写——包括德摩根定律的布尔形式。</span>
+这套对照不是巧合，而是同一套结构（布尔代数）的三个化身。<span class="marginnote">SQL 里 `UNION` 去重、`UNION ALL` 不去重，对应集合的并集与多重集；Python 的 `set` 直接提供 `&`、`|`、`-` 运算符，与本节公式一一对应。等你学到第三级《数据库》，会惊讶地发现查询优化器正是在做「集合运算」的等价改写——包括德摩根定律的布尔形式。</span>
 
 ## 7 小结
 

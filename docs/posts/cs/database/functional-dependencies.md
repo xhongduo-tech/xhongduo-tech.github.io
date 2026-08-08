@@ -40,12 +40,12 @@ date: 2026-08-07
 
 **属性集闭包（closure of attribute set）**：给定依赖集 $F$ 与属性集 $\alpha$，$\alpha$ 在 $F$ 下的闭包 $\alpha^+$ 是**所有能被 $\alpha$ 函数决定的属性集合**。算法（闭包算法）：
 
-```
-result := α
-loop
-  for each 依赖 β → γ in F:
-    if β ⊆ result then result := result ∪ γ
-until result 不再变化
+```text
+result = α
+while result 发生变化:
+    for 每条依赖 β → γ ∈ F:
+        if β ⊆ result:
+            result = result ∪ γ
 ```
 
 **闭包算法是规范化理论的地基**——判定 $\alpha \to \beta$ 是否成立（只需查 $\beta \subseteq \alpha^+$）、判定 $\alpha$ 是否超码、计算候选码，全都靠它。
@@ -74,10 +74,10 @@ $$
 
 设 $R = (A, B, C, D, E)$，$F = \{ A \to BC, \; B \to D, \; D \to E \}$。计算 $\{A\}^+$：
 
-- 初始 `{A}`。
-- 用 $A \to BC$：加入 B、C → `{A, B, C}`。
-- 用 $B \to D$：加入 D → `{A, B, C, D}`。
-- 用 $D \to E$：加入 E → `{A, B, C, D, E}` = R。
+- 初始 $\{A\}^+ = \{A\}$。
+- 用 $A \to BC$：加入 B、C → $\{A, B, C\}$。
+- 用 $B \to D$：加入 D → $\{A, B, C, D\}$。
+- 用 $D \to E$：加入 E → $\{A, B, C, D, E\}$ = R。
 
 于是 $A$ 是超码；检查真子集，$A$ 单独就是超码，所以 $A$ 是**候选码**。同时我们推得 $A \to E$ 等原依赖集里没有的依赖——它们被 $F$ **蕴含**，是 $F$ 的逻辑推论。
 

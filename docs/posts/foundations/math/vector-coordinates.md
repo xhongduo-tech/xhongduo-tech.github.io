@@ -48,8 +48,8 @@ $$
 
 设 $\vec{a}=(x_1,y_1)$，$\vec{b}=(x_2,y_2)$，且 $\vec{b}\neq\vec{0}$：
 
-- **共线（平行）判定**：$\vec{a}\parallel\vec{b} \iff x_1y_2-x_2y_1=0$，即 $\dfrac{x_1}{x_2}=\dfrac{y_1}{y_2}$（各分量成比例）。
-- **垂直判定**：$\vec{a}\perp\vec{b} \iff x_1x_2+y_1y_2=0$。
+**共线（平行）判定**：$\vec{a}\parallel\vec{b} \iff x_1y_2-x_2y_1=0$，即 $\dfrac{x_1}{x_2}=\dfrac{y_1}{y_2}$（各分量成比例）。
+**垂直判定**：$\vec{a}\perp\vec{b} \iff x_1x_2+y_1y_2=0$。
 
 这两条互为对偶：平行看**交叉项相等**，垂直看**对应项之和为零**。<span class="marginnote">记忆钩子：平行是「叉乘为零」（$x_1y_2-x_2y_1=0$），垂直是「点乘为零」（$x_1x_2+y_1y_2=0$）。一个叉、一个点，符号长在名字里。</span>
 
@@ -65,9 +65,9 @@ $$
 
 以距离公式为例做三步拆解：
 
-- **第一步，构造向量**：$\overrightarrow{AB}=(x_2-x_1,\ y_2-y_1)$——终点坐标减起点坐标，得到的向量就是「从 $A$ 到 $B$ 的位移」。
-- **第二步，用模长公式**：$|AB|=|\overrightarrow{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$。这里模长公式 $|\vec{a}|=\sqrt{x^2+y^2}$ 正是勾股定理的坐标化。
-- **第三步，读出几何**：距离公式其实是「直角三角形的斜边长」——横坐标之差是直角边，纵坐标之差是另一条直角边，斜边就是两点距离。**距离公式 = 向量模长 = 勾股定理**，三者在坐标语言下是同一件事。
+**第一步，构造向量**：$\overrightarrow{AB}=(x_2-x_1,\ y_2-y_1)$——终点坐标减起点坐标，得到的向量就是「从 $A$ 到 $B$ 的位移」。
+**第二步，用模长公式**：$|AB|=|\overrightarrow{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$。这里模长公式 $|\vec{a}|=\sqrt{x^2+y^2}$ 正是勾股定理的坐标化。
+**第三步，读出几何**：距离公式其实是「直角三角形的斜边长」——横坐标之差是直角边，纵坐标之差是另一条直角边，斜边就是两点距离。**距离公式 = 向量模长 = 勾股定理**，三者在坐标语言下是同一件事。
 
 这个统一眼光极有价值：中点公式、距离公式看起来是「解析几何的新公式」，实际上只是向量运算在坐标下的直接翻译。<span class="marginnote">「看似新公式，实为旧知识的翻译」——这是坐标化一贯的赠品。记住这一点，就不用背公式：需要时从向量定义现场推出来即可。</span>
 
@@ -93,9 +93,9 @@ $$
 
 已知 $\triangle ABC$ 中 $A(0,0)$、$B(2,0)$、$C(1,\sqrt3)$，判断三角形的形状。
 
-- **第一步，写向量**：$\overrightarrow{AB}=(2,0)$，$\overrightarrow{AC}=(1,\sqrt3)$，$\overrightarrow{BC}=C-B=(-1,\sqrt3)$。
-- **第二步，算边长**：$|AB|=2$，$|AC|=\sqrt{1+3}=2$，$|BC|=\sqrt{1+3}=2$——三边相等。
-- **第三步，判形状**：三边相等，$\triangle ABC$ 是等边三角形。验证：$\overrightarrow{AB}\cdot\overrightarrow{AC}=2\times1+0\times\sqrt3=2$，$\cos\angle A=\frac{2}{2\times2}=\frac12$，$\angle A=60^\circ$——等边三角形每个内角 $60^\circ$。
+**第一步，写向量**：$\overrightarrow{AB}=(2,0)$，$\overrightarrow{AC}=(1,\sqrt3)$，$\overrightarrow{BC}=C-B=(-1,\sqrt3)$。
+**第二步，算边长**：$|AB|=2$，$|AC|=\sqrt{1+3}=2$，$|BC|=\sqrt{1+3}=2$——三边相等。
+**第三步，判形状**：三边相等，$\triangle ABC$ 是等边三角形。验证：$\overrightarrow{AB}\cdot\overrightarrow{AC}=2\times1+0\times\sqrt3=2$，$\cos\angle A=\frac{2}{2\times2}=\frac12$，$\angle A=60^\circ$——等边三角形每个内角 $60^\circ$。
 
 <span class="marginnote">「坐标法判三角形形状」的套路：<strong>写向量 → 算模长（边长）→ 算点乘（判定垂直/夹角）</strong>。三边相等判等边，$a^2+b^2=c^2$ 判直角（勾股逆定理），点乘为零判垂直。坐标法把「形状判定」变成纯算术——不用画辅助线，算一遍边长和点乘即可。本题 $A(0,0)$ 让计算最简，<strong>建系时把关键点放原点能省一大截计算</strong>。</span>
 

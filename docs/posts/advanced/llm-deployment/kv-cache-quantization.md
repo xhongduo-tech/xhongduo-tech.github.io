@@ -32,9 +32,9 @@ KV Cache 的体积公式（每层、每头、每个 token）：$2 \times L \time
 
 直觉上，KV Cache 参与注意力打分，精度损失应该直接伤害生成质量。但大量实验显示，KV Cache 量化到 INT8 精度损失极小，INT4 也往往可接受。原因有三：
 
-- **注意力打分是「相对比较」**：softmax 对 $QK^T$ 做归一化，**共同的缩放误差会抵消**。KV Cache 量化引入的系统性偏差，很大一部分在 softmax 里被「平均掉」。
-- **K 与 V 的容错不同**：K 影响 softmax 的分数（对误差敏感），V 影响加权求和的结果（相对宽容）。**分开量化（K 高精度、V 低精度）比统一量化省得多**。
-- **局部性**：注意力是「按位置加权」，近期 token 的权重高、远期 token 权重低。KV Cache 量化的误差更多影响远期低权重 token，被加权和「稀释」。
+**注意力打分是「相对比较」**：softmax 对 $QK^T$ 做归一化，**共同的缩放误差会抵消**。KV Cache 量化引入的系统性偏差，很大一部分在 softmax 里被「平均掉」。
+**K 与 V 的容错不同**：K 影响 softmax 的分数（对误差敏感），V 影响加权求和的结果（相对宽容）。**分开量化（K 高精度、V 低精度）比统一量化省得多**。
+**局部性**：注意力是「按位置加权」，近期 token 的权重高、远期 token 权重低。KV Cache 量化的误差更多影响远期低权重 token，被加权和「稀释」。
 
 **关键洞察：不是 KV Cache 不在乎精度，而是「量化的误差结构」恰好落在注意力不敏感的方向上。** 这让 KV Cache 量化成为「低成本高回报」的操作。
 
@@ -42,7 +42,7 @@ KV Cache 的体积公式（每层、每头、每个 token）：$2 \times L \time
 
 主流 KV Cache 量化（如 KIVI、KVQuant）的工程要点：
 
-- **K 与 V 分开量化**：K 用 per-channel（或 per-head）scale，V 用 per-token scale。K 对误差敏感但通道分布稳定，V 宽容但逐 token 分布变化大——**各自用最合适的粒度**。<span class="marginnote">存储 scale 有额外开销：per-channel 的 scale 只要每通道一个（便宜），per-token 的 scale 要每个 token 一个（贵）。工程上常在<strong>「scale 的存储开销」与「量化的步长精度」</strong>之间权衡。</span>
+**K 与 V 分开量化**：K 用 per-channel（或 per-head）scale，V 用 per-token scale。K 对误差敏感但通道分布稳定，V 宽容但逐 token 分布变化大——**各自用最合适的粒度**。<span class="marginnote">存储 scale 有额外开销：per-channel 的 scale 只要每通道一个（便宜），per-token 的 scale 要每个 token 一个（贵）。工程上常在<strong>「scale 的存储开销」与「量化的步长精度」</strong>之间权衡。</span>
 - **在线/离线量化**：离线（权重固定、统计一次）对 K 友好；V 随 token 变化，有时需要在线统计。多数引擎用离线校准 + 少量在线修正。
 - **与页式内存结合**：量化后的 KV Cache 依然按页（block）分配，页大小、对齐方式要配合新位宽调整——vLLM 的 KV 量化、TensorRT-LLM 的 INT8/FP8 KV 路径都改了块布局。
 

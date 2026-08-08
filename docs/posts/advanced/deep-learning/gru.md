@@ -96,9 +96,9 @@ $$
 | 对外输出 | 输出门：$\boldsymbol{h}_t = \boldsymbol{o}_t\odot\tanh(\boldsymbol{c}_t)$ | 直接：$\boldsymbol{h}_t$ 即输出 |
 | 参数量 | 4 组投影（约 4 倍 RNN） | 3 组投影（约 3 倍 RNN） |
 
-- **第一步，看「记忆载体」的合并**：LSTM 用「细胞状态存记忆 + 隐状态做输出」两个角色；GRU **合并成一个隐状态**——少一组状态，少一组输出门。
-- **第二步，看「忘与记」的合并**：LSTM 的「忘 $\boldsymbol{f}_t$」与「记 $\boldsymbol{i}_t$」是**两个独立**的开关；GRU 的「$\boldsymbol{z}_t$ 与 $1-\boldsymbol{z}_t$」是**互补**的——少一个门。
-- **第三步，看参数**：三组投影（$\boldsymbol{W}_r,\boldsymbol{W}_z,\boldsymbol{W}_h$）对四组（$\boldsymbol{W}_f,\boldsymbol{W}_i,\boldsymbol{W}_o,\boldsymbol{W}_c$）——**GRU 省约 25% 参数**，训练更快、更不易过拟合。<span class="marginnote">「合并」的代价与收益：GRU 少了一个「独立输入门」——LSTM 可以「同时大量写入新信息 + 完全不遗忘旧信息」（$\boldsymbol{i}_t=1, \boldsymbol{f}_t=1$ 同时成立），GRU 做不到（$\boldsymbol{z}_t$ 决定了新旧比例，写新必忘旧）。这个「表达自由度」的差异，在「需要同时保留旧记忆 + 大量吸收新信息」的极端场景下，LSTM 略占优——但绝大多数任务用不到这种极端。</span>
+**第一步，看「记忆载体」的合并**：LSTM 用「细胞状态存记忆 + 隐状态做输出」两个角色；GRU **合并成一个隐状态**——少一组状态，少一组输出门。
+**第二步，看「忘与记」的合并**：LSTM 的「忘 $\boldsymbol{f}_t$」与「记 $\boldsymbol{i}_t$」是**两个独立**的开关；GRU 的「$\boldsymbol{z}_t$ 与 $1-\boldsymbol{z}_t$」是**互补**的——少一个门。
+**第三步，看参数**：三组投影（$\boldsymbol{W}_r,\boldsymbol{W}_z,\boldsymbol{W}_h$）对四组（$\boldsymbol{W}_f,\boldsymbol{W}_i,\boldsymbol{W}_o,\boldsymbol{W}_c$）——**GRU 省约 25% 参数**，训练更快、更不易过拟合。<span class="marginnote">「合并」的代价与收益：GRU 少了一个「独立输入门」——LSTM 可以「同时大量写入新信息 + 完全不遗忘旧信息」（$\boldsymbol{i}_t=1, \boldsymbol{f}_t=1$ 同时成立），GRU 做不到（$\boldsymbol{z}_t$ 决定了新旧比例，写新必忘旧）。这个「表达自由度」的差异，在「需要同时保留旧记忆 + 大量吸收新信息」的极端场景下，LSTM 略占优——但绝大多数任务用不到这种极端。</span>
 
 **易错点：** GRU 没有「细胞状态」，所以也没有「输出门」——它的隐状态**直接对外**。这意味着「GRU 的隐状态既是记忆又是输出」，信息「藏不住」（不像 LSTM 可以把记忆藏在细胞状态里、输出门决定泄露多少）。**「LSTM 的记忆可以『私密』，GRU 的记忆是『公开』的」**——这个差异在极少数任务上可感知。
 
@@ -106,9 +106,9 @@ $$
 
 **GRU 的实践配方**：
 
-- 参数量比 LSTM 少约 25%，在小数据上更稳。
-- 训练速度更快（少一组投影）。
-- 与 LSTM 一样需要梯度裁剪、合适的初始化（遗忘/更新门偏置）。
+参数量比 LSTM 少约 25%，在小数据上更稳。
+训练速度更快（少一组投影）。
+与 LSTM 一样需要梯度裁剪、合适的初始化（遗忘/更新门偏置）。
 
 **选型建议**：
 

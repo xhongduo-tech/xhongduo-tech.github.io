@@ -35,11 +35,11 @@ $$
 用线性链表表示多项式时，每个结点包含三个域：**系数域（coef）**、**指数域（expn）**、**指针域（link）**。
 
 ```c
-typedef struct PNode {
-    float coef;            /* 系数 */
-    int   expn;            /* 指数 */
-    struct PNode *link;    /* 指向下一项 */
-} PNode;
+typedef struct PolyNode {    /* 多项式链表结点 */
+    float coef;              /* 系数域 */
+    int   expn;              /* 指数域 */
+    struct PolyNode *link;   /* 指针域 */
+} PolyNode, *Polynomial;
 ```
 
 指数按升序排好，链表就有了「有序表」的全部性质。这个有序性不是白给的——它让下面的加法变成一趟线性归并。注意，这里用的是「带头结点」的链表还是「不带头结点」的链表都可行，关键在于**首元结点必须是指数最小的一项**，这样归并从表头出发才有意义。
@@ -65,22 +65,22 @@ $$
 加法算法的骨架是「三个指针、一趟扫描」：
 
 ```c
-void AddPolyn(PNode *pa, PNode *pb, PNode *&pc) {
-    /* 初始：pa, pb 指向两多项式首元，pc 为结果表头指针 */
-    while (pa && pb) {
-        if (pa->expn == pb->expn) {
-            float sum = pa->coef + pb->coef;
-            if (sum != 0.0f)               /* 系数和为零则丢弃 */
-                Attach(pc, sum, pa->expn);
-            pa = pa->link;  pb = pb->link;
-        } else if (pa->expn < pb->expn) {
-            Attach(pc, pa->coef, pa->expn); pa = pa->link;
-        } else {
-            Attach(pc, pb->coef, pb->expn); pb = pb->link;
+Polynomial AddPolyn(Polynomial A, Polynomial B) {
+    Polynomial C = NULL, *tail = &C;     /* 结果表，尾指针插入 */
+    while (A && B) {
+        if (A->expn == B->expn) {              /* 指数相等：系数相加 */
+            float s = A->coef + B->coef;
+            if (s != 0) attach(tail, s, A->expn);  /* 和为零则丢弃 */
+            A = A->link; B = B->link;
+        } else if (A->expn < B->expn) {        /* A 指数小：A 当前项落位 */
+            attach(tail, A->coef, A->expn); A = A->link;
+        } else {                               /* B 指数小：B 当前项落位 */
+            attach(tail, B->coef, B->expn); B = B->link;
         }
     }
-    while (pa) { Attach(pc, pa->coef, pa->expn); pa = pa->link; }
-    while (pb) { Attach(pc, pb->coef, pb->expn); pb = pb->link; }
+    while (A) { attach(tail, A->coef, A->expn); A = A->link; }  /* 收尾 */
+    while (B) { attach(tail, B->coef, B->expn); B = B->link; }
+    return C;
 }
 ```
 

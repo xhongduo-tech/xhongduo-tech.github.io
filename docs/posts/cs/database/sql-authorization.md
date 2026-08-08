@@ -26,58 +26,48 @@ date: 2026-08-07
 
 | 权限 | 允许的操作 | 可细粒度到 |
 | --- | --- | --- |
-| `SELECT` | 查询 | 整表 |
-| `INSERT` | 插入元组 | 整表 |
-| `UPDATE` | 修改元组 | **指定属性列** |
-| `DELETE` | 删除元组 | 整表 |
-| `REFERENCES` | 声明引用本表的外码 | 指定属性列 |
+| SELECT | 查询 | 整表 |
+| INSERT | 插入元组 | 整表 |
+| UPDATE | 修改元组 | **指定属性列** |
+| DELETE | 删除元组 | 整表 |
+| REFERENCES | 声明引用本表的外码 | 指定属性列 |
 
-注意 `UPDATE` 和 `REFERENCES` 可以细化到**列**：可以授权某用户只能改 `budget` 这一列，而看不到或改不了其他列。这是授权模型里很精致的一点——**权力的最小颗粒可以是一列**。
+注意 UPDATE 和 REFERENCES 可以细化到**列**：可以授权某用户只能改 salary 这一列，而看不到或改不了其他列。这是授权模型里很精致的一点——**权力的最小颗粒可以是一列**。
 
 **辨析｜易错点：** 权限的对象是**关系（表或视图）**，不是「数据库」或「某条记录」。SQL 授权的最小单位是关系/视图，做不到「只让张三看工资大于 5000 的那些行」——那种**行级**的精细控制要靠视图（把 WHERE 条件包进视图）或行级安全（Row-Level Security，多数数据库的扩展特性）实现。<span class="marginnote">「授权到表、精细到列，行的过滤交给视图」——记住这句口诀，就明白了授权与视图的分工。真正的行级安全是数据库厂商在标准之外的扩展，工程上仍常用视图 + 授权组合。</span>
 
 ## 2 授予与收回：GRANT 与 REVOKE
 
-授权的两条基本语句是 `GRANT`（发钥匙）与 `REVOKE`（收钥匙）：
+授权的两条基本语句是 GRANT（发钥匙）与 REVOKE（收钥匙）：
 
 ```sql
--- 把 department 的 SELECT 权限授予 Amit 和 Satoshi
-GRANT SELECT ON department TO Amit, Satoshi;
-
--- 只授予更新 budget 列的权限
-GRANT UPDATE (budget) ON department TO Amit;
-
--- 一次性授予全部权限
-GRANT ALL PRIVILEGES ON department TO Amit;
-
--- 授予所有用户（PUBLIC）
-GRANT SELECT ON department TO PUBLIC;
+GRANT SELECT ON instructor TO Amit;
+GRANT UPDATE (salary) ON instructor TO Amit;
 ```
 
 对应地，收回权限：
 
 ```sql
-REVOKE SELECT ON department FROM Amit;
-REVOKE UPDATE (budget) ON department FROM Amit;
+REVOKE UPDATE (salary) ON instructor FROM Amit;
 ```
 
-`PUBLIC` 是一个特殊「用户」，代表所有当前与未来的用户——授予 PUBLIC 的权限人人有份，适用于那些「大家都能读」的基础表。<span class="marginnote">谨慎使用 PUBLIC：一旦授权给 PUBLIC，任何新创建的用户自动获得该权限，收回时要逐个记清。默认最小权限原则下，PUBLIC 应只给最无伤大雅的只读权限。</span>
+PUBLIC 是一个特殊「用户」，代表所有当前与未来的用户——授予 PUBLIC 的权限人人有份，适用于那些「大家都能读」的基础表。<span class="marginnote">谨慎使用 PUBLIC：一旦授权给 PUBLIC，任何新创建的用户自动获得该权限，收回时要逐个记清。默认最小权限原则下，PUBLIC 应只给最无伤大雅的只读权限。</span>
 
-**辨析｜易错点：** `GRANT` 只能授予「你自己拥有」的权限——你不能把 `SELECT` 授给他人，如果连你自己都没有 `SELECT`。这是授权的**所有权前提**：**给不出自己没有的东西**。这条朴素原则是后面授权图能够成立的基础。
+**辨析｜易错点：** GRANT 只能授予「你自己拥有」的权限——你不能把 SELECT 授给他人，如果连你自己都没有 SELECT。这是授权的**所有权前提**：**给不出自己没有的东西**。这条朴素原则是后面授权图能够成立的基础。
 
 ## 3 授权图与 WITH GRANT OPTION
 
-权限还有一个「转手」开关：**授予选项（grant option）**。带 `WITH GRANT OPTION` 授权出去后，被授权者不仅拥有该权限，还有权把它**再转授给别人**：
+权限还有一个「转手」开关：**授予选项（grant option）**。带 WITH GRANT OPTION 授权出去后，被授权者不仅拥有该权限，还有权把它**再转授给别人**：
 
 ```sql
-GRANT SELECT ON department TO Amit WITH GRANT OPTION;
+GRANT SELECT ON instructor TO Amit WITH GRANT OPTION;
 ```
 
 于是 Amit 可以把 SELECT 权限再授给 Satoshi，Satoshi 若也被赋予 grant option，还可以继续往下传。这就构成了一张**授权图（authorization graph）**：
 
-- **节点**：用户。
-- **边**：一次授权。$u \to v$ 表示「$u$ 把某个权限（含 grant option）授给 $v$」。
-- **根**：数据库管理员（DBA）或数据的所有者。
+**节点**：用户。
+**边**：一次授权。$u \to v$ 表示「$u$ 把某个权限（含 grant option）授给 $v$」。
+**根**：数据库管理员（DBA）或数据的所有者。
 
 一个用户**拥有**某项权限，当且仅当存在一条从根节点（或某个持有该权限的授权者）到该用户的路径，且路径上每条边的授权都包含该权限。授权图允许有环（A 授给 B、B 又授给 A），但权限的**来源**最终都要追到拥有该权限的授权者那里——而这正是收回权限时麻烦的根源：**如果你从 A 手里拿到了权限，而 A 的权限被收回，你手里的怎么办？**
 
@@ -86,15 +76,15 @@ GRANT SELECT ON department TO Amit WITH GRANT OPTION;
 逐个用户地 GRANT 在用户很多时是一场灾难：入职一个老师，要给 TA 逐一授十几个权限；离职一个老师，又要逐个收。数据库的答案是**角色（role）**——把「一类身份」应拥有的权限打包成一份，再按身份分发：
 
 ```sql
-CREATE ROLE instructor;                    -- 创建角色
-GRANT SELECT ON takes TO instructor;       -- 把权限授给角色
-GRANT instructor TO Amit;                  -- 把角色授给用户
-GRANT teaching_assistant TO instructor;    -- 角色还能授给角色（角色层级）
+CREATE ROLE instructor;
+GRANT SELECT ON takes   TO instructor;
+GRANT SELECT ON student TO instructor;
+GRANT instructor TO Amit;
 ```
 
-于是「教师该有的权限」被定义了一次，之后任何人入职只需 `GRANT instructor TO 新人;`，离职只需 `REVOKE instructor FROM 旧人;`。<span class="marginnote">角色是权限管理里的「中间层」：权限绑角色、角色绑用户，避免「用户 × 权限」的笛卡儿积爆炸。这与操作系统的用户组、现代云平台的 IAM 角色是同一个设计模式——分层解耦。</span>
+于是「教师该有的权限」被定义了一次，之后任何人入职只需 GRANT instructor TO 新用户，离职只需 REVOKE instructor FROM 该用户。<span class="marginnote">角色是权限管理里的「中间层」：权限绑角色、角色绑用户，避免「用户 × 权限」的笛卡儿积爆炸。这与操作系统的用户组、现代云平台的 IAM 角色是同一个设计模式——分层解耦。</span>
 
-**角色层级**让权限还能继承：`teaching_assistant` 被授给 `instructor`，则所有 instructor 自动拥有助教角色的权限。角色之间可以构成有向图，权限沿图继承——这套机制和第 4 章末《视图与授权的递归》以及分布式环境下的权限传播一脉相承。
+**角色层级**让权限还能继承：teaching_assistant（助教角色）被授给 instructor（教师角色），则所有 instructor 自动拥有助教角色的权限。角色之间可以构成有向图，权限沿图继承——这套机制和第 4 章末《视图与授权的递归》以及分布式环境下的权限传播一脉相承。
 
 **辨析｜易错点：** 角色不是用户。用户是登录身份的实体，角色是权限的容器；一个用户可以有多个角色，一个角色可以对应多个用户。把「人」和「身份应拥有的权限」分开管理，才能让权限变更不依赖人员的流动。
 
@@ -102,17 +92,17 @@ GRANT teaching_assistant TO instructor;    -- 角色还能授给角色（角色�
 
 授权的最小单位是关系，而视图本身也是关系——于是产生一个漂亮的技巧：**通过视图间接授权**。
 
-假设 `instructor` 表里有 salary 列，但教务人员只需要看到教师名单，不该看到工资。做法是：
+假设 instructor 表里有 salary 列，但教务人员只需要看到教师名单，不该看到工资。做法是：
 
 ```sql
-CREATE VIEW faculty AS
+CREATE VIEW faculty_names AS
     SELECT ID, name, dept_name
     FROM instructor;
 
-GRANT SELECT ON faculty TO registrar;
+GRANT SELECT ON faculty_names TO registrar;
 ```
 
-这样 registrar 可以查询 `faculty` 视图，却**没有**对 `instructor` 基表的任何权限——TA 无法直接 `SELECT salary FROM instructor`，因为对基表没有权限。<span class="marginnote">视图在这里把「行的子集 + 列的子集」封装成一个新关系，授权给视图等于授权给这个「裁剪过的形状」。这正是第 1 章数据抽象里「外模式」在安全上的落地。</span>
+这样 registrar 可以查询 faculty_names 视图，却**没有**对 instructor 基表的任何权限——TA 无法直接 SELECT instructor，因为对基表没有权限。<span class="marginnote">视图在这里把「行的子集 + 列的子集」封装成一个新关系，授权给视图等于授权给这个「裁剪过的形状」。这正是第 1 章数据抽象里「外模式」在安全上的落地。</span>
 
 但要小心视图的**依赖前提**：创建视图的人，必须对被视图引用的所有基表拥有相应权限（至少 SELECT）。也就是说，**你不能通过造一个视图来绕过自己没有的权限**——视图不会赋予你基表权限，它只是把你已有的权限「裁剪」后再分发。
 
@@ -135,7 +125,7 @@ $$
 逐项拆解这条定义的三层含义：
 
 - **第一层：权限是沿边「流淌」的。** 授予选项让权限像授权图上的水流：只要边上的授权带 grant option，权限就能继续往下游走。**但水流不会凭空产生**——每条边的源头都必须是「真正拥有该权限的人」。
-- **第二层：收回=删边，但删边可能引发连锁。** 收回 `Amit` 的权限，对应删除授权图中指向 Amit 的那条边。但 Amit 可能已经把它转授给了 Satoshi、Satoshi 又转授给了别人——这些**派生授权**的合法性全部依赖被删的那条边。SQL 标准要求 `REVOKE` 显式声明处理方式：
+- **第二层：收回=删边，但删边可能引发连锁。** 收回 Amit 的权限，对应删除授权图中指向 Amit 的那条边。但 Amit 可能已经把它转授给了 Satoshi、Satoshi 又转授给了别人——这些**派生授权**的合法性全部依赖被删的那条边。SQL 标准要求 REVOKE 显式声明处理方式：
 
 $$
 \text{REVOKE } p \text{ ON } R \text{ FROM } u \;
@@ -147,14 +137,14 @@ $$
 
 - **第三层：RESTRICT 是「先看清楚再动手」。** CASCADE 果断但可能误伤：Amit 授权的那些人里，未必都从别的路径拿到了同一权限，级联后可能有人被意外清空。RESTRICT 则让系统先检查「这条边有没有下游」，有就不让你收，逼你先处理下游。**默认最小惊讶原则：改授权前先想清楚下游，别把别人的访问悄悄剪断。**
 
-把这张图和上一节的权限模型合起来：`GRANT` 是在图上**加边**，`REVOKE` 是**删边**，`WITH GRANT OPTION` 决定边能否继续延伸，角色则是一批「预置好出边的子图」——授权问题的全部复杂性，都浓缩在这张图的增删与继承里。
+把这张图和上一节的权限模型合起来：GRANT 是在图上**加边**，REVOKE 是**删边**，WITH GRANT OPTION 决定边能否继续延伸，角色则是一批「预置好出边的子图」——授权问题的全部复杂性，都浓缩在这张图的增删与继承里。
 
 ## 7 小结
 
-- **权限（privilege）**：`SELECT`/`INSERT`/`UPDATE`/`DELETE`/`REFERENCES`，`UPDATE` 与 `REFERENCES` 可细化到列；授权的对象是关系（表或视图）。
-- **GRANT / REVOKE** 是发钥匙与收钥匙的两条语句，`PUBLIC` 代表所有用户；**只能授出自己拥有的权限**。
+- **权限（privilege）**：SELECT/INSERT/UPDATE/DELETE/REFERENCES，UPDATE 与 REFERENCES 可细化到列；授权的对象是关系（表或视图）。
+- **GRANT / REVOKE** 是发钥匙与收钥匙的两条语句，PUBLIC 代表所有用户；**只能授出自己拥有的权限**。
 - **WITH GRANT OPTION** 允许被授权者再转授，形成**授权图**；权限的拥有 = 图中存在一条从授权者到你的路径。
-- **收回（REVOKE）** 必须声明 `CASCADE`（连坐撤销派生授权）或 `RESTRICT`（有派生授权则拒绝）。
+- **收回（REVOKE）** 必须声明 CASCADE（连坐撤销派生授权）或 RESTRICT（有派生授权则拒绝）。
 - **角色（role）** 把权限打包成身份，权限绑角色、角色绑用户，支持角色层级；角色是「用户 × 权限」爆炸的解法。
 - **视图 + 授权** 实现列级与行级的间接授权：授视图权限不等于授基表权限，且建视图者必须有基表权限。
 - 授权是第 1 章数据抽象里安全视角的落地，也是分布式权限、行级安全等扩展的基础。

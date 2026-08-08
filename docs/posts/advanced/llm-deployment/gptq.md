@@ -51,9 +51,9 @@ $$\text{Err} = \| X(W - \hat{W}) \|_2^2 \approx \delta^T (X^T X) \delta$$
 
 GPTQ 原始版本需要校准集跑一遍 forward 计算每层的 Hessian，对百亿参数模型成本不小。三个工程改进让它实用化：
 
-- **分组量化（group-wise）**：把每层权重按通道分组，组内共享一个 scale（典型 128 个一组）。用更少的 scale 换「小范围内更精确的量化步长」，是 INT4 权重量化的标准做法。<span class="marginnote">分组粒度是显存/精度的旋钮：<strong>group=128 比 group=32 省一半 scale 存储，但量化步长粗一倍</strong>。vLLM、TensorRT-LLM 里 <code>group_size</code> 参数即此。</span>
-- **Hessian 外推（Hessian extrapolation）**：相邻层的 Hessian 变化小，可以用第 $l$ 层的 Hessian 近似第 $l+1$ 层，减少对校准集的正向传播次数，显著加速。
-- **批量列量化（lazy batch）**：为了利用 GPU 并行，一次量化一批列、批量更新，避免逐列串行带来的开销——这也是 GPTQ 相对 OBQ 的核心加速，从一小时级降到分钟级。
+**分组量化（group-wise）**：把每层权重按通道分组，组内共享一个 scale（典型 128 个一组）。用更少的 scale 换「小范围内更精确的量化步长」，是 INT4 权重量化的标准做法。<span class="marginnote">分组粒度是显存/精度的旋钮：<strong>group=128 比 group=32 省一半 scale 存储，但量化步长粗一倍</strong>。vLLM、TensorRT-LLM 里 <code>group_size</code> 参数即此。
+<strong>Hessian 外推（Hessian extrapolation）</strong>：相邻层的 Hessian 变化小，可以用第 $l$ 层的 Hessian 近似第 $l+1$ 层，减少对校准集的正向传播次数，显著加速。
+<strong>批量列量化（lazy batch）</strong>：为了利用 GPU 并行，一次量化一批列、批量更新，避免逐列串行带来的开销——这也是 GPTQ 相对 OBQ 的核心加速，从一小时级降到分钟级。</span>
 
 **辨析｜易错点：GPTQ 的量化误差依赖校准数据。** 校准集的质量直接影响 Hessian 的方向。如果校准集分布与线上不一致，Hessian 会「看重错误的方向」，量化在真实负载上精度崩坏。**校准集代表性比大小重要**——几百条高代表性样本，往往好过几万条低质量的。
 

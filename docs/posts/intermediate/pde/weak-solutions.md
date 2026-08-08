@@ -78,9 +78,9 @@ $$
 
 **应用到 Poisson 方程**：取 $H = H_0^1$、$B(u,v) = \int\nabla u\cdot\nabla v\,dx$、$F(v) = \int fv\,dx$。
 
-- **有界性**：Cauchy–Schwarz $|\int\nabla u\cdot\nabla v| \le \|u\|_{H^1}\|v\|_{H^1}$ ✓；
-- **强制性**：$B(u,u) = \int|\nabla u|^2dx \ge \frac{1}{2}\|u\|_{H^1}^2$（由 Poincaré 不等式，第九篇）✓；
-- **结论**：弱解唯一存在，且 $\|u\|_{H^1} \le C\|f\|_{L^2}$——**稳定性估计一并到手**。
+**有界性**：Cauchy–Schwarz $|\int\nabla u\cdot\nabla v| \le \|u\|_{H^1}\|v\|_{H^1}$ ✓；
+**强制性**：$B(u,u) = \int|\nabla u|^2dx \ge \frac{1}{2}\|u\|_{H^1}^2$（由 Poincaré 不等式，第九篇）✓；
+**结论**：弱解唯一存在，且 $\|u\|_{H^1} \le C\|f\|_{L^2}$——**稳定性估计一并到手**。
 
 <span class="marginnote">Lax–Milgram 是变分法的「工厂流水线」：只要有界 + 强制，存在、唯一、稳定全自动。对比第六篇极值原理给出的存在性（需显式构造），Lax–Milgram 只要验证两个不等式——这是「抽象方法」的胜利。它是现代有限元分析的核心工具，后两节的 Ritz/Galerkin 误差分析都建立在它之上。</span>
 

@@ -28,12 +28,12 @@ date: 2026-08-07
 
 ## 2 Kosaraju 算法
 
-```
-STRONGLY-CONNECTED-COMPONENTS(G)
-  1. call DFS(G) to compute finish times f[u]
-  2. compute G^T (转置图：所有边反向)
-  3. call DFS(G^T), 按 f[u] 降序选择源点
-  4. 第二次 DFS 的每棵树的顶点构成一个 SCC
+```text
+STRONGLY-CONNECTED-COMPONENTS(G):
+    DFS(G)                           // 第 1 遍：原图 DFS，记录完成时间 f[v]
+    构造转置图 Gᵀ
+    DFS(Gᵀ)                          // 第 2 遍：按 f[v] 降序在 Gᵀ 上访问顶点
+    输出每棵 DFS 树包含的顶点集合，即一个 SCC
 ```
 
 **三步**：原图 DFS 求完成时间 → 转置图 → 按完成时间降序做 DFS。<span class="marginnote">直觉：原图「完成最晚」的顶点位于「汇」侧的 SCC；转置图把方向翻转后，从该 SCC 出发的 DFS 只会在该 SCC 内部游走（因为跨分量的边都指向别处，反向后在转置图里「指向别处」的边变成「来自别处」）——于是每棵树恰好框出一个 SCC。</span>

@@ -107,7 +107,7 @@ $$T_{\text{e2e}} \approx T_{\text{queue}} + 26\ \text{ms} + 255 \times 8\ \text{
 
 **误区一：以为推理引擎只是「加速推理的 kernel 库」。** Kernel 只是「算得快」一环；调度、显存、服务化是更核心也更难的部分。vLLM 之所以火，不是因为 kernel 多快，而是 PagedAttention 与调度器把「装得下、调度得动」做到了极致。
 
-**误区二：以为批越大越好。** 第二篇已算过：吞吐随批涨、TTFT 随批涨，天平由业务指标决定。无脑把 `max-num-seqs` 调大，换来的常常是首字变慢、尾延迟失控（第十篇）。
+**误区二：以为批越大越好。** 第二篇已算过：吞吐随批涨、TTFT 随批涨，天平由业务指标决定。无脑把 batch size 调大，换来的常常是首字变慢、尾延迟失控（第十篇）。
 
 **误区三：把 Prefill 与 Decode 当成同一种优化对象。** Prefill 计算密集、随 prompt 长度线性涨；Decode 访存密集、逐 token 串行。优化两者的手段几乎不重叠——前者靠 GEMM 与切分（Chunked Prefill），后者靠注意力内核与 KV 优化（FlashDecoding、KV 量化）。
 

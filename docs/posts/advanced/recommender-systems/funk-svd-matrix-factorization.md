@@ -78,23 +78,23 @@ $$
 ```python
 import numpy as np
 
-def train_lfm(ratings, K=20, lr=0.01, lam=0.1, epochs=30):
-    """ratings: list of (user, item, rating) 三元组；K 为隐因子个数。"""
-    U = max(u for u, _, _ in ratings) + 1
-    I = max(i for _, i, _ in ratings) + 1
-    # 参数初始化：小随机数，避免对称性与零梯度
-    P = np.random.rand(U, K) * 0.1
-    Q = np.random.rand(I, K) * 0.1
-    for epoch in range(epochs):
-        np.random.shuffle(ratings)          # 随机打乱，SGD 需要
+def funk_svd(ratings, K=20, lr=0.01, reg=0.1, epochs=20):
+    """ratings: [(u, i, r), ...]。P[u]、Q[i] 用 0.1 量级小随机数初始化。"""
+    users = {u for u, _, _ in ratings}
+    items = {i for _, i, _ in ratings}
+    P = {u: np.random.normal(0, 0.1, K) for u in users}
+    Q = {i: np.random.normal(0, 0.1, K) for i in items}
+
+    for _ in range(epochs):
         for u, i, r in ratings:
-            e = r - np.dot(P[u], Q[i])      # 第一步：误差
-            P[u] += lr * (e * Q[i] - lam * P[u])   # 更新 p_u
-            Q[i] += lr * (e * P[u] - lam * Q[i])   # 更新 q_i
-        # 每轮打印训练集 RMSE，观察收敛
-        loss = np.sqrt(np.mean([(r - np.dot(P[u], Q[i]))**2 for u, i, r in ratings]))
-        print(f"epoch {epoch+1}: RMSE = {loss:.4f}")
+            e = r - P[u] @ Q[i]                     # 误差 e_ui
+            P[u] += lr * (e * Q[i] - reg * P[u])    # 更新 p_u（用当轮的 q_i）
+            Q[i] += lr * (e * P[u] - reg * Q[i])    # 更新 q_i（共用同一个 e）
     return P, Q
+
+# 训练后预测就是一次内积
+P, Q = funk_svd([("u1", "i1", 5), ("u1", "i2", 3), ("u2", "i1", 4)])
+print(P["u1"] @ Q["i1"])   # 预测 u1 对 i1 的评分
 ```
 
 训练完成后，**预测就是一次内积** $\hat{r}_{ui} = P[u] \cdot Q[i]$——线上一张向量表，毫秒级返回。这就是《向量召回》里「物品向量」的雏形。<span class="marginnote">注意初始化的细节：参数用 <strong>0.1 量级的小随机数</strong>。初始化为 0 会导致梯度为零、模型学不动；初始化太大则起步就发散。第三级《机器学习》里「对称破坏」的思想在这里有最直观的体现。</span>

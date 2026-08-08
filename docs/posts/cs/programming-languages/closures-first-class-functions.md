@@ -16,43 +16,41 @@ date: 2026-08-07
 
 ## 为什么从闭包开始
 
-上一节末尾预告了**闭包（closure）**：嵌套函数 + 它捕获的环境。这一节把它放到更宏大的框架里——**一等函数（first-class function）**。当函数可以像整数一样被赋值、传入、返回，语言就打开了「高阶函数」的世界：`map`、`filter`、`reduce`、回调、事件处理、依赖注入，全都建立在这一能力上。而「函数作为值」的完整实现，必须解决一个难题：函数被传出去之后，它捕获的变量还在吗？**闭包**正是答案——它把「函数 + 环境」打包成一个可移动的单元。<span class="marginnote">「一等（first-class）」意味着函数享有与其他值相同的权利：可赋值给变量、可作参数、可作返回值、可存进数据结构。与之相对的是「二等函数」（C 的函数指针勉强算二等：能传但不能捕获环境）。一等函数是现代语言的标配。</span>
+上一节末尾预告了**闭包（closure）**：嵌套函数 + 它捕获的环境。这一节把它放到更宏大的框架里——**一等函数（first-class function）**。当函数可以像整数一样被赋值、传入、返回，语言就打开了「高阶函数」的世界：柯里化、偏函数应用、函数组合、回调、事件处理、依赖注入，全都建立在这一能力上。而「函数作为值」的完整实现，必须解决一个难题：函数被传出去之后，它捕获的变量还在吗？**闭包**正是答案——它把「函数 + 环境」打包成一个可移动的单元。<span class="marginnote">「一等（first-class）」意味着函数享有与其他值相同的权利：可赋值给变量、可作参数、可作返回值、可存进数据结构。与之相对的是「二等函数」（C 的函数指针勉强算二等：能传但不能捕获环境）。一等函数是现代语言的标配。</span>
 
 ## 1 一等函数：函数也是值
 
 **一等函数（first-class function）**：函数可以作为值被操作——赋值、传参、返回、存储。
 
 ```python
-def square(x): return x * x
+def square(x):
+    return x * x
 
-f = square          # 函数赋给变量
-apply(square, 3)    # 函数作参数
-def make_inc(n): return lambda x: x + n   # 函数作返回值
+f = square                              # 赋值：函数作为值
+nums2 = list(map(f, [1, 2, 3]))         # 传参：函数作为实参
+def make_mult(n):
+    return lambda x: n * x              # 返回：函数作为返回值
 ```
 
 一等函数开启**高阶函数（higher-order function）**——接受函数参数或返回函数的函数。`map`/`filter`/`reduce` 是最著名的三个。
 
-**辨析｜易错点：** C 的**函数指针**是「二等函数」：`int (*f)(int) = square;` 能传能存，但**不能捕获环境**（没有闭包）。一等函数 ≠ 函数指针——一等要加上「捕获环境」能力，才是完整的闭包。
+**辨析｜易错点：** C 的**函数指针**是「二等函数」：函数指针能传能存，但**不能捕获环境**（没有闭包）。一等函数 ≠ 函数指针——一等要加上「捕获环境」能力，才是完整的闭包。
 
 ## 2 闭包：函数 + 捕获的环境
 
 **闭包（closure）**：一个函数值，连同它**定义时所处的词法环境**——被捕获的变量在闭包内持续可访问，即使外层函数已经返回。
 
 ```python
-def make_counter():
-    count = 0
-    def counter():
-        nonlocal count    # 捕获外层变量
-        count += 1
-        return count
-    return counter        # 闭包：counter + count 环境
+def outer(x):
+    def inner(y):
+        return x + y    # inner 捕获外层变量 x
+    return inner
 
-c = make_counter()
-c()  # → 1
-c()  # → 2   count 在 make_counter 返回后仍然存活！
+add5 = outer(5)   # add5 是闭包：代码 + 环境（x=5）
+print(add5(3))    # 8——x=5 仍被记住
 ```
 
-闭包的组成：**代码（函数体）+ 环境（捕获的变量）**。环境存储在堆上，寿命由闭包的引用决定。<span class="marginnote">「闭包」的命名来自「把词法作用域『关闭』起来」：它把外层环境的缺口补齐，让函数在任何地方调用都能访问定义时的变量。Rust 的 `move` 闭包、C++ 的 lambda（`[=]`/`[&]`）、Java 的 lambda（捕获 effectively final）都是闭包的语言实现。</span>
+闭包的组成：**代码（函数体）+ 环境（捕获的变量）**。环境存储在堆上，寿命由闭包的引用决定。<span class="marginnote">「闭包」的命名来自「把词法作用域『关闭』起来」：它把外层环境的缺口补齐，让函数在任何地方调用都能访问定义时的变量。Rust 的 `move` 闭包、C++ 的 lambda（`[&]`/`[=]`）、Java 的 lambda（捕获 effectively final）都是闭包的语言实现。</span>
 
 ## 3 公式解析：闭包的形式化
 
@@ -77,31 +75,34 @@ $$
 **辨析｜易错点：** 循环中捕获变量的闭包陷阱：
 
 ```python
-funcs = [lambda: i for i in range(3)]
-funcs[0]()  # → 2，不是 0！（Python 捕获变量 i 本身，非其值）
+funcs = []
+for i in range(3):
+    funcs.append(lambda: i)   # 捕获的是变量 i，不是值
+
+print([f() for f in funcs])   # [2, 2, 2]——i 已循环到末尾
 ```
 
-Python 的闭包捕获**变量**（i 的存储），而非**值**（当时的 i）。循环结束后 `i = 2`，所有闭包看到同一个 `i`。解法：默认参数捕获值 `lambda i=i: i`，或用 Rust 的 `move` 按值捕获。<span class="marginnote">「按引用捕获 vs 按值捕获」是闭包语义的核心分歧：Python 默认捕获变量（引用），Rust 默认捕获借用、`move` 按值捕获，C++ 用 `[&]`/`[=]` 显式选择。循环闭包陷阱 = 按引用捕获 + 循环变量的经典碰撞。</span>
+Python 的闭包捕获**变量**（i 的存储），而非**值**（当时的 i）。循环结束后 `i = 2`，所有闭包看到同一个 `i`。解法：默认参数捕获值 `lambda x=i: x`，或用 Rust 的 `move` 按值捕获。<span class="marginnote">「按引用捕获 vs 按值捕获」是闭包语义的核心分歧：Python 默认捕获变量（引用），Rust 默认捕获借用、`move` 按值捕获，C++ 用 `[&]`/`[=]` 显式选择。循环闭包陷阱 = 按引用捕获 + 循环变量的经典碰撞。</span>
 
 ## 4 闭包的应用：从回调到依赖注入
 
-- **回调与事件**：`button.on_click(lambda: do_something())`——回调函数捕获需要的上下文。
-- **map/filter/reduce**：`map(lambda x: x * 2, nums)`——操作逻辑作为参数传入。
-- **工厂与计数器**：`make_counter()` 返回带状态的闭包——用函数模拟「私有状态」。
-- **延迟计算**：闭包在创建时不执行、调用时才执行——惰性的最小形式。<span class="marginnote">闭包让「函数携带状态」成为可能：计数器、生成器、记忆化（memoization）缓存都可以用闭包实现。在面向对象语言里，闭包是「轻量对象」——它封装状态与行为；反之对象也是「带方法的闭包」——两者互为表里。</span>
+**回调与事件**：`button.on_click(lambda: do_something())`——回调函数捕获需要的上下文。
+**map/filter/reduce**：`map(lambda x: x * 2, nums)`——操作逻辑作为参数传入。
+**工厂与计数器**：`make_counter()` 返回带状态的闭包——用函数模拟「私有状态」。
+**延迟计算**：闭包在创建时不执行、调用时才执行——惰性的最小形式。<span class="marginnote">闭包让「函数携带状态」成为可能：计数器、生成器、记忆化（memoization）缓存都可以用闭包实现。在面向对象语言里，闭包是「轻量对象」——它封装状态与行为；反之对象也是「带方法的闭包」——两者互为表里。</span>
 
 ## 5 闭包与语言设计
 
 | 语言 | 闭包语法 | 捕获语义 |
 | --- | --- | --- |
-| Python | `lambda`/嵌套 def | 默认按引用（变量），`nonlocal` 写捕获 |
-| JavaScript | `=>` 箭头函数 | 词法捕获（按变量） |
+| Python | lambda/嵌套 def | 默认按引用（变量），`nonlocal` 写捕获 |
+| JavaScript | `() =>` 箭头函数 | 词法捕获（按变量） |
 | Rust | `move`/闭包 | 借用或 `move` 按值，所有权规则约束 |
-| C++ | lambda `[=]`/`[&]` | 显式按值/按引用 |
+| C++ | lambda `[&]`/`[=]` | 显式按值/按引用 |
 | Java | lambda | 仅捕获 effectively final 变量（值） |
 | Haskell | 一切函数 | 纯函数捕获（不可变） |
 
-<span class="marginnote">现代语言几乎全部内建闭包，这改变了程序组织：函数式接口（Java 的 `Function`）、迭代器链（Rust 的 `map`/`filter`）、异步回调（JS 的 Promise）全都依赖闭包。<strong>「函数能否捕获环境」已成为语言的一等公民能力</strong>——从 C 的「函数指针」到现代闭包，函数作为值走过了一条完整进化路。</span>
+<span class="marginnote">现代语言几乎全部内建闭包，这改变了程序组织：函数式接口（Java 的 `Function`）、迭代器链（Rust 的 `Iterator::map`/`filter`）、异步回调（JS 的 Promise）全都依赖闭包。<strong>「函数能否捕获环境」已成为语言的一等公民能力</strong>——从 C 的「函数指针」到现代闭包，函数作为值走过了一条完整进化路。</span>
 
 
 

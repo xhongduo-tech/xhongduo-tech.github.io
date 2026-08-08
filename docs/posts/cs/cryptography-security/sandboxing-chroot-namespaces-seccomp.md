@@ -23,17 +23,18 @@ date: 2026-08-07
 **chroot** 改变进程看到的「根目录」——把根 `/` 换成一个子目录：
 
 ```bash
-chroot /srv/jail /bin/sh    # 进程的 / 变成 /srv/jail
+# 把根目录换成 /srv/jail，并在「假根」里启动 shell
+chroot /srv/jail /bin/bash
 ```
 
-- 进程只能看到 `/srv/jail` 之下的文件——`/etc/passwd`、`/bin` 都变成「假根」里的版本。
-- 常用于 DNS（BIND）、FTP、Web 服务隔离——「就算被攻破，看到的文件系统是假的」。
+进程只能看到 `/srv/jail` 目录之下的文件——`/etc`、`/usr` 都变成「假根」里的版本。
+常用于 DNS（BIND）、FTP、Web 服务隔离——「就算被攻破，看到的文件系统是假的」。
 
 **chroot 的局限（它不是真正的沙箱）**：
 
-- **root 可逃逸**：有 root 权限的进程可以通过 `chroot` 逃逸（需要 `CAP_SYS_CHROOT` 与特定技巧）。
-- **只限制文件系统**：不限制网络、进程、系统调用——进程仍能访问网络、杀别的进程。
-- 它是「视野隔离」而非「权限隔离」。
+**root 可逃逸**：有 root 权限的进程可以通过 `chroot` 到新目录后反复 `cd ..` 逃逸（需要 `CAP_SYS_CHROOT` 与特定技巧）。
+**只限制文件系统**：不限制网络、进程、系统调用——进程仍能访问网络、杀别的进程。
+它是「视野隔离」而非「权限隔离」。
 
 **结论**：chroot 是沙箱的「祖辈」，现代系统用**命名空间**替代它。<span class="marginnote">chroot 逃逸的现实警示：<strong>「改了根 ≠ 关了门」</strong>——chroot 只是让进程「看不见」外面的路径，但文件描述符、挂载点、root 能力都可能成为逃逸通道。所以现代隔离不再单独依赖 chroot，而是用命名空间 + seccomp 组合。</span>
 
@@ -41,11 +42,11 @@ chroot /srv/jail /bin/sh    # 进程的 / 变成 /srv/jail
 
 **Linux 命名空间（namespaces）** 让一组进程看到「独立的系统视图」——它们以为自己在「自己的机器」上。关键命名空间：
 
-- **Mount（mnt）**：独立的文件系统挂载视图。
-- **PID**：进程看到的进程号从 1 开始（看不到宿主的其他进程）。
-- **Network（net）**：独立的网络栈（自己的 IP、端口、路由）。
-- **User**：独立的用户 ID 空间——容器里的 root 映射为宿主非特权用户。
-- **UTS、IPC、cgroup**：主机名、进程间通信、资源控制的隔离。
+**Mount（mnt）**：独立的文件系统挂载视图。
+**PID**：进程看到的进程号从 1 开始（看不到宿主的其他进程）。
+**Network（net）**：独立的网络栈（自己的 IP、端口、路由）。
+**User**：独立的用户 ID 空间——容器里的 root 映射为宿主非特权用户。
+**UTS、IPC、cgroup**：主机名、进程间通信、资源控制的隔离。
 
 **容器 = 命名空间 + cgroups + 镜像**：Docker/containerd 用命名空间隔离视图、cgroups 限制资源、镜像提供根文件系统——「看似独立的小系统」。
 
@@ -55,8 +56,8 @@ chroot /srv/jail /bin/sh    # 进程的 / 变成 /srv/jail
 
 **seccomp（secure computing mode）** 是 Linux 的**系统调用过滤器**——限制进程能调用的系统调用及参数：
 
-- 允许白名单：进程只能用指定的系统调用（如 `read`、`write`、`mmap`），其余（如 `execve`、`ptrace`、`mount`）直接拒绝。
-- 参数过滤：用 BPF 规则检查系统调用的参数。
+允许白名单：进程只能用指定的系统调用（如 `read`、`write`、`mmap`），其余（如 `execve`、`ptrace`、`socket`）直接拒绝。
+参数过滤：用 BPF 规则检查系统调用的参数。
 
 **seccomp 的价值**：攻击者即使拿到代码执行（RCE），也被限制在「白名单系统调用」里——不能 `execve` 启动 shell、不能 `ptrace` 调试、不能 `mount`。**它把「代码执行」降级为「只能做有限的事」**。
 

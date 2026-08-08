@@ -24,10 +24,10 @@ date: 2026-08-07
 
 《数据库系统概念》把数据库用户按「与系统交互的方式」分成四类：
 
-- **普通用户（naive users）**：只通过**预先写好的界面**与数据库打交道，不写任何程序，甚至不知道 SQL 是什么。航班值机柜台的工作人员点几个按钮，学生登录教务系统查成绩，都是普通用户。<span class="marginnote">「普通」指不懂数据库技术，不代表不重要——他们是数量最大的一类用户。一个成功的数据库系统，恰恰要让普通用户「感觉不到数据库的存在」。</span>
-- **应用程序员（application programmers）**：编写「通过 DML 与数据库交互」的程序。他们用宿主语言（Java、Python）加 SQL 编程，通过 JDBC/ODBC 调用数据库——上一节那段 JDBC 代码就是他们的日常。
-- **资深用户（sophisticated users）**：不写完整程序，直接使用查询语言与分析工具与系统交互。数据分析师用 SQL 做探索性分析、用可视化工具看数据，属于这一类。
-- **专业用户（specialized users）**：编写**专业化的数据库应用**，例如计算机辅助设计（CAD）系统、知识库与专家系统。这类应用对数据的形态有特殊要求，往往超出传统关系模型的表达范围。<span class="marginnote">专业用户正是第五篇《NoSQL 与 NewSQL》的伏笔：CAD 的嵌套几何、专家系统的规则，都难以塞进「一张扁平的表」——特殊数据形态催生了非关系模型的探索。</span>
+**普通用户（naive users）**：只通过**预先写好的界面**与数据库打交道，不写任何程序，甚至不知道 SQL 是什么。航班值机柜台的工作人员点几个按钮，学生登录教务系统查成绩，都是普通用户。<span class="marginnote">「普通」指不懂数据库技术，不代表不重要——他们是数量最大的一类用户。一个成功的数据库系统，恰恰要让普通用户「感觉不到数据库的存在」。</span>
+**应用程序员（application programmers）**：编写「通过 DML 与数据库交互」的程序。他们用宿主语言（Java、Python）加 SQL 编程，通过 JDBC/ODBC 调用数据库——上一节那段 JDBC 代码就是他们的日常。
+**资深用户（sophisticated users）**：不写完整程序，直接使用查询语言与分析工具与系统交互。数据分析师用 SQL 做探索性分析、用可视化工具看数据，属于这一类。
+**专业用户（specialized users）**：编写**专业化的数据库应用**，例如计算机辅助设计（CAD）系统、知识库与专家系统。这类应用对数据的形态有特殊要求，往往超出传统关系模型的表达范围。<span class="marginnote">专业用户正是第五篇《NoSQL 与 NewSQL》的伏笔：CAD 的嵌套几何、专家系统的规则，都难以塞进「一张扁平的表」——特殊数据形态催生了非关系模型的探索。</span>
 
 把四类用户放进一张表，脉络更清楚：
 
@@ -56,7 +56,7 @@ DBA 的核心职责有五项，几乎覆盖了数据库生命周期的每个阶�
 
 ## 3 SQL 解析：授权是如何用 SQL 落地的
 
-DBA 最重要的日常操作之一，是**授权**。它用 SQL 的 `GRANT` 与 `REVOKE` 语句完成。以「把教师表的查询权授予 alice」为例：
+DBA 最重要的日常操作之一，是**授权**。它用 SQL 的 GRANT 与 REVOKE 语句完成。以「把教师表的查询权授予 alice」为例：
 
 ```sql
 GRANT SELECT ON instructor TO alice;
@@ -64,66 +64,57 @@ GRANT SELECT ON instructor TO alice;
 
 拆成三步理解：
 
-- **第一步，看懂三个参数**：`GRANT` 后面是**权限（privilege）**——这里只有 `SELECT`（查询）；`ON` 后面是**授权对象**——表 `instructor`；`TO` 后面是**接收者（grantee）**——用户 `alice`。整句话读作「允许 alice 对 instructor 表执行查询」。
-- **第二步，理解可传递性**：若想让 alice 也能把查询权转授给别人，就加 `WITH GRANT OPTION`：
+**第一步，看懂三个参数**：GRANT 后面是**权限（privilege）**——这里只有 SELECT（查询）；ON 后面是**授权对象**——表 instructor；TO 后面是**接收者（grantee）**——用户 alice。整句话读作「允许 alice 对 instructor 表执行查询」。
+**第二步，理解可传递性**：若想让 alice 也能把查询权转授给别人，就加 WITH GRANT OPTION：
   ```sql
   GRANT SELECT ON instructor TO alice WITH GRANT OPTION;
   ```
-  此后 alice 可以执行 `GRANT SELECT ON instructor TO bob`。**注意：授权会形成链条，收回时也要沿着链条考虑**——`REVOKE SELECT ON instructor FROM alice` 默认只收回 alice 的权限，是否连带收回 alice 转授出去的权限，取决于 `CASCADE` 与 `RESTRICT` 两种语义。
-- **第三步，用角色批量管理**：给几十个人逐个授权太繁琐，SQL 引入**角色（role）**作为「权限的集合」：
+  此后 alice 可以执行 `GRANT SELECT ON instructor TO bob;`。**注意：授权会形成链条，收回时也要沿着链条考虑**——REVOKE 默认只收回 alice 的权限，是否连带收回 alice 转授出去的权限，取决于 CASCADE 与 RESTRICT 两种语义。
+**第三步，用角色批量管理**：给几十个人逐个授权太繁琐，SQL 引入**角色（role）**作为「权限的集合」：
   ```sql
-  CREATE ROLE instructor_staff;
-  GRANT SELECT ON instructor TO instructor_staff;
-  GRANT instructor_staff TO alice, bob, carol;
+  CREATE ROLE teacher;
+  GRANT SELECT, UPDATE ON course TO teacher;
+  GRANT teacher TO alice, bob;
   ```
   这样改权限只需改一次角色定义，所有成员自动生效——DBA 的授权工作由此从「逐人管理」升级为「按角色管理」。
 
-常见的权限不止 `SELECT`，SQL 的授权对象可以细分到「对哪张表做什么操作」：
+常见的权限不止 SELECT，SQL 的授权对象可以细分到「对哪张表做什么操作」：
 
 | 权限 | 作用 |
 | --- | --- |
-| `SELECT` | 读（查询）表中的元组 |
-| `INSERT` | 向表插入元组 |
-| `UPDATE` | 更新表中的元组 |
-| `DELETE` | 删除表中的元组 |
-| `REFERENCES` | 在创建外码约束时引用这张表 |
-| `TRIGGER` | 在这张表上定义触发器 |
+| SELECT | 读（查询）表中的元组 |
+| INSERT | 向表插入元组 |
+| UPDATE | 更新表中的元组 |
+| DELETE | 删除表中的元组 |
+| REFERENCES | 在创建外码约束时引用这张表 |
+| TRIGGER | 在这张表上定义触发器 |
 
-注意 `REFERENCES` 容易被忽略：**没有它，别的用户就无法用「外码约束」引用你的表。** 授权的最小颗粒度是「表 + 操作」，这给了 DBA 极其精细的控制力——也意味着授权设计本身是一门需要权衡的学问。
+注意 REFERENCES 容易被忽略：**没有它，别的用户就无法用「外码约束」引用你的表。** 授权的最小颗粒度是「表 + 操作」，这给了 DBA 极其精细的控制力——也意味着授权设计本身是一门需要权衡的学问。
 
-**辨析｜易错点：授权 ≠ 物理安全。** `GRANT` 控制的是「谁能用 SQL 做什么」，它不负责传输加密、身份认证等物理层安全——后者由操作系统与网络层保证。授权是「数据库内部的权限墙」，物理安全是「数据库外围的护城河」，两者互补，缺一不可。
+**辨析｜易错点：授权 ≠ 物理安全。** 授权（GRANT/REVOKE）控制的是「谁能用 SQL 做什么」，它不负责传输加密、身份认证等物理层安全——后者由操作系统与网络层保证。授权是「数据库内部的权限墙」，物理安全是「数据库外围的护城河」，两者互补，缺一不可。
 
 ## 4 案例：一个教务系统的授权设计
 
-把前三节拼起来，看一个完整的授权设计。某大学教务系统的数据库里有几张表：`course`（课程）、`section`（开课班次）、`takes`（选课记录）。四类用户各取所需，DBA 按角色组织授权：
+把前三节拼起来，看一个完整的授权设计。某大学教务系统的数据库里有几张表：course（课程）、section（开课班次）、takes（选课记录）。四类用户各取所需，DBA 按角色组织授权：
 
 ```sql
--- 学生：只能查课程与开课信息，看不到他人的成绩
-CREATE ROLE student_role;
-GRANT SELECT ON course TO student_role;
-GRANT SELECT ON section TO student_role;
+CREATE ROLE student;
+GRANT SELECT ON course, section TO student;
 
--- 教师：能查课程、能录入/修改自己班次的选课记录
-CREATE ROLE instructor_role;
-GRANT SELECT ON course TO instructor_role;
-GRANT SELECT, INSERT, UPDATE ON takes TO instructor_role;
+CREATE ROLE teacher;
+GRANT SELECT, UPDATE ON takes TO teacher;
+GRANT SELECT ON course, section TO teacher;
 
--- 教务员：几乎全权维护课程表，但无权改教师工资
-CREATE ROLE registrar_role;
-GRANT ALL PRIVILEGES ON course TO registrar_role;
-GRANT ALL PRIVILEGES ON section TO registrar_role;
-
--- 把角色赋给具体用户
-GRANT student_role TO alice;
-GRANT instructor_role TO wu;
-GRANT registrar_role TO carol;
+CREATE ROLE registrar;
+GRANT INSERT, UPDATE, DELETE ON course TO registrar;
+GRANT SELECT, UPDATE ON takes TO registrar;
 ```
 
 拆开看这组设计的三个原则：
 
-- **最小权限（least privilege）**：每个角色只拿到完成工作所需的最小权限——学生连 `takes` 表都查不了，更不可能改成绩。<span class="marginnote">最小权限是安全设计的第一原则，数据库、操作系统、云账号无一例外。它把「一次失误」的破坏半径压到最小——即使 alice 的账号被盗，攻击者也只能查公开课程表。</span>
-- **按角色而非按人管理**：下学期来了 500 个新生，只需要把 `student_role` 授给 500 个账号，而课程表的权限定义一个字都不用改。
-- **权限与职责对齐**：教师能「更新选课记录」但不能「删除课程」，教务员能维护课程但不能碰工资——权限表就是职责分工的镜像。
+**最小权限（least privilege）**：每个角色只拿到完成工作所需的最小权限——学生连 takes（选课记录）表都查不了，更不可能改成绩。<span class="marginnote">最小权限是安全设计的第一原则，数据库、操作系统、云账号无一例外。它把「一次失误」的破坏半径压到最小——即使 alice 的账号被盗，攻击者也只能查公开课程表。</span>
+**按角色而非按人管理**：下学期来了 500 个新生，只需要把 student 角色授给 500 个账号，而课程表的权限定义一个字都不用改。
+**权限与职责对齐**：教师能「更新选课记录」但不能「删除课程」，教务员能维护课程但不能碰工资——权限表就是职责分工的镜像。
 
 这个案例也提醒你：**授权设计是 DBA 最重要的「业务」能力**——它要求 DBA 不只懂 SQL，还要懂组织里谁该干什么。这也是「数据库管理员」被称为「管理员」而不是「技术员」的原因。
 
@@ -137,8 +128,8 @@ GRANT registrar_role TO carol;
 
 - 四类数据库用户：**普通用户、应用程序员、资深用户、专业用户**，按「对数据操作的直接程度」排序。
 - **DBA** 对数据库进行集中控制，五项核心职责：模式定义、存储结构、模式修改、授权、日常维护。
-- 授权用 **`GRANT` / `REVOKE`** 落地，支持 `WITH GRANT OPTION` 传递与**角色**批量管理。
-- 权限颗粒度是「表 + 操作」，常见权限有 `SELECT / INSERT / UPDATE / DELETE / REFERENCES / TRIGGER`。
+- 授权用 **GRANT / REVOKE** 落地，支持 WITH GRANT OPTION 传递与**角色**批量管理。
+- 权限颗粒度是「表 + 操作」，常见权限有 SELECT、INSERT、UPDATE、DELETE、REFERENCES、TRIGGER。
 - 授权设计的三个原则：**最小权限、按角色管理、权限与职责对齐**。
 - **DBA 的职责表就是数据库课程的大纲**——索引、并发、恢复各章都在为 DBA 面对的问题提供解法。
 - **数据管理员决定「存什么」，DBA 决定「怎么存」**。

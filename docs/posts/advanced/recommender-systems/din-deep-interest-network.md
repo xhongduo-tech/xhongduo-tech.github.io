@@ -52,7 +52,7 @@ $$
 完整走一遍 DIN 的行为序列处理：
 
 - **第一步，算相关性**：对每个历史行为 $i_k$，用局部激活单元算分数 $a_k = \text{MLP}([\mathbf{e}_{i_k}; \mathbf{e}_{\text{cand}}; \mathbf{e}_{i_k} \odot \mathbf{e}_{\text{cand}}; \mathbf{e}_{i_k} - \mathbf{e}_{\text{cand}}])$。
-- **第二步，归一化**：$\alpha_k = \frac{\exp(a_k)}{\sum_j \exp(a_j)}$，softmax 让权重和为 1，表示「注意力分配」。这里**不一定用 softmax**——DIN 原文指出，行为序列的注意力权重不必和为 1（兴趣强度本身该有差异），可用 `sigmoid` 加权，效果相当甚至更好。
+- **第二步，归一化**：$\alpha_k = \frac{\exp(a_k)}{\sum_j \exp(a_j)}$，softmax 让权重和为 1，表示「注意力分配」。这里**不一定用 softmax**——DIN 原文指出，行为序列的注意力权重不必和为 1（兴趣强度本身该有差异），可用 $\alpha_k = \frac{\exp(a_k)}{\sum_j \exp(a_j)}$ 加权，效果相当甚至更好。
 - **第三步，加权求和**：$\mathbf{u}_{\text{history}} = \sum_k \alpha_k \mathbf{e}_{i_k}$，得到「针对当前候选」的用户兴趣向量，拼入后续 DNN 做 CTR 预估。
 
 ## 4 DIN 对长序列与性能的处理

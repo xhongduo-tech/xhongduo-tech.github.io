@@ -29,8 +29,13 @@ Alpaca 格式源自斯坦福 Alpaca 数据集，结构极简——一个 JSON �
 ```json
 [
   {
-    "instruction": "把这句话翻译成英文",
-    "input": "今天天气很好",
+    "instruction": "解释什么是质数",
+    "input": "",
+    "output": "质数是只能被 1 和自身整除的大于 1 的自然数。"
+  },
+  {
+    "instruction": "把下面这句话翻译成英文",
+    "input": "今天天气很好。",
     "output": "The weather is nice today."
   }
 ]
@@ -43,20 +48,18 @@ Alpaca 格式源自斯坦福 Alpaca 数据集，结构极简——一个 JSON �
 ShareGPT 格式源自用户分享的 ChatGPT 对话，结构是「一个对话 id + 一系列消息」：
 
 ```json
-[
-  {
-    "id": "conv_001",
-    "conversations": [
-      {"from": "human", "value": "帮我写个大纲"},
-      {"from": "gpt", "value": "好的，以下是大纲……"},
-      {"from": "human", "value": "请把第二点展开"},
-      {"from": "gpt", "value": "第二点展开如下……"}
-    ]
-  }
-]
+{
+  "id": "chatcmpl-7xY9abc",
+  "conversations": [
+    { "from": "human", "value": "解释什么是质数" },
+    { "from": "gpt",   "value": "质数是只能被 1 和自身整除的大于 1 的自然数。" },
+    { "from": "human", "value": "那 9 是质数吗？" },
+    { "from": "gpt",   "value": "不是，9 可以被 3 整除。" }
+  ]
+}
 ```
 
-关键字段：**from**（说话人，`human` 或 `gpt`）、**value**（消息内容），多条消息按顺序组成一轮完整对话。它天然支持多轮，还允许加 `system` 消息（部分实现里 `from: "system"`）。缺点是没有独立的「input」字段——输入被并入消息文本。
+关键字段：**from**（说话人，`human` 或 `gpt`）、**value**（消息内容），多条消息按顺序组成一轮完整对话。它天然支持多轮，还允许加 **system** 消息（部分实现里以 `system` 表达）。缺点是没有独立的「input」字段——输入被并入消息文本。
 
 ### 两种格式的对照
 
@@ -90,24 +93,31 @@ $$
 
 格式互转只是中间步骤，完整工具链是「原始 JSON → 标准格式 → 对话模板序列化 → token 化」四段：
 
-1. **格式统一**：用脚本把数据集统一成 Alpaca 或 ShareGPT 之一。开源工具如 **LLaMA-Factory 的数据脚本**、**HF `datasets` 库**、以及社区常用的 `json` / `pandas` 都能完成字段重排。
-2. **模板序列化**：把标准格式的对话交给 `tokenizer.apply_chat_template`（上一节《对话模板》的主角），转成模型能读的 token 序列。这一步用的是 HuggingFace 的 Jinja 模板机制——每个模型自带一段 `chat_template` 字符串，定义如何把 `[{"role": ..., "content": ...}]` 变成文本。
-3. **token 化与截断**：对序列化后的文本做分词、加 attention mask、按 `$L_{\max}$` 截断（或 packing，上一节已讲）。
-4. **缓存落盘**：把 token 化结果存成 `.bin`/`.arrow` 等二进制格式，避免每次训练重复分词。大型数据集这一步能省下数小时。
+1. **格式统一**：用脚本把数据集统一成 Alpaca 或 ShareGPT 之一。开源工具如 **LLaMA-Factory 的数据脚本**、**HF `datasets` 库**、以及社区常用的 `sharegpt2alpaca` / `alpaca2sharegpt` 脚本都能完成字段重排。
+2. **模板序列化**：把标准格式的对话交给 **chat template**（上一节《对话模板》的主角），转成模型能读的 token 序列。这一步用的是 HuggingFace 的 Jinja 模板机制——每个模型自带一段 **`chat_template`** 字符串，定义如何把 **messages** 变成文本。
+3. **token 化与截断**：对序列化后的文本做分词、加 attention mask、按 **`max_length`** 截断（或 packing，上一节已讲）。
+4. **缓存落盘**：把 token 化结果存成 **Arrow**/**npy** 等二进制格式，避免每次训练重复分词。大型数据集这一步能省下数小时。
 
 以 HuggingFace 生态为例，一段标准化的读取与转换长这样：
 
 ```python
 from datasets import load_dataset
-ds = load_dataset("json", data_files="alpaca.json")
-# 统一成 messages 结构，交给 apply_chat_template
-ds = ds.map(lambda x: {
-    "messages": [
-        {"role": "user", "content": x["instruction"] + (x["input"] or "")},
-        {"role": "assistant", "content": x["output"]},
-    ]
-})
-texts = [tok.apply_chat_template(m, tokenize=False) for m in ds["messages"]]
+
+# 读取 Alpaca 格式，转成 ShareGPT 多轮格式（无损方向）
+ds = load_dataset("json", data_files="alpaca.json", split="train")
+
+def to_sharegpt(ex):
+    return {
+        "id": hashlib.md5(ex["instruction"].encode()).hexdigest(),
+        "conversations": [
+            {"from": "human",
+             "value": ex["instruction"] + ("\n" + ex["input"] if ex["input"] else "")},
+            {"from": "gpt", "value": ex["output"]},
+        ],
+    }
+
+sharegpt_ds = ds.map(to_sharegpt, remove_columns=ds.column_names)
+sharegpt_ds.to_json("sharegpt.jsonl", force_ascii=False)
 ```
 
 **一个关键纪律**：**尽量在「标准格式」层做互转，而不是在「模板文本」层做**。有人直接把已套好模板的字符串硬切硬拼，等于放弃结构信息，任何后续修改（换模板、换模型）都要重来。
@@ -116,9 +126,9 @@ texts = [tok.apply_chat_template(m, tokenize=False) for m in ds["messages"]]
 
 格式转完，数据还不能直接进训练——先过五道校验。每道都对应一类真实的翻车事故：
 
-1. **Schema 校验**：字段是否齐全、类型是否正确（instruction 必须是字符串、conversations 必须是数组）。用 JSON Schema 或 `pandas` 的 `dtypes` 检查。**崩溃事故最常见来源**——漏字段、字段类型混入 None。
-2. **JSON 合法性**：转义符、引号、逗号是否规范。一条非法 JSON 会让 `load_dataset` 在训练中途崩溃，且错误信息常常不指明是哪条。批量解析 + 定位报错行号，是这里的基本功。
-3. **角色一致性**：ShareGPT 里 `from` 字段只能是 `human` / `gpt` / `system` 等合法值；出现拼写错误（如 `"user"` 混进 `"from"`）会导致模板序列化时角色丢失。**校验：枚举 from 的取值集合**。
+1. **Schema 校验**：字段是否齐全、类型是否正确（instruction 必须是字符串、conversations 必须是数组）。用 JSON Schema 或 **Pydantic 的 `BaseModel`** 检查。**崩溃事故最常见来源**——漏字段、字段类型混入 None。
+2. **JSON 合法性**：转义符、引号、逗号是否规范。一条非法 JSON 会让**训练进程**在训练中途崩溃，且错误信息常常不指明是哪条。批量解析 + 定位报错行号，是这里的基本功。
+3. **角色一致性**：ShareGPT 里 **`from`** 字段只能是 **`human` / `gpt` / `system`** 等合法值；出现拼写错误（如 `humnan` 混进 `human`）会导致模板序列化时角色丢失。**校验：枚举 from 的取值集合**。
 4. **内容完整性**：回答为空、回答只是复述指令、指令或输出超长（超出上下文窗口）等。对应前几节的质量筛选，格式层只需做最基础的「非空、长度上限」检查。
 5. **去重与泄漏复查**：格式互转后再次跑一遍 n-gram 去重与基准去污染（第一篇《数据质量筛选》），因为互转过程可能引入新的重复（例如同一条样本被多条转换脚本各产一份）。<span class="marginnote">五道校验里，<strong>Schema 与 JSON 合法性是「保训练不崩」的底线，角色一致性与内容完整性是「保训练不歪」的质量关，去重复查是「保评测可信」的保险</strong>——分层理解，才能知道每道校验该投入多少。</span>
 
@@ -128,7 +138,7 @@ texts = [tok.apply_chat_template(m, tokenize=False) for m in ds["messages"]]
 
 - **错误一：多轮数据当单轮用**。把 ShareGPT 多轮数据直接按 Alpaca 三字段拆，只保留第一轮——后半段对话全部白费。药：先看数据来源，多轮数据就用多轮格式，别强行降维。
 - **错误二：模板层硬切硬拼**。在已套模板的文本上做字符串操作来「改格式」。药：回到标准格式层操作，模板只作最后的序列化一步。
-- **错误三：字段名不一致**。不同来源的数据集字段名五花八门（`prompt`/`query`/`question`、`response`/`answer`/`completion`）。药：统一用 `datasets` 的 `rename_column` 归一到约定字段，再进流程。
+- **错误三：字段名不一致**。不同来源的数据集字段名五花八门（`instruction`/`prompt`/`query`、`output`/`response`/`answer`）。药：统一用 **HF `datasets` 的 `rename_columns` / `map`** 归一到约定字段，再进流程。
 - **错误四：校验只在入库时做一次**。数据在后续清洗、互转、筛选后，字段可能又坏了。药：**每一道工序的输出都过一次轻量 schema 校验**，把「校验」做成管线的一部分，而不是一次性动作。
 - **错误五：忽略 id 的可追溯性**。ShareGPT 样本不带 id，出问题时无法定位「哪条数据训坏了模型」。药：转换时强制生成 id，保留来源元数据。
 

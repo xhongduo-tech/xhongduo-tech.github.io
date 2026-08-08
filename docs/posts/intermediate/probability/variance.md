@@ -48,12 +48,12 @@ $$\mathrm{Var}(X) = E[X^2] - \big(E[X]\big)^2$$
 
 用「$E[X^2] - (E[X])^2$」可以系统地推出各分布的方差：
 
-- **0-1 分布**：$E[X] = p$，$E[X^2] = p$，$\mathrm{Var}(X) = p(1-p)$；
-- **二项分布** $B(n,p)$：$\mathrm{Var}(X) = np(1-p)$（第四章会证明，也可由「独立 0-1 之和」推得）；
-- **泊松分布** $\pi(\lambda)$：$\mathrm{Var}(X) = \lambda$（均值 = 方差）；
-- **均匀分布** $U(a,b)$：$\mathrm{Var}(X) = \frac{(b-a)^2}{12}$；
-- **指数分布** $E(\lambda)$：$\mathrm{Var}(X) = \frac{1}{\lambda^2}$（标准差 = 均值）；
-- **正态分布** $N(\mu,\sigma^2)$：$\mathrm{Var}(X) = \sigma^2$（参数本身就是方差）。<span class="marginnote">记住两个「方差 = 均值」的特例：泊松分布 $\mathrm{Var} = \lambda$，指数分布 $\mathrm{Std} = \mu$。它们都是「散度随位置自动缩放」的分布，在第七章矩估计里会成为检验模型是否合适的小线索（若样本方差明显不等于样本均值，泊松假设存疑）。</span>
+**0-1 分布**：$E[X] = p$，$E[X^2] = p$，$\mathrm{Var}(X) = p(1-p)$；
+**二项分布** $B(n,p)$：$\mathrm{Var}(X) = np(1-p)$（第四章会证明，也可由「独立 0-1 之和」推得）；
+**泊松分布** $\pi(\lambda)$：$\mathrm{Var}(X) = \lambda$（均值 = 方差）；
+**均匀分布** $U(a,b)$：$\mathrm{Var}(X) = \frac{(b-a)^2}{12}$；
+**指数分布** $E(\lambda)$：$\mathrm{Var}(X) = \frac{1}{\lambda^2}$（标准差 = 均值）；
+**正态分布** $N(\mu,\sigma^2)$：$\mathrm{Var}(X) = \sigma^2$（参数本身就是方差）。<span class="marginnote">记住两个「方差 = 均值」的特例：泊松分布 $\mathrm{Var} = \lambda$，指数分布 $\mathrm{Std} = \mu$。它们都是「散度随位置自动缩放」的分布，在第七章矩估计里会成为检验模型是否合适的小线索（若样本方差明显不等于样本均值，泊松假设存疑）。</span>
 
 **例（二项的方差直觉）**：$B(10, 0.5)$ 的方差 $10 \times 0.25 = 2.5$，$\sigma \approx 1.58$；而 $B(10, 0.1)$ 的方差 $0.9$，$\sigma \approx 0.95$。**$p$ 越接近 0.5，波动越大**——最不确定的硬币波动最剧烈，与直觉吻合。
 

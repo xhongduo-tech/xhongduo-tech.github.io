@@ -89,14 +89,20 @@ $$\text{SQNR}_{\text{dB}} = 10\log_{10}\frac{P_{signal}}{P_{noise}} = 10\log_{10
 - **第四步：转成 dB。** $10\log_{10}(1.5) + 20B\log_{10}(2) \approx 1.76 + 6.02B$。**每加 1 bit，信噪比 +6.02 dB**；常数 1.76 来自「满幅正弦」这个参考信号的峰均功率比。
 
 ```python
-import math
+import numpy as np
 
-def sqnr_db(bits: int) -> float:
-    """满幅正弦的量化信噪比 (dB)。"""
+def sqnr_db(bits):
+    """满幅正弦的理论信量化噪声比。"""
     return 6.02 * bits + 1.76
 
-for b in [8, 12, 16, 24]:
-    print(f"{b:2d} bit -> SQNR ≈ {sqnr_db(b):6.1f} dB")
+for b in [8, 16, 24]:
+    print(b, f"{sqnr_db(b):.2f} dB")   # 8→49.92, 16→98.08, 24→146.24
+
+# 实测验证：对满幅正弦做 16 bit 均匀量化，量出信噪比
+x = np.sin(2 * np.pi * 440 * np.arange(16000) / 16000)
+q = np.round(x * 2**15) / 2**15                     # 16 bit 量化
+snr = 10 * np.log10(np.sum(x**2) / np.sum((x - q)**2))
+print(f"measured: {snr:.2f} dB")                   # 接近 98 dB
 ```
 
 ## 5 语音数字化的工程现实

@@ -22,8 +22,8 @@ date: 2026-08-07
 
 ## 1 三个延迟指标的精确定义
 
-- **TTFT（Time To First Token，首 token 延迟）**：请求发出到**第一个 token** 到达的时间。包含：网络传输 + 排队等待 + prefill 计算 + 首个 decode 步。**它决定用户「等多久看到第一个字」**。<span class="marginnote">TTFT 对「对话式」体验最重要：<strong>1 秒内的 TTFT 让对话像「即时」</strong>，超过 5 秒用户就开始烦躁。长 prompt 的 TTFT 由 prefill 主导。</span>
-- **TPOT（Time Per Output Token，每输出 token 时间）**：相邻两个输出 token 之间的时间间隔。它反映 **decode 阶段的速度**——纯访存瓶颈的体现。<span class="marginnote">TPOT 的别称还有 ITL（Inter-Token Latency）。<strong>TPOT ≈ 生成速度的倒数</strong>：TPOT 30ms ≈ 每秒 33 token，50ms ≈ 每秒 20 token。</span>
+**TTFT（Time To First Token，首 token 延迟）**：请求发出到**第一个 token** 到达的时间。包含：网络传输 + 排队等待 + prefill 计算 + 首个 decode 步。**它决定用户「等多久看到第一个字」**。<span class="marginnote">TTFT 对「对话式」体验最重要：<strong>1 秒内的 TTFT 让对话像「即时」</strong>，超过 5 秒用户就开始烦躁。长 prompt 的 TTFT 由 prefill 主导。</span>
+**TPOT（Time Per Output Token，每输出 token 时间）**：相邻两个输出 token 之间的时间间隔。它反映 **decode 阶段的速度**——纯访存瓶颈的体现。<span class="marginnote">TPOT 的别称还有 ITL（Inter-Token Latency）。<strong>TPOT ≈ 生成速度的倒数</strong>：TPOT 30ms ≈ 每秒 33 token，50ms ≈ 每秒 20 token。</span>
 - **端到端延迟（end-to-end latency）**：请求发出到**全部生成完成**的时间。与 TTFT、TPOT、生成 token 数 $N$ 的关系：
 
 $$\text{E2E} \approx \text{TTFT} + (N-1) \cdot \text{TPOT}$$

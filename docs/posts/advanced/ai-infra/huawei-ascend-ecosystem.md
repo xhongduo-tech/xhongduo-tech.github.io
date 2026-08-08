@@ -35,10 +35,10 @@ date: 2026-08-07
 
 **CANN（Compute Architecture for Neural Networks）** 是昇腾的底层计算架构，对标 CUDA 的位置。它的分层：
 
-- **AscendCL（Ascend Computing Language）**：应用编程接口，对标 CUDA Runtime——申请显存、启动 kernel、管理流。
-- **算子库**：内置的融合算子、通用算子（对标 cuDNN/cuBLAS）。
-- **图引擎（Graph Engine）**：计算图优化——算子融合、内存规划（对标 TensorRT 的图优化）。
-- **编译工具链**：把算子编译成昇腾 AI Core 的指令。
+**AscendCL（Ascend Computing Language）**：应用编程接口，对标 CUDA Runtime——申请显存、启动 kernel、管理流。
+**算子库**：内置的融合算子、通用算子（对标 cuDNN/cuBLAS）。
+**图引擎（Graph Engine）**：计算图优化——算子融合、内存规划（对标 TensorRT 的图优化）。
+**编译工具链**：把算子编译成昇腾 AI Core 的指令。
 
 **CANN 的核心设计是「图优先」**：它把计算图拿到手，先做全局优化（融合、布局转换、内存复用），再调度到硬件——这比 CUDA 的「算子级调度」更接近 TensorRT 的哲学。<span class="marginnote">CANN「图优先」的设计是一把双刃剑：对「固定结构的大模型训练/推理」很友好（图优化收益大），但对「动态、调试中的 PyTorch 代码」不友好（图编译开销与灵活性损失）。这解释了为什么昇腾上「跑训好的模型」比「从零训练调试」顺滑得多。</span>
 
@@ -46,9 +46,9 @@ date: 2026-08-07
 
 **昇思 MindSpore** 是华为自研的 AI 框架，对标 PyTorch 的位置。它的特点：
 
-- **原生昇腾支持**：算子、分布式、自动并行都与昇腾深度绑定——「自家框架 + 自家芯片」优化最彻底。
-- **自动并行**：内置自动切分（数据/模型/混合并行），对标 Megatron 的并行能力，但自动化程度更高。
-- **图模式 + PyNative 模式**：图模式（编译优化）与动态模式（灵活调试）双轨。
+**原生昇腾支持**：算子、分布式、自动并行都与昇腾深度绑定——「自家框架 + 自家芯片」优化最彻底。
+**自动并行**：内置自动切分（数据/模型/混合并行），对标 Megatron 的并行能力，但自动化程度更高。
+**图模式 + PyNative 模式**：图模式（编译优化）与动态模式（灵活调试）双轨。
 
 **MindSpore 的定位尴尬**：生态号召力远不如 PyTorch——开发者更愿意用 PyTorch。于是华为推出了第三条路：**torch_npu**。<span class="marginnote">「生态的引力」决定了框架大战的结局：PyTorch 的开发者基数与第三方库生态，让任何新框架都很难挑战。华为的应对是「兼容而非取代」——MindSpore 保留给「深度优化」场景，torch_npu 则让 PyTorch 生态「无缝平移」到昇腾。两条腿走路是清醒的战略。</span>
 
@@ -56,9 +56,9 @@ date: 2026-08-07
 
 **torch_npu** 是昇腾的 PyTorch 适配层，让「CUDA 代码」迁移到昇腾的最小路径：
 
-- **`import torch_npu`**：把 PyTorch 的设备抽象指向昇腾——`tensor.to('npu')` 替代 `tensor.to('cuda')`。
-- **算子映射**：把 PyTorch 算子映射到昇腾算子库——支持得越多，迁移越顺。
-- **与 torch.compile / 分布式库配合**：逐步补齐 torch.compile、DDP/FSDP 的昇腾支持。
+**设备适配（Device Adapt）**：把 PyTorch 的设备抽象指向昇腾——`npu` 替代 `cuda`。
+**算子映射**：把 PyTorch 算子映射到昇腾算子库——支持得越多，迁移越顺。
+**与 torch.compile / 分布式库配合**：逐步补齐 torch.compile、DDP/FSDP 的昇腾支持。
 
 **迁移路径的真实形态**：不是「改一行就完」，而是「先能跑、再调对、再调快」——算子覆盖率决定「能跑」，性能剖析决定「跑多快」。<span class="marginnote">torch_npu 的实际体验：「import 后大部分代码能跑」是宣传，「少数算子报不支持、性能比 CUDA 低、工具链缺失」是现实。工程师的真实工作流：跑通 → 逐个替换不支持的算子 → 用昇腾工具（Ascend Debug、msprof）做性能剖析 → 针对瓶颈用 CANN 算子改写。这是国产迁移的常态。</span>
 
@@ -88,13 +88,13 @@ $$\text{Coverage} = \frac{\sum_{op \in \text{model}} \text{time}_{op} \cdot \mat
 - **硬件族**：910 系列（训练）、Atlas（整机/卡）、CloudMatrix 超节点、950PR（推理）。
 - **CANN**：底层计算架构，图优先设计，对标 CUDA 的位置。
 - **MindSpore**：原生框架，与昇腾深度绑定，但生态号召力弱。
-- **torch_npu**：PyTorch 适配层——`import torch_npu` 让 CUDA 代码跑在昇腾，是迁移主路径。
+- **torch_npu**：PyTorch 适配层——`torch.npu` 让 CUDA 代码跑在昇腾，是迁移主路径。
 - **迁移评估**：按「时间加权的算子覆盖率」算工作量，别被「算子数 99%」骗了。
 - **核心心法**：先能跑、再调对、再调快——适配是持续投入。
 
 ## 8 进阶与延伸
 
-**动手读一次 torch_npu 文档**：查 `torch_npu` 的「算子支持列表」，对照你常用的模型——哪些算子标了「不支持」？用本篇的「时间加权覆盖率」概念估算你的迁移工作量，你会得到一个比「算子数 99%」更真实的数字。
+**动手读一次 torch_npu 文档**：查 torch_npu 的「算子支持列表」，对照你常用的模型——哪些算子标了「不支持」？用本篇的「时间加权覆盖率」概念估算你的迁移工作量，你会得到一个比「算子数 99%」更真实的数字。
 
 **几个值得进一步挖的方向**：
 
@@ -106,7 +106,7 @@ $$\text{Coverage} = \frac{\sum_{op \in \text{model}} \text{time}_{op} \cdot \mat
 
 ## 9 动手实践清单
 
-- 查 `torch_npu` 的算子支持列表，对照你的模型算「时间加权覆盖率」。
+- 查 torch_npu 的算子支持列表，对照你的模型算「时间加权覆盖率」。
 - 用「能跑 → 调对 → 调快」三步给迁移排计划。
 - 对比 CANN（图优先）在「结构固定 vs 动态」模型上的表现。
 - 试 MindSpore 与 torch_npu 两条路，评估收益与成本。

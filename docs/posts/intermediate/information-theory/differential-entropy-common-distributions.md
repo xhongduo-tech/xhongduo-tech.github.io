@@ -102,9 +102,9 @@ $$
 
 **共同规律**：**尺度参数乘 $c$，微分熵加 $\log c$**。
 
-- 均匀：$b-a \to 2(b-a)$ ⇒ $h \to h + 1$ 比特。
-- 指数：$\frac1\lambda \to \frac{2}{\lambda}$ ⇒ $h \to h + 1$。
-- 高斯：$\sigma \to 2\sigma$ ⇒ $h \to h + 1$。
+均匀：$b-a \to 2(b-a)$ ⇒ $h \to h + 1$ 比特。
+指数：$\frac1\lambda \to \frac{2}{\lambda}$ ⇒ $h \to h + 1$。
+高斯：$\sigma \to 2\sigma$ ⇒ $h \to h + 1$。
 
 **这个规律正是「变换律」$h(cX) = h(X) + \log|c|$ 的实例**——第 43 篇将把它一般化。<span class="marginnote">「尺度翻倍、熵加一比特」的直觉：把分布拉宽一倍，定位精度减半，相当于损失 1 比特的「分辨率信息」。这再次说明微分熵是「相对于参考尺度的形状度量」——尺度一变，形状的「刻度」就变。</span>
 

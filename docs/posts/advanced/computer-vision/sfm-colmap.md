@@ -66,11 +66,21 @@ $$
 
 COLMAP 是 SfM 的事实标准开源实现。核心命令（自动特征提取 → 匹配 → 稀疏重建）：
 
-```
-colmap feature_extractor --database_path db.db --image_path images/
-colmap exhaustive_matcher --database_path db.db
-colmap mapper --database_path db.db --image_path images/ --output_path sparse/
-colmap model_converter --input_path sparse/0 --output_path sparse/0 --output_type TXT
+```bash
+# 1. 特征提取：对每张图提 SIFT 特征并写入数据库
+colmap feature_extractor \
+    --database_path project/database.db \
+    --image_path project/images
+
+# 2. 特征匹配：两两匹配 + 几何验证（小数据集用穷举匹配）
+colmap exhaustive_matcher \
+    --database_path project/database.db
+
+# 3. 增量式稀疏重建：初始化 → 增量注册 → BA 精化
+colmap mapper \
+    --database_path project/database.db \
+    --image_path project/images \
+    --output_path project/sparse
 ```
 
 实践要点：

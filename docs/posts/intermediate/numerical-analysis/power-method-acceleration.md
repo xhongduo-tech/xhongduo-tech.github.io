@@ -73,19 +73,32 @@ $$
 ## 4 实现：平移幂法与瑞利商迭代
 
 ```python
-def shifted_power(A, mu, x0=None, tol=1e-10, max_iter=1000):
-    """对 B = A - mu*I 用幂法求主特征值，恢复 A 的特征值"""
-    n = A.shape[0]
-    x = np.random.randn(n) if x0 is None else x0.copy()
-    B = A - mu * np.eye(n)
-    for k in range(max_iter):
+import numpy as np
+
+def shifted_power(A, mu, x0, tol=1e-12, max_iter=100):
+    """平移幂法：对 B = A - μI 用幂法，收敛到离 μ 近的主特征值。"""
+    B = A - mu * np.eye(A.shape[0])
+    x = x0 / np.linalg.norm(x0)
+    for _ in range(max_iter):
         y = B @ x
         x_new = y / np.linalg.norm(y)
-        mu_new = x_new @ (B @ x_new)      # B 的瑞利商
         if np.linalg.norm(x_new - x) < tol:
-            return mu + mu_new, x_new     # 恢复 A 的主特征值
+            break
         x = x_new
-    return None, x
+    return x @ A @ x / (x @ x), x     # 瑞利商恢复特征值
+
+def rayleigh_iteration(A, x0, tol=1e-12, max_iter=20):
+    """瑞利商迭代：位移逐轮更新，三次收敛。"""
+    x = x0 / np.linalg.norm(x0)
+    lam = x @ A @ x
+    for _ in range(max_iter):
+        y = np.linalg.solve(A - lam * np.eye(A.shape[0]), x)
+        x = y / np.linalg.norm(y)
+        lam_new = x @ A @ x
+        if abs(lam_new - lam) < tol:
+            return lam_new, x
+        lam = lam_new
+    return lam, x
 ```
 
 **工程注意**：平移幂法要**显式构造 $B=A-\mu I$**（$O(n^2)$ 存贮）或修改矩阵-向量乘（稀疏时）。瑞利商迭代要**每步重新 LU 分解 $A-\mu_k I$**（$\mu_k$ 变化）——这是它的主要成本。

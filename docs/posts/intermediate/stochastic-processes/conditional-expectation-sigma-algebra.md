@@ -78,12 +78,12 @@ $\mathcal{G}$-可测函数」——这与统计里「条件期望 = 最小均方
 
 把这条核心等式拆开看：
 
-- **第一步，看对象**：左边被积函数 $Z = \mathbb{E}[X \mid \mathcal{G}]$ 是我们要找的「降噪版
+**第一步，看对象**：左边被积函数 $Z = \mathbb{E}[X \mid \mathcal{G}]$ 是我们要找的「降噪版
 $X$」，右边的 $X$ 是原始、可能携带大量信息的 $X$。$A$ 是 $\mathcal{G}$ 里任意一个事件。
-- **第二步，看等式含义**：$\int_A Z \, dP$ 是「$Z$ 在 $A$ 上的概率加权和」，即 $A$ 上的平均值乘以 $P(A)$。
+**第二步，看等式含义**：$\int_A Z \, dP$ 是「$Z$ 在 $A$ 上的概率加权和」，即 $A$ 上的平均值乘以 $P(A)$。
 等式要求它与 $X$ 在 $A$ 上的概率加权和相等。换句话说：**在 $\mathcal{G}$ 能分辨的每一个块 $A$ 上，$Z$
 与 $X$ 的总量持平。**
-- **第三步，看为什么是「所有 $A \in \mathcal{G}$」**：正是这些等式，逼着 $Z$ 在每一个
+**第三步，看为什么是「所有 $A \in \mathcal{G}$」**：正是这些等式，逼着 $Z$ 在每一个
 $\mathcal{G}$-可分辨的粒度上复刻 $X$ 的平均行为。块分得越细（$\mathcal{G}$ 越大），$Z$ 就越接近
 $X$； $\mathcal{G} = \mathcal{F}$ 时
 $Z = X$，$\mathcal{G} = \{\emptyset, \Omega\}$ 时
@@ -91,12 +91,12 @@ $Z = \mathbb{E}[X]$（一个常数）。 这两端验证了定义的自洽性。
 
 ## 5 三块试金石
 
-- **$\mathcal{G} = \{\emptyset, \Omega\}$（不知道任何信息）**：
+**$\mathcal{G} = \{\emptyset, \Omega\}$（不知道任何信息）**：
 $\mathbb{E}[X \mid \mathcal{G}] = \mathbb{E}[X]$，退化为普通期望。
-- **$\mathcal{G} = \sigma(Y)$（只观察 $Y$）**：$\mathbb{E}[X \mid \sigma(Y)]$
+**$\mathcal{G} = \sigma(Y)$（只观察 $Y$）**：$\mathbb{E}[X \mid \sigma(Y)]$
 习惯记为 $\mathbb{E}[X \mid Y]$，它是一个 $Y$ 的函数——上一节那个「随机变量」的严格版本；
 离散场合下它与逐点定义完全一致。
-- **$\mathcal{G} = \mathcal{F}$（知道一切）**：
+**$\mathcal{G} = \mathcal{F}$（知道一切）**：
 $\mathbb{E}[X \mid \mathcal{F}] = X$，因为 $X$ 本身已经 $\mathcal{F}$-可测。
 
 三块试金石说明：

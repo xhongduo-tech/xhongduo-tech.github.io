@@ -42,23 +42,23 @@ $$m[i][j] = \begin{cases} 0, & i = j \\ \min_{i \le k < j} \left\{ m[i][k] + m[k
 
 ## 3 自底向上填表
 
-```
-MATRIX-CHAIN-ORDER(p)
-  n = p.length - 1
-  let m[1..n][1..n] and s[1..n-1][2..n] be new tables
-  for i = 1 to n  m[i][i] = 0
-  for l = 2 to n                    // l = 区间长度
-    for i = 1 to n - l + 1
-      j = i + l - 1
-      m[i][j] = infinity
-      for k = i to j - 1
-        q = m[i][k] + m[k+1][j] + p[i-1]*p[k]*p[j]
-        if q < m[i][j]
-          m[i][j] = q;  s[i][j] = k
-  return m and s
+```text
+MATRIX-CHAIN-ORDER(p):
+    n ← p.length − 1
+    令 m[1..n][1..n] 与 s[1..n−1][2..n] 初始化为 0
+    for l ← 2 to n:                     // 区间长度从小到大
+        for i ← 1 to n − l + 1:
+            j ← i + l − 1
+            m[i][j] ← ∞
+            for k ← i to j − 1:
+                q ← m[i][k] + m[k+1][j] + p[i−1]·p[k]·p[j]
+                if q < m[i][j]:
+                    m[i][j] ← q
+                    s[i][j] ← k         // 记录最优分割点
+    return m 和 s
 ```
 
-外层按区间长度 $l$ 从 2 到 $n$，内层枚举起点 $i$ 与分割点 $k$。`s[i][j]` 记录「使 $m[i][j]$ 最优的分割点」，供回溯构造括号化方案。<span class="marginnote">三重循环的结构是区间 DP 的标准模板：外层长度、中层起点、内层分割点。无数区间问题（最优 BST、石子合并、括号匹配、凸多边形三角剖分）都是这个模板换转移式。</span>
+外层按区间长度 $l$ 从 2 到 $n$，内层枚举起点 $i$ 与分割点 $k$。$i$ 记录「使 $m[i][j]$ 最优的分割点」，供回溯构造括号化方案。<span class="marginnote">三重循环的结构是区间 DP 的标准模板：外层长度、中层起点、内层分割点。无数区间问题（最优 BST、石子合并、括号匹配、凸多边形三角剖分）都是这个模板换转移式。</span>
 
 ## 4 公式解析：$m[i][j] = \min_{k}(m[i][k] + m[k+1][j] + p_{i-1}p_kp_j)$ 的时间复杂度
 
@@ -76,20 +76,20 @@ $$T(n) = \sum_{l=2}^{n}\sum_{i=1}^{n-l+1}\sum_{k=i}^{j-1} O(1) = \Theta(n^3)$$
 
 ## 5 构造最优括号化方案
 
-记录在 `s[i][j]` 里的分割点，通过递归回溯还原括号化：
+记录在 $s$ 表里的分割点，通过递归回溯还原括号化：
 
-```
-PRINT-OPTIMAL-PARENS(s, i, j)
-  if i == j
-    print "A" + i
-  else
-    print "("
-    PRINT-OPTIMAL-PARENS(s, i, s[i][j])
-    PRINT-OPTIMAL-PARENS(s, s[i][j]+1, j)
-    print ")"
+```text
+PRINT-OPTIMAL-PARENS(s, i, j):
+    if i = j:
+        输出 "A" 与 i                   // 单个矩阵
+    else:
+        输出 "("
+        PRINT-OPTIMAL-PARENS(s, i, s[i][j])
+        PRINT-OPTIMAL-PARENS(s, s[i][j] + 1, j)
+        输出 ")"
 ```
 
-例如 $n=6$、$s[1][6]=3$，则整链先劈在 3：`((A1A2A3)(A4A5A6))`，再分别递归。**四步法的第 4 步在此落地**：最优值在 $m$ 表，最优方案靠 $s$ 表的决策回溯。<span class="marginnote">「值表 + 决策表」是 DP 构造方案的通用搭配：值表回答「多少」，决策表回答「怎么做」。凡是需要输出方案的问题（不只是最优值），都要额外存决策。</span>
+例如 $n=6$、$s[1][6]=3$，则整链先劈在 3：$A_1..A_3$ 与 $A_4..A_6$，再分别递归。**四步法的第 4 步在此落地**：最优值在 $m$ 表，最优方案靠 $s$ 表的决策回溯。<span class="marginnote">「值表 + 决策表」是 DP 构造方案的通用搭配：值表回答「多少」，决策表回答「怎么做」。凡是需要输出方案的问题（不只是最优值），都要额外存决策。</span>
 
 ## 6 小结
 
@@ -97,6 +97,6 @@ PRINT-OPTIMAL-PARENS(s, i, j)
 - 穷举方案数是卡特兰数，指数爆炸；**区间 DP** 用「最后分割点 $k$」建模。
 - 转移式 $m[i][j] = \min_k(m[i][k] + m[k+1][j] + p_{i-1}p_kp_j)$，$m[i][i]=0$。
 - 填表按**区间长度从小到大**；三重循环模板 $\Theta(n^3)$，空间 $O(n^2)$。
-- `s[i][j]` 存分割点，递归回溯构造括号化方案。
+- $s$ 表存分割点，递归回溯构造括号化方案。
 
 在下一课，我们进入字符串上的 DP——**最长公共子序列**：两个字符串的最长公共子序列怎么求？递推式与回溯构造，以及它与「子串」的本质区别。

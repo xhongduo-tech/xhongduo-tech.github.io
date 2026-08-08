@@ -36,9 +36,7 @@ $$
 
 ## 2 一个直观例子
 
-```
-course_teacher_book(course_name, teacher_name, book_name)
-```
+考虑关系模式 (course_name, teacher_name, book_name)：一门课有多位教师、也多本教材，且教师与教材相互独立变化。
 
 数据（课程「数据库」）：
 
@@ -49,9 +47,9 @@ course_teacher_book(course_name, teacher_name, book_name)
 | 数据库 | 李四 | 数据库概念 |
 | 数据库 | 李四 | SQL 教程 |
 
-课程决定多值：`course_name ↠ teacher_name`（张三、李四）、`course_name ↠ book_name`（两本教材）。但**函数依赖不存在**：`course_name` 不决定单个教师、不决定单本教材。冗余来自教师与教材的**独立性**：4 行里信息只有「2 位教师 + 2 本书」，却存成 4 行。
+课程决定多值：$course\_name \twoheadrightarrow teacher\_name$（张三、李四）、$course\_name \twoheadrightarrow book\_name$（两本教材）。但**函数依赖不存在**：$course\_name$ 不决定单个教师、不决定单本教材。冗余来自教师与教材的**独立性**：4 行里信息只有「2 位教师 + 2 本书」，却存成 4 行。
 
-**辨析｜易错点：** 这样的表满足 BCNF 吗？候选码是 `(course_name, teacher_name, book_name)` 全三列，没有非平凡函数依赖，**满足 BCNF**。可见 BCNF 管不了这种冗余——必须靠 4NF。
+**辨析｜易错点：** 这样的表满足 BCNF 吗？候选码是 (course_name, teacher_name, book_name) 全三列，没有非平凡函数依赖，**满足 BCNF**。可见 BCNF 管不了这种冗余——必须靠 4NF。
 
 ## 3 第四范式（4NF）
 
@@ -61,10 +59,11 @@ course_teacher_book(course_name, teacher_name, book_name)
 
 **4NF 分解算法**：与 BCNF 分解算法几乎一样，只是把「违反 BCNF 的函数依赖」换成「违反 4NF 的多值依赖」：
 
-```
-while 存在 Ri 违反 4NF:
-    找非平凡 MVD α↠β 使 α 非超码
-    拆成 Ri1 = αβ 与 Ri2 = Ri − β
+```text
+result = {R}
+while result 中某个模式 Rᵢ 违反 4NF:
+    找到 Rᵢ 中非平凡的多值依赖 α ↠ β
+    result = (result − {Rᵢ}) ∪ {Rᵢ − (β − α), α ∪ β}
 ```
 
 每步仍无损（公共属性 α，且 α 决定 αβ 的多值版本）。<span class="marginnote">4NF 分解的直觉与 BCNF 完全平行：发现「独立变化」的 β，就把它单独拆成一张表，让 α 在子模式里成为超码。上面的课程-教师-教材表拆成 <strong>course_teacher(course, teacher)</strong> 与 <strong>course_book(course, book)</strong> 两张，各 2 行，冗余消失。</span>

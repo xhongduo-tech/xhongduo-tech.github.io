@@ -42,7 +42,7 @@ $$G_j = \{\, C_i \mid i \equiv j \ (\mathrm{mod}\ m) \,\}, \qquad j = 0, 1, \dot
 
 反过来，攻击者就在密文里找重复片段：**重复片段两次出现之间的距离，往往就是密钥长度的倍数。** 把多个重复片段的距离放在一起，取最大公约数（gcd），就得到一个大概率等于 $m$ 的候选值。<span class="marginnote">卡西斯基 1863 年在《秘密写作与破译艺术》中发表此法。它的洞察可以浓缩成一句：<strong>相同的密文片段 ⇒ 大概率是同一明文片段被同一密钥位加密 ⇒ 两次出现的位置差是周期的倍数</strong>。当然这只是一个「概率线索」——巧合的重复也会出现，所以要求 gcd、要求多个证据交叉，而不是靠单次重复下结论。</span>
 
-来看一个微缩例子。设密钥为 `KEY`（$m=3$），明文某处出现两次 `the`，位置分别在 $i$ 与 $i+6$（差 6，是 3 的倍数）。加密时 `t`、`h`、`e` 分别用 `K`、`E`、`Y` 表，两处完全相同，所以密文会出现两段一模一样的 3 字符片段，距离恰好 6。攻击者测得距离 6，它的约数 2、3 都是候选 $m$。若再发现另一处重复的距离是 9，则 $\gcd(6, 9) = 3$——密钥长度 3 浮出水面。
+来看一个微缩例子。设密钥长度为 $m=3$，明文某处出现两次 `the`，位置分别在 $i$ 与 $i+6$（差 6，是 3 的倍数）。加密时 `t`、`h`、`e` 分别用第 1、2、3 张替换表，两处完全相同，所以密文会出现两段一模一样的 3 字符片段，距离恰好 6。攻击者测得距离 6，它的约数 2、3 都是候选 $m$。若再发现另一处重复的距离是 9，则 $\gcd(6, 9) = 3$——密钥长度 3 浮出水面。
 
 **辨析｜易错点：** 卡西斯基试验给出的是「倍数」，不是「精确值」。重复片段间的距离 $d$ 满足 $d \equiv 0 \pmod m$，所以 $m$ 是 $d$ 的约数；而巧合重复（比如不同明文词组恰好拼出相同密文）会引入「杂质距离」。正确的做法是收集一批距离、逐个取约数、统计出现最多的公约数——**要用多数证据投票，而不是拿单条距离断言**。此外，密文越短、语言越单调，重复越少，试验越不可靠；这也是为什么需要重合指数来交叉验证。
 
@@ -97,50 +97,50 @@ $$
 把卡西斯基试验与重合指数写成代码，就能对任意维吉尼亚密文自动测出密钥长度：
 
 ```python
-import collections, math
+import math
+from collections import Counter
 
-def ic(text: str) -> float:
-    """重合指数：随机抽两字符相同的概率。"""
-    cnt = collections.Counter(text)
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+def ic(text):
+    """重合指数 IC = Σ n_i(n_i-1) / (N(N-1))；英文约 0.065，均匀约 0.0385。"""
     n = len(text)
+    cnt = Counter(c for c in text.upper() if c in ALPHABET)
     return sum(v * (v - 1) for v in cnt.values()) / (n * (n - 1))
 
-def kasiski(text: str, seq_len: int = 3) -> list:
-    """卡西斯基试验：找重复片段的间距，返回间距的 gcd 候选约数。"""
-    gaps = []
-    pos = {}
-    for i in range(len(text) - seq_len + 1):
-        seq = text[i:i + seq_len]
-        if seq in pos:
-            gaps.append(i - pos[seq])
+def kasiski(ciphertext):
+    """卡西斯基试验：收集重复 3 字符片段的距离，返回出现最多的约数（候选 m）。"""
+    dists, seen = [], {}
+    for i in range(len(ciphertext) - 3):
+        chunk = ciphertext[i:i + 3]
+        if chunk in seen:
+            dists.append(i - seen[chunk])
         else:
-            pos[seq] = i
-    dist = {}
-    for g in gaps:
-        for d in range(2, int(math.sqrt(g)) + 1):
-            if g % d == 0:
-                dist[d] = dist.get(d, 0) + 1
-                dist[g // d] = dist.get(g // d, 0) + 1
-        dist[g] = dist.get(g, 0) + 1
-    return sorted(dist, key=dist.get, reverse=True)[:5]
+            seen[chunk] = i
+    divs = []
+    for dist in dists:
+        for d in range(1, int(math.sqrt(dist)) + 1):
+            if dist % d == 0:
+                divs.append(d)
+                if d * d != dist:
+                    divs.append(dist // d)
+    return Counter(divs).most_common(1)[0][0]
 
-def find_key_len(text: str, max_m: int = 20) -> int:
-    """用 IC 平均最大来找密钥长度。"""
-    best, best_m = 0, 1
-    for m in range(1, max_m + 1):
-        groups = [text[i::m] for i in range(m)]
-        avg_ic = sum(ic(g) for g in groups if len(g) > 1) / m
-        if avg_ic > best:
-            best, best_m = avg_ic, m
+def split_by_period(text, m):
+    """按周期拆组：text[i::m] 归为一组，共 m 组——多表替换打回 m 条单表替换。"""
+    return [text[i::m] for i in range(m)]
+
+def guess_key_length(ciphertext):
+    """用 IC 探测密钥长度：试遍 m=1..20，平均 IC 最高者胜出。"""
+    best_m, best_score = 1, 0.0
+    for m in range(1, 21):
+        score = sum(ic(g) for g in split_by_period(ciphertext, m)) / m
+        if score > best_score:
+            best_m, best_score = m, score
     return best_m
-
-text = "KXRKGIXKBKAJKXRKGIXKBKAJ"     # 一段 Vigenère 密文（示意）
-print("整段密文 IC = %.4f（英语≈0.065，均匀≈0.0385）" % ic(text))
-print("卡西斯基候选密钥长度:", kasiski(text))
-print("IC 平均最大法测出 m =", find_key_len(text))
 ```
 
-代码里的 `groups = [text[i::m] for i in range(m)]` 就是按周期拆组——**这一步把多表替换打回了 m 条单表替换**。算出 $m$ 后，对每组做上一章的频率分析即可还原密钥字母；把多组结果拼起来，密钥单词就完整现形。<span class="marginnote">把「按周期拆组再逐组分析」抽象一层，就是密码学里反复出现的<strong>「divide and conquer」</strong>：多表替换的复杂性被拆成 m 个并行的单表子问题，复杂度从指数级降到多项式级。这种「找到隐藏结构，把难问题分解」的思路，在第三篇的线性/差分密码分析里会再次登场。</span>
+代码里的 `split_by_period` 就是按周期拆组——**这一步把多表替换打回了 m 条单表替换**。算出 $m$ 后，对每组做上一章的频率分析即可还原密钥字母；把多组结果拼起来，密钥单词就完整现形。<span class="marginnote">把「按周期拆组再逐组分析」抽象一层，就是密码学里反复出现的<strong>「divide and conquer」</strong>：多表替换的复杂性被拆成 m 个并行的单表子问题，复杂度从指数级降到多项式级。这种「找到隐藏结构，把难问题分解」的思路，在第三篇的线性/差分密码分析里会再次登场。</span>
 
 ## 6 历史回响：从卡西斯基到香农
 

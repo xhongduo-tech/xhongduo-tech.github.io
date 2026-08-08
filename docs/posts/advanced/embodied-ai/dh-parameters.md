@@ -40,7 +40,7 @@ date: 2026-08-07
 至今仍是工业机器人文档（URDF、机器人厂商说明书）的通用语言。
 <span class="marginnote">1955 年 Jacques Denavit 与 Richard Hartenberg 在《ASME 机械设计学报》发表《一种机械臂运动学与动力学的记号约定》，
 把机械臂的运动学压缩成四个参数。
-今天你在 ROS 的 URDF 文件里看到的 `<joint>` 与 `<link>`，
+今天你在 ROS 的 URDF 文件里看到的 `origin` 与 `axis`，
 本质仍是这张表的精神。
 </span>
 
@@ -63,11 +63,11 @@ date: 2026-08-07
 杆 $i-1$ 由关节 $i-1$ 与关节 $i$ 界定。**两个关节的轴线，决定了这根连杆的几何。**
 
 **D-H 建系规则（用两个轴定义坐标系）：**
-- **$z_{i-1}$ 轴**：沿关节 $i$ 的转动/滑动轴。
-- **$x_{i-1}$ 轴**：沿 $z_{i-1}$ 与 $z_i$ 的**公垂线**（同时垂直于两轴的那条线），
+**$z_{i-1}$ 轴**：沿关节 $i$ 的转动/滑动轴。
+**$x_{i-1}$ 轴**：沿 $z_{i-1}$ 与 $z_i$ 的**公垂线**（同时垂直于两轴的那条线），
 方向由 $z_{i-1}$ 指向 $z_i$。
-- **原点**：$x_{i-1}$ 与 $z_{i-1}$ 的交点。
-- **$y_{i-1}$ 轴**：由右手定则补出。
+**原点**：$x_{i-1}$ 与 $z_{i-1}$ 的交点。
+**$y_{i-1}$ 轴**：由右手定则补出。
 
 这套规则保证了坐标系 $\{i-1\}$ 与 $\{i\}$ 之间只有四个参数。
 
@@ -243,26 +243,29 @@ $$
 import numpy as np
 
 def dh(a, alpha, d, theta):
-    ca, sa = np.cos(alpha), np.sin(alpha)
+    """标准 D-H 通用矩阵，参数顺序 a, alpha, d, theta"""
     ct, st = np.cos(theta), np.sin(theta)
+    ca, sa = np.cos(alpha), np.sin(alpha)
     return np.array([
-        [ct, -st * ca,  st * sa,  a * ct],
-        [st,  ct * ca, -ct * sa,  a * st],
-        [0,       sa,       ca,      d],
-        [0,        0,        0,     1],
-    ])
+        [ ct, -st*ca,  st*sa, a],
+        [ st,  ct*ca, -ct*sa, -sa*d],
+        [ 0,       sa,     ca,  ca*d],
+        [ 0,        0,      0,    1]])
 
 a1, a2 = 1.0, 0.8
-th1, th2 = np.radians(30), np.radians(45)
+th1, th2 = 0.6, 1.2
 
-T01 = dh(0, 0, 0, th1)
-T12 = dh(a1, 0, 0, th2)
-T02 = T01 @ T12
+T01 = dh(0,    0, 0, th1)
+T12 = dh(a1,   0, 0, th2)
+T02 = T01 @ T12                     # 矩阵连乘
 
 x, y = T02[0, 3], T02[1, 3]
-print("末端位置:", np.round([x, y], 4))
-print("解析式对比:", np.round([a1*np.cos(th1) + a2*np.cos(th1+th2),
-                               a1*np.sin(th1) + a2*np.sin(th1+th2)], 4))
+x_an = a1*np.cos(th1) + a2*np.cos(th1 + th2)   # 解析式
+y_an = a1*np.sin(th1) + a2*np.sin(th1 + th2)
+
+print(x, y)                          # 连乘结果
+print(x_an, y_an)                    # 解析式结果
+print(np.allclose([x, y], [x_an, y_an]))       # True
 ```
 
 输出两组数字一致——矩阵连乘与解析式殊途同归。
@@ -285,7 +288,7 @@ $d_i$、$\theta_i$ 描述**关节 $i$**。
 很多资料里 $d_i$ 与 $\theta_i$ 的含义指代还会互换。**读别人的代码、抄别人的表之前，先确认它用哪种约定。** 判断方法：看变换矩阵里「第 3 列第 4 行」到底是 $d_i$ 还是别的符号，
 以及 $x$ 轴的取法——标准 D-H 里 $x_{i-1}$ 沿 $z_{i-1}\to z_i$ 的公垂线。
 <span class="marginnote">URDF 文件用的是改进 D-H 的变体，
-且用 `<axis>` 直接给出关节轴方向、用 `<origin>` 给出连杆位姿，
+且用 `axis` 直接给出关节轴方向、用 `origin` 给出连杆位姿，
 读起来比 D-H 表更显式。
 但 D-H 表的四个数仍是理解 URDF 底层几何的最佳地图。
 </span>

@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么多核会「看见不同的世界」
 
-单核 Cache 只管快；多核把 Cache 变成**一致性问题**的温床。设想最简单的场景：两个核都缓存了变量 `X` 的副本（值都是 0）。核 0 执行 `X = 1`，只改了自己 Cache 里的副本——核 1 还在读自己的旧副本，读到 0。<span class="marginnote">这就是「<strong>缓存不一致</strong>」：同一个地址，两个核看到两个值。在共享内存模型（[[thread-level-parallelism-overview]]）里这是不可接受的——程序语义直接崩坏。</span>
+单核 Cache 只管快；多核把 Cache 变成**一致性问题**的温床。设想最简单的场景：两个核都缓存了变量 `X` 的副本（值都是 0）。核 0 执行 `X = X + 1`，只改了自己 Cache 里的副本——核 1 还在读自己的旧副本，读到 0。<span class="marginnote">这就是「<strong>缓存不一致</strong>」：同一个地址，两个核看到两个值。在共享内存模型（[[thread-level-parallelism-overview]]）里这是不可接受的——程序语义直接崩坏。</span>
 
 ## 1 一致性问题的正式定义
 

@@ -83,29 +83,28 @@ $$
 ```python
 import numpy as np
 
-def rk4_system(f, t0, y0, h, n):
-    """f: (t, y_vec) -> vec；y0 是 numpy 向量"""
-    t, y = t0, np.array(y0, float)
-    ys = [y.copy()]
-    for _ in range(n):
+def rk4_system(f, t0, y0, t_end, h):
+    """向量 RK4：y 与 f 均为向量，方法逐字照搬单方程情形。"""
+    t, y = t0, np.asarray(y0, float)
+    ts, ys = [t], [y.copy()]
+    while t < t_end:
+        h = min(h, t_end - t)
         k1 = f(t, y)
         k2 = f(t + h/2, y + h/2*k1)
         k3 = f(t + h/2, y + h/2*k2)
         k4 = f(t + h, y + h*k3)
         y = y + h/6*(k1 + 2*k2 + 2*k3 + k4)
-        t = t + h
-        ys.append(y.copy())
-    return np.array(ys)
+        t += h
+        ts.append(t); ys.append(y.copy())
+    return np.array(ts), np.array(ys)
 
-# 洛伦兹吸引子（3 维系统）
-def lorenz(t, y):
-    x, yy, z = y
-    return np.array([10*(yy-x), x*(28-z)-yy, x*yy - 8/3*z])
-
-traj = rk4_system(lorenz, 0, [1,1,1], 0.01, 1000)
+# 例：简谐振子 y'' = -y → y1' = y2, y2' = -y1，初值 (0, 1)
+f = lambda t, y: np.array([y[1], -y[0]])
+ts, ys = rk4_system(f, 0, [0, 1], 1, 0.1)
+print(ys[-1])     # ≈ (sin 1, cos 1) = (0.84147, 0.54030)
 ```
 
-**工程注意**：向量维数影响**雅可比/稳定域**——系统越大、特征值分布越宽，刚性越常见。`solve_ivp` 接受向量初值即自动向量化。
+**工程注意**：向量维数影响**雅可比/稳定域**——系统越大、特征值分布越宽，刚性越常见。`scipy.integrate.solve_ivp` 接受向量初值即自动向量化。
 
 ## 4 方程组的刚性：更多特征值，更多麻烦
 

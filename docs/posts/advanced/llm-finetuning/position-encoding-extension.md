@@ -103,17 +103,16 @@ $$
 HF 生态把这些扩展做成了开箱即用的参数：
 
 ```python
-# 位置插值 / NTK / YaRN 在推理期只需改 config
-from transformers import AutoConfig
-config = AutoConfig.from_pretrained("meta-llama/Llama-2-7b")
-config.rope_scaling = {"type": "linear",        # 或 "dynamic" / "ntk" / "yarn"
-                       "factor": 4.0}           # 扩展倍数 s
-model = AutoModelForCausalLM.from_pretrained(..., config=config)
+from transformers import AutoConfig, AutoModelForCausalLM
+
+config = AutoConfig.from_pretrained("Qwen/Qwen2.5-7B")
+config.rope_scaling = {"type": "linear", "factor": 4.0}   # PI：linear + factor
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-7B", config=config)
 ```
 
-- `type="linear"`：位置插值（PI）——最简，配合微调用；
-- `type="dynamic"`：动态缩放（随长度调整，免微调推理常用）；
-- `type="yarn"`：YaRN——需配合 `original_max_position_embeddings` 与微调脚本；
+- `rope_scaling.type = "linear"`：位置插值（PI）——最简，配合微调用；
+- `"dynamic"`：动态缩放（随长度调整，免微调推理常用）；
+- `"yarn"`：YaRN——需配合 `original_max_position_embeddings` 与微调脚本；
 - `factor`：$s = L_{\text{target}}/L_{\text{train}}$。
 
 做长上下文微调时，通常流程是「设 rope_scaling → 用长数据微调（几千步）→ 用大海捞针验证」。注意**微调时用什么 scaling，推理时就必须用同一个**——这与对话模板「训练推理一致」的原则同源。## 7 小结

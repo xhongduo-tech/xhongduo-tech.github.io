@@ -80,16 +80,33 @@ $$
 PyTorch 里权重衰减有两个入口，语义略不同：
 
 ```python
-# 方式一：SGD 的 weight_decay（直接在更新里衰减）
-torch.optim.SGD(params, lr=0.01, weight_decay=1e-4)
+# 入口一：优化器参数自带 weight_decay（SGD 下等价于 L2）
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1, weight_decay=1e-4)
 
-# 方式二：手动加入损失（等价于 L2 正则项）
-loss = ce_loss + 1e-4 * sum(p.pow(2).sum() for p in model.parameters())
+# 入口二：手动把惩罚项加进损失——L2 的真正定义
+l2_reg = sum(p.pow(2).sum() for p in model.parameters())
+loss = ce_loss + 0.5 * 1e-4 * l2_reg
 ```
 
-对于 **SGD**，两种方式数学等价（都对应 $(1-\eta\alpha)$ 的衰减因子）。但对于 **Adam** 这类自适应方法，两者**不等价**：`weight_decay` 在 Adam 里被「逐元素的学习率」缩放，等效惩罚随梯度大小变化；而手动加 L2 项才是真正的「平方和进损失」。这个差异在 Adam 下会让权重衰减失效一半，于是 AdamW 把衰减**从梯度路径中分离**、直接作用在权重上——这就是自适应优化器的「解耦权重衰减」。(详见《Adam 及其变体》。)
+对于 **SGD**，两种方式数学等价（都对应 $(1-\eta\alpha)$ 的衰减因子）。但对于 **Adam** 这类自适应方法，两者**不等价**：优化器里的 `weight_decay` 项在 Adam 里被「逐元素的学习率」缩放，等效惩罚随梯度大小变化；而手动加 L2 项才是真正的「平方和进损失」。这个差异在 Adam 下会让权重衰减失效一半，于是 AdamW 把衰减**从梯度路径中分离**、直接作用在权重上——这就是自适应优化器的「解耦权重衰减」。(详见《Adam 及其变体》。)
 
-**易错点三：** 别对**偏置**和**归一化层参数**加权重衰减。BatchNorm 的缩放因子 $\gamma$、偏置 $\beta$ 不应被衰减——衰减它们会破坏归一化的表达能力。PyTorch 里用参数分组：`param_groups=[{'params': no_decay_params, 'weight_decay': 0.0}, ...]`。<span class="marginnote">「哪些参数该衰减、哪些不该」是大模型训练里一个真实存在的工程细节：Transformer 里通常只衰减 attention 与 FFN 的权重矩阵，不衰减嵌入、偏置、LayerNorm 参数——这部分配置在第九篇《调参方法论》与第六篇《Transformer》里会反复出现。</span>
+**易错点三：** 别对**偏置**和**归一化层参数**加权重衰减。BatchNorm 的缩放因子 $\gamma$、偏置 $\beta$ 不应被衰减——衰减它们会破坏归一化的表达能力。PyTorch 里用参数分组：
+
+```python
+decay, no_decay = [], []
+for name, param in model.named_parameters():
+    if param.ndim <= 1 or "bias" in name:   # 偏置与 LayerNorm/BatchNorm 参数
+        no_decay.append(param)
+    else:
+        decay.append(param)
+
+optimizer = torch.optim.AdamW([
+    {"params": decay,    "weight_decay": 1e-2},
+    {"params": no_decay, "weight_decay": 0.0},
+], lr=1e-3)
+```
+
+<span class="marginnote">「哪些参数该衰减、哪些不该」是大模型训练里一个真实存在的工程细节：Transformer 里通常只衰减 attention 与 FFN 的权重矩阵，不衰减嵌入、偏置、LayerNorm 参数——这部分配置在第九篇《调参方法论》与第六篇《Transformer》里会反复出现。</span>
 
 ## 6 小结
 

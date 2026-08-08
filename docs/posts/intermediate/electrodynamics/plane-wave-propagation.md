@@ -68,9 +68,9 @@ $$v_g = \frac{\mathrm{d}\omega}{\mathrm{d}k}$$
 
 平面波中磁场由电场唯一确定，这是整个平面波理论最核心的简化：
 
-- **第一步，从法拉第定律出发**：复形式 $\nabla\times\widetilde{\mathbf{E}} = i\omega\widetilde{\mathbf{B}}$。对平面波 $\widetilde{\mathbf{E}} = \mathbf{E}_0 e^{ikz}$，旋度 $\nabla\times\widetilde{\mathbf{E}} = ik\,\hat{\mathbf{z}}\times\widetilde{\mathbf{E}}$。代入得 $\widetilde{\mathbf{B}} = \dfrac{k}{\omega}\hat{\mathbf{z}}\times\widetilde{\mathbf{E}} = \dfrac{1}{v}\hat{\mathbf{k}}\times\widetilde{\mathbf{E}}$。
-- **第二步，读出横波结构**：叉乘 $\hat{\mathbf{k}}\times\widetilde{\mathbf{E}}$ 垂直于 $\hat{\mathbf{k}}$ 与 $\widetilde{\mathbf{E}}$——磁场自动垂直于传播方向与电场方向。**电磁波是三矢量互相垂直的右手系**：$\mathbf{E}$ 与 $\mathbf{B}$ 都横振，能量沿 $\mathbf{k}$ 流动。
-- **第三步，读出大小与相位**：$|\widetilde{\mathbf{B}}| = E/v$——磁场大小等于电场除以介质中的波速。真空或无损介质中 $\hat{\mathbf{k}}\times$ 不引入相位，所以 $\mathbf{E}$ 与 $\mathbf{B}$ **同相位**。若介质有损耗（$\varepsilon$ 复数），$v$ 变复数，$\mathbf{B}$ 相对 $\mathbf{E}$ 有相位差——这标志着场从「波」变为「衰减场」，是导体电磁波的入口（下一节）。<span class="marginnote">对照静电场：静电场中 $\mathbf{E}$ 与 $\mathbf{B}$ 互相独立（一个由电荷决定、一个由电流决定）；电磁波里两者被法拉第定律和位移电流锁成一体。从「静态解耦」到「波动耦合」，是电磁学从静到动的最深刻转变。</span>
+**第一步，从法拉第定律出发**：复形式 $\nabla\times\widetilde{\mathbf{E}} = i\omega\widetilde{\mathbf{B}}$。对平面波 $\widetilde{\mathbf{E}} = \mathbf{E}_0 e^{ikz}$，旋度 $\nabla\times\widetilde{\mathbf{E}} = ik\,\hat{\mathbf{z}}\times\widetilde{\mathbf{E}}$。代入得 $\widetilde{\mathbf{B}} = \dfrac{k}{\omega}\hat{\mathbf{z}}\times\widetilde{\mathbf{E}} = \dfrac{1}{v}\hat{\mathbf{k}}\times\widetilde{\mathbf{E}}$。
+**第二步，读出横波结构**：叉乘 $\hat{\mathbf{k}}\times\widetilde{\mathbf{E}}$ 垂直于 $\hat{\mathbf{k}}$ 与 $\widetilde{\mathbf{E}}$——磁场自动垂直于传播方向与电场方向。**电磁波是三矢量互相垂直的右手系**：$\mathbf{E}$ 与 $\mathbf{B}$ 都横振，能量沿 $\mathbf{k}$ 流动。
+**第三步，读出大小与相位**：$|\widetilde{\mathbf{B}}| = E/v$——磁场大小等于电场除以介质中的波速。真空或无损介质中 $\hat{\mathbf{k}}\times$ 不引入相位，所以 $\mathbf{E}$ 与 $\mathbf{B}$ **同相位**。若介质有损耗（$\varepsilon$ 复数），$v$ 变复数，$\mathbf{B}$ 相对 $\mathbf{E}$ 有相位差——这标志着场从「波」变为「衰减场」，是导体电磁波的入口（下一节）。<span class="marginnote">对照静电场：静电场中 $\mathbf{E}$ 与 $\mathbf{B}$ 互相独立（一个由电荷决定、一个由电流决定）；电磁波里两者被法拉第定律和位移电流锁成一体。从「静态解耦」到「波动耦合」，是电磁学从静到动的最深刻转变。</span>
 
 **辨析｜易错点：** 平面波的电场方向（偏振）是**任意**的，只要垂直于传播方向。初学者常误以为 $\mathbf{E}$ 与 $\mathbf{B}$ 有固定方向——其实 $\mathbf{E}_0$ 可以指向垂直于 $\mathbf{k}$ 的任何方向，$\mathbf{B}$ 跟着自动确定。偏振自由度的存在，正是起偏器、偏振镜等光学器件能工作的前提。
 

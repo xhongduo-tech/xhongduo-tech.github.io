@@ -66,13 +66,13 @@ $$
 
 **"拆成两步"到底省了多少？** 精确计算一遍。
 
-- **第一步，标准卷积的代价**：输入 $H\times W \times C_{in}$，输出 $H\times W \times C_{out}$，核 $K\times K$。乘加次数 ≈ $K^2 \times C_{in} \times C_{out} \times H \times W$。
-- **第二步，深度可分离的代价**：
-  - 深度卷积：每通道一个 $K\times K$ 核 → $K^2 \times C_{in} \times H \times W$。
-  - 逐点卷积：$1\times1$ 核 → $C_{in} \times C_{out} \times H \times W$。
-  - 总和：$(K^2 + C_{out}) \times C_{in} \times H \times W$。
-- **第三步，比值**：$\frac{K^2 C_{in} + C_{in}C_{out}}{K^2 C_{in} C_{out}} = \frac{1}{C_{out}} + \frac{1}{K^2}$。当 $C_{out} = 512, K = 3$：$\frac{1}{512} + \frac{1}{9} \approx 0.113$——**约 1/9 的计算量**。
-- **第四步，代价在哪**：深度卷积只在单通道内滤波，不跨通道——信息混合完全由便宜的 1×1 完成。**把"贵操作"拆成"便宜操作 + 轻量混合"，就是轻量化设计的全部秘密。**
+**第一步，标准卷积的代价**：输入 $H\times W \times C_{in}$，输出 $H\times W \times C_{out}$，核 $K\times K$。乘加次数 ≈ $K^2 \times C_{in} \times C_{out} \times H \times W$。
+**第二步，深度可分离的代价**：
+深度卷积：每通道一个 $K\times K$ 核 → $K^2 \times C_{in} \times H \times W$。
+逐点卷积：$1\times1$ 核 → $C_{in} \times C_{out} \times H \times W$。
+总和：$(K^2 + C_{out}) \times C_{in} \times H \times W$。
+**第三步，比值**：$\frac{K^2 C_{in} + C_{in}C_{out}}{K^2 C_{in} C_{out}} = \frac{1}{C_{out}} + \frac{1}{K^2}$。当 $C_{out} = 512, K = 3$：$\frac{1}{512} + \frac{1}{9} \approx 0.113$——**约 1/9 的计算量**。
+**第四步，代价在哪**：深度卷积只在单通道内滤波，不跨通道——信息混合完全由便宜的 1×1 完成。**把"贵操作"拆成"便宜操作 + 轻量混合"，就是轻量化设计的全部秘密。**
 
 **一句话：深度可分离卷积把计算量降到约 $1/K^2$，是 MobileNet 等轻量网络的第一推动力。**
 

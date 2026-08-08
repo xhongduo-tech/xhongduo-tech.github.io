@@ -27,9 +27,9 @@ date: 2026-08-07
 **证明：** 第七篇已证整环的特征是 0 或素数；域是整环，结论成立。更直接地：若特征 $n$ 为合数 $n = ab$（$1 < a, b < n$），则 $0 = n \cdot 1 = (a \cdot 1)(b \cdot 1)$，域无零因子，矛盾。$\blacksquare$<span class="marginnote">「特征只能 0 或素数」是域论的第一个分类结果：域世界从特征上就被切成两半——特征 0 的「稠密世界」（$\mathbb{Q}, \mathbb{R}, \mathbb{C}$）与特征 $p$ 的「周期世界」（$\mathbb{F}_p, \mathbb{F}_{p^n}$）。这条二分将决定第十一篇 Galois 理论里「可分性」是否自动成立。</span>
 
 **例：**
-- $\operatorname{char}(\mathbb{Q}) = \operatorname{char}(\mathbb{R}) = \operatorname{char}(\mathbb{C}) = 0$；
-- $\operatorname{char}(\mathbb{F}_p) = \operatorname{char}(\mathbb{F}_{p^n}) = p$；
-- $\operatorname{char}(\mathbb{F}_2) = 2$，$\operatorname{char}(\mathbb{F}_4) = 2$。
+$\operatorname{char}(\mathbb{Q}) = \operatorname{char}(\mathbb{R}) = \operatorname{char}(\mathbb{C}) = 0$；
+$\operatorname{char}(\mathbb{F}_p) = \operatorname{char}(\mathbb{F}_{p^n}) = p$；
+$\operatorname{char}(\mathbb{F}_2) = 2$，$\operatorname{char}(\mathbb{F}_4) = 2$。
 
 ## 2 素域：域的最小内核
 
@@ -49,15 +49,15 @@ date: 2026-08-07
 
 **定理（域的层级）：** 设 $F$ 是域，$P$ 是 $F$ 的素域。则 $F$ 是 $P$ 上的扩张：
 
-- $\operatorname{char}(F) = 0$：$F$ 是 $\mathbb{Q}$ 的扩张（$\mathbb{Q} \subseteq F$）；
-- $\operatorname{char}(F) = p$：$F$ 是 $\mathbb{F}_p$ 的扩张（$\mathbb{F}_p \subseteq F$）。
+$\operatorname{char}(F) = 0$：$F$ 是 $\mathbb{Q}$ 的扩张（$\mathbb{Q} \subseteq F$）；
+$\operatorname{char}(F) = p$：$F$ 是 $\mathbb{F}_p$ 的扩张（$\mathbb{F}_p \subseteq F$）。
 
 于是「研究域」可以分层：先研究素域（$\mathbb{Q}$ 与 $\mathbb{F}_p$），再研究素域上的扩张（下一篇）。**域扩张理论 = 从素域出发的攀登。**
 
 **例：**
-- $\mathbb{C}$ 是 $\mathbb{Q}$ 的扩张（$\mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$）；
-- $\mathbb{F}_4$ 是 $\mathbb{F}_2$ 的扩张（下一篇构造 $\mathbb{F}_4 = \mathbb{F}_2[x]/\langle x^2+x+1\rangle$）；
-- 有限域 $\mathbb{F}_{p^n}$ 总是 $\mathbb{F}_p$ 的 $n$ 次扩张。<span class="marginnote">「素域 + 扩张」的视角让域论变成「从 $\mathbb{Q}$ 或 $\mathbb{F}_p$ 出发的扩张树」。特征 $p$ 的域全是 $\mathbb{F}_p$ 的扩张，特征 0 的域全是 $\mathbb{Q}$ 的扩张。素域是每棵树的根，域扩张（下一篇）是树干，分裂域与 Galois 群是树冠。</span>
+$\mathbb{C}$ 是 $\mathbb{Q}$ 的扩张（$\mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$）；
+$\mathbb{F}_4$ 是 $\mathbb{F}_2$ 的扩张（下一篇构造 $\mathbb{F}_4 = \mathbb{F}_2[x]/\langle x^2+x+1\rangle$）；
+有限域 $\mathbb{F}_{p^n}$ 总是 $\mathbb{F}_p$ 的 $n$ 次扩张。<span class="marginnote">「素域 + 扩张」的视角让域论变成「从 $\mathbb{Q}$ 或 $\mathbb{F}_p$ 出发的扩张树」。特征 $p$ 的域全是 $\mathbb{F}_p$ 的扩张，特征 0 的域全是 $\mathbb{Q}$ 的扩张。素域是每棵树的根，域扩张（下一篇）是树干，分裂域与 Galois 群是树冠。</span>
 
 ## 4 公式解析：特征 p 里的 Frobenius 自同态
 

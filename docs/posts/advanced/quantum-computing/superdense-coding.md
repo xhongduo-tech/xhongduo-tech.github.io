@@ -135,30 +135,19 @@ $$
 用 Qiskit 走一遍：Alice 发「10」，Bob 应测回「10」。
 
 ```python
-from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit import QuantumCircuit
+from qiskit_aer import AerSimulator
 
-qr = QuantumRegister(2, "q")     # q0 = Alice 的比特, q1 = Bob 的比特
-cr = ClassicalRegister(2, "c")
-qc = QuantumCircuit(qr, cr)
-
-# 预备：共享 |Φ+⟩
-qc.h(0)
-qc.cx(0, 1)
-
-# 编码：Alice 按消息 b1b0 选门（b1 决定 Z, b0 决定 X）
-message = "10"
-if message[0] == "1":
-    qc.z(0)
-if message[1] == "1":
-    qc.x(0)
-
-# Bob 收到 q0 后做贝尔测量：CNOT + H
-qc.cx(0, 1)
-qc.h(0)
+qc = QuantumCircuit(2, 2)
+qc.h(0); qc.cx(0, 1)             # 制备共享贝尔态 |Φ⁺⟩
+qc.z(0)                          # Alice 编码「10」：施加 Z 门（→|Φ⁻⟩）
+qc.cx(0, 1); qc.h(0)             # Bob 贝尔测量：CNOT + H 解纠缠
 qc.measure([0, 1], [0, 1])
+
+print(AerSimulator().run(qc, shots=1024).result().get_counts())  # 应全为 '10'
 ```
 
-如果发送 `10`，测量结果必然是 `10`——这正是「编码表与解码表首尾相接」的程序版。把 `message` 改成其他三种再跑，结果都会一一对应。
+如果发送 10，测量结果必然是 10——这正是「编码表与解码表首尾相接」的程序版。把 $X$ 改成其他三种编码门（$I$、$X$、$XZ$）再跑，结果都会一一对应。
 
 ## 7 小结
 

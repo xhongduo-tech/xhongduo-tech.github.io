@@ -32,9 +32,9 @@ date: 2026-08-07
 
 **证明（用 Arzela-Ascoli）**：
 
-- **等度连续**：对 $\|f\|_\infty \le 1$，$|T_Kf(s_1) - T_Kf(s_2)| \le \|f\|_\infty \int |K(s_1,t) - K(s_2,t)|\\,dt \to 0$（$s_1 \to s_2$，$K$ 一致连续）。
-- **一致有界**：$\|T_Kf\|_\infty \le \|K\|_\infty (b-a)$。
-- **Arzela-Ascoli**：$\{T_Kf : \|f\| \le 1\}$ 等度连续 + 一致有界 ⟹ 相对紧。
+**等度连续**：对 $\|f\|_\infty \le 1$，$|T_Kf(s_1) - T_Kf(s_2)| \le \|f\|_\infty \int |K(s_1,t) - K(s_2,t)|\\,dt \to 0$（$s_1 \to s_2$，$K$ 一致连续）。
+**一致有界**：$\|T_Kf\|_\infty \le \|K\|_\infty (b-a)$。
+**Arzela-Ascoli**：$\{T_Kf : \|f\| \le 1\}$ 等度连续 + 一致有界 ⟹ 相对紧。
 
 **例（Volterra 算子）**：$(Vf)(s) = \int_0^s f(t)\\,dt$。核 $K(s,t) = \chi_{\{t \le s\}}$ 不连续，但 $V$ 仍紧（用连续阶梯核逼近）。$V$ 单射（$Vf = 0 \Rightarrow f = 0$），但 $V^{-1} = D$（微分算子）无界。<span class="marginnote">Volterra 算子的「单射 + 逆无界」是紧算子的标志性现象：<strong>紧算子可以单射（有界逆不存在），因为它的谱只有 $0$（见第九章）</strong>。这与有限维「可逆矩阵」完全不同——无穷维里「压缩」与「可逆」不可兼得。</span>
 
@@ -44,8 +44,8 @@ date: 2026-08-07
 
 **证明**：
 
-- **充分性（$\lambda_n \to 0$）**：对有界列 $\{x^{(k)}\}$，$M_\lambda x^{(k)} = (\lambda_n x^{(k)}_n)$。用对角线法抽子列使「每坐标收敛」，再证整体收敛（$\lambda_n \to 0$ 控制尾巴）。
-- **必要性**：若 $\lambda_n \not\to 0$，存在子列 $|\lambda_{n_k}| \ge \varepsilon$。$M_\lambda e_{n_k} = \lambda_{n_k} e_{n_k}$，范数 $\ge \varepsilon$ 且两两「大角度分离」，无收敛子列——$M_\lambda$ 不紧。<span class="marginnote">这个判据极其重要：<strong>紧算子的「特征值趋于 0」</strong>。对角算子是「谱理论的原型」——它的谱是 $\{\lambda_n\}$ 的闭包，紧性 ⟺ 谱只以 $0$ 为聚点。第九章的 Riesz-Schauder 理论正是这句话的推广。</span>
+**充分性（$\lambda_n \to 0$）**：对有界列 $\{x^{(k)}\}$，$M_\lambda x^{(k)} = (\lambda_n x^{(k)}_n)$。用对角线法抽子列使「每坐标收敛」，再证整体收敛（$\lambda_n \to 0$ 控制尾巴）。
+**必要性**：若 $\lambda_n \not\to 0$，存在子列 $|\lambda_{n_k}| \ge \varepsilon$。$M_\lambda e_{n_k} = \lambda_{n_k} e_{n_k}$，范数 $\ge \varepsilon$ 且两两「大角度分离」，无收敛子列——$M_\lambda$ 不紧。<span class="marginnote">这个判据极其重要：<strong>紧算子的「特征值趋于 0」</strong>。对角算子是「谱理论的原型」——它的谱是 $\{\lambda_n\}$ 的闭包，紧性 ⟺ 谱只以 $0$ 为聚点。第九章的 Riesz-Schauder 理论正是这句话的推广。</span>
 
 **例**：$M_{(1/n)}x = (x_n/n)$ 紧（$\lambda_n = 1/n \to 0$）；$M_{(1)}$（= $I$）不紧；$M_{((-1)^n)}$ 不紧（$\lambda_n$ 不趋于 0）。
 

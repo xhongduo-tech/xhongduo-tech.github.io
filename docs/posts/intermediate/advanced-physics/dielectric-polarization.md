@@ -55,9 +55,9 @@ $$E = \frac{E_0}{\varepsilon_r}$$
 
 平行板电容器填满相对介电常数 $\varepsilon_r$ 的介质后：
 
-- 介质内场强 $E = E_0/\varepsilon_r$（削弱）；
-- 电压 $U = Ed = U_0/\varepsilon_r$（下降）；
-- 电容 $C = \varepsilon_r C_0 = \frac{\varepsilon_r\varepsilon_0S}{d}$（增大 $\varepsilon_r$ 倍）。
+介质内场强 $E = E_0/\varepsilon_r$（削弱）；
+电压 $U = Ed = U_0/\varepsilon_r$（下降）；
+电容 $C = \varepsilon_r C_0 = \frac{\varepsilon_r\varepsilon_0S}{d}$（增大 $\varepsilon_r$ 倍）。
 
 **重点：填介质使电容增大 $\varepsilon_r$ 倍，因为介质极化削弱内部电场、使同样电荷对应的电压降低。** 保持电荷 $Q$ 不变，电压降为 $U_0/\varepsilon_r$，故 $C = Q/U$ 增大 $\varepsilon_r$ 倍。<span class="marginnote">两种看待方式：① 保持 $Q$ 不变，$U$ 下降 → $C$ 增大；② 保持 $U$ 不变，电场弱、可容纳更多 $Q$。无论哪种，结论都是 $C = \varepsilon_rC_0$。工程上用高介电常数材料（多层陶瓷电容）在微小体积里做出大电容。</span>
 

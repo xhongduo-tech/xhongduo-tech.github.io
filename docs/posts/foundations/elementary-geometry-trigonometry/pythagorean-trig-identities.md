@@ -39,9 +39,9 @@ $$\sin^2\theta + \cos^2\theta = 1, \qquad \tan\theta = \frac{\sin\theta}{\cos\th
 
 完整步骤：
 
-- **第一步，平方关系求 $\cos$**：$\cos^2\theta = 1 - \sin^2\theta = 1 - \frac{9}{25} = \frac{16}{25}$，所以 $\cos\theta = \pm \frac{4}{5}$。
-- **第二步，符号由象限定**：$\theta$ 在第二象限，$\cos\theta < 0$，取 $\cos\theta = -\frac{4}{5}$。
-- **第三步，商数关系求 $\tan$**：$\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{3/5}{-4/5} = -\frac{3}{4}$。
+**第一步，平方关系求 $\cos$**：$\cos^2\theta = 1 - \sin^2\theta = 1 - \frac{9}{25} = \frac{16}{25}$，所以 $\cos\theta = \pm \frac{4}{5}$。
+**第二步，符号由象限定**：$\theta$ 在第二象限，$\cos\theta < 0$，取 $\cos\theta = -\frac{4}{5}$。
+**第三步，商数关系求 $\tan$**：$\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{3/5}{-4/5} = -\frac{3}{4}$。
 
 **重点：** 「**先求绝对值，再定符号**」是这个流程的灵魂——平方关系给出两个解（正负），象限决定取舍。凡是「知一求余」题，都走这条「平方 → 定号 → 相除」的流程。<span class="marginnote">为什么开方会产生两个解？因为 $\cos^2\theta$ 相同的角有两个（关于 $x$ 轴对称的终边）。象限信息就是用来「二选一」的。若题目没给象限，则需按角所在象限分类讨论。</span>
 
@@ -49,9 +49,9 @@ $$\sin^2\theta + \cos^2\theta = 1, \qquad \tan\theta = \frac{\sin\theta}{\cos\th
 
 同角关系的第二个大用途是「**化简与统一**」——把含多种三角函数的式子化成只含一种，或化成最简。常用技巧：
 
-- **「1」的代换**：把 1 换成 $\sin^2\theta + \cos^2\theta$，例如 $\frac{\cos^2\theta}{1 - \sin\theta} = \frac{1 - \sin^2\theta}{1 - \sin\theta} = 1 + \sin\theta$；
-- **弦切互化**：遇到 $\tan$，写成分式 $\frac{\sin}{\cos}$，通分合并；
-- **齐次式**：$\frac{a\sin\theta + b\cos\theta}{c\sin\theta + d\cos\theta}$ 上下同除 $\cos\theta$，变成 $\frac{a\tan\theta + b}{c\tan\theta + d}$——把多元问题变成一元。
+**「1」的代换**：把 1 换成 $\sin^2\theta + \cos^2\theta$，例如 $\frac{\cos^2\theta}{1 - \sin\theta} = \frac{1 - \sin^2\theta}{1 - \sin\theta} = 1 + \sin\theta$；
+**弦切互化**：遇到 $\tan$，写成分式 $\frac{\sin}{\cos}$，通分合并；
+**齐次式**：$\frac{a\sin\theta + b\cos\theta}{c\sin\theta + d\cos\theta}$ 上下同除 $\cos\theta$，变成 $\frac{a\tan\theta + b}{c\tan\theta + d}$——把多元问题变成一元。
 
 <span class="marginnote">「齐次式同除 $\cos\theta$」是一个漂亮的技巧：式子分子分母的次数相同（都是关于 $\sin$、$\cos$ 的一次），同除 $\cos\theta$ 后全变成 $\tan\theta$。这种「降元」思想在后续所有三角恒等变换里反复出现。</span>
 

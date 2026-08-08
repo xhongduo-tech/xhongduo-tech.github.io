@@ -91,11 +91,14 @@ $$f(x) = A\left(10^{\alpha x} - 1\right), \qquad A = 165.4,\ \alpha = 0.06$$
 import numpy as np
 
 def greenwood(x_mm):
-    """基底膜距蜗顶 x 毫米处的特征频率（Hz）。"""
+    """基底膜上距蜗顶 x mm 处的特征频率（Hz）。"""
     return 165.4 * (10 ** (0.06 * x_mm) - 1)
 
-for x in [0, 10, 20, 25, 30, 35]:
-    print(f"{x:3d} mm -> {greenwood(x):8.1f} Hz")
+def place(f_hz):
+    """频率 → 基底膜位置（Greenwood 函数的反解，mm）。"""
+    return np.log10(f_hz / 165.4 + 1) / 0.06
+
+print(greenwood(0.0), greenwood(35.0))   # ≈ 0, ≈ 20655 —— 35 mm 铺开 20 Hz–20 kHz
 ```
 
 ## 6 从心理声学到音频编码

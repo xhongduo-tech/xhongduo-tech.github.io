@@ -24,13 +24,13 @@ date: 2026-08-07
 
 打开一个仓库，克制住「立刻翻代码」的冲动。**先花 20 分钟把文档读成一张图。** 三样东西必看：
 
-- **README 与 docs/**：回答「这个引擎的目标用户是谁、主打特性是什么、架构分成几块」。vLLM 的 docs 里有专门的架构图；SGLang 的 `docs/backend` 讲 Router 与 Runtime 的分工；TensorRT-LLM 的 docs 讲编译流程。
-- **`examples/` 与快速上手**：看「用户怎么用」，能反推出引擎对外暴露的抽象边界。
-- **GitHub 的目录结构**：读顶层目录名，通常是引擎的「骨架图」。vLLM 顶层有 `engine/`、`core/`、`worker/`、`model_executor/`、`entrypoints/`，这已经是一张模块地图。
+**README 与 docs/**：回答「这个引擎的目标用户是谁、主打特性是什么、架构分成几块」。vLLM 的 docs 里有专门的架构图；SGLang 的架构文档讲 Router 与 Runtime 的分工；TensorRT-LLM 的 docs 讲编译流程。
+**示例（examples）与快速上手**：看「用户怎么用」，能反推出引擎对外暴露的抽象边界。
+**GitHub 的目录结构**：读顶层目录名，通常是引擎的「骨架图」。vLLM 顶层有 `vllm/`、`csrc/`、`benchmarks/`、`tests/`、`docs/`，这已经是一张模块地图。
 
 目标不是记住细节，而是**在脑子里立起一条主线**：请求从哪进、到哪算、从哪出。第二章第一篇的「请求生命周期」就是这条主线的最佳模板。
 
-要警惕**文档滞后**：推理引擎迭代极快，README 里的架构图可能落后三个大版本。读文档时留意「这份文档最后一次更新是什么时候」，并用 `git log` 看最近改动集中在哪些目录——**代码永远比文档新，用 git 历史当文档的校准器**。
+要警惕**文档滞后**：推理引擎迭代极快，README 里的架构图可能落后三个大版本。读文档时留意「这份文档最后一次更新是什么时候」，并用 `git log --stat` 看最近改动集中在哪些目录——**代码永远比文档新，用 git 历史当文档的校准器**。
 
 ## 2 顺着一条请求的生命周期走
 
@@ -38,14 +38,14 @@ date: 2026-08-07
 
 | 生命周期节点 | vLLM 关键模块 | 你要看的代码 |
 | --- | --- | --- |
-| 入口 | `entrypoints/openai/` | HTTP 路由、OpenAI 协议解析 |
-| 排队与调度 | `core/scheduler.py` | 队列策略、抢占、批的拼装 |
-| 显存分配 | `core/block_manager.py` | KV 块的分配与回收 |
-| 模型执行 | `worker/` + `model_executor/` | 前向、注意力后端选择 |
-| 采样与停止 | `model_executor/layers/sampler.py` | 温度、top-p、停止条件 |
-| 返回 | `entrypoints/` + SSE | 流式输出 |
+| 入口 | `api_server` | HTTP 路由、OpenAI 协议解析 |
+| 排队与调度 | `scheduler` | 队列策略、抢占、批的拼装 |
+| 显存分配 | `block_manager` | KV 块的分配与回收 |
+| 模型执行 | `worker` + `model_runner` | 前向、注意力后端选择 |
+| 采样与停止 | `sampler` | 温度、top-p、停止条件 |
+| 返回 | `engine_client` + SSE | 流式输出 |
 
-**读法只有一个原则：只读「被调用到的路径」。** 从 `api_server.py` 进入，一路顺着调用关系往下走，遇到分支就问「这一步是哪种情况」，遇到抽象层就往下钻一层。凡是不在这条路径上的文件，第一遍全部跳过。<span class="marginnote">判断「被调用到」最快的办法是看函数签名与 grep 调用点；很多引擎的调度器都写成纯逻辑类，方便单测，读起来很顺。SGLang 的调度在 `srt/core/scheduler.py`，Router 在 `srt/router/`，结构更直白。</span>
+**读法只有一个原则：只读「被调用到的路径」。** 从 `api_server` 进入，一路顺着调用关系往下走，遇到分支就问「这一步是哪种情况」，遇到抽象层就往下钻一层。凡是不在这条路径上的文件，第一遍全部跳过。<span class="marginnote">判断「被调用到」最快的办法是看函数签名与 grep 调用点；很多引擎的调度器都写成纯逻辑类，方便单测，读起来很顺。SGLang 的调度在 `scheduler`，Router 在 `router`，结构更直白。</span>
 
 **带着问题读，而不是为了读完而读。** 比如：当一个请求到达时，它是立刻进 batch，还是排队？batch 满了怎么办——新请求等、旧请求被抢占、还是直接拒绝？KV 块从哪来，用完怎么还？这三个问题的答案，比背下十个类名有价值得多。
 
@@ -57,7 +57,7 @@ date: 2026-08-07
 
 **尺子一：正确性。** 采样是否实现完整（温度、top-p、logit bias、种子）？并行下是否可复现？停止条件（EOS、长度上限、停止词）处理在哪里、是否可靠？**看采样器与后处理代码**。
 
-**尺子二：性能。** 注意力用哪个后端、为什么？有没有 CUDA Graph？kernel 是否逼近 Roofline 上限（下一节给出验证方法）？**看 `model_executor/layers/attention` 与 worker 的执行循环**。
+**尺子二：性能。** 注意力用哪个后端、为什么？有没有 CUDA Graph？kernel 是否逼近 Roofline 上限（下一节给出验证方法）？**看 `model_runner` 与 worker 的执行循环**。
 
 **尺子三：内存。** KV 怎么分、怎么回收、有没有碎片？权重与激活的预留是否合理？**看 block manager 与显存统计代码**。<span class="marginnote">内存是引擎里最「脏」也最能拉开差距的部分：连续分配、页式分配、写时复制、前缀复用，四种策略的显存利用率可以差出数倍。评估时直接找「分配/回收」两个函数，看最坏情况下浪费多少。</span>
 
@@ -88,29 +88,29 @@ $$\text{AI} = \frac{\text{FLOPs}}{\text{Bytes}}, \qquad \text{上限} = \min(P_{
 
 方法讲完，给一条可以照着走的 vLLM 具体路径（SGLang 的对应物已标注）：
 
-1. **入口**：`vllm/entrypoints/openai/api_server.py` —— 看路由与 `AsyncLLMEngine` 的启动。
-2. **引擎**：`vllm/engine/async_llm_engine.py` —— 异步事件循环，把「调度」与「执行」解耦（SGLang 对应 `srt/core` 的 Engine）。
-3. **调度器**：`vllm/core/scheduler.py` —— 本轮评估尺子四的主战场（SGLang 对应 `srt/core/scheduler.py`）。
-4. **显存**：`vllm/core/block_manager.py` —— 尺子三的答案所在（SGLang 对应 `srt/mem_cache/` 的 RadixCache）。
-5. **执行**：`vllm/worker/worker.py` + `vllm/worker/model_runner.py` —— 看执行循环、CUDA Graph、模型前向。
-6. **注意力后端**：`vllm/model_executor/layers/attention/` —— 尺子二；`backends/` 目录下能一次看到 FlashAttention、FlashInfer 等多个后端的选择逻辑。
-7. **采样**：`vllm/model_executor/layers/sampler.py` —— 尺子一。
+1. **入口**：`api_server.py` —— 看路由与 `engine` 的启动。
+2. **引擎**：`engine` —— 异步事件循环，把「调度」与「执行」解耦（SGLang 对应 `srt/engine.py` 的 Engine）。
+3. **调度器**：`scheduler.py` —— 本轮评估尺子四的主战场（SGLang 对应 `scheduler.py`）。
+4. **显存**：`block_manager` —— 尺子三的答案所在（SGLang 对应 `radix_cache.py` 的 RadixCache）。
+5. **执行**：`executor` + `worker` —— 看执行循环、CUDA Graph、模型前向。
+6. **注意力后端**：`vllm/attention` —— 尺子二；`backends/` 目录下能一次看到 FlashAttention、FlashInfer 等多个后端的选择逻辑。
+7. **采样**：`sampler.py` —— 尺子一。
 
 **辨析｜易错点：**
 
 - **误区一：从 CUDA kernel 开始读。** kernel 是引擎的「末端」，没有调度与显存的上下文，读它如读天书。先读调度与生命周期，最后才下沉到 kernel。
 - **误区二：把 GitHub 星星当评估结果。** 星星衡量社区热度，不衡量你的负载性能。真正该做的是：读完主干后，用第十篇的压测方法在你自己的 GPU 上跑基准。
-- **误区三：只读主分支不看测试。** 测试是最小的「行为文档」：`tests/` 里往往直接写明了「什么情况下会触发抢占」「块表怎么处理越界」。读一个行为不明朗的函数，先搜它的测试。
+- **误区三：只读主分支不看测试。** 测试是最小的「行为文档」：`tests/` 目录里往往直接写明了「什么情况下会触发抢占」「块表怎么处理越界」。读一个行为不明朗的函数，先搜它的测试。
 
-补充一个实际技巧：**把 `git log --oneline <文件>` 当作阅读器**。一个文件的历史提交信息（fix: 处理块表越界、refactor: 调度器拆出抢占逻辑）会告诉你这个文件踩过哪些坑、职责是怎么演化的——这比从头读一遍代码更能快速理解「为什么长这样」。
+补充一个实际技巧：**把 `git log` 当作阅读器**。一个文件的历史提交信息（fix: 处理块表越界、refactor: 调度器拆出抢占逻辑）会告诉你这个文件踩过哪些坑、职责是怎么演化的——这比从头读一遍代码更能快速理解「为什么长这样」。
 
 ## 6 一个最小练习：在 30 分钟内读完调度器
 
-方法学了不用就忘。这里给一个可复制的 30 分钟练习，以 vLLM 的 `scheduler.py` 为目标：
+方法学了不用就忘。这里给一个可复制的 30 分钟练习，以 vLLM 的 `scheduler.py`（`vllm/engine/scheduler.py`）为目标：
 
-1. **前 5 分钟**：打开文件，只看类名、方法名与注释，画出「调度器对外暴露了哪些能力」——通常是 `schedule()`、`free()`、`abort()` 这几个入口。
+1. **前 5 分钟**：打开文件，只看类名、方法名与注释，画出「调度器对外暴露了哪些能力」——通常是 `schedule()`、`has_unfinished_seqs()`、`abort_seq_group()` 这几个入口。
 2. **中 15 分钟**：只读 `schedule()` 主函数，回答三个问题：这批选了哪些序列？为什么选它们（排序规则）？溢出时怎么办（抢占还是等待）？
-3. **后 10 分钟**：对照测试文件 `tests/` 里调度器的用例，验证你的理解——测试里写的「满时抢占最老的」是不是你在代码里读到的逻辑。
+3. **后 10 分钟**：对照测试文件 `tests/engine/test_scheduler.py` 里调度器的用例，验证你的理解——测试里写的「满时抢占最老的」是不是你在代码里读到的逻辑。
 
 做完这三步，你对「读引擎源码」这件事就有了体感。后面第三篇的调度器源码分析，就是把这个练习放大成完整的两节。
 
@@ -120,8 +120,8 @@ $$\text{AI} = \frac{\text{FLOPs}}{\text{Bytes}}, \qquad \text{上限} = \min(P_{
 - **沿生命周期巡游**：入口 → 调度 → 显存 → 执行 → 采样 → 返回；只读被调用到的路径。
 - **四把尺子**：正确性（采样与停止）、性能（内核与后端）、内存（分配与回收）、调度（策略与抢占）。
 - **Roofline 交叉验证**：算 kernel 的算术强度，与驻点对比判断它是访存密集还是算力密集，再拿实测与上限对照，免被复杂度带偏。
-- **具体路径**：vLLM 从 `api_server` → `async_llm_engine` → `scheduler` → `block_manager` → `worker` → `attention` → `sampler`，一路走到底。
-- **用 git 历史当阅读器**：`git log --oneline <文件>` 里的提交信息，是理解「为什么长这样」的捷径。
+- **具体路径**：vLLM 从 `api_server` → `engine` → `scheduler` → `block_manager` → `executor`/`worker` → `attn_backends` → `sampler`，一路走到底。
+- **用 git 历史当阅读器**：`git log` 里的提交信息，是理解「为什么长这样」的捷径。
 - **30 分钟练习**：先画方法名、再读主函数、最后用测试验证——把读引擎变成可重复的技能。
 
 在下一节，我们进入 vLLM 的第一座丰碑——**PagedAttention：KV Cache 的页式内存管理**。你将看到虚拟内存的古老思想，如何在 GPU 上让 KV Cache 的利用率翻四倍。

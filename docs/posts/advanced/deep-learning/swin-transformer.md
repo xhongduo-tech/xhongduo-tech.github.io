@@ -40,8 +40,8 @@ $$
 
 **两层交替**：
 
-- **层 1**：普通窗口（从 (0,0) 开始切）。
-- **层 2**：移位窗口（从 $(\lfloor M/2\rfloor, \lfloor M/2\rfloor)$ 开始切）——**窗口边界移动，原窗口边界的块现在与「隔壁窗口」的块同窗**。
+**层 1**：普通窗口（从 (0,0) 开始切）。
+**层 2**：移位窗口（从 $(\lfloor M/2\rfloor, \lfloor M/2\rfloor)$ 开始切）——**窗口边界移动，原窗口边界的块现在与「隔壁窗口」的块同窗**。
 
 **效果**：经过「普通窗口 → 移位窗口」的交替，每个块既能「看本窗口」，又能「经由移位」与「相邻窗口」交流——**「移位窗口实现了『跨窗口信息流动』」**。
 
@@ -54,10 +54,17 @@ $$
 **层级结构（hierarchical structure）**：Swin 像 CNN 一样「逐级下采样」——分辨率逐级减半、通道逐级翻倍，形成**特征金字塔**：
 
 ```
-Stage 1: H/4 × W/4 × C      (4×4 块嵌入后)
-Stage 2: H/8 × W/8 × 2C     (下采样)
-Stage 3: H/16 × W/16 × 4C
-Stage 4: H/32 × W/32 × 8C
+输入 (H×W×3)
+  ↓ Patch Partition（4×4 分块，emb_dim = C）
+Stage 1：H/4 × W/4 × C      （窗口注意力块 ×2）
+  ↓ Patch Merging（2×2 下采样，通道翻倍）
+Stage 2：H/8 × W/8 × 2C     （窗口注意力块 ×2）
+  ↓ Patch Merging
+Stage 3：H/16 × W/16 × 4C   （窗口注意力块 ×6）
+  ↓ Patch Merging
+Stage 4：H/32 × W/32 × 8C   （窗口注意力块 ×2）
+  ↓
+分类头 / 检测、分割头
 ```
 
 每个 Stage 由「窗口注意力块」堆叠，Stage 之间用「下采样」（patch merging，把 $2\times2$ 块拼成一个、通道翻倍）。
@@ -94,9 +101,9 @@ $$
 
 Swin 的影响力：
 
-- **检测/分割骨干**：Swin 成为 Mask R-CNN、Cascade R-CNN 的「即插即用骨干」，在 COCO 检测与 ADE20K 分割上刷新纪录。
-- **通用视觉骨干**：Swin 的层级设计成为「现代视觉 Transformer 的范式」（Swin v2、SwinIR 超分辨率等）。
-- **与自监督结合**：Swin 作为 MAE、对比学习的骨干——「层级 + 掩码」的组合。
+**检测/分割骨干**：Swin 成为 Mask R-CNN、Cascade R-CNN 的「即插即用骨干」，在 COCO 检测与 ADE20K 分割上刷新纪录。
+**通用视觉骨干**：Swin 的层级设计成为「现代视觉 Transformer 的范式」（Swin v2、SwinIR 超分辨率等）。
+**与自监督结合**：Swin 作为 MAE、对比学习的骨干——「层级 + 掩码」的组合。
 
 **「Swin 教会我们：『全局注意力』不是唯一选项」**——「局部窗口 + 层级 + 移位」的「工程化 Transformer」，在实际任务（检测/分割/高分辨率）上比「纯全局」更实用——「<strong>好的架构是『理论最优』与『工程可行』的折中</strong>」。<span class="marginnote">「Swin 之后的『视觉骨干』谱系」：ViT（纯全局）→ Swin（窗口 + 层级）→ Swin v2（更深更稳）→ ConvNeXt（向 CNN 的「回归」：用卷积复刻 Swin 的配方）——「<strong>视觉骨干在『Transformer 与 CNN 之间来回震荡』</strong>」。这个「来回」揭示了一个深层事实：<strong>「有效的视觉结构」是「局部 + 全局 + 层级」的某种平衡，Transformer 与 CNN 只是不同的实现</strong>。</span>
 

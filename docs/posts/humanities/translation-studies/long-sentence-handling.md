@@ -50,15 +50,15 @@ date: 2026-08-07
 
 **顺译法（linear translation）**：当英语长句的叙述顺序与汉语基本一致（先发生的事先写、主句在前从句在后）时，按原文顺序顺译即可。科技文献里的时间序列、操作步骤，常可顺译。
 
-- *He had flown in just the day before from Georgia, where he had spent his vacation basking in the Caucasian sun.* → 他前一天刚从佐治亚州飞回来，在那里他沐浴着高加索的阳光度了假。（顺序天然一致，顺译。）
+*He had flown in just the day before from Georgia, where he had spent his vacation basking in the Caucasian sun.* → 他前一天刚从佐治亚州飞回来，在那里他沐浴着高加索的阳光度了假。（顺序天然一致，顺译。）
 
 **逆译法（reverse translation）**：当英语语序与汉语相反（如结果在前、原因在后，主句在前、从句在后）时，从后往前译。
 
-- *It was a keen disappointment that I had to postpone the visit which I had intended to pay to China in January.* → 我原打算今年一月访问中国，后来不得不推迟，这使我深感失望。（原因在前、结果在后，逆译。）
+*It was a keen disappointment that I had to postpone the visit which I had intended to pay to China in January.* → 我原打算今年一月访问中国，后来不得不推迟，这使我深感失望。（原因在前、结果在后，逆译。）
 
 **分译法（splitting）**：把长句拆成几个独立短句，是处理「树状嵌套」最常用、也最「汉化」的方法。被拆的通常是冗长的定语从句、分词短语与并列结构。
 
-- *The computer, which seemed to play an important role in the development of modern science, has become more and more popular.* → 计算机在近代科学发展中似乎起着重要作用，如今已越来越普及。（拆成两句。）
+*The computer, which seemed to play an important role in the development of modern science, has become more and more popular.* → 计算机在近代科学发展中似乎起着重要作用，如今已越来越普及。（拆成两句。）
 
 **综合法（synthesis）**：一个长句里顺译、逆译、分译并用，按意群分别处理再有机组合。这是最常用的方法——真实的长句几乎都是「综合处理」的。<span class="marginnote">四种方法不是四选一，而是「工具箱」：顺译最省力但受限，逆译处理逻辑倒置，分译化解嵌套，综合法按需混用。判断用哪种，取决于你画出的是哪类结构——画完「层次图」，方法自然浮现。</span>
 

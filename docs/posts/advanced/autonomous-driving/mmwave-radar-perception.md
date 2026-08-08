@@ -42,12 +42,11 @@ $$\Delta \phi_{ant} = \frac{2\pi d \sin\theta}{\lambda}$$
 
 由相位差反解 $\theta$，就是测角。于是，**一个 FMCW 信号通过「时延 → 频率」「多普勒 → 跨帧相位」「天线阵 → 阵元相位」三种编码，同时携带了距离、速度与角度**。
 
-```python
-# 雷达信号处理的经典三步：先做距离 FFT，再做多普勒 FFT，最后 CFAR 提峰
-range_fft   = np.fft.fft(chirp_mixed, axis=-1)   # 每根 chirp 一维 FFT → 距离
-doppler_fft = np.fft.fft(range_fft,  axis=-2)    # 跨 chirp 的 FFT → 速度
-peaks       = cfar(doppler_fft)                   # 恒虚警检测，找目标峰
-```
+| 测量量 | 编码方式 | 核心公式 |
+| --- | --- | --- |
+| 距离 $R$ | 时延 → 中频频率 | $f_{IF} = \dfrac{2BR}{cT_c}$ |
+| 径向速度 $v$ | 多普勒 → 跨 chirp 相位差 | $\Delta\phi = \dfrac{4\pi v T_c}{\lambda}$ |
+| 方位角 $\theta$ | 天线阵 → 阵元相位差 | $\Delta\phi_{ant} = \dfrac{2\pi d\sin\theta}{\lambda}$ |
 
 **辨析｜易错点：** 单一线性斜坡下，$f_{IF}$ 同时含有距离项与速度项，两者耦合——目标既远又靠近时，差频会被「拉高」。工程上要么用两个不同斜率的 chirp 做解耦，要么用锯齿波做距离-多普勒联合估计。所以「距离分辨率只由带宽决定」成立的前提，是速度已被正确解算。
 

@@ -30,7 +30,7 @@ date: 2026-08-07
 
 **置换密码的密文里，每个字母出现的次数与明文完全相同，但字母的相邻关系（双字母、三字母组合）被彻底打乱。**
 
-于是攻击手段也完全不同。对置换密码做单字母频率分析完全无用——频率分布原样保留，你数出来还是英语的频率谱。真正被破坏的是**高阶结构**：明文中 `th`、`the` 这些常见组合被拆散，换成了一堆陌生的字母对。攻击者要重建的，不是「字母表映射」，而是「位置之间的对应关系」。
+于是攻击手段也完全不同。对置换密码做单字母频率分析完全无用——频率分布原样保留，你数出来还是英语的频率谱。真正被破坏的是**高阶结构**：明文中 `th`、`he` 这些常见组合被拆散，换成了一堆陌生的字母对。攻击者要重建的，不是「字母表映射」，而是「位置之间的对应关系」。
 
 **辨析｜易错点：** 初学者常把「频率分析打不穿置换密码」误读成「置换密码很安全」。恰恰相反，置换密码有它自己的软肋：它**不产生新字母，只重排旧字母**。攻击者只要测出「块的大小」与「块内重排规则」，就能原样还原；而块的大小通常可以从密文长度与行数猜出来。更致命的是，置换完全不增加「每个明文字母的熵」——这是第二篇香农理论的伏笔：**置换没有引入任何新的不确定性，它只是把已有的不确定性重新布置了一遍。**
 
@@ -38,18 +38,18 @@ date: 2026-08-07
 
 **栅栏密码（rail fence cipher）**是最直观的置换密码。它的思想是：把明文按「锯齿形」斜向写进 $k$ 条轨道（rails），再逐行读出密文。这里的 $k$ 就是「栅栏数」。
 
-用明文 `ATTACKATDAWN`、栅栏数 3 走一遍。先把 12 个字符沿锯齿路径分配进 3 行（`.` 表示空位）：
+用明文 `ATTACKATDAWN`、栅栏数 3 走一遍。先把 12 个字符沿锯齿路径分配进 3 行（`·` 表示空位）：
 
 ```
-行 0:  A . . . C . . . D . . .
-行 1:  . T . A . K . T . A . N
-行 2:  . . T . . . A . . . W .
+A . . . C . . . D . . .
+. T . A . K . T . A . N .
+. . T . . . A . . . W . .
 ```
 
 逐行读出来，得到密文：
 
 ```
-密文 = ACD  TAKTAN  TAW = ACDTAKTANTAW
+ACDTAKTANTAW
 ```
 
 解密就是把过程倒过来：先按 3 行算好每行的长度（第 0 行 3 个、第 1 行 6 个、第 2 行 3 个），把密文重新填回锯齿骨架，再沿锯齿路径读回明文。**加密与解密共享同一张「锯齿图」，只是读写方向相反**——这个「先摆好几何结构、再按结构读写」的套路，会在列置换里再次出现，也是后面所有分组密码的通用手法。
@@ -62,22 +62,20 @@ date: 2026-08-07
 
 加密流程分三步。第一步，把明文**逐行**写进一张宽度等于密钥长度的表；第二步，把密钥字母按字母表顺序排序，得到「列的读取顺序」；第三步，按这个顺序**逐列**读出密文。<span class="marginnote">列置换是「先按行写、再按列读」的典型：写入顺序与读取顺序的错位，正是打乱效果的来源。这类「行写列读」结构在密码学里非常常见——DES 的初始置换、许多纠错码的交织（interleaving），都是它的近亲。</span>
 
-用密钥 `CIPHER`（6 列）、明文 `ATTACKATDAWN`（12 个字符，恰好 2 行）示范。先把明文按行填表：
+用密钥 `SECRET`（6 列）、明文 `ATTACKATDAWN`（12 个字符，恰好 2 行）示范。先把明文按行填表：
 
 ```
-    列 0  列 1  列 2  列 3  列 4  列 5
-行0  A    T    T    A    C    K
-行1  A    T    D    A    W    N
+A T T A C K
+A T D A W N
 ```
 
-密钥 `CIPHER` 六个字母按字母表顺序排序：`C(列0) < E(列4) < H(列3) < I(列1) < P(列2) < R(列5)`，所以读取列的顺序是 `0 → 4 → 3 → 1 → 2 → 5`。逐列读出：
+密钥 `SECRET` 六个字母按字母表顺序排序：`C E E R S T`，所以读取列的顺序是 `2, 1, 4, 3, 0, 5`。逐列读出：
 
 ```
-列0: AA    列4: CW    列3: AA    列1: TT    列2: TD    列5: KN
-密文 = AACWAATTTDKN
+TDTTCWAAAAKN
 ```
 
-解密则反向：知道密钥 `CIPHER` 与密文长度，就能算出表是 $2 \times 6$，按读取顺序把密文填回各列，再按行读回明文。**密钥单词一旦泄露，整个结构就透明了**——所以它的安全完全押在「密钥单词」的保密上，这正是科克霍夫原则的标准注脚：算法公开没关系，密钥必须保密。
+解密则反向：知道密钥 `SECRET` 与密文长度，就能算出表是 $2 \times 6$，按读取顺序把密文填回各列，再按行读回明文。**密钥单词一旦泄露，整个结构就透明了**——所以它的安全完全押在「密钥单词」的保密上，这正是科克霍夫原则的标准注脚：算法公开没关系，密钥必须保密。
 
 ## 4 公式解析：用置换 π 与逆置换 π⁻¹ 描述列置换
 
@@ -107,54 +105,27 @@ $$
 把两种置换密码都写成代码，你会发现它们的共同点：**加密只是「按规则重新排序」，解密是「按同一规则反着排」**：
 
 ```python
-def rail_fence(text: str, k: int, decrypt: bool = False) -> str:
-    """栅栏密码：沿锯齿路径分配 / 读回。"""
-    text = "".join(c for c in text if c.isalpha())
-    rails = [[] for _ in range(k)]
-    rail, step = 0, 1
-    for ch in text:
-        rails[rail].append(ch)
-        rail += step
-        if rail in (0, k - 1):
+def rail_fence(text, rails):
+    rows = [[] for _ in range(rails)]
+    row, step = 0, 1
+    for ch in text:                       # 沿锯齿路径逐字符分配
+        rows[row].append(ch)
+        row += step
+        if row in (0, rails - 1):         # 到顶/到底就换方向
             step = -step
-    if not decrypt:
-        return "".join("".join(r) for r in rails)
-    # 解密：先按各轨长度重建锯齿骨架，再沿路径读回
-    idx, out = [0] * k, [""] * len(text)
-    pos = [(i % (2 * k - 2) if (i % (2 * k - 2)) < k
-            else 2 * k - 2 - (i % (2 * k - 2))) for i in range(len(text))]
-    flat = iter(text)
-    for r in rails:
-        pass
-    for r in range(k):
-        cnt = sum(1 for p in pos if p == r)
-        out_seg = [next(flat) for _ in range(cnt)]
-        it = iter(out_seg)
-        for i, p in enumerate(pos):
-            if p == r:
-                out[i] = next(it)
-    return "".join(out)
+    return ''.join(''.join(r) for r in rows)
 
-def columnar(text: str, key: str, decrypt: bool = False) -> str:
-    """列置换：按行写、按密钥字母表顺序读列。"""
-    text = "".join(c for c in text if c.isalpha())
-    order = sorted(range(len(key)), key=lambda i: key[i])  # 列读取顺序
-    if not decrypt:
-        rows = [text[i:i + len(key)] for i in range(0, len(text), len(key))]
-        return "".join("".join(r[i] for r in rows if i < len(r)) for i in order)
-    n_cols, n_rows = len(key), -(-len(text) // len(key))
-    grid = [[""] * n_cols for _ in range(n_rows)]
-    flat = iter(text)
-    for col in order:
-        for r in range(n_rows):
-            grid[r][col] = next(flat)
-    return "".join("".join(grid[r]) for r in range(n_rows))
+def columnar(text, key):
+    width = len(key)
+    rows = [text[i:i + width] for i in range(0, len(text), width)]  # 按行填表
+    order = sorted(range(width), key=lambda i: key[i])              # 密钥排序生成置换 π
+    return ''.join(''.join(r[i] for r in rows if i < len(r)) for i in order)
 
-print("栅栏 3 轨加密:", rail_fence("ATTACKATDAWN", 3))        # ACDTAKTANTAW
-print("列置换 CIPHER:", columnar("ATTACKATDAWN", "CIPHER"))  # AACWAATTTDKN
+print(rail_fence("ATTACKATDAWN", 3))       # ACDTAKTANTAW
+print(columnar("ATTACKATDAWN", "SECRET"))  # TDTTCWAAAAKN
 ```
 
-注意列置换里 `order = sorted(range(len(key)), key=lambda i: key[i])` 就是公式里的 $\pi$——**密钥单词的字母表排序直接生成了置换**，这正是「用密钥控制置换」的实现。<span class="marginnote">若把公式与代码对照：$\pi(i)$ 就是 `order.index(i)`，加密时把列 $i$ 的字符搬到密文对应段。看到「排序生成置换」这一招，你就理解了为什么列置换的密钥空间是 $d!$——密钥单词的每个排列都对应一种列序。</span>
+注意列置换里 `order` 就是公式里的 $\pi$——**密钥单词的字母表排序直接生成了置换**，这正是「用密钥控制置换」的实现。<span class="marginnote">若把公式与代码对照：$\pi(i)$ 就是 `order[i]`，加密时把列 $i$ 的字符搬到密文对应段。看到「排序生成置换」这一招，你就理解了为什么列置换的密钥空间是 $d!$——密钥单词的每个排列都对应一种列序。</span>
 
 ## 6 历史与前瞻：从塞塔拉到乘积密码
 

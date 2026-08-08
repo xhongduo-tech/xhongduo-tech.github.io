@@ -80,7 +80,7 @@ $$
 SIFT 在实践中的几个要点：
 
 - **坐标尺度信息**：描述子构建用的窗口大小与梯度权重都按关键点的 $\sigma$ 缩放，因此描述子同时具备尺度不变性——这是它区别于 Harris 的关键升级。
-- **专利与实现**：SIFT 曾受专利保护（2020 年到期），OpenCV 用 `cv2.SIFT_create()` 调用。如今实现完全开放。
+- **专利与实现**：SIFT 曾受专利保护（2020 年到期），OpenCV 曾需用 `cv2.xfeatures2d.SIFT_create()`（non-free 模块）调用。如今实现完全开放。
 - **局限**：计算量比 ORB 等大一个量级；对**大视角变化**（超过约 30° 的纯旋转是目标之一，但强透视/姿态变化）鲁棒性下降；在**低纹理、重复纹理**区域检出点少。<span class="marginnote">Lowe 论文的实验结论：SIFT 在仿射变化 ±45° 内匹配率可观，但对超出仿射范围的强透视退化。后来的 ASIFT 通过「仿射模拟」扩展了 SIFT 的视角范围——原理是穷举多个仿射视角再跑 SIFT。</span>
 
 SIFT 的完整流水线——检测、方向、描述子——在图像拼接、三维重建、SLAM、物体识别中被广泛使用，直到深度学习特征（SuperPoint、LoFTR）出现后才被部分取代。
@@ -97,7 +97,7 @@ SIFT 的评测与使用，几个关键点：
 
 **工程实践**：
 
-- **OpenCV 调用**：`cv2.SIFT_create()`——SIFT 专利 2020 年到期，现已完全免费。
+- **OpenCV 调用**：`cv2.SIFT_create()`（Python）/ `cv::SIFT::create()`（C++）——SIFT 专利 2020 年到期，现已完全免费。
 - **参数**：`nfeatures`（关键点数上限）、`contrastThreshold`（对比度阈值，调低多点但多点噪声）、`edgeThreshold`（边缘响应阈值）——"参数在'点数'与'质量'间权衡"。
 - **与 GPU/加速**：SIFT 有 GPU 实现（SiftGPU、VLFeat）——"实时场景用加速版或换 ORB"。
 

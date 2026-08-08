@@ -24,19 +24,19 @@ date: 2026-08-07
 
 对比两种模式的分发时间。设文件大小为 $F$，服务器上载速率 $u_s$，每个对等方下载速率 $d_i$、上载速率 $u_i$。
 
-- **C/S 模式**：服务器要把 $F$ 逐个发给 $N$ 个用户，**分发时间 $\approx N \cdot F / u_s$**——用户越多，时间线性增长，服务器是瓶颈。
-- **P2P 模式**：每个对等方下载完一部分就开始上传，**分发时间随 $N$ 增长非常缓慢**（约正比于 $\sqrt{N}$ 或对数），因为总上载能力 = 服务器 + 所有对等方。<span class="marginnote">直观理解：<strong>C/S 是一人发、万人收，快慢由一人决定；P2P 是人人参与上传，总带宽 = 所有参与者的上传带宽之和</strong>。BitTorrent 刚发布时最热门的文件，往往下载速度超过普通 HTTP——因为成千上万的「下载者」同时也在「上传者」。<strong>「P2P 把分发成本从服务器转移给了全体参与者」</strong>。</span>
+**C/S 模式**：服务器要把 $F$ 逐个发给 $N$ 个用户，**分发时间 $\approx N \cdot F / u_s$**——用户越多，时间线性增长，服务器是瓶颈。
+**P2P 模式**：每个对等方下载完一部分就开始上传，**分发时间随 $N$ 增长非常缓慢**（约正比于 $\sqrt{N}$ 或对数），因为总上载能力 = 服务器 + 所有对等方。<span class="marginnote">直观理解：<strong>C/S 是一人发、万人收，快慢由一人决定；P2P 是人人参与上传，总带宽 = 所有参与者的上传带宽之和</strong>。BitTorrent 刚发布时最热门的文件，往往下载速度超过普通 HTTP——因为成千上万的「下载者」同时也在「上传者」。<strong>「P2P 把分发成本从服务器转移给了全体参与者」</strong>。</span>
 
 **辨析｜易错点：** P2P 的「快」有前提：**参与者愿意贡献上传带宽**。如果所有人只下载不上传（称为 free-riding），P2P 就退化成 C/S。**BitTorrent 的核心机制之一就是「鼓励上传」**——见下面的「一报还一报」。
 
 ## 2 BitTorrent 的基本机制：分块与文件
 
-BitTorrent 的工作基于几个关键概念：<span class="marginnote"><strong>torrent 文件</strong>：一个「种子描述文件」，不包含文件内容，只包含文件的信息（分块大小、每块的哈希、Tracker 地址）。<strong>分块（piece）</strong>：文件被切成固定大小的块（如 256KB），每块独立下载与校验。<strong>Tracker</strong>：一个「登记处」，帮助 peer 互相找到对方（记录谁在线、谁有什么块）。<strong>Seeder</strong>（做种者）：拥有完整文件、只上传的人；<strong>Leecher</strong>（下载者）：正在下载、边下边传的人。</span>
+BitTorrent 的工作基于几个关键概念：<span class="marginnote"><strong>torrent 文件</strong>：一个「种子描述文件」，不包含文件内容，只包含文件的信息（分块大小、每块的哈希、Tracker 地址）。<strong>分块（piece）</strong>：文件被切成固定大小的块（如 256KB），每块独立下载与校验。<strong>Tracker</strong>`：一个「登记处」，帮助 peer 互相找到对方（记录谁在线、谁有什么块）。<strong>Seeder</strong>`（做种者）：拥有完整文件、只上传的人；<strong>Leecher</strong>（下载者）：正在下载、边下边传的人。</span>
 
-- **torrent 文件**：描述文件的「种子文件」（分块信息 + Tracker 地址）。
-- **分块（piece）**：文件切成小块，独立下载、独立校验。
-- **Tracker**：登记 peer、帮 peer 互找。
-- **Seeder / Leecher**：有完整文件的人 / 正在下载的人。
+**torrent 文件**：描述文件的「种子文件」（分块信息 + Tracker 地址）。
+**分块（piece）**：文件切成小块，独立下载、独立校验。
+**Tracker**：登记 peer、帮 peer 互找。
+**Seeder / Leecher**：有完整文件的人 / 正在下载的人。
 
 **辨析｜易错点：** **torrent 文件很小、本身不包含文件内容**——它只是「如何获得文件的说明」。**「种子」有两种含义**：torrent 文件（描述文件）与 Seeder（做种者）——别混。下载完成后继续「做种（seeding）」为别人上传，是 P2P 生态的「良心」行为。
 
@@ -44,8 +44,8 @@ BitTorrent 的工作基于几个关键概念：<span class="marginnote"><strong>
 
 BitTorrent 能成功，靠两个精巧的算法：<span class="marginnote"><strong>① 稀缺优先（rarest first）</strong>：优先下载「拥有的人最少」的块——因为这正是<strong>最容易「断种」的块</strong>，先拿下它，整个文件的完整性才有保障。它同时让「稀有块」尽快被复制扩散。<strong>② 一报还一报（tit-for-tat）</strong>：<strong>你上传给我多少，我就上传给你多少</strong>——优先给「正在给自己上传」的 peer 上传。这直接惩罚「只下不上」的 free-rider，激励合作。<strong>「稀缺优先保完整，一报还一报促公平」</strong>是 BitTorrent 的两大法宝。</span>
 
-- **稀缺优先（rarest first）**：先下「拥有者最少」的块，保住文件完整性。
-- **一报还一报（tit-for-tat）**：按「对方给我上传的量」决定「我给他上传的量」，惩罚 free-rider。
+**稀缺优先（rarest first）**：先下「拥有者最少」的块，保住文件完整性。
+**一报还一报（tit-for-tat）**：按「对方给我上传的量」决定「我给他上传的量」，惩罚 free-rider。
 
 **辨析｜易错点：** **稀缺优先与「最先下载」是冲突的**——直觉上你会先下「自己最快的块」，但 BitTorrent 反其道而行先下「最稀有的块」。**「全局完整性优先于个人速度」**是稀缺优先的哲学。而**一报还一报是「激励相容」**的经典：让「利己」的行为恰好是「利他」的行为——这是机制设计的精髓。
 

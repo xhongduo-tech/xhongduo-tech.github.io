@@ -89,9 +89,9 @@ $$\psi_+ \propto e^{i\mathbf{G}\cdot\mathbf{r}/2} + e^{-i\mathbf{G}\cdot\mathbf{
 一维晶格（周期 $a$），布里渊区 $[-\pi/a, \pi/a]$。
 NFE 给出：
 
-- 大部分 $\mathbf{k}$：$E \approx \hbar^2 k^2/2m$，自由电子抛物线；
-- 边界 $k = \pm\pi/a$：抛物线被劈开，出现能隙 $2|V_G|$；
-- 能带以 $2\pi/a$ 为周期重复。
+大部分 $\mathbf{k}$：$E \approx \hbar^2 k^2/2m$，自由电子抛物线；
+边界 $k = \pm\pi/a$：抛物线被劈开，出现能隙 $2|V_G|$；
+能带以 $2\pi/a$ 为周期重复。
 
 **重点：能隙在布里渊区边界处打开**，边界正是 $\mathbf{k}$ 满足布拉格条件 $\mathbf{k}\cdot\mathbf{G} = |\mathbf{G}|^2/2$ 的地方。所以「**能隙在哪」完全由倒格子几何决定**，与势的强度无关（势只决定能隙**大小** $2|V_G|$）。
 

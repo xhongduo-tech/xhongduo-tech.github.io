@@ -87,12 +87,12 @@ $H$ 是 3×3 矩阵、8 个自由度（整体缩放无意义），因此最小�
 
 RANSAC 家族在四十年里衍生出大量变体：
 
-- **MSAC / MLESAC**：把「内点计数」换成**加权误差函数**，对误差略超阈值的内点也给予部分权重，更平滑、更准。
-- **PROSAC**：用匹配质量（如比值测试的比值）给采样加权，优先从高质量匹配里采样，收敛更快。
-- **RANSAC + 局部优化（LO-RANSAC）**：每轮对内点集做局部精化，提高模型精度。
-- **图割 RANSAC（GC-RANSAC）**：用全局优化代替局部计数。
+**MSAC / MLESAC**：把「内点计数」换成**加权误差函数**，对误差略超阈值的内点也给予部分权重，更平滑、更准。
+**PROSAC**：用匹配质量（如比值测试的比值）给采样加权，优先从高质量匹配里采样，收敛更快。
+**RANSAC + 局部优化（LO-RANSAC）**：每轮对内点集做局部精化，提高模型精度。
+**图割 RANSAC（GC-RANSAC）**：用全局优化代替局部计数。
 
-RANSAC 的固有局限：**需要设定阈值 $\epsilon$ 与置信度 $P$**（虽有自适应变体）、**最坏情况计算量随外点比例指数增长**、对**低内点比例**（<10%）场景失效。它假设外点均匀分布，而真实错配往往有聚集性。<span class="marginnote">到深度学习时代，学习式匹配器（SuperGlue、LoFTR）与「可微 RANSAC」（如 Deep Fundamental Matrix Estimation）试图把 RANSAC 的假设-检验循环嵌入网络训练。但经典 RANSAC 凭借「无需训练、可解释、通用」至今仍是 OpenCV 里 `findHomography(..., RANSAC)` 的默认引擎。</span>
+RANSAC 的固有局限：**需要设定阈值 $\epsilon$ 与置信度 $P$**（虽有自适应变体）、**最坏情况计算量随外点比例指数增长**、对**低内点比例**（<10%）场景失效。它假设外点均匀分布，而真实错配往往有聚集性。<span class="marginnote">到深度学习时代，学习式匹配器（SuperGlue、LoFTR）与「可微 RANSAC」（如 Deep Fundamental Matrix Estimation）试图把 RANSAC 的假设-检验循环嵌入网络训练。但经典 RANSAC 凭借「无需训练、可解释、通用」至今仍是 OpenCV 里 $\epsilon$ 的默认引擎。</span>
 
 ## 6 RANSAC 的工程实践与参数选择
 

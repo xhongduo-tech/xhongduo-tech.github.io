@@ -26,16 +26,16 @@ date: 2026-08-07
 
 **记录什么**：
 
-- **超参数**：学习率、batch、层数、正则——「配置的完整快照」。
-- **训练动态**：每步/每 epoch 的损失、梯度范数、验证指标——「过程的曲线」。
-- **环境信息**：GPU 型号、PyTorch 版本、随机种子——「环境的完整描述」。
-- **代码版本**：git commit 号——「代码的精确状态」。
+**超参数**：学习率、batch、层数、正则——「配置的完整快照」。
+**训练动态**：每步/每 epoch 的损失、梯度范数、验证指标——「过程的曲线」。
+**环境信息**：GPU 型号、PyTorch 版本、随机种子——「环境的完整描述」。
+**代码版本**：git commit 号——「代码的精确状态」。
 
 **怎么做**：
 
-- **结构化日志**：`tensorboard` / `wandb` / `mlflow`——「自动记录曲线、可对比」。
-- **自建日志**：CSV/JSON 记录每 epoch——「轻量、可自控」。
-- **实验命名**：`{模型}_{数据}_{超参摘要}_{时间戳}`——「实验可辨识」。
+**结构化日志**：TensorBoard / Weights & Biases / MLflow——「自动记录曲线、可对比」。
+**自建日志**：CSV/JSON 记录每 epoch——「轻量、可自控」。
+**实验命名**：约定式命名（如 `resnet50_lr1e-3_bs256_seed42`）——「实验可辨识」。
 
 **「日志是实验的『黑匣子』」**——「训练出了什么事，日志要能『回放』」。<span class="marginnote">「『实验对比』的日志价值」：多个实验的日志放一起，才能「对比出『哪个配置更好、为什么』」——「<strong>『单实验日志』是记录，『多实验对比』是研究</strong>」。「wandb/tensorboard 的『多实验对比』功能，让『试过的配置』变成『可分析的数据库』」。「<strong>日志的终极价值 = 从『试过的』里学出『该试的』</strong>」。</span>
 
@@ -54,11 +54,14 @@ date: 2026-08-07
 **PyTorch 的种子控制**：
 
 ```python
-torch.manual_seed(42)       # PyTorch（CPU + GPU）
-np.random.seed(42)          # NumPy
-random.seed(42)             # Python
-torch.backends.cudnn.deterministic = True   # GPU 确定性
-torch.backends.cudnn.benchmark = False      # 关闭自动调优
+import random
+import numpy as np
+import torch
+
+random.seed(0)
+np.random.seed(0)
+torch.manual_seed(0)
+torch.cuda.manual_seed_all(0)
 ```
 
 **「固定种子 ≠ 完全复现」**：多卡并行、某些 GPU 算子（原子加法的顺序）仍可能非确定——「<strong>『尽可能确定』是目标，『完全确定』受硬件限制</strong>」。
@@ -71,7 +74,7 @@ torch.backends.cudnn.benchmark = False      # 关闭自动调优
 
 **实现手段**：
 
-1. **锁定依赖版本**：`requirements.txt` / `environment.yml` / Docker——「固定库版本」。
+1. **锁定依赖版本**：`requirements.txt` / `poetry.lock` / Docker——「固定库版本」。
 2. **记录环境**：实验日志里记「库版本 + GPU + 驱动」——「环境快照」。
 3. **固定代码版本**：git commit——「代码的精确状态」。
 4. **端到端种子**：从数据到模型的完整随机控制——「全链路的确定性」。

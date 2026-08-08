@@ -86,28 +86,29 @@ $$
 4. **拼接上下文**：DNN 时代常用「左右各 $\pm N$ 帧拼接」（如 11 帧），给网络时间上下文；端到端模型则常把整句 log-Mel 图直接输入，让注意力自己看。
 5. **数据增强**：SpecAugment（对 log-Mel 图的频带/时间块做随机掩蔽）是当前主流——它直接作用在 FBank 上，而不是 MFCC 上。
 
-一个小例子，把一帧变成 FBank：
+一个小例子，把一段语音变成 FBank：
 
 ```python
 import numpy as np
-import librosa
+from librosa.filters import mel
 
-def fbank_frame(x, fs=16000, n_fft=512, n_mels=40):
-    # x: 一帧语音（一维数组）
-    S = np.abs(librosa.stft(x, n_fft=n_fft, hop_length=n_fft//2, win_length=n_fft))
-    S = S ** 2  # 功率谱
-    return librosa.filters.mel(sr=fs, n_fft=n_fft, n_mels=n_mels) @ S
+# x: 16 kHz 语音；预加重、分帧加窗后 frames: (帧数, 帧长)
+X = np.fft.rfft(frames, axis=1)               # 复数谱 (帧数, N/2+1)
+power = np.abs(X) ** 2                        # 功率谱
+
+mel_basis = mel(sr=16000, n_fft=400, n_mels=40)    # 40 个 Mel 三角滤波器
+fbank = np.log(power @ mel_basis.T + 1e-10)        # 对数 Mel 能量 (帧数, 40)
 ```
 
-注意 `librosa.stft` 默认返回复数谱，取模平方后乘 Mel 滤波器组。与 MFCC 的唯一差别是**省略了 `librosa.feature.mfcc` 内部的 DCT 步骤**——它等价于 `log(mel_spec)`。
+注意 `np.fft.rfft` 默认返回复数谱，取模平方后乘 Mel 滤波器组。与 MFCC 的唯一差别是**省略了 MFCC 流程内部的 DCT 步骤**——它等价于 MFCC 的前半段（FFT → Mel 滤波器组 → 对数能量）。
 
 ## 5 为什么端到端时代 FBank 胜出
 
 端到端语音识别（CTC、LAS、RNN-T、Conformer）几乎清一色用 log-Mel 输入，原因有三：
 
-- **信息守恒**：端到端模型把「特征提取」也并入可训练范畴的一部分。MFCC 的 DCT 截断是**不可逆的有损压缩**，一旦截掉就再也找不回来；FBank 保留了全部 Mel 频带信息，网络可以自己决定用哪些。
-- **卷积友好**：log-Mel 图的二维结构（时间 × 频带）可以直接走 2D 卷积，频率轴的「相邻关系」被卷积核天然利用。MFCC 的 13 维向量没有这种规则结构。
-- **简化流程**：省去 DCT 与截断，整个前端就是「FFT + Mel + log」，实现简单、跨框架一致，也便于 SpecAugment 这类直接在特征图上做的增强。
+**信息守恒**：端到端模型把「特征提取」也并入可训练范畴的一部分。MFCC 的 DCT 截断是**不可逆的有损压缩**，一旦截掉就再也找不回来；FBank 保留了全部 Mel 频带信息，网络可以自己决定用哪些。
+**卷积友好**：log-Mel 图的二维结构（时间 × 频带）可以直接走 2D 卷积，频率轴的「相邻关系」被卷积核天然利用。MFCC 的 13 维向量没有这种规则结构。
+**简化流程**：省去 DCT 与截断，整个前端就是「FFT + Mel + log」，实现简单、跨框架一致，也便于 SpecAugment 这类直接在特征图上做的增强。
 
 **辨析｜易错点：「FBank 一定比 MFCC 好」是错的。** 在低资源、小模型、强统计假设（如 GMM、或需要与旧系统兼容）的场景，MFCC 的去相关与降维依然是优势。**选择特征的标准是「与后续模型的假设匹配」**，而不是「哪个更新」。<span class="marginnote">一个相关话题：有些工作把 MFCC 也「可微化」（如让 DCT 系数可学习），本质上是在 FBank 与 MFCC 之间找可训练的最佳折中。这说明两者不是对立，而是「手工压缩」与「交给模型压缩」的两个端点。</span>
 

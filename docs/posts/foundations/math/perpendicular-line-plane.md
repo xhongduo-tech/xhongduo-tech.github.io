@@ -50,9 +50,9 @@ $$
 
 综合运用判定定理与三垂线定理证明一道题：**已知 $PA\perp$ 平面 $ABC$，$BC\perp AB$，证明 $BC\perp$ 平面 $PAB$。**
 
-- **第一步，用「线面垂直 ⇒ 线线垂直」**：因为 $PA\perp$ 平面 $ABC$，而 $BC\subset$ 平面 $ABC$，所以 $PA\perp BC$。这是把已知的线面垂直「兑现」成一条线线垂直。
-- **第二步，找第二条垂线**：题设给出 $BC\perp AB$。于是在平面 $PAB$ 内有两条相交直线 $PA,AB$ 都与 $BC$ 垂直（$PA\cap AB=A$）。
-- **第三步，套判定定理**：$BC\perp PA$、$BC\perp AB$，$PA,AB$ 是平面 $PAB$ 内的相交直线，故 $BC\perp$ 平面 $PAB$。证毕。
+**第一步，用「线面垂直 ⇒ 线线垂直」**：因为 $PA\perp$ 平面 $ABC$，而 $BC\subset$ 平面 $ABC$，所以 $PA\perp BC$。这是把已知的线面垂直「兑现」成一条线线垂直。
+**第二步，找第二条垂线**：题设给出 $BC\perp AB$。于是在平面 $PAB$ 内有两条相交直线 $PA,AB$ 都与 $BC$ 垂直（$PA\cap AB=A$）。
+**第三步，套判定定理**：$BC\perp PA$、$BC\perp AB$，$PA,AB$ 是平面 $PAB$ 内的相交直线，故 $BC\perp$ 平面 $PAB$。证毕。
 
 这条证明的骨架是「**先借线面垂直得一条线线垂直，再补一条，凑成两条相交垂线，套判定**」——线面垂直与线线垂直在证明中互相「喂料」。<span class="marginnote">三垂线定理是这条思路的浓缩：若 $PO\perp\alpha$，$AO$ 是 $PA$ 的射影，则「$AO\perp m\subset\alpha$ ⇔ $PA\perp m$」。它把「面内线与斜线垂直」和「面内线与射影垂直」划上等号——本质是「线面垂直 + 射影」的推论。现在教材多不单列，但思想一直沿用。</span>
 
@@ -62,9 +62,9 @@ $$
 
 把判定定理、性质定理串成一道综合题：在四面体 $P$-$ABC$ 中，$PA\perp$ 底面 $ABC$，底面中 $AC\perp BC$，证明 $BC\perp$ 平面 $PAC$。
 
-- **第一步，兑现线面垂直**：$PA\perp$ 平面 $ABC$，而 $BC\subset$ 平面 $ABC$，所以 $PA\perp BC$——已知的线面垂直给出第一条线线垂直。
-- **第二步，找第二条垂线**：题设给 $AC\perp BC$。于是 $BC$ 同时垂直于 $PA$ 与 $AC$ 两条直线。
-- **第三步，套判定定理**：$PA,AC$ 是平面 $PAC$ 内两条**相交**直线（$PA\cap AC=A$），$BC\perp PA$ 且 $BC\perp AC$，故 $BC\perp$ 平面 $PAC$。证毕。
+**第一步，兑现线面垂直**：$PA\perp$ 平面 $ABC$，而 $BC\subset$ 平面 $ABC$，所以 $PA\perp BC$——已知的线面垂直给出第一条线线垂直。
+**第二步，找第二条垂线**：题设给 $AC\perp BC$。于是 $BC$ 同时垂直于 $PA$ 与 $AC$ 两条直线。
+**第三步，套判定定理**：$PA,AC$ 是平面 $PAC$ 内两条**相交**直线（$PA\cap AC=A$），$BC\perp PA$ 且 $BC\perp AC$，故 $BC\perp$ 平面 $PAC$。证毕。
 
 <span class="marginnote">这道题演示了线面垂直证明的「标准链」：<strong>已知线面垂直 → 兑现一条线线垂直 → 补第二条面内垂线 → 凑成两条相交直线 → 套判定定理</strong>。注意判定定理要求「面内两条相交直线」——$PA$ 与 $AC$ 必须相交于 $A$，「相交」条件是套用判定的前提。线面垂直一旦证出，立即「免费」获得「垂直面内所有直线」的输出口，这是后续求线面角、距离的铺垫。</span>
 
@@ -86,8 +86,8 @@ $$
 
 ### 特殊情况
 
-- $l\perp\alpha$ 时，$\theta=\frac\pi2$；
-- $l\parallel\alpha$ 或 $l\subset\alpha$ 时，$\theta=0$。
+$l\perp\alpha$ 时，$\theta=\frac\pi2$；
+$l\parallel\alpha$ 或 $l\subset\alpha$ 时，$\theta=0$。
 
 <span class="marginnote">「作垂线 → 连射影 → 解三角形」是求线面角的标准流程。<strong>核心难点在第一步「作垂线」</strong>：要过 $P$ 作 $\alpha$ 的垂线，通常先在平面内找两条相交直线，用「线面垂直判定」落实垂线；或用「面面垂直性质」——若有过 $P$ 且垂直于 $\alpha$ 的平面，性质定理给出垂线。射影 $AO$ 是斜线 $l$ 在平面上的「影子」，线面角就是「斜线与影子的夹角」。</span>
 

@@ -33,11 +33,11 @@ date: 2026-08-07
 
 **适用**：数据类尖刺——疑似坏样本、坏 batch 导致的一次性大梯度。
 
-**做法**：检测到 `grad_norm` 超阈值（或 loss 跳升），把当前 batch 的梯度丢弃，**不执行 optimizer.step()**，直接进入下一步（或重新采样一个 batch）。
+**做法**：检测到梯度范数超阈值（或 loss 跳升），把当前 batch 的梯度丢弃，**不执行 optimizer.step()**，直接进入下一步（或重新采样一个 batch）。
 
 **代价**：几乎为零——只是浪费一个 batch 的算力。这是最轻量、最常用的应对。
 
-**判断技巧**：跳过该 batch 后如果后续正常，几乎可以断定是数据问题；如果跳过仍复现，说明根源不在数据。<span class="marginnote">工程实现里「跳过」不是真的丢弃整个 batch，而是检测到异常梯度后 `optimizer.zero_grad()` 并 `continue`——很多框架（如 Megatron）内置 `--skip-train-iteration` 或异常检测钩子。注意跳过 batch 会改变「有效步数」与 LR 调度的对应关系，跳过频繁时要小心 warmup/cosine 的错位。</span>
+**判断技巧**：跳过该 batch 后如果后续正常，几乎可以断定是数据问题；如果跳过仍复现，说明根源不在数据。<span class="marginnote">工程实现里「跳过」不是真的丢弃整个 batch，而是检测到异常梯度后<strong>跳过 optimizer.step() 并 zero_grad</strong>——很多框架（如 Megatron）内置 <strong>loss spike 检测器</strong> 或异常检测钩子。注意跳过 batch 会改变「有效步数」与 LR 调度的对应关系，跳过频繁时要小心 warmup/cosine 的错位。</span>
 
 ## 3 应对二：回滚检查点（rollback）
 
@@ -55,9 +55,9 @@ date: 2026-08-07
 
 **三种做法**：
 
-- **临时降 LR**：把 LR 降一个数量级（如 $3\times10^{-4} \to 3\times10^{-5}$）跑几百步，等 loss 平稳再升回。
-- **LR warmup restart**：把 LR 归零重新 warmup，给模型一个「重来」的平稳期。
-- **永久放缓调度**：若尖刺反复出现，考虑全局调低 LR 或延长 warmup。
+**临时降 LR**：把 LR 降一个数量级（如 $3\times10^{-4} \to 3\times10^{-5}$）跑几百步，等 loss 平稳再升回。
+**LR warmup restart**：把 LR 归零重新 warmup，给模型一个「重来」的平稳期。
+**永久放缓调度**：若尖刺反复出现，考虑全局调低 LR 或延长 warmup。
 
 **代价**：降 LR 会暂时放慢收敛，但通常比回滚便宜。这是「软性恢复」手段——模型没坏，只是需要慢点走。<span class="marginnote">LR 调整的工程直觉：尖刺后的权重处于「高方差区」，大步更新只会继续放大波动。降 LR 相当于「踩刹车慢慢稳住方向盘」，给 Adam 的二阶矩时间重新校准。经验值是尖刺后降 LR 跑 100–300 步再恢复，效果通常好于硬回滚。</span>
 

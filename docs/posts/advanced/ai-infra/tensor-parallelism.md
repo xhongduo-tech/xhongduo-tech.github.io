@@ -88,24 +88,28 @@ $$
 为了把直觉钉死，看一个按列切分的 Linear 层在代码里长什么样——注意反向里的那个 AllReduce：
 
 ```python
-class ColumnParallelLinear(torch.nn.Module):
-    # 每个 TP rank 持有 W 的 1/P：形状 [h_in, h_out // P]
-    def __init__(self, h_in, h_out, world_size):
-        super().__init__()
-        self.w = torch.randn(h_in, h_out // world_size)
+import torch
+import torch.distributed as dist
 
-    def forward(self, x):                 # x 是完整的输入 [b, h_in]
-        local = torch.matmul(x, self.w)   # 每 rank 算自己的那一列输出 [b, h_out/P]
-        return local                      # 前向：无需通信，输出已在各 rank 手中
 
-    def backward(self, grad_y):           # grad_y 是 [b, h_out/P]，只含本 rank 的列
-        grad_w = torch.matmul(grad_y.T, x)                 # 本 rank 的权重梯度，无需通信
-        grad_x = torch.matmul(grad_y, self.w.T)            # 本 rank 的输入梯度部分和
-        grad_x = all_reduce(grad_x)                        # 关键：AllReduce 才是完整梯度
+class ColumnParallelLinear(torch.autograd.Function):
+    """按列切分的 Linear：每卡持 W 的输出维分片（h_in × h_out/P），输入 X 完整。"""
+
+    @staticmethod
+    def forward(ctx, x, w):
+        ctx.save_for_backward(x, w)
+        return torch.matmul(x, w)      # 前向：本地算自己那 1/P 列输出，免通信
+
+    @staticmethod
+    def backward(ctx, grad_y):
+        x, w = ctx.saved_tensors
+        grad_w = torch.matmul(x.t(), grad_y)   # 本卡权重的梯度
+        grad_x = torch.matmul(grad_y, w.t())   # 本卡算出的部分 dL/dX
+        dist.all_reduce(grad_x)                # 反向：必须 AllReduce 归约成完整梯度
         return grad_x, grad_w
 ```
 
-这段代码把上一节的结论落成了可以执行的操作：前向 `matmul` 后直接返回，反向必须 `all_reduce`。**「哪里出现 all_reduce，哪里就是这张卡付出通信的时刻」**——按行切分的层只是把 `all_reduce` 从反向挪到了前向，其余完全对称。
+这段代码把上一节的结论落成了可以执行的操作：前向本地算出 $Y_i$ 后直接返回，反向必须 all_reduce。**「哪里出现 all_reduce，哪里就是这张卡付出通信的时刻」**——按行切分的层只是把 all_reduce 从反向挪到了前向，其余完全对称。
 
 理解这层对称性还有一个副产品：它解释了为什么张量并行**只适合在 NVLink 级带宽的域内做**。Transformer 每一层至少有一次 AllReduce，层数动辄几十上百，通信频率是数据并行的几十倍；跨节点那点网卡带宽根本喂不饱——量化的账，下一篇我们来算。
 

@@ -20,12 +20,14 @@ date: 2026-08-07
 
 ## 1 一条指令：D = A×B + C
 
-**核心概念**：**张量核心（Tensor Core）**执行**矩阵乘加**：$D = A \times B + C$，一整块矩阵运算用**一条指令**完成。例如 Ampere 的 `mma.m16n8k16`：
+**核心概念**：**张量核心（Tensor Core）**执行**矩阵乘加**：$D = A \times B + C$，一整块矩阵运算用**一条指令**完成。例如 Ampere 的 **HMMA（Half-precision Matrix Multiply-Accumulate）**指令：
 
-```
-HMMA 指令（16×8×16）：
-  D[16×8] = A[16×16] × B[16×8] + C[16×8]
-  —— 一个 16×8×16 的矩阵乘加，一条指令、一次完成
+```asm
+mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32
+    {d0, d1},         // D/C：16×8 的 f32 累加器（2 个寄存器）
+    {a0, a1, a2, a3}, // A：16×16 的 f16 输入（4 个寄存器）
+    {b0, b1},         // B：16×8 的 f16 输入（2 个寄存器）
+    {c0, c1};         // C 初值
 ```
 
 对比 CUDA core（普通 ALU）：它们一条指令只做**一个标量**乘加；Tensor Core 一条指令做**数千个**乘加——**指令条数不变，吞吐差一个数量级**。
@@ -59,7 +61,7 @@ Tensor Core 本质上是一次**领域专用化**：
 
 - **通用性下降**：它只做矩阵乘加，别的运算用不上。
 - **性能暴增**：在它的领域里（GEMM），吞吐碾压通用 ALU。
-- **编程门槛**：要用专用 API（`wmma`/`mma` 内联、cuBLAS、cuDNN），编译器不自动用。
+- **编程门槛**：要用专用 API（wmma/mma 内联、cuBLAS、cuDNN），编译器不自动用。
 
 这正好预示了 [[dsa-design-principles]] 的全部逻辑：**当某个操作是压倒性的热点时，专用硬件值得**。Tensor Core 是「GPU 向 DSA 靠拢」的桥头堡，而 TPU 把这条路走到底。
 

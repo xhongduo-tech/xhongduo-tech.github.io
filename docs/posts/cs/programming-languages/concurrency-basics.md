@@ -22,9 +22,15 @@ date: 2026-08-07
 
 **任务（task）**：一个独立的执行单元——有自己的指令流、栈与状态。语言层面，任务用**线程（thread）**或**协程（coroutine）**实现。
 
-```java
-Thread t = new Thread(() -> { ... });   // Java：新线程
-t.start();
+```python
+import threading
+
+def worker():
+    print("working...")
+
+t = threading.Thread(target=worker)   # 创建任务
+t.start()                             # 启动任务（与主线程并发）
+t.join()                              # 等待任务结束
 ```
 
 **并发程序的本质**：多个任务交错执行。交错（interleaving）的顺序不固定——**这既是并发的灵活性，也是竞争的根源**。
@@ -47,13 +53,17 @@ t.start();
 
 **竞争（race condition）**：程序的**结果依赖任务交错顺序**——不同交错产生不同结果。这是并发 bug 的头号来源。
 
-```java
-// 两个线程同时执行：counter++ （读→加→写三步）
-int old = counter;     // 两个线程可能读到同一个 old
-counter = old + 1;     // 都写回同一个值——丢失一次递增！
+```python
+counter = 0
+
+def increment():
+    global counter
+    counter = counter + 1    # 读、加、写三步，非原子
+
+# 两个线程各执行一次 increment()，期望 2，却可能读到 1——竞态
 ```
 
-`counter++` 不是原子的——它是「读、加、写」三步。两个线程交错时可能同时读到 5、同时写回 6——**丢失更新**。结果取决于交错顺序 = 竞态。<span class="marginnote">「原子操作（atomic operation）」是不可分割的操作——要么完整执行，要么不执行。`counter++` 非原子；`AtomicInteger.incrementAndGet()` 原子。竞态的本质：<strong>非原子操作被并发交错打断</strong>。修复 = 用原子操作或互斥把「读改写」包成临界区。</span>
+`counter = counter + 1` 不是原子的——它是「读、加、写」三步。两个线程交错时可能同时读到 5、同时写回 6——**丢失更新**。结果取决于交错顺序 = 竞态。<span class="marginnote">「原子操作（atomic operation）」是不可分割的操作——要么完整执行，要么不执行。`counter = counter + 1` 非原子；`AtomicInteger.incrementAndGet()` 原子。竞态的本质：<strong>非原子操作被并发交错打断</strong>。修复 = 用原子操作或互斥把「读改写」包成临界区。</span>
 
 ## 4 公式解析：交错与竞态
 
@@ -82,7 +92,7 @@ $$
 | 模型 | 核心思想 | 代表 |
 | --- | --- | --- |
 | 共享内存 + 锁 | 共享数据，锁保证互斥 | Java/C++ 线程 + synchronized |
-| 管程（Monitor） | 互斥 + 条件变量封装 | Java `synchronized`/`wait/notify` |
+| 管程（Monitor） | 互斥 + 条件变量封装 | Java `synchronized`/`wait`/`notify` |
 | 消息传递 | 任务间不共享，靠消息通信 | Erlang、Go channel、Actor |
 | Actor 模型 | 万物皆 actor，消息信箱 | Erlang、Akka |
 | 软件事务内存 | 事务化内存操作，冲突自动重试 | Clojure、Haskell STM |

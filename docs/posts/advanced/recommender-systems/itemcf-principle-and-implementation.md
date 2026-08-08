@@ -106,36 +106,48 @@ $$
 ## 6 代码实现
 
 ```python
-import math
 from collections import defaultdict
+import math
 
-def item_similarity(train):
-    """train: {user: set(items)}，返回 {i: {j: w_ij}}"""
-    # 统计每对物品的共现次数
-    C = defaultdict(int)   # C[(i, j)] = |N(i) ∩ N(j)|
-    N = defaultdict(int)   # N[i] = |N(i)|
-    for u, items in train.items():
+def item_similarity(user_items):
+    """user_items: {user: set(items)}，返回物品-物品余弦相似度矩阵 W。"""
+    item_users = defaultdict(set)                 # 物品 → 喜欢它的用户集合
+    for u, items in user_items.items():
         for i in items:
-            N[i] += 1
+            item_users[i].add(u)
+
+    # 同一用户喜欢过的物品两两共现——ItemCF 不需要物品-用户倒排表
+    C = defaultdict(lambda: defaultdict(int))
+    for u, items in user_items.items():
+        for i in items:
             for j in items:
                 if i != j:
-                    C[(i, j)] += 1
+                    C[i][j] += 1
 
     W = defaultdict(dict)
-    for (i, j), cnt in C.items():
-        W[i][j] = cnt / math.sqrt(N[i] * N[j])
+    for i, related in C.items():
+        for j, cij in related.items():
+            W[i][j] = cij / math.sqrt(len(item_users[i]) * len(item_users[j]))
     return W
 
-def recommend(u, train, W, K=5):
-    interacted = train[u]
+def recommend(user_items, W, u, K=10):
+    """给用户 u 推荐：与 u 喜欢过的物品相似、且 u 未交互的物品。"""
     rank = defaultdict(float)
-    # 对 u 喜欢的每个物品 i，把它最相似的 K 个物品加权推荐
-    for i in interacted:
-        for j, w in sorted(W[i].items(), key=lambda x: -x[1])[:K]:
-            if j in interacted:
-                continue
-            rank[j] += w
-    return sorted(rank.items(), key=lambda x: -x[1])
+    for i in user_items[u]:
+        for j, wij in W[i].items():
+            if j not in user_items[u]:
+                rank[j] += wij
+    return sorted(rank.items(), key=lambda x: -x[1])[:K]
+
+# 跑第 5 节的最小例子
+user_items = {
+    "小明": {"Matrix", "Inception"},
+    "小红": {"Matrix", "Inception", "Titanic"},
+    "小刚": {"Inception", "Coco"},
+}
+W = item_similarity(user_items)
+print(recommend(user_items, W, "小明"))
+# [('Titanic', 1.284), ('Coco', 0.577)]
 ```
 
 注意：ItemCF 不需要物品-用户倒排表——它直接遍历每个用户的物品列表，**在同一用户的物品集合内部统计共现**。这正是「同时被一个人喜欢」的天然载体。

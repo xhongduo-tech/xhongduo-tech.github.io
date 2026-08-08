@@ -16,42 +16,42 @@ date: 2026-08-07
 
 ## 为什么从单子开始
 
-纯函数式语言面临一个根本矛盾：**纯函数不能有副作用**，但程序必须读输入、写文件、抛异常——怎么在纯的世界里做不纯的事？Haskell 的答案是**单子（Monad）**：一种「计算上下文」的抽象，让副作用被**封装、排序、显式化**。单子被初学者视为 Haskell 的「高墙」，但它的核心思想其实朴素：**把「带上下文的计算」抽象成可组合的单元**。这一节不追求范畴论的深度，而是从工程直觉出发——单子 = 一种「包装 + 排序」的模式，而 IO 单子只是它的第一个（也是最必要的）实例。<span class="marginnote">「单子不过是自函子范畴上的幺半群」——这句话来自数学家，经常被拿来吓唬新手。工程视角的单子：一个类型构造器 `m` + 两个操作（`return`/`pure` 和 `>>=`），满足三条结合律。它的价值不是数学，而是「把一类计算模式（带上下文、可能失败、可能为空、有副作用）统一成可组合的抽象」。</span>
+纯函数式语言面临一个根本矛盾：**纯函数不能有副作用**，但程序必须读输入、写文件、抛异常——怎么在纯的世界里做不纯的事？Haskell 的答案是**单子（Monad）**：一种「计算上下文」的抽象，让副作用被**封装、排序、显式化**。单子被初学者视为 Haskell 的「高墙」，但它的核心思想其实朴素：**把「带上下文的计算」抽象成可组合的单元**。这一节不追求范畴论的深度，而是从工程直觉出发——单子 = 一种「包装 + 排序」的模式，而 IO 单子只是它的第一个（也是最必要的）实例。<span class="marginnote">「单子不过是自函子范畴上的幺半群」——这句话来自数学家，经常被拿来吓唬新手。工程视角的单子：一个类型构造器 `M` + 两个操作（`return`/`pure` 和 `>>=`），满足三条结合律。它的价值不是数学，而是「把一类计算模式（带上下文、可能失败、可能为空、有副作用）统一成可组合的抽象」。</span>
 
 ## 1 问题：纯函数世界里的副作用
 
-Haskell 的函数是纯的——`readFile "x.txt"` 不能直接读文件（它不纯，结果依赖外部状态）。那 Haskell 怎么读文件？
+Haskell 的函数是纯的——一个函数不能直接读文件（它不纯，结果依赖外部状态）。那 Haskell 怎么读文件？
 
 答案：**不把 IO 当「值」，而把 IO 当「值 + 动作描述」**。`readFile` 返回的不是「文件内容」，而是「一个执行后产生内容的**动作（action）**」——一个「IO 配方」：
 
 ```haskell
-readFile :: FilePath -> IO String
+readFile :: FilePath -> IO String   -- 给定路径，返回一个 IO 动作
 ```
 
-`IO String` 是「类型为 String 的 IO 动作」——**它是一个值**（可传递、可组合），但**执行它才有副作用**。<span class="marginnote">关键区别：`IO String` 是「描述如何得到 String 的动作」而非 String 本身。纯函数可以安全地操作「动作」——因为动作未执行，无副作用。只有 `main` 被运行时执行，动作链才真正发生。「程序 = 一个巨大的 IO 动作」——Haskell 程序的 `main :: IO ()` 就是那个动作。</span>
+`readFile "notes.txt"` 是「类型为 String 的 IO 动作」——**它是一个值**（可传递、可组合），但**执行它才有副作用**。<span class="marginnote">关键区别：`IO String` 是「描述如何得到 String 的动作」而非 String 本身。纯函数可以安全地操作「动作」——因为动作未执行，无副作用。只有 `main` 被运行时执行，动作链才真正发生。「程序 = 一个巨大的 IO 动作」——Haskell 程序的 `main` 就是那个动作。</span>
 
 ## 2 单子的两个操作：return 与 >>=
 
-**单子（Monad）**：一个类型构造器 `m`（如 `IO`、`Maybe`、`[]`）配两个操作：
+**单子（Monad）**：一个类型构造器 `M`（如 `IO`、`Maybe`、`[]`）配两个操作：
 
 **return / pure**：把一个纯值「装进」单子——`return 5 :: IO Int`（一个「产生 5 的 IO 动作」）。
 
 **绑定（bind）`>>=`**：把两个单子值串起来——前一个动作的结果传给下一个动作的构造：
 
 ```haskell
-(>>=) :: m a -> (a -> m b) -> m b
+(>>=) :: IO a -> (a -> IO b) -> IO b
+m >>= f      -- 执行动作 m，把结果喂给 f，得到新动作
 ```
 
 用 `do` 语法糖：
 
 ```haskell
-main :: IO ()
-main = do
-    line <- getLine        -- 执行动作，把结果绑到 line
-    putStrLn (line ++ "!")
+do
+  x <- readFile "a.txt"    -- 读文件，结果绑定到 x
+  writeFile "b.txt" x      -- 再写文件：两个动作按序串起
 ```
 
-`do` 块不过是 `>>=` 的语法糖：`a <- m; rest` ≡ `m >>= \a -> rest`。<span class="marginnote">`>>=` 读作「bind」：`m >>= f` = 「执行动作 m，把结果喂给 f，得到新动作」。它保证两件事：<strong>排序</strong>（m 先执行，f 后执行）与<strong>传值</strong>（结果传给 f）。在纯世界里，排序靠 `>>=` 显式建立——这就是「副作用顺序可控」的机制。</span>
+`do` 块不过是 `>>=` 的语法糖：`do { x <- m; f x } ≡ m >>= f`。<span class="marginnote">`>>=` 读作「bind」：`m >>= f` = 「执行动作 m，把结果喂给 f，得到新动作」。它保证两件事：<strong>排序</strong>（m 先执行，f 后执行）与<strong>传值</strong>（结果传给 f）。在纯世界里，排序靠 `>>=` 显式建立——这就是「副作用顺序可控」的机制。</span>
 
 ## 3 三个经典单子
 
@@ -61,17 +61,16 @@ main = do
 
 ```haskell
 safeDiv :: Int -> Int -> Maybe Int
-safeDiv _ 0 = Nothing
-safeDiv a b = Just (a `div` b)
+safeDiv _ 0 = Nothing            -- 除零 → 失败
+safeDiv x y = Just (x `div` y)   -- 成功 → Just
 
--- 链式：任何一步失败，整链为 Nothing
 result = do
-    x <- safeDiv 10 2
-    y <- safeDiv x 0     -- → Nothing，短路
-    return y
+  a <- safeDiv 10 2
+  b <- safeDiv a 0               -- 这里得到 Nothing，整个 do 块短路为 Nothing
+  return (b + 1)
 ```
 
-**List 单子**：封装「非确定性」——`do` 块对列表做笛卡尔积式遍历。<span class="marginnote">Maybe 单子是最能体现单子价值的教学例：`do` 块里任何一步返回 `Nothing`，后续自动短路——「空值传播」被单子封装。这正对应现代语言的 `?` 运算符（Rust）、`?`/`??`（Kotlin、Swift）、`flatMap`（Java Optional）——「失败传播」是单子在主流语言里的形态。</span>
+**List 单子**：封装「非确定性」——`do` 块对列表做笛卡尔积式遍历。<span class="marginnote">Maybe 单子是最能体现单子价值的教学例：`do` 块里任何一步返回 `Nothing`，后续自动短路——「空值传播」被单子封装。这正对应现代语言的 `?` 运算符（Rust）、`?.`/`??`（Kotlin、Swift）、`flatMap`（Java Optional）——「失败传播」是单子在主流语言里的形态。</span>
 
 ## 4 公式解析：单子定律
 
@@ -100,8 +99,8 @@ $$
 ## 5 单子的工程价值与现代形态
 
 - **统一错误处理**：Maybe/Either 单子让「失败传播」声明式——不用层层 if 判断。
-- **抽象计算流程**：IO（顺序）、Maybe（短路）、State（状态传递）、Reader（环境注入）、Writer（日志累积）——每种「计算模式」一个单子，可自由组合。<span class="marginnote">「Monad 栈」：`StateT s (Maybe a)` 组合「有状态 + 可失败」。现代函数式（Haskell、Scala）用 Monad 转换器组合多种上下文。而主流语言的对应物：Rust 的 `?`（Result 传播）、Kotlin 的 `?.`/`?:`、JS 的 Promise `.then`——都是「单子模式」的局部实现。</span>
-- **Promise 就是单子**：JS 的 `Promise.then(f)` ≈ `>>=`，`Promise.resolve(x)` ≈ `return`——异步上下文被封装成可组合单元。
+- **抽象计算流程**：IO（顺序）、Maybe（短路）、State（状态传递）、Reader（环境注入）、Writer（日志累积）——每种「计算模式」一个单子，可自由组合。<span class="marginnote">「Monad 栈」：`StateT` 组合「有状态 + 可失败」。现代函数式（Haskell、Scala）用 Monad 转换器组合多种上下文。而主流语言的对应物：Rust 的 `?`（Result 传播）、Kotlin 的 `flatMap`/`??`、JS 的 Promise `then`——都是「单子模式」的局部实现。</span>
+- **Promise 就是单子**：JS 的 `Promise` ≈ `IO`，`then` ≈ `>>=`——异步上下文被封装成可组合单元。
 
 
 
@@ -126,7 +125,7 @@ $$
 ## 6 小结
 
 - 纯函数世界里，**副作用用「动作（IO 配方）」封装**——`IO String` 是「描述动作」而非「结果」。
-- **单子** = 类型构造器 `m` + `return`（装值）+ `>>=`（排序传值）；`do` 是 `>>=` 的语法糖。
+- **单子** = 类型构造器 `M` + `return`（装值）+ `>>=`（排序传值）；`do` 是 `>>=` 的语法糖。
 - 经典单子：**IO**（副作用顺序）、**Maybe**（失败短路）、**List**（非确定性）——「计算上下文」的三种封装。
 - 三条单子定律保证组合可靠；单子 ≠ IO（IO 只是最有名的应用）；Promise、`?`、Optional 是单子模式的现代形态。
 

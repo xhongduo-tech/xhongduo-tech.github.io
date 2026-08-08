@@ -26,7 +26,7 @@ date: 2026-08-07
 
 **同余（congruence）**：$a \equiv b \pmod n$ ⟺ $n | (a-b)$——「$a$ 与 $b$ 模 $n$ 同余」。同余是等价关系，且对加乘保持：
 
-- $a \equiv b, c \equiv d \Rightarrow a+c \equiv b+d,\; ac \equiv bd \pmod n$。
+$a \equiv b, c \equiv d \Rightarrow a+c \equiv b+d,\; ac \equiv bd \pmod n$。
 
 **模 $n$ 的乘法逆元**：$a^{-1}$ 使 $a \cdot a^{-1} \equiv 1 \pmod n$。**存在性定理**：$a$ 模 $n$ 有逆元 ⟺ $\gcd(a,n) = 1$。<span class="marginnote">「互素才有逆元」是模运算的分水岭：$2$ 在模 $4$ 下无逆元（$2x \equiv 1 \pmod 4$ 无解，因为左边恒偶），而 $3$ 有逆元（$3 \cdot 3 = 9 \equiv 1$）。逆元存在性由 GCD 判定，<strong>求逆元本身</strong>则由扩展欧几里得完成——判定与求解一步到位。</span>
 
@@ -36,13 +36,12 @@ date: 2026-08-07
 
 $$d = \gcd(a, b) = ax + by$$
 
-```
-EXTENDED-EUCLID(a, b)
-  if b == 0
-    return (a, 1, 0)
-  (d', x', y') = EXTENDED-EUCLID(b, a mod b)
-  (d, x, y) = (d', y', x' - floor(a/b) * y')
-  return (d, x, y)
+```text
+EXTENDED-EUCLID(a, b):
+    if b = 0:
+        return (a, 1, 0)                  // a = a·1 + 0·0
+    (d, x′, y′) ← EXTENDED-EUCLID(b, a mod b)
+    return (d, y′, x′ − ⌊a/b⌋ · y′)       // 系数回溯更新
 ```
 
 **递归结构**：底层 $\gcd(a,0) = a = a\cdot 1 + 0\cdot 0$；回溯时利用「$a \bmod b = a - \lfloor a/b\rfloor b$」把系数从 $(b, a \bmod b)$ 的组合改写成 $(a, b)$ 的组合。<span class="marginnote">回溯步的代数：若 $d = bx' + (a \bmod b)y' = bx' + (a - \lfloor a/b\rfloor b)y' = ay' + b(x' - \lfloor a/b\rfloor y')$——所以新系数是 $(x, y) = (y', x' - \lfloor a/b\rfloor y')$。这个「系数更新」是扩展欧几里得的全部机关：它把「较小对的贝祖系数」逐层传回「较大对」。</span>
@@ -55,7 +54,7 @@ $$\text{EXTENDED-EUCLID}(a, n) = (1, x, y), \qquad ax + ny = 1 \Rightarrow ax \e
 
 - **第一步，跑扩展欧几里得**：得到 $(d, x, y)$，$d = 1$（互素）说明逆元存在。
 - **第二步，读出逆元**：$ax + ny = 1$ 两边模 $n$：$ax \equiv 1 \pmod n$——$x$ 就是逆元。
-- **第三步，规范化**：$x$ 可能是负数，取 `(x mod n + n) mod n` 得到 $[0, n)$ 内的逆元。
+- **第三步，规范化**：$x$ 可能是负数，取 $[0, n)$ 得到 $[0, n)$ 内的逆元。
 
 **要点**：求逆元 = 「贝祖系数里的 $x$」+「模 $n$ 归正」。扩展欧几里得一次调用同时给出「逆元存在性」与「逆元本身」。<span class="marginnote">RSA 解密需要 $d \equiv e^{-1} \pmod{\varphi(n)}$——正是这里算的模逆元。扩展欧几里得因此是 RSA 密钥生成的固定步骤。相比「试除法找逆元」，它 $O(\log n)$ 秒级完成，是「算法效率支撑密码系统」的活例。</span>
 

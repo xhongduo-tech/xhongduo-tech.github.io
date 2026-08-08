@@ -33,24 +33,26 @@ date: 2026-08-07
 
 ```turtle
 @prefix : <http://example.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:张三  :拥有宠物  :花花 ;
-       :年龄      "35"^^xsd:integer ;
-       rdf:type   :人 .
+:zhangsan a :Person ;
+    :hasPet :huahua ;
+    :name "张三" .
+
+:huahua a :Cat ;
+    :name "花花" .
 ```
 
 Turtle 的四个常用缩写：
 
-- **`@prefix`**：给 IRI 起短前缀，`:拥有宠物` 展开为 `http://example.org/拥有宠物`。
-- **`;`**：分隔**同一个主语**的下一条三元组。
-- **`,`**：分隔**同一主语谓语**的多个宾语。
-- **`a`**：`rdf:type` 的简写——`:花花 a :猫` 等价于 `:花花 rdf:type :猫`。
+- **@prefix**：给 IRI 起短前缀，**`ex:Person` 展开为 <http://example.org/Person>`**。
+- **分号（`;`）**：分隔**同一个主语**的下一条三元组。
+- **逗号（`,`）**：分隔**同一主语谓语**的多个宾语。
+- **`a`**：**rdf:type** 的简写——**`:x a :Y` 等价于 `:x rdf:type :Y`**。
 
 **重点：Turtle 的语法糖全是「消除重复」**——主语写一次、谓语写一次、
-类型写一个字母 `a`。这让 Turtle 成为「给人写的 RDF」：同样的信息，
-比 RDF/XML 短一个数量级，且直接可读。<span class="marginnote">Turtle 的 `a` 不是缩写，而是
-RDF 词汇表里预定义好的 `rdf:type` 的语法别名——它专门出现，因为
+类型写一个字母 a。这让 Turtle 成为「给人写的 RDF」：同样的信息，
+比 RDF/XML 短一个数量级，且直接可读。<span class="marginnote">Turtle 的 a 不是缩写，而是
+RDF 词汇表里预定义好的 rdf:type 的语法别名——它专门出现，因为
 「类型断言」是 RDF 里最高频的关系。一个语法糖为一种高频操作而造，
 这就是 Turtle 的设计哲学。</span>
 
@@ -58,21 +60,23 @@ RDF 词汇表里预定义好的 `rdf:type` 的语法别名——它专门出现�
 
 **N-Triples** 是 RDF 的「最小公倍数」：每行一条完整三元组，无任何缩写。
 
-```nt
-<http://example.org/张三> <http://example.org/拥有宠物> <http://example.org/花花> .
+```
+<http://example.org/zhangsan> <http://example.org/hasPet> <http://example.org/huahua> .
+<http://example.org/zhangsan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
 ```
 
-- 优点：**极简、逐行解析、适合流式处理与差量比较**。
-- 缺点：**冗长**——没有前缀、没有分号，完整 IRI 重复出现。
+优点：**极简、逐行解析、适合流式处理与差量比较**。
+缺点：**冗长**——没有前缀、没有分号，完整 IRI 重复出现。
 
 **RDF/XML** 是 RDF 的第一种语法，把三元组装进 XML：
 
 ```xml
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:ex="http://example.org/">
-  <ex:Person rdf:about="http://example.org/张三">
-    <ex:拥有宠物 rdf:resource="http://example.org/花花"/>
-  </ex:Person>
+  <rdf:Description rdf:about="http://example.org/zhangsan">
+    <rdf:type rdf:resource="http://example.org/Person"/>
+    <ex:hasPet rdf:resource="http://example.org/huahua"/>
+  </rdf:Description>
 </rdf:RDF>
 ```
 
@@ -92,32 +96,28 @@ RDF 词汇表里预定义好的 `rdf:type` 的语法别名——它专门出现�
 ```json
 {
   "@context": {
-    "ex": "http://example.org/",
-    "拥有宠物": "ex:拥有宠物",
-    "年龄": {
-      "@id": "ex:年龄",
-      "@type": "http://www.w3.org/2001/XMLSchema#integer"
-    }
+    "拥有宠物": "http://example.org/hasPet"
   },
-  "@id": "ex:张三",
-  "@type": "ex:人",
-  "拥有宠物": { "@id": "ex:花花" },
-  "年龄": 35
+  "@id": "http://example.org/zhangsan",
+  "@type": "http://example.org/Person",
+  "拥有宠物": {
+    "@id": "http://example.org/huahua"
+  }
 }
 ```
 
-- **`@context`**：JSON 的键（`拥有宠物`）到 IRI 的映射表——
+**@context**：JSON 的键（"拥有宠物"）到 IRI 的映射表——
   上下文把「普通 JSON」升级成「语义 JSON」。
-- **`@id`**：资源的 IRI。
-- **`@type`**：类型，等价于 `rdf:type`。
+**@id**：资源的 IRI。
+**@type**：类型，等价于 rdf:type。
 
 **重点：JSON-LD 让「网页里的 JSON」变成「机器可读的 RDF」**
 ——浏览器和前端照常用 JSON，爬虫与知识引擎却能从同一份数据
-读出 RDF 语义。这是 `schema.org` 结构化标记的标准载体：
-Google 等搜索引擎从网页 `<script type="application/ld+json">`
+读出 RDF 语义。这是 JSON-LD 结构化标记的标准载体：
+Google 等搜索引擎从网页 JSON-LD 片段
 里提取语义，构成搜索结果的知识底座。<span class="marginnote">JSON-LD 的「语义分层」
-是它成功的秘诀：没有 `@context`，它就是普通 JSON（人人都会用）；
-加上 `@context`，同一份数据就进入 RDF 世界（机器可推理）。
+是它成功的秘诀：没有 @context，它就是普通 JSON（人人都会用）；
+加上 @context，同一份数据就进入 RDF 世界（机器可推理）。
 「渐进增强」的语义，让 JSON-LD 成为语义网渗透进 Web 的完美载体。</span>
 
 ## 4 同一张图的三副面孔
@@ -128,8 +128,8 @@ Google 等搜索引擎从网页 `<script type="application/ld+json">`
 | --- | --- | --- | --- |
 | N-Triples | 完整 IRI 一行一条 | 机器 | 极简、流式 |
 | Turtle | 前缀 + `;` + `a` | 人 | 紧凑、可读 |
-| RDF/XML | `<ex:拥有宠物/>` 嵌套 | 旧工具 | 啰嗦、正统 |
-| JSON-LD | JSON + `@context` | Web | 渐进增强 |
+| RDF/XML | XML 元素嵌套 | 旧工具 | 啰嗦、正统 |
+| JSON-LD | JSON + @context | Web | 渐进增强 |
 
 **重点：四种语法描述的是同一张图——它们可以在任何解析器间
 无损互转。** 一张图从 Turtle 转成 JSON-LD，语义零损失。
@@ -151,20 +151,20 @@ Google 等搜索引擎从网页 `<script type="application/ld+json">`
 | 兼容旧 RDF 工具链 | RDF/XML |
 | API 返回数据 | JSON-LD 或 Turtle |
 
-**易错点｜不要用「扩展名」猜语义**：同一张图可以存成 `.ttl`、`.jsonld`、
-`.rdf` 不同文件，它们表达的语义可能完全相同。「RDF 文件」的正确读法
+**易错点｜不要用「扩展名」猜语义**：同一张图可以存成 .ttl、.nt、
+.jsonld 不同文件，它们表达的语义可能完全相同。「RDF 文件」的正确读法
 是「先解析语法、再看图内容」，而不是「看扩展名猜结构」。
 
 ## 6 小结
 
 - RDF 抽象模型只有一个，**语法可以有很多**。
-- **Turtle**：前缀、`;`/`,`、`a` 缩写，为人读而设计。
+- **Turtle**：@prefix/@base、`;`/`,`、`a` 缩写，为人读而设计。
 - **N-Triples**：每行一三元组，极简、流式、适合差量比较。
 - **RDF/XML**：最早的 XML 语法，如今主要用于兼容旧工具。
-- **JSON-LD**：JSON + `@context`，Web 时代的渐进增强语义。
+- **JSON-LD**：JSON + @context，Web 时代的渐进增强语义。
 - 同一张图可**无损互转**——语法可变、语义不变。
 - 选型指南：**手写用 Turtle，流式用 N-Triples，网页用 JSON-LD**。
 
 在下一节，我们将给 RDF 加上「第一层语义」——**RDFS**：
-`rdfs:Class`、`rdfs:subClassOf`、`rdfs:domain`/`rdfs:range`
+rdfs:Class、rdfs:subClassOf、rdfs:subPropertyOf/rdf:type
 如何让三元组之间的类与属性关系变得可推理。

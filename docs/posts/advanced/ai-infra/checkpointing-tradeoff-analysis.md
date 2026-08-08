@@ -102,8 +102,8 @@ $$\frac{T_{\text{ckpt}}}{T_{\text{normal}}} = \frac{2 + \rho}{1 + \rho} = \frac{
 
 **几个值得进一步挖的方向**：
 
-- **选择性重算的工程化**：PyTorch 的 `recompute_granularity` 提供 `full` 与 `selective`——selective 到底选哪些层？「按激活大小排序、从大往下选」是不是最优贪心？
-- **重算与 `torch.compile`**：重算的「重跑前向」在编译图里怎么表示？编译器能否自动优化「只重算必要部分」——这是显存工程与编译器的交汇。
+- **选择性重算的工程化**：PyTorch 的 `torch.utils.checkpoint` 提供 `checkpoint` 与 `selective_checkpointing_context`——selective 到底选哪些层？「按激活大小排序、从大往下选」是不是最优贪心？
+- **重算与编译**：重算的「重跑前向」在编译图里怎么表示？编译器能否自动优化「只重算必要部分」——这是显存工程与编译器的交汇。
 - **$\rho$ 的实测**：不同算子（attention vs MLP）的后向/前向比 $\rho$ 不同——用 profiler 实测你模型的 $\rho$ 分布，再按「$\rho$ 大的层重算划算」重新设计重算策略。
 
 **自测题**：重计算的显存收益「只砍激活、不砍模型状态」——如果模型状态（16Ψ）才是瓶颈，重算有用吗？你会把旋钮转向哪个？

@@ -22,21 +22,22 @@ date: 2026-08-07
 
 以「第一个元素作枢轴」为例的划分过程（严蔚敏教材的经典写法）：
 
-1. 取枢轴 `pivot = a[low]`；
+1. 取枢轴 `pivot`（第一个元素）存入临时变量，low 位置空出；
 2. 从右往左找「比枢轴小的」，放到左边空位；
 3. 从左往右找「比枢轴大的」，放到右边空位；
 4. 交替进行，直到左右指针相遇——相遇处即枢轴的最终位置。
 
 ```c
-int Partition(int a[], int low, int high) {
-    int pivot = a[low];                       /* 枢轴暂存 */
+// 一趟划分：以第一个元素为枢轴，返回枢轴最终位置（严蔚敏教材写法）
+int Partition(int A[], int low, int high) {
+    int pivot = A[low];                  // 取枢轴（第一个元素），low 空出
     while (low < high) {
-        while (low < high && a[high] >= pivot) high--;   /* 右找小 */
-        a[low] = a[high];
-        while (low < high && a[low] <= pivot) low++;     /* 左找大 */
-        a[high] = a[low];
+        while (low < high && A[high] >= pivot) high--;  // 从右找比枢轴小的
+        A[low] = A[high];                // 放到左边空位
+        while (low < high && A[low] <= pivot) low++;    // 从左找比枢轴大的
+        A[high] = A[low];                // 放到右边空位
     }
-    a[low] = pivot;                           /* 枢轴归位 */
+    A[low] = pivot;                      // 枢轴归位
     return low;
 }
 ```
@@ -46,11 +47,12 @@ int Partition(int a[], int low, int high) {
 ## 2 快速排序的递归框架
 
 ```c
-void QuickSort(int a[], int low, int high) {
+// 快速排序：划分（枢轴归位）+ 递归两半，无需合并
+void QuickSort(int A[], int low, int high) {
     if (low < high) {
-        int piv = Partition(a, low, high);    /* 划分，枢轴归位 */
-        QuickSort(a, low, piv - 1);           /* 递归左半 */
-        QuickSort(a, piv + 1, high);          /* 递归右半 */
+        int p = Partition(A, low, high);   // 划分：枢轴落到最终位置
+        QuickSort(A, low, p - 1);          // 递归排序左半
+        QuickSort(A, p + 1, high);         // 递归排序右半
     }
 }
 ```
@@ -73,8 +75,8 @@ $$
 
 ## 4 稳定性与空间
 
-- **稳定性**：**不稳定**。划分时的大范围跳跃交换会打乱相等元素的相对顺序。
-- **空间**：$O(\log n)$ 期望（递归栈），最坏 $O(n)$。原地划分不占额外数组。
+**稳定性**：**不稳定**。划分时的大范围跳跃交换会打乱相等元素的相对顺序。
+**空间**：$O(\log n)$ 期望（递归栈），最坏 $O(n)$。原地划分不占额外数组。
 
 **辨析｜易错点：快排「不是不稳定就不行」。** 稳定性只在「需要保持等值元素原顺序」时重要。快排的不稳定性是「跳跃交换」的必然代价，但它换来了**原地 + 小常数 + 平均极快**。多数场景（数值排序、去重前排序）不需要稳定——这就是快排能当「排序之王」的原因。<span class="marginnote">「稳定 vs 快」的权衡：<strong>需要稳定选归并（$O(n)$ 空间），追求速度选快排（不稳）</strong>。C 的 `qsort`、Java 的 `Arrays.sort`（基本类型）都用快排——它们宁愿放弃稳定，也要速度与原地。</span>
 
@@ -87,7 +89,7 @@ $$
 3. **三路划分**：处理大量相等元素，避免「全等输入」退化为 $O(n^2)$；
 4. **尾递归 / 迭代**：压栈小的一侧，递归深度降为 $O(\log n)$。
 
-**重点：工业快排（`std::sort` 的 introsort）是「快排 + 插入 + 堆排」的组合**——快排为主，退化时切堆排序兜底（保证 $O(n\log n)$），小规模切插入排序。<span class="marginnote">introsort 是「<strong>用组合消灭单一算法的死角</strong>」的典范：<strong>快排负责平均快、堆排负责最坏兜底、插入负责小规模常数</strong>。<strong>没有万能的单一算法，但有万能的组合</strong>——这是工程算法的第一课。</span>
+**重点：工业快排（C++ `std::sort` 的 introsort）是「快排 + 插入 + 堆排」的组合**——快排为主，退化时切堆排序兜底（保证 $O(n\log n)$），小规模切插入排序。<span class="marginnote">introsort 是「<strong>用组合消灭单一算法的死角</strong>」的典范：<strong>快排负责平均快、堆排负责最坏兜底、插入负责小规模常数</strong>。<strong>没有万能的单一算法，但有万能的组合</strong>——这是工程算法的第一课。</span>
 
 ## 6 小结
 

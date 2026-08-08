@@ -20,13 +20,13 @@ date: 2026-08-07
 
 关键在于换一种损失观：分类关心「分没分对」，回归关心「差多少」。而 SVR 的独到之处是——**它允许预测值离真实值有一点偏差，只要偏差落在以 $f(\boldsymbol{x})$ 为中线的「间隔带」内，就不算损失。** 这既延续了 SVM 的「只有边界样本说了算」的稀疏性，又与普通回归的「每个点都要拟合」形成鲜明对比。<span class="marginnote">SVR 与第3章线性回归的对照是理解它的捷径：线性回归最小化「所有样本的平方误差」，每个点都施压；SVR 只对「偏差超过 ε 的点」施压——前者像要求每个人都准时，后者像只处罚迟到太久的人。</span>
 
-## 1 ε-不敏感损失：给误差一点容忍度**ε-不敏感损失（ε-insensitive loss）**定义为$$\ell_\epsilon(z) = \max\left(0, \; |z| - \epsilon\right)$$
+## 1 ε-不敏感损失：给误差一点容忍度**ε-不敏感损失（ε-insensitive loss）**定义为`$$`\ell_\epsilon(z) = \max\left(0, \; |z| - \epsilon\right)$$
 - 当 $|z| \leq \epsilon$：损失为 0——偏差在容忍带内，**不罚**；
 - 当 $|z| > \epsilon$：损失线性增长——偏差超出的部分才计入损失。
 
 **直觉**：设 $\epsilon = 0.1$ 万元，预测房价偏差在 0.1 万以内都算「够好」，只有偏差超出部分才需要优化。这个「容忍带」正是「间隔」思想在回归里的翻版。<span class="marginnote">对比第3章线性回归的平方损失 $(f(\boldsymbol{x}_i) - y_i)^2$：它对任何非零偏差都惩罚，且偏差大时惩罚二次放大（对离群点极度敏感）。ε-不敏感损失对带内偏差完全免疫——这是 SVR 对噪声鲁棒、且解稀疏的根源。</span>
 
-## 2 SVR 的建模：间隔带SVR 的目标是学出一个回归函数 $f(\boldsymbol{x}) = \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x} + b$，使得预测与真实的偏差尽量落在 $(-\epsilon, +\epsilon)$ 带内。形式化：$$\min_{\boldsymbol{w}, b} \; \frac{1}{2}\|\boldsymbol{w}\|^2 + C \sum_{i=1}^{m} \ell_\epsilon\left(f(\boldsymbol{x}_i) - y_i\right)$$
+## 2 SVR 的建模：间隔带SVR 的目标是学出一个回归函数 $f(\boldsymbol{x}) = \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x} + b$，使得预测与真实的偏差尽量落在 $(-\epsilon, +\epsilon)$ 带内。形式化：`$$`\min_{\boldsymbol{w}, b} \; \frac{1}{2}\|\boldsymbol{w}\|^2 + C \sum_{i=1}^{m} \ell_\epsilon\left(f(\boldsymbol{x}_i) - y_i\right)$$
 等价地，引入上下两侧的松弛变量 $\xi_i$（下超）与 $\hat{\xi}_i$（下欠），写成分段约束形式：
 
 $$\min_{\boldsymbol{w}, b, \xi_i, \hat{\xi}_i} \; \frac{1}{2}\|\boldsymbol{w}\|^2 + C \sum_{i=1}^{m}\left(\xi_i + \hat{\xi}_i\right)$$
@@ -35,16 +35,16 @@ $$\text{s.t.} \quad f(\boldsymbol{x}_i) - y_i \leq \epsilon + \xi_i, \quad y_i -
 
 **解读**：以 $f(\boldsymbol{x})$ 为中线的「管道」厚度为 $2\epsilon$；样本掉进管道内（偏差 ≤ ε）零成本，掉在管壁上沿之外则按超出量 $\xi_i$ / $\hat{\xi}_i$ 罚款。目标仍是「间隔（管道）要宽」+「罚款要少」的平衡，$C$ 调解两者。<span class="marginnote">一个直观画面：SVR 是在「画一根能罩住尽可能多样本的管道，同时让管道尽量平直（$\|\boldsymbol{w}\|$ 小）」。管道越宽容错越大，但太宽会连噪声都罩住、失去拟合能力。</span>
 
-## 3 对偶形式与稀疏性用拉格朗日对偶解 SVR（与分类 SVM 步骤同构，只是每侧各一组乘子 $\alpha_i, \hat{\alpha}_i$），最终回归函数为$$f(\boldsymbol{x}) = \sum_{i=1}^{m}\left(\hat{\alpha}_i - \alpha_i\right) k(\boldsymbol{x}_i, \boldsymbol{x}) + b$$
+## 3 对偶形式与稀疏性用拉格朗日对偶解 SVR（与分类 SVM 步骤同构，只是每侧各一组乘子 $\alpha_i, \hat{\alpha}_i$），最终回归函数为`$$`f(\boldsymbol{x}) = \sum_{i=1}^{m}\left(\hat{\alpha}_i - \alpha_i\right) k(\boldsymbol{x}_i, \boldsymbol{x}) + b$$
 **关键性质**：
 
-- 落在管道**内部**的样本：偏差 < ε，其对应乘子为 0，对 $f$ 无贡献；
-- 落在管道**边界或外部**的样本（即「支持向量」）：乘子非零，决定 $f$。<span class="marginnote">于是 SVR 同样只有「靠边站」的样本说了算——训练完成后丢弃内部样本，模型依旧不变。这个稀疏性让 SVR 在存储与推断上都比「全员参与」的回归省钱。</span>
-- 核技巧原样可用：把 $\boldsymbol{x}_i^{\mathrm{T}}\boldsymbol{x}$ 换成核 $k(\boldsymbol{x}_i, \boldsymbol{x})$，SVR 就获得了非线性回归能力。
+落在管道**内部**的样本：偏差 < ε，其对应乘子为 0，对 $f$ 无贡献；
+落在管道**边界或外部**的样本（即「支持向量」）：乘子非零，决定 $f$。<span class="marginnote">于是 SVR 同样只有「靠边站」的样本说了算——训练完成后丢弃内部样本，模型依旧不变。这个稀疏性让 SVR 在存储与推断上都比「全员参与」的回归省钱。</span>
+核技巧原样可用：把 $\boldsymbol{x}_i^{\mathrm{T}}\boldsymbol{x}$ 换成核 $k(\boldsymbol{x}_i, \boldsymbol{x})$，SVR 就获得了非线性回归能力。
 
 ## 4 公式解析：SVR 的一次对偶推导缩影以线性核、单样本为例看 $\hat{\alpha}_i - \alpha_i$ 的来历：- **第一步，构造拉格朗日**：对两条不等式约束（上超与下欠）各引入乘子 $\alpha_i \geq 0$（对应 $f(\boldsymbol{x}_i) - y_i \leq \epsilon + \xi_i$）与 $\hat{\alpha}_i \geq 0$（对应反向不等式），连同 $\xi_i, \hat{\xi}_i \geq 0$ 的乘子一起，写出 $L$。- **第二步，对 $\boldsymbol{w}$ 求偏导置零**：得到 $\boldsymbol{w} = \sum_i (\hat{\alpha}_i - \alpha_i)\boldsymbol{x}_i$——权重是**两侧乘子之差**的线性组合。
-- **第三步，回代消元**：代入 $L$ 消去 $\boldsymbol{w}, b$，得到对偶问题；解出 $\alpha_i, \hat{\alpha}_i$。
-- **第四步，读出稀疏性**：互补松弛条件给出「管道内样本 $\hat{\alpha}_i = \alpha_i = 0$」。因此求和里只留下管壁与管外样本——**支持向量**。
+**第三步，回代消元**：代入 $L$ 消去 $\boldsymbol{w}, b$，得到对偶问题；解出 $\alpha_i, \hat{\alpha}_i$。
+**第四步，读出稀疏性**：互补松弛条件给出「管道内样本 $\hat{\alpha}_i = \alpha_i = 0$」。因此求和里只留下管壁与管外样本——**支持向量**。
 
 **直觉**：$\hat{\alpha}_i - \alpha_i$ 的符号决定该样本把 $f$ 往上拉还是往下压——高于管道要往下压（$\alpha_i$ 主导），低于管道要往上抬（$\hat{\alpha}_i$ 主导）。SVR 的每个支持向量都是「管道边上的锚点」。
 

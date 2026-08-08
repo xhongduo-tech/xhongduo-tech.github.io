@@ -50,8 +50,8 @@ $$
 
 从 $(x_0,0)$ 出发：竖直打到曲线得 $(x_0,\varphi(x_0))$ → 水平打到直线得 $(\varphi(x_0),\varphi(x_0))=(x_1,x_1)$ → 竖直打回曲线 → ……——**每一步把 $x$ 更新为 $\varphi(x)$**。
 
-- **收敛**：曲线在不动点附近比直线 $y=x$ 平缓（$|\varphi'(r)|<1$），蛛网「螺旋/阶梯」收向交点。
-- **发散**：曲线比直线陡峭（$|\varphi'(r)|>1$），蛛网越跑越远。<span class="marginnote">画蛛网图是理解不动点迭代最快的途径：<strong>「平缓收敛、陡峭发散」</strong>——曲线在交点处的斜率决定命运。$|\varphi'(r)|<1$ 收敛（斜率平缓），$>1$ 发散（斜率陡峭）。</span>
+**收敛**：曲线在不动点附近比直线 $y=x$ 平缓（$|\varphi'(r)|<1$），蛛网「螺旋/阶梯」收向交点。
+**发散**：曲线比直线陡峭（$|\varphi'(r)|>1$），蛛网越跑越远。<span class="marginnote">画蛛网图是理解不动点迭代最快的途径：<strong>「平缓收敛、陡峭发散」</strong>——曲线在交点处的斜率决定命运。$|\varphi'(r)|<1$ 收敛（斜率平缓），$>1$ 发散（斜率陡峭）。</span>
 
 ## 3 公式解析：收敛条件（预告与直觉）
 
@@ -89,14 +89,20 @@ $$
 ## 5 实现与终止
 
 ```python
-def fixed_point(phi, x0, tol=1e-10, max_iter=100):
+def fixed_point(phi, f, x0, tol=1e-10, max_iter=200):
+    """不动点迭代 x_{k+1}=φ(x_k)：终止同时检查相邻差与残差 |f(x)|。"""
     x = x0
-    for k in range(max_iter):
+    for _ in range(max_iter):
         x_new = phi(x)
-        if abs(x_new - x) < tol:
-            return x_new, k + 1
+        if abs(x_new - x) < tol and abs(f(x_new)) < tol:   # 双保险
+            return x_new
         x = x_new
-    raise RuntimeError("不收敛：可能 |phi'(x)| >= 1")
+    return x
+
+# 例：f(x) = x³ - x - 1 = 0，改写为 x = (x+1)^(1/3)，根 ≈ 1.32472
+f = lambda x: x**3 - x - 1
+phi = lambda x: (x + 1) ** (1/3)
+print(fixed_point(phi, f, 1.0))                 # ≈ 1.32472
 ```
 
 **终止准则**：相邻差 $|x_{k+1}-x_k|$ 小（注意：$\varphi'$ 接近 1 时相邻差会「假收敛」，需用 $\dfrac{L}{1-L}$ 修正或检查 $|f(x)|$）。**发散检测**：相邻差暴增或超出预设范围，立即停止。

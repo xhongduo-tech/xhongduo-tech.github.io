@@ -16,44 +16,38 @@ date: 2026-08-07
 
 ## 为什么从递归查询开始
 
-第4章《视图与授权的递归》里，我们已经用 `WITH RECURSIVE` 看过一次传递闭包：经理的经理、课程的先修的先修。那节是递归在「视图」语境下的初次亮相；这一节把它提升为 SQL 的**第一等公民**——`WITH RECURSIVE` 不只服务于视图，它是任何查询都能用的通用工具。
+第4章《视图与授权的递归》里，我们已经用递归视图看过一次传递闭包：经理的经理、课程的先修的先修。那节是递归在「视图」语境下的初次亮相；这一节把它提升为 SQL 的**第一等公民**——递归查询不只服务于视图，它是任何查询都能用的通用工具。
 
 为什么需要它？因为关系模型擅长表达「一步」的关系，却天然不擅长「任意步」：从「谁是我的直接上司」到「谁是我的所有祖先」，中间隔着不确定的层数。普通 SQL 的 JOIN 能连接固定次数，却无法表达「连接任意多次」。递归查询正是为这种「**任意深度**」而生的——它是 SQL 连接图算法（可达性、路径、物料清单）的入口，也是把数据库从「表的存储」推向「图的查询」的桥梁。
 
 ## 1 WITH 子句：公共表表达式
 
-在讲递归之前，先认识它的载体——**公共表表达式（Common Table Expression, CTE）**。`WITH` 子句允许在一个查询里先定义「临时关系」，再在后面的查询中使用：
+在讲递归之前，先认识它的载体——**公共表表达式（Common Table Expression, CTE）**。\`WITH\` 子句允许在一个查询里先定义「临时关系」，再在后面的查询中使用：
 
 ```sql
-WITH max_budget(dept_name, value) AS (
-    SELECT dept_name, MAX(budget)
-    FROM department
-    GROUP BY dept_name
+WITH cs_instructors AS (
+    SELECT * FROM instructor WHERE dept_name = 'CS'
 )
-SELECT name
-FROM instructor, max_budget
-WHERE instructor.dept_name = max_budget.dept_name
-  AND instructor.salary > max_budget.value;
+SELECT name, salary
+FROM cs_instructors
+WHERE salary > 80000;
 ```
 
-`WITH ... AS (...)` 定义了一个「只在这个查询里存在的视图」，让复杂查询能被拆成清晰的两段：先算中间结果，再在其上查询。<span class="marginnote">CTE 是「查询内的局部视图」：它的作用域仅限于紧跟其后的那条语句。写长查询时用 CTE 分段，可读性远胜嵌套子查询——这是 SQL 工程里的重要习惯。</span>
+CTE 定义了一个「只在这个查询里存在的视图」，让复杂查询能被拆成清晰的两段：先算中间结果，再在其上查询。<span class="marginnote">CTE 是「查询内的局部视图」：它的作用域仅限于紧跟其后的那条语句。写长查询时用 CTE 分段，可读性远胜嵌套子查询——这是 SQL 工程里的重要习惯。</span>
 
-CTE 本身并不神奇（很多系统会把它内联展开），但它是递归的**脚手架**：一旦在 `WITH` 后加上 `RECURSIVE`，临时关系就能在自身定义里引用自己。
+CTE 本身并不神奇（很多系统会把它内联展开），但它是递归的**脚手架**：一旦在 \`WITH\` 后加上 \`RECURSIVE\`，临时关系就能在自身定义里引用自己。
 
 ## 2 WITH RECURSIVE：基例与递归步
 
-递归查询的标准形态是「**基例 + 递归步**」，两者用 `UNION` 合并。以课程先修关系为例：`prereq(course_id, prereq_id)` 表示「course_id 的直接先修是 prereq_id」。要找出**所有**先修（含间接先修），即传递闭包：
+递归查询的标准形态是「**基例 + 递归步**」，两者用 \`UNION\` 合并。以课程先修关系为例：\`prereq(course_id, prereq_id)\` 表示「course_id 的直接先修是 prereq_id」。要找出**所有**先修（含间接先修），即传递闭包：
 
 ```sql
-WITH RECURSIVE rec_prereq(course_id, prereq_id) AS (
-    -- 基例：直接先修
-    SELECT course_id, prereq_id
-    FROM prereq
-  UNION
-    -- 递归步：沿着先修链再走一步
-    SELECT rec_prereq.course_id, prereq.prereq_id
-    FROM rec_prereq, prereq
-    WHERE rec_prereq.prereq_id = prereq.course_id
+WITH RECURSIVE rec_prereq (course_id, prereq_id) AS (
+    SELECT course_id, prereq_id FROM prereq               -- 基例：直接先修
+    UNION
+    SELECT r.course_id, p.prereq_id                       -- 递归步：先修的先修
+    FROM rec_prereq r, prereq p
+    WHERE r.prereq_id = p.course_id
 )
 SELECT * FROM rec_prereq;
 ```
@@ -64,9 +58,9 @@ SELECT * FROM rec_prereq;
 
 - **基例**：先把「一步可达」的直接先修放进去。
 - **递归步**：若 $x$ 的某个先修是 $y$，而 $y$ 的先修是 $z$，则 $z$ 也是 $x$ 的（间接）先修——每次迭代让链条多延伸一步。
-- **`UNION` 的去重**：迭代产生的重复元组被自动去掉，这正是递归能收敛的关键。
+- **\`UNION\` 的去重**：迭代产生的重复元组被自动去掉，这正是递归能收敛的关键。
 
-**辨析｜易错点：** 递归步里的 JOIN 条件非常容易写反。`rec_prereq.prereq_id = prereq.course_id` 表示「把 $y$ 的链尾接到 $z$ 的头」，方向错了就会得到「先修的先修的反向」这类无意义结果。写递归步时，**先画出链条图，再写 JOIN 方向**，能省下大量调试时间。
+**辨析｜易错点：** 递归步里的 JOIN 条件非常容易写反。正确方向的 \`r.prereq_id = p.course_id\` 表示「把 $y$ 的链尾接到 $z$ 的头」，方向错了就会得到「先修的先修的反向」这类无意义结果。写递归步时，**先画出链条图，再写 JOIN 方向**，能省下大量调试时间。
 
 ## 3 固定点语义：它为什么一定能终止
 
@@ -80,7 +74,7 @@ $$
 
 数据库执行递归查询用的是**半朴素求值（semi-naive evaluation）**：第 $i$ 轮只处理第 $i$ 轮**新产生**的元组，而不是重算整个结果集。这保证每轮的工作量正比于「新增量」，总代价近似线性于闭包的大小。
 
-**辨析｜易错点：** 递归终止依赖**单调性**——每轮只能加元组、不能删元组。若递归步里用了 `NOT EXISTS`、聚集函数、或 `MINUS`（差），结果可能不单调，固定点语义失效，甚至不终止或无定义。SQL 标准因此要求：**递归步不得包含否定与聚集**。<span class="marginnote">对需要「否定 + 递归」的问题，要换用 Datalog 的「分层否定」理论或分多步查询手工模拟。这是递归 SQL 公认的边界，也是很多面试题的隐藏考点。</span>
+**辨析｜易错点：** 递归终止依赖**单调性**——每轮只能加元组、不能删元组。若递归步里用了否定（\`NOT\`）、聚集函数、或 \`EXCEPT\`（差），结果可能不单调，固定点语义失效，甚至不终止或无定义。SQL 标准因此要求：**递归步不得包含否定与聚集**。<span class="marginnote">对需要「否定 + 递归」的问题，要换用 Datalog 的「分层否定」理论或分多步查询手工模拟。这是递归 SQL 公认的边界，也是很多面试题的隐藏考点。</span>
 
 ## 4 递归查询实战：三个经典问题
 
@@ -89,17 +83,17 @@ $$
 **组织架构：找某经理名下的所有下属（任意层级）。**
 
 ```sql
-WITH RECURSIVE subordinates(id, name) AS (
-    SELECT id, name FROM employee WHERE manager_id = 100
-  UNION
-    SELECT e.id, e.name
-    FROM employee e, subordinates s
-    WHERE e.manager_id = s.id
+WITH RECURSIVE org (emp_id, emp_name) AS (
+    SELECT emp_id, emp_name FROM employee WHERE manager_id = 'E001'   -- 基例：经理 E001 的直接下属
+    UNION
+    SELECT e.emp_id, e.emp_name
+    FROM employee e, org o
+    WHERE e.manager_id = o.emp_id                                    -- 递归步：下属的下属
 )
-SELECT * FROM subordinates;
+SELECT * FROM org;
 ```
 
-**物料清单（Bill of Materials）：算一个产品的总用料。** 零件表 `component(part, subpart, quantity)` 是树状递归的典型——「自行车」由「车架」「车轮」组成，「车轮」又由「轮圈」「辐条」组成。要算总需求，需递归下钻再聚合。
+**物料清单（Bill of Materials）：算一个产品的总用料。** 零件表（\`part\` 表）是树状递归的典型——「自行车」由「车架」「车轮」组成，「车轮」又由「轮圈」「辐条」组成。要算总需求，需递归下钻再聚合。
 
 **图的可达性：社交网络里「我朋友的朋友的朋友」。** 把边关系递归闭包，就能回答任意两点是否连通、最短路径长度多少（每轮迭代把「层数」加一，记录步数即可）。<span class="marginnote">这些看似不同的场景，底层都是同一条不动点方程 $R = T \cup (T \circ R)$。掌握一次递归查询，就等于同时掌握了组织树、零件树与图可达性三类问题。</span>
 
@@ -131,8 +125,8 @@ $$
 
 ## 6 小结
 
-- **CTE（`WITH ... AS ...`）**：查询内的局部视图，让复杂查询分段可读，是递归的载体。
-- **`WITH RECURSIVE`**：`基例 UNION 递归步`，基例给出一步结果，递归步让链条多走一步。
+- **CTE（Common Table Expression，公共表表达式）**：查询内的局部视图，让复杂查询分段可读，是递归的载体。
+- **WITH RECURSIVE**：**基例 + 递归步**，基例给出一步结果，递归步让链条多走一步。
 - **语义 = 最小不动点**：$R = P \cup (P \circ R)$，从空集迭代到收敛，恰好得到传递闭包。
 - **终止性**：有限图上的闭包必然收敛；递归步禁用否定与聚集，否则单调性被破坏、固定点无定义。
 - **执行方式**：半朴素求值，每轮只处理新增元组，代价近似线性于闭包大小。

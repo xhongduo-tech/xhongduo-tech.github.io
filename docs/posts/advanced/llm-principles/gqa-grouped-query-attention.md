@@ -22,10 +22,10 @@ MQA 把 KV Cache 压到极限，但代价是「单一 K/V 头」可能成为多�
 
 设共有 $H$ 个 query 头、$g$ 个 KV 头，且 $g$ 整除 $H$。第 $h$ 个 query 头属于第 $\lfloor h \cdot g / H \rfloor$ 个 KV 组：
 
-- 组内共享：第 $h$ 个 query 头与同组唯一的 K/V 计算注意力。
-- 组间独立：不同组有不同的 K/V。
+组内共享：第 $h$ 个 query 头与同组唯一的 K/V 计算注意力。
+组间独立：不同组有不同的 K/V。
 
-配置举例（LLaMA-2-70B）：$H=64$ 头、$g=8$ 个 KV 头——每个 KV 头被 8 个 query 头共享。KV Cache 相对 MHA 缩小 $g/H = 8/64 = 1/8$。<span class="marginnote">HuggingFace 配置里用 `num_key_value_heads` 表示 $g$：`num_attention_heads=64, num_key_value_heads=8` 就是 8 组。MQA 是 `num_key_value_heads=1` 的特例，MHA 是 `num_key_value_heads=64` 的特例——<strong>同一个参数覆盖整个光谱</strong>。</span>
+配置举例（LLaMA-2-70B）：$H=64$ 头、$g=8$ 个 KV 头——每个 KV 头被 8 个 query 头共享。KV Cache 相对 MHA 缩小 $g/H = 8/64 = 1/8$。<span class="marginnote">HuggingFace 配置里用 $H=64$ 表示 $g$：$g=8$ 就是 8 组。MQA 是 $g/H = 8/64 = 1/8$ 的特例，MHA 是 $g$ 的特例——<strong>同一个参数覆盖整个光谱</strong>。</span>
 
 ## 2 为什么 GQA 是"甜蜜点"
 
@@ -77,14 +77,14 @@ $$
 - **第三步，读出缓存**：KV Cache 只存 $g$ 组：每 token $2 \cdot g \cdot d_k$ 元素，比 MHA 的 $2H d_k$ 缩小 $g/H$ 倍。
 - **第四步，读出边界**：$g=1$ 时回到 MQA；$g=H$ 时回到 MHA。**GQA 是两者之间的连续插值**。
 
-**辨析｜易错点：** 别把「$g$ 个 KV 头」理解成「$g$ 个 query 头」。`num_key_value_heads` 是 K/V 的数量，query 头数 `num_attention_heads` 不变。GQA 压缩的是 **K/V 侧**，query 侧始终保留全部 $H$ 头——「多视角查询」的视角仍在。
+**辨析｜易错点：** 别把「$g$ 个 KV 头」理解成「$g$ 个 query 头」。$g$ 是 K/V 的数量，query 头数 $H$ 不变。GQA 压缩的是 **K/V 侧**，query 侧始终保留全部 $H$ 头——「多视角查询」的视角仍在。
 
 ## 5 部署中的 GQA
 
 - **显存预算**：同样 batch、长度，GQA-8 的 KV 显存是 MHA 的 $1/8$——同样的显存能装 8 倍并发请求，或支持 8 倍长上下文。
 - **带宽**：解码每步读 KV 的量缩小 $g/H$ 倍，prefill/decoding 两阶段都受益。
 - **与量化叠加**：GQA + KV 量化可再压几倍，是长上下文服务的「组合拳」。
-- **与 MHA 的兼容**：推理引擎（vLLM、TensorRT-LLM）对 `num_key_value_heads` 均有通用实现，改配置即用。
+- **与 MHA 的兼容**：推理引擎（vLLM、TensorRT-LLM）对 GQA 均有通用实现，改配置即用。
 
 ## 6 小结
 

@@ -61,9 +61,9 @@ $$
 **注**：两两互素时 $\bigcap I_i = I_1 I_2 \cdots I_k$（乘积 = 交），所以左边常写作 $R/(I_1 \cdots I_k)$。<span class="marginnote">环论版本的洞察：「模 $I_1 \cap \cdots \cap I_k$ 取同余」分解为「分别模每个 $I_i$」的直积。条件 $I_i + I_j = R$（互素）保证「每个分量可以独立指定」——若理想不互素，直积会多出「相容性」约束。$I_i + I_j = R$ 正是「$m_i$ 与 $m_j$ 互素」在理想语言里的化身。</span>
 
 **证明（$k = 2$ 情形）：** 考虑 $\varphi : R \to (R/I_1) \times (R/I_2)$，$\varphi(r) = (r + I_1, r + I_2)$。
-- **同态**：逐分量保持加乘；
-- **核**：$\varphi(r) = (0, 0) \iff r \in I_1$ 且 $r \in I_2$，故 $\ker\varphi = I_1 \cap I_2$；
-- **满射**：由 $I_1 + I_2 = R$，存在 $e_1 + e_2 = 1$（$e_1 \in I_1$、$e_2 \in I_2$）。取 $r = a_2 e_1 + a_1 e_2$，则 $r \equiv a_1 \pmod{I_1}$（因为 $a_2 e_1 \in I_1$、$a_1 e_2 \equiv a_1 \cdot 1$）且 $r \equiv a_2 \pmod{I_2}$——任意目标 $(a_1, a_2)$ 都被取到，满射。
+**同态**：逐分量保持加乘；
+**核**：$\varphi(r) = (0, 0) \iff r \in I_1$ 且 $r \in I_2$，故 $\ker\varphi = I_1 \cap I_2$；
+**满射**：由 $I_1 + I_2 = R$，存在 $e_1 + e_2 = 1$（$e_1 \in I_1$、$e_2 \in I_2$）。取 $r = a_2 e_1 + a_1 e_2$，则 $r \equiv a_1 \pmod{I_1}$（因为 $a_2 e_1 \in I_1$、$a_1 e_2 \equiv a_1 \cdot 1$）且 $r \equiv a_2 \pmod{I_2}$——任意目标 $(a_1, a_2)$ 都被取到，满射。
 
 套第一同构定理：$R/(I_1 \cap I_2) \cong (R/I_1) \times (R/I_2)$。$k$ 个理想的情形归纳即得。$\blacksquare$<span class="marginnote">满射性的构造 $r = a_2 e_1 + a_1 e_2$ 是「互素分解 1 = e_1 + e_2」的应用：$e_1 \in I_1$、$e_2 \in I_2$ 像「单位元的互素分裂」，让每个分量可以独立调整而不影响其他。这套「幂等元分解」的思想在代数、表示论、乃至信号处理的滤波器组里反复出现。</span>
 

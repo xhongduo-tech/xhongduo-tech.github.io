@@ -78,18 +78,17 @@ $$
 ```python
 import numpy as np
 
-# 数据（带噪声的线性关系）
-x = np.array([0., 1., 2., 3., 4., 5.])
-y = np.array([0.9, 2.1, 3.2, 4.1, 4.9, 6.2])   # 真值 1.0*x + 1.0 + 噪声
+x = np.array([0., 1., 2., 3.])
+y = np.array([1.1, 3.0, 5.9, 8.8])
 
-# 解法 1：法方程（n=1，线性拟合）
-A = np.vstack([np.ones_like(x), x]).T          # 设计矩阵 [1, x]
-a = np.linalg.solve(A.T @ A, A.T @ y)
-print("法方程解:", a)                          # ≈ [0.99, 1.02]
+A = np.vander(x, 3, increasing=True)      # 设计矩阵，列 [1, x, x²]
 
-# 解法 2：numpy 的 lstsq（QR/SVD 路径，数值稳定）
-a2, *_ = np.linalg.lstsq(A, y, rcond=None)
-print("lstsq 解:", a2)
+# 稳定路径：QR 分解解最小二乘，不显式构造 AᵀA
+Q, R = np.linalg.qr(A)
+coef = np.linalg.solve(R, Q.T @ y)        # 最小二乘解 [a0, a1, a2]
+
+# 结果与 np.linalg.lstsq 一致，但病态时数值上远更稳
+print(coef)
 ```
 
 **辨析｜易错点：** 「先平方再解」与「直接 QR」结果理论上相同，数值上差很远——病态时法方程解出的系数可能「完全不像样」。**在 $n$ 较大或数据范围大时，永远用 QR/SVD 路径，不要手写法方程。**

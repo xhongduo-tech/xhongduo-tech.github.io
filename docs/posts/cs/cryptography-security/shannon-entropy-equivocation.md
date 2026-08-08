@@ -132,28 +132,27 @@ $$
 ```python
 import math
 
-def H(probs):
-    """熵：-Σ p·log2 p，单位比特。"""
+def entropy(probs):
+    """熵：H = -Σ p·log2 p（比特）。"""
     return -sum(p * math.log2(p) for p in probs if p > 0)
 
-def entropy_of_string(s: str) -> float:
-    """按字母出现频率估计一串字符的熵。"""
-    cnt = {}
-    for ch in s.lower():
-        if ch.isalpha():
-            cnt[ch] = cnt.get(ch, 0) + 1
-    n = sum(cnt.values())
-    return H([v / n for v in cnt.values()])
+def cond_entropy(joint):
+    """条件熵 H(M|C) = -Σ p(m,c)·log2 p(m|c)，joint 是 {(m, c): p} 的字典。"""
+    pc = {}
+    for (m, c), p in joint.items():
+        pc[c] = pc.get(c, 0.0) + p
+    return sum(p * math.log2(pc[c] / p)
+               for (m, c), p in joint.items() if p > 0)
 
-# 1) 均匀 vs 偏斜：密钥熵的两种极端
-print("均匀 26 键密钥熵:", H([1 / 26] * 26), "比特")          # 约 4.70
-print("单表替换密钥熵:  ", math.log2(math.factorial(26)), "比特")  # 约 88.4
+# 1) 均匀 26 字母的熵：每个字母 1/26
+print("H(均匀26字母) =", round(entropy([1/26] * 26), 2), "比特")      # ≈ 4.70
 
-# 2) 疑义度模拟：一段维吉尼亚密文的 H(M|C)
-plain  = "ITWASTHEBESTOFTIMESITWASTHEWORSTOFTIMES"
-cipher = "KXRKGIXKBKAJKXRKGIXKBKAJ"   # 示意密文
-print("明文每字符熵 ≈ %.3f" % entropy_of_string(plain))
-print("密文每字符熵 ≈ %.3f" % entropy_of_string(cipher))
+# 2) 单表替换的密钥熵：密钥是 26! 个置换之一
+print("H(单表替换密钥) =", round(math.log2(math.factorial(26)), 2), "比特")  # ≈ 88.4
+
+# 3) 疑义度 H(M|C)：极简例子——密钥决定后，密文唯一确定明文
+joint = {("a", "0"): 0.5, ("b", "1"): 0.5}
+print("H(M|C) =", round(cond_entropy(joint), 2), "比特")             # 0：知道密文即知明文
 ```
 
 第一组输出会展示那把尺子的威力：均匀 26 键的熵只有约 4.70 比特，而**单表替换的密钥空间虽是 $26!$，其熵 $H(K) = \log_2 26! \approx 88.4$ 比特**——这个数字印证了《单表替换密码》里「密钥空间巨大却仍被攻破」的悖论：密钥熵很大，但密文 $H(C)$ 也保留了明文的全部统计结构，$H(M \mid C)$ 照样被频率攻击压到接近 0。<span class="marginnote">这正是香农理论的清醒之处：<strong>大密钥空间只是必要条件，不是充分条件</strong>。单表替换的 $H(K)$ 高达 88 比特，完善保密性要求却不满足（因为密文分布保留了明文的统计冗余），所以它连「接近完善保密」都谈不上。</span>

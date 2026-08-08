@@ -51,10 +51,10 @@ $$X(s) = \int_{0^-}^{+\infty} x(t)\, e^{-st}\, dt$$
 
 拉普拉斯变换让微积分降维成代数，核心性质：
 
-- **微分**：$x'(t) \leftrightarrow s X(s) - x(0^-)$——初值自动进入表达式，这是它解微分方程的法宝。
-- **积分**：$\int_{0^-}^{t} x(\tau)d\tau \leftrightarrow \frac{X(s)}{s}$。
-- **时移**：$x(t-t_0)u(t-t_0) \leftrightarrow e^{-st_0} X(s)$。
-- **卷积**：$x(t) * h(t) \leftrightarrow X(s) H(s)$——与傅里叶一致，频域乘法在 $s$ 域同样成立。
+**微分**：$x'(t) \leftrightarrow s X(s) - x(0^-)$——初值自动进入表达式，这是它解微分方程的法宝。
+**积分**：$\int_{0^-}^{t} x(\tau)d\tau \leftrightarrow \frac{X(s)}{s}$。
+**时移**：$x(t-t_0)u(t-t_0) \leftrightarrow e^{-st_0} X(s)$。
+**卷积**：$x(t) * h(t) \leftrightarrow X(s) H(s)$——与傅里叶一致，频域乘法在 $s$ 域同样成立。
 
 两条工程上极常用的定理：
 

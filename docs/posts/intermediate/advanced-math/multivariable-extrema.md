@@ -85,11 +85,11 @@ $$\begin{cases}L_x = f_x + \lambda\varphi_x = 0\\ L_y = f_y + \lambda\varphi_y =
 
 求内接于椭球面 $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$ 的、各边平行于坐标轴的长方体的最大体积：
 
-- **第一步，写目标与约束**：体积 $V = 8xyz$（第一卦限顶点 $(x,y,z)$），约束 $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$。
-- **第二步，建拉格朗日函数**：$L = 8xyz + \lambda\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1\right)$。
-- **第三步，偏导为零**：$L_x: 8yz + \frac{2\lambda x}{a^2}=0$，$L_y: 8xz+\frac{2\lambda y}{b^2}=0$，$L_z: 8xy+\frac{2\lambda z}{c^2}=0$，$L_\lambda$：约束。
-- **第四步，解对称方程**：由前三式可推出 $\frac{x^2}{a^2}=\frac{y^2}{b^2}=\frac{z^2}{c^2}=\frac13$，故 $x=\frac{a}{\sqrt3}$、$y=\frac{b}{\sqrt3}$、$z=\frac{c}{\sqrt3}$。
-- **第五步，算体积**：$V_{\max} = 8\cdot\frac{abc}{3\sqrt3} = \frac{8abc}{3\sqrt3}$。
+**第一步，写目标与约束**：体积 $V = 8xyz$（第一卦限顶点 $(x,y,z)$），约束 $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$。
+**第二步，建拉格朗日函数**：$L = 8xyz + \lambda\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1\right)$。
+**第三步，偏导为零**：$L_x: 8yz + \frac{2\lambda x}{a^2}=0$，$L_y: 8xz+\frac{2\lambda y}{b^2}=0$，$L_z: 8xy+\frac{2\lambda z}{c^2}=0$，$L_\lambda$：约束。
+**第四步，解对称方程**：由前三式可推出 $\frac{x^2}{a^2}=\frac{y^2}{b^2}=\frac{z^2}{c^2}=\frac13$，故 $x=\frac{a}{\sqrt3}$、$y=\frac{b}{\sqrt3}$、$z=\frac{c}{\sqrt3}$。
+**第五步，算体积**：$V_{\max} = 8\cdot\frac{abc}{3\sqrt3} = \frac{8abc}{3\sqrt3}$。
 
 **关键**：拉格朗日乘数法的四步——**建 $L$、偏导为零、解方程组、回代验证**。方程组常具对称结构，可相除消 $\lambda$ 求解。
 
@@ -97,7 +97,7 @@ $$\begin{cases}L_x = f_x + \lambda\varphi_x = 0\\ L_y = f_y + \lambda\varphi_y =
 
 拉格朗日乘数法是现代优化的奠基技术：
 
-- **支持向量机（SVM）**：最大化间隔（约束最值）通过对偶问题用拉格朗日乘数法求解——支持向量就是约束「起作用」的点（$\lambda_i>0$）。<span class="marginnote">SVM 对偶问题的推导正是拉格朗日乘数法的推广（KKT 条件）：<strong>约束优化 → 拉格朗日函数 → 对偶问题</strong>。你在第四级《机器学习》学的 SVM、凸优化里的 KKT 条件，几何直觉全来自本节「梯度平行于约束梯度」。</span>
+**支持向量机（SVM）**：最大化间隔（约束最值）通过对偶问题用拉格朗日乘数法求解——支持向量就是约束「起作用」的点（$\lambda_i>0$）。<span class="marginnote">SVM 对偶问题的推导正是拉格朗日乘数法的推广（KKT 条件）：<strong>约束优化 → 拉格朗日函数 → 对偶问题</strong>。你在第四级《机器学习》学的 SVM、凸优化里的 KKT 条件，几何直觉全来自本节「梯度平行于约束梯度」。</span>
 - **经济学**：效用最大化（预算约束下）、成本最小化（产量约束下）——消费者与厂商的最优决策标准范式。
 - **最优控制**：带约束的动态优化（变分法 + 拉格朗日乘子）。
 - **物理**：最小作用量原理、约束力学（虚功原理）。

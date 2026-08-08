@@ -22,7 +22,7 @@ GPU 用几十倍的处理器数、以**吞吐优先**的设计，成为大模型
 
 而 **CUDA（Compute Unified Device Architecture）**是 NVIDIA 提供的并行编程平台：
 
-写一个 `kernel`，就能让上万线程在同一块芯片上同时干活。
+写一个 kernel，就能让上万线程在同一块芯片上同时干活。
 
 <span class="marginnote">大模型的训练与推理、数值模拟、图像处理，底层几乎都是 CUDA kernel。理解 CUDA 的线程与内存模型，就理解了当代 AI 算力的物理基础。</span>
 
@@ -38,9 +38,9 @@ GPU 的核心设计目标是**高吞吐**：不在乎单线程多快，而在乎
 
 GPU 的执行模型叫 **SIMT（Single Instruction, Multiple Thread，单指令多线程）**：
 
-- 一批线程（**warp**，通常 32 个）**共享一条指令流**；
-- 32 个线程对各自的**数据**同时执行同一条指令；
-- 如果线程分支分叉，warp 会**串行执行**每个分支再合并——这就是「发散（divergence）」性能杀手。
+一批线程（**warp**，通常 32 个）**共享一条指令流**；
+32 个线程对各自的**数据**同时执行同一条指令；
+如果线程分支分叉，warp 会**串行执行**每个分支再合并——这就是「发散（divergence）」性能杀手。
 
 关键数字感受一下：
 
@@ -62,23 +62,22 @@ CUDA 把计算分成两侧：
 程序员写一个**内核函数（kernel）**，用 `__global__` 声明，在 GPU 上执行：
 
 ```c
-__global__ void vec_add_kernel(float *a, float *b, float *c, int N) {
+__global__ void vecAdd(float *a, float *b, float *c, int n) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
-    if (i < N) {
+    if (i < n)                    // 越界检查：保证最后一块不越界
         c[i] = a[i] + b[i];
-    }
 }
 ```
 
 调用时指定网格与块的大小：
 
 ```c
-int threads = 256;
-int blocks = (N + threads - 1) / threads;
-vec_add_kernel<<<blocks, threads>>>(a, b, c, N);
+int blockSize = 256;
+int gridSize = (n + blockSize - 1) / blockSize;
+vecAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, n);
 ```
 
-**辨析｜易错点：** kernel 里的 `printf` 不能替代调试器，`if (i < N)` 必须保留——当 `N` 不是 `threads` 的整数倍时，最后一块的线程会越界。
+**辨析｜易错点：** kernel 里的 `printf` 不能替代调试器，`越界检查`（if (i < n)）必须保留——当 `n` 不是 `blockDim.x` 的整数倍时，最后一块的线程会越界。
 
 ## 3 线程组织：grid / block / thread
 
@@ -138,31 +137,28 @@ $$T_{\text{trans}} = \left\lceil \frac{\text{字节数}}{128} \right\rceil$$
 host 侧负责数据搬运与 kernel 启动：
 
 ```c
-int main() {
-    float *h_a, *h_b, *h_c;        // host 数组
-    float *d_a, *d_b, *d_c;        // device 数组
+float *d_a, *d_b, *d_c;
+cudaMalloc(&d_a, n * sizeof(float));           // 在显存里分配
+cudaMalloc(&d_b, n * sizeof(float));
+cudaMalloc(&d_c, n * sizeof(float));
 
-    cudaMalloc(&d_a, N * sizeof(float));
-    cudaMalloc(&d_b, N * sizeof(float));
-    cudaMalloc(&d_c, N * sizeof(float));
+cudaMemcpy(d_a, h_a, n * sizeof(float), cudaMemcpyHostToDevice);  // 拷入
+cudaMemcpy(d_b, h_b, n * sizeof(float), cudaMemcpyHostToDevice);
 
-    cudaMemcpy(d_a, h_a, N * sizeof(float), cudaMemcpyHostToDevice);
-    cudaMemcpy(d_b, h_b, N * sizeof(float), cudaMemcpyHostToDevice);
+vecAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, n);   // 启动 kernel
+cudaDeviceSynchronize();
 
-    vec_add_kernel<<<(N + 255) / 256, 256>>>(d_a, d_b, d_c, N);
-
-    cudaMemcpy(h_c, d_c, N * sizeof(float), cudaMemcpyDeviceToHost);
-    // ... 校验、释放、返回
-}
+cudaMemcpy(h_c, d_c, n * sizeof(float), cudaMemcpyDeviceToHost);  // 拷回
+cudaFree(d_a); cudaFree(d_b); cudaFree(d_c);
 ```
 
 三步读懂：
 
 - **第一步，`cudaMalloc` + `cudaMemcpy`**：数据从 host 搬进显存，算完再搬回——搬运本身很贵，好程序会尽量减少往返；
-- **第二步，`kernel<<<grid, block>>>`**：启动 kernel，网格大小由数据量除以块大小向上取整；
+- **第二步，`vecAdd<<<gridSize, blockSize>>>`**：启动 kernel，网格大小由数据量除以块大小向上取整；
 - **第三步，校验**：把结果拷回 CPU 与串行结果对比——**并行程序的第一条守则：写对校验再谈性能**。
 
-<span class="marginnote">`cudaMemcpy` 是显式同步点：它保证之前的所有 kernel 都已完成。异步流（stream）技术可以重叠拷贝与计算，把搬运时间藏进计算时间里。</span>
+<span class="marginnote">`cudaDeviceSynchronize()` 是显式同步点：它保证之前的所有 kernel 都已完成。异步流（stream）技术可以重叠拷贝与计算，把搬运时间藏进计算时间里。</span>
 
 ## 6 核心对比：CPU 与 GPU
 
@@ -181,7 +177,7 @@ int main() {
 ## 7 小结
 
 - GPU 靠 **SIMT** 与海量线程换吞吐，**warp（32 线程）**共享指令流。
-- CUDA 分 **host/device**，kernel 用 `<<<grid, block>>>` 启动。
+- CUDA 分 **host/device**，kernel 用 <<<grid, block>>>` 启动。
 - 线程身份公式：$i = \text{blockIdx} \times \text{blockDim} + \text{threadIdx}$。
 - 内存五层，**共享内存**管块内协作，**全局内存**要合并访问。
 - 铁律：**先写对校验，再谈性能；相邻线程访问相邻地址。**

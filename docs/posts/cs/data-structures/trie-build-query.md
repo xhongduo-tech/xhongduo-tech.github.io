@@ -22,13 +22,12 @@ date: 2026-08-07
 
 Trie 是多叉树，每个结点代表「一个字符位」：
 
-```c
-typedef struct TrieNode {
-    int next[26];       /* 26 个孩子指针（数组版：存孩子下标） */
-    int cnt;            /* 以该结点为结尾的单词数（或出现次数） */
-} TrieNode;
-TrieNode pool[MAXN];    /* 结点池 */
-int tot = 1;            /* 已用结点数，根为 0 */
+```cpp
+// 数组版 Trie 的结点：结点池 + 孩子下标
+struct Node {
+    int next[26];   // next[c] = 字符 c 对应的孩子结点编号；0 表示不存在
+    int cnt;        // 以该结点为结尾的单词数
+} trie[MAXN];       // MAXN = 全部字符数上限，结点池
 ```
 
 - **根**：空结点（不代表任何字符）；
@@ -36,50 +35,62 @@ int tot = 1;            /* 已用结点数，根为 0 */
 - **路径**：根到某结点拼成前缀；
 - **结尾标记**：结点的 `cnt` 记录「有多少单词在这里结束」。
 
-**重点：数组版 Trie 用「结点池 + 孩子下标」代替指针**——查找孩子就是一次数组下标访问，$O(1)$ 跳转、缓存友好。<span class="marginnote">「<strong>数组版 Trie = 结点池 + 下标孩子</strong>」：<strong>`next[26]` 存「下一个字符对应的结点编号」，0 表示没有</strong>。<strong>它把「每结点 26 个指针」压进连续数组，空间用池管理</strong>——是「多重链表」的紧凑工程形态，比指针版省、快。</span>
+**重点：数组版 Trie 用「结点池 + 孩子下标」代替指针**——查找孩子就是一次数组下标访问，$O(1)$ 跳转、缓存友好。<span class="marginnote">「<strong>数组版 Trie = 结点池 + 下标孩子</strong>」：`<strong>`next[c]` 存「下一个字符对应的结点编号」，0 表示没有。<strong>它把「每结点 26 个指针」压进连续数组，空间用池管理</strong>——是「多重链表」的紧凑工程形态，比指针版省、快。</span>
 
 ## 2 构建（插入）
 
 插入单词 `s`：
 
 1. 从根出发，逐字符 `c`：
-   - 若 `next[c]` 不存在 → **新建结点**（`tot++`）；
-   - 走到 `next[c]`；
-2. 单词结束后，**结尾结点的 `cnt++`**。
+若孩子 `next[u][c]` 不存在 → **新建结点**（编号 `++tot`）；
+走到该孩子结点 `u = next[u][c]`；
+2. 单词结束后，**结尾结点的 `cnt[u]` 加 1**。
 
-```c
-void Insert(char *s) {
-    int u = 0;                          /* 从根出发 */
-    for (i = 0; s[i]; i++) {
-        int c = s[i] - 'a';
-        if (!pool[u].next[c])           /* 孩子不存在则新建 */
-            pool[u].next[c] = tot++;
-        u = pool[u].next[c];            /* 下移到孩子 */
+```cpp
+void insert(const char* s) {
+    int u = 0;                          // 从根出发
+    for (int i = 0; s[i]; ++i) {
+        int c = s[i] - 'a';             // 当前字符对应的孩子槽
+        if (!trie[u].next[c])           // 孩子不存在
+            trie[u].next[c] = ++tot;    // 新建结点，编号自增
+        u = trie[u].next[c];            // 走到该孩子结点
     }
-    pool[u].cnt++;                      /* 结尾标记 */
+    trie[u].cnt++;                      // 结尾结点计数 +1
 }
 ```
 
-**重点：插入 = 「沿路径走，没有就建」——共享前缀的单词共用同一段路径。** 插「apple」再插「app」，`app` 部分不重复建结点。<span class="marginnote">「<strong>共享前缀 = 不重复建</strong>」是 Trie 的空间魔法：<strong>「apple」「app」「apply」共享 `app` 这 3 个结点</strong>。<strong>前缀越重叠，Trie 越省空间</strong>——这也是它适合「词根多的语言」的原因。</span>
+**重点：插入 = 「沿路径走，没有就建」——共享前缀的单词共用同一段路径。** 插「apple」再插「app」，`app` 前缀部分不重复建结点。<span class="marginnote">「<strong>共享前缀 = 不重复建</strong>」是 Trie 的空间魔法：<strong>「apple」「app」「apply」共享 `app` 这 3 个结点</strong>。<strong>前缀越重叠，Trie 越省空间</strong>——这也是它适合「词根多的语言」的原因。</span>
 
 ## 3 查询
 
 **查询单词 / 前缀**：
 
-```c
-int Query(char *s) {                    /* 返回 s 出现次数（结尾标记） */
+```cpp
+// 查询单词 s：沿路径走到结尾，看是否有结尾标记
+bool query(const char* s) {
     int u = 0;
-    for (i = 0; s[i]; i++) {
+    for (int i = 0; s[i]; ++i) {
         int c = s[i] - 'a';
-        if (!pool[u].next[c]) return 0; /* 路径断了：不存在 */
-        u = pool[u].next[c];
+        if (!trie[u].next[c]) return false;   // 孩子不存在 → 单词不在
+        u = trie[u].next[c];
     }
-    return pool[u].cnt;                 /* 返回结尾计数 */
+    return trie[u].cnt > 0;                   // 有结尾标记才算单词
+}
+
+// 查询前缀 p：沿路径走到前缀末尾，返回结尾结点的计数
+int countPrefix(const char* p) {
+    int u = 0;
+    for (int i = 0; p[i]; ++i) {
+        int c = p[i] - 'a';
+        if (!trie[u].next[c]) return 0;       // 前缀不存在
+        u = trie[u].next[c];
+    }
+    return trie[u].cnt;                       // 结尾结点计数（前缀出现次数）
 }
 ```
 
-- **查单词**：沿路径走到结尾，返回 `cnt`；
-- **查前缀**：沿路径走到前缀末尾，返回该结点 `cnt`（或子树和）。
+- **查单词**：沿路径走到结尾，返回 `cnt[u] > 0`；
+- **查前缀**：沿路径走到前缀末尾，返回该结点 `cnt[u]`（或子树和）。
 
 **公式解析：Trie 的复杂度**
 
@@ -105,16 +116,16 @@ $$
 
 ## 5 Trie 的工程细节
 
-- **字符集大小**：26（英文）、128（ASCII）、10（数字）——`next` 数组开多大由字符集决定；
-- **空间换时间**：数组版每结点固定 `26` 个槽，字符集大时浪费——可用「哈希孩子」或「孩子兄弟」省空间；
-- **结尾计数 `cnt`**：既能数「单词出现次数」，也能配合「前缀计数」做词频统计。
+**字符集大小**：26（英文）、128（ASCII）、10（数字）——`next` 数组开多大由字符集决定；
+**空间换时间**：数组版每结点固定 26 个槽，字符集大时浪费——可用「哈希孩子」或「孩子兄弟」省空间；
+**结尾计数 `cnt`**：既能数「单词出现次数」，也能配合「前缀计数」做词频统计。
 
 **重点：Trie 的实现取舍围绕「字符集大小」展开**——字符集小用数组（快）、大用哈希（省），本质仍是「空间 vs 时间」。<span class="marginnote">「<strong>字符集决定 next 的结构</strong>」：<strong>26 个字母用数组最爽，全 Unicode 用哈希表存孩子</strong>。<strong>「字符集小 = 数组下标直达，字符集大 = 哈希/映射」</strong>——同一个 Trie，孩子怎么存是工程的核心变量。</span>
 
 ## 6 小结
 
 - Trie：按字符分叉、共享前缀、结尾标记三要素。
-- 数组版实现：结点池 + `next[26]` 下标 + `cnt` 结尾计数。
+- 数组版实现：结点池 + `next` 下标 + `cnt` 结尾计数。
 - 插入：「沿路径走、没有就建」；查询：「沿路径走、断了就无」。
 - 插入/查询 $O(L)$，与词典大小无关；空间 $O(总字符数)$。
 - 前缀查询是 Trie 独家能力——子树即候选。

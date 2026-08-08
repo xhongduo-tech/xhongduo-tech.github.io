@@ -66,7 +66,7 @@ $$n = 69 + 12\log_2 \frac{f_0}{440}$$
 | 时长 | 音段/音节时长、停顿 | 语速（音节/秒）、停顿时长、VOT、韵律边界 |
 | 能量 | 幅度包络 | 均方根能量、峰值、shimmer、重音强度 |
 
-- **音高**承载**语调**与**声调**：汉语普通话四声就是四种 $f_0$ 走向——阴平高平、阳平中升、上声降升、去声高降。<span class="marginnote">世界上约 60%–70% 的语言是声调语言（tonal language），汉语、泰语、约鲁巴语都是。声调语言里音高走向直接决定词义，因此韵律特征对 ASR 的正确率影响显著——这也是中文识别系统特别重视 $f_0$ 特征的原因。</span>
+**音高**承载**语调**与**声调**：汉语普通话四声就是四种 $f_0$ 走向——阴平高平、阳平中升、上声降升、去声高降。<span class="marginnote">世界上约 60%–70% 的语言是声调语言（tonal language），汉语、泰语、约鲁巴语都是。声调语言里音高走向直接决定词义，因此韵律特征对 ASR 的正确率影响显著——这也是中文识别系统特别重视 $f_0$ 特征的原因。</span>
 - **时长**承载**节奏**与**边界**：语速快慢、停顿位置决定了句子的韵律短语边界，也影响断句理解。时长特征常取「音节时长的相对比例」而非绝对秒数，以消去语速差异。
 - **能量**承载**重音**：重读音节往往能量更高、时长更长、$f_0$ 有峰。三者在句中常协同出现，所以很多系统把三路特征拼成一个**韵律特征向量**。
 
@@ -83,13 +83,13 @@ $$Jitter_{local} = \frac{\dfrac{1}{N-1}\displaystyle\sum_{i=1}^{N-1}\left|T_i - 
 - **第一步，看分子**：$\frac{1}{N-1}\sum_{i=1}^{N-1}|T_i - T_{i+1}|$ 是**相邻周期差绝对值的平均**。周期长度 $T_i = 1/f_0$，相邻周期若完全规整，这一项为 0；声带振动越不稳定，这一项越大。
 - **第二步，看分母**：$\frac{1}{N}\sum_{i=1}^N T_i$ 是**平均周期**。用平均周期做分母，把绝对抖动转换成**相对抖动百分比**，从而在不同基频（男声低、女声高）之间可比。
 - **第三步，看 $\times 100\%$**：结果变成百分比。健康成人的 local jitter 通常在 **1% 以下**；嗓音障碍、情绪激动、某些疾病状态下 jitter 显著升高。<span class="marginnote">Jitter 与能量域的 shimmer（逐周期幅度抖动）是临床嗓音评估（如 Praat 声学分析、MDVP）的标配参数，也出现在说话人识别与情感识别里——它刻画的是声带振动本身的精细不稳定度。</span>
-- **第四步，理解定位**：jitter 是**短时、精细**的特征，与均值、斜率这类**长时**统计互补。一个完整韵律特征集往往「长短结合」：长时统计刻画语调走势，jitter/shimmer 刻画发声质量。
+**第四步，理解定位**：jitter 是**短时、精细**的特征，与均值、斜率这类**长时**统计互补。一个完整韵律特征集往往「长短结合」：长时统计刻画语调走势，jitter/shimmer 刻画发声质量。
 
 ## 5 韵律特征如何进入语音系统
 
 韵律特征不是被 MFCC 替代，而是**与 MFCC 等谱特征配合**：
 
-- **语音识别（ASR）**：汉语等声调语言中，把 $f_0$ 及其差分拼进特征向量（如 39 维 MFCC + 若干维音高），可显著降低声调易混音节（如「妈/马」）的混淆。<span class="marginnote">这也是传统 GMM-HMM 中文系统里常见的「F0 + Delta + Delta-Delta」拼接。到了端到端时代，Whisper 等模型不显式用 $f_0$，但对声调语言仍需大量数据来隐式学习音高走向。</span>
+**语音识别（ASR）**：汉语等声调语言中，把 $f_0$ 及其差分拼进特征向量（如 39 维 MFCC + 若干维音高），可显著降低声调易混音节（如「妈/马」）的混淆。<span class="marginnote">这也是传统 GMM-HMM 中文系统里常见的「F0 + Delta + Delta-Delta」拼接。到了端到端时代，Whisper 等模型不显式用 $f_0$，但对声调语言仍需大量数据来隐式学习音高走向。</span>
 - **说话人识别**：说话人身份很大程度藏在音高水平与发声音质里——$f_0$ 均值、jitter 是经典说话人特征，见本专题《声纹识别与说话人技术》各节。
 - **语音合成（TTS）**：TTS 前端要**预测**韵律（时长、$f_0$ 曲线），后端声码器要把预测的 $f_0$ 还原成波形；FastSpeech 2 显式建模时长与音高，正是「韵律从提取走向生成」的典型。
 - **情感识别**：语调起伏程度、语速、能量峰是情感分类的高区分度特征，也与心理学里「副语言（paralanguage）」的研究一脉相承。
@@ -100,21 +100,21 @@ $$Jitter_{local} = \frac{\dfrac{1}{N-1}\displaystyle\sum_{i=1}^{N-1}\left|T_i - 
 import numpy as np
 import librosa
 
-y, sr = librosa.load("speech.wav", sr=16000)
-f0, voiced_flag, _ = librosa.pyin(
-    y, fmin=librosa.note_to_hz("C2"),
-    fmax=librosa.note_to_hz("C7"), sr=sr
-)
+def prosodic_features(y, fs):
+    """提取音高与韵律统计量：f0 曲线 + 浊音比例 + 能量。"""
+    # YIN 基音估计：f0（无音高处为 NaN）、浊音标志
+    f0, voiced_flag, voiced_probs = librosa.pyin(
+        y, fmin=60, fmax=500, sr=fs)
 
-pitch = np.nan_to_num(f0, nan=0.0)          # 清音帧置 0
-pitch_log = np.log2(pitch[pitch > 0])       # 只统计浊音帧，转对数域
-
-stats = {
-    "f0_mean": pitch_log.mean(),
-    "f0_std": pitch_log.std(),
-    "voiced_ratio": (pitch > 0).mean(),
-    "energy": np.sqrt((y ** 2).mean()),
-}
+    f0_voiced = f0[~np.isnan(f0)]            # 只取浊音帧
+    stats = {
+        "f0_mean": np.mean(f0_voiced),       # 音高水平
+        "f0_std": np.std(f0_voiced),         # 语调起伏程度
+        "f0_range": np.max(f0_voiced) - np.min(f0_voiced),
+        "voiced_ratio": np.mean(~np.isnan(f0)),  # 浊音段比例
+        "rms": np.sqrt(np.mean(y ** 2)),     # 能量
+    }
+    return f0, stats
 ```
 
 ## 6 小结

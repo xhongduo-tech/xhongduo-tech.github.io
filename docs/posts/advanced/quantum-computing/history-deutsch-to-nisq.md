@@ -44,8 +44,8 @@ Deutsch 1985 年的论文做的是「造模型」，但模型造出来之后，�
 
 算法再漂亮，也挡不住一个物理现实：量子比特太脆弱。1994 年 Shor 在一次报告后被人问「你的算法在有噪声的机器上还能工作吗」，他一时间答不上来。这个问题催生了量子计算最深的洞见之一——**量子纠错（quantum error correction）**。
 
-- **1995 年**，Shor 本人提出第一个量子纠错码，证明可以用多个物理比特编码一个逻辑比特来抵抗噪声。
-- **1996 年**，Andrew Steane 独立给出七比特码，Calderbank 与 Shor、Steane 又合作建立了 CSS 码框架——后来的表面码、容错理论都建立在这套框架上。
+**1995 年**，Shor 本人提出第一个量子纠错码，证明可以用多个物理比特编码一个逻辑比特来抵抗噪声。
+**1996 年**，Andrew Steane 独立给出七比特码，Calderbank 与 Shor、Steane 又合作建立了 CSS 码框架——后来的表面码、容错理论都建立在这套框架上。
 
 在实验端，进度同样惊人：1995 年 NIST 的 Monroe 小组用离子阱实现了第一个受控非门；1998 年，Chuang、Gershenfeld 与 Kubinec 用核磁共振（NMR）在液体分子上演示了两比特量子计算；2001 年，IBM 的 Vandersypen 小组用 7 个量子比特的 NMR 机器真正跑通了 Shor 算法——把 15 分解成 3×5。<span class="marginnote">分解 15 在今天看来小得可怜，但它是「Shor 算法在一台真实机器上跑通」的历史性时刻，说明整个理论链条——编码、门、测量——在物理上至少是可实现的。出处：L. Vandersypen et al., "Experimental realization of Shor's quantum factoring algorithm using nuclear magnetic resonance," <i>Nature</i> 414 (2001) 883–887。</span>
 
@@ -57,7 +57,7 @@ Deutsch 1985 年的论文做的是「造模型」，但模型造出来之后，�
 
 真正的转折点是 2016 年：IBM 发布 **IBM Quantum Experience**，把一台真实的超导量子处理器放上云端，任何人注册就能跑量子线路。这是量子计算第一次变成「公共服务」。
 
-2018 年，加州理工的 John Preskill 在 arXiv 上发表了一篇论文，提出了一个注定被反复引用的缩写——**NISQ**（Noisy Intermediate-Scale Quantum，含噪声的中等规模量子）。<span class="marginnote">Preskill 论文出处：J. Preskill, "Quantum Computing in the NISQ era and beyond," <i>Quantum</i> 2 (2018) 79，arXiv:1801.00862。「NISQ」精准描述了 2018 年之后机器的状态：噪声大、纠错远不够用，但规模已经超过经典模拟能力——中间那个不上不下的尴尬地带。</span>「量子优越性」这个词也是 Preskill 在 2012 年造的：指量子设备在某个特定问题上超越最好的经典计算机。
+2018 年，加州理工的 John Preskill 在 arXiv 上发表了一篇论文，提出了一个注定被反复引用的缩写——**NISQ**（Noisy Intermediate-Scale Quantum，含噪声的中等规模量子）。<span class="marginnote">Preskill 论文出处：J. Preskill, "Quantum Computing in the NISQ era and beyond," <i>Quantum</i> 2 (2018) 79，arXiv:1801.00862。「NISQ」精准描述了 2018 年之后机器的状态：噪声大、纠错远不够用，但规模已经超过经典模拟能力——中间那个不上不下的尴尬地带。「量子优越性」这个词也是 Preskill 在 2012 年造的：指量子设备在某个特定问题上超越最好的经典计算机。</span>
 
 围绕 NISQ 机器的软件生态也在同期成熟：Qiskit、Cirq、Q# 等开源框架让研究者无需懂硬件也能写量子程序，云平台（IBM、AWS Braket、Azure Quantum）把量子硬件打包成按需 API——量子计算的「编程」从理论家的专利，变成了普通开发者也能触达的技能。这个生态正是第十二篇《量子编程实践》要亲手操作的对象。
 

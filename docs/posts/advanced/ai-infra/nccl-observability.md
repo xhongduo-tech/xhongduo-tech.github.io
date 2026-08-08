@@ -24,9 +24,9 @@ date: 2026-08-07
 
 NCCL 的可观测性来自几个层次：
 
-- **环境变量**：`NCCL_DEBUG=INFO` 输出每个集合通信的规模与耗时；`NCCL_DEBUG_SUBSYS=GRAPH/TUNING` 看拓扑与算法选择。
-- **NCCL 内建 profiling**：`NCCL_PROFILING_ENABLE` 与 `torch.cuda.profiler` 配合，把 NCCL 事件写进 trace。
-- **nsys**：NCCL kernel（如 `ncclKernel_AllReduce`）出现在时间线里，可直接测量。
+- **环境变量**：`NCCL_DEBUG=INFO` 输出每个集合通信的规模与耗时；`NCCL_DEBUG_SUBSYS` 看拓扑与算法选择。
+- **NCCL 内建 profiling**：`NCCL_DEBUG=TRACE` 与 `NCCL_DEBUG_FILE` 配合，把 NCCL 事件写进 trace 文件。
+- **nsys**：NCCL kernel（如 `ncclKernel_AllReduce_RING_LL128`）出现在时间线里，可直接测量。
 - **DCGM**：网卡吞吐、NVLink 利用率，看「实际跑多快」vs「理论多快」。
 
 **观测的目标**：拿到「通信事件的开始/结束/时长」，并能在时间线上与计算事件对齐——这样才能判断重叠。<span class="marginnote">NCCL 观测的分层与算子剖析一致：环境变量是「粗看」（有没有通信、多大），nsys 是「细看」（通信与计算的时序关系），DCGM 是「物理看」（网卡/NVLink 利用率）。三层配合，才能回答「通信慢在哪」。</span>
@@ -35,9 +35,9 @@ NCCL 的可观测性来自几个层次：
 
 一次迭代里，通信与计算的时序有三种可能：
 
-- **串行（bad）**：先算完再通信，通信期间 GPU 空闲——重叠率 0。
-- **部分重叠（common）**：部分通信与计算并行，部分暴露。
-- **完全重叠（ideal）**：通信完全被计算盖住，GPU 从不为通信停。
+**串行（bad）**：先算完再通信，通信期间 GPU 空闲——重叠率 0。
+**部分重叠（common）**：部分通信与计算并行，部分暴露。
+**完全重叠（ideal）**：通信完全被计算盖住，GPU 从不为通信停。
 
 在 nsys 时间线上的判断：看 NCCL kernel 的执行段是否「嵌在」其他 kernel 之间。如果 AllReduce 独占一段 GPU 时间（前后都是空隙），就是没重叠。<span class="marginnote">「重叠率」的测量方法：从时间线上统计「NCCL 事件总时长」与「NCCL 期间 GPU 同时也在算计算 kernel 的时长」。前者减去后者，就是「暴露的通信时间」。重叠率 = 1 - 暴露/总——这是量化「通信被隐藏了多少」的标准口径。</span>
 
@@ -106,7 +106,7 @@ $$\text{Saving} = \frac{\min(T_{\text{calc}}, T_{\text{comm}})}{T_{\text{calc}} 
 **几个值得进一步挖的方向**：
 
 - **NCCL_DEBUG 的粗排**：`NCCL_DEBUG=INFO` 输出的每行「size、耗时」——怎么用它快速发现「哪个通信异常大」？（比 nsys 轻量，适合第一轮粗看）
-- **通信量的合理基准**：一个 AllReduce 的「理想耗时」= 数据量 × 2 / 带宽——实测与理想的比值是「通信效率」。怎么用 `nccl-tests` 测集群的通信效率基线？
+- **通信量的合理基准**：一个 AllReduce 的「理想耗时」= 数据量 × 2 / 带宽——实测与理想的比值是「通信效率」。怎么用 `all_reduce_perf` 测集群的通信效率基线？
 - **重叠的「流」层面**：通信与计算用不同 CUDA stream 才能并行——`torch.cuda.Stream` 怎么配？「流冲突」导致重叠失效的排查方法。
 
 **自测题**：为什么「通信时间长 ≠ 网络慢」？如果你能说清「可能是没重叠、通信在干等」，就掌握了「先算重叠率、再谈带宽」的诊断顺序。
@@ -115,7 +115,7 @@ $$\text{Saving} = \frac{\min(T_{\text{calc}}, T_{\text{comm}})}{T_{\text{calc}} 
 
 - 开 `NCCL_DEBUG=INFO`，粗看每个通信的规模与耗时。
 - 用 nsys 抓通信事件，计算「重叠率」。
-- 用 `nccl-tests` 测集群通信效率基线。
+- 用 `all_reduce_perf` 测集群通信效率基线。
 - 对比「通信时间 = 网络慢 vs 没重叠」两种判断。
 - 检查通信与计算是否用了不同 CUDA stream。
 - 验证「kernel 太小 → 没东西可重叠」。

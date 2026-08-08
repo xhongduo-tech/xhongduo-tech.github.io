@@ -26,9 +26,9 @@ date: 2026-08-07
 
 它们与防火墙的配合：<span class="marginnote"><strong>防火墙与 IDS/IPS 的分工</strong>：防火墙是「<strong>事前过滤</strong>」——按规则挡掉明确不允许的流量；IDS/IPS 是「<strong>事中/事后发现</strong>」——发现防火墙放进来（或内部产生）的攻击行为。<strong>防火墙管「政策」，IDS/IPS 管「异常」</strong>——一个按「规定」执法，一个按「发现」办案。</span>
 
-- **防火墙**：事前按规则过滤。
-- **IDS/IPS**：实时监控，发现攻击。
-- **互补**：防火墙挡「已知不该进的」，IDS/IPS 抓「伪装混进来的」。
+**防火墙**：事前按规则过滤。
+**IDS/IPS**：实时监控，发现攻击。
+**互补**：防火墙挡「已知不该进的」，IDS/IPS 抓「伪装混进来的」。
 
 **辨析｜易错点：** 防火墙与 IDS/IPS **不是二选一，而是纵深防御的不同层**——防火墙挡大多数，IDS/IPS 抓漏网的。**「防火墙是门卫，IDS 是监控，IPS 是保安」**是对三者的分层定位。
 
@@ -45,7 +45,7 @@ IDS/IPS 的检测原理分两大类：<span class="marginnote"><strong>① 误�
 
 ## 3 IDS vs IPS：报警还是出手
 
-IDS 与 IPS 的根本区别是**是否主动阻断**：<span class="marginnote"><strong>IDS</strong>：旁路部署（tap/镜像端口），只监听、只报警——不拖慢网络、不误伤正常流量，但攻击在报警后仍可能得逞（需要人工响应）。<strong>IPS</strong>：串联部署（inline），直接拦在流量路径上——能实时阻断攻击，但<strong>可能误伤</strong>（把正常流量当攻击拦掉）、可能成为性能瓶颈、可能被攻击者绕过。<strong>「IDS 只喊、IPS 出手；出手就有误伤风险」</strong>是两者的核心取舍。</span>
+IDS 与 IPS 的根本区别是**是否主动阻断**：<span class="marginnote"><strong>IDS</strong>`：旁路部署（tap/镜像端口），只监听、只报警——不拖慢网络、不误伤正常流量，但攻击在报警后仍可能得逞（需要人工响应）。<strong>IPS</strong>`：串联部署（inline），直接拦在流量路径上——能实时阻断攻击，但<strong>可能误伤</strong>（把正常流量当攻击拦掉）、可能成为性能瓶颈、可能被攻击者绕过。<strong>「IDS 只喊、IPS 出手；出手就有误伤风险」</strong>是两者的核心取舍。</span>
 
 | 对比维度 | IDS | IPS |
 | --- | --- | --- |

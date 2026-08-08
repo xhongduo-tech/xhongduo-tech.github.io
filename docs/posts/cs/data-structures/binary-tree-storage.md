@@ -26,8 +26,18 @@ $$
 \text{parent}(i) = \lfloor i/2 \rfloor, \qquad \text{left}(i) = 2i, \qquad \text{right}(i) = 2i+1
 $$
 
-```c
-ElemType bt[MAXSIZE];   /* bt[i] 存编号为 i 的结点；0 号不用 */
+例如一棵 7 个结点的完全二叉树：
+
+```
+            1:A
+          /     \
+       2:B        3:C
+      /   \      /   \
+   4:D    5:E  6:F    7:G
+
+顺序存储（下标从 1 起，0 号留空）：
+下标  0  1  2  3  4  5  6  7
+数据  -  A  B  C  D  E  F  G
 ```
 
 **重点：顺序存储只对完全二叉树「不浪费」。** 对普通二叉树，中间有空位，编号不连续，数组里就会出现空洞——深度为 $k$ 的斜二叉树要开 $2^k - 1$ 个单元，实际只装 $k$ 个结点，浪费率接近 100%。<span class="marginnote">判断该不该用顺序存储，就看「结点编号是否连续」：完全二叉树连续、适合数组；普通二叉树稀疏、适合链表。这正是《特殊矩阵压缩》里「<strong>规律 → 公式定位</strong>」的思路——完全二叉树的规律就是「编号公式」。</span>
@@ -38,8 +48,9 @@ ElemType bt[MAXSIZE];   /* bt[i] 存编号为 i 的结点；0 号不用 */
 
 ```c
 typedef struct BiTNode {
-    TElemType data;
-    struct BiTNode *lchild, *rchild;   /* 左右孩子指针 */
+    ElemType data;              /* 数据域 */
+    struct BiTNode *lchild;     /* 左孩子指针 */
+    struct BiTNode *rchild;     /* 右孩子指针 */
 } BiTNode, *BiTree;
 ```
 
@@ -47,14 +58,15 @@ typedef struct BiTNode {
 
 ## 3 三叉链表：为「找双亲」而生的变体
 
-很多算法需要从子结点**回到双亲**（如查找结点的祖先、某些回溯）。二叉链表只能从根往下走，没有向上的指针。**三叉链表**在每个结点增加一个 `parent` 指针：
+很多算法需要从子结点**回到双亲**（如查找结点的祖先、某些回溯）。二叉链表只能从根往下走，没有向上的指针。**三叉链表**在每个结点增加一个 `parent`（双亲）指针：
 
 ```c
-typedef struct BiTNode {
-    TElemType data;
-    struct BiTNode *lchild, *rchild;   /* 左右孩子 */
-    struct BiTNode *parent;            /* 双亲指针 */
-} BiTNode;
+typedef struct TriTNode {
+    ElemType data;              /* 数据域 */
+    struct TriTNode *lchild;    /* 左孩子指针 */
+    struct TriTNode *rchild;    /* 右孩子指针 */
+    struct TriTNode *parent;    /* 双亲指针 */
+} TriTNode, *TriTree;
 ```
 
 代价是每个结点多一个指针域（空间 $+50\%$），换来从任意结点 $O(1)$ 找到双亲。**三叉链表是「以空间换向上导航」的典型**——在需要「自底向上」遍历的场景（如某些树形 DP、区间树）中不可替代。
@@ -88,7 +100,7 @@ $$
 ## 6 小结
 
 - 顺序存储：数组按编号装结点，双亲孩子由公式定位；**只对完全二叉树不浪费**。
-- 二叉链表：`lchild + rchild`，空间适中，$n$ 个结点有 **$n+1$ 个空指针域**。
+- 二叉链表：每个结点带左右孩子指针，空间适中，$n$ 个结点有 **$n+1$ 个空指针域**。
 - 三叉链表：加 `parent` 指针，$O(1)$ 找双亲，空间 $+50\%$。
 - 空指针数 $= 2n - (n-1) = n+1$，任何形态都成立。
 - 选型：静态完全 → 顺序；一般二叉树 → 二叉链表；需向上导航 → 三叉链表。

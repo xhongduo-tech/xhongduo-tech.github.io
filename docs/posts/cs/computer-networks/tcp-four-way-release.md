@@ -24,10 +24,10 @@ date: 2026-08-07
 
 设 A 主动关闭连接：
 
-1. **A → B：FIN**。A 发送 `FIN=1, seq=u`，进入 **FIN_WAIT_1** 状态。「我的数据发完了，我要关闭我的发送方向。」
-2. **B → A：ACK**。B 发送 `ACK=1, ack=u+1`，进入 **CLOSE_WAIT** 状态。A 进入 **FIN_WAIT_2**。「收到你的 FIN，我确认。」
-3. **B → A：FIN**。B 的数据也发完了，发送 `FIN=1, seq=w`，进入 **LAST_ACK** 状态。「我也发完了，可以关了。」
-4. **A → B：ACK**。A 发送 `ACK=1, ack=w+1`，进入 **TIME_WAIT** 状态。B 收到后进入 **CLOSED**。<span class="marginnote">关键状态：<strong>FIN_WAIT_2（A 等 B 的 FIN）</strong>与 <strong>TIME_WAIT（A 等最后的 ACK 确认生效）</strong>。B 在 CLOSE_WAIT 期间还可以继续向 A 发数据——因为 B 的发送方向还没关。这个「A 关了发送、B 还能发」的窗口就是「半关闭（half-close）」。</span>
+1. **A → B：FIN**。A 发送 `FIN=1, seq=u` 的报文段，进入 **FIN_WAIT_1** 状态。「我的数据发完了，我要关闭我的发送方向。」
+2. **B → A：ACK**。B 发送 `ACK=1, seq=v, ack=u+1` 的报文段，进入 **CLOSE_WAIT** 状态。A 进入 **FIN_WAIT_2**。「收到你的 FIN，我确认。」
+3. **B → A：FIN**。B 的数据也发完了，发送 `FIN=1, ACK=1, seq=w, ack=u+1` 的报文段，进入 **LAST_ACK** 状态。「我也发完了，可以关了。」
+4. **A → B：ACK**。A 发送 `ACK=1, seq=u+1, ack=w+1` 的报文段，进入 **TIME_WAIT** 状态。B 收到后进入 **CLOSED**。<span class="marginnote">关键状态：<strong>FIN_WAIT_2（A 等 B 的 FIN）</strong>与 <strong>TIME_WAIT（A 等最后的 ACK 确认生效）</strong>。B 在 CLOSE_WAIT 期间还可以继续向 A 发数据——因为 B 的发送方向还没关。这个「A 关了发送、B 还能发」的窗口就是「半关闭（half-close）」。</span>
 
 **辨析｜易错点：** 第 2 步的 ACK 与第 3 步的 FIN **是两个独立的报文**——B 的 ACK 只确认「收到 A 的 FIN」，B 的 FIN 是「B 自己的数据发完」后才发的。**「ACK 与 FIN 分开」正是四次挥手比三次握手多一次的原因**。若 B 恰好也没有数据要发，2、3 步可以合并，但标准流程是四次。
 
@@ -35,9 +35,9 @@ date: 2026-08-07
 
 TCP 是**全双工**的，一条连接包含**两个独立的数据流**（A→B 与 B→A）。关闭也必须分别处理：
 
-- A 发 FIN 只表示「A→B 方向的流结束了」——A 不再发数据，但 A 还可以**收** B 的数据。
-- B 回 ACK 只表示「确认 A 的 FIN」——B 还可以继续给 A 发数据。
-- 等 B 也发完，B 发 FIN 关闭「B→A」方向；A 回 ACK 收尾。
+A 发 FIN 只表示「A→B 方向的流结束了」——A 不再发数据，但 A 还可以**收** B 的数据。
+B 回 ACK 只表示「确认 A 的 FIN」——B 还可以继续给 A 发数据。
+等 B 也发完，B 发 FIN 关闭「B→A」方向；A 回 ACK 收尾。
 
 **辨析｜易错点：** **三次握手为什么是三次、四次挥手为什么是四次**，可以对比记忆：握手时双方「同时确认」彼此，一次 SYN 触发的应答能带另一个方向的需求（SYN+ACK 合并），所以 3 次；挥手时两个方向的「我要关了」是**异步发生**的（A 先发完、B 后发完），FIN 与 ACK 无法始终合并，所以 4 次。**「握手是同步的，挥手是异步的」**是最本质的解释。
 
@@ -45,8 +45,8 @@ TCP 是**全双工**的，一条连接包含**两个独立的数据流**（A→B
 
 第四次挥手后，主动关闭方（A）进入 **TIME_WAIT** 状态，要**等待 2 倍 MSL**（报文最大生存时间）后才真正 CLOSED。为什么？
 
-- **让最后的 ACK 可靠送达**：如果第 4 步的 ACK 丢了，B 会重发 FIN；A 在 TIME_WAIT 期间能再回一次 ACK。若 A 立即关闭，重发的 FIN 将无人应答。
-- **让旧报文段在网络中自然消亡**：等待 2×MSL，确保连接期间的所有报文段都在网络中消失，不会「残留」污染后续连接。<span class="marginnote">MSL（Maximum Segment Lifetime）是报文段在网络中的最长存活时间（通常 2 分钟量级）。所以 <strong>TIME_WAIT 通常持续约 4 分钟</strong>——这就是为什么服务器大量主动关闭连接后，会出现大量「TIME_WAIT」状态的连接：它们在等旧报文消亡，不是「僵尸」，是「守夜人」。这个状态在网络排障中极常见。</span>
+**让最后的 ACK 可靠送达**：如果第 4 步的 ACK 丢了，B 会重发 FIN；A 在 TIME_WAIT 期间能再回一次 ACK。若 A 立即关闭，重发的 FIN 将无人应答。
+**让旧报文段在网络中自然消亡**：等待 2×MSL，确保连接期间的所有报文段都在网络中消失，不会「残留」污染后续连接。<span class="marginnote">MSL（Maximum Segment Lifetime）是报文段在网络中的最长存活时间（通常 2 分钟量级）。所以 <strong>TIME_WAIT 通常持续约 4 分钟</strong>——这就是为什么服务器大量主动关闭连接后，会出现大量「TIME_WAIT」状态的连接：它们在等旧报文消亡，不是「僵尸」，是「守夜人」。这个状态在网络排障中极常见。</span>
 
 **辨析｜易错点：** TIME_WAIT 是**主动关闭方**才进入的状态——被动关闭方（B）收到最后的 ACK 后直接 CLOSED。**「TIME_WAIT 是主动方的状态」**是最常考的点。另外，TIME_WAIT 的时长是 **2×MSL**，不是 1×MSL——因为要覆盖「最后一次 ACK 丢失 + B 重发 FIN」的最坏情况。
 

@@ -39,14 +39,34 @@ date: 2026-08-07
 
 一条生产级流水线不只是「一串代码」，它要有**骨架**：
 
-- **调度（scheduling）**：什么时候跑？每日凌晨？每小时？常用工具 Airflow、Dagster、Prefect。
-- **依赖（dependency）**：任务之间谁先谁后？「清洗」依赖「抽取」完成，「加载」依赖「清洗」成功。DAG（有向无环图）是表达依赖的标准结构——注意这与 Spark 的 DAG 是同一个词，指的都是「无环的有向图」。
-- **失败处理（failure handling）**：中间一步挂了怎么办？重试、告警、失败通知、回滚。
+**调度（scheduling）**：什么时候跑？每日凌晨？每小时？常用工具 Airflow、Dagster、Prefect。
+**依赖（dependency）**：任务之间谁先谁后？「清洗」依赖「抽取」完成，「加载」依赖「清洗」成功。DAG（有向无环图）是表达依赖的标准结构——注意这与 Spark 的 DAG 是同一个词，指的都是「无环的有向图」。
+**失败处理（failure handling）**：中间一步挂了怎么办？重试、告警、失败通知、回滚。
 
 用 Airflow 写一个「抽-洗-载」三任务流水线的核心思路：
 
 ```python
-extract  >> clean >> load        # 定义依赖：extract 完成后 clean，再 load
+from datetime import datetime
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+
+def extract():
+    # 从业务库抽取数据
+    ...
+def clean():
+    # 清洗转换
+    ...
+def load():
+    # 写前先删目标分区，保证幂等
+    ...
+
+with DAG("etl_orders", schedule="0 2 * * *",
+         start_date=datetime(2026, 1, 1)) as dag:
+    t_extract = PythonOperator(task_id="extract", python_callable=extract)
+    t_clean   = PythonOperator(task_id="clean",   python_callable=clean)
+    t_load    = PythonOperator(task_id="load",    python_callable=load)
+
+    t_extract >> t_clean >> t_load   # 依赖链：抽 → 洗 → 载
 ```
 
 **辨析｜易错点：** 流水线最常见的失败是「重跑不一致」——第一次跑没问题，重跑一遍结果却不同。原因常是**没有幂等（idempotency）**：任务在重复执行时应该产生同样的结果。解决方案是**按分区覆盖**：每天处理「2026-08-07」这个分区，重跑就重写这个分区，不碰其他分区。「幂等 + 分区覆盖」是数据流水线可重跑的基石。<span class="marginnote">幂等性怎么做到？口诀「写前先删」：加载前先删掉目标分区再写，或者用「写临时表 → 原子切换」的模式。这样即使任务失败重跑，也不会出现「旧数据 + 新数据」混在一起的脏状态。Airflow 里 `retries` 参数 + 幂等任务是黄金组合。</span>
@@ -61,16 +81,16 @@ extract  >> clean >> load        # 定义依赖：extract 完成后 clean，再 
 2. **日志增量（CDC）**：监听数据库 binlog/WAL，捕获插入、更新、删除事件。实时准确，但要接入专门工具（Debezium、Flink CDC）。<span class="marginnote">CDC（Change Data Capture，变更数据捕获）是「从数据库日志里读变化」的技术。为什么比时间戳可靠？因为数据库事务日志记录了每一次增删改，包括删除——时间戳法看不到删除，CDC 能看到。代价是运维复杂：要接 binlog、处理格式变更、维护水位。</span>
 3. **分批拉取（watermark）**：每批记录一个「水位」（已经处理到的时间点），下次从水位继续。这是增量更新的通用骨架，时间戳法与 CDC 都可视为它的实现。
 
-**辨析｜易错点：** 增量更新的经典陷阱是「**漏数据**」——源数据更新了旧行的时间戳，但你的水位只看新行。例如用 `created_at` 做水位，某行 `created_at` 是昨天、`amount` 今天被修正，按水位过滤就永远抓不到这次修正。**增量逻辑必须与「源数据的变更语义」匹配**：哪类字段变化、删除是否可能、时间戳是否可靠，都要在设计与测试里覆盖。
+**辨析｜易错点：** 增量更新的经典陷阱是「**漏数据**」——源数据更新了旧行的时间戳，但你的水位只看新行。例如用 `created_at` 做水位，某行 `created_at` 是昨天、`updated_at` 今天被修正，按水位过滤就永远抓不到这次修正。**增量逻辑必须与「源数据的变更语义」匹配**：哪类字段变化、删除是否可能、时间戳是否可靠，都要在设计与测试里覆盖。
 
 ## 4 数据质量检验：流水线的安检门
 
 流水线不只是「把数据搬过去」，还要保证「搬过去的数据是对的」。**数据质量检验（data quality checks）** 应内嵌进流水线，常见检查有：
 
-- **行数检查**：今天加载的行数是否在合理范围（与昨天偏差超过阈值即告警）？
-- **非空与唯一性检查**：主键是否唯一、关键字段是否有 NULL？
-- **值域与分布检查**：金额是否为正？类别字段是否都在已知枚举内？关键指标均值是否突跳？
-- **新旧比对**：今天与昨天的同口径指标是否合理衔接？
+**行数检查**：今天加载的行数是否在合理范围（与昨天偏差超过阈值即告警）？
+**非空与唯一性检查**：主键是否唯一、关键字段是否有 NULL？
+**值域与分布检查**：金额是否为正？类别字段是否都在已知枚举内？关键指标均值是否突跳？
+**新旧比对**：今天与昨天的同口径指标是否合理衔接？
 
 **重点：质量检查不是可选项，是流水线的一部分。** 一条没有检查的流水线，会在某个静悄悄的凌晨开始输出错误数据，而下游的分析与模型毫无察觉——直到几周后才发现全盘皆错。**「流水线即检查」**，把校验写成任务挂在依赖图里，任何一环不通过就让下游不启动。<span class="marginnote">好的检查是「前置失败」而非「事后发现」：在数据加载进仓库之前就拦截坏数据，比坏数据已经污染下游报表和模型后再修要省太多成本。第23篇《数据治理与质量管理》会把这里的「单表检查」升级成「全公司级的数据质量体系」。</span>
 
@@ -81,33 +101,36 @@ extract  >> clean >> load        # 定义依赖：extract 完成后 clean，再 
 在 Airflow 里，一条流水线由「DAG + 任务」构成。骨架长这样：
 
 ```python
+from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-def extract_orders(**context):
-    # 从业务库读「昨日新增/变更的订单」
+def extract_orders(ds):      # ds = 执行日期分区
+    ...
+def clean_orders(ds):
+    ...
+def load_orders(ds):
+    # 先删「目标日期」分区再写，保证重跑幂等
     ...
 
-def transform_orders(**context):
-    # 清洗：去重、填缺值、统一金额单位
-    ...
+with DAG(
+    "daily_order_etl",
+    schedule="0 2 * * *",            # 每天凌晨 2 点
+    start_date=datetime(2026, 1, 1),
+    catchup=False,
+) as dag:
+    t_extract = PythonOperator(task_id="extract", python_callable=extract_orders)
+    t_clean   = PythonOperator(task_id="clean",   python_callable=clean_orders)
+    t_load    = PythonOperator(task_id="load",    python_callable=load_orders)
 
-def load_orders(**context):
-    # 幂等加载：先删目标分区，再写入
-    ...
-
-with DAG("orders_etl", schedule="0 2 * * *") as dag:
-    extract = PythonOperator(task_id="extract", python_callable=extract_orders)
-    transform = PythonOperator(task_id="transform", python_callable=transform_orders)
-    load = PythonOperator(task_id="load", python_callable=load_orders)
-    extract >> transform >> load    # 依赖链
+    t_extract >> t_clean >> t_load   # 依赖链：抽 → 洗 → 载
 ```
 
 三个设计要点：
 
-1. **`schedule="0 2 * * *"`**：每天凌晨 2 点跑——避开业务高峰，且保证「前一天的数据已完整落库」。
+1. **固定调度时间**：每天凌晨 2 点跑——避开业务高峰，且保证「前一天的数据已完整落库」。
 2. **幂等的 load**：加载前先删「目标日期」分区再写（第2节「写前先删」），重跑安全。
-3. **依赖链 `>>`**：`load` 只在前两步成功后执行，失败的步骤自动触发重试与告警。
+3. **依赖链 `extract >> clean >> load`**：`load` 只在前两步成功后执行，失败的步骤自动触发重试与告警。
 
 **辨析｜易错点：** 这个骨架最常被忽略的是「**抽取的增量逻辑**」。如果 `extract` 每次都全量抽（把整张订单表拉一遍），数据量增长后成本爆炸；如果只抽「昨日新单」，又会漏掉「昨日被修改的旧单」（第3节的增量陷阱）。**增量策略要在设计与测试里显式覆盖「变更」场景**，不能默认「只抽新增就够」。
 

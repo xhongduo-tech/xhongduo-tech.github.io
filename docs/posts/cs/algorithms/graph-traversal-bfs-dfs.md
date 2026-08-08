@@ -37,13 +37,24 @@ date: 2026-08-07
 
 ```
 BFS(G, s)
-  for each u in V \ {s}:  d[u] = INFINITY; color[u] = WHITE
-  d[s] = 0; Q = {s}
-  while Q not empty
-    u = DEQUEUE(Q)
-    for each v in Adj[u]
-      if color[v] == WHITE
-        color[v] = GRAY; d[v] = d[u] + 1; ENQUEUE(Q, v)
+1  for each vertex u ∈ G.V − {s}
+2      u.color = WHITE
+3      u.d = ∞
+4      u.π = NIL
+5  s.color = GRAY
+6  s.d = 0
+7  s.π = NIL
+8  Q = ∅
+9  ENQUEUE(Q, s)
+10 while Q ≠ ∅
+11     u = DEQUEUE(Q)
+12     for each v ∈ G.Adj[u]
+13         if v.color == WHITE
+14             v.color = GRAY
+15             v.d = u.d + 1
+16             v.π = u
+17             ENQUEUE(Q, v)
+18     u.color = BLACK
 ```
 
 **复杂度**：每个顶点入队出队一次，每条边被检查两次（无向）或一次（有向），$O(V+E)$。
@@ -56,28 +67,35 @@ BFS(G, s)
 
 ```
 DFS(G)
-  time = 0
-  for each u in V: color[u] = WHITE
-  for each u in V
-    if color[u] == WHITE
-      DFS-VISIT(u)
+1  for each vertex u ∈ G.V
+2      u.color = WHITE
+3      u.π = NIL
+4  time = 0
+5  for each vertex u ∈ G.V
+6      if u.color == WHITE
+7          DFS-VISIT(G, u)
 
-DFS-VISIT(u)
-  color[u] = GRAY;  d[u] = ++time
-  for each v in Adj[u]
-    if color[v] == WHITE
-      DFS-VISIT(v)
-  color[u] = BLACK;  f[u] = ++time
+DFS-VISIT(G, u)
+1  time = time + 1            // 发现 u
+2  u.d = time
+3  u.color = GRAY
+4  for each v ∈ G.Adj[u]
+5      if v.color == WHITE
+6          v.π = u
+7          DFS-VISIT(G, v)
+8  u.color = BLACK            // u 变黑
+9  time = time + 1
+10 u.f = time
 ```
 
 **括号定理（parenthesis theorem）**：对任意两顶点 $u, v$，区间 $[d[u], f[u]]$ 与 $[d[v], f[v]]$ 要么**互不相交**（$u, v$ 在不同的 DFS 子树中），要么**完全嵌套**（一个在另一个的子树内）。**不会部分重叠**。<span class="marginnote">「区间要么套住要么分开」是 DFS 的结构基石：它意味着 DFS 树中的祖先-后代关系 = 时间戳区间的包含关系。判断「$u$ 是否是 $v$ 的祖先」只需检查 $d[u] < d[v] < f[v] < f[u]$。</span>
 
 **边的四种分类**：按 DFS 树，边可分为
 
-- **树边**：DFS 树中的边（发现新顶点）；
-- **后向边**：连到祖先（在白/灰时遇到）；
-- **前向边**：连到后代（非树边）；
-- **横向边**：连到其他子树。
+**树边**：DFS 树中的边（发现新顶点）；
+**后向边**：连到祖先（在白/灰时遇到）；
+**前向边**：连到后代（非树边）；
+**横向边**：连到其他子树。
 
 **关键性质**：**无向图只有树边与后向边**（无前向/横向）；有向图四类都可能有。<span class="marginnote">「无向图无横向边」直接推出「无向图无环 ⟺ DFS 无后向边」——这是环检测的标准工具。有向图的环检测则看「是否有后向边」，拓扑排序会用到。</span>
 

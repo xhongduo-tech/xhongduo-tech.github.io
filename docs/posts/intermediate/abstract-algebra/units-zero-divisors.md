@@ -29,10 +29,10 @@ date: 2026-08-07
 验证：可逆元之积可逆（$(uv)^{-1} = v^{-1}u^{-1}$）、可逆元之逆可逆、$1_R$ 可逆——三条群公理俱备。**$R^\times$ 是「乘法的精华」**：它是在 $R$ 里能自由除法的最大子集。<span class="marginnote">记号 $R^\times$ 与「零去心」的记号（如 $\mathbb{R}^\ast$）含义一致：$R^\times$ 就是「$R$ 中可逆的部分」。在域 $F$ 上 $F^\times = F \setminus \{0\}$（域的每个非零元可逆）；但在一般环上 $R^\times \subsetneq R \setminus \{0\}$——中间被零因子挤掉了。</span>
 
 **例：**
-- $\mathbb{Z}^\times = \{ 1, -1 \}$（整数里只有 $\pm 1$ 可逆）；
-- $\mathbb{Z}_n^\times = \{ \bar k \mid \gcd(k, n) = 1 \}$——模 $n$ 可逆元恰是与 $n$ 互素的剩余类，$|\mathbb{Z}_n^\times| = \varphi(n)$（欧拉函数）；
-- $M_n(\mathbb{R})^\times = GL_n(\mathbb{R})$（可逆矩阵）；
-- 域 $F$ 上 $F^\times = F \setminus \{0\}$。
+$\mathbb{Z}^\times = \{ 1, -1 \}$（整数里只有 $\pm 1$ 可逆）；
+$\mathbb{Z}_n^\times = \{ \bar k \mid \gcd(k, n) = 1 \}$——模 $n$ 可逆元恰是与 $n$ 互素的剩余类，$|\mathbb{Z}_n^\times| = \varphi(n)$（欧拉函数）；
+$M_n(\mathbb{R})^\times = GL_n(\mathbb{R})$（可逆矩阵）；
+域 $F$ 上 $F^\times = F \setminus \{0\}$。
 
 **可逆元的「gcd 判定」**（$\mathbb{Z}_n$ 情形的证明）：$\bar k$ 可逆 ⟺ 存在 $l$ 使 $kl \equiv 1 \pmod n$ ⟺ $\gcd(k, n) = 1$（裴蜀定理：$\gcd(k,n) = 1$ 时存在 $kl + mn = 1$）。这是数论与环论交会的第一处——**可逆性 = 互素性**。
 
@@ -41,15 +41,15 @@ date: 2026-08-07
 **零因子（zero divisor）**：设 $R$ 是含幺环。非零元素 $a$ 称为**零因子**，若存在非零 $b$ 使 $ab = 0$ 或 $ba = 0$。左零因子与右零因子之分：$ab = 0$（$b \ne 0$）时 $a$ 是左零因子；$ba = 0$ 时 $a$ 是右零因子。交换环里左右不分。<span class="marginnote">零因子的名字来自「相乘得零」：两个非零元素一碰，竟磨出 $0$。$2$ 与 $3$ 在 $\mathbb{Z}_6$ 里是零因子（$2 \cdot 3 = 6 \equiv 0$）；矩阵 $A = \begin{pmatrix}1&0\\0&0\end{pmatrix}$ 是 $M_2(\mathbb{R})$ 的零因子（$A \cdot \begin{pmatrix}0&0\\0&1\end{pmatrix} = 0$）。零因子是「乘法崩坏」的源头。</span>
 
 **零因子与消去律**：**环里乘法消去律成立 ⟺ 环无零因子。**
-- 若 $ab = ac$ 且 $a \ne 0$，则 $a(b - c) = 0$；无零因子时 $b - c = 0$，$b = c$；
-- 反之若 $a$ 是零因子（$ab = 0$，$b \ne 0$），则 $ab = a \cdot 0$ 但 $b \ne 0$——消去律失败。
+若 $ab = ac$ 且 $a \ne 0$，则 $a(b - c) = 0$；无零因子时 $b - c = 0$，$b = c$；
+反之若 $a$ 是零因子（$ab = 0$，$b \ne 0$），则 $ab = a \cdot 0$ 但 $b \ne 0$——消去律失败。
 
 所以「$\mathbb{Z}_6$ 里 $2 \cdot 3 = 2 \cdot 0$ 却不消去」正是零因子在作祟。<span class="marginnote">消去律 ⟺ 无零因子是环论的一等定理：它把「乘法能不能约」这个算术问题翻译成「有没有零因子」这个结构问题。整数、多项式、域上消去律畅通，因为它们都无零因子；模合数环、矩阵环则消去律处处失效。判断一个环「好不好用」，先看零因子。</span>
 
 **例：**
-- $\mathbb{Z}$ 无零因子；$\mathbb{Z}_p$（$p$ 素数）无零因子；$\mathbb{Z}_n$（$n$ 合数）有零因子；
-- $M_n(\mathbb{R})$（$n \ge 2$）有零因子；
-- 函数环 $\mathcal{F}(\mathbb{R}, \mathbb{R})$ 有零因子（两个函数支集不交时乘积恒为 0）。
+$\mathbb{Z}$ 无零因子；$\mathbb{Z}_p$（$p$ 素数）无零因子；$\mathbb{Z}_n$（$n$ 合数）有零因子；
+$M_n(\mathbb{R})$（$n \ge 2$）有零因子；
+函数环 $\mathcal{F}(\mathbb{R}, \mathbb{R})$ 有零因子（两个函数支集不交时乘积恒为 0）。
 
 ## 3 可逆元与零因子的对立
 
@@ -76,13 +76,13 @@ date: 2026-08-07
 1. $\bar k$ 可逆 ⟺ $\gcd(k, n) = 1$；
 2. $\bar k$（$k \ne 0$）是零因子 ⟺ $\gcd(k, n) > 1$。
 
-- **第一步，可逆 ⟺ 互素。** $\bar k$ 可逆 ⟺ 存在 $l$ 使 $kl \equiv 1 \pmod n$ ⟺ $\gcd(k, n) \mid 1$ ⟺ $\gcd(k, n) = 1$。裴蜀定理把「同余方程 $kx \equiv 1$ 有解」翻译成「互素」——数论与环论的握手。
+**第一步，可逆 ⟺ 互素。** $\bar k$ 可逆 ⟺ 存在 $l$ 使 $kl \equiv 1 \pmod n$ ⟺ $\gcd(k, n) \mid 1$ ⟺ $\gcd(k, n) = 1$。裴蜀定理把「同余方程 $kx \equiv 1$ 有解」翻译成「互素」——数论与环论的握手。
 
-- **第二步，零因子 ⟺ 不互素。** 若 $g = \gcd(k, n) > 1$，令 $k' = k/g$、$n' = n/g$（$n' < n$，非零），则 $\bar k \cdot \bar{n'} = \overline{k n'} = \overline{k \cdot \frac{n}{g}} = \overline{n \cdot \frac{k}{g}} = \bar 0$（模 $n$），故 $\bar k$ 是零因子。反之若 $\bar k$ 可逆则不可能为零因子。**有限环的两分法在 $\mathbb{Z}_n$ 上精确兑现。**
+**第二步，零因子 ⟺ 不互素。** 若 $g = \gcd(k, n) > 1$，令 $k' = k/g$、$n' = n/g$（$n' < n$，非零），则 $\bar k \cdot \bar{n'} = \overline{k n'} = \overline{k \cdot \frac{n}{g}} = \overline{n \cdot \frac{k}{g}} = \bar 0$（模 $n$），故 $\bar k$ 是零因子。反之若 $\bar k$ 可逆则不可能为零因子。**有限环的两分法在 $\mathbb{Z}_n$ 上精确兑现。**
 
-- **第三步，统计。** $|\mathbb{Z}_n^\times| = \varphi(n)$（互素类个数）；零因子个数 $= n - \varphi(n) - 1$（去掉 0 与可逆元）。
+**第三步，统计。** $|\mathbb{Z}_n^\times| = \varphi(n)$（互素类个数）；零因子个数 $= n - \varphi(n) - 1$（去掉 0 与可逆元）。
 
-- **第四步，实例。** $\mathbb{Z}_6$：可逆元 $\{1, 5\}$（$\varphi(6) = 2$），零因子 $\{2, 3, 4\}$（$2\cdot 3 = 0$、$4 \cdot 3 = 0$）。$\mathbb{Z}_7$（$7$ 素数）：可逆元 $\{1,2,3,4,5,6\}$（全部非零元，域！），零因子无——$\mathbb{Z}_7$ 是域。
+**第四步，实例。** $\mathbb{Z}_6$：可逆元 $\{1, 5\}$（$\varphi(6) = 2$），零因子 $\{2, 3, 4\}$（$2\cdot 3 = 0$、$4 \cdot 3 = 0$）。$\mathbb{Z}_7$（$7$ 素数）：可逆元 $\{1,2,3,4,5,6\}$（全部非零元，域！），零因子无——$\mathbb{Z}_7$ 是域。
 
 ## 5 可逆元与零因子在「环的层级」里的角色
 

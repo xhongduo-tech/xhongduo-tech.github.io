@@ -54,20 +54,24 @@ $$e[i][j] = \begin{cases} q_{i-1}, & j = i-1 \\ \min_{i \le r \le j} \left\{ e[i
 
 ```
 OPTIMAL-BST(p, q, n)
-  for i = 1 to n+1
-    e[i][i-1] = q[i-1];  w[i][i-1] = q[i-1]
-  for l = 1 to n
-    for i = 1 to n - l + 1
-      j = i + l - 1
-      e[i][j] = infinity
-      w[i][j] = w[i][j-1] + p[j] + q[j]
-      for r = i to j
-        t = e[i][r-1] + e[r+1][j] + w[i][j]
-        if t < e[i][j]  e[i][j] = t;  root[i][j] = r
-  return e and root
+1  let e[1..n+1][0..n], w[1..n+1][0..n], root[1..n][1..n] be new tables
+2  for i = 1 to n+1
+3      e[i][i−1] = q[i−1]                       // 空树边界：只有虚拟键
+4      w[i][i−1] = q[i−1]
+5  for l = 1 to n                                // 区间长度
+6      for i = 1 to n−l+1                        // 区间起点
+7          j = i+l−1                             // 区间终点
+8          e[i][j] = ∞
+9          w[i][j] = w[i][j−1] + p[j] + q[j]     // 概率和递推
+10         for r = i to j                        // 枚举根
+11             t = e[i][r−1] + e[r+1][j] + w[i][j]
+12             if t < e[i][j]
+13                 e[i][j] = t
+14                 root[i][j] = r
+15 return e and root
 ```
 
-`w[i][j]` 可递推计算：$w[i][j] = w[i][j-1] + p_j + q_j$。`root[i][j]` 记录最优根，供构造树。<span class="marginnote">三重循环结构与矩阵链完全相同（外层长度、中层起点、内层根位置）。Knuth 还发现一个加速：最优根 $root[i][j]$ 满足单调性 $root[i][j-1] \le root[i][j] \le root[i+1][j]$，利用它可把内层循环从 $O(n)$ 摊到 $O(1)$ 平均，总时间降到 $O(n^2)$——这是「四边形不等式」优化区间 DP 的著名例子。</span>
+$root[i][j]$ 可递推计算：$w[i][j] = w[i][j-1] + p_j + q_j$。$root[i][j-1] \le root[i][j] \le root[i+1][j]$ 记录最优根，供构造树。<span class="marginnote">三重循环结构与矩阵链完全相同（外层长度、中层起点、内层根位置）。Knuth 还发现一个加速：最优根 $root[i][j]$ 满足单调性 $root[i][j-1] \le root[i][j] \le root[i+1][j]$，利用它可把内层循环从 $O(n)$ 摊到 $O(1)$ 平均，总时间降到 $O(n^2)$——这是「四边形不等式」优化区间 DP 的著名例子。</span>
 
 ## 4 公式解析：复杂度与期望代价的直觉
 

@@ -42,8 +42,8 @@ $$a^{\log_a N}=N \qquad \log_a(a^x)=x$$
 
 数学里有两个底数用得最多，给它们起了简写：
 
-- **常用对数（common logarithm）**：以 $10$ 为底，记作 $\lg N=\log_{10} N$。科学计数法、酸碱度 pH 都用它。
-- **自然对数（natural logarithm）**：以 $e$ 为底，记作 $\ln N=\log_e N$。其中 $e\approx2.71828\cdots$ 是自然常数，微积分里处处是它。<span class="marginnote">$e$ 出现在哪里？$e=\lim_{n\to\infty}\left(1+\frac1n\right)^n$——每期利率为 $\frac1n$ 的复利，期数 $n$ 无限增大时本金翻成的倍数。它由欧拉系统研究，是数学最重要的常数之一，我们到《导数》章节再深入。自然对数 $\ln$ 是「大模型默认的对数」：softmax、交叉熵、困惑度里的 $\log$ 默认都是 $\ln$。</span>
+**常用对数（common logarithm）**：以 $10$ 为底，记作 $\lg N=\log_{10} N$。科学计数法、酸碱度 pH 都用它。
+**自然对数（natural logarithm）**：以 $e$ 为底，记作 $\ln N=\log_e N$。其中 $e\approx2.71828\cdots$ 是自然常数，微积分里处处是它。<span class="marginnote">$e$ 出现在哪里？$e=\lim_{n\to\infty}\left(1+\frac1n\right)^n$——每期利率为 $\frac1n$ 的复利，期数 $n$ 无限增大时本金翻成的倍数。它由欧拉系统研究，是数学最重要的常数之一，我们到《导数》章节再深入。自然对数 $\ln$ 是「大模型默认的对数」：softmax、交叉熵、困惑度里的 $\log$ 默认都是 $\ln$。</span>
 
 ## 3 对数的运算性质：把乘除降级为加减
 

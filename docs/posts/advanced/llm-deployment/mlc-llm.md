@@ -34,9 +34,9 @@ MLC LLM 的架构分三层：
 
 移动端推理的难点是硬件碎片化：iOS 只有 Apple GPU（Metal）、Android 有 Adreno/Mali 等各家 GPU（Vulkan 统一入口）。MLC LLM 的策略：
 
-- **iOS**：编译成 Metal 后端，利用 Apple 的 GPU 与统一内存。
-- **Android**：编译成 Vulkan 后端（跨厂商 GPU 标准），一套代码覆盖不同手机 GPU。
-- **CPU 兜底**：Vulkan 不可用时退回 CPU（WASM/本地）。
+**iOS**：编译成 Metal 后端，利用 Apple 的 GPU 与统一内存。
+**Android**：编译成 Vulkan 后端（跨厂商 GPU 标准），一套代码覆盖不同手机 GPU。
+**CPU 兜底**：Vulkan 不可用时退回 CPU（WASM/本地）。
 
 移动端推理还受「内存与功耗」双重约束（见下一篇）——MLC LLM 同样依赖量化（支持 4-bit 权重）把模型压到手机内存装得下。<span class="marginnote">移动端的关键数字：<strong>7B 模型 4-bit 约 4 GB，主流手机内存 8–16 GB</strong>——刚装得下。小模型（1–3B）是移动端的舒适区，延迟与发热都可控。</span>
 
@@ -44,7 +44,7 @@ MLC LLM 的架构分三层：
 
 浏览器是 MLC LLM 最独特的目标平台——把模型跑在网页里，无需安装、无需服务器。两条路径：
 
-- **WebGPU**：浏览器访问 GPU 的现代标准。MLC LLM 编译出 WebGPU shader，在 GPU 上跑，性能接近原生。需要支持 WebGPU 的浏览器（Chrome/Edge 最新版）。<span class="marginnote">WebGPU 是浏览器里的「CUDA」：<strong>它暴露 GPU 的计算能力（compute shader）给网页</strong>。MLC LLM 用它跑矩阵乘与注意力，性能比 WASM（纯 CPU）快一个数量级。</span>
+**WebGPU**：浏览器访问 GPU 的现代标准。MLC LLM 编译出 WebGPU shader，在 GPU 上跑，性能接近原生。需要支持 WebGPU 的浏览器（Chrome/Edge 最新版）。<span class="marginnote">WebGPU 是浏览器里的「CUDA」：<strong>它暴露 GPU 的计算能力（compute shader）给网页</strong>。MLC LLM 用它跑矩阵乘与注意力，性能比 WASM（纯 CPU）快一个数量级。</span>
 - **WASM（WebAssembly）**：CPU 路线，兼容所有现代浏览器，性能受限于 CPU 与单线程/多线程支持。
 
 浏览器推理的意义：**「打开网页就能用 LLM」的零门槛体验**——私密（数据不出设备）、无需登录、无需下载。代价是性能受浏览器沙箱限制，且模型需随网页下载（首次加载慢）。

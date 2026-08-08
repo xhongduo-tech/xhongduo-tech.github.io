@@ -49,19 +49,24 @@ FlashAttention 的答案可以拆成三块拼图。
 **拼图三：一个 kernel。** 把「读块 → 算 $\mathbf{S}_{ij}$ → 掩码 → softmax → 算 $\mathbf{O}$ 的增量 → 写 $\mathbf{O}$」全部融进同一个 kernel（这就是上一篇讲的 kernel fusion）。没有多次启动、没有中间结果的 HBM 往返。用伪码把整个前向循环摆出来，你会看到它就是一个「外层遍历查询块、内层遍历键/值块」的二重循环，中间值全在寄存器与 SRAM 里打转：
 
 ```python
-# FlashAttention 前向（示意）：中间矩阵 S、P 永不写回 HBM
-for i in range(0, N, B_q):                 # 外层：查询块 Q_i
-    q_i = load(Q[i:i+B_q])                 # 读入 SRAM
-    m_i = -inf; l_i = 0; o_i = 0           # 运行中最大值 / 分母 / 输出
-    for j in range(0, N, B_k):             # 内层：键/值块 K_j, V_j
-        k_j, v_j = load(K[j:j+B_k]), load(V[j:j+B_k])
-        s_ij = (q_i @ k_j.T) / sqrt(d)     # B_q×B_k 打分块，只活在此处
-        s_ij = mask(s_ij)                  # 因果掩码就地处理
-        m_new = max(m_i, rowmax(s_ij))     # 在线 softmax 的三行更新
-        o_i = o_i * exp(m_i - m_new) + exp(s_ij - m_new) @ v_j
-        l_i = l_i * exp(m_i - m_new) + rowsum(exp(s_ij - m_new))
+# FlashAttention 前向伪码（简化，省略分块边界细节）
+# 约定：Q, K, V 已按行分块；O 初始化为 0；m, l 为运行中的行最大/分母向量
+for i in range(0, N, B_q):            # 外层：遍历查询块
+    Q_i = load(Q[i:i+B_q])            # 载入查询块到 SRAM
+    O_i, m_i, l_i = 0, -inf, 0        # 初始化本查询块的输出与在线统计
+    for j in range(0, N, B_k):        # 内层：遍历键/值块
+        K_j = load(K[j:j+B_k]);  V_j = load(V[j:j+B_k])
+        S_ij = Q_i @ K_j.T            # 小矩阵乘，留在 SRAM
+        S_ij = mask(S_ij)             # 掩码（因果 attention）
+        m_ij = rowmax(S_ij)           # 本块的局部行最大值
+        P_ij = exp(S_ij - m_ij)       # 局部 softmax 分子
+        l_ij = rowsum(P_ij)           # 局部分母
+        # 在线 softmax：遇到更大的最大值就整体再缩放
+        m_new = max(m_i, m_ij)
+        O_i = O_i * exp(m_i - m_new) + (P_ij @ V_j) * exp(m_ij - m_new)
+        l_i = l_i * exp(m_i - m_new) + l_ij * exp(m_ij - m_new)
         m_i = m_new
-    store(O[i:i+B_q] = o_i / l_i)          # 归一化后写回 HBM
+    O[i:i+B_q] = O_i / l_i            # 归一化，写回 HBM
 ```
 
 注意内层循环体里，$\mathbf{s}_{ij}$、$\exp(\mathbf{s}_{ij} - m_{\text{new}})$ 这些 $B_q\times B_k$ 的中间矩阵**每一轮都在 SRAM 里被覆盖**，从未落盘。整个 kernel 对 HBM 只做三件事：读 $\mathbf{Q}$ 一次、读 $\mathbf{K},\mathbf{V}$ 若干次（分块）、写 $\mathbf{O}$ 一次。

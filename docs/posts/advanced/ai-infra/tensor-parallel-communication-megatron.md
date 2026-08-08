@@ -78,23 +78,35 @@ $$
 它们之所以叫「共轭」，是因为 $f$ 与 $g$ 拼接起来在数学上是恒等映射：$f \circ g = \text{id}$。这保证了**插入它们不改变前向与反向的数值结果**——纯通信，零语义。实现上就是两个包装类：
 
 ```python
-# Megatron 风格：两个「区域通信」原语（概念示意，非完整实现）
-class CopyToModelParallelRegion(torch.autograd.Function):
-    # g 的前向：恒等；反向：对梯度做 AllReduce
-    @staticmethod
-    def forward(ctx, x):                return x
-    @staticmethod
-    def backward(ctx, grad):            return all_reduce(grad)   # 反向归约
+import torch
 
-class ReduceFromModelParallelRegion(torch.autograd.Function):
-    # f 的前向：AllReduce；反向：恒等
+def _reduce(x):
+    """张量并行组内的 AllReduce：先求和，再广播，使各 rank 拿到一致结果"""
+    torch.distributed.all_reduce(x, group=model_parallel_group)
+    return x
+
+class _CopyToModelParallelRegion(torch.autograd.Function):
+    """f：前向恒等，反向 AllReduce"""
     @staticmethod
-    def forward(ctx, x):                return all_reduce(x)      # 前向归约
+    def forward(ctx, x):
+        return x
+
     @staticmethod
-    def backward(ctx, grad):            return grad
+    def backward(ctx, grad_output):
+        return _reduce(grad_output)
+
+class _ReduceFromModelParallelRegion(torch.autograd.Function):
+    """g：前向 AllReduce，反向恒等"""
+    @staticmethod
+    def forward(ctx, x):
+        return _reduce(x)
+
+    @staticmethod
+    def backward(ctx, grad_output):
+        return grad_output
 ```
 
-代码里的 `backward` 分支就是第 2 节那 4 次 AllReduce 的落点：**`ReduceFromModelParallelRegion` 制造 2 次前向通信，`CopyToModelParallelRegion` 制造 2 次反向通信**。你在 Megatron 源码里搜 `allreduce`，数出来的调用次数与结构分析完全吻合——这印证了「4 次/层」不是纸面推导，而是真实代码里跑着的账。
+代码里的 `_reduce` 分支就是第 2 节那 4 次 AllReduce 的落点：**`g` 的前向制造 2 次前向通信，`f` 的反向制造 2 次反向通信**。你在 Megatron 源码里搜 `f`/`g`，数出来的调用次数与结构分析完全吻合——这印证了「4 次/层」不是纸面推导，而是真实代码里跑着的账。
 
 ## 4 为什么 TP 只适合单机内：带宽的硬约束
 
@@ -113,9 +125,9 @@ class ReduceFromModelParallelRegion(torch.autograd.Function):
 
 单靠 TP 训练不了大模型，它是被嵌在**混合并行**里的：
 
-- **TP 负责单机内**：把装不下的层切成 8 份，靠 NVLink 扛住每层的矩阵乘。
-- **DP 负责机间**：把整份模型（已切成 TP 组）再复制多份，每份吃不同的数据——DP 的 AllReduce 每步只做一次，跨机带宽够用。
-- **PP 负责纵深**：模型层数太多、单机装不下整个纵向时，按层切成多段，段间跨机串行——这是下一篇的主题。
+**TP 负责单机内**：把装不下的层切成 8 份，靠 NVLink 扛住每层的矩阵乘。
+**DP 负责机间**：把整份模型（已切成 TP 组）再复制多份，每份吃不同的数据——DP 的 AllReduce 每步只做一次，跨机带宽够用。
+**PP 负责纵深**：模型层数太多、单机装不下整个纵向时，按层切成多段，段间跨机串行——这是下一篇的主题。
 
 于是最常见的部署是：**每个节点内部做 TP（8 卡），节点之间做 DP 与 PP**。TP 组内通信靠 NVLink，机间通信靠网卡。理解了这个分工，就理解了为什么训练框架的日志里，TP 通信从不走网卡、DP/PP 通信从不占 NVLink——**每种并行都活在属于自己的带宽层级里**。<span class="marginnote">这个「通信必须与物理拓扑匹配」的原则贯穿整个 AI 基础设施：NCCL 的拓扑检测、网络的轨式（rail-optimized）设计、TP 不出机、PP/DP 出机，全部是同一句话的不同说法——<strong>让每种通信都走最便宜的路径</strong>。</span>
 

@@ -34,7 +34,7 @@ $$\log \alpha_{t+1}(j) = \log\Bigl[\sum_{i=1}^{N} \exp\bigl(\log \alpha_t(i) + \
 
 方括号里的「对数和」要用 **log-sum-exp** 技巧算，防止单个 $\exp$ 溢出。实践中常用 PyTorch 的 `torch.logsumexp`，这正是 CTC 损失里每天都会用到的同一个函数。
 
-**对策二：缩放（scaling）。** 不换底数空间，而是每步把 $\alpha_t$ 归一化：令缩放因子 $c_t = \sum_{j=1}^{N} \alpha_t(j)$，然后令 $\hat{\alpha}_t(j) = \alpha_t(j) / c_t$，使每步的和为 1。<span class="marginnote">缩放是 Rabiner 1989 那篇综述给出的经典做法。它还有一个副产品：<strong>缩放因子的连乘就等于观测概率</strong>，即 $\prod_t c_t = P(O \mid \lambda)$——评估问题的答案免费送给你了。在对数域实现时，$P(O\mid\lambda)$ 就是对所有 $\log c_t$ 求和，也就是 Python 里 `numpy` 训练 HMM 时的 `log_likelihood` 累加。</span>
+**对策二：缩放（scaling）。** 不换底数空间，而是每步把 $\alpha_t$ 归一化：令缩放因子 $c_t = \sum_{j=1}^{N} \alpha_t(j)$，然后令 $\hat{\alpha}_t(j) = \alpha_t(j) / c_t$，使每步的和为 1。<span class="marginnote">缩放是 Rabiner 1989 那篇综述给出的经典做法。它还有一个副产品：<strong>缩放因子的连乘就等于观测概率</strong>，即 $\prod_t c_t = P(O \mid \lambda)$——评估问题的答案免费送给你了。在对数域实现时，$P(O\mid\lambda)$ 就是对所有 $\log c_t$ 求和，也就是 Python 里 $\prod_t c_t = P(O \mid \lambda)$ 训练 HMM 时的 $P(O\mid\lambda)$ 累加。</span>
 
 **辨析｜易错点：对数域里没有「缩放」，或者说缩放是隐式的。** 对数域用 log-sum-exp 归一化中间量，返回的最终对数似然就是「对所有 log-缩放因子求和」。两种做法殊途同归——选哪种取决于你后面要什么：要 $\gamma, \xi$ 软计数（Baum-Welch 用），缩放法更直接；只要打分，对数域更省事。
 
@@ -104,22 +104,29 @@ $$\psi_t(j) = \arg\max_{i}\, \delta_{t-1}(i)\, a_{ij}$$
 ```python
 import numpy as np
 
-def viterbi(logA, logB, logpi):
-    """logA:(N,N) 对数转移, logB:(T,N) 对数发射, logpi:(N,) 对数初始
-    返回最优状态序列 q*(长度 T) 与对数概率"""
-    T, N = logB.shape
-    delta = np.full((T, N), -np.inf)
-    psi = np.zeros((T, N), dtype=int)
-    delta[0] = logpi + logB[0]
-    for t in range(1, T):
-        cand = delta[t-1, :, None] + logA       # (N,N): 从每个 i 到每个 j
-        delta[t] = cand.max(axis=0) + logB[t]
-        psi[t] = cand.argmax(axis=0)            # 最优来源状态
-    q = np.zeros(T, dtype=int)
-    q[-1] = delta[-1].argmax()                  # 终点收束
-    for t in range(T-2, -1, -1):
-        q[t] = psi[t+1, q[t+1]]                 # 回溯还原
-    return q, delta[-1].max()
+def viterbi(log_A, log_B, log_pi, T):
+    """对数域维特比：返回最可能的状态序列。
+    log_A : [N, N]  转移概率的对数
+    log_B : [T, N]  每个时刻各状态发射概率的对数
+    log_pi: [N]     初始分布的对数
+    """
+    N = log_A.shape[0]
+    delta = np.full((T, N), -np.inf)          # 最优路径分数
+    psi   = np.zeros((T, N), dtype=int)       # 回溯指针表
+    delta[0] = log_pi + log_B[0]
+
+    for t in range(1, T):                     # 前向累积：分数 + 指针
+        for j in range(N):
+            cand = delta[t - 1] + log_A[:, j]     # 从任一前一状态转移而来
+            psi[t, j] = np.argmax(cand)
+            delta[t, j] = cand[psi[t, j]] + log_B[t, j]
+
+    # 终点收束：最优路径的最后一个状态
+    path = np.zeros(T, dtype=int)
+    path[-1] = np.argmax(delta[-1])
+    for t in range(T - 2, -1, -1):            # 回溯还原整条路径
+        path[t] = psi[t + 1, path[t + 1]]
+    return path
 ```
 
 **辨析｜易错点：维特比返回「一条路径」，前向返回「一个数」。** 有人把维特比分数当观测似然用，这是错误的：$\max_Q P(Q, O \mid \lambda)$ 恒小于等于 $P(O \mid \lambda) = \sum_Q P(Q, O \mid \lambda)$，两者量纲不同、用途不同——评估用前者、打分用求和，解码用后者、对齐用取最大。<span class="marginnote">维特比在语音里还有一处关键用途：训练时的<strong>强制对齐（forced alignment）</strong>。给定音频与文本，用维特比把每一帧对齐到音素状态，产出「帧-状态」标注——这是嵌入式训练、以及后续三音子决策树聚类（见《三音子模型与决策树状态绑定》）的原材料。</span>
@@ -131,31 +138,40 @@ def viterbi(logA, logB, logpi):
 ```python
 import numpy as np
 
-def forward_backward(logA, logB, logpi):
-    """对数域前向后向。返回 logP(O|lambda), gamma, xi"""
-    T, N = logB.shape
-    # 前向（log-sum-exp 实现）
-    logalpha = np.zeros((T, N))
-    logalpha[0] = logpi + logB[0]
+def logsumexp(x):
+    """log(Σ exp(x_i))：先减最大值再取指数，防数值下溢。"""
+    m = np.max(x)
+    return m + np.log(np.sum(np.exp(x - m)))
+
+def forward_backward(log_A, log_B, log_pi):
+    """对数域前向—后向：E 步产出软计数 gamma 与 xi。"""
+    T, N = log_B.shape
+
+    # 前向：alpha_t(j) = P(o_1..o_t, q_t=s_j | λ)
+    log_alpha = np.full((T, N), -np.inf)
+    log_alpha[0] = log_pi + log_B[0]
     for t in range(1, T):
-        m = logalpha[t-1][:, None] + logA       # (N,N)
-        mx = m.max(axis=0)
-        logalpha[t] = mx + np.log(np.exp(m - mx).sum(axis=0)) + logB[t]
-    # 后向
-    logbeta = np.zeros((T, N))
-    for t in range(T-2, -1, -1):
-        m = logA + logB[t+1] + logbeta[t+1]     # (N,N)
-        mx = m.max(axis=1)
-        logbeta[t] = mx + np.log(np.exp(m - mx).sum(axis=1))
-    loglik = logalpha[-1].max() + np.log(np.exp(logalpha[-1] - logalpha[-1].max()).sum())
-    # gamma 与 xi
-    gamma = np.exp(logalpha + logbeta - loglik)
-    xi = np.zeros((T-1, N, N))
-    for t in range(T-1):
-        m = logalpha[t][:, None] + logA + logB[t+1] + logbeta[t+1]
-        mx = m.max()
-        xi[t] = np.exp(m - (mx + np.log(np.exp(m - mx).sum())))
-    return loglik, gamma, xi
+        for j in range(N):
+            log_alpha[t, j] = logsumexp(log_alpha[t - 1] + log_A[:, j]) + log_B[t, j]
+
+    # 后向：beta_t(i) = P(o_{t+1}..o_T | q_t=s_i, λ)，边界 beta_T = 1
+    log_beta = np.full((T, N), -np.inf)
+    log_beta[-1] = 0.0
+    for t in range(T - 2, -1, -1):
+        for i in range(N):
+            log_beta[t, i] = logsumexp(log_A[i] + log_B[t + 1] + log_beta[t + 1])
+
+    log_P = logsumexp(log_alpha[-1])                     # log P(O | λ)
+
+    # gamma：时刻 t 停在状态 i 的后验；xi：时刻 t 从 i 跳到 j 的后验
+    gamma = np.exp(log_alpha + log_beta - log_P)         # [T, N]
+    xi = np.zeros((T - 1, N, N))
+    for t in range(T - 1):
+        for i in range(N):
+            for j in range(N):
+                xi[t, i, j] = np.exp(log_alpha[t, i] + log_A[i, j]
+                                     + log_B[t + 1, j] + log_beta[t + 1, j] - log_P)
+    return gamma, xi
 ```
 
 这个函数是下一节 Baum-Welch 的骨架：E 步产出 $\gamma, \xi$，M 步直接按公式重估三要素。注意这里每一步的 log-sum-exp 都先减最大值再取指数，正是防止数值下溢的标准姿势。

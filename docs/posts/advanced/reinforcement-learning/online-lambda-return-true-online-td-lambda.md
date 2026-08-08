@@ -34,8 +34,8 @@ $$
 
 标准 TD(λ) 的资格迹更新是 $\mathbf e_t = \gamma\lambda\mathbf e_{t-1} + \nabla\hat v(S_t,\mathbf w_t)$。上一课默认「用当前 $\mathbf w$ 累积的迹，乘以当前误差 $\delta_t$，等价于一次前向 λ-回报」。但仔细看：
 
-- 误差 $\delta_t = R_{t+1} + \gamma\hat v(S_{t+1},\mathbf w_t) - \hat v(S_t,\mathbf w_t)$ 用当前 $\mathbf w_t$ 算，没问题；
-- 可迹 $\mathbf e_{t-1}$ 是用**上一轮**的 $\mathbf w_{t-1}$（甚至更早）累积的——**旧参数算出的迹，乘以新参数算出的误差，两份「时间不一致」的信息被相乘**。
+误差 $\delta_t = R_{t+1} + \gamma\hat v(S_{t+1},\mathbf w_t) - \hat v(S_t,\mathbf w_t)$ 用当前 $\mathbf w_t$ 算，没问题；
+可迹 $\mathbf e_{t-1}$ 是用**上一轮**的 $\mathbf w_{t-1}$（甚至更早）累积的——**旧参数算出的迹，乘以新参数算出的误差，两份「时间不一致」的信息被相乘**。
 
 在线性情形，前向 λ-回报要求「$G_t^\lambda$ 里所有自举项都用同一个 $\mathbf w_t$」；标准 TD(λ) 的迹里混着历史权重，于是它偏离前向基准。这个偏差通常很小，但**在理论上存在、在数值上可测**。真在线 TD(λ) 就是要把这条缝补死。<span class="marginnote">为什么这条缝在表格型里不存在？表格型下 $\nabla\hat v = \mathbf e_s$（one-hot），迹就是「逐状态的历史访问度」，权重更新不改变「梯度形状」——只有函数逼近的参数共享才让「旧梯度」与「新误差」错位。真在线 TD(λ) 的修正只对函数逼近有意义。</span>
 

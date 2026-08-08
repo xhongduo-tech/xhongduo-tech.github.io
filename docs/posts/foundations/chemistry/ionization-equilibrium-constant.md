@@ -48,9 +48,9 @@ $$
 
 设 0.1 mol/L 醋酸溶液，电离度 $\alpha = 1.3\%$，求 $K_a$：
 
-- **第一步，算平衡浓度**：初始 $c(\ce{CH3COOH}) = 0.1$。电离出 $c(\ce{H+}) = c(\ce{CH3COO-}) = 0.1 \times 1.3\% = 1.3\times10^{-3}\ \mathrm{mol/L}$。剩余醋酸浓度 $c(\ce{CH3COOH}) = 0.1 - 1.3\times10^{-3} \approx 0.1$。
-- **第二步，代公式**：$K_a = \frac{c(\ce{H+})c(\ce{CH3COO-})}{c(\ce{CH3COOH})} = \frac{(1.3\times10^{-3})^2}{0.1} = 1.69\times10^{-5}$。
-- **第三步，验证近似**：当 $\alpha$ 很小（<5%）时，$c(\ce{HA}) \approx c_{\text{初始}}$，公式近似为 $K_a \approx c\alpha^2$。反过来，已知 $K_a$ 可求 $\alpha = \sqrt{K_a/c}$。
+**第一步，算平衡浓度**：初始 $c(\ce{CH3COOH}) = 0.1$。电离出 $c(\ce{H+}) = c(\ce{CH3COO-}) = 0.1 \times 1.3\% = 1.3\times10^{-3}\ \mathrm{mol/L}$。剩余醋酸浓度 $c(\ce{CH3COOH}) = 0.1 - 1.3\times10^{-3} \approx 0.1$。
+**第二步，代公式**：$K_a = \frac{c(\ce{H+})c(\ce{CH3COO-})}{c(\ce{CH3COOH})} = \frac{(1.3\times10^{-3})^2}{0.1} = 1.69\times10^{-5}$。
+**第三步，验证近似**：当 $\alpha$ 很小（<5%）时，$c(\ce{HA}) \approx c_{\text{初始}}$，公式近似为 $K_a \approx c\alpha^2$。反过来，已知 $K_a$ 可求 $\alpha = \sqrt{K_a/c}$。
 
 **结论：电离平衡计算的核心是「三段式」（初、变、平）**——写出初始浓度、浓度变化、平衡浓度，代入 $K_a$ 表达式求解。这是所有弱电解质计算的通用模板，与化学平衡计算完全一致。<span class="marginnote">「三段式」是平衡计算的万能表格，从电离平衡、水解平衡到沉淀溶解平衡都适用。它本质上是「把反应过程列成账本，让平衡常数做最终审计」。掌握三段式，就掌握了溶液平衡计算的半壁江山。</span>
 

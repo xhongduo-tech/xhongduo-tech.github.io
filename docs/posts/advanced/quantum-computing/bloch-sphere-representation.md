@@ -49,7 +49,7 @@ $$
 | $|+\rangle$ | $\frac{|0\rangle+|1\rangle}{\sqrt2}$ | $(\frac{\pi}{2}, 0)$ | $(1, 0, 0)$ |
 | $|-\rangle$ | $\frac{|0\rangle-|1\rangle}{\sqrt2}$ | $(\frac{\pi}{2}, \pi)$ | $(-1, 0, 0)$ |
 | $|+i\rangle$ | $\frac{|0\rangle+i|1\rangle}{\sqrt2}$ | $(\frac{\pi}{2}, \frac{\pi}{2})$ | $(0, 1, 0)$ |
--  | $\frac{|0\rangle-i|1\rangle}{\sqrt2}$ | $(\frac{\pi}{2}, \frac{3\pi}{2})$ | $(0, -1, 0)$ |
+ | $\frac{|0\rangle-i|1\rangle}{\sqrt2}$ | $(\frac{\pi}{2}, \frac{3\pi}{2})$ | $(0, -1, 0)$ |
 
 三根轴各自代表一组测量基：$z$ 轴两端是计算基 $\{|0\rangle, |1\rangle\}$，$x$ 轴两端是 $\{|+\rangle, |-\rangle\}$，$y$ 轴两端是 $\{|+i\rangle, |-i\rangle\}$。**态在某一根轴上的「投影」，恰好是它在该基下测量时的概率差**——例如 $z$ 轴分量 $z = p(0) - p(1)$，$x$ 轴分量 $x = p(+) - p(-)$。这个「投影 = 可观测量的期望值」的读法，是下一节《测量与基的选择》的钥匙，我们先在这里埋下。<span class="marginnote">$|+i\rangle$、$|-i\rangle$ 这两个态常常被忽略，因为它们的测量概率与 $|+\rangle$、$|-\rangle$ 在计算基下一模一样，区别藏在相位里。要真正看见 $y$ 轴，必须在 $Y$ 基下测量——这也提醒我们：只看一种基，布洛赫球的「纵深」是看不见的。</span>
 

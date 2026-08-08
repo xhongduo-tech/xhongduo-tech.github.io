@@ -81,19 +81,23 @@ $$
 **关键省算点**：步骤 2 的增量更新只需算 $n$ 个新中点的 $f$ 值，总函数求值次数约 $2^m$，但每次加密只新增一半——**总成本 $\approx 2\times$ 最后一次的节点数**，远小于从头重算。<span class="marginnote">实现细节：增量更新公式来自 $T_{2n}=\tfrac{h}{2}\sum_{k=0}^{2n}(f(x_k)+f(x_{k+1}))$ 与旧节点关系——新公式里的旧节点贡献恰好是 $\tfrac12 T_n$（因为步长减半、权重减半），剩下只需补中点项。这个「半旧半新」的巧妙结构是分半法省钱的根源。</span>
 
 ```python
-def adaptive_trapezoid(f, a, b, tol=1e-6, max_iter=40):
-    n = 1
-    h = (b - a)
-    T = h/2 * (f(a) + f(b))
-    for _ in range(max_iter):
-        n *= 2
-        h /= 2
-        mids = np.sum(f(a + (2*np.arange(1, n, 2)) * h))  # 新增中点
-        T_new = 0.5*T + h*mids
-        if abs(T_new - T) < 3*tol:
-            return T_new, n
-        T = T_new
-    raise RuntimeError("未收敛")
+import math
+
+def successive_halving(f, a, b, eps=1e-8):
+    """逐次分半复化梯形：误差判据 |T_{2n} - T_n| / 3 <= eps。"""
+    n, h = 1, b - a
+    T = h * (f(a) + f(b)) / 2                   # T_1：一个区间
+    while True:
+        s = 0.0
+        for k in range(1, n + 1):               # 只算新增中点
+            x = a + (k - 0.5) * h
+            s += f(x)
+        T_new = T / 2 + h / 2 * s               # 增量更新，旧节点复用
+        if abs(T_new - T) / 3 < eps:            # 事后误差估计（2²-1=3）
+            return T_new
+        T, n, h = T_new, 2 * n, h / 2
+
+print(successive_halving(math.exp, 0, 1))       # ≈ 1.718281828（e - 1）
 ```
 
 ## 4 误差估计在辛普森上的表现
@@ -116,7 +120,7 @@ def adaptive_trapezoid(f, a, b, tol=1e-6, max_iter=40):
 | 事前估计 | $f$ 的导数界（如 $M_2$） | 先验可算 | 太保守、要导数信息 |
 | **事后估计** | 两次计算结果之差 | 自动、不需要导数 | 对函数「撒谎」（振荡函数可能巧合吻合） |
 
-**辨析｜易错点：** 事后估计假设「误差确实按 $h^p$ 衰减」。若 $f$ 在区间内有剧烈振荡或奇点，两次加密的误差比可能严重偏离 $2^p$，`$(I_{2n}-I_n)/(2^p-1)$` 会**低估**真实误差——算法可能「过早收手」。工程上常在分半循环里加「至少迭代若干次」的下限，并监测相邻两次估计是否稳定。
+**辨析｜易错点：** 事后估计假设「误差确实按 $h^p$ 衰减」。若 $f$ 在区间内有剧烈振荡或奇点，两次加密的误差比可能严重偏离 $2^p$，$f$ 会**低估**真实误差——算法可能「过早收手」。工程上常在分半循环里加「至少迭代若干次」的下限，并监测相邻两次估计是否稳定。
 
 ## 6 小结
 

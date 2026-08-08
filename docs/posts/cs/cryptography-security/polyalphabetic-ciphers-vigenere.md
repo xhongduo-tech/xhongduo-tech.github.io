@@ -61,7 +61,7 @@ date: 2026-08-07
 | 密钥 | K | E | Y | K | E | Y | K | E | Y | K | E | Y |
 | 密文 | K | X | R | K | G | I | K | X | B | K | A | J |
 
-注意明文第 1、4、7、10 位的 `A`，在密文里分别变成了 `K`、`K`、`K`、`K`——等一下，这里它们居然都变成了 `K`？因为密钥第 1、4、7、10 位都是 `K`，而明文都是 `A`，所以加密结果相同。这暴露了维吉尼亚密码的规律性：**同一位次的字母被同一张表加密**。但明文第 5 位的 `C` 用 `E` 表加密成 `G`，如果换一个位置明文仍是 `C`、密钥位是 `K`，就会加密成 `M`——所以同一个明文字母 `C` 在密文里确实可以有不同的像。多表的效果是真实的，只是它有一个严格的结构：**周期等于密钥长度。**
+注意明文第 1、4、7、10 位的 `A`，在密文里分别变成了 `K`、`K`、`K`、`K`——等一下，这里它们居然都变成了 `K`？因为密钥第 1、4、7、10 位都是 `K`，而明文都是 `A`，所以加密结果相同。这暴露了维吉尼亚密码的规律性：**同一位次的字母被同一张表加密**。但明文第 5 位的 `C` 用 `E` 表加密成 `G`，如果换一个位置明文仍是 `C`、密钥位是 `E`，就会加密成 `G`——所以同一个明文字母 `C` 在密文里确实可以有不同的像。多表的效果是真实的，只是它有一个严格的结构：**周期等于密钥长度。**
 
 ## 4 公式解析：维吉尼亚密码的加密公式
 
@@ -93,30 +93,27 @@ $$
 用代码实现维吉尼亚密码非常简单，本质就是「把字符翻译成数字、相加取模、翻译回来」：
 
 ```python
-def vigenere(text: str, key: str, decrypt: bool = False) -> str:
-    """维吉尼亚密码。decrypt=False 加密，True 解密。"""
-    text = "".join(c.upper() for c in text if c.isalpha())
+def vigenere(text, key, decrypt=False):
+    """维吉尼亚密码：C_i = (P_i + K_i) mod 26，密钥循环使用。"""
+    result = []
     key = key.upper()
-    out = []
-    for i, ch in enumerate(text):
-        p = ord(ch) - ord('A')
-        k = ord(key[i % len(key)]) - ord('A')
-        c = (p - k) % 26 if decrypt else (p + k) % 26
-        out.append(chr(c + ord('A')))
-    return "".join(out)
+    for i, ch in enumerate(text.upper()):
+        shift = ord(key[i % len(key)]) - 65          # i % m：周期下标
+        step = -shift if decrypt else shift
+        result.append(chr((ord(ch) - 65 + step) % 26 + 65))
+    return ''.join(result)
 
 plain = "ATTACKATDAWN"
-key = "KEY"
-cipher = vigenere(plain, key)
-print("加密:", plain, "->", cipher)          # 期望输出 KXRKGIXKBKAJ
-print("解密:", cipher, "->", vigenere(cipher, key, decrypt=True))
+cipher = vigenere(plain, "KEY")
+print("加密：", cipher)                                # KXRKGIKXBKAJ
+print("解密：", vigenere(cipher, "KEY", decrypt=True)) # ATTACKATDAWN
 ```
 
-运行它会得到我们手算的结果：加密成 `KXRKGIXKBKAJ`，解密还原为 `ATTACKATDAWN`。注意 `i % len(key)` 就是公式里的周期下标 $i \bmod m$——**整个算法的秘密全藏在取模这一个操作里**。<span class="marginnote">维吉尼亚密码只用一行的加法就把单表替换升级了，代价是「周期」这个结构漏洞。对比现代流密码（第四篇的 ChaCha20）与分组密码（第三篇的 AES）：它们不再靠「循环的密钥表」，而是靠「不断自我更新的内部状态」抹掉统计——周期结构被彻底消除，这正是维吉尼亚密码留给后世的教训。</span>
+运行它会得到我们手算的结果：加密成 `KXRKGIKXBKAJ`，解密还原为 `ATTACKATDAWN`。注意 `i % m` 就是公式里的周期下标 $i \bmod m$——**整个算法的秘密全藏在取模这一个操作里**。<span class="marginnote">维吉尼亚密码只用一行的加法就把单表替换升级了，代价是「周期」这个结构漏洞。对比现代流密码（第四篇的 ChaCha20）与分组密码（第三篇的 AES）：它们不再靠「循环的密钥表」，而是靠「不断自我更新的内部状态」抹掉统计——周期结构被彻底消除，这正是维吉尼亚密码留给后世的教训。</span>
 
 ## 6 历史坐标：三个世纪的「不可破译」
 
-维吉尼亚密码从 16 世纪中期流行到 19 世纪中期，接近三百年无人能系统地攻破，因此得了「不可破译的密码」的绰号。之所以难破，是因为它的密钥空间大得吓人：密钥长度 $m$ 未知，且每个位置可以是 26 个字母之一，穷举几乎不可能；频率攻击又因为多表替换而失效。凯撒的 `CRYPTOGRAPHY`、单表替换的秩匹配，在这里统统碰壁。
+维吉尼亚密码从 16 世纪中期流行到 19 世纪中期，接近三百年无人能系统地攻破，因此得了「不可破译的密码」的绰号。之所以难破，是因为它的密钥空间大得吓人：密钥长度 $m$ 未知，且每个位置可以是 26 个字母之一，穷举几乎不可能；频率攻击又因为多表替换而失效。凯撒的 26 路穷举、单表替换的秩匹配，在这里统统碰壁。
 
 但「不可破译」终究是时代的幻觉。1863 年，普鲁士军官弗里德里希 · 卡西斯基（Friedrich Kasiski）发表了一整套破解方法，抓住了「密钥周期」这个结构弱点；1920 年前后，美国陆军上校威廉 · 弗里德曼（William F. Friedman）用重合指数从统计上进一步加固了这套攻击。<span class="marginnote">弗里德曼后来成为美国密码学的奠基人，指挥破解了二战中日本的「紫密」（Purple）。他 1920 年出版的专著《重合指数及其在密码学中的应用》把维吉尼亚密码的攻击从「技巧」升格为「统计理论」。</span>这套「先测密钥长度、再逐表还原」的流程，就是下一节的完整主题。
 

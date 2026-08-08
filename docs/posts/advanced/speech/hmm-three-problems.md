@@ -56,17 +56,18 @@ $$\alpha_{t+1}(j) = \Bigl[\sum_{i=1}^{N} \alpha_t(i)\, a_{ij}\Bigr]\, b_j(o_{t+1
 ```python
 import numpy as np
 
-def forward(A, B, pi):
-    """A: (N,N) 转移矩阵, B: (T,N) 每帧每状态的发射概率, pi:(N,) 初始分布
-    返回 P(O|lambda)（B 已由发射分布按观测序列算出）"""
-    T, N = B.shape
+def forward(pi, A, B, O):
+    """前向算法：计算 P(O | lambda)。
+    pi: 初始分布 (N,)，A: 转移矩阵 (N, N)，B: 发射矩阵 (N, V)，O: 观测序列 (T,)
+    """
+    T = len(O)
+    N = len(pi)
     alpha = np.zeros((T, N))
-    alpha[0] = pi * B[0]
+    alpha[0] = pi * B[:, O[0]]                 # α_1(j) = π_j · b_j(o_1)
     for t in range(1, T):
-        alpha[t] = (alpha[t-1] @ A) * B[t]   # 先转移求和，再乘发射
-    return alpha.sum(axis=1)                  # P(O|lambda) = sum alpha_T
-
-logP = np.log(forward(A, B, pi).sum())
+        # α_{t+1}(j) = [Σ_i α_t(i)·a_ij] · b_j(o_{t+1})
+        alpha[t] = (alpha[t - 1] @ A) * B[:, O[t]]
+    return alpha.sum(axis=1)[-1]               # P(O|λ) = Σ_j α_T(j)
 ```
 
 ## 3 问题二：解码——维特比算法
@@ -85,9 +86,9 @@ $$\delta_{t}(j) = \Bigl[\max_{i}\, \delta_{t-1}(i)\, a_{ij}\Bigr]\, b_j(o_t)$$
 
 工程上有三个关键细节：<span class="marginnote">为什么强调工程细节？因为 HMM 在语音上的真实规模是 $T\sim$几百帧、$N\sim$几千状态（三音子模型），任何数值上的不稳健都会直接放大成识别错误。</span>
 
-- **对数域**：概率连乘会下溢（underflow），全程用 $\log$，乘法变加法：$\delta_t(j) = \max_i\bigl(\delta_{t-1}(i) + \log a_{ij}\bigr) + \log b_j(o_t)$。
-- **束搜索（beam search）**：每步只保留前 $K$ 大的 $\delta_t(j)$，把复杂度从 $O(TN^2)$ 降到约 $O(TNK)$——语音识别解码的标配。
-- **与语言模型结合**：真正的识别还要把语言模型分数并进来，见《加权有限状态转换器（WFST）解码》与《语言模型融合》各节。
+**对数域**：概率连乘会下溢（underflow），全程用 $\log$，乘法变加法：$\delta_t(j) = \max_i\bigl(\delta_{t-1}(i) + \log a_{ij}\bigr) + \log b_j(o_t)$。
+**束搜索（beam search）**：每步只保留前 $K$ 大的 $\delta_t(j)$，把复杂度从 $O(TN^2)$ 降到约 $O(TNK)$——语音识别解码的标配。
+**与语言模型结合**：真正的识别还要把语言模型分数并进来，见《加权有限状态转换器（WFST）解码》与《语言模型融合》各节。
 
 维特比在 ASR 里的两个关键用途：**训练时**做强制对齐（把帧对齐到音素，供嵌入式训练使用）；**识别时**给出最优音素/词路径。
 

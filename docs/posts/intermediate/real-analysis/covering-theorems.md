@@ -36,8 +36,8 @@ date: 2026-08-07
 
 证明（以一维 $K=[a,b]$ 为例，思路完整）：
 
-- **（$\Leftarrow$）先证 $[a,b]$ 紧**：设 $\{G_\lambda\}$ 是 $[a,b]$ 的任一开覆盖。记 $S=\{x\in[a,b]:[a,x]\ \text{可被有限覆盖}\}$。显然 $a\in S$（$a$ 落在某个 $G_{\lambda}$ 中），故 $S\neq\varnothing$。取 $c=\sup S$。由覆盖知 $c\in G_{\lambda_0}$，存在 $\delta>0$ 使 $(c-\delta,c+\delta)\subset G_{\lambda_0}$；又 $c-\tfrac\delta2\in S$，故 $[a,c-\tfrac\delta2]$ 有有限子覆盖，加上 $G_{\lambda_0}$ 得 $[a,c]$ 有限覆盖，故 $c\in S$。若 $c<b$，则 $(c,c+\delta)$ 中的点也落入 $S$，与 $\sup$ 矛盾，故 $c=b$，$[a,b]$ 紧。<span class="marginnote">这个证明的骨架是<strong>「$S$ 非空 → 取上确界 → 推矛盾」</strong>的三段式，用实数的完备性把「有限覆盖」从局部推进到全局。它和闭区间套定理、单调收敛原理同源——都是实数完备性的化身。</span>
-- **（$\Rightarrow$）再证紧 ⇒ 有界闭**：$K$ 紧，则开覆盖 $\{B(0,m)\}_{m=1}^{\infty}$ 有有限子覆盖，故 $K$ 有界。又若 $x\notin K$，开覆盖 $\{\mathbb{R}^n\setminus B(x,\tfrac1k)\}_{k=1}^{\infty}$ 覆盖 $K$（每点距 $x$ 有正距离），有限子覆盖给出 $B(x,\tfrac1K)\cap K=\varnothing$，故 $x$ 不是聚点，$K$ 闭。
+**（$\Leftarrow$）先证 $[a,b]$ 紧**：设 $\{G_\lambda\}$ 是 $[a,b]$ 的任一开覆盖。记 $S=\{x\in[a,b]:[a,x]\ \text{可被有限覆盖}\}$。显然 $a\in S$（$a$ 落在某个 $G_{\lambda}$ 中），故 $S\neq\varnothing$。取 $c=\sup S$。由覆盖知 $c\in G_{\lambda_0}$，存在 $\delta>0$ 使 $(c-\delta,c+\delta)\subset G_{\lambda_0}$；又 $c-\tfrac\delta2\in S$，故 $[a,c-\tfrac\delta2]$ 有有限子覆盖，加上 $G_{\lambda_0}$ 得 $[a,c]$ 有限覆盖，故 $c\in S$。若 $c<b$，则 $(c,c+\delta)$ 中的点也落入 $S$，与 $\sup$ 矛盾，故 $c=b$，$[a,b]$ 紧。<span class="marginnote">这个证明的骨架是<strong>「$S$ 非空 → 取上确界 → 推矛盾」</strong>的三段式，用实数的完备性把「有限覆盖」从局部推进到全局。它和闭区间套定理、单调收敛原理同源——都是实数完备性的化身。</span>
+**（$\Rightarrow$）再证紧 ⇒ 有界闭**：$K$ 紧，则开覆盖 $\{B(0,m)\}_{m=1}^{\infty}$ 有有限子覆盖，故 $K$ 有界。又若 $x\notin K$，开覆盖 $\{\mathbb{R}^n\setminus B(x,\tfrac1k)\}_{k=1}^{\infty}$ 覆盖 $K$（每点距 $x$ 有正距离），有限子覆盖给出 $B(x,\tfrac1K)\cap K=\varnothing$，故 $x$ 不是聚点，$K$ 闭。
 
 **重点：紧性的本质是「任何开覆盖都能压缩到有限」**。它把「无穷的局部信息」整合成「有限的整体控制」，这正是「一致」类结论（一致连续、一致收敛）的根源。
 

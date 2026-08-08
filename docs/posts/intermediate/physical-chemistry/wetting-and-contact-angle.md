@@ -38,9 +38,9 @@ $$\cos\theta = \frac{\gamma_\text{SG} - \gamma_\text{SL}}{\gamma_\text{LG}}$$
 
 按热力学过程，润湿分三类，都以接触角或铺展系数为判据：
 
-- **沾湿（adhesion wetting）**：固-液接触替代固-气和液-气界面，$W_a = \gamma_\text{SG} + \gamma_\text{LG} - \gamma_\text{SL} \geq 0$。
-- **浸湿（immersion wetting）**：固体完全浸入液体，$W_i = \gamma_\text{SG} - \gamma_\text{SL} \geq 0$。
-- **铺展（spreading wetting）**：液体在固体表面自动铺展，用**铺展系数** $S = \gamma_\text{SG} - \gamma_\text{SL} - \gamma_\text{LG} \geq 0$。
+**沾湿（adhesion wetting）**：固-液接触替代固-气和液-气界面，$W_a = \gamma_\text{SG} + \gamma_\text{LG} - \gamma_\text{SL} \geq 0$。
+**浸湿（immersion wetting）**：固体完全浸入液体，$W_i = \gamma_\text{SG} - \gamma_\text{SL} \geq 0$。
+**铺展（spreading wetting）**：液体在固体表面自动铺展，用**铺展系数** $S = \gamma_\text{SG} - \gamma_\text{SL} - \gamma_\text{LG} \geq 0$。
 
 **重点：铺展系数 $S \geq 0$ 时液体自动铺满表面（$\theta = 0$）；$S < 0$ 时液滴呈有限接触角的球冠。** 三种润湿的差别是「以哪个界面换哪个界面」——都归结为界面张力之差。<span class="marginnote">铺展与沾湿的记忆口诀：沾湿只要求「固-液」界面形成（允许液体变形成分），铺展要求「固-气界面被固-液+液-气替代」还能释放自由能。铺展系数 $S$ 是润湿最严格的条件——$S > 0$ 必然 $\theta = 0$，而沾湿条件宽松得多。镀膜、印刷的「铺展性」指标就是 $S$。</span>
 
@@ -54,26 +54,26 @@ $$\cos\theta = \frac{\gamma_\text{SG} - \gamma_\text{SL}}{\gamma_\text{LG}}$$
 
 **杨氏方程是润湿理论的总纲，也是接触角一切计算的出发点。** 四步拆解：
 
-- **第一步，选受力平衡的截面**：在三相接触线上取一微小段，沿固体表面切线方向有三个张力：固-气 $\gamma_\text{SG}$（拉向气侧）、固-液 $\gamma_\text{SL}$（拉向液侧）、液-气 $\gamma_\text{LG}$（沿液面切线方向，水平分量为 $\gamma_\text{LG}\cos\theta$）。
-- **第二步，写水平力平衡**：$\gamma_\text{SG} = \gamma_\text{SL} + \gamma_\text{LG}\cos\theta$。**接触角自动调整，直到这三个力的水平分量互相抵消**——这是「液滴摆好姿势」的力学本质。
-- **第三步，看物理边界**：$\cos\theta$ 必须落在 $[-1, 1]$。若 $\gamma_\text{SG} - \gamma_\text{SL} > \gamma_\text{LG}$，方程无解、$\theta = 0$ 完全铺展（$S > 0$）；若 $\gamma_\text{SL} - \gamma_\text{SG} > \gamma_\text{LG}$，$\theta = 180^\circ$。**杨氏方程只在 $\theta$ 有限时有解——极端润湿用铺展系数描述。**
-- **第四步，看应用链**：测 $\theta$ 与 $\gamma_\text{LG}$，结合 $\gamma_\text{SL}$ 估算，就能得到固体表面张力 $\gamma_\text{SG}$——接触角测量是固体表面能测定的标准手段。
+**第一步，选受力平衡的截面**：在三相接触线上取一微小段，沿固体表面切线方向有三个张力：固-气 $\gamma_\text{SG}$（拉向气侧）、固-液 $\gamma_\text{SL}$（拉向液侧）、液-气 $\gamma_\text{LG}$（沿液面切线方向，水平分量为 $\gamma_\text{LG}\cos\theta$）。
+**第二步，写水平力平衡**：$\gamma_\text{SG} = \gamma_\text{SL} + \gamma_\text{LG}\cos\theta$。**接触角自动调整，直到这三个力的水平分量互相抵消**——这是「液滴摆好姿势」的力学本质。
+**第三步，看物理边界**：$\cos\theta$ 必须落在 $[-1, 1]$。若 $\gamma_\text{SG} - \gamma_\text{SL} > \gamma_\text{LG}$，方程无解、$\theta = 0$ 完全铺展（$S > 0$）；若 $\gamma_\text{SL} - \gamma_\text{SG} > \gamma_\text{LG}$，$\theta = 180^\circ$。**杨氏方程只在 $\theta$ 有限时有解——极端润湿用铺展系数描述。**
+**第四步，看应用链**：测 $\theta$ 与 $\gamma_\text{LG}$，结合 $\gamma_\text{SL}$ 估算，就能得到固体表面张力 $\gamma_\text{SG}$——接触角测量是固体表面能测定的标准手段。
 
 ## 5 粗糙表面：Wenzel 与 Cassie
 
 真实表面有粗糙度，润湿行为分两种极端模型：
 
-- **Wenzel 模型**：液滴填满粗糙凹坑，实际固-液接触面积大于表观面积，粗糙度因子 $r$ 放大本征润湿性：$\cos\theta_\text{W} = r\cos\theta_\text{Y}$。**亲水更亲、疏水更疏。**
-- **Cassie 模型**：液滴架在粗糙凸起上，凹坑里是空气，固-液接触减小、呈现超疏水：$\cos\theta_\text{C} = f(\cos\theta_\text{Y} + 1) - 1$，$f$ 是固-液接触面积分数。
+**Wenzel 模型**：液滴填满粗糙凹坑，实际固-液接触面积大于表观面积，粗糙度因子 $r$ 放大本征润湿性：$\cos\theta_\text{W} = r\cos\theta_\text{Y}$。**亲水更亲、疏水更疏。**
+**Cassie 模型**：液滴架在粗糙凸起上，凹坑里是空气，固-液接触减小、呈现超疏水：$\cos\theta_\text{C} = f(\cos\theta_\text{Y} + 1) - 1$，$f$ 是固-液接触面积分数。
 
 **重点：荷叶的超疏水（接触角 $>150^\circ$、滚动角极小）是「微纳粗糙结构 + 低表面能蜡质」的 Cassie 态。** 水滴架在空气层上，几乎不与表面直接接触，轻轻倾斜就滚落、带走灰尘——这就是**自清洁（self-cleaning）**原理。<span class="marginnote">超疏水材料的工程价值：自清洁玻璃、防冰涂层、防雾、油水分离。人造超疏水表面模仿荷叶的微纳结构（激光刻蚀、纳米颗粒涂层），但耐用性仍是难题——Cassie 态在高压或磨损下会转变为 Wenzel 态，失去超疏水性。这一「Cassie-Wenzel 转变」是表面工程的核心课题。</span>
 
 ## 6 润湿的应用
 
-- **涂层与印刷**：涂料要润湿基底才能附着牢固，油墨要精确控制接触角才能形成清晰图文。
-- **浮选选矿**：矿物颗粒表面疏水（接触角大）才会上浮，通过捕收剂调控表面润湿性实现矿/脉石分离。
-- **农药喷洒**：农药溶液表面张力大时在叶片上成珠滚落，加表面活性剂降低 $\gamma_\text{LG}$、增大润湿，药液才能铺展在疏水叶面。
-- **微流控**：微通道的润湿性决定液体能否自发填满，接触角是微流控芯片设计的关键参数。<span class="marginnote">润湿还与生物息息相关：肺表面活性物质降低肺泡内液面张力、防止塌陷；隐形眼镜的润湿性决定舒适度；伤口敷料的吸湿铺展影响愈合。表面活性剂（下一节）正是通过降低 $\gamma_\text{LG}$、改变接触角来改善润湿的。</span>
+**涂层与印刷**：涂料要润湿基底才能附着牢固，油墨要精确控制接触角才能形成清晰图文。
+**浮选选矿**：矿物颗粒表面疏水（接触角大）才会上浮，通过捕收剂调控表面润湿性实现矿/脉石分离。
+**农药喷洒**：农药溶液表面张力大时在叶片上成珠滚落，加表面活性剂降低 $\gamma_\text{LG}$、增大润湿，药液才能铺展在疏水叶面。
+**微流控**：微通道的润湿性决定液体能否自发填满，接触角是微流控芯片设计的关键参数。<span class="marginnote">润湿还与生物息息相关：肺表面活性物质降低肺泡内液面张力、防止塌陷；隐形眼镜的润湿性决定舒适度；伤口敷料的吸湿铺展影响愈合。表面活性剂（下一节）正是通过降低 $\gamma_\text{LG}$、改变接触角来改善润湿的。</span>
 
 ## 7 润湿的工程与生物应用
 

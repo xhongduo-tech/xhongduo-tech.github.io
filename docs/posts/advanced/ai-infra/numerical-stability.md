@@ -24,14 +24,14 @@ date: 2026-08-07
 
 回忆浮点表示：一个数 $x = (-1)^s \times (1+m) \times 2^e$，由符号、指数、尾数决定。
 
-- **溢出（overflow）**：$x$ 超过格式上限 → 变成 `inf`。FP16 上限 65504，BF16 上限与 FP32 相同（$3.4\times10^{38}$）。
+- **溢出（overflow）**：$x$ 超过格式上限 → 变成 $x$。FP16 上限 65504，BF16 上限与 FP32 相同（$3.4\times10^{38}$）。
 - **下溢（underflow）**：$x$ 小于最小正规数 → 舍入成 0。FP16 下约 $6\times10^{-5}$ 以下直接变 0。
 
 在训练里，溢出和下溢的后果不同：**溢出会传播**（inf 参与后续运算产生 NaN），**下溢会悄悄丢信息**（小梯度变成 0，模型学不到）。<span class="marginnote">下溢比溢出更危险，因为溢出至少会炸出 NaN 引起注意，下溢则是「无声的精度损失」——你甚至不知道哪些小梯度被舍入成了 0。这就是混合精度里 loss scaling 存在的深层原因：把梯度整体抬离下溢区。</span>
 
 ## 2 softmax 的数值陷阱：大数相减
 
-attention 的核心是 softmax：$\text{softmax}(z)_i = \frac{e^{z_i}}{\sum_j e^{z_j}}$。它的数值风险在 `e^{z_i}` 上：
+attention 的核心是 softmax：$\text{softmax}(z)_i = \frac{e^{z_i}}{\sum_j e^{z_j}}$。它的数值风险在指数运算 $\text{softmax}(z)_i = \frac{e^{z_i}}{\sum_j e^{z_j}}$ 上：
 
 - 若 $z_i$ 较大（如 50），$e^{50} \approx 5\times10^{21}$，FP16 直接溢出成 inf。
 - 溢出后 $\frac{inf}{inf} = NaN$，整个 attention 矩阵报废。
@@ -63,7 +63,7 @@ $$\text{softmax}(z) \approx \frac{\sum_{\text{block}} e^{z - m_{\text{global}}} 
 3. **loss scaling（FP16）**：把梯度抬离下溢区。
 4. **BF16 替代 FP16**：范围同 FP32，彻底免去溢出担忧。
 5. **LayerNorm 的 epsilon**：分母加一个小数 $\epsilon$，防除零（$\epsilon$ 太小在低精度下会下溢）。
-6. **累积用 FP32**：attention 分数、softmax 分母、以及任何跨张量累加，在 FP32 里做再转回。<span class="marginnote">最后一条「FP32 累加」被反复强调：FP16/BF16 的矩阵乘累加器在 Tensor Core 上本就是 FP32 的（硬件保证），但用户手写的 reduce、mean、sum 如果不显式升到 FP32，就会在下溢区悄悄损失。检查代码里每个 `torch.sum`/`.mean()` 的精度，是数值调试的日常。</span>
+6. **累积用 FP32**：attention 分数、softmax 分母、以及任何跨张量累加，在 FP32 里做再转回。<span class="marginnote">最后一条「FP32 累加」被反复强调：FP16/BF16 的矩阵乘累加器在 Tensor Core 上本就是 FP32 的（硬件保证），但用户手写的 reduce、mean、sum 如果不显式升到 FP32，就会在下溢区悄悄损失。检查代码里每个 `sum`/`mean` 的精度，是数值调试的日常。</span>
 
 ## 5 公式解析：最大值平移为什么数值安全
 
@@ -89,25 +89,25 @@ $$e^{z_i - z_{\max}} \le e^{0} = 1, \quad \forall i$$
 - **「BF16 不会溢出所以不用管精度」是错觉**：BF16 范围大但尾数只有 7 位，累加精度仍要 FP32 兜底。
 - **「softmax 平移只影响精度不影响结果」不准确**：平移在数学上严格等价，但低精度下「减最大值」仍会损失小 logit 的相对精度——极端情况要配合更高精度的累加。
 - **「梯度裁剪会破坏收敛」过度担心**：裁剪引入偏差，但大模型训练里经验上利大于弊；真在意可以用「按层裁剪」等精细变体。
-- **`epsilon` 不是随便填的**：LayerNorm 的 $\epsilon$ 若低于当前精度能分辨的最小量（如 FP16 下 $10^{-5}$），就形同虚设。
+- **$\epsilon$（epsilon）不是随便填的**：LayerNorm 的 $\epsilon$ 若低于当前精度能分辨的最小量（如 FP16 下 $10^{-5}$），就形同虚设。
 - **别忽视日志里的 NaN/Inf 告警**：一次 NaN 往往预示「后续所有步全废」，发现即止损（回滚/跳过）。
 
 ## 7 小结
 
 - **两类错误**：溢出（inf/NaN，传播快）与下溢（舍入成 0，无声损失）。
-- **softmax 的陷阱**：`e^{z}` 可能溢出，标准对策是最大值平移（softmax 平移不变性）。
+- **softmax 的陷阱**：大 logits 的 `exp`（指数）可能溢出，标准对策是最大值平移（softmax 平移不变性）。
 - **FlashAttention 的 online softmax**：分块在线统计 + 校正因子，把数值安全与 IO 优化统一。
 - **六道防线**：最大值平移、梯度裁剪、loss scaling、BF16、epsilon、FP32 累加。
 - **核心心法**：把「高危运算」搬进安全区（平移、缩放、FP32 累加），数学结果不变，数值风险消失。
 
 ## 8 进阶与延伸
 
-**动手复现一次 softmax 溢出**：写一个不含「最大值平移」的朴素 softmax，输入一个含 100 的 logits 向量——BF16 下你会得到 inf/NaN。加上 `m = max(z)` 平移后重跑，一切正常。这就是「一次复现胜过十次讲解」。
+**动手复现一次 softmax 溢出**：写一个不含「最大值平移」的朴素 softmax，输入一个含 100 的 logits 向量——BF16 下你会得到 inf/NaN。加上最大值平移后重跑，一切正常。这就是「一次复现胜过十次讲解」。
 
 **几个值得进一步挖的方向**：
 
-- **`torch.nn.functional.softmax` 的隐式平移**：PyTorch 的 softmax 内部已经做了最大值平移——但手写 kernel、手写 attention 时没人替你兜底。这是「框架安全 ≠ 手写安全」的经典案例。
-- **FP16 下的 LayerNorm epsilon**：`eps=1e-5` 在 FP16 下「形同虚设」——因为 FP16 的最小可分辨量约 $6\times10^{-5}$。换 BF16 或调大 eps，你会看到数值行为的变化。
+- **框架的隐式平移**：PyTorch 的 softmax 内部已经做了最大值平移——但手写 kernel、手写 attention 时没人替你兜底。这是「框架安全 ≠ 手写安全」的经典案例。
+- **FP16 下的 LayerNorm epsilon**：$\epsilon$ 在 FP16 下「形同虚设」——因为 FP16 的最小可分辨量约 $6\times10^{-5}$。换 BF16 或调大 eps，你会看到数值行为的变化。
 - **FlashAttention 的 online softmax 与「全局 vs 分块」**：分块统计的校正因子 $e^{m_{\text{old}} - m_{\text{new}}}$ 在极端数值下会怎样？这联系到 FP8 篇的「延迟缩放」——都是「用历史信息做此刻决策」。
 
 **自测题**：为什么「最大值平移」在数学上严格等价、在数值上却救命？如果你能说清「平移不改变结果、只改变计算中间值的范围」，就抓住了数值稳定的精髓。
@@ -115,8 +115,8 @@ $$e^{z_i - z_{\max}} \le e^{0} = 1, \quad \forall i$$
 ## 9 动手实践清单
 
 - 写一个不含最大值平移的朴素 softmax，用含 100 的输入复现溢出。
-- 加上 `m = max(z)` 平移后重跑，确认结果不变且不再溢出。
-- 检查你代码里每个 `torch.sum`/`.mean()` 的累加精度。
+- 加上最大值平移后重跑，确认结果不变且不再溢出。
+- 检查你代码里每个 `sum`/`mean` 的累加精度。
 - 验证 LayerNorm 的 epsilon 在 FP16 下是否「形同虚设」。
 - 用 BF16 替代 FP16，观察溢出是否消失。
 - 在 attention 里检查「除以 √d」的缩放是否到位。

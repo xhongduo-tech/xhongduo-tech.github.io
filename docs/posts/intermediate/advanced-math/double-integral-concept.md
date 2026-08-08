@@ -36,11 +36,11 @@ $$\iint_D f(x,y)\,d\sigma = \lim_{\lambda \to 0}\sum_{i=1}^{n} f(\xi_i,\eta_i)\,
 
 二重积分继承定积分的全部基本性质（$D$ 为有界闭区域）：
 
-- **线性性**：$\iint_D [\alpha f + \beta g]\,d\sigma = \alpha\iint_D f\,d\sigma + \beta\iint_D g\,d\sigma$；
-- **区域可加性**：$D = D_1 \cup D_2$（内部不重叠）时 $\iint_D = \iint_{D_1} + \iint_{D_2}$；
-- **保序性**：$f \ge g$ ⇒ $\iint_D f \ge \iint_D g$；
-- **估值定理**：$m \le f \le M$ 时 $m\,S_D \le \iint_D f\,d\sigma \le M\,S_D$（$S_D$ 是 $D$ 的面积）；
-- **中值定理**：$f$ 在连通闭区域 $D$ 上连续时，存在 $(\xi,\eta)\in D$ 使 $\iint_D f\,d\sigma = f(\xi,\eta)\,S_D$。
+**线性性**：$\iint_D [\alpha f + \beta g]\,d\sigma = \alpha\iint_D f\,d\sigma + \beta\iint_D g\,d\sigma$；
+**区域可加性**：$D = D_1 \cup D_2$（内部不重叠）时 $\iint_D = \iint_{D_1} + \iint_{D_2}$；
+**保序性**：$f \ge g$ ⇒ $\iint_D f \ge \iint_D g$；
+**估值定理**：$m \le f \le M$ 时 $m\,S_D \le \iint_D f\,d\sigma \le M\,S_D$（$S_D$ 是 $D$ 的面积）；
+**中值定理**：$f$ 在连通闭区域 $D$ 上连续时，存在 $(\xi,\eta)\in D$ 使 $\iint_D f\,d\sigma = f(\xi,\eta)\,S_D$。
 
 **重点：$\iint_D d\sigma = S_D$**——被积函数恒为 1 时，二重积分就是区域面积。这条性质是面积计算的「积分语言」，也是估值的基准。<span class="marginnote">区域可加性是二重积分的实用利器：把复杂区域沿边界拆成几块分别积分，再相加。这与你解分段函数、分段积分完全平行。中值定理则是「区域内某点的函数值 × 面积 = 积分」——「存在性」与「估值」的又一次结合。</span>
 
@@ -48,10 +48,10 @@ $$\iint_D f(x,y)\,d\sigma = \lim_{\lambda \to 0}\sum_{i=1}^{n} f(\xi_i,\eta_i)\,
 
 设 $f(x,y) = 1 - x^2 - y^2$，$D = \{(x,y) \mid x^2 + y^2 \le 1\}$，求曲顶柱体体积 $V$：
 
-- **第一步，写积分**：$V = \iint_D (1 - x^2 - y^2)\,d\sigma$。
-- **第二步，拆成常数减两项**：$V = \iint_D d\sigma - \iint_D (x^2 + y^2)\,d\sigma = S_D - \iint_D (x^2+y^2)\,d\sigma$。
-- **第三步，利用几何**：$S_D = \pi$（单位圆面积）。第二项用极坐标（下一节）：$\iint_D (x^2+y^2)\,d\sigma = \int_0^{2\pi}\int_0^1 r^2\cdot r\,dr\,d\theta = \frac{\pi}{2}$。
-- **第四步，得结果**：$V = \pi - \frac{\pi}{2} = \frac{\pi}{2}$。
+**第一步，写积分**：$V = \iint_D (1 - x^2 - y^2)\,d\sigma$。
+**第二步，拆成常数减两项**：$V = \iint_D d\sigma - \iint_D (x^2 + y^2)\,d\sigma = S_D - \iint_D (x^2+y^2)\,d\sigma$。
+**第三步，利用几何**：$S_D = \pi$（单位圆面积）。第二项用极坐标（下一节）：$\iint_D (x^2+y^2)\,d\sigma = \int_0^{2\pi}\int_0^1 r^2\cdot r\,dr\,d\theta = \frac{\pi}{2}$。
+**第四步，得结果**：$V = \pi - \frac{\pi}{2} = \frac{\pi}{2}$。
 
 **关键**：二重积分把「曲顶柱体体积」表达为一个区域上的积分——这是「重积分的应用」的起点。把积分解出值还需要计算方法（直角坐标累次积分、极坐标），下一节展开。这里先立住「体积 = 二重积分」的概念对应。
 
@@ -59,9 +59,9 @@ $$\iint_D f(x,y)\,d\sigma = \lim_{\lambda \to 0}\sum_{i=1}^{n} f(\xi_i,\eta_i)\,
 
 二重积分是「元素法」的二维推广——第六章的元素法是「沿一维切微元」，二重积分是「沿二维切微元」：
 
-- **面积元素法**：$dA = dx\,dy$，区域面积 $S = \iint_D dA$；
-- **体积元素法**：$dV = f(x,y)\,dx\,dy$，曲顶柱体体积 $V = \iint_D f\,dA$；
-- **质量元素法**：面密度 $\rho(x,y)$ 的薄片质量 $M = \iint_D \rho(x,y)\,dA$。
+**面积元素法**：$dA = dx\,dy$，区域面积 $S = \iint_D dA$；
+**体积元素法**：$dV = f(x,y)\,dx\,dy$，曲顶柱体体积 $V = \iint_D f\,dA$；
+**质量元素法**：面密度 $\rho(x,y)$ 的薄片质量 $M = \iint_D \rho(x,y)\,dA$。
 
 <span class="marginnote">「密度 × 面积微元」的统一模板再次出现：面积、体积、质量、电荷……凡是「区域上的分布量」，都能写成 $\iint_D (\text{密度})\,dA$。这张「密度 × 微元」的思维表（一维 $dx$、二维 $dA$、三维 $dV$）将贯穿第十、十一章，也是概率论里二维随机变量的联合密度积分的直接原型。</span>
 
@@ -69,7 +69,7 @@ $$\iint_D f(x,y)\,d\sigma = \lim_{\lambda \to 0}\sum_{i=1}^{n} f(\xi_i,\eta_i)\,
 
 二重积分是概率论的二维语言：
 
-- **二维连续随机变量**：联合密度 $p(x,y)$ 满足 $\iint_{\mathbb{R}^2} p(x,y)\,dx\,dy = 1$，落在区域 $D$ 内的概率 $P((X,Y)\in D) = \iint_D p(x,y)\,dx\,dy$。<span class="marginnote">「概率 = 密度曲面下的体积」是二维概率的核心：一维是「密度曲线下的面积」，二维是「密度曲面下的体积」。你在《概率论与数理统计》里算二维随机变量的概率、边缘分布、协方差，处处都是二重积分。</span>
+**二维连续随机变量**：联合密度 $p(x,y)$ 满足 $\iint_{\mathbb{R}^2} p(x,y)\,dx\,dy = 1$，落在区域 $D$ 内的概率 $P((X,Y)\in D) = \iint_D p(x,y)\,dx\,dy$。<span class="marginnote">「概率 = 密度曲面下的体积」是二维概率的核心：一维是「密度曲线下的面积」，二维是「密度曲面下的体积」。你在《概率论与数理统计》里算二维随机变量的概率、边缘分布、协方差，处处都是二重积分。</span>
 - **期望与方差**：$E[g(X,Y)] = \iint g(x,y)p(x,y)\,dx\,dy$。
 - **机器学习**：高斯分布、贝叶斯推断中的归一化常数都是二重（乃至高维）积分。
 

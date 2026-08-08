@@ -54,13 +54,15 @@ date: 2026-08-07
 最经典的混合模式是「每节点 1 个 MPI 进程 + 节点内 OpenMP 线程」。
 
 ```c
-// 每个 MPI 进程负责一个节点内的共享内存区域
-#pragma omp parallel for
-for (int i = 0; i < local_N; i++) {
-    /* 节点内多线程并行 */
-}
+// 每节点 1 个 MPI 进程；节点内线程数由 OMP_NUM_THREADS 控制
+MPI_Init(&argc, &argv);
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-MPI_Allreduce(..., MPI_COMM_WORLD);   // 节点间协作
+#pragma omp parallel for                    // 节点内：多线程并行
+for (int i = 0; i < n; ++i)
+    local[i] = compute(i);
+
+MPI_Allreduce(local, global, n, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);  // 节点间：MPI
 ```
 
 这个方案的好处：
@@ -79,7 +81,7 @@ $$N_{\text{pure}} \approx c \cdot N_{\text{hybrid}}$$
 - **第二步，看混合**：每节点一进程，通信矩阵是 $p^2$ 量级；
 - **第三步，比一比**：节点数越多、核越密，混合省下的通信量越可观。
 
-但要注意：`MPI_Allreduce` 等全局操作仍需要所有进程参与，**进程少了并不代表同步消失**，只是参与方少了。
+但要注意：`MPI_Allreduce`、`MPI_Barrier` 等全局操作仍需要所有进程参与，**进程少了并不代表同步消失**，只是参与方少了。
 
 ## 3 MPI + CUDA：一个节点一块 GPU
 
@@ -93,12 +95,16 @@ $$N_{\text{pure}} \approx c \cdot N_{\text{hybrid}}$$
 4. 结果拷回 CPU，再经 MPI 与其他节点交换。
 
 ```c
-// 每个 MPI 进程对应一张 GPU
-int dev = local_rank % num_gpus;
-cudaSetDevice(dev);
-kernel<<<blocks, threads>>>(d_a, d_b, d_c, N);
-cudaMemcpy(h_c, d_c, ..., cudaMemcpyDeviceToHost);
-MPI_Sendrecv(h_c, ..., neighbor, ...);
+// 1. MPI 接收本节点数据分片
+MPI_Recv(h_data, n, MPI_DOUBLE, src, tag, MPI_COMM_WORLD, &status);
+// 2. 拷入显存
+cudaMemcpy(d_data, h_data, n * sizeof(double), cudaMemcpyHostToDevice);
+// 3. GPU kernel 完成重计算
+kernel<<<grid, block>>>(d_data, n);
+cudaDeviceSynchronize();
+// 4. 拷回 CPU，再经 MPI 与其他节点交换
+cudaMemcpy(h_data, d_data, n * sizeof(double), cudaMemcpyDeviceToHost);
+MPI_Send(h_data, n, MPI_DOUBLE, dst, tag, MPI_COMM_WORLD);
 ```
 
 **核心原则：数据在哪，计算就在哪。**

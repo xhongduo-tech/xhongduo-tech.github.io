@@ -28,7 +28,7 @@ LLaVA 的架构只有三个组件：
 2. **投影层（projection layer）**：把视觉特征「翻译」成语言模型的输入空间——**一座桥**（LLaVA 最初用线性层，LLaVA-1.5 用 MLP）；
 3. **语言模型（LLM）**：一个预训练的 LLM（Vicuna/Llama），接收「视觉 token + 文本 token」的混合序列，生成回答。
 
-图像进入模型的方式：图像 → 视觉编码器 → 视觉特征 → 投影层 → **与文本 embedding 拼接**成一条序列 → LLM 处理。图像在输入里占据若干「视觉 token」的位置——用一个特殊占位 token `<image>` 标记。
+图像进入模型的方式：图像 → 视觉编码器 → 视觉特征 → 投影层 → **与文本 embedding 拼接**成一条序列 → LLM 处理。图像在输入里占据若干「视觉 token」的位置——用一个特殊占位 token `<image>ID0` 标记。
 
 **为什么需要「桥」？** 视觉特征与文本特征处于不同的向量空间——视觉编码器输出的「像素语义」与 LLM 理解的「词义」不对齐。投影层的作用就是**把视觉特征「映射」进语言空间**，让 LLM 能「读懂」视觉信息。**桥的质量决定了「视觉信息能不能被语言模型理解」**——这就是两阶段训练第一阶段的全部目的。
 
@@ -55,7 +55,7 @@ LLaVA 的训练分两阶段，各解决一个问题：
 视觉指令微调的目标函数，与文本 SFT **完全同构**——只是输入变成了「视觉 + 文本」混合序列：
 
 $$
-\mathcal{L} = -\frac{1}{|\mathcal{R}|}\sum_{t \in \mathcal{R}} \log P_\theta\big(y_t \mid [\,V,\, \langle\text{image}\rangle,\, x\,],\, y_{<t}\big)
+\mathcal{L} = -\frac{1}{|\mathcal{R}|}\sum_{t \in \mathcal{R}} \log P_\theta\big(y_t \mid [\,V,\, \langle\text{image}\rangle,\, x\,],\, y_{\\lt t}\big)
 $$
 
 逐项拆解：
@@ -70,26 +70,18 @@ $$
 
 **训练细节**：阶段二通常解冻 LLM + 投影层、冻结视觉编码器——因为视觉编码器（CLIP）已在海量图文对上预训练好，「再训它」既贵又可能损害视觉特征；「让它冻着、只学桥和语言模型」更稳。
 
-「桥」在代码里就是一个投影模块，两阶段的冻结/解冻区别只在 `requires_grad`：
+「桥」在代码里就是一个投影模块，两阶段的冻结/解冻区别只在 **`requires_grad`**：
 
 ```python
-class ProjectionBridge(nn.Module):
-    def __init__(self, vis_dim, llm_dim):
-        super().__init__()
-        self.mlp = nn.Sequential(
-            nn.Linear(vis_dim, llm_dim), nn.GELU(),
-            nn.Linear(llm_dim, llm_dim),      # LLaVA-1.5 用两层 MLP
-        )
-    def forward(self, vis_feats):              # (B, num_patches, vis_dim)
-        return self.mlp(vis_feats)             # → (B, num_patches, llm_dim)
-
-# 阶段一：只训桥，冻结视觉编码器与 LLM
+# 阶段一：特征对齐预训练——只训投影层（桥）
 for p in vision_encoder.parameters(): p.requires_grad = False
-for p in llm.parameters():          p.requires_grad = False
-for p in bridge.parameters():       p.requires_grad = True
+for p in llm.parameters():           p.requires_grad = False
+for p in projector.parameters():     p.requires_grad = True
 
-# 阶段二：解冻 LLM，视觉编码器仍冻结
-for p in llm.parameters():          p.requires_grad = True
+# 阶段二：视觉指令微调——解冻 LLM + 投影层
+for p in vision_encoder.parameters(): p.requires_grad = False
+for p in llm.parameters():           p.requires_grad = True
+for p in projector.parameters():     p.requires_grad = True
 ```
 
 两阶段的差别，就是这几行 `requires_grad` 的开关——**「先让桥能把视觉特征送进语言空间，再让 LLM 学会用它们」**。
@@ -100,9 +92,9 @@ for p in llm.parameters():          p.requires_grad = True
 
 1. **输入**：图像 + 它的标题（caption）+ 检测到的区域（bounding boxes + 区域描述）；
 2. **GPT-4 生成**：让 GPT-4「看到」这些文本信息，生成三类指令：
-   - **对话类**：「描述这幅图」；
-   - **详细描述类**：「详细描述图中每个物体及其关系」；
-   - **复杂推理类**：「图中人物可能是什么职业？依据是什么？」；
+**对话类**：「描述这幅图」；
+**详细描述类**：「详细描述图中每个物体及其关系」；
+**复杂推理类**：「图中人物可能是什么职业？依据是什么？」；
 3. **产出**：（图像，问题，答案）三元组——问题多样、答案由 GPT-4 撰写。
 
 **为什么要用 GPT-4 造数据？** 因为「图像-标题对」只有「一句话描述」，训练不出「对话能力」；而人工标注「看图问答」成本高。**用 GPT-4 基于标题+区域信息「脑补」出问答**，把「描述」扩展成「对话」——数据从「单句」变成「指令」。（这是指令数据合成在视觉域的落地，与第二篇《Self-Instruct》同源。）<span class="marginnote">LLaVA-1.5 的数据配方值得记住：<strong>用公开的图文对（CC 等）做阶段一的「搭桥」，再用「GPT-4V 生成的指令 + 公开视觉问答数据」做阶段二的「教对话」</strong>——它证明了「公开数据 + 合成指令」就够训出一个能看的视觉助手，不必依赖大规模人工标注。</span>

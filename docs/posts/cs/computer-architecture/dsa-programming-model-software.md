@@ -43,9 +43,9 @@ date: 2026-08-07
 
 **核心概念**：**MLIR（Multi-Level Intermediate Representation）**：一种可扩展的多级中间表示，让「高层框架 → 低层硬件」的每一级都有对应的 IR，编译器分阶段下降（lowering）——这正是 [[cs-compilers]] 分阶段思想的现代版。
 
-- **高层 IR**：张量算子（像数学表达式）。
-- **中层 IR**：循环结构、布局。
-- **低层 IR**：脉动阵列的数据流、访存时序。
+**高层 IR**：张量算子（像数学表达式）。
+**中层 IR**：循环结构、布局。
+**低层 IR**：脉动阵列的数据流、访存时序。
 
 **TVM** 是另一条路：**端到端自动编译**——输入框架模型，输出针对指定 DSA 的机器码，中间的调度（loop tiling、数据流选择）由**自动调优搜索**决定。<span class="marginnote">DSA 编译器把 [[nn-dataflow-stationary]] 的数据流选择、[[cache-optimization-compiler]] 的循环变换、[[loop-level-parallelism-dependency]] 的依赖分析全部自动化——<strong>一次映射，三套功夫</strong>。</span>
 
@@ -53,9 +53,15 @@ date: 2026-08-07
 
 DSA 的调度空间巨大（分块、顺序、数据流、访存缓冲），手写优化不现实。**自动调优（auto-tuning）**让机器自己搜：
 
-```
-TVM/Ansor 流程：
-  生成候选调度 → 在真硬件上跑 → 记录耗时 → 学习/进化 → 收敛到最优
+```python
+best_schedule = None
+best_time = float("inf")
+for candidate in 枚举调度空间(分块大小, 循环顺序, 数据流选择, 访存缓冲):
+    code = 编译(candidate)            # 针对目标 DSA 生成机器码
+    t = 测量耗时(code)                # 在真实硬件上运行基准
+    if t < best_time:
+        best_schedule, best_time = candidate, t
+return best_schedule                  # 输出最优调度配置
 ```
 
 **核心概念**：把「优化」从「专家经验」变成「搜索+测量」——这在 DSA 上尤其有效，因为**硬件结构千差万别，人类经验难以迁移，机器搜索却能每次重新找最优**。这也是「编译器即优化器」的现代形态。

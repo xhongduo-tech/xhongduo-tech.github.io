@@ -48,7 +48,7 @@ date: 2026-08-07
 
 $$x' = x + t_x, \qquad y' = y + t_y$$
 
-**刚体变换（rigid / Euclidean）**在平移之上加一个旋转：$$ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} $$
+**刚体变换（rigid / Euclidean）**在平移之上加一个旋转：`$$` \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} $$
 
 刚体变换不改变任何两点之间的距离，也不改变图形的形状——它只把图形整体搬个位置、转个方向，这正是「物体在空间里刚性地移动」的数学画像。
 

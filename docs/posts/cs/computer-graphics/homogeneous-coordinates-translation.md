@@ -105,10 +105,9 @@ $$
 
 ```cpp
 glPushMatrix();
-glTranslatef(...);   // 当前矩阵 = 旧矩阵 * 平移
-glRotatef(...);      // 再乘旋转
-drawModel();
-glPopMatrix();       // 恢复父级矩阵
+glTranslatef(tx, ty, 0);
+glDrawArrays(GL_TRIANGLES, 0, n);
+glPopMatrix();
 ```
 
 「push/变换/draw/pop」就是「局部变换」的栈实现——现代引擎用「Transform 层级」替代了栈，但思想相同（连乘）。

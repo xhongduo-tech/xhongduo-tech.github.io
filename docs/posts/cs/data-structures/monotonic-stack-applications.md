@@ -27,19 +27,22 @@ date: 2026-08-07
 用**单调递增栈**（栈底到栈顶递增）：
 
 - 从左到右扫，遇到比栈顶矮的柱子 → **弹出栈顶并结算**：它的右边界就是当前柱子、左边界就是弹出后新的栈顶；
-- 弹出时计算 `面积 = h[t] × (i - 新栈顶 - 1)`，更新最大。
+- 弹出时计算矩形面积，更新最大。
 
-```c
-int LargestRectangle(int *h, int n) {
-    Stack st;  int ans = 0;
-    h[n] = 0;                              /* 哨兵：最后强制弹出所有 */
-    for (i = 0; i <= n; i++) {
-        while (!StackEmpty(st) && h[StackTop(st)] > h[i]) {
-            int t = Pop(st);               /* 弹出：t 的右边界就是 i */
-            int left = StackEmpty(st) ? -1 : StackTop(st);   /* 左边界 */
-            ans = max(ans, h[t] * (i - left - 1));           /* 结算 */
+```cpp
+// 柱状图最大矩形：单调递增栈
+int largestRectangleArea(vector<int>& h) {
+    h.push_back(0);                       // 哨兵：强制弹出所有剩余柱子
+    stack<int> st;                        // 存下标，栈底到栈顶递增
+    int ans = 0;
+    for (int i = 0; i < (int)h.size(); ++i) {
+        while (!st.empty() && h[st.top()] > h[i]) {
+            int t = st.top(); st.pop();   // 弹出并结算
+            int left = st.empty() ? -1 : st.top();   // 左边界：弹出后的栈顶
+            int width = i - left - 1;     // 右边界：当前柱子 i
+            ans = max(ans, h[t] * width);
         }
-        Push(st, i);
+        st.push(i);
     }
     return ans;
 }
@@ -59,29 +62,31 @@ $$
 
 ## 3 接雨水
 
-**问题**：柱子间能接多少雨水——每列的储水量 = `min(左边最高, 右边最高) - 自身高度`（非负）。
+**问题**：柱子间能接多少雨水——每列的储水量 = max(0, min(左墙高, 右墙高) − h[i])（非负）。
 
 **单调栈解法**（按「凹槽」结算）：
 
-- 维护单调递减栈；
-- 遇到比栈顶高的柱子 → 弹出栈顶（这是凹槽的底），**两侧夹出水量**：宽 = 左右边界距离，高 = min(两边界高) - 底高；
-- 累加所有凹槽水量。
+维护单调递减栈；
+遇到比栈顶高的柱子 → 弹出栈顶（这是凹槽的底），**两侧夹出水量**：宽 = 左右边界距离，高 = min(两边界高) - 底高；
+累加所有凹槽水量。
 
-```c
-int TrapRain(int *h, int n) {
-    Stack st;  int water = 0;
-    for (i = 0; i < n; i++) {
-        while (!StackEmpty(st) && h[StackTop(st)] < h[i]) {
-            int bottom = Pop(st);          /* 凹槽的底 */
-            if (StackEmpty(st)) break;     /* 左边无墙，装不住 */
-            int left = StackTop(st);
-            int width = i - left - 1;      /* 左右墙距离 */
-            int height = min(h[left], h[i]) - h[bottom];   /* 水高 */
-            water += width * height;       /* 这一层的水 */
+```cpp
+// 接雨水：单调递减栈，按「凹槽」结算
+int trap(vector<int>& h) {
+    stack<int> st;                        // 存下标，栈底到栈顶递减
+    int ans = 0;
+    for (int i = 0; i < (int)h.size(); ++i) {
+        while (!st.empty() && h[i] > h[st.top()]) {
+            int bottom = st.top(); st.pop();  // 凹槽的底
+            if (st.empty()) break;            // 没有左墙，接不住水
+            int left = st.top();              // 左墙：新的栈顶
+            int width = i - left - 1;
+            int height = min(h[left], h[i]) - h[bottom];  // 水高
+            ans += width * height;
         }
-        Push(st, i);
+        st.push(i);
     }
-    return water;
+    return ans;
 }
 ```
 
@@ -101,9 +106,9 @@ int TrapRain(int *h, int n) {
 
 ## 5 单调栈的工程直觉
 
-- **识别信号**：「找离元素最近的大/小值」「以元素为界的最大区间」→ 单调栈；
-- **通用模板**：维护单调栈 + 扫描 + 弹出时结算；
-- **复杂度保证**：每元素入出栈一次，$O(n)$ 摊还。
+**识别信号**：「找离元素最近的大/小值」「以元素为界的最大区间」→ 单调栈；
+**通用模板**：维护单调栈 + 扫描 + 弹出时结算；
+**复杂度保证**：每元素入出栈一次，$O(n)$ 摊还。
 
 **重点：单调栈是「在线维护候选 + 及时淘汰」的思维模板**——它不只解这两题，任何「每个元素的答案由『邻近的极值』决定」的问题，都能套。<span class="marginnote">「<strong>单调栈 = 候选淘汰的艺术</strong>」：<strong>栈里永远只留「可能成为答案」的元素，失去资格就立刻弹出</strong>。<strong>这个「淘汰」思路，和单调队列、滑动窗口里的「过期弹出」完全同构</strong>——<strong>「维护一个单调的候选集」是这类 O(n) 算法的统一思想</strong>。</span>
 

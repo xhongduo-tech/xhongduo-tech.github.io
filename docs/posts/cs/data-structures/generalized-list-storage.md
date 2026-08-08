@@ -22,21 +22,18 @@ date: 2026-08-07
 
 由「表头 + 表尾」的递归分解，可设计两类结点：
 
-- **原子结点**：一个 `tag` 标志（`ATOM`）+ 数据域 `atom`；
-- **表结点**：`tag` 标志（`LIST`）+ 表头指针 `hp` + 表尾指针 `tp`。
+- **原子结点**：一个 `tag` 标志（tag = 0）+ 数据域 `atom`；
+- **表结点**：`tag` 标志（tag = 1）+ 表头指针 `hp` + 表尾指针 `tp`。
 
 ```c
-typedef enum { ATOM, LIST } ElemTag;
+typedef enum { ATOM, LIST } ElemTag;          /* 结点类型：原子 or 子表 */
 typedef struct GLNode {
-    ElemTag tag;                    /* 原子 or 表 */
+    ElemTag tag;                              /* 标志域 */
     union {
-        AtomType atom;              /* tag = ATOM：原子值 */
-        struct {
-            struct GLNode *hp;      /* tag = LIST：表头指针 */
-            struct GLNode *tp;      /*          表尾指针 */
-        } htp;
+        AtomType atom;                        /* 原子结点：数据域 */
+        struct { struct GLNode *hp, *tp; } p; /* 表结点：表头、表尾 */
     } un;
-} GLNode;
+} *GList;                                     /* 广义表 = 指向首结点的指针 */
 ```
 
 一个表结点用 `hp` 指向「表头」，用 `tp` 指向「表尾」（即去掉表头后剩下的那个表）。整张广义表由一个总指针指向它的第一个结点。**空表用一个 `NULL` 指针表示**。<span class="marginnote">「表尾一定还是表」保证了 `tp` 永远指向表结点或 `NULL`；「表头可以是原子也可以是子表」让 `hp` 按 `tag` 区分两种结点。这个<strong>递归不变式</strong>是头尾链表成立的根基。</span>
@@ -45,9 +42,9 @@ typedef struct GLNode {
 
 设 $B = (e)$、$C = (a, (b,c))$，则 $D = (B, C) = ((e), (a, (b,c)))$。存储时：
 
-- $D$ 的表结点：`hp` 指向 $B$ 的表示，`tp` 指向「表尾表」——即 $C$ 那个子表的表结点（表尾 $= (C)$）。
-- $B = (e)$：表结点的 `hp` 指向原子 $e$，`tp` 指向空表 `NULL`。
-- $C$：表结点 `hp` 指向原子 $a$，`tp` 指向子表 $(b,c)$ 的表结点……
+$D$ 的表结点：`hp` 指向 $B$ 的表示，`tp` 指向「表尾表」——即 $C$ 那个子表的表结点（表尾 $= (C)$）。
+$B = (e)$：表结点的 `hp` 指向原子 $e$，`tp` 指向空表 `NULL`。
+$C$：表结点 `hp` 指向原子 $a$，`tp` 指向子表 $(b,c)$ 的表结点……
 
 整棵「结点图」是一棵**树**（若允许共享，则是 DAG）。递归定义直接翻译成了递归的指针结构——**「结构递归」与「存储递归」一一对应**。
 
@@ -56,17 +53,17 @@ typedef struct GLNode {
 另一种结构把所有结点统一成两个域：`tag` + 联合域，但把「表头」与「表尾」都当作「同一层的表元素」来组织：
 
 ```c
-typedef struct GLNode {
-    ElemTag tag;
+typedef struct GLNode2 {
+    ElemTag tag;                   /* 标志域：ATOM or LIST */
     union {
-        AtomType atom;          /* tag = ATOM */
-        struct GLNode *hp;      /* tag = LIST：指向子表 */
-    } val;
-    struct GLNode *tp;          /* 指向同一层的下一个元素 */
-} GLNode;
+        AtomType atom;             /* 原子结点 */
+        struct GLNode2 *sub;       /* 表结点：进入下一层子表 */
+    } un;
+    struct GLNode2 *link;          /* 横向链表：串起同一层的元素 */
+} *GList2;
 ```
 
-区别在于：**扩展线性链表用 `tp` 把「同一层」的元素串成一条横向链表**，`hp` 只负责「向下进入子表」。于是广义表被画成一张「横是兄弟、竖是父子」的图——更像一棵真正的树。<span class="marginnote">头尾链表与扩展线性链表是同一递归结构的两种画法：前者把「表尾」作为一个整体结点，后者把「表尾」摊平成横向链表。<strong>前者省结点、后者更直观</strong>——工程里后者（tag + 横向链）更常见，因为它对应「孩子兄弟表示法」，与第六篇《树和森林》的存储直接接轨。</span>
+区别在于：**扩展线性链表用 `link` 把「同一层」的元素串成一条横向链表**，`sub` 只负责「向下进入子表」。于是广义表被画成一张「横是兄弟、竖是父子」的图——更像一棵真正的树。<span class="marginnote">头尾链表与扩展线性链表是同一递归结构的两种画法：前者把「表尾」作为一个整体结点，后者把「表尾」摊平成横向链表。<strong>前者省结点、后者更直观</strong>——工程里后者（tag + 横向链）更常见，因为它对应「孩子兄弟表示法」，与第六篇《树和森林》的存储直接接轨。</span>
 
 ## 4 公式解析：求广义表的深度
 
@@ -78,34 +75,35 @@ $$
 
 - **第一步，读出口**：原子深度 0、空表深度 1——递归必须有这两个基础情形。
 - **第二步，读递推**：非空表的深度 = 各直接元素深度最大值 + 1。为什么加 1？因为表本身那层括号也占一层。
-- **第三步，用 $C = (a, (b, c))$ 验证**：`depth(a) = 0`，`depth((b,c)) = 1 + max(0,0) = 1`，故 `depth(C) = 1 + max(0,1) = 2`，与直觉一致。<span class="marginnote">求深度、求长度、求复制、求相等，全是同一种递归模板：<strong>判出口 → 拆表头表尾 → 合并结果</strong>。模板不变，变的只是「合并」那一步。学会这个模板，广义表算法就全会了。</span>
+- **第三步，用 $C = (a, (b, c))$ 验证**：$\text{depth}(a) = 0$，$\text{depth}((b,c)) = 1$，故 $\text{depth}(C) = 1 + \max(0, 1) = 2$，与直觉一致。<span class="marginnote">求深度、求长度、求复制、求相等，全是同一种递归模板：<strong>判出口 → 拆表头表尾 → 合并结果</strong>。模板不变，变的只是「合并」那一步。学会这个模板，广义表算法就全会了。</span>
 
 ## 5 广义表的复制：递归的完整示范
 
 复制一张广义表，是「递归遍历」的标准示范：
 
 ```c
-GLNode *CopyGList(GLNode *ls) {
-    if (ls == NULL) return NULL;          /* 空表 */
-    GLNode *q = (GLNode *)malloc(sizeof(GLNode));
-    q->tag = ls->tag;
-    if (ls->tag == ATOM) {
-        q->atom = ls->atom;               /* 原子：直接复制值 */
-    } else {
-        q->hp = CopyGList(ls->hp);        /* 递归复制表头 */
-        q->tp = CopyGList(ls->tp);        /* 递归复制表尾 */
+/* 深复制：递归新建结点、复制内容 */
+GList CopyGList(GList L) {
+    if (L == NULL) return NULL;             /* 空表：复制为空 */
+    GList T = (GList)malloc(sizeof(GLNode));
+    T->tag = L->tag;
+    if (L->tag == ATOM)
+        T->un.atom = L->un.atom;            /* 原子：直接复制数据 */
+    else {
+        T->un.p.hp = CopyGList(L->un.p.hp); /* 表头：递归复制 */
+        T->un.p.tp = CopyGList(L->un.p.tp); /* 表尾：递归复制 */
     }
-    return q;
+    return T;
 }
 ```
 
-**辨析｜易错点：复制是「深度复制」，不能只复制指针。** 若直接把 `ls->hp` 赋给 `q->hp`，得到的是**浅复制**——新旧表共享同一批子表结点。对共享表、递归表，浅复制会破坏语义（改一处影响两表）。必须递归地「新建结点、复制内容」，才得到真正独立的副本。<span class="marginnote">深复制 vs 浅复制是「<strong>共享与独立</strong>」之争的缩影：LISP 里 `copy-tree` 是深复制、`eq` 是浅比较；JSON 序列化是深复制，对象引用是浅共享。<strong>选择深还是浅，取决于后续是「读多写少」还是「各自演化」</strong>——这与操作系统里「写时复制（COW）」的取舍同源。</span>
+**辨析｜易错点：复制是「深度复制」，不能只复制指针。** 若直接把 `L` 赋给 `T`，得到的是**浅复制**——新旧表共享同一批子表结点。对共享表、递归表，浅复制会破坏语义（改一处影响两表）。必须递归地「新建结点、复制内容」，才得到真正独立的副本。<span class="marginnote">深复制 vs 浅复制是「<strong>共享与独立</strong>」之争的缩影：LISP 里 `copy-tree` 是深复制、`eq` 是浅比较；JSON 序列化是深复制，对象引用是浅共享。<strong>选择深还是浅，取决于后续是「读多写少」还是「各自演化」</strong>——这与操作系统里「写时复制（COW）」的取舍同源。</span>
 
 ## 6 小结
 
 - 广义表存储必须**链式 + 递归**，因为元素变长、允许共享与递归。
 - **头尾链表结构**：表结点存 `hp`（表头）+ `tp`（表尾），空表用 `NULL`。
-- **扩展线性链表结构**：`tp` 串同层元素、`hp` 进子表，形如孩子兄弟表示法。
+- **扩展线性链表结构**：`link` 串同层元素、`sub` 进子表，形如孩子兄弟表示法。
 - 深度递归公式：原子 0、空表 1、非空表 = $1 + \max(\text{各元素深度})$。
 - 复制广义表用**深复制**：递归新建结点、复制内容，避免共享串扰。
 - 递归模板：判出口 → 拆表头表尾 → 合并结果，泛用于全部广义表算法。

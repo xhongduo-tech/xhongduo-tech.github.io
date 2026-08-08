@@ -24,12 +24,15 @@ date: 2026-08-07
 
 三个要素：
 
-- **进程（process）**：独立的顺序执行单元（Go 里是 goroutine）。
-- **通道（channel）**：命名的通信管道——进程经它发送/接收值。
-- **同步通信**：`send` 与 `receive` 必须**同时发生**（握手）——发送方等接收方、接收方等发送方。
+**进程（process）**：独立的顺序执行单元（Go 里是 goroutine）。
+**通道（channel）**：命名的通信管道——进程经它发送/接收值。
+**同步通信**：send 与 receive 必须**同时发生**（握手）——发送方等接收方、接收方等发送方。
 
 ```
-P1 ──channel──▶ P2    （P1 发、P2 收，同步握手）
+// 进程 P 与 Q 通过命名通道 c 同步握手（CSP 记法）
+P:  c!v        // 发送 v：阻塞直到 Q 就绪
+Q:  c?x        // 接收 x：阻塞直到 P 发送
+// 两者同时就绪的瞬间，值 v 从 P 传给 Q，随后双方继续
 ```
 
 ## 2 Go 的 goroutine 与 channel
@@ -39,17 +42,17 @@ P1 ──channel──▶ P2    （P1 发、P2 收，同步握手）
 **channel**：goroutine 间通信的管道——`make(chan T)` 创建，`<-` 发送/接收。
 
 ```go
-ch := make(chan int)          // 无缓冲通道
+ch := make(chan int)   // 创建无缓冲 channel
 
-go func() {                    // goroutine
-    ch <- 42                   // 发送：阻塞直到有人接收
+go func() {            // goroutine P
+    ch <- 42           // 发送：阻塞直到有人接收
 }()
 
-x := <-ch                      // 接收：阻塞直到有人发送
-fmt.Println(x)                 // 42
+v := <-ch              // 主 goroutine 接收（握手完成）
+fmt.Println(v)         // 42
 ```
 
-无缓冲 channel 是**同步**的：`ch <- 42` 阻塞，直到 `<-ch` 执行——握手完成双方继续。<span class="marginnote">无缓冲 channel 的同步语义是 Go 的「裸 CSP」：发送与接收必须同时就绪，否则一方阻塞。这是 Go 并发的「通信即同步」——数据流动本身就完成了同步，无需额外的锁。「通过通信共享内存」：数据经 channel 传递（所有权转移），而非多线程抢同一内存。</span>
+无缓冲 channel 是**同步**的：发送方阻塞，直到接收方执行——握手完成双方继续。<span class="marginnote">无缓冲 channel 的同步语义是 Go 的「裸 CSP」：发送与接收必须同时就绪，否则一方阻塞。这是 Go 并发的「通信即同步」——数据流动本身就完成了同步，无需额外的锁。「通过通信共享内存」：数据经 channel 传递（所有权转移），而非多线程抢同一内存。</span>
 
 ## 3 缓冲 channel 与 select
 
@@ -60,15 +63,15 @@ fmt.Println(x)                 // 42
 ```go
 select {
 case v := <-ch1:
-    // ch1 有数据
-case ch2 <- v:
-    // ch2 可写
+    fmt.Println("从 ch1 收到", v)
+case v := <-ch2:
+    fmt.Println("从 ch2 收到", v)
 case <-time.After(1 * time.Second):
-    // 超时
+    fmt.Println("超时")
 }
 ```
 
-`select` 是「非确定性选择」的经典实现——与卫式命令的 `do...od` 一脉相承：多个就绪分支任选其一。<span class="marginnote">`select` 是 CSP 的「选择原语」：当多个通道都可用时，Go 随机选一个（公平性）。它让「等待多个事件」成为一等操作——超时、取消、多路复用都靠它。这直接继承了霍尔 CSP 的「交替（alternative）」构造，也呼应迪杰斯特拉卫式命令的非确定性选择。</span>
+select 是「非确定性选择」的经典实现——与卫式命令的 if-fi 结构一脉相承：多个就绪分支任选其一。<span class="marginnote">select 是 CSP 的「选择原语」：当多个通道都可用时，Go 随机选一个（公平性）。它让「等待多个事件」成为一等操作——超时、取消、多路复用都靠它。这直接继承了霍尔 CSP 的「交替（alternative）」构造，也呼应迪杰斯特拉卫式命令的非确定性选择。</span>
 
 ## 4 公式解析：通道握手的语义
 
@@ -127,8 +130,8 @@ $$
 ## 6 小结
 
 - **CSP** = 顺序进程 + 命名通道 + 同步通信——「通信即同步」。
-- **Go** 的 goroutine（轻量线程）+ channel（通道）+ `select`（多路选择）把 CSP 带入主流。
-- 无缓冲 channel 同步握手；缓冲 channel 有界异步；`select` 是非确定性选择（呼应卫式命令）。
+- **Go** 的 goroutine（轻量线程）+ channel（通道）+ select（多路选择）把 CSP 带入主流。
+- 无缓冲 channel 同步握手；缓冲 channel 有界异步；select 是非确定性选择（呼应卫式命令）。
 - CSP vs Actor：显式通道 vs 隐式邮箱、同步 vs 异步——Go 适合单机高并发，Erlang 适合分布式容错。
 
 在下一节，我们将看并发抽象的另一条路线——**软件事务内存（STM）与异步编程模型（async/await）**。

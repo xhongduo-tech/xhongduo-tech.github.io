@@ -47,12 +47,15 @@ Swin 的全称是 **Shifted Window Transformer**——"移位窗口"是它的灵
 
 Swin 像 CNN 一样组织阶段：
 
-```
-Stage 1: 4×4 patch 嵌入 → Swin 块 ×2  （分辨率 H/4 × W/4）
-Stage 2: 2×2 patch 合并 → Swin 块 ×2  （分辨率 H/8）
-Stage 3: 2×2 patch 合并 → Swin 块 ×6  （分辨率 H/16）
-Stage 4: 2×2 patch 合并 → Swin 块 ×2  （分辨率 H/32）
-```
+以 **Swin-T** 为例（Swin-B 按比例加宽加深），整体是"Patch Embed + 四个阶段"的特征金字塔：
+
+| 阶段 | 输入分辨率 | 输出分辨率 | 通道数 | 重复的 Block 数 |
+| --- | --- | --- | --- | --- |
+| Patch Embed | $224\times224$ | $56\times56$ | 96 | — |
+| Stage 1 | $56\times56$ | $56\times56$ | 96 | ×2（W-MSA / SW-MSA） |
+| Stage 2 | $56\times56$ | $28\times28$ | 192 | ×2 |
+| Stage 3 | $28\times28$ | $14\times14$ | 384 | ×6 |
+| Stage 4 | $14\times14$ | $7\times7$ | 768 | ×2 |
 
 **Patch 合并（patch merging）**把 $2\times2$ 相邻标记拼接降维（类似池化）——**空间减半、通道翻倍**，产生与 ResNet 同构的多尺度特征（$C_2 \sim C_5$）。
 

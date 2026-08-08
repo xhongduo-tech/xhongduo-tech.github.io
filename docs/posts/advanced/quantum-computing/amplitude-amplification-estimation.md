@@ -38,9 +38,9 @@ $$
 
 设当前态与好子空间夹角为 $\theta$，在 $\{\lvert g\rangle, \lvert b\rangle\}$ 张成的平面上：
 
-- **第一步，好反射**：$\lvert\psi\rangle \xrightarrow{oracle} \cos\theta\lvert g\rangle - \sin\theta\lvert b\rangle$——好分量的振幅变号（绕 $\lvert g\rangle$ 轴反射）。
-- **第二步，初始态反射**：再绕 $\lvert\psi\rangle$ 反射。两次反射的复合 = 绕交点旋转 $2\theta$，把 $\theta$ 变成 $3\theta$。
-- **第三步，迭代**：$G^k\lvert\psi\rangle = \sin((2k+1)\theta)\lvert b\rangle + \cdots$。当 $(2k+1)\theta \approx \frac{\pi}{2}$ 时好分量取最大值。<span class="marginnote">几何要点：两次反射绕「初始态方向」与「好方向」的中间轴旋转 $2\theta$，每次旋转把好分量「转出来」更多。迭代次数 $k \approx \frac{\pi}{4\theta} = O(1/\sqrt p)$ 时到顶。</span>
+**第一步，好反射**：$\lvert\psi\rangle \xrightarrow{oracle} \cos\theta\lvert g\rangle - \sin\theta\lvert b\rangle$——好分量的振幅变号（绕 $\lvert g\rangle$ 轴反射）。
+**第二步，初始态反射**：再绕 $\lvert\psi\rangle$ 反射。两次反射的复合 = 绕交点旋转 $2\theta$，把 $\theta$ 变成 $3\theta$。
+**第三步，迭代**：$G^k\lvert\psi\rangle = \sin((2k+1)\theta)\lvert b\rangle + \cdots$。当 $(2k+1)\theta \approx \frac{\pi}{2}$ 时好分量取最大值。<span class="marginnote">几何要点：两次反射绕「初始态方向」与「好方向」的中间轴旋转 $2\theta$，每次旋转把好分量「转出来」更多。迭代次数 $k \approx \frac{\pi}{4\theta} = O(1/\sqrt p)$ 时到顶。</span>
 
 ## 4 振幅估计：用相位估计数「好」的次数
 
@@ -52,9 +52,9 @@ $$
 
 其中 $M = 2^m$ 是相位估计的控制比特数。<span class="marginnote">经典估计概率 $p$ 需要 $O(1/\epsilon^2)$ 次采样（中心极限定理），振幅估计只要 $O(1/\epsilon)$ 次「相位估计」——又是平方加速。它是量子蒙特卡洛（quantum Monte Carlo）加速的根基：把「多次随机采样」压缩成「一次带 QFT 的相位读出」。</span>
 
-- **第一步，连接两套机器**：相位估计要求「酉算符的本征相位」，振幅估计把 $G$ 塞进去，本征相位 $\pm 2\theta$ 藏着的正是 $p = \sin^2\theta$。
-- **第二步，读出角度**：相位估计输出 $\theta$ 的二进制近似，换算成 $\tilde p$。
-- **第三步，误差控制**：误差随 $M$（控制比特数）线性下降，$M$ 越大越准；加 $O(1/\epsilon)$ 比特即可达到精度 $\epsilon$。<span class="marginnote">应用实例：量子计数（quantum counting）就是「Grover + 相位估计」——不直接找解，而是数「有几个解」。第八篇里 Grover 的计数应用、以及量子机器学习里求期望值的量子蒙特卡洛，都从这里发芽。</span>
+**第一步，连接两套机器**：相位估计要求「酉算符的本征相位」，振幅估计把 $G$ 塞进去，本征相位 $\pm 2\theta$ 藏着的正是 $p = \sin^2\theta$。
+**第二步，读出角度**：相位估计输出 $\theta$ 的二进制近似，换算成 $\tilde p$。
+**第三步，误差控制**：误差随 $M$（控制比特数）线性下降，$M$ 越大越准；加 $O(1/\epsilon)$ 比特即可达到精度 $\epsilon$。<span class="marginnote">应用实例：量子计数（quantum counting）就是「Grover + 相位估计」——不直接找解，而是数「有几个解」。第八篇里 Grover 的计数应用、以及量子机器学习里求期望值的量子蒙特卡洛，都从这里发芽。</span>
 
 **辨析｜易错点：** 振幅估计的输出 $\tilde p$ 可能落在 $[0,1]$ 之外或与真实值有微小偏差，需要做「投影 + 二次采样」的经典后处理。另外，振幅放大**假设起始态已知**（$\lvert\psi\rangle$ 可制备），若起始态本身是混合的，放大效率会打折——这是「振幅放大对相干性要求高」的另一种表述。
 
@@ -62,9 +62,9 @@ $$
 
 振幅放大与估计是「万能放大器」，几乎无处不用：
 
-- **Grover 搜索**：$p = M/N$（$M$ 个解），$\sqrt{N/M}$ 次找到解——下一节的主角。
-- **量子计数**：用振幅估计数解的个数，$O(\sqrt N)$ 次查询替代经典 $O(N)$。
-- **量子蒙特卡洛**：用振幅估计把期望值计算的采样代价从 $O(1/\epsilon^2)$ 压到 $O(1/\epsilon)$，是金融、物理模拟里量子加速的主要来源。<span class="marginnote">这条「振幅估计 → 量子蒙特卡洛 → 金融定价」的链路，是当下「有实用价值的量子加速」里最被看好的几条之一，很多 NISQ 公司的主打应用就在这条线上。</span>
+**Grover 搜索**：$p = M/N$（$M$ 个解），$\sqrt{N/M}$ 次找到解——下一节的主角。
+**量子计数**：用振幅估计数解的个数，$O(\sqrt N)$ 次查询替代经典 $O(N)$。
+**量子蒙特卡洛**：用振幅估计把期望值计算的采样代价从 $O(1/\epsilon^2)$ 压到 $O(1/\epsilon)$，是金融、物理模拟里量子加速的主要来源。<span class="marginnote">这条「振幅估计 → 量子蒙特卡洛 → 金融定价」的链路，是当下「有实用价值的量子加速」里最被看好的几条之一，很多 NISQ 公司的主打应用就在这条线上。</span>
 
 ## 6 小结
 

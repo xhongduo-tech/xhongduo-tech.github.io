@@ -48,8 +48,8 @@ $$\mathcal{L}(q) = \mathbb{E}_{q}\left[\log P(\boldsymbol{x}, \boldsymbol{z})\ri
 最大化 ELBO 的第一项（鼓励 $q$ 落在「数据似然高」的区域）+ 第二项（熵项，鼓励 $q$ 分散）——平衡之下，$q$ 既贴近数据、又不过分集中。<span class="marginnote">「最大化 ELBO = 最小化 KL」的等价性，是变分推断的灵魂：ELBO 是「对数证据 $\log P(\boldsymbol{x})$」的下界（由琴生不等式，第7章 EM 的同款工具），把「算不了的对数证据」换成「能优化的下界」。VAE 的训练目标正是这个 ELBO——变分推断是生成模型的理论骨架。</span>
 
 ## 3 公式解析：ELBO 为什么是「下界」- **第一步，写对数证据**：$\log P(\boldsymbol{x}) = \log \int P(\boldsymbol{x}, \boldsymbol{z}) d\boldsymbol{z}$——这个积分一般不可算。- **第二步，引入 $q$**：$\log P(\boldsymbol{x}) = \log P(\boldsymbol{x}) \int q(\boldsymbol{z})d\boldsymbol{z}$，用琴生不等式把 $\log$ 放进积分：$\log P(\boldsymbol{x}) \geq \int q(\boldsymbol{z}) \log \frac{P(\boldsymbol{x},\boldsymbol{z})}{q(\boldsymbol{z})} d\boldsymbol{z}$。
-- **第三步，认出 ELBO**：右边的积分正是 $\mathcal{L}(q) = \mathbb{E}_q[\log P(\boldsymbol{x},\boldsymbol{z})] - \mathbb{E}_q[\log q(\boldsymbol{z})]$——它是 $\log P(\boldsymbol{x})$ 的下界；
-- **第四步，看差距**：$\log P(\boldsymbol{x}) - \mathcal{L}(q) = \text{KL}(q \| P(\boldsymbol{z}\mid\boldsymbol{x})) \geq 0$——**差距恰是 KL**，最大化 ELBO 即最小化 KL。
+**第三步，认出 ELBO**：右边的积分正是 $\mathcal{L}(q) = \mathbb{E}_q[\log P(\boldsymbol{x},\boldsymbol{z})] - \mathbb{E}_q[\log q(\boldsymbol{z})]$——它是 $\log P(\boldsymbol{x})$ 的下界；
+**第四步，看差距**：$\log P(\boldsymbol{x}) - \mathcal{L}(q) = \text{KL}(q \| P(\boldsymbol{z}\mid\boldsymbol{x})) \geq 0$——**差距恰是 KL**，最大化 ELBO 即最小化 KL。
 
 **直觉一句话**：变分推断把「算后验」变成「调一个简单分布的参数让 ELBO 最大」——「够不着的后验」被「够得着的下界」逼近，数学上等价。
 

@@ -121,12 +121,13 @@ $$
 import numpy as np
 
 rng = np.random.default_rng(0)
-X = rng.normal(loc=2.0, scale=3.0, size=200_000)
-Y = 2.0 * X + rng.normal(0.0, 1.0, size=200_000)
+X = rng.normal(0, 1, 1000)               # 1000 个样本
+Y = 2 * X + rng.normal(0, 0.34, 1000)    # Y = 2X + 小噪声
 
-print(X.mean(), X.var())                 # ≈ 2.0, 9.0
-print(np.cov(X, Y, ddof=0)[0, 1])        # 协方差 ≈ 2 * Var(X) = 18
-print(np.corrcoef(X, Y)[0, 1])           # 相关系数很高，≈ 0.986
+print("期望 E[X]      ≈", X.mean())                # ≈ 0
+print("方差 Var(X)    ≈", X.var())                 # ≈ 1
+print("协方差 Cov     ≈", np.cov(X, Y)[0, 1])      # ≈ 2
+print("相关系数 ρ     ≈", np.corrcoef(X, Y)[0, 1]) # ≈ 0.986
 ```
 
 $Y = 2X + \text{噪声}$ 里，噪声把相关系数从 1 拉到 0.986——**相关系数越接近 ±1，线性关系越强；不是 ±1，说明有噪声或非线性**。

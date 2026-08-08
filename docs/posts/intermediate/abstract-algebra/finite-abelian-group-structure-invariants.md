@@ -60,15 +60,15 @@ $G$ 是它的各素数分量的直积——「按素数分家」是有限阿贝�
 
 把「不变量分解」变成一台上手就能用的机器。**给定阶 $n$，列出全部 $n$ 阶有限阿贝尔群。**
 
-- **第一步，分解阶。** $n = p_1^{e_1} p_2^{e_2} \cdots p_s^{e_s}$。分类按素数分仓：$n$ 阶阿贝尔群 = $\prod$ 各 $p_i^{e_i}$ 阶阿贝尔群的直积。
+**第一步，分解阶。** $n = p_1^{e_1} p_2^{e_2} \cdots p_s^{e_s}$。分类按素数分仓：$n$ 阶阿贝尔群 = $\prod$ 各 $p_i^{e_i}$ 阶阿贝尔群的直积。
 
-- **第二步，每仓分拆。** $p_i^{e_i}$ 阶有限阿贝尔群由「把 $e_i$ 拆成若干正整数之和」的分拆 $e_i = a_1 + a_2 + \cdots + a_t$ 决定，对应 $\mathbb{Z}_{p^{a_1}} \times \cdots \times \mathbb{Z}_{p^{a_t}}$。**分拆数 $p(e_i)$ 是该仓的阿贝尔群个数。**
+**第二步，每仓分拆。** $p_i^{e_i}$ 阶有限阿贝尔群由「把 $e_i$ 拆成若干正整数之和」的分拆 $e_i = a_1 + a_2 + \cdots + a_t$ 决定，对应 $\mathbb{Z}_{p^{a_1}} \times \cdots \times \mathbb{Z}_{p^{a_t}}$。**分拆数 $p(e_i)$ 是该仓的阿贝尔群个数。**
 
-- **第三步，合成。** 总个数 = $\prod_i p(e_i)$。每个组合（每仓挑一种分拆）给出一个 $n$ 阶阿贝尔群，且互不同构（不变量不同）。
+**第三步，合成。** 总个数 = $\prod_i p(e_i)$。每个组合（每仓挑一种分拆）给出一个 $n$ 阶阿贝尔群，且互不同构（不变量不同）。
 
 **例：$n = 72 = 2^3 \cdot 3^2$。** $2^3$ 仓：分拆 $3, 2+1, 1+1+1$ ⟹ $\mathbb{Z}_8$、$\mathbb{Z}_4\times\mathbb{Z}_2$、$\mathbb{Z}_2^3$（3 个）；$3^2$ 仓：分拆 $2, 1+1$ ⟹ $\mathbb{Z}_9$、$\mathbb{Z}_3\times\mathbb{Z}_3$（2 个）。总个数 $3 \times 2 = 6$。这 6 个群是 $\mathbb{Z}_8 \times \mathbb{Z}_9$、$\mathbb{Z}_8 \times \mathbb{Z}_3^2$、$\mathbb{Z}_4\times\mathbb{Z}_2 \times \mathbb{Z}_9$、$\mathbb{Z}_4\times\mathbb{Z}_2\times\mathbb{Z}_3^2$、$\mathbb{Z}_2^3\times\mathbb{Z}_9$、$\mathbb{Z}_2^3\times\mathbb{Z}_3^2$。<span class="marginnote">「72 阶阿贝尔群恰有 6 个」是一次纯算术的分类：$p(3) \cdot p(2) = 3 \cdot 2 = 6$。这个公式把群论分类变成整数分拆计算——组合数学与抽象代数在这里彻底融合。想要全部不变因子？把每仓的指数分拆对齐相乘即可。</span>
 
-- **第四步，规范形互化。** 若题目要不变因子形，把初等因子按素数分组、排齐相乘。如 72 阶的第一个群 $\mathbb{Z}_8\times\mathbb{Z}_9$：$8, 9$ 互素，合并为 $\mathbb{Z}_{72}$；$\mathbb{Z}_8\times\mathbb{Z}_3^2$ 不变因子 $8 \mid 72$？——$8\times 3^2 = 72$，$\mathbb{Z}_8 \times \mathbb{Z}_9$ 合并即 $\mathbb{Z}_{72}$，另一写法 $\mathbb{Z}_8 \times \mathbb{Z}_3 \times \mathbb{Z}_3$ 对应不变因子 $3 \mid 24$。逐一换算即可。
+**第四步，规范形互化。** 若题目要不变因子形，把初等因子按素数分组、排齐相乘。如 72 阶的第一个群 $\mathbb{Z}_8\times\mathbb{Z}_9$：$8, 9$ 互素，合并为 $\mathbb{Z}_{72}$；$\mathbb{Z}_8\times\mathbb{Z}_3^2$ 不变因子 $8 \mid 72$？——$8\times 3^2 = 72$，$\mathbb{Z}_8 \times \mathbb{Z}_9$ 合并即 $\mathbb{Z}_{72}$，另一写法 $\mathbb{Z}_8 \times \mathbb{Z}_3 \times \mathbb{Z}_3$ 对应不变因子 $3 \mid 24$。逐一换算即可。
 
 ## 5 不变量纲领的模板与延伸
 

@@ -25,7 +25,7 @@ date: 2026-08-07
 3. **对称性**：$dist(\boldsymbol{x}, \boldsymbol{y}) = dist(\boldsymbol{y}, \boldsymbol{x})$——从 A 到 B 与从 B 到 A 一样远；
 4. **直递性（三角不等式）**：$dist(\boldsymbol{x}, \boldsymbol{z}) \leq dist(\boldsymbol{x}, \boldsymbol{y}) + dist(\boldsymbol{y}, \boldsymbol{z})$——直接走不会比绕路更远。<span class="marginnote">公理的价值是「查漏」：如果你自定义的「距离」不满足三角不等式，那它连几何直觉都不具备，很多算法的收敛性分析会失效。注意「余弦距离」不满足三角不等式，严格说只是「相似度」不是「距离」——文献里常混用，但心里要有数。</span>
 
-## 2 闵可夫斯基距离家族对 $n$ 维样本 $\boldsymbol{x} = (x_1, \dots, x_n)$、$\boldsymbol{z} = (z_1, \dots, z_n)$，**闵可夫斯基距离（Minkowski distance）**统一定义为$$dist_{mk}(\boldsymbol{x}, \boldsymbol{z}) = \left( \sum_{u=1}^{n} \left| x_u - z_u \right|^{p} \right)^{1/p}, \qquad p \geq 1$$
+## 2 闵可夫斯基距离家族对 $n$ 维样本 $\boldsymbol{x} = (x_1, \dots, x_n)$、$\boldsymbol{z} = (z_1, \dots, z_n)$，**闵可夫斯基距离（Minkowski distance）**统一定义为`$$`dist_{mk}(\boldsymbol{x}, \boldsymbol{z}) = \left( \sum_{u=1}^{n} \left| x_u - z_u \right|^{p} \right)^{1/p}, \qquad p \geq 1$$
 
 $p$ 取不同值得到不同的著名距离：
 
@@ -44,9 +44,9 @@ $$VDM_p(a, b) = \sum_{i=1}^{k} \left| \frac{m_{u,a,i}}{m_{u,a}} - \frac{m_{v,b,i
 **处理混合属性**：连续属性用闵可夫斯基距离、离散属性用 VDM，再把两部分加权合成一个总距离，即可统一处理。
 
 ## 4 公式解析：欧氏距离的一次计算与尺度陷阱设两个二维样本 $\boldsymbol{x} = (1, 2)$、$\boldsymbol{z} = (4, 6)$，$p=2$ 的欧氏距离：- **第一步，逐维求差**：$x_1 - z_1 = -3$，$x_2 - z_2 = -4$；
-- **第二步，平方求和**：$(-3)^2 + (-4)^2 = 9 + 16 = 25$；
-- **第三步，开根号**：$\sqrt{25} = 5$——欧氏距离为 5。
-- **第四步，看尺度影响**：若把第一维放大 10 倍（$\boldsymbol{x}' = (10, 2)$、$\boldsymbol{z}'=(40, 6)$），距离变为 $\sqrt{900 + 16} \approx 30.3$——第一维的差异从「占 $9/25$」膨胀到「占 $900/916$」，几乎吞掉了第二维的信息。
+**第二步，平方求和**：$(-3)^2 + (-4)^2 = 9 + 16 = 25$；
+**第三步，开根号**：$\sqrt{25} = 5$——欧氏距离为 5。
+**第四步，看尺度影响**：若把第一维放大 10 倍（$\boldsymbol{x}' = (10, 2)$、$\boldsymbol{z}'=(40, 6)$），距离变为 $\sqrt{900 + 16} \approx 30.3$——第一维的差异从「占 $9/25$」膨胀到「占 $900/916$」，几乎吞掉了第二维的信息。
 
 **直觉一句话**：欧氏距离的平方把大差异放大得更狠——这是它的几何优雅，也是它对尺度敏感的根源。**用欧氏距离前先问一句：每个特征的量纲可比吗？**
 

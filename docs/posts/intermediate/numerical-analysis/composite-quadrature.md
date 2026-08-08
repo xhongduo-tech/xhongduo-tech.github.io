@@ -59,22 +59,21 @@ $$
 ```python
 import numpy as np
 
-def composite_trapezoid(f, a, b, n):
+def trapz(f, a, b, n):
+    """复化梯形：n 段，系数 端点 1 / 内部 2。"""
     h = (b - a) / n
     x = np.linspace(a, b, n + 1)
     return h * (0.5*f(x[0]) + np.sum(f(x[1:-1])) + 0.5*f(x[-1]))
 
-def composite_simpson(f, a, b, m):
-    # 2m 段，需要 2m+1 个节点
-    h = (b - a) / (2 * m)
+def simpson(f, a, b, m):
+    """复化辛普森：2m 段（偶数），系数 1,4,2,4,...,2,4,1。"""
+    h = (b - a) / (2*m)
     x = np.linspace(a, b, 2*m + 1)
-    y = f(x)
-    return h/3 * (y[0] + 4*np.sum(y[1::2]) + 2*np.sum(y[2:-1:2]) + y[-1])
+    return h/3 * (f(x[0]) + 4*np.sum(f(x[1:-1:2])) + 2*np.sum(f(x[2:-2:2])) + f(x[-1]))
 
-f = lambda x: np.exp(x)
-I = np.exp(1) - 1
-print("复化梯形 n=10:", composite_trapezoid(f, 0, 1, 10), "误差", I - composite_trapezoid(f, 0, 1, 10))
-print("复化辛普森 m=5:", composite_simpson(f, 0, 1, 5), "误差", I - composite_simpson(f, 0, 1, 5))
+f = np.exp                          # ∫₀¹ eˣ dx = e - 1 ≈ 1.71828
+print(trapz(f, 0, 1, 16))           # 17 个节点，误差 ~1e-5
+print(simpson(f, 0, 1, 8))          # 同样 17 个节点，误差 ~1e-8
 ```
 
 同样的节点预算，辛普森误差小两个量级——光滑函数上复化辛普森是默认选择。
@@ -83,9 +82,9 @@ print("复化辛普森 m=5:", composite_simpson(f, 0, 1, 5), "误差", I - compo
 
 以复化梯形为例拆解余项：
 
-- **第一步，逐段套单段余项。** 每段 $[x_{k-1},x_k]$ 误差 $-\dfrac{h^3}{12}f''(\xi_k)$，其中 $\xi_k\in(x_{k-1},x_k)$。总误差 $-\dfrac{h^3}{12}\sum_{k=1}^n f''(\xi_k)$。
-- **第二步，把和写成「平均 × n」。** $\sum_{k=1}^n f''(\xi_k)=n\cdot\bar{f''}$，其中 $\bar{f''}$ 是 $n$ 个采样值的平均。由连续性，$\bar{f''}$ 介于 $\min f''$ 与 $\max f''$ 之间，可写成某个 $\xi$ 处的 $f''(\xi)$。
-- **第三步，合并 $h^3$ 与 $n$。** $n\cdot h^3=(b-a)h^2$，故 $R_T=-\dfrac{b-a}{12}h^2f''(\xi)$。**复化使误差从 $h^3$ 降到 $h^2$，但换来确定性收敛**——因为 $h\to0$ 时 $n\to\infty$，$\bar{f''}\to$ 平均二阶导，误差稳定按 $h^2$ 收缩。
+**第一步，逐段套单段余项。** 每段 $[x_{k-1},x_k]$ 误差 $-\dfrac{h^3}{12}f''(\xi_k)$，其中 $\xi_k\in(x_{k-1},x_k)$。总误差 $-\dfrac{h^3}{12}\sum_{k=1}^n f''(\xi_k)$。
+**第二步，把和写成「平均 × n」。** $\sum_{k=1}^n f''(\xi_k)=n\cdot\bar{f''}$，其中 $\bar{f''}$ 是 $n$ 个采样值的平均。由连续性，$\bar{f''}$ 介于 $\min f''$ 与 $\max f''$ 之间，可写成某个 $\xi$ 处的 $f''(\xi)$。
+**第三步，合并 $h^3$ 与 $n$。** $n\cdot h^3=(b-a)h^2$，故 $R_T=-\dfrac{b-a}{12}h^2f''(\xi)$。**复化使误差从 $h^3$ 降到 $h^2$，但换来确定性收敛**——因为 $h\to0$ 时 $n\to\infty$，$\bar{f''}\to$ 平均二阶导，误差稳定按 $h^2$ 收缩。
 
 辛普森同理：每对区间误差 $O(h^5)$，共 $m$ 对，$m h^5=(b-a)h^4$，得 $O(h^4)$。<span class="marginnote">注意一个细节：复化辛普森要求段数 $n=2m$ <strong>为偶数</strong>——因为辛普森每组要 3 个点。段数选奇数时，最后一段要特殊处理或干脆加一段。</span>
 
@@ -111,7 +110,7 @@ print("复化辛普森 m=5:", composite_simpson(f, 0, 1, 5), "误差", I - compo
 | 函数不光滑（$f''$ 无界） | 复化梯形（或自适应加密） | 不依赖高阶导数 |
 | 未知积分值、动态控误差 | 自适应复化（逐次加密） | 下一节逐次分半法 |
 
-**工程结论：默认复化辛普森，特殊情形降级复化梯形或升格自适应**——这是绝大多数数值积分库（scipy 的 `quad` 类）的内部哲学。
+**工程结论：默认复化辛普森，特殊情形降级复化梯形或升格自适应**——这是绝大多数数值积分库（scipy 的 `simpson` 函数）的内部哲学。
 
 ## 6 小结
 

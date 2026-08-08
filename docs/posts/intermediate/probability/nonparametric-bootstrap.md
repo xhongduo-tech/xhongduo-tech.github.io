@@ -35,9 +35,9 @@ bootstrap 是统计学与计算结合的分水岭：它让「任何统计量的�
 
 bootstrap 的有效性建立在「经验分布 ≈ 总体分布」上：
 
-- 第六章**格利文科定理**：$n$ 大时 $F_n$ 在全实数轴上一致逼近 $F$；
-- 于是「从 $F_n$ 放回抽样」的机制与「从 $F$ 抽样」几乎一样；
-- 统计量 $T$ 是样本的连续函数时，$\hat\theta^*$ 的分布逼近 $\hat\theta$ 的真实分布。
+第六章**格利文科定理**：$n$ 大时 $F_n$ 在全实数轴上一致逼近 $F$；
+于是「从 $F_n$ 放回抽样」的机制与「从 $F$ 抽样」几乎一样；
+统计量 $T$ 是样本的连续函数时，$\hat\theta^*$ 的分布逼近 $\hat\theta$ 的真实分布。
 
 **直观**：样本量越大，$F_n$ 越像 $F$，bootstrap 越准——所以 bootstrap 的精度随 $n$ 提高，是「$n \to \infty$」型的渐近方法。<span class="marginnote">bootstrap 的收敛速度通常是 $O(1/\sqrt n)$ 量级，与 CLT 近似同级，但适用范围远广：CLT 只能近似「和/均值」型统计量，bootstrap 对「任何统计量」（中位数、分位数、相关系数、复杂指标）都适用。它把「解析渐近」换成「数值渐近」，用计算换通用性。</span>
 
@@ -45,9 +45,9 @@ bootstrap 的有效性建立在「经验分布 ≈ 总体分布」上：
 
 bootstrap 的基本流程可服务于三类目标：
 
-- **估计标准误**：$se_B(\hat\theta) = \sqrt{\frac{1}{B-1}\sum_{b=1}^B (\hat\theta^{*b} - \bar{\hat\theta}^*)^2}$——bootstrap 复制的样本标准差；
-- **估计偏差**：$\widehat{bias} = \bar{\hat\theta}^* - \hat\theta$——bootstrap 均值与原始估计之差；
-- **构造置信区间**：用 bootstrap 复制的分位数直接给区间（下一节详讲）。
+**估计标准误**：$se_B(\hat\theta) = \sqrt{\frac{1}{B-1}\sum_{b=1}^B (\hat\theta^{*b} - \bar{\hat\theta}^*)^2}$——bootstrap 复制的样本标准差；
+**估计偏差**：$\widehat{bias} = \bar{\hat\theta}^* - \hat\theta$——bootstrap 均值与原始估计之差；
+**构造置信区间**：用 bootstrap 复制的分位数直接给区间（下一节详讲）。
 
 **例**：估计相关系数 $r$ 的标准误（解析公式复杂）。从样本放回抽 $B = 1000$ 个 bootstrap 样本，各算相关系数，1000 个 $r^*$ 的标准差 ≈ $r$ 的标准误。<span class="marginnote">「bootstrap 估计标准误」的威力在复杂统计量上最明显：相关系数、比值、回归系数非线性函数的解析标准误要么复杂要么不存在，bootstrap 一律用「反复重算」搞定。这也是它在机器学习里受欢迎的原因——模型性能指标（AUC、F1）的波动，都能用 bootstrap 估计。</span>
 

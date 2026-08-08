@@ -31,7 +31,7 @@ date: 2026-08-07
 | **Ethers.js / viem** | 客户端库 | 与节点交互、构造/签名/发送交易 |
 | **Sepolia** | 测试网 | 免费测试币，模拟主网环境 |
 
-**最小开发流程**：`npx hardhat init` 创建项目 → 编写合约 → `npx hardhat test` 跑测试 → 部署脚本 → `npx hardhat run scripts/deploy.js --network sepolia`。
+**最小开发流程**：`hardhat init` 创建项目 → 编写合约 → `hardhat test` 跑测试 → 部署脚本 → `hardhat verify`。
 
 ## 2 从测试网到主网
 
@@ -45,9 +45,9 @@ $$
 
 **公式解析：部署地址如何推导**
 
-- **第一步**：`sender` 是部署者地址，`nonce` 是部署者账户的当前 nonce。
+- **第一步**：sender 是部署者地址，nonce 是部署者账户的当前 nonce。
 - **第二步**：两者做 RLP 编码后取 Keccak-256 哈希。
-- **第三步**：取哈希的后 20 字节作为合约地址。同一个部署者、同一个 nonce 只会得到唯一地址——**地址可预测**（CREATE 操作码）。`CREATE2` 操作码则允许自定义 salt 预计算地址，用于「确定性部署」。
+- **第三步**：取哈希的后 20 字节作为合约地址。同一个部署者、同一个 nonce 只会得到唯一地址——**地址可预测**（CREATE 操作码）。CREATE2 操作码则允许自定义 salt 预计算地址，用于「确定性部署」。
 
 ## 3 测试：不只是单元测试
 
@@ -58,39 +58,43 @@ $$
 3. **分叉测试（fork testing）**：本地拉取主网状态，在副本上模拟真实环境，验证合约与已部署协议的兼容性。
 
 ```javascript
-// Hardhat + ethers 的典型测试
 const { expect } = require("chai");
 
-it("should increment", async function () {
-  const Counter = await ethers.getContractFactory("Counter");
-  const counter = await Counter.deploy();
-  await counter.increment();
-  expect(await counter.count()).to.equal(1);
+describe("Vault", function () {
+  it("未授权调用者不能提款", async function () {
+    const [owner, attacker] = await ethers.getSigners();
+    const vault = await ethers.deployContract("Vault", [owner.address]);
+
+    // 否定用例：攻击者提款应被 revert
+    await expect(vault.connect(attacker).withdraw()).to.be.reverted;
+    // 快乐路径：owner 提款成功
+    await expect(vault.connect(owner).withdraw()).not.to.be.reverted;
+  });
 });
 ```
 
-**测试优先的安全观**：合约的每个 `require`/`if` 分支都要有对应测试；边界值（`0`、最大 `uint256`、重复调用）都要覆盖。审计者看你的测试覆盖率，就像法官看你的证据链。<span class="marginnote">好的测试还会用「攻击者视角」写：测试「未授权的调用者试图提款应该 revert」这类否定用例——很多合约在「快乐路径」完美、在「恶意路径」崩溃。</span>
+**测试优先的安全观**：合约的每个 `if`/`else` 分支都要有对应测试；边界值（0、最大 `uint256`、重复调用）都要覆盖。审计者看你的测试覆盖率，就像法官看你的证据链。<span class="marginnote">好的测试还会用「攻击者视角」写：测试「未授权的调用者试图提款应该 revert」这类否定用例——很多合约在「快乐路径」完美、在「恶意路径」崩溃。</span>
 
 ## 4 安全最佳实践清单
 
 写合约时把这些当作强制规范：
 
-- **检查-效果-交互（Checks-Effects-Interactions）**：先校验条件，再修改状态，最后调外部合约——这能防御绝大多数重入攻击（见《区块链安全》）。
-- **优先 pull 模式**：让用户自己取款（`withdraw()`），不要合约主动 `push` 转账——减少「调用栈攻击」面。
-- **拒绝外部依赖裸用**：`require(amount > 0)` 而不是依赖未校验的 `msg.value`；所有数学运算注意溢出（0.8 已默认检查，`unchecked` 慎用）。
-- **权限控制**：用 OpenZeppelin 的 `Ownable`/`AccessControl`，不要手写 `if (msg.sender != owner) revert`。
-- **事件（event）必须发**：链上状态变更要 emit 事件，方便链下索引与监控。
-- **暂停开关（pause）**：复杂合约应有 `pausable` 紧急熔断机制，给升级留缓冲。
+**检查-效果-交互（Checks-Effects-Interactions）**：先校验条件，再修改状态，最后调外部合约——这能防御绝大多数重入攻击（见《区块链安全》）。
+**优先 pull 模式**：让用户自己取款（`withdraw()`），不要合约主动 `transfer` 转账——减少「调用栈攻击」面。
+**拒绝外部依赖裸用**：用 OpenZeppelin 库而不是依赖未校验的第三方合约；所有数学运算注意溢出（0.8 已默认检查，`unchecked` 慎用）。
+**权限控制**：用 OpenZeppelin 的 `Ownable`/`AccessControl`，不要手写权限校验。
+**事件（event）必须发**：链上状态变更要 emit 事件，方便链下索引与监控。
+**暂停开关（pause）**：复杂合约应有 `pause` 紧急熔断机制，给升级留缓冲。
 
 ## 5 升级模式：代理合约
 
 合约不可变，但业务需要升级。标准方案是**代理模式**：
 
-- **代理合约（proxy）**：用户交互的地址，通过 `delegatecall` 把调用转发给逻辑合约。
-- **逻辑合约（implementation）**：存放实际代码；升级 = 部署新逻辑合约 + 更新代理指向。
-- **`delegatecall` 的关键语义**：逻辑合约的代码在**代理的存储上下文**中执行——逻辑合约里的状态变量必须与代理的布局完全一致（否则存储错位）。
+**代理合约（proxy）**：用户交互的地址，通过 `delegatecall` 把调用转发给逻辑合约。
+**逻辑合约（implementation）**：存放实际代码；升级 = 部署新逻辑合约 + 更新代理指向。
+**delegatecall 的关键语义**：逻辑合约的代码在**代理的存储上下文**中执行——逻辑合约里的状态变量必须与代理的布局完全一致（否则存储错位）。
 
-**辨析｜易错点：`delegatecall` 是 Solidity 里最危险的特性之一。** 它让被调用方代码以调用方存储运行，一旦逻辑合约里有「改 `owner`」之类的操作，攻击者可能通过代理篡改任意状态。现代实践是：逻辑合约锁死初始化（`initializer` 只跑一次）、用 `UUPS` 模式把升级权限收归治理。**另一个易错点：「升级」不等于「修 bug 自由」**——如果升级需要权限，合约就不是「去中心化的」了；治理与安全之间需要显式权衡。
+**辨析｜易错点：delegatecall 是 Solidity 里最危险的特性之一。** 它让被调用方代码以调用方存储运行，一旦逻辑合约里有「改 storage 槽位」之类的操作，攻击者可能通过代理篡改任意状态。现代实践是：逻辑合约锁死初始化（`initializer` 只跑一次）、用 `Ownable`/timelock 模式把升级权限收归治理。**另一个易错点：「升级」不等于「修 bug 自由」**——如果升级需要权限，合约就不是「去中心化的」了；治理与安全之间需要显式权衡。
 
 ## 6 部署、验证与交互
 
@@ -107,23 +111,23 @@ it("should increment", async function () {
 
 **开发阶段**：
 
-- [x] 用 OpenZeppelin 库（`Ownable`、`ReentrancyGuard`、`SafeERC20`）而非手写轮子。
-- [x] 所有外部调用放在状态更新之后（Checks-Effects-Interactions）。
-- [x] 数学运算依赖 0.8 默认检查，`unchecked` 块有注释说明为什么安全。
+[x] 用 OpenZeppelin 库（`Ownable`、`ReentrancyGuard`、`SafeERC20`）而非手写轮子。
+[x] 所有外部调用放在状态更新之后（Checks-Effects-Interactions）。
+[x] 数学运算依赖 0.8 默认检查，`unchecked` 块有注释说明为什么安全。
 
 **测试阶段**：
 
-- [x] 单元测试覆盖全部 `require` 分支与边界值（0、最大值、溢出）。
-- [x] 否定用例：未授权调用、超额度、重入尝试都应 revert。
-- [x] 集成测试：与真实 Token/DEX 合约交互；分叉测试在主网副本上跑。
-- [x] 用 Slither / Mythril 做静态分析，用 Foundry 的 fuzz 做随机输入测试。
+[x] 单元测试覆盖全部 `if`/`else` 分支与边界值（0、最大值、溢出）。
+[x] 否定用例：未授权调用、超额度、重入尝试都应 revert。
+[x] 集成测试：与真实 Token/DEX 合约交互；分叉测试在主网副本上跑。
+[x] 用 Slither / Mythril 做静态分析，用 Foundry 的 fuzz 做随机输入测试。
 
 **部署与上线**：
 
-- [x] 先在测试网（Sepolia）完整走一遍部署 + 交互。
-- [x] 源码在区块浏览器验证（Etherscan verify），确保「链上字节码 = 开源源码」。
-- [x] 部署后立刻用 `cast`/`hardhat console` 冒烟测试（owner、pause、基本函数）。
-- [x] 配置监控：事件监听、链上警报、关键参数变更告警。
+[x] 先在测试网（Sepolia）完整走一遍部署 + 交互。
+[x] 源码在区块浏览器验证（Etherscan verify），确保「链上字节码 = 开源源码」。
+[x] 部署后立刻用 `owner()`/`paused()` 冒烟测试（owner、pause、基本函数）。
+[x] 配置监控：事件监听、链上警报、关键参数变更告警。
 
 **审计与保险**：
 

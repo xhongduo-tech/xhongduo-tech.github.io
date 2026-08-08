@@ -84,10 +84,10 @@ $$|\Psi_{\text{ex}}\rangle = \hat{R} \, e^{\hat{T}} |\Psi_0\rangle$$
 $\hat{R}$ 是激发算符（作用于参考态，产生激发态的「响应」）。对 EOM-CCSD，$\hat{R} = r_0 + \sum_{i,a} r_i^a \hat{a}_a^\dagger\hat{a}_i + \sum_{i<j,a<b} r_{ij}^{ab} \hat{a}_a^\dagger\hat{a}_b^\dagger\hat{a}_j\hat{a}_i$。<span class="marginnote">EOM-CC 的思想：把基态 CC 的指数结构「继承」过来，再用一个线性激发算符 $\hat{R}$ 产生激发态——这样基态关联与激发关联被统一描述，激发能不受「基态误差与激发态误差相消」的运气摆布。EOM-CCSD 对多数激发能给出 ~0.05–0.1 eV 的精度。</span>
 
 EOM-CC 变体：
-- **EOM-CCSD**：单、双激发，是标准选项；
-- **EOM-CCSD(T)**：微扰补三激发，接近化学精度；
-- **EOM-CCSDT**：显式三激发，极贵；
-- **STEOM-CC**：相似变换 EOM，更便宜。
+**EOM-CCSD**：单、双激发，是标准选项；
+**EOM-CCSD(T)**：微扰补三激发，接近化学精度；
+**EOM-CCSDT**：显式三激发，极贵；
+**STEOM-CC**：相似变换 EOM，更便宜。
 
 | 方法 | 成本 | 精度 | 适用 | 局限 |
 | --- | --- | --- | --- | --- |

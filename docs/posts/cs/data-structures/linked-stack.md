@@ -23,49 +23,48 @@ date: 2026-08-07
 链栈是单链表的特例：**栈顶是链表头，栈底是链表尾**。为什么栈顶要放在头端？因为单链表在头端插入、删除都是 $O(1)$，而在尾端需要遍历到倒数第二个结点。把「只能在一端操作」的栈顶对齐到「天然支持头部操作」的链表头，两个约束一拍即合。
 
 ```c
-typedef struct SNode {
-    SElemType data;          /* 元素 */
-    struct SNode *next;      /* 指向栈中下一个元素（更靠近栈底） */
-} SNode, *LinkStack;
+typedef struct StackNode {
+    ElemType data;              /* 数据域 */
+    struct StackNode *next;     /* 指针域 */
+} StackNode, *LinkStack;        /* 栈顶就是链表头 */
 ```
 
-**重点：链栈不需要独立的 top 指针变量——栈顶就是链表头指针。** `LinkStack S` 本身既代表整个栈，又直接指向栈顶结点。<span class="marginnote">这里有个值得品味的对应：顺序栈用「<strong>top 整数</strong>」记录栈顶下标，链栈用「<strong>top 指针</strong>」记录栈顶结点。同一个「栈顶」概念，在两种存储结构里分别落成「下标」与「地址」——这正是绪论「逻辑结构到存储结构的映像」的活例子。</span>
+**重点：链栈不需要独立的 top 指针变量——栈顶就是链表头指针。** top 指针本身既代表整个栈，又直接指向栈顶结点。<span class="marginnote">这里有个值得品味的对应：顺序栈用「<strong>top 整数</strong>」记录栈顶下标，链栈用「<strong>top 指针</strong>」记录栈顶结点。同一个「栈顶」概念，在两种存储结构里分别落成「下标」与「地址」——这正是绪论「逻辑结构到存储结构的映像」的活例子。</span>
 
 ## 2 链栈的入栈：头插法
 
 入栈（push）就是把新结点插到链表头部：
 
 ```c
-Status Push(LinkStack *S, SElemType e) {
-    SNode *p = (SNode *)malloc(sizeof(SNode));  /* 申请新结点 */
-    if (!p) return ERROR;                       /* 申请失败（内存不足） */
+Status Push(LinkStack &S, ElemType e) {
+    StackNode *p = (StackNode *)malloc(sizeof(StackNode));
     p->data = e;
-    p->next = *S;        /* 新结点指向旧栈顶 */
-    *S = p;              /* 新结点成为栈顶 */
+    p->next = S;          /* ① 先：新结点指向旧栈顶 */
+    S = p;                /* ② 后：更新栈顶指针 */
     return OK;
 }
 ```
 
-步骤只有三行，但要分清顺序：**先让新结点的 `next` 指向旧栈顶，再把栈顶指针更新为新结点**。若顺序写反（先 `*S = p` 再 `p->next = *S`），`p->next` 会指向自己，链表环化——这类「指针自指」错误最难排查。<span class="marginnote">头插法只在头部操作，时间 $O(1)$。它就是单链表「插在表头」的封装：把插入位置固定为头，这一步正是把线性表改造成栈的那一下。</span>
+步骤只有三行，但要分清顺序：**先让新结点的 `next` 指向旧栈顶，再把栈顶指针更新为新结点**。若顺序写反（先更新栈顶指针、再连 `next`），新结点会指向自己，链表环化——这类「指针自指」错误最难排查。<span class="marginnote">头插法只在头部操作，时间 $O(1)$。它就是单链表「插在表头」的封装：把插入位置固定为头，这一步正是把线性表改造成栈的那一下。</span>
 
 ## 3 链栈的出栈：释放结点
 
 出栈（pop）取走栈顶元素，并**释放**该结点：
 
 ```c
-Status Pop(LinkStack *S, SElemType *e) {
-    if (*S == NULL) return ERROR;   /* 空栈下溢检查 */
-    *e = (*S)->data;                /* 保存栈顶元素 */
-    SNode *p = *S;                  /* 暂存待释放结点 */
-    *S = (*S)->next;                /* 栈顶指针后移 */
-    free(p);                        /* 释放原栈顶 */
+Status Pop(LinkStack &S, ElemType &e) {
+    if (S == NULL) return ERROR;        /* 判空：链栈只有下溢 */
+    StackNode *p = S;
+    e = p->data;          /* ① 先：暂存栈顶元素 */
+    S = p->next;          /* ② 再：移动栈顶指针 */
+    free(p);              /* ③ 最后：释放原栈顶结点 */
     return OK;
 }
 ```
 
-出栈的关键在于**「先暂存，再移动，最后释放」**。若先 `free` 再访问，就是 use-after-free；若先移动再释放，则丢失了指向原栈顶的指针，造成内存泄漏。
+出栈的关键在于**「先暂存，再移动，最后释放」**。若先释放再访问，就是 use-after-free；若先移动再释放，则丢失了指向原栈顶的指针，造成内存泄漏。
 
-**辨析｜易错点：链栈只有下溢，没有上溢。** 顺序栈有「栈满」要判溢出；链栈的结点逐个从堆上分配，只要内存足够就不存在「满」，唯一需要检查的是「空」——`pop` 之前必须先判 `*S == NULL`。这体现了链式存储「按需分配」的本质：以 malloc/free 的开销换空间弹性。
+**辨析｜易错点：链栈只有下溢，没有上溢。** 顺序栈有「栈满」要判溢出；链栈的结点逐个从堆上分配，只要内存足够就不存在「满」，唯一需要检查的是「空」——出栈（pop）之前必须先判空栈。这体现了链式存储「按需分配」的本质：以 malloc/free 的开销换空间弹性。
 
 ## 4 公式解析：两种实现的代价对比
 

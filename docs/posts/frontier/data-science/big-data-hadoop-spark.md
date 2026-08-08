@@ -26,20 +26,26 @@ date: 2026-08-07
 2. **计算**：怎么并行处理？→ 分布式计算框架，把一个大任务拆成可并行的小任务。
 3. **容错**：机器坏了怎么办？→ 数据冗余 + 任务重跑，让「机器会坏」这件事不中断计算。
 
-**重点：大数据的思想内核是「数据本地性（data locality）」——把计算搬到数据旁边，而不是把数据搬到计算旁边。** 数据在 TB 级时，跨网络搬数据比计算本身贵得多；让每台机器处理「本地存的」那部分数据，才能避免网络成为瓶颈。<span class="marginnote">数据本地性是大数据性能的第一原则：`map` 任务优先调度到「它要处理的数据块所在的那台机器」上。Hadoop 的调度器为此会等一等（延迟调度），宁可略等也要凑「本地执行」。这个直觉在后面学 Spark 的 partition 优化时还会反复出现。</span>
+**重点：大数据的思想内核是「数据本地性（data locality）」——把计算搬到数据旁边，而不是把数据搬到计算旁边。** 数据在 TB 级时，跨网络搬数据比计算本身贵得多；让每台机器处理「本地存的」那部分数据，才能避免网络成为瓶颈。<span class="marginnote">数据本地性是大数据性能的第一原则：数据本地（data-local）任务优先调度到「它要处理的数据块所在的那台机器」上。Hadoop 的调度器为此会等一等（延迟调度），宁可略等也要凑「本地执行」。这个直觉在后面学 Spark 的 partition 优化时还会反复出现。</span>
 
 ## 2 Hadoop：MapReduce + HDFS 的开山组合
 
 **Hadoop** 是分布式处理的开源鼻祖，核心由两件套构成：
 
-- **HDFS（Hadoop 分布式文件系统）**：把文件切成默认 128MB 的块，每块存多份副本（默认 3 份）分布在多台机器上。切块 + 副本 = 存储的并行与容错。
-- **MapReduce**：两阶段计算模型。**Map 阶段**把任务拆成小块并行处理，产出「键值对」；**Shuffle 阶段**按键归并排序；**Reduce 阶段**把同键的值聚合。<span class="marginnote">MapReduce 的价值是「把并行编程的难度藏进框架」：程序员只需写 map 与 reduce 两个函数，框架负责切分、调度、容错、聚合。它的代价是抽象太粗——很多计算都要被强行表达成「键值对 + 排序」的形态，迭代式算法（如 K 均值、梯度下降）要反复读写磁盘，慢得难以接受。</span>
+**HDFS（Hadoop 分布式文件系统）**：把文件切成默认 128MB 的块，每块存多份副本（默认 3 份）分布在多台机器上。切块 + 副本 = 存储的并行与容错。
+**MapReduce**：两阶段计算模型。**Map 阶段**把任务拆成小块并行处理，产出「键值对」；**Shuffle 阶段**按键归并排序；**Reduce 阶段**把同键的值聚合。<span class="marginnote">MapReduce 的价值是「把并行编程的难度藏进框架」：程序员只需写 map 与 reduce 两个函数，框架负责切分、调度、容错、聚合。它的代价是抽象太粗——很多计算都要被强行表达成「键值对 + 排序」的形态，迭代式算法（如 K 均值、梯度下降）要反复读写磁盘，慢得难以接受。</span>
 
 MapReduce 的经典例子——统计词频：
 
-```
-map(line):   对 line 中每个词 w，输出 (w, 1)
-reduce(w, values): 输出 (w, sum(values))
+```python
+# Map 阶段：把每一行拆成 (word, 1)
+def map(line):
+    for word in line.split():
+        emit(word, 1)
+
+# Reduce 阶段：把同词频数相加
+def reduce(word, counts):
+    emit(word, sum(counts))
 ```
 
 **辨析｜易错点：** 初学者常把 MapReduce 想成「很快」。恰恰相反，**MapReduce 的强项是「稳」与「大」，不是「快」**。每轮 MapReduce 都要落盘（写 HDFS），迭代几十轮的机器学习算法会慢到无法使用。因此当 Spark 提供「内存迭代」时，它迅速取代了 MapReduce 在机器学习场景的地位。
@@ -48,16 +54,16 @@ reduce(w, values): 输出 (w, sum(values))
 
 **Apache Spark** 解决了 MapReduce「落盘慢」的痛点，核心理念是**让中间结果留在内存里**。
 
-Spark 的核心抽象是 **RDD（弹性分布式数据集）**：一个分布在多台机器上、可并行操作的**不可变分区集合**。<span class="marginnote">RDD 的「弹性」指什么？一是分区可重算：某个分区丢失时，可以从它的父 RDD 沿「血缘」（lineage）重算，无需像 Hadoop 那样靠多副本容错；二是内存不足时可溢出到磁盘。不可变性 + 血缘 = 廉价的容错与延迟计算。</span>你写的是「对 RDD 的一组变换」（`map`、`filter`、`join`），框架把它们组织成一个**有向无环图（DAG）**，整体优化后再执行——变换是惰性的，只有遇到 `collect` 等行动（action）才真正计算。
+Spark 的核心抽象是 **RDD（弹性分布式数据集）**：一个分布在多台机器上、可并行操作的**不可变分区集合**。<span class="marginnote">RDD 的「弹性」指什么？一是分区可重算：某个分区丢失时，可以从它的父 RDD 沿「血缘」（lineage）重算，无需像 Hadoop 那样靠多副本容错；二是内存不足时可溢出到磁盘。不可变性 + 血缘 = 廉价的容错与延迟计算。</span>你写的是「对 RDD 的一组变换」（`map`、`filter`、`reduceByKey`），框架把它们组织成一个**有向无环图（DAG）**，整体优化后再执行——变换是惰性的，只有遇到 `collect` 等行动（action）才真正计算。
 
 一段典型的 Spark 词频（Scala 风格示意）：
 
 ```scala
-val counts = lines
-  .flatMap(_.split(" "))
-  .map((_, 1))
+val counts = textFile
+  .flatMap(line => line.split(" "))
+  .map(word => (word, 1))
   .reduceByKey(_ + _)
-counts.collect()
+  .collect()
 ```
 
 **重点：理解 Spark 的性能，要理解两类操作的差别——变换（transformation）惰性构建 DAG，行动（action）触发实际计算。** 优化的一条主线就是「减少 shuffle」：`groupByKey` 会全量重排数据，而 `reduceByKey` 先在本地预聚合再重排，数据量小得多——同样是按键聚合，`reduceByKey` 几乎总是更快。<span class="marginnote">shuffle 是分布式计算里最贵的操作：它要把相同键的数据从所有机器上收拢到一起，涉及跨网络传输与磁盘溢写。凡是需要 shuffle 的操作（join、groupBy、distinct）都要问一句：「能不能先在本地减少一点？」——本地预聚合（map-side combine）往往能省掉一个数量级的网络流量。</span>
@@ -66,11 +72,16 @@ counts.collect()
 
 数据科学家接触 Spark 的方式通常是 **Spark SQL**：用 SQL 风格处理大规模表数据，底层仍走 RDD/DAG。
 
-```sql
-SELECT user_id, SUM(amount) AS total
-FROM events
-GROUP BY user_id
-HAVING SUM(amount) > 1000;
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("daily_etl").getOrCreate()
+
+daily = spark.sql("""
+    SELECT user_id, DATE(event_time) AS day, COUNT(*) AS cnt
+    FROM events
+    GROUP BY user_id, DATE(event_time)
+""")
 ```
 
 Spark SQL 支持 DataFrame API 与纯 SQL 两种写法，可直接读写数据湖（第18篇）里的 Parquet 文件。**批处理**是它的主场：把「按日聚合用户行为」这类大规模 ETL 跑成定时任务。
@@ -99,7 +110,7 @@ Spark 项目跑得慢，绝大多数时候不是集群不够大，而是代码�
 
 **两个经典解法：**
 
-1. **加盐（salting）**：把热点 key 拆散。对热点 key 加随机后缀（`hotkey_0`、`hotkey_1`……）让数据分散到多个分区先做局部聚合，再去盐做第二次聚合——「局部聚合 → 全局聚合」两阶段。
+1. **加盐（salting）**：把热点 key 拆散。对热点 key 加随机后缀（`_0`、`_1`……）让数据分散到多个分区先做局部聚合，再去盐做第二次聚合——「局部聚合 → 全局聚合」两阶段。
 2. **广播 join（broadcast join）**：当小表足够小时，把它广播到每个 executor 内存里，join 不再 shuffle，从根源避开倾斜。
 
 **辨析｜易错点：** 数据倾斜最难的不是「怎么修」，而是「怎么发现」。**只盯着总耗时看，你会以为是「集群太小」**——要先看 Spark UI 的 task 耗时分布，确认是不是「极少数 task 拖尾」。诊断对了再动手：加盐有额外的代码复杂度，广播 join 有小表大小限制，**方案要按「倾斜的形态」选，不能乱上**。

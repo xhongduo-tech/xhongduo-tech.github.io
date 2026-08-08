@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 Grover 迭代开始
 
-上一节立了经典下界 $N$，现在轮到 Grover 亮出它的 $\sqrt N$。Grover 算法只有两步原料：**oracle**（标记目标）与**扩散算子**（对初始态反射），两者合成一次 **Grover 迭代** $G$，重复约 $\frac{\pi}{4}\sqrt{N}$ 次后测量。<span class="marginnote">Grover 算法出自 L. Grover, "A fast quantum mechanical algorithm for database search," <i>STOC</i> 1996。注意一个常被忽视的点：它要求数据库条目<strong>无结构</strong>，但 oracle 本身可以内部知道「怎么判断目标」——比如「$x$ 是否为某个哈希值的原像」。</span>本节把这两个算子逐个拆开，看清楚每一步在状态上做了什么。
+上一节立了经典下界 $N$，现在轮到 Grover 亮出它的 $\sqrt N$。Grover 算法只有两步原料：**oracle**（标记目标）与**扩散算子**（对初始态反射），两者合成一次 **Grover 迭代** $G$，重复约 $\frac{\pi}{4}\sqrt{N}$ 次后测量。<span class="marginnote">Grover 算法出自 L. Grover, "A fast quantum mechanical algorithm for database search," <i>STOC</i> 1996。注意一个常被忽视的点：它要求数据库条目<strong>无结构</strong>，但 oracle 本身可以内部知道「怎么判断目标」——比如「$x$ 是否为某个哈希值的原像」。本节把这两个算子逐个拆开，看清楚每一步在状态上做了什么。</span>
 
 ## 1 Oracle：翻转目标相位
 

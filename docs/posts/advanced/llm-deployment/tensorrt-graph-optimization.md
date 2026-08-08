@@ -30,26 +30,26 @@ TensorRT 把模型表示为一张有向无环图（DAG），节点是**层（lay
 
 ## 2 常量折叠、死代码消除与代数简化
 
-**常量折叠（constant folding）**：把「输入全是常量」的子图在构建期就计算掉。模型里到处都是这类结构——`attention_mask` 的 `1 - mask`、位置编码的 `sin/cos` 预计算、归一化层的 `eps` 加法。构建期算掉它们，运行时每步就少几个内核调用。<span class="marginnote">在 LLM 里，<strong>旋转位置编码（RoPE）的 cos/sin 表</strong>是典型被折叠对象：它们只依赖位置索引，与权重无关，完全可以在构建期算成一张表。</span>
+**常量折叠（constant folding）**：把「输入全是常量」的子图在构建期就计算掉。模型里到处都是这类结构——因果掩码的三角矩阵、位置编码的 cos/sin 预计算、归一化层的 eps 加法。构建期算掉它们，运行时每步就少几个内核调用。<span class="marginnote">在 LLM 里，<strong>旋转位置编码（RoPE）的 cos/sin 表</strong>是典型被折叠对象：它们只依赖位置索引，与权重无关，完全可以在构建期算成一张表。</span>
 
 **死代码消除（dead code elimination, DCE）**：删掉输出永远不会被使用的子图。例如在 debug 模式下输出的中间张量、或某层算完后从未被引用。DCE 在每次重写后都会跑一遍，保证图里没有「白算」的节点。
 
 **代数简化（algebraic simplification）**：把数学等价的模式换成更便宜的形式：
 
-- $x \times 1 \rightarrow x$，$x + 0 \rightarrow x$，去掉恒等变换层；
-- $\text{scale} \times \text{scale}'$ 合并成一次缩放（例如两个相邻归一化）；
-- `transpose` 与 `reshape` 的相邻组合合并成一次布局变换；
-- 把「先除以分母再乘以权重」合并为「乘以合并后的系数」。
+$x \times 1 \rightarrow x$，$x + 0 \rightarrow x$，去掉恒等变换层；
+$\text{scale} \times \text{scale}'$ 合并成一次缩放（例如两个相邻归一化）；
+Transpose 与 Reshape 的相邻组合合并成一次布局变换；
+把「先除以分母再乘以权重」合并为「乘以合并后的系数」。
 
 这些变换不改变数学结果，却能把图里的冗余层成批消掉。LLM 里动辄上百层的 Transformer，每层省几个恒等层，累计起来就是可观的启动开销节省。
 
 ## 3 布局优化与数据通路选择
 
-图优化最「硬核」的一块是**内存布局（layout）优化**：同一个张量，在 GPU 上可以排成 NCHW、NHWC、NCDHW 等不同排列；对矩阵乘法，还有 `row-major` 与 `col-major` 的差别。<span class="marginnote">cuBLAS 的 GEMM 对 layout 极其挑剔：<strong>换一个布局，性能可能差出几倍</strong>。TensorRT 会为每个中间张量试探多种布局，在「布局转换的开销」与「后续算子因此获得的提速」之间做全局权衡。</span>
+图优化最「硬核」的一块是**内存布局（layout）优化**：同一个张量，在 GPU 上可以排成 NCHW、NHWC、NCDHW 等不同排列；对矩阵乘法，还有行主序（row-major）与列主序（column-major）的差别。<span class="marginnote">cuBLAS 的 GEMM 对 layout 极其挑剔：<strong>换一个布局，性能可能差出几倍</strong>。TensorRT 会为每个中间张量试探多种布局，在「布局转换的开销」与「后续算子因此获得的提速」之间做全局权衡。</span>
 
 **数据通路（data path）选择**则指为每个层挑选实现路径：同样一个 GEMM，可以用 cuBLAS、cuDNN、TensorRT 自研内核，也可以走 Tensor Core 的 cutlass 实现；INT8 量化后还可以选 FP32 累加的「精确路径」或 FP16 累加的「快速路径」。TensorRT 用**成本模型 + 实际基准（tactic）**在构建期为每个层选出最快实现。
 
-**辨析｜易错点：布局优化不是局部最优的叠加。** 初学者容易以为「每个层选最快布局，全局就最快」。实际上 layout 变换层（`transpose`/`permute`）本身是昂贵的内存拷贝，一个层的最快布局可能强迫下一个层多付出两次转换。TensorRT 在**整图层面**做联合搜索（结合动态规划式的最短路径思想），把「转换开销」与「执行提速」统一进成本函数——这正是图优化器最复杂也最有价值的部分。
+**辨析｜易错点：布局优化不是局部最优的叠加。** 初学者容易以为「每个层选最快布局，全局就最快」。实际上 layout 变换层（Transpose/Permute）本身是昂贵的内存拷贝，一个层的最快布局可能强迫下一个层多付出两次转换。TensorRT 在**整图层面**做联合搜索（结合动态规划式的最短路径思想），把「转换开销」与「执行提速」统一进成本函数——这正是图优化器最复杂也最有价值的部分。
 
 ## 4 公式解析：图变换的收益度量
 
@@ -59,7 +59,7 @@ $$T = \sum_{i=1}^{N} (t_i + s) = \sum_{i=1}^{N} t_i + N \cdot s$$
 
 - **第一步，读出两层含义**：总耗时 = 计算时间总和 + 启动开销总和。当 $t_i$ 很小（几十微秒量级的 elementwise 算子）时，$N \cdot s$ 甚至超过 $\sum t_i$——**启动开销占比失控**。
 - **第二步，代入融合与消除的效果**：若图重写把 $N$ 个层削减为 $M$ 个（$M < N$），且被削掉的层原本计算量很小，那么 $T' \approx \sum_{i=1}^{M} t_i + M \cdot s$。节省量约为 $(N-M) \cdot s$——**每消掉一个层，就省一次内核启动**。
-- **第三步，看出图优化的杠杆在哪**：LLM 的一层 transformer 里有大量 elementwise 小算子（残差加、`LayerNorm` 缩放、`mask` 乘），单个 $t_i$ 小但数量庞大。**图优化 + 内核融合（下一篇）把几百个小算子折叠成十几个大内核**，让 $N \cdot s$ 项急剧下降，这正是 TensorRT 推理延迟低于动态图框架的秘密。
+- **第三步，看出图优化的杠杆在哪**：LLM 的一层 transformer 里有大量 elementwise 小算子（残差加、LayerNorm 缩放、SwiGLU 逐元素乘），单个 $t_i$ 小但数量庞大。**图优化 + 内核融合（下一篇）把几百个小算子折叠成十几个大内核**，让 $N \cdot s$ 项急剧下降，这正是 TensorRT 推理延迟低于动态图框架的秘密。
 
 值得强调：$T$ 是「一次 decode 的耗时」。LLM 解码要逐 token 执行成百上千次，每省 10 微秒，一个 1000-token 回答就省 10 毫秒——图优化的收益是**乘上序列长度**的。
 

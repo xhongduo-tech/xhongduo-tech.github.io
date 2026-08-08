@@ -26,8 +26,8 @@ UserCF 的思想朴素到可以用一句话概括：**和你口味相似的人�
 
 它把推荐拆成两步：
 
-- **第一步，找相似用户**：把目标用户 $u$ 与其他所有用户两两比较，找出与 $u$ 最相似的 $K$ 个用户，记为 $S(u, K)$。
-- **第二步，聚合投票**：把这 $K$ 个用户喜欢过、而 $u$ 没有看过的物品挑出来，按「推荐程度」从高到低排序，生成推荐列表。
+**第一步，找相似用户**：把目标用户 $u$ 与其他所有用户两两比较，找出与 $u$ 最相似的 $K$ 个用户，记为 $S(u, K)$。
+**第二步，聚合投票**：把这 $K$ 个用户喜欢过、而 $u$ 没有看过的物品挑出来，按「推荐程度」从高到低排序，生成推荐列表。
 
 「人以群分」在这里第一次变成可计算的流程：**相似度是桥梁，投票是机制**。接下来我们分别把这两步量化。
 
@@ -103,44 +103,47 @@ $$
 把上面的逻辑写成 Python，核心不到 40 行：
 
 ```python
-import math
 from collections import defaultdict
+import math
 
-def user_similarity(train):
-    """train: {user: set(items)}，返回 {u: {v: w_uv}}"""
-    # 1. 物品 -> 用户集合 的倒排表
-    item_users = defaultdict(set)
-    for u, items in train.items():
+def user_similarity(user_items):
+    """user_items: {user: set(items)}。倒排表 + 共现计数算用户余弦相似度。"""
+    item_users = defaultdict(set)                 # 倒排表：物品 → 用户集合
+    for u, items in user_items.items():
         for i in items:
             item_users[i].add(u)
 
-    # 2. 只统计共现过的用户对
-    C = defaultdict(int)   # C[(u, v)] = |N(u) ∩ N(v)|
-    N = defaultdict(int)   # N[u] = |N(u)|
+    C = defaultdict(lambda: defaultdict(int))
     for i, users in item_users.items():
         for u in users:
-            N[u] += 1
             for v in users:
                 if u != v:
-                    C[(u, v)] += 1
+                    C[u][v] += 1                  # 共同喜欢的物品数
 
-    # 3. 余弦相似度
     W = defaultdict(dict)
-    for (u, v), cnt in C.items():
-        W[u][v] = cnt / math.sqrt(N[u] * N[v])
+    for u, related in C.items():
+        for v, cuv in related.items():
+            W[u][v] = cuv / math.sqrt(len(user_items[u]) * len(user_items[v]))
     return W
 
-def recommend(u, train, W, K=3):
-    interacted = train[u]
+def recommend(user_items, W, u, K=2, N=10):
+    """给用户 u 推荐：取 K 个最相似用户，加权聚合他们喜欢而 u 没看过的物品。"""
     rank = defaultdict(float)
-    # 只取 u 最相似的 K 个用户
-    neighbors = sorted(W[u].items(), key=lambda x: -x[1])[:K]
-    for v, w in neighbors:
-        for i in train[v]:
-            if i in interacted:   # 已看过，不重复推荐
-                continue
-            rank[i] += w          # 隐式反馈 r=1
-    return sorted(rank.items(), key=lambda x: -x[1])
+    for v, wuv in sorted(W[u].items(), key=lambda x: -x[1])[:K]:
+        for i in user_items[v]:
+            if i not in user_items[u]:            # 跳过已交互物品
+                rank[i] += wuv
+    return sorted(rank.items(), key=lambda x: -x[1])[:N]
+
+# 跑第 5 节的最小例子
+user_items = {
+    "小明": {"Matrix", "Inception"},
+    "小红": {"Matrix", "Inception", "Titanic"},
+    "小刚": {"Inception", "Coco"},
+}
+W = user_similarity(user_items)
+print(recommend(user_items, W, "小明", K=2))
+# [('Titanic', 0.816), ('Coco', 0.5)]
 ```
 
 两个实现要点：**倒排表把 $O(n^2)$ 压成了共现对规模**；**推荐时跳过用户已交互的物品**，保证推荐的新颖性。

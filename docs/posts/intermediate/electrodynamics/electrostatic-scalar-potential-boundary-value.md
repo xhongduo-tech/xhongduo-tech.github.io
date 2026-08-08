@@ -29,8 +29,8 @@ $$\nabla^2\varphi = 0 \qquad \text{（无源区）}$$
 要唯一确定解，必须在边界 $\Sigma$ 上补充条件。经典边值问题有三类：
 
 - **第一类边值问题（狄利克雷）**：给定边界上 $\varphi$ 的值 $\varphi|_{\Sigma} = f(\mathbf{r})$。导体表面电势已知时用这类。<span class="marginnote">狄利克雷条件对应「固定势」：例如导体球保持电势 $V_0$，无穷远处电势为零。物理上，第一类条件由「导体与电源相连」实现。</span>
-- **第二类边值问题（诺伊曼）**：给定边界上电势的法向导数 $\left.\dfrac{\partial\varphi}{\partial n}\right|_{\Sigma} = g(\mathbf{r})$。由于 $E_n = -\partial\varphi/\partial n$，这等价于给定边界上的法向场强——即给定面电荷密度（导体表面 $\sigma = \varepsilon_0 E_n$）。<span class="marginnote">第二类条件对应「固定电荷」：导体带已知总电荷时，法向场强（也就是面电荷密度）被锁定。诺伊曼条件的解差一个常数——电势的绝对零点不可由第二类条件确定，还需另加约定。</span>
-- **第三类边值问题（混合/罗宾）**：边界上同时给出 $\varphi$ 与 $\partial\varphi/\partial n$ 的线性组合。
+**第二类边值问题（诺伊曼）**：给定边界上电势的法向导数 $\left.\dfrac{\partial\varphi}{\partial n}\right|_{\Sigma} = g(\mathbf{r})$。由于 $E_n = -\partial\varphi/\partial n$，这等价于给定边界上的法向场强——即给定面电荷密度（导体表面 $\sigma = \varepsilon_0 E_n$）。<span class="marginnote">第二类条件对应「固定电荷」：导体带已知总电荷时，法向场强（也就是面电荷密度）被锁定。诺伊曼条件的解差一个常数——电势的绝对零点不可由第二类条件确定，还需另加约定。</span>
+**第三类边值问题（混合/罗宾）**：边界上同时给出 $\varphi$ 与 $\partial\varphi/\partial n$ 的线性组合。
 
 **解的唯一性**：给定合适的边界条件，静电边值问题的解唯一（对第一类问题由能量泛函极值或格林公式证明；第二类问题解差常数）。**唯一性定理（uniqueness theorem）**是整个静电学最有力的工具：它保证「只要找到一个满足方程与边界条件的解，它就是要找的那个」，从而让镜像法、试探解等方法成为合法——你不需要从零推导，只要猜中一个解就赢。
 
@@ -50,8 +50,8 @@ $$\nabla^2\varphi = 0 \qquad \text{（无源区）}$$
 
 静电问题还经常遇到**两种介质**或**介质-导体**交界面，场量在交界面两侧要满足**边值关系（boundary conditions）**。由麦克斯韦方程组的积分形式在薄层极限下得到：
 
-- **法向分量**：$D_{2n} - D_{1n} = \sigma_f$，即电位移矢量的法向分量跨过自由面电荷时发生跃变，跃变值等于面自由电荷密度。
-- **切向分量**：$E_{2t} - E_{1t} = 0$，即电场切向分量连续（静电场无旋的直接推论）。<span class="marginnote">用势函数表达更常用：$\varphi_1 = \varphi_2$（势连续）且 $\varepsilon_1\dfrac{\partial\varphi_1}{\partial n} - \varepsilon_2\dfrac{\partial\varphi_2}{\partial n} = \sigma_f$（法向电位移的跃变）。若界面上无自由电荷，则 $\varepsilon_1\partial\varphi_1/\partial n = \varepsilon_2\partial\varphi_2/\partial n$。这一对条件是后面《电介质中的静电场》反复使用的连接条件。</span>
+**法向分量**：$D_{2n} - D_{1n} = \sigma_f$，即电位移矢量的法向分量跨过自由面电荷时发生跃变，跃变值等于面自由电荷密度。
+**切向分量**：$E_{2t} - E_{1t} = 0$，即电场切向分量连续（静电场无旋的直接推论）。<span class="marginnote">用势函数表达更常用：$\varphi_1 = \varphi_2$（势连续）且 $\varepsilon_1\dfrac{\partial\varphi_1}{\partial n} - \varepsilon_2\dfrac{\partial\varphi_2}{\partial n} = \sigma_f$（法向电位移的跃变）。若界面上无自由电荷，则 $\varepsilon_1\partial\varphi_1/\partial n = \varepsilon_2\partial\varphi_2/\partial n$。这一对条件是后面《电介质中的静电场》反复使用的连接条件。</span>
 
 **辨析｜易错点：** 电场强度 $\mathbf{E}$ 的**法向**分量在无自由电荷的界面上**不**连续（它由 $\varepsilon$ 的比值决定），而电位移 $\mathbf{D}$ 的法向分量连续；磁场/电场切向分量的连续性则相反地依赖于电流面密度。把「$\mathbf{E}$ 连续」误当成「$\mathbf{E}$ 处处连续」是常见的错误——只有切向分量连续，法向分量要看界面两侧的介电常数。
 
@@ -59,9 +59,9 @@ $$\nabla^2\varphi = 0 \qquad \text{（无源区）}$$
 
 唯一性定理是边值问题的方法论基石。以第一类问题为例，证明的骨架：
 
-- **第一步，作差**：假设存在两个解 $\varphi_1$、$\varphi_2$ 都满足泊松方程与相同边界条件。令 $u = \varphi_1 - \varphi_2$，则 $u$ 满足拉普拉斯方程 $\nabla^2 u = 0$，且边界上 $u|_{\Sigma} = 0$。
-- **第二步，能量积分**：利用恒等式 $\nabla\cdot(u\nabla u) = u\nabla^2 u + |\nabla u|^2 = |\nabla u|^2$（因为 $\nabla^2 u = 0$），对区域积分并用散度定理：$\int_V |\nabla u|^2\,\mathrm{d}V = \oint_{\Sigma} u\nabla u\cdot\mathrm{d}\mathbf{S} = 0$（边界上 $u = 0$）。
-- **第三步，结论**：非负函数 $|\nabla u|^2$ 在区域内的积分为零，故 $|\nabla u|^2 \equiv 0$，即 $\nabla u = 0$，$u$ 为常数；再由边界 $u = 0$ 知 $u \equiv 0$。于是 $\varphi_1 = \varphi_2$，解唯一。<span class="marginnote">这个证明只用了一个恒等式和散度定理，却点破了「能量积分」的核心地位：静电场的能量 $\frac{\varepsilon_0}{2}\int|\nabla\varphi|^2\,\mathrm{d}V$ 对给定边界条件取极小值，正是最小能量原理——力学中的「势能极小」在静电场中的翻版。这个思想在后面《静电场的能量与作用力》一节会深化。</span>
+**第一步，作差**：假设存在两个解 $\varphi_1$、$\varphi_2$ 都满足泊松方程与相同边界条件。令 $u = \varphi_1 - \varphi_2$，则 $u$ 满足拉普拉斯方程 $\nabla^2 u = 0$，且边界上 $u|_{\Sigma} = 0$。
+**第二步，能量积分**：利用恒等式 $\nabla\cdot(u\nabla u) = u\nabla^2 u + |\nabla u|^2 = |\nabla u|^2$（因为 $\nabla^2 u = 0$），对区域积分并用散度定理：$\int_V |\nabla u|^2\,\mathrm{d}V = \oint_{\Sigma} u\nabla u\cdot\mathrm{d}\mathbf{S} = 0$（边界上 $u = 0$）。
+**第三步，结论**：非负函数 $|\nabla u|^2$ 在区域内的积分为零，故 $|\nabla u|^2 \equiv 0$，即 $\nabla u = 0$，$u$ 为常数；再由边界 $u = 0$ 知 $u \equiv 0$。于是 $\varphi_1 = \varphi_2$，解唯一。<span class="marginnote">这个证明只用了一个恒等式和散度定理，却点破了「能量积分」的核心地位：静电场的能量 $\frac{\varepsilon_0}{2}\int|\nabla\varphi|^2\,\mathrm{d}V$ 对给定边界条件取极小值，正是最小能量原理——力学中的「势能极小」在静电场中的翻版。这个思想在后面《静电场的能量与作用力》一节会深化。</span>
 
 ## 5 三类经典解法预告
 

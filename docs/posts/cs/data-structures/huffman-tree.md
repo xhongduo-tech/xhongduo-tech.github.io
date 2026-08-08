@@ -48,11 +48,36 @@ $$
 4. 重复步骤 2、3，直到 $F$ 只剩一棵树——它就是赫夫曼树。
 
 ```c
-/* 森林用最小堆/有序表维护，每次取两个最小 */
-for (i = 1; i < n; i++) {
-    选取根权值最小的两棵树 T1, T2;
-    构造新根，权值 = w(T1) + w(T2);
-    删除 T1, T2，插入新树;
+typedef struct {
+    unsigned weight;             /* 权值 */
+    int parent, lchild, rchild;  /* 双亲与左右孩子下标，-1 表示空 */
+} HTNode;
+
+/* 在 ht[1..k] 中选出两个权值最小且双亲为空的结点 */
+void Select(HTNode ht[], int k, int *s1, int *s2) {
+    int i, min1 = 0, min2 = 0;
+    for (i = 1; i <= k; i++)
+        if (ht[i].parent == -1) { min1 = i; break; }
+    for (i = 1; i <= k; i++)
+        if (ht[i].parent == -1 && ht[i].weight < ht[min1].weight) min1 = i;
+    for (i = 1; i <= k; i++)
+        if (ht[i].parent == -1 && i != min1) { min2 = i; break; }
+    for (i = 1; i <= k; i++)
+        if (ht[i].parent == -1 && i != min1 && ht[i].weight < ht[min2].weight) min2 = i;
+    *s1 = min1; *s2 = min2;
+}
+
+/* 用 n 个权值 w[1..n] 构造赫夫曼树，存于 ht[1..2n-1] */
+void HuffmanTree(HTNode ht[], int w[], int n) {
+    int i, m = 2 * n - 1, s1, s2;
+    for (i = 1; i <= m; i++) ht[i].parent = ht[i].lchild = ht[i].rchild = -1;
+    for (i = 1; i <= n; i++) ht[i].weight = w[i];
+    for (i = n + 1; i <= m; i++) {              /* 合并 n-1 次 */
+        Select(ht, i - 1, &s1, &s2);            /* 取两个最小根 */
+        ht[s1].parent = ht[s2].parent = i;
+        ht[i].lchild = s1;  ht[i].rchild = s2;
+        ht[i].weight = ht[s1].weight + ht[s2].weight;
+    }
 }
 ```
 
@@ -74,9 +99,9 @@ $$
 
 分类问题里，判定树每个叶子是一个结论，内部结点是一次比较。**不同判定顺序的代价不同**——把「出现频率高」的类别放在浅层，能减少平均比较次数，这正是赫夫曼树：
 
-- 把每个类别及其概率（作为权值）构造成赫夫曼树；
-- 从根到叶子的路径就是判定过程；
-- **平均判定代价 $= WPL / \text{总概率}$，被赫夫曼树最小化**。<span class="marginnote">经典的例子是「按成绩划分优/良/中/差」：若优秀率 5%、良好率 15%、中等 60%、不及格 20%，用赫夫曼树排判定顺序，先判「是否中等」能最快排除大多数。赫夫曼树把「最常走的分支」放最浅，平均判 2 次即得结论，而非顺序判定平均 3 次。</span>
+把每个类别及其概率（作为权值）构造成赫夫曼树；
+从根到叶子的路径就是判定过程；
+**平均判定代价 $= WPL / \text{总概率}$，被赫夫曼树最小化**。<span class="marginnote">经典的例子是「按成绩划分优/良/中/差」：若优秀率 5%、良好率 15%、中等 60%、不及格 20%，用赫夫曼树排判定顺序，先判「是否中等」能最快排除大多数。赫夫曼树把「最常走的分支」放最浅，平均判 2 次即得结论，而非顺序判定平均 3 次。</span>
 
 ## 6 小结
 

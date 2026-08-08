@@ -82,11 +82,15 @@ $$
 
 ```python
 import numpy as np
-r = 1.324717957  # 已知高精度根
-xs = [...]       # 迭代序列
-es = np.abs(np.array(xs) - r)
-ps = np.log(es[2:]/es[1:-1]) / np.log(es[1:-1]/es[:-2])
-print(ps)        # 收敛到 2（二次）或 1（线性）
+
+def measured_order(xs, root):
+    """用相邻三次误差估算收敛阶 p。"""
+    e = np.abs(np.array(xs) - root)
+    return (np.log(e[2]) - np.log(e[1])) / (np.log(e[1]) - np.log(e[0]))
+
+# 例：牛顿法解 x³ - x - 1 = 0 的迭代序列
+xs = [1.5, 1.3478260869565217, 1.325200398950907, 1.3247181739990537]
+print(measured_order(xs, 1.324717957244746))   # 接近 2 → 二次收敛
 ```
 
 **辨析｜易错点：** 收敛阶是**渐近**概念——只在误差足够小时才显现。迭代初期（大误差）可能看不出阶数，要等误差进入「渐近区」再测。<span class="marginnote">工程提示：<strong>「测收敛阶用对数图」</strong>——画 $\ln|e_{k+1}|$ 对 $\ln|e_k|$，斜率就是 $p$。一条直线斜率 1 是线性，斜率 2 是二次。数值上「斜率」比「点对点比值」稳健得多。</span>

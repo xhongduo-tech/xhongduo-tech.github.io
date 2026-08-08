@@ -26,25 +26,25 @@ date: 2026-08-07
 
 ```sql
 CREATE VIEW faculty AS
-    SELECT ID, name, dept_name
-    FROM instructor;
+  SELECT ID, name, dept_name
+  FROM instructor;
 ```
 
-定义之后，`faculty` 就可以像普通表一样出现在任何查询的 FROM 里。这个视图的典型用途是**隐藏敏感列**：教师关系里有 salary（工资），财务以外的人不该看到它，于是对外只暴露 `ID, name, dept_name` 三列。
+定义之后，`faculty` 就可以像普通表一样出现在任何查询的 FROM 里。这个视图的典型用途是**隐藏敏感列**：教师关系里有 salary（工资），财务以外的人不该看到它，于是对外只暴露 `ID`、`name`、`dept_name` 三列。
 
 更复杂的视图可以是「连接 + 筛选」的产物：
 
 ```sql
 CREATE VIEW physics_fall_2009 AS
-    SELECT course.course_id, sec_id, building, room_number
-    FROM course, section
-    WHERE course.course_id = section.course_id
-      AND course.dept_name = 'Physics'
-      AND section.semester = 'Fall'
-      AND section.year = 2009;
+  SELECT course.course_id, sec_id, building, room_number
+  FROM course, section
+  WHERE course.course_id = section.course_id
+    AND course.dept_name = 'Physics'
+    AND section.semester = 'Fall'
+    AND section.year = 2009;
 ```
 
-此后任何用户查询物理系秋季课程，都只需 `SELECT * FROM physics_fall_2009`——背后的两张表、四个条件被封装进了名字里。<span class="marginnote">注意 CREATE VIEW 是 DDL 不是 DML：它在系统目录（数据字典）里登记一条「视图定义」，但不触碰任何业务数据。与表不同，视图建立时不会真的执行那条 SELECT。</span>不用了可以 `DROP VIEW physics_fall_2009;`，只删定义、不动底层表。
+此后任何用户查询物理系秋季课程，都只需 `FROM physics_fall_2009`——背后的两张表、四个条件被封装进了名字里。<span class="marginnote">注意 CREATE VIEW 是 DDL 不是 DML：它在系统目录（数据字典）里登记一条「视图定义」，但不触碰任何业务数据。与表不同，视图建立时不会真的执行那条 SELECT。</span>不用了可以 `DROP VIEW physics_fall_2009`，只删定义、不动底层表。
 
 ## 2 视图的查询展开：它是怎么跑起来的
 
@@ -55,7 +55,9 @@ $$\text{用户查询}\;\; Q(\text{faculty}) \;\;\longrightarrow\;\; Q\Big(\pi_{\
 比如用户执行：
 
 ```sql
-SELECT name FROM faculty WHERE dept_name = 'Music';
+SELECT name
+FROM faculty
+WHERE dept_name = 'Music';
 ```
 
 它先被展开成作用在视图定义上的查询，再经过优化器等价改写，最终等价于直接对底层表的查询：
@@ -72,7 +74,7 @@ $$
 
 ## 3 视图的更新：哪些能写，哪些不能写
 
-视图能查，但**不一定能改**。直觉上这是对的：对 `dept_tot_salary` 这种「按系汇总工资」的视图，用户执行 `INSERT` 要插进哪个底层元组？语义根本不存在。Silberschatz 给出了**视图可更新（updatable）**的充分条件：
+视图能查，但**不一定能改**。直觉上这是对的：对 `dept_salary` 这种「按系汇总工资」的视图，用户执行 `INSERT` 要插进哪个底层元组？语义根本不存在。Silberschatz 给出了**视图可更新（updatable）**的充分条件：
 
 - FROM 子句**只含一个关系**；
 - SELECT 子句**只含该关系的属性名**，不含表达式、聚集函数、DISTINCT；
@@ -81,16 +83,16 @@ $$
 于是下面这个视图满足条件：
 
 ```sql
-CREATE VIEW instructor_info AS
-    SELECT ID, name, dept_name
-    FROM instructor
-    WHERE dept_name = 'Music';
+CREATE VIEW music_instructor AS
+  SELECT ID, name, dept_name
+  FROM instructor
+  WHERE dept_name = 'Music';
 ```
 
 对它做插入是合法的——系统把插入翻译到 `instructor` 表上，未出现在视图里的列（如 salary）填默认值或 NULL：
 
 ```sql
-INSERT INTO instructor_info VALUES ('69987', 'White', 'Music');
+INSERT INTO music_instructor VALUES ('10211', 'Smith', 'Music');
 ```
 
 这条插入会在 `instructor` 里生成一个音乐系的教师元组，它恰好落在视图的范围内，因此能在这个视图里被看见。
@@ -98,22 +100,22 @@ INSERT INTO instructor_info VALUES ('69987', 'White', 'Music');
 **但这里有个隐藏的语义漏洞。** 若插入的是：
 
 ```sql
-INSERT INTO instructor_info VALUES ('69987', 'White', 'Finance');
+INSERT INTO music_instructor VALUES ('10212', 'Brown', 'Finance');
 ```
 
-系统同样会插入到 `instructor`——生成的元组 `dept_name='Finance'` **不满足视图的 WHERE 条件**，于是在这个视图里永远看不到自己。用户插了一行「合法的教师」，却在自己的视图里查不到，会造成严重困惑。
+系统同样会插入到 `instructor`——生成的元组 `dept_name = 'Finance'` **不满足视图的 WHERE 条件**，于是在这个视图里永远看不到自己。用户插了一行「合法的教师」，却在自己的视图里查不到，会造成严重困惑。
 
 **WITH CHECK OPTION** 正是堵这个洞的：定义视图时带上它，系统就会强制校验「插入 / 更新后的元组必须仍满足视图条件」：
 
 ```sql
-CREATE VIEW instructor_info AS
-    SELECT ID, name, dept_name
-    FROM instructor
-    WHERE dept_name = 'Music'
-    WITH CHECK OPTION;
+CREATE VIEW music_instructor AS
+  SELECT ID, name, dept_name
+  FROM instructor
+  WHERE dept_name = 'Music'
+  WITH CHECK OPTION;
 ```
 
-此后 `INSERT ... ('Finance')` 会被**整条拒绝**，因为新元组不符合视图的 WHERE 条件。
+此后 `INSERT INTO music_instructor VALUES ('10212', 'Brown', 'Finance')` 会被**整条拒绝**，因为新元组不符合视图的 WHERE 条件。
 
 **辨析｜易错点：** 不满足可更新条件的视图，对其 UPDATE / DELETE 在标准里同样受限。对聚集视图（GROUP BY）、连接视图（多个 FROM 关系）做更新，多数系统直接报错，个别系统则按「尽力而为」翻译，语义难以预期。**工程铁律：别指望视图层替你写数据，视图是读的抽象，写请落到真正的表上。**
 
@@ -153,7 +155,7 @@ $$
 
 ## 6 小结
 
-- **视图**：由查询定义、不实际存储的虚关系，`CREATE VIEW v AS <查询>` 创建，`DROP VIEW` 删除。
+- **视图**：由查询定义、不实际存储的虚关系，`CREATE VIEW` 创建，`DROP VIEW` 删除。
 - **查询展开**：使用视图的查询会把视图名替换为定义，展开后的查询交给优化器；普通视图**每次查询现场执行**，实时反映底层数据。
 - **可更新视图**需满足：FROM 单表、SELECT 只含属性名、无 GROUP BY / HAVING——本质是「视图行与底层元组一一对应」。
 - **WITH CHECK OPTION** 强制「插入 / 更新后的元组仍满足视图条件」，堵住「插入却看不见」的漏洞。

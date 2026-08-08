@@ -88,7 +88,7 @@ $$
 - **同构即相等**：若 $G \cong H$，则它们具有完全相同的群论性质——同阶、同数量的各阶元素、同构的子群格、同构的自同构群。在群论里，「同构」就是「相等」，$G \cong H$ 与 $G = H$ 只在集合层面不同，在结构层面毫无差别。
 - **经典同构**：任意 $n$ 阶循环群 $\langle a \rangle \cong (\mathbb{Z}_n, +)$；$(\mathbb{Z}, +) \cong 2\mathbb{Z}$（$n \mapsto 2n$ 是同构，因为它是双射同态）；$(\mathbb{R}^\ast, \times)$ 上 $x \mapsto x^{-1}$ 是自同构。
 - **行列式是同态**：$\det : GL_n(\mathbb{R}) \to \mathbb{R}^\ast$ 是群同态，其核恰为 $SL_n(\mathbb{R})$——上一节验证的子群，现在用同态语言重新理解：任何同态的核都是子群，$SL_n$ 成为子群是自动的。<span class="marginnote">行列式 $\det : GL_n(\mathbb{R}) \to \mathbb{R}^\ast$ 是非平凡的群同态，核为 $SL_n(\mathbb{R})$。线性代数里学过的行列式，第一次以「同态」的身份与群论握手——这也说明 $SL_n$ 是子群并不偶然。</span>
-- **自同构群**：$G$ 的全体自同构在复合下构成一个群，记作 $\operatorname{Aut}(G)$。$\operatorname{Aut}(G)$ 刻画 $G$ 自身的对称，是「对称的对称」。第三篇的 Cayley 定理将进一步说明：每个群都同构于某个对称群的子群——群论由此完成了「一切群都是置换群」的大一统。<span class="marginnote">$\operatorname{Aut}(G)$ 的元素是 $G$ 的结构自对称。研究 $G$ 的自同构群，等于研究「对称之对称」——这个递归视角在 Galois 理论（第十一篇）中被推到极致：域扩张的自同构群（Galois 群）决定了方程能否根式求解。</span>
+**自同构群**：$G$ 的全体自同构在复合下构成一个群，记作 $\operatorname{Aut}(G)$。$\operatorname{Aut}(G)$ 刻画 $G$ 自身的对称，是「对称的对称」。第三篇的 Cayley 定理将进一步说明：每个群都同构于某个对称群的子群——群论由此完成了「一切群都是置换群」的大一统。<span class="marginnote">$\operatorname{Aut}(G)$ 的元素是 $G$ 的结构自对称。研究 $G$ 的自同构群，等于研究「对称之对称」——这个递归视角在 Galois 理论（第十一篇）中被推到极致：域扩张的自同构群（Galois 群）决定了方程能否根式求解。</span>
 
 ## 6 例：从 ℤ 出发的同态族
 

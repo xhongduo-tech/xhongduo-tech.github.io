@@ -85,17 +85,27 @@ QR 路径：对 $A$ 做 QR（过程略），回代得到同样的 $a_0,a_1$。**
 ```python
 import numpy as np
 
-A = np.array([[1,0],[1,1],[1,2],[1,3]], dtype=float)
-b = np.array([1.0, 2.0, 3.1, 3.9])
+# 良态小例子：直线拟合，两条路径给出同一组系数
+x = np.array([0., 1., 2., 3.])
+y = np.array([1., 2., 3.1, 3.9])
+A = np.vstack([np.ones_like(x), x]).T          # 设计矩阵
 
-x_qr, *_ = np.linalg.lstsq(A, b, rcond=None)      # 内部走 QR/SVD
-print("lstsq (QR/SVD):", x_qr)                     # ≈ [1.03, 0.975]
+a_normal = np.linalg.solve(A.T @ A, A.T @ y)   # 法方程
+Q, R = np.linalg.qr(A)                          # QR（reduced）
+a_qr = np.linalg.solve(R, Q.T @ y)              # 回代
+print(a_normal, a_qr)                           # 同一组系数（约 [1.03, 0.98]）
 
-x_ne = np.linalg.solve(A.T @ A, A.T @ b)           # 法方程
-print("normal eq:     ", x_ne)
+# 病态对照：窄区间上的高次拟合，法方程条件数平方恶化
+t = np.linspace(1.0, 1.2, 15)                   # 区间窄 → Vandermonde 病态
+V = np.vander(t, 10, increasing=True)           # 次数 0..9
+b = np.sin(t)
+c_normal = np.linalg.solve(V.T @ V, V.T @ b)    # 法方程：cond(A)²
+c_qr = np.linalg.lstsq(V, b, rcond=None)[0]     # QR/SVD：cond(A)
+print(np.linalg.cond(V), np.linalg.cond(V.T @ V))   # cond(A) 与 cond(A)²
+print(np.linalg.norm(c_normal - c_qr))          # 两条路径的系数开始分叉
 ```
 
-两条路径结果一致，但**在病态例子上跑一遍就会发现法方程开始出现误差——这就是「为什么不直接解法方程」的实战理由**。<span class="marginnote">演示病态差异的经典例子：拟合高次多项式时（如 $n=15$），法方程路径的系数可能偏离真实几个数量级，而 `lstsq` 依旧可靠。<strong>凡是方程数目大的拟合，一律 `lstsq` / QR / SVD，别手写 $A^\top A$。</strong></span>
+两条路径结果一致，但**在病态例子上跑一遍就会发现法方程开始出现误差——这就是「为什么不直接解法方程」的实战理由**。<span class="marginnote">演示病态差异的经典例子：拟合高次多项式时（如 $n=15$），法方程路径的系数可能偏离真实几个数量级，而 $A^\top A$ 依旧可靠。<strong>凡是方程数目大的拟合，一律 $A^\top A$ / QR / SVD，别手写 $A^\top A$。</strong></span>
 
 ## 5 辨析：超定、欠定与适定的谱系
 

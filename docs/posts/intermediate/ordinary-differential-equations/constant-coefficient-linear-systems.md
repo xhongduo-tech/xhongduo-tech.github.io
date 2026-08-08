@@ -88,10 +88,10 @@ $$\boldsymbol{x}_1 = \begin{pmatrix}\cos t \\ -\sin t\end{pmatrix}, \qquad \bold
 
 这条公式是常系数方程组的总答案，逐层拆：
 
-- **第一步，定义如何给**：$e^{At}$ 由幂级数定义，不是「逐元素取指数」。所以 $\left(e^{At}\right)_{ij}$ 与 $e^{a_{ij}t}$ 毫无关系——这是初学者最大的误会。
-- **第二步，为什么它真是解**：对幂级数逐项求导得 $\frac{d}{dt}e^{At} = A + A^2t + \cdots = A e^{At}$。于是 $(\boldsymbol{x})' = A e^{At}\boldsymbol{x}_0 = A\boldsymbol{x}$ ✓，且 $\boldsymbol{x}(0) = I\boldsymbol{x}_0 = \boldsymbol{x}_0$ ✓。
-- **第三步，特征值怎么参与**：$e^{At}\boldsymbol{v} = e^{\lambda t}\boldsymbol{v}$ 把「矩阵指数作用在特征向量上」化为「标量指数乘特征向量」。这是特征值方法的一切起点。
-- **第四步，与矩阵指数的计算对接**：无论是 $P e^{\Lambda t}P^{-1}$ 还是 Jordan 块公式，最终都回到 $\boldsymbol{x} = e^{At}\boldsymbol{x}_0$。$A$ 的「增长方向」由特征值实部决定——$\operatorname{Re}\lambda < 0$ 的方向被压缩，$>0$ 被放大，这正是下一节稳定性讨论的前奏。<span class="marginnote">把 $e^{At}$ 想成「时间 $t$ 的流」：它是把初始状态 $\boldsymbol{x}_0$ 顺着系统动力学送到 $\boldsymbol{x}(t)$ 的映射。控制论里 $e^{A(t-t_0)}$ 正是状态转移矩阵。</span>
+**第一步，定义如何给**：$e^{At}$ 由幂级数定义，不是「逐元素取指数」。所以 $\left(e^{At}\right)_{ij}$ 与 $e^{a_{ij}t}$ 毫无关系——这是初学者最大的误会。
+**第二步，为什么它真是解**：对幂级数逐项求导得 $\frac{d}{dt}e^{At} = A + A^2t + \cdots = A e^{At}$。于是 $(\boldsymbol{x})' = A e^{At}\boldsymbol{x}_0 = A\boldsymbol{x}$ ✓，且 $\boldsymbol{x}(0) = I\boldsymbol{x}_0 = \boldsymbol{x}_0$ ✓。
+**第三步，特征值怎么参与**：$e^{At}\boldsymbol{v} = e^{\lambda t}\boldsymbol{v}$ 把「矩阵指数作用在特征向量上」化为「标量指数乘特征向量」。这是特征值方法的一切起点。
+**第四步，与矩阵指数的计算对接**：无论是 $P e^{\Lambda t}P^{-1}$ 还是 Jordan 块公式，最终都回到 $\boldsymbol{x} = e^{At}\boldsymbol{x}_0$。$A$ 的「增长方向」由特征值实部决定——$\operatorname{Re}\lambda < 0$ 的方向被压缩，$>0$ 被放大，这正是下一节稳定性讨论的前奏。<span class="marginnote">把 $e^{At}$ 想成「时间 $t$ 的流」：它是把初始状态 $\boldsymbol{x}_0$ 顺着系统动力学送到 $\boldsymbol{x}(t)$ 的映射。控制论里 $e^{A(t-t_0)}$ 正是状态转移矩阵。</span>
 
 ## 5 实例：双弹簧-质量系统
 

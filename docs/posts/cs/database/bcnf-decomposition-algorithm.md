@@ -22,12 +22,15 @@ date: 2026-08-07
 
 输入：模式 $R$ 与依赖集 $F$。输出：满足 BCNF 的无损分解。
 
-```
-result := {R}
-while 存在 Ri ∈ result 不满足 BCNF:
-    找 Ri 上的非平凡依赖 α→β 使 α 不是超码（α+ ≠ Ri）
-    把 Ri 拆成 Ri1 = αβ 与 Ri2 = Ri − β
-    用 {αβ, Ri−β} 替换 result 中的 Ri
+```text
+result := { R }
+done := false
+while not done do
+    if result 中存在模式 R_i 不满足 BCNF（有依赖 α → β 且 α 非超码）
+        result := (result − R_i) ∪ (R_i − β) ∪ (αβ)
+    else
+        done := true
+return result
 ```
 
 每一步拆完，两个子模式都更小，且都有原模式的属性做公共部分——**递归终止是必然的**（属性数单调递减）。
@@ -60,7 +63,7 @@ $$
 - 检查 $R_2 = ACD$：依赖投影只剩（$BC \to D$ 里 B 不在 $R_2$，丢弃）……$R_2$ 上无违反 BCNF 的依赖？$R_2$ 候选码 $AC$，无其他非平凡依赖 → 满足。
 - 结果：$R_1(AB), R_2(ACD)$，无损。
 
-**例 2（经典必考）**：`dept_advisor(s_id, i_id, dept_id)`，$F = \{ i\_id \to dept\_id, \; (s\_id, dept\_id) \to i\_id \}$。
+**例 2（经典必考）**：$R = (s\_id, i\_id, dept\_id)$，$F = \{ i\_id \to dept\_id, \; (s\_id, dept\_id) \to i\_id \}$。
 
 - $i\_id \to dept\_id$ 左侧 $i\_id^+ = \{i\_id, dept\_id\} \ne R$ → 违反，拆成 $R_1(s\_id, i\_id)$、$R_2(i\_id, dept\_id)$。
 - 两个子模式各自满足 BCNF → 终止。如上一节所见：**无损但 $(s\_id, dept\_id) \to i\_id$ 不保持**。
@@ -84,6 +87,6 @@ $$
 - 按依赖拆**天然无损**：公共属性 α 决定 αβ，满足二元无损判据。
 - 子模式的依赖要**重新投影**；判断 BCNF 用投影后的依赖。
 - BCNF 分解**无损但不保证依赖保持**；结果可能不唯一。
-- 例：`(s_id, i_id, dept_id)` 拆成 `(s_id, i_id)` 与 `(i_id, dept_id)`，丢失 `(s_id, dept_id) → i_id`。
+- 例：$R(s\_id, i\_id, dept\_id)$ 拆成 $R_1(s\_id, i\_id)$ 与 $R_2(i\_id, dept\_id)$，丢失 $(s\_id, dept\_id) \to i\_id$。
 
 在下一节，我们换一个保依赖的算法——**第三范式分解算法**（合成法）。

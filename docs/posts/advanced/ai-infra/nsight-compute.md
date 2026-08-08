@@ -31,8 +31,11 @@ nsys 告诉你「哪个 kernel 占了时间线」，但没告诉你「这个 ker
 ncu 的用法：**先 nsys 找到最贵的 kernel，再 ncu 钻进去**。它一次剖析一个（或几个）kernel，输出极其详细的硬件计数器报告。
 
 ```bash
-nsys profile -o rep python train.py   # 先找贵 kernel
-ncu --kernel-name regex --set full python train.py  # 再钻进去
+# 剖析单个 kernel：--kernel-name 限定目标，--set full 收集全部指标
+ncu --kernel-name regex:MatMulKernel --set full python train.py
+
+# 只看 Roofline 两个轴（计算/访存吞吐）与占用率
+ncu --set speed-of-light --section Occupancy python train.py
 ```
 
 **关键原则**：ncu 开销大，只对「值得优化的 kernel」做——通常是 nsys 里耗时前几的。<span class="marginnote">「先 nsys 定位、再 ncu 深挖」是 GPU 性能剖析的标准流程：nsys 是「全局找嫌疑人」，ncu 是「对嫌疑人做审讯」。直接拿 ncu 剖析整个程序不现实（太慢），必须先用 nsys 缩小范围。这套「先粗后细」的两段式是 GPU 调优的方法论。</span>
@@ -41,23 +44,23 @@ ncu --kernel-name regex --set full python train.py  # 再钻进去
 
 ncu 的核心输出是「吞吐率」（achieved throughput）——对照 Roofline 模型的两个轴：
 
-- **计算吞吐（Compute Throughput）**：SM 上的 FMA/ALU/Tensor Core 利用率（%）。
-- **访存吞吐（Memory Throughput）**：显存带宽利用率（%）。
+**计算吞吐（Compute Throughput）**：SM 上的 FMA/ALU/Tensor Core 利用率（%）。
+**访存吞吐（Memory Throughput）**：显存带宽利用率（%）。
 
 **瓶颈判定**：哪个轴「顶到 100%」，kernel 就受哪个约束：
 
-- 计算吞吐 ~90% + 访存 ~30% → **计算瓶颈**（优化算法/减少 FLOPs）。
-- 访存吞吐 ~90% + 计算 ~30% → **访存瓶颈**（优化数据布局/减少搬运）。
-- 两者都低（<50%）→ **其他瓶颈**（占用率不足、延迟受限、指令开销）。<span class="marginnote">「两个吞吐都低」是最反直觉也最常见的情况：kernel 既不计算密集也不访存密集，但就是慢。这通常是「延迟受限」——SM 里活跃线程太少（占用率低），数据来了没线程去算。对策是提高并行度（加大 block、增加活跃 warp），而不是优化计算或访存。</span>
+计算吞吐 ~90% + 访存 ~30% → **计算瓶颈**（优化算法/减少 FLOPs）。
+访存吞吐 ~90% + 计算 ~30% → **访存瓶颈**（优化数据布局/减少搬运）。
+两者都低（<50%）→ **其他瓶颈**（占用率不足、延迟受限、指令开销）。<span class="marginnote">「两个吞吐都低」是最反直觉也最常见的情况：kernel 既不计算密集也不访存密集，但就是慢。这通常是「延迟受限」——SM 里活跃线程太少（占用率低），数据来了没线程去算。对策是提高并行度（加大 block、增加活跃 warp），而不是优化计算或访存。</span>
 
 ## 3 其他关键指标
 
 除了两大吞吐，ncu 还输出一组「诊断性指标」：
 
-- **Achieved Occupancy（实际占用率）**：活跃 warp / 最大 warp。太低 → 并行度不足；太高但慢 → 别的问题。
-- **L2/L1 命中率**：缓存命中差 → 访存模式差。
-- **Warp Stall 原因**：指令等待什么（内存？依赖？同步？）——「stall」是 kernel 慢的微观解释。
-- **指令吞吐**：执行了多少条指令、每周期几条——看「指令开销」是否过大。
+**Achieved Occupancy（实际占用率）**：活跃 warp / 最大 warp。太低 → 并行度不足；太高但慢 → 别的问题。
+**L2/L1 命中率**：缓存命中差 → 访存模式差。
+**Warp Stall 原因**：指令等待什么（内存？依赖？同步？）——「stall」是 kernel 慢的微观解释。
+**指令吞吐**：执行了多少条指令、每周期几条——看「指令开销」是否过大。
 
 **「占用率」是 kernel 诊断的第一开关**：占用率低，几乎一切后续优化（计算/访存）都打折扣——因为没足够的线程在跑。<span class="marginnote">占用率与性能不是线性关系：占用率太低（<25%）肯定慢，但占用率 100% 也可能慢（如果瓶颈在访存延迟）。正确用法是把占用率当「必要条件」——先保证它够（比如 ≥50%），再谈计算/访存优化。很多 kernel 慢的第一步修复就是「提高占用率」。</span>
 
@@ -108,7 +111,7 @@ $$\text{SOL} = \frac{\min(\text{compute-bound time}, \text{memory-bound time})}{
 
 ## 8 进阶与延伸
 
-**动手剖一个 kernel**：用 `ncu --set full` 剖析一个你模型的贵 kernel（先用 nsys 找到它）——看「计算吞吐 vs 访存吞吐」两个数，判断它是计算瓶颈还是访存瓶颈，再对比你的直觉。多数人的第一反应是错的，这正是为什么要实测。
+**动手剖一个 kernel**：用 `ncu` 剖析一个你模型的贵 kernel（先用 nsys 找到它）——看「计算吞吐 vs 访存吞吐」两个数，判断它是计算瓶颈还是访存瓶颈，再对比你的直觉。多数人的第一反应是错的，这正是为什么要实测。
 
 **几个值得进一步挖的方向**：
 

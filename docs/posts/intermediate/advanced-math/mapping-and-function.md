@@ -42,9 +42,9 @@ $$f(X) = \{\, f(x) \mid x \in X \,\} \subseteq Y$$
 
 映射的价值在于分类。按「像是否重复」和「陪域是否被填满」两个标准，映射被分成三种：
 
-- **单射（injective / one-to-one）**：若 $x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)$，即**不同的原像必有不同的像**，则称 $f$ 为单射。
-- **满射（surjective / onto）**：若 $f(X) = Y$，即**陪域中每个元素都是某个元素的像**（值域 = 陪域），则称 $f$ 为满射。
-- **双射（bijective）**：**既单射又满射**的映射，又称一一对应。
+**单射（injective / one-to-one）**：若 $x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)$，即**不同的原像必有不同的像**，则称 $f$ 为单射。
+**满射（surjective / onto）**：若 $f(X) = Y$，即**陪域中每个元素都是某个元素的像**（值域 = 陪域），则称 $f$ 为满射。
+**双射（bijective）**：**既单射又满射**的映射，又称一一对应。
 
 ![单射、满射与双射](/images/advanced-math/mapping-and-function-1.svg)
 

@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 FP8 开始
 
-INT8 量化需要 scale 与 clamp，离散的整数格点还会引入 round 误差的复杂度。而 8 位浮点——**FP8**——保留了浮点的动态范围与「自动」的数值分布，直接从硬件层面（Hopper 的 Transformer Engine、Ada 的 Tensor Core）获得支持。对于大模型，FP8 正在成为 W8A8 部署的新默认：无需像 INT8 那样精心做 SmoothQuant 迁移，只要把权重和激活「扔进 FP8」，多数情况下精度就够用。<span class="marginnote">FP8 的两个格式 <code>E4M3</code> 与 <code>E5M2</code> 是 IEEE 754 的 8 位变体。理解它们的关键是：<strong>FP8 不是一个格式，是两个</strong>——它们用「指数位换尾数位」，换来不同的动态范围与精度。</span>
+INT8 量化需要 scale 与 clamp，离散的整数格点还会引入 round 误差的复杂度。而 8 位浮点——**FP8**——保留了浮点的动态范围与「自动」的数值分布，直接从硬件层面（Hopper 的 Transformer Engine、Ada 的 Tensor Core）获得支持。对于大模型，FP8 正在成为 W8A8 部署的新默认：无需像 INT8 那样精心做 SmoothQuant 迁移，只要把权重和激活「扔进 FP8」，多数情况下精度就够用。<span class="marginnote">FP8 的两个格式 <code>E4M3</code>` 与 <code>E5M2</code>` 是 IEEE 754 的 8 位变体。理解它们的关键是：<strong>FP8 不是一个格式，是两个</strong>——它们用「指数位换尾数位」，换来不同的动态范围与精度。</span>
 
 本篇讲 FP8 的位布局、E4M3 与 E5M2 的差异、Transformer Engine 如何用它们做混合精度，以及 FP8 部署的注意点。
 
@@ -41,8 +41,8 @@ E4M3 用**更多尾数位**换精度，动态范围窄（最大 448）；E5M2 �
 
 **辨析｜易错点：FP8 的「自动范围」不等于「无需 scale」。** FP8 比 INT8 省事，但并非免校准。FP8 有**两种典型量化模式**：
 
-- **per-tensor scale**：整张量乘一个 scale 后进入 FP8 范围。仍要校准（统计 max 定 scale），只是不需要 INT8 那样精细的分组。
-- **no-scale（原生 FP8）**：直接按权重原始值进 FP8。范围溢出时自动变成 inf——**必须保证权重范围在设计内**。
+**per-tensor scale**：整张量乘一个 scale 后进入 FP8 范围。仍要校准（统计 max 定 scale），只是不需要 INT8 那样精细的分组。
+**no-scale（原生 FP8）**：直接按权重原始值进 FP8。范围溢出时自动变成 inf——**必须保证权重范围在设计内**。
 
 工程实践通常是：权重用 per-channel scale 进 FP8，激活用 per-token scale——**仍保留「scale」这个旋钮**，只是从 INT 的整数格点换成了浮点格式。
 
@@ -50,9 +50,9 @@ E4M3 用**更多尾数位**换精度，动态范围窄（最大 448）；E5M2 �
 
 FP8 的硬件支持来自 **Transformer Engine（TE）**，它是 Hopper 架构（H100）引入的专用加速模块。TE 做了三件事：
 
-- **FP8 Tensor Core**：在硬件上直接支持 E4M3/E5M2 的矩阵乘，吞吐比 FP16 翻倍；
-- **自动 scale 管理**：跟踪激活统计，动态调整 scale 防止溢出；
-- **FP8/FP16 混合**：权重 FP8、激活 FP8、累加 FP32——GEMM 内部用 FP32 累加，精度保持，输出再按需转回 FP8/FP16。
+**FP8 Tensor Core**：在硬件上直接支持 E4M3/E5M2 的矩阵乘，吞吐比 FP16 翻倍；
+**自动 scale 管理**：跟踪激活统计，动态调整 scale 防止溢出；
+**FP8/FP16 混合**：权重 FP8、激活 FP8、累加 FP32——GEMM 内部用 FP32 累加，精度保持，输出再按需转回 FP8/FP16。
 
 TE 的自动 scale 是它「省心」的核心：它在前向时实时统计激活的 max 值，据此缩放，避免离线校准失配的问题。<span class="marginnote">对推理部署来说，TensorRT-LLM 的 FP8 路径<strong>默认关闭自动 scale、改用离线校准</strong>——因为推理的权重固定，离线校准一次、运行时零开销，比运行时统计更可控。见本专题《量化感知与 TensorRT-LLM 的低精度支持》。</span>
 

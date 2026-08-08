@@ -33,9 +33,9 @@ date: 2026-08-07
 
 前三种的差别，可以用一句话的三种读法体会：$P(x,y)$ 表示「$y$ 是 $x$ 的母亲」。
 
-- $\forall x \exists y\,P(x,y)$：「每个人都有母亲」——真，各人的母亲可以不同。
-- $\exists y \forall x\,P(x,y)$：「存在一个人，是所有人的母亲」——假（在正常世界里）。
-- $\exists x \exists y\,P(x,y)$：「存在某人和某人的母亲」——真得平凡。
+$\forall x \exists y\,P(x,y)$：「每个人都有母亲」——真，各人的母亲可以不同。
+$\exists y \forall x\,P(x,y)$：「存在一个人，是所有人的母亲」——假（在正常世界里）。
+$\exists x \exists y\,P(x,y)$：「存在某人和某人的母亲」——真得平凡。
 
 最要紧的观察：**$\forall x\exists y$ 里，$y$ 允许「依赖」于 $x$；而 $\exists y\forall x$ 里，同一个 $y$ 必须「同时」应对一切 $x$。** 依赖关系一变，真假就变。<span class="marginnote">这也是编程里作用域直觉的又一次出场：$\forall x\exists y$ 像在循环里给每个 $x$ 单独分配一个 $y$；$\exists y\forall x$ 则像在循环外只声明一次 $y$，要求它对所有 $x$ 都管用。</span>
 

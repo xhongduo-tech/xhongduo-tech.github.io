@@ -68,32 +68,31 @@ $$
 
 **为什么抛物线法能求复根？** 抛物线与 x 轴的交点可能是**一对共轭复根**——当判别式 $g^2-4f_k\omega<0$ 时，公式里出现 $\sqrt{\text{负数}}$，$x_{k+1}$ 自动变成复数。**三个实初值，可以收敛到复根**——这是牛顿、弦截（直线）做不到的。
 
-**应用**：多项式求根（如求解特征方程、控制系统极点）常需复根。抛物线法配复算术，能直接从实初值「钻」进复根。<span class="marginnote">对比：<strong>牛顿与弦截用「直线」，永远停在实轴上；抛物线法用「抛物线」，能脱离实轴找到共轭复根</strong>。这使它在多项式求根器（如 MATLAB 的 `roots`、经典 `zroots`）里有一席之地。</span>
+**应用**：多项式求根（如求解特征方程、控制系统极点）常需复根。抛物线法配复算术，能直接从实初值「钻」进复根。<span class="marginnote">对比：<strong>牛顿与弦截用「直线」，永远停在实轴上；抛物线法用「抛物线」，能脱离实轴找到共轭复根</strong>。这使它在多项式求根器（如 MATLAB 的 `roots`、经典 Jenkins-Traub 算法）里有一席之地。</span>
 
 ## 4 实现要点与收敛保护
 
 ```python
-import cmath
+import numpy as np
 
 def muller(f, x0, x1, x2, tol=1e-10, max_iter=100):
-    x = [x0, x1, x2]
-    for k in range(max_iter):
-        f0, f1, f2 = f(x[-3]), f(x[-2]), f(x[-1])
-        # 均差
-        h1, h2 = x[-1]-x[-2], x[-2]-x[-3]
-        d1 = (f2-f1)/h1 if h1 else 0
-        d2 = (f1-f0)/h2 if h2 else 0
-        w = (d1-d2)/(h1+h2) if (h1+h2) else 0
-        g = d1 + h1*w
-        disc = cmath.sqrt(g*g - 4*f2*w)
-        denom = g + disc if abs(g+disc) > abs(g-disc) else g - disc
-        if abs(denom) < 1e-300:
-            break
-        x_new = x[-1] - 2*f2/denom
-        if abs(x_new - x[-1]) < tol:
-            return x_new, k+1
-        x.append(x_new)
-    return x[-1], max_iter
+    """抛物线法求根：三点拟合抛物线，支持复根。"""
+    for _ in range(max_iter):
+        f0, f1, f2 = f(x0), f(x1), f(x2)
+        d1 = (f1 - f0) / (x1 - x0)              # f[x0, x1]
+        d2 = (f2 - f1) / (x2 - x1)              # f[x1, x2]
+        w = (d2 - d1) / (x2 - x0)               # 二阶均差
+        g = d2 + (x2 - x1) * w
+        disc = np.sqrt(g*g - 4*f2*w)            # 判别式可为负 → 复根
+        denom = g + disc if abs(g + disc) > abs(g - disc) else g - disc
+        x3 = x2 - 2*f2 / denom
+        if abs(x3 - x2) < tol:
+            return x3
+        x0, x1, x2 = x1, x2, x3
+    return x2
+
+# 例：x³ - x - 1 = 0，初值 0, 1, 2 → 实根 1.3247
+print(muller(lambda x: x**3 - x - 1, 0, 1, 2))
 ```
 
 **工程注意**：抛物线法**不保证收敛**（与弦截一样），且数值上可能除零（分母接近零）。**保护**：分母过小时取别的根/二分兜底；监测残差。**实根场景通常不首选它**——它贵（每步 3 个点）+ 不稳（无区间保证），只在「要复根」时值得。

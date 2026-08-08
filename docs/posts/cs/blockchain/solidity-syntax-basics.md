@@ -22,23 +22,23 @@ date: 2026-08-07
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.0;
 
-contract Counter {
-    uint256 public count;
+contract SimpleStorage {
+    uint256 public storedValue;
 
-    function increment() external {
-        count += 1;
+    function set(uint256 value) external {
+        storedValue = value;
     }
 }
 ```
 
 逐行拆解：
 
-- `pragma solidity ^0.8.20`：声明编译器版本，`^` 表示兼容 `0.8.x`。
-- `contract Counter`：合约定义，类似其他语言的类（class），但**实例部署后不可变**。
-- `uint256 public count`：状态变量，`public` 自动生成读函数，持久化存储在链上。
-- `function increment() external`：函数，`external` 表示只能从合约外部调用。
+- `pragma solidity ^0.8.0;`：声明编译器版本，`^0.8.0` 表示兼容 `>=0.8.0 且 <0.9.0`。
+- `contract SimpleStorage`：合约定义，类似其他语言的类（class），但**实例部署后不可变**。
+- `uint256 public storedValue;`：状态变量，`public` 自动生成读函数，持久化存储在链上。
+- `function set(uint256 value) external`：函数，`external` 表示只能从合约外部调用。
 
 **核心概念：状态变量 = 区块链状态。** Solidity 里的存储变量不是内存变量，它们被写进世界状态（storage），任何修改都要付 Gas、被全网记录——**这是与普通语言最大的思维差异**。<span class="marginnote">写 Solidity 时，「存储（storage）」是最贵的资源：一次 `SSTORE` 消耗 20000 Gas（约是新地址部署量级）。好的合约设计把「链上存什么」当成架构决策，而不是随手记变量。</span>
 
@@ -49,17 +49,21 @@ Solidity 的类型分**值类型**与**引用类型**：
 | 类别 | 类型 | 说明 |
 | --- | --- | --- |
 | 值类型 | `uint` / `int`（8–256 位） | 无符号/有符号整数，如 `uint256` |
-| 值类型 | `bool`、`address`、`bytes32` | 布尔、20 字节地址、定长字节 |
+| 值类型 | `bool`、`address`、`bytesN` | 布尔、20 字节地址、定长字节 |
 | 值类型 | 枚举 `enum` | 有限取值集合 |
 | 引用类型 | `string`、`bytes` | 动态长度数据 |
-| 引用类型 | `array`、`mapping` | 数组、键值映射 |
+| 引用类型 | `T[]`（array）、`mapping` | 数组、键值映射 |
 
-**整数安全**：Solidity 0.8 起内置**溢出检查**——`uint8(255) + 1` 直接 revert，不再默默回绕。这是对历史上著名的整数溢出漏洞（如 2016 年 Parity 多签钱包被黑）的回应。<span class="marginnote">0.8 之前的 Solidity 默认不检查溢出（`unchecked` 才是默认行为），导致大量 DeFi 合约在 2020 年前后被「溢出攻击」掏空。0.8 之后默认检查，但 `unchecked` 块内仍需开发者自担风险。</span>
+**整数安全**：Solidity 0.8 起内置**溢出检查**——算术运算溢出直接 revert，不再默默回绕。这是对历史上著名的整数溢出漏洞（如 2016 年 Parity 多签钱包被黑）的回应。<span class="marginnote">0.8 之前的 Solidity 默认不检查溢出（回绕（wrap-around）才是默认行为），导致大量 DeFi 合约在 2020 年前后被「溢出攻击」掏空。0.8 之后默认检查，但 `unchecked` 块内仍需开发者自担风险。</span>
 
 **mapping 的语法**：
 
 ```solidity
 mapping(address => uint256) public balances;
+
+function deposit() external payable {
+    balances[msg.sender] += msg.value;
+}
 ```
 
 `mapping` 是 Solidity 的核心容器：键值对存储，不迭代、不遍历、无长度——它被哈希映射到 storage slot 上，读写都是 $O(1)$。
@@ -80,12 +84,18 @@ mapping(address => uint256) public balances;
 - `view`：只读状态，不修改（不消耗存储 Gas）。
 - `pure`：连状态都不读，纯函数。
 - `payable`：允许接收 ETH，是「收款函数」的必备修饰符。
-- `nonpayable`（默认）：拒绝接收 ETH。
+- 非 `payable`（默认）：拒绝接收 ETH。
 
 ```solidity
-function getBalance(address who) external view returns (uint256) {
-    return balances[who];
+function readValue() external view returns (uint256) {
+    return storedValue;
 }
+
+function add(uint256 a, uint256 b) external pure returns (uint256) {
+    return a + b;
+}
+
+receive() external payable {}
 ```
 
 ## 4 公式解析：msg 与交易上下文
@@ -98,9 +108,9 @@ $$
 
 - **第一步**：`msg.sender` 是**直接调用者**的地址——在跨合约调用链中，它逐跳变化，不是「最初发起人」（那是 `tx.origin`）。
 - **第二步**：`msg.value` 是随本次调用转入的 wei 数量（1 ETH = $10^{18}$ wei）。
-- **第三步**：`payable` 函数才能接收 `msg.value`，非 payable 函数收到 ETH 会 revert。
+- **第三步**：`payable` 函数才能接收 ETH，非 payable 函数收到 ETH 会 revert。
 
-**gasleft()**：返回剩余 Gas，配合 `require(gasleft() > threshold)` 做 Gas 保护（防「Gas 不足被卡死」的 DoS 类攻击）。
+**gasleft()**：返回剩余 Gas，配合 `require(gasleft() >= minGas)` 做 Gas 保护（防「Gas 不足被卡死」的 DoS 类攻击）。
 
 ## 5 数据位置：storage / memory / calldata
 
@@ -112,15 +122,14 @@ $$
 | `memory` | 函数调用期间 | 中等 | 临时变量 |
 | `calldata` | 只读、函数参数 | 免费 | 外部传入的参数 |
 
-**辨析｜易错点：赋值不是拷贝的语义差别。** `storage` 变量赋值给 `storage` 变量是**引用**（改一个影响另一个），`memory` 到 `storage` 才是拷贝。例如：
+**辨析｜易错点：赋值不是拷贝的语义差别。** `storage` 变量赋值给 `storage` 变量是**引用**（改一个影响另一个），`storage` 到 `memory` 才是拷贝。例如：
 
 ```solidity
-// 危险：s2 只是 s1 的引用
-SomeStruct storage s2 = s1;
-s2.field = 1; // 同时改了 s1
+uint256[] storage s = stateArray;  // s 引用 stateArray，改动会写回链上
+uint256[] memory m = stateArray;   // m 是内存拷贝，改动不影响链上
 ```
 
-另一个易错点：`memory` 数组之间赋值是引用，`memory` 传给 `storage` 才是拷贝——**记不清就检查文档，这类 bug 往往在审计时才暴露**。
+另一个易错点：`storage` 数组之间赋值是引用，`storage` 传给 `memory` 才是拷贝——**记不清就检查文档，这类 bug 往往在审计时才暴露**。
 
 ## 6 从语法到实践
 
@@ -129,7 +138,7 @@ s2.field = 1; // 同时改了 s1
 ## 7 小结
 
 - 合约 = 状态变量 + 函数；状态变量**持久化在链上**，修改要付 Gas。
-- 类型分**值类型**（`uint`/`address`/`bool`）与**引用类型**（`mapping`/`array`/`string`）；0.8 起默认溢出检查。
+- 类型分**值类型**（`uint`/`int`/`bool`）与**引用类型**（`array`/`struct`/`mapping`）；0.8 起默认溢出检查。
 - 函数可见性（`public`/`external`/`internal`/`private`）× 可变性（`view`/`pure`/`payable`）共同定义调用边界。
 - `msg.sender` 是直接调用者，`msg.value` 是转入金额；数据位置 `storage`/`memory`/`calldata` 决定生命周期与成本。
 

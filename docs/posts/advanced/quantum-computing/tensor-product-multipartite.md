@@ -62,7 +62,7 @@ a_{21}B & a_{22}B & \cdots \\
 \end{pmatrix}
 $$
 
-即把 $A$ 的每个元素 $a_{ij}$ 换成一个小块 $a_{ij}B$。<span class="marginnote">这个名字叫 <strong>Kronecker 积</strong>，以德国数学家利奥波德 · 克罗内克（Leopold Kronecker）命名。数学书里常写作 $A\otimes B$，矩阵计算的书里有时写作 `kron(A,B)`——线性代数与 MATLAB/NumPy 都这么叫。</span>
+即把 $A$ 的每个元素 $a_{ij}$ 换成一个小块 $a_{ij}B$。<span class="marginnote">这个名字叫 <strong>Kronecker 积</strong>，以德国数学家利奥波德 · 克罗内克（Leopold Kronecker）命名。数学书里常写作 $A\otimes B$，矩阵计算的书里有时写作 $a_{ij}$——线性代数与 MATLAB/NumPy 都这么叫。</span>
 
 张量积有四条运算规则，几乎每个量子线路推导都会用到：
 

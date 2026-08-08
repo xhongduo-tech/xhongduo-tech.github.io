@@ -65,9 +65,9 @@ $$
 
 设迭代收敛到 $r$，令 $e_k=x_k-r$。用泰勒展开 $\varphi(x_k)=\varphi(r)+\varphi'(r)e_k+\cdots$：
 
-- $e_{k+1}\approx\varphi'(r)e_k$：线性收敛，比 $L=|\varphi'(r)|$。
-- 若 $\varphi'(r)=0$：$e_{k+1}\approx\dfrac{\varphi''(r)}{2}e_k^2$——**二次收敛**，比 $|\varphi''(r)|/2$。
-- 一般地，$\varphi$ 在 $r$ 处前 $p-1$ 阶导为零 ⇒ $p$ 阶收敛。
+$e_{k+1}\approx\varphi'(r)e_k$：线性收敛，比 $L=|\varphi'(r)|$。
+若 $\varphi'(r)=0$：$e_{k+1}\approx\dfrac{\varphi''(r)}{2}e_k^2$——**二次收敛**，比 $|\varphi''(r)|/2$。
+一般地，$\varphi$ 在 $r$ 处前 $p-1$ 阶导为零 ⇒ $p$ 阶收敛。
 
 **收敛阶判据**：$p$ 阶收敛 ⇔ $\varphi^{(j)}(r)=0\ (j=1,\dots,p-1)$ 且 $\varphi^{(p)}(r)\neq0$。
 

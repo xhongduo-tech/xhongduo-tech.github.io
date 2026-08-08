@@ -70,17 +70,19 @@ $$
 
 现代 PBR 的 IBL 管线：
 
-```
-预处理（一次）：
-  1. 加载 HDR 环境贴图（立方体贴图）
-  2. 生成辐照度图（漫反射 IBL，卷积成模糊图）
-  3. 生成预滤波环境贴图（高光 IBL，按粗糙度模糊成 Mipmap）
-  4. 生成 BRDF 查找表（split-sum 第二项）
+```text
+// 预处理（加载时算一次）
+irradiance_map    = convolve(env_map, diffuse_kernel);    // 漫反射：辐照度图
+prefiltered_env   = prefilter(env_map, roughness_levels); // 高光：按粗糙度模糊成 Mipmap
+brdf_lut          = integrate_brdf();                     // BRDF 查找表
 
-运行时（每像素）：
-  1. 漫反射：用法线查辐照度图 → 乘漫反射颜色
-  2. 高光：用反射方向 + 粗糙度查预滤波贴图 → 乘 BRDF 查找表结果
-  3. 合并：漫反射 + 高光 = 间接光照，加到直接光照上
+// 运行时（每像素查四次）
+vec3 n        = normalize(normal);
+vec3 r        = reflect(-view_dir, n);
+vec3 diffuse  = texture(irradiance_map, n).rgb;                        // 查 1
+vec3 specular = textureLod(prefiltered_env, r, roughness * levels).rgb;// 查 2
+vec2 brdf     = texture(brdf_lut, vec2(ndotv, roughness)).rg;          // 查 3
+vec3 ibl      = diffuse * albedo + specular * (F0 * brdf.x + brdf.y);
 ```
 
 「预处理做一次、运行时查四次」——IBL 把「环境光积分」从运行时彻底搬到预处理，是实时 PBR 的标配光照源。<span class="marginnote">「IBL 的『预处理 - 运行时』分工」：<strong>四张查找表（辐照度、预滤波、BRDF）在加载时算好，运行时每像素只做几次纹理采样——环境光的全部「积分成本」被预计算消化</strong>。这让 IBL 成为 PBR 材质「默认照亮方式」：任何物体放进环境，天然获得匹配环境的漫反射与高光——游戏场景、产品可视化、电影预览全靠它。</span>

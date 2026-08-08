@@ -38,9 +38,9 @@ $$
 
 期望 Sarsa 的一个独特之处在于**策略 $\pi$ 写进了目标里**，因此它的学习/行为关系完全由 $\pi$ 的选取决定：
 
-- 取 $\pi$ 为**当前行为策略**（如 $\varepsilon$-贪心）：目标估计的就是行为策略的价值，这是**同策略**的期望 Sarsa，行为与目标一致，性质类同 Sarsa 但方差更小。
-- 取 $\pi$ 为**贪心策略**：此时 $\sum_a \pi(a|S_{t+1})Q(S_{t+1},a) = \max_a Q(S_{t+1},a)$——**期望 Sarsa 退化为 Q-learning**。<span class="marginnote">这个退化关系很值得记：Q-learning 是「目标策略为贪心」的期望 Sarsa 特例。教材正是这样组织的——先讲期望 Sarsa，再把它当作 Q-learning 的统一视角。</span>
-- 取 $\pi$ 为**任意目标策略** $b$：构成一般意义上的离策略期望 Sarsa，用行为策略数据学习任意目标策略的价值。
+取 $\pi$ 为**当前行为策略**（如 $\varepsilon$-贪心）：目标估计的就是行为策略的价值，这是**同策略**的期望 Sarsa，行为与目标一致，性质类同 Sarsa 但方差更小。
+取 $\pi$ 为**贪心策略**：此时 $\sum_a \pi(a|S_{t+1})Q(S_{t+1},a) = \max_a Q(S_{t+1},a)$——**期望 Sarsa 退化为 Q-learning**。<span class="marginnote">这个退化关系很值得记：Q-learning 是「目标策略为贪心」的期望 Sarsa 特例。教材正是这样组织的——先讲期望 Sarsa，再把它当作 Q-learning 的统一视角。</span>
+取 $\pi$ 为**任意目标策略** $b$：构成一般意义上的离策略期望 Sarsa，用行为策略数据学习任意目标策略的价值。
 
 因此教材称它是「介于 Sarsa 与 Q-learning 之间的统一体」。**当 $\varepsilon>0$ 时，期望 Sarsa 的误差可以严格小于 Q-learning**：因为 Q-learning 的 $\max$ 会对估计噪声取极大（抬高估计），而期望 Sarsa 的期望运算天然对噪声做了平滑。<span class="marginnote">这一结论是 van Seijen 等人的经典分析：对 $\varepsilon$-贪心策略，期望 Sarsa 的稳态期望误差通常低于 Q-learning，尤其在 $\varepsilon$ 较大时优势更明显。</span>
 

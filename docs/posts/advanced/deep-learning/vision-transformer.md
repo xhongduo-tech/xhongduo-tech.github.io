@@ -48,7 +48,7 @@ $$
 
 **「1D 位置编码」看似丢掉了 2D 空间信息，但实验表明足够**——Transformer 能从「注意力模式」里自己恢复 2D 关系。
 
-**CLS token**：在序列开头加一个**分类标记（class token）**$\boldsymbol{E}_{\text{cls}}$（可学习向量）——经过 Transformer 后，**CLS 的最终表示作为「整幅图像的表示」**用于分类（与 BERT 的 `[CLS]` 完全同构）。
+**CLS token**：在序列开头加一个**分类标记（class token）**$\boldsymbol{E}_{\text{cls}}$（可学习向量）——经过 Transformer 后，**CLS 的最终表示作为「整幅图像的表示」**用于分类（与 BERT 的 `[CLS]` token 完全同构）。
 
 **「CLS token = 图像的『摘要向量』」**——它通过与所有块的注意力，聚合「全局信息」，充当「图像级表示」。<span class="marginnote">「为什么用 CLS token 而不是『平均所有块』」：CLS 是「可学习的聚合器」——它通过注意力「学会」怎么从各块「收集」对分类有用的信息（对比「平均池化」的固定加权）。「<strong>CLS 让『聚合方式』也可学习</strong>」——这是 BERT/ViT 的共同设计（虽然「平均池化」在某些任务上也不差，CLS 是「标准做法」）。</span>
 
@@ -58,14 +58,9 @@ $$
 
 **ViT 的完整流程**：
 
-```
-输入图像 (224×224×3)
-  → 分块 (196 个 16×16 块)
-  → 块嵌入 (Linear: 768 → 768)
-  → + 位置编码 + [CLS] token
-  → Transformer 编码器（L 层：多头注意力 + FFN + 残差 + LN）
-  → CLS 的最终表示
-  → 分类头（Linear → 类别）
+```text
+图像 → 切成 16×16 的 patch → 展平 + 线性嵌入 → 拼上 CLS token、加位置编码
+      → Transformer Encoder → 取 CLS 的最终表示 → 分类
 ```
 
 **「图像 → 分块 → 嵌入 → Transformer → 表示」**——与「句子 → 分词 → 嵌入 → Transformer → 表示」**完全同构**。ViT 就是「把图像翻译成 Transformer 的语言」的模型。

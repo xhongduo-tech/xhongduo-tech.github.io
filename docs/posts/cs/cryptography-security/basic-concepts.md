@@ -96,17 +96,14 @@ $$
 可以用一小段 Python 代码把「加密是函数、解密是反函数」的骨架看得更清楚（仅为教学示意，真实密码远比这复杂）：
 
 ```python
-def xor_cipher(data: bytes, key: int) -> bytes:
-    """用单字节异或演示对称加密：加密与解密是同一个操作。"""
-    return bytes(b ^ key for b in data)
+# 教学示意：用异或实现一个对称密码——加密与解密是同一个函数
+def xor_cipher(data, key):
+    return bytes(b ^ key for b in data)     # E_k 与 D_k 是同一个函数
 
-key = 0x5A
-plaintext = b"HELLO"
-ciphertext = xor_cipher(plaintext, key)   # C = E_k(P)
-recovered  = xor_cipher(ciphertext, key)  # P = D_k(C)
-assert recovered == plaintext
-print("C =", ciphertext.hex())
-print("P =", recovered)
+plain = b"HELLO"
+k = 0x5A
+cipher = xor_cipher(plain, k)              # 加密
+print(xor_cipher(cipher, k) == plain)      # True：解密回来了
 ```
 
 注意这里 `xor_cipher` 既当 $E_k$ 又当 $D_k$，因为异或的自反性 $a \oplus b \oplus b = a$ 恰好满足 $D_k(E_k(P)) = P$。现代对称密码（AES 等）加密与解密是**不同的**函数，但它们的核心关系依然是「互为逆」——这正是第三节那个等式的意义。

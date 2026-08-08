@@ -83,26 +83,17 @@ $$
 
 ```python
 import numpy as np
+from scipy.fft import dct
 
-def mfcc_frame(frame, fs=16000, n_mel=26, n_mfcc=13, n_fft=512, a=0.97):
-    # 1. 预加重
-    frame = np.append(frame[0], frame[1:] - a * frame[:-1])
-    # 2. 加汉明窗（frame 长度 400，这里假设已分帧）
-    w = np.hamming(len(frame))
-    x = frame * w
-    # 3. FFT 幅度谱
-    X = np.abs(np.fft.rfft(x, n_fft))
-    # 4. 构造 Mel 滤波器组（简化：直接调用库）
-    from librosa.filters import mel as mel_bank
-    H = mel_bank(sr=fs, n_fft=n_fft, n_mels=n_mel)
-    # 5. 取对数能量
-    E = np.log(H @ X + 1e-12)
-    # 6. DCT 取前 n_mfcc 个
-    from scipy.fftpack import dct
-    return dct(E, type=2, norm='ortho')[:n_mfcc]
+# 帧长 400 点（25 ms @ 16 kHz），帧移 160 点（10 ms）
+frame = signal[i : i + 400] * np.hamming(400)    # 2. 分帧加窗
+X = np.abs(np.fft.rfft(frame))                   # 3. FFT 幅度谱
+E = mel_filterbank @ (X ** 2)                    # 4. Mel 滤波器组（功率谱）
+logE = np.log(E + 1e-10)                         # 5. 取对数，防 log(0)
+mfcc = dct(logE, type=2, norm="ortho")[:13]      # 6. DCT 截断，取前 13 个系数
 ```
 
-注意第 5 步的 `+1e-12`：**谱能量可能为 0，直接取对数会得到 $-\infty$**，加一个极小常数既防止数值下溢，又给了一个下限。这是实现 MFCC 最常见的坑之一。
+注意第 5 步的 `+ 1e-10`：**谱能量可能为 0，直接取对数会得到 $-\infty$**，加一个极小常数既防止数值下溢，又给了一个下限。这是实现 MFCC 最常见的坑之一。
 
 ## 5 辨析｜易错点
 

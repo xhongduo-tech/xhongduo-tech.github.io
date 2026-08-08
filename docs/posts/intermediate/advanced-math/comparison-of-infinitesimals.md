@@ -22,11 +22,11 @@ date: 2026-08-07
 
 设 $\alpha, \beta$ 是 $x \to x_0$ 时的无穷小（即 $\lim \alpha = \lim \beta = 0$），用比值的极限来刻画它们趋零的相对快慢：
 
-- 若 $\lim \dfrac{\beta}{\alpha} = 0$，则称 $\beta$ 是比 $\alpha$ **高阶的无穷小**，记作 $\beta = o(\alpha)$。<span class="marginnote">记作 $o(\alpha)$ 表示「$\beta$ 比 $\alpha$ 小一个量级」，读作「小欧」；$o$ 取自英文 order（阶）。$o(x)$ 是一类函数的集合记号，比如 $x^2 = o(x)$，$x^3 = o(x^2)$。</span>
-- 若 $\lim \dfrac{\beta}{\alpha} = \infty$，则称 $\beta$ 是比 $\alpha$ **低阶的无穷小**。
-- 若 $\lim \dfrac{\beta}{\alpha} = c \ne 0$（$c$ 为常数），则称 $\beta$ 与 $\alpha$ **同阶无穷小**。
-- 特别地，若 $c = 1$，即 $\lim \dfrac{\beta}{\alpha} = 1$，则称 $\beta$ 与 $\alpha$ **等价无穷小**，记作 $\beta \sim \alpha$。
-- 若 $\lim \dfrac{\beta}{\alpha^k} = c \ne 0$，则称 $\beta$ 是 $\alpha$ 的 **$k$ 阶无穷小**。
+若 $\lim \dfrac{\beta}{\alpha} = 0$，则称 $\beta$ 是比 $\alpha$ **高阶的无穷小**，记作 $\beta = o(\alpha)$。<span class="marginnote">记作 $o(\alpha)$ 表示「$\beta$ 比 $\alpha$ 小一个量级」，读作「小欧」；$o$ 取自英文 order（阶）。$o(x)$ 是一类函数的集合记号，比如 $x^2 = o(x)$，$x^3 = o(x^2)$。</span>
+若 $\lim \dfrac{\beta}{\alpha} = \infty$，则称 $\beta$ 是比 $\alpha$ **低阶的无穷小**。
+若 $\lim \dfrac{\beta}{\alpha} = c \ne 0$（$c$ 为常数），则称 $\beta$ 与 $\alpha$ **同阶无穷小**。
+特别地，若 $c = 1$，即 $\lim \dfrac{\beta}{\alpha} = 1$，则称 $\beta$ 与 $\alpha$ **等价无穷小**，记作 $\beta \sim \alpha$。
+若 $\lim \dfrac{\beta}{\alpha^k} = c \ne 0$，则称 $\beta$ 是 $\alpha$ 的 **$k$ 阶无穷小**。
 
 **重点：高阶、低阶、同阶、等价，全部由「比值的极限」这一个动作决定。** 判断两个无穷小谁快谁慢，永远回到 $\dfrac{\beta}{\alpha}$ 的极限，而不是凭直觉猜。
 

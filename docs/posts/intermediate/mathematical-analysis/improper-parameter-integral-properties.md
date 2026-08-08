@@ -76,10 +76,10 @@ $$\int_0^\infty\frac{e^{-ax}-e^{-bx}}{x}dx=\int_0^\infty\int_a^b e^{-tx}dt\,dx=\
 
 **三大定理是「极限穿反常积分」的完整许可证**——它们支撑着：
 
-- **$\int_0^\infty\frac{\sin x}{x}dx=\frac\pi2$**（用参数化 + 积分号下求导）；
-- **$\int_0^\infty e^{-x^2}dx=\frac{\sqrt\pi}2$**（用极坐标 + 交换次序，§21.5 也有一法）；
-- **$\Gamma$ 函数、$B$ 函数的全部性质**（§19.4）；
-- **傅里叶变换、拉普拉斯变换**（第二级《复变函数与积分变换》）的理论根基。
+**$\int_0^\infty\frac{\sin x}{x}dx=\frac\pi2$**（用参数化 + 积分号下求导）；
+**$\int_0^\infty e^{-x^2}dx=\frac{\sqrt\pi}2$**（用极坐标 + 交换次序，§21.5 也有一法）；
+**$\Gamma$ 函数、$B$ 函数的全部性质**（§19.4）；
+**傅里叶变换、拉普拉斯变换**（第二级《复变函数与积分变换》）的理论根基。
 
 **含参量反常积分是「积分学的高级手术室」**——§19.4 的欧拉积分将是这台手术的第一批伟大成果。<span class="marginnote">「在积分号下求导」求 $\int_0^\infty\frac{\sin x}{x}dx$：设 $F(t)=\int_0^\infty e^{-tx}\frac{\sin x}{x}dx$，求导得 $F'(t)=-\int_0^\infty e^{-tx}\sin x\,dx=-\frac1{1+t^2}$，积分回来 $F(t)=\frac\pi2-\arctan t$（$F(\infty)=0$ 定常数），$t\to0$ 得 $F(0)=\frac\pi2$。<strong>一次「求导穿积分」+ 一次「积分还原」+ 一个端点条件</strong>，§11.3 悬置的著名积分就此解出——这是含参量积分方法最辉煌的表演。</span>
 

@@ -149,7 +149,7 @@ $$T_{\text{time}} = O(\log n), \qquad W_{\text{work}} = O(n)$$
 
 把数组分成若干段，段内各自扫描——图像处理、稀疏矩阵里无处不在。
 
-<span class="marginnote">流压缩是 GPU 上「过滤 + 紧凑存储」的标准动作：粒子系统里删掉死掉的粒子、物理引擎里收集碰撞事件，都靠一次扫描。CUDA 的 `thrust` 库把 scan/reduce 封装成一行调用。</span>
+<span class="marginnote">流压缩是 GPU 上「过滤 + 紧凑存储」的标准动作：粒子系统里删掉死掉的粒子、物理引擎里收集碰撞事件，都靠一次扫描。CUDA 的 `CUB` 库把 scan/reduce 封装成一行调用。</span>
 
 ## 6 小结
 

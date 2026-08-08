@@ -22,18 +22,16 @@ date: 2026-08-07
 
 线段树把 $[1, n]$ 递归对半切分：
 
-- **每个结点代表一个区间** `[l, r]`，存该区间的聚合值（如区间和）；
-- 结点 `[l, r]` 的左孩子是 `[l, mid]`、右孩子是 `[mid+1, r]`，`mid = (l+r)/2`；
-- 叶子是单元素区间 `[i, i]`，存 `a[i]`。
+- **每个结点代表一个区间** $[l, r]$，存该区间的聚合值（如区间和）；
+- 结点 $p$ 的左孩子是 $2p$、右孩子是 $2p+1$，分别对应区间 $[l, mid]$ 与 $[mid+1, r]$；
+- 叶子是单元素区间 $[i, i]$，存 $a_i$。
 
-```
-            [1,8]: sum(1..8)
-           /              \
-    [1,4]: sum(1..4)   [5,8]: sum(5..8)
-      /      \          /      \
-   [1,2]   [3,4]    [5,6]   [7,8]
-   /  \    /  \      /  \    /  \
-  1    2  3    4    5    6  7    8
+```text
+                [1, 4]
+            /          \
+        [1, 2]        [3, 4]
+        /    \        /     \
+    [1,1]  [2,2]  [3,3]  [4,4]
 ```
 
 **重点：线段树是「区间到结点的双射」——任何区间都能拆成若干「完整结点段」**，这是区间查询 $O(\log n)$ 的结构基础。<span class="marginnote">「<strong>区间二分 = 完全二叉树的区间版</strong>」：<strong>每个结点是一个区间，父子是「对半」关系</strong>。<strong>这棵树有 $2n-1$ 个结点（约），数组开 4 倍 $n$ 即可装下</strong>。<strong>「区间即结点」让「聚合值」天然挂在正确粒度上</strong>。</span>
@@ -42,13 +40,14 @@ date: 2026-08-07
 
 建树 = 自底向上聚合：先建叶子、再把两个孩子聚合到父：
 
-```c
-void Build(int node, int l, int r, int *a) {
-    if (l == r) { tree[node] = a[l]; return; }   /* 叶子：单元素 */
-    int mid = (l + r) / 2;
-    Build(node*2, l, mid, a);                    /* 左半 */
-    Build(node*2+1, mid+1, r, a);                /* 右半 */
-    tree[node] = tree[node*2] + tree[node*2+1];  /* 聚合（此处是求和） */
+```cpp
+int sum[N << 2];                        // 线段树数组，开 4 倍空间
+void build(int p, int l, int r) {
+    if (l == r) { sum[p] = a[l]; return; }   // 叶子：单元素区间
+    int mid = (l + r) >> 1;
+    build(p << 1, l, mid);                  // 左孩子 [l, mid]
+    build(p << 1 | 1, mid + 1, r);          // 右孩子 [mid+1, r]
+    sum[p] = sum[p << 1] + sum[p << 1 | 1]; // 后序聚合：两个孩子合并到父
 }
 ```
 
@@ -56,18 +55,18 @@ void Build(int node, int l, int r, int *a) {
 
 ## 3 区间查询：拼段
 
-查询区间 `[ql, qr]` 的和：
+查询区间 $[l, r]$ 的和：
 
-1. 当前结点区间 `[l, r]` 若**完全被** `[ql, qr]` 包含 → 直接返回 `tree[node]`；
+1. 当前结点区间 $[nl, nr]$ 若**完全被** $[l, r]$ 包含 → 直接返回 $sum[p]$；
 2. 否则递归左右孩子，**返回两边的部分和之和**。
 
-```c
-int Query(int node, int l, int r, int ql, int qr) {
-    if (ql <= l && r <= qr) return tree[node];   /* 完全覆盖：整段取用 */
-    int mid = (l + r) / 2, res = 0;
-    if (ql <= mid) res += Query(node*2, l, mid, ql, qr);     /* 左段有交集 */
-    if (qr > mid)  res += Query(node*2+1, mid+1, r, ql, qr); /* 右段有交集 */
-    return res;
+```cpp
+int query(int p, int l, int r, int ql, int qr) {
+    if (ql <= l && r <= qr) return sum[p];    // 完全覆盖，直接取
+    int mid = (l + r) >> 1, res = 0;
+    if (ql <= mid) res += query(p << 1, l, mid, ql, qr);        // 左孩子有交集
+    if (qr > mid)  res += query(p << 1 | 1, mid + 1, r, ql, qr); // 右孩子有交集
+    return res;                               // 拼接两边部分和
 }
 ```
 
@@ -92,18 +91,18 @@ $$
 
 ## 5 单点修改：叶子到根
 
-修改 `a[pos] = newval`：
+修改位置 $pos$ 的值为 $val$：
 
-1. 递归到叶子 `[pos, pos]`，更新 `tree` 为 `newval`；
+1. 递归到叶子 $[pos, pos]$，更新 $sum[p]$ 为 $val$；
 2. 回溯时重新聚合每个祖先。
 
-```c
-void Update(int node, int l, int r, int pos, int val) {
-    if (l == r) { tree[node] = val; return; }    /* 叶子 */
-    int mid = (l + r) / 2;
-    if (pos <= mid) Update(node*2, l, mid, pos, val);
-    else Update(node*2+1, mid+1, r, pos, val);
-    tree[node] = tree[node*2] + tree[node*2+1];  /* 重新聚合 */
+```cpp
+void update(int p, int l, int r, int pos, int val) {
+    if (l == r) { sum[p] = val; return; }     // 叶子：直接改
+    int mid = (l + r) >> 1;
+    if (pos <= mid) update(p << 1, l, mid, pos, val);
+    else            update(p << 1 | 1, mid + 1, r, pos, val);
+    sum[p] = sum[p << 1] + sum[p << 1 | 1];   // 回溯：路径重聚合
 }
 ```
 

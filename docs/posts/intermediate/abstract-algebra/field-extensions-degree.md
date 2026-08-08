@@ -35,10 +35,10 @@ $$
 若 $[E : F] < \infty$，称 $E/F$ 是**有限扩张**；否则是**无限扩张**。<span class="marginnote">「$E$ 是 $F$-向量空间」是域扩张理论的第一洞察：把域论问题翻译成线性代数问题，维数就成了度量。$\mathbb{C}/\mathbb{R}$：$\mathbb{C}$ 是 $\mathbb{R}$ 上的 2 维空间，基 $\{1, i\}$，$[\mathbb{C} : \mathbb{R}] = 2$。$\mathbb{R}/\mathbb{Q}$：$\mathbb{R}$ 是 $\mathbb{Q}$ 上的无穷维空间，$[\mathbb{R} : \mathbb{Q}] = \infty$。</span>
 
 **例：**
-- $[\mathbb{C} : \mathbb{R}] = 2$（基 $\{1, i\}$）；
-- $[\mathbb{Q}(\sqrt{2}) : \mathbb{Q}] = 2$（$\mathbb{Q}(\sqrt2) = \{ a + b\sqrt2 \}$，基 $\{1, \sqrt2\}$）；
-- $[\mathbb{R} : \mathbb{Q}] = \infty$；
-- $[\mathbb{F}_{p^n} : \mathbb{F}_p] = n$（有限域是 $n$ 维 $\mathbb{F}_p$-空间）。
+$[\mathbb{C} : \mathbb{R}] = 2$（基 $\{1, i\}$）；
+$[\mathbb{Q}(\sqrt{2}) : \mathbb{Q}] = 2$（$\mathbb{Q}(\sqrt2) = \{ a + b\sqrt2 \}$，基 $\{1, \sqrt2\}$）；
+$[\mathbb{R} : \mathbb{Q}] = \infty$；
+$[\mathbb{F}_{p^n} : \mathbb{F}_p] = n$（有限域是 $n$ 维 $\mathbb{F}_p$-空间）。
 
 ## 2 生成扩张：F(a) 与 F(a₁,...,aₙ)
 
@@ -47,10 +47,10 @@ $$
 **单扩张（simple extension）**：$S = \{ a \}$ 时记作 $F(a)$，称为**单扩张**（由单个元素生成）。
 
 **例：**
-- $\mathbb{Q}(\sqrt{2}) = \{ a + b\sqrt{2} \}$（添加 $\sqrt2$）；
-- $\mathbb{Q}(i) = \{ a + bi \}$（添加 $i$）；
-- $\mathbb{C} = \mathbb{R}(i)$；
-- $\mathbb{Q}(\sqrt[3]{2})$ = 全部 $\{ a + b\sqrt[3]{2} + c\sqrt[3]{4} \}$（添加 $\sqrt[3]2$）。
+$\mathbb{Q}(\sqrt{2}) = \{ a + b\sqrt{2} \}$（添加 $\sqrt2$）；
+$\mathbb{Q}(i) = \{ a + bi \}$（添加 $i$）；
+$\mathbb{C} = \mathbb{R}(i)$；
+$\mathbb{Q}(\sqrt[3]{2})$ = 全部 $\{ a + b\sqrt[3]{2} + c\sqrt[3]{4} \}$（添加 $\sqrt[3]2$）。
 
 **直觉**：$F(a)$ 是把 $a$「塞进」$F$，再用加、减、乘、除闭合成域的最小结果。$F(a)$ 的「大小」由 $a$ 的「代数性质」决定——$a$ 若是某方程的根（代数元），$F(a)$ 有限维；否则（超越元）无限维（下一篇）。<span class="marginnote">「$F(a)$ 是含 $a$ 的最小域」与「$\langle a\rangle$ 是含 $a$ 的最小群/理想」同构同源——都是「生成」的通用模板。但域里的「生成」除了加减乘，还要对除法封闭（取倒数），所以 $F(a)$ 通常不是「多项式」而是「有理函数」$p(a)/q(a)$ 的全体。下一篇的「代数元」会让这个有理函数退化为多项式。</span>
 

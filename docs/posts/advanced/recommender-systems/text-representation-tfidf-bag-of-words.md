@@ -26,8 +26,8 @@ date: 2026-08-07
 
 以简介「人工智能改变教育，也改变医疗」为例，先分词：
 
-```text
-人工智能 / 改变 / 教育 / 也 / 改变 / 医疗
+```python
+tokens = ["人工智能", "改变", "教育", "也", "改变", "医疗"]
 ```
 
 若整个语料（所有物品简介）的词典是「人工智能、改变、教育、医疗、也、爱情」，则这句话的**词频向量**是：
@@ -105,52 +105,42 @@ $$
 不依赖库，用 NumPy 手算一遍，把上面的公式落到实处：
 
 ```python
+import math
 import numpy as np
-from collections import Counter
 
 docs = [
     "人工智能改变教育，也改变医疗",
-    "人工智能改变影视，但爱情是永恒主题",
-    "教育医疗人工智能，是科技的三件大事",
+    "人工智能驱动医疗诊断",
+    "教育需要人工智能",
 ]
-# 1. 分词（粗糙切法：按字符「非空白」成词演示，真实项目用分词工具）
+vocab = ["人工智能", "改变", "教育", "医疗", "也", "驱动", "诊断", "需要"]
+
+# 简易分词：词典匹配（中文真实场景用 jieba）
 def tokenize(text):
-    return [w for w in text.replace("，", "").replace("，", " ").split()]
+    return [w for w in vocab if w in text]
 
-corpus = [tokenize(d) for d in docs]
-vocab = sorted({w for doc in corpus for w in doc})
-V, N = len(vocab), len(corpus)
-print("词典：", vocab)
+# 第 4 节四步：建词典 → TF → 全局 IDF → 相乘
+N = len(docs)
+idf = {t: math.log(N / sum(1 for d in docs if t in d)) for t in vocab}
 
-# 2. TF：对数归一
-tf = np.zeros((N, V))
-for di, doc in enumerate(corpus):
-    cnt = Counter(doc)
-    for w in vocab:
-        tf[di, vocab.index(w)] = np.log(1 + cnt[w])
+def tfidf(text):
+    toks = tokenize(text)
+    return np.array([toks.count(t) * idf[t] for t in vocab])
 
-# 3. IDF：log(N / df)，df 用整个语料统计
-df = np.array([sum(1 for doc in corpus if w in doc) for w in vocab])
-idf = np.log(N / df)
-
-# 4. TF-IDF = TF * IDF（逐元素相乘）
-tfidf = tf * idf
-
-print("IDF：  ", np.round(idf, 3))
-print("TF-IDF：")
-print(np.round(tfidf, 3))
+for d in docs:
+    print(tfidf(d))
 ```
 
-这份代码每一步对应第 4 节的四步拆解：先建词典，再算 TF，再统计全局 IDF，最后相乘。**注意 IDF 只用了一次 `corpus` 遍历——它必须来自全语料，而不是来自当前文档。**
+这份代码每一步对应第 4 节的四步拆解：先建词典，再算 TF，再统计全局 IDF，最后相乘。**注意 IDF 只用了一次全语料遍历——它必须来自全语料，而不是来自当前文档。**
 
 ## 6 词袋与 TF-IDF 的局限
 
 TF-IDF 把文本变成了可以算余弦的向量，但它的天花板清晰可见：
 
-- **高维且稀疏**：词典有几万到几十万维，一篇简介的向量绝大多数维度是 0——内存与计算压力巨大，需要第五篇的向量检索才能扛住。
-- **无语义**：「电影」和「影片」是不同维度，算出相似度为零，哪怕它们同义。TF-IDF 只认识「词面」，不认识「词义」。
-- **忽略顺序与搭配**：「人工智能」四个字被拆成独立的字词（若按字切分），「智能 × 人工」的组合意义丢失；词袋对否定句、双关也无能为力。<span class="marginnote">顺序信息可以部分补救：用 <strong>N-gram</strong>（相邻 2–3 个词的连续片段）代替单个词作为「词」，能把「不 好看」与「好看」分开——但维度进一步爆炸，只是把「无语义」推迟而已。</span>
-- **新词（OOV）失明**：语料里没出现过的词在向量里没有位置，而推荐系统的物品是不断更新的。
+**高维且稀疏**：词典有几万到几十万维，一篇简介的向量绝大多数维度是 0——内存与计算压力巨大，需要第五篇的向量检索才能扛住。
+**无语义**：「电影」和「影片」是不同维度，算出相似度为零，哪怕它们同义。TF-IDF 只认识「词面」，不认识「词义」。
+**忽略顺序与搭配**：「人工智能」四个字被拆成独立的字词（若按字切分），「智能 × 人工」的组合意义丢失；词袋对否定句、双关也无能为力。<span class="marginnote">顺序信息可以部分补救：用 <strong>N-gram</strong>（相邻 2–3 个词的连续片段）代替单个词作为「词」，能把「不 好看」与「好看」分开——但维度进一步爆炸，只是把「无语义」推迟而已。
+<strong>新词（OOV）失明</strong>：语料里没出现过的词在向量里没有位置，而推荐系统的物品是不断更新的。</span>
 
 这些局限指向同一个结论：**词袋模型把文本变成了「数字」，但没变成「意思」。** 要让「电影」与「影片」在向量空间里靠在一起，需要学习型的稠密表示——这正是下一篇 Word2Vec 要解决的问题。<span class="marginnote">这一篇的进阶版是直接把 TF-IDF 向量喂给降维（第二级《线性代数》的 PCA / SVD）做语义近似，这也是 LSA 的思路；但它仍不及 Word2Vec 直接从语料学语义来得干净。</span>
 

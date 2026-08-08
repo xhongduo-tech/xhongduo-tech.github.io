@@ -37,8 +37,8 @@ TLS 1.3 的密钥协商是**ECDHE**（临时椭圆曲线 DH）：
 2. 服务器在 ServerHello 里带自己的 ECDHE 公钥 $g^s$。
 3. 双方各自算 $g^{cs}$（共享秘密）。
 4. 共享秘密 + 双方随机数 → **HKDF 派生**出一系列密钥：
-   - `client_handshake_key`、`server_handshake_key`（握手加密）。
-   - `client_application_key`、`server_application_key`（应用数据加密）。
+`client_handshake_traffic_secret`、`server_handshake_traffic_secret`（握手加密）。
+`client_application_traffic_secret`、`server_application_traffic_secret`（应用数据加密）。
 
 **为什么要 ECDHE 而不是静态密钥**：ECDHE 是「每次会话新生成临时密钥对」——即使服务器长期私钥未来泄露，也无法解密过去录制的会话（**前向保密**）。TLS 1.3 因此**强制** ECDHE，杜绝了 TLS 1.2 里「RSA 密钥交换无前向保密」的老问题。<span class="marginnote">记忆锚点：<strong>ECDHE 里的 E = ephemeral（临时）</strong>——每次握手都生成新密钥对。前向保密的全部秘密就是「临时」：历史会话的密钥不被长期私钥「牵连」。TLS 1.3 强制这一条，等于把「历史不可解密」变成协议默认性质。</span>
 

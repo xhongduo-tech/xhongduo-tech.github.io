@@ -76,7 +76,7 @@ $$\text{Cost}_{\text{M}} \approx \frac{\text{Price}_{\text{GPU-hour}} \cdot w \c
 
 ## 5 公式解析：一个推理成本算例
 
-**假设**：70B 模型，INT4 量化（$w = 0.5$），H100（带宽 3.35TB/s），continuous batching 利用率 60%，H100 云上约 $6/GPU·h。
+**假设**：70B 模型，INT4 量化（$w = 0.5$），H100（带宽 3.35TB/s），continuous batching 利用率 60%，H100 云上约 \$6/GPU·h。
 
 **吞吐**：
 
@@ -107,7 +107,7 @@ $$\text{Cost}_{\text{M}} = \frac{6}{57.4 \times 3600} \times 10^6 \approx 29 \ \
 - **成本决定式**：$\text{Price} \cdot w \cdot N / (B \cdot u)$——四个变量、四个优化方向。
 - **第一杠杆**：量化（$w$ 减 4 倍）+ continuous batching（$u$ 提 3 倍）——叠加降一个数量级。
 - **与训练区别**：训练一次性、推理复利式——推理成本优化永远值得。
-- **算例**：70B INT4 + batching 约 $29/M（理论），优化后个位数美元/M——利润空间来自工程。
+- **算例**：70B INT4 + batching 约 \$29/M（理论），优化后个位数美元/M——利润空间来自工程。
 
 ## 8 进阶与延伸
 

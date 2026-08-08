@@ -46,15 +46,24 @@ StreamPETR（ICCV 2023）是 PETR 家族的时序扩展。PETR 本身的特点�
 4. 队列尾部出队，保持长度恒定，计算量不随帧数增长。
 
 ```python
-# StreamPETR 式记忆队列的伪代码（概念示意）
-queue = deque(maxlen=16)          # 记忆库：最多保留 16 帧的 query 状态
-for frame in stream:              # 逐帧在线处理
-    feat   = backbone(frame.img)
-    cur_q  = query_embedding(frame)          # 当前帧 query
-    hist_q = [warp_by_ego(q, frame.pose) for q in queue]   # 运动补偿
-    q = temporal_self_attention(cur_q, hist_q)             # 时间记忆读取
-    out = cross_attention(q, feat, 3d_pos_embed)           # 空间读取
-    queue.append(q.detach())                  # 状态入队，供下一帧用
+# StreamPETR 流式感知：记忆队列 + 时序自注意力（伪代码）
+class StreamPETR:
+    def __init__(self, queue_len=16):
+        self.memory_queue = deque(maxlen=queue_len)   # 历史 object query 状态
+
+    def forward(self, img_features, ego_motion):
+        # 1. 当前帧 query 与图像特征做交叉注意力，得到当前检测
+        queries = self.cross_attention(self.object_queries, img_features)
+
+        # 2. 当前 query 状态经自车运动补偿后入队
+        history = [self.warp(q, ego_motion) for q in self.memory_queue]
+
+        # 3. 时序自注意力：当前 query 向历史 query「提问」
+        queries = self.temporal_self_attention(queries, history)
+
+        # 4. 队列尾部出队，长度恒定
+        self.memory_queue.append(queries.detach())
+        return self.class_head(queries), self.reg_head(queries)
 ```
 
 为什么 query 状态能当记忆载体，而不是把历史特征图存下来？关键在于 query 是**任务相关的潜状态（latent state）**：它已经被训练成「这里大概有什么目标、在哪」的压缩表达，天然剔除了光照、纹理等与检测无关的冗余。存 query 等于存「结论的草稿」，存特征图等于存「原始证据」——前者量小且语义纯净，后者量大且噪声多。这让 query 级记忆在「省」的同时还「干净」。

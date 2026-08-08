@@ -27,11 +27,15 @@ date: 2026-08-07
 **最朴素也最错误的解法**：每个哲学家先拿左叉、再拿右叉，吃完放下。
 
 ```c
-wait(chopstick[i]);           // 拿左叉
-wait(chopstick[(i+1) % 5]);   // 拿右叉
-eat();
-signal(chopstick[i]);         // 放左叉
-signal(chopstick[(i+1) % 5]); // 放右叉
+/* 哲学家 i（i = 0..4）：先左叉、再右叉 —— 会导致死锁 */
+while (true) {
+    wait(fork[i]);              /* 拿左叉 */
+    wait(fork[(i + 1) % 5]);    /* 拿右叉 */
+    eat();
+    signal(fork[i]);            /* 放左叉 */
+    signal(fork[(i + 1) % 5]);  /* 放右叉 */
+    think();
+}
 ```
 
 **死锁场景**：5 个哲学家**同时**拿起左叉——每人拿到一把，都在等右叉，而右叉都被邻居拿着——**互相等待，集体饿死在哲学沉思中**。这正是「循环等待」的教科书形态。<span class="marginnote">死锁四条件在此逐一满足：互斥（叉子一次一人用）、持有并等待（每人持左叉等右叉）、不可剥夺（叉子不能强抢）、循环等待（5 人构成环）。第七篇会把这四个条件形式化，并给出「破坏任一条件即解死锁」的策略。</span>
@@ -40,23 +44,39 @@ signal(chopstick[(i+1) % 5]); // 放右叉
 
 **解法一：最多允许 4 人同时吃饭（破坏循环等待）**
 
-用一个信号量 `limit = 4` 限制同时就餐人数，保证至少一人能拿到两把叉子：
+用一个信号量 room 限制同时就餐人数，保证至少一人能拿到两把叉子：
 
 ```c
-wait(limit);                    // 最多 4 人进餐
-wait(chopstick[i]);
-wait(chopstick[(i+1) % 5]);
-eat();
-signal(chopstick[i]);
-signal(chopstick[(i+1) % 5]);
-signal(limit);
+/* 解法一：semaphore room 限制最多 4 人同时就餐 */
+semaphore room = 4;
+while (true) {
+    wait(room);                 /* 先占一个就餐名额 */
+    wait(fork[i]);              /* 拿左叉 */
+    wait(fork[(i + 1) % 5]);    /* 拿右叉 */
+    eat();
+    signal(fork[i]);
+    signal(fork[(i + 1) % 5]);
+    signal(room);               /* 释放名额 */
+    think();
+}
 ```
 
 **解法二：奇数先左后右、偶数先右后左（破坏循环等待）**
 
 ```c
-if (i % 2 == 0) { wait(chopstick[(i+1) % 5]); wait(chopstick[i]); }
-else            { wait(chopstick[i]);         wait(chopstick[(i+1) % 5]); }
+/* 解法二：奇数先右后左、偶数先左后右，破坏「全同向」的环 */
+while (true) {
+    int left  = i;
+    int right = (i + 1) % 5;
+    if (i % 2 == 0) {           /* 偶数：先左后右 */
+        wait(fork[left]);  wait(fork[right]);
+    } else {                    /* 奇数：先右后左 */
+        wait(fork[right]); wait(fork[left]);
+    }
+    eat();
+    signal(fork[left]); signal(fork[right]);
+    think();
+}
 ```
 
 奇偶用不同顺序，破坏了「全部同向」的环——至少一个哲学家能拿到两把叉子。
@@ -64,51 +84,56 @@ else            { wait(chopstick[i]);         wait(chopstick[(i+1) % 5]); }
 **解法三：拿两把叉子必须原子进行（用互斥锁包住拿叉子）**
 
 ```c
-wait(mutex);                    // 拿叉子过程原子
-wait(chopstick[i]);
-wait(chopstick[(i+1) % 5]);
-signal(mutex);
-eat();
-signal(chopstick[i]);
-signal(chopstick[(i+1) % 5]);
+/* 解法三：用 mutex 把「拿两把叉子」包成原子操作 */
+semaphore mutex = 1;
+while (true) {
+    wait(mutex);                /* 原子地拿两把叉子 */
+    wait(fork[i]);
+    wait(fork[(i + 1) % 5]);
+    signal(mutex);
+    eat();
+    signal(fork[i]);
+    signal(fork[(i + 1) % 5]);
+    think();
+}
 ```
 
-**辨析｜易错点：** 「解法三一定不死锁」需要细想——`mutex` 只保护「拿叉子」的动作，若哲学家持锁去拿两把叉子时被打断，仍可能卡住。真正稳健的是解法一与解法二，它们**从资源分配结构上消灭了循环等待**，而不是靠「原子动作」碰运气。**工程上破除死锁，靠的是破坏循环等待的结构性手段，而非包裹原子动作。**
+**辨析｜易错点：** 「解法三一定不死锁」需要细想——mutex 只保护「拿叉子」的动作，若哲学家持锁去拿两把叉子时被打断，仍可能卡住。真正稳健的是解法一与解法二，它们**从资源分配结构上消灭了循环等待**，而不是靠「原子动作」碰运气。**工程上破除死锁，靠的是破坏循环等待的结构性手段，而非包裹原子动作。**
 
 ## 3 理发师睡觉问题：有限资源的信号量样板
 
 **理发师睡觉问题（sleeping barber problem）**：理发店有一把理发椅、若干等待座位。理发师没顾客就**睡觉**；顾客来了，若理发师睡则叫醒，若座位满则离开，若有座位则坐下等。
 
 ```c
-semaphore customers = 0;  // 等待的顾客数
-semaphore barber = 0;     // 理发师是否空闲
-semaphore mutex = 1;      // 保护 count
+semaphore customers = 0;   /* 等待的顾客数（初始 0：理发师睡觉） */
+semaphore barber    = 0;   /* 理发师状态：0=睡/忙，1=可服务 */
+semaphore seats     = n;   /* 等待座位容量 */
+semaphore mutex     = 1;   /* 保护 waiting 计数 */
 int waiting = 0;
 
-// 理发师：
+/* 理发师 */
 while (true) {
-    wait(customers);        // 没顾客就睡（被顾客叫醒）
-    wait(mutex);
-    waiting--;
-    signal(mutex);
-    signal(barber);         // 告诉顾客「我准备好了」
+    wait(customers);       /* 无顾客则睡，顾客来了被叫醒 */
+    wait(mutex); waiting--; signal(mutex);
+    signal(barber);        /* 告诉顾客：可以剪了 */
     cut_hair();
 }
 
-// 顾客：
+/* 顾客 */
 wait(mutex);
-if (waiting < N) {          // 有座位
+if (waiting < n) {         /* 有空座 */
     waiting++;
+    signal(customers);     /* 叫醒/登记理发师 */
     signal(mutex);
-    signal(customers);      // 叫醒理发师（若有）
-    wait(barber);           // 等理发师准备好
+    wait(barber);          /* 等理发师空闲 */
     get_haircut();
-} else {
-    signal(mutex);          // 座位满，离开
+} else {                   /* 座位满 */
+    signal(mutex);
+    leave();               /* 离开 */
 }
 ```
 
-**关键模式**：`customers` 信号量初始 0，让理发师「无顾客即睡」；顾客 `signal(customers)` 精确叫醒。这是「**生产者-消费者 + 容量限制**」的又一变体：顾客是生产者（生产「要剪发」事件），理发师是消费者，等待座位就是有界缓冲。<span class="marginnote">理发师问题在真实系统里的化身：线程池有空闲线程就领活、没有就睡，任务队列有容量上限。Rust 的 `std::sync::mpsc`、Go 的 channel 底层都藏着「生产者-消费者 + 条件等待」这个模式。</span>
+**关键模式**：customers 信号量初始 0，让理发师「无顾客即睡」；顾客 signal(customers) 精确叫醒。这是「**生产者-消费者 + 容量限制**」的又一变体：顾客是生产者（生产「要剪发」事件），理发师是消费者，等待座位就是有界缓冲。<span class="marginnote">理发师问题在真实系统里的化身：线程池有空闲线程就领活、没有就睡，任务队列有容量上限。Rust 的 Condvar、Go 的 channel 底层都藏着「生产者-消费者 + 条件等待」这个模式。</span>
 
 ## 4 核心对比表：三个经典问题的病与药
 

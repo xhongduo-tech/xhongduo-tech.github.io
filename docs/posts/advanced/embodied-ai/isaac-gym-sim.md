@@ -25,7 +25,7 @@ date: 2026-08-07
 通信成为瓶颈；
 Isaac Gym 把整个仿真直接跑在 GPU 上，
 环境与策略都是 GPU 张量，
-零 CPU-GPU 传输</strong>——一次 `step` 更新上万个环境，
+零 CPU-GPU 传输</strong>——一次 `simulate()` 更新上万个环境，
 RL 训练快了几十倍。
 四足「几小时学会跑」正是拜它所赐。
 </span>。
@@ -34,21 +34,34 @@ RL 训练快了几十倍。
 
 **Isaac Gym** 的设计哲学：**一切都在 GPU 上，环境即张量**。
 
-- **上万并行环境**：一个 GPU 同时仿真 4096–16384 个环境副本（不同随机种子/初始状态）；
-- **端到端 GPU**：物理步进、状态读取、策略推理、策略更新全部是 GPU 张量操作——**没有 CPU 往返**；
-- **PyTorch 原生**：`torch` 张量直接当观测/动作，
+**上万并行环境**：一个 GPU 同时仿真 4096–16384 个环境副本（不同随机种子/初始状态）；
+**端到端 GPU**：物理步进、状态读取、策略推理、策略更新全部是 GPU 张量操作——**没有 CPU 往返**；
+**PyTorch 原生**：`torch.Tensor` 张量直接当观测/动作，
 RL 循环（PPO 等）无缝接入；
-- **向量化 API**：`env.reset()`、`env.step(actions)` 一次处理整批环境。
+**向量化 API**：`reset()`、`step()` 一次处理整批环境。
 
 **典型用法**（四足 RL）：
 
 ```python
-envs = gym.make_vec("Quadruped", num_envs=4096, ...)   # 4096 个并行环境
-obs = envs.reset()
-for epoch in range(...):
-    actions = policy(obs)            # GPU 策略推理
-    obs, rew, done, info = envs.step(actions)  # 一次 step 更新全部环境
-    ppo_update(...)                  # 策略更新也在 GPU
+from isaacgym import gymapi, gymtorch
+import torch
+
+gym = gymapi.acquire_gym()
+sim = gym.create_sim(0, 0, gymapi.SIM_PHYSX, sim_params)
+envs = [gym.create_env(sim, (-1, -1, -1), (1, 1, 1), 64)
+        for _ in range(4096)]                 # 4096 个并行环境
+
+# 状态直接以 GPU 张量暴露
+root = gymtorch.wrap_tensor(gym.acquire_actor_root_state_tensor(sim))
+dof  = gymtorch.wrap_tensor(gym.acquire_dof_state_tensor(sim))
+
+for _ in range(10000):
+    obs = torch.cat([root[:, :7], dof], dim=-1)
+    action = policy(obs)                      # 策略推理，纯 GPU
+    gym.set_dof_action_tensor(sim, action)
+    gym.simulate(sim)                         # 一次调用步进全部环境
+    gym.fetch_results(sim, True)
+    gym.refresh_dof_state_tensor(sim)
 ```
 
 **效果**：四足运动、灵巧操作等任务的训练时间从「天」降到「小时」——**RL 的「样本效率」问题被「并行数量」物理性解决**（第 14 章的 PPO 正是受益者）。
@@ -57,14 +70,14 @@ for epoch in range(...):
 
 **Isaac Sim** 是比 Isaac Gym 更「完整」的仿真平台：
 
-- **USD 场景**：用 Universal Scene Description 建场景（工业标准，
+**USD 场景**：用 Universal Scene Description 建场景（工业标准，
 可导入 CAD/机器人模型）；
-- **照片级渲染**：光线追踪/路径追踪，
+**照片级渲染**：光线追踪/路径追踪，
 视觉 RL 与感知开发可用真实图像；
-- **真实传感器**：相机（RGB/深度/分割）、激光雷达、IMU——**传感器仿真**支持「感知 Sim2Real」；
-- **物理**：PhysX 引擎（NVIDIA），
+**真实传感器**：相机（RGB/深度/分割）、激光雷达、IMU——**传感器仿真**支持「感知 Sim2Real」；
+**物理**：PhysX 引擎（NVIDIA），
 支持接触、软体、流体；
-- **机器人生态**：与 ROS/ROS2 深度集成，**仿真 → 部署**的完整链路。
+**机器人生态**：与 ROS/ROS2 深度集成，**仿真 → 部署**的完整链路。
 
 **定位差异**：Isaac Gym 是「RL 训练加速器」（快、抽象、只管强化学习）；
 Isaac Sim 是「机器人开发平台」（全、真实、服务感知与验证）。**Isaac Lab** 是 NVIDIA 在 Isaac Sim 之上做的 RL 框架——把 Sim 的真实渲染与 Gym 式并行结合。
@@ -90,11 +103,11 @@ Isaac Sim 也能并行，
 
 ## 4 为什么「GPU 并行」改变游戏规则
 
-- **样本量级**：CPU 仿真千级并行已是极限，
+**样本量级**：CPU 仿真千级并行已是极限，
 GPU 仿真上万级起步——**RL 能「吃」的经验多了两个数量级**；
-- **训练速度**：一次 GPU step = 上万步真实经验，
+**训练速度**：一次 GPU step = 上万步真实经验，
 PPO 的 batch 大、更新稳——**又快又稳**；
-- **随机化成本低**：上万个环境的域随机化（质量、摩擦、延迟各不相同）是「并行环境的天然属性」——**DR 不再额外花钱**。
+**随机化成本低**：上万个环境的域随机化（质量、摩擦、延迟各不相同）是「并行环境的天然属性」——**DR 不再额外花钱**。
 
 **这正是第 15 章四足 Sim2Real 能成功的计算前提**：没有 GPU 并行，
 ADR 的「范围扩张 + 万级环境」根本跑不动。

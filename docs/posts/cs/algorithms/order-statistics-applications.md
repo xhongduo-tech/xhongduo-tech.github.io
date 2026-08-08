@@ -37,8 +37,8 @@ $$\sum_{i<k} w_i \le \frac{1}{2} \quad \text{且} \quad \sum_{i>k} w_i \le \frac
 
 直观论证「往左挪一点还是往右挪一点」：设在位置 $x$，把所有住户按位置排序。**把 $x$ 向右移动无穷小量 $dx$**：
 
-- 左边（$x_i < x$）的住户，距离增加 $dx$，代价增加 $\sum_{x_i < x} w_i \cdot dx$；
-- 右边（$x_i > x$）的住户，距离减少 $dx$，代价减少 $\sum_{x_i > x} w_i \cdot dx$。
+左边（$x_i < x$）的住户，距离增加 $dx$，代价增加 $\sum_{x_i < x} w_i \cdot dx$；
+右边（$x_i > x$）的住户，距离减少 $dx$，代价减少 $\sum_{x_i > x} w_i \cdot dx$。
 
 净变化 $= \left(\sum_{x_i<x} w_i - \sum_{x_i>x} w_i\right) dx$。当左边权重和 < 1/2 时净变化为负——**往右挪更优**；当左边权重和 > 1/2 时净变化为正——**往左挪更优**。平衡点正是「左右权重各约 1/2」的位置，即带权中位数。<span class="marginnote">这个「挪动一点点看边际变化」的论证是优化里「一阶条件」的朴素版：凸函数的极小点处，左右导数必须「夹住 0」。$f(x)$ 是凸的分段线性函数，其极小点恰是「左侧斜率从负转正」的地方。</span>
 
@@ -49,22 +49,22 @@ $$\sum_{i<k} w_i \le \frac{1}{2} \quad \text{且} \quad \sum_{i>k} w_i \le \frac
 朴素做法：先排序（$O(n\log n)$）再累加权重找分界点。但顺序统计量给出 $O(n)$ 方案——**分治 + 剪枝**：
 
 ```
-WEIGHTED-MEDIAN(x[1..n], w[1..n], totalW)
-  if n == 1  return x[1]
-  find the median element x[k] of the current set   // 用 SELECT，O(n)
-  leftW  = sum of weights of elements < x[k]
-  rightW = sum of weights of elements > x[k]
-  if leftW <= 1/2 and rightW <= 1/2
-    return x[k]                        // 它就是带权中位数
-  else if leftW > 1/2
-    recurse on elements < x[k]          // 答案在左边，右边剔除
-  else
-    recurse on elements > x[k]          // 答案在右边，左边剔除
+WEIGHTED-MEDIAN(x, w)
+1  if n == 1
+2      return x₁
+3  k = ⌈n/2⌉
+4  x_k = SELECT(x, 1, n, k)          // 线性时间找当前集合的中位数
+5  W_L = Σ_{i=1}^{k−1} w_i           // 中位数左侧权重和
+6  if W_L > 1/2                       // 左侧偏重 → 答案在左半
+7      return WEIGHTED-MEDIAN(x[1..k−1], w[1..k−1])
+8  if W_L + w_k < 1/2                 // 右侧偏重 → 答案在右半
+9      return WEIGHTED-MEDIAN(x[k+1..n], w[k+1..n])
+10 return x_k                         // 左右权重各 ≤ 1/2，x_k 即带权中位数
 ```
 
 每次用 SELECT 找当前集合的中位数 $O(n)$，然后按左右权重决定递归方向，**只走一边**。$T(n) = T(n/2) + O(n) = O(n)$。<span class="marginnote">与 RANDOMIZED-SELECT 的「单臂递归」同构：每层线性工作 + 单侧递归 = 线性总时间。这里 SELECT 可用随机化版本（期望线性）或最坏线性版本——应用的灵活之处在于可以按需选底层的顺序统计量子程序。</span>
 
-**辨析｜易错点：** 递归条件别写反。`leftW > 1/2` 说明左边太重，答案（让左右均衡的点）在**左边**，必须递归左半；若误判方向，分治会越走越偏。**「权重在哪边失衡，答案就在哪边」**——权重像质量，带权中位数是「质量中心」。
+**辨析｜易错点：** 递归条件别写反。若左边权重和 $\sum_{i<k} w_i > 1/2$ 说明左边太重，答案（让左右均衡的点）在**左边**，必须递归左半；若误判方向，分治会越走越偏。**「权重在哪边失衡，答案就在哪边」**——权重像质量，带权中位数是「质量中心」。
 
 ## 4 公式解析：为什么是「权重和 ≤ 1/2」而非「个数 ≤ n/2」
 

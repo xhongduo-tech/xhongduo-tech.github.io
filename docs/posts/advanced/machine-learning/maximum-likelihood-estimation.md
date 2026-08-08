@@ -20,7 +20,7 @@ date: 2026-08-07
 
 **极大似然估计（Maximum Likelihood Estimation, MLE）**就是最常用的答案，也是整个统计推断与机器学习训练的基石——神经网络训练用的交叉熵损失、线性回归的最小二乘，都能从 MLE 的框架里推出来。它是「频率学派」估计参数的招牌方法，与第7章 EM 算法、贝叶斯网参数学习一脉相承。<span class="marginnote">「极大似然」四个字讲透就是：<strong>找到让「看到这批数据」的概率最大的参数。</strong>既然这批数据真的出现了，那就认为它们出现的概率本应最大——这是频率学派最朴素的逻辑支点。</span>
 
-## 1 似然函数与对数似然设样本集 $D = \{\boldsymbol{x}_1, \dots, \boldsymbol{x}_m\}$ 独立同分布于未知参数 $\theta$ 的分布。**似然函数（likelihood function）**定义为样本联合概率（把 $\theta$ 当变量）：$$L(\theta) = P(D \mid \theta) = \prod_{i=1}^{m} P(\boldsymbol{x}_i \mid \theta)$$
+## 1 似然函数与对数似然设样本集 $D = \{\boldsymbol{x}_1, \dots, \boldsymbol{x}_m\}$ 独立同分布于未知参数 $\theta$ 的分布。**似然函数（likelihood function）**定义为样本联合概率（把 $\theta$ 当变量）：`$$`L(\theta) = P(D \mid \theta) = \prod_{i=1}^{m} P(\boldsymbol{x}_i \mid \theta)$$
 **极大似然估计**：求使 $L(\theta)$ 最大的参数
 
 $$\hat{\theta} = \arg\max_{\theta} L(\theta)$$
@@ -43,15 +43,15 @@ $$\ell(\mu, \sigma^2) = \sum_{i=1}^{m}\log \left[\frac{1}{\sqrt{2\pi}\sigma}\exp
 **直觉**：MLE 在这个例子里给出的估计「平凡得像常识」——平均一下就是均值。但这正是它的意义：**当分布假设清晰时，MLE 自动推导出「看起来理所当然」的估计量，而且它在统计上有一致性、渐近无偏、渐近正态等优良性质**。第3章线性回归的最小二乘解，也可以从「误差服从正态分布」的 MLE 里推导出来——两条路殊途同归。<span class="marginnote">分母 $m$ 与 $m-1$ 的差别值得记牢：$\hat{\sigma}^2$ 用 $m$ 是有偏的（偏小），无偏估计用 $m-1$。MLE 给出的是前者，这是 MLE「渐近无偏但有限样本有偏」的一个经典例子。</span>
 
 ## 3 从 MLE 看三种「看起来不同」的损失MLE 框架有个惊人的统摄力：不同模型的「损失函数」都能解释成负对数似然。- **线性回归**：假设 $y = \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x} + \epsilon$，$\epsilon \sim N(0, \sigma^2)$。则最大化对数似然 $\Leftrightarrow$ 最小化 $\sum_i (y_i - \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i)^2$——**最小二乘 = 高斯噪声下的 MLE**。- **逻辑回归**：假设输出服从伯努利分布，则 MLE $\Leftrightarrow$ 最小化交叉熵/对数损失——**交叉熵 = 伯努利噪声下的 MLE**。
-- **朴素贝叶斯**：对离散特征用多项分布建模，MLE 给出的参数就是频率计数。
+**朴素贝叶斯**：对离散特征用多项分布建模，MLE 给出的参数就是频率计数。
 
 **辨析｜易错点：** 既然都是 MLE，为什么损失长得不一样？因为**数据分布的假设不同**——高斯噪声推出平方损失，伯努利输出推出对数损失。**「选损失函数」的真正含义是「选数据的概率模型」**。想通这一点，第3章到第6章那些看似杂乱的损失函数就被统一进了一个框架。<span class="marginnote">这一认识在工程上极其实用：当你的数据有重尾、有离群点时，「换一个更稳的噪声分布假设」比「硬改损失函数」更本质。也是第11章 L1 正则、稳健回归的由来。</span>
 
 ## 4 MLE 的局限与应对MLE 不是万能的，三个经典局限值得记住：- **过拟合倾向**：MLE 只最大化训练数据的似然，样本少时参数估计方差大。对策是加**正则化/先验**——引入先验后就变成了**最大后验估计（MAP）**，它是 MLE 与贝叶斯估计的折中。- **需要分布假设正确**：若真实分布与假设的 $P(\boldsymbol{x}\mid\theta)$ 相去甚远，MLE 会给出有偏的结果。这也解释了为什么「假设检验」「模型选择」（第2章）那么重要。
-- **局部最优与不可解**：当似然函数复杂（如混合模型），直接最大化难解或陷入局部最优——这正是第7章末 **EM 算法**出场的原因。<span class="marginnote">「MLE 局部不可解 → EM 用期望步迭代逼近」是下一节《EM 算法》的预告。EM 本质上是「在似然不可直接最大化时，用隐变量做交替优化」的 MLE 推广。</span>
+**局部最优与不可解**：当似然函数复杂（如混合模型），直接最大化难解或陷入局部最优——这正是第7章末 **EM 算法**出场的原因。<span class="marginnote">「MLE 局部不可解 → EM 用期望步迭代逼近」是下一节《EM 算法》的预告。EM 本质上是「在似然不可直接最大化时，用隐变量做交替优化」的 MLE 推广。</span>
 
 
-MLE 与最大后验估计（MAP）的差别，一句话：**MLE 只看数据，MAP 还看先验**。$$\hat{\theta}_{\text{MLE}} = \arg\max_\theta \log P(D|\theta), \qquad \hat{\theta}_{\text{MAP}} = \arg\max_\theta \left[\log P(D|\theta) + \log P(\theta)\right]$$- 高斯先验 $P(\theta) \propto e^{-\lambda\|\theta\|^2}$ → MAP 等价于 **L2 正则化**（岭回归）；- 拉普拉斯先验 $P(\theta) \propto e^{-\lambda\|\theta\|_1}$ → MAP 等价于 **L1 正则化**（LASSO）；- 无信息先验（均匀）→ MAP 退化为 MLE。**「正则化 = 先验」是贝叶斯视角给全书最大的礼物**：第11章的 L1/L2 正则、第6章的 SVM，都能从「给参数加先验」的 MAP 框架里推出来。**思考题**：为什么说「MLE 是 MAP 在无信息先验下的特例」？L2 正则对应什么先验假设？
+MLE 与最大后验估计（MAP）的差别，一句话：**MLE 只看数据，MAP 还看先验**。`$$`\hat{\theta}_{\text{MLE}} = \arg\max_\theta \log P(D|\theta), \qquad \hat{\theta}_{\text{MAP}} = \arg\max_\theta \left[\log P(D|\theta) + \log P(\theta)\right]`$$`- 高斯先验 $P(\theta) \propto e^{-\lambda\|\theta\|^2}$ → MAP 等价于 **L2 正则化**（岭回归）；- 拉普拉斯先验 $P(\theta) \propto e^{-\lambda\|\theta\|_1}$ → MAP 等价于 **L1 正则化**（LASSO）；- 无信息先验（均匀）→ MAP 退化为 MLE。**「正则化 = 先验」是贝叶斯视角给全书最大的礼物**：第11章的 L1/L2 正则、第6章的 SVM，都能从「给参数加先验」的 MAP 框架里推出来。**思考题**：为什么说「MLE 是 MAP 在无信息先验下的特例」？L2 正则对应什么先验假设？
 ## 拓展：MLE 与 MAP 的一步之遥
 
 MLE 与最大后验估计（MAP）的差别，一句话：**MLE 只看数据，MAP 还看先验**。

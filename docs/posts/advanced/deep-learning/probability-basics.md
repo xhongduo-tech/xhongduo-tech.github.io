@@ -34,8 +34,8 @@ date: 2026-08-07
 
 掷硬币：设正面为 1、反面为 0，则 $X \in \{0, 1\}$。抽一个像素的灰度：$X$ 落在 $[0, 255]$ 的某个区间。随机变量按取值方式分两类：
 
-- **离散随机变量**：只取有限个或可数多个值（掷硬币、掷骰子、网络中的点击次数）。
-- **连续随机变量**：取某个区间内任意实数值（身高、温度、图片的像素亮度）。
+**离散随机变量**：只取有限个或可数多个值（掷硬币、掷骰子、网络中的点击次数）。
+**连续随机变量**：取某个区间内任意实数值（身高、温度、图片的像素亮度）。
 
 记号上，用**大写** $X$ 表示随机变量本身，**小写** $x$ 表示它的一次具体观测值。于是「$X$ 取到 $x$」写作 $X = x$，它的概率写作 $\mathrm{P}(X = x)$。<span class="marginnote">这个大小写约定非常重要：$X$ 是「待定的函数」，$x$ 是「已经发生的数字」。深度学习里，把「尚未采样的数据」与「手头的训练样本」区分开，正是同一对记号——前者是随机变量，后者是实现值。</span>
 
@@ -113,18 +113,16 @@ $$
 ```python
 import numpy as np
 
-rng = np.random.default_rng(0)
-x = rng.normal(loc=0.0, scale=1.0, size=100_000)   # 连续：采样 10 万个标准高斯点
+# 离散写法：频率归一化，保证 sum(P) == 1
+counts, _ = np.histogram(data, bins=10)
+P = counts / counts.sum()
 
-# density=True 使直方图面积归一，即 sum(counts * bin宽) ≈ 1
-counts, edges = np.histogram(x, bins=80, density=True)
-print(np.sum(counts * np.diff(edges)))             # ≈ 1.0
-
-y = rng.binomial(1, p=0.3, size=100_000)           # 离散：伯努利 10 万次
-print(np.mean(y))                                   # ≈ 0.3
+# 连续写法：密度归一化，保证 sum(p * bin_width) == 1（面积归一）
+density, edges = np.histogram(data, bins=10, density=True)
+area = (density * np.diff(edges)).sum()   # 应为 1.0
 ```
 
-`density=True` 让直方图的面积之和等于 1，对应连续 PDF 的 $\int p\,dx = 1$；离散时对频率取平均，对应 $\sum_x P(x)=1$。**两种写法是同一条纪律「总概率为一」的两种形态**——也是后面「从分布采样、用样本反推参数」（最大似然）的雏形。
+$\sum_x P(x)=1$ 让直方图的面积之和等于 1，对应连续 PDF 的 $\int p\,dx = 1$；离散时对频率取平均，对应 $\sum_x P(x)=1$。**两种写法是同一条纪律「总概率为一」的两种形态**——也是后面「从分布采样、用样本反推参数」（最大似然）的雏形。
 
 ## 5 小结
 

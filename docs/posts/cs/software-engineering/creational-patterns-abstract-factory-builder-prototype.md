@@ -22,7 +22,7 @@ date: 2026-08-07
 
 **抽象工厂（Abstract Factory）**：提供一个接口，用于创建**一系列相关或相互依赖的对象**，而不指定它们的具体类。
 
-结构：抽象工厂接口声明一组创建方法（如 `createButton()`、`createTextbox()`），每个具体工厂（`WindowsFactory`、`MacFactory`）返回一整族配套产品（Windows 风格按钮+输入框、Mac 风格按钮+输入框）。
+结构：抽象工厂接口声明一组创建方法（如 `createButton()`、`createTextField()`），每个具体工厂（**WindowsFactory**、**MacFactory**）返回一整族配套产品（Windows 风格按钮+输入框、Mac 风格按钮+输入框）。
 
 适用场景：**需要保证"配套一致性"**——比如跨平台 UI 组件、不同数据库的访问对象。调用方只依赖抽象工厂与抽象产品，不关心当前是哪个平台/哪种实现。<span class="marginnote">抽象工厂与工厂方法的分工：<strong>工厂方法</strong>管"单个产品的类型选择"，<strong>抽象工厂</strong>管"一族产品的整体一致性"。GUI 框架是经典例子——切换主题（Windows → Mac）时，按钮、菜单、滚动条必须整套换，抽象工厂让这套换在"换工厂"一处完成。新增产品（加一种组件）会改动抽象工厂接口——这是它的主要代价（OCP 在"产品维度"受限）。</span>
 
@@ -32,25 +32,19 @@ date: 2026-08-07
 
 **建造者（Builder）**：将复杂对象的**构造过程**与它的**表示**分离，使同样的构造过程能创建不同的表示。
 
-结构：`Director`（导演）控制构造步骤顺序，`Builder` 接口定义各步骤（`buildEngine()`、`buildWheels()`），具体 `Builder` 实现不同表示（`CarBuilder`、`TruckBuilder`），最终 `getResult()` 产出成品。
+结构：**Director**（导演）控制构造步骤顺序，**Builder** 接口定义各步骤（`buildPartA()`、`buildPartB()`），具体 **ConcreteBuilder** 实现不同表示（如 **TextBuilder**、**HTMLBuilder**），最终 **Product** 产出成品。
 
-```
-director.construct(builder)   // 导演决定步骤顺序
-  builder.buildEngine()
-  builder.buildWheels()
-  builder.buildFrame()
-car = builder.getResult()     // 不同的 builder 得到不同的车
-```
+典型流程：`Director.construct(builder)` → `builder.buildPartA()` → `builder.buildPartB()` → `builder.getResult()`（返回 **Product**）。
 
-**辨析｜易错点：** 建造者 ≠ 工厂。工厂**一步到位**返回对象；建造者**分步设置**、步骤可灵活组合，适合对象字段多、构造参数混乱的场景。现在很多语言用"链式调用"（`builder.setA(..).setB(..).build()`）实现了建造者思想，让复杂对象的构造清晰可读——比动辄十几个参数的构造方法好得多。判断标准：**构造是否需要"分步 + 可选步骤"？** 需要则建造者，否则工厂更简单。
+**辨析｜易错点：** 建造者 ≠ 工厂。工厂**一步到位**返回对象；建造者**分步设置**、步骤可灵活组合，适合对象字段多、构造参数混乱的场景。现在很多语言用"链式调用"（`builder.setA(...).setB(...).build()`）实现了建造者思想，让复杂对象的构造清晰可读——比动辄十几个参数的构造方法好得多。判断标准：**构造是否需要"分步 + 可选步骤"？** 需要则建造者，否则工厂更简单。
 
 ## 3 原型：用克隆代替构造
 
-**原型（Prototype）**：通过**复制现有实例**来创建新对象，而不是通过 `new`。
+**原型（Prototype）**：通过**复制现有实例**来创建新对象，而不是通过 `new` 构造。
 
-适用场景：**创建成本高或构造复杂**的对象（深拷贝大数据结构），或需要"基于某个模板微调"（复制一个默认配置再改两项）。核心机制是 `clone()`（浅拷贝/深拷贝需按需实现）。<span class="marginnote">原型的现代使用往往是<strong>隐式的</strong>：JSON 的 `parse(stringify(obj))`、数组的 `slice()`、配置的"复制默认值再覆盖"都是原型思想。它的权衡是<strong>拷贝语义</strong>：浅拷贝共享引用（改一个影响另一个），深拷贝成本高。用原型前必须想清楚"复制到什么深度"——这是它最常出 bug 的地方。</span>
+适用场景：**创建成本高或构造复杂**的对象（深拷贝大数据结构），或需要"基于某个模板微调"（复制一个默认配置再改两项）。核心机制是 `clone()`（浅拷贝/深拷贝需按需实现）。<span class="marginnote">原型的现代使用往往是<strong>隐式的</strong>：JSON 的 `JSON.parse(JSON.stringify(obj))`、数组的 `slice()`、配置的"复制默认值再覆盖"都是原型思想。它的权衡是<strong>拷贝语义</strong>：浅拷贝共享引用（改一个影响另一个），深拷贝成本高。用原型前必须想清楚"复制到什么深度"——这是它最常出 bug 的地方。</span>
 
-**辨析｜易错点：** 原型 ≠ 简单复制。复制本身简单，**原型模式的要点是"让复制成为创建的主要途径"**——调用方不 `new` 而是 `clone` 一个原型。如果创建成本不高，直接 `new` 更简单，不必为了"用模式"而克隆。
+**辨析｜易错点：** 原型 ≠ 简单复制。复制本身简单，**原型模式的要点是"让复制成为创建的主要途径"**——调用方不 `new` 而是 `clone()` 一个原型。如果创建成本不高，直接 `new` 更简单，不必为了"用模式"而克隆。
 
 ## 4 三种模式的对比
 

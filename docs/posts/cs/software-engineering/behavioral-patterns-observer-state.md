@@ -16,15 +16,15 @@ date: 2026-08-07
 
 ## 为什么从观察者与状态开始
 
-这是行为型模式里应用最广的两个。**观察者**（Observer）定义了"一对多依赖"的广播机制，是 MVC、事件系统、响应式编程的基石；**状态**（State）把"对象在不同状态下的行为差异"封装成独立状态类，消除大片的 `if/switch`。一个解决"变化怎么通知"，一个解决"行为怎么随状态变"。
+这是行为型模式里应用最广的两个。**观察者**（Observer）定义了"一对多依赖"的广播机制，是 MVC、事件系统、响应式编程的基石；**状态**（State）把"对象在不同状态下的行为差异"封装成独立状态类，消除大片的 if/else 条件分支。一个解决"变化怎么通知"，一个解决"行为怎么随状态变"。
 
 ## 1 观察者：一对多的自动广播
 
 **观察者（Observer）**：定义对象间**一对多**的依赖，当被观察者（Subject）状态变化时，自动通知并更新所有观察者。
 
-结构：`Subject`（主题）维护观察者列表，提供 `attach()`/`detach()`/`notify()`；`Observer` 接口声明 `update()`；`ConcreteSubject` 状态变化时调用 `notify()`，遍历通知所有观察者。
+结构：**Subject（主题）**维护观察者列表，提供 **attach() / detach() / notify()**；**Observer** 接口声明 **update()**；**Subject** 状态变化时调用 **notify()**，遍历通知所有观察者。
 
-经典例子：**MVC**——模型（Model）是被观察者，视图（View）是观察者；模型数据一变，所有视图自动刷新。当主题状态变化时，各观察者各自更新，彼此无耦合。<span class="marginnote">观察者的两个变体：<strong>推（push）</strong>——`update(data)` 直接带数据；<strong>拉（pull）</strong>——`update()` 后观察者自己从主题取数据。推简单但可能通知了不关心的数据，拉灵活但耦合主题接口。现代事件系统（DOM 事件、EventEmitter）都是观察者的直接应用；而响应式编程（RxJS、Vue 的响应式）把观察者升级成了"数据流"——观察者在现代软件的渗透远超 GoF 当年的设想。</span>
+经典例子：**MVC**——模型（Model）是被观察者，视图（View）是观察者；模型数据一变，所有视图自动刷新。当主题状态变化时，各观察者各自更新，彼此无耦合。<span class="marginnote">观察者的两个变体：<strong>推（push）</strong>——主题通知时直接带上数据；<strong>拉（pull）</strong>——主题只发通知，之后观察者自己从主题取数据。推简单但可能通知了不关心的数据，拉灵活但耦合主题接口。现代事件系统（DOM 事件、EventEmitter）都是观察者的直接应用；而响应式编程（RxJS、Vue 的响应式）把观察者升级成了"数据流"——观察者在现代软件的渗透远超 GoF 当年的设想。</span>
 
 **辨析｜易错点：** 观察者 vs 事件驱动架构（第 5 章）：两者同源（发布-订阅），但观察者通常是**进程内同步**的直接回调，事件驱动常是**跨进程异步**的消息传递。另一个易错点：观察者**顺序问题**——多个观察者的通知顺序不应被依赖（否则谁先谁后成了隐式契约）。
 
@@ -32,16 +32,31 @@ date: 2026-08-07
 
 **状态（State）**：允许对象在**内部状态改变时改变其行为**——看起来像对象换了类。
 
-结构：`Context`（上下文）持有一个 `State` 接口引用，并把请求委托给它；`ConcreteState`（具体状态类）实现"该状态下的行为"与"状态转移"。
+结构：**Context（上下文）**持有一个 **State** 接口引用，并把请求委托给它；**ConcreteState（具体状态类）**实现“该状态下的行为”与“状态转移”。
 
-```
-状态接口：  handle()  → 处理请求 + 决定是否转移
-状态A：     待机 → (收到开始) → 运行
-状态B：     运行 → (收到暂停) → 暂停
-Context 持有当前状态对象，把请求转发给它
+```java
+// 状态接口
+interface State {
+    void handle(Context ctx, Event evt);
+}
+
+// 具体状态：每个状态自成一类
+class Established implements State {
+    public void handle(Context ctx, Event evt) {
+        if (evt == Event.DATA)  process(evt);           // 已建立：处理数据
+        else if (evt == Event.CLOSE) ctx.setState(new Closed());  // 状态转移
+    }
+}
+
+// 上下文：把请求委托给当前状态
+class Context {
+    private State state = new Listening();
+    void setState(State s) { state = s; }
+    void onEvent(Event evt) { state.handle(this, evt); }
+}
 ```
 
-经典例子：**文档/订单/连接的状态机**。以 TCP 连接为例：`Listen`、`Established`、`Closed` 等状态类，每个状态的"收到数据怎么处理"不同——`Established` 处理数据，`Listen` 只是等待。用状态模式，不再需要 `switch (state)` 加一段巨长分支，每个状态自成一个类。<span class="marginnote">状态模式是"用组合替代大 if/switch"的教科书案例。它的收益：<strong>状态逻辑内聚</strong>（每个状态类只管自己的行为与转移）、符合 OCP（加状态 = 加类）、消除"状态爆炸的 if"。代价：<strong>类数量增多</strong>、状态转移逻辑分散在各状态类里（要配合状态机图理解全局）。它与第 3 章"状态图"直接呼应——分析阶段的状态图，设计阶段用状态模式落地。</span>
+经典例子：**文档/订单/连接的状态机**。以 TCP 连接为例：**Established**、**Listening**、**Closed** 等状态类，每个状态的"收到数据怎么处理"不同——**Established** 处理数据，**Listening** 只是等待。用状态模式，不再需要 **if/else** 加一段巨长分支，每个状态自成一个类。<span class="marginnote">状态模式是"用组合替代大 if/switch"的教科书案例。它的收益：<strong>状态逻辑内聚</strong>（每个状态类只管自己的行为与转移）、符合 OCP（加状态 = 加类）、消除"状态爆炸的 if"。代价：<strong>类数量增多</strong>、状态转移逻辑分散在各状态类里（要配合状态机图理解全局）。它与第 3 章"状态图"直接呼应——分析阶段的状态图，设计阶段用状态模式落地。</span>
 
 **辨析｜易错点：** 状态 vs 策略（下一节）：两者结构几乎一样（Context 持有抽象接口、运行时切换），但**意图不同**——状态是"对象自身的状态决定行为"，切换由内部状态转移驱动；策略是"同一任务的不同算法"，切换由客户端主动选择。状态管"我是谁"，策略管"我怎么做"。
 

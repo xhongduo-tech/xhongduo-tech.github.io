@@ -37,19 +37,19 @@ date: 2026-08-07
 
 监控里 GPU 利用率有几个不同含义，极易混淆：
 
-- **`nvidia-smi` 的 GPU-Util**：采样周期内「有多少时间 SM 上有 warp 在跑」。它**不反映算力打得多满**——SM 上只要有一个 warp 就算「忙」。
-- **SM 占用率（achieved occupancy）**：活跃 warp 与最大 warp 之比，反映并行度是否拉满。
-- **Tensor Core 利用率（NVTX/DCGM）**：真正做矩阵乘的占比——训练的核心算力指标。
+**nvidia-smi 的 GPU-Util**：采样周期内「有多少时间 SM 上有 warp 在跑」。它**不反映算力打得多满**——SM 上只要有一个 warp 就算「忙」。
+**SM 占用率（achieved occupancy）**：活跃 warp 与最大 warp 之比，反映并行度是否拉满。
+**Tensor Core 利用率（NVTX/DCGM）**：真正做矩阵乘的占比——训练的核心算力指标。
 
-**关键陷阱**：`GPU-Util` 显示 90% 可能其实算力利用只有 30%——因为 kernel 很小、并行度低，但 SM「没闲着」。要判断「算力是否真打满」，看 **achieved occupancy 与 Tensor Core 利用率**，而不是 GPU-Util。<span class="marginnote">「GPU-Util 高但训练还是慢」是常见困惑：小 kernel 也能把 GPU-Util 拉高，但计算量小、吞吐低。真正的性能要看「每秒处理的 token / FLOPs 利用率」，而不是 SM 忙不忙。这也是为什么监控要比 `nvidia-smi` 更深的指标（DCGM 的 SM 占用、Tensor Core 利用率）。</span>
+**关键陷阱**：GPU-Util 显示 90% 可能其实算力利用只有 30%——因为 kernel 很小、并行度低，但 SM「没闲着」。要判断「算力是否真打满」，看 **achieved occupancy 与 Tensor Core 利用率**，而不是 GPU-Util。<span class="marginnote">「GPU-Util 高但训练还是慢」是常见困惑：小 kernel 也能把 GPU-Util 拉高，但计算量小、吞吐低。真正的性能要看「每秒处理的 token / FLOPs 利用率」，而不是 SM 忙不忙。这也是为什么监控要比 GPU-Util 更深的指标（DCGM 的 SM 占用、Tensor Core 利用率）。</span>
 
 ## 3 显存、网络与功耗监控
 
 **显存监控**：
 
-- `memory_allocated`（真占用）vs `memory_reserved`（含缓存）——判断是否泄露/碎片。
-- 显存带宽占用——判断是否「显存带宽瓶颈」（某些算子是带宽密集的）。
-- 峰值水位——OOM 前兆。
+`torch.cuda.memory_allocated()`（真占用）vs `torch.cuda.memory_reserved()`（含缓存）——判断是否泄露/碎片。
+显存带宽占用——判断是否「显存带宽瓶颈」（某些算子是带宽密集的）。
+峰值水位——OOM 前兆。
 
 **网络监控**：集合通信是训练的关键路径，要看每卡网卡吞吐、NCCL 的时间占比、重传率。**网络吞吐低 + GPU 利用率低** = 通信瓶颈。
 
@@ -59,10 +59,10 @@ date: 2026-08-07
 
 现代训练监控的标配工具链：
 
-- **DCGM（Data Center GPU Manager）**：NVIDIA 官方 GPU 监控框架，采集 GPU 利用、显存、温度、功耗、NVLink 带宽、SM 占用等 100+ 指标。
-- **Prometheus + node-exporter + dcgm-exporter**：采集层——DCGM 数据进 Prometheus 时序库。
-- **Grafana**：可视化面板——GPU 利用率、显存、网络、功耗一目了然。
-- **告警**：Prometheus Alertmanager + 自定义规则（利用率低、显存高水位、温度高）。
+**DCGM（Data Center GPU Manager）**：NVIDIA 官方 GPU 监控框架，采集 GPU 利用、显存、温度、功耗、NVLink 带宽、SM 占用等 100+ 指标。
+**Prometheus + node-exporter + dcgm-exporter**：采集层——DCGM 数据进 Prometheus 时序库。
+**Grafana**：可视化面板——GPU 利用率、显存、网络、功耗一目了然。
+**告警**：Prometheus Alertmanager + 自定义规则（利用率低、显存高水位、温度高）。
 
 **监控分层**：集群级（看整体资源）、任务级（看单个训练）、节点级（看单卡细节）。**先有集群级大盘，再钻到任务级定位**——这是监控使用的标准路径。<span class="marginnote">监控体系的价值在「时间维度」：不只有「现在」，还有「历史曲线」。训练从「正常」到「变慢」的转折点，往往能从曲线里找出来——比如某步开始网络吞吐骤降、或某节点温度爬升。<strong>曲线是性能问题的「案发现场」</strong>。</span>
 
@@ -99,23 +99,23 @@ $$U_{\text{real}} = \frac{\text{实际 FLOPs}}{\text{峰值 FLOPs}} = \frac{T_{\
 
 ## 8 进阶与延伸
 
-**动手搭一块监控面板**：给一个训练任务配 `dcgm-exporter` + Prometheus + Grafana，画「GPU 利用率、显存、温度、功耗」四张图——训练 30 分钟，回看曲线：有没有利用率低谷？低谷对应的时段发生了什么？
+**动手搭一块监控面板**：给一个训练任务配 dcgm-exporter + Prometheus + Grafana，画「GPU 利用率、显存、温度、功耗」四张图——训练 30 分钟，回看曲线：有没有利用率低谷？低谷对应的时段发生了什么？
 
 **几个值得进一步挖的方向**：
 
 - **「利用率低」的归因**：GPU 利用率低时，怎么从监控数据判断是「数据、通信、还是 kernel」？——看 CPU 利用率（数据）、网卡吞吐（通信）、kernel 时间占比（算子）三个伴随指标。
-- **降频的监控**：`nvidia-smi` 里的「Power / Temp / Clocks」三列——频率低于基准就是降频。怎么把「降频告警」加进监控规则？
+- **降频的监控**：nvidia-smi 里的「Power / Temp / Clocks」三列——频率低于基准就是降频。怎么把「降频告警」加进监控规则？
 - **监控的「基线与阈值」**：一个任务的「正常利用率曲线」是什么样的？设「利用率低于基线 20% 且持续 10 分钟」告警——基线怎么用历史数据自动生成？
 
-**自测题**：为什么「GPU-Util 高 ≠ 算力利用高」？如果你能说清「SM 上有一个 warp 就算忙」，就理解了为什么监控要比 `nvidia-smi` 更深一层。
+**自测题**：为什么「GPU-Util 高 ≠ 算力利用高」？如果你能说清「SM 上有一个 warp 就算忙」，就理解了为什么监控要比 GPU-Util 更深一层。
 
 ## 9 动手实践清单
 
-- 给训练配 `dcgm-exporter` + Prometheus + Grafana，画四张核心图。
+- 给训练配 dcgm-exporter + Prometheus + Grafana，画四张核心图。
 - 训练 30 分钟回看曲线，找「利用率低谷」并归因。
 - 用「CPU 忙不忙」判断是数据瓶颈还是别的问题。
 - 监控「温度 + 功耗 + 频率」，识别降频。
-- 对比 `nvidia-smi` 的 GPU-Util 与 Tensor Core 利用率。
+- 对比 nvidia-smi 的 GPU-Util 与 Tensor Core 利用率。
 - 用历史曲线建「利用率基线」，设「低于基线 20%」告警。
 - 画「监控 → 告警 → 剖析」的三层诊断流程。
 

@@ -42,8 +42,8 @@ MPI 里每个集体操作都要求：**通信子内所有进程都调用该函�
 
 集体操作都带一个**根进程（root）**参数：
 
-- root 是「主角」，持有被广播/被收集的数据；
-- 其他进程是「群演」，各自提供/接收自己的分片。
+root 是「主角」，持有被广播/被收集的数据；
+其他进程是「群演」，各自提供/接收自己的分片。
 
 集体操作还要求指定 **MPI 数据类型（MPI_Datatype）**：
 
@@ -51,25 +51,22 @@ MPI 里每个集体操作都要求：**通信子内所有进程都调用该函�
 
 ## 2 广播与分发：Bcast 与 Scatter
 
-**`MPI_Bcast`：一传众**。
+**MPI_Bcast：一传众**。
 
 根进程把一条数据复制给所有人。
 
 ```c
-MPI_Bcast(&x, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-// 根进程持有 x，调用后所有进程的 x 都一样
+MPI_Bcast(buffer, count, datatype, root, comm);
 ```
 
 语义要点：**所有人收到的内容相同**。
 
-**`MPI_Scatter`：一拆众**。
+**MPI_Scatter：一拆众**。
 
 根进程把一个大数组按块**分片**，每人拿自己那块。
 
 ```c
-MPI_Scatter(sendbuf, n, MPI_DOUBLE,
-            recvbuf, n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-// 根进程的 sendbuf 被切成 size 块，第 i 块给 rank i
+MPI_Scatter(sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, root, comm);
 ```
 
 <span class="marginnote">把 1 万个数分给 10 个进程，每个进程拿到 1000 个数，正好构成「数据并行」的起点——每人算自己的切片。</span>
@@ -80,31 +77,27 @@ MPI_Scatter(sendbuf, n, MPI_DOUBLE,
 
 ## 3 收集与归约：Gather 与 Reduce
 
-**`MPI_Gather`：众合一**。
+**MPI_Gather：众合一**。
 
 每个进程给根进程一块数据，根进程按 rank 顺序拼接成大数组。
 
 ```c
-MPI_Gather(sendbuf, n, MPI_DOUBLE,
-           recvbuf, n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-// 根进程把各块按 rank 0,1,2,... 拼起来
+MPI_Gather(sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, root, comm);
 ```
 
-**`MPI_Allgather`：众合众**。
+**MPI_Allgather：众合众**。
 
 Gather 之后再把完整结果广播给所有人——**人人拿到完整拼图**。
 
-**`MPI_Reduce`：众算一**。
+**MPI_Reduce：众算一**。
 
 每个进程给一个局部结果，在根进程上做归约运算：
 
 ```c
-MPI_Reduce(&local, &global, 1, MPI_DOUBLE,
-           MPI_SUM, 0, MPI_COMM_WORLD);
-// global = 所有进程 local 的和，只有根进程拿到
+MPI_Reduce(sendbuf, recvbuf, count, datatype, op, root, comm);
 ```
 
-**`MPI_Allreduce`：众算众**。
+**MPI_Allreduce：众算众**。
 
 Reduce 之后把结果再广播给所有人——**人人拿到全局结果**。
 
@@ -118,18 +111,18 @@ Reduce 之后把结果再广播给所有人——**人人拿到全局结果**。
 
 ```c
 #include <mpi.h>
+#include <stdio.h>
 
 int main(int argc, char *argv[]) {
+    int rank, size, local, global;
     MPI_Init(&argc, &argv);
-    int rank, size;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    double local = rank + 1.0;      // 每个进程的局部值
-    double global = 0.0;
-    MPI_Allreduce(&local, &global, 1, MPI_DOUBLE,
-                  MPI_SUM, MPI_COMM_WORLD);
-    // global = 1+2+...+size = size*(size+1)/2，人人一致
+    local = rank + 1;                            // 每个进程的局部值
+    MPI_Allreduce(&local, &global, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+
+    printf("rank %d: local=%d, global=%d\n", rank, local, global);
     MPI_Finalize();
     return 0;
 }
@@ -143,7 +136,7 @@ int main(int argc, char *argv[]) {
 
 **辨析｜易错点：** `MPI_Reduce` 的结果**只有根进程**有，`MPI_Allreduce` **人人**有。
 
-若在 `MPI_Reduce` 后让非根进程读 `global`，读到的是一块未定义内存。
+若在 `MPI_Reduce` 后让非根进程读 `recvbuf`，读到的是一块未定义内存。
 
 ## 5 公式解析：树状广播的成本
 
@@ -171,13 +164,13 @@ $$T_{\text{bcast}} \approx \log_2 p \cdot \left(\alpha + \frac{n}{\beta}\right)$
 
 | 操作 | 方向 | 根进程结果 | 人人结果 | 数据是否一致 |
 | --- | --- | --- | --- | --- |
-| `MPI_Bcast` | 一→多 | 有 | 有 | 同一份 |
-| `MPI_Scatter` | 一→多 | 有 | 有 | 各拿各片 |
-| `MPI_Gather` | 多→一 | 有 | 无 | 拼成整块 |
-| `MPI_Allgather` | 多→多 | 有 | 有 | 拼成整块 |
-| `MPI_Reduce` | 多→一 | 有 | 无 | 归约结果 |
-| `MPI_Allreduce` | 多→多 | 有 | 有 | 归约结果 |
-| `MPI_Barrier` | 同步 | — | — | — |
+| MPI_Bcast | 一→多 | 有 | 有 | 同一份 |
+| MPI_Scatter | 一→多 | 有 | 有 | 各拿各片 |
+| MPI_Gather | 多→一 | 有 | 无 | 拼成整块 |
+| MPI_Allgather | 多→多 | 有 | 有 | 拼成整块 |
+| MPI_Reduce | 多→一 | 有 | 无 | 归约结果 |
+| MPI_Allreduce | 多→多 | 有 | 有 | 归约结果 |
+| MPI_Barrier | 同步 | — | — | — |
 
 ## 7 小结
 

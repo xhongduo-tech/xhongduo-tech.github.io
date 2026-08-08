@@ -128,18 +128,16 @@ $$
 ```python
 import numpy as np
 
-# 算例一：SVD 求 Schmidt 系数
-M = np.array([[1, 1], [1, -1]], dtype=complex) / 2
-U, s, Vh = np.linalg.svd(M)
-print(np.round(s, 6))          # [0.707107, 0.707107] → λ₁ = λ₂ = 1/√2
+# 算例一：Schmidt 分解 = 系数矩阵的 SVD
+M = np.array([[1, 1], [1, -1]]) / 2          # |ψ⟩ = (|00⟩+|01⟩+|10⟩-|11⟩)/2
+U, lam, Vh = np.linalg.svd(M)
+print(lam)                                   # [0.7071, 0.7071] —— λ₁=λ₂=1/√2
+print(U @ np.diag(lam) @ Vh)                 # 还原系数矩阵
 
-# 算例二：纯化 |ψ⟩ = Σ√pᵢ |i_A⟩|i_R⟩ 并验证 tr_R(ρ_AR) = ρ_A
-p = np.array([0.75, 0.25])
-e0, e1 = np.array([1, 0]), np.array([0, 1])
-psi = np.sqrt(p[0]) * np.kron(e0, e0) + np.sqrt(p[1]) * np.kron(e1, e1)
-rho_AR = np.outer(psi, psi.conj()).reshape(2, 2, 2, 2)   # 下标 (a, r, a', r')
-rho_A = np.einsum('abcb->ac', rho_AR)                    # 对 R 求迹（缩并 r 与 r'）
-print(np.round(rho_A, 6))      # diag(0.75, 0.25)
+# 算例二：混合态的纯化
+psi_AR = np.sqrt([0.75, 0.25])[:, None] * np.eye(2)   # √¾|0R⟩+√¼|1R⟩
+rho_A = psi_AR @ psi_AR.T                    # 对 R 求部分迹
+print(rho_A)                                 # diag(0.75, 0.25) 还原 ρ_A
 ```
 
 ## 6 小结

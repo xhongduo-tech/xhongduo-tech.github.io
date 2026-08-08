@@ -28,14 +28,14 @@ $$
 
 例：
 
-```
-human(socrates) ∨ ¬mortal(socrates)      (子句1：非人 或 会死)
-mortal(socrates)                          (子句2：会死)
-─────────────────────────────────────────
-human(socrates)                          (归结结果：非人)
+```text
+¬mortal(X) ∨ ¬human(X)   // 子句1：若 X 会死则 X 非人（mortal(X) → ¬human(X)）
+mortal(socrates)          // 子句2：苏格拉底会死
+─────────────────────────
+¬human(socrates)          // 归结得：苏格拉底非人
 ```
 
-直觉：子句1 说「若会死则非人」，子句2 说「他会死」——推出「他非人」。<span class="marginnote">归结规则的逻辑依据是<strong>三段论</strong>：`¬A ∨ B`（A 蕴含 B）与 `A` 推出 `B`。归结不过是把它一般化到任意文字对。它<strong>完备</strong>（Robinson）：任何逻辑推论都能经有限次归结得到——这是 Prolog 可靠性的理论根基。</span>
+直觉：子句1 说「若会死则非人」，子句2 说「他会死」——推出「他非人」。<span class="marginnote">归结规则的逻辑依据是<strong>三段论</strong>：`A → B`（A 蕴含 B）与 `A` 推出 `B`。归结不过是把它一般化到任意文字对。它<strong>完备</strong>（Robinson）：任何逻辑推论都能经有限次归结得到——这是 Prolog 可靠性的理论根基。</span>
 
 ## 2 归结证明查询：反证法
 
@@ -45,26 +45,26 @@ Prolog 证明查询 `?- Q` 用的是**反证法（proof by contradiction）**：
 2. 反复归结。
 3. 若归结出**空子句（□，矛盾）**，则 `¬Q` 与已知矛盾——即 `Q` 为真。
 
-```
-已知：mortal(X) :- human(X).   →  ¬human(X) ∨ mortal(X)
-事实：human(socrates).          →  human(socrates)
-查询：?- mortal(socrates).      →  否定：¬mortal(socrates)
+```text
+已知：¬human(X) ∨ mortal(X)，human(socrates)
+查询：?- mortal(socrates)        → 否定：¬mortal(socrates)
 
-¬human(X) ∨ mortal(X)   +   human(socrates)   →  mortal(socrates)（X=socrates）
-mortal(socrates)  +  ¬mortal(socrates)         →  □（空子句，矛盾！）
+归结：¬human(X) ∨ mortal(X) 与 human(socrates) 合一 {X ↦ socrates}，得 mortal(socrates)
+矛盾：mortal(socrates) 与 ¬mortal(socrates) 归结得空子句 □
+∴ mortal(socrates) 为真
 ```
 
 空子句 = 矛盾 = `¬Q` 不成立 = `Q` 为真。<span class="marginnote">「反证法」是归结证明的关键视角：Prolog 不是「正向推出 Q」，而是「假设 Q 假，推出矛盾」。这与数学证明的归谬法同构。空子句 □ 是「空析取」= 假 = 矛盾——归结出 □ 就是找到矛盾。</span>
 
 ## 3 合一：让变量匹配
 
-归结时两个子句的文字往往含**变量**——`¬human(X) ∨ mortal(X)` 与 `human(socrates)` 不能直接消去（`human(X)` 与 `human(socrates)` 不同）。**合一（unification）**找到使两个文字一致的**代换（substitution）**：
+归结时两个子句的文字往往含**变量**——`human(X)` 与 `human(socrates)` 不能直接消去（`human(X)` 与 `human(socrates)` 不同）。**合一（unification）**找到使两个文字一致的**代换（substitution）**：
 
 $$
 \text{unify}(\text{human}(X),\ \text{human}(\text{socrates})) = \{X \mapsto \text{socrates}\}
 $$
 
-应用代换后两者相同，可归结。<span class="marginnote">合一就是「求解使两个项相等的代换」——第五节第五篇的 HM 类型推导也用它（类型合一）。`human(X)` 与 `human(socrates)` 合一：`X := socrates`。若无法合一（如 `human(X)` 与 `likes(X,Y)`，谓词不同），则这两个子句不能直接归结——Prolog 会尝试别的配对。</span>
+应用代换后两者相同，可归结。<span class="marginnote">合一就是「求解使两个项相等的代换」——第五节第五篇的 HM 类型推导也用它（类型合一）。`human(X)` 与 `human(socrates)` 合一：`{X ↦ socrates}`。若无法合一（如 `human(X)` 与 `mortal(X)`，谓词不同），则这两个子句不能直接归结——Prolog 会尝试别的配对。</span>
 
 ## 4 公式解析：归结 + 合一的完整步
 
@@ -76,17 +76,17 @@ $$
 
 三步拆解：
 
-- **第一步，合一**：先找 $P_1$ 与 $P_2$ 的**最一般合一子（mgu）** $\theta$——使两者相等的「最小」代换。`human(X)` 与 `human(socrates)` 的 mgu 是 `{X→socrates}`。
+- **第一步，合一**：先找 $P_1$ 与 $P_2$ 的**最一般合一子（mgu）** $\theta$——使两者相等的「最小」代换。`human(X)` 与 `human(socrates)` 的 mgu 是 `{X ↦ socrates}`。
 - **第二步，应用代换**：把 $\theta$ 应用到两个子句的**剩余部分**——`Aθ` 与 `Bθ` 保留 `X` 被实例化后的版本。
 - **第三步，合并**：结果子句 = 剩余部分的并——若都为空，得空子句 □（矛盾）。**「归结 = mgu + 消互补 + 合并剩余」**三步，是 Prolog 推理的最小动作。
 
-**辨析｜易错点：** 归结规则有一个细节——**因子化（factoring）**：子句内若有两个可合一的文字（`P(X) ∨ P(socrates)`），需先合一消除重复，否则归结不完备。Prolog 通过「子句内只保留一个变量实例」处理此问题。**「归结的完备性依赖因子化」**——教科书常省略这一步，但实现必须考虑。
+**辨析｜易错点：** 归结规则有一个细节——**因子化（factoring）**：子句内若有两个可合一的文字（如 `P(X) ∨ P(Y)`），需先合一消除重复，否则归结不完备。Prolog 通过「子句内只保留一个变量实例」处理此问题。**「归结的完备性依赖因子化」**——教科书常省略这一步，但实现必须考虑。
 
 ## 5 归结策略与 Prolog 的实现
 
 - **线性归结（linear resolution）**：Prolog 采用——从目标出发，沿「目标 ↔ 子句」链线性归结（而非任意配对）。效率高但**不完备**（可能陷入循环）。
 - **深度优先 + 回溯**：Prolog 按子句书写顺序尝试、深度优先搜索；失败即回溯重新选择。
-- **SLD 归结**：Prolog 的具体归结策略——Select（按顺序选文字）、Linear（线性）、Definite（霍恩子句）。<span class="marginnote">Prolog 用「深度优先 + 子句顺序」的简化归结换取效率，代价是<strong>不完备</strong>——存在「逻辑上可证但 Prolog 会死循环」的程序（如左递归 `ancestor(X,Y) :- ancestor(X,Z), ...` 无限展开）。这是「工程实用 vs 理论完备」的典型取舍：完整归结策略（广度优先）太慢，Prolog 选了快但不完备的路。</span>
+- **SLD 归结**：Prolog 的具体归结策略——Select（按顺序选文字）、Linear（线性）、Definite（霍恩子句）。<span class="marginnote">Prolog 用「深度优先 + 子句顺序」的简化归结换取效率，代价是<strong>不完备</strong>——存在「逻辑上可证但 Prolog 会死循环」的程序（如左递归 `ancestor(X, Y) :- ancestor(X, Z), parent(Z, Y)` 无限展开）。这是「工程实用 vs 理论完备」的典型取舍：完整归结策略（广度优先）太慢，Prolog 选了快但不完备的路。</span>
 
 ## 6 归结的局限：为什么 Prolog 不是全知全能的
 

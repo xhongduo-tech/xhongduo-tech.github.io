@@ -31,7 +31,7 @@ $$
 $\text{LLM}_e$ 是文本编码器（如 Sentence-BERT、text-embedding 系列）。这个语义向量可以：
 
 - **直接当物品 embedding**：进双塔召回（[[two-tower-model-vector-recall]]）、进排序模型（[[deepfm]]）。
-- **与 ID embedding 拼接/加权**：`[ID emb; 语义 emb]` 或加权和，让模型同时用「记忆」与「理解」。
+- **与 ID embedding 拼接/加权**：向量拼接（concatenation）或加权和，让模型同时用「记忆」与「理解」。
 
 **核心收益**：新物品无需行为即有语义向量，冷启动被结构性缓解（见 [[recommender-paradigm-evolution-id-to-semantic]]）。
 

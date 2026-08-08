@@ -35,24 +35,27 @@ date: 2026-08-07
 
 **执行计划（execution plan / query plan）**：一棵**算子树（operator tree）**，每个节点是一个执行算子，数据从叶子流到根。
 
-- **叶子算子**：表扫描（`Seq Scan`）、索引扫描（`Index Scan`）。
-- **内部算子**：选择（`Filter`）、投影（`Project`）、连接（`Nested Loop` / `Hash Join` / `Merge Join`）、聚集（`Aggregate`）、排序（`Sort`）。
+- **叶子算子**：表扫描（`seq scan`）、索引扫描（`index scan`）。
+- **内部算子**：选择（`filter`）、投影（`project`）、连接（`nested-loop join` / `merge join` / `hash join`）、聚集（`aggregate`）、排序（`sort`）。
 - **数据流**：子节点的输出作为父节点的输入，根节点输出结果。
 
 一个例子：
 
 ```sql
-SELECT s.name FROM student s JOIN takes t ON s.id = t.id
-WHERE t.course_id = 'CS101';
+SELECT name, course_id
+FROM instructor, teaches
+WHERE instructor.ID = teaches.ID
+  AND dept_name = 'CS';
 ```
 
 可能的执行计划：
 
-```
-Project (name)
-   └─ Hash Join (id)
-       ├─ Index Scan on takes (course_id='CS101')
-       └─ Seq Scan on student
+```text
+→ Project (name, course_id)
+  → Hash Join (instructor.ID = teaches.ID)
+    → Seq Scan on instructor, filter: dept_name = 'CS'
+    → Hash
+      → Seq Scan on teaches
 ```
 
 **关键概念：同一个查询有多个候选计划。** 上面可以用 Nested Loop 而非 Hash Join、可以先过滤再连接……优化器要枚举候选并选优（第 12 章）。

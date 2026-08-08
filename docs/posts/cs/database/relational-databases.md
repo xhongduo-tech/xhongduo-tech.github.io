@@ -30,7 +30,7 @@ date: 2026-08-07
 | 12121 | Wu | Finance | 90000 |
 | 15151 | Mozart | Music | 40000 |
 
-这里每一列都有**定义域（domain）**：`ID` 是定长字符串，`salary` 是数值。每个元组在各属性上的取值，必须落在各定义域的笛卡儿积里——这正是上一篇那个公式的现实版。<span class="marginnote">术语混用提醒：教科书说"关系/元组/属性"，日常口语说"表/行/列"，说的是同一事物。写严谨的论文时用前者。</span>
+这里每一列都有**定义域（domain）**：`ID`、`name`、`dept_name` 是定长字符串，`salary` 是数值。每个元组在各属性上的取值，必须落在各定义域的笛卡儿积里——这正是上一篇那个公式的现实版。<span class="marginnote">术语混用提醒：教科书说"关系/元组/属性"，日常口语说"表/行/列"，说的是同一事物。写严谨的论文时用前者。</span>
 
 一个数据库里通常有多张表，表与表靠取值相同的属性"勾连"。比如再建一张系别表：
 
@@ -50,10 +50,14 @@ date: 2026-08-07
 最基本的两个关系运算是**选择（selection）** 与**投影（projection）**：前者选行，后者选列。用 SQL 表达：
 
 ```sql
--- 选出 CS 系的教师（选行）
-SELECT * FROM instructor WHERE dept_name = 'CS';
--- 只看 name 和 salary 两列（选列）
-SELECT name, salary FROM instructor;
+-- 选择：选出 CS 系的教师
+SELECT *
+FROM instructor
+WHERE dept_name = 'CS';
+
+-- 投影：只保留 name 与 salary 两列
+SELECT name, salary
+FROM instructor;
 ```
 
 关系代数（第 2 章）把这套运算严格化，而 SQL 是它的"用户友好语法"。理解了"查询 = 关系运算"，就抓住了关系数据库的灵魂。
@@ -61,15 +65,17 @@ SELECT name, salary FROM instructor;
 查询之外，DML 还要能改数据。SQL 的三种修改操作也都作用在"关系"上：
 
 ```sql
--- 插入：向关系中加入新元组
-INSERT INTO instructor VALUES ('32343', 'El Said', 'History', 60000);
--- 修改：按条件更新若干元组的属性值
-UPDATE instructor SET salary = salary * 1.05 WHERE dept_name = 'CS';
--- 删除：按条件移除若干元组
-DELETE FROM instructor WHERE ID = '12121';
+INSERT INTO instructor VALUES ('10211', 'Smith', 'Biology', 66000);
+
+UPDATE instructor
+SET salary = salary * 1.1
+WHERE dept_name = 'CS';
+
+DELETE FROM instructor
+WHERE dept_name = 'Finance';
 ```
 
-注意它们都带一个共同特征：**修改以元组集合为对象**。`UPDATE ... WHERE ...` 可以同时更新任意多条满足条件的记录，而不是"逐行手动改"——这正体现了"关系"作为操作单元的思路。
+注意它们都带一个共同特征：**修改以元组集合为对象**。`UPDATE` 可以同时更新任意多条满足条件的记录，而不是"逐行手动改"——这正体现了"关系"作为操作单元的思路。
 
 ## 3 数据库设计：先画蓝图，再建表
 
@@ -109,7 +115,7 @@ $$\sigma_{P}(r) = \{ t \mid t \in r \wedge P(t) \}$$
 
 $$\Pi_{A_1, A_2, \dots, A_k}(r)$$
 
-这里 $A_1, \dots, A_k$ 是要保留的属性名。投影是"抽出子元组后去重"：因为关系是集合，重复的投影结果只保留一份。`SELECT DISTINCT dept_name FROM instructor` 就是投影的 SQL 形态。把选择与投影组合起来——先 $\sigma$ 选行、再 $\Pi$ 选列——就能用两个小运算拼出绝大多数简单查询，这正是第 2 章关系代数"基本运算"的开端。
+这里 $A_1, \dots, A_k$ 是要保留的属性名。投影是"抽出子元组后去重"：因为关系是集合，重复的投影结果只保留一份。`SELECT name, salary FROM instructor` 就是投影的 SQL 形态。把选择与投影组合起来——先 $\sigma$ 选行、再 $\Pi$ 选列——就能用两个小运算拼出绝大多数简单查询，这正是第 2 章关系代数"基本运算"的开端。
 
 ## 5 小结
 

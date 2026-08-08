@@ -38,7 +38,7 @@ $$
 H_n\cdots H_1 A = R, \qquad Q = (H_n\cdots H_1)^\top
 $$
 
-**数值最稳**，是 LAPACK/`numpy.linalg.qr` 的标准实现。<span class="marginnote">三种算法的对比是「教科书陷阱」的经典：<strong>理论等价的算法，数值差异天壤之别</strong>。经典 Gram-Schmidt 会丢失正交性，MGS 好些，豪斯霍尔德最稳——因为豪斯霍尔德每一步都是正交反射（条件数 1），不放大误差。工程上无条件选豪斯霍尔德。</span>
+**数值最稳**，是 LAPACK/BLAS 的标准实现。<span class="marginnote">三种算法的对比是「教科书陷阱」的经典：<strong>理论等价的算法，数值差异天壤之别</strong>。经典 Gram-Schmidt 会丢失正交性，MGS 好些，豪斯霍尔德最稳——因为豪斯霍尔德每一步都是正交反射（条件数 1），不放大误差。工程上无条件选豪斯霍尔德。</span>
 
 ## 2 公式解析：豪斯霍尔德 QR 的流程
 
@@ -86,22 +86,19 @@ $$
 | 求解成本 | $O(n^3)$ | $O(n^3)$（常数稍大） |
 | 用途 | 求解方程组 | 最小二乘、特征值、正交化 |
 
-**QR 比 LU 稳，但 LU 比 QR 快**（常数因子）——纯求解方程组用 LU，最小二乘/特征值用 QR。<span class="marginnote">一句话：<strong>「解方程找 LU，最小二乘与特征值找 QR」</strong>——稳定性与速度的权衡，让两种分解各有领地。`numpy.linalg.solve` 走 LU，`numpy.linalg.lstsq` 走 QR/SVD，正是这个分工。</span>
+**QR 比 LU 稳，但 LU 比 QR 快**（常数因子）——纯求解方程组用 LU，最小二乘/特征值用 QR。<span class="marginnote">一句话：<strong>「解方程找 LU，最小二乘与特征值找 QR」</strong>——稳定性与速度的权衡，让两种分解各有领地。解方程走 LU，最小二乘与特征值走 QR/SVD，正是这个分工。</span>
 
 ## 5 实现
 
 ```python
 import numpy as np
 
-A = np.array([[1., 1.], [1., 2.], [1., 3.]])   # 线性拟合设计矩阵
-b = np.array([1., 2.5, 3.8])
-
-Q, R = np.linalg.qr(A)                          # 豪斯霍尔德 QR
-x = np.linalg.solve(R, Q.T @ b)                 # 上三角回代
-print(x)                                        # 拟合系数 a0, a1
-
-# 对比 lstsq（内部也是 QR/SVD）
-print(np.linalg.lstsq(A, b, rcond=None)[0])
+# 最小二乘的 QR 路径：A = QR，解 R x = Qᵀb
+A = np.array([[1., 0.], [1., 1.], [1., 2.], [1., 3.]])
+b = np.array([1., 2., 3.1, 3.9])
+Q, R = np.linalg.qr(A)                         # 豪斯霍尔德 QR（reduced 模式）
+x = np.linalg.solve(R, Q.T @ b)                # 上三角回代
+print(x)                                       # [1.03, 0.98]
 ```
 
 **工程注意**：`np.linalg.qr` 有 `mode='reduced'`（默认，$Q\in\mathbb{R}^{m\times n}$）与 `mode='complete'` 之分；最小二乘用 reduced 即可。

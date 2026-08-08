@@ -107,15 +107,15 @@ $$
 ## 6 代码：一个最小加权混合推荐
 
 ```python
-# 伪代码：加权式混合（含归一化）
-def hybrid_score(user, item, cf_model, cb_model, lam=0.5):
-    # 对同一批候选分别算两路分数
-    cf_scores = {i: cf_model.predict(user, i) for i in candidates}
-    cb_scores = {i: cb_model.predict(user, i) for i in candidates}
-    cf_norm = min_max_normalize(cf_scores)   # 批内 min-max
-    cb_norm = min_max_normalize(cb_scores)
-    final = {i: lam * cf_norm[i] + (1 - lam) * cb_norm[i] for i in candidates}
-    return top_k(final, K=10)
+def min_max(r, lo, hi):
+    """把原始分 r 线性归一化到 [0, 1]，lo/hi 为该路的批内边界。"""
+    return (r - lo) / (hi - lo)
+
+def hybrid_score(u, i, lam=0.5):
+    """最小加权混合：CF 与 CB 分数先归一化再线性加权。"""
+    r_cf = min_max(cf_scorer(u, i), 0.0, 5.0)    # CF 原始分域 [0, 5]
+    r_cb = min_max(cb_scorer(u, i), 0.1, 0.8)    # CB 原始分域 [0.1, 0.8]
+    return lam * r_cf + (1 - lam) * r_cb
 ```
 
 ## 7 小结

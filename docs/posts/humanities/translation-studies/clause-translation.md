@@ -32,19 +32,19 @@ date: 2026-08-07
 
 **出路一：前置**。短的、限制性的定语从句，译成「……的」放在名词前，符合汉语定语前置的习惯：
 
-- *The man who wrote this book is my teacher.* → 写这本书的那个人是我的老师。
-- *This is the house where I was born.* → 这就是我出生的那所房子。
+*The man who wrote this book is my teacher.* → 写这本书的那个人是我的老师。
+*This is the house where I was born.* → 这就是我出生的那所房子。
 
 **出路二：后置 / 并列**。长的定语从句（尤其非限制性的）前置后译文臃肿，索性把从句译成一个独立的并列分句，跟在主句后：
 
-- *He told me a story, which I will never forget.* → 他给我讲了一个故事，这个故事我永远不会忘记。
-- *She has two sons, both of whom are doctors.* → 她有两个儿子，他们都是医生。
+*He told me a story, which I will never forget.* → 他给我讲了一个故事，这个故事我永远不会忘记。
+*She has two sons, both of whom are doctors.* → 她有两个儿子，他们都是医生。
 
 **出路三：融合 / 转化**。把定语从句的语义与主句融合，或转化为状语、判断等结构：
 
-- *There are many people who want to see you.* → 有很多人要见你。（融合为「有……要……」）
-- *He is not the man who he was ten years ago.* → 他已不是十年前的那个他了。（融合）
-- *The food that was left was thrown away.* → 剩下的食物被扔掉了。（分词短语化）
+*There are many people who want to see you.* → 有很多人要见你。（融合为「有……要……」）
+*He is not the man who he was ten years ago.* → 他已不是十年前的那个他了。（融合）
+*The food that was left was thrown away.* → 剩下的食物被扔掉了。（分词短语化）
 
 选择出路的依据是**从句的长度与限制性**：短而限定的前置，长而补充的后置，语义交织的融合。<span class="marginnote">「定语从句后置成并列分句」是英译汉的高频操作，也是译文摆脱翻译腔的关键一步。英语一个树状长句，往往因此被拆成汉语的竹节短句——这正对应《语序调整》里「定语后置改前置、从句后置改并列」的法则。</span>
 
@@ -54,41 +54,41 @@ date: 2026-08-07
 
 **时间与条件从句**：英语可前可后，汉语倾向「条件/时间在前、主句在后」：
 
-- *If you work hard, you will succeed.* → 只要努力工作，你就会成功。（顺译）
-- *He will call you when he arrives.* → 他到了会给你打电话。（when 从句顺译前置亦可：等他到了，他会给你打电话。）
+*If you work hard, you will succeed.* → 只要努力工作，你就会成功。（顺译）
+*He will call you when he arrives.* → 他到了会给你打电话。（when 从句顺译前置亦可：等他到了，他会给你打电话。）
 
 **原因从句**：英语常主句在前、原因在后，汉语习惯「因在前、果在后」：
 
-- *He failed because he was careless.* → 因为粗心，他失败了。（倒译）
+*He failed because he was careless.* → 因为粗心，他失败了。（倒译）
 
 **让步从句**：英语 though/although 前置，汉语「尽管……还是」：
 
-- *Although it was late, they went on working.* → 尽管很晚了，他们还在继续工作。
+*Although it was late, they went on working.* → 尽管很晚了，他们还在继续工作。
 
 **转化**：不少状语从句可以转化为其他结构——分词短语、介词短语、乃至「……就……」等紧缩结构：<span class="marginnote">状语从句的「转化」常与词的增删协同：英语的连词在汉语里常可省去，靠语序表关系。*When he saw me, he stopped\* 译「他一看见我就停下」，「一……就」把时间关系压缩进了结构，比「当他看见我的时候，他停了下来」自然得多。</span>
 
-- *When winter comes, the birds fly south.* → 冬天一到，鸟儿就飞往南方。
+*When winter comes, the birds fly south.* → 冬天一到，鸟儿就飞往南方。
 
 ## 4 名词性从句：顺译为主，注意「it」与语序
 
 名词性从句（主语从句、宾语从句、表语从句、同位语从句）充当句子的名词性成分，在汉语中通常**顺译**即可，因为汉语句子的主谓宾顺序与英语基本一致：
 
-- *What he said is true.* → 他说的是真的。（主语从句顺译）
-- *I believe that he is honest.* → 我相信他是诚实的。（宾语从句顺译）
-- *The truth is that he never came.* → 事实是他根本没来。（表语从句顺译）
+*What he said is true.* → 他说的是真的。（主语从句顺译）
+*I believe that he is honest.* → 我相信他是诚实的。（宾语从句顺译）
+*The truth is that he never came.* → 事实是他根本没来。（表语从句顺译）
 
 但有两类情况需要特别处理：
 
 **以 it 作形式主语或形式宾语的句子**。英语为了平衡句子结构，把真正的主语/宾语后置，汉语没有这种形式主语，需要调整：
 
-- *It is important that we study English well.* → 学好英语很重要。（或：学好英语，这一点很重要。）
-- *It is said that he has gone abroad.* → 据说他出国了。
-- *We find it necessary that you come.* → 我们认为你有必要来。
+*It is important that we study English well.* → 学好英语很重要。（或：学好英语，这一点很重要。）
+*It is said that he has gone abroad.* → 据说他出国了。
+*We find it necessary that you come.* → 我们认为你有必要来。
 
 **同位语从句**。英语的 that 同位语从句解释抽象名词（fact、idea、news、belief），汉语可译成「……这一事实/观点」或拆成独立分句：
 
-- *The news that he won the prize made us happy.* → 他获奖的消息让我们高兴。（「的消息」）
-- *I agree with the idea that practice makes perfect.* → 我同意熟能生巧这个看法。（「这个看法」）<span class="marginnote">同位语从句与定语从句在英语里都跟在名词后，但语义不同：定语从句修饰名词，同位语从句解释名词。译成汉语时，定语从句用「……的」前置，同位语从句用「这一事实/观点/消息」后置承接——区分不清，译文就会混。</span>
+*The news that he won the prize made us happy.* → 他获奖的消息让我们高兴。（「的消息」）
+*I agree with the idea that practice makes perfect.* → 我同意熟能生巧这个看法。（「这个看法」）<span class="marginnote">同位语从句与定语从句在英语里都跟在名词后，但语义不同：定语从句修饰名词，同位语从句解释名词。译成汉语时，定语从句用「……的」前置，同位语从句用「这一事实/观点/消息」后置承接——区分不清，译文就会混。</span>
 
 ## 5 核心对比表：三大从句的处理策略
 

@@ -24,16 +24,16 @@ date: 2026-08-07
 
 朴素矩阵乘法 $C = A \cdot B$，$C[i][j] = \sum_k A[i][k]B[k][j]$。**每个输出元素独立**——可以直接 spawn 每个 $C[i][j]$ 的计算：
 
-```
-P-MATRIX-MULTIPLY(A, B)
-  n = A.rows
-  let C be a new n × n matrix
-  parallel for i = 1 to n
-    parallel for j = 1 to n
-      C[i][j] = 0
-      for k = 1 to n
-        C[i][j] = C[i][j] + A[i][k] * B[k][j]
-  return C
+```text
+P-MATRIX-MULTIPLY(A, B):
+    n = A.rows
+    令 C 为 n × n 矩阵
+    parallel for i = 1 to n:             // 每个输出元素独立
+        parallel for j = 1 to n:
+            C[i][j] = 0
+            for k = 1 to n:              // 内层 k 循环串行累加
+                C[i][j] = C[i][j] + A[i][k] * B[k][j]
+    return C
 ```
 
 **work** $T_1 = \Theta(n^3)$（与串行相同——总工作量不变）。**span**：最内层 $k$ 循环串行 $O(n)$，两层 parallel for 的跨度是「最深的嵌套」$O(\log n)$ 每层？——不，parallel for 的 span 是 $O(\log n)$（分治展开），但内层 $k$ 循环是 $O(n)$：
@@ -46,23 +46,24 @@ $$T_\infty = O(n)$$
 
 **串行归并排序**：$T_1 = \Theta(n\log n)$。并行化分两步：
 
-**（a）递归并行**：两半 `spawn` 并行排序。span 递归 $T_\infty(n) = T_\infty(n/2) + O(\text{合并的 span})$。
+**（a）递归并行**：两半**递归**并行排序。span 递归 $T_\infty(n) = T_\infty(n/2) + O(\text{合并的 span})$。
 
 **（b）并行合并（P-MERGE）**：合并两个有序数组时，选较长一半的中点作为「分割点」，在另一半里二分找它的位置，然后**两段并行合并**：
 
-```
-P-MERGE(T, p1, r1, p2, r2, A, p3)
-  // 合并有序 T[p1..r1] 与 T[p2..r2] 到 A[p3..]
-  n1 = r1-p1+1;  n2 = r2-p2+1
-  if n1 < n2:  swap the two subarrays   // 让前半更长
-  if n1 == 0:  return
-  q1 = (p1+r1)/2                       // 前半中点
-  q2 = BINARY-SEARCH(T[q1], T, p2, r2) // 在后半找插入位置
-  q3 = p3 + (q1-p1) + (q2-p2)          // 合并位置
-  A[q3] = T[q1]
-  spawn P-MERGE(T, p1, q1-1, p2, q2-1, A, p3)
-        P-MERGE(T, q1+1, r1, q2, r2, A, q3+1)
-  sync
+```text
+P-MERGE(T, p1, r1, p2, r2, A, p3):
+    n1 = r1 - p1 + 1;  n2 = r2 - p2 + 1
+    if n1 < n2:                          // 保证 n1 ≥ n2
+        交换两个子数组的边界参数
+    if n1 == 0:
+        return
+    q1 = ⌊(p1 + r1) / 2⌋                // 长半的中点
+    q2 = 在 T[p2..r2] 中二分定位 T[q1] 的插入位置
+    q3 = p3 + (q1 - p1) + (q2 - p2)     // T[q1] 在输出中的位置
+    A[q3] = T[q1]
+    spawn P-MERGE(T, p1, q1-1, p2, q2-1, A, p3)
+    P-MERGE(T, q1+1, r1, q2, r2, A, q3+1)
+    sync
 ```
 
 **并行合并的 span**：每层把规模减半，$T_\infty^{\text{merge}}(n) = O(\log^2 n)$。

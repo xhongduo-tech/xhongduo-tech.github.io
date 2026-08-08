@@ -356,29 +356,23 @@ $$
 ```python
 import numpy as np
 
-def R_x(t):
-    c, s = np.cos(t), np.sin(t)
-    return np.array([[1, 0, 0], [0, c, -s], [0, s, c]])
+def rot_x(a):
+    c, s = np.cos(a), np.sin(a)
+    return np.array([[1, 0, 0],
+                     [0, c, -s],
+                     [0, s,  c]])
 
-def R_y(t):
-    c, s = np.cos(t), np.sin(t)
-    return np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]])
+def rot_y(b):
+    c, s = np.cos(b), np.sin(b)
+    return np.array([[ c, 0, s],
+                     [ 0, 1, 0],
+                     [-s, 0, c]])
 
-def R_z(t):
-    c, s = np.cos(t), np.sin(t)
-    return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]])
+Rx, Ry = rot_x(0.5), rot_y(0.7)
 
-Rx, Ry, Rz = R_x(np.pi / 2), R_y(np.pi / 2), R_z(np.pi / 2)
-
-# 性质一：正交性 R^T R = I
-print(np.round(Rx.T @ Rx, 12))
-
-# 性质二：行列式为 1
-print(np.linalg.det(Rz))
-
-# 复合不可交换
-print(np.round(Rx @ Ry, 3))
-print(np.round(Ry @ Rx, 3))
+print(Rx.T @ Rx)                     # 正交性：R^T R = I
+print(np.linalg.det(Rx))             # 行列式：det R = 1
+print(np.allclose(Rx @ Ry, Ry @ Rx)) # False：旋转顺序不可交换
 ```
 
 ## 8 小结

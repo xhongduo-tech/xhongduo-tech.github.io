@@ -94,23 +94,23 @@ $$\mathbf{x}_t = \bigl[\, \mathbf{c}_t^{\mathsf{T}},\; \Delta\mathbf{c}_t^{\math
 import numpy as np
 
 def delta(feat, L=2):
-    """feat: (T, D) 特征矩阵；返回同形状的 Delta 特征"""
+    """带窗线性回归计算 Delta 特征（Furui 1986）。
+    feat: (T, D) 静态特征矩阵，返回同形状的 Delta 特征。
+    """
     T, D = feat.shape
-    out = np.zeros_like(feat, dtype=float)
-    denom = 2 * sum(tau**2 for tau in range(1, L + 1))
+    out = np.zeros_like(feat, dtype=np.float64)
+    denom = 2 * sum(tau ** 2 for tau in range(1, L + 1))   # 归一化常数
     for t in range(T):
         for tau in range(1, L + 1):
-            left = feat[max(t - tau, 0)]
-            right = feat[min(t + tau, T - 1)]
-            out[t] += tau * (right - left)
-    return out / denom
-
-delta1 = delta(mfcc)          # 一阶差分
-delta2 = delta(delta1)        # 二阶差分
-feat39 = np.hstack([mfcc, delta1, delta2])  # 拼接成 39 维
+            # 边界夹取（等效镜像填充），避免越界
+            idx_p = np.clip(t + tau, 0, T - 1)
+            idx_m = np.clip(t - tau, 0, T - 1)
+            out[t] += tau * (feat[idx_p] - feat[idx_m])
+        out[t] /= denom
+    return out
 ```
 
-注意代码里用 `max/min` 做了**边界夹取**（等效镜像填充），避免越界。真实库（如 `librosa.feature.delta`）还会提供不同的边界策略。
+注意代码里用 **`np.clip`** 做了**边界夹取**（等效镜像填充），避免越界。真实库（如 **`librosa.feature.delta`**）还会提供不同的边界策略。
 
 ## 5 Delta 特征的局限与替代
 

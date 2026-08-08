@@ -46,10 +46,10 @@ $$q = q_\text{tr} \cdot q_\text{rot} \cdot q_\text{vib} \cdot q_\text{el}$$
 
 各运动配分函数的形式如下（$h$ 普朗克常数，$\Theta$ 特征温度）：
 
-- **平动**（一维势箱求和推广到三维）：$q_\text{tr} = \left(\dfrac{2\pi mkT}{h^2}\right)^{3/2} V$，与体积成正比，量级巨大。
-- **转动**（双原子分子）：$q_\text{rot} = \dfrac{T}{\sigma\Theta_\text{rot}}$，其中 $\Theta_\text{rot} = h^2/(8\pi^2 Ik)$，$I$ 是转动惯量，$\sigma$ 是对称数。
-- **振动**（谐振子，基态能量取 $\frac{1}{2}h\nu$）：$q_\text{vib} = \dfrac{e^{-\Theta_\text{vib}/2T}}{1 - e^{-\Theta_\text{vib}/T}}$，$\Theta_\text{vib} = h\nu/k$。
-- **电子**：电子能级间隔大，通常 $q_\text{el} = g_0 e^{-\varepsilon_0/kT}$ 只取基态简并度（$g_0$），激发态可忽略。
+**平动**（一维势箱求和推广到三维）：$q_\text{tr} = \left(\dfrac{2\pi mkT}{h^2}\right)^{3/2} V$，与体积成正比，量级巨大。
+**转动**（双原子分子）：$q_\text{rot} = \dfrac{T}{\sigma\Theta_\text{rot}}$，其中 $\Theta_\text{rot} = h^2/(8\pi^2 Ik)$，$I$ 是转动惯量，$\sigma$ 是对称数。
+**振动**（谐振子，基态能量取 $\frac{1}{2}h\nu$）：$q_\text{vib} = \dfrac{e^{-\Theta_\text{vib}/2T}}{1 - e^{-\Theta_\text{vib}/T}}$，$\Theta_\text{vib} = h\nu/k$。
+**电子**：电子能级间隔大，通常 $q_\text{el} = g_0 e^{-\varepsilon_0/kT}$ 只取基态简并度（$g_0$），激发态可忽略。
 
 <span class="marginnote"><strong>特征温度（characteristic temperature）$\Theta = \Delta\varepsilon/k$</strong> 把能级间隔换算成温度标尺：$T \gg \Theta$ 时该自由度充分激发、贡献经典热容；$T \ll \Theta$ 时被冻结。水的转动 $\Theta_\text{rot} \sim 20\ \text{K}$、振动 $\Theta_\text{vib} \sim 2300\ \text{K}$——室温下转动全激发、振动基本冻结，水蒸气热容因此介于两者之间。</span>
 

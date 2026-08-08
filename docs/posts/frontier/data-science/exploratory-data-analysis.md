@@ -72,24 +72,28 @@ $$
 
 ## 5 一个完整的 EDA 示例：用户付费数据
 
-用一个很小的例子把 EDA 流程串起来。假设拿到一张「用户付费表」，字段有 `user_id`、`signup_month`、`total_spend`、`active_days`、`churned`（是否流失）。
+用一个很小的例子把 EDA 流程串起来。假设拿到一张「用户付费表」，字段有 `user_id`、`register_days`（注册天数）、`active_days`（活跃天数）、`total_spend`（累计消费）、`is_churn`（是否流失）。
 
 **第一步，先看形状与类型**：
 
 ```python
 import pandas as pd
-print(df.shape)                 # (5000, 5)
-print(df.dtypes)                # 各列类型
-print(df.isnull().sum())        # 每列缺失数
+
+df = pd.read_csv("users.csv")
+print(df.shape)
+print(df.dtypes)
+df.head()
 ```
 
-发现 `signup_month` 有 3 条缺失，`total_spend` 有 1 条——缺失率极低，可以删行或填充。
+发现 `total_spend` 有 3 条缺失，`register_days` 有 1 条——缺失率极低，可以删行或填充。
 
 **第二步，单变量分布**：
 
 ```python
-df["total_spend"].describe()    # 均值、分位数
-df["total_spend"].hist(bins=30) # 直方图
+import matplotlib.pyplot as plt
+
+df[["total_spend", "active_days"]].hist(bins=30, figsize=(10, 4))
+plt.show()
 ```
 
 `total_spend` 右偏严重（均值远大于中位数），提示后续建模要做对数变换（第16篇）。
@@ -97,8 +101,9 @@ df["total_spend"].hist(bins=30) # 直方图
 **第三步，双变量关系**：
 
 ```python
-df.plot.scatter("active_days", "total_spend", alpha=0.3)
-df.groupby("churned")["total_spend"].mean()
+import seaborn as sns
+
+sns.scatterplot(data=df, x="active_days", y="total_spend")
 ```
 
 散点图显示正相关，但有个「active_days 很高、total_spend 却接近 0」的离群点——可能是「只看不买」的爬虫或测试账号，回源头核实后决定保留还是剔除。
@@ -106,15 +111,17 @@ df.groupby("churned")["total_spend"].mean()
 **第四步，多变量与分组透视**：
 
 ```python
-df.corr()["total_spend"].sort_values()
-df.pivot_table(index="signup_month", columns="churned", values="total_spend")
+corr = df[["register_days", "active_days", "total_spend"]].corr()
+sns.heatmap(corr, annot=True)
+
+df.groupby("is_churn")[["active_days", "total_spend"]].mean()
 ```
 
 发现 `active_days` 与 `total_spend` 相关最强（r ≈ 0.7），早期注册的用户流失率更低——这些线索直接指引建模时的特征权重与分组分析。
 
 **辨析｜易错点：** EDA 示例里最常犯的错是「跳过可视化直接看相关系数」——相关矩阵告诉你「有多强」，散点图告诉你「长什么样」。上面那个离群点，相关系数只会让它稍微变小，只有散点图能让你**看见**它。EDA 的「探索」二字，靠的就是「先图后数」。
 
-**重点：EDA 的产出要「写成发现清单」。** 这个例子的清单是：① `total_spend` 右偏需变换；② 存在一个可疑离群点待核实；③ `active_days` 是最强相关特征；④ 早期用户流失率更低值得深挖。带着这四条进入建模，你就不再是「盲目跑模型」，而是「验证已知的猜想」。
+**重点：EDA 的产出要「写成发现清单」。** 这个例子的清单是：① `total_spend` 右偏需变换；② 存在一个可疑离群点待核实；③ `active_days` 与 `total_spend` 是最强相关特征；④ 早期用户流失率更低值得深挖。带着这四条进入建模，你就不再是「盲目跑模型」，而是「验证已知的猜想」。
 
 ## 6 小结
 

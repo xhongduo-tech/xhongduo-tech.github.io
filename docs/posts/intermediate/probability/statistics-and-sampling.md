@@ -26,12 +26,12 @@ date: 2026-08-07
 
 最常用的统计量：
 
-- **样本均值**：$\bar X = \frac1n \sum_{i=1}^n X_i$；
-- **样本方差**：$S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar X)^2$；
-- **样本标准差**：$S = \sqrt{S^2}$；
-- **样本 $k$ 阶原点矩**：$A_k = \frac1n \sum_i X_i^k$；
-- **样本 $k$ 阶中心矩**：$B_k = \frac1n \sum_i (X_i - \bar X)^k$；
-- **样本极差**：$R = \max X_i - \min X_i$。
+**样本均值**：$\bar X = \frac1n \sum_{i=1}^n X_i$；
+**样本方差**：$S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar X)^2$；
+**样本标准差**：$S = \sqrt{S^2}$；
+**样本 $k$ 阶原点矩**：$A_k = \frac1n \sum_i X_i^k$；
+**样本 $k$ 阶中心矩**：$B_k = \frac1n \sum_i (X_i - \bar X)^k$；
+**样本极差**：$R = \max X_i - \min X_i$。
 
 <span class="marginnote">注意样本方差的除数：$S^2 = \frac{1}{n-1}\sum(X_i-\bar X)^2$，用 $n-1$ 而非 $n$。原因在下一节与无偏性章节揭晓——用 $n$ 会让 $S^2$ 平均偏低（有偏），除以 $n-1$ 恰好修正，使 $E[S^2] = \sigma^2$。这是统计里最著名的「自由度」修正之一。</span>
 

@@ -109,13 +109,19 @@ $$
 **GPU 蒙皮的实现**：关节矩阵作为「uniform 数组」传入顶点着色器，顶点按「骨骼索引 + 权重」混合：
 
 ```glsl
-// 顶点属性：位置 + 骨骼索引(4个) + 骨骼权重(4个)
-vec3 skin(vec4 pos, ivec4 bones, vec4 weights) {
-    mat4 m = weights.x * boneMat[bones.x]
-            + weights.y * boneMat[bones.y]
-            + weights.z * boneMat[bones.z]
-            + weights.w * boneMat[bones.w];
-    return (m * pos).xyz;
+#version 330 core
+layout(location = 0) in vec3 aPos;
+layout(location = 1) in uvec4 aBoneIndex;   // 最多 4 块骨骼索引
+layout(location = 2) in vec4 aBoneWeight;   // 对应权重（和为 1）
+
+uniform mat4 uBones[MAX_BONES];   // 当前骨骼世界矩阵数组
+
+void main() {
+    vec4 pos = vec4(0.0);
+    for (int i = 0; i < 4; i++) {
+        pos += aBoneWeight[i] * uBones[aBoneIndex[i]] * vec4(aPos, 1.0);
+    }
+    gl_Position = uViewProj * pos;   // 蒙皮后的顶点再过视图投影
 }
 ```
 
@@ -132,7 +138,7 @@ vec3 skin(vec4 pos, ivec4 bones, vec4 weights) {
 
 1. **骨骼矩阵数组的 uniform 大小**——几百块骨骼 = 几百个 mat4 = uniform 缓冲要够大——超出限制会「编译失败」或「矩阵缺失」。
 2. **权重没归一化**——4 个权重和 ≠ 1，顶点「飘」——导入时归一化。
-3. **绑定姿势与蒙皮矩阵的匹配**——`boneMat` 是「当前 × 绑定逆」，漏掉绑定逆则顶点「漂移」——「绑定姿势」对不上是蒙皮错乱的常见原因。
+3. **绑定姿势与蒙皮矩阵的匹配**——$\mathbf{M}_i\,\mathbf{M}_{\text{bind},i}^{-1}$ 是「当前 × 绑定逆」，漏掉绑定逆则顶点「漂移」——「绑定姿势」对不上是蒙皮错乱的常见原因。
 
 **「蒙皮的工程 = 顶点格式 + GPU 着色 + 带宽控制」**——理解了 GPU 上的 LBS，你就知道「骨骼动画的性能瓶颈在哪、怎么优化」。
 

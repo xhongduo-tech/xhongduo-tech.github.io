@@ -59,8 +59,8 @@ $$
 
 **定义**：
 
-- **自伴算子（self-adjoint）**：$T^* = T$（即 $\langle Tx, y\rangle = \langle x, Ty\rangle$ 对一切 $x,y$）。<span class="marginnote">在 $L^2$ 里，乘法算子 $M_\varphi f = \varphi f$（$\varphi$ 实值）自伴；微分算子 $i\frac{d}{dt}$ 在合适边界条件下自伴。自伴算子 = 实对称矩阵（复情形 Hermite 矩阵）的无穷维版。</span>
-- **正规算子（normal）**：$T^*T = TT^*$。自伴、酉（$T^*T = TT^* = I$）、非负（$\langle Tx,x\rangle \ge 0$）都是正规算子的特例。
+**自伴算子（self-adjoint）**：$T^* = T$（即 $\langle Tx, y\rangle = \langle x, Ty\rangle$ 对一切 $x,y$）。<span class="marginnote">在 $L^2$ 里，乘法算子 $M_\varphi f = \varphi f$（$\varphi$ 实值）自伴；微分算子 $i\frac{d}{dt}$ 在合适边界条件下自伴。自伴算子 = 实对称矩阵（复情形 Hermite 矩阵）的无穷维版。</span>
+**正规算子（normal）**：$T^*T = TT^*$。自伴、酉（$T^*T = TT^* = I$）、非负（$\langle Tx,x\rangle \ge 0$）都是正规算子的特例。
 
 **自伴算子的谱是实数**（第九章将证）：对 $\langle Tx,x\rangle = \langle x, Tx\rangle$，$\langle Tx,x\rangle$ 恒为实数。<span class="marginnote">非负算子（$\langle Tx,x\rangle \ge 0$）是「半正定矩阵」的推广；它有「平方根」$T = S^2$，且谱非负。这些在量子力学里对应「可观测量取值实数、能量非负」。</span>
 

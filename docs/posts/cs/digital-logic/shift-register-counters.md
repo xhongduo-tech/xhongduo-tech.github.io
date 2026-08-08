@@ -79,10 +79,10 @@ $$
 
 ## 5 移位寄存器型计数器的应用
 
-- **环形计数器 → 顺序脉冲发生器**：独热码直接驱动多路轮流选通，译码为零（下一节「顺序脉冲发生器」就是它）。
-- **约翰逊计数器 → 分频器**：模 $2n$ 分频，且每级输出是相位均匀的方波，可用于多相时钟。
-- **约翰逊计数器 → 无毛刺状态机**：每次只变一位，状态转移平滑。
-- **LFSR（线性反馈移位寄存器）**：用异或反馈取代简单反馈，生成伪随机序列（前面提过）——它是移位寄存器型计数器的「远亲」，但周期性最长（$2^n-1$）。
+**环形计数器 → 顺序脉冲发生器**：独热码直接驱动多路轮流选通，译码为零（下一节「顺序脉冲发生器」就是它）。
+**约翰逊计数器 → 分频器**：模 $2n$ 分频，且每级输出是相位均匀的方波，可用于多相时钟。
+**约翰逊计数器 → 无毛刺状态机**：每次只变一位，状态转移平滑。
+**LFSR（线性反馈移位寄存器）**：用异或反馈取代简单反馈，生成伪随机序列（前面提过）——它是移位寄存器型计数器的「远亲」，但周期性最长（$2^n-1$）。
 
 <span class="marginnote">从环形到 LFSR 是一条「反馈逻辑进化」的线：<strong>直通反馈 → 反相反馈 → 异或反馈</strong>，环的状态数从 $n$ 增长到 $2n$，再到 $2^n-1$——反馈越「聪明」，循环越长。这条线把「简单计数」推向了「伪随机」的领域。</span>
 
@@ -115,33 +115,48 @@ $$
 **环形计数器**：
 
 ```verilog
-always @(posedge clk) begin
-    if (!rst_n)      q <= 4'b1000;      // 初态独热
-    else             q <= {q[0], q[3:1]}; // 右移循环
-end
+module ring_counter #(parameter N = 4) (
+    input  clk, rst_n,
+    output reg [N-1:0] q
+);
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) q <= 4'b1000;          // 预置独热码
+        else        q <= {q[0], q[N-1:1]}; // 右移，末位直通反馈首位
+    end
+endmodule
 ```
 
 **约翰逊计数器**：
 
 ```verilog
-always @(posedge clk) begin
-    if (!rst_n)      q <= 4'b0000;
-    else             q <= {~q[0], q[3:1]}; // 末位取反反馈
-end
+module johnson_counter #(parameter N = 4) (
+    input  clk, rst_n,
+    output reg [N-1:0] q
+);
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) q <= 4'b0000;           // 初态全 0
+        else        q <= {~q[0], q[N-1:1]}; // 右移，末位反相反馈首位
+    end
+endmodule
 ```
 
 **LFSR**：
 
 ```verilog
-always @(posedge clk) begin
-    if (!rst_n)      q <= 4'b0001;
-    else             q <= {q[0] ^ q[1], q[3:1]}; // 异或反馈
-end
+module lfsr #(parameter N = 4) (
+    input  clk, rst_n,
+    output reg [N-1:0] q
+);
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) q <= 4'b0001;              // 非全零初态（全 0 会卡死）
+        else        q <= {q[0] ^ q[N-1], q[N-1:1]}; // 异或反馈（4 位取本原多项式 x^4+x+1 的抽头 q0⊕q3）
+    end
+endmodule
 ```
 
 **三种实现的对比**：直通反馈（环形）、反相反馈（约翰逊）、异或反馈（LFSR）——HDL 里的差别只是「首位怎么接」，一行代码的差异带来周期从 $n$ 到 $2n$ 到 $2^n-1$ 的巨大不同。
 
-**综合视角**：这些代码综合后就是「移位寄存器 + 反馈 MUX/异或门」——与手工设计完全等价。写「行为」（`q <= {q[0], q[3:1]}`），综合器生成「结构」（移位 + 反馈）。
+**综合视角**：这些代码综合后就是「移位寄存器 + 反馈 MUX/异或门」——与手工设计完全等价。写「行为」（Verilog），综合器生成「结构」（移位 + 反馈）。
 
 **为什么用 HDL 描述**：比手工画图简洁、可仿真、可参数化（位宽用 `parameter`）。但理解「反馈决定周期」的原理，才能预判综合结果、调试异常。
 

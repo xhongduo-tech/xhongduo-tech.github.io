@@ -71,7 +71,7 @@ $$
 
 ### 偏差校正与加速区间（BCa）
 
-百分位法假设「bootstrap 复制分布 ≈ $\hat\theta$ 的真实分布」，但若 $\hat\theta$ 有偏，这个近似会偏。**BCa 区间（bias-corrected and accelerated）**在百分位法基础上加入两个修正参数：偏差校正（应对 $\hat\theta$ 中位数偏移）与加速参数（应对方差随参数变化）。BCa 区间比普通百分位区间**覆盖更准确**，是现代统计软件（R 的 `boot.ci`）的推荐默认。
+百分位法假设「bootstrap 复制分布 ≈ $\hat\theta$ 的真实分布」，但若 $\hat\theta$ 有偏，这个近似会偏。**BCa 区间（bias-corrected and accelerated）**在百分位法基础上加入两个修正参数：偏差校正（应对 $\hat\theta$ 中位数偏移）与加速参数（应对方差随参数变化）。BCa 区间比普通百分位区间**覆盖更准确**，是现代统计软件（R 的 $\hat\theta$）的推荐默认。
 
 ### 覆盖概率的模拟检查
 

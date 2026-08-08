@@ -24,8 +24,8 @@ date: 2026-08-07
 
 设 $X$ 是非空集合，$\mathbb{F}$ 是数域（本专题取 $\mathbb{F} = \mathbb{R}$ 或 $\mathbb{C}$）。在 $X$ 上定义两种运算：
 
-- **加法** $+$：$X \times X \to X$，$(x, y) \mapsto x + y$；
-- **数乘** $\cdot$：$\mathbb{F} \times X \to X$，$(\alpha, x) \mapsto \alpha x$。
+**加法** $+$：$X \times X \to X$，$(x, y) \mapsto x + y$；
+**数乘** $\cdot$：$\mathbb{F} \times X \to X$，$(\alpha, x) \mapsto \alpha x$。
 
 若它们满足下列**八条运算律**，则称 $X$ 为**线性空间（linear space）**或**向量空间（vector space）**，其中的元素叫**向量（vector）**：
 

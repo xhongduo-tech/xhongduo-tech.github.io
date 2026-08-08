@@ -44,11 +44,11 @@ date: 2026-08-08
 
 ## 2 常见线性空间实例
 
-- $\mathbb{R}^n$：$n$ 元实数组，标准例子。
-- $\mathbb{R}^{m \times n}$：全体 $m \times n$ 实矩阵，按矩阵的加法与数乘（第二篇），维数 $mn$。
-- $\mathbb{P}_n$：次数不超过 $n$ 的多项式全体，加法与数乘按多项式定义。
-- $C[a, b]$：区间 $[a,b]$ 上的连续函数全体，按函数逐点相加与数乘。
-- 解空间：齐次方程组 $Ax = 0$ 的解集（第四篇的零空间）。
+$\mathbb{R}^n$：$n$ 元实数组，标准例子。
+$\mathbb{R}^{m \times n}$：全体 $m \times n$ 实矩阵，按矩阵的加法与数乘（第二篇），维数 $mn$。
+$\mathbb{P}_n$：次数不超过 $n$ 的多项式全体，加法与数乘按多项式定义。
+$C[a, b]$：区间 $[a,b]$ 上的连续函数全体，按函数逐点相加与数乘。
+解空间：齐次方程组 $Ax = 0$ 的解集（第四篇的零空间）。
 
 **重点**：**函数空间的发现**是线性代数最深刻的应用之一：$C[a,b]$ 是无穷维线性空间，它的「向量」是函数，「基」是无穷多个。傅里叶分析正是在这个空间里找一组好的基（三角函数系）——把函数展开成 $\sum c_k e^{ikx}$，这就是「函数也能做线性组合」的工程回报。<span class="marginnote">信号处理的全部现代理论建立在函数空间上：<strong>傅里叶级数 = 函数在「三角函数基」下的坐标展开</strong>（见第二级《复变函数与积分变换》）。学懂线性空间，傅里叶变换就变成「无穷维的坐标变换」。</span>
 
@@ -56,10 +56,10 @@ date: 2026-08-08
 
 从八条律可以推出几条「理所当然但需要证明」的性质：
 
-- **零元素唯一**：若有 $\mathbf{0}_1, \mathbf{0}_2$ 都满足零元素定义，则 $\mathbf{0}_1 = \mathbf{0}_2$。
-- **负元素唯一**：每个 $\mathbf{x}$ 的负元素唯一（记为 $-\mathbf{x}$）。
-- **数乘消去**：$k\mathbf{x} = \mathbf{0} \Rightarrow k = 0$ 或 $\mathbf{x} = \mathbf{0}$。
-- **符号规则**：$(-1)\mathbf{x} = -\mathbf{x}$；$k(\mathbf{x} - \mathbf{y}) = k\mathbf{x} - k\mathbf{y}$。
+**零元素唯一**：若有 $\mathbf{0}_1, \mathbf{0}_2$ 都满足零元素定义，则 $\mathbf{0}_1 = \mathbf{0}_2$。
+**负元素唯一**：每个 $\mathbf{x}$ 的负元素唯一（记为 $-\mathbf{x}$）。
+**数乘消去**：$k\mathbf{x} = \mathbf{0} \Rightarrow k = 0$ 或 $\mathbf{x} = \mathbf{0}$。
+**符号规则**：$(-1)\mathbf{x} = -\mathbf{x}$；$k(\mathbf{x} - \mathbf{y}) = k\mathbf{x} - k\mathbf{y}$。
 
 **辨析｜易错点：** 「$k\mathbf{x} = \mathbf{0}$」在**一般线性空间**里不能直接套「数乘分配」的直觉，需要从八条律证明。例：若 $k \ne 0$，则 $\mathbf{x} = 1\cdot\mathbf{x} = (k^{-1}k)\mathbf{x} = k^{-1}(k\mathbf{x}) = \mathbf{0}$。**线性空间的「0」是零向量不是数 0**——这是初学抽象线性空间最常见的方向性混淆。
 
@@ -67,10 +67,10 @@ date: 2026-08-08
 
 以「负元素唯一」为例，展示公理化的推理方式：
 
-- **第一步，假设两个负元素**：设 $-\mathbf{x}$ 与 $\tilde{\mathbf{x}}$ 都是 $\mathbf{x}$ 的负元素，即 $\mathbf{x} + (-\mathbf{x}) = \mathbf{0}$ 且 $\mathbf{x} + \tilde{\mathbf{x}} = \mathbf{0}$。
-- **第二步，用交换律与结合律**：计算 $-\mathbf{x} = -\mathbf{x} + \mathbf{0} = -\mathbf{x} + (\mathbf{x} + \tilde{\mathbf{x}})$。
-- **第三步，结合律重新括**：$= (-\mathbf{x} + \mathbf{x}) + \tilde{\mathbf{x}} = \mathbf{0} + \tilde{\mathbf{x}} = \tilde{\mathbf{x}}$。
-- **第四步，结论**：$-\mathbf{x} = \tilde{\mathbf{x}}$，负元素唯一。**每一步都明确用到某一条运算律**——公理化证明就是「把显然的事，拆成八条律的显式运用」。
+**第一步，假设两个负元素**：设 $-\mathbf{x}$ 与 $\tilde{\mathbf{x}}$ 都是 $\mathbf{x}$ 的负元素，即 $\mathbf{x} + (-\mathbf{x}) = \mathbf{0}$ 且 $\mathbf{x} + \tilde{\mathbf{x}} = \mathbf{0}$。
+**第二步，用交换律与结合律**：计算 $-\mathbf{x} = -\mathbf{x} + \mathbf{0} = -\mathbf{x} + (\mathbf{x} + \tilde{\mathbf{x}})$。
+**第三步，结合律重新括**：$= (-\mathbf{x} + \mathbf{x}) + \tilde{\mathbf{x}} = \mathbf{0} + \tilde{\mathbf{x}} = \tilde{\mathbf{x}}$。
+**第四步，结论**：$-\mathbf{x} = \tilde{\mathbf{x}}$，负元素唯一。**每一步都明确用到某一条运算律**——公理化证明就是「把显然的事，拆成八条律的显式运用」。
 
 <span class="marginnote">这种「从公理出发，每步注明用了哪条律」的证明风格，是抽象代数的通用语言。同样的论证在群论、环论里原样重演（第二级《抽象代数》）：<strong>线性空间 = 域上的模，是代数学的公共地基</strong>。</span>
 

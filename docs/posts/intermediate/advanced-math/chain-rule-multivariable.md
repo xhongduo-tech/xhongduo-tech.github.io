@@ -52,10 +52,10 @@ $$\frac{dz}{dx} = f_x + f_y\frac{dy}{dx}$$
 
 设 $z = f(u,v)$，$u = xy$，$v = \frac{x}{y}$，求 $\frac{\partial z}{\partial x}$、$\frac{\partial z}{\partial y}$：
 
-- **第一步，画依赖图**：$z \to u \to x,y$；$z \to v \to x,y$。
-- **第二步，写 $\frac{\partial z}{\partial x}$**：$\frac{\partial z}{\partial x} = f_u\cdot\frac{\partial u}{\partial x} + f_v\cdot\frac{\partial v}{\partial x} = f_u\cdot y + f_v\cdot\frac{1}{y}$。
-- **第三步，写 $\frac{\partial z}{\partial y}$**：$\frac{\partial z}{\partial y} = f_u\cdot x + f_v\cdot\left(-\frac{x}{y^2}\right)$。
-- **第四步，验证一阶微分不变性**：$dz = f_u(x\,dy + y\,dx) + f_v\left(\frac{dx}{y} - \frac{x\,dy}{y^2}\right)$，整理后 $dx$ 系数即 $\frac{\partial z}{\partial x}$、$dy$ 系数即 $\frac{\partial z}{\partial y}$，一致。
+**第一步，画依赖图**：$z \to u \to x,y$；$z \to v \to x,y$。
+**第二步，写 $\frac{\partial z}{\partial x}$**：$\frac{\partial z}{\partial x} = f_u\cdot\frac{\partial u}{\partial x} + f_v\cdot\frac{\partial v}{\partial x} = f_u\cdot y + f_v\cdot\frac{1}{y}$。
+**第三步，写 $\frac{\partial z}{\partial y}$**：$\frac{\partial z}{\partial y} = f_u\cdot x + f_v\cdot\left(-\frac{x}{y^2}\right)$。
+**第四步，验证一阶微分不变性**：$dz = f_u(x\,dy + y\,dx) + f_v\left(\frac{dx}{y} - \frac{x\,dy}{y^2}\right)$，整理后 $dx$ 系数即 $\frac{\partial z}{\partial x}$、$dy$ 系数即 $\frac{\partial z}{\partial y}$，一致。
 
 **关键**：求二阶偏导（如 $\frac{\partial^2 z}{\partial x^2}$）时，**$f_u, f_v$ 仍是 $u,v$ 的函数**，要继续用链式法则求它们的偏导——这是多元链式最繁琐也最易错的地方，务必牢记「$f_u$ 里还有 $u,v$，而 $u,v$ 又依赖 $x,y$」。
 
@@ -63,8 +63,8 @@ $$\frac{dz}{dx} = f_x + f_y\frac{dy}{dx}$$
 
 多元链式法则是深度学习的数学引擎：
 
-- **前向传播**：输入 $x$ 经各层参数 $W$ 逐层变换到输出 $\hat y$——正是复合函数 $z = f_3(f_2(f_1(x)))$。
-- **反向传播**：损失 $L$ 对每个参数的偏导，沿「$L \to$ 各层」的依赖路径用链式法则逐层回传。<span class="marginnote">反向传播 = 多元链式法则在计算图上的「工程化」：每一层只需计算「局部导数」（本层输出对输入的导数）并乘以上游传来的梯度。这就是「局部计算、全局传播」——你在这里学的路径求和规则，是 PyTorch 自动求导的数学基础。</span>
+**前向传播**：输入 $x$ 经各层参数 $W$ 逐层变换到输出 $\hat y$——正是复合函数 $z = f_3(f_2(f_1(x)))$。
+**反向传播**：损失 $L$ 对每个参数的偏导，沿「$L \to$ 各层」的依赖路径用链式法则逐层回传。<span class="marginnote">反向传播 = 多元链式法则在计算图上的「工程化」：每一层只需计算「局部导数」（本层输出对输入的导数）并乘以上游传来的梯度。这就是「局部计算、全局传播」——你在这里学的路径求和规则，是 PyTorch 自动求导的数学基础。</span>
 - **Jacobian 矩阵**：多元函数的「导数」是 Jacobian，链式法则在向量形式下就是「Jacobian 矩阵相乘」——正是反向传播矩阵化后的计算。
 
 **应用：全导数的物理意义**。若 $z = f(x,y)$ 而 $x, y$ 都随时间 $t$ 变化（如质点的温度 $T(x(t),y(t))$），则

@@ -74,16 +74,20 @@ $$
 3. 再依次完成反向；
 4. **所有 stage 到齐后，统一更新参数，冲刷（flush）管道**，进入下一个 batch。
 
-```python
-# GPipe 调度（概念示意，每步 = 一个 stage 处理一个 micro-batch 的一次前向/反向）
-for step in range(num_steps):
-    for mb in range(M):            # 前向：M 个 micro-batch 流水穿过 P 个 stage
-        for stage in range(P):
-            activations[stage] = stage_forward(activations[stage-1], mb)
-    for mb in range(M):            # 反向：逆序流回
-        for stage in reversed(range(P)):
-            grads = stage_backward(activations[stage], mb)
-    optimizer.step()               # 冲刷：所有 stage 同步更新，与数据并行一致
+```text
+对每个全局 batch：
+    b_1, ..., b_M ← 把 batch 切为 M 个 micro-batch
+    # 前向：流水填充
+    for m in 1..M:
+        for stage in 1..P:
+            stage 前向(b_m)          # 从上一 stage 收激活、向下一 stage 传激活
+    # 反向：流水排空
+    for m in M..1:
+        for stage in P..1:
+            stage 反向(b_m)          # 从下一 stage 收梯度、向上一 stage 传梯度
+    # 同步冲刷：所有 stage 到齐后统一更新参数，进入下一个 batch
+    for stage in 1..P:
+        stage 更新参数()
 ```
 
 这个「冲刷」是 GPipe 的灵魂：**它在语义上严格等价于数据并行**——每个 stage 看到的参数版本在每个 step 内是一致的，不引入任何「梯度过期」。这正是它和异步方案（PipeDream 等）的根本区别：**GPipe 用一点气泡，换来了与单机完全一致的收敛行为**。

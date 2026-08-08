@@ -20,7 +20,7 @@ date: 2026-08-07
 
 ## 1 Bellman-Ford 的思想：松弛 n-1 轮
 
-初始化 `dist[s]=0`、其余 `dist=∞`。然后**对全部边做松弛，重复 $n-1$ 轮**：
+初始化 $dist[s]=0$、其余 $dist=\infty$。然后**对全部边做松弛，重复 $n-1$ 轮**：
 
 $$
 dist[v] = \min(dist[v], \ dist[u] + w(u,v)) \quad \text{对所有边}
@@ -29,16 +29,17 @@ $$
 **为什么是 $n-1$ 轮？** 因为从源点到任意点的最短路径，最多经过 $n-1$ 条边（无环最短路）——每轮松弛「至少确定一条边的正确距离」，$n-1$ 轮后全部确定。
 
 ```c
-void BellmanFord(Graph G, int s) {
-    for (v : G) dist[v] = INF;
+void BellmanFord(Edge e[], int n, int m, int s, int dist[]) {
+    int i, j;
+    for (i = 1; i <= n; i++) dist[i] = INF;
     dist[s] = 0;
-    for (i = 1; i <= n - 1; i++)          /* n-1 轮 */
-        for (每条边 (u, v, w))
-            if (dist[u] + w < dist[v])
-                dist[v] = dist[u] + w;    /* 松弛 */
-    /* 检测负环：第 n 轮还能松弛 → 有负权回路 */
-    for (每条边 (u, v, w))
-        if (dist[u] + w < dist[v]) 说明存在负权回路;
+    for (i = 1; i <= n - 1; i++)               /* 松弛 n-1 轮 */
+        for (j = 1; j <= m; j++)
+            if (dist[e[j].u] != INF && dist[e[j].v] > dist[e[j].u] + e[j].w)
+                dist[e[j].v] = dist[e[j].u] + e[j].w;   /* 松弛 */
+    for (j = 1; j <= m; j++)                   /* 第 n 轮还能松弛 → 有负环 */
+        if (dist[e[j].u] != INF && dist[e[j].v] > dist[e[j].u] + e[j].w)
+            printf("存在负环\n");
 }
 ```
 
@@ -60,22 +61,29 @@ $$
 
 **SPFA（Shortest Path Faster Algorithm）** 是 Bellman-Ford 的队列版：
 
-- 不用每轮扫所有边，只把「**被松弛成功**（dist 变小的点）」入队；
-- 出队一个点，松弛它的所有出边；若某邻居被松弛，入队；
-- 一个点可能多次入队（每次 dist 变小）——**用 `inqueue` 标记避免重复入队**；
-- **入队次数 ≥ n 说明有负环**。
+不用每轮扫所有边，只把「**被松弛成功**（dist 变小的点）」入队；
+出队一个点，松弛它的所有出边；若某邻居被松弛，入队；
+一个点可能多次入队（每次 dist 变小）——**用 `inQueue` 标记避免重复入队**；
+**入队次数 ≥ n 说明有负环**。
 
 ```c
-void SPFA(Graph G, int s) {
-    dist[s] = 0;  inqueue[s] = 1;  Queue.push(s);
-    while (!Queue.empty()) {
-        u = Queue.pop();  inqueue[u] = 0;
-        for (v 是 u 的邻接点)
-            if (dist[u] + w < dist[v]) {
+void SPFA(int s, int dist[]) {
+    queue<int> q;
+    bool inQueue[MAXN] = {false};
+    int cnt[MAXN] = {0}, u;
+    for (int i = 1; i <= n; i++) dist[i] = INF;
+    dist[s] = 0; q.push(s); inQueue[s] = true; cnt[s]++;
+    while (!q.empty()) {
+        u = q.front(); q.pop(); inQueue[u] = false;
+        for (每条出边 (u, v, w)) {
+            if (dist[v] > dist[u] + w) {       /* 松弛成功 */
                 dist[v] = dist[u] + w;
-                if (!inqueue[v]) { Queue.push(v); inqueue[v] = 1; cnt[v]++; }
-                if (cnt[v] >= n) 说明有负权回路;
+                if (!inQueue[v]) {
+                    q.push(v); inQueue[v] = true;
+                    if (++cnt[v] >= n) { printf("存在负环\n"); return; }
+                }
             }
+        }
     }
 }
 ```

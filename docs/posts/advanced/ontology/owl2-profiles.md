@@ -29,13 +29,13 @@ date: 2026-08-07
 **OWL 2 EL** 对应描述逻辑 **EL++**，是三个 Profile 里表达力最强、
 也最「本体味」的一个。它保留：
 
-- `subClassOf`、`equivalentClass`、`disjointWith`；
-- `someValuesFrom`（存在限制）；
-- `TransitiveProperty`、`ReflexiveProperty`；
-- 角色层级 `subPropertyOf`。
+- `owl:intersectionOf`（交集）、`rdfs:subClassOf`（子类）、`owl:TransitiveProperty`（传递角色）；
+- `owl:someValuesFrom`（存在限制）；
+- `owl:hasValue`（个体值）、`owl:hasSelf`（自反性）；
+- 角色层级 `rdfs:subPropertyOf`。
 
-但**禁止否定（`complementOf`）、全称限制（`allValuesFrom`）、基数、
-并类（`unionOf`）**。这一削减换来**多项式时间的分类**——
+但**禁止否定（`owl:complementOf`）、全称限制（`owl:allValuesFrom`）、基数、
+并类（`owl:unionOf`）**。这一削减换来**多项式时间的分类**——
 几百万个概念也能在合理时间内排出完整层级。
 
 **重点：EL 是为「大型生物医学本体」量身定做的。** SNOMED CT
@@ -72,7 +72,7 @@ QL 的威力在于**查询改写（query rewriting）**：一个 SPARQL 查询
 （或简单的正向链）执行推理。
 
 RL 覆盖的表达力介于 EL 与 QL 之间：支持否定式限制
-（`allValuesFrom`、`someValuesFrom`）与部分基数，但不支持
+（`owl:complementOf`、`owl:allValuesFrom`）与部分基数，但不支持
 任意析取、复杂否定与属性链中的非简单角色。它的复杂度是**多项式**，
 且**实现极其简单**——不需要 Tableau，规则正向链即可。
 

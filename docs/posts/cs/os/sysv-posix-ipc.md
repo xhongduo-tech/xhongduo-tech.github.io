@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 System V 与 POSIX IPC 开始
 
-回顾《IPC 经典机制》时用的 API 大多是 System V 的（`shmget`、`msgget`、`semget`）。Linux 上实际有**两套 IPC 接口**：**System V IPC**（老牌经典）与 **POSIX IPC**（现代替代）。这一节对比它们的三件套——**共享内存、信号量、消息队列**，并给出选型建议。<span class="marginnote">回顾《IPC 经典机制》的四兄弟：管道/FIFO/消息队列/共享内存。System V 与 POSIX 是后两者（消息队列、共享内存）加信号量的<strong>两套 API 风格</strong>——功能等价，接口与语义有细节差异。</span>
+回顾《IPC 经典机制》时用的 API 大多是 System V 的（`shmget`、`semget`、`msgget`）。Linux 上实际有**两套 IPC 接口**：**System V IPC**（老牌经典）与 **POSIX IPC**（现代替代）。这一节对比它们的三件套——**共享内存、信号量、消息队列**，并给出选型建议。<span class="marginnote">回顾《IPC 经典机制》的四兄弟：管道/FIFO/消息队列/共享内存。System V 与 POSIX 是后两者（消息队列、共享内存）加信号量的<strong>两套 API 风格</strong>——功能等价，接口与语义有细节差异。</span>
 
 ## 1 System V IPC：经典三件套
 
@@ -26,13 +26,13 @@ date: 2026-08-07
 | --- | --- | --- | --- |
 | 共享内存 | `shmget` | `shmat`/`shmdt` | 映射共享内存段 |
 | 消息队列 | `msgget` | `msgsnd`/`msgrcv` | 有边界消息 |
-| 信号量 | `semget` | `semop` | 计数信号量 |
+| 信号量 | `semget` | `semop`/`semctl` | 计数信号量 |
 
 **System V 的关键概念**：
 
 - **key**：外部标识（`ftok` 生成），用于定位/创建对象。
 - **id**：内核返回的句柄（类似 fd）。
-- **生命周期独立**：对象**不随进程消亡**——进程退出后共享内存/队列仍在，需显式删除（`ipcrm`）或 `IPC_RMID`。
+- **生命周期独立**：对象**不随进程消亡**——进程退出后共享内存/队列仍在，需显式删除（`IPC_RMID`）或 `shmctl`/`msgctl` 显式控制。
 - **权限**：对象有属主/组/其他权限（类似文件）。
 
 **System V 的缺点**：**接口古老**——key 是整数、权限与文件系统不统一、对象生命周期难管理（遗留下「孤儿 IPC 对象」）。
@@ -49,7 +49,7 @@ date: 2026-08-07
 
 **POSIX 的关键概念**：
 
-- **名字**：`/shm_name` 形式的路径——**与文件系统统一**（`/dev/shm` 下可见）。
+- **名字**：`/name` 形式的路径——**与文件系统统一**（`/dev/shm` 下可见）。
 - **mmap 集成**：共享内存用 `mmap` 映射——与文件映射统一。
 - **更现代的语义**：消息队列支持优先级、超时；信号量有命名/匿名两种。
 
@@ -70,7 +70,7 @@ date: 2026-08-07
 
 **公式解析：ftok 生成 key**
 
-System V 用 `ftok(path, id)` 生成 key：
+System V 用 `ftok` 生成 key：
 
 $$\text{key} = \text{ftok}(\text{path}, \text{proj\_id})$$
 
@@ -85,15 +85,15 @@ $$\text{key} = \text{ftok}(\text{path}, \text{proj\_id})$$
 **POSIX 共享内存 + mmap 的典型流程**：
 
 ```c
-// 创建/打开共享内存对象
-int fd = shm_open("/my_shm", O_CREAT | O_RDWR, 0666);
-ftruncate(fd, 4096);                       // 设置大小
-void *addr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-// 之后 addr 就是共享内存——多个进程 mmap 同一对象即可共享
+int fd = shm_open("/myshm", O_CREAT | O_RDWR, 0666);  /* 创建命名共享内存对象 */
+ftruncate(fd, 4096);                                  /* 设定段大小 */
+void *p = mmap(NULL, 4096, PROT_READ | PROT_WRITE,
+               MAP_SHARED, fd, 0);                    /* 映射进地址空间 */
+/* p 即共享数据首地址：多个进程映射同一对象，读写同一物理页 */
 ```
 
 - **多个进程 `shm_open` 同一名字 → mmap 同一物理页 → 共享数据**。
-- 配合**信号量**（`sem_open`）做同步——共享内存 + 信号量是 IPC 的「黄金搭档」（回顾 IPC 篇：共享内存快但需自同步）。
+- 配合**信号量**（`sem_wait`/`sem_post`）做同步——共享内存 + 信号量是 IPC 的「黄金搭档」（回顾 IPC 篇：共享内存快但需自同步）。
 
 **设计启示**：POSIX 共享内存把「共享内存」与「文件映射」统一到 `mmap` 一个机制——**共享内存只是「mmap 一个命名对象」**。这与《mmap》篇的「文件与内存统一」哲学一致：**抽象越统一，概念越少，越容易用对**。
 
@@ -113,6 +113,6 @@ void *addr = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 - **POSIX IPC**：名字 + mmap 集成，文件风格、生命周期似文件、接口现代。
 - 功能等价、细节不同——选型看兼容与标准需求，无唯一正确。
 - `ftok` 把路径翻译成 key，是 System V 的命名约定。
-- POSIX 共享内存 = `shm_open + mmap`，与文件映射统一，配信号量做同步。
+- POSIX 共享内存 = `shm_open` + `mmap`，与文件映射统一，配信号量做同步。
 
 在下一节，我们从用户态线程走向内核视角——**Linux 线程实现：NPTL 与 pthread 的内核视角**。

@@ -47,9 +47,9 @@ $$
 
 把 $y = \frac{\overline{f(z)}}{\|z\|^2}z$ 的合理性拆开：
 
-- **第一步，$z$ 的角色**：$z \perp \ker f$ 且 $f(z) \neq 0$。$z$ 是「$f$ 的方向」——$f$ 在垂直于核的方向上取值。
-- **第二步，$y$ 沿 $z$**：$y = \alpha z$，其中 $\alpha = \overline{f(z)}/\|z\|^2$。于是 $\langle z, y\rangle = \alpha\|z\|^2 = f(z)$。
-- **第三步，推广到全空间**：任意 $x$ 分解为 $m + \lambda z$（$m\in\ker f$）。$f(x) = \lambda f(z)$；$\langle x,y\rangle = \langle m,y\rangle + \lambda\langle z,y\rangle = 0 + \lambda f(z)$（$m \perp y$ 因 $y$ 沿 $z$ 方向而 $m\in\ker f \perp z$）。相等。
+**第一步，$z$ 的角色**：$z \perp \ker f$ 且 $f(z) \neq 0$。$z$ 是「$f$ 的方向」——$f$ 在垂直于核的方向上取值。
+**第二步，$y$ 沿 $z$**：$y = \alpha z$，其中 $\alpha = \overline{f(z)}/\|z\|^2$。于是 $\langle z, y\rangle = \alpha\|z\|^2 = f(z)$。
+**第三步，推广到全空间**：任意 $x$ 分解为 $m + \lambda z$（$m\in\ker f$）。$f(x) = \lambda f(z)$；$\langle x,y\rangle = \langle m,y\rangle + \lambda\langle z,y\rangle = 0 + \lambda f(z)$（$m \perp y$ 因 $y$ 沿 $z$ 方向而 $m\in\ker f \perp z$）。相等。
 
 **关键**：代表元 $y$ 的构造完全被「$y \perp \ker f$ 且 $\langle z, y\rangle = f(z)$」两条性质锁定——**表示定理说：泛函在垂直于核的方向上取值，且这个方向唯一**。
 
@@ -57,7 +57,7 @@ $$
 
 Riesz 表示定理的第一个推论已经给出：$H^* \cong H$。这意味着：
 
-- **弱收敛的定义简化**：$x_n \rightharpoonup x$（弱收敛，第七章）定义为「对一切 $f \in H^*$，$f(x_n) \to f(x)$」。在 Hilbert 空间里，这等价于「对一切 $y \in H$，$\langle x_n, y\rangle \to \langle x, y\rangle$」——**不需要知道 $H^*$ 长什么样，直接对向量做内积即可**。<span class="marginnote">Riesz 表示定理让 Hilbert 空间的弱收敛理论「免构造」：别的空间要费力描述 $X^*$，Hilbert 空间用 $y$ 直接代替 $f$。这也是为什么 Hilbert 空间是「最温柔的无穷维空间」——对偶不添乱。</span>
+**弱收敛的定义简化**：$x_n \rightharpoonup x$（弱收敛，第七章）定义为「对一切 $f \in H^*$，$f(x_n) \to f(x)$」。在 Hilbert 空间里，这等价于「对一切 $y \in H$，$\langle x_n, y\rangle \to \langle x, y\rangle$」——**不需要知道 $H^*$ 长什么样，直接对向量做内积即可**。<span class="marginnote">Riesz 表示定理让 Hilbert 空间的弱收敛理论「免构造」：别的空间要费力描述 $X^*$，Hilbert 空间用 $y$ 直接代替 $f$。这也是为什么 Hilbert 空间是「最温柔的无穷维空间」——对偶不添乱。</span>
 
 **例（$L^2$）**：$L^2[a,b]$ 上的泛函 $f \mapsto \int_a^b f(t)\overline{g(t)}\,dt$（$g \in L^2$）正是 Riesz 表示定理中的 $f_g$。**「$L^2$ 的对偶是 $L^2$」是 $L^p$ 对偶理论（$p=2$ 特例）与 Riesz 表示定理的统一表述。**
 

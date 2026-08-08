@@ -100,14 +100,14 @@ $$
 公式算完，别忘了用实测兜底。PyTorch 提供两个最常用的探针：
 
 ```python
-torch.cuda.reset_peak_memory_stats()      # 训练循环开始前清零
-# ... 跑一个完整的前向 + 反向 ...
-peak = torch.cuda.max_memory_allocated()  # 峰值分配显存（不含缓存池）
-reserved = torch.cuda.memory_reserved()   # 含缓存池（通常更高）
+import torch
+
+peak = torch.cuda.max_memory_allocated()   # 实际分配的峰值（≈理论账本）
+reserved = torch.cuda.memory_reserved()    # 缓存池实际占用（比分配高 10%–30%）
 ```
 
-- `max_memory_allocated`：实际分配的峰值，接近「账本」里算的理论值；
-- `memory_reserved`：PyTorch 显存缓存池实际占用的，通常比分配值高 10%–30%——这是「安全系数」的来源。
+- `max_memory_allocated()`：实际分配的峰值，接近「账本」里算的理论值；
+- `memory_reserved()`：PyTorch 显存缓存池实际占用的，通常比分配值高 10%–30%——这是「安全系数」的来源。
 
 两条经验：其一，**理论账本应该量级正确**——若实测远小于理论，多半是梯度检查点、ZeRO 等优化已在生效；若远大于理论，检查是否有张量被意外保留（如把 loss 存进列表、忘记 `detach()`）。其二，**调整 batch size 时激活值线性缩放，静态部分不变**——用一个小 batch 实测，就能外推出大 batch 的显存，不必每个配置都跑全量。这套「理论定方向、实测定参数」的打法，是全篇显存优化的方法论核心。
 

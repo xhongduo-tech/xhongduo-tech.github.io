@@ -24,8 +24,8 @@ date: 2026-08-07
 
 **脑颅骨（cranial bones）**：构成颅腔的四壁，共同围成容纳脑的骨性腔室——颅腔。8 块脑颅骨按位置分两类：
 
-- **成对的**：左右**顶骨**（parietal bone）2 块、左右**颞骨**（temporal bone）2 块。
-- **不成对的**：**额骨**（frontal bone）、**枕骨**（occipital bone）、**蝶骨**（sphenoid bone）、**筛骨**（ethmoid bone）各 1 块。
+**成对的**：左右**顶骨**（parietal bone）2 块、左右**颞骨**（temporal bone）2 块。
+**不成对的**：**额骨**（frontal bone）、**枕骨**（occipital bone）、**蝶骨**（sphenoid bone）、**筛骨**（ethmoid bone）各 1 块。
 
 这 8 块骨不是简单拼凑，而是"分工搭屋顶"：额骨盖在前，枕骨垫在后，两侧顶骨铺顶，颞骨做侧壁，蝶骨像楔子一样嵌在颅底的中央，筛骨则藏在两眶之间、颅前窝的中央。
 

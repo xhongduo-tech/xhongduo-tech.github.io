@@ -80,16 +80,20 @@ $$
 
 ```python
 def newton(f, fp, x0, tol=1e-10, max_iter=100):
+    """牛顿法求 f(x)=0；fp 是导数 f'。"""
     x = x0
-    for k in range(max_iter):
+    for _ in range(max_iter):
         fx, fpx = f(x), fp(x)
-        if abs(fpx) < 1e-14:          # 切线水平，危险
-            raise RuntimeError("导数接近零")
+        if abs(fpx) < 1e-14:                # 保护：切线水平，切回二分
+            raise RuntimeError("f'(x)≈0，改用二分/弦截")
         x_new = x - fx / fpx
-        if abs(x_new - x) < tol:
-            return x_new, k + 1
+        if abs(x_new - x) < tol:            # 终止：相邻差（或 |f(x)|）
+            return x_new
         x = x_new
-    raise RuntimeError("不收敛")
+    return x
+
+# 例：x³ - x - 1 = 0，初值 1.5 → 根 ≈ 1.3247
+print(newton(lambda x: x**3 - x - 1, lambda x: 3*x**2 - 1, 1.5))
 ```
 
 **工程三件套**：

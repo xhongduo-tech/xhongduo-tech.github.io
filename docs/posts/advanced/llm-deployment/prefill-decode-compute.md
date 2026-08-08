@@ -68,22 +68,16 @@ $$\text{FLOPs}_{\text{decode}} \approx 2 \cdot N \cdot 1$$
 「分开调度」落到代码上，一个极简调度器的骨架长这样：
 
 ```python
-def schedule_one_step(running_seqs):
-    prefill = [s for s in running_seqs if s.phase == "prefill"]
-    decode  = [s for s in running_seqs if s.phase == "decode"]
+def schedule(new_requests, running):
+    # Prefill 分支：新请求一次并行算完 P 个 token，顺手建好初始 KV Cache
+    for req in new_requests:
+        req.kv_cache = model.prefill(req.prompt)
 
-    # Prefill：整段 prompt 一次前向，产出首 token 与初始 KV Cache
-    for seq in prefill:
-        seq.logits = model.prefill(seq.prompt_tokens)
-        seq.kv_cache = seq.prompt_kv          # 地基铺好，进入 decode
-        seq.phase = "decode"
-
-    # Decode：若干序列拼成一批，共享读一遍权重
-    batch = pack_decode_batch(decode)
-    next_tokens = model.decode(batch, [s.kv_cache for s in decode])
-    for seq, tok in zip(decode, next_tokens):
-        seq.kv_cache.append_kv(tok)           # 新 token 的 K、V 追加进缓存
-    return next_tokens
+    # Decode 分支：多条序列拼成批，共享读一遍权重，每步各长一个 token
+    batch = [r.last_token for r in running]
+    logits = model.decode(batch, [r.kv_cache for r in running])
+    for req, logit in zip(running, logits):
+        req.tokens.append(pick(logit))   # 每条序列只新增 1 个 token
 ```
 
 这段骨架暴露了两阶段在引擎里的两种待遇：Prefill 一步把 $P$ 个 token 全算完、顺势建好初始 KV Cache，属于「一次投入、一次性产出」；Decode 则把多条序列拼成批，共享读一遍权重，每步只让每条序列长出一个 token。后续 vLLM 的调度器、Continuous Batching、Chunked Prefill，全是在这两条分支上做文章。

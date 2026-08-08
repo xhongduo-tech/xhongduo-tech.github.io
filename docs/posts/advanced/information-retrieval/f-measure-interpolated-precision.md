@@ -108,36 +108,32 @@ $$P_{\text{interp}}(r) = \max_{r' \ge r} P(r')$$
 F 值与插值查准率都很适合用几十行 Python 验证：
 
 ```python
-def f1(P, R):
-    """F1 = 2PR / (P + R)"""
-    return 2 * P * R / (P + R)
+def f1(precision, recall):
+    return 2 * precision * recall / (precision + recall)
 
-print(f1(0.6, 0.8))     # 0.6857 —— 略低于算术平均 0.7
-print(f1(1.0, 0.5))     # 0.6667 —— 被较小的 R 拖累
+print(f1(0.6, 0.8))   # 0.6857…，低于算术平均 0.7——调和平均惩罚"偏科"
+print(f1(1.0, 0.5))   # 0.6667…，两个数相差越大越被小的那个拖累
 ```
 
 ```python
-# 相关文档在结果列表中的位置（沿用上一篇的例子）
-relevant_ranks = [1, 3, 5, 6]
-N = 10                                  # 系统返回的总文档数
-R_total = len(relevant_ranks)           # = 4
+# 相关文档位于第 1、3、5、6 位（共 4 篇相关）
+rels = [1, 0, 1, 0, 1, 1]
 
 def precision_at(k):
-    tp = sum(1 for r in relevant_ranks if r <= k)
-    return tp / k
+    return sum(rels[:k]) / k
 
-def interpolated_precision(level):
-    """在『召回率不低于 level』的所有截断点上取最大 P"""
-    best = 0.0
-    for k in range(1, N + 1):
-        recall = sum(1 for r in relevant_ranks if r <= k) / R_total
-        if recall >= level:
-            best = max(best, precision_at(k))
-    return best
+def recall_at(k, R=4):
+    return sum(rels[:k]) / R
 
-levels = [i / 10 for i in range(11)]
-print([round(interpolated_precision(r), 3) for r in levels])
-# [1.0, 1.0, 1.0, 1.0, 0.667, 0.667, 0.667, 0.667, 0.667, 0.667, 0.667]
+# 第 1 行输出：P@k 序列
+print([round(precision_at(k), 3) for k in range(1, len(rels) + 1)])
+
+# 第 2 行输出：11 点插值查准率（召回不低于 r 处的最大 Precision）
+grid = [i / 10 for i in range(11)]
+interp = [max(precision_at(k)
+              for k in range(1, len(rels) + 1) if recall_at(k) >= r)
+          for r in grid]
+print([round(v, 3) for v in interp])
 ```
 
 注意第 2 行输出里，$r=0.4$ 处的 0.667 高于真实 P@4 = 0.5——**插值允许「向后看」**：只要后面某个更高召回处达到过更高 Precision，就把这个值前移。

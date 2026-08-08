@@ -89,8 +89,8 @@ $$
 
 时间序列建模里，ARMA 过程本身就是「滤波的产物」：
 
-- **MA(q)**：$X_t = \epsilon_t + \theta_1\epsilon_{t-1} + \cdots$——白噪声通过「FIR 滤波器」$h = (1, \theta_1, \dots)$；
-- **AR(1)**：$X_t = \phi X_{t-1} + \epsilon_t$ 等价于「白噪声通过 IIR 滤波器」$H(\omega) = \frac{1}{1 - \phi e^{-i\omega}}$。
+**MA(q)**：$X_t = \epsilon_t + \theta_1\epsilon_{t-1} + \cdots$——白噪声通过「FIR 滤波器」$h = (1, \theta_1, \dots)$；
+**AR(1)**：$X_t = \phi X_{t-1} + \epsilon_t$ 等价于「白噪声通过 IIR 滤波器」$H(\omega) = \frac{1}{1 - \phi e^{-i\omega}}$。
 
 **AR 的谱（上一节）正是 $|1 - \phi e^{-i\omega}|^{-2}$——滤波理论的直接应用。**<span class="marginnote">ARMA = 白噪声过线性滤波：<strong>这统一了「随机过程」与「信号处理」两门课——AR 是自回归滤波，MA 是滑动平均滤波</strong>。学习时把 ARMA 放在滤波的框架里，很多公式（谱、ACF）不再需要死记。</span>
 

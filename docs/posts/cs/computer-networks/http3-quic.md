@@ -24,8 +24,8 @@ HTTP/2 解决了 HTTP 层的队头阻塞，但 **TCP 层的队头阻塞**还在�
 
 HTTP/2 之上，TCP 还有两个难以逾越的问题：<span class="marginnote"><strong>① TCP 层队头阻塞</strong>：TCP 保证「字节流有序交付」——一旦一个段丢失，接收方缓冲区里后面的数据「到齐才交付」，后面的流全被堵住。HTTP/2 的多路复用是「逻辑上的并行」，但底层 TCP 仍是一条「按序管道」——<strong>一个丢包堵住所有流</strong>。<strong>② 握手慢</strong>：TCP 三次握手（1 RTT）+ TLS 握手（1-2 RTT）——新建连接至少要 2-3 个 RTT 才能发第一个字节。<strong>「一条按序管道 + 两轮握手」</strong>是 TCP 的两大死结。</span>
 
-- **TCP 队头阻塞**：TCP 按序交付，一个段丢、后面全堵。
-- **握手慢**：TCP 三次握手 + TLS 握手，2–3 RTT 才发首个字节。
+**TCP 队头阻塞**：TCP 按序交付，一个段丢、后面全堵。
+**握手慢**：TCP 三次握手 + TLS 握手，2–3 RTT 才发首个字节。
 
 **辨析｜易错点：** **HTTP/2 的多路复用是「应用层的并行」，TCP 层仍是「一条按序管道」**——所以一个 TCP 丢包会让所有 HTTP/2 流都遭殃。**「HTTP/2 解决的是『响应排队』，没解决『字节按序』」**是理解 QUIC 动机的关键。
 
@@ -43,15 +43,15 @@ HTTP/2 之上，TCP 还有两个难以逾越的问题：<span class="marginnote"
 
 QUIC 的设计有一个深刻变化：**加密不是「加一层」，而是「内置」**。传统 HTTPS = HTTP + TCP + TLS（加密在传输层之上）；QUIC 把 TLS 揉进了协议本身。<span class="marginnote"><strong>QUIC 内置加密的意义</strong>：① <strong>握手合并</strong>——传输握手与 TLS 握手一次完成，省 RTT；② <strong>首部加密</strong>——QUIC 的几乎所有字段（包括流 ID、长度）都加密，只有极少字段明文——<strong>中间设备看不到流的信息，隐私与抗审查性更强</strong>。<strong>「TCP 时代加密是外套，QUIC 时代加密是身体的一部分」</strong>。</span>
 
-- **握手合并**：传输 + 加密握手一次完成。
-- **首部加密**：流 ID、长度等字段都加密，中间设备不可见。
-- **安全性**：加密成为协议的内置属性，而非附加层。
+**握手合并**：传输 + 加密握手一次完成。
+**首部加密**：流 ID、长度等字段都加密，中间设备不可见。
+**安全性**：加密成为协议的内置属性，而非附加层。
 
 **辨析｜易错点：** **QUIC 的「全加密」让网络设备（防火墙、QoS）更难看懂流量**——这是它的安全优势，也是网络管理者的挑战。**「加密的代价是可见性，收益是隐私与抗审查」**是 QUIC 引发的治理讨论。
 
 ## 4 HTTP/3：就是「HTTP over QUIC」
 
-**HTTP/3**：在 QUIC 之上运行的 HTTP 版本——它继承了 HTTP/2 的「语义与帧」，但把底层从 TCP 换成了 QUIC。<span class="marginnote"><strong>HTTP/3 = HTTP 语义 + QUIC 传输</strong>。版本演进回顾：<strong>HTTP/1.1</strong>（文本、串行、TCP）→ <strong>HTTP/2</strong>（二进制分帧、多路复用、TCP，TCP 队头阻塞仍在）→ <strong>HTTP/3</strong>（多路复用 + QUIC，队头阻塞基本消除）。<strong>「HTTP/3 是 HTTP 语义在 QUIC 上的重新落地」</strong>——今天的 Chrome、Edge、Safari 都已默认支持 HTTP/3。</span>
+**HTTP/3**：在 QUIC 之上运行的 HTTP 版本——它继承了 HTTP/2 的「语义与帧」，但把底层从 TCP 换成了 QUIC。<span class="marginnote"><strong>HTTP/3 = HTTP 语义 + QUIC 传输</strong>。版本演进回顾：<strong>HTTP/1.1</strong>`（文本、串行、TCP）→ <strong>HTTP/2</strong>`（二进制分帧、多路复用、TCP，TCP 队头阻塞仍在）→ <strong>HTTP/3</strong>（多路复用 + QUIC，队头阻塞基本消除）。<strong>「HTTP/3 是 HTTP 语义在 QUIC 上的重新落地」</strong>——今天的 Chrome、Edge、Safari 都已默认支持 HTTP/3。</span>
 
 | 版本 | 传输层 | 多路复用 | 队头阻塞 |
 | --- | --- | --- | --- |

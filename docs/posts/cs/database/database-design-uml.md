@@ -67,7 +67,7 @@ $$
 \text{Strategy} \in \{\, \text{SingleTable},\; \text{ClassPerTable},\; \text{ConcreteClassPerTable} \,\}
 $$
 
-- **第一步，SingleTable**：全部子类并入一张表，用 `discriminator` 列标识类型。查询快、无连接，但大量列为空、约束难写——对应 ER 的「单表策略 A」。
+- **第一步，SingleTable**：全部子类并入一张表，用 `type`（判别）列标识类型。查询快、无连接，但大量列为空、约束难写——对应 ER 的「单表策略 A」。
 - **第二步，ClassPerTable**：父类一张表 + 每个子类一张表，子类主码 = 父类主码（外码）。数据无冗余、扩展性好，但查子类需要连接——对应 ER 的「策略 B」。
 - **第三步，ConcreteClassPerTable**：每个子类独立完整建表。子类各自完整，但无法统一查父类、父类属性重复——对应 ER 的「策略 C」。
 - **第四步，选择依据**：三者权衡「查询速度 / 存储冗余 / 模式演化」。ORM 里常用 SingleTable 或 ClassPerTable；没有放之四海皆准的答案，只有负载决定的取舍。

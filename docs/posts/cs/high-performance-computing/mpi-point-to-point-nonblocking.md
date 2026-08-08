@@ -37,27 +37,27 @@ date: 2026-08-07
 最朴素的通信是同步收发：
 
 ```c
-MPI_Send(sendbuf, n, MPI_DOUBLE, dest, tag, comm);
-MPI_Recv(recvbuf, n, MPI_DOUBLE, source, tag, comm, &status);
+MPI_Send(buf, count, datatype, dest, tag, comm);
+MPI_Recv(buf, count, datatype, source, tag, comm, &status);
 ```
 
 六个参数要弄明白：
 
-- **`buf` 与 `count`**：要发的数据指针与元素个数；
-- **`datatype`**：元素类型（`MPI_INT` 等）；
-- **`dest` / `source`**：对方的 rank；
-- **`tag`**：消息标签，用来区分不同用途的消息；
-- **`comm`**：通信子；
-- **`status`**：接收方查询发送方与标签的信息。
+**buf 与 count**：要发的数据指针与元素个数；
+**datatype**：元素类型（`MPI_INT`、`MPI_DOUBLE` 等）；
+**dest / source**：对方的 rank；
+**tag**：消息标签，用来区分不同用途的消息；
+**comm**：通信子；
+**status**：接收方查询发送方与标签的信息。
 
-`MPI_Recv` 是**阻塞**的：
+`MPI_Send` 与 `MPI_Recv` 是**阻塞**的：
 
 调用后进程原地等待，直到消息真正到达、数据抄进缓冲区。
 
 `MPI_Send` 的阻塞语义取决于实现与消息大小：
 
-- **小消息**：常先拷贝到系统缓冲，立即返回；
-- **大消息**：必须等接收方「准备好」才开始传输，即**会阻塞**。
+**小消息**：常先拷贝到系统缓冲，立即返回；
+**大消息**：必须等接收方「准备好」才开始传输，即**会阻塞**。
 
 **辨析｜易错点：** 不要把「阻塞」理解成「慢」。
 
@@ -68,24 +68,24 @@ MPI_Recv(recvbuf, n, MPI_DOUBLE, source, tag, comm, &status);
 阻塞通信最经典的坑是「互相等待」：
 
 ```c
-/* rank 0 */
-MPI_Send(..., 1, tag, comm);   /* 等 1 号收 */
-MPI_Recv(..., 1, tag, comm);   /* 等 1 号发 */
+/* 进程 0 */
+MPI_Send(buf, n, MPI_INT, 1, tag, comm);                 // 先发
+MPI_Recv(buf, n, MPI_INT, 1, tag, comm, &status);        // 后收
 
-/* rank 1 */
-MPI_Send(..., 0, tag, comm);   /* 等 0 号收 */
-MPI_Recv(..., 0, tag, comm);   /* 等 0 号发 */
+/* 进程 1 */
+MPI_Send(buf, n, MPI_INT, 0, tag, comm);                 // 先发
+MPI_Recv(buf, n, MPI_INT, 0, tag, comm, &status);        // 后收
 ```
 
-两个进程都先 `Send`，都等着对方先 `Recv`——**互相等待，谁也不让步**。
+两个进程都先 `发送`，都等着对方先 `接收`——**互相等待，谁也不让步**。
 
 若消息足够大（不进入系统缓冲），这就是一个标准的**死锁（deadlock）**。
 
 三个解法：
 
-- **改变顺序**：0 先发后收，1 先收后发——交错开，谁也不会等死；
-- **用 `MPI_Sendrecv`**：同时发起发送与接收，一次调用解决配对；
-- **用非阻塞通信**：发完后不等，先做别的，稍后再检查。
+**改变顺序**：0 先发后收，1 先收后发——交错开，谁也不会等死；
+**用 `MPI_Sendrecv`**：同时发起发送与接收，一次调用解决配对；
+**用非阻塞通信**：发完后不等，先做别的，稍后再检查。
 
 <span class="marginnote">死锁的本质是「资源循环等待」，与操作系统里哲学家就餐问题是同一个病根（见 cs/os 课程）。MPI 的死锁更隐蔽：它发生在消息级，报错信息常常延迟到超时才出现。</span>
 
@@ -94,8 +94,8 @@ MPI_Recv(..., 0, tag, comm);   /* 等 0 号发 */
 `MPI_Sendrecv` 把「发」和「收」打包进一次调用：
 
 ```c
-MPI_Sendrecv(sendbuf, n, MPI_DOUBLE, dest,  tag_send,
-             recvbuf, n, MPI_DOUBLE, source, tag_recv,
+MPI_Sendrecv(sendbuf, sendcount, sendtype, dest, sendtag,
+             recvbuf, recvcount, recvtype, source, recvtag,
              comm, &status);
 ```
 
@@ -116,29 +116,23 @@ MPI_Sendrecv(sendbuf, n, MPI_DOUBLE, dest,  tag_send,
 **非阻塞通信（non-blocking communication）**把「发出请求」与「确认完成」分开：
 
 ```c
-MPI_Request req;
-MPI_Isend(sendbuf, n, MPI_DOUBLE, dest, tag, comm, &req);
-// 调用立即返回，数据还在后台传输
-compute_something();            // 这段时间可以继续算
-MPI_Wait(&req, &status);        // 确认发送真正完成
+MPI_Isend(buf, count, datatype, dest, tag, comm, &request);
 ```
 
 同样地：
 
 ```c
-MPI_Irecv(recvbuf, n, MPI_DOUBLE, source, tag, comm, &req);
-compute_something();            // 等消息期间干别的
-MPI_Wait(&req, &status);        // 数据已就绪，可以安全使用 recvbuf
+MPI_Irecv(buf, count, datatype, source, tag, comm, &request);
 ```
 
 两个常用完成检查：
 
-- `MPI_Wait`：**阻塞式**等待该请求完成；
-- `MPI_Test`：**轮询式**查一下完成了没，没完成立即返回，不阻塞。
+- `MPI_Wait(&request, &status)`：**阻塞式**等待该请求完成；
+- `MPI_Test(&request, &flag, &status)`：**轮询式**查一下完成了没，没完成立即返回，不阻塞。
 
 **辨析｜易错点：** 非阻塞不代表「不用等」——只是**把等的时间让给了计算**。
 
-在 `MPI_Wait` 之前**不要**读写 `recvbuf`，否则读到的是半途数据，这是非阻塞编程最常见的竞态。
+在 `MPI_Wait`/`MPI_Test` 之前**不要**读写缓冲区，否则读到的是半途数据，这是非阻塞编程最常见的竞态。
 
 ## 5 公式解析：通信计算重叠
 
@@ -172,7 +166,7 @@ $$T_{\text{overlap}} = \max(T_c, T_m)$$
 | 维度 | 阻塞通信 | 非阻塞通信 |
 | --- | --- | --- |
 | 调用返回时机 | 完成才返回 | 立即返回 |
-| 数据可用性 | 返回即可用 | 需 `MPI_Wait/Test` |
+| 数据可用性 | 返回即可用 | 需 `MPI_Wait`/`MPI_Test` 确认 |
 | 正确性风险 | 死锁 | 竞态（过早读写） |
 | 计算与通信 | 串行 | 可重叠 |
 | 编程复杂度 | 低 | 高 |
@@ -184,9 +178,9 @@ $$T_{\text{overlap}} = \max(T_c, T_m)$$
 
 ## 7 小结
 
-- **阻塞收发** `MPI_Send/Recv` 保证数据一致性，但可能死锁。
+- **阻塞收发** `MPI_Send`/`MPI_Recv` 保证数据一致性，但可能死锁。
 - **死锁**源于循环等待，解法：调顺序、`MPI_Sendrecv`、非阻塞。
-- **非阻塞** `MPI_Isend/Irecv` + `MPI_Wait/Test`，把等待让给计算。
+- **非阻塞** `MPI_Isend` + `MPI_Irecv`，把等待让给计算。
 - 重叠后每步时间从 $T_c + T_m$ 降到 $\max(T_c, T_m)$。
 - 铁律：**先对再快；非阻塞改早了反而难调。**
 

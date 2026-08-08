@@ -24,12 +24,12 @@ date: 2026-08-07
 
 **超码（superkey）**：关系模式 $R$ 的一个属性集合 $K$，若满足——在同一实例中**不存在两个不同元组在 $K$ 的所有属性上取值完全相同**——则 $K$ 是 $R$ 的一个超码。
 
-直觉上，超码是「一组足以区分所有行的属性」。比如 `instructor` 关系：
+直觉上，超码是「一组足以区分所有行的属性」。比如 instructor 关系：
 
-- $\{ID\}$ 是超码（工号唯一）。
-- $\{name\}$ 不是超码（可能有重名）。
-- $\{name, dept\_name\}$ 可能是、也可能不是超码（取决于现实里「同系同名」是否存在）。
-- **全体属性 $\{ID, name, dept\_name, salary\}$ 一定是超码**：把全部列拼起来，两个不同元组必然在某处不同。
+$\{ID\}$ 是超码（工号唯一）。
+$\{name\}$ 不是超码（可能有重名）。
+$\{name, dept\_name\}$ 可能是、也可能不是超码（取决于现实里「同系同名」是否存在）。
+**全体属性 $\{ID, name, dept\_name, salary\}$ 一定是超码**：把全部列拼起来，两个不同元组必然在某处不同。
 
 注意「超码」只要求**唯一区分**，不要求**精简**——往超码里塞再多属性，它仍是超码。判断超码不是纯粹的逻辑问题，而要依赖现实世界的约束（「工号必然唯一」是应用层承诺，不是数学定理）。
 
@@ -39,7 +39,7 @@ date: 2026-08-07
 
 **候选码（candidate key）**：若 $K$ 是超码，且 $K$ 的**任何真子集都不再是超码**，则 $K$ 是候选码。候选码也叫**最小超码（minimal superkey）**。<span class="marginnote">「最小」指属性个数意义上的极小：去掉任何一个属性都会破坏唯一性。注意「极小」不等于「唯一」——一个关系可以有多个候选码，比如学生表里 $\{学号\}$ 与 $\{身份证号\}$ 都是候选码。</span>
 
-以 `instructor` 为例，若 $\{ID\}$ 唯一，则它是候选码；而 $\{ID, name\}$ 是超码但**不是候选码**，因为去掉 `name` 后 $\{ID\}$ 仍是超码。**所有超码都包含至少一个候选码**——这条性质是后续函数依赖理论（第8章）的出发点之一。
+以 $\{ID\}$ 为例，若 $\{ID\}$ 唯一，则它是候选码；而 $\{ID, name\}$ 是超码但**不是候选码**，因为去掉 $\{ID, name\}$ 后 $\{ID\}$ 仍是超码。**所有超码都包含至少一个候选码**——这条性质是后续函数依赖理论（第8章）的出发点之一。
 
 「逐子集排除」的过程值得走一遍。假设现实约束是「工号唯一、姓名可重」，逐个判断：
 
@@ -74,27 +74,21 @@ $$instructor(\underline{ID},\ name,\ dept\_name,\ salary)$$
 
 ## 4 外码与引用完整性
 
-数据库不是一张孤立的表。`instructor` 里的 `dept_name` 指向 `department` 里的 `dept_name`——这种「指向另一张表的主码」的列，就是**外码（foreign key）**。
+数据库不是一张孤立的表。instructor 里的 dept_name 指向 department 里的 dept_name——这种「指向另一张表的主码」的列，就是**外码（foreign key）**。
 
 **外码（foreign key）**：设关系模式 $R_1$ 中的属性集合 $\alpha$，其值域与关系模式 $R_2$ 的主码 $K$ 相匹配，则 $\alpha$ 是 $R_1$ 的**引用 $R_2$ 的外码**。这里 $R_1$ 叫**引用关系（referencing relation）**，$R_2$ 叫**被引用关系（referenced relation）**。
 
 ```sql
-CREATE TABLE department (
-  dept_name VARCHAR(20) PRIMARY KEY,
-  building  VARCHAR(15),
-  budget    NUMERIC(12,2)
-);
-
 CREATE TABLE instructor (
-  ID        CHAR(5) PRIMARY KEY,
-  name      VARCHAR(20),
-  dept_name VARCHAR(20),
-  salary    NUMERIC(8,2),
-  FOREIGN KEY (dept_name) REFERENCES department(dept_name)
+    ID        varchar(5),
+    name      varchar(20) NOT NULL,
+    dept_name varchar(20),
+    PRIMARY KEY (ID),
+    FOREIGN KEY (dept_name) REFERENCES department
 );
 ```
 
-外码带来一条硬约束——**引用完整性约束（referential integrity constraint）**：`instructor` 中任何元组的 `dept_name` 取值，**要么是 `NULL`，要么必须真实出现在 `department.dept_name` 里**。系统禁止「挂靠一个不存在的系」。这条约束保证了两张表之间的引用永远「指得着」，不会出现悬空的指向。
+外码带来一条硬约束——**引用完整性约束（referential integrity constraint）**：instructor 中任何元组的 dept_name 取值，**要么是 NULL，要么必须真实出现在 department 里**。系统禁止「挂靠一个不存在的系」。这条约束保证了两张表之间的引用永远「指得着」，不会出现悬空的指向。
 
 ## 5 公式解析：超码的形式定义
 
@@ -114,7 +108,7 @@ $$\forall\, t_1, t_2 \in r:\quad t_1 \neq t_2 \;\Longrightarrow\; t_1[K] \neq t_
 
 - **超码与候选码混淆**：超码允许冗余，候选码要求最简。$\{ID, name\}$ 是超码，却不是候选码。
 - **主码的「主」字无数学含义**：主码只是候选码里的一个「指定代表」；备用码在唯一性上与主码完全等价。
-- **外码不要求同名**：`instructor.dept_name` 指向 `department.dept_name` 只是恰好同名。外码「值域匹配」即可，名字是设计者的自由。
+- **外码不要求同名**：instructor 的 dept_name 指向 department 的 dept_name 只是恰好同名。外码「值域匹配」即可，名字是设计者的自由。
 - **外码值可以为 NULL**：引用完整性允许外码为空——「这名教师还没分配系」是合法状态；但主码**不允许**为 NULL，否则「唯一指认」就失效了。<span class="marginnote">主码非空（NOT NULL）是关系模型与 SQL 的默认约定；而「空」的三值逻辑要到第3章《空值与三值逻辑》才系统展开——这里先记住「主码非空、外码可空」这个不对称。</span>
 
 ## 7 小结

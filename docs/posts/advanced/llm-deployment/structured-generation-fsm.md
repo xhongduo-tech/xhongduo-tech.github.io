@@ -26,7 +26,7 @@ date: 2026-08-07
 
 先看摆在我们面前的三条路，它们的成本与保证逐级递进。
 
-**路线一：提示词约束（软约束）。** 在 prompt 里写「请以 JSON 输出，schema 如下」。零成本，但**零保证**——模型可能忽略、可能加注释、可能把 key 改成驼峰。对要求「必须能 `json.loads`」的场景，这条路只配当基线。
+**路线一：提示词约束（软约束）。** 在 prompt 里写「请以 JSON 输出，schema 如下」。零成本，但**零保证**——模型可能忽略、可能加注释、可能把 key 改成驼峰。对要求「必须能被机器解析」的场景，这条路只配当基线。
 
 **路线二：后处理修复（retry / repair）。** 生成完毕后解析失败就重试或修补（拿正则把非法片段删掉、补括号）。它能救回一部分坏输出，但成本高：重试让延迟与 token 消耗翻倍，修补经常修出**另一处**非法。这像是「先泼墨再描边」，永远在追着错误跑。
 
@@ -70,39 +70,39 @@ $$
 
 - **第一步，认掩码操作**：$\hat{\ell}_i = -\infty$ 意味着 $e^{\hat{\ell}_i} = 0$，非法 token 在 softmax 分子上直接消失——它不是被「劝退」，而是被**物理抹除**。
 - **第二步，认归一化分母**：分母只对合法子集求和。这保证**合法 token 之间的相对概率不变**——约束只重排「谁被允许」，不改写「允许者之间的偏好」。
-- **第三步，认状态推进**：采样到的 $y_t$ 送进自动机，状态迁移 $\delta(q, y_t) \to q'$，下一轮用 $q'$ 再算合法集。整条链是「掩码 → 采样 → 迁移」的循环，直到 FSM 到达接受态（`finished` 标志）。
+- **第三步，认状态推进**：采样到的 $y_t$ 送进自动机，状态迁移 $\delta(q, y_t) \to q'$，下一轮用 $q'$ 再算合法集。整条链是「掩码 → 采样 → 迁移」的循环，直到 FSM 到达接受态（$q'$ 标志）。
 - **第四步，认顺序细节**：掩码发生在**惩罚（penalty）之后、温度缩放与 top-k/top-p 之前**。也就是说 frequency/presence penalty 先把该扣的扣完，再抹非法 token，最后温度与 top-k 只在合法子集上生效。这个顺序保证了「约束」与「采样策略」互不干扰。
 
 ## 4 一条 JSON 的完整旅程：从 schema 到 token
 
-空谈不如走一遍。假设约束是 `{"name": string, "age": int}` 的 JSON Schema，SGLang 里写成 `json_schema` 参数，或 `regex` 直接给正则。解码第一步，FSM 说「第一个字符必须是 `{`」。词表里有一堆 token——`{`、`{"na`、`{"name":`、`hello`、`123`……**哪些合法？**
+空谈不如走一遍。假设约束是「输出一个 JSON 对象」的 JSON Schema，SGLang 里写成 `json_schema` 参数，或 `regex` 直接给正则。解码第一步，FSM 说「第一个字符必须是 `{`」。词表里有一堆 token——`{`、`{ "`、`"name"`、`[`、`hello`……**哪些合法？**
 
-答案取决于自动机「能不能消费这个 token 的所有字符」。`{` 合法（吃掉左花括号）；`hello` 不合法（`h` 不在 `{` 之后的合法字符集里）；`{"na` 也合法——它一次吃掉 `{"na`，自动机认作「已进入 `"name"` 键的途中」。**约束解码的对象是 token，不是字符**，所以每个 token 都要在自动机上「试吃」一遍，这正是不论哪家实现都必须处理的核心循环。
+答案取决于自动机「能不能消费这个 token 的所有字符」。token `{` 合法（吃掉左花括号）；token `hello` 不合法（`h` 不在 `{` 之后的合法字符集里）；token `{ "` 也合法——它一次吃掉 `{` 与引号，自动机认作「已进入键名的途中」。**约束解码的对象是 token，不是字符**，所以每个 token 都要在自动机上「试吃」一遍，这正是不论哪家实现都必须处理的核心循环。
 
-一个被反复踩的坑在这里暴露：**tokenizer 的边界与语法边界不对齐**。比如字符串值 `"张三"` 的结束引号 `"` 可能与后续的逗号 `,` 拼进同一个 token；再如 JSON 数字 `123` 的最后一个字符后必须是 `}` 或 `,`，但 tokenizer 可能把 `1` 和 `23` 切成两个 token。处理办法是**字节级（byte-level）的 FSM**：把语法精细到字节，token 先解码成字节串，再看字节串能否被自动机逐步消费——xgrammar 就是这么做的。这让「合法」的判断精确到字节，tokenizer 怎么切都不怕。
+一个被反复踩的坑在这里暴露：**tokenizer 的边界与语法边界不对齐**。比如字符串值 `"world"` 的结束引号 `"` 可能与后续的逗号 `,` 拼进同一个 token；再如 JSON 数字 `3.14` 的最后一个字符后必须是 `,` 或 `}`，但 tokenizer 可能把数字 `3.14` 和分隔符 `,` 切成两个 token。处理办法是**字节级（byte-level）的 FSM**：把语法精细到字节，token 先解码成字节串，再看字节串能否被自动机逐步消费——xgrammar 就是这么做的。这让「合法」的判断精确到字节，tokenizer 怎么切都不怕。
 
 把「每步试吃」写成伪代码，结构很清爽：
 
 ```python
-def constrained_step(logits, state, fsm, vocab_ids):
-    # 1) 对词表每个 token 试吃：让 FSM 从 state 出发消费它
-    valid = []
-    for vid in vocab_ids:
-        nxt = fsm.transition(state, decode_token(vid))
-        if nxt is not None:          # 自动机还活着 -> 合法
-            valid.append(vid)
-    # 2) 掩码：非法 token 的 logits 压到 -inf
-    mask = torch.full_like(logits, float("-inf"))
-    mask[valid] = logits[valid]
-    # 3) 在合法子集上归一化采样（温度/top-k 作用于此 mask 后）
-    probs = torch.softmax(mask / temperature, dim=-1)
-    sampled = torch.multinomial(probs, 1)
-    # 4) 推进状态，供下一步使用
-    state = fsm.transition(state, decode_token(sampled))
-    return sampled, state
+def compute_valid_mask(state, vocab, fsm, tokenizer):
+    """三拍之一：对整张词表算合法掩码"""
+    mask = torch.full((len(vocab),), -torch.inf)
+    for i, token in enumerate(vocab):
+        byte_str = tokenizer.decode([token])        # token → 字节串
+        if fsm.can_consume(state, byte_str):        # 自动机「试吃」
+            mask[i] = 0.0                           # 合法，保留
+    return mask
+
+# 三拍之二：掩码 + 采样（只在合法子集上归一化）
+logits = logits + compute_valid_mask(state, vocab, fsm, tokenizer)
+probs = torch.softmax(logits, dim=-1)
+next_token = torch.multinomial(probs, 1).item()
+
+# 三拍之三：推进状态
+state = fsm.transition(state, tokenizer.decode([next_token]))
 ```
 
-这段代码把「公式解析」那一节的三拍落到实处：`transition` 返回 `None` 就是「非法」，掩码一次性把整张词表的非法项抹平，`softmax` 只在合法子集上归一化——**没有任何一个非法 token 能从采样里漏出来**。
+这段代码把「公式解析」那一节的三拍落到实处：`fsm.can_consume()` 返回 `False` 就是「非法」，掩码一次性把整张词表的非法项抹平，`softmax` 只在合法子集上归一化——**没有任何一个非法 token 能从采样里漏出来**。
 
 ## 5 效率与质量：压缩、跳跃解码与代价
 
@@ -110,9 +110,9 @@ def constrained_step(logits, state, fsm, vocab_ids):
 
 **压缩 FSM**：朴素 FSM 状态数可能爆炸（JSON 文法展开后状态成百上千）。xgrammar 用「压缩状态」把等价状态合并，内存与查找都大幅下降，且掩码计算与注意力前向重叠——**每步掩码的额外延迟被藏进 GPU 计算里**，这是它敢说「3 倍提速」的底气。
 
-**跳跃解码（jump-forward）**：FSM 常能确定「接下来的几个字符是唯一的」。比如 JSON 对象打开 `{"na` 之后，键名一旦确定，接下来 `me":` 几乎是唯一的；再如正则 `\d{4}` 要求四位数字，前三位定了，第四位也未必唯一，但**「必须是个数字」是确定的**。遇到这种「唯一继续路径」，可以直接跳过 token 生成、把确定字符一次性拼进输出——SGLang 的跳跃解码正是利用这一点，把「逐 token 问 FSM」变成「整段快进」。<span class="marginnote">跳跃解码与第二章的投机解码是两种「快进」，别混：投机解码靠一个<strong>草稿模型</strong>猜下一步 token，猜对了就接受；跳跃解码靠<strong>语法本身</strong>的确定性，不需要任何额外模型。前者是「概率性快进」，后者是「必然性快进」。</span>
+**跳跃解码（jump-forward）**：FSM 常能确定「接下来的几个字符是唯一的」。比如 JSON 对象打开 `{` 之后，键名一旦确定，接下来 `"` 与 `:`（结束引号、冒号）几乎是唯一的；再如正则 `\d{4}` 要求四位数字，前三位定了，第四位也未必唯一，但**「必须是个数字」是确定的**。遇到这种「唯一继续路径」，可以直接跳过 token 生成、把确定字符一次性拼进输出——SGLang 的跳跃解码正是利用这一点，把「逐 token 问 FSM」变成「整段快进」。<span class="marginnote">跳跃解码与第二章的投机解码是两种「快进」，别混：投机解码靠一个<strong>草稿模型</strong>猜下一步 token，猜对了就接受；跳跃解码靠<strong>语法本身</strong>的确定性，不需要任何额外模型。前者是「概率性快进」，后者是「必然性快进」。</span>
 
-**质量的代价**：约束会砍掉一部分「虽然合法但模型更想走」的路径。对 JSON、代码这类**语法即契约**的场景，损失可忽略；但对创意写作、开放问答，硬约束会明显压缩多样性。所以 SGLang 的 `SamplingParams` 把 `json_schema`、`regex`、`ebnf`、`structural_tag` 设为**互斥**——一次请求只用一个约束，逼你明确「这段输出到底要不要被管住」。
+**质量的代价**：约束会砍掉一部分「虽然合法但模型更想走」的路径。对 JSON、代码这类**语法即契约**的场景，损失可忽略；但对创意写作、开放问答，硬约束会明显压缩多样性。所以 SGLang 的 `SamplingParams` 把 `json_schema`、`regex`、`grammar`、`structured_output` 设为**互斥**——一次请求只用一个约束，逼你明确「这段输出到底要不要被管住」。
 
 **辨析｜易错点：**
 

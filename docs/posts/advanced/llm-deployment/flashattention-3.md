@@ -24,9 +24,9 @@ FA1 解决了 IO、FA2 解决了并行，但两者都是为 Ampere（A100）设�
 
 Hopper 架构相比 Ampere 的三个关键差异，是 FA3 设计的输入：
 
-- **TMA（Tensor Memory Accelerator）**：一个专门负责「把数据从 HBM 搬到 SMEM、再搬回」的硬件单元。以前搬运要占用线程，TMA 让搬运**脱离线程、后台进行**——线程只管算。<span class="marginnote">TMA 的意义：<strong>搬运不占计算资源</strong>。内核可以把「下一块数据的搬运」与「当前块的计算」重叠起来，流水线几乎不空转。</span>
-- **Warpgroup**：Hopper 把 4 个 warp 组成一个 warpgroup，可以做跨 warp 的协作与异步调度。FA3 用 warpgroup 分工：一组负责 GEMM，一组负责 softmax，两组异步流水。
-- **异步指令（`cp.async` / 异步 GEMM）**：数据加载与 GEMM 发射可以「不等待」，靠事件/barrier 控制节奏。
+**TMA（Tensor Memory Accelerator）**：一个专门负责「把数据从 HBM 搬到 SMEM、再搬回」的硬件单元。以前搬运要占用线程，TMA 让搬运**脱离线程、后台进行**——线程只管算。<span class="marginnote">TMA 的意义：<strong>搬运不占计算资源</strong>。内核可以把「下一块数据的搬运」与「当前块的计算」重叠起来，流水线几乎不空转。</span>
+**Warpgroup**：Hopper 把 4 个 warp 组成一个 warpgroup，可以做跨 warp 的协作与异步调度。FA3 用 warpgroup 分工：一组负责 GEMM，一组负责 softmax，两组异步流水。
+**异步指令（`cp.async` / `wgmma` 异步 GEMM）**：数据加载与 GEMM 发射可以「不等待」，靠事件/barrier 控制节奏。
 
 这些特性让「搬运与计算重叠」从「程序员手动插桩」变成「硬件原生能力」——FA3 只是把流水线编排得更好。
 
@@ -34,8 +34,8 @@ Hopper 架构相比 Ampere 的三个关键差异，是 FA3 设计的输入：
 
 FA3 把注意力内核组织成**生产者-消费者流水线**：
 
-- **生产者 warpgroup**：负责加载下一块 $K$、$V$（TMA 搬运）并启动 GEMM（$S = QK^T$）；
-- **消费者 warpgroup**：负责对已算出的 $S$ 做在线 softmax、归一化，并计算 $PV$ 更新输出。
+**生产者 warpgroup**：负责加载下一块 $K$、$V$（TMA 搬运）并启动 GEMM（$S = QK^T$）；
+**消费者 warpgroup**：负责对已算出的 $S$ 做在线 softmax、归一化，并计算 $PV$ 更新输出。
 
 两组 warpgroup 之间用**异步 barrier** 同步，形成「搬运第 $j+1$ 块的同时，计算第 $j$ 块」的重叠。<span class="marginnote">这是经典的<strong>软件流水线（software pipelining）</strong>思想：把一个循环的「取数」与「计算」错开一拍。FA1/FA2 的循环是「取一块→算一块→取下一块」，FA3 是「边取边算」。</span>
 

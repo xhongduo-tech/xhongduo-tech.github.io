@@ -62,10 +62,10 @@ $$
 
 把 $\ell_1$ 的邻近算子用**次梯度**推导一遍，展示「邻近 = 次梯度方程的解」。对 $g(z) = \lambda\|z\|_1$：
 
-- **第一步，写最优性条件**：$z^* = \mathrm{prox}_{\lambda\|\cdot\|_1}(v)$ 当且仅当 $0 \in z^* - v + \lambda\partial\|z^*\|_1$，即 $v - z^* \in \lambda\partial\|z^*\|_1$。
-- **第二步，逐分量写次梯度**：$\partial|z_i| = \begin{cases} \{1\}, & z_i > 0 \\ [-1,1], & z_i = 0 \\ \{-1\}, & z_i < 0 \end{cases}$。
-- **第三步，解三个分支**：$z_i > 0$ ⇒ $v - z_i = \lambda$ ⇒ $z_i = v - \lambda$（需 $v > \lambda$）；$z_i < 0$ ⇒ $z_i = v + \lambda$（需 $v < -\lambda$）；$z_i = 0$ ⇒ $v \in [-\lambda, \lambda]$。
-- **第四步，合并**：$z_i^* = \mathrm{sign}(v)\max\{|v| - \lambda, 0\}$——软阈值。<span class="marginnote">这条推导的关键动作是「用次梯度含 0 的条件解邻近方程」——它把「最小化一个含不可微项的函数」变成「解一个含集值映射的方程」。这套语言让非光滑优化不再靠直觉，而是有严格方程可解。记住：$\ell_1$ 次梯度在 0 处是区间 $[-1,1]$，这是「稀疏解」产生的机制——解被「钉」在 0 上。</span>
+**第一步，写最优性条件**：$z^* = \mathrm{prox}_{\lambda\|\cdot\|_1}(v)$ 当且仅当 $0 \in z^* - v + \lambda\partial\|z^*\|_1$，即 $v - z^* \in \lambda\partial\|z^*\|_1$。
+**第二步，逐分量写次梯度**：$\partial|z_i| = \begin{cases} \{1\}, & z_i > 0 \\ [-1,1], & z_i = 0 \\ \{-1\}, & z_i < 0 \end{cases}$。
+**第三步，解三个分支**：$z_i > 0$ ⇒ $v - z_i = \lambda$ ⇒ $z_i = v - \lambda$（需 $v > \lambda$）；$z_i < 0$ ⇒ $z_i = v + \lambda$（需 $v < -\lambda$）；$z_i = 0$ ⇒ $v \in [-\lambda, \lambda]$。
+**第四步，合并**：$z_i^* = \mathrm{sign}(v)\max\{|v| - \lambda, 0\}$——软阈值。<span class="marginnote">这条推导的关键动作是「用次梯度含 0 的条件解邻近方程」——它把「最小化一个含不可微项的函数」变成「解一个含集值映射的方程」。这套语言让非光滑优化不再靠直觉，而是有严格方程可解。记住：$\ell_1$ 次梯度在 0 处是区间 $[-1,1]$，这是「稀疏解」产生的机制——解被「钉」在 0 上。</span>
 
 **要点：邻近算子是「次梯度方程的解」，软阈值是它在 $\ell_1$ 下的显式形态**——理解次梯度，就理解为什么稀疏解出现在 0 处。
 

@@ -22,13 +22,13 @@ date: 2026-08-07
 
 ## 1 CUDA 的异步执行模型：别把 host 当成「等 GPU 的人」
 
-一个最常见的误解是「`kernel<<<...>>>()` 调用会等 kernel 跑完才返回」。**事实正相反：kernel 启动是异步的，launch 语句把命令提交给驱动后立即返回，host 线程不等 GPU 干完活。** 这背后的机制是**命令队列（command queue）**：驱动把 kernel、拷贝等指令依次写入一块 CPU 与 GPU 共享的命令缓冲，GPU 自己按队列取指令执行。
+一个最常见的误解是「`kernel<<<grid, block>>>()` 调用会等 kernel 跑完才返回」。**事实正相反：kernel 启动是异步的，launch 语句把命令提交给驱动后立即返回，host 线程不等 GPU 干完活。** 这背后的机制是**命令队列（command queue）**：驱动把 kernel、拷贝等指令依次写入一块 CPU 与 GPU 共享的命令缓冲，GPU 自己按队列取指令执行。
 
 由此派生出三条你必须记住的规则：
 
-- **kernel launch 默认异步**：`cudaMemcpy`（同步版）是个例外，它会把 host 阻塞到拷贝完成。
-- **`cudaDeviceSynchronize()`**：唯一的「全设备屏障」，host 阻塞直到**所有**此前提交的命令完成。
-- **同一队列内严格有序（in-order）**：后提交的命令不会先于前一条执行。
+**kernel launch 默认异步**：`cudaMemcpy`（同步版）是个例外，它会把 host 阻塞到拷贝完成。
+**`cudaDeviceSynchronize()`**：唯一的「全设备屏障」，host 阻塞直到**所有**此前提交的命令完成。
+**同一队列内严格有序（in-order）**：后提交的命令不会先于前一条执行。
 
 于是「host 什么时候等」完全由你决定的同步点控制。同步点给多了，异步白搭；给少了，你读到的结果可能还是旧的——这引出了计时与并发两个主题。<span class="marginnote">异步模型在第三级《计算机体系结构》里你其实见过：CPU 的乱序执行与写缓冲（store buffer）都是「提交后立即放行、硬件保证顺序」的同一哲学。GPU 只是把「一条指令的异步」放大成了「一整条命令队列的异步」。</span>
 
@@ -38,11 +38,16 @@ date: 2026-08-07
 
 ```cpp
 cudaStream_t s1, s2;
-cudaStreamCreate(&s1);          // 创建两条泳道
+cudaStreamCreate(&s1);
 cudaStreamCreate(&s2);
 
-my_kernel<<<grid, block, 0, s1>>>(...);   // 第 4 个参数指定 stream
-my_kernel<<<grid, block, 0, s2>>>(...);   // 两条流上的 kernel 可能同时跑
+// 两个拷贝分别放进两条流：它们可以并发执行
+cudaMemcpyAsync(dst1, src1, bytes, cudaMemcpyDeviceToDevice, s1);
+cudaMemcpyAsync(dst2, src2, bytes, cudaMemcpyDeviceToDevice, s2);
+
+// 两个 kernel 也分别放进两条流：可与上面的拷贝重叠
+kernel1<<<grid, block, 0, s1>>>(dst1);
+kernel2<<<grid, block, 0, s2>>>(dst2);
 ```
 
 不指定 stream 时默认用**默认流（default stream，stream 0）**。这里有个阴险的坑：**legacy 默认流与所有其他流存在隐式同步**——向默认流提交的操作会强迫之前的其他流操作完成。很多新手写了多 stream 却看不到加速，十有八九是某个操作漏写了 stream 参数、掉进了默认流的隐式同步。<span class="marginnote">编译器加 `--default-stream per-thread` 后，每个线程拥有独立、行为与普通流一致的默认流，不再有隐式同步。但老代码的行为会变，迁移需谨慎。这是 CUDA 里「看起来改了配置，实际改了内存模型」的典型例子。</span>
@@ -50,9 +55,24 @@ my_kernel<<<grid, block, 0, s2>>>(...);   // 两条流上的 kernel 可能同时
 要想让「搬下一块数据」和「算上一块数据」重叠，标准手法是**乒乓缓冲（ping-pong / double buffering）**：用两条 stream、两块缓冲轮流干活，让 stream 0 算 chunk $i$ 的同时 stream 1 搬 chunk $i+1$。
 
 ```cpp
-// 注意：cudaMemcpyAsync 要求 pinned memory（cudaHostAlloc / cudaMallocHost 分配）
-cudaMemcpyAsync(d_in, h_in + i * CHUNK, CHUNK_BYTES, cudaMemcpyHostToDevice, s[i % 2]);
-my_kernel<<<grid, block, 0, s[i % 2]>>>(d_in, d_out + i * CHUNK);
+// 乒乓缓冲：两条流、两块缓冲轮流。搬第 i+1 块时算第 i 块，二者并行。
+cudaStream_t s[2];
+cudaStreamCreate(&s[0]);
+cudaStreamCreate(&s[1]);
+
+float *d_buf[2];                              // 两块缓冲
+cudaMemcpyAsync(d_buf[0], h_src, chunk * sizeof(float),
+                cudaMemcpyHostToDevice, s[0]);   // 预取第 0 块
+
+for (int i = 0; i < K; ++i) {
+    int cur = i % 2;                          // 本轮计算用第 cur 块（数据已就位）
+    int nxt = 1 - cur;                        // 另一块留给下一轮
+    if (i + 1 < K)                            // 预取第 i+1 块，与本次 kernel 重叠
+        cudaMemcpyAsync(d_buf[nxt], h_src + (i + 1) * chunk,
+                        chunk * sizeof(float), cudaMemcpyHostToDevice, s[nxt]);
+    kernel<<<grid, block, 0, s[cur]>>>(d_buf[cur], d_out + i * chunk);
+}
+cudaDeviceSynchronize();
 ```
 
 ## 3 事件（Event）：GPU 侧的时间戳与正确的计时法
@@ -61,22 +81,23 @@ my_kernel<<<grid, block, 0, s[i % 2]>>>(d_in, d_out + i * CHUNK);
 
 ```cpp
 cudaEvent_t start, stop;
-cudaEventCreate(&start);  cudaEventCreate(&stop);
+cudaEventCreate(&start);
+cudaEventCreate(&stop);
 
-cudaEventRecord(start, s);            // 在 stream s 上打点
-my_kernel<<<grid, block, 0, s>>>(...);
-cudaEventRecord(stop, s);             // 同一条 stream 上的第二个点
+cudaEventRecord(start, stream);              // 起点时间戳（挂在 stream 上）
+kernel<<<grid, block, 0, stream>>>(...);     // 要测时的工作
+cudaEventRecord(stop, stream);               // 终点时间戳
 
-cudaEventSynchronize(stop);           // host 等到 stop 事件被记录
-float ms = 0.f;
-cudaEventElapsedTime(&ms, start, stop); // 两个事件间的毫秒数
+cudaEventSynchronize(stop);                  // 等 GPU 回写时间戳
+float ms = 0;
+cudaEventElapsedTime(&ms, start, stop);      // 得到这段流的真实耗时（毫秒）
 ```
 
 三个细节值得停下来：
 
-- 事件是**挂在 stream 上的**：`start` 与 `stop` 之间夹着的所有操作（拷贝、kernel）都被量进来，所以事件天然给出「这条流上一段工作」的真实耗时。
-- **必须 `cudaEventSynchronize`**：在 GPU 回写时间戳之前，`stop` 可能尚未生效。
-- 事件还能做**跨 stream 的依赖**：用 `cudaStreamWaitEvent(stream, event)` 让一条流等另一条流的某个点，这是精细控制依赖的进阶工具。<span class="marginnote">想测「纯 kernel 时间」而排除启动开销？在 kernel 前后各打一个点即可；但如果 kernel 太短（微秒级），测量本身的开销会污染结果——这个问题正是下一课《kernel 启动开销》的主角。</span>
+事件是**挂在 stream 上的**：`cudaEventRecord(start)` 与 `cudaEventRecord(stop)` 之间夹着的所有操作（拷贝、kernel）都被量进来，所以事件天然给出「这条流上一段工作」的真实耗时。
+**必须 `cudaEventSynchronize(stop)`**：在 GPU 回写时间戳之前，`stop` 事件可能尚未生效。
+事件还能做**跨 stream 的依赖**：用 `cudaStreamWaitEvent` 让一条流等另一条流的某个点，这是精细控制依赖的进阶工具。<span class="marginnote">想测「纯 kernel 时间」而排除启动开销？在 kernel 前后各打一个点即可；但如果 kernel 太短（微秒级），测量本身的开销会污染结果——这个问题正是下一课《kernel 启动开销》的主角。</span>
 
 ## 4 公式解析：copy-compute 重叠的吞吐模型
 

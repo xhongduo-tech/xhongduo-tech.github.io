@@ -24,16 +24,16 @@ date: 2026-08-07
 
 **凋亡的形态**：
 
-- 细胞**皱缩**（体积变小）。
-- 染色质**边缘化、固缩**（核碎裂）。
-- 细胞膜**出泡**→形成**凋亡小体（apoptotic bodies）**（含核碎片与细胞器）。
-- 凋亡小体被**巨噬细胞/邻近细胞吞噬**→**无炎症反应**。
+细胞**皱缩**（体积变小）。
+染色质**边缘化、固缩**（核碎裂）。
+细胞膜**出泡**→形成**凋亡小体（apoptotic bodies）**（含核碎片与细胞器）。
+凋亡小体被**巨噬细胞/邻近细胞吞噬**→**无炎症反应**。
 
 **凋亡的生化标志**：
 
-- **caspase 激活**（执行者：caspase-3、-6、-7）。
-- DNA 被**核酸内切酶**切成 180~200bp 整数倍的片段（电泳"梯状带"；TUNEL 染色检测）。
-- 膜磷脂酰丝氨酸（PS）**外翻**（被吞噬细胞识别，Annexin V 检测）。<span class="marginnote">凋亡与坏死的<strong>对比记忆</strong>："凋亡=细胞<strong>缩</strong>（皱缩、小体、无炎症）、坏死=细胞<strong>胀</strong>（肿胀、破裂、有炎症）"。<strong>凋亡小体的吞噬</strong>是"无声清理"的关键（不释放内容物→不激活炎症）。<strong>caspase</strong>（含半胱氨酸的天冬氨酸特异性蛋白酶）是"行刑队"——执行者切割细胞骨架与 DNA 酶抑制剂→细胞解体。<strong>DNA 梯状带</strong>（TUNEL 阳性）是凋亡的分子证据。<strong>PS 外翻</strong>（"吃我"信号）被吞噬细胞识别——"凋亡细胞给自己贴'回收标签'"。</span>
+**caspase 激活**（执行者：caspase-3、-6、-7）。
+DNA 被**核酸内切酶**切成 180~200bp 整数倍的片段（电泳"梯状带"；TUNEL 染色检测）。
+膜磷脂酰丝氨酸（PS）**外翻**（被吞噬细胞识别，Annexin V 检测）。<span class="marginnote">凋亡与坏死的<strong>对比记忆</strong>："凋亡=细胞<strong>缩</strong>（皱缩、小体、无炎症）、坏死=细胞<strong>胀</strong>（肿胀、破裂、有炎症）"。<strong>凋亡小体的吞噬</strong>是"无声清理"的关键（不释放内容物→不激活炎症）。<strong>caspase</strong>（含半胱氨酸的天冬氨酸特异性蛋白酶）是"行刑队"——执行者切割细胞骨架与 DNA 酶抑制剂→细胞解体。<strong>DNA 梯状带</strong>（TUNEL 阳性）是凋亡的分子证据。<strong>PS 外翻</strong>（"吃我"信号）被吞噬细胞识别——"凋亡细胞给自己贴'回收标签'"。</span>
 
 ## 2 凋亡的两条通路
 
@@ -50,20 +50,20 @@ date: 2026-08-07
 2. 受体三聚化→招募 FADD→**caspase-8** 激活→caspase-3（级联）。
 3. **T 细胞杀伤靶细胞**（FasL-Fas）、TNF 炎症。
 
-**两条通路汇合于 caspase-3**（"共同执行器"）。<span class="marginnote"><strong>内源通路是"线粒体+ Bcl-2 家族"的战场</strong>：<strong>Bcl-2 抗凋亡</strong>（癌细胞常过表达 Bcl-2→"不死"）、<strong>Bax/Bak 促凋亡</strong>（线粒体成孔）、<strong>BH3-only（Bim、Bad）</strong>感应应激。<strong>p53</strong>（基因组卫士）激活 BH3 蛋白（PUMA、Noxa）→凋亡——"p53 的'损伤→自杀'功能"（p53 突变→损伤细胞不死→癌）。<strong>外源通路是"免疫杀伤"的武器</strong>：CTL 用 <strong>FasL 结合靶细胞 Fas</strong>→靶细胞凋亡；TNF-TNFR 也经此。<strong>化疗药</strong>：多通过<strong>内源通路</strong>（DNA 损伤→p53→凋亡）——"化疗诱导肿瘤细胞凋亡"。<strong>Bcl-2 抑制剂（venetoclax）</strong>：模拟 BH3 蛋白抑制 Bcl-2→激活内源凋亡→<strong>治慢性淋巴细胞白血病</strong>——"靶向凋亡通路的抗癌药"。</span>
+**两条通路汇合于 caspase-3**（"共同执行器"）。<span class="marginnote"><strong>内源通路是"线粒体+ Bcl-2 家族"的战场</strong>：<strong>Bcl-2 抗凋亡</strong>（癌细胞常过表达 Bcl-2→"不死"）、<strong>Bax/Bak 促凋亡</strong>（线粒体成孔）、<strong>BH3-only（Bim、Bad）</strong>感应应激。<strong>p53</strong>`（基因组卫士）激活 BH3 蛋白（PUMA、Noxa）→凋亡——"p53 的'损伤→自杀'功能"（p53 突变→损伤细胞不死→癌）。<strong>外源通路是"免疫杀伤"的武器</strong>：CTL 用 <strong>FasL 结合靶细胞 Fas</strong>`→靶细胞凋亡；TNF-TNFR 也经此。<strong>化疗药</strong>：多通过<strong>内源通路</strong>（DNA 损伤→p53→凋亡）——"化疗诱导肿瘤细胞凋亡"。<strong>Bcl-2 抑制剂（venetoclax）</strong>：模拟 BH3 蛋白抑制 Bcl-2→激活内源凋亡→<strong>治慢性淋巴细胞白血病</strong>——"靶向凋亡通路的抗癌药"。</span>
 
 ## 3 凋亡的生理与病理意义
 
 **凋亡的生理作用**：
 
-- **发育**：胚胎手指/脚趾的分离（指间细胞凋亡）、神经元的过度产生→选择。
-- **免疫**：胸腺选择（自身反应性 T 细胞凋亡）、免疫应答后的淋巴细胞清除（"免疫收缩"）。
-- **组织稳态**：肠上皮更新、月经周期子宫内膜脱落（凋亡+坏死）。
+**发育**：胚胎手指/脚趾的分离（指间细胞凋亡）、神经元的过度产生→选择。
+**免疫**：胸腺选择（自身反应性 T 细胞凋亡）、免疫应答后的淋巴细胞清除（"免疫收缩"）。
+**组织稳态**：肠上皮更新、月经周期子宫内膜脱落（凋亡+坏死）。
 
 **凋亡异常与疾病**：
 
-- **凋亡过少→肿瘤**（Bcl-2 过表达、p53 突变→细胞不死）、自身免疫病（自身反应细胞不死）。
-- **凋亡过多→神经退行**（神经元凋亡：阿尔茨海默、帕金森、脑缺血）、HIV 感染（CD4 T 细胞凋亡）、移植物排斥。
+**凋亡过少→肿瘤**（Bcl-2 过表达、p53 突变→细胞不死）、自身免疫病（自身反应细胞不死）。
+**凋亡过多→神经退行**（神经元凋亡：阿尔茨海默、帕金森、脑缺血）、HIV 感染（CD4 T 细胞凋亡）、移植物排斥。
 
 **凋亡的检测**：TUNEL 染色、Annexin V、caspase 活性、形态（光镜/电镜）。<span class="marginnote"><strong>凋亡是"塑造与清理"的双面手</strong>：发育中<strong>指间凋亡</strong>把"蹼"雕成手指（"凋亡是生命的雕刻刀"）；<strong>胸腺阴性选择</strong>让自身反应 T 细胞凋亡（"免疫教育的清理"）；<strong>化疗后肿瘤细胞凋亡</strong>是疗效的体现。<strong>凋亡过少的后果</strong>：<strong>肿瘤</strong>（细胞"不死"——"凋亡逃逸"是肿瘤的标志之一）、<strong>自身免疫病</strong>（自身反应淋巴细胞清除失败）。<strong>凋亡过多的后果</strong>：<strong>神经退行</strong>（神经元凋亡——"大脑的细胞自杀"）、<strong>HIV</strong>（CD4+ T 细胞凋亡→免疫缺陷）、<strong>缺血再灌注</strong>（心肌凋亡）。<strong>凋亡检测方法</strong>（TUNEL、Annexin V、caspase）是病理与科研的常规——"怎么证明细胞在凋亡"。</span>
 

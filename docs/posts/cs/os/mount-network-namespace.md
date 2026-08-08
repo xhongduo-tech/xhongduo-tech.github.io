@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 Mount 与 Network Namespace 开始
 
-六大 Namespace 里，**Mount** 与 **Network** 是容器「看起来像一台独立机器」的两个关键——**Mount 隔离文件系统视图**（容器的 `/` 是自己的 rootfs），**Network 隔离网络栈**（容器有自己的 IP 与网卡）。这一节把这两个最复杂的 Namespace 讲透，它们是理解 Docker 镜像与网络的基础。<span class="marginnote">回顾《Namespace》：Mount 让容器有自己的文件系统树，Network 让容器有自己的网络栈。这一节深入——<strong>Mount 是「视图隔离 + 共享子树的精细控制」，Network 是「虚拟网卡 + 网桥 + NAT」的完整虚拟网络</strong>。</span>
+六大 Namespace 里，**Mount** 与 **Network** 是容器「看起来像一台独立机器」的两个关键——**Mount 隔离文件系统视图**（容器的根目录是自己的 rootfs），**Network 隔离网络栈**（容器有自己的 IP 与网卡）。这一节把这两个最复杂的 Namespace 讲透，它们是理解 Docker 镜像与网络的基础。<span class="marginnote">回顾《Namespace》：Mount 让容器有自己的文件系统树，Network 让容器有自己的网络栈。这一节深入——<strong>Mount 是「视图隔离 + 共享子树的精细控制」，Network 是「虚拟网卡 + 网桥 + NAT」的完整虚拟网络</strong>。</span>
 
 ## 1 Mount Namespace：独立的文件系统视图
 
@@ -24,8 +24,8 @@ date: 2026-08-07
 
 **关键语义**：
 
-- 容器创建时，`pivot_root` 切换到**容器的 rootfs**（镜像的根目录）——容器的 `/` 不再是宿主的 `/`。
-- **容器的挂载操作**（`mount`/`umount`）**只影响自己的 Mount Namespace**——不影响宿主。
+- 容器创建时，pivot_root 切换到**容器的 rootfs**（镜像的根目录）——容器的根目录不再是宿主的根目录。
+- **容器的挂载操作**（mount/umount）**只影响自己的 Mount Namespace**——不影响宿主。
 - 宿主与容器可以**共享部分挂载**（如只读挂载镜像层、bind mount 卷）。
 
 **Mount Namespace 的实现机制**：
@@ -43,12 +43,12 @@ date: 2026-08-07
 **公式解析：pivot_root 切换根**
 
 ```c
-pivot_root(new_root, put_old);
+int pivot_root(const char *new_root, const char *put_old);
 ```
 
 - **new_root**：新根（容器的 rootfs）。
 - **put_old**：旧根被移到的位置（之后 umount）。
-- 执行后：容器的 `/` 变成 new_root——**宿主根目录在容器视图里被「换掉」**。
+- 执行后：容器的根目录变成 new_root——**宿主根目录在容器视图里被「换掉」**。
 
 **直觉**：Mount Namespace + pivot_root = 「**容器的世界从根开始就是自己的**」——文件系统视图彻底隔离（回顾《文件系统挂载》的挂载点概念在 Namespace 层的应用）。
 
@@ -67,14 +67,9 @@ pivot_root(new_root, put_old);
 - **NAT**：容器访问外网时，宿主做**地址转换**（把容器私有 IP 映射成宿主 IP）。
 
 ```
-宿主机
-  ┌──────────────────────────┐
-  │  [docker0 网桥]           │
-  │   │    │    │             │
-  │ veth  veth  veth          │
-  │   │    │    │             │
-  │ [C1] [C2] [C3]            │ ← 各在自己的 Network Namespace
-  └──────────────────────────┘
+容器A(veth) ─┐
+            ├─ docker0 网桥 ── NAT ── 宿主网卡 ── 外网
+容器B(veth) ─┘
 ```
 
 **容器的网络模式**（Docker）：
@@ -110,7 +105,7 @@ $$\text{源地址} = \text{容器私有 IP} \xrightarrow{\text{NAT}} \text{宿�
 
 ## 4 小结
 
-- **Mount Namespace**：隔离挂载点视图——`pivot_root` 切换根到容器 rootfs，容器挂载不影响宿主。
+- **Mount Namespace**：隔离挂载点视图——pivot_root 切换根到容器 rootfs，容器挂载不影响宿主。
 - 挂载传播（共享/私有）控制跨 Namespace 的挂载可见性。
 - **Network Namespace**：隔离完整网络栈——独立网卡、IP、路由。
 - 容器网络 = **veth pair + 网桥 + NAT**；Docker 有 bridge/host/none/container 四种模式。

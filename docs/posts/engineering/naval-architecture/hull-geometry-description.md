@@ -30,9 +30,9 @@ date: 2026-08-07
 
 宽度与深度：
 
-- **型宽（B）**：设计水线面处的最大宽度（船体内部量取，不含外板厚度）。
-- **型深（D）**：在中站面，自基平面量到甲板边线的垂直距离。
-- **吃水（d）**：基平面到静水面的垂直距离——船吃水越深，说明载得越多。<span class="marginnote">「型」字前缀表示按船体理论表面（不含外板、敷料厚度）量取。型吃水与总吃水之差，就是船底板与附体的厚度，规范里往往要分开讨论。</span>
+**型宽（B）**：设计水线面处的最大宽度（船体内部量取，不含外板厚度）。
+**型深（D）**：在中站面，自基平面量到甲板边线的垂直距离。
+**吃水（d）**：基平面到静水面的垂直距离——船吃水越深，说明载得越多。<span class="marginnote">「型」字前缀表示按船体理论表面（不含外板、敷料厚度）量取。型吃水与总吃水之差，就是船底板与附体的厚度，规范里往往要分开讨论。</span>
 
 一句话记牢关系：**D 是「壳」的高度，d 是「沉入水中」的深度，B 决定横稳性，LBP 决定阻力与纵向弯矩。**
 
@@ -42,10 +42,10 @@ date: 2026-08-07
 
 四个最常用的系数：
 
-- **方形系数（block coefficient）** $C_b = \dfrac{\nabla}{L B d}$，描述船体在水下的「饱满程度」，货船大、快艇小。
-- **水线面系数（waterplane coefficient）** $C_w = \dfrac{A_w}{L B}$，描述水线面的胖瘦，影响初稳性与阻力。
-- **中横剖面系数（midship section coefficient）** $C_m = \dfrac{A_m}{B d}$，描述中横剖面在矩形中的饱满度。
-- **棱形系数（prismatic coefficient）** $C_p = \dfrac{\nabla}{A_m L}$，描述排水体积沿船长方向分布的均匀性，是快速性最重要系数之一。
+**方形系数（block coefficient）** $C_b = \dfrac{\nabla}{L B d}$，描述船体在水下的「饱满程度」，货船大、快艇小。
+**水线面系数（waterplane coefficient）** $C_w = \dfrac{A_w}{L B}$，描述水线面的胖瘦，影响初稳性与阻力。
+**中横剖面系数（midship section coefficient）** $C_m = \dfrac{A_m}{B d}$，描述中横剖面在矩形中的饱满度。
+**棱形系数（prismatic coefficient）** $C_p = \dfrac{\nabla}{A_m L}$，描述排水体积沿船长方向分布的均匀性，是快速性最重要系数之一。
 
 这些系数满足一个漂亮的关系：$C_b = C_p \cdot C_m$。<span class="marginnote">验证：$\dfrac{\nabla}{LBd} = \dfrac{\nabla}{A_m L} \cdot \dfrac{A_m}{Bd}$。一个「整体饱满度」被拆成「剖面饱满度」与「沿船长的均匀度」两个独立因素，物理意义立刻清晰。</span>
 

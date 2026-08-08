@@ -32,9 +32,9 @@ FA2 的改进：**保持「一个 thread block 负责一个 query 块（一行�
 
 FA2 对 thread block 内部的 128/256 个线程做了精细分工：
 
-- **一半线程算 $S = QK^T$ 的 GEMM**；
-- **另一半线程在算完的 $S$ 上做 softmax 与归一化**；
-- 两部分轮流切换，避免「算 GEMM 时 softmax 线程闲置、softmax 时 GEMM 线程闲置」。
+**一半线程算 $S = QK^T$ 的 GEMM**；
+**另一半线程在算完的 $S$ 上做 softmax 与归一化**；
+两部分轮流切换，避免「算 GEMM 时 softmax 线程闲置、softmax 时 GEMM 线程闲置」。
 
 这个「两半轮换」设计让 block 内的每个线程在整个循环里都有活干，而不是「GEMM 阶段全员做 GEMM、softmax 阶段只有少数线程忙」。
 
@@ -46,9 +46,9 @@ FA1 的 $S = QK^T$ 虽然用了 GEMM，但 softmax、缩放、$P$ 的归一化�
 
 FA2 把所有能变成矩阵乘的步骤都变成 GEMM：
 
-- $QK^T$ 是 GEMM；
-- softmax 的「除以 $l$、乘 $e^{m}$」被吸收进下一次 GEMM 的缩放；
-- $PV$ 是 GEMM（在 FA1 中其实是「逐元素乘加」，FA2 把它规整成标准 GEMM）。
+$QK^T$ 是 GEMM；
+softmax 的「除以 $l$、乘 $e^{m}$」被吸收进下一次 GEMM 的缩放；
+$PV$ 是 GEMM（在 FA1 中其实是「逐元素乘加」，FA2 把它规整成标准 GEMM）。
 
 **尽量让计算落在 Tensor Core 上**，是 FA2 把速度推高的核心手段。矩阵乘法用 CUTLASS 的高性能 tile 配置，而非手写低效循环。<span class="marginnote"><strong>Tensor Core 擅长「大矩阵乘」，不擅长「小循环逐元素」</strong>。FA2 的策略是「把所有步骤都塑造成 Tensor Core 喜欢的形状」——这是所有高性能内核的共同哲学。</span>
 

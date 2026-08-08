@@ -32,35 +32,39 @@ date: 2026-08-07
 
 弱模型把同步操作「一视同仁」；**释放一致性（RC）**进一步把同步操作分两类：
 
-- **acquire（获取）**：读类同步，如**抢锁**。其后的普通操作不得越过它（acquire 之后的操作必须看到 acquire 之前同步的可见效果）。
-- **release（释放）**：写类同步，如**放锁**。其前的普通操作不得拖到它之后（release 之前写的东西必须先于 release 可见）。
+**acquire（获取）**：读类同步，如**抢锁**。其后的普通操作不得越过它（acquire 之后的操作必须看到 acquire 之前同步的可见效果）。
+**release（释放）**：写类同步，如**放锁**。其前的普通操作不得拖到它之后（release 之前写的东西必须先于 release 可见）。
 
 用锁的例子（[[synchronization-primitives]] 的 spinlock）：
 
-```
-线程 A：                      线程 B：
-  写 x = 42                   
-  release：解锁 (flag = 0)     acquire：加锁 (等 flag == 0)
-                              print(x)   // RC 保证看到 42
+```cpp
+// 抢锁 = acquire：其后的普通读不得越过抢锁点
+while (lock.test_and_set(std::memory_order_acquire)) { }   // 自旋等待
+
+// 临界区：普通读写可自由重排，但不能越过 acquire/release 边界
+shared_data += 1;
+
+// 放锁 = release：其前的普通写在放锁前必须已可见
+lock.clear(std::memory_order_release);
 ```
 
 **核心概念**：acquire/release 是**不对称**的——acquire 管「进来之后」，release 管「出去之前」。一对 acquire/release 就足以把临界区「框」住：里面的普通读写既不被移出（release 挡前）、也不被外人看见「半成品」（acquire 挡后）。
 
 ## 3 RC 的编程纪律与收益
 
-- **纪律**：所有共享数据的访问**必须**放在 acquire/release 对之间；裸的共享访问 = 数据竞争 = 未定义（[[memory-consistency-sequential]] 的 DRF 契约）。
-- **收益**：临界区内部的读写完全自由重排——**同步代码的性能接近「没有内存模型负担」**。
-- **代价**：写错就静默出错，调试极难。所以现代语言（C++ `std::atomic`、Rust、Java `volatile`）把 acquire/release 包装成语义清晰的 API。
+**纪律**：所有共享数据的访问**必须**放在 acquire/release 对之间；裸的共享访问 = 数据竞争 = 未定义（[[memory-consistency-sequential]] 的 DRF 契约）。
+**收益**：临界区内部的读写完全自由重排——**同步代码的性能接近「没有内存模型负担」**。
+**代价**：写错就静默出错，调试极难。所以现代语言（C++ 的 `std::memory_order`、Rust 的 `Ordering`、Java 的 `VarHandle`）把 acquire/release 包装成语义清晰的 API。
 
 ## 4 内存屏障指令：手动恢复顺序
 
 弱模型下，需要时用**屏障指令（fence）**手动恢复顺序：
 
-- **全屏障（full fence）**：其前后所有读写都不越过（最贵）。
-- **acquire 屏障 / release 屏障**：只管一侧，更便宜。
-- RISC-V 的 `fence`、ARM 的 `dmb`/`ldar`/`stlr`、x86 的 `mfence`/`lock` 都是这套。
+**全屏障（full fence）**：其前后所有读写都不越过（最贵）。
+**acquire 屏障 / release 屏障**：只管一侧，更便宜。
+RISC-V 的 `fence`、ARM 的 `dmb`/`dsb`/`isb`、x86 的 `lfence`/`sfence` 都是这套。
 
-**辨析｜易错点：** 屏障与原子是两件事。原子（AMO/CAS）保证**不可分割**；屏障保证**顺序**。一个 `atomic_add` 如果没带 release/acquire 语义，它旁边的普通读写照样可能乱序——**原子 + 屏障（或带语义的原子）才构成完整同步**。
+**辨析｜易错点：** 屏障与原子是两件事。原子（AMO/CAS）保证**不可分割**；屏障保证**顺序**。一个原子操作如果没带 release/acquire 语义，它旁边的普通读写照样可能乱序——**原子 + 屏障（或带语义的原子）才构成完整同步**。
 
 ## 5 TSO 与其他模型的位置
 

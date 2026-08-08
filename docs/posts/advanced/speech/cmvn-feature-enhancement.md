@@ -79,21 +79,25 @@ CMVN 的实现按统计量取自哪里分为几档：
 ```python
 import numpy as np
 
-def cmvn(feat):
-    """feat: (T, D) 特征矩阵；整句级 CMVN"""
-    mu = feat.mean(axis=0, keepdims=True)
-    sigma = feat.std(axis=0, keepdims=True) + 1e-8   # 防除零
+# feat: shape (T, D)，T 为帧数，D 为倒谱维数
+def cmvn_utterance(feat, eps=1e-10):
+    """整句级 CMVN：逐维减均值、除标准差。"""
+    mu = feat.mean(axis=0)
+    sigma = feat.std(axis=0) + eps
     return (feat - mu) / sigma
 
-def cmvn_sliding(feat, L=50):
-    """滑窗 CMVN：用 [t-L, t+L] 窗口内的均值方差归一化第 t 帧"""
+def cmvn_sliding(feat, L=25, eps=1e-10):
+    """滑窗 CMVN：只统计当前帧前后各 L 帧的局部均值方差。"""
     T, D = feat.shape
-    out = np.zeros_like(feat)
+    out = np.zeros_like(feat, dtype=np.float64)
     for t in range(T):
         lo, hi = max(0, t - L), min(T, t + L + 1)
         win = feat[lo:hi]
-        out[t] = (feat[t] - win.mean(axis=0)) / (win.std(axis=0) + 1e-8)
+        out[t] = (feat[t] - win.mean(axis=0)) / (win.std(axis=0) + eps)
     return out
+
+feat = cmvn_utterance(feat)   # 整句级：离线批处理
+# feat = cmvn_sliding(feat)   # 滑窗：流式识别用
 ```
 
 **辨析｜易错点：CMVN 之后别忘重算 Delta。** 特征流水线的正确顺序是「静态特征 → CMVN → 再算 Delta」。如果先算 Delta 再做 CMVN，Delta 里携带的「均值漂移」信息会被错误地归零；反过来，先归一化再差分，才能让 Delta 反映归一化后的纯净动态。

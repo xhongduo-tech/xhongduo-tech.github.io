@@ -39,7 +39,7 @@ date: 2026-08-07
 
 **为什么"上下文无关"**：$A \to \gamma$ 表示"无论 $A$ 出现在哪，都能替换成 $\gamma$"——替换不依赖上下文。
 
-**例（回文的一部分）**：$S \to 0S0 \mid 1S1 \mid 0 \mid 1 \mid \lambda$ 生成回文串（正读反读相同），如 `0110`。
+**例（回文的一部分）**：$S \to 0S0 \mid 1S1 \mid 0 \mid 1 \mid \lambda$ 生成回文串（正读反读相同），如 $S \to 0S0 \mid 1S1 \mid 0 \mid 1 \mid \lambda$。
 
 **推导**：$S \Rightarrow 0S0 \Rightarrow 01S10 \Rightarrow 0110$。
 
@@ -49,7 +49,7 @@ date: 2026-08-07
 
 **例（括号匹配语言）**：生成"括号正确嵌套"的串，文法 $G$：$S \to (S)S \mid \lambda$。
 
-**推导 `(())()`**：
+**推导 $(())()$**：
 
 $$
 S \Rightarrow (S)S \Rightarrow ((S)S)S \Rightarrow (()S)S \Rightarrow (())S \Rightarrow (())()
@@ -81,16 +81,16 @@ $$
 
 **例**：为语言 $L = \{a^n b^n \mid n \ge 1\}$ 设计 CFG。
 
-**思路**：$a^n b^n$ 的结构是"若干个 a 后跟同样多个 b"。递推观察：$n=1$ 是 `ab`；$n=2$ 是 `aabb`；$n$ 的串 = 前面加一个 `a`、后面加一个 `b`。文法：
+**思路**：$a^n b^n$ 的结构是"若干个 a 后跟同样多个 b"。递推观察：$n=1$ 的串是 $ab$；$n=2$ 的串是 $aabb$；$n$ 的串 = 前面加一个 $a$、后面加一个 $b$。文法：
 
 $$
 S \to aSb \mid ab
 $$
 
-- **基础**：`ab`（$n=1$）。
+- **基础**：$S \to ab$（$n=1$）。
 - **递归**：$S \Rightarrow aSb$——每层在两端各加一个字符，保持"a 与 b 同数"。
 
-**推导 `aaabbb`**：$S \Rightarrow aSb \Rightarrow aaSbb \Rightarrow aaaSbbb \Rightarrow aaabbb$。
+**推导 $aaabbb$**：$S \Rightarrow aSb \Rightarrow aaSbb \Rightarrow aaaSbbb \Rightarrow aaabbb$。
 
 **公式解析：为什么"两端同时加"保证配对**
 
@@ -98,7 +98,7 @@ $$
 a^n b^n = a(a^{n-1} b^{n-1})b
 $$
 
-- **第一步，读递归结构**：$n$ 的串 = `a` + $(n-1)$ 的串 + `b`。
+- **第一步，读递归结构**：$n$ 的串 = $a$ + $(n-1)$ 的串 + $b$。
 - **第二步，读文法翻译**：$S \to aSb$ 精确对应这个"两端包裹"。
 - **第三步，读终止**：$S \to ab$ 给出最小串，递推终止。∎
 

@@ -50,9 +50,9 @@ $$
 
 验证 CSS 码防 $X$ 错误的能力。设错误是 $X_{\vec e}$（权重 $w(\vec e)$）。
 
-- **第一步，与 $Z$ 稳定子检测**：$X_{\vec e}$ 与 $Z_{\vec w}$（$\vec w \in C_1^\perp$）的交换关系由 $\vec e \cdot \vec w$ 决定：$\vec e\cdot\vec w = 1$ 时反对易（可检测），$=0$ 时对易（不可检测）。
-- **第二步，不可检测条件**：$X_{\vec e}$ 不可检测当且仅当 $\vec e$ 与所有 $\vec w \in C_1^\perp$ 正交，即 $\vec e \in (C_1^\perp)^\perp = C_1$——但 $\vec e \in C_1$ 且权重 $\ge d_1$ 才「重到不可检测」。所以 $X$ 类错误可纠到权重 $\lfloor(d_1-1)/2\rfloor$。
-- **第三步，对称论证**：$Z$ 类错误由 $C_2^\perp$ 的「距离 $d_2^\perp$」控制，可纠到 $\lfloor(d_2^\perp-1)/2\rfloor$。<span class="marginnote">读法：CSS 码的距离是「$C_1$ 的距离」与「$C_2^\perp$ 的距离」的较小者。经典码理论在这里直接注入——这也是为什么 CSS 码总能借用最好的经典码构造。</span>
+**第一步，与 $Z$ 稳定子检测**：$X_{\vec e}$ 与 $Z_{\vec w}$（$\vec w \in C_1^\perp$）的交换关系由 $\vec e \cdot \vec w$ 决定：$\vec e\cdot\vec w = 1$ 时反对易（可检测），$=0$ 时对易（不可检测）。
+**第二步，不可检测条件**：$X_{\vec e}$ 不可检测当且仅当 $\vec e$ 与所有 $\vec w \in C_1^\perp$ 正交，即 $\vec e \in (C_1^\perp)^\perp = C_1$——但 $\vec e \in C_1$ 且权重 $\ge d_1$ 才「重到不可检测」。所以 $X$ 类错误可纠到权重 $\lfloor(d_1-1)/2\rfloor$。
+**第三步，对称论证**：$Z$ 类错误由 $C_2^\perp$ 的「距离 $d_2^\perp$」控制，可纠到 $\lfloor(d_2^\perp-1)/2\rfloor$。<span class="marginnote">读法：CSS 码的距离是「$C_1$ 的距离」与「$C_2^\perp$ 的距离」的较小者。经典码理论在这里直接注入——这也是为什么 CSS 码总能借用最好的经典码构造。</span>
 
 ## 4 Steane 码：$[[7,1,3]]$
 
@@ -71,9 +71,9 @@ $$
 
 CSS 构造在现代量子计算里无处不在：
 
-- **Steane 码**：教科书标准码，演示 transversal 逻辑门与容错子例程。
-- **表面码（surface code）**：可看作 CSS 码的拓扑实例，用「棋盘格」上的局域稳定子实现，是当前超导平台大规模纠错的事实标准。
-- **量子 LDPC 码**：用经典 LDPC 码构造 CSS 码，码率高、阈值好，是「低开销容错」的前沿方向。<span class="marginnote">CSS 之外还有更一般的稳定子码（如五比特码 $[[5,1,3]]$ 不是 CSS），但 CSS 家族覆盖了绝大多数实用构造。「经典码 → CSS → 量子码」这条流水线，让量子纠错站在了经典纠错理论的肩膀上。</span>
+**Steane 码**：教科书标准码，演示 transversal 逻辑门与容错子例程。
+**表面码（surface code）**：可看作 CSS 码的拓扑实例，用「棋盘格」上的局域稳定子实现，是当前超导平台大规模纠错的事实标准。
+**量子 LDPC 码**：用经典 LDPC 码构造 CSS 码，码率高、阈值好，是「低开销容错」的前沿方向。<span class="marginnote">CSS 之外还有更一般的稳定子码（如五比特码 $[[5,1,3]]$ 不是 CSS），但 CSS 家族覆盖了绝大多数实用构造。「经典码 → CSS → 量子码」这条流水线，让量子纠错站在了经典纠错理论的肩膀上。</span>
 
 ## 6 小结
 

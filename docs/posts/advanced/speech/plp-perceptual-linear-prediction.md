@@ -86,8 +86,8 @@ $$
 
 设某频带物理功率从 $1$ 变为 $1000$（差 30 dB）：
 
-- 取对数：$\log 1 = 0$，$\log 1000 \approx 6.9$——变化被压成约 6.9 个单位。
-- 取立方根：$1^{0.33} = 1$，$1000^{0.33} \approx 10$——变化被压成约 10 倍。
+取对数：$\log 1 = 0$，$\log 1000 \approx 6.9$——变化被压成约 6.9 个单位。
+取立方根：$1^{0.33} = 1$，$1000^{0.33} \approx 10$——变化被压成约 10 倍。
 
 两者都压缩动态范围，但**形状不同**：$\log$ 对越大的值压得越狠，立方根相对更「宽容」、更接近人耳「响度与强度幂律」的实测关系。在噪声场景下，立方根对中等强度的信号更线性，有时比 $\log$ 更稳健。<span class="marginnote">这条「压缩函数形状」的细节常被忽略，但它直接影响特征对背景噪声的响应：$\log$ 会把低能量区域的噪声相对放大，立方根则相对抑制。RASTA-PLP 正是从这类观察出发，进一步对谱的时间轨迹做带通滤波。</span>
 
@@ -98,21 +98,57 @@ $$
 ```python
 import numpy as np
 
-def plp_frame(x, fs=16000, n_fft=512, order=12):
-    X = np.abs(np.fft.rfft(x, n_fft)) ** 2      # 功率谱
-    # 1. Bark 刻度临界频带加权（此处用占位近似，真实用 Bark 滤波器组）
-    bark_bands = bark_filterbank(fs, n_fft)     # 返回 (n_bands, n_bins) 权重
-    E = bark_bands @ X                          # 每个临界频带能量
-    # 2. 等响加权
-    E = E * equal_loudness(fs, n_fft)
-    # 3. 强度—响度幂律
-    P = E ** 0.33
-    # 4. 对感知谱做 LPC（用自相关法求全极点系数）
-    a = lpc_autocorrelation(P, order=order)     # 返回 LPC 系数
+def hz_to_bark(f):
+    """频率（Hz）→ Bark 刻度（Traunmüller 近似）"""
+    return 26.81 * f / (1960 + f) - 0.53
+
+def equal_loudness(bark):
+    """简化的等响曲线权重：约 15–16 Bark（≈3 kHz）附近最灵敏，两端压低。"""
+    return np.exp(-((bark - 15.5) ** 2) / 32.0)
+
+def levinson(r, order):
+    """Levinson-Durbin：由自相关 r[0..p] 求全极点系数 a（a[0]=1）"""
+    a = np.zeros(order + 1)
+    a[0] = 1.0
+    e = r[0]
+    for i in range(1, order + 1):
+        k = -(r[i] + a[1:i] @ r[i - 1:0:-1]) / e
+        a[1:i + 1] += k * a[i - 1::-1]
+        e *= 1.0 - k * k
     return a
+
+def plp(frame, fs=16000, n_bands=17, order=12):
+    """简化 PLP 提取：Bark 分频带 → 等响加权 → 立方根 → LPC → LPCC。"""
+    # 1. 频谱分析：加窗、DFT、功率谱
+    X = np.fft.rfft(frame * np.hanning(len(frame)))
+    P = np.abs(X) ** 2
+    freqs = np.linspace(0, fs / 2, len(P))
+
+    # 2. 临界频带分析：Bark 轴等宽三角滤波器组，加权求和得 n_bands 个频带能量
+    edges = np.linspace(hz_to_bark(0), hz_to_bark(fs / 2), n_bands + 1)
+    centers = (edges[:-1] + edges[1:]) / 2
+    width = edges[1] - edges[0]
+    band = np.maximum(0.0, 1.0 - np.abs(hz_to_bark(freqs)[None, :] - centers[:, None]) / width)
+    E = band @ P
+
+    # 3. 等响预加重：对每个频带能量乘等响曲线系数（作用于功率谱）
+    E = E * equal_loudness(centers)
+
+    # 4. 强度—响度幂律：立方根压缩（必须在等响加权之后）
+    E = E ** 0.33
+
+    # 5. 线性预测：自相关法拟合全极点模型，得 LPC 系数
+    r = np.correlate(E, E, "full")[len(E) - 1:]
+    a = levinson(r, order)
+
+    # 6. 系数转换：LPC 系数 → 倒谱（LPCC），截取前 order 阶
+    lpcc = np.zeros(order)
+    for m in range(1, order + 1):
+        lpcc[m - 1] = -a[m] - sum((k / m) * lpcc[k - 1] * a[m - k] for k in range(1, m))
+    return lpcc
 ```
 
-真正的实现里，`bark_filterbank`、`equal_loudness`、`lpc_autocorrelation` 各有成熟的数值公式。**注意等响加权应作用于功率谱（物理量），而立方根应在加权之后**——顺序错了，感知意义就乱了。
+真正的实现里，**频率—Bark 刻度转换**、**等响加权曲线 $E(\omega)$**、**Bark 临界频带滤波器组**各有成熟的数值公式。**注意等响加权应作用于功率谱（物理量），而立方根应在加权之后**——顺序错了，感知意义就乱了。
 
 **工程上最著名的 PLP 变体是 RASTA-PLP**：在临界频带分析之后、等响加权之前，对每个频带能量的**时间序列**做带通滤波（约 2–20 Hz），把缓慢的信道漂移与快速的谱波动同时抑制。它对电话信道、麦克风增益的缓慢变化极稳健，是 PLP 家族里工程价值最高的一个。
 

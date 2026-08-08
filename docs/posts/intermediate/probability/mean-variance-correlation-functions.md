@@ -55,9 +55,9 @@ $$R_X(s, t) = E\left[X(s)\, X(t)\right], \qquad s, t \in T$$
 
 以泊松过程 $X(t)$（强度 $\lambda$）为例，把三个函数一次算清：
 
-- **均值函数**：$\mu_X(t) = \lambda t$；
-- **方差函数**：$\sigma_X^2(t) = \lambda t$；
-- **协方差函数**：对 $s < t$，$\mathrm{Cov}(X(s), X(t)) = \lambda s$（独立增量）。
+**均值函数**：$\mu_X(t) = \lambda t$；
+**方差函数**：$\sigma_X^2(t) = \lambda t$；
+**协方差函数**：对 $s < t$，$\mathrm{Cov}(X(s), X(t)) = \lambda s$（独立增量）。
 
 **推导**：$X(s)$ 与 $X(t) - X(s)$ 独立，故 $\mathrm{Cov}(X(s), X(t)) = \mathrm{Cov}(X(s), X(s)) + \mathrm{Cov}(X(s), X(t)-X(s)) = \mathrm{Var}(X(s)) + 0 = \lambda s$。<span class="marginnote">这个推导示范了「独立增量」的威力：把 $X(t) = X(s) + (X(t) - X(s))$ 拆成「已发生的」与「新增的」两块，独立性让交叉协方差归零，协方差函数立刻算出。泊松过程的全部统计特性——均值、方差、相关——都从「独立增量 + 泊松分布」两条公理推出，逻辑链极干净。</span>
 

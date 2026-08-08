@@ -23,13 +23,17 @@ date: 2026-08-07
 **词嵌入层（token embedding）**：一个形状为 $|\mathcal{V}| \times d_{\text{model}}$ 的矩阵 $E$，第 $i$ 行就是 token id $i$ 的嵌入向量。前向时只需按 id 取行：
 
 ```python
-embedding_matrix = nn.Embedding(vocab_size, d_model)  # 形状 [V, d]
-x = embedding_matrix(input_ids)                       # 输入 [L] -> 输出 [L, d]
+import torch.nn as nn
+
+# 词嵌入矩阵：形状 [V, d_model]，第 i 行是 token id i 的向量
+embedding = nn.Embedding(vocab_size, d_model)
+
+x = embedding(token_ids)   # token_ids: [B, L] → 输出 [B, L, d_model]
 ```
 
-它的本质是**查表（lookup）**：没有卷积、没有 MLP，就是 `E[input_ids]`。这让嵌入层在 GPU 上是**内存密集型**操作而非计算密集型——搬数据比算数据贵，这也是为何嵌入层常常成为显存与带宽的瓶颈之一。
+它的本质是**查表（lookup）**：没有卷积、没有 MLP，就是一次按索引取行的 `index_select` 操作。这让嵌入层在 GPU 上是**内存密集型**操作而非计算密集型——搬数据比算数据贵，这也是为何嵌入层常常成为显存与带宽的瓶颈之一。
 
-嵌入向量的语义：训练后，语义相近的 token 会聚到相近的向量区域。`king` 与 `queen`、`run` 与 `running` 在嵌入空间里距离更近——因为它们在训练中频繁出现在相似上下文。<span class="marginnote">这种「由上下文塑造的语义」正是分布式表示的核心思想，源于 Word2Vec 时代的「分布假说」（Harris, 1954）：词的语义由它出现的上下文决定。大模型的嵌入层继承了这一思想，但上下文来自深层 Transformer 而非浅层窗口。</span>
+嵌入向量的语义：训练后，语义相近的 token 会聚到相近的向量区域。「猫」与「狗」、「苹果」与「香蕉」在嵌入空间里距离更近——因为它们在训练中频繁出现在相似上下文。<span class="marginnote">这种「由上下文塑造的语义」正是分布式表示的核心思想，源于 Word2Vec 时代的「分布假说」（Harris, 1954）：词的语义由它出现的上下文决定。大模型的嵌入层继承了这一思想，但上下文来自深层 Transformer 而非浅层窗口。</span>
 
 ## 2 初始化：为什么不能全是零
 
@@ -64,10 +68,10 @@ $$
 
 ## 4 嵌入层的实际实现细节
 
-- **padding 处理**：`<pad>` token 的嵌入通常不做特殊处理，但在 loss 计算时对应位置会被 mask 掉——嵌入层「有向量」，但 loss 不统计它。
-- **unembedding 的反向**：输出头把 `[L, d]` 投影到 `[L, V]`，反向时梯度要穿过 $V$ 维大矩阵——这是全模型里 FLOPs 最大的单点之一（与词表大小线性相关）。权重共享恰好把这个成本与嵌入层合并。
-- **与位置编码的关系**：输入嵌入与位置编码通常**相加**（绝对位置）而非拼接，因此维度必须一致。RoPE 之后流行「只对 Q/K 旋转、不加位置向量」，于是嵌入层可以更纯净。
-- **tie 与 untie**：HuggingFace 配置里 `tie_word_embeddings: true/false` 控制是否共享。微调时解绑（untie）偶尔能小幅提升任务效果，但会显著增加参数量。<span class="marginnote">实践中还有一个细节：<strong>词嵌入乘以 $\sqrt{d}$ 缩放</strong>（`x = x * math.sqrt(d_model)`）。Transformer 原论文这么做，是为了让嵌入向量与位置编码量级匹配；现在很多实现已不需要，但老代码里常见。</span>
+**padding 处理**：`<pad>` token 的嵌入通常不做特殊处理，但在 loss 计算时对应位置会被 mask 掉——嵌入层「有向量」，但 loss 不统计它。
+**unembedding 的反向**：输出头把隐藏状态 $h_t$ 投影到 $V$ 维 logits，反向时梯度要穿过 $V$ 维大矩阵——这是全模型里 FLOPs 最大的单点之一（与词表大小线性相关）。权重共享恰好把这个成本与嵌入层合并。
+**与位置编码的关系**：输入嵌入与位置编码通常**相加**（绝对位置）而非拼接，因此维度必须一致。RoPE 之后流行「只对 Q/K 旋转、不加位置向量」，于是嵌入层可以更纯净。
+**tie 与 untie**：HuggingFace 配置里 `tie_word_embeddings` 控制是否共享。微调时解绑（untie）偶尔能小幅提升任务效果，但会显著增加参数量。<span class="marginnote">实践中还有一个细节：<strong>词嵌入乘以 $\sqrt{d}$ 缩放</strong>（`x = x * (d_model ** 0.5)`）。Transformer 原论文这么做，是为了让嵌入向量与位置编码量级匹配；现在很多实现已不需要，但老代码里常见。</span>
 
 ## 5 嵌入层与下游任务
 
@@ -77,7 +81,7 @@ $$
 
 ## 6 小结
 
-- 词嵌入是**查表**操作：`E[input_ids]`，内存密集而非计算密集。
+- 词嵌入是**查表**操作：`embedding(token_ids)` 按 id 取行，内存密集而非计算密集。
 - 嵌入语义来自**分布假说**：上下文塑造词义，训练后相近词聚在一起。
 - 初始化要**随机、小方差**（$\sigma \approx 0.02$ 或按宽度缩放），避免对称与爆炸。
 - **权重共享**（$W_{\text{out}}=E^\top$）同时带来参数节省与语义一致性，是 LLaMA/Qwen 的标准配置。

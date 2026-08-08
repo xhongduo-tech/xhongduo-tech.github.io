@@ -93,7 +93,7 @@ $$P = \frac{tp}{|R_q|}, \qquad R = \frac{tp}{|R_q|} \qquad \Rightarrow \qquad P 
 
 MAP 虽好，边界要清楚，否则会误用：
 
-- **对分级相关性无感。** MAP 建立在二元判定（相关 / 不相关）之上，「高度相关」与「勉强相关」在 AP 里地位相同。面对 0—3 分级判定，需要下一篇的 NDCG。<span class="marginnote">在大模型时代的 RAG 评测里，检索到的文档往往被 LLM 标注为「可用 / 部分可用 / 不可用」三级——此时 MAP 会丢失「部分可用」的层次，评测者常改用 NDCG 或面向生成的指标。</span>
+**对分级相关性无感。** MAP 建立在二元判定（相关 / 不相关）之上，「高度相关」与「勉强相关」在 AP 里地位相同。面对 0—3 分级判定，需要下一篇的 NDCG。<span class="marginnote">在大模型时代的 RAG 评测里，检索到的文档往往被 LLM 标注为「可用 / 部分可用 / 不可用」三级——此时 MAP 会丢失「部分可用」的层次，评测者常改用 NDCG 或面向生成的指标。</span>
 - **查询等权可能掩盖「少数难点」。** 如果 90% 的查询都很容易，MAP 会被这 90% 拉高，掩盖系统在难查询上的崩溃。严谨的报告要同时看 MAP 与「分桶 MAP」（如按查询难度分组）。
 - **无相关文档查询的处理不一致。** 不同评测集处理方式不同（剔除 / 记 0 / 记特殊值），跨数据集比较 MAP 前要确认口径一致。
 - **MAP 不能跨异构查询集直接比较。** 它依赖 $R_q$ 的判定质量；用不同池化深度得到的 MAP 没有可比性。
@@ -105,35 +105,23 @@ MAP 虽好，边界要清楚，否则会误用：
 AP 与 MAP 的实现几乎是直译公式：
 
 ```python
-def average_precision(relevant_ranks, total):
-    """relevant_ranks: 相关文档在结果中的位置（1 起计）"""
-    hits = 0
-    sum_p = 0.0
-    for k in range(1, total + 1):
-        if k in relevant_ranks:
-            hits += 1
-            sum_p += hits / k            # 此刻的 P@k
-    return sum_p / len(relevant_ranks)
+def average_precision(rels, n_rel):
+    tp = 0
+    score = 0
+    for k, rel in enumerate(rels, start=1):
+        if rel:
+            tp += rel
+            score += tp / k          # 相关位置 k 上，tp/k 正是 P@k
+    return score / n_rel if n_rel else 0.0
 
-def map_score(queries, total):
-    """queries: 每个查询的相关文档位置列表"""
-    return sum(average_precision(q, total) for q in queries) / len(queries)
+print(average_precision([1, 0, 1, 0, 1, 1], 4))   # 0.7333
 
-q1 = {1, 3, 5, 6}
-q2 = {2, 4, 8}
-print(average_precision(q1, 10))     # 0.7333
-print(average_precision(q2, 10))     # 0.4583
-print(map_score([q1, q2], 10))       # 0.5958
-
-# R-Precision：在第 |R_q| 位截断
-for q in (q1, q2):
-    k = len(q)
-    hits = sum(1 for r in q if r <= k)
-    print(f"R-Precision = {hits}/{k} = {hits / k:.3f}")
-# q1 → 2/4 = 0.500；q2 → 1/3 = 0.333
+# MAP：对查询集求平均
+import numpy as np
+map_score = np.mean([average_precision(rels, n) for rels, n in queries])
 ```
 
-注意 `hits / k` 这句：在遍历到相关位置 $k$ 时，`hits` 恰好是前 $k$ 篇里相关的数量，所以它就是 $P@k$。整段代码是对公式的最小翻译，没有额外魔法。
+注意 $k$ 这句：在遍历到相关位置 $k$ 时，$P@k$ 恰好是前 $k$ 篇里相关的数量，所以它就是 $P@k$。整段代码是对公式的最小翻译，没有额外魔法。
 
 ## 7 小结
 

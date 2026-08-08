@@ -155,7 +155,7 @@ tqc = transpile(qc2, basis_gates=["rz", "ry"], optimization_level=3)
 print(tqc.draw())
 ```
 
-第一段对照第二节：`rz(theta)` 作用在 `|+⟩` 上，两个分量的相对相位正是 $e^{i\theta}$。第二段说明一个工程事实：Qiskit 的编译器把任意 `unitary` 自动翻译成旋转门序列——`basis_gates=["rz", "ry"]` 就够用，因为 Z-Y-Z 定理保证了「任意单比特门都能用两种旋转造出来」。把线路画出来，你会看到分解定理在编译器里真实地运行着。
+第一段对照第二节：$R_z(\theta)$ 作用在 $\lvert+\rangle$ 上，两个分量的相对相位正是 $e^{i\theta}$。第二段说明一个工程事实：Qiskit 的编译器把任意 `unitary` 自动翻译成旋转门序列——`basis_gates=["rz", "ry"]` 就够用，因为 Z-Y-Z 定理保证了「任意单比特门都能用两种旋转造出来」。把线路画出来，你会看到分解定理在编译器里真实地运行着。
 
 ## 7 小结
 

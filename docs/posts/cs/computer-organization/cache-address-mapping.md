@@ -22,7 +22,7 @@ Cache 容量远小于主存，一个主存块到底能放进 Cache 的哪个槽�
 
 $$\text{槽号} = \text{块号} \bmod S$$
 
-地址划分：`Tag | Index | Offset`，其中 Index 直接由主存地址的中间位给出，无需计算。
+地址划分：Tag + Index + Offset，其中 Index 直接由主存地址的中间位给出，无需计算。
 
 **访问判定**：
 
@@ -34,7 +34,7 @@ $$\text{槽号} = \text{块号} \bmod S$$
 
 ## 2 全相联映射**全相联映射（fully associative）**：主存任何一块都可以放进 Cache 的**任意**槽。
 
-地址划分：`Tag | Offset`——没有 Index，因为不需要定位固定槽。
+地址划分：Tag + Offset——没有 Index，因为不需要定位固定槽。
 
 **访问判定**：
 
@@ -48,7 +48,7 @@ $$\text{槽号} = \text{块号} \bmod S$$
 
 $$G = \frac{S}{E}, \qquad \text{组号} = \text{块号} \bmod G$$
 
-地址划分：`Tag | Set Index | Offset`——Set Index 定位组，组内用 Tag 并行比较 E 个槽。
+地址划分：Tag + Set + Offset——Set Index 定位组，组内用 Tag 并行比较 E 个槽。
 
 **相联度 E 的两种退化**：
 

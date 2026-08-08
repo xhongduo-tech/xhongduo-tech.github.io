@@ -24,9 +24,9 @@ date: 2026-08-07
 
 语言实现：
 
-- **Ada 的 package**：`package Stack is ... end Stack;` 把栈的表示与操作封装在一个包中。
-- **Java 的 class**：字段 + 方法聚合在类里。
-- **Rust 的 module + struct**：`mod stack { pub struct Stack {...}; pub fn push(...) }`。<span class="marginnote">「封装单元」的大小因语言而异：Ada 的 package 是「类型 + 操作」的经典 ADT 单元；Java 的 class 把「类型 + 操作 + 继承」合一；Rust 的 module 是更灵活的「命名空间 + 可见性」单元。封装单元的粒度设计，影响模块化的方式。</span>
+**Ada 的 package**：**`package Stack is ... end Stack;`** 把栈的表示与操作封装在一个包中。
+**Java 的 class**：字段 + 方法聚合在类里。
+**Rust 的 module + struct**：**`mod stack`** 把类型与操作关进一个模块。<span class="marginnote">「封装单元」的大小因语言而异：Ada 的 package 是「类型 + 操作」的经典 ADT 单元；Java 的 class 把「类型 + 操作 + 继承」合一；Rust 的 module 是更灵活的「命名空间 + 可见性」单元。封装单元的粒度设计，影响模块化的方式。</span>
 
 ## 2 设计要求二：信息隐藏
 
@@ -37,11 +37,11 @@ date: 2026-08-07
 | 语言 | 私有机制 | 强制程度 |
 | --- | --- | --- |
 | Ada | `private` 部分 | 强（编译期检查） |
-| Java/C++ | `private`/`protected` | 强 |
-| Python | `_x` 命名约定 | 弱（纯惯例） |
-| Rust | 模块可见性 `pub(crate)`/私有 | 强 |
+| Java/C++ | `private`/`private` | 强 |
+| Python | `_` 命名约定 | 弱（纯惯例） |
+| Rust | 模块可见性 `pub`/私有 | 强 |
 
-**辨析｜易错点：** 「隐藏」的强弱取决于语言机制：Java 的 `private` 是编译期强制；Python 的 `_x` 只是约定（外部仍能访问，`from module import *` 也挡不住）。**「约定式隐藏」依赖纪律，「强制式隐藏」依赖语言**——设计 ADT 时先确认语言提供哪种。
+**辨析｜易错点：** 「隐藏」的强弱取决于语言机制：Java 的 `private` 是编译期强制；Python 的 `_` 只是约定（外部仍能访问，`_` 也挡不住）。**「约定式隐藏」依赖纪律，「强制式隐藏」依赖语言**——设计 ADT 时先确认语言提供哪种。
 
 ## 3 设计要求三：类型安全与完整操作集
 
@@ -65,34 +65,50 @@ $$
 - **第二步，看初始状态**：ADT 的构造器/初始化也必须产出满足 $I$ 的状态（$I(s_0)$ 为真）——否则「全称量化」的空洞由构造器填上。
 - **第三步，看设计含义**：若这条性质成立，则「从合法初始状态出发、只经公开操作」，任何可达状态都满足 $I$——**用户无论怎么合法操作，都无法破坏不变量**。这正是「让错误做不了」的形式化：非法状态在操作语义上不可达。
 
-**辨析｜易错点：** 若 ADT 暴露「旁门」操作（如栈暴露底层数组的 `set`），不变量保持性质被打破——因为用户可绕过合法操作。**「完整操作集」与「不变量保持」直接相关**：多余的公开操作 = 破坏不变量的潜在入口。设计 ADT 时，公开操作越少，不变量越安全。
+**辨析｜易错点：** 若 ADT 暴露「旁门」操作（如栈暴露底层数组的 `get(i)`），不变量保持性质被打破——因为用户可绕过合法操作。**「完整操作集」与「不变量保持」直接相关**：多余的公开操作 = 破坏不变量的潜在入口。设计 ADT 时，公开操作越少，不变量越安全。
 
 ## 5 设计要求在现代语言中的回响
 
 - **构造器保证初始不变量**：Java 构造器、Rust 的 `new` 是「初始状态满足 I」的载体。
-- **不可变 ADT**：Rust 的不可变 `Vec`、不可变集合——表示永不改变，不变量平凡成立。
-- **trait/interface 契约**：Rust 的 trait + 文档化不变量、Java 的 interface 契约——「不变量」从隐式约定走向可声明的接口规格。<span class="marginnote">「不变量」在现代实践中常靠<strong>文档 + 测试</strong>保证（如 Rust 的 `assert!`、property-based testing），而形式化验证（Dafny、KLEE）把「ADT 正确性」机械化。从「语言强制私有」到「工具证明不变量」，ADT 设计要求的实现层次在提升。</span>
+- **不可变 ADT**：Rust 的不可变 `struct`、不可变集合——表示永不改变，不变量平凡成立。
+- **trait/interface 契约**：Rust 的 trait + 文档化不变量、Java 的 interface 契约——「不变量」从隐式约定走向可声明的接口规格。<span class="marginnote">「不变量」在现代实践中常靠<strong>文档 + 测试</strong>保证（如 Rust 的 `#[cfg(test)]` 单元测试、property-based testing），而形式化验证（Dafny、KLEE）把「ADT 正确性」机械化。从「语言强制私有」到「工具证明不变量」，ADT 设计要求的实现层次在提升。</span>
 
 ## 6 一个 ADT 的完整设计实例
 
 用「银行账户」走一遍 ADT 设计流程——把设计要求的每一步落到具体决策：
 
-**第一步，确定操作集**：用户需要什么？`deposit`（存款）、`withdraw`（取款）、`balance`（查余额）。不需要 `setBalance`（直接设余额会破坏不变量）。
+**第一步，确定操作集**：用户需要什么？**`deposit`**（存款）、**`withdraw`**（取款）、**`balance`**（查余额）。不需要 **`set_balance`**（直接设余额会破坏不变量）。
 
-**第二步，识别不变量**：余额**永不为负**——这是账户的核心不变量。`withdraw` 必须检查「余额是否够」，够才扣。
+**第二步，识别不变量**：余额**永不为负**——这是账户的核心不变量。**`withdraw`** 必须检查「余额是否够」，够才扣。
 
-**第三步，封装表示**：余额字段 `private`——外部只能经 `deposit`/`withdraw` 改它，不变量由这两个操作保证。
+**第三步，封装表示**：余额字段 **`private`**——外部只能经 **`deposit`**/**`withdraw`** 改它，不变量由这两个操作保证。
 
+```rust
+pub struct BankAccount {
+    balance: i32,               // 私有表示：外部不可直接访问
+}
+
+impl BankAccount {
+    pub fn new() -> Self { Self { balance: 0 } }        // 构造器：初始不变量成立
+
+    pub fn deposit(&mut self, amount: i32) {           // 存款：只增不减
+        self.balance += amount;
+    }
+
+    pub fn withdraw(&mut self, amount: i32) -> bool {  // 取款：检查余额是否够
+        if self.balance >= amount {
+            self.balance -= amount;
+            true
+        } else {
+            false
+        }
+    }
+
+    pub fn balance(&self) -> i32 { self.balance }      // 查余额：只读
+}
 ```
-账户 ADT：
-  表示：balance（私有）
-  操作：deposit(amount) — 余额 += amount（amount > 0）
-        withdraw(amount) — 若 balance >= amount 则扣，否则拒绝
-        balance() — 返回当前余额
-  不变量：balance >= 0 恒成立
-```
 
-**辨析｜易错点：** 若设计时「为了省事」加了 `setBalance`（直接设值），不变量立刻可破——任何调用方都能 `setBalance(-100)`。**「多余的操作 = 不变量的破口」**——这就是「完整操作集」要求「不多」的原因。审查一个 ADT 设计，最有效的问题是：「有没有一个操作能让不变量被违反？如果有，删掉它或加检查」。
+**辨析｜易错点：** 若设计时「为了省事」加了 **`set_balance`**（直接设值），不变量立刻可破——任何调用方都能 **`set_balance(-100)`**。**「多余的操作 = 不变量的破口」**——这就是「完整操作集」要求「不多」的原因。审查一个 ADT 设计，最有效的问题是：「有没有一个操作能让不变量被违反？如果有，删掉它或加检查」。
 
 
 
@@ -117,7 +133,7 @@ $$
 ## 7 小结
 
 - ADT 设计要求：**封装机制**（表示 + 操作聚合）、**信息隐藏**（表示私有）、**类型安全**（完整签名）、**完整操作集**（不多不少）。
-- 信息隐藏的强度因语言而异：从 Ada/Java 的强私有到 Python 的约定式 `_x`。
+- 信息隐藏的强度因语言而异：从 Ada/Java 的强私有到 Python 的约定式 `_`。
 - 核心判据：「不变量对操作封闭」——合法操作无法破坏不变量，「错误做不了」。
 - 旁门操作破坏不变量；构造器、不可变类型、接口契约是「不变量保证」的现代载体。
 

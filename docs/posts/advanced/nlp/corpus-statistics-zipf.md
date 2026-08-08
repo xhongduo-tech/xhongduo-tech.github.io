@@ -84,27 +84,22 @@ $$
 
 ## 5 词频统计的一个最小实现
 
-把上面这些概念落到代码上，其实就是几行 Python。用 `collections.Counter` 数词频，再画出双对数图，就能亲手「看见」齐普夫定律：
+把上面这些概念落到代码上，其实就是几行 Python。用 `Counter` 数词频，再画出双对数图，就能亲手「看见」齐普夫定律：
 
 ```python
-import re
 from collections import Counter
+import matplotlib.pyplot as plt
 
-text = open("corpus.txt", encoding="utf-8").read()
-tokens = re.findall(r"\w+", text.lower())          # 切分并小写
+tokens = text.split()                                   # 切分（简化版：按空白分词）
+freq   = Counter(tokens)                                # 计数
+items  = sorted(freq.items(), key=lambda x: -x[1])      # 按频次降序排列
 
-freq = Counter(tokens)                              # 词频表
-ranked = freq.most_common()                         # 按频次降序排列
-
-for rank, (word, count) in enumerate(ranked[:10], start=1):
-    print(f"r={rank}\t{word}\t{count}")
-
-# 验证齐普夫定律：log(freq) ≈ log(C) − log(rank)
-import math
-r, f = 1, ranked[0][1]
-for i, (word, count) in enumerate(ranked[1:100], start=2):
-    if count > 1:                                    # 跳过同频带来的并列排名
-        print(math.log(i), round(math.log(count), 3))
+ranks  = list(range(1, len(items) + 1))                 # 排名 r
+counts = [c for _, c in items]                          # 对应频次 f_r
+plt.loglog(ranks, counts, marker=".")                   # 双对数图：直线 ≈ 齐普夫定律
+plt.xlabel("rank r")
+plt.ylabel("frequency f_r")
+plt.show()
 ```
 
 这个实现虽然粗糙，却复现了语料统计的三步标准动作：**切分 → 计数 → 排序**。真正的分词要交给第三篇的专用算法，但「数词」的骨架就是这个。

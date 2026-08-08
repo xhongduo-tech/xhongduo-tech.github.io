@@ -24,9 +24,9 @@ date: 2026-08-07
 
 **变量（variable）**：$x, y, z, \dots$，代表一个值。
 
-**抽象（abstraction）**：$\lambda x.\ e$，代表「函数：给定 $x$，返回 $e$」。$\lambda x$ 读作「以 $x$ 为参数」，它绑定（bind）$e$ 中出现的 $x$。<span class="marginnote">抽象就是「函数定义」的浓缩：$\lambda x.\ x + 1$ 对应数学里 $x \mapsto x+1$，对应编程里的 `x => x + 1`。绑定关系在此第一次出现——它是后面作用域理论的雏形。</span>
+**抽象（abstraction）**：$\lambda x.\ e$，代表「函数：给定 $x$，返回 $e$」。$\lambda x$ 读作「以 $x$ 为参数」，它绑定（bind）$e$ 中出现的 $x$。<span class="marginnote">抽象就是「函数定义」的浓缩：$\lambda x.\ x + 1$ 对应数学里 $x \mapsto x+1$，对应编程里的 $\lambda x.\ e$。绑定关系在此第一次出现——它是后面作用域理论的雏形。</span>
 
-**应用（application）**：$e_1\ e_2$，代表「把函数 $e_1$ 作用于实参 $e_2$」，对应编程里的 `f(e2)`。
+**应用（application）**：$e_1\ e_2$，代表「把函数 $e_1$ 作用于实参 $e_2$」，对应编程里的 $e_1$。
 
 全部只此三种。没有数字、没有加法——它们都可以用这三种构造**编码**出来。
 
@@ -74,7 +74,7 @@ $$
 \llbracket S_1;\ S_2 \rrbracket = \lambda \sigma.\ \llbracket S_2 \rrbracket\ (\llbracket S_1 \rrbracket\ \sigma)
 $$
 
-对比指称语义的写法 $\llbracket S_2 \rrbracket \circ \llbracket S_1 \rrbracket$——`σ` 被显式传参，这正是用 λ 演算「展开」组合性定义的直接翻译。
+对比指称语义的写法 $\llbracket S_2 \rrbracket \circ \llbracket S_1 \rrbracket$——$\llbracket S_2 \rrbracket \circ \llbracket S_1 \rrbracket$ 被显式传参，这正是用 λ 演算「展开」组合性定义的直接翻译。
 
 **递归**：语义方程的自指（如 while 循环）在 λ 演算中靠**不动点组合子（fixed-point combinator）**表达，最著名的是 Y 组合子：
 
@@ -95,7 +95,7 @@ $Y$ 满足 $Y f = f (Y f)$，于是「循环的语义」可以写成 $Y F$。三
 λ 演算的地位可以这样概括：**它是函数式语言的汇编语言**。
 
 - 语言语义的三大框架都能用 λ 项书写：操作语义的转移规则、指称语义的域、公理语义的谓词逻辑。
-- 现代函数式语言（Haskell、OCaml、Rust 的闭包）的求值机制都建立在 λ 演算之上；类型系统的理论研究（我们将在第五篇的 Hindley-Milner 中看到）直接作用于 λ 项。<span class="marginnote">当你写 `x => x + 1` 或 `|x| x + 1`，编译器内部先把它翻译成带类型的 λ 项，再做类型检查与优化——λ 演算就在你每天写的代码下面一层。</span>
+- 现代函数式语言（Haskell、OCaml、Rust 的闭包）的求值机制都建立在 λ 演算之上；类型系统的理论研究（我们将在第五篇的 Hindley-Milner 中看到）直接作用于 λ 项。<span class="marginnote">当你写 `\x -> x + 1` 或 `fun x -> x + 1`，编译器内部先把它翻译成带类型的 λ 项，再做类型检查与优化——λ 演算就在你每天写的代码下面一层。</span>
 
 ## 6 λ 演算的类型变体
 

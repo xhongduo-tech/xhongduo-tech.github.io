@@ -98,12 +98,17 @@ $$
 
 **场景图（scene graph）**：引擎用一棵树组织场景，每个节点有「相对父节点的局部变换」：
 
-```
-世界
- └─ 坦克（位置、朝向）
-     ├─ 炮塔（相对车体旋转）
-     │   └─ 炮管（相对炮塔俯仰）
-     └─ 履带（滚动动画）
+```cpp
+struct SceneNode {
+    Transform local;                    // 相对父节点的局部变换（S-R-T）
+    std::vector<SceneNode*> children;   // 子节点
+    Mesh* mesh = nullptr;               // 该节点挂的网格
+
+    Mat4 world() const {                // 世界变换 = 父链连乘
+        return parent ? parent->world() * local.matrix()
+                      : local.matrix();
+    }
+};
 ```
 
 - 每个节点的世界变换 = 从根到它的局部变换连乘。
@@ -111,9 +116,15 @@ $$
 
 **引擎里的 Transform 组件**：现代引擎（Unity/UE）把「位置 + 旋转 + 缩放」打包成 Transform，默认就是「父子的相对值」：
 
-```
-Transform world = parent.world * local
-local = T(位置) * R(旋转) * S(缩放)
+```cpp
+struct Transform {
+    Vec3 position;      // 局部位置（相对父节点）
+    Quat rotation;      // 局部旋转
+    Vec3 scale = Vec3(1.0f);   // 局部缩放
+
+    Mat4 local_matrix() const;  // 组成 S-R-T 复合矩阵
+    Mat4 world_matrix() const;  // 父链连乘得到世界矩阵（渲染用）
+};
 ```
 
 **为什么「局部 + 世界」双份**：局部值让「编辑方便」（炮管转 30° 是局部旋转），世界值让「渲染直接」（顶点乘世界矩阵）——「编辑用局部、渲染用世界」是标准分工。

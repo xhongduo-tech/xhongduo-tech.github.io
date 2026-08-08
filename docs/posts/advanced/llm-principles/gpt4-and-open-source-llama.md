@@ -38,9 +38,9 @@ LLaMA-1 采用 decoder-only 结构，身上已经带着后来开源模型的「�
 
 权重一旦在手，社区的创造力爆发了。关键是把「微调」的成本打到地板价：
 
-- **Alpaca（斯坦福，2023.3）**：用 self-instruct 方法，让 `text-davinci-003` 依据 175 条种子指令自动生成 5.2 万条「指令-回答」数据，再在 LLaMA-7B 上监督微调。总训练成本约 **500 美元**，8 张 A100 跑 3 小时。
-- **Vicuna（LMSYS，2023.4）**：从 ShareGPT 抓取 7 万条真实用户与 ChatGPT 的对话，微调 LLaMA-13B，对话体验逼近 ChatGPT。
-- **WizardLM、Guanaco（QLoRA）**：前者用「进化指令」算法自动升级指令复杂度；后者靠 QLoRA 在单张 48GB 显卡上微调 65B 模型，让「一人一卡调大模型」成为现实。
+**Alpaca（斯坦福，2023.3）**：用 self-instruct 方法，让 `text-davinci-003` 依据 175 条种子指令自动生成 5.2 万条「指令-回答」数据，再在 LLaMA-7B 上监督微调。总训练成本约 **500 美元**，8 张 A100 跑 3 小时。
+**Vicuna（LMSYS，2023.4）**：从 ShareGPT 抓取 7 万条真实用户与 ChatGPT 的对话，微调 LLaMA-13B，对话体验逼近 ChatGPT。
+**WizardLM、Guanaco（QLoRA）**：前者用「进化指令」算法自动升级指令复杂度；后者靠 QLoRA 在单张 48GB 显卡上微调 65B 模型，让「一人一卡调大模型」成为现实。
 
 这批工作的共同技术底座，就是 **LoRA（Low-Rank Adaptation，低秩适配）**——冻结原模型，只训练一小块低秩增量。它把「微调 65B 模型」从「需要几十张 A100」变成「一张消费级显卡」：这是开源生态能被点燃的工程前提。<span class="marginnote">QLoRA 在 LoRA 基础上再加两层压缩：把预训练权重量化到 4-bit（NF4），用双重量化减少显存，并在反向传播时反量化。它把「单卡可微调的最大模型」一夜之间推高了约一个数量级。</span>
 
@@ -65,21 +65,16 @@ $$
 
 ```python
 from peft import LoraConfig, get_peft_model
-from transformers import AutoModelForCausalLM
 
-model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-hf")
-config = LoraConfig(
-    r=8,                    # 低秩的秩 r
-    lora_alpha=16,          # 缩放因子 α（等价于 α/r）
-    target_modules=["q_proj", "v_proj"],   # 只更新注意力 Q/V 投影
-    lora_dropout=0.05,
+lora_config = LoraConfig(
+    r=8,                                 # 秩 r
+    lora_alpha=16,                       # α
+    target_modules=["q_proj", "v_proj"], # 对哪些权重矩阵做低秩更新
 )
-peft_model = get_peft_model(model, config)
-print(f"可训练参数: {sum(p.numel() for p in peft_model.parameters() if p.requires_grad):,}")
-# 可训练参数: 约 419 万（7B 模型的 0.06%）
+model = get_peft_model(model, lora_config)
 ```
 
-真正跑起来时，`get_peft_model` 会把每个 `target_modules` 里的线性层替换为「冻结原权重 + 可训练 $BA$」的组合——正是 $W' = W_0 + \tfrac{\alpha}{r}BA$ 的工程实现。**rank 从 8 提到 64，可训练参数按比例增长，但模型能力并不一定跟着涨**，这提醒我们：低秩近似的「秩」是容量旋钮，不是越大越好。<span class="marginnote">「微调增量是低秩的」不是数学定理，而是经验事实：对全量微调后的权重做 SVD，发现其更新量的大部分能量集中在前若干个奇异值上。这与第二级《线性代数》里用 SVD 做「低秩近似」的思想一脉相承。</span>
+真正跑起来时，PEFT 会把每个 `target_modules` 里的线性层替换为「冻结原权重 + 可训练 $BA$」的组合——正是 $W' = W_0 + \tfrac{\alpha}{r}BA$ 的工程实现。**rank 从 8 提到 64，可训练参数按比例增长，但模型能力并不一定跟着涨**，这提醒我们：低秩近似的「秩」是容量旋钮，不是越大越好。<span class="marginnote">「微调增量是低秩的」不是数学定理，而是经验事实：对全量微调后的权重做 SVD，发现其更新量的大部分能量集中在前若干个奇异值上。这与第二级《线性代数》里用 SVD 做「低秩近似」的思想一脉相承。</span>
 
 **辨析｜易错点：** LoRA 是「参数高效微调」，不是「模型压缩」。它不减少推理时的计算量——权重仍然按 $W_0 + \Delta W$ 合成后再前向。它省的是**训练时的显存与优化器状态**，这一点常被混淆。另外「$\alpha$ 与 $r$ 一起缩放」：$\alpha$ 不是学习率，改变 $\alpha$ 时 $r$ 若不变，只改缩放、不改秩，效果不等于换了一个秩。
 
@@ -95,19 +90,15 @@ print(f"可训练参数: {sum(p.numel() for p in peft_model.parameters() if p.re
 
 围绕 LLaMA 及同类权重，一个完整的**开放工具生态**迅速成形：
 
-- **推理层**：`llama.cpp`（纯 C++，能在笔记本 CPU 上跑 7B）、`Ollama`（一键本地运行）、`vLLM`（高吞吐推理引擎）。
-- **部署层**：`GGUF` 量化格式、`GPTQ`、`AWQ`，让百亿参数模型能塞进单张显卡。
-- **微调层**：`PEFT`（含 LoRA/QLoRA）、`DeepSpeed`，把「调大模型」平民化。
-- **社区与中文系谱**：Hugging Face 成为开源模型的中枢；国内 ChatGLM、Baichuan、Qwen、DeepSeek 相继开源，其中 Qwen 与 DeepSeek 在第四篇会作为独立的架构谱系重点剖析。
+**推理层**：`llama.cpp`（纯 C++，能在笔记本 CPU 上跑 7B）、`Ollama`（一键本地运行）、`vLLM`（高吞吐推理引擎）。
+**部署层**：`GGUF` 量化格式、`GPTQ`、`AWQ`，让百亿参数模型能塞进单张显卡。
+**微调层**：`PEFT`（含 LoRA/QLoRA）、`LLaMA-Factory`，把「调大模型」平民化。
+**社区与中文系谱**：Hugging Face 成为开源模型的中枢；国内 ChatGLM、Baichuan、Qwen、DeepSeek 相继开源，其中 Qwen 与 DeepSeek 在第四篇会作为独立的架构谱系重点剖析。
 
 这条生态链的「触达成本」低到了可以随手实验。一个 7B 模型用 GGUF 量化后约 4–5 GB，普通笔记本即可运行：
 
 ```bash
-# 用 Ollama 一键运行本地开源模型（内部就是 llama.cpp 的封装）
-ollama run llama3:8b
-
-# 或直接用 llama.cpp 手动加载 GGUF 文件
-./main -m llama-3-8b.Q4_K_M.gguf -p "写出大模型开源生态的三个关键组件" -n 128
+ollama run llama2:7b
 ```
 
 这套「一条命令跑模型」的体验，是 2023 年之前不可想象的——它把「消费大模型」从 API 时代带入了「私有化部署」时代。也因此，开源模型的评测、量化与本地部署成为独立的研究方向，后续《评测》与《大模型部署》两个专题都会反复回到这里。
@@ -118,9 +109,9 @@ ollama run llama3:8b
 
 「LLaMA 开源了」这句话，需要精确化。**LLaMA 系列发布的是权重（open-weight），而不是完整意义的开源（open-source）**：
 
-- **开放了什么**：模型参数文件、推理代码、部分评测配置。
-- **没开放什么**：训练数据、完整训练管线、数据清洗代码——而这些恰恰是复现一个模型最耗时、最昂贵、最能沉淀科学知识的部分。
-- **许可差异**：LLaMA-1 仅限研究；LLaMA-2/3 的社区许可允许商用但带使用条款限制；而 OSI 定义的「开源」要求自由再分发、可修改、无歧视，二者并不等同。<span class="marginnote">Mistral 早期发布权重时也引起过同样争论。到 DeepSeek 发布技术报告并逐步公开训练细节时，「开放权重 + 开源论文」成为新标杆，但也仍未完全达到 OSI 意义上的开源。</span>
+**开放了什么**：模型参数文件、推理代码、部分评测配置。
+**没开放什么**：训练数据、完整训练管线、数据清洗代码——而这些恰恰是复现一个模型最耗时、最昂贵、最能沉淀科学知识的部分。
+**许可差异**：LLaMA-1 仅限研究；LLaMA-2/3 的社区许可允许商用但带使用条款限制；而 OSI 定义的「开源」要求自由再分发、可修改、无歧视，二者并不等同。<span class="marginnote">Mistral 早期发布权重时也引起过同样争论。到 DeepSeek 发布技术报告并逐步公开训练细节时，「开放权重 + 开源论文」成为新标杆，但也仍未完全达到 OSI 意义上的开源。</span>
 
 **易错点｜辨析：** Alpaca、Vicuna、Guanaco 是**基于 LLaMA 权重微调的第三方模型**，不是 Meta 官方发布的产品。它们继承的是 LLaMA 的「底座能力」，但训练数据、对齐方式各不相同。把「Alpaca 的效果」当成「LLaMA 的效果」，或以讹传讹地说「Meta 发布了 Alpaca」，都是常见误区。社区爆发恰恰建立在这种「底座 + 再创作」的协作模式之上。
 

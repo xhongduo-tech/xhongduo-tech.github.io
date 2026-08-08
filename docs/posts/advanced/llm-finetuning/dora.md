@@ -73,26 +73,32 @@ DoRA 的关键洞察是：**幅度虽然重要，但它的「信息量」很小*
 DoRA 在实现上几乎就是「LoRA + 一个幅度向量」：
 
 ```python
-class DoRALinear(nn.Module):
-    def __init__(self, base_weight, r, alpha):
+class DoRALayer(nn.Module):
+    """DoRA：方向走 LoRA（低秩），幅度走满秩向量。"""
+    def __init__(self, w0, r, alpha):
         super().__init__()
-        self.W0 = base_weight.detach().float()        # 冻结基座
-        self.lora = LoRALayer(base_weight.shape, r, alpha)
-        # 幅度向量：初始化成基座的按列范数
-        self.m = nn.Parameter(self.W0.norm(dim=0, keepdim=True))
+        self.w0 = w0.detach()                          # 冻结基座 W0（in × out）
+        self.m = nn.Parameter(                         # 幅度向量，初始化为基座列范数
+            torch.linalg.vector_norm(w0, dim=0)
+        )
+        self.lora_A = nn.Parameter(torch.randn(w0.shape[0], r) / r**0.5)
+        self.lora_B = nn.Parameter(torch.zeros(r, w0.shape[1]))
+        self.scaling = alpha / r
+
     def forward(self, x):
-        W = self.W0 + self.lora.delta()               # 方向部分
-        W = W / W.norm(dim=0, keepdim=True)           # 按列归一化
-        return x @ (self.m * W).T                      # 乘幅度
+        dw = self.scaling * (self.lora_B @ self.lora_A)   # 低秩增量 ΔW
+        w = self.w0 + dw
+        direction = w / torch.linalg.vector_norm(w, dim=0, keepdim=True)  # 按列归一化
+        return x @ (self.m * direction).T
 ```
 
 注意两个实现要点：其一，**幅度向量必须初始化为基座的列范数**（否则一开始就偏离基座）；其二，**前向要做一次按列归一化**——这一步是额外计算，也是 DoRA 比 LoRA 推理略贵的来源（不过合并后同样可消除）。
 
 效果方面，DoRA 在多个基准上稳定超过 LoRA：
 
-- 在常识推理、数学、指令遵循等任务上，DoRA 通常比同秩 LoRA 高 **1–3 个点**，小样本场景差距更大；
-- 论文特别强调**低资源（few-shot）场景**的优势——数据越少，DoRA 相对 LoRA 的领先越明显；
-- 代价：训练时前向多一次归一化，参数量略增，推理合并后与 LoRA 同样零开销。<span class="marginnote">DoRA 的「幅度满秩、方向低秩」思想后来被 PiSSA（主奇异初始化）等方法进一步吸收——它们共同指向一个趋势：<strong>PEFT 的竞争焦点从「省多少参数」转向「用同样参数逼近全参多少」</strong>。</span>
+在常识推理、数学、指令遵循等任务上，DoRA 通常比同秩 LoRA 高 **1–3 个点**，小样本场景差距更大；
+论文特别强调**低资源（few-shot）场景**的优势——数据越少，DoRA 相对 LoRA 的领先越明显；
+代价：训练时前向多一次归一化，参数量略增，推理合并后与 LoRA 同样零开销。<span class="marginnote">DoRA 的「幅度满秩、方向低秩」思想后来被 PiSSA（主奇异初始化）等方法进一步吸收——它们共同指向一个趋势：<strong>PEFT 的竞争焦点从「省多少参数」转向「用同样参数逼近全参多少」</strong>。</span>
 
 ### 选型：什么时候换 DoRA
 

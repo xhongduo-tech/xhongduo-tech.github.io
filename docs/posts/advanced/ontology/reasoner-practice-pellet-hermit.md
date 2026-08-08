@@ -48,10 +48,10 @@ HermiT 在十万级概念分类上表现出色，Pellet 的优势在「带解释
 
 无论哪个推理机，都提供四个标准服务（对应第五篇的推理任务）：
 
-- **一致性检查（consistency）**：知识库有没有矛盾？（类被定义成空集？）
-- **分类（classification）**：算出完整的概念层级。
-- **实现（realization）**：给每个个体找最具体类别。
-- **蕴含查询（entailment）**：判定某条公理是否被知识库蕴含。
+**一致性检查（consistency）**：知识库有没有矛盾？（类被定义成空集？）
+**分类（classification）**：算出完整的概念层级。
+**实现（realization）**：给每个个体找最具体类别。
+**蕴含查询（entailment）**：判定某条公理是否被知识库蕴含。
 
 在 Protégé 里，点一下「Reasoner → Start Reasoner」，HermiT 就开始
 跑这四个服务，把推理结果（新增的 subClassOf、不一致的类）高亮显示。

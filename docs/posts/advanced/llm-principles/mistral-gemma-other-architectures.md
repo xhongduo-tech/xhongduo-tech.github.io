@@ -22,9 +22,9 @@ LLaMA、Qwen、DeepSeek 代表了「三件套」的三个方向：追随、本�
 
 Mistral 7B（2023）的架构几乎就是 LLaMA 三件套 + **滑窗注意力（SWA）**：
 
-- **滑窗注意力**：每层窗口 $w=4096$，注意力只看「距离 ≤ 4096」的历史。
-- **效果**：计算量从 $O(L^2)$ 降到 $O(Lw)$，32k 上下文下「每 token 的计算」恒定。
-- **多层接力**：32 层的多跳传播让「有效视野」远超单窗口（第七篇讲过）。
+**滑窗注意力**：每层窗口 $w=4096$，注意力只看「距离 ≤ 4096」的历史。
+**效果**：计算量从 $O(L^2)$ 降到 $O(Lw)$，32k 上下文下「每 token 的计算」恒定。
+**多层接力**：32 层的多跳传播让「有效视野」远超单窗口（第七篇讲过）。
 
 **Mistral 8×7B（MoE）**：8 个专家、每 token 激活 2 个（Top-2），总参 47B、激活 13B——**把「LLaMA 三件套 + 滑窗」做成 MoE**，是「轻量高效」路线的代表。
 
@@ -34,10 +34,10 @@ Mistral 7B（2023）的架构几乎就是 LLaMA 三件套 + **滑窗注意力（
 
 Gemma（2024，Google）与 Mistral 同属「LLaMA 谱系」，但它的技术报告展示了「Google 式工程」的严谨：
 
-- **共享嵌入与输出头**：`tie_word_embeddings=true`——省参数、增强一致性（与 GPT-2 同，与 LLaMA 异）。
-- **相对位置偏置 + RoPE 混合**：Gemma 在 RoPE 之外还用了**相对位置偏置**（T5 式）——双层位置信息。
-- **QK-Norm**：稳定注意力分数（与 Qwen2 同）。
-- **极稳的训练细节**：GeGLU、RMSNorm、pre-embedding norm、final logit norm——每一项都有「为什么」。
+**共享嵌入与输出头**：`tie_word_embeddings = True`——省参数、增强一致性（与 GPT-2 同，与 LLaMA 异）。
+**相对位置偏置 + RoPE 混合**：Gemma 在 RoPE 之外还用了**相对位置偏置**（T5 式）——双层位置信息。
+**QK-Norm**：稳定注意力分数（与 Qwen2 同）。
+**极稳的训练细节**：GeGLU、RMSNorm、pre-embedding norm、final logit norm——每一项都有「为什么」。
 
 **Gemma 的价值**：它未必在每个点都「最优」，但每个选择都有清晰的工程理由——**它是「可读性最好的架构」**，适合作为「架构设计的教科书案例」。<span class="marginnote">一个 Gemma 独有的细节：它用 <strong>GeGLU</strong>（GELU 门控）而非 SwiGLU（Swish 门控）——门控函数也可以选。这提醒我们「SwiGLU 不是唯一答案」：<strong>门控家族（GLU/GeGLU/SwiGLU）都是「内容 × 门」的变体，选哪个是实验问题</strong>。</span>
 

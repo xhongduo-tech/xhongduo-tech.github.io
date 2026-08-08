@@ -37,9 +37,9 @@ date: 2026-08-07
 
 **证明骨架**：
 
-- **值域闭**：$\operatorname{ran}(I-T)$ 闭（需证：若 $(I-T)x_n \to y$，则 $y \in \operatorname{ran}(I-T)$——用「核有限维」构造商空间论证或反证 + Riesz 引理）。
-- **核值域正交补**：$\operatorname{ran}(I-T) = \ker(I-T^*)^\perp$（由对偶算子关系 + 值域闭）。
-- **指标为零**：$\dim \ker(I-T) = \dim \ker(I-T^*)$（Fredholm 指标理论），于是「$\ker = \{0\}$ ⟺ $\ker^* = \{0\}$ ⟺ 值域 = 全空间 ⟺ 满射」。<span class="marginnote">Fredholm 理论的核心是「指标」：<strong>$\operatorname{ind}(I - T) = \dim\ker(I-T) - \dim\operatorname{ran}(I-T)^c = 0$</strong>（紧算子扰动的指标为零）。指标为零 ⟹ 单射 ⟺ 满射——这是「$I - T$ 可逆 ⟺ 核平凡」的全部秘密。</span>
+**值域闭**：$\operatorname{ran}(I-T)$ 闭（需证：若 $(I-T)x_n \to y$，则 $y \in \operatorname{ran}(I-T)$——用「核有限维」构造商空间论证或反证 + Riesz 引理）。
+**核值域正交补**：$\operatorname{ran}(I-T) = \ker(I-T^*)^\perp$（由对偶算子关系 + 值域闭）。
+**指标为零**：$\dim \ker(I-T) = \dim \ker(I-T^*)$（Fredholm 指标理论），于是「$\ker = \{0\}$ ⟺ $\ker^* = \{0\}$ ⟺ 值域 = 全空间 ⟺ 满射」。<span class="marginnote">Fredholm 理论的核心是「指标」：<strong>$\operatorname{ind}(I - T) = \dim\ker(I-T) - \dim\operatorname{ran}(I-T)^c = 0$</strong>（紧算子扰动的指标为零）。指标为零 ⟹ 单射 ⟺ 满射——这是「$I - T$ 可逆 ⟺ 核平凡」的全部秘密。</span>
 
 ## 3 积分方程的应用
 

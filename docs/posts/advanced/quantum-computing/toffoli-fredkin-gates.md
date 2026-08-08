@@ -79,7 +79,7 @@ $$
 
 经典计算的万能门是 NAND（与非）：任何布尔函数都能用 NAND 搭出来。Toffoli 可以构造 NAND：
 
-- 固定第三个比特为 $\lvert 1\rangle$，则 Toffoli 输出 $\lvert a\rangle\lvert b\rangle\lvert 1 \oplus (a\land b)\rangle$。而 $1 \oplus (a\land b) = \neg(a\land b)$，正是 NAND。
+固定第三个比特为 $\lvert 1\rangle$，则 Toffoli 输出 $\lvert a\rangle\lvert b\rangle\lvert 1 \oplus (a\land b)\rangle$。而 $1 \oplus (a\land b) = \neg(a\land b)$，正是 NAND。
 
 所以：**输入 $a, b$（前两个控制位），辅助位放 $\lvert 1\rangle$，目标位读出的就是 $a$ 与 $b$ 的 NAND。** 再辅以复制线路（用 CNOT 把比特复制到辅助位），任何经典电路都能改写为可逆的 Toffoli 线路——这就是可逆计算的存在性证明。<span class="marginnote">为什么经典 NAND 不可逆而 Toffoli 版的 NAND 可逆？因为 Toffoli <strong>保留了输入副本</strong>（前两个控制位没丢），只是「额外」把结果写进目标位。可逆计算的全部窍门就是：别删信息，把结果追加在边上。</span>
 
@@ -103,26 +103,27 @@ $$
 
 ```python
 from qiskit import QuantumCircuit
-from qiskit.quantum_info import Statevector
+from qiskit_aer import AerSimulator
 
-# 1) Toffoli 模拟 NAND：目标位放 |1⟩，读出 NOT(a·b)
+sim = AerSimulator()
+
+# 第一段：Toffoli 造 NAND（目标位预置 1，双控翻转后取反）
 for a, b in [(0, 0), (0, 1), (1, 0), (1, 1)]:
-    qc = QuantumCircuit(3)
-    if a: qc.x(0)          # 控制位 1 装 a
-    if b: qc.x(1)          # 控制位 2 装 b
-    qc.x(2)                # 辅助目标位置 |1⟩
-    qc.ccx(0, 1, 2)        # Toffoli：目标位变成 1 ⊕ (a·b) = NAND(a,b)
-    sv = Statevector(qc).data
-    out = int(abs(sv[4*a + 2*b + (1 - a*b)]) > 0.5)
-    print(f"NAND({a},{b}) =", out)
+    qc = QuantumCircuit(3, 1)
+    qc.x(2)                          # 目标位 c 预置 1
+    if a: qc.x(0)
+    if b: qc.x(1)
+    qc.ccx(0, 1, 2)                  # a∧b=1 时翻转 → c = ¬(a∧b)
+    qc.measure(2, 0)
+    print(f"a={a} b={b} -> {sim.run(qc, shots=1).result().get_counts()}")  # 仅 (1,1) 输出 0
 
-# 2) 用 Toffoli + CNOT 搭半加器（和位 s = a⊕b，进位 c = a·b）
-qc = QuantumCircuit(4, 2)
-qc.x(0); qc.x(1)          # 输入 a=1, b=1
-qc.cx(0, 2)               # 和位 = a ⊕ b = 0
-qc.ccx(0, 1, 3)           # 进位 = a · b = 1
+# 第二段：可逆半加器（和位用 CNOT 求 XOR，进位用 Toffoli 求 AND）
+qc = QuantumCircuit(4, 2)            # a, b, 和位, 进位
+qc.x(0)                              # 例：a=1, b=0
+qc.cx(0, 2)                          # 和位 = a⊕b = 1
+qc.ccx(0, 1, 3)                      # 进位 = a∧b = 0
 qc.measure([2, 3], [0, 1])
-print("半加器 1+1: 和位 =", 0, "进位 =", 1)
+print(sim.run(qc, shots=1).result().get_counts())   # '01'：和=1、进位=0
 ```
 
 第一段展示 Toffoli 造 NAND 的四种真值表组合——这正是 §4 讲的「目标位置 1 再双控翻转」；第二段用 CNOT 加 Toffoli 搭出半加器：和位用 CNOT 求 XOR、进位用 Toffoli 求 AND。**看见没有：量子算术（Shor 模幂的细胞）就是这样从 Toffoli 一颗一颗长出来的。** 把这两行线路换成大数，你就有了 Shor 算法里算术引擎的原型。

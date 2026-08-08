@@ -89,27 +89,30 @@ Python 示意：
 ```python
 import numpy as np
 
-def chebyshev_interp(f, n, x_eval):
-    """在 n+1 个切比雪夫零点上插值 f，对 x_eval 求值（切比雪夫系数法）"""
+def cheb_interp(f, n):
+    """切比雪夫零点插值：返回系数 c，使 P = Σ c_k T_k 穿过样本点。"""
     k = np.arange(n + 1)
-    nodes = np.cos((2*k + 1) * np.pi / (2 * (n + 1)))   # 切比雪夫零点
-    y = f(nodes)
-    c = np.array([(2/(n+1)) * np.sum(y * np.cos(k * (2*np.arange(n+1)+1) * np.pi / (2*(n+1))))
-                  for k in range(n + 1)])               # 切比雪夫系数
-    # 用 Clenshaw 递推求值
-    ...  # 这里省略，思路是 T 的三项递推
+    x = np.cos((2*k + 1) * np.pi / (2*(n + 1)))        # T_{n+1} 的零点
+    y = f(x)
+    c = np.array([np.sum(y * np.cos(kk * np.arccos(x))) * 2/(n+1)
+                  for kk in range(n + 1)])
+    c[0] *= 0.5                                        # k=0 项的 DCT 归一化
+    return c
+
+# 例：在 [-1,1] 上近似 e^x
+coeffs = cheb_interp(np.exp, 8)
 ```
 
-（实际用 `numpy.polynomial.chebyshev` 或 `scipy.interpolate.Chebyshev` 现成接口即可。）
+（实际用 `numpy.polynomial.chebyshev` 或 `scipy.fft.dct` 现成接口即可。）
 
 ## 5 辨析：切比雪夫插值、一致逼近、切比雪夫多项式的三角关系
 
 三个名字容易绕晕，钉清楚：
 
-- **切比雪夫多项式** $T_n$：一族正交多项式（工具）。
-- **切比雪夫节点**：$T_{n+1}$ 的零点（用工具挑的插值点）。
-- **切比雪夫插值**：用切比雪夫节点做的多项式插值（方法）。
-- **最佳一致逼近**：min-max 最优解（理论目标），切比雪夫插值是它的廉价近似。
+**切比雪夫多项式** $T_n$：一族正交多项式（工具）。
+**切比雪夫节点**：$T_{n+1}$ 的零点（用工具挑的插值点）。
+**切比雪夫插值**：用切比雪夫节点做的多项式插值（方法）。
+**最佳一致逼近**：min-max 最优解（理论目标），切比雪夫插值是它的廉价近似。
 
 **辨析｜易错点：** 切比雪夫插值**不是**最佳一致逼近，它的误差通常略大（差一个 $\Lambda_n$ 因子），但它**保证收敛**且便宜。若误差指标是「最坏不超限」且安全关键，仍需 Remez 求真最优；若只是「整体够好」，切比雪夫插值是默认选择。<span class="marginnote">工程决策树：<strong>「要保证上限 → Remez；要便宜且不怕略松 → 切比雪夫插值；数据带噪声 → 最小二乘（下一节）。」</strong> 把方法绑到误差观上，就不容易选错。</span>
 

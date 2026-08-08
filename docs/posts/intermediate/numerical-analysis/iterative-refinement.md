@@ -33,18 +33,19 @@ date: 2026-08-07
 
 ```python
 import numpy as np
-import scipy.linalg
+from scipy.linalg import lu_factor, lu_solve
 
-def iterative_refinement(A, b, x0, iters=3):
-    """用已分解的 LU 做迭代改善。假设 x0 是近似解"""
-    P, L, U = scipy.linalg.lu(A)          # 分解一次
-    x = x0.copy()
-    for _ in range(iters):
-        r = b - A @ x                     # 残差（生产代码用更高精度）
-        d = scipy.linalg.solve_triangular(U, 
-            scipy.linalg.solve_triangular(L, P.T @ r, lower=True))
-        x = x + d
-    return x
+# 希尔伯特矩阵 H6：cond ≈ 1.5e7，真解取全 1
+n = 6
+H = np.array([[1.0 / (i + j + 1) for j in range(n)] for i in range(n)])
+b = H.sum(axis=1)                              # x_true = ones
+
+lu, piv = lu_factor(H)                         # LU 分解只做一次
+x = lu_solve((lu, piv), b)                     # 初始解
+for _ in range(2):                             # 迭代改善两轮
+    r = b - H @ x                              # 残差（工程上用扩展精度算）
+    x = x + lu_solve((lu, piv), r)             # 复用分解：两次三角回代
+print(x)                                       # 逼近全 1，误差 ~1e-15
 ```
 
 **数值演示**：取希尔伯特矩阵 $H_6$（$\mathrm{cond}\approx1.5\times10^7$），真解 $\mathbf{x}=\mathbf{1}$。单次 LU 求解的相对误差约 $10^{-9}$，迭代改善 2 轮后约 $10^{-15}$——**逼近机器精度**。<span class="marginnote">注意前提：残差 $\mathbf{r}$ 若用普通精度算，其舍入误差量级 $O(\epsilon_{\mathrm{mach}})$ 会成为瓶颈，修正就到不了机器精度。<strong>迭代改善的关键细节是「残差用扩展精度计算」</strong>——这是它与朴素「再解一次」的分水岭。</span>
@@ -53,9 +54,9 @@ def iterative_refinement(A, b, x0, iters=3):
 
 分析一次修正的效果。设 $\hat{\mathbf{x}}_k$ 是第 $k$ 次近似，$\mathbf{x}^*$ 是真解，误差 $\mathbf{e}_k=\hat{\mathbf{x}}_k-\mathbf{x}^*$。
 
-- **第一步，残差与误差的关系。** $\mathbf{r}_k=\mathbf{b}-A\hat{\mathbf{x}}_k=A(\mathbf{x}^*-\hat{\mathbf{x}}_k)=-A\mathbf{e}_k$，即 $\mathbf{e}_k=-A^{-1}\mathbf{r}_k$。理论上解残差方程组 $A\mathbf{d}=\mathbf{r}_k$ 应得 $\mathbf{d}=-\mathbf{e}_k$，一步到位。
-- **第二步，但求解本身有误差。** 解 $A\mathbf{d}=\mathbf{r}_k$ 的近似解 $\hat{\mathbf{d}}$ 满足 $\lVert\hat{\mathbf{d}}-(-\mathbf{e}_k)\rVert\le\mathrm{cond}(A)\epsilon_{\mathrm{mach}}\lVert\mathbf{d}\rVert$——**修正量本身被条件数放大舍入误差**。
-- **第三步，误差压缩比。** 修正后 $\mathbf{e}_{k+1}=\mathbf{e}_k+\hat{\mathbf{d}}$，其范数约 $\mathrm{cond}(A)\epsilon_{\mathrm{mach}}\lVert\mathbf{x}^*\rVert$——**只要初始误差远大于 $\mathrm{cond}(A)\epsilon_{\mathrm{mach}}$，每轮都把误差压缩约一个常数因子，直至触底于 $\mathrm{cond}(A)\epsilon_{\mathrm{mach}}\lVert\mathbf{x}\rVert$**。
+**第一步，残差与误差的关系。** $\mathbf{r}_k=\mathbf{b}-A\hat{\mathbf{x}}_k=A(\mathbf{x}^*-\hat{\mathbf{x}}_k)=-A\mathbf{e}_k$，即 $\mathbf{e}_k=-A^{-1}\mathbf{r}_k$。理论上解残差方程组 $A\mathbf{d}=\mathbf{r}_k$ 应得 $\mathbf{d}=-\mathbf{e}_k$，一步到位。
+**第二步，但求解本身有误差。** 解 $A\mathbf{d}=\mathbf{r}_k$ 的近似解 $\hat{\mathbf{d}}$ 满足 $\lVert\hat{\mathbf{d}}-(-\mathbf{e}_k)\rVert\le\mathrm{cond}(A)\epsilon_{\mathrm{mach}}\lVert\mathbf{d}\rVert$——**修正量本身被条件数放大舍入误差**。
+**第三步，误差压缩比。** 修正后 $\mathbf{e}_{k+1}=\mathbf{e}_k+\hat{\mathbf{d}}$，其范数约 $\mathrm{cond}(A)\epsilon_{\mathrm{mach}}\lVert\mathbf{x}^*\rVert$——**只要初始误差远大于 $\mathrm{cond}(A)\epsilon_{\mathrm{mach}}$，每轮都把误差压缩约一个常数因子，直至触底于 $\mathrm{cond}(A)\epsilon_{\mathrm{mach}}\lVert\mathbf{x}\rVert$**。
 
 **结论：迭代改善把误差压到「机器精度被条件数污染」的极限**——对不太病态的矩阵（$\mathrm{cond}<1/\epsilon_{\mathrm{mach}}$），这接近全精度。对极端病态（$\mathrm{cond}\sim10^{16}$），改善无效（误差已达极限），需扩展精度或换表述。
 
@@ -72,9 +73,9 @@ def iterative_refinement(A, b, x0, iters=3):
 
 ## 4 工程价值与历史
 
-迭代改善在现代库中地位特殊：**它让「低精度分解」也能产出高精度解**。历史上有名的应用是**使用低精度算术加速**：先用 `float32` 的 LU 分解（快），再用迭代改善把精度拉回 `float64` 水平——**在混合精度计算（mixed-precision computing）中大放异彩**。现代 GPU（Tensor Core）用 `float16` 分解 + 迭代改善，达到接近 `float32` 的精度。<span class="marginnote">这是 2020 年代 AI 基础设施的潮流：<strong>「低精度算得快，迭代修正补得准」</strong>——混合精度线性代数把迭代改善从「教学技巧」变成「性能引擎」。第三级《高性能计算》与第四级《AI 基础设施》会看到它的现代形态（如 HPL-AI 基准、cuSOLVER 的混合精度求解）。</span>
+迭代改善在现代库中地位特殊：**它让「低精度分解」也能产出高精度解**。历史上有名的应用是**使用低精度算术加速**：先用单精度（float32）的 LU 分解（快），再用迭代改善把精度拉回双精度（float64）水平——**在混合精度计算（mixed-precision computing）中大放异彩**。现代 GPU（Tensor Core）用半精度/单精度分解 + 迭代改善，达到接近双精度的精度。<span class="marginnote">这是 2020 年代 AI 基础设施的潮流：<strong>「低精度算得快，迭代修正补得准」</strong>——混合精度线性代数把迭代改善从「教学技巧」变成「性能引擎」。第三级《高性能计算》与第四级《AI 基础设施》会看到它的现代形态（如 HPL-AI 基准、cuSOLVER 的混合精度求解）。</span>
 
-**工程忠告**：日常用 `numpy`/`scipy` 求解，默认双精度 LU 已足够；只在「精度不够 + 条件数中等」时考虑迭代改善，或在「用低精度加速」时主动启用。
+**工程忠告**：日常用单精度/双精度求解，默认双精度 LU 已足够；只在「精度不够 + 条件数中等」时考虑迭代改善，或在「用低精度加速」时主动启用。
 
 ## 5 小结
 

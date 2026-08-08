@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 Adams 预测-校正系统开始
 
-Adams-Moulton（隐式）又准又稳，但每步要解隐式方程；Adams-Bashforth（显式）便宜，但精度与稳定性逊色。**预测-校正系统（predictor-corrector, PECE）** 把两者组合：**用 AB 预测 $y_{k+1}^{(p)}$，再用 AM 校正一次**——不迭代、不解方程，同时拿到「显式的便宜」与「隐式的精度」。这是工程上使用多步法的标准姿势（`ode113` 的祖先）。<span class="marginnote">预测-校正的精髓：<strong>「校正器不必迭代——预测器已经够好，校正一次就把阶提上去」</strong>。改进欧拉是 PECE 的特例（AB1 预测 + AM2 校正）。这里把「猜修」做到高阶，是多步法最优雅的工程形态。</span>
+Adams-Moulton（隐式）又准又稳，但每步要解隐式方程；Adams-Bashforth（显式）便宜，但精度与稳定性逊色。**预测-校正系统（predictor-corrector, PECE）** 把两者组合：**用 AB 预测 $y_{k+1}^{(p)}$，再用 AM 校正一次**——不迭代、不解方程，同时拿到「显式的便宜」与「隐式的精度」。这是工程上使用多步法的标准姿势（MATLAB `ode113` 的祖先）。<span class="marginnote">预测-校正的精髓：<strong>「校正器不必迭代——预测器已经够好，校正一次就把阶提上去」</strong>。改进欧拉是 PECE 的特例（AB1 预测 + AM2 校正）。这里把「猜修」做到高阶，是多步法最优雅的工程形态。</span>
 
 本节给出经典的 AB-AM PECE 格式、阶分析（为什么校正一次就升阶）与工程收益。
 
@@ -66,22 +66,34 @@ $$
 ## 4 实现
 
 ```python
-def adams_pece_4(f, t, y0, h):
-    """AB4-AM4 PECE。假设已有 y0..y3（历史），t 为时间序列"""
-    y = list(y0)
-    for k in range(3, len(t)-1):
-        fk, fk1, fk2, fk3 = [f(t[k-j], y[k-j]) for j in range(4)]
-        # P: AB4 预测
-        yp = y[k] + h/24*(55*fk - 59*fk1 + 37*fk2 - 9*fk3)
-        # E
-        fp = f(t[k+1], yp)
-        # C: AM4 校正
-        y.append(y[k] + h/24*(9*fp + 19*fk - 5*fk1 + fk2))
-        # 最后一次 E 留给下一轮循环
-    return y
+import numpy as np
+
+def ab4_am4_pece(f, t0, y0, h, n):
+    """Adams PECE：AB4 预测 + AM4 校正，每步两次函数求值。"""
+    # 起步：用 RK4 生成前 4 个历史点
+    ts, ys = [t0], [y0]
+    for _ in range(3):
+        k1 = f(ts[-1], ys[-1])
+        k2 = f(ts[-1] + h/2, ys[-1] + h/2 * k1)
+        k3 = f(ts[-1] + h/2, ys[-1] + h/2 * k2)
+        k4 = f(ts[-1] + h, ys[-1] + h * k3)
+        ys.append(ys[-1] + h/6 * (k1 + 2*k2 + 2*k3 + k4))
+        ts.append(ts[-1] + h)
+    fs = [f(t, y) for t, y in zip(ts, ys)]
+
+    for _ in range(n - 3):
+        # P：AB4 预测
+        yp = ys[-1] + h/24 * (55*fs[-1] - 59*fs[-2] + 37*fs[-3] - 9*fs[-4])
+        fp = f(ts[-1] + h, yp)                 # E：预测点求值
+        # C：AM4 校正
+        y = ys[-1] + h/24 * (9*fp + 19*fs[-1] - 5*fs[-2] + fs[-3])
+        ts.append(ts[-1] + h)
+        ys.append(y)
+        fs.append(f(ts[-1], y))                # E：为下一步准备
+    return np.array(ts), np.array(ys)
 ```
 
-**工程注意**：起步需要前 4 个 $y$（用 RK4 填），步长变化需重新插值历史——**多步法的工程复杂度在此**。现代库（`solve_ivp` 的 `Adams`、MATLAB `ode113`）把这些细节封装好，用户只需选方法。
+**工程注意**：起步需要前 4 个 $y$（用 RK4 填），步长变化需重新插值历史——**多步法的工程复杂度在此**。现代库（SciPy 的 LSODA 方法、MATLAB 的 `ode113`）把这些细节封装好，用户只需选方法。
 
 ## 5 辨析：PECE 何时失效
 

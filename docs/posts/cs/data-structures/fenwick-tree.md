@@ -20,57 +20,57 @@ date: 2026-08-07
 
 ## 1 树状数组的定义：C[i] 管一段
 
-树状数组用数组 `tree[]` 记录「若干原数组元素的和」。关键约定：
+树状数组用数组 `tree` 记录「若干原数组元素的和」。关键约定：
 
 $$
 tree[i] = \sum_{j = i - lowbit(i) + 1}^{i} a[j]
 $$
 
-其中 `lowbit(i)` = $i$ 的二进制中**最低位的 1 所代表的值**，即 `i & (-i)`。`tree[i]` 管住「以 $i$ 结尾、长度为 lowbit(i) 的一段」——**下标 $i$ 管辖的长度，由它二进制里最低位的 1 决定**。<span class="marginnote">「<strong>lowbit(i) = i & (-i)</strong>」是树状数组的灵魂：<strong>$i$ 管一段长度恰好等于 lowbit(i) 的区间</strong>。例：$6 = (110)_2$，lowbit = 2，`tree[6] = a[5] + a[6]`；$4 = (100)_2$，lowbit = 4，`tree[4] = a[1..4]`。<strong>下标的下位算术，直接决定管辖范围</strong>。</span>
+其中 $i$ = $i$ 的二进制中**最低位的 1 所代表的值**，即 $6 = (110)_2$。$4 = (100)_2$ 管住「以 $i$ 结尾、长度为 lowbit(i) 的一段」——**下标 $i$ 管辖的长度，由它二进制里最低位的 1 决定**。<span class="marginnote">「<strong>lowbit(i) = i & (-i)</strong>」是树状数组的灵魂：<strong>$i$ 管一段长度恰好等于 lowbit(i) 的区间</strong>。例：$6 = (110)_2$，lowbit = 2，管 $4 = (100)_2$；$4 = (100)_2$，lowbit = 4，管 $i$。<strong>下标的下位算术，直接决定管辖范围</strong>。</span>
 
 ## 2 前缀和查询：沿 lowbit 跳
 
-求 `a[1] + ... + a[i]`（前缀和）：
+求前缀和 `prefixSum(i)`（前缀和）：
 
-- 累加 `tree[i]`；
-- `i -= lowbit(i)`——跳到「上一段」；
-- 重复直到 $i = 0$。
+累加 `tree[i]`；
+`i -= lowbit(i)` ——跳到「上一段」；
+重复直到 $i = 0$。
 
 ```c
-int PrefixSum(int i) {
+int prefixSum(int i) {
     int s = 0;
     while (i > 0) {
         s += tree[i];
-        i -= lowbit(i);          /* 跳到上一管辖段 */
+        i -= lowbit(i);      /* 跳到「上一段」 */
     }
     return s;
 }
 ```
 
-**重点：前缀和 =「沿 lowbit 链累加」，$i$ 每步至少减半，所以 $O(\log n)$。** 例：求前缀 `a[1..7]`：累加 `tree[7]`（a7）→ `tree[6]`（a5,a6）→ `tree[4]`（a1..a4），三段恰好盖全。<span class="marginnote">「<strong>前缀和 = 若干个 disjoint 段拼起来</strong>」：<strong>$7 \to 6 \to 4 \to 0$ 每步跳过一整段</strong>——<strong>二进制里 $i$ 的 1 的个数，就是累加的段数</strong>（≤ $\log n$）。<strong>「跳段」是树状数组一切操作的通用动作</strong>。</span>
+**重点：前缀和 =「沿 lowbit 链累加」，$i$ 每步至少减半，所以 $O(\log n)$。** 例：求前缀和 `prefixSum(7)`：累加 `tree[7]`（a7）→ `tree[6]`（a5,a6）→ `tree[4]`（a1..a4），三段恰好盖全。<span class="marginnote">「<strong>前缀和 = 若干个 disjoint 段拼起来</strong>」：<strong>$7 \to 6 \to 4 \to 0$ 每步跳过一整段</strong>——<strong>二进制里 $i$ 的 1 的个数，就是累加的段数</strong>（≤ $\log n$）。<strong>「跳段」是树状数组一切操作的通用动作</strong>。</span>
 
 ## 3 单点修改：沿 lowbit 上爬
 
-修改 `a[i] += delta`，要更新所有「管辖 `i` 的 tree[j]`」：
+修改 `a[i]`，要更新所有「管辖 $i$ 的 `tree`」：
 
-- 更新 `tree[i]`；
-- `i += lowbit(i)`——跳到「下一个管辖 $i$ 的结点」；
-- 重复直到越界。
+更新 `tree[i]`；
+`i += lowbit(i)` ——跳到「下一个管辖 $i$ 的结点」；
+重复直到越界。
 
 ```c
-void Add(int i, int delta) {
+void add(int i, int delta) {
     while (i <= n) {
         tree[i] += delta;
-        i += lowbit(i);          /* 跳到覆盖 i 的更大段 */
+        i += lowbit(i);      /* 跳到「下一个管辖 i 的结点」 */
     }
 }
 ```
 
-**重点：单点修改 =「沿 lowbit 上爬」，更新的结点数 ≤ $\log n$，$O(\log n)$。** 例：改 `a[1]`，更新 `tree[1]`（a1）→ `tree[2]`（a1,a2）→ `tree[4]`（a1..a4）→ `tree[8]`……<span class="marginnote">「<strong>修改上爬、查询下跳</strong>」是树状数组的双向舞步：<strong>改一个点，要通知所有「管得到它的段」；查一段和，把「盖住它的段」拼起来</strong>。<strong>两个方向都沿 lowbit 走，都是 $\log n$ 步</strong>。</span>
+**重点：单点修改 =「沿 lowbit 上爬」，更新的结点数 ≤ $\log n$，$O(\log n)$。** 例：改 `a[1]`，更新 `tree[1]`（a1）→ `tree[2]`（a1,a2）→ `tree[4]`（a1..a4）→ `tree[8]`（a1..a8）……<span class="marginnote">「<strong>修改上爬、查询下跳</strong>」是树状数组的双向舞步：<strong>改一个点，要通知所有「管得到它的段」；查一段和，把「盖住它的段」拼起来</strong>。<strong>两个方向都沿 lowbit 走，都是 $\log n$ 步</strong>。</span>
 
 ## 4 公式解析：区间求和 = 两个前缀和
 
-区间 `[l, r]` 的和 = 前缀和相减：
+区间 $[l, r]$ 的和 = 前缀和相减：
 
 $$
 \sum_{i=l}^{r} a[i] = \text{PrefixSum}(r) - \text{PrefixSum}(l-1)
@@ -98,10 +98,10 @@ $$
 
 ## 6 小结
 
-- `tree[i]` 管 `[i - lowbit(i) + 1, i]` 的和；`lowbit(i) = i & (-i)`。
+- `tree[i]` 管 $[i - \text{lowbit}(i) + 1,\ i]$ 的和；管长 = lowbit(i)。
 - 前缀和：沿 lowbit 向下跳，累加各段，$O(\log n)$。
 - 单点修改：沿 lowbit 向上爬，更新所有管辖段，$O(\log n)$。
-- 区间求和 = `PrefixSum(r) - PrefixSum(l-1)`，$O(\log n)$。
+- 区间求和 = `prefixSum(r) - prefixSum(l-1)`，$O(\log n)$。
 - 改查都是 $O(\log n)$——动态前缀和的最优轻量解。
 - 单点改 + 区间查 → 树状数组；区间改/最值 → 线段树。
 

@@ -38,23 +38,15 @@ $$instructor(\underline{ID},\ name,\ dept\_name,\ salary)$$
 
 **关系实例（relation instance）**：某一时刻满足关系模式的**元组集合**，记作 $r(R)$，读作「关系模式 $R$ 的一个实例 $r$」。实例是**随时间变化的**：插入一行、删除一行、改一个工资，实例就变了。
 
-```sql
--- SQL 里 CREATE TABLE 定义的是"模式"，
--- 而 INSERT 产生的每一行，是"实例"的一部分
-CREATE TABLE instructor (
-  ID        CHAR(5),
-  name      VARCHAR(20),
-  dept_name VARCHAR(20),
-  salary    NUMERIC(8,2)
-);
-
-INSERT INTO instructor VALUES ('10101', 'Srinivasan', 'CS',      65000);
-INSERT INTO instructor VALUES ('12121', 'Wu',         'Finance', 90000);
+```text
+r(instructor) = { (10101, 'Srinivasan', 'CS',      65000),
+                  (12121, 'Wu',         'Finance',  90000),
+                  (15151, 'Mozart',     'Music',    40000) }
 ```
 
-关系实例的**基数（cardinality）**就是元组的个数，即「当前表里有多少行」。注意实例里元组的**顺序无关紧要**——关系是集合，不是列表；数据库对查询结果的排序由 `ORDER BY` 单独指定，而不是关系本身固有的性质。<span class="marginnote">「元组无顺序」常让新手不适，因为文件、数组都有序。但正是「集合无顺序」保证了对关系做交换律、结合律式的等价变换不会改变结果——这是第12章查询优化敢于自由调整执行顺序的根本前提。</span>
+关系实例的**基数（cardinality）**就是元组的个数，即「当前表里有多少行」。注意实例里元组的**顺序无关紧要**——关系是集合，不是列表；数据库对查询结果的排序由 ORDER BY 单独指定，而不是关系本身固有的性质。<span class="marginnote">「元组无顺序」常让新手不适，因为文件、数组都有序。但正是「集合无顺序」保证了对关系做交换律、结合律式的等价变换不会改变结果——这是第12章查询优化敢于自由调整执行顺序的根本前提。</span>
 
-把「实例」落到实处，比如上一节 `instructor` 关系此刻的实例 $r(instructor)$ 可以是：
+把「实例」落到实处，比如上一节 instructor 关系此刻的实例 $r(instructor)$ 可以是：
 
 | ID | name | dept_name | salary |
 | --- | --- | --- | --- |
@@ -63,13 +55,13 @@ INSERT INTO instructor VALUES ('12121', 'Wu',         'Finance', 90000);
 | 15151 | Mozart | Music | 40000 |
 | 22222 | Einstein | Physics | 95000 |
 
-这张表里每一行是一个元组 $t$，四个分量分别来自对应属性的域（`ID` 是定长字符串、`salary` 是定点数）。**现在这四行是当前实例；明天删掉 Mozart、再插入一位新教师，实例就变了，而模式纹丝不动。**
+这张表里每一行是一个元组 $t$，四个分量分别来自对应属性的域（ID 是定长字符串、salary 是定点数）。**现在这四行是当前实例；明天删掉 Mozart、再插入一位新教师，实例就变了，而模式纹丝不动。**
 
 **重点：模式与实例的关系，就是「类型与值」的关系。** 模式回答「这张表长什么样」，实例回答「此刻这张表里有什么」。一个模式在任意时刻有且仅有一个「当前实例」，但可以先后有很多个不同的实例。
 
 ## 3 数据库模式与数据库实例
 
-一个数据库通常包含多个关系（比如 `instructor`、`department`、`student`）。把它们的模式合起来：
+一个数据库通常包含多个关系（比如 instructor、student、department）。把它们的模式合起来：
 
 **数据库模式（database schema）**：数据库中全部关系模式的集合。**数据库实例（database instance）**：某一时刻这些关系所有实例的集合。二者是「集合的集合」意义上的整体与部分关系。
 
@@ -79,11 +71,11 @@ INSERT INTO instructor VALUES ('12121', 'Wu',         'Finance', 90000);
 | --- | --- | --- |
 | 单个关系 | 关系模式 $R(A_1,\dots,A_n)$ | 关系实例 $r(R)$ |
 | 整个数据库 | 数据库模式 | 数据库实例 |
-| SQL 视角 | `CREATE TABLE` / `ALTER TABLE`（DDL） | `INSERT` / `UPDATE` / `DELETE`（DML） |
+| SQL 视角 | CREATE TABLE / ALTER TABLE（DDL） | INSERT / UPDATE / DELETE（DML） |
 
 模式的变更远比数据变更罕见且重大：改一列的名字可能让所有引用它的应用崩掉，因此 DDL 往往需要版本管理、需要迁移脚本，而 DML 是日常操作。把「结构」与「数据」分离管理，正是数据库能长期演进而数据不丢的机制之一。
 
-举个具体的演化例子：某电商系统上线时 `orders` 表没有「优惠券」列；后来产品要发券，DBA 执行 `ALTER TABLE orders ADD COLUMN coupon_id VARCHAR(20)`——这是**一次模式变更**，需要评估索引、存量数据回填、下游应用兼容，往往要排期上线。而 `INSERT` 一条新订单是**实例变更**，每秒发生成千上万次，完全无感。**一条 SQL 属于「改结构」还是「改数据」，决定了它的风险等级与审批流程**——这个判断力从今天就该建立。
+举个具体的演化例子：某电商系统上线时 orders 表没有「优惠券」列；后来产品要发券，DBA 执行 `ALTER TABLE orders ADD COLUMN coupon VARCHAR(20)`——这是**一次模式变更**，需要评估索引、存量数据回填、下游应用兼容，往往要排期上线。而 INSERT 一条新订单是**实例变更**，每秒发生成千上万次，完全无感。**一条 SQL 属于「改结构」还是「改数据」，决定了它的风险等级与审批流程**——这个判断力从今天就该建立。
 
 ## 4 公式解析：关系是笛卡儿积的子集
 

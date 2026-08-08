@@ -87,25 +87,22 @@ $$
 ```python
 import numpy as np
 
-def rot2d(theta):
+def T(tx, ty):      # 平移矩阵
+    return np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1.]])
+
+def R(theta):       # 旋转矩阵
     c, s = np.cos(theta), np.sin(theta)
-    return np.array([[c, -s, 0],
-                     [s,  c, 0],
-                     [0,  0, 1]])
+    return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1.]])
 
-def trans(tx, ty):
-    return np.array([[1, 0, tx],
-                     [0, 1, ty],
-                     [0, 0,  1]])
+c = np.array([1., 0.])           # 旋转中心
+p = np.array([2., 0., 1.])       # 待旋转的点（齐次坐标）
 
-c = np.array([1.0, 0.0])
-H = trans(c[0], c[1]) @ rot2d(np.pi/2) @ trans(-c[0], -c[1])
-
-p = np.array([2.0, 0.0, 1.0])          # 齐次点 (2,0,1)
-print((H @ p)[:2])                     # [1. 1.]：绕 (1,0) 转 90° 的落点
+H = T(c[0], c[1]) @ R(np.pi/2) @ T(-c[0], -c[1])   # 绕任意中心 c 旋转 90°
+p_prime = H @ p
+print(p_prime)                   # [1. 1. 1.] —— 与手算一致
 ```
 
-注意 `trans(c) @ rot @ trans(-c)` 的书写顺序：最右的 `trans(-c)` 先作用。如果手滑写成 `trans(-c) @ rot @ trans(c)`，结果将完全不同——**顺序错误是变换组合里最高频的 bug**。
+注意 `H = T(c) R(θ) T(-c)` 的书写顺序：最右的 `T(-c)` 先作用。如果手滑写成 `T(-c) R(θ) T(c)`，结果将完全不同——**顺序错误是变换组合里最高频的 bug**。
 
 ## 5 逆变换与点的两类身份
 

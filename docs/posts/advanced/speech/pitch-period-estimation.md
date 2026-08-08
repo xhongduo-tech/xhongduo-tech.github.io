@@ -24,9 +24,9 @@ date: 2026-08-07
 
 物理量与感知量要分开：
 
-- **基频 $f_0$**：声带振动频率，声学量，单位 Hz。成年男性约 80–200 Hz，女性约 150–350 Hz，儿童可到 500 Hz。
-- **基音周期 $T_0 = 1/f_0$**：一次振动的时间。80 Hz 的男声 $T_0 = 12.5$ ms，300 Hz 的女声 $T_0 \approx 3.3$ ms。
-- **音高（pitch）**：人对基频的**主观感知**，与 $f_0$ 近似对数关系，还受响度、谐波结构影响（可在《响度、音高感知与等响曲线》里展开）。
+**基频 $f_0$**：声带振动频率，声学量，单位 Hz。成年男性约 80–200 Hz，女性约 150–350 Hz，儿童可到 500 Hz。
+**基音周期 $T_0 = 1/f_0$**：一次振动的时间。80 Hz 的男声 $T_0 = 12.5$ ms，300 Hz 的女声 $T_0 \approx 3.3$ ms。
+**音高（pitch）**：人对基频的**主观感知**，与 $f_0$ 近似对数关系，还受响度、谐波结构影响（可在《响度、音高感知与等响曲线》里展开）。
 
 估计的搜索范围通常取 $f_0 \in [60, 500]$ Hz，即 $T_0 \in [2, 16.7]$ ms。<span class="marginnote">范围上下限是工程约定：低过 60 Hz 接近次声、高过 500 Hz 一般是儿童或歌声；范围太宽会放大「倍频错误」（把 f0 听成 2f0 或 f0/2）的概率。</span>
 
@@ -44,12 +44,14 @@ $R(\tau)$ 叫**自相关函数**。对周期信号，它在 $\tau = 0, T_0, 2T_0
 import numpy as np
 
 def autocorr_pitch(frame, fs, fmin=60, fmax=500):
+    """自相关法基音估计：在合法周期范围内找最大峰。"""
     N = len(frame)
-    lo, hi = int(fs / fmax), int(fs / fmin)   # 周期搜索范围（样本数）
-    r = np.correlate(frame, frame, 'full')[N-1 : N+hi]  # R(0..hi)
-    r /= r[0]                                  # 用 R(0) 归一化，消除幅度影响
-    tau = lo + np.argmax(r[lo:hi])             # 在合法范围内找最大峰
-    return fs / tau
+    tau_min = int(fs / fmax)            # 周期范围上限 f0∈[60,500]
+    tau_max = int(fs / fmin)
+    # 自相关 R(0..N-1)；np.correlate(full) 的中点即零延迟
+    R = np.correlate(frame, frame, mode='full')[N - 1:]
+    tau = tau_min + int(np.argmax(R[tau_min:tau_max + 1]))  # 从 tau_min 起找峰
+    return fs / tau                     # f0 = fs / tau_peak（Hz）
 ```
 
 这个朴素版本有几个著名毛病，都来自自相关的结构：
@@ -104,25 +106,36 @@ YIN 的完整流程代码（用 NumPy 即可）：
 ```python
 import numpy as np
 
-def yin(frame, fs, fmin=60, fmax=500, thr=0.1):
-    W = len(frame)
-    lo, hi = int(fs / fmax), int(fs / fmin)
-    # 1) 差函数 d(tau)，用自相关加速：d = 2(R0 - R(tau))
-    R = np.correlate(frame, frame, 'full')[W-1 : W+hi]
-    d = 2.0 * (R[0] - R[:hi+1])
-    # 2) CMND 归一化
-    cmnd = np.ones(hi + 1)
-    cmnd[1:] = d[1:] / np.cumsum(d[1:]) * np.arange(1, hi + 1)
-    # 3) 绝对阈值：找第一个低于阈值的谷
-    below = np.where(cmnd[lo-1:] < thr)[0]
-    if below.size == 0:
-        return 0.0                      # 无明确周期，判为清音
-    tau = lo + below[0]
-    # 4) 向下找局部最小
-    while tau + 1 < hi and cmnd[tau-lo+1] < cmnd[tau-lo]:
-        tau += 1
-    # 5) 抛物线插值亚样本精修（略）
-    return fs / tau
+def yin(frame, fs, fmin=60, fmax=500, threshold=0.1):
+    """YIN 算法：差函数 + CMND 归一化 + 阈值谷 + 抛物线插值。"""
+    N = len(frame)
+    tau_min, tau_max = int(fs / fmax), int(fs / fmin)
+
+    # 差函数 d(tau) = sum_j (x_j - x_{j+tau})^2，周期处是谷
+    d = np.zeros(N)
+    for tau in range(1, tau_max + 1):
+        d[tau] = ((frame[:-tau] - frame[tau:]) ** 2).sum()
+
+    # CMND 归一化：d'(tau) = d(tau) / 平均差，抹平随 tau 的衰减
+    d_cumsum = np.cumsum(d)
+    d_prime = np.ones(N)
+    d_prime[1:] = d[1:] * np.arange(1, N) / d_cumsum[1:]
+
+    # 找第一个低于阈值的谷，再从它向下取局部最小
+    tau_est = None
+    for tau in range(tau_min, tau_max + 1):
+        if d_prime[tau] < threshold:
+            while tau + 1 <= tau_max and d_prime[tau + 1] < d_prime[tau]:
+                tau += 1
+            tau_est = tau
+            break
+    if tau_est is None:
+        return 0.0                       # 无明确周期，判为清音
+
+    # 抛物线插值做亚样本精修
+    a, b, c = d_prime[tau_est - 1], d_prime[tau_est], d_prime[tau_est + 1]
+    shift = 0.5 * (a - c) / (a - 2 * b + c)
+    return fs / (tau_est + shift)        # f0（Hz）
 ```
 
 ## 6 辨析与易错点

@@ -67,18 +67,21 @@ $$
 「奖励 vs 质量」的脱钩在代码里可以做成「定期体检」：
 
 ```python
-def check_overoptimization(rewards, quality_scores):
-    """rewards / quality_scores: 各训练轮次的外部验证结果"""
-    # 1. 奖励是否还在涨
-    r_up = rewards[-1] > rewards[-3]
-    # 2. 质量是否已经掉
-    q_down = quality_scores[-1] < max(quality_scores)
-    if r_up and q_down:
-        return "WARNING: 奖励在涨、质量在跌 —— 疑似 reward hacking，建议早停"
-    return "OK"
+# 每轮记录「奖励 vs 质量」，画出过优化曲线
+def health_check(step, reward, quality):
+    log.append({"step": step, "reward": reward, "quality": quality})
+
+for step in range(total_steps):
+    train_one_step()
+    if step % eval_every == 0:
+        reward = reward_model(x, y).mean().item()   # 奖励模型打分（易得）
+        quality = human_eval(sample_batch())         # 外部验证（贵，但要定期做）
+        health_check(step, reward, quality)
+        if quality < best_quality - tol:             # 质量回落 = 过优化警报
+            early_stop()
 ```
 
-两个输入是关键：`rewards` 来自奖励模型（易得），`quality_scores` 来自**外部验证**（人类评估或更可靠评测，贵但必须定期做）。**「奖励在涨 + 质量在跌」这个组合，就是过优化的最直接警报**——把它做成训练中的定期检查，比「训完才发现」省钱得多。## 4 公式解析：过优化曲线
+两个输入是关键：**reward** 分数来自奖励模型（易得），**quality** 分数来自**外部验证**（人类评估或更可靠评测，贵但必须定期做）。**「奖励在涨 + 质量在跌」这个组合，就是过优化的最直接警报**——把它做成训练中的定期检查，比「训完才发现」省钱得多。## 4 公式解析：过优化曲线
 
 「奖励过优化」可以用一个简单的模型刻画——**真实质量是奖励的「非单调函数」**：
 

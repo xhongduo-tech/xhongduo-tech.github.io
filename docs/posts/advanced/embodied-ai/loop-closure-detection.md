@@ -40,9 +40,9 @@ Galvez-López & Tardós, DBoW2 ｜ 2026-08-07
 
 两条技术路线：
 
-- **视觉路线**：用图像特征做外观匹配，
+**视觉路线**：用图像特征做外观匹配，
 是主流（ORB-SLAM、VINS 用词袋）；
-- **激光路线**：用点云做扫描匹配（Scan Context、segmatch），
+**激光路线**：用点云做扫描匹配（Scan Context、segmatch），
 对几何环境鲁棒，
 是 LIO-SAM 等激光系统的选择。
 

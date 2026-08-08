@@ -24,12 +24,14 @@ date: 2026-08-07
 
 **子集和**：$n$ 个整数 $S = \{s_1, \dots, s_n\}$、目标 $t$，问能否选子集和为 $t$。
 
-**精确 DP**（伪多项式）：设 `reachable[w]` = 能否用前若干个数凑出 $w$。逐数更新：
+**精确 DP**（伪多项式）：设 `dp[w]` = 能否用前若干个数凑出 $w$。逐数更新：
 
-```
-for each s in S
-  for w = t downto s
-    reachable[w] |= reachable[w - s]
+```text
+dp[0] = true; 其余 dp[w] = false
+for each s in S:
+    for w = t downto s:
+        dp[w] = dp[w] OR dp[w - s]   // 不选 / 选 s
+答案 = dp[t]
 ```
 
 时间 $O(nt)$——$t$ 大时不可行（0-1 背包课已分析）。**FPTAS 的思路：把 $s_i$ 与 $t$ 按比例缩小，让 DP 在「缩小后的数值范围」上跑**——精度损失被控制在 $\varepsilon$ 内。
@@ -48,16 +50,16 @@ $$L \leftarrow \text{MERGE-LISTS}(L, L + s_i), \quad \text{删去 } > t \text{ �
 
 **FPTAS 构造**（对最大化版本：找不超过 $t$ 的最大子集和）：
 
-```
-APPROX-SUBSET-SUM(S, t, ε)
-  n = S.length
-  L_0 = {0}
-  δ = ε / n
-  for i = 1 to n
-    L_i = MERGE-LISTS(L_{i-1}, L_{i-1} + s_i)
-    L_i = TRIM(L_i, δ)
-    remove from L_i every element > t
-  return largest element in L_n
+```text
+FPTAS-SUBSET-SUM(S, t, ε)
+  n = |S|,  K = max(1, ⌊ε·t / n⌋)         // 缩放因子
+  S' = { ⌊s_i / K⌋ : s_i ∈ S }            // 缩放后的整数集合
+  L = ⟨0⟩                                 // 可达和列表
+  for i = 1 to n:
+      L = MERGE-LISTS(L, L + s'_i)        // 合并：不加 / 加第 i 个
+      L = TRIM(L, ε / n)                  // 修剪：δ 相对误差内合并
+      从 L 中删去 > ⌊t/K⌋ 的项
+  return max(L) · K                       // 按原始尺度还原
 ```
 
 **关键参数**：修剪阈值 $\delta = \varepsilon / n$——把「总误差」分摊到 $n$ 步，每步误差 ≤ $\delta$，累积误差 ≤ $n\delta = \varepsilon$。<span class="marginnote">「$\delta = \varepsilon/n$」是误差分摊的经典手法：每一步修剪引入 ≤ $\delta$ 的相对误差，$n$ 步累积 ≤ $n\delta = \varepsilon$。若直接取 $\delta = \varepsilon$，$n$ 步累积会放大 $n$ 倍。把预算「按步均摊」是近似算法的通用技巧——与摊还分析的「按操作分摊」同构。</span>

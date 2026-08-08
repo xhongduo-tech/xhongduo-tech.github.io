@@ -37,13 +37,13 @@ $$f_* : \pi_1(X, x_0) \to \pi_1(Y, y_0), \qquad f_*([\sigma]) = [f \circ \sigma]
 
 **函子性（functoriality）** 由两条性质构成：
 
-- **保复合**：$(g \circ f)_* = g_* \circ f_*$——复合映射诱导的复合同态。
-- **保恒等**：$\mathrm{id}_{X*} = \mathrm{id}_{\pi_1(X,x_0)}$——恒等映射诱导恒等同态。
+**保复合**：$(g \circ f)_* = g_* \circ f_*$——复合映射诱导的复合同态。
+**保恒等**：$\mathrm{id}_{X*} = \mathrm{id}_{\pi_1(X,x_0)}$——恒等映射诱导恒等同态。
 
 验证：
 
-- **保复合**：$(g \circ f)_*([\sigma]) = [(g\circ f)\circ\sigma] = [g \circ (f \circ \sigma)] = g_*([f\circ\sigma]) = g_*(f_*([\sigma]))$。
-- **保恒等**：$\mathrm{id}_*([\sigma]) = [\mathrm{id}\circ\sigma] = [\sigma]$。
+**保复合**：$(g \circ f)_*([\sigma]) = [(g\circ f)\circ\sigma] = [g \circ (f \circ \sigma)] = g_*([f\circ\sigma]) = g_*(f_*([\sigma]))$。
+**保恒等**：$\mathrm{id}_*([\sigma]) = [\mathrm{id}\circ\sigma] = [\sigma]$。
 
 两条公理合起来，$\pi_1$ 是一个**函子**：把「拓扑空间与保基点连续映射的范畴」翻译到「群与群同态的范畴」。函子性不是附加性质，而是「基本群」这个名字背后的结构保证。<span class="marginnote">「保复合 + 保恒等」是函子的定义。有了函子性，一切「映射的分解」都自动「翻译成同态的分解」——拓扑世界的可交换图，在群世界也成立。这就是为什么「可交换图」论证在代数拓扑里如此重要。</span>
 

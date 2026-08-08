@@ -48,9 +48,9 @@ $$X + Y \sim N(\mu_1 + \mu_2,\ \sigma_1^2 + \sigma_2^2)$$
 
 「独立之和」在离散世界里同样有漂亮的结论：
 
-- **泊松可加**：$X \sim \pi(\lambda_1)$、$Y \sim \pi(\lambda_2)$ 独立 ⇒ $X + Y \sim \pi(\lambda_1 + \lambda_2)$；
-- **二项可加**：$X \sim B(n_1, p)$、$Y \sim B(n_2, p)$ 独立且 $p$ 相同 ⇒ $X + Y \sim B(n_1 + n_2, p)$；
-- **$\chi^2$ 可加**：$X \sim \chi^2(n_1)$、$Y \sim \chi^2(n_2)$ 独立 ⇒ $X + Y \sim \chi^2(n_1 + n_2)$（第六章主角）。
+**泊松可加**：$X \sim \pi(\lambda_1)$、$Y \sim \pi(\lambda_2)$ 独立 ⇒ $X + Y \sim \pi(\lambda_1 + \lambda_2)$；
+**二项可加**：$X \sim B(n_1, p)$、$Y \sim B(n_2, p)$ 独立且 $p$ 相同 ⇒ $X + Y \sim B(n_1 + n_2, p)$；
+**$\chi^2$ 可加**：$X \sim \chi^2(n_1)$、$Y \sim \chi^2(n_2)$ 独立 ⇒ $X + Y \sim \chi^2(n_1 + n_2)$（第六章主角）。
 
 三条「可加性」共享同一个直觉：**独立计数/独立波动合起来，参数相加**。这也解释了二项分布名字的由来——$B(n_1,p) + B(n_2,p) = B(n_1+n_2,p)$，与「做两批独立试验」等价。<span class="marginnote">可加性还有一个统一点：这些都来自「矩母函数相乘」。$X+Y$ 的矩母函数是 $M_X(t)M_Y(t)$，若 $M_X(t)M_Y(t)$ 恰好仍是某族分布的形状（正态、泊松、二项、$\chi^2$），就得到可加性结论。第七章参数估计里，独立同分布样本的和 $S_n$ 的结构也全靠这些可加性。</span>
 

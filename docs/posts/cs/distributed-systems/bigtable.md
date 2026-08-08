@@ -22,9 +22,9 @@ GFS 存文件、MapReduce 算数据，可 Google 的多数产品（搜索、地�
 
 Bigtable 的数据模型是一个**稀疏的、分布式的、多维有序映射**：
 
-```
-(row_key, column_key, timestamp) → value
-```
+$$
+(row:\ \mathrm{string},\ column:\ \mathrm{string},\ timestamp:\ \mathrm{int64}) \mapsto \mathrm{string}
+$$
 
 - **行键（row key）**：主键，按字典序排序——行键决定数据的物理位置（按行键范围分区到 tablet）。
 - **列族（column family）**：列的集合，如 `anchor`（外链）、`contents`（页面内容）——列族是访问与存储的基本单元。
@@ -32,21 +32,21 @@ Bigtable 的数据模型是一个**稀疏的、分布式的、多维有序映射
 
 **稀疏**是关键：一行可以有任意多列，没有的列不占存储——所以「用户表」可以给每个用户存任意多的属性，不必预先定义 schema。
 
-Bigtable 的行键设计直接影响性能：**相邻行键的数据落在同一 tablet**（按范围分区），所以「批量取同一前缀的行」是单 tablet 操作——例如把网页 URL 反转后作行键（`com.cnn.www`），同域名的页面就聚集在一起。<span class="marginnote"><strong>辨析｜易错点：</strong>Bigtable 不是「关系表」——它没有 SQL、没有 JOIN、没有强 schema。它是「宽列存储」（wide-column store）：行可以有无穷多列，列按族组织。Cassandra 的 `column family`、HBase 的 `table` 都是这个模型的直接继承——「稀疏宽表」是它与关系型（行存）和键值（纯 KV）的本质区别。</span>
+Bigtable 的行键设计直接影响性能：**相邻行键的数据落在同一 tablet**（按范围分区），所以「批量取同一前缀的行」是单 tablet 操作——例如把网页 URL 反转后作行键（`com.cnn.www`），同域名的页面就聚集在一起。<span class="marginnote"><strong>辨析｜易错点：</strong>Bigtable 不是「关系表」——它没有 SQL、没有 JOIN、没有强 schema。它是「宽列存储」（wide-column store）：行可以有无穷多列，列按族组织。Cassandra 的 column family、HBase 的 column family 都是这个模型的直接继承——「稀疏宽表」是它与关系型（行存）和键值（纯 KV）的本质区别。</span>
 
 ## 2 底层存储：SSTable
 
 **SSTable（Sorted String Table，排序字符串表）**是 Bigtable 的存储基石：一个**按键排序的、不可变的、键值对集合**文件。三个性质：
 
-- **有序**：键按字典序排列——支持二分查找、支持「范围扫描」。
-- **不可变**：写入后不再修改——天然支持顺序写、无随机写、无碎片。
-- **紧凑**：一次顺序写生成，压缩率高。
+**有序**：键按字典序排列——支持二分查找、支持「范围扫描」。
+**不可变**：写入后不再修改——天然支持顺序写、无随机写、无碎片。
+**紧凑**：一次顺序写生成，压缩率高。
 
 SSTable 怎么支持「随机读写」？答案是 **LSM 树（Log-Structured Merge Tree）**结构：
 
-- **写入**：追加到内存中的 **memtable**（有序缓冲），memtable 满后刷成 SSTable（顺序写，快）。
-- **读取**：先查 memtable，再查最近的 SSTable…… 一层层查（可用布隆过滤器跳过无关层）。
-- **合并**：后台**压缩（compaction）**把多个 SSTable 合并成一个——清理冗余、删除过期数据。
+**写入**：追加到内存中的 **memtable**（有序缓冲），memtable 满后刷成 SSTable（顺序写，快）。
+**读取**：先查 memtable，再查最近的 SSTable…… 一层层查（可用布隆过滤器跳过无关层）。
+**合并**：后台**压缩（compaction）**把多个 SSTable 合并成一个——清理冗余、删除过期数据。
 
 这个设计的精髓：**把「随机写」变成「顺序写」**（写入只碰内存 + 顺序落盘），换取极高的写入吞吐；代价是「读要查多层」（读放大）与「后台压缩」的开销。LSM 树是 Bigtable/HBase/Cassandra/RocksDB 吞吐的秘密，也是它们与 B+ 树数据库（MySQL）在读写性格上的分野。<span class="marginnote">LSM 树的「读放大 vs 写放大」是存储引擎设计的核心权衡：SSTable 层数多则写快读慢，合并频繁则读快写慢。RocksDB（LSM 树的极致工程化）把「层数、合并策略、布隆过滤器」全部做成可调参数——理解 LSM 树，就理解了现代分布式存储引擎的性能心智模型。</span>
 
@@ -54,9 +54,9 @@ SSTable 怎么支持「随机读写」？答案是 **LSM 树（Log-Structured Me
 
 Bigtable 的分布式结构把数据切成**tablet**（行键范围的分片），用三层系统定位：
 
-- **Chubby 服务**（基于 Paxos 的锁服务，第 10 篇 Chubby 展开）：保存元数据根表位置，提供分布式锁与选主——Bigtable 的「引导与协调」层。
-- **主节点（master）**：管理 tablet 分配、负载均衡、垃圾回收。master 不承担数据读写——数据流直接走 tablet server。
-- **Tablet server**：每个管理若干 tablet，处理其上的读写请求。
+**Chubby 服务**（基于 Paxos 的锁服务，第 10 篇 Chubby 展开）：保存元数据根表位置，提供分布式锁与选主——Bigtable 的「引导与协调」层。
+**主节点（master）**：管理 tablet 分配、负载均衡、垃圾回收。master 不承担数据读写——数据流直接走 tablet server。
+**Tablet server**：每个管理若干 tablet，处理其上的读写请求。
 
 定位流程（三层索引）：客户端先问 Chubby 拿「根 tablet 位置」→ 根 tablet 指到「元数据 tablet」→ 元数据 tablet 指到「用户 tablet」。这棵「B+ 树式」的定位索引让任意行键都能在常数级跳数内被找到。
 
@@ -90,7 +90,7 @@ $$
 
 ## 6 小结
 
-- **Bigtable** 是「稀疏、分布式、多维有序映射表」：`(row_key, column_family, timestamp) → value`。
+- **Bigtable** 是「稀疏、分布式、多维有序映射表」：以 (row, column, timestamp) 三元组定位一个单元格，值是不解释的字节串。
 - **SSTable**（有序不可变文件）+ **LSM 树**（内存缓冲 + 多层落盘 + 后台压缩）——把随机写变顺序写，写吞吐极高。
 - 分布式架构：Chubby（引导）→ master（tablet 分配）→ tablet server（数据读写）；三层定位索引。
 - tablet 按行键范围分区，自动分裂合并——动态分区 + 负载均衡。

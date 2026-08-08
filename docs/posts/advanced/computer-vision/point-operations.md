@@ -97,11 +97,11 @@ $$
 ```python
 import numpy as np
 
-def hist_equalize(img, L=256):
-    hist = np.bincount(img.ravel(), minlength=L).astype(np.float64)
-    cdf = np.cumsum(hist / hist.sum())          # 累积分布函数
-    lut = np.round((L - 1) * cdf).astype(np.uint8)  # 查表：T(r)=round((L-1)·CDF(r))
-    return lut[img]                             # 逐点查表映射
+def histeq(img, L=256):
+    hist = np.bincount(img.ravel(), minlength=L)  # 灰度直方图 n_k
+    cdf = hist.cumsum()                            # 累积分布 ∑ n_j
+    cdf = (L - 1) * cdf / cdf[-1]                  # 归一化到 [0, L-1]
+    return cdf[img].astype(np.uint8)               # 查表完成映射
 ```
 
 **辨析｜易错点：** 直方图均衡化有两个常被忽略的副作用。其一，它是**全局**的——把整幅图当成一个分布来处理，暗部细节与亮部细节是「零和博弈」；其二，直方图**很稀疏**的灰度区间会被拉开，而噪声恰好常驻在那里，于是均衡化可能**放大噪声**。对平坦区域居多的图像（如夜空），要谨慎使用。

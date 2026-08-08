@@ -51,21 +51,21 @@ $$x(t) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} X(j\omega)\, e^{j\omega t}\, d\
 
 傅里叶变换的性质把"时域操作"翻译成"频域操作"，其中几条是工程命的：
 
-- **线性**：变换是线性映射，叠加原理在频域依旧成立。
-- **时移**：$x(t-t_0) \leftrightarrow e^{-j\omega t_0} X(j\omega)$——时域平移不改幅度谱，只加线性相位。
-- **频移（调制）**：$e^{j\omega_0 t}x(t) \leftrightarrow X(j(\omega - \omega_0))$——乘复指数把频谱搬移。**调制解调的全部数学就是这一条**。
-- **尺度**：$x(at) \leftrightarrow \frac{1}{|a|} X(j\omega/a)$——时域压缩 = 频域扩展。
-- **卷积定理**：$x(t) * h(t) \leftrightarrow X(j\omega) H(j\omega)$——**时域卷积 = 频域乘法**。
-- **帕塞瓦尔定理**：$\int |x(t)|^2 dt = \frac{1}{2\pi}\int |X(j\omega)|^2 d\omega$——能量守恒，时域能量 = 频域能量。
+**线性**：变换是线性映射，叠加原理在频域依旧成立。
+**时移**：$x(t-t_0) \leftrightarrow e^{-j\omega t_0} X(j\omega)$——时域平移不改幅度谱，只加线性相位。
+**频移（调制）**：$e^{j\omega_0 t}x(t) \leftrightarrow X(j(\omega - \omega_0))$——乘复指数把频谱搬移。**调制解调的全部数学就是这一条**。
+**尺度**：$x(at) \leftrightarrow \frac{1}{|a|} X(j\omega/a)$——时域压缩 = 频域扩展。
+**卷积定理**：$x(t) * h(t) \leftrightarrow X(j\omega) H(j\omega)$——**时域卷积 = 频域乘法**。
+**帕塞瓦尔定理**：$\int |x(t)|^2 dt = \frac{1}{2\pi}\int |X(j\omega)|^2 d\omega$——能量守恒，时域能量 = 频域能量。
 
 ## 4 公式解析：卷积定理
 
 卷积定理是整个课程最漂亮的一条性质，值得逐层拆开：
 
-- **第一步，写出卷积**：$y(t) = \int x(\tau) h(t-\tau) d\tau$，对它做傅里叶变换 $Y(j\omega) = \int \left[ \int x(\tau) h(t-\tau) d\tau \right] e^{-j\omega t} dt$。
-- **第二步，交换积分次序**：$Y(j\omega) = \int x(\tau) \left[ \int h(t-\tau) e^{-j\omega t} dt \right] d\tau$。内层对 $t$ 积分，令 $u = t-\tau$，得 $e^{-j\omega\tau} \int h(u)e^{-j\omega u}du = e^{-j\omega\tau} H(j\omega)$。
-- **第三步，提取**：$Y(j\omega) = \left[ \int x(\tau) e^{-j\omega \tau} d\tau \right] H(j\omega) = X(j\omega) H(j\omega)$。
-- **结论**：**时域的卷积积分，在频域退化成一次乘法**。这就是"滤波器为什么好算"：设计系统只需乘一个 $H(j\omega)$。
+**第一步，写出卷积**：$y(t) = \int x(\tau) h(t-\tau) d\tau$，对它做傅里叶变换 $Y(j\omega) = \int \left[ \int x(\tau) h(t-\tau) d\tau \right] e^{-j\omega t} dt$。
+**第二步，交换积分次序**：$Y(j\omega) = \int x(\tau) \left[ \int h(t-\tau) e^{-j\omega t} dt \right] d\tau$。内层对 $t$ 积分，令 $u = t-\tau$，得 $e^{-j\omega\tau} \int h(u)e^{-j\omega u}du = e^{-j\omega\tau} H(j\omega)$。
+**第三步，提取**：$Y(j\omega) = \left[ \int x(\tau) e^{-j\omega \tau} d\tau \right] H(j\omega) = X(j\omega) H(j\omega)$。
+**结论**：**时域的卷积积分，在频域退化成一次乘法**。这就是"滤波器为什么好算"：设计系统只需乘一个 $H(j\omega)$。
 
 **直觉**：一个 LTI 系统对每个频率分量独立地乘上它的"增益" $H(j\omega)$——系统不混合频率，只改变每个频率的幅度与相位。<span class="marginnote">"系统不混合频率"正是 LTI 的另一种表述，它也是<strong>特征函数</strong>思想的体现：$e^{j\omega t}$ 是 LTI 系统的特征函数，$H(j\omega)$ 是对应特征值。这个看法与线性代数里"对角化矩阵"完全一致——见第二级《线性代数》特征值章节。</span>
 

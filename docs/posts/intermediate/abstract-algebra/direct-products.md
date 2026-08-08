@@ -37,10 +37,10 @@ $$
 **定理：** $G_1 \times \cdots \times G_k$ 构成群，单位元 $(e_1, \dots, e_k)$，逆元 $(g_1,\dots,g_k)^{-1} = (g_1^{-1}, \dots, g_k^{-1})$。运算按分量独立进行——各分量互不干扰，这正是「直积」的直觉：**每个分量自由地活在自己的群里，互不牵连。**<span class="marginnote">直积的阶：$|G_1 \times \cdots \times G_k| = |G_1| \cdots |G_k|$（有限时），这是「乘法」这个名字的由来——群的大小真的相乘了。$\mathbb{Z}_2 \times \mathbb{Z}_2$ 有 4 个元素（克莱因四元群 $V_4$），$\mathbb{Z}_2 \times \mathbb{Z}_3$ 有 6 个元素且 $\cong \mathbb{Z}_6$。</span>
 
 **例：**
-- $\mathbb{Z}_2 \times \mathbb{Z}_2 = V_4$（克莱因四元群），每个非单位元阶为 2；
-- $\mathbb{Z}_2 \times \mathbb{Z}_3 \cong \mathbb{Z}_6$（因为 $\gcd(2,3) = 1$，下一节定理）；
-- $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$（向量空间的加法群）；
-- $GL_n(\mathbb{R}) \times GL_m(\mathbb{R})$：分块对角矩阵群。
+$\mathbb{Z}_2 \times \mathbb{Z}_2 = V_4$（克莱因四元群），每个非单位元阶为 2；
+$\mathbb{Z}_2 \times \mathbb{Z}_3 \cong \mathbb{Z}_6$（因为 $\gcd(2,3) = 1$，下一节定理）；
+$\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$（向量空间的加法群）；
+$GL_n(\mathbb{R}) \times GL_m(\mathbb{R})$：分块对角矩阵群。
 
 ## 2 内直积：从内部认出「乘积结构」
 

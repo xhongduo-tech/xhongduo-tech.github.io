@@ -18,7 +18,7 @@ date: 2026-08-07
 
 上一节把 RNN 展开成「权重共享的超深前馈网络」——这个等价关系立刻给出了 RNN 的训练方法：**把展开图当普通深网络做反向传播**，梯度沿时间轴从后往前流，这就是**通过时间的反向传播（Backpropagation Through Time, BPTT）**。BPTT 不是新算法，而是「链式法则在 RNN 展开图上」的直接应用；但它有一个普通反向传播没有的关键细节——**因为权重跨时间共享，同一参数的梯度要沿所有时间步累加**。
 
-BPTT 是理解「RNN 为什么难训练」的钥匙：梯度沿时间轴连乘 $\boldsymbol{W}_{hh}$，时间步越多，连乘越长——梯度消失/爆炸在 RNN 里以「时间维」的形式爆发。理解 BPTT，就理解了为什么 LSTM 的门控、梯度裁剪、截断 BPTT 都指向同一个问题。<span class="marginnote">BPTT 的历史：它的思想与「反向模式自动微分」同期（1980 年代 Werbos 提出），是 RNN 训练的标配。与现代框架的关系：PyTorch 的 `autograd` 对 RNN 自动做 BPTT——你不需要手写，但理解「梯度沿时间累加」能解释很多实现细节（如「为什么 RNN 的 backward 要展开成时间步」）。</span>
+BPTT 是理解「RNN 为什么难训练」的钥匙：梯度沿时间轴连乘 $\boldsymbol{W}_{hh}$，时间步越多，连乘越长——梯度消失/爆炸在 RNN 里以「时间维」的形式爆发。理解 BPTT，就理解了为什么 LSTM 的门控、梯度裁剪、截断 BPTT 都指向同一个问题。<span class="marginnote">BPTT 的历史：它的思想与「反向模式自动微分」同期（1980 年代 Werbos 提出），是 RNN 训练的标配。与现代框架的关系：PyTorch 的 $\boldsymbol{W}_{hh}$ 对 RNN 自动做 BPTT——你不需要手写，但理解「梯度沿时间累加」能解释很多实现细节（如「为什么 RNN 的 backward 要展开成时间步」）。</span>
 
 ## 1 损失与展开：BPTT 的起点
 
@@ -36,7 +36,7 @@ $$
 \frac{\partial L}{\partial \boldsymbol{W}_{hh}} = \sum_{t=1}^{T} \frac{\partial L_t}{\partial \boldsymbol{W}_{hh}}
 $$
 
-**「求和」是 BPTT 的第一原则**：$\boldsymbol{W}_{hh}$ 被用了 $T$ 次（每个时间步一次），它的梯度是 $T$ 个时间步贡献的累加——与《参数共享》的「梯度 = 各使用位置之和」完全一致。<span class="marginnote">「梯度累加」在实现上的体现：PyTorch 里 RNN 的 `backward()` 会自动把时间维的梯度累加回共享权重。若你手写 BPTT，最容易犯的错是「只算了最后一个时间步的梯度」——漏了「求和」，训练就会「只对最后一步负责」。</span>
+**「求和」是 BPTT 的第一原则**：$\boldsymbol{W}_{hh}$ 被用了 $T$ 次（每个时间步一次），它的梯度是 $T$ 个时间步贡献的累加——与《参数共享》的「梯度 = 各使用位置之和」完全一致。<span class="marginnote">「梯度累加」在实现上的体现：PyTorch 里 RNN 的 $T$ 会自动把时间维的梯度累加回共享权重。若你手写 BPTT，最容易犯的错是「只算了最后一个时间步的梯度」——漏了「求和」，训练就会「只对最后一步负责」。</span>
 
 ## 2 反向的递推：从后往前「逆流」
 

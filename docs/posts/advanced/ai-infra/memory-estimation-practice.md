@@ -34,22 +34,22 @@ date: 2026-08-07
 
 ## 2 算例一：7B 模型，单节点 8×A100-80G，BF16
 
-- **参数**：$\Psi = 7\text{B}$，BF16 + AdamW → 模型状态系数 16。
-- **模型状态**：$16 \times 7\text{B} = 112\text{GB}$。
-- **并行摊薄**：FSDP 8 卡 → $112/8 = 14\text{GB}/卡$。（无需 TP/PP。）
-- **激活**：设 batch 4、seq 2048、hidden 4096、head 32。每层 $\approx 34 \times 4 \times 2048 \times 4096 + 5 \times 4 \times 2048^2 \times 32 \approx 1.1\text{GB} + 2.7\text{GB} \approx 3.8\text{GB}$；32 层共 $\approx 122\text{GB}$；不开重算时每卡也约 122GB（FSDP 不摊激活）——**远超 80GB**。
-- **调整**：开全量重算 → 激活降到一层量级 ≈ 4GB。
-- **总账**：$14 + 4 + \text{overhead}(~8) = 26\text{GB}$，加安全系数 ≈ 30GB ≪ 80GB。
+**参数**：$\Psi = 7\text{B}$，BF16 + AdamW → 模型状态系数 16。
+**模型状态**：$16 \times 7\text{B} = 112\text{GB}$。
+**并行摊薄**：FSDP 8 卡 → $112/8 = 14\text{GB}/卡$。（无需 TP/PP。）
+**激活**：设 batch 4、seq 2048、hidden 4096、head 32。每层 $\approx 34 \times 4 \times 2048 \times 4096 + 5 \times 4 \times 2048^2 \times 32 \approx 1.1\text{GB} + 2.7\text{GB} \approx 3.8\text{GB}$；32 层共 $\approx 122\text{GB}$；不开重算时每卡也约 122GB（FSDP 不摊激活）——**远超 80GB**。
+**调整**：开全量重算 → 激活降到一层量级 ≈ 4GB。
+**总账**：$14 + 4 + \text{overhead}(~8) = 26\text{GB}$，加安全系数 ≈ 30GB ≪ 80GB。
 
 **结论**：7B 单节点 FSDP + 全量重算，显存富余。若把富余换更大的 batch/序列，激活会上涨，需重新平衡。<span class="marginnote">注意这个算例的转折：不开重算时激活 122GB 是压倒性大头，开了重算立刻降到 4GB——<strong>「显存不够先开重算」这句口诀在这里有清晰的数字支撑</strong>。</span>
 
 ## 3 算例二：70B 模型，4 节点 32×A100-80G，BF16
 
-- **参数**：$\Psi = 70\text{B}$，模型状态 $16 \times 70\text{B} = 1120\text{GB}$。
-- **并行摊薄**：TP=8 × PP=4 × FSDP(z=4)：$1120 / (8 \times 4 \times 4) = 8.75\text{GB}/卡$。
-- **激活**：设 batch 2、seq 4096、hidden 8192、head 64。每层 $\approx 34 \times 2 \times 4096 \times 8192 + 5 \times 2 \times 4096^2 \times 64 \approx 2.3\text{GB} + 10.7\text{GB} \approx 13\text{GB}$；80 层共 $\approx 1040\text{GB}$；被 TP=8、PP=4 摊薄 → $1040 / 32 \approx 32.5\text{GB}/卡$。
-- **总账（不开重算）**：$8.75 + 32.5 + \text{overhead}(~10) \approx 51\text{GB}$，加安全系数 ≈ 60GB，**80GB 内可行但偏紧**。
-- **更稳的选择**：开选择性重算（attention 层）→ 激活降到约 15GB → 总账 ≈ 35GB，余量充足。
+**参数**：$\Psi = 70\text{B}$，模型状态 $16 \times 70\text{B} = 1120\text{GB}$。
+**并行摊薄**：TP=8 × PP=4 × FSDP(z=4)：$1120 / (8 \times 4 \times 4) = 8.75\text{GB}/卡$。
+**激活**：设 batch 2、seq 4096、hidden 8192、head 64。每层 $\approx 34 \times 2 \times 4096 \times 8192 + 5 \times 2 \times 4096^2 \times 64 \approx 2.3\text{GB} + 10.7\text{GB} \approx 13\text{GB}$；80 层共 $\approx 1040\text{GB}$；被 TP=8、PP=4 摊薄 → $1040 / 32 \approx 32.5\text{GB}/卡$。
+**总账（不开重算）**：$8.75 + 32.5 + \text{overhead}(~10) \approx 51\text{GB}$，加安全系数 ≈ 60GB，**80GB 内可行但偏紧**。
+**更稳的选择**：开选择性重算（attention 层）→ 激活降到约 15GB → 总账 ≈ 35GB，余量充足。
 
 **结论**：70B 走「TP=8 × PP=4 + FSDP + 选择性重算」是标准且安全的配置。<span class="marginnote">对比两个算例会发现规律：模型越大，越需要「多维度叠加」才能把显存压进单卡——7B 靠 FSDP 就够，70B 要 TP+PP+FSDP+重算四件套齐上。这就是前几篇并行策略篇的「五步决策法」在显存维度的回声。</span>
 
@@ -72,7 +72,7 @@ $$\text{Budget} = \underbrace{\frac{16\Psi}{t \cdot p \cdot z}}_{\text{模型状
 - **直接用 16Ψ 当总显存**：那只是模型状态；激活可能更大，尤其长序列。
 - **忘了激活不被 DP 摊薄**：加 DP 卡救不了激活，看公式里激活分母只有 $t$ 和 $p$。
 - **精度系数一刀切**：FP8 训练系数远小于 16，Adafactor 也小，别套错。
-- **估算 ≠ 实测**：估算是「是否安全」的快速判断；真上线仍要看 `torch.cuda.memory_summary()` 实测。
+- **估算 ≠ 实测**：估算是「是否安全」的快速判断；真上线仍要看 `torch.cuda.max_memory_allocated()` 实测。
 - **batch 与激活是线性关系**：减半 batch 近似减半激活（注意 $b$ 在两项里都线性），是调整显存的第一快手段。
 
 ## 6 小结
@@ -85,7 +85,7 @@ $$\text{Budget} = \underbrace{\frac{16\Psi}{t \cdot p \cdot z}}_{\text{模型状
 
 ## 7 进阶与延伸
 
-**动手做一份你自己的「估算表」**：把你的模型参数（$\Psi$、$h$、$L$、batch、seq）代入五步工作表，做一份「估算 vs 实测」对照——训练后对比 `torch.cuda.memory_summary()` 的实测值，找出估算误差的来源，修正你的估算模型。
+**动手做一份你自己的「估算表」**：把你的模型参数（$\Psi$、$h$、$L$、batch、seq）代入五步工作表，做一份「估算 vs 实测」对照——训练后对比 $h$ 的实测值，找出估算误差的来源，修正你的估算模型。
 
 **几个值得进一步挖的方向**：
 
@@ -98,7 +98,7 @@ $$\text{Budget} = \underbrace{\frac{16\Psi}{t \cdot p \cdot z}}_{\text{模型状
 ## 8 动手实践清单
 
 - 用五步工作表为「7B、batch 4、seq 2048、8 卡」与「70B、batch 2、seq 4096、32 卡」各做一份显存估算。
-- 训练后跑 `torch.cuda.memory_summary()`，与估算表逐项对照。
+- 训练后跑 `profiler`，与估算表逐项对照。
 - 找出估算误差最大的项，修正你的估算系数。
 - 用「安全系数 1.2」重算一份「保守预算」，观察对配置的影响。
 - 验证「激活不被 DP 摊薄」——加 DP 卡看估算里的激活项。

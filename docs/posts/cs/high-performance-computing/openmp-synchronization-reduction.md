@@ -37,11 +37,9 @@ date: 2026-08-07
 看一个经典错误：
 
 ```c
-double sum = 0.0;
 #pragma omp parallel for
-for (int i = 0; i < N; i++) {
-    sum += a[i];      // 多个线程同时读写 sum
-}
+for (int i = 0; i < n; ++i)
+    sum += a[i];          // 数据竞争：多个线程同时更新 sum
 ```
 
 `sum += a[i]` 在底层是三步：**读 sum → 加 a[i] → 写回 sum**。
@@ -64,13 +62,13 @@ for (int i = 0; i < N; i++) {
 
 对付「同时写同一变量」，第一板斧是**互斥**。
 
-**`#pragma omp critical`：临界区。**
+**critical：临界区。**
 
 一次只允许一个线程进入，其他线程排队等待：
 
 ```c
 #pragma omp parallel for
-for (int i = 0; i < N; i++) {
+for (int i = 0; i < n; ++i) {
     #pragma omp critical
     sum += a[i];
 }
@@ -78,13 +76,13 @@ for (int i = 0; i < N; i++) {
 
 正确，但慢——每次累加都要排队拿锁。
 
-**`#pragma omp atomic`：原子操作。**
+**atomic：原子操作。**
 
 把「读-加-写」合并成一条不可分割的硬件操作，只对简单运算生效：
 
 ```c
 #pragma omp parallel for
-for (int i = 0; i < N; i++) {
+for (int i = 0; i < n; ++i) {
     #pragma omp atomic
     sum += a[i];
 }
@@ -92,7 +90,7 @@ for (int i = 0; i < N; i++) {
 
 比 critical 快得多，因为它没有锁队列、直接让硬件保证原子性。
 
-<span class="marginnote">`atomic` 只支持加减乘、位运算这类单条指令；碰到函数调用、复杂表达式就得退回 `critical`。硬件原子指令（CAS、fetch-and-add）是操作系统课程里锁的实现基础。</span>
+<span class="marginnote">atomic 只支持加减乘、位运算这类单条指令；碰到函数调用、复杂表达式就得退回 critical。硬件原子指令（CAS、fetch-and-add）是操作系统课程里锁的实现基础。</span>
 
 ## 3 屏障与 ordered
 
@@ -100,21 +98,21 @@ for (int i = 0; i < N; i++) {
 
 让所有线程在某个点停下来等齐——这就是**屏障（barrier）**。
 
-- `omp for`、`omp sections` 的**末尾自带隐式屏障**；
-- 显式屏障用 `#pragma omp barrier`，所有线程到达后才一起放行；
-- 想跳过 `for` 末尾的隐式屏障，用 `nowait` 子句。
+`parallel` 与 `for` 的**末尾自带隐式屏障**；
+显式屏障用 `barrier`，所有线程到达后才一起放行；
+想跳过 `for` 末尾的隐式屏障，用 `nowait` 子句。
 
 屏障的用途：
 
 确保「别人算完」这个前提成立——比如第二阶段的输入依赖第一阶段所有线程的输出。
 
-**`#pragma omp ordered`** 则强制「按循环顺序执行」：
+**ordered** 则强制「按循环顺序执行」：
 
 ```c
-#pragma omp for ordered
-for (int i = 0; i < N; i++) {
+#pragma omp parallel for ordered
+for (int i = 0; i < n; ++i) {
     #pragma omp ordered
-    process_in_order(i);   // 这一句严格按 i 从小到大执行
+    printf("%d\n", i);        // 按循环顺序输出
 }
 ```
 
@@ -129,11 +127,9 @@ for (int i = 0; i < N; i++) {
 真正的工程答案是**归约子句（reduction clause）**：
 
 ```c
-double sum = 0.0;
 #pragma omp parallel for reduction(+:sum)
-for (int i = 0; i < N; i++) {
+for (int i = 0; i < n; ++i)
     sum += a[i];
-}
 ```
 
 编译器自动完成三件事：
@@ -155,18 +151,19 @@ for (int i = 0; i < N; i++) {
 把三种写法摆在一起对比：
 
 ```c
-/* 写法一：错（数据竞争） */
-#pragma omp parallel for
-for (...) sum += a[i];
+// 串行：正确，但没有并行
+for (int i = 0; i < n; ++i) sum += a[i];
 
-/* 写法二：对但慢（临界区排队） */
+// 临界区：正确但慢，每次累加都排队
 #pragma omp parallel for
-for (...) { #pragma omp critical
-    sum += a[i]; }
+for (int i = 0; i < n; ++i)
+    #pragma omp critical
+    sum += a[i];
 
-/* 写法三：对且快（归约） */
+// 归约：快且干净，各线程私有副本 + 收尾合并
 #pragma omp parallel for reduction(+:sum)
-for (...) sum += a[i];
+for (int i = 0; i < n; ++i)
+    sum += a[i];
 ```
 
 三步读懂归约写法：
@@ -183,11 +180,11 @@ for (...) sum += a[i];
 
 | 手段 | 语义 | 性能 | 适用 |
 | --- | --- | --- | --- |
-| `critical` | 临界区互斥 | 慢（排队） | 任意代码块 |
-| `atomic` | 单指令原子更新 | 快 | 简单运算 |
-| `reduction` | 私有副本 + 归并 | 最快 | 累加/求最值等汇总 |
+| critical | 临界区互斥 | 慢（排队） | 任意代码块 |
+| atomic | 单指令原子更新 | 快 | 简单运算 |
+| reduction | 私有副本 + 归并 | 最快 | 累加/求最值等汇总 |
 
-**工程直觉：** 汇总类计算一律用 `reduction`；单变量简单更新用 `atomic`；复杂临界区才用 `critical`。
+**工程直觉：** 汇总类计算一律用 reduction；单变量简单更新用 atomic；复杂临界区才用 critical。
 
 同步是并行性能的隐形税，交得越少越好。
 

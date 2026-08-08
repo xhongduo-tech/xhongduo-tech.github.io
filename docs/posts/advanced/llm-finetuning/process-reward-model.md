@@ -68,18 +68,19 @@ $$
 聚合方式在代码里只有几行：
 
 ```python
-def prm_score(prm, prompt, steps):
-    step_scores = prm(prompt, steps)          # 每步一个分数，如 [0.9, 0.8, 0.2, 0.7]
-    # 常用聚合：
-    score_min  = min(step_scores)             # 取最小——「一步错全盘错」
-    score_prod = np.prod(step_scores)         # 取乘积——等价于「所有步都对的概率」
-    return score_min, score_prod
+import math
 
-# best-of-N 重排：对 N 条候选链分别算 score，选最大的
-best = max(candidates, key=lambda c: prm_score(prm, prompt, c.steps))
+def aggregate(r_scores, mode="min"):
+    """r_scores: 一条推理链各步骤的分数 [r_1, r_2, ..., r_T]"""
+    if mode == "min":
+        return min(r_scores)                 # 最弱一步：一步错，全盘错
+    if mode == "prod":
+        return math.prod(r_scores)           # 全链稳健性：积越小越不牢
+    if mode == "mean":
+        return sum(r_scores) / len(r_scores) # 平均，折中方案
 ```
 
-`score_min` 与 `score_prod` 的区别值得体会：**min 对「最弱一步」最敏感**（一条链若有个 0.2 的步，min 直接把它判死），**prod 对「全链稳健性」更敏感**（积越小越说明整体不牢）。实践中两者常结合——用 min 做「硬淘汰」、用 prod 做「精排序」。
+`min` 与 `prod` 的区别值得体会：**min 对「最弱一步」最敏感**（一条链若有个 0.2 的步，min 直接把它判死），**prod 对「全链稳健性」更敏感**（积越小越说明整体不牢）。实践中两者常结合——用 min 做「硬淘汰」、用 prod 做「精排序」。
 
 ## 4 步骤标签从哪来：人工、LLM 判官与自动估计
 
@@ -111,10 +112,10 @@ PRM 有两大应用场景：
 
 PRM 不是银弹，几个必须知道的局限：
 
-- **步骤切分是难点**：推理链怎么切「步」？切得太粗（整段一步）退化成 ORM，切得太细（每词一步）噪声大——**切分粒度本身就是个超参**；
-- **标签质量决定一切**：无论人工、判官还是自动估计，标签错了 PRM 就学错——自动估计在「困难题」上尤其不稳（模型本身不会做，未来正确率不可靠）；
-- **「步骤对、整体错」的困境**：每一步都「看似合理」，合起来却推出错误结论——PRM 逐步骤打分抓不到这种「组合性错误」；
-- **可被 hack**：PRM 可能被「故意写得每一步都像对的」话术骗过——它与奖励模型共享「judge 可被利用」的问题。<span class="marginnote">一个务实的分工建议：<strong>结果用规则（RLVR 的验证器）、过程用 PRM</strong>——规则判「最终答案客观对不对」，PRM 判「过程质量高不高」。两者互补，比「只用一个」更稳：规则防「答案 hack」，PRM 防「过程注水」。</span>
+**步骤切分是难点**：推理链怎么切「步」？切得太粗（整段一步）退化成 ORM，切得太细（每词一步）噪声大——**切分粒度本身就是个超参**；
+**标签质量决定一切**：无论人工、判官还是自动估计，标签错了 PRM 就学错——自动估计在「困难题」上尤其不稳（模型本身不会做，未来正确率不可靠）；
+**「步骤对、整体错」的困境**：每一步都「看似合理」，合起来却推出错误结论——PRM 逐步骤打分抓不到这种「组合性错误」；
+**可被 hack**：PRM 可能被「故意写得每一步都像对的」话术骗过——它与奖励模型共享「judge 可被利用」的问题。<span class="marginnote">一个务实的分工建议：<strong>结果用规则（RLVR 的验证器）、过程用 PRM</strong>——规则判「最终答案客观对不对」，PRM 判「过程质量高不高」。两者互补，比「只用一个」更稳：规则防「答案 hack」，PRM 防「过程注水」。</span>
 
 ## 7 小结
 

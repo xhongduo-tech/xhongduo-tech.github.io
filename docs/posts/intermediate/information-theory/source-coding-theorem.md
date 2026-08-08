@@ -49,10 +49,10 @@ $$
 
 **正向（$R \le H + \epsilon$ 可达）**：
 
-- 对 $n$ 长序列取典型集 $A_\epsilon^{(n)}$，$|A_\epsilon^{(n)}| \le 2^{n(H+\epsilon)}$。
-- 只给典型序列编号：需要 $\lceil n(H+\epsilon)\rceil$ 比特，即码率 $R = \frac{\log |A_\epsilon|}{n} \le H + \epsilon$。
-- 非典型序列统一发一个「错误」标志（$R$ 之外付 1 比特开销）。
-- 解码错误概率 $= \Pr\{X^n \notin A_\epsilon\} \le \epsilon$。
+对 $n$ 长序列取典型集 $A_\epsilon^{(n)}$，$|A_\epsilon^{(n)}| \le 2^{n(H+\epsilon)}$。
+只给典型序列编号：需要 $\lceil n(H+\epsilon)\rceil$ 比特，即码率 $R = \frac{\log |A_\epsilon|}{n} \le H + \epsilon$。
+非典型序列统一发一个「错误」标志（$R$ 之外付 1 比特开销）。
+解码错误概率 $= \Pr\{X^n \notin A_\epsilon\} \le \epsilon$。
 
 于是：**给定任意 $\epsilon > 0$，选足够大的 $n$，就有一个码率 $\le H + \epsilon$、错误 $\le \epsilon$ 的方案。** 这条证明链我们在第三篇《AEP 与数据压缩的联系》已经完整走过，此处只需把它翻译成「码率」语言。<span class="marginnote">正向证明的全部重担压在典型集的两个性质上：规模上界 $2^{n(H+\epsilon)}$ 保证码率够小，概率集中 $> 1-\epsilon$ 保证错误够小。$n$ 越大，两者越好——「足够大的 $n$」是典型集方法的标准句式。</span>
 
@@ -62,9 +62,9 @@ $$
 
 **路径一（Fano 不等式）**：设码本有 $M$ 个码字、码率 $R = \frac{\log M}{n}$，错误概率 $\le \epsilon$。
 
-- 由 Fano：$H(X^n \mid \hat X^n) \le H(\epsilon) + \epsilon \log(M-1)$。
-- 但 $\hat X^n$ 只取 $M$ 个值，所以 $H(X^n) = H(X^n \mid \hat X^n) + I(X^n; \hat X^n) \le H(\epsilon) + \epsilon \log M + \log M$。
-- 归一化：$H \le \frac{\log M}{n} \cdot (1 + \epsilon) + \frac{H(\epsilon)}{n}$，令 $n \to \infty$ 得 $R \ge \frac{H}{1+\epsilon}$，再令 $\epsilon \to 0$ 得 $R \ge H$。<span class="marginnote">Fano 路径的每一步都踩在已学的结论上：互信息链式法则、$H(\epsilon) \le 1$、以及「$\hat X^n$ 取值只有 $M$ 个」的平凡上界。它展示了一条通用流水线——<strong>把任何「编码-译码」问题套进 Fano，就得到信息量的硬上界</strong>——这条流水线稍后原样用在信道编码的逆定理上。</span>
+由 Fano：$H(X^n \mid \hat X^n) \le H(\epsilon) + \epsilon \log(M-1)$。
+但 $\hat X^n$ 只取 $M$ 个值，所以 $H(X^n) = H(X^n \mid \hat X^n) + I(X^n; \hat X^n) \le H(\epsilon) + \epsilon \log M + \log M$。
+归一化：$H \le \frac{\log M}{n} \cdot (1 + \epsilon) + \frac{H(\epsilon)}{n}$，令 $n \to \infty$ 得 $R \ge \frac{H}{1+\epsilon}$，再令 $\epsilon \to 0$ 得 $R \ge H$。<span class="marginnote">Fano 路径的每一步都踩在已学的结论上：互信息链式法则、$H(\epsilon) \le 1$、以及「$\hat X^n$ 取值只有 $M$ 个」的平凡上界。它展示了一条通用流水线——<strong>把任何「编码-译码」问题套进 Fano，就得到信息量的硬上界</strong>——这条流水线稍后原样用在信道编码的逆定理上。</span>
 
 **路径二（吉布斯不等式）**：对逐符号编码更直接。任何前缀码平均码长 $\bar L \ge H$：
 

@@ -31,7 +31,7 @@ $$x \equiv \bar{a}\, b \pmod m$$
 - **有解条件**：$d \mid b$。因为方程成立要求 $m \mid (ax - b)$，而 $d$ 整除 $m$ 与 $a$，故 $d$ 必整除 $b$。
 - **解数**：有解时恰有 $d$ 个解，模 $m/d$ 下可写成一个解族。
 
-**实例**：解 $4x \equiv 3 \pmod 7$。$\gcd(4,7)=1$，4 模 7 逆元是 2（$4\times2=8\equiv1$）。$x \equiv 2 \times 3 = 6 \pmod 7$。验算：$4 \times 6 = 24 \equiv 3 \pmod 7$ 对。
+**实例**：解 `$4`x \equiv 3 \pmod 7$。$\gcd(4,7)=1$，4 模 7 逆元是 2（`$4`\times2=8\equiv1$）。$x \equiv 2 \times 3 = 6 \pmod 7$。验算：`$4` \times 6 = 24 \equiv 3 \pmod 7$ 对。
 
 ## 2 公式解析：中国剩余定理的构造解
 
@@ -58,7 +58,7 @@ $$
 **实例**：解《孙子算经》方程组：$x \equiv 2 \pmod 3$、$x \equiv 3 \pmod 5$、$x \equiv 2 \pmod 7$。
 
 - $M = 3 \times 5 \times 7 = 105$；$M_1 = 35$、$M_2 = 21$、$M_3 = 15$。
-- $y_1$：35 模 3 逆元，$35 \equiv 2$，逆元 2（$2\times2=4\equiv1$），$y_1 = 2$；$y_2$：21 模 5，$21\equiv1$，$y_2=1$；$y_3$：15 模 7，$15\equiv1$，$y_3=1$。
+- $y_1$：35 模 3 逆元，`$35` \equiv 2$，逆元 2（`$2`\times2=4\equiv1$），$y_1 = 2$；$y_2$：21 模 5，`$21`\equiv1$，$y_2=1$；$y_3$：15 模 7，`$15`\equiv1$，$y_3=1$。
 - $x = 2 \times 35 \times 2 + 3 \times 21 \times 1 + 2 \times 15 \times 1 = 140 + 63 + 30 = 233 \equiv 23 \pmod{105}$。
 
 验算：23 除 3 余 2、除 5 余 3、除 7 余 2，全部吻合。孙子的答案是"23"。
@@ -82,15 +82,20 @@ CRT 不只理论优美，还能写成算法；而且它的"多模数视角"本�
 
 **算法实现（构造解）**：
 
-```
-procedure CRT(a_1..a_n, m_1..m_n):
-    M := m_1 * m_2 * ... * m_n
-    x := 0
-    for k := 1 to n:
-        Mk := M // m_k
-        yk := 模逆(Mk mod m_k, m_k)     # Mk * yk ≡ 1 (mod m_k)
-        x := x + a_k * Mk * yk
-    return x mod M
+```python
+def crt(remainders, moduli):
+    """解 x ≡ a_i (mod m_i)，要求模数两两互素。"""
+    M = 1
+    for m in moduli:                 # 总模 M = m₁·m₂·…·mₙ
+        M *= m
+    x = 0
+    for a, m in zip(remainders, moduli):
+        Mk = M // m                  # M_k = M / m_k
+        y = pow(Mk, -1, m)           # y_k 是 M_k 模 m_k 的逆元
+        x = (x + a * Mk * y) % M     # x = Σ a_k·M_k·y_k (mod M)
+    return x
+
+print(crt([2, 3, 2], [3, 5, 7]))     # 23 ——《孙子算经》的答案
 ```
 
 每步 $M_k y_k \equiv 1 \pmod{m_k}$ 保证第 $k$ 项模 $m_k$ 贡献 $a_k$；$M_k$ 对其他模为 0。**$n$ 项互不依赖，可并行**。

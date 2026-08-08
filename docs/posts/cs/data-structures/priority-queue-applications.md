@@ -28,14 +28,13 @@ date: 2026-08-07
 2. 对后续每个元素：若大于堆顶，则**替换堆顶并下沉**（淘汰最小的候选）；
 3. 结束后堆里就是最大的 K 个。
 
-```c
-for (x : 全部元素) {
-    if (heap.size() < K) push(heap, x);
-    else if (x > heap.top()) {          /* 比第 K 大还大，值得入选 */
-        pop(heap);
-        push(heap, x);
-    }
-}
+```cpp
+// Top K：大小为 K 的小根堆，堆顶是「入选线」
+priority_queue<int, vector<int>, greater<int>> pq;   // 小根堆
+for (int x : a) {
+    if (pq.size() < k) pq.push(x);          // 前 K 个直接入堆
+    else if (x > pq.top()) { pq.pop(); pq.push(x); } // 比线高：替换堆顶
+}                                             // 结束时堆里就是最大的 K 个
 ```
 
 **公式解析：Top K 的复杂度**
@@ -59,18 +58,18 @@ $$
 3. 该链表后移一个结点，新头结点入堆；
 4. 直到堆空。
 
-```c
-ListNode *MergeKLists(vector<ListNode*> lists) {
-    priority_queue<ListNode*, ..., 小根堆> pq;
-    for (head : lists) if (head) pq.push(head);   /* K 个头入堆 */
-    ListNode *dummy = new ListNode(0), *cur = dummy;
-    while (!pq.empty()) {
-        ListNode *node = pq.top(); pq.pop();
-        cur->next = node; cur = cur->next;         /* 接最小 */
-        if (node->next) pq.push(node->next);       /* 补上该链下一个 */
-    }
-    return dummy->next;
+```cpp
+// 合并 K 个有序链表：K 个头结点入堆，弹出最小再补新头
+struct Cmp { bool operator()(ListNode* a, ListNode* b) { return a->val > b->val; } };
+priority_queue<ListNode*, vector<ListNode*>, Cmp> pq;   // 小根堆
+for (int i = 0; i < k; i++) if (lists[i]) pq.push(lists[i]);
+ListNode dummy, *tail = &dummy;
+while (!pq.empty()) {
+    ListNode* cur = pq.top(); pq.pop();      // 弹出全局最小，接入结果链
+    tail->next = cur; tail = cur;
+    if (cur->next) pq.push(cur->next);       // 该链后移，新头结点入堆
 }
+return dummy.next;
 ```
 
 **公式解析：合并 K 个链表的复杂度**
@@ -87,8 +86,8 @@ $$
 
 Dijkstra（§7.6）与 Prim（§7.4）都需要「从未确定的顶点中取最小」：
 
-- 朴素版每次扫全部候选，$O(n)$ 一趟；
-- **堆优化版**：把候选的「当前值」放入小根堆，取最小 $O(\log n)$、更新 $O(\log n)$——总 $O((n+e)\log n)$。
+朴素版每次扫全部候选，$O(n)$ 一趟；
+**堆优化版**：把候选的「当前值」放入小根堆，取最小 $O(\log n)$、更新 $O(\log n)$——总 $O((n+e)\log n)$。
 
 **重点：优先队列是「图算法」与「调度算法」的通用电池**——凡「动态维护一组候选、反复取最优」的算法，堆都能直接插入。Dijkstra、Prim、A\*、霍夫曼编码（取两个最小）、任务调度，全是它。<span class="marginnote">「<strong>看到『反复取最值』就想到堆</strong>」是算法直觉的一条快线：<strong>Dijkstra 取最短 dist、Prim 取最轻边、霍夫曼取两个最小权、Top K 取第 K 大</strong>——全是「动态集合 + 取极值」，全是堆。<strong>优先队列是这些算法的「时间银行」</strong>。</span>
 
@@ -109,10 +108,10 @@ $$
 
 遇到下面这些信号，优先队列就该出场：
 
-- 「**Top K / 第 K 大/小**」——大小为 K 的堆；
-- 「**K 个有序序列合并**」——K 个头的堆；
-- 「**反复取最小/最大**」——Dijkstra、Prim、A\*、霍夫曼；
-- 「**动态维护有序集合的极值**」——滑动窗口、任务调度、事件模拟。
+「**Top K / 第 K 大/小**」——大小为 K 的堆；
+「**K 个有序序列合并**」——K 个头的堆；
+「**反复取最小/最大**」——Dijkstra、Prim、A\*、霍夫曼；
+「**动态维护有序集合的极值**」——滑动窗口、任务调度、事件模拟。
 
 **重点：优先队列的核心识别词是「动态 + 极值」**——数据在变、又总要最值，堆就是答案。<span class="marginnote">「<strong>动态取极值 → 优先队列</strong>」是一条几乎万能的识别链：<strong>只要问题同时出现「元素会增删」与「每次要最大/最小」，优先队列就大概率是最优解</strong>。从 Top K 到调度器，从图算法到事件仿真，<strong>「堆」是那台无处不在的极值发动机</strong>。</span>
 

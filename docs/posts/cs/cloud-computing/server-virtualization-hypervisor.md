@@ -38,9 +38,9 @@ date: 2026-08-07
 
 服务器虚拟化要解决的**根本难题**是：客户机操作系统里的特权指令（如改中断向量表、操作页表、关中断）本应只在物理机上最高特权级执行，现在却要交给 Hypervisor 仲裁。历史上有三种解法：
 
-- **特权级与陷阱（trap-and-emulate）**：让客户机运行在非最高特权级，其特权指令一旦执行就触发**陷阱**（trap），陷入 Hypervisor，由 Hypervisor 模拟执行后返回。这是理论最优雅的方案，但需要 CPU 架构配合。
-- **二进制翻译（binary translation）**：VMware 的早期方案。在客户机指令**执行前**，Hypervisor 扫描特权指令并**翻译**成安全的等价指令序列，避免运行时陷阱的开销。
-- **硬件辅助虚拟化（hardware-assisted）**：Intel VT-x / AMD-V 在 CPU 里新增了 **VMX/V-SVM 指令集**与专门的**虚拟机运行态（VMX non-root）**，让客户机可以在「准特权」状态下运行，特权敏感操作由硬件自动陷入 VMM。<span class="marginnote">硬件辅助是现代虚拟化的主流（KVM 依赖它）。它把「拦截特权指令」从软件翻译变成了硬件机制，性能接近裸机。对 CPU 特权级（ring 0–3）的理解来自第三级《操作系统》：虚拟化等于在 ring 0 下方再挖了一层 ring -1。</span>
+**特权级与陷阱（trap-and-emulate）**：让客户机运行在非最高特权级，其特权指令一旦执行就触发**陷阱**（trap），陷入 Hypervisor，由 Hypervisor 模拟执行后返回。这是理论最优雅的方案，但需要 CPU 架构配合。
+**二进制翻译（binary translation）**：VMware 的早期方案。在客户机指令**执行前**，Hypervisor 扫描特权指令并**翻译**成安全的等价指令序列，避免运行时陷阱的开销。
+**硬件辅助虚拟化（hardware-assisted）**：Intel VT-x / AMD-V 在 CPU 里新增了 **VMX/V-SVM 指令集**与专门的**虚拟机运行态（VMX non-root）**，让客户机可以在「准特权」状态下运行，特权敏感操作由硬件自动陷入 VMM。<span class="marginnote">硬件辅助是现代虚拟化的主流（KVM 依赖它）。它把「拦截特权指令」从软件翻译变成了硬件机制，性能接近裸机。对 CPU 特权级（ring 0–3）的理解来自第三级《操作系统》：虚拟化等于在 ring 0 下方再挖了一层 ring -1。</span>
 
 ## 4 核心要点对比：两类 Hypervisor 与三种虚拟化方式
 

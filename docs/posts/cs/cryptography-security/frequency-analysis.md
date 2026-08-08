@@ -77,9 +77,9 @@ $$
 
 **第一步，数频率，猜最高的几个。** 把密文字母按出现次数排序，按 §3 的秩匹配猜：第一名→E，第二名→T，第三名→A……这一步通常能稳稳拿下最顶端的几个字母，因为头部频率差异足够大。
 
-**第二步，用双字母（digram）与三字母（trigram）验证。** 英语里最常见的双字母是 TH、HE、IN、ER、AN、RE、ON，最常见的三字母是 THE。攻击者拿到第一步的部分映射后，去密文里找「被映射成 TH / HE / IN」的字母对，以及形如「**A B A**」或「**A A**」的结构（如 `that` 里的 `t`、`all` 里的 `ll`），就能交叉验证、互相纠错。例如密文里反复出现 `tse`，若 `t→t`、`e→e` 已猜中，则 `s→h` 几乎可以确定——因为 `the` 是最常见的三字母词。
+**第二步，用双字母（digram）与三字母（trigram）验证。** 英语里最常见的双字母是 TH、HE、IN、ER、AN、RE、ON，最常见的三字母是 THE。攻击者拿到第一步的部分映射后，去密文里找「被映射成 TH / HE / IN」的字母对，以及形如「**A B A**」或「**A A**」的结构（如 `did` 里的 `d_d`、`all` 里的 `ll`），就能交叉验证、互相纠错。例如密文里反复出现 `XGY`，若 `X`、`Y` 已猜中（分别对应 T、E），则 `G` 几乎可以确定——因为 `THE` 是最常见的三字母词。
 
-**第三步，利用短词与词边界。** 英文里最常见的单字母词是 `a` 与 `I`，最常见的双字母词是 `of`、`to`、`in`、`it`、`is`、`as`。密文里孤零零的单字母密文字符，几乎必然是 `a` 或 `i` 的像；反复出现的双字母词则直接给出整词映射。词边界是频率分析最锋利的杠杆——它把「字母对字母」的统计升级为「整词对整词」的线索。
+**第三步，利用短词与词边界。** 英文里最常见的单字母词是 `a` 与 `I`，最常见的双字母词是 `of`、`to`、`in`、`it`、`is`、`be`。密文里孤零零的单字母密文字符，几乎必然是 `a` 或 `I` 的像；反复出现的双字母词则直接给出整词映射。词边界是频率分析最锋利的杠杆——它把「字母对字母」的统计升级为「整词对整词」的线索。
 
 **第四步，迭代收尾。** 每确认一个字母，就替换回明文，文本的可读性立刻上升一截，剩余未定字母的候选范围随之收窄。攻击者对全文重复前三步，直到整张替换表被拼完。**频率攻击不是一锤子买卖，而是一场越做越顺的拼图。**
 
@@ -88,41 +88,32 @@ $$
 把上面的流程落到代码里。先看唯密文攻击如何轻松打穿凯撒密码——只要数出出现最多的密文字母，假设它就是 E，反推移位量：
 
 ```python
-import collections, random, string
+from collections import Counter
 
-def count_freq(text: str):
-    cnt = collections.Counter(ch for ch in text.lower() if ch.isalpha())
-    n = sum(cnt.values())
-    return cnt, n
+# —— 第一部分：凯撒密码，只凭密文破解 ——
+caesar_cipher = "wkhvh wkuhh wuhhv qhhg pruh juhhq ohdyhv"
+freq = Counter(c for c in caesar_cipher if c.isalpha())
+top = freq.most_common(1)[0][0]          # 出现最多的密文字母
+shift = (ord(top) - ord('e')) % 26       # 假设它就是 E，反推移位量
+plain = "".join(
+    chr((ord(c) - ord('a') - shift) % 26 + ord('a')) if c.isalpha() else c
+    for c in caesar_cipher
+)
+print("最高频密文字母 =", top, "，shift =", shift)
+print("还原明文 =", plain)
 
-# --- 场景一：唯密文破译凯撒密码 ---
-plain = ("it was the best of times it was the worst of times "
-         "it was the age of wisdom it was the age of foolishness")
-shift = 11
-cipher = "".join(chr((ord(c)-97+shift) % 26 + 97) if c.isalpha() else c for c in plain)
-
-cnt, n = count_freq(cipher)
-most = max(cnt, key=cnt.get)                  # 密文里出现最多的字母
-guess_shift = (ord(most) - ord('e')) % 26      # 假设它是明文 e
-print("密文最高频字母:", most, "→ 猜位移:", guess_shift, "(真实:", shift, ")")
-
-# --- 场景二：任意单表替换的秩匹配攻击 ---
-random.seed(7)
-alpha = list(string.ascii_lowercase)
-perm = alpha[:]; random.shuffle(perm)          # 随机替换表（攻击者不知道）
-table = dict(zip(alpha, perm))
-cipher2 = "".join(table[c] for c in plain if c.isalpha())
-
-cnt2, n2 = count_freq(cipher2)
-rank_cipher = [ch for ch, _ in cnt2.most_common()]
-std_order = ['e','t','a','o','i','n','s','h','r','d','l','c','u','m','w','f','g','y','p','b','v','k','j','x','q','z']
-guess = dict(zip(rank_cipher, std_order))     # 密文字母 → 猜测的明文字母
-decoded = "".join(guess.get(ch, ch) for ch in cipher2)
-print("初步破译（未精修）:", decoded[:90])
-print("原文:", plain[:90])
+# —— 第二部分：单表替换，秩匹配的「半成品」——
+eng_rank = "ETAOINSHRDLCUMWFGYPBVKJXQZ"          # 英语频率降序
+cipher = "uh taxi rthdh rlcrtd ra fh dhxy hbzihqr rtjr jxx phq jlh wlhjrhi hvcjx rtjr rthe jlh hqiauhi fe rthzl wlhjral uzrt whlrjzq cqjxzhqjfxh lzotrd rtjr jpaqo rthdh jlh xzyh xzfhlre jqi rth gcldczr ay tjggzqhdd"
+freq2 = Counter(c for c in cipher if c.isalpha())
+ranked = [c for c, _ in freq2.most_common()]
+table = {c: eng_rank[i] for i, c in enumerate(ranked)}
+half = "".join(table.get(c, c) for c in cipher)
+print("秩匹配映射 =", table)
+print("半成品明文 =", half)
 ```
 
-第一段输出会精确给出 `猜位移: 11`——只凭密文，一行统计就破了凯撒。第二段输出则诚实地展示秩匹配的「半成品」：`tse`、`geat`、`ir` 这些碎片让 `the`、`best`、`of` 的轮廓隐约可辨，但许多字母仍错。这恰恰是真实频率攻击的样子——**机器做初筛，人做精修**：把 `tse` 认成 `the`、把 `geat` 认成 `best`，再用第四步的迭代逐字逼近原文。教科书上那些「一页纸拼出整张替换表」的例子，背后就是这样一层层磨出来的。<span class="marginnote">现代统计密码分析用「极大似然」与「模拟退火」把精修自动化了：给每个候选映射打分（明文-语言模型的匹配度），在映射空间里爬山搜索。本节手算的秩匹配就是这些算法的思想原型。</span>
+第一段输出会精确给出 `shift`（位移量）与还原出的明文——只凭密文，一行统计就破了凯撒。第二段输出则诚实地展示秩匹配的「半成品」：`TOERE`、`TOAT`、`TOEG` 这些碎片让 `these`、`that`、`they` 的轮廓清晰浮现，但许多字母仍错（`t` 被还原成 `O`、`l` 被还原成 `I`）。这恰恰是真实频率攻击的样子——**机器做初筛，人做精修**：把 `t` 修正为 `H`、把 `l` 修正为 `R`，再用第四步的迭代逐字逼近原文。教科书上那些「一页纸拼出整张替换表」的例子，背后就是这样一层层磨出来的。<span class="marginnote">现代统计密码分析用「极大似然」与「模拟退火」把精修自动化了：给每个候选映射打分（明文-语言模型的匹配度），在映射空间里爬山搜索。本节手算的秩匹配就是这些算法的思想原型。</span>
 
 ## 6 历史与回响：阿尔·肯迪与密码分析学的诞生
 

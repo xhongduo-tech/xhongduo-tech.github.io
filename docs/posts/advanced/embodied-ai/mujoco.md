@@ -32,10 +32,10 @@ ANYmal、OpenAI 魔方手、以及大量操作/运动学习都用它。
 
 接触动力学是仿真器最容易翻车的地方：
 
-- **接触是「软硬切换」**：不接触时自由运动，
+**接触是「软硬切换」**：不接触时自由运动，
 接触时突然被约束——**不连续**；
-- **摩擦锥非线性**：切向摩擦力受法向力约束（第 16 章）——**非线性约束**；
-- **穿透问题**：数值积分会把物体「陷进」地面，
+**摩擦锥非线性**：切向摩擦力受法向力约束（第 16 章）——**非线性约束**；
+**穿透问题**：数值积分会把物体「陷进」地面，
 要么爆炸要么粘住。
 
 朴素仿真的接触又慢又不稳——**一个接触点处理不好，整个仿真就「炸」**。
@@ -68,9 +68,8 @@ MuJoCo 用 **MJCF（XML）** 描述模型，
 核心元素：
 
 - `<body>`：刚体（位置、质量、惯量、几何）；
-- `<joint>`：关节（转动/平动，
-限位、阻尼、摩擦）；
-- `<geom>`：几何体（盒、球、胶囊、网格）——用于碰撞与渲染；
+- `<joint>`：几何体（盒、球、胶囊、网格）——用于碰撞与渲染；
+- `<actuator>`：几何体（盒、球、胶囊、网格）——用于碰撞与渲染；
 - `<actuator>`：执行器（电机、力矩、位置）——输出控制；
 - `<sensor>`：传感器（关节角、速度、接触力）——读取观测。
 
@@ -88,12 +87,28 @@ v2.2+）很简单：
 
 ```python
 import mujoco
-model = mujoco.MjModel.from_xml_path("arm.xml")   # 加载模型
-data  = mujoco.MjData(model)                       # 创建数据
-mujoco.mj_resetData(model, data)                   # 复位
-data.ctrl[:] = [0.5, 0.1, ...]                     # 设置控制输入
-mujoco.mj_step(model, data)                        # 推进一步
-print(data.qpos, data.qvel, data.sensordata)       # 读状态/传感器
+import numpy as np
+
+xml = """
+<mujoco model="pendulum">
+  `<worldbody>`
+    `<body>`
+      <joint name="hinge1" type="hinge" axis="0 0 1"/>
+      <geom name="link" type="capsule" size="0.05 0.2"/>
+    </body>
+  </worldbody>
+  `<actuator>`
+    <motor name="m1" joint="hinge1"/>
+  </actuator>
+</mujoco>
+"""
+
+model = mujoco.MjModel.from_xml_string(xml)   # 静态描述（结构、参数）
+data  = mujoco.MjData(model)                  # 动态状态（每步可变）
+
+data.ctrl[0] = 1.0                            # 电机出力
+mujoco.mj_step(model, data)                   # 推进一个仿真步
+print(data.qpos, data.qvel)                   # 关节角与角速度
 ```
 
 **关键概念**：
@@ -103,9 +118,9 @@ print(data.qpos, data.qvel, data.sensordata)       # 读状态/传感器
 - **MjData**：仿真的「动态状态」（每步可变）；
 - **mj_step**：推进一个仿真步（**控制频率**决定步长，
 通常 500 Hz 仿真 / 20–50 Hz 控制）；
-- **渲染**：`mujoco.Renderer` 渲染图像（供视觉 RL / 模仿学习用）。
+- **渲染**：`mujoco.Renderer` 离屏渲染图像（供视觉 RL / 模仿学习用）。
 
-**与 Gymnasium 集成**：`gymnasium.envs.mujoco`（HalfCheetah、Ant 等经典环境）与 `mujoco_menagerie`（官方模型库：Franka、Unitree 等）——**开箱即用的机器人环境**。
+**与 Gymnasium 集成**：`gymnasium.envs.mujoco` 的 MuJoCo 环境（HalfCheetah、Ant 等经典环境）与 **MuJoCo Playground**（官方模型库：Franka、Unitree 等）——**开箱即用的机器人环境**。
 
 ## 5 公式解析：接触动力学的凸优化
 
@@ -138,7 +153,7 @@ ROS/URDF 生态、快速验证 → PyBullet；
 
 **辨析｜易错点二：MJCF 与 URDF 不是「两种格式」那么简单。** MJCF 为仿真优化（接触、执行器、传感器配置齐全）；
 URDF 为 ROS 描述优化（少仿真细节）。**用 MuJoCo 最好写/转换到 MJCF**——直接吃 URDF 会有接触、执行器配置缺失。
-官方 `dm_control` / 社区工具能自动转换，
+官方 **MuJoCo Menagerie** / 社区工具能自动转换，
 但要检查。
 
 **再辨析｜仿真步长是「精度 vs 速度」的旋钮**。

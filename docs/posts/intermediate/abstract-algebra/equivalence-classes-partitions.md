@@ -107,9 +107,9 @@ $$
 
 **（$\Rightarrow$）先证等价类的确是分类。** 要验证三条：
 
-- **非空**：由自反性 $a \in [a]$，每个等价类非空。$\checkmark$
-- **铺满**：每个 $a \in A$ 都落在自己的类 $[a]$ 里，所以并集 $\bigcup_{a \in A} [a] = A$。$\checkmark$
-- **不重**：这是最需要证明的一步。设 $[a] \cap [b] \neq \emptyset$，取 $x \in [a] \cap [b]$，则 $x \sim a$ 且 $x \sim b$。由对称性 $a \sim x$，再由传递性从 $a \sim x$ 与 $x \sim b$ 推出 $a \sim b$。于是对任意 $y \in [a]$，$y \sim a \sim b$，传递性给 $y \sim b$，故 $y \in [b]$，即 $[a] \subseteq [b]$；对称地 $[b] \subseteq [a]$。故 $[a] = [b]$。$\checkmark$ 两个类只要**碰到一个公共元素**就被迫完全相等——等价类之间「非合即离」，没有部分重叠。
+**非空**：由自反性 $a \in [a]$，每个等价类非空。$\checkmark$
+**铺满**：每个 $a \in A$ 都落在自己的类 $[a]$ 里，所以并集 $\bigcup_{a \in A} [a] = A$。$\checkmark$
+**不重**：这是最需要证明的一步。设 $[a] \cap [b] \neq \emptyset$，取 $x \in [a] \cap [b]$，则 $x \sim a$ 且 $x \sim b$。由对称性 $a \sim x$，再由传递性从 $a \sim x$ 与 $x \sim b$ 推出 $a \sim b$。于是对任意 $y \in [a]$，$y \sim a \sim b$，传递性给 $y \sim b$，故 $y \in [b]$，即 $[a] \subseteq [b]$；对称地 $[b] \subseteq [a]$。故 $[a] = [b]$。$\checkmark$ 两个类只要**碰到一个公共元素**就被迫完全相等——等价类之间「非合即离」，没有部分重叠。
 
 （$\Leftarrow$）反过来，由分类定义关系。若 $a$ 与 $b$ 在同一块，记 $a \sim b$。验证三条：同块关系显然是自反的（$a$ 与 $a$ 在同一块）与对称的（同块不分谁先谁后）；传递性也自然成立——若 $a$ 与 $b$ 同块、$b$ 与 $c$ 同块，则 $a$ 与 $c$ 必在同一块，因为 $b$ 所在的块是唯一确定的。$\checkmark$ 于是 $\sim$ 是等价关系，它的等价类正是原来的块。$\blacksquare$
 

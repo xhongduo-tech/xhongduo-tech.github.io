@@ -23,54 +23,49 @@ date: 2026-08-07
 **项（term）**是 Prolog 的唯一数据形态，四种：
 
 ```prolog
-alice            % 原子（常量）：小写开头
-X, Parent        % 变量：大写开头或下划线
-likes(alice, music)   % 复合项：函子 + 参数（结构）
-[1, 2, 3]        % 列表：语法糖，等价于 .(1, .(2, .(3, [])))
+alice, music, likes        % 原子（常量）：小写开头
+X, Parent, _               % 变量：大写开头；_ 是匿名变量
+likes(alice, music)        % 复合项：函子 + 参数（结构）
+[Head | Tail]              % 列表：头尾结构，[a,b,c] 是其糖衣
 ```
 
-- **原子**：小写开头的符号串——`alice`、`music`、`likes`。
-- **变量**：大写开头——`X`、`Person`；`_` 是匿名变量（每次独立）。
-- **复合项**：`functor(arg1, arg2, ...)`——函子 + 参数，本质是「带标签的树」。
-- **列表**：`[H|T]` 头尾结构（同 Scheme），`[a, b]` 是糖衣。<span class="marginnote">Prolog 的「一切皆项」极简得优雅：程序与数据都是项——`likes(alice, music)` 既可作为「事实」放在程序里，也可作为「查询」被询问，还可作为「结构数据」被构造与分解。这种「代码即数据」与 Lisp 同源（homoiconicity），只是 Prolog 的项天然带「可合一」的语义。</span>
+**原子**：小写开头的符号串——`alice`、`music`、`likes`。
+**变量**：大写开头——`X`、`Parent`；`_` 是匿名变量（每次独立）。
+**复合项**：`likes(alice, music)`——函子 + 参数，本质是「带标签的树」。
+**列表**：`[Head | Tail]` 头尾结构（同 Scheme），`[a, b, c]` 是 `[a | [b | [c | []]]]` 的糖衣。<span class="marginnote">Prolog 的「一切皆项」极简得优雅：程序与数据都是项——同一个项既可作为「事实」放在程序里，也可作为「查询」被询问，还可作为「结构数据」被构造与分解。这种「代码即数据」与 Lisp 同源（homoiconicity），只是 Prolog 的项天然带「可合一」的语义。</span>
 
 ## 2 事实与规则：知识库的两种陈述
 
 **事实（fact）**：无条件为真的项——一个原子或复合项，以句号结束。
 
 ```prolog
-human(socrates).
-likes(alice, music).
+human(socrates).      % 事实：socrates 是人
+human(plato).         % 事实：plato 是人
+likes(alice, music).  % 事实：alice 喜欢音乐
 ```
 
 **规则（rule）**：条件命题——`结论 :- 前提1, 前提2, ...`（「若前提都成立，则结论成立」）。
 
 ```prolog
-mortal(X) :- human(X).
-grandparent(X, Z) :- parent(X, Y), parent(Y, Z).
+mortal(X) :- human(X).            % 规则：若 X 是人，则 X 必死
+grandparent(A, C) :- parent(A, Y), parent(Y, C).
 ```
 
-规则的读法：`grandparent(X,Z)` 当 `parent(X,Y)` 且 `parent(Y,Z)`——**`,` 是「且」，`;` 是「或」**。<span class="marginnote">规则里的变量是「共享的约束」：`grandparent(X,Z) :- parent(X,Y), parent(Y,Z)` 中，同一个 `Y` 出现在两个前提里——它必须是「同一个中间人」。Prolog 的变量共享 = 「合一约束」：求解时 `Y` 被统一实例化为同一个人。</span>
+规则的读法：`结论` 当 `前提1` 且 `前提2`——**`,`（逗号）是「且」，`;`（分号）是「或」**。<span class="marginnote">规则里的变量是「共享的约束」：`grandparent(A, C) :- parent(A, Y), parent(Y, C)` 中，同一个 `Y` 出现在两个前提里——它必须是「同一个中间人」。Prolog 的变量共享 = 「合一约束」：求解时 `Y` 被统一实例化为同一个人。</span>
 
 ## 3 目标：向知识库提问
 
 **目标（goal / query）**：询问某个命题是否为真——在交互环境输入 `?- ...`：
 
 ```prolog
-?- human(socrates).
-true.
-
-?- mortal(X).
-X = socrates.
-
-?- likes(alice, Who).
-Who = music.
+?- human(socrates).      % 询问「socrates 是人吗」→ true
+?- mortal(X).            % 询问「谁符合 mortal」→ X = socrates ; X = plato
 ```
 
 查询的行为：
 
-- `human(socrates)` 问「这是已知事实吗」——归结验证。
-- `mortal(X)` 问「谁符合 mortal」——**X 被实例化为所有解**（通过合一与回溯逐个给出）。
+- `?- human(socrates).` 问「这是已知事实吗」——归结验证。
+- `?- mortal(X).` 问「谁符合 mortal」——**X 被实例化为所有解**（通过合一与回溯逐个给出）。
 - 变量在查询中 = 「求值对象」——回答是「X 取什么值使查询为真」。
 
 ## 4 公式解析：查询求解的递归过程
@@ -81,27 +76,31 @@ $$
 \text{solve}(G_1, \dots, G_k) = \text{找一个子句 } C \text{ 使 } \text{head}(C) \text{ 与 } G_1 \text{ 合一，} \text{然后解 } \text{body}(C), G_2, \dots, G_k
 $$
 
-以 `?- grandparent(alice, X)` 为例：
+以 `?- grandparent(alice, X).` 为例：
 
 ```prolog
-grandparent(X,Z) :- parent(X,Y), parent(Y,Z).   % 规则
-parent(alice, bob).   parent(bob, carol).       % 事实
+parent(alice, bob).          % 事实
+parent(bob, carol).          % 事实
+grandparent(A, C) :- parent(A, Y), parent(Y, C).   % 规则
+
+?- grandparent(alice, X).    % 查询
+X = carol.                   % 回溯结束后唯一解
 ```
 
 三步拆解：
 
-- **第一步，匹配规则**：目标 `grandparent(alice, X)` 与规则头 `grandparent(X, Y)` 合一：`X=alice`、`Y=X`（目标里的 X 是查询变量）。
+- **第一步，匹配规则**：目标 `grandparent(alice, X)` 与规则头 `grandparent(A, C)` 合一：`A=alice`、`C=X`（目标里的 X 是查询变量）。
 - **第二步，分解前提**：新目标变成 `parent(alice, Y), parent(Y, X)`——两个子目标，变量共享。
 - **第三步，逐个求解**：`parent(alice, Y)` 与事实合一得 `Y=bob`；再解 `parent(bob, X)` 得 `X=carol`。**「目标分解 + 合一 + 回溯」三件套完成一次查询**。
 
-**辨析｜易错点：** 子目标按**书写顺序**（从左到右）求解——这个顺序影响性能与结果。`parent(X,Y), parent(Y,Z)` 与 `parent(Y,Z), parent(X,Y)` 逻辑等价但**搜索顺序不同**（可能一个飞快一个死循环）。**「声明式语义一样，过程式语义（搜索顺序）不同」**——这是 Prolog 初学者最需要适应的一点。
+**辨析｜易错点：** 子目标按**书写顺序**（从左到右）求解——这个顺序影响性能与结果。`p :- a, b.` 与 `p :- b, a.` 逻辑等价但**搜索顺序不同**（可能一个飞快一个死循环）。**「声明式语义一样，过程式语义（搜索顺序）不同」**——这是 Prolog 初学者最需要适应的一点。
 
 ## 5 Prolog 的典型应用
 
 - **专家系统 / 规则引擎**：事实 + 规则的「知识库 + 推理」模式。
 - **自然语言处理**：Prolog 的 DCG（定从句文法）表达语法分析。
-- **约束求解 / 图算法**：`member`、`append` 等列表谓词天然支持「多方向」使用。
-- **知识图谱查询**：RDF/SPARQL 与 Datalog 的推理（Prolog 的近亲）。<span class="marginnote">Prolog 谓词的「多方向性」令人着迷：`append([1,2], [3], R)` 拼接（R=[1,2,3]），而 `append(X, Y, [1,2,3])` 能<strong>枚举所有拆分方式</strong>——同一个谓词，问「拼接结果」或「所有拆分」，都由声明式定义直接给出。命令式函数做不到这种「可逆」。</span>
+- **约束求解 / 图算法**：`append`、`member` 等列表谓词天然支持「多方向」使用。
+- **知识图谱查询**：RDF/SPARQL 与 Datalog 的推理（Prolog 的近亲）。<span class="marginnote">Prolog 谓词的「多方向性」令人着迷：`append([1,2],[3],R)` 拼接（R=[1,2,3]），而 `append(A,B,[1,2,3])` 能<strong>枚举所有拆分方式</strong>——同一个谓词，问「拼接结果」或「所有拆分」，都由声明式定义直接给出。命令式函数做不到这种「可逆」。</span>
 
 
 
@@ -126,7 +125,7 @@ parent(alice, bob).   parent(bob, carol).       % 事实
 ## 6 小结
 
 - **项**是 Prolog 唯一数据形态：原子、变量、复合项、列表——一切皆项。
-- **事实** = 无条件真的命题；**规则** = 条件命题（`结论 :- 前提`），`,` 是且、`;` 是或。
+- **事实** = 无条件真的命题；**规则** = 条件命题（`结论 :- 前提1, 前提2, ...`），`,` 是且、`;` 是或。
 - **目标** = 查询；变量在查询中「求值对象」，经合一与回溯逐个给出解。
 - 查询求解 = 目标分解 + 合一 + 回溯；子目标顺序影响搜索（声明等价、过程不同）；谓词可「多方向」使用。
 

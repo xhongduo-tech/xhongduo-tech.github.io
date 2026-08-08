@@ -24,18 +24,22 @@ date: 2026-08-07
 
 **CLOSEST-PAIR**（按 $x$ 坐标排序后的点集）：
 
-```
-CLOSEST-PAIR(P)   // P 按 x 排序
-  if |P| <= 3: brute force
-  mid = split P into L and R by x (一半一半)
-  dL = CLOSEST-PAIR(L);  dR = CLOSEST-PAIR(R)
-  δ = min(dL, dR)
-  let M = points in P with |x - x_mid| < δ   // 中线窄条
-  sort M by y
-  for each point p in M
-    for each of next points q in M with y_q - y_p < δ   // 至多常数个
-      d = dist(p, q);  if d < δ:  δ = d
-  return δ
+```text
+CLOSEST-PAIR(P)                    // P 已按 x 坐标升序排序
+if |P| ≤ 3
+    两两计算距离，返回最小距离        // 基本情况：O(1)
+mid = ⌊|P| / 2⌋
+PL = P[1..mid]；PR = P[mid+1..|P|]
+dL = CLOSEST-PAIR(PL)              // 左半内部最近距离
+dR = CLOSEST-PAIR(PR)              // 右半内部最近距离
+δ = min(dL, dR)
+S = { p ∈ P : |p.x − P[mid].x| < δ }        // 中线 δ 窄条
+按 y 坐标对 S 排序
+for i = 1 to |S|
+    for j = i+1 to min(i+7, |S|)            // 只需查至多 7 个后继
+        if dist(S[i], S[j]) < δ
+            δ = dist(S[i], S[j])
+return δ
 ```
 
 **分解**：按 $x$ 坐标中位数切成左右两半；**递归**：各求最近对 $d_L, d_R$；**合并**：检查跨中线的对，更新 $\delta$。<span class="marginnote">「递归只求两半内部」+「合并时检查跨线对」是最近点对的分治骨架。朴素合并要检查左右各 $n/2$ 个点的所有组合（$O(n^2)$）；关键优化是「只用看中线两侧各 $\delta$ 内的点」，因为<strong>任何跨线对若距离 < δ，两点的 $x$ 都必须在 $x_{mid}$ 两侧 $\delta$ 内</strong>——更远的点对距离必然 ≥ δ，无需检查。</span>
@@ -62,10 +66,10 @@ $$T(n) = 2T\left(\frac{n}{2}\right) + O(n) = O(n\log n)$$
 
 ## 4 最近点对的应用与延伸
 
-- **聚类**：最近邻图的构建（K 近邻、DBSCAN 的邻域查询）。
-- **碰撞检测**：先找最近点对作为「可能碰撞」的候选。
-- **数值计算**：三角剖分的预处理（Delaunay 的最近邻结构）。
-- **变体**：最近点对的「最远点对」（直径）可用旋转卡壳；高维最近邻则转向 KD 树、哈希（LSH）。<span class="marginnote">最近点对是「分治在几何上的表演」：它证明了「看似必须 $O(n^2)$ 的两两问题」可以因「几何局部性」降为 $O(n\log n)$。类似的「局部性 + 常数邻域」论证出现在扫描线、最近邻、网格哈希里。理解最近点对，就理解了「几何问题为什么往往比组合问题便宜」。</span>
+**聚类**：最近邻图的构建（K 近邻、DBSCAN 的邻域查询）。
+**碰撞检测**：先找最近点对作为「可能碰撞」的候选。
+**数值计算**：三角剖分的预处理（Delaunay 的最近邻结构）。
+**变体**：最近点对的「最远点对」（直径）可用旋转卡壳；高维最近邻则转向 KD 树、哈希（LSH）。<span class="marginnote">最近点对是「分治在几何上的表演」：它证明了「看似必须 $O(n^2)$ 的两两问题」可以因「几何局部性」降为 $O(n\log n)$。类似的「局部性 + 常数邻域」论证出现在扫描线、最近邻、网格哈希里。理解最近点对，就理解了「几何问题为什么往往比组合问题便宜」。</span>
 
 ## 5 小结
 

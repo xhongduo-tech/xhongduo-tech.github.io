@@ -69,25 +69,21 @@ $$
 
 一条完整路径的伪代码：
 
-```
-function trace(ray):
-    hit = intersect(ray)
-    if not hit: return background(ray)
-
-    # 直接光照：向光源发阴影光线
-    L = 0
-    for light in lights:
-        x_light = sample_light(light)            # 在光源上采一点
-        if not occluded(hit.p, x_light):         # 阴影测试
-            L += BRDF(hit, ω_o, ω_light) * L_light * cosθ / p_light
-
-    # 间接光照：采样一个反射方向继续追
-    ω_i = sample_brdf(hit.material, hit.n, ω_o)  # 按 BRDF 采样
-    L += BRDF(hit, ω_o, ω_i) * cosθ / p_brdf * trace(ray_from(hit.p, ω_i))
-
-    return L
-
-pixel_color = average(trace(pixel_ray) for spp 条光线)
+```text
+color trace(ray, depth):
+    if depth > max_depth: return 0
+    hit = scene.intersect(ray)
+    if not hit: return 0
+    p = hit.point; n = hit.normal
+    // 直接光照：向光源发阴影光线
+    L_dir = shade_direct(p, n, ray)
+    // 间接光照：随机采样 BRDF 方向，递归追踪
+    L_indir = 0
+    if random() < russian_roulette:            // 俄罗斯轮盘赌终止
+        wi = sample_brdf(p, n)                 // 按 BRDF 采样一个方向
+        L_indir = trace(ray_from(p, wi), depth + 1)
+                * brdf(p, wi, ray.wo) * cos_theta / pdf(wi)
+    return L_dir + L_indir
 ```
 
 结构清晰：**直接光照（发阴影光线）+ 间接光照（采样方向递归）**，递归终止靠「光线射出场景」或「轮盘赌」。<span class="marginnote">路径追踪的两难在这里显现：<strong>直接光照用「对光源采样」（$p$ 指光源）方差小，间接光照用「对 BRDF 采样」（$p$ 贴合高光锥）更合理</strong>——但直接光照采光源时可能采到 BRDF 很小的方向、间接光采样方向时可能错过光源。两个分布各有所长，于是有了「多重重要性采样」（MIS）把它们混合——那是《采样理论》一节的主角。</span>
@@ -96,9 +92,9 @@ pixel_color = average(trace(pixel_ray) for spp 条光线)
 
 路径追踪的图像特点：
 
-- **低 spp 时充满噪声**：每条路径是随机的，噪声方差 $∝ 1/\text{spp}$。
-- **收敛到无噪声**：spp → ∞，平均 → 渲染方程的精确解。
-- **噪声分布不均匀**：暗处（间接光弱）与高光边缘噪声最大——需要更多样本。
+**低 spp 时充满噪声**：每条路径是随机的，噪声方差 $∝ 1/\text{spp}$。
+**收敛到无噪声**：spp → ∞，平均 → 渲染方程的精确解。
+**噪声分布不均匀**：暗处（间接光弱）与高光边缘噪声最大——需要更多样本。
 
 降噪的工程手段：**提高 spp**（贵）、**重要性采样**（让 $p$ 贴合 $f$，降方差）、**降噪器（denoiser）**（用深度学习/双边滤波在后处理消除残留噪声）。影视渲染里，降噪器 + 适量 spp 是标准组合。<span class="marginnote">「噪声是路径追踪的身份证」：一张满是颗粒的图说明它「正在收敛」。实时路径追踪（RTX 的路径追踪、UE 5 的 Lumen）用「每像素 1-2 条光线 + 强降噪器」把噪声压到可用——<strong>光线的「量」与降噪器的「智」是现代路径追踪的两个杠杆</strong>。</span>
 

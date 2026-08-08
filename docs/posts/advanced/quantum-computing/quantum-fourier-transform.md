@@ -65,9 +65,9 @@ $$
 
 QFT 是量子算法库的核心组件：
 
-- **相位估计（phase estimation）**：用 QFT 把特征相位「读出来」，是 Shor、量子化学（VQE 的解析后处理）、量子模拟的共同子程序。
-- **Shor 算法**：用 QFT 找模幂函数的周期，从而分解大数。
-- **隐藏子群问题（HSP）**：Abel 群上的 HSP 全部以 QFT 为核心——Simon 是 $\mathbb{Z}_2^n$ 的特例，Shor 是 $\mathbb{Z}_N$ 的特例。<span class="marginnote">更深刻的事实：Abel 隐藏子群问题几乎「等于」QFT 的应用；而求解非 Abel 隐藏子群（如对称群上的图同构）仍是开放问题——QFT 家族的能力边界，正是量子算法的前沿之一。</span>
+**相位估计（phase estimation）**：用 QFT 把特征相位「读出来」，是 Shor、量子化学（VQE 的解析后处理）、量子模拟的共同子程序。
+**Shor 算法**：用 QFT 找模幂函数的周期，从而分解大数。
+**隐藏子群问题（HSP）**：Abel 群上的 HSP 全部以 QFT 为核心——Simon 是 $\mathbb{Z}_2^n$ 的特例，Shor 是 $\mathbb{Z}_N$ 的特例。<span class="marginnote">更深刻的事实：Abel 隐藏子群问题几乎「等于」QFT 的应用；而求解非 Abel 隐藏子群（如对称群上的图同构）仍是开放问题——QFT 家族的能力边界，正是量子算法的前沿之一。</span>
 
 ## 6 小结
 

@@ -24,8 +24,8 @@ date: 2026-08-08
 
 **核心概念**：设 $A$ 是 $n$ 阶实对称矩阵，二次型 $f(\mathbf{x}) = \mathbf{x}^TA\mathbf{x}$。
 
-- 若对**任意非零** $\mathbf{x}$ 都有 $f(\mathbf{x}) > 0$，则称 $f$ 为**正定二次型**，$A$ 为**正定矩阵（positive definite matrix）**，记作 $A \succ 0$。
-- 若对任意 $\mathbf{x}$ 有 $f(\mathbf{x}) \ge 0$（且存在非零向量使等号成立），则称 $A$ **半正定（positive semidefinite）**，记作 $A \succeq 0$。
+若对**任意非零** $\mathbf{x}$ 都有 $f(\mathbf{x}) > 0$，则称 $f$ 为**正定二次型**，$A$ 为**正定矩阵（positive definite matrix）**，记作 $A \succ 0$。
+若对任意 $\mathbf{x}$ 有 $f(\mathbf{x}) \ge 0$（且存在非零向量使等号成立），则称 $A$ **半正定（positive semidefinite）**，记作 $A \succeq 0$。
 
 **重点**：正定的检验是「**处处为正**」——不是个别方向为正。$f(\mathbf{x}) > 0$ 必须对**所有**非零 $\mathbf{x}$ 成立。
 
@@ -49,10 +49,10 @@ date: 2026-08-08
 
 $\mathbf{x}^TA\mathbf{x} > 0$ 与「$\lambda_i > 0$ 全部」为何是同一件事？拆开看：
 
-- **第一步，正交对角化**：$A = Q\Lambda Q^T$，令 $\mathbf{y} = Q^T\mathbf{x}$（正交变换保长度），则 $\mathbf{x}^TA\mathbf{x} = \mathbf{y}^T\Lambda\mathbf{y} = \sum \lambda_i y_i^2$。
-- **第二步，方向等价**：$\mathbf{x} \ne \mathbf{0} \Leftrightarrow \mathbf{y} \ne \mathbf{0}$（$Q$ 可逆）。于是「对所有非零 $\mathbf{x}$ 为正」⇔「对所有非零 $\mathbf{y}$ 有 $\sum \lambda_i y_i^2 > 0$」。
-- **第三步，逐方向检验**：若某个 $\lambda_i \le 0$，取 $\mathbf{y}$ 只在第 $i$ 个分量非零，则 $\sum \lambda_i y_i^2 = \lambda_i y_i^2 \le 0$——正定性被破坏。反之全部 $\lambda_i > 0$ 时，$\sum \lambda_i y_i^2 > 0$ 恒成立。
-- **第四步，结论**：正定 ⇔ 全部特征值严格为正。**正交对角化把「处处为正」化成了「每个方向都是正的」**——这是谱分解最直接的应用。
+**第一步，正交对角化**：$A = Q\Lambda Q^T$，令 $\mathbf{y} = Q^T\mathbf{x}$（正交变换保长度），则 $\mathbf{x}^TA\mathbf{x} = \mathbf{y}^T\Lambda\mathbf{y} = \sum \lambda_i y_i^2$。
+**第二步，方向等价**：$\mathbf{x} \ne \mathbf{0} \Leftrightarrow \mathbf{y} \ne \mathbf{0}$（$Q$ 可逆）。于是「对所有非零 $\mathbf{x}$ 为正」⇔「对所有非零 $\mathbf{y}$ 有 $\sum \lambda_i y_i^2 > 0$」。
+**第三步，逐方向检验**：若某个 $\lambda_i \le 0$，取 $\mathbf{y}$ 只在第 $i$ 个分量非零，则 $\sum \lambda_i y_i^2 = \lambda_i y_i^2 \le 0$——正定性被破坏。反之全部 $\lambda_i > 0$ 时，$\sum \lambda_i y_i^2 > 0$ 恒成立。
+**第四步，结论**：正定 ⇔ 全部特征值严格为正。**正交对角化把「处处为正」化成了「每个方向都是正的」**——这是谱分解最直接的应用。
 
 <span class="marginnote"><strong>特征值正负 = 二次型的方向符号</strong>，这条对应关系还解释了「正定矩阵的逆正定」「正定矩阵的平方根存在」等推论：特征值取倒数/开方仍为正。机器学习里，协方差矩阵正定保证其逆存在，马氏距离才有意义。</span>
 

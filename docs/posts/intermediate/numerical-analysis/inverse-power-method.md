@@ -69,25 +69,29 @@ $$
 ## 4 实现与验证
 
 ```python
+import numpy as np
+from scipy.linalg import lu_factor, lu_solve
+
 def inverse_power(A, sigma=0.0, x0=None, tol=1e-10, max_iter=100):
-    """位移反幂法：找离 sigma 最近的特征值"""
+    """反幂法（位移版）：收敛到离 σ 最近的特征值，每步解方程不显式求逆。"""
     n = A.shape[0]
-    x = np.random.randn(n) if x0 is None else x0.copy()
-    x /= np.linalg.norm(x)
-    # LU 分解 A - sigma*I 一次
-    from scipy.linalg import lu_factor, lu_solve
-    lu, piv = lu_factor(A - sigma * np.eye(n))
-    for k in range(max_iter):
-        y = lu_solve((lu, piv), x)          # 解方程而非求逆
+    x = np.ones(n) if x0 is None else x0 / np.linalg.norm(x0)
+    lu = lu_factor(A - sigma * np.eye(n))     # LU 分解一次；σ 变则需重新分解
+    for _ in range(max_iter):
+        y = lu_solve(lu, x)
         x_new = y / np.linalg.norm(y)
-        lam = sigma + 1.0 / (x @ y)          # 瑞利商形式恢复 A 的特征值
         if np.linalg.norm(x_new - x) < tol:
-            return lam, x_new, k + 1
+            break
         x = x_new
-    return lam, x, max_iter
+    lam = x @ A @ x / (x @ x)                 # 瑞利商恢复特征值
+    return lam, x
+
+A = np.array([[3., 1], [1, 3]])
+print(inverse_power(A, sigma=0.0, x0=[1., 0.])[0])   # λ_min = 2
+print(inverse_power(A, sigma=3.5, x0=[1., 0.])[0])   # 离 3.5 最近的 4
 ```
 
-**验证**：$A=\begin{pmatrix}3&1\\1&3\end{pmatrix}$，`sigma=0` 得 $\lambda\approx2$（最小）；`sigma=3.5` 得 $\lambda\approx4$（最大，离 3.5 最近的是 4）。
+**验证**：$A=\begin{pmatrix}3&1\\1&3\end{pmatrix}$，$\lambda\approx2$ 得 $\lambda\approx2$（最小）；$\lambda\approx4$ 得 $\lambda\approx4$（最大，离 3.5 最近的是 4）。
 
 **工程注意**：$\sigma$ 恰好等于某特征值时，$A-\sigma I$ 奇异，LU 分解失败——**数值上表现为分解出问题**。处理：给 $\sigma$ 加个微小扰动，或用带小位移的「反幂法修正」。
 

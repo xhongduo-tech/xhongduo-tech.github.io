@@ -1,0 +1,33 @@
+<svg viewBox="0 0 480 370" width="480" height="370" xmlns="http://www.w3.org/2000/svg">
+  <title>驱动力—行驶阻力平衡图</title>
+  <desc>横轴为车速，纵轴为力。四挡位驱动力曲线（1–4 挡）随车速先升后降，行驶阻力曲线（滚动阻力与空气阻力之和）随车速平方上升，两者交点对应最高车速。</desc>
+  <rect width="480" height="370" fill="#faf9f5"/>
+  <!-- 坐标轴 -->
+  <line x1="40" y1="300" x2="460" y2="300" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="300" x2="40" y2="30" stroke="#333" stroke-width="1.5"/>
+  <text x="230" y="330" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">车速 v（km/h）</text>
+  <text x="18" y="160" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333" transform="rotate(-90 18 160)">力 F（N）</text>
+  <!-- 刻度 -->
+  <text x="40" y="318" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">0</text>
+  <text x="240" y="318" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">100</text>
+  <text x="440" y="318" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">200</text>
+  <!-- 1挡驱动力 -->
+  <path d="M40,300 C48,230 50,200 55,170 C60,140 66,105 72,95 C76,88 80,74 84,72 C92,76 94,76 98,78 C108,92 112,115 118,135 C126,158 130,170 136,181" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="66" y="62" font-family="sans-serif" font-size="13" fill="#1f6f8b">1挡</text>
+  <!-- 2挡驱动力 -->
+  <path d="M40,300 C50,260 52,230 56,209 C60,188 64,160 70,140 C78,118 82,128 88,133 C98,120 104,126 110,127 C120,132 126,136 130,137 C150,150 170,170 190,187" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="100" y="116" font-family="sans-serif" font-size="13" fill="#1f6f8b">2挡</text>
+  <!-- 3挡驱动力 -->
+  <path d="M40,300 C60,270 70,252 80,246 C100,232 110,222 120,220 C140,212 150,208 160,207 C180,206 190,208 200,207 C220,210 240,216 260,225 C280,236 300,242 320,248" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="176" y="196" font-family="sans-serif" font-size="13" fill="#1f6f8b">3挡</text>
+  <!-- 4挡驱动力 -->
+  <path d="M40,300 C80,286 100,272 120,267 C160,260 180,254 200,254 C240,250 260,251 280,251 C320,253 340,255 360,258 C390,261 410,263 440,266" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="300" y="244" font-family="sans-serif" font-size="13" fill="#1f6f8b">4挡</text>
+  <!-- 行驶阻力曲线 -->
+  <path d="M40,300 C80,299 120,296 160,292 C220,288 280,285 340,278 C380,275 410,270 440,266" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="250" y="310" font-family="sans-serif" font-size="13" fill="#c0392b">行驶阻力（滚动阻力+空气阻力）</text>
+  <!-- 最高车速交点 -->
+  <circle cx="438" cy="266" r="4.5" fill="#c0392b"/>
+  <line x1="438" y1="266" x2="438" y2="300" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="438" y="340" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">最高车速 ≈ 200</text>
+</svg>

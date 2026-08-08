@@ -23,15 +23,14 @@ date: 2026-08-07
 **挂载（mount）**：把一个文件系统连接到当前目录树的某个已存在目录上，使该目录成为访问这个文件系统的入口。
 
 - **挂载点（mount point）**：被挂载文件系统所连接的目录。如把 U 盘挂到 `/mnt/usb`，则访问 `/mnt/usb` 就是访问 U 盘。
-- **设备（device）**：被挂载的存储源——`/dev/sda1`（分区）、`/dev/nvme0n1`（SSD）、`server:/share`（网络文件系统）。
+- **设备（device）**：被挂载的存储源——`/dev/sda1`（分区）、`/dev/nvme0n1`（SSD）、`server:/export`（网络文件系统）。
 
 ```bash
-# Linux 挂载命令
-mount /dev/sda1 /mnt/data     # 把分区 /dev/sda1 挂到 /mnt/data
-umount /mnt/data              # 卸载
+$ mount /dev/sdb1 /mnt/usb      # 把 U 盘（/dev/sdb1）挂载到挂载点 /mnt/usb
+$ mount                          # 查看挂载表
 ```
 
-**挂载后的效果**：`/mnt/data` 及其子路径的访问全部落到 `/dev/sda1` 这个文件系统上——用户只看到一个统一的目录树，感觉不到「不同文件系统」的边界。
+**挂载后的效果**：`/mnt/usb` 及其子路径的访问全部落到 `/dev/sdb1`（U 盘）这个文件系统上——用户只看到一个统一的目录树，感觉不到「不同文件系统」的边界。
 
 ## 2 挂载表与挂载语义
 
@@ -51,7 +50,7 @@ umount /mnt/data              # 卸载
 
 Linux 的解决：`initramfs`（初始内存根文件系统）——引导时先挂载内存中的迷你根，它包含挂载真实根所需的驱动；然后挂载真实根、`pivot_root` 切换。
 
-**多文件系统的挂载顺序**（`/etc/fstab`）：根 `/` 最先挂载，之后按依赖顺序挂载其他（`/home`、`/boot`、NFS 等）。
+**多文件系统的挂载顺序**（mount order）：根 `/` 最先挂载，之后按依赖顺序挂载其他（`/boot`、`/home`、NFS 等）。
 
 ## 4 核心对比表：挂载的常见文件系统类型
 

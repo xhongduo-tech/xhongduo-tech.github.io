@@ -54,24 +54,25 @@ LeNet-5 处理 $32\times32$ 灰度图，结构如下：
 ## 3 用 PyTorch 从零实现 LeNet
 
 ```python
+import torch
 import torch.nn as nn
 
-class LeNet(nn.Module):
+class LeNet5(nn.Module):
     def __init__(self):
         super().__init__()
-        # 卷积特征提取：conv -> pool 交替两次
+        # 特征提取：卷积 + 池化；padding=2 让输入保持 32×32
         self.features = nn.Sequential(
-            nn.Conv2d(1, 6, kernel_size=5, padding=2),  # 32x32 -> 32x32
+            nn.Conv2d(1, 6, kernel_size=5, padding=2),  # 32×32 → 32×32
             nn.ReLU(),
-            nn.MaxPool2d(2),                            # -> 16x16
-            nn.Conv2d(6, 16, kernel_size=5),            # -> 12x12
+            nn.AvgPool2d(kernel_size=2, stride=2),      # 32×32 → 16×16
+            nn.Conv2d(6, 16, kernel_size=5),            # 16×16 → 12×12
             nn.ReLU(),
-            nn.MaxPool2d(2),                            # -> 6x6
+            nn.AvgPool2d(kernel_size=2, stride=2),      # 12×12 → 6×6
         )
-        # 全连接分类头
+        # 分类头：摊平 → 全连接 → 10 类
         self.classifier = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(16 * 6 * 6, 120),
+            nn.Linear(16 * 6 * 6, 120),   # 摊平后 16×36 = 576
             nn.ReLU(),
             nn.Linear(120, 84),
             nn.ReLU(),
@@ -80,11 +81,14 @@ class LeNet(nn.Module):
 
     def forward(self, x):
         return self.classifier(self.features(x))
+
+net = LeNet5()
+print(net(torch.randn(1, 1, 32, 32)).shape)  # torch.Size([1, 10])
 ```
 
 （为适配现代习惯，这里用了 padding=2 与 ReLU，输入为 $32\times32$；若直接喂 $28\times28$ MNIST，去掉 padding 即可。）**训练循环**与《Softmax 回归》中的完全一致：交叉熵损失 + SGD/Adam + 若干 epoch——LeNet 在 MNIST 上几十个 epoch 就能达到约 99% 准确率。
 
-**易错点：** 全连接层的输入尺寸必须与「卷积输出摊平后的维数」匹配——`16 * 6 * 6 = 576` 来自「16 通道 × 6×6 特征图」。**改动卷积/池化配置后忘记同步 `nn.Linear` 的输入维，是复现 LeNet 最常见的报错**。<span class="marginnote">「手推一遍特征图尺寸」在实现 CNN 时不可或缺：输入 $32\times32$ → Conv(5,pad2) 保 $32$ → pool 到 $16$ → Conv(5) 到 $12$ → pool 到 $6$ → 摊平 $16\times36=576$。用《填充、步幅与感受野》的公式手推一遍，实现几乎不会错。</span>
+**易错点：** 全连接层的输入尺寸必须与「卷积输出摊平后的维数」匹配——$32$ 来自「16 通道 × 6×6 特征图」。**改动卷积/池化配置后忘记同步 $16$ 的输入维，是复现 LeNet 最常见的报错**。<span class="marginnote">「手推一遍特征图尺寸」在实现 CNN 时不可或缺：输入 $32\times32$ → Conv(5,pad2) 保 $32$ → pool 到 $16$ → Conv(5) 到 $12$ → pool 到 $6$ → 摊平 $16\times36=576$。用《填充、步幅与感受野》的公式手推一遍，实现几乎不会错。</span>
 
 ## 4 LeNet 的历史遗产：从 1998 到 2012
 

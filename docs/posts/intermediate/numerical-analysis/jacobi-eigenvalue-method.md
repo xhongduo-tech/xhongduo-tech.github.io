@@ -82,29 +82,32 @@ $$
 ```python
 import numpy as np
 
-def jacobi_eigen(A, tol=1e-12, max_sweeps=100):
-    A = A.astype(float).copy()
+def jacobi_eigen(A, tol=1e-10, max_sweeps=100):
+    """雅可比特征值方法：反复旋转消灭当前最大非对角元。"""
+    A = np.array(A, dtype=float)
     n = A.shape[0]
-    V = np.eye(n)
+    V = np.eye(n)                            # 累积旋转 → 特征向量
     for _ in range(max_sweeps):
-        # 找最大非对角元
-        i, j = np.unravel_index(np.argmax(np.abs(A - np.diag(np.diag(A)))), A.shape)
-        if abs(A[i, j]) < tol:
+        off = np.abs(A - np.diag(np.diag(A)))      # 屏蔽对角元
+        p, q = np.unravel_index(np.argmax(off), off.shape)
+        if p > q:
+            p, q = q, p
+        if off[p, q] < tol:
             break
-        # 算旋转角
-        tau = (A[j, j] - A[i, i]) / (2 * A[i, j])
-        t = np.sign(tau) / (abs(tau) + np.sqrt(1 + tau**2))
-        c = 1 / np.sqrt(1 + t**2); s = t * c
-        # 更新 A 与 V（对称更新，只动 i,j 行/列）
+        theta = 0.5 * np.arctan2(2*A[p, q], A[q, q] - A[p, p])
+        c, s = np.cos(theta), np.sin(theta)
         J = np.eye(n)
-        J[i, i], J[j, j] = c, c
-        J[i, j], J[j, i] = s, -s
+        J[p, p] = J[q, q] = c
+        J[p, q], J[q, p] = s, -s
         A = J.T @ A @ J
         V = V @ J
     return np.diag(A), V
+
+# 例：[[2,1],[1,3]] → 特征值 3.618, 1.382
+print(jacobi_eigen(np.array([[2., 1], [1, 3]]))[0])
 ```
 
-**验证**：随机对称矩阵跑完，`np.sort(diag) == np.sort(np.linalg.eigvalsh(A))`。<span class="marginnote">写雅可比比写 QR 容易得多——<strong>它不需要约化、位移、隐式技巧，几十行就能得到高精度特征值与特征向量</strong>。这就是为什么它作为「教学友好、实现可靠」的方法至今未被淘汰。</span>
+**验证**：随机对称矩阵跑完，对角元与 `numpy.linalg.eigh` 的结果一致（误差 $<10^{-10}$）。<span class="marginnote">写雅可比比写 QR 容易得多——<strong>它不需要约化、位移、隐式技巧，几十行就能得到高精度特征值与特征向量</strong>。这就是为什么它作为「教学友好、实现可靠」的方法至今未被淘汰。</span>
 
 ## 5 雅可比 vs QR 的工程选型
 

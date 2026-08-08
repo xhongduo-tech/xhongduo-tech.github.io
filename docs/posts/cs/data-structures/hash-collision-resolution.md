@@ -52,12 +52,33 @@ $$
 **链地址法（chaining）**：把同地址的关键字都挂在同一个**桶（bucket）**的链表上：
 
 ```c
-typedef struct Node { KeyType key; struct Node *next; } Node;
-Node *table[m];        /* 每条链一个头指针 */
+#define HASHSIZE 100
+typedef struct Node {        /* 桶内链表结点 */
+    KeyType key;
+    struct Node *next;
+} Node;
+
+Node *hashtable[HASHSIZE];   /* 表头数组：每个桶是一条链表，初始全空 */
+
+/* 插入：算地址 → 头插到对应桶链表（O(1)） */
+void Insert(KeyType key) {
+    int addr = Hash(key);
+    Node *p = (Node *)malloc(sizeof(Node));
+    p->key = key;
+    p->next = hashtable[addr];   /* 头插法 */
+    hashtable[addr] = p;
+}
+
+/* 查找：算地址 → 沿该桶链表线性扫描 */
+Node *Search(KeyType key) {
+    Node *p = hashtable[Hash(key)];
+    while (p && p->key != key) p = p->next;
+    return p;
+}
 ```
 
-- 插入：算地址，链到对应桶的链表头（头插 $O(1)$）；
-- 查找：算地址，沿该桶链表找——桶内线性扫描。
+插入：算地址，链到对应桶的链表头（头插 $O(1)$）；
+查找：算地址，沿该桶链表找——桶内线性扫描。
 
 **重点：链地址法没有「表满」概念——冲突越多、链表越长，性能平滑退化。** 装填因子 $\alpha$ 等于平均链长；$\alpha=1$ 时每条链平均 1 个结点，性能几乎最优。<span class="marginnote">链地址法与开放定址法的哲学差异：<strong>开放定址「一个萝卜一个坑，坑满就换坑」，链地址「一个坑装一筐萝卜，筐里排队</strong>」。链地址的链表天然动态，能承受更高的 $\alpha$——工程默认 0.75，就是给链地址法定的。</span>
 

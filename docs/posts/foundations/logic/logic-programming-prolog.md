@@ -24,21 +24,23 @@ date: 2026-08-07
 
 传统编程（命令式）告诉计算机**怎么做**：
 
-```
-sum = 0
-for i in 1..n:
-    sum = sum + i
+```python
+# 命令式：给出每一步指令
+total = 0
+for i in range(1, 11):
+    total = total + i
+print(total)   # 输出 55
 ```
 
 逻辑编程告诉计算机**什么为真**，由计算机自己推演**怎么做**：
 
 ```prolog
+% 逻辑编程：给出事实与规则，由引擎推演
 sum(0, 0).
-sum(N, S) :- N > 0, N1 is N-1, sum(N1, S1), S is S1 + N.
+sum(N, S) :- N1 is N - 1, sum(N1, S1), S is S1 + N.
 ```
 
-第二条规则读作：`sum(N, S)` 成立，**如果** `N > 0` 且 `N1 is N-1` 且 `sum(N1, S1)
-` 且 `S is S1 + N`。这不是「指令」，而是「事实与规则」——程序 = 知识库。
+第二条规则读作：`sum(N, S)` 成立，**如果** `N1 is N - 1` 且 `sum(N1, S1)` 且 `S is S1 + N`。这不是「指令」，而是「事实与规则」——程序 = 知识库。
 
 **辨析｜易错点：** 逻辑编程不是「没有算法的编程」——它只是把算法藏进了推理引擎。Prolog 的「怎么做」由内置的**搜索策略**（深度优先回溯）承担。声明式的优雅与命令式的可控是两种风格：声明式擅长「描述问题」，命令式擅长「控制性能」。
 
@@ -46,17 +48,16 @@ sum(N, S) :- N > 0, N1 is N-1, sum(N1, S1), S is S1 + N.
 
 Prolog 程序由三类语句构成，全部是**霍恩子句（Horn clause）**——一阶逻辑里一种特殊的蕴涵式：
 
-- **事实（fact）**：无条件成立的原子命题。`human(socrates).` ——「苏格拉底是人」。
-- **规则（rule）**：条件式。`mortal(X) :- human(X).` ——「如果 X 是人，则 X 会死」。
-- **查询（query）**：向知识库提问。`?- mortal(socrates).` ——「苏格拉底会死吗？」
+**事实（fact）**：无条件成立的原子命题。`human(socrates).` ——「苏格拉底是人」。
+**规则（rule）**：条件式。`mortal(X) :- human(X).` ——「如果 X 是人，则 X 会死」。
+**查询（query）**：向知识库提问。`?- mortal(socrates).` ——「苏格拉底会死吗？」
 
 **苏格拉底三段论的 Prolog 实现**，几乎逐字对应第三篇的谓词逻辑：
 
 ```prolog
-human(socrates).                 % 事实：苏格拉底是人
-mortal(X) :- human(X).           % 规则：所有人都会死
-?- mortal(socrates).             % 查询：苏格拉底会死？
-% 输出：true
+human(socrates).          % 事实：苏格拉底是人
+mortal(X) :- human(X).    % 规则：如果 X 是人，则 X 会死
+?- mortal(socrates).      % 查询：苏格拉底会死吗？
 ```
 
 注意 `mortal(X) :- human(X)` 就是一阶逻辑的 $\forall X(human(X) \to mortal(X))$——**Prolog 规则 = 霍恩子句**（至多一个正原子条件的蕴涵）。
@@ -65,13 +66,13 @@ mortal(X) :- human(X).           % 规则：所有人都会死
 
 Prolog 的「运行」靠两个核心机制：
 
-**合一（unification）**：让两个项相等的模式匹配——给变元找赋值。查询 `?- mortal(socrates)` 时，引擎把 `socrates` 与规则头 `mortal(X)` 合一，得 `X = socrates`，然后把 `human(socrates)` 作为新目标去查事实——命中。
+**合一（unification）**：让两个项相等的模式匹配——给变元找赋值。查询 `?- mortal(socrates).` 时，引擎把 `mortal(socrates)` 与规则头 `mortal(X)` 合一，得 `X = socrates`，然后把 `human(socrates)` 作为新目标去查事实——命中。
 
-**回溯（backtracking）**：当一条推理路径失败时，回到最近的分叉点尝试另一条路。查询「谁会死」`?- mortal(X)`：
+**回溯（backtracking）**：当一条推理路径失败时，回到最近的分叉点尝试另一条路。查询「谁会死」`?- mortal(X).`：
 
-- 合一 `mortal(X)` 与规则 `mortal(X) :- human(X)`，新目标 `human(X)`。
-- 尝试事实 `human(socrates)`，合一得 `X = socrates`——返回一个答案。
-- 如果用户要更多答案，回溯找下一个 `human(...)` 事实。
+合一 `mortal(X)` 与规则 `mortal(Y)`，新目标 `human(Y)`。
+尝试事实 `human(socrates)`，合一得 `Y = socrates`——返回一个答案。
+如果用户要更多答案，回溯找下一个 `human(_)` 事实。
 
 **合一与回溯就是「机器化的推理」**：合一对应量词的例示，回溯对应证明搜索的试探。这正是第三篇自然演绎的机械版——只是让引擎来做。
 
@@ -92,12 +93,12 @@ $$
 father(X, Y) :- parent(X, Y), male(X).
 ```
 
-- **第一步，转霍恩子句**：全称蕴涵式 $\forall X((P \land Q) \to R)$ 转成规则 `R :- P, Q.`——结论在头，条件在体。
+- **第一步，转霍恩子句**：全称蕴涵式 $\forall X((P \land Q) \to R)$ 转成规则 `father(X, Y) :- parent(X, Y), male(X)`——结论在头，条件在体。
 - **第二步，变元全称化**：规则里的变元（`X`, `Y`）默认为全称量化——「对所有 X、Y」。
-- **第三步，合取到逗号**：条件里的 $\land$ 变成逗号（`,`）。
+- **第三步，合取到逗号**：条件里的 $\land$ 变成逗号（`parent(X, Y), male(X)`）。
 - **第四步，查询作为目标**：查询就是「要证明的公式」——引擎反向搜索证明。
 
-**Prolog 的能力边界（闭世界假设）**：Prolog 采用**闭世界假设（closed-world assumption）**——不在知识库里的就是假的。`?- human(plato).` 若知识库没有 `human(plato)` 的事实，Prolog 回答 `false`——即使柏拉图客观上可能「是人」。这是「从知识库推理」与「从世界推理」的差别：Prolog 回答的是「能否从知识库推出」，不是「世界真相」。
+**Prolog 的能力边界（闭世界假设）**：Prolog 采用**闭世界假设（closed-world assumption）**——不在知识库里的就是假的。比如查询 `?- human(plato).`，若知识库没有 `human(plato)` 的事实，Prolog 回答 `false`——即使柏拉图客观上可能「是人」。这是「从知识库推理」与「从世界推理」的差别：Prolog 回答的是「能否从知识库推出」，不是「世界真相」。
 
 ## 5 逻辑编程的遗产与现状
 
@@ -112,11 +113,7 @@ Prolog 和逻辑编程没有消失，它们活在多个现代技术里：
 
 **例 1**：写出 Prolog 程序表达「X 是 Y 的祖先，若 X 是 Y 的父母或 X 是 Y 的祖先的祖先」。
 
-- ```prolog
-  parent(a, b).
-  ancestor(X, Y) :- parent(X, Y).
-  ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
-  ```
+- `ancestor(X, Y) :- parent(X, Y).` 与 `ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).`
   第一条规则：直接父母；第二条：通过中间人 Z 递归——这是递归规则的标准写法。
 
 **例 2**：Prolog 为什么采用「闭世界假设」？

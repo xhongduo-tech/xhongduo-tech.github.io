@@ -43,8 +43,8 @@ Inception 的每条大核分支都先接一个 $1\times1$ 卷积——这是 **1
 
 **为什么瓶颈能省算力？** 设 $C_{\text{in}}=C_{\text{out}}=C$：
 
-- **直接 $5\times5$ 卷积**：计算量 $\approx 25 C^2 HW$。
-- **$1\times1$ 降到 $C/4$ + $5\times5$**：计算量 $\approx C\times\frac{C}{4}HW + 25\times\frac{C}{4}\times\frac{C}{4}HW \approx 1.8 C^2HW$——**省约 14 倍**。
+**直接 $5\times5$ 卷积**：计算量 $\approx 25 C^2 HW$。
+**$1\times1$ 降到 $C/4$ + $5\times5$**：计算量 $\approx C\times\frac{C}{4}HW + 25\times\frac{C}{4}\times\frac{C}{4}HW \approx 1.8 C^2HW$——**省约 14 倍**。
 
 **「先降维、再计算、最后升维」**是深度学习最通用的省算力模式（ResNet 的瓶颈块也用它）。它牺牲一点表达（降维是信息压缩），换取巨大的计算节省。<span class="marginnote">瓶颈的「信息论直觉」：通道维往往高度冗余（相邻通道特征相似），$1\times1$ 降维先做「有损压缩」，把冗余去掉再计算，计算量大幅下降而精度损失很小。这个「先压缩再计算」的模式，在注意力机制的「多头降维投影」里也反复出现（Transformer 的 $d_{\text{model}}\to d_k$）。</span>
 
@@ -55,12 +55,19 @@ Inception 的每条大核分支都先接一个 $1\times1$ 卷积——这是 **1
 GoogLeNet 由 9 个 Inception 块 + 若干辅助结构组成：
 
 ```
-输入(224x224x3)
-→ Stem：卷积(64) + 卷积(192) + 池化
-→ Inception(3a) → Inception(3b) → 池化
-→ Inception(4a) → Inception(4b) → Inception(4c) → Inception(4d) → Inception(4e) → 池化
-→ Inception(5a) → Inception(5b)
-→ GAP → Dropout → Softmax(1000)
+输入 (224×224×3)
+  ↓
+卷积 7×7/2（64） → 最大池化 3×3/2
+  ↓
+卷积 3×3/1（192） → 最大池化 3×3/2
+  ↓
+Inception ×2 → 最大池化 3×3/2
+  ↓
+Inception ×5 → 最大池化 3×3/2        ← Inception 4a、4d 处接辅助分类器
+  ↓
+Inception ×2
+  ↓
+全局平均池化 → 全连接 → Softmax
 ```
 
 **深度约 22 层，参数约 700 万**（远少于 VGG 的 1.4 亿），计算量约 1.5 GFLOPs（VGG 的约 1/10）。**GoogLeNet 证明「巧设计」可以替代「蛮力加深」**。<span class="marginnote">GoogLeNet 的 9 个 Inception 块「逐渐增宽」：早期块输出 128–256 通道，后期 512–832 通道。这个「由窄到宽」的通道调度，配合「空间逐级减半」，是「空间减半、通道翻倍」法则的又一实现——只是用「并行块」而非「串行小核」来增宽。</span>
@@ -73,20 +80,20 @@ GoogLeNet 由 9 个 Inception 块 + 若干辅助结构组成：
 
 把「并行多分支」与「串行大核」的计算量精确对比。设输入通道 $C$、输出总通道 $C_{\text{out}}$、特征图 $H\times W$，Inception 块的四个分支各自输出 $C_{\text{out}}/4$ 通道：
 
-- **分支 2（1×1 + 3×3）**：$1\times1$ 把 $C\to C/4$，$3\times3$ 把 $C/4\to C_{\text{out}}/4$。FLOPs $\approx C\times\frac{C}{4}HW + 9\times\frac{C}{4}\times\frac{C_{\text{out}}}{4}HW$。
-- **对比单层 5×5 直接卷积**（$C\to C_{\text{out}}$）：FLOPs $\approx 25\times C\times C_{\text{out}}\times HW$。
+**分支 2（1×1 + 3×3）**：$1\times1$ 把 $C\to C/4$，$3\times3$ 把 $C/4\to C_{\text{out}}/4$。FLOPs $\approx C\times\frac{C}{4}HW + 9\times\frac{C}{4}\times\frac{C_{\text{out}}}{4}HW$。
+**对比单层 5×5 直接卷积**（$C\to C_{\text{out}}$）：FLOPs $\approx 25\times C\times C_{\text{out}}\times HW$。
 
-- **第一步，代入数值**：设 $C=C_{\text{out}}=512$、$HW=56^2$。Inception 分支 2 的 FLOPs 约 1.03 GFLOPs；单层 $5\times5$ 约 20.1 GFLOPs。
-- **第二步，看差距**：Inception 用一个 $1\times1$ 的「前置压缩」，把 5×5 分支的计算量降了一个数量级。
-- **第三步，读整体**：四条并行分支的总计算量仍远小于「每层一个 5×5」的串行方案——**「并行 + 降维」是 GoogLeNet 省算力的双重来源**。<span class="marginnote">「计算量预算」是架构设计的隐形约束：同一精度下，GoogLeNet 用 1.5 GFLOPs、VGG 用 15+ GFLOPs——这意味着 GoogLeNet 可以在更便宜的硬件上实时运行。Inception 系列后续版本（v2/v3）的改进（BatchNorm、因子分解）也大多在「更省算力的同时更准」这条线上。</span>
+**第一步，代入数值**：设 $C=C_{\text{out}}=512$、$HW=56^2$。Inception 分支 2 的 FLOPs 约 1.03 GFLOPs；单层 $5\times5$ 约 20.1 GFLOPs。
+**第二步，看差距**：Inception 用一个 $1\times1$ 的「前置压缩」，把 5×5 分支的计算量降了一个数量级。
+**第三步，读整体**：四条并行分支的总计算量仍远小于「每层一个 5×5」的串行方案——**「并行 + 降维」是 GoogLeNet 省算力的双重来源**。<span class="marginnote">「计算量预算」是架构设计的隐形约束：同一精度下，GoogLeNet 用 1.5 GFLOPs、VGG 用 15+ GFLOPs——这意味着 GoogLeNet 可以在更便宜的硬件上实时运行。Inception 系列后续版本（v2/v3）的改进（BatchNorm、因子分解）也大多在「更省算力的同时更准」这条线上。</span>
 
 ## 5 从 Inception 到现代多尺度设计
 
 Inception 的「多尺度并行」思想在后续架构中以不同形态延续：
 
-- **Inception v2/v3**：把 $5\times5$ 分解成两个 $3\times3$、把 $n\times n$ 分解成 $1\times n + n\times 1$——「大核分解」进一步省算力；引入 BatchNorm。
-- **FPN（特征金字塔）**：在检测网络里做「多尺度特征融合」——不同层的特征图并行/融合，是「多尺度」思想在「跨层」上的延续。
-- **HRNet**：全程并行多分辨率分支——Inception 的「并行」哲学的最彻底实现。
+**Inception v2/v3**：把 $5\times5$ 分解成两个 $3\times3$、把 $n\times n$ 分解成 $1\times n + n\times 1$——「大核分解」进一步省算力；引入 BatchNorm。
+**FPN（特征金字塔）**：在检测网络里做「多尺度特征融合」——不同层的特征图并行/融合，是「多尺度」思想在「跨层」上的延续。
+**HRNet**：全程并行多分辨率分支——Inception 的「并行」哲学的最彻底实现。
 
 **「Inception 教会我们的不是某个具体块，而是『并行多尺度』这个设计维度」**——当一层不知道该用什么尺度时，并行地都用、让数据决定权重。<span class="marginnote">「并行让数据选择」的思想甚至超越了卷积：Transformer 的多头注意力本质上也是「并行多个注意力子空间，让网络自己分配重要性」——「并行 + 融合」是现代神经网络最通用的「选择机制」。从这个角度看，Inception 与多头注意力是同一设计哲学在不同时代的两个实例。</span>
 

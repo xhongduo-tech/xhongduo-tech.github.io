@@ -67,15 +67,18 @@ $$
 ## 4 实现：一组 x 就够
 
 ```python
-def gauss_seidel(A, b, x0=None, tol=1e-10, max_iter=1000):
-    n = A.shape[0]
-    x = np.zeros(n) if x0 is None else x0.copy()
-    for k in range(max_iter):
+import numpy as np
+
+def gauss_seidel(A, b, x0, tol=1e-10, max_iter=1000):
+    """高斯-赛德尔迭代：逐个分量更新，立即用前面分量的最新值。"""
+    x = np.array(x0, dtype=float)
+    for it in range(max_iter):
         x_old = x.copy()
-        for i in range(n):                      # 逐分量串行更新
-            x[i] = (b[i] - A[i, :i] @ x[:i] - A[i, i+1:] @ x[i+1:]) / A[i, i]
-        if np.linalg.norm(x - x_old, np.inf) < tol:
-            return x, k + 1
+        for i in range(len(b)):
+            s = A[i] @ x - A[i, i] * x[i]     # j<i 用本轮新值，j>i 用旧值
+            x[i] = (b[i] - s) / A[i, i]
+        if np.linalg.norm(x - x_old, ord=np.inf) < tol:
+            return x, it + 1
     return x, max_iter
 ```
 

@@ -82,43 +82,27 @@ $$
 用 Python 把凯撒与仿射一起实现，并演示凯撒的 26 路穷举：
 
 ```python
-import string
+def caesar_encrypt(plain, k):
+    """凯撒加密：C = (P + k) mod 26。"""
+    return ''.join(chr((ord(c) - 65 + k) % 26 + 65) for c in plain.upper())
 
-def caesar_shift(text: str, k: int) -> str:
-    """凯撒密码：仅处理字母，其余字符原样保留。"""
-    out = []
-    for ch in text.upper():
-        if ch in string.ascii_uppercase:
-            out.append(chr((ord(ch) - 65 + k) % 26 + 65))
-        else:
-            out.append(ch)
-    return "".join(out)
+def caesar_bruteforce(cipher):
+    """26 路穷举：把每个移位 k 的解密结果都打出来。"""
+    for k in range(26):
+        print(f"k={k:2d}: {caesar_encrypt(cipher, -k)}")
+    # 观察输出：只有 k=3 那一行能还原出可读明文
 
-def affine(text: str, a: int, b: int, decrypt: bool = False) -> str:
-    """仿射密码：C = (aP + b) mod 26；解密需要 gcd(a,26)=1。"""
-    a_inv = pow(a, -1, 26)          # Python 3.8+ 内置求模逆元
-    out = []
-    for ch in text.upper():
-        if ch in string.ascii_uppercase:
-            n = ord(ch) - 65
-            n = (a_inv * (n - b)) % 26 if decrypt else (a * n + b) % 26
-            out.append(chr(n + 65))
-        else:
-            out.append(ch)
-    return "".join(out)
+def affine_encrypt(plain, a, b):
+    """仿射加密：C = (aP + b) mod 26。"""
+    return ''.join(chr((a * (ord(c) - 65) + b) % 26 + 65) for c in plain.upper())
 
-plain = "HELLO WORLD"
-print("凯撒(+3):", caesar_shift(plain, 3))          # KHOOR ZRUOG
-print("凯撒(-3):", caesar_shift(caesar_shift(plain, 3), -3))
-print("仿射(5,8):", affine(plain, 5, 8))
-print("仿射解密:", affine(affine(plain, 5, 8), 5, 8, decrypt=True))
+cipher = caesar_encrypt("HELLO", 3)
+print("凯撒加密 HELLO 得", cipher)       # KHOOR
+caesar_bruteforce(cipher)                # 只有 k=3 可读
 
-# 唯密文穷举：26 个位移全部试一遍
-cipher = caesar_shift("THE QUICK BROWN FOX", 11)
-for k in range(26):
-    trial = caesar_shift(cipher, -k)
-    if "THE" in trial:          # 用常见词做快速判据
-        print(f"命中位移 k={k}: {trial}")
+a, b = 5, 8
+print("仿射加密 N 得", affine_encrypt("N", a, b))   # V
+print("5 的逆元 =", pow(a, -1, 26))                 # 21
 ```
 
 注意仿射密码求逆元用了 `pow(a, -1, 26)`——它背后正是扩展欧几里得算法，我们在第五篇《模运算与同余》里会亲手实现一遍。

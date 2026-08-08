@@ -36,10 +36,10 @@ $$T = \left(\frac{\partial U}{\partial S}\right)_V, \qquad -p = \left(\frac{\par
 
 由勒让德变换定义四个热力学函数：
 
-- **内能** $U(S, V)$：$\mathrm{d}U = T\mathrm{d}S - p\mathrm{d}V$；
-- **焓** $H = U + pV$：$\mathrm{d}H = T\mathrm{d}S + V\mathrm{d}p$（自然变量 $S, p$，等压过程热）；
-- **亥姆霍兹自由能** $F = U - TS$：$\mathrm{d}F = -S\mathrm{d}T - p\mathrm{d}V$（自然变量 $T, V$，等温等容）；
-- **吉布斯自由能** $G = U - TS + pV$：$\mathrm{d}G = -S\mathrm{d}T + V\mathrm{d}p$（自然变量 $T, p$，等温等压）。
+**内能** $U(S, V)$：$\mathrm{d}U = T\mathrm{d}S - p\mathrm{d}V$；
+**焓** $H = U + pV$：$\mathrm{d}H = T\mathrm{d}S + V\mathrm{d}p$（自然变量 $S, p$，等压过程热）；
+**亥姆霍兹自由能** $F = U - TS$：$\mathrm{d}F = -S\mathrm{d}T - p\mathrm{d}V$（自然变量 $T, V$，等温等容）；
+**吉布斯自由能** $G = U - TS + pV$：$\mathrm{d}G = -S\mathrm{d}T + V\mathrm{d}p$（自然变量 $T, p$，等温等压）。
 
 **重点：四个热力学势——$U$、$H$、$F$、$G$——各有自然变量与全微分；$F$（等温等容）、$G$（等温等压）是「自由能」，在对应条件下取极小（平衡判据）。** 相变（下节）、化学平衡用 $G$；等温过程用 $F$；等压热用 $H$。<span class="marginnote">「自由能为什么叫自由」：$F$、$G$ 是在等温条件下「可以做功的那部分能量」——总内能减去「束缚在热能 $TS$」的部分。等温等压下系统朝 $G$ 最小的方向演化——平衡判据。相变（固→液→气）就是在 $T$、$p$ 下比较两相的 $G$，低的相稳定。</span>
 

@@ -32,13 +32,14 @@ $$\delta(q, a) = \max\{ k : P[1..k] \text{ 是 } P_q a \text{ 的后缀} \}$$
 
 ## 2 匹配阶段：逐字符查表
 
-```
-FINITE-AUTOMATON-MATCHER(T, δ, m)
-  n = T.length;  q = 0
-  for i = 1 to n
-    q = δ(q, T[i])
-    if q == m
-      print "match at shift" i - m
+```text
+FINITE-AUTOMATON-MATCHER(T, δ, m):
+    n = T.length
+    q = 0                                // 初始状态：未匹配任何前缀
+    for i = 1 to n:
+        q = δ(q, T[i])                   // 逐字符查表推进状态
+        if q == m:                       // 达到完全匹配状态
+            输出「模式在位移 i - m 处出现」
 ```
 
 **每个字符 $O(1)$**（查表 $\delta(q, T[i])$），总 $O(n)$——**匹配阶段严格线性**，无回溯。<span class="marginnote">注意匹配阶段没有「失败」概念——自动机永远是确定性的：读入每个字符必然转移到某个状态。失配只是「转移到较小的状态」（回退），不是「停止」。这是自动机匹配与朴素匹配的本质区别：朴素失配后位移 +1 重新开始，自动机失配后状态回退但文本指针不动。</span>
@@ -47,15 +48,16 @@ FINITE-AUTOMATON-MATCHER(T, δ, m)
 
 构造 $\delta$ 需要计算每个状态 $q$、每个字符 $a$ 的转移。**朴素构造**：
 
-```
-COMPUTE-TRANSITION-FUNCTION(P, Σ)
-  m = P.length
-  for q = 0 to m
-    for each character a in Σ
-      k = min(m+1, q+2)
-      repeat k = k - 1 until P[1..k] is a suffix of P_q + a
-      δ(q, a) = k
-  return δ
+```text
+COMPUTE-TRANSITION-FUNCTION(P, Σ):
+    m = P.length
+    for q = 0 to m:                      // 每个状态 q
+        for each 字符 a ∈ Σ:
+            k = min(m, q + 1)
+            while k > 0 and P[1..k] 不是 (P[1..q] + a) 的后缀:
+                k = k - 1
+            δ(q, a) = k                 // 最长可继续匹配的前缀长度
+    return δ
 ```
 
 对每个 $(q, a)$ 从大到小试「$P$ 的前缀长度 $k$」，找第一个「是 $P_q a$ 后缀」的 $k$。**复杂度**：$O(m^3|\Sigma|)$（$m+1$ 个状态 × $|\Sigma|$ 字符 × 每次 $O(m)$ 后缀检查 × 试 $O(m)$ 次）。<span class="marginnote">$m^3|\Sigma|$ 是自动机构造的主要代价——它比匹配的 $O(n)$ 贵得多。这就是 KMP 出现的动机：KMP 用一个「前缀函数」在 $O(m)$ 内获得同样的「回退信息」，免去构造整张转移表。若 $|\Sigma|$ 很大（如 Unicode）或 $m$ 大，$m^3|\Sigma|$ 可能不可接受。</span>

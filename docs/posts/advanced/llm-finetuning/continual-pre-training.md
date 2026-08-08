@@ -44,9 +44,9 @@ date: 2026-08-07
 
 语料是 CPT 的地基。领域语料通常来自：
 
-- **公开领域语料库**：法律条文、判例、财报、论文、专利、医学教科书；
-- **业务数据**：企业内部的文档、工单、聊天记录、代码仓库（注意合规）；
-- **合成语料**：用大模型基于领域资料生成问答或解析，再回灌（对应第二篇《数据工程》的蒸馏路线）。
+**公开领域语料库**：法律条文、判例、财报、论文、专利、医学教科书；
+**业务数据**：企业内部的文档、工单、聊天记录、代码仓库（注意合规）；
+**合成语料**：用大模型基于领域资料生成问答或解析，再回灌（对应第二篇《数据工程》的蒸馏路线）。
 
 拿到原始文本后，清洗流水线大致是：**去重 → 去噪 → 过滤 → 配比**。去重尤其关键：训练数据里高比例重复，会让模型学会「背诵」而非「理解」，也在后续评测里造成数据污染。<span class="marginnote">数据污染是评测中的经典陷阱：如果评测题就在训练语料里，模型「记住答案」会被误读为「学会了推理」。本专题第九篇《评估与诊断》会专门讲污染检测。</span>
 
@@ -64,10 +64,10 @@ date: 2026-08-07
 
 CPT 的关键调参直觉只有一句：**温和**。基座已经接近一个很好的局部最优，用力过猛会把它推坏。
 
-- **学习率**：约 $1\times10^{-5}$ 到 $3\times10^{-5}$（比预训练低约 10 倍），且常配 warmup；
-- **步数**：通常只需「读完一遍领域语料」量级的步数，即 1–3 个 epoch；
-- **序列长度与批大小**：可适当加大，让模型看到更长的领域文本（对应第五篇《长序列微调》）；
-- **课程（curriculum）**：从易到难排列语料，或按时间顺序排列新闻语料，让模型平滑吸收。<span class="marginnote">「知识更新」类 CPT 尤其依赖时间排序：如果先讲 2025 年再回讲 2023 年，模型会陷入矛盾。时间课程让新信息稳定地「压」在旧信息之上。</span>
+**学习率**：约 $1\times10^{-5}$ 到 $3\times10^{-5}$（比预训练低约 10 倍），且常配 warmup；
+**步数**：通常只需「读完一遍领域语料」量级的步数，即 1–3 个 epoch；
+**序列长度与批大小**：可适当加大，让模型看到更长的领域文本（对应第五篇《长序列微调》）；
+**课程（curriculum）**：从易到难排列语料，或按时间顺序排列新闻语料，让模型平滑吸收。<span class="marginnote">「知识更新」类 CPT 尤其依赖时间排序：如果先讲 2025 年再回讲 2023 年，模型会陷入矛盾。时间课程让新信息稳定地「压」在旧信息之上。</span>
 
 训练时要盯**双指标**：领域验证集 loss 与通用能力抽查（例如一段通用文本的困惑度，或一个轻量通用基准）。领域 loss 收敛、通用指标刚开始下滑，就是收手的信号——**CPT 讲求「够了就停」，而不是「越低越好」**。
 
@@ -78,10 +78,10 @@ CPT 的关键调参直觉只有一句：**温和**。基座已经接近一个很
 继续预训练的损失在数学上与预训练毫无区别——都是下一个词的交叉熵。区别全在「对哪些数据算」：
 
 $$
-L_{\text{CPT}}(\theta) = -\frac{1}{T}\sum_{t=1}^{T} \log P_\theta(x_t \mid x_{<t})
+L_{\text{CPT}}(\theta) = -\frac{1}{T}\sum_{t=1}^{T} \log P_\theta(x_t \mid x_{\\lt t})
 $$
 
-这里 $x_{<t}$ 是位置 $t$ 之前的全部 token，$P_\theta(x_t \mid x_{<t})$ 是模型认为真实 token $x_t$ 是下一个词的概率，$T$ 是序列长度。**这条式子与预训练逐字相同**——所以 CPT 常被称作「把预训练再做一遍，只是换了语料」。
+这里 $x_{\\lt t}$ 是位置 $t$ 之前的全部 token，$P_\theta(x_t \mid x_{\\lt t})$ 是模型认为真实 token $x_t$ 是下一个词的概率，$T$ 是序列长度。**这条式子与预训练逐字相同**——所以 CPT 常被称作「把预训练再做一遍，只是换了语料」。
 
 引入通用数据后，目标变成两个期望的加权和：
 
@@ -101,13 +101,22 @@ $$
 一个简化的训练循环骨架：
 
 ```python
-for step, batch in loader:          # loader 按 (1-α : α) 混装领域与通用 batch
-    x = batch["input_ids"]           # (B, T)
-    logits = model(x).logits         # (B, T, V)
-    loss = cross_entropy(logits[:, :-1], x[:, 1:])   # 下一个词预测
-    loss.backward()
-    optimizer.step()                 # 学习率 ~1e-5，全局 warmup
-    scheduler.step()                 # 可选：随 step 抬高 α，实现退火混合
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-7B")
+tok = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-7B")
+opt = torch.optim.AdamW(model.parameters(), lr=2e-5)   # 温和：比预训练低约一个数量级
+
+for step, batch in enumerate(domain_loader):
+    if step % k == 0:                       # 周期混入通用语料，防止灾难性遗忘
+        batch = next(general_loader)
+    ids = tok(batch, padding=True, return_tensors="pt").input_ids
+    loss = model(ids, labels=ids).loss
+    loss.backward(); opt.step(); opt.zero_grad()
+    if step % eval_every == 0:
+        # 双指标：领域 loss 收敛、通用困惑度不塌
+        print(step, ppl(model, domain_val), ppl(model, general_val))
 ```
 
 ## 6 小结

@@ -48,8 +48,8 @@ $$
 \text{allowance}[owner][spender] \ge \text{amount} \implies \text{spender 可代扣}
 $$
 
-- **第一步**：`approve(spender, N)` 让 `owner` 设定 `allowance[owner][spender] = N`。
-- **第二步**：`transferFrom(owner, to, amount)` 在扣款后把 `allowance` 减掉 `amount`。
+- **第一步**：`approve` 让 owner 设定 spender 的 `allowance`。
+- **第二步**：`transferFrom` 在扣款后把 `allowance` 减掉 `amount`。
 - **第三步**：合约（如 DEX）持有这个授权，就能在交易时**代为划转**用户代币——这是「授权-代付」模式，也是闪电贷等复杂操作的基础。注意 `approve` 的经典坑：`approve` 到非零值后再 `approve` 到另一个非零值，某些实现允许攻击者利用「时间差」双花旧授权（所以 OpenZeppelin 建议先 `approve(0)` 再设置）。
 
 ## 3 ERC-721：非同质化代币
@@ -58,14 +58,14 @@ $$
 
 ```solidity
 interface IERC721 {
-    function balanceOf(address owner) external view returns (uint256);
-    function ownerOf(uint256 tokenId) external view returns (address);
-    function approve(address to, uint256 tokenId) external;
-    function getApproved(uint256 tokenId) external view returns (address);
-    function setApprovalForAll(address operator, bool approved) external;
-    function isApprovedForAll(address owner, address operator) external view returns (bool);
+    function ownerOf(uint256 tokenId) external view returns (address owner);
+    function safeTransferFrom(address from, address to, uint256 tokenId) external;
     function transferFrom(address from, address to, uint256 tokenId) external;
+    function approve(address to, uint256 tokenId) external;
+    function setApprovalForAll(address operator, bool approved) external;
+
     event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
 }
 ```
 
@@ -74,19 +74,19 @@ interface IERC721 {
 | 维度 | ERC-20 | ERC-721 |
 | --- | --- | --- |
 | 可互换性 | 同质（1 枚 = 任意 1 枚） | 非同质（每枚唯一） |
-| 转账单位 | `amount`（数量） | `tokenId`（具体哪一枚） |
+| 转账单位 | amount（数量） | tokenId（具体哪一枚） |
 | 授权粒度 | 按 spender 授权额度 | 按 tokenId 授权 + `setApprovalForAll` |
 | 典型用途 | 代币、稳定币、治理币 | 数字艺术品、域名、票据、游戏资产 |
 
-**元数据（metadata）**：NFT 通常把描述信息（名称、图片 URL、属性）存在链下，链上只存 `tokenURI(tokenId)` 返回的 JSON 地址。<span class="marginnote">「链上只存指针，链下存数据」是 NFT 的常见架构：`tokenURI` 返回的 JSON 里的 `image` 字段指向一个 IPFS/中心化 URL。真正的「链上 NFT」（完全链上存储）成本极高——这是 2023 年后「链上艺术」运动的技术动机。</span>
+**元数据（metadata）**：NFT 通常把描述信息（名称、图片 URL、属性）存在链下，链上只存 `tokenURI` 返回的 JSON 地址。<span class="marginnote">「链上只存指针，链下存数据」是 NFT 的常见架构：`tokenURI` 返回的 JSON 里的 `image` 字段指向一个 IPFS/中心化 URL。真正的「链上 NFT」（完全链上存储）成本极高——这是 2023 年后「链上艺术」运动的技术动机。</span>
 
 ## 4 更现代的标准家族
 
-- **ERC-1155**：多代币标准，一个合约同时支持同质与非同质代币，批量转账省 Gas——游戏资产生态的主流。
-- **ERC-4626**：收益金库标准，统一了「存入生息资产、按份额记账」的接口，被借贷与收益率协议广泛采用。
-- **ERC-20 包装（wrapped）**：把 ETH 包装成 `WETH`（满足 ERC-20 接口），让 ETH 能参与 ERC-20 生态——DEX 里几乎所有交易对都涉及 WETH。
+**ERC-1155**：多代币标准，一个合约同时支持同质与非同质代币，批量转账省 Gas——游戏资产生态的主流。
+**ERC-4626**：收益金库标准，统一了「存入生息资产、按份额记账」的接口，被借贷与收益率协议广泛采用。
+**ERC-20 包装（wrapped）**：把 ETH 包装成 WETH（满足 ERC-20 接口），让 ETH 能参与 ERC-20 生态——DEX 里几乎所有交易对都涉及 WETH。
 
-**辨析｜易错点：「NFT」不等于「图片」，更不等于「版权」。** NFT 的链上部分是「唯一 tokenId + 所有权记录」，它证明的是「你拥有这个 tokenId」，至于 tokenId 指向的图片是谁创作的、是否侵权、是否可商用，链上**一概不知**。**「买入 NFT = 拥有版权」是常见的认知误区**。另一个易错点：**ERC-20 的 `transfer` 返回 bool，但不返回值也不一定代表失败**——老式合约不按标准返回时，依赖返回值的钱包会误判，所以现代库（如 OpenZeppelin SafeERC20）会额外检查返回值。
+**辨析｜易错点：「NFT」不等于「图片」，更不等于「版权」。** NFT 的链上部分是「唯一 tokenId + 所有权记录」，它证明的是「你拥有这个 tokenId」，至于 tokenId 指向的图片是谁创作的、是否侵权、是否可商用，链上**一概不知**。**「买入 NFT = 拥有版权」是常见的认知误区**。另一个易错点：**ERC-20 的 `transfer`/`transferFrom` 返回 bool，但不返回值也不一定代表失败**——老式合约不按标准返回时，依赖返回值的钱包会误判，所以现代库（如 OpenZeppelin SafeERC20）会额外检查返回值。
 
 ## 5 标准之上：资产的可组合性
 
@@ -98,17 +98,17 @@ Token 标准的真正价值是**可组合性**：一个符合 ERC-20 的代币�
 
 **approve 的竞态（race condition）**：经典的「双层 approve」攻击。流程：
 
-1. 用户 `approve(恶意合约, 100)` 授权 100 个代币。
-2. 恶意合约立即 `transferFrom(user, 自己, 100)` 转走 100。
-3. 用户再次 `approve(恶意合约, 50)`——如果实现不先归零，`allowance` 可能仍是「旧值 + 新值」或「覆盖逻辑有漏洞」，让恶意合约多转。
+1. 用户 `approve` 授权 100 个代币。
+2. 恶意合约立即 `transferFrom` 转走 100。
+3. 用户再次 `approve`——如果实现不先归零，`allowance` 可能仍是「旧值 + 新值」或「覆盖逻辑有漏洞」，让恶意合约多转。
 
-**防御**：OpenZeppelin 在 0.8 之后的 `approve` 直接覆盖（无竞态），并推荐 `increaseAllowance`/`decreaseAllowance` 替代「从非零改非零」。**凡是需要「改授权额度」的场景，都应该用「增量/减量」而不是「直接覆盖」**。<span class="marginnote">approve 竞态是 2018 年前后 DeFi 被盗的经典漏洞之一。现代最佳实践是「先 approve(0) 再 approve(amount)」，或直接用 `safeApprove`/`forceApprove` 系列——这提醒我们：<strong>ERC-20 的接口「只是接口」，安全性取决于「实现细节」</strong>。标准定义「能做什么」，实现决定「是否安全」。</span>
+**防御**：OpenZeppelin 在 0.8 之后的 ERC20 实现直接覆盖（无竞态），并推荐 `increaseAllowance`/`decreaseAllowance` 替代「从非零改非零」。**凡是需要「改授权额度」的场景，都应该用「增量/减量」而不是「直接覆盖」**。<span class="marginnote">approve 竞态是 2018 年前后 DeFi 被盗的经典漏洞之一。现代最佳实践是「先 approve(0) 再 approve(amount)」，或直接用 `increaseAllowance`/`decreaseAllowance` 系列——这提醒我们：<strong>ERC-20 的接口「只是接口」，安全性取决于「实现细节」</strong>。标准定义「能做什么」，实现决定「是否安全」。</span>
 
-**transfer 返回值的坑**：标准要求 `transfer` 返回 bool，但**早期大量代币不返回值**（如 USDT 的旧实现）。依赖返回值的合约（`require(token.transfer(...))`）会在「不返回值」的代币上直接 revert。**SafeERC20** 的存在正是为处理这种「标准不统一」的现实——它检查返回字节，没有返回值就「猜一个成功」。
+**transfer 返回值的坑**：标准要求 `transfer`/`transferFrom` 返回 bool，但**早期大量代币不返回值**（如 USDT 的旧实现）。依赖返回值的合约（如直接校验 `transfer` 的返回值）会在「不返回值」的代币上直接 revert。**SafeERC20** 的存在正是为处理这种「标准不统一」的现实——它检查返回字节，没有返回值就「猜一个成功」。
 
-**transferFrom 与「授权-代付」的权限边界**：`transferFrom` 允许 spender 花 owner 的钱，但**spender 不能超过 allowance**。若合约里写 `transferFrom(from, to, max)` 而不检查授权，等于把 owner 的钱「全部划走」——这种「超授权划转」是 2021 年多起 DEX 漏洞的根源。
+**transferFrom 与「授权-代付」的权限边界**：`transferFrom` 允许 spender 花 owner 的钱，但**spender 不能超过 allowance**。若合约里写 `transferFrom` 而不检查授权额度，等于把 owner 的钱「全部划走」——这种「超授权划转」是 2021 年多起 DEX 漏洞的根源。
 
-**ERC-721 的转移钩子**：`transferFrom` 直接转移，而 `safeTransferFrom` 会检查「接收方是否为合约、是否实现了 `onERC721Received`」——**用 `transferFrom` 把 NFT 转给一个不兼容的合约，NFT 会「卡死」在合约里无法取出**。这是 NFT 被「黑洞合约」吞掉的原因，也是「永远用 `safeTransferFrom`」这条铁律的来源。
+**ERC-721 的转移钩子**：`transferFrom` 直接转移，而 `safeTransferFrom` 会检查「接收方是否为合约、是否实现了 `IERC721Receiver`」——**用 `transferFrom` 把 NFT 转给一个不兼容的合约，NFT 会「卡死」在合约里无法取出**。这是 NFT 被「黑洞合约」吞掉的原因，也是「永远用 `safeTransferFrom`」这条铁律的来源。
 
 **元数据与版税**：ERC-721 的 `tokenURI` 指向链下 JSON；若项目方关闭服务器，`tokenURI` 指向 404，NFT「只剩链上一个 ID」。**「链上资产」的「链上价值」往往依赖「链下元数据可用性」**——这是 NFT 的隐蔽风险点。ERC-2981 标准补充了「链上版税信息」，让 NFT 转售时自动向创作者分配版税。
 
@@ -118,16 +118,16 @@ $$
 \text{资金风险} = \text{授权给不可信合约的额度} \times \text{该合约被黑的概率}
 $$
 
-- **第一步**：用户授权 DEX 无限额度（`approve(DEX, max)`）是便利，也是风险敞口——DEX 被黑，授权额度内的资金全部可被划走。
-- **第二步**：最佳实践是「按需授权」——每次交易前只授权「本次所需额度」，交易后归零（`safeApprove` + 归零）。
+- **第一步**：用户授权 DEX 无限额度（`type(uint256).max`）是便利，也是风险敞口——DEX 被黑，授权额度内的资金全部可被划走。
+- **第二步**：最佳实践是「按需授权」——每次交易前只授权「本次所需额度」，交易后归零（`approve(0)`）。
 - **第三步**：授权本质是「把资金支配权委托给合约」——**每次点击「批准」都是在签订一份「可被合约支配」的委托协议**，审慎程度应不亚于转账本身。
 
 **辨析｜易错点：标准「版本」≠「最新最好」。** ERC-20 的「旧实现」在生态里仍然流通（USDT），新协议必须兼容「旧标准的不规范」——「符合 ERC-20」只说明「接口长得像」，不说明「行为正确」。**另一个易错点：NFT 的「稀缺」≠「价值」**——tokenId 的稀缺是协议保证的，但「稀缺」与「市场价值」之间隔着「需求」；「链上稀缺 + 链下无人问津」=「有价无市」。
 
 ## 7 小结
 
-- **ERC-20** 定义同质化代币接口：`balanceOf`、`transfer`、`approve`、`transferFrom` + 事件；`allowance` 授权机制支撑「代付」。
-- **ERC-721** 定义非同质化代币：按 `tokenId` 唯一寻址，授权分「单枚授权」与「全量授权」。
+- **ERC-20** 定义同质化代币接口：`totalSupply`、`balanceOf`、`transfer`、`allowance` + 事件；`approve`/`transferFrom` 授权机制支撑「代付」。
+- **ERC-721** 定义非同质化代币：按 tokenId 唯一寻址，授权分「单枚授权」与「全量授权」。
 - 标准的意义在于**生态可组合**；`approve` 非零覆盖是经典安全坑。
 - NFT 链上只存**所有权与指针**，元数据多在链下；「NFT = 版权」是常见误区。
 - 现代标准家族：**ERC-1155**（多代币）、**ERC-4626**（金库）、**WETH**（包装 ETH）。

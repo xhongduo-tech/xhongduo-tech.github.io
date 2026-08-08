@@ -79,19 +79,21 @@ $$
 
 ```python
 def bisection(f, a, b, tol=1e-10, max_iter=100):
+    """二分法求 f(x)=0 在 [a,b] 内的根（前提 f(a)f(b) < 0）。"""
     if f(a) * f(b) > 0:
-        raise ValueError("区间内无根或根数非奇数")
-    for k in range(max_iter):
+        raise ValueError("f(a)f(b) > 0：区间不保证含根，先去搜索")
+    for _ in range(max_iter):
         c = (a + b) / 2
+        if b - a < tol:            # 终止准则：区间宽度
+            return c
         if f(a) * f(c) < 0:
             b = c
-        elif f(c) * f(b) < 0:
-            a = c
         else:
-            return c, k   # f(c)=0，恰好命中
-        if (b - a) < 2 * tol:
-            return (a + b) / 2, k
-    return (a + b) / 2, max_iter
+            a = c
+    return (a + b) / 2
+
+# 例：x³ - x - 1 = 0 在 [1, 1.5] 的根 ≈ 1.3247
+print(bisection(lambda x: x**3 - x - 1, 1, 1.5))
 ```
 
 **终止准则**：区间宽度 $\le$ 容差（二分法的标准终止），或 $|f(c)|$ 足够小。**注意：二分法对「函数值平坦」（重根）不敏感**——它用符号而非数值，重根处 $f(c)$ 可能都接近零，但区间照样收缩到根。<span class="marginnote">对比预告：<strong>二分法线性收敛（每步 1/2），牛顿法二次收敛（每步平方）</strong>——但二分法永不失败，牛顿法可能发散。工程智慧：用二分法「起步」，用牛顿法「冲刺」，是求根的标准组合。</span>

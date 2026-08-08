@@ -34,17 +34,12 @@ date: 2026-08-07
 
 ```python
 from qiskit import QuantumCircuit
-from qiskit_aer import AerSimulator
 
-# 线路模型：2 条导线、3 个门、1 次测量
-qc = QuantumCircuit(2, 2)
-qc.h(0)        # 门：Hadamard，制造叠加
-qc.cx(0, 1)    # 门：CNOT，制造纠缠
-qc.measure([0, 1], [0, 1])   # 测量：线路的输出端
-
-sim = AerSimulator()
-counts = sim.run(qc, shots=1024).result().get_counts()
-print(counts)  # 大约一半 00、一半 11
+qc = QuantumCircuit(2, 2)   # 2 个量子比特 + 2 个经典比特
+qc.h(0)                     # H 门：把 |0⟩ 制造出叠加
+qc.cx(0, 1)                 # CNOT：把叠加扩散成纠缠
+qc.measure([0, 1], [0, 1])  # 测量：把量子结果读进经典比特
+print(qc.draw())            # 画出线路图
 ```
 
 这张图就是线路模型的全部语法：门 + 测量。今天你在 Qiskit、Cirq、Q# 里写的每一段代码，编译到最后都是这种线路。
@@ -93,8 +88,8 @@ $$
 
 三种模型如此不同，那它们的关系是什么？答案是：**计算能力等价，实现风格不同。**
 
-- **等价性**：Aharonov 等人在 2004/2007 年证明了绝热计算可以模拟线路模型，反过来线路模型也可以模拟绝热计算，两者至多相差多项式开销；Raussendorf–Briegel 也证明了 MBQC 能实现任意量子线路。三者的能力都精确地落在 **BQP**——「量子多项式时间可解」这个复杂度类里。<span class="marginnote">出处：D. Aharonov, W. van Dam, J. Kempe, Z. Landau, S. Lloyd, O. Regev, "Adiabatic quantum computation is equivalent to standard quantum computation," <i>SIAM J. Comput.</i> 37 (2007) 166。经典版的类似结论是「图灵机、λ 演算、布尔电路互相等价」，见第三级《计算理论》。</span>
-- **分工**：线路模型 = 门作用（今天超导/离子阱硬件的标准）；绝热计算 = 连续演化（优化问题的天然表述，D-Wave 与量子退火的理论根基）；测量计算 = 测量即门（光子学与容错研究的热门框架）。
+**等价性**：Aharonov 等人在 2004/2007 年证明了绝热计算可以模拟线路模型，反过来线路模型也可以模拟绝热计算，两者至多相差多项式开销；Raussendorf–Briegel 也证明了 MBQC 能实现任意量子线路。三者的能力都精确地落在 **BQP**——「量子多项式时间可解」这个复杂度类里。<span class="marginnote">出处：D. Aharonov, W. van Dam, J. Kempe, Z. Landau, S. Lloyd, O. Regev, "Adiabatic quantum computation is equivalent to standard quantum computation," <i>SIAM J. Comput.</i> 37 (2007) 166。经典版的类似结论是「图灵机、λ 演算、布尔电路互相等价」，见第三级《计算理论》。</span>
+**分工**：线路模型 = 门作用（今天超导/离子阱硬件的标准）；绝热计算 = 连续演化（优化问题的天然表述，D-Wave 与量子退火的理论根基）；测量计算 = 测量即门（光子学与容错研究的热门框架）。
 
 三种模型的差别，也可以浓缩成一张对比表：
 

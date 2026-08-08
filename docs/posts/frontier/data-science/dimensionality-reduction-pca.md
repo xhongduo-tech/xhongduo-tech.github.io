@@ -43,18 +43,18 @@ $$
 拆成四步理解：
 
 - **第一步，$\Sigma$ 是协方差矩阵**：$\frac{1}{n}\mathbf{X}^{\mathsf{T}}\mathbf{X}$ 的第 $(i,j)$ 项是特征 $i$ 与特征 $j$ 的协方差，对角线是各自方差。<span class="marginnote">先对每列做标准化（减均值、除标准差）再算协方差，PCA 就等价于对相关系数矩阵分解——此时各特征尺度被拉平，不被量纲主导。是否标准化，是 PCA 实践里第一个要做的选择：量纲差异巨大（万元营收 vs 岁年龄）时必须标准化。</span>
-- **第二步，$\mathbf{U}$ 是特征向量矩阵**：$\mathbf{U}$ 的每一列是 $\Sigma$ 的一个特征向量，正是我们要的主成分方向 $\boldsymbol{\phi}_1, \boldsymbol{\phi}_2, \ldots$。特征向量彼此正交，这保证了各主成分互不相关。
-- **第三步，$\mathbf{\Lambda}$ 是特征值对角阵**：特征值 $\lambda_j$ 恰好等于第 $j$ 个主成分解释的方差。特征值越大，该主成分越重要。
-- **第四步，累计贡献率**：前 $m$ 个主成分解释的总方差占比为 $\frac{\sum_{j=1}^m \lambda_j}{\sum_{j=1}^p \lambda_j}$。通常选累计贡献率达到 80%–95% 的 $m$，或用「碎石图」找特征值陡降的拐点。
+**第二步，$\mathbf{U}$ 是特征向量矩阵**：$\mathbf{U}$ 的每一列是 $\Sigma$ 的一个特征向量，正是我们要的主成分方向 $\boldsymbol{\phi}_1, \boldsymbol{\phi}_2, \ldots$。特征向量彼此正交，这保证了各主成分互不相关。
+**第三步，$\mathbf{\Lambda}$ 是特征值对角阵**：特征值 $\lambda_j$ 恰好等于第 $j$ 个主成分解释的方差。特征值越大，该主成分越重要。
+**第四步，累计贡献率**：前 $m$ 个主成分解释的总方差占比为 $\frac{\sum_{j=1}^m \lambda_j}{\sum_{j=1}^p \lambda_j}$。通常选累计贡献率达到 80%–95% 的 $m$，或用「碎石图」找特征值陡降的拐点。
 
 ## 3 PCA 的实践套路与 SVD
 
-工程实现 PCA 通常不用直接做特征分解（数值上不稳定），而是用**奇异值分解（SVD）**。中心化后的数据矩阵 $\mathbf{X} = \mathbf{U}\mathbf{D}\mathbf{V}^{\mathsf{T}}$，则 $\mathbf{V}$ 的列就是主成分方向，奇异值平方与特征值成正比。SVD 数值更稳健，也是主流库（`sklearn` 的 `PCA`）内部采用的路径。<span class="marginnote">SVD 与 PCA 的等价关系来自线性代数：$\mathbf{X}^{\mathsf{T}}\mathbf{X} = \mathbf{V}\mathbf{D}^2\mathbf{V}^{\mathsf{T}}$。也就是说，对协方差矩阵做特征分解、对数据矩阵做 SVD，拿到的是同一组主成分。这也是第二级《线性代数》里 SVD 被誉为「矩阵的显微镜」的原因之一。</span>
+工程实现 PCA 通常不用直接做特征分解（数值上不稳定），而是用**奇异值分解（SVD）**。中心化后的数据矩阵 $\mathbf{X} = \mathbf{U}\mathbf{D}\mathbf{V}^{\mathsf{T}}$，则 $\mathbf{V}$ 的列就是主成分方向，奇异值平方与特征值成正比。SVD 数值更稳健，也是主流库（$\mathbf{X} = \mathbf{U}\mathbf{D}\mathbf{V}^{\mathsf{T}}$ 的 $\mathbf{V}$）内部采用的路径。<span class="marginnote">SVD 与 PCA 的等价关系来自线性代数：$\mathbf{X}^{\mathsf{T}}\mathbf{X} = \mathbf{V}\mathbf{D}^2\mathbf{V}^{\mathsf{T}}$。也就是说，对协方差矩阵做特征分解、对数据矩阵做 SVD，拿到的是同一组主成分。这也是第二级《线性代数》里 SVD 被誉为「矩阵的显微镜」的原因之一。</span>
 
 实践三步走：
 
 1. **标准化**：每列减均值、除标准差，消除量纲影响。
-2. **分解**：调用 `PCA(n_components=m)` 并拟合。
+2. **分解**：调用 scikit-learn 的 `PCA` 并拟合。
 3. **解释与可视化**：用前两三个主成分做散点图，观察样本的天然分群；查看各特征的载荷（$\phi$ 系数），解释每个主成分的业务含义。
 
 ## 4 辨析：PCA 的边界与常见误用

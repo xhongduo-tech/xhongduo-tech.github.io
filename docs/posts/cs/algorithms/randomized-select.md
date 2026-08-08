@@ -22,18 +22,18 @@ date: 2026-08-07
 
 ## 1 算法：随机划分后只走一边
 
-```
-RANDOMIZED-SELECT(A, p, r, i)
-  if p == r
-    return A[p]
-  q = RANDOMIZED-PARTITION(A, p, r)   // 主元最终位置 q
-  k = q - p + 1                        // 主元是第 k 小的元素
-  if i == k
-    return A[q]
-  else if i < k
-    return RANDOMIZED-SELECT(A, p, q-1, i)
-  else
-    return RANDOMIZED-SELECT(A, q+1, r, i-k)
+```text
+RANDOMIZED-SELECT(A, p, r, i):          // 返回 A[p..r] 中第 i 小的元素
+    if p == r:
+        return A[p]
+    q = RANDOMIZED-PARTITION(A, p, r)   // 随机主元划分
+    k = q - p + 1                       // 主元在区间内是第 k 小
+    if i == k:
+        return A[q]                     // 主元就是答案
+    elif i < k:
+        return RANDOMIZED-SELECT(A, p, q - 1, i)
+    else:
+        return RANDOMIZED-SELECT(A, q + 1, r, i - k)
 ```
 
 划分后主元落在 $q$，它在区间内是第 $k = q-p+1$ 小。若目标 $i = k$，主元就是答案；若 $i < k$，答案在左半；否则在右半（第 $i-k$ 小）。<span class="marginnote">与快排的对比一望而知：快排对两半都递归，选择只递归包含答案的那一半。这个「剪枝」正是期望从 $n\log n$ 变 $n$ 的原因——每层工作量为 $O(n)$，而递归深度取决于「运气好时主元接近中位数」。</span>
@@ -74,10 +74,10 @@ $$E[T(n)] \le \frac{2}{n}\sum_{k=\lfloor n/2 \rfloor}^{n-1} ck + O(n) = \frac{2c
 
 适用场景：需要**第 $k$ 小/中位数**，且 $n$ 很大、排序显得浪费。典型应用：
 
-- **中位数求法**：$k = \lceil n/2\rceil$，快速获得中位数；
-- **分治算法的枢纽**：快排的三数取中、划分里的中位主元、最坏线性选择的子步骤；
-- **流式统计**：配合在线划分处理「随时问中位数」。
-- **带权中位数**：后续「最近邮局问题」用带权中位数定位一维优化点。<span class="marginnote">RANDOMIZED-SELECT 与快速排序共享同一个 PARTITION，因此在已有快排代码的系统里，实现选择几乎零成本。相比下一课的最坏线性 SELECT，它更简单、常数更小，只是不保证最坏线性。</span>
+**中位数求法**：$k = \lceil n/2\rceil$，快速获得中位数；
+**分治算法的枢纽**：快排的三数取中、划分里的中位主元、最坏线性选择的子步骤；
+**流式统计**：配合在线划分处理「随时问中位数」。
+**带权中位数**：后续「最近邮局问题」用带权中位数定位一维优化点。<span class="marginnote">RANDOMIZED-SELECT 与快速排序共享同一个 PARTITION，因此在已有快排代码的系统里，实现选择几乎零成本。相比下一课的最坏线性 SELECT，它更简单、常数更小，只是不保证最坏线性。</span>
 
 若需要**保证最坏 $O(n)$**（如对手可控输入的库），就用下一课的 SELECT——它用「中位数的中位数」保证每次划分都不太坏。
 

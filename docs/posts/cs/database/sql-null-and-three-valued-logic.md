@@ -41,7 +41,7 @@ NULL 一进来，我们最熟悉的两值逻辑（真 / 假）就崩溃了：$5 
 这一定义可以推出一连串结论：
 
 - 任何比较 `x OP y`（OP 是 $=, <, >, \le, \ge, \ne$ 之一），只要 $x$ 或 $y$ 中有 NULL，结果就是 UNKNOWN。特别注意：**`NULL = NULL` 也是 UNKNOWN**，因为两个未知的东西无法断言相等。
-- 算术表达式只要碰到 NULL，整个结果就是 NULL：`NULL + 5` 得到 NULL。
+- 算术表达式只要碰到 NULL，整个结果就是 NULL：`5 + NULL` 得到 NULL。
 - 谓词求值的结果落在三值集合 $\{\text{TRUE}, \text{FALSE}, \text{UNKNOWN}\}$ 中，而 **WHERE 子句只保留真值为 TRUE 的行，FALSE 与 UNKNOWN 一律丢弃**——这句话是本节最重要的执行规则。
 
 这三个真值之间，AND、OR、NOT 的运算规则由下面的真值表定义。
@@ -73,7 +73,7 @@ $$
 
 而 $\text{NOT}$ 则简单得多：$\text{NOT T}=\text{F}$，$\text{NOT F}=\text{T}$，**$\text{NOT U}=\text{U}$**。
 
-现在看一条真实查询。设教师关系 `instructor(ID, name, dept_name, salary)`，其中三行数据如下：
+现在看一条真实查询。设教师关系 `instructor`，其中三行数据如下：
 
 | ID | name | dept_name | salary |
 |----|------|-----------|--------|
@@ -84,29 +84,29 @@ $$
 执行查询「找出薪资超过 90000 或属于音乐系的教师」：
 
 ```sql
-SELECT name
+SELECT ID, name
 FROM instructor
 WHERE salary > 90000 OR dept_name = 'Music';
 ```
 
 逐行求值：
 
-- **第 1 行**：$65000>90000$ 是 F，`dept_name='Music'` 是 F，`F OR F = F`，丢弃。
-- **第 2 行**：$90000>90000$ 是 F，`'Finance'='Music'` 是 F，`F OR F = F`，丢弃。
-- **第 3 行**：`NULL > 90000` 是 U，`'Music'='Music'` 是 **T**，`U OR T = T`，**保留**。
+- **第 1 行**：$65000>90000$ 是 F，`dept_name = 'Music'` 是 F，`F OR F = F`，丢弃。
+- **第 2 行**：$90000>90000$ 是 F，`dept_name = 'Music'` 是 F，`F OR F = F`，丢弃。
+- **第 3 行**：`salary > 90000`（NULL 比较）是 U，`dept_name = 'Music'` 是 **T**，`U OR T = T`，**保留**。
 
-答案只有 Mozart——即便他的薪资未知，OR 的「一真即真」原则救了他。反过来，若把条件换成 `salary > 90000 AND dept_name = 'Music'`，Mozart 这一行会得到 `U AND T = U`，被丢弃。**同样的数据，换一个连接词，未知行就可能被「救回」或「误杀」**——这正是三值逻辑在现实查询里的直接后果。
+答案只有 Mozart——即便他的薪资未知，OR 的「一真即真」原则救了他。反过来，若把条件换成 `AND`，Mozart 这一行会得到 UNKNOWN，被丢弃。**同样的数据，换一个连接词，未知行就可能被「救回」或「误杀」**——这正是三值逻辑在现实查询里的直接后果。
 
 ## 4 与空值共处：聚集、去重与唯一约束
 
 WHERE 只是起点。NULL 的「传染性」在聚集与约束里同样明显：
 
-- **聚集函数忽略 NULL**：`SUM(salary)`、`AVG(salary)` 只对非空值求和与平均，NULL 不参与计算。若被聚集的列全是 NULL，`SUM` 返回 NULL 而 `COUNT(某列)` 返回 0。
-- **`COUNT(*)` 例外**：它数的是行数，和列值无关，NULL 不影响。
-- **去重与 UNION**：SQL 把两个 NULL 视为「相等」，`SELECT DISTINCT` 与 `UNION` 会把多个 NULL 合并成一个。
-- **UNIQUE 约束**：允许出现多个 NULL——`dept_name` 有 UNIQUE 约束时，两行都为 NULL 并不违反，因为 NULL 之间「不相等」。但**主码列不允许 NULL**，因为主码的职责就是唯一标识一行。
+- **聚集函数忽略 NULL**：`SUM`、`AVG` 只对非空值求和与平均，NULL 不参与计算。若被聚集的列全是 NULL，`SUM` 返回 NULL 而 `COUNT` 返回 0。
+- **`COUNT` 例外**：它数的是行数，和列值无关，NULL 不影响。
+- **去重与 UNION**：SQL 把两个 NULL 视为「相等」，`DISTINCT` 与 `UNION` 会把多个 NULL 合并成一个。
+- **UNIQUE 约束**：允许出现多个 NULL——某列有 UNIQUE 约束时，两行都为 NULL 并不违反，因为 NULL 之间「不相等」。但**主码列不允许 NULL**，因为主码的职责就是唯一标识一行。
 
-**辨析｜易错点：** `AVG` 忽略 NULL 常常造成「平均数偏了」的错觉。求「所有教师的平均薪资」时，薪资未知的教师根本不计入分母——这更接近「已知数据的平均」，而非「全体教师的平均」。若想让未知值按 0 参与，必须先用 `COALESCE(salary, 0)` 显式转换<span class="marginnote">COALESCE 是 SQL 标准里的「取第一个非空值」函数：COALESCE(salary, 0) 表示 salary 为 NULL 时用 0 代替。它是处理 NULL 最常用的工具，在第4章的数据类型与模式中还会再见到它的兄弟函数 NULLIF。</span>。
+**辨析｜易错点：** `AVG` 忽略 NULL 常常造成「平均数偏了」的错觉。求「所有教师的平均薪资」时，薪资未知的教师根本不计入分母——这更接近「已知数据的平均」，而非「全体教师的平均」。若想让未知值按 0 参与，必须先用 `COALESCE` 显式转换<span class="marginnote">COALESCE 是 SQL 标准里的「取第一个非空值」函数：COALESCE(salary, 0) 表示 salary 为 NULL 时用 0 代替。它是处理 NULL 最常用的工具，在第4章的数据类型与模式中还会再见到它的兄弟函数 NULLIF。</span>。
 
 ## 5 辨析：NULL、空字符串与数学空集
 
@@ -126,7 +126,7 @@ WHERE 只是起点。NULL 的「传染性」在聚集与约束里同样明显：
 - SQL 用**三值逻辑**：TRUE / FALSE / UNKNOWN；任何与 NULL 的比较都得到 UNKNOWN。
 - **WHERE 只保留 TRUE**，FALSE 与 UNKNOWN 都被丢弃——这是最容易出 bug 的执行规则。
 - 真值表口诀：AND 有 FALSE 即 FALSE，OR 有 TRUE 即 TRUE，NOT 不改变 UNKNOWN。
-- 判断 NULL 只能用 `IS NULL` / `IS NOT NULL`；聚集函数忽略 NULL，但 `COUNT(*)` 除外。
+- 判断 NULL 只能用 `IS NULL` / `IS NOT NULL`；聚集函数忽略 NULL，但 `COUNT` 除外。
 - 主码不允许 NULL；UNIQUE 与 DISTINCT 视多个 NULL 为相等。
 
 在下一节，我们将离开「读」，转向「写」：如何用 **INSERT、UPDATE、DELETE** 真正地修改数据库中的元组——那里会遇到三值逻辑的另一处现身，以及「更新时究竟按旧值还是新值计算」的经典陷阱。

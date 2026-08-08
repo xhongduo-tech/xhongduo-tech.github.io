@@ -23,18 +23,23 @@ date: 2026-08-07
 **接口（interface）**：一组**方法签名**的集合，不含实现（或仅有默认实现）。类「实现」接口 = 承诺提供这些方法。
 
 ```java
-interface Comparable {
-    int compareTo(Object o);   /* 只有签名 */
+public interface Comparable<T> {
+    int compareTo(T other);       // 只有签名，没有实现
 }
-class Student implements Comparable {
-    public int compareTo(Object o) { ... }   /* 实现 */
+
+public class Person implements Comparable<Person> {
+    private int age;
+
+    public int compareTo(Person other) {
+        return Integer.compare(this.age, other.age);
+    }
 }
 ```
 
 接口的价值：
 
-- **多态契约**：`sort` 只依赖 `Comparable`——任何实现它的类都能排序。**「面向接口编程」**：依赖抽象而非具体实现。
-- **多重「继承」**：一个类可实现多个接口——获得「契约多继承」而无菱形问题（接口无字段）。<span class="marginnote">接口是「类型即行为」的体现：`Comparable` 不是「一种对象」而是「一种能力」。这是对「is-a」的扩展——「can-do」关系。`List<Animal>` 与 `List<Comparable>` 描述的是不同的维度：前者是类型层次，后者是能力契约。</span>
+**多态契约**：`sort` 只依赖 `Comparable`——任何实现它的类都能排序。**「面向接口编程」**：依赖抽象而非具体实现。
+**多重「继承」**：一个类可实现多个接口——获得「契约多继承」而无菱形问题（接口无字段）。<span class="marginnote">接口是「类型即行为」的体现：`接口` 不是「一种对象」而是「一种能力」。这是对「is-a」的扩展——「can-do」关系。`继承` 与 `接口` 描述的是不同的维度：前者是类型层次，后者是能力契约。</span>
 
 ## 2 协议：接口的语言变体
 
@@ -42,18 +47,21 @@ class Student implements Comparable {
 
 ```swift
 protocol Greetable {
+    var name: String { get }
     func greet() -> String
 }
-struct Person: Greetable {
-    func greet() -> String { "Hello!" }
+
+struct Person: Greetable {           // 结构体也能遵循协议
+    let name: String
+    func greet() -> String { "Hello, \(name)!" }
 }
 ```
 
 协议的扩展能力：
 
-- **扩展（extension）**：可以为协议提供**默认实现**——`extension Greetable { func greet() -> String { "Hi" } }`，遵循者不写也可用。
-- **可选的协议方法**：`@objc optional`——遵循者可不实现。
-- **结构化遵循**：Swift 中 `struct`/`enum` 也能遵循协议（不仅类）。<span class="marginnote">协议 + 扩展 = 「带默认实现的接口」——这是接口走向「混入」的一步：接口不仅约束「必须做」，还能提供「默认怎么做」。Swift 的协议扩展让「能力」可以带「现成实现」，接近 Rust trait 的默认方法。</span>
+**扩展（extension）**：可以为协议提供**默认实现**——写在 `extension` 里，遵循者不写也可用。
+**可选的协议方法**：`@objc optional`——遵循者可不实现。
+**结构化遵循**：Swift 中 `struct`/`enum` 也能遵循协议（不仅类）。<span class="marginnote">协议 + 扩展 = 「带默认实现的接口」——这是接口走向「混入」的一步：接口不仅约束「必须做」，还能提供「默认怎么做」。Swift 的协议扩展让「能力」可以带「现成实现」，接近 Rust trait 的默认方法。</span>
 
 ## 3 混入：可复用的实现
 
@@ -64,18 +72,19 @@ struct Person: Greetable {
 ```ruby
 module Jsonable
   def to_json
-    # 通用实现
+    { class: self.class.name }.to_json
   end
 end
+
 class Order
-  include Jsonable   # Order 获得 to_json 实现
+  include Jsonable      # 混入：获得 to_json 方法，但不继承任何东西
 end
 ```
 
-- **Python**：多重继承实现混入（`class Order(Jsonable, Base)`）——Python 的 mixin 就是「不用于独立实例化的类」。
+- **Python**：多重继承实现混入（如 `JSONMixin`）——Python 的 mixin 就是「不用于独立实例化的类」。
 - **Kotlin/Swift**：接口默认方法、协议扩展实现混入功能。
 
-**辨析｜易错点：** 混入 vs 接口：接口是「契约」（强制实现），混入是「实现」（直接获得）。**「接口问你会不会，混入直接给你」**。混入 vs 继承：混入不建立「is-a」关系——`Order` 是 mixin 的 `Jsonable`，但「订单是一种 Jsonable」这个说法很别扭——它是「订单具有 Jsonable 的能力」。**混入是「has-a 的实现复用 + 无继承的层次」**。
+**辨析｜易错点：** 混入 vs 接口：接口是「契约」（强制实现），混入是「实现」（直接获得）。**「接口问你会不会，混入直接给你」**。混入 vs 继承：混入不建立「is-a」关系——`Order` 是 mixin `Jsonable` 的接收者，但「订单是一种 Jsonable」这个说法很别扭——它是「订单具有 Jsonable 的能力」。**混入是「has-a 的实现复用 + 无继承的层次」**。
 
 ## 4 公式解析：接口与多态
 
@@ -93,8 +102,8 @@ $$
 
 三步拆解：
 
-- **第一步，满足关系**：`T satisfies I` 当且仅当 `T` 实现了接口里的全部方法——这是编译期检查的「契约验证」。
-- **第二步，依赖只限接口**：函数 `f` 的签名约束 `T satisfies I`——`f` 内部只能调用 `I` 里的方法，不能假设 `T` 的专有方法。
+- **第一步，满足关系**：`T` 当且仅当 `T` 实现了接口里的全部方法——这是编译期检查的「契约验证」。
+- **第二步，依赖只限接口**：函数 `f` 的签名约束 `T`——`f` 内部只能调用 `I` 里的方法，不能假设 `T` 的专有方法。
 - **第三步，看解耦**：`f` 与具体 `T` 解耦——任何满足 `I` 的类型都能用 `f`。**「接口是函数与实现之间的最小依赖面」**：换实现不换函数，这就是面向接口编程的形式化。
 
 **辨析｜易错点：** 接口与**抽象类（abstract class）**：抽象类可带**字段与构造函数**（部分实现），接口不能（Java 8 前）；抽象类建立「is-a」，接口建立「can-do」。**「抽象类管『是什么』，接口管『能做什么』」**——一个类只能继承一个抽象类，但可实现多个接口。
@@ -109,7 +118,7 @@ $$
 | Ruby | （无接口） | `module` mixin | 单继承 + include |
 | Rust | `trait` | trait 默认方法 | 泛型 + trait bound（无类继承） |
 
-<span class="marginnote">终极演化：Rust 用 trait 统一了「接口 + 混入 + 泛型约束」——trait 既约束（`fn f<T: Ord>`）又提供默认实现，且可多实现（无类继承）。Swift/Kotlin 的协议/接口默认方法也在向这个方向靠拢。「能力即类型」的哲学，正在取代「继承即类型」。</span>
+<span class="marginnote">终极演化：Rust 用 trait 统一了「接口 + 混入 + 泛型约束」——trait 既约束（`trait bound`）又提供默认实现，且可多实现（无类继承）。Swift/Kotlin 的协议/接口默认方法也在向这个方向靠拢。「能力即类型」的哲学，正在取代「继承即类型」。</span>
 
 
 ## 术语速查

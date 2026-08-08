@@ -24,9 +24,9 @@ date: 2026-08-07
 
 **HTTP**：万维网的应用层协议，定义浏览器与服务器之间交换报文的规则。它的特点：
 
-- **请求-响应模式**：客户端发请求，服务器回响应，一问一答。
-- **基于 TCP**：HTTP/1.x 跑在 TCP 之上（80 端口，HTTPS 为 443）。
-- **无状态（stateless）**：服务器不记住之前的请求——每个请求都是独立的。<span class="marginnote">「无状态」是 HTTP 的基因：<strong>服务器不保留「上次会话」的记忆</strong>。好处是简单、可扩展（服务器无需维护状态、可以随意横向扩展）；坏处是「记不住你是谁」——所以后来有了 Cookie、Session 来「伪造」状态（下一节专讲）。「<strong>无状态是设计，Cookie 是补丁</strong>」是对 HTTP 状态问题的最好概括。</span>
+**请求-响应模式**：客户端发请求，服务器回响应，一问一答。
+**基于 TCP**：HTTP/1.x 跑在 TCP 之上（80 端口，HTTPS 为 443）。
+**无状态（stateless）**：服务器不记住之前的请求——每个请求都是独立的。<span class="marginnote">「无状态」是 HTTP 的基因：<strong>服务器不保留「上次会话」的记忆</strong>。好处是简单、可扩展（服务器无需维护状态、可以随意横向扩展）；坏处是「记不住你是谁」——所以后来有了 Cookie、Session 来「伪造」状态（下一节专讲）。「<strong>无状态是设计，Cookie 是补丁</strong>」是对 HTTP 状态问题的最好概括。</span>
 
 **辨析｜易错点：** **HTTP 基于 TCP 但 HTTP 本身是无状态的**——「基于 TCP」说的是传输方式，「无状态」说的是会话记忆，两者不矛盾。另外，HTTP/1.x 是**文本协议**（报文可读），HTTP/2/3 是二进制协议（第 9 章）。**「HTTP 报文是人类可读的文本」**是理解报文结构的前提。
 
@@ -36,13 +36,13 @@ HTTP 请求报文由三部分组成：**请求行 + 首部行 + 实体主体**�
 
 **请求行**的格式：
 
-```
+```text
 GET /index.html HTTP/1.1
 ```
 
-- **方法**（GET）：要做什么操作。
-- **URL**（/index.html）：要哪个资源。
-- **版本**（HTTP/1.1）：协议版本。<span class="marginnote">请求报文三部分：<strong>请求行（方法 + URL + 版本）、首部行（键值对，如 <code>Host</code>、<code>User-Agent</code>、<code>Cookie</code>）、实体主体（POST 时携带的数据，GET 通常为空）</strong>。首部行以「字段名: 值」的形式给出请求的附加信息。</span>
+**方法**（GET）：要做什么操作。
+**URL**（/index.html）：要哪个资源。
+**版本**（HTTP/1.1）：协议版本。<span class="marginnote">请求报文三部分：<strong>请求行（方法 + URL + 版本）、首部行（键值对，如 <code>Host</code>`、<code>User-Agent</code>`、<code>Cookie</code>）、实体主体（POST 时携带的数据，GET 通常为空）。首部行以「字段名: 值」的形式给出请求的附加信息。</strong></span>
 
 **常见的首部字段**：
 
@@ -74,7 +74,7 @@ HTTP 定义了一组请求方法（动词），最常用的：<span class="margi
 
 响应报文由：**状态行 + 首部行 + 实体主体** 组成。状态行的格式：
 
-```
+```text
 HTTP/1.1 200 OK
 ```
 

@@ -79,14 +79,29 @@ $$
 Python 实现要点：
 
 ```python
+import numpy as np
+
 def householder(x):
-    """返回豪斯霍尔德向量 v 与反射矩阵 H"""
-    n = len(x)
-    sigma = -np.sign(x[0]) if x[0] != 0 else 1.0
+    """豪斯霍尔德向量 v：H = I - 2vvᵀ/(vᵀv) 把 x 映到只剩首分量。"""
+    sigma = -np.sign(x[0]) if x[0] != 0 else 1.0   # 选符号避免相消
     v = x.copy()
-    v[0] += sigma * np.linalg.norm(x)
-    H = np.eye(n) - 2 * np.outer(v, v) / (v @ v)
-    return H
+    v[0] -= sigma * np.linalg.norm(x)
+    return v
+
+def tridiagonalize(A):
+    """豪斯霍尔德相似变换：把对称矩阵约化为三对角形。"""
+    A = A.astype(float).copy()
+    n = A.shape[0]
+    for k in range(n - 2):
+        v = householder(A[k+1:, k].copy())         # 第 k 列的下半部
+        Hk = np.eye(n - k - 1) - 2 * np.outer(v, v) / (v @ v)
+        A[k+1:, k:] = Hk @ A[k+1:, k:]             # 左乘：杀列
+        A[:, k+1:] = A[:, k+1:] @ Hk               # 右乘：杀行（保持对称）
+    return A
+
+A = np.array([[1., 2., 3.], [2., 4., 5.], [3., 5., 6.]])
+np.set_printoptions(precision=3, suppress=True)
+print(tridiagonalize(A))                           # 三对角
 ```
 
 ## 4 豪斯霍尔德 vs 吉文斯旋转：两种正交工具

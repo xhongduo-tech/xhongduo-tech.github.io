@@ -20,12 +20,12 @@ date: 2026-08-07
 
 **拉格朗日对偶（Lagrange duality）**就是那扇门。它把「带约束的原问题」改写成「无约束的拉格朗日函数」，再转成**对偶问题**。对 SVM 而言，对偶问题不仅更好解，还让 **KKT 条件**把「哪些样本是支持向量」这一信息显式地挖了出来。<span class="marginnote">对偶理论是凸优化的核心工具之一，完整体系在第二级《最优化理论》里展开；这里只需要「构造拉格朗日函数 → 求偏导置零 → 代入消元」这一条标准流水线。</span>
 
-## 1 构造拉格朗日函数对原问题的每个约束引入一个拉格朗日乘子 $\alpha_i \geq 0$，构造：$$L(\boldsymbol{w}, b, \boldsymbol{\alpha}) = \frac{1}{2}\|\boldsymbol{w}\|^2 + \sum_{i=1}^{m} \alpha_i \left(1 - y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right)\right)$$
+## 1 构造拉格朗日函数对原问题的每个约束引入一个拉格朗日乘子 $\alpha_i \geq 0$，构造：`$$`L(\boldsymbol{w}, b, \boldsymbol{\alpha}) = \frac{1}{2}\|\boldsymbol{w}\|^2 + \sum_{i=1}^{m} \alpha_i \left(1 - y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right)\right)$$
 其中 $\boldsymbol{\alpha} = (\alpha_1, \dots, \alpha_m)$。**直觉**：乘子 $\alpha_i$ 是「第 $i$ 个约束的分量」——约束违反得越厉害（$1 - y_i f(x_i) > 0$），罚得越重；约束满足（$\leq 0$ 项被乘子吸收）则不罚。
 
 **对偶问题的由来**：原问题是 $\min_{\boldsymbol{w},b}\max_{\boldsymbol{\alpha}\geq 0} L$。对偶问题把 $\min$ 与 $\max$ 交换成 $\max_{\boldsymbol{\alpha}\geq 0}\min_{\boldsymbol{w},b} L$。由于 SVM 的原问题是凸的、且满足强对偶条件（Slater 条件），**两者最优值相等**——这是对偶成立的保证。<span class="marginnote">「min-max 换序」不是免费午餐：只有满足强对偶的凸问题才成立。教材在此直接使用结论，因为 SVM 恰好满足条件；更一般的对偶间隙讨论留给最优化理论。</span>
 
-## 2 求偏导置零，消去 $\boldsymbol{w}$ 与 $b$让 $L$ 对 $\boldsymbol{w}$ 与 $b$ 分别求偏导并置零：$$\boldsymbol{w} = \sum_{i=1}^{m} \alpha_i y_i \boldsymbol{x}_i, \qquad 0 = \sum_{i=1}^{m} \alpha_i y_i$$
+## 2 求偏导置零，消去 $\boldsymbol{w}$ 与 $b$让 $L$ 对 $\boldsymbol{w}$ 与 $b$ 分别求偏导并置零：`$$`\boldsymbol{w} = \sum_{i=1}^{m} \alpha_i y_i \boldsymbol{x}_i, \qquad 0 = \sum_{i=1}^{m} \alpha_i y_i$$
 把这两个式子代回 $L$，消去 $\boldsymbol{w}$ 与 $b$，得到**对偶问题**：
 
 $$\max_{\boldsymbol{\alpha}} \; \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m}\sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j \boldsymbol{x}_i^{\mathrm{T}}\boldsymbol{x}_j$$
@@ -34,7 +34,7 @@ $$\text{s.t.} \quad \sum_{i=1}^{m} \alpha_i y_i = 0, \qquad \alpha_i \geq 0$$
 
 **关键观察：对偶问题里样本只以内积 $\boldsymbol{x}_i^{\mathrm{T}}\boldsymbol{x}_j$ 的形式出现**——这是 SVM 通向核函数的那扇门：只要能把内积替换成核函数 $k(\boldsymbol{x}_i, \boldsymbol{x}_j)$，SVM 就能在不显式做高维映射的情况下处理非线性问题。<span class="marginnote">「原问题看权重、对偶问题看样本内积」——对偶形式让 SVM 的核心运算只依赖样本两两之间的相似度（内积），这正是下一节《核函数》的全部前提。这个「只用内积」的性质，也让 SVM 可以不用存 $\boldsymbol{w}$ 的显式坐标。</span>
 
-## 3 KKT 条件：支持向量显形对偶问题解出 $\boldsymbol{\alpha}$ 后，原问题的解由**KKT 条件**给出。对 SVM 而言，最关键的一条是**互补松弛（complementary slackness）**：$$\alpha_i \left(y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right) - 1\right) = 0$$
+## 3 KKT 条件：支持向量显形对偶问题解出 $\boldsymbol{\alpha}$ 后，原问题的解由**KKT 条件**给出。对 SVM 而言，最关键的一条是**互补松弛（complementary slackness）**：`$$`\alpha_i \left(y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right) - 1\right) = 0$$
 由此推出决定性结论：
 
 - 若 $\alpha_i > 0$，则 $y_i(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b) = 1$——样本**恰好落在间隔边界上**，是**支持向量**；
@@ -47,8 +47,8 @@ $$f(\boldsymbol{x}) = \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x} + b = \sum_{i=1}
 求和只对 $\alpha_i \neq 0$ 的**支持向量**进行。<span class="marginnote">这就是「解只由支持向量决定」的数学形态：多数 $\alpha_i$ 是 0，只有边界上的样本带着非零权重。训练完成后，非支持向量可以全部丢弃——模型既稀疏又省内存。</span>
 
 ## 4 公式解析：KKT 条件如何「认出」支持向量对偶问题的最优解 $\boldsymbol{\alpha}^*$ 与原始问题的最优解 $(\boldsymbol{w}^*, b^*)$ 通过互补松弛联结。逐步看：- **第一步，写互补松弛**：$\alpha_i^* \left(y_i\left(\boldsymbol{w}^{*\mathrm{T}}\boldsymbol{x}_i + b^*\right) - 1\right) = 0$。- **第二步，分类讨论**：两个因子相乘为零，必有一个为零。若 $\alpha_i^* = 0$，样本不参与求和；若 $\alpha_i^* > 0$，则括号内必须为 0，即 $y_i(\boldsymbol{w}^{*\mathrm{T}}\boldsymbol{x}_i + b^*) = 1$——样本精确坐在间隔边界上。
-- **第三步，读出结论**：$\alpha_i^* > 0$ 的样本集合，恰是支持向量集合。**对偶问题自动完成了「哪些样本重要」的挑选，不需要人指定。**
-- **第四步，如何求 $b^*$**：任取一个支持向量（$\alpha_s > 0$），代入 $y_s(\boldsymbol{w}^{*\mathrm{T}}\boldsymbol{x}_s + b^*) = 1$，解出 $b^*$；工程上常用所有支持向量的平均以保证数值稳定。
+**第三步，读出结论**：$\alpha_i^* > 0$ 的样本集合，恰是支持向量集合。**对偶问题自动完成了「哪些样本重要」的挑选，不需要人指定。**
+**第四步，如何求 $b^*$**：任取一个支持向量（$\alpha_s > 0$），代入 $y_s(\boldsymbol{w}^{*\mathrm{T}}\boldsymbol{x}_s + b^*) = 1$，解出 $b^*$；工程上常用所有支持向量的平均以保证数值稳定。
 
 **直觉一句话**：KKT 互补松弛把「间隔边界上的样本」翻译成了「带非零乘子的样本」——优化问题自己在最后一步说出了哪些样本定义了模型。
 

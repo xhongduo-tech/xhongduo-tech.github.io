@@ -23,42 +23,69 @@ date: 2026-08-07
 先定义配置与模型骨架：
 
 ```python
-import torch
-import torch.nn as nn
-from torch.nn import functional as F
-
 class GPTConfig:
-    def __init__(self, vocab_size=50257, block_size=256,
-                 n_layer=6, n_head=6, n_embd=384, dropout=0.1):
-        self.vocab_size = vocab_size    # 词表大小
-        self.block_size = block_size    # 最大上下文长度
-        self.n_layer = n_layer          # 层数
-        self.n_head = n_head            # 头数
-        self.n_embd = n_embd            # 宽度（d_model）
-        self.dropout = dropout
+    block_size: int = 1024      # 上下文长度
+    vocab_size: int = 50257     # GPT-2 词表大小
+    n_layer: int = 12           # Transformer 层数
+    n_head: int = 12            # 注意力头数
+    n_embd: int = 768           # 嵌入维度（宽度 d）
+
 
 class GPT(nn.Module):
     def __init__(self, config):
         super().__init__()
-        self.config = config
-        # 词嵌入 + 位置嵌入（可学习）
-        self.wte = nn.Embedding(config.vocab_size, config.n_embd)
-        self.wpe = nn.Embedding(config.block_size, config.n_embd)
-        self.drop = nn.Dropout(config.dropout)
+        self.tok_emb = nn.Embedding(config.vocab_size, config.n_embd)
+        self.pos_emb = nn.Embedding(config.block_size, config.n_embd)   # 可学习位置嵌入
         self.blocks = nn.ModuleList([Block(config) for _ in range(config.n_layer)])
-        self.ln_f = nn.LayerNorm(config.n_embd)   # 最终归一化
+        self.ln_f = nn.LayerNorm(config.n_embd)
         self.lm_head = nn.Linear(config.n_embd, config.vocab_size, bias=False)
+        self.apply(self._init_weights)
+
+    def _init_weights(self, module):
+        if isinstance(module, (nn.Linear, nn.Embedding)):
+            nn.init.normal_(module.weight, mean=0.0, std=0.02)
 ```
 
-**注意**：GPT-2 用的是「可学习位置嵌入」（`wpe`，查表）+ **Pre-LN**——与我们前面讲的 LLaMA 系（RoPE + RMSNorm）不同。这里跟随 GPT-2/nanoGPT 的经典写法，便于对照论文。<span class="marginnote">模型用的是「权重共享」：`lm_head.weight = wte.weight`（输入嵌入与输出头共享）。nanoGPT 里通过 `self.transformer.wte.weight = self.lm_head.weight` 实现。这省了 $V \cdot d$ 参数——我们在《词嵌入层》里讲过它的语义一致性。</span>
+**注意**：GPT-2 用的是「可学习位置嵌入」（`nn.Embedding` 查表）+ **Pre-LN**——与我们前面讲的 LLaMA 系（RoPE + RMSNorm）不同。这里跟随 GPT-2/nanoGPT 的经典写法，便于对照论文。<span class="marginnote">模型用的是「权重共享」：`lm_head.weight = tok_emb.weight`（输入嵌入与输出头共享同一张权重）。nanoGPT 里通过直接赋值实现。这省了 $V \cdot d$ 参数——我们在《词嵌入层》里讲过它的语义一致性。</span>
 
 ## 2 核心组件：Block、CausalSelfAttention、MLP
 
 三个核心类：
 
 ```python
+class CausalSelfAttention(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.n_head = config.n_head
+        self.c_attn = nn.Linear(config.n_embd, 3 * config.n_embd)   # 一次投影出 QKV
+        self.c_proj = nn.Linear(config.n_embd, config.n_embd)
+
+    def forward(self, x):
+        B, T, C = x.size()
+        q, k, v = self.c_attn(x).split(C, dim=2)      # [B,T,3C] → 3×[B,T,C]
+        q = q.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
+        k = k.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
+        v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
+        att = (q @ k.transpose(-2, -1)) / (C // self.n_head) ** 0.5
+        att = att.masked_fill(self.mask[:, :, :T, :T] == 0, float("-inf"))
+        att = F.softmax(att, dim=-1)
+        y = att @ v                                     # [B, H, T, d_k] 加权求和
+        y = y.transpose(1, 2).contiguous().view(B, T, C)  # 合并头
+        return self.c_proj(y)
+
+
+class MLP(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.c_fc = nn.Linear(config.n_embd, 4 * config.n_embd)
+        self.gelu = nn.GELU()
+        self.c_proj = nn.Linear(4 * config.n_embd, config.n_embd)
+
+    def forward(self, x):
+        return self.c_proj(self.gelu(self.c_fc(x)))
+
+
 class Block(nn.Module):
-    """一个 Transformer 解码层：Pre-LN 顺序（LN → Attn → 残差 → LN → MLP → 残差）"""
     def __init__(self, config):
         super().__init__()
         self.ln_1 = nn.LayerNorm(config.n_embd)
@@ -67,94 +94,46 @@ class Block(nn.Module):
         self.mlp = MLP(config)
 
     def forward(self, x):
-        x = x + self.attn(self.ln_1(x))   # Pre-LN：先归一化，再注意力，残差加回
-        x = x + self.mlp(self.ln_2(x))    # Pre-LN：先归一化，再 FFN，残差加回
+        x = x + self.attn(self.ln_1(x))   # Pre-LN：注意力分支先归一化
+        x = x + self.mlp(self.ln_2(x))    # Pre-LN：MLP 分支先归一化
         return x
-
-class CausalSelfAttention(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-        assert config.n_embd % config.n_head == 0
-        self.c_attn = nn.Linear(config.n_embd, 3 * config.n_embd)  # QKV 一起投影
-        self.c_proj = nn.Linear(config.n_embd, config.n_embd)      # 输出投影
-        self.n_head = config.n_head
-        self.n_embd = config.n_embd
-
-    def forward(self, x):
-        B, T, C = x.size()   # batch, 序列长, 维度
-        # 一次投影出 QKV，再拆成三个
-        qkv = self.c_attn(x)                                    # [B, T, 3C]
-        q, k, v = qkv.split(self.n_embd, dim=2)                 # 各 [B, T, C]
-        # 拆头：把 C 拆成 n_head 个头
-        k = k.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)  # [B, H, T, dk]
-        q = q.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
-        v = v.view(B, T, self.n_head, C // self.n_head).transpose(1, 2)
-        # 缩放点积注意力
-        att = (q @ k.transpose(-2, -1)) * (1.0 / math.sqrt(k.size(-1)))  # [B, H, T, T]
-        att = att.masked_fill(self.bias[:, :, :T, :T] == 0, float('-inf'))  # 因果掩码
-        att = F.softmax(att, dim=-1)
-        att = self.attn_dropout(att)
-        y = att @ v                                                # [B, H, T, dk]
-        # 合并头：transpose + view 回 [B, T, C]
-        y = y.transpose(1, 2).contiguous().view(B, T, C)
-        y = self.resid_dropout(self.c_proj(y))
-        return y
-
-class MLP(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-        self.c_fc = nn.Linear(config.n_embd, 4 * config.n_embd)   # 升维
-        self.gelu = nn.GELU()                                      # GELU 激活
-        self.c_proj = nn.Linear(4 * config.n_embd, config.n_embd)  # 降维
-
-    def forward(self, x):
-        return self.c_proj(self.gelu(self.c_fc(x)))
 ```
 
 **逐行要点**：
 
-- `c_attn` 一次投影出 QKV（`3*n_embd`），再 `split`——**用一个大线性层替代三个小线性层**，GPU 更高效。
-- `view + transpose` 拆头：`[B, T, C]` → `[B, H, T, dk]`——**这是多头注意力的张量落地**。
-- `masked_fill(..., -inf)`：把上三角填成 `-inf`——**因果掩码**（softmax 前）。
-- `att @ v`：加权求和。`transpose + contiguous + view`：合并头。
+- `c_attn` 一次投影出 QKV（`[B, T, 3C]`），再 `split` 成三份——**用一个大线性层替代三个小线性层**，GPU 更高效。
+- `view` 拆头：`[B, T, C]` → `[B, H, T, d_k]`——**这是多头注意力的张量落地**。
+- `tril` 掩码：把上三角填成 `-inf`——**因果掩码**（softmax 前）。
+- `softmax` 加权求和。`transpose → view` 合并头。
 
 ## 3 前向与因果掩码
 
 因果掩码是**注册的 buffer**（不参与梯度）：
 
 ```python
-# 在 CausalSelfAttention.__init__ 里：
-self.register_buffer("bias", torch.tril(torch.ones(config.block_size, config.block_size))
-                              .view(1, 1, config.block_size, config.block_size))
-
-def forward(self, x):
-    # ... 见上
-    att = att.masked_fill(self.bias[:, :, :T, :T] == 0, float('-inf'))
+mask = torch.tril(torch.ones(config.block_size, config.block_size))
+self.register_buffer("mask", mask.view(1, 1, config.block_size, config.block_size))
 ```
 
-`torch.tril`（下三角）在 `[i, j]` 处为 1 当且仅当 $j \le i$——正好是「只看过去」。`masked_fill` 把「看未来」（$j > i$）的位置填成 `-inf`，softmax 后权重为 0。
+`tril`（下三角）在 `(i, j)` 处为 1 当且仅当 $j \le i$——正好是「只看过去」。`masked_fill` 把「看未来」（$j > i$）的位置填成 `-inf`，softmax 后权重为 0。
 
 **整个模型的前向**（含损失）：
 
 ```python
 def forward(self, idx, targets=None):
     B, T = idx.size()
-    assert T <= self.config.block_size
-    # 位置编码：0..T-1 的位置查表
-    pos = torch.arange(0, T, dtype=torch.long, device=idx.device).unsqueeze(0)
-    x = self.wte(idx) + self.wpe(pos)        # 词嵌入 + 位置嵌入
-    x = self.drop(x)
-    for block in self.blocks:
-        x = block(x)
-    x = self.ln_f(x)                          # 最终归一化
-    logits = self.lm_head(x)                  # [B, T, V]
-    loss = None
-    if targets is not None:
-        loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1))
+    pos = torch.arange(T, device=idx.device)
+    x = self.tok_emb(idx) + self.pos_emb(pos)      # 词嵌入 + 位置嵌入
+    x = self.blocks(x)                              # 逐层过 Block
+    x = self.ln_f(x)                                # 最终 LayerNorm
+    logits = self.lm_head(x)                        # [B, T, V] 输出头
+    if targets is None:
+        return logits, None
+    loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1))
     return logits, loss
 ```
 
-- `logits.view(-1, V)` 把 `[B, T, V]` 摊平成 `[B*T, V]`，与 targets 摊平——**每个位置都算损失**（CLM 的「每位置监督」）。
+- `view(-1, vocab_size)` 把 `logits` 摊平成 `[B*T, V]`，与 targets 摊平——**每个位置都算损失**（CLM 的「每位置监督」）。
 
 ## 4 公式解析：多头注意力的形状账本
 
@@ -171,32 +150,31 @@ $$
 对这套式子做三步拆解：
 
 - **第一步，读懂「一次投影」**：`c_attn` 用 $3C \times C$ 的权重一次算出 QKV——比「三个独立线性层」省内存带宽，且 PyTorch 更高效。
-- **第二步，读懂「拆头」**：`view` 把最后的 $C$ 拆成 $H \times d_k$，`transpose(1,2)` 把「头」挪到第二维——**多头并行**（各头独立计算）。$d_k = C/H$，$H \cdot d_k = C$——**形状守恒**。
-- **第三步，读懂「合并头」**：`y.transpose(1,2).view(B,T,C)` 把头合并回宽度——**多头输出拼接**。这就是「$h$ 个头各自算、最后拼起来」的实现。
+- **第二步，读懂「拆头」**：`view` 把最后的 $C$ 拆成 $H \times d_k$，`transpose` 把「头」挪到第二维——**多头并行**（各头独立计算）。$d_k = C/H$，$H \cdot d_k = C$——**形状守恒**。
+- **第三步，读懂「合并头」**：`transpose → view`（`c_proj`）把头合并回宽度——**多头输出拼接**。这就是「$h$ 个头各自算、最后拼起来」的实现。
 
-**辨析｜易错点：** `masked_fill` 必须在 **softmax 之前**（填 `-inf` 后 softmax 权重为 0），如果先 softmax 再 mask 就错了。另外 `contiguous()` 不能省——`transpose` 后张量是非连续内存的，`view` 要求连续，必须 `contiguous()` 再 `view`。**这两个「顺序」与「连续性」是新手最容易踩的坑**。
+**辨析｜易错点：** mask 必须在 **softmax 之前**（填 `-inf` 后 softmax 权重为 0），如果先 softmax 再 mask 就错了。另外 `contiguous()` 不能省——`transpose` 后张量是非连续内存的，`view` 要求连续，必须 `contiguous()` 再 `view`。**这两个「顺序」与「连续性」是新手最容易踩的坑**。
 
 ## 5 训练与生成
 
 ```python
-# 生成：逐 token 自回归
 @torch.no_grad()
 def generate(self, idx, max_new_tokens, temperature=1.0):
     for _ in range(max_new_tokens):
-        idx_cond = idx if idx.size(1) <= self.config.block_size else idx[:, -self.config.block_size:]
-        logits, _ = self(idx_cond)          # 前向
-        logits = logits[:, -1, :] / temperature   # 取最后一个位置的 logits，调温度
-        probs = F.softmax(logits, dim=-1)   # 概率
-        idx_next = torch.multinomial(probs, num_samples=1)  # 采样一个 token
-        idx = torch.cat((idx, idx_next), dim=1)   # 追加
+        idx_cond = idx[:, -self.config.block_size:]       # 只看最后 block_size 个 token
+        logits, _ = self(idx_cond)
+        logits = logits[:, -1, :] / temperature           # 只取最后一个位置的分数
+        probs = F.softmax(logits, dim=-1)
+        idx_next = torch.multinomial(probs, num_samples=1)  # 按概率采样
+        idx = torch.cat((idx, idx_next), dim=1)           # 采样结果追加回序列
     return idx
 ```
 
-- 生成用 `@torch.no_grad()`——推理不需要梯度。
+- 生成用 `torch.no_grad()`——推理不需要梯度。
 - 每步只看最后 `block_size` 个 token（上下文截断）。
-- `torch.multinomial` 按概率采样——**不是贪心**，保留了多样性。
+- `multinomial` 按概率采样——**不是贪心**，保留了多样性。
 
-**训练**：普通 PyTorch 训练循环——`optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)`，对每个 batch 算 loss、反向、更新。在 nanoGPT 的 toy 数据（莎士比亚）上跑 5000 步，就能生成「有模有样」的莎士比亚风格文本——**你亲手训练的「大模型」**。
+**训练**：普通 PyTorch 训练循环——`forward` → `backward` → `optimizer.step()`，对每个 batch 算 loss、反向、更新。在 nanoGPT 的 toy 数据（莎士比亚）上跑 5000 步，就能生成「有模有样」的莎士比亚风格文本——**你亲手训练的「大模型」**。
 
 ## 6 小结
 

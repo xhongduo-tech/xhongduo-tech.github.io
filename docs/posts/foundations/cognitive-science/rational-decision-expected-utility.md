@@ -79,10 +79,10 @@ $$EU = p_1 \cdot u(x_1) + p_2 \cdot u(x_2) + \cdots + p_n \cdot u(x_n) = \sum_{i
 
 冯·诺依曼-摩根斯坦不只给出公式，还给出**理性公理**——满足这些公理的偏好，必然等价于最大化某个期望效用：
 
-- **完备性（completeness）**：任意两个选项 A、B，必有 A≻B、B≻A 或两者无差异。
-- **传递性（transitivity）**：若 A≻B 且 B≻C，则 A≻C。
-- **独立性（independence）**：A≻B 时，混合相同概率的 C 后，偏好方向不变：pA+(1−p)C ≻ pB+(1−p)C。
-- **连续性（continuity）**：偏好不出现"无限大好/无限差"的跳跃。
+**完备性（completeness）**：任意两个选项 A、B，必有 A≻B、B≻A 或两者无差异。
+**传递性（transitivity）**：若 A≻B 且 B≻C，则 A≻C。
+**独立性（independence）**：A≻B 时，混合相同概率的 C 后，偏好方向不变：pA+(1−p)C ≻ pB+(1−p)C。
+**连续性（continuity）**：偏好不出现"无限大好/无限差"的跳跃。
 
 **检验结果**：人类决策**系统性地违反这些公理**——最著名的是**阿莱悖论（Allais paradox）**：
 

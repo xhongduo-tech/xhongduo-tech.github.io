@@ -36,8 +36,8 @@ $$
 
 对 $X^*$ 中的泛函列 $f_n$，自然有两种收敛：
 
-- **弱收敛**：$f_n \rightharpoonup f$ 指「对每个 $F \in X^{**}$，$F(f_n) \to F(f)$」——用二次对偶观测。
-- **弱\* 收敛（weak\* convergence）**：$f_n \xrightarrow{w^*} f$ 指「对每个 $x \in X$，$f_n(x) \to f(x)$」——只要求「用 $X$ 的点观测」。
+**弱收敛**：$f_n \rightharpoonup f$ 指「对每个 $F \in X^{**}$，$F(f_n) \to F(f)$」——用二次对偶观测。
+**弱\* 收敛（weak\* convergence）**：$f_n \xrightarrow{w^*} f$ 指「对每个 $x \in X$，$f_n(x) \to f(x)$」——只要求「用 $X$ 的点观测」。
 
 弱\* 收敛比弱收敛弱（$X$ 经 $\kappa$ 嵌入 $X^{**}$，$X$ 的观测只是 $X^{**}$ 观测的子集）。<span class="marginnote">符号里的星号：弱\* 的「*」提醒「用 $X$（而非 $X^{\ast\ast}$）观测 $X^*$」。当 $X$ 自反（$X = X^{\ast\ast}$）时，弱\* 与弱收敛重合；非自反时弱\* 更弱——这是 Alaoglu 定理（下节）能用上弱\* 的原因：<strong>越弱越容易紧</strong>。</span>
 

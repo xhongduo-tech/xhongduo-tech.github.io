@@ -33,14 +33,11 @@ $$d^{(k)}[i][j] = \min\left(d^{(k-1)}[i][j],\; d^{(k-1)}[i][k] + d^{(k-1)}[k][j]
 
 **实现**：滚动掉 $k$ 维，直接用二维矩阵原地更新：
 
-```
-FLOYD-WARSHALL(W)
-  n = W.rows;  D = W
-  for k = 1 to n
-    for i = 1 to n
-      for j = 1 to n
-        D[i][j] = min(D[i][j], D[i][k] + D[k][j])
-  return D
+```text
+for k = 1 to n:                         // 中间点集合逐步开放 {1..k}
+    for i = 1 to n:
+        for j = 1 to n:
+            D[i][j] = min(D[i][j], D[i][k] + D[k][j])
 ```
 
 **复杂度**：三重循环 $O(n^3)$，空间 $O(n^2)$。允许负权边，但**不允许负环**（负环会让「最短路」无定义）。
@@ -63,14 +60,19 @@ $$T(n) = \sum_{k=1}^{n}\sum_{i=1}^{n}\sum_{j=1}^{n} O(1) = \Theta(n^3)$$
 
 Floyd-Warshall 对稠密图好；**稀疏图**上，Johnson 用「把负权变成非负」的技巧，让 Dijkstra（更快）在每一点跑一次：
 
-```
-JOHNSON(G, w)
-  1. 加一个新顶点 s，与所有顶点连权 0 的边
-  2. 用 Bellman-Ford 从 s 求 h[v] = 最短距离
-     （若有负环，返回 FALSE）
-  3. 对每条边 (u,v): w'(u,v) = w(u,v) + h[u] - h[v]   // 重赋权
-  4. 对每个顶点 u: 用 Dijkstra 从 u 求 w' 意义下的最短路
-  5. 还原真实距离: d(u,v) = d'(u,v) - h[u] + h[v]
+```text
+JOHNSON(G, w):
+    构造超级源 s，向所有顶点连权值为 0 的边
+    h = BELLMAN-FORD(G, s, w)           // 检测负环，并求出势函数 h[v]
+    if BELLMAN-FORD 报告存在负环:
+        return「存在负环，全源最短路无定义」
+    for each 边 (u, v) in G.E:
+        w'(u, v) = w(u, v) + h[u] - h[v]    // 重赋权，使所有边权非负
+    for each 顶点 u in G.V:
+        D[u] = DIJKSTRA(G, w', u)       // 在非负权图上跑 Dijkstra
+        for each 顶点 v in G.V:
+            D[u][v] = D[u][v] + h[v] - h[u] // 还原真实距离
+    return D
 ```
 
 **重赋权（reweighting）**：$w'(u,v) = w(u,v) + h[u] - h[v]$，其中 $h$ 是「从超级源 $s$ 出发的最短距离」。三个性质：<span class="marginnote">重赋权的直觉：$h[v]$ 是「$s$ 到 $v$ 的参考高度」。$w'$ 把每条边的权「按两端高度差调整」——因为 $h$ 满足三角形不等式 $h[v] \le h[u] + w(u,v)$（最短路性质），所以 $w' = w + h[u]-h[v] \ge 0$——负权被抹平，Dijkstra 可用。</span>

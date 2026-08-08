@@ -69,12 +69,12 @@ $$
 
 公理只有三条，但能推出整个工具箱。设 $A, B$ 为事件：
 
-- **不可能事件的概率**：$P(\emptyset) = 0$。
-- **有限可加性**：若 $A_1, \dots, A_n$ 两两互斥，则 $P(A_1 \cup \cdots \cup A_n) = \sum_{i=1}^n P(A_i)$。
-- **对立事件**：$P(\overline{A}) = 1 - P(A)$。
-- **减法公式**：$P(B - A) = P(B) - P(AB)$，特别当 $A \subset B$ 时 $P(B - A) = P(B) - P(A)$。
-- **单调性**：若 $A \subset B$，则 $P(A) \le P(B)$，且 $P(B - A) = P(B) - P(A) \ge 0$。
-- **一般加法公式**：$P(A \cup B) = P(A) + P(B) - P(AB)$。
+**不可能事件的概率**：$P(\emptyset) = 0$。
+**有限可加性**：若 $A_1, \dots, A_n$ 两两互斥，则 $P(A_1 \cup \cdots \cup A_n) = \sum_{i=1}^n P(A_i)$。
+**对立事件**：$P(\overline{A}) = 1 - P(A)$。
+**减法公式**：$P(B - A) = P(B) - P(AB)$，特别当 $A \subset B$ 时 $P(B - A) = P(B) - P(A)$。
+**单调性**：若 $A \subset B$，则 $P(A) \le P(B)$，且 $P(B - A) = P(B) - P(A) \ge 0$。
+**一般加法公式**：$P(A \cup B) = P(A) + P(B) - P(AB)$。
 
 其中「一般加法公式」要特别留意：当 $A$、$B$ 不互斥时，$AB$ 被 $P(A)$ 和 $P(B)$ 各算了一次，必须减掉一次。<span class="marginnote">对照第一级《集合的基本运算》的容斥原理：$|A \cup B| = |A| + |B| - |A \cap B|$。概率的加法公式与集合的计数公式长得一模一样——「概率就是加了度量的集合」，这句第一课埋下的伏笔在这里兑现：集合论管结构，度量管数字。</span>
 

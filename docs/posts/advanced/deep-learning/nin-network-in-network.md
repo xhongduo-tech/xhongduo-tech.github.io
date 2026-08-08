@@ -60,16 +60,14 @@ $$
 
 NiN 由「NiN 块 + GAP」组成，替代「卷积块 + FC」：
 
-```
-NiN 网络：
-    NiN block(96, kernel=11, stride=4)    # 224x224 -> 54x54x96
-    MaxPool(3x3, stride 2)
-    NiN block(256, kernel=5)               # 54x54 -> 26x26x256
-    MaxPool(3x3, stride 2)
-    NiN block(384, kernel=3)               # 26x26 -> 12x12x384
-    MaxPool(3x3, stride 2)
-    NiN block(10, kernel=3, no 1x1)        # 12x12 -> 5x5x10
-    GAP -> 10 维向量 -> Softmax
+```text
+NiN 块：Conv(11×11) → Conv(1×1) → Conv(1×1)
+          ↓
+NiN 块：Conv(5×5) → Conv(1×1) → Conv(1×1)
+          ↓
+NiN 块：Conv(3×3) → Conv(1×1) → Conv(1×1)
+          ↓
+全局平均池化（GAP）→ 类别得分（不再接 FC）
 ```
 
 **结构逻辑**：每个 NiN 块「先用卷积扩视野、再用 1×1 卷积做通道抽象」；末尾不再接 FC，直接 GAP 到类别得分。**整个网络从头到尾都是「卷积系」**——没有全连接层，参数只有几百万。<span class="marginnote">「全卷积化」（全网络用卷积、无全连接）是 NiN 的终极遗产：它让网络变成「对任意分辨率输入的卷积映射」。这个性质被后来的<strong>全卷积网络（FCN）</strong>用于语义分割（把分类网络改装成分割网络），也成为「CNN 是像素级映射」这一视角的基础——第四篇《语义分割》会用它做骨架。</span>
@@ -92,9 +90,9 @@ $$
 
 NiN 在 ImageNet 上的成绩（top-5 约 8.8%）略逊于同期的 VGG，但它的思想影响远超排名：
 
-- **1×1 卷积**：被 GoogLeNet（降通道）、ResNet（瓶颈）、MobileNet（深度可分离）全面继承——现在它是「CNN 的瑞士军刀」。
-- **GAP**：取代全连接成为分类网络的标准收尾；CAM 可解释性直接源于它。
-- **通道维的深度**：「每个位置做小 MLP」的思想，在 Transformer 的 FFN（前馈网络）里以更大规模复活。
+**1×1 卷积**：被 GoogLeNet（降通道）、ResNet（瓶颈）、MobileNet（深度可分离）全面继承——现在它是「CNN 的瑞士军刀」。
+**GAP**：取代全连接成为分类网络的标准收尾；CAM 可解释性直接源于它。
+**通道维的深度**：「每个位置做小 MLP」的思想，在 Transformer 的 FFN（前馈网络）里以更大规模复活。
 
 **「NiN 的精度不是最好的，但 NiN 的部件是最长寿的」**——这是架构史上「思想价值 vs 当时精度」不对等的经典案例。<span class="marginnote">「思想大于当时成绩」的例子在深度学习史里不少：NiN 的 1×1 卷积、ResNet 之前的 LSTM 的残差思想雏形（Highway Networks）、Transformer 之前的自注意力（注意力机制 2014 年就有）——<strong>「没火」的架构不一定是「没价值」的架构，关键看它的部件是否解决了「未来会碰到的问题」</strong>。</span>
 

@@ -28,7 +28,7 @@ Boosting 家族的旗帜是 **AdaBoost**（Adaptive Boosting，自适应提升�
 
 **直觉**：每一轮，数据分布都在「向错误倾斜」——下一位学习器被迫把注意力集中在上一轮的失误上。全部训练完后，把各轮学习器按「谁更准谁权重高」线性组合。<span class="marginnote">「不断把注意力转向错误」是 Boosting 与人类的纠错学习同构：做错题的学生，下次复习会把时间花在错题上。这也是 AdaBoost 名字里「Adaptive」的由来——分布自适应地调整。</span>
 
-## 2 公式解析：AdaBoost 的两个关键量设二分类 $y_i \in \{-1,+1\}$，第 $t$ 轮基学习器 $h_t$ 的**加权错误率**为$$\epsilon_t = \sum_{i=1}^{m} D_t(i) \, \mathbb{I}\left[h_t(\boldsymbol{x}_i) \neq y_i\right]$$
+## 2 公式解析：AdaBoost 的两个关键量设二分类 $y_i \in \{-1,+1\}$，第 $t$ 轮基学习器 $h_t$ 的**加权错误率**为`$$`\epsilon_t = \sum_{i=1}^{m} D_t(i) \, \mathbb{I}\left[h_t(\boldsymbol{x}_i) \neq y_i\right]$$
 
 其中 $D_t(i)$ 是第 $i$ 个样本在第 $t$ 轮的权重（满足 $\sum_i D_t(i) = 1$），$\mathbb{I}[\cdot]$ 是指示函数。两个关键公式：
 

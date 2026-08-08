@@ -78,7 +78,7 @@ $$
 
 - **$a_{\boldsymbol{p}}$ 是湮灭算符还是升降算符**：在谐振子语境里叫「降算符」，在场论里叫「湮灭算符」——同一数学对象，语义不同：前者降低量子数，后者消灭粒子。**不要混淆 $a_{\boldsymbol{p}}$（消灭动量 $\boldsymbol{p}$ 的量子）与 $\phi$（场算符本身，同时含产生与湮灭两部分）。**
 - **真空不是「空无一物」**：$|0\rangle$ 被 $a_{\boldsymbol{p}}$ 湮灭，但场的真空涨落（零点能、虚粒子）依然存在。说「真空=没有粒子」是准的，说「真空=什么都没有」就不准了。<span class="marginnote">$H$ 里的 $\frac12[a_{\boldsymbol{p}},a_{\boldsymbol{p}}^\dagger]$ 项给出 $\int \frac12 E_{\boldsymbol{p}}\delta^{(3)}(0)$，是无穷大的零点能。物理里我们永远只测量<strong>能量差</strong>，所以把它丢进「重新标定零点」的筐里——这正是第三章重正化的第一个预兆。</span>
-- **把 $\phi(\boldsymbol{x})$ 当成「位置」**：场算符不是坐标算符，它的「本征值」没有位置的意义。说「粒子在 $\boldsymbol{x}$ 处」要用局域场算符 $\phi(\boldsymbol{x})|0\rangle$ 构造，但这一状态并非位置本征态——粒子的位置概念在 QFT 里是模糊的，这与量子力学里 $\hat{x}$ 的位置本征态截然不同。
+**把 $\phi(\boldsymbol{x})$ 当成「位置」**：场算符不是坐标算符，它的「本征值」没有位置的意义。说「粒子在 $\boldsymbol{x}$ 处」要用局域场算符 $\phi(\boldsymbol{x})|0\rangle$ 构造，但这一状态并非位置本征态——粒子的位置概念在 QFT 里是模糊的，这与量子力学里 $\hat{x}$ 的位置本征态截然不同。
 
 ## 6 延伸：谐振子语言的统一威力
 
@@ -86,19 +86,19 @@ $$
 
 从谐振子视角，三个结论几乎是「免费」的：
 
-- **玻色统计**：$[a,a^\dagger]=1$ 允许一个模式装任意多量子——谐振子的「多光子占据」图像。
-- **真空零点能**：$H = \sum E_{\boldsymbol{p}}(a^\dagger a + \frac12)$ 里的 $\frac12$ 是每台谐振子的零点能，全模式求和发散——重正化的第一个入口。
-- **产生算符的物理**：$a_{\boldsymbol{p}}^\dagger|0\rangle$ 就是「把动量 $\boldsymbol{p}$ 的那台谐振子激发到第一能级」，它的能量 $E_{\boldsymbol{p}}$ 正是相对论质壳。
+**玻色统计**：$[a,a^\dagger]=1$ 允许一个模式装任意多量子——谐振子的「多光子占据」图像。
+**真空零点能**：$H = \sum E_{\boldsymbol{p}}(a^\dagger a + \frac12)$ 里的 $\frac12$ 是每台谐振子的零点能，全模式求和发散——重正化的第一个入口。
+**产生算符的物理**：$a_{\boldsymbol{p}}^\dagger|0\rangle$ 就是「把动量 $\boldsymbol{p}$ 的那台谐振子激发到第一能级」，它的能量 $E_{\boldsymbol{p}}$ 正是相对论质壳。
 
 这套语言往后的每一次出场（光子、胶子、希格斯、以及凝聚态里的声子、磁振子）都是「换汤不换药」。
 
 ### 自测清单
 
-- [ ] 能写出等时对易关系 $[\phi(\boldsymbol{x}),\pi(\boldsymbol{y})] = i\delta^{(3)}$ 并解释 $\delta$ 函数为何出现。
-- [ ] 能从展开式推出 $[a_{\boldsymbol{p}},a_{\boldsymbol{q}}^\dagger] = (2\pi)^3\delta^{(3)}$。
-- [ ] 能解释真空 $|0\rangle$ 的定义与零点能的「重新标定」。
-- [ ] 能说出单粒子态 $a^\dagger|0\rangle$ 的能量为何是质壳关系。
-- [ ] 能区分「场算符 $\phi$」与「湮灭算符 $a_{\boldsymbol{p}}$」。
+[ ] 能写出等时对易关系 $[\phi(\boldsymbol{x}),\pi(\boldsymbol{y})] = i\delta^{(3)}$ 并解释 $\delta$ 函数为何出现。
+[ ] 能从展开式推出 $[a_{\boldsymbol{p}},a_{\boldsymbol{q}}^\dagger] = (2\pi)^3\delta^{(3)}$。
+[ ] 能解释真空 $|0\rangle$ 的定义与零点能的「重新标定」。
+[ ] 能说出单粒子态 $a^\dagger|0\rangle$ 的能量为何是质壳关系。
+[ ] 能区分「场算符 $\phi$」与「湮灭算符 $a_{\boldsymbol{p}}$」。
 
 <span class="marginnote">把「每台谐振子」的图像刻进脑子：之后读费曼图、算传播子、理解真空涨落，都是在给这台无限维的谐振子系统记账。</span>
 

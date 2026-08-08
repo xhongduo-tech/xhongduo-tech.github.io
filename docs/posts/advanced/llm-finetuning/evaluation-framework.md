@@ -97,23 +97,20 @@ $$
 一个最小「三维评估」的骨架，能把「评估是常态」落地：
 
 ```python
-def evaluate_model(model, suite):
-    """suite: {"capability": [mmlu, gsm8k], "alignment": [ifeval, mtbench],
-               "safety": [jailbreak, toxicity]}"""
-    results = {}
-    for dim, benchmarks in suite.items():
-        results[dim] = {name: run_bench(model, name) for name in benchmarks}
-    return results
-
-# 每次微调迭代都跑：
-before = evaluate_model(base_model, suite)    # 微调前基线（建基线）
-after  = evaluate_model(finetuned, suite)     # 微调后
-report = {d: {k: after[d][k] - before[d][k] for k in before[d]}
-          for d in before}                    # 三维变化量
-print(report)  # 三维变化一目了然，Δ 都 ≥ 0 才算成功
+def run_eval(model, baseline):
+    # 把基准按维度归类：能力 / 对齐 / 安全
+    benches = {
+        "能力": ["MMLU", "GSM8K"],
+        "对齐": ["IFEval", "MT-Bench"],
+        "安全": ["越狱", "毒性"],
+    }
+    scores = {dim: {b: run_bench(b, model) for b in bs} for dim, bs in benches.items()}
+    deltas = {dim: {b: scores[dim][b] - baseline[dim][b] for b in bs}
+              for dim, bs in benches.items()}
+    return deltas   # 三维变化量表：每维与微调前对比
 ```
 
-注意第 3 行的 `suite` 结构——**评估体系的第一步是「把基准按维度归类」**：能力 / 对齐 / 安全各一栏，跑完输出「三维变化量表」。**把这个函数做成「每次实验必跑」的例行步骤**，微调的「好不好」就不再是感觉，而是数字。## 6 小结
+注意第 3 行的 **dict 结构**——**评估体系的第一步是「把基准按维度归类」**：能力 / 对齐 / 安全各一栏，跑完输出「三维变化量表」。**把这个函数做成「每次实验必跑」的例行步骤**，微调的「好不好」就不再是感觉，而是数字。## 6 小结
 
 - **微调评估三维**：能力（会不会做事）、对齐（听不听话）、安全（守不守规矩）——缺一维就会被其他维的退化骗过去。
 - **能力维**：MMLU/C-Eval（知识）、GSM8K/HumanEval（推理）——必须与微调前对比、盯通用能力退化。

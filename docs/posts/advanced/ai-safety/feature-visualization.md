@@ -70,28 +70,34 @@ $$
 把上面的公式翻译成一段能跑的伪代码，会让「特征可视化到底在算什么」变得具体。以 PyTorch 风格的写法为例：
 
 ```python
-def feature_visualize(model, layer, neuron, steps=512, lr=0.05, alpha=0.01):
-    # 从随机噪声出发（而不是从真实图片出发）
-    x = torch.randn(1, 3, 224, 224, requires_grad=True)
-    for t in range(steps):
-        # 每次迭代先施加随机变换：平移 / 缩放 / 颜色扰动
-        x_t = random_transforms(x)
-        # 取目标神经元在变换后图像上的激活值
-        act = model.get_activation(layer, x_t)[:, neuron]
-        # 变换鲁棒性：对所有变换样本的平均激活求反，再加高频惩罚
-        loss = -act.mean() + alpha * frequency_penalty(x)
-        loss.backward()
-        # 梯度上升：注意是「加」梯度，因为我们在最大化激活
-        x.data.add_(lr * x.grad)
-        x.grad.zero_()
-    return x.detach()
+# 特征可视化：正则化激活最大化（PyTorch 风格伪代码）
+x = torch.randn(1, 3, 224, 224, requires_grad=True)   # 随机初始化的输入图像
+
+transforms = T.Compose([T.RandomAffine(degrees=8, translate=(0.05, 0.05)),
+                        T.RandomResizedCrop(224, scale=(0.9, 1.1))])  # 变换分布 T
+
+def high_freq_energy(img):        # R(x)：高频分量能量
+    return ((img - gaussian_blur(img)) ** 2).mean()
+
+for step in range(500):
+    act = 0.0
+    for _ in range(8):            # 期望 E_{t~T}[a_i(t(x))] 的蒙特卡洛近似
+        act += neuron(transforms(x)).mean()
+    act /= 8
+
+    penalty = lam * high_freq_energy(x)   # λR(x)：压制高频噪点
+    loss = -(act - penalty)               # 取负 → 对 act 做梯度上升
+    loss.backward()
+
+    with torch.no_grad():
+        x += lr * x.grad                  # 梯度上升：让激活变大
 ```
 
 逐行看这段代码就是在重复第 3 节的公式：
 
-- `random_transforms` 对应变换分布 $\mathcal{T}$，`act.mean()` 对应 $\mathbb{E}_{t\sim\mathcal{T}}[a_i(t(x))]$——它让结果对平移、缩放不变；
-- `frequency_penalty` 对应 $\lambda R(x)$，压制高频噪点；
-- `x.data.add_(lr * x.grad)` 是**梯度上升**——注意与第三级《深度学习》里训练用的梯度下降方向相反：训练是让损失变小，这里是想让激活变大。
+$\mathbb{E}_{t\sim\mathcal{T}}[a_i(t(x))]$ 对应变换分布 $\mathcal{T}$，伪代码里的 `transforms` 对应这个期望——它让结果对平移、缩放不变；
+`penalty = lam * high_freq_energy(x)` 对应 $\lambda R(x)$，压制高频噪点；
+`x += lr * x.grad` 是**梯度上升**——注意与第三级《深度学习》里训练用的梯度下降方向相反：训练是让损失变小，这里是想让激活变大。
 
 跑完几百步，输出的图像就是「神经元最想要的东西」。这段流水线在概念上极其简单，却是一切特征可视化工具（以及后续 Sparse Autoencoder 可视化）的公共骨架。<span class="marginnote">这段伪代码还揭示了一个工程要点：<strong>每一步变换都是随机的</strong>，所以可视化结果有一定随机性——同一神经元跑两次，得到的是「同一特征的不同采样」。理解这种随机性，就不会把某一张可视化图像当作唯一真相。</span>
 
@@ -99,9 +105,9 @@ def feature_visualize(model, layer, neuron, steps=512, lr=0.05, alpha=0.01):
 
 特征可视化不是一夜之间出现的，它有一条清晰的历史谱系，而每个节点都贡献了今天工具箱里的一件工具。
 
-- **2015 年，Deep Dream（深度梦境）**：莫德温采夫（Alexander Mordvintsev）等人在谷歌把「激活最大化」从单个神经元推广到整个图层，并对真实照片做梯度上升，造出那些华丽又诡异的「梦境图像」。它第一次让大众看到「网络眼里有狗」。<span class="marginnote">Deep Dream 的遗产不只是艺术：它证明了「对激活做梯度上升」会揭示网络内部结构，也暴露了网络对纹理的过度敏感——这种「纹理偏好」后来被证实是 CNN 分类行为的重要成分。</span>
-- **2015 年，图像反转（Deep Visualization）**：马亨德拉（Aravindh Mahendran）与维达迪（Andrea Vedaldi）从一张随机噪声出发，反解「哪些图像会产生这种激活」，把「特征可视化」正式变成一门定量技术。
-- **2017 年，特征可视化体系化**：奥拉、莫德温采夫、舒伯特在 Distill 上把「激活最大化 + 变换鲁棒性 + 多尺度拼接」整合成一个可交互的完整方法论，并用它可视化了 InceptionV1 各层的特征——这也是「特征可视化」作为术语定型的时刻。
+**2015 年，Deep Dream（深度梦境）**：莫德温采夫（Alexander Mordvintsev）等人在谷歌把「激活最大化」从单个神经元推广到整个图层，并对真实照片做梯度上升，造出那些华丽又诡异的「梦境图像」。它第一次让大众看到「网络眼里有狗」。<span class="marginnote">Deep Dream 的遗产不只是艺术：它证明了「对激活做梯度上升」会揭示网络内部结构，也暴露了网络对纹理的过度敏感——这种「纹理偏好」后来被证实是 CNN 分类行为的重要成分。</span>
+**2015 年，图像反转（Deep Visualization）**：马亨德拉（Aravindh Mahendran）与维达迪（Andrea Vedaldi）从一张随机噪声出发，反解「哪些图像会产生这种激活」，把「特征可视化」正式变成一门定量技术。
+**2017 年，特征可视化体系化**：奥拉、莫德温采夫、舒伯特在 Distill 上把「激活最大化 + 变换鲁棒性 + 多尺度拼接」整合成一个可交互的完整方法论，并用它可视化了 InceptionV1 各层的特征——这也是「特征可视化」作为术语定型的时刻。
 
 这条谱系揭示了一个规律：**可解释性的每一步进步，都来自「给反问题加更强的先验」。** 从无约束，到频率惩罚，到变换鲁棒性，再到多尺度拼接——先验越强，可视化越接近「神经元真实的语义」，而不是对抗噪声。
 

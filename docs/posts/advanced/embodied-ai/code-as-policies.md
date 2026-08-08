@@ -24,7 +24,7 @@ LLM 不输出「文字动作」，
 还能借助 numpy 等库做复杂的几何与约束推理——这是「LLM 控制机器人」在表达力上的一次跃迁<span class="marginnote">CaP 的洞察：<strong>LLM 训练时就见过海量代码，
 它「写程序」的能力比「写动作序列」的能力强得多</strong>——因为代码是精确的、可验证的。
 与其让 LLM 输出「把物体放到障碍物上方 10 厘米」这样含糊的语言，
-不如让它输出一行 `pos = obstacle_pos + [0, 0, 0.1]` 的代码。
+不如让它输出一行 `move_to(obj, (x, y, z))` 的代码。
 </span>。
 
 ## 1 从「语言动作」到「代码动作」
@@ -33,30 +33,29 @@ LLM 不输出「文字动作」，
 CaP 让 LLM 输出**代码**——**精确**：
 
 ```python
-# LLM 生成的代码
-def pick_and_place(obj, target):
-    obj_pose = get_pose(obj)          # 查询物体位姿（API）
-    target_pose = get_pose(target)
-    above = obj_pose + [0, 0, 0.15]   # 抬到物体上方 15 cm
-    move_to(above)                    # 移到上方
-    grasp(obj)                        # 抓取
-    lift(obj)
-    move_to(target_pose + [0, 0, 0.15])
-    release()
+# 语言动作（含糊）：
+"把杯子放到桌子中心"
+
+# 代码动作（精确）：
+def put_cup_on_table(obs):
+    cup   = get_pos(obs, "cup")          # 感知 API
+    table = get_pos(obs, "table")        # 感知 API
+    target = np.r_[table[:2], table[2] + 0.05]
+    return move_to(cup, target)          # 运动 API
 ```
 
-**API 层**：机器人平台暴露一组「感知/运动 API」（`get_pose`、`move_to`、`grasp`）——LLM 在提示里见过这些 API，
+**API 层**：机器人平台暴露一组「感知/运动 API」（`get_pos`、`move_to`、`is_holding`）——LLM 在提示里见过这些 API，
 就会**用它们拼出策略**。**LLM 是「程序员」，API 是「工具箱」，代码是「程序」**。
 ## 2 为什么代码比语言强
 
 四个理由：
 
-- **精确**：代码是确定性描述，
+**精确**：代码是确定性描述，
 没有「旁边」「差不多」这类含糊；
-- **几何计算**：LLM 写的代码可以调用 numpy 做向量运算、坐标变换——「把杯子放到桌子中心」这类**空间推理**用代码三行搞定；
-- **逻辑控制**：`if-else`、`for` 循环、约束检查——「如果夹爪没抓到就重试」这类**条件逻辑**语言描述不了，
+**几何计算**：LLM 写的代码可以调用 numpy 做向量运算、坐标变换——「把杯子放到桌子中心」这类**空间推理**用代码三行搞定；
+**逻辑控制**：`if`/`else`、`for` 循环、约束检查——「如果夹爪没抓到就重试」这类**条件逻辑**语言描述不了，
 代码天生支持；
-- **可测试与可组合**：代码能跑、能 debug、能复用——**代码策略可以调用其他代码策略**（分层），
+**可测试与可组合**：代码能跑、能 debug、能复用——**代码策略可以调用其他代码策略**（分层），
 形成策略库。
 
 ## 3 约束与避障：用代码写「不该做什么」
@@ -66,13 +65,12 @@ LLM 写策略时，
 可以生成**约束检查**：
 
 ```python
-def pick_avoiding(obj, obstacle):
-    # 采样候选抓取点，排除与障碍物碰撞的
-    candidates = sample_grasps(obj)
-    for g in candidates:
-        if not collides(g, obstacle):   # 避障约束
-            return g
-    return None  # 无可行抓取
+def pick_from(objs, blocked_region):
+    for o in objs:                             # for 循环
+        if dist(get_pos(o), blocked_region) < 0.1:
+            continue                           # 约束检查：跳过禁入区
+        return o
+    return None                                # 没有合法目标
 ```
 
 LLM 用「代码思维」处理「避开什么、在哪个区域、多高多低」——**约束被编译成可执行的检查**，
@@ -83,8 +81,8 @@ LLM 用「代码思维」处理「避开什么、在哪个区域、多高多低�
 
 CaP 天然支持**递归分层**：LLM 生成的高层策略可以**调用**它生成（或人类写好的）的低层代码策略：
 
-- 高层：`plan_kitchen_task()` 里调用 `pick(obj)`、`place(obj, loc)`；
-- 低层：`pick()` 是另一个（LLM 或预写的）代码函数。
+高层：`make_tea()` 里调用 `pick()`、`pour()`；
+低层：`pick()` 是另一个（LLM 或预写的）代码函数。
 
 **这比 SayCan 的「选技能」更灵活**——技能不是预先定义的离散集合，
 而是**按需生成的代码**。

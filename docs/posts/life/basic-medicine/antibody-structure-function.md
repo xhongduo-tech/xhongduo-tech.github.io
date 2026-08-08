@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从抗体结构与功能开始
 
-**抗体（antibody, Ab）/免疫球蛋白（immunoglobulin, Ig）**是体液免疫的效应分子——**Y 形结构**：可变区（结合抗原）与恒定区（效应功能）。理解抗体的结构、功能与五类（IgG、IgM、IgA、IgE、IgD），是理解体液免疫、超敏反应与免疫诊断的基础。<span class="marginnote"><strong>抗体的基本结构</strong>：<strong>两条重链（H）+两条轻链（L）</strong>（二硫键连接）——"Y 形四链"。<strong>可变区（V）</strong>（抗原结合部位——高变区/CDR）与<strong>恒定区（C）</strong>（效应功能）。<strong>木瓜蛋白酶水解</strong>：Fab（抗原结合片段）+Fc（可结晶片段——效应）。<strong>五类 Ig</strong>：<strong>IgG</strong>（血清主要、胎盘通过、二次应答）、<strong>IgM</strong>（五聚体、初次应答、补体强）、<strong>IgA</strong>（分泌型 SIgA——黏膜）、<strong>IgE</strong>（Ⅰ型超敏）、<strong>IgD</strong>（B 细胞表面）。</span>
+**抗体（antibody, Ab）/免疫球蛋白（immunoglobulin, Ig）**是体液免疫的效应分子——**Y 形结构**：可变区（结合抗原）与恒定区（效应功能）。理解抗体的结构、功能与五类（IgG、IgM、IgA、IgE、IgD），是理解体液免疫、超敏反应与免疫诊断的基础。<span class="marginnote"><strong>抗体的基本结构</strong>：<strong>两条重链（H）+两条轻链（L）</strong>（二硫键连接）——"Y 形四链"。<strong>可变区（V）</strong>（抗原结合部位——高变区/CDR）与<strong>恒定区（C）</strong>（效应功能）。<strong>木瓜蛋白酶水解</strong>：Fab（抗原结合片段）+Fc（可结晶片段——效应）。<strong>五类 Ig</strong>`：<strong>IgG</strong>`（血清主要、胎盘通过、二次应答）、<strong>IgM</strong>`（五聚体、初次应答、补体强）、<strong>IgA</strong>`（分泌型 SIgA——黏膜）、<strong>IgE</strong>`（Ⅰ型超敏）、<strong>IgD</strong>`（B 细胞表面）。</span>
 
 "抗体怎么'结合抗原'（可变区/CDR）""IgG 和 IgM 怎么分工（初次/再次应答）""SIgA 怎么'黏膜防御'""IgE 怎么'致过敏'（Ⅰ型）""单克隆抗体怎么'制备'（杂交瘤）"——抗体结构与功能回答这些问题。
 
@@ -24,14 +24,14 @@ date: 2026-08-07
 
 **抗体（免疫球蛋白）的基本结构**：**Y 形**——**两条重链（H）+两条轻链（L）**，二硫键连接。
 
-- **可变区（V 区）**：重链 VH+轻链 VL——**抗原结合部位**（**高变区/CDR**——与抗原表位互补）——"可变区'认抗原'"。
-- **恒定区（C 区）**：重链 CH+轻链 CL——**效应功能**（激活补体、结合 Fc 受体）——"恒定区'调兵'"。
-- **铰链区**：连接 Fab 与 Fc（灵活性）。
+**可变区（V 区）**：重链 VH+轻链 VL——**抗原结合部位**（**高变区/CDR**——与抗原表位互补）——"可变区'认抗原'"。
+**恒定区（C 区）**：重链 CH+轻链 CL——**效应功能**（激活补体、结合 Fc 受体）——"恒定区'调兵'"。
+**铰链区**：连接 Fab 与 Fc（灵活性）。
 
 **水解片段**：
 
-- **木瓜蛋白酶**：切出**两个 Fab**（结合抗原）+**一个 Fc**（效应——Fc 受体、补体）。
-- **胃蛋白酶**：切出 **F(ab')₂**（双价结合）。
+**木瓜蛋白酶**：切出**两个 Fab**（结合抗原）+**一个 Fc**（效应——Fc 受体、补体）。
+**胃蛋白酶**：切出 **F(ab')₂**（双价结合）。
 
 **功能区（结构域）**：Ig 折叠（免疫球蛋白超家族）——轻链 VL+CL、重链 VH+CH1-3。<span class="marginnote"><strong>"Y 形抗体"</strong>：两条重链+两条轻链（二硫键）——"抗体'Y'（四链）"；<strong>可变区（V）在上（结合抗原）</strong>、恒定区（C）在下（效应）——"V'认'、C'动'"。<strong>CDR（互补决定区）</strong>：可变区的高变区（与表位互补）——"CDR'抗原指纹识别'"（抗体多样性的来源——基因重排，呼免疫学 B 细胞发育）。<strong>Fc 的效应</strong>：<strong>激活补体（IgG/IgM）</strong>、<strong>结合 Fc 受体（调理吞噬——巨噬细胞、NK 细胞 ADCC）</strong>——"Fc'调兵'（补体+吞噬）"（呼补体系统篇与固有免疫）。<strong>单克隆抗体（单抗）</strong>：<strong>杂交瘤技术</strong>（骨髓瘤+B 细胞融合）→单一特异性抗体——"单抗'一个表位'（诊断+治疗，呼分子生物学技术）"。</span>
 
@@ -61,7 +61,7 @@ date: 2026-08-07
 
 **IgG 的四亚类**（IgG1-4）：IgG1/3 补体强、IgG4 弱。
 
-**"IgG vs IgM"**：IgG（血清多、过胎盘、二次应答——"再次免疫"）；IgM（初次应答最早、五聚体——"首次感染标志"）——"IgM'早'、IgG'久'"。<span class="marginnote"><strong>"IgM 早、IgG 久、IgA 黏膜、IgE 过敏"</strong>（记忆）：<strong>IgM</strong>（初次应答最早——"早期感染"、<strong>胎儿 IgM 提示宫内感染</strong>）；<strong>IgG</strong>（血清主要、<strong>能过胎盘</strong>（母体被动免疫新生儿）、二次应答——"再次免疫"）；<strong>SIgA</strong>（黏膜分泌——"黏膜第一道"）；<strong>IgE</strong>（肥大细胞结合——"Ⅰ型超敏过敏"）。<strong>IgG 过胎盘</strong>：母体 IgG 经胎盘给胎儿（出生后 6 个月内被动免疫）——"IgG'过胎盘'（新生儿被动免疫）"（呼免疫学新生儿免疫）。<strong>IgE 与过敏/寄生虫</strong>：IgE 结合肥大细胞→Ⅰ型超敏（过敏）+抗寄生虫（嗜酸）——"IgE'过敏+寄生虫'"（呼超敏反应篇）。<strong>五类 Ig 的记忆</strong>：IgM（早）、IgG（久）、IgA（黏膜）、IgE（过敏）、IgD（B 表面）——"五 Ig'各司其职'"。</span>
+**"IgG vs IgM"**：IgG（血清多、过胎盘、二次应答——"再次免疫"）；IgM（初次应答最早、五聚体——"首次感染标志"）——"IgM'早'、IgG'久'"。<span class="marginnote"><strong>"IgM 早、IgG 久、IgA 黏膜、IgE 过敏"</strong>（记忆）：<strong>IgM</strong>`（初次应答最早——"早期感染"、<strong>胎儿 IgM 提示宫内感染</strong>）；<strong>IgG</strong>`（血清主要、<strong>能过胎盘</strong>（母体被动免疫新生儿）、二次应答——"再次免疫"）；<strong>SIgA</strong>`（黏膜分泌——"黏膜第一道"）；<strong>IgE</strong>`（肥大细胞结合——"Ⅰ型超敏过敏"）。<strong>IgG 过胎盘</strong>：母体 IgG 经胎盘给胎儿（出生后 6 个月内被动免疫）——"IgG'过胎盘'（新生儿被动免疫）"（呼免疫学新生儿免疫）。<strong>IgE 与过敏/寄生虫</strong>：IgE 结合肥大细胞→Ⅰ型超敏（过敏）+抗寄生虫（嗜酸）——"IgE'过敏+寄生虫'"（呼超敏反应篇）。<strong>五类 Ig 的记忆</strong>：IgM（早）、IgG（久）、IgA（黏膜）、IgE（过敏）、IgD（B 表面）——"五 Ig'各司其职'"。</span>
 
 ## 4 公式解析：抗体的"结构与功能对应"
 

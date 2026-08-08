@@ -21,8 +21,8 @@ date: 2026-08-07
 **TBox（术语盒）**装「类与类之间的关系」（术语知识），
 **ABox（断言盒）**装「个体属于哪个类、个体之间什么关系」（世界断言）。
 这个「词典 vs 档案」的分工，是所有本体系统的骨架：
-OWL 里 TBox 对应本体 schema（`Class`、`subClassOf`），ABox 对应实例数据
-（`NamedIndividual`、`objectPropertyAssertion`）。理解这两层，
+OWL 里 TBox 对应本体 schema（`owl:Class`、`rdfs:subClassOf`），ABox 对应实例数据
+（`rdf:type`、`owl:NamedIndividual`）。理解这两层，
 你就理解了「本体」与「数据」的边界在哪里，也理解了为什么
 知识图谱的 schema 与实例必须分开建模。
 
@@ -56,13 +56,13 @@ TBox 还编码<strong>可推理的领域知识</strong>——它不只是「表�
 
 ABox 断言有两种：
 
-- **概念断言（concept assertion）**：$C(a)$，表示个体 $a$ 属于概念 $C$，
+**概念断言（concept assertion）**：$C(a)$，表示个体 $a$ 属于概念 $C$，
   如 $\text{猫}(花花)$——「花花是猫」。
-- **角色断言（role assertion）**：$R(a, b)$，表示个体 $a, b$ 之间有角色关系 $R$，
+**角色断言（role assertion）**：$R(a, b)$，表示个体 $a, b$ 之间有角色关系 $R$，
   如 $\text{拥有宠物}(张三, 花花)$——「张三拥有宠物花花」。
 
-用 OWL 的语法说：概念断言是 `ClassAssertion(:Cat :Fluffy)`，
-角色断言是 `ObjectPropertyAssertion(:hasPet :John :Fluffy)`。
+用 OWL 的语法说：概念断言是 `a rdf:type C`，
+角色断言是 `a :R b`。
 **ABox 是「填充了具体名字」的知识——它与 TBox 的「无名字的规则」互补。**
 
 **重点：ABox 的每一条断言都隐含地服从 TBox 的公理。**
@@ -81,11 +81,11 @@ ABox 断言有两种：
 
 一条断言的检查分三步：
 
-- **第一步，读断言 $\text{宠物}(花花)$**：这是概念断言，
+**第一步，读断言 $\text{宠物}(花花)$**：这是概念断言，
   把个体「花花」归入概念「宠物」。
-- **第二步，查 TBox 公理 $\text{宠物} \sqsubseteq \text{动物}$**：
+**第二步，查 TBox 公理 $\text{宠物} \sqsubseteq \text{动物}$**：
   TBox 保证：任何模型里，宠物的解释都是动物的子集。
-- **第三步，结合两者**：既然花花在「宠物」的解释里，而宠物 ⊑ 动物，
+**第三步，结合两者**：既然花花在「宠物」的解释里，而宠物 ⊑ 动物，
   则花花必在「动物」的解释里——于是 $KB \models \text{动物}(花花)$。
 
 形式上，这是最朴素的**实例检查（instance checking）**：

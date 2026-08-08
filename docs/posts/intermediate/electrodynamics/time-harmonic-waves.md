@@ -56,8 +56,8 @@ $k$ 是**波数**，$v$ 是介质中的**相速度**。<span class="marginnote">
 
 时谐电磁波最反直觉的特点是「电场与磁场互相激发、缺一不可」。从亥姆霍兹方程回到旋度方程看这个耦合：
 
-- **第一步，解亥姆霍兹方程**：$\widetilde{\mathbf{E}}$ 满足 $\nabla^2\widetilde{\mathbf{E}} + k^2\widetilde{\mathbf{E}} = 0$。但 $\widetilde{\mathbf{E}}$ 的三个分量并不独立——还要满足 $\nabla\cdot\widetilde{\mathbf{E}} = 0$（无源条件）。这约束了波的偏振结构：电场必须垂直于传播方向（横波）。
-- **第二步，用旋度方程耦合**：一旦知道 $\widetilde{\mathbf{E}}$，磁场由法拉第定律的复形式决定：$\widetilde{\mathbf{B}} = -\dfrac{i}{\omega}\nabla\times\widetilde{\mathbf{E}}$。也就是说**磁场不是独立的解，而是电场的旋度**——电场与磁场之间有确定的代数关系（对平面波是 $\mathbf{B} = \mathbf{k}\times\mathbf{E}/\omega$）。<span class="marginnote">把电磁场想成「一个场的两种表现」：解出 $\mathbf{E}$ 就自动有 $\mathbf{B}$（反之亦然）。在波里，$\mathbf{E}$ 与 $\mathbf{B}$ 同相位（无耗介质），且 $E = vB$。到反射折射与导体问题里，这个相位关系会被破坏，成为物理新效应的来源。</span>
+**第一步，解亥姆霍兹方程**：$\widetilde{\mathbf{E}}$ 满足 $\nabla^2\widetilde{\mathbf{E}} + k^2\widetilde{\mathbf{E}} = 0$。但 $\widetilde{\mathbf{E}}$ 的三个分量并不独立——还要满足 $\nabla\cdot\widetilde{\mathbf{E}} = 0$（无源条件）。这约束了波的偏振结构：电场必须垂直于传播方向（横波）。
+**第二步，用旋度方程耦合**：一旦知道 $\widetilde{\mathbf{E}}$，磁场由法拉第定律的复形式决定：$\widetilde{\mathbf{B}} = -\dfrac{i}{\omega}\nabla\times\widetilde{\mathbf{E}}$。也就是说**磁场不是独立的解，而是电场的旋度**——电场与磁场之间有确定的代数关系（对平面波是 $\mathbf{B} = \mathbf{k}\times\mathbf{E}/\omega$）。<span class="marginnote">把电磁场想成「一个场的两种表现」：解出 $\mathbf{E}$ 就自动有 $\mathbf{B}$（反之亦然）。在波里，$\mathbf{E}$ 与 $\mathbf{B}$ 同相位（无耗介质），且 $E = vB$。到反射折射与导体问题里，这个相位关系会被破坏，成为物理新效应的来源。</span>
 - **第三步，能量循环**：坡印亭矢量 $\mathbf{S} = \mathbf{E}\times\mathbf{H}$ 沿传播方向，能量从电场「倒」进磁场、再倒回来，平均能流恒定。电磁波是电场与磁场能量互相转换、整体向前传输的过程——这正是「电磁波能脱离源独立传播」的能量学解释。
 
 ## 4 时谐场的能量与能流：时间平均值
@@ -74,10 +74,10 @@ $$\langle \mathbf{S} \rangle = \frac{1}{2}\operatorname{Re}\left[\widetilde{\mat
 
 ## 5 时谐电磁波的实用价值
 
-- **通信**：电磁波按频率划分波段——广播、微波、光通信的本质都是不同频率的时谐波叠加（调制）。
-- **电路分析**：交流电路、滤波器、天线阻抗全用相量法（时谐分析）计算。
-- **数值方法**：有限元、矩量法解电磁问题几乎都在频域（时谐）进行，因为频率域方程是椭圆型的、便于离散求解。
-- **材料表征**：通过测量介质对时谐波的反射/透射谱，反推材料的 $\varepsilon(\omega)$、$\mu(\omega)$——这是微波遥感与材料科学的标准手段。<span class="marginnote">时谐语言还通向「复介电常数 $\varepsilon(\omega) = \varepsilon' + i\varepsilon''$」：实部决定折射与相速，虚部决定吸收。材料的「色散」全部打包进 $\varepsilon(\omega)$ 的频率依赖里——从 X 射线到无线电，同一套框架描述所有电磁波与物质的相互作用。</span>
+**通信**：电磁波按频率划分波段——广播、微波、光通信的本质都是不同频率的时谐波叠加（调制）。
+**电路分析**：交流电路、滤波器、天线阻抗全用相量法（时谐分析）计算。
+**数值方法**：有限元、矩量法解电磁问题几乎都在频域（时谐）进行，因为频率域方程是椭圆型的、便于离散求解。
+**材料表征**：通过测量介质对时谐波的反射/透射谱，反推材料的 $\varepsilon(\omega)$、$\mu(\omega)$——这是微波遥感与材料科学的标准手段。<span class="marginnote">时谐语言还通向「复介电常数 $\varepsilon(\omega) = \varepsilon' + i\varepsilon''$」：实部决定折射与相速，虚部决定吸收。材料的「色散」全部打包进 $\varepsilon(\omega)$ 的频率依赖里——从 X 射线到无线电，同一套框架描述所有电磁波与物质的相互作用。</span>
 
 ## 6 时谐波的一个完整计算：复数法解 RC 电路
 

@@ -34,8 +34,8 @@ date: 2026-08-07
 
 **MPI（Message Passing Interface）**是消息传递编程的**标准接口规范**，不是某种具体实现。
 
-- 它规定了函数名、参数、语义，但没有规定实现细节；
-- 具体实现有 OpenMPI、MPICH、Intel MPI 等，都是同一套 API。
+它规定了函数名、参数、语义，但没有规定实现细节；
+具体实现有 OpenMPI、MPICH、Intel MPI 等，都是同一套 API。
 
 MPI 解决的关键问题是**可移植性**：
 
@@ -43,7 +43,7 @@ MPI 解决的关键问题是**可移植性**：
 
 MPI 程序的运行形态是一个**程序多份执行**：
 
-用 `mpirun -np 4 ./hello` 启动，同一份可执行文件被复制成 4 个**进程（process）**。
+用 `mpirun -np 4 ./program` 启动，同一份可执行文件被复制成 4 个**进程（process）**。
 
 ## 2 SPMD：单程序多数据
 
@@ -54,16 +54,9 @@ MPI 程序的基本执行模型叫 **SPMD（Single Program, Multiple Data，单�
 进程用 `rank` 区分彼此：
 
 ```c
-MPI_Init(&argc, &argv);            // 启动 MPI 环境
 int rank, size;
-MPI_Comm_rank(MPI_COMM_WORLD, &rank); // 我是谁？
-MPI_Comm_size(MPI_COMM_WORLD, &size); // 一共有几个？
-if (rank == 0) {
-    /* 只有根进程才做的事：读输入、汇总结果 */
-} else {
-    /* 其他进程做的事：算各自的分片 */
-}
-MPI_Finalize();                    // 清理 MPI 环境
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);   // 我是谁
+MPI_Comm_size(MPI_COMM_WORLD, &size);   // 一共几个进程
 ```
 
 <span class="marginnote">SPMD 与 SIMD 容易混淆：SIMD 是「一条指令同时喂多份数据」，SPMD 是「一份程序复制成多份、各自独立执行」。前者是硬件级，后者是软件级。</span>
@@ -101,11 +94,11 @@ MPI 启动时自动建好一个默认通信子 `MPI_COMM_WORLD`，包含全部�
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
-    MPI_Init(&argc, &argv);
     int rank, size;
+    MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
-    printf("Hello from rank %d of %d\n", rank, size);
+    printf("Hello from process %d of %d\n", rank, size);
     MPI_Finalize();
     return 0;
 }
@@ -113,17 +106,17 @@ int main(int argc, char *argv[]) {
 
 用 `mpirun -np 4 ./hello` 运行，输出可能是：
 
-```
-Hello from rank 2 of 4
-Hello from rank 0 of 4
-Hello from rank 3 of 4
-Hello from rank 1 of 4
+```text
+Hello from process 3 of 4
+Hello from process 0 of 4
+Hello from process 2 of 4
+Hello from process 1 of 4
 ```
 
 三步读懂这个程序：
 
 - **第一步，`MPI_Init`**：每个进程进入 MPI 环境，准备通信基础设施；
-- **第二步，`MPI_Comm_rank/size`**：查询「我是谁、我们几个」，这是后续一切分支与通信的依据；
+- **第二步，`MPI_Comm_rank`/`MPI_Comm_size`**：查询「我是谁、我们几个」，这是后续一切分支与通信的依据；
 - **第三步，`MPI_Finalize`**：退出 MPI 环境，回收资源。
 
 注意输出的顺序**不保证**：

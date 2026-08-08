@@ -83,17 +83,18 @@ $$
 ## 4 实现
 
 ```python
-def improved_euler(f, t0, y0, h, n):
+def improved_euler(f, t0, y0, t_end, h):
+    """改进欧拉（Heun）：预测（显式欧拉）+ 校正（梯形），二阶。"""
     t, y = t0, y0
-    ys = [y0]
-    for _ in range(n):
-        t_next = t + h
-        k1 = f(t, y)                    # 左端点斜率
-        y_pred = y + h * k1             # 预测
-        y_new = y + h/2 * (k1 + f(t_next, y_pred))   # 校正（梯形）
-        y, t = y_new, t_next
-        ys.append(y)
-    return ys
+    while t < t_end:
+        h = min(h, t_end - t)
+        y_pred = y + h * f(t, y)                    # 预测
+        y = y + h/2 * (f(t, y) + f(t + h, y_pred))  # 校正
+        t += h
+    return t, y
+
+# 例：y' = y, y(0) = 1, h = 0.1 到 t = 1
+print(improved_euler(lambda t, y: y, 0, 1, 1, 0.1))  # ≈ 2.715，误差 ~3e-3
 ```
 
 **数值验证**：$y'=y$，$h=0.1$ 到 $t=1$，改进欧拉误差约 $2.8\times10^{-3}$——对比显式欧拉 $1.2\times10^{-1}$，**好 40 倍**。

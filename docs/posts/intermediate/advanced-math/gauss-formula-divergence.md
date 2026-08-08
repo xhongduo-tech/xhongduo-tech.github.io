@@ -66,9 +66,9 @@ $$\mathrm{div}\,\mathbf{F} = \lim_{V\to 0}\frac{\oint\kern{-5pt}\iint_{\partial 
 ## 4 高斯公式的应用
 
 - **高斯定律（电学）**：$\oint\kern{-5pt}\iint_\Sigma \mathbf{E}\cdot d\mathbf{S} = \frac{Q_{\text{内}}}{\varepsilon_0}$——穿过闭合曲面的电通量等于内部电荷除以介电常数，是麦克斯韦方程组之一。<span class="marginnote">高斯定律用散度表述是 $\nabla\cdot\mathbf{E} = \frac{\rho}{\varepsilon_0}$——「电场的散度 = 电荷密度 ÷ 介电常数」。这是「电场线的源头是电荷」的精确数学：<strong>电荷是电场的源</strong>。到《大学物理》电磁学，高斯定律是求对称电荷分布电场的最强工具。</span>
-- **流体力学**：连续性方程 $\frac{\partial\rho}{\partial t} + \mathrm{div}(\rho\mathbf{v}) = 0$——质量守恒的微分形式，靠散度表述。
-- **热传导**：热量平衡方程含散度项，描述热量如何从高温区「发散」到低温区。
-- **体积公式**：$\mathrm{div}\,\mathbf{F} = 3$ 的场（$\mathbf{F}=(x,y,z)$）给出 $V = \frac13\oint\kern{-5pt}\iint (x\,dy\,dz + y\,dz\,dx + z\,dx\,dy)$——用表面积分算体积。
+**流体力学**：连续性方程 $\frac{\partial\rho}{\partial t} + \mathrm{div}(\rho\mathbf{v}) = 0$——质量守恒的微分形式，靠散度表述。
+**热传导**：热量平衡方程含散度项，描述热量如何从高温区「发散」到低温区。
+**体积公式**：$\mathrm{div}\,\mathbf{F} = 3$ 的场（$\mathbf{F}=(x,y,z)$）给出 $V = \frac13\oint\kern{-5pt}\iint (x\,dy\,dz + y\,dz\,dx + z\,dx\,dy)$——用表面积分算体积。
 
 ## 5 三大公式的统一
 

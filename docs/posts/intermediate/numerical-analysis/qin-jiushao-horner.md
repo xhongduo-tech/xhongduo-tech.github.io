@@ -96,29 +96,16 @@ $$
 ## 6 Python 实验：两种求值对比
 
 ```python
-def naive_eval(p, x):
-    """p = [a_n, ..., a_0]：逐项独立算 x^k"""
-    n = len(p) - 1
-    total = 0.0
-    for k in range(n + 1):
-        total += p[n - k] * x**k
-    return total
+def naive_mults(n):
+    """朴素求值 n 次多项式的乘法次数：1 + 2 + ... + n = n(n+1)/2。"""
+    return sum(k for k in range(1, n + 1))
 
-def horner_eval(p, x):
-    """p = [a_n, ..., a_0]：嵌套求值"""
-    b = p[0]
-    for c in p[1:]:
-        b = b * x + c
-    return b
+def horner_mults(n):
+    """秦九韶求值 n 次多项式的乘法次数：每层恰好 1 次，共 n 次。"""
+    return n
 
-# 例：P(x) = 2x^3 - 3x^2 + 5x - 7，在 x = 2 处
-p = [2, -3, 5, -7]
-print(naive_eval(p, 2), horner_eval(p, 2))   # 7.0 7.0
-
-# 乘法次数对比（度 n）
-for n in (10, 50, 100, 1000):
-    naive_mul = n * (n + 1) // 2
-    print(f"n = {n:5d}: 朴素 {naive_mul:8d} 次乘法 vs 秦九韶 {n} 次乘法")
+for n in [10, 50, 100, 1000]:
+    print(f"n={n:>4}: 朴素 {naive_mults(n):>7} 次, 秦九韶 {horner_mults(n):>5} 次")
 ```
 
 跑出来的乘法次数：

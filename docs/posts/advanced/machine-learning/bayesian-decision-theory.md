@@ -20,7 +20,7 @@ date: 2026-08-07
 
 这一节要建立三件事：决策的代价如何形式化（风险）、最优决策是什么（最小化风险）、以及「生成式」与「判别式」两条建模路线的分野。它会把前几章那些「损失函数」「正则化」的直觉，收纳进一个统一而优美的概率框架。<span class="marginnote">贝叶斯决策论是「所有分类器的理论基准」：任何分类器都可以用「它逼近最优贝叶斯分类器的程度」来评价——这一观点贯穿第2章的性能度量与第12章的 PAC 理论。</span>
 
-## 1 把决策写成风险假设有 $N$ 种类别 $\mathcal{Y} = \{c_1, \dots, c_N\}$，给定样本 $\boldsymbol{x}$，我们用 $\lambda_{ij}$ 表示**把一个真实类别为 $c_j$ 的样本误判为 $c_i$ 所产生的损失**。那么把 $\boldsymbol{x}$ 判为 $c_i$ 的**条件风险（conditional risk）**是：$$R(c_i \mid \boldsymbol{x}) = \sum_{j=1}^{N} \lambda_{ij} \, P(c_j \mid \boldsymbol{x})$$
+## 1 把决策写成风险假设有 $N$ 种类别 $\mathcal{Y} = \{c_1, \dots, c_N\}$，给定样本 $\boldsymbol{x}$，我们用 $\lambda_{ij}$ 表示**把一个真实类别为 $c_j$ 的样本误判为 $c_i$ 所产生的损失**。那么把 $\boldsymbol{x}$ 判为 $c_i$ 的**条件风险（conditional risk）**是：`$$`R(c_i \mid \boldsymbol{x}) = \sum_{j=1}^{N} \lambda_{ij} \, P(c_j \mid \boldsymbol{x})$$
 即「把 $\boldsymbol{x}$ 判成 $c_i$ 的期望损失」= 各种可能的真实类别 $c_j$ 下损失的**后验概率加权平均**。<span class="marginnote">风险的定义把「直觉上的代价」精确化：它不仅考虑「错没错」，还考虑「错到哪一类要赔多少」。第3章类别不平衡里的代价敏感学习，正是给 $\lambda_{ij}$ 赋不对称值的特例。</span>
 
 **贝叶斯判定准则（Bayes decision rule）**：为使总体风险最小，应选择使条件风险最小的类别：

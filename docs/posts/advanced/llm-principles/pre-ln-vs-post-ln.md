@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么一个"括号位置"值得一篇
 
-Transformer 里每个子层外面包着「残差连接 + 层归一化」，而**归一化放在残差之前还是之后**，构成了 Pre-LN 与 Post-LN 两种架构流派。这个看似只有几行代码的差异，直接决定了几千层网络能否稳定训练——GPT-2 用 Post-LN，LLaMA 用 Pre-LN，今天几乎所有新模型都站队 Pre-LN。<span class="marginnote">Post-LN 是原版 Transformer 的设计：`LayerNorm(x + Sublayer(x))`；Pre-LN 是「把 LayerNorm 放进残差分支」：`x + Sublayer(LayerNorm(x))`。差别就在 LayerNorm 挪到了子层之前。Xiong et al. 2020 从理论到实验论证了 Pre-LN 更适合深层训练。</span>
+Transformer 里每个子层外面包着「残差连接 + 层归一化」，而**归一化放在残差之前还是之后**，构成了 Pre-LN 与 Post-LN 两种架构流派。这个看似只有几行代码的差异，直接决定了几千层网络能否稳定训练——GPT-2 用 Post-LN，LLaMA 用 Pre-LN，今天几乎所有新模型都站队 Pre-LN。<span class="marginnote">Post-LN 是原版 Transformer 的设计：先残差加和、再对整个结果归一化（$\text{LN}(x + \text{Sublayer}(x))$）；Pre-LN 是「把 LayerNorm 放进残差分支」：先归一化、再做子层、最后加回输入（$x + \text{Sublayer}(\text{LN}(x))$）。差别就在 LayerNorm 挪到了子层之前。Xiong et al. 2020 从理论到实验论证了 Pre-LN 更适合深层训练。</span>
 
 ## 1 为什么需要残差连接
 
@@ -103,8 +103,8 @@ $$
 ## 6 小结
 
 - **残差连接**保证梯度以「恒等 + 扰动」方式流动，是深层网络可训练的根本。
-- **Post-LN**：`LN(x + F(x))`，输出严格受控但梯度穿归一化除法，**不稳定、需 warmup**。
-- **Pre-LN**：`x + F(LN(x))`，梯度主路径无除法，**稳定、免 warmup**，但最终性能略低。
+- **Post-LN**：先残差加和、再归一化，输出严格受控但梯度穿归一化除法，**不稳定、需 warmup**。
+- **Pre-LN**：先归一化、再做子层、最后加回输入，梯度主路径无除法，**稳定、免 warmup**，但最终性能略低。
 - 现代模型（LLaMA、Qwen、Mistral）几乎全用 **Pre-LN + RMSNorm**。
 - 权衡本质：**可训练性 vs 容量**，工程稳定性胜出。
 

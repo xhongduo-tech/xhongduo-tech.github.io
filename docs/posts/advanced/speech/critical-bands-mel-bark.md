@@ -82,18 +82,18 @@ $$m = 2595\, \log_{10}\!\left(1 + \frac{f}{700}\right)$$
 import numpy as np
 
 def hz_to_mel(f):
-    """物理频率 (Hz) -> 感知音高 (mel)。"""
-    return 2595.0 * np.log10(1.0 + f / 700.0)
+    """物理频率 → Mel 刻度：m = 2595·log10(1 + f/700)。"""
+    return 2595 * np.log10(1 + f / 700)
 
 def mel_to_hz(m):
-    """Mel -> Hz 的反变换。"""
-    return 700.0 * (10 ** (m / 2595.0) - 1.0)
+    """Mel 刻度 → 物理频率（Mel 公式的反解）。"""
+    return 700 * (10 ** (m / 2595) - 1)
 
-# 在 mel 轴上均匀取 26 个滤波器中心频率，再看它们在物理轴上的分布
-mel_centers = np.linspace(hz_to_mel(0), hz_to_mel(8000), 26)
-hz_centers = mel_to_hz(mel_centers)
-print("低频滤波器中心间隔 (Hz):", round(hz_centers[1] - hz_centers[0], 1))
-print("高频滤波器中心间隔 (Hz):", round(hz_centers[-1] - hz_centers[-2], 1))
+# 在 mel 轴均匀取 26 个三角滤波器的边界，再映射回物理频率
+n_mels, fmin, fmax, n_fft = 26, 0.0, 8000.0, 512
+mel_points = hz_to_mel(np.linspace(fmin, fmax, n_mels + 2))
+hz_points = mel_to_hz(mel_points)
+bins = np.floor((n_fft + 1) * hz_points / fmax).astype(int)  # 对齐到 FFT bin
 ```
 
 ## 5 从刻度到特征：Mel 滤波器组（FBank / MFCC 的前奏）

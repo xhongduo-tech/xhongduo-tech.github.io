@@ -86,9 +86,9 @@ $$
 
 正方体 $ABCD$-$A'B'C'D'$ 棱长为 1，求点 $B$ 到平面 $A'C'D$ 的距离。
 
-- **第一步，建系**：以 $A$ 为原点，$A(0,0,0)$，$B(1,0,0)$，$A'(0,0,1)$，$C'(1,1,1)$，$D(0,1,0)$。
-- **第二步，求法向量**：$\overrightarrow{A'C'}=(1,1,0)$，$\overrightarrow{A'D}=(0,1,-1)$。设平面 $A'C'D$ 的法向量 $\vec n=(x,y,z)$，$\vec n\cdot\overrightarrow{A'C'}=x+y=0$，$\vec n\cdot\overrightarrow{A'D}=y-z=0$。取 $x=1$，得 $y=-1$，$z=-1$，$\vec n=(1,-1,-1)$。
-- **第三步，套点到面距离公式**：取平面内一点 $A'$，$\overrightarrow{A'B}=B-A'=(1,0,-1)$。$d=\dfrac{|\overrightarrow{A'B}\cdot\vec n|}{|\vec n|}=\dfrac{|1\times1+0\times(-1)+(-1)\times(-1)|}{\sqrt{1+1+1}}=\dfrac{2}{\sqrt3}=\dfrac{2\sqrt3}{3}$。
+**第一步，建系**：以 $A$ 为原点，$A(0,0,0)$，$B(1,0,0)$，$A'(0,0,1)$，$C'(1,1,1)$，$D(0,1,0)$。
+**第二步，求法向量**：$\overrightarrow{A'C'}=(1,1,0)$，$\overrightarrow{A'D}=(0,1,-1)$。设平面 $A'C'D$ 的法向量 $\vec n=(x,y,z)$，$\vec n\cdot\overrightarrow{A'C'}=x+y=0$，$\vec n\cdot\overrightarrow{A'D}=y-z=0$。取 $x=1$，得 $y=-1$，$z=-1$，$\vec n=(1,-1,-1)$。
+**第三步，套点到面距离公式**：取平面内一点 $A'$，$\overrightarrow{A'B}=B-A'=(1,0,-1)$。$d=\dfrac{|\overrightarrow{A'B}\cdot\vec n|}{|\vec n|}=\dfrac{|1\times1+0\times(-1)+(-1)\times(-1)|}{\sqrt{1+1+1}}=\dfrac{2}{\sqrt3}=\dfrac{2\sqrt3}{3}$。
 
 <span class="marginnote">「点到平面距离」的标准流程：<strong>建系 → 求法向量（解两个点乘为零的方程组）→ 取面内一点算 $\overrightarrow{AP}$ → 代入 $d=\frac{|\overrightarrow{AP}\cdot\vec n|}{|\vec n|}$</strong>。法向量取「坐标简单」的一组（本题 $x=1$ 得 $(1,-1,-1)$）能简化计算。取平面内哪个点 $A'$ 都行，结果不变——这是法向量法最省心的性质。</span>
 

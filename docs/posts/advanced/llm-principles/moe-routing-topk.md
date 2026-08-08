@@ -23,14 +23,16 @@ MoE 的价值全在「把 token 分给对的专家」——这个分诊动作就
 路由器的前向：
 
 ```python
-scores = x @ self.gate.weight.T          # [bs*L, E]：token 与每个专家的亲和度
-weights = softmax(scores, dim=-1)        # 概率化
-topk_weights, topk_idx = weights.topk(k, dim=-1)   # 取 top-k 的权重与专家 id
+def router(x, W_r, k):
+    scores = x @ W_r                        # [L, E]：每个 token 对每个专家的打分
+    probs = F.softmax(scores, dim=-1)       # 归一化为概率
+    topk_probs, topk_idx = probs.topk(k, dim=-1)  # 取概率最高的 k 个专家
+    return topk_probs, topk_idx
 ```
 
-- **打分**：`x @ gate.weight.T` 是线性投影，把 $d$ 维 token 表示映射到 $E$ 维专家空间。每个维度代表「这个 token 适合这个专家吗」。
-- **softmax**：把分数变成概率，便于归一化输出。
-- **top-k**：取概率最高的 $k$ 个专家（通常 $k=1$ 或 $2$）。
+**打分**：$E$ 是线性投影，把 $d$ 维 token 表示映射到 $E$ 维专家空间。每个维度代表「这个 token 适合这个专家吗」。
+**softmax**：把分数变成概率，便于归一化输出。
+**top-k**：取概率最高的 $k$ 个专家（通常 $k=1$ 或 $2$）。
 
 **为什么用 softmax + topk 而不是直接 argmax**：argmax 只有 1 个专家且不可微（无法梯度回传路由器）；softmax 可微，topk 允许「多专家软混合」。$k=1$ 时退化为「硬路由」，$k=2$ 时是「软混合」。
 
@@ -42,7 +44,7 @@ topk_weights, topk_idx = weights.topk(k, dim=-1)   # 取 top-k 的权重与专�
 
 - 计算量最小（$k=1$）。
 - 风险：路由一旦选错，没有「备选」纠错；负载更容易失衡。
-- 实现简单：`topk(k=1)` 即 argmax，稀疏性最强。
+- 实现简单：`topk`（k=1）即 argmax，稀疏性最强。
 
 **Top-2（GShard / Mixtral）**：每个 token 去 2 个专家，输出加权混合。
 
@@ -94,8 +96,8 @@ $$
 
 ## 5 路由器的工程细节
 
-- **token 并行**：路由是「逐 token」的，天然并行——GPU 上把 `[bs*L, E]` 的矩阵一次算完，再 `gather` 对应专家的输入。
-- **专家分片**：推理时专家分布在多卡，路由后需要 `all-to-all` 通信把 token 送到对应专家的卡——这是 MoE 推理的通信成本来源。
+- **token 并行**：路由是「逐 token」的，天然并行——GPU 上把打分矩阵（`[L, E]`）一次算完，再按 topk 索引 gather 对应专家的输入。
+- **专家分片**：推理时专家分布在多卡，路由后需要 **all-to-all** 通信把 token 送到对应专家的卡——这是 MoE 推理的通信成本来源。
 - **dropout 与路由**：训练中路由器的 dropout（在 softmax 概率上）能进一步防过拟合与促进均衡。
 
 ## 6 小结
@@ -104,6 +106,6 @@ $$
 - **Top-1** 最省、**Top-2** 更稳更准（Mixtral 用 Top-2）。
 - 带噪声路由在训练期促进**探索**，推理期必须去噪。
 - 路由的「马太效应」导致**负载失衡**——下一节专门解决它。
-- 工程上路由 + `all-to-all` 通信是 MoE 推理成本的核心。
+- 工程上路由 + **all-to-all** 通信是 MoE 推理成本的核心。
 
 在下一节，我们解决路由的头号工程难题——**负载均衡**：辅助损失与专家坍塌问题。

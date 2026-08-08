@@ -32,8 +32,8 @@ K8s 对集群网络提出三条硬性要求，任何 CNI 插件都必须满足�
 
 K8s 本身**不实现网络**，只规定模型。真正实现网络的是 **CNI（Container Network Interface）插件**——它负责在 Pod 创建时为它分配 IP、配置虚拟网卡与路由。常见 CNI 分两类：
 
-- **Overlay 型**：用 VXLAN 隧道构建虚拟网络。如 **flannel**（简单、易用）、**Weave**。
-- **路由型**：用 BGP 等路由协议把各节点的 Pod 网段广播到物理网络，Pod 直接走物理路由。如 **Calico**（性能高、支持网络策略）、**Cilium**（基于 eBPF，现代高性能方案）。
+**Overlay 型**：用 VXLAN 隧道构建虚拟网络。如 **flannel**（简单、易用）、**Weave**。
+**路由型**：用 BGP 等路由协议把各节点的 Pod 网段广播到物理网络，Pod 直接走物理路由。如 **Calico**（性能高、支持网络策略）、**Cilium**（基于 eBPF，现代高性能方案）。
 
 **辨析｜易错点：** 别把 CNI 与 kube-proxy 混为一谈。CNI 解决「Pod 之间怎么连通」（给 Pod 发 IP、配路由），kube-proxy 解决「Service 的流量怎么转发到 Pod」。前者是**网络连通**，后者是**负载均衡**——两个层面，两类组件。生产实践里常搭配使用（如 Calico 做连通 + kube-proxy 做转发）。
 
@@ -41,9 +41,9 @@ K8s 本身**不实现网络**，只规定模型。真正实现网络的是 **CNI
 
 容器是无状态的，但数据库、文件服务必须有状态。K8s 存储的核心抽象是**存储卷（Volume）**，其中最关键的三个对象：
 
-- **PV（PersistentVolume，持久卷）**：集群管理员预先准备好的一块存储（可以是云盘、NFS、本地盘），是**资源**。
-- **PVC（PersistentVolumeClaim，持久卷声明）**：应用提出的「我要一块 100 GB 可读写存储」的**需求**。
-- **StorageClass**：PV 的「模板与工厂」，按需动态创建 PV（如指定云盘类型、性能等级）。
+**PV（PersistentVolume，持久卷）**：集群管理员预先准备好的一块存储（可以是云盘、NFS、本地盘），是**资源**。
+**PVC（PersistentVolumeClaim，持久卷声明）**：应用提出的「我要一块 100 GB 可读写存储」的**需求**。
+**StorageClass**：PV 的「模板与工厂」，按需动态创建 PV（如指定云盘类型、性能等级）。
 
 **核心机制：PVC 绑定 PV**——应用声明需求（PVC），系统找一个满足需求的 PV 绑定（或由 StorageClass 动态创建）。应用只与 PVC 打交道，不关心底层是云盘还是 NFS。这又是一层典型的抽象：**需求与供给解耦，声明与实现分离**。<span class="marginnote">把 PV/PVC 类比成「租房」：PV 是「房源」，PVC 是「租房需求」，StorageClass 是「房屋开发商」。租客（应用）只看需求（我要多大、多快），不关心房子在哪个小区——这是存储的「接口即承诺」。</span>
 
@@ -65,10 +65,10 @@ K8s 本身**不实现网络**，只规定模型。真正实现网络的是 **CNI
 
 **Service 的局限**：Service 的 LoadBalancer 类型每暴露一个服务就要创建一个云负载均衡器，服务一多，LB 数量爆炸、成本失控、管理混乱。**Ingress** 用「一个入口 + 规则路由」解决这个问题：
 
-- **Ingress（对象）**：声明「外部请求按什么规则路由到哪个 Service」——按域名、按路径、按 TLS。
-- **Ingress Controller（实现）**：真正执行路由的组件（Nginx Ingress、ALB Ingress），读取 Ingress 规则并实现转发。
+**Ingress（对象）**：声明「外部请求按什么规则路由到哪个 Service」——按域名、按路径、按 TLS。
+**Ingress Controller（实现）**：真正执行路由的组件（Nginx Ingress、ALB Ingress），读取 Ingress 规则并实现转发。
 
-一个典型规则：`api.example.com/* → api-service`，`www.example.com/static/* → static-service`——**一个公网入口，按域名与路径分发到多个内部 Service**。<span class="marginnote">Ingress 与 Service 的分工可以记成：<strong>Service 是「集群内的路标」，Ingress 是「大门口的收发室」</strong>。外部流量先到 Ingress（收发室），它按规则（这封信给谁）转发到对应 Service（路标），再由 Service 分发给具体 Pod。这层「统一入口 + 规则路由」正是《负载均衡》七层能力在 K8s 内的体现。</span>
+一个典型规则：<code>api.example.com</code>` → <code>api-service</code>`，<code>www.example.com</code>` → <code>web-service</code>`——**一个公网入口，按域名与路径分发到多个内部 Service**。<span class="marginnote">Ingress 与 Service 的分工可以记成：<strong>Service 是「集群内的路标」，Ingress 是「大门口的收发室」</strong>。外部流量先到 Ingress（收发室），它按规则（这封信给谁）转发到对应 Service（路标），再由 Service 分发给具体 Pod。这层「统一入口 + 规则路由」正是《负载均衡》七层能力在 K8s 内的体现。</span>
 
 **Ingress 还能做**：TLS 终止（统一挂证书，后端不用管 https）、限流、重写路径、灰度分流。它让集群的「南北向流量」集中管理，是微服务对外暴露的标准姿势。
 
@@ -80,14 +80,14 @@ Deployment 适合无状态应用，但数据库、消息队列这类**有状态�
 
 **有状态应用的两大需求**：
 
-1. **稳定网络身份**：数据库副本需要固定的名字（`db-0`、`db-1`），重启后名字不变，客户端才能稳定连接。
+1. **稳定网络身份**：数据库副本需要固定的名字（<code>mysql-0</code>`、<code>mysql-1</code>`），重启后名字不变，客户端才能稳定连接。
 2. **稳定存储绑定**：每个副本对应一块**自己的 PVC**，重建后仍挂载同一块卷——数据不随 Pod 消失。
 
 **StatefulSet 与 Deployment 的对比**：
 
 | 维度 | Deployment | StatefulSet |
 | --- | --- | --- |
-| Pod 命名 | 随机（`app-abc123`） | 有序固定（`db-0`） |
+| Pod 命名 | 随机（`<code>`web-8d9x2） | 有序固定（`<code>`web-0） |
 | 存储 | 可选共享卷 | 每副本独立 PVC |
 | 扩缩容 | 任意并发 | 按序进行（0,1,2…） |
 | 典型负载 | 无状态微服务 | 数据库、缓存、ZooKeeper |
@@ -98,7 +98,7 @@ Deployment 适合无状态应用，但数据库、消息队列这类**有状态�
 
 K8s 的 Pod 之间默认**全互通**——任何 Pod 能访问任何 Pod。这在安全上不可接受（比如数据库 Pod 不该被随便访问），于是有了 **NetworkPolicy（网络策略）**。
 
-**NetworkPolicy**：声明「哪些 Pod 能被哪些来源访问」的规则对象，由网络插件（Calico/Cilium）强制执行。一个典型规则：`允许只来自「标签为 app=web」的 Pod 访问数据库 Pod 的 3306 端口`——按**标签**而非 IP 做访问控制。
+**NetworkPolicy**：声明「哪些 Pod 能被哪些来源访问」的规则对象，由网络插件（Calico/Cilium）强制执行。一个典型规则：只允许带 <code>app=api</code>` 标签的 Pod 访问带 <code>app=db</code>` 标签的 Pod——按**标签**而非 IP 做访问控制。
 
 **辨析｜易错点：** NetworkPolicy 有两个「坑」：
 

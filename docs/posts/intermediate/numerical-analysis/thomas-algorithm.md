@@ -65,20 +65,26 @@ $$
 **为什么叫「追赶」**：追 = 从前往后消，把系数 $\gamma_i,\beta_i$ 和右端更新一遍；赶 = 从后往前代，把解逐个赶出来。两趟各 $O(n)$，总复杂度 $O(n)$，存贮只三个向量。<span class="marginnote">对照通用 LU：追赶法的 $\beta_i,\gamma_i$ 就是 LU 的 $u_{ii}$ 与 $\ell_{i,i-1}$——只是三对角结构让每行只需一个乘子。理解它 = 理解 LU 的「带状版本」。</span>
 
 ```python
+import numpy as np
+
 def thomas(a, b, c, d):
-    """解三对角 A x = d，a=次对角(下标2..n)，b=主对角，c=上对角(下标1..n-1)"""
+    """追赶法：O(n) 解三对角方程组。b 主对角，a、c 两条次对角（长 n-1）。"""
     n = len(b)
-    beta = np.zeros(n); gamma = np.zeros(n); dtilde = np.zeros(n)
-    beta[0] = b[0]; dtilde[0] = d[0]
-    for i in range(1, n):                       # 追
-        gamma[i] = a[i] / beta[i-1]
-        beta[i] = b[i] - gamma[i] * c[i-1]
-        dtilde[i] = d[i] - gamma[i] * dtilde[i-1]
-    x = np.zeros(n)
-    x[-1] = dtilde[-1] / beta[-1]
-    for i in range(n-2, -1, -1):                # 赶
-        x[i] = (dtilde[i] - c[i] * x[i+1]) / beta[i]
+    beta, d_tilde, x = np.zeros(n), np.zeros(n), np.zeros(n)
+    # 追：前向消去
+    beta[0], d_tilde[0] = b[0], d[0]
+    for i in range(1, n):
+        gamma = a[i-1] / beta[i-1]
+        beta[i] = b[i] - gamma * c[i-1]
+        d_tilde[i] = d[i] - gamma * d_tilde[i-1]
+    # 赶：后向回代
+    x[-1] = d_tilde[-1] / beta[-1]
+    for i in range(n - 2, -1, -1):
+        x[i] = (d_tilde[i] - c[i] * x[i+1]) / beta[i]
     return x
+
+# 例：2x1-x2=1, -x1+2x2-x3=0, -x2+2x3=1 → (1,1,1)
+print(thomas([-1, -1], [2, 2, 2], [-1, -1], [1, 0, 1]))
 ```
 
 **数值例子**：解
@@ -95,8 +101,8 @@ $a=(-1,-1)$，$b=(2,2,2)$，$c=(-1,-1)$，$d=(1,0,1)$。追：$\beta_1=2$，$\ga
 
 追赶法何时数值稳定？关键在于除法 $\beta_{i-1}$ 不能太小。保证稳定的充分条件是：
 
-- **严格对角占优**：$|b_i|>|a_i|+|c_i|$（对全部 $i$，端点放宽）。
-- 或 $A$ **对称正定**（此时 $\beta_i>0$ 且消去不放大误差）。
+**严格对角占优**：$|b_i|>|a_i|+|c_i|$（对全部 $i$，端点放宽）。
+或 $A$ **对称正定**（此时 $\beta_i>0$ 且消去不放大误差）。
 
 对角占优保证 $\beta_i$ 不为零且有界，追赶法稳定。物理问题离散化（热传导、梁弯曲）天然满足这个条件——所以追赶法在工程里「基本不会翻车」。<span class="marginnote">若矩阵不满足条件，追赶法仍可能算得通，但无法保证稳定——可能发生「$\beta_i$ 接近零导致误差爆炸」。工程上先检查对角占优；不满足就换列主元 LU。</span>
 

@@ -22,8 +22,8 @@ GFS 解决了「数据存哪」，MapReduce 解决「数据怎么算」——它
 
 MapReduce 让用户只写两个函数：
 
-- **Map**：`(k1, v1) → list(k2, v2)`——把一条输入记录映射成若干中间键值对。并行、无依赖、可任意分布。
-- **Reduce**：`(k2, list(v2)) → list(v3)`——把同一中间键的所有值归约成结果。
+**Map**：`map(in_key, in_value) -> [(out_key, out_value)]`——把一条输入记录映射成若干中间键值对。并行、无依赖、可任意分布。
+**Reduce**：`reduce(out_key, [out_value]) -> [out_value]`——把同一中间键的所有值归约成结果。
 
 经典例子：单词计数。Map 对每行文本输出 `(word, 1)`；Reduce 对每个 word 的所有 1 求和，输出 `(word, count)`。系统把整个流程（切分输入、调度、shuffle、容错）全部接管——**用户代码与分布式执行完全解耦**。
 
@@ -46,9 +46,9 @@ MapReduce 让用户只写两个函数：
 
 MapReduce 的容错哲学是**「失败就重做」**——因为它处理的是确定性计算，重做结果相同，所以容错可以极简单：
 
-- **Worker 失败**：master 定期 ping worker；ping 超时即判定失败。该 worker 上**已完成的 Map 任务**需要重执行（它的中间结果在本地，worker 挂了就丢了）；已完成的 Reduce 任务不用（结果在 GFS 上）。master 把失效任务重新调度给其他 worker。
-- **Master 失败**：整个作业中止，由用户重跑——当时 Google 的做法（master 单点，失败概率低，重跑可接受）。
-- **备份任务（backup task / straggler mitigation）**：作业接近完成时，master 把「还在跑的任务」在空闲 worker 上**再复制一份**——谁先完成用谁。这解决**掉队者（straggler）**问题：一个慢 worker（磁盘慢、CPU 被占）拖住整个作业，备份任务让慢任务有「竞争者」。
+**Worker 失败**：master 定期 ping worker；ping 超时即判定失败。该 worker 上**已完成的 Map 任务**需要重执行（它的中间结果在本地，worker 挂了就丢了）；已完成的 Reduce 任务不用（结果在 GFS 上）。master 把失效任务重新调度给其他 worker。
+**Master 失败**：整个作业中止，由用户重跑——当时 Google 的做法（master 单点，失败概率低，重跑可接受）。
+**备份任务（backup task / straggler mitigation）**：作业接近完成时，master 把「还在跑的任务」在空闲 worker 上**再复制一份**——谁先完成用谁。这解决**掉队者（straggler）**问题：一个慢 worker（磁盘慢、CPU 被占）拖住整个作业，备份任务让慢任务有「竞争者」。
 
 **容错为什么这么简单就够**：因为 Map 和 Reduce 都是**确定性纯函数**——同一个输入在任何 worker 上重跑，输出相同。重执行不会产生「重复计算」问题（对输出文件而言是幂等的）。这就是「确定性计算 → 简单容错」的正反馈：**计算模型越确定，容错越廉价**。<span class="marginnote">备份任务是「用冗余换延迟」的经典：掉队者的成因多样（慢磁盘、坏网络、CPU 竞争），无法精确预测，那就「并行跑两份、用快的那份」。它在实践中能显著缩短作业延迟（据论文约 44% 的作业受益），也是后来 Spark、Flink 处理「倾斜任务」的思想源头。</span>
 

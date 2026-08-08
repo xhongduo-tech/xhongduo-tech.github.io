@@ -80,10 +80,10 @@ CLS 一路走来，内部批判与外部批评同样锋利，最深刻的三条�
 | 步骤 | 操作 | Python 思路 |
 | --- | --- | --- |
 | 1 选功能词 | 挑 100—300 个高频虚词 | 按词频排序取前 N |
-| 2 算频率 | 每个文本的功能词频率向量 | `df[word].value_counts(normalize=True)` |
-| 3 标准化 | 转成 z 分数 | `(x - mean) / std` |
+| 2 算频率 | 每个文本的功能词频率向量 | `[tokens.count(w) for w in func_words]` |
+| 3 标准化 | 转成 z 分数 | `scipy.stats.zscore(counts)` |
 | 4 算距离 | 匿名文本与各候选的绝对差均值 | 对每个候选算 Delta |
-| 5 判归属 | 取 Delta 最小者 | `min(results, key=results.get)` |
+| 5 判归属 | 取 Delta 最小者 | `min(candidates, key=delta)` |
 
 ### 风格测量的经典成果
 

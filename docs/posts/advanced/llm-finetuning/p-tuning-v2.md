@@ -83,16 +83,25 @@ P-Tuning v2 论文里有一组值得记住的设计决策：
 理解 P-Tuning v2，最好的办法是看「插入点」在代码里长什么样。以 HF 的 LLaMA 为例，深度提示的插入发生在**每个 decoder layer 的输入处**：
 
 ```python
-class DeepPromptLayer(nn.Module):
-    def __init__(self, d, l_p):
-        super().__init__()
-        self.prompt = nn.Parameter(torch.randn(l_p, d) * 0.02)
-    def forward(self, hidden, attention_mask):
-        # hidden: (B, S, d)，把前缀拼到序列前面
-        prefix = self.prompt.unsqueeze(0).expand(B, -1, -1)
-        return torch.cat([prefix, hidden], dim=1)   # 序列变长 l_p
-
-# 每层包一个：h = layer(deep_prompt(h))；位置 id 与 attention_mask 同步前移 l_p
+# 在 HF LLaMA 的 decoder layer forward 里插入深层前缀
+def forward(self, hidden_states, attention_mask, position_ids, ...):
+    l_p = self.deep_prompt.shape[1]                       # 前缀长度
+    # ① 拼接前缀：hidden: [B, T, d] → [B, T + l_p, d]
+    hidden_states = torch.cat(
+        [self.deep_prompt.expand(hidden_states.shape[0], -1, -1), hidden_states],
+        dim=1,
+    )
+    # ② 位置 id：真实 token 的位置整体后移 l_p，RoPE 索引必须同步
+    position_ids = position_ids + l_p
+    # ③ attention_mask：前缀是真 token（可被 attend），前面补 1
+    attention_mask = torch.cat(
+        [torch.ones(attention_mask.shape[0], l_p,
+                    dtype=attention_mask.dtype,
+                    device=attention_mask.device),
+         attention_mask],
+        dim=1,
+    )
+    ...
 ```
 
 两个隐藏的工程点：其一，**位置 id 要处理**——前缀占用序列前 $l_p$ 个位置，其后的真实 token 位置整体后移，RoPE 位置索引必须同步；其二，**attention_mask 要同步**——前缀都是真 token（可被 attend），不需要额外 mask。这两点处理错位，深层提示会静默失效，效果与浅层无异。

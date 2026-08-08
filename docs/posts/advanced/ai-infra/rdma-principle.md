@@ -23,7 +23,7 @@ date: 2026-08-07
 
 想象进程 A 要把一块数据发给远端进程 B。走 TCP，数据要经历这样的旅程：
 
-1. 应用调用 `write()`/`send()`——这是一次**系统调用**，CPU 陷入内核态（上下文切换）。
+1. 应用调用 `send()`/`write()`——这是一次**系统调用**，CPU 陷入内核态（上下文切换）。
 2. 数据从**用户态缓冲区**拷贝进**内核的 Socket 发送缓冲**（第 1 次拷贝）。
 3. TCP/IP 协议栈在内核里处理分片、校验和、重传管理（纯 CPU 计算）。
 4. 网卡驱动把数据从内核缓冲交给网卡（第 2 次拷贝/DMA），网卡把它发到线上。
@@ -38,9 +38,9 @@ date: 2026-08-07
 
 **RDMA 的三大核心技术是：内核旁路（kernel bypass）、零拷贝（zero-copy）与网卡卸载（offload）。** 三者分别攻击传统路径里的三处开销：
 
-- **内核旁路**：数据不再经过内核网络栈。应用与网卡之间建立一条直接的「私有通道」，所有数据移动都在用户态与网卡之间完成，没有系统调用、没有上下文切换。
-- **零拷贝**：发送端不再把用户缓冲拷贝进内核缓冲，接收端也不再从内核缓冲拷回用户缓冲。数据在**注册内存**与网卡之间直接 DMA，一次拷贝都不发生。
-- **网卡卸载**：分片、重组、确认、重传、拥塞控制这些协议杂务全部由**RNIC**（RDMA 网卡，全称 RDMA-capable Network Interface Card）硬件完成。CPU 与 GPU 完全从数据面（data plane）退出，只保留控制面（control plane）。
+**内核旁路**：数据不再经过内核网络栈。应用与网卡之间建立一条直接的「私有通道」，所有数据移动都在用户态与网卡之间完成，没有系统调用、没有上下文切换。
+**零拷贝**：发送端不再把用户缓冲拷贝进内核缓冲，接收端也不再从内核缓冲拷回用户缓冲。数据在**注册内存**与网卡之间直接 DMA，一次拷贝都不发生。
+**网卡卸载**：分片、重组、确认、重传、拥塞控制这些协议杂务全部由**RNIC**（RDMA 网卡，全称 RDMA-capable Network Interface Card）硬件完成。CPU 与 GPU 完全从数据面（data plane）退出，只保留控制面（control plane）。
 
 这三件事本质上是同一件事的三个侧面：**让网卡直接访问应用内存，让协议栈从「软件」变成「硬件」，让内核从「数据必经之路」变成「只管初始化」**。把「谁来搬数据」从 CPU 换成网卡，就是 RDMA 的全部秘密。
 
@@ -50,35 +50,35 @@ date: 2026-08-07
 
 RDMA 的编程模型不叫「socket」，而叫 **队列对（Queue Pair，QP）**。每个 QP 由一对工作队列组成：**发送队列（Send Queue，SQ）**与**接收队列（Receive Queue，RQ）**。应用往队列里投递工作请求，网卡从中取走并执行，执行完把结果写进**完成队列（Completion Queue，CQ）**。**这个模型里没有系统调用参与数据面——投递与取完成都是直接在用户态写的寄存器/内存映射。**
 
-- **WQE（Work Queue Element，工作队列元素）**：一次收发的最小单位。应用调用 `ibv_post_send()`/`ibv_post_recv()` 把 WQE 投进 SQ/RQ。
-- **CQE（Completion Queue Entry，完成队列元素）**：WQE 执行完后的回执。应用调用 `ibv_poll_cq()` 从 CQ 里取出。
-- **SRQ（Shared Receive Queue，共享接收队列）**：多个 QP 共用一个接收队列，避免为每个 QP 预分配接收缓冲。
-- **内存注册（memory registration）**：使用 RDMA 前，内存必须通过 `ibv_reg_mr()` 注册，把虚拟地址固定（pin）住并换取一把「钥匙」（`lkey`/`rkey`），告诉网卡这段内存的物理位置与访问权限。
+**WQE（Work Queue Element，工作队列元素）**：一次收发的最小单位。应用调用 `ibv_post_send`/`ibv_post_recv` 把 WQE 投进 SQ/RQ。
+**CQE（Completion Queue Entry，完成队列元素）**：WQE 执行完后的回执。应用调用 `ibv_poll_cq` 从 CQ 里取出。
+**SRQ（Shared Receive Queue，共享接收队列）**：多个 QP 共用一个接收队列，避免为每个 QP 预分配接收缓冲。
+**内存注册（memory registration）**：使用 RDMA 前，内存必须通过 `ibv_reg_mr` 注册，把虚拟地址固定（pin）住并换取一把「钥匙」（`lkey`/`rkey`），告诉网卡这段内存的物理位置与访问权限。
 
 一段最核心的发送流程：
 
-```c
-/* libibverbs 发送数据的最小骨架（示意） */
-struct ibv_mr *mr = ibv_reg_mr(pd, buf, size, IBV_ACCESS_LOCAL_WRITE);
-struct ibv_sge  sge = {
-    .addr   = (uintptr_t)buf,
-    .length = size,
-    .lkey   = mr->lkey,            /* 本地钥匙，网卡靠它找到内存 */
-};
-struct ibv_send_wr wr = {
-    .opcode     = IBV_WR_SEND,
-    .send_flags = IBV_SEND_SIGNALED,   /* 完成后产生 CQE */
-    .sg_list    = &sge,
-    .num_sge    = 1,
-};
-struct ibv_send_wr *bad_wr = NULL;
-ibv_post_send(qp, &wr, &bad_wr);        /* 把 WQE 投进发送队列 */
-/* ……之后异步执行，CPU 不等待…… */
-while (ibv_poll_cq(cq, 1, &cqe) == 0)   /* 轮询完成队列 */
-    ;
+```text
+# RDMA 发送流程（Verbs API 伪代码）
+# 1. 注册内存：把 buf 的物理地址固定下来，换取钥匙 lkey
+mr = ibv_reg_mr(pd, buf, size, IBV_ACCESS_LOCAL_WRITE)
+
+# 2. 组装 WQE：告诉网卡“把 buf 里的 size 字节发出去”
+wqe = {
+    opcode:   IBV_WR_SEND,
+    num_sge:  1,
+    sg_list: [{ addr: buf, length: size, lkey: mr.lkey }],
+}
+
+# 3. 投递 WQE 到发送队列——只写队列、立即返回，传输由网卡异步完成
+ibv_post_send(qp, wqe)
+
+# 4. 需要结果时去完成队列轮询（无中断、无系统调用）
+while (cqe = ibv_poll_cq(cq, 1)) is empty:
+    continue
+# 取到 CQE，本次发送完成
 ```
 
-注意 `ibv_post_send()` **不会阻塞**：它只是把 WQE 写进队列就返回，真正的传输由网卡异步完成。这个「异步 + 轮询」模型是 RDMA 延迟低的另一个来源——没有中断、没有系统调用，CPU 只需要在需要结果时去 CQ 里看一眼。
+注意 `ibv_post_send` **不会阻塞**：它只是把 WQE 写进队列就返回，真正的传输由网卡异步完成。这个「异步 + 轮询」模型是 RDMA 延迟低的另一个来源——没有中断、没有系统调用，CPU 只需要在需要结果时去 CQ 里看一眼。
 
 ## 4 两种语义：消息语义与内存语义
 
@@ -89,7 +89,7 @@ RDMA 提供两种截然不同的数据传输语义，它们的分界线是**对�
 | 消息语义（two-sided） | `Send` / `Recv` | 必须参与（投递 Recv WQE） | 像消息传递一样收发，匹配语义 |
 | 内存语义（one-sided） | `RDMA Read` / `RDMA Write` / `Atomic` | 完全不参与 | 直接读写对端内存，无需通知对端 |
 
-**消息语义是「打电话」**：双方都要在场，发送端投递 Send，接收端必须预先投递 Recv 才能配对上。**内存语义是「隔空取物」**：本地进程持有对端内存的 `rkey`，就能直接读走或写入对端的内存，对端 CPU 毫不知情——甚至对端进程此刻根本没在运行也能完成。One-sided 操作是大规模并行程序里最有力的武器，也是实现「隐式同步」与「无接收侧开销」传输的基础。<span class="marginnote">NCCL 的许多内核集合通信在 IB 上就用 one-sided RDMA Write 实现：数据直接被写到目标 GPU 的内存里，目标 GPU 的 SM 全程不用碰网络。</span>
+**消息语义是「打电话」**：双方都要在场，发送端投递 Send，接收端必须预先投递 Recv 才能配对上。**内存语义是「隔空取物」**：本地进程持有对端内存的 `rkey`（远程钥匙），就能直接读走或写入对端的内存，对端 CPU 毫不知情——甚至对端进程此刻根本没在运行也能完成。One-sided 操作是大规模并行程序里最有力的武器，也是实现「隐式同步」与「无接收侧开销」传输的基础。<span class="marginnote">NCCL 的许多内核集合通信在 IB 上就用 one-sided RDMA Write 实现：数据直接被写到目标 GPU 的内存里，目标 GPU 的 SM 全程不用碰网络。</span>
 
 ## 5 公式解析：零拷贝到底省了什么
 
@@ -100,7 +100,7 @@ $$T_{\text{tcp}} \approx \underbrace{4 \cdot \frac{S}{b}}_{\text{四次拷贝}} 
 对这条式子做三步拆解：
 
 - **第一步，数清拷贝**：第 1、2、3、4 次拷贝分别对应「用户→内核发送缓冲」「内核→网卡」「网卡→对端内核接收缓冲」「对端内核→对端用户」。四次拷贝每个都要把 $S$ 字节在内存里搬一遍，共搬 $4S$ 字节。
-- **第二步，数清切换**：`write()`、`recv()` 等系统调用各触发一次用户态/内核态切换，接收端还有中断与唤醒开销，计为 $K \cdot T_{\text{ctx}}$。$K$ 通常是个位数，但每次切换都是几十微秒量级之外的「停车」。
+- **第二步，数清切换**：`send`、`recv` 等系统调用各触发一次用户态/内核态切换，接收端还有中断与唤醒开销，计为 $K \cdot T_{\text{ctx}}$。$K$ 通常是个位数，但每次切换都是几十微秒量级之外的「停车」。
 - **第三步，对比 RDMA**：RDMA 路径没有拷贝、没有系统调用，只剩下：
 
 $$T_{\text{rdma}} \approx T_{\text{lat}}' + O(S)$$
@@ -109,7 +109,7 @@ $$T_{\text{rdma}} \approx T_{\text{lat}}' + O(S)$$
 
 ## 6 为什么大模型训练需要 RDMA：GPU Direct RDMA
 
-对 GPU 训练而言，RDMA 的价值还要再放大一层，因为**数据的最初产地与最终归宿是显存，而不是主机内存**。如果数据要「GPU → 主机内存 → 网卡 → 对端」，中途仍免不了跨越 PCIe 的搬运。**GPU Direct RDMA（GDR）** 让网卡直接通过 PCIe 读写 GPU 的显存：梯度在显存里算好之后，网卡直接把显存里的数据搬走，全程不经过主机内存、不占用 CPU。<span class="marginnote">GDR 需要 NVLink/PCIe P2P 之外的另一段「P2P」：NIC 与 GPU 之间通过 PCIe BAR 直通。驱动里通常用 `nvidia-smi` 检查「HCA P2P Capability」是否 Enabled。</span>
+对 GPU 训练而言，RDMA 的价值还要再放大一层，因为**数据的最初产地与最终归宿是显存，而不是主机内存**。如果数据要「GPU → 主机内存 → 网卡 → 对端」，中途仍免不了跨越 PCIe 的搬运。**GPU Direct RDMA（GDR）** 让网卡直接通过 PCIe 读写 GPU 的显存：梯度在显存里算好之后，网卡直接把显存里的数据搬走，全程不经过主机内存、不占用 CPU。<span class="marginnote">GDR 需要 NVLink/PCIe P2P 之外的另一段「P2P」：NIC 与 GPU 之间通过 PCIe BAR 直通。驱动里通常用 `nvidia-smi topo -m` 检查「HCA P2P Capability」是否 Enabled。</span>
 
 NCCL 正是这么做的：跨机时，NCCL 在支持 GDR 的硬件上把数据从 GPU 显存直接灌进 InfiniBand/RoCE 网卡，再配合上一节讲过的 NVLink 做机内归约，构成「机内 NVLink + 跨机 RDMA」的两级流水。**RDMA 不是可选项，而是大模型跨机通信的物理底座。** 下一节我们会拆开这个底座本身：InfiniBand 与 RoCE v2 用什么机制保证数据不丢、不堵。
 

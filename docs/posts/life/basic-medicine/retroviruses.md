@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从反转录病毒开始
 
-**反转录病毒（Retroviridae）**——**RNA 病毒、反转录酶（RNA→DNA）、整合入宿主基因组**——**HIV（人类免疫缺陷病毒）**最重要（AIDS），**HTLV**（成人 T 细胞白血病）。理解 HIV 的结构（gp120、反转录酶）、复制（反转录-整合）、致病（CD4 破坏→AIDS）与 **ART 治疗**，是艾滋病防治的基础。<span class="marginnote"><strong>反转录病毒共性</strong>：<strong>RNA、反转录酶（RNA→DNA）→整合酶整合入宿主基因组</strong>（前病毒——终身潜伏）——"反转录'整合'"（呼中心法则——反转录补充）。<strong>HIV</strong>：包膜（<strong>gp120 结合 CD4/CCR5</strong>）、<strong>反转录酶易错（高变异）</strong>；<strong>致病</strong>：感染 CD4⁺ T 细胞→<strong>CD4 进行性↓→AIDS</strong>（免疫缺陷——机会性感染、肿瘤）。<strong>治疗</strong>：<strong>ART（抗逆转录病毒治疗——NRTI/NNRTI/PI/整合酶抑制，联合）</strong>；<strong>传播</strong>（血液/性/母婴——母婴阻断）；<strong>预防</strong>（安全套、PrEP、U=U）。<strong>HTLV-1</strong>：成人 T 细胞白血病（呼淋巴瘤白血病篇）。</span>
+**反转录病毒（Retroviridae）**——**RNA 病毒、反转录酶（RNA→DNA）、整合入宿主基因组**——**HIV（人类免疫缺陷病毒）**最重要（AIDS），**HTLV**（成人 T 细胞白血病）。理解 HIV 的结构（gp120、反转录酶）、复制（反转录-整合）、致病（CD4 破坏→AIDS）与 **ART 治疗**，是艾滋病防治的基础。<span class="marginnote"><strong>反转录病毒共性</strong>：<strong>RNA、反转录酶（RNA→DNA）→整合酶整合入宿主基因组</strong>（前病毒——终身潜伏）——"反转录'整合'"（呼中心法则——反转录补充）。<strong>HIV</strong>`：包膜（<strong>gp120 结合 CD4/CCR5</strong>`）、<strong>反转录酶易错（高变异）</strong>；<strong>致病</strong>：感染 CD4⁺ T 细胞→<strong>CD4 进行性↓→AIDS</strong>`（免疫缺陷——机会性感染、肿瘤）。<strong>治疗</strong>：<strong>ART（抗逆转录病毒治疗——NRTI/NNRTI/PI/整合酶抑制，联合）</strong>；<strong>传播</strong>（血液/性/母婴——母婴阻断）；<strong>预防</strong>（安全套、PrEP、U=U）。<strong>HTLV-1</strong>`：成人 T 细胞白血病（呼淋巴瘤白血病篇）。</span>
 
 "HIV 怎么'反转录'（RNA→DNA→整合）""HIV 怎么'破坏 CD4'（gp120-CD4）""ART 怎么'治'（多靶点联合）""AIDS 怎么'机会感染'（CD4<200）""U=U 怎么'不可传播'""母婴阻断怎么'防'（ART）"——反转录病毒回答这些问题。
 
@@ -24,13 +24,13 @@ date: 2026-08-07
 
 **反转录病毒的特性**：
 
-- **RNA 基因组**（两条单链 RNA）、**反转录酶**（RNA→cDNA）、**整合酶**（cDNA 整合入宿主基因组——**前病毒 provirus**）——"反转录'RNA→DNA→整合'"（呼中心法则——反转录补充，呼 RNA 结构与功能篇）。
-- **包膜病毒**（易灭活——乙醇/消毒剂有效）。
+**RNA 基因组**（两条单链 RNA）、**反转录酶**（RNA→cDNA）、**整合酶**（cDNA 整合入宿主基因组——**前病毒 provirus**）——"反转录'RNA→DNA→整合'"（呼中心法则——反转录补充，呼 RNA 结构与功能篇）。
+**包膜病毒**（易灭活——乙醇/消毒剂有效）。
 
 **HIV 的结构**：
 
-- **包膜刺突 gp120/gp41**（结合 CD4/共受体 CCR5/CXCR4——呼 CD 抗原篇 CD4）。
-- **核心酶**：**反转录酶、整合酶、蛋白酶**（ART 靶点）。
+**包膜刺突 gp120/gp41**（结合 CD4/共受体 CCR5/CXCR4——呼 CD 抗原篇 CD4）。
+**核心酶**：**反转录酶、整合酶、蛋白酶**（ART 靶点）。
 
 **"HIV'变异'**：反转录酶无校对→**高变异**（逃免疫+耐药——联合 ART）——"HIV'高变异'"（呼病毒感染免疫篇免疫逃逸）。<span class="marginnote"><strong>"反转录（中心法则补充）"</strong>：反转录酶 RNA→DNA→整合酶整合入基因组（前病毒——终身潜伏）——"反转录'整合'"（呼 RNA 结构与功能篇——中心法则/逆转录病毒）。<strong>"HIV 结构（gp120-CD4）"</strong>：gp120 结合 CD4 受体+CCR5 共受体→感染 CD4⁺ T 细胞——"HIV'CD4 靶点'"（呼 CD 抗原篇 CD4/病理学 AIDS）。<strong>"HIV 高变异"</strong>：反转录酶无校对→突变率高→逃抗体/耐药——"HIV'变异'"（呼病毒感染免疫篇逃逸——联合 ART）。</span>
 
@@ -44,24 +44,24 @@ date: 2026-08-07
 
 **传播**：**血液**（输血/注射）、**性**、**母婴**（垂直——呼病毒感染免疫篇母婴）。
 
-**诊断**：**HIV 抗体/抗原（ELISA 筛查+Western blot 确认）**、**CD4 计数**（分期）、**病毒载量（RNA）**——"HIV'筛查+确认+CD4'"（呼免疫学检测篇）。<span class="marginnote"><strong>"AIDS（CD4<200）"</strong>：CD4 进行性↓→免疫缺陷→机会性感染（PCP、结核、Kaposi——呼病理学 AIDS/免疫缺陷篇）——"AIDS'CD4'"。<strong>"HIV 诊断（筛查+确认）"</strong>：ELISA 筛查+Western blot 确认（呼免疫学检测篇——免疫印迹确认）；CD4 计数（分期）、病毒载量——"HIV'筛查确认'"。<strong>"机会性感染清单"</strong>：PCP（肺孢子菌）、结核、念珠菌、隐球菌、CMV——"机会感染'清单'"（呼免疫缺陷病篇——机会性感染）。</span>
+**诊断**：**HIV 抗体/抗原（ELISA 筛查+Western blot 确认）**、**CD4 计数**（分期）、**病毒载量（RNA）**——"HIV'筛查+确认+CD4'"（呼免疫学检测篇）。<span class="marginnote"><strong>"AIDS（CD4`<200）"</strong>`：CD4 进行性↓→免疫缺陷→机会性感染（PCP、结核、Kaposi——呼病理学 AIDS/免疫缺陷篇）——"AIDS'CD4'"。<strong>"HIV 诊断（筛查+确认）"</strong>：ELISA 筛查+Western blot 确认（呼免疫学检测篇——免疫印迹确认）；CD4 计数（分期）、病毒载量——"HIV'筛查确认'"。<strong>"机会性感染清单"</strong>：PCP（肺孢子菌）、结核、念珠菌、隐球菌、CMV——"机会感染'清单'"（呼免疫缺陷病篇——机会性感染）。</strong></span>
 
 ## 3 HIV 的治疗（ART）与预防
 
 **ART（抗逆转录病毒治疗）**——"鸡尾酒疗法"：
 
-- **NRTI（核苷反转录酶抑制）**：替诺福韦、恩曲他滨——终止 DNA 链。
-- **NNRTI（非核苷反转录酶抑制）**：依非韦伦。
-- **整合酶抑制剂（INSTI）**：多替拉韦（现代一线——高效低毒）。
-- **蛋白酶抑制剂（PI）**：洛匹那韦/利托那韦。
-- **方案**：**2 NRTI + 1 INSTI/NNRTI/PI**（三联——防耐药）——"ART'三联'"（呼抗病毒药篇）。
+**NRTI（核苷反转录酶抑制）**：替诺福韦、恩曲他滨——终止 DNA 链。
+**NNRTI（非核苷反转录酶抑制）**：依非韦伦。
+**整合酶抑制剂（INSTI）**：多替拉韦（现代一线——高效低毒）。
+**蛋白酶抑制剂（PI）**：洛匹那韦/利托那韦。
+**方案**：**2 NRTI + 1 INSTI/NNRTI/PI**（三联——防耐药）——"ART'三联'"（呼抗病毒药篇）。
 
 **ART 的效果**：病毒载量↓（检测不到）→**CD4 恢复**→AIDS 可控（慢性病）；**U=U**（检测不到=不传染）——"U=U'不可传播'"（呼抗病毒药篇）。
 
 **预防**：
 
-- **安全套**、**PrEP（暴露前预防——替诺福韦/恩曲他滨）**、**PEP（暴露后预防）**、**母婴阻断（孕期 ART+新生儿）**——"母婴阻断'ART'"（呼免疫学防治篇被动免疫）。
-- **针具交换、血液筛查**。
+**安全套**、**PrEP（暴露前预防——替诺福韦/恩曲他滨）**、**PEP（暴露后预防）**、**母婴阻断（孕期 ART+新生儿）**——"母婴阻断'ART'"（呼免疫学防治篇被动免疫）。
+**针具交换、血液筛查**。
 
 **"HIV'治疗+预防'"**：ART（治——AIDS 可控）+PrEP/母婴阻断/安全套（防）——"HIV'治+防'"。<span class="marginnote"><strong>"ART（联合抗逆转录病毒）"</strong>：2 NRTI+1 INSTI/NNRTI/PI（三联——靶反转录/整合/蛋白酶）——"ART'三联'"（呼抗病毒药篇——鸡尾酒疗法）；病毒载量↓、CD4 恢复——"ART'重建免疫'"。<strong>"U=U（检测不到=不传染）"</strong>：ART 后病毒载量检测不到→不传播（"治即防"）——"U=U"（呼抗病毒药篇）。<strong>"PrEP/母婴阻断"</strong>：暴露前预防（PrEP——高危者）、母婴阻断（孕期 ART→垂直传播<1%）——"PrEP'防'、母婴'阻断'"（呼免疫学防治篇被动免疫）。</span>
 

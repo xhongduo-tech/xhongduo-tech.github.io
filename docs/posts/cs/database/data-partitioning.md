@@ -35,15 +35,22 @@ date: 2026-08-07
 **范围分片（range partitioning）**：按分区键的值**范围**切分——如按时间、按 ID 区间。
 
 ```sql
-CREATE TABLE sales (...) PARTITION BY RANGE (sale_date) (
-  PARTITION p202501 VALUES LESS THAN ('2025-02-01'),
-  PARTITION p202502 VALUES LESS THAN ('2025-03-01'), ...
-);
+-- 按时间范围分区（PostgreSQL 声明式分区）
+CREATE TABLE events (
+  id      BIGINT,
+  ts      TIMESTAMPTZ,
+  payload JSONB
+) PARTITION BY RANGE (ts);
+
+CREATE TABLE events_2024 PARTITION OF events
+  FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');
+CREATE TABLE events_2025 PARTITION OF events
+  FOR VALUES FROM ('2025-01-01') TO ('2026-01-01');
 ```
 
 **优点**：
 
-- **范围查询高效**：`WHERE date BETWEEN ...` 只访问相关分区。
+- **范围查询高效**：优化器只访问相关分区。
 - **按时间归档**：旧分区可整体移动/删除。
 
 **缺点**：
@@ -58,7 +65,11 @@ CREATE TABLE sales (...) PARTITION BY RANGE (sale_date) (
 **哈希分片（hash partitioning）**：对分区键哈希，按哈希值取模/映射到分区。
 
 ```sql
-PARTITION BY HASH (user_id) PARTITIONS 16
+-- MySQL 哈希分区：按 id 的哈希值取模分配到 8 个分区
+CREATE TABLE users (
+  id   BIGINT,
+  name VARCHAR(64)
+) PARTITION BY HASH (id) PARTITIONS 8;
 ```
 
 **优点**：
@@ -68,7 +79,7 @@ PARTITION BY HASH (user_id) PARTITIONS 16
 
 **缺点**：
 
-- **范围查询失效**：`WHERE user_id > 100` 要扫所有分区——**哈希后有序性丢失**。
+- **范围查询失效**：范围查询要扫所有分区——**哈希后有序性丢失**。
 - **增删分区要重排**：取模法在分区数变化时，几乎全部数据要重新映射（再平衡问题，下一节）。
 
 **公式解析：取模哈希的重分布代价**

@@ -78,21 +78,13 @@ $$
 
 ```python
 from qiskit import QuantumCircuit
-from qiskit_aer import AerSimulator
+from qiskit.quantum_info import Statevector
 
-# 2 个量子比特：H 门制造均匀叠加
-qc = QuantumCircuit(2)
-qc.h([0, 1])
-
-# 一个最简单的 oracle：|x⟩|0⟩ -> |x⟩|f(x)⟩，
-# 这里用 CNOT 让 f(x) = x（即第一个比特的值复制到第二个比特）
-qc.cx(0, 1)
-
-# 打印状态向量，会得到 4 个振幅均为 0.5 的态：
-# |00⟩ + |10⟩ （对应 f(0)=0, f(1)=1 的两条计算路径）
-sim = AerSimulator(method="statevector")
-result = sim.run(qc).result()
-print(result.get_statevector())
+qc = QuantumCircuit(2)          # q0: 查询比特，q1: 输出比特
+qc.h(0)                         # 查询寄存器均匀叠加：|0⟩ 与 |1⟩ 同时存在
+# oracle：常数函数 f(0)=f(1)=0，|x,y⟩ → |x, y⊕f(x)⟩ 无需任何门（空线路）
+sv = Statevector(qc)
+print(sv)                       # (|00⟩ + |10⟩)/√2 —— 两个输入分支并存
 ```
 
 注意输出里同时存在 $|00\rangle$ 与 $|10\rangle$ 两项——**f 的两个输入、两个输出，同时存在于一个态里**。但如果你此刻测量，只会随机看到其中一个，量子并行性的「红利」还没有被提取。
@@ -119,7 +111,7 @@ $$
 
 纠缠在量子计算里扮演什么角色？回到第 1 节的并行态 $\frac{1}{\sqrt{2^n}}\sum_x |x\rangle|f(x)\rangle$：当 $f$ 非平凡时，计算寄存器与答案寄存器之间是**纠缠**的。纠缠让两个寄存器的信息无法分离，从而允许后面的干涉去操纵「输入-输出」之间的关联结构——这正是提取全局属性所需要的。
 
-更重要的是，2003 年 Richard Jozsa 与 Noah Linden 证明了：**如果一次量子计算从头到尾只包含「低纠缠」的态，那么它可以被经典计算机高效模拟**。<span class="marginnote">出处：R. Jozsa & N. Linden, "On the role of entanglement in quantum-computational speed-up," <i>Proc. R. Soc. Lond. A</i> 459 (2003) 2011–2032。注意这只是「充分性」论证，不代表任何纠缠都带来加速——纠缠是必要条件之一，不是充分条件。</span>换句话说，纠缠是量子加速的**结构性前提**：它把并行产生的可能性「绑」成一个不可分解的整体，让经典方法无从下手。
+更重要的是，2003 年 Richard Jozsa 与 Noah Linden 证明了：**如果一次量子计算从头到尾只包含「低纠缠」的态，那么它可以被经典计算机高效模拟**。<span class="marginnote">出处：R. Jozsa & N. Linden, "On the role of entanglement in quantum-computational speed-up," <i>Proc. R. Soc. Lond. A</i> 459 (2003) 2011–2032。注意这只是「充分性」论证，不代表任何纠缠都带来加速——纠缠是必要条件之一，不是充分条件。换句话说，纠缠是量子加速的<strong>结构性前提</strong>：它把并行产生的可能性「绑」成一个不可分解的整体，让经典方法无从下手。</span>
 
 **辨析｜易错点：** 纠缠本身不等于加速。没有干涉的纠缠态，测量起来和经典随机过程无异；纠缠必须配合上并行与干涉，才能转化为计算优势。三者缺一不可：**并行产生可能性，纠缠绑定可能性，干涉提取可能性。**
 

@@ -29,25 +29,21 @@ date: 2026-08-07
 **结构模板**：
 
 ```verilog
-module tb_add4;
-    // 1. 信号声明（对应 DUT 端口）
-    reg  [3:0] a, b;
-    reg        cin;
-    wire [3:0] s;
-    wire       cout;
+module tb_and_gate;
+    reg  a, b;        // 信号声明
+    wire y;
 
-    // 2. 例化 DUT
-    add4 uut (
-        .a(a), .b(b), .cin(cin),
-        .s(s), .cout(cout)
+    and_gate dut (    // DUT 例化
+        .a(a),
+        .b(b),
+        .y(y)
     );
 
-    // 3. 激励生成
-    initial begin
-        a = 4'b0000; b = 4'b0000; cin = 1'b0;
-        #10 a = 4'b0011; b = 4'b0101;
-        #10 a = 4'b1111; b = 4'b0001;
-        #10 a = 4'b1010; b = 4'b0110;
+    initial begin     // 激励生成
+        a = 0; b = 0;
+        #10 a = 0; b = 1;
+        #10 a = 1; b = 0;
+        #10 a = 1; b = 1;
         #10 $finish;
     end
 endmodule
@@ -61,37 +57,38 @@ endmodule
 
 ```verilog
 initial begin
-    a = 0;            // 初始化
-    #10 a = 1;        // 10 个时间单位后赋值
-    #10 a = 0;
+    rst_n = 0;          // 初始复位
+    #100 rst_n = 1;     // 100ns 后释放复位
+    #500 $finish;       // 600ns 结束仿真
 end
 ```
 
 **`#` 延迟**：`#10` 表示等 10 个时间单位——仿真专用，不可综合。
 
-**生成时钟**：用 `initial` 或 `always` 产生周期信号：
+**生成时钟**：用 `always` 或 `forever` 产生周期信号：
 
 ```verilog
 initial clk = 0;
-always #5 clk = ~clk;   // 周期 10 的时钟
+always #5 clk = ~clk;      // 周期 10ns 的时钟
 ```
 
 **复位信号**：
 
 ```verilog
 initial begin
-    rst_n = 0;
-    #20 rst_n = 1;      // 20 时间单位后释放复位
+    rst_n = 1'b1;
+    #10 rst_n = 1'b0;      // 拉低复位
+    #10 rst_n = 1'b1;      // 释放复位
 end
 ```
 
-**时间单位**：在文件头用 `` `timescale`` 指定：
+**时间单位**：在文件头用 `` `timescale 1ns/1ps`` 指定：
 
 ```verilog
-`timescale 1ns / 1ps   // 时间单位 1ns，精度 1ps
+`timescale 1ns/1ps
 ```
 
-<span class="marginnote">`#` 延迟让 Testbench 能「按时间安排激励」——这在综合代码里不存在，但在仿真里是必需品。<strong>`timescale 是仿真精度的基础</strong>：写 1ns/1ps，`#5` 就是 5ns。跨文件时 timescale 不一致会造成仿真时间错乱，这是仿真常见的坑。</strong></span>
+<span class="marginnote">`#` 延迟让 Testbench 能「按时间安排激励」——这在综合代码里不存在，但在仿真里是必需品。`<strong>`#5` 就是 5ns。跨文件时 timescale 不一致会造成仿真时间错乱，这是仿真常见的坑。</span>
 
 ## 3 响应检查：波形、display 与断言
 
@@ -103,7 +100,7 @@ end
 
 ```verilog
 initial begin
-    $monitor("%t: a=%b b=%b s=%d", $time, a, b, s);
+    $display("a=%b b=%b y=%b", a, b, y);
 end
 ```
 
@@ -113,11 +110,12 @@ end
 
 ```verilog
 initial begin
-    #10;
-    if (s !== 4'b0000)
-        $display("ERROR: 0+0 = %d", s);
+    #40
+    if (y !== 1'b1)
+        $display("ERROR: y 应为 1，实际为 %b", y);
     else
-        $display("OK: 0+0 = %d", s);
+        $display("PASS");
+    $finish;
 end
 ```
 
@@ -129,21 +127,23 @@ end
 
 ```verilog
 `timescale 1ns/1ps
-module tb_and2;
+
+module tb_and_gate;
     reg  a, b;
     wire y;
 
-    and2 uut(.a(a), .b(b), .y(y));   // 例化被测模块
+    and_gate dut (.a(a), .b(b), .y(y));
 
     initial begin
-        $monitor("%t a=%b b=%b y=%b", $time, a, b, y);
+        $monitor("t=%0t a=%b b=%b y=%b", $time, a, b, y);
         a = 0; b = 0; #10;
         a = 0; b = 1; #10;
         a = 1; b = 0; #10;
         a = 1; b = 1; #10;
-        // 断言检查
-        if (y !== 1'b1) $display("ERROR: 1&1 应得 1");
-        else            $display("PASS");
+        if (y !== 1'b1)
+            $display("FAIL: y 应为 1");
+        else
+            $display("PASS");
         $finish;
     end
 endmodule
@@ -151,7 +151,7 @@ endmodule
 
 **第一步，看 timescale**：1ns/1ps，`#10` = 10ns。
 
-**第二步，看例化**：被测模块 `and2` 接好端口。
+**第二步，看例化**：被测模块 `and_gate dut` 接好端口。
 
 **第三步，看激励**：`initial` 按时间依次给四组输入——覆盖与门全部真值表。
 
@@ -161,10 +161,10 @@ endmodule
 
 ## 5 仿真与验证的工程实践
 
-- **功能仿真 vs 时序仿真**：功能仿真验证逻辑（无延迟），时序仿真验证时序（含延迟）。先功能后时序。
-- **模块级 vs 系统级**：先测小模块（单元测试），再测整系统（集成测试）。
-- **覆盖率**：代码覆盖率、功能覆盖率——衡量测试「测到多全」。
-- **回归测试**：改代码后重跑全部 Testbench，防「修好这个、弄坏那个」。
+**功能仿真 vs 时序仿真**：功能仿真验证逻辑（无延迟），时序仿真验证时序（含延迟）。先功能后时序。
+**模块级 vs 系统级**：先测小模块（单元测试），再测整系统（集成测试）。
+**覆盖率**：代码覆盖率、功能覆盖率——衡量测试「测到多全」。
+**回归测试**：改代码后重跑全部 Testbench，防「修好这个、弄坏那个」。
 
 **仿真工具**：Vivado（Xilinx）、Quartus（Intel）、ModelSim/Questa（Mentor）、Icarus Verilog（开源）、Verilator（开源，快）。
 
@@ -173,7 +173,7 @@ endmodule
 ## 6 小结
 
 - **Testbench** = 测试平台：信号声明 + DUT 例化 + 激励生成 + 响应检查。
-- **initial 块与 `#` 延迟**生成激励；`` `timescale`` 定时间单位。
+- **initial 块与 `#` 延迟**生成激励；`` `timescale 1ns/1ps`` 定时间单位。
 - 响应检查三方式：波形、`$display`/`$monitor` 打印、断言自动比对。
 - 仿真流程：编译 DUT + Testbench → 运行 → 看结果；先功能仿真后时序仿真。
 - 工程实践：覆盖完备、模块先于系统、回归测试、覆盖率度量。

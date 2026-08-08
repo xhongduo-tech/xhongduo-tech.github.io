@@ -28,15 +28,22 @@ date: 2026-08-07
 4. 重复 2、3，直到 $S$ 包含全部顶点。
 
 ```c
-void Dijkstra(Graph G, int s) {
-    for (v : G) dist[v] = INF, visited[v] = 0;
-    dist[s] = 0;
-    while (还有未确定顶点) {
-        u = 未确定且 dist 最小的顶点;         /* 选点：可配最小堆加速 */
-        visited[u] = 1;                        /* 加入 S */
-        for (v 是 u 的邻接点)
-            if (!visited[v] && dist[u] + w(u,v) < dist[v])
-                dist[v] = dist[u] + w(u,v);    /* 松弛 */
+// Dijkstra（邻接矩阵版）：贪心选点 + 松弛，朴素 O(n^2)
+// 用最小堆优化「选点」，可得 O((n+e) log n)
+void Dijkstra(MGraph G, int s, int dist[], int pre[]) {
+    int S[MAXN] = {0};                 // S[v] = 1 表示 v 已确定最短路
+    for (int v = 0; v < G.n; v++) { dist[v] = G.arcs[s][v]; pre[v] = s; }
+    dist[s] = 0;  S[s] = 1;
+    for (int i = 1; i < G.n; i++) {
+        int u = -1, minD = INF;
+        for (int v = 0; v < G.n; v++)          // 选点：S 外 dist 最小的 u
+            if (!S[v] && dist[v] < minD) { minD = dist[v]; u = v; }
+        S[u] = 1;                              // u 加入 S，dist 永不再变
+        for (int v = 0; v < G.n; v++)          // 松弛：用 u 更新它的邻居
+            if (!S[v] && dist[u] + G.arcs[u][v] < dist[v]) {
+                dist[v] = dist[u] + G.arcs[u][v];
+                pre[v] = u;                    // 前驱同步更新
+            }
     }
 }
 ```
@@ -59,23 +66,23 @@ $$
 
 为什么「每次选最小」不会出错？
 
-- **不变量**：加入 $S$ 的每个顶点的 $dist$ 都是最终最短路。
-- **归纳步骤**：假设 $S$ 内正确。取 $S$ 外 $dist$ 最小的 $u$。若存在更短的 $s \to u$ 路径，它必然第一次离开 $S$ 的边是 $<x, y>$，$x \in S$、$y \notin S$。则 $dist[u]$ 更短 ⇒ $dist[y] \le dist[u]$ 更短，与「$u$ 是 $S$ 外最小」矛盾（非负权保证 $dist[y] \ge \dots$）。故 $u$ 正确。
+**不变量**：加入 $S$ 的每个顶点的 $dist$ 都是最终最短路。
+**归纳步骤**：假设 $S$ 内正确。取 $S$ 外 $dist$ 最小的 $u$。若存在更短的 $s \to u$ 路径，它必然第一次离开 $S$ 的边是 $<x, y>$，$x \in S$、$y \notin S$。则 $dist[u]$ 更短 ⇒ $dist[y] \le dist[u]$ 更短，与「$u$ 是 $S$ 外最小」矛盾（非负权保证 $dist[y] \ge \dots$）。故 $u$ 正确。
 
 **辨析｜易错点：负权边会让 Dijkstra 出错。** 例子：$s \to a$ 权 1，$s \to b$ 权 2，$b \to a$ 权 -3。Dijkstra 先确定 $a$（dist=1），但真正最短路是 $s \to b \to a$ 权 -1——$a$ 的 dist 被过早「锁定」。**负权图必须用 Bellman-Ford（专题篇）或 SPFA。**<span class="marginnote">这个反例值得亲手画一遍：<strong>「先选出的最小」假设了「绕路只会更贵」</strong>，负权边把绕路变成「更便宜」，假设崩塌。Dijkstra 与 Bellman-Ford 的分界，就是「边权是否非负」这一条线。</span>
 
 ## 4 记录路径：前驱数组
 
-光有 $dist$ 只知道「多长」，还要知道「怎么走」。加一个 `path[v]` 记录「$s$ 到 $v$ 最短路上的前驱顶点」：松弛成功时，`path[v] = u`。最后从目标点沿 `path` 一路回溯到源点，逆序即得路径。
+光有 $dist$ 只知道「多长」，还要知道「怎么走」。加一个前驱数组 $s$ 记录「$s$ 到 $v$ 最短路上的前驱顶点」：松弛成功时，$v$。最后从目标点沿 `pre` 前驱指针一路回溯到源点，逆序即得路径。
 
-**重点：`path` 在松弛时同步更新——最短路是「决策」的累积，不是事后推算。** 这与 DFS 的生成树、并查集的父指针是同一类「记录来源」的技法。<span class="marginnote">「松弛 + 前驱」这个组合在几乎所有最短路算法里通用（Dijkstra、Bellman-Ford、Floyd 的 path 矩阵）。<strong>只要更新了最优值，就同步记录「从哪来的」</strong>——这是路径重建的标准模板。</span>
+**重点：前驱数组 `pre` 在松弛时同步更新——最短路是「决策」的累积，不是事后推算。** 这与 DFS 的生成树、并查集的父指针是同一类「记录来源」的技法。<span class="marginnote">「松弛 + 前驱」这个组合在几乎所有最短路算法里通用（Dijkstra、Bellman-Ford、Floyd 的 path 矩阵）。<strong>只要更新了最优值，就同步记录「从哪来的」</strong>——这是路径重建的标准模板。</span>
 
 ## 5 Dijkstra 的应用
 
-- **GPS 导航**：道路网（稀疏、权为正的里程），堆优化 Dijkstra 是主流，工程上加 A\* 启发式加速；
-- **网络路由**：OSPF 等链路状态协议用 Dijkstra 计算路由表；
-- **加权图分层**：找出到各点的最短路，作为后续算法的输入；
-- **游戏寻路**：带权网格上的 Dijkstra/A\*。
+**GPS 导航**：道路网（稀疏、权为正的里程），堆优化 Dijkstra 是主流，工程上加 A\* 启发式加速；
+**网络路由**：OSPF 等链路状态协议用 Dijkstra 计算路由表；
+**加权图分层**：找出到各点的最短路，作为后续算法的输入；
+**游戏寻路**：带权网格上的 Dijkstra/A\*。
 
 **重点：Dijkstra 是「非负单源最短路」的黄金标准**——几乎所有现代实现都是「邻接表 + 最小堆」。理解它，就理解了大模型推理里「Beam Search 打分路径」的贪心框架与它同源的「贪心扩展」逻辑。<span class="marginnote">「贪心 + 松弛 + 前驱」三件套是单源最短路问题的标准答案。<strong>Dijkstra 与 A\* 的区别只在「选点标准」</strong>：Dijkstra 用 $dist$，A\* 用 $dist + heuristic$（预估剩余距离）。加一个启发式，就换来大幅加速——但启发式必须「可采纳」（不高估），正确性才保住。</span>
 
@@ -85,7 +92,7 @@ $$
 - 不变量：加入 $S$ 的顶点 $dist$ 永不再变（依赖非负权）。
 - 复杂度：朴素 $O(n^2)$，堆优化 $O((n+e)\log n)$。
 - 负权图失效——改用 Bellman-Ford/SPFA。
-- 前驱数组 `path` 记录路径，松弛时同步更新。
+- 前驱数组 `pre` 记录路径，松弛时同步更新。
 - 应用：导航、OSPF 路由、寻路；A\* 是加启发式的变体。
 
 在下一节，我们把最短路从「单源」推广到「任意两点」——**最短路径（Floyd 算法）**。

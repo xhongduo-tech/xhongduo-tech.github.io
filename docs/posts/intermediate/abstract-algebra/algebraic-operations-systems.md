@@ -54,14 +54,14 @@ $$
 
 运算不只有「二元」一种。按输入元素的个数，运算有**元数（arity）**之分：
 
-- **一元运算（unary operation）**：$A \to A$，输入一个元素。如整数的取负 $a \mapsto -a$、矩阵的转置 $M \mapsto M^{\mathsf{T}}$、幂集的补集 $X \mapsto X^c$。
-- **二元运算（binary operation）**：$A \times A \to A$，输入两个元素，本篇之前的主角。如 $+$、$\times$、$\cup$、$\cap$。
-- **多元运算（$n$-ary operation）**：$A^n \to A$，输入 $n$ 个元素。
-- **零元运算（nullary operation）**：$A^0 \to A$，输入空序列，其实就是在 $A$ 中**挑出某个特定元素**。环里的加法单位元 $0$、乘法单位元 $1$ 都可视为零元运算——它们不是「算」出来的，而是被点名指定的。<span class="marginnote">把「常元」也叫做「零元运算」初看是钻牛角尖，但它让「代数系统的签名」统一成了「一串元数」，也为后续「同构保持常数」的论述铺路：同构必须把 $0$ 映到 $0$、$1$ 映到 $1$，就是因为它们是零元运算的「结果」。</span>
+**一元运算（unary operation）**：$A \to A$，输入一个元素。如整数的取负 $a \mapsto -a$、矩阵的转置 $M \mapsto M^{\mathsf{T}}$、幂集的补集 $X \mapsto X^c$。
+**二元运算（binary operation）**：$A \times A \to A$，输入两个元素，本篇之前的主角。如 $+$、$\times$、$\cup$、$\cap$。
+**多元运算（$n$-ary operation）**：$A^n \to A$，输入 $n$ 个元素。
+**零元运算（nullary operation）**：$A^0 \to A$，输入空序列，其实就是在 $A$ 中**挑出某个特定元素**。环里的加法单位元 $0$、乘法单位元 $1$ 都可视为零元运算——它们不是「算」出来的，而是被点名指定的。<span class="marginnote">把「常元」也叫做「零元运算」初看是钻牛角尖，但它让「代数系统的签名」统一成了「一串元数」，也为后续「同构保持常数」的论述铺路：同构必须把 $0$ 映到 $0$、$1$ 映到 $1$，就是因为它们是零元运算的「结果」。</span>
 
 还有一类特别重要的运算，其输入来自两个不同的集合：
 
-- **外运算（external operation）**：$F \times A \to A$ 或 $A \times F \to A$ 的映射，$F$ 是另一个集合。最典型的例子是**数乘**：$\mathbb{R} \times V \to V$，$(k, \boldsymbol{v}) \mapsto k\boldsymbol{v}$，把标量 $k$ 与向量 $\boldsymbol{v}$ 组合成一个向量。
+**外运算（external operation）**：$F \times A \to A$ 或 $A \times F \to A$ 的映射，$F$ 是另一个集合。最典型的例子是**数乘**：$\mathbb{R} \times V \to V$，$(k, \boldsymbol{v}) \mapsto k\boldsymbol{v}$，把标量 $k$ 与向量 $\boldsymbol{v}$ 组合成一个向量。
 
 与之相对，所有输入、输出都在同一个集合 $A$ 里的运算叫**内运算（internal operation）**。<span class="marginnote">数乘是外运算，却仍然把结果「留在」$V$ 里（封闭性不破）——所以向量空间既有内运算（加法）又有外运算（数乘），这种「一身二任」让它成为线性代数研究的对象。深度学习里，神经网络每一层的仿射变换 $x \mapsto Wx + b$ 就是「矩阵这个外运算 + 向量加法」的复合，两个集合（矩阵、向量）配合工作，正是外运算的活例子。</span>
 

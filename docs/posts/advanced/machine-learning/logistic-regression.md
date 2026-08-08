@@ -58,22 +58,13 @@ $$\boldsymbol{\beta}^{t+1} = \boldsymbol{\beta}^t - \left( \frac{\partial^2 \ell
 
 ```python
 from sklearn.linear_model import LogisticRegression
-import numpy as np
-
-# 二维特征：两团数据，一类在左下方，一类在右上方
-X = np.array([[1, 1], [1, 2], [2, 1], [2, 2],        # 负类（附近）
-              [5, 5], [5, 6], [6, 5], [6, 6]])       # 正类（附近）
-y = np.array([0, 0, 0, 0, 1, 1, 1, 1])
 
 clf = LogisticRegression().fit(X, y)
-w, b = clf.coef_[0], clf.intercept_[0]
-
-# 预测 = 算 Sigmoid 输出的概率，再按 0.5 阈值判类
-prob = 1 / (1 + np.exp(-(w[0] * 4 + w[1] * 4 + b)))
-print(f"w = {w}, b = {b:.3f}, 点(4,4)的正类概率 = {prob:.3f}")
+w, b = clf.coef_[0], clf.intercept_[0]   # 超平面法向量与偏置
+proba = clf.predict_proba(X)             # 每个样本属于各类的概率
 ```
 
-`clf.coef_` 给出了超平面 $\mathbf{w}^{\mathrm{T}}\mathbf{x} + b = 0$ 的法向量——它垂直于决策边界，指向正类一侧；`prob` 告诉你模型对每个点的把握程度，这正是硬阈值分类器给不出的信息。你也可以用 `clf.predict_proba` 一次性得到全部分类的概率矩阵，工程上它比手写 Sigmoid 更稳（内部做了数值溢出保护）。<span class="marginnote">概率输出带来的能力远不止「好看」：在代价敏感学习中（第二章《性能度量》），你可以把阈值从 0.5 调低或调高，在「多判正类」与「多判负类」之间换取不同的查准率/查全率；在排序任务里，概率还直接决定样本的顺序。阈值只是最后一步的旋钮，模型学到的是一整个连续刻度。</span>
+`w` 给出了超平面 $\mathbf{w}^{\mathrm{T}}\mathbf{x} + b = 0$ 的法向量——它垂直于决策边界，指向正类一侧；`proba` 告诉你模型对每个点的把握程度，这正是硬阈值分类器给不出的信息。你也可以用 `predict_proba` 一次性得到全部分类的概率矩阵，工程上它比手写 Sigmoid 更稳（内部做了数值溢出保护）。<span class="marginnote">概率输出带来的能力远不止「好看」：在代价敏感学习中（第二章《性能度量》），你可以把阈值从 0.5 调低或调高，在「多判正类」与「多判负类」之间换取不同的查准率/查全率；在排序任务里，概率还直接决定样本的顺序。阈值只是最后一步的旋钮，模型学到的是一整个连续刻度。</span>
 
 ## 4 为什么它是「好公民」：三个难得的性质把对数几率回归的优点集中说清，它值得在整本书里占据这么高的地位：
 

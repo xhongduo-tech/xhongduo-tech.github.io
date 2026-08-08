@@ -76,17 +76,26 @@ $$
 ## 4 实现与收敛判断
 
 ```python
-def jacobi(A, b, x0=None, tol=1e-10, max_iter=1000):
-    n = A.shape[0]
-    x = np.zeros(n) if x0 is None else x0.copy()
-    Dinv = 1.0 / np.diag(A)
-    for k in range(max_iter):
-        # 残差计算 + 分量更新（并行友好：每行独立）
-        x_new = Dinv * (b - A @ x + np.diag(A) * x)   # = D^-1(b - (A-D)x)
-        if np.linalg.norm(x_new - x, np.inf) < tol:
-            return x_new, k + 1
+import numpy as np
+
+def jacobi(A, b, x0, tol=1e-10, max_iter=1000):
+    """雅可比迭代：全体分量用上一轮旧值同步更新。"""
+    n = len(b)
+    x = np.array(x0, dtype=float)
+    for it in range(max_iter):
+        x_new = np.empty_like(x)
+        for i in range(n):
+            s = sum(A[i, j] * x[j] for j in range(n) if j != i)
+            x_new[i] = (b[i] - s) / A[i, i]
+        if np.linalg.norm(x_new - x, ord=np.inf) < tol:
+            return x_new, it + 1
         x = x_new
     return x, max_iter
+
+# 例：10x1 - x2 - x3 = 6 等三方程，初值 (0,0,0)，约 16 步收敛到 1e-10
+A = np.array([[10., -1, -1], [-1, 10, -1], [-1, -1, 10]])
+b = np.array([6., 8, 8])
+print(jacobi(A, b, [0, 0, 0]))
 ```
 
 **工程注意**：每步迭代的成本 $O(n^2)$（稠密）或 $O(n)$（稀疏，矩阵-向量乘）。**雅可比的价值在稀疏与并行**；稠密矩阵上它比直接法慢得多。

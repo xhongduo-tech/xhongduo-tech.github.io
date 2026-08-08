@@ -27,10 +27,16 @@ date: 2026-08-07
 **导出流程**（PyTorch → ONNX）：
 
 ```python
+import torch
+
+dummy_input = torch.randn(1, 3, 224, 224)          # 与输入形状一致的假样本
 torch.onnx.export(
-    model, dummy_input, "model.onnx",
+    model,                                         # 训练好的模型
+    dummy_input,                                   # 示例输入（做一次前向以追踪图）
+    "model.onnx",
+    opset_version=17,                              # 算子集版本（越新支持的算子越多）
     input_names=["input"], output_names=["output"],
-    dynamic_axes={"input": {0: "batch"}},   # 动态 batch
+    dynamic_axes={"input": {0: "batch"}, "output": {0: "batch"}},
 )
 ```
 
@@ -42,7 +48,7 @@ torch.onnx.export(
 2. **部署优化**：ONNX 是「推理引擎」的输入——ONNX Runtime、TensorRT 针对它做图优化。
 3. **硬件适配**：同一 ONNX 模型可以部署到 CPU、GPU、边缘设备。
 
-**易错点：** ONNX 导出要求「模型算子都支持」——「自定义算子/动态控制流」可能导出失败。**「导出前要确认算子兼容」**（用 `onnx.checker` 检查、用 ONNX Runtime 验证输出一致）。<span class="marginnote">「导出 ≠ 无条件成功」：模型的「动态控制流」（`if`/`for` 依赖数据）、自定义 autograd 算子、非常规操作——ONNX 可能「不支持」或「导出失败」。「<strong>部署友好的模型要『静态化』</strong>」——「设计模型时就想好『能不能导出』」。「『部署友好』是模型设计的一个考量维度」。</span>
+**易错点：** ONNX 导出要求「模型算子都支持」——「自定义算子/动态控制流」可能导出失败。**「导出前要确认算子兼容」**（用 `onnx.checker.check_model` 检查、用 ONNX Runtime 验证输出一致）。<span class="marginnote">「导出 ≠ 无条件成功」：模型的「动态控制流」（`if`/`while` 依赖数据）、自定义 autograd 算子、非常规操作——ONNX 可能「不支持」或「导出失败」。「<strong>部署友好的模型要『静态化』</strong>」——「设计模型时就想好『能不能导出』」。「『部署友好』是模型设计的一个考量维度」。</span>
 
 ## 2 推理优化：让模型跑得更快
 
@@ -52,8 +58,8 @@ torch.onnx.export(
 
 **手段二：量化（quantization）**。把权重/激活从 FP32 降到 int8——「<strong>显存省 4 倍、推理快 2–4 倍</strong>」（见《混合精度》的「低精度也够用」）。两种量化：
 
-- **训练后量化（PTQ）**：训完直接量化——简单，精度略损。
-- **量化感知训练（QAT）**：训练时模拟量化——精度好，但要重新训练。
+**训练后量化（PTQ）**：训完直接量化——简单，精度略损。
+**量化感知训练（QAT）**：训练时模拟量化——精度好，但要重新训练。
 
 **手段三：专用推理引擎（TensorRT）**。NVIDIA 的 TensorRT 针对 GPU 做「极致优化」——算子融合、内核自动调优、精度校准——「<strong>比 PyTorch 的 eager 推理快 2–5 倍</strong>」。
 
@@ -91,10 +97,10 @@ $$
 
 模型部署在现代的演进：
 
-- **传统 CNN**：ONNX + TensorRT——「经典部署」。
-- **LLM（Transformer）**：专门推理引擎（vLLM、TensorRT-LLM）——「KV cache、连续批处理、投机采样」（见第四级《大模型部署》）。
-- **边缘部署**：量化 + 剪枝 + 轻量模型——「算力受限的设备」。
-- **跨平台**：ONNX Runtime（CPU/GPU/移动端）、TFLite、Core ML——「一套模型多端跑」。
+**传统 CNN**：ONNX + TensorRT——「经典部署」。
+**LLM（Transformer）**：专门推理引擎（vLLM、TensorRT-LLM）——「KV cache、连续批处理、投机采样」（见第四级《大模型部署》）。
+**边缘部署**：量化 + 剪枝 + 轻量模型——「算力受限的设备」。
+**跨平台**：ONNX Runtime（CPU/GPU/移动端）、TFLite、Core ML——「一套模型多端跑」。
 
 **「部署的『共同主线』：导出（互操作）+ 优化（效率）+ 服务（可用）」**——从 CNN 到大模型，这条主线不变，只是「优化手段」随模型/硬件演进。<span class="marginnote">「从『模型部署』到『大模型部署』」：本节是「通用模型部署」（CNN 为主）；大模型（LLM）的部署有「独特的优化」（KV cache、批处理、量化到 4bit）——「<strong>理解通用的『导出-优化-服务』框架，是理解大模型部署的起点</strong>」。「大模型部署的『效率』更是生死攸关」（推理成本直接决定能否商用）——「<strong>部署是大模型『落地』的工程核心</strong>」。</span>
 

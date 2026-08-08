@@ -24,9 +24,9 @@ date: 2026-08-07
 
 先看 TF-IDF 的底层表示：每个词是词典里一个维度，本质上仍是**独热（one-hot）**的——「电影」是 $(0,0,\dots,1,0,\dots)$，「影片」是另一个维度的 $1$。独热编码有三个结构性的缺陷：
 
-- **维度爆炸**：词典十万到几十万维，向量的绝大部分维度永远为零，存储与计算都被迫为「可能的词」买单。
-- **正交即无语义**：任意两个 one-hot 向量的余弦相似度都是 0。「电影」和「影片」的相似度与「电影」和「香蕉」完全一样——**向量空间里没有「远近」的概念**。
-- **OOV 失明**：词典之外的词没有位置，而推荐系统的物品简介每天都在冒出新词。
+**维度爆炸**：词典十万到几十万维，向量的绝大部分维度永远为零，存储与计算都被迫为「可能的词」买单。
+**正交即无语义**：任意两个 one-hot 向量的余弦相似度都是 0。「电影」和「影片」的相似度与「电影」和「香蕉」完全一样——**向量空间里没有「远近」的概念**。
+**OOV 失明**：词典之外的词没有位置，而推荐系统的物品简介每天都在冒出新词。
 
 **重点：** 三个缺陷有一个共同根源——**one-hot 用「词的身份」表示词，而不用「词的含义」表示词**。要修复它，必须让「含义」在向量里显式地出现。
 
@@ -44,8 +44,8 @@ date: 2026-08-07
 
 Word2Vec 用「预测」来学向量。它有两种对称的训练目标：
 
-- **CBOW（Continuous Bag-of-Words）**：给定上下文词，预测中心词。适合小语料、高频词。
-- **Skip-gram**：给定中心词，预测它上下文窗口内的词。对低频词、小数据集更友好，推荐场景常用。
+**CBOW（Continuous Bag-of-Words）**：给定上下文词，预测中心词。适合小语料、高频词。
+**Skip-gram**：给定中心词，预测它上下文窗口内的词。对低频词、小数据集更友好，推荐场景常用。
 
 以 Skip-gram 为例。设句子里有一串词，取窗口大小 2，对中心词 $w_t$ 而言，上下文是 $w_{t-2}, w_{t-1}, w_{t+1}, w_{t+2}$。训练时不断做这样的事：**给出 $w_t$，让模型把概率压到真实的上下文词上**。
 
@@ -85,22 +85,25 @@ $$
 ```python
 import numpy as np
 
-# 预训练词向量表：word2vec[k] 是词典里第 k 个词的 K 维向量
-# 假设已用 gensim / fastText 等在语料上训练完毕
-def item_vector(words, word2vec, idf=None):
-    vecs, ws = [], []
-    for w in words:
-        if w in word2vec:
-            vecs.append(word2vec[w])
-            ws.append(idf[w] if idf is not None else 1.0)  # TF-IDF 加权或等权
+def aggregate_item_vector(word_vecs, tfidf):
+    """word_vecs: {词: 词向量}；tfidf: {词: tfidf 值}。返回 TF-IDF 加权的物品向量。"""
+    vecs, weights = [], []
+    for w, tf in tfidf.items():
+        if w in word_vecs:            # 词典外的词直接跳过（OOV）
+            vecs.append(word_vecs[w])
+            weights.append(tf)
     if not vecs:
-        return np.zeros(next(iter(word2vec.values())).shape)
-    vecs = np.stack(vecs)
-    ws = np.asarray(ws, dtype=float)
-    return (vecs * ws[:, None]).sum(axis=0) / ws.sum()     # 加权平均
+        return None                   # 简介里全是 OOV 词，返回空
+    return np.average(vecs, axis=0, weights=weights)
 
-brief = "末日之后，人工智能与人类伦理的冲突"          # 物品简介
-item = item_vector(tokenize(brief), word2vec, idf)   # 一个稠密物品向量
+# 示例：某电影简介「科幻 人工智能 伦理」的三个词向量
+word_vecs = {
+    "科幻":     np.array([0.1, -0.2,  0.3]),
+    "人工智能": np.array([0.5,  0.1,  0.0]),
+    "伦理":     np.array([-0.1, 0.4,  0.2]),
+}
+tfidf = {"科幻": 2.1, "人工智能": 3.4, "伦理": 1.2}
+item_vec = aggregate_item_vector(word_vecs, tfidf)   # 3 维物品向量
 ```
 
 对标题、简介这类短文本，这条路线简单有效，直接喂给上一篇的打分公式即可。

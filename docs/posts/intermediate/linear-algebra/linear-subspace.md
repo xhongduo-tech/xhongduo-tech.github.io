@@ -36,11 +36,11 @@ date: 2026-08-08
 
 ## 2 常见子空间实例
 
-- **零空间**：$W = \{\mathbf{0}\}$ 是最小的子空间；$V$ 本身是最大的子空间。
-- **齐次解空间**：$Ax = 0$ 的解集 $\operatorname{Nul}(A)$ 是 $\mathbb{R}^n$ 的子空间（第四篇）。
-- **张成空间**：$\operatorname{span}\{\mathbf{v}_1, \cdots, \mathbf{v}_k\}$ 是所有含这些向量的子空间中最小的一个。
-- **矩阵空间**：$\mathbb{R}^{n\times n}$ 中全体对角矩阵、上三角矩阵、对称矩阵，各构成子空间。
-- **多项式空间**：$\mathbb{P}_n$ 中偶次多项式、能被 $x^2$ 整除的多项式，都是子空间。
+**零空间**：$W = \{\mathbf{0}\}$ 是最小的子空间；$V$ 本身是最大的子空间。
+**齐次解空间**：$Ax = 0$ 的解集 $\operatorname{Nul}(A)$ 是 $\mathbb{R}^n$ 的子空间（第四篇）。
+**张成空间**：$\operatorname{span}\{\mathbf{v}_1, \cdots, \mathbf{v}_k\}$ 是所有含这些向量的子空间中最小的一个。
+**矩阵空间**：$\mathbb{R}^{n\times n}$ 中全体对角矩阵、上三角矩阵、对称矩阵，各构成子空间。
+**多项式空间**：$\mathbb{P}_n$ 中偶次多项式、能被 $x^2$ 整除的多项式，都是子空间。
 
 **重点**：**张成空间是「生成子空间」的标准构造**——给任意向量组，它的全部线性组合就是包含它们的最小子空间。反过来，任何子空间都能写成某个向量组的张成空间。子空间 ↔ 张成空间是同一枚硬币的两面。
 
@@ -48,10 +48,10 @@ date: 2026-08-08
 
 验证 $\operatorname{span}\{\mathbf{v}_1, \cdots, \mathbf{v}_k\}$ 是子空间，拆成三步：
 
-- **第一步，含零**：$\mathbf{0} = 0\cdot\mathbf{v}_1 + \cdots + 0\cdot\mathbf{v}_k$，零向量是「全零系数的组合」，在 $\operatorname{span}$ 内。
-- **第二步，加法封闭**：$\sum c_i\mathbf{v}_i + \sum d_i\mathbf{v}_i = \sum(c_i + d_i)\mathbf{v}_i$——两个组合相加仍是组合，系数相加即可。
-- **第三步，数乘封闭**：$\lambda\sum c_i\mathbf{v}_i = \sum(\lambda c_i)\mathbf{v}_i$——组合数乘仍是组合。
-- **第四步，结论**：**线性组合的线性组合还是线性组合**，这个「封闭性」正是 $\operatorname{span}$ 是子空间的本质原因。所有子空间都能写成这种形式。
+**第一步，含零**：$\mathbf{0} = 0\cdot\mathbf{v}_1 + \cdots + 0\cdot\mathbf{v}_k$，零向量是「全零系数的组合」，在 $\operatorname{span}$ 内。
+**第二步，加法封闭**：$\sum c_i\mathbf{v}_i + \sum d_i\mathbf{v}_i = \sum(c_i + d_i)\mathbf{v}_i$——两个组合相加仍是组合，系数相加即可。
+**第三步，数乘封闭**：$\lambda\sum c_i\mathbf{v}_i = \sum(\lambda c_i)\mathbf{v}_i$——组合数乘仍是组合。
+**第四步，结论**：**线性组合的线性组合还是线性组合**，这个「封闭性」正是 $\operatorname{span}$ 是子空间的本质原因。所有子空间都能写成这种形式。
 
 <span class="marginnote">「线性组合的封闭性」是子空间理论的核心机制：<strong>子空间 = 对线性组合封闭的非空集合</strong>。因此，给定任意集合 $S$，$S$ 的线性组合全体（$\operatorname{span}S$）就是包含 $S$ 的最小子空间——这个「最小包含」构造在泛函分析、凸分析里反复出现（第二级《泛函分析》）。</span>
 

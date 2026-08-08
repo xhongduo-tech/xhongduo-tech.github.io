@@ -54,10 +54,10 @@ $$
 P(w_1 w_2 \cdots w_m) \approx \prod_{i=1}^{m} P(w_i \mid w_{i-2} w_{i-1})
 $$
 
-为了处理句首与句尾，工程上引入两个特殊符号：**句首标记 `<s>`** 与**句尾标记 `</s>`**。<span class="marginnote">`<s>` 让第一个词的「前一个词」有了着落——$P(w_1)$ 变成 $P(w_1|\text{〈s〉})$；`</s>` 让模型知道句子该在哪里收尾，否则模型会永远倾向于生成高频词而「刹不住车」。</span>于是二元模型实际写作：
+为了处理句首与句尾，工程上引入两个特殊符号：**句首标记 $P(w_1|\text{〈s〉})$** 与**句尾标记 $\text{〈/s〉}$**。<span class="marginnote">$\text{〈s〉}$ 让第一个词的「前一个词」有了着落——$P(w_1)$ 变成 $P(w_1|\text{〈s〉})$；$\text{〈/s〉}$ 让模型知道句子该在哪里收尾，否则模型会永远倾向于生成高频词而「刹不住车」。</span>于是二元模型实际写作：
 
 $$
-P(w_1 \cdots w_m) = P(w_1 \mid \text{`<s>`}) \prod_{i=2}^{m} P(w_i \mid w_{i-1}) \cdot P(\text{`</s>`} \mid w_m)
+P(w_1 \cdots w_m) = P(w_1 \mid \text`{ <s> }`) \prod_{i=2}^{m} P(w_i \mid w_{i-1}) \cdot P(\text{</s>} \mid w_m)
 $$
 
 ## 3 参数估计：极大似然估计
@@ -76,9 +76,9 @@ $$
 
 我们用一个小语料把公式从头到尾算一遍。设语料包含三句（已切分并加了句首尾标记）：
 
-> `<s> 猫 坐在 垫子 上 </s>`
-> `<s> 猫 喜欢 鱼 </s>`
-> `<s> 狗 坐在 地板上 </s>`
+> 〈s〉 猫 坐在 垫子 上 〈/s〉
+> 〈s〉 猫 坐在 地板上 〈/s〉
+> 〈s〉 小猫 玩 毛线球 〈/s〉
 
 先数二元组计数（只列后面要用到的）：
 
@@ -95,39 +95,48 @@ $$
 P(\text{猫 坐在 垫子 上}) = \frac{2}{3} \times 1 \times \frac{1}{2} \times 1 \times 1 = \frac{1}{3} \approx 0.333
 $$
 
-**直觉：** 这个概率高，是因为句子里的每个二元组（`<s>猫`、`猫坐在`、`坐在垫子`…）都在语料里出现过。换一个语料里没见过的二元组，比如「狗 喜欢 猫」，其中 $C(\text{狗 喜欢}) = 0$，整句概率立刻归零——这正是下一节稀疏性问题的现场。
+**直觉：** 这个概率高，是因为句子里的每个二元组（$\text{〈s〉 猫}$、$\text{猫 坐在}$、$\text{坐在 垫子}$…）都在语料里出现过。换一个语料里没见过的二元组，比如「狗 喜欢 猫」，其中 $C(\text{狗 喜欢}) = 0$，整句概率立刻归零——这正是下一节稀疏性问题的现场。
 
 ## 5 从模型生成句子
 
-n-gram 模型不仅能打分，还能**生成**：从 `<s>` 出发，每次按 $P(w_i \mid w_{i-1})$ 采样下一个词，直到碰到 `</s>` 为止。用上面的语料做贪心生成：
+n-gram 模型不仅能打分，还能**生成**：从 $\text{〈s〉}$ 出发，每次按 $P(w_i \mid w_{i-1})$ 采样下一个词，直到碰到 $\text{〈/s〉}$ 为止。用上面的语料做贪心生成：
 
-1. 从 `<s>` 出发：$P(\text{猫}|\text{〈s〉}) = 2/3$ 最高，选「猫」。
+1. 从 $\text{〈s〉}$ 出发：$P(\text{猫}|\text{〈s〉}) = 2/3$ 最高，选「猫」。
 2. 给定「猫」：$P(\text{坐在}|\text{猫}) = 1$，必选「坐在」。
 3. 给定「坐在」：「垫子」与「地板上」各 0.5，随机挑一个。
 
 这个生成过程可以用几十行 Python 复现：
 
 ```python
-from collections import Counter, defaultdict
+from collections import defaultdict
 
-corpus = [["<s>", "猫", "坐在", "垫子", "上", "</s>"],
-          ["<s>", "猫", "喜欢", "鱼", "</s>"],
-          ["<s>", "狗", "坐在", "地板上", "</s>"]]
+corpus = [
+    "〈s〉 猫 坐在 垫子 上 〈/s〉",
+    "〈s〉 猫 坐在 地板上 〈/s〉",
+    "〈s〉 小猫 玩 毛线球 〈/s〉",
+]
 
-bigrams = Counter()
-unigrams = Counter()
-for s in corpus:
-    unigrams[s[0]] += 1
-    for w in s[1:]:
-        unigrams[w] += 1
-    for i in range(1, len(s)):
-        bigrams[(s[i-1], s[i])] += 1
+# 统计二元组计数
+counts = defaultdict(int)
+for sent in corpus:
+    words = sent.split()
+    for w1, w2 in zip(words, words[1:]):
+        counts[(w1, w2)] += 1
 
-def prob(w2, w1):
-    return bigrams[(w1, w2)] / unigrams[w1]
+def next_candidates(w):
+    """给定前一个词，返回 (后续词, 条件概率) 的候选列表。"""
+    total = sum(c for (w1, _), c in counts.items() if w1 == w)
+    return [(w2, c / total) for (w1, w2), c in counts.items() if w1 == w]
 
-print(prob("坐在", "猫"))   # 1.0
-print(prob("垫子", "坐在")) # 0.5
+def greedy_generate():
+    w, sent = "〈s〉", []
+    while w != "〈/s〉":
+        cands = next_candidates(w)
+        w = max(cands, key=lambda t: t[1])[0]   # 贪心：取概率最大的下一个词
+        sent.append(w)
+    return " ".join(sent[:-1])                   # 去掉句尾标记
+
+print(greedy_generate())                         # 猫 坐在 垫子 上
 ```
 
 「从模型中采样句子」的能力，让 n-gram 在语音识别、输入法、文本补全里都是可用的生成器——直到神经网络语言模型用同样的「预测下一个词」框架把它超越，那是第四篇第六节 NNLM 的内容。
@@ -144,7 +153,7 @@ print(prob("垫子", "坐在")) # 0.5
 
 - **马尔可夫假设**把词的历史截短为最近 $n-1$ 个词，换来可计算性；n 越大越精确但越稀疏。
 - **n-gram 模型**把链式法则与马尔可夫假设结合：一元 $\prod P(w_i)$，二元 $\prod P(w_i|w_{i-1})$，三元 $\prod P(w_i|w_{i-2}w_{i-1})$。
-- **句首尾标记** `<s>`、`</s>` 让第一个词的起点与句子的终点有了定义。
+- **句首尾标记** $\text{〈s〉}$、$\text{〈/s〉}$ 让第一个词的起点与句子的终点有了定义。
 - **极大似然估计**给出 $P(w_i|w_{i-1}) = \frac{C(w_{i-1} w_i)}{C(w_{i-1})}$，即相对频率；分母必须是前词的计数。
 - 未见二元组会让整句概率归零，**数据平滑**是下一站。
 

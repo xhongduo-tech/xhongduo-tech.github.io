@@ -26,7 +26,7 @@ date: 2026-08-07
 
 $$q = \text{round}\left(\frac{x}{s}\right) + z, \qquad \hat{x} = s \cdot (q - z)$$
 
-其中 $s$ 是**缩放因子（scale）**，$z$ 是**零点（zero-point）**。$q$ 的取值被限制在一个整数范围（如 INT8 的 $[-128, 127]$）。<span class="marginnote">注意 <code>round</code> 是<strong>逐值舍入</strong>，它引入的是不可恢复的量化误差；<code>clip</code> 是把超出范围的数值硬切到边界。两者是量化的两大误差来源。</span>
+其中 $s$ 是**缩放因子（scale）**，$z$ 是**零点（zero-point）**。$q$ 的取值被限制在一个整数范围（如 INT8 的 $[-128, 127]$）。<span class="marginnote">注意 <code>round</code>` 是<strong>逐值舍入</strong>，它引入的是不可恢复的量化误差；<code>clip</code>` 是把超出范围的数值硬切到边界。两者是量化的两大误差来源。</span>
 
 当 $z = 0$ 时叫**对称量化**，映射是纯缩放，$q = \text{round}(x/s)$，反量化 $\hat{x} = s \cdot q$；当 $z \neq 0$ 时叫**非对称量化**，多了零点补偿。
 
@@ -36,8 +36,8 @@ $$q = \text{round}\left(\frac{x}{s}\right) + z, \qquad \hat{x} = s \cdot (q - z)
 
 量化误差可以用一个分解看清来源。设浮点值 $x$ 落在 $[x_{\min}, x_{\max}]$ 之外的部分被 clip，之内被 round：
 
-- **Clip 误差**：超出 $[x_{\min}, x_{\max}]$ 的**离群值（outlier）**被强行切到边界。若离群值数量多、幅度大，误差爆炸。
-- **Round 误差**：范围内每个值被舍入到最近的量化格点，单点误差最多半个步长 $\Delta/2$，其中步长 $\Delta = s$（对称情形）。**步长越小（量化格点越密），round 误差越小**。
+**Clip 误差**：超出 $[x_{\min}, x_{\max}]$ 的**离群值（outlier）**被强行切到边界。若离群值数量多、幅度大，误差爆炸。
+**Round 误差**：范围内每个值被舍入到最近的量化格点，单点误差最多半个步长 $\Delta/2$，其中步长 $\Delta = s$（对称情形）。**步长越小（量化格点越密），round 误差越小**。
 
 这两类误差是此消彼长的：把 $[x_{\min}, x_{\max}]$ 范围扩大以包住更多离群值，会让步长变大、round 误差变差；缩小范围，离群值的 clip 误差变差。**最优的 scale 是「让总误差最小」的平衡点**——这是所有量化校准算法的共同出发点。<span class="marginnote">校准（calibration）就是统计真实数据分布、选出一个让两类误差总和小化的 scale。不同算法（MinMax、百分位、MSE、KL 散度）本质是<strong>对「什么样的误差不可接受」的不同建模</strong>。</span>
 

@@ -93,9 +93,9 @@ $$
 
 DFG 三件套之上，现代 PBR 材质系统加了更多层：
 
-- **各向异性 $D$**：用两个粗糙度（$\alpha_x \ne \alpha_y$）刻画拉丝金属、头发（下一节）。
-- **多层材质**：清漆（clearcoat）叠加在基础 DFG 之上（车漆 = 粗糙清漆 + 底层金属）。
-- **纹理参数**：base color、roughness、metallic、normal、AO 五张贴图驱动 DFG 的参数。
+**各向异性 $D$**：用两个粗糙度（$\alpha_x \ne \alpha_y$）刻画拉丝金属、头发（下一节）。
+**多层材质**：清漆（clearcoat）叠加在基础 DFG 之上（车漆 = 粗糙清漆 + 底层金属）。
+**纹理参数**：base color、roughness、metallic、normal、AO 五张贴图驱动 DFG 的参数。
 
 从「一个公式」到「一套系统」，DFG 始终是核心引擎——材质系统的所有旋钮，最终都是 DFG 三个因子的参数化。<span class="marginnote">PBR 材质的终点是「参数化 DFG」：<strong>五张贴图 + DFG 公式 = 几乎无限的外观空间</strong>。Disney 的 principled BRDF、UE 的 PBR、Blender 的 Principled BSDF，都是「DFG + 参数」的工程封装。理解 DFG，你就读懂了所有 PBR 材质系统——它们只是参数不同，骨架相同。</span>
 

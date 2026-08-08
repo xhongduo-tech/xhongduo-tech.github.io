@@ -69,9 +69,9 @@ $$
 
 设 $x_k$ 逼近不动点 $r$，误差 $e_k$。
 
-- **第一步，写出三值。** $y_k=\varphi(x_k)$，误差 $e_k^{(y)}\approx\varphi'(r)e_k+\cdots$；$z_k=\varphi(y_k)$，误差 $\approx\varphi'(r)^2e_k+\cdots$。
-- **第二步，套埃特肯。** 埃特肯公式消线性项，剩下 $e_{k+1}\approx\dfrac{\varphi''(r)}{2}\,e_k^2\cdot(\text{组合系数})$——**二次项主导**。
-- **第三步，收敛阶。** $|e_{k+1}|\le C|e_k|^2$——**二次收敛**。
+**第一步，写出三值。** $y_k=\varphi(x_k)$，误差 $e_k^{(y)}\approx\varphi'(r)e_k+\cdots$；$z_k=\varphi(y_k)$，误差 $\approx\varphi'(r)^2e_k+\cdots$。
+**第二步，套埃特肯。** 埃特肯公式消线性项，剩下 $e_{k+1}\approx\dfrac{\varphi''(r)}{2}\,e_k^2\cdot(\text{组合系数})$——**二次项主导**。
+**第三步，收敛阶。** $|e_{k+1}|\le C|e_k|^2$——**二次收敛**。
 
 **对比牛顿法**：牛顿法每步 2 次求值（$f$ 与 $f'$），二次收敛；斯特芬森每步 2 次求值（$\varphi$ 两次），也二次收敛。**两者「效率指数」相当，但斯特芬森不需要算导数**——这就是它的价值。<span class="marginnote">效率对照：<strong>牛顿「二次收敛但每步要导数」，斯特芬森「二次收敛且免导数」</strong>——在导数难算或不可得时（黑箱函数），斯特芬森是牛顿的完美替身。它是「免导数牛顿法」的经典代表。</span>
 
@@ -79,18 +79,22 @@ $$
 
 ```python
 def steffensen(phi, x0, tol=1e-10, max_iter=100):
+    """斯特芬森迭代：每步两次 φ 求值，套埃特肯公式，二次收敛且免导数。"""
     x = x0
-    for k in range(max_iter):
+    for _ in range(max_iter):
         y = phi(x)
         z = phi(y)
-        denom = z - 2*y + x
-        if abs(denom) < 1e-300:        # 防止除零（可能已达根）
-            return x, k
-        x_new = x - (y - x)**2 / denom
+        denom = z - 2*y + x                 # Δ²x
+        if abs(denom) < 1e-15:              # 防止除零（奇异不动点）
+            break
+        x_new = x - (y - x)**2 / denom      # 埃特肯公式
         if abs(x_new - x) < tol:
-            return x_new, k + 1
+            return x_new
         x = x_new
-    raise RuntimeError("不收敛")
+    return x
+
+# 例：x = (x+1)^(1/3)，根 ≈ 1.32472，两步即到 10⁻¹⁰ 量级
+print(steffensen(lambda x: (x + 1) ** (1/3), 1.0))
 ```
 
 **适用边界**：

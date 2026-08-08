@@ -24,13 +24,7 @@ date: 2026-08-07
 
 TLS 不是一个「第 X 层」协议——它**介于应用层与运输层之间**：<span class="marginnote"><strong>TLS 的位置</strong>：对应用层（HTTP）而言，TLS 是「安全的传输管道」；对运输层（TCP）而言，TLS 是「它的一个用户」。所以 HTTPS = HTTP（应用）+ TLS（安全）+ TCP（传输）。<strong>TLS 把「加密」从应用层下沉到「运输层之上」</strong>——任何应用协议（HTTP、FTP、SMTP）都可以套上 TLS 获得加密（HTTPS、FTPS、SMTPS）。<strong>「TLS 是给应用协议加的一层安全外套」</strong>。</span>
 
-```
-应用层：HTTP
-  ↑
-TLS/SSL（加密、认证）
-  ↑
-运输层：TCP
-```
+从协议栈的角度看，一次 HTTPS 请求的报文是层层包裹的：**HTTP 报文 →（TLS 加密，变成 TLS 记录）→ TCP 报文段 → IP 数据报 → 以太网帧**。对 TCP 而言，它看不到任何加密痕迹，TLS 只是又一个「应用数据」；对 HTTP 而言，它把数据交给 TLS 就不再操心安全。**TLS 的透明性正是它的设计目标**——加一层安全外套，却不改变上下的接口。
 
 **辨析｜易错点：** TLS 与 HTTP 的关系是「HTTPS = HTTP over TLS」——不是「TLS 是 HTTP 的一部分」。**「TLS 可被任何应用协议复用」**是它的通用性所在。另一个易错点：**TLS 不能「自己跑」**——它必须跑在某个可靠传输（TCP）之上，本身不提供传输功能。
 

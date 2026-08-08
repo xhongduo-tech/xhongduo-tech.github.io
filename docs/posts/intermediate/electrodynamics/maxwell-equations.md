@@ -77,9 +77,9 @@ $$c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} \approx 2.998 \times 10^8\ \mathrm{m/s
 
 核心步骤是把「无散条件」化为「存在性」，拆成三步：
 
-- **第一步，取散度暴露矛盾**：对安培定理 $\nabla\times\mathbf{B} = \mu_0\mathbf{J}$ 两边取散度，左边为零（旋度无散），右边 $\propto \nabla\cdot\mathbf{J}$。于是方程要求 $\nabla\cdot\mathbf{J} = 0$，与连续性方程矛盾——除非 $\rho$ 恒定。安培定理只在静磁情形成立。
-- **第二步，利用高斯定理改写**：$\nabla\cdot\mathbf{D} = \rho$，于是 $\partial\rho/\partial t = \nabla\cdot(\partial\mathbf{D}/\partial t)$。连续性方程变成 $\nabla\cdot(\mathbf{J} + \partial\mathbf{D}/\partial t) = 0$——括号里这个量自动无散。
-- **第三步，替换无散源**：因为旋度场的散度恒为零，而物理上磁场只由无散的量产生，把 $\mathbf{J}$ 换成「$\mathbf{J} + \partial\mathbf{D}/\partial t$」后，安培定理与电荷守恒不再冲突。麦克斯韦的洞见在于：**当数学结构自相矛盾时，问题不在数学，而在物理模型漏掉了一项**。<span class="marginnote">这类「由逻辑自洽性发现新物理」的例子在理论物理中反复出现：狄拉克方程、中微子（泡利）、正电子（狄拉克）都是先由方程的自洽性预言，后被实验证实。麦克斯韦位移电流是这一方法论的第一个伟大胜利。</span>
+**第一步，取散度暴露矛盾**：对安培定理 $\nabla\times\mathbf{B} = \mu_0\mathbf{J}$ 两边取散度，左边为零（旋度无散），右边 $\propto \nabla\cdot\mathbf{J}$。于是方程要求 $\nabla\cdot\mathbf{J} = 0$，与连续性方程矛盾——除非 $\rho$ 恒定。安培定理只在静磁情形成立。
+**第二步，利用高斯定理改写**：$\nabla\cdot\mathbf{D} = \rho$，于是 $\partial\rho/\partial t = \nabla\cdot(\partial\mathbf{D}/\partial t)$。连续性方程变成 $\nabla\cdot(\mathbf{J} + \partial\mathbf{D}/\partial t) = 0$——括号里这个量自动无散。
+**第三步，替换无散源**：因为旋度场的散度恒为零，而物理上磁场只由无散的量产生，把 $\mathbf{J}$ 换成「$\mathbf{J} + \partial\mathbf{D}/\partial t$」后，安培定理与电荷守恒不再冲突。麦克斯韦的洞见在于：**当数学结构自相矛盾时，问题不在数学，而在物理模型漏掉了一项**。<span class="marginnote">这类「由逻辑自洽性发现新物理」的例子在理论物理中反复出现：狄拉克方程、中微子（泡利）、正电子（狄拉克）都是先由方程的自洽性预言，后被实验证实。麦克斯韦位移电流是这一方法论的第一个伟大胜利。</span>
 
 ## 5 从方程组看电磁学的统一图景
 

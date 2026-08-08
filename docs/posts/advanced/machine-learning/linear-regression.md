@@ -75,9 +75,7 @@ $$\hat{\mathbf{w}}^* = (\mathbf{X}^{\mathrm{T}}\mathbf{X})^{-1} \mathbf{X}^{\mat
 ```python
 import numpy as np
 
-# X: m×(d+1) 设计矩阵（末列全 1，吸收偏置）；y: 长度 m 的目标向量
-X = np.column_stack([features, np.ones(len(features))])
-w_hat = np.linalg.inv(X.T @ X) @ X.T @ y   # 解析解，一行完成
+w_hat = np.linalg.inv(X.T @ X) @ X.T @ y   # 解析解：w* = (XᵀX)⁻¹ Xᵀ y
 ```
 
 **重点：解析解要求 $\mathbf{X}^{\mathrm{T}}\mathbf{X}$ 可逆（满秩）。** 现实中属性数 $d$ 大于样本数 $m$ 时，$\mathbf{X}$ 不是列满秩，$\mathbf{X}^{\mathrm{T}}\mathbf{X}$ 奇异，$\hat{\mathbf{w}}^*$ 不再是唯一解——此时可以引入**正则化项**（第 11 章讲 L1/L2 正则时会展开），也可以求伪逆挑一个解。这是「用矩阵角度看机器学习」第一次显现威力：解的存在性、唯一性，全由矩阵的秩决定。
@@ -98,7 +96,7 @@ $$\ln y = \mathbf{w}^{\mathrm{T}} \mathbf{x} + b, \qquad \text{即 } y = e^{\mat
 
 ## 5 回归之后，还要追问两件事拿到解析解不等于万事大吉，还有两个工程现实问题值得记下：
 
-- **数值稳定性**：$\mathbf{X}^{\mathrm{T}}\mathbf{X}$ 即使可逆，当属性高度相关时也可能病态（接近奇异），直接求逆会放大数值误差。工程上更稳妥的做法是用 `np.linalg.lstsq` 或 QR 分解，而不是手写 `inv(X.T @ X)`。这也是为什么 scikit-learn 的 `LinearRegression` 内部用的是最小二乘求解器而非显式求逆。<span class="marginnote">条件数（condition number）刻画「矩阵有多接近奇异」：它越大，微小扰动对解的影响越大。数值分析里这是头号主题（见第二级《数值分析》），机器学习里它的影子藏在每一次「矩阵求逆」背后。</span>
+**数值稳定性**：$\mathbf{X}^{\mathrm{T}}\mathbf{X}$ 即使可逆，当属性高度相关时也可能病态（接近奇异），直接求逆会放大数值误差。工程上更稳妥的做法是用伪逆 `np.linalg.pinv`（基于 SVD）或 QR 分解，而不是手写 `np.linalg.inv`（显式求逆）。这也是为什么 scikit-learn 的 `LinearRegression` 内部用的是最小二乘求解器而非显式求逆。<span class="marginnote">条件数（condition number）刻画「矩阵有多接近奇异」：它越大，微小扰动对解的影响越大。数值分析里这是头号主题（见第二级《数值分析》），机器学习里它的影子藏在每一次「矩阵求逆」背后。</span>
 - **过拟合风险**：解析解保证了「在训练集上误差最小」，但训练误差小不等于泛化好——这正是第二章《经验误差与过拟合》埋下的伏笔。特征一多、数据一少，$\mathbf{X}^{\mathrm{T}}\mathbf{X}$ 奇异或近乎奇异，模型就会开始「背答案」。解法是加正则化（第 11 章）或引入偏差-方差的权衡（第二章）。
 
 **重点：线性回归的价值不在「它是最准的模型」，而在它是「第一个把学习问题彻底解干净的模型」。** 目标函数、凸性、解析解、正则化的必要性——这一整套因果链条，在更复杂的模型里被噪音掩盖，在这里纤毫毕现。

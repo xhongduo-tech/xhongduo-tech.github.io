@@ -38,7 +38,7 @@ H\lvert 0\rangle = \frac{\lvert 0\rangle + \lvert 1\rangle}{\sqrt{2}} = \lvert +
 H\lvert 1\rangle = \frac{\lvert 0\rangle - \lvert 1\rangle}{\sqrt{2}} = \lvert -\rangle
 $$
 
-$\lvert +\rangle$ 与 $\lvert -\rangle$ 合称 **X 基**（或对角基），因为它们是 X 门的两个本征态（特征值 $+1$ 与 $-1$，见上一篇）。**重点：H 把计算基「旋转」到 X 基，又因为 $H^2 = I$，它再作用一次就把自己变回去**——所以 H 既能把叠加态「制造」出来，也能把叠加态「拆」回计算基。这一来一回正是干涉实验的标准剧本：`H → 中间任意幺正门 → H` 的夹层结构，就是几乎所有量子算法的骨架。
+$\lvert +\rangle$ 与 $\lvert -\rangle$ 合称 **X 基**（或对角基），因为它们是 X 门的两个本征态（特征值 $+1$ 与 $-1$，见上一篇）。**重点：H 把计算基「旋转」到 X 基，又因为 $H^2 = I$，它再作用一次就把自己变回去**——所以 H 既能把叠加态「制造」出来，也能把叠加态「拆」回计算基。这一来一回正是干涉实验的标准剧本：$\lvert -\rangle$ 的夹层结构，就是几乎所有量子算法的骨架。
 
 在布洛赫球上，H 是绕「$x$ 轴与 $z$ 轴之间的对角线」转 $\pi$ 弧度的旋转：它把北极 $\lvert 0\rangle$ 送到赤道上的 $\lvert +\rangle$ 点，把南极 $\lvert 1\rangle$ 送到对面的 $\lvert -\rangle$ 点。<span class="marginnote">H 的旋转轴是 $\hat n = (\hat x + \hat z)/\sqrt{2}$，也就是布洛赫球上「东北方向」那条半径。为什么是 $\pi$？因为 $H^2 = I$ 而一次 H 显然不是恒等，所以它必然是「转半圈」——转半圈两次等于转一圈回到原处，这是对 $H^2 = I$ 最直接的几何理解。</span>
 
@@ -126,13 +126,14 @@ $$
 
 为什么 T 格外重要？在容错量子计算里，只有 Clifford 门（H、S、CNOT、Pauli）能「廉价」地容错实现，而 T 门不是 Clifford 门——它无法被稳定子码的容错框架直接保护。因此一个算法的成本常常用 **T-count（T 门总个数）** 来估计。这解释了为什么 QFT、Shor 算法在文献里总是被反复优化「减少 T 门」——不是 T 门本身贵，而是它承载了「突破 Clifford 能力」的全部重担。
 
-**辨析｜易错点：** 全局相位与相对相位不能混淆。$S$ 与 $e^{i\pi/4}S$ 在物理上等价（全局相位不可观测），但 $S$ 与「只给 $\lvert 1\rangle$ 加相位」的相对相位门完全不同。一个直观的判别法：**全局相位作用在每一个分量上、可以被整体提取；相对相位只作用在某些分量上、改变分量之间的干涉关系**。写代码时，Qiskit 的 `s` 门是相对相位门；若手滑写成了 `p(pi/2)`（作用于全局）再套测量，就会得到错误的统计分布。
+**辨析｜易错点：** 全局相位与相对相位不能混淆。$S$ 与 $e^{i\pi/4}S$ 在物理上等价（全局相位不可观测），但 $S$ 与「只给 $\lvert 1\rangle$ 加相位」的相对相位门完全不同。一个直观的判别法：**全局相位作用在每一个分量上、可以被整体提取；相对相位只作用在某些分量上、改变分量之间的干涉关系**。写代码时，Qiskit 的 $S$ 门是给 $\lvert 1\rangle$ 加相位 $i$ 的相对相位门，会改变叠加态后续的干涉；而若只设线路的 $\lvert 1\rangle$（给整个态乘一个全局相位），测量分布完全不变——这正是「相对相位改变干涉、全局相位不改变测量」的代码版印证。
 
 ## 5 一个可运行的示例（Qiskit）
 
 用 Qiskit 验证 H、S、T 的矩阵作用，并检查 $H^2 = I$：
 
 ```python
+import numpy as np
 from qiskit import QuantumCircuit
 from qiskit.quantum_info import Operator, Statevector
 
@@ -151,7 +152,7 @@ H = Operator(QuantumCircuit(1).h(0)).data
 print("H² 与 I 一致：", (H @ H - np.eye(2) < 1e-12).all())
 ```
 
-对照理论：$H\lvert 0\rangle = [1,1]/\sqrt{2}$、$H\lvert 1\rangle = [1,-1]/\sqrt{2}$、$S\lvert 1\rangle = [0,i]$、$T\lvert 1\rangle = [0, e^{i\pi/4}]$。这些数串就是「制造叠加」与「切分相位」的全部秘密——把 H 放上线路，`H` 后跟任意门、再跟 `H`，就构成了干涉的骨架。
+对照理论：$H\lvert 0\rangle = [1,1]/\sqrt{2}$、$H\lvert 1\rangle = [1,-1]/\sqrt{2}$、$S\lvert 1\rangle = [0,i]$、$T\lvert 1\rangle = [0, e^{i\pi/4}]$。这些数串就是「制造叠加」与「切分相位」的全部秘密——把 H 放上线路，H 后跟任意门、再跟 H，就构成了干涉的骨架。
 
 ## 6 小结
 

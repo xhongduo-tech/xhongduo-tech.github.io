@@ -24,14 +24,14 @@ date: 2026-08-07
 
 - **分片**：数据按主键分层（目录 + 表），每个分片（tablet）一组。
 - **复制**：每个分片用 **Paxos 组**复制（第 16 章共识）——多数派确认写。
-- **数据分层**：`INTERLEAVE IN PARENT` 让「同一实体的多表数据」物理相邻（**位置关联**）——跨表但同分片的读取/事务快。
+- **数据分层**：交错表（interleaved table）让「同一实体的多表数据」物理相邻（**位置关联**）——跨表但同分片的读取/事务快。
 - **全球部署**：数据跨洲复制，读走就近副本。
 
 **核心要点：Spanner = 分片 × Paxos 复制 × 全局元数据（Bigtable 式分层）。** 它是「BigTable 的分片能力 + 数据库的 SQL/事务」——用 Paxos 保证每片强一致，用 2PC 协调跨片事务，用 TrueTime 给整体线性一致。
 
 ## 2 TrueTime API
 
-**TrueTime**：给系统提供**带误差边界**的全局时间。`TT.now()` 返回区间 `[earliest, latest]`：
+**TrueTime**：给系统提供**带误差边界**的全局时间。`TT.now()` 返回区间 `[t_earliest, t_latest]`：
 
 $$
 TT.now() = [t_{earliest}, t_{latest}], \qquad \text{误差 } \epsilon = t_{latest} - t_{earliest}

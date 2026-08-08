@@ -38,20 +38,19 @@ date: 2026-08-08
 
 **GLSL**（OpenGL Shading Language）与 **HLSL**（High-Level Shading Language，DirectX）是两大主流着色器语言。它们的结构相似：
 
-- **main 函数**：入口，处理一个顶点/片元。
-- **in/out 变量**：输入与输出（顶点属性输入、插值变量传递）。
-- **uniform**：全局常量（每帧从 CPU 传入：矩阵、光源、时间）。
-- **内置变量**：`gl_Position`（顶点位置）、`gl_FragColor`（片元颜色）。
+**main 函数**：入口，处理一个顶点/片元。
+**in/out 变量**：输入与输出（顶点属性输入、插值变量传递）。
+**uniform**：全局常量（每帧从 CPU 传入：矩阵、光源、时间）。
+**内置变量**：`gl_Position`（顶点位置）、`gl_FragColor`（片元颜色，现代 GLSL 多用自定义 out 变量）。
 
 一个最小片元着色器（GLSL）：
 
 ```glsl
 #version 330 core
-in vec3 v_color;          // 从顶点着色器插值来的颜色
-out vec4 FragColor;       // 输出片元颜色
+out vec4 FragColor;
 
 void main() {
-    FragColor = vec4(v_color, 1.0);
+    FragColor = vec4(1.0, 0.5, 0.2, 1.0);   // 输出一个橙色的片元
 }
 ```
 
@@ -74,28 +73,31 @@ void main() {
 
 ```glsl
 #version 330 core
-layout(location = 0) in vec3 aPos;    // 模型空间位置
-uniform mat4 model, view, proj;       // 变换矩阵
+layout(location = 0) in vec3 aPos;   // 顶点位置（模型空间）
+
+uniform mat4 uModel;       // 局部 → 世界
+uniform mat4 uView;        // 世界 → 相机
+uniform mat4 uProjection;  // 相机 → NDC
 
 void main() {
-    gl_Position = proj * view * model * vec4(aPos, 1.0);
+    gl_Position = uProjection * uView * uModel * vec4(aPos, 1.0);
 }
 ```
 
-- **第一步，顶点属性**：`aPos` 是顶点在模型空间的坐标，来自顶点缓冲。
-- **第二步，变换链**：`model`（局部→世界）→ `view`（世界→相机）→ `proj`（相机→NDC），三个矩阵从右往左作用——这正是《变换》篇的完整链条。
-- **第三步，输出**：`gl_Position` 是 NDC 坐标，光栅化器据此遍历三角形、插值属性。
+**第一步，顶点属性**：`aPos` 是顶点在模型空间的坐标，来自顶点缓冲。
+**第二步，变换链**：`uModel`（局部→世界）→ `uView`（世界→相机）→ `uProjection`（相机→NDC），三个矩阵从右往左作用——这正是《变换》篇的完整链条。
+**第三步，输出**：`gl_Position` 是 NDC 坐标，光栅化器据此遍历三角形、插值属性。
 
-**辨析｜易错点：** 着色器的**精度**与**平台差异**是经典坑：移动端 GLSL 的 `mediump/highp` 精度声明、HLSL 的 `float/half` 选择——精度不足导致颜色带、闪烁。另一个坑：**uniform 对齐**——CPU 传入的 uniform 缓冲要按 GPU 的对齐规则打包，错位会让矩阵「读歪」。
+**辨析｜易错点：** 着色器的**精度**与**平台差异**是经典坑：移动端 GLSL 的 `mediump`/`highp` 精度声明、HLSL 的 `half`/`float` 精度选择——精度不足导致颜色带、闪烁。另一个坑：**uniform 对齐**——CPU 传入的 uniform 缓冲要按 GPU 的对齐规则打包，错位会让矩阵「读歪」。
 
 ## 5 着色器风格：从「画一个像素」到「写一种风格」
 
 着色器的威力在于它把「渲染风格」变成代码：
 
-- **PBR 着色器**：读材质贴图、算 Cook-Torrance、查 IBL——一行行实现《材质》篇的公式。
-- **卡通着色**：对漫反射做阶梯量化（色阶）、描边——风格化的「toon shading」。
-- **全屏后处理**：片元着色器处理「整帧纹理」——色调映射、模糊、发光。
-- **程序纹理**：片元着色器用噪声函数生成颜色——上一节《程序纹理》的运行时版。
+**PBR 着色器**：读材质贴图、算 Cook-Torrance、查 IBL——一行行实现《材质》篇的公式。
+**卡通着色**：对漫反射做阶梯量化（色阶）、描边——风格化的「toon shading」。
+**全屏后处理**：片元着色器处理「整帧纹理」——色调映射、模糊、发光。
+**程序纹理**：片元着色器用噪声函数生成颜色——上一节《程序纹理》的运行时版。
 
 「着色器 = 渲染效果的可编程表达」——同一条管线上，换一个着色器就换一种画风。<span class="marginnote">「着色器让渲染从『效果』变成『代码』」：<strong>同样是光栅化管线，卡通着色器画出二次元、PBR 着色器画出写实、屏幕着色器画出抽象——渲染风格完全由着色器决定</strong>。这也是为什么引擎的「材质系统」本质是「着色器 + 参数的集合」——程序员写着色器模板，美术填参数，各司其职。</span>
 
@@ -103,16 +105,16 @@ void main() {
 
 着色器只是 GPU 编程的入口，现代 GPU 编程是完整的生态：
 
-- **着色器语言**：GLSL、HLSL、还有可编译到多后端的 **HLSL→SPIR-V 工具链**（如 DXC）。
-- **计算着色器**：通用并行计算（物理、粒子、AI 推理）——GPU 从「渲染器」变成「通用处理器」。
-- **Compute API**：CUDA、OpenCL 直接面向通用计算（下一节）。
+**着色器语言**：GLSL、HLSL、还有可编译到多后端的 **HLSL→SPIR-V 工具链**（如 DXC）。
+**计算着色器**：通用并行计算（物理、粒子、AI 推理）——GPU 从「渲染器」变成「通用处理器」。
+**Compute API**：CUDA、OpenCL 直接面向通用计算（下一节）。
 
 着色器语言与现代计算语言的界限越来越模糊——「在 GPU 上写代码」是现代软件工程的核心技能之一。<span class="marginnote">「GPU 编程的『一体两面』：<strong>渲染侧用着色器语言（GLSL/HLSL，面向图形管线），通用计算侧用 CUDA/Compute Shader（面向数据并行）</strong>」——两者的硬件（SM/CUDA 核）相同，只是「面向的抽象」不同。下一节我们把视角从「渲染」转向「通用计算」，看 GPU 如何成为「并行计算的发动机」。</span>
 
 ## 7 小结
 
 - 可编程阶段：**顶点 / 细分 / 几何 / 片元 / 计算**着色器，把固定管线变成可编程。
-- **GLSL / HLSL**：着色器语言，`main` + `in/out` + `uniform` 的结构，数据并行。
+- **GLSL / HLSL**：着色器语言，`main` 入口 + in/out 变量 + uniform 的结构，数据并行。
 - 编译链：源码 → IR → 字节码（SPIR-V/DXIL）→ 硬件指令；预编译解决运行时卡顿。
 - 顶点着色器执行《变换》篇的完整矩阵链；片元着色器执行光照/纹理/后处理。
 - 着色器 = 渲染风格的可编程表达；GPU 编程从渲染走向通用计算（下一节）。

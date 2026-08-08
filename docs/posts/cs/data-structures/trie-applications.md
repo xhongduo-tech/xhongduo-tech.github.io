@@ -39,20 +39,20 @@ date: 2026-08-07
    - 不存在 → 走同向位，该位异或得 0；
 3. 从高位到低位贪心，得到与 $a[i]$ 异或最大的配对。
 
-```c
-int QueryMaxXor(int x) {
-    int u = 0, res = 0;
-    for (int bit = 30; bit >= 0; bit--) {
-        int b = (x >> bit) & 1;              /* x 的这一位 */
-        int want = b ^ 1;                    /* 想要相反的位 */
-        if (pool[u].next[want]) {            /* 相反位存在 */
-            res |= (1 << bit);               /* 这一位异或得 1 */
-            u = pool[u].next[want];
+```cpp
+int query(int x) {                    /* 在二进制 Trie 里找与 x 异或最大的数 */
+    int p = 0, ans = 0;
+    for (int b = 30; b >= 0; b--) {   /* 从高位到低位贪心 */
+        int bit = (x >> b) & 1;
+        int want = bit ^ 1;           /* 想要相反位，使该位异或得 1 */
+        if (ch[p][want]) {            /* 相反位存在 → 走它 */
+            p = ch[p][want];
+            ans |= (1 << b);
         } else {
-            u = pool[u].next[b];             /* 只能走同向位 */
+            p = ch[p][bit];           /* 不存在 → 走同向位 */
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -68,10 +68,10 @@ $$
 
 ## 3 变体：异或最小值、区间异或
 
-- **异或最小值**：反向贪心——每一步尽量走同向位（异或结果尽量 0）；
-- **区间异或最大值**：利用异或性质 $a[l..r]$ 的异或 = 前缀异或 $p[r] \oplus p[l-1]$——问题变成「在 $p$ 数组里找最大异或对」，用二进制 Trie + 滑动/分治。
+**异或最小值**：反向贪心——每一步尽量走同向位（异或结果尽量 0）；
+**区间异或最大值**：利用异或性质 $a[l..r]$ 的异或 = 前缀异或 $p[r] \oplus p[l-1]$——问题变成「在 $p$ 数组里找最大异或对」，用二进制 Trie + 滑动/分治。
 
-**重点：异或类问题的通用套路是「前缀异或 + 二进制 Trie」**——把「区间异或」转成「两个前缀异或的异或」，再用 Trie 找最大对。<span class="marginnote">「<strong>区间异或 → 前缀异或 → 二进制 Trie</strong>」是一条万能链：<strong>$a[l..r]$ 的异或 = $p[r] \oplus p[l-1]$</strong>——<strong>区间问题化成「点对问题」，点对问题交给 Trie</strong>。这串翻译在 LeetCode 高频题里反复出现。</span>
+**重点：异或类问题的通用套路是「前缀异或 + 二进制 Trie」**——把「区间异或」转成「两个前缀异或的异或」，再用 Trie 找最大对。<span class="marginnote">「<strong>区间异或 → 前缀异或 → 二进制 Trie</strong>`」是一条万能链：<strong>$a[l..r]$ 的异或 = $p[r] \oplus p[l-1]$</strong>——<strong>区间问题化成「点对问题」，点对问题交给 Trie</strong>`。这串翻译在 LeetCode 高频题里反复出现。</span>
 
 ## 4 Trie 应用总览
 
@@ -88,9 +88,9 @@ $$
 
 ## 5 从 Trie 到更复杂的字符串结构
 
-- **AC 自动机（Aho-Corasick）**：Trie + 失配指针——多模式串同时匹配，是 Trie 的进阶；
-- **可持久化 Trie**：每个版本一棵树——支持「历史查询」「区间内找最大异或」；
-- **后缀 Trie / 后缀树**：把后缀建进 Trie——字符串匹配与子串问题的高级结构。
+**AC 自动机（Aho-Corasick）**：Trie + 失配指针——多模式串同时匹配，是 Trie 的进阶；
+**可持久化 Trie**：每个版本一棵树——支持「历史查询」「区间内找最大异或」；
+**后缀 Trie / 后缀树**：把后缀建进 Trie——字符串匹配与子串问题的高级结构。
 
 **重点：Trie 是「字符串数据结构的起点」**——AC 自动机、后缀树、可持久化 Trie 都在它的基础上加料。学好 Trie，是通向字符串算法王国的门票。<span class="marginnote">「<strong>Trie 是字符串算法族的地基</strong>」：<strong>AC 自动机 = Trie + 失配指针（多模式匹配），后缀树 = 所有后缀的压缩 Trie</strong>。<strong>把 Trie 的「沿字符走」学到家，再学这些进阶结构就是「加一个机制」的事</strong>。</span>
 

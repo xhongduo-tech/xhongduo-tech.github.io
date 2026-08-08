@@ -112,13 +112,16 @@ $$
 $\alpha/|\alpha|$ 只是一个模长为 1 的整体相位，不影响任何可观测量，所以后测态就是 $|0\rangle$——**态塌缩到了测得的那个基态**，另一个分量的信息 $\beta$ 在这一瞬间永远丢失。这个"丢了 $\beta$"的不可逆性，正是量子计算里"测量破坏叠加"的数学原因，也是《量子隐形传态》里我们既要用测量又要想尽办法少丢信息的根源。用 Qiskit 可以统计地验证这个概率：
 
 ```python
-from qiskit import QuantumCircuit, Aer, execute
+from qiskit import QuantumCircuit
+from qiskit.quantum_info import Statevector
+from qiskit_aer import AerSimulator
 
-qc = QuantumCircuit(1)
-qc.h(0)                 # |0> -> (|0> + |1>)/√2，α = β = 1/√2
-qc.measure_all()
-counts = execute(qc, Aer.get_backend('qasm_simulator'), shots=1024).result().get_counts()
-print(counts)           # 大约各占一半：{'0': ~512, '1': ~512}
+qc = QuantumCircuit(1, 1)
+qc.initialize([1 / 2**0.5, 1 / 2**0.5], 0)  # |ψ⟩ = (|0⟩+|1⟩)/√2，α=β=1/√2
+qc.measure(0, 0)
+
+counts = AerSimulator().run(qc, shots=4096).result().get_counts()
+print(counts)   # 约 {'0': 2048, '1': 2048} —— p(0)=p(1)=|α|²=1/2
 ```
 
 ## 6 小结

@@ -69,8 +69,8 @@ Stable Diffusion 开源的真正遗产是**生态**，理解这个生态才能�
 
 - **检查点（checkpoint）**：SD 的完整权重快照。社区微调出大量风格化检查点（动漫、写实、水墨……），每个都建立在「换底座 + 重微调」之上。
 - **LoRA（低秩适配）**：用低秩矩阵微调少量参数，注入特定风格或角色，权重文件只有几十 MB——「冻结主干 + 旁路适配」范式在 SD 社区的爆发式应用。<span class="marginnote">LoRA 与 ControlNet 同属「不动主干、注入能力」的 PEFT 家族：ControlNet 注入「结构控制」能力，LoRA 注入「风格/角色」能力，两者可叠加——这解释了为什么设计师能同时挂多个 LoRA 与 ControlNet 组合创作。</span>
-- **采样器与步数**：DDIM、Euler、DPM-Solver 等采样器决定质量—速度权衡；步数 20–50 是常用区间。
-- **放大与二次编辑**：高清放大（img2img + 放大）、修复（inpainting）、ControlNet 组合，让一张图可以被反复精修成作品。
+**采样器与步数**：DDIM、Euler、DPM-Solver 等采样器决定质量—速度权衡；步数 20–50 是常用区间。
+**放大与二次编辑**：高清放大（img2img + 放大）、修复（inpainting）、ControlNet 组合，让一张图可以被反复精修成作品。
 
 **SD 版本演进**也是一部「文生图发展史」：SD 1.5（2022）奠定基础，SD 2.x 换了更大数据与文本编码器，**SDXL**（2023）升级为双文本编码器 + 更大 UNet + 更好的构图，**SD 3 / Flux**（2024）转向流匹配（rectified flow）与扩散 Transformer（DiT）——架构在变，但「文本编码 + 潜空间 + 条件去噪 + 解码」的流水线骨架始终未变。<span class="marginnote">Flux、SD3 引入的扩散 Transformer（DiT）把 UNet 换成 DiT，用纯注意力架构在潜空间做去噪——这是「扩散 + Transformer」的合流，也让文生图与大语言模型在架构上更加同构，详见本专题《多模态生成》篇。</span>
 

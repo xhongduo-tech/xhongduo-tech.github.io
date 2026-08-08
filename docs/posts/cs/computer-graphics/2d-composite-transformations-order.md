@@ -28,7 +28,7 @@ $$
 x' = \mathbf{T}_n \cdots \mathbf{T}_2 \mathbf{T}_1 \, x
 $$
 
-**矩阵从右往左读：最右边的先作用。** 例如 $\mathbf{M} = \mathbf{T}\mathbf{R}$ 表示「先旋转再平移」。这条约定在图形学 API 里无处不在：当你看到 `model = translate * rotate * scale` 时，实际执行顺序是「先缩放、再旋转、最后平移」。<span class="marginnote">记住口诀：<strong>右先左后、先乘先做</strong>。写成连乘时，最贴近向量的那个矩阵最先对点生效。</span>
+**矩阵从右往左读：最右边的先作用。** 例如 $\mathbf{M} = \mathbf{T}\mathbf{R}$ 表示「先旋转再平移」。这条约定在图形学 API 里无处不在：当你看到 $\mathbf{M} = \mathbf{T}\mathbf{R}$ 时，实际执行顺序是「先缩放、再旋转、最后平移」。<span class="marginnote">记住口诀：<strong>右先左后、先乘先做</strong>。写成连乘时，最贴近向量的那个矩阵最先对点生效。</span>
 
 为什么约定成从右往左？因为矩阵乘法把「函数的复合」翻译成了代数：$f(g(x))$ 写作 $\mathbf{F}\mathbf{G}\,x$，天然从右往左。这套约定让「先缩放、再旋转、再平移」这类操作序列与矩阵连乘一一对应，可读性最强。
 

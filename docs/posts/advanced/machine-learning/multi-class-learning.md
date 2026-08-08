@@ -65,18 +65,17 @@ $$
 
 <span class="marginnote">周志华《机器学习》指出：在多数任务上，OvO 的预测性能往往优于 OvR。原因可以直觉理解：OvO 的每个分类器面对的只有两类、任务更「简单纯粹」，而 OvR 每次都要在「一 vs 一大堆杂烩」之间找边界，边界被多类数据拉扯得更复杂。但 OvR 分类器少、省资源，所以是工业界的默认起手式。</span>
 
-scikit-learn 里，绝大多数分类器通过 `multiclass` 参数或 `OneVsRestClassifier` / `OneVsOneClassifier` 包装器支持这两种策略：
+scikit-learn 里，绝大多数分类器通过 `multi_class` 参数或 `OneVsRestClassifier` / `OneVsOneClassifier` 包装器支持这两种策略：
 
 ```python
-from sklearn.multiclass import OneVsOneClassifier, OneVsRestClassifier
-from sklearn.svm import SVC
-from sklearn.datasets import load_iris
+from sklearn.multiclass import OneVsRestClassifier, OneVsOneClassifier
+from sklearn.linear_model import LogisticRegression
 
-X, y = load_iris(return_X_y=True)          # 3 类鸢尾花
+# OvR：一对其余，N 个分类器
+clf_ovr = OneVsRestClassifier(LogisticRegression(max_iter=1000))
 
-ovr = OneVsRestClassifier(SVC()).fit(X, y)  # 3 个分类器
-ovo = OneVsOneClassifier(SVC()).fit(X, y)   # 3×(3-1)/2 = 3 个分类器
-print(ovr.score(X, y), ovo.score(X, y))
+# OvO：一对一，N(N-1)/2 个分类器
+clf_ovo = OneVsOneClassifier(LogisticRegression(max_iter=1000))
 ```
 
 注意 OvO 在此例中恰好也是 3 个分类器（$N=3$），但当 $N$ 增大，OvO 的个数按平方增长——$N=10$ 时 OvO 有 45 个，OvR 只有 10 个。
@@ -85,15 +84,15 @@ print(ovr.score(X, y), ovo.score(X, y))
 
 ### 三个值得注意的工程细节
 
-- **投票可能平局**：OvO 的投票在类别数较多时可能多个类同票。工程上常见做法是给每个分类器带上「置信度权重」：不只记「谁赢」，还记「赢多少」，最终按置信度累加而非简单计数。
-- **OvR 需要可比的分值**：OvR 的 $N$ 个分类器各自独立训练，输出量纲未必一致，直接比较「置信度」可能不公平。实践中常用**概率输出（如 `predict_proba`）**而非原始决策值，让各分类器的输出落入同一刻度再比较。
-- **类别不平衡预警**：OvR 的每个二分类任务天然不平衡——正类只有一类，负类有 $N-1$ 类的样本，负样本往往远多于正样本。这直接引向下一条博文《类别不平衡问题》：需要采样或代价敏感手段去矫正。
+**投票可能平局**：OvO 的投票在类别数较多时可能多个类同票。工程上常见做法是给每个分类器带上「置信度权重」：不只记「谁赢」，还记「赢多少」，最终按置信度累加而非简单计数。
+**OvR 需要可比的分值**：OvR 的 $N$ 个分类器各自独立训练，输出量纲未必一致，直接比较「置信度」可能不公平。实践中常用**概率输出（如 `predict_proba`）**而非原始决策值，让各分类器的输出落入同一刻度再比较。
+**类别不平衡预警**：OvR 的每个二分类任务天然不平衡——正类只有一类，负类有 $N-1$ 类的样本，负样本往往远多于正样本。这直接引向下一条博文《类别不平衡问题》：需要采样或代价敏感手段去矫正。
 
 ## 4 多分类视角下的全书地图多分类思想的价值远超本节本身，它是后面许多模型的「默认配置」：
 
-- **Softmax 回归**：把对数几率回归的对数几率推广到 $N$ 类，用 Softmax 函数直接输出 $N$ 个概率——这是深度学习分类头（输出层）的标准做法，见第 5 章神经网络与《深度学习》专题；
-- **随机森林 / 集成方法**：第 8 章里「拆解 + 集成」的思想被推向极致——不是拆类别，而是拆数据、拆特征，再投票集成；
-- **多标签 / 多输出**：当一个样本同时属于多个类别时，OvR 的每个分类器恰好可以独立回答「是否属于第 $k$ 类」，从而自然扩展到多标签学习。<span class="marginnote">ECOC 的「纠错」思想在现代还有更远的回声：在大模型时代，输出空间巨大、单次预测容易出错，人们重新想起「给输出加冗余码」来提升鲁棒性——所谓「分类即译码」的视角，从未过时。</span>
+**Softmax 回归**：把对数几率回归的对数几率推广到 $N$ 类，用 Softmax 函数直接输出 $N$ 个概率——这是深度学习分类头（输出层）的标准做法，见第 5 章神经网络与《深度学习》专题；
+**随机森林 / 集成方法**：第 8 章里「拆解 + 集成」的思想被推向极致——不是拆类别，而是拆数据、拆特征，再投票集成；
+**多标签 / 多输出**：当一个样本同时属于多个类别时，OvR 的每个分类器恰好可以独立回答「是否属于第 $k$ 类」，从而自然扩展到多标签学习。<span class="marginnote">ECOC 的「纠错」思想在现代还有更远的回声：在大模型时代，输出空间巨大、单次预测容易出错，人们重新想起「给输出加冗余码」来提升鲁棒性——所谓「分类即译码」的视角，从未过时。</span>
 
 **重点：多分类学习教给我们的方法论是「组合胜过发明」。** 面对复杂问题，不一定要设计更复杂的模型，而可以用「拆 + 合」把简单模型变成强大的系统——这一课在第 8 章集成学习里会被放大到极致。
 

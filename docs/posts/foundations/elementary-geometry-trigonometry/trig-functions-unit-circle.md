@@ -59,9 +59,9 @@ $30^\circ$、$45^\circ$、$60^\circ$ 角的三角函数值，是三角计算的�
 
 记忆技巧，拆三步：
 
-- **第一步，看分母模式**：$\sin$ 在 $30^\circ, 45^\circ, 60^\circ$ 处依次是 $\frac{\sqrt{1}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2}$——分子是 $\sqrt{1}, \sqrt{2}, \sqrt{3}$ 递增；
-- **第二步，看 $\cos$ 反着来**：$\cos$ 是 $\frac{\sqrt{3}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{1}}{2}$——分子 $\sqrt{3}, \sqrt{2}, \sqrt{1}$ 递减；
-- **第三步，$\tan$ 是商**：$\tan\theta = \frac{\sin\theta}{\cos\theta}$，于是 $\frac{\sqrt{3}}{3}, 1, \sqrt{3}$。
+**第一步，看分母模式**：$\sin$ 在 $30^\circ, 45^\circ, 60^\circ$ 处依次是 $\frac{\sqrt{1}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2}$——分子是 $\sqrt{1}, \sqrt{2}, \sqrt{3}$ 递增；
+**第二步，看 $\cos$ 反着来**：$\cos$ 是 $\frac{\sqrt{3}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{1}}{2}$——分子 $\sqrt{3}, \sqrt{2}, \sqrt{1}$ 递减；
+**第三步，$\tan$ 是商**：$\tan\theta = \frac{\sin\theta}{\cos\theta}$，于是 $\frac{\sqrt{3}}{3}, 1, \sqrt{3}$。
 
 <span class="marginnote">几何来源：$30^\circ$ 与 $60^\circ$ 来自「含 $30^\circ$ 角的直角三角形」（对边是斜边一半），$45^\circ$ 来自等腰直角三角形。记不住时画这两个三角形立刻推出，比死背可靠。</span>
 
@@ -69,8 +69,8 @@ $30^\circ$、$45^\circ$、$60^\circ$ 角的三角函数值，是三角计算的�
 
 单位圆定义直接给出三角函数的两个基本性质：
 
-- **周期性**：终边每转一圈，坐标重复，所以 $\sin(\theta + 2\pi) = \sin\theta$，$\cos(\theta + 2\pi) = \cos\theta$，$\tan(\theta + \pi) = \tan\theta$。
-- **奇偶性**：$\sin$ 是奇函数（$\sin(-\theta) = -\sin\theta$），$\cos$ 是偶函数（$\cos(-\theta) = \cos\theta$），$\tan$ 是奇函数。
+**周期性**：终边每转一圈，坐标重复，所以 $\sin(\theta + 2\pi) = \sin\theta$，$\cos(\theta + 2\pi) = \cos\theta$，$\tan(\theta + \pi) = \tan\theta$。
+**奇偶性**：$\sin$ 是奇函数（$\sin(-\theta) = -\sin\theta$），$\cos$ 是偶函数（$\cos(-\theta) = \cos\theta$），$\tan$ 是奇函数。
 
 <span class="marginnote">为什么 $\sin$ 是奇函数？因为 $-\theta$ 的终边与 $\theta$ 的终边关于 $x$ 轴对称，纵坐标变号。$\cos$ 是偶函数则因横坐标不变。这些「对称性」本质上是圆的对称性——几何直觉又一次统治了代数。</span>
 
@@ -78,9 +78,9 @@ $30^\circ$、$45^\circ$、$60^\circ$ 角的三角函数值，是三角计算的�
 
 单位圆上可以画出三条「**三角函数线**」：
 
-- **正弦线**：从圆心到终边与圆交点的垂线段（有向），长度 = $|\sin\theta|$；
-- **余弦线**：横方向的线段，长度 = $|\cos\theta|$；
-- **正切线**：过 $(1, 0)$ 作圆的切线，与终边（或其反向延长线）相交，切线段的长度 = $|\tan\theta|$。
+**正弦线**：从圆心到终边与圆交点的垂线段（有向），长度 = $|\sin\theta|$；
+**余弦线**：横方向的线段，长度 = $|\cos\theta|$；
+**正切线**：过 $(1, 0)$ 作圆的切线，与终边（或其反向延长线）相交，切线段的长度 = $|\tan\theta|$。
 
 三角函数线让三角函数「可视化」：在单位圆上转动终边，正弦线、余弦线、正切线的长度随之变化——这正是下一节《三角函数的图像与性质》里画图的几何基础。<span class="marginnote">三角函数线也解释了为什么 $\tan\theta$ 可以任意大：当终边接近竖直方向时，过 $(1,0)$ 的切线会被「顶」到很远，正切值趋向无穷——对应 $\tan$ 的垂直渐近线。</span>
 

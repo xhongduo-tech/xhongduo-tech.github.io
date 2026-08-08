@@ -22,9 +22,9 @@ date: 2026-08-07
 
 **定义**：设 $X$ 是复 Banach 空间，$T \in \mathcal{B}(X)$，$\lambda \in \mathbb{C}$。
 
-- 若 $\lambda I - T$ 是**双射**且逆有界（由逆算子定理，双射 + 有界自动 ⟹ 逆有界），则称 $\lambda$ 为 $T$ 的**正则点（regular point）**；
-- **谱（spectrum）** $\sigma(T)$ = 全体非正则点；
-- **预解集（resolvent set）** $\rho(T)$ = 全体正则点 = $\mathbb{C} \setminus \sigma(T)$。
+若 $\lambda I - T$ 是**双射**且逆有界（由逆算子定理，双射 + 有界自动 ⟹ 逆有界），则称 $\lambda$ 为 $T$ 的**正则点（regular point）**；
+**谱（spectrum）** $\sigma(T)$ = 全体非正则点；
+**预解集（resolvent set）** $\rho(T)$ = 全体正则点 = $\mathbb{C} \setminus \sigma(T)$。
 
 **为什么 $\lambda$ 是「数」而不是「向量」**：特征值问题的核心是「$\lambda I - T$ 可逆吗」。可逆性是算子的性质，而 $\lambda I$ 是「数乘算子」，于是「数 $\lambda$」能否从算子中「减掉并求逆」成为判别标准。<span class="marginnote">记号习惯：谱用 $\\sigma(T)$（sigma），预解集用 $\\rho(T)$（rho）。「预解（resolvent）」一词来自「解决 $\\lambda I - T$ 的可逆问题」——$\\rho$ 里的 $\\lambda$ 让 $\\lambda I - T$ 可解。这两个记号在谱理论里是最常用的。</span>
 
@@ -52,9 +52,9 @@ $$
 
 **例一（乘法算子 $M_t$）**：$M_t f(t) = tf(t)$ 于 $L^2[0,1]$。
 
-- 对 $\lambda \notin [0,1]$，$(\lambda - t)^{-1}$ 有界，$R_\lambda f = f/(\lambda - t)$，$\lambda \in \rho$。
-- 对 $\lambda \in [0,1]$，$(\lambda - t)^{-1}$ 无界（在 $t = \lambda$ 处爆炸），$\lambda I - M_t$ 不可逆（值域不闭）。
-- 故 $\sigma(M_t) = [0,1]$，**且全是连续谱**（没有点谱——$tf = \lambda f$ 无非零 $L^2$ 解）。<span class="marginnote">这是连续谱的模范例子：<strong>谱是「乘子函数的值域」$[0,1]$，但没有任何一点是特征值</strong>。量子力学的位置算子 $Qf(x) = xf(x)$ 的谱是 $\\mathbb{R}$——全是连续谱，对应「位置可以取任何实数但不是固定本征态」。</span>
+对 $\lambda \notin [0,1]$，$(\lambda - t)^{-1}$ 有界，$R_\lambda f = f/(\lambda - t)$，$\lambda \in \rho$。
+对 $\lambda \in [0,1]$，$(\lambda - t)^{-1}$ 无界（在 $t = \lambda$ 处爆炸），$\lambda I - M_t$ 不可逆（值域不闭）。
+故 $\sigma(M_t) = [0,1]$，**且全是连续谱**（没有点谱——$tf = \lambda f$ 无非零 $L^2$ 解）。<span class="marginnote">这是连续谱的模范例子：<strong>谱是「乘子函数的值域」$[0,1]$，但没有任何一点是特征值</strong>。量子力学的位置算子 $Qf(x) = xf(x)$ 的谱是 $\\mathbb{R}$——全是连续谱，对应「位置可以取任何实数但不是固定本征态」。</span>
 
 **例二（单侧移位 $S$）**：$S(x_1,x_2,\ldots) = (0,x_1,x_2,\ldots)$ 于 $l^2$。
 

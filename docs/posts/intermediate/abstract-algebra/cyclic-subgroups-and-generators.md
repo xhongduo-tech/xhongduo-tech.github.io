@@ -51,8 +51,8 @@ date: 2026-08-07
 
 证明拆成两步：
 
-- **第一步，$\bar{k}$ 是生成元的充要条件。** $\bar{k}$ 生成 $\mathbb{Z}_n$ 当且仅当 $o(\bar{k}) = n$。而 $o(\bar{k})$ 是满足 $m \bar{k} = \bar{0}$（即 $n \mid mk$）的最小正整数 $m$，这个最小正整数正是 $n / \gcd(n, k)$。于是 $o(\bar{k}) = n \iff \gcd(n, k) = 1$。<span class="marginnote">关键等式：$o(\bar{k}) = n / \gcd(n, k)$。它把「元素的阶」换算成「$n$ 与 $k$ 的最大公约数」，是欧拉函数计数的发动机。阶公式 $o(\bar k) = n/\gcd(n,k)$ 值得单独记住，它在本篇与数论之间架起桥梁。</span>
-- **第二步，数一数。** 满足 $1 \le k \le n$ 且 $\gcd(k, n) = 1$ 的 $k$ 恰有 $\varphi(n)$ 个，即得定理。$\blacksquare$
+**第一步，$\bar{k}$ 是生成元的充要条件。** $\bar{k}$ 生成 $\mathbb{Z}_n$ 当且仅当 $o(\bar{k}) = n$。而 $o(\bar{k})$ 是满足 $m \bar{k} = \bar{0}$（即 $n \mid mk$）的最小正整数 $m$，这个最小正整数正是 $n / \gcd(n, k)$。于是 $o(\bar{k}) = n \iff \gcd(n, k) = 1$。<span class="marginnote">关键等式：$o(\bar{k}) = n / \gcd(n, k)$。它把「元素的阶」换算成「$n$ 与 $k$ 的最大公约数」，是欧拉函数计数的发动机。阶公式 $o(\bar k) = n/\gcd(n,k)$ 值得单独记住，它在本篇与数论之间架起桥梁。</span>
+**第二步，数一数。** 满足 $1 \le k \le n$ 且 $\gcd(k, n) = 1$ 的 $k$ 恰有 $\varphi(n)$ 个，即得定理。$\blacksquare$
 
 例如 $\mathbb{Z}_{12}$ 的生成元是 $\bar{1}, \bar{5}, \bar{7}, \bar{11}$，共 $\varphi(12) = 4$ 个；$\mathbb{Z}_7$ 的生成元是 $\bar{1}, \bar{2}, \bar{3}, \bar{4}, \bar{5}, \bar{6}$，共 $\varphi(7) = 6$ 个——这正是上一篇「$\mathbb{Z}_7^\times$ 有 6 个元素且是循环群」背后的计数逻辑。<span class="marginnote">欧拉函数与生成元计数的联系，是抽象代数「反哺」初等数论的典型：数论里定义的 $\varphi$，其代数意义是「循环群生成元的个数」。第十二篇里，RSA 与离散对数的安全性分析都要反复调用这条对应。</span>
 

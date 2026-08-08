@@ -117,23 +117,7 @@ $$
 
 **辨析｜易错点四：琴生给出的是「下界」，不是「等式」。** $\log p(x) = \mathcal{L}(q) + D_{KL}$ 才是等式；ELBO 只是下界。把 ELBO 当成了 $\log p(x)$ 本身、忘掉 KL 残差，是变分推断初学者最常犯的概念错误——「下界」与「目标」之间的缝隙，恰恰是拟合能力的来源。
 
-```python
-import numpy as np
-
-def kl(q, p):
-    q, p = np.asarray(q), np.asarray(p)
-    return float(np.sum(q * np.log(q / p)))
-
-q = np.array([0.6, 0.4]); p = np.array([0.5, 0.5])
-print(kl(q, p))            # ≈ 0.0201 ≥ 0
-print(kl(p, p))            # 0.0
-# 随机生成 10000 组离散分布，KL 恒非负（数值噪声量级 < 1e-12）
-rng = np.random.default_rng(0)
-worst = min(
-    kl(rng.dirichlet(np.ones(5)), rng.dirichlet(np.ones(5))) for _ in range(10000)
-)
-print(worst)               # 始终 ≥ -1e-12
-```
+**把握琴生不等式的完整图景**：从两点定义到有限和、再到期望与积分形式，它始终是「凸性把平均点的函数值压向函数值的平均之下」这一句话的逐级推广；配合严格凸性取等、KL 散度非负与 ELBO 下界两个应用，这条不等式是连接凸分析、统计与优化的最短路径——方向上先判凹凸，取等上依赖严格凸，使用上记住「下界不是等式」，即可放心地把它当成手里的万能下界工具。
 
 ## 6 小结
 

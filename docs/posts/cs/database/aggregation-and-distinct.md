@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从聚集与去重开始
 
-`GROUP BY`、`SUM`、`COUNT(DISTINCT ...)`、`DISTINCT` 这些看起来「高级」的 SQL，物理上只有两种实现思路：**排序（sort-based）**或**哈希（hash-based）**。这一节把聚集与去重的物理算法讲透——它们与外部排序、哈希连接共享同一套「分组 + 合并」骨架。理解这两条路径，你就知道为什么 `COUNT(DISTINCT)` 很慢、为什么 `GROUP BY` 有时走 Sort 有时走 Hash。
+`GROUP BY`、`DISTINCT`、`COUNT`、`ORDER BY` 这些看起来「高级」的 SQL，物理上只有两种实现思路：**排序（sort-based）**或**哈希（hash-based）**。这一节把聚集与去重的物理算法讲透——它们与外部排序、哈希连接共享同一套「分组 + 合并」骨架。理解这两条路径，你就知道为什么 `COUNT(DISTINCT col)` 很慢、为什么 `GROUP BY` 有时走 Sort 有时走 Hash。
 
 ## 1 排序实现：Sort-based Aggregation
 
@@ -31,7 +31,7 @@ $$
 T_{sort-agg} = T_{sort} + b_r
 $$
 
-**核心要点：排序聚集的优势是「分组的同时输出有序」。** 若结果还要 `ORDER BY 分组键`，排序聚集直接免一次排序。这是 `GROUP BY` 不带 `ORDER BY` 却常走 Sort 的原因之一。
+**核心要点：排序聚集的优势是「分组的同时输出有序」。** 若结果还要 `ORDER BY` 分组键，排序聚集直接免一次排序。这是 `GROUP BY` 不带 `ORDER BY` 却常走 Sort 的原因之一。
 
 ## 2 哈希实现：Hash-based Aggregation
 
@@ -47,16 +47,16 @@ $$
 T_{hash-agg} = b_r
 $$
 
-**核心要点：哈希聚集只需一次扫描，无需排序。** 大表 `GROUP BY` 无排序需求时，哈希聚集是默认选择（与哈希连接同族）。<span class="marginnote">直觉对照：排序聚集像「先按字典序整理所有词，再数相同词」；哈希聚集像「边读边记到一个按拼音首字母分的账本，读到就累计」——后者不用全排完才统计。</span>
+**核心要点：哈希聚集只需一次扫描，无需排序。** 大表且无排序需求时，哈希聚集是默认选择（与哈希连接同族）。<span class="marginnote">直觉对照：排序聚集像「先按字典序整理所有词，再数相同词」；哈希聚集像「边读边记到一个按拼音首字母分的账本，读到就累计」——后者不用全排完才统计。</span>
 
 ## 3 去重（DISTINCT）的实现
 
-`SELECT DISTINCT col FROM r` 与「按 col 分组、每组取一条」同构，实现同两条路：
+`DISTINCT` 与「按 col 分组、每组取一条」同构，实现同两条路：
 
-- **排序去重**：排序后相邻相同值只输出一次——$T_{sort} + b_r$。
-- **哈希去重**：哈希表只记录「已见过的键」，第一次见输出、重复跳过——$b_r$。
+**排序去重**：排序后相邻相同值只输出一次——$T_{sort} + b_r$。
+**哈希去重**：哈希表只记录「已见过的键」，第一次见输出、重复跳过——$b_r$。
 
-**COUNT(DISTINCT col)**：同样基于排序或哈希，但**必须维护完整集合**（不能只记累计值）——这就是它慢的原因：聚集值（SUM）可以「增量合并」，去重集合必须「记录每个不同键」。<span class="marginnote">`COUNT(DISTINCT)` 慢的本质：SUM 是<strong>可结合的</strong>（$a \oplus b \oplus c$ 可任意合并），去重计数<strong>不可增量压缩</strong>——内存要装下全部不同键。这也催生了近似算法（HyperLogLog）——用概率方法估基数，内存换精度。</span>
+**COUNT(DISTINCT col)**：同样基于排序或哈希，但**必须维护完整集合**（不能只记累计值）——这就是它慢的原因：聚集值（SUM）可以「增量合并」，去重集合必须「记录每个不同键」。<span class="marginnote">`COUNT(DISTINCT col)` 慢的本质：SUM 是<strong>可结合的</strong>（$a \oplus b \oplus c$ 可任意合并），去重计数<strong>不可增量压缩</strong>——内存要装下全部不同键。这也催生了近似算法（HyperLogLog）——用概率方法估基数，内存换精度。</span>
 
 ## 4 公式解析：聚集实现的选择
 

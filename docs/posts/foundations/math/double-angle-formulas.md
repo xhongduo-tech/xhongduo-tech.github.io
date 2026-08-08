@@ -105,9 +105,9 @@ $$
 
 已知 $\cos\alpha=\frac35$（$0<\alpha<\frac\pi2$），求 $\sin2\alpha$ 与 $\cos2\alpha$。
 
-- **第一步，求 $\sin\alpha$**：$\sin\alpha=\sqrt{1-\cos^2\alpha}=\sqrt{1-\frac9{25}}=\frac45$（第一象限取正）。
-- **第二步，正用**：$\sin2\alpha=2\sin\alpha\cos\alpha=2\times\frac45\times\frac35=\frac{24}{25}$。
-- **第三步，逆用**：$\cos2\alpha=\cos^2\alpha-\sin^2\alpha=\frac9{25}-\frac{16}{25}=-\frac7{25}$——也可用 $2\cos^2\alpha-1=\frac{18}{25}-1=-\frac7{25}$，两种写法一致。
+**第一步，求 $\sin\alpha$**：$\sin\alpha=\sqrt{1-\cos^2\alpha}=\sqrt{1-\frac9{25}}=\frac45$（第一象限取正）。
+**第二步，正用**：$\sin2\alpha=2\sin\alpha\cos\alpha=2\times\frac45\times\frac35=\frac{24}{25}$。
+**第三步，逆用**：$\cos2\alpha=\cos^2\alpha-\sin^2\alpha=\frac9{25}-\frac{16}{25}=-\frac7{25}$——也可用 $2\cos^2\alpha-1=\frac{18}{25}-1=-\frac7{25}$，两种写法一致。
 
 <span class="marginnote">二倍角公式的「正用」（$\alpha\to2\alpha$）与「逆用」（$2\alpha\to\alpha$）要灵活切换。<strong>「先定象限定符号，再代入公式」是不变纪律</strong>——$\sin\alpha=\frac45$ 的符号由 $\alpha$ 所在象限决定，本题第一象限取正。$\cos2\alpha$ 的三种形式选「已知哪个用哪个」：已知 $\cos\alpha$ 用 $2\cos^2\alpha-1$ 最直接。</span>
 
@@ -115,9 +115,9 @@ $$
 
 求函数 $y=\sin^2x$ 的最小正周期。
 
-- **第一步，降幂**：$\sin^2x=\frac{1-\cos2x}{2}$——平方降成一次，出现 $\cos2x$。
-- **第二步，看周期**：$\cos2x$ 的周期是 $\frac{2\pi}{2}=\pi$，故 $y=\frac{1-\cos2x}{2}$ 的周期为 $\pi$。
-- **第三步，对比**：若直接用 $\sin^2x$，不易看出周期；降幂后「$\sin^2x$ 的周期是 $\pi$」一目了然。
+**第一步，降幂**：$\sin^2x=\frac{1-\cos2x}{2}$——平方降成一次，出现 $\cos2x$。
+**第二步，看周期**：$\cos2x$ 的周期是 $\frac{2\pi}{2}=\pi$，故 $y=\frac{1-\cos2x}{2}$ 的周期为 $\pi$。
+**第三步，对比**：若直接用 $\sin^2x$，不易看出周期；降幂后「$\sin^2x$ 的周期是 $\pi$」一目了然。
 
 <span class="marginnote">「降幂求周期/最值」是二倍角公式最值钱的应用：<strong>把 $\sin^2x$、$\cos^2x$ 降成 $\cos2x$ 的一次式，周期、最值、单调性全变得清晰</strong>。$y=\sin^2x$ 的周期是 $\pi$（不是 $2\pi$），因为平方让波形「翻倍」——这个结论用降幂公式一眼看出。降幂公式与辅助角公式配合，能处理几乎所有「三角函数最值与周期」问题。</span>
 

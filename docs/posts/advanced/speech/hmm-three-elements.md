@@ -93,21 +93,27 @@ $$P(O \mid \lambda) = \sum_{\text{所有 } Q} P(O, Q \mid \lambda)$$
 ```python
 import numpy as np
 
-# 3 状态左到右 HMM 的三要素
-A = np.array([[0.6, 0.4, 0.0],
-              [0.0, 0.6, 0.4],
-              [0.0, 0.0, 1.0]])        # 只留自环与前向
-pi = np.array([1.0, 0.0, 0.0])         # 必从状态 1 开始
-mu = np.array([0.0, 2.0, 4.0])         # 每状态的发射均值
-sigma = np.ones(3)
+rng = np.random.default_rng(0)
 
-T = 10
-states, obs = [], []
-q = np.random.choice(3, p=pi)
-for _ in range(T):
-    states.append(q)
-    obs.append(np.random.normal(mu[q], sigma[q]))
-    q = np.random.choice(3, p=A[q])    # 依 A 转移到下一状态
+# 左到右 HMM：状态只能停留或前进（a_ij 在 j < i 时为 0）
+A = np.array([[0.7, 0.3, 0.0],      # 自环 = 停留，向右 = 前进
+              [0.0, 0.7, 0.3],
+              [0.0, 0.0, 1.0]])     # 末态为吸收态
+mu    = np.array([-1.0, 0.0, 1.0])  # 低 / 中 / 高
+sigma = 0.3
+
+def sample_hmm(T=30):
+    states = np.zeros(T, dtype=int)
+    obs = np.zeros(T)
+    states[0] = 0
+    for t in range(T):
+        obs[t] = rng.normal(mu[states[t]], sigma)
+        if t + 1 < T:
+            states[t + 1] = rng.choice(3, p=A[states[t]])
+    return obs, states
+
+obs, _ = sample_hmm()
+print(np.round(obs, 2))   # 你只能看到这串观测；states 是隐藏的
 ```
 
 运行几遍你会发现：观测值大致沿「低 → 中 → 高」爬升，但每一步都带噪声——**你只能看到 obs，看不到 states**，这正是「隐」的直观体验。

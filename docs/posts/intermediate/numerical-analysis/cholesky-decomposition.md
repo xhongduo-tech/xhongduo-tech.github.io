@@ -79,15 +79,24 @@ $$
 误差被**严格控制在 $A$ 规模的比例内**——即便 $A$ 病态，Cholesky 也「诚实反映」问题难度，不会额外放大。**SPD + Cholesky 是数值线性代数里最稳的组合之一**。<span class="marginnote">对比：LU 的误差界含「增长因子」的放大，而 Cholesky 没有——<strong>对称正定结构让分解的稳定性理论变得干净</strong>。这也是为什么「把问题化成 SPD」（如最小二乘的法方程、谱方法的对称化）是工程里的标准套路。</span>
 
 ```python
+import numpy as np
+
 def cholesky(A):
-    """A SPD → 下三角 L 使 A = L L^T"""
+    """对对称正定矩阵 A 求下三角 L，使 A = L @ L.T。"""
     n = A.shape[0]
-    L = np.zeros_like(A)
+    L = np.zeros_like(A, dtype=float)
     for j in range(n):
-        L[j, j] = np.sqrt(A[j, j] - L[j, :j] @ L[j, :j])
+        L[j, j] = np.sqrt(A[j, j] - np.sum(L[j, :j] ** 2))
         for i in range(j + 1, n):
-            L[i, j] = (A[i, j] - L[i, :j] @ L[j, :j]) / L[j, j]
+            L[i, j] = (A[i, j] - np.sum(L[i, :j] * L[j, :j])) / L[j, j]
     return L
+
+A = np.array([[4., 2., 2.],
+              [2., 5., 3.],
+              [2., 3., 6.]])
+L = cholesky(A)
+print(L)
+print(np.allclose(A, L @ L.T))   # True
 ```
 
 ## 4 应用：从最小二乘到采样

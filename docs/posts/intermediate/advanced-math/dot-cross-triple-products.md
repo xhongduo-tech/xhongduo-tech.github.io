@@ -60,16 +60,16 @@ $$(\mathbf{a}\times\mathbf{b})\cdot\mathbf{c} = \begin{vmatrix}a_x & a_y & a_z\\
 
 设 $\mathbf{a} = (1,0,0)$、$\mathbf{b} = (0,1,0)$、$\mathbf{c} = (0,0,1)$（坐标轴单位向量）：
 
-- **第一步，算点积**：$\mathbf{a}\cdot\mathbf{b} = 1\cdot0 + 0\cdot1 + 0\cdot0 = 0$——正交，夹角 $90°$。
-- **第二步，算叉积**：$\mathbf{a}\times\mathbf{b} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&0&0\\0&1&0\end{vmatrix} = \mathbf{k}$——$\mathbf{i}\times\mathbf{j}=\mathbf{k}$，垂直且符合右手定则。
-- **第三步，算混合积**：$(\mathbf{a}\times\mathbf{b})\cdot\mathbf{c} = \mathbf{k}\cdot\mathbf{k} = 1$——单位立方体的体积。
-- **第四步，验证反交换**：$\mathbf{b}\times\mathbf{a} = -\mathbf{k}$，方向相反。
+**第一步，算点积**：$\mathbf{a}\cdot\mathbf{b} = 1\cdot0 + 0\cdot1 + 0\cdot0 = 0$——正交，夹角 $90°$。
+**第二步，算叉积**：$\mathbf{a}\times\mathbf{b} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&0&0\\0&1&0\end{vmatrix} = \mathbf{k}$——$\mathbf{i}\times\mathbf{j}=\mathbf{k}$，垂直且符合右手定则。
+**第三步，算混合积**：$(\mathbf{a}\times\mathbf{b})\cdot\mathbf{c} = \mathbf{k}\cdot\mathbf{k} = 1$——单位立方体的体积。
+**第四步，验证反交换**：$\mathbf{b}\times\mathbf{a} = -\mathbf{k}$，方向相反。
 
 **关键**：三种积可以看成「从两个向量到数/向量」的三种投影：点积量「同向」，叉积量「垂直 + 面积」，混合积量「体积」。三个量合起来，完全刻画了三向量在空间的相对姿态。
 
 ## 5 三种积的应用
 
-- **功与功率**：$W = \mathbf{F}\cdot\mathbf{s}$、$P = \mathbf{F}\cdot\mathbf{v}$——点积把「力沿位移方向的投影」量化。<span class="marginnote">点积的机器学习用法：<strong>余弦相似度</strong> $\cos\theta$ 忽略模长、只比方向，是文本检索、嵌入向量相似度、推荐系统里最常用的度量。你在第二级《线性代数》与第三级《信息检索》都会与它重逢。</span>
+**功与功率**：$W = \mathbf{F}\cdot\mathbf{s}$、$P = \mathbf{F}\cdot\mathbf{v}$——点积把「力沿位移方向的投影」量化。<span class="marginnote">点积的机器学习用法：<strong>余弦相似度</strong> $\cos\theta$ 忽略模长、只比方向，是文本检索、嵌入向量相似度、推荐系统里最常用的度量。你在第二级《线性代数》与第三级《信息检索》都会与它重逢。</span>
 - **力矩与角动量**：$\mathbf{M} = \mathbf{r}\times\mathbf{F}$、$\mathbf{L} = \mathbf{r}\times\mathbf{p}$——叉积描述「旋转效果」。
 - **平行四边形与三角形面积**：$S = |\mathbf{a}\times\mathbf{b}|$。
 - **共面与体积判定**：混合积为 0 判定共面，绝对值是平行六面体体积。

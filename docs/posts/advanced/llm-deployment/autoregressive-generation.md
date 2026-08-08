@@ -24,7 +24,7 @@ date: 2026-08-07
 
 ## 1 自回归：用条件概率给语言建模
 
-**自回归（autoregressive）**：一种序列建模方式——生成序列第 $t$ 个位置时，只把它看作「在已生成前缀 $x_1 x_2 \cdots x_{t-1}$ 条件下的下一个词」，然后逐个位置递推。一个自回归语言模型本质上给出的是条件概率 $P(x_t \mid x_{<t})$。<span class="marginnote">「自回归」这个名字来自统计学与时间序列分析：AR 模型用「自己的过去值」回归来预测「当前值」。LLM 把同一思想搬到了 token 序列上——每个新 token 都是「自己历史」的函数。</span>
+**自回归（autoregressive）**：一种序列建模方式——生成序列第 $t$ 个位置时，只把它看作「在已生成前缀 $x_1 x_2 \cdots x_{t-1}$ 条件下的下一个词」，然后逐个位置递推。一个自回归语言模型本质上给出的是条件概率 $P(x_t \mid x_{\\lt t})$。<span class="marginnote">「自回归」这个名字来自统计学与时间序列分析：AR 模型用「自己的过去值」回归来预测「当前值」。LLM 把同一思想搬到了 token 序列上——每个新 token 都是「自己历史」的函数。</span>
 
 为什么能用条件概率描述整句话？因为任意一个 token 序列的联合概率，都可以严格地写成一系列条件概率的乘积——这就是概率论里的**链式法则（chain rule）**：
 
@@ -44,23 +44,22 @@ $$P(x_1, x_2, \dots, x_n) = \prod_{t=1}^{n} P(x_t \mid x_1, x_2, \dots, x_{t-1})
 ![自回归生成逐 token 流程示意：输入 → 预测 → 拼接 → 再预测](/images/llm-deployment/autoregressive-generation-1.svg)
 
 1. **输入当前序列**：把已生成的 token 序列 $x_1 \cdots x_{t-1}$ 送入模型；
-2. **预测分布**：模型前向计算，输出下一 token 的概率分布 $P(x_t \mid x_{<t})$；
+2. **预测分布**：模型前向计算，输出下一 token 的概率分布 $P(x_t \mid x_{\\lt t})$；
 3. **解码选择**：按某种**解码策略**从分布里挑出一个 token $x_t$；
 4. **拼接回环**：把 $x_t$ 追加到序列末尾，序列长度加一，回到第 1 步。
 
 循环何时停止？训练时学到的特殊 token **EOS（end-of-sequence）** 被生成出来时，或长度达到上限时。用代码写出来，这个循环短得惊人：
 
 ```python
-def generate(model, prompt_ids, max_len=128):
-    ids = prompt_ids.copy()
-    while len(ids) < max_len:
-        logits = model(ids)               # 前向计算，对下一个 token 打分
-        probs = softmax(logits[-1])       # 取最后一个位置，变为概率分布
-        next_id = decode_strategy(probs)  # 贪心 / 束搜索 / 采样
-        ids.append(next_id)               # 拼接到序列末尾
-        if next_id == model.eos_id:       # 生成结束符则停止
+def generate(model, prompt, max_len, eos_id):
+    seq = prompt[:]                 # 输入当前序列
+    while len(seq) < max_len:
+        logits = model(seq)         # 前向：预测下一个 token 的概率分布
+        next_id = decode(logits)    # 解码策略：贪心 / 束搜索 / 采样
+        if next_id == eos_id:       # 生成结束符则停止
             break
-    return ids
+        seq.append(next_id)         # 拼回序列，长度加一
+    return seq
 ```
 
 这个循环每执行一轮，模型就要**把整条序列从头到尾重新看一遍**。第 $t$ 步序列长度是 $t$，第 $t+1$ 步长度是 $t+1$——长度只加一，但模型并没有「记住」上一步，它每次都要重新处理整条前缀。<span class="marginnote">这正是接下来 KV Cache 要解决的问题：如果模型能记住已算过的 key 与 value，就不用每次都从头重算。注意「模型没有记忆」这句：自回归循环本身是状态无关的，所有状态都藏在被重新计算的输入序列里。</span>
@@ -85,7 +84,7 @@ $$M_{\text{per token}} = 2 \cdot L \cdot H \cdot d \cdot b$$
 
 模型输出的是概率分布，最终落到序列上的却是一个确定的 token。把分布变成 token 的规则叫**解码策略（decoding strategy）**。三类最经典：
 
-**贪心解码（greedy decoding）**：每步取概率最大的 token，即 $\arg\max P(x_t \mid x_{<t})$。简单、确定、快，但代价是**短视**——单步最优可能把序列带进死胡同，也容易陷入重复循环（「我我我我……」「好的好的好的……」）。
+**贪心解码（greedy decoding）**：每步取概率最大的 token，即 $\arg\max P(x_t \mid x_{\\lt t})$。简单、确定、快，但代价是**短视**——单步最优可能把序列带进死胡同，也容易陷入重复循环（「我我我我……」「好的好的好的……」）。
 
 **束搜索（beam search）**：不再只留一个候选，而是每步保留概率最高的 $k$ 条假设（beam），各自扩展后按累计对数概率排序，淘汰低分分支。适合翻译、摘要这类「最优路径」明确的任务；但 $k$ 倍的计算开销与依然可能的重复，让它在大语言模型的聊天场景里用得越来越少。
 
@@ -127,7 +126,7 @@ $$P(x_1, x_2, x_3, x_4) = P(x_1) \cdot P(x_2, x_3, x_4 \mid x_1)$$
 
 **第三步，递归地继续拆**：对 $P(x_2, x_3, x_4 \mid x_1)$ 再拆成 $P(x_2 \mid x_1) \cdot P(x_3, x_4 \mid x_1, x_2)$，如此反复，直到每个条件事件里都只剩一个词。数学归纳式地做 $n-1$ 次，就得到通用形式：
 
-$$P(x_1, \dots, x_n) = \prod_{t=1}^{n} P(x_t \mid x_{<t})$$
+$$P(x_1, \dots, x_n) = \prod_{t=1}^{n} P(x_t \mid x_{\\lt t})$$
 
 **第四步，读出「生成」的含义**：这条恒等式对任何序列都成立，但只有把它**反过来读**才有工程意义——我们不评估已写好的句子，而是**从左到右逐词构造**它：先按 $P(x_1)$ 生成第一个词，再在给定第一个词的条件下按 $P(x_2 \mid x_1)$ 生成第二个……每一步只需回答「给定前缀，下一个词是谁」。这正是「自回归」三个字的全部含义，也解释了为什么这类模型的推理延迟必然随序列长度线性增长——每多一个词就多一次完整前向，而这个「线性」正是后续所有优化要去对抗的东西。
 

@@ -24,24 +24,24 @@ date: 2026-08-07
 
 **扫描线（sweep line）**：竖直直线从 $x = -\infty$ 向右扫到 $+\infty$。维护两个结构：
 
-- **事件队列（event queue）**：所有线段的「左端点（插入）」与「右端点（删除）」按 $x$ 排序。
-- **状态结构（status）**：当前与扫描线相交的线段，按「与扫描线的交点 $y$ 坐标」**从上到下排序**——用平衡 BST（如 `std::set`）维护。
+**事件队列（event queue）**：所有线段的「左端点（插入）」与「右端点（删除）」按 $x$ 排序。
+**状态结构（status）**：当前与扫描线相交的线段，按「与扫描线的交点 $y$ 坐标」**从上到下排序**——用平衡 BST（如红黑树）维护。
 
 **算法**：
 
 ```
-ANY-SEGMENTS-INTERSECT(S)
-  sort segment endpoints by x (tie: y), build event queue
-  T = empty status structure
-  while event queue not empty
-    take next event point p
-    if p is left endpoint of segment s
-      insert s into T (by y-order at current x)
-      if s intersects neighbor above or below in T:  return TRUE
-    else  // p is right endpoint of segment s
-      if s's neighbors above and below in T intersect:  return TRUE
-      delete s from T
-  return FALSE
+SWEEP-LINE(S)
+1  把所有端点按 x 坐标排序作为事件队列       // 同 x 按 y、先删后插
+2  初始化空的状态结构 T                       // 与扫描线交点按 y 排序的 BST
+3  for each event in sorted order
+4      if event 是线段 s 的左端点
+5          把 s 插入 T
+6          检查 s 与上下两个新邻居是否相交
+7      else                                // event 是右端点
+8          检查删除 s 后新成为邻居的那一对是否相交
+9          从 T 中删除 s
+10     if 某次检查发现相交
+11         report 该交点（或直接停机）
 ```
 
 <span class="marginnote">关键的两个「检查时机」：插入左端点时检查「新线段与上下邻居」；删除右端点时检查「删除后变成邻居的那一对」（它们可能本不相邻、因删除而相邻、且恰好相交）。<strong>相交线段必然在某时刻成为邻居</strong>——这是扫描线正确性的核心不变量。只输出「是否存在相交」时，一发现就停；要求「所有相交」则记录每一对。</span>
@@ -62,7 +62,7 @@ $$T(n) = 2n \cdot O(\log n) + k \cdot O(\log n) = O((n+k)\log n)$$
 - **第二步，每事件**：BST 操作 $O(\log n)$；插入时检查两个邻居（常数次 DIRECTION）。
 - **第三步，相交输出**：每发现一对相交，若需要「报告所有相交」还要额外维护（$O(\log n)$ 每对），$k$ 对贡献 $k \log n$。
 
-**要点**：当相交很少（$k$ 小），复杂度接近 $O(n\log n)$；相交很多时，输出本身就要 $O(k)$。**对比朴素 $O(n^2)$，扫描线把「不必要的两两检查」全部省掉**。<span class="marginnote">数值细节：状态结构中「按 y 排序」的比较依赖「当前扫描线位置 $x$」——不同线段在扫描线上的交点 y 可能变化，需要「在当前 x 处比较交点 y」的动态比较器。实现上用「交叉计数」或「把比较延迟到事件处理时」处理；这是扫描线实现的常见难点（也是 `std::set` 自定义比较器的坑）。</span>
+**要点**：当相交很少（$k$ 小），复杂度接近 $O(n\log n)$；相交很多时，输出本身就要 $O(k)$。**对比朴素 $O(n^2)$，扫描线把「不必要的两两检查」全部省掉**。<span class="marginnote">数值细节：状态结构中「按 y 排序」的比较依赖「当前扫描线位置 $x$」——不同线段在扫描线上的交点 y 可能变化，需要「在当前 x 处比较交点 y」的动态比较器。实现上用「交叉计数」或「把比较延迟到事件处理时」处理；这是扫描线实现的常见难点（也是 $O(k)$ 自定义比较器的坑）。</span>
 
 **辨析｜易错点：** 退化情形——**垂直线段**（在某个 $x$ 上与扫描线重合）、**重合线段**、**三线共点**——需要特殊的事件处理顺序（先删再插、或按 y 排序同 x 的事件）。CLRS 的简化版假设「无退化」，工程实现要补全这些分支。
 
@@ -70,11 +70,11 @@ $$T(n) = 2n \cdot O(\log n) + k \cdot O(\log n) = O((n+k)\log n)$$
 
 扫描线「动态维护一维有序 + 只查相邻」的范式远超线段相交：
 
-- **平面点集的最近对**（Bentley-Ottmann 变体）。
-- **矩形并的面积/周长**：按 x 扫描，维护「当前被覆盖的 y 区间」。
-- **天空线问题（skyline）**：建筑轮廓线。
-- **Voronoi 图 / Delaunay 三角剖分**：Fortune 的扫描线算法。
-- **平面图嵌入**、点定位。<span class="marginnote">扫描线把「二维几何」翻译成「一维动态序列」，这个「降维」思路是计算几何的通用武器。下一课的「最近点对」也会用到「按坐标排序 + 邻域检查」的同类思想，只是维护方式不同。学透扫描线，等于掌握了一类「几何 + 数据结构」组合问题的钥匙。</span>
+**平面点集的最近对**（Bentley-Ottmann 变体）。
+**矩形并的面积/周长**：按 x 扫描，维护「当前被覆盖的 y 区间」。
+**天空线问题（skyline）**：建筑轮廓线。
+**Voronoi 图 / Delaunay 三角剖分**：Fortune 的扫描线算法。
+**平面图嵌入**、点定位。<span class="marginnote">扫描线把「二维几何」翻译成「一维动态序列」，这个「降维」思路是计算几何的通用武器。下一课的「最近点对」也会用到「按坐标排序 + 邻域检查」的同类思想，只是维护方式不同。学透扫描线，等于掌握了一类「几何 + 数据结构」组合问题的钥匙。</span>
 
 ## 5 小结
 

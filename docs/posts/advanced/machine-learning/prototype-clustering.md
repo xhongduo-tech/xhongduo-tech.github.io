@@ -20,7 +20,7 @@ date: 2026-08-07
 
 这一族里三个代表性算法各有侧重：**k 均值**（最经典、原型取均值）、**学习向量量化 LVQ**（原型带着类别标记走）、**高斯混合聚类 GMM**（原型升级为概率分布，软分配）。它们共享「原型」这个思想，却在「原型怎么更新、样本怎么分配」上渐次升级——从硬分配走向软分配，从确定走向概率。<span class="marginnote">「原型」这个概念的另一个名字是「代表点」「中心」，它在很多领域反复出现：推荐系统里的「用户画像」、向量量化里的「码本」、自组织映射 SOM 里的「网格节点」，本质上都是原型。学透原型聚类，等于学会了「用少数代表概括一群数据」这套通用技艺。</span>
 
-## 1 k 均值：最经典的原型聚类**k 均值（k-means）**把每个簇的原型设为其**均值向量**。给定簇数 $k$，目标是最小化所有样本到所属簇中心的平方距离之和：$$E = \sum_{j=1}^{k} \sum_{\boldsymbol{x} \in C_j} \left\| \boldsymbol{x} - \boldsymbol{\mu}_j \right\|_2^2$$
+## 1 k 均值：最经典的原型聚类**k 均值（k-means）**把每个簇的原型设为其**均值向量**。给定簇数 $k$，目标是最小化所有样本到所属簇中心的平方距离之和：`$$`E = \sum_{j=1}^{k} \sum_{\boldsymbol{x} \in C_j} \left\| \boldsymbol{x} - \boldsymbol{\mu}_j \right\|_2^2$$
 
 其中 $\boldsymbol{\mu}_j = \frac{1}{|C_j|}\sum_{\boldsymbol{x}\in C_j}\boldsymbol{x}$ 是簇 $C_j$ 的均值（原型）。**算法流程**：
 
@@ -38,14 +38,14 @@ date: 2026-08-07
 
 预测时，新样本的类别就是最近原型的类别——LVQ 实际上同时给出**聚类结果**和**一个可用的分类器**。
 
-## 3 高斯混合聚类：原型升级为分布**高斯混合聚类（Gaussian Mixture Model, GMM）**把「原型」从「一个点」升级为「一个高斯分布」：每个簇用均值 $\boldsymbol{\mu}_i$ 与协方差 $\boldsymbol{\Sigma}_i$ 描述，混合系数 $\alpha_i$ 表示簇的「先验大小」。样本 $\boldsymbol{x}_j$ 属于簇 $i$ 的**后验概率**为$$\gamma_{ji} = P(z_j = i \mid \boldsymbol{x}_j) = \frac{\alpha_i \, p(\boldsymbol{x}_j \mid \boldsymbol{\mu}_i, \boldsymbol{\Sigma}_i)}{\sum_{l=1}^{k} \alpha_l \, p(\boldsymbol{x}_j \mid \boldsymbol{\mu}_l, \boldsymbol{\Sigma}_l)}$$
+## 3 高斯混合聚类：原型升级为分布**高斯混合聚类（Gaussian Mixture Model, GMM）**把「原型」从「一个点」升级为「一个高斯分布」：每个簇用均值 $\boldsymbol{\mu}_i$ 与协方差 $\boldsymbol{\Sigma}_i$ 描述，混合系数 $\alpha_i$ 表示簇的「先验大小」。样本 $\boldsymbol{x}_j$ 属于簇 $i$ 的**后验概率**为`$$`\gamma_{ji} = P(z_j = i \mid \boldsymbol{x}_j) = \frac{\alpha_i \, p(\boldsymbol{x}_j \mid \boldsymbol{\mu}_i, \boldsymbol{\Sigma}_i)}{\sum_{l=1}^{k} \alpha_l \, p(\boldsymbol{x}_j \mid \boldsymbol{\mu}_l, \boldsymbol{\Sigma}_l)}$$
 
 **与 k 均值的差别**：k 均值是**硬分配**（样本非此即彼），GMM 是**软分配**（样本以概率属于各簇）。GMM 的训练正是第7章 **EM 算法**：E 步用当前参数算后验 $\gamma_{ji}$，M 步按软分配更新各簇的 $\alpha_i, \boldsymbol{\mu}_i, \boldsymbol{\Sigma}_i$。<span class="marginnote">「k 均值 = GMM 的特例」是一个漂亮的理论事实：当每个高斯分量的协方差退化为「相同且各向同性」（$\boldsymbol{\Sigma}_i = \sigma^2 \mathbf{I}$）时，GMM 的软分配退化成「只看距离」，EM 就退化成 k 均值。这解释了为什么 k 均值对非球形簇无能为力——它的概率假设决定了它只会「看距离」。</span>
 
 ## 4 公式解析：k 均值的两步到底在优化什么k 均值的目标 $E = \sum_{j=1}^{k}\sum_{\boldsymbol{x}\in C_j}\|\boldsymbol{x} - \boldsymbol{\mu}_j\|_2^2$ 很难直接全局最小化（组合爆炸），于是用「坐标下降」式的两步交替：- **第一步（分配步），固定原型优化簇分配**：原型 $\boldsymbol{\mu}_j$ 暂时不动，每个样本必然被分给距离最近的原型——这使 $E$ 对该样本的贡献最小。逐样本最优 = 全局最优（因为各样本的分配互不影响）。
-- **第二步（重估步），固定分配优化原型**：簇分配不动，$E$ 对 $\boldsymbol{\mu}_j$ 是二次函数，令偏导为零得 $\boldsymbol{\mu}_j = \frac{1}{|C_j|}\sum_{\boldsymbol{x}\in C_j}\boldsymbol{x}$——簇均值恰好使该簇内平方距离和最小（「均值」的几何意义）。
-- **第三步，单调性**：两步都让 $E$ 不增，所以迭代必收敛——但只能保证收敛到**局部最优**，不能保证全局。
-- **第四步，复杂度**：每轮分配是 $O(mk)$（$m$ 个样本、$k$ 个原型），重估是 $O(m)$；整体很快，是「便宜而有效」的聚类主力。
+**第二步（重估步），固定分配优化原型**：簇分配不动，$E$ 对 $\boldsymbol{\mu}_j$ 是二次函数，令偏导为零得 $\boldsymbol{\mu}_j = \frac{1}{|C_j|}\sum_{\boldsymbol{x}\in C_j}\boldsymbol{x}$——簇均值恰好使该簇内平方距离和最小（「均值」的几何意义）。
+**第三步，单调性**：两步都让 $E$ 不增，所以迭代必收敛——但只能保证收敛到**局部最优**，不能保证全局。
+**第四步，复杂度**：每轮分配是 $O(mk)$（$m$ 个样本、$k$ 个原型），重估是 $O(m)$；整体很快，是「便宜而有效」的聚类主力。
 
 **直觉一句话**：k 均值就是在「样本跟谁」与「原型在哪」之间交替让步，直到谁也不愿再动——像两队人反复协调站位，最后停在某个「局部稳态」。
 

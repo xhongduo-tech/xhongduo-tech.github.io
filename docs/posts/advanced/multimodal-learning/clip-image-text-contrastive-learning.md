@@ -61,12 +61,12 @@ CLIP 的架构是上一篇《表示对齐》讲的「协调表示」的极致版
 
 CLIP 的训练没有「类别」概念，那测试时如何做零样本分类？答案是**把分类任务编码成匹配任务**：
 
-- 把每个候选类别翻译成一句 prompt，如 `a photo of a dog`。
+- 把每个候选类别翻译成一句 prompt，如 `"a photo of a {cat}"`。
 - 计算图像与每条 prompt 的相似度，取最高者作为预测。
 
-这里藏着 CLIP 的一个著名技巧：**prompt 模板的选择显著影响精度**。对同一张图，`a photo of a {class}` 比裸的 `{class}` 效果好——因为训练数据里的描述几乎都是完整句子，短词与图像的对齐更弱。
+这里藏着 CLIP 的一个著名技巧：**prompt 模板的选择显著影响精度**。对同一张图，`"a photo of a {class}"` 比裸的 `"cat"` 效果好——因为训练数据里的描述几乎都是完整句子，短词与图像的对齐更弱。
 
-常见模板还有 `a photo of a {class}, a type of pet`、`an illustration of a {class}` 等。**Prompt 是 CLIP 推理时的「超参数」**，这个思想后来被微调（learnable prompt）与语言模型接棒，演化成今天的 prompt engineering（见第四级《大模型原理》）。
+常见模板还有 `"a picture of a {class}"`、`"the {class}"` 等。**Prompt 是 CLIP 推理时的「超参数」**，这个思想后来被微调（learnable prompt）与语言模型接棒，演化成今天的 prompt engineering（见第四级《大模型原理》）。
 
 ## 4 公式解析：CLIP 的训练损失
 

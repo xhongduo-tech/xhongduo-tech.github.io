@@ -25,14 +25,21 @@ date: 2026-08-07
 **Dataset** 是 PyTorch 的数据接口——它定义「怎么访问一个样本」。自定义 Dataset 需要实现两个方法：
 
 ```python
-class MyDataset(torch.utils.data.Dataset):
-    def __len__(self):
-        return len(self.data)          # 数据集大小
+import torch
+from torch.utils.data import Dataset
 
-    def __getitem__(self, idx):
-        x = self.data[idx]             # 取第 idx 个样本
-        y = self.label[idx]
-        return x, y                    # 返回 (样本, 标签)
+class ImageDataset(Dataset):
+    def __init__(self, images, labels):
+        self.images = images
+        self.labels = labels
+
+    def __len__(self):                    # 样本总数
+        return len(self.images)
+
+    def __getitem__(self, idx):           # 取第 idx 个样本
+        x = self.images[idx]
+        y = self.labels[idx]
+        return x, y
 ```
 
 **「Dataset 定义了『单样本怎么取』」**——它不管「批量」「打乱」「多进程」（那是 DataLoader 的事）。Dataset 的「最小职责」让数据加载「模块化」。
@@ -46,11 +53,15 @@ class MyDataset(torch.utils.data.Dataset):
 **DataLoader** 把 Dataset「包装」成「能批量、能打乱、能并行加载」的迭代器：
 
 ```python
-loader = torch.utils.data.DataLoader(
-    dataset, batch_size=64, shuffle=True,   # 批量 + 每 epoch 打乱
-    num_workers=4,                          # 4 个进程并行加载
-    pin_memory=True,                        # 锁页内存（GPU 传输更快）
-    drop_last=True,                         # 丢掉最后的不足 batch
+from torch.utils.data import DataLoader
+
+loader = DataLoader(
+    dataset,
+    batch_size=32,
+    shuffle=True,        # 训练要打乱
+    num_workers=4,       # 多进程并行加载（数据预取）
+    pin_memory=True,     # 锁页内存，CPU→GPU 传输更快
+    drop_last=False,     # 丢掉最后不足 batch 的样本
 )
 ```
 
@@ -62,7 +73,7 @@ loader = torch.utils.data.DataLoader(
 4. **pin_memory**：锁页内存——「CPU→GPU 传输更快」。
 5. **drop_last**：丢掉最后不足 batch——「保证 batch 大小一致（对 BatchNorm 重要）」。
 
-**「DataLoader 把『取样本』升级为『取批次 + 并行』」**——它处理「批量、顺序、并发」三件事。<span class="marginnote">「DataLoader 的『多进程』」：`num_workers > 0` 让「数据加载」在多个进程里并行——「<strong>CPU 一边准备下一批数据，GPU 一边算当前批</strong>」——「数据加载『预取』，GPU 不饿」。「<strong>num_workers 是『数据加载速度』的旋钮</strong>」——「数据加载慢 → 加大 num_workers（但别超过 CPU 核数）」。</span>
+**「DataLoader 把『取样本』升级为『取批次 + 并行』」**——它处理「批量、顺序、并发」三件事。<span class="marginnote">「DataLoader 的『多进程』」：`num_workers>0` 让「数据加载」在多个进程里并行——「<strong>CPU 一边准备下一批数据，GPU 一边算当前批</strong>」——「数据加载『预取』，GPU 不饿」。「<strong>num_workers 是『数据加载速度』的旋钮</strong>」——「数据加载慢 → 加大 num_workers（但别超过 CPU 核数）」。</span>
 
 **易错点：** `shuffle=True` 只在「训练」用；验证/测试用 `shuffle=False`（顺序无关，可复现）。**「训练打乱、评估不打乱」**是 DataLoader 的标准配置。
 
@@ -71,12 +82,12 @@ loader = torch.utils.data.DataLoader(
 **transforms**（`torchvision.transforms`）把「数据变换」串成「流水线」：
 
 ```python
-transform = transforms.Compose([
-    transforms.Resize((224, 224)),      # 缩放
-    transforms.RandomHorizontalFlip(),  # 训练增强：随机翻转
-    transforms.ColorJitter(...),        # 训练增强：颜色抖动
-    transforms.ToTensor(),              # 转张量
-    transforms.Normalize(mean, std),    # 标准化
+from torchvision import transforms
+
+train_transform = transforms.Compose([
+    transforms.RandomHorizontalFlip(),                # 随机翻转（训练增强）
+    transforms.ToTensor(),                            # PIL 图像 → 张量
+    transforms.Normalize(mean=[0.485], std=[0.229]),  # 标准化
 ])
 ```
 
@@ -84,12 +95,12 @@ transform = transforms.Compose([
 
 **训练 vs 验证的 transforms 不同**：
 
-- **训练**：含「随机增强」（翻转、裁剪）——「注入不变性」。
-- **验证/测试**：只做「确定性变换」（Resize、ToTensor、Normalize）——「评估要稳定」。
+**训练**：含「随机增强」（翻转、裁剪）——「注入不变性」。
+**验证/测试**：只做「确定性变换」（Resize、ToTensor、Normalize）——「评估要稳定」。
 
-**「训练与验证的 transforms 要分开定义」**——「训练随机增强、评估确定性」是《数据预处理》的纪律在 PyTorch 里的实现。<span class="marginnote">「transforms 的『GPU vs CPU』」：简单变换（标准化）可以在 GPU 上做（张量运算）；但「随机增强」（翻转、裁剪）通常用 `torchvision` 的「CPU 实现」（更快、更标准）——「<strong>增强在 CPU（数据加载时）做，标准化等简单变换可 GPU</strong>」。「增强的『放置』是性能与便利的权衡」。</span>
+**「训练与验证的 transforms 要分开定义」**——「训练随机增强、评估确定性」是《数据预处理》的纪律在 PyTorch 里的实现。<span class="marginnote">「transforms 的『GPU vs CPU』」：简单变换（标准化）可以在 GPU 上做（张量运算）；但「随机增强」（翻转、裁剪）通常用 `PIL`/`torchvision` 的「CPU 实现」（更快、更标准）——「<strong>增强在 CPU（数据加载时）做，标准化等简单变换可 GPU</strong>」。「增强的『放置』是性能与便利的权衡」。</span>
 
-**易错点：** transforms 的顺序有「讲究」——`ToTensor` 要在 `Normalize` 前（先转张量、再标准化）；`Resize` 要在 `ToTensor` 前（操作 PIL 图像）。**「transforms 的顺序：PIL 操作（Resize/翻转）→ ToTensor → Normalize」**。
+**易错点：** transforms 的顺序有「讲究」——`ToTensor` 要在 `Normalize` 前（先转张量、再标准化）；`Resize`/翻转要在 `ToTensor` 前（操作 PIL 图像）。**「transforms 的顺序：PIL 操作（Resize/翻转）→ ToTensor → Normalize」**。
 
 ## 4 公式解析：数据加载的「吞吐」瓶颈
 

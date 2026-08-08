@@ -22,37 +22,46 @@ date: 2026-08-07
 
 从顶点 $v$ 出发的 DFS：访问 $v$ 并标记，然后**依次对 $v$ 的每个未访问的邻接点递归 DFS**。若一次 DFS 后仍有未访问顶点，则从其中任选一个重新开始——「外层循环」保证覆盖全图。
 
-```c
-void DFS(ALGraph G, int v) {
-    visited[v] = 1;                      /* 访问并标记 */
-    visit(G, v);
-    for (w = FirstNeighbor(G, v); w >= 0; w = NextNeighbor(G, v, w))
+```cpp
+// 从顶点 v 出发的 DFS：一条路走到黑，走不动就回溯
+void dfs(int v) {
+    visited[v] = true;                    // 访问并标记
+    printf("%d ", v);
+    for (int w : adj[v])                  // 依次处理 v 的每个邻接点
         if (!visited[w])
-            DFS(G, w);                   /* 对未访问的邻接点递归 */
+            dfs(w);                       // 未访问则递归深入
 }
 
-void DFSTraverse(ALGraph G) {
-    for (v = 0; v < G.n; v++) visited[v] = 0;
-    for (v = 0; v < G.n; v++)
-        if (!visited[v])
-            DFS(G, v);                   /* 处理非连通图的每个连通分量 */
-}
+// 外层循环：保证覆盖全图（处理不连通的情况）
+for (int v = 0; v < n; ++v)
+    if (!visited[v])
+        dfs(v);
 ```
 
-**重点：`visited` 数组是 DFS 的「记忆」——没有它，图遍历就变成死循环。** 树不用标记是因为树无环；图有环，必须靠标记防止重复进入。<span class="marginnote">DFS 的递归调用与《栈与递归（汉诺塔）》一脉相承：每次递归压一层栈，栈深就是当前搜索深度。图很大时，<strong>显式栈 + 循环</strong>可以替代递归，避免系统栈溢出——与二叉树非递归遍历同理。</span>
+**重点：visited 数组是 DFS 的「记忆」——没有它，图遍历就变成死循环。** 树不用标记是因为树无环；图有环，必须靠标记防止重复进入。<span class="marginnote">DFS 的递归调用与《栈与递归（汉诺塔）》一脉相承：每次递归压一层栈，栈深就是当前搜索深度。图很大时，<strong>显式栈 + 循环</strong>可以替代递归，避免系统栈溢出——与二叉树非递归遍历同理。</span>
 
 ## 2 DFS 的非递归写法
 
 DFS 的本质是「后进先出」地扩展，所以显式栈版本很自然：
 
-```c
-void DFS_stack(ALGraph G, int v) {
-    InitStack(S);  visited[v] = 1;  visit(v);  Push(S, v);
-    while (!StackEmpty(S)) {
-        int u = Top(S);                    /* 看栈顶 */
-        w = u 的第一个未访问邻接点;
-        if (w 存在) { visited[w] = 1; visit(w); Push(S, w); }
-        else Pop(S);                       /* 无路可走，回溯 */
+```cpp
+// 非递归 DFS：显式栈
+void dfsIter(int start) {
+    stack<int> st;
+    st.push(start);
+    visited[start] = true;                // 入栈即标记，防止重复入栈
+    while (!st.empty()) {
+        int v = st.top();                 // 看栈顶，不急着弹
+        bool hasUnvisited = false;
+        for (int w : adj[v]) {            // 找下一个未访问的邻接点
+            if (!visited[w]) {
+                visited[w] = true;
+                st.push(w);               // 有路 → 深入
+                hasUnvisited = true;
+                break;
+            }
+        }
+        if (!hasUnvisited) st.pop();      // 无路 → 弹出（回溯）
     }
 }
 ```
@@ -81,17 +90,17 @@ DFS 从某顶点出发访问到的所有边中，**「首次发现新顶点」�
 
 DFS 是图算法中使用最广的「引擎」：
 
-- **连通分量**：`DFSTraverse` 外层循环启动 DFS 的次数 = 连通分量个数；
-- **环检测**：DFS 中遇到「已访问且非双亲」的邻接点即有环；
-- **拓扑排序**：DFS 完成的逆序就是拓扑序（对有向无环图）；
-- **强连通分量 / 割点 / 桥**：Tarjan 算法（专题篇）；
-- **二分图判定**：DFS 染色，相邻不同色。
+**连通分量**：visited 标记下外层循环启动 DFS 的次数 = 连通分量个数；
+**环检测**：DFS 中遇到「已访问且非双亲」的邻接点即有环；
+**拓扑排序**：DFS 完成的逆序就是拓扑序（对有向无环图）；
+**强连通分量 / 割点 / 桥**：Tarjan 算法（专题篇）；
+**二分图判定**：DFS 染色，相邻不同色。
 
 **重点：学会 DFS，就解锁了图算法的半壁江山。** 后续的拓扑排序、关键路径、强连通分量，全是 DFS 的「加料」版本。<span class="marginnote">DFS 的另一重身份是「<strong>隐式图的搜索</strong>」——八皇后、迷宫、状态空间搜索都显式或隐式地组织成图，DFS（及其兄弟 BFS）是走迷宫、解谜题、状态搜索的统一引擎。回溯法（六篇）正是 DFS 在约束满足问题上的特化。</span>
 
 ## 6 小结
 
-- DFS = 树的先序遍历推广到任意图；`visited` 数组防环、防重复访问。
+- DFS = 树的先序遍历推广到任意图；visited 数组防环、防重复访问。
 - 递归版 + 显式栈版等价；栈顶「有路深入、无路弹出」。
 - 复杂度：邻接表 $O(n+e)$，邻接矩阵 $O(n^2)$。
 - DFS 生成树/森林：「首访新顶点」的边构成；无环 ⇔ 无回边。

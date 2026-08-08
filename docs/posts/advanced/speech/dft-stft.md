@@ -107,20 +107,19 @@ STFT 的实现核心就三步：取帧、加窗、FFT。用 SciPy 可以一行�
 
 ```python
 import numpy as np
+from scipy.signal import stft
 
-def my_stft(x, win, hop):
-    """逐帧加窗做 FFT，返回 帧数 × 频点数 的幅度谱"""
-    N, H = len(win), hop
-    frames = np.lib.stride_tricks.sliding_window_view(x, N)[::H]  # 取帧（带重叠）
-    X = np.fft.rfft(frames * win, axis=1)                          # 加窗 + 只取 0~fs/2
-    return np.abs(X)
+# 方式一：SciPy 一行完成（25 ms 窗、10 ms 帧移）
+f, t, X = stft(x, fs=16000, window='hann', nperseg=400, noverlap=240)
 
-x = ...                                        # 16 kHz 的一段语音
-win = np.hanning(400)                          # 25 ms 汉明窗
-H = my_stft(x, win, hop=160)                   # 帧移 10 ms（60% 重叠）
+# 方式二：NumPy 看清每一步——取帧、加窗、FFT
+n_fft, hop = 400, 160
+w = np.hanning(n_fft)
+frames = np.array([x[i:i+n_fft] * w for i in range(0, len(x) - n_fft, hop)])
+X2 = np.fft.rfft(frames, axis=1)          # (帧数, n_fft//2+1)，取模即幅度谱
 ```
 
-`H` 的每一行是第 $m$ 帧的幅度谱（对应 $X(m,k)$ 取模），行与行之间相隔 10 ms。把它画成图——**这就是下一节的语谱图**。
+$X(m,k)$ 的每一行是第 $m$ 帧的幅度谱（对应 $X(m,k)$ 取模），行与行之间相隔 10 ms。把它画成图——**这就是下一节的语谱图**。
 
 ## 7 小结
 

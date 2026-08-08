@@ -66,17 +66,17 @@ $$
 class Adapter(nn.Module):
     def __init__(self, d, r):
         super().__init__()
-        self.down = nn.Linear(d, r, bias=False)   # 降维：d -> r
+        self.down = nn.Linear(d, r)        # 降维投影 D：d → r
+        self.up = nn.Linear(r, d)          # 升维投影 U：r → d
         self.act = nn.GELU()
-        self.up = nn.Linear(r, d, bias=False)      # 升维：r -> d
-        nn.init.zeros_(self.up.weight)             # 关键：从恒等出发
-    def forward(self, h):
-        return self.up(self.act(self.down(h)))     # 输出再加到主路径
+        nn.init.zeros_(self.up.weight)     # 关键：U 初始化为 0
+        nn.init.zeros_(self.up.bias)
 
-# 接入：h = sublayer(x); h = h + adapter(h)   —— 冻结 sublayer，只训 adapter
+    def forward(self, h):
+        return self.up(self.act(self.down(h)))   # U σ(D h)
 ```
 
-注意 `up` 权重清零这行：**它保证训练初期 Adapter 输出为 0、模型行为不变**，随后逐步「撑开」。绝大多数 Adapter 变体（Pfeiffer、并行、AdapterFusion）都只是在这十几行上改结构，核心的「瓶颈 + 残差 + 从零开始」三要素不变。
+注意 `nn.init.zeros_(self.up.weight)`（升维投影 U）权重清零这行：**它保证训练初期 Adapter 输出为 0、模型行为不变**，随后逐步「撑开」。绝大多数 Adapter 变体（Pfeiffer、并行、AdapterFusion）都只是在这十几行上改结构，核心的「瓶颈 + 残差 + 从零开始」三要素不变。
 
 ## 4 放置位置与变体
 

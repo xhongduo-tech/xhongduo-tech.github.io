@@ -20,78 +20,83 @@ date: 2026-08-07
 
 ## 1 跳表的完整实现
 
-```c
-#define MAX_LVL 32
+```cpp
+#define MAX_LEVEL 16                        // 层数上限
 
-typedef struct SkipNode {
+struct Node {
     int key;
-    struct SkipNode *forward[MAX_LVL];   /* 每一层的前向指针 */
-} SkipNode;
+    vector<Node*> forward;                  // forward[k] = 第 k 层的下一个结点
+    Node(int k, int lvl) : key(k), forward(lvl + 1, nullptr) {}
+};
 
-typedef struct {
-    SkipNode *header;                    /* 头结点：每层链表的哨兵头 */
-    int level;                           /* 当前最高层数 */
-} SkipList;
+Node* head = new Node(-1, MAX_LEVEL);       // 哨兵头：每层都是入口
+int level = 0;                              // 当前最高层（从第 0 层起）
 
-SkipNode *NewNode(int key, int lvl) {
-    SkipNode *p = (SkipNode *)malloc(sizeof(SkipNode));
-    p->key = key;
-    for (i = 0; i < lvl; i++) p->forward[i] = NULL;
-    return p;
-}
-
-SkipList *CreateList() {
-    SkipList *sl = malloc(sizeof(SkipList));
-    sl->header = NewNode(-1, MAX_LVL);   /* 哨兵头，负无穷键 */
-    sl->level = 0;
-    return sl;
+// 查找 key：从最高层开始，能跳就跳、不能跳就降层
+Node* find(int key) {
+    Node* p = head;
+    for (int k = level; k >= 0; --k) {      // 逐层下降
+        while (p->forward[k] && p->forward[k]->key < key)
+            p = p->forward[k];              // 同层向右跳到「不大于 key」的最大结点
+    }
+    return p->forward[0];                   // 第 0 层再走一步，目标若存在必在附近
 }
 ```
 
-**重点：跳表的实现三件套——结点带「层数组」指针、头结点是每层的哨兵、`level` 记当前最高层。** 这与「链表 + 哨兵」一脉相承，只是哨兵有多个（每层一个）。<span class="marginnote">「<strong>forward 数组 = 一个结点在多个层里的『分身指针』</strong>」：<strong>第 $k$ 层只有层数 $\ge k$ 的结点才有这个指针</strong>。<strong>哨兵头 + 层数组</strong>让「从最高层出发」的查找可以从 `header->forward[level]` 一步进入——<strong>实现虽短，结构却完整</strong>。</span>
+**重点：跳表的实现三件套——结点带「层数组」指针、头结点是每层的哨兵、level 字段记当前最高层。** 这与「链表 + 哨兵」一脉相承，只是哨兵有多个（每层一个）。<span class="marginnote">「<strong>forward 数组 = 一个结点在多个层里的『分身指针』</strong>」：<strong>第 $k$ 层只有层数 $\ge k$ 的结点才有这个指针</strong>。<strong>哨兵头 + 层数组</strong>让「从最高层出发」的查找可以从 head 一步进入——<strong>实现虽短，结构却完整</strong>。</span>
 
 ## 2 插入与删除的完整代码
 
-```c
-void Insert(SkipList *sl, int key) {
-    SkipNode *update[MAX_LVL];           /* 记录每层「要插入的位置」 */
-    SkipNode *p = sl->header;
-    for (int lvl = sl->level; lvl >= 0; lvl--) {   /* 查找：记录每层前驱 */
-        while (p->forward[lvl] && p->forward[lvl]->key < key)
-            p = p->forward[lvl];
-        update[lvl] = p;
+```cpp
+// 随机层数：连续抛「正面」就升一层
+int randomLevel() {
+    int lvl = 0;
+    while (rand() % 2 == 1 && lvl < MAX_LEVEL) lvl++;
+    return lvl;
+}
+
+// 插入 key
+void insert(int key) {
+    Node* update[MAX_LEVEL + 1];            // 记录每一层的前驱
+    Node* p = head;
+    for (int k = level; k >= 0; --k) {      // 一趟查找，逐层记下前驱
+        while (p->forward[k] && p->forward[k]->key < key)
+            p = p->forward[k];
+        update[k] = p;
     }
-    int newLvl = RandomLevel();
-    if (newLvl > sl->level) {            /* 新层：补哨兵层 */
-        for (lvl = sl->level + 1; lvl <= newLvl; lvl++) update[lvl] = sl->header;
-        sl->level = newLvl;
+    int lvl = randomLevel();                // 抛硬币定层数
+    if (lvl > level) {                      // 层数超过当前最高层
+        for (int k = level + 1; k <= lvl; ++k) update[k] = head;
+        level = lvl;
     }
-    SkipNode *node = NewNode(key, newLvl);
-    for (lvl = 0; lvl <= newLvl; lvl++) {        /* 逐层插入 */
-        node->forward[lvl] = update[lvl]->forward[lvl];
-        update[lvl]->forward[lvl] = node;
+    Node* cur = new Node(key, lvl);
+    for (int k = 0; k <= lvl; ++k) {        // 逐层插入
+        cur->forward[k] = update[k]->forward[k];
+        update[k]->forward[k] = cur;
     }
 }
 
-void Delete(SkipList *sl, int key) {
-    SkipNode *update[MAX_LVL];
-    SkipNode *p = sl->header;
-    for (int lvl = sl->level; lvl >= 0; lvl--) {
-        while (p->forward[lvl] && p->forward[lvl]->key < key)
-            p = p->forward[lvl];
-        update[lvl] = p;
+// 删除 key
+void erase(int key) {
+    Node* update[MAX_LEVEL + 1];
+    Node* p = head;
+    for (int k = level; k >= 0; --k) {      // 同样一趟查找记录每层前驱
+        while (p->forward[k] && p->forward[k]->key < key)
+            p = p->forward[k];
+        update[k] = p;
     }
-    SkipNode *node = p->forward[0];
-    if (node && node->key == key) {              /* 逐层摘除 */
-        for (lvl = 0; lvl <= sl->level; lvl++)
-            if (update[lvl]->forward[lvl] == node)
-                update[lvl]->forward[lvl] = node->forward[lvl];
-        free(node);
+    Node* cur = p->forward[0];
+    if (cur && cur->key == key) {           // 找到目标才删除
+        for (int k = 0; k <= level; ++k)
+            if (update[k]->forward[k] == cur)
+                update[k]->forward[k] = cur->forward[k];   // 逐层摘除
+        delete cur;
+        while (level > 0 && head->forward[level] == nullptr) level--;  // 修正最高层
     }
 }
 ```
 
-**重点：插入/删除都用 `update[]` 数组记录「每层的前驱」**——一次查找，把每一层「该接/该摘的位置」全部记下，再逐层操作。这个「一趟查找 + 记录每层位置」的技巧是跳表插入/删除的统一骨架。<span class="marginnote">「<strong>update 数组 = 一次查找、全部层的位置快照</strong>」：<strong>查找时在每一层都停在一个位置，存进 update[lvl]</strong>——插入/删除时按层取用即可。<strong>「先查后改、一次到位」</strong>让跳表的增删代码极其对称，也是它比平衡树「边查边旋」清爽的原因。</span>
+**重点：插入/删除都用 update 数组记录「每层的前驱」**——一次查找，把每一层「该接/该摘的位置」全部记下，再逐层操作。这个「一趟查找 + 记录每层位置」的技巧是跳表插入/删除的统一骨架。<span class="marginnote">「<strong>update 数组 = 一次查找、全部层的位置快照</strong>」：<strong>查找时在每一层都停在一个位置，存进 update[lvl]</strong>——插入/删除时按层取用即可。<strong>「先查后改、一次到位」</strong>让跳表的增删代码极其对称，也是它比平衡树「边查边旋」清爽的原因。</span>
 
 ## 3 公式解析：期望查找长度
 
@@ -107,24 +112,24 @@ $$
 
 ## 4 辨析｜易错点：跳表的复杂度是「期望」不是「最坏」
 
-- **期望 $O(\log n)$**：平均意义，硬币公平；
-- **最坏 $O(n)$**：理论上可能全部结点都抛到第 0 层（退化成链表）——但概率 $2^{-n}$，指数级小；
-- **实际保证**：对任何固定输入，「不是 $O(\log n)$」的概率可以忽略——**工程上视为 $O(\log n)$**。
+**期望 $O(\log n)$**：平均意义，硬币公平；
+**最坏 $O(n)$**：理论上可能全部结点都抛到第 0 层（退化成链表）——但概率 $2^{-n}$，指数级小；
+**实际保证**：对任何固定输入，「不是 $O(\log n)$」的概率可以忽略——**工程上视为 $O(\log n)$**。
 
 **重点：跳表的「最坏退化」概率指数级小，所以工程完全可用**——这与哈希表的「最坏全冲突」同理（随机化哈希后概率可忽略）。「高概率」是随机化结构的通用保证语言。<span class="marginnote">「<strong>概率指数级小 = 工程可忽略</strong>」是随机化算法的通用信念：<strong>$2^{-n}$ 的概率比硬件故障概率还低，工程上不值得担心</strong>。<strong>「期望 + 高概率」取代「最坏」</strong>，是跳表、随机哈希、Treap 共同的分析语言。</span>
 
 ## 5 跳表的工程优化
 
-- **层数上限**：`MAX_LVL` 设为 $O(\log n)$ 上界，防止极端层数；
-- **指针压缩**：低层指针更常被访问，可单独优化缓存；
-- **并发版本**：跳表天然适合「无锁并发」——不同层、不同区间的操作互不干扰，比平衡树的「重平衡锁」并发友好得多（这也是 ConcurrentSkipListMap 选它的原因）。
+**层数上限**：MAX_LEVEL 设为 $O(\log n)$ 上界，防止极端层数；
+**指针压缩**：低层指针更常被访问，可单独优化缓存；
+**并发版本**：跳表天然适合「无锁并发」——不同层、不同区间的操作互不干扰，比平衡树的「重平衡锁」并发友好得多（这也是 ConcurrentSkipListMap 选它的原因）。
 
-**重点：跳表的「层」结构让它并发友好**——查找/插入只影响局部指针，无需锁整棵树。这是它胜过红黑树的隐藏优势，也是 Java `ConcurrentSkipListMap` 选跳表而不用 TreeMap 的理由。<span class="marginnote">「<strong>结构简单 → 并发友好</strong>」：<strong>跳表没有全局重平衡，每个操作只碰自己的指针段，可以细粒度加锁甚至无锁</strong>。<strong>平衡树的旋转/染色需要「锁住局部子树」，并发代价高</strong>——<strong>「简单结构」在并发时代成了隐藏优势</strong>。</span>
+**重点：跳表的「层」结构让它并发友好**——查找/插入只影响局部指针，无需锁整棵树。这是它胜过红黑树的隐藏优势，也是 Java ConcurrentSkipListMap 选跳表而不用 TreeMap 的理由。<span class="marginnote">「<strong>结构简单 → 并发友好</strong>」：<strong>跳表没有全局重平衡，每个操作只碰自己的指针段，可以细粒度加锁甚至无锁</strong>。<strong>平衡树的旋转/染色需要「锁住局部子树」，并发代价高</strong>——<strong>「简单结构」在并发时代成了隐藏优势</strong>。</span>
 
 ## 6 小结
 
-- 实现三件套：结点层指针数组 + 哨兵头 + `level`。
-- 插入/删除：一趟查找记录 `update[]`，逐层操作。
+- 实现三件套：结点层指针数组 + 哨兵头 + level 字段。
+- 插入/删除：一趟查找记录 update 数组，逐层操作。
 - 期望查找 $O(\log n)$：每层期望常数步 + 层数 $\log_2 n$。
 - 最坏 $O(n)$ 但概率 $2^{-n}$——「期望 + 高概率」保证。
 - 层数上限、指针压缩、并发无锁是工程优化方向。

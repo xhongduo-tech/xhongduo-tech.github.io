@@ -82,15 +82,20 @@ $$
 ## 5 实现
 
 ```python
+import numpy as np
+
 def euler(f, t0, y0, h, n):
-    """欧拉方法：t = [t0, t0+h, ..., t0+n*h]，返回 y 序列"""
+    """显式欧拉：y_{k+1} = y_k + h f(t_k, y_k)，一阶。"""
     t, y = t0, y0
-    ys = [y0]
+    ts, ys = [t0], [y0]
     for _ in range(n):
         y = y + h * f(t, y)
         t = t + h
-        ys.append(y)
-    return ys
+        ts.append(t); ys.append(y)
+    return np.array(ts), np.array(ys)
+
+# 例：y' = y, y(0)=1, h=0.1 走 10 步到 t=1 → 2.5937（真值 e ≈ 2.7183）
+print(euler(lambda t, y: y, 0, 1.0, 0.1, 10)[1][-1])
 ```
 
 **终止/步长选择**：欧拉方法每一步简单，但误差大——**工程上用它当「预测器」或教学示例**，实际求解用 `scipy.integrate.solve_ivp`（内部 RK45）。

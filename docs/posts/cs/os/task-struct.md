@@ -30,10 +30,10 @@ date: 2026-08-07
 | 内存 | `mm`（内存描述符指针）、`active_mm` |
 | 文件 | `files`（打开文件表指针）、`fs`（fs_struct） |
 | 信号 | `signal`、`sighand`（信号处理表） |
-| 父子 | `parent`、`children`、`real_parent` |
-| 线程 | `thread`（线程专有状态）、`thread_info` |
+| 父子 | `parent`、`children`、`sibling` |
+| 线程 | `thread`（线程专有状态）、`thread_group` |
 
-**task_struct 的组织**：内核用**双向链表**把 task_struct 串起来——`for_each_process` 遍历所有进程；用**红黑树**按 PID 快速查找（`find_task_by_pid`）。
+**task_struct 的组织**：内核用**双向链表**把 task_struct 串起来——`tasks` 字段遍历所有进程；用**红黑树**按 PID 快速查找（`pid_hash`）。
 
 ## 2 关键字段解读
 
@@ -53,28 +53,33 @@ date: 2026-08-07
 **③ 内存 mm**：
 
 - `mm` 指向 **mm_struct**（内存描述符）——包含页表、代码/数据/栈段的地址范围、mmap 链表。
-- **线程共享 mm**（`mm` 相同），进程独立 mm——这就是「线程共享地址空间、进程不共享」的内核实现。
+- **线程共享 mm**（`mm` 指针相同），进程独立 mm——这就是「线程共享地址空间、进程不共享」的内核实现。
 
 **④ 文件 files**：
 
 - `files` 指向 **files_struct**——打开文件表（fd 表）。线程共享 files（fd 共享），fork 时复制（COW）。
 
-**辨析｜易错点：** 「pid = 进程号」在**线程语境**下不准确。**内核里 `pid` 是线程号，`tgid` 才是用户看到的进程号（PID）**——一个多线程进程，用户看到 1 个 PID，内核看到 N 个 task_struct（N 个 pid、共享 tgid）。**`ps` 显示的是 tgid；`top` 里每个线程是独立的 pid。**
+**辨析｜易错点：** 「pid = 进程号」在**线程语境**下不准确。**内核里 `pid` 是线程号，`tgid` 才是用户看到的进程号（PID）**——一个多线程进程，用户看到 1 个 PID，内核看到 N 个 task_struct（N 个 pid、共享 tgid）。**`ps` 显示的是 tgid；`ps -T` 里每个线程是独立的 pid。**
 
 ## 3 task_struct 的管理：链表与红黑树
 
 内核高效管理大量 task_struct：
 
-- **双向链表**：`tasks` 字段把所有进程串成环——遍历（`ps`）用。
-- **红黑树（PID 哈希）**：按 pid 快速查找——`kill(pid)`、`getpid` 相关操作 O(log n)。
+- **双向链表**：`tasks` 字段把所有进程串成环——遍历（`for_each_process`）用。
+- **红黑树（PID 哈希）**：按 pid 快速查找——`find_task_by_vpid`、`pid_task` 相关操作 O(log n)。
 - **就绪队列（runqueue）**：每个 CPU 一个，用红黑树按 vruntime 组织（回顾 CFS）——调度器 O(log n) 选进程。
 
-**内核如何找「当前进程」**：通过 `current` 宏——从 `thread_info` 或栈指针计算当前 task_struct 地址。`current->pid` 就是「我是谁」。
+**内核如何找「当前进程」**：通过 `current` 宏——从 `thread_info` 或栈指针计算当前 task_struct 地址。`current` 就是「我是谁」。
 
 **公式解析：current 的定位**
 
 ```c
-#define current get_current()
+/* x86-64 上：先由栈指针取 thread_info，再取其 task 字段 */
+static inline struct thread_info *current_thread_info(void)
+{
+    return (struct thread_info *)(current_stack_pointer & ~(THREAD_SIZE - 1));
+}
+#define current (current_thread_info()->task)
 ```
 
 x86-64 上 `current` 通过 **thread_info 的栈指针**计算：
@@ -85,7 +90,7 @@ $$\text{current} = \text{内核栈底部} - \text{THREAD_INFO_OFFSET}$$
 - 从栈指针反推 task_struct 地址——**O(1) 找到「当前进程」**。
 - 不用搜索、不用全局变量——**从「我正在用哪个栈」就知道「我是谁」**。
 
-**直觉**：`current` 是内核代码最常用的宏——任何「当前进程」的访问（`current->pid`、`current->mm`）都靠它。**「从栈定身份」是内核的经典技巧**：每个进程的内核栈唯一，栈即身份。
+**直觉**：`current` 是内核代码最常用的宏——任何「当前进程」的访问（`current->mm`、`current->files`）都靠它。**「从栈定身份」是内核的经典技巧**：每个进程的内核栈唯一，栈即身份。
 
 ## 4 核心对比表：PCB（理论） vs task_struct（Linux）
 

@@ -34,9 +34,9 @@ $$\lim_{z \to z_0} \frac{f(z)-f(z_0)}{z-z_0}$$
 
 设 $f$ 定义于区域 $D$，逐条理清三个层次：
 
-- **在一点可导**：$\lim_{\Delta z\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}$ 存在。
-- **在一点解析**：$z_0$ 存在一个邻域 $U(z_0,\delta)$，使得 $f$ 在 $U$ 内**处处可导**。
-- **在区域 $D$ 内解析**：$f$ 在 $D$ 内每一点都解析，记作 $f \in H(D)$（$H$ 取自 holomorphic）。<span class="marginnote">记号 $f\in H(D)$ 中的 $H$ 是全纯（holomorphic）的缩写。文献里「解析函数」「全纯函数」「正则函数」三词互通，本文统一用「解析」。</span>
+**在一点可导**：$\lim_{\Delta z\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}$ 存在。
+**在一点解析**：$z_0$ 存在一个邻域 $U(z_0,\delta)$，使得 $f$ 在 $U$ 内**处处可导**。
+**在区域 $D$ 内解析**：$f$ 在 $D$ 内每一点都解析，记作 $f \in H(D)$（$H$ 取自 holomorphic）。<span class="marginnote">记号 $f\in H(D)$ 中的 $H$ 是全纯（holomorphic）的缩写。文献里「解析函数」「全纯函数」「正则函数」三词互通，本文统一用「解析」。</span>
 
 三者之间有一个重要的「放大」现象，是复分析特有的：
 

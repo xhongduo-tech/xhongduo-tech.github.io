@@ -26,9 +26,11 @@ TSP 是 NPC，而且比顶点覆盖更「难近似」——一般 TSP（无额�
 
 ```
 APPROX-TSP-TOUR(G, c)
-  1. 求 G 的最小生成树 T（Prim 或 Kruskal）
-  2. 对 T 做一次深度优先遍历，列出访问顶点的顺序
-  3. 返回该顺序构成的哈密顿回路（跳过重复顶点）
+1  select a vertex r ∈ G.V to be the "root" vertex
+2  T = MST-PRIM(G, r)              // 最小生成树
+3  H = list of vertices in the order they are first visited
+        by a preorder walk of T     // 深度优先先序，再短路成回路
+4  return H
 ```
 
 直觉：MST 是「连接所有城市的最便宜骨架」；沿 MST 的边「走一圈」（每条边正反各一次）是一条访问所有顶点的闭合路径，总代价 = $2 \times w(T)$；把它「短路」（跳过重复访问）成哈密顿回路，由三角不等式，代价只会更小。<span class="marginnote">「先绕树走一圈，再短路成回路」是这个算法的灵魂。绕树一周每条边被走两次（$2w(T)$）；跳过已访问顶点时，三角不等式保证「走捷径」不会比「沿原路径绕」贵。于是回路代价 ≤ $2w(T)$。MST 与 TSP 的联系就这样建立。</span>
@@ -59,10 +61,12 @@ $$c(H) \le 2 \cdot w(T) \le 2 \cdot C^*$$
 
 ```
 CHRISTOFIDES(G, c)
-  1. 求 MST T
-  2. 令 O = T 中奇数度的顶点集
-  3. 在 O 上求最小权完美匹配 M（|O| 是偶数）
-  4. 求 T ∪ M 的欧拉回路，再短路成哈密顿回路 H
+1  T = MST-PRIM(G, r)                    // 最小生成树
+2  O = { v ∈ G.V : deg_T(v) 为奇数 }     // 奇度顶点集合
+3  M = MINIMUM-WEIGHT-PERFECT-MATCHING(G[O])   // O 上的最小权完美匹配
+4  H' = T ∪ M                            // 并成欧拉图（每顶点度数为偶）
+5  H = 沿 H' 走欧拉回路并短路成哈密顿回路
+6  return H
 ```
 
 **比值**：$c(H) \le w(T) + w(M) \le C^* + \frac{1}{2}C^* = 1.5 C^*$（匹配权 ≤ 最优回路的一半，由「最优回路在 O 上交替取边」论证）。<span class="marginnote">Christofides 的 1.5 保持了 40 余年的纪录（TSP 近似比的上界），近年才有微小改进（1.5 - 极小常数）。它展示了近似算法的进阶套路：MST 打底 + 匹配修奇点 + 欧拉回路衔接。理解 2-近似是理解 Christofides 的必经之路。</span>

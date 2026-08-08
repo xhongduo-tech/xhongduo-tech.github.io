@@ -89,9 +89,9 @@ $$
 
 正方体 $ABCD$-$A'B'C'D'$ 棱长为 1，求异面直线 $A'B$ 与 $B'C$ 所成的角。
 
-- **第一步，建系取方向向量**：以 $A$ 为原点，$A'(0,0,1)$，$B(1,0,0)$，$\overrightarrow{A'B}=B-A'=(1,0,-1)$；$B'(1,0,1)$，$C(1,1,0)$，$\overrightarrow{B'C}=C-B'=(0,1,-1)$。
-- **第二步，算点乘与模**：$\overrightarrow{A'B}\cdot\overrightarrow{B'C}=1\times0+0\times1+(-1)\times(-1)=1$；$|\overrightarrow{A'B}|=\sqrt2$，$|\overrightarrow{B'C}|=\sqrt2$。
-- **第三步，套公式**：$\cos\theta=\dfrac{|\overrightarrow{A'B}\cdot\overrightarrow{B'C}|}{|\overrightarrow{A'B}||\overrightarrow{B'C}|}=\dfrac{1}{\sqrt2\cdot\sqrt2}=\dfrac12$，$\theta=60^\circ$。
+**第一步，建系取方向向量**：以 $A$ 为原点，$A'(0,0,1)$，$B(1,0,0)$，$\overrightarrow{A'B}=B-A'=(1,0,-1)$；$B'(1,0,1)$，$C(1,1,0)$，$\overrightarrow{B'C}=C-B'=(0,1,-1)$。
+**第二步，算点乘与模**：$\overrightarrow{A'B}\cdot\overrightarrow{B'C}=1\times0+0\times1+(-1)\times(-1)=1$；$|\overrightarrow{A'B}|=\sqrt2$，$|\overrightarrow{B'C}|=\sqrt2$。
+**第三步，套公式**：$\cos\theta=\dfrac{|\overrightarrow{A'B}\cdot\overrightarrow{B'C}|}{|\overrightarrow{A'B}||\overrightarrow{B'C}|}=\dfrac{1}{\sqrt2\cdot\sqrt2}=\dfrac12$，$\theta=60^\circ$。
 
 <span class="marginnote">求异面直线角的流程：<strong>建系 → 写两直线的方向向量 → 算点乘与模 → 套 $\cos\theta=\frac{|\vec u\cdot\vec v|}{|\vec u||\vec v|}$</strong>。注意<strong>取绝对值</strong>——异面直线所成的角在 $[0,\frac\pi2]$，算出的 $\cos$ 必须非负，对应锐角或直角。本题 $\cos\theta=\frac12$，$\theta=60^\circ$，是正方体里经典的异面角结论。</span>
 

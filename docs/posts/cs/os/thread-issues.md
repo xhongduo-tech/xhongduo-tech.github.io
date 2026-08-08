@@ -20,16 +20,16 @@ date: 2026-08-07
 
 ## 1 信号处理：发给进程还是线程？
 
-**信号（signal）**：操作系统发给进程/线程的通知机制，用于报告事件（Ctrl-C 的 `SIGINT`、除零的 `SIGFPE`、非法访问的 `SIGSEGV`）。
+**信号（signal）**：操作系统发给进程/线程的通知机制，用于报告事件（Ctrl-C 的 SIGINT、除零的 SIGFPE、非法访问的 SIGSEGV）。
 
 信号在多线程环境下有四种经典**传递选项**：
 
-- 信号投递给**信号所针对的线程**（如非法指令信号发给肇事线程）。
-- 信号投递给**进程内每个线程**。
-- 信号投递给**进程内某个特定线程**。
-- 由**指定线程**（信号处理专用线程）接收。
+信号投递给**信号所针对的线程**（如非法指令信号发给肇事线程）。
+信号投递给**进程内每个线程**。
+信号投递给**进程内某个特定线程**。
+由**指定线程**（信号处理专用线程）接收。
 
-Unix 的常见做法：**异步信号（如 `SIGINT`、`SIGTERM`）通常投递给整个进程**，由进程内某个线程处理；**同步信号（如 `SIGSEGV`）投递给引发它的线程**。Linux 用 `pthread_kill(thread, sig)` 精确地给单个线程发信号，`sigwait` 让一个线程统一收进程信号。<span class="marginnote">「信号发给进程还是线程」没有统一答案，POSIX 允许实现二选一。工程惯例：用 `sigprocmask` 在别的线程里屏蔽信号，只留一个专用线程 `sigwait` 统一处理——这是 Linux 服务端程序的常见模式。</span>
+Unix 的常见做法：**异步信号（如 SIGINT、SIGTERM）通常投递给整个进程**，由进程内某个线程处理；**同步信号（如 SIGSEGV）投递给引发它的线程**。Linux 用 pthread_kill 精确地给单个线程发信号，sigwait 让一个线程统一收进程信号。<span class="marginnote">「信号发给进程还是线程」没有统一答案，POSIX 允许实现二选一。工程惯例：用 pthread_sigmask 在别的线程里屏蔽信号，只留一个专用线程 sigwait 统一处理——这是 Linux 服务端程序的常见模式。</span>
 
 **辨析｜易错点：** 「信号是给进程的，所以线程无关紧要」是危险误解。**信号处理函数在哪条线程上执行是未定义/实现相关的**——若在一个持有锁的线程里执行信号处理器，处理器再碰同一把锁，就死锁了。多线程程序里信号处理必须极度小心。
 
@@ -37,19 +37,27 @@ Unix 的常见做法：**异步信号（如 `SIGINT`、`SIGTERM`）通常投递�
 
 **线程取消（thread cancellation）**：让一个线程在结束前被终止。两种模式：
 
-- **异步取消（asynchronous cancellation）**：立即终止目标线程，随时可能发生。危险——线程可能正握着锁、正写到一半数据，突然消失导致资源泄漏或数据损坏。
-- **延迟取消（deferred cancellation）**：目标线程在**安全取消点**（cancellation point）才检查取消请求并终止。安全取消点是预定义的「不会造成不一致」的位置（如阻塞式系统调用处）。
+**异步取消（asynchronous cancellation）**：立即终止目标线程，随时可能发生。危险——线程可能正握着锁、正写到一半数据，突然消失导致资源泄漏或数据损坏。
+**延迟取消（deferred cancellation）**：目标线程在**安全取消点**（cancellation point）才检查取消请求并终止。安全取消点是预定义的「不会造成不一致」的位置（如阻塞式系统调用处）。
 
-Pthreads 中 `pthread_cancel(tid)` 发起取消，是否立即生效取决于目标线程的取消状态与类型：
+Pthreads 中 pthread_cancel 发起取消，是否立即生效取决于目标线程的取消状态与类型：
 
 ```c
+pthread_t tid;
+pthread_create(&tid, NULL, worker, NULL);
+
+// 发起取消请求（是否立即生效取决于取消类型）
+pthread_cancel(tid);
+pthread_join(tid, NULL);   // 等待线程结束
+
+// 目标线程内：
 pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);    // 允许取消
 pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);   // 延迟取消（默认）
 ```
 
-**核心原则：线程取消必须允许线程自己「善后」**——用清理处理函数（`pthread_cleanup_push`）释放锁与内存。异步取消几乎总是不安全的，绝大多数程序都应使用延迟取消。
+**核心原则：线程取消必须允许线程自己「善后」**——用清理处理函数（pthread_cleanup_push/pthread_cleanup_pop）释放锁与内存。异步取消几乎总是不安全的，绝大多数程序都应使用延迟取消。
 
-**辨析｜易错点：** 新手常以为「`pthread_cancel` 立即杀死线程」。实际上延迟取消的线程只在检查点响应，且**如果线程持有不可释放的资源，取消仍可能泄漏**。取消是一种「请求」而非「强制」，线程完全可以忽略或推迟到安全时刻。
+**辨析｜易错点：** 新手常以为「pthread_cancel 立即杀死线程」。实际上延迟取消的线程只在检查点响应，且**如果线程持有不可释放的资源，取消仍可能泄漏**。取消是一种「请求」而非「强制」，线程完全可以忽略或推迟到安全时刻。
 
 ## 3 线程局部存储（TLS）：每个线程的私房钱
 
@@ -58,27 +66,36 @@ pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);   // 延迟取消（默认
 C 语言里：
 
 ```c
-__thread int tls_counter = 0;    // 每个线程独立的计数器
+#include <threads.h>
 
-void worker() {
-    tls_counter++;               // 只改自己的副本，无需加锁！
+_Thread_local int err_code;   // C11 线程局部变量
+
+void worker(void) {
+    err_code = 42;            // 只影响当前线程的那一份
 }
 ```
 
 Java 里：
 
 ```java
-ThreadLocal<Integer> counter = ThreadLocal.withInitial(() -> 0);
-counter.set(counter.get() + 1);  // 每线程独立
+class Worker implements Runnable {
+    // 每线程一份的 ThreadLocal 变量
+    private static final ThreadLocal<Integer> local = new ThreadLocal<>();
+
+    public void run() {
+        local.set(42);                       // 当前线程写入
+        System.out.println(local.get());     // 只读到本线程的值
+    }
+}
 ```
 
-TLS 的价值：**它是「全局变量的方便 + 线程私有」的安全**——共享全局变量需要加锁，TLS 变量天然无竞争，无需同步。典型用途：errno（每个线程的错误码）、随机数种子、事务上下文、线程名。<span class="marginnote">`errno` 是 TLS 的教科书级应用：C 的 `errno` 是全局变量，若不做 TLS，一个线程设置的错误码会被另一个线程覆盖。TLS 让 `errno` 每线程一份，各查各的——这就是你从没遇见过「错误码串线」的原因。</span>
+TLS 的价值：**它是「全局变量的方便 + 线程私有」的安全**——共享全局变量需要加锁，TLS 变量天然无竞争，无需同步。典型用途：errno（每个线程的错误码）、随机数种子、事务上下文、线程名。<span class="marginnote">errno 是 TLS 的教科书级应用：C 的 errno 是全局变量，若不做 TLS，一个线程设置的错误码会被另一个线程覆盖。TLS 让 errno 每线程一份，各查各的——这就是你从没遇见过「错误码串线」的原因。</span>
 
 ## 4 核心对比表：三种问题与对策
 
 | 问题 | 根源 | 危险 | 对策 |
 | --- | --- | --- | --- |
-| 信号归属 | 信号是进程级概念 | 处理器在错误线程执行、死锁 | 专用线程 `sigwait` 统一收信号 |
+| 信号归属 | 信号是进程级概念 | 处理器在错误线程执行、死锁 | 专用线程 sigwait 统一收信号 |
 | 线程取消 | 执行流可被强停 | 资源泄漏、数据损坏 | 延迟取消 + 清理函数善后 |
 | 线程局部存储 | 全局变量被线程共享 | 数据竞争 | TLS 每线程副本，免锁 |
 
@@ -86,9 +103,9 @@ TLS 的价值：**它是「全局变量的方便 + 线程私有」的安全**—
 
 ## 5 小结
 
-- **信号归属**：异步信号发进程、同步信号发肇事线程；工程上用专用线程 `sigwait` 统一收。
+- **信号归属**：异步信号发进程、同步信号发肇事线程；工程上用专用线程 sigwait 统一收。
 - **线程取消**分异步（危险）与延迟（安全）两种；延迟取消在安全取消点响应，需清理函数善后。
-- **TLS** 为每线程提供独立变量副本，免锁且无竞争，`errno` 是其经典应用。
+- **TLS** 为每线程提供独立变量副本，免锁且无竞争，errno 是其经典应用。
 - 信号、取消、TLS 共同揭示：**线程的共享与私有需要谨慎划分**。
 - 取消是「请求」而非「强制」，异步取消几乎总不安全。
 

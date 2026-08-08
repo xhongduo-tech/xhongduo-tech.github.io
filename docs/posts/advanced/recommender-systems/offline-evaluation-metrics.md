@@ -87,27 +87,26 @@ $$
 上面的例子可以用一段小代码直接跑通（这段代码可直接运行）：
 
 ```python
-def precision_recall(recommended, relevant):
-    """输入：推荐列表、相关物品集合；输出：(Precision, Recall)。"""
-    hits = len(set(recommended) & set(relevant))
-    return hits / len(recommended), hits / len(relevant)
+def precision(rec_list, relevant):
+    """rec_list: 推荐列表; relevant: 相关物品集合。"""
+    return len(set(rec_list) & relevant) / len(rec_list)
 
-recommended = ['a', 'd', 'e', 'b', 'f']   # Top-5 推荐
-relevant    = {'a', 'b', 'c'}              # 测试集中真实相关的物品
-p, r = precision_recall(recommended, relevant)
-print(f"Precision = {p:.3f}, Recall = {r:.3f}")
-# 输出约为：Precision = 0.400, Recall = 0.667
+def recall(rec_list, relevant):
+    return len(set(rec_list) & relevant) / len(relevant)
 
-def rmse_mae(true, pred):
-    """输入：真实评分与预测评分两个列表；输出：(RMSE, MAE)。"""
-    n = len(true)
-    mae = sum(abs(t - p) for t, p in zip(true, pred)) / n
-    rmse = (sum((t - p) ** 2 for t, p in zip(true, pred)) / n) ** 0.5
-    return rmse, mae
+# 第 4 节的例子
+T = {"a", "b", "c"}              # 用户真正相关的物品
+R = ["a", "d", "e", "b", "f"]    # 系统给的 Top-5
+print("Precision =", precision(R, T))   # 2/5 = 0.4
+print("Recall    =", recall(R, T))      # 2/3 ≈ 0.667
 
-rmse, mae = rmse_mae([5, 3, 4, 2], [4, 3, 5, 2])
-print(f"RMSE = {rmse:.3f}, MAE = {mae:.3f}")
-# 输出约为：RMSE = 0.707, MAE = 0.500
+# 评分预测：RMSE 与 MAE
+y_true = [5, 3, 4, 2]
+y_pred = [4, 3, 5, 2]
+n = len(y_true)
+mae = sum(abs(a - b) for a, b in zip(y_true, y_pred)) / n
+rmse = (sum((a - b) ** 2 for a, b in zip(y_true, y_pred)) / n) ** 0.5
+print(f"MAE = {mae}, RMSE = {rmse:.3f}")   # MAE = 0.5, RMSE ≈ 0.707
 ```
 
 注意 precision/recall 与 RMSE/MAE 处理的对象不同：前者面对的是**集合**（相关与否），后者面对的是**实数**（评分高低）。别把两族代码混在一起用。

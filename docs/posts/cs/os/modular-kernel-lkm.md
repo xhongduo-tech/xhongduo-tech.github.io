@@ -22,22 +22,31 @@ date: 2026-08-07
 
 **模块化内核（modular kernel）**：在宏内核的基础上，把内核按功能拆成若干**内核模块（kernel module）**，每个模块实现一组相关功能（一种文件系统、一类设备驱动、一种网络协议），模块之间通过明确定义的接口调用。
 
-模块化与「简单结构」的区别在于：简单结构是「一大坨」，模块化是「一堆积木」。每个模块有自己的加载、卸载、初始化与清理函数，模块间依赖关系通过接口显式声明。Linux 内核就是模块化宏内核的教科书级范例：`ext4` 是模块，`nvidia` 驱动是模块，`ip_tables` 防火墙是模块。<span class="marginnote">「模块化」解决的是组织问题，它仍是宏内核——模块一旦加载就运行在内核态、共享同一地址空间，所以模块 bug 依然可以搞崩整个系统，这点与微内核的进程隔离有本质区别。</span>
+模块化与「简单结构」的区别在于：简单结构是「一大坨」，模块化是「一堆积木」。每个模块有自己的加载、卸载、初始化与清理函数，模块间依赖关系通过接口显式声明。Linux 内核就是模块化宏内核的教科书级范例：`ext4` 文件系统是模块，`e1000` 网卡驱动是模块，`netfilter` 防火墙是模块。<span class="marginnote">「模块化」解决的是组织问题，它仍是宏内核——模块一旦加载就运行在内核态、共享同一地址空间，所以模块 bug 依然可以搞崩整个系统，这点与微内核的进程隔离有本质区别。</span>
 
 ## 2 可加载内核模块 LKM：运行时插拔
 
-**可加载内核模块（LKM，Loadable Kernel Module）**：允许在系统运行时动态地把模块装入内核或从内核卸载的机制。Linux 中就是 `.ko`（kernel object）文件，通过 `insmod` 加载、`rmmod` 卸载。
+**可加载内核模块（LKM，Loadable Kernel Module）**：允许在系统运行时动态地把模块装入内核或从内核卸载的机制。Linux 中就是 `*.ko`（kernel object）文件，通过 `insmod` 加载、`rmmod` 卸载。
 
 一个 LKM 的生命周期由两对函数定义：
 
 ```c
-// 加载时执行：注册设备、分配资源
-static int __init mymod_init(void) { ... }
-module_init(mymod_init);
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/init.h>
 
-// 卸载时执行：释放资源、注销设备
-static void __exit mymod_exit(void) { ... }
-module_exit(mymod_exit);
+static int __init hello_init(void) {   // 加载时调用（出生钩子）
+    printk(KERN_INFO "Hello, kernel\n");
+    return 0;
+}
+
+static void __exit hello_exit(void) {  // 卸载时调用（死亡钩子）
+    printk(KERN_INFO "Goodbye, kernel\n");
+}
+
+module_init(hello_init);
+module_exit(hello_exit);
+MODULE_LICENSE("GPL");
 ```
 
 `module_init` 与 `module_exit` 是模块的「出生」与「死亡」钩子。加载时内核把模块的代码链接进内核符号表，卸载时再解链——**模块与内核共享同一地址空间，因此符号可以直接互相引用**，这是 LKM 性能好的原因，也是它不安全的根源。<span class="marginnote">LKM 的「动态链接」与用户态 `.so` 动态库机制同构：都是运行时把代码接进已有进程/内核。区别在于内核模块没有进程边界，一个越界写就是整机崩溃。容器时代的「内核模块」仍然是这个机制，见 Linux 专题《Docker 原理》。</span>

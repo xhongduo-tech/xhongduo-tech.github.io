@@ -32,8 +32,8 @@ state = Statevector(qc)          # 提取 |+> = (|0>+|1>)/√2
 plot_bloch_multivector(state)    # 画出布洛赫球：北极的 |0> 被 H 转到赤道 X+ 方向
 ```
 
-- `Statevector(qc)` 从空线路算起，给出 $\lvert+\rangle = \frac{1}{\sqrt2}(\lvert0\rangle+\lvert1\rangle)$ 的态矢量。
-- `plot_bloch_multivector` 把态画成球面上一个点——$\lvert+\rangle$ 落在 $+X$ 轴。<span class="marginnote">`Statevector` 是「上帝视角」：模拟器直接给出完整复振幅（真机上测不到）。它用于教学与验证非常方便——比如检查「这个门序列到底把态转到哪了」。真实硬件上验证态需要「量子态层析」（多次测量 + 重建），开销大得多。</span>
+`Statevector(qc)` 从空线路算起，给出 $\lvert+\rangle = \frac{1}{\sqrt2}(\lvert0\rangle+\lvert1\rangle)$ 的态矢量。
+`plot_bloch_multivector` 把态画成球面上一个点——$\lvert+\rangle$ 落在 $+X$ 轴。<span class="marginnote">态矢量（Statevector）是「上帝视角」：模拟器直接给出完整复振幅（真机上测不到）。它用于教学与验证非常方便——比如检查「这个门序列到底把态转到哪了」。真实硬件上验证态需要「量子态层析」（多次测量 + 重建），开销大得多。</span>
 
 ## 2 Pauli 门：X、Y、Z 的几何
 
@@ -43,9 +43,9 @@ qc_y = QuantumCircuit(1); qc_y.y(0)   # Y: |0> -> i|1>（绕 Y 轴转 π，带�
 qc_z = QuantumCircuit(1); qc_z.z(0)   # Z: |0> -> |0>（北极不动）
 ```
 
-- **$X$**：绕 $X$ 轴转 $\pi$，北极 $\lvert0\rangle$ → 南极 $\lvert1\rangle$（比特翻转）。
-- **$Y$**：绕 $Y$ 轴转 $\pi$，$\lvert0\rangle \to i\lvert1\rangle$（翻转 + 相位 $i$）。
-- **$Z$**：绕 $Z$ 轴转 $\pi$，$\lvert0\rangle$ 与 $\lvert1\rangle$ 都在 $Z$ 轴上，只是 $\lvert1\rangle$ 乘 $-1$——球面上北极南极都不动（整体相位不可见）。<span class="marginnote">为什么 $Z$ 画出来「没变化」？因为 $\lvert0\rangle$、$\lvert1\rangle$ 恰是 $Z$ 的本征态，$Z$ 只乘相位 $(-1)^{\text{本征}}$——整体相位在布洛赫球上不可见。要「看见」$Z$ 的效果，得作用在叠加态上（把 $+X$ 转到 $-X$）。</span>
+**$X$**：绕 $X$ 轴转 $\pi$，北极 $\lvert0\rangle$ → 南极 $\lvert1\rangle$（比特翻转）。
+**$Y$**：绕 $Y$ 轴转 $\pi$，$\lvert0\rangle \to i\lvert1\rangle$（翻转 + 相位 $i$）。
+**$Z$**：绕 $Z$ 轴转 $\pi$，$\lvert0\rangle$ 与 $\lvert1\rangle$ 都在 $Z$ 轴上，只是 $\lvert1\rangle$ 乘 $-1$——球面上北极南极都不动（整体相位不可见）。<span class="marginnote">为什么 $Z$ 画出来「没变化」？因为 $\lvert0\rangle$、$\lvert1\rangle$ 恰是 $Z$ 的本征态，$Z$ 只乘相位 $(-1)^{\text{本征}}$——整体相位在布洛赫球上不可见。要「看见」$Z$ 的效果，得作用在叠加态上（把 $+X$ 转到 $-X$）。</span>
 
 **辨析｜易错点：** $X$ 不是「$0$ 变 $1$ 那么简单」——它翻转的是**整个布洛赫球**。对叠加态 $\lvert+\rangle$，$X\lvert+\rangle = \lvert+\rangle$（$+X$ 轴上的点绕 $X$ 轴转 $\pi$ 回到自身）。「比特翻转」只在计算基下成立；「绕轴旋转」才对所有态成立。
 
@@ -62,9 +62,9 @@ qc_ry = QuantumCircuit(1); qc_ry.ry(0.5, 0)   # 绕 Y 轴转 0.5 弧度
 qc_rz = QuantumCircuit(1); qc_rz.rz(2.0, 0)   # 绕 Z 轴转 2 弧度
 ```
 
-- **$H$**：把 $Z$ 轴转成 $X$ 轴（$\lvert0\rangle \to \lvert+\rangle$、$\lvert1\rangle \to \lvert-\rangle$）。
-- **$S = R_z(\pi/2)$、$T = R_z(\pi/4)$**：绕 $Z$ 轴的四分之一、八分之一圈。
-- **$R_x, R_y, R_z(\theta)$**：连续旋转门，参数是弧度——变分算法的「旋钮」。<span class="marginnote">把这些门依次作用、每次 `plot_bloch_multivector`，你会看到态在球面上「爬行」。这是建立「门 = 旋转」直觉的最好练习：试着从 $\lvert0\rangle$ 出发，用 $R_y$、$R_z$ 的组合到达球面任意一点——这正是「任意单比特门分解」（第三篇）的几何验证。</span>
+**$H$**：把 $Z$ 轴转成 $X$ 轴（$\lvert0\rangle \to \lvert+\rangle$、$\lvert1\rangle \to \lvert-\rangle$）。
+**$S = R_z(\pi/2)$、$T = R_z(\pi/4)$**：绕 $Z$ 轴的四分之一、八分之一圈。
+**$R_x, R_y, R_z(\theta)$**：连续旋转门，参数是弧度——变分算法的「旋钮」。<span class="marginnote">把这些门依次作用、每次 `plot_bloch_multivector` 画一下，你会看到态在球面上「爬行」。这是建立「门 = 旋转」直觉的最好练习：试着从 $\lvert0\rangle$ 出发，用 $R_y$、$R_z$ 的组合到达球面任意一点——这正是「任意单比特门分解」（第三篇）的几何验证。</span>
 
 ## 4 公式解析：验证「门 = 旋转」
 
@@ -77,9 +77,9 @@ unitary = Operator(qc)        # 提取 2×2 矩阵
 # 期望 ≈ Z = [[1,0],[0,-1]]
 ```
 
-- **第一步，算子提取**：`Operator(qc)` 给出线路的酉矩阵。
-- **第二步，数值验证**：`H X H` 算出来应接近 $Z$——用 `np.allclose(unitary, Z_matrix)` 检查。
-- **第三步，几何解释**：$H$ 是「坐标系旋转」（$Z$ 轴 ↔ $X$ 轴），$H X H$ 是「先换坐标系、转 $X$、再换回来」= 在原坐标系里转 $Z$。<span class="marginnote">这个「共轭换轴」技巧在量子纠错里已经见过（第八篇「$H$ 把相位错误变比特错误」）：$HZH = X$ 那条恒等式的代码版。验证恒等式是「理论直觉 ↔ 代码事实」对账的最佳练习。</span>
+**第一步，算子提取**：`Operator(qc)` 给出线路的酉矩阵。
+**第二步，数值验证**：`H X H` 算出来应接近 $Z$——用 `np.allclose(unitary, Z_matrix)` 检查。
+**第三步，几何解释**：$H$ 是「坐标系旋转」（$Z$ 轴 ↔ $X$ 轴），$H X H$ 是「先换坐标系、转 $X$、再换回来」= 在原坐标系里转 $Z$。<span class="marginnote">这个「共轭换轴」技巧在量子纠错里已经见过（第八篇「$H$ 把相位错误变比特错误」）：$HZH = X$ 那条恒等式的代码版。验证恒等式是「理论直觉 ↔ 代码事实」对账的最佳练习。</span>
 
 ## 5 从门序列到合成门
 
@@ -92,7 +92,7 @@ qc.append(UGate(theta, phi, lam), [0])   # 任意单比特门（Z-Y-Z 分解）
 qc_t = transpile(qc, basis_gates=['rz', 'sx', 'x'])
 ```
 
-`UGate(θ, φ, λ)` 是「任意单比特酉」的标准参数化（对应 $R_z(\phi)R_y(\theta)R_z(\lambda)$），`transpile` 会把它拆成目标平台的原子门。<span class="marginnote">这呼应 Solovay-Kitaev（第三篇）：任何单比特门都能用有限原子门逼近。Qiskit 的 `transpile` 自动做这件事——你写「数学上的门」，它给「硬件上的门」。理解这条「逻辑门 → 物理门」的降级链，是理解整个量子编译体系（第十二篇最后一节）的起点。</span>
+`UGate(θ, φ, λ)` 是「任意单比特酉」的标准参数化（对应 $R_z(\phi)R_y(\theta)R_z(\lambda)$），`transpile` 会把它拆成目标平台的原子门。<span class="marginnote">这呼应 Solovay-Kitaev（第三篇）：任何单比特门都能用有限原子门逼近。Qiskit 的 transpiler 自动做这件事——你写「数学上的门」，它给「硬件上的门」。理解这条「逻辑门 → 物理门」的降级链，是理解整个量子编译体系（第十二篇最后一节）的起点。</span>
 
 ## 6 小结
 

@@ -24,8 +24,8 @@ date: 2026-08-07
 
 一个推理引擎同时处理 prefill 与 decode 时，调度器面临两难：
 
-- **prefill 让 decode 延迟失控**：一个 10 万 token 的 prefill 进入批，会占用整批的计算资源很久，正在 decode 的所有请求的「每 token 延迟」瞬间暴涨——对延迟敏感的在线服务是灾难。
-- **decode 让 prefill 吞吐受限**：decode 批的形状「窄而深」（小矩阵、大 batch），与 prefill 的「宽而浅」（大矩阵、小 batch）不兼容，预填充的吞吐上不去。
+**prefill 让 decode 延迟失控**：一个 10 万 token 的 prefill 进入批，会占用整批的计算资源很久，正在 decode 的所有请求的「每 token 延迟」瞬间暴涨——对延迟敏感的在线服务是灾难。
+**decode 让 prefill 吞吐受限**：decode 批的形状「窄而深」（小矩阵、大 batch），与 prefill 的「宽而浅」（大矩阵、小 batch）不兼容，预填充的吞吐上不去。
 
 **核心矛盾：两类工作对「批的形状」「调度粒度」「优化目标」的要求相反。** 在一个引擎里同时满足两个优化目标，只能折中——两头都不讨好。PD 分离用「物理隔离」绕过这个矛盾。
 
@@ -33,8 +33,8 @@ date: 2026-08-07
 
 PD 分离部署中：
 
-- **Prefill 节点**：只做 prefill。输入长 prompt，输出「第一个 token + 该 prompt 的 KV Cache」。节点内调度优化目标 = **吞吐 + 首个 token 延迟（TTFT）**；批的形状可以大而宽（一次吃很多 prompt），Chunked Prefill 在这里也自由。<span class="marginnote">Prefill 节点是<strong>「算力导向」</strong>：它要尽量把 GPU 的算力喂满，吞吐越高、TTFT 越低越好。</span>
-- **Decode 节点**：只做 decode。接收「前缀 KV Cache + 已生成的 token」，逐 token 生成直到停止。节点内优化目标 = **每 token 延迟（TPOT）+ 吞吐**；批的形状是「decode 专属」的窄而深。KV Cache 长期驻留，访存优化（FlashDecoding 等）在这里收益最大。
+**Prefill 节点**：只做 prefill。输入长 prompt，输出「第一个 token + 该 prompt 的 KV Cache」。节点内调度优化目标 = **吞吐 + 首个 token 延迟（TTFT）**；批的形状可以大而宽（一次吃很多 prompt），Chunked Prefill 在这里也自由。<span class="marginnote">Prefill 节点是<strong>「算力导向」</strong>：它要尽量把 GPU 的算力喂满，吞吐越高、TTFT 越低越好。</span>
+**Decode 节点**：只做 decode。接收「前缀 KV Cache + 已生成的 token」，逐 token 生成直到停止。节点内优化目标 = **每 token 延迟（TPOT）+ 吞吐**；批的形状是「decode 专属」的窄而深。KV Cache 长期驻留，访存优化（FlashDecoding 等）在这里收益最大。
 
 **请求的生命周期跨两类节点**：客户端发 prompt → 到 prefill 节点 → 产出 KV Cache → 连同首 token 一起发给 decode 节点 → decode 节点持续生成 → 完成。
 
@@ -42,8 +42,8 @@ PD 分离部署中：
 
 PD 分离把 KV Cache 从「引擎内的数据结构」变成了「跨节点的传输对象」。这个转变带来几个问题：
 
-- **KV 量巨大**：一个长 prompt 的 KV Cache 可到数 GB。prefill 节点算完，要把它传给 decode 节点——**传输时间直接影响 TTFT 与端到端延迟**。
-- **传输要快**：跨节点传输依赖高速网络（RDMA、NVLink over PCIe 等）。传输 KV 的时间必须远小于 decode 生成时间，否则「分离」得不偿失。<span class="marginnote">这就是「KV Cache 传输」成为独立研究方向的背景（见下一篇《跨节点 KV Cache 传输与 RDMA》）。<strong>KV 压缩（量化）、异步预取、多副本</strong>都是为让这条链路更快。</span>
+**KV 量巨大**：一个长 prompt 的 KV Cache 可到数 GB。prefill 节点算完，要把它传给 decode 节点——**传输时间直接影响 TTFT 与端到端延迟**。
+**传输要快**：跨节点传输依赖高速网络（RDMA、NVLink over PCIe 等）。传输 KV 的时间必须远小于 decode 生成时间，否则「分离」得不偿失。<span class="marginnote">这就是「KV Cache 传输」成为独立研究方向的背景（见下一篇《跨节点 KV Cache 传输与 RDMA》）。<strong>KV 压缩（量化）、异步预取、多副本</strong>都是为让这条链路更快。</span>
 - **一致性**：decode 节点要「接住」prefill 节点的 KV，两者必须用相同的模型、相同的并行配置，KV 的布局（TP 分片方式）必须一致——**否则 KV 无法直接拼接**。
 
 **辨析｜易错点：PD 分离不是把「单请求」拆成两半，而是把「负载」拆成两类。** 一个服务同时有大量 prefill 请求和大量 decode 请求，把它们分流到两组节点，各自的队列独立调度。**单请求仍然要「先 prefill 后 decode」串行走**，只是不同阶段落在不同机器上。

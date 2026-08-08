@@ -304,7 +304,7 @@ $[p]_\times$ 是位置矢量 $p$ 的叉乘矩阵。
 用了非零位的轴，
 指数积算出的位姿全部错；
 三是**约定混用**——把标准 D-H 与改进 D-H、把空间系与体坐标系旋量交叉使用。
-判断标准永远只有一条：**把两个方法算出的 $T_0^n$ 逐元素对比，一致才算对。**<span class="marginnote">工业界两条路线都在用：URDF 的 `<joint>`/`<link>` 是轴链描述的变体；
+判断标准永远只有一条：**把两个方法算出的 $T_0^n$ 逐元素对比，一致才算对。**<span class="marginnote">工业界两条路线都在用：URDF 的 `origin`/`axis` 是轴链描述的变体；
 而现代机器人研究（RT-2 操作数据、四足躯干建模、全身控制）里旋量语言更常见。
 读代码先辨认它是哪一套，
 再动手改。
@@ -320,50 +320,44 @@ POE 路线先建螺旋轴再指数映射。
 ```python
 import numpy as np
 
-def dh(a, alpha, d, theta):
-    ca, sa = np.cos(alpha), np.sin(alpha)
-    ct, st = np.cos(theta), np.sin(theta)
-    return np.array([
-        [ct, -st*ca,  st*sa,  a*ct],
-        [st,  ct*ca, -ct*sa,  a*st],
-        [0,       sa,      ca,    d],
-        [0,        0,       0,    1],
-    ])
-
-def exp_se3(v, w, theta):
-    """单位角速度 w 的螺旋指数映射闭式"""
-    W = np.array([[0, -w[2], w[1]],
-                  [w[2], 0, -w[0]],
-                  [-w[1], w[0], 0]])
-    R = np.eye(3) + np.sin(theta)*W + (1 - np.cos(theta))*(W @ W)
-    G = np.eye(3)*theta + (1 - np.cos(theta))*W + (theta - np.sin(theta))*(W @ W)
-    T = np.eye(4)
-    T[:3, :3] = R
-    T[:3, 3] = G @ v
-    return T
-
 a1 = a2 = 1.0
-th1, th2 = np.radians(30), np.radians(45)
+t1, t2 = np.radians(30), np.radians(45)
 
-# 路线一：D-H 连乘（第 1 行用杆长 a1、第 2 行用杆长 a2）
-T_dh = dh(a1, 0, 0, th1) @ dh(a2, 0, 0, th2)
+def rot_z(t):
+    c, s = np.cos(t), np.sin(t)
+    return np.array([[c, -s, 0],
+                     [s,  c, 0],
+                     [0,  0, 1]])
 
-# 路线二：POE
-z = np.array([0.0, 0.0, 1.0])
-q1 = np.array([0.0, 0.0, 0.0])      # 关节1 轴过原点
-q2 = np.array([a1, 0.0, 0.0])       # 关节2 轴过 (a1,0,0)
-S1 = np.concatenate([-np.cross(z, q1), z])
-S2 = np.concatenate([-np.cross(z, q2), z])
-M = np.eye(4); M[:3, 3] = [a1 + a2, 0, 0]   # 零位姿态
-T_poe = exp_se3(S1[:3], S1[3:], th1) @ exp_se3(S2[:3], S2[3:], th2) @ M
+def twist_exp(w, v, t):
+    """旋转型螺旋 e^{[S]θ}：绕轴 w 旋转 θ，v = -w × q（q 是轴上一点）"""
+    R = rot_z(t)
+    p = (np.eye(3) - R) @ np.cross(w, v)
+    M = np.eye(4)
+    M[:3, :3], M[:3, 3] = R, p
+    return M
 
-print("D-H 末端位置:", np.round(T_dh[:3, 3], 6))
-print("POE 末端位置:", np.round(T_poe[:3, 3], 6))
-print("两条路线一致:", np.allclose(T_dh, T_poe, atol=1e-12))
+# --- 路线一：D-H 矩阵连乘 ---
+T01 = np.eye(4); T01[:3, :3] = rot_z(t1)                  # a0 = 0
+T12 = np.eye(4); T12[:3, :3] = rot_z(t2); T12[:3, 3] = [a1, 0, 0]  # a1
+T_dh = T01 @ T12
+p_dh = T_dh[:3, 3] + T_dh[:3, :3] @ np.array([a2, 0, 0])
+
+# --- 路线二：POE 指数积 ---
+S1 = np.array([0, 0, 1, 0, 0, 0])       # 关节 1：过原点、绕 z
+S2 = np.array([0, 0, 1, 0, -a1, 0])     # 关节 2：过 (a1,0,0)、绕 z
+T_home = np.eye(4); T_home[:3, 3] = [a1 + a2, 0, 0]      # 零位末端
+T_poe = (twist_exp(S1[:3], S1[3:], t1)
+       @ twist_exp(S2[:3], S2[3:], t2) @ T_home)
+p_poe = T_poe[:3, 3]
+
+print(p_dh)                             # [1.125, 1.466, 0]
+print(p_poe)
+print(np.allclose(p_dh, p_poe))         # True
 ```
 
 输出两组数字完全一致，
-`两条路线一致: True`。
+误差在浮点精度内。
 解析式 $x = \cos30^\circ + \cos75^\circ \approx 1.125$ 也与末端位置吻合——矩阵连乘、指数积、解析几何，
 三条路指向同一个物理事实。
 

@@ -50,23 +50,25 @@ kernel 每线程多要 8 个寄存器、每 block 多用 16KB Shared，都可能
 **旋钮二：`__launch_bounds__`。** 告诉编译器「最多多少线程 / 最少多少 block 每 SM」，编译器据此压缩每线程寄存器预算：
 
 ```cpp
-// 声明：每 block 最多 256 线程，每 SM 至少驻留 8 个 block
-__global__ __launch_bounds__(256, 8)
-void my_kernel(...) { ... }
-// 编译器会把寄存器压到 65536 / (8×256) = 32 个/线程以内
+__global__ __launch_bounds__(256, 4) void kernel(const float* x,
+                                                 float* y, int n) {
+    // 编译器按「每 SM 至少 4 个 block」压缩每线程寄存器预算
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    if (i < n) y[i] = x[i] * 2.0f;
+}
 ```
 
-**旋钮三：`maxrregcount`。** 编译期全局限制每线程寄存器数。与 `__launch_bounds__` 二选一用，别混用打架。
+**旋钮三：`-maxrregcount`。** 编译期全局限制每线程寄存器数。与 `__launch_bounds__` 二选一用，别混用打架。
 
 **旋钮四：Shared Memory 用量。** 每 block 用多少 Shared 直接进「块数」公式（见下节）。很多 kernel 在这里被卡住——不是寄存器，而是 Shared。
 
 还有两个**实测**工具，别靠拍脑袋：
 
 ```cpp
-// 查询给定 block 大小下，每 SM 最多能驻留多少个 block
-int num_blocks;
-cudaOccupancyMaxActiveBlocksPerMultiprocessor(&num_blocks, my_kernel,
-                                               block_size, smem_bytes);
+// CUDA Occupancy API：实测指定 launch 配置能达到的 block 数
+int numBlocks = 0;
+cudaOccupancyMaxActiveBlocksPerMultiprocessor(&numBlocks, kernel,
+                                              256 /*blockDim*/, 0);
 ```
 
 以及 NVIDIA 的 Occupancy Calculator 表格、Nsight Compute 里的 occupancy 面板——它们把「四个上限谁先卡住」算得清清楚楚，是调优的第一现场。<span class="marginnote">Nsight Compute 的 occupancy 页面会直接告诉你当前 kernel 的<strong>限制因素是 registers 还是 shared 还是 threads</strong>——这比在公式里手动代入快得多。第十篇《监控与性能剖析》会完整带你走一遍这个工作流。</span>
@@ -101,22 +103,22 @@ $$
 = \min(8,\ 5,\ 6,\ 32) = 5
 $$
 
-Occupancy $= 5 \times 256 / 2048 = 62.5\%$。**卡住它的是 Shared Memory（第二项 5）**。把 $S_b$ 降到 24KB，第二项变 $\lfloor 164/24 \rfloor = 6$，min 变 6，Occupancy 升到 75%；再把 $R_t$ 压到 32（用 `__launch_bounds__(256, 8)`），第三项变 $65536/8192 = 8$，min 变 6（仍被 Shared 卡），Occupancy 75%——**可见，不找到「最短的板」，乱调是白调**。
+Occupancy $= 5 \times 256 / 2048 = 62.5\%$。**卡住它的是 Shared Memory（第二项 5）**。把 $S_b$ 降到 24KB，第二项变 $\lfloor 164/24 \rfloor = 6$，min 变 6，Occupancy 升到 75%；再把 $R_t$ 压到 32（用 `-maxrregcount=32`），第三项变 $65536/8192 = 8$，min 变 6（仍被 Shared 卡），Occupancy 75%——**可见，不找到「最短的板」，乱调是白调**。
 
 ## 5 辨析｜易错点
 
 - **「Occupancy 越高越快」**——不一定。低 Occupancy + 高指令级并行（ILP）或更低缓存抖动，常常更快。**目标是吞吐，不是占用率**。内存瓶颈的 kernel 尤其如此：若访存已有足够的内存级并行（MLP），多几组 warp 反而挤占 L2/带宽。
-- **「把寄存器数压到最低就对了」**——可能引入**寄存器溢出到 local memory**，让局部变量访问从 1 周期掉到几百周期。压寄存器前先看 `ptxas -v` 的 spill 计数。
+- **「把寄存器数压到最低就对了」**——可能引入**寄存器溢出到 local memory**，让局部变量访问从 1 周期掉到几百周期。压寄存器前先看 `nvcc -Xptxas -v` 的 spill 计数。
 - **「block 大小取 1024 最划算」**——一个 SM 只能放下 2 个 1024 线程的 block，调度灵活性差；256 / 512 往往更优。小 grid 时还要警惕**尾效应**：不满的最后一个 block 浪费尾部线程。
-- **「`__syncthreads()` 是免费的」**——每次屏障都有停顿 + 同步开销，过度使用（例如每层归约都同步）会压低有效吞吐；在资源受限时它还挤占本可用于并行的空间。
+- **「__syncthreads 是免费的」**——每次屏障都有停顿 + 同步开销，过度使用（例如每层归约都同步）会压低有效吞吐；在资源受限时它还挤占本可用于并行的空间。
 - **「Shared Memory 不影响 Occupancy」**——错。$S_b$ 直接进 blocks/SM 公式，是四大资源之一。前面课里「Shared 越大越好」的错误印象，在这里被正式修正。
 
 ## 6 小结
 
 - **Occupancy** = 活跃 warp / 最大 warp（每 SM 64），是隐藏延迟的**并发储备**，是能力而非目标。
 - 四个硬上限：**线程数（2048）、块数（32）、寄存器文件（65536）、Shared Memory（164/228KB）**；blocks/SM 取四者最小值。
-- 调优旋钮：**block 大小**、`__launch_bounds__(maxThreads, minBlocks)`、`maxrregcount`、**Shared 用量**；寄存器按每线程 8 个的粒度取整分配。
-- 用 `cudaOccupancyMaxActiveBlocksPerMultiprocessor` 与 Nsight Compute 实测，先找「最短的板」再调，别乱拧。
+- 调优旋钮：**block 大小**、**`__launch_bounds__`**、**`-maxrregcount`**、**Shared 用量**；寄存器按每线程 8 个的粒度取整分配。
+- 用 CUDA Occupancy API 与 Nsight Compute 实测，先找「最短的板」再调，别乱拧。
 - **高 Occupancy 不等于快**：内存瓶颈下堆 warp 可能反而挤占带宽；压寄存器要防溢出到 local memory。
 
 在下一节，我们将从「一个 SM 里同时有多少活」升级到「整张卡上多个任务如何交替」——**CUDA Stream 与异步执行、事件计时**：当一个 kernel 在等内存时，另一个 kernel 可以在别的 stream 上算起来。这其实是用**时间上的重叠**继续隐藏延迟，与 Occupancy 用**空间上的并发**隐藏延迟殊途同归。

@@ -76,9 +76,9 @@ $$\varphi(r,\theta) = \sum_{l=0}^{\infty}\left(A_l r^l + B_l r^{-(l+1)}\right)P_
 
 **问题**：半径 $R$、介电常数 $\varepsilon_2$ 的介质球，置于均匀外场 $\mathbf{E}_0$（沿 $z$ 轴）中。求球内外的电势。
 
-- **第一步，写出一般解**：取外场方向为极轴，问题轴对称。无穷远处 $\varphi \to -E_0 r\cos\theta + \text{const}$，这是外场的势（取常数项为零）。球外（$r > R$）解取 $\varphi_1 = -E_0 r\cos\theta + \sum_l B_l r^{-(l+1)}P_l(\cos\theta)$；球内（$r < R$）解取 $\varphi_2 = \sum_l C_l r^l P_l(\cos\theta)$（$r=0$ 处有限，舍 $r^{-(l+1)}$ 项）。
-- **第二步，用界面条件定系数**：在 $r = R$ 处，电势连续 $\varphi_1 = \varphi_2$，且法向电位移连续 $\varepsilon_1\partial\varphi_1/\partial r = \varepsilon_2\partial\varphi_2/\partial r$。比对每一项 $P_l$ 的系数，发现除 $l=1$ 外所有系数为零——边界条件是 $\cos\theta = P_1$，只有 $l=1$ 项能被激发。
-- **第三步，读出物理**：解得 $B_1 = \dfrac{\varepsilon_2 - \varepsilon_1}{\varepsilon_2 + 2\varepsilon_1}R^3 E_0$，$C_1 = -\dfrac{3\varepsilon_1}{\varepsilon_2 + 2\varepsilon_1}E_0$。球内是**均匀场** $\mathbf{E}_2 = \dfrac{3\varepsilon_1}{\varepsilon_2+2\varepsilon_1}\mathbf{E}_0$；球外场 = 外场 + 一个**电偶极子**场，偶极矩 $p = 4\pi\varepsilon_1\dfrac{\varepsilon_2-\varepsilon_1}{\varepsilon_2+2\varepsilon_1}R^3\mathbf{E}_0$。导体极限 $\varepsilon_2 \to \infty$ 时，球内场为零、球外退化为导体球的偶极场——一切自洽。<span class="marginnote">这个例题的价值在于展示了「边界条件如何筛选分离解」：只有与边界形状匹配的谐波（这里是 $l=1$）才存活。更深刻的是，介质球的响应被压缩成一个标量——极化率——这为《电介质中的静电场》里「微观分子如何响应宏观外场」的讨论做了铺垫。</span>
+**第一步，写出一般解**：取外场方向为极轴，问题轴对称。无穷远处 $\varphi \to -E_0 r\cos\theta + \text{const}$，这是外场的势（取常数项为零）。球外（$r > R$）解取 $\varphi_1 = -E_0 r\cos\theta + \sum_l B_l r^{-(l+1)}P_l(\cos\theta)$；球内（$r < R$）解取 $\varphi_2 = \sum_l C_l r^l P_l(\cos\theta)$（$r=0$ 处有限，舍 $r^{-(l+1)}$ 项）。
+**第二步，用界面条件定系数**：在 $r = R$ 处，电势连续 $\varphi_1 = \varphi_2$，且法向电位移连续 $\varepsilon_1\partial\varphi_1/\partial r = \varepsilon_2\partial\varphi_2/\partial r$。比对每一项 $P_l$ 的系数，发现除 $l=1$ 外所有系数为零——边界条件是 $\cos\theta = P_1$，只有 $l=1$ 项能被激发。
+**第三步，读出物理**：解得 $B_1 = \dfrac{\varepsilon_2 - \varepsilon_1}{\varepsilon_2 + 2\varepsilon_1}R^3 E_0$，$C_1 = -\dfrac{3\varepsilon_1}{\varepsilon_2 + 2\varepsilon_1}E_0$。球内是**均匀场** $\mathbf{E}_2 = \dfrac{3\varepsilon_1}{\varepsilon_2+2\varepsilon_1}\mathbf{E}_0$；球外场 = 外场 + 一个**电偶极子**场，偶极矩 $p = 4\pi\varepsilon_1\dfrac{\varepsilon_2-\varepsilon_1}{\varepsilon_2+2\varepsilon_1}R^3\mathbf{E}_0$。导体极限 $\varepsilon_2 \to \infty$ 时，球内场为零、球外退化为导体球的偶极场——一切自洽。<span class="marginnote">这个例题的价值在于展示了「边界条件如何筛选分离解」：只有与边界形状匹配的谐波（这里是 $l=1$）才存活。更深刻的是，介质球的响应被压缩成一个标量——极化率——这为《电介质中的静电场》里「微观分子如何响应宏观外场」的讨论做了铺垫。</span>
 
 ## 5 分离变量法的适用范围与局限
 

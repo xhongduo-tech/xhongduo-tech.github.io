@@ -39,7 +39,7 @@ $$v_\pi(s) \doteq \mathbb{E}_\pi\left[G_t \mid S_t = s\right] = \mathbb{E}_\pi\l
 
 $$q_\pi(s, a) \doteq \mathbb{E}_\pi\left[G_t \mid S_t = s, A_t = a\right]$$
 
-区别只有条件的最后一位：`在 $s$ 上**先执行动作 $a$**，之后再按 $\pi$ 行动`。它回答的是「在 $s$ 上这个动作划不划算」——做决策最直接需要的正是它。两者由一条恒等式相连：
+区别只有条件的最后一位：$s$。它回答的是「在 $s$ 上这个动作划不划算」——做决策最直接需要的正是它。两者由一条恒等式相连：
 
 $$v_\pi(s) = \sum_{a} \pi(a \mid s)\, q_\pi(s, a)$$
 

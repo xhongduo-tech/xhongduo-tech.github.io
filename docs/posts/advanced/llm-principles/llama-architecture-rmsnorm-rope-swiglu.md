@@ -35,9 +35,9 @@ LLaMA 用 **RMSNorm** 替代 LayerNorm（我们在第五篇讲过它的细节）
 LLaMA 用 **RoPE**（旋转位置编码）替代「可学习位置嵌入」。
 
 - 把位置信息通过「旋转 Q/K」注入——相对位置语义、无额外参数。
-- `rope_theta=10000`（频率基数），支持 `rope_scaling`（长度扩展）。
+- 默认基频 θ=10000（频率基数），支持 位置插值/RoPE 缩放（长度扩展）。
 
-**为什么 LLaMA 选它**：RoPE 的**外推/插值能力**让 LLaMA 能「训练短、用长」——配合 `rope_scaling` 可以把 4k 训练模型扩展到 32k 推理。同时它不需要位置嵌入参数，节省了 `block_size × d` 的参数量。
+**为什么 LLaMA 选它**：RoPE 的**外推/插值能力**让 LLaMA 能「训练短、用长」——配合**位置插值 / NTK-aware 缩放（如 YaRN）**可以把 4k 训练模型扩展到 32k 推理。同时它不需要位置嵌入参数，节省了**位置嵌入矩阵（$L \times d$）**的参数量。
 
 ## 3 三件套之三：SwiGLU（激活函数）
 
@@ -54,7 +54,7 @@ d_{\text{ff}}^{\text{LLaMA}} = \frac{2}{3} \times 4 \times d_{\text{model}} = \f
 $$
 
 - LLaMA-7B：$d=4096$，$d_{\text{ff}} = \frac{8}{3} \times 4096 \approx 11008$。
-- **参数总量与「GELU + 4d」持平**，但 SwiGLU 的门控表达更强——**同等参数，效果更好**。<span class="marginnote">这个「$\frac{2}{3}$ 补偿」是 LLaMA 架构里最容易被忽略的细节：它让 SwiGLU 的「参数变多」被「维度缩小」抵消，从而公平地对比「SwiGLU vs GELU」——实验结论是 SwiGLU 胜出。读 LLaMA 系模型的 config.json 时，`intermediate_size=11008`（而非 16384）就是这个补偿的直接证据。</span>
+- **参数总量与「GELU + 4d」持平**，但 SwiGLU 的门控表达更强——**同等参数，效果更好**。<span class="marginnote">这个「$\frac{2}{3}$ 补偿」是 LLaMA 架构里最容易被忽略的细节：它让 SwiGLU 的「参数变多」被「维度缩小」抵消，从而公平地对比「SwiGLU vs GELU」——实验结论是 SwiGLU 胜出。读 LLaMA 系模型的 config.json 时，`intermediate_size = 11008`（而非 16384）就是这个补偿的直接证据。</span>
 
 ## 4 公式解析：LLaMA 一层的完整计算
 
@@ -74,27 +74,27 @@ $$
 
 对这套式子做四步拆解：
 
-- **第一步，读懂 Pre-LN 顺序**：`RMSNorm(x)` 在注意力/FFN **之前**，残差 `x + ...` 在之后——**Pre-LN**。归一化保持输入稳定，残差保持梯度畅通。
+- **第一步，读懂 Pre-LN 顺序**：**RMSNorm** 在注意力/FFN **之前**，残差**相加（残差连接）**在之后——**Pre-LN**。归一化保持输入稳定，残差保持梯度畅通。
 - **第二步，读懂 RoPE 的注入点**：Q/K 投影后、注意力分数前，做**旋转**——位置信息在「匹配」时生效，不进入「内容」。
-- **第三步，读懂 SwiGLU 的三投影**：`xW^Q` 与 `xW^g` 逐元素相乘（门控）再投影——**比 GELU 多一个「门」分支**，表达更强。
+- **第三步，读懂 SwiGLU 的三投影**：内容分支 $xW_1$ 与门分支 $xW_g \odot \text{swish}(\cdot)$ 逐元素相乘（门控）再投影——**比 GELU 多一个「门」分支**，表达更强。
 - **第四步，读出整体**：整个 LLaMA 层 = **归一化（RMSNorm）+ 关系（RoPE 注意力）+ 内容（SwiGLU FFN）** 的 Pre-LN 循环——三件套各司其职。
 
-**辨析｜易错点：** LLaMA 的 **`head_dim`** 可能不等于 `n_embd / n_head`——在 LLaMA 3.2 及以后（及某些变体）里 `head_dim` 被独立指定（如 128），与「n_embd/n_head」解耦。读 config 时别假设「head_dim = hidden_size / num_attention_heads」——**现代实现允许它们不同**。
+**辨析｜易错点：** LLaMA 的 **头维 head_dim** 可能不等于 `hidden_size / num_attention_heads`——在 LLaMA 3.2 及以后（及某些变体）里 **head_dim** 被独立指定（如 128），与「n_embd/n_head」解耦。读 config 时别假设「head_dim = hidden_size / num_attention_heads」——**现代实现允许它们不同**。
 
 ## 5 LLaMA 的其他架构细节
 
 - **GQA**：LLaMA-2 70B 起用 GQA（8 个 KV 头），大幅压缩 KV Cache。
 - **无偏置**：attention 的 QKV 投影与 FFN 均无 bias（`bias=False`）——省参数、省计算，且与 RMSNorm 配合良好。
-- **输入输出头不共享**：`tie_word_embeddings=false`——LLaMA 不共享嵌入与输出头（与 GPT-2 不同），参数量更大但「输出侧」有独立表示。
+- **输入输出头不共享**：词嵌入（embedding）与输出投影（lm_head）不绑定（untied）——LLaMA 不共享嵌入与输出头（与 GPT-2 不同），参数量更大但「输出侧」有独立表示。
 - **上下文长度**：LLaMA-1 是 2048，LLaMA-2 是 4096，LLaMA-3 是 8192——逐步扩展。
 - **tokenizer**：SentencePiece + BPE（byte-level），词表 32000。
 
 ## 6 小结
 
 - LLaMA 的「三件套」：**RMSNorm（归一化）+ RoPE（位置）+ SwiGLU（激活）**——都不是 LLaMA 发明，但被它「用对」。
-- **SwiGLU 的 $\frac{2}{3}$ 补偿**：`intermediate_size = 8/3 · d`，让「门控」不吃参数预算。
+- **SwiGLU 的 $\frac{2}{3}$ 补偿**：中间维度从「标准 4d」压缩为「$\frac{2}{3} \cdot 4d = \frac{8}{3}d$」，让「门控」不吃参数预算。
 - 架构形态：**Pre-LN + RoPE 每层注入 + 无偏置 + GQA**。
 - LLaMA 是开源谱系的「基准 DNA」——Mistral、Qwen 等都是它的变体。
-- 读 config.json 要留意：`head_dim` 可能独立、`intermediate_size` 是补偿后的值。
+- 读 config.json 要留意：head_dim 可能独立、intermediate_size 是补偿后的值。
 
 在下一节，我们顺着谱系看中国模型的代表——**Qwen 架构演进**：从 Qwen1 到 Qwen3 的设计变化。

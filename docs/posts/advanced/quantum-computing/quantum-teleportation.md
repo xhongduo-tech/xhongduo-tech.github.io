@@ -112,20 +112,21 @@ $$
 
 ```python
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit_aer import AerSimulator
 
-qr = QuantumRegister(3, "q")          # q0 未知态, q1 Alice 半对, q2 Bob 半对
-cr = ClassicalRegister(2, "c")        # 两个经典比特
+qr = QuantumRegister(3, "q")      # q0 待传态，q1/q2 共享贝尔对
+cr = ClassicalRegister(3, "c")
 qc = QuantumCircuit(qr, cr)
 
-qc.h(1)                               # 第一步: 制备 |Φ+⟩
-qc.cx(1, 2)
-qc.cx(0, 1)                           # 第二步: 把 |ψ⟩ 纠缠进去
-qc.h(0)
-qc.measure([0, 1], [0, 1])            # 第三步: 测量 -> 经典比特
-qc.z(2).c_if(cr, 2)                   # 若 c = 10, 施加 Z
-qc.x(2).c_if(cr, 1)                   # 若 c = 01, 施加 X
-qc.z(2).c_if(cr, 3)                   # 若 c = 11, 先 Z
-qc.x(2).c_if(cr, 3)                   # 再 X
+qc.h(1); qc.cx(1, 2)              # 制备贝尔对 |Φ⁺⟩（q1, q2）
+qc.initialize([0, 1], 0)          # 输入未知态 α|0⟩+β|1⟩（这里用 |1⟩ 便于验证）
+qc.cx(0, 1); qc.h(0)              # Alice：CNOT + H（贝尔测量）
+qc.measure(0, 0); qc.measure(1, 1)  # Alice 读出 (c0, c1)
+qc.cx(1, 2); qc.cz(0, 2)          # Bob：若 c1=1 施加 X，若 c0=1 施加 Z
+qc.measure(2, 2)                  # 读 Bob 端——应恒为 |1⟩，与输入一致
+
+counts = AerSimulator().run(qc, shots=1024).result().get_counts()
+print(counts)                     # c2 恒为 1：未知态被重建在 q2 上
 ```
 
 初学时不必纠结 API 细节——`c_if` 的意思是「当经典寄存器满足某值时施加该门」，正好对应表格里「Bob 应施加」那一列。这篇的目的不是写程序，而是把协议的逻辑链条看清楚。

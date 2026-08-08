@@ -22,7 +22,7 @@ date: 2026-08-07
 
 ## 1 DORA：DHCP 的「四步曲」
 
-DHCP 客户端获取配置的过程，记作 **DORA**——四个英文单词的首字母：<span class="marginnote"><strong>D</strong>iscover（发现）、<strong>O</strong>ffer（提供）、<strong>R</strong>equest（请求）、<strong>A</strong>ck（确认）。因为客户端还没有 IP，前两步必须用<strong>广播</strong>：客户端广播 <strong>DHCP Discover</strong>（「谁给我发个 IP？」）→ 服务器回 <strong>DHCP Offer</strong>（「给你这个配置」）→ 客户端广播 <strong>DHCP Request</strong>（「我要用它」）→ 服务器回 <strong>DHCP Ack</strong>（「好的，生效」）。<strong>「Discover 广播问、Offer 单播给、Request 广播选、Ack 确认用」</strong>是 DORA 的完整画面。</span>
+DHCP 客户端获取配置的过程，记作 **DORA**——四个英文单词的首字母：<span class="marginnote"><strong>D</strong>iscover（发现）、<strong>O</strong>ffer（提供）、<strong>R</strong>equest（请求）、<strong>A</strong>ck（确认）。因为客户端还没有 IP，前两步必须用<strong>广播</strong>：客户端广播 <strong>DHCP Discover</strong>`（「谁给我发个 IP？」）→ 服务器回 <strong>DHCP Offer</strong>`（「给你这个配置」）→ 客户端广播 <strong>DHCP Request</strong>`（「我要用它」）→ 服务器回 <strong>DHCP Ack</strong>`（「好的，生效」）。<strong>「Discover 广播问、Offer 单播给、Request 广播选、Ack 确认用」</strong>是 DORA 的完整画面。</span>
 
 | 步骤 | 报文 | 方向 | 内容 |
 | --- | --- | --- | --- |
@@ -37,20 +37,20 @@ DHCP 客户端获取配置的过程，记作 **DORA**——四个英文单词的
 
 DHCP 分配的 IP 有**租期（lease time）**——不是永久占用，而是「租用一段时间」。<span class="marginnote">租约机制的价值：<strong>IP 地址可以回收复用</strong>。设备下线、租约到期，IP 回到地址池，分配给别的设备。DHCP 客户端在租约过半时会主动请求<strong>续租（renewal）</strong>。这套「租约 + 续租 + 回收」让有限地址池服务大量临时设备——咖啡馆的地址池只有几十个 IP，却能服务成百上千的流动顾客。</span>
 
-- **租期**：DHCP 分配的 IP 有效期（如 24 小时）。
-- **续租**：租期过半，客户端向 DHCP 服务器请求续租。
-- **回收**：租约到期未续，IP 回收到地址池重新分配。
+**租期**：DHCP 分配的 IP 有效期（如 24 小时）。
+**续租**：租期过半，客户端向 DHCP 服务器请求续租。
+**回收**：租约到期未续，IP 回收到地址池重新分配。
 
 **辨析｜易错点：** **DHCP 是「租」不是「送」**——IP 有租期、会回收。续租发生在「租期过半」时（T1 时间点），而不是快到期才续。**「租约过半续租」**是 DHCP 续租的经典细节。
 
 ## 3 DHCP 的技术细节：端口与广播
 
-DHCP 的技术实现有几个值得注意的点：<span class="marginnote"><strong>端口</strong>：DHCP 客户端用 <strong>UDP 68</strong>，服务器用 <strong>UDP 67</strong>。<strong>基于 UDP</strong>——因为发现阶段无法用 TCP（还没有 IP、还没建立连接）。<strong>广播机制</strong>：Discover 是 <code>255.255.255.255</code> 广播（受限广播），Request 也是广播。<strong>跨网段</strong>：DHCP 服务器与客户端可能不在同一网段，靠<strong>中继代理（relay agent）</strong>把广播转成单播转发给服务器。</span>
+DHCP 的技术实现有几个值得注意的点：<span class="marginnote"><strong>端口</strong>：DHCP 客户端用 <strong>UDP 68</strong>`，服务器用 <strong>UDP 67</strong>`。<strong>基于 UDP</strong>`——因为发现阶段无法用 TCP（还没有 IP、还没建立连接）。<strong>广播机制</strong>：Discover 是 <code>255.255.255.255</code>` 广播（受限广播），Request 也是广播。<strong>跨网段</strong>：DHCP 服务器与客户端可能不在同一网段，靠<strong>中继代理（relay agent）</strong>把广播转成单播转发给服务器。</span>
 
-- **端口**：客户端 UDP 68、服务器 UDP 67。
-- **基于 UDP**：发现阶段没法建 TCP。
-- **广播**：Discover/Request 用广播。
-- **跨网段**：靠 DHCP 中继代理（relay agent）转发。
+**端口**：客户端 UDP 68、服务器 UDP 67。
+**基于 UDP**：发现阶段没法建 TCP。
+**广播**：Discover/Request 用广播。
+**跨网段**：靠 DHCP 中继代理（relay agent）转发。
 
 **辨析｜易错点：** **DHCP 的广播问题**：广播只在同一网段内传播，若 DHCP 服务器在别的网段，客户端广播到不了——所以用**中继代理**（通常是路由器）把广播请求**单播转发**给服务器。**「DHCP 默认广播，跨网段靠中继」**是 DHCP 部署的关键。还有一个易错点：**DHCP 报文里包含「魔饼干（magic cookie）」与各种选项**——用选项字段携带网关、DNS、租期等参数。
 

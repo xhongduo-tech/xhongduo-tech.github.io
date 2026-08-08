@@ -39,14 +39,14 @@ date: 2026-08-07
 三类最常见的泄漏：
 
 1. **切分泄漏**：随机打乱时间序列再切分，让模型从「未来」学到「过去」——时序数据必须按时间顺序切分（第12篇已强调）。
-2. **预处理泄漏**：用全量数据（含测试集）计算均值/标准差再标准化，或做 PCA 拟合——**所有预处理都必须只在训练集上拟合，再应用到测试集**。<span class="marginnote">一个隐蔽的例子：用全量数据做中位数填充缺值。填充的「中位数」这个数字本身携带了测试集的信息，相当于把测试集偷偷喂给了训练。正确做法是用 sklearn 的 `Pipeline` 把「填充-缩放-建模」绑成一个整体，`fit` 只接触训练集。</span>
+2. **预处理泄漏**：用全量数据（含测试集）计算均值/标准差再标准化，或做 PCA 拟合——**所有预处理都必须只在训练集上拟合，再应用到测试集**。<span class="marginnote">一个隐蔽的例子：用全量数据做中位数填充缺值。填充的「中位数」这个数字本身携带了测试集的信息，相当于把测试集偷偷喂给了训练。正确做法是用 sklearn 的 Pipeline 把「填充-缩放-建模」绑成一个整体，Pipeline 只在训练集上 fit、再到测试集上 transform。</span>
 3. **目标泄漏**：特征里包含了「只有未来才知道」的字段。例如预测「用户明天是否流失」，特征里却有一列「用户是否已提交退订申请」——退订申请就是明天流失的果，不是因。这种泄漏靠领域知识排查。
 
 **辨析｜易错点：** 泄漏的可怕之处在于**指标看不出异常**——泄漏模型的交叉验证分数往往漂亮得很，却在上线后原形毕露。因此排查泄漏不能靠看指标，要靠审计整条数据流：每个特征是否「在预测时点就能拿到」？每步预处理是否只用训练集信息？
 
 ## 3 预处理与管道：把「工作流」编码成「代码」
 
-手工按顺序执行预处理，极易在某一步不小心用上全量数据。工程化的解法是 **Pipeline（管道）**：把「预处理 + 模型」绑定为一个可整体 `fit`/`predict` 的对象，确保每一步只在训练集上学参数。
+手工按顺序执行预处理，极易在某一步不小心用上全量数据。工程化的解法是 **Pipeline（管道）**：把「预处理 + 模型」绑定为一个可整体 fit/predict 的对象，确保每一步只在训练集上学参数。
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -54,16 +54,17 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 
-pipe = Pipeline([
-    ("impute", SimpleImputer(strategy="median")),
-    ("scale", StandardScaler()),
-    ("model", LogisticRegression(max_iter=1000)),
+pipeline = Pipeline([
+    ("imputer", SimpleImputer(strategy="median")),  # 只在训练集上学参数
+    ("scaler", StandardScaler()),
+    ("clf", LogisticRegression(max_iter=1000)),
 ])
-pipe.fit(X_train, y_train)          # 只在训练集上 fit
-acc = pipe.score(X_test, y_test)    # 测试集全程只被 transform
+
+pipeline.fit(X_train, y_train)
+y_pred = pipeline.predict(X_test)
 ```
 
-**重点：Pipeline 的价值是把「不泄漏」从纪律变成结构。** 你不需要每次提醒自己「填充均值只能算训练集的」，因为 `fit` 的机制保证参数来自训练集。配合**交叉验证**（用 `cross_val_score` 对 `pipe` 整体做），调参、评估、防泄漏三者一次完成。<span class="marginnote">交叉验证为什么要在 Pipeline 上做？因为如果先在完整训练集上标准化、再做交叉验证，每一折的验证集已经被「全训练集拟合的 scaler」处理过，同样构成轻微泄漏。把整个 Pipeline 放进交叉验证循环，每一折的预处理参数都只来自该折的训练部分，这才干净。这个细节与第4篇清洗的「只基于训练集填充」一脉相承。</span>
+**重点：Pipeline 的价值是把「不泄漏」从纪律变成结构。** 你不需要每次提醒自己「填充均值只能算训练集的」，因为 Pipeline 的机制保证参数来自训练集。配合**交叉验证**（用 cross_val_score 对 Pipeline 整体做），调参、评估、防泄漏三者一次完成。<span class="marginnote">交叉验证为什么要在 Pipeline 上做？因为如果先在完整训练集上标准化、再做交叉验证，每一折的验证集已经被「全训练集拟合的 scaler」处理过，同样构成轻微泄漏。把整个 Pipeline 放进交叉验证循环，每一折的预处理参数都只来自该折的训练部分，这才干净。这个细节与第4篇清洗的「只基于训练集填充」一脉相承。</span>
 
 ## 4 工作流的节奏：基线先行，复杂渐进
 
@@ -82,7 +83,7 @@ acc = pipe.score(X_test, y_test)    # 测试集全程只被 transform
 工作流讲的是「方法论」，工具栈讲的是「用什么干活」。一套数据科学标准工具栈大致是这样分工的：
 
 - **数据处理**：pandas / Polars——表格清洗、变换、聚合（第4-5篇）。
-- **建模**：scikit-learn——统一接口（`fit`/`predict`）的模型与 Pipeline 全家桶；XGBoost/LightGBM——树模型的工业主力。
+- **建模**：scikit-learn——统一接口（fit/predict）的模型与 Pipeline 全家桶；XGBoost/LightGBM——树模型的工业主力。
 - **调参与实验**：Optuna、MLflow——超参搜索与实验追踪（第2篇 MLOps 的落地）。
 - **版本与协作**：git + DVC（数据版本控制）——代码和数据都纳入版本管理。
 - **部署与调度**：FastAPI 提供推理接口；Airflow 调度批任务（第20篇）；Docker 封装环境。
@@ -102,9 +103,9 @@ acc = pipe.score(X_test, y_test)    # 测试集全程只被 transform
 
 **三个必须固定种子的地方：**
 
-1. **数据切分**：`train_test_split(random_state=42)`——否则每次跑的划分不同，结果不可比。
-2. **模型训练**：随机森林、神经网络等带随机初始化/采样的模型，`random_state` 固定才能「重跑一致」。
-3. **整个环境**：Python 的 `random`、NumPy 的 `np.random`、PyTorch/TensorFlow 的全局种子——深度学习里还要配合 `deterministic` 模式，才能完全复现。
+1. **数据切分**：固定 train_test_split 的 random_state——否则每次跑的划分不同，结果不可比。
+2. **模型训练**：随机森林、神经网络等带随机初始化/采样的模型，random_state 固定才能「重跑一致」。
+3. **整个环境**：Python 的 random.seed(42)、NumPy 的 np.random.seed(42)、PyTorch/TensorFlow 的全局种子——深度学习里还要配合 deterministic 模式（PyTorch 的 torch.use_deterministic_algorithms(True)），才能完全复现。
 
 **重点：固定种子是「结果可辩护」的第一步。** 当别人问你「这个 AUC 0.85 是运气还是实力」，你能回答「换 5 个种子、取均值，都是 0.83–0.86」——这比「就这一次跑出来的」有说服力得多。**报结果时，报告「多颗种子下的均值 ± 波动」，而不只是一次结果**，是第8篇「不确定性」思维在工作流里的最小实践。
 

@@ -37,29 +37,31 @@ date: 2026-08-07
 
 ## 2 SELinux 的核心机制：标签 + 策略
 
-**标签（label）**：SELinux 给**每个主体（进程）与每个对象（文件、端口、设备）**打标签。标签格式：`user:role:type:level`。
+**标签（label）**：SELinux 给**每个主体（进程）与每个对象（文件、端口、设备）**打标签。标签格式：user:role:type:level（如 system_u:object_r:httpd_sys_content_t:s0）。
 
-- 主体（进程）标签中的 **type** 称为**域（domain）**——如 `httpd_t`（Web 服务器域）、`sshd_t`（SSH 域）。
-- 对象标签中的 **type** 称为**类型（type）**——如 `httpd_sys_content_t`（Web 内容类型）。
+- 主体（进程）标签中的 **type** 称为**域（domain）**——如 httpd_t（Web 服务器域）、sshd_t（SSH 域）。
+- 对象标签中的 **type** 称为**类型（type）**——如 httpd_sys_content_t（Web 内容类型）。
 
 **策略规则（policy rule）**：定义「**哪个域 可以对 哪个类型 做什么**」——如：
 
 ```
-allow httpd_t httpd_sys_content_t : file { read open } ;
+allow httpd_t httpd_sys_content_t : file { read open getattr };
 ```
 
-翻译：**允许 Web 服务器域读/打开 Web 内容类型的文件**——它不能读数据库文件（`mysqld_db_t`）、不能写系统配置（`etc_t`）。
+规则格式：`allow <域> <类型> : <对象类别> { <操作集> };`
+
+翻译：**允许 Web 服务器域读/打开 Web 内容类型的文件**——它不能读数据库文件（mysqld_db_t）、不能写系统配置（etc_t）。
 
 **访问判定**：进程访问对象时，SELinux 查策略——**「我的域能不能对它的类型做这个操作」**。允许则放行，否则拒绝。
 
-**辨析｜易错点：** 「SELinux 的 type 就是 Unix 的文件类型」是误解。**SELinux 的 type 是「安全标签的类型」**（`httpd_sys_content_t`），与 Unix 的「文件类型」（普通/目录/设备）完全无关。**SELinux 是「标签 + 策略」的强制控制，DAC 是「属主 + 权限位」的自主控制**——两套体系独立叠加。
+**辨析｜易错点：** 「SELinux 的 type 就是 Unix 的文件类型」是误解。**SELinux 的 type 是「安全标签的类型」**（如 httpd_t、httpd_sys_content_t），与 Unix 的「文件类型」（普通/目录/设备）完全无关。**SELinux 是「标签 + 策略」的强制控制，DAC 是「属主 + 权限位」的自主控制**——两套体系独立叠加。
 
 ## 3 为什么 SELinux 强：最小特权 + 纵深防御
 
 SELinux 的价值在**最小特权**（回顾《保护域》）：
 
 - **默认拒绝**：策略里**没写的访问 = 拒绝**（默认 deny）——每个进程只获得策略明确允许的权限。
-- **进程隔离**：Web 服务器（`httpd_t`）即使被攻破，攻击者也只能碰 `httpd_sys_content_t`——**碰不到数据库、碰不到用户主目录、碰不到内核**。
+- **进程隔离**：Web 服务器（httpd_t）即使被攻破，攻击者也只能碰 httpd_sys_content_t 类型的对象——**碰不到数据库、碰不到用户主目录、碰不到内核**。
 - **系统进程保护**：即使普通进程是 root，SELinux 仍限制它——**「root 不是万能的」是 SELinux 最颠覆的一点**。
 
 **纵深防御的意义**：DAC 是「第一道门」（文件权限），SELinux 是「第二道门」（强制策略）——**缓冲区溢出攻破了 Web 服务器（第一道门失守），SELinux 仍拦住它的越权访问（第二道门还在）**。

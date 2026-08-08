@@ -42,8 +42,8 @@ date: 2026-08-07
 
 这两种运算之所以关键，源于两条**通用性定理**：
 
-- **与非门通用**：$\overline{A \cdot A} = \overline{A}$（非）；$\overline{\overline{A \cdot B}} = A \cdot B$（与）；由德·摩根定律 $A+B = \overline{\overline{A} \cdot \overline{B}}$（或）。只用与非门，三种基本运算全都能搭出来。
-- **或非门通用**：同理，$\overline{A + A} = \overline{A}$、$\overline{\overline{A+B}} = A+B$、$A \cdot B = \overline{\overline{A}+\overline{B}}$。
+**与非门通用**：$\overline{A \cdot A} = \overline{A}$（非）；$\overline{\overline{A \cdot B}} = A \cdot B$（与）；由德·摩根定律 $A+B = \overline{\overline{A} \cdot \overline{B}}$（或）。只用与非门，三种基本运算全都能搭出来。
+**或非门通用**：同理，$\overline{A + A} = \overline{A}$、$\overline{\overline{A+B}} = A+B$、$A \cdot B = \overline{\overline{A}+\overline{B}}$。
 
 **辨析｜易错点：** 求 $\overline{A\cdot B}$ 时，常见错误是把否定直接分配给 $A$ 或 $B$。正确的是 $\overline{A \cdot B} = \overline{A} + \overline{B}$（德·摩根），而不是 $\overline{A} \cdot \overline{B}$。记住口诀：「**断开连接、翻转符号**」——乘变加、加变乘，同时把每个变量取反。
 
@@ -60,8 +60,8 @@ date: 2026-08-07
 
 异或可以看成「**按位比较是否不同**」。它的名字就说明一切：*「异」*即不同，*「或」*表示只要出现不同就成立。异或有几条极有用的性质：
 
-- $A \oplus 0 = A$，$A \oplus 1 = \overline{A}$：与 0 异或保持原值，与 1 异或等于取反。
-- $A \oplus A = 0$，$A \oplus \overline{A} = 1$：自身异或恒为 0。<span class="marginnote">这两条性质是软件里经典「异或加密」与「无临时变量交换」的原理。两个数 `x, y` 连续三次异或即可互换，因为 $x \oplus y \oplus y = x$。</span>
+$A \oplus 0 = A$，$A \oplus 1 = \overline{A}$：与 0 异或保持原值，与 1 异或等于取反。
+$A \oplus A = 0$，$A \oplus \overline{A} = 1$：自身异或恒为 0。<span class="marginnote">这两条性质是软件里经典「异或加密」与「无临时变量交换」的原理。两个数 $A \oplus A = 0$ 连续三次异或即可互换，因为 $x \oplus y \oplus y = x$。</span>
 - **交换律**与**结合律**：$A \oplus B = B \oplus A$，$(A\oplus B)\oplus C = A\oplus(B\oplus C)$。
 
 异或最重要的应用在**算术与校验**：一位二进制加法中，$1+1$ 会产生进位，而和的低位恰好等于 $A \oplus B$；奇偶校验（第五篇之前的第一篇已见过奇偶校验码）判断一组 bit 中 1 的个数奇偶，靠的也是逐位异或。它是加法器、CRC 校验、AES 加密等一切现代硬件的底层运算。

@@ -59,7 +59,7 @@ NDCG 落在 $[0, 1]$：排序与理想完全一致时为 1，越乱越低。这�
 - **第三步，IDCG 是什么。** 对同一查询，把相关等级**降序排列**后算出的 DCG 就是 IDCG。它是「完美系统在这个查询上能拿到的最高分」，作为分母给出归一化的上限。
 - **第四步，归一化为什么必要。** 不同查询的相关文档数量与等级分布不同，DCG 的尺度千差万别；除以 IDCG 后，所有查询都被压缩到 $[0,1]$，才能跨查询平均得到 **Mean NDCG**——这与 MAP 的「先按查询算、再跨查询平均」是同一层骨架。
 
-算一个完整的例子。设某查询返回 5 篇，分级为 `[3, 2, 3, 0, 1]`，$g_{\max} = 3$：
+算一个完整的例子。设某查询返回 5 篇，分级为 [3, 2, 3, 0, 1]，$g_{\max} = 3$：
 
 | 位置 i | rel | 增益 $2^{rel}-1$ | 折损 $1/\log_2(i+1)$ | 贡献 |
 | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ NDCG 落在 $[0, 1]$：排序与理想完全一致时为 1，越乱越低。这�
 | 4 | 0 | 0 | 0.431 | 0 |
 | 5 | 1 | 1 | 0.387 | 0.387 |
 
-$DCG@5 = 12.780$。理想排序 `[3, 3, 2, 1, 0]` 的 $IDCG@5 = 13.347$，于是 $NDCG@5 = 12.780 / 13.347 \approx 0.958$。注意第 1 位与第 3 位都是等级 3，但因为第 1 位不打折，同样一篇文档放在第 1 位比放在第 3 位多贡献 3.5 个单位的增益——**这就是「开端更重要」的量化**。
+$DCG@5 = 12.780$。理想排序 $NDCG@5 = 12.780 / 13.347 \approx 0.958$ 的 $IDCG@5 = 13.347$，于是 $NDCG@5 = 12.780 / 13.347 \approx 0.958$。注意第 1 位与第 3 位都是等级 3，但因为第 1 位不打折，同样一篇文档放在第 1 位比放在第 3 位多贡献 3.5 个单位的增益——**这就是「开端更重要」的量化**。
 
 ## 4 MRR：第一个相关结果的位置
 
@@ -100,7 +100,7 @@ $$R_i = \frac{2^{g_i} - 1}{2^{g_{\max}}}$$
 - **第三步，$\frac{1}{i}$ 是什么。** 用户停在第 $i$ 位时，付出的浏览代价与 $i$ 成正比，收益取倒数。位置越靠后，即使被浏览到，价值也越低。
 - **第四步，与 NDCG 的差别。** NDCG 用的是「固定折损」$1/\log_2(i+1)$，**不随内容变化**；ERR 的「有效权重」$R_i \prod(1 - R_j)$ 是**数据相关的**——如果前面第 1 位就是完美答案（$R_1=0.875$），后面所有位置被浏览的概率骤降，它们的存在几乎不影响分数。<span class="marginnote">ERR 由 Chapelle 等人 2009 年提出，是对 NDCG 的一次「因果化」升级：NDCG 假设每个位置都会被看（只是权重递减），ERR 假设用户会<strong>因满意而提前离开</strong>。对「首页首条决定成败」的商业搜索，ERR 常比 NDCG 更贴合用户行为。</span>
 
-用例子验证：设 3 篇结果分级为 `[3, 2, 0]`，$g_{\max} = 3$，则 $R_1 = 0.875$，$R_2 = 0.375$，$R_3 = 0$：
+用例子验证：设 3 篇结果分级为 $R_3 = 0$，$g_{\max} = 3$，则 $R_1 = 0.875$，$R_2 = 0.375$，$R_3 = 0$：
 
 $$ERR = \frac{0.875}{1} + \frac{1}{2} \times 0.375 \times (1 - 0.875) + \frac{1}{3} \times 0 \times (\cdots) \approx 0.898$$
 
@@ -113,32 +113,20 @@ NDCG 与 MRR 的实现都很短：
 ```python
 import math
 
-def dcg(grades):
-    return sum((2 ** g - 1) / math.log2(i + 1) for i, g in enumerate(grades, start=1))
+def ndcg_at_k(rels, k):
+    dcg = sum((2 ** r - 1) / math.log2(i + 2) for i, r in enumerate(rels[:k]))
+    ideal = sorted(rels, reverse=True)
+    idcg = sum((2 ** r - 1) / math.log2(i + 2) for i, r in enumerate(ideal[:k]))
+    return dcg / idcg if idcg > 0 else 0.0
 
-def ndcg(grades):
-    ideal = sorted(grades, reverse=True)          # 理想排序
-    return dcg(grades) / dcg(ideal)
+def mrr(first_rel_ranks):
+    return sum(1.0 / r for r in first_rel_ranks) / len(first_rel_ranks)
 
-print(round(ndcg([3, 2, 3, 0, 1]), 3))            # 0.958
-
-def mrr(first_ranks):
-    return sum(1 / r for r in first_ranks) / len(first_ranks)
-
-print(mrr([2, 1]))                                # 0.75
-
-def err(grades, gmax=3):
-    total, prod = 0.0, 1.0
-    for i, g in enumerate(grades, start=1):
-        R = (2 ** g - 1) / (2 ** gmax)
-        total += (1 / i) * R * prod
-        prod *= 1 - R                             # 前 i 位都没满意
-    return total
-
-print(round(err([3, 2, 0]), 3))                   # 0.898
+print(ndcg_at_k([3, 2, 3, 0, 1], 5))   # ≈ 0.958
+print(mrr([2, 1]))                      # (1/2 + 1/1) / 2 = 0.75
 ```
 
-注意 `ndcg` 里的除法：如果某查询所有文档等级全为 0（IDCG = 0），`dcg(ideal)` 会除零——实际评测框架会对这类查询单独处理，这正是我们在下一篇《用户满意度评测》会遇到的「无相关文档查询」问题在分级世界的版本。
+注意 NDCG 里的除法：如果某查询所有文档等级全为 0（IDCG = 0），DCG@k / IDCG@k 会除零——实际评测框架会对这类查询单独处理，这正是我们在下一篇《用户满意度评测》会遇到的「无相关文档查询」问题在分级世界的版本。
 
 ## 7 辨析：三类排序指标怎么选
 

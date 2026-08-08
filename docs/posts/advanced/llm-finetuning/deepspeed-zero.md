@@ -97,7 +97,7 @@ $$
 ZeRO 在 DeepSpeed 里就是一段 YAML 配置，但选哪一档有规律：
 
 - **显存紧张但不离谱 → ZeRO-2**：优化器 + 梯度分片，通信零成本，是 7B 全参微调在多卡上的默认档。
-- **单卡装不下模型本身 → ZeRO-3**：模型分片，能训超单卡显存的模型，但要多付参数 all-gather 的通信，且建议开 `overlap_comm`。
+- **单卡装不下模型本身 → ZeRO-3**：模型分片，能训超单卡显存的模型，但要多付参数 all-gather 的通信，且建议开 `overlap_comm`（通信-计算重叠）。
 - **显存依然不够 → 加 offload**：把 optimizer state 或参数卸载到 CPU（下一节），用「PCIe 带宽」换「DRAM 容量」。
 - **长序列 → 配合序列并行**：ZeRO 管「数据维度的分片」，长序列还有「序列维度的并行」（第五篇），两者正交叠加。
 
@@ -107,14 +107,13 @@ ZeRO 在 DeepSpeed 里就是一段 YAML 配置，但选哪一档有规律：
 
 ```yaml
 zero_optimization:
-  stage: 2                # 1 / 2 / 3
-  allgather_partitions: true
-  reduce_scatter: true
-  overlap_comm: true      # 通信与计算重叠
-  contiguous_gradients: true
+  stage: 2               # 1 / 2 / 3，切档就改这里
+  overlap_comm: true     # 通信-计算重叠，ZeRO-3 建议开启
+  offload_optimizer:
+    device: none         # 显存不够时改成 cpu
 ```
 
-改一个数字就能在 ZeRO-1/2/3 之间切换；HF Trainer 里对应 `--zero_stage 2`。读到配置文件的字段名，对照本节的分片模型，就能明白每一行在做什么——配置不是魔法，是对「哪类冗余被消除」的声明。
+改一个数字（`stage`）就能在 ZeRO-1/2/3 之间切换；HF Trainer 里对应 `zero_stage` 参数。读到配置文件的字段名，对照本节的分片模型，就能明白每一行在做什么——配置不是魔法，是对「哪类冗余被消除」的声明。
 
 ## 6 小结
 

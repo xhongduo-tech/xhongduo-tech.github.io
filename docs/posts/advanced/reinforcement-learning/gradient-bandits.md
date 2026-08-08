@@ -99,30 +99,37 @@ $$H(1) \leftarrow 0 + 0.1 \times 0.5 \times (1 - 0.5) = 0.025, \qquad H(2) \left
 更新规则恰好可以向量化成一行 $H \leftarrow H + \alpha\delta(\mathbf{1}_{A_t} - \pi)$，代码几乎就是公式的直译：
 
 ```python
-import numpy as np
+import math
+import random
 
 class GradientBandit:
-    def __init__(self, k, alpha=0.1):
-        self.k = k
+    def __init__(self, k, alpha):
         self.alpha = alpha
-        self.H = np.zeros(k)     # 动作偏好
-        self.avg_reward = 0.0    # 基线 \bar{R}_t
+        self.H = [0.0] * k            # 动作偏好，初始为 0
+        self.r_bar = 0.0              # 基线：奖励的经验平均
         self.t = 0
 
+    def softmax(self):                # 减去最大值：数值稳定的标准写法
+        m = max(self.H)
+        e = [math.exp(h - m) for h in self.H]
+        s = sum(e)
+        return [x / s for x in e]
+
     def choose(self):
-        exp_h = np.exp(self.H - self.H.max())   # 减去最大值：数值稳定，不改变分布
-        self.pi = exp_h / exp_h.sum()
-        return int(np.random.choice(self.k, p=self.pi))
+        pi = self.softmax()
+        a = random.choices(range(len(self.H)), weights=pi)[0]
+        return a, pi
 
     def update(self, a, r):
         self.t += 1
-        self.avg_reward += (r - self.avg_reward) / self.t   # 在线更新基线
-        delta = r - self.avg_reward
-        one_hot = np.zeros(self.k); one_hot[a] = 1.0
-        self.H += self.alpha * delta * (one_hot - self.pi)  # 梯度上升的一步
+        self.r_bar += (r - self.r_bar) / self.t    # 增量式平均奖励
+        delta = r - self.r_bar
+        pi = self.softmax()
+        for i in range(len(self.H)):               # H ← H + αδ(1_{A_t} − π)
+            self.H[i] += self.alpha * delta * ((1 if i == a else 0) - pi[i])
 ```
 
-把 `choose` 里的 softmax 换成神经网络输出、把「单臂奖励」换成「一条轨迹的累积回报」，你就已经摸到第十三篇 REINFORCE 的门口——**这个类几乎就是策略梯度算法的骨架**。<span class="marginnote">`exp_h = np.exp(self.H - self.H.max())` 是 softmax 的数值稳定写法：同时减去最大值不改变比例，却避免了指数上溢。这是深度网络里 softmax 层的标准实现，你会在任何深度学习框架里见到同款。</span>
+把**这个类**里的 softmax 换成神经网络输出、把「单臂奖励」换成「一条轨迹的累积回报」，你就已经摸到第十三篇 REINFORCE 的门口——**这个类几乎就是策略梯度算法的骨架**。<span class="marginnote">「减去最大值」是 softmax 的数值稳定写法：同时减去最大值不改变比例，却避免了指数上溢。这是深度网络里 softmax 层的标准实现，你会在任何深度学习框架里见到同款。</span>
 
 ## 5 小结
 

@@ -36,12 +36,12 @@ date: 2026-08-07
 
 **DFS**：从起点出发，尽可能深入——走到不能走再回溯。
 
-```
-procedure DFS(G, v):
-    mark v visited
-    for each 邻接 u of v:
-        if u 未访问:
-            DFS(G, u)
+```text
+procedure DFS(G, v)
+    visited[v] ← true                       // 标记 v 已访问
+    for each u ∈ 邻接表(v)
+        if visited[u] = false
+            DFS(G, u)                       // 递归深入
 ```
 
 **DFS 生成树**：记录 DFS 过程中"首次发现"的边（树边），形成一棵生成树。
@@ -50,22 +50,24 @@ procedure DFS(G, v):
 
 **DFS 性质**：
 
-- 空间 $O(h)$（递归栈，$h$ 为深度）；时间 $O(V+E)$。
-- **判连通**：一次 DFS 访问到所有顶点 ⟺ 连通。
-- 回边出现 ⟺ 图有圈。
+空间 $O(h)$（递归栈，$h$ 为深度）；时间 $O(V+E)$。
+**判连通**：一次 DFS 访问到所有顶点 ⟺ 连通。
+回边出现 ⟺ 图有圈。
 
 ## 3 广度优先搜索（BFS）
 
 **BFS**：从起点出发，**一层层**向外推进——先访问所有距离 1 的，再距离 2 的……
 
-```
-procedure BFS(G, v):
-    队列 Q; Q.push(v); mark v visited
-    while Q 非空:
-        u = Q.pop()
-        for each 邻接 w of u:
-            if w 未访问:
-                mark w; Q.push(w)
+```text
+procedure BFS(G, v)
+    visited[v] ← true
+    Q ← 空队列;  enqueue(Q, v)
+    while Q 非空
+        u ← dequeue(Q)
+        for each w ∈ 邻接表(u)
+            if visited[w] = false
+                visited[w] ← true
+                enqueue(Q, w)               // 下一层入队
 ```
 
 **BFS 生成树**：记录"首次发现"的边，形成 BFS 生成树。**BFS 树从根到每个顶点的路径恰好是该顶点的最短路径（无权图）**——这是 BFS 最珍贵的性质。
@@ -88,9 +90,9 @@ procedure BFS(G, v):
 
 **证明（按距离归纳）**：设 $\text{dist}(v)$ = $s$ 到 $v$ 的真实最短路长，$d(v)$ = BFS 树中 $v$ 的深度。
 
-- **第一步，$d(v) \ge \text{dist}(v)$**：树路径是一条具体路径，长度不小于最短路。
-- **第二步，$d(v) \le \text{dist}(v)$（归纳）**：对 $\text{dist}(v) = k$ 归纳。取真实最短路径 $s \to \dots \to u \to v$，$\text{dist}(u) = k-1$。由归纳假设 $d(u) \le k-1$。BFS 中 $u$ 出队时，$v$ 尚未访问或已被访问：若未访问则 $v$ 在 $u$ 的下一层入队，$d(v) = d(u)+1 \le k$；若已访问则 $d(v) \le d(u)+1 \le k$。两种情形 $d(v) \le k = \text{dist}(v)$。
-- **第三步，合并**：$d(v) = \text{dist}(v)$，树路径最短。∎
+**第一步，$d(v) \ge \text{dist}(v)$**：树路径是一条具体路径，长度不小于最短路。
+**第二步，$d(v) \le \text{dist}(v)$（归纳）**：对 $\text{dist}(v) = k$ 归纳。取真实最短路径 $s \to \dots \to u \to v$，$\text{dist}(u) = k-1$。由归纳假设 $d(u) \le k-1$。BFS 中 $u$ 出队时，$v$ 尚未访问或已被访问：若未访问则 $v$ 在 $u$ 的下一层入队，$d(v) = d(u)+1 \le k$；若已访问则 $d(v) \le d(u)+1 \le k$。两种情形 $d(v) \le k = \text{dist}(v)$。
+**第三步，合并**：$d(v) = \text{dist}(v)$，树路径最短。∎
 
 **为什么 BFS 而非 DFS**：BFS 按层推进，先访问近的——"层数 = 距离"；DFS 乱序深入，树深不代表距离。**BFS 队列的先进先出保证层序**。
 
@@ -104,11 +106,10 @@ procedure BFS(G, v):
 
 **任务 1：判连通**。从任意顶点做一次 DFS 或 BFS，若访问到全部 $n$ 个顶点则连通。
 
-```
-procedure isConnected(G):
-    v := 任一顶点
-    visited := DFS(G, v)      # 或 BFS
-    return |visited| == |V|
+```text
+procedure isConnected(G)
+    DFS(G, v0)                              // 从任意顶点 v0 出发，或 BFS(G, v0)
+    return (visited 中被标记的顶点数 = |V(G)|)
 ```
 
 **为什么对**：DFS/BFS 访问的正是"从 v 可达的全部顶点"（可达集）。图连通 ⟺ 任意顶点的可达集是全图。**一次遍历 $O(V+E)$ 解决连通性判定**。

@@ -38,11 +38,13 @@ date: 2026-08-07
 1. 新结点至少在第 0 层；
 2. 抛硬币：正面就**再升一层**，反面停——**层数 = 连续正面的次数 + 1**。
 
-```c
-int RandomLevel() {
-    int lvl = 0;
-    while (rand() < 0.5) lvl++;   /* 抛硬币：正面升层 */
-    return lvl;
+```cpp
+// 随机层数：抛硬币，正面升层、反面停止（每层 1/2 概率）
+int randomLevel() {
+    int level = 1;                                // 至少在第 0 层
+    while (rand() % 2 == 1 && level < MAX_LEVEL)  // 正面(1)再升一层
+        level++;
+    return level;
 }
 ```
 
@@ -62,19 +64,20 @@ $$
 
 ## 4 查找、插入、删除的流程
 
-- **查找**：从最高层头开始，向右走到「不大于目标的最大结点」，降层，重复，直到第 0 层——目标若存在必在附近。
-- **插入**：查找插入位置；抛硬币定层数；把新结点插入到所有「它该出现的层」的对应位置。
-- **删除**：查找目标，从最高层到第 0 层逐层摘除。
+**查找**：从最高层头开始，向右走到「不大于目标的最大结点」，降层，重复，直到第 0 层——目标若存在必在附近。
+**插入**：查找插入位置；抛硬币定层数；把新结点插入到所有「它该出现的层」的对应位置。
+**删除**：查找目标，从最高层到第 0 层逐层摘除。
 
-```c
-SkipNode *Search(SkipList *sl, int key) {
-    SkipNode *p = sl->header;                  /* 从最高层头出发 */
-    for (int lvl = sl->level; lvl >= 0; lvl--) {   /* 高层到低层 */
-        while (p->forward[lvl] && p->forward[lvl]->key < key)
-            p = p->forward[lvl];               /* 能跳就跳 */
+```cpp
+// 查找 key：从最高层头出发，能跳就跳、不能跳就降层
+bool search(int key) {
+    Node* p = head;
+    for (int k = level; k >= 0; --k) {            // 从最高层逐层下降
+        while (p->forward[k] && p->forward[k]->key < key)
+            p = p->forward[k];                    // 同层向右跳到不大于 key 的最大结点
     }
-    p = p->forward[0];                         /* 第 0 层的下一结点 */
-    return (p && p->key == key) ? p : NULL;    /* 命中或不存在 */
+    p = p->forward[0];                            // 降到最后，第 0 层再走一步
+    return p && p->key == key;                    // 目标若存在，必在附近
 }
 ```
 

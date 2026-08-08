@@ -26,9 +26,9 @@ DNA 储存遗传信息，但信息的"执行"靠 **RNA（核糖核酸）**。**�
 
 **主要 RNA 类型**：
 
-- **信使 RNA（mRNA）**：携带 DNA 的遗传信息（密码子）到核糖体，指导蛋白质合成。真核 mRNA 有 **5' 帽**与 **3' poly(A) 尾**（稳定性与翻译起始）。
-- **转运 RNA（tRNA）**：约 70~90 个核苷酸，**三叶草形**二级结构，一端有**反密码子**（识别 mRNA 密码子）、另一端**3' 端 CCA**（携带氨基酸）。
-- **核糖体 RNA（rRNA）**：构成**核糖体**（与蛋白结合），占细胞 RNA 的 80% 以上。<span class="marginnote"><strong>mRNA 是"信使"</strong>：真核 mRNA 的 5' 帽（7-甲基鸟苷）与 3' poly(A) 尾保护 mRNA 并促进翻译——mRNA 越稳定、翻译越多。<strong>tRNA 是"搬运工"</strong>：三叶草结构的反密码子环与氨基酸臂——反密码子（如 UAC）与 mRNA 密码子（AUG）互补配对，把对应氨基酸"运到"核糖体。<strong>rRNA 是"车间"</strong>：核糖体由 rRNA（约 2/3）+ 蛋白（约 1/3）构成——rRNA 催化肽键形成（核酶性质）！</span>
+**信使 RNA（mRNA）**：携带 DNA 的遗传信息（密码子）到核糖体，指导蛋白质合成。真核 mRNA 有 **5' 帽**与 **3' poly(A) 尾**（稳定性与翻译起始）。
+**转运 RNA（tRNA）**：约 70~90 个核苷酸，**三叶草形**二级结构，一端有**反密码子**（识别 mRNA 密码子）、另一端**3' 端 CCA**（携带氨基酸）。
+**核糖体 RNA（rRNA）**：构成**核糖体**（与蛋白结合），占细胞 RNA 的 80% 以上。<span class="marginnote"><strong>mRNA 是"信使"</strong>：真核 mRNA 的 5' 帽（7-甲基鸟苷）与 3' poly(A) 尾保护 mRNA 并促进翻译——mRNA 越稳定、翻译越多。<strong>tRNA 是"搬运工"</strong>：三叶草结构的反密码子环与氨基酸臂——反密码子（如 UAC）与 mRNA 密码子（AUG）互补配对，把对应氨基酸"运到"核糖体。<strong>rRNA 是"车间"</strong>：核糖体由 rRNA（约 2/3）+ 蛋白（约 1/3）构成——rRNA 催化肽键形成（核酶性质）！</span>
 
 ## 2 中心法则与 RNA 在信息流中的角色
 
@@ -49,20 +49,20 @@ $$
 
 **遗传密码（genetic code）**：mRNA 上每 **3 个核苷酸（一个密码子）**对应一个氨基酸。特点：
 
-- **三联体**：4 种碱基³ = 64 种密码子，编码 20 种氨基酸（有冗余）。
-- **简并性（degeneracy）**：多数氨基酸有多个密码子（如 Leu 有 6 个）。
-- **起始密码子 AUG**（甲硫氨酸）；**终止密码子 UAA、UAG、UGA**。
-- **通用性**：几乎所有生物共用同一套密码（但线粒体有例外）。
-- **无重叠、无逗号**：密码子连续读取（开放阅读框 ORF）。<span class="marginnote"><strong>遗传密码是"生物学的通用语言"</strong>：64 个密码子（61 个编码+3 个终止）。<strong>简并性</strong>使突变多为"同义突变"（沉默突变，不改变氨基酸）——进化"缓冲"了突变。<strong>AUG 起始+UAA/UAG/UGA 终止</strong>是翻译的"起始与结束信号"。<strong>开放阅读框（ORF）</strong>：从起始密码子到终止密码子的连续读框。<strong>线粒体密码子的例外</strong>（如 UGA 编码色氨酸）说明密码子非绝对通用。</span>
+**三联体**：4 种碱基³ = 64 种密码子，编码 20 种氨基酸（有冗余）。
+**简并性（degeneracy）**：多数氨基酸有多个密码子（如 Leu 有 6 个）。
+**起始密码子 AUG**（甲硫氨酸）；**终止密码子 UAA、UAG、UGA**。
+**通用性**：几乎所有生物共用同一套密码（但线粒体有例外）。
+**无重叠、无逗号**：密码子连续读取（开放阅读框 ORF）。<span class="marginnote"><strong>遗传密码是"生物学的通用语言"</strong>：64 个密码子（61 个编码+3 个终止）。<strong>简并性</strong>使突变多为"同义突变"（沉默突变，不改变氨基酸）——进化"缓冲"了突变。<strong>AUG 起始+UAA/UAG/UGA 终止</strong>是翻译的"起始与结束信号"。<strong>开放阅读框（ORF）</strong>：从起始密码子到终止密码子的连续读框。<strong>线粒体密码子的例外</strong>（如 UGA 编码色氨酸）说明密码子非绝对通用。</span>
 
 ## 4 非编码 RNA 与基因表达调控
 
 **非编码 RNA（ncRNA）**：不编码蛋白质但发挥功能的 RNA——占转录产物的绝大部分。
 
-- **miRNA**：约 22 nt，与 mRNA 3' UTR 互补→抑制翻译/促降解——**基因表达的负调控**。
-- **siRNA**：RNA 干扰（RNAi）的效应分子。
-- **lncRNA**：长链非编码 RNA，调控转录、剪接、染色质状态。
-- **核酶（ribozyme）**：具有催化活性的 RNA（如 rRNA 的肽酰转移酶活性）。<span class="marginnote"><strong>"RNA 不只是中间人"</strong>：miRNA 调控约 60% 人类基因的表达，参与发育、肿瘤、代谢调控——<strong>miRNA 表达异常与癌症相关</strong>（肿瘤标志物与治疗靶点）。<strong>RNAi（RNA 干扰）</strong>是双链 RNA 引发的基因沉默，已发展为基因敲低的标准技术（siRNA、shRNA）。<strong>核酶</strong>（催化性 RNA）提示"RNA 世界假说"——早期生命可能以 RNA 同时承担遗传与催化功能。</span>
+**miRNA**：约 22 nt，与 mRNA 3' UTR 互补→抑制翻译/促降解——**基因表达的负调控**。
+**siRNA**：RNA 干扰（RNAi）的效应分子。
+**lncRNA**：长链非编码 RNA，调控转录、剪接、染色质状态。
+**核酶（ribozyme）**：具有催化活性的 RNA（如 rRNA 的肽酰转移酶活性）。<span class="marginnote"><strong>"RNA 不只是中间人"</strong>：miRNA 调控约 60% 人类基因的表达，参与发育、肿瘤、代谢调控——<strong>miRNA 表达异常与癌症相关</strong>（肿瘤标志物与治疗靶点）。<strong>RNAi（RNA 干扰）</strong>是双链 RNA 引发的基因沉默，已发展为基因敲低的标准技术（siRNA、shRNA）。<strong>核酶</strong>（催化性 RNA）提示"RNA 世界假说"——早期生命可能以 RNA 同时承担遗传与催化功能。</span>
 
 ## 5 核心对比表：三种主要 RNA
 

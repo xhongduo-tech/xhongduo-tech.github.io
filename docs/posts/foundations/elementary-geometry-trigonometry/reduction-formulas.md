@@ -78,9 +78,9 @@ $$
 
 例：求 $\sin\left(-\frac{7\pi}{6}\right)$。
 
-- 先变号：$\sin\left(-\frac{7\pi}{6}\right) = -\sin\frac{7\pi}{6}$；
-- 再化角：$\frac{7\pi}{6} = \pi + \frac{\pi}{6}$，$\sin(\pi + \frac{\pi}{6}) = -\sin\frac{\pi}{6} = -\frac{1}{2}$；
-- 合起来：$-\sin\frac{7\pi}{6} = \frac{1}{2}$。
+先变号：$\sin\left(-\frac{7\pi}{6}\right) = -\sin\frac{7\pi}{6}$；
+再化角：$\frac{7\pi}{6} = \pi + \frac{\pi}{6}$，$\sin(\pi + \frac{\pi}{6}) = -\sin\frac{\pi}{6} = -\frac{1}{2}$；
+合起来：$-\sin\frac{7\pi}{6} = \frac{1}{2}$。
 
 <span class="marginnote">流程的每一步都对应一组诱导公式，走完整条流水线，任意角就归化到锐角。这个「不断降级」的策略，与算法里的「递归化归」同构——把大问题一步步变成已知的小问题，正是计算机科学解决问题的核心范式。</span>
 
@@ -90,8 +90,8 @@ $$
 
 诱导公式不是孤立的 6 组公式，而是两个基本性质的展开：
 
-- **周期性**：$\sin(\theta + 2\pi) = \sin\theta$（转一圈重复）——这是「去整周」的依据；
-- **对称性**：$\sin(\pi - \theta) = \sin\theta$（关于 $y$ 轴对称）、$\sin(-\theta) = -\sin\theta$（关于 $x$ 轴对称）、$\sin(\pi + \theta) = -\sin\theta$（中心对称）。
+**周期性**：$\sin(\theta + 2\pi) = \sin\theta$（转一圈重复）——这是「去整周」的依据；
+**对称性**：$\sin(\pi - \theta) = \sin\theta$（关于 $y$ 轴对称）、$\sin(-\theta) = -\sin\theta$（关于 $x$ 轴对称）、$\sin(\pi + \theta) = -\sin\theta$（中心对称）。
 
 <span class="marginnote">这三条对称性恰好对应圆的三个对称变换：左右翻折、上下翻折、中心旋转。诱导公式的「记忆负担」被对称性消解了——理解了圆，就理解了一整张公式表。下一节《三角函数的图像与性质》会从图像上再次看到这些对称。</span>
 

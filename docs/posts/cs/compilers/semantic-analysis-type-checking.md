@@ -16,16 +16,16 @@ date: 2026-08-07
 
 ## 为什么从语义分析开始
 
-AST 确认了「程序的结构」，但结构正确不等于程序正确：`x = y + 1` 里 `y` 可能没声明、`f(1, 2)` 里的 `f` 可能只收一个参数、`if (x)` 里的 `x` 可能不是整数。**语义分析（semantic analysis）** 在 AST 上检查这些「结构之外的正确性」——声明、作用域、类型、函数参数。ToyLang 只有 `int` 一种类型，类型检查被简化到极致，但**机制**与真实编译器完全一致。<span class="marginnote">「语义分析 = 编译器的道德判断」：语法只保证「能读」，语义保证「合法」——未声明变量、参数个数错、类型不匹配，都在这一阶段被拦下。ToyLang 把类型砍到只剩 `int`，让「检查」聚焦在更本质的机制：<strong>名字解析、作用域、函数签名</strong>。理解了这些，加回多类型只是「再加几张检查表」。</span>
+AST 确认了「程序的结构」，但结构正确不等于程序正确：`x = y + 1` 里 `y` 可能没声明、`foo(1, 2)` 里的 `foo` 可能只收一个参数、`if (x)` 里的 `x` 可能不是整数。**语义分析（semantic analysis）** 在 AST 上检查这些「结构之外的正确性」——声明、作用域、类型、函数参数。ToyLang 只有 `int` 一种类型，类型检查被简化到极致，但**机制**与真实编译器完全一致。<span class="marginnote">「语义分析 = 编译器的道德判断」：语法只保证「能读」，语义保证「合法」——未声明变量、参数个数错、类型不匹配，都在这一阶段被拦下。ToyLang 把类型砍到只剩 `int`，让「检查」聚焦在更本质的机制：<strong>名字解析、作用域、函数签名</strong>。理解了这些，加回多类型只是「再加几张检查表」。</span>
 
 ## 1 语义分析的任务清单
 
 ToyLang 的语义分析器遍历 AST，检查四类正确性：
 
-1. **变量声明**：使用前必须已声明——`lookup(name)` 找不到即报「未声明的标识符」。
+1. **变量声明**：使用前必须已声明——符号表里 `x` 找不到即报「未声明的标识符」。
 2. **重复声明**：同一作用域内不能重复声明同名变量。
 3. **函数调用**：被调函数必须存在；实参个数必须等于形参数。
-4. **类型一致**：ToyLang 只有 `int`——一切表达式必须算出 `int`；条件表达式必须 `int`（非零为真）。
+4. **类型一致**：ToyLang 只有 `int`——一切表达式必须算出 `int`；条件表达式必须是 `int`（非零为真）。
 
 **实现方式**：递归遍历 AST，携带「符号表」作为环境——进块 pushScope、出块 popScope（先序，对应作用域的继承传递）。
 
@@ -33,49 +33,71 @@ ToyLang 的语义分析器遍历 AST，检查四类正确性：
 
 ## 2 声明检查与作用域
 
-**声明检查**：使用先声明。遍历到 `VariableExpr(name)` 时：
+**声明检查**：使用先声明。遍历到 `IdExpr` 结点时：
 
-```
-check(VariableExpr name):
-    if (symbols.lookup(name) == 空) error("未声明的标识符 " + name, 位置)
-```
-
-**重复声明**：`let x` 时查**当前作用域**（不是整条链）：
-
-```
-check(LetStmt name):
-    if (symbols.lookupLocal(name) 存在) error("重复声明 " + name, 位置)  // 只查当前层
-    symbols.declare(name, ...)
+```c
+void checkVarUse(IdExpr *node) {
+    if (!symbols.lookup(node->name)) {
+        error("未声明的标识符：%s", node->name);
+        return;
+    }
+    node->type = INT;          /* 补充静态信息 */
+}
 ```
 
-**辨析｜易错点：** 「重复声明」查的是**当前作用域**，「使用」查的是**整条链**——内层可以遮蔽外层（合法），但同层不能重复（非法）。用 `lookupLocal`（只看顶层）还是 `lookup`（看整条链），取决于问的是「是否与同层冲突」还是「能不能找到」。<span class="marginnote">「遮蔽 vs 重复声明」是作用域检查的关键区分：`{ let x = 1; { let x = 2; } }` 内层 x 遮蔽外层，合法；`{ let x = 1; let x = 2; }` 同层重复，非法。实现上：声明查当前层（避免重复）、使用查整链（允许遮蔽）——一个符号表的两个查询语义。</span>
+**重复声明**：遍历到 `VarDecl` 时查**当前作用域**（不是整条链）：
+
+```c
+void checkVarDecl(VarDecl *node) {
+    if (symbols.lookupTop(node->name)) {   /* 只看当前作用域 */
+        error("重复声明：%s", node->name);
+        return;
+    }
+    symbols.declare(node->name, INT);
+}
+```
+
+**辨析｜易错点：** 「重复声明」查的是**当前作用域**，「使用」查的是**整条链**——内层可以遮蔽外层（合法），但同层不能重复（非法）。用 `lookupTop`（只看顶层）还是 `lookupAll`（看整条链），取决于问的是「是否与同层冲突」还是「能不能找到」。<span class="marginnote">「遮蔽 vs 重复声明」是作用域检查的关键区分：`{ int x; { int x; } }` 内层 x 遮蔽外层，合法；`{ int x; int x; }` 同层重复，非法。实现上：声明查当前层（避免重复）、使用查整链（允许遮蔽）——一个符号表的两个查询语义。</span>
 
 ## 3 类型检查：唯 int 世界
 
 ToyLang 只有 `int`，类型检查极其简单，但机制完整：
 
-```
-check(NumberExpr) → 返回类型 int
-check(VariableExpr) → 查符号表，返回 int
-check(BinaryExpr op, lhs, rhs):
-    左、右都必须是 int → 结果 int（+ - * / < > ==）
-    否则 error("类型错误")
-check(CallExpr f, args):
-    查函数表：f 必须存在、参数个数必须匹配
-check(IfStmt cond, ...):  cond 必须是 int
+```c
+Type checkExpr(Expr *node) {
+    switch (node->kind) {
+    case NUM_EXPR:
+        return INT;                        /* 数字是 int */
+    case ID_EXPR:
+        return lookup(node->name)->type;   /* 变量查符号表 */
+    case BIN_EXPR: {
+        Type lt = checkExpr(node->left);
+        Type rt = checkExpr(node->right);
+        if (lt != INT || rt != INT)
+            error("二元运算要求 int 操作数");
+        return INT;
+    }
+    }
+}
 ```
 
-**「检查器返回类型」**：每个 `check` 返回表达式的类型（ToyLang 恒为 int）——这是第三十三节「类型综合」的迷你版。
+**「检查器返回类型」**：每个检查函数返回表达式的类型（ToyLang 恒为 int）——这是第三十三节「类型综合」的迷你版。
 
 **函数参数个数检查**：
 
-```
-check(CallExpr f):
-    if 函数 f 未定义 → error("未定义的函数")
-    if args.size() != f.paramCount → error("参数个数不匹配")
+```c
+void checkCall(CallExpr *node) {
+    FuncInfo *f = funcs.lookup(node->name);
+    if (!f) {
+        error("调用未声明的函数：%s", node->name);
+        return;
+    }
+    if (node->argCount != f->paramCount)
+        error("实参个数 %d 与形参个数 %d 不匹配", node->argCount, f->paramCount);
+}
 ```
 
-**重点是**：即使只有一种类型，**机制**（返回类型、逐结点检查、函数签名验证）与真实编译器一样——加多类型只是把「恒为 int」换成「查类型表」。<span class="marginnote">「ToyLang 的 int 检查 = 类型综合的零维版本」：真实语言的 `E.type` 是个随表达式变化的属性（int/float/指针…），ToyLang 里它恒等于 int——所以检查退化成一串「是不是 int」的断言。但<strong>框架</strong>（每个结点算类型、左右必须一致、函数签名核对）完全保留，这正是一个「极简教学」应该做的：机制全、数据简。</span>
+**重点是**：即使只有一种类型，**机制**（返回类型、逐结点检查、函数签名验证）与真实编译器一样——加多类型只是把「恒为 int」换成「查类型表」。<span class="marginnote">「ToyLang 的 int 检查 = 类型综合的零维版本」：真实语言的类型是个随表达式变化的属性（int/float/指针…），ToyLang 里它恒等于 int——所以检查退化成一串「是不是 int」的断言。但<strong>框架</strong>（每个结点算类型、左右必须一致、函数签名核对）完全保留，这正是一个「极简教学」应该做的：机制全、数据简。</span>
 
 ## 4 公式解析：类型检查的推导规则
 

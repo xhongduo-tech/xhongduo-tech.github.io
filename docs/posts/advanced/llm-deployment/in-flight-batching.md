@@ -36,9 +36,9 @@ $$\eta = \frac{\sum L_i}{B \cdot L_{\max}} = \frac{8 \times 50}{8 \times 100} = 
 
 **In-flight Batching（飞行中批处理）**的核心主张：批不是一个「固定集合」，而是一个「在解码过程中持续进出的流」。它的机制可以拆成三块：
 
-- **请求状态机**：每个请求有三个状态——`waiting`（排队中）、`running`（解码中）、`finished`（已完成）。调度器每步（iteration）都检查请求状态，动态决定谁进批、谁出批。<span class="marginnote">这与 vLLM 调度器里 <code>waiting</code>/<code>running</code>/<code>swapped</code> 的状态机同构，只是换了个名字。见本专题《vLLM 调度器源码分析》两篇。</span>
-- **迭代级调度（iteration-level scheduling）**：传统框架按「请求」调度（一个请求占满一次前向），In-flight Batching 按「token 步」调度——**每一步都重新组成一个批**。某请求这步 decode 完、达到了停止条件，它立刻离开；新等待的请求立刻顶上空位。
-- **KV Cache 的动态分配**：批成员变化意味着 KV Cache 的分配与释放要逐 token 进行，由内存管理器（类似 PagedAttention 的页式分配）负责，见本专题《PagedAttention》。
+- **请求状态机**：每个请求有三个状态——`WAITING`（排队中）、`RUNNING`（解码中）、`COMPLETED`（已完成）。调度器每步（iteration）都检查请求状态，动态决定谁进批、谁出批。<span class="marginnote">这与 vLLM 调度器里 <code>waiting</code>`/<code>running</code>`/<code>swapped</code> 的状态机同构，只是换了个名字。见本专题《vLLM 调度器源码分析》两篇。
+<strong>迭代级调度（iteration-level scheduling）</strong>：传统框架按「请求」调度（一个请求占满一次前向），In-flight Batching 按「token 步」调度——<strong>每一步都重新组成一个批</strong>。某请求这步 decode 完、达到了停止条件，它立刻离开；新等待的请求立刻顶上空位。
+<strong>KV Cache 的动态分配</strong>：批成员变化意味着 KV Cache 的分配与释放要逐 token 进行，由内存管理器（类似 PagedAttention 的页式分配）负责，见本专题《PagedAttention》。</span>
 
 一个典型调度回合：GPU 完成一步 decode → 收到结果 → 有请求结束 → 释放其 KV Cache 与 batch 槽位 → 从等待队列补入新请求（做 prefill）→ 组成新批 → 发射下一步。
 
@@ -68,7 +68,7 @@ $\bar{L}$ 远小于 $L_{\max}$ 时（长短混合的真实负载），加速比�
 
 - **静态批处理把算力浪费在 padding 上**：填充效率 $\eta = \sum L_i / (B \cdot L_{\max})$，长短混合时可低到 20% 以下。
 - **In-flight Batching 是「按 token 步调度」而非「按请求调度」**：请求每步都可能进出批，GPU 永远装满有效工作。
-- **请求状态机**：`waiting` / `running` / `finished` 三态，与 vLLM 的调度器同构；KV Cache 用页式内存动态分配。
+- **请求状态机**：`WAITING` / `RUNNING` / `COMPLETED` 三态，与 vLLM 的调度器同构；KV Cache 用页式内存动态分配。
 - **prefill 与 decode 混合调度**需要控制延迟抖动，常以 chunk 化 prefill + 批大小上限约束。
 - **收益是吞吐而非单请求延迟**：加速比约为 $L_{\max}/\bar{L}$，来自消除「陪跑」的 padding 计算。
 

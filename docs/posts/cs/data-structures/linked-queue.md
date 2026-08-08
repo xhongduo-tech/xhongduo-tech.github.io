@@ -23,31 +23,31 @@ date: 2026-08-07
 链队列用带头结点的单链表。两个指针各司其职：
 
 ```c
-typedef struct QNode {
-    QElemType data;
-    struct QNode *next;
+typedef struct QNode {     /* 队列结点 */
+    QElemType data;        /* 元素 */
+    struct QNode *next;    /* 下一个结点 */
 } QNode, *QueuePtr;
 
-typedef struct {
-    QueuePtr front;   /* 队头指针：指向头结点 */
-    QueuePtr rear;    /* 队尾指针：指向队尾结点 */
+typedef struct {           /* 链队列 */
+    QueuePtr front;        /* 队头指针：指向头结点 */
+    QueuePtr rear;         /* 队尾指针：指向队尾结点 */
 } LinkQueue;
 ```
 
-**重点：`front` 指向头结点，`rear` 指向队尾结点。** 头结点（不存数据的哨兵）让「删除队头」时总能改 `front` 而无需特判表空——空队时 `front == rear` 都指向头结点。<span class="marginnote">带头结点有两个好处：空队与「恰好一个元素」的删除逻辑统一；且 `front` 指针本身永远指向头结点，出队后新队头由 `head->next` 决定，代码少一条分支。这与《循环链表与双向链表》里对头结点的讨论一脉相承。</span>
+**重点：`front` 指向头结点，`rear` 指向队尾结点。** 头结点（不存数据的哨兵）让「删除队头」时总能改 `front->next` 而无需特判表空——空队时 `front`、`rear` 都指向头结点。<span class="marginnote">带头结点有两个好处：空队与「恰好一个元素」的删除逻辑统一；且 `front` 指针本身永远指向头结点，出队后新队头由 `front->next` 决定，代码少一条分支。这与《循环链表与双向链表》里对头结点的讨论一脉相承。</span>
 
 ## 2 链队列的入队：尾插法
 
 入队只需在队尾接一个结点，并更新 `rear`：
 
 ```c
-Status EnQueue(LinkQueue *Q, QElemType e) {
-    QNode *p = (QNode *)malloc(sizeof(QNode));
-    if (!p) return ERROR;              /* 内存不足 */
+Status EnQueue(LinkQueue &Q, QElemType e) {
+    QNode *p = (QNode *)malloc(sizeof(QNode));  /* 申请新结点 */
+    if (!p) exit(OVERFLOW);
     p->data = e;
     p->next = NULL;
-    Q->rear->next = p;                 /* 接到旧队尾之后 */
-    Q->rear = p;                       /* 新结点成为队尾 */
+    Q.rear->next = p;   /* 接到队尾 */
+    Q.rear = p;         /* 更新队尾指针 */
     return OK;
 }
 ```
@@ -59,18 +59,18 @@ Status EnQueue(LinkQueue *Q, QElemType e) {
 出队删除的是头结点后面的那个结点：
 
 ```c
-Status DeQueue(LinkQueue *Q, QElemType *e) {
-    if (Q->front == Q->rear) return ERROR;   /* 队空 */
-    QNode *p = Q->front->next;               /* p 指向待删的队头结点 */
-    *e = p->data;
-    Q->front->next = p->next;                /* 摘链 */
-    if (Q->rear == p) Q->rear = Q->front;    /* 特殊：删的是最后一个结点 */
+Status DeQueue(LinkQueue &Q, QElemType &e) {
+    if (Q.front == Q.rear) return ERROR;        /* 空队 */
+    QNode *p = Q.front->next;                   /* 待删的队头结点 */
+    e = p->data;
+    Q.front->next = p->next;                    /* 摘链 */
+    if (Q.rear == p) Q.rear = Q.front;          /* 删空：修正队尾指针 */
     free(p);
     return OK;
 }
 ```
 
-**辨析｜易错点：删空后必须修正 `rear`。** 当队里只有一个结点时，`p` 既是队头又是队尾。摘掉它之后，`rear` 还指向已释放的 `p`，变成悬空指针。所以必须先判断 `Q->rear == p`，把 `rear` 拉回头结点。这一行「特判」是链队列最容易漏的地方。<span class="marginnote">悬空指针（dangling pointer）是链式结构的内存隐患之王：指向已释放内存的指针一旦被解引用，读到的是随机数据或触发崩溃。`free` 之后把指针置 `NULL`、或在删除后同步修正相关指针，是两条基本纪律。</span>
+**辨析｜易错点：删空后必须修正 `rear`。** 当队里只有一个结点时，`p` 既是队头又是队尾。摘掉它之后，`rear` 还指向已释放的 `p`，变成悬空指针。所以必须先判断 `rear == p`，把 `rear` 拉回头结点。这一行「特判」是链队列最容易漏的地方。<span class="marginnote">悬空指针（dangling pointer）是链式结构的内存隐患之王：指向已释放内存的指针一旦被解引用，读到的是随机数据或触发崩溃。`free` 之后把指针置 `NULL`、或在删除后同步修正相关指针，是两条基本纪律。</span>
 
 ## 4 公式解析：循环队列 vs 链队列的代价
 
@@ -95,8 +95,8 @@ $$
 ## 6 小结
 
 - 链队列 = 带头结点的单链表 + `front`（头结点）+ `rear`（队尾结点）两个指针。
-- 入队**尾插法**：`rear->next = p; rear = p`，$O(1)$。
-- 出队删头结点之后的结点；**删空时须特判 `Q->rear == p` 并修正 `rear`**。
+- 入队**尾插法**：更新 `rear`，$O(1)$。
+- 出队删头结点之后的结点；**删空时须特判 `rear == p` 并修正 `rear`**。
 - 链队列**无队满、只有队空**，空间按需分配。
 - 循环队列快而固定、链队列活而略贵，深度不可知时选链队列。
 - 链队列是 BFS 与树层序遍历的底层容器。

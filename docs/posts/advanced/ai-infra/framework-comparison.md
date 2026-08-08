@@ -45,31 +45,31 @@ date: 2026-08-07
 
 **选 Megatron-Core**。理由：
 
-- TP 是它的看家本领，能把单层矩阵乘切开、通信压到每算子常数次。
-- PP + 1F1B + Interleaved 调度成熟，气泡可控。
-- 内置 FP8/TE、Context Parallel、MoE，是追赶前沿训练特性最全的框架。
+TP 是它的看家本领，能把单层矩阵乘切开、通信压到每算子常数次。
+PP + 1F1B + Interleaved 调度成熟，气泡可控。
+内置 FP8/TE、Context Parallel、MoE，是追赶前沿训练特性最全的框架。
 
-典型配置：`TP=8 × PP=16 × DP=64`，配合 Megatron-Core 的参数表直接填。**代价**：学习曲线陡，调试分布式问题需要懂通信组与调度语义。
+典型配置：`tensor_parallel_size=8` + `pipeline_parallel_size=4`，配合 Megatron-Core 的参数表直接填。**代价**：学习曲线陡，调试分布式问题需要懂通信组与调度语义。
 
 ## 4 场景二：显存受限 / 卡少模型大
 
 **选 DeepSpeed（ZeRO-3 + Offload）**。理由：
 
-- 单机 8 卡 A100 就能训练 70B 甚至更大（配合 CPU/NVMe offload）。
-- 配置驱动，实验迭代快，学术复现最常用。
-- 对「模型略大、卡不多」的中间地带（13B–70B）最省心。
+单机 8 卡 A100 就能训练 70B 甚至更大（配合 CPU/NVMe offload）。
+配置驱动，实验迭代快，学术复现最常用。
+对「模型略大、卡不多」的中间地带（13B–70B）最省心。
 
-典型配置：`stage=3` + `offload_optimizer` + `offload_param`，把显存压力转给 CPU 内存。<span class="marginnote">DeepSpeed 的 offload 是它的「独门绝技」：别的框架显存不够只能减小模型或加重计算，DeepSpeed 能把你家机器的内存盘（NVMe）也变成「伪显存」。当然，代价是吞吐——卸载后每步都要走 PCIe。</span>
+典型配置：`zero_stage=3` + `offload_optimizer` + `offload_param`，把显存压力转给 CPU 内存。<span class="marginnote">DeepSpeed 的 offload 是它的「独门绝技」：别的框架显存不够只能减小模型或加重计算，DeepSpeed 能把你家机器的内存盘（NVMe）也变成「伪显存」。当然，代价是吞吐——卸载后每步都要走 PCIe。</span>
 
 ## 5 场景三：PyTorch 生态 / 快速原型 / 单机
 
 **选 FSDP2**。理由：
 
-- 与 `torch.compile`、HuggingFace、Lightning 无缝协作。
+- 与 `accelerate`、HuggingFace、Lightning 无缝协作。
 - 几行代码 wrap 就完成分片，学习成本最低。
 - FSDP2 的 per-parameter 设计在 13B–70B 单机多卡场景表现优秀。
 
-典型配置：`fully_shard(module, ...)` 逐层包裹 + `torch.compile`。**注意**：FSDP2 的 PP/TP 支持需自行拼装，纯大规模 TP 场景不是它的主场。
+典型配置：`fully_shard` 逐层包裹 + `torch.compile`。**注意**：FSDP2 的 PP/TP 支持需自行拼装，纯大规模 TP 场景不是它的主场。
 
 ## 6 公式解析：选型的三因素打分
 

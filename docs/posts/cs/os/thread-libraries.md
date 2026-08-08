@@ -27,15 +27,15 @@ date: 2026-08-07
 ```c
 #include <pthread.h>
 
-void *worker(void *arg) {          // 线程函数
-    printf("hello from %s\n", (char *)arg);
+void *worker(void *arg) {
+    printf("hello from thread\n");
     return NULL;
 }
 
-int main() {
-    pthread_t tid;
-    pthread_create(&tid, NULL, worker, "thread-1");  // 创建线程
-    pthread_join(tid, NULL);                          // 等待线程结束
+int main(void) {
+    pthread_t t;
+    pthread_create(&t, NULL, worker, NULL);  // 创建线程
+    pthread_join(t, NULL);                    // 等待线程结束
     return 0;
 }
 ```
@@ -49,42 +49,42 @@ int main() {
 | `pthread_join` | 等待指定线程结束并回收其资源 |
 | `pthread_self` | 获取当前线程 ID |
 
-Pthreads 的同步原语（`pthread_mutex_lock`、`pthread_cond_wait` 等）会在第六篇《互斥锁与信号量》展开。这里记住：**Pthreads 是「裸」的线程 API，一切都要自己管理**——没有线程池、没有锁的自动释放，这正是 C 语言的风格。<span class="marginnote">Pthreads 不是内核，是库；Linux 上它调用 `clone` 系统调用创建线程（见 Linux 篇《NPTL 与 pthread》）。接口与实现分离在此体现得淋漓尽致。</span>
+Pthreads 的同步原语（`pthread_mutex_t`、`pthread_cond_t` 等）会在第六篇《互斥锁与信号量》展开。这里记住：**Pthreads 是「裸」的线程 API，一切都要自己管理**——没有线程池、没有锁的自动释放，这正是 C 语言的风格。<span class="marginnote">Pthreads 不是内核，是库；Linux 上它调用 `clone` 系统调用创建线程（见 Linux 篇《NPTL 与 pthread》）。接口与实现分离在此体现得淋漓尽致。</span>
 
 ## 2 Java 线程：语言内建的线程
 
 Java 把线程做进了语言里，创建线程有两种方式：
 
 ```java
-// 方式一：实现 Runnable 接口
-Thread t = new Thread(() -> System.out.println("hi"));
-t.start();
-
-// 方式二：继承 Thread 类（较少用）
-class MyThread extends Thread {
-    public void run() { System.out.println("hi"); }
+// 方式一：继承 Thread 类
+class Worker extends Thread {
+    public void run() { System.out.println("hello"); }
 }
-new MyThread().start();
+new Worker().start();
+
+// 方式二：实现 Runnable（推荐）
+Thread t = new Thread(() -> System.out.println("hello"));
+t.start();
 ```
 
 Java 线程的关键点：
 
-- **`start()` 才真正创建线程**，`run()` 只是普通方法调用。
-- **线程状态机内置在语言里**：`NEW → RUNNABLE → BLOCKED/WAITING/TIMED_WAITING → TERMINATED`，对应操作系统状态模型。
-- **同步机制是语言关键字**：`synchronized`、`volatile`，无需显式锁对象。
-- Java 线程映射到宿主操作系统的原生线程（一对一），JVM 之下调用平台线程 API。<span class="marginnote">JVM 的线程模型随时代演进：早期「绿线程」是多对一，现代 HotSpot JVM 用原生线程一对一。Java 19+ 的虚拟线程（Virtual Threads）则把大量用户级线程映射到少量内核线程，这是多对多思想的现代回归。</span>
+**`start()` 才真正创建线程**，`run()` 只是普通方法调用。
+**线程状态机内置在语言里**：`NEW`、`RUNNABLE`、`BLOCKED`、`WAITING`、`TIMED_WAITING`、`TERMINATED`，对应操作系统状态模型。
+**同步机制是语言关键字**：`synchronized`、`volatile`，无需显式锁对象。
+Java 线程映射到宿主操作系统的原生线程（一对一），JVM 之下调用平台线程 API。<span class="marginnote">JVM 的线程模型随时代演进：早期「绿线程」是多对一，现代 HotSpot JVM 用原生线程一对一。Java 19+ 的虚拟线程（Virtual Threads）则把大量用户级线程映射到少量内核线程，这是多对多思想的现代回归。</span>
 
 ## 3 Windows 线程：Win32 线程 API
 
 Windows 的线程 API（Win32/`CreateThread`）与 Pthreads 思路相近：
 
 ```c
-DWORD WINAPI worker(LPVOID arg) {   // 线程函数
-    printf("hi\n");
+DWORD WINAPI worker(LPVOID arg) {
     return 0;
 }
-HANDLE h = CreateThread(NULL, 0, worker, NULL, 0, NULL);
-WaitForSingleObject(h, INFINITE);    // 等待线程结束
+
+HANDLE h = CreateThread(NULL, 0, worker, NULL, 0, NULL); // 创建线程
+WaitForSingleObject(h, INFINITE);                        // 等待线程结束
 CloseHandle(h);
 ```
 

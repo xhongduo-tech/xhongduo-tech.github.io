@@ -37,11 +37,11 @@ date: 2026-08-07
 
 一个典型的**化学突触（chemical synapse）**由三部分组成：
 
-- **突触前膜（presynaptic membrane）**：前一个神经元轴突末梢的膜，
+**突触前膜（presynaptic membrane）**：前一个神经元轴突末梢的膜，
   内含大量装满了神经递质的**突触囊泡（synaptic vesicle）**。
-- **突触间隙（synaptic cleft）**：两神经元之间的狭窄缝隙，宽约
+**突触间隙（synaptic cleft）**：两神经元之间的狭窄缝隙，宽约
   **20–40 纳米**。
-- **突触后膜（postsynaptic membrane）**：
+**突触后膜（postsynaptic membrane）**：
   后一个神经元树突或胞体上的膜，上面密布**受体（receptor）**蛋白质。
 
 此外还有少量**电突触（electrical synapse）**：
@@ -80,10 +80,10 @@ haptein（扣紧）」——本意是「扣紧之处」。有趣的是，谢灵�
 
 神经递质结合受体后，突触后膜会产生两种相反的局部电位：
 
-- **兴奋性突触后电位（EPSP，excitatory postsynaptic
+**兴奋性突触后电位（EPSP，excitatory postsynaptic
   potential）**：主要因 Na⁺ 内流引起，使膜电位**去极化**，
   更接近阈电位——像是在「帮」下一个神经元放电。
-- **抑制性突触后电位（IPSP，inhibitory postsynaptic
+**抑制性突触后电位（IPSP，inhibitory postsynaptic
   potential）**：主要因 Cl⁻ 内流或 K⁺ 外流引起，
   使膜电位**超极化**，更远离阈电位——像是在「拦」下一个神经元放电。
 
@@ -91,9 +91,9 @@ haptein（扣紧）」——本意是「扣紧之处」。有趣的是，谢灵�
 决定权在**整合（summation）**：一个神经元同时收到成千上万个突触输入，
 它们汇聚在**轴丘（axon hillock）**——轴突起始处——被累加。
 
-- **时间总和（temporal summation）**：
+**时间总和（temporal summation）**：
   同一个突触**快速连续**放电，电位在时间上叠加。
-- **空间总和（spatial summation）**：**不同突触**同时放电，
+**空间总和（spatial summation）**：**不同突触**同时放电，
   电位在空间上叠加。
 
 **重点：** 轴丘是一个天然的「**加权求和 +

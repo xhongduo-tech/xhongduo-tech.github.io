@@ -22,14 +22,13 @@ date: 2026-08-07
 
 **pthread_create** 的完整旅程：
 
-1. 用户调用 `pthread_create(&tid, attr, start_routine, arg)`。
+1. 用户调用 `pthread_create`。
 2. glibc 的 NPTL 库准备线程栈、设置属性。
 3. 底层调用 **`clone`** 系统调用，flags 包含共享标志：
 
 ```c
-clone(start_routine, stack, 
-      CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD,
-      arg);
+clone(CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD,
+      child_stack, SIGCHLD, ...);
 ```
 
 4. 内核创建一个**新的 task_struct**（回顾《task_struct》）——它与父进程**共享 mm、files、sighand**，因此看起来是「同一个进程里的另一个执行流」。
@@ -46,7 +45,7 @@ clone(start_routine, stack,
 
 **NPTL 线程（私有的）**：
 
-- **栈**：每个线程独立栈（`pthread_create` 分配）。
+- **栈**：每个线程独立栈（`mmap` 分配）。
 - **寄存器/TLS**：线程局部存储（回顾《TLS》）。
 - **errno**：每线程独立（TLS 的应用）。
 - **PID**（内核 pid）：每个线程独立 pid；**tgid** 相同（组 ID = 用户看到的 PID）。
@@ -57,7 +56,7 @@ $$\text{进程 PID（用户看到）} = \text{tgid}, \qquad \text{线程 ID} = \
 
 - 一个多线程进程：N 个 task_struct，共享 **tgid**。
 - `getpid()` 返回 tgid（所有线程一样）；`gettid()` 返回 pid（每线程不同）。
-- **`ps` 显示 tgid（进程）；`top` -H 显示 pid（线程）**。
+- **`ps` 显示 tgid（进程）；`ps -T`/`top -H` 显示 pid（线程）**。
 
 **直觉**：「一个进程多个线程」在内核里是「**N 个共享 tgid 的 task_struct**」——**共享程度（mm/files）由 clone 标志决定，tgid 由 CLONE_THREAD 决定**。
 
@@ -78,7 +77,7 @@ $$\text{进程 PID（用户看到）} = \text{tgid}, \qquad \text{线程 ID} = \
 
 **futex 的价值**：**同步在无竞争时零系统调用**（回顾 vDSO 的「能不进内核就不进」哲学）——这就是为什么现代锁很快。<span class="marginnote">回顾《互斥锁》：Mutex 抢不到就睡眠。futex 让「抢得到」的常见情况<strong>不进内核</strong>——只有真竞争才睡。<strong>「快速路径用户态、慢速路径内核态」是高性能同步的通用设计</strong>（futex、vDSO、RCU 都是这一思路）。</span>
 
-**辨析｜易错点：** 「pthread 线程由内核调度，所以是内核线程」——**「内核线程」指 `kthreadd` 创建的、只在内核态跑的内核线程（如 `kswapd`）**；用户 pthread 线程是**「用户态进程的共享执行流」**，运行用户代码，受调度器调度。**别把「pthread 线程」与「内核线程 kthread」混为一谈**——前者是用户态共享进程，后者是内核态专用执行流。
+**辨析｜易错点：** 「pthread 线程由内核调度，所以是内核线程」——**「内核线程」指 `kthread_create` 创建的、只在内核态跑的内核线程（如 `ksoftirqd`）**；用户 pthread 线程是**「用户态进程的共享执行流」**，运行用户代码，受调度器调度。**别把「pthread 线程」与「内核线程 kthread」混为一谈**——前者是用户态共享进程，后者是内核态专用执行流。
 
 ## 4 核心对比表：进程 vs pthread 线程（Linux）
 
@@ -96,7 +95,7 @@ $$\text{进程 PID（用户看到）} = \text{tgid}, \qquad \text{线程 ID} = \
 
 ## 5 小结
 
-- `pthread_create` 底层是 **`clone`**——用 `CLONE_VM/CLONE_FILES/CLONE_THREAD` 共享内存、文件、信号。
+- `pthread_create` 底层是 **`clone`**——用 `CLONE_VM`/`CLONE_FILES`/`CLONE_SIGHAND` 共享内存、文件、信号。
 - 内核不区分进程/线程——都是 task_struct，区别在 **mm/files 是否共享**。
 - 线程共享：**地址空间、文件表、信号**；私有：**栈、TLS、errno**。
 - **tgid** = 用户看到的 PID（组）；**pid** = 线程号。

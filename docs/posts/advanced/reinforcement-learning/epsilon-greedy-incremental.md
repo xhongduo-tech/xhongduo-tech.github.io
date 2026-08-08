@@ -64,8 +64,8 @@ $$\text{新估计} \leftarrow \text{旧估计} + \alpha \times (\text{目标} - 
 
 上式的心脏是步长 $\alpha$。两种典型选择：
 
-- **$\alpha_n = 1/n$（递减步长）**：满足罗宾斯-门罗条件 $\sum_n \alpha_n = \infty$ 且 $\sum_n \alpha_n^2 < \infty$——前者保证「走了无限远」（不会被起点困住），后者保证「最终停得下来」（噪声不累积）。它对**平稳问题**保证收敛到真值 $q_*(a)$，但代价是**不再能跟踪环境的变化**——后期步长太小，环境若漂移就追不上。
-- **常数 $\alpha$（如 0.1）**：不满足收敛条件，估计不会真正收敛（会在真值附近浮动），但能**持续跟踪非平稳分布**——旧数据被指数遗忘，最近的数据权重更大。这就是**指数滑动平均**：$Q_{n+1} = Q_n + \alpha (R_n - Q_n)$ 展开后，$k$ 步前的奖励只占 $\alpha(1-\alpha)^k$ 的权重。
+**$\alpha_n = 1/n$（递减步长）**：满足罗宾斯-门罗条件 $\sum_n \alpha_n = \infty$ 且 $\sum_n \alpha_n^2 < \infty$——前者保证「走了无限远」（不会被起点困住），后者保证「最终停得下来」（噪声不累积）。它对**平稳问题**保证收敛到真值 $q_*(a)$，但代价是**不再能跟踪环境的变化**——后期步长太小，环境若漂移就追不上。
+**常数 $\alpha$（如 0.1）**：不满足收敛条件，估计不会真正收敛（会在真值附近浮动），但能**持续跟踪非平稳分布**——旧数据被指数遗忘，最近的数据权重更大。这就是**指数滑动平均**：$Q_{n+1} = Q_n + \alpha (R_n - Q_n)$ 展开后，$k$ 步前的奖励只占 $\alpha(1-\alpha)^k$ 的权重。
 
 **辨析｜易错点：平稳与不平稳，用的步长策略相反。** 真实世界几乎总是不平稳的——用户的偏好会变、对手的策略会变、环境本身在漂移。所以在实践里「常数小步长」往往比「$1/n$ 递减」更稳健。判断一个算法该不该「收敛到精确值」，先问：**这个问题本身是静止的吗？** 这个「收敛 vs 跟踪」的两难，会在全书反复出现，也是调参时最值得记在心里的一个权衡。实践中，当奖励的尺度在不同问题间差别很大时，还会对步长做归一化处理，但无论怎么调，骨架始终是「旧估计 + 步长 × 误差」这一行。
 
@@ -74,40 +74,26 @@ $$\text{新估计} \leftarrow \text{旧估计} + \alpha \times (\text{目标} - 
 把上面所有思想合成一段可运行的 Python，你会看到增量式更新只有几行：
 
 ```python
-import numpy as np
-
-class EpsilonGreedyBandit:
-    def __init__(self, k, epsilon=0.1, alpha=0.1):
+class EpsilonGreedy:
+    def __init__(self, k, eps=0.1):
         self.k = k
-        self.epsilon = epsilon
-        self.alpha = alpha            # 常数步长；也可改为 alpha = 1/n
-        self.Q = np.zeros(k)          # 价值估计，初始全 0
-        self.N = np.zeros(k)          # 每个动作被选的次数
+        self.eps = eps
+        self.Q = [0.0] * k          # 价值估计（增量式更新）
+        self.N = [0] * k            # 每个动作的选择次数
 
-    def choose(self):
-        if np.random.rand() < self.epsilon:
-            return np.random.randint(self.k)   # 探索：随机
-        return int(np.argmax(self.Q))          # 利用：贪心
+    def select(self):
+        if random.random() < self.eps:      # 以概率 ε 均匀探索
+            return randint(self.k)
+        return argmax(self.Q)               # 其余时间贪心利用
 
     def update(self, a, r):
         self.N[a] += 1
-        self.Q[a] += self.alpha * (r - self.Q[a])   # 增量式更新
-
-# 一个最简单的两臂测试：真值 q* = [1.0, 0.5]
-env_means = np.array([1.0, 0.5])
-agent = EpsilonGreedyBandit(k=2, epsilon=0.1)
-total = 0
-for _ in range(1000):
-    a = agent.choose()
-    r = np.random.randn() + env_means[a]   # 高斯奖励
-    agent.update(a, r)
-    total += r
-print("总奖励:", round(total, 1), "估计:", agent.Q.round(2))
+        self.Q[a] += (r - self.Q[a]) / self.N[a]   # 旧估计 + 1/N × 误差
 ```
 
 运行这段代码你会发现，多数时候 $Q_0$（对应真值 1.0）会被估得比 $Q_1$ 高——ε-贪心用 10% 的随机尝试守住了对较差动作的探索，同时把 90% 的力气花在最优动作上。<span class="marginnote">把 $\varepsilon$ 设成 0，这段代码就退化成纯贪心——在随机环境下它常常被一次坏运气带偏；把 $\alpha$ 换成 $1/n$，它就变成「平稳问题严格收敛」的版本。这个类的两个参数，正好对应本节的全部讨论。</span>
 
-若想把 $N_t(a)$ 用起来（比如后面 UCB 需要它），只需在 `update` 里把步长换成 `1 / self.N[a]`——这行改动，就是「递减步长」与「常数步长」两种世界观的分界。而把 `choose` 里的探索从「均匀随机」换成「按某种优先级」，就得到了下一节 UCB 的雏形——**ε-贪心是探索策略的地基，而不是终点。**
+若想把 $N_t(a)$ 用起来（比如后面 UCB 需要它），只需在**更新公式**里把步长换成 $1/N_t(a)$——这行改动，就是「递减步长」与「常数步长」两种世界观的分界。而把 **ε-贪心** 里的探索从「均匀随机」换成「按某种优先级」，就得到了下一节 UCB 的雏形——**ε-贪心是探索策略的地基，而不是终点。**
 
 ## 5 小结
 

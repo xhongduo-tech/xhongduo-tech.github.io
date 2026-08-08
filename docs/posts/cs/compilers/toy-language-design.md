@@ -26,60 +26,52 @@ date: 2026-08-07
 
 | 特性 | 选择 | 理由（教学点） |
 | --- | --- | --- |
-| 数据类型 | 只有 `int` | 免去类型检查的复杂度，聚焦其他机制 |
+| 数据类型 | 只有 `int`（整数） | 免去类型检查的复杂度，聚焦其他机制 |
 | 表达式 | 算术 + 比较 | 表达式翻译、运算符优先级 |
-| 变量 | `let x = expr` | 符号表、作用域 |
-| 控制流 | `if/else`、`while` | 回填、跳转、短路 |
-| 函数 | `fn name(a,b) { stmts }` | 活动记录、调用序列 |
+| 变量 | 块级 `int` 变量 | 符号表、作用域 |
+| 控制流 | `if`、`while` | 回填、跳转、短路 |
+| 函数 | 单返回值函数 | 活动记录、调用序列 |
 | 注释 | `//` 行注释 | 词法忽略 |
 
 **明确不做的**：字符串、浮点、数组、结构体、递归类型、垃圾回收——每砍一个特性，编译器就省一块复杂度。
 
-**重点是**：特性集是「取舍声明」——设计者要能说出「为什么每个特性在、每个特性不在」。<span class="marginnote">「砍特性是语言设计的一部分」：TinyLang 只留 `int`，就免了类型检查的整块工作；不设字符串，就免了内存管理；不设函数指针，就免了间接调用。玩具语言的目标不是「有用」，是「把核心机制讲清楚」——每一个被砍的特性，都是一次「值得吗」的思考练习。</span>
+**重点是**：特性集是「取舍声明」——设计者要能说出「为什么每个特性在、每个特性不在」。<span class="marginnote">「砍特性是语言设计的一部分」：TinyLang 只留 `int` 一种类型，就免了类型检查的整块工作；不设字符串，就免了内存管理；不设函数指针，就免了间接调用。玩具语言的目标不是「有用」，是「把核心机制讲清楚」——每一个被砍的特性，都是一次「值得吗」的思考练习。</span>
 
 ## 2 语法设计：用 EBNF 写规范
 
 语法用 **EBNF（扩展巴科斯-瑙尔形式）** 精确书写——它就是「语法分析器要实现的规范」：
 
-```ebnf
-program    := { function } ;
-function   := "fn" IDENT "(" [param { "," param }] ")" block ;
-param      := IDENT ;
-block      := "{" { statement } "}" ;
-statement  := let_stmt | if_stmt | while_stmt | return_stmt | expr_stmt ;
-let_stmt   := "let" IDENT "=" expression ";" ;
-if_stmt    := "if" "(" expression ")" block [ "else" block ] ;
-while_stmt := "while" "(" expression ")" block ;
-return_stmt:= "return" [ expression ] ";" ;
-expr_stmt  := expression ";" ;
-expression := comparison { ("&&" | "||") comparison } ;
-comparison := additive [ ("<" | ">" | "==") additive ] ;
-additive   := term { ("+" | "-") term } ;
-term       := factor { ("*" | "/") factor } ;
-factor     := "(" expression ")" | NUMBER | IDENT | call ;
-call       := IDENT "(" [expression { "," expression }] ")" ;
-```
+    program   ::= { statement }
+    statement ::= assign | ifstmt | whilestmt | call
+    assign    ::= id "=" expr ";"
+    ifstmt    ::= "if" "(" expr ")" "{" { statement } "}"
+                  [ "else" "{" { statement } "}" ]
+    whilestmt ::= "while" "(" expr ")" "{" { statement } "}"
+    call      ::= id "(" [ expr { "," expr } ] ")" ";"
+    expr      ::= term { ("+" | "-") term }
+    term      ::= factor { ("*" | "/") factor }
+    factor    ::= number | id | "(" expr ")"
 
 **关键设计决策**：
 
-- **表达式分层**：`expression → comparison → additive → term → factor`——用分层强制优先级（第九节的改写理论）。
-- **`&&`/`||` 在最高层**：短路求值语义（第三十四节）。
-- **语句与表达式分离**：`let`、`if` 是语句（有副作用），表达式是纯值。
+**表达式分层**：`expr → term → factor` 三层——用分层强制优先级（第九节的改写理论）。
+**`&&`/`||` 在最高层**：短路求值语义（第三十四节）。
+**语句与表达式分离**：赋值、调用是语句（有副作用），表达式是纯值。
 
-**易错点提醒**：EBNF 的 `{ }` 表示「零次或多次」、`[ ]` 表示「可选」——手写递归下降时，`{ }` 对应循环、`[ ]` 对应 if 分支。<span class="marginnote">「EBNF 是语法分析器的蓝图」：每一行 EBNF 都直接映射成递归下降的一个函数——`term := factor { ("*"|"/") factor }` 就是一个「先解析 factor，再 while 循环处理 */」的函数。写玩具编译器，先写 EBNF，后写代码——规范先行，实现跟从。</span>
+**易错点提醒**：EBNF 的 `{ }` 表示「零次或多次」、`[ ]` 表示「可选」——手写递归下降时，`{ }` 对应循环、`[ ]` 对应 if 分支。<span class="marginnote">「EBNF 是语法分析器的蓝图」：每一行 EBNF 都直接映射成递归下降的一个函数——`parseTerm` 就是一个「先解析 factor，再 while 循环处理 `*`/`/`」的函数。写玩具编译器，先写 EBNF，后写代码——规范先行，实现跟从。</span>
 
 ## 3 语义设计：作用域、类型与求值
 
 语义层要定清的规则：
 
-- **作用域**：块级作用域（`{}` 内声明的变量块内可见）；内层可遮蔽外层同名变量。
-- **类型**：一切表达式是 `int`；`if` 条件必须 `int`（非零为真）；比较/逻辑返回 0/1。
-- **求值**：表达式按语法结构求值；`&&`/`||` **短路**（左侧决定则不求右侧）。
-- **函数**：参数按值传递；返回表达式（无返回则返回 0）；`main` 是入口。
+**作用域**：块级作用域（`{ }` 内声明的变量块内可见）；内层可遮蔽外层同名变量。
+**类型**：一切表达式是 `int`；`if`/`while` 条件必须 `int`（非零为真）；比较/逻辑返回 0/1。
+**求值**：表达式按语法结构求值；`&&`/`||` **短路**（左侧决定则不求右侧）。
+**函数**：参数按值传递；返回表达式（无返回则返回 0）；`main` 是入口。
 
 **语义规则是「符号表 + 类型检查」的输入**——后续第六节「语义分析」就是把这些规则编码。
 
-**一个设计细节**：`&&`/`||` 的短路是**语义承诺**（不是优化）——若右侧有副作用（函数调用），不短路就错了。设计时就要在规范里写明。<span class="marginnote">「短路是语义不是优化」的提醒：`if (i < n && arr[i] > 0)` 若 `i >= n`，`arr[i]` 越界——不短路就崩。所以 TinyLang 的规范里必须写明 `&&`/`||` 的求值顺序，编译器实现时才不会「顺手」求完两侧。</span>
+**一个设计细节**：`&&`/`||` 的短路是**语义承诺**（不是优化）——若右侧有副作用（函数调用），不短路就错了。设计时就要在规范里写明。<span class="marginnote">「短路是语义不是优化」的提醒：`i < n && arr[i] > 0` 若 `i == n`，`arr[i]` 越界——不短路就崩。所以 TinyLang 的规范里必须写明 `&&`/`||` 的求值顺序，编译器实现时才不会「顺手」求完两侧。</span>
 
 ## 4 公式解析：EBNF 与递归下降的对应
 
@@ -92,8 +84,8 @@ $$\underbrace{A := B \{ C \}}_{\text{重复}} \Rightarrow \text{parseA() \{ pars
 $$\underbrace{A := B \ [C]}_{\text{可选}} \Rightarrow \text{parseA() \{ parseB(); if (lookahead \in \text{First}(C)) parseC(); \}}$$
 
 - **第一步，序列**：逐个调用——每个符号一个 parse 函数调用。
-- **第二步，重复 `{}`**：用 while 循环——条件判断「当前记号是否属于 `C` 的 FIRST 集」。
-- **第三步，可选 `[]`**：用 if——条件同样查 FIRST。
+- **第二步，重复 `{ C }`**：用 while 循环——条件判断「当前记号是否属于 `C` 的 FIRST 集」。
+- **第三步，可选 `[ C ]`**：用 if——条件同样查 FIRST。
 
 **「EBNF 元符号 → 控制流结构」是手写递归下降的翻译表**——理解了这张表，任何 EBNF 都能变成代码。
 

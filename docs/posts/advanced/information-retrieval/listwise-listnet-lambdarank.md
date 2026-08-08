@@ -81,8 +81,8 @@ $$\text{DCG 贡献}(i) = \frac{2^{y_{d_i}} - 1}{\log_2(i+1)}$$
 
 LambdaRank 给了"λ 梯度"，但还差最后一环：**用什么模型来承载这个梯度？** RankNet 用神经网络，LambdaRank 也可以；但真正让它在工业界封神的是 **LambdaMART**——用**梯度提升树（GBDT）**作为基模型，每一步树的拟合目标就是"λ 梯度"。
 
-- **LambdaRank**：提供"学什么"——每个文档对的 λ 梯度（含 NDCG 位置权重）。
-- **MART（Multiple Additive Regression Trees）**：提供"怎么学"——用回归树的加法集成逼近任意目标，对特征交互、非线性关系有极强表达能力。
+**LambdaRank**：提供"学什么"——每个文档对的 λ 梯度（含 NDCG 位置权重）。
+**MART（Multiple Additive Regression Trees）**：提供"怎么学"——用回归树的加法集成逼近任意目标，对特征交互、非线性关系有极强表达能力。
 
 **LambdaMART = LambdaRank 的梯度 + GBDT 的模型**。它把"指标驱动的学习"与"树模型的表达力"结合，成了 2010 年代工业搜索引擎（如 Yahoo、微软、Bing）排序系统的标准配置。<span class="marginnote">LambdaMART 的统治地位持续了近十年，直到深度排序模型（如基于 transformer 的精排模型）成熟。但即便是深度学习时代，<strong>LambdaMART 仍是"特征型排序"的黄金基线</strong>——在许多场景，精心调参的 LambdaMART 依然能打败未充分训练的深度模型。理解 LambdaMART，你就拿到了工业排序的第一把钥匙。</span>
 

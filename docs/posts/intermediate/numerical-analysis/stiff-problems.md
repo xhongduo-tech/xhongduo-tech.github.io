@@ -40,7 +40,7 @@ y_3' = 3\times10^7y_2^2
 \end{cases}
 $$
 
-雅可比特征值含 $-0.04,-3\times10^7$——**刚性比 $10^9$**。显式 RK 要求 $h\le 3\times10^{-8}$，但解要到 $t\sim10^5$ 才走完——**$10^{13}$ 步，天文数字**。隐式方法 $h$ 可以大步推进，几百步完成。<span class="marginnote">Robertson 问题是教科书与 `solve_ivp` 文档的标准刚性示例：<strong>「显式步数 $10^{13}$ vs 隐式步数 $10^2$」——五万亿倍的差距</strong>。这不是精度问题，是稳定性问题：显式方法被「快弦」绑架。</span>
+雅可比特征值含 $-0.04,-3\times10^7$——**刚性比 $10^9$**。显式 RK 要求 $h\le 3\times10^{-8}$，但解要到 $t\sim10^5$ 才走完——**$10^{13}$ 步，天文数字**。隐式方法 $h$ 可以大步推进，几百步完成。<span class="marginnote">Robertson 问题是教科书与 $-0.04,-3\times10^7$ 文档的标准刚性示例：<strong>「显式步数 $10^{13}$ vs 隐式步数 $10^2$」——五万亿倍的差距</strong>。这不是精度问题，是稳定性问题：显式方法被「快弦」绑架。</span>
 
 ## 2 显式为何崩：稳定域视角
 
@@ -89,7 +89,7 @@ $$
 | BDF2 | $\tfrac32y_{k+1}-2y_k+\tfrac12y_{k-1}=h f_{k+1}$ | A-稳定 |
 | BDF3~BDF6 | 高阶 | 仅 BDF1、2 A-稳定；BDF3~6 稳定域含负实轴但非 A-稳定 |
 
-**A-稳定**：稳定域包含整个左半平面 $\mathrm{Re}(z)<0$——**无条件稳定**。BDF1、2 是 A-稳定的；BDF 最高到 6 阶（更高阶不稳——又一个 Dahlquist 障碍）。<span class="marginnote">工程现状：<strong>变阶变步长 BDF（1~5 阶）是刚性求解的事实标准</strong>——MATLAB 的 <code>ode15s</code>、<code>solve_ivp</code> 的 <code>BDF</code>、LSODA 都是它。它们每步用牛顿迭代解隐式方程，按误差自动升降阶与调步长。`solve_ivp` 的 <code>LSODA</code> 还能自动检测刚性、在显式/隐式间切换。</span>
+**A-稳定**：稳定域包含整个左半平面 $\mathrm{Re}(z)<0$——**无条件稳定**。BDF1、2 是 A-稳定的；BDF 最高到 6 阶（更高阶不稳——又一个 Dahlquist 障碍）。<span class="marginnote">工程现状：<strong>变阶变步长 BDF（1~5 阶）是刚性求解的事实标准</strong>——MATLAB 的 <code>ode15s</code>`、<code>solve_ivp</code>` 的 <code>BDF</code>`、LSODA 都是它。它们每步用牛顿迭代解隐式方程，按误差自动升降阶与调步长。SciPy 的 <code>LSODA</code>` 还能自动检测刚性、在显式/隐式间切换。</span>
 
 ## 5 数值演示：显式 vs 隐式
 
@@ -100,7 +100,7 @@ $$
 | RK45（显式自适应） | $>10^5$（被迫 $h\sim10^{-8}$） | 极慢 |
 | **BDF（隐式）** | 约 100 步 | 快速且精确 |
 
-**显式方法被稳定性锁死，隐式方法轻松完成**——刚性问题的标准结局。<span class="marginnote">工程口诀：<strong>「非刚性用 RK45，刚性用 BDF/Radau，不确定用 LSODA 自动切换」</strong>——`scipy` 的 `solve_ivp` 一行代码切换。判断刚性的线索：显式方法步长被压到远小于「解的尺度」、或方程组特征值谱跨度大。</span>
+**显式方法被稳定性锁死，隐式方法轻松完成**——刚性问题的标准结局。<span class="marginnote">工程口诀：<strong>「非刚性用 RK45，刚性用 BDF/Radau，不确定用 LSODA 自动切换」</strong>——SciPy 的 `solve_ivp` 一行代码切换。判断刚性的线索：显式方法步长被压到远小于「解的尺度」、或方程组特征值谱跨度大。</span>
 
 ## 6 诊断刚性：三步检查
 

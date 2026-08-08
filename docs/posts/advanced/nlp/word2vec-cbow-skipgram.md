@@ -99,19 +99,20 @@ $$
 
 两种模型对同一句话生成的训练样本，差异可以用一段伪代码看得更清楚：
 
-```python
-# 伪代码：同一句话生成 CBOW 与 Skip-gram 的训练样本（窗口半径 k=1）
-sentence = ["我", "喜欢", "猫", "和", "狗"]
-k = 1
-for t, center in enumerate(sentence):
-    left  = sentence[max(0, t - k):t]
-    right = sentence[t + 1:min(len(sentence), t + k + 1)]
-    ctx   = left + right
-    # CBOW：输入=上下文词列表，标签=中心词
-    yield ("CBOW", ctx, center)
-    # Skip-gram：输入=中心词，标签=每个上下文词（分别成对）
-    for w in ctx:
-        yield ("Skip-gram", [center], w)
+```text
+# 句子：w1 w2 w3 w4 w5，窗口半径 k = 2
+
+对每个中心词 w_t：
+
+CBOW:
+    context = [w_{t-2}, w_{t-1}, w_{t+1}, w_{t+2}]   # 上下文（剔除越界位置）
+    h = average(embed(context))                       # 聚合为一次预测
+    产生 1 个训练样本：(context, w_t)
+
+Skip-gram:
+    for j in [-2, -1, 1, 2]:
+        产生 1 个训练样本：(w_t, w_{t+j})            # 中心词 → 每个上下文词
+    # 共产生 2k 个训练样本
 ```
 
 可以看到：CBOW 一个中心词只产出一个样本（上下文聚合为一次预测），而 Skip-gram 一个中心词产出 $2k$ 个样本——这正是它隐式重采样、对低频词更友好的来源。

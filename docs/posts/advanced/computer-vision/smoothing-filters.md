@@ -52,11 +52,18 @@ $$B_3 = \frac{1}{9}
 工程上，盒式滤波最常见的加速是**积分图像（integral image）**：对图像做一遍二维前缀和，之后任意矩形窗口的平均只需查四个角点做加减法——**与窗口大小无关，每次查询 $O(1)$**。这一招在 Viola-Jones 人脸检测、以及后面导向滤波的内部实现里都至关重要。
 
 ```python
+import cv2
 import numpy as np
-sat = img.cumsum(0).cumsum(1)                # 积分图像：每个像素 = 左上矩形和
-# 矩形 (y1:y2, x1:x2) 的和 = sat[y2,x2] - sat[y1,x2] - sat[y2,x1] + sat[y1,x1]
-```
 
+# 3×3 盒式核：所有权重都取 1/9，必须归一化（和为 1）
+box = np.ones((3, 3), dtype=np.float32) / 9.0
+blur = cv2.filter2D(img, -1, box)
+
+# 积分图像：任意窗口大小的平均都只需 4 次查表
+integral = cv2.integral(img)
+# 窗口 (y-r:y+r+1, x-r:x+r+1) 的和
+#   = I[y+r+1, x+r+1] - I[y-r, x+r+1] - I[y+r+1, x-r] + I[y-r, x-r]
+```
 
 **辨析｜易错点：** 盒式滤波后图像会**整体变暗一点点**——因为边缘处窗口越界，如果边界策略不当（比如零填充），落在界外的「假 0」被一起平均，把边缘像素拉暗。所以盒式核的核内权重**必须归一化**（和为 1），否则整幅图像的平均亮度都会被改变。这是所有平滑滤波的共性要求：**平滑核的权重和应为 1**，滤波才不改变平均亮度。
 
@@ -83,22 +90,18 @@ $$
 二维高斯核可分离（上节的结论），工程上按「先水平后竖直」两步做，配合 scipy 一行就能调用：
 
 ```python
-import numpy as np
+import cv2
 from scipy.ndimage import gaussian_filter
 
-img = ...                                   # 输入灰度图，float 型
-
-# 一步到位：sigma 控制平滑强度，mode 选择边界策略
-g1 = gaussian_filter(img, sigma=1.0,  mode='reflect')   # 轻度平滑
-g2 = gaussian_filter(img, sigma=2.0,  mode='reflect')   # 中度平滑
-g3 = gaussian_filter(img, sigma=4.0,  mode='reflect')   # 重度平滑
+img_smooth = gaussian_filter(img, sigma=2.0)              # scipy：只给 σ
+img_smooth2 = cv2.GaussianBlur(img, (13, 13), sigmaX=2.0) # OpenCV：核 + σ
 ```
 
-这里 `sigma` 与核大小的关系、`mode` 的选项，正是上一节《线性滤波》讲的边界策略。三种平滑强度直观可感：σ 从 1 到 4，细纹理逐个消失，大结构被保留——这就是「尺度」的雏形。下图把盒式核与高斯核的一维权重放在一起对比，平滑机制的差异一目了然：
+这里 `sigma` 与核大小的关系、`borderType` 的选项，正是上一节《线性滤波》讲的边界策略。三种平滑强度直观可感：σ 从 1 到 4，细纹理逐个消失，大结构被保留——这就是「尺度」的雏形。下图把盒式核与高斯核的一维权重放在一起对比，平滑机制的差异一目了然：
 
 ![盒式核与高斯核的一维权重对比](/images/computer-vision/smoothing-filters-1.svg)
 
-**实现细节：** 若核半径超过 $2\sigma$ 一倍多，`gaussian_filter` 内部会自动用可分离 + 截断的核；而对**超大 σ**（比如 σ = 20），直接用卷积太慢，工程上会改用**多次小高斯迭代**或**递归高斯（IIR）** 来近似——这些是性能优化，原理不变。<span class="marginnote">OpenCV 里 `cv2.GaussianBlur` 与 scipy 的 `gaussian_filter` 等价，但注意它们的边界默认值不同（OpenCV 默认 BORDER_DEFAULT ≈ 复制边缘）。跨库复现结果时，边界策略一定要显式指定。</span>
+**实现细节：** 若核半径超过 $2\sigma$ 一倍多，`cv2.GaussianBlur` 内部会自动用可分离 + 截断的核；而对**超大 σ**（比如 σ = 20），直接用卷积太慢，工程上会改用**多次小高斯迭代**或**递归高斯（IIR）** 来近似——这些是性能优化，原理不变。<span class="marginnote">OpenCV 里 `cv2.GaussianBlur` 与 scipy 的 `gaussian_filter` 等价，但注意它们的边界默认值不同（OpenCV 默认 BORDER_DEFAULT ≈ 复制边缘）。跨库复现结果时，边界策略一定要显式指定。</span>
 
 工程上常用一张「σ → 核大小」的速查表（核半径取 $3\sigma$，向上取奇），配合直觉使用：
 

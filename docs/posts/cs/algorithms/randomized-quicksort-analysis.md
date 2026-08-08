@@ -22,13 +22,13 @@ date: 2026-08-07
 
 ## 1 算法回顾与随机化改造
 
-经典快速排序的划分过程 `PARTITION(A, p, r)` 取 $A[r]$ 为主元，把数组分为「$\le$ 主元」和「$>$ 主元」两段，返回主元的最终位置 $q$。随机化版本只改一处：
+经典快速排序的划分过程 $\le$ 取 $A[r]$ 为主元，把数组分为「$\le$ 主元」和「$>$ 主元」两段，返回主元的最终位置 $q$。随机化版本只改一处：
 
-```
-RANDOMIZED-PARTITION(A, p, r)
-  i = RANDOM(p, r)
-  exchange A[r] with A[i]
-  return PARTITION(A, p, r)
+```text
+RANDOMIZED-PARTITION(A, p, r):
+    i = RANDOM(p, r)                   // 随机挑一个主元
+    swap A[r] ↔ A[i]
+    return PARTITION(A, p, r)          // 复用原划分过程
 ```
 
 **RANDOMIZED-QUICKSORT(A, p, r)** 递归调用随机划分，然后对两段分别递归。每个元素被选为主元的概率均等——这就是随机化快排与雇佣问题的联结：**我们重新随机化了输入顺序，相当于 Fisher–Yates 洗牌的运行时版本**。<span class="marginnote">事实上，先洗牌再跑普通快排，与随机化快排的分布完全相同——两者都让每个元素等概率成为任意位置的主元。理解这个等价关系，就理解了「随机化 = 给输入均匀分布」。</span>
@@ -83,7 +83,7 @@ $$\mathbb{E}[X] = \sum_{i=1}^{n-1}\sum_{j=i+1}^{n} \frac{2}{j-i+1}$$
 
 $$\Pr\left[|X - \mathbb{E}[X]| \ge cn \log n\right] \le \frac{\operatorname{Var}[X]}{c^2 n^2 \log^2 n} = O\left(\frac{1}{\log^2 n}\right)$$
 
-即：**以高概率，随机化快排的运行时间就是 $\Theta(n \log n)$**——不仅期望如此，偏离到 $n^2$ 的概率被压到 $O(1/\log^2 n)$。<span class="marginnote">更精细的尾界（切尔诺夫/霍夫丁）还能给出 $e^{-c n}$ 量级的指数衰减。这告诉我们：随机化快排不仅「平均快」，而且「几乎总是快」。这也是为什么它成为工业排序库（如 C 库的 `qsort`、C++ `std::sort` 的混合策略）的骨干。</span>
+即：**以高概率，随机化快排的运行时间就是 $\Theta(n \log n)$**——不仅期望如此，偏离到 $n^2$ 的概率被压到 $O(1/\log^2 n)$。<span class="marginnote">更精细的尾界（切尔诺夫/霍夫丁）还能给出 $e^{-c n}$ 量级的指数衰减。这告诉我们：随机化快排不仅「平均快」，而且「几乎总是快」。这也是为什么它成为工业排序库（如 C 库的 $O(1/\log^2 n)$、C++ $e^{-c n}$ 的混合策略）的骨干。</span>
 
 ## 6 小结
 

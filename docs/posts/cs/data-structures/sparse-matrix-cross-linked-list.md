@@ -23,12 +23,13 @@ date: 2026-08-07
 每个非零元结点包含五个域：
 
 ```c
+// 十字链表的结点结构：行列坐标 + 值 + 行指针 + 列指针
 typedef struct OLNode {
-    int i, j;                 /* 非零元的行、列下标 */
-    ElemType e;               /* 非零元的值 */
-    struct OLNode *right;     /* 指向同一行的下一个非零元 */
-    struct OLNode *down;      /* 指向同一列的下一个非零元 */
-} OLNode;
+    int row, col;                // 非零元的行号、列号
+    ElemType value;              // 非零元的值
+    struct OLNode *right;        // 指向同行下一个非零元
+    struct OLNode *down;         // 指向同列下一个非零元
+} OLNode, *OLink;
 ```
 
 所有非零元结点被组织成两组链表：**每一行一条链表**（靠 `right` 穿起来，行内按列号递增），**每一列一条链表**（靠 `down` 穿起来，列内按行号递增）。每个结点同时挂在「所在行链」与「所在列链」上——这就是「十字」的含义。
@@ -37,13 +38,14 @@ typedef struct OLNode {
 
 ## 2 行头结点与列头结点
 
-行链与列链各需要一个头：通常用**一个头结点数组** `rhead[1..mu]` 与 `chead[1..nu]` 分别指向每一行的首非零元与每一列的首非零元：
+行链与列链各需要一个头：通常用**一个头结点数组** `rhead` 与 `chead` 分别指向每一行的首非零元与每一列的首非零元：
 
 ```c
+// 十字链表的头结构：行头数组 + 列头数组 + 规模信息
 typedef struct {
-    OLNode *rhead[MAX];   /* 每行一个链表头指针 */
-    OLNode *chead[MAX];   /* 每列一个链表头指针 */
-    int mu, nu, tu;       /* 行数、列数、非零元个数 */
+    OLink rhead[MAX_ROW];        // 行头指针数组：rhead[i] 指向第 i 行第一个非零元
+    OLink chead[MAX_COL];        // 列头指针数组：chead[j] 指向第 j 列第一个非零元
+    int m, n, t;                 // 行数、列数、非零元个数
 } CrossList;
 ```
 
@@ -54,20 +56,19 @@ typedef struct {
 插入 $A[i][j] = e$（$e \neq 0$）的基本步骤：
 
 ```c
+// 插入非零元 A[i][j] = e：同时维护行链与列链，保持「行列一致」
 void Insert(CrossList *M, int i, int j, ElemType e) {
-    OLNode *p = (OLNode *)malloc(sizeof(OLNode));
-    p->i = i;  p->j = j;  p->e = e;
-
-    /* 在行链中找插入位置：行内按列号递增 */
-    OLNode *q = M->rhead[i];
-    if (!q || q->j > j) {          /* 插在行首 */
-        p->right = q;  M->rhead[i] = p;
-    } else {
-        while (q->right && q->right->j < j) q = q->right;
-        p->right = q->right;  q->right = p;
-    }
-    /* 在列链中找插入位置：列内按行号递增（对称写法） */
-    ...
+    OLNode *p = newOLNode(i, j, e);
+    // 行链插入：行内按列号递增，先找插入位置
+    OLink *q = &M->rhead[i];
+    while (*q && (*q)->col < j) q = &(*q)->right;
+    p->right = *q;
+    *q = p;                                    // 挂入行链
+    // 列链插入：列内按行号递增，先找插入位置
+    q = &M->chead[j];
+    while (*q && (*q)->row < i) q = &(*q)->down;
+    p->down = *q;
+    *q = p;                                    // 挂入列链
 }
 ```
 
@@ -85,7 +86,7 @@ T_{\text{插入删除}} &: \ \text{三元组表 } O(tu) \ \text{（顺序表整�
 \end{aligned}
 $$
 
-- **第一步，读按列访问**：三元组表没有列索引，找第 $j$ 列只能全表扫 $O(tu)$；十字链表有 `chead[j]`，直接进列链。
+- **第一步，读按列访问**：三元组表没有列索引，找第 $j$ 列只能全表扫 $O(tu)$；十字链表有 `chead`（列头指针），直接进列链。
 - **第二步，读插入删除**：三元组表是顺序表，中间插入要把后续元素整体后移 $O(tu)$；十字链表改指针即可。
 - **第三步，读空间代价**：十字链表每个结点多两个指针域（`right`、`down`），还有行头、列头数组——空间开销明显高于三元组表。**空间换时间、换灵活性，是十字链表的基本账。**<span class="marginnote">选型规律：矩阵规模固定、运算以「整体变换」（如转置、两趟法）为主 → 三元组表；矩阵需要<strong>动态增删非零元</strong>、运算需频繁按列访问 → 十字链表。这也是「静态 vs 动态」之选在矩阵上的投影。</span>
 
@@ -96,7 +97,7 @@ $$
 ## 6 小结
 
 - 十字链表：每个非零元带 `right`（同行下一个）与 `down`（同列下一个），行链 + 列链十字交叉。
-- 行内按列号递增，列内按行号递增；`rhead[]`、`chead[]` 作各链头。
+- 行内按列号递增，列内按行号递增；`rhead`、`chead` 作各链头。
 - 插入须**同时维护行链与列链**，漏维护即「行列分裂」。
 - 按列访问与动态插入删除，十字链表远优于三元组表；代价是双指针域空间。
 - 静态整体变换用三元组表，动态增删、频繁按列访问用十字链表。

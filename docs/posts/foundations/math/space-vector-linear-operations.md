@@ -54,9 +54,9 @@ $$
 
 空间向量的线性运算主要用于「用基底表示向量」。看一个经典问题：在三棱锥 $O$-$ABC$ 中，$D$ 为 $BC$ 的中点，用 $\vec{a}=\overrightarrow{OA}$、$\vec{b}=\overrightarrow{OB}$、$\vec{c}=\overrightarrow{OC}$ 表示 $\overrightarrow{OD}$。
 
-- **第一步，从 $O$ 出发**：$\overrightarrow{OD}=\overrightarrow{OB}+\overrightarrow{BD}$（首尾相接，$O\to B\to D$）。
-- **第二步，用中点条件**：$D$ 是 $BC$ 中点，$\overrightarrow{BD}=\frac{1}{2}\overrightarrow{BC}=\frac{1}{2}(\vec{c}-\vec{b})$（向量 $\overrightarrow{BC}=\vec{c}-\vec{b}$）。
-- **第三步，代入合并**：$\overrightarrow{OD}=\vec{b}+\frac{1}{2}(\vec{c}-\vec{b})=\frac{1}{2}\vec{b}+\frac{1}{2}\vec{c}$。
+**第一步，从 $O$ 出发**：$\overrightarrow{OD}=\overrightarrow{OB}+\overrightarrow{BD}$（首尾相接，$O\to B\to D$）。
+**第二步，用中点条件**：$D$ 是 $BC$ 中点，$\overrightarrow{BD}=\frac{1}{2}\overrightarrow{BC}=\frac{1}{2}(\vec{c}-\vec{b})$（向量 $\overrightarrow{BC}=\vec{c}-\vec{b}$）。
+**第三步，代入合并**：$\overrightarrow{OD}=\vec{b}+\frac{1}{2}(\vec{c}-\vec{b})=\frac{1}{2}\vec{b}+\frac{1}{2}\vec{c}$。
 
 注意到结果不含 $\vec{a}$——因为 $D$ 在底面 $OBC$ 上（由 $B,C$ 张成的平面），$\overrightarrow{OD}$ 只由 $\vec{b},\vec{c}$ 组合而成。<span class="marginnote">「结果不含 $\vec{a}$」不是巧合，而是「共面」的代数信号：$\overrightarrow{OD}$ 能用 $\vec{b},\vec{c}$ 组合出来，说明它落在 $B,O,C$ 确定的平面内。<strong>一个向量能否用某组向量线性表示，直接反映它与这组向量是否共面/共线</strong>——这是向量法研究空间位置关系的核心思路，下一节《空间向量基本定理》将把它完全展开。</span>
 
@@ -66,9 +66,9 @@ $$
 
 空间向量线性运算的实战是「用基底表示目标向量」。看一道题：在平行六面体 $ABCD$-$A'B'C'D'$ 中，设 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AD}$、$\vec{c}=\overrightarrow{AA'}$，用基底表示对角线 $\overrightarrow{AC'}$ 与面对角线 $\overrightarrow{A'B}$。
 
-- **第一步，$\overrightarrow{AC'}$（体对角线）**：从 $A$ 出发走三条棱：$\overrightarrow{AC'}=\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CC'}=\vec{a}+\vec{b}+\vec{c}$——沿 $AB,AD,AA'$ 各走一步，坐标 $(1,1,1)$。
-- **第二步，$\overrightarrow{A'B}$（面对角线）**：$\overrightarrow{A'B}=\overrightarrow{A'A}+\overrightarrow{AB}=-\vec{c}+\vec{a}=\vec{a}-\vec{c}$——先从上底面回到下底面（$-\vec{c}$），再沿 $AB$ 走（$\vec{a}$）。
-- **第三步，验证**：$\overrightarrow{AC'}=\overrightarrow{AB}+\overrightarrow{BC'}=\vec{a}+(\vec{b}+\vec{c})=\vec{a}+\vec{b}+\vec{c}$——换一条路线，结果一致，印证「分解的唯一性」。
+**第一步，$\overrightarrow{AC'}$（体对角线）**：从 $A$ 出发走三条棱：$\overrightarrow{AC'}=\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CC'}=\vec{a}+\vec{b}+\vec{c}$——沿 $AB,AD,AA'$ 各走一步，坐标 $(1,1,1)$。
+**第二步，$\overrightarrow{A'B}$（面对角线）**：$\overrightarrow{A'B}=\overrightarrow{A'A}+\overrightarrow{AB}=-\vec{c}+\vec{a}=\vec{a}-\vec{c}$——先从上底面回到下底面（$-\vec{c}$），再沿 $AB$ 走（$\vec{a}$）。
+**第三步，验证**：$\overrightarrow{AC'}=\overrightarrow{AB}+\overrightarrow{BC'}=\vec{a}+(\vec{b}+\vec{c})=\vec{a}+\vec{b}+\vec{c}$——换一条路线，结果一致，印证「分解的唯一性」。
 
 <span class="marginnote">空间基底分解的万能法是「走棱分解」：<strong>从起点出发，沿棱一步一步走到终点，每走一条棱就贡献一个基向量，方向与棱反向时取负号</strong>。$\overrightarrow{A'B}$ 中「$A'\to A$」是 $-\vec{c}$（与 $\vec{c}$ 反向），这是最容易漏负号的地方。<strong>同一向量可以换条路线分解，结果必须相同——用「两条路线」验证分解正确性</strong>，是空间向量题的自查利器。</span>
 

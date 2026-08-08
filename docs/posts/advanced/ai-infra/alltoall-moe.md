@@ -43,10 +43,10 @@ $$g(x) = \operatorname{softmax}\left(x \cdot W_g\right), \qquad k\text{-top expe
 
 MoE 层的通信分两个阶段，各做一次 AllToAll：
 
-- **分发（dispatch）**：路由决定每个 token 的目标 rank 后，把 token 连同其编号搬过去。本地的输出是「每个目标 rank 一个分桶」。
-- **收集（combine）**：专家算完 token 的前向后，把结果按来源 rank 送回。通信量与分发完全相同，方向相反。
+**分发（dispatch）**：路由决定每个 token 的目标 rank 后，把 token 连同其编号搬过去。本地的输出是「每个目标 rank 一个分桶」。
+**收集（combine）**：专家算完 token 的前向后，把结果按来源 rank 送回。通信量与分发完全相同，方向相反。
 
-在 NCCL 里对应 `ncclAllToAll`（等长）与 `ncclAllToAllv`（变长——MoE 几乎必然用这个，因为每个 rank 发给各方的 token 数不固定）；在 PyTorch 里是 `torch.distributed.all_to_all`，输入是「给每个 rank 的 tensor 列表」。<span class="marginnote">对比上一节：AllReduce 每 rank 的数据量 $2(P-1)N/P \approx 2N$ 与 $P$ 无关；而 AllToAll 是<strong>纯搬运</strong>，网络上的总搬移量随 rank 数增长——这是两种原语最本质的区别，也是 MoE 训练「通信重」的结构性原因。</span>
+在 NCCL 里对应 $P$（等长）与 $2(P-1)N/P \approx 2N$（变长——MoE 几乎必然用这个，因为每个 rank 发给各方的 token 数不固定）；在 PyTorch 里是 $P$，输入是「给每个 rank 的 tensor 列表」。<span class="marginnote">对比上一节：AllReduce 每 rank 的数据量 $2(P-1)N/P \approx 2N$ 与 $P$ 无关；而 AllToAll 是<strong>纯搬运</strong>，网络上的总搬移量随 rank 数增长——这是两种原语最本质的区别，也是 MoE 训练「通信重」的结构性原因。</span>
 
 **收集阶段的隐藏细节**：分发时搬走的是 token，收集时要把「专家输出」按来源还回去。为了让 token 回到正确的位置，分发时每个 token 必须随身携带**原始序号**（token id）与位置掩码，接收方在 combine 时按序号把结果插回原序列。这些「元数据」虽然很小，却让 AllToAll 的缓冲管理与索引重建变得繁琐——也是 MoE 实现容易出 bug 的地方。
 
@@ -97,17 +97,42 @@ $$L_{\text{aux}} = \alpha \cdot E \sum_{i=1}^{E} f_i \cdot g_i$$
 
 在实践上，MoE 的 overlap 通常配合 **token 分片（chunked dispatch）**：把本层的 token 先切一半，让路由对前一半先执行、先分发，专家算前一半时再对后一半路由分发——把「通信 vs 通信」与「通信 vs 计算」的并行粒度都做细。代价是需要双份缓冲与更复杂的流同步，是成熟的 MoE 框架（如 Megatron、DeepSpeed-MoE）才做的深度优化。
 
-**手段四：选型与工程参数。** 用 `AllToAllv` 减少定长填充浪费；给通信留独立流与足够缓冲；在部署上**优先把常被同时选中的专家放在同机/同机架**（专家共置，expert co-location），让跨机流量最小化。
+**手段四：选型与工程参数。** 用 AllToAllv（变长接口）减少定长填充浪费；给通信留独立流与足够缓冲；在部署上**优先把常被同时选中的专家放在同机/同机架**（专家共置，expert co-location），让跨机流量最小化。
 
 专家共置的做法不改变路由本身，而是改变**专家的物理排布**：把「经常一起被选中的专家」放进同一张卡或同一个 NVLink 域，让它们的 token 交换走 NVLink 而非跨机网络。因为路由模式在相似数据上往往有规律（同类样本偏好同类专家），共置能把相当一部分 AllToAll 的流量「降级」成机内交换，是部署层面最省事的优化。下面是一段 PyTorch 层的分发骨架：
 
 ```python
-# MoE 分发阶段：按目标 rank 分桶后 AllToAll（示意）
-send_buckets = [tok[x == r] for r in range(world_size)]   # x 是路由出的目标 rank
-recv_buckets = [torch.empty(len(b), hidden, dtype=tok.dtype,
-                            device=tok.device) for b in send_buckets]
-dist.all_to_all(recv_buckets, send_buckets)               # 变长时用 all_to_all_single
-# recv_buckets[j]: 从 rank j 收到的 token，交给本地专家计算
+import torch
+import torch.distributed as dist
+
+
+def moe_dispatch(x, gate_probs, expert_to_rank, top_k=2):
+    """MoE 分发骨架：token 按路由结果搬到目标专家所在的 rank。
+
+    x              : [B, d] 本 rank 的 token 隐藏向量
+    gate_probs     : [B, E] 门控概率（已 softmax）
+    expert_to_rank : [E]   专家 -> 所在 rank 的映射
+    """
+    # 1. 路由：每个 token 选出 top-k 个专家
+    _, top_experts = gate_probs.topk(top_k, dim=-1)          # [B, k]
+
+    # 2. 带序号展开：一个 token 要去 k 个专家，复制 k 份并记录原位置
+    tokens = x.repeat_interleave(top_k, dim=0)               # [B*k, d]
+    token_id = torch.arange(x.size(0), device=x.device).repeat_interleave(top_k)
+
+    # 3. 分桶：按目标 rank 把 token 组装成发送列表
+    target_ranks = expert_to_rank[top_experts.flatten()]     # [B*k]
+    send_tokens = [tokens[target_ranks == r] for r in range(dist.get_world_size())]
+    send_ids    = [token_id[target_ranks == r] for r in range(dist.get_world_size())]
+
+    # 4. 变长 AllToAllv：把 token 与序号一并送到目标 rank
+    recv_tokens = [torch.empty_like(t) for t in send_tokens]
+    recv_ids    = [torch.empty_like(t) for t in send_ids]
+    dist.all_to_all(recv_tokens, send_tokens)
+    dist.all_to_all(recv_ids, send_ids)
+
+    # 5. 返回给接收方的专家 FFN；收集（combine）时按 token_id 插回原序列
+    return recv_tokens, recv_ids
 ```
 
 ## 6 小结

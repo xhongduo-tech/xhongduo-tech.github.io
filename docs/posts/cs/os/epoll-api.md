@@ -16,26 +16,26 @@ date: 2026-08-07
 
 ## 为什么从 epoll 三剑客开始
 
-上一节讲了 select/poll 的 O(n) 痛点，这一节看 epoll 如何用**三个函数**解决它：`epoll_create`（建表）、`epoll_ctl`（登记 fd）、`epoll_wait`（等就绪）。epoll 的核心思想是「**先注册、只回报变化**」——把 select/poll 的「每次全量扫描」变成「注册后内核替你盯着」。<span class="marginnote">回顾 select/poll 的痛点：每次调用「全量传入 + 全量扫描」。epoll 把流程拆成<strong>三阶段</strong>——<strong>创建（一次）、注册（增量）、等待（只回报变化）</strong>。注册后 fd 就「登记在案」，内核持续盯着，就绪时只返回就绪列表。</span>
+上一节讲了 select/poll 的 O(n) 痛点，这一节看 epoll 如何用**三个函数**解决它：`epoll_create()`（建表）、`epoll_ctl()`（登记 fd）、`epoll_wait()`（等就绪）。epoll 的核心思想是「**先注册、只回报变化**」——把 select/poll 的「每次全量扫描」变成「注册后内核替你盯着」。<span class="marginnote">回顾 select/poll 的痛点：每次调用「全量传入 + 全量扫描」。epoll 把流程拆成<strong>三阶段</strong>——<strong>创建（一次）、注册（增量）、等待（只回报变化）</strong>。注册后 fd 就「登记在案」，内核持续盯着，就绪时只返回就绪列表。</span>
 
 ## 1 epoll 三剑客：API 概览
 
 **① epoll_create：创建 epoll 实例**
 
 ```c
-int epfd = epoll_create(1);   // 返回 epoll 文件描述符
+int epfd = epoll_create(1024);   /* 创建一个 epoll 实例，返回 epfd */
 ```
 
 - 创建一张**事件表**（内核维护），返回 epfd。
-- epfd 本身也是一个 fd——用 `close` 关闭。
+- epfd 本身也是一个 fd——用 `close(epfd)` 关闭。
 
 **② epoll_ctl：注册/修改/删除 fd**
 
 ```c
 struct epoll_event ev;
-ev.events = EPOLLIN;          // 关注读事件
-ev.data.fd = sock;            // 记录是哪个 fd
-epoll_ctl(epfd, EPOLL_CTL_ADD, sock, &ev);   // 登记
+ev.events = EPOLLIN;                          /* 关注可读事件 */
+ev.data.fd = fd;
+epoll_ctl(epfd, EPOLL_CTL_ADD, fd, &ev);      /* 把 fd 登记进 epoll */
 ```
 
 - 操作：`EPOLL_CTL_ADD`（添加）、`EPOLL_CTL_MOD`（修改）、`EPOLL_CTL_DEL`（删除）。
@@ -44,10 +44,10 @@ epoll_ctl(epfd, EPOLL_CTL_ADD, sock, &ev);   // 登记
 **③ epoll_wait：等待就绪**
 
 ```c
-struct epoll_event events[1024];
-int n = epoll_wait(epfd, events, 1024, timeout);
+struct epoll_event events[MAX_EVENTS];
+int n = epoll_wait(epfd, events, MAX_EVENTS, -1);  /* 阻塞等待，返回就绪数 */
 for (int i = 0; i < n; i++) {
-    // events[i].data.fd 就绪了！
+    handle(events[i].data.fd);
 }
 ```
 
@@ -69,9 +69,11 @@ for (int i = 0; i < n; i++) {
 
 ```c
 for (;;) {
-    n = epoll_wait(epfd, events, MAXEV, -1);   // 阻塞等就绪
-    for (i = 0; i < n; i++) {
-        handle(events[i].data.fd);              // 处理就绪连接
+    int n = epoll_wait(epfd, events, MAX_EVENTS, -1);
+    for (int i = 0; i < n; i++) {
+        if (events[i].events & EPOLLIN) {
+            read(events[i].data.fd, buf, sizeof(buf));
+        }
     }
 }
 ```
@@ -112,7 +114,7 @@ $$\text{select/poll 每轮成本} = O(N), \qquad \text{epoll 每轮成本} = O(k
 
 ## 5 小结
 
-- **epoll 三剑客**：`epoll_create`（建表）、`epoll_ctl`（登记 fd）、`epoll_wait`（等就绪）。
+- **epoll 三剑客**：`epoll_create()`（建表）、`epoll_ctl()`（登记 fd）、`epoll_wait()`（等就绪）。
 - 模型：**先注册、只回报变化**——成本从 O(N) 降到 O(就绪数)。
 - 事件驱动循环：**epoll_wait 阻塞 → 遍历就绪事件 → 处理**——Reactor 的核心。
 - 三重优化：**不拷全集、不扫全表、无 1024 上限**。

@@ -56,9 +56,9 @@ $$
 
 单步延拓只增加一个维度。要从 $M$ 延拓到整个 $X$（可能无穷维），需要 Zorn 引理：
 
-- **考虑偏序集**：所有「从 $M$ 出发、受 $p$ 控制的线性延拓」$g: M' \to \mathbb{R}$（$M \subset M' \subset X$），按「定义域包含」排序。
-- **验证归纳性**：对全序族 $\{g_\alpha\}$，在并集 $\bigcup M_\alpha$ 上定义 $g(x) = g_\alpha(x)$（$x \in M_\alpha$）——良定义（全序），$g$ 受 $p$ 控制。故每个全序族有上界。
-- **Zorn 引理**：存在极大元 $\tilde f : \tilde M \to \mathbb{R}$。若 $\tilde M \neq X$，取 $z \notin \tilde M$，用第 1 节的一维延拓把 $\tilde f$ 再延拓到 $\tilde M + \mathbb{R}z$——矛盾于极大性。故 $\tilde M = X$。
+**考虑偏序集**：所有「从 $M$ 出发、受 $p$ 控制的线性延拓」$g: M' \to \mathbb{R}$（$M \subset M' \subset X$），按「定义域包含」排序。
+**验证归纳性**：对全序族 $\{g_\alpha\}$，在并集 $\bigcup M_\alpha$ 上定义 $g(x) = g_\alpha(x)$（$x \in M_\alpha$）——良定义（全序），$g$ 受 $p$ 控制。故每个全序族有上界。
+**Zorn 引理**：存在极大元 $\tilde f : \tilde M \to \mathbb{R}$。若 $\tilde M \neq X$，取 $z \notin \tilde M$，用第 1 节的一维延拓把 $\tilde f$ 再延拓到 $\tilde M + \mathbb{R}z$——矛盾于极大性。故 $\tilde M = X$。
 
 **核心要点：延拓的存在性来自 Zorn 引理（选择公理），而非构造**。Hahn-Banach 定理是典型的非构造性存在定理。<span class="marginnote">Zorn 引理与选择公理等价，是「无穷维线性代数」的引擎——它保证每个线性空间有 Hamel 基、每个子空间能延拓。代价是<strong>证明不给出任何算法</strong>：你无法「算出」延拓泛函，只能确信它存在。这是数学家与工程师思维的一个经典分歧点。</span>
 

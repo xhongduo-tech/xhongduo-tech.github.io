@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从免疫缺陷病开始
 
-**免疫缺陷病（immunodeficiency）**是免疫系统**成分缺失或功能障碍**——**原发性**（遗传）与**继发性**（HIV、化疗、营养不良）。理解免疫缺陷的分类（体液/细胞/联合/吞噬/补体）、常见原发性缺陷（Bruton、SCID、CVID、DiGeorge）与 **AIDS（HIV）**，是理解"免疫缺陷→机会性感染"的基础。<span class="marginnote"><strong>免疫缺陷分类</strong>：<strong>原发性（PID，遗传）</strong>：<strong>体液免疫缺陷</strong>（Bruton 无丙球、CVID）、<strong>细胞免疫缺陷</strong>（DiGeorge——胸腺缺）、<strong>联合免疫缺陷</strong>（<strong>SCID</strong>）、<strong>吞噬缺陷</strong>（<strong>CGD</strong>）、<strong>补体缺陷</strong>。<strong>继发性（SID）</strong>：<strong>HIV（AIDS）</strong>、化疗/放疗、免疫抑制剂、营养不良、脾切除。<strong>共同后果</strong>：<strong>机会性感染</strong>（低毒力病原）与肿瘤（免疫监视↓）。</span>
+**免疫缺陷病（immunodeficiency）**是免疫系统**成分缺失或功能障碍**——**原发性**（遗传）与**继发性**（HIV、化疗、营养不良）。理解免疫缺陷的分类（体液/细胞/联合/吞噬/补体）、常见原发性缺陷（Bruton、SCID、CVID、DiGeorge）与 **AIDS（HIV）**，是理解"免疫缺陷→机会性感染"的基础。<span class="marginnote"><strong>免疫缺陷分类</strong>：<strong>原发性（PID，遗传）</strong>：<strong>体液免疫缺陷</strong>（Bruton 无丙球、CVID）、<strong>细胞免疫缺陷</strong>（DiGeorge——胸腺缺）、<strong>联合免疫缺陷</strong>（<strong>SCID</strong>`）、<strong>吞噬缺陷</strong>（<strong>CGD</strong>`）、<strong>补体缺陷</strong>。<strong>继发性（SID）</strong>：<strong>HIV（AIDS）</strong>、化疗/放疗、免疫抑制剂、营养不良、脾切除。<strong>共同后果</strong>：<strong>机会性感染</strong>（低毒力病原）与肿瘤（免疫监视↓）。</span>
 
 "Bruton 怎么'无丙球'（B 缺陷）""SCID 怎么'联合缺陷'（T+B）""DiGeorge 怎么'T 缺陷'（胸腺缺）""HIV 怎么'免疫缺陷'（CD4↓）""免疫缺陷怎么'反复感染'（机会性）"——免疫缺陷病回答这些问题。
 
@@ -26,16 +26,16 @@ date: 2026-08-07
 
 **体液免疫缺陷（B 细胞）**：
 
-- **X 连锁无丙种球蛋白血症（Bruton）**：**BTK 缺陷**→B 细胞不能成熟→**Ig 全部缺乏**→**反复化脓感染**（呼吸道、中耳）——"Bruton'B 缺'（化脓感染）"（呼 B 细胞发育篇）。
-- **常见变异型免疫缺陷（CVID）**：IgG/IgA 降低（成年起病）——反复感染+自身免疫。
+**X 连锁无丙种球蛋白血症（Bruton）**：**BTK 缺陷**→B 细胞不能成熟→**Ig 全部缺乏**→**反复化脓感染**（呼吸道、中耳）——"Bruton'B 缺'（化脓感染）"（呼 B 细胞发育篇）。
+**常见变异型免疫缺陷（CVID）**：IgG/IgA 降低（成年起病）——反复感染+自身免疫。
 
 **细胞免疫缺陷（T 细胞）**：
 
-- **DiGeorge 综合征**：**胸腺发育不全**（22q11 缺失）→**T 细胞缺乏**→病毒/真菌感染——"DiGeorge'T 缺'（呼 T 细胞发育篇）"。
+**DiGeorge 综合征**：**胸腺发育不全**（22q11 缺失）→**T 细胞缺乏**→病毒/真菌感染——"DiGeorge'T 缺'（呼 T 细胞发育篇）"。
 
 **联合免疫缺陷（SCID）**：
 
-- **重症联合免疫缺陷（SCID）**：**T+B 均缺**（ADA 缺乏等）→出生后早期严重感染（"气泡男孩"）——"SCID'联合缺'（呼嘌呤代谢篇 ADA）"——需**骨髓移植/基因治疗**。
+**重症联合免疫缺陷（SCID）**：**T+B 均缺**（ADA 缺乏等）→出生后早期严重感染（"气泡男孩"）——"SCID'联合缺'（呼嘌呤代谢篇 ADA）"——需**骨髓移植/基因治疗**。
 
 **吞噬与补体缺陷**：**CGD**（NADPH 氧化酶缺陷——反复化脓/肉芽肿）、补体缺陷（呼固有免疫/补体篇）。<span class="marginnote"><strong>"Bruton（XLA）"</strong>：BTK 基因缺陷→B 细胞成熟障碍→<strong>Ig 缺乏（无丙球）→反复化脓（肺炎、中耳炎）</strong>——"Bruton'B 缺'（X 连锁男性）"（呼 B 细胞发育篇）。<strong>"SCID"</strong>：T+B 联合缺陷→出生后早期严重感染——"SCID'联合缺'（ADA 缺乏——嘌呤代谢篇）"（<strong>骨髓移植/基因治疗</strong>——"气泡男孩"）。<strong>"DiGeorge（胸腺缺）"</strong>：22q11 缺失→胸腺发育不全→<strong>T 细胞缺（细胞免疫缺陷）</strong>——"DiGeorge'T 缺'（呼 T 细胞发育篇）"。<strong>"CGD（吞噬缺陷）"</strong>：NADPH 氧化酶缺陷→活性氧杀菌障碍→<strong>反复化脓+肉芽肿</strong>——"CGD'吞噬缺'（呼固有免疫篇）"。</span>
 
@@ -45,32 +45,32 @@ date: 2026-08-07
 
 **AIDS（艾滋病）——HIV 感染**：
 
-- **HIV 靶点**：**CD4⁺ T 细胞**（gp120-CD4）→CD4 进行性↓→**免疫缺陷**——"HIV'CD4↓'（呼病理学 AIDS）"。
-- **CD4 与分期**：CD4<200 → **AIDS**（免疫严重缺陷）。
-- **机会性感染（CD4↓→机会性）**：**PCP（肺孢子菌肺炎）、结核、念珠菌、隐球菌、巨细胞病毒**——"AIDS'机会感染'（呼病理学 AIDS 篇）"。
-- **相关肿瘤**：Kaposi 肉瘤（HHV-8）、淋巴瘤——"AIDS'肿瘤'"。
-- **诊断**：HIV 抗体/抗原（ELISA+Western blot）、**CD4 计数**、病毒载量。
-- **治疗**：**ART（抗逆转录病毒治疗）**——CD4 恢复（呼抗病毒药篇）。
+**HIV 靶点**：**CD4⁺ T 细胞**（gp120-CD4）→CD4 进行性↓→**免疫缺陷**——"HIV'CD4↓'（呼病理学 AIDS）"。
+**CD4 与分期**：CD4<200 → **AIDS**（免疫严重缺陷）。
+**机会性感染（CD4↓→机会性）**：**PCP（肺孢子菌肺炎）、结核、念珠菌、隐球菌、巨细胞病毒**——"AIDS'机会感染'（呼病理学 AIDS 篇）"。
+**相关肿瘤**：Kaposi 肉瘤（HHV-8）、淋巴瘤——"AIDS'肿瘤'"。
+**诊断**：HIV 抗体/抗原（ELISA+Western blot）、**CD4 计数**、病毒载量。
+**治疗**：**ART（抗逆转录病毒治疗）**——CD4 恢复（呼抗病毒药篇）。
 
-**"免疫缺陷'机会性感染'"**：低毒力病原在免疫低下时致病——"机会性'免疫低才病'"（PCP 是 AIDS 标志性感染）。<span class="marginnote"><strong>"HIV 的 CD4 靶点"</strong>：HIV 感染 CD4⁺ Th（gp120-CD4/CCR5）→<strong>CD4 进行性↓（免疫缺陷核心）</strong>——"HIV'CD4'"（呼病理学 AIDS 篇与抗病毒 ART）。<strong>"CD4<200=AIDS"</strong>：CD4 计数分期（<500 免疫↓、<200 AIDS——机会感染高发）——"CD4'分期'"（呼免疫学检测——流式 CD4 计数）。<strong>"机会性感染清单"</strong>：<strong>PCP（肺孢子菌——最标志）、结核、念珠菌（鹅口疮）、隐球菌脑膜炎、CMV</strong>——"机会感染'清单'"（呼微生物学相应病原）。<strong>"ART 恢复免疫"</strong>：抗逆转录病毒治疗→病毒载量↓、CD4 恢复→"AIDS 可控"——"ART'重建免疫'"（呼抗病毒药篇——鸡尾酒疗法）。</span>
+**"免疫缺陷'机会性感染'"**：低毒力病原在免疫低下时致病——"机会性'免疫低才病'"（PCP 是 AIDS 标志性感染）。<span class="marginnote"><strong>"HIV 的 CD4 靶点"</strong>：HIV 感染 CD4⁺ Th（gp120-CD4/CCR5）→<strong>CD4 进行性↓（免疫缺陷核心）</strong>——"HIV'CD4'"（呼病理学 AIDS 篇与抗病毒 ART）。<strong>"CD4`<200=AIDS"</strong>``：CD4 计数分期（<500 免疫↓、<200 AIDS——机会感染高发）——"CD4'分期'"（呼免疫学检测——流式 CD4 计数）。<strong>"机会性感染清单"</strong>：<strong>PCP（肺孢子菌——最标志）、结核、念珠菌（鹅口疮）、隐球菌脑膜炎、CMV</strong>`——"机会感染'清单'"（呼微生物学相应病原）。<strong>"ART 恢复免疫"</strong>：抗逆转录病毒治疗→病毒载量↓、CD4 恢复→"AIDS 可控"——"ART'重建免疫'"（呼抗病毒药篇——鸡尾酒疗法）。</strong></span>
 
 ## 3 免疫缺陷的临床特点与处理
 
 **免疫缺陷的"临床特征"**：
 
-- **反复感染**（类型与缺陷相关：B 缺陷→化脓菌、T 缺陷→病毒真菌、补体缺陷→奈瑟菌）。
-- **机会性感染**（低毒力病原）。
-- **肿瘤风险↑**（免疫监视↓——淋巴瘤等）。
-- **自身免疫倾向**（部分 PID——免疫调节异常）。
+**反复感染**（类型与缺陷相关：B 缺陷→化脓菌、T 缺陷→病毒真菌、补体缺陷→奈瑟菌）。
+**机会性感染**（低毒力病原）。
+**肿瘤风险↑**（免疫监视↓——淋巴瘤等）。
+**自身免疫倾向**（部分 PID——免疫调节异常）。
 
 **诊断**：**免疫球蛋白（Ig 水平）**（B 缺陷）、**淋巴细胞计数/亚群（CD4/CD8）**（T 缺陷）、**流式细胞术**、基因检测——"免疫缺陷'诊断'（Ig+流式）"。
 
 **治疗**：
 
-- **IVIG（静脉免疫球蛋白）**：B 缺陷（补充抗体）——"IVIG'补抗体'（B 缺陷）"。
-- **预防感染**：抗生素预防、避免活疫苗（T 缺陷）。
-- **骨髓移植/基因治疗**：SCID、严重 PID。
-- **ART**：AIDS。
+**IVIG（静脉免疫球蛋白）**：B 缺陷（补充抗体）——"IVIG'补抗体'（B 缺陷）"。
+**预防感染**：抗生素预防、避免活疫苗（T 缺陷）。
+**骨髓移植/基因治疗**：SCID、严重 PID。
+**ART**：AIDS。
 
 **"免疫缺陷'防感染+补充/重建'"**：IVIG（B）、抗生素预防、移植/ART（重建）——"免疫缺陷'管理'"。<span class="marginnote"><strong>"B 缺陷'化脓'、T 缺陷'病毒真菌'"</strong>：体液缺陷（B——Ig↓）→化脓菌（肺炎链球菌、流感杆菌）；细胞缺陷（T）→病毒/真菌/胞内菌（结核）——"缺陷类型'定病原'"（呼各篇病原）。<strong>"IVIG（被动免疫）"</strong>：B 缺陷补充免疫球蛋白（每月输注）——"IVIG'补抗体'"（呼免疫调节药篇）。<strong>"活疫苗禁忌（T 缺陷）"</strong>：SCID/DiGeorge 禁接种活疫苗（BCG——可致感染）——"活疫苗'T 缺陷禁忌'"（呼微生物学疫苗）。<strong>"骨髓移植/基因治疗（SCID）"</strong>：造血干细胞移植重建免疫——"SCID'移植'"（呼抗肿瘤/分子生物学技术）。</span>
 

@@ -81,16 +81,16 @@ g^{-1}(x), & x\notin A^*.
 
 **第四步，证 $h$ 是单射。** 设 $h(x)=h(x')$，分三类讨论：
 
-- $x,x'\in A^*$：由 $f(x)=f(x')$ 与 $f$ 单射，得 $x=x'$。
-- $x,x'\notin A^*$：由 $g^{-1}(x)=g^{-1}(x')$，两边作用 $g$，得 $x=x'$。
-- $x\in A^*,\ x'\notin A^*$：设 $x\in A_n$。若 $f(x)=g^{-1}(x')$，则 $x'=g(f(x))\in g(f(A_n))=A_{n+1}\subseteq A^*$，与 $x'\notin A^*$ 矛盾。**这一情形根本不会发生。**
+$x,x'\in A^*$：由 $f(x)=f(x')$ 与 $f$ 单射，得 $x=x'$。
+$x,x'\notin A^*$：由 $g^{-1}(x)=g^{-1}(x')$，两边作用 $g$，得 $x=x'$。
+$x\in A^*,\ x'\notin A^*$：设 $x\in A_n$。若 $f(x)=g^{-1}(x')$，则 $x'=g(f(x))\in g(f(A_n))=A_{n+1}\subseteq A^*$，与 $x'\notin A^*$ 矛盾。**这一情形根本不会发生。**
 
 于是 $h$ 单射。
 
 **第五步，证 $h$ 是满射。** 任取 $y\in B$，找一个 $x$ 使 $h(x)=y$。看 $g(y)$ 落在哪边：
 
-- 若 $g(y)\notin A^*$：取 $x=g(y)$，则 $x\notin A^*$，$h(x)=g^{-1}(g(y))=y$。
-- 若 $g(y)\in A^*$：因为 $A_0\cap g(B)=\varnothing$ 且 $g(y)\in g(B)$，所以 $g(y)\notin A_0$，必落在某个 $A_n$（$n\ge1$）里。而 $A_n=g(f(A_{n-1}))$，故 $g(y)=g(f(x))$ 对某 $x\in A_{n-1}$。$g$ 单射推出 $y=f(x)$；又 $x\in A_{n-1}\subseteq A^*$，所以 $h(x)=f(x)=y$。
+若 $g(y)\notin A^*$：取 $x=g(y)$，则 $x\notin A^*$，$h(x)=g^{-1}(g(y))=y$。
+若 $g(y)\in A^*$：因为 $A_0\cap g(B)=\varnothing$ 且 $g(y)\in g(B)$，所以 $g(y)\notin A_0$，必落在某个 $A_n$（$n\ge1$）里。而 $A_n=g(f(A_{n-1}))$，故 $g(y)=g(f(x))$ 对某 $x\in A_{n-1}$。$g$ 单射推出 $y=f(x)$；又 $x\in A_{n-1}\subseteq A^*$，所以 $h(x)=f(x)=y$。
 
 两种情况都找到了 $x$，$h$ 满射。单射且满射，$h$ 是双射。$\blacksquare$
 

@@ -89,25 +89,26 @@ $$G^2 = R(0) - \sum_{k=1}^{p} a_k\, R(k)$$
 ```python
 import numpy as np
 
-def lpc(frame, p):
-    """自相关法求解 LPC 系数（Levinson-Durbin），返回 a 与增益 G"""
-    N = len(frame)
-    # 1) 自相关 R(0..p)：用 0-均值、加窗后的帧
-    R = np.correlate(frame, frame, mode='full')[N-1 : N+p]
-    # 2) Levinson-Durbin 递推
-    a = np.zeros(p + 1); a[0] = 1.0
-    E = R[0]
+def lpc_levinson(x, p):
+    """自相关法 + Levinson-Durbin 求解 LPC 系数。
+    返回 a（含 a[0]=1 的全极点分母系数）与激励增益 G。
+    """
+    N = len(x)
+    # 自相关 R(i) = sum_n x[n]·x[n-i]，构 Toeplitz 矩阵
+    R = np.array([sum(x[n] * x[n + i] for n in range(N - i))
+                  for i in range(p + 1)], dtype=np.float64)
+    a = np.zeros(p + 1)
+    a[0] = 1.0
+    E = R[0]                                    # 预测残差能量
     for i in range(1, p + 1):
-        acc = R[i] - a[1:i] @ R[i-1:0:-1]   # 第 i 步累加
-        k = acc / E                          # 反射系数
+        # 反射系数 k_i
+        k = (R[i] - sum(a[j] * R[i - j] for j in range(1, i))) / E
+        a_old = a.copy()
         a[i] = k
-        a[1:i] = a[1:i] - k * a[i-1:0:-1]   # 更新前 i-1 个系数
-        E = (1 - k * k) * E                  # 更新残差能量
-    return a, np.sqrt(E)
-
-fs, p = 16000, 16                            # 16 kHz，16 阶
-frame = np.hanning(400) * np.random.randn(400)  # 示意：一帧 25 ms
-a, G = lpc(frame, p)
+        for j in range(1, i):                   # 对称更新预测器系数
+            a[j] = a_old[j] - k * a_old[i - j]
+        E *= 1.0 - k * k                        # 残差能量递推
+    return a, np.sqrt(E)                        # G = sqrt(E)
 ```
 
 ## 4 一张图看懂 LPC 做了什么
@@ -118,7 +119,7 @@ a, G = lpc(frame, p)
 
 ## 5 辨析与易错点
 
-- **LPC 是全极点模型，装不下零点。** 鼻音、塞音爆破、以及 /r/ 这类带鼻腔旁路或反共振的声音，频谱里有「谷」（零点），全极点模型只能用极高的阶数去逼近，效果打折。<span class="marginnote">工程折中：普通语音分析把阶数从经验值加高 2–4 就能把鼻音应付过去；真正较真时会用极零（ARMA）模型，那就要解更复杂的方程了。</span>
+**LPC 是全极点模型，装不下零点。** 鼻音、塞音爆破、以及 /r/ 这类带鼻腔旁路或反共振的声音，频谱里有「谷」（零点），全极点模型只能用极高的阶数去逼近，效果打折。<span class="marginnote">工程折中：普通语音分析把阶数从经验值加高 2–4 就能把鼻音应付过去；真正较真时会用极零（ARMA）模型，那就要解更复杂的方程了。</span>
 - **谐波峰 ≠ 共振峰**：拿原始频谱找峰，找到的多半是谐波，不是共振峰。必须先得到包络再找峰——这正是 LPC 的价值，下一节共振峰估计会反复强调。
 - **阶数 p 不是越大越好**：太大时包络开始「追着谐波跑」，共振峰位置被谐波结构带偏；太小则漏峰。经验法则只是起点，具体任务要试。
 - **自相关法 vs 协方差法**：自相关法用窗内全部样本（窗外视为 0），保证 Toeplitz 结构、保证稳定，但帧边缘有窗口失真；协方差法不加窗、拟合更准，却可能给出不稳定的滤波器。**绝大多数语音任务用自相关法。**

@@ -83,8 +83,8 @@ $$
 
 把阈值公式 $\lambda_c = \langle k \rangle / \langle k^2 \rangle$ 代入无标度网络的度分布 $p_k \sim k^{-\gamma}$：
 
-- 当 $\gamma > 3$：$\langle k^2 \rangle$ 有限，$\lambda_c > 0$——有阈值。
-- 当 $2 < \gamma \le 3$：$\langle k^2 \rangle$ **发散**，$\lambda_c \to 0$——**阈值消失**。
+当 $\gamma > 3$：$\langle k^2 \rangle$ 有限，$\lambda_c > 0$——有阈值。
+当 $2 < \gamma \le 3$：$\langle k^2 \rangle$ **发散**，$\lambda_c \to 0$——**阈值消失**。
 
 结论震撼：
 在无标度网络上，**只要传染率不为零，疾病就能借助枢纽长期存在**。

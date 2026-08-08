@@ -28,7 +28,7 @@ Qwen1（2023）的架构基本是 LLaMA 三件套，但做了两个关键的本�
 
 **架构要点**（Qwen1-7B）：
 
-- 层数 32、宽度 4096、32 头、SwiGLU（`intermediate_size=22016`）。
+- 层数 32、宽度 4096、32 头、SwiGLU（intermediate_size 11008）。
 - **QKV bias**：与 LLaMA 不同，Qwen 保留了 bias。
 - **RMSNorm + RoPE + SwiGLU**：三件套不变。
 
@@ -36,7 +36,7 @@ Qwen1（2023）的架构基本是 LLaMA 三件套，但做了两个关键的本�
 
 Qwen1.5（2024）是一次「架构现代化」：
 
-- **引入 GQA**：从 MHA 改为分组查询注意力（`num_key_value_heads=8`）——KV Cache 压缩，推理加速。
+- **引入 GQA**：从 MHA 改为分组查询注意力（GQA，多个 query 头共享一组 KV 头）——KV Cache 压缩，推理加速。
 - **统一配置**：提供 0.5B→72B 的完整谱系，参数配置系统化。
 - **上下文提升**：支持 32k。
 
@@ -53,8 +53,8 @@ Qwen2（2024）是架构创新的高峰：
 
 **关键设计**（Qwen2-7B）：
 
-- `num_attention_heads=28`、`num_key_value_heads=4`（GQA-4）。
-- **`head_dim` 独立为 128**——不再等于 `hidden/n_heads`。
+- **28 层**、**28 头**（GQA-4）。
+- **`head_dim` 独立为 128**——不再等于 `hidden_size / num_heads`。
 - SwiGLU + RMSNorm + Pre-LN + QK-Norm——「LLaMA 三件套 + QK-Norm」的完整形态。
 
 ## 4 Qwen2.5：深挖「细粒度」与「稀疏」
@@ -85,15 +85,15 @@ Qwen3（2025）带来两个结构性变化：
 
 ## 6 公式解析：Qwen 的「head_dim 解耦」
 
-Qwen2 起的一个关键配置变化——`head_dim` 不再由「宽度 ÷ 头数」自动决定。设 `hidden_size=3584`、`num_attention_heads=28`，若按旧规则 `head_dim = 3584/28 = 128`；但 Qwen 直接把 `head_dim=128` **写死在 config**，且允许它独立变化。
+Qwen2 起的一个关键配置变化——`head_dim` 不再由「宽度 ÷ 头数」自动决定。设 `hidden=896`、`n_heads=8`，若按旧规则 `head_dim=112`；但 Qwen 直接把 `head_dim=128` **写死在 config**，且允许它独立变化。
 
 对这条式子做三步拆解：
 
-- **第一步，读懂旧规则**：传统上 `head_dim = hidden_size / n_heads`——宽度被头数整除。这约束了「宽度与头数」的耦合。
+- **第一步，读懂旧规则**：传统上 `head_dim = hidden_size / num_heads`——宽度被头数整除。这约束了「宽度与头数」的耦合。
 - **第二步，读懂解耦**：Qwen 把 `head_dim` 独立出来——**「每头多大」与「有几个头」可以分别设计**。这让「更小的 hidden + 更大的 head_dim」成为可能（如 hidden=896、n_heads=8、head_dim=128 的混合）。
-- **第三步，读出收益**：解耦让「计算效率」与「表达容量」独立调优——`head_dim` 控制「每头的容量」，`n_heads` 控制「并行视角数」。**现代模型（Qwen、LLaMA-3.2）都开始显式指定 head_dim**——读 config 时别再用除法猜测。
+- **第三步，读出收益**：解耦让「计算效率」与「表达容量」独立调优——`head_dim` 控制「每头的容量」，`num_heads` 控制「并行视角数」。**现代模型（Qwen、LLaMA-3.2）都开始显式指定 head_dim**——读 config 时别再用除法猜测。
 
-**辨析｜易错点：** Qwen 与 LLaMA 的 `intermediate_size` 都不是「4×hidden」——它们被 SwiGLU 的 2/3 补偿调整过。Qwen2-7B 的 `intermediate_size=18944`（≈ 2.7×hidden），这是「8/3 × d」的变体。**读任何现代模型的 config，都不能假设「FFN 维度 = 4×hidden」**。
+**辨析｜易错点：** Qwen 与 LLaMA 的 `intermediate_size` 都不是「4×hidden」——它们被 SwiGLU 的 2/3 补偿调整过。Qwen2-7B 的 `intermediate_size`（≈ 2.7×hidden），这是「8/3 × d」的变体。**读任何现代模型的 config，都不能假设「FFN 维度 = 4×hidden」**。
 
 ## 7 小结
 

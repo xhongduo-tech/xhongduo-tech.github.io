@@ -45,11 +45,11 @@ $$G_t \doteq R_{t+1} + \gamma R_{t+2} + \gamma^2 R_{t+3} + \cdots = \sum_{k=0}^{
 一次回合里，状态 $s$ 可能不止出现一次——比如一个迷宫，智能体反复路过同一个格子。那么「把哪些 $G_t$ 放进平均」就有两种规则：
 
 - **首次访问 MC（first-visit MC）**：只把「$s$ 在本次回合中**第一次**出现」的那个回报 $G_t$ 记入样本。<span class="marginnote">首次访问规则产生的样本彼此独立同分布，理论分析最干净，是教材与绝大多数实现的默认选择。</span>
-- **每次访问 MC（every-visit MC）**：$s$ 每出现一次，对应的回报都算一个样本。<span class="marginnote">每次访问在状态重复出现时会产生<strong>相关</strong>样本，估计的方差略大；但两者都靠大数定律收敛到同一个 $v_\pi$。类似的「第一次 vs 每一次」计数取舍，在第二篇多臂老虎机的增量式估计里也出现过。</span>
+**每次访问 MC（every-visit MC）**：$s$ 每出现一次，对应的回报都算一个样本。<span class="marginnote">每次访问在状态重复出现时会产生<strong>相关</strong>样本，估计的方差略大；但两者都靠大数定律收敛到同一个 $v_\pi$。类似的「第一次 vs 每一次」计数取舍，在第二篇多臂老虎机的增量式估计里也出现过。</span>
 
 两种规则都收敛到 $v_\pi$，区别在统计性质：首次访问的样本独立，方差容易刻画；每次访问用满了数据、但样本相关。初学不需要纠结选哪个——记住「按时间顺序判断什么是第一次」就足够。
 
-**辨析｜易错点：判断「首次」看的是时间顺序，不是物理位置。** 同一个状态在一次回合里先到后到是确定的，但两条不同回合的轨迹千差万别——「首次」永远是**针对某一回合**而言的。实现时最稳妥的做法是每个回合维护一个 `seen` 集合，遇到已见过的状态就跳过，下一节的控制算法我们正是这样写的。
+**辨析｜易错点：判断「首次」看的是时间顺序，不是物理位置。** 同一个状态在一次回合里先到后到是确定的，但两条不同回合的轨迹千差万别——「首次」永远是**针对某一回合**而言的。实现时最稳妥的做法是每个回合维护一个已访问（visited）集合，遇到已见过的状态就跳过，下一节的控制算法我们正是这样写的。
 
 ## 3 为什么要估动作价值：没有模型，贪心只能看动作
 
@@ -99,42 +99,28 @@ $$V(s) \leftarrow V(s) + \frac{1}{N(s)}\left( G - V(s) \right)$$
 
 ```python
 import random
-from collections import defaultdict
 
-def run_episode(policy, gamma=1.0):
-    """跑一个完整回合：返回 [(s, G_t)]，即每个状态对应的回报。"""
-    s = random.randint(1, 4)                 # 起点在内部态
-    traj = []                                # 存 (s, r)，r 为离开 s 那一步的奖励
-    while True:
-        a = policy(s)
-        s2 = s + (1 if a == "R" else -1)
-        traj.append((s, -1))
-        if s2 in (0, 5):
-            break
-        s = s2
-    returns = []
-    G = 0.0
-    for t in range(len(traj) - 1, -1, -1):   # 从后往前累积回报
-        G = traj[t][1] + gamma * G
-        returns.append((traj[t][0], G))
-    returns.reverse()
-    return returns
+V = {1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0}   # 价值估计，初始为 0
+N = {1: 0, 2: 0, 3: 0, 4: 0}           # 每个状态首次被访问的回合数
 
-def mc_first_visit(num_episodes, gamma=1.0):
-    policy = lambda s: random.choice(["L", "R"])
-    total, count = defaultdict(float), defaultdict(int)
-    for _ in range(num_episodes):
-        seen = set()
-        for s, G in run_episode(policy, gamma):
-            if s in seen:                    # 首次访问：本回合每个状态只计一次
-                continue
-            seen.add(s)
-            total[s] += G
-            count[s] += 1
-    return {s: total[s] / count[s] for s in total}
+for _ in range(100_000):               # 跑十万个回合
+    s = random.choice([1, 2, 3, 4])    # 回合从内部态出发
+    states = []                        # 记录本回合途经的状态
+    while s not in (0, 5):             # 直到命中终止态 0 或 5
+        states.append(s)
+        s += random.choice([-1, 1])    # 策略：每步等概率向左或向右
 
-V = mc_first_visit(100_000)
-print({s: round(V[s], 2) for s in sorted(V)})
+    G = 0                              # 从回合末尾往回累计回报
+    seen = set()
+    for s in reversed(states):         # 首次访问：每个状态每回合只记一次
+        G += -1                        # 每步奖励 -1
+        if s in seen:
+            continue
+        seen.add(s)
+        N[s] += 1
+        V[s] += (G - V[s]) / N[s]      # 增量式平均
+
+print({s: round(v, 2) for s, v in V.items()})
 ```
 
 运行一百万次（这里只跑了十万次）后，估计值收敛到 $\{1: -3.0,\ 2: -4.0,\ 3: -4.0,\ 4: -3.0\}$。这四个数字完全可以手算：从状态 $1$ 走到任意一端平均要 $3$ 步、每步扣 $1$ 分，所以价值是 $-3$；从状态 $2$ 平均要 $4$ 步，价值是 $-4$。**MC 不需要知道任何转移概率，它只是让随机游走发生许多次，然后数平均步数——这正是「用平均替期望」最朴素的样子。**<span class="marginnote">注意这段代码完全没有引用「策略是什么」之外的任何环境信息——没有 $p$，没有奖励表。MC 的价值估计完全由<strong>实际观测到的回报</strong>驱动，这是它与 DP 最本质的差别。</span>
@@ -143,8 +129,8 @@ print({s: round(V[s], 2) for s in sorted(V)})
 
 同是解决预测问题，MC 与 DP 有三处根本分歧，值得并排看清：
 
-- **有模型 vs 无模型**：DP 的更新式里有 $\sum_{s',r} p(s', r \mid s, a)[\cdot]$，它必须知道环境；MC 只依赖真实回合的回报，连奖励函数都不用显式写出。
-- **自举 vs 不自举**：DP 用「当前对 $v_\pi(s')$ 的旧估计」去更新 $v_\pi(s)$，这种「用自己更新自己」叫**自举（bootstrapping）**；MC 则等一个回合彻底结束，用**真实的完整回报**更新，中途不借用任何其它状态的估计。MC 因此没有「误差从估计传给估计」的传播问题，但代价是要等回合结束才能学习。<span class="marginnote">「自举 vs 不自举」是全书最重要的概念分水岭之一：DP 自举、MC 不自举、下一章 TD 自举——第六篇会专门讲这杆天平两端各自的代价。</span>
+**有模型 vs 无模型**：DP 的更新式里有 $\sum_{s',r} p(s', r \mid s, a)[\cdot]$，它必须知道环境；MC 只依赖真实回合的回报，连奖励函数都不用显式写出。
+**自举 vs 不自举**：DP 用「当前对 $v_\pi(s')$ 的旧估计」去更新 $v_\pi(s)$，这种「用自己更新自己」叫**自举（bootstrapping）**；MC 则等一个回合彻底结束，用**真实的完整回报**更新，中途不借用任何其它状态的估计。MC 因此没有「误差从估计传给估计」的传播问题，但代价是要等回合结束才能学习。<span class="marginnote">「自举 vs 不自举」是全书最重要的概念分水岭之一：DP 自举、MC 不自举、下一章 TD 自举——第六篇会专门讲这杆天平两端各自的代价。</span>
 - **回合式 vs 持续式**：MC 需要完整的回合，因此天然只适用于**回合式任务（episodic tasks）**；持续任务没有自然的终止点，MC 无法直接落地。第三篇讨论的「统一记号」与后续平均奖励设定，正是为持续任务准备的补丁。
 
 一句话收束：**MC 的估计是无偏的（平均真实回报），但方差大（回报被环境的随机性搅得七上八下）；DP 逐步迭代，收敛有确定性保证，却要求模型。** 下章 TD 正是想各取所长。

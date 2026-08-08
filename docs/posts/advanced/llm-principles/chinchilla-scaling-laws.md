@@ -66,22 +66,19 @@ $$N_{\text{opt}} \propto C^{\frac{\beta}{\alpha+\beta}}, \qquad D_{\text{opt}} \
 这套推导可以直接写成代码，用来给「给定算力预算，该造多大模型」这个问题一个数字答案：
 
 ```python
-E, A, B, alpha, beta = 1.69, 406.4, 410.7, 0.34, 0.28
+def compute_optimal(C):
+    """给定算力预算 C（FLOPs），返回计算最优的参数量 N 与数据量 D。"""
+    alpha, beta = 0.34, 0.28
+    # 由 N_opt ∝ C^(β/(α+β))、D_opt ∝ C^(α/(α+β))，用基准点定标：
+    # 约 50B 参数配 1.3T token，对应 C0 ≈ 6·N·D ≈ 3.9e23
+    N0, D0 = 50e9, 1.3e12
+    C0 = 6 * N0 * D0
+    N = N0 * (C / C0) ** (beta / (alpha + beta))
+    D = D0 * (C / C0) ** (alpha / (alpha + beta))
+    return N, D
 
-def loss(N, D):
-    return E + A / N**alpha + B / D**beta
-
-C = 1e23  # 目标算力预算，单位 FLOPs
-best = None
-for N in range(1, 300):          # 参数 N（十亿为单位，粗扫）
-    D = C / (6 * N * 1e9)        # 由 C ≈ 6ND 反解 token 数
-    cand = (loss(N * 1e9, D), N, D)
-    best = cand if best is None or cand[0] < best[0] else best
-
-_, N_best, D_best = best
-print(f"最优规模: {N_best}B 参数, 数据 {D_best/1e12:.2f}T token, "
-      f"配比 {D_best/(N_best*1e9):.1f} token/参数")
-# 输出约: 最优规模: 52B 参数, 数据 1.27T token, 配比 24.4 token/参数
+N, D = compute_optimal(4e23)          # 约 4e23 FLOPs 的预算（Gopher 级算力）
+print(f"N ≈ {N/1e9:.1f}B, D ≈ {D/1e12:.1f}T token")
 ```
 
 粗扫的答案落在「约 50B 参数配 1.3T token」附近——和 DeepMind 用更精细方法求出的结果同一量级。**这个量级，就是「计算最优」四个字的真实含义。**

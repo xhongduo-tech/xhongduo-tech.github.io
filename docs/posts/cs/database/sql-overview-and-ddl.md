@@ -18,19 +18,19 @@ date: 2026-08-07
 
 关系代数是干净的数学，但现实世界没有人在终端里敲 $\sigma$ 和 $\Pi$。这门真正的商业语言，就是 **SQL（Structured Query Language）**。前两节我们把关系代数打磨成了「底层语法图」，现在开始图与真实语言的对译——这一步要写好几篇。
 
-但先别急着写第一条 `SELECT`。这一节做两件事：**第一，给 SQL 画一张全貌图**——它不止「查询」，而是由数据定义、数据操纵、完整性、视图、事务、授权等好几块拼成的一门完整语言；**第二，吃透其中最先出场的 DDL（数据定义语言）**——用 `CREATE TABLE` 把「关系模式」这一路学来的抽象，落成一张真实存在、带约束的表。<span class="marginnote">塔嫩鲍姆调侃标准太多，SQL 就是活例子：SQL-86、SQL-92、SQL:1999、SQL:2003……各厂商还各有方言。好在核心语句三十年如一日，学通用内核，方言只是外围。</span>
+但先别急着写第一条查询。这一节做两件事：**第一，给 SQL 画一张全貌图**——它不止「查询」，而是由数据定义、数据操纵、完整性、视图、事务、授权等好几块拼成的一门完整语言；**第二，吃透其中最先出场的 DDL（数据定义语言）**——用 `CREATE TABLE` 把「关系模式」这一路学来的抽象，落成一张真实存在、带约束的表。<span class="marginnote">塔嫩鲍姆调侃标准太多，SQL 就是活例子：SQL-86、SQL-92、SQL:1999、SQL:2003……各厂商还各有方言。好在核心语句三十年如一日，学通用内核，方言只是外围。</span>
 
 ## 1 SQL 全貌：一门语言，五个部件
 
 **SQL**：由几部分子系统拼成的一门完整数据库语言。按功能划分：
 
-- **数据定义语言（DDL）**：定义关系模式、删除关系、修改模式。对应我们学的「关系模式 $R(A_1,\dots,A_n)$」。
-- **数据操纵语言（DML）**：查询与增删改。`SELECT`、`INSERT`、`UPDATE`、`DELETE`。
-- **完整性（integrity）**：定义约束，保证数据合法（主码、外码、`CHECK`）。
-- **视图定义（view definition）**：把查询存成「虚关系」。
-- **事务控制（transaction control）**：`COMMIT`、`ROLLBACK`，保证并发与故障下的正确性。
-- **嵌入式 / 动态 SQL**：把 SQL 嵌进 C、Java、Python 等宿主语言。
-- **授权（authorization）**：`GRANT`、`REVOKE`，控制谁能做什么。
+**数据定义语言（DDL）**：定义关系模式、删除关系、修改模式。对应我们学的「关系模式 $R(A_1,\dots,A_n)$」。
+**数据操纵语言（DML）**：查询与增删改。`SELECT`、`INSERT`、`UPDATE`、`DELETE`。
+**完整性（integrity）**：定义约束，保证数据合法（主码、外码、`CHECK`）。
+**视图定义（view definition）**：把查询存成「虚关系」。
+**事务控制（transaction control）**：`COMMIT`、`ROLLBACK`，保证并发与故障下的正确性。
+**嵌入式 / 动态 SQL**：把 SQL 嵌进 C、Java、Python 等宿主语言。
+**授权（authorization）**：`GRANT`、`REVOKE`，控制谁能做什么。
 
 **重点：SQL 是「关系语言」，不是纯声明式。** 它的查询部分是声明式的（你说要什么，系统决定怎么做），但 DDL、事务控制又带着命令式基因。上一节那张「要什么 vs 怎么做」的二分图，在 SQL 内部是**混合**存在的。
 
@@ -42,10 +42,11 @@ SQL 与纯关系模型还有一个根本差异：**SQL 的表基于多重集（b
 
 ```sql
 CREATE TABLE instructor (
-  ID        CHAR(5),
-  name      VARCHAR(20) NOT NULL,
+  ID        CHAR(5)      NOT NULL,
+  name      VARCHAR(20)  NOT NULL,
   dept_name VARCHAR(20),
-  salary    DECIMAL(8,2)
+  salary    NUMERIC(8, 2),
+  PRIMARY KEY (ID)
 );
 ```
 
@@ -55,14 +56,14 @@ CREATE TABLE instructor (
 | --- | --- | --- |
 | `CHAR(n)` | 定长字符串 | 不足 n 补空格 |
 | `VARCHAR(n)` | 变长字符串 | 最多 n 字符 |
-| `INT` / `SMALLINT` | 整数 | `INT` 通常 32 位 |
-| `NUMERIC(p,d)` | 定点数 | p 位精度，d 位小数，如 `NUMERIC(8,2)` |
+| `SMALLINT` / `INTEGER` | 整数 | `INTEGER` 通常 32 位 |
+| `NUMERIC(p, d)` | 定点数 | p 位精度，d 位小数，如 `NUMERIC(8, 2)` |
 | `REAL` / `DOUBLE PRECISION` | 浮点数 | 近似，慎用于金额 |
 | `FLOAT(n)` | 浮点数 | 精度至少 n 位 |
 | `DATE` / `TIME` / `TIMESTAMP` | 日期时间 | `DATE` 含年月日 |
 | `INTERVAL` | 时间段 | 可与日期做加减 |
 
-**辨析｜易错点：金额用 `NUMERIC`，不用 `REAL`。** 浮点数是近似值，`0.1 + 0.2` 在二进制里不精确；账目必须用定点数 `NUMERIC(p,d)`，这是金融系统的铁律。<span class="marginnote">`VARCHAR(n)` 只存实际长度，`CHAR(n)` 固定占 n 字符，查询时还要去掉尾随空格——「定长 vs 变长」的选择是数据库面试的经典送分题，也是第9章《存储与文件组织》的伏笔。</span>
+**辨析｜易错点：金额用 `NUMERIC`，不用 `REAL`/`FLOAT`。** 浮点数是近似值，`0.1` 在二进制里不精确；账目必须用定点数 `NUMERIC`，这是金融系统的铁律。<span class="marginnote">`VARCHAR` 只存实际长度，`CHAR` 固定占 n 字符，查询时还要去掉尾随空格——「定长 vs 变长」的选择是数据库面试的经典送分题，也是第9章《存储与文件组织》的伏笔。</span>
 
 ## 3 完整性约束：建表时把规则写死
 
@@ -74,10 +75,8 @@ CREATE TABLE instructor (
 
 ```sql
 CREATE TABLE instructor (
-  ID        CHAR(5)      PRIMARY KEY,
-  name      VARCHAR(20)  NOT NULL,
-  dept_name VARCHAR(20),
-  salary    DECIMAL(8,2)
+  ID   CHAR(5) PRIMARY KEY,
+  name VARCHAR(20)
 );
 ```
 
@@ -90,7 +89,7 @@ CREATE TABLE teaches (
   ID        CHAR(5),
   course_id VARCHAR(8),
   PRIMARY KEY (ID, course_id),
-  FOREIGN KEY (ID) REFERENCES instructor (ID)
+  FOREIGN KEY (ID) REFERENCES instructor
 );
 ```
 
@@ -99,35 +98,38 @@ CREATE TABLE teaches (
 **CHECK**：对值域加自定义条件：
 
 ```sql
-salary DECIMAL(8,2) CHECK (salary > 0)
+CREATE TABLE instructor (
+  ID     CHAR(5),
+  salary NUMERIC(8, 2),
+  CHECK (salary >= 0)
+);
 ```
 
-**辨析｜易错点：外码列被引用方被删除怎么办？** 若 `instructor` 里某教师被删，而 `teaches` 还引用它，数据库必须有个交代：默认行为是**拒绝删除**（RESTRICT）；也可以声明 `ON DELETE CASCADE`（级联删除该教师的所有 `teaches` 记录）或 `ON DELETE SET NULL`（把引用置空）。三种行为对应三种业务语义，选错会在运行期暴露。
+**辨析｜易错点：外码列被引用方被删除怎么办？** 若 `instructor` 里某教师被删，而 `teaches` 还引用它，数据库必须有个交代：默认行为是**拒绝删除**（RESTRICT）；也可以声明 `CASCADE`（级联删除该教师的所有 `teaches` 记录）或 `SET NULL`（把引用置空）。三种行为对应三种业务语义，选错会在运行期暴露。
 
 ## 4 修改模式：DROP 与 ALTER
 
-**删除关系**：`DROP TABLE <表名>`。默认行为是**拒绝**在还有引用时删除（RESTRICT），声明 `CASCADE` 则连带删除所有引用它的对象。
+**删除关系**：`DROP TABLE R`。默认行为是**拒绝**在还有引用时删除（RESTRICT），声明 `CASCADE` 则连带删除所有引用它的对象。
 
 **修改模式**：
 
 ```sql
-ALTER TABLE instructor ADD phone VARCHAR(15);
-ALTER TABLE instructor DROP phone;
+ALTER TABLE instructor ADD COLUMN phone VARCHAR(15);
 ```
 
-`ALTER TABLE ... ADD / DROP` 增减列。注意 `DROP` 一列可能违反已有数据——若该列是外码或被其他约束引用，数据库会报错。
+`ALTER TABLE` 增减列。注意**删除**一列可能违反已有数据——若该列是外码或被其他约束引用，数据库会报错。
 
-**辨析｜易错点：`DROP TABLE` 与 `DELETE FROM` 完全不同。** 前者删除**整个表的结构与数据**（schema 没了），后者只删**数据行**（结构还在）。「把表删了」和「把表清空」是两个量级的操作，误用 `DROP TABLE` 无法通过事务回滚。<span class="marginnote">MySQL 里这句口诀传得很广：「`DROP` 是连房子一起拆，`DELETE` 是只扔家具。」后面第15章《恢复系统》会看到，日志能恢复 `DELETE`，却很难恢复 `DROP`。</span>
+**辨析｜易错点：`DROP TABLE` 与 `DELETE FROM` 完全不同。** 前者删除**整个表的结构与数据**（schema 没了），后者只删**数据行**（结构还在）。「把表删了」和「把表清空」是两个量级的操作，误用 `DROP TABLE` 无法通过事务回滚。<span class="marginnote">MySQL 里这句口诀传得很广：「`DROP TABLE` 是连房子一起拆，`DELETE FROM` 是只扔家具。」后面第15章《恢复系统》会看到，日志能恢复 `DELETE`，却很难恢复 `DROP TABLE`。</span>
 
 ## 5 索引的创建
 
 `CREATE INDEX` 不属于标准 SQL 核心，但被所有主流数据库支持，因为它直接决定查询速度：
 
 ```sql
-CREATE INDEX idx_instructor_dept ON instructor (dept_name);
+CREATE INDEX idx_salary ON instructor (salary);
 ```
 
-在 `dept_name` 上建索引后，`WHERE dept_name = 'CS'` 不用扫描整张表，而是走索引（通常是 B+ 树）直达目标。**辨析｜易错点：索引是「读写权衡」——加速查询，拖慢写入**，因为每次 `INSERT` / `UPDATE` 都要同步维护索引结构。索引不是建得越多越好，第10章《索引与哈希》会专门研究它的结构与代价。
+在 `salary` 上建索引后，查询不用扫描整张表，而是走索引（通常是 B+ 树）直达目标。**辨析｜易错点：索引是「读写权衡」——加速查询，拖慢写入**，因为每次 `INSERT` / `UPDATE` 都要同步维护索引结构。索引不是建得越多越好，第10章《索引与哈希》会专门研究它的结构与代价。
 
 ## 6 公式解析：把关系模式翻译成 CREATE TABLE
 
@@ -138,18 +140,18 @@ $$R(A_1, A_2, \dots, A_n), \qquad K = \text{主码}, \qquad F = \{(B_1 \to S_1),
 翻译分四步：
 
 - **第一步，写表头**：`CREATE TABLE R (`，把模式名变成表名。
-- **第二步，逐属性翻译**：每个属性 $A_i$ 写 `名称 域 [约束]`，域来自第2节的类型表，约束来自第3节。原子性规则在此落成「一列一种类型」。
+- **第二步，逐属性翻译**：每个属性 $A_i$ 写 `A_i 类型 [约束]`，域来自第2节的类型表，约束来自第3节。原子性规则在此落成「一列一种类型」。
 - **第三步，翻译码**：主码 $K$ 写 `PRIMARY KEY (K)`；每个外码 $B_j \to S_j$ 写 `FOREIGN KEY (B_j) REFERENCES S_j`。
-- **第四步，收尾**：`);` 结束，数据库随后为该表建立存储、系统目录条目与默认索引。
+- **第四步，收尾**：以右括号与分号 `);` 结束，数据库随后为该表建立存储、系统目录条目与默认索引。
 
-把 `instructor` 完整写出来对照：
+把这条映射的完整结果写出来对照：
 
 ```sql
 CREATE TABLE instructor (
-  ID        CHAR(5),
-  name      VARCHAR(20) NOT NULL,
+  ID        CHAR(5)       NOT NULL,
+  name      VARCHAR(20)   NOT NULL,
   dept_name VARCHAR(20),
-  salary    DECIMAL(8,2),
+  salary    NUMERIC(8, 2),
   PRIMARY KEY (ID),
   FOREIGN KEY (dept_name) REFERENCES department
 );
@@ -161,9 +163,9 @@ CREATE TABLE instructor (
 
 - SQL 由 DDL、DML、完整性、视图、事务、授权等部件组成；查询部分是声明式的，但整体是**混合范式**。
 - SQL 基于**多重集**语义（允许重复行），与关系代数的集合语义不同。
-- DDL 用 `CREATE TABLE` 定义模式：基本域（`CHAR/VARCHAR/NUMERIC/DATE/...`）+ 约束（`NOT NULL`、`PRIMARY KEY`、`FOREIGN KEY`、`CHECK`）。
+- DDL 用 `CREATE TABLE` 定义模式：基本域（`CHAR`/`VARCHAR`/`INT`）+ 约束（`NOT NULL`、`PRIMARY KEY`、`FOREIGN KEY`、`CHECK`）。
 - 外码约束是**引用完整性**的执行者；被引用行删除时的默认行为是拒绝，`CASCADE`/`SET NULL` 是备选。
-- `DROP TABLE` 删结构，`DELETE` 删数据；`ALTER TABLE` 修改模式；`CREATE INDEX` 以写换读。
+- `DROP TABLE` 删结构，`DELETE FROM` 删数据；`ALTER TABLE` 修改模式；`CREATE INDEX` 以写换读。
 - 关系模式 $\to$ CREATE TABLE 的四步翻译，是 DDL 的浓缩公式。
 
 在下一节，我们终于开始查询：**单关系查询的 SELECT 基本结构**——三条子句如何从一张表里「投影 + 选择」出你要的答案，以及 SQL 与关系代数在那里出现的第一次分歧。

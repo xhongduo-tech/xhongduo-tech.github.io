@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么「读写次序」要单独立法
 
-[[cache-coherence-snooping]] 解决「单个地址的写是否传播、是否串行化」。但并行程序还需要知道**跨地址**的次序：`P1` 先写 `A` 再写 `flag`，`P2` 看到 `flag` 变了，能保证看到 `A` 也变了吗？——这个问题一致性（coherence）回答不了，要由**一致性模型（consistency model）**来定义。<span class="marginnote">教科书式比喻：<strong>coherence 管「一个变量的账目」，consistency 管「多个变量的先后</strong>」。顺序一致性（SC）是最直觉、也最贵的那个模型——理解它，才理解现代处理器为什么「乱序」。</span>
+[[cache-coherence-snooping]] 解决「单个地址的写是否传播、是否串行化」。但并行程序还需要知道**跨地址**的次序：处理器 **P1** 先写 **A** 再写 **flag**，处理器 **P2** 看到 **flag** 变了，能保证看到 **A** 也变了吗？——这个问题一致性（coherence）回答不了，要由**一致性模型（consistency model）**来定义。<span class="marginnote">教科书式比喻：<strong>coherence 管「一个变量的账目」，consistency 管「多个变量的先后</strong>」。顺序一致性（SC）是最直觉、也最贵的那个模型——理解它，才理解现代处理器为什么「乱序」。</span>
 
 ## 1 顺序一致性（SC）的定义
 
@@ -29,17 +29,15 @@ date: 2026-08-07
 
 ## 2 一个经典例子：flag 同步
 
-```
-P1:  A = 1;
-     flag = 1;          // 通知 P2：A 已经写好了
-
-P2:  while (flag == 0); // 等 flag
-     print(A);          // 期望打印 1
+```c
+/* 处理器 P1 */                    /* 处理器 P2 */
+A = 1;                          while (flag == 0);  /* 自旋等待 flag */
+flag = 1;                       print(A);           /* SC 下必输出 1 */
 ```
 
-**SC 下**：P2 的 `while` 循环看到 `flag=1` 时，`A=1` 的写必然已经完成（因为 P1 的程序序是 A 先、flag 后，全局顺序保持程序序）——**print 一定输出 1**。
+**SC 下**：P2 的**自旋**循环看到 **flag** 时，**A** 的写必然已经完成（因为 P1 的程序序是 A 先、flag 后，全局顺序保持程序序）——**print 一定输出 1**。
 
-**弱模型下**：P1 的两条写可能被硬件重排（store buffer、乱序执行、编译器优化），P2 看到 `flag=1` 时 `A` 可能还是旧值——**print 可能输出 0**。这就是为什么 SC 这么重要：它是程序员「显然正确」直觉的模型化。<span class="marginnote">真实世界残酷：<strong>现代 CPU 与编译器都默认重排</strong>，所以这段朴素代码在 x86 上也未必可靠——要靠栅栏/原子指令的 release 语义。这正是 [[synchronization-primitives]] 的 acquire/release 存在的原因。</span>
+**弱模型下**：P1 的两条写可能被硬件重排（store buffer、乱序执行、编译器优化），P2 看到 **flag** 时 **A** 可能还是旧值——**print 可能输出 0**。这就是为什么 SC 这么重要：它是程序员「显然正确」直觉的模型化。<span class="marginnote">真实世界残酷：<strong>现代 CPU 与编译器都默认重排</strong>，所以这段朴素代码在 x86 上也未必可靠——要靠栅栏/原子指令的 release 语义。这正是 [[synchronization-primitives]] 的 acquire/release 存在的原因。</span>
 
 ## 3 为什么 SC 很难做快
 
@@ -79,7 +77,7 @@ SC 要求「所有操作有全局顺序」——这恰好是高性能硬件的�
 
 - **一致性模型**定义「跨地址的读写次序」；coherence 只管单地址，consistency 管全局。
 - **SC**：存在全局顺序、每处理器保持程序序——最直觉也最贵。
-- `flag` 同步例子是 SC 的试金石：SC 下 `print(A)` 必得 1，弱模型下可能得 0。
+- **flag 同步**例子是 SC 的试金石：SC 下 **print** 必得 1，弱模型下可能得 0。
 - **SC 慢**因为与乱序、写缓冲、缓存、编译器重排全部冲突。
 - **DRF 模型**是折中：无竞争程序像 SC，有竞争未定义——现代 CPU 的现实契约。
 

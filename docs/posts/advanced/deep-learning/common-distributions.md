@@ -70,12 +70,13 @@ $$
 ```python
 import numpy as np
 
-rng = np.random.default_rng(0)
-x_bern = rng.binomial(1, p=0.3, size=100_000)       # 伯努利：10 万次
-print(x_bern.mean(), x_bern.var())                   # ≈ 0.3, 0.21（= p(1-p)）
+# 伯努利：p=0.3，采样 10000 次
+x = np.random.binomial(1, 0.3, size=10000)
+print(x.mean(), x.var())          # 经验均值≈0.30，经验方差≈0.21=p(1-p)
 
-x_gauss = rng.normal(loc=1.0, scale=2.0, size=100_000)  # 高斯 N(1, 4)
-print(x_gauss.mean(), x_gauss.std())                 # ≈ 1.0, 2.0
+# 高斯：μ=0, σ=1，采样 10000 次
+y = np.random.normal(0.0, 1.0, size=10000)
+print(y.mean(), y.std())          # 样本均值≈0.00，样本标准差≈1.00
 ```
 
 经验均值逼近 $p$、经验方差逼近 $p(1-p)$、样本均值与标准差逼近 $\mu$ 与 $\sigma$——这是**大数定律**在为这两条公式作见证，也是「从分布里采样、再用样本反推分布参数」这套流程（最大似然的雏形）的第一幕。

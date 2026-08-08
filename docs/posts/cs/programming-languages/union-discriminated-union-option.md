@@ -16,20 +16,21 @@ date: 2026-08-07
 
 ## 为什么从联合类型开始
 
-记录与数组把数据「加」在一起：一个值同时拥有多个成分。但现实还有另一种结构：「一个值可能是 A，也可能是 B」——一张牌是红桃或黑桃，一次查找成功或失败，一个网络响应是数据或错误。描述「或」关系的类型，正是**联合类型（union type）**及其现代升级版**判别联合（discriminated/tagged union）**。它看似简单，却是类型系统「安全边界」的真正试金石：一个裸联合可能带来无数类型错误，而加上一个「判别标签」就进化成代数数据类型（ADT）——Rust 的 `enum`、Haskell 的 `data`、TypeScript 的判别联合都建立其上。<span class="marginnote">「积（product）与和（sum）」是类型的两种组合方式：记录是积（字段相乘），联合是和（变体相加）。代数数据类型之名正源于此——类型就像多项式，`(A+B)*C` 与 `A*C + B*C` 结构等价。</span>
+记录与数组把数据「加」在一起：一个值同时拥有多个成分。但现实还有另一种结构：「一个值可能是 A，也可能是 B」——一张牌是红桃或黑桃，一次查找成功或失败，一个网络响应是数据或错误。描述「或」关系的类型，正是**联合类型（union type）**及其现代升级版**判别联合（discriminated/tagged union）**。它看似简单，却是类型系统「安全边界」的真正试金石：一个裸联合可能带来无数类型错误，而加上一个「判别标签」就进化成代数数据类型（ADT）——Rust 的 `enum`、Haskell 的 `data`、TypeScript 的判别联合都建立其上。<span class="marginnote">「积（product）与和（sum）」是类型的两种组合方式：记录是积（字段相乘），联合是和（变体相加）。代数数据类型之名正源于此——类型就像多项式，`A × (B + C)` 与 `A × B + A × C` 结构等价。</span>
 
 ## 1 裸联合：自由但危险
 
 **联合类型（union type）**：一个类型的值可以是若干类型之一。C 的 `union` 是最原始的形态：
 
 ```c
-union number { int i; float f; };
-union number n;
-n.i = 3;      /* 写入 int */
-n.f = 3.14;   /* 覆盖为 float，原 int 丢失 */
+union Number {
+    int   i;
+    float f;
+    char  c;
+};
 ```
 
-`union number` 的存储只分配**最大成员**的大小，同一块内存按不同成员解释。<span class="marginnote">C 的 `union` 没有「现在装的是哪个成员」的记录——读写双方必须约定好当前类型，否则把 `int` 位模式当 `float` 读，得到的是垃圾。这种「裸联合」把类型安全完全交给程序员。</span>
+`union` 的存储只分配**最大成员**的大小，同一块内存按不同成员解释。<span class="marginnote">C 的 `union` 没有「现在装的是哪个成员」的记录——读写双方必须约定好当前类型，否则把 `int` 位模式当 `float` 读，得到的是垃圾。这种「裸联合」把类型安全完全交给程序员。</span>
 
 **漏洞**：裸联合不记录当前变体，读取时无法自检。这既是 C 里大量未定义行为的来源，也是为什么安全语言几乎都抛弃了裸联合。
 
@@ -40,10 +41,10 @@ n.f = 3.14;   /* 覆盖为 float，原 int 丢失 */
 Rust 的 `enum` 是判别联合的现代形态：
 
 ```rust
-enum Shape {
-    Circle(f64),          // 半径
-    Rect { w: f64, h: f64 },
-    Point,
+enum Card {
+    Heart,           // 无数据的变体
+    Number(u8),      // 携带数值的变体
+    Joker(String),   // 携带字符串的变体
 }
 ```
 
@@ -58,11 +59,14 @@ $$
 $$
 
 ```rust
-let x: Option<i32> = Some(42);
-let y: Option<i32> = None;
-match x {
-    Some(v) => println!("got {v}"),
-    None    => println!("nothing"),
+enum Option<T> {
+    Some(T),   // 有值
+    None,      // 没有值
+}
+
+match opt {
+    Some(v) => println!("有值: {}", v),
+    None    => println!("没有值"),
 }
 ```
 
@@ -88,11 +92,11 @@ $$
 - **第二步，读「恰好一个」**：$\exists!$ 表示任意一个值**唯一**地属于某一个变体——判别标签精确定位它属于哪块，不存在「同时属于两块」。
 - **第三步，读「穷尽」**：匹配必须覆盖全部 $i$。编译器检查你的 `match` 是否遗漏变体，遗漏则不通过——**穷尽性检查**把「漏了分支」从运行时错误变成编译期错误，这是判别联合最大的安全红利。
 
-**辨析｜易错点：** 判别联合与**裸联合**的区别在标签。C 的 `union` 没有标签；Rust `enum`、Haskell `data`、Ada `variant record` 都有。**TypeScript 的联合 `A | B`** 处于中间态：没有运行时标签，靠类型判断（`typeof`/`in` 收窄）区分——它叫「可辨识联合」当且仅当你手动加上判别字段（如 `type: "circle"`）。
+**辨析｜易错点：** 判别联合与**裸联合**的区别在标签。C 的 `union` 没有标签；Rust `enum`、Haskell `data`、Ada `variant record` 都有。**TypeScript 的联合类型** 处于中间态：没有运行时标签，靠类型判断（`typeof`/`in` 收窄）区分——它叫「可辨识联合」当且仅当你手动加上判别字段（如 `kind`）。
 
 ## 5 从联合到语言设计
 
-- **错误处理**：`Option` 与 `Result<T, E>`（成功或失败，带错误类型）都建立在判别联合上——这是现代语言抛弃「异常」的替代路线（Rust、Go 的多返回值、Kotlin 的 `Result`）。<span class="marginnote">`Result` 是 `Option` 的推广：`Option` 只能表达「有/没有」，`Result<T, E>` 还能携带「为什么失败」的错误值。异常、错误码、`Result`——三种错误模型的取舍是第十七篇的主线之一。</span>
+- **错误处理**：`Result` 与 `Either`（成功或失败，带错误类型）都建立在判别联合上——这是现代语言抛弃「异常」的替代路线（Rust、Go 的多返回值、Kotlin 的 `Result`）。<span class="marginnote">`Either` 是 `Option` 的推广：`Option` 只能表达「有/没有」，`Either` 还能携带「为什么失败」的错误值。异常、错误码、`Result`——三种错误模型的取舍是第十七篇的主线之一。</span>
 - **可空性**：Kotlin 的 `String?`、Swift 的 `Optional` 是「可空引用」的糖衣版 Option；TypeScript 的 `strictNullChecks` 类似。
 - **域建模**：判别联合让「不可能的状态无法表示」——例如「已支付订单」与「已发货订单」用两个变体表达，就杜绝了「已发货却未支付」的非法组合。这是函数式建模的核心优势。
 

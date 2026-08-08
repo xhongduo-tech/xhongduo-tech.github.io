@@ -80,22 +80,33 @@ $$
 
 ```python
 import cv2
+import numpy as np
 
-# 构建高斯金字塔：逐级 pyrDown（5 点高斯卷积 + 隔行抽样）
-gp = [img]
-for _ in range(4):
-    gp.append(cv2.pyrDown(gp[-1]))
+def gauss_pyramid(img, levels=5):
+    g = img.copy()
+    pyr = [g]
+    for _ in range(levels - 1):
+        g = cv2.pyrDown(g)          # REDUCE：高斯平滑 + 隔行抽样
+        pyr.append(g)
+    return pyr
 
-# 构建拉普拉斯金字塔：L_k = G_k - EXPAND(G_{k+1})
-lp = [gp[i] - cv2.pyrUp(gp[i + 1]) for i in range(4)]
+def laplacian_pyramid(img, levels=5):
+    gp = gauss_pyramid(img, levels)
+    lp = [gp[-1]]                    # 顶层直接存 G_n
+    for i in range(levels - 1, 0, -1):
+        expand = cv2.pyrUp(gp[i])    # EXPAND：插零 + 放大核补值
+        lp.append(cv2.subtract(gp[i - 1], expand))
+    return lp
 
-# 重建：从顶层开始逐级 EXPAND + 加残差
-recon = gp[-1]
-for l in reversed(lp):
-    recon = cv2.pyrUp(recon) + l
+img = cv2.imread('photo.jpg')
+lp = laplacian_pyramid(img, 5)
+reconstructed = lp[0]
+for layer in lp[1:]:
+    reconstructed = cv2.add(cv2.pyrUp(reconstructed), layer)
+print(np.max(np.abs(reconstructed.astype(np.float32) - img.astype(np.float32))))  # ≈ 0
 ```
 
-`cv2.pyrDown` 内部用的正是归一化的 5 点高斯核 $[1,4,6,4,1]/16$，`cv2.pyrUp` 先插零再用放大核补值——两者直接对应公式里的 REDUCE 与 EXPAND。重建出的 `recon` 与原始 `img` 几乎逐点相等，这就是「拉普拉斯金字塔可无损重建」的实证。
+`cv2.pyrDown` 内部用的正是归一化的 5 点高斯核 $[1,4,6,4,1]/16$，`cv2.pyrUp` 先插零再用放大核补值——两者直接对应公式里的 REDUCE 与 EXPAND。重建出的 `reconstructed` 与原始 `img` 几乎逐点相等，这就是「拉普拉斯金字塔可无损重建」的实证。
 
 ### 多尺度特征与模板匹配
 

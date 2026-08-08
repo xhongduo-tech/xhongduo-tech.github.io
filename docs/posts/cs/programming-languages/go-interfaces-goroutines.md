@@ -22,15 +22,18 @@ date: 2026-08-07
 
 Go 的类型系统刻意简化：
 
-- **无继承**：没有类继承、没有虚方法——用「组合 + 接口」替代。
-- **结构化类型（structural typing）**：接口的满足靠「形状」（结构）而非「声明」（名义）。
-- **值语义为主**：struct 是值类型，赋值即拷贝；`map`、`slice`、`channel` 是引用（内部指针）。
+**无继承**：没有类继承、没有虚方法——用「组合 + 接口」替代。
+**结构化类型（structural typing）**：接口的满足靠「形状」（结构）而非「声明」（名义）。
+**值语义为主**：struct 是值类型，赋值即拷贝；`map`、`slice`、`channel` 是引用（内部指针）。
 
 ```go
-type Point struct { X, Y int }   // 结构体（值类型）
+type Point struct {
+    X, Y int
+}
+
 p1 := Point{1, 2}
-p2 := p1        // 拷贝（值语义）
-p2.X = 99       // p1 不变
+p2 := p1          // 值拷贝：p2 是独立的一份
+p2.X = 100        // 改 p2 不影响 p1
 ```
 
 **辨析｜易错点：** Go 的 `struct` 是值、`slice`/`map` 是引用——传 `struct` 拷贝、传 `slice` 共享底层数组。**「Go 的传值/传引用混在类型上」**——这是新手最常踩的坑：函数改 `map` 影响外部（引用），改 `struct` 参数不影响（拷贝，除非传指针）。
@@ -40,29 +43,27 @@ p2.X = 99       // p1 不变
 **Go 的接口（interface）**：一组方法签名的集合。类型**隐式**实现接口——**只要方法匹配就算实现，无需显式声明**：
 
 ```go
-type Speaker interface {
-    Speak() string
+type Greeter interface {
+    Greet() string
 }
 
-type Dog struct{}
-func (Dog) Speak() string { return "Woof" }   // Dog 隐式满足 Speaker
+type Dog struct{ name string }
 
-func greet(s Speaker) { fmt.Println(s.Speak()) }
-greet(Dog{})   // Dog 自动是 Speaker——结构化匹配
+func (d Dog) Greet() string { return "Woof! I'm " + d.name }
+// Dog 无需写 implements Greeter——方法集匹配即满足接口
 ```
 
-这是「鸭子类型」的静态版本：**「如果它走起来像鸭子、叫起来像鸭子，它就是鸭子」**——在编译期检查「方法形状」而非「声明关系」。<span class="marginnote">Go 的结构化接口是「静态语言的 duck typing」：`Dog` 不需要 `implements Speaker`——只要方法集匹配就满足。这打破 Java 的「名义类型」（`implements` 显式声明）——「接口与实现解耦到极致」：写库时无需预见未来会被哪些接口使用。「小接口 + 隐式实现」是 Go 组合风格的基石。</span>
+这是「鸭子类型」的静态版本：**「如果它走起来像鸭子、叫起来像鸭子，它就是鸭子」**——在编译期检查「方法形状」而非「声明关系」。<span class="marginnote">Go 的结构化接口是「静态语言的 duck typing」：`struct` 不需要 `implements` 声明——只要方法集匹配就满足。这打破 Java 的「名义类型」（`implements` 显式声明）——「接口与实现解耦到极致」：写库时无需预见未来会被哪些接口使用。「小接口 + 隐式实现」是 Go 组合风格的基石。</span>
 
 ## 3 goroutine：轻量并发
 
 **goroutine**：Go 的并发单元——一个极轻的「协程」（栈初始 2KB，动态增长），由 Go 运行时调度：
 
 ```go
-go func() {       // 启动 goroutine
-    doWork()
+go worker()          // 启动一个 goroutine，立即返回
+go func() {          // 匿名函数也能并发执行
+    fmt.Println("hello from goroutine")
 }()
-
-go handleRequest(r)   // 每个请求一个 goroutine
 ```
 
 goroutine 与线程的对比：
@@ -81,10 +82,19 @@ goroutine 与线程的对比：
 **channel**：goroutine 间的通信管道——`make(chan T)` 创建，`<-` 收发。它的核心价值：**「不要通过共享内存通信，要通过通信共享内存」**（前面 CSP 已详讲）：
 
 ```go
-func worker(id int, jobs <-chan int, results chan<- int) {
-    for j := range jobs {     // 从 channel 取任务
-        results <- j * 2      // 结果送回 channel
+jobs := make(chan Job)   // 创建无缓冲 channel
+
+// 生产者 goroutine：往队列发任务
+go func() {
+    for _, job := range tasks {
+        jobs <- job      // 发送
     }
+    close(jobs)          // 关闭，表示没有更多任务
+}()
+
+// worker：从队列收任务
+for job := range jobs {  // 接收
+    handle(job)
 }
 ```
 
@@ -97,7 +107,7 @@ $$
 三步拆解：
 
 - **第一步，channel 即队列**：`jobs` channel 是任务队列——生产者往里发、worker 从里取。
-- **第二步，goroutine 并行**：多个 `go worker(...)` 同时从 `jobs` 取任务——channel 保证每个任务恰好被一个 worker 处理。
+- **第二步，goroutine 并行**：多个 `worker` goroutine 同时从 `jobs` 取任务——channel 保证每个任务恰好被一个 worker 处理。
 - **第三步，通信即同步**：channel 收发自带同步（无缓冲时握手）——**「任务分发 + 结果收集」不需要任何锁**。「go + chan」两个原语组合出完整的并发管线——这是 Go 并发哲学的精髓。
 
 **辨析｜易错点：** Go 的并发正确性**不在语言强制**（不像 Rust 的 Send/Sync）——goroutine 之间若共享数据（全局变量、指针），仍需互斥锁（`sync.Mutex`）。**「Go 鼓励 channel 通信，但不禁止共享」**——「少共享」是 Go 的风格建议，不是类型保证。「Rust 强制无竞态，Go 依赖纪律」——两者的并发哲学分野在此。

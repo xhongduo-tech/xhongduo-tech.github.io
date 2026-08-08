@@ -99,29 +99,26 @@ UCB 在老虎机里通常碾压 ε-贪心：它把「探索多少」从一个拍
 把上面所有思想合成一段可运行的 Python。UCB 的核心就两行：维护计数 $N$ 与均值 $Q$，选择时按上界打分：
 
 ```python
-import numpy as np
-
-class UCBBandit:
+class UCB:
     def __init__(self, k, c=2.0):
         self.k = k
-        self.c = c
-        self.Q = np.zeros(k)      # 价值估计（样本平均）
-        self.N = np.zeros(k)      # 每个动作被选的次数
-        self.t = 0
+        self.c = c                # 探索系数：置 0 退化为纯贪心
+        self.Q = [0.0] * k        # 每个动作的平均奖励估计
+        self.N = [0] * k          # 每个动作被选择的次数
+        self.t = 0                # 总步数
 
-    def choose(self):
+    def select(self):
         self.t += 1
-        if (self.N == 0).any():            # 未探索的动作优先，保证都被试一遍
-            return int(np.argmin(self.N))
-        bonus = self.c * np.sqrt(np.log(self.t) / self.N)   # 不确定性红利
-        return int(np.argmax(self.Q + bonus))
+        ucb = [q + self.c * (np.log(self.t) / (n + 1e-9)) ** 0.5
+               for q, n in zip(self.Q, self.N)]
+        return argmax(ucb)        # 按「估计值 + 不确定性红利」选动作
 
     def update(self, a, r):
         self.N[a] += 1
-        self.Q[a] += (r - self.Q[a]) / self.N[a]            # 样本平均增量更新
+        self.Q[a] += (r - self.Q[a]) / self.N[a]   # 样本平均（α = 1/N）
 ```
 
-与上一节的 ε-贪心类对照着看：`choose` 里那行 `bonus` 就是「不确定性红利」，它取代了「随机乱试」；把 `c` 设成 0，UCB 退化成纯贪心。**这个类几乎可以直接平移到第八篇的蒙特卡洛树搜索里——那里用的 UCB 只是把「动作计数」换成了「节点访问计数」。**<span class="marginnote">注意这里用的是样本平均（$\alpha = 1/N$）而非常数步长——与 ε-贪心不同，UCB 的经典形式假定平稳问题，用递减步长换取「最终精确收敛」。</span>
+与上一节的 ε-贪心类对照着看：**UCB 类**里那行上界公式 $Q_t(a) + c\sqrt{\ln t / N_t(a)}$ 就是「不确定性红利」，它取代了「随机乱试」；把 **$c$** 设成 0，UCB 退化成纯贪心。**这个类几乎可以直接平移到第八篇的蒙特卡洛树搜索里——那里用的 UCB 只是把「动作计数」换成了「节点访问计数」。**<span class="marginnote">注意这里用的是样本平均（$\alpha = 1/N$）而非常数步长——与 ε-贪心不同，UCB 的经典形式假定平稳问题，用递减步长换取「最终精确收敛」。</span>
 
 ## 5 小结
 

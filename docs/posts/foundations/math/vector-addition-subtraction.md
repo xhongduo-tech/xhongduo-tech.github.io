@@ -86,9 +86,9 @@ $$
 
 在 $\triangle ABC$ 中，$D$ 为 $BC$ 的中点，用 $\overrightarrow{AB}=\vec a$、$\overrightarrow{AC}=\vec b$ 表示 $\overrightarrow{AD}$。
 
-- **第一步，首尾相接**：$\overrightarrow{AD}=\overrightarrow{AB}+\overrightarrow{BD}$。
-- **第二步，用中点条件**：$\overrightarrow{BD}=\frac12\overrightarrow{BC}=\frac12(\vec b-\vec a)$。
-- **第三步，合并**：$\overrightarrow{AD}=\vec a+\frac12(\vec b-\vec a)=\frac12\vec a+\frac12\vec b=\frac12(\vec a+\vec b)$——中线向量等于两边向量和的二分之一。
+**第一步，首尾相接**：$\overrightarrow{AD}=\overrightarrow{AB}+\overrightarrow{BD}$。
+**第二步，用中点条件**：$\overrightarrow{BD}=\frac12\overrightarrow{BC}=\frac12(\vec b-\vec a)$。
+**第三步，合并**：$\overrightarrow{AD}=\vec a+\frac12(\vec b-\vec a)=\frac12\vec a+\frac12\vec b=\frac12(\vec a+\vec b)$——中线向量等于两边向量和的二分之一。
 
 <span class="marginnote">「首尾相接 + 中点条件」是向量表示线段的万能法：<strong>从起点出发，沿已知路线走到终点，每段用已知向量表示</strong>。$\overrightarrow{BD}=\frac12\overrightarrow{BC}$ 是中点条件的向量语言。这条「中线向量 = 两边向量和的一半」的结论，与「平行四边形对角线交点」的向量表示一脉相承，是向量法的基本工具。</span>
 
@@ -96,9 +96,9 @@ $$
 
 在平行四边形 $ABCD$ 中，用向量证明对角线 $AC$ 与 $BD$ 互相平分。
 
-- **第一步，设向量**：$\vec a=\overrightarrow{AB}$，$\vec b=\overrightarrow{AD}$。$\overrightarrow{AC}=\vec a+\vec b$，$\overrightarrow{BD}=\overrightarrow{AD}-\overrightarrow{AB}=\vec b-\vec a$。
-- **第二步，设交点**：设 $AC$ 与 $BD$ 交于 $O$，$\overrightarrow{AO}=t\overrightarrow{AC}=t(\vec a+\vec b)$。
-- **第三步，两条路表示 $\overrightarrow{AO}$**：$\overrightarrow{AO}=\overrightarrow{AB}+\overrightarrow{BO}=\vec a+s(\vec b-\vec a)=(1-s)\vec a+s\vec b$。系数相等：$t=1-s$、$t=s$，解得 $t=s=\frac12$——$O$ 是 $AC$ 与 $BD$ 的中点，对角线互相平分。
+**第一步，设向量**：$\vec a=\overrightarrow{AB}$，$\vec b=\overrightarrow{AD}$。$\overrightarrow{AC}=\vec a+\vec b$，$\overrightarrow{BD}=\overrightarrow{AD}-\overrightarrow{AB}=\vec b-\vec a$。
+**第二步，设交点**：设 $AC$ 与 $BD$ 交于 $O$，$\overrightarrow{AO}=t\overrightarrow{AC}=t(\vec a+\vec b)$。
+**第三步，两条路表示 $\overrightarrow{AO}$**：$\overrightarrow{AO}=\overrightarrow{AB}+\overrightarrow{BO}=\vec a+s(\vec b-\vec a)=(1-s)\vec a+s\vec b$。系数相等：$t=1-s$、$t=s$，解得 $t=s=\frac12$——$O$ 是 $AC$ 与 $BD$ 的中点，对角线互相平分。
 
 <span class="marginnote">「同向量两种表示 + 系数唯一」是向量法证明的引擎：<strong>$\overrightarrow{AO}$ 从 $AC$ 走与从 $AB+BO$ 走，得到两个表达式，基本定理保证系数相同，于是列方程解出比例</strong>。本题 $t=\frac12$ 说明交点平分对角线。这类「设比例、列方程、得定比」的流程，是向量法证明几何命题的通用套路。</span>
 

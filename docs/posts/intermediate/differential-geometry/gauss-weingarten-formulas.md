@@ -73,8 +73,8 @@ $$
 
 结构方程本身只是「分解」，要让它们**一致**，必须满足「混合偏导可交换」：$\mathbf{x}_{uuv} = \mathbf{x}_{uvu}$、$\mathbf{N}_{uv} = \mathbf{N}_{vu}$ 等。把 Gauss 公式代入这些恒等式，就得到**相容性条件（compatibility conditions）**：
 
-- **Gauss 方程（Gauss equation）**：由 $\mathbf{x}_{uuv} = \mathbf{x}_{uvu}$ 推出——它把 $K$ 与 $\Gamma$、$L,M,N$ 联系起来，**保证 $K$ 内蕴**。
-- **Codazzi-Mainardi 方程（Codazzi-Mainardi equations）**：由 $\mathbf{N}_{uv} = \mathbf{N}_{vu}$ 推出——它是关于 $L,M,N$ 的偏微分方程，刻画「$II$ 沿曲面的变化」必须与 $I$ 相容。
+**Gauss 方程（Gauss equation）**：由 $\mathbf{x}_{uuv} = \mathbf{x}_{uvu}$ 推出——它把 $K$ 与 $\Gamma$、$L,M,N$ 联系起来，**保证 $K$ 内蕴**。
+**Codazzi-Mainardi 方程（Codazzi-Mainardi equations）**：由 $\mathbf{N}_{uv} = \mathbf{N}_{vu}$ 推出——它是关于 $L,M,N$ 的偏微分方程，刻画「$II$ 沿曲面的变化」必须与 $I$ 相容。
 
 这两组方程合称 **Gauss-Codazzi 方程**——下一节的正式主题。它们是曲面论基本定理的「可积性条件」：**不是任意 $E,F,G,L,M,N$ 都能拼出一张曲面，必须满足 Gauss-Codazzi。**<span class="marginnote">直观：给定六个函数 $E,F,G,L,M,N$，它们要像「真曲面」的系数，必须满足 Gauss-Codazzi——否则「拼」出来的对象会自相矛盾（混合偏导对不上）。这正如给定函数 $f$ 要求 $f_{xy}=f_{yx}$：不是随便给都能做「势函数」。曲面论基本定理说：Gauss-Codazzi 就是充分必要条件。</span>
 
@@ -82,9 +82,9 @@ $$
 
 结构方程在整个曲面论里身兼数职：
 
-- **曲率的内蕴证明**：Gauss 方程把 $K$ 用 $E,F,G,\Gamma$ 表达——这是 Gauss 绝妙定理的严格证明路径。
-- **曲面论基本定理**：Gauss-Codazzi 是可积性条件，保证「给定 $I,II$ 存在曲面」。
-- **标架方法**：结构方程是 Cartan 活动标架法的原型，在现代微分几何里反复出现。
+**曲率的内蕴证明**：Gauss 方程把 $K$ 用 $E,F,G,\Gamma$ 表达——这是 Gauss 绝妙定理的严格证明路径。
+**曲面论基本定理**：Gauss-Codazzi 是可积性条件，保证「给定 $I,II$ 存在曲面」。
+**标架方法**：结构方程是 Cartan 活动标架法的原型，在现代微分几何里反复出现。
 
 **重点：结构方程是曲面论的「宪法」**——它约束着六个系数 $E,F,G,L,M,N$ 必须如何协调，才能描述一张真实存在的曲面。<span class="marginnote">在黎曼几何（第八篇），Gauss 方程升级为「曲率张量的第一 Bianchi 恒等式」与「第二 Bianchi 恒等式」，Codazzi 方程成为曲率张量导数与联络的关系。结构方程的思想从二维曲面一路长成黎曼几何的骨架。</span>
 

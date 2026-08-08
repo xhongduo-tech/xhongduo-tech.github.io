@@ -53,15 +53,15 @@ $$T4 \ \Longrightarrow\ T3 \ \Longrightarrow\ T2 \ \Longrightarrow\ T1 \ \Longri
 
 **子空间继承**：
 
-- **T2 继承**：$X$ Hausdorff ⟹ 子空间 $A$ Hausdorff（限制开集即可）。
-- **T3 继承**：$X$ 正则 ⟹ 子空间正则（正则性对子空间封闭）。
-- **T4 不继承**：正规空间的子空间可以非正规！Sorgenfrey 直线正规，但它的某些子空间（或相关构造）非正规。正规性是「不遗传」的。
+**T2 继承**：$X$ Hausdorff ⟹ 子空间 $A$ Hausdorff（限制开集即可）。
+**T3 继承**：$X$ 正则 ⟹ 子空间正则（正则性对子空间封闭）。
+**T4 不继承**：正规空间的子空间可以非正规！Sorgenfrey 直线正规，但它的某些子空间（或相关构造）非正规。正规性是「不遗传」的。
 
 **乘积保持**：
 
-- **T2 保持**：$X, Y$ Hausdorff ⟹ $X \times Y$ Hausdorff。
-- **T3 保持**：$X, Y$ 正则 ⟹ $X \times Y$ 正则。
-- **T4 不保持**：$X, Y$ 正规 ⟹ $X \times Y$ 未必正规（Sorgenfrey 平面就是反例）。
+**T2 保持**：$X, Y$ Hausdorff ⟹ $X \times Y$ Hausdorff。
+**T3 保持**：$X, Y$ 正则 ⟹ $X \times Y$ 正则。
+**T4 不保持**：$X, Y$ 正规 ⟹ $X \times Y$ 未必正规（Sorgenfrey 平面就是反例）。
 
 这张表揭示了正规性的「脆弱」：它是分离公理里唯一对子空间、乘积都不封闭的成员。这个缺陷是 Urysohn 度量化定理、Tietze 扩张定理推广时反复要绕的坑。<span class="marginnote">「T4 不保积、不保子空间」是分离公理最重要的实用教训：别假设正规性会「遗传」。这也是为什么「正规」在泛函分析、几何拓扑里要额外小心处理。</span>
 

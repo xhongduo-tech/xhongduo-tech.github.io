@@ -35,7 +35,7 @@ date: 2026-08-07
 **困惑度（perplexity，PPL）** 是语言模型给一段文本打的「惊讶分」：模型对这段文本越意外，PPL 越高；越能顺畅预测，PPL 越低。定义是交叉熵的指数：
 
 $$
-\mathrm{PPL}(s) = \exp\Big(-\frac{1}{N}\sum_{i=1}^{N}\log P_\theta(s_i \mid s_{<i})\Big)
+\mathrm{PPL}(s) = \exp\Big(-\frac{1}{N}\sum_{i=1}^{N}\log P_\theta(s_i \mid s_{\\lt i})\Big)
 $$
 
 直觉：如果模型以接近 1 的概率预测出每个词，括号里的平均对数概率接近 0，PPL 接近 1；每预测错一个词，PPL 就抬升。<span class="marginnote">PPL 的「正常」没有绝对标准，只有相对意义——同一模型下，PPL 异常高的句子通常是写坏的文本、非该语言的内容（中英混杂）、或超出模型知识的专业黑话堆砌。所以实践中常用「模型得分 + 手工定分位数阈值」的方式筛。</span>
@@ -55,7 +55,7 @@ PPL 只看「文本像不像话」，但指令数据的关键是「**指令本�
 - **IFD = 无条件损失 ÷ 有条件损失**。
 
 $$
-\mathrm{IFD} = \frac{\mathrm{Loss}(y)}{\mathrm{Loss}(y \mid x)} = \frac{-\frac{1}{N}\sum_{i=1}^{N}\log P_\theta(y_i \mid y_{<i})}{-\frac{1}{N}\sum_{i=1}^{N}\log P_\theta(y_i \mid x, y_{<i})}
+\mathrm{IFD} = \frac{\mathrm{Loss}(y)}{\mathrm{Loss}(y \mid x)} = \frac{-\frac{1}{N}\sum_{i=1}^{N}\log P_\theta(y_i \mid y_{\\lt i})}{-\frac{1}{N}\sum_{i=1}^{N}\log P_\theta(y_i \mid x, y_{\\lt i})}
 $$
 
 一条高质量的「指令-回答」样本，指令提供了大量信息，回答在给定指令时远好预测，于是**有条件损失远小于无条件损失，IFD 显著大于 1**。反之，空泛指令对预测几乎没帮助，两个损失接近，IFD 接近 1。<span class="marginnote">注意 IFD 的分子分母都用同一个<b>未微调的基础模型</b>来算，而不是用已经学过头的高质量数据后的模型——因为「指令有没有用」必须在一张「白纸」上测，才不会被训练痕迹污染。</span>
@@ -64,9 +64,9 @@ $$
 
 把 IFD 拆成三步看：
 
-- **分子 $\mathrm{Loss}(y)$**：把回答 $y$ 当成「凭空出现」的一段文本，让模型预测它。没有指令可依赖，模型只能靠通用先验猜，损失自然高——除非 $y$ 本身就是高频套话。
-- **分母 $\mathrm{Loss}(y \mid x)$**：先给模型读指令 $x$，再预测 $y$。若 $x$ 确实指向 $y$（指令具体、与回答契合），模型预测就准，损失低。
-- **比值**：两者相除，恰好度量「$x$ 的出现把预测 $y$ 的难度降低了几倍」。
+**分子 $\mathrm{Loss}(y)$**：把回答 $y$ 当成「凭空出现」的一段文本，让模型预测它。没有指令可依赖，模型只能靠通用先验猜，损失自然高——除非 $y$ 本身就是高频套话。
+**分母 $\mathrm{Loss}(y \mid x)$**：先给模型读指令 $x$，再预测 $y$。若 $x$ 确实指向 $y$（指令具体、与回答契合），模型预测就准，损失低。
+**比值**：两者相除，恰好度量「$x$ 的出现把预测 $y$ 的难度降低了几倍」。
 
 **为什么高 IFD = 好数据？** 因为高 IFD 意味着**回答高度依赖指令**——这正是「指令遵循」的本质：模型应当学会「看到这条指令就产出对应回答」，而不是「无脑输出通用套话」。用 IFD 选出的数据，天然偏「指令-回答强绑定」的样本，训练出来的模型更会看指令办事。
 
@@ -97,18 +97,21 @@ $$
 IFD 的计算在代码层面非常轻，一句话就能写清核心：
 
 ```python
-def ifd_score(model, tokenizer, x, y):
-    # 有条件损失：Loss(y | x)
-    ids = tokenizer(x + y, return_tensors="pt")["input_ids"]
-    n_y = len(tokenizer(y)["input_ids"])
-    logits = model(ids).logits[:, :-1]          # 预测每个位置的下一个词
-    labels = ids[:, 1:]
-    loss_cond = cross_entropy(logits, labels, mask_position_of_y)
-    # 无条件损失：Loss(y)
-    ids_y = tokenizer(y, return_tensors="pt")["input_ids"]
-    logits_y = model(ids_y).logits[:, :-1]
-    loss_uncond = cross_entropy(logits_y, ids_y[:, 1:])
-    return loss_uncond / loss_cond
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-7B")
+tok = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-7B")
+
+def lm_loss(prompt: str, answer: str) -> float:
+    """模型在 answer 上的平均对数损失（prompt 部分掩码掉，不计损失）"""
+    ids = tok(prompt + answer, return_tensors="pt")["input_ids"]
+    labels = ids.clone()
+    labels[..., :len(tok(prompt)["input_ids"])] = -100
+    with torch.no_grad():
+        return model(ids, labels=labels).loss.item()
+
+ifd = lm_loss("", answer) / lm_loss(instruction, answer)   # 无条件损失 ÷ 有条件损失
 ```
 
 两次前向、一个比值，整条数据就能拿到一个可排序的分数。因为跑的是**同一个基础模型**且可以离线预计算，IFD 打分天然适合做成批处理，算完一次性按分数取前 10% 即可。

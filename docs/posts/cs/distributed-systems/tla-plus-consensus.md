@@ -22,24 +22,31 @@ date: 2026-08-07
 
 回顾共识三性质（第 5 篇），把它们翻译成 TLA+：
 
-- **一致性（Agreement）**：所有节点最终选择同一个值——一个「全局变量」在所有节点上取相同值。
-- **有效性（Validity）**：被选择的值是某个节点提议过的值——「选择结果 ∈ 提议集合」。
-- **终止性（Termination）**：每个正确节点最终做出选择——一个「最终会达成」的活性公式。
+**一致性（Agreement）**：所有节点最终选择同一个值——一个「全局变量」在所有节点上取相同值。
+**有效性（Validity）**：被选择的值是某个节点提议过的值——「选择结果 ∈ 提议集合」。
+**终止性（Termination）**：每个正确节点最终做出选择——一个「最终会达成」的活性公式。
 
 TLA+ 的对应：
 
-```
-Agreement == \A i, j \in Node : (chosen[i] /= None) /\ (chosen[j] /= None) => chosen[i] = chosen[j]
-Validity  == \A i \in Node : chosen[i] /= None => chosen[i] \in proposed
-Termination == \A i \in Node : <> (chosen[i] /= None)
+```tla
+CONSTANTS Nodes, None, Values
+
+VARIABLE choice     \* choice[i] = 节点 i 的选择结果；None 表示未选
+
+Agreement == \A i, j \in Nodes: choice[i] # None /\ choice[j] # None
+             => choice[i] = choice[j]
+
+Validity  == \A i \in Nodes: choice[i] # None => choice[i] \in Values
+
+Termination == \A i \in Nodes: \diamond (choice[i] # None)
 ```
 
 拆解：
 
-- `chosen[i]`：节点 i 的选择结果（`None` 表示未选）。
-- **Agreement（不变量）**：任意两个节点 i、j，只要都选了，选择值必须相同——「坏状态：两个节点选了不同值」永不允许。
-- **Validity（不变量）**：每个选择必须是有人提议过的值——「选了没提议的值」是坏状态。
-- **Termination（活性）**：对每个节点，最终 `chosen[i] /= None`——「永远不选」是坏行为。
+`choice[i]`：节点 i 的选择结果（`None` 表示未选）。
+**Agreement（不变量）**：任意两个节点 i、j，只要都选了，选择值必须相同——「坏状态：两个节点选了不同值」永不允许。
+**Validity（不变量）**：每个选择必须是有人提议过的值——「选了没提议的值」是坏状态。
+**Termination（活性）**：对每个节点，最终 `choice[i] \neq \text{None}`——「永远不选」是坏行为。
 
 **TLA+ 的优势**：这三条在自然语言里看似清楚，写成公式后**无歧义**——`Agreement` 到底约束什么、`Termination` 要求多强，一清二楚。这就是「形式化」的第一价值：**把模糊的『正确』变成可检查的『公式』**。
 
@@ -47,38 +54,45 @@ Termination == \A i \in Node : <> (chosen[i] /= None)
 
 把「两阶段共识」的 TLA+ 骨架写出来（Paxos/Basic 共识的简化版）：
 
-```
-VARIABLES state, chosen
+```tla
+MODULE SimpleConsensus
+EXTENDS Naturals
 
-Init == state = [n \in Node |-> "idle"] /\ chosen = [n \in Node |-> None]
+CONSTANTS Nodes, None, Values
+
+VARIABLES state, choice
+
+Init ==
+    /\ state  = [n \in Nodes |-> "idle"]
+    /\ choice = [n \in Nodes |-> None]
 
 Propose(n, v) ==
     /\ state[n] = "idle"
-    /\ v \in proposed
-    /\ state' = [state EXCEPT ![n] = "proposed"]
-    /\ chosen' = [chosen EXCEPT ![n] = v]
+    /\ state'  = [state EXCEPT ![n] = "proposed"]
+    /\ choice' = [choice EXCEPT ![n] = v]
 
-Learn(n) ==
-    /\ chosen[n] = None
-    /\ \E m \in Node : chosen[m] /= None     \* 别的节点已选
-    /\ chosen' = [chosen EXCEPT ![n] = chosen[m]]
+Learn(n, v) ==
+    /\ \E m \in Nodes: choice[m] = v
+    /\ choice' = [choice EXCEPT ![n] = v]
+    /\ state'  = [state EXCEPT ![n] = "proposed"]
 
-Next == \E n \in Node, v \in proposed : Propose(n, v) \/ Learn(n)
-Spec == Init /\ [][Next]_{<<state, chosen>>}
+Next ==
+    \/ \E n \in Nodes, v \in Values: Propose(n, v)
+    \/ \E n \in Nodes, v \in Values: Learn(n, v)
 ```
 
 拆解：
 
-- `Propose(n, v)`：节点 n 提议值 v——从 idle 转移到 proposed，记录选择。
-- `Learn(n)`：节点 n 学到「别的节点已选的值」——把选择同步过来。
-- `Next`：任意节点任意时刻可以 Propose 或 Learn——「非确定性」由 TLA+ 天然表达。
-- **验证**：TLC 检查 `Agreement`、`Validity` 两个不变量在每个可达状态都成立，`Termination` 这个活性公式在所有行为上都最终成立。
+`Propose(n, v)`：节点 n 提议值 v——从 idle 转移到 proposed，记录选择。
+`Learn(n, v)`：节点 n 学到「别的节点已选的值」——把选择同步过来。
+`Next`：任意节点任意时刻可以 Propose 或 Learn——「非确定性」由 TLA+ 天然表达。
+**验证**：TLC 检查 `Agreement`、`Validity` 两个不变量在每个可达状态都成立，`Termination` 这个活性公式在所有行为上都最终成立。
 
 **注意**：这个规约是「共识的骨架」——真实 Paxos 还涉及轮次号、多数派投票、消息丢失。骨架的价值是「先验证核心不变量，再逐步加细节」——**TLA+ 建模的方法论：从最简模型开始，验证性质，再逐层加现实**。
 
 ## 3 发现 bug：TLA+ 为什么能抓住测试漏掉的
 
-一个经典例子：**给上面的骨架「加一个坏动作」**——比如允许 `Learn` 从任意节点学值（不管那个节点是否真的选了）。TLC 会立即报错：`Learn(n)` 可能让节点 n 学到「没被共识选择的值」，破坏 `Validity`。
+一个经典例子：**给上面的骨架「加一个坏动作」**——比如允许 `Learn(n, v)` 不检查「值已被选」前提（不管那个节点是否真的选了）。TLC 会立即报错：这个坏动作可能让节点 n 学到「没被共识选择的值」，破坏 `Agreement` 不变量。
 
 更真实的历史：**Raft 的单节点成员变更 bug**——TLA+ 规约在「新配置还没被多数派确认、但旧配置已经失效」的交错下，发现两个节点可能同时成为 leader。这个 bug 在论文发表后才被 TLA+ 找到——**因为测试跑不到那个「提交与新配置生效交错」的罕见时序，而 TLC 穷举所有时序**。
 
@@ -88,9 +102,9 @@ Spec == Init /\ [][Next]_{<<state, chosen>>}
 
 TLA+ 建模最难的决策是**抽象粒度**：
 
-- **太粗（漏 bug）**：省略了消息丢失、节点崩溃、轮次交错——模型永远安全，但真实系统不这样。
-- **太细（跑不动）**：把每个消息、每个字节都建模——状态空间爆炸，TLC 跑不完。
-- **恰到好处**：**包含「会导致性质被破坏的机制」**——对于共识，必须建模消息丢失、节点崩溃、轮次竞争；不必建模序列化的字节布局、磁盘 IO 调度。
+**太粗（漏 bug）**：省略了消息丢失、节点崩溃、轮次交错——模型永远安全，但真实系统不这样。
+**太细（跑不动）**：把每个消息、每个字节都建模——状态空间爆炸，TLC 跑不完。
+**恰到好处**：**包含「会导致性质被破坏的机制」**——对于共识，必须建模消息丢失、节点崩溃、轮次竞争；不必建模序列化的字节布局、磁盘 IO 调度。
 
 Lamport 的方法论：**「建模要包含所有可能影响正确性的因素，省略所有只影响性能的因素」**。正确性性质（不变量）对「消息丢失、崩溃、乱序」敏感——必须建模；对「消息大小、磁盘速度」不敏感——可以省略。
 
@@ -108,7 +122,7 @@ $$
 
 - **左式**：轮次 r 的值 v 拿到了多数派（> N/2）投票——v 被「多数派接受」。
 - **右式**：任何更晚轮次 r'、任何不同值 v'，都无法再拿多数派——**因为两个多数派必相交，v 的记忆会阻止 v' 胜出**（第 5 篇的多数派相交）。
-- **这是 Paxos 安全性的核心不变量**：TLA+ 里把它写成 `Agreement` 的充分条件——TLC 验证「多数派一旦接受 v，后续轮次不可能接受别的值」。
+- **这是 Paxos 安全性的核心不变量**：TLA+ 里把它写成 `Agreement` 不变量的充分条件——TLC 验证「多数派一旦接受 v，后续轮次不可能接受别的值」。
 - **可验证性**：这个不变量在状态空间里被 TLC 穷举检查——「所有轮次交错、所有投票顺序」下都不被违反。
 
 这条式子的工程含义：**共识的正确性最终都归结为「多数派相交」这个几何事实**——而 TLA+ 能把它变成「可穷举检查的公式」。这就是形式化验证的极致：**把「为什么 Paxos 安全」从「读证明」变成「跑检验」**——不再依赖人的推理不出错，而依赖机器穷举无遗漏。<span class="marginnote">实践中你甚至可以用 TLA+「发现」Paxos：从「共识三性质」出发，让 TLC 找「如何满足性质的转移」，逆推出协议——Lamport 讲过这种「规范驱动设计」。但更常见的用法是「验证既有协议」：你写一个 Paxos 变体，TLA+ 告诉你它安不安全——<strong>这是对新协议最便宜的审判</strong>。</span>

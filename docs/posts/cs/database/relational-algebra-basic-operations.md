@@ -22,10 +22,10 @@ date: 2026-08-07
 
 先约定一个贯穿全书的示例数据库（Silberschatz 的大学库，本专题后续所有章节共用）：
 
-- `instructor(ID, name, dept_name, salary)`
-- `department(dept_name, building, budget)`
-- `student(ID, name, dept_name, tot_cred)`
-- `teaches(ID, course_id, sec_id, semester, year)`
+- `instructor`——教师表
+- `student`——学生表
+- `teaches`——授课表
+- `department`——院系表
 
 ## 1 选择 σ：按行筛
 
@@ -33,7 +33,7 @@ date: 2026-08-07
 
 $$\sigma_{dept\_name = \text{'CS'}}(instructor)$$
 
-返回所有 CS 系教师，属性仍是 `ID, name, dept_name, salary`。谓词可以任意组合：用 $\wedge$（与）、$\vee$（或）、$\neg$（非）拼成复杂条件：
+返回所有 CS 系教师，属性仍是 `instructor` 的全部属性。谓词可以任意组合：用 $\wedge$（与）、$\vee$（或）、$\neg$（非）拼成复杂条件：
 
 $$\sigma_{dept\_name = \text{'CS'} \wedge salary > 70000}(instructor)$$
 
@@ -49,7 +49,7 @@ $$\Pi_{name, salary}(instructor)$$
 
 把 `instructor` 压成一张只有 `name` 和 `salary` 两列的表。它同时做了两件事：**删掉未列出的列**，并且——由于结果是关系——**自动去掉重复元组**。
 
-**辨析｜易错点：投影会「意外去重」。** 若两位 CS 教师同名，$\Pi_{name}(instructor)$ 只出现一次那个名字。这在数学上是对的（集合没有重复元素），但在 SQL 里默认**不会**去重——这条「代数去重 vs SQL 不去重」的裂缝，第3章讲 `SELECT DISTINCT` 时会正式缝合。
+**辨析｜易错点：投影会「意外去重」。** 若两位 CS 教师同名，$\Pi_{name}(instructor)$ 只出现一次那个名字。这在数学上是对的（集合没有重复元素），但在 SQL 里默认**不会**去重——这条「代数去重 vs SQL 不去重」的裂缝，第3章讲 `SELECT` 时会正式缝合。
 
 ## 3 并 ∪ 与集合差 −
 
@@ -61,7 +61,7 @@ $$\Pi_{name}(instructor) \cup \Pi_{name}(student)$$
 
 得到所有教师与学生的姓名。若两个属性名不同但语义相同，先更名再并（见第5节）。
 
-**辨析｜易错点：域相容 ≠ 名字相同。** `salary`（数字）与 `name`（字符串）不能并，因为域不同；`dept_name` 与 `course_id` 都是字符串也不能并，因为「域」是语义上的取值集合，不只是数据类型。数据库靠类型系统粗判，真正严格的是语义。
+**辨析｜易错点：域相容 ≠ 名字相同。** `ID`（数字）与 `name`（字符串）不能并，因为域不同；`name` 与 `dept_name` 都是字符串也不能并，因为「域」是语义上的取值集合，不只是数据类型。数据库靠类型系统粗判，真正严格的是语义。
 
 ## 4 笛卡儿积 ×：一切连接的源头
 
@@ -84,7 +84,7 @@ $$\sigma_{instructor.ID = teaches.ID}(instructor \times teaches)$$
 
 $$\sigma_{t1.salary > t2.salary}\Big(\rho_{t1}(instructor) \times \rho_{t2}(instructor)\Big)$$
 
-用两次更名造出 `t1`、`t2` 两个副本，自连接才有立足点。<span class="marginnote">「同一份数据起两个名字再比较」在 SQL 里就是别名（alias）：`FROM instructor t1, instructor t2`。关系代数的 ρ 是 SQL 别名的数学原型。</span>
+用两次更名造出 `t1`、`t2` 两个副本，自连接才有立足点。<span class="marginnote">「同一份数据起两个名字再比较」在 SQL 里就是别名（alias）：`instructor AS t1`。关系代数的 ρ 是 SQL 别名的数学原型。</span>
 
 ## 6 为什么这六种叫「基本」
 

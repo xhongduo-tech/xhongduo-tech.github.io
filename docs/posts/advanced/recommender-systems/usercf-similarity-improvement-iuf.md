@@ -92,35 +92,29 @@ IUF 改变了相似度的「含义」，但没改变它的「成本」——用�
 在上一篇 `user_similarity` 的基础上改一行就能得到 IUF 版本：
 
 ```python
-import math
-from collections import defaultdict
-
-def user_similarity_iuf(train):
-    item_users = defaultdict(set)
-    for u, items in train.items():
+def user_similarity_iuf(user_items):
+    """IUF 版：共同物品按 1/log(1+|N(i)|) 降权，其余结构与上一篇完全复用。"""
+    item_users = defaultdict(set)                 # 倒排表
+    for u, items in user_items.items():
         for i in items:
             item_users[i].add(u)
 
-    # N_item[i] = 喜欢物品 i 的用户数，即 |N(i)|
-    N_item = {i: len(users) for i, users in item_users.items()}
-
-    C = defaultdict(float)   # 注意：C 从 int 变成 float，存的是降权后的贡献
-    N_user = defaultdict(int)
+    C = defaultdict(lambda: defaultdict(float))
     for i, users in item_users.items():
-        iuf = 1.0 / math.log(1 + N_item[i])   # 本物品的降权系数
+        w = 1.0 / math.log(1 + len(users))        # 物品越热门，这一票越轻
         for u in users:
-            N_user[u] += 1
             for v in users:
                 if u != v:
-                    C[(u, v)] += iuf          # 原来是 += 1，现在 += iuf
+                    C[u][v] += w                  # 原版这里是 C[u][v] += 1
 
     W = defaultdict(dict)
-    for (u, v), cnt in C.items():
-        W[u][v] = cnt / math.sqrt(N_user[u] * N_user[v])
+    for u, related in C.items():
+        for v, cuv in related.items():
+            W[u][v] = cuv / math.sqrt(len(user_items[u]) * len(user_items[v]))
     return W
 ```
 
-核心变化就一处：`C[(u, v)] += 1` 变成了 `C[(u, v)] += iuf`。**倒排表的遍历结构完全复用**——IUF 只是改了一个累加量，这正是它能在工业界被无缝接进旧代码的原因。`recommend` 函数与上一篇完全相同，无需改动。
+核心变化就一处：累加量从 `1` 变成了 `1 / log(1 + len(users))`。**倒排表的遍历结构完全复用**——IUF 只是改了一个累加量，这正是它能在工业界被无缝接进旧代码的原因。`recommend` 函数与上一篇完全相同，无需改动。
 
 ## 7 小结
 

@@ -57,9 +57,9 @@ $$
 
 CG 的理论性质：
 
-- **有限终止**：精确算术下 $\le n$ 步收敛（$n$ 维空间中 $n$ 个共轭方向张成全空间）。
-- **实际速率**：误差按 Krylov 子空间逼近，收敛因子约 $\left(\frac{\sqrt\kappa - 1}{\sqrt\kappa + 1}\right)$——**条件数的平方根**！对比梯度下降的 $(\kappa-1)/(\kappa+1)$，CG 对条件数「开方」——$\kappa=10000$ 时梯度因子 0.9998，CG 因子约 0.98。
-- **病态问题的意义**：$\sqrt\kappa$ 让 CG 对适度病态问题仍可接受，但 $\kappa$ 很大时仍需**预处理**（PCG：$M^{-1}A$ 代替 $A$）。<span class="marginnote">为什么是 $\sqrt\kappa$？因为 CG 在 Krylov 子空间里找「多项式最优」——它自动利用全部迭代历史，等价于用 $k$ 次多项式逼近 $A^{-1}$，最坏因子由切比雪夫多项式给出，恰好是 $\sqrt\kappa$ 而不是 $\kappa$。这就是「记忆」换来的加速：迭代次数从 $O(\kappa)$ 档降到 $O(\sqrt\kappa)$ 档。</span>
+**有限终止**：精确算术下 $\le n$ 步收敛（$n$ 维空间中 $n$ 个共轭方向张成全空间）。
+**实际速率**：误差按 Krylov 子空间逼近，收敛因子约 $\left(\frac{\sqrt\kappa - 1}{\sqrt\kappa + 1}\right)$——**条件数的平方根**！对比梯度下降的 $(\kappa-1)/(\kappa+1)$，CG 对条件数「开方」——$\kappa=10000$ 时梯度因子 0.9998，CG 因子约 0.98。
+**病态问题的意义**：$\sqrt\kappa$ 让 CG 对适度病态问题仍可接受，但 $\kappa$ 很大时仍需**预处理**（PCG：$M^{-1}A$ 代替 $A$）。<span class="marginnote">为什么是 $\sqrt\kappa$？因为 CG 在 Krylov 子空间里找「多项式最优」——它自动利用全部迭代历史，等价于用 $k$ 次多项式逼近 $A^{-1}$，最坏因子由切比雪夫多项式给出，恰好是 $\sqrt\kappa$ 而不是 $\kappa$。这就是「记忆」换来的加速：迭代次数从 $O(\kappa)$ 档降到 $O(\sqrt\kappa)$ 档。</span>
 
 **预处理共轭梯度（PCG）**：引入 $M \approx A$（$M$ 易求逆），在 $M^{-1}$ 度量下跑 CG——收敛由 $\kappa(M^{-1}A)$ 决定。Jacobi（$M = \mathrm{diag}(A)$）、不完全 Cholesky 是常用选择。
 

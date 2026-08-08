@@ -58,21 +58,21 @@ $$T_{\text{step}} = \max\left(T_{\text{gpu}},\ \frac{4\Psi}{B_{\text{pcie}}}\rig
 
 当 CPU 内存也不够时，还有最后一级：**NVMe 卸载**。把优化器状态甚至参数存到固态盘上。NVMe 的顺序读写在 3–7 GB/s，比 PCIe 还慢一个数量级，但容量可以到 TB 级——**用「更慢」换「更大」**。
 
-DeepSpeed 的 `offload_param.device: "nvme"` 支持把参数分片存到 NVMe。适用场景：
+DeepSpeed 的 `offload_optimizer`/`offload_param` 配置支持把参数分片存到 NVMe。适用场景：
 
-- 单机想训几十 B 的模型。
-- 训练速度完全不重要（如调试、低优先级任务）。
-- 只想「跑起来验证」而 GPU/内存都紧张。<span class="marginnote">NVMe 卸载是显存工程的「退无可退」：CPU 内存用完再上 NVMe。它的每一步传输都慢到毫秒秒级，所以几乎只用于「能跑就行」的场景——真正的训练不会用它，但「验证代码正确性」时它很香。</span>
+单机想训几十 B 的模型。
+训练速度完全不重要（如调试、低优先级任务）。
+只想「跑起来验证」而 GPU/内存都紧张。<span class="marginnote">NVMe 卸载是显存工程的「退无可退」：CPU 内存用完再上 NVMe。它的每一步传输都慢到毫秒秒级，所以几乎只用于「能跑就行」的场景——真正的训练不会用它，但「验证代码正确性」时它很香。</span>
 
 ## 5 ZeRO-Offload 与并行切分的配合
 
 Offload 不是孤立技术，它常与 ZeRO/FSDP 组合：
 
-- **ZeRO-2 + Offload**：梯度与优化器状态先沿 DP 维摊薄（$14\Psi/N_d$），再把每卡那份卸载到 CPU。
-- **ZeRO-3 + Offload**：连参数也分片，GPU 只留「当前层」的临时参数——显存极限逼近「仅激活」。
-- **FSDP + CPU offload**：PyTorch FSDP 也支持 `cpu_offload=True`，语义与 ZeRO-3 Offload 等价。
+**ZeRO-2 + Offload**：梯度与优化器状态先沿 DP 维摊薄（$14\Psi/N_d$），再把每卡那份卸载到 CPU。
+**ZeRO-3 + Offload**：连参数也分片，GPU 只留「当前层」的临时参数——显存极限逼近「仅激活」。
+**FSDP + CPU offload**：PyTorch FSDP 也支持 `offload_to_cpu`，语义与 ZeRO-3 Offload 等价。
 
-组合后的显存收益是**乘法**的：分片把 16Ψ 摊到 $N$ 卡，卸载再把每卡的份额挪出 GPU。**分片 × 卸载 = 显存问题的两个自由度的同时利用**。<span class="marginnote">DeepSpeed 的配置里 `stage=3 + offload_optimizer + offload_param` 一起开，就是这套组合的完整形态——它能用一张 A100 训练 70B 模型（虽然慢到每分钟一步）。知道有这条路，至少不会被「显存不够」卡死。</span>
+组合后的显存收益是**乘法**的：分片把 16Ψ 摊到 $N$ 卡，卸载再把每卡的份额挪出 GPU。**分片 × 卸载 = 显存问题的两个自由度的同时利用**。<span class="marginnote">DeepSpeed 的配置里 `offload_optimizer` 与 `offload_param` 一起开，就是这套组合的完整形态——它能用一张 A100 训练 70B 模型（虽然慢到每分钟一步）。知道有这条路，至少不会被「显存不够」卡死。</span>
 
 ## 6 辨析｜易错点：Offload 的常见误区
 
@@ -93,20 +93,20 @@ Offload 不是孤立技术，它常与 ZeRO/FSDP 组合：
 
 ## 8 进阶与延伸
 
-**动手试一次 CPU offload**：在 DeepSpeed 里开 `offload_optimizer: {device: "cpu"}` 训一个小模型，对比开关前后的每步耗时——你会直观看到「吞吐掉一个数量级」的代价，以及「显存省一大块」的收益。这就是「能跑 vs 跑快」的活教材。
+**动手试一次 CPU offload**：在 DeepSpeed 里开 `offload_optimizer` 训一个小模型，对比开关前后的每步耗时——你会直观看到「吞吐掉一个数量级」的代价，以及「显存省一大块」的收益。这就是「能跑 vs 跑快」的活教材。
 
 **几个值得进一步挖的方向**：
 
 - **Offload 与重计算的取舍顺序**：显存不够时，先开重算还是先开 offload？重算只多花算力、offload 掉吞吐——「先重算、后 offload」的顺序为什么是合理的？
-- **PCIe 带宽的现实测量**：`cudaMemcpy` 的 D2H/H2D 实测带宽往往只有理论峰值的一半——用 `cudaMemcpy` 基准测一下你的机器，重算 offload 的「真实吞吐损失」。
-- **NVMe 卸载的适用边界**：DeepSpeed 的 `offload_param: {device: "nvme"}` 什么时候值得用？「验证代码正确性」之外的场景，它还有价值吗？
+- **PCIe 带宽的现实测量**：`cudaMemcpy` 的 D2H/H2D 实测带宽往往只有理论峰值的一半——用 `bandwidthTest` 基准测一下你的机器，重算 offload 的「真实吞吐损失」。
+- **NVMe 卸载的适用边界**：DeepSpeed 的 NVMe 卸载什么时候值得用？「验证代码正确性」之外的场景，它还有价值吗？
 
 **自测题**：为什么 ZeRO-Offload 卸载「优化器状态 + 梯度」而不是「参数」？如果你能说清「参数留 GPU 让前向后向保持高速」，就理解了 Offload 的「性价比最高」之选。
 
 ## 9 动手实践清单
 
 - 在 DeepSpeed 开 `offload_optimizer`，对比开关前后的每步耗时与显存。
-- 观察 `free -h` 里 CPU 内存的变化，验证「14Ψ 挪到 CPU」。
+- 观察 `htop` 里 CPU 内存的变化，验证「14Ψ 挪到 CPU」。
 - 用 `nvidia-smi` 与 `free` 画一张「GPU/CPU 内存迁移」的时间线。
 - 实测 `cudaMemcpy` 的 D2H/H2D 带宽，重算 offload 的「真实吞吐损失」。
 - 对比「只卸优化器」与「连参数也卸」两档的显存与速度。

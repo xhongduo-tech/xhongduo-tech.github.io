@@ -22,21 +22,21 @@ date: 2026-08-07
 
 ## 1 域名的层次结构：一棵「倒置的树」
 
-**域名（domain name）**：按层次结构组织的名字，用点分隔，如 `www.example.com`。它是一棵**倒置的树**：<span class="marginnote">域名的阅读顺序：<strong>从右到左层次越来越高</strong>。`www.example.com` 中，`.com` 是顶级域，`example` 是 com 下的一级域，`www` 是 example 下的主机名。整棵 DNS 树的根是「根域」（空，用「.」表示），下面是顶级域（TLD），再往下逐级分支。</span>
+**域名（domain name）**：按层次结构组织的名字，用点分隔，如 `www.example.com`。它是一棵**倒置的树**：<span class="marginnote">域名的阅读顺序：<strong>从右到左层次越来越高</strong>。`www.example.com` 中，`com` 是顶级域，`example` 是 com 下的一级域，`www` 是 example 下的主机名。整棵 DNS 树的根是「根域」（空，用「.」表示），下面是顶级域（TLD），再往下逐级分支。</span>
 
-```
-          （根域 .）
-        /    |    \
-     com   org   cn   ...   （顶级域 TLD）
-      |            |
-   example       edu.cn  （二级域）
-      |
-     www       （主机名）
+```text
+                       .（根域）
+         ┌──────────────┼──────────────┐
+        com            net            org   …        cn   …
+         │
+      example
+         │
+        www
 ```
 
-- **根域**：所有域名的顶端，通常省略不写（`example.com.` 末尾的点就是根）。
-- **顶级域（TLD）**：通用顶级域（`.com`、`.org`、`.net`）与国家顶级域（`.cn`、`.jp`）。
-- **二级域及以下**：由各级域名所有者自行划分。
+**根域**：所有域名的顶端，通常省略不写（`www.example.com.` 末尾的点就是根）。
+**顶级域（TLD）**：通用顶级域（`com`、`net`、`org`）与国家顶级域（`cn`、`jp`）。
+**二级域及以下**：由各级域名所有者自行划分。
 
 **辨析｜易错点：** 域名的层次是**从右往左读**的——最右边是最高层（顶级域），最左边是主机名。**「www.example.com 的顶级域是 com，不是 www」**是最基本的判断。另外，**域名是「大小写不敏感」的**（通常规范为小写），但层次结构本身不含主机名（`www` 是主机名，不是域名层级的一部分）。
 
@@ -57,7 +57,7 @@ DNS 服务器按层次分四类，各管一段：<span class="marginnote">DNS �
 
 以用户访问 `www.example.com` 为例（迭代查询视角）：<span class="marginnote">查询过程像「打怪升级」：<strong>用户问本地服务器 → 本地服务器问根 → 根指路去 .com → .com 指路去 example → example 给出最终 IP</strong>。每一站都只回答「下一站去哪」或「最终答案」。这套「逐级指路」避免了在单一服务器存全表。</span>
 
-1. 用户主机把 `www.example.com` 交给**本地域名服务器**。
+1. 用户主机把 `www.example.com` 的解析请求交给**本地域名服务器**。
 2. 本地服务器若缓存有答案，直接返回；否则问**根服务器**。
 3. 根服务器回答：「.com 的顶级域服务器是 xxx」。
 4. 本地服务器问 **.com 顶级域服务器**，得到「example 的权威服务器是 yyy」。

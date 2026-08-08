@@ -79,28 +79,21 @@ PCHIP 的性质：
 
 ```python
 import numpy as np
-import matplotlib.pyplot as plt
 
-f = lambda x: 1 / (1 + 25 * x**2)
+f = lambda x: 1 / (1 + 25 * x**2)            # 龙格现象的经典主角
 n = 10
-x_nodes = np.linspace(-1, 1, n + 1)
-y_nodes = f(x_nodes)
-x_fine = np.linspace(-1, 1, 2001)
+x_node = np.linspace(-1, 1, n + 1)           # 11 个等距节点
+y_node = f(x_node)
 
-# 全局高次插值（用牛顿/拉格朗日实现，这里用 numpy 多项式拟合代替）
-poly = np.polynomial.polynomial.Polynomial.fit(x_nodes, y_nodes, n)
+x = np.linspace(-1, 1, 1000)
+piecewise = np.interp(x, x_node, y_node)     # 分段线性（折线）
+p10 = np.polyval(np.polyfit(x_node, y_node, n), x)   # 10 次全局插值
 
-# 分段线性插值
-piece = np.interp(x_fine, x_nodes, y_nodes)
-
-err_global = np.abs(poly(x_fine) - f(x_fine))
-err_piece  = np.abs(piece - f(x_fine))
-
-print("全局插值最大误差:", err_global.max())   # 约 1.9，端部剧烈振荡
-print("分段线性最大误差:", err_piece.max())    # 约 0.048，量级小两个数量级
+print(np.max(np.abs(piecewise - f(x))))      # ≈ 0.067：分段线性
+print(np.max(np.abs(p10 - f(x))))            # ≈ 1.92：全局高次几乎完全失真
 ```
 
-结果令人警醒：**11 个节点下，全局高次插值的误差峰值接近 2（完全失真），而分段线性的误差峰只有约 0.05。** 低次胜出不是因为聪明，而是因为它不给自己「越权」的机会——每段只管一小段，误差无法蔓延。<span class="marginnote">注意代码里用了 `numpy` 的 `Polynomial.fit` 走正规方程拟合，数值上等价于高次插值多项式；真正实现时拉格朗日/牛顿公式在 $n=10$ 时数值病态，但趋势一致。这个「用简单实现看趋势」的实验习惯，是数值分析学习里的常态。</span>
+结果令人警醒：**11 个节点下，全局高次插值的误差峰值接近 2（完全失真），而分段线性的误差峰只有约 0.05。** 低次胜出不是因为聪明，而是因为它不给自己「越权」的机会——每段只管一小段，误差无法蔓延。<span class="marginnote">注意代码里用了 numpy 的 polyfit 走正规方程拟合，数值上等价于高次插值多项式；真正实现时拉格朗日/牛顿公式在 $n=10$ 时数值病态，但趋势一致。这个「用简单实现看趋势」的实验习惯，是数值分析学习里的常态。</span>
 
 ## 5 小结
 

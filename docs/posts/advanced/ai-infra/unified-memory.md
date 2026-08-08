@@ -22,7 +22,7 @@ date: 2026-08-07
 
 ## 1 统一内存的思想：一个地址空间
 
-传统 CUDA 程序里，`malloc` 的是 CPU 内存，`cudaMalloc` 的是 GPU 显存，两者分离，拷贝靠 `cudaMemcpy` 显式搬运。**统一内存打破这堵墙**：
+传统 CUDA 程序里，`cudaMallocHost` 分配的是 CPU 内存，`cudaMalloc` 分配的是 GPU 显存，两者分离，拷贝靠 `cudaMemcpy` 显式搬运。**统一内存打破这堵墙**：
 
 - `cudaMallocManaged` 分配一块「托管内存」，CPU 和 GPU 都能访问。
 - 访问发生在哪一侧，**CUDA 驱动按页把数据迁移到哪一侧**。
@@ -57,13 +57,13 @@ $$T_{\text{migrate}} = \frac{P_{\text{size}}}{B_{\text{link}}}$$
 
 **能超订（访问稀疏、顺序）：**
 
-- 大型稀疏 embedding 表（大模型 embedding 可达数十 GB，但单 batch 只访问其中一小片）。
-- 推理时的 KV cache（随请求增长，超订让长上下文「勉强」装下）。
-- 检查点暂存、不常访问的优化器状态。
+大型稀疏 embedding 表（大模型 embedding 可达数十 GB，但单 batch 只访问其中一小片）。
+推理时的 KV cache（随请求增长，超订让长上下文「勉强」装下）。
+检查点暂存、不常访问的优化器状态。
 
 **绝对不能超订（每步都全量访问）：**
 
-- 参数、梯度、激活——它们每步都被完整读写，超订等于每步全量换页，慢到不可用。
+参数、梯度、激活——它们每步都被完整读写，超订等于每步全量换页，慢到不可用。
 
 **正确的姿势**：默认关闭 UM 超订，只对「确定稀疏访问」的张量显式启用，并配以**预取（prefetch）**——在 kernel 启动前 `cudaMemPrefetchAsync` 把要用的页提前搬到显存。<span class="marginnote">预取是把 UM 从「被动缺页」变成「主动搬运」的关键：你提前告诉驱动「接下来要碰这些页」，它趁 kernel 还没跑先把页搬好，缺页就消失了。训练代码里给每个 stage 的数据预取，是 UM 场景下唯一的性能保障。</span>
 
@@ -86,7 +86,7 @@ $$B_{\text{effective}} = \frac{W}{T_{\text{compute}}} \quad \text{vs} \quad B_{\
 - **UM ≠ offload**：offload 是框架主动选择「哪些放 CPU」，UM 是驱动按访问自动搬——前者可预测，后者靠缺页，性能更难控制。
 - **超订不保证安全**：非托管内存的越界、以及某些 GPU（无 concurrentManagedAccess）会直接报错或超时。
 - **别让随机访问走 UM**：embedding 散列、采样器随机读取是缺页风暴高发区，要显式预取或普通拷贝。
-- **PyTorch 的 `cudaMallocAsync` 与 UM 不同**：前者管「显存分配器」，后者管「CPU-GPU 统一地址」，别混。
+- **PyTorch 的 CachingAllocator 与 UM 不同**：前者管「显存分配器」，后者管「CPU-GPU 统一地址」，别混。
 
 ## 7 小结
 
@@ -102,7 +102,7 @@ $$B_{\text{effective}} = \frac{W}{T_{\text{compute}}} \quad \text{vs} \quad B_{\
 
 **几个值得进一步挖的方向**：
 
-- **`cudaMemPrefetchAsync` 的正确用法**：prefetch 在 kernel 启动前把页搬到显存——配合「每阶段数据预取」，可以把 UM 的缺页开销几乎清零。怎么写一个「预取先行」的数据管线？
+- **cudaMemPrefetchAsync 的正确用法**：prefetch 在 kernel 启动前把页搬到显存——配合「每阶段数据预取」，可以把 UM 的缺页开销几乎清零。怎么写一个「预取先行」的数据管线？
 - **UM 与 offload 的异同**：UM 是「驱动按访问自动搬」，offload 是「框架主动选位置」——一个靠缺页、一个靠显式，性能可预测性差多少？
 - **超订的风险**：`concurrentManagedAccess` 不支持的 GPU 上，超订可能直接报错——怎么检测你的硬件支不支持？这是 UM 方案可行性的前提。
 

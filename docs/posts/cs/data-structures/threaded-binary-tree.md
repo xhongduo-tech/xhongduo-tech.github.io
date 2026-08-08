@@ -22,39 +22,43 @@ date: 2026-08-07
 
 在中序遍历的视角下，每个结点有两个「空缺」：
 
-- **前驱线索**：结点的左孩子为空时，`lchild` 指向中序前驱；
-- **后继线索**：结点的右孩子为空时，`rchild` 指向中序后继。
+- **前驱线索**：结点的左孩子为空时，左指针 `lchild` 指向中序前驱；
+- **后继线索**：结点的右孩子为空时，右指针 `rchild` 指向中序后继。
 
 为了区分「指针是真的孩子还是线索」，每个结点加两个标志位：
 
 ```c
-typedef enum { Link, Thread } PointerTag;   /* Link：指向孩子；Thread：指向前驱/后继 */
-typedef struct BiThrNode {
-    TElemType data;
-    struct BiThrNode *lchild, *rchild;
-    PointerTag LTag, RTag;                  /* 左右标志 */
-} BiThrNode, *BiThrTree;
+typedef struct ThreadNode {
+    ElemType data;
+    struct ThreadNode *lchild, *rchild;   /* 左右孩子指针 */
+    int LTag, RTag;                        /* 0 = Link(孩子)，1 = Thread(线索) */
+} ThreadNode, *ThreadTree;
 ```
 
-**重点：标志位是线索二叉树的灵魂。** `lchild` 到底指孩子还是前驱，由 `LTag` 裁决；`rchild` 同理。没有标志位，指针就失去语义。<span class="marginnote">「<strong>用标志位消除歧义</strong>」是数据结构的通用手法——双端队列里用牺牲一格区分满与空、这里用 tag 区分孩子与线索。凡是「一个字段两种含义」，都要有个显式标记来仲裁。</span>
+**重点：标志位是线索二叉树的灵魂。** 左指针到底指孩子还是前驱，由 `LTag` 裁决；右指针同理。没有标志位，指针就失去语义。<span class="marginnote">「<strong>用标志位消除歧义</strong>」是数据结构的通用手法——双端队列里用牺牲一格区分满与空、这里用 tag 区分孩子与线索。凡是「一个字段两种含义」，都要有个显式标记来仲裁。</span>
 
 ## 2 中序线索化：一次中序遍历完成
 
 把一棵普通二叉树变成中序线索树，只需在中序遍历的过程中，记住「上一个访问的结点」，然后：
 
-- 当前结点左孩子为空 → 把 `lchild` 指向 `pre`（前驱），置 `LTag = Thread`；
-- `pre` 的右孩子为空 → 把 `pre->rchild` 指向当前结点（后继），置 `pre->RTag = Thread`；
-- 更新 `pre = 当前结点`，继续遍历。
+当前结点左孩子为空 → 把左指针 `lchild` 指向 `pre`（前驱），置 `LTag = Thread`；
+`pre` 的右孩子为空 → 把 `pre` 的右指针 `rchild` 指向当前结点（后继），置 `RTag = Thread`；
+更新 `pre` 为当前结点，继续遍历。
 
 ```c
-void InThreading(BiThrTree p) {
-    if (p) {
-        InThreading(p->lchild);            /* 左子树线索化 */
-        if (!p->lchild) { p->LTag = Thread; p->lchild = pre; }
-        if (!pre->rchild) { pre->RTag = Thread; pre->rchild = p; }
-        pre = p;
-        InThreading(p->rchild);            /* 右子树线索化 */
+void InThread(ThreadNode *p, ThreadNode *&pre) {
+    if (p == NULL) return;
+    InThread(p->lchild, pre);                 /* 左子树线索化 */
+    if (p->lchild == NULL) {                  /* 左孩子为空 → 指向前驱 */
+        p->lchild = pre;
+        p->LTag = Thread;
     }
+    if (pre != NULL && pre->rchild == NULL) { /* 前驱右孩子为空 → 指向当前结点 */
+        pre->rchild = p;
+        pre->RTag = Thread;
+    }
+    pre = p;                                  /* 更新前驱 */
+    InThread(p->rchild, pre);                 /* 右子树线索化 */
 }
 ```
 
@@ -77,30 +81,32 @@ $$
 有了后继规则，遍历写成循环即可：
 
 ```c
-void InOrderTraverse_Thr(BiThrTree T) {
-    BiThrTree p = T->lchild;              /* p 指向根 */
-    while (p != T) {                      /* 回到头结点则结束 */
-        while (p->LTag == Link) p = p->lchild;   /* 走到最左结点 */
-        visit(p->data);                   /* 访问 */
-        while (p->RTag == Thread && p->rchild != T) {
-            p = p->rchild;                /* 沿线索前进 */
-            visit(p->data);
-        }
-        p = p->rchild;                    /* 进入右子树 */
-    }
+ThreadNode *FirstNode(ThreadNode *p) {        /* 子树的最左结点 */
+    while (p->LTag == Link) p = p->lchild;
+    return p;
+}
+
+ThreadNode *NextNode(ThreadNode *p) {         /* 中序后继 */
+    if (p->RTag == Thread) return p->rchild;  /* 线索直达 */
+    return FirstNode(p->rchild);              /* 右子树的最左下结点 */
+}
+
+void InOrder(ThreadNode *root) {
+    for (ThreadNode *p = FirstNode(root); p != NULL; p = NextNode(p))
+        visit(p);
 }
 ```
 
-**辨析｜易错点：头结点（虚拟头）的作用。** 常在线索树上加一个头结点：`lchild` 指向根，`rchild` 指向中序遍历的最后一个结点；反过来，根的前驱指向头结点、末结点的后继指向头结点。头结点让「遍历到末尾」有了统一出口，避免特判空树。<span class="marginnote">头结点是「<strong>哨兵</strong>」思想的又一例证——前面单链表的头结点、循环链表的哨兵、哈希表的桶头，都是同一个手法：<strong>加一个不存数据的结点，让边界判断统一</strong>。</span>
+**辨析｜易错点：头结点（虚拟头）的作用。** 常在线索树上加一个头结点：头结点的 `lchild` 指向根，头结点的 `rchild` 指向中序遍历的最后一个结点；反过来，根的前驱指向头结点、末结点的后继指向头结点。头结点让「遍历到末尾」有了统一出口，避免特判空树。<span class="marginnote">头结点是「<strong>哨兵</strong>」思想的又一例证——前面单链表的头结点、循环链表的哨兵、哈希表的桶头，都是同一个手法：<strong>加一个不存数据的结点，让边界判断统一</strong>。</span>
 
 ## 5 线索二叉树的应用与局限
 
-- **应用**：需要频繁「找前驱/后继」的场景——如按中序顺序遍历的数据库游标、对二叉树做「前驱后继查询」的算法。线索树让这些操作从 $O(h)$ 降到均摊 $O(1)$。
-- **局限**：线索只固化「一种遍历顺序」——若要先序、后序都要，得分别建线索；且插入删除结点后线索可能失效，需要维护。**线索树适合「构建一次、遍历多次」的静态树**。<span class="marginnote">线索树的「构建后难维护」与后面《二叉排序树》的动态平衡需求形成对照：静态结构图省事，动态结构图灵活。<strong>任何结构设计都在这两端取平衡</strong>——这是贯穿数据结构全书的元主题。</span>
+**应用**：需要频繁「找前驱/后继」的场景——如按中序顺序遍历的数据库游标、对二叉树做「前驱后继查询」的算法。线索树让这些操作从 $O(h)$ 降到均摊 $O(1)$。
+**局限**：线索只固化「一种遍历顺序」——若要先序、后序都要，得分别建线索；且插入删除结点后线索可能失效，需要维护。**线索树适合「构建一次、遍历多次」的静态树**。<span class="marginnote">线索树的「构建后难维护」与后面《二叉排序树》的动态平衡需求形成对照：静态结构图省事，动态结构图灵活。<strong>任何结构设计都在这两端取平衡</strong>——这是贯穿数据结构全书的元主题。</span>
 
 ## 6 小结
 
-- 线索二叉树利用 $n+1$ 个空指针域存储**前驱/后继**，标志位 `LTag/RTag` 区分孩子与线索。
+- 线索二叉树利用 $n+1$ 个空指针域存储**前驱/后继**，标志位 `LTag`/`RTag` 区分孩子与线索。
 - 中序线索化 = 中序遍历 + 用 `pre` 顺手续链，框架不变。
 - 中序遍历：后继 = 线索直达（Thread）或右子树最左结点（Link），全程 $O(n)$ 无需栈。
 - 头结点作哨兵，统一「遍历到末尾」的出口。

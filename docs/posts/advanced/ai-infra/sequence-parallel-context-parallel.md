@@ -47,8 +47,8 @@ Megatron-SP 的思路很朴素：**既然 LayerNorm/Dropout 是按「序列 × �
 
 两个代表性方案给出不同答案：
 
-- **Ring Attention（2023）**：每台设备持有整条序列的**一个块**的完整 Q、K、V。通过环形通信，K、V 块像传花鼓一样在设备间轮转；每转一圈，当前设备就把自己这份 Q 与传来的 K、V 块做一次局部注意力，用 **online softmax** 把分块的 softmax 正确合并。通信量 $\propto \text{序列长度}$，且通信与计算重叠，理论上可扩展到百万级 token。
-- **DeepSpeed Ulysses（2023）**：先用 **All-to-All** 把 Q/K/V 从「序列分块」重排成「按设备分块」（每个设备拿到完整的一段序列、但只有一部分注意力头），各设备算局部注意力，再用一次 All-to-All 把结果拼回。通信量 $\propto s h$，对**全注意力**的扩展性很好。<span class="marginnote">Ring Attention 通信与计算重叠、适合超长序列；Ulysses 每次 All-to-All 一步到位、实现简单、对较短的序列更划算。业界常把两者甚至 flash-attention 的序列并行版一起做「组合拳」，按序列长度动态选择。</span>
+**Ring Attention（2023）**：每台设备持有整条序列的**一个块**的完整 Q、K、V。通过环形通信，K、V 块像传花鼓一样在设备间轮转；每转一圈，当前设备就把自己这份 Q 与传来的 K、V 块做一次局部注意力，用 **online softmax** 把分块的 softmax 正确合并。通信量 $\propto \text{序列长度}$，且通信与计算重叠，理论上可扩展到百万级 token。
+**DeepSpeed Ulysses（2023）**：先用 **All-to-All** 把 Q/K/V 从「序列分块」重排成「按设备分块」（每个设备拿到完整的一段序列、但只有一部分注意力头），各设备算局部注意力，再用一次 All-to-All 把结果拼回。通信量 $\propto s h$，对**全注意力**的扩展性很好。<span class="marginnote">Ring Attention 通信与计算重叠、适合超长序列；Ulysses 每次 All-to-All 一步到位、实现简单、对较短的序列更划算。业界常把两者甚至 flash-attention 的序列并行版一起做「组合拳」，按序列长度动态选择。</span>
 
 ## 4 公式解析：切分后激活如何摊薄
 
@@ -94,7 +94,7 @@ $$\text{AttnAct}_{\text{per device}} = 2 b \cdot \frac{s}{p} \cdot s \cdot a \ap
 
 ## 7 进阶与延伸
 
-**动手体验长序列的显存压力**：用 PyTorch 把序列长度从 4096 逐步加到 128K，同时观察 attention 分数矩阵的显存（`torch.cuda.memory_allocated`）。你会看到它按 $s^2$ 暴涨——这正是 CP 存在的全部理由。
+**动手体验长序列的显存压力**：用 PyTorch 把序列长度从 4096 逐步加到 128K，同时观察 attention 分数矩阵的显存（$s^2$）。你会看到它按 $s^2$ 暴涨——这正是 CP 存在的全部理由。
 
 **几个值得进一步挖的方向**：
 

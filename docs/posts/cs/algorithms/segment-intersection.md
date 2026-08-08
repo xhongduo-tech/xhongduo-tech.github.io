@@ -35,18 +35,25 @@ $$d_3 = \text{DIRECTION}(p_3, p_4, p_1), \qquad d_4 = \text{DIRECTION}(p_3, p_4,
 
 当某个 $d_i = 0$（端点共线），需用 **ON-SEGMENT** 补判：
 
-```
-SEGMENTS-INTERSECT(p1, p2, p3, p4)
-  d1 = DIRECTION(p1,p2,p3);  d2 = DIRECTION(p1,p2,p4)
-  d3 = DIRECTION(p3,p4,p1);  d4 = DIRECTION(p3,p4,p2)
-  if ((d1>0 and d2<0) or (d1<0 and d2>0)) and
-     ((d3>0 and d4<0) or (d3<0 and d4>0))
-    return TRUE                       // 一般情形：互相跨立
-  else if d1 == 0 and ON-SEGMENT(p1,p2,p3)  return TRUE
-  else if d2 == 0 and ON-SEGMENT(p1,p2,p4)  return TRUE
-  else if d3 == 0 and ON-SEGMENT(p3,p4,p1)  return TRUE
-  else if d4 == 0 and ON-SEGMENT(p3,p4,p2)  return TRUE
-  else return FALSE
+```text
+SEGMENTS-INTERSECT(p1, p2, p3, p4):
+    d1 = DIRECTION(p1, p2, p3)
+    d2 = DIRECTION(p1, p2, p4)
+    d3 = DIRECTION(p3, p4, p1)
+    d4 = DIRECTION(p3, p4, p2)
+    if ((d1 > 0 and d2 < 0) or (d1 < 0 and d2 > 0)) and
+       ((d3 > 0 and d4 < 0) or (d3 < 0 and d4 > 0)):   // 互相跨立
+        return TRUE
+    elif d1 == 0 and ON-SEGMENT(p1, p2, p3):           // 共线端点补判
+        return TRUE
+    elif d2 == 0 and ON-SEGMENT(p1, p2, p4):
+        return TRUE
+    elif d3 == 0 and ON-SEGMENT(p3, p4, p1):
+        return TRUE
+    elif d4 == 0 and ON-SEGMENT(p3, p4, p2):
+        return TRUE
+    else:
+        return FALSE
 ```
 
 **边界情形**：某个端点在另一条线段上（$d_i = 0$ 且该点在线段内）——也算相交。<span class="marginnote">共线时「方向判定」失效（$d_i = 0$ 不提供左右信息），必须回到 ON-SEGMENT（边界框检查）。例如 $p_3$ 恰好在 $p_1p_2$ 上但 $p_4$ 在另一侧——这是「端点接触」，线段相交。漏掉这些分支，端点接触的相交会被误判为不相交。</span>
@@ -69,10 +76,10 @@ $$\text{相交} \iff (d_1 d_2 < 0 \wedge d_3 d_4 < 0) \vee (\exists i: d_i = 0 \
 
 单次判定：4 个 DIRECTION + 至多 4 次 ON-SEGMENT，**$O(1)$**。它是最便宜的几何原语之一。
 
-- **碰撞检测**：图形学、机器人运动规划的「线段是否相交」。
-- **多边形自交**：判断多边形边是否相交（判断多边形是否简单）。
-- **扫描线算法**（下一课）的每个「事件」都要用跨立判定。
-- **地图与 GIS**：道路、边界线的拓扑关系。<span class="marginnote">「$O(1)$ 的线段相交判定」是无数几何算法的原子操作。下一课会把 $n$ 条线段两两判交的 $O(n^2)$ 优化成 $O((n+k)\log n)$（$k$ = 相交对数）——但那个优化内部，每次「候选对」仍然调用这个 $O(1)$ 跨立判定。先把这个原子操作吃透，上层算法才有可靠的砖块。</span>
+**碰撞检测**：图形学、机器人运动规划的「线段是否相交」。
+**多边形自交**：判断多边形边是否相交（判断多边形是否简单）。
+**扫描线算法**（下一课）的每个「事件」都要用跨立判定。
+**地图与 GIS**：道路、边界线的拓扑关系。<span class="marginnote">「$O(1)$ 的线段相交判定」是无数几何算法的原子操作。下一课会把 $n$ 条线段两两判交的 $O(n^2)$ 优化成 $O((n+k)\log n)$（$k$ = 相交对数）——但那个优化内部，每次「候选对」仍然调用这个 $O(1)$ 跨立判定。先把这个原子操作吃透，上层算法才有可靠的砖块。</span>
 
 ## 5 小结
 

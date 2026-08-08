@@ -38,18 +38,20 @@ $$a^u, a^{2u}, a^{4u}, \dots, a^{2^t u} = a^{n-1}$$
 
 要么**第一项 ≡ 1**，要么**在某处出现 ≡ -1**（否则从「≡1 的平方根」矛盾）。若两者都不出现，$n$ 必是合数。
 
-```
-MILLER-RABIN(n, s)
-  write n-1 = 2^t * u with u odd
-  for i = 1 to s
-    a = random in [2, n-2]
-    x = a^u mod n
-    if x == 1 or x == n-1:  continue        // 通过
-    for j = 1 to t-1
-      x = x^2 mod n
-      if x == n-1:  continue outer          // 出现 -1，通过
-    return COMPOSITE                        // 没出现 -1，必为合数
-  return PROBABLY PRIME
+```text
+MILLER-RABIN(n, s):                 // 返回「n 是素数」的概率判定
+    if n == 2: return TRUE
+    if n < 2 或 n 为偶数: return FALSE
+    将 n-1 写成 n - 1 = 2^t * u，其中 u 为奇数
+    repeat s 次:
+        随机选取 a ∈ {2, 3, ..., n-2}
+        x = a^u mod n
+        if x == 1 or x == n - 1: continue      // 这一轮通过
+        for j = 1 to t - 1:
+            x = x^2 mod n
+            if x == n - 1: break               // 中途出现 ≡ -1，通过
+        if x != n - 1: return FALSE            // 平方链未出现 -1，n 为合数
+    return TRUE
 ```
 
 **判定逻辑**：若 $n$ 是素数，定理保证任何 $a$ 都通过；若 $n$ 是合数，**至少 3/4 的 $a$ 会让测试暴露它**。<span class="marginnote">「合数时至少 3/4 的 $a$ 能暴露」是 Miller-Rabin 的核心性质（比费马测试强得多——没有 Carmichael 数式的漏洞）。所以做 $s$ 次独立随机测试，合数被误判的概率 ≤ $1/4^s$——取 $s = 50$ 时错误率 $< 10^{-30}$，比硬件故障率还低。这就是「概率几乎等于确定」。</span>
@@ -70,9 +72,9 @@ $$\Pr[\text{合数被误判为素数}] \le \left(\frac{1}{4}\right)^s$$
 
 ## 4 素性测试在密码学中的应用
 
-- **RSA 密钥生成**：随机选奇数 → Miller-Rabin 测素性 → 通过即用（两个大素数拼 $n$）。
-- **Diffie-Hellman**：需要安全素数（$2p+1$ 形式）——素性测试是生成器选择的前置。
-- **同态加密/数字签名**：底层模数都是素数，素性测试保证结构正确。<span class="marginnote">密钥生成的流程：随机挑一个 $k$ 位奇数，先用「试除小素数」快速排除大部分合数（绝大多数奇数被 3、5、7 整除），再对幸存的跑 Miller-Rabin。这个「小筛子 + 概率测试」的组合把「生成大素数」从不可行变成毫秒级。理解它，就理解了密码系统如何量产「素数」。</span>
+**RSA 密钥生成**：随机选奇数 → Miller-Rabin 测素性 → 通过即用（两个大素数拼 $n$）。
+**Diffie-Hellman**：需要安全素数（$2p+1$ 形式）——素性测试是生成器选择的前置。
+**同态加密/数字签名**：底层模数都是素数，素性测试保证结构正确。<span class="marginnote">密钥生成的流程：随机挑一个 $k$ 位奇数，先用「试除小素数」快速排除大部分合数（绝大多数奇数被 3、5、7 整除），再对幸存的跑 Miller-Rabin。这个「小筛子 + 概率测试」的组合把「生成大素数」从不可行变成毫秒级。理解它，就理解了密码系统如何量产「素数」。</span>
 
 ## 5 小结
 

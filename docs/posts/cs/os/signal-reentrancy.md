@@ -22,10 +22,10 @@ date: 2026-08-07
 
 **可重入（reentrant）**：一个函数被**多次调用且调用可能重叠**时，行为仍然正确——即函数被「中断后再次进入」不会出问题。
 
-- **可重入函数**：不依赖全局/静态可变状态，或每次进入用独立的状态（栈、寄存器）。如 `read`、`write`、`_exit`。
-- **不可重入函数**：依赖全局可变状态——`malloc`（管理堆）、`printf`（用全局缓冲）、`strtok`（用静态指针）。
+- **可重入函数**：不依赖全局/静态可变状态，或每次进入用独立的状态（栈、寄存器）。如 strlen、memcpy、strcpy。
+- **不可重入函数**：依赖全局可变状态——malloc（管理堆）、printf（用全局缓冲）、strtok（用静态指针）。
 
-**信号处理的场景**：主程序正在调 `printf`（写全局缓冲），信号处理函数也调 `printf`——**两个 `printf` 重入同一份全局缓冲** → 数据错乱、甚至死锁。
+**信号处理的场景**：主程序正在调 printf（写全局缓冲），信号处理函数也调 printf——**两个 printf 重入同一份全局缓冲** → 数据错乱、甚至死锁。
 
 **为什么信号处理尤其危险**：
 
@@ -38,26 +38,33 @@ date: 2026-08-07
 **灾难一：malloc/printf 重入**。
 
 ```c
+/* 主程序：正在 malloc 分配堆内存 */
+char *p = malloc(1024);
+/* 此刻信号打断 malloc，进入处理函数 */
 void handler(int sig) {
-    printf("signal!\n");    // 用 malloc + 全局缓冲
-}
-int main() {
-    signal(SIGINT, handler);
-    while (1) printf("hi\n");  // 主程序也在用 printf
+    free(p);             /* 重入 malloc/free 的堆管理状态 → 堆损坏 */
+    printf("caught!\n"); /* 重入 stdio 全局缓冲 → 输出错乱 */
 }
 ```
 
-主程序调 `printf` → 进入 malloc 分配缓冲 → 信号打断 → handler 调 `printf`/`malloc` → **重入 malloc 的内部状态** → 堆损坏或死锁。
+主程序调 malloc → 进入 malloc 分配缓冲 → 信号打断 → handler 调 free/printf → **重入 malloc 的内部状态** → 堆损坏或死锁。
 
 **灾难二：全局变量竞争**。
 
 ```c
-int counter = 0;
-void handler(int sig) { counter++; }      // 读改写
-int main() { while (1) { counter++; } }   // 读改写
+int count = 0;              /* 主程序与 handler 共享的全局变量 */
+
+void handler(int sig) {
+    count++;                /* 与主程序的 count++ 并发交错 */
+}
+
+int main(void) {
+    /* ... */
+    count++;                /* 读-改-写，可能被 handler 打断 → 丢更新 */
+}
 ```
 
-`counter++` 是「读-改-写」三段（回顾竞态条件）——主程序与处理函数并发改 `counter`，**丢更新**。
+count++ 是「读-改-写」三段（回顾竞态条件）——主程序与处理函数并发改 count，**丢更新**。
 
 **灾难三：非原子操作被二次进入**。
 
@@ -69,28 +76,35 @@ int main() { while (1) { counter++; } }   // 读改写
 
 **安全（可在 handler 中调用）**：
 
-- `write`、`read`、`open`、`close`（不依赖进程全局可变缓冲）。
-- `_exit`（立即退出）。
-- `sigaction`、`signal`。
-- `getpid`、`getuid` 等纯查询。
+- write、read、_exit、getpid（不依赖进程全局可变缓冲）。
+- _exit（立即退出）。
+- getpid、getppid。
+- getuid、geteuid 等纯查询。
 
 **不安全（禁止在 handler 中调用）**：
 
-- `printf`/`sprintf`（用全局缓冲）。
-- `malloc`/`free`（管理全局堆）。
-- `strtok`（静态指针）。
-- 任何锁操作（`pthread_mutex_lock`——可能死锁）。
+- printf/fprintf（用全局缓冲）。
+- malloc/free（管理全局堆）。
+- strtok（静态指针）。
+- 任何锁操作（pthread_mutex_lock——可能死锁）。
 
 **工程实践**：
 
-- handler 里**只调 async-signal-safe 函数**——通常只做「置标志位」：`handler` 置一个 `volatile sig_atomic_t` 标志，主程序循环检查标志再处理。
+- handler 里**只调 async-signal-safe 函数**——通常只做「置标志位」：handler 置一个 volatile sig_atomic_t 标志，主程序循环检查标志再处理。
 
 ```c
-volatile sig_atomic_t flag = 0;
-void handler(int sig) { flag = 1; }   // 安全：只写标志
-int main() {
+static volatile sig_atomic_t got_signal = 0;   /* 原子、不被优化掉 */
+
+void handler(int sig) {
+    got_signal = 1;          /* handler 只做一件事：置标志 */
+}
+
+int main(void) {
     signal(SIGINT, handler);
-    while (1) { if (flag) { flag = 0; do_work(); } }
+    while (!got_signal) {    /* 主程序轮询标志，继续正常业务 */
+        /* ... */
+    }
+    /* 发现标志被置，再在主程序上下文里处理信号 */
 }
 ```
 
@@ -98,7 +112,7 @@ int main() {
 
 $$\text{handler 只做} \quad flag \leftarrow 1; \quad \text{主程序} \quad \text{if } flag \text{ then handle}$$
 
-- **`volatile sig_atomic_t`**：保证读写是原子的（int 级）且不被编译器优化掉。
+- **volatile sig_atomic_t**：保证读写是原子的（int 级）且不被编译器优化掉。
 - handler 只**置位**，主程序**轮询并处理**——**把「复杂工作」移出 handler，放进主循环**。
 - 这是信号处理的黄金模式：**handler 极简（置标志），工作在主程序做**。
 
@@ -110,12 +124,12 @@ $$\text{handler 只做} \quad flag \leftarrow 1; \quad \text{主程序} \quad \t
 
 | 函数 | 依赖状态 | 可在 handler 用？ |
 | --- | --- | --- |
-| `write` | 内核（无进程全局态） | **是** |
-| `_exit` | 无 | **是** |
-| `getpid` | 只读 | **是** |
-| `printf` | 全局 stdio 缓冲 | 否 |
-| `malloc` | 全局堆 | 否 |
-| `strtok` | 静态指针 | 否 |
+| write | 内核（无进程全局态） | **是** |
+| _exit | 无 | **是** |
+| getpid | 只读 | **是** |
+| printf | 全局 stdio 缓冲 | 否 |
+| malloc | 全局堆 | 否 |
+| strtok | 静态指针 | 否 |
 
 ## 5 小结
 
@@ -123,6 +137,6 @@ $$\text{handler 只做} \quad flag \leftarrow 1; \quad \text{主程序} \quad \t
 - 信号处理危险：处理函数在**任意执行点**打断主程序，共享同一地址空间。
 - 典型灾难：**printf/malloc 重入、全局变量竞争、非原子操作**。
 - **async-signal-safe** 函数（write/_exit/getpid）才可在 handler 用。
-- 黄金模式：**handler 只置 `volatile sig_atomic_t` 标志，主程序轮询处理**。
+- 黄金模式：**handler 只置 volatile sig_atomic_t 标志，主程序轮询处理**。
 
 在下一节，我们看进程间通信的经典实现——**管道与 FIFO 的实现与使用**。

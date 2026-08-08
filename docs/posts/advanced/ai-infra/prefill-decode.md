@@ -39,10 +39,10 @@ prefill 是「算力密集、并行度高」，decode 是「带宽密集、串�
 
 它的特征：
 
-- **串行依赖**：第 $k+1$ 个 token 依赖前 $k$ 个——**无法并行**，必须一步步走。
-- **带宽密集**：每步只处理「一个 token」，计算量极小（$2N$），但要把整个权重 $2N$ 从显存读一遍——**瓶颈在显存带宽，不在算力**。
-- **耗时主导**：生成 $S$ 个 token 需要 $S$ 步，decode 占整次请求时间的绝大部分。
-- **读多算少**：每步的「计算/读权重」比极低，GPU 算力大量闲置。
+**串行依赖**：第 $k+1$ 个 token 依赖前 $k$ 个——**无法并行**，必须一步步走。
+**带宽密集**：每步只处理「一个 token」，计算量极小（$2N$），但要把整个权重 $2N$ 从显存读一遍——**瓶颈在显存带宽，不在算力**。
+**耗时主导**：生成 $S$ 个 token 需要 $S$ 步，decode 占整次请求时间的绝大部分。
+**读多算少**：每步的「计算/读权重」比极低，GPU 算力大量闲置。
 
 **decode 的指标是 TPOT（Time Per Output Token）**——每个输出 token 的间隔。<span class="marginnote">decode 的「带宽密集」是推理最反直觉的一点：算力最强的 GPU 在 decode 阶段可能只用到 20%–30% 的算力，因为它在「等权重从显存搬到计算单元」。这也是为什么推理选 GPU 要看显存带宽（本专题专门一篇）——decode 的速度基本由带宽决定。</span>
 
@@ -65,9 +65,9 @@ prefill 是「算力密集、并行度高」，decode 是「带宽密集、串�
 
 如果推理系统对 prefill 与 decode 用同一套策略，会出现两败俱伤：
 
-- **让 decode 等 prefill**：一个长 prompt 的 prefill 占住 GPU 算力，所有在 decode 的短请求被拖慢——TPOT 飙升。
-- **让 prefill 等 decode**：decode 的每一步都很短，但它「占着」GPU 的调度槽，prefill 的并行优势发挥不出来——TTFT 飙升。
-- **混合排队**：两者竞争同一资源池，谁的延迟都无法保证。
+**让 decode 等 prefill**：一个长 prompt 的 prefill 占住 GPU 算力，所有在 decode 的短请求被拖慢——TPOT 飙升。
+**让 prefill 等 decode**：decode 的每一步都很短，但它「占着」GPU 的调度槽，prefill 的并行优势发挥不出来——TTFT 飙升。
+**混合排队**：两者竞争同一资源池，谁的延迟都无法保证。
 
 于是现代推理系统都做**分层调度**：把 prefill 请求与 decode 请求分开排队、分优先级、甚至分 GPU。**「两类负载分开处理」是推理系统设计的核心原则**。<span class="marginnote">连续批处理（continuous batching）里最常见的实现是「prefill 优先 + decode 交错」：新请求的 prefill 可以插入到 decode 的「token 间隙」里执行——因为 decode 每步只有几毫秒，插一个 prefill 进去刚好填满带宽空闲。这种「见缝插针」是两阶段共存的基础技巧。</span>
 

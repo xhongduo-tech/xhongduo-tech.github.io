@@ -41,20 +41,20 @@ date: 2026-08-07
 词类转换以「名词→动词」最为常见，但方向不止一个：
 
 **名词 → 动词**（处理动作性名词）：
-- *He is a good swimmer.* → 他游泳游得很好。（swimmer 名词→游泳 动词，而非「他是一个好游泳者」）
-- *She has a thorough knowledge of the law.* → 她对法律很精通。（knowledge → 精通）
-- *The book is a reflection of his thought.* → 这本书反映了他的思想。
+*He is a good swimmer.* → 他游泳游得很好。（swimmer 名词→游泳 动词，而非「他是一个好游泳者」）
+*She has a thorough knowledge of the law.* → 她对法律很精通。（knowledge → 精通）
+*The book is a reflection of his thought.* → 这本书反映了他的思想。
 
 **动词 → 名词**（处理用动词形式表达的状态）：
-- *He behaves well.* → 他的行为举止很好。（behave → 行为）
-- *The war resulted in enormous damage.* → 战争造成了巨大的损失。
+*He behaves well.* → 他的行为举止很好。（behave → 行为）
+*The war resulted in enormous damage.* → 战争造成了巨大的损失。
 
 **形容词 → 动词**（英语形容词表状态，汉语用动词表达）：
-- *I am sure of his success.* → 我确信他会成功。（sure 形容词 → 确信 动词）
-- *He is anxious to leave.* → 他急于离开。
+*I am sure of his success.* → 我确信他会成功。（sure 形容词 → 确信 动词）
+*He is anxious to leave.* → 他急于离开。
 
 **形容词 → 名词**（英语名词性形容词或作表语的形容词）：
-- *The new policy is essential to development.* → 新政策对发展至关重要（形容词保留）……若表达名词义：*the rich\* → 富人、*the beautiful\* → 美的事物。
+*The new policy is essential to development.* → 新政策对发展至关重要（形容词保留）……若表达名词义：*the rich\* → 富人、*the beautiful\* → 美的事物。
 
 转换的驱动信号不是词类本身，而是**语义角色**：语义上表示动作的，汉语倾向用动词；表示状态的，汉语倾向用形容词或动词。<span class="marginnote">判断信号也可以形式化：英语中由动词派生的名词（-tion、-ment、-ing）、表示动作的介词短语、表示状态的系表结构，都是词类转换的「高发区」。熟练译者一看到 -tion 结尾的动作名词，就本能地准备动词化——这几乎是译者的职业直觉。</span>
 
@@ -62,15 +62,15 @@ date: 2026-08-07
 
 英语介词丰富且活跃，汉语介词相对贫乏，因此**介词译成动词**是英译汉的另一大高频转换：
 
-- *He went to Beijing by train.* → 他坐火车去北京。（by → 坐）
-- *She is for the plan.* → 她赞成这个计划。（for → 赞成）
-- *He walked across the street with a stick.* → 他拄着拐杖穿过街道。（with → 拄着）
+*He went to Beijing by train.* → 他坐火车去北京。（by → 坐）
+*She is for the plan.* → 她赞成这个计划。（for → 赞成）
+*He walked across the street with a stick.* → 他拄着拐杖穿过街道。（with → 拄着）
 
 英语介词常「藏」着动作意义：*across\* 是「横穿」、*against\* 是「反对」、*through\* 是「通过」。英译汉时把这些介词所隐含的动作「译出来」，正是动态化改写的一部分。<span class="marginnote">介词隐含动作的现象在认知语言学里叫「意象图式」（image schema）——介词本身编码着空间关系的运动轨迹。汉语没有这么发达的介词系统，于是把轨迹义交给动词承担。这与第二级《语言学》里「语言相对论」的温和版本不谋而合。</span>
 
 副词同理：英语里表示伴随、方式的副词，常需译成动词或动词短语：
-- *He left the room quietly.* → 他悄悄走出房间。（quietly 副词→悄悄 副词，其实这里副词保留）→ 更好的例子：*The computer is widely used.* → 计算机得到广泛使用。（被动+副词，见被动句那节）
-- *I must thank you beforehand.* → 我事先向你道谢。
+*He left the room quietly.* → 他悄悄走出房间。（quietly 副词→悄悄 副词，其实这里副词保留）→ 更好的例子：*The computer is widely used.* → 计算机得到广泛使用。（被动+副词，见被动句那节）
+*I must thank you beforehand.* → 我事先向你道谢。
 
 核心规律不变：**把英语「压」在非动词词类里的动作意义，在汉语里「释放」回动词**。
 
@@ -78,9 +78,9 @@ date: 2026-08-07
 
 词类转换是「因译入语习惯而转换」，而不是「见词就换」。三个边界判断：
 
-- **有对等词且自然时，不必换**：*I like music.* → 我喜欢音乐。词类完全对译，无需转换。
-- **转换应以自然为标准，不以新奇为标准**：翻译腔反而常来自「过度转换」。判断标准是读起来是否像地道中文，而非是否展示了技巧。
-- **专业术语与固定译名不参与转换**：*artificial intelligence\* 就是「人工智能」，不会因为 *intelligence\* 是名词就强行动词化。术语的稳定性优先于词类转换。<span class="marginnote">术语稳定性与词类转换的冲突，在科技翻译里最典型。译者的处理原则是「术语领域优先、一般词汇功能优先」——这正是《科技翻译》一节要展开的分工。</span>
+**有对等词且自然时，不必换**：*I like music.* → 我喜欢音乐。词类完全对译，无需转换。
+**转换应以自然为标准，不以新奇为标准**：翻译腔反而常来自「过度转换」。判断标准是读起来是否像地道中文，而非是否展示了技巧。
+**专业术语与固定译名不参与转换**：*artificial intelligence\* 就是「人工智能」，不会因为 *intelligence\* 是名词就强行动词化。术语的稳定性优先于词类转换。<span class="marginnote">术语稳定性与词类转换的冲突，在科技翻译里最典型。译者的处理原则是「术语领域优先、一般词汇功能优先」——这正是《科技翻译》一节要展开的分工。</span>
 
 词类转换的本质，是把英汉语言类型差异造成的「别扭」翻译回「自然」。**它服务的是表达习惯，而不是语法对等。**
 

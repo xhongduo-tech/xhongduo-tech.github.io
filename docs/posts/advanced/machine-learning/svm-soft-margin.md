@@ -25,7 +25,7 @@ date: 2026-08-07
 
 **辨析｜易错点：** 不要误以为「允许犯错」就是「模型变差」。硬间隔的「全对」是**训练集上的全对**，代价是**测试集上的变差**——这正是第2章的过拟合。软间隔牺牲一点点训练精度，换取更宽的间隔与更强的泛化，是典型的**偏差-方差权衡**。
 
-## 2 软间隔的建模：松弛变量**软间隔**允许某些样本不满足约束 $y_i(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b) \geq 1$，但每违反一次要付出代价。引入**松弛变量（slack variable）**$\xi_i \geq 0$，约束放宽为$$y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right) \geq 1 - \xi_i$$
+## 2 软间隔的建模：松弛变量**软间隔**允许某些样本不满足约束 $y_i(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b) \geq 1$，但每违反一次要付出代价。引入**松弛变量（slack variable）**$\xi_i \geq 0$，约束放宽为`$$`y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right) \geq 1 - \xi_i$$
 $\xi_i$ 的含义分档：
 
 - $\xi_i = 0$：样本在间隔边界外，完全正确；
@@ -47,7 +47,7 @@ $$\text{s.t.} \quad \sum_{i=1}^{m} \alpha_i y_i = 0, \qquad 0 \leq \alpha_i \leq
 
 - **第四步，读出关键变化**：相比硬间隔，约束从 $\alpha_i \geq 0$ 变成了 **$0 \leq \alpha_i \leq C$**——乘子有了上界 $C$。这正是软间隔在对偶空间的全部体现。<span class="marginnote">上界 $C$ 的直观：支持向量的「话语权」被封顶了。硬间隔里边界样本可以无限重要；软间隔里，任何单个样本（哪怕错得离谱的离群点）对解的影响力都不超过 $C$，从而无法绑架整个超平面。</span>
 
-## 4 软间隔 = 合页损失 + 正则项把软间隔的目标函数改写，能得到一个深刻的认识。由于当 $1 - y_i f(\boldsymbol{x}_i) < 0$ 时取 $\xi_i = 0$、否则 $\xi_i = 1 - y_i f(\boldsymbol{x}_i)$ 最优，软间隔等价于最小化：$$\min_{\boldsymbol{w}, b} \; \sum_{i=1}^{m} \max\left(0, 1 - y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right)\right) + \lambda \|\boldsymbol{w}\|^2$$
+## 4 软间隔 = 合页损失 + 正则项把软间隔的目标函数改写，能得到一个深刻的认识。由于当 $1 - y_i f(\boldsymbol{x}_i) < 0$ 时取 $\xi_i = 0$、否则 $\xi_i = 1 - y_i f(\boldsymbol{x}_i)$ 最优，软间隔等价于最小化：`$$`\min_{\boldsymbol{w}, b} \; \sum_{i=1}^{m} \max\left(0, 1 - y_i\left(\boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i + b\right)\right) + \lambda \|\boldsymbol{w}\|^2$$
 其中第一项是**合页损失（hinge loss）**：$\ell_{\text{hinge}}(z) = \max(0, 1-z)$，$z = y_i f(\boldsymbol{x}_i)$；第二项是正则项，$\lambda$ 与 $C$ 一一对应（$C = \frac{1}{\lambda}$ 的量级关系）。**合页损失的特点**：分类正确且置信度高（$z \geq 1$）时损失为 0；一旦进入间隔内部或分错（$z < 1$），损失**线性**增长——它不惩罚「分对但不够自信」，只惩罚「越界」。
 
 **辨析｜易错点：** 合页损失与逻辑回归的对数损失「长得像」，但性格不同：对数损失对**所有样本**（哪怕分得很对）都施加压力，因此逻辑回归的权重由全局数据决定、无稀疏性；合页损失只在 $z < 1$ 时施压，$z \geq 1$ 的样本损失为 0——**这正是 SVM 解稀疏、只依赖支持向量的根源**。<span class="marginnote">「损失函数 + 正则项」的统一视角是整本书的高频复用件：第3章线性回归（平方损失 + 正则）、第5章神经网络（交叉熵 + 权重衰减）、第6章 SVM（合页 + $\|\boldsymbol{w}\|^2$）都是同一框架。第7章从概率视角再给一次更深的解释。</span>

@@ -16,30 +16,30 @@ date: 2026-08-07
 
 ## 为什么从协变与逆变开始
 
-上一节我们看到子类型多态：`Dog` 是 `Animal` 的子类型，`Dog` 能用在 `Animal` 的位置。但问题随之而来：**由 `Animal` 与 `Dog` 构造出的复合类型，子类型关系还成立吗？** `List<Dog>` 是 `List<Animal>` 的子类型吗？`Dog → Dog` 是 `Animal → Animal` 的子类型吗？答案出人意料地「不一定」——方向有时保持不变（**协变**），有时会翻转（**逆变**），有时干脆不成立（**不变**）。这组概念是理解泛型、函数类型、以及 Java/C#/TypeScript 各种「为什么这里能赋、那里不能赋」报错的关键。<span class="marginnote">一句话直觉：<strong>「产出」位置协变、「消费」位置逆变</strong>——你从容器里<strong>读</strong>出的类型可以放宽，你要<strong>写</strong>进函数的类型必须收紧。这个「读协变、写逆变」法则，是一切方向的根源。</span>
+上一节我们看到子类型多态：**`Dog`** 是 **`Animal`** 的子类型，**`Dog`** 能用在 **`Animal`** 的位置。但问题随之而来：**由 `Dog` 与 `Animal` 构造出的复合类型，子类型关系还成立吗？** **`Dog[]`** 是 **`Animal[]`** 的子类型吗？**`(Animal) → Dog`** 是 **`(Dog) → Animal`** 的子类型吗？答案出人意料地「不一定」——方向有时保持不变（**协变**），有时会翻转（**逆变**），有时干脆不成立（**不变**）。这组概念是理解泛型、函数类型、以及 Java/C#/TypeScript 各种「为什么这里能赋、那里不能赋」报错的关键。<span class="marginnote">一句话直觉：<strong>「产出」位置协变、「消费」位置逆变</strong>——你从容器里<strong>读</strong>出的类型可以放宽，你要<strong>写</strong>进函数的类型必须收紧。这个「读协变、写逆变」法则，是一切方向的根源。</span>
 
 ## 1 四个方向：从基本关系出发
 
 设 $A \le B$ 表示「$A$ 是 $B$ 的子类型」（$A$ 能用在 $B$ 的位置）。考虑构造符 $F$ 作用在类型上：
 
-- **协变（covariant）**：$A \le B \Rightarrow F(A) \le F(B)$——方向**相同**。
-- **逆变（contravariant）**：$A \le B \Rightarrow F(B) \le F(A)$——方向**相反**。
-- **不变（invariant）**：两者都不保证——$F(A)$ 与 $F(B)$ 无子类型关系。
-- **双变（bivariant）**：两个方向都成立（少见，通常不安全）。
+**协变（covariant）**：$A \le B \Rightarrow F(A) \le F(B)$——方向**相同**。
+**逆变（contravariant）**：$A \le B \Rightarrow F(B) \le F(A)$——方向**相反**。
+**不变（invariant）**：两者都不保证——$F(A)$ 与 $F(B)$ 无子类型关系。
+**双变（bivariant）**：两个方向都成立（少见，通常不安全）。
 
 ## 2 数组：历史上一场著名的错误
 
-数组是协变的经典案例——也是 Java 设计史上著名的坑。Java 中 `String[]` 是 `Object[]` 的子类型（数组协变）：
+数组是协变的经典案例——也是 Java 设计史上著名的坑。Java 中 **`String[]`** 是 **`Object[]`** 的子类型（数组协变）：
 
 ```java
-String[] strs = new String[10];
-Object[] objs = strs;      // 合法：数组协变
-objs[0] = new Integer(1);  // 运行时 ArrayStoreException！
+String[] strings = new String[2];
+Object[] objs = strings;      // 数组协变：String[] 是 Object[] 的子类型
+objs[0] = 42;                 // 编译通过；运行期抛 ArrayStoreException
 ```
 
-把 `String[]` 当 `Object[]` 用，然后写入一个 `Integer`——编译期放行，运行期爆炸。<span class="marginnote">数组协变允许「把子类数组当父类数组」，但写入会被运行时检查拒绝（`ArrayStoreException`）。这个设计源自 Java 1.0 为兼容早期「把数组当集合用」的习惯，代价是安全靠运行时兜底。C# 的数组也协变，同样有此问题。</span>
+把 **`String[]`** 当 **`Object[]`** 用，然后写入一个 **`Integer`**——编译期放行，运行期爆炸。<span class="marginnote">数组协变允许「把子类数组当父类数组」，但写入会被运行时检查拒绝（<strong>ArrayStoreException</strong>）。这个设计源自 Java 1.0 为兼容早期「把数组当集合用」的习惯，代价是安全靠运行时兜底。C# 的数组也协变，同样有此问题。</span>
 
-**辨析｜易错点：** 数组**可写**，因此协变是危险的——写入方向需要逆变。只读视图（`ReadonlyArray`、`Iterable`）协变安全，可变数组协变需要运行时检查兜底。**「协变是否安全，取决于该位置可读还是可写」**——这是贯穿全文的准则。
+**辨析｜易错点：** 数组**可写**，因此协变是危险的——写入方向需要逆变。只读视图（**`Iterable<T>`**、**`ReadonlyArray<T>`**）协变安全，可变数组协变需要运行时检查兜底。**「协变是否安全，取决于该位置可读还是可写」**——这是贯穿全文的准则。
 
 ## 3 函数类型：参数逆变，返回值协变
 
@@ -63,39 +63,39 @@ $$
 
 三步拆解：
 
-- **第一步，构造反例**：设 $A = \text{Animal}$、$B = \text{Dog}$，$f = \lambda x : \text{Dog}.\ x.\text{bark}()$。若参数协变成立，$f$ 可用于期望 `Animal → ...` 的位置。
-- **第二步，看崩溃**：调用方传入 `Animal`（如 `Cat`），$f$ 对它调 `.bark()`——`Cat` 没有 `bark`，运行期错误。
+- **第一步，构造反例**：设 $A = \text{Animal}$、$B = \text{Dog}$，$f = \lambda x : \text{Dog}.\ x.\text{bark}()$。若参数协变成立，$f$ 可用于期望 **`(Animal) → R`** 的位置。
+- **第二步，看崩溃**：调用方传入 **`Animal`**（如 **`new Animal()`**），$f$ 对它调 **`bark()`**——**`Animal`** 没有 **`bark`**，运行期错误。
 - **第三步，修正**：要安全，参数必须逆变——$f$ 接受的类型必须是调用方传入类型的**超类型**（更宽），才保证「无论传什么，$f$ 都处理得了」。**「参数放宽、返回值收紧」**因此是函数子类型的铁律。
 
-**辨析｜易错点：** 许多语言因历史原因放宽了函数子类型（Java 的方法重写允许**参数协变、返回协变**）——严格讲这在类型理论上不安全，是靠「方法的签名重写时参数必须相同（否则算重载）」来规避的。TypeScript 的函数参数默认双变（`strictFunctionTypes` 开启后逆变）——「理论正确」与「实践便利」的拉锯，正是本话题在真实语言里的样子。
+**辨析｜易错点：** 许多语言因历史原因放宽了函数子类型（Java 的方法重写允许**参数协变、返回协变**）——严格讲这在类型理论上不安全，是靠「方法的签名重写时参数必须相同（否则算重载）」来规避的。TypeScript 的函数参数默认双变（**`strictFunctionTypes`** 开启后逆变）——「理论正确」与「实践便利」的拉锯，正是本话题在真实语言里的样子。
 
 ## 5 泛型与语言的变体标注
 
-泛型类型（`List<T>`、`Producer<T>`）的变体由设计者显式决定：
+泛型类型（**`List<T>`**、**`Func<T>`**）的变体由设计者显式决定：
 
 | 语言 | 机制 | 默认方向 |
 | --- | --- | --- |
 | Java | 泛型**不变**（`List<String>` 非 `List<Object>` 子类型） | 不变；用通配符 `? extends`（协变）/`? super`（逆变）放宽 |
 | C# | 泛型不变；接口可标 `out`（协变）/`in`（逆变） | 显式标注 |
-| Kotlin | 声明处变体：`out T`（协变）/`in T`（逆变） | 显式标注 |
+| Kotlin | 声明处变体：`out`（协变）/`in`（逆变） | 显式标注 |
 | TypeScript | 结构化的天然协变（只读属性协变） | `strictFunctionTypes` 控参数逆变 |
 | Rust | 生命周期与所有权使变体由「借用」规则自动决定 | 借用协变 |
 
-<span class="marginnote">Java 泛型「不变」的代价是著名的「`List<String>` 不能当 `List<Object>` 传」——于是引入 `? extends`（只读，协变）与 `? super`（只写，逆变）。这再次印证「读协变、写逆变」：`List<? extends Animal>` 只能读（拿到的是 Animal 或其子类），`List<? super Dog>` 只能写（放得下 Dog）。</span>
+<span class="marginnote">Java 泛型「不变」的代价是著名的「<strong>`List<String>` 不能当 `List<Object>` 传</strong>」——于是引入 <strong>? extends</strong>（只读，协变）与 <strong>? super</strong>（只写，逆变）。这再次印证「读协变、写逆变」：<strong>? extends Animal</strong> 只能读（拿到的是 Animal 或其子类），<strong>? super Dog</strong> 只能写（放得下 Dog）。</span>
 
 ## 6 变体与编程实践
 
 变体不只是理论——它在真实编程里有一批「经典错误与惯例」：
 
-**Java 数组协变的教训**：`Object[] objs = new String[10]` 编译通过、运行期 `ArrayStoreException`——**「可变位置协变 = 运行时兜底」**。现代建议：集合用泛型（不变），数组慎用协变。
+**Java 数组协变的教训**：**`String[]` 当 `Object[]`** 编译通过、运行期 **`ArrayStoreException`**——**「可变位置协变 = 运行时兜底」**。现代建议：集合用泛型（不变），数组慎用协变。
 
-**`? extends` 只读、`? super` 只写**（Java 通配符）：`List<? extends Animal>` 只能读（安全）；`List<? super Dog>` 只能写。**「PECS 法则：Producer Extends, Consumer Super」**——只产出用 `extends`，只消费用 `super`。
+**`? extends` 只读、`? super` 只写**（Java 通配符）：**`? extends`** 只能读（安全）；**`? super`** 只能写。**「PECS 法则：Producer Extends, Consumer Super」**——只产出用 **`? extends`**，只消费用 **`? super`**。
 
-**Rust 的生命周期变体**：`&'a T` 是协变的、`&'a mut T` 是逆变的（在 `'a` 上）——编译器靠变体规则自动判断「引用能否用在更长寿命的位置」。
+**Rust 的生命周期变体**：**`&'a T`** 是协变的、**`fn(T)`** 是逆变的（在 **`T`** 上）——编译器靠变体规则自动判断「引用能否用在更长寿命的位置」。
 
 **TypeScript 的 `strictFunctionTypes`**：开启后函数参数逆变（严格）；关闭则双变（宽松）——「严格模式 = 类型理论正确，宽松 = 实用便利」。
 
-**辨析｜易错点：** 变体错误的典型症状：**「编译期不报错，运行期 `ClassCastException`」**——通常是「可变位置协变」被利用（把子类容器当父类容器用再写父类对象）。**「报错时机 = 变体安全性的试金石」**：不变（Java 泛型）编译期拦，协变（数组）运行期炸——「安全藏在类型系统里，还是靠运行时兜底」决定了错误何时暴露。
+**辨析｜易错点：** 变体错误的典型症状：**「编译期不报错，运行期 `ArrayStoreException`」**——通常是「可变位置协变」被利用（把子类容器当父类容器用再写父类对象）。**「报错时机 = 变体安全性的试金石」**：不变（Java 泛型）编译期拦，协变（数组）运行期炸——「安全藏在类型系统里，还是靠运行时兜底」决定了错误何时暴露。
 
 
 

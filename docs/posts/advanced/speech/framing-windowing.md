@@ -30,8 +30,8 @@ date: 2026-08-07
 
 分帧把波形切成一串**帧（frame）**，每个帧是一个等长的样本段。两个参数决定怎么切：
 
-- **帧长（frame length）** $N$：一帧包含的样本数，$N = \text{round}(f_s \times T_{frame})$。例：$f_s = 16$ kHz、帧长 25 ms，则 $N = 400$ 个样本。
-- **帧移（frame shift / hop）** $H$：相邻两帧起点之间的距离（样本数）。例：帧移 10 ms，则 $H = 160$ 个样本。
+**帧长（frame length）** $N$：一帧包含的样本数，$N = \text{round}(f_s \times T_{frame})$。例：$f_s = 16$ kHz、帧长 25 ms，则 $N = 400$ 个样本。
+**帧移（frame shift / hop）** $H$：相邻两帧起点之间的距离（样本数）。例：帧移 10 ms，则 $H = 160$ 个样本。
 
 **重点：帧移小于帧长，相邻帧大幅重叠。** 25 ms 帧长、10 ms 帧移意味着每帧与前帧有 $400 - 160 = 240$ 个样本重叠（60%）。重叠不是浪费——它保证帧间特征平滑过渡、不遗漏音节边界的瞬变，也让基音/共振峰的轨迹在时间上连续。<span class="marginnote">帧移 10 ms 并非巧合：特征序列以 100 Hz 的帧率产生，与人类发音的音节节奏、以及 HMM/CTC 建模的「逐帧」粒度都天然对齐。几乎所有的语音工具包都默认 25 ms / 10 ms。</span>
 
@@ -64,9 +64,9 @@ $L$ 是信号总样本数。不足一帧的末尾通常直接丢弃，或用零�
 
 **重点：旁瓣压得越低，主瓣越宽；主瓣越宽，频率分辨率越差。** 这是一条无法绕开的交换——窗函数在频域的形状决定了「泄漏抑制」与「分辨率」的取舍：
 
-- **汉明窗（Hamming）**：旁瓣 −43 dB，主瓣适中。它是语音特征提取的默认选择（MFCC、FBank、Kaldi、HTK 都默认 Hamming）——对共振峰与谱包络的提取，主瓣宽度足够、旁瓣足够低。
-- **汉宁窗（Hann）**：旁瓣 −31 dB，主瓣同宽但两端严格归零。用于基音估计、音乐分析时更稳健（对窗两端的噪声不敏感）。
-- **布莱克曼窗（Blackman）**：旁瓣 −58 dB，主瓣最宽。需要极低泄漏的测量场景（如频谱分析仪）使用，代价是频率分辨率损失约 3 倍。<span class="marginnote">汉明与汉宁只差两个系数（0.54/0.46 vs 0.5/0.5），工程上常被混用，但行为不同：汉明在边界不归零，旁瓣更低；汉宁在边界严格归零，时域更平滑。特征提取默认汉明，做精确谱分析常用汉宁或布莱克曼。</span>
+**汉明窗（Hamming）**：旁瓣 −43 dB，主瓣适中。它是语音特征提取的默认选择（MFCC、FBank、Kaldi、HTK 都默认 Hamming）——对共振峰与谱包络的提取，主瓣宽度足够、旁瓣足够低。
+**汉宁窗（Hann）**：旁瓣 −31 dB，主瓣同宽但两端严格归零。用于基音估计、音乐分析时更稳健（对窗两端的噪声不敏感）。
+**布莱克曼窗（Blackman）**：旁瓣 −58 dB，主瓣最宽。需要极低泄漏的测量场景（如频谱分析仪）使用，代价是频率分辨率损失约 3 倍。<span class="marginnote">汉明与汉宁只差两个系数（0.54/0.46 vs 0.5/0.5），工程上常被混用，但行为不同：汉明在边界不归零，旁瓣更低；汉宁在边界严格归零，时域更平滑。特征提取默认汉明，做精确谱分析常用汉宁或布莱克曼。</span>
 
 ## 5 公式解析：加窗在频域做了什么
 
@@ -81,28 +81,32 @@ $$W_{ham}(\omega) = 0.54\,D(\omega) + 0.23\,D\!\left(\omega - \frac{2\pi}{N-1}\r
 - **第三步：代价是主瓣加宽。** 三个核叠加，主瓣宽度从 $4\pi/N$ 翻到 $8\pi/N$——频率分辨率损失一半。这就是第 4 节那张表格里「主瓣宽、旁瓣低」这对矛盾的具体来源。
 - **第四步：分辨率到底多少。** 帧长 $N$ 个样本、采样率 $f_s$，FFT 频率分辨率 $\Delta f = f_s / N$。16 kHz、25 ms 帧（$N=400$）给出 $\Delta f = 40$ Hz——足够分辨基频（男声 ~100 Hz）与共振峰（间隔数百 Hz），但分辨不了 20 Hz 内的细节。**帧长与分辨率绑定，想看清更低频，就得用更长的窗。**
 
+用 numpy 把「分帧 + 加窗」写成一个函数，就是下面这几行：
+
 ```python
 import numpy as np
 
-def hamming(n: int) -> np.ndarray:
-    return 0.54 - 0.46 * np.cos(2 * np.pi * np.arange(n) / (n - 1))
+def frame_and_window(x, frame_len=400, hop=160, win_type="hamming"):
+    """分帧 + 加窗：返回 [num_frames, frame_len] 的加窗帧矩阵。"""
+    n = len(x)
+    num_frames = (n - frame_len) // hop + 1
+    idx = np.arange(frame_len)[None, :] + hop * np.arange(num_frames)[:, None]
+    frames = x[idx]                                  # 步幅索引切出各帧
 
-fs, N = 16000, 400            # 16 kHz，25 ms 帧
-f0 = 440.0
-n = np.arange(N)
-x = np.sin(2 * np.pi * f0 * n / fs)          # 纯净 440 Hz
-xw = x * hamming(N)                          # 加窗
-spec = np.abs(np.fft.rfft(xw))               # 幅度谱
-freqs = np.fft.rfftfreq(N, 1 / fs)
-peak = freqs[np.argmax(spec)]
-print("峰值频率:", round(peak, 1), "Hz  分辨率 Δf =", fs // N, "Hz")
+    if win_type == "hamming":
+        w = 0.54 - 0.46 * np.cos(2 * np.pi * np.arange(frame_len) / (frame_len - 1))
+    elif win_type == "hann":
+        w = 0.5 - 0.5 * np.cos(2 * np.pi * np.arange(frame_len) / (frame_len - 1))
+    else:                                            # 矩形窗（不做平滑）
+        w = np.ones(frame_len)
+    return frames * w                                # 逐帧乘窗
 ```
 
 ## 6 从分帧到短时谱
 
 分帧加窗做完，每个帧是一个「准平稳的短段」，逐帧做 FFT，就得到一帧一列的频谱——把时间轴与频率轴拼起来，就是下一课的**语谱图（spectrogram）**，也是 MFCC、FBank 等一切特征的第一级产物。
 
-现代工具包把这套参数固化成了接口：librosa 的 `stft`、`melspectrogram`，torchaudio 的 `Spectrogram`，Kaldi 的 `compute-fbank-feats`，窗口默认全是汉明、帧长 25 ms、帧移 10 ms。<span class="marginnote">值得记住的对应：25 ms / 16 kHz → 帧长 400 样本、FFT 常用 512 点（补零到 512，频率分辨率仍由 400 决定，补零只让谱线更密、不增加真实分辨率）。帧移 10 ms → 特征帧率 100 Hz。</span>这些参数在不同模型（GMM-HMM、CTC、Attention）里几乎原封不动地延续——**「25 ms 汉明窗」是语音领域最忠实的传统。**
+现代工具包把这套参数固化成了接口：librosa 的 `librosa.util.frame`、`librosa.stft`，torchaudio 的 `torchaudio.functional.spectrogram`，Kaldi 的 `compute-fbank-feats`，窗口默认全是汉明、帧长 25 ms、帧移 10 ms。<span class="marginnote">值得记住的对应：25 ms / 16 kHz → 帧长 400 样本、FFT 常用 512 点（补零到 512，频率分辨率仍由 400 决定，补零只让谱线更密、不增加真实分辨率）。帧移 10 ms → 特征帧率 100 Hz。</span>这些参数在不同模型（GMM-HMM、CTC、Attention）里几乎原封不动地延续——**「25 ms 汉明窗」是语音领域最忠实的传统。**
 
 分帧参数不只在离线工具里固定——在**流式识别**里，它直接决定了延迟预算：帧移 10 ms 意味着特征每 10 ms 产出一帧，模型必须在这 10 ms 内完成一帧的处理，否则实时性告破。这也是为什么流式 ASR（RNN-T、U2/U2++）的编码器下采样倍数总是与帧移对齐，让「10 ms 一帧」成为端到端系统里流式 chunk 的基本时间单位。到本专题《流式识别》一课，我们会看到这一课的帧移如何一路传导成流式架构的延迟设计。
 

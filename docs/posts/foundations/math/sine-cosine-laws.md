@@ -54,9 +54,9 @@ $$
 
 以 $a^2=b^2+c^2-2bc\cos A$ 为例，用向量方法证明，三步完成：
 
-- **第一步，写成向量**：设 $\vec{b}=\overrightarrow{AC}$、$\vec{c}=\overrightarrow{AB}$，则 $\overrightarrow{BC}=\vec{c}-\vec{b}$（从 $B$ 到 $C$）。注意 $|\vec{b}|=b$，$|\vec{c}|=c$，而 $\vec{b}$ 与 $\vec{c}$ 的夹角正是 $\angle A$。
-- **第二步，两边平方**：$a^2=|\overrightarrow{BC}|^2=|\vec{c}-\vec{b}|^2=(\vec{c}-\vec{b})\cdot(\vec{c}-\vec{b})=|\vec{c}|^2+|\vec{b}|^2-2\vec{b}\cdot\vec{c}$。
-- **第三步，代入数量积**：$\vec{b}\cdot\vec{c}=|\vec{b}||\vec{c}|\cos A=bc\cos A$。于是 $a^2=c^2+b^2-2bc\cos A$，证毕。
+**第一步，写成向量**：设 $\vec{b}=\overrightarrow{AC}$、$\vec{c}=\overrightarrow{AB}$，则 $\overrightarrow{BC}=\vec{c}-\vec{b}$（从 $B$ 到 $C$）。注意 $|\vec{b}|=b$，$|\vec{c}|=c$，而 $\vec{b}$ 与 $\vec{c}$ 的夹角正是 $\angle A$。
+**第二步，两边平方**：$a^2=|\overrightarrow{BC}|^2=|\vec{c}-\vec{b}|^2=(\vec{c}-\vec{b})\cdot(\vec{c}-\vec{b})=|\vec{c}|^2+|\vec{b}|^2-2\vec{b}\cdot\vec{c}$。
+**第三步，代入数量积**：$\vec{b}\cdot\vec{c}=|\vec{b}||\vec{c}|\cos A=bc\cos A$。于是 $a^2=c^2+b^2-2bc\cos A$，证毕。
 
 向量方法的好处是一气呵成：不画辅助线，不讨论锐角钝角，全凭数量积的代数运算——**余弦定理在向量语言下几乎是定义的自然后果**。<span class="marginnote">注意证明里没有分「锐角三角形」「钝角三角形」讨论：数量积 $\vec{b}\cdot\vec{c}=bc\cos A$ 对 $A\in(0,\pi)$ 一律成立，钝角时 $\cos A<0$ 自动处理。这就是向量方法比纯几何方法「干净」的原因——角度信息被 $\cos$ 函数自动吸收。</span>
 
@@ -70,9 +70,9 @@ $$
 
 解三角形题常「用余弦求边、用正弦求角」交替。看一道题：$\triangle ABC$ 中，$b=3$，$c=2$，$A=60^\circ$，求 $a$ 与 $\sin B$。
 
-- **第一步，用余弦定理求 $a$**：$a^2=b^2+c^2-2bc\cos A=9+4-2\times3\times2\times\frac12=9+4-6=7$，$a=\sqrt7$。
-- **第二步，用正弦定理求 $\sin B$**：$\frac{a}{\sin A}=\frac{b}{\sin B}$，$\sin B=\frac{b\sin A}{a}=\frac{3\times\frac{\sqrt3}{2}}{\sqrt7}=\frac{3\sqrt3}{2\sqrt7}=\frac{3\sqrt{21}}{14}$。
-- **第三步，验证合理性**：$a=\sqrt7\approx2.65$，$b=3>a$——$B$ 应为锐角还是钝角？由大边对大角，$b>a$ 则 $B>A=60^\circ$，$B$ 可能是钝角。$\sin B$ 的值对应 $B$ 约 $66.6^\circ$ 或 $113.4^\circ$，需结合具体条件判定。
+**第一步，用余弦定理求 $a$**：$a^2=b^2+c^2-2bc\cos A=9+4-2\times3\times2\times\frac12=9+4-6=7$，$a=\sqrt7$。
+**第二步，用正弦定理求 $\sin B$**：$\frac{a}{\sin A}=\frac{b}{\sin B}$，$\sin B=\frac{b\sin A}{a}=\frac{3\times\frac{\sqrt3}{2}}{\sqrt7}=\frac{3\sqrt3}{2\sqrt7}=\frac{3\sqrt{21}}{14}$。
+**第三步，验证合理性**：$a=\sqrt7\approx2.65$，$b=3>a$——$B$ 应为锐角还是钝角？由大边对大角，$b>a$ 则 $B>A=60^\circ$，$B$ 可能是钝角。$\sin B$ 的值对应 $B$ 约 $66.6^\circ$ 或 $113.4^\circ$，需结合具体条件判定。
 
 <span class="marginnote">解三角形「两边夹角」的标准流程：<strong>余弦定理求第三边 → 正弦定理求角</strong>。但第二步有个隐藏陷阱——<strong>已知 $\sin B$ 反求 $B$ 时可能有两解</strong>（锐角与钝角互补）。本题 $b=3>a=\sqrt7$，$B>A$，若题目只问 $\sin B$ 则无歧义；若问 $B$ 的度数，要讨论两解。<strong>「大边对大角」是判定角的唯一性依据</strong>。</span>
 

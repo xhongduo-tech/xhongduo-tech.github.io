@@ -18,7 +18,7 @@ date: 2026-08-07
 
 前两课我们拥有了完整的算法工具箱：Ring 负责大消息的带宽，Tree/DBT 负责小消息的延迟。但算法只是「纸上谈兵」——真实训练里跑的是 **NCCL（NVIDIA Collective Communications Library）**，一个把集合原语下沉到 GPU 硬件的通信库。数据并行每个 step 都在调它；框架日志里那句「gradient allreduce 开销」，本质就是 NCCL 在干活。
 
-NCCL 的价值不在发明新算法，而在于**把好算法在真实 GPU 网络上跑出接近峰值的速度**。这依赖三块地基：**拓扑检测**（先看清物理链路长什么样）、**Channel**（并行度的载体，决定消息怎么切成多条流水并行）、**协议选择**（延迟与带宽之间的最后一层权衡）。这一课把这三块讲透——理解它们，你才能读懂 `NCCL_DEBUG=INFO` 打印的拓扑，也才能为下一篇《NCCL 调优》备好判断力。<span class="marginnote">NCCL 与 MPI 的本质差别：MPI 是 CPU 中心的——数据要先从 GPU 拷回 CPU 内存、过网卡、再进对端 GPU；NCCL 把通信<strong>下沉到 GPU 端</strong>，让 GPU 借助 NVLink / PCIe / RDMA 直接读写对端 GPU 显存。<strong>原语没变，账单没变，但付账的「货币」从 CPU 内存带宽换成了 GPU 直连链路。</strong></span>
+NCCL 的价值不在发明新算法，而在于**把好算法在真实 GPU 网络上跑出接近峰值的速度**。这依赖三块地基：**拓扑检测**（先看清物理链路长什么样）、**Channel**（并行度的载体，决定消息怎么切成多条流水并行）、**协议选择**（延迟与带宽之间的最后一层权衡）。这一课把这三块讲透——理解它们，你才能读懂 `NCCL_DEBUG` 打印的拓扑，也才能为下一篇《NCCL 调优》备好判断力。<span class="marginnote">NCCL 与 MPI 的本质差别：MPI 是 CPU 中心的——数据要先从 GPU 拷回 CPU 内存、过网卡、再进对端 GPU；NCCL 把通信<strong>下沉到 GPU 端</strong>，让 GPU 借助 NVLink / PCIe / RDMA 直接读写对端 GPU 显存。<strong>原语没变，账单没变，但付账的「货币」从 CPU 内存带宽换成了 GPU 直连链路。</strong></span>
 
 ## 1 NCCL 是什么：一次调用，一路下沉
 
@@ -30,12 +30,12 @@ NCCL 的价值不在发明新算法，而在于**把好算法在真实 GPU 网�
 
 NCCL 在 `ncclCommInitRank` 建立通信组时，第一件事是**看清物理世界**。它通过 NVML、PCIe 拓扑与系统文件，检测出：
 
-- 每张 GPU 挂在哪条 PCIe 总线、走哪个 NUMA 节点；
-- 同一节点内 GPU 之间是否直连 NVLink、NVSwitch 拓扑长什么样；
-- 网卡（NIC）与 GPU 的相对位置——**同一 PCIe switch 下**还是跨了多个 switch；
-- 节点间是 InfiniBand / RoCE 还是以太网，带宽几何。
+每张 GPU 挂在哪条 PCIe 总线、走哪个 NUMA 节点；
+同一节点内 GPU 之间是否直连 NVLink、NVSwitch 拓扑长什么样；
+网卡（NIC）与 GPU 的相对位置——**同一 PCIe switch 下**还是跨了多个 switch；
+节点间是 InfiniBand / RoCE 还是以太网，带宽几何。
 
-检测结果被整理成一张**图（graph）**：节点是 GPU 与 NIC，边是物理链路，边权是带宽与延迟。随后进入**图搜索（graph search）阶段**：在这张图上为「每一对 GPU」计算最快路径——同节点走 NVLink，跨节点走「GPU → PCIe → NIC → 网络 → 对端」。**路径优先级从高到低大致是：NVLink/NVSwitch → PCIe P2P/共享内存 → RDMA+GPUDirect → TCP 回退**。<span class="marginnote">这张图不是秘密：`NCCL_DEBUG=INFO` 会把它打印出来（配合 `NCCL_DEBUG_SUBSYS=GRAPH` 更详细），`NCCL_TOPO_DUMP_FILE` 可以把检测结果存成文件复用。<strong>所有「NCCL 用了哪条路径」的疑问，都在这一步定了案。</strong></span>
+检测结果被整理成一张**图（graph）**：节点是 GPU 与 NIC，边是物理链路，边权是带宽与延迟。随后进入**图搜索（graph search）阶段**：在这张图上为「每一对 GPU」计算最快路径——同节点走 NVLink，跨节点走「GPU → PCIe → NIC → 网络 → 对端」。**路径优先级从高到低大致是：NVLink/NVSwitch → PCIe P2P/共享内存 → RDMA+GPUDirect → TCP 回退**。<span class="marginnote">这张图不是秘密：`NCCL_DEBUG=INFO` 会把它打印出来（配合 `NCCL_DEBUG_SUBSYS` 更详细），`NCCL_TOPO_DUMP_FILE` 可以把检测结果存成文件复用。<strong>所有「NCCL 用了哪条路径」的疑问，都在这一步定了案。</strong></span>
 
 拓扑检测并非免费：在一个 8 卡节点上它通常要花 10~30 秒。这也是容器场景常用 `NCCL_TOPO_FILE` 注入已知拓扑的原因——跳过检测，直接开工。
 
@@ -79,7 +79,7 @@ $$
 
 ## 5 算法与协议的自动选择
 
-拓扑、channel、协议都就绪了，剩下的问题是：**这次 AllReduce 到底用哪种算法 × 哪种协议？** NCCL 用一个**调优模型**（`src/graph/tuning.cc`）来回答。它对每种「算法 × 协议」组合估算一次时间：
+拓扑、channel、协议都就绪了，剩下的问题是：**这次 AllReduce 到底用哪种算法 × 哪种协议？** NCCL 用一个**调优模型**（`ncclTopoTuneModel`）来回答。它对每种「算法 × 协议」组合估算一次时间：
 
 $$
 T = \text{latency} \times \text{latCount} + \frac{\text{nBytes}}{\text{bw}}
@@ -97,7 +97,7 @@ $$
 - **Tree + LL**：Tree 步数 $2\log_2 8 = 6$，延迟项约 6 µs，比 Ring 低一半多；带宽项虽然也被 LL 打折，但 64 KB 本就小，延迟是主要矛盾——总分更低。
 - **Ring + Simple**：带宽项全价、最省，但 Simple 每跳延迟约 6 µs，14 步就是 84 µs——小消息下延迟税吃光带宽收益——总分反而最高。
 
-于是模型选 **Tree + LL**。这就是为什么我们会在 `NCCL_DEBUG` 日志里看到小消息的 AllReduce 实际走的是树形：**不是实现者偏好，而是调优模型算出来的最优解**。同样的消息在 512 MB 时，模型会把带宽项抬高、延迟项摊薄，最终选 Ring + Simple。**选型不是拍脑袋，而是把每一条候选路径的延迟与带宽都算一遍账**。
+于是模型选 **Tree + LL**。这就是为什么我们会在 `NCCL_DEBUG=INFO` 日志里看到小消息的 AllReduce 实际走的是树形：**不是实现者偏好，而是调优模型算出来的最优解**。同样的消息在 512 MB 时，模型会把带宽项抬高、延迟项摊薄，最终选 Ring + Simple。**选型不是拍脑袋，而是把每一条候选路径的延迟与带宽都算一遍账**。
 
 ## 6 辨析｜易错点
 
@@ -117,4 +117,4 @@ $$
 - 调优模型 $T = \text{lat}\cdot\text{latCount} + \text{nBytes}/\text{bw}$ 对每种「算法×协议」估时，**挑最快者执行**——这就是自动选型的全部逻辑。
 - 拓扑 → channel → 协议 → 算法，四层贯通：物理链路决定并行度，消息大小决定协议，步数决定算法。
 
-在下一节，我们将回答「这套架构怎么在实际集群上调优」：**NCCL 环境变量、拓扑感知与常见性能陷阱**——为什么一个 `NCCL_SOCKET_IFNAME` 没设对，就能让带宽掉一个数量级。
+在下一节，我们将回答「这套架构怎么在实际集群上调优」：**NCCL 环境变量、拓扑感知与常见性能陷阱**——为什么一个环境变量没设对，就能让带宽掉一个数量级。

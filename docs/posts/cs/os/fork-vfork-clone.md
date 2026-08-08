@@ -23,13 +23,20 @@ Linux 创建新执行流的系统调用有三个：**fork**（复制进程）、
 **fork**：创建子进程，**复制父进程的几乎一切**——内存、文件表、信号、环境。
 
 ```c
-pid_t pid = fork();
+pid_t pid = fork();               /* 创建子进程 */
+if (pid == 0) {
+    /* 子进程：从这里开始与父进程并行执行 */
+    printf("child pid=%d\n", getpid());
+} else if (pid > 0) {
+    /* 父进程：fork 返回子进程的 pid */
+    printf("parent: child=%d\n", pid);
+}
 ```
 
 **fork 的语义**：
 
 - **内存**：写时复制（COW，回顾《写时复制》）——初始共享，写时才复制。
-- **文件表**：复制（fd 表复制，但打开文件表项共享——`dup` 语义）。
+- **文件表**：复制（fd 表复制，但打开文件表项共享——共享文件偏移语义）。
 - **父子关系**：完全独立，各自执行。
 
 **fork 的特点**：**最大程度复制 + COW 优化**——子进程是父进程的「近似克隆」，但共享底层物理页直到写。
@@ -39,7 +46,12 @@ pid_t pid = fork();
 **vfork**：创建子进程，但**不复制内存——子进程直接使用父进程的地址空间**，且**父进程阻塞**直到子进程 exec/exit。
 
 ```c
-pid_t pid = vfork();
+pid_t pid = vfork();              /* 子进程借用父进程地址空间 */
+if (pid == 0) {
+    execl("/bin/ls", "ls", NULL); /* 必须立即 exec 或 _exit */
+    _exit(1);                     /* exec 失败时也要退出 */
+}
+/* 父进程在此阻塞，直到子进程 exec/exit 后才恢复 */
 ```
 
 **vfork 的语义**：
@@ -57,7 +69,9 @@ pid_t pid = vfork();
 **clone**：创建新执行流，**精确指定父子共享什么**——通过 flags 参数控制。
 
 ```c
-int clone(int (*fn)(void *), void *stack, int flags, void *arg);
+/* 创建线程：共享地址空间、文件系统信息、文件表与信号处理表 */
+clone(child_fn, stack_top,
+      CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND, arg);
 ```
 
 **clone 的 flags**（共享什么由位标志决定）：
@@ -72,8 +86,8 @@ int clone(int (*fn)(void *), void *stack, int flags, void *arg);
 
 **clone 是万能创建器**：
 
-- `fork()` = `clone(..., SIGCHLD, ...)`（不共享内存）——**进程**。
-- `pthread_create()` = `clone(..., CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD, ...)`——**线程**（共享一切）。
+- `fork` ≈ `clone`（flags 不设共享位，不共享内存）——**进程**。
+- `pthread_create` 底层 = `clone`（共享一切）——**线程**。
 
 **核心洞察**：**Linux 没有独立的「线程创建系统调用」——pthread_create 底层就是 clone**。**「进程 vs 线程」不是内核的两种东西，而是 clone 的 flags 不同**——共享内存 = 线程，不共享 = 进程。
 

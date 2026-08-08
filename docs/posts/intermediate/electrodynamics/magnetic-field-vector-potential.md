@@ -48,9 +48,9 @@ $$\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi}\int \frac{\mathbf{J}(\mathbf{r}')}
 
 这条推导是本节的核心，也是「为什么要取库仑规范」的最好说明：
 
-- **第一步，代入恒等式**：$\nabla\times\mathbf{B} = \mu_0\mathbf{J}$ 换成 $\nabla\times(\nabla\times\mathbf{A}) = \mu_0\mathbf{J}$。左边展开为 $\nabla(\nabla\cdot\mathbf{A}) - \nabla^2\mathbf{A}$。
-- **第二步，利用规范自由度**：$\nabla(\nabla\cdot\mathbf{A})$ 这一项的存在让方程既耦合又复杂。但规范变换让我们自由选择 $\nabla\cdot\mathbf{A}$——取 $\nabla\cdot\mathbf{A} = 0$（库仑规范），这一项恰好消失，方程退化为三个独立的标量泊松方程 $\nabla^2 A_i = -\mu_0 J_i$。<span class="marginnote">这里有个细微但重要的点：库仑规范下 $\mathbf{A}$ 是否总能选得让 $\nabla\cdot\mathbf{A} = 0$？答案是能——对任意 $\mathbf{A}$，解泊松方程 $\nabla^2\psi = -\nabla\cdot\mathbf{A}$ 找到 $\psi$，则 $\mathbf{A}' = \mathbf{A} + \nabla\psi$ 自动满足 $\nabla\cdot\mathbf{A}' = 0$。规范自由度总够用。</span>
-- **第三步，解泊松方程**：矢量泊松方程的分量形式与标量完全相同，直接用静电的格林函数解逐分量写出，即得积分公式。整个过程说明：**矢势的价值在于把「矢量场的旋度方程」变成「三个标量场的高斯型方程」**——把「难」的数学翻译成「已会」的数学。
+**第一步，代入恒等式**：$\nabla\times\mathbf{B} = \mu_0\mathbf{J}$ 换成 $\nabla\times(\nabla\times\mathbf{A}) = \mu_0\mathbf{J}$。左边展开为 $\nabla(\nabla\cdot\mathbf{A}) - \nabla^2\mathbf{A}$。
+**第二步，利用规范自由度**：$\nabla(\nabla\cdot\mathbf{A})$ 这一项的存在让方程既耦合又复杂。但规范变换让我们自由选择 $\nabla\cdot\mathbf{A}$——取 $\nabla\cdot\mathbf{A} = 0$（库仑规范），这一项恰好消失，方程退化为三个独立的标量泊松方程 $\nabla^2 A_i = -\mu_0 J_i$。<span class="marginnote">这里有个细微但重要的点：库仑规范下 $\mathbf{A}$ 是否总能选得让 $\nabla\cdot\mathbf{A} = 0$？答案是能——对任意 $\mathbf{A}$，解泊松方程 $\nabla^2\psi = -\nabla\cdot\mathbf{A}$ 找到 $\psi$，则 $\mathbf{A}' = \mathbf{A} + \nabla\psi$ 自动满足 $\nabla\cdot\mathbf{A}' = 0$。规范自由度总够用。</span>
+**第三步，解泊松方程**：矢量泊松方程的分量形式与标量完全相同，直接用静电的格林函数解逐分量写出，即得积分公式。整个过程说明：**矢势的价值在于把「矢量场的旋度方程」变成「三个标量场的高斯型方程」**——把「难」的数学翻译成「已会」的数学。
 
 **辨析｜易错点：** $\mathbf{A}$ 的积分公式只在**库仑规范**下成立。用其他规范（如洛伦兹规范）时，$\mathbf{A}$ 满足的方程与积分表达式会多出附加项。公式与规范是绑定的，混用规范会导致错误。另外，由 $\mathbf{B} = \nabla\times\mathbf{A}$ 反推 $\mathbf{A}$ 需要附加规范条件，否则解不唯一——「给定 $\mathbf{B}$ 无法唯一确定 $\mathbf{A}$」是规范自由度的另一面。
 
@@ -58,15 +58,15 @@ $$\mathbf{A}(\mathbf{r}) = \frac{\mu_0}{4\pi}\int \frac{\mathbf{J}(\mathbf{r}')}
 
 磁场的界面条件（由麦克斯韦方程组的积分形式推得）：
 
-- **法向分量连续**：$B_{1n} = B_{2n}$（无磁单极子的直接推论）。
-- **切向分量（无面电流时）**：$H_{2t} - H_{1t} = 0$；有自由面电流 $\mathbf{K}$ 时，$\hat{\mathbf{n}}\times(\mathbf{H}_2 - \mathbf{H}_1) = \mathbf{K}$。
+**法向分量连续**：$B_{1n} = B_{2n}$（无磁单极子的直接推论）。
+**切向分量（无面电流时）**：$H_{2t} - H_{1t} = 0$；有自由面电流 $\mathbf{K}$ 时，$\hat{\mathbf{n}}\times(\mathbf{H}_2 - \mathbf{H}_1) = \mathbf{K}$。
 
 用矢势表述，界面条件化为：$\mathbf{A}$ 连续（切向分量连续），且法向导数的跳跃由面电流决定。<span class="marginnote">边界条件在求解「介质 + 电流」的磁场问题时是必备工具：先求出各区域 $\mathbf{A}$ 的一般解，再用界面条件定系数，与静电边值问题的流程完全平行。这正是「电-磁类比」的又一次体现。</span>
 
 ## 5 矢势的更深层意义
 
-- **能量表述**：磁场能量可用矢势写出 $W_m = \frac{1}{2}\int \mathbf{J}\cdot\mathbf{A}\,\mathrm{d}V$——与静电 $W_e = \frac{1}{2}\int\rho\varphi\,\mathrm{d}V$ 完美类比（见《磁场能量与磁化》）。
-- **规范理论之始**：矢势的规范自由度在量子电动力学中发展为「规范场」的整套思想——电磁力、弱力、强力都从「规范对称性」中诞生。你在电动力学里学的「$\mathbf{A} \to \mathbf{A} + \nabla\psi$」，是理解整个粒子物理标准模型的第一块砖。<span class="marginnote">麦克斯韦方程组本身具有规范对称性，而「要求拉格朗日量具有局域规范对称性」直接逼迫我们引入矢量场——这就是现代粒子物理「从对称性推出相互作用」的核心方法论，它正是从这里开始的。</span>
+**能量表述**：磁场能量可用矢势写出 $W_m = \frac{1}{2}\int \mathbf{J}\cdot\mathbf{A}\,\mathrm{d}V$——与静电 $W_e = \frac{1}{2}\int\rho\varphi\,\mathrm{d}V$ 完美类比（见《磁场能量与磁化》）。
+**规范理论之始**：矢势的规范自由度在量子电动力学中发展为「规范场」的整套思想——电磁力、弱力、强力都从「规范对称性」中诞生。你在电动力学里学的「$\mathbf{A} \to \mathbf{A} + \nabla\psi$」，是理解整个粒子物理标准模型的第一块砖。<span class="marginnote">麦克斯韦方程组本身具有规范对称性，而「要求拉格朗日量具有局域规范对称性」直接逼迫我们引入矢量场——这就是现代粒子物理「从对称性推出相互作用」的核心方法论，它正是从这里开始的。</span>
 
 ## 6 矢势的完整例题与规范检验
 

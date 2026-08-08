@@ -57,7 +57,7 @@ $$\mathrm{Var}\big(a^\top X\big) = a^\top \boldsymbol{\Sigma}\, a$$
 
 $$\mathbf{R} = \begin{pmatrix} 1 & \rho_{12} & \cdots & \rho_{1n} \\ \rho_{21} & 1 & \cdots & \rho_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ \rho_{n1} & \rho_{n2} & \cdots & 1 \end{pmatrix}, \qquad \rho_{ij} = \frac{\mathrm{Cov}(X_i, X_j)}{\sqrt{\mathrm{Var}(X_i)\mathrm{Var}(X_j)}}$$
 
-对角全为 1，非对角为相关系数。它是「无量纲版」的协方差矩阵，在数据科学里正是相关矩阵热力图（如 `pandas.DataFrame.corr()`）背后的对象。<span class="marginnote">协方差矩阵与相关系数矩阵的换算：$\mathbf{R} = \mathbf{D}^{-1/2}\boldsymbol{\Sigma}\mathbf{D}^{-1/2}$，其中 $\mathbf{D}$ 是以各方差为对角元的对角矩阵。主成分分析（PCA）的特征向量分解对象就是 $\boldsymbol{\Sigma}$ 或 $\mathbf{R}$——这是概率论通向机器学习线性降维的一座桥。</span>
+对角全为 1，非对角为相关系数。它是「无量纲版」的协方差矩阵，在数据科学里正是相关矩阵热力图（如 $\mathbf{R} = \mathbf{D}^{-1/2}\boldsymbol{\Sigma}\mathbf{D}^{-1/2}$）背后的对象。<span class="marginnote">协方差矩阵与相关系数矩阵的换算：$\mathbf{R} = \mathbf{D}^{-1/2}\boldsymbol{\Sigma}\mathbf{D}^{-1/2}$，其中 $\mathbf{D}$ 是以各方差为对角元的对角矩阵。主成分分析（PCA）的特征向量分解对象就是 $\boldsymbol{\Sigma}$ 或 $\mathbf{R}$——这是概率论通向机器学习线性降维的一座桥。</span>
 
 ## 4 公式解析：二阶中心矩如何「缩水」
 
@@ -107,7 +107,7 @@ $$
 
 ### 例：相关系数矩阵
 
-$\mathbf{R}$ 由 $\rho_{ij} = \mathrm{Cov}(X_i,X_j)/\sqrt{\mathrm{Var}(X_i)\mathrm{Var}(X_j)}$ 构成——**「相关矩阵是协方差矩阵的无量纲版」**，数据科学里 `corr()` 的热力图正是它。
+$\mathbf{R}$ 由 $\rho_{ij} = \mathrm{Cov}(X_i,X_j)/\sqrt{\mathrm{Var}(X_i)\mathrm{Var}(X_j)}$ 构成——**「相关矩阵是协方差矩阵的无量纲版」**，数据科学里 $\rho_{ij} = \mathrm{Cov}(X_i,X_j)/\sqrt{\mathrm{Var}(X_i)\mathrm{Var}(X_j)}$ 的热力图正是它。
 
 ### 矩与矩估计
 

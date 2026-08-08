@@ -58,9 +58,9 @@ $$
 
 以一个具体例子做三步拆解，看清辅助角公式的运作机制：
 
-- **第一步，提出振幅**：$\sin x+\cos x=\sqrt{2}\left(\frac{1}{\sqrt{2}}\sin x+\frac{1}{\sqrt{2}}\cos x\right)$。这里 $a=b=1$，故 $\sqrt{a^2+b^2}=\sqrt{2}$。提出 $\sqrt{2}$ 后，括号里两个系数 $\frac{1}{\sqrt{2}}$ 恰好满足「一个的平方加另一个的平方等于 1」，这正是 $\cos\varphi$ 与 $\sin\varphi$ 的资格。
-- **第二步，凑出两角和公式**：把 $\frac{1}{\sqrt{2}}$ 认成 $\cos\frac{\pi}{4}=\sin\frac{\pi}{4}$，于是括号里是 $\cos\frac{\pi}{4}\sin x+\sin\frac{\pi}{4}\cos x=\sin\left(x+\frac{\pi}{4}\right)$。
-- **第三步，收拢**：$\sin x+\cos x=\sqrt{2}\sin\left(x+\frac{\pi}{4}\right)$。由此立刻读出最大值 $\sqrt{2}$、周期 $2\pi$、以及图象相对 $\sin x$ 左移了 $\frac{\pi}{4}$。
+**第一步，提出振幅**：$\sin x+\cos x=\sqrt{2}\left(\frac{1}{\sqrt{2}}\sin x+\frac{1}{\sqrt{2}}\cos x\right)$。这里 $a=b=1$，故 $\sqrt{a^2+b^2}=\sqrt{2}$。提出 $\sqrt{2}$ 后，括号里两个系数 $\frac{1}{\sqrt{2}}$ 恰好满足「一个的平方加另一个的平方等于 1」，这正是 $\cos\varphi$ 与 $\sin\varphi$ 的资格。
+**第二步，凑出两角和公式**：把 $\frac{1}{\sqrt{2}}$ 认成 $\cos\frac{\pi}{4}=\sin\frac{\pi}{4}$，于是括号里是 $\cos\frac{\pi}{4}\sin x+\sin\frac{\pi}{4}\cos x=\sin\left(x+\frac{\pi}{4}\right)$。
+**第三步，收拢**：$\sin x+\cos x=\sqrt{2}\sin\left(x+\frac{\pi}{4}\right)$。由此立刻读出最大值 $\sqrt{2}$、周期 $2\pi$、以及图象相对 $\sin x$ 左移了 $\frac{\pi}{4}$。
 
 **辨析｜易错点：** 辅助角公式里 $\varphi$ 的位置与符号极易出错。若写成 $a\cos x\pm b\sin x$，要先把式子整理成「正弦在前」的标准形再做变换；且 $\varphi$ 的取值必须落在 $\cos\varphi$、$\sin\varphi$ 同时满足的那个象限——只写 $\tan\varphi=\frac{b}{a}$ 会丢掉象限信息，导致 $\varphi$ 相差 $\pi$。<span class="marginnote">tan 只告诉比例，不告诉方向：$\frac{1}{1}$ 与 $\frac{-1}{-1}$ 的 tan 相同，象限却相反。凡由 tan 反求角，必须先定点 $(a,b)$ 所在的象限。</span>
 
@@ -96,9 +96,9 @@ $$
 
 求 $y=3\sin x+4\cos x$ 的最大值。
 
-- **第一步，辅助角**：$y=\sqrt{3^2+4^2}\sin(x+\varphi)=5\sin(x+\varphi)$，其中 $\cos\varphi=\frac35$、$\sin\varphi=\frac45$。
-- **第二步，求最大值**：$\sin(x+\varphi)\le1$，$y_{\max}=5$。
-- **第三步，何时取到**：$x+\varphi=\frac\pi2+2k\pi$，即 $x=\frac\pi2-\varphi+2k\pi$ 时取最大值。
+**第一步，辅助角**：$y=\sqrt{3^2+4^2}\sin(x+\varphi)=5\sin(x+\varphi)$，其中 $\cos\varphi=\frac35$、$\sin\varphi=\frac45$。
+**第二步，求最大值**：$\sin(x+\varphi)\le1$，$y_{\max}=5$。
+**第三步，何时取到**：$x+\varphi=\frac\pi2+2k\pi$，即 $x=\frac\pi2-\varphi+2k\pi$ 时取最大值。
 
 <span class="marginnote">辅助角公式求最值的套路：<strong>$a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\varphi)$，最大值就是 $\sqrt{a^2+b^2}$</strong>。$3\sin x+4\cos x$ 的最大值 5、最小值 $-5$——「直角三角形的斜边」。这类题不用展开，直接提 $\sqrt{a^2+b^2}$ 一步到位。$\varphi$ 的具体值通常不必求出，只需知道「存在这样一个相位」。</span>
 

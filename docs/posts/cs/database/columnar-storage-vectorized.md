@@ -23,7 +23,7 @@ date: 2026-08-07
 **列级压缩**：同一列的值类型相同、常取值相似——用列特定的编码压缩：
 
 - **字典编码（dictionary）**：把重复值映射成短整数码。
-- **游程编码（RLE）**：连续相同值存成 `(值, 次数)`。
+- **游程编码（RLE）**：连续相同值存成 **(值, 次数)** 对。
 - **增量编码（delta）**：存相邻值的差（有序数据）。
 - **位图**：低基数列每个取值存位图（第 10 章）。
 
@@ -49,10 +49,10 @@ $$
 
 **对比早期物化（early materialization）**：行存边读边拼行，投影全部列。
 
-**执行顺序**（查询 `SELECT region, SUM(amount) WHERE category='A' GROUP BY region`）：
+**执行顺序**（查询 \`SELECT dept_name, AVG(salary) FROM instructor WHERE dept_name = 'CS' GROUP BY dept_name\`）：
 
-1. 在 `category` 列上过滤 → 得到「命中行位置」集合。
-2. 用位置集合在 `region`、`amount` 列上取值。
+1. 在 \`dept_name\` 列上过滤 → 得到「命中行位置」集合。
+2. 用位置集合在 \`dept_name\`、\`salary\` 列上取值。
 3. 聚合后拼结果行。
 
 **公式解析：延迟物化的带宽节省**

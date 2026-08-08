@@ -59,9 +59,9 @@ $$
 
 设 $\mathbf{x}^*$ 是真解（$M\mathbf{x}^*=N\mathbf{x}^*+\mathbf{b}$）。定义第 $k$ 步误差 $\mathbf{e}^{(k)}=\mathbf{x}^{(k)}-\mathbf{x}^*$。两式相减：
 
-- **第一步，误差递推。** $\mathbf{e}^{(k+1)}=M^{-1}N\,\mathbf{e}^{(k)}=G\,\mathbf{e}^{(k)}$。
-- **第二步，展开。** $\mathbf{e}^{(k)}=G^k\mathbf{e}^{(0)}$。
-- **第三步，收敛判据。** $\mathbf{e}^{(k)}\to\mathbf{0}$ 对任意初值成立 ⇔ $G^k\to0$ ⇔ **谱半径 $\rho(G)<1$**（$G$ 所有特征值模小于 1）。
+**第一步，误差递推。** $\mathbf{e}^{(k+1)}=M^{-1}N\,\mathbf{e}^{(k)}=G\,\mathbf{e}^{(k)}$。
+**第二步，展开。** $\mathbf{e}^{(k)}=G^k\mathbf{e}^{(0)}$。
+**第三步，收敛判据。** $\mathbf{e}^{(k)}\to\mathbf{0}$ 对任意初值成立 ⇔ $G^k\to0$ ⇔ **谱半径 $\rho(G)<1$**（$G$ 所有特征值模小于 1）。
 
 **收敛速度**由 $\rho(G)$ 决定：$\rho$ 越接近 0 收敛越快，越接近 1 收敛越慢。平均每步误差压缩约 $\rho(G)$ 倍——要压缩到 $10^{-s}$，约需 $\dfrac{s\ln10}{-\ln\rho}$ 步。<span class="marginnote">谱半径 $\rho(G)$ 是迭代法的「心跳」：<strong>$\rho<1$ 则生（收敛），$\rho\ge1$ 则亡（发散）</strong>。估计谱半径常借助格什戈林圆盘（特征值估计一章）或对角占优条件（后一节）。</span>
 

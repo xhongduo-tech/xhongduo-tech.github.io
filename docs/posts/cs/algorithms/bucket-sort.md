@@ -24,15 +24,15 @@ date: 2026-08-07
 
 输入：$n$ 个 $[0, 1)$ 内的实数，**独立均匀分布**。算法：
 
-```
-BUCKET-SORT(A)
-  n = A.length
-  let B[0..n-1] be a new array of empty lists
-  for i = 1 to n
-    insert A[i] into list B[floor(n * A[i])]
-  for i = 0 to n-1
-    sort list B[i] with insertion sort
-  concatenate lists B[0], B[1], ..., B[n-1] in order
+```text
+BUCKET-SORT(A):
+    n ← A.length
+    令 B[0..n−1] 为 n 个空桶
+    for i ← 1 to n:
+        把 A[i] 放入桶 B[⌊n · A[i]⌋]       // 值越大桶号越大
+    for i ← 0 to n−1:
+        INSERTION-SORT(B[i])               // 桶内排序
+    按桶号顺序拼接 B[0], B[1], …, B[n−1]
 ```
 
 关键设计：元素 $A[i]$ 落入第 $\lfloor n \cdot A[i] \rfloor$ 个桶——因为 $A[i] \in [0,1)$，桶号在 $[0, n-1]$，且**值越大桶号越大**，于是拼接时自然有序。<span class="marginnote">均匀分布的妙处：$n$ 个元素落入 $n$ 个桶，每个桶的期望元素数恰好是 1。「每桶大约 1 个元素」正是桶排序的甜蜜点——桶内用插入排序（对近于空或近于有序的小列表极快），总代价近线性。</span>

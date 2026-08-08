@@ -22,23 +22,24 @@ Web 应用把用户输入拼进 SQL 查询，用户输入里藏着 SQL 代码—
 
 一个经典的脆弱查询：
 
+```python
+query = "SELECT * FROM users WHERE name = '" + username + \
+        "' AND password = '" + password + "'"
+```
+
+如果 `username` 与 `password` 来自用户输入且**未处理**，攻击者输入：
+
 ```sql
-SELECT * FROM users WHERE username = '$user' AND password = '$pass';
-```
-
-如果 `$user` 来自用户输入且**未处理**，攻击者输入：
-
-```
-' OR '1'='1
+' OR 1=1 --
 ```
 
 拼进去变成：
 
 ```sql
-SELECT * FROM users WHERE username = '' OR '1'='1' AND password = 'anything';
+SELECT * FROM users WHERE name = '' OR 1=1 --' AND password = 'anything'
 ```
 
-`'1'='1'` 恒真——整个 WHERE 条件恒真，返回**所有用户**。攻击者不需要密码就能登录（绕过认证）。
+`1=1` 恒真——整个 WHERE 条件恒真，返回**所有用户**。攻击者不需要密码就能登录（绕过认证）。
 
 **根因**：**用户输入被当作 SQL 代码的一部分拼接执行**——数据与代码没有分离。注入的本质是「输入里的引号关闭了字符串，改变了查询结构」。
 
@@ -46,11 +47,11 @@ SELECT * FROM users WHERE username = '' OR '1'='1' AND password = 'anything';
 
 SQL 注入的攻击面极广，按破坏程度排列：
 
-- **绕过认证**：如上例，无需密码登录。
-- **数据泄露**：`UNION SELECT` 把其他表的数据拼进结果——拖走整库（用户表、口令哈希、信用卡）。
-- **数据篡改/删除**：`UPDATE`/`DELETE` 改删数据——破坏完整性。
-- **提权**：`xp_cmdshell`（MSSQL）、`LOAD_FILE`/`INTO OUTFILE`（MySQL）——**从数据库打到操作系统**。
-- **盲注（blind SQLi）**：页面不返回数据，但可通过「真/假」差异逐位推断——`' AND SUBSTRING(password,1,1)='a'`。
+**绕过认证**：如上例，无需密码登录。
+**数据泄露**：`UNION SELECT` 把其他表的数据拼进结果——拖走整库（用户表、口令哈希、信用卡）。
+**数据篡改/删除**：`UPDATE`/`DELETE` 改删数据——破坏完整性。
+**提权**：`xp_cmdshell`（MSSQL）、`INTO OUTFILE`/`LOAD_FILE`（MySQL）——**从数据库打到操作系统**。
+**盲注（blind SQLi）**：页面不返回数据，但可通过「真/假」差异逐位推断——布尔盲注。
 
 **盲注是现实中最常见的形态**：攻击者用「页面是否不同」作为「布尔预言机」，逐字节猜出数据——速度慢但极其隐蔽。<span class="marginnote">盲注与 Padding Oracle 的呼应：<strong>两者都是「利用一个二元预言」</strong>——Padding Oracle 用「填充合法/非法」，盲注用「查询真假」，都是把「是/否」反馈累积成完整信息。密码学与 Web 安全在「预言机攻击」这一概念上惊人地一致。</span>
 
@@ -62,20 +63,22 @@ $$
 
 三步拆解这条「万能登录」注入：
 
-- **第一步，关闭字符串**：`'` 把原来的 `'$user'` 字符串提前关闭。
+- **第一步，关闭字符串**：`'` 把原来的 `username` 字符串提前关闭。
 - **第二步，注入逻辑**：`OR 1=1` 让 WHERE 恒真——查询返回所有行。
-- **第三步，注释掉尾巴**：`-- `（SQL 注释）把后面的 `AND password='...'` 吞掉——密码检查被取消。
+- **第三步，注释掉尾巴**：`--`（SQL 注释）把后面的 `AND password='...'` 吞掉——密码检查被取消。
 
 ## 4 防御：参数化查询是铁律
 
 SQL 注入的根治方法很简单——**参数化查询（prepared statements）**：
 
 ```python
-cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s",
-               (user, password))
+cursor.execute(
+    "SELECT * FROM users WHERE name = ? AND password = ?",
+    (username, password),
+)
 ```
 
-**关键**：用户输入通过**参数占位符**（`%s`、`?`）传给数据库，数据库把参数当**数据**而非**代码**处理——引号、`OR 1=1` 都只是「字符串字面量」，无法改变查询结构。
+**关键**：用户输入通过**参数占位符**（`?`、`%s`）传给数据库，数据库把参数当**数据**而非**代码**处理——引号、`' OR 1=1` 都只是「字符串字面量」，无法改变查询结构。
 
 **其他防御层**：
 
@@ -89,16 +92,16 @@ cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s",
 
 SQL 注入只是「注入」家族的一员，同一根因（数据当代码）衍生出：
 
-- **命令注入**：用户输入拼进 OS 命令（`system("ls " . $input)`）——执行任意命令。
-- **LDAP/XML 注入**：拼进 LDAP 查询/XML 解析。
-- **模板注入（SSTI）**：拼进模板引擎——代码执行。
-- **XSS**（下一节）：拼进 HTML/JavaScript——浏览器端执行。
+**命令注入**：用户输入拼进 OS 命令（`os.system("cat " + filename)`）——执行任意命令。
+**LDAP/XML 注入**：拼进 LDAP 查询/XML 解析。
+**模板注入（SSTI）**：拼进模板引擎——代码执行。
+**XSS**（下一节）：拼进 HTML/JavaScript——浏览器端执行。
 
 **统一教训**：**任何「用户输入 + 拼接 = 代码」的模式都是注入**。正确做法统一是「参数化/转义 + 白名单 + 最小权限」——把数据与代码的边界在每一层都划清楚。<span class="marginnote">一个统一的思维模型：<strong>注入 = 「数据通道被当作指令通道」</strong>——SQL、shell、HTML、模板都是「语言」，把不可信数据放进这些语言而不转义，就是在给攻击者「写代码」的机会。安全的本质是「明确每个边界：这是数据，不是指令」。</span>
 
 ## 6 小结
 
-- **SQL 注入**：用户输入拼进 SQL 当代码执行——`' OR 1=1 --` 绕过认证、UNION 拖库、盲注猜数据。
+- **SQL 注入**：用户输入拼进 SQL 当代码执行——`' OR 1=1` 绕过认证、UNION 拖库、盲注猜数据。
 - **根因**：数据与代码未分离——「拼接」是病根。
 - **攻击面**：绕过认证、数据泄露、篡改、提权、盲注。
 - **根治**：**参数化查询**——输入当数据不当代码；+ 白名单 + 最小权限 + WAF 兜底。

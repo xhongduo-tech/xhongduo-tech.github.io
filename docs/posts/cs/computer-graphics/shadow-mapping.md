@@ -75,10 +75,10 @@ $$
 
 阴影映射虽然在实时渲染里无处不在，但边界要诚实：
 
-- **只能处理「点/方向光」的直接阴影**：面光源、软阴影需要更多技巧。
-- **分辨率受限**：大场景阴影贴图分辨率不够，远处阴影模糊——需要 CSM 分层。
-- **自阴影与偏移的张力**：粉刺与彼得潘难以两全。
-- **半透明与体积光**：阴影贴图记录不透光深度，无法表达「半影」的半透明穿透。
+**只能处理「点/方向光」的直接阴影**：面光源、软阴影需要更多技巧。
+**分辨率受限**：大场景阴影贴图分辨率不够，远处阴影模糊——需要 CSM 分层。
+**自阴影与偏移的张力**：粉刺与彼得潘难以两全。
+**半透明与体积光**：阴影贴图记录不透光深度，无法表达「半影」的半透明穿透。
 
 这些局限催生了整个「阴影映射改进」家族——下一节逐一展开 PCF、CSM、VSM。<span class="marginnote">「阴影映射是『够用但不完美』的阴影方案」：<strong>它快、硬件友好、无场景限制，但硬阴影、分辨率、偏移三座大山需要一层层补丁</strong>。从 PCF（软边）到 CSM（大场景分层）到 VSM（可滤波深度），每个改进都是「补一个洞」。理解阴影映射的原理与走样，就理解了整个阴影改进家族为什么长那样。</span>
 
@@ -95,16 +95,28 @@ $$
 **第二遍渲染（判定）的注意点**：
 
 - **变换矩阵**：物体顶点经「光源的 view-projection 矩阵」变换，得到光源视角的 NDC——这一步与《投影》篇的矩阵链条完全一致，只是「相机换成光源」。
-- **深度比较采样器**：现代 API 用 `shadow sampler`（深度比较纹理）——一次采样返回「$z_p$ 与存储深度比较的结果」，硬件原生支持，避免「采样深度再比较」的额外读写。
-- **PCF 采样**：对深度比较采样器做 `gather`/`filter`——硬件支持「一次采样多个比较结果并平均」，这就是 PCF 的硬件基础。
+- **深度比较采样器**：现代 API 用 **比较采样器**（comparison sampler，GLSL 里是 `sampler2DShadow`、HLSL 里是 `SamplerComparisonState`，即深度比较纹理）——一次采样返回「$z_p$ 与存储深度比较的结果」，硬件原生支持，避免「采样深度再比较」的额外读写。
+- **PCF 采样**：对深度比较采样器做邻域多次采样/加权平均——硬件支持「一次采样多个比较结果并平均」，这就是 PCF 的硬件基础。
 
 **一个典型实现的伪代码结构**：
 
-```glsl
-// 第二遍：片元着色器里判阴影
-float shadow = texture(shadowMap, shadowCoord.xy).r;   // 深度比较采样
-// shadow ≈ 0 被挡, ≈ 1 可见
-float visibility = mix(ambient, 1.0, shadow);          // 阴影处只留环境光
+```text
+// 第一遍：从光源视角渲染深度图（只写深度，不输出颜色）
+bind_depth_target();
+set_view_projection(light_vp);          // 光源的 view-projection
+for (mesh : scene)
+    draw_depth_only(mesh);              // 片元着色器省略，只写深度
+
+// 第二遍：相机视角渲染，用深度比较采样器判阴影
+bind_framebuffer(color_target);
+set_view_projection(camera_vp);
+bind_shadow_map(shadow_tex);
+for (mesh : scene)
+    for (fragment : rasterize(mesh))
+        vec3 p_light = light_vp * fragment.position;   // 变换到光源空间
+        float z = p_light.z + bias;                     // 加偏移防粉刺
+        fragment.shadow = compare(shadow_tex, p_light.xy, z);
+        fragment.color = shade(fragment) * (1.0 - fragment.shadow);
 ```
 
 **辨析｜易错点：** 三个工程坑：

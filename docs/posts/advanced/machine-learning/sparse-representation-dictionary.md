@@ -20,7 +20,7 @@ date: 2026-08-07
 
 而**字典学习（dictionary learning）**回答的是更进一步的问题：**这些「原子」从哪里来？** 不靠人设计（像小波、傅里叶基那样预先给定），而是**从数据里学**——学一本「字典」，让每个样本都能用字典里少数几个原子稀疏地重构出来。它是稀疏学习的高级形态，也是压缩感知（下一节）的前奏。<span class="marginnote">「稀疏表示 = 用少数基元说话」的思想遍布现代机器学习：图像去噪、人脸识别、压缩感知、深度稀疏编码，乃至大模型的稀疏注意力。而「从数据里学表示基元」正是表征学习（第5章深度学习）的另一条血脉——字典学习是它最干净的数学形态。</span>
 
-## 1 稀疏表示：用少数原子说话设有一本**字典（dictionary）**$\mathbf{D} \in \mathbb{R}^{d \times n}$，它的列 $\boldsymbol{d}_1, \dots, \boldsymbol{d}_n$ 叫**字典原子（atom）**，是「基元」。一个样本 $\boldsymbol{x} \in \mathbb{R}^d$ 若能用**少数几个原子**的线性组合近似重构：$$\boldsymbol{x} \approx \mathbf{D} \boldsymbol{\alpha} = \alpha_1 \boldsymbol{d}_1 + \alpha_2 \boldsymbol{d}_2 + \cdots + \alpha_n \boldsymbol{d}_n$$
+## 1 稀疏表示：用少数原子说话设有一本**字典（dictionary）**$\mathbf{D} \in \mathbb{R}^{d \times n}$，它的列 $\boldsymbol{d}_1, \dots, \boldsymbol{d}_n$ 叫**字典原子（atom）**，是「基元」。一个样本 $\boldsymbol{x} \in \mathbb{R}^d$ 若能用**少数几个原子**的线性组合近似重构：`$$`\boldsymbol{x} \approx \mathbf{D} \boldsymbol{\alpha} = \alpha_1 \boldsymbol{d}_1 + \alpha_2 \boldsymbol{d}_2 + \cdots + \alpha_n \boldsymbol{d}_n$$
 且系数 $\boldsymbol{\alpha}$ 中**绝大多数为 0**（只有 $k \ll n$ 个非零），则称 $\boldsymbol{x}$ 在该字典下有**稀疏表示**。<span class="marginnote">「稀疏」是相对字典规模说的：字典可能很大（$n$ 上千），但每个样本只用其中 $k$ 个原子——像「用一本大辞典里的几个词描述一句话」。稀疏表示的好处：压缩（只需存 $k$ 个系数）、去噪（噪声难以用少数原子稀疏表示）、可解释（知道样本由哪几个基元构成）。</span>
 
 给定字典 $\mathbf{D}$，求稀疏表示系数是一个**稀疏编码（sparse coding）**问题：

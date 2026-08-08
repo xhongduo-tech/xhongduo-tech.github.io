@@ -22,12 +22,17 @@ date: 2026-08-07
 
 ## 1 Ford-Fulkerson 方法框架
 
-```
-FORD-FULKERSON-METHOD(G, s, t)
-  initialize flow f to 0
-  while there exists an augmenting path p in residual network G_f
-    augment flow f along p
-  return f
+```text
+FORD-FULKERSON(G, s, t):
+    for each 边 (u, v) in G.E:
+        f(u, v) = 0                      // 初始零流
+    while 残量网络 G_f 中存在增广路 p:
+        c_f(p) = min{ c_f(u, v) : (u, v) ∈ p }   // 路径上的瓶颈残量
+        for each 边 (u, v) in p:
+            if (u, v) ∈ G.E:
+                f(u, v) = f(u, v) + c_f(p)       // 正向边加流
+            else:
+                f(v, u) = f(v, u) - c_f(p)       // 反向边退流
 ```
 
 循环不变式：$f$ 始终是**合法流**（每次增广沿残量网络，保持容量约束与守恒）。终止时无增广路，由最大流最小割定理，$f$ 是最大流。<span class="marginnote">「方法」而非「算法」：它只规定「找增广路」这个循环，不规定怎么找。不同的「找路策略」产生不同复杂度的具体算法——这是「算法族」设计模式的典范。正确性由最大流最小割定理免费给出，复杂度全看找路策略。</span>
@@ -42,14 +47,20 @@ FORD-FULKERSON-METHOD(G, s, t)
 
 **Edmonds-Karp 算法**：在残量网络中用 **BFS** 找「边数最少」的增广路。
 
-```
-EDMONDS-KARP(G, s, t)
-  initialize f to 0
-  repeat
-    p = BFS-shortest-path(G_f, s, t)
-    if p == NIL  break
-    augment f along p
-  return f
+```text
+EDMONDS-KARP(G, s, t):
+    for each 边 (u, v) in G.E:
+        f(u, v) = 0
+    while TRUE:
+        p = BFS 在残量网络 G_f 中找「边数最少」的 s → t 增广路
+        if p 不存在:
+            break                        // 无增广路，f 已是最大流
+        c_f(p) = min{ c_f(u, v) : (u, v) ∈ p }
+        for each 边 (u, v) in p:
+            if (u, v) ∈ G.E:
+                f(u, v) = f(u, v) + c_f(p)
+            else:
+                f(v, u) = f(v, u) - c_f(p)
 ```
 
 **为什么 BFS 有效**：边数最短的增广路让「某条边被用作瓶颈」的次数受限——每增广一次，至少一条边变成「满流瓶颈」；而这条边在下次增广前必须先被「反向清空」。Edmonds-Karp 的核心引理是：**从 $s$ 到任何顶点的最短路径距离（边数）随增广单调不降**。<span class="marginnote">引理的直觉：增广可能引入反向边，反向边「往回走」不会让任何顶点更近。于是每条边被选为瓶颈的次数 ≤ 它在「最短路级别」上被清空重用的次数，总量 $O(E)$ 次。这个「单调不降」的论证是 Edmonds-Karp 复杂度分析的心脏。</span>

@@ -84,55 +84,32 @@ $$ \pi_0 \xrightarrow{\text{评估}} v_{\pi_0} \xrightarrow{\text{改进}} \pi_1
 策略迭代的代码，等于「上一节的评估函数 + 一个贪心外壳」：
 
 ```python
-import numpy as np
-
-def policy_iteration(terminal, gamma=1.0, theta=1e-4):
-    actions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    n = 4
-    policy = np.random.randint(0, 4, size=(n, n))     # 初始随机确定性策略
-    V = np.zeros((n, n))
-
+def policy_iteration(V, policy, gamma=1.0, theta=1e-4):
+    """网格世界（转移确定、奖励恒为 -1）上的策略迭代。"""
     while True:
-        # ---- 策略评估：在给定 policy 下迭代算 v_π ----
+        # 1) 策略评估：把当前策略的价值算到收敛
         while True:
             delta = 0.0
-            for r in range(n):
-                for c in range(n):
-                    if (r, c) in terminal:
-                        continue
-                    v_old = V[r, c]
-                    a = policy[r, c]
-                    dr, dc = actions[a]
-                    r2, c2 = min(max(r + dr, 0), n - 1), min(max(c + dc, 0), n - 1)
-                    V[r, c] = -1 + gamma * V[r2, c2]
-                    delta = max(delta, abs(V[r, c] - v_old))
+            for s in states:
+                v = V[s]
+                s_next = move(s, policy[s])        # 确定转移
+                V[s] = -1 + gamma * V[s_next]      # 奖励恒为 -1
+                delta = max(delta, abs(v - V[s]))
             if delta < theta:
                 break
-
-        # ---- 策略改进：贪心更新 ----
-        policy_stable = True
-        for r in range(n):
-            for c in range(n):
-                if (r, c) in terminal:
-                    continue
-                best = policy[r, c]
-                best_val = -float("inf")
-                for a, (dr, dc) in enumerate(actions):
-                    r2, c2 = min(max(r + dr, 0), n - 1), min(max(c + dc, 0), n - 1)
-                    val = -1 + gamma * V[r2, c2]      # 用 q 的当前估计比较
-                    if val > best_val:
-                        best_val, best = val, a
-                if best != policy[r, c]:
-                    policy_stable = False
-                policy[r, c] = best
-
-        if policy_stable:                             # 贪无可贪即最优
-            break
-
-    return policy, V
+        # 2) 策略改进：对每个状态取 q(s, a) 最大的动作
+        stable = True
+        for s in states:
+            best_a = argmax(actions,
+                            key=lambda a: -1 + gamma * V[move(s, a)])
+            if best_a != policy[s]:
+                policy[s] = best_a
+                stable = False
+        if stable:                                 # 贪无可贪 → 已最优
+            return policy, V
 ```
 
-注意改进这一步用的是 `-1 + gamma * V[r2, c2]`——它是 $q_\pi(s,a) = \sum_{s',r} p(s',r\mid s,a)[r+\gamma v_\pi(s')]$ 在网格世界里的特例（转移确定、奖励恒为 $-1$）。**改进一定发生在评估完全收敛之后**：这里的 $V$ 已经是 $v_\pi$ 的近似，用它算出的贪心动作才站得住。<span class="marginnote">这里为了演示清晰，内层评估每次都收敛到阈值 $\theta$ 以下才停。下一节的值迭代将揭示一个惊人的事实：评估根本不必算到底——只评估一步，也能抵达最优。那才是大规模 RL 里真正被采用的松弛方式。</span>
+注意改进这一步用的是 $-1$——它是 $q_\pi(s,a) = \sum_{s',r} p(s',r\mid s,a)[r+\gamma v_\pi(s')]$ 在网格世界里的特例（转移确定、奖励恒为 $-1$）。**改进一定发生在评估完全收敛之后**：这里的 $V$ 已经是 $v_\pi$ 的近似，用它算出的贪心动作才站得住。<span class="marginnote">这里为了演示清晰，内层评估每次都收敛到阈值 $\theta$ 以下才停。下一节的值迭代将揭示一个惊人的事实：评估根本不必算到底——只评估一步，也能抵达最优。那才是大规模 RL 里真正被采用的松弛方式。</span>
 
 ## 5 辨析：改进的成本与「贪心」的边界
 

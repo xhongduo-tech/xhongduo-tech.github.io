@@ -26,11 +26,11 @@ date: 2026-08-07
 
 ```sql
 INSERT INTO instructor (ID, name, dept_name, salary)
-VALUES ('10211', 'Smith', 'Biology', 66000);
+VALUES ('10211', 'Smith', 'Economics', 66000);
 ```
 
-- 属性名列表可省略，此时**值的顺序必须与模式中的属性顺序完全一致**；省略列表、依赖列顺序的写法可读性差，且一旦模式调整就出错，工程上不推荐。
-- 未列出的属性自动取默认值；没有默认值且允许 NULL 时取 NULL，若该属性是主码的一部分或非空约束，则这条插入会**违反完整性约束而被拒绝**。
+属性名列表可省略，此时**值的顺序必须与模式中的属性顺序完全一致**；省略列表、依赖列顺序的写法可读性差，且一旦模式调整就出错，工程上不推荐。
+未列出的属性自动取默认值；没有默认值且允许 NULL 时取 NULL，若该属性是主码的一部分或非空约束，则这条插入会**违反完整性约束而被拒绝**。
 
 更强大的形式是**把一条查询的结果整批插入**——「从另一个关系筛选出符合条件的数据，灌进当前关系」：
 
@@ -54,7 +54,7 @@ DELETE FROM instructor
 WHERE dept_name = 'Finance';
 ```
 
-- 不带 WHERE 的 `DELETE FROM instructor;` 会**删除所有元组**——表还在，只是空了。这经常是误操作的来源：手一抖删了整张表，与 TRUNCATE 的行为需仔细区分。
+- 不带 WHERE 的 DELETE 会**删除所有元组**——表还在，只是空了。这经常是误操作的来源：手一抖删了整张表，与 TRUNCATE 的行为需仔细区分。
 - DELETE 删除的是元组，不是关系本身；关系模式、索引、约束都原样保留。
 - 与 INSERT 一样，DELETE 可能违反外码约束：若其他表的外码引用了待删元组，删除可能被拒绝，或触发级联删除——这取决于约束的定义方式，第4章《完整性约束》会专门展开。
 
@@ -62,11 +62,9 @@ WHERE 里可以使用子查询，比如「删除在 Watson 大楼开设课程的
 
 ```sql
 DELETE FROM instructor
-WHERE dept_name IN (
-    SELECT dept_name
-    FROM department
-    WHERE building = 'Watson'
-);
+WHERE dept_name IN (SELECT dept_name
+                    FROM department
+                    WHERE building = 'Watson');
 ```
 
 这里的子查询先在当前状态下求值，再对每条元组应用删除条件——标准语义同样基于快照。
@@ -78,13 +76,13 @@ WHERE dept_name IN (
 ```sql
 UPDATE instructor
 SET salary = salary * 1.05
-WHERE dept_name = 'Finance';
+WHERE dept_name = 'Physics';
 ```
 
-- SET 右侧可以引用**该元组的旧值**，`salary * 1.05` 意为「在旧工资基础上涨 5%」——这是 UPDATE 最常用的形态。
-- 不带 WHERE 的 UPDATE 会作用到所有元组：`UPDATE instructor SET salary = salary * 1.05;` 给全体教师涨薪 5%。
+- SET 右侧可以引用**该元组的旧值**，`salary = salary * 1.05` 意为「在旧工资基础上涨 5%」——这是 UPDATE 最常用的形态。
+- 不带 WHERE 的 UPDATE 会作用到所有元组：`UPDATE instructor SET salary = salary * 1.05` 给全体教师涨薪 5%。
 
-要表达「按条件给不同的人涨不同幅度」，就需要 `CASE` 表达式——它把「分情况赋值」写进一条 UPDATE。
+要表达「按条件给不同的人涨不同幅度」，就需要 CASE 表达式——它把「分情况赋值」写进一条 UPDATE。
 
 ## 4 公式解析：UPDATE 的求值时机与 CASE 分档
 
@@ -100,15 +98,15 @@ END;
 
 这条语句的求值可以拆成三步：
 
-- **第一步，逐元组读取旧值**：UPDATE 隐式地对每个元组执行一次循环，`salary` 在 SET 与 CASE 中引用的都是**该元组的旧值**。
-- **第二步，CASE 分档**：CASE 从第一个 WHEN 开始顺序判断，命中第一个为 TRUE 的分支即停止。`salary <= 100000` 对某个元组为 TRUE，就取 `salary * 1.05`；否则落到 ELSE 取 `salary * 1.03`。
+- **第一步，逐元组读取旧值**：UPDATE 隐式地对每个元组执行一次循环，循环体内的 `salary` 在 SET 与 CASE 中引用的都是**该元组的旧值**。
+- **第二步，CASE 分档**：CASE 从第一个 WHEN 开始顺序判断，命中第一个为 TRUE 的分支即停止。`WHEN salary <= 100000` 对某个元组为 TRUE，就取 `salary * 1.05`；否则落到 ELSE 取 `salary * 1.03`。
 - **第三步，整体写回**：对每个元组算出新值后，再统一把新值写回该元组。于是**每一行的新值都只依赖它自己的旧值**，与遍历顺序无关：
 
 $$v_{\text{new}}(t_i) \;=\; f\big(v_{\text{old}}(t_i)\big)$$
 
-这条式子是 SQL 标准对 UPDATE 的核心约定：**SET 表达式一律基于旧行求值**。它的直接推论是，写一条「交换两列」的语句 `SET A = B, B = A` 在标准语义下能够正确交换；但**部分数据库（如 MySQL 默认模式）从左到右依次赋值**，`A = B` 先执行后，`B = A` 拿到的是 A 的新值，结果便不是交换——同一份 SQL 在两个系统里行为不同。这是标准与实现分歧的著名实例，也是「读写要分清方言」的教训。
+这条式子是 SQL 标准对 UPDATE 的核心约定：**SET 表达式一律基于旧行求值**。它的直接推论是，写一条「交换两列」的语句 `UPDATE instructor SET A = B, B = A` 在标准语义下能够正确交换；但**部分数据库（如 MySQL 默认模式）从左到右依次赋值**，`A = B` 先执行后，`B = A` 拿到的是 A 的新值，结果便不是交换——同一份 SQL 在两个系统里行为不同。这是标准与实现分歧的著名实例，也是「读写要分清方言」的教训。
 
-**辨析｜易错点：** 再问一次三值逻辑——若某个元组的 `salary` 为 NULL，CASE 的 WHEN 条件得到 UNKNOWN，UNKNOWN 不等于 TRUE，于是落入 ELSE，算出 `NULL * 1.03 = NULL`，工资依旧是 NULL。**CASE 把 UNKNOWN 当「不满足」处理**，因此 NULL 值在条件更新中会被静默跳过，绝无异常提示。
+**辨析｜易错点：** 再问一次三值逻辑——若某个元组的 salary 为 NULL，CASE 的 WHEN 条件得到 UNKNOWN，UNKNOWN 不等于 TRUE，于是落入 ELSE，算出 ELSE 分支的值（仍是 NULL），工资依旧是 NULL。**CASE 把 UNKNOWN 当「不满足」处理**，因此 NULL 值在条件更新中会被静默跳过，绝无异常提示。
 
 ## 5 辨析：写操作与约束、事务
 

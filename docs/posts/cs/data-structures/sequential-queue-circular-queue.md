@@ -33,17 +33,17 @@ date: 2026-08-07
 
 ## 2 朴素顺序队列的缺陷：假溢出
 
-顺序队列用数组 + 两个下标 `front`（队头）与 `rear`（队尾）：
+顺序队列用数组 + 两个下标 front（队头）与 rear（队尾）：
 
-- 初始：`front = rear = 0`；
-- 入队：`data[rear] = e; rear++`；
-- 出队：`e = data[front]; front++`。
+初始：`front = rear = 0`；
+入队：`data[rear] = x; rear++`；
+出队：`front++`。
 
-这个朴素版本有个致命缺陷。反复入队出队后，`rear` 顶到数组末尾，`front` 却已越过若干「空出来的」位置——此时数组前半段全空，但 `rear == MAXSIZE`，判成「满」无法再入队。**明明有空位却装不下，这就是假溢出（false overflow）**。<span class="marginnote">假溢出的根源是<strong>指针只增不减</strong>：`front` 和 `rear` 都单调前进，出队的空间再也回不到入队端。解决思路就一个——让下标在数组范围内「绕圈」，即循环队列。</span>
+这个朴素版本有个致命缺陷。反复入队出队后，`rear` 顶到数组末尾，`front` 却已越过若干「空出来的」位置——此时数组前半段全空，但 `rear == MAXSIZE`，判成「满」无法再入队。**明明有空位却装不下，这就是假溢出（false overflow）**。<span class="marginnote">假溢出的根源是<strong>指针只增不减</strong>：front 和 rear 都单调前进，出队的空间再也回不到入队端。解决思路就一个——让下标在数组范围内「绕圈」，即循环队列。</span>
 
 ## 3 循环队列：取模绕圈
 
-循环队列把数组看成首尾相接的环：`rear` 到末尾后，下一步回到 `data[0]`。所有下标移动都用取模：
+循环队列把数组看成首尾相接的环：`front`/`rear` 到末尾后，下一步回到下标 0。所有下标移动都用取模：
 
 $$
 \text{rear} = (\text{rear} + 1) \% \text{MAXSIZE}, \qquad \text{front} = (\text{front} + 1) \% \text{MAXSIZE}
@@ -57,7 +57,7 @@ $$
 \text{队空}:\ front = rear \qquad\qquad \text{队满}:\ (rear + 1) \% \text{MAXSIZE} = front
 $$
 
-即 `rear` 即将追上 `front` 时就视为满，留一个空位做「哨兵」。<span class="marginnote">这是「<strong>用空间消歧义</strong>」的典型：牺牲一格，换来 front==rear 唯一对应队空。另一种做法是加一个 `count` 计数器或 `tag` 标志，牺牲一字节换满状态判定——三种方案选哪种，取决于空间与可读性的权衡。</span>
+即 `rear` 即将追上 `front` 时就视为满，留一个空位做「哨兵」。<span class="marginnote">这是「<strong>用空间消歧义</strong>」的典型：牺牲一格，换来 front==rear 唯一对应队空。另一种做法是加一个 `count` 计数器或 `flag` 标志，牺牲一字节换满状态判定——三种方案选哪种，取决于空间与可读性的权衡。</span>
 
 ## 4 公式解析：循环队列的长度
 
@@ -67,24 +67,24 @@ $$
 \text{length} = (\text{rear} - \text{front} + \text{MAXSIZE}) \% \text{MAXSIZE}
 $$
 
-- **第一步，读「直接相减」为什么错**：`rear >= front` 时长度就是 `rear - front`；但绕圈后 `rear < front`（如 `rear=1, front=4`），直接相减得负数，毫无意义。
-- **第二步，读懂「加 MAXSIZE 再取模」**：先补上 `MAXSIZE` 把负数扳正，再对 `MAXSIZE` 取模，把任何越界的结果拉回 $[0, \text{MAXSIZE}-1]$。`(1 - 4 + 8) % 8 = 5`，长度 5，正确。
-- **第三步，这是一个通用技巧**：凡是「环形」下标差，都要用 `(a - b + M) % M` 归一化。环形缓冲区、循环队列、哈希表线性探测回绕，共用这一条公式。
+- **第一步，读「直接相减」为什么错**：未绕圈时长度就是 `rear - front`；但绕圈后 `rear < front`（如 `rear = 1, front = 6`），直接相减得负数，毫无意义。
+- **第二步，读懂「加 MAXSIZE 再取模」**：先补上 `MAXSIZE` 把负数扳正，再对 `MAXSIZE` 取模，把任何越界的结果拉回 $[0, \text{MAXSIZE}-1]$。$(1 - 6 + 10) \% 10 = 5$，长度 5，正确。
+- **第三步，这是一个通用技巧**：凡是「环形」下标差，都要用「加 MAXSIZE 再取模」归一化。环形缓冲区、循环队列、哈希表线性探测回绕，共用这一条公式。
 
 ## 5 循环队列的入队与出队
 
 ```c
-Status EnQueue(SqQueue *Q, QElemType e) {
-    if ((Q->rear + 1) % MAXSIZE == Q->front) return ERROR;  /* 队满 */
-    Q->data[Q->rear] = e;
-    Q->rear = (Q->rear + 1) % MAXSIZE;                      /* 尾指针绕圈 */
+Status EnQueue(SqQueue &Q, ElemType x) {
+    if ((Q.rear + 1) % MAXSIZE == Q.front) return ERROR;  /* 判满（牺牲一格） */
+    Q.data[Q.rear] = x;
+    Q.rear = (Q.rear + 1) % MAXSIZE;                      /* 队尾取模前进 */
     return OK;
 }
 
-Status DeQueue(SqQueue *Q, QElemType *e) {
-    if (Q->front == Q->rear) return ERROR;                  /* 队空 */
-    *e = Q->data[Q->front];
-    Q->front = (Q->front + 1) % MAXSIZE;                    /* 头指针绕圈 */
+Status DeQueue(SqQueue &Q, ElemType &x) {
+    if (Q.front == Q.rear) return ERROR;                  /* 判空 */
+    x = Q.data[Q.front];
+    Q.front = (Q.front + 1) % MAXSIZE;                    /* 队头取模前进 */
     return OK;
 }
 ```
@@ -97,8 +97,8 @@ Status DeQueue(SqQueue *Q, QElemType *e) {
 
 - 队列是**一端入、一端出**的线性表，特征为**先进先出（FIFO）**。
 - 朴素顺序队列的**假溢出**：指针只增不减，出队空间无法复用。
-- 循环队列用 `(p + 1) % MAXSIZE` 绕圈，一举消除假溢出。
-- 判空 `front == rear`；判满 `(rear+1) % MAXSIZE == front`（牺牲一格）。
+- 循环队列用取模绕圈，一举消除假溢出。
+- 判空 `front == rear`；判满 `(rear + 1) % MAXSIZE == front`（牺牲一格）。
 - 长度公式 `(rear - front + MAXSIZE) % MAXSIZE`，环形下标的通用归一化技巧。
 - 循环队列操作均 $O(1)$、不搬元素，是环形缓冲区的原型。
 

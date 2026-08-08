@@ -83,7 +83,7 @@ $$
 ## 5 Conformer 的工程角色与变体
 
 - **与混合训练结合**：Conformer 编码器 + CTC-Attention 混合，是 2020–2022 年非流式 SOTA 的默认配方。
-- **与 RNN-T 结合**：流式版 Conformer 用「块内注意力 + 块间缓存」实现低延迟，成为 Google/US 流式系统的核心（`Conformer-Transducer`）。
+- **与 RNN-T 结合**：流式版 Conformer 用「块内注意力 + 块间缓存」实现低延迟，成为 Google/US 流式系统的核心（USM，谷歌通用语音模型 Universal Speech Model）。
 - **语音合成与增强**：Conformer 也被用于 TTS 的声学模型、语音增强的掩蔽估计——局部 + 全局双引擎对任何「长序列 + 强局部结构」的信号都适用。<span class="marginnote">注意 Conformer 的「块」是编码器块，不是流式识别的「chunk」——前者是网络结构，后者是推理时的分段单位。两者都叫 chunk，含义不同，初学者常混淆。</span>
 - **变体**：Zipformer（Kaldi 团队）用更激进的降采样与稀疏注意力提速；Branchformer 并行卷积与注意力分支。它们都是「Conformer 思想」的工程调优。
 

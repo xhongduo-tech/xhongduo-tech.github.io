@@ -24,8 +24,8 @@ date: 2026-08-07
 
 设计问题集中在：
 
-- **可比较性**：哪些类型可以比较？数值全可比较；字符串是否可比较按字典序（C 用 `strcmp`，Python/Java 直接 `<`）；对象是否可比较由 `==` 语义决定（Java 的 `==` 比较引用、`equals` 比较内容，Python 的 `==` 比较内容）。<span class="marginnote">Java 的 `==` vs `equals` 是经典陷阱：`new Integer(1) == new Integer(1)` 为 `false`（引用不同），而 `1 == 1`（基本类型）为 `true`。关系运算符的「含义」在引用类型上变得暧昧——这是值语义与引用语义的直接冲突。</span>
-- **链式比较**：Python 支持 `a < b < c`（数学式链式），C/Java 不支持（`a < b < c` 被解析为 `(a < b) < c`，把布尔当数比较）。<span class="marginnote">C 的 `a < b < c` 是「先算 `a < b` 得 0/1，再拿 0/1 与 c 比较」——一个静默的错误。Python 的链式比较是数学直觉的正确实现。</span>
+**可比较性**：哪些类型可以比较？数值全可比较；字符串是否可比较按字典序（C 用 `strcmp`，Python/Java 直接 `<`）；对象是否可比较由 `==` 语义决定（Java 的 `==` 比较引用、`equals` 比较内容，Python 的 `==` 比较内容）。<span class="marginnote">Java 的 `==` vs `equals` 是经典陷阱：`new Integer(1) == new Integer(1)` 为 `false`（引用不同），而 `1 == 1`（基本类型）为 `true`。关系运算符的「含义」在引用类型上变得暧昧——这是值语义与引用语义的直接冲突。</span>
+**链式比较**：Python 支持 `a < b < c`（数学式链式），C/Java 不支持（`a < b < c` 被解析为 `(a < b) < c`，把布尔当数比较）。<span class="marginnote">C 的 `a < b < c` 是「先算 `a < b` 得 0/1，再拿 0/1 与 c 比较」——一个静默的错误。Python 的链式比较是数学直觉的正确实现。</span>
 
 ## 2 布尔表达式与短路
 

@@ -26,8 +26,8 @@ date: 2026-08-07
 
 操作：
 
-- **INSERT**：若 $\alpha = 1$（满），先扩容（倍增 $size$）再插入；否则直接插入。
-- **DELETE**：若 $\alpha$ 过低（阈值待定），先缩容再删除；否则直接删除。
+**INSERT**：若 $\alpha = 1$（满），先扩容（倍增 $size$）再插入；否则直接插入。
+**DELETE**：若 $\alpha$ 过低（阈值待定），先缩容再删除；否则直接删除。
 
 **设计问题**：缩容阈值取多少？「删到一半缩一半」为什么不行？
 
@@ -48,13 +48,13 @@ $$\Phi(D) = \begin{cases} 2 \cdot num - size, & \alpha \ge 1/2 \\ size/2 - num, 
 
 **插入**（分扩容与否）：
 
-- 不扩容：$c=1$，$\Delta\Phi = +2$，$\hat c = 3$。
-- 扩容（$\alpha=1 \to num'=num+1=size'=2size$）：$c = num+1$，$\Delta\Phi = (2num'-size') - (2num-size) = (2\cdot2size - 2size) - (2size - size) = 2size - size = size$……这里需要重新算：扩容前 $\Phi = 2num - size = 2size - size = size$；扩容后 $\Phi = 2(num+1) - 2size = 2(size+1)-2size = 2$。$\Delta\Phi = 2 - size$。$\hat c = (num+1) + (2-size) = (size+1)+2-size = 3$。<span class="marginnote">注意这里与「只插不删」版本略有不同：扩到 $2size$ 后 $num+1 = size+1$，$\alpha = (size+1)/2size$ 略大于 $1/2$，仍走第一段势能。$\hat c$ 仍为 3——扩容的昂贵实际代价再次被势能吞掉。</span>
+不扩容：$c=1$，$\Delta\Phi = +2$，$\hat c = 3$。
+扩容（$\alpha=1 \to num'=num+1=size'=2size$）：$c = num+1$，$\Delta\Phi = (2num'-size') - (2num-size) = (2\cdot2size - 2size) - (2size - size) = 2size - size = size$……这里需要重新算：扩容前 $\Phi = 2num - size = 2size - size = size$；扩容后 $\Phi = 2(num+1) - 2size = 2(size+1)-2size = 2$。$\Delta\Phi = 2 - size$。$\hat c = (num+1) + (2-size) = (size+1)+2-size = 3$。<span class="marginnote">注意这里与「只插不删」版本略有不同：扩到 $2size$ 后 $num+1 = size+1$，$\alpha = (size+1)/2size$ 略大于 $1/2$，仍走第一段势能。$\hat c$ 仍为 3——扩容的昂贵实际代价再次被势能吞掉。</span>
 
 **删除**（分缩容与否）：
 
-- 不缩容：$c=1$，$\Delta\Phi$：若 $\alpha \ge 1/2$ 则 $-2$，$\hat c = -1$；若 $\alpha<1/2$ 则 $+1$，$\hat c = 2$。取上界 $\hat c \le 2$。
-- 缩容（$\alpha = 1/4$，缩到 $size' = size/2$）：$c = num$（拷贝 $num$ 个）+ 1（删除）；$\Delta\Phi = (size'/2 - num') - (size/2 - num)$。缩容前 $num = size/4$、$\Phi = size/2 - size/4 = size/4$；缩容后 $num' = size/4$、$size' = size/2$、$\Phi' = size'/2 - num' = size/4 - size/4 = 0$。$\Delta\Phi = -size/4 = -num$。$\hat c = (num+1) - num = 1$。
+不缩容：$c=1$，$\Delta\Phi$：若 $\alpha \ge 1/2$ 则 $-2$，$\hat c = -1$；若 $\alpha<1/2$ 则 $+1$，$\hat c = 2$。取上界 $\hat c \le 2$。
+缩容（$\alpha = 1/4$，缩到 $size' = size/2$）：$c = num$（拷贝 $num$ 个）+ 1（删除）；$\Delta\Phi = (size'/2 - num') - (size/2 - num)$。缩容前 $num = size/4$、$\Phi = size/2 - size/4 = size/4$；缩容后 $num' = size/4$、$size' = size/2$、$\Phi' = size'/2 - num' = size/4 - size/4 = 0$。$\Delta\Phi = -size/4 = -num$。$\hat c = (num+1) - num = 1$。
 
 所有情形摊还代价均有常数上界，故 $n$ 次任意插入/删除序列摊还 $O(1)$。<span class="marginnote">四种情形的核对是这一课最繁琐的部分，但结论干净：插入摊还 3、删除摊还 ≤ 2、扩容/缩容那次摊还 1 或 3。核心是「势能精确匹配扩缩容的拷贝量」——每次扩缩容，势能跌掉的正好覆盖实际拷贝开销。</span>
 
@@ -68,7 +68,7 @@ $$\text{缩容后容量 } = 2num \ge num + 1,\quad \text{需 } num \text{ 次插
 - **第二步，缓冲距离**：从半满到满需要 $num = size/4$ 次插入，期间无扩容。
 - **第三步，对称性**：若缩到「恰好满」（阈值 $1/2$ 的错误设计），下一次插入立即扩容——缓冲为零，震荡形成。
 
-**要点**：「倍增扩容 + 四分之一缩容」的错位阈值，让扩缩容之间隔着「半表」的缓冲——**任何操作序列都不会触发连续震荡**。这是动态表设计的工程智慧，也是势能法分析的直接结论。<span class="marginnote">工程语言里，这就是 vector/C++ `std::vector` 的做法：capacity 倍增、`shrink_to_fit` 需要显式调用——正是为了避免「自动缩容」引发震荡。理解了这个阈值设计，就理解了现代容器的内存策略。</span>
+**要点**：「倍增扩容 + 四分之一缩容」的错位阈值，让扩缩容之间隔着「半表」的缓冲——**任何操作序列都不会触发连续震荡**。这是动态表设计的工程智慧，也是势能法分析的直接结论。<span class="marginnote">工程语言里，这就是 C++ 标准库中 `std::vector` 的做法：capacity 倍增、缩容（`shrink_to_fit`）需要显式调用——正是为了避免「自动缩容」引发震荡。理解了这个阈值设计，就理解了现代容器的内存策略。</span>
 
 ## 5 小结
 

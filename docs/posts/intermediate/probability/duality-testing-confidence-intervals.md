@@ -24,8 +24,8 @@ date: 2026-08-07
 
 对偶关系的成立来自「枢轴量」这同一个数学对象。以方差已知的正态均值为例：
 
-- **置信区间**：$\bar X \pm z_{\alpha/2}\frac{\sigma}{\sqrt n}$——由枢轴量 $Z = \frac{\bar X - \mu}{\sigma/\sqrt n} \sim N(0,1)$ 反解 $\mu$ 得到；
-- **检验**：$H_0: \mu = \mu_0$ 拒绝当 $|Z| = \left|\frac{\bar X - \mu_0}{\sigma/\sqrt n}\right| \ge z_{\alpha/2}$。
+**置信区间**：$\bar X \pm z_{\alpha/2}\frac{\sigma}{\sqrt n}$——由枢轴量 $Z = \frac{\bar X - \mu}{\sigma/\sqrt n} \sim N(0,1)$ 反解 $\mu$ 得到；
+**检验**：$H_0: \mu = \mu_0$ 拒绝当 $|Z| = \left|\frac{\bar X - \mu_0}{\sigma/\sqrt n}\right| \ge z_{\alpha/2}$。
 
 两者共用同一个分位点 $z_{\alpha/2}$：**拒绝域里的 $|Z| \ge z_{\alpha/2}$ 恰好就是「$\mu_0$ 落在置信区间外」**。同一个不等式，换个角度看就是区间，换个角度就是拒绝域。<span class="marginnote">把对偶关系写成形式：$H_0: \mu = \mu_0$ 在 $\alpha$ 水平被拒绝 $\iff \mu_0 \notin [\bar X \pm z_{\alpha/2}\frac{\sigma}{\sqrt n}]$。这个「检验 = 区间不包含」的等价，让「读检验结果」变成了「看区间含不含假设值」——还记得均值差区间「含不含 0」的判读吗？那正是对偶关系在起作用。</span>
 

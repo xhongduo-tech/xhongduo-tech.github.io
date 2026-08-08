@@ -22,7 +22,7 @@ date: 2026-08-07
 
 ## 1 并行斐波那契的 work 与 span
 
-回顾 `P-FIB(n)`：`spawn P-FIB(n-1)` 与 `P-FIB(n-2)` 并行。
+回顾 P-FIB：P-FIB(n-1) 与 P-FIB(n-2) 并行。
 
 **工作** $T_1(n)$：单处理器时间满足
 

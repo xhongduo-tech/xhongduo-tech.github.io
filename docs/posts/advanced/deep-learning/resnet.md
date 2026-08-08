@@ -49,13 +49,10 @@ $$
 
 ResNet-50/101/152 用**瓶颈块（bottleneck block）**替代「两个 3×3」：
 
-```
-瓶颈块：
-    1×1 卷积：256 -> 64        (降维)
-    3×3 卷积：64 -> 64         (空间特征)
-    1×1 卷积：64 -> 256        (升维)
-    + 恒等捷径
-```
+$$
+\boldsymbol{y} = \boldsymbol{W}_3\,\text{ReLU}\big(\boldsymbol{W}_2\,\text{ReLU}(\boldsymbol{W}_1\boldsymbol{x})\big) + \boldsymbol{x}, \qquad
+\dim:\ 256 \xrightarrow{1\times1} 64 \xrightarrow{3\times3} 64 \xrightarrow{1\times1} 256
+$$
 
 **「降维 → 计算 → 升维」**：中间 $3\times3$ 只在低通道（64）上计算，参数量约为「直接两个 3×3（256→256）」的 $\frac{1}{17}$。**ResNet-50 用瓶颈块把计算量压到「更深但更省」**。
 

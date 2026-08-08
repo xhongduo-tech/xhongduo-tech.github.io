@@ -44,7 +44,7 @@ $$\sin \alpha = y, \qquad \cos \alpha = x, \qquad \tan \alpha = \frac{y}{x} \ (x
 
 三个函数的定义域各不相同：
 
-- **$\sin \alpha$ 与 $\cos \alpha$**：对一切实数 $\alpha$ 都有定义，定义域为 $\mathbb{R}$。<span class="marginnote">「对一切实数有定义」是分析意义上很大的福利：它意味着这两个函数是定义在整个实数轴上的，可以求极限、求导、做傅里叶变换，而不必担心「某处没定义」。</span>
+**$\sin \alpha$ 与 $\cos \alpha$**：对一切实数 $\alpha$ 都有定义，定义域为 $\mathbb{R}$。<span class="marginnote">「对一切实数有定义」是分析意义上很大的福利：它意味着这两个函数是定义在整个实数轴上的，可以求极限、求导、做傅里叶变换，而不必担心「某处没定义」。</span>
 - **$\tan \alpha$**：要求 $x \neq 0$，即终边不能落在 $y$ 轴上。所以定义域是 $\{\alpha \mid \alpha \neq \frac{\pi}{2} + k\pi,\ k \in \mathbb{Z}\}$。
 
 **辨析｜易错点：** $\tan \alpha = \dfrac{y}{x}$ 中，当 $\alpha = \frac{\pi}{2}$（终边在 $y$ 轴正半轴）时 $x = 0$，比值无意义；$\alpha = \frac{3\pi}{2}$ 同理。凡是终边落在 $y$ 轴上的角，正切都不存在——这是 $\tan$ 定义域与 $\sin,\cos$ 的最大差别，也是后面研究正切函数「竖直线渐近线」的根源。

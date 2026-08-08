@@ -28,17 +28,17 @@ date: 2026-08-07
 
 $$\begin{aligned} E &\to E + T \mid T \\ T &\to T \times F \mid F \\ F &\to (E) \mid \textbf{id} \end{aligned}$$
 
-这里 $E$ 处理加法、$T$ 处理乘法、$F$ 是最小的因子。<span class="marginnote">树深对应优先级：`×` 在 `+` 之下（更靠近叶），所以「先算乘法」。`E → E + T` 左递归表示加法左结合：`a+b+c` 分成 `(a+b)+c`。要右结合（如赋值 `=`），就写成 `E → T = E` 这类右递归。</span>
+这里 $E$ 处理加法、$T$ 处理乘法、$F$ 是最小的因子。<span class="marginnote">树深对应优先级：$E$ 在 $T$ 之下（更靠近叶），所以「先算乘法」。$F$ 左递归表示加法左结合：$E$ 分成 $T$、$F$。要右结合（如赋值 $E$），就写成 $T$ 这类右递归。</span>
 
-**结合性**也能用分层表达：左递归产生式 `A → A α` 强制左结合；右递归 `A → α A` 强制右结合。减号、除号通常要左结合，指数、赋值要右结合。
+**结合性**也能用分层表达：左递归产生式 $A \to A\alpha$ 强制左结合；右递归 $A \to \alpha A$ 强制右结合。减号、除号通常要左结合，指数、赋值要右结合。
 
-**辨析｜易错点：** 分层不能「造出」不存在的语言能力——它只是把隐含的优先级**显式化**。`a+b*c` 在二义文法下「可能被算成 (a+b)*c」，分层后文法结构只允许 `a+(b*c)`，语言不变，语义被锁死。
+**辨析｜易错点：** 分层不能「造出」不存在的语言能力——它只是把隐含的优先级**显式化**。`a+b×c` 在二义文法下「可能被算成 (a+b)×c」，分层后文法结构只允许 `a+(b×c)`，语言不变，语义被锁死。
 
 ## 2 左递归：自顶向下分析的死穴
 
 **左递归（left recursion）**：存在非终结符 $A$ 与串 $\alpha$，使 $A \Rightarrow^+ A\alpha$——推导中 $A$ 能「从左边再次出现」。直接左递归是形如 $A \to A\alpha$ 的产生式。
 
-为什么它对自顶向下分析是灾难？递归下降分析从 $S$ 出发，遇到 `E → E+T` 时，要展开 $E$ 就必须先展开 $E$ 本身——**无限循环**，分析器永远前进不了。这就是「直接左递归让递归下降卡死」的机制。<span class="marginnote">注意：左递归对自底向上的 LR 分析完全不是问题——LR 分析器能优雅处理左递归（事实上左递归文法往往正好是 LR 的舒适区）。「左递归是毛病」只在自顶向下语境下成立。</span>
+为什么它对自顶向下分析是灾难？递归下降分析从 $S$ 出发，遇到左递归的非终结符 $E$ 时，要展开 $E$ 就必须先展开 $E$ 本身——**无限循环**，分析器永远前进不了。这就是「直接左递归让递归下降卡死」的机制。<span class="marginnote">注意：左递归对自底向上的 LR 分析完全不是问题——LR 分析器能优雅处理左递归（事实上左递归文法往往正好是 LR 的舒适区）。「左递归是毛病」只在自顶向下语境下成立。</span>
 
 ## 3 消除直接左递归：一个公式
 
@@ -50,7 +50,7 @@ $$A \to A\alpha_1 \mid A\alpha_2 \mid \cdots \mid A\alpha_m \mid \beta_1 \mid \c
 
 $$\begin{aligned} A &\to \beta_1 A' \mid \beta_2 A' \mid \cdots \mid \beta_n A' \\ A' &\to \alpha_1 A' \mid \alpha_2 A' \mid \cdots \mid \alpha_m A' \mid \varepsilon \end{aligned}$$
 
-直觉：`A` 递归重复的次数，被换成了新的非终结符 `A'` 的右递归。原来 `A` 是「一个 $\beta$ 后跟任意个 $\alpha$」，改写后 `A` 先出 $\beta$，再由右递归的 `A'` 收下所有 $\alpha$——**语言不变，左递归变右递归**。<span class="marginnote">例如 $E \to E+T \mid T$：这里 $A=E$，$\alpha_1=+T$，$\beta_1=T$。改写得 $E \to T\,E'$、$E' \to +T\,E' \mid \varepsilon$，语言仍是「一串 T 用 + 连接」，但递归方向翻转过来了。</span>
+直觉：$E' \to +T\,E' \mid \varepsilon$ 递归重复的次数，被换成了新的非终结符 $A'$ 的右递归。原来 $A$ 是「一个 $\beta$ 后跟任意个 $\alpha$」，改写后 $A$ 先出 $\beta$，再由右递归的 $A'$ 收下所有 $\alpha$——**语言不变，左递归变右递归**。<span class="marginnote">例如 $E \to E+T \mid T$：这里 $A=E$，$\alpha_1=+T$，$\beta_1=T$。改写得 $E \to T\,E'$、$E' \to +T\,E' \mid \varepsilon$，语言仍是「一串 T 用 + 连接」，但递归方向翻转过来了。</span>
 
 间接左递归（$A \Rightarrow B \Rightarrow A$，多步才回到自己）需要先对非终结符排序，把间接的消除掉再用同一公式逐层处理——龙书给出了完整的算法流程。
 
@@ -72,17 +72,17 @@ $$A \to \alpha A', \qquad A' \to \beta_1 \mid \beta_2$$
 
 验证改写「语言不变」是理解全部改写的钥匙。以 $A \to A\alpha \mid \beta$ 为例（单 $\alpha$、单 $\beta$ 的简化版）：
 
-- **改写前**：反复应用 $A\to A\alpha$ 到底，最后换一次 $\beta$，得到 $\beta\alpha^n$（$n \ge 0$）。所以 $L(A) = \{\beta\alpha^n\}$。
-- **改写后**：$A \to \beta A'$、$A' \to \alpha A' \mid \varepsilon$。$A'$ 生成 $\alpha^n$（$n\ge0$），于是 $A$ 生成 $\beta\alpha^n$——与改写前完全一致。
-- **关键**：$\beta$ 必须出现在「递归收尾处」。若 $\beta$ 也以 $A$ 开头（即也左递归），就破坏了这个论证——这正是公式要求 $\beta_i$ 不以 $A$ 开头的理由。
+**改写前**：反复应用 $A\to A\alpha$ 到底，最后换一次 $\beta$，得到 $\beta\alpha^n$（$n \ge 0$）。所以 $L(A) = \{\beta\alpha^n\}$。
+**改写后**：$A \to \beta A'$、$A' \to \alpha A' \mid \varepsilon$。$A'$ 生成 $\alpha^n$（$n\ge0$），于是 $A$ 生成 $\beta\alpha^n$——与改写前完全一致。
+**关键**：$\beta$ 必须出现在「递归收尾处」。若 $\beta$ 也以 $A$ 开头（即也左递归），就破坏了这个论证——这正是公式要求 $\beta_i$ 不以 $A$ 开头的理由。
 
 **每次改写，都可做一次这样的「改写前后语言相等」的验算。** 这不仅是理论洁癖，也是编译器开发者测试文法改写的实用方法：对改写前后两个文法跑同一批样例，输出必须一致。
 
 ## 7 思考与练习
 
-**练习 1 分层文法**：把 $E \to E+E \mid E \times E \mid (E) \mid \textbf{id}$ 改写成「分层 + 左结合」的无二义文法，要求 $+$ 优先级低于 $\times$、两者都左结合。写完后对 `id + id × id` 只画出一棵标准树。
+**练习 1 分层文法**：把 $E \to E+E \mid E \times E \mid (E) \mid \textbf{id}$ 改写成「分层 + 左结合」的无二义文法，要求 $+$ 优先级低于 $\times$、两者都左结合。写完后对 `a + b × c` 只画出一棵标准树。
 
-**练习 2 右结合改写**：把赋值运算 $E \to E = E \mid \textbf{id}$（右结合）改写成无二义文法——用右递归。对比左结合的 `+`，体会「递归方向决定结合性」。
+**练习 2 右结合改写**：把赋值运算 $E \to E = E \mid \textbf{id}$（右结合）改写成无二义文法——用右递归。对比左结合的 $E \to E+T \mid T$，体会「递归方向决定结合性」。
 
 **练习 3 消除左递归**：用公式消除 $A \to A\alpha_1 \mid A\alpha_2 \mid \beta$ 的左递归，并对 $E \to E+T \mid T$ 具体化。写出改写前后的文法，验证它们生成同一语言（用两个串各走一遍）。<span class="marginnote">这是「消除左递归」的机械化练习：套公式——$A \to \beta A'$、$A' \to \alpha A' \mid \varepsilon$——比「靠感觉改写」可靠得多。练熟公式，任何左递归文法都能机械处理。</span>
 

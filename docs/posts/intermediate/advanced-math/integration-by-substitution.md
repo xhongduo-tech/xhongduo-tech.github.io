@@ -65,10 +65,10 @@ $$\int f(x)\,dx \xrightarrow{x = \psi(t)} \int f(\psi(t))\,\psi'(t)\,dt$$
 
 求 $\int \frac{dx}{x^2\sqrt{x^2 + 1}}$：
 
-- **第一步，选代换**：含 $\sqrt{x^2+1}$，令 $x = \tan t$（$-\frac{\pi}{2}<t<\frac{\pi}{2}$），则 $dx = \sec^2 t\,dt$，$\sqrt{x^2+1} = \sec t$。
-- **第二步，代入化简**：$\int \dfrac{\sec^2 t\,dt}{\tan^2 t \cdot \sec t} = \int \dfrac{\sec t}{\tan^2 t}\,dt = \int \dfrac{\cos t}{\sin^2 t}\,dt$。
-- **第三步，凑微分**：$\int \dfrac{d(\sin t)}{\sin^2 t} = -\dfrac{1}{\sin t} + C$。
-- **第四步，代回**：$\sin t = \dfrac{x}{\sqrt{x^2+1}}$（由 $\tan t = x$ 画直角三角形可得），故原式 $= -\dfrac{\sqrt{x^2+1}}{x} + C$。
+**第一步，选代换**：含 $\sqrt{x^2+1}$，令 $x = \tan t$（$-\frac{\pi}{2}<t<\frac{\pi}{2}$），则 $dx = \sec^2 t\,dt$，$\sqrt{x^2+1} = \sec t$。
+**第二步，代入化简**：$\int \dfrac{\sec^2 t\,dt}{\tan^2 t \cdot \sec t} = \int \dfrac{\sec t}{\tan^2 t}\,dt = \int \dfrac{\cos t}{\sin^2 t}\,dt$。
+**第三步，凑微分**：$\int \dfrac{d(\sin t)}{\sin^2 t} = -\dfrac{1}{\sin t} + C$。
+**第四步，代回**：$\sin t = \dfrac{x}{\sqrt{x^2+1}}$（由 $\tan t = x$ 画直角三角形可得），故原式 $= -\dfrac{\sqrt{x^2+1}}{x} + C$。
 
 这四步展现了第二类换元的完整循环：**代换 → 化简 → 积分 → 代回**。最后一步的「直角三角形还原」是高频出错点——务必画图确认各三角函数的表达式。
 
@@ -76,8 +76,8 @@ $$\int f(x)\,dx \xrightarrow{x = \psi(t)} \int f(\psi(t))\,\psi'(t)\,dt$$
 
 换元法不只是积分技巧，它的思想贯穿更广：
 
-- **微分方程**：可分离变量方程 $\frac{dy}{dx} = g(x)h(y)$ 的解法本质就是两边分别凑微分——$\frac{dy}{h(y)} = g(x)dx$ 后各自积分。
-- **概率论**：计算正态分布、指数分布的期望与方差时，换元（特别是「凑 $\sigma\sqrt{2\pi}$」的标准正态变换）是核心操作。<span class="marginnote">标准正态变换 $z = \frac{x-\mu}{\sigma}$ 是统计学的头号换元——它把任意正态分布「搬」到标准正态，让查表与数值计算成为可能。你在《概率论与数理统计》里会频繁使用这个换元。</span>
+**微分方程**：可分离变量方程 $\frac{dy}{dx} = g(x)h(y)$ 的解法本质就是两边分别凑微分——$\frac{dy}{h(y)} = g(x)dx$ 后各自积分。
+**概率论**：计算正态分布、指数分布的期望与方差时，换元（特别是「凑 $\sigma\sqrt{2\pi}$」的标准正态变换）是核心操作。<span class="marginnote">标准正态变换 $z = \frac{x-\mu}{\sigma}$ 是统计学的头号换元——它把任意正态分布「搬」到标准正态，让查表与数值计算成为可能。你在《概率论与数理统计》里会频繁使用这个换元。</span>
 - **数值积分**：高斯求积公式的「换元到标准区间 $[-1,1]$」同样是换元思想——把积分区间标准化，才能套用固定的求积节点与权重。
 - **计算机科学**：变量替换在算法复杂度分析（主定理）、组合计数（生成函数）里也频繁出现——「换个变量让问题变简单」是普遍的数学策略。
 

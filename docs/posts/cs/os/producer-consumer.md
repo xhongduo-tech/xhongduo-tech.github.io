@@ -33,22 +33,21 @@ date: 2026-08-07
 用三个信号量解决：
 
 ```c
-semaphore mutex = 1;   // 保护缓冲区互斥
-semaphore empty = n;   // 空槽数量，初始为容量 n
-semaphore full  = 0;   // 已填槽数量，初始为 0
+semaphore mutex = 1;    /* 互斥：保护缓冲区，初始可用 */
+semaphore empty = n;    /* 空槽数：初始 n（缓冲区全空） */
+semaphore full  = 0;    /* 已填槽数：初始 0（还没有数据） */
 ```
 
 **生产者**：
 
 ```c
 while (true) {
-    item = produce();        // 生产数据（不在临界区）
-    wait(empty);             // ① 有空槽才继续（满则等）
-    wait(mutex);             // ② 进临界区
-    buffer[in] = item;       // 放数据
+    wait(empty);              /* 同步：有空槽才放，满则阻塞 */
+    wait(mutex);              /* 互斥：进临界区 */
+    buffer[in] = item;        /* 放入数据 */
     in = (in + 1) % n;
-    signal(mutex);           // ③ 出临界区
-    signal(full);            // ④ 已填槽 +1（消费者可能正等）
+    signal(mutex);            /* 出临界区 */
+    signal(full);             /* 同步：通知「有货了」 */
 }
 ```
 
@@ -56,13 +55,12 @@ while (true) {
 
 ```c
 while (true) {
-    wait(full);              // ① 有货才取（空则等）
-    wait(mutex);             // ② 进临界区
-    item = buffer[out];      // 取数据
+    wait(full);               /* 同步：有货才取，空则阻塞 */
+    wait(mutex);              /* 互斥：进临界区 */
+    item = buffer[out];       /* 取出数据 */
     out = (out + 1) % n;
-    signal(mutex);           // ③ 出临界区
-    signal(empty);           // ④ 空槽 +1（生产者可能正等）
-    consume(item);
+    signal(mutex);            /* 出临界区 */
+    signal(empty);            /* 同步：通知「有空槽了」 */
 }
 ```
 
@@ -70,15 +68,15 @@ while (true) {
 
 这个解法的精妙全在信号量的**顺序**上：
 
-- **`wait(empty)`/`wait(full)` 管「同步」**：它们决定「能不能放/取」——缓冲区满时 `empty=0`，生产者卡在 `wait(empty)`；缓冲区空时 `full=0`，消费者卡在 `wait(full)`。
-- **`wait(mutex)` 管「互斥」**：它决定「同一时刻谁碰缓冲区」——保证放与取不会同时发生。
-- **`signal(full)`/`signal(empty)` 是「配对」**：放一个，full+1、empty-1；取一个，full-1、empty+1。**每放必取、每取必放，总量守恒。**
+**empty/full 管「同步」**：它们决定「能不能放/取」——缓冲区满时 empty=0，生产者卡在 wait(empty)；缓冲区空时 full=0，消费者卡在 wait(full)。
+**mutex 管「互斥」**：它决定「同一时刻谁碰缓冲区」——保证放与取不会同时发生。
+**empty/full 是「配对」**：放一个，full+1、empty-1；取一个，full-1、empty+1。**每放必取、每取必放，总量守恒。**
 
 **顺序错误的后果**（这是本问题最大的坑）：
 
-- **先 `wait(mutex)` 再 `wait(empty)`**：若缓冲区满，生产者持锁等待 `empty`；消费者要取数据需拿 `mutex`，但锁被生产者占着——**死锁**。这就是「把同步放在互斥外面」的重要性。
-- **漏掉 `signal(full)`**：消费者永远等不到货，饥饿。
-- **生产者里两个 `wait` 顺序反了** 同样死锁。
+**先 wait(mutex) 再 wait(empty)**：若缓冲区满，生产者持锁等待 wait(empty)；消费者要取数据需拿 mutex，但锁被生产者占着——**死锁**。这就是「把同步放在互斥外面」的重要性。
+**漏掉 signal(full)**：消费者永远等不到货，饥饿。
+**生产者里 wait(empty) 与 wait(mutex) 顺序反了** 同样死锁。
 
 **铁律：同步信号量的 wait 必须在互斥信号量的 wait 之前。**<span class="marginnote">这个「先同步、后互斥」的顺序，是生产者-消费者问题的教科书级结论：先确认「资源可拿」，再拿「互斥锁」进临界区。顺序一颠倒，就是持锁等资源 → 拿资源的进程又等锁 → 死锁。第七篇《死锁》里你会看到它被形式化成「循环等待」。</span>
 
@@ -92,36 +90,42 @@ $$k = full \cdot 1 = n - empty$$
 - **$n - empty$**：容量减去空槽数，也是 $k$。
 - 两者在任何时刻相等——这是**同步不变量**，只要它成立，缓冲区不会溢出（$k \le n$）也不会下溢（$k \ge 0$）。
 
-每次生产：`full+1`、`empty-1`，$k$ 增 1，不变量保持；每次消费：`full-1`、`empty+1`，$k$ 减 1，不变量保持。**信号量的配对操作就是不变量的维护者。** 这个「用不变量验证并发正确性」的思想，在分布式系统的 Paxos、数据库事务里都会再现。
+每次生产：wait(empty)、signal(full)，$k$ 增 1，不变量保持；每次消费：wait(full)、signal(empty)，$k$ 减 1，不变量保持。**信号量的配对操作就是不变量的维护者。** 这个「用不变量验证并发正确性」的思想，在分布式系统的 Paxos、数据库事务里都会再现。
 
 ## 5 管程解法：更安全的替代
 
-用管程（Java 风格）解决同一问题，互斥交给 `synchronized`，条件用 `while + wait/notifyAll`：
+用管程（Java 风格）解决同一问题，互斥交给 synchronized，条件用 wait/notifyAll：
 
 ```java
 class BoundedBuffer {
-    private int count = 0;
-    public synchronized void put() {
-        while (count == n) wait();   // 满则等（条件：不满）
-        count++;                     // 放数据
-        notifyAll();                 // 唤醒等空的消费者
+    private int[] buffer = new int[n];
+    private int count = 0, in = 0, out = 0;
+
+    public synchronized void produce(int item) throws InterruptedException {
+        while (count == n) wait();      /* 满则等 */
+        buffer[in] = item;              /* 放入 */
+        in = (in + 1) % n; count++;
+        notifyAll();                    /* 唤醒可能等待的消费者 */
     }
-    public synchronized void take() {
-        while (count == 0) wait();   // 空则等（条件：非空）
-        count--;                     // 取数据
-        notifyAll();                 // 唤醒等满的生产者
+
+    public synchronized int consume() throws InterruptedException {
+        while (count == 0) wait();      /* 空则等 */
+        int item = buffer[out];         /* 取出 */
+        out = (out + 1) % n; count--;
+        notifyAll();                    /* 唤醒可能等待的生产者 */
+        return item;
     }
 }
 ```
 
-信号量方案要手动维护 `empty/full/mutex` 三个量，管程方案只需 `count` 一个量 + 两个条件检查——**管程把互斥收进语言，把同步收敛到条件变量**，出错面小得多。这是 Hoare 设计管程的初衷的直接体现。
+信号量方案要手动维护 empty/full/mutex 三个量，管程方案只需 count 一个量 + 两个条件检查——**管程把互斥收进语言，把同步收敛到条件变量**，出错面小得多。这是 Hoare 设计管程的初衷的直接体现。
 
 ## 6 小结
 
 - **生产者-消费者问题** = 有界缓冲 + 互斥 + 满则停 + 空则停，是同步问题的通用模型。
-- 信号量解法用 **`empty`（空槽）+ `full`（已填）+ `mutex`（互斥）** 三个信号量。
+- 信号量解法用 **empty（空槽）+ full（已填）+ mutex（互斥）** 三个信号量。
 - **同步 wait 必须在互斥 wait 之前**，顺序颠倒会死锁——这是本问题最大的坑。
 - 同步不变量 $k = full = n - empty$ 验证方案自洽。
-- 管程解法用 `count + while wait + notifyAll`，比信号量更不易错，是推荐写法。
+- 管程解法用 synchronized + 条件变量，比信号量更不易错，是推荐写法。
 
 在下一节，我们看第二个经典问题，它引入「允许多读者」的微妙平衡——**经典同步问题：读者-写者问题**。

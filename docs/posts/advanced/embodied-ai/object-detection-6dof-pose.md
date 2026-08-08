@@ -34,15 +34,15 @@ BOP benchmark ｜ 2026-08-07
 **2D 目标检测**输出图像中每个物体的**边界框 + 类别 + 置信度**。
 三代主流路线：
 
-- **两阶段（two-stage）**：先由区域建议网络（RPN）提出候选框，
+**两阶段（two-stage）**：先由区域建议网络（RPN）提出候选框，
 再对每个候选分类回归。
 代表 Faster R-CNN。
 精度高、慢。
-- **单阶段（one-stage）**：直接在特征图上预测框与类别，
+**单阶段（one-stage）**：直接在特征图上预测框与类别，
 一个网络搞定。
 代表 YOLO 系列、SSD、RetinaNet。
 快、适合实时。
-- **Transformer 端到端**：把检测当成「集合预测」问题，
+**Transformer 端到端**：把检测当成「集合预测」问题，
 匈牙利匹配做标签分配，
 无需锚框与 NMS。
 代表 DETR、DINO。
@@ -59,7 +59,7 @@ BOP benchmark ｜ 2026-08-07
 
 按输入分三路：
 
-- **点云路线**：把点云体素化（VoxelNet、SECOND）或柱状化（PointPillars），
+**点云路线**：把点云体素化（VoxelNet、SECOND）或柱状化（PointPillars），
 再用稀疏卷积/MLP 提特征，
 输出 3D 框。
 对几何精确、无光照问题，
@@ -70,11 +70,11 @@ BOP benchmark ｜ 2026-08-07
 几何信息损失少、速度快，
 是工业落地的常客。
 </span>
-- **单目/双目相机路线**：从图像直接回归 3D 框（CenterNet 系），
+**单目/双目相机路线**：从图像直接回归 3D 框（CenterNet 系），
 受尺度不确定性限制，
 远距离误差大；
 双目可恢复尺度。
-- **融合路线（BEV）**：把相机与雷达特征都投影到鸟瞰平面融合（LSS、BEVFormer），
+**融合路线（BEV）**：把相机与雷达特征都投影到鸟瞰平面融合（LSS、BEVFormer），
 几何与语义互补。
 
 ## 3 6D 位姿估计：不只框，还要 R,t
@@ -83,18 +83,18 @@ BOP benchmark ｜ 2026-08-07
 $R\in SO(3)$、$t\in\mathbb{R}^3$。
 经典方法分四代：
 
-- **对应点 + PnP（经典）**：提取 2D 特征点并与已知 CAD 模型上的 3D 点匹配，
+**对应点 + PnP（经典）**：提取 2D 特征点并与已知 CAD 模型上的 3D 点匹配，
 用 PnP + RANSAC 解出 $(R,t)$。
 依赖纹理，
 鲁棒性受特征质量限制。
-- **直接回归（deep regression）**：PoseCNN 直接从图像回归旋转、平移与对称性；
+**直接回归（deep regression）**：PoseCNN 直接从图像回归旋转、平移与对称性；
 缺点是旋转回归不稳定，
 后续多用旋转表示（四元数、旋转矩阵的连续化）改进。
-- **稠密对应（dense correspondence）**：对每个像素/点预测其在物体坐标系中的坐标（PVN3D、DenseFusion），
+**稠密对应（dense correspondence）**：对每个像素/点预测其在物体坐标系中的坐标（PVN3D、DenseFusion），
 再对稠密对应做最小二乘解位姿。
 几何信息利用率高，
 精度领先。
-- **类别级（category-level）**：对从未见过的同类物体估计位姿。**NOCS**（Normalized Object Coordinate Space）把物体归一化到标准空间，
+**类别级（category-level）**：对从未见过的同类物体估计位姿。**NOCS**（Normalized Object Coordinate Space）把物体归一化到标准空间，
 网络预测每个像素的 NOCS 坐标，
 再做形变匹配。
 是「泛化到新实例」的关键一步。

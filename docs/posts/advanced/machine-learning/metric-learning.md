@@ -20,7 +20,7 @@ date: 2026-08-07
 
 **度量学习（metric learning）**正是这个问题的答案：**从数据中自动学习一个距离度量**，让「同类样本距离小、异类样本距离大」。它是第10章的收官，把「选距离」升级为「学距离」——这个能力在现代机器学习里无处不在：人脸识别的「孪生网络」、推荐系统的「物品嵌入」、大模型的「语义向量空间」，本质上都在学一种距离。<span class="marginnote">度量学习是「距离」这个概念的最终归宿：先有距离公理（第9章），再有距离的选择（本章前半），最后是距离的学习（本节）——三层递进，把「相似」从人的直觉变成了机器优化的对象。</span>
 
-## 1 马氏距离：把空间「各向异性」化学习的起点是**马氏距离（Mahalanobis distance）**。欧氏距离对各维等权、各维独立；马氏距离允许一个**度量矩阵（metric matrix）$\mathbf{M}$** 来描述「各维的重要性与相关性」：$$dist_{\mathbf{M}}^2(\boldsymbol{x}_i, \boldsymbol{x}_j) = (\boldsymbol{x}_i - \boldsymbol{x}_j)^{\mathrm{T}} \mathbf{M} \, (\boldsymbol{x}_i - \boldsymbol{x}_j)$$
+## 1 马氏距离：把空间「各向异性」化学习的起点是**马氏距离（Mahalanobis distance）**。欧氏距离对各维等权、各维独立；马氏距离允许一个**度量矩阵（metric matrix）$\mathbf{M}$** 来描述「各维的重要性与相关性」：`$$`dist_{\mathbf{M}}^2(\boldsymbol{x}_i, \boldsymbol{x}_j) = (\boldsymbol{x}_i - \boldsymbol{x}_j)^{\mathrm{T}} \mathbf{M} \, (\boldsymbol{x}_i - \boldsymbol{x}_j)$$
 - 当 $\mathbf{M} = \mathbf{I}$，退化为欧氏距离；
 - 当 $\mathbf{M}$ 是对角阵，等于给每维加了权重（**特征加权**）；
 - 当 $\mathbf{M}$ 是满的对称半正定矩阵，还能编码**维度间的相关**——把坐标轴旋转、缩放，形成椭圆度量。<span class="marginnote">马氏距离的经典用法是「用协方差矩阵的逆」：$\mathbf{M} = \mathbf{\Sigma}^{-1}$ 时，距离把数据各维的方差归一、相关性去除——把椭圆的点云变成标准圆，再量距离。它让「近」的语义从「欧氏近」变成「统计意义上近」。</span>
@@ -34,7 +34,7 @@ date: 2026-08-07
 ## 3 三种代表性度量学习方法教材给出三类典型做法：- **近邻成分分析（NCA, Neighbourhood Components Analysis）**：把「$\boldsymbol{x}_i$ 被同类近邻选中的概率」最大化——用软分配（每个点以概率被拉向各近邻），最大化「随机选择近邻时选中同类」的概率，直接优化 kNN 的预期表现。- **大间隔最近邻（LMNN, Large Margin Nearest Neighbor）**：要求每个样本的 $k$ 个同类近邻都**被拉近**，同时异类样本**不侵入**以每个样本为中心的「边界」——像 SVM 那样撑开间隔，只是这次撑的是**距离空间**里的间隔。<span class="marginnote">LMNN 与第6章 SVM 的精神同源：都最大化「安全距离」。只是 SVM 在分类器层面撑间隔，LMNN 在距离度量层面撑间隔——「大间隔」这个主题贯穿全书。LMNN 一度是人脸识别、验证任务里最火的度量学习方法。</span>
 - **MMC（Mahalanobis Metric for Clustering）**：以「同类样本间距离最小化、异类样本间距离最大化」为目标，在聚类场景下学度量。
 
-## 4 公式解析：LMNN 的目标长什么样LMNN 的优化目标可以写成「拉近 + 推开」两部分的组合（示意形式）：$$\min_{\mathbf{M}} \; \sum_{i,j \in \mathcal{N}(i)} dist_{\mathbf{M}}^2(\boldsymbol{x}_i, \boldsymbol{x}_j) \;+\; \mu \sum_{i,j,l} \left[1 + dist_{\mathbf{M}}^2(\boldsymbol{x}_i,\boldsymbol{x}_j) - dist_{\mathbf{M}}^2(\boldsymbol{x}_i,\boldsymbol{x}_l)\right]_+$$
+## 4 公式解析：LMNN 的目标长什么样LMNN 的优化目标可以写成「拉近 + 推开」两部分的组合（示意形式）：`$$`\min_{\mathbf{M}} \; \sum_{i,j \in \mathcal{N}(i)} dist_{\mathbf{M}}^2(\boldsymbol{x}_i, \boldsymbol{x}_j) \;+\; \mu \sum_{i,j,l} \left[1 + dist_{\mathbf{M}}^2(\boldsymbol{x}_i,\boldsymbol{x}_j) - dist_{\mathbf{M}}^2(\boldsymbol{x}_i,\boldsymbol{x}_l)\right]_+$$
 - **第一步，看第一项（拉近）**：$\mathcal{N}(i)$ 是 $\boldsymbol{x}_i$ 的同类近邻集合；这一项要求同类近邻间的马氏距离**小**。
 - **第二步，看第二项（推开）**：$[z]_+ = \max(0, z)$ 是合页函数（第6章见过）；当异类样本 $\boldsymbol{x}_l$ 距离太近（小于「同类近邻距离 + 1」）时，这一项被激活，要求把它推远——**异类不得侵入边界**。
 - **第三步，看权重 $\mu$**：平衡「拉近」与「推开」，$\mu$ 大则更在意边界不被侵犯。

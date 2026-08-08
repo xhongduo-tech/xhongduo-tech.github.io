@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从完整流程开始
 
-前三节分别讲了「为什么分解」（RSA）、「归约到找周期」、和「模幂线路」——现在把散件拼成一台完整的机器：**Shor 算法的端到端流程**。从输入 $N$ 到输出因子，每一步做什么、量子在哪一步登场、经典在哪一步收尾，需要一张清晰的「流程图」。<span class="marginnote">Shor 算法发表于 P. Shor, "Algorithms for quantum computation: Discrete logarithms and factoring," <i>FOCS</i> 1994。它的完整流程是一个「经典 + 量子」的混合协议：经典负责归约与后处理，量子只负责「找周期」这一步（用相位估计 + QFT）。本节把每一步的输入、输出与作用都钉死。</span>理解完整流程，是「会讲 Shor 算法」的检验标准。
+前三节分别讲了「为什么分解」（RSA）、「归约到找周期」、和「模幂线路」——现在把散件拼成一台完整的机器：**Shor 算法的端到端流程**。从输入 $N$ 到输出因子，每一步做什么、量子在哪一步登场、经典在哪一步收尾，需要一张清晰的「流程图」。<span class="marginnote">Shor 算法发表于 P. Shor, "Algorithms for quantum computation: Discrete logarithms and factoring," <i>FOCS</i> 1994。它的完整流程是一个「经典 + 量子」的混合协议：经典负责归约与后处理，量子只负责「找周期」这一步（用相位估计 + QFT）。本节把每一步的输入、输出与作用都钉死。理解完整流程，是「会讲 Shor 算法」的检验标准。</span>
 
 ## 1 算法总览：七步走
 

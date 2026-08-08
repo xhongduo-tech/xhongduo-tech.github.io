@@ -24,9 +24,9 @@ date: 2026-08-07
 
 一个相机（或者说视点）用三个量完整描述：
 
-- **位置（position）** $\vec{e}$：相机在世界坐标里的位置。
-- **朝向（look-at / gaze）** $\vec{g}$：相机看向的方向。
-- **上方向（up）** $\vec{t}$：相机的「头顶」指向，用于确定相机的翻滚。
+**位置（position）** $\vec{e}$：相机在世界坐标里的位置。
+**朝向（look-at / gaze）** $\vec{g}$：相机看向的方向。
+**上方向（up）** $\vec{t}$：相机的「头顶」指向，用于确定相机的翻滚。
 
 这三个量构成相机的**标架（frame）**。为什么需要上方向？光有位置和朝向还不够——你可以看向正前方，但你的头还能左歪右歪，画面会跟着旋转。上方向 $\vec{t}$ 把「歪头」这个自由度钉死。<span class="marginnote">真实相机里 $\vec{t}$ 通常取世界坐标的 $y$ 轴（天空方向），但在过山车视角、飞行模拟里，相机会翻滚，$\vec{t}$ 随姿态变化——所以它必须作为输入给出，而不是默认「向上」。</span>
 
@@ -60,7 +60,7 @@ $$
 \hat{\mathbf{w}} = \frac{\vec{g}}{|\vec{g}|} \quad(\text{看向的反方向，相机坐标的 }-z),\qquad \hat{\mathbf{u}} = \frac{\vec{t}\times\hat{\mathbf{w}}}{|\vec{t}\times\hat{\mathbf{w}}|} \quad(\text{右方向}),\qquad \hat{\mathbf{v}} = \hat{\mathbf{w}}\times\hat{\mathbf{u}} \quad(\text{上方向})
 $$
 
-`叉积`在这里连续登场：$u$ 由「上 × 后」得到右，$v$ 由「后 × 右」得到上——保证 $u, v, w$ 构成右手正交系。<span class="marginnote">三个轴必须两两正交且满足右手定则，否则渲染会「拧」起来。$\hat{\mathbf{u}}$ 从 $\vec{t}\times\hat{\mathbf{w}}$ 得来，天然与 $\vec{w}$ 正交；$\hat{\mathbf{v}}$ 再用一次叉积封闭成完整正交基。</span>
+$u$在这里连续登场：$u$ 由「上 × 后」得到右，$v$ 由「后 × 右」得到上——保证 $u, v, w$ 构成右手正交系。<span class="marginnote">三个轴必须两两正交且满足右手定则，否则渲染会「拧」起来。$\hat{\mathbf{u}}$ 从 $\vec{t}\times\hat{\mathbf{w}}$ 得来，天然与 $\vec{w}$ 正交；$\hat{\mathbf{v}}$ 再用一次叉积封闭成完整正交基。</span>
 
 「世界轴转到相机轴」的矩阵是：
 

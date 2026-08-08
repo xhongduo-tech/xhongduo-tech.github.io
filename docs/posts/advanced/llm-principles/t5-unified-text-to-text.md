@@ -25,13 +25,12 @@ date: 2026-08-07
 T5 的做法直白到令人惊讶：给每个任务规定一个**任务前缀（task prefix）**，把「任务指令」和「任务输入」拼成一段文本，模型需要输出的也只是一段文本。
 
 ```text
-翻译：把英语翻译成德语     "That is good."      => "Das ist gut."
-摘要：summarize            "…长文章…"            => "一句话摘要"
-分类：cola sentence        "It is raining."     => "acceptable"
-相似度：stsb sentence1 …   "猫" / "狗"           => "3.8"（0–5 分）
+translate English to German: That is good.                                →  Das ist gut.
+sst2 sentence: This movie is great.                                       →  positive
+stsb sentence1: A man is playing guitar. sentence2: A man is playing an instrument.   →  3.8
 ```
 
-无论原任务是生成、分类还是回归，输入输出都被重写成**文本**：分类的标签变成文本（`acceptable` / `unacceptable`），相似度分数也变成文本（`3.8`）。<span class="marginnote">「把分数写成文本」看起来有点浪费，但它是统一的关键一步——模型只需要学会「读文本、写文本」一种能力，其余全部交给解码。这个思想后来演化为各类「提示前缀」，是 In-Context Learning 的同行者。</span>
+无论原任务是生成、分类还是回归，输入输出都被重写成**文本**：分类的标签变成文本（`positive` / `negative`），相似度分数也变成文本（`3.8`）。<span class="marginnote">「把分数写成文本」看起来有点浪费，但它是统一的关键一步——模型只需要学会「读文本、写文本」一种能力，其余全部交给解码。这个思想后来演化为各类「提示前缀」，是 In-Context Learning 的同行者。</span>
 
 **重点：** 统一的代价与收益并存。代价是「把回归当文本生成」在数值精度上吃亏；收益是**架构、损失函数、解码过程全站共享**，让「对比实验」变得干净。T5 论文把这一点贯彻到了极致——所有实验用同一个 3B 模型、同一种训练方式，只改一个变量。
 
@@ -43,15 +42,15 @@ $$
 \max_{\theta} \sum_{(x, y) \in \mathcal{D}} \log p_{\theta}(y \mid x)
 $$
 
-- **$(x, y)$**：一对「输入文本-目标文本」。$x$ 是加了前缀的任务输入（如 `translate English to German: That is good.`），$y$ 是期望输出（如 `Das ist gut.`）。
-- **$p_{\theta}(y \mid x)$**：编码器-解码器模型把 $x$ 编码成上下文，再**自回归地生成 $y$**——每次生成一个 token，条件于「已经生成的 $y_{<t}$」。这与我们在上一节见到的条件概率完全同构，只是这里的条件里明确含「任务前缀」。
+- **$(x, y)$**：一对「输入文本-目标文本」。$x$ 是加了前缀的任务输入（如 `"translate English to German: That is good."`），$y$ 是期望输出（如 `"Das ist gut."`）。
+- **$p_{\theta}(y \mid x)$**：编码器-解码器模型把 $x$ 编码成上下文，再**自回归地生成 $y$**——每次生成一个 token，条件于「已经生成的 $y_{\\lt t}$」。这与我们在上一节见到的条件概率完全同构，只是这里的条件里明确含「任务前缀」。
 - **$\sum_{(x,y)}$**：对所有任务的（输入，目标）对求和。**不同任务只是不同的 $(x,y)$ 对**，权重与损失形状没有区别。
 
 **易错点｜辨析：** T5 的「统一」不意味着「只有一个损失」。它仍然是「序列到序列的最大似然」——只是把**分类**（softmax 在标签集上）与**回归**（均方误差）全部**重新包装成文本生成**。包装不改变任务难度，改变的是**任务的接口**。接口统一之后，多任务联合训练（把不同任务的数据混在一起训）就变成了一件自然的事。
 
 ## 3 数据工程：C4 与「干净的网页」
 
-T5 需要一份足够大的通用语料来支撑系统性实验。当时的主流语料各有短板：BooksCorpus 只有书籍，WebText 未公开。T5 于是自建了 **C4（Colossal Clean Crawled Corpus，巨型干净爬虫语料）**——从 2019 年 4 月的 Common Crawl 网页快照出发，经过一套**启发式清洗流水线**，得到约 **750 GB、约 1560 亿 token** 的英文文本。<span class="marginnote">C4 的清洗规则包括：只留以句号/问号/叹号结尾的行、删掉少于 5 句的页面、去掉含「lorem ipsum」或花括号 `{}`（代码/模板）的页面、用词表过滤脏词、语言识别置信度 ≥ 0.99，最后做「三句去重」——任何连续三句在语料中重复出现即被删去。这些规则后来成为开源数据管线（如 RedPajama、FineWeb）的直接祖先。</span>
+T5 需要一份足够大的通用语料来支撑系统性实验。当时的主流语料各有短板：BooksCorpus 只有书籍，WebText 未公开。T5 于是自建了 **C4（Colossal Clean Crawled Corpus，巨型干净爬虫语料）**——从 2019 年 4 月的 Common Crawl 网页快照出发，经过一套**启发式清洗流水线**，得到约 **750 GB、约 1560 亿 token** 的英文文本。<span class="marginnote">C4 的清洗规则包括：只留以句号/问号/叹号结尾的行、删掉少于 5 句的页面、去掉含「lorem ipsum」或花括号 `{...}`（代码/模板）的页面、用词表过滤脏词、语言识别置信度 ≥ 0.99，最后做「三句去重」——任何连续三句在语料中重复出现即被删去。这些规则后来成为开源数据管线（如 RedPajama、FineWeb）的直接祖先。</span>
 
 但「干净」是有代价的。2021 年 Dodge 等人的审计发现：C4 的脏词过滤等启发式规则**不成比例地删掉了少数族裔与方言写作**——所谓「干净」，其实隐含着一种文化偏好。<span class="marginnote">数据审计是预训练数据工程里的「冷门但致命」一环：清洗规则在删除噪声的同时，也在塑造模型学到什么、学不到什么。本专题《预训练数据工程》篇会展开「清洗的政治经济学」。</span>
 
@@ -67,19 +66,19 @@ T5 需要一份足够大的通用语料来支撑系统性实验。当时的主�
 Thank you for inviting me to your party last week.
 ```
 
-随机选两段破坏（`for inviting` 与 `last week`），用哨兵 token `<X>`、`<Y>` 替换后作为**输入**：
+随机选两段破坏（`"for inviting"` 与 `"to your party"`），用哨兵 token <X_1>`、<X_2>` 替换后作为**输入**：
 
 ```text
-Thank you <X> me to your party <Y> .
+Thank you <X_1> me <X_2> last week.
 ```
 
 模型的**目标**是把这两个哨兵分别「展开」成被掩掉的跨度，并按序重新拼接：
 
 ```text
-<X> for inviting <Y> last week <Z>
+<X_1> for inviting <X_2> to your party <X_3>
 ```
 
-最后一个哨兵 `<Z>` 是「结束标记」——它告诉模型「所有跨度都补完了」。<span class="marginnote">哨兵 token 是 T5 的一个精巧设计：它让「目标」不再是「被破坏的整句」，而是「一串待填充的跨度」，长度大幅变短、训练更快，同时强迫模型按原文顺序复原内容。若掩码长度固定为 1，Span Corruption 就退化成 BERT 式 MLM——所以 MLM 是 Span Corruption 的特例。</span>
+最后一个哨兵 <X_3>` 是「结束标记」——它告诉模型「所有跨度都补完了」。<span class="marginnote">哨兵 token 是 T5 的一个精巧设计：它让「目标」不再是「被破坏的整句」，而是「一串待填充的跨度」，长度大幅变短、训练更快，同时强迫模型按原文顺序复原内容。若掩码长度固定为 1，Span Corruption 就退化成 BERT 式 MLM——所以 MLM 是 Span Corruption 的特例。</span>
 
 **重点：** 相比逐词 MLM，Span Corruption 有两个优势：**目标更短**（训练吞吐更高）、**更像「生成」**（模型要把一段话补全，而不只是猜一个词）——这与 T5「文本到文本」的生成取向天然契合。
 

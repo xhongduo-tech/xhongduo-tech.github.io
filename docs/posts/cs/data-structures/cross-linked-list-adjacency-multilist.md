@@ -22,22 +22,24 @@ date: 2026-08-07
 
 **十字链表（orthogonal list）**用于有向图。每个**弧结点**存弧的信息 + 两个方向的链指针：
 
-```c
-typedef struct ArcBox {
-    int tailvex, headvex;         /* 弧尾、弧头顶点在顶点表中的位置 */
-    struct ArcBox *hlink, *tlink; /* hlink：指向弧头相同的下一条弧（入弧链）
-                                     tlink：指向弧尾相同的下一条弧（出弧链） */
-    InfoType info;                /* 权值等信息 */
-} ArcBox;
+```cpp
+// 十字链表的弧结点
+typedef struct ArcNode {
+    int tailvex, headvex;           // 弧尾、弧头顶点在顶点表中的位置
+    struct ArcNode *hlink, *tlink;  // hlink：指向弧头相同的下一条弧；tlink：指向弧尾相同的下一条弧
+    InfoType info;                  // 弧的信息（权值等）
+} ArcNode;
 ```
 
 每个**顶点结点**存两个链头：
 
-```c
-typedef struct VexNode {
-    VertexType data;
-    ArcBox *firstin, *firstout;   /* 指向第一条入弧 / 第一条出弧 */
-} VexNode;
+```cpp
+// 十字链表的顶点结点
+typedef struct VNode {
+    VertexType data;      // 顶点信息
+    ArcNode *firstin;     // 入弧链头：指向第一条「以该顶点为弧头」的弧
+    ArcNode *firstout;    // 出弧链头：指向第一条「以该顶点为弧尾」的弧
+} VNode;
 ```
 
 **重点：一个弧结点同时挂在「出弧链」与「入弧链」上——出度和入度都能从链头出发线性访问。** 这正是把邻接表与逆邻接表合并成一张表的效果。<span class="marginnote">十字链表与《稀疏矩阵的十字链表》结构几乎同名同构：矩阵十字链表用「行链 + 列链」，图的十字链表用「出弧链 + 入弧链」。<strong>「一个实体、两条正交链」是通用的多视图组织法</strong>。</span>
@@ -46,21 +48,24 @@ typedef struct VexNode {
 
 **邻接多重表（adjacency multilist）**用于无向图，解决「邻接表边存两份」的问题。每条**边**用一个结点表示，存两个端点与两个链指针：
 
-```c
+```cpp
+// 邻接多重表的边结点（每条边只存一份）
 typedef struct EBox {
-    int ivex, jvex;               /* 边的两个顶点 */
-    struct EBox *ilink, *jlink;   /* 分别指向依附于 ivex / jvex 的下一条边 */
-    InfoType info;                /* 权值 */
+    VisitIf mark;                // 访问标记
+    int ivex, jvex;              // 该边依附的两个顶点位置
+    struct EBox *ilink, *jlink;  // 分别指向依附于 ivex、jvex 的下一条边
+    InfoType info;               // 边的权值等信息
 } EBox;
 ```
 
 每个**顶点结点**存一条「该顶点依附的边链」的头：
 
-```c
-typedef struct VexBox {
-    VertexType data;
-    EBox *firstedge;              /* 指向第一条依附于该顶点的边 */
-} VexBox;
+```cpp
+// 邻接多重表的顶点结点
+typedef struct VNode {
+    VertexType data;    // 顶点信息
+    EBox *firstedge;    // 指向第一条依附该顶点的边
+} VNode;
 ```
 
 **重点：无向图的每条边只占一个结点，却被两端的两个顶点共享**——删一条边只需摘掉这一个结点，且必然同时从两个顶点的链里消失。这消除了邻接表「边存两份、删边要删两处」的同步负担。<span class="marginnote">邻接多重表的「边对象」是一次性的、双向共享的。这像极了数据库里的「关联表 + 外键索引」：<strong>关系本身是一等对象，两端各持索引指向它</strong>——删除关系时，两端索引自动失效。</span>
@@ -98,8 +103,8 @@ $$
 
 图算法的复杂度，高度依赖「遍历邻居」的代价：
 
-- 用邻接表/十字链表/多重表：DFS 是 $O(n+e)$，Dijkstra 朴素版是 $O(n^2)$、堆优化版 $O((n+e)\log n)$；
-- 用邻接矩阵：DFS 是 $O(n^2)$（每步要扫整行找邻居）。
+用邻接表/十字链表/多重表：DFS 是 $O(n+e)$，Dijkstra 朴素版是 $O(n^2)$、堆优化版 $O((n+e)\log n)$；
+用邻接矩阵：DFS 是 $O(n^2)$（每步要扫整行找邻居）。
 
 **重点：先定存储，再谈算法复杂度。** 图算法的复杂度表达式里，$e$ 的每一项都依赖「能否直接遍历邻居」——这是邻接矩阵 $O(n^2)$ 与邻接表 $O(n+e)$ 差距的根源。接下来的 DFS、BFS、Dijkstra、Prim 全部建立在这个选择之上。<span class="marginnote">这条「存储 → 复杂度」的因果链是图篇的暗线：<strong>每一章的算法，默认用邻接表表述；若改矩阵，所有 $O(e)$ 都变 $O(n^2)$</strong>。读算法证明时盯住「邻居怎么来的」，就能看懂它的复杂度从哪来。</span>
 

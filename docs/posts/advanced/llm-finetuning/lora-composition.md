@@ -65,15 +65,23 @@ $$
 叠加在代码里就是「再挂一个适配器、冻结旧的」：
 
 ```python
-# 第一步：训练 LoRA₁（任务 A），存成 lora_taskA
-model = PeftModel.from_pretrained(base, "lora_taskA")
-# 第二步：在「基座 + LoRA₁」之上再挂 LoRA₂，冻结 LoRA₁
-model.add_adapter("lora_taskB", PeftConfig(...))
+from peft import LoraConfig, get_peft_model
+
+# 任务 A：在基座上训出 LoRA₁，保存为 adapter "task_a"
+model = get_peft_model(base_model, LoraConfig(r=8))
+train(model, dataset_a)
+
+# 任务 B：叠加 LoRA₂ —— 关键：冻结 LoRA₁、只训 LoRA₂
+model.load_adapter("task_a")                    # 挂回 LoRA₁
+model.add_adapter("task_b", LoraConfig(r=8))    # 新增 LoRA₂
 for n, p in model.named_parameters():
-    p.requires_grad = "lora_taskB" in n      # 只训 taskB 的适配器
+    p.requires_grad = False                     # ← 冻结 LoRA₁ 的那行
+for n, p in model.named_parameters():
+    if n.startswith("task_b"):                  # 只放行新适配器
+        p.requires_grad = True
 ```
 
-注意 `requires_grad` 那行：叠加训练的关键是**冻结前一个适配器、只训新适配器**。若忘了冻结，LoRA₁ 会被二次更新，「叠加」就变成了「一起重训」，顺序累积的意义就丢了。
+注意 **冻结（`requires_grad = False`）** 那行：叠加训练的关键是**冻结前一个适配器、只训新适配器**。若忘了冻结，LoRA₁ 会被二次更新，「叠加」就变成了「一起重训」，顺序累积的意义就丢了。
 
 ## 4 MoE 化 PEFT：路由选择多个适配器
 

@@ -42,16 +42,20 @@ $$h(u) = 1 + \min_{(u,v) \in E_f} h(v)$$
 
 ## 3 算法框架
 
-```
-GENERIC-PUSH-RELABEL(G, s, t)
-  initialize preflow f:  s 的所有出边灌满，其余 0
-  initialize heights:  h(s) = |V|, h(u) = 0 otherwise
-  while there exists an overflowing vertex u (u ≠ s, t)
-    if there is a pushable edge (u, v)   // h(u) = h(v)+1
-      PUSH(u, v)
-    else
-      RELABEL(u)
-  return f
+```text
+INITIALIZE-PREFLOW(G, s):
+    for v in V: h[v] = 0; e[v] = 0
+    h[s] = |V|
+    for (s, v) in E:
+        f(s, v) = c(s, v);  e[v] += c(s, v)    // 只灌源点的出边
+
+GENERIC-PUSH-RELABEL(G, s, t):
+    INITIALIZE-PREFLOW(G, s)
+    while 存在溢出顶点 u:
+        若存在残量边 (u, v) 且 h[u] = h[v] + 1:
+            PUSH(u, v)                         // 能推就推
+        否则:
+            RELABEL(u)                         // 推不动就抬海拔
 ```
 
 **终止**：所有非源汇顶点溢出为 0 → 预流变成合法流。**正确性**：结束时无溢出顶点，且无「可改进」结构；由高度标签与最小割的论证，$f$ 是最大流。<span class="marginnote">算法正确性的两个支柱：<strong>终止性</strong>（高度有限、单调上升，relabel 至多 $2V-1$ 次每顶点）与<strong>最优性</strong>（结束时 $e(u)=0$ 全部清空，且由高度条件可证「割 $(S,T)$ 满流」——$|f| = c(S,T)$，由最大流最小割定理 $f$ 最优）。核心直觉：算法把「溢出」一步步推向汇点或推回源点。</span>

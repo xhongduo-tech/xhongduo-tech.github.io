@@ -22,20 +22,20 @@ date: 2026-08-07
 
 设经典菱形：`Dog` 继承 `Mammal` 与 `Pet`，而 `Mammal` 与 `Pet` 都继承 `Animal`。
 
-**并发症一：数据重复（duplicate subobject）**——`Animal` 的字段（如 `weight`）在 `Dog` 里有**两份**：一份经 `Mammal` 进来，一份经 `Pet` 进来。`dog.weight` 指哪份？修改一份另一份不变——数据不一致的隐患。<span class="marginnote">C++ 默认（非虚继承）下确实复制基类子对象：`Dog` 里有两个 `Animal` 子对象，`sizeof(Dog)` 大于单继承情形。访问 `Animal::weight` 必须显式指定路径（`dog.Mammal::weight`），否则二义。这是「实现简单」换来的语义混乱。</span>
+**并发症一：数据重复（duplicate subobject）**——`Animal` 的字段（如 `age`）在 `Dog` 里有**两份**：一份经 `Mammal` 进来，一份经 `Pet` 进来。`dog.age` 指哪份？修改一份另一份不变——数据不一致的隐患。<span class="marginnote">C++ 默认（非虚继承）下确实复制基类子对象：`Dog` 里有两个 `Animal` 子对象，`sizeof(Dog)` 大于单继承情形。访问 `age` 字段必须显式指定路径（`Mammal::age` / `Pet::age`），否则二义。这是「实现简单」换来的语义混乱。</span>
 
 **并发症二：方法二义性（ambiguity）**——若 `Mammal` 与 `Pet` 都重写了 `speak`，`dog.speak()` 调哪个？两个父类都提供实现，`Dog` 自己没有——编译器无法判定。
 
 ## 2 方案一：C++ 的虚继承
 
-C++ 用 **虚拟继承（virtual inheritance）** 解决数据重复：`class Pet : virtual public Animal` 让 `Animal` 在继承图里**只保留一份**。
+C++ 用 **虚拟继承（virtual inheritance）** 解决数据重复：`virtual public` 让 `Animal` 在继承图里**只保留一份**。
 
 ```cpp
-class Animal { public: int weight; };
-class Mammal : virtual public Animal { ... };
-class Pet    : virtual public Animal { ... };
-class Dog    : public Mammal, public Pet { ... };
-/* Dog 里 Animal 只有一份，weight 唯一 */
+class Animal { public: int age; };
+
+class Mammal : virtual public Animal {};   // 虚继承：Animal 子对象被共享
+class Pet    : virtual public Animal {};
+class Dog    : public Mammal, public Pet {}; // Dog 里 Animal 只有一份
 ```
 
 虚继承的代价：**实现复杂**——对象布局不再简单连续，需要额外的「虚基类指针」定位共享子对象；构造顺序也更微妙（最派生类负责初始化虚基类）。<span class="marginnote">虚继承让 `Animal` 子对象唯一，消除了数据重复；但方法二义性仍可能（若两个中间类都重写 `speak`）。C++ 规则：最派生类可显式覆盖消解二义。虚继承的复杂度（布局、构造、赋值）是 C++ 最被诟病的角落之一。</span>
@@ -51,10 +51,10 @@ class Pet(Animal): pass
 class Dog(Mammal, Pet): pass
 
 print(Dog.__mro__)
-# (<Dog>, <Mammal>, <Pet>, <Animal>, <object>)
+# (<class 'Dog'>, <class 'Mammal'>, <class 'Pet'>, <class 'Animal'>, <class 'object'>)
 ```
 
-MRO 的性质：**子类优先于父类、父类间按声明顺序、且每个类只出现一次**。`speak` 在 `Mammal` 找到就调用 `Mammal` 的；`Animal` 的方法最后兜底。<span class="marginnote">C3 线性化是「拓扑排序 + 一致性」的算法：它保证 MRO 尊重「局部优先序」（`Dog` 先于 `Mammal`）、「单调性」（子类 MRO 不破坏父类相对顺序）。违反这些约束时（如无法线性化），Python 在类定义时报错——菱形因此总能得到确定答案。</span>
+MRO 的性质：**子类优先于父类、父类间按声明顺序、且每个类只出现一次**。`speak` 在 `Mammal` 找到就调用 `Mammal` 的；`Animal` 的方法最后兜底。<span class="marginnote">C3 线性化是「拓扑排序 + 一致性」的算法：它保证 MRO 尊重「局部优先序」（`Mammal` 先于 `Pet`）、「单调性」（子类 MRO 不破坏父类相对顺序）。违反这些约束时（如无法线性化），Python 在类定义时报错——菱形因此总能得到确定答案。</span>
 
 ## 4 公式解析：C3 线性化的合并规则
 
@@ -72,17 +72,17 @@ $$
 - **第二步，看 merge 规则**：每次取「不会被任何父类线性化遮挡」的类——保证「父类顺序不被破坏」（单调性）且「子类在前」。
 - **第三步，看菱形结果**：`Dog` 的 MRO 把 `Mammal`、`Pet`、`Animal` 排成一条无重复的链——`Animal` 只出现一次（它被两条路径共享，但线性化只算一次）。**「DAG 压平成链」让方法查找回到「沿链向上」的简单模式**。
 
-**辨析｜易错点：** MRO 的顺序**不是**「深度优先」——朴素 DFS 会让 `Dog → Mammal → Animal → Pet`（`Animal` 先于 `Pet`），这破坏「`Pet` 比它的父 `Animal` 优先」的直觉。C3 的「子类优先」保证 `Pet` 在 `Animal` 之前。**「按直觉的 DFS 会违反子类优先；C3 修正了它」**——MRO 不是天然如此，而是精心设计的算法结果。
+**辨析｜易错点：** MRO 的顺序**不是**「深度优先」——朴素 DFS 会让 `Animal` 提前（`Animal` 先于 `Pet`），这破坏「`Pet` 比它的父 `Animal` 优先」的直觉。C3 的「子类优先」保证 `Pet` 在 `Animal` 之前。**「按直觉的 DFS 会违反子类优先；C3 修正了它」**——MRO 不是天然如此，而是精心设计的算法结果。
 
 ## 5 方案三：避开多继承（现代主流）
 
 现代语言大多**避免实现多继承**：
 
 - **Java/C#/Kotlin**：单继承 + **接口多实现**——接口只有契约（Java 8 前无默认实现），多实现不会带来「两份实现」的问题。
-- **混入（mixin）**：把可复用实现写成「混入类/特质」，单继承 + 混入组合（Swift 的 `extension`、Ruby 的 module、Kotlin 的 interface 默认方法）。<span class="marginnote">「接口 + 默认方法」（Java 8 的 `default`、Kotlin 的 interface 实现）是「契约多继承 + 实现复用」的折中——接口可带默认实现但状态（字段）仍受限。混入的菱形（两个混入都定义同名默认方法）仍要显式解决，但比完整多继承简单得多。</span>
+- **混入（mixin）**：把可复用实现写成「混入类/特质」，单继承 + 混入组合（Swift 的 `extension`、Ruby 的 module、Kotlin 的 interface 默认方法）。<span class="marginnote">「接口 + 默认方法」（Java 8 的 `default` 方法、Kotlin 的 interface 实现）是「契约多继承 + 实现复用」的折中——接口可带默认实现但状态（字段）仍受限。混入的菱形（两个混入都定义同名默认方法）仍要显式解决，但比完整多继承简单得多。</span>
 - **组合 + trait**：Rust 完全无类继承，用 trait（可多实现）+ 组合。
 
-**辨析｜易错点：** 接口多实现 ≠ 多继承。接口的「菱形」不复制数据（接口无字段），方法冲突也只需显式 `super` 指定——复杂度远低于实现多继承。**「接口解决契约冲突，类解决实现复用」**——现代语言用「单类 + 多接口」同时拿到两者的好处。
+**辨析｜易错点：** 接口多实现 ≠ 多继承。接口的「菱形」不复制数据（接口无字段），方法冲突也只需显式 `override` 指定——复杂度远低于实现多继承。**「接口解决契约冲突，类解决实现复用」**——现代语言用「单类 + 多接口」同时拿到两者的好处。
 
 ## 6 继承的替代：组合与接口的组合实践
 
@@ -91,11 +91,13 @@ $$
 **接口 + 委托**：需要「鸟会飞 + 是宠物」——不搞多继承，用接口声明能力 + 组合持有实现：
 
 ```java
+interface Flyable { void fly(); }
+interface Pet     { void play(); }
+
 class Bird implements Flyable, Pet {
-    private FlyBehavior fly = new FlyWithWings();   // 组合
-    private PetBehavior pet = new FriendlyPet();
-    public void fly() { fly.fly(); }                // 委托
-    public void play() { pet.play(); }
+    private Flyer flyer = new Flyer();   // 组合：持有实现对象
+    public void fly()  { flyer.fly(); }  // 委托：转发给实现
+    public void play() { /* ... */ }
 }
 ```
 

@@ -37,11 +37,13 @@ $$\mathbf{f}_{uvd} = \alpha_{uvd} \cdot \mathbf{g}(\mathbf{x}_{uv})$$
 视锥张量的形状解释了 LSS 为什么「吃显存」：一张 1280×720 的图像，特征通道 $C=64$、$D=41$，抬升后是 1280×720×41×64——超过 24 亿个浮点数。因此早期 LSS 必须用低分辨率特征图或较小的 $D$，这也是它被诟病「存在信息瓶颈」的物理原因。
 
 ```python
-# Splat 的朴素实现：把每个 (u,v,d) 特征按网格索引累加
-for cam in cameras:
-    pts = unproject(pixels, depths, cam.K, cam.R, cam.t)   # 反投影到世界系
-    cell = (pts // cell_size).astype(int)                    # 落到哪个网格
-    bev_scatter_add(bev_feature, cell, lifted_feature)       # 同格累加
+# 伪代码：Lift 步骤（PyTorch 风格）
+# img_feat:   [B, C, H, W]   CNN 提取的图像特征
+# depth_dist: [B, D, H, W]   每个像素的深度分布（softmax 后和为 1）
+
+context = img_feat.unsqueeze(2)                # [B, C, 1, H, W]
+depth = depth_dist.unsqueeze(1)                # [B, 1, D, H, W]
+frustum = context * depth                      # [B, C, D, H, W] 视锥张量
 ```
 
 ## 2 公式解析：把像素抬升成视锥

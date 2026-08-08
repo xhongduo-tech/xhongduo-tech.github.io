@@ -24,23 +24,25 @@ B 树的查找简单；**插入**则引入 B 树的招牌操作——**分裂（
 
 **SPLIT-CHILD(x, i)**：把「已满的左孩子 $y$（$2t-1$ 个关键字）」分裂成两个节点，中间关键字 $y.\text{key}[t]$ 上抛到 $x$：
 
-```
-B-TREE-SPLIT-CHILD(x, i)
-  z = new node;  y = x.c[i]
-  z.leaf = y.leaf;  z.n = t-1
-  for j = 1 to t-1
-    z.key[j] = y.key[j+t]              // 右半关键字 → z
-  if not y.leaf
-    for j = 1 to t
-      z.c[j] = y.c[j+t]                // 右半孩子 → z
-  y.n = t-1                            // 左半留在 y
-  for j = x.n downto i                 // x 腾位
-    x.c[j+1] = x.c[j]
-  x.c[i+1] = z                         // z 挂到 x
-  for j = x.n downto i
-    x.key[j+1] = x.key[j]
-  x.key[i] = y.key[t]                  // 中间关键字上抛
-  x.n = x.n + 1
+```text
+B-TREE-SPLIT-CHILD(x, i):
+    y = x.c[i]                          // 满的左孩子
+    z = 新节点                          // 新分配的右兄弟
+    z.leaf = y.leaf
+    z.n = t - 1
+    for j = 1 to t - 1:                 // 拷贝右半关键字
+        z.key[j] = y.key[j + t]
+    if not y.leaf:
+        for j = 1 to t:                 // 拷贝右半孩子指针
+            z.c[j] = y.c[j + t]
+    y.n = t - 1                         // y 保留左半
+    for j = x.n + 1 downto i + 1:       // 在 x 中腾出孩子位
+        x.c[j + 1] = x.c[j]
+    x.c[i + 1] = z                      // z 挂到 x 上
+    for j = x.n downto i:               // 腾出关键字位
+        x.key[j + 1] = x.key[j]
+    x.key[i] = y.key[t]                 // 中间关键字上抛
+    x.n = x.n + 1
 ```
 
 **效果**：$y$ 保留左 $t-1$ 个、$z$ 拿走右 $t-1$ 个、中间那个上抛——**两个节点各含 $t-1$ 个关键字（半满）**，为后续插入留出空间。<span class="marginnote">分裂把「满节点」变成「两个半满节点」，中间关键字上抛后父节点多一个关键字。这个「对半劈 + 上抛中间」让所有节点始终维持在「半满到全满」之间——B 树的「至少 $t-1$ 个关键字」不变量被维护，树的高度平衡因此保持。分裂代价 $O(t)$（拷贝 $t$ 个关键字与孩子）。</span>
@@ -49,36 +51,41 @@ B-TREE-SPLIT-CHILD(x, i)
 
 **B-TREE-INSERT** 的策略：**自顶向下，遇满先劈**——在下降过程中，只要当前节点满了就先分裂，保证「到达叶子时，父节点一定有空间接纳上抛的关键字」。这样**分裂不会回溯**（一次下行完成插入）。
 
-```
-B-TREE-INSERT(T, k)
-  r = T.root
-  if r.n == 2t-1                       // 根满 → 先长高
-    s = new node;  T.root = s
-    s.leaf = FALSE;  s.n = 0;  s.c[1] = r
-    B-TREE-SPLIT-CHILD(s, 1)
-    B-TREE-INSERT-NONFULL(s, k)
-  else
-    B-TREE-INSERT-NONFULL(r, k)
+```text
+B-TREE-INSERT(T, k):
+    r = T.root
+    if r.n == 2t - 1:                   // 根满：先分裂出新根（树高 +1）
+        s = 新节点
+        T.root = s
+        s.leaf = FALSE
+        s.n = 0
+        s.c[1] = r
+        B-TREE-SPLIT-CHILD(s, 1)
+        B-TREE-INSERT-NONFULL(s, k)
+    else:
+        B-TREE-INSERT-NONFULL(r, k)
 
-B-TREE-INSERT-NONFULL(x, k)
-  i = x.n
-  if x.leaf
-    shift keys right;  x.key[i+1] = k;  x.n++
-  else
-    while i >= 1 and k < x.key[i]:  i--
-    i = i + 1
-    DISK-READ(x.c[i])
-    if x.c[i].n == 2t-1                // 孩子满 → 先劈
-      B-TREE-SPLIT-CHILD(x, i)
-      if k > x.key[i]:  i = i + 1
-    B-TREE-INSERT-NONFULL(x.c[i], k)
+B-TREE-INSERT-NONFULL(x, k):            // 前提：x 未满
+    i = x.n
+    if x.leaf:
+        while i >= 1 and k < x.key[i]:  // 在叶子里定位并右移
+            x.key[i + 1] = x.key[i];  i = i - 1
+        x.key[i + 1] = k;  x.n = x.n + 1
+    else:
+        while i >= 1 and k < x.key[i]:  // 决定下降的孩子
+            i = i - 1
+        i = i + 1
+        if x.c[i].n == 2t - 1:          // 孩子满，先劈再下
+            B-TREE-SPLIT-CHILD(x, i)
+            if k > x.key[i]:  i = i + 1
+        B-TREE-INSERT-NONFULL(x.c[i], k)
 ```
 
 <span class="marginnote">「先劈后下」的精妙：正常递归插入遇到满叶子会「上抛分裂、回溯父节点」——但 B-TREE-INSERT 在<strong>下降时</strong>就劈掉所有满节点，保证「要插入的叶子永远不满」，插入后无需任何回溯修正。这个「预分裂」让插入的 I/O = 树高（一趟下行），是 B 树插入高效的关键设计。</span>
 
 ## 3 公式解析：复杂度 $O(t\log_t n)$
 
-**I/O 次数**：从根到叶的下降路径，每层一次 `DISK-READ`/`DISK-WRITE`：
+**I/O 次数**：从根到叶的下降路径，每层一次 读/写：
 
 $$I_{\text{insert}} = O(\log_t n) \text{ 次 I/O（= 树高）}, \qquad T_{\text{CPU}} = O(t \log_t n)$$
 

@@ -54,12 +54,15 @@ $$\text{Recall} = R = \frac{tp}{tp + fn} = \frac{|R_q \cap A_q|}{|R_q|}$$
 写成一段 Python，就是四个集合的规模之比：
 
 ```python
-R_q = {1, 3, 5, 6}                 # 相关文档集合（按编号）
-A_q = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}   # 系统检出的文档集合
+retrieved = {...}     # 系统检出的集合 A_q
+relevant  = {...}     # 相关文档集合 R_q
 
-tp = len(R_q & A_q)                # {1, 3, 5, 6} → 4
-precision = tp / len(A_q)          # 4 / 10 = 0.4
-recall    = tp / len(R_q)          # 4 / 4  = 1.0
+tp = len(retrieved & relevant)      # 检对：两集合的交集
+fp = len(retrieved - relevant)      # 误报：检出了但不相关
+fn = len(relevant - retrieved)      # 漏报：相关但没检出
+
+precision = tp / (tp + fp) if tp + fp else 0.0
+recall    = tp / (tp + fn) if tp + fn else 0.0
 ```
 
 **辨析｜易错点：查准率的分子是 tp，不是「检出的相关数」以外的任何东西；分母也不是文档总数。** 初学者最容易写错的是把 Precision 写成 $tp / (tp + fn)$（那是 Recall），或把分母误当作文档全集。记住一句话：**Precision 的分母是「系统说了算的部分」（$A_q$），Recall 的分母是「客观相关的那部分」（$R_q$）**——一个以系统输出为准，一个以地面真值为准。

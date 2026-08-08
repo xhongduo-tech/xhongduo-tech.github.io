@@ -82,15 +82,19 @@ RAFT 的两处设计值得注意：
 一个最简 RFT 循环的实现骨架（理解「采样-筛选-微调」的节奏即可）：
 
 ```python
-for round in range(num_rounds):                     # 可选：迭代多轮
-    samples = model.sample(prompts, n=8)            # 1. 每提示采 8 个回答
-    scored = [(prompt, y, rm(prompt, y)) for ...]   # 2. 奖励模型打分
-    filtered = top_k(scored, k=2)                   # 3. 每提示留 2 个最高分
-    train_data = filtered + gold_data               # 4. 混金标（RAFT 风格）
-    model = sft_train(model, train_data)            # 5. 标准 SFT 一步
+# 一个最简 RFT 循环：采样 → 筛选 → SFT
+for it in range(num_iters):
+    # 1. 采样：用当前采样器对提示 x 采样 N 个回答
+    ys = [sample(x, model=sampler) for _ in range(N)]
+    # 2. 筛选：奖励模型打分，挑出最高分的 k 个
+    ys_topk = filter_topk(rm, ys, k)
+    # 3. 微调：把 (x, ys_topk) 当作 SFT 数据更新策略
+    sft_update(policy, [(x, y) for y in ys_topk])
+    # 4. RAFT 的关键：每轮都用最新策略更新采样器（RFT 则固定在循环外）
+    sampler = policy
 ```
 
-注意第 1 步的 `model` 是「当前模型」——若只在循环外采一次、循环内不更新采样器，就是 RFT；若每轮都用最新模型采样，就升级成了 RAFT。**「采样器跟不跟训练走」，是 RFT 与 RAFT 的唯一区别**，也决定了「自举天花板」能否被打破。## 5 拒绝采样 vs PPO：一张取舍表
+注意第 1 步的**采样器（sampler）**是「当前模型」——若只在循环外采一次、循环内不更新采样器，就是 RFT；若每轮都用最新模型采样，就升级成了 RAFT。**「采样器跟不跟训练走」，是 RFT 与 RAFT 的唯一区别**，也决定了「自举天花板」能否被打破。## 5 拒绝采样 vs PPO：一张取舍表
 
 把拒绝采样与 PPO 放在一起，选型依据就清楚了：
 

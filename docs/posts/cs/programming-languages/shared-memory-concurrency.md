@@ -22,14 +22,19 @@ date: 2026-08-07
 
 **信号量（semaphore）**：一个非负整数计数器，两个原子操作：
 
-- **P（wait / acquire）**：若计数 > 0，减一；否则**阻塞**等待。
-- **V（signal / release）**：计数加一，唤醒一个等待者。
+**P（wait / acquire）**：若计数 > 0，减一；否则**阻塞**等待。
+**V（signal / release）**：计数加一，唤醒一个等待者。
 
-```c
-semaphore s = 1;
-P(s);          /* 进入临界区：若 s>0 则减一，否则等待 */
-/* 临界区：互斥访问共享资源 */
-V(s);          /* 离开：加一，唤醒等待者 */
+```
+P(s):
+    s.count -= 1
+    if s.count < 0:
+        阻塞当前任务，加入 s 的等待队列
+
+V(s):
+    s.count += 1
+    if s.count <= 0:
+        唤醒等待队列中的一个任务
 ```
 
 计数为 1 的**二元信号量（binary semaphore）**实现互斥（锁）；计数为 N 的**计数信号量（counting semaphore）**允许多个任务同时进入（如资源池有 N 份）。<span class="marginnote">信号量的两个操作必须<strong>原子</strong>——P 的「检查 + 减一」不可分割，否则两个线程同时看到 s=1 都会通过。硬件（原子指令）或操作系统原语保证原子性。「P 阻塞、V 唤醒」的语义，让信号量既能做互斥也能做条件同步（生产者等空位）。</span>
@@ -40,27 +45,32 @@ V(s);          /* 离开：加一，唤醒等待者 */
 
 **管程（monitor）**：一个「共享资源 + 互斥 + 条件变量」的封装单元。进入管程的方法**自动互斥**（同一时刻只有一个任务在管程内），条件等待用**条件变量（condition variable）**：
 
-```java
-class BoundedBuffer {              // Java 管程（synchronized）
-    private Queue<Integer> q = ...;
-    public synchronized void put(int v) {
-        while (q.isFull()) wait();    // 条件等待：队列满则等
-        q.add(v);
-        notifyAll();                  // 唤醒等待者
-    }
-    public synchronized int take() {
-        while (q.isEmpty()) wait();   // 队列空则等
-        int v = q.remove();
+```
+class Buffer {
+    private Object[] items;
+    private int count = 0;
+
+    public synchronized void put(Object x) {
+        while (count == items.length) wait();
+        // 放入 x
+        count++;
         notifyAll();
-        return v;
+    }
+
+    public synchronized Object take() {
+        while (count == 0) wait();
+        // 取出一个元素
+        count--;
+        notifyAll();
+        return result;
     }
 }
 ```
 
 管程的两个组件：
 
-- **互斥**：`synchronized` 方法自动互斥——同一时刻一个任务在管程内。
-- **条件变量**：`wait()`（释放锁、等待条件）、`notify()`/`notifyAll()`（唤醒等待者）。
+**互斥**：`synchronized` 方法自动互斥——同一时刻一个任务在管程内。
+**条件变量**：`wait()`（释放锁、等待条件）、`notify()`/`notifyAll()`（唤醒等待者）。
 
 <span class="marginnote">管程把「互斥」从程序员手里收走：你不需要手动 P/V——进入 `synchronized` 方法自动加锁、退出自动解锁。「忘记解锁」在管程里不可能发生。这是「把同步纪律内建进结构」的典范——正确性由语言保证，而非程序员自律。</span>
 
@@ -70,15 +80,25 @@ class BoundedBuffer {              // Java 管程（synchronized）
 
 **信号量版本**（需 3 个信号量：互斥 + 空位 + 满位）：
 
-```c
-semaphore mutex = 1, empty = N, full = 0;
-producer: { produce(v); P(empty); P(mutex); put(v); V(mutex); V(full); }
-consumer: { P(full); P(mutex); v = take(); V(mutex); V(empty); consume(v); }
+```
+mutex = Semaphore(1)   // 互斥访问缓冲
+empty = Semaphore(N)   // 缓冲空位数
+full  = Semaphore(0)   // 缓冲满位数
+
+// 生产者：
+P(empty);  P(mutex);
+放入一个数据
+V(mutex);  V(full);
+
+// 消费者：
+P(full);   P(mutex);
+取出一个数据
+V(mutex);  V(empty);
 ```
 
-**管程版本**（Java 上面所示）：`put`/`take` 各自 `wait`/`notifyAll`，互斥由 `synchronized` 自动保证。
+**管程版本**（Java 上面所示）：生产者/消费者各自 `wait()`/`notifyAll()`，互斥由 `synchronized` 自动保证。
 
-**辨析｜易错点：** `wait()` 必须在**循环**中（`while (q.isFull())`）而非 `if`——因为**虚假唤醒（spurious wakeup）**或唤醒后条件又被他人改变。用 `if` 会在条件不满足时继续执行（取空、放满）。**「条件等待永远用 while」**是并发编程的铁律（Effective Java 第 81 条）。
+**辨析｜易错点：** `wait()` 必须在**循环**中（`while`）而非 `if`——因为**虚假唤醒（spurious wakeup）**或唤醒后条件又被他人改变。用 `if` 会在条件不满足时继续执行（取空、放满）。**「条件等待永远用 while」**是并发编程的铁律（Effective Java 第 81 条）。
 
 ## 4 公式解析：信号量的不变量
 
@@ -107,10 +127,10 @@ $$
 | 自旋锁 | 忙等 | 无 | 高 |
 | 信号量 | P/V | P/V 模拟 | 高（易忘、易颠倒） |
 | 管程（Monitor） | 结构内建 | 条件变量 | 中 |
-| 锁 + 条件变量 | `lock()`/`unlock()` | `wait`/`signal` | 中 |
+| 锁 + 条件变量 | `lock()`/`unlock()` | `await()`/`signal()` | 中 |
 | STM / 消息传递 | 消除共享 | 事务/消息 | 低 |
 
-<span class="marginnote">演化的主线是「把正确性从程序员手里转移到结构里」：自旋锁 → 信号量 → 管程 → 更高层抽象（STM、Actor）。每一步都把一类错误变得「不可写」。Java 的 `synchronized` + `wait/notify` 就是管程；`ReentrantLock` + `Condition` 是更灵活的管程变体。「少共享、多通信」是现代并发的主流方向——但共享内存 + 锁/管程仍是高性能底层的标准。</span>
+<span class="marginnote">演化的主线是「把正确性从程序员手里转移到结构里」：自旋锁 → 信号量 → 管程 → 更高层抽象（STM、Actor）。每一步都把一类错误变得「不可写」。Java 的 `synchronized` + `wait`/`notify` 就是管程；`ReentrantLock` + `Condition` 是更灵活的管程变体。「少共享、多通信」是现代并发的主流方向——但共享内存 + 锁/管程仍是高性能底层的标准。</span>
 
 
 ## 术语速查
@@ -136,7 +156,7 @@ $$
 
 - **信号量** = 计数器 + P/V 原子操作；二元信号量互斥、计数信号量限量。
 - **管程** = 共享资源 + 结构内建互斥 + 条件变量；`synchronized` 自动加解锁。
-- **生产-消费**是经典验证场：信号量用「空位/满位」计数，管程用 `wait`/`notifyAll`。
+- **生产-消费**是经典验证场：信号量用「空位/满位」计数，管程用 `wait()`/`notifyAll()`。
 - 信号量的不变量「P/V 成对」决定正确性；条件等待**必须用 while**（防虚假唤醒）；同步演化方向是「把正确性内建进结构」。
 
 在下一节，我们将看共享内存的对立面——**消息传递模型**。

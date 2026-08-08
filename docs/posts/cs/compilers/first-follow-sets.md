@@ -26,25 +26,25 @@ date: 2026-08-07
 
 对单个符号递归定义：
 
-- 若 $X$ 是终结符，$\text{FIRST}(X) = \{X\}$。
-- 若 $X$ 是非终结符，对每条产生式 $X \to Y_1Y_2\cdots Y_k$：
-  - 先把 FIRST($Y_1$) 里除 $\varepsilon$ 外的元素加入 FIRST($X$)；
-  - 若 $Y_1 \Rightarrow^* \varepsilon$，再把 FIRST($Y_2$) 里除 $\varepsilon$ 外的加入；以此类推；
-  - 若 $Y_1\cdots Y_k$ 全部能导出 $\varepsilon$，则 $\varepsilon \in \text{FIRST}(X)$。
+若 $X$ 是终结符，$\text{FIRST}(X) = \{X\}$。
+若 $X$ 是非终结符，对每条产生式 $X \to Y_1Y_2\cdots Y_k$：
+先把 FIRST($Y_1$) 里除 $\varepsilon$ 外的元素加入 FIRST($X$)；
+若 $Y_1 \Rightarrow^* \varepsilon$，再把 FIRST($Y_2$) 里除 $\varepsilon$ 外的加入；以此类推；
+若 $Y_1\cdots Y_k$ 全部能导出 $\varepsilon$，则 $\varepsilon \in \text{FIRST}(X)$。
 
-直观理解：**FIRST 是「第一个字符能是什么」**。`(E)` 的 FIRST 是 `{`(`}`，`id` 的 FIRST 是 `{id}`。<span class="marginnote">串的 FIRST 由「打头符号」一路推下去：`Y1Y2…` 若 Y1 不能导出 ε，串的 FIRST 就是 FIRST(Y1)；Y1 能导出 ε 就接着看 Y2。这个「从左往右试、遇 ε 就下一位」的动作会反复出现。</span>
+直观理解：**FIRST 是「第一个字符能是什么」**。终结符的 FIRST 是它自身（如 `+` 的 FIRST 是 {+}），非终结符的 FIRST 是它全部候选产生式导出的首终结符集合。<span class="marginnote">串的 FIRST 由「打头符号」一路推下去：从左往右扫，若 Y1 不能导出 ε，串的 FIRST 就是 FIRST(Y1)；Y1 能导出 ε 就接着看 Y2。这个「从左往右试、遇 ε 就下一位」的动作会反复出现。</span>
 
 ## 2 FOLLOW 集：一个非终结符后面可能跟什么
 
-对非终结符 $A$，**FOLLOW($A$)** 是在**某些句型**中紧随 $A$ 之后可能出现**终结符**的集合；若 $A$ 出现在某句型末尾（可以是 $S$ 的位置），则 `$`（输入结束标记）属于 FOLLOW($A$)。
+对非终结符 $A$，**FOLLOW($A$)** 是在**某些句型**中紧随 $A$ 之后可能出现**终结符**的集合；若 $A$ 出现在某句型末尾（可以是 $S$ 的位置），则 $A$（输入结束标记）属于 FOLLOW($A$)。
 
 计算规则（对开始符号与每条产生式 $B \to \alpha A \beta$）：
 
-1. 若 $A = S$（开始符号），则 `$` ∈ FOLLOW($S$)。
+1. 若 $A = S$（开始符号），则 $`$$` ∈ FOLLOW($S$)。
 2. 对产生式 $B \to \alpha A \beta$：FIRST($\beta$) 中除 $\varepsilon$ 外的元素都属于 FOLLOW($A$)。
 3. 若 $B \to \alpha A \beta$ 且 $\beta \Rightarrow^* \varepsilon$（即 $\beta$ 能消失），则 FOLLOW($B$) 全部并入 FOLLOW($A$)。
 
-注意 FOLLOW 只对**非终结符**定义，且**不含 $\varepsilon$**——它回答「后面必须跟一个真实记号（或结束）」。<span class="marginnote">规则 3 是 FOLLOW 计算的「传染」关键：`A` 在一串的末尾，那么 `B` 后面能跟什么，`A` 后面就能跟什么。读者可以在文法 `E → T E'` 上验算：FOLLOW(E') 会被 E 的位置传导。</span>
+注意 FOLLOW 只对**非终结符**定义，且**不含 $\varepsilon$**——它回答「后面必须跟一个真实记号（或结束）」。<span class="marginnote">规则 3 是 FOLLOW 计算的「传染」关键：若 β 能消失且 β 在一串的末尾，那么 A 后面能跟什么，B 后面就能跟什么。读者可以在表达式文法上验算：FOLLOW(E') 会被 E 的位置传导。</span>
 
 ## 3 计算算法：不动点迭代
 
@@ -54,7 +54,7 @@ FIRST 与 FOLLOW 都是**最小不动点**：从空集出发，反复套用规�
 
 $$\begin{aligned} E &\to T\,E' & E' &\to +T\,E' \mid \varepsilon \\ T &\to F\,T' & T' &\to \times F\,T' \mid \varepsilon \\ F &\to (E) \mid \textbf{id} \end{aligned}$$
 
-- `$` ∈ FOLLOW($E$)。
+- $`$$` ∈ FOLLOW($E$)。
 - 由 $F \to (E)$：`)` ∈ FOLLOW($E$)。
 - 由 $E \to T\,E'$：FOLLOW($E$) ⊆ FOLLOW($E'$)，且 FIRST($E'$) ∖ {ε} = {`+`} ⊆ FOLLOW($T$)。
 - 由 $E' \to +T\,E'$：FOLLOW($E'$) ⊆ FOLLOW($T$)，FOLLOW($T$) 传导给 $T'$，再传给 $F$。
@@ -80,7 +80,7 @@ $$\text{FIRST}(X) \supseteq \bigcup_{j=1}^{t} (\text{FIRST}(Y_j) \setminus \{\va
 | 用途 | 依赖 | 作用 |
 | --- | --- | --- |
 | LL(1) 文法判定 | FIRST、FOLLOW | 检查候选 FIRST 两两不相交、ε 候选对 FOLLOW 避让 |
-| 预测分析表构造 | FIRST、FOLLOW | 表项 `M[A, a]` 填哪条产生式 |
+| 预测分析表构造 | FIRST、FOLLOW | 表项 $M[A,\ a]$ 填哪条产生式 |
 | 错误恢复同步 | FOLLOW | 非法记号后跳到「本非终结符之后该出现的记号」 |
 | 自底向上分析的辅助 | FIRST | 计算 LR 项集时的先行记号 |
 
@@ -90,7 +90,7 @@ $$\text{FIRST}(X) \supseteq \bigcup_{j=1}^{t} (\text{FIRST}(Y_j) \setminus \{\va
 
 **练习 1 手算 FIRST**：对文法 $E \to T E'$、$E' \to +T E' \mid \varepsilon$、$T \to F T'$、$T' \to \times F T' \mid \varepsilon$、$F \to (E) \mid \textbf{id}$，手算每个非终结符的 FIRST 集，再算 $\text{FIRST}(T E')$ 与 $\text{FIRST}(+ T E')$——体会「串的 FIRST 由打头符号决定」。
 
-**练习 2 手算 FOLLOW**：对同一文法手算 FOLLOW，特别注意「ε 传播」的规则——`FOLLOW(E')` 为什么继承 `FOLLOW(E)`？`FOLLOW(T)` 为什么含 `+`？
+**练习 2 手算 FOLLOW**：对同一文法手算 FOLLOW，特别注意「ε 传播」的规则——E′ 为什么继承 E？E′ 为什么含 `)`？
 
 **练习 3 ε 的归属**：构造一个含 $\varepsilon$ 产生式的文法，手动走一遍 FIRST——验证「只有整个串都能导出 ε，ε 才属于 FIRST」这条规则。若中间有个符号不能导出 ε，ε 会不会「误入」？
 
@@ -98,7 +98,7 @@ $$\text{FIRST}(X) \supseteq \bigcup_{j=1}^{t} (\text{FIRST}(Y_j) \setminus \{\va
 
 **练习 5 不动点直觉**：解释为什么「空集起步、规则不断补充、直到饱和」的迭代必然终止——提示：文法符号有限、每个集合的元素有限，且只增不减。
 
-**练习 6 FOLLOW 不含 ε**：论证为什么 FOLLOW 集合永远不含 ε——即使某非终结符总是「被放过去」，它后面也该跟一个真实记号（或 `$`）。提示：FOLLOW 回答「后面必须跟什么」，ε 不是「后面跟的东西」。
+**练习 6 FOLLOW 不含 ε**：论证为什么 FOLLOW 集合永远不含 ε——即使某非终结符总是「被放过去」，它后面也该跟一个真实记号（或 `$` 输入结束）。提示：FOLLOW 回答「后面必须跟什么」，ε 不是「后面跟的东西」。
 
 **延伸**：FIRST/FOLLOW 的「不动点迭代」与第八篇「到达定值」的迭代是同一套数学——找两个分析的共同结构（空集起步、单调增、有界收敛），在第三级《离散数学》的「闭包」概念里找理论源头。
 

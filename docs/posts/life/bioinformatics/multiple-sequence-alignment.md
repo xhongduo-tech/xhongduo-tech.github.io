@@ -23,18 +23,17 @@ date: 2026-08-07
 两两比对只告诉你一对序列的关系；MSA 的价值是**把「关系」扩展到一组**。经典输出长这样：
 
 ```
-seq1  MV-LSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHF
-seq2  MVHLTPEEKSAVTALWGKV--NVDEVGGEALGRLLVVYPWTQRFFESF
-seq3  MVLSAADKNNVKAAWGKVGGHAGEYGAEALERMFLGFPTTKTYFPHF
-seq4  MGHFTEEDKATITSLWGKVNVEDAGGETLGRLLVVYPWTQRFFDSF
+seq1  ACGT-GTI
+seq2  ACGTGGTL
+seq3  ACGTGGCV
 ```
 
 三行观察：
 
-- **保守列**（如首列 `M`）：
+**保守列**（如首列全为 `A`）：
 所有序列相同——进化压力强烈，位置重要；
-- **相似列**（如第 8 列 `S/T/A/S`）：性质相近的替换，说明该位置容忍「保守替换」；
-- **空位列**：某条序列有插入——其他序列在此处缺失，暗示可变区。
+**相似列**（如第 8 列的 `I/L/V`）：性质相近的替换，说明该位置容忍「保守替换」；
+**空位列**：某条序列有插入——其他序列在此处缺失，暗示可变区。
 
 <span class="marginnote">MSA 的产物既是一张「表格」又是一个「统计对象」：每一列都可以算出一个<strong>保守度</strong>（下一篇 profile HMM 会把它变成概率模型）。同一个 MSA 可以同时喂给系统发育树（第十三篇）和结构预测（第十九篇），是下游分析的中枢数据结构。</span>
 
@@ -75,7 +74,7 @@ $$
 
 MSA 的下游有两条经典应用：
 
-**保守域（conserved domain）与 motif**：在 MSA 中找「连续若干列都高度保守」的区块。这些区块往往是结构域或功能位点。把这些区块浓缩成一个模式（如 PROSITE 的 `[LIVM]-G-x(2)-G-K-S-T`），就能用模式匹配快速扫描新序列——这是**序列签名（signature）**的思路。
+**保守域（conserved domain）与 motif**：在 MSA 中找「连续若干列都高度保守」的区块。这些区块往往是结构域或功能位点。把这些区块浓缩成一个模式（如 PROSITE 的 `N-{P}-[ST]-{P}` N-糖基化位点模式），就能用模式匹配快速扫描新序列——这是**序列签名（signature）**的思路。
 
 **家族模型（profile / profile HMM）**：把 MSA 的每一列变成一个「字符概率分布」，连同插入/删除概率，构成一个**位置特异性模型**。用它对未知序列打分，比 BLAST 的单矩阵更灵敏——PFAM 数据库就是由 profile HMM 定义的蛋白质家族集合。这正是下一篇的主角。
 

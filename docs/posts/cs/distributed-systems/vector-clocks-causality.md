@@ -53,29 +53,32 @@ $$
 
 另一个经典场景是**并发写检测**。分布式数据库里同一键的两个写操作各带向量时钟：
 
-- 若一个向量的分量全部不小于另一个 → 后写覆盖先写，是因果更新。
-- 若两向量不可比较 → 两个写**并发**，系统必须保留**两个版本**（sibling），由冲突解决规则合并（LWW 或 CRDT），而不是静默覆盖。<span class="marginnote">Riak 的 `vclock` 正是这样工作：每个写携带向量时钟，读返回时把「所有并发版本」连同向量一起交给客户端，客户端合并后写回。向量时钟让「自动保留冲突现场」成为可能，这是 LWW「一刀切覆盖」做不到的。</span>
+若一个向量的分量全部不小于另一个 → 后写覆盖先写，是因果更新。
+若两向量不可比较 → 两个写**并发**，系统必须保留**两个版本**（sibling），由冲突解决规则合并（LWW 或 CRDT），而不是静默覆盖。<span class="marginnote">Riak 的 <strong>sibling（兄弟版本）</strong> 机制正是这样工作：每个写携带向量时钟，读返回时把「所有并发版本」连同向量一起交给客户端，客户端合并后写回。向量时钟让「自动保留冲突现场」成为可能，这是 LWW「一刀切覆盖」做不到的。</span>
 
 ## 4 公式解析：三态判定的实现
 
 用伪代码写出向量比较的判定逻辑：
 
-```
-compare(Va, Vb):
-  ge = all(Va[i] >= Vb[i] for i)   # Va 不落后于 Vb
-  le = all(Va[i] <= Vb[i] for i)   # Vb 不落后于 Va
-  if ge and le: return EQUAL
-  if ge:         return Va_AHEAD   # Vb -> Va
-  if le:         return Vb_AHEAD   # Va -> Vb
-  return CONCURRENT
+```python
+def compare(V_a, V_b):
+    a_le_b = all(V_a[i] <= V_b[i] for i in domain)   # V_a 逐维不超 V_b
+    b_le_a = all(V_b[i] <= V_a[i] for i in domain)   # V_b 逐维不超 V_a
+    if a_le_b and b_le_a:
+        return EQUAL          # 同一次操作（幂等去重场景）
+    if b_le_a:
+        return AFTER          # b 因果先于 a（b → a）
+    if a_le_b:
+        return BEFORE         # a 因果先于 b（a → b）
+    return CONCURRENT         # 相互反超，并发
 ```
 
 拆解：
 
-- **两个全称判断 `ge` 与 `le`**：O(n) 扫描一次向量即可同时得到「谁不落后」。
-- **`ge and le`**：两向量的每一维都相等，事件就是同一次操作（幂等去重场景）。
-- **仅 `ge`**：$V_b$ 的每个分量都不超过 $V_a$ 且不全等 → $V_b \le V_a$，即 $b \to a$。
-- **两者皆否**：存在相互反超的分量 → 并发，返回两个版本。
+**两个全称判断 `a_le_b` 与 `b_le_a`**：O(n) 扫描一次向量即可同时得到「谁不落后」。
+**两者皆成立（`a_le_b` 且 `b_le_a`）**：两向量的每一维都相等，事件就是同一次操作（幂等去重场景）。
+**仅 `b_le_a` 成立**：$V_b$ 的每个分量都不超过 $V_a$ 且不全等 → $V_b \le V_a$，即 $b \to a$。
+**两者皆否**：存在相互反超的分量 → 并发，返回两个版本。
 
 工程代价与取舍：**向量时钟的空间随进程数线性增长**。进程一多（比如上千个节点），每个时间戳都是一千维的向量，消息头与存储都膨胀——这正是大规模系统宁可改用「版本向量」压缩、或改用 HLC 的原因。<span class="marginnote"><strong>辨析｜易错点：</strong>向量时钟的维度是「进程数」还是「副本数」，直接决定它能检测什么：以进程为维度可检测进程级并发，以副本为维度就是下一节的「版本向量」。别把二者混用，语义会乱。</span>
 

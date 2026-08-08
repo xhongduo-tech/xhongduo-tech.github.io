@@ -24,11 +24,16 @@ VGG 的贡献不在「某个新部件」，而在**设计方法**：**「块（b
 
 **VGG 块（VGG block）**：连续 $n$ 个「$3\times3$ 卷积 + ReLU」，末尾接一个 $2\times2$ 最大池化。
 
-```
-VGG block(n, cin, cout):
-    for _ in range(n):
-        Conv2d(3x3, cin -> cout) + ReLU
-    MaxPool2d(2x2, stride 2)
+```python
+def vgg_block(num_convs, in_channels, out_channels):
+    layers = []
+    for _ in range(num_convs):
+        layers.append(nn.Conv2d(in_channels, out_channels,
+                                kernel_size=3, padding=1))
+        layers.append(nn.ReLU())
+        in_channels = out_channels
+    layers.append(nn.MaxPool2d(kernel_size=2, stride=2))
+    return nn.Sequential(*layers)
 ```
 
 **为什么只用 $3\times3$？** 三层 $3\times3$ 的感受野 = $7\times7$（一层 $7\times7$ 的感受野），但参数只有 $\frac{3\times9}{49} \approx 55\%$，且多两次非线性（表达力更强）。**「用小核堆出大感受野，省参数、强非线性」**——这是 VGG 的核心设计原则。
@@ -93,9 +98,9 @@ $$
 
 VGG 的「块」抽象是它最持久的遗产——此后几乎所有网络都用「块」作为构建单元：
 
-- **GoogLeNet**：Inception 块（多尺度并行）。
-- **ResNet**：残差块（恒等捷径）。
-- **Transformer**：Encoder Block / Decoder Block。
+**GoogLeNet**：Inception 块（多尺度并行）。
+**ResNet**：残差块（恒等捷径）。
+**Transformer**：Encoder Block / Decoder Block。
 
 **「块 = 可复用的结构单元」** 让网络设计从「逐层搭积木」变成「组装标准化零件」：每一代架构本质上都是「发明一种更好的块 + 用块搭更深的网络」。理解「块」的思维，是读懂现代一切神经网络架构的第一把钥匙。<span class="marginnote">「块」思维的另一面是「可移植性」：一个在图像上验证的块（如残差块）可以被移植到其他模态（语音、图）；一个在 CNN 上发明的块思想（如「短接」）会被 Transformer 借用（残差）。<strong>架构创新往往是「块的创新」，而非「层的创新」</strong>——记住这一点，读新论文时先找它的「块」。</span>
 

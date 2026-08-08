@@ -77,21 +77,22 @@ $$
 
 判断「该不该卸载」有一条简单准则：**先做显存账本（第一篇），确认「缺多少」**。
 
-- 只差优化器状态（如单卡 48GB 训 7B 全参）→ **CPU offload 优化器状态**：DeepSpeed 的 `offload_optimizer`，或 HF Trainer 的 `deepspeed` 配置；
-- 连参数都放不下（单卡 24GB 训 7B 全参）→ **全量 offload（参数+梯度+优化器）**，但速度极慢，通常不如直接上 PEFT；
-- CPU 内存也不够（几十 B 模型）→ **NVMe offload**（ZeRO-Infinity），最后的最后手段；
-- 单卡跑 QLoRA/LoRA 且频繁 OOM → **分页优化器**（`paged_adamw_8bit` / `paged_adamw`），几乎零成本地防崩溃。
+只差优化器状态（如单卡 48GB 训 7B 全参）→ **CPU offload 优化器状态**：DeepSpeed 的 `offload_optimizer`（`device: cpu`），或 HF Trainer 的 `fsdp_offload_params` 配置；
+连参数都放不下（单卡 24GB 训 7B 全参）→ **全量 offload（参数+梯度+优化器）**，但速度极慢，通常不如直接上 PEFT；
+CPU 内存也不够（几十 B 模型）→ **NVMe offload**（ZeRO-Infinity），最后的最后手段；
+单卡跑 QLoRA/LoRA 且频繁 OOM → **分页优化器**（`paged_adamw_32bit` / `paged_adamw_8bit`），几乎零成本地防崩溃。
 
 一段 DeepSpeed 的 CPU offload 配置示意：
 
 ```yaml
+# ds_config.json：把优化器状态卸载到 CPU（ZeRO-2 即可）
 zero_optimization:
-  stage: 3
+  stage: 2
   offload_optimizer:
     device: cpu
-    pin_memory: true        # 锁定内存页，加速搬运
-offload_param:
-  device: cpu
+    pin_memory: true
+  offload_param:
+    device: none
 ```
 
 配 offload 时记住：**`pin_memory` 开启**、**梯度累积减少搬运次数**、**batch 别贪大**（显存本来就不够）。卸载是「带着镣铐跳舞」的方案，把镣铐调轻，比幻想解开镣铐更实际。<span class="marginnote">再提醒一次卸载与 PEFT 的关系：对绝大多数「显存不够」的场景，<strong>先想 LoRA/QLoRA（第四篇），再想 offload</strong>——PEFT 从根上减小状态量（从 16 字节/参数降到约 1 字节/参数），而 offload 只是把状态搬远。两者可叠加，但顺序不要搞反。</span>
@@ -103,7 +104,7 @@ offload_param:
 | CPU offload（优化器） | 优化器状态 → CPU | 约 1–3 秒搬运 | 显存差一档，能接受慢 | DeepSpeed `offload_optimizer` |
 | CPU offload（全量） | 参数+梯度+优化器 → CPU | 显著变慢（数倍） | 单卡勉强能跑，验证为主 | ZeRO-3 offload |
 | NVMe offload | 一切 → NVMe | 极慢（>10×） | CPU 内存也不够的超大模型 | ZeRO-Infinity |
-| 分页优化器 | 状态由系统按需换页 | 几乎无感知 | 显存紧、防 OOM 尖峰 | `paged_adamw_8bit` |
+| 分页优化器 | 状态由系统按需换页 | 几乎无感知 | 显存紧、防 OOM 尖峰 | bitsandbytes `PagedAdamW` |
 
 注意「CPU offload（优化器）」与「分页优化器」的差别：前者是**主动把优化器状态常驻 CPU**（彻底腾出显存），后者是**状态在 CPU、按需换页进 GPU**（防尖峰但不保证腾空间）。前者为「腾显存」，后者为「防崩溃」，目标不同、可叠加使用。
 

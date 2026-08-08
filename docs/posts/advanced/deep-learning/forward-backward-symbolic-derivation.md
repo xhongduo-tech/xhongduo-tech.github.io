@@ -18,7 +18,7 @@ date: 2026-08-07
 
 上一节我们用图语言理解了反向传播的「算法」。但「图上的规则」与「逐层网络的公式」之间还有一段距离：真实网络的每一层都有具体的形状（线性层、激活层、Softmax 层），前向与反向的具体公式是什么？**符号推导（symbolic derivation）**就是把这一层层公式完整写出来、逐个验证维度的过程。它有三个价值：其一，让你能**手写实现**一个网络而不依赖框架；其二，让你能读懂任何一篇论文里的推导；其三，让你在框架报维度错误时能立刻定位——因为你知道每一处应有的形状。
 
-本节用一个标准的单隐藏层 MLP + Softmax + 交叉熵为例，**从零推导完整的前向与反向公式**，并给出可运行的矢量化实现骨架。这一节是「看懂框架在干什么」的分水岭：过了这一节，`backward()` 对你不再是黑盒。<span class="marginnote">符号推导的核心纪律是<strong>「维度守恒」</strong>：每一行公式的左端与右端维度必须一致。你会在下面的每一步都看到我们用「检查维度」作为推导正确性的第一道验证——这是手写反向传播时最重要的防错手段。</span>
+本节用一个标准的单隐藏层 MLP + Softmax + 交叉熵为例，**从零推导完整的前向与反向公式**，并给出可运行的矢量化实现骨架。这一节是「看懂框架在干什么」的分水岭：过了这一节，反向传播对你不再是黑盒。<span class="marginnote">符号推导的核心纪律是<strong>「维度守恒」</strong>：每一行公式的左端与右端维度必须一致。你会在下面的每一步都看到我们用「检查维度」作为推导正确性的第一道验证——这是手写反向传播时最重要的防错手段。</span>
 
 ## 1 记号约定与网络结构
 
@@ -108,34 +108,30 @@ $$
 把上面的公式落成矢量化代码（无高层 API），并用数值梯度检验验证：
 
 ```python
-import torch
+import numpy as np
 
+# 前向：逐层计算并缓存
 def forward(x, W1, b1, W2, b2):
-    a1 = W1 @ x + b1                      # (h,)   线性层
-    h = torch.clamp(a1, min=0)            # (h,)   ReLU
-    o = W2 @ h + b2                       # (k,)   logits
-    return a1, h, o
+    a1 = W1 @ x + b1
+    h = np.maximum(a1, 0)            # ReLU 激活
+    o = W2 @ h + b2
+    y_hat = np.exp(o - o.max())      # 数值稳定 softmax
+    y_hat = y_hat / y_hat.sum()
+    return a1, h, y_hat
 
-def cross_entropy_grad(o, y):
-    # 返回 softmax+CE 对 o 的梯度
-    ex = (o - o.max()).exp()
-    p = ex / ex.sum()
-    return p - torch.nn.functional.one_hot(y, len(o)).float()
-
-x = torch.randn(5); y = torch.tensor(2); d, h, k = 5, 8, 4
-W1 = torch.randn(h, d, requires_grad=True); b1 = torch.randn(h, requires_grad=True)
-W2 = torch.randn(k, h, requires_grad=True); b2 = torch.randn(k, requires_grad=True)
-
-a1, hh, o = forward(x, W1, b1, W2, b2)
-d_o = cross_entropy_grad(o, y)                 # (k,)
-d_W2 = torch.outer(d_o, hh)                    # 外积 (k,h)
-d_h  = W2.T @ d_o                              # 转置回传 (h,)
-d_a1 = d_h * (a1 > 0).float()                  # ReLU 导数
-d_W1 = torch.outer(d_a1, x)                    # 外积 (h,d)
-print("手写 d_W2 形状:", tuple(d_W2.shape))    # (4, 8)
+# 反向：从输出层往输入层回传
+def backward(x, y, W1, b1, W2, b2, a1, h, y_hat):
+    d_o = y_hat - y                          # δ^(o) = ŷ - y
+    dW2 = np.outer(d_o, h)                   # ∂L/∂W2 = δ^(o) hᵀ
+    db2 = d_o
+    d_h = W2.T @ d_o                         # δ^(h) = W2ᵀ δ^(o)
+    d_a1 = d_h * (a1 > 0)                    # δ^(a) = δ^(h) ⊙ σ'(a1)
+    dW1 = np.outer(d_a1, x)                  # ∂L/∂W1 = δ^(a) xᵀ
+    db1 = d_a1
+    return dW1, db1, dW2, db2
 ```
 
-**数值梯度检验**：把 `x` 的某个分量扰动 $\epsilon=10^{-6}$，比较「数值差商」与「用链式法则推得的梯度」。若相对误差在 $10^{-7}$ 量级，说明推导与实现都正确。<span class="marginnote">这套「推导 → 手写 → 数值检验」的流程，是每个深度学习工程师必修的基本功：它把「相信我推对了」变成「有证据地确认」。实际工程中你会直接信任框架的 autograd，但<strong>当你要实现自定义算子或优化器时，这套技能就是你的安全网</strong>。</span>
+**数值梯度检验**：把参数 $\theta_i$ 的某个分量扰动 $\epsilon=10^{-6}$，比较「数值差商」与「用链式法则推得的梯度」。若相对误差在 $10^{-7}$ 量级，说明推导与实现都正确。<span class="marginnote">这套「推导 → 手写 → 数值检验」的流程，是每个深度学习工程师必修的基本功：它把「相信我推对了」变成「有证据地确认」。实际工程中你会直接信任框架的 autograd，但<strong>当你要实现自定义算子或优化器时，这套技能就是你的安全网</strong>。</span>
 
 ## 7 小结
 

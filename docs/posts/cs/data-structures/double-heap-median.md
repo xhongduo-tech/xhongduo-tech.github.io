@@ -22,28 +22,32 @@ date: 2026-08-07
 
 用两个堆维护一个动态集合：
 
-- **大根堆 `maxHeap`**：存**较小的一半**元素，堆顶是「较小半边的最大值」；
-- **小根堆 `minHeap`**：存**较大的一半**元素，堆顶是「较大半边的最小值」；
+- **大根堆 maxHeap**：存**较小的一半**元素，堆顶是「较小半边的最大值」；
+- **小根堆 minHeap**：存**较大的一半**元素，堆顶是「较大半边的最小值」；
 
-**不变量**：`maxHeap.size() == minHeap.size()` 或差 1，且 `maxHeap.top() <= minHeap.top()`——即**所有小半边的元素都不大于所有大半边的元素**。<span class="marginnote">「<strong>小半边全 ≤ 大半边全</strong>」是对顶堆的黄金不变量：<strong>它保证中位数就在两个堆顶之间</strong>。维护这个不变量的动作只有两个——「插到哪边」与「两边大小失衡时搬顶」。<strong>两个堆 + 一条不变量 = 动态中位数</strong>。</span>
+**不变量**：两堆大小相等或差 1，且小半边最大值 ≤ 大半边最小值——即**所有小半边的元素都不大于所有大半边的元素**。<span class="marginnote">「<strong>小半边全 ≤ 大半边全</strong>」是对顶堆的黄金不变量：<strong>它保证中位数就在两个堆顶之间</strong>。维护这个不变量的动作只有两个——「插到哪边」与「两边大小失衡时搬顶」。<strong>两个堆 + 一条不变量 = 动态中位数</strong>。</span>
 
 ## 2 插入与平衡
 
-插入一个元素 `x`：
+插入一个元素 $x$：
 
-1. 若 `x <= maxHeap.top()`（或堆空）→ 入大根堆（小半边）；否则入小根堆（大半边）；
-2. **再平衡**：若 `maxHeap.size() > minHeap.size() + 1`，把 `maxHeap` 顶搬到 `minHeap`；反之亦然——保持两堆大小差 ≤ 1。
+1. 若 $x \le$ `maxHeap.top()`（或堆空）→ 入大根堆（小半边）；否则入小根堆（大半边）；
+2. **再平衡**：若 `maxHeap` 比 `minHeap` 大 2 个，把 `maxHeap` 顶搬到 `minHeap`；反之亦然——保持两堆大小差 ≤ 1。
 
 ```c
 void Insert(int x) {
     if (maxHeap.empty() || x <= maxHeap.top())
-        maxHeap.push(x);                    /* 进小半边 */
+        maxHeap.push(x);                    /* 归类到小半边 */
     else
-        minHeap.push(x);                    /* 进大半边 */
-    if (maxHeap.size() > minHeap.size() + 1) {     /* 平衡：搬顶 */
-        minHeap.push(maxHeap.top()); maxHeap.pop();
-    } else if (minHeap.size() > maxHeap.size()) {
-        maxHeap.push(minHeap.top()); minHeap.pop();
+        minHeap.push(x);                    /* 归类到大半边 */
+
+    /* 再平衡：保持两堆大小差 ≤ 1 */
+    if (maxHeap.size() > minHeap.size() + 1) {
+        minHeap.push(maxHeap.top());        /* 大根堆顶搬到小根堆 */
+        maxHeap.pop();
+    } else if (minHeap.size() > maxHeap.size() + 1) {
+        maxHeap.push(minHeap.top());        /* 小根堆顶搬到大根堆 */
+        minHeap.pop();
     }
 }
 ```
@@ -75,9 +79,9 @@ $$
 
 ## 5 对顶堆的扩展与变体
 
-- **滑动窗口中的中位数**：对顶堆 + 延迟删除（标记删除）——窗口滑出元素时惰性移除；
-- **第 K 大/小**：把「两堆」换成「K 堆 + 剩余堆」——大根堆存「前 K-1 大」、小根堆存其余，堆顶即第 K 大；
-- **分位数/百分位**：同理推广到任意分位。
+**滑动窗口中的中位数**：对顶堆 + 延迟删除（标记删除）——窗口滑出元素时惰性移除；
+**第 K 大/小**：把「两堆」换成「K 堆 + 剩余堆」——大根堆存「前 K-1 大」、小根堆存其余，堆顶即第 K 大；
+**分位数/百分位**：同理推广到任意分位。
 
 **辨析｜易错点：滑动窗口的删除要「延迟」。** 堆不支持「删任意元素」（要 $O(n)$ 找），所以窗口滑出时**不立即删**，而是记一个「待删除」计数，取中位数时把堆顶的「已删除元素」惰性弹出。这个「延迟删除」是对顶堆在滑动窗口场景的关键技巧。<span class="marginnote">「<strong>堆不会删任意元素 → 用延迟删除</strong>」是堆类应用的通病解药：<strong>先把「要删的」标记起来，等它飘到堆顶时再真正弹出</strong>。这个技巧在「堆 + 窗口」「堆 + 在线 Top K」里反复出现——<strong>「惰性」是补偿「堆不能任意删」的标准姿势</strong>。</span>
 

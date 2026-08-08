@@ -16,19 +16,19 @@ date: 2026-08-07
 
 ## 为什么从窗口函数开始
 
-前面学过的 `GROUP BY` 有一个先天限制：**一旦分组，每一行就被折叠成一个组级结果**，你想「既要每一行的明细，又要它所在组的统计值」，普通聚合就做不到了。窗口函数（window function）正是为这个问题而生的：它在不折叠行的前提下，对每一行计算其「窗口」内的聚合值。在 LeetCode 的数据库题里，超过一半的高频题（连续登录、分组 TopN、同比环比）都要靠窗口函数，它因此被称为 SQL 的「分水岭」——会与不会，直接决定你处理报表型查询的能力。本篇补齐第 5 章高级 SQL 的最后一块核心拼图。
+前面学过的 `GROUP BY` 聚合有一个先天限制：**一旦分组，每一行就被折叠成一个组级结果**，你想「既要每一行的明细，又要它所在组的统计值」，普通聚合就做不到了。窗口函数（window function）正是为这个问题而生的：它在不折叠行的前提下，对每一行计算其「窗口」内的聚合值。在 LeetCode 的数据库题里，超过一半的高频题（连续登录、分组 TopN、同比环比）都要靠窗口函数，它因此被称为 SQL 的「分水岭」——会与不会，直接决定你处理报表型查询的能力。本篇补齐第 5 章高级 SQL 的最后一块核心拼图。
 
 ## 1 窗口函数的基本形态
 
 窗口函数在 `SELECT` 子句中调用，`OVER` 子句划出**窗口（window）**：行的一个子集，函数在这个子集上计算，但每一行仍保留自己的身份。
 
 ```sql
-SELECT dept_name, name, salary,
+SELECT ID, name, dept_name, salary,
        AVG(salary) OVER (PARTITION BY dept_name) AS dept_avg
 FROM instructor;
 ```
 
-这里的 `AVG(salary) OVER (PARTITION BY dept_name)`：`PARTITION BY` 把行按系别分成若干「分区」，`AVG` 在每个分区内单独求均值，结果作为新列拼回到每一行上。<span class="marginnote">对比普通聚合：`GROUP BY dept_name` 输出的是每个系一行；窗口函数输出的行数与输入完全一致。窗口是在「保留明细」之上的分组计算。</span>
+这里的 `OVER` 子句：`PARTITION BY dept_name` 把行按系别分成若干「分区」，`AVG(salary)` 在每个分区内单独求均值，结果作为新列拼回到每一行上。<span class="marginnote">对比普通聚合：`GROUP BY` 输出的是每个系一行；窗口函数输出的行数与输入完全一致。窗口是在「保留明细」之上的分组计算。</span>
 
 **窗口函数区别于普通聚合函数的核心：函数值所在的行仍然保留，且可以同时看到它前后相邻的行。** 窗口内没有 `GROUP BY` 的折叠语义，但可以有排序、有边界。
 
@@ -44,17 +44,16 @@ FROM instructor;
 
 用 `RANK() OVER (ORDER BY salary DESC)` 给每位教师按薪资排名，再套一层子查询，就能拿到「每个系薪资前三」——这是面试高频的「分组 TopN」问题。
 
-**辨析｜易错点：** `ORDER BY` 在窗口内排序的默认边界是「到当前行为止」，即累计窗口；不写 `ORDER BY` 时窗口才是整个分区。这个区别直接决定 `SUM() OVER (ORDER BY t)` 是「累计和」还是「总和」。
+**辨析｜易错点：** `ORDER BY` 在窗口内排序的默认边界是「到当前行为止」，即累计窗口；不写 `ORDER BY` 时窗口才是整个分区。这个区别直接决定 `SUM()` 是「累计和」还是「总和」。
 
 ## 3 滑动窗口与聚合窗口函数
 
-除了排名，任何聚合函数（`SUM`、`AVG`、`COUNT`、`MIN`、`MAX`）都可以放进 `OVER`，再配合**窗口框（frame）**指定边界：
+除了排名，任何聚合函数（`COUNT`、`SUM`、`AVG`、`MIN`、`MAX`）都可以放进 `OVER`，再配合**窗口框（frame）**指定边界：
 
 ```sql
-SELECT date, amount,
-       SUM(amount) OVER (ORDER BY date
-                         ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)
-       AS 近7日滚动和
+SELECT date, sales,
+       AVG(sales) OVER (ORDER BY date
+                        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS ma_7
 FROM daily_sales;
 ```
 
@@ -65,12 +64,12 @@ FROM daily_sales;
 `NTILE(n)` 把分区内有序的行**尽量均匀地分成 n 桶**，返回每行所属的桶号 1..n。这是「分位数」的直接实现：`NTILE(4)` 相当于四分位，`NTILE(100)` 相当于百分位。
 
 ```sql
-SELECT student_id, score,
-       NTILE(4) OVER (ORDER BY score DESC) AS quartile
-FROM exam_result;
+SELECT ID, name, salary,
+       NTILE(4) OVER (ORDER BY salary DESC) AS quartile
+FROM instructor;
 ```
 
-**辨析｜易错点：** 分桶与排名不同——排名关心「第几名」，分桶关心「属于哪一档」。`NTILE` 在不能整除时前若干桶多一行，行为与 `PERCENT_RANK`、`CUME_DIST` 这类分布函数相互补充。
+**辨析｜易错点：** 分桶与排名不同——排名关心「第几名」，分桶关心「属于哪一档」。`NTILE(n)` 在不能整除时前若干桶多一行，行为与 `CUME_DIST()`、`PERCENT_RANK()` 这类分布函数相互补充。
 
 ## 5 公式解析：累计比例与移动平均的数学本质
 
@@ -81,8 +80,8 @@ $$
 \text{MA}_i^{(m)} = \frac{1}{m}\sum_{k=i-m+1}^{i} v_k
 $$
 
-- **第一步，认清求和范围**：$\text{CUM}_i$ 的下标从 1 到 $i$，这正是 `SUM() OVER (ORDER BY ... ROWS UNBOUNDED PRECEDING)` 的语义——从分区开头到当前行。
-- **第二步，理解窗口大小**：$\text{MA}_i^{(m)}$ 只取最近 $m$ 项，即 `ROWS BETWEEN m-1 PRECEDING AND CURRENT ROW`；$m$ 越大曲线越平滑、滞后越大。
+- **第一步，认清求和范围**：$\text{CUM}_i$ 的下标从 1 到 $i$，这正是 `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`（累计窗口）的语义——从分区开头到当前行。
+- **第二步，理解窗口大小**：$\text{MA}_i^{(m)}$ 只取最近 $m$ 项，即 `ROWS BETWEEN (m-1) PRECEDING AND CURRENT ROW` 的窗口框；$m$ 越大曲线越平滑、滞后越大。
 - **第三步，看到 O(n) 结构**：两种指标都可以在**一趟顺序扫描**内维护——这就是窗口函数效率上优于「自连接 + 分组」的根本原因。
 
 ## 6 窗口函数与普通聚合的对照
@@ -102,9 +101,9 @@ $$
 ## 7 小结
 
 - 窗口函数在**不折叠行**的前提下按 `OVER` 划分的窗口做计算，是「明细 + 组统计」的唯一直接写法。
-- 三种排名函数 `ROW_NUMBER`、`RANK`、`DENSE_RANK` 的差别只在**并列处理**。
-- 聚合函数 + `ROWS/RANGE` 窗口框实现**滚动聚合**（移动平均、累计和）。
-- `NTILE` 实现分桶/分位；窗口计算本质是**有序前缀聚合**，一趟扫描即可完成。
+- 三种排名函数 `ROW_NUMBER()`、`RANK()`、`DENSE_RANK()` 的差别只在**并列处理**。
+- 聚合函数 + `ROWS` 窗口框实现**滚动聚合**（移动平均、累计和）。
+- `NTILE(n)` 实现分桶/分位；窗口计算本质是**有序前缀聚合**，一趟扫描即可完成。
 - 窗口函数只能出现在 `SELECT` 与 `ORDER BY`，过滤结果必须套子查询。
 
-在下一节，我们将从窗口函数走向**多维聚合**——`CUBE`、`ROLLUP` 与数据立方体，回答「如何一次算出所有粒度的汇总」。
+在下一节，我们将从窗口函数走向**多维聚合**——`ROLLUP`、`CUBE` 与数据立方体，回答「如何一次算出所有粒度的汇总」。

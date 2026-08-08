@@ -49,9 +49,9 @@ $$
 
 对这条路径做三步拆解：
 
-- **第一步，先平移后压缩**：把 $\sin(x + \varphi)$ 的横坐标压缩 $\frac{1}{\omega}$ 倍，得到 $\sin(\omega x + \varphi)$——注意**先动相位再动频率**，顺序颠倒会得到不同函数。
-- **第二步，$\varphi$ 的平移量**：$y = \sin(\omega x + \varphi)$ 相对 $y = \sin(\omega x)$ 平移了 $\frac{\varphi}{\omega}$，不是 $\varphi$——因为 $\omega x + \varphi = \omega(x + \frac{\varphi}{\omega})$。
-- **第三步，振幅最后**：纵向伸缩与横向无关，最后做即可。$A$ 只改变纵坐标。
+**第一步，先平移后压缩**：把 $\sin(x + \varphi)$ 的横坐标压缩 $\frac{1}{\omega}$ 倍，得到 $\sin(\omega x + \varphi)$——注意**先动相位再动频率**，顺序颠倒会得到不同函数。
+**第二步，$\varphi$ 的平移量**：$y = \sin(\omega x + \varphi)$ 相对 $y = \sin(\omega x)$ 平移了 $\frac{\varphi}{\omega}$，不是 $\varphi$——因为 $\omega x + \varphi = \omega(x + \frac{\varphi}{\omega})$。
+**第三步，振幅最后**：纵向伸缩与横向无关，最后做即可。$A$ 只改变纵坐标。
 
 **辨析｜易错点：** 「由 $y = \sin 2x$ 平移到 $y = \sin(2x + \frac{\pi}{3})$」平移量是 $\frac{\pi/3}{2} = \frac{\pi}{6}$ 个单位，不是 $\frac{\pi}{3}$。**计算平移量永远要把 $x$ 的系数提出来**，看括号里 $x + \frac{\varphi}{\omega}$ 的形式。
 
@@ -91,9 +91,9 @@ $$
 
 把 $y = A\sin(\omega x + \varphi)$ 放进傅里叶的框架，$A$ 与 $\omega$ 正是「频谱」的两要素：
 
-- **频谱**：把复杂波拆成一族正弦波，每个分量有一个振幅 $A$ 和一个频率 $\omega$；
-- **频域 vs 时域**：时域看「波形随时间怎么变」，频域看「哪些频率各占多大振幅」；
-- 声学（音色 = 基频 + 泛音的振幅分布）、通信（调幅 = 改变 $A$，调频 = 改变 $\omega$）、图像压缩（DCT/DFT）全建立在这个视角上。
+**频谱**：把复杂波拆成一族正弦波，每个分量有一个振幅 $A$ 和一个频率 $\omega$；
+**频域 vs 时域**：时域看「波形随时间怎么变」，频域看「哪些频率各占多大振幅」；
+声学（音色 = 基频 + 泛音的振幅分布）、通信（调幅 = 改变 $A$，调频 = 改变 $\omega$）、图像压缩（DCT/DFT）全建立在这个视角上。
 
 <span class="marginnote">「调幅广播改变振幅 $A$，调频广播改变频率 $\omega$」是正弦型函数最日常的应用：收音机里的「AM」「FM」就是「Amplitude Modulation」与「Frequency Modulation」。一个高中函数，撑起了整个通信工程。</span>
 

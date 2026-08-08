@@ -84,9 +84,9 @@ $$\begin{pmatrix} ct' \\ x' \end{pmatrix} = \begin{pmatrix} \gamma & -\gamma\bet
 
 有了洛伦兹变换这把"语法钥匙"，后面几篇的结论几乎都是"代入即得"：
 
-- **同时性的相对性**：令 $t'$ 取同一值，解出 $t_1 - t_2 = v(x_1 - x_2)/c^2$——$S$ 系中不同地点同时发生的事，在 $S'$ 中有时差。
-- **时间膨胀**：设 $S'$ 中同一地点两事件（$\Delta x' = 0$），由逆向变换得 $\Delta t = \gamma \Delta t' > \Delta t'$。
-- **长度收缩**：设 $S$ 中同时测两端（$\Delta t = 0$），由正向变换得 $\Delta x' = \gamma \Delta x$，即 $\Delta x = \Delta x'/\gamma < \Delta x'$。
+**同时性的相对性**：令 $t'$ 取同一值，解出 $t_1 - t_2 = v(x_1 - x_2)/c^2$——$S$ 系中不同地点同时发生的事，在 $S'$ 中有时差。
+**时间膨胀**：设 $S'$ 中同一地点两事件（$\Delta x' = 0$），由逆向变换得 $\Delta t = \gamma \Delta t' > \Delta t'$。
+**长度收缩**：设 $S$ 中同时测两端（$\Delta t = 0$），由正向变换得 $\Delta x' = \gamma \Delta x$，即 $\Delta x = \Delta x'/\gamma < \Delta x'$。
 
 这三条是下一批专篇的主角，但你现在已经可以用 $t' = \gamma(t - vx/c^2)$ 这一条公式把它们全部"算"出来——这就是掌握语法书的好处。<span class="marginnote">把整个第一篇的狭义相对论看成"洛伦兹变换 + 具体场景"：同时性看 $t'$ 公式、时间膨胀看 $t'$ 对 $t$ 的系数、长度收缩看 $x'$ 对 $x$ 的系数。公式只有两个，结论却很多——物理学的力量正在于此：<strong>少数的定律，生发出无数的现象</strong>。</span>
 

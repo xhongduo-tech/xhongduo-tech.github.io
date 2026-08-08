@@ -56,9 +56,9 @@ $$
 
 看一个用基本定理「找坐标」的例子：在平行六面体 $ABCD$-$A'B'C'D'$ 中，设 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AD}$、$\vec{c}=\overrightarrow{AA'}$，用基底表示对角线 $\overrightarrow{AC'}$。
 
-- **第一步，认基底**：$\vec{a},\vec{b},\vec{c}$ 分别沿三条不共面的棱，构成一个基底（平行六面体的三组棱不共面）。
-- **第二步，首尾相接**：$\overrightarrow{AC'}=\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CC'}$（从 $A$ 走到 $C'$，沿三条棱）。平行六面体中 $\overrightarrow{BC}=\overrightarrow{AD}=\vec{b}$，$\overrightarrow{CC'}=\overrightarrow{AA'}=\vec{c}$，$\overrightarrow{AB}=\vec{a}$。
-- **第三步，读坐标**：$\overrightarrow{AC'}=\vec{a}+\vec{b}+\vec{c}$，坐标是 $(1,1,1)$。三个分量恰好是「沿三条棱各走一步」——平行六面体的对角线向量坐标就是 $1,1,1$。
+**第一步，认基底**：$\vec{a},\vec{b},\vec{c}$ 分别沿三条不共面的棱，构成一个基底（平行六面体的三组棱不共面）。
+**第二步，首尾相接**：$\overrightarrow{AC'}=\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CC'}$（从 $A$ 走到 $C'$，沿三条棱）。平行六面体中 $\overrightarrow{BC}=\overrightarrow{AD}=\vec{b}$，$\overrightarrow{CC'}=\overrightarrow{AA'}=\vec{c}$，$\overrightarrow{AB}=\vec{a}$。
+**第三步，读坐标**：$\overrightarrow{AC'}=\vec{a}+\vec{b}+\vec{c}$，坐标是 $(1,1,1)$。三个分量恰好是「沿三条棱各走一步」——平行六面体的对角线向量坐标就是 $1,1,1$。
 
 <span class="marginnote">「走棱分解」是空间向量分解的万能法：从一个顶点出发，沿棱一步一步走到目标点，每走一条棱就贡献一个基向量。系数就是「沿该方向的步数」。这个方法把几何路线图直接翻译成向量表达式——下一节坐标运算里，这类「首尾相接」分解是最常用的起手式。</span> 空间向量基本定理保证了分解的**唯一性**：同样一个 $\overrightarrow{AC'}$，无论怎么绕路，最后在基底下的系数都一样——正是这个唯一性，让「坐标」成为向量的可靠身份标识。
 
@@ -68,9 +68,9 @@ $$
 
 共面向量定理是「判断点共面」的利器。看一道题：在平行六面体 $ABCD$-$A'B'C'D'$ 中，设 $\vec{a}=\overrightarrow{AB}$、$\vec{b}=\overrightarrow{AD}$、$\vec{c}=\overrightarrow{AA'}$，判断向量 $\vec{p}=\overrightarrow{AC'}$ 与 $\vec{a},\vec{b}$ 是否共面。
 
-- **第一步，分解 $\vec{p}$**：$\overrightarrow{AC'}=\vec{a}+\vec{b}+\vec{c}$——含三个基向量的组合。
-- **第二步，试分解成 $\vec{a},\vec{b}$ 的组合**：若 $\vec{p}=x\vec{a}+y\vec{b}$，则 $\vec{a}+\vec{b}+\vec{c}=x\vec{a}+y\vec{b}$，即 $\vec{c}=(x-1)\vec{a}+(y-1)\vec{b}$——$\vec{c}$ 被 $\vec{a},\vec{b}$ 线性表示。
-- **第三步，结论**：$\vec{a},\vec{b},\vec{c}$ 是基底（不共面），$\vec{c}$ 不可能由 $\vec{a},\vec{b}$ 表示——矛盾，故 $\vec{p}$ 与 $\vec{a},\vec{b}$ **不共面**（$\vec{p}$ 有独立的 $\vec{c}$ 分量）。
+**第一步，分解 $\vec{p}$**：$\overrightarrow{AC'}=\vec{a}+\vec{b}+\vec{c}$——含三个基向量的组合。
+**第二步，试分解成 $\vec{a},\vec{b}$ 的组合**：若 $\vec{p}=x\vec{a}+y\vec{b}$，则 $\vec{a}+\vec{b}+\vec{c}=x\vec{a}+y\vec{b}$，即 $\vec{c}=(x-1)\vec{a}+(y-1)\vec{b}$——$\vec{c}$ 被 $\vec{a},\vec{b}$ 线性表示。
+**第三步，结论**：$\vec{a},\vec{b},\vec{c}$ 是基底（不共面），$\vec{c}$ 不可能由 $\vec{a},\vec{b}$ 表示——矛盾，故 $\vec{p}$ 与 $\vec{a},\vec{b}$ **不共面**（$\vec{p}$ 有独立的 $\vec{c}$ 分量）。
 
 <span class="marginnote">「向量能否被某组向量线性表示」直接回答共面性：<strong>$\vec{p}$ 与 $\vec{a},\vec{b}$ 共面 ⇔ $\vec{p}=x\vec{a}+y\vec{b}$ 有解</strong>。本题 $\vec{p}$ 含 $\vec{c}$ 分量，无法去掉 $\vec{c}$，故不共面。判定四点共面的向量法：$\overrightarrow{AD}=x\overrightarrow{AB}+y\overrightarrow{AC}$ 有解 ⇔ $A,B,C,D$ 共面。<strong>「线性表示有解 ⇔ 共面」是空间位置关系的代数语言</strong>——与平面里「共线 ⇔ 成比例」一脉相承。</span>
 

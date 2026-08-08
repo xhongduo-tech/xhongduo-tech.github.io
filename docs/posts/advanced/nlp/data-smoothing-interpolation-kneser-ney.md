@@ -65,17 +65,22 @@ $$
 **直觉：** 这本质上是「在保留集上做一次最优化」。数据量充足时，$\lambda_1$ 会偏向高阶模型；数据量不足时，它会自动退回到一元模型。用 Python 在 $[0,1]$ 上网格搜索一遍：
 
 ```python
-import math
-lambdas = [0.1 * i for i in range(1, 10)]  # 候选权重
+import numpy as np
 
-def best_lambda(held_out, p_bigram, p_unigram):
-    best, best_ll = None, -math.inf
-    for lam in lambdas:
-        ll = sum(math.log(lam * p_bigram[(a, b)] + (1 - lam) * p_unigram[b])
-                 for (a, b) in held_out)
-        if ll > best_ll:
-            best, best_ll = lam, ll
-    return best
+def log_likelihood(lam, held_out, p_bigram, p_unigram):
+    # held_out: [(a, b), ...]，保留集里的二元组
+    return sum(
+        np.log(lam * p_bigram[(a, b)] + (1 - lam) * p_unigram[b])
+        for a, b in held_out
+    )
+
+best_lam, best_ll = 0.0, -np.inf
+for lam in np.arange(0.0, 1.0 + 1e-9, 0.1):     # 在 [0,1] 上以步长 0.1 搜索
+    ll = log_likelihood(lam, held_out, p_bigram, p_unigram)
+    if ll > best_ll:
+        best_ll, best_lam = ll, lam
+
+print(best_lam)   # 使保留集对数似然最大的 λ1
 ```
 
 ## 4 Kneser-Ney 的动机：旧金山问题
@@ -102,7 +107,7 @@ $$
 
 其中 $\lambda(w_{i-1}) = \dfrac{d\, N_{1+}(w_{i-1}\,\cdot)}{C(w_{i-1})}$，$N_{1+}(w_{i-1}\,\cdot)$ 是「$w_{i-1}$ 后面跟过的不同词的个数」。逐步拆解：
 
-- **第一步，绝对折扣**：从每个二元组计数里减去固定常数 $d$（经验上常取 $d = 0.75$），`max` 保证不为负。与古德-图灵按比例打折不同，这里**无论计数多少都减同一个 $d$**——直觉是，$c$ 次观测里真正可靠的只有 $c - d$ 次，多出来的 $d$ 份要「上交给集体」。
+- **第一步，绝对折扣**：从每个二元组计数里减去固定常数 $d$（经验上常取 $d = 0.75$），$d = 0.75$ 保证不为负。与古德-图灵按比例打折不同，这里**无论计数多少都减同一个 $d$**——直觉是，$c$ 次观测里真正可靠的只有 $c - d$ 次，多出来的 $d$ 份要「上交给集体」。
 - **第二步，算出上缴总额**：$w_{i-1}$ 后面有 $N_{1+}$ 种不同的词，每种上缴 $d$，共上缴 $d \cdot N_{1+}$，归一化后就是 $\lambda(w_{i-1})$。它保证「对所有 $w_i$ 求和，概率和为 1」。
 - **第三步，把上缴的钱按延续概率分出去**：$P_{\text{cont}}(w_i)$ 决定谁分得多。**关键是：分钱不看 $w_i$ 的原始词频，只看它的延续多样性。** Francisco 虽然词频高，延续概率却极低，所以几乎分不到钱——它只在 San 后面才值得相信。
 

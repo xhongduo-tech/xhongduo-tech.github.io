@@ -27,18 +27,18 @@ date: 2026-08-08
 3. **能量谱密度（energy spectral density）** $|F(\omega)|^2$：能量随频率的分布。$\int|F|^2d\omega$（除以 $2\pi$）等于总能量（帕塞瓦尔）。
 
 **解读要点：**
-- **主瓣与旁瓣**：门函数频谱 $\frac{2\sin a\omega}{\omega}$ 的主瓣（中心峰）集中主要能量，旁瓣衰减。
-- **带宽**：主瓣宽度 $\Delta\omega=\frac{2\pi}{a}$ 与脉冲宽度成反比——**时域越窄，频域越宽**。
-- **-3dB 带宽**：振幅降到峰值的 $\frac1{\sqrt2}$ 处的宽度，工程最常用的带宽定义。<span class="marginnote">「时域窄 ⟺ 频域宽」是频谱分析的第一直觉（测不准原理的信号版）。雷达要精确定位（时域窄脉冲），就必须发射宽频带；WiFi 调制用宽带宽换高速率——带宽是无线通信最宝贵的资源。</span>
+**主瓣与旁瓣**：门函数频谱 $\frac{2\sin a\omega}{\omega}$ 的主瓣（中心峰）集中主要能量，旁瓣衰减。
+**带宽**：主瓣宽度 $\Delta\omega=\frac{2\pi}{a}$ 与脉冲宽度成反比——**时域越窄，频域越宽**。
+**-3dB 带宽**：振幅降到峰值的 $\frac1{\sqrt2}$ 处的宽度，工程最常用的带宽定义。<span class="marginnote">「时域窄 ⟺ 频域宽」是频谱分析的第一直觉（测不准原理的信号版）。雷达要精确定位（时域窄脉冲），就必须发射宽频带；WiFi 调制用宽带宽换高速率——带宽是无线通信最宝贵的资源。</span>
 
 ## 2 典型例题一：矩形脉冲的频谱分析
 
 **例：** 门函数 $p_a(t)$（宽 $2a$、高 $1$），求并解读其频谱。
 
-- **变换**：$F(\omega)=\frac{2\sin a\omega}{\omega}=2a\,\mathrm{sinc}\left(\frac{a\omega}{\pi}\right)$。
-- **振幅谱**：$|F|=\left|\frac{2\sin a\omega}{\omega}\right|$——主瓣在 $|\omega|<\frac{\pi}{a}$，第一个零点在 $\omega=\pm\frac{\pi}{a}$，旁瓣逐次衰减。
-- **相位谱**：主瓣内 $F>0$ 相位 $0$；旁瓣 $F<0$ 相位 $\pi$（跳变 $180°$）。
-- **能量**：$\int_{-a}^{a}1dt=2a=\frac1{2\pi}\int\left(\frac{2\sin a\omega}{\omega}\right)^2d\omega$。
+**变换**：$F(\omega)=\frac{2\sin a\omega}{\omega}=2a\,\mathrm{sinc}\left(\frac{a\omega}{\pi}\right)$。
+**振幅谱**：$|F|=\left|\frac{2\sin a\omega}{\omega}\right|$——主瓣在 $|\omega|<\frac{\pi}{a}$，第一个零点在 $\omega=\pm\frac{\pi}{a}$，旁瓣逐次衰减。
+**相位谱**：主瓣内 $F>0$ 相位 $0$；旁瓣 $F<0$ 相位 $\pi$（跳变 $180°$）。
+**能量**：$\int_{-a}^{a}1dt=2a=\frac1{2\pi}\int\left(\frac{2\sin a\omega}{\omega}\right)^2d\omega$。
 
 **关键解读：$a$ 越大（脉冲越宽），主瓣越窄（带宽越小）**——数据速率与带宽的对偶在此具体化。<span class="marginnote">「脉冲宽、频带窄」的工程后果：长脉冲（低速符号）占用窄带宽，但时域定位差；短脉冲（高速符号）时域定位好，但占用宽带宽。通信系统在这两端权衡——这就是「时频对偶」的现实压力。</span>
 
@@ -57,9 +57,9 @@ $$G(\omega)=\frac12\left[F(\omega-\omega_0)+F(\omega+\omega_0)\right]$$
 
 **例：** 输入 $x(t)=p_a(t)$（门），系统冲激响应 $h(t)=e^{-t}u(t)$（一阶低通），求输出 $y(t)$。
 
-- **频谱**：$X(\omega)=\frac{2\sin a\omega}{\omega}$；$H(\omega)=\int_0^{\infty}e^{-t}e^{-i\omega t}dt=\frac{1}{1+i\omega}$。
-- **卷积定理**：$Y(\omega)=X(\omega)H(\omega)=\frac{2\sin a\omega}{\omega}\cdot\frac{1}{1+i\omega}$。
-- **逆变换**（查表或留数）：$y(t)$ 是「门信号经一阶低通后的输出」——前沿陡峭的方波被「抹圆」，上升沿变缓。
+**频谱**：$X(\omega)=\frac{2\sin a\omega}{\omega}$；$H(\omega)=\int_0^{\infty}e^{-t}e^{-i\omega t}dt=\frac{1}{1+i\omega}$。
+**卷积定理**：$Y(\omega)=X(\omega)H(\omega)=\frac{2\sin a\omega}{\omega}\cdot\frac{1}{1+i\omega}$。
+**逆变换**（查表或留数）：$y(t)$ 是「门信号经一阶低通后的输出」——前沿陡峭的方波被「抹圆」，上升沿变缓。
 
 **解读：** 低通滤波器的 $H(\omega)=\frac1{1+i\omega}$ 在高频处衰减（$|H|\approx\frac1{\omega}$），所以输入的尖锐边沿（高频分量）被削弱，输出变平滑。**这就是「滤波 = 按频率衰减」的直观**——卷积定理让你看到频域的「滤波动作」。<span class="marginnote">「方波经低通变圆」是信号处理的入门实验：接一个 RC 低通，方波输入，示波器上看到的是指数缓变的圆角波形。时域「抹圆」= 频域「去高频」，卷积定理把这两种语言连成一体。</span>
 

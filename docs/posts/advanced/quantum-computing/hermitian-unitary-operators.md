@@ -120,13 +120,16 @@ $$
 交叉项 $\pm i\sin\theta\cos\theta$ 恰好抵消，而 $\sigma_x^2 = I$。结果就是恒等算符，故 $e^{i\theta\sigma_x}$ 是幺正的。用 Qiskit 可以一秒验证这件事：
 
 ```python
-from qiskit.quantum_info import Operator, rx
+import numpy as np
+from qiskit.quantum_info import Operator
 
-u = Operator(rx(0.5))        # R_x(θ) = e^{-iθX/2}，一个幺正旋转门
-print(u.is_unitary())        # True
+theta = 0.3
+U = Operator(np.cos(theta) * np.eye(2) + 1j * np.sin(theta) * np.array([[0, 1], [1, 0]]))
+print(U.is_unitary())                    # True：厄米指数化得到幺正矩阵
+print((U.conjugate_transpose() @ U).data.round(4))   # 恒等矩阵 I
 ```
 
-注意 Qiskit 里的 `rx(θ)` 是 $e^{-i\theta X/2}$，指数上的负号只是约定，并不影响「厄米指数生成幺正」的结论。
+注意 Qiskit 里的 `rx` 门是 $e^{-i\theta X/2}$，指数上的负号只是约定，并不影响「厄米指数生成幺正」的结论。
 
 ## 6 小结
 

@@ -50,23 +50,23 @@ LLM 抽出的三元组是「候选」，要经链接、去重、校验才能成�
 
 LLM 抽取的效果，一半由提示词决定：
 
-- **给 schema**：告诉 LLM 实体类型与关系类型
+**给 schema**：告诉 LLM 实体类型与关系类型
   （「实体只能是 Person/Company/Location，关系只能是 worksFor/
   locatedIn」）——这就是**用本体约束生成**（下一节专讲）。
-- **要结构化**：指令「输出 JSON 数组，每个元素含
+**要结构化**：指令「输出 JSON 数组，每个元素含
   entity/type/mention」——让模型产出可解析的结构。
-- **示例**：给 1-2 个 few-shot 示例，质量立涨。
-- **证据要求**：指令「每个三元组附原文片段」——为溯源留证据。
+**示例**：给 1-2 个 few-shot 示例，质量立涨。
+**证据要求**：指令「每个三元组附原文片段」——为溯源留证据。
 
 ```json
 {
   "entities": [
-    {"name": "张三", "type": "Person", "mention": "张三"},
-    {"name": "谷歌", "type": "Company", "mention": "谷歌"}
+    { "entity": "张三", "type": "Person" },
+    { "entity": "谷歌", "type": "Company" }
   ],
   "relations": [
-    {"head": "张三", "type": "worksFor", "tail": "谷歌",
-     "evidence": "张三在谷歌工作"}
+    { "head": "张三", "relation": "worksFor", "tail": "谷歌",
+      "evidence": "张三在 2020 年加入谷歌" }
   ]
 }
 ```
@@ -104,17 +104,17 @@ LLM 抽取产出的「脏」主要有四类，各有对策：
 
 用一个句子走一遍流水线。原文：「张三在 2020 年加入谷歌，担任工程师。」
 
-- **第一步，schema 设定**：实体类型 `{Person, Company, Role}`；
-  关系类型 `{worksFor, hasRole, joinTime}`。
-- **第二步，LLM 抽取**（带 schema 的提示）：
-  - 实体：`{张三, Person}`、`{谷歌, Company}`、`{工程师, Role}`。
-  - 关系：`(张三, worksFor, 谷歌)`、`(张三, hasRole, 工程师)`、
-    `(张三, joinTime, "2020")`。
-- **第三步，链接去重**：若库里已有「谷歌」节点，把抽取的
+**第一步，schema 设定**：实体类型 Person/Company/Location；
+  关系类型 worksFor/locatedIn。
+**第二步，LLM 抽取**（带 schema 的提示）：
+实体：张三（Person）、谷歌（Company）、工程师（类型存疑）。
+关系：worksFor(张三, 谷歌)、joinedAt(张三, 2020)、
+    hasRole(张三, 工程师)。
+**第三步，链接去重**：若库里已有「谷歌」节点，把抽取的
   「谷歌」链接过去，不新建。
-- **第四步，校验**：SHACL 检查——`worksFor` 的宾语必须是 Company
-  （满足）；`joinTime` 必须是 date 类型（"2020" 转成 2020-01-01？存疑，标记待修）。
-- **第五步，入库**：通过校验的三元组写入图谱，附 evidence 与来源。
+**第四步，校验**：SHACL 检查——worksFor 的宾语必须是 Company
+  （满足）；joinedAt 的宾语必须是 date 类型（"2020" 转成 2020-01-01？存疑，标记待修）。
+**第五步，入库**：通过校验的三元组写入图谱，附 evidence 与来源。
 
 **重点：走查暴露了 LLM 抽取的典型坑——「2020」的类型不完整。**
 LLM 给的是裸字符串，schema 校验抓住它，标记待修。**这正是

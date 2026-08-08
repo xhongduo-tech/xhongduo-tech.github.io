@@ -36,15 +36,15 @@ MPI 处理的是「多台机器」，但在**一台机器内部**，还有一层
 
 OpenMP 的执行模型叫 **Fork-Join（分叉-合并）**：
 
-- 程序开始时只有一个**主线程（master thread）**，串行执行；
-- 遇到 `#pragma omp parallel` 时，主线程**分叉（fork）**出一组工作线程；
-- 并行区结束后，工作线程合并（join）回主线程，继续串行。
+程序开始时只有一个**主线程（master thread）**，串行执行；
+遇到 `parallel` 指令时，主线程**分叉（fork）**出一组工作线程；
+并行区结束后，工作线程合并（join）回主线程，继续串行。
 
 这个模型意味着：
 
 **并行只发生在并行区内部，区外全是单线程。**
 
-线程的个数由环境变量 `OMP_NUM_THREADS` 或子句 `num_threads(n)` 控制，运行前就定好。
+线程的个数由环境变量 `OMP_NUM_THREADS` 或子句 `num_threads` 控制，运行前就定好。
 
 **核心直觉：** OpenMP 程序 = 串行骨架 + 若干并行区。
 
@@ -57,8 +57,7 @@ OpenMP 的执行模型叫 **Fork-Join（分叉-合并）**：
 ```c
 #pragma omp parallel
 {
-    int tid = omp_get_thread_num();
-    printf("Hello from thread %d\n", tid);
+    printf("Hello from thread %d\n", omp_get_thread_num());
 }
 ```
 
@@ -66,18 +65,21 @@ OpenMP 的执行模型叫 **Fork-Join（分叉-合并）**：
 
 两个常用查询函数：
 
-- `omp_get_thread_num()`：我是第几个线程；
-- `omp_get_num_threads()`：一共几个线程。
+`omp_get_thread_num()`：我是第几个线程；
+`omp_get_num_threads()`：一共几个线程。
 
 `num_threads` 子句指定线程数：
 
 ```c
 #pragma omp parallel num_threads(4)
+{
+    // 4 个线程并行执行
+}
 ```
 
 <span class="marginnote">并行区内每个线程默认能看到<strong>所有共享变量</strong>——这既是 OpenMP 好写的来源，也是数据竞争频发的根源。</span>
 
-**辨析｜易错点：** 并行区内的 `printf` 顺序不保证，与 MPI 一样。
+**辨析｜易错点：** 并行区内的输出（打印）顺序不保证，与 MPI 一样。
 
 区分「谁干的」要靠线程号，不能靠输出顺序。
 
@@ -89,37 +91,41 @@ OpenMP 的执行模型叫 **Fork-Join（分叉-合并）**：
 
 于是有了**工作共享指令（work-sharing constructs）**：
 
-**`#pragma omp for`：把循环分给各线程。**
+**for：把循环分给各线程。**
 
 ```c
 #pragma omp parallel
-#pragma omp for
-for (int i = 0; i < N; i++) {
-    c[i] = a[i] + b[i];
+{
+    #pragma omp for
+    for (int i = 0; i < n; ++i)
+        a[i] = b[i] * c[i];
 }
 ```
 
-编译器自动把 `[0, N)` 的迭代切块分给线程，谁算哪几轮由调度子句决定。
+编译器自动把 `for` 的迭代切块分给线程，谁算哪几轮由调度子句决定。
 
-**`#pragma omp sections`：把不同的代码段分给不同线程。**
+**sections：把不同的代码段分给不同线程。**
 
 ```c
-#pragma omp sections
+#pragma omp parallel
 {
-    #pragma omp section
-    { taskA(); }
-    #pragma omp section
-    { taskB(); }
+    #pragma omp sections
+    {
+        #pragma omp section
+        { /* 任务 A：由某个线程执行 */ }
+        #pragma omp section
+        { /* 任务 B：由另一个线程执行 */ }
+    }
 }
 ```
 
 `for` 适合**数据并行**（同样操作、不同数据），`sections` 适合**功能并行**（不同操作）。
 
-<span class="marginnote">`#pragma omp for` 有<strong>隐式屏障</strong>：循环结束后所有线程自动对齐。想跳过对齐，用 `nowait` 子句。</span>
+<span class="marginnote">`for` 有<strong>隐式屏障</strong>：循环结束后所有线程自动对齐。想跳过对齐，用 `nowait` 子句。</span>
 
 **辨析｜易错点：** `for` 与 `parallel for` 是两回事。
 
-`#pragma omp for` 必须待在某个 `parallel` 区里才生效；`#pragma omp parallel for` 是「开并行区 + 分循环」的合体写法，两个可以互相替换。
+`for` 必须待在某个 `parallel` 区里才生效；`parallel for` 是「开并行区 + 分循环」的合体写法，两个可以互相替换。
 
 ## 4 数据环境：shared 与 private
 
@@ -130,21 +136,22 @@ for (int i = 0; i < N; i++) {
 每个线程一份自己的副本，互不干扰。
 
 ```c
-#pragma omp parallel for private(tmp)
-for (int i = 0; i < N; i++) {
-    double tmp = f(i);      // 每个线程有独立的 tmp
-    c[i] = tmp * 2;
+int x = 0;
+#pragma omp parallel private(x)
+{
+    x = omp_get_thread_num();   // 每个线程各自的 x
+    printf("%d\n", x);
 }
 ```
 
 数据属性的子句：
 
-- `shared(x)`：x 所有人共享（默认行为）；
-- `private(x)`：x 每人一份副本，进入并行区时未初始化；
-- `firstprivate(x)`：x 每人一份，但副本用进入时的值初始化；
-- `lastprivate(x)`：最后一个迭代的 x 值在区后写回共享变量。
+`shared(x)`：x 所有人共享（默认行为）；
+`private(x)`：x 每人一份副本，进入并行区时未初始化；
+`firstprivate(x)`：x 每人一份，但副本用进入时的值初始化；
+`lastprivate(x)`：最后一个迭代的 x 值在区后写回共享变量。
 
-<span class="marginnote">循环索引 `i` 在 `omp for` 里<strong>自动私有</strong>——这是编译器替你做的第一件事，也是新手最容易忘记但编译器最勤快的一件。</span>
+<span class="marginnote">循环索引 `i` 在 `for` 里<strong>自动私有</strong>——这是编译器替你做的第一件事，也是新手最容易忘记但编译器最勤快的一件。</span>
 
 **辨析｜易错点：** OpenMP 的默认是 **shared**，与直觉相反。
 
@@ -155,21 +162,16 @@ C 语言里「每个函数栈上的变量本来该是独立的」，但 OpenMP �
 把上面的知识拼成一个完整例子：
 
 ```c
-#include <omp.h>
-
-void vec_add(double *a, double *b, double *c, int N) {
-    #pragma omp parallel for
-    for (int i = 0; i < N; i++) {
-        c[i] = a[i] + b[i];
-    }
-}
+#pragma omp parallel for
+for (int i = 0; i < n; ++i)
+    c[i] = a[i] + b[i];       // 向量加法：每个线程算自己那几轮
 ```
 
 三步读懂：
 
 - **第一步，`#pragma omp parallel for`**：开启并行区并把循环分给各线程；
 - **第二步，索引 `i` 自动私有**：每个线程算自己的那几轮，互不踩踏；
-- **第三步，数组 `a/b/c` 默认共享**：大家读写同一块内存——因为各自只碰自己那段的元素，所以安全。
+- **第三步，数组 `a`、`b`、`c` 默认共享**：大家读写同一块内存——因为各自只碰自己那段的元素，所以安全。
 
 如果迭代间存在依赖（第 $i$ 轮要用第 $i-1$ 轮的结果），这个并行就有错——**判断循环能否并行，先看依赖，再看语法**。
 
@@ -191,8 +193,8 @@ void vec_add(double *a, double *b, double *c, int N) {
 ## 7 小结
 
 - **OpenMP** 是共享内存的指令式并行，执行模型是 **Fork-Join**。
-- **并行区** `#pragma omp parallel` 让所有线程执行同一段代码。
-- **工作共享**：`omp for` 分循环、`sections` 分功能段。
+- **并行区** `parallel` 让所有线程执行同一段代码。
+- **工作共享**：`for` 分循环、`sections` 分功能段。
 - **数据环境**默认 shared，临时变量要 `private`——**默认共享是竞态第一来源**。
 - 铁律：**并行前先查循环依赖，依赖存在就不能并行。**
 

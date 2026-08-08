@@ -65,7 +65,7 @@ $$
 **SimPO**（Meng et al., 2024）换了一个内部锚：**用「长度归一化的平均对数概率」当隐式奖励**。
 
 $$
-r_{\theta}(x, y) = \frac{\beta}{|y|} \sum_{t=1}^{|y|} \log \pi_\theta\big(y_t \mid x, y_{<t}\big) = \beta \cdot \overline{\log p}(y)
+r_{\theta}(x, y) = \frac{\beta}{|y|} \sum_{t=1}^{|y|} \log \pi_\theta\big(y_t \mid x, y_{\\lt t}\big) = \beta \cdot \overline{\log p}(y)
 $$
 
 逐项拆解：

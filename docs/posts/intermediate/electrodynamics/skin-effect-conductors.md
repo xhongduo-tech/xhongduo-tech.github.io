@@ -58,9 +58,9 @@ $$\delta = \frac{1}{\operatorname{Im}\tilde{k}} = \sqrt{\frac{2}{\mu\sigma\omega
 
 这一步是整个趋肤理论的枢纽，拆开：
 
-- **第一步，良导体近似**：$\sigma/(\omega\varepsilon) \gg 1$ 时，复介电常数中虚部主导：$\varepsilon_c \approx i\sigma/\omega$。于是 $\tilde{k} = \omega\sqrt{\mu\varepsilon_c} \approx \omega\sqrt{\mu\sigma i/\omega} = \sqrt{i\mu\sigma\omega}$。
-- **第二步，开方**：$i$ 的平方根是 $(1+i)/\sqrt{2}$（因为 $[(1+i)/\sqrt2]^2 = (1+2i+i^2)/2 = i$）。故 $\tilde{k} = (1+i)\sqrt{\mu\sigma\omega/2}$。实部与虚部相等——衰减常数与相位常数都等于 $k = \sqrt{\mu\sigma\omega/2}$。<span class="marginnote">「衰减与相位共用同一个常数」是良导体的特征：在导体中，波传播一个波长就衰减 $2\pi$ 倍，几乎没有任何穿透深度意义上的「波」存在。这也解释了为什么金属内部的电磁场在工程上总被忽略——它衰减得太快。</span>
-- **第三步，读出趋肤深度**：场 $\propto e^{-\operatorname{Im}\tilde{k}z} = e^{-kz}$，所以 $\delta = 1/k = \sqrt{2/(\mu\sigma\omega)}$。**结论：$\delta$ 反比于 $\sqrt{\omega}$、$\sqrt{\sigma}$、$\sqrt{\mu}$**——频率越高、电导率越大、磁导率越大，电流越集中表面。<span class="marginnote">磁导率的影响有趣：铁磁材料 $\mu$ 大，趋肤深度反而小——所以变压器铁芯（高 $\mu$ 硅钢）更要叠片来切碎涡流路径，每片厚度远小于 $\delta$，把涡流损耗压到最低。</span>
+**第一步，良导体近似**：$\sigma/(\omega\varepsilon) \gg 1$ 时，复介电常数中虚部主导：$\varepsilon_c \approx i\sigma/\omega$。于是 $\tilde{k} = \omega\sqrt{\mu\varepsilon_c} \approx \omega\sqrt{\mu\sigma i/\omega} = \sqrt{i\mu\sigma\omega}$。
+**第二步，开方**：$i$ 的平方根是 $(1+i)/\sqrt{2}$（因为 $[(1+i)/\sqrt2]^2 = (1+2i+i^2)/2 = i$）。故 $\tilde{k} = (1+i)\sqrt{\mu\sigma\omega/2}$。实部与虚部相等——衰减常数与相位常数都等于 $k = \sqrt{\mu\sigma\omega/2}$。<span class="marginnote">「衰减与相位共用同一个常数」是良导体的特征：在导体中，波传播一个波长就衰减 $2\pi$ 倍，几乎没有任何穿透深度意义上的「波」存在。这也解释了为什么金属内部的电磁场在工程上总被忽略——它衰减得太快。</span>
+**第三步，读出趋肤深度**：场 $\propto e^{-\operatorname{Im}\tilde{k}z} = e^{-kz}$，所以 $\delta = 1/k = \sqrt{2/(\mu\sigma\omega)}$。**结论：$\delta$ 反比于 $\sqrt{\omega}$、$\sqrt{\sigma}$、$\sqrt{\mu}$**——频率越高、电导率越大、磁导率越大，电流越集中表面。<span class="marginnote">磁导率的影响有趣：铁磁材料 $\mu$ 大，趋肤深度反而小——所以变压器铁芯（高 $\mu$ 硅钢）更要叠片来切碎涡流路径，每片厚度远小于 $\delta$，把涡流损耗压到最低。</span>
 
 ## 4 导体表面的边界条件与表面阻抗
 
@@ -74,10 +74,10 @@ $$Z_s = \frac{E_t}{H_t} = (1+i)\sqrt{\frac{\mu\omega}{2\sigma}} = (1+i)\frac{1}{
 
 ## 5 趋肤效应的工程对策
 
-- **空心导线 / 多股线（Litz wire）**：高频电流集中在表面，实心导体的中心部分是「死重」——改用空管或多股细线并绕，等效增加表面积，降低交流电阻。
-- **叠片铁芯**：变压器、电机铁芯用互相绝缘的薄硅钢片叠成，每片厚度（约 0.3–0.5 mm）远小于该频率下的 $\delta$，把涡流路径切碎，涡流损耗与片厚的平方成正比地下降。
-- **屏蔽（skin-depth 屏蔽）**：金属屏蔽层对高频电磁波的良好屏蔽效果来自趋肤效应——波被表面反射并吸收，穿透厚度远小于屏蔽层厚度。
-- **感应加热与淬火**：利用涡流在表层集中的特性，对金属表面进行快速加热淬火，芯部仍保持韧性的工艺。<span class="marginnote">「趋肤效应是祸是福取决于场景」：对输电是祸（交流损耗大），对屏蔽与感应加热是福（能量被锁在表面）。同一个物理，工程上可以顺着用、也可以对着用。</span>
+**空心导线 / 多股线（Litz wire）**：高频电流集中在表面，实心导体的中心部分是「死重」——改用空管或多股细线并绕，等效增加表面积，降低交流电阻。
+**叠片铁芯**：变压器、电机铁芯用互相绝缘的薄硅钢片叠成，每片厚度（约 0.3–0.5 mm）远小于该频率下的 $\delta$，把涡流路径切碎，涡流损耗与片厚的平方成正比地下降。
+**屏蔽（skin-depth 屏蔽）**：金属屏蔽层对高频电磁波的良好屏蔽效果来自趋肤效应——波被表面反射并吸收，穿透厚度远小于屏蔽层厚度。
+**感应加热与淬火**：利用涡流在表层集中的特性，对金属表面进行快速加热淬火，芯部仍保持韧性的工艺。<span class="marginnote">「趋肤效应是祸是福取决于场景」：对输电是祸（交流损耗大），对屏蔽与感应加热是福（能量被锁在表面）。同一个物理，工程上可以顺着用、也可以对着用。</span>
 
 **辨析｜易错点：** 理想导体（$\sigma \to \infty$）中 $\delta \to 0$，场完全不能进入，边界条件简化为「表面 $\mathbf{E}_t = 0$、$\mathbf{H}_t = \mathbf{K}$（面电流）」。但**没有真正的理想导体**——超导体只是 $\sigma$ 极大（且更本质地是 $\mathbf{B}$ 被迈斯纳效应排斥），也不是理想导体。把「良导体」当「理想导体」只在损耗可忽略时成立。
 

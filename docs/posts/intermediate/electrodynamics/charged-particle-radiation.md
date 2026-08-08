@@ -68,9 +68,9 @@ $$\cos\theta_c = \frac{c/n}{v}$$
 
 这个分母是理解「相对论粒子辐射方向图」的全部关键：
 
-- **第一步，从李纳-维谢尔势出发**：势分母含 $1 - \boldsymbol{\beta}\cdot\hat{\mathbf{R}}$。取旋度求 $\mathbf{B}$ 时，这个分母要多次求导——每次对 $t$ 求导都会「拽出」一个 $(\hat{\mathbf{R}}-\boldsymbol{\beta})$ 相关的因子，累积成 $(1 - \boldsymbol{\beta}\cdot\hat{\mathbf{R}})^3$。
-- **第二步，看到多普勒聚焦**：分母在 $\boldsymbol{\beta}\cdot\hat{\mathbf{R}} \to 1$（粒子朝观测者高速飞）时趋于零，场强急剧放大。$\theta = 0$ 方向（正前方）是辐射的「主瓣」。相对论粒子辐射几乎全部集中在前向 $\sim 1/\gamma$ 的锥角内。<span class="marginnote">非相对论极限（$\beta \to 0$）时分母 $\to 1$，角分布退回偶极子 $\sin^2\theta$——「8 字形」对称地前后各一瓣。相对论效应把「对称双瓣」压成「一枝向前的大瓣」，这既是同步辐射前向性的来源，也是「为什么高速粒子辐射像探照灯」的答案。</span>
-- **第三步，功率的 $\gamma$ 标度**：把角分布对立体角积分，得到 $P \propto \gamma^4 a_\perp^2$。横向加速度贡献的 $\gamma^4$（相对论增强）与纵向的 $\gamma^6 a_\parallel^2$——横向辐射占主导。**「越接近光速，辐射越向前、越剧烈」**是本节的中心结论。
+**第一步，从李纳-维谢尔势出发**：势分母含 $1 - \boldsymbol{\beta}\cdot\hat{\mathbf{R}}$。取旋度求 $\mathbf{B}$ 时，这个分母要多次求导——每次对 $t$ 求导都会「拽出」一个 $(\hat{\mathbf{R}}-\boldsymbol{\beta})$ 相关的因子，累积成 $(1 - \boldsymbol{\beta}\cdot\hat{\mathbf{R}})^3$。
+**第二步，看到多普勒聚焦**：分母在 $\boldsymbol{\beta}\cdot\hat{\mathbf{R}} \to 1$（粒子朝观测者高速飞）时趋于零，场强急剧放大。$\theta = 0$ 方向（正前方）是辐射的「主瓣」。相对论粒子辐射几乎全部集中在前向 $\sim 1/\gamma$ 的锥角内。<span class="marginnote">非相对论极限（$\beta \to 0$）时分母 $\to 1$，角分布退回偶极子 $\sin^2\theta$——「8 字形」对称地前后各一瓣。相对论效应把「对称双瓣」压成「一枝向前的大瓣」，这既是同步辐射前向性的来源，也是「为什么高速粒子辐射像探照灯」的答案。</span>
+**第三步，功率的 $\gamma$ 标度**：把角分布对立体角积分，得到 $P \propto \gamma^4 a_\perp^2$。横向加速度贡献的 $\gamma^4$（相对论增强）与纵向的 $\gamma^6 a_\parallel^2$——横向辐射占主导。**「越接近光速，辐射越向前、越剧烈」**是本节的中心结论。
 
 ## 5 辐射阻尼与经典极限
 

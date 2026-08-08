@@ -57,13 +57,13 @@ $\mathbb{Z}[x]$ 不是 PID，但它是 UFD——这件事并不显然。它的�
 
 **证明骨架（用内容分解）：** 对 $f \in D[x]$：
 
-- **第一步，分离内容。** $f = \mathrm{cont}(f) \cdot f^{\mathrm{prim}}$。$\mathrm{cont}(f) \in D$，$D$ 是 UFD，内容部分可唯一分解；$f^{\mathrm{prim}}$ 是本原部分。
+**第一步，分离内容。** $f = \mathrm{cont}(f) \cdot f^{\mathrm{prim}}$。$\mathrm{cont}(f) \in D$，$D$ 是 UFD，内容部分可唯一分解；$f^{\mathrm{prim}}$ 是本原部分。
 
-- **第二步，本原部分在 $\mathbb{Q}(D)$ 上分解。** 记 $F = \operatorname{Frac}(D)$（商域），$F[x]$ 是 UFD（PID），故 $f^{\mathrm{prim}}$ 在 $F[x]$ 中有唯一分解：$f^{\mathrm{prim}} = g_1 \cdots g_k$（不可约，$g_i \in F[x]$）。
+**第二步，本原部分在 $\mathbb{Q}(D)$ 上分解。** 记 $F = \operatorname{Frac}(D)$（商域），$F[x]$ 是 UFD（PID），故 $f^{\mathrm{prim}}$ 在 $F[x]$ 中有唯一分解：$f^{\mathrm{prim}} = g_1 \cdots g_k$（不可约，$g_i \in F[x]$）。
 
-- **第三步，清分母。** 每个 $g_i$ 清分母成 $D[x]$ 中的本原不可约多项式 $\tilde g_i$（高斯引理保证清分母后仍不可约）。于是 $f^{\mathrm{prim}} = u \cdot \tilde g_1 \cdots \tilde g_k$（$u$ 单位，因两边都本原）。
+**第三步，清分母。** 每个 $g_i$ 清分母成 $D[x]$ 中的本原不可约多项式 $\tilde g_i$（高斯引理保证清分母后仍不可约）。于是 $f^{\mathrm{prim}} = u \cdot \tilde g_1 \cdots \tilde g_k$（$u$ 单位，因两边都本原）。
 
-- **第四步，合拢。** $f = \mathrm{cont}(f) \cdot u \cdot \tilde g_1 \cdots \tilde g_k$，其中内容分解 + 本原分解各自唯一，合起来给出 $f$ 在 $D[x]$ 中的唯一分解。$\blacksquare$<span class="marginnote">「$D$ UFD ⟹ $D[x]$ UFD」的证明把 $D[x]$ 的分解拆成「内容（在 $D$ 里分解）+ 本原部分（在 $F[x]$ 里分解）」。$F[x]$ 的 UFD 性由「$F$ 域 ⟹ $F[x]$ PID ⟹ UFD」供给，高斯引理负责「清分母不破坏不可约性」。<strong>归纳应用：$\mathbb{Z}[x_1, \dots, x_n]$ 与 $F[x_1, \dots, x_n]$ 都是 UFD。</strong></span>
+**第四步，合拢。** $f = \mathrm{cont}(f) \cdot u \cdot \tilde g_1 \cdots \tilde g_k$，其中内容分解 + 本原分解各自唯一，合起来给出 $f$ 在 $D[x]$ 中的唯一分解。$\blacksquare$<span class="marginnote">「$D$ UFD ⟹ $D[x]$ UFD」的证明把 $D[x]$ 的分解拆成「内容（在 $D$ 里分解）+ 本原部分（在 $F[x]$ 里分解）」。$F[x]$ 的 UFD 性由「$F$ 域 ⟹ $F[x]$ PID ⟹ UFD」供给，高斯引理负责「清分母不破坏不可约性」。<strong>归纳应用：$\mathbb{Z}[x_1, \dots, x_n]$ 与 $F[x_1, \dots, x_n]$ 都是 UFD。</strong></span>
 
 **推论：** $\mathbb{Z}[x]$、$F[x_1, \dots, x_n]$、$\mathbb{Z}[x_1, \dots, x_n]$ 都是 UFD——**高斯引理把 UFD 性从系数环推广到任意有限个变量的多项式环**。
 

@@ -25,8 +25,8 @@ date: 2026-08-07
 训练进程本身不报错时，故障靠**外部信号**检测。常用手段：
 
 - **心跳（heartbeat）**：每个 rank 定期向协调者报告「我还活着」。超时未报 → 判为故障。
-- **集合通信超时**：AllReduce 卡住超过阈值 → 某个 rank 掉线（NCCL 有 `NCCL_TIMEOUT`）。
-- **硬件监控**：GPU XID 错误（`NVRM Xid`）、温度、功耗异常。
+- **集合通信超时**：AllReduce 卡住超过阈值 → 某个 rank 掉线（NCCL 有 timeout）。
+- **硬件监控**：GPU XID 错误（如 XID 79 掉总线、XID 48 ECC 错误）、温度、功耗异常。
 - **watchdog**：训练进程崩溃/挂起时，由外部进程重启它。
 
 关键设计：**检测要快而准**——太快误杀（一次网络抖动就重启全集群），太慢损失大。工业实践常用「多级超时」：短超时告警、长超时判定死亡。<span class="marginnote">「挂起」比「崩溃」更棘手：崩溃至少留下退出码，挂起则一切静默（进程在、就是不动）。挂起检测靠「心跳超时」或「watchdog 检查进度文件是否更新」——训练死锁、IO 卡死、GPU 计算挂起都会表现为挂起。</span>
@@ -60,9 +60,9 @@ date: 2026-08-07
 
 **弹性训练（elastic training）** 让恢复自动化：训练系统感知节点数量变化，自动调整并行配置并继续训练。
 
-- **TorchElastic**：`torch.distributed.elastic` 提供「agent 管理 + 容错重启」：检测到 rank 死亡，自动从 checkpoint 重启，且**允许节点数变化**（新节点加入、坏节点剔除，动态 re-shard）。
-- **RDZV（rendezvous）**：节点重聚机制——重启后各 rank 重新「会合」，协商新的 world size 与 rank 分配。
-- **动态 checkpoint**：重启时从最近 checkpoint 恢复，若节点数变化则 re-shard 并重新保存。
+**TorchElastic**：torch.distributed.elastic 提供「agent 管理 + 容错重启」：检测到 rank 死亡，自动从 checkpoint 重启，且**允许节点数变化**（新节点加入、坏节点剔除，动态 re-shard）。
+**RDZV（rendezvous）**：节点重聚机制——重启后各 rank 重新「会合」，协商新的 world size 与 rank 分配。
+**动态 checkpoint**：重启时从最近 checkpoint 恢复，若节点数变化则 re-shard 并重新保存。
 
 弹性训练把「故障恢复」从「运维操作」变成「系统能力」——故障时集群自动缩容继续训，修复后自动扩容回去。<span class="marginnote">弹性训练的精髓是「world size 可变」：传统分布式假设 rank 数固定，一坏就整个训练死掉；弹性假设「节点数是可以协商的」，坏几个就先用剩下的继续训。代价是 re-shard 要重新切分数据与模型（有开销），且 TP/PP 维度不能随便变（它们对 rank 数敏感），弹性主要作用在 DP 维。</span>
 
@@ -103,18 +103,18 @@ $$\mathbb{E}[T] \approx \frac{T_{\text{compute}}}{1 - \lambda \cdot C_{\text{rec
 
 **几个值得进一步挖的方向**：
 
-- **挂起的诊断三板斧**：进程「活着但不动」时，先查「dmesg 有无 GPU 错误」→「`py-spy dump` 看 Python 栈卡在哪」→「看监控里该 rank 的 GPU 利用率」——三步定位是挂起还是死锁。
-- **NCCL 超时的配置**：`NCCL_TIMEOUT` 设多久合适？太短误杀（网络抖动）、太长等死——结合你的网络状况找一个平衡值。
-- **TorchElastic 的 min/max 配置**：`max_restarts`、`min_size` 怎么定？弹性区间越宽越稳、但 re-shard 越频繁——「稳定性 × 成本」的权衡。
+- **挂起的诊断三板斧**：进程「活着但不动」时，先查「dmesg 有无 GPU 错误」→「py-spy dump 看 Python 栈卡在哪」→「看监控里该 rank 的 GPU 利用率」——三步定位是挂起还是死锁。
+- **NCCL 超时的配置**：timeout 设多久合适？太短误杀（网络抖动）、太长等死——结合你的网络状况找一个平衡值。
+- **TorchElastic 的 min/max 配置**：min_size、max_size 怎么定？弹性区间越宽越稳、但 re-shard 越频繁——「稳定性 × 成本」的权衡。
 
 **自测题**：为什么「弹性主要在 DP 维」？如果你能说清「TP/PP 的通信图对 rank 数固定」，就理解了弹性训练与并行策略的边界。
 
 ## 9 动手实践清单
 
 - 做一次「故障演练」：kill 一个 rank，观察系统是否自动恢复。
-- 用 `py-spy dump` 诊断「挂起进程」的 Python 栈。
-- 查 `dmesg` 与 `NVRM Xid`，排除 GPU 硬件错误。
-- 配置 `NCCL_TIMEOUT`，测试网络抖动下的行为。
+- 用 py-spy dump 诊断「挂起进程」的 Python 栈。
+- 查 dmesg 与 nvidia-smi（XID/ECC），排除 GPU 硬件错误。
+- 配置 NCCL timeout，测试网络抖动下的行为。
 - 用 TorchElastic 跑 4-rank 训练，验证节点数变化的弹性。
 - 记录「故障恢复的端到端耗时」，评估恢复税。
 - 把你的容错流程画成「检测 → 诊断 → 恢复」的流程图。

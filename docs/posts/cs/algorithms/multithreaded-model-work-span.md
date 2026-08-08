@@ -24,22 +24,23 @@ date: 2026-08-07
 
 **动态多线程**：程序像一棵「计算有向无环图（dag）」。基本原语：
 
-- `spawn`：派生一个子任务与当前任务并行执行；
-- `sync`：等待所有已派生的子任务完成；
-- 普通代码串行执行。
+`spawn`：派生一个子任务与当前任务并行执行；
+`sync`：等待所有已派生的子任务完成；
+普通代码串行执行。
 
 **例（并行斐波那契）**：
 
-```
-P-FIB(n)
-  if n <= 1:  return n
-  x = spawn P-FIB(n-1)
-  y = P-FIB(n-2)
-  sync
-  return x + y
+```text
+P-FIB(n):
+    if n ≤ 1:
+        return n
+    x ← spawn P-FIB(n − 1)      // 并行派生左分支
+    y ← P-FIB(n − 2)            // 当前任务继续算右分支
+    sync                        // 等待子任务完成
+    return x + y
 ```
 
-`spawn P-FIB(n-1)` 让左分支与右分支并行。<span class="marginnote">计算 dag：每个顶点是一次串行执行段（strand），边是依赖关系。`spawn` 制造「分叉」，`sync` 制造「汇合」。分析并行算法就是分析这棵 dag 的「总工作量」与「关键路径」——两个数字一出来，加速比就清楚了。</span>
+`spawn` 让左分支与右分支并行。<span class="marginnote">计算 dag：每个顶点是一次串行执行段（strand），边是依赖关系。`spawn` 制造「分叉」，`sync` 制造「汇合」。分析并行算法就是分析这棵 dag 的「总工作量」与「关键路径」——两个数字一出来，加速比就清楚了。</span>
 
 ## 2 工作与跨度
 

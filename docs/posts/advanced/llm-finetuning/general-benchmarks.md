@@ -94,13 +94,12 @@ $$
 标准的做法是统一用 `lm-eval-harness`（EleutherAI 出品），一条命令跑出「标准配置」的分数：
 
 ```bash
-lm_eval --model hf --model_args pretrained=./merged_model \
-  --tasks mmlu,gsm8k,ceval-valid \
-  --num_fewshot 5,8,5 \            # 各基准的 few-shot 数
-  --batch_size auto
+lm_eval --model hf --model_args pretrained=my_finetuned_model \
+        --tasks mmlu,gsm8k,ceval-valid \
+        --num_fewshot 5 --batch_size auto
 ```
 
-`lm-eval-harness` 的价值在于**它把「提取答案、匹配规则、few-shot 格式」都标准化了**——同一个模型，用它在同一组 `--tasks` 下跑，分数才可跨实验、跨团队比较。**「评测脚本不自己写」是通用基准使用的第一条纪律**——自写脚本的提取正则、格式细节，往往是「分数虚高」的温床。
+`lm-eval-harness` 的价值在于**它把「提取答案、匹配规则、few-shot 格式」都标准化了**——同一个模型，用它在同一组 `few-shot` 配置下跑，分数才可跨实验、跨团队比较。**「评测脚本不自己写」是通用基准使用的第一条纪律**——自写脚本的提取正则、格式细节，往往是「分数虚高」的温床。
 
 ### 基准过拟合：别把「调分数」当「提能力」
 

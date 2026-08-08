@@ -34,13 +34,13 @@ $\lambda \in \sigma(T)$ 意味着 $\lambda I - T$ 不可逆。但「不可逆」
 
 **例一（$M_t$ 于 $L^2[0,1]$）**：$\sigma(M_t) = [0,1]$ **全是连续谱**。
 
-- $tf = \lambda f$ 无非零 $L^2$ 解（$f$ 几乎处处为零）——没有点谱。
-- $(\lambda - t)^{-1}$ 无界但定义在稠密子空间 $\{f : f/(\lambda - t) \in L^2\}$ 上——值域稠密、逆无界，连续谱。<span class="marginnote">量子力学的直观：位置算子的谱 $\\mathbb{R}$ 全是连续谱。波函数可以「集中在 $\\lambda$ 附近」但永远不是「精确在 $\\lambda$」——这正是连续谱的物理含义：<strong>连续谱 = 「极限意义」的本征值，没有真正的本征态</strong>。</span>
+$tf = \lambda f$ 无非零 $L^2$ 解（$f$ 几乎处处为零）——没有点谱。
+$(\lambda - t)^{-1}$ 无界但定义在稠密子空间 $\{f : f/(\lambda - t) \in L^2\}$ 上——值域稠密、逆无界，连续谱。<span class="marginnote">量子力学的直观：位置算子的谱 $\\mathbb{R}$ 全是连续谱。波函数可以「集中在 $\\lambda$ 附近」但永远不是「精确在 $\\lambda$」——这正是连续谱的物理含义：<strong>连续谱 = 「极限意义」的本征值，没有真正的本征态</strong>。</span>
 
 **例二（移位算子 $S$ 于 $l^2$）**：$\sigma(S) = \overline{D}$（闭单位盘）。
 
-- 点谱：$|\lambda| < 1$（$Sx = \lambda x$ 有解 $x = (1, \lambda, \lambda^2, \ldots)$）。
-- 边界 $|\lambda| = 1$：属于连续谱或剩余谱（取决于具体算子；对 $S$ 是连续谱部分）。
+点谱：$|\lambda| < 1$（$Sx = \lambda x$ 有解 $x = (1, \lambda, \lambda^2, \ldots)$）。
+边界 $|\lambda| = 1$：属于连续谱或剩余谱（取决于具体算子；对 $S$ 是连续谱部分）。
 
 **例三（前移位 $S^*$）**：$\sigma(S^*) = \overline{D}$，但分类不同——$S^*$ 有**剩余谱**（$|\lambda| < 1$ 时 $S^*x = \lambda x$ 无解，值域不稠）。<span class="marginnote">$S$ 与 $S^*$ 的谱相同（$\overline{D}$），但分类不同：$S$ 在盘内是点谱，$S^*$ 在盘内是剩余谱。这说明<strong>谱的分类不是「谱集合」的固有属性，而是算子的属性</strong>——同一个谱集合可以有不同的内部结构。谱映射理论（对偶）会揭示点谱与剩余谱的互换关系。</span>
 

@@ -46,9 +46,9 @@ $$
 
 **证明思路（用 $T(B_X)$ 的紧性）**：
 
-- $T(B_X)$ 相对紧，对 $\varepsilon$ 取有限 $\varepsilon$-网 $\{y_1,\ldots,y_N\}$（全有界性）。
-- 用 $\{y_i\}$ 构造有限秩算子 $T_\varepsilon$（如把 $y_i$ 上的「局部投影」拼起来），使 $\|T - T_\varepsilon\| < \varepsilon$。
-- 取 $\varepsilon = 1/n$ 得 $T_n$。<span class="marginnote">这个定理说明：<strong>紧算子 = 有限秩算子的一致极限</strong>（若值域空间的范数结构允许，通常需要 $Y$ 的逼近性质）。它是「有限秩是紧算子的阶梯」这一直觉的精确化——紧算子正是「有限维片段的极限」。</span>
+$T(B_X)$ 相对紧，对 $\varepsilon$ 取有限 $\varepsilon$-网 $\{y_1,\ldots,y_N\}$（全有界性）。
+用 $\{y_i\}$ 构造有限秩算子 $T_\varepsilon$（如把 $y_i$ 上的「局部投影」拼起来），使 $\|T - T_\varepsilon\| < \varepsilon$。
+取 $\varepsilon = 1/n$ 得 $T_n$。<span class="marginnote">这个定理说明：<strong>紧算子 = 有限秩算子的一致极限</strong>（若值域空间的范数结构允许，通常需要 $Y$ 的逼近性质）。它是「有限秩是紧算子的阶梯」这一直觉的精确化——紧算子正是「有限维片段的极限」。</span>
 
 **辨析｜易错点：** 上述「有限秩逼近」定理需要 $Y$ 满足**逼近性质（approximation property）**——这在一般 Banach 空间未必成立（Enflo 1973 给出反例）。Hilbert 空间、$L^p$、$C(K)$ 都满足逼近性质，所以绝大多数应用场景下「紧 = 有限秩的极限」成立。
 

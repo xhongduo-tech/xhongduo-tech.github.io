@@ -25,14 +25,7 @@ Mask R-CNN 的两个贡献：**RoIAlign**（修正 RoI Pooling 的像素错位�
 Mask R-CNN 的结构 = Faster R-CNN + 掩码分支：
 
 ```
-输入图像
- → Backbone（ResNet+FPN）→ 多尺度特征图
- → RPN → 候选框（RoI）
- → RoIAlign：把每个候选框对齐采样成固定尺寸
- → 三个并行头：
-     ├─ 分类头（类别）
-     ├─ 框回归头（框坐标）
-     └─ 掩码头（每个类别一个二值掩码）
+骨干（ResNet + FPN）→ RPN 提候选框 → RoIAlign 对齐 → 并行三头：分类、框回归、掩码
 ```
 
 关键点：
@@ -52,7 +45,7 @@ Mask R-CNN 的结构 = Faster R-CNN + 掩码分支：
 
 **RoIAlign 让 RoI 与特征图的对齐是"亚像素精确"的**——这是掩码边界精细度的关键。何恺明论文里的消融实验显示：RoIAlign 比 RoI Pooling 在 mask AP 上提升约 10~50%（依任务而异），是"毫米级细节的胜利"。
 
-**辨析｜易错点：** RoIAlign 的双线性插值要"访问特征图任意小数坐标"——这在实现上有坐标系统的坑（对齐模式、半像素偏移）。PyTorch 的 `grid_sample` 与 `torchvision` 的 RoIAlign 都处理好了，但手写时容易在"坐标原点约定"上翻车。
+**辨析｜易错点：** RoIAlign 的双线性插值要"访问特征图任意小数坐标"——这在实现上有坐标系统的坑（对齐模式、半像素偏移）。PyTorch 的 `torchvision.ops.roi_align` 与 Detectron2 的 RoIAlign 都处理好了，但手写时容易在"坐标原点约定"上翻车。
 
 ## 3 掩码损失：逐像素二值交叉熵
 

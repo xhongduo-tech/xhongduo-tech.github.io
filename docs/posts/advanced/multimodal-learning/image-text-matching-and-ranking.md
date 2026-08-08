@@ -48,8 +48,8 @@ date: 2026-08-07
 
 与检索一样，匹配也有双塔与单塔之分，但分工更明确：
 
-- **双塔打分（co-attention 前）**：$s(I, T) = f(I)^{\top} g(T)$。快，但只做全局比对，细粒度证据全丢。
-- **单塔精判（cross-attention）**：把图像 patch 与文本 token 一起送进 Transformer，逐元素交互后输出匹配分数。慢，但能抓住「位置」「数量」「关系」等细粒度证据。<span class="marginnote">单塔精判的典型结构是 <strong>MLP 头接在 cross-attention 输出上</strong>：CLIP 式的对比分数是「双塔的全局点积」，ITM 分数是「单塔融合后的判别概率」。前者适合粗筛，后者适合精判——两者常常<strong>配合使用</strong>。</span>
+**双塔打分（co-attention 前）**：$s(I, T) = f(I)^{\top} g(T)$。快，但只做全局比对，细粒度证据全丢。
+**单塔精判（cross-attention）**：把图像 patch 与文本 token 一起送进 Transformer，逐元素交互后输出匹配分数。慢，但能抓住「位置」「数量」「关系」等细粒度证据。<span class="marginnote">单塔精判的典型结构是 <strong>MLP 头接在 cross-attention 输出上</strong>：CLIP 式的对比分数是「双塔的全局点积」，ITM 分数是「单塔融合后的判别概率」。前者适合粗筛，后者适合精判——两者常常<strong>配合使用</strong>。</span>
 
 单塔精判为什么更准？因为它让每个文本 token「亲眼看看」图的每个 patch，再决定信不信。一个经典的判定场景：文本说「两只狗」，图里只有一只——双塔的全局相似度可能很高（毕竟「狗」匹配了），单塔在「数数量」时就会露出破绽。**细粒度证据只有单塔抓得住**，这是 ITM 精判层的存在理由。
 

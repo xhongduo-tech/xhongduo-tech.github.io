@@ -58,9 +58,9 @@ $$f \text{ 为奇函数} \Rightarrow \int_{-a}^{a} f(x)\,dx = 0$$
 
 计算 $\int_0^{\ln 2} \frac{e^x}{1 + e^{2x}}\,dx$：
 
-- **第一步，选换元**：令 $u = e^x$，则 $du = e^x\,dx$，被积函数变为 $\frac{du}{1+u^2}$——正是 $\arctan$ 的积分。
-- **第二步，同步换限**：$x=0 \Rightarrow u=e^0=1$；$x=\ln 2 \Rightarrow u=e^{\ln2}=2$。
-- **第三步，套公式并代新限**：$\int_1^2 \frac{du}{1+u^2} = \left[\arctan u\right]_1^2 = \arctan 2 - \arctan 1 = \arctan 2 - \frac{\pi}{4}$。
+**第一步，选换元**：令 $u = e^x$，则 $du = e^x\,dx$，被积函数变为 $\frac{du}{1+u^2}$——正是 $\arctan$ 的积分。
+**第二步，同步换限**：$x=0 \Rightarrow u=e^0=1$；$x=\ln 2 \Rightarrow u=e^{\ln2}=2$。
+**第三步，套公式并代新限**：$\int_1^2 \frac{du}{1+u^2} = \left[\arctan u\right]_1^2 = \arctan 2 - \arctan 1 = \arctan 2 - \frac{\pi}{4}$。
 
 **关键：上下限在换元瞬间同步更新，不再回代 $x$。** 若不换限而沿用 $0,\ln2$，就会把 $\arctan e^x$ 代成 $\arctan 2-\arctan 1$（恰好对），但那是侥幸；规范做法永远是换限。
 
@@ -68,8 +68,8 @@ $$f \text{ 为奇函数} \Rightarrow \int_{-a}^{a} f(x)\,dx = 0$$
 
 定积分的换元与分部组合起来，能处理相当复杂的积分，并催生一批「定积分独有」的漂亮技巧：
 
-- **区间再现**：$\int_a^b f(x)\,dx = \int_a^b f(a+b-x)\,dx$（令 $x=a+b-t$）——用于对称性不明显但有「对称结构」的积分。
-- **Wallis 公式**：$\int_0^{\pi/2}\sin^n x\,dx$ 的递推，由定积分分部推出，用于计算高次三角积分与阶乘估计。<span class="marginnote">Wallis 公式 $\frac{\pi}{2} = \frac{2\cdot2\cdot4\cdot4\cdots}{1\cdot3\cdot3\cdot5\cdots}$ 是圆周率的第一批精确表达之一，也给出了阶乘的渐近估计——它与斯特林公式、中心极限定理都有联系。一个定积分技巧，通向概率论的深处。</span>
+**区间再现**：$\int_a^b f(x)\,dx = \int_a^b f(a+b-x)\,dx$（令 $x=a+b-t$）——用于对称性不明显但有「对称结构」的积分。
+**Wallis 公式**：$\int_0^{\pi/2}\sin^n x\,dx$ 的递推，由定积分分部推出，用于计算高次三角积分与阶乘估计。<span class="marginnote">Wallis 公式 $\frac{\pi}{2} = \frac{2\cdot2\cdot4\cdot4\cdots}{1\cdot3\cdot3\cdot5\cdots}$ 是圆周率的第一批精确表达之一，也给出了阶乘的渐近估计——它与斯特林公式、中心极限定理都有联系。一个定积分技巧，通向概率论的深处。</span>
 - **泊松积分类**：$\int_0^\infty e^{-x^2}dx = \frac{\sqrt{\pi}}{2}$，靠换元到极坐标计算，是高斯分布归一化的核心。
 
 **与概率统计的连接**：正态分布、伽马分布的定积分计算，本质上都是「换元 + 分部」的体操。$\Gamma$ 函数 $\Gamma(\alpha) = \int_0^\infty x^{\alpha-1}e^{-x}dx$ 的递推靠分部，标准正态的归一化靠换元到极坐标——本节技巧直接支撑统计学两大基础积分。

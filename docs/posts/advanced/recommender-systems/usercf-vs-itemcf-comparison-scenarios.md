@@ -40,9 +40,9 @@ $$
 
 以 UserCF 的公式为例，做三步拆解，然后与 ItemCF 逐项对比：
 
-- **第一步，看邻居集合 $S(u,k) \cap N(i)$**：$S(u,k)$ 是「与 $u$ 最像的 $k$ 个用户」，$N(i)$ 是「给物品 $i$ 评过分的用户」。交集意味着「**既和 $u$ 像、又评过 $i$ 的人**」——这群人的口味，就是 $u$ 的「兴趣代言人」。
-- **第二步，看权重 $w_{uv}$**：$u$ 与 $v$ 的**用户相似度**。越像的朋友，他评的分越有分量。
-- **第三步，对称地看 ItemCF**：邻居集合换成 $S(j,k) \cap N(u)$，含义是「**$u$ 喜欢的物品 $i$ 中，与目标物品 $j$ 相似的那些**」；权重 $w_{ji}$ 是**物品相似度**。
+**第一步，看邻居集合 $S(u,k) \cap N(i)$**：$S(u,k)$ 是「与 $u$ 最像的 $k$ 个用户」，$N(i)$ 是「给物品 $i$ 评过分的用户」。交集意味着「**既和 $u$ 像、又评过 $i$ 的人**」——这群人的口味，就是 $u$ 的「兴趣代言人」。
+**第二步，看权重 $w_{uv}$**：$u$ 与 $v$ 的**用户相似度**。越像的朋友，他评的分越有分量。
+**第三步，对称地看 ItemCF**：邻居集合换成 $S(j,k) \cap N(u)$，含义是「**$u$ 喜欢的物品 $i$ 中，与目标物品 $j$ 相似的那些**」；权重 $w_{ji}$ 是**物品相似度**。
 
 **辨析｜易错点：** 初学者最容易把两个 $S(\cdot, k)$ 记混。UserCF 里的 $S(u,k)$ 是**用户邻居**（和谁像），ItemCF 里的 $S(j,k)$ 是**物品邻居**（和什么东西像）。一个以「人」为中心取邻居，一个以「物」为中心取邻居——写代码时最常犯的错，就是把两个相似度矩阵张冠李戴。
 
@@ -68,35 +68,26 @@ $$
 
 ## 5 代码：同一个骨架，只换一个方向
 
-两族的实现差异，浓缩在「相似度矩阵的方向」上。下面这段代码把骨架抽象出来，`direction` 决定取哪一族：
+两族的实现差异，浓缩在「相似度矩阵的方向」上。下面这段代码把骨架抽象出来，`sim_mode` 决定取哪一族：
 
 ```python
-def recommend(train, user, k, direction='item'):
-    """direction='item' 走 ItemCF，direction='user' 走 UserCF。"""
-    if direction == 'item':
-        # 物品相似度：|N(i) ∩ N(j)| / sqrt(|N(i)|·|N(j)|)
-        W = item_item_similarity(train)
-        # 对 user 历史喜欢的每个物品 i，累加它的相似物品 j
-        scores = defaultdict(float)
-        for i in train[user]:
-            for j, w in W[i].items():
-                if j not in train[user]:
-                    scores[j] += w
-    else:
-        # 用户相似度：|N(u) ∩ N(v)| / sqrt(|N(u)|·|N(v)|)
-        W = user_user_similarity(train)
-        # 对与 user 相似的每个用户 v，累加他们喜欢的物品 i
-        scores = defaultdict(float)
-        for v, w in W[user].items():
-            for i in train[v]:
-                if i not in train[user]:
-                    scores[i] += w
-    return sorted(scores, key=scores.get, reverse=True)[:10]
+def recommend(u, sim_mode):
+    """UserCF / ItemCF 共用骨架，sim_mode 决定相似度矩阵的方向。"""
+    scores = defaultdict(float)
+    if sim_mode == 'user':                    # UserCF：先找相似用户，再看他们喜欢什么
+        for v, w in user_sim[u]:              # 用户—用户相似度矩阵的行
+            for i in user_items[v]:
+                scores[i] += w                # 相似用户喜欢的物品来投票
+    else:                                     # ItemCF：先看用户喜欢什么，再找相似物品
+        for j in user_items[u]:               # 目标用户已喜欢的物品
+            for i, w in item_sim[j]:          # 物品—物品相似度矩阵的行
+                scores[i] += w                # 相似物品的得分累加
+    return top_k(scores)
 ```
 
 **代价也藏在方向里。** 两族的复杂度随规模增长的速率不同：UserCF 要维护的用户相似度矩阵是 $O(U^2)$，用户量从 100 万涨到 1000 万，矩阵膨胀 100 倍；ItemCF 的 $O(I^2)$ 则与物品数挂钩。所以在「用户爆炸、物品稳定」的电商里，ItemCF 的平方项撞的是天花板更低的物品规模，可行性远高于 UserCF。**选方向，本质上是在选「谁的平方我们付得起」**——这个账要在画架构图之前就算清楚。<span class="marginnote">更精确地说，矩阵可以按相似度阈值截断成稀疏结构，只保留每行 Top-k 邻居，<strong>把 $O(U^2)$ 的存储降成 $O(kU)$</strong>。但即使如此，<strong>计算</strong>的用户对仍是平方量级——这就是为什么工业界用「只算有过共同行为的用户对」剪枝，第三级《数据结构》的哈希索引在这里是刚需。</span>
 
-**辨析｜易错点：** 注意两个方向里「哪些邻居参与投票」不同。ItemCF 是「**目标用户已喜欢的物品**」找邻居；UserCF 是「**与目标用户相似的用户**」找邻居。把 `W` 换成用户相似度矩阵、但内层循环还按「物品的邻居」累加，是重构时最隐蔽的错误——**方向一换，两层的索引语义都要跟着换**。
+**辨析｜易错点：** 注意两个方向里「哪些邻居参与投票」不同。ItemCF 是「**目标用户已喜欢的物品**」找邻居；UserCF 是「**与目标用户相似的用户**」找邻居。把 `sim_mode` 换成用户相似度矩阵、但内层循环还按「物品的邻居」累加，是重构时最隐蔽的错误——**方向一换，两层的索引语义都要跟着换**。
 
 ## 6 怎么选：一张决策清单
 

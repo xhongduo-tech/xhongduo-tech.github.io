@@ -36,9 +36,9 @@ $$
 
 **关键例子**：
 
-- **$\mathbb{C}^n$**：有限维 Hilbert 空间。
-- **$l^2$**：平方可和数列，Hilbert 空间（完备性在第二章已证）。
-- **$L^2[a,b]$**：平方可积函数，Hilbert 空间——这是应用最广的无穷维 Hilbert 空间。<span class="marginnote">$L^2$ 之所以是 Hilbert 空间，依赖勒贝格积分的 Riesz-Fischer 定理（$L^p$ 完备）。信号处理里「能量有限信号」的集合就是 $L^2$：信号的能量 $\int|f|^2$ 正是范数平方。傅里叶变换、小波、滤波器设计，都在这个空间里展开。</span>
+**$\mathbb{C}^n$**：有限维 Hilbert 空间。
+**$l^2$**：平方可和数列，Hilbert 空间（完备性在第二章已证）。
+**$L^2[a,b]$**：平方可积函数，Hilbert 空间——这是应用最广的无穷维 Hilbert 空间。<span class="marginnote">$L^2$ 之所以是 Hilbert 空间，依赖勒贝格积分的 Riesz-Fischer 定理（$L^p$ 完备）。信号处理里「能量有限信号」的集合就是 $L^2$：信号的能量 $\int|f|^2$ 正是范数平方。傅里叶变换、小波、滤波器设计，都在这个空间里展开。</span>
 
 **辨析｜易错点：** Hilbert 空间是 Banach 空间的一种，但反过来不对。$C[0,1]$（sup 范数）、$l^p$（$p \neq 2$）、$L^p$（$p \neq 2$）都是 Banach 空间但不是 Hilbert 空间——它们的范数不来自任何内积。**「范数来自内积」是 Hilbert 空间区别于一般 Banach 空间的关键属性**，下一节给出精确判别。
 
@@ -64,9 +64,9 @@ $$
 
 以 $L^2[a,b]$ 为例，完整走一遍「它是 Hilbert 空间」的验证：
 
-- **内积结构**：$\langle f,g\rangle = \int f\overline g$，三条公理由积分性质保证。
-- **范数**：$\|f\|_2 = \sqrt{\int|f|^2}$，Cauchy-Schwarz 保证内积收敛。
-- **完备性**：Riesz-Fischer 定理——$L^p$ 的柯西列在 $L^p$ 内收敛（勒贝格积分的成果）。
+**内积结构**：$\langle f,g\rangle = \int f\overline g$，三条公理由积分性质保证。
+**范数**：$\|f\|_2 = \sqrt{\int|f|^2}$，Cauchy-Schwarz 保证内积收敛。
+**完备性**：Riesz-Fischer 定理——$L^p$ 的柯西列在 $L^p$ 内收敛（勒贝格积分的成果）。
 
 于是 $L^2$ 具备：垂直（$\int f\overline g = 0$）、正交分解、投影、傅里叶级数收敛（第四章后文）——**欧氏几何的全部工具在 $L^2$ 里重生**。<span class="marginnote">量子力学把它用到极致：波函数 $\psi \in L^2(\mathbb{R}^3)$，$\int|\psi|^2 = 1$ 是归一化条件，「测量」「观测」「坍缩」都是 $L^2$ 上的内积/投影操作。第十章我们会专门用 Hilbert 空间语言重写量子力学。</span>
 

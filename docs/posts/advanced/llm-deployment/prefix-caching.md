@@ -43,30 +43,29 @@ date: 2026-08-07
 于是「两条序列前缀相同」被翻译成「它们的块哈希序列逐块相等」。块 0 的哈希一样 → 可以共享物理块 0；块 1 的哈希一样 → 共享物理块 1……**共享的单位是块，不是 token**——这与上一节 CoW 的粒度一致。<span class="marginnote">哈希的引入让「内容比较」变成 O(1)：不用逐 token 比，查表即可。代价是理论上存在哈希碰撞——vLLM 用足够宽的哈希并接受极低碰撞率；工程上这是「正确性」与「成本」的务实取舍，论文与生产实践都认可这一近似。</span>
 
 ```python
-def block_hash(token_ids: tuple[int, ...]) -> int:
-    # 块内 16 个 token id 的确定性哈希，作为块的"内容身份"
-    return hash(block_key(token_ids))
-
-def find_matching_prefix(cached, new_tokens, B=16):
-    # 从第 0 块开始，逐块比对哈希，返回最长共享块数
-    matched = 0
-    for k in range(len(new_tokens) // B):
-        block = tuple(new_tokens[k * B:(k + 1) * B])
-        if cached.get(block_hash(block)) is None:
-            break
-        matched += 1
-    return matched
+# 块内容哈希 → 物理块号的映射
+def get_or_compute_block(tokens_in_block, kv_data) -> int:
+    h = hash(tuple(tokens_in_block))      # 对块内 token 序列取哈希
+    pb = hash_to_block.get(h)             # 查哈希表：内容寻址
+    if pb is None:                        # 未命中：新分配并写入 KV
+        pb = allocator.allocate()
+        write_kv_to_block(pb, kv_data)
+        hash_to_block[h] = pb
+        ref_count[pb] = 1
+    else:
+        ref_count[pb] += 1                # 命中：共享同一物理块
+    return pb
 ```
 
 注意一个细节：**只有「完整且已定稿」的块才能进缓存**。正在生成中的最后一两块（不满 16 token）没有资格被复用——因为它的内容还会变。这呼应了卡尔顿那句话的第一半：缓存失效（判断内容「定稿」）才是真正的难事。
 
 ## 3 缓存结构：哈希表 + 引用计数 + 驱逐
 
-上一节的 `BlockAllocator` 只需加上一个哈希表，就升级为前缀缓存分配器（vLLM 的 `PrefixCachingBlockAllocator`）：
+上一节的块分配器只需加上一个哈希表，就升级为前缀缓存分配器（vLLM 的 `PrefixCachingBlockAllocator`）：
 
-- **哈希表**：`block_hash → 物理块`，提供「内容寻址」——要复用某块，查哈希表拿到物理块号即可。
-- **引用计数**：每个缓存块仍记 `ref_count`。被 $k$ 条请求共享时 $= k$；归零后不立即释放，而是**留在缓存里**等下一个同内容请求，直到显存紧张。
-- **驱逐（eviction）**：空闲块不够时，按 LRU 把引用计数为 0 的缓存块淘汰出哈希表，块归还空闲池。**ref_count > 0 的块不可驱逐**——这是显存安全与缓存命中的分界线。<span class="marginnote">「引用计数 + LRU」的组合很有意思：引用计数保证「正在用」的块不被抢走，LRU 保证「最近用过但已没人用」的块优先让位。这跟操作系统页面置换的「时钟算法」思路一致，但作用对象是 KV 而不是内存页。</span>
+**哈希表**：`block_hash → 物理块号` 的映射，提供「内容寻址」——要复用某块，查哈希表拿到物理块号即可。
+**引用计数**：每个缓存块仍记一个引用计数（`ref_count`）。被 $k$ 条请求共享时 $= k$；归零后不立即释放，而是**留在缓存里**等下一个同内容请求，直到显存紧张。
+**驱逐（eviction）**：空闲块不够时，按 LRU 把引用计数为 0 的缓存块淘汰出哈希表，块归还空闲池。**ref_count > 0 的块不可驱逐**——这是显存安全与缓存命中的分界线。<span class="marginnote">「引用计数 + LRU」的组合很有意思：引用计数保证「正在用」的块不被抢走，LRU 保证「最近用过但已没人用」的块优先让位。这跟操作系统页面置换的「时钟算法」思路一致，但作用对象是 KV 而不是内存页。</span>
 
 vLLM V1 把结构进一步升级为**前缀树（Prefix Tree）**：不同请求的共享前缀在树上合并成一条路径，分支处才是各自的分叉。这让「最长公共前缀」的查找从逐块比对变成一次树检索，也更适合与调度器联合做缓存感知调度。SGLang 的 RadixAttention 是同一思路的更激进版本，第四篇会专门展开。
 
@@ -90,8 +89,8 @@ $$
 
 - **第一步，认 $W_{\text{full}}$**：$a L$ 是 MLP/embedding 的线性开销，$b L^2$ 是注意力对所有 token 对的二次开销。
 - **第二步，认 $W_{\text{cached}}$**：$a S$ 是后缀自己过 MLP 的开销；$b S L$ 是后缀 $S$ 个 query 与全部 $L$ 个 key 的注意力开销——**缓存省掉的是前缀的自注意力（$bP^2$）与前缀的 MLP（$aP$），省不掉后缀对前缀的读取**。
-- **第三步，看线性部分**：MLP 部分省下的比例是 $P/L$。RAG 例子里 $P=1000, S=20, L=1020$，线性部分省 `$1000/1020 \approx 98\%$`。
-- **第四步，看二次部分**：注意力从 `$b \cdot 1020^2 \approx 1.04 \times 10^6 b$` 降到 `$b \cdot 20 \times 1020 \approx 2.04 \times 10^4 b$`——**省了 98%**。上下文越长，$bL^2$ 占比越高，缓存的收益越大；这就是为什么长上下文场景下 Prefix Caching 收益最夸张。
+- **第三步，看线性部分**：MLP 部分省下的比例是 $P/L$。RAG 例子里 $P=1000, S=20, L=1020$，线性部分省约 98%（$1000/1020$）。
+- **第四步，看二次部分**：注意力从 $bL^2$ 降到 $bSL$——**省了 98%**。上下文越长，$bL^2$ 占比越高，缓存的收益越大；这就是为什么长上下文场景下 Prefix Caching 收益最夸张。
 
 对 TTFT 的兑现：TTFT 从「正比于 $W_{\text{full}}$」降为「正比于 $W_{\text{cached}}$」，RAG 例子里约 **98% 的 Prefill 延迟消失**，请求的 TTFB 从接近 1 秒量级降到几十毫秒。<span class="marginnote">有个反直觉点：缓存的 KV 并没有减少 Decode 的访存量——Decode 每步仍要读全部 $L$ 个 KV。所以 Prefix Caching 提升的是 TTFT 与吞吐（Prefill 阶段），对 Decode 的每步延迟几乎无感。分清「省在 Prefill」与「省在 Decode」是理解这类优化的关键。</span>
 
@@ -99,7 +98,7 @@ $$
 
 工程落地还有两个容易踩的坑。
 
-**陷阱一：前缀必须块对齐。** 共享只发生在**完整块边界**上。若两条请求的前缀长度都是 1050 token，但块大小为 16，则只有前 `$1050 - (1050 \bmod 16) = 1040$` 个 token（65 块）能共享，最后 10 个 token 因不成块只能各自计算。<span class="marginnote">这也是为什么「先给 system prompt 补到块对齐」能提升命中率——vLLM 的社区实践里，把 system prompt 长度凑成 16 的倍数，可以让整段前缀完整入缓存。调度器也会做缓存感知的准入：优先调度那些能与缓存命中更多块的请求（第四篇 Cache-aware 路由的雏形）。</span>
+**陷阱一：前缀必须块对齐。** 共享只发生在**完整块边界**上。若两条请求的前缀长度都是 1050 token，但块大小为 16，则只有前 1040 个 token（65 块）能共享，最后 10 个 token 因不成块只能各自计算。<span class="marginnote">这也是为什么「先给 system prompt 补到块对齐」能提升命中率——vLLM 的社区实践里，把 system prompt 长度凑成 16 的倍数，可以让整段前缀完整入缓存。调度器也会做缓存感知的准入：优先调度那些能与缓存命中更多块的请求（第四篇 Cache-aware 路由的雏形）。</span>
 
 **陷阱二：前缀的「任一 token 变了，后缀全失效」。** 缓存的粒度是「块」，但命中是**前缀前缀式**的——第 $k$ 块命中意味着第 $0..k-1$ 块全都命中。一旦某块内容不同（比如 system prompt 里多打了半行字），它之后的所有块都无法复用。**所以 system prompt 的稳定性直接决定缓存命中率**；工程上把易变信息（时间戳、随机数）挪到 prompt 末尾、把固定指令放前面，是免费的优化。
 
@@ -115,8 +114,8 @@ $$
 - **收益来源**：system prompt、RAG 上下文、多轮历史让大量请求共享前缀；重复计算 Prefill 是纯浪费。
 - **识别机制**：块内容哈希 → `block_hash` 决定块的身份；共享单位是**完整块**，不是 token。
 - **缓存结构**：哈希表（内容寻址）+ 引用计数（在用保护）+ LRU（空闲驱逐）；vLLM V1 用前缀树加速查找。
-- **收益公式**：`$W_{\text{full}} = aL + bL^2$` 降到 `$W_{\text{cached}} = aS + bSL$`；RAG 例子省 98% 的 Prefill 算力与延迟。
+- **收益公式**：$W_{\text{full}}$ 降到 $W_{\text{cached}}$；RAG 例子省 98% 的 Prefill 算力与延迟。
 - **边界条件**：前缀必须块对齐；任一 token 变化会让该块之后的共享全部失效。
 - **辨析**：不是 KV 换出、不省 Decode、命中率不必 100%、与采样参数无关。
 
-在下一节，我们把调度器放进放大镜：连续批处理、分块 Prefill、前缀缓存这三件套，最终都要在 `Scheduler` 的一个迭代步里各司其职。我们从请求进入系统开始，追踪它从 WAITING 到 RUNNING 再到结束的完整一生——**vLLM 调度器源码分析（一）：请求生命周期**。
+在下一节，我们把调度器放进放大镜：连续批处理、分块 Prefill、前缀缓存这三件套，最终都要在调度器的一个迭代步里各司其职。我们从请求进入系统开始，追踪它从 WAITING 到 RUNNING 再到结束的完整一生——**vLLM 调度器源码分析（一）：请求生命周期**。

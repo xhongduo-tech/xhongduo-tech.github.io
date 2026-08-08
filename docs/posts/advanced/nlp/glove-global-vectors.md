@@ -98,15 +98,27 @@ GloVe 站在两条传统的交叉点上：
 GloVe 的一个简化的损失示意可以这样写：
 
 ```python
-# 伪代码：GloVe 加权回归损失（NumPy 风格）
 import numpy as np
 
-def glove_loss(W, Wt, b, bt, X, f, mask):
-    # W:  [V, d] 主向量矩阵；Wt: [d, V] 上下文向量矩阵
-    # b, bt: [V] 偏置；X: [V, V] 共现计数
-    pred = (W @ Wt) + b[:, None] + bt[None, :]      # w_i·w̃_j + b_i + b̃_j
-    err  = pred - np.log(np.maximum(X, 1e-8))       # 与 log X_ij 的误差
-    return 0.5 * np.sum(f * mask * err ** 2)        # 按权重 f 汇总
+# 一个 6 词的小共现矩阵：X[i][j] = 词 j 出现在词 i 上下文中的次数
+X = np.array([
+    [0, 3, 2, 0, 0, 0],
+    [3, 0, 1, 1, 0, 0],
+    [2, 1, 0, 2, 1, 0],
+    [0, 1, 2, 0, 0, 3],
+    [0, 0, 1, 0, 0, 1],
+    [0, 0, 0, 3, 1, 0],
+], dtype=float)
+
+V, d = X.shape[0], 3
+w, w_t = np.random.randn(V, d), np.random.randn(V, d)   # 主向量 + 上下文向量
+b, b_t = np.zeros(V), np.zeros(V)                        # 两个标量偏置
+
+x_max, alpha = 100, 0.75
+f = np.minimum(1.0, (X / x_max) ** alpha)               # 权重函数
+loss = (f * (w @ w_t.T + b[:, None] + b_t[None, :] - np.log(X + 1e-8)) ** 2).sum()
+
+print(f"GloVe 损失 = {loss:.3f}")
 ```
 
 ## 6 易错辨析：GloVe 不是「对共现矩阵做 SVD」

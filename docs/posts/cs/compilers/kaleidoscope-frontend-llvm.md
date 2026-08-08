@@ -23,23 +23,25 @@ date: 2026-08-07
 Kaleidoscope 是一门极简的**过程式语言**：
 
 ```
-# 计算斐波那契
-def fib(x)
+# 注释以 # 开头
+def fib(x)            # 函数定义：函数体是一个表达式
   if x < 3 then
     1
   else
-    fib(x-1) + fib(x-2);
+    fib(x-1) + fib(x-2)
 
-fib(20)
+extern sin(double)    # extern：声明外部函数
+
+fib(20)               # 顶层表达式：直接求值并打印 → 6765
 ```
 
 特性：
 
-- **函数**：`def name(args) expr;`——函数体是一个表达式。
-- **表达式**：数字、变量、二元运算（`+ - * / <`）、函数调用、`if/then/else`、`for/in`。
-- **顶层表达式**：直接写 `fib(20)` 就求值并打印（配合 JIT 即 REPL）。
+**函数**：def name(args) expr——函数体是一个表达式。
+**表达式**：数字、变量、二元运算（+、-、*、/）、函数调用、if 条件、for 循环。
+**顶层表达式**：直接写 fib(20) 就求值并打印（配合 JIT 即 REPL）。
 
-**极简的意义**：语言小到「半天能实现」，又完整到「覆盖编译器前端的所有核心」。教程用「加法」起步，每章加一个特性——每个特性都是编译原理的一个知识点。<span class="marginnote">「把语言设计到极小但完整」是 Kaleidoscope 的教学智慧：`def fib(x) if x<3 then 1 else fib(x-1)+fib(x-2)` 这一行就包含了函数、条件、递归、算术——编译器前端的所有结构。语言设计者学它「怎么把一个功能砍到最小」，编译器学习者学它「怎么实现每一个最小的功能」。</span>
+**极简的意义**：语言小到「半天能实现」，又完整到「覆盖编译器前端的所有核心」。教程用「加法」起步，每章加一个特性——每个特性都是编译原理的一个知识点。<span class="marginnote">「把语言设计到极小但完整」是 Kaleidoscope 的教学智慧：def fib(x) 这一行就包含了函数、条件、递归、算术——编译器前端的所有结构。语言设计者学它「怎么把一个功能砍到最小」，编译器学习者学它「怎么实现每一个最小的功能」。</span>
 
 ## 2 词法与语法：递归下降重演
 
@@ -48,16 +50,19 @@ fib(20)
 教程的**语法**（第 2-3 章）用**递归下降**实现，每个非终结符一个函数：
 
 ```cpp
-// 解析表达式: primary → unary → binary → expression
-std::unique_ptr<ExprAST> ParseExpression() {
-    auto LHS = ParseUnary();                    // 先解析一元/primary
-    return ParseBinOpRHS(0, std::move(LHS));    // 再处理二元（优先级）
-}
+std::unique_ptr<ExprAST> ParseNumberExpr();      // 数字
+std::unique_ptr<ExprAST> ParseParenExpr();       // 括号
+std::unique_ptr<ExprAST> ParseIdentifierExpr();  // 标识符 / 函数调用
+std::unique_ptr<ExprAST> ParsePrimary();         // 主表达式
+std::unique_ptr<ExprAST> ParseBinOpRHS(int ExprPrec, std::unique_ptr<ExprAST> LHS);
+std::unique_ptr<ExprAST> ParseExpression();      // 表达式
+std::unique_ptr<PrototypeAST> ParsePrototype();  // 函数原型
+std::unique_ptr<FunctionAST> ParseDefinition();  // 函数定义
 ```
 
 **运算符优先级**用「优先级爬升（precedence climbing）」处理——一张运算符优先级表 + 循环，避免了深层递归。这正是第十篇讲过的「表达式用优先级表 + 循环」的实践。
 
-**AST**：每个语法结构一个类（`NumberExprAST`、`BinaryExprAST`、`CallExprAST`、`FunctionAST`），递归下降直接「建 AST」。<span class="marginnote">「递归下降 + 优先级爬升」是 Kaleidoscope 语法层的核心：`ParseBinOpRHS(exprPrec, LHS)` 用一个循环按优先级表消化运算符——`a + b * c` 在这里被正确构造成 `a + (b * c)` 的树。读者可以对照第十节「递归下降」与第十三节「表达式分析」的知识，看教程如何把理论变成代码。</span>
+**AST**：每个语法结构一个类（NumberExprAST、VariableExprAST、BinaryExprAST、CallExprAST），递归下降直接「建 AST」。<span class="marginnote">「递归下降 + 优先级爬升」是 Kaleidoscope 语法层的核心：ParseBinOpRHS 用一个循环按优先级表消化运算符——a + b * c 在这里被正确构造成 +(a, *(b, c)) 的树。读者可以对照第十节「递归下降」与第十三节「表达式分析」的知识，看教程如何把理论变成代码。</span>
 
 ## 3 从 AST 到 LLVM IR：CodeGen
 
@@ -65,21 +70,21 @@ std::unique_ptr<ExprAST> ParseExpression() {
 
 ```cpp
 Value *NumberExprAST::codegen() {
-    return ConstantFP::get(TheContext, APFloat(Val));  // 数字 → 常量
+    return ConstantFP::get(Context, APFloat(Val));  // 数字 → 浮点常量
 }
 
 Value *BinaryExprAST::codegen() {
-    Value *L = LHS->codegen(), *R = RHS->codegen();
-    // 根据运算符生成 fadd/fmul/fcmp 等指令
-    return Builder.CreateFAdd(L, R, "addtmp");
+    Value *L = LHS->codegen();
+    Value *R = RHS->codegen();
+    return Builder.CreateFAdd(L, R, "addtmp");      // 加法指令
 }
 ```
 
-- **`Builder`**：LLVM 的 `IRBuilder`——按顺序在基本块末尾追加指令。
-- **常量**：`ConstantFP`。
-- **二元运算**：`CreateFAdd`、`CreateFMul`、`CreateFCmp`。
+**IRBuilder**：LLVM 的 IRBuilder——按顺序在基本块末尾追加指令。
+**常量**：ConstantFP::get。
+**二元运算**：CreateFAdd、CreateFSub、CreateFMul。
 
-**递归下降 + codegen** 的组合：语法分析建 AST，AST 的 `codegen()` 递归生成 IR——这是「语法制导翻译」的面向对象实现。<span class="marginnote">「AST 每个结点一个 codegen()」是语法制导翻译的 OOP 形态：语法结构（AST 结点）与语义动作（codegen 方法）绑定在一起。对照第四篇的 SDD——`codegen()` 就是综合属性 `E.code` 的面向对象实现；`Builder` 负责指令的「拼接」，对应 SDD 里的 `||` 拼接操作。</span>
+**递归下降 + codegen** 的组合：语法分析建 AST，AST 的 codegen() 递归生成 IR——这是「语法制导翻译」的面向对象实现。<span class="marginnote">「AST 每个结点一个 codegen()」是语法制导翻译的 OOP 形态：语法结构（AST 结点）与语义动作（codegen 方法）绑定在一起。对照第四篇的 SDD——codegen() 就是综合属性 E.code 的面向对象实现；IRBuilder 负责指令的「拼接」，对应 SDD 里的 code 拼接操作。</span>
 
 ## 4 公式解析：优先级爬升的核心
 
@@ -91,29 +96,31 @@ $$\text{ParseBinOpRHS}(\text{ExprPrec}, \text{LHS}) = \begin{cases} \text{若下
 - **第二步，吸收**：运算符优先级足够，就解析右侧操作数，合成新的 LHS，递归继续。
 - **第三步，右结合**：若运算符右结合（如赋值），右侧递归用**更低的**优先级继续——让右边吃得更深。
 
-**「优先级表 + 递归循环」把 `a+b*c` 构造成正确的树**——它是递归下降处理表达式的最优雅写法，也是 Kaleidoscope 语法层的点睛之笔。
+**「优先级表 + 递归循环」把 a + b * c 构造成正确的树**——它是递归下降处理表达式的最优雅写法，也是 Kaleidoscope 语法层的点睛之笔。
 
 ## 5 优化与 JIT：白送的收益
 
 教程的优化（第 4 章）几乎免费：
 
 ```cpp
-TheFPM->add(createInstructionCombiningPass());   // 指令化简
-TheFPM->add(createReassociatePass());            // 重结合
-TheFPM->add(createGVNPass());                    // 全局值编号
-TheFPM->add(createCFGSimplificationPass());      // CFG 化简
+// 优化器：直接复用 LLVM 的 pass 管理器
+auto FPM = std::make_unique<legacy::FunctionPassManager>(TheModule.get());
+FPM->add(createInstructionCombiningPass());  // 指令合并
+FPM->add(createReassociatePass());           // 表达式重关联
+FPM->add(createGVNPass());                   // 全局值编号
+FPM->add(createCFGSimplificationPass());     // CFG 简化
 ```
 
-**优化 pass 直接复用 LLVM**——`fib(20)` 这样的递归程序在 -O 下会被深度优化。
+**优化 pass 直接复用 LLVM**——fib 这样的递归程序在 -O 下会被深度优化。
 
-**JIT（第 5 章）** 更是白送：LLVM 的 **ORC JIT** 直接把「顶层表达式」编译成机器码并执行——`fib(20)` 输入就返回 6765，语言瞬间变成 REPL。<span class="marginnote">「优化与 JIT 白送」是 LLVM 生态的最大红利：Kaleidoscope 教程前 4 章只需写前端（词法 + 语法 + AST + IR 生成），优化器与 JIT 全由 LLVM 提供。这再次印证了「N×M 变 N+M」——写前端的人不需要懂寄存器分配、指令选择，LLVM 后端全部代劳。</span>
+**JIT（第 5 章）** 更是白送：LLVM 的 **ORC JIT** 直接把「顶层表达式」编译成机器码并执行——fib(20) 输入就返回 6765，语言瞬间变成 REPL。<span class="marginnote">「优化与 JIT 白送」是 LLVM 生态的最大红利：Kaleidoscope 教程前 4 章只需写前端（词法 + 语法 + AST + IR 生成），优化器与 JIT 全由 LLVM 提供。这再次印证了「N×M 变 N+M」——写前端的人不需要懂寄存器分配、指令选择，LLVM 后端全部代劳。</span>
 
 ## 6 小结
 
 - **Kaleidoscope** 是 LLVM 官方的「一门语言的完整前端」教程：不到两千行实现词法、语法、AST、IR、优化、JIT。
-- 语言设计极简但完整：函数、表达式、条件、递归、`for`、运算符——覆盖前端所有核心。
+- 语言设计极简但完整：函数、表达式、条件、递归、for 循环、运算符——覆盖前端所有核心。
 - 语法层用**递归下降 + 优先级爬升**处理表达式；AST 每个结点一个类。
-- **IR 生成**：AST 结点的 `codegen()` + `IRBuilder` 递归生成 LLVM IR——SDD 的 OOP 实现。
-- **优化与 JIT 由 LLVM 白送**：`fib(20)` 输入即得 6765——「写前端、后端白拿」的 LLVM 承诺。
+- **IR 生成**：AST 结点的 codegen() + IRBuilder 递归生成 LLVM IR——SDD 的 OOP 实现。
+- **优化与 JIT 由 LLVM 白送**：fib(20) 输入即得 6765——「写前端、后端白拿」的 LLVM 承诺。
 
 在下一节，我们鸟瞰 LLVM 生态：**LLVM 与现代编译器生态——Clang、Rust 与 Swift**。

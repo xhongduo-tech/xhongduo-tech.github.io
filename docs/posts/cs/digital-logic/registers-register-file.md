@@ -20,56 +20,67 @@ CPU 执行指令时，操作数要「随取随用」——内存太慢，必须�
 
 ## 1 从触发器到寄存器
 
-单个边沿 D 触发器存 1 位；`n` 个触发器共享时钟就构成 **n 位寄存器**（存一个数据字）：
+单个边沿 D 触发器存 1 位；n 个触发器共享时钟就构成 **n 位寄存器**（存一个数据字）：
 
 ```verilog
-module reg_n #(parameter W = 8)(
-    input             clk, rst_n, en,
-    input  [W-1:0]    d,
-    output reg [W-1:0] q
+module reg_en #(parameter N = 8) (
+    input  wire        clk,
+    input  wire        rst_n,
+    input  wire        en,            // 写使能
+    input  wire [N-1:0] d,
+    output reg  [N-1:0] q
 );
     always @(posedge clk or negedge rst_n) begin
-        if (!rst_n)      q <= {W{1'b0}};
-        else if (en)     q <= d;    // 使能时才写入
+        if (!rst_n)
+            q <= 0;
+        else if (en)                  // 使能有效才更新
+            q <= d;
     end
 endmodule
 ```
 
-**带使能的意义**：不是每个时钟都强制写，只有 `en=1` 才更新——这是「条件写入」的基础，也是寄存器堆写控制的雏形。<span class="marginnote">使能寄存器是「<strong>写控制</strong>」的最小形式：`en` 决定「这拍写不写」。CPU 里每条指令是否写寄存器、写哪个寄存器，都是由控制信号控制使能——整个寄存器堆的写端口就建立在这个机制上。</span>
+**带使能的意义**：不是每个时钟都强制写，只有使能有效（<code>en == 1'b1</code>`）才更新——这是「条件写入」的基础，也是寄存器堆写控制的雏形。<span class="marginnote">使能寄存器是「<strong>写控制</strong>」的最小形式：<code>en</code>` 决定「这拍写不写」。CPU 里每条指令是否写寄存器、写哪个寄存器，都是由控制信号控制使能——整个寄存器堆的写端口就建立在这个机制上。
 
 ## 2 寄存器堆：多端口读写
 
 **寄存器堆（register file）**：一组寄存器 + 地址译码 + 多端口访问。典型 32 个寄存器、每个 32 位，支持：
 
-- **两个读端口**：同时读两个寄存器（ALU 两个操作数）。
-- **一个写端口**：一个时钟写一个寄存器。
+**两个读端口**：同时读两个寄存器（ALU 两个操作数）。
+**一个写端口**：一个时钟写一个寄存器。
 
-**为什么双读**：一条指令通常要两个操作数（如 `add r3, r1, r2` 读 r1、r2）。两个读口让 ALU 一拍拿到两个操作数。
+**为什么双读**：一条指令通常要两个操作数（如 <code>ADD r3, r1, r2</code> 读 r1、r2）。两个读口让 ALU 一拍拿到两个操作数。
 
 **Verilog 实现**：
 
 ```verilog
-module regfile #(parameter N = 32, W = 32)(
-    input              clk, we,        // 写使能
-    input  [4:0]       r_addr1, r_addr2,  // 两个读地址
-    input  [4:0]       w_addr,          // 写地址
-    input  [W-1:0]     w_data,          // 写数据
-    output [W-1:0]     r_data1, r_data2
+module regfile #(
+    parameter ADDR_W = 5,        // 32 个寄存器
+    parameter DATA_W = 32
+) (
+    input  wire              clk,
+    input  wire              we,            // 写使能
+    input  wire [ADDR_W-1:0] raddr1,        // 读端口 1
+    input  wire [ADDR_W-1:0] raddr2,        // 读端口 2
+    input  wire [ADDR_W-1:0] waddr,         // 写地址
+    input  wire [DATA_W-1:0] wdata,         // 写数据
+    output wire [DATA_W-1:0] rdata1,        // 读数据 1
+    output wire [DATA_W-1:0] rdata2         // 读数据 2
 );
-    reg [W-1:0] regs [0:N-1];
+    reg [DATA_W-1:0] regs [0:2**ADDR_W-1];
 
-    // 读：组合逻辑，读地址译码输出
-    assign r_data1 = regs[r_addr1];
-    assign r_data2 = regs[r_addr2];
+    // 读是组合的：地址一变，数据立刻出
+    assign rdata1 = regs[raddr1];
+    assign rdata2 = regs[raddr2];
 
-    // 写：时序逻辑，写使能时写入
+    // 写是时序的：时钟边沿才更新
     always @(posedge clk) begin
-        if (we) regs[w_addr] <= w_data;
+        if (we)
+            regs[waddr] <= wdata;
     end
 endmodule
 ```
 
-<span class="marginnote">寄存器堆的「<strong>双读单写</strong>」是 RISC 处理器的标准结构：ALU 一拍读两个操作数、算完一拍写回。Verilog 里数组 `regs[0:N-1]` 就是寄存器堆，`regs[addr]` 读是组合的、写是时序的——两个端口并行工作，一拍完成「读读写」。</span>
+<span class="marginnote">寄存器堆的「<strong>双读单写</strong>」是 RISC 处理器的标准结构：ALU 一拍读两个操作数、算完一拍写回。Verilog 里数组 <code>reg [DATA_W-1:0] regs [0:N-1]</code> 就是寄存器堆，读是组合的、写是时序的——两个端口并行工作，一拍完成「读读写」。</span>
 
 ## 3 读写同时进行：经典技巧
 
@@ -77,19 +88,23 @@ endmodule
 
 两种约定：
 
-- **读旧写新**：先读后写，读端口读到旧值——大多数 RISC 处理器（如 MIPS）采用。
-- **写直达读**：写的同时读端口直接看到新值。
+**读旧写新**：先读后写，读端口读到旧值——大多数 RISC 处理器（如 MIPS）采用。
+**写直达读**：写的同时读端口直接看到新值。
 
 Verilog 中，由于**非阻塞赋值**的「同时更新」语义，写在同一拍生效于下一个读：
 
 ```verilog
+// 同一拍：写地址 == 读地址
+// 非阻塞赋值 → 读端口仍读到旧值（读旧写新，RISC 约定）
+assign rdata1 = regs[raddr1];
+
 always @(posedge clk) begin
-    if (we) regs[w_addr] <= w_data;
+    if (we)
+        regs[waddr] <= wdata;   // 边沿之后才更新，本拍读端口不变
 end
-// 读用组合：regs[r_addr]，读到的是「边沿前」的值（旧值）
 ```
 
-**这正是非阻塞赋值的正确用法**——读组合、写时序，天然实现「同拍读旧值」的 RISC 约定。<span class="marginnote">这个细节是「<strong>非阻塞赋值的工程胜利</strong>」：如果是阻塞赋值，写会立即生效、读可能读到新值——与 RISC 的「读旧值」约定冲突。用 `<=`，硬件行为与指令集语义自动对齐。这就是为什么时序块必须用非阻塞。</span>
+**这正是非阻塞赋值的正确用法**——读组合、写时序，天然实现「同拍读旧值」的 RISC 约定。<span class="marginnote">这个细节是「<strong>非阻塞赋值的工程胜利</strong>」：如果是阻塞赋值，写会立即生效、读可能读到新值——与 RISC 的「读旧值」约定冲突。用非阻塞赋值，硬件行为与指令集语义自动对齐。这就是为什么时序块必须用非阻塞。</span>
 
 ## 4 公式解析：寄存器堆的端口带宽
 
@@ -108,14 +123,20 @@ end
 寄存器堆连接 ALU 与控制逻辑，构成 CPU 的「数据通路」核心：
 
 ```
-指令 → 读地址1 → 寄存器堆 ──r_data1──→ ALU
-        读地址2 →        ──r_data2──→ ALU
-        写地址 ←── w_data ←── ALU 结果 / 内存数据
+   rs1 ──▶ raddr1 ──┐
+   rs2 ──▶ raddr2 ──┤         ┌────────┐
+                    ├────────▶│  ALU   │──▶ 结果
+   rd  ──▶ waddr    │         └────────┘       │
+   we  ──▶ 写使能    │                          ▼
+        ┌───────────────┐                  写回数据
+        │    寄存器堆     │◀─────────────────────┘
+        └───────────────┘
+   读（组合）→ 算（ALU）→ 写（时序），一拍完成
 ```
 
-- **读**：指令里的源寄存器号（rs1、rs2）→ 读端口 → ALU。
-- **算**：ALU 用两个操作数计算。
-- **写**：目标寄存器号（rd）+ ALU 结果 → 写端口写回。
+**读**：指令里的源寄存器号（rs1、rs2）→ 读端口 → ALU。
+**算**：ALU 用两个操作数计算。
+**写**：目标寄存器号（rd）+ ALU 结果 → 写端口写回。
 
 这条「读-算-写」循环是每一拍指令执行的基本节拍——**RISC 处理器一拍完成一次循环**。<span class="marginnote">这一节与下一节的衔接：<strong>取指（下一节）把指令送来，指令里的寄存器号驱动寄存器堆读写</strong>。寄存器堆 + ALU + 取指 + 控制 = 数据通路。你在搭的，正是一个最简 RISC 处理器的核心。</span>
 

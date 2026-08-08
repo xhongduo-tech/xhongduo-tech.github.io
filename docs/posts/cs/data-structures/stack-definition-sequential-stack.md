@@ -36,17 +36,18 @@ date: 2026-08-07
 栈的顺序存储（顺序栈）用一块连续的数组存放元素，另设一个整数 `top` 记录栈顶位置。
 
 ```c
+#define MAXSIZE 100                 /* 栈的最大容量 */
 typedef struct {
-    SElemType data[MAXSIZE];   /* 栈的存储空间 */
-    int top;                   /* 栈顶指针：指向栈顶元素的下标 */
+    SElemType data[MAXSIZE];        /* 存放栈元素的数组 */
+    int top;                        /* 栈顶指针：top 指向栈顶元素 */
 } SqStack;
 ```
 
 关于 `top` 有两种习惯约定。严蔚敏教材采用「**top 指向栈顶元素**」：
 
-- 初始化时 `top = -1`，表示空栈；
-- 元素 `e` 入栈：`data[++top] = e`（先移动指针，再写入）；
-- 出栈：`e = data[top--]`（先取走，再移动指针）。
+初始化时 `top = -1`，表示空栈；
+元素 `e` 入栈：`S.data[++S.top] = e`（先移动指针，再写入）；
+出栈：`e = S.data[S.top--]`（先取走，再移动指针）。
 
 另一种常见约定是「top 指向栈顶元素的下一个空位」（`top = 0` 表示空栈）。两种约定只要自洽都行，但**混用必出 bug**——这是初学者的经典陷阱。<span class="marginnote">记住一条检验准则：<strong>空栈时 top 的取值，与入栈时 top 的移动方向，必须与你「top 指谁」的约定匹配</strong>。把约定写进注释，比背代码可靠。</span>
 
@@ -67,15 +68,17 @@ $$
 入栈三步、出栈两步，各写一个函数：
 
 ```c
-Status Push(SqStack *S, SElemType e) {
-    if (S->top == MAXSIZE - 1) return ERROR;  /* 上溢检查 */
-    S->data[++S->top] = e;                    /* 先移动 top，再写入 */
+/* 入栈：先动指针再放值 */
+Status Push(SqStack &S, SElemType e) {
+    if (S.top == MAXSIZE - 1) return ERROR;   /* 栈满，上溢 */
+    S.data[++S.top] = e;                      /* 先移动指针，再写入 */
     return OK;
 }
 
-Status Pop(SqStack *S, SElemType *e) {
-    if (S->top == -1) return ERROR;           /* 下溢检查 */
-    *e = S->data[S->top--];                   /* 先取走，再下移 top */
+/* 出栈：先取值再动指针 */
+Status Pop(SqStack &S, SElemType &e) {
+    if (S.top == -1) return ERROR;            /* 栈空，下溢 */
+    e = S.data[S.top--];                      /* 先取走，再移动指针 */
     return OK;
 }
 ```
@@ -96,8 +99,8 @@ Status Pop(SqStack *S, SElemType *e) {
 ## 7 小结
 
 - 栈是**只允许在一端插入删除**的线性表，特征为**后进先出（LIFO）**。
-- 顺序栈 = 数组 + 栈顶指针 `top`；「top 指向栈顶元素」约定下，空栈 `top = -1`，栈满 `top = MAXSIZE-1`。
-- 入栈 `data[++top]=e`，出栈 `e=data[top--]`，两条互为镜像。
+- 顺序栈 = 数组 + 栈顶指针 `top`；「top 指向栈顶元素」约定下，空栈 `top = -1`，栈满 `top = MAXSIZE - 1`。
+- 入栈 `data[++top] = e`，出栈 `e = data[top--]`，两条互为镜像。
 - 栈满再入栈是**上溢**（扩容解决），栈空再出栈是**下溢**（先判空规避）。
 - 出栈是**逻辑删除**：旧值仍在数组中，靠移动 top 完成。
 

@@ -24,24 +24,15 @@ date: 2026-08-07
 
 经典实现三要素：
 
-1. **私有构造方法**：外部无法 `new`。
+1. **私有构造方法**：外部无法 `new`（实例化）。
 2. **静态实例变量**：持有唯一实例。
 3. **静态获取方法**：`getInstance()` 首次创建、后续复用。
 
-```
-class Logger {
-  private static Logger instance;
-  private Logger() {}
-  public static Logger getInstance() {
-    if (instance == null) instance = new Logger();
-    return instance;
-  }
-}
-```
+典型实现（懒汉式）：`private static Singleton instance;` 加 `public static synchronized Singleton getInstance() { if (instance == null) instance = new Singleton(); return instance; }`——判空后懒加载，返回唯一实例。
 
 适用场景：**日志、配置管理、线程池、数据库连接池**——这些对象全局唯一、共享状态，重复创建既浪费又可能造成状态冲突。<span class="marginnote">单例的争议在于它常被当作"全局变量的合法化"：隐式的全局依赖让测试困难（难替换）、并发时要处理线程安全（双重检查锁、枚举实现等）。现代实践的倾向是<strong>用依赖注入容器管理单例生命周期</strong>，而不是在类里硬编码 `getInstance()`——"单例"作为"一个实例"的语义保留，"全局可访问"的机制被 DI 替代。</span>
 
-**辨析｜易错点：** "只有一个实例" ≠ "必须是单例模式"。如果唯一性靠容器/框架保证（Spring 的 `@Singleton`、进程内只启动一次），就不需要手写单例。单例的**代价**（全局状态、难测试）只在确实需要"全局唯一 + 全局访问"时才值得付。
+**辨析｜易错点：** "只有一个实例" ≠ "必须是单例模式"。如果唯一性靠容器/框架保证（Spring 的默认单例 bean、进程内只启动一次），就不需要手写单例。单例的**代价**（全局状态、难测试）只在确实需要"全局唯一 + 全局访问"时才值得付。
 
 ## 2 工厂方法：让子类决定造哪个
 
@@ -49,15 +40,11 @@ class Logger {
 
 结构：
 
-```
-抽象创建者 Product createProduct();   ← 工厂方法
-  ├─ 具体创建者A → 返回 ConcreteProductA
-  └─ 具体创建者B → 返回 ConcreteProductB
-```
+**Product**（产品接口）定义产品行为；**ConcreteProduct** 实现具体产品；**Creator**（抽象创建者）声明工厂方法 `factoryMethod()`；**ConcreteCreator** 重写 `factoryMethod()`，返回具体产品实例。
 
-**辨析｜易错点：** 工厂方法 ≠ "一个静态工具方法返回对象"。**静态工厂（static factory）**只是一个便捷封装（如 `Integer.valueOf`）；**工厂方法模式**的核心是**多态**——调用方依赖抽象创建者，具体创建哪个产品由子类运行时决定。判断标准：**是否存在"创建者子类"在替换创建逻辑？** 没有，就只是静态工厂。
+**辨析｜易错点：** 工厂方法 ≠ "一个静态工具方法返回对象"。**静态工厂（static factory）**只是一个便捷封装（如 `Integer.valueOf(int)`）；**工厂方法模式**的核心是**多态**——调用方依赖抽象创建者，具体创建哪个产品由子类运行时决定。判断标准：**是否存在"创建者子类"在替换创建逻辑？** 没有，就只是静态工厂。
 
-适用场景：框架的"钩子"设计——框架定义创建接口，使用者通过子类定制创建的产品。经典例子：文档应用里 `Document` 与 `Application`——`Application` 的工厂方法 `createDocument()` 由子类（`WordApplication`、`PdfApplication`）决定返回 `WordDocument` 还是 `PdfDocument`。<span class="marginnote">工厂方法的收益是<strong>OCP 的实现</strong>：新增一种产品 = 新增一个创建者子类 + 产品类，调用方代码不动。代价是类的数量膨胀（每个产品配一个创建者）。当产品种类多到类爆炸时，就该考虑用抽象工厂或简单的参数化工厂。</span>
+适用场景：框架的"钩子"设计——框架定义创建接口，使用者通过子类定制创建的产品。经典例子：文档应用里 **Application** 与 **Document**——**Application** 的工厂方法 `createDocument()` 由子类（**WordApplication**、**SpreadsheetApplication**）决定返回 **WordDocument** 还是 **SpreadsheetDocument**。<span class="marginnote">工厂方法的收益是<strong>OCP 的实现</strong>：新增一种产品 = 新增一个创建者子类 + 产品类，调用方代码不动。代价是类的数量膨胀（每个产品配一个创建者）。当产品种类多到类爆炸时，就该考虑用抽象工厂或简单的参数化工厂。</span>
 
 ## 3 单例与工厂方法的关系
 

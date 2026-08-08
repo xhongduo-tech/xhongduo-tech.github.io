@@ -30,7 +30,7 @@ $$
 
 - **TF$(t,d)$（词频）**：词 $t$ 在文档 $d$ 里出现的次数。词出现越多越重要。
 - **$\log\frac{N}{\text{DF}(t)}$（逆文档频率）**：$\text{DF}(t)$ 是包含词 $t$ 的文档数，$N$ 是总文档数。「的」「了」出现在几乎所有文档里，DF 大、IDF 小、权重被压低；「量子」「甲状腺」只在少数文档出现，IDF 大、权重被抬高。<span class="marginnote">TF-IDF 的思想可以概括为「<strong>越少见越特异</strong>」：在某一篇文档里频繁出现、但在整个语料里很少见的词，最可能是这篇文章的「主题词」。它是文本检索（第五级《信息检索》）与文本分析的基础特征，至今仍是很多文本任务的第一基线。注意它完全不理解语义：「苹果」指水果还是公司，TF-IDF 分不出来。</span>
-- **乘积**：两者相乘，得到词对文档的重要性权重。
+**乘积**：两者相乘，得到词对文档的重要性权重。
 
 **嵌入（现代）**。词袋与 TF-IDF 都**忽略词序与语义**。**词嵌入（word embedding）** 用向量表示词义：意思相近的词（「汽车」「轿车」）在向量空间里彼此靠近。Word2Vec、GloVe 是经典实现，大语言模型的表示（第四级《大模型原理》）是它的当代形态。
 
@@ -42,9 +42,9 @@ $$
 
 经典图像特征（深度学习之前）靠**手工设计**：
 
-- **颜色直方图**：统计各颜色占比，对「蓝天绿树」这类区分有用。
-- **纹理特征**（HOG、LBP）：统计局部梯度方向，捕捉「边缘与纹理」。
-- **关键点描述子**（SIFT）：提取并描述图像里的显著局部特征，用于匹配与检索。
+**颜色直方图**：统计各颜色占比，对「蓝天绿树」这类区分有用。
+**纹理特征**（HOG、LBP）：统计局部梯度方向，捕捉「边缘与纹理」。
+**关键点描述子**（SIFT）：提取并描述图像里的显著局部特征，用于匹配与检索。
 
 **卷积神经网络（CNN）** 改变了这一切：它**自动从像素里学特征**。卷积层用可学习的滤波器在图像上滑动，第一层学到边缘、纹理，深层学到「眼睛」「轮子」等语义部件——特征不再是手工设计，而是从数据中端到端学出来。<span class="marginnote">CNN 的核心归纳偏置是「<strong>局部性 + 平移不变性</strong>」：卷积只在局部窗口内运算（猫的眼睛是局部特征），且同一滤波器滑过整张图（猫出现在图任何位置都该被识别）。这两个先验让 CNN 用远少于全连接网络的参数学到了强大的视觉特征。完整体系见第四级《计算机视觉》与《深度学习》。</span>
 
@@ -65,8 +65,8 @@ $$
 处理非结构化数据，工程上有几个容易踩的坑：
 
 1. **中文文本必须先分词**：中文没有天然空格，「我爱北京天安门」要切成「我 / 爱 / 北京 / 天安门」，分词错误会污染所有下游。
-2. **图像数据要检查「加载后真的对」**：`imread` 之后打印 shape、看一眼样例图——路径错误、通道顺序错误（RGB vs BGR）是最常见的隐形 bug。
-3. **超参数随数据规模走**：文本里 `min_df`（忽略出现太少的词）、图像里图像尺寸 `resize`，都要看数据量定，不能抄教程默认值。
+2. **图像数据要检查「加载后真的对」**：加载之后打印 shape、看一眼样例图——路径错误、通道顺序错误（RGB vs BGR）是最常见的隐形 bug。
+3. **超参数随数据规模走**：文本里 `min_df`（忽略出现太少的词）、图像里图像尺寸 `resize` 的目标尺寸，都要看数据量定，不能抄教程默认值。
 
 **辨析｜易错点：** 一个隐蔽但致命的坑是「**训练/测试图像的来源分布不一致**」：训练集是摄影棚拍的、测试集是手机拍的，模型在测试集崩盘。非结构化数据的**域差异（domain shift）** 比表格数据更常见也更隐蔽——上线前务必检查「模型要服务的数据长得像不像训练数据」。<span class="marginnote">域差异的经典例子：用「网络商品图」训练的图像分类器，部署到「门店监控摄像头」的画面——光线、角度、遮挡全变了，准确率断崖。第31篇《案例实践》会讲怎么用「灰度上线 + 分布监控」来提前发现这类问题。非结构化数据的域漂移，是「看起来训练得很好、上线就崩」的头号元凶。</span>
 
@@ -83,13 +83,20 @@ $$
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 
-pipe = Pipeline([
-    ("tfidf", TfidfVectorizer(min_df=2, max_features=5000)),
-    ("clf", LogisticRegression(max_iter=1000)),
-])
-pipe.fit(X_train, y_train)
+# 1. 向量化：分词 → TF-IDF
+vectorizer = TfidfVectorizer(min_df=2, max_features=5000)
+X = vectorizer.fit_transform(train_df["comment"])
+
+# 2. 训练逻辑回归
+clf = LogisticRegression(max_iter=1000)
+clf.fit(X, train_df["label"])
+
+# 3. 评估（三类问题看 macro-F1）
+X_test = vectorizer.transform(test_df["comment"])
+print(classification_report(test_df["label"], clf.predict(X_test)))
 ```
 
 **第四步，上线与监控**。部署为接口（第14篇），对全量评论打分；监控「好评率」的变化——好评率突降就是舆情异常的早期信号（呼应第25篇的质量监控思路）。

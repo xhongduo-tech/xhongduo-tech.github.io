@@ -106,10 +106,10 @@ $\vec r$ 正是布洛赫球上的坐标矢量（见《布洛赫球》与《密�
 
 把 Pauli 门当作「错误」来读，是进入量子纠错（第八篇）的钥匙。
 
-- **$X$ 错误 = 比特翻转（bit flip）**：$|0\rangle$ 变成 $|1\rangle$。就像经典通信里的 0/1 反了。
-- **$Z$ 错误 = 相位翻转（phase flip）**：$|1\rangle$ 的分量加负号。经典世界里没有对应的错误——经典比特只有 0/1，没有「相位」。这是量子信息特有的误差类型。
-- **$Y$ 错误 = 两者同时发生**（带上相位）。
-- **$I$ 对应「没出错」。**
+**$X$ 错误 = 比特翻转（bit flip）**：$|0\rangle$ 变成 $|1\rangle$。就像经典通信里的 0/1 反了。
+**$Z$ 错误 = 相位翻转（phase flip）**：$|1\rangle$ 的分量加负号。经典世界里没有对应的错误——经典比特只有 0/1，没有「相位」。这是量子信息特有的误差类型。
+**$Y$ 错误 = 两者同时发生**（带上相位）。
+**$I$ 对应「没出错」。**
 
 **重点：** 量子纠错的关键预处理步骤——**误差离散化**——正是建立在 Pauli 基上的：在测量意义上，任意单比特噪声都等价于以一定概率施加 $I, X, Y, Z$ 之一。于是「连续的、无限多种的噪声」被归结为「四种离散的 Pauli 错误」，纠正它们就只需处理这四种情况。没有 Pauli 门，量子纠错连问题都定义不出来。<span class="marginnote">这个「把连续噪声离散成 Pauli 错误」的过程在 N&C §10.2「离散化量子错误」里有详细证明，核心是：校验子测量会强迫噪声「塌缩」成 Pauli 错误之一。这也是为什么「三比特比特翻转码」「相位翻转码」都直接用 Pauli 语言描述。</span>
 
@@ -119,17 +119,14 @@ $\vec r$ 正是布洛赫球上的坐标矢量（见《布洛赫球》与《密�
 
 ```python
 from qiskit import QuantumCircuit
-from qiskit.quantum_info import Statevector
+from qiskit.quantum_info import Operator, Statevector
 
-for name in ["x", "y", "z"]:
+zero = Statevector.from_label("0")
+for name, gate in [("X", "x"), ("Y", "y"), ("Z", "z")]:
     qc = QuantumCircuit(1)
-    getattr(qc, name)(0)                 # 对 |0⟩ 施加 X / Y / Z
-    sv = Statevector(qc).data
-    print(f"{name.upper()} |0⟩ -> {sv}")
-
-# X |0⟩ -> [0.+0.j 1.+0.j]    即 |1⟩
-# Y |0⟩ -> [0.+0.j 0.+1.j]    即 i|1⟩
-# Z |0⟩ -> [1.+0.j 0.+0.j]    即 |0⟩（Z 不动 |0⟩）
+    getattr(qc, gate)(0)
+    print(name, Operator(qc).data.round(4))      # X/Y/Z 的矩阵
+    print(name + "|0⟩ ->", zero.evolve(qc).data)  # X|0⟩=|1⟩, Y|0⟩=i|1⟩, Z|0⟩=|0⟩
 ```
 
 对照第 2 节的表格：$X|0\rangle = |1\rangle$、$Y|0\rangle = i|1\rangle$、$Z|0\rangle = |0\rangle$——程序输出与矩阵计算完全一致。这就是「不能创造就不理解」：亲手跑一遍，三个门就从符号变成了你拥有的对象。

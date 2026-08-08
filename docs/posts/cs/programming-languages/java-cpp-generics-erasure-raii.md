@@ -20,19 +20,22 @@ Java 与 C++ 是工业界最长青的两门语言，也是「运行时管理 vs 
 
 ## 1 泛型：擦除 vs 实例化
 
-**Java 类型擦除（erasure）**：泛型只在**编译期**检查，运行时擦除为 `Object`（或上界）——一份代码，所有类型共用。
+**Java 类型擦除（erasure）**：泛型只在**编译期**检查，运行时擦除为 **`Object`**（或上界）——一份代码，所有类型共用。
 
 ```java
-List<String> a = new ArrayList<>();
-List<Integer> b = new ArrayList<>();
-// 运行期：a 和 b 都是 ArrayList（擦除后相同）
+List<String> names = new ArrayList<>();
+// 编译期：检查 String；运行期：擦除为 List（一份共享代码）
+names.add("alice");
+String s = names.get(0);   // 编译器自动插入 cast
 ```
 
-**C++ 模板实例化（instantiation）**：每个类型参数生成**专用代码**——`vector<int>` 与 `vector<float>` 是两份代码。
+**C++ 模板实例化（instantiation）**：每个类型参数生成**专用代码**——**`vector<int>`** 与 **`vector<double>`** 是两份代码。
 
 ```cpp
-std::vector<int> a;
-std::vector<float> b;   // 生成两份专用代码
+template <typename T> T twice(T x) { return x + x; }
+
+int a = twice(3);          // 实例化 twice<int>：整数专用代码
+double b = twice(3.14);    // 实例化 twice<double>：双精度专用代码
 ```
 
 对比：
@@ -41,52 +44,62 @@ std::vector<float> b;   // 生成两份专用代码
 | --- | --- | --- |
 | 运行时开销 | 无（共享代码） | 代码膨胀 |
 | 类型信息 | 运行期丢失 | 运行期保留 |
-| 能否 `new T()` | 不能 | 能 |
+| 能否**运行时取得类型参数** | 不能 | 能 |
 | 优化空间 | 有限 | 每类型专用优化 |
 
-<span class="marginnote">擦除的代价是「运行期没有泛型类型」：`if (x instanceof List<String>)` 非法、`new T()` 非法。实例化的代价是「代码膨胀」与编译慢。Java 选擦除为了<strong>二进制兼容</strong>（旧代码能链接新泛型代码）；C++ 选实例化为了<strong>性能</strong>（专用代码可极致优化）——两种选择都服务各自的目标。</span>
+<span class="marginnote">擦除的代价是「运行期没有泛型类型」：`<strong>`new T() 非法、`<strong>`x instanceof T 非法。实例化的代价是「代码膨胀」与编译慢。Java 选擦除为了<strong>二进制兼容</strong>（旧代码能链接新泛型代码）；C++ 选实例化为了<strong>性能</strong>（专用代码可极致优化）——两种选择都服务各自的目标。</span>
 
 ## 2 资源管理：GC vs RAII
 
-**Java 的 GC**：堆对象由垃圾回收器自动回收——程序员不管 `free`：
+**Java 的 GC**：堆对象由垃圾回收器自动回收——程序员不管 **`free`**：
 
 ```java
-void f() {
-    FileInputStream in = new FileInputStream("x.txt");
-    // 用完不管——GC 会回收 in 的对象（但「何时」不确定）
+for (int i = 0; i < 1000; i++) {
+    byte[] buf = new byte[1024 * 1024];   // 堆上分配
+    // 用完即弃，GC 稍后回收（时机不确定）
 }
 ```
 
 **C++ 的 RAII**：资源随对象生命周期自动释放——作用域结束、析构函数执行：
 
 ```cpp
-void f() {
-    std::ifstream in("x.txt");   // 获取
-    // 使用 ...
-}   // 离开作用域：in 析构，文件自动关闭
+class File {
+public:
+    File(const char* path) { f = fopen(path, "w"); }
+    ~File() { if (f) fclose(f); }         // 析构：资源自动释放
+private:
+    FILE* f;
+};
+
+void write() {
+    File f("a.txt");                       // 构造获取资源
+    // 写文件…
+}                                          // 作用域结束 → f 析构 → 关闭文件
 ```
 
-**辨析｜易错点：** GC 的问题：**释放时机不确定**——`in` 对象被 GC 回收前，文件句柄一直占着（若对象「不可达」但回收器还没跑）。Java 为此需要 `try-with-resources`（显式关闭）；C++ 的 RAII **确定**在作用域结束释放。**「GC 保证『最终会释放』，RAII 保证『及时释放』」**——对文件、锁、连接这些「有限资源」，RAII 的确定性更可靠。
+**辨析｜易错点：** GC 的问题：**释放时机不确定**——**不可达（unreachable）**对象被 GC 回收前，文件句柄一直占着（若对象「不可达」但回收器还没跑）。Java 为此需要 **`try`-with-resources**（显式关闭）；C++ 的 RAII **确定**在作用域结束释放。**「GC 保证『最终会释放』，RAII 保证『及时释放』」**——对文件、锁、连接这些「有限资源」，RAII 的确定性更可靠。
 
 ## 3 值语义 vs 引用语义
 
 **C++ 值语义**：变量直接持有值——赋值即拷贝：
 
 ```cpp
-Point a(1, 2);
-Point b = a;      // 拷贝构造：b 是独立的副本
-b.x = 99;         // 不影响 a
+int a = 3;
+int b = a;      // b 是 a 的独立副本（深拷贝）
+b = 5;          // 改 b 不影响 a
+// a == 3, b == 5
 ```
 
 **Java 引用语义**：变量持有**引用**——赋值复制引用（指向同一对象）：
 
 ```java
-Point a = new Point(1, 2);
-Point b = a;      // b 指向同一对象
-b.x = 99;         // a.x 也是 99！
+int[] a = { 1, 2, 3 };
+int[] b = a;    // b 与 a 指向同一数组（共享）
+b[0] = 99;      // 改 b 也改 a
+// a[0] == 99
 ```
 
-**辨析｜易错点：** 「拷贝 vs 共享」的差异决定别名行为。C++ 的 `b = a` 深拷贝（独立）；Java 的 `b = a` 共享（别名）。**「值语义 = 赋值即复制，引用语义 = 赋值即共享」**——这是两种语言「对象到底是一个还是一份」的根本分歧。C++ 可用 `std::shared_ptr` 模拟共享，Java 没有值语义的类（基本类型除外）。
+**辨析｜易错点：** 「拷贝 vs 共享」的差异决定别名行为。C++ 的**赋值 `b = a`** 深拷贝（独立）；Java 的**赋值 `b = a`** 共享（别名）。**「值语义 = 赋值即复制，引用语义 = 赋值即共享」**——这是两种语言「对象到底是一个还是一份」的根本分歧。C++ 可用**引用（`T&`）或指针（`T*`）**模拟共享，Java 没有值语义的类（基本类型除外）。
 
 ## 4 公式解析：对象模型的开销
 
@@ -102,17 +115,17 @@ $$
 
 三步拆解：
 
-- **第一步，Java 必解引用**：Java 对象都在堆、经引用访问——`obj.field` 先解引用拿对象头，再偏移取字段。**每次字段访问多一次间接寻址**。
-- **第二步，C++ 可直接**：值对象内联在栈/父对象里——`obj.field` 直接「基址 + 偏移」，无解引用。**值语义让字段访问少一层间接**。
+- **第一步，Java 必解引用**：Java 对象都在堆、经引用访问——**`obj.field`** 先解引用拿对象头，再偏移取字段。**每次字段访问多一次间接寻址**。
+- **第二步，C++ 可直接**：值对象内联在栈/父对象里——**`obj.field`** 直接「基址 + 偏移」，无解引用。**值语义让字段访问少一层间接**。
 - **第三步，看开销差**：Java 的「引用 + GC + 虚表」每处多开销；C++ 的「值 + 直接访问」为零成本。**「引用语义买安全（GC 可达），值语义买速度（直接访问）」**——这就是「Java 比 C++ 慢」的底层结构原因之一。
 
 **辨析｜易错点：** Java 的「慢」不是语言「差」，是**运行时模型**的代价：引用间接、GC 停顿、动态分派。JIT 把热点编译优化后，Java 可达 C++ 的 50-80% 性能——「现代 JVM 的性能已经不错，但不可能追平零成本的 C++」。**「引用语义 + GC + JIT」是 Java 的性能公式，每一层都有代价**。
 
 ## 5 两种语言的现代演化
 
-- **C++**：Modern C++（11/14/17/20）——智能指针（`unique_ptr`/`shared_ptr`）、`constexpr`、概念（concepts）、协程——「让 RAII 与模板更安全、更易用」。
+- **C++**：Modern C++（11/14/17/20）——智能指针（**`unique_ptr`**/**`shared_ptr`**）、**移动语义（move semantics）**、概念（concepts）、协程——「让 RAII 与模板更安全、更易用」。
 - **Java**：record、sealed class、模式匹配、Valhalla（值类型）——「让引用语言获得值语义的好处」。
-- **相互靠拢**：Java 加值类型（record/Valhalla 的 `inline class`），C++ 加智能指针（模拟 GC 的便利）——**「两语言都在向对方的优点移动」**。<span class="marginnote">有趣的是两条演化路径在「收敛」：Java 的 Valhalla 值类型想让「小对象像 int 一样快」（值语义），C++ 的智能指针想让「资源像 GC 一样安全」（自动管理）。「值语义的性能 + 自动管理的安全」成为共同目标——Rust 用所有权一步到位，Java/C++ 在各自轨道上缓慢趋近。</span>
+- **相互靠拢**：Java 加值类型（record/Valhalla 的**值类型（value types）**），C++ 加智能指针（模拟 GC 的便利）——**「两语言都在向对方的优点移动」**。<span class="marginnote">有趣的是两条演化路径在「收敛」：Java 的 Valhalla 值类型想让「小对象像 int 一样快」（值语义），C++ 的智能指针想让「资源像 GC 一样安全」（自动管理）。「值语义的性能 + 自动管理的安全」成为共同目标——Rust 用所有权一步到位，Java/C++ 在各自轨道上缓慢趋近。</span>
 
 
 ## 术语速查
@@ -123,8 +136,8 @@ $$
 | --- | --- |
 | Java 类型擦除（erasure） | Java 类型擦除（erasure）：泛型只在编译期检查，运行时擦除为 Object（或上界）——一份代码，所有类型共用。 |
 | 编译期 | Java 类型擦除（erasure）：泛型只在编译期检查，运行时擦除为 Object（或上界）——一份代码，所有类型共用。 |
-| C++ 模板实例化（instantiation） | C++ 模板实例化（instantiation）：每个类型参数生成专用代码——vector`<int>` 与 vector`<float>` 是两份代码。 |
-| 专用代码 | C++ 模板实例化（instantiation）：每个类型参数生成专用代码——vector`<int>` 与 vector`<float>` 是两份代码。 |
+| C++ 模板实例化（instantiation） | C++ 模板实例化（instantiation）：每个类型参数生成专用代码——**`vector<int>`** 与 **`vector<double>`** 是两份代码。 |
+| 专用代码 | C++ 模板实例化（instantiation）：每个类型参数生成专用代码——**`vector<int>`** 与 **`vector<double>`** 是两份代码。 |
 | Java 的 GC | Java 的 GC：堆对象由垃圾回收器自动回收——程序员不管 free： |
 | C++ 的 RAII | C++ 的 RAII：资源随对象生命周期自动释放——作用域结束、析构函数执行： |
 | C++ 值语义 | C++ 值语义：变量直接持有值——赋值即拷贝： |

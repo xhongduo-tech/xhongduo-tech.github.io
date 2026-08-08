@@ -30,17 +30,21 @@ SFT 在任务层面把一切问题**统一改写成一个形式**：输入是指
 
 一条 SFT 样本通常长这样：
 
-```
-<|im_start|>user
-请把这句话翻译成英语：今天天气很好。
-<|im_start|>assistant
-Today's weather is nice.
+```python
+# 一条 SFT 样本（ChatML 风格）
+{
+    "messages": [
+        {"role": "system",    "content": "你是一个乐于助人的助手。"},
+        {"role": "user",      "content": "请解释什么是递归。"},              # 指令部分
+        {"role": "assistant", "content": "递归就是函数调用自身的编程技巧……"},  # 回答部分
+    ]
+}
 ```
 
-- **指令部分**（user 之后）：模型要「看到并理解」的内容；
-- **回答部分**（assistant 之后）：模型要「学会产出」的内容；
-- **特殊 token**（`<|im_start|>` 等）：标记角色边界，对应第二篇《数据工程》的《对话模板》专讲；
-- **loss mask**：损失只算回答部分，指令部分被遮掉。
+**指令部分**（user 之后）：模型要「看到并理解」的内容；
+**回答部分**（assistant 之后）：模型要「学会产出」的内容；
+**特殊 token**（`<|im_start|>`、`<|im_end|>` 等）：标记角色边界，对应第二篇《数据工程》的《对话模板》专讲；
+**loss mask**：损失只算回答部分，指令部分被遮掉。
 
 **重点：loss mask 是 SFT 与预训练在实现上的唯一差别。** 如果对指令部分也算损失，模型会被迫去「预测用户的话」——这不仅浪费计算，还会让模型产生「我该接用户的茬」的错误倾向。<span class="marginnote">loss mask 的实现细节、常见的错误（mask 错位、padding 位置算入损失等），在第二篇《数据工程》的《loss mask》一节单独展开。</span>
 
@@ -57,19 +61,19 @@ Today's weather is nice.
 SFT 的损失总览篇已经见过，这里我们把它求导，看模型到底在学什么：
 
 $$
-L_{\text{SFT}}(\theta) = -\sum_{t \in \mathcal{R}} \log P_\theta(y_t \mid x, y_{<t})
+L_{\text{SFT}}(\theta) = -\sum_{t \in \mathcal{R}} \log P_\theta(y_t \mid x, y_{\\lt t})
 $$
 
 其中 $\mathcal{R}$ 是回答部分 token 的位置集合。对一个回答位置，交叉熵可以写成 logits $z$ 的函数：
 
 $$
-\ell_t = -\log P_\theta(y_t \mid x, y_{<t}) = -\log \frac{e^{z_{y_t}}}{\sum_{v} e^{z_v}} = \log\sum_{v} e^{z_v} - z_{y_t}
+\ell_t = -\log P_\theta(y_t \mid x, y_{\\lt t}) = -\log \frac{e^{z_{y_t}}}{\sum_{v} e^{z_v}} = \log\sum_{v} e^{z_v} - z_{y_t}
 $$
 
 对第 $k$ 个 token 的 logit $z_k$ 求偏导：
 
 $$
-\frac{\partial \ell_t}{\partial z_k} = \frac{e^{z_k}}{\sum_{v} e^{z_v}} - \mathbb{1}[k = y_t] = P_\theta(k \mid x, y_{<t}) - \mathbb{1}[k = y_t]
+\frac{\partial \ell_t}{\partial z_k} = \frac{e^{z_k}}{\sum_{v} e^{z_v}} - \mathbb{1}[k = y_t] = P_\theta(k \mid x, y_{\\lt t}) - \mathbb{1}[k = y_t]
 $$
 
 逐步拆解这条式子：
@@ -83,7 +87,7 @@ $$
 参数更新（对一个回答 token 的 logits）：
 
 $$
-z_k \leftarrow z_k - \eta \big(P_\theta(k\mid x, y_{<t}) - \mathbb{1}[k = y_t]\big)
+z_k \leftarrow z_k - \eta \big(P_\theta(k\mid x, y_{\\lt t}) - \mathbb{1}[k = y_t]\big)
 $$
 
 $\eta$ 是学习率：真实 token 的 logit 上升 $\eta(1-P)$，错误 token 的 logit 下降 $\eta P$——模型把「正确答案」越推越高，把「候选错误答案」越压越低。
@@ -99,22 +103,20 @@ SFT 训练上有几条反复被验证的经验：
 **辨析｜易错点：** 三个高频坑。
 
 1. **loss mask 没遮指令**：把「预测用户的话」也算进损失，模型倾向复述指令。检查方法是打印每条样本各部分对 loss 的贡献，指令部分应接近 0。
-2. **回答里混入特殊 token / padding**：`<pad>` 参与求平均会稀释损失、让模型学会输出 padding。记得在 mask 里把 padding 一并遮掉。
+2. **回答里混入特殊 token / padding**：**padding 位置**参与求平均会稀释损失、让模型学会输出 padding。记得在 mask 里把 padding 一并遮掉。
 3. **把 SFT 当知识注入**：领域知识不足却指望 SFT 补，结果模型「会答但答错」——先想清楚该走继续预训练还是 SFT。
 
 一个最小实现：
 
 ```python
 import torch
-import torch.nn.functional as F
 
-logits = model(input_ids).logits                # (B, T, V)
-# 只对回答部分计算损失，指令与 padding 都被 loss_mask 遮掉
-shift_logits = logits[..., :-1, :].contiguous()
-shift_labels = labels[..., 1:].contiguous()
-loss = F.cross_entropy(shift_logits.view(-1, V),
-                       shift_labels.view(-1), reduction="none")
-loss = (loss * loss_mask.view(-1)).sum() / loss_mask.sum()
+def sft_loss(logits, labels, mask):
+    """只对回答部分（mask=1）算交叉熵"""
+    log_probs = logits.log_softmax(dim=-1)                                # (B, T, V)
+    per_token = log_probs.gather(-1, labels.unsqueeze(-1)).squeeze(-1)    # (B, T)
+    masked = per_token * mask                                             # 指令/padding 被遮掉
+    return -masked.sum() / mask.sum()                                     # 回答部分的平均交叉熵
 ```
 
 ## 6 小结

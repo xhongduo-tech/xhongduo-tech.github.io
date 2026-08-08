@@ -55,16 +55,26 @@ Python 示意（离散正交基生成后求系数）：
 ```python
 import numpy as np
 
-def discrete_orthonormal_basis(x, n, rho=None):
-    """在数据点 x 上生成 0..n 阶离散正交多项式（三项递推 + 归一化）"""
-    m = len(x)
-    rho = np.ones(m) if rho is None else np.array(rho, float)
-    # 归一化权重
-    basis = []
-    def inner(u, v):
-        return np.sum(rho * u(x) * v(x))
-    # 用三项递推（略去细节，核心是 alpha/beta 由内积算）
-    return basis
+def discrete_ortho_basis(x, rho, deg):
+    """三项递推生成离散正交多项式：返回 φ_0..φ_deg 在各数据点上的取值。"""
+    phis = []
+    phi_prev = np.zeros(len(x))          # φ_{-1} = 0
+    phi = np.ones(len(x))                # φ_0 = 1
+    for k in range(deg + 1):
+        phis.append(phi)
+        alpha = np.sum(rho * x * phi * phi) / np.sum(rho * phi * phi)
+        beta = (np.sum(rho * phi * phi) / np.sum(rho * phi_prev * phi_prev)) if k > 0 else 0.0
+        phi_next = (x - alpha) * phi - beta * phi_prev
+        phi_prev, phi = phi, phi_next
+    return phis
+
+# 数据点：y = 1 + 2x（无噪声），正交基下应精确恢复 a_0 = 4, a_1 = 2
+x = np.array([0., 1., 2., 3.])
+y = np.array([1., 3., 5., 7.])
+rho = np.ones_like(x)
+for k, phi in enumerate(discrete_ortho_basis(x, rho, 1)):
+    a = np.sum(rho * y * phi) / np.sum(rho * phi * phi)   # 独立除法
+    print(f"a_{k} = {a}")                 # 4.0, 2.0
 ```
 
 ## 3 公式解析：正交基下最小二乘的系数

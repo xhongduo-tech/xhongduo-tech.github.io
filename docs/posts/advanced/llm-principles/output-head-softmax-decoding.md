@@ -40,7 +40,7 @@ $$
 **贪心解码（greedy decoding）**：每步选概率最大的 token：
 
 $$
-w_t = \arg\max_w p(w \mid x_{<t})
+w_t = \arg\max_w p(w \mid x_{\\lt t})
 $$
 
 - 优点：确定、稳定。

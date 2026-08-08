@@ -70,10 +70,10 @@ $$
 
 $Ax = 0$ 只有零解 $\Leftrightarrow \operatorname{rank} A = n$——这条推理链值得完整走一遍：
 
-- **第一步，翻译定义**：$k_1\mathbf{a}_1 + \cdots + k_n\mathbf{a}_n = \mathbf{0}$ 用矩阵写就是 $A\mathbf{k} = \mathbf{0}$（$A$ 的列是 $\mathbf{a}_i$，$\mathbf{k}$ 是系数向量）。线性无关 $\Leftrightarrow \mathbf{k} = \mathbf{0}$ 是唯一解。
-- **第二步，与解结构挂钩**：高斯消元告诉我们，$Ax = 0$ 的自由变量个数 $= n - \operatorname{rank} A$。唯一解 $\mathbf{k} = \mathbf{0}$ $\Leftrightarrow$ 没有自由变量 $\Leftrightarrow n - \operatorname{rank} A = 0 \Leftrightarrow \operatorname{rank} A = n$。
-- **第三步，相关的情形**：有非零解 $\Leftrightarrow$ 存在自由变量 $\Leftrightarrow \operatorname{rank} A < n$，此时 $A\mathbf{k} = \mathbf{0}$ 有非零解即线性相关。
-- **第四步，回到行列式**：方阵时 $\operatorname{rank} A = n \Leftrightarrow \det A \ne 0$，得到行列式判据。三把尺子由同一条消元逻辑贯穿。
+**第一步，翻译定义**：$k_1\mathbf{a}_1 + \cdots + k_n\mathbf{a}_n = \mathbf{0}$ 用矩阵写就是 $A\mathbf{k} = \mathbf{0}$（$A$ 的列是 $\mathbf{a}_i$，$\mathbf{k}$ 是系数向量）。线性无关 $\Leftrightarrow \mathbf{k} = \mathbf{0}$ 是唯一解。
+**第二步，与解结构挂钩**：高斯消元告诉我们，$Ax = 0$ 的自由变量个数 $= n - \operatorname{rank} A$。唯一解 $\mathbf{k} = \mathbf{0}$ $\Leftrightarrow$ 没有自由变量 $\Leftrightarrow n - \operatorname{rank} A = 0 \Leftrightarrow \operatorname{rank} A = n$。
+**第三步，相关的情形**：有非零解 $\Leftrightarrow$ 存在自由变量 $\Leftrightarrow \operatorname{rank} A < n$，此时 $A\mathbf{k} = \mathbf{0}$ 有非零解即线性相关。
+**第四步，回到行列式**：方阵时 $\operatorname{rank} A = n \Leftrightarrow \det A \ne 0$，得到行列式判据。三把尺子由同一条消元逻辑贯穿。
 
 <span class="marginnote">「自由变量的存在性」是线性相关最直观的判据：相关 = 齐次方程有「活口」（非零解）。这个视角在解结构一节会彻底展开：线性无关的列组对应基础解系只有零向量，相关的列组对应非平凡解空间。</span>
 

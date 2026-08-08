@@ -22,7 +22,7 @@ date: 2026-08-07
 
 ## 1 自顶向下的总体思路
 
-自顶向下分析维护一个「已匹配前缀 + 待匹配后缀」的视图。初始时整句待匹配，从 $S$ 开始；每一步，盯着待匹配串**最左边**的非终结符 $A$，用某条产生式 $A \to X_1\cdots X_k$ 替换它，然后把 $X_1\cdots X_k$ 与输入对照：终结符必须恰好等于当前输入记号，非终结符继续展开。<span class="marginnote">「最左边」这个细节定义了自顶向下 = 追踪最左推导。读者可以在纸上对 `id+id` 手工走一遍：每一步只动最左非终结符，输入指针只会往前。</span>
+自顶向下分析维护一个「已匹配前缀 + 待匹配后缀」的视图。初始时整句待匹配，从 $S$ 开始；每一步，盯着待匹配串**最左边**的非终结符 $A$，用某条产生式 $A \to X_1\cdots X_k$ 替换它，然后把 $X_1\cdots X_k$ 与输入对照：终结符必须恰好等于当前输入记号，非终结符继续展开。<span class="marginnote">「最左边」这个细节定义了自顶向下 = 追踪最左推导。读者可以在纸上对 $A$ 手工走一遍：每一步只动最左非终结符，输入指针只会往前。</span>
 
 核心挑战在于**选择哪条产生式**：
 
@@ -38,27 +38,25 @@ $$\begin{aligned} E &\to T\,E' \\ E' &\to +T\,E' \mid \varepsilon \\ T &\to F\,T
 
 递归下降分析器长这样（伪码）：
 
-```
-parse_E():
-    parse_T()
-    parse_E_prime()
-
-parse_E_prime():
-    if current token is '+':
-        consume('+'); parse_T(); parse_E_prime()
-    else:
-        return          # ε 产生式：什么都不做
-
-parse_F():
-    if current token is '(':
-        consume('('); parse_E(); consume(')')
-    elif current token is id:
-        consume(id)
-    else:
-        error("期望 id 或 (")
+```text
+function E()  { T(); E_prime(); }
+function E_prime() {
+    if (lookahead == '+') { match('+'); T(); E_prime(); }
+    // 否则默认 ε：什么都不做，直接返回
+}
+function T()  { F(); T_prime(); }
+function T_prime() {
+    if (lookahead == '*') { match('*'); F(); T_prime(); }
+    // 否则默认 ε
+}
+function F() {
+    if (lookahead == '(') { match('('); E(); match(')'); }
+    else if (lookahead == id) { match(id); }
+    else error();            // 当前记号不属于任何候选
+}
 ```
 
-**要点**：每个函数开头先「看」当前记号（前瞻一个 token），据此决定走哪条候选；ε 候选意味着「什么都不匹配也行」，函数直接返回。<span class="marginnote">`parse_E_prime` 里的 `if/else` 就是「候选选择」的实现：看到 `+` 就走递归分支，否则默认 ε。这个「看一眼再决定」的动作，正是下一节 FIRST 集 / FOLLOW 集要做数学化的东西。</span>
+**要点**：每个函数开头先「看」当前记号（前瞻一个 token），据此决定走哪条候选；ε 候选意味着「什么都不匹配也行」，函数直接返回。<span class="marginnote">上面的 `if` 分支就是「候选选择」的实现：看到 `+`（或 `*`）就走递归分支，否则默认 ε。这个「看一眼再决定」的动作，正是下一节 FIRST 集 / FOLLOW 集要做数学化的东西。</span>
 
 ## 3 预测分析：不用回溯的诀窍
 
@@ -96,11 +94,11 @@ $$\text{且若 } \beta_i \Rightarrow^* \varepsilon \text{，则 } \text{FIRST}(\
 
 **练习 1 手写递归下降**：为文法 $E \to T E'$、$E' \to +T E' \mid \varepsilon$、$T \to \textbf{id}$ 手写递归下降分析器的伪代码（三个函数），并用手工走完 `id + id` 的调用过程，标出每次 `match` 与递归调用。
 
-**练习 2 回溯演示**：对文法 $S \to aAd \mid aB$、$A \to c$、$B \to d$，用手工走「带回溯」的自顶向下分析处理 `acd`——先试 $aAd$ 失败，回溯换 $aB$ 成功。标出「回溯点」与「浪费的匹配」。
+**练习 2 回溯演示**：对文法 $S \to aAd \mid aB$、$A \to c$、$B \to d$，用手工走「带回溯」的自顶向下分析处理 `ad`——先试 $aAd$ 失败，回溯换 $aB$ 成功。标出「回溯点」与「浪费的匹配」。
 
 **练习 3 预测 vs 回溯**：对练习 2 的文法，用「提取左公因子」改写（$S \to aA'$、$A' \to Ad \mid B$），说明改写后为什么不再需要回溯——把「试错」变成「看首记号直接选」。
 
-**练习 4 ε 分支**：在 `parse_E_prime` 里，为什么「当前记号不是 `+`」时选择 ε 候选？若当前记号是 `id`（属于 FOLLOW($E'$) 吗？），手动推演一遍——这是「ε 兜底」的机制。
+**练习 4 ε 分支**：在 `E_prime()` 里，为什么「当前记号不是 `+`」时选择 ε 候选？若当前记号是 `$`（属于 FOLLOW($E'$) 吗？），手动推演一遍——这是「ε 兜底」的机制。
 
 **练习 5 栈与递归的对应**：把练习 1 的递归调用序列画成「调用栈的压弹」，对比第十三节「表驱动分析器的记号栈」——两者是不是同一棵最左推导的两种执行？<span class="marginnote">「递归调用栈 vs 显式记号栈」的对应是理解自顶向下的一条暗线：递归下降用「程序调用栈」隐式管理推导位置，表驱动用「显式栈」管理——执行路径（最左推导）完全相同。看懂这个对应，两节就连成一体了。</span>
 

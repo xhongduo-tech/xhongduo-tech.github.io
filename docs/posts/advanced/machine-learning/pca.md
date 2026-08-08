@@ -18,12 +18,12 @@ date: 2026-08-07
 
 降维家族里，**主成分分析（Principal Component Analysis, PCA）**是最常用、最基础的成员，没有之一。从数据预处理、可视化，到特征降维、去相关，再到人脸识别里的「特征脸」、金融里的因子分析，PCA 无处不在。它与上一节的 MDS 殊途同归（欧氏距离下等价），但从一个更直觉的起点出发：**找数据变化最大的方向**。
 
-这一节讲清三件事：PCA 的直觉（方差最大化）、它的数学表述（带约束的优化）、以及它的解法（特征分解）。学完你不仅能调 `PCA(n_components=k)`，还能说出这个 API 背后到底在算什么。<span class="marginnote">PCA 是理解「表征」的第一课：它告诉我们，一组数据可以用更少的「主方向」来描述——这正是降维的哲学。而「找方向、投上去、去冗余」这套动作，在深度学习的嵌入学习、大模型的语义空间里，以更复杂的形式不断重演。</span>
+这一节讲清三件事：PCA 的直觉（方差最大化）、它的数学表述（带约束的优化）、以及它的解法（特征分解）。学完你不仅能调 `PCA`，还能说出这个 API 背后到底在算什么。<span class="marginnote">PCA 是理解「表征」的第一课：它告诉我们，一组数据可以用更少的「主方向」来描述——这正是降维的哲学。而「找方向、投上去、去冗余」这套动作，在深度学习的嵌入学习、大模型的语义空间里，以更复杂的形式不断重演。</span>
 
 ## 1 直觉：沿着「最分散」的方向看数据想象一堆椭圆形的点云。如果只允许用一个维度来描述这堆点，你会选哪条线？显然选**点云最散开的方向**（椭圆长轴）——因为沿这个方向投影，不同样本的差异保留最多；沿短轴投影，大家挤成一团，信息大量丢失。**主成分（principal component）**就是这样的方向：**使样本投影后方差最大**的投影方向。第一主成分是方差最大的方向，第二主成分是与第一主成分正交的前提下方差次大的方向，依此类推——前 $d'$ 个主成分张成保留信息最多的 $d'$ 维子空间。
 **辨析｜易错点：** 方差最大 ≈ 保留信息最多，这个直觉成立的前提是**信息由方差度量**。PCA 不关心「哪个方向对分类有用」，它只关心「哪个方向数据变化大」——所以 PCA 是**无监督**的：类别标记根本不用。它降维后的方向可能不是「区分类别最好的方向」（那是 LDA 的工作），但常常已经很有用。
 
-## 2 数学表述：最大化投影方差设样本中心化后（每个特征减去均值）为 $\{\boldsymbol{x}_1, \dots, \boldsymbol{x}_m\}$，投影方向 $\boldsymbol{w}$（单位向量）。样本在此方向上的投影为 $z_i = \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i$，投影后的**总方差**为$$\sum_{i=1}^{m} z_i^2 = \sum_{i=1}^{m} \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i \boldsymbol{x}_i^{\mathrm{T}} \boldsymbol{w} = \boldsymbol{w}^{\mathrm{T}}\mathbf{X}\mathbf{X}^{\mathrm{T}}\boldsymbol{w}$$
+## 2 数学表述：最大化投影方差设样本中心化后（每个特征减去均值）为 $\{\boldsymbol{x}_1, \dots, \boldsymbol{x}_m\}$，投影方向 $\boldsymbol{w}$（单位向量）。样本在此方向上的投影为 $z_i = \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i$，投影后的**总方差**为`$$`\sum_{i=1}^{m} z_i^2 = \sum_{i=1}^{m} \boldsymbol{w}^{\mathrm{T}}\boldsymbol{x}_i \boldsymbol{x}_i^{\mathrm{T}} \boldsymbol{w} = \boldsymbol{w}^{\mathrm{T}}\mathbf{X}\mathbf{X}^{\mathrm{T}}\boldsymbol{w}$$
 其中 $\mathbf{X} = [\boldsymbol{x}_1, \dots, \boldsymbol{x}_m]$。PCA 求前 $d'$ 个投影方向，即求解
 
 $$\max_{\mathbf{W}} \; \text{tr}\left(\mathbf{W}^{\mathrm{T}}\mathbf{X}\mathbf{X}^{\mathrm{T}}\mathbf{W}\right) \quad \text{s.t.} \quad \mathbf{W}^{\mathrm{T}}\mathbf{W} = \mathbf{I}$$

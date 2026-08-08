@@ -92,18 +92,20 @@ $$
 现代框架把梯度检查点做成了一行配置：
 
 ```python
-model.gradient_checkpointing_enable()          # HF Transformers
-# 或 torch 层级的自定义封装
-import torch.utils.checkpoint as ckpt
-def forward_with_ckpt(layer, x):
-    return ckpt.checkpoint(layer, x, use_reentrant=False)
+from transformers import TrainingArguments
+
+args = TrainingArguments(
+    output_dir="out",
+    gradient_checkpointing=True,                            # 开启梯度检查点
+    gradient_checkpointing_kwargs={"use_reentrant": False},
+)
 ```
 
 工程上值得记住的几条经验：
 
-1. **默认从「选择性」开起**：HF 的 `gradient_checkpointing_enable()` 默认就是 checkpoint 每层输入（等价于 full 或 near-full），如果你的瓶颈在长序列，可进一步看框架是否暴露选择性档位。
+1. **默认从「选择性」开起**：HF 的 `gradient_checkpointing` 默认就是 checkpoint 每层输入（等价于 full 或 near-full），如果你的瓶颈在长序列，可进一步看框架是否暴露选择性档位。
 2. **配合大 batch 使用**：开检查点省下的显存，第一时间换成更大的 batch/更长序列，让省下的显存转化为吞吐。
-3. **注意重算层不可有随机性差异**：重算时 dropout 等随机层必须用**相同的随机种子**，否则两次前向结果不同，反向梯度错乱。PyTorch 的 `checkpoint` 会保存 RNG 状态自动处理，但自定义实现时要小心。
+3. **注意重算层不可有随机性差异**：重算时 dropout 等随机层必须用**相同的随机种子**，否则两次前向结果不同，反向梯度错乱。PyTorch 的 `torch.utils.checkpoint`（默认 `preserve_rng_state=True`）会保存 RNG 状态自动处理，但自定义实现时要小心。
 4. **与 ZeRO/FSDP 叠加**：检查点省激活、并行省静态，两者互不干扰，是 7B 全参微调的常规组合。
 
 ## 5 小结

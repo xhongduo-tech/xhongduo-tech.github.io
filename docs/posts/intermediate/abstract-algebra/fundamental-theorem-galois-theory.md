@@ -64,26 +64,26 @@ $$
 
 把「商群 ↔ 商扩张」这条最深刻的字典项拆透。
 
-- **第一步，问题的几何。** $K/F$ 正规，$K$ 的对称 $\operatorname{Gal}(K/F)$ 与 $E$ 的对称 $G$ 什么关系？——$G$ 的对称「限制到 $K$」给出 $\operatorname{Gal}(K/F)$，而「限制」这个动作的核是「固定 $K$ 的对称」$\operatorname{Gal}(E/K)$。
+**第一步，问题的几何。** $K/F$ 正规，$K$ 的对称 $\operatorname{Gal}(K/F)$ 与 $E$ 的对称 $G$ 什么关系？——$G$ 的对称「限制到 $K$」给出 $\operatorname{Gal}(K/F)$，而「限制」这个动作的核是「固定 $K$ 的对称」$\operatorname{Gal}(E/K)$。
 
-- **第二步，限制映射。** $\rho : G \to \operatorname{Gal}(K/F)$，$\rho(\sigma) = \sigma|_K$（限制到 $K$）。$K/F$ 正规保证 $\sigma(K) = K$（$G$ 把正规扩张映到自身），故 $\sigma|_K$ 是 $K$ 的自同构。
+**第二步，限制映射。** $\rho : G \to \operatorname{Gal}(K/F)$，$\rho(\sigma) = \sigma|_K$（限制到 $K$）。$K/F$ 正规保证 $\sigma(K) = K$（$G$ 把正规扩张映到自身），故 $\sigma|_K$ 是 $K$ 的自同构。
 
-- **第三步，算核与像。** $\ker \rho = \{ \sigma \mid \sigma|_K = \mathrm{id}_K \} = \operatorname{Gal}(E/K)$（固定 $K$ 的对称）。像 = 全体 $\sigma|_K$ = $\operatorname{Gal}(K/F)$（$K/F$ 是 Galois 扩张，大小 $[K:F]$，而 $|G|/|\operatorname{Gal}(E/K)| = [K:F]$ 由大小对应，故满射）。
+**第三步，算核与像。** $\ker \rho = \{ \sigma \mid \sigma|_K = \mathrm{id}_K \} = \operatorname{Gal}(E/K)$（固定 $K$ 的对称）。像 = 全体 $\sigma|_K$ = $\operatorname{Gal}(K/F)$（$K/F$ 是 Galois 扩张，大小 $[K:F]$，而 $|G|/|\operatorname{Gal}(E/K)| = [K:F]$ 由大小对应，故满射）。
 
-- **第四步，第一同构定理。** $G/\ker\rho \cong \operatorname{Im}\rho$，即 $G/\operatorname{Gal}(E/K) \cong \operatorname{Gal}(K/F)$。$\blacksquare$ **外层对称 = 内层对称压掉内层固定**——商群的语言完美描述「剥掉内层后的剩余对称」。
+**第四步，第一同构定理。** $G/\ker\rho \cong \operatorname{Im}\rho$，即 $G/\operatorname{Gal}(E/K) \cong \operatorname{Gal}(K/F)$。$\blacksquare$ **外层对称 = 内层对称压掉内层固定**——商群的语言完美描述「剥掉内层后的剩余对称」。
 
 ## 5 例子：用字典读 x^3 - 2 与 x^4 - 4x^2 + 2
 
 把基本定理的「字典」用在两个例子上，展示翻译的威力。
 
 **$x^3 - 2$（$G = S_3$）：**
-- 中间域 $\mathbb{Q}(\omega)$（$x^2+x+1$ 的分裂域，正规）对应子群 $A_3 \trianglelefteq S_3$；
-- $\operatorname{Gal}(\mathbb{Q}(\omega)/\mathbb{Q}) \cong S_3/A_3 \cong \mathbb{Z}_2$——「$\mathbb{Q}(\omega)$ 的对称是 $\mathbb{Z}_2$（共轭 $\omega \leftrightarrow \omega^2$）」。
-- $\mathbb{Q}(\sqrt[3]2)$ 对应 $\langle (12) \rangle$（不正规），因为 $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$ 不正规。$\checkmark$
+中间域 $\mathbb{Q}(\omega)$（$x^2+x+1$ 的分裂域，正规）对应子群 $A_3 \trianglelefteq S_3$；
+$\operatorname{Gal}(\mathbb{Q}(\omega)/\mathbb{Q}) \cong S_3/A_3 \cong \mathbb{Z}_2$——「$\mathbb{Q}(\omega)$ 的对称是 $\mathbb{Z}_2$（共轭 $\omega \leftrightarrow \omega^2$）」。
+$\mathbb{Q}(\sqrt[3]2)$ 对应 $\langle (12) \rangle$（不正规），因为 $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$ 不正规。$\checkmark$
 
 **$x^4 - 4x^2 + 2$（$G = \mathbb{Z}_2 \times \mathbb{Z}_2$）：**
-- 三个 2 阶子群对应三个中间域 $\mathbb{Q}(\sqrt2)$、$\mathbb{Q}(\sqrt{2+\sqrt2})$、$\mathbb{Q}(\sqrt{2-\sqrt2})$（各自是分裂域）；
-- 所有子群都正规（$G$ 交换），所有中间域都是 $\mathbb{Q}$ 的正规扩张——**交换 Galois 群 ⟹ 一切中间子域正规**。<span class="marginnote">「$G$ 交换 ⟹ 所有中间子域正规」是基本定理的直接推论：交换群里所有子群正规，对应所有中间子域正规。$x^4 - 4x^2 + 2$ 的 Galois 群 $\mathbb{Z}_2\times\mathbb{Z}_2$ 交换，所以它的每个中间子域都是 $\mathbb{Q}$ 的分裂域——这与「根由两个嵌套的平方根构造」（$\sqrt{2\pm\sqrt2}$）完美吻合。</span>
+三个 2 阶子群对应三个中间域 $\mathbb{Q}(\sqrt2)$、$\mathbb{Q}(\sqrt{2+\sqrt2})$、$\mathbb{Q}(\sqrt{2-\sqrt2})$（各自是分裂域）；
+所有子群都正规（$G$ 交换），所有中间域都是 $\mathbb{Q}$ 的正规扩张——**交换 Galois 群 ⟹ 一切中间子域正规**。<span class="marginnote">「$G$ 交换 ⟹ 所有中间子域正规」是基本定理的直接推论：交换群里所有子群正规，对应所有中间子域正规。$x^4 - 4x^2 + 2$ 的 Galois 群 $\mathbb{Z}_2\times\mathbb{Z}_2$ 交换，所以它的每个中间子域都是 $\mathbb{Q}$ 的分裂域——这与「根由两个嵌套的平方根构造」（$\sqrt{2\pm\sqrt2}$）完美吻合。</span>
 
 ## 6 小结
 

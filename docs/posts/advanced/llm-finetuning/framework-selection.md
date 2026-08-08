@@ -84,33 +84,58 @@ date: 2026-08-07
 把「对 7B 模型做一次 LoRA 微调」这个相同任务，在四个框架里各写一遍，差异立刻具象：
 
 ```yaml
-# Axolotl：声明式，一段 YAML
-base_model: Qwen/Qwen2-7B
-datasets: [{path: alpaca.json, type: alpaca}]
+# Axolotl：写一个 YAML，一条命令跑训练
+base_model: Qwen/Qwen2.5-7B
 adapter: lora
-lora_r: 16
+r: 8
+lora_alpha: 16
+datasets:
+  - path: my_alpaca.jsonl
+    type: alpaca
+train_on_inputs: false
+sequence_len: 2048
+micro_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 2e-4
+num_epochs: 3
 ```
 
 ```python
-# TRL：编程式，代码控制每一步
-trainer = SFTTrainer(model=model, args=args,
-                     train_dataset=dataset,
-                     peft_config=LoraConfig(r=16))
+# TRL：写代码控制每一步
+from trl import SFTTrainer
+from transformers import TrainingArguments
+
+trainer = SFTTrainer(
+    model="Qwen/Qwen2.5-7B",
+    train_dataset=dataset,
+    args=TrainingArguments(
+        output_dir="out",
+        per_device_train_batch_size=2,
+        learning_rate=2e-4,
+    ),
+    peft_config=LoraConfig(r=8, lora_alpha=16),
+)
 trainer.train()
 ```
 
 ```bash
-# LLaMA-Factory：CLI 一行（或用 WebUI 点点点）
+# LLaMA-Factory：一条命令行（或 WebUI 点点点）
 llamafactory-cli train \
-  --model_name_or_path Qwen/Qwen2-7B \
-  --stage sft --finetuning_type lora \
-  --dataset alpaca --lora_rank 16
+  --model_name_or_path Qwen/Qwen2.5-7B \
+  --dataset my_alpaca.jsonl \
+  --template qwen \
+  --finetuning_type lora \
+  --lora_rank 8 \
+  --output_dir out
 ```
 
 ```bash
-# ms-swift：CLI 一行，国产生态
-swift sft --model Qwen/Qwen2-7B \
-  --dataset alpaca.json --lora_rank 16
+# ms-swift：一条命令行，训完直接接部署
+swift sft \
+  --model Qwen/Qwen2.5-7B \
+  --train_type lora \
+  --dataset my_alpaca.jsonl \
+  --output_dir out
 ```
 
 同一件事，四种姿势：**Axolotl 写 YAML、TRL 写代码、LLaMA-Factory 与 ms-swift 敲命令行**。选型就是问自己「你更愿意跟哪种姿势相处」。## 5 选型决策清单

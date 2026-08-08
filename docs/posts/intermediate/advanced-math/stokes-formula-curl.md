@@ -61,14 +61,14 @@ $$\mathrm{rot}\,\mathbf{F} = \nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i} 
 
 **保守场三等价（空间版）**：在单连通空间区域内，以下等价：
 
-- $\oint_\Gamma \mathbf{F}\cdot d\mathbf{s} = 0$ 对所有闭路 $\Gamma$ 成立；
-- 曲线积分与路径无关；
-- $\mathrm{rot}\,\mathbf{F} = \mathbf{0}$（无旋）；
-- 存在势函数 $u$ 使 $\mathbf{F} = \nabla u$。
+$\oint_\Gamma \mathbf{F}\cdot d\mathbf{s} = 0$ 对所有闭路 $\Gamma$ 成立；
+曲线积分与路径无关；
+$\mathrm{rot}\,\mathbf{F} = \mathbf{0}$（无旋）；
+存在势函数 $u$ 使 $\mathbf{F} = \nabla u$。
 
 ## 5 斯托克斯公式的应用
 
-- **麦克斯韦方程组（电磁感应）**：$\oint_\Gamma \mathbf{E}\cdot d\mathbf{s} = -\frac{d}{dt}\iint_\Sigma \mathbf{B}\cdot d\mathbf{S}$——变化的磁场产生电场，正是斯托克斯公式的物理化身。<span class="marginnote">法拉第电磁感应定律的积分形式就是「电场沿闭合回路的环流量 = 磁通量变化率的负值」。斯托克斯公式把「环流量」翻译成「磁场的旋度」，得到微分形式 $\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$——<strong>麦克斯韦方程组的一半就靠斯托克斯公式建立</strong>。到《大学物理》与《电动力学》你会系统看到这套语言。</span>
+**麦克斯韦方程组（电磁感应）**：$\oint_\Gamma \mathbf{E}\cdot d\mathbf{s} = -\frac{d}{dt}\iint_\Sigma \mathbf{B}\cdot d\mathbf{S}$——变化的磁场产生电场，正是斯托克斯公式的物理化身。<span class="marginnote">法拉第电磁感应定律的积分形式就是「电场沿闭合回路的环流量 = 磁通量变化率的负值」。斯托克斯公式把「环流量」翻译成「磁场的旋度」，得到微分形式 $\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}$——<strong>麦克斯韦方程组的一半就靠斯托克斯公式建立</strong>。到《大学物理》与《电动力学》你会系统看到这套语言。</span>
 - **流体力学**：涡度 $\boldsymbol{\omega} = \mathrm{rot}\,\mathbf{v}$ 刻画流体旋转，卡门涡街、大气涡旋都用旋度分析。
 - **天气预报**：大气的涡度（cyclone 的旋转）是气象学的核心量。
 - **曲线积分与路径无关判定**：空间保守场的判定直接用 $\mathrm{rot}\,\mathbf{F}=\mathbf{0}$。

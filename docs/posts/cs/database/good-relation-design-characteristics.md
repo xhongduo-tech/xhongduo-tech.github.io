@@ -22,15 +22,22 @@ date: 2026-08-07
 
 设我们设计了一个「银行账户」表，把所有信息塞在一起：
 
-```
-account(id, customer_name, customer_city, branch_name, branch_city, balance)
+```sql
+CREATE TABLE account (
+    account_number  VARCHAR(15) PRIMARY KEY,
+    balance         NUMERIC(10,2),
+    customer_name   VARCHAR(20),
+    customer_city   VARCHAR(30),
+    branch_name     VARCHAR(20),
+    branch_city     VARCHAR(30)
+);
 ```
 
 这张表有三个问题，全部源于一个根源——**冗余**。
 
 1. **更新异常（update anomaly）**：张三搬了家，`customer_city` 要改。但张三有 5 个账户、10 行记录，你得改 10 行；漏改任何一行，数据库就自相矛盾（同一客户两个城市）。
-2. **插入异常（insertion anomaly）**：新客户李四还没开户，无法插入——因为 `id` 是主码，开户前他没有任何账户行，但主码不能为 NULL，他的信息根本没地方放。
-3. **删除异常（deletion anomaly）**：王五销户，删掉唯一一行，他的 `customer_city` 等信息也跟着消失——明明该保留的客户信息被误删了。
+2. **插入异常（insertion anomaly）**：新客户李四还没开户，无法插入——因为 `account_number` 是主码，开户前他没有任何账户行，但主码不能为 NULL，他的信息根本没地方放。
+3. **删除异常（deletion anomaly）**：王五销户，删掉唯一一行，他的 `customer_name`、`customer_city` 等信息也跟着消失——明明该保留的客户信息被误删了。
 
 <span class="marginnote">这三个异常不是设计者的失误，而是<strong>模式结构的必然结果</strong>：把「账户」与「客户」「支行」两个不同的事实塞进了同一张表。只要表里混着多个「事实」，任何一次增删改都可能波及其他不相关的数据。</span>
 
@@ -38,25 +45,38 @@ account(id, customer_name, customer_city, branch_name, branch_city, balance)
 
 这张表为什么坏？因为它把三种**不同粒度的信息**揉在一起：
 
-- 账户事实：`(id, balance)` —— 每个账户一条。
+- 账户事实：`(account_number, balance)` —— 每个账户一条。
 - 客户事实：`(customer_name, customer_city)` —— 每个客户一条。
 - 支行事实：`(branch_name, branch_city)` —— 每个支行一条。
 
-**核心要点：一个关系应该只承载一种「基本事实」。** 账户表里，`balance` 依赖 `id`；`customer_city` 依赖 `customer_name`（而非 `id`）；`branch_city` 依赖 `branch_name`。当「部分属性依赖部分主码」（不是整个主码），冗余就必然出现。
+**核心要点：一个关系应该只承载一种「基本事实」。** 账户表里，`customer_city` 依赖 `customer_name`；`branch_city` 依赖 `branch_name`（而非 `account_number`）；`balance` 依赖 `account_number`。当「部分属性依赖部分主码」（不是整个主码），冗余就必然出现。
 
 ## 3 好的设计：拆分与连接
 
 把坏表拆成三张表，各承载一个事实：
 
-```
-account(id, customer_name, branch_name, balance)
-customer(customer_name, customer_city)
-branch(branch_name, branch_city)
+```sql
+CREATE TABLE customer (
+    customer_name   VARCHAR(20) PRIMARY KEY,
+    customer_city   VARCHAR(30)
+);
+CREATE TABLE branch (
+    branch_name     VARCHAR(20) PRIMARY KEY,
+    branch_city     VARCHAR(30)
+);
+CREATE TABLE account (
+    account_number  VARCHAR(15) PRIMARY KEY,
+    balance         NUMERIC(10,2),
+    customer_name   VARCHAR(20),
+    branch_name     VARCHAR(20),
+    FOREIGN KEY (customer_name) REFERENCES customer,
+    FOREIGN KEY (branch_name) REFERENCES branch
+);
 ```
 
-- 更新异常消失：改李四的城市只需更新 `customer` 表一行。
-- 插入异常消失：无账户的客户可直接插 `customer` 表。
-- 删除异常消失：销户只删 `account` 行，客户与支行信息保留。
+- 更新异常消失：改李四的城市只需更新 customer 表一行。
+- 插入异常消失：无账户的客户可直接插 customer 表。
+- 删除异常消失：销户只删 account 行，客户与支行信息保留。
 
 **付出的代价**：查询「客户住在哪个城市、且余额多少」需要连接三张表。**好设计用「多一次连接」换「零异常」**——这正是第 7 章「消除冗余」的延续，也是范式的核心交易。
 
@@ -79,7 +99,7 @@ $$
 - **第一步，左右两边的含义**：左边是原关系 $r$；右边是把 $r$ 投影到 $R_1$、$R_2$ 再自然连接的结果。
 - **第二步，为什么不是恒成立**：若 $R_1, R_2$ 的公共属性不能唯一对应，连接会产生原表没有的「假行」——连接结果比原表大，信息被夸大。
 - **第三步，充要条件**：二元分解无损 $\iff$ $R_1 \cap R_2$ 是 $R_1$ 或 $R_2$ 的**超码**。直觉：公共属性必须能「钉住」一侧的所有行。
-- **第四步，回到例子**：把 `account(id, customer_name, balance)` 与 `customer(customer_name, customer_city)` 拆开，公共属性 `customer_name` 不是 customer 表的超码（同名客户多行）——但拆开的粒度恰好让 `customer_name` 在 customer 表唯一，连接无损。
+- **第四步，回到例子**：把 account 与 customer 拆开，公共属性 `customer_name` 不是 customer 表的超码（同名客户多行）——但拆开的粒度恰好让 `customer_name` 在 customer 表唯一，连接无损。
 
 ## 5 反例自查清单
 

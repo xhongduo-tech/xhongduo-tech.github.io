@@ -74,11 +74,11 @@ ER 网络是「单尺度」的完美标本——所有节点的度都差不多�
 ER 模型最深刻的结果，是一个**相变（phase transition）**：
 平均度 $\langle k \rangle$ 从小于 1 增大到大于 1 时，网络的性质发生根本改变。
 
-- **亚临界（$\langle k \rangle < 1$）**：
+**亚临界（$\langle k \rangle < 1$）**：
     网络碎裂成大量小分量，最大分量规模 $N_{\max} \sim \ln N$，几乎没有「网络」可言。
-- **临界（$\langle k \rangle = 1$）**：
+**临界（$\langle k \rangle = 1$）**：
     相变点。$N_{\max}$ 开始以 $N^{2/3}$ 量级增长。
-- **超临界（$\langle k \rangle > 1$）**：
+**超临界（$\langle k \rangle > 1$）**：
     涌现一个**巨连通分量（giant component）**，其规模与 $N$ 成正比，直接吞并网络中大多数节点；
     其余小分量像「岛屿」散布。
     <span class="marginnote">这是网络科学第一次遇到「临界涌现」：

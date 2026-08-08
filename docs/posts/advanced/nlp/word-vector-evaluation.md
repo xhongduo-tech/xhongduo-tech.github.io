@@ -37,10 +37,10 @@ date: 2026-08-07
 
 经典数据集：
 
-- **WordSim-353**（1998）：353 对英文词，最常被引用，但相似/相关混杂。
-- **SimLex-999**（2014）：999 对词，严格按「相似」标注，更纯粹。
-- **MEN**（2013）：基于众包的 3000 对词，语料来自网络。
-- 中文侧常用 **WordSim-240 / 296** 或自建集，评价中文词向量时不要直接套英文数据集。<span class="marginnote">评测集的语言必须与词向量语言一致——拿中文词向量去跑 WordSim-353 会得到一堆未登录词，测不出任何东西。</span>
+**WordSim-353**（1998）：353 对英文词，最常被引用，但相似/相关混杂。
+**SimLex-999**（2014）：999 对词，严格按「相似」标注，更纯粹。
+**MEN**（2013）：基于众包的 3000 对词，语料来自网络。
+中文侧常用 **WordSim-240 / 296** 或自建集，评价中文词向量时不要直接套英文数据集。<span class="marginnote">评测集的语言必须与词向量语言一致——拿中文词向量去跑 WordSim-353 会得到一堆未登录词，测不出任何东西。</span>
 
 机器侧怎么算相似度？最常用**余弦相似度**，它只关心方向、不关心长度，正好契合「语义方向决定词义」的直觉：
 
@@ -66,13 +66,10 @@ $$
 在 gensim 里，词相似度往往一条命令就能算：
 
 ```python
-import gensim.downloader as api
-wv = api.load("glove-wiki-gigaword-50")     # 50 维 GloVe 词向量
-sim = wv.similarity("tiger", "cat")          # 余弦相似度
-print(round(sim, 3))                         # 0.51 左右
+from gensim.models import KeyedVectors
 
-# 整表评测：对数据集里的每一对词算相似度，再与人工打分算 Spearman
-wv.evaluate_word_pairs("wordsim353.tsv")
+wv = KeyedVectors.load_word2vec_format("word2vec.bin", binary=True)
+print(wv.similarity("tiger", "cat"))   # 0 到 1 之间的一个相似度分数
 ```
 
 ## 4 类比任务：3CosAdd 与 3CosMul
@@ -106,15 +103,10 @@ $$
 gensim 内置了相似度与类比的评测入口，这是快速验收的捷径：
 
 ```python
-import gensim.downloader as api
-wv = api.load("word2vec-google-news-300")    # 300 维 Word2Vec
-
-# 类比：a 之于 b，如同 c 之于 ?
-wv.most_similar(positive=["king", "woman"], negative=["man"], topn=5)
-# [('queen', 0.71), ('princess', 0.58), ('monarch', 0.58), ...]
-
-# 相似度评测：返回 (皮尔逊, 斯皮尔曼, OOV 占比) 等
+# 词相似度评测：返回与人工打分的 Spearman 相关等指标
 wv.evaluate_word_pairs("wordsim353.tsv")
+
+# 词类比评测：返回正确率（questions-words.txt 来自 Google Analogy）
 wv.evaluate_word_analogies("questions-words.txt")
 ```
 

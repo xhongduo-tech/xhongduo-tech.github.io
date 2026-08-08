@@ -22,18 +22,18 @@ date: 2026-08-07
 
 一个最小指令集（简化 RISC）的指令格式，用 32 位编码。以 RISC-V 风格的 R 型（寄存器-寄存器）指令为例：
 
-```
-31        25 24     20 19     15 14     12 11       7 6      0
-+----------+---------+---------+---------+----------+---------+
-| funct7   |  rs2    |  rs1    | funct3  |   rd     | opcode  |
-| 7 位     | 5 位    | 5 位    | 3 位    |  5 位    | 7 位    |
-+----------+---------+---------+---------+----------+---------+
+```text
+  31        25 24     20 19     15 14    12 11      7 6        0
+ +----------+---------+---------+--------+---------+----------+
+ |  funct7  |  rs2    |  rs1    | funct3 |   rd    |  opcode  |
+ +----------+---------+---------+--------+---------+----------+
+    7 位        5 位      5 位     3 位     5 位       7 位
 ```
 
-- **opcode**（操作码）：指令类型（如 0110011 = 运算类）。
-- **rd**：目标寄存器号（结果写哪）。
-- **rs1、rs2**：源寄存器号（操作数从哪读）。
-- **funct3、funct7**：具体功能（如加/减/与/或）。
+**opcode**（操作码）：指令类型（如 0110011 = 运算类）。
+**rd**：目标寄存器号（结果写哪）。
+**rs1、rs2**：源寄存器号（操作数从哪读）。
+**funct3、funct7**：具体功能（如加/减/与/或）。
 
 **I 型指令**（带立即数）在此基础上把 rs2 换成立即数低 12 位。
 
@@ -44,39 +44,41 @@ date: 2026-08-07
 **译码器**把指令的 opcode + funct 字段翻译成控制信号。一个最小译码器：
 
 ```verilog
-module decoder(
-    input  [31:0] instr,
-    output reg        reg_write,   // 写寄存器使能
-    output reg        alu_src,     // ALU 第二操作数：寄存器 or 立即数
-    output reg [3:0]  alu_op,      // ALU 功能选择
+module decoder (
+    input  [31:0] inst,
+    output reg        reg_write,    // 写寄存器堆使能
+    output reg        alu_src,      // ALU 第二操作数来源
+    output reg [1:0]  alu_op,       // ALU 功能选择
     output reg        mem_read, mem_write,
-    output reg        branch, jump
+    output reg        branch, jump,
+    output reg        mem_to_reg
 );
-    wire [6:0] opcode = instr[6:0];
-    wire [2:0] funct3 = instr[14:12];
+    wire [6:0] opcode = inst[6:0];
 
     always @(*) begin
-        // 默认值
-        reg_write = 0; alu_src = 0; alu_op = 4'b0000;
-        mem_read = 0; mem_write = 0; branch = 0; jump = 0;
+        // 先给默认值：所有控制信号关断（防锁存器 + 安全策略）
+        reg_write  = 1'b0;
+        alu_src    = 1'b0;
+        alu_op     = 2'b00;
+        mem_read   = 1'b0;
+        mem_write  = 1'b0;
+        branch     = 1'b0;
+        jump       = 1'b0;
+        mem_to_reg = 1'b0;
+
         case (opcode)
-            7'b0110011: begin        // R 型：寄存器运算
-                reg_write = 1; alu_src = 0;
-                alu_op = {instr[30], instr[14:12]};  // 从 funct 生成
+            7'b0110011: begin        // R 型：寄存器-寄存器运算
+                reg_write = 1'b1;
+                alu_src   = 1'b0;    // 用寄存器 rs2
+                alu_op    = 2'b10;
             end
             7'b0010011: begin        // I 型：立即数运算
-                reg_write = 1; alu_src = 1; alu_op = {1'b0, funct3};
+                reg_write = 1'b1;
+                alu_src   = 1'b1;    // 用立即数
+                alu_op    = 2'b10;
             end
-            7'b0000011: begin        // load
-                reg_write = 1; alu_src = 1; mem_read = 1;
-            end
-            7'b0100011: begin        // store
-                mem_write = 1; alu_src = 1;
-            end
-            7'b1100011: begin        // branch
-                branch = 1; alu_op = {1'b0, funct3};
-            end
-            default: ;               // 未知指令
+            // ... 其余指令类型
+            default: ;
         endcase
     end
 endmodule
@@ -86,21 +88,21 @@ endmodule
 
 ## 3 公式解析：译码器 → 控制信号 → 硬件
 
-译码器的输出如何驱动硬件？用 `add r3, r1, r2` 走一遍：
+译码器的输出如何驱动硬件？用一条 R 型加法指令 `add x3, x1, x2` 走一遍：
 
-**第一步，取指**：得到指令 `0000000_00010_00001_000_00011_0110011`。
+**第一步，取指**：得到指令 `add x3, x1, x2`（即 `0000000_00010_00001_000_00011_0110011`）。
 
 **第二步，拆字段**：
-- opcode = `0110011`（R 型运算）。
-- rs1 = `00001`（寄存器 1），rs2 = `00010`（寄存器 2），rd = `00011`（寄存器 3）。
-- funct7/funct3 = 加法的编码。
+opcode = `0110011`（R 型运算）。
+rs1 = `x1`（寄存器 1），rs2 = `x2`（寄存器 2），rd = `x3`（寄存器 3）。
+funct7/funct3 = 加法的编码。
 
-**第三步，译码产生控制信号**：`reg_write=1`、`alu_src=0`（用寄存器）、`alu_op=加法`、`mem_read/write=0`。
+**第三步，译码产生控制信号**：`reg_write=1`、`alu_src=0`（用寄存器）、`alu_op=ADD`、`mem_read=0`。
 
 **第四步，驱动数据通路**：
-- 寄存器堆读 rs1、rs2 → ALU 两个操作数。
-- ALU 执行加法 → 结果送到寄存器堆写端口。
-- 写使能打开 → 结果写入 rd（寄存器 3）。
+寄存器堆读 rs1、rs2 → ALU 两个操作数。
+ALU 执行加法 → 结果送到寄存器堆写端口。
+写使能打开 → 结果写入 rd（寄存器 3）。
 
 **一条指令 = 一组合适的控制信号**，指令的「语义」被译码器翻译成了硬件的「动作」。<span class="marginnote">「译码 = 把语义翻译成控制」是 CPU 的心脏：<strong>指令集定义了「指令 → 控制信号」的映射，译码器就是这张映射的硬件实现</strong>。RISC 的优势在此凸显——字段规整，译码器就是 case 语句 + 位提取，逻辑极简。</span>
 

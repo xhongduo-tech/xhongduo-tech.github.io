@@ -50,13 +50,13 @@ def deutsch_jozsa(n, oracle):
     return qc
 ```
 
-- `qc.x(n)` + 全 `h`：辅助比特变 $\lvert-\rangle$（先 $X$ 再 $H$ 得到 $\frac{1}{\sqrt2}(\lvert0\rangle-\lvert1\rangle)$），oracle 因此等价于「相位查询」。
-- `qc.h(range(n))`：第一次开叠加，第二次收干涉。
-- 测量结果若全 0 → 常数；否则 → 平衡。<span class="marginnote">注意 `compose` 把 oracle 子线路嵌入主线路——子线路的比特编号必须与主线路对齐（这里 oracle 用 0..n 号比特）。这是 Qiskit 里「模块化线路」的标准姿势：算法主骨架 + 可替换的 oracle 子模块。</span>
+$X$ + $H$：辅助比特变 $\lvert-\rangle$（先 $X$ 再 $H$ 得到 $\frac{1}{\sqrt2}(\lvert0\rangle-\lvert1\rangle)$），oracle 因此等价于「相位查询」。
+$H^{\otimes n}$：第一次开叠加，第二次收干涉。
+测量结果若全 0 → 常数；否则 → 平衡。<span class="marginnote">注意 `compose` 把 oracle 子线路嵌入主线路——子线路的比特编号必须与主线路对齐（这里 oracle 用 0..n 号比特）。这是 Qiskit 里「模块化线路」的标准姿势：算法主骨架 + 可替换的 oracle 子模块。</span>
 
 ## 3 公式解析：辅助比特的 $\lvert-\rangle$ 技巧在代码里的体现
 
-理论关键：翻转查询 + 辅助 $\lvert-\rangle$ = 相位查询。代码里的 `qc.x(n)` + `qc.h(n)` 正是制备 $\lvert-\rangle$：
+理论关键：翻转查询 + 辅助 $\lvert-\rangle$ = 相位查询。代码里的 $X$ + $H$ 正是制备 $\lvert-\rangle$：
 
 $$
 \lvert0\rangle \xrightarrow{X} \lvert1\rangle \xrightarrow{H} \frac{\lvert0\rangle - \lvert1\rangle}{\sqrt2} = \lvert-\rangle
@@ -70,7 +70,10 @@ $$
 
 ```python
 from qiskit_aer import AerSimulator
-from qiskit.compiler import transpile
+
+def run_dj(n, oracle):
+    """在模拟器上跑 DJ 线路并返回 counts"""
+    return AerSimulator().run(deutsch_jozsa(n, oracle), shots=1024).result().get_counts()
 
 n = 3
 # 测试常数 oracle（空线路）
@@ -84,8 +87,8 @@ result_b = run_dj(n, bal)
 print(result_b)        # 期望 {'111': 1024} 或类似非全 0 —— 平衡
 ```
 
-- 常数 oracle → 测量必为 `'000'`（概率 1）。
-- 平衡 oracle → 测量必为**非全 0**（理论保证不是 `'000'`）。<span class="marginnote">这个「全 0 / 非全 0」的二值判读完美体现 DJ 的语义：<strong>一次 oracle 调用 + 一次测量，区分常数与平衡</strong>。经典要 $2^{n-1}+1$ 次查询才能保证——在代码里跑通这个对比，指数加速就从「定理」变成「眼见为实」。</span>
+常数 oracle → 测量必为**全 0**（概率 1）。
+平衡 oracle → 测量必为**非全 0**（理论保证不是全 0）。<span class="marginnote">这个「全 0 / 非全 0」的二值判读完美体现 DJ 的语义：<strong>一次 oracle 调用 + 一次测量，区分常数与平衡</strong>。经典要 $2^{n-1}+1$ 次查询才能保证——在代码里跑通这个对比，指数加速就从「定理」变成「眼见为实」。</span>
 
 **辨析｜易错点：** DJ 的「一次查询」指的是**一次 oracle 调用**，不是「一条线路」。线路里 `compose` 进去的 oracle 是一个整体模块——它的内部实现（几个 CNOT）是「oracle 的实现成本」，不计入查询复杂度。这是「查询复杂度 ≠ 线路复杂度」的代码版提醒（第五篇《查询复杂度》）。
 
@@ -107,7 +110,7 @@ def bv_oracle(s):                     # s 是隐藏比特串
 ## 6 小结
 
 - **oracle 实现**：平衡函数 = 一串 CNOT；常数 = 空线路/全 X——oracle 是「可替换子线路」。
-- **$\lvert-\rangle$ 技巧**：`qc.x(n)` + `qc.h(n)` 制备相位敏感的辅助态，把翻转查询变相位查询。
+- **$\lvert-\rangle$ 技巧**：$X$ + $H$ 制备相位敏感的辅助态，把翻转查询变相位查询。
 - **DJ 骨架**：$H^{\otimes n}$ → oracle → $H^{\otimes n}$ → 测量；全 0 = 常数，非全 0 = 平衡。
 - **查询 vs 线路**：oracle 内部实现成本不计入查询复杂度。
 - **家族扩展**：改 oracle 就是 BV——DJ/BV/Simon 共享同一引擎。

@@ -29,12 +29,12 @@ date: 2026-08-07
 
 RDFS 扩展 RDF，引入约十个核心词汇：
 
-- **`rdfs:Class`**：声明「某个资源是一个类」——如 `:猫 rdf:type rdfs:Class`。
-- **`rdfs:subClassOf`**：子类关系——`:猫 rdfs:subClassOf :宠物`。
-- **`rdfs:subPropertyOf`**：子属性关系——`:有女儿 rdfs:subPropertyOf :有孩子`。
-- **`rdfs:domain`**：属性的定义域——`:拥有宠物 rdfs:domain :人`。
-- **`rdfs:range`**：属性的值域——`:拥有宠物 rdfs:range :动物`。
-- **`rdfs:label` / `rdfs:comment`**：给资源加人类可读的名称与注释。
+- **rdfs:Class**：声明「某个资源是一个类」——如 `ex:Dog`。
+- **rdfs:subClassOf**：子类关系——`ex:Dog rdfs:subClassOf ex:Animal`。
+- **rdfs:subPropertyOf**：子属性关系——`ex:hasName rdfs:subPropertyOf ex:hasLabel`。
+- **rdfs:domain**：属性的定义域——`ex:hasOwner rdfs:domain ex:Pet`。
+- **rdfs:range**：属性的值域——`ex:hasOwner rdfs:range ex:Person`。
+- **rdfs:label / rdfs:comment**：给资源加人类可读的名称与注释。
 
 注意区分：`rdf:type` 连接「个体—类」（花花是猫），
 `rdfs:subClassOf` 连接「类—类」（猫是宠物）。**这正是第四篇语义网络
@@ -48,18 +48,18 @@ RDFS 扩展 RDF，引入约十个核心词汇：
 
 `rdfs:domain` 与 `rdfs:range` 是最容易误解、也最容易用错的两个词。
 
-- **`rdfs:domain`**：声明「谁可以当这个属性的主语」。
-  `:拥有宠物 rdfs:domain :人`——意思是：**凡出现 `?x :拥有宠物 ?y`，
-  则 `?x` 是一个 `:人`**。
-- **`rdfs:range`**：声明「谁可以当宾语」。
-  `:拥有宠物 rdfs:range :动物`——**凡出现 `?x :拥有宠物 ?y`，则 `?y` 是一个 `:动物`**。
+**rdfs:domain**：声明「谁可以当这个属性的主语」。
+  $P \ \text{rdfs:domain} \ C$——意思是：**凡出现 $P(a,b)$，
+  则 $a$ 是一个 $C$**。
+**rdfs:range**：声明「谁可以当宾语」。
+  $P \ \text{rdfs:range} \ C$——**凡出现 $P(a,b)$，则 $b$ 是一个 $C$**。
 
 **重点：domain/range 不是「约束」，而是「推导」**——它们不拒绝违规数据，
-而是**自动补类型**。若数据里出现 `:李四 :拥有宠物 :石头`（没有类型声明），
+而是**自动补类型**。若数据里出现 `李四 养 石头`（没有类型声明），
 RDFS 推理会推出「李四是人」「石头是动物」。这与数据库的
 外键约束（违规即拒绝）截然相反：**RDFS 是开放世界的，它倾向于
 「推断类型」而不是「报错」**。<span class="marginnote">domain/range 的「推导而非约束」
-语义常让数据库背景的人措手不及：你想用 `rdfs:domain` 做「数据校验」，
+语义常让数据库背景的人措手不及：你想用 `rdfs:domain`/`rdfs:range` 做「数据校验」，
 结果它悄悄给每一条数据补了类型。若真要校验，得用 SHACL（本系列
 第 10 节）——那是专门为「约束」设计的语言。领域值域与约束，
 是两种完全不同的需求。</span>
@@ -80,15 +80,15 @@ $$A \ \text{rdfs:subClassOf} \ B, \quad B \ \text{rdfs:subClassOf} \ C \;\Longri
 
 逐条拆解第一式（最常用的子类推理）：
 
-- **前提一**：`x` 被声明为 `A` 的实例（`x rdf:type A`）。
-- **前提二**：`A` 是 `B` 的子类（`A subClassOf B`）。
-- **结论**：`x` 自动成为 `B` 的实例——**实例沿子类链向上传播**。
+- **前提一**：$x$ 被声明为 $A$ 的实例（$x \ \text{rdf:type} \ A$）。
+- **前提二**：$A$ 是 $B$ 的子类（$A \ \text{rdfs:subClassOf} \ B$）。
+- **结论**：$x$ 自动成为 $B$ 的实例——**实例沿子类链向上传播**。
 
-用实例走一遍：`花花 rdf:type :猫` + `:猫 subClassOf :宠物`
-⇒ 推出 `花花 rdf:type :宠物`。**一条子类公理，让无数实例获得新类型**——
+用实例走一遍：`花花 rdf:type 猫` + `猫 rdfs:subClassOf 宠物`
+⇒ 推出 `花花 rdf:type 宠物`。**一条子类公理，让无数实例获得新类型**——
 这就是 RDFS 推理的价值：少量 schema 公理，驱动大量数据推演。<span class="marginnote">这套
-推理规则与第五篇 DL 的包含推理完全同构：`subClassOf` 就是 ⊑，
-`x rdf:type A` 就是概念断言。RDFS 可以被翻译成 EL 描述逻辑——
+推理规则与第五篇 DL 的包含推理完全同构：`rdfs:subClassOf` 就是 ⊑，
+`rdf:type` 就是概念断言。RDFS 可以被翻译成 EL 描述逻辑——
 它「恰好」是 DL 家族里最轻、最可扩展的一支。想深入，
 回看第五篇的 EL 复杂度（PTIME）。</span>
 
@@ -96,11 +96,11 @@ $$A \ \text{rdfs:subClassOf} \ B, \quad B \ \text{rdfs:subClassOf} \ C \;\Longri
 
 RDFS 刻意不提供 DL 的大部分能力。它**不能**表达：
 
-- **否定**：不能说「猫不是狗」。
-- **基数约束**：不能说「人至少有两个孩子」。
-- **逆关系**：不能说「有孩子 ⟺ 有父母」。
-- **传递角色**：不能说「祖先可传递」。
-- **不相交**：不能说「猫与狗互斥」。
+**否定**：不能说「猫不是狗」。
+**基数约束**：不能说「人至少有两个孩子」。
+**逆关系**：不能说「有孩子 ⟺ 有父母」。
+**传递角色**：不能说「祖先可传递」。
+**不相交**：不能说「猫与狗互斥」。
 
 **重点：RDFS 的「弱」，换来了「快」与「简单」**——它的推理规则
 是固定的、局部的、可在大规模图上高效执行（RDFS 蕴含可在多项式
@@ -123,8 +123,8 @@ RDFS 在实践中远比它「弱」的名声更常用：
   RDFS 的超集，「rdfs:subClassOf」在 OWL 里原样可用。
 
 **易错点｜`rdfs:subClassOf` 与 `rdf:type` 是不同层的断言**：
-`猫 rdfs:subClassOf 宠物` 是类到类的公理；`花花 rdf:type 猫` 是
-个体到类的断言。把 `subClassOf` 写成 `rdf:type`（或反之）是新手最常见的错——
+`rdfs:subClassOf` 是类到类的公理；`rdf:type` 是
+个体到类的断言。把 `rdfs:subClassOf` 写成 `rdf:type`（或反之）是新手最常见的错——
 前者推不出「花花是宠物」，后者会错误地把「猫」当一个个体的名字。
 
 ## 6 小结

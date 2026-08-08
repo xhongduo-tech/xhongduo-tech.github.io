@@ -33,11 +33,14 @@ date: 2026-08-07
 **典型读写循环**：
 
 ```c
-int fd = open("file.txt", O_RDONLY);
-if (fd < 0) { perror("open"); return; }   // 检查错误！
-char buf[1024];
-ssize_t n = read(fd, buf, sizeof(buf));   // 可能短读（n < sizeof）
-if (n > 0) write(STDOUT_FILENO, buf, n);  // 写到标准输出
+int fd = open("data.txt", O_RDONLY);
+if (fd < 0) { perror("open"); exit(1); }
+
+char buf[256];
+ssize_t n;
+while ((n = read(fd, buf, sizeof buf)) > 0) {
+    write(STDOUT_FILENO, buf, n);   // 把读到的内容写回标准输出
+}
 close(fd);
 ```
 
@@ -59,12 +62,15 @@ close(fd);
 ```c
 pid_t pid = fork();
 if (pid == 0) {
-    // 子进程：换程序
-    execl("/bin/ls", "ls", "-l", NULL);
-    perror("exec");   // exec 失败才走到这
+    /* 子进程：加载新程序 */
+    execl("/bin/ls", "ls", "-l", (char *)NULL);
+    perror("execl");          /* 只有失败才会执行到这里 */
+    exit(1);
 } else if (pid > 0) {
-    // 父进程：等子进程
-    wait(NULL);
+    int status;
+    wait(&status);            /* 父进程：等待并回收子进程 */
+} else {
+    perror("fork");
 }
 ```
 
@@ -80,18 +86,18 @@ if (pid == 0) {
 
 | 调用 | 作用 |
 | --- | --- |
-| `pipe` | 创建匿名管道（返回读端/写端 fd） |
-| `shmget/shmat` | 创建/映射共享内存段 |
-| `msgget/msgsnd/msgrcv` | 消息队列操作 |
-| `socket/bind/connect` | 网络套接字 |
+| `pipe(fds)` | 创建匿名管道（返回读端/写端 fd） |
+| `shmget` + `shmat` | 创建/映射共享内存段 |
+| `msgget`/`msgsnd` | 消息队列操作 |
+| `socket(...)` | 网络套接字 |
 
 **信息维护常用调用**：
 
 | 调用 | 作用 |
 | --- | --- |
-| `getpid` | 当前进程 PID |
-| `gettimeofday` | 当前时间（vDSO 加速） |
-| `getrlimit` | 资源限制查询 |
+| `getpid()` | 当前进程 PID |
+| `gettimeofday(&tv, NULL)` | 当前时间（vDSO 加速） |
+| `getrlimit(RLIMIT_NOFILE, &rl)` | 资源限制查询 |
 
 ## 4 公式解析：系统调用的统一心智模型
 
@@ -121,7 +127,7 @@ $$\text{系统调用} \rightarrow \text{检查返回值} \rightarrow \begin{case
 | 信息维护 | getpid/gettimeofday | 查询系统状态 |
 | 通信 | pipe/socket/msg/shm | 进程间数据交换 |
 
-**辨析｜易错点：** 「libc 函数 = 系统调用」是常见混淆。**libc 函数（`fread`、`printf`）是「带缓冲的封装」，系统调用（`read`、`write`）是「无缓冲的内核服务」**——`fread` 会先查用户态缓冲区，不足才调 `read`。**「带缓冲的库函数」与「无缓冲的系统调用」是两层**，混用可能导致数据不一致（如 `fwrite` 后不 `fflush` 就 `write`）。
+**辨析｜易错点：** 「libc 函数 = 系统调用」是常见混淆。**libc 函数（`printf`、`fwrite`）是「带缓冲的封装」，系统调用（`read`、`write`）是「无缓冲的内核服务」**——`printf` 会先查用户态缓冲区，不足才调 `write`。**「带缓冲的库函数」与「无缓冲的系统调用」是两层**，混用可能导致数据不一致（如 `printf` 后不 `fflush` 就 `_exit`，缓冲数据可能丢失）。
 
 ## 6 小结
 

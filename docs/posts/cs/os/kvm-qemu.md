@@ -20,7 +20,7 @@ date: 2026-08-07
 
 ## 1 KVM 的核心思想：虚拟机就是进程
 
-**KVM（Kernel-based Virtual Machine）**：Linux 内核的虚拟化模块（`kvm.ko` + `kvm-intel.ko`/`kvm-amd.ko`），利用 VT-x/SVM 提供 CPU 与内存虚拟化。
+**KVM（Kernel-based Virtual Machine）**：Linux 内核的虚拟化模块（`kvm.ko` + `kvm_intel.ko`/`kvm_amd.ko`），利用 VT-x/SVM 提供 CPU 与内存虚拟化。
 
 **KVM 的颠覆性设计**：**虚拟机 = 一个普通进程**。
 
@@ -32,7 +32,7 @@ date: 2026-08-07
 
 - **调度**：vCPU 线程走 Linux 调度器——多虚拟机自动公平分 CPU。
 - **内存**：虚拟机的内存 = 进程的地址空间——用页表/大页管理。
-- **管理**：`ps`/`kill`/`cgroup` 直接管虚拟机——无需专门的虚拟化管理器。
+- **管理**：`virsh`/`virt-manager`/`virt-install` 直接管虚拟机——无需专门的虚拟化管理器。
 
 **vCPU 的执行**：用户态进程执行 `KVM_RUN` ioctl → 内核进入**非根模式**跑 vCPU → 特权操作/中断触发 **VMEXIT** 回到内核处理 → 需要设备模拟时返回用户态交 QEMU。
 
@@ -58,21 +58,12 @@ date: 2026-08-07
 
 **协作流程**：
 
-```
-QEMU 进程（用户态）
-  │ ioctl(KVM_CREATE_VM / KVM_CREATE_VCPU)
-  ▼
-KVM 模块（内核）
-  │ ioctl(KVM_RUN) → 进入非根模式跑 vCPU
-  ▼
-vCPU 执行（VT-x 非根模式）
-  │ 特权操作/中断 → VMEXIT
-  ▼
-KVM 处理（内核态）：内存、中断
-  │ 需设备模拟 → 返回 QEMU
-  ▼
-QEMU 模拟设备（如虚拟磁盘写）
-```
+1. QEMU 为每个 vCPU 创建一条用户态线程；
+2. vCPU 线程执行 `KVM_RUN` ioctl 进入内核；
+3. KVM 用 `vmlaunch`（VM Entry）切换到非根模式，直接运行客户机代码（不经内核）；
+4. 客户机执行特权操作、访问设备或发生中断 → **VMEXIT** 回到 KVM；
+5. KVM 处理内存/中断类事件，若是设备访问则返回用户态，由 QEMU 模拟设备；
+6. 处理完毕，QEMU 再次 `KVM_RUN`，vCPU 继续跑。
 
 **设备模拟的两种方式**：
 
@@ -89,9 +80,9 @@ $$\text{vCPU 有效执行率} \approx \frac{T_{run}}{T_{run} + f_{exit} \cdot T_
 - **$f_{exit}$**：VMEXIT 频率（每秒触发次数）。
 - **$T_{exit}$**：每次 VMEXIT 处理成本。
 
-**直觉**：**VMEXIT 越频繁，虚拟化开销越大**——这是虚拟化性能的关键指标。现代优化（**KVM 的 PV 特性**：`kvm-clock` 虚拟时钟、`kvm_para` 半虚拟化设备）都是为了**减少 VMEXIT**（把「要进 hypervisor 的操作」变成「客户自己处理」）。**「减少进出」是虚拟化性能优化的主线。**
+**直觉**：**VMEXIT 越频繁，虚拟化开销越大**——这是虚拟化性能的关键指标。现代优化（**KVM 的 PV 特性**：`kvm-clock` 虚拟时钟、`virtio` 半虚拟化设备）都是为了**减少 VMEXIT**（把「要进 hypervisor 的操作」变成「客户自己处理」）。**「减少进出」是虚拟化性能优化的主线。**
 
-**辨析｜易错点：** 「QEMU 是 KVM 的组成部分」是混淆。**QEMU 是独立的用户态程序，KVM 是独立的内核模块**——QEMU 可以不用 KVM（纯模拟），KVM 也离不开 QEMU（内核不管设备模拟）。**「QEMU+KVM」是一个组合**（`/usr/bin/qemu-system-x86_64 -enable-kvm`），不是同一个东西。另一个易错点：**「KVM 是 Type-2 hypervisor」**——严格说 KVM 模块是内核的一部分（Type-1 风格），QEMU 是管理进程；整体被归为「Type-1.5」。**别用 Type-1/Type-2 的简单二分硬套 KVM。**
+**辨析｜易错点：** 「QEMU 是 KVM 的组成部分」是混淆。**QEMU 是独立的用户态程序，KVM 是独立的内核模块**——QEMU 可以不用 KVM（纯模拟），KVM 也离不开 QEMU（内核不管设备模拟）。**「QEMU+KVM」是一个组合**（`qemu-kvm`），不是同一个东西。另一个易错点：**「KVM 是 Type-2 hypervisor」**——严格说 KVM 模块是内核的一部分（Type-1 风格），QEMU 是管理进程；整体被归为「Type-1.5」。**别用 Type-1/Type-2 的简单二分硬套 KVM。**
 
 ## 4 核心对比表：KVM vs QEMU 纯模拟
 

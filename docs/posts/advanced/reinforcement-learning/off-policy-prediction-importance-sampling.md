@@ -113,26 +113,26 @@ $$\mathbb{E}_\pi\left[G_t \mid S_t = s\right] = \sum_{\text{轨迹}} \Pr_\pi(\te
 
 ## 6 实现：两种估计器与增量式加权 IS
 
-把两种估计器写成函数，输入是「若干条回合」的扁平化样本 `(s, G, rho)`：
+把两种估计器写成函数，输入是「若干条回合」的扁平化样本（每条为 $(s, \rho, G)$ 三元组）：
 
 ```python
-def ordinary_is(samples, state):
-    """普通重要性采样：无偏，但可能高方差。"""
-    n, total = 0, 0.0
-    for s, G, rho in samples:
-        if s == state:
-            n += 1
-            total += rho * G
-    return total / n if n else 0.0
+from collections import defaultdict
 
-def weighted_is(samples, state):
-    """加权重要性采样：有偏，但方差小。"""
-    num = den = 0.0
-    for s, G, rho in samples:
-        if s == state:
-            num += rho * G
-            den += rho
-    return num / den if den else 0.0
+def ordinary_is(samples):
+    """普通 IS：对每个状态取 ρG 的算术平均（无偏，但可能重尾）。"""
+    num, cnt = defaultdict(float), defaultdict(int)
+    for s, rho, G in samples:
+        num[s] += rho * G
+        cnt[s] += 1
+    return {s: num[s] / cnt[s] for s in num}
+
+def weighted_is(samples):
+    """加权 IS：ρG 的归一化加权平均（有偏，但方差温和）。"""
+    num, den = defaultdict(float), defaultdict(float)
+    for s, rho, G in samples:
+        num[s] += rho * G
+        den[s] += rho
+    return {s: num[s] / den[s] for s in num}
 ```
 
 加权 IS 还可以写成**增量式**，不必保存全部样本。记 $C(s)$ 为累积的权重，则每来一个样本就更新一次：
@@ -154,7 +154,7 @@ $$V(s) \leftarrow V(s) + \frac{\rho}{C(s)}\left(G - V(s)\right), \qquad C(s) \le
 
 **辨析｜易错点：加权 IS 的「有偏」不是 bug。** 它的偏差是「用归一化换方差」的必然代价，且随样本增多趋于零；而普通 IS 的「无偏」在 $\rho$ 重尾时几乎派不上用场——一个天文数字的样本就能让估计偏离十万八千里。**判断用哪个，先问「我缺样本还是缺稳定性」。**
 
-还有一个易混点：**离策略 ≠ 一定要用重要性采样。** 本章的 MC 离策略靠 $\rho$，但第六篇的 Q-learning 离策略却几乎不用 $\rho$——因为它的目标策略是贪心的 `max`，更新式里直接写「目标 = $r + \gamma \max_{a'} q(s', a')$」，压根不需要按策略概率加权。**重要性采样是「目标策略是随机策略」时的修正工具，而不是离策略的定义。**
+还有一个易混点：**离策略 ≠ 一定要用重要性采样。** 本章的 MC 离策略靠 $\rho$，但第六篇的 Q-learning 离策略却几乎不用 $\rho$——因为它的目标策略是贪心的 $r + \gamma \max_{a'} q(s', a')$，更新式里直接写「目标 = $r + \gamma \max_{a'} q(s', a')$」，压根不需要按策略概率加权。**重要性采样是「目标策略是随机策略」时的修正工具，而不是离策略的定义。**
 
 ## 8 小结
 
@@ -163,6 +163,6 @@ $$V(s) \leftarrow V(s) + \frac{\rho}{C(s)}\left(G - V(s)\right), \qquad C(s) \le
 - **ρ 不含模型**：轨迹概率之比中，环境转移项 $p(S',R\mid S,A)$ 逐对约分——无模型方法也能算 $\rho$。
 - **两种平均**：普通 IS 无偏但方差可爆（重尾），加权 IS 有偏但方差温和；实践多用加权。
 - **增量式**：$V(s) \leftarrow V(s) + \frac{\rho}{C(s)}(G - V(s))$，$C \leftarrow C + \rho$，是离策略控制的算法心脏。
-- **辨析**：同策略时 $\rho \equiv 1$；离策略 ≠ 必须重要性采样（Q-learning 用 `max` 免掉了 $\rho$）。
+- **辨析**：同策略时 $\rho \equiv 1$；离策略 ≠ 必须重要性采样（Q-learning 用 $\max_{a'} Q(s', a')$ 免掉了 $\rho$）。
 
 在下一节，我们把这套「修正因子」装进控制算法：让行为策略 $b$ 去探索、目标策略 $\pi$ 当贪心——但它将撞上一个更棘手的退化问题：当 $\pi$ 是确定性贪心时，$\rho$ 会变得非零即无，离策略 MC 控制将迎来它最艰难的时刻。

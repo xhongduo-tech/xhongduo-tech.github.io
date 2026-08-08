@@ -43,7 +43,7 @@ date: 2026-08-07
 2. **反向阶段**：后向推进到 checkpoint 区间时，先**用 checkpoint 重新执行一次前向**，得到该层的激活。
 3. **用重算的激活算梯度**，然后继续。
 
-PyTorch 里一句 `torch.utils.checkpoint.checkpoint(fn, *args)` 即可：传入的函数在前向时「不保留中间值」，反向时「重新跑一次」。注意**它的工作方式是重放**：`fn` 必须是纯函数（无副作用），否则重跑会出错。<span class="marginnote">一个著名的坑：如果被 checkpoint 的模块里有随机 dropout、或依赖外部状态（如 buffer 更新），重跑时可能结果不一致。工程上要把这类「有状态」操作移出 checkpoint 区间，或固定随机种子。</span>
+PyTorch 里一句 `torch.utils.checkpoint.checkpoint` 即可：传入的函数在前向时「不保留中间值」，反向时「重新跑一次」。注意**它的工作方式是重放**：被 checkpoint 的函数必须是纯函数（无副作用），否则重跑会出错。<span class="marginnote">一个著名的坑：如果被 checkpoint 的模块里有随机 dropout、或依赖外部状态（如 buffer 更新），重跑时可能结果不一致。工程上要把这类「有状态」操作移出 checkpoint 区间，或固定随机种子。</span>
 
 ## 4 计算开销的定量分析：那 1/3 时间
 
@@ -94,19 +94,19 @@ $$\text{Extra Compute} \approx \underbrace{\frac{k-1}{k}}_{\text{平均重跑 } 
 
 ## 8 进阶与延伸
 
-**动手测重计算的代价**：开 `torch.utils.checkpoint` 跑一个小 Transformer，对比开关前后的每步耗时——你会看到约 30% 的时间增量（对应本篇的 $4/3$ 倍），并确认「显存省了一个数量级」的交换。
+**动手测重计算的代价**：开梯度 checkpointing 跑一个小 Transformer，对比开关前后的每步耗时——你会看到约 30% 的时间增量（对应本篇的 $4/3$ 倍），并确认「显存省了一个数量级」的交换。
 
 **几个值得进一步挖的方向**：
 
 - **重计算的坑：随机性**：被 checkpoint 的模块里有 dropout 时，重跑前向的随机结果会与首次前向不一致——为什么「纯函数」要求如此关键？工程上怎么把随机操作移出 checkpoint 区间。
-- **重计算与梯度 checkpoint 的混淆**：`torch.utils.checkpoint` 是「显存优化」；`model.save()` 是「权重存档」——两个「checkpoint」在代码里共用一个词，怎么在团队里建立清晰的命名约定。
+- **重计算与梯度 checkpoint 的混淆**：梯度 checkpointing（重计算）是「显存优化」；模型 checkpoint（权重存档）是「权重存档」——两个「checkpoint」在代码里共用一个词，怎么在团队里建立清晰的命名约定。
 - **重计算 + FSDP 的叠加**：FSDP 分片模型状态、重计算砍激活——两者都开时，显存的「摊薄 × 砍半」是乘法关系，怎么算总账？
 
 **自测题**：为什么「每层都 checkpoint」的额外算力 ≈ 一个完整前向？如果后向时间不是 2 倍前向而是 1 倍，$4/3$ 会变成什么——试着推导一遍。
 
 ## 9 动手实践清单
 
-- 开 `torch.utils.checkpoint` 跑一个小 Transformer，对比开关前后的每步耗时。
+- 开梯度 checkpointing 跑一个小 Transformer，对比开关前后的每步耗时。
 - 记录重算前后的显存峰值，验证「砍到一层量级」。
 - 在 checkpoint 区间里放 dropout，观察「重跑不一致」的问题。
 - 对比全量重算与选择性重算的显存与耗时。

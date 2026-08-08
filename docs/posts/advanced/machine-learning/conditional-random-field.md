@@ -20,24 +20,24 @@ HMM 是「生成式」的：先建模「状态如何产生观测」（联合分�
 
 **条件随机场（Conditional Random Field, CRF）**是**判别式**的无向图模型：它**直接建模条件分布 $P(\boldsymbol{y}\mid\boldsymbol{x})$**，把「观测 $\boldsymbol{x}$ 长什么样」当作给定的，只关心「标记 $\boldsymbol{y}$ 的局部约束」。它保留了 MRF 的「团 + 势函数」框架，却避开了「建模数据分布」这一大堆假设——因此比 HMM 更能利用丰富的观测特征，是词性标注、命名实体识别、语义分割的经典主力。<span class="marginnote">「生成式 vs 判别式」在序列标注上的对比：HMM 要假设「观测如何由状态产生」（观测独立，太强）；CRF 直接建模「给定观测的标记分布」，特征可以任意丰富、任意相关——这是判别式模型（第3章逻辑回归也是）一贯的优势。CRF 就是「逻辑回归的序列版 + 无向图约束」。</span>
 
-## 1 CRF 的定义：条件分布 + 特征函数**条件随机场**在给定观测序列 $\boldsymbol{x}$ 的条件下，对标记序列 $\boldsymbol{y}$ 建模一个无向图的分布。最常用的**线性链 CRF（linear-chain CRF）**，其条件分布为：$$P(\boldsymbol{y} \mid \boldsymbol{x}) = \frac{1}{Z(\boldsymbol{x})} \exp\left( \sum_{j=1}^{s} \sum_{i=1}^{T} \lambda_j \, f_j\left(y_{i-1}, y_i, \boldsymbol{x}, i\right) \right)$$
+## 1 CRF 的定义：条件分布 + 特征函数**条件随机场**在给定观测序列 $\boldsymbol{x}$ 的条件下，对标记序列 $\boldsymbol{y}$ 建模一个无向图的分布。最常用的**线性链 CRF（linear-chain CRF）**，其条件分布为：`$$`P(\boldsymbol{y} \mid \boldsymbol{x}) = \frac{1}{Z(\boldsymbol{x})} \exp\left( \sum_{j=1}^{s} \sum_{i=1}^{T} \lambda_j \, f_j\left(y_{i-1}, y_i, \boldsymbol{x}, i\right) \right)$$
 
-- **$f_j$ 是特征函数**：描述「$i$ 位置的观测与相邻标记」之间的一种局部模式。例如「$y_i$ 是名词 且 $\boldsymbol{x}_i$ 以大写字母开头」——特征函数是**人设计的观测-标记联合模式**；
-- **$\lambda_j$ 是特征权重**：从数据里学，表示该特征有多「可信」；
-- **配分函数 $Z(\boldsymbol{x})$**：对给定 $\boldsymbol{x}$ 的所有可能 $\boldsymbol{y}$ 归一化。
+**$f_j$ 是特征函数**：描述「$i$ 位置的观测与相邻标记」之间的一种局部模式。例如「$y_i$ 是名词 且 $\boldsymbol{x}_i$ 以大写字母开头」——特征函数是**人设计的观测-标记联合模式**；
+**$\lambda_j$ 是特征权重**：从数据里学，表示该特征有多「可信」；
+**配分函数 $Z(\boldsymbol{x})$**：对给定 $\boldsymbol{x}$ 的所有可能 $\boldsymbol{y}$ 归一化。
 
 **与 MRF 的差别**：MRF 建模联合分布 $P(\boldsymbol{x},\boldsymbol{y})$（要归一化所有组合）；CRF 只建模条件 $P(\boldsymbol{y}\mid\boldsymbol{x})$——$\boldsymbol{x}$ 被「条件化」了，配分函数只需对 $\boldsymbol{y}$ 求和，**观测特征可以随便设计而无需建模其分布**。<span class="marginnote">「条件化免去了建模观测分布」是 CRF 的杀手锏：HMM 必须为「观测由状态生成」建模（观测独立假设），CRF 直接说「观测就是给定的」，特征函数里可以塞进任意观测信息（词、词形、上下文、词典），不受独立性约束——这在标注任务里带来巨大的实践优势。</span>
 
 ## 2 特征函数：CRF 的「细节艺术」CRF 的表达力全部藏在**特征函数**里。典型特征函数（以词性标注为例）：- **发射类**：$f_1(y_i, \boldsymbol{x}, i) = \mathbb{I}[y_i = \text{名词} \;\text{且}\; \boldsymbol{x}_i = \text{「苹果」}]$——「这个词配上这个标签」的倾向；
-- **转移类**：$f_2(y_{i-1}, y_i, \boldsymbol{x}, i) = \mathbb{I}[y_{i-1} = \text{形容词} \;\text{且}\; y_i = \text{名词}]$——「相邻标签的搭配」倾向；
-- **上下文类**：$f_3(y_i, \boldsymbol{x}, i) = \mathbb{I}[y_i = \text{动词} \;\text{且}\; \boldsymbol{x}_{i-1} = \text{「我」}]$——「前一位置的观测」也能进特征。
+**转移类**：$f_2(y_{i-1}, y_i, \boldsymbol{x}, i) = \mathbb{I}[y_{i-1} = \text{形容词} \;\text{且}\; y_i = \text{名词}]$——「相邻标签的搭配」倾向；
+**上下文类**：$f_3(y_i, \boldsymbol{x}, i) = \mathbb{I}[y_i = \text{动词} \;\text{且}\; \boldsymbol{x}_{i-1} = \text{「我」}]$——「前一位置的观测」也能进特征。
 
 **特征函数的设计自由度，是 CRF 比 HMM 强的地方**：HMM 的「发射矩阵」只能看当前词；CRF 的特征能看任意上下文、任意特征组合，且由权重 $\lambda_j$ 自动衡量每条特征的贡献。<span class="marginnote">「特征工程 + CRF」是经典 NLP 标注的黄金组合：特征设计得像「if 条件」模板（当前词、前后词、词形、是否大写、是否在词典），CRF 负责学这些模板的权重。它把「人工先验」与「数据学习」的边界划得清晰：人提供特征模板，数据决定权重。</span>
 
 ## 3 公式解析：为什么 CRF 的推断可行与 HMM 一样，线性链 CRF 也是**链式结构**，因此动态规划可用：- **第一步，写条件分布**：$P(\boldsymbol{y}\mid\boldsymbol{x}) = \frac{1}{Z(\boldsymbol{x})}\exp\left(\sum_i \psi_i(y_{i-1}, y_i, \boldsymbol{x})\right)$，其中 $\psi_i = \sum_j \lambda_j f_j(y_{i-1},y_i,\boldsymbol{x},i)$ 是「位置 $i$ 的势」；
-- **第二步，看结构与 HMM 同构**：链上的相邻标记通过 $\psi_i$ 相连——与 HMM 的状态转移同构，只是「转移/发射」都并进了特征势函数；
-- **第三步，解码用 Viterbi**：求最可能的标记序列 $\hat{\boldsymbol{y}} = \arg\max_{\boldsymbol{y}} P(\boldsymbol{y}\mid\boldsymbol{x})$，用与前向同构的**动态规划**（把「求和」换「取最大」）——复杂度 $O(T \cdot |\mathcal{Y}|^2)$，其中 $|\mathcal{Y}|$ 是标记数；
-- **第四步，学习用梯度**：对 $\lambda_j$ 求梯度——「特征在数据中出现的期望」减去「模型预测的期望」，用梯度上升/拟牛顿法更新；配分函数 $Z(\boldsymbol{x})$ 用前向算法高效计算。
+**第二步，看结构与 HMM 同构**：链上的相邻标记通过 $\psi_i$ 相连——与 HMM 的状态转移同构，只是「转移/发射」都并进了特征势函数；
+**第三步，解码用 Viterbi**：求最可能的标记序列 $\hat{\boldsymbol{y}} = \arg\max_{\boldsymbol{y}} P(\boldsymbol{y}\mid\boldsymbol{x})$，用与前向同构的**动态规划**（把「求和」换「取最大」）——复杂度 $O(T \cdot |\mathcal{Y}|^2)$，其中 $|\mathcal{Y}|$ 是标记数；
+**第四步，学习用梯度**：对 $\lambda_j$ 求梯度——「特征在数据中出现的期望」减去「模型预测的期望」，用梯度上升/拟牛顿法更新；配分函数 $Z(\boldsymbol{x})$ 用前向算法高效计算。
 
 **直觉一句话**：CRF 把「序列标注」变成「沿着链求最大权路径」——特征函数提供每步的「分」，Viterbi 找总分最高的整条路径，训练则调特征权重让「正确路径分更高」。
 

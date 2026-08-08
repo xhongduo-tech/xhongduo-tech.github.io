@@ -35,9 +35,9 @@ date: 2026-08-07
 - 反之若 $R/M$ 是域，域只有 $\{0\}$ 与自身两个理想，对应定理逼出 $M$ 极大。$\blacksquare$<span class="marginnote">「极大理想 ⟺ 商环是域」是环论最实用的等价：想要一个域，找极大理想商掉即可。$\mathbb{R}[x]$ 中 $\langle x^2 + 1 \rangle$ 是极大理想（$x^2 + 1$ 不可约），故 $\mathbb{R}[x]/\langle x^2 + 1\rangle \cong \mathbb{C}$ 是域——上一节的构造在此被追认为「极大理想造域」。</span>
 
 **例：**
-- $\mathbb{Z}$ 中极大理想恰是 $\langle p \rangle$（$p$ 素数）：$p\mathbb{Z}$ 之上没有真中间理想，$\mathbb{Z}/p\mathbb{Z} = \mathbb{F}_p$ 是域；
-- $\mathbb{R}[x]$ 中极大理想恰是 $\langle x - a \rangle$（$a \in \mathbb{R}$）与 $\langle x^2 + bx + c \rangle$（无实根的二次式）——它们对应的商环分别是 $\mathbb{R}$ 与 $\mathbb{C}$；
-- $\mathbb{Z}$ 中 $\langle 0 \rangle$ 不是极大（$\mathbb{Z}$ 不是域），$\langle 4 \rangle$ 不是极大（$\langle 2 \rangle$ 夹在中间）。
+$\mathbb{Z}$ 中极大理想恰是 $\langle p \rangle$（$p$ 素数）：$p\mathbb{Z}$ 之上没有真中间理想，$\mathbb{Z}/p\mathbb{Z} = \mathbb{F}_p$ 是域；
+$\mathbb{R}[x]$ 中极大理想恰是 $\langle x - a \rangle$（$a \in \mathbb{R}$）与 $\langle x^2 + bx + c \rangle$（无实根的二次式）——它们对应的商环分别是 $\mathbb{R}$ 与 $\mathbb{C}$；
+$\mathbb{Z}$ 中 $\langle 0 \rangle$ 不是极大（$\mathbb{Z}$ 不是域），$\langle 4 \rangle$ 不是极大（$\langle 2 \rangle$ 夹在中间）。
 
 ## 2 素理想的定义与判定
 
@@ -47,13 +47,13 @@ date: 2026-08-07
 
 **判定：** $P$ 是 $R$ 的素理想 ⟺ $R/P$ 是**整环**。
 
-- 若 $R/P$ 是整环且 $\bar a \bar b = \bar 0$，则 $\bar a = \bar 0$ 或 $\bar b = \bar 0$，即 $a \in P$ 或 $b \in P$——素性成立；
-- 反之若 $P$ 是素理想，$R/P$ 无零因子（$\bar a \bar b = 0 \Rightarrow ab \in P \Rightarrow a \in P$ 或 $b \in P$）。$\blacksquare$<span class="marginnote">素理想 ⟺ 商环是整环，与「极大 ⟺ 商环是域」并排：因为域 = 整环 + 全可逆，所以<strong>极大理想必是素理想</strong>（$R/M$ 是域必是整环）。反过来素理想不必极大：$\mathbb{Z}$ 中 $\langle 0 \rangle$ 是素理想（$\mathbb{Z}$ 是整环）但非极大；$\mathbb{Z}[x]$ 中 $\langle x \rangle$ 是素理想（$\mathbb{Z}[x]/\langle x\rangle \cong \mathbb{Z}$ 是整环）但非极大。</span>
+若 $R/P$ 是整环且 $\bar a \bar b = \bar 0$，则 $\bar a = \bar 0$ 或 $\bar b = \bar 0$，即 $a \in P$ 或 $b \in P$——素性成立；
+反之若 $P$ 是素理想，$R/P$ 无零因子（$\bar a \bar b = 0 \Rightarrow ab \in P \Rightarrow a \in P$ 或 $b \in P$）。$\blacksquare$<span class="marginnote">素理想 ⟺ 商环是整环，与「极大 ⟺ 商环是域」并排：因为域 = 整环 + 全可逆，所以<strong>极大理想必是素理想</strong>（$R/M$ 是域必是整环）。反过来素理想不必极大：$\mathbb{Z}$ 中 $\langle 0 \rangle$ 是素理想（$\mathbb{Z}$ 是整环）但非极大；$\mathbb{Z}[x]$ 中 $\langle x \rangle$ 是素理想（$\mathbb{Z}[x]/\langle x\rangle \cong \mathbb{Z}$ 是整环）但非极大。</span>
 
 **例：**
-- $\mathbb{Z}$ 中素理想：$\langle 0 \rangle$（$\mathbb{Z}$ 整环）与 $\langle p \rangle$（$p$ 素数，$\mathbb{F}_p$ 域）；$\langle 4 \rangle$ 不是素（$2 \cdot 2 \in \langle 4 \rangle$ 但 $2 \notin \langle 4 \rangle$）；
-- $\mathbb{R}[x]$ 中素理想：$\langle 0 \rangle$、$\langle x - a \rangle$、$\langle f \rangle$（$f$ 不可约）；
-- 商环例子：$\mathbb{Z}/4\mathbb{Z}$ 有零因子（$2 \cdot 2 = 0$），故 $\langle 4 \rangle$ 非素。
+$\mathbb{Z}$ 中素理想：$\langle 0 \rangle$（$\mathbb{Z}$ 整环）与 $\langle p \rangle$（$p$ 素数，$\mathbb{F}_p$ 域）；$\langle 4 \rangle$ 不是素（$2 \cdot 2 \in \langle 4 \rangle$ 但 $2 \notin \langle 4 \rangle$）；
+$\mathbb{R}[x]$ 中素理想：$\langle 0 \rangle$、$\langle x - a \rangle$、$\langle f \rangle$（$f$ 不可约）；
+商环例子：$\mathbb{Z}/4\mathbb{Z}$ 有零因子（$2 \cdot 2 = 0$），故 $\langle 4 \rangle$ 非素。
 
 ## 3 极大与素：一张对照表
 
@@ -72,13 +72,13 @@ date: 2026-08-07
 
 把「极大理想造域」的机制完整拆解，它是有限域构造的地基。
 
-- **第一步，方向（⟸）：$R/M$ 是域 ⟹ $M$ 极大。** 假设 $M \subsetneq I$ 是真包含 $M$ 的理想。由对应定理，$I/M$ 是 $R/M$ 的非零理想。$R/M$ 是域，非零理想只能是整个商环，故 $I/M = R/M$，$I = R$。所以 $M$ 之上没有真中间理想，$M$ 极大。
+**第一步，方向（⟸）：$R/M$ 是域 ⟹ $M$ 极大。** 假设 $M \subsetneq I$ 是真包含 $M$ 的理想。由对应定理，$I/M$ 是 $R/M$ 的非零理想。$R/M$ 是域，非零理想只能是整个商环，故 $I/M = R/M$，$I = R$。所以 $M$ 之上没有真中间理想，$M$ 极大。
 
-- **第二步，方向（⟹）：$M$ 极大 ⟹ $R/M$ 是域。** 取 $\bar a \ne \bar 0$（$a \notin M$）。$\langle a \rangle + M$ 是含 $M$ 且真包含 $M$ 的理想（$a \notin M$），由极大性 $\langle a \rangle + M = R$，故存在 $r, m$ 使 $ra + m = 1$，即 $\bar r \bar a = \bar 1$。$\bar a$ 可逆，$R/M$ 是域。
+**第二步，方向（⟹）：$M$ 极大 ⟹ $R/M$ 是域。** 取 $\bar a \ne \bar 0$（$a \notin M$）。$\langle a \rangle + M$ 是含 $M$ 且真包含 $M$ 的理想（$a \notin M$），由极大性 $\langle a \rangle + M = R$，故存在 $r, m$ 使 $ra + m = 1$，即 $\bar r \bar a = \bar 1$。$\bar a$ 可逆，$R/M$ 是域。
 
-- **第三步，两向合的机关。** 两个方向分别是「对应定理」与「极大性 ⟹ 生成元组合出 1」。**极大性保证「任何非 $M$ 元素都能与 $M$ 组合出单位元」——这正是「非零元可逆」的环论翻译。**
+**第三步，两向合的机关。** 两个方向分别是「对应定理」与「极大性 ⟹ 生成元组合出 1」。**极大性保证「任何非 $M$ 元素都能与 $M$ 组合出单位元」——这正是「非零元可逆」的环论翻译。**
 
-- **第四步，应用。** 造域的标准配方：找一个极大理想 $M$，商环 $R/M$ 就是域。$F[x]$ 中 $M = \langle f \rangle$（$f$ 不可约）是极大，$F[x]/\langle f\rangle$ 是域——**第十篇有限域 $\mathbb{F}_{p^n}$ 的全部构造都从这里出发。**
+**第四步，应用。** 造域的标准配方：找一个极大理想 $M$，商环 $R/M$ 就是域。$F[x]$ 中 $M = \langle f \rangle$（$f$ 不可约）是极大，$F[x]/\langle f\rangle$ 是域——**第十篇有限域 $\mathbb{F}_{p^n}$ 的全部构造都从这里出发。**
 
 ## 5 例子：多项式环中的极大理想与素理想
 

@@ -34,10 +34,10 @@ date: 2026-08-07
 
 **Cambricon Neuware** 是寒武纪的软件栈，对标 CUDA 的位置。它的分层：
 
-- **CNCC/CNRT（编译与运行时）**：对标 NVCC/CUDA Runtime——算子编译与设备管理。
-- **算子库（CNML/CNPL）**：内置算子，对标 cuDNN/cuBLAS。
-- **框架适配**：PyTorch、TensorFlow、PaddlePaddle、ONNX 的接入层。
-- **推理引擎（MagicMind）**：图优化 + 模型部署工具，对标 TensorRT——**这是寒武纪推理竞争力的核心**。
+**CNCC/CNRT（编译与运行时）**：对标 NVCC/CUDA Runtime——算子编译与设备管理。
+**算子库（CNML/CNPL）**：内置算子，对标 cuDNN/cuBLAS。
+**框架适配**：PyTorch、TensorFlow、PaddlePaddle、ONNX 的接入层。
+**推理引擎（MagicMind）**：图优化 + 模型部署工具，对标 TensorRT——**这是寒武纪推理竞争力的核心**。
 
 **MagicMind** 是寒武纪软件栈的拳头产品：把训练好的模型「编译 + 优化 + 部署」成推理引擎，支持 ONNX/PyTorch 导出模型直接转。它承担了「让模型在 MLU 上高效推理」的重任。<span class="marginnote">「推理引擎（MagicMind）是寒武纪的护城河」：推理场景的胜负手不是「算子多少」，而是「图优化多深、batch 调度多聪明、部署多顺」。MagicMind 对标 TensorRT 做整套「编译-优化-部署」，让寒武纪在高并发推理里把「性价比」兑现成真实性能。</span>
 
@@ -99,7 +99,7 @@ $$\text{Cost}_{\text{token}} = \frac{\text{硬件成本} + \text{部署成本}}{
 
 **几个值得进一步挖的方向**：
 
-- **ONNX 的「丢算子」风险**：PyTorch 模型导出 ONNX 时，某些动态操作（如 `if`、动态 shape）会导出失败或退化——怎么用「静态化 + 固定 shape」规避？
+- **ONNX 的「丢算子」风险**：PyTorch 模型导出 ONNX 时，某些动态操作（如 if/else 动态分支等动态控制流、动态 shape）会导出失败或退化——怎么用「静态化 + 固定 shape」规避？
 - **量化校准**：MagicMind 的 INT8 量化需要「校准集」选缩放因子——校准集怎么选？选不好量化后精度掉多少？
 - **「训练/推理分离」的边界**：寒武纪「只部署」的路线在「微调」场景会怎样？——想「在 MLU 上微调」就得用它的训练能力（约为 A100 的 50%），这时生态门槛就回来了。
 

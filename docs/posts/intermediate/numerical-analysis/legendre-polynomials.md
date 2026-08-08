@@ -67,15 +67,19 @@ $$
 Python 实现：
 
 ```python
+import numpy as np
+
 def legendre(n, x):
-    """用三项递推求 P_n(x)，x 可以是数组"""
-    p0, p1 = 1.0, x
-    if n == 0: return p0
-    if n == 1: return p1
+    """三项递推生成勒让德多项式 P_n(x)：O(n) 迭代，替代 O(n²) 逐阶求导。"""
+    if n == 0:
+        return np.ones_like(x)
+    p_prev, p = 1.0, x                        # P_0, P_1
     for k in range(1, n):
-        p2 = ((2*k+1)*x*p1 - k*p0) / (k+1)
-        p0, p1 = p1, p2
-    return p1
+        p, p_prev = ((2*k + 1) * x * p - k * p_prev) / (k + 1), p
+    return p
+
+xs = np.linspace(-1, 1, 5)
+print(legendre(3, xs))       # P_3(x) = (5x³ - 3x)/2
 ```
 
 ## 3 公式解析：为什么 {1, x, x², …} 正交化后就是 Pₙ

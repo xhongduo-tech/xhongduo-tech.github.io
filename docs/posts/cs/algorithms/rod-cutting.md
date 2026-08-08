@@ -44,15 +44,22 @@ $$r_n = \max_{1 \le i \le n}(p_i + r_{n-i})$$
 
 ```
 MEMOIZED-CUT-ROD(p, n)
-  let r[0..n] be a new array filled with -infinity
-  return MEMOIZED-CUT-ROD-AUX(p, n, r)
+1  let r[0..n] be a new array
+2  for i = 0 to n
+3      r[i] = −∞
+4  return MEMOIZED-CUT-ROD-AUX(p, n, r)
 
 MEMOIZED-CUT-ROD-AUX(p, n, r)
-  if r[n] >= 0  return r[n]          // 已算过，直接返回
-  if n == 0  q = 0
-  else  q = max over i in 1..n of (p[i] + MEMOIZED-CUT-ROD-AUX(p, n-i, r))
-  r[n] = q
-  return q
+1  if r[n] ≥ 0
+2      return r[n]                        // 已缓存，直接返回
+3  if n == 0
+4      q = 0
+5  else
+6      q = −∞
+7      for i = 1 to n
+8          q = max(q, p[i] + MEMOIZED-CUT-ROD-AUX(p, n−i, r))
+9  r[n] = q
+10 return q
 ```
 
 **关键**：每个 $r_i$ **只被真正计算一次**。递归调用看起来还是「每个 $n$ 都枚举 $i$」，但每次 $n-i$ 的调用是 O(1) 查表（若已缓存）。总共 $n$ 个状态，每个状态枚举 $O(n)$ 个 $i$，总时间 $O(n^2)$。<span class="marginnote">备忘录法保留了「递归」的思考方式（想清楚子问题结构即可），只是加了一层缓存。对「不擅长从底往上想」的新手特别友好——先写递归，再加缓存，就是 DP。</span>
@@ -63,14 +70,14 @@ MEMOIZED-CUT-ROD-AUX(p, n, r)
 
 ```
 BOTTOM-UP-CUT-ROD(p, n)
-  let r[0..n] be a new array
-  r[0] = 0
-  for j = 1 to n
-    q = -infinity
-    for i = 1 to j
-      q = max(q, p[i] + r[j-i])
-    r[j] = q
-  return r[n]
+1  let r[0..n] be a new array
+2  r[0] = 0
+3  for j = 1 to n                        // 按规模从小到大
+4      q = −∞
+5      for i = 1 to j                    // 枚举第一段长度 i
+6          q = max(q, p[i] + r[j−i])
+7      r[j] = q
+8  return r[n]
 ```
 
 两层循环：外层 $j$ 从 1 到 $n$，内层 $i$ 从 1 到 $j$，总比较次数 $\sum_{j=1}^n j = n(n+1)/2 = \Theta(n^2)$。<span class="marginnote">自底向上的好处：无递归栈开销、无缓存查找、状态依赖关系一目了然（$r[j]$ 只依赖更小的 $r[j-i]$）。CLRS 强调「子问题图是 DAG」，自底向上就是按拓扑序填表——这一观点在第十篇图算法里会再次出现。</span>
@@ -87,7 +94,7 @@ BOTTOM-UP-CUT-ROD(p, n)
 - **第二步，每状态转移**：每个 $r_j$ 枚举 $j$ 个 $i$，每个转移 $O(1)$。
 - **第三步，求和**：$\sum_{j=1}^n j = \Theta(n^2)$——**比指数递归的 $2^n$ 是天壤之别**。
 
-**辨析｜易错点：** 若想**构造切割方案**（不只是收益），需要额外记录 `s[j]` = 使 $r_j$ 最优的 $i$。这是四步法的第 4 步「回溯构造」——只填 `r[]` 表只能得到最优值，得不到方案。**凡是 DP，问「最优是多少」与「怎么得到」是两件事**，后者必须存决策。
+**辨析｜易错点：** 若想**构造切割方案**（不只是收益），需要额外记录 `s[j]` = 使 $r_j$ 最优的 $i$。这是四步法的第 4 步「回溯构造」——只填 $r$ 表只能得到最优值，得不到方案。**凡是 DP，问「最优是多少」与「怎么得到」是两件事**，后者必须存决策。
 
 ## 6 小结
 
@@ -95,6 +102,6 @@ BOTTOM-UP-CUT-ROD(p, n)
 - **最优子结构**：最优解 = 第一段 + 剩余子问题最优；只枚举「第一刀」一个选择。
 - **备忘录法**：递归 + 缓存，保留思考顺序，每状态算一次。
 - **自底向上**：按规模填表，$O(n^2)$，无递归开销；状态图是 DAG，按拓扑序计算。
-- 回溯构造方案需额外存 `s[j]` 决策表。
+- 回溯构造方案需额外存 `s` 决策表。
 
 在下一课，我们升级到**二维 DP**——矩阵链乘法：不同括号化方式计算量天差地别，如何用区间 DP 找到最优括号化次序。

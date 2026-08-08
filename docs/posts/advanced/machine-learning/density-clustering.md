@@ -34,21 +34,21 @@ $$N_{\epsilon}(\boldsymbol{x}) = \left\{ \boldsymbol{x}' \in D \;\middle|\; dist
 
 **核心性质**：
 
-- **簇的个数由算法自动决定**，不用预设 $k$——这是 DBSCAN 与 k 均值的最大区别；
-- 能发现**任意形状**的簇，靠「链式可达」绕过「凸假设」；
-- 自动识别并隔离**噪声点**，对离群点鲁棒。<span class="marginnote">「不预设簇数」是 DBSCAN 最诱人的卖点，但也暗藏代价：$\epsilon$ 与 MinPts 两个超参数仍要人定，且它们对结果极为敏感。没有免费的午餐——「少一个 $k$」往往意味着「多一对 ($\epsilon$, MinPts)」。</span>
+**簇的个数由算法自动决定**，不用预设 $k$——这是 DBSCAN 与 k 均值的最大区别；
+能发现**任意形状**的簇，靠「链式可达」绕过「凸假设」；
+自动识别并隔离**噪声点**，对离群点鲁棒。<span class="marginnote">「不预设簇数」是 DBSCAN 最诱人的卖点，但也暗藏代价：$\epsilon$ 与 MinPts 两个超参数仍要人定，且它们对结果极为敏感。没有免费的午餐——「少一个 $k$」往往意味着「多一对 ($\epsilon$, MinPts)」。</span>
 
 ## 3 公式解析：核心对象与密度可达的形式化把「密度」翻译成集合语言，一步不落：- **第一步，核心对象的判定**：$\boldsymbol{x}$ 是核心对象 $\iff |N_\epsilon(\boldsymbol{x})| \geq MinPts$。$N_\epsilon$ 由距离定义——选欧氏距离还是别的，直接影响邻域形状与聚类结果。
-- **第二步，密度直达**：$\boldsymbol{x}_j$ 由 $\boldsymbol{x}_i$ 密度直达 $\iff \boldsymbol{x}_j \in N_\epsilon(\boldsymbol{x}_i)$ 且 $\boldsymbol{x}_i$ 是核心对象。注意**只要求 $x_i$ 是核心**，$x_j$ 不要求——簇的边缘点可以「被拉入」。
-- **第三步，密度可达**：$\boldsymbol{x}_j$ 由 $\boldsymbol{x}_i$ 可达 $\iff$ 存在链 $\boldsymbol{x}_1=\boldsymbol{x}_i, \dots, \boldsymbol{x}_n=\boldsymbol{x}_j$，每个 $\boldsymbol{x}_{t}$ 由 $\boldsymbol{x}_{t-1}$ 密度直达。可达让簇「长出触手」——一条条邻域相接，把远处的高密度点也连进来。
-- **第四步，簇的定义**：$C$ 是簇 $\iff$ 任意两样本在 $C$ 中密度相连，且没有样本与 $C$ 中样本相连却不在 $C$ 中（极大性）。
+**第二步，密度直达**：$\boldsymbol{x}_j$ 由 $\boldsymbol{x}_i$ 密度直达 $\iff \boldsymbol{x}_j \in N_\epsilon(\boldsymbol{x}_i)$ 且 $\boldsymbol{x}_i$ 是核心对象。注意**只要求 $x_i$ 是核心**，$x_j$ 不要求——簇的边缘点可以「被拉入」。
+**第三步，密度可达**：$\boldsymbol{x}_j$ 由 $\boldsymbol{x}_i$ 可达 $\iff$ 存在链 $\boldsymbol{x}_1=\boldsymbol{x}_i, \dots, \boldsymbol{x}_n=\boldsymbol{x}_j$，每个 $\boldsymbol{x}_{t}$ 由 $\boldsymbol{x}_{t-1}$ 密度直达。可达让簇「长出触手」——一条条邻域相接，把远处的高密度点也连进来。
+**第四步，簇的定义**：$C$ 是簇 $\iff$ 任意两样本在 $C$ 中密度相连，且没有样本与 $C$ 中样本相连却不在 $C$ 中（极大性）。
 
 **直觉一句话**：DBSCAN 就是「从每个高密度种子出发，沿着邻域链把整团稠密区域『走』一遍」——走到的都算一簇，走不到的就是噪声。
 
 ## 4 辨析：DBSCAN 的边界与超参数**辨析｜易错点：** DBSCAN 不是万能药，四个边界要记清：- **$\epsilon$ 与 MinPts 敏感**：$\epsilon$ 太大，所有样本连成一团；$\epsilon$ 太小，处处都是噪声。MinPts 决定「多密算核心」，常用启发式取 $2 \times d$（维度）。
-- **密度不均的数据**：不同区域密度差异大时，单一 $\epsilon$ 顾此失彼——一个 $\epsilon$ 装不下「密簇 + 疏簇」并存的数据。
-- **高维数据**：维度越高，距离分布越趋于均匀（「维数灾难」），ε-邻域难以界定——DBSCAN 更适合低维/中维几何数据。
-- **与 k 均值对比**：DBSCAN 免 $k$、可任意形状、抗噪声，但结果**不可复现地依赖参数**且**不产生「中心」**（没有原型，不易解释）；k 均值相反。<span class="marginnote">选 k 均值还是 DBSCAN，先问两个问题：簇可能是任意形状吗？（是→DBSCAN）数据里噪声多吗？（多→DBSCAN）。若答案是「凸簇、无噪声、想要中心点」，k 均值更合适。工程上两者常配合使用：DBSCAN 找簇、k 均值找簇心。</span>
+**密度不均的数据**：不同区域密度差异大时，单一 $\epsilon$ 顾此失彼——一个 $\epsilon$ 装不下「密簇 + 疏簇」并存的数据。
+**高维数据**：维度越高，距离分布越趋于均匀（「维数灾难」），ε-邻域难以界定——DBSCAN 更适合低维/中维几何数据。
+**与 k 均值对比**：DBSCAN 免 $k$、可任意形状、抗噪声，但结果**不可复现地依赖参数**且**不产生「中心」**（没有原型，不易解释）；k 均值相反。<span class="marginnote">选 k 均值还是 DBSCAN，先问两个问题：簇可能是任意形状吗？（是→DBSCAN）数据里噪声多吗？（多→DBSCAN）。若答案是「凸簇、无噪声、想要中心点」，k 均值更合适。工程上两者常配合使用：DBSCAN 找簇、k 均值找簇心。</span>
 
 ## 5 核心对比表：DBSCAN vs k 均值| 维度 | DBSCAN | k 均值 || --- | --- | --- || 簇数 | **自动决定** | 需预设 $k$ |
 | 簇形状 | 任意形状（链式可达） | 凸、各向同性 |

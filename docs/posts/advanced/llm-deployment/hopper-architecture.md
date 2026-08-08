@@ -24,8 +24,8 @@ H100 不只是「更大号的 A100」——它是架构的代际跃迁。理解 
 
 **HBM3（High Bandwidth Memory 3）**是 H100 的显存类型，相对 A100 的 HBM2e，带宽从 ~2 TB/s 提升到 ~3.35 TB/s——**提升约 70%**。
 
-- **原理**：HBM 是「堆叠 + 宽接口」：多层 DRAM 堆叠，通过硅中介层与 GPU 间用超宽总线连接（H100 的接口宽度可达 5000+ bit）。带宽 = 接口宽度 × 频率，HBM3 在宽度与频率上双升。
-- **对推理的意义**：带宽是 decode 的第一瓶颈（见 GPU 指标篇）。**HBM3 让 decode 吞吐直接涨约 70%**——这是「H100 decode 快于 A100」的物理基础。<span class="marginnote">带宽的工程含义：<strong>同样的 KV Cache 访存、同样的权重搬运，H100 每步都快 1.7 倍</strong>。所有「Memory-Bound」的优化（FlashDecoding、KV 量化）在 H100 上收益更大，因为瓶颈项被硬件放大。</span>
+**原理**：HBM 是「堆叠 + 宽接口」：多层 DRAM 堆叠，通过硅中介层与 GPU 间用超宽总线连接（H100 的接口宽度可达 5000+ bit）。带宽 = 接口宽度 × 频率，HBM3 在宽度与频率上双升。
+**对推理的意义**：带宽是 decode 的第一瓶颈（见 GPU 指标篇）。**HBM3 让 decode 吞吐直接涨约 70%**——这是「H100 decode 快于 A100」的物理基础。<span class="marginnote">带宽的工程含义：<strong>同样的 KV Cache 访存、同样的权重搬运，H100 每步都快 1.7 倍</strong>。所有「Memory-Bound」的优化（FlashDecoding、KV 量化）在 H100 上收益更大，因为瓶颈项被硬件放大。</span>
 
 **HBM3 的局限**：带宽依然小于算力需求，decode 仍是带宽瓶颈——**HBM3 缓解了瓶颈，没消除瓶颈**。
 
@@ -33,8 +33,8 @@ H100 不只是「更大号的 A100」——它是架构的代际跃迁。理解 
 
 **NVLink（第 4 代）**是 GPU 之间的高速直连，H100 的 NVLink 带宽达 **900 GB/s**（A100 为 600 GB/s），远超 PCIe 5.0（~64 GB/s）。
 
-- **原理**：NVLink 用高速 SerDes 直接连接 GPU，形成 GPU 间的高速局域网（配合 NVSwitch 可组成全互联拓扑）。H100 每卡 18 个 NVLink 通道，双向 900 GB/s。
-- **对推理的意义**：多卡并行（TP/PP/EP，见分布式篇）的通信都走 NVLink。**NVLink 越宽，机内多卡并行的扩展效率越高**——TP=8 的 all-reduce 在 900 GB/s 下开销可以忽略。<span class="marginnote">NVLink 是「<strong>机内并行</strong>」的基石：<strong>没有它，TP 每层的通信会把算力收益吃光</strong>（见多机通信篇）。H100 的 900 GB/s 让 8 卡 TP 的扩展效率接近 90%。</span>
+**原理**：NVLink 用高速 SerDes 直接连接 GPU，形成 GPU 间的高速局域网（配合 NVSwitch 可组成全互联拓扑）。H100 每卡 18 个 NVLink 通道，双向 900 GB/s。
+**对推理的意义**：多卡并行（TP/PP/EP，见分布式篇）的通信都走 NVLink。**NVLink 越宽，机内多卡并行的扩展效率越高**——TP=8 的 all-reduce 在 900 GB/s 下开销可以忽略。<span class="marginnote">NVLink 是「<strong>机内并行</strong>」的基石：<strong>没有它，TP 每层的通信会把算力收益吃光</strong>（见多机通信篇）。H100 的 900 GB/s 让 8 卡 TP 的扩展效率接近 90%。</span>
 
 **NVLink 的边界**：跨机仍是网络（InfiniBand），机内机外两个世界——这是部署拓扑设计的铁律（见通信开销篇）。
 
@@ -42,9 +42,9 @@ H100 不只是「更大号的 A100」——它是架构的代际跃迁。理解 
 
 **Transformer Engine（TE）**是 Hopper 引入的专用加速模块，针对 Transformer 的算子做了硬件级优化：
 
-- **FP8 支持**：TE 的 Tensor Core 原生支持 FP8 精度，吞吐是 FP16 的 2 倍。**这是 FP8 量化（见 FP8 篇）的硬件前提**——A100 没有 FP8，FP8 部署只在 Hopper 及之后才有意义。
-- **自动精度管理**：TE 在前向中动态跟踪数据范围，自动在 FP8/FP16 间切换——「省心的混合精度」。
-- **为 GEMM 优化的调度**：把矩阵乘调度得更高效，配合 WMMA 指令。<span class="marginnote">TE 与 FlashAttention-3 的关系：<strong>FA3 的 FP8 注意力（本专题）就是为吃满 TE 的 FP8 Tensor Core 而设计的</strong>——硬件特性与内核优化是配套的。</span>
+**FP8 支持**：TE 的 Tensor Core 原生支持 FP8 精度，吞吐是 FP16 的 2 倍。**这是 FP8 量化（见 FP8 篇）的硬件前提**——A100 没有 FP8，FP8 部署只在 Hopper 及之后才有意义。
+**自动精度管理**：TE 在前向中动态跟踪数据范围，自动在 FP8/FP16 间切换——「省心的混合精度」。
+**为 GEMM 优化的调度**：把矩阵乘调度得更高效，配合 WMMA 指令。<span class="marginnote">TE 与 FlashAttention-3 的关系：<strong>FA3 的 FP8 注意力（本专题）就是为吃满 TE 的 FP8 Tensor Core 而设计的</strong>——硬件特性与内核优化是配套的。</span>
 
 **对推理的意义**：启用 FP8 后，prefill（Compute-Bound）吞吐翻倍；decode 的权重搬运减半（FP8 权重）。**TE 让「FP8 部署」从实验变成生产标配**。
 

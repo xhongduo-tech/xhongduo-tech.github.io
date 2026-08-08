@@ -107,10 +107,10 @@ $$
 
 Jensen 不等式在信息论中的典型用途，按出场频率排前四：
 
-- **相对熵非负**：$D(p\|q) = \sum p \log\frac{p}{q} = -\sum p \log\frac{q}{p} \ge -\log\sum p \frac{q}{p} = -\log 1 = 0$。中间的 $\ge$ 就是「$\log$ 凹 + 权重 $p$」的 Jensen。
-- **熵的凹性与条件熵不等式**：$H(Y \mid X) \le H(Y)$ 可以从熵的凹性推出：把 $H(Y\mid X) = \sum_x p(x) H(Y \mid X = x)$ 看成「各处条件熵的平均」，凹性说它不大于 $H(\sum_x p(x) p(Y\mid x)) = H(Y)$。
-- **互信息的凹凸性**：固定信道 $p(y|x)$ 时，$I(X;Y)$ 关于输入分布 $p(x)$ 是**凹**的；固定输入 $p(x)$ 时，$I(X;Y)$ 关于信道 $p(y|x)$ 是**凸**的。前者保证信道容量 $\max_p I$ 是好问题，后者用于证明「最大化输入分布」的迭代算法收敛。这两条都是 Jensen 的代入，不是新定理。
-- **EM 算法的下界**：$\log p(x;\theta) \ge \mathbb{E}_{q(z)}[\log p(x,z;\theta)] + H(q)$ 这个「证据下界（ELBO）」，正是对凹函数 $\log$ 用 Jensen 并把隐变量 $z$ 的平均「请进对数里面」的结果。<span class="marginnote">EM 的每次迭代都让下界贴着真值上升，直到在驻点与真值重合。这套「凹函数 + 平均」的技巧，到了机器学习里就是变分推断的全部家当——第四级《机器学习》里 EM 章节会再回来。</span>
+**相对熵非负**：$D(p\|q) = \sum p \log\frac{p}{q} = -\sum p \log\frac{q}{p} \ge -\log\sum p \frac{q}{p} = -\log 1 = 0$。中间的 $\ge$ 就是「$\log$ 凹 + 权重 $p$」的 Jensen。
+**熵的凹性与条件熵不等式**：$H(Y \mid X) \le H(Y)$ 可以从熵的凹性推出：把 $H(Y\mid X) = \sum_x p(x) H(Y \mid X = x)$ 看成「各处条件熵的平均」，凹性说它不大于 $H(\sum_x p(x) p(Y\mid x)) = H(Y)$。
+**互信息的凹凸性**：固定信道 $p(y|x)$ 时，$I(X;Y)$ 关于输入分布 $p(x)$ 是**凹**的；固定输入 $p(x)$ 时，$I(X;Y)$ 关于信道 $p(y|x)$ 是**凸**的。前者保证信道容量 $\max_p I$ 是好问题，后者用于证明「最大化输入分布」的迭代算法收敛。这两条都是 Jensen 的代入，不是新定理。
+**EM 算法的下界**：$\log p(x;\theta) \ge \mathbb{E}_{q(z)}[\log p(x,z;\theta)] + H(q)$ 这个「证据下界（ELBO）」，正是对凹函数 $\log$ 用 Jensen 并把隐变量 $z$ 的平均「请进对数里面」的结果。<span class="marginnote">EM 的每次迭代都让下界贴着真值上升，直到在驻点与真值重合。这套「凹函数 + 平均」的技巧，到了机器学习里就是变分推断的全部家当——第四级《机器学习》里 EM 章节会再回来。</span>
 
 ## 5 小结
 

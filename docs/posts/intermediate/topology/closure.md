@@ -50,12 +50,12 @@ $$x \in \overline{A} \quad\Longleftrightarrow\quad \forall\, U \text{ 开},\ x \
 
 把闭包看作一种运算 $\overline{(\cdot)}$，它满足一套整洁的规则，合称**闭包运算律**：
 
-- **扩大**：$A \subseteq \overline{A}$。
-- **幂等**：$\overline{\overline{A}} = \overline{A}$。
-- **单调**：$A \subseteq B \implies \overline{A} \subseteq \overline{B}$。
-- **并的等式**：$\overline{A \cup B} = \overline{A} \cup \overline{B}$。
-- **交的包含**：$\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$。
-- **端点**：$\overline{\emptyset} = \emptyset$，$\overline{X} = X$。
+**扩大**：$A \subseteq \overline{A}$。
+**幂等**：$\overline{\overline{A}} = \overline{A}$。
+**单调**：$A \subseteq B \implies \overline{A} \subseteq \overline{B}$。
+**并的等式**：$\overline{A \cup B} = \overline{A} \cup \overline{B}$。
+**交的包含**：$\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$。
+**端点**：$\overline{\emptyset} = \emptyset$，$\overline{X} = X$。
 
 前三条几乎不用动脑；第四条与第五条是重点，值得停下来对比。**并是等式，交只是包含**——这是闭包运算里最容易翻车的地方。为什么交不能是等式？因为交集的闭包可能被两边的边界「喂」出额外的点，却不一定这些点同时属于两边的闭包。反例就在数轴上：$A = (0,1)$、$B = (1,2)$，则 $\overline{A \cap B} = \overline{\emptyset} = \emptyset$，而 $\overline{A} \cap \overline{B} = [0,1] \cap [1,2] = \{1\}$——点 $1$ 从两边的边界钻了出来。<span class="marginnote">「并保等式、交只保包含」是拓扑学里反复出现的主题：闭包（还有内部、测度、积分）这些「封口」运算都对并友好、对交苛刻。背后的原因是它们都由「包含所有贴点」这种存在性定义，存在性对「或」天然稳定、对「且」天然不稳。</span>
 
@@ -94,14 +94,14 @@ $$A \subseteq X \setminus U \quad\Longrightarrow\quad \overline{A} \subseteq X \
 
 - $\overline{(0,1)} = [0,1]$：开区间的闭包补上了两个端点。
 - $\overline{\mathbb{Q}} = \mathbb{R}$：有理数的闭包是整个实数轴——因为每个无理数附近都有有理数，任何开邻域都碰到 $\mathbb{Q}$。<span class="marginnote">「$\overline{\mathbb{Q}} = \mathbb{R}$」正是「$\mathbb{Q}$ 在 $\mathbb{R}$ 中稠密」的精确说法。稠密性是实分析的基本功：实数轴上的连续函数由它在 $\mathbb{Q}$ 上的取值完全决定，因为 $\mathbb{Q}$ 贴住了整个 $\mathbb{R}$。</span>
-- $\overline{\mathbb{Z}} = \mathbb{Z}$：整数是闭集，闭包就是自己。
-- $\overline{\{1/n \mid n \ge 1\}} = \{1/n\} \cup \{0\}$：点列 $\{1/n\}$ 的极限点 $0$ 被闭包收编——闭包「看到」了序列的极限。
+$\overline{\mathbb{Z}} = \mathbb{Z}$：整数是闭集，闭包就是自己。
+$\overline{\{1/n \mid n \ge 1\}} = \{1/n\} \cup \{0\}$：点列 $\{1/n\}$ 的极限点 $0$ 被闭包收编——闭包「看到」了序列的极限。
 
 **几个极端拓扑：**
 
-- **离散拓扑**：每个集合都闭，故 $\overline{A} = A$ 对一切 $A$——闭包运算形同虚设。
-- **平凡拓扑**：只有 $\emptyset$ 与 $X$ 两个闭集。$A = \emptyset$ 时 $\overline{A} = \emptyset$；$A \neq \emptyset$ 时唯一含 $A$ 的闭集是 $X$，故 $\overline{A} = X$。任何非空集合都「贴」满整个空间。
-- **余有限拓扑**：闭集是有限集与 $X$。$A$ 有限时 $\overline{A} = A$；$A$ 无限时唯一含它的闭集是 $X$，故 $\overline{A} = X$。<span class="marginnote">余有限拓扑里「闭包」被有限性彻底支配：集合一旦无限，闭包立刻膨胀到整个空间。这与余有限拓扑「开集靠有限补集撑场」的性格一脉相承——闭合也在听「有限」指挥。</span>
+**离散拓扑**：每个集合都闭，故 $\overline{A} = A$ 对一切 $A$——闭包运算形同虚设。
+**平凡拓扑**：只有 $\emptyset$ 与 $X$ 两个闭集。$A = \emptyset$ 时 $\overline{A} = \emptyset$；$A \neq \emptyset$ 时唯一含 $A$ 的闭集是 $X$，故 $\overline{A} = X$。任何非空集合都「贴」满整个空间。
+**余有限拓扑**：闭集是有限集与 $X$。$A$ 有限时 $\overline{A} = A$；$A$ 无限时唯一含它的闭集是 $X$，故 $\overline{A} = X$。<span class="marginnote">余有限拓扑里「闭包」被有限性彻底支配：集合一旦无限，闭包立刻膨胀到整个空间。这与余有限拓扑「开集靠有限补集撑场」的性格一脉相承——闭合也在听「有限」指挥。</span>
 
 ## 6 闭包与连续性：一条通往后续的桥梁
 

@@ -48,8 +48,8 @@ $$
 
 在坐标下，拉回可以直接算。设 $F: M\to N$，$M$ 坐标 $x$、$N$ 坐标 $y$，$F$ 的坐标表达式 $y^j = F^j(x)$。则
 
-- **1-形式**：$F^*(dy^j) = dF^j = \sum_i \frac{\partial F^j}{\partial x^i}\,dx^i$——**$dy$ 被替换成 $dF$（Jacobi）**。
-- **一般 $k$-形式**：$F^*(\omega_{j_1\cdots j_k}\,dy^{j_1}\wedge\cdots\wedge dy^{j_k}) = \omega_{j_1\cdots j_k}(F(x))\,dF^{j_1}\wedge\cdots\wedge dF^{j_k}$。
+**1-形式**：$F^*(dy^j) = dF^j = \sum_i \frac{\partial F^j}{\partial x^i}\,dx^i$——**$dy$ 被替换成 $dF$（Jacobi）**。
+**一般 $k$-形式**：$F^*(\omega_{j_1\cdots j_k}\,dy^{j_1}\wedge\cdots\wedge dy^{j_k}) = \omega_{j_1\cdots j_k}(F(x))\,dF^{j_1}\wedge\cdots\wedge dF^{j_k}$。
 
 **重点：拉回在坐标下就是「把 $dy^j$ 换成 $dF^j$」。** 这是换元积分的机械实现——「$dy$ 换成 $J\,dx$」。<span class="marginnote">换元公式的现代解释：设 $\phi: U\to V$ 是 $\mathbb{R}^2$ 上的换元，则 $\int_V f(x,y)\,dx\wedge dy = \int_U \phi^*(f\,dx\wedge dy)$。而 $\phi^*(dx\wedge dy) = d\phi^1\wedge d\phi^2 = \det(J)\,du\wedge dv$——Jacobi 行列式自动冒出来。「拉回 + 外积」把整个换元理论压缩成一个公式。</span>
 
@@ -84,10 +84,10 @@ $$
 
 拉回是微分形式理论最实用的工具之一：
 
-- **换元积分**：$\int_V \omega = \int_U F^*\omega$（$F$ 是保向微分同胚）——换元法的形式语言。
-- **限制与子流形**：子流形 $\iota: S \hookrightarrow M$ 的拉回 $\iota^*$ 把 $M$ 上的形式「限制」到 $S$ 上——诱导度量的来源（$\iota^*g$）。
-- **规范场论**：物理里「场沿映射拉回」是规范变换、纤维丛截面的基本操作。
-- **微分拓扑**：拉回使「形式」成为「可搬移对象」——证明流形上的积分不依赖参数化。<span class="marginnote">在黎曼几何里，拉回是「诱导结构」的总开关：子流形的诱导度量 $\iota^*g$、曲线上的诱导度量、球坐标的拉回体积元——全是 $F^*$ 的应用。「拉回」让几何量在子对象与参数化下「自动正确」——这是微分形式语言统治现代几何的重要原因。</span>
+**换元积分**：$\int_V \omega = \int_U F^*\omega$（$F$ 是保向微分同胚）——换元法的形式语言。
+**限制与子流形**：子流形 $\iota: S \hookrightarrow M$ 的拉回 $\iota^*$ 把 $M$ 上的形式「限制」到 $S$ 上——诱导度量的来源（$\iota^*g$）。
+**规范场论**：物理里「场沿映射拉回」是规范变换、纤维丛截面的基本操作。
+**微分拓扑**：拉回使「形式」成为「可搬移对象」——证明流形上的积分不依赖参数化。<span class="marginnote">在黎曼几何里，拉回是「诱导结构」的总开关：子流形的诱导度量 $\iota^*g$、曲线上的诱导度量、球坐标的拉回体积元——全是 $F^*$ 的应用。「拉回」让几何量在子对象与参数化下「自动正确」——这是微分形式语言统治现代几何的重要原因。</span>
 
 **辨析｜易错点：** 拉回的方向是「反的」：$F: M\to N$ 把 $N$ 的形式拉到 $M$。别把方向搞反——「形式与映射同向移动」是错的，「形式逆映射移动」才对。**切向量随映射走（推前），形式逆映射走（拉回）。**
 

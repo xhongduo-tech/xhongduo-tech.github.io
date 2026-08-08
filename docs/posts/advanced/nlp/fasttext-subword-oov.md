@@ -24,7 +24,7 @@ FastText 的回答直白又优雅：**别把「词」当成不可再分的最小
 
 把 Word2Vec 与 GloVe 的产物统称为静态词向量：每个词对应一个**与上下文无关**的向量，训练结束后直接查表。它们有三个相互关联的缺口。
 
-- **未登录词（out-of-vocabulary, OOV）**：测试时遇到词表里没有的词，查表直接落空。词表定多大都无法穷尽真实文本——人名、地名、产品名、错拼词，永远是漏网之鱼。<span class="marginnote">中文的未登录词问题在本专题第三篇《中文分词问题：歧义切分与未登录词识别》里已经打过照面：新词不断产生，词典法永远追不上。</span>
+**未登录词（out-of-vocabulary, OOV）**：测试时遇到词表里没有的词，查表直接落空。词表定多大都无法穷尽真实文本——人名、地名、产品名、错拼词，永远是漏网之鱼。<span class="marginnote">中文的未登录词问题在本专题第三篇《中文分词问题：歧义切分与未登录词识别》里已经打过照面：新词不断产生，词典法永远追不上。</span>
 - **形态信息缺失（morphology）**：英语的 walk、walks、walked、walking 在词典里是四个词，在 Word2Vec 里是四个互不相干的向量。但它们共享词根 walk，语义高度相关——静态词向量把这层结构白白浪费了。
 - **低频词表示差（sparsity）**：一个词只出现几次，训练信号太少，学出的向量往往偏离真实语义。形态丰富的语言（德语、土耳其语，以及构词灵活的中文）里，低频与未登录问题尤其严重。
 
@@ -38,7 +38,7 @@ $$
 G_{\text{where}} = \{\text{<wh},\ \text{whe},\ \text{her},\ \text{ere},\ \text{re>}\}
 $$
 
-除了这些片段，FastText 还要求把**整词本身**（记作 `<where>`）也作为一个单元放进集合，保证高频词的完整表示仍被直接学习。下图演示了这次分解：
+除了这些片段，FastText 还要求把**整词本身**（记作 $\langle \text{where} \rangle$，即用词首尾标记包裹的完整词）也作为一个单元放进集合，保证高频词的完整表示仍被直接学习。下图演示了这次分解：
 
 ![FastText 的字符 n-gram 分解](/images/nlp/fasttext-subword-oov-1.svg)
 
@@ -76,23 +76,24 @@ $$
 生成片段与哈希映射的代码很短：
 
 ```python
-def char_ngrams(word, n=3, bound="<>"):
-    """返回词的全部字符 n-gram（含整词）。"""
-    w = f"{bound}{word}{bound}"
-    grams = {f"{bound}{word}{bound}"}            # 整词作为一个单元
-    for i in range(len(w) - n + 1):
-        grams.add(w[i : i + n])
+def char_ngrams(word, n=3):
+    """生成词的字符 n-gram 集合（含整词本身）。"""
+    padded = "<" + word + ">"
+    grams = {padded}                       # 整词也作为一个单元
+    for i in range(len(padded) - n + 1):
+        grams.add(padded[i:i + n])
     return grams
 
-grams = char_ngrams("where")
-print(grams)
-# {'<wh', 'whe', 'her', 'ere', 're>', '<where>'}，共 6 个单元
+BUCKET = 2_000_000                         # 固定大小的桶数
+def hash_to_bucket(g):
+    return hash(g) % BUCKET                # 哈希技巧：把片段映射到桶
 
-def hash_bucket(gram, B=2_000_000):
-    return (hash(gram) % B + B) % B              # 稳定映射到非负桶号
+grams = char_ngrams("where")
+print(grams)                               # {'<wh', 'whe', 'her', 'ere', 're>', '<where>'}
+print([hash_to_bucket(g) for g in grams])
 ```
 
-注意 Python 内置 `hash` 对字符串默认随机化（跨进程不稳定），工程实现里应改用确定性的哈希函数（如 xxHash）；这里仅为示意。
+注意 Python 内置 **hash** 函数对字符串默认随机化（跨进程不稳定），工程实现里应改用确定性的哈希函数（如 xxHash）；这里仅为示意。
 
 ## 6 辨析：字符 n-gram、BPE 与字标注
 
@@ -104,8 +105,8 @@ def hash_bucket(gram, B=2_000_000):
 | BPE 子词切分 | 贪心合并高频字符对 | 不重叠 | 是 | 词表压缩（翻译/语言模型） |
 | 字标注分词 | 按字打 B/I/E 标签 | 不重叠 | 是 | 中文分词（任务） |
 
-- fastText 的 n-gram 是**表示手段**：它仍以「词」为单位组织语义，片段只是拼成词向量的零件。
-- BPE 是**词表策略**：把稀有词切成更常见的子词单元，直接改变「什么是一个 token」。大模型的词表就是用 BPE 类的算法造的，见本专题机器翻译篇的子词切分。<span class="marginnote">BPE 与 fastText 的分工常被记反：前者决定「输入长什么样」，后者决定「向量怎么算」。GPT、BERT 用的是 BPE 词表加静态位置编码，不是 fastText。</span>
+fastText 的 n-gram 是**表示手段**：它仍以「词」为单位组织语义，片段只是拼成词向量的零件。
+BPE 是**词表策略**：把稀有词切成更常见的子词单元，直接改变「什么是一个 token」。大模型的词表就是用 BPE 类的算法造的，见本专题机器翻译篇的子词切分。<span class="marginnote">BPE 与 fastText 的分工常被记反：前者决定「输入长什么样」，后者决定「向量怎么算」。GPT、BERT 用的是 BPE 词表加静态位置编码，不是 fastText。</span>
 - 字标注分词是**任务**：中文分词本质上是一个「给每个字打 B/I/E 标签」的序列标注问题，与本专题第三篇《由字构词（字标注）分词》一脉相承。fastText 里的 n-gram 是字符片段，而字标注的「字」是完整的语言单位，两者层级不同。
 
 **再辨析一个同名陷阱：** fastText 库里有「词向量」也有「文本分类器」，两者都叫 fastText。分类器是**有监督**的（用文本-标签对训练，见本专题第七篇文本分类），词向量是**无监督**的（只用文本本身）。同门但不同用途，别混用。

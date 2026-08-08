@@ -94,28 +94,19 @@ $V^{\mathsf{T}} V$ 是全局共享的，可离线算一次；$(C_u - I)$ 只在�
 
 ```python
 import numpy as np
-from scipy.sparse import csr_matrix
 
-def als_step(Pref, C, U, V, lam, alpha=40.0):
-    """一轮：固定 V 更新 U，再固定 U 更新 V。Pref 是 (n_users, n_items) 稀疏矩阵。"""
-    n_u, n_i = Pref.shape
-    k = V.shape[1]
-    VtV = V.T @ V                    # 全局共享项，离线算一次
-    U_new = np.zeros_like(U)
-    for u in range(n_u):
-        rows = Pref[u].indices            # 用户 u 交互过的物品下标
-        if len(rows) == 0:
-            U_new[u] = 0.0
-            continue
-        Cu_minus_I = (alpha * Pref[u].data + 1.0) - 1.0   # c-1 非零项
-        Cu = alpha * Pref[u].data + 1.0                    # 置信度
-        # 稀疏技巧：VtV + sum_j Cu_j * outer(v_j, v_j)
-        M = VtV.copy()
-        for idx, j in enumerate(rows):
-            M += Cu_minus_I[idx] * np.outer(V[j], V[j])
-        rhs = (Cu * Pref[u].data) @ V[rows]                # V^T C_u p(u)
-        U_new[u] = np.linalg.solve(M + lam * np.eye(k), rhs)
-    return U_new
+def als_step(V, N_u, C_u, reg):
+    """固定物品因子 V，解出全部用户因子 U（交替中的「用户步」）。"""
+    VtV = V.T @ V                                  # 全局共享项，离线算一次
+    for u in range(len(N_u)):
+        A = VtV + reg * np.eye(V.shape[1])         # V^T V + λI 打底，保证可逆
+        b = np.zeros(V.shape[1])
+        for i in N_u[u]:                           # 稀疏项：只在交互过的物品上累加
+            c = C_u[u][i] - 1.0                    # (C_u - I) 的非零元素
+            A += c * np.outer(V[i], V[i])          # V^T (C_u - I) V
+            b += C_u[u][i] * V[i]                  # V^T C_u p(u)
+        U[u] = np.linalg.solve(A, b)               # 每个用户是独立的 k×k 岭回归
+    return U
 ```
 
 循环体是一个 $k \times k$ 的线性方程组求解，配合上述稀疏技巧，即可处理千万级物品。

@@ -40,11 +40,11 @@ $$W = U_{y_1} \cap \cdots \cap U_{y_n}$$
 
 证明用「管状引理」层层加管：
 
-- 设 $\mathcal{A}$ 是 $X \times Y$ 的开覆盖（基元矩形的任意并）。
-- 对每个 $x \in X$，纤维 $\{x\} \times Y$ 紧（同胚于 $Y$），被 $\mathcal{A}$ 覆盖，故有有限子覆盖 $A_{x,1}, \ldots, A_{x,n}$。记 $N_x = \bigcup_{i} A_{x,i}$，则 $N_x$ 开、含整根纤维 $\{x\} \times Y$。
-- 由管状引理，存在 $x$ 的开邻域 $W_x$ 使 $W_x \times Y \subset N_x$。
-- $\{W_x \mid x \in X\}$ 是 $X$ 的开覆盖，$X$ 紧 ⟹ 有有限个 $W_{x_1}, \ldots, W_{x_m}$ 盖住 $X$。
-- 于是 $X \times Y = \bigcup_j (W_{x_j} \times Y) \subset \bigcup_j N_{x_j}$，每个 $N_{x_j}$ 是有限个 $A$ 成员之并，故全体是 $\mathcal{A}$ 的有限子覆盖。
+设 $\mathcal{A}$ 是 $X \times Y$ 的开覆盖（基元矩形的任意并）。
+对每个 $x \in X$，纤维 $\{x\} \times Y$ 紧（同胚于 $Y$），被 $\mathcal{A}$ 覆盖，故有有限子覆盖 $A_{x,1}, \ldots, A_{x,n}$。记 $N_x = \bigcup_{i} A_{x,i}$，则 $N_x$ 开、含整根纤维 $\{x\} \times Y$。
+由管状引理，存在 $x$ 的开邻域 $W_x$ 使 $W_x \times Y \subset N_x$。
+$\{W_x \mid x \in X\}$ 是 $X$ 的开覆盖，$X$ 紧 ⟹ 有有限个 $W_{x_1}, \ldots, W_{x_m}$ 盖住 $X$。
+于是 $X \times Y = \bigcup_j (W_{x_j} \times Y) \subset \bigcup_j N_{x_j}$，每个 $N_{x_j}$ 是有限个 $A$ 成员之并，故全体是 $\mathcal{A}$ 的有限子覆盖。
 
 故 $X \times Y$ 紧。∎<span class="marginnote">证明是「两轮有限化」：第一轮用 $Y$ 紧把每根纤维压成有限并，第二轮用 $X$ 紧把横管族压成有限。两轮都靠管状引理把「纤维的有限」扩展成「横管的有限」。这个双轮结构在无限积（Tychonoff）中变成「任意坐标的有限加固」。</span>
 
@@ -54,10 +54,10 @@ $$W = U_{y_1} \cap \cdots \cap U_{y_n}$$
 
 有限积紧与前面章节协同，给出分析里常用的一批结论：
 
-- **$[0,1]^n$ 紧**：一维 Heine–Borel + 有限积紧，或直接用 Heine–Borel 于 $\mathbb{R}^n$。
-- **环面 $T^2 = S^1 \times S^1$ 紧**：$S^1$ 紧（$[0,1]$ 的连续像），积紧。
-- **紧空间上的极值定理可推广到多变量**：$f : [0,1]^n \to \mathbb{R}$ 连续取到最值——直接由「紧 + 连续像保紧」。
-- **有限积的连通性（第三篇）与紧致性（本篇）同时成立**：$X \times Y$ 连通且紧当且仅当 $X, Y$ 各自连通且紧——「积不造新困难」的原则再次应验。<span class="marginnote">「积空间的性质 = 因子的性质」这条主线从第三篇一路贯穿到这里：连通、紧、Hausdorff、可数性——凡「可乘」的性质都遵循「整体 ⟺ 因子」的二分。</span>
+**$[0,1]^n$ 紧**：一维 Heine–Borel + 有限积紧，或直接用 Heine–Borel 于 $\mathbb{R}^n$。
+**环面 $T^2 = S^1 \times S^1$ 紧**：$S^1$ 紧（$[0,1]$ 的连续像），积紧。
+**紧空间上的极值定理可推广到多变量**：$f : [0,1]^n \to \mathbb{R}$ 连续取到最值——直接由「紧 + 连续像保紧」。
+**有限积的连通性（第三篇）与紧致性（本篇）同时成立**：$X \times Y$ 连通且紧当且仅当 $X, Y$ 各自连通且紧——「积不造新困难」的原则再次应验。<span class="marginnote">「积空间的性质 = 因子的性质」这条主线从第三篇一路贯穿到这里：连通、紧、Hausdorff、可数性——凡「可乘」的性质都遵循「整体 ⟺ 因子」的二分。</span>
 
 ## 4 公式解析：管状引理的合成
 

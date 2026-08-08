@@ -24,8 +24,8 @@ date: 2026-08-07
 
 词典方法的第一步，是让「查词」够快。中文分词的词典动辄几十万词条，若每次匹配都线性扫描全表，分词会慢到不可用。常用的两种结构：
 
-- **哈希表（hash table）**：把每个词映射到一个桶，查词 O(1) 平均。适合「整词精确查询」。
-- **Trie 树（前缀树 / 字典树）**：把词按前缀组织成一棵树，根到叶的路径就是一个词。「武」「武汉」「武汉市」共享前缀「武」，一次沿前缀下行即可判断「武汉」是不是词、还能不能继续匹配。它天然支持「最长匹配」这类需要逐字试探前缀的操作。<span class="marginnote">Trie 树我们并不陌生——它在第三级《数据结构》与《算法》里是字符串检索的经典结构，也是搜索引擎倒排索引的底层伙伴。分词里的 Trie 与哈希表之争，是「查询速度」与「前缀灵活性」的权衡，到互联网文本检索时你还会再次遇见。</span>
+**哈希表（hash table）**：把每个词映射到一个桶，查词 O(1) 平均。适合「整词精确查询」。
+**Trie 树（前缀树 / 字典树）**：把词按前缀组织成一棵树，根到叶的路径就是一个词。「武」「武汉」「武汉市」共享前缀「武」，一次沿前缀下行即可判断「武汉」是不是词、还能不能继续匹配。它天然支持「最长匹配」这类需要逐字试探前缀的操作。<span class="marginnote">Trie 树我们并不陌生——它在第三级《数据结构》与《算法》里是字符串检索的经典结构，也是搜索引擎倒排索引的底层伙伴。分词里的 Trie 与哈希表之争，是「查询速度」与「前缀灵活性」的权衡，到互联网文本检索时你还会再次遇见。</span>
 
 词典本身还带权重信息：词条可以标注**词频**或**概率**。不带的词典，只能做「等权」的匹配；带了概率的词典，才有能力让「概率高的切法」胜出——这是下一节统计方法与「带权最短路径」的关键区别。
 
@@ -38,19 +38,19 @@ date: 2026-08-07
 设词典中最长词长度为 $L$。从句子开头取长度为 $L$ 的候选串，若不在词典，则去掉末尾一个字再查，直到命中或退化为单字。算法如下：
 
 ```python
-def fmm_segment(text, lexicon, max_len=5):
-    """正向最大匹配：从前往后，每次取最长的词典词"""
-    words, i, n = [], 0, len(text)
+def fmm(sentence, dic, L):
+    """正向最大匹配：优先取最长词，命中后向前移动"""
+    words, i, n = [], 0, len(sentence)
     while i < n:
-        for L in range(min(max_len, n - i), 0, -1):
-            if text[i:i + L] in lexicon:      # 命中则切出
-                words.append(text[i:i + L])
-                i += L
+        for length in range(min(L, n - i), 0, -1):   # 从最长候选试起
+            if sentence[i:i + length] in dic or length == 1:
+                words.append(sentence[i:i + length])
+                i += length
                 break
-        else:
-            words.append(text[i])             # 单字兜底，必然成词
-            i += 1
     return words
+
+dic = {'武汉', '武汉市', '市长', '长江', '大桥'}
+print(fmm('武汉市长江大桥', dic, L=4))   # ['武汉市', '长江', '大桥']
 ```
 
 对「武汉市长江大桥」按 FMM（假设词典含「武汉」「武汉市」「市长」「长江」「大桥」）会切出：**武汉市 / 长江 / 大桥**。
@@ -106,29 +106,29 @@ $$
 对「武汉市长江大桥」，$D(7)$ 会分别考虑前驱 $i=5$（切出「大桥」）与 $i=6$（切出「桥」）等；因为「大桥 (5,7)」比「桥 (6,7)」一次省一个词，$D(7)$ 最终取前驱 5，得到三词切分。下面是完整实现：
 
 ```python
-def shortest_path_segment(text, lexicon):
-    """最短路径分词：词数最少 / 边权为 1 的动态规划"""
-    n = len(text)
-    edges = {}                          # j -> [i, ...]：所有以 j 结尾的词
-    for i in range(n):
-        for j in range(i + 1, n + 1):
-            if text[i:j] in lexicon or j == i + 1:   # 词或单字兜底
-                edges.setdefault(j, []).append(i)
+def shortest_seg(sentence, dic):
+    """最短路径分词：DAG 上动态规划求最少词数切分"""
+    n = len(sentence)
+    D = [0] * (n + 1)        # D[j] = 切到第 j 个间隙的最少词数
+    prev = [-1] * (n + 1)    # 记录前驱，用于回溯
 
-    D = [float('inf')] * (n + 1)
-    prev = [-1] * (n + 1)
-    D[0] = 0
     for j in range(1, n + 1):
-        for i in edges.get(j, []):
-            if D[i] + 1 < D[j]:         # 更新更优前驱
-                D[j] = D[i] + 1
-                prev[j] = i
+        best_i, best_cost = j - 1, D[j - 1] + 1   # 单字兜底：c_j 单独成词
+        for i in range(j):                        # 尝试所有以 j 结尾的词 c_{i+1..j}
+            if sentence[i:j] in dic:
+                cost = D[i] + 1
+                if cost < best_cost:
+                    best_i, best_cost = i, cost
+        D[j], prev[j] = best_cost, best_i
 
-    words, k = [], n
-    while k > 0:
-        words.append(text[prev[k]:k])   # 回溯还原
-        k = prev[k]
-    return words[::-1], D[n]
+    words, j = [], n
+    while j > 0:
+        words.append(sentence[prev[j]:j])
+        j = prev[j]
+    return list(reversed(words))
+
+dic = {'武汉', '武汉市', '市长', '长江', '大桥', '江', '大', '桥'}
+print(shortest_seg('武汉市长江大桥', dic))   # ['武汉市', '长江', '大桥']
 ```
 
 **辨析｜易错点：** 最短路径 ≠ 语义最正确。它只是「词数最少 / 词频最大」这个目标下的全局最优，而该目标本身只是真实语言规律的近似。两个经典误区：一是把「最少词数」当成「正确切分」的充分条件——「乒乓球拍卖完了」里「球拍 / 卖完」与「拍卖 / 完」词数相同，路径法依然会左右为难；二是忘了**单字兜底边**——若某个未登录词序列让路径断掉，图必须保证单字总能成词，否则无解。词典方法的共同软肋（未登录词）在这里暴露得最清楚：**图里根本没有未登录词的边，再优的路径也切不中它。**

@@ -37,16 +37,13 @@ date: 2026-08-07
 
 **Unix 权限模型**：对每个文件，按三类主体分别设权限——**属主（owner）、组（group）、其他（other）**，每类三位的 rwx（读/写/执行）。
 
-```bash
--rw-r--r--  1 alice staff  1024 file.txt
- ↑  ↑  ↑
- │  │  └── other: r--
- │  └───── group: r--
- └──────── owner: rw-
+```
+$ ls -l report.txt
+-rw-r--r--  1 alice staff  1024 Aug  7 12:00 report.txt
 ```
 
 - 9 个权限位 = 3 类主体 × 3 种权限。
-- `rw-r--r--`：owner 可读写、group 只读、other 只读。
+- 例：`rw-r--r--`——owner 可读写、group 只读、other 只读。
 
 **优点**：实现极简（9 个位）、表达紧凑。**缺点**：粒度粗——**只能区分「三类人」，不能精确到单个用户**。一个文件想给「张三读、李四写、其他人不可见」，三元组做不到。
 
@@ -55,11 +52,15 @@ date: 2026-08-07
 **访问控制列表（ACL, Access Control List）**：每个文件维护一张**列表**，列出「哪个用户/组 → 什么权限」。
 
 ```
-file.txt:
-  alice : rw-
-  bob   : r--
-  staff : rw-
-  *     : ---     （其他人无权限）
+$ getfacl report.txt
+# file: report.txt
+# owner: alice
+# group: staff
+user::rw-
+user:bob:r--
+group::r--
+mask::r--
+other::---
 ```
 
 - **粒度细**：可精确到每个用户、每个组。

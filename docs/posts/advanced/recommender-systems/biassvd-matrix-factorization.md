@@ -24,9 +24,9 @@ BiasSVD 的做法朴素而有效：**先把可解释的底色（偏置）显式�
 
 把任意一条评分 $r_{ui}$ 拆开，至少有三个「与交互无关」的成分：
 
-- **全局均值 $\mu$**：整个数据集评分的平均水平。Netflix 上约为 3.6 分（满分 5）。这是最粗糙、也最可靠的预测——不知道任何信息时，猜全局均值就是最优解。
-- **用户偏置 $b_u$**：用户 $u$ 的「打分尺度」。有人平均给 4.2，有人平均给 2.8，$b_u$ 刻画「用户 $u$ 相对全局均值的系统性偏移」。
-- **物品偏置 $b_i$**：物品 $i$ 的「被评价水平」。神作整体偏高、烂片整体偏低，$b_i$ 刻画「物品 $i$ 相对全局均值的系统性偏移」。
+**全局均值 $\mu$**：整个数据集评分的平均水平。Netflix 上约为 3.6 分（满分 5）。这是最粗糙、也最可靠的预测——不知道任何信息时，猜全局均值就是最优解。
+**用户偏置 $b_u$**：用户 $u$ 的「打分尺度」。有人平均给 4.2，有人平均给 2.8，$b_u$ 刻画「用户 $u$ 相对全局均值的系统性偏移」。
+**物品偏置 $b_i$**：物品 $i$ 的「被评价水平」。神作整体偏高、烂片整体偏低，$b_i$ 刻画「物品 $i$ 相对全局均值的系统性偏移」。
 
 **辨析｜易错点：** $b_u$ 不等于「用户 $u$ 的评分均值减去 $\mu$」那么直接。因为爱打高分的人往往也恰好选了好片，用户均分与物品质量纠缠在一起。正确的做法是**联合估计**：让 $b_u$ 与 $b_i$ 在全部数据上交替迭代拟合，或用带正则的收缩估计。只做「均值差」，会把物品的功劳错记到用户头上。<span class="marginnote">收缩估计（shrinkage）的形式是 $b_i = \frac{\sum_{u \in R(i)} (r_{ui} - \mu)}{\lambda + |R(i)|}$。物品被评的次数越少，$b_i$ 越被拉回 0——少数几条评分不足以支撑一个可靠的偏置。这是「正则 = 向先验收缩」思想的又一次现身。</span>
 
@@ -98,28 +98,26 @@ $$
 Funk-SVD 的训练循环只加三行就能升级成 BiasSVD：
 
 ```python
-import numpy as np
+def bias_svd(ratings, K=20, lr=0.01, reg=0.1, epochs=20):
+    """ratings: [(u, i, r), ...]。在 Funk-SVD 上加全局均值 μ 与偏置 b_u、b_i。"""
+    users, items = {u for u, _, _ in ratings}, {i for _, i, _ in ratings}
+    mu = np.mean([r for _, _, r in ratings])          # 全局均值
+    b_u = {u: 0.0 for u in users}                      # 偏置从 0 起步
+    b_i = {i: 0.0 for i in items}
+    P = {u: np.random.normal(0, 0.1, K) for u in users}   # 隐因子仍要随机化
+    Q = {i: np.random.normal(0, 0.1, K) for i in items}
 
-def train_biassvd(ratings, K=20, mu=3.6, lr=0.005, lam=0.1, epochs=30):
-    """ratings: (user, item, rating) 三元组；mu 为全局均值。"""
-    U = max(u for u, _, _ in ratings) + 1
-    I = max(i for _, i, _ in ratings) + 1
-    P = np.random.rand(U, K) * 0.1          # 隐因子：小随机数
-    Q = np.random.rand(I, K) * 0.1
-    bu = np.zeros(U); bi = np.zeros(I)      # 偏置：从 0 开始
-    for epoch in range(epochs):
-        np.random.shuffle(ratings)
+    for _ in range(epochs):
         for u, i, r in ratings:
-            pred = mu + bu[u] + bi[i] + np.dot(P[u], Q[i])
-            e = r - pred
-            bu[u] += lr * (e - lam * bu[u])   # 更新偏置
-            bi[i] += lr * (e - lam * bi[i])
-            P[u] += lr * (e * Q[i] - lam * P[u])
-            Q[i] += lr * (e * P[u] - lam * Q[i])
-    return P, Q, bu, bi
+            e = r - (mu + b_u[u] + b_i[i] + P[u] @ Q[i])  # 误差含偏置
+            b_u[u] += lr * (e - reg * b_u[u])             # 四组更新共用同一个 e
+            b_i[i] += lr * (e - reg * b_i[i])
+            P[u]   += lr * (e * Q[i] - reg * P[u])
+            Q[i]   += lr * (e * P[u] - reg * Q[i])
+    return mu, b_u, b_i, P, Q
 ```
 
-预测时一条指令：`pred = mu + bu[u] + bi[i] + P[u] @ Q[i]`。<span class="marginnote">注意初始化哲学：偏置从 <strong>0</strong> 起步（没有先验偏移，0 是合理起点），而隐因子必须随机化来打破对称——这是第三级《机器学习》里「对称破坏」的老朋友了。</span>
+预测时一条指令：`mu + b_u[u] + b_i[i] + np.dot(P[u], Q[i])`。<span class="marginnote">注意初始化哲学：偏置从 <strong>0</strong> 起步（没有先验偏移，0 是合理起点），而隐因子必须随机化来打破对称——这是第三级《机器学习》里「对称破坏」的老朋友了。</span>
 
 ## 6 一个直觉例子
 

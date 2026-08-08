@@ -22,7 +22,7 @@ epoll 给了「多路复用」的原语，但「怎么用」需要一套**编程
 
 **传统阻塞模型**（每连接一线程）：
 
-- 每个连接一个线程，线程阻塞在 `read` 上（回顾《I/O 模型》）。
+- 每个连接一个线程，线程阻塞在 read 上（回顾《I/O 模型》）。
 - **1 万连接 = 1 万线程**——线程开销巨大（内存、上下文切换），并发上限低。
 
 **事件驱动模型**（Reactor）：
@@ -37,32 +37,27 @@ epoll 给了「多路复用」的原语，但「怎么用」需要一套**编程
 
 **Reactor 模式**的三大组件：
 
-- **Reactor（反应堆）**：事件循环——`epoll_wait` 等待事件，把事件**分派**给对应 handler。
+- **Reactor（反应堆）**：事件循环——epoll_wait 等待事件，把事件**分派**给对应 handler。
 - **Handler（处理器）**：处理特定事件的回调——每个连接/事件有自己的 handler。
 - **Acceptor（接受器）**：专门处理「新连接到来」事件的 handler——accept 新连接并注册。
 
 **工作流程**：
 
-```
-Reactor 主循环：
-  1. epoll_wait 等事件
-  2. 事件 → 判断类型
-     - 新连接 → Acceptor：accept + 注册新 fd 到 epoll
-     - 可读 → 对应连接的 read handler
-     - 可写 → 对应连接的 write handler
-  3. 回到 1
-```
+epoll_wait 等待事件 → 有新连接？ → Acceptor 接收并注册 handler
+                  ↘ 可读/可写？ → 分派给对应 handler 处理
 
 **代码骨架（概念）**：
 
 ```c
-for (;;) {
-    n = epoll_wait(epfd, events, MAX, -1);
-    for (i = 0; i < n; i++) {
-        if (events[i].data.fd == listen_fd)
-            accept_new_conn();          // 新连接
-        else
-            dispatch(events[i].data.fd); // 分派给连接的处理函数
+/* Reactor 事件循环骨架 */
+while (1) {
+    int n = epoll_wait(epfd, events, MAXEVENTS, -1);   /* 等待事件 */
+    for (int i = 0; i < n; i++) {
+        if (events[i].data.fd == listen_fd) {
+            accept_new_conn();    /* Acceptor：接收新连接并注册 handler */
+        } else {
+            dispatch(events[i]);  /* 分派给该连接对应的 handler 处理 */
+        }
     }
 }
 ```

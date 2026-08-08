@@ -76,51 +76,61 @@ $$
 \boldsymbol{w} \leftarrow \boldsymbol{w} - \eta\,\nabla_{\boldsymbol{w}} L, \qquad b \leftarrow b - \eta\,\frac{\partial L}{\partial b}
 $$
 
-其中学习率 $\eta$ 控制步长。用 PyTorch 从零实现（不调用 `nn.Linear` 等高层 API，只靠张量运算与自动微分）的完整循环：
+其中学习率 $\eta$ 控制步长。用 PyTorch 从零实现（不调用 `nn.Linear`、`optim.SGD` 等高层 API，只靠张量运算与自动微分）的完整循环：
 
 ```python
+import random
 import torch
-import math
 
-# 生成合成数据：y = 2.0*x1 - 1.2*x2 + 0.5 + 噪声
-true_w, true_b = torch.tensor([2.0, -1.2]), 0.5
-n, d = 1000, 2
-X = torch.randn(n, d)
-y = X @ true_w + true_b + torch.randn(n) * 0.01
+# 生成合成数据：labels 依赖 features，真实权重 w* = [2, -3.4]、b* = 4.2
+num_inputs, num_examples = 2, 1000
+true_w = torch.tensor([2.0, -3.4])
+true_b = 4.2
+features = torch.randn(num_examples, num_inputs)
+labels = true_w[0] * features[:, 0] + true_w[1] * features[:, 1] + true_b
+labels += torch.normal(0, 0.01, size=labels.shape)   # 高斯噪声
 
-w = torch.zeros(d, requires_grad=True)
+def data_iter(batch_size, features, labels):   # 每 epoch 洗牌、切批
+    num_examples = len(features)
+    indices = list(range(num_examples))
+    random.shuffle(indices)
+    for i in range(0, num_examples, batch_size):
+        batch_indices = torch.tensor(indices[i: i + batch_size])
+        yield features[batch_indices], labels[batch_indices]
+
+# 参数初始化：requires_grad=True 让 autograd 追踪
+w = torch.normal(0, 0.01, size=(num_inputs, 1), requires_grad=True)
 b = torch.zeros(1, requires_grad=True)
-lr, num_epochs, batch_size = 0.03, 50, 100
 
+def linreg(X, w, b):          # 前向：线性模型
+    return torch.matmul(X, w) + b
+
+def squared_loss(y_hat, y):   # 损失：均方误差
+    return (y_hat - y.reshape(y_hat.shape)) ** 2 / 2
+
+def sgd(params, lr, batch_size):   # 更新：小批量梯度下降
+    with torch.no_grad():
+        for param in params:
+            param -= lr * param.grad / batch_size
+            param.grad.zero_()      # 清零：防止梯度跨 batch 累加
+
+lr, num_epochs, batch_size = 0.03, 3, 32
 for epoch in range(num_epochs):
-    # 小批量梯度下降：每轮遍历一遍数据
-    perm = torch.randperm(n)
-    for i in range(0, n, batch_size):
-        idx = perm[i:i + batch_size]
-        Xb, yb = X[idx], y[idx]
-        y_hat = Xb @ w + b
-        loss = ((y_hat - yb) ** 2).sum() / (2 * len(idx))  # MSE
-        loss.backward()
-        with torch.no_grad():
-            w -= lr * w.grad
-            b -= lr * b.grad
-            w.grad.zero_()
-            b.grad.zero_()
-    if epoch % 10 == 0:
-        print(f"epoch {epoch}, loss {loss.item():.4f}")
-
-print(f"学到的 w = {w.detach().numpy()}，真值 w = [2.0, -1.2]")
+    for X, y in data_iter(batch_size, features, labels):
+        l = squared_loss(linreg(X, w, b), y)  # 前向 + 损失
+        l.sum().backward()                    # 反向：梯度进 w.grad、b.grad
+        sgd([w, b], lr, batch_size)           # 更新（内部已清零）
 ```
 
 这个循环浓缩了深度学习的**全部骨架**，值得逐行拆解：
 
-- **前向**：`y_hat = Xb @ w + b` 计算预测。
+- **前向**：`linreg(X, w, b)` 计算预测。
 - **损失**：MSE 是一个可导标量。
-- **反向**：`loss.backward()` 自动把梯度填进 `w.grad`。
-- **更新**：`w -= lr * w.grad` 沿负梯度走一步。
-- **清零**：`w.grad.zero_()` 防止梯度在多个 batch 间累加——正是上一篇《自动微分》强调的「分叉求和」的工程版。
+- **反向**：`backward()` 自动把梯度填进 `w.grad`、`b.grad`。
+- **更新**：`sgd([w, b], lr, batch_size)` 沿负梯度走一步。
+- **清零**：`param.grad.zero_()` 防止梯度在多个 batch 间累加——正是上一篇《自动微分》强调的「分叉求和」的工程版。
 
-**易错点：** `requires_grad=True` 的张量在更新后必须放在 `torch.no_grad()` 里操作，否则更新本身也会被记录进计算图，越滚越大、显存爆炸。这是所有 PyTorch 新手都会踩的坑。<span class="marginnote">真实工程里 `loss.backward()` 前往往要 `optimizer.zero_grad()`，就是在这里手动清零梯度的封装。用高层 API 时这些细节被优化器隐藏，但「清零→前向→反向→更新」四步的顺序是任何框架都逃不掉的节拍。</span>
+**易错点：** 需要更新（`requires_grad=True`）的张量在更新后必须放在 `with torch.no_grad():` 里操作，否则更新本身也会被记录进计算图，越滚越大、显存爆炸。这是所有 PyTorch 新手都会踩的坑。<span class="marginnote">真实工程里 `backward()` 前往往要 `optimizer.zero_grad()`，就是在这里手动清零梯度的封装。用高层 API 时这些细节被优化器隐藏，但「清零→前向→反向→更新」四步的顺序是任何框架都逃不掉的节拍。</span>
 
 ## 5 求解方式对比与泛化评估
 
@@ -132,7 +142,7 @@ print(f"学到的 w = {w.detach().numpy()}，真值 w = [2.0, -1.2]")
 
 **泛化评估**：训练完成后，用独立**测试集**计算 MSE。注意数据生成时噪声标准差 0.01，因此「理论最优」的测试损失约为 $\frac{1}{2}\times 0.01^2 = 5\times 10^{-5}$ 量级——如果训练损失远低于这个数，说明模型在拟合噪声（过拟合）。**对比训练损失与噪声下限，是诊断过拟合的第一把尺子。**
 
-**易错点：** 合成数据里 `y` 依赖 `X`，生成时用了真实权重。评估时若把「训练集上拟合的 $\hat{w}$」与「真实权重」直接对比，两者不会完全相等——因为噪声让数据偏离了真值。**学到的 $\hat{w}$ 逼近真值 $w^*$，但不等于真值**，这正是偏差-方差分解中「方差」的来源。
+**易错点：** 合成数据里 `labels` 依赖 `features`，生成时用了真实权重。评估时若把「训练集上拟合的 $\hat{w}$」与「真实权重」直接对比，两者不会完全相等——因为噪声让数据偏离了真值。**学到的 $\hat{w}$ 逼近真值 $w^*$，但不等于真值**，这正是偏差-方差分解中「方差」的来源。
 
 ## 6 小结
 

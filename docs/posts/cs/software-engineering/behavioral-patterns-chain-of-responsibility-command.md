@@ -22,12 +22,26 @@ date: 2026-08-07
 
 **责任链（Chain of Responsibility）**：**给多个对象处理请求的机会**——把处理者串成链，请求沿链传递，直到某个处理者处理它（或无人处理）。
 
-结构：抽象 `Handler` 声明 `handleRequest()` 与指向下一处理者的引用；具体处理者处理自己职责范围内的请求，处理不了就传给下一个。
+结构：抽象**处理者（Handler）**声明**处理请求的方法（handle）**与指向下一处理者的引用；具体处理者处理自己职责范围内的请求，处理不了就传给下一个。
 
-```
-审批链： 组长 → 经理 → 总监 → CEO
-出差报销 2000 元 → 组长批
-出差报销 20000 元 → 组长转经理转总监批
+```java
+// 抽象处理者：声明处理接口 + 指向下一个处理者
+abstract class Handler {
+    private Handler next;
+    void setNext(Handler next) { this.next = next; }
+    void handle(Request req) {
+        if (canHandle(req)) doHandle(req);
+        else if (next != null) next.handle(req);   // 处理不了，转交下一个
+    }
+    abstract boolean canHandle(Request req);
+    abstract void doHandle(Request req);
+}
+
+// 具体处理者：只处理自己职责范围内的请求
+class Logger extends Handler {
+    boolean canHandle(Request req) { return req.level() <= Level.INFO; }
+    void doHandle(Request req) { /* 写日志 */ }
+}
 ```
 
 **辨析｜易错点：** 责任链 ≠ 管道-过滤器（第 5 章）。管道的每个过滤器**都处理**数据再传给下一个（全员参与）；责任链的每个处理者**有权决定"处理或转交"**——请求通常只被一个环节真正处理。前者是"分工接力"，后者是"逐级转交"。
@@ -38,18 +52,35 @@ date: 2026-08-07
 
 **命令（Command）**：把**请求封装成对象**，从而支持参数化、排队、记录日志以及可撤销操作。
 
-结构：`Command` 接口声明 `execute()`；具体 `Command` 持有接收者（`Receiver`）引用并调用其方法；`Invoker`（调用者）持有命令对象，在适当时机触发 `execute()`。
+结构：**Command** 接口声明 **execute()**；具体**命令（ConcreteCommand）**持有接收者（**Receiver**）引用并调用其方法；**Invoker（调用者）**持有命令对象，在适当时机触发 **execute()**。
 
-```
-Invoker(按钮) → Command.execute() → Receiver(灯)  // 开灯命令对象
+```java
+// 命令接口
+interface Command {
+    void execute();
+}
+
+// 具体命令：持有接收者，封装“做什么”
+class LightOnCommand implements Command {
+    private Light light;
+    LightOnCommand(Light light) { this.light = light; }
+    public void execute() { light.turnOn(); }
+}
+
+// 调用者：只管触发命令，不关心接收者是谁
+class RemoteControl {
+    private Command cmd;
+    void setCommand(Command cmd) { this.cmd = cmd; }
+    void pressButton() { cmd.execute(); }
+}
 ```
 
 命令模式的四大价值：
 
-- **解耦**：Invoker 不知道也不关心接收者是谁、做什么——只管触发命令。
-- **可撤销（undo）**：命令对象记录反向操作，栈式撤销。
-- **可排队/可延迟**：命令对象可被存进队列异步执行、可被记录日志（redo）。
-- **宏命令**：命令组合成复合命令，一次触发一串操作。<span class="marginnote">命令模式让"触发动作"与"动作本身"分离，带来一个惊人的能力：<strong>动作可以像数据一样被存储、传输、重放</strong>。这直接催生了任务队列、事务日志、快捷键绑定、以及 GUI 的撤销/重做。编辑器里的 Ctrl+Z 就是命令栈——每次操作压栈，撤销弹出并执行反向命令。</span>
+**解耦**：Invoker 不知道也不关心接收者是谁、做什么——只管触发命令。
+**可撤销（undo）**：命令对象记录反向操作，栈式撤销。
+**可排队/可延迟**：命令对象可被存进队列异步执行、可被记录日志（redo）。
+**宏命令**：命令组合成复合命令，一次触发一串操作。<span class="marginnote">命令模式让"触发动作"与"动作本身"分离，带来一个惊人的能力：<strong>动作可以像数据一样被存储、传输、重放</strong>。这直接催生了任务队列、事务日志、快捷键绑定、以及 GUI 的撤销/重做。编辑器里的 Ctrl+Z 就是命令栈——每次操作压栈，撤销弹出并执行反向命令。</span>
 
 **辨析｜易错点：** 命令 ≠ 函数回调。命令是**完整对象**（有接口、可存状态、可撤销、可组合）；回调通常是无状态的函数引用。当"一个动作"需要携带参数、支持撤销、可入队时，命令对象比回调更合适。现代函数式语言里，命令常以"函数对象/闭包"形式出现——精神相同，载体不同。
 

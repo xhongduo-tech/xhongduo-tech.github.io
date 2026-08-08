@@ -28,8 +28,8 @@ $$v_\pi(s) = \sum_a \pi(a \mid s) \sum_{s', r} p(s', r \mid s, a)\left[ r + \gam
 
 先给问题一个准确的名字。回顾第三篇的分工：
 
-- **预测（prediction / evaluation）**：给定策略 $\pi$，求价值函数 $v_\pi$。
-- **控制（control）**：不给定策略，找最优策略 $\pi_*$。
+**预测（prediction / evaluation）**：给定策略 $\pi$，求价值函数 $v_\pi$。
+**控制（control）**：不给定策略，找最优策略 $\pi_*$。
 
 策略评估是「控制」的一半——你得先知道当前策略有多好，才能谈得上改进它。而评估的全部工作，都围绕一个结构性的观察：
 
@@ -101,39 +101,33 @@ $$\lVert T_\pi u - T_\pi v \rVert_\infty \le \gamma\, \lVert u - v \rVert_\infty
 把上面的更新规则写成代码，不过二十来行。下面是在 4×4 网格世界上运行的完整实现：
 
 ```python
-import numpy as np
+# 4×4 网格世界（Example 4.1）：终止态 0 与 15，其余 14 个非终止态
+GAMMA, THETA = 1.0, 1e-4
+ACTIONS = {"up": (-1, 0), "down": (1, 0), "left": (0, -1), "right": (0, 1)}
+NONTERMINAL = [s for s in range(16) if s not in (0, 15)]
 
-def policy_eval(policy, terminal, gamma=1.0, theta=1e-4):
-    """迭代式策略评估：policy[r, c, a] 是状态 (r,c) 下选动作 a 的概率。"""
-    V = np.zeros((4, 4))                    # v_0 = 全 0
-    actions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    while True:
-        delta = 0.0
-        for r in range(4):
-            for c in range(4):
-                if (r, c) in terminal:
-                    continue                # 终止状态不更新
-                v_old = V[r, c]
-                v_new = 0.0
-                for a, (dr, dc) in enumerate(actions):
-                    r2, c2 = r + dr, c + dc
-                    if r2 < 0 or r2 > 3 or c2 < 0 or c2 > 3:
-                        r2, c2 = r, c      # 撞墙原地不动
-                    v_new += policy[r, c, a] * (-1 + gamma * V[r2, c2])
-                V[r, c] = v_new             # 就地更新
-                delta = max(delta, abs(v_new - v_old))
-        if delta < theta:                   # 收敛判定
-            break
-    return V
+def step(s, a):
+    r, c = divmod(s, 4)
+    r = min(3, max(0, r + ACTIONS[a][0]))    # 撞墙则原地不动
+    c = min(3, max(0, c + ACTIONS[a][1]))
+    return r * 4 + c
 
-# 随机策略：每个状态四个动作等概率
-policy = np.full((4, 4, 4), 0.25)
-terminal = {(0, 0), (3, 3)}
-V = policy_eval(policy, terminal)
-print(np.round(V, 1))
+V = {s: 0.0 for s in NONTERMINAL}            # 价值表，初始全 0
+while True:
+    delta = 0.0
+    for s in NONTERMINAL:                    # 就地更新：直接写回同一个数组 V
+        v = V[s]
+        # 随机策略：四个动作各 1/4，每步奖励 -1
+        V[s] = sum(0.25 * (-1 + GAMMA * V[step(s, a)]) for a in ACTIONS)
+        delta = max(delta, abs(v - V[s]))
+    if delta < THETA:
+        break                                 # 两次扫描变化小于阈值 → 收敛
+
+for r in range(4):                            # 打印价值矩阵（终止态为 0）
+    print([round(V.get(r * 4 + c, 0.0), 2) for c in range(4)])
 ```
 
-运行这段代码，打印出的矩阵就是上一节那张「地图」——`[[  0.  -14. -20. -22.]  [-14. -18. -20. -20.]  [-20. -20. -18. -14.]  [-22. -20. -14.   0.]]`。注意这里用的是**就地更新**（直接写回 `V[r, c]`），它比同步双数组版本收敛得更快，也正是第四篇后面「异步」思想的雏形。<span class="marginnote">这段代码里 `gamma * V[r2, c2]` 就是「自举」：用自己对价值的旧估计来更新新估计。这个动作在动态规划里是理论核心，等我们进入第六篇《时序差分》，会发现它被保留了下来、只是把「取期望」换成了「采一个样本」。</span>
+运行这段代码，打印出的矩阵就是上一节那张「地图」——各状态的价值 $v_\pi(s)$。注意这里用的是**就地更新**（直接写回同一个数组 $V$），它比同步双数组版本收敛得更快，也正是第四篇后面「异步」思想的雏形。<span class="marginnote">这段代码里「用 $V(s')$ 更新 $V(s)$」就是「自举」：用自己对价值的旧估计来更新新估计。这个动作在动态规划里是理论核心，等我们进入第六篇《时序差分》，会发现它被保留了下来、只是把「取期望」换成了「采一个样本」。</span>
 
 ## 6 辨析：预测与控制，别混为一谈
 

@@ -78,37 +78,40 @@ $|N(u)|$ 是用户 $u$ 喜欢过的物品总数，即用户的活跃度。<span 
 
 ## 5 代码：两个补丁一起打
 
-把归一化与活跃用户惩罚接进上一篇的 `item_similarity`：
+把归一化与活跃用户惩罚接进上一篇的 ItemCF 代码：
 
 ```python
-import math
-from collections import defaultdict
+def normalize_by_row(W):
+    """补丁一：按行归一化——每个物品 i 的相似度除以该行最大值。"""
+    for i, related in W.items():
+        m = max(related.values(), default=1.0)
+        for j in related:
+            related[j] /= m
+    return W
 
-def item_similarity_improved(train, penalty_active_user=True, normalize=True):
-    C = defaultdict(float)      # 存降权后的共现贡献
-    N_item = defaultdict(int)   # |N(i)|
-    N_user = defaultdict(int)   # |N(u)|
-    for u, items in train.items():
-        N_user[u] = len(items)
+def item_similarity_penalized(user_items):
+    """补丁二：活跃用户惩罚——把共现累加量从 1 换成 1/log(1+|N(u)|)。"""
+    item_users = defaultdict(set)
+    for u, items in user_items.items():
         for i in items:
-            N_item[i] += 1
+            item_users[i].add(u)
+
+    C = defaultdict(lambda: defaultdict(float))
+    for u, items in user_items.items():
+        w = 1.0 / math.log(1 + len(items))    # 用户越活跃，这一票越轻
+        for i in items:
             for j in items:
                 if i != j:
-                    # 活跃用户惩罚：每个共同用户 u 的票被降权
-                    w = 1.0 / math.log(1 + N_user[u]) if penalty_active_user else 1.0
-                    C[(i, j)] += w
+                    C[i][j] += w              # 原版这里是 C[i][j] += 1
 
     W = defaultdict(dict)
-    for (i, j), cnt in C.items():
-        W[i][j] = cnt / math.sqrt(N_item[i] * N_item[j])
-
-    if normalize:
-        # 按行归一化：除以该行最大值
-        for i in W:
-            mx = max(W[i].values())
-            for j in W[i]:
-                W[i][j] /= mx
+    for i, related in C.items():
+        for j, cij in related.items():
+            W[i][j] = cij / math.sqrt(len(item_users[i]) * len(item_users[j]))
     return W
+
+# 两个补丁一起打：先惩罚活跃用户，再按行归一化
+W = normalize_by_row(item_similarity_penalized(user_items))
 ```
 
 归一化是**后处理**——它在相似度全部算完之后，对矩阵每行做一次缩放，因此可以独立开关；活跃用户惩罚则发生在**累加阶段**，改的是相似度定义本身。这种「先定义相似度、再后处理修正量纲」的两段式结构，与第三级《机器学习》里「先算特征、再对特征做缩放（feature scaling）」的思路如出一辙。

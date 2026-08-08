@@ -96,17 +96,13 @@ $$H = -\sum_{i=1}^{n} p_i \log_2 p_i$$
 用 Python 把 Gini 系数算出来（可直接运行）：
 
 ```python
-def gini(shares):
-    """shares: 各物品流行度占比列表（无需预排序），返回 Gini ∈ [0, 1]。"""
-    p = sorted(shares)              # 从低到高排序，Gini 依赖排序
+def gini(p):
+    """p：各物品被推荐的次数占比列表；返回 Gini 系数（0=绝对平均，越接近 1 越集中）。"""
+    p = sorted(p)                            # 升序：从最冷门到最热门
     n = len(p)
-    total = sum(p)
-    return sum((2 * i - n + 1) * p[i] for i in range(n)) / ((n - 1) * total)
-
-uniform = [1/5] * 5                 # 完全均匀：G ≈ 0
-heady   = [0.90, 0.04, 0.03, 0.02, 0.01]  # 头部集中：G ≈ 0.90
-print(f"均匀分布的 Gini = {gini(uniform):.3f}")   # 0.000
-print(f"头部集中的 Gini = {gini(heady):.3f}")     # 0.900
+    # 权重 2i-n+1 对应公式的 2i-n-1：Python 下标从 0 起、公式下标从 1 起
+    num = sum((2 * i - n + 1) * p[i] for i in range(n))
+    return num / (n * sum(p))                # 分母多除一个 sum(p)，不要求占比恰好归一化
 ```
 
 代码里权重用 $2i - n + 1$ 对应公式的 $2i - n - 1$，是因为 Python 下标从 0 开始、公式下标从 1 开始；分母多除一个 $\sum p$ 是为了不要求占比恰好归一化。

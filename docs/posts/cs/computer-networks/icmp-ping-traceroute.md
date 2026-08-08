@@ -26,10 +26,10 @@ ICMP 报文分两大类：
 
 **差错报告报文**（报告 IP 数据报的问题）：<span class="marginnote">常见差错报文：<strong>终点不可达</strong>（目的网络/主机/端口找不到）、<strong>超时</strong>（TTL 减到 0）、<strong>参数问题</strong>（首部字段有误）、<strong>重定向</strong>（让发送方换一条更优路由）。这些报文的共同特点是「<strong>只报告、不纠正</strong>」——ICMP 告诉发送方出错了，但重传是上层（TCP）的事。</span>
 
-- **终点不可达（Destination Unreachable）**：目的网络、主机或端口不可达时报告。
-- **超时（Time Exceeded）**：TTL 减到 0 时报告——traceroute 就靠它。
-- **重定向（Redirect）**：路由器告诉发送方「有更近的下一跳，请改道」。
-- **参数问题**：首部字段有误时报告。
+**终点不可达（Destination Unreachable）**：目的网络、主机或端口不可达时报告。
+**超时（Time Exceeded）**：TTL 减到 0 时报告——traceroute 就靠它。
+**重定向（Redirect）**：路由器告诉发送方「有更近的下一跳，请改道」。
+**参数问题**：首部字段有误时报告。
 
 **询问报文**（主动询问对方状态）：**回显请求/应答（Echo Request/Reply）**——ping 用的就是它。
 
@@ -70,7 +70,7 @@ ICMP 报文分两大类：
 - **ICMP 的职责**：IP 层的差错报告与询问，装在 IP 数据报里（协议号 1）。
 - **两大类报文**：差错报告（终点不可达、超时、重定向、参数问题）与询问（回显请求/应答）。
 - **ping 原理**：Echo Request/Reply，测连通性与往返时延；「ping 通 ≠ 应用可用」。
-- **traceroute 原理**：递增 TTL，利用「超时」报告逐跳逼出路径；`tracert`/`traceroute`。
+- **traceroute 原理**：递增 TTL，利用「超时」报告逐跳逼出路径；`ping`/`traceroute`。
 - **角色定位**：ICMP 是 IP 的辅助协议，不是上层应用；无端口，靠类型/代码区分。
 - **排障心法**：ping 测连通、traceroute 定位断点，配合抓包使用效果最佳。
 

@@ -52,9 +52,9 @@ $$
 
 把任意公式化为范式，是一套机械的等价改写。以 $A = \neg(P \to Q) \lor (Q \land R)$ 为例：
 
-- **第一步，消去 $\to$ 与 $\leftrightarrow$**：用 $X \to Y \equiv \neg X \lor Y$ 和 $X \leftrightarrow Y \equiv (X \to Y) \land (Y \to X)$ 消去所有蕴涵与等值。这里 $A \equiv \neg(\neg P \lor Q) \lor (Q \land R)$。
-- **第二步，把否定推进到字面量**：反复用双重否定与德摩根律，让 $\neg$ 只出现在原子命题前。这里 $\neg(\neg P \lor Q) \equiv P \land \neg Q$，于是 $A \equiv (P \land \neg Q) \lor (Q \land R)$。
-- **第三步，分配展开**：若想要 CNF，用 $X \lor (Y \land Z) \equiv (X \lor Y) \land (X \lor Z)$ 把 $\lor$ 分配进 $\land$；若想要 DNF，用 $X \land (Y \lor Z) \equiv (X \land Y) \lor (X \land Z)$ 把 $\land$ 分配进 $\lor$。
+**第一步，消去 $\to$ 与 $\leftrightarrow$**：用 $X \to Y \equiv \neg X \lor Y$ 和 $X \leftrightarrow Y \equiv (X \to Y) \land (Y \to X)$ 消去所有蕴涵与等值。这里 $A \equiv \neg(\neg P \lor Q) \lor (Q \land R)$。
+**第二步，把否定推进到字面量**：反复用双重否定与德摩根律，让 $\neg$ 只出现在原子命题前。这里 $\neg(\neg P \lor Q) \equiv P \land \neg Q$，于是 $A \equiv (P \land \neg Q) \lor (Q \land R)$。
+**第三步，分配展开**：若想要 CNF，用 $X \lor (Y \land Z) \equiv (X \lor Y) \land (X \lor Z)$ 把 $\lor$ 分配进 $\land$；若想要 DNF，用 $X \land (Y \lor Z) \equiv (X \land Y) \lor (X \land Z)$ 把 $\land$ 分配进 $\lor$。
 
 上面已经停在 DNF 了：$A \equiv (P \land \neg Q) \lor (Q \land R)$，这是两个简单合取式的析取。若要 CNF，继续分配：$(P \lor Q) \land (P \lor R) \land (\neg Q \lor Q) \land (\neg Q \lor R)$。<span class="marginnote">注意 CNF 里出现了 $(\neg Q \lor Q)$ 这种重言式子句——它是合法的，但可以删掉（因为真析取上任何东西都是该东西）。习惯上会把重言式子句从 CNF 里剔除，把矛盾式析取项从 DNF 里剔除，得到「干净的」范式。</span>
 

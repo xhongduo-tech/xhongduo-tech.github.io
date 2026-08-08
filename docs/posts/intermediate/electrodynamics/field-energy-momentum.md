@@ -58,9 +58,9 @@ $$\mathbf{g} = \varepsilon_0\mu_0\,\mathbf{S} = \frac{\mathbf{S}}{c^2}$$
 
 坡印亭定理是本节的核心，其推导本身就是一个重要训练。骨架如下：
 
-- **第一步，法拉第定律点乘 $\mathbf{H}$**：$\mathbf{H}\cdot(\nabla\times\mathbf{E}) = -\mathbf{H}\cdot\partial\mathbf{B}/\partial t$。利用恒等式 $\nabla\cdot(\mathbf{E}\times\mathbf{H}) = \mathbf{H}\cdot(\nabla\times\mathbf{E}) - \mathbf{E}\cdot(\nabla\times\mathbf{H})$，把左端换成「$\nabla\cdot\mathbf{S}$ 减去另一个旋度项」。
-- **第二步，安培-麦克斯韦定律点乘 $\mathbf{E}$**：$\mathbf{E}\cdot(\nabla\times\mathbf{H}) = \mathbf{E}\cdot\mathbf{J} + \mathbf{E}\cdot\partial\mathbf{D}/\partial t$。这个等式把「电流功率」与「电场时间变化率」联系起来。
-- **第三步，合并**：两式相减，左边凑出 $\nabla\cdot(\mathbf{E}\times\mathbf{H}) = \nabla\cdot\mathbf{S}$；右边的时间变化项组合成 $\dfrac{\partial}{\partial t}\left(\dfrac{1}{2}\mathbf{E}\cdot\mathbf{D} + \dfrac{1}{2}\mathbf{B}\cdot\mathbf{H}\right)$。移项即得坡印亭定理。核心诀窍是**用 $\mathbf{E}$ 和 $\mathbf{H}$ 分别点乘两个旋度方程再相减**，让含时间导数的项恰好组合成能量密度的导数。<span class="marginnote">这种「点乘求能量方程」的手法是场论的标准动作，在流体力学、弹性力学里同样出现——对运动方程点乘速度，就得能量守恒。物理中守恒律几乎都来自「对场方程做内积」这一操作。</span>
+**第一步，法拉第定律点乘 $\mathbf{H}$**：$\mathbf{H}\cdot(\nabla\times\mathbf{E}) = -\mathbf{H}\cdot\partial\mathbf{B}/\partial t$。利用恒等式 $\nabla\cdot(\mathbf{E}\times\mathbf{H}) = \mathbf{H}\cdot(\nabla\times\mathbf{E}) - \mathbf{E}\cdot(\nabla\times\mathbf{H})$，把左端换成「$\nabla\cdot\mathbf{S}$ 减去另一个旋度项」。
+**第二步，安培-麦克斯韦定律点乘 $\mathbf{E}$**：$\mathbf{E}\cdot(\nabla\times\mathbf{H}) = \mathbf{E}\cdot\mathbf{J} + \mathbf{E}\cdot\partial\mathbf{D}/\partial t$。这个等式把「电流功率」与「电场时间变化率」联系起来。
+**第三步，合并**：两式相减，左边凑出 $\nabla\cdot(\mathbf{E}\times\mathbf{H}) = \nabla\cdot\mathbf{S}$；右边的时间变化项组合成 $\dfrac{\partial}{\partial t}\left(\dfrac{1}{2}\mathbf{E}\cdot\mathbf{D} + \dfrac{1}{2}\mathbf{B}\cdot\mathbf{H}\right)$。移项即得坡印亭定理。核心诀窍是**用 $\mathbf{E}$ 和 $\mathbf{H}$ 分别点乘两个旋度方程再相减**，让含时间导数的项恰好组合成能量密度的导数。<span class="marginnote">这种「点乘求能量方程」的手法是场论的标准动作，在流体力学、弹性力学里同样出现——对运动方程点乘速度，就得能量守恒。物理中守恒律几乎都来自「对场方程做内积」这一操作。</span>
 
 ## 5 能量、动量守恒与全书的地位
 

@@ -55,9 +55,9 @@ $$
 
 用 0.1000 mol/L 盐酸滴定 20.00 mL 未知浓度的 $\ce{NaOH}$ 溶液，消耗盐酸 18.50 mL，求 $c(\ce{NaOH})$：
 
-- **第一步，写关系**：恰好中和时 $n(\ce{H+}) = n(\ce{OH-})$，即 $c(\ce{HCl})V(\ce{HCl}) = c(\ce{NaOH})V(\ce{NaOH})$。
-- **第二步，代入**：$0.1000 \times 18.50 = c(\ce{NaOH}) \times 20.00$。
-- **第三步，求解**：$c(\ce{NaOH}) = \frac{0.1000 \times 18.50}{20.00} = 0.09250\ \mathrm{mol/L}$。
+**第一步，写关系**：恰好中和时 $n(\ce{H+}) = n(\ce{OH-})$，即 $c(\ce{HCl})V(\ce{HCl}) = c(\ce{NaOH})V(\ce{NaOH})$。
+**第二步，代入**：$0.1000 \times 18.50 = c(\ce{NaOH}) \times 20.00$。
+**第三步，求解**：$c(\ce{NaOH}) = \frac{0.1000 \times 18.50}{20.00} = 0.09250\ \mathrm{mol/L}$。
 
 **结论：滴定计算就是「等当点方程」$c_1V_1 = c_2V_2$**。对多元酸碱，系数需按化学计量数调整（如 $\ce{2NaOH + H2SO4}$，则 $2c_A V_A = c_B V_B$）。
 

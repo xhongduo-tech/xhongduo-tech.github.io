@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 RPC 开始
 
-分布式系统里节点之间要「说话」。可让每个应用自己拼 TCP 报文、解析字节流、处理粘包，既痛苦又易错。**RPC（远程过程调用，Remote Procedure Call）**把跨节点的通信伪装成一次普通的函数调用：你在本地写 `user = getUser(id)`，编译器与运行时替你把参数打包、发到远端、等结果、解包返回。<span class="marginnote">RPC 的思想可追溯到 1976 年 Xerox PARC 的 Cedar 系统，Nelson 的博士论文把它理论化。今天它已是分布式应用的事实标准——从 gRPC 到 Thrift，从微服务到内部 API，全是 RPC 的子孙。</span>
+分布式系统里节点之间要「说话」。可让每个应用自己拼 TCP 报文、解析字节流、处理粘包，既痛苦又易错。**RPC（远程过程调用，Remote Procedure Call）**把跨节点的通信伪装成一次普通的函数调用：你在本地写 **`add(1, 2)`**，编译器与运行时替你把参数打包、发到远端、等结果、解包返回。<span class="marginnote">RPC 的思想可追溯到 1976 年 Xerox PARC 的 Cedar 系统，Nelson 的博士论文把它理论化。今天它已是分布式应用的事实标准——从 gRPC 到 Thrift，从微服务到内部 API，全是 RPC 的子孙。</span>
 
 ## 1 RPC 的核心抽象：让远程调用像本地调用
 
@@ -24,7 +24,7 @@ date: 2026-08-07
 
 一次完整的 RPC 调用沿这条链路走：
 
-1. 客户端调用 client stub 的 `getUser(id)`；
+1. 客户端调用 client stub 的本地函数 **`add(1, 2)`**；
 2. client stub 把函数名与参数**序列化**成字节流（marshalling）；
 3. 传输层（通常 TCP）把字节流发给服务端；
 4. server stub **反序列化**，还原参数，调用真实函数；

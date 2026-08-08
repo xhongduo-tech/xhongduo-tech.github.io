@@ -40,7 +40,7 @@ $$\|f+g\|_p^p\le\|f+g\|_p^{p/q}\left(\|f\|_p+\|g\|_p\right)$$
 
 两边除以 $\|f+g\|_p^{p/q}$（$p-p/q=1$）：
 
-$$\|f+g\|_p\le\|f\|_p+\|g\|_p$$<span class="marginnote">证明的巧妙在「<strong>自指 Hölder</strong>」：把 $|f+g|^p$ 拆成「$|f+g|^{p-1}$（看作 $L^q$ 元素）乘 $|f+g|$（拆成 $|f|+|g|$）」——一个因子在 $L^q$，另一个在 $L^p$，正好 Hölder。指数的搭配（$p$ 与 $q=p/(p-1)$ 共轭）让最后两边能约分。</span>
+$$\|f+g\|_p\le\|f\|_p+\|g\|_p`$$<span class="marginnote">证明的巧妙在「<strong>自指 Hölder</strong>`」：把 $|f+g|^p$ 拆成「$|f+g|^{p-1}$（看作 $L^q$ 元素）乘 $|f+g|$（拆成 $|f|+|g|$）」——一个因子在 $L^q$，另一个在 $L^p$，正好 Hölder。指数的搭配（$p$ 与 $q=p/(p-1)$ 共轭）让最后两边能约分。</strong></span>
 
 ## 2 范数的三条公理
 

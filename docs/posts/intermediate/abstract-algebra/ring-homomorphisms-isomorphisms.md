@@ -32,10 +32,10 @@ date: 2026-08-07
 若 $\varphi$ 是双射，则称**环同构**，记作 $R \cong S$；若 $R = S$ 且 $\varphi$ 是同构，则称**自同构**。<span class="marginnote">环同态定义只要求两条：加法与乘法。它自动保持加法单位元（$\varphi(0_R) = 0_S$）与负元（$\varphi(-a) = -\varphi(a)$），因为加法部分是群同态。注意定义里<strong>不要求</strong>保持乘法单位元——这是含幺环同态的附加约定，下文专门辨析。</span>
 
 **例：**
-- **模 $n$ 同态**：$\varphi : \mathbb{Z} \to \mathbb{Z}_n$，$\varphi(k) = k \bmod n$——保持加法与乘法；
-- **包含映射**：$\iota : \mathbb{Z} \to \mathbb{Q}$，$\iota(k) = k$——子环的包含是同态；
-- **求值同态**：$\varphi_x : \mathbb{R}[x] \to \mathbb{R}$，$\varphi_x(f) = f(x)$——「代入 $x$」保持多项式加法与乘法；
-- **矩阵环上的转置**：$M_n(\mathbb{R}) \to M_n(\mathbb{R})$，$A \mapsto A^T$——同构（保持加法和乘法，虽然乘法顺序保持 $A^T B^T = (BA)^T$……需注意这是环同态，因为 $A^T B^T = (BA)^T$ 而环乘法顺序 $A^T B^T$ 正是 $(BA)^T$，故保持乘法）。
+**模 $n$ 同态**：$\varphi : \mathbb{Z} \to \mathbb{Z}_n$，$\varphi(k) = k \bmod n$——保持加法与乘法；
+**包含映射**：$\iota : \mathbb{Z} \to \mathbb{Q}$，$\iota(k) = k$——子环的包含是同态；
+**求值同态**：$\varphi_x : \mathbb{R}[x] \to \mathbb{R}$，$\varphi_x(f) = f(x)$——「代入 $x$」保持多项式加法与乘法；
+**矩阵环上的转置**：$M_n(\mathbb{R}) \to M_n(\mathbb{R})$，$A \mapsto A^T$——同构（保持加法和乘法，虽然乘法顺序保持 $A^T B^T = (BA)^T$……需注意这是环同态，因为 $A^T B^T = (BA)^T$ 而环乘法顺序 $A^T B^T$ 正是 $(BA)^T$，故保持乘法）。
 
 ## 2 环同态的基本性质
 
@@ -61,8 +61,8 @@ date: 2026-08-07
 **答案**：**不一定**。例子：零同态 $\varphi : R \to S$，$\varphi(r) = 0_S$ 是环同态，但 $\varphi(1_R) = 0_S \ne 1_S$（当 $S \ne \{0\}$）。
 
 **两种约定：**
-- **含幺环同态（unital homomorphism）**：额外要求 $\varphi(1_R) = 1_S$。这是「环同态」在现代代数里的默认约定（多数教材与论文）；
-- 若不要求保幺，则「零同态」「到子环的包含」都算同态，但「环同构」的定义会失去「单位元唯一」的整洁性。
+**含幺环同态（unital homomorphism）**：额外要求 $\varphi(1_R) = 1_S$。这是「环同态」在现代代数里的默认约定（多数教材与论文）；
+若不要求保幺，则「零同态」「到子环的包含」都算同态，但「环同构」的定义会失去「单位元唯一」的整洁性。
 
 **本系列约定**：除非特别说明，「环同态」指**含幺环同态**（要求 $\varphi(1_R) = 1_S$）。<span class="marginnote">保幺约定的影响：$M_n(\mathbb{R}) \to M_m(\mathbb{R})$ 的环同态若存在，必须把 $I_n$ 映到 $I_m$。而「$\mathbb{Z} \to 2\mathbb{Z}$ 的包含」在保幺约定下<strong>不是</strong>同态（$1 \mapsto 1 \notin 2\mathbb{Z}$ 的乘法单位元）——所以把「子环」定义成不含幺的那类，会与「保幺同态」约定产生微妙张力。做题时先确认约定。</span>
 
@@ -88,9 +88,9 @@ date: 2026-08-07
 **定理：** $R$ 的全部自同构在复合下构成群，记作 $\operatorname{Aut}(R)$。
 
 **例：**
-- $\operatorname{Aut}(\mathbb{Q}) = \{ \mathrm{id} \}$（有理数域只有恒等自同构，因为 $\varphi(1) = 1$ 且 $\varphi(n/m) = n/m$）；
-- $\operatorname{Aut}(\mathbb{C}) $ 是巨大的群（选择公理下有无穷多自同构，可把 $\sqrt[4]{2}$ 送到 $i\sqrt[4]{2}$）；但**域自同构保持 $\mathbb{R}$** 的只有共轭 $z \mapsto \bar z$ 与恒等（连续性假设下）——拓扑结构会削减代数对称；
-- $\operatorname{Aut}(\mathbb{Z}) = \{ \mathrm{id} \}$（保幺同态从 $1$ 出发唯一确定）。<span class="marginnote">「$\operatorname{Aut}(\mathbb{C})$ 巨大而 $\operatorname{Aut}(\mathbb{R})$ 平凡」是抽象代数里著名的反直觉：越「连着」的域，自同构越受拓扑约束。第十一篇 Galois 理论里，域的自同构（Galois 群）成为分类方程可解性的核心工具——现在看到的「自同构稀少」正是那里「结构被钉死」的预兆。</span>
+$\operatorname{Aut}(\mathbb{Q}) = \{ \mathrm{id} \}$（有理数域只有恒等自同构，因为 $\varphi(1) = 1$ 且 $\varphi(n/m) = n/m$）；
+$\operatorname{Aut}(\mathbb{C}) $ 是巨大的群（选择公理下有无穷多自同构，可把 $\sqrt[4]{2}$ 送到 $i\sqrt[4]{2}$）；但**域自同构保持 $\mathbb{R}$** 的只有共轭 $z \mapsto \bar z$ 与恒等（连续性假设下）——拓扑结构会削减代数对称；
+$\operatorname{Aut}(\mathbb{Z}) = \{ \mathrm{id} \}$（保幺同态从 $1$ 出发唯一确定）。<span class="marginnote">「$\operatorname{Aut}(\mathbb{C})$ 巨大而 $\operatorname{Aut}(\mathbb{R})$ 平凡」是抽象代数里著名的反直觉：越「连着」的域，自同构越受拓扑约束。第十一篇 Galois 理论里，域的自同构（Galois 群）成为分类方程可解性的核心工具——现在看到的「自同构稀少」正是那里「结构被钉死」的预兆。</span>
 
 **自同构的保结构作用**：环自同构把可逆元映到可逆元、把理想映到理想、保持零因子与否。它是环的「内在对称」，在第八篇商环、第十一篇 Galois 理论中反复出场。
 

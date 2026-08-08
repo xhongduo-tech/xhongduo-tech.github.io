@@ -23,39 +23,43 @@ Verilog 的基本单元是**模块（module）**——一个模块对应一块�
 **模块（module）**是 Verilog 的基本设计单元，语法骨架：
 
 ```verilog
-module 名字(端口列表);
-    // 端口声明
-    // 信号声明
-    // 逻辑描述
+module <模块名> (
+    <端口列表>
+);
+    <内部逻辑>
 endmodule
 ```
 
 一个最简单的模块——与门：
 
 ```verilog
-module and2(
-    input  a, b,
+module and_gate (
+    input  a,
+    input  b,
     output y
 );
     assign y = a & b;
 endmodule
 ```
 
-这个模块对应一块「二输入与门」硬件：`a`、`b` 是输入引脚，`y` 是输出引脚，`assign` 描述内部逻辑。
+这个模块对应一块「二输入与门」硬件：`a`、`b` 是输入引脚，`y` 是输出引脚，`assign y = a & b;` 描述内部逻辑。
 
 **层次化**：模块可以例化其他模块，构成层次结构：
 
 ```verilog
-module top(a, b, c, y);
-    input a, b, c;
-    output y;
+module top (
+    input  a,
+    input  b,
+    input  c,
+    output y
+);
     wire w;
-    and2 u1(.a(a), .b(b), .y(w));  // 例化 and2，输出接 w
-    not2 u2(.a(w), .y(y));         // 例化 not2
+    and_gate u1 (a, b, w);
+    and_gate u2 (w, c, y);
 endmodule
 ```
 
-`top` 由 `and2` 与 `not2` 拼成——这就是「用积木搭系统」在代码里的样子。<span class="marginnote">层次化的意义：<strong>一个模块写完可反复例化，就像一块芯片反复使用</strong>。寄存器堆、ALU、CPU 都是「模块套模块」搭出来的——第十二篇会看到这种「搭积木」的极致。模块化是 HDL 复用性的根本。</span>
+顶层模块 top 由 u1 与 u2 两个与门拼成——这就是「用积木搭系统」在代码里的样子。<span class="marginnote">层次化的意义：<strong>一个模块写完可反复例化，就像一块芯片反复使用</strong>。寄存器堆、ALU、CPU 都是「模块套模块」搭出来的——第十二篇会看到这种「搭积木」的极致。模块化是 HDL 复用性的根本。</span>
 
 ## 2 端口：模块的引脚
 
@@ -69,14 +73,18 @@ endmodule
 
 **端口声明的两种风格**：
 
-- **旧风格（ANSI 之前）**：端口列表只写名字，方向在模块体内声明。
-- **新风格（ANSI，推荐）**：方向在端口列表里直接声明（上面的 `and2` 例子）。
+**旧风格（ANSI 之前）**：端口列表只写名字，方向在模块体内声明。
+**新风格（ANSI，推荐）**：方向在端口列表里直接声明（上面的 `and_gate` 例子）。
 
-**端口宽度**：多位端口用 `[n-1:0]` 声明：
+**端口宽度**：多位端口用 `[3:0]` 声明：
 
 ```verilog
-module adder(input [3:0] a, b, output [3:0] s);
-    ...
+module counter (
+    input        clk,
+    input        rst_n,
+    output [3:0] count
+);
+    // ...
 endmodule
 ```
 
@@ -91,15 +99,17 @@ endmodule
 **wire（线网）**：组合逻辑的连线——由 assign 或门输出驱动，**不能**在过程块（always）里被赋值。
 
 ```verilog
-wire w;          // 一根线
-wire [3:0] bus;  // 4 位总线
+wire w;
+assign w = a & b;
 ```
 
 **reg（寄存器变量）**：在过程块（always/initial）里被赋值的变量。**名字叫 reg，但不一定综合成触发器**——在组合 always 块里，reg 综合成连线；只有时序 always 块里的 reg 才综合成触发器。
 
 ```verilog
-reg q;           // 过程变量
-reg [7:0] data;  // 8 位过程变量
+reg q;
+always @(posedge clk) begin
+    q <= d;
+end
 ```
 
 **辨析｜易错点：** 初学者最大的误会是「reg = 寄存器」。**reg 只是「被过程块赋值的变量」**，综合成什么取决于赋值方式：组合 always 里的 reg 是 wire（综合成门），时序 always 里的 reg 才是触发器。用错了会得到「多余的锁存器」——下一节详述。<span class="marginnote">「reg ≠ 寄存器」是 Verilog 面试必考：<strong>reg 是语言层面的变量类型，寄存器是硬件层面的存储元件</strong>。判断 reg 综合成什么，看它在哪个 always 块、怎么被赋值。时序块 + 非阻塞赋值 → 触发器；组合块 + 阻塞赋值 → 纯逻辑。</span>
@@ -109,48 +119,52 @@ reg [7:0] data;  // 8 位过程变量
 把「行为描述 + 结构化」结合，解剖一个 4 位加法器的模块：
 
 ```verilog
-module add4(
-    input  [3:0] a, b,      // 两个 4 位输入
-    input        cin,       // 进位输入
-    output [3:0] s,         // 4 位和
-    output       cout       // 进位输出
+module adder4 (
+    input  [3:0] a,
+    input  [3:0] b,
+    input        cin,
+    output [3:0] sum,
+    output       cout
 );
-    assign {cout, s} = a + b + cin;   // 拼接运算：进位 + 和
+    assign {cout, sum} = a + b + cin;
 endmodule
 ```
 
-**第一步，看端口**：`a`、`b`、`cin` 输入，`s`、`cout` 输出——对应加法器的全部引脚。
+**第一步，看端口**：`a`、`b`、`cin` 输入，`sum`、`cout` 输出——对应加法器的全部引脚。
 
 **第二步，看赋值**：`assign` 是组合逻辑；`a + b + cin` 是算术加法，综合器自动生成加法器电路。
 
-**第三步，看拼接**：`{cout, s}` 把进位与和拼成一个 5 位结果——`cout` 是最高位。
+**第三步，看拼接**：`{cout, sum}` 把进位与和拼成一个 5 位结果——`cout` 是最高位。
 
-**第四步，看硬件对应**：这段代码综合后就是「4 位加法器 + 进位链」——与我们第四篇手画的加法器等价，但用代码一行写完。<span class="marginnote">这个例子的深意：<strong>HDL 用「行为」（a+b）描述硬件，综合器负责「实现」（自动生成加法器网表）</strong>。你不需要画每个全加器——写 `+`，工具就给你加法器。这就是行为级设计的威力。</span>
+**第四步，看硬件对应**：这段代码综合后就是「4 位加法器 + 进位链」——与我们第四篇手画的加法器等价，但用代码一行写完。<span class="marginnote">这个例子的深意：<strong>HDL 用「行为」（a+b）描述硬件，综合器负责「实现」（自动生成加法器网表）</strong>。你不需要画每个全加器——写 `a + b`，工具就给你加法器。这就是行为级设计的威力。</span>
 
 ## 5 模块化设计的工程意义
 
-- **可复用**：一个模块写好，多个设计共享。
-- **可验证**：每个模块独立仿真测试。
-- **可维护**：改动局部模块不影响整体接口。
-- **可参数化**：用 `parameter` 定义位宽等常量，一个模块适配多种规格。
+**可复用**：一个模块写好，多个设计共享。
+**可验证**：每个模块独立仿真测试。
+**可维护**：改动局部模块不影响整体接口。
+**可参数化**：用 `parameter` 定义位宽等常量，一个模块适配多种规格。
 
 **参数化示例**：
 
 ```verilog
-module adder #(parameter W = 4)(
-    input [W-1:0] a, b,
-    output [W-1:0] s
+module adder #(
+    parameter WIDTH = 4
+) (
+    input  [WIDTH-1:0] a,
+    input  [WIDTH-1:0] b,
+    output [WIDTH-1:0] sum
 );
-    assign s = a + b;
+    assign sum = a + b;
 endmodule
 ```
 
-例化时 `#(.W(8))` 就得到 8 位版本——**同一个模块，多种位宽**。<span class="marginnote">参数化是「<strong>用一份代码描述一族硬件</strong>」：位宽、深度、数量都可参数化。这与软件里的泛型/模板同理——一次编写，多处复用。现代 IP 库（CPU 核、接口控制器）全是参数化模块。</span>
+例化时传 `WIDTH = 8` 就得到 8 位版本——**同一个模块，多种位宽**。<span class="marginnote">参数化是「<strong>用一份代码描述一族硬件</strong>」：位宽、深度、数量都可参数化。这与软件里的泛型/模板同理——一次编写，多处复用。现代 IP 库（CPU 核、接口控制器）全是参数化模块。</span>
 
 ## 6 小结
 
 - 模块（`module`/`endmodule`）是 Verilog 基本单元，对应一块硬件。
-- 端口三种方向：`input`、`output`、`inout`；多位用 `[n-1:0]`。
+- 端口三种方向：`input`、`output`、`inout`；多位用 `[3:0]`。
 - 信号两类：`wire`（连线，assign 驱动）与 `reg`（过程变量，always 赋值）。
 - **reg ≠ 寄存器**：综合成什么看赋值方式。
 - 层次化：模块例化模块，拼出大系统；参数化让模块一族多用。

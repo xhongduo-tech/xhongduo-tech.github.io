@@ -111,24 +111,23 @@ RK 方法的优点：
 ## 5 实现骨架
 
 ```python
-def rk_generic(f, t0, y0, h, n, A, b, c):
-    """通用显式 RK：A, b, c 为 Butcher 表"""
-    s = len(b)
+def rk4(f, t0, y0, h, n):
+    """经典四阶 RK：y_{k+1} = y_k + h/6·(k1 + 2k2 + 2k3 + k4)。"""
     t, y = t0, y0
-    ys = [y0]
     for _ in range(n):
-        k = []
-        for i in range(s):
-            ti = t + c[i]*h
-            yi = y + h*sum(A[i][j]*k[j] for j in range(i))
-            k.append(f(ti, yi))
-        y = y + h*sum(b[i]*k[i] for i in range(s))
-        t = t + h
-        ys.append(y)
-    return ys
+        k1 = f(t, y)
+        k2 = f(t + h/2, y + h/2 * k1)
+        k3 = f(t + h/2, y + h/2 * k2)
+        k4 = f(t + h, y + h * k3)
+        y += h / 6 * (k1 + 2*k2 + 2*k3 + k4)
+        t += h
+    return y
+
+# 例：y' = y, y(0) = 1 → y(1) = e ≈ 2.718281828
+print(rk4(lambda t, y: y, 0.0, 1.0, 0.1, 10))   # ≈ 2.71827974，误差约 2×10⁻⁶
 ```
 
-**工程注意**：Butcher 表是实现与查阅 RK 方法的标准语言——**看懂表 = 会实现任何 RK 方法**。`scipy` 的 RK45 用的就是带嵌入式误差估计的 RK 表。
+**工程注意**：Butcher 表是实现与查阅 RK 方法的标准语言——**看懂表 = 会实现任何 RK 方法**。MATLAB 的 ode45 用的就是带嵌入式误差估计的 RK 表。
 
 ## 6 小结
 

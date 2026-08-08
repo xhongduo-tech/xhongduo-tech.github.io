@@ -31,18 +31,21 @@ Mealy 型输出依赖「状态 + 输入」，Moore 型只依赖「状态」。
 **状态编码**（第六篇讲过）：二进制、独热码、格雷码。Verilog 里用 `parameter` 定义状态：
 
 ```verilog
-localparam IDLE  = 2'b00,
-           RUN   = 2'b01,
-           DONE  = 2'b10;
+parameter S0 = 2'b00, S1 = 2'b01, S2 = 2'b10, S3 = 2'b11;  // 自然二进制编码
 ```
 
 **状态寄存器**：
 
 ```verilog
 reg [1:0] state, next_state;
+
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) state <= S0;   // 复位回到初始状态
+    else        state <= next_state;
+end
 ```
 
-<span class="marginnote">编码选择的工程影响：<strong>二进制省寄存器、独热码省译码逻辑</strong>。FPGA 里触发器多、独热码常用（一个状态一个 bit）；CPLD/ASIC 里触发器贵，二进制常用。综合工具可自动选，但手写时要知道取舍——用 `localparam` 定义编码，改起来只需改参数。</span>
+<span class="marginnote">编码选择的工程影响：<strong>二进制省寄存器、独热码省译码逻辑</strong>。FPGA 里触发器多、独热码常用（一个状态一个 bit）；CPLD/ASIC 里触发器贵，二进制常用。综合工具可自动选，但手写时要知道取舍——用 `parameter` 定义编码，改起来只需改参数。</span>
 
 ## 2 一段式：全在一块的紧凑写法
 
@@ -50,30 +53,21 @@ reg [1:0] state, next_state;
 
 ```verilog
 always @(posedge clk or negedge rst_n) begin
-    if (!rst_n)
-        state <= IDLE;
+    if (!rst_n) begin
+        state <= S0;
+        y     <= 1'b0;
+    end
     else begin
+        y <= 1'b0;                    // 默认输出
         case (state)
-            IDLE: begin
-                if (start) begin
-                    state <= RUN;
-                    y <= 1'b0;
-                end
-                else
-                    y <= 1'b0;
+            S0: state <= (x) ? S1 : S0;
+            S1: state <= (x) ? S2 : S0;
+            S2: state <= (x) ? S2 : S3;
+            S3: begin
+                y <= 1'b1;            // 检测到 110，输出拉高
+                state <= (x) ? S1 : S0;
             end
-            RUN: begin
-                if (done) begin
-                    state <= DONE;
-                    y <= 1'b1;
-                end
-                else
-                    state <= RUN;
-            end
-            DONE: begin
-                state <= IDLE;
-                y <= 1'b0;
-            end
+            default: state <= S0;     // 未用状态归位（自启动）
         endcase
     end
 end
@@ -90,18 +84,23 @@ end
 ```verilog
 // 第一段：状态寄存器（时序）
 always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) state <= IDLE;
+    if (!rst_n) state <= S0;
     else        state <= next_state;
 end
 
-// 第二段：次态 + 输出（组合）
+// 第二段：次态逻辑 + 输出逻辑（组合）
 always @(*) begin
-    next_state = state;   // 默认
-    y = 1'b0;             // 默认
+    next_state = state;               // 默认值，防锁存器
+    y          = 1'b0;
     case (state)
-        IDLE: if (start) next_state = RUN;
-        RUN:  if (done) begin next_state = DONE; y = 1'b1; end
-        DONE: next_state = IDLE;
+        S0: if (x) next_state = S1;
+        S1: next_state = (x) ? S2 : S0;
+        S2: next_state = (x) ? S2 : S3;
+        S3: begin
+            y = 1'b1;                 // 组合输出：检测到 110 立即拉高
+            next_state = (x) ? S1 : S0;
+        end
+        default: next_state = S0;
     endcase
 end
 ```
@@ -119,30 +118,26 @@ end
 ```verilog
 // 第一段：状态寄存器（时序）
 always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) state <= IDLE;
+    if (!rst_n) state <= S0;
     else        state <= next_state;
 end
 
 // 第二段：次态逻辑（组合）
 always @(*) begin
-    next_state = state;
+    next_state = state;               // 默认值，防锁存器
     case (state)
-        IDLE: if (start) next_state = RUN;
-        RUN:  if (done)  next_state = DONE;
-        DONE: next_state = IDLE;
+        S0: if (x) next_state = S1;
+        S1: next_state = (x) ? S2 : S0;
+        S2: next_state = (x) ? S2 : S3;
+        S3: next_state = (x) ? S1 : S0;
+        default: next_state = S0;     // 未用状态归位
     endcase
 end
 
-// 第三段：输出（时序，寄存器输出）
+// 第三段：输出寄存器（时序，寄存器输出无毛刺）
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) y <= 1'b0;
-    else begin
-        case (state)
-            RUN:  y <= done;      // 在 RUN 且 done 时输出 1
-            DONE: y <= 1'b0;
-            default: y <= 1'b0;
-        endcase
-    end
+    else        y <= (state == S3);
 end
 ```
 
@@ -181,6 +176,6 @@ end
 - **一段式**：全塞一个时序块，输出寄存器化、无毛刺，但难维护。
 - **两段式**：状态寄存器 + 组合块（次态+输出），输出组合化、快但有毛刺风险。
 - **三段式**：状态寄存器 + 次态组合 + 输出寄存器，无毛刺、结构清晰，工程推荐。
-- 状态编码用 `localparam` 定义；输出质量与延迟是三种写法的核心权衡。
+- 状态编码用 `parameter` 定义；输出质量与延迟是三种写法的核心权衡。
 
 在下一节，我们将学如何「测试」设计——Testbench 编写与仿真验证，让硬件在电脑里先跑起来。

@@ -25,20 +25,28 @@ date: 2026-08-07
 **双亲表示法**：每个结点只存「数据 + 双亲的下标」。找双亲 $O(1)$，找孩子要遍历全表。
 
 ```c
+// 双亲表示法：结点 = 数据 + 双亲下标
+#define MAX_TREE_SIZE 100
 typedef struct {
-    TElemType data;
-    int parent;              /* 双亲在数组中的下标 */
-} PTNode;                    /* 结点结构 */
+    ElemType data;
+    int parent;                    // 双亲位置下标，根为 -1
+} PTNode;
+typedef struct {
+    PTNode nodes[MAX_TREE_SIZE];   // 结点数组
+    int n;                         // 结点个数
+} PTree;
 ```
 
 **孩子表示法**：每个结点的孩子用一个链表串起来（单链表存孩子下标）。找孩子快，找双亲要遍历。<span class="marginnote">双亲表示法重「向上」、孩子表示法重「向下」——<strong>存储结构的侧重，直接决定常用运算的快慢</strong>。这与二叉链表/三叉链表的选择逻辑一致。</span>
 
-**孩子兄弟表示法**：每个结点两个指针——`firstchild`（长子）与 `nextsibling`（下一兄弟）：
+**孩子兄弟表示法**：每个结点两个指针——`firstChild`（长子）与 `nextSibling`（下一兄弟）：
 
 ```c
+// 孩子兄弟表示法（二叉链表）：左指针指长子，右指针指下一兄弟
 typedef struct CSNode {
     ElemType data;
-    struct CSNode *firstchild, *nextsibling;   /* 长子指针、右兄弟指针 */
+    struct CSNode *firstChild;     // 指向长子
+    struct CSNode *nextSibling;    // 指向下一兄弟
 } CSNode, *CSTree;
 ```
 
@@ -86,7 +94,7 @@ $$
 ## 5 小结
 
 - 树的三种存储：**双亲表示法**（找双亲 $O(1)$）、**孩子表示法**（找孩子快）、**孩子兄弟表示法**（两指针、即二叉树形态）。
-- 孩子兄弟表示法：`firstchild` 长子 + `nextsibling` 右兄弟，一般树「压」成二叉树。
+- 孩子兄弟表示法：`firstChild` 长子 + `nextSibling` 右兄弟，一般树「压」成二叉树。
 - 树 → 二叉树：兄弟互连、保留长子、旋转 45°；左孩子 = 长子，右孩子 = 兄弟。
 - 森林 → 二叉树：各树转二叉后，依次接为右子树；转换**可逆**。
 - 选型：按运算侧重选存储；要复用二叉树算法就选孩子兄弟法。

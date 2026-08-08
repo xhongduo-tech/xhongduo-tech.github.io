@@ -25,7 +25,7 @@ date: 2026-08-07
 语言模型的全部威力来自「**预测下一个 token**」——文本如此，音频只要 token 化就同样适用：
 
 $$
-P(\text{音频 token}_{1:L}) = \prod_{l=1}^{L} P(\text{token}_l \mid \text{token}_{<l}, \text{条件})
+P(\text{音频 token}_{1:L}) = \prod_{l=1}^{L} P(\text{token}_l \mid \text{token}_{\\lt l}, \text{条件})
 $$
 
 - 训练：海量音频 → 编解码器/聚类 → token 序列 → 训练 Transformer 预测下一个 token。
@@ -92,7 +92,7 @@ AudioLM/MusicLM 是**生成**音频语言模型；但「音频语言模型化」
 **公式解析：理解任务的序列化。**
 
 $$
-P(\text{回答文本} \mid \text{音频 token}, \text{问题}) = \prod_{l} P(\text{token}_l \mid \text{token}_{<l})
+P(\text{回答文本} \mid \text{音频 token}, \text{问题}) = \prod_{l} P(\text{token}_l \mid \text{token}_{\\lt l})
 $$
 
 - **第一步，看输入侧**：音频 token + 问题文本一起进序列——模型「听」音频。

@@ -96,9 +96,9 @@ $$
 
 归一化在现代 Transformer 里还有几个重要变体：
 
-- **RMSNorm**：去掉 LayerNorm 的「减均值」，只做「除以均方根」——省计算、训练更稳（LLaMA 的标配，见《批量归一化与层归一化》）。
-- **Sandwich-LN**：残差前与残差后都放归一化——「两头都稳」，但多一层计算。
-- **ScaleNorm / DeepNorm**：对残差路径加「缩放系数」——Post-LN 的「深度友好」改造。
+**RMSNorm**：去掉 LayerNorm 的「减均值」，只做「除以均方根」——省计算、训练更稳（LLaMA 的标配，见《批量归一化与层归一化》）。
+**Sandwich-LN**：残差前与残差后都放归一化——「两头都稳」，但多一层计算。
+**ScaleNorm / DeepNorm**：对残差路径加「缩放系数」——Post-LN 的「深度友好」改造。
 
 **「归一化是现代 Transformer 最活跃的『小改动』领域之一」**——同一个「稳定分布」的目标，各家模型用自己的变体（LLaMA 用 RMSNorm+Pre-LN、DeepNorm 用 Post-LN+缩放）——「实现细节」的差异，在实际训练稳定性上的影响远大于预期。<span class="marginnote">「为什么 LLaMA 用 RMSNorm」：RMSNorm 是 LayerNorm 的「减均值」版——去掉均值计算，省一次归约（对长序列是大节省），且实践证明「减均值对 Transformer 并非必要」（残差与注意力自带平移不变性）。「省计算 + 足够稳」让 RMSNorm 成为开源 LLM 的主流——「<strong>工程上，能省的都省，只要训练还稳</strong>」。</span>
 

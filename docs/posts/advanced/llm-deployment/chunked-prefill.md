@@ -32,7 +32,7 @@ Chunked Prefill 的答案非常朴素：**把长 Prefill 切成小块，每一�
 
 Chunked Prefill（也叫 prefill chunking）就三句话：
 
-1. 把一条长度为 $L$ 的 Prefill 切成 $m = \lceil L / C \rceil$ 块，每块 $C$ 个 token（vLLM 默认 `max_num_batched_tokens` 的粒度在 256 附近）。
+1. 把一条长度为 $L$ 的 Prefill 切成 $m = \lceil L / C \rceil$ 块，每块 $C$ 个 token（vLLM 默认 $m = \lceil L / C \rceil$ 的粒度在 256 附近）。
 2. **每一块 Prefill 与一步 Decode 地位等同**：都作为一个「迭代单元」进入调度器排队。
 3. 调度器把 Prefill 块与 Decode 步**交错执行**：跑一个 Prefill 块，再跑一步 Decode，再跑下一个 Prefill 块……
 
@@ -45,23 +45,17 @@ Chunked Prefill（也叫 prefill chunking）就三句话：
 在 vLLM 里，Chunked Prefill 几乎不需要显式开关——它由 `max_num_batched_tokens` 与 `max_num_seqs` 隐式驱动。**当一个请求的 Prefill 长度超过 `max_num_batched_tokens` 时，调度器自动把它切成若干块**，每块不超过该上限，与其他请求一起进入批。核心逻辑在调度器的「准入」分支：
 
 ```python
-# 每个迭代步，调度器决定批里装什么
-def schedule_iteration(scheduler):
-    budget = scheduler.max_num_batched_tokens   # 本步 token 预算（如 256）
-    for seq in scheduler.running:
-        # 逐请求决定本步放多少 token
-        if seq.is_prefilling():
-            # 预填充：只放不超过预算的 C 个 token，剩余留在队列
-            seq.tokens_to_schedule = min(budget, seq.remaining_prefill_tokens)
-        else:
-            # 解码：每步恰好 1 个 token
-            seq.tokens_to_schedule = 1
-        budget -= seq.tokens_to_schedule
+def try_schedule(seq_group):
+    remaining = seq_group.num_prompt_tokens - seq_group.num_computed_tokens
+    chunk = min(remaining, max_num_batched_tokens - num_batched_tokens)
+    if chunk > 0:
+        seq_group.chunked_prefill_step(chunk)   # 准入：放一块 Prefill 进批
+        num_batched_tokens += chunk
 ```
 
-`remaining_prefill_tokens` 就是这个旋钮的关键状态：**它让调度器知道一条 Prefill 走到哪了、还剩多少**。每步把预算分给 Prefill 块和 Decode 步，预算分完即止。<span class="marginnote">vLLM 论文里给出过一个直觉：`max_num_batched_tokens` 设得越大，批里能装的 Prefill 块越多、单块越大，吞吐越高；但它也推高单步延迟并占用更多 KV 显存。生产调优一般围绕这个值做扫描（第十篇《max-num-seqs 与 max-num-batched-tokens 调优》）。</span>TensorRT-LLM 的 In-flight Batching、SGLang 的调度器都有等价的机制，只是命名与默认值不同——这是推理引擎的「公共解」。
+`num_computed_tokens` 就是这个旋钮的关键状态：**它让调度器知道一条 Prefill 走到哪了、还剩多少**。每步把预算分给 Prefill 块和 Decode 步，预算分完即止。<span class="marginnote">vLLM 论文里给出过一个直觉：`max_num_batched_tokens` 设得越大，批里能装的 Prefill 块越多、单块越大，吞吐越高；但它也推高单步延迟并占用更多 KV 显存。生产调优一般围绕这个值做扫描（第十篇《max-num-seqs 与 max-num-batched-tokens 调优》）。</span>TensorRT-LLM 的 In-flight Batching、SGLang 的调度器都有等价的机制，只是命名与默认值不同——这是推理引擎的「公共解」。
 
-在命令行里，vLLM 最常被一起调的正是 `--max-num-batched-tokens` 与 `--max-num-seqs`：前者决定单步 token 预算（即 Prefill 块大小的上界），后者决定批内序列上限。把前者调大意味着允许更大的 Prefill 块、更高的单步吞吐，但也要为更大的批预留更多 KV 显存——第一篇《KV Cache 显存占用估算与数值实例》里的公式在这里派上用场，预算与显存要一起算。
+在命令行里，vLLM 最常被一起调的正是 `max_num_batched_tokens` 与 `max_num_seqs`：前者决定单步 token 预算（即 Prefill 块大小的上界），后者决定批内序列上限。把前者调大意味着允许更大的 Prefill 块、更高的单步吞吐，但也要为更大的批预留更多 KV 显存——第一篇《KV Cache 显存占用估算与数值实例》里的公式在这里派上用场，预算与显存要一起算。
 
 **分块 Prefill 与 Prefix Caching 协同时，还有一个精妙之处**：一条正在分块进行的 Prefill，其**已完成的完整块**同样可以进入前缀缓存——如果另一条请求恰好共享了这部分前缀，它不必等第一条算完，直接复用已定稿的块即可。分块把「大而整」的 Prefill 变成「逐块可共享」的增量，给了调度器更多命中机会，这正是下一节 Prefix Caching 能在长输入场景大显身手的原因之一。
 
@@ -96,7 +90,7 @@ $$
 - **第三步，认 $\bar{t}_{\text{wait}}$**：长请求在两次块之间等待的平均时间——因为块与块之间，调度器会把 GPU 让给 Decode 和其他请求。这是长请求付出的「利息」。
 - **第四步，对比两条式子**：长请求的 TTFT 从「一次性 $t_{\text{full}} = m \cdot t_{\text{chunk}}$」涨到「$m$ 份加上 $m$ 份利息」；Decode 请求的 TTFT 从「被 $t_{\text{full}}$ 整体堵死」降到「一块 Prefill 加一步 Decode」。**多付的是长请求的等待利息，换来的是所有短请求不再被长尾堵死。**
 
-代入数字看权衡。$L = 8192$，$C = 512$，则 $m = 16$。不分块时，一个 8192 token 的 Prefill 若占 GPU 约 2 秒，批里 16 条 Decode 请求全部等 2 秒（TTFT ≈ 2000 ms）。分块后，假设每块 $t_{\text{chunk}} \approx 125$ ms、块间平均等待 $\bar{t}_{\text{wait}} \approx 50$ ms：Decode 请求的 TTFT ≈ `$125 + t_{\text{step}} \approx 130$ ms`——**下降了 90% 以上**；长请求自身 TTFT ≈ `$16 \times (125 + 50) = 2800$ ms`——**上升了 40%**。这就是「吞吐优先」的典型取舍：系统层面每单位时间处理的请求变多，代价是超长请求的单点变慢。对大多数在线服务而言，p99 延迟由短请求主导，这笔交易几乎总是划算的。<span class="marginnote">如果想让长请求也快，就只能「不加块间等待」——即独占 GPU 做完 Prefill，那就是回退到静态批处理。Chunked Prefill 的选择本质是「分时复用 vs 独占」的经典折中，与操作系统时间片轮转同构。</span>
+代入数字看权衡。$L = 8192$，$C = 512$，则 $m = 16$。不分块时，一个 8192 token 的 Prefill 若占 GPU 约 2 秒，批里 16 条 Decode 请求全部等 2 秒（TTFT ≈ 2000 ms）。分块后，假设每块 $t_{\text{chunk}} \approx 125$ ms、块间平均等待 $\bar{t}_{\text{wait}} \approx 50$ ms：Decode 请求的 TTFT ≈ 175 ms——**下降了 90% 以上**；长请求自身 TTFT ≈ 2800 ms（$16 \times 175$）——**上升了 40%**。这就是「吞吐优先」的典型取舍：系统层面每单位时间处理的请求变多，代价是超长请求的单点变慢。对大多数在线服务而言，p99 延迟由短请求主导，这笔交易几乎总是划算的。<span class="marginnote">如果想让长请求也快，就只能「不加块间等待」——即独占 GPU 做完 Prefill，那就是回退到静态批处理。Chunked Prefill 的选择本质是「分时复用 vs 独占」的经典折中，与操作系统时间片轮转同构。</span>
 
 ## 5 辨析｜易错点
 
@@ -112,7 +106,7 @@ $$
 - **两个病灶**：长 Prefill 造成队头阻塞（短请求 TTFT 雪崩）与资源错配（Compute-Bound 挤占 Memory-Bound）。
 - **分块思想**：把 $L$ token 的 Prefill 切成 $m = \lceil L/C \rceil$ 块，每块与一步 Decode 地位等同，交错调度。
 - **不省计算**：总 FLOPs 与 KV 显存不变，变的是调度粒度与抢占代价。
-- **一个旋钮**：`max_num_batched_tokens` 决定块大小；`remaining_prefill_tokens` 跟踪进度。
+- **一个旋钮**：`max_num_batched_tokens` 决定块大小；`num_computed_tokens` 跟踪进度。
 - **TTFT 权衡**：长请求 TTFT 从 $t_{\text{full}}$ 涨到 $m(t_{\text{chunk}} + \bar{t}_{\text{wait}})$，短请求 TTFT 从 $t_{\text{full}}$ 降到 $t_{\text{chunk}} + t_{\text{step}}$；8192/512 的例子中短请求提升 90%+、长请求付出 40% 利息。
 - **三大辨析**：不省算力、不是 Decode、块大小是旋钮。
 - **公共解**：TensorRT-LLM 的 In-flight Batching、SGLang 调度器都有等价机制，只是命名与默认值不同。

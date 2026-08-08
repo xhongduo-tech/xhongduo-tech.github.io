@@ -54,9 +54,9 @@ date: 2026-08-07
 
 它包含三个部分：
 
-- **DDL 解释器（DDL interpreter）**：解释 DDL 语句，把模式定义写进数据字典。
-- **DML 编译器（DML compiler）**：把查询语句翻译成底层可执行指令——先把 SQL 转成语义等价的关系代数表达式，再交给优化器生成**查询执行计划（query execution plan）**。<span class="marginnote">SQL → 关系代数 → 执行计划，这条流水线解释了为什么要先学关系代数（第 2 章）再学查询优化（第 12 章）：优化器正是在关系代数层面做等价变换。</span>
-- **查询评估引擎（query evaluation engine）**：真正执行低级指令，逐条扫描、连接、排序，返回结果。
+**DDL 解释器（DDL interpreter）**：解释 DDL 语句，把模式定义写进数据字典。
+**DML 编译器（DML compiler）**：把查询语句翻译成底层可执行指令——先把 SQL 转成语义等价的关系代数表达式，再交给优化器生成**查询执行计划（query execution plan）**。<span class="marginnote">SQL → 关系代数 → 执行计划，这条流水线解释了为什么要先学关系代数（第 2 章）再学查询优化（第 12 章）：优化器正是在关系代数层面做等价变换。</span>
+**查询评估引擎（query evaluation engine）**：真正执行低级指令，逐条扫描、连接、排序，返回结果。
 
 一次查询的旅程大致是：SQL 进来 → 语法解析 → 转关系代数 → 优化器从众多候选计划里挑代价最低的 → 评估引擎执行并返回。**用户写"要什么"，优化器决定"怎么做"**——这正是声明式语言背后的引擎故事，也是"性能"二字在数据库里的落点。
 
@@ -64,10 +64,10 @@ date: 2026-08-07
 
 一条查询最终的执行计划，在真实数据库里可以用 `EXPLAIN` 查看。下面是索引扫描计划的示意输出——从下往上看，数据先被索引定位，再被投影：
 
-```text
-Projection  (name)
-  └─ Index Scan using dept_name_idx on instructor
-       Index Cond: (dept_name = 'CS')
+```
+Index Scan using idx_dept_name on instructor
+  Index Cond: (dept_name = 'CS')
+  ->  Project: name
 ```
 
 注意执行计划是**一棵树**，叶子是表扫描、内部节点是运算（投影、连接、排序）。优化器要做的，就是在这棵树的巨大候选空间里挑出一棵代价最小的——这是第 12 章《查询优化》的主题。
@@ -76,10 +76,10 @@ Projection  (name)
 
 存储管理器里的**事务管理器**是 DBMS 正确性的守门员。它保证**事务（transaction）**——数据库操作的原子执行单元——满足四条性质，合称 **ACID**：
 
-- **原子性（Atomicity）**：事务要么全做、要么全不做。
-- **一致性（Consistency）**：事务执行前后，数据库都满足完整性约束。
-- **隔离性（Isolation）**：并发执行的事务相互不可见，如同串行执行。
-- **持久性（Durability）**：事务提交后，其结果对系统故障免疫。
+**原子性（Atomicity）**：事务要么全做、要么全不做。
+**一致性（Consistency）**：事务执行前后，数据库都满足完整性约束。
+**隔离性（Isolation）**：并发执行的事务相互不可见，如同串行执行。
+**持久性（Durability）**：事务提交后，其结果对系统故障免疫。
 
 事务管理器配合**恢复管理器（recovery manager）**，在系统故障后把数据库恢复到某个一致状态。<span class="marginnote">ACID 是本专题第四篇《事务》的整篇主题。现在只需记住一个画面：崩溃发生时，要么事务没提交（撤销），要么已提交但数据没来得及写盘（重做）。</span>
 
@@ -88,9 +88,9 @@ Projection  (name)
 在 SQL 里，这两步被显式包进一个事务：
 
 ```sql
-BEGIN TRANSACTION;
-UPDATE account SET balance = balance - 100 WHERE accno = 'A';
-UPDATE account SET balance = balance + 100 WHERE accno = 'B';
+BEGIN;
+UPDATE account SET balance = balance - 100 WHERE account_id = 'A';
+UPDATE account SET balance = balance + 100 WHERE account_id = 'B';
 COMMIT;
 ```
 

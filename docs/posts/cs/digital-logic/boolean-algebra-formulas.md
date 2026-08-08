@@ -47,7 +47,7 @@ date: 2026-08-07
 
 除了基本公式，还有一组由基本公式推导出的**常用公式**，它们直接服务于化简：
 
-- **公式一：并项法** $AB + A\overline{B} = A$。<span class="marginnote">直觉：$B$ 和 $\overline{B}$ 是「开关拨到哪边都一样」，两项的公共部分 $A$ 决定结果。这是后续卡诺图合并相邻格的理论基础。</span>
+**公式一：并项法** $AB + A\overline{B} = A$。<span class="marginnote">直觉：$B$ 和 $\overline{B}$ 是「开关拨到哪边都一样」，两项的公共部分 $A$ 决定结果。这是后续卡诺图合并相邻格的理论基础。</span>
 - **公式二：吸收法** $A + AB = A$。*「大项吃小项」*：$AB$ 是 $A$ 的「子集」，存在与否不影响 $A$。
 - **公式三** $A + \overline{A}B = A + B$。*「多余因子被吃掉」*：$\overline{A}$ 与 $B$ 相乘时，$\overline{A}$ 可被 $A$ 吸收掉。
 - **公式四** $AB + \overline{A}C + BC = AB + \overline{A}C$，且可推广为 $AB+\overline{A}C+BCD = AB+\overline{A}C$。*「冗余项消去」*：当 $B$ 与 $C$ 相与时，$BC$ 是冗余的。

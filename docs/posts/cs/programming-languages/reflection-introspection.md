@@ -16,23 +16,22 @@ date: 2026-08-07
 
 ## 为什么从反射开始
 
-宏是**编译期**的元编程（展开代码）；**反射（reflection）**是**运行期**的元编程——程序在运行时**检视自己**（有哪些类、字段、方法）并**操作自己**（动态调用、动态创建）。两者分别回答「编译期如何改代码」与「运行期如何看自己」。反射的「自省（introspection）」能力支撑了现代软件的基石：框架的依赖注入、序列化/ORM、调试器、热重载、动态代理。这一节把反射的能力、机制、以及「反射为何被批评又离不开」讲透。<span class="marginnote">反射的直觉：「程序像一面镜子，运行时照见自己」。Java 的 `obj.getClass()`、Python 的 `type(obj)`/`dir(obj)`、Ruby 的 `obj.methods`——都在「检视」运行时的类型信息。「自省（introspection）」是「看」，反射（reflection）是「看 + 操作」（动态调用、修改）。</span>
+宏是**编译期**的元编程（展开代码）；**反射（reflection）**是**运行期**的元编程——程序在运行时**检视自己**（有哪些类、字段、方法）并**操作自己**（动态调用、动态创建）。两者分别回答「编译期如何改代码」与「运行期如何看自己」。反射的「自省（introspection）」能力支撑了现代软件的基石：框架的依赖注入、序列化/ORM、调试器、热重载、动态代理。这一节把反射的能力、机制、以及「反射为何被批评又离不开」讲透。<span class="marginnote">反射的直觉：「程序像一面镜子，运行时照见自己」。Java 的 `getClass()`、Python 的 `type()`/`dir()`、Ruby 的 `class`——都在「检视」运行时的类型信息。「自省（introspection）」是「看」，反射（reflection）是「看 + 操作」（动态调用、修改）。</span>
 
 ## 1 自省：运行时看类型
 
 **自省（introspection）**：程序在运行时查询自身结构——类型信息、字段、方法、继承关系。
 
 ```java
-Class<?> cls = obj.getClass();        // 运行时类型
-for (Field f : cls.getDeclaredFields())  // 枚举字段
-    System.out.println(f.getName());
-Method m = cls.getMethod("speak");    // 按名查方法
+Class<?> c = obj.getClass();        // 运行时取类型对象
+Field[] fs = c.getDeclaredFields(); // 列出所有字段
+Method m  = c.getMethod("speak");   // 按名字查方法
 ```
 
 ```python
-type(obj)          # 类型
-dir(obj)           # 属性/方法列表
-hasattr(obj, "x")  # 是否有属性
+print(type(obj))       # 运行时查询类型
+print(dir(obj))        # 列出所有属性/方法
+hasattr(obj, "speak")  # 查询对象是否有某方法
 ```
 
 自省让「写一次、对任意类型工作」成为可能——通用工具（调试器、序列化器、IDE 补全）靠它工作。<span class="marginnote">「自省」与「类型系统」的关系微妙：静态类型在<strong>编译期</strong>知道类型，自省在<strong>运行期</strong>查询类型。Java 的反射 = 类型信息在运行期仍可用（class 元数据）；C++ 默认<strong>没有</strong>反射（编译后类型信息消失）——需要 RTTI（`typeid`）或外部工具。<strong>「语言是否保留运行期类型信息」决定它能否自省</strong>。</span>
@@ -42,28 +41,26 @@ hasattr(obj, "x")  # 是否有属性
 **反射（reflection）**：不仅「看」，还能「做」——动态创建对象、动态调用方法、动态访问字段。
 
 ```java
-Class<?> cls = Class.forName("com.example.Cat");   // 按字符串加载类
-Object obj = cls.getDeclaredConstructor().newInstance();  // 动态创建
-cls.getMethod("speak").invoke(obj);                 // 动态调用
-
-// Python：更直接
-getattr(obj, method_name)(args)   // 按字符串调用方法
+Class<?> c = Class.forName("com.example.Foo");     // 按字符串类名加载
+Object obj = c.getDeclaredConstructor().newInstance(); // 动态创建对象
+Method m = c.getMethod("greet", String.class);
+m.invoke(obj, "world");        // 动态调用方法
 ```
 
 反射的典型应用：
 
-- **依赖注入**：框架按配置字符串创建对象、注入依赖。
-- **序列化/ORM**：按字段名读写对象——无需手写每个类的序列化代码。
-- **动态代理**：运行时生成代理类，拦截方法调用（AOP）。<span class="marginnote">反射让「框架」成为可能：Spring 的 `@Autowired`、JPA 的实体映射、MyBatis 的 SQL 绑定——全靠反射按名字/注解操作对象。代价：反射调用比直接调用慢（运行时查找 + 权限检查 + 类型转换），且<strong>绕过编译期类型检查</strong>——方法名拼错要到运行期才报错。</span>
+**依赖注入**：框架按配置字符串创建对象、注入依赖。
+**序列化/ORM**：按字段名读写对象——无需手写每个类的序列化代码。
+**动态代理**：运行时生成代理类，拦截方法调用（AOP）。<span class="marginnote">反射让「框架」成为可能：Spring 的依赖注入、JPA 的实体映射、MyBatis 的 SQL 绑定——全靠反射按名字/注解操作对象。代价：反射调用比直接调用慢（运行时查找 + 权限检查 + 类型转换），且<strong>绕过编译期类型检查</strong>——方法名拼错要到运行期才报错。</span>
 
 ## 3 反射的代价与批评
 
-- **性能开销**：反射调用无法内联/优化——比直接调用慢一个数量级。
-- **类型安全受损**：`getMethod("spek")` 拼错方法名——编译期不报，运行期 `NoSuchMethodException`。**「反射把编译期错误推迟到运行期」**。
-- **可读性与静态分析**：代码依赖字符串名字——IDE 跳转、重构、死代码检测都失效。
-- **安全边界**：反射可绕过封装（`setAccessible(true)` 访问 private）——破坏模块边界。
+**性能开销**：反射调用无法内联/优化——比直接调用慢一个数量级。
+**类型安全受损**：`getMethod("spek")` 拼错方法名——编译期不报，运行期 `NoSuchMethodException`。**「反射把编译期错误推迟到运行期」**。
+**可读性与静态分析**：代码依赖字符串名字——IDE 跳转、重构、死代码检测都失效。
+**安全边界**：反射可绕过封装（`setAccessible(true)` 访问 private）——破坏模块边界。
 
-<span class="marginnote">反射是「动态的甜头 vs 静态的保证」的经典拉锯：Java 的反射强大但被批评「类型安全破碎」，于是有了 `MethodHandle`（更快的反射）、`java.lang.invoke`、以及注解处理（编译期元编程）来替代。现代趋势是「编译期元编程（宏/注解处理）优先，反射兜底」——能编译期做的不拖到运行期。</span>
+<span class="marginnote">反射是「动态的甜头 vs 静态的保证」的经典拉锯：Java 的反射强大但被批评「类型安全破碎」，于是有了 `MethodHandle`（更快的反射）、`record`、以及注解处理（编译期元编程）来替代。现代趋势是「编译期元编程（宏/注解处理）优先，反射兜底」——能编译期做的不拖到运行期。</span>
 
 ## 4 公式解析：反射的开销与正确性
 
@@ -95,9 +92,9 @@ $$
 
 | 语言 | 自省能力 | 反射能力 | 备注 |
 | --- | --- | --- | --- |
-| Java | `getClass()`/`getFields()` | `Class.forName`/`invoke` | 完整反射，性能开销 |
-| Python | `type`/`dir`/`vars` | `getattr`/`setattr` | 动态语言天然反射 |
-| Ruby | `methods`/`class` | `send` | 方法调用即消息 |
+| Java | `getClass()`/`getDeclaredFields()` | `Class.forName`/`Method.invoke` | 完整反射，性能开销 |
+| Python | `type()`/`dir()`/`hasattr()` | `getattr()`/`setattr()` | 动态语言天然反射 |
+| Ruby | `class`/`methods` | `send` | 方法调用即消息 |
 | C++ | 有限 RTTI（`typeid`） | 无内建 | 需外部库 |
 | Rust | 无反射 | 无 | 靠 derive 宏生成 |
 | Go | `reflect` 包 | 有限 | 谨慎设计 |

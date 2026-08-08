@@ -52,37 +52,36 @@ date: 2026-08-07
 
 **FIM 的训练方式**：在训练时，随机把一部分样本改造成「前缀 + 后缀」的形式，让模型预测被「挖掉」的中间部分：
 
-```text
-普通样本：  def f(x):       <-- 从左到右续写
-FIM 样本：  def f(x): <FILL> return x*2   <-- 预测 <FILL> 处的内容
+```
+原始代码:  <前缀 p> <中间 m> <后缀 s>
+FIM 改造:  <前缀 p> <后缀 s> <FILL> <中间 m>
+             └─── 上下文 ───┘        └─ 目标 ─┘
 ```
 
 **FIM 的两种变形**（前缀-后缀的摆放顺序）：
 
-- **PSM（Prefix-Suffix-Middle）**：`[前缀, 后缀, <FILL>, 中间]`——先给前缀后缀，再要求补中间；
-- **SPM（Suffix-Prefix-Middle）**：`[后缀, 前缀, <FILL>, 中间]`——后缀在前。
+**PSM（Prefix-Suffix-Middle）**：序列排列为「前缀、后缀、`<FILL>`、中间」——先给前缀后缀，再要求补中间；
+**SPM（Suffix-Prefix-Middle）**：序列排列为「后缀、前缀、`<FILL>`、中间」——后缀在前。
 
 两者的差异影响模型对「先看到什么」的偏重——实践中常混合使用（如 CodeLlama 用了 PSM 与 SPM 的变体）。<span class="marginnote">FIM 的「特殊 token」设计是细节关键：<strong>`<FILL>` 必须是一个词表里独占的特殊 token</strong>——模型要能识别「这里该补内容」。这与对话模板的「角色 token」是同一类设计（第二篇《对话模板》），原理互通：给模型一个「可学习的占位标记」。</span>
 
 一个 FIM 数据的构造示意（理解「重排 + 掩码」即可）：
 
-```python
-def to_fim(code, fill_token="<FILL>"):
-    # 按函数/块把代码切成前缀、中间、后缀
-    prefix, middle, suffix = split_code(code)
-    # PSM 变形：前缀 + 后缀 + 填充标记 + 中间
-    fim_text = prefix + suffix + fill_token + middle
-    # 掩码：只有中间部分参与损失
-    mask = [0]*len(prefix) + [0]*len(suffix) + [1]*len(fill_token) + [1]*len(middle)
-    return fim_text, mask
+```
+# FIM 数据构造：重排 + 掩码
+原始代码:     <前缀 p> <中间 m> <后缀 s></strong></span>
+
+重排后序列:   <前缀 p> | <后缀 s> | `<FILL>` | <中间 m>
+mask:           ✗         ✗          ✓        ✓
+            （上下文，只作输入）   （目标，计算损失）
 ```
 
-注意掩码 `mask`：**中间与填充标记要算损失，前缀后缀只作上下文**——这与 loss mask（第二篇）是同一个「只对目标位置算损失」的机制，只是「目标位置」从「回答」变成了「中间填充」。FIM 与普通续写混合训练时，两条数据流共享同一套 mask 逻辑。## 4 公式解析：FIM 的训练目标
+注意掩码（mask）的排布：**中间与填充标记要算损失，前缀后缀只作上下文**——这与 loss mask（第二篇）是同一个「只对目标位置算损失」的机制，只是「目标位置」从「回答」变成了「中间填充」。FIM 与普通续写混合训练时，两条数据流共享同一套 mask 逻辑。## 4 公式解析：FIM 的训练目标
 
 FIM 的训练目标，本质还是「下一个 token 预测」，只是**顺序被重排**了。设一条样本被切成「前缀 $p$、中间 $m$、后缀 $s$」，FIM 把序列重排为「$p, s, \langle\text{FILL}\rangle, m$」，然后照常做自回归：
 
 $$
-\mathcal{L}_{\mathrm{FIM}} = -\sum_{t \in m} \log P_\theta\big(m_t \mid p,\; s,\; \langle\text{FILL}\rangle,\; m_{<t}\big)
+\mathcal{L}_{\mathrm{FIM}} = -\sum_{t \in m} \log P_\theta\big(m_t \mid p,\; s,\; \langle\text{FILL}\rangle,\; m_{\\lt t}\big)
 $$
 
 逐项拆解：
@@ -90,7 +89,7 @@ $$
 - $p, s$：前缀与后缀——FIM 模型**同时看到开头与结尾**；
 - $\langle\text{FILL}\rangle$：填充标记——模型先「读完全部已知信息」再开始补；
 - $m_t$：中间部分的第 $t$ 个 token；
-- $P_\theta(m_t \mid p, s, \langle\text{FILL}\rangle, m_{<t})$：给定前缀、后缀与已补的内容，预测下一个中间 token；
+- $P_\theta(m_t \mid p, s, \langle\text{FILL}\rangle, m_{\\lt t})$：给定前缀、后缀与已补的内容，预测下一个中间 token；
 - 损失只算在**中间部分**上——前缀与后缀作为「已知上下文」参与预测，但不被预测。
 
 **直觉**：FIM 让模型学会「**根据前后两头的信息，推断中间的内容**」——这比「只会顺着写」多了一个「回看后面」的能力。对代码来说，这个能力对应「补全函数体」「修复中间逻辑」的真实场景。论文报告，FIM 训练能**同时提升「中间补全」与「前缀续写」**——因为它让模型「看全上下文再生成」，整体生成质量都受益。<span class="marginnote">FIM 的训练比例是个超参：<strong>不是所有样本都转成 FIM</strong>——通常按一定概率（如 50%）随机把样本转成 FIM 格式，其余保持普通续写。因为「纯 FIM」会让模型失去「纯续写」的流畅度；「混着训」则两头都稳。这个「按概率混合」的思路，与对话模板里「训练-推理一致」的直觉相反相成——FIM 是「为推理时的中间补全做准备」。</span>

@@ -37,9 +37,9 @@ $$\text{PARENT}(i) = \lfloor i/2 \rfloor,\qquad \text{LEFT}(i) = 2i,\qquad \text
 
 一个含 $n$ 个元素的堆对应一棵高度为 $\lfloor \lg n \rfloor$ 的完全二叉树。三个常用结论：
 
-- **高度**：$\Theta(\log n)$，因为完全二叉树的高度是对数的。
-- **叶子数量**：$\lceil n/2 \rceil$ 个叶子（从下标 $\lfloor n/2 \rfloor + 1$ 到 $n$）。<span class="marginnote">「后一半下标全是叶子」这个事实在建堆分析里至关重要——堆排序的 BUILD-MAX-HEAP 从下标 $\lfloor n/2 \rfloor$ 开始向前遍历，正是因为再往后的节点没有孩子，无需修复。</span>
-- **子树规模**：以 $i$ 为根的子树最多有 $2n/3$ 个节点（当最后一层恰好半满时取到），这是 MAX-HEAPIFY 递归式里那个 $2n/3$ 的来源。
+**高度**：$\Theta(\log n)$，因为完全二叉树的高度是对数的。
+**叶子数量**：$\lceil n/2 \rceil$ 个叶子（从下标 $\lfloor n/2 \rfloor + 1$ 到 $n$）。<span class="marginnote">「后一半下标全是叶子」这个事实在建堆分析里至关重要——堆排序的 BUILD-MAX-HEAP 从下标 $\lfloor n/2 \rfloor$ 开始向前遍历，正是因为再往后的节点没有孩子，无需修复。</span>
+**子树规模**：以 $i$ 为根的子树最多有 $2n/3$ 个节点（当最后一层恰好半满时取到），这是 MAX-HEAPIFY 递归式里那个 $2n/3$ 的来源。
 
 ## 3 MAX-HEAPIFY：修复堆序性质
 
@@ -47,21 +47,22 @@ $$\text{PARENT}(i) = \lfloor i/2 \rfloor,\qquad \text{LEFT}(i) = 2i,\qquad \text
 
 算法流程：
 
-```
-MAX-HEAPIFY(A, i)
-  l = LEFT(i); r = RIGHT(i); largest = i
-  if l <= A.heap-size and A[l] > A[i]
-    largest = l
-  if r <= A.heap-size and A[r] > A[largest]
-    largest = r
-  if largest != i
-    exchange A[i] with A[largest]
-    MAX-HEAPIFY(A, largest)
+```text
+MAX-HEAPIFY(A, i):
+    l ← LEFT(i); r ← RIGHT(i)
+    largest ← i
+    if l ≤ A.heap-size and A[l] > A[i]:
+        largest ← l
+    if r ≤ A.heap-size and A[r] > A[largest]:
+        largest ← r
+    if largest ≠ i:
+        交换 A[i] 与 A[largest]
+        MAX-HEAPIFY(A, largest)     // 沿下沉路径递归修复
 ```
 
 **思想**：找出 $A[i]$、左孩子、右孩子三者中最大者；若最大者不是 $A[i]$，把它与 $A[i]$ 交换，然后**沿着被交换下去的路径继续递归修复**——因为交换后，原来 $A[i]$ 的值下沉到孩子位置，可能又破坏了该孩子子树的堆序。<span class="marginnote">这种「逐级下沉」是堆维护的标准动作。它每次只修复一条从 $i$ 向下的路径，而非整棵子树——这正是它只有 $O(\log n)$ 而非 $O(n)$ 的原因。</span>
 
-**辨析｜易错点：** MAX-HEAPIFY 的递归终止条件是「$A[i]$ 已经是三者中最大」；它**不检查孩子内部是否满足堆序**——那是前提，不是本函数的事。若把前提丢掉，正确性论证就会崩盘。另外注意 heap-size 与数组长度 `A.length` 的区别：heap-size 才是堆当前占用的有效长度。
+**辨析｜易错点：** MAX-HEAPIFY 的递归终止条件是「$A[i]$ 已经是三者中最大」；它**不检查孩子内部是否满足堆序**——那是前提，不是本函数的事。若把前提丢掉，正确性论证就会崩盘。另外注意 heap-size 与数组长度 $A.\text{length}$ 的区别：heap-size 才是堆当前占用的有效长度。
 
 ## 4 公式解析：为什么 MAX-HEAPIFY 是 $O(\log n)$
 

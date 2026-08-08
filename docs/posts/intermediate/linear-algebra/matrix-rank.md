@@ -30,9 +30,9 @@ date: 2026-08-07
 
 几个立即成立的性质：
 
-- $0 \le \operatorname{rank}(A) \le \min(m, n)$——秩不超过行数也不超过列数。
-- $\operatorname{rank}(A) = 0 \Leftrightarrow A = O$（零矩阵）。
-- $A$ 是 $n$ 阶方阵时，$\operatorname{rank} A = n \Leftrightarrow A$ 可逆，此时称 $A$ 为**满秩矩阵**。
+$0 \le \operatorname{rank}(A) \le \min(m, n)$——秩不超过行数也不超过列数。
+$\operatorname{rank}(A) = 0 \Leftrightarrow A = O$（零矩阵）。
+$A$ 是 $n$ 阶方阵时，$\operatorname{rank} A = n \Leftrightarrow A$ 可逆，此时称 $A$ 为**满秩矩阵**。
 
 ## 2 行秩 = 列秩：秩的双面身份
 

@@ -31,9 +31,9 @@ date: 2026-08-07
 
 这里最让初学者坐立不安的两行是最后两行：**前提为假时，蕴含一律为真**。「若 $2+2=5$，则月亮是奶酪做的」被判定为真——这符合直觉吗？符合，只要你把蕴含读成**保证关系（conditional guarantee）**而非因果报告：
 
-- 前提真、结论真：保证兑现，真。
-- 前提真、结论假：保证落空，假。
-- **前提假：保证根本没有被触发，谈不上违约，故为真。**<span class="marginnote">把 $p \rightarrow q$ 想成「$p$ 是 $q$ 的充分条件」：前提不成立，充分条件关系照常成立——「$x > 2$ 蕴含 $x > 0$」不会因为某个 $x = -1$ 而失效，$x = -1$ 时前提为假，但「凡是大于 2 的数都大于 0」依然是真的。</span>
+前提真、结论真：保证兑现，真。
+前提真、结论假：保证落空，假。
+**前提假：保证根本没有被触发，谈不上违约，故为真。**<span class="marginnote">把 $p \rightarrow q$ 想成「$p$ 是 $q$ 的充分条件」：前提不成立，充分条件关系照常成立——「$x > 2$ 蕴含 $x > 0$」不会因为某个 $x = -1$ 而失效，$x = -1$ 时前提为假，但「凡是大于 2 的数都大于 0」依然是真的。</span>
 
 这种只按真值、不看因果与内涵的蕴含叫**实质蕴含（material implication）**。它牺牲了自然语言的「因果感」，换来了**精确且可计算**的语义——这正是数学需要的：证明定理时，我们只需要「前提真时结论必真」这一种保证。<span class="marginnote">逻辑史上对实质蕴含的「怪异」不乏争议，刘易斯（C. I. Lewis）为此提出严格蕴含（模态逻辑）试图保留「必然联系」的意味。但经典逻辑的实践证明：实质蕴含在数学推理里够用且好用。</span>
 
@@ -78,10 +78,10 @@ $$
 
 **核心公式解析：$p \rightarrow q \equiv \neg q \rightarrow \neg p$。** 我们用等值定律一步步「算」出来，而不靠枚举真值表：
 
-- **第一步，还原蕴含**：$p \rightarrow q \equiv \neg p \vee q$（上一节的记号）。
-- **第二步，交换两项**：$\neg p \vee q \equiv q \vee \neg p$（交换律）。
-- **第三步，双重否定变形**：$q \equiv \neg\neg q$，于是 $q \vee \neg p \equiv \neg\neg q \vee \neg p$。
-- **第四步，反向还原**：$\neg\neg q \vee \neg p \equiv \neg q \rightarrow \neg p$。
+**第一步，还原蕴含**：$p \rightarrow q \equiv \neg p \vee q$（上一节的记号）。
+**第二步，交换两项**：$\neg p \vee q \equiv q \vee \neg p$（交换律）。
+**第三步，双重否定变形**：$q \equiv \neg\neg q$，于是 $q \vee \neg p \equiv \neg\neg q \vee \neg p$。
+**第四步，反向还原**：$\neg\neg q \vee \neg p \equiv \neg q \rightarrow \neg p$。
 
 四步连起来，$p \rightarrow q \equiv \neg q \rightarrow \neg p$ 得证。**这套「用定律替换」的演算方式，与解代数方程同构**——把公式当代数式化简，正是命题演算（第七节）的机械化精神。
 
@@ -99,10 +99,10 @@ $$
 
 **公式解析：化简 $(\neg p \rightarrow q) \wedge (p \rightarrow \neg q)$。** 逐步应用定律：
 
-- **第一步，消蕴含**：$(\neg p \rightarrow q) \equiv p \vee q$（注意 $\neg p \rightarrow q \equiv \neg\neg p \vee q \equiv p \vee q$）；$(p \rightarrow \neg q) \equiv \neg p \vee \neg q$。原式变为 $(p \vee q) \wedge (\neg p \vee \neg q)$。
-- **第二步，展开（分配律）**：$(p \vee q) \wedge (\neg p \vee \neg q) \equiv (p \wedge \neg p) \vee (p \wedge \neg q) \vee (q \wedge \neg p) \vee (q \wedge \neg q)$。
-- **第三步，消除矛盾项**：$p \wedge \neg p \equiv \bot$、$q \wedge \neg q \equiv \bot$，与 $\bot$ 的析取可去掉，得 $(p \wedge \neg q) \vee (q \wedge \neg p)$。
-- **第四步，识别**：这正是第 1 节的「异或」$p \veebar q$——**化简把隐含的「恰好一个成立」结构显形了**。
+**第一步，消蕴含**：$(\neg p \rightarrow q) \equiv p \vee q$（注意 $\neg p \rightarrow q \equiv \neg\neg p \vee q \equiv p \vee q$）；$(p \rightarrow \neg q) \equiv \neg p \vee \neg q$。原式变为 $(p \vee q) \wedge (\neg p \vee \neg q)$。
+**第二步，展开（分配律）**：$(p \vee q) \wedge (\neg p \vee \neg q) \equiv (p \wedge \neg p) \vee (p \wedge \neg q) \vee (q \wedge \neg p) \vee (q \wedge \neg q)$。
+**第三步，消除矛盾项**：$p \wedge \neg p \equiv \bot$、$q \wedge \neg q \equiv \bot$，与 $\bot$ 的析取可去掉，得 $(p \wedge \neg q) \vee (q \wedge \neg p)$。
+**第四步，识别**：这正是第 1 节的「异或」$p \veebar q$——**化简把隐含的「恰好一个成立」结构显形了**。
 
 **这套化简 = 命题逻辑的「代数化简」**，与中学解方程时「合并同类项、展开、约分」的体验完全一致。而它的正确性，全部由等值定律保证——**用等值定律改写公式，永远不会改变真值**，这就是「等值」作为替换规则的承诺。<span class="marginnote">「用定律化简公式」在现代工程里自动化了：SAT 求解器、逻辑综合工具在化简布尔表达式时，用的正是这些定律的算法版。卡诺图（Karnaugh map）则用图形做同一件事——四个格子围一圈消除一对互补文字，就是吸收律的视觉化。</span>
 

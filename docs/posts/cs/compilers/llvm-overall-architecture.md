@@ -22,19 +22,13 @@ date: 2026-08-07
 
 LLVM 把编译器分成三个清晰的部分：
 
-```
-源代码
-  ↓  前端（Frontend）: Clang / rustc / swiftc
-LLVM IR
-  ↓  优化器（Optimizer / Middle end）: 一系列 pass
-优化后的 LLVM IR
-  ↓  后端（Backend）: 指令选择、寄存器分配、指令调度
-目标机器码
+```text
+源语言 ──前端──▶ LLVM IR ──优化器──▶ 优化后的 IR ──后端──▶ 目标机器码
 ```
 
-- **前端**：把源语言翻译成 **LLVM IR**——只懂语言，不懂机器。
-- **优化器**：在 LLVM IR 上做机器无关优化——既不懂语言，也不懂机器。
-- **后端**：把 LLVM IR 翻译成目标机器码——只懂机器，不懂语言。
+**前端**：把源语言翻译成 **LLVM IR**——只懂语言，不懂机器。
+**优化器**：在 LLVM IR 上做机器无关优化——既不懂语言，也不懂机器。
+**后端**：把 LLVM IR 翻译成目标机器码——只懂机器，不懂语言。
 
 **关键**：中间层 LLVM IR 是「契约」——前端产出它，后端消费它，优化器改造它。<span class="marginnote">「LLVM IR 是契约」是架构的灵魂：一门新语言（Rust）接入 LLVM，只需要写前端产出 IR；一台新机器（RISC-V）接入，只需要写后端消费 IR。语言与机器从此<strong>解耦</strong>——不再需要「为每门语言 × 每台机器」各写一套编译器（N×M 问题变成 N+M）。</span>
 
@@ -44,9 +38,9 @@ LLVM IR
 
 **LLVM 的解**：L 个前端 + M 个后端 + 1 个优化器，成本是 **L + M**。
 
-- **Clang** 是 C/C++/Objective-C 的前端。
-- **rustc** 用 Rust 的 MIR 降到 LLVM IR。
-- **swiftc** 同理；还有 Haskell（GHC）、Julia、Zig 等一大堆。
+**Clang** 是 C/C++/Objective-C 的前端。
+**rustc** 用 Rust 的 MIR 降到 LLVM IR。
+**swiftc** 同理；还有 Haskell（GHC）、Julia、Zig 等一大堆。
 
 后端则覆盖 x86、ARM、AArch64、RISC-V、PowerPC、MIPS、GPU（NVPTX、AMDGPU）……**一门语言、多后端**（Clang 输出 x86 和 ARM），**一后端、多语言**（RISC-V 被 Clang 和 rustc 共享）。<span class="marginnote">「N×M 变 N+M」是 LLVM 对编译器工业的最大贡献：Rust 团队不需要为 ARM 写后端（复用 LLVM），Clang 不需要为 Rust 写前端（Rust 自己写）。这个「平台化」让「一门新语言的编译器」从「天文工程」降为「写个前端」——这也是 21 世纪新语言（Rust、Swift、Zig、Julia）爆发的技术基础。</span>
 
@@ -54,12 +48,12 @@ LLVM IR
 
 LLVM 的优化器是前 70 篇优化知识的总装：它在 LLVM IR（SSA 形式）上跑一系列 **pass**：
 
-- **简化 pass**：`-instcombine`（指令化简）、`-simplifycfg`（控制流化简）。
-- **数据流分析 pass**：到达定值、活跃变量、支配树、循环分析。
-- **机器无关优化 pass**：`-gvn`（值编号/CSE）、`-sccp`（稀疏条件常量传播）、`-licm`（循环外提）、`-indvars`（归纳变量）。
-- **pass 管理**：`opt` 工具按指定顺序跑 pass；`-O0/-O1/-O2/-O3` 是预置的 pass 流水线。
+**简化 pass**：`InstCombine`（指令化简）、`SimplifyCFG`（控制流化简）。
+**数据流分析 pass**：到达定值、活跃变量、支配树、循环分析。
+**机器无关优化 pass**：`GVN`（值编号/CSE）、`SCCP`（稀疏条件常量传播）、`LICM`（循环外提）、`IndVarSimplify`（归纳变量）。
+**pass 管理**：`opt` 工具按指定顺序跑 pass；`-O2` 是预置的 pass 流水线。
 
-**关键**：优化器工作在最干净的 IR 上（SSA），所以每个优化都能「假设变量只有一个定值」——第八篇讲过的 SSA 红利在这里全面兑现。<span class="marginnote">「pass 是 LLVM 的乐高积木」：每个优化是独立模块，`opt` 可以任意组合。编译器开发者写一个新 pass，就能让所有 LLVM 语言与后端受益——「一次优化、处处生效」是 LLVM 生态指数增长的原因。</span>
+**关键**：优化器工作在最干净的 IR 上（SSA），所以每个优化都能「假设变量只有一个定值」——第八篇讲过的 SSA 红利在这里全面兑现。<span class="marginnote">「pass 是 LLVM 的乐高积木」：每个优化是独立模块，pass 可以任意组合。编译器开发者写一个新 pass，就能让所有 LLVM 语言与后端受益——「一次优化、处处生效」是 LLVM 生态指数增长的原因。</span>
 
 ## 4 公式解析：三段式的数据流
 
@@ -80,7 +74,7 @@ LLVM 的影响远超编译器本身：
 - **Clang**：C/C++ 的官方前端，诊断信息以「好用」著称。
 - **rustc / swiftc**：新一代语言的编译器基石。
 - **GPU 与异构**：NVPTX（CUDA）、AMDGPU 后端；Apple 的 Metal、GPU 驱动栈也用 LLVM。
-- **工具链**：`llvm-mca`（性能分析）、`lli`（IR 解释器）、`llvm-objdump` 等一整套工具。
+- **工具链**：`llvm-profdata`（性能分析）、`lli`（IR 解释器）、`llvm-objdump` 等一整套工具。
 - **LLD、libc++、compiler-rt**：链接器、标准库、运行时组件——LLVM 是「全栈工具链」。
 
 **重点是**：LLVM 把「编译器」从「一个程序」变成了「一个生态」——它的架构思想（契约 IR + pass 流水线 + 三段解耦）本身就是编译原理最成功的工程范本。<span class="marginnote">「LLVM 的名字是 Low Level Virtual Machine」——最初它想做「虚拟机」，但最终以「编译基础设施」名世。它的虚拟指令集（LLVM IR）不执行，只作为「契约」流通在编译器内部——「虚拟机器不跑、只被翻译」这个定位的反转，成就了 LLVM。</span>

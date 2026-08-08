@@ -95,15 +95,7 @@ $T_{\text{comm}}/T_{\text{calc}}$ 越大，扩展效率 $E$ 越低。这个比�
 - **梯度累积（gradient accumulation）**：每张卡连续算 $k$ 个 mini-batch，累加梯度后再同步一次。等效于把每步 batch 放大 $k$ 倍、同步频率降为 $1/k$，直接抬高 $T_{\text{calc}}/T_{\text{comm}}$。代价是显存中要多存一份梯度累加器，且全局 batch 变得很大——又一个必须配学习率调度的原因。
 - **梯度压缩（gradient compression）**：量化（FP32→FP16/FP8）、Top-$k$ 稀疏化（只传最大的 $k$ 个元素）。对稠密 Transformer，Top-$k$ 会破坏收敛，收益有限；真正吃这口红利的是稀疏的推荐系统 embedding。**压缩的通用原则是「先压误差有界的部分，再谈省带宽」**——把通信量当账算，但不能把收敛性当赌注。
 
-```python
-# 数据并行训练循环（伪代码，示意 DDP 的语义）
-for step in range(num_steps):
-    x, y = next_loader()                 # 本 worker 拿到的分片（全局 batch 的 1/P）
-    loss = model(x, y).mean()            # 前向 + 损失
-    loss.backward()                      # 反向：每算出一个梯度 bucket 就排队 AllReduce
-    optimizer.step()                     # 用「全 P 份的平均梯度」更新本地副本
-    optimizer.zero_grad()
-```
+**三条路的关系**：它们不是「三选一」，而是「三个方向互补」——重叠在时间轴压缩、累积在频率轴稀释、压缩在字节轴瘦身。
 
 这三条路并不互斥：DDP 同时做「分桶重叠」与「梯度累积」，分布式训练框架则在编译层再叠一层「通信调度」。它们的目标都一样——**让 $T_{\text{comm}}$ 从「每步的显性开销」变成「被计算藏住的影子开销」**。
 

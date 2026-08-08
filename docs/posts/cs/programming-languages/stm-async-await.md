@@ -22,13 +22,13 @@ date: 2026-08-07
 
 **软件事务内存（STM）**：一组内存操作声明为一个**事务（transaction）**——要么全部生效（提交），要么全部不生效（回滚），冲突时自动重试。程序员不用加锁，STM 运行时负责「原子性」。
 
-```haskell
--- Haskell STM：事务化的账户转账
-transfer :: TVar Int -> TVar Int -> Int -> STM ()
-transfer from to amt = do
-    b <- readTVar from
-    writeTVar from (b - amt)
-    writeTVar to   (b2 + amt)     -- 读-改-写两步，作为整体提交
+```clojure
+;; Clojure STM：ref 是事务变量，dosync 开启一个事务
+(def balance (ref 100))
+
+(dosync                 ; 事务：两个操作要么全部提交、要么全部回滚
+  (alter balance + 50)  ; 乐观执行，提交时验证
+  (alter balance - 20))
 ```
 
 STM 的执行：事务**乐观执行**（不加锁），提交时检查「读过的变量是否被改」——被改则**回滚重试**。<span class="marginnote">STM 的核心机制：<strong>乐观并发控制（optimistic concurrency）</strong>——不加锁、先干活、提交时验证。若验证失败（别人改了共享变量），整个事务回滚重来。「冲突重试」让程序员免于「锁的顺序」思考——但代价是重试开销与「事务内不能有不可回滚副作用」（如打印）的限制。</span>
@@ -45,25 +45,29 @@ STM 的执行：事务**乐观执行**（不加锁），提交时检查「读过
 | 复杂度 | 锁顺序、条件变量 | 事务声明 |
 | 可组合性 | 差（锁嵌套易错） | 好（事务可嵌套） |
 
-STM 的最大优势：**可组合性**——两个各自正确的事务可以组合成更大的事务（嵌套事务），而锁的嵌套正是死锁温床。<span class="marginnote">「锁不可组合」是它的根本缺陷：`transfer(A,B)` 与 `transfer(B,A)` 并发执行会死锁（各自持一把等另一把）。STM 无此问题——两个事务即使「读改写」同一变量，也只是冲突重试。「组合性 + 无死锁」是 STM 的理论吸引力，Clojure、Haskell 内建支持。</span>
+STM 的最大优势：**可组合性**——两个各自正确的事务可以组合成更大的事务（嵌套事务），而锁的嵌套正是死锁温床。<span class="marginnote">「锁不可组合」是它的根本缺陷：锁 A 与锁 B 并发执行会死锁（各自持一把等另一把）。STM 无此问题——两个事务即使「读改写」同一变量，也只是冲突重试。「组合性 + 无死锁」是 STM 的理论吸引力，Clojure、Haskell 内建支持。</span>
 
 ## 3 async/await：异步的同步写法
 
 **异步编程（asynchronous programming）**：程序发起操作（如 IO、网络请求）后**不等它完成**，继续做别的；结果回来再处理。传统异步用**回调（callback）**——嵌套回调导致「回调地狱」。
 
-**async/await**：把异步操作包装成**future/promise**，`await` 暂停当前函数等待结果，但**不阻塞线程**：
+**async/await**：把异步操作包装成**future/promise**，await 暂停当前函数等待结果，但**不阻塞线程**：
 
 ```python
-async def fetch_page(url):
-    data = await http_get(url)    # 暂停，等数据；线程去干别的
-    return parse(data)            # 数据到了，继续
+async def fetch_data(url):
+    data = await http_get(url)   # 挂起等待，不阻塞线程
+    return data
+
+async def main():
+    result = await fetch_data("https://api.example.com")
+    print(result)
 ```
 
-`async` 函数返回「协程对象」，`await` 暂停/恢复它——正是第九篇「协程」的现代形态：**挂起/恢复**机制让异步逻辑写成顺序代码。<span class="marginnote">async/await 的本质：把「回调」编译成「状态机」。`await` 处是挂起点，函数体被编译成一个可暂停/恢复的协程——`await http_get` 后，控制权还给事件循环，数据到达时从挂起点恢复。「同步的外观 + 异步的执行」——写起来像同步，跑起来不阻塞。</span>
+async 函数返回「协程对象」，await 暂停/恢复它——正是第九篇「协程」的现代形态：**挂起/恢复**机制让异步逻辑写成顺序代码。<span class="marginnote">async/await 的本质：把「回调」编译成「状态机」。await 处是挂起点，函数体被编译成一个可暂停/恢复的协程——await 后，控制权还给事件循环，数据到达时从挂起点恢复。「同步的外观 + 异步的执行」——写起来像同步，跑起来不阻塞。</span>
 
 ## 4 公式解析：async/await 的状态机语义
 
-`async` 函数可以形式化为「编译成状态机的协程」。设函数含两个挂起点：
+async 函数可以形式化为「编译成状态机的协程」。设函数含两个挂起点：
 
 $$
 \text{async } f = \text{状态机 } M \text{ with 状态 } \{s_0, s_1, s_2, \dots\}
@@ -75,17 +79,17 @@ $$
 
 三步拆解：
 
-- **第一步，拆挂起点**：每个 `await` 把函数切成两段——前段与后段。函数体变成「分段状态机」，每段是一个状态。
-- **第二步，暂停/恢复**：执行到 `await` 时，当前状态暂停、控制权交还事件循环；结果到达后，事件循环**恢复**该状态机到下一段。
+- **第一步，拆挂起点**：每个 await 把函数切成两段——前段与后段。函数体变成「分段状态机」，每段是一个状态。
+- **第二步，暂停/恢复**：执行到 await 时，当前状态暂停、控制权交还事件循环；结果到达后，事件循环**恢复**该状态机到下一段。
 - **第三步，看线程效率**：暂停期间**线程不阻塞**——一个线程可以轮转执行成千上万个等待中的 async 函数。**「await = 让出线程、挂起状态；resume = 唤醒状态、继续执行」**——这就是 async/await 的全部机制。
 
-**辨析｜易错点：** `await` 与「同步阻塞」的区别：同步阻塞把**线程**占死（线程等待，不能干别的）；`await` 只暂停**协程**，线程被释放去执行别的协程。**「同步阻塞占线程，await 只占协程」**——这就是为什么 async/await 能支撑「百万连接」而同步模型会线程爆炸。
+**辨析｜易错点：** await 与「同步阻塞」的区别：同步阻塞把**线程**占死（线程等待，不能干别的）；await 只暂停**协程**，线程被释放去执行别的协程。**「同步阻塞占线程，await 只占协程」**——这就是为什么 async/await 能支撑「百万连接」而同步模型会线程爆炸。
 
 ## 5 现代异步生态
 
-- **Python**：`asyncio`、`async`/`await`——事件循环驱动协程。
-- **JavaScript**：`Promise` + `async`/`await`——单线程事件循环。
-- **Rust**：`Future` + `async`/`await`——零开销异步，无内建运行时（tokio）。
+- **Python**：`async`/`await`、`asyncio`——事件循环驱动协程。
+- **JavaScript**：`async`/`await` + `Promise`——单线程事件循环。
+- **Rust**：`async`/`await` + `Future`——零开销异步，无内建运行时（tokio）。
 - **Go**：goroutine + channel（无 async/await，运行时自动管理）。
 - **Kotlin**：`suspend` 函数——挂起函数，协程框架。
 
@@ -95,19 +99,19 @@ $$
 
 async/await 大幅改善异步可读性，但引入了一批**新陷阱**——识别它们避免踩坑：
 
-**阻塞事件循环**：`await` 只暂停协程，不阻塞线程——但若在协程里做**同步阻塞调用**（如 `time.sleep`、`requests.get`），整个事件循环卡住（其他协程全等）。**「async 代码里绝不放同步阻塞」**。
+**阻塞事件循环**：await 只暂停协程，不阻塞线程——但若在协程里做**同步阻塞调用**（如 `time.sleep()`、`requests.get()`），整个事件循环卡住（其他协程全等）。**「async 代码里绝不放同步阻塞」**。
 
-**忘记 await**：`result = http_get(url)` 忘了 `await`——拿到的是「协程对象」而非结果。**「`await` 是触发执行的关键」**。
+**忘记 await**：忘了 await——拿到的是「协程对象」而非结果。**「await 是触发执行的关键」**。
 
-**回调与 async 的混用**：回调式库与 `await` 风格混用导致混乱——统一用 async 风格。
+**回调与 async 的混用**：回调式库与 async 风格混用导致混乱——统一用 async 风格。
 
-**并发度失控**：`await` 串行执行（一个一个等）——需要并发的用 `asyncio.gather`/`Task` 并发调度。
+**并发度失控**：串行 await 串行执行（一个一个等）——需要并发的用 `asyncio.gather`/`Promise.all` 并发调度。
 
 | 陷阱 | 症状 | 对策 |
 | --- | --- | --- |
 | 同步阻塞 | 事件循环卡死 | 用异步 IO 库 |
-| 忘 await | 拿到协程对象 | 检查 `await` |
-| 串行 await | 慢（逐个等） | `gather` 并发 |
+| 忘 await | 拿到协程对象 | 检查 `await`/用 `linter` |
+| 串行 await | 慢（逐个等） | `asyncio.gather`/`Promise.all` 并发 |
 | 混合风格 | 逻辑混乱 | 统一 async |
 
 **辨析｜易错点：** **「async/await 是『并发』不是『并行』」**——单线程事件循环里，协程**交替执行**（并发），不真正同时跑（并行）。CPU 密集任务在 async 里不会变快（不并行）——**「IO 密集用 async，CPU 密集用多线程/多进程」**。「await 不是『让出给任意协程』，是『让出给事件循环调度』」——理解这层，async 的调度行为就可预测。
@@ -135,7 +139,7 @@ async/await 大幅改善异步可读性，但引入了一批**新陷阱**——�
 
 - **STM** 把事务带入内存：一组操作要么全成要么全滚，冲突自动重试——无死锁、可组合。
 - STM vs 锁：锁靠互斥 + 程序员保证，STM 靠原子性 + 运行时保证；STM 适合可重试、读多写少场景。
-- **async/await** 用同步外观写异步：`async` 函数编译成状态机，`await` 挂起/恢复协程。
-- `await` 不阻塞线程（只暂停协程）——「同步阻塞占线程、await 只占协程」，支撑高并发 IO。
+- **async/await** 用同步外观写异步：async 函数编译成状态机，await 挂起/恢复协程。
+- await 不阻塞线程（只暂停协程）——「同步阻塞占线程、await 只占协程」，支撑高并发 IO。
 
 在下一节，我们将进入第十五篇——**内存管理**，先看栈分配与堆分配的管理。

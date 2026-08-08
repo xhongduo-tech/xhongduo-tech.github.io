@@ -48,8 +48,8 @@ $(\alpha,\beta,\gamma)$ 正是光栅化阶段已经算好的面积比（见《�
 
 片元有了 $(u,v)$，就可以去纹理图上取颜色。纹理图是一张像素网格，$(u,v)$ 是连续坐标，落在像素之间的哪个位置？两种标准采样方式：
 
-- **最近邻（nearest neighbor）**：取最近的纹素（texel）颜色。速度快，但放大时出现块状马赛克。
-- **双线性（bilinear）**：取周围 4 个纹素，按距离加权平均。平滑，放大时过渡自然，是默认选择。<span class="marginnote">双线性插值：先对两对水平相邻纹素做线性插值，再对两个结果做一次垂直插值——「双线性」因此得名。它把离散的纹素网格变成一个连续的颜色函数，代价是三次插值、约 4 次纹理采样。</span>
+**最近邻（nearest neighbor）**：取最近的纹素（texel）颜色。速度快，但放大时出现块状马赛克。
+**双线性（bilinear）**：取周围 4 个纹素，按距离加权平均。平滑，放大时过渡自然，是默认选择。<span class="marginnote">双线性插值：先对两对水平相邻纹素做线性插值，再对两个结果做一次垂直插值——「双线性」因此得名。它把离散的纹素网格变成一个连续的颜色函数，代价是三次插值、约 4 次纹理采样。</span>
 
 **纹素（texel）** 是纹理的像素。纹理映射里的分辨率不匹配问题（放大/缩小）引出走样——正是下一节《纹理采样问题》的主题。
 
@@ -90,8 +90,8 @@ $$
 
 **采样设置（sampler state）** 决定「超出 UV 范围」与「缩放」的行为：
 
-- **Wrap 模式**：`Repeat`（平铺）、`Clamp`（拉伸边缘）、`Mirror`（镜像）——决定了 $u,v$ 超出 $[0,1]$ 时取什么。
-- **Filter 模式**：`Nearest`、`Bilinear`、`Trilinear` + `Mipmap`——决定了缩放时的插值（见《纹理采样问题》）。
+- **Wrap 模式**：$[0,1]$（平铺）、`CLAMP_TO_EDGE`（拉伸边缘）、`MIRRORED_REPEAT`（镜像）——决定了 $u,v$ 超出 $[0,1]$ 时取什么。
+- **Filter 模式**：`NEAREST`（最近邻）、`LINEAR`（双线性）、`TRILINEAR`（三线性） + Mipmap——决定了缩放时的插值（见《纹理采样问题》）。
 - **Anisotropic**：各向异性过滤的倍数（见《各向异性过滤》）。
 
 **辨析｜易错点：** 三个高频工程坑：
@@ -107,15 +107,16 @@ $$
 把「纹理映射」放进一个真实的片元着色器，看它怎么与光照、法线配合：
 
 ```glsl
-// 片元着色器（简化 PBR）
-in vec2 v_uv;               // 插值后的 UV
-uniform sampler2D albedoMap, normalMap;
+in vec2 vUV;                 // 光栅化插值后的纹理坐标
+uniform sampler2D uAlbedo;
+uniform sampler2D uNormalMap;
+uniform vec3 uLightDir;
 
 void main() {
-    vec3 albedo = texture(albedoMap, v_uv).rgb;   // 采样漫反射色
-    vec3 normal = texture(normalMap, v_uv).rgb;   // 采样法线
-    // ... 用 normal 算光照，albedo 当漫反射系数
-    FragColor = vec4(albedo * lighting, 1.0);
+    vec3 albedo = texture(uAlbedo, vUV).rgb;
+    vec3 n = texture(uNormalMap, vUV).xyz * 2.0 - 1.0;  // 法线贴图解码
+    float diff = max(dot(n, normalize(uLightDir)), 0.0);
+    fragColor = vec4(albedo * diff, 1.0);
 }
 ```
 

@@ -53,9 +53,9 @@ $$
 
 证明 $\frac{a}{\sin A} = 2R$，用「外接圆 + 直径所对圆周角」三步完成：
 
-- **第一步，作外接圆与直径**：作 $\triangle ABC$ 的外接圆，过 $B$ 作直径 $BD$，则 $\angle BCD = 90^\circ$（直径所对圆周角为直角）。
-- **第二步，同弧等角**：$\angle BDC$ 与 $\angle BAC$ 都对弧 $BC$，所以 $\angle BDC = A$。
-- **第三步，直角三角形**：在 $\rm{Rt}\triangle BCD$ 中，$\sin A = \sin\angle BDC = \frac{BC}{BD} = \frac{a}{2R}$，于是 $\frac{a}{\sin A} = 2R$。其余两边同理。
+**第一步，作外接圆与直径**：作 $\triangle ABC$ 的外接圆，过 $B$ 作直径 $BD$，则 $\angle BCD = 90^\circ$（直径所对圆周角为直角）。
+**第二步，同弧等角**：$\angle BDC$ 与 $\angle BAC$ 都对弧 $BC$，所以 $\angle BDC = A$。
+**第三步，直角三角形**：在 $\rm{Rt}\triangle BCD$ 中，$\sin A = \sin\angle BDC = \frac{BC}{BD} = \frac{a}{2R}$，于是 $\frac{a}{\sin A} = 2R$。其余两边同理。
 
 <span class="marginnote">这个证明把三条「孤立的边」统一到外接圆上：每一条边都等于「直径 × 对角正弦」。几何地看，三角形被它的外接圆「标准化」了——这是正弦定理最漂亮的注脚。</span>
 
@@ -63,9 +63,9 @@ $$
 
 证明 $a^2 = b^2 + c^2 - 2bc\cos A$，用「作高 + 勾股定理」三步完成：
 
-- **第一步，作高建立直角三角形**：过 $B$ 作 $AC$ 边的高 $BD$，垂足为 $D$。若 $A$ 是锐角，$D$ 在 $AC$ 上，$AD = c\cos A$，$BD = c\sin A$，$CD = b - c\cos A$。
-- **第二步，对 $\triangle BDC$ 用勾股定理**：$a^2 = BD^2 + CD^2 = (c\sin A)^2 + (b - c\cos A)^2$。
-- **第三步，展开化简**：$a^2 = c^2\sin^2 A + b^2 - 2bc\cos A + c^2\cos^2 A = b^2 + c^2(\sin^2 A + \cos^2 A) - 2bc\cos A = b^2 + c^2 - 2bc\cos A$。
+**第一步，作高建立直角三角形**：过 $B$ 作 $AC$ 边的高 $BD$，垂足为 $D$。若 $A$ 是锐角，$D$ 在 $AC$ 上，$AD = c\cos A$，$BD = c\sin A$，$CD = b - c\cos A$。
+**第二步，对 $\triangle BDC$ 用勾股定理**：$a^2 = BD^2 + CD^2 = (c\sin A)^2 + (b - c\cos A)^2$。
+**第三步，展开化简**：$a^2 = c^2\sin^2 A + b^2 - 2bc\cos A + c^2\cos^2 A = b^2 + c^2(\sin^2 A + \cos^2 A) - 2bc\cos A = b^2 + c^2 - 2bc\cos A$。
 
 其中用到了同角关系 $\sin^2 A + \cos^2 A = 1$。<span class="marginnote">「作高 → 把斜三角形拆成直角三角形 → 用勾股与三角函数」是解任意三角形的基本功，也是「降维到直角三角形」思想的典型应用。钝角情形同理（高在延长线上，符号自动修正）。</span>
 
@@ -73,9 +73,9 @@ $$
 
 用正弦定理「已知两边一对角」求角时，会出现解的个数问题——可能 0 解、1 解或 2 解，这就是「**三角形解的判断**」。设已知 $a, b, A$：
 
-- $a > b$：一解（大边对大角）；
-- $a = b$：一解（等边对等角，若 $A < 90^\circ$）；
-- $a < b$：需看 $a$ 与 $b\sin A$ 的关系——$a < b\sin A$ 无解，$a = b\sin A$ 一解（直角），$b\sin A < a < b$ 两解。
+$a > b$：一解（大边对大角）；
+$a = b$：一解（等边对等角，若 $A < 90^\circ$）；
+$a < b$：需看 $a$ 与 $b\sin A$ 的关系——$a < b\sin A$ 无解，$a = b\sin A$ 一解（直角），$b\sin A < a < b$ 两解。
 
 **辨析｜易错点：** 两解的情形最易漏——「已知两边一对角」可能对应两个不同的三角形（一个锐角、一个钝角，正弦值相同）。用 $\sin B = \frac{b\sin A}{a}$ 求出 $B$ 后，$B$ 与 $\pi - B$ 都可能合法，必须用「大边对大角」或内角和判断取舍。<span class="marginnote">这个「正弦值相同但角不同」的歧义，根源是「$\sin\theta$ 在 $(0, \pi)$ 上不是一一对应」——一个正弦值对应两个角。这正是解三角形最容易错的地方，也是「为什么用余弦定理求角更稳」（余弦在 $(0,\pi)$ 上一一对应）的原因。</span>
 

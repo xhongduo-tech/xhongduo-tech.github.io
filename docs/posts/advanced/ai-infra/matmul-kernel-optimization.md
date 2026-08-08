@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从矩阵乘法开始
 
-深度学习的主计算几乎就是矩阵乘法：全连接层是 $Y = XW$，Transformer 的 attention 是 $QK^\top$ 与 $PV$，卷积也常被重排成隐式 GEMM。可以说，**HPC 谚语「把一切变成矩阵乘法」在神经网络里字面为真**。这一课我们亲手写一个矩阵乘法 kernel，从最朴素、最「慢」的版本出发，用上一课学会的算术强度尺子诊断问题，再用 tiling 分块把它从访存瓶颈拉回计算瓶颈。<span class="marginnote">这一课是把前几课全部武器——合并访存、Shared Memory、`__syncthreads()`、occupancy、启动开销——一次性集成到同一个 kernel 里。学完它，你就具备了读任何 CUDA 高性能代码的「心法」：<strong>先问瓶颈是计算还是访存，再决定往哪使劲</strong>。</span>
+深度学习的主计算几乎就是矩阵乘法：全连接层是 $Y = XW$，Transformer 的 attention 是 $QK^\top$ 与 $PV$，卷积也常被重排成隐式 GEMM。可以说，**HPC 谚语「把一切变成矩阵乘法」在神经网络里字面为真**。这一课我们亲手写一个矩阵乘法 kernel，从最朴素、最「慢」的版本出发，用上一课学会的算术强度尺子诊断问题，再用 tiling 分块把它从访存瓶颈拉回计算瓶颈。<span class="marginnote">这一课是把前几课全部武器——合并访存、Shared Memory、$PV$、occupancy、启动开销——一次性集成到同一个 kernel 里。学完它，你就具备了读任何 CUDA 高性能代码的「心法」：<strong>先问瓶颈是计算还是访存，再决定往哪使劲</strong>。</span>
 
 ## 1 规模与理论：一次乘加要读两个数
 
@@ -38,50 +38,58 @@ $$
 
 最朴素的想法：一个线程算一个输出元素，外层遍历 $K$。
 
-```cpp
-__global__ void matmul_naive(const float* A, const float* B, float* C,
+```cuda
+__global__ void matmul_naive(const float *A, const float *B, float *C,
                              int M, int N, int K) {
     int row = blockIdx.y * blockDim.y + threadIdx.y;
     int col = blockIdx.x * blockDim.x + threadIdx.x;
-    if (row >= M || col >= N) return;
-    float sum = 0.f;
-    for (int k = 0; k < K; ++k)
-        sum += A[row * K + k] * B[k * N + col];  // 内循环两次全局读
-    C[row * N + col] = sum;
+    if (row < M && col < N) {
+        float sum = 0.0f;
+        for (int k = 0; k < K; ++k) {
+            sum += A[row * K + k] * B[k * N + col];   // 每步从全局内存读两个数
+        }
+        C[row * N + col] = sum;
+    }
 }
 ```
 
-这个版本**能跑对，但跑不快**。原因是内循环里每个 `k` 都要从全局内存读 $A$ 与 $B$ 各一个数：每算一个输出元素，全局访问 $2K$ 个数。同一行的元素被不同线程反复读、同一列的元素也反复读，**没有任何复用**——数据在全局内存和计算单元之间来回搬运，搬运成了主旋律。<span class="marginnote">注意 naive 的访问模式本身并非「不合并」：`B[k*N + col]` 里 col 是连续线程，是合并的；它的问题是<strong>总访问量太大</strong>，不是不合并。合并访存解决「一次取数传多少人」，tiling 解决「取一次数被算多少次」——两件事要分清。</span>
+这个版本**能跑对，但跑不快**。原因是内循环里每个线程都要从全局内存读 $A$ 与 $B$ 各一个数：每算一个输出元素，全局访问 $2K$ 个数。同一行的元素被不同线程反复读、同一列的元素也反复读，**没有任何复用**——数据在全局内存和计算单元之间来回搬运，搬运成了主旋律。<span class="marginnote">注意 naive 的访问模式本身并非「不合并」：naive kernel 里 col 是连续线程，是合并的；它的问题是<strong>总访问量太大</strong>，不是不合并。合并访存解决「一次取数传多少人」，tiling 解决「取一次数被算多少次」——两件事要分清。</span>
 
 ## 3 Tiling：先搬块、再算块
 
 解决复用问题的标准答案是 **tiling（分块）**：把输出矩阵切成 $TILE \times TILE$ 的小块，**一个 block 负责算一块**。算一块之前，先把需要的 $A$ 的 $TILE \times K$ 子块和 $B$ 的 $K \times TILE$ 子块从全局内存搬进 Shared Memory，之后 block 内所有线程在片上反复复用这两块数据，而不是每次都回全局内存取。<span class="marginnote">这正是《Shared Memory 编程》里立下的规矩——<strong>「先搬块、再算块」，让数据在片上多待一会儿</strong>。复用因子是 $TILE$：一个从全局读出的 $A$ 元素，会被同一行的 $TILE$ 个输出共用。</span>
 
-```cpp
+```cuda
 #define TILE 32
-__global__ void matmul_tiled(const float* A, const float* B, float* C,
+
+__global__ void matmul_tiled(const float *A, const float *B, float *C,
                              int M, int N, int K) {
     __shared__ float As[TILE][TILE];
     __shared__ float Bs[TILE][TILE];
+
     int row = blockIdx.y * TILE + threadIdx.y;
     int col = blockIdx.x * TILE + threadIdx.x;
-    float sum = 0.f;
+    float sum = 0.0f;
 
-    for (int t = 0; t * TILE < K; ++t) {          // 沿 K 维循环
+    for (int k0 = 0; k0 < K; k0 += TILE) {
+        // 先搬块：A 的 TILE×TILE 子块与 B 的 TILE×TILE 子块进 Shared Memory
+        int a_col = k0 + threadIdx.x;
+        int b_row = k0 + threadIdx.y;
         As[threadIdx.y][threadIdx.x] =
-            (row < M && t * TILE + threadIdx.x < K)
-                ? A[row * K + t * TILE + threadIdx.x] : 0.f;
+            (row < M && a_col < K) ? A[row * K + a_col] : 0.0f;   // 越界补零
         Bs[threadIdx.y][threadIdx.x] =
-            (t * TILE + threadIdx.y < K && col < N)
-                ? B[(t * TILE + threadIdx.y) * N + col] : 0.f;
-        __syncthreads();                          // 两块 tile 就绪后才能算
+            (b_row < K && col < N) ? B[b_row * N + col] : 0.0f;
+        __syncthreads();                 // 同步 1：写 tile 之后必须同步
 
-        for (int k = 0; k < TILE; ++k)            // 内循环只访问 shared
+        for (int k = 0; k < TILE; ++k)
             sum += As[threadIdx.y][k] * Bs[k][threadIdx.x];
 
-        __syncthreads();                          // 算完才能覆盖 As/Bs
+        __syncthreads();                 // 同步 2：内循环算完必须同步
     }
-    if (row < M && col < N) C[row * N + col] = sum;
+
+    __syncthreads();                     // 同步 3：写回 C 前，确保所有线程读完共享块
+    if (row < M && col < N)
+        C[row * N + col] = sum;
 }
 ```
 
@@ -115,10 +123,10 @@ $$
 
 Shared Memory tiling 只是第一级台阶。真实的高性能 GEMM（如 cuBLAS、CUTLASS）在其上还要叠加几层：
 
-- **寄存器分块（register tiling）**：让每个线程算 $4\times4$ 或更多个输出元素，累加器留在寄存器里，进一步放大复用、减少共享内存访问。
-- **向量化访存**：用 `float4`（一次取 16 字节）搬运 tile，减少访存指令数，天然对齐。
-- **Bank conflict 规避**：shared 上做 padding 或转置，避免内循环访问模式踩中 bank。
-- **Double buffering**：用两条共享内存缓冲区，让「搬下一块」与「算当前块」重叠（上一课 Stream 的思想在块内复用）。
+**寄存器分块（register tiling）**：让每个线程算 $4\times4$ 或更多个输出元素，累加器留在寄存器里，进一步放大复用、减少共享内存访问。
+**向量化访存**：用 `float4`（一次取 16 字节）搬运 tile，减少访存指令数，天然对齐。
+**Bank conflict 规避**：shared 上做 padding 或转置，避免内循环访问模式踩中 bank。
+**Double buffering**：用两条共享内存缓冲区，让「搬下一块」与「算当前块」重叠（上一课 Stream 的思想在块内复用）。
 
 这些手段的收益评估，正是本专题后续《性能剖析》的标准演练；而 cuBLAS 之所以能把矩阵乘打成接近硬件峰值，靠的就是把上述每一层都压榨到位。<span class="marginnote">还有一个层次值得期待：<strong>Tensor Core</strong>——GPU 里专门算矩阵乘的硬件，FP16 下算力比 FP32 高一个数量级，下一课就讲它。</span>
 
@@ -127,7 +135,7 @@ Shared Memory tiling 只是第一级台阶。真实的高性能 GEMM（如 cuBLA
 - **「naive 慢是因为不合并」**——不准确。naive 的问题首先是**访存总量太大**（AI = 0.25），合并访存只解决「一次取数传多少人」，解决不了「取了多少次」。
 - **「`__syncthreads()` 放哪都行」**——错。它必须成对出现：写 tile 后、内循环算完后各一次；漏掉或放错位置，读到的就是旧值或未定义值，甚至死锁。
 - **「TILE 越大越好」**——不是。TILE 增加占用的 Shared Memory 与寄存器也增加，超出后 occupancy 下降，SM 上驻留的 block 变少，并发度受损。TILE = 32 是 fp32 下常用的平衡点。
-- **「矩阵边长不能被 TILE 整除就没法做」**——可以，用边界判断 + 补零（上面的 kernel 已示范 `? : 0.f`）。代价是边界分支，主循环仍全速。
+- **「矩阵边长不能被 TILE 整除就没法做」**——可以，用边界判断 + 补零（上面的 kernel 已示范 `越界` 分支补零）。代价是边界分支，主循环仍全速。
 - **「tiling 之后一定算力打满」**——不一定。还要看内循环是否踩 bank conflict、occupancy 是否足够、以及有没有向量化；tiling 只是把瓶颈从「访存」挪到「计算」，剩下的效率要靠下一层优化。
 
 ## 7 小结

@@ -36,25 +36,26 @@ date: 2026-08-07
 
 结构上双塔由三部分组成：
 
-- **用户塔**：输入用户侧特征，输出用户向量 $\vec{u} \in \mathbb{R}^d$。
-- **物品塔**：输入物品侧特征，输出物品向量 $\vec{v} \in \mathbb{R}^d$。
-- **打分函数**：$\hat{y}_{ui} = \langle \vec{u}, \vec{v} \rangle = \vec{u}^{\top} \vec{v}$。
+**用户塔**：输入用户侧特征，输出用户向量 $\vec{u} \in \mathbb{R}^d$。
+**物品塔**：输入物品侧特征，输出物品向量 $\vec{v} \in \mathbb{R}^d$。
+**打分函数**：$\hat{y}_{ui} = \langle \vec{u}, \vec{v} \rangle = \vec{u}^{\top} \vec{v}$。
 
 两塔的输出维度 $d$ 必须一致（常见 64 / 128 / 256）。两塔的**参数不共享**——它们处理的输入空间完全不同，没有理由共享权重。<span class="marginnote">一个关键的结构特性：<strong>双塔的塔和塔之间在打分前没有任何交互</strong>。这意味着用户塔和物品塔可以<strong>分开推理</strong>——物品塔离线把所有物品向量算好、建好索引，线上只算一次用户向量，然后用 ANN（近似最近邻，第十二篇的 HNSW）检索，这就是「双塔天生适合召回」的工程根源。</span>
 
-```python
-# 伪代码（PyTorch 风格）：双塔结构
-class TwoTower(nn.Module):
-    def __init__(self, d=128):
-        self.user_tower = nn.Sequential(nn.Linear(u_dim, 256), nn.ReLU(), nn.Linear(256, d))
-        self.item_tower = nn.Sequential(nn.Linear(i_dim, 256), nn.ReLU(), nn.Linear(256, d))
-    def encode_user(self, u_feat):
-        return self.user_tower(u_feat)          # 线上只算这一支
-    def encode_item(self, i_feat):
-        return self.item_tower(i_feat)          # 物品向量可离线预计算
-    def score(self, u_feat, i_feat):
-        u, v = self.encode_user(u_feat), self.encode_item(i_feat)
-        return (u * v).sum(dim=-1)              # 内积打分
+```text
+      用户特征                     物品特征
+   (ID/行为/画像)               (ID/类目/内容)
+        │                          │
+   ┌────▼─────┐              ┌────▼─────┐
+   │  用户塔   │              │  物品塔   │
+   │(MLP/Emb) │              │(MLP/Emb) │
+   └────┬─────┘              └────┬─────┘
+        │                          │
+    用户向量 u                 物品向量 v
+        │                          │
+        └───────────┬──────────────┘
+                    ▼
+         内积  <u, v> = 匹配分
 ```
 
 ## 3 训练目标：从 pointwise 到 sampled softmax
@@ -84,7 +85,7 @@ $$
 - **第一步，看分子**：正样本对的相似度 $\langle \vec{u}, \vec{v}_+ \rangle$。$\vec{u}$ 与 $\vec{v}_+$ 越相似，分子越大，这个样本的「概率」越高。
 - **第二步，看分母的 $\sum_{j \in \mathcal{N}}$**：把所有负样本对的相似度做指数和。分子除以分母，就是在问「**在正例和这些负例的对比中，正例有多突出**」——负例越不相似、正例越相似，概率越接近 1，损失越小。
 - **第三步，看温度 $\tau$**：$\tau$ 是**温度系数**，控制分布的尖锐程度。$\tau$ 越小，指数函数越「陡」，模型越要用力拉开正负样本的距离（对难负样本敏感）；$\tau$ 越大，分布越平缓，训练越稳但区分度下降。<span class="marginnote">温度是双塔里最敏感的超参数之一——文献里常见 $\tau \in [0.05, 0.2]$ 量级。它是对比学习（第四级《自监督学习》、CLIP 那句"temperature"）里同一个量的移植：<strong>调小温度 = 提高对负样本的惩罚强度</strong>。</span>
-- **第四步，为什么是「采样」**：$\mathcal{N}$ 只是全集的极小抽样。采样质量直接决定训练效果——**随机采样偏「简单负例」，难负样本采样才能逼模型学到精细区分**。这正是下一篇的主题，这一篇先记住：$\mathcal{N}$ 是核心旋钮。
+**第四步，为什么是「采样」**：$\mathcal{N}$ 只是全集的极小抽样。采样质量直接决定训练效果——**随机采样偏「简单负例」，难负样本采样才能逼模型学到精细区分**。这正是下一篇的主题，这一篇先记住：$\mathcal{N}$ 是核心旋钮。
 
 ## 5 训练细节：batch 内负采样与归一化
 

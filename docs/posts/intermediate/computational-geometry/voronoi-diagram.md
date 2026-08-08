@@ -54,9 +54,9 @@ $$
 
 Voronoi 图与 Delaunay 剖分互为**几何对偶（geometric dual）**：
 
-- **点 ↔ 面**：每个站点 $p_i$ 对应一个 Voronoi 单元 $V(p_i)$；
-- **边 ↔ 边**：Voronoi 边（$p_i$ 与 $p_j$ 的平分线段）对应 Delaunay 边 $\overline{p_i p_j}$；
-- **面 ↔ 点**：每个 Voronoi 顶点（三单元交点）对应一个 Delaunay 三角形（三个站点构成，且其外接圆以该顶点为圆心）。
+**点 ↔ 面**：每个站点 $p_i$ 对应一个 Voronoi 单元 $V(p_i)$；
+**边 ↔ 边**：Voronoi 边（$p_i$ 与 $p_j$ 的平分线段）对应 Delaunay 边 $\overline{p_i p_j}$；
+**面 ↔ 点**：每个 Voronoi 顶点（三单元交点）对应一个 Delaunay 三角形（三个站点构成，且其外接圆以该顶点为圆心）。
 
 图中红虚线圆展示了这一对偶：$P_1, P_3, P_5$ 构成一个 Delaunay 三角形，其外接圆圆心恰好是三者的 Voronoi 顶点，且圆内没有其他点（空圆性质）。**求出了 Delaunay 剖分，Voronoi 图顺带可得；反之亦然**——工程实现常常只算其中一个，另一个用对偶关系导出。
 
@@ -115,7 +115,7 @@ Voronoi 图是最「亲民」的数据结构之一，应用横跨多个领域：
 - **抛物线弧的退化**：弧长趋零时（站点事件密集），要正确合并/删除弧，否则「海岸线」分裂出错。
 - **圆事件在扫描线之后**：某些 Voronoi 顶点（圆心在扫描线右侧）会「迟到」，队列要按 $x$ 排序处理，不能假设事件按发现顺序。
 
-**工程实现建议**：直接手写 Fortune 门槛不低；多数项目用现成库（CGAL、Boost.Polygon、scipy `Voronoi`）。理解算法是为了正确使用与排查异常，不必重复造轮子。
+**工程实现建议**：直接手写 Fortune 门槛不低；多数项目用现成库（CGAL、Boost.Polygon、`scipy.spatial.Voronoi`）。理解算法是为了正确使用与排查异常，不必重复造轮子。
 
 <span class="marginnote"><strong>验证方法</strong>：构造后抽查几个 Voronoi 顶点——每个顶点应到至少三个站点等距；再验证对偶 Delaunay 的空圆性质。两条不变量都能自测，是排查实现 bug 的利器。</span>
 

@@ -69,27 +69,22 @@ Softmax 回归的完整结构就是「线性层 + Softmax + 交叉熵」：
 ```python
 import torch
 
-X = torch.randn(256, 28 * 28)          # 256 个 28×28 图像（Fashion-MNIST 风格）
-y = torch.randint(0, 10, (256,))       # 10 类标签
-W = torch.zeros((28 * 28, 10), requires_grad=True)
-b = torch.zeros(10, requires_grad=True)
-
-logits = X @ W + b
-# Softmax + 交叉熵合一实现（数值稳定的写法）
-max_logits = logits.max(dim=1, keepdim=True).values
-exp = (logits - max_logits).exp()
-probs = exp / exp.sum(dim=1, keepdim=True)
-loss = -probs[torch.arange(256), y].log().mean()
-
-loss.backward()
-print("loss =", loss.item())
+# X: (batch, d)，W: (d, k)，b: (k,)，y: (batch,) 真实类别索引
+def softmax_regression_forward(X, W, b, y):
+    o = X @ W + b                                # 得分 logits (batch, k)
+    o = o - o.max(dim=1, keepdim=True).values     # 减最大值：数值稳定
+    exp_o = o.exp()
+    hat_y = exp_o / exp_o.sum(dim=1, keepdim=True)  # 逐行归一化得概率
+    # 取出每个样本真实类别的概率，取负对数再平均
+    loss = -hat_y[torch.arange(X.shape[0]), y].log().mean()
+    return hat_y, loss
 ```
 
-这段代码有两个工程细节值得注意。**数值稳定性**：先减去 `max_logits` 再做指数，防止 $\exp(o_j)$ 上溢（$o_j$ 很大时 $\exp$ 爆到无穷）；这个减法不改变 Softmax 结果，因为分子分母同除一个常数。**索引技巧**：`probs[arange, y]` 一次性取出每个样本真实类别对应的概率——正是上面「$-\log \hat{y}_{\text{true}}$」的向量化实现。<span class="marginnote">「Softmax 与交叉熵一起实现」是另一个稳定性要点：$\frac{\partial L}{\partial o_j}$ 化简后等于 $\hat{y}_j - y_j$（预测概率减独热标签），指数项恰好抵消。框架里 `CrossEntropyLoss(logits, y)` 都是把这个组合写死的——这也是为什么你传进 `CrossEntropyLoss` 的是 logits 而非概率。</span>
+这段代码有两个工程细节值得注意。**数值稳定性**：先减去 $o_j$ 再做指数，防止 $\exp(o_j)$ 上溢（$o_j$ 很大时 $\exp$ 爆到无穷）；这个减法不改变 Softmax 结果，因为分子分母同除一个常数。**索引技巧**：$\exp$ 一次性取出每个样本真实类别对应的概率——正是上面「$-\log \hat{y}_{\text{true}}$」的向量化实现。<span class="marginnote">「Softmax 与交叉熵一起实现」是另一个稳定性要点：$\frac{\partial L}{\partial o_j}$ 化简后等于 $\hat{y}_j - y_j$（预测概率减独热标签），指数项恰好抵消。框架里 $-\log \hat{y}_{\text{true}}$ 都是把这个组合写死的——这也是为什么你传进 $\frac{\partial L}{\partial o_j}$ 的是 logits 而非概率。</span>
 
 ## 4 易错点：Softmax 回归的三个经典坑
 
-**易错点一：交叉熵收到概率而非 logits。** 若手写 `softmax` 再喂给 `cross_entropy`，会遭遇双重归一化与数值不稳定；框架的 `CrossEntropyLoss` 内部只做一次归一化。牢记：**给交叉熵的输入是 logits，不是概率**。
+**易错点一：交叉熵收到概率而非 logits。** 若手写 `softmax` 再喂给 `torch.nn.CrossEntropyLoss`，会遭遇双重归一化与数值不稳定；框架的 `CrossEntropyLoss` 内部只做一次归一化。牢记：**给交叉熵的输入是 logits，不是概率**。
 
 **易错点二：类别不平衡时准确率失真。** 若 99% 样本是「正常」类，一个「全预测正常」的模型准确率高达 99%，却毫无用处。此时要看**混淆矩阵**与各类别精确率/召回率，或对损失按类别加权——这个主题在第九篇《性能指标》展开。
 

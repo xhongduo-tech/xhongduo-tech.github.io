@@ -41,14 +41,14 @@ $$
 IPO 的实现同样只有几行——把 sigmoid 换成平方：
 
 ```python
-def ipo_loss(logps_w, logps_l, ref_w, ref_l, beta):
-    impl_w = logps_w - ref_w                     # 胜者对数概率比
-    impl_l = logps_l - ref_l                     # 败者对数概率比
-    diff = (impl_w - impl_l) - 1 / (2 * beta)    # 目标间隔
-    return (diff ** 2).mean()                    # 平方损失，越过目标仍回拽
+import torch.nn.functional as F
+
+# 胜者与败者的隐式奖励差（对数概率比之差）
+log_diff = beta * (log_π_w - log_ref_w) - beta * (log_π_l - log_ref_l)
+loss = (log_diff - 1 / (2 * beta)) ** 2    # 对齐目标间隔的平方回归（MSE）
 ```
 
-与 DPO 逐行对比会发现：**DPO 的 `F.logsigmoid` 换成了 `(diff**2).mean()`**——仅此而已。这也说明了 IPO 的「低成本升级」定位：数据管线、参考模型、训练框架全都不用动，只换一行损失。## 2 公式解析：KTO——前景理论的「损失厌恶」
+与 DPO 逐行对比会发现：**DPO 的 `-log σ(·)` 项换成了平方（MSE）**——仅此而已。这也说明了 IPO 的「低成本升级」定位：数据管线、参考模型、训练框架全都不用动，只换一行损失。## 2 公式解析：KTO——前景理论的「损失厌恶」
 
 **KTO（Kahneman-Tversky Optimization）**（Ethayarajh et al., 2024）从行为经济学借来一个核心洞察：**人类对「损失」比「收益」更敏感（损失厌恶）**。这直接启发了它的损失设计——模型应该被「做错事」强烈惩罚，而「做对事」只需温和奖励。
 
@@ -71,15 +71,16 @@ $$
 KTO 的损失实现也直观——一条「好/坏」分支各算一份：
 
 ```python
-def kto_loss(r, z0, is_good, lambda_d, lambda_u):
-    # r: 单条回答的隐式奖励；is_good: 二进制标签
-    good = r[is_good];   bad = r[~is_good]
-    l_good = F.logsigmoid(z0 - good).mean()          # 好回答：温和推高
-    l_bad  = F.logsigmoid(bad - z0).mean()           # 坏回答：推低
-    return lambda_d * l_good + lambda_u * l_bad      # 坏的权重更高
+import torch.nn.functional as F
+
+r = beta * (log_π - log_ref)          # 隐式奖励
+if is_desirable:                       # 这条回答是「好的」
+    loss = lambda_D * F.sigmoid(z0 - r)     # 温和推高：r 越高于 z0，损失越小
+else:                                   # 这条回答是「坏的」
+    loss = lambda_U * F.sigmoid(r - z0)     # 强惩罚：r 越低于 z0，损失越小
 ```
 
-注意两处设计：`z0` 是「参考点」（阈值），`lambda_u > lambda_d` 实现「损失厌恶」。这两个旋钮就是 KTO 的全部「哲学」——**阈值定「什么算好」、权重定「做错多可怕」**。## 3 数据形态的三种哲学：配对、目标值、二进制
+注意两处设计：**$z_0$** 是「参考点」（阈值），**$\lambda_U > \lambda_D$ 的不对称权重**实现「损失厌恶」。这两个旋钮就是 KTO 的全部「哲学」——**阈值定「什么算好」、权重定「做错多可怕」**。## 3 数据形态的三种哲学：配对、目标值、二进制
 
 把 DPO、IPO、KTO 放在「数据形态」的坐标系里，它们的适用边界一目了然：
 

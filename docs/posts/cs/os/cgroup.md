@@ -28,16 +28,18 @@ Namespace 隔离「视图」，但**资源限制**要靠 **cgroup**——否则�
 - **记账（accounting）**：统计每个组用了多少资源。
 - **隔离（isolation）**：组的资源互不干扰。
 
-**cgroup 的层次结构**：cgroup 组织成**树**——父组限制总量，子组在父组配额内再分配。
+**cgroup 的层次结构**：cgroup 组织成**树**——父组限制总量，子组在父组配额内再分配。在 cgroup v2 中，这棵树就是 cgroupfs 里的目录树：
 
 ```
-cgroup 树：
-  /（根）
-  ├── 容器1（cpu 限额 2 核、内存 1GB）
-  │   ├── 进程 A
-  │   └── 进程 B
-  └── 容器2（cpu 限额 1 核、内存 512MB）
-      └── 进程 C
+/sys/fs/cgroup/                    # 根组：默认不设限
+└── app/                           # 父组：限制总量（如限 1 核）
+    ├── db/                        # 子组：在父组配额内再分 0.5 核
+    └── web/                       # 子组：在父组配额内再分 0.5 核
+
+$ mkdir -p /sys/fs/cgroup/app/{db,web}
+$ echo "100000 100000" > /sys/fs/cgroup/app/cpu.max     # 父组限 1 核
+$ echo "50000 100000"  > /sys/fs/cgroup/app/db/cpu.max  # db 分 0.5 核
+$ echo "50000 100000"  > /sys/fs/cgroup/app/web/cpu.max # web 分 0.5 核
 ```
 
 ## 2 cgroup 的资源控制维度
@@ -46,7 +48,7 @@ cgroup 树：
 
 - **cpu.shares**：CPU 份额权重（相对比例，非绝对限制）。
 - **cpu.cfs_quota_us / cfs_period_us**：**绝对限制**——每 period 内最多用 quota 微秒（如每 100ms 最多用 50ms = 半核）。
-- **cpu.max（v2）**：`quota period` 格式。
+- **cpu.max（v2）**：quota period 格式（如 "50000 100000" = 半核）。
 
 **内存控制**：
 
@@ -57,7 +59,7 @@ cgroup 树：
 **I/O 控制**：
 
 - **blkio（v1）**：块设备 I/O 权重与带宽限制。
-- **io.max（v2）**：`read/write` 带宽与 IOPS 限制。
+- **io.max（v2）**：读写带宽与 IOPS 限制。
 
 **PID 控制**：**pids.max**——限制组内进程/线程数（防 fork 炸弹）。
 
@@ -72,7 +74,7 @@ $$\text{CPU 核数上限} = \frac{\text{cpu.max.quota}}{\text{cpu.max.period}}$$
 - 设 quota = 50000µs、period = 100000µs：上限 $= 0.5$ 核。
 - 设 quota = 200000µs：上限 $= 2$ 核。
 
-**直觉**：**「每周期多少微秒」=「几个核」**——这是 Docker `--cpus=0.5` 的底层实现。cgroup 把「核数」翻译成「CPU 时间配额」。
+**直觉**：**「每周期多少微秒」=「几个核」**——这是 Docker --cpus 的底层实现。cgroup 把「核数」翻译成「CPU 时间配额」。
 
 ## 3 cgroup v1 vs v2
 
@@ -113,7 +115,7 @@ $$\text{CPU 核数上限} = \frac{\text{cpu.max.quota}}{\text{cpu.max.period}}$$
 
 - **cgroup**：进程分组 + 资源控制（限制、记账、隔离）。
 - 三大控制维度：**CPU**（份额/配额）、**内存**（上限）、**I/O**（带宽/IOPS）。
-- CPU 配额：`quota/period` = 核数上限（Docker `--cpus` 的实现）。
+- CPU 配额：quota/period = 核数上限（Docker --cpus 的实现）。
 - **cgroup v2** 统一层级取代 v1 的多树——现代标准。
 - 容器 = **Namespace（视图隔离）+ cgroup（资源配额）+ rootfs**。
 

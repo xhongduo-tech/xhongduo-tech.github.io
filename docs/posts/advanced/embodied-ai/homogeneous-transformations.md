@@ -148,7 +148,7 @@ $$
 点矢量的尾数永远是 1。
 <span class="marginnote">这个约定不是拍脑袋。
 第二级《线性代数》里仿射空间区分「点」与「自由向量」；
-第三级《计算机图形学》里 `vec4(x,y,z,0)` 表示方向、`vec4(x,y,z,1)` 表示点——同一套规则原样搬到了渲染管线的变换矩阵里。
+第三级《计算机图形学》里 `w = 0` 表示方向、`w = 1` 表示点——同一套规则原样搬到了渲染管线的变换矩阵里。
 </span>
 
 ## 3 公式解析：复合变换 T_AC = T_AB · T_BC
@@ -263,8 +263,8 @@ $$
 而且更加常用。
 设一个坐标系相对初始位姿连续做两个运动：
 
-- **相对固定参考系的连续变换，左乘**：新位姿 $T' = T_2 \cdot T$；
-- **相对当前坐标系（刚体自身）的连续变换，右乘**：新位姿 $T' = T \cdot T_2$。
+**相对固定参考系的连续变换，左乘**：新位姿 $T' = T_2 \cdot T$；
+**相对当前坐标系（刚体自身）的连续变换，右乘**：新位姿 $T' = T \cdot T_2$。
 
 **重点：左乘是「在世界里动」，右乘是「在自己身上动」。** 机器人的每个关节坐标系都是固连在杆件上的——对关节 $i$ 打角度，
 就是相对上一个关节坐标系做变换，
@@ -287,32 +287,29 @@ $$
 ```python
 import numpy as np
 
-def R_z(theta):
-    c, s = np.cos(theta), np.sin(theta)
-    return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]])
+def rot_z(a):
+    c, s = np.cos(a), np.sin(a)
+    return np.array([[c, -s, 0],
+                     [s,  c, 0],
+                     [0,  0, 1]])
 
-def make_T(R, p):
-    T = np.eye(4)
-    T[:3, :3] = R
-    T[:3, 3] = p
-    return T
+def T(R, p):
+    M = np.eye(4)
+    M[:3, :3] = R
+    M[:3, 3]  = p
+    return M
 
-p_AB = np.array([1.0, 0.0, 0.0])   # B 的原点在 A 中的位置
-T_AB = make_T(R_z(np.pi / 2), p_AB)
-p_BC = np.array([0.0, 1.0, 0.0])   # C 的原点在 B 中的位置
-T_BC = make_T(np.eye(3), p_BC)
+# T_AB：平移 (1,1,0)；T_BC：绕 z 轴转 90°
+T_ab = T(np.eye(3), np.array([1., 1., 0.]))
+T_bc = T(rot_z(np.pi / 2), np.zeros(3))
 
-# 复合变换：平移部分 = R_AB @ p_BC + p_AB
-T_AC = T_AB @ T_BC
-print("T_AC 平移部分:", T_AC[:3, 3])        # [1, 1, 0]
+T_ac  = T_ab @ T_bc           # 先旋转后平移
+T_ca  = T_bc @ T_ab           # 先平移后旋转
+T_inv = np.linalg.inv(T_ac)
 
-# 逆变换：平移部分 = -R^T p
-T_BA = np.linalg.inv(T_AB)
-print("逆矩阵平移部分:", T_BA[:3, 3])       # [0, -1, 0]
-print("手推公式:", -T_AB[:3, :3].T @ p_AB)  # [0, -1, 0]
-
-# 交换顺序：结果不同
-print("顺序相关:", np.allclose(T_AB @ T_BC, T_BC @ T_AB))
+print(T_ac[:3, 3])            # 复合平移：R_AB p_BC + p_AB = (1,1,0)
+print(T_inv[:3, 3])           # 逆变换平移：-R^T p
+print(np.allclose(T_ac, T_ca))  # False：顺序不可交换
 ```
 
 输出印证了推导：复合变换的平移部分是 $R_{AB}p_{BC} + p_{AB} = (1,1,0)$，

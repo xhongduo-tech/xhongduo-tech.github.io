@@ -82,7 +82,7 @@ $$
 | 自动微分 | AD 框架（如 JAX） | 现代首选 |
 | **拟牛顿** | 用相邻迭代近似更新雅可比（Broyden） | 省去求导但降收敛阶 |
 
-**有限差分的坑**：$n$ 维雅可比需要 $n$ 次额外求值（每列一次）——**$n$ 大时每步成本爆炸**。拟牛顿（Broyden 等）用「秩一更新」近似雅可比，每步只有 $O(n^2)$，但收敛阶降到超线性（约 1.618）——**在「算不动雅可比」时是标准解**。<span class="marginnote">工程权衡：<strong>「精确雅可比 + 二次收敛」 vs 「近似雅可比 + 超线性」</strong>——大 $n$ 时拟牛顿胜（每步便宜），小 $n$ 或雅可比好算时用精确牛顿。现代求解器（如 PETSc、SciPy 的 `root`）两者都提供，按问题规模选。</span>
+**有限差分的坑**：$n$ 维雅可比需要 $n$ 次额外求值（每列一次）——**$n$ 大时每步成本爆炸**。拟牛顿（Broyden 等）用「秩一更新」近似雅可比，每步只有 $O(n^2)$，但收敛阶降到超线性（约 1.618）——**在「算不动雅可比」时是标准解**。<span class="marginnote">工程权衡：<strong>「精确雅可比 + 二次收敛」 vs 「近似雅可比 + 超线性」</strong>——大 $n$ 时拟牛顿胜（每步便宜），小 $n$ 或雅可比好算时用精确牛顿。现代求解器（如 PETSc、SciPy 的 $n$）两者都提供，按问题规模选。</span>
 
 ## 4 实现框架
 
@@ -90,17 +90,20 @@ $$
 import numpy as np
 
 def newton_system(F, J, x0, tol=1e-10, max_iter=50):
-    x = x0.copy()
-    for k in range(max_iter):
+    """多维牛顿法：每步解 J(x) s = -F(x)，再 x ← x + s。"""
+    x = np.array(x0, dtype=float)
+    for it in range(max_iter):
         Fx = F(x)
-        if np.linalg.norm(Fx, np.inf) < tol:
-            return x, k + 1
-        Jx = J(x) if J is not None else fd_jacobian(F, x)
-        s = np.linalg.solve(Jx, -Fx)        # 核心：解线性系统
+        s = np.linalg.solve(J(x), -Fx)
         x = x + s
-        if np.linalg.norm(s, np.inf) < tol:
-            return x, k + 1
-    raise RuntimeError("不收敛")
+        if np.linalg.norm(s, ord=np.inf) < tol and np.linalg.norm(Fx, ord=np.inf) < tol:
+            return x, it + 1
+    return x, max_iter
+
+# 例：x²+y²=4, x²-y²=1 → (√2.5, √1.5)
+F = lambda v: np.array([v[0]**2 + v[1]**2 - 4, v[0]**2 - v[1]**2 - 1])
+J = lambda v: np.array([[2*v[0], 2*v[1]], [2*v[0], -2*v[1]]])
+print(newton_system(F, J, [2.0, 1.0]))   # 3 步到 1e-10
 ```
 
 **终止准则**：残差范数 $\lVert\mathbf{F}\rVert_\infty$ 或步长 $\lVert\mathbf{s}\rVert$。**双准则**（残差 + 步长）防「残差小但位置远」的重根病（与一维一致）。

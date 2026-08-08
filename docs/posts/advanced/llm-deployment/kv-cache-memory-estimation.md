@@ -30,9 +30,9 @@ $$M_{\text{KV}} = \underbrace{2 \cdot L \cdot H_{kv} \cdot d_{\text{head}} \cdot
 
 一旦模型与精度确定，$m_{\text{KV}}$ 就是一个**常数**：它不随对话变长而变，也不随并发数而变。于是所有容量问题都被改写成了「$m_{\text{KV}}$ × 某个旋钮」：
 
-- 问**上下文**能拉多长：$m_{\text{KV}} \cdot T \le$ KV 预算；
-- 问**并发**能扛多少：$m_{\text{KV}} \cdot T \cdot S \le$ KV 预算；
-- 问**精度**能省多少：换一个更小的 $b$，$m_{\text{KV}}$ 线性缩小。
+问**上下文**能拉多长：$m_{\text{KV}} \cdot T \le$ KV 预算；
+问**并发**能扛多少：$m_{\text{KV}} \cdot T \cdot S \le$ KV 预算；
+问**精度**能省多少：换一个更小的 $b$，$m_{\text{KV}}$ 线性缩小。
 
 把五维张量折叠成这一个常数，是这一节所有估算的出发点。
 
@@ -77,7 +77,7 @@ $$S_{\max} = \left\lfloor \frac{M_{\text{KV预算}}}{m_{\text{KV}} \cdot T} \rig
 
 逐步拆解：
 
-- **第一步，定「可用显存」$u \cdot M_{\text{GPU}}$**：$u$ 是显存利用率（vLLM 默认 0.9）。为什么不敢用满 100%？CUDA 上下文本身要占几百 MB 到 1–2 GB，`cudaMalloc` 还会产生碎片，激活与 kernel 工作区也需要临时空间。留 10% 是工程惯例。
+- **第一步，定「可用显存」$u \cdot M_{\text{GPU}}$**：$u$ 是显存利用率（vLLM 默认 0.9）。为什么不敢用满 100%？CUDA 上下文本身要占几百 MB 到 1–2 GB，$u$ 还会产生碎片，激活与 kernel 工作区也需要临时空间。留 10% 是工程惯例。
 - **第二步，减去权重 $M_{\text{weights}}$**：权重是必须先住下的常住客。LLaMA-3 8B 在 FP16 下约 16 GB，这一项在《模型加载与权重显存布局》一节会专门算。
 - **第三步，减去激活与运行时 $M_{\text{act}} + M_{\text{rt}}$**：激活随批大小与序列长度涨，采样器、调度器也要暂存。给一个保守余量（比如 8 GB）。
 - **第四步，除以 $m_{\text{KV}} \cdot T$**：剩下的是 KV 的专用额度，除以「每个序列在目标上下文下要占的 KV 体量」，就得到并发上限。
@@ -105,22 +105,22 @@ $$S_{\max} = \left\lfloor \frac{48}{0.54} \right\rfloor \approx 88$$
 把上面的步骤固化成一段可复用的代码，就是你的「容量规划工作单」：
 
 ```python
-def kv_per_token(layers, kv_heads, head_dim, bytes_per_elem=2):
-    """一个序列每生成 1 个 token，全模型 KV 的新增字节数。"""
-    return 2 * layers * kv_heads * head_dim * bytes_per_elem
+def capacity_plan(M_gpu=80, u=0.9, weights=16, reserve=8,
+                  L=32, H_kv=8, d_head=128, b=2, T=4096):
+    """容量规划工作单：给定卡/模型/上下文/余量，返回并发上限与 KV 预算（GB）。
 
-def max_concurrency(gpu_bytes, weights_bytes, kv_pt, ctx,
-                    util=0.9, reserve=8e9):
-    """给定卡、模型、上下文，求并发上限。"""
-    kv_budget = gpu_bytes * util - weights_bytes - reserve
-    return int(kv_budget // (kv_pt * ctx))
+    m_kv = 2·L·H_kv·d_head·b 是每 token 每序列的 KV 体积（边际成本），
+    例如 LLaMA-3 8B 在 FP16 下为 128 KB。
+    """
+    m_kv = 2 * L * H_kv * d_head * b          # 字节/token
+    kv_budget = u * M_gpu - weights - reserve  # KV 可用显存（GB）
+    per_seq = m_kv * T / 1e9                   # 目标上下文下单序列 KV 体积（GB）
+    S_max = int(kv_budget / per_seq)           # 并发上限
+    return S_max, kv_budget, per_seq
 
-m = kv_per_token(32, 8, 128)                 # LLaMA-3 8B, FP16
-print(f"{m/1024:.0f} KB/token/seq")          # 128 KB
-print(max_concurrency(80e9, 16e9, m, 4096))  # ~88
-print(max_concurrency(80e9, 16e9, m, 8192))  # ~44
-m8 = kv_per_token(32, 8, 128, 1)             # 换成 FP8 KV
-print(max_concurrency(80e9, 16e9, m8, 4096)) # ~183，翻了一倍
+# A100 80G + LLaMA-3 8B + T=4096：
+capacity_plan()          # FP16（b=2）→ S_max ≈ 89，KV 预算 48 GB
+capacity_plan(b=1)       # FP8（b=1） → S_max ≈ 178，KV 预算 48 GB
 ```
 
 最后一行揭示了精度旋钮的威力：**同一张卡、同一个模型、同样的上下文，KV 从 FP16 换到 FP8，并发从 88 翻到 183**。第六篇 KV 量化的一切收益，都能用这个函数提前算出来。

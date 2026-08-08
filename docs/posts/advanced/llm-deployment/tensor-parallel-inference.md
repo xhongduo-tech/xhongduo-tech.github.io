@@ -24,8 +24,8 @@ date: 2026-08-07
 
 TP 的核心是把线性层 $Y = XW$ 拆到 $P$ 张卡上。两种基本切法：
 
-- **列切（column-parallel）**：把权重 $W$ 按**输出维**切成 $P$ 列，每卡持有 $W_i$（$W$ 的一列块）。输入 $X$ 全部广播给每卡，每卡算 $Y_i = XW_i$，最后**拼接**所有 $Y_i$ 得到完整 $Y$。<span class="marginnote">列切是「<strong>每卡输出一列</strong>」，完成后需要一次 all-gather 把各卡输出拼起来。</span>
-- **行切（row-parallel）**：把权重 $W$ 按**输入维**切成 $P$ 行，每卡持有 $W_i$。输入 $X$ 也按列切成 $X_i$ 给对应卡，每卡算 $Y_i = X_i W_i$，最后**逐元素相加**得到 $Y$。<span class="marginnote">行切是「<strong>每卡算一部分和</strong>」，完成后需要一次 all-reduce（求和）把部分和加总。</span>
+**列切（column-parallel）**：把权重 $W$ 按**输出维**切成 $P$ 列，每卡持有 $W_i$（$W$ 的一列块）。输入 $X$ 全部广播给每卡，每卡算 $Y_i = XW_i$，最后**拼接**所有 $Y_i$ 得到完整 $Y$。<span class="marginnote">列切是「<strong>每卡输出一列</strong>」，完成后需要一次 all-gather 把各卡输出拼起来。</span>
+**行切（row-parallel）**：把权重 $W$ 按**输入维**切成 $P$ 行，每卡持有 $W_i$。输入 $X$ 也按列切成 $X_i$ 给对应卡，每卡算 $Y_i = X_i W_i$，最后**逐元素相加**得到 $Y$。<span class="marginnote">行切是「<strong>每卡算一部分和</strong>」，完成后需要一次 all-reduce（求和）把部分和加总。</span>
 
 对 Transformer 而言，attention 的 $Q$、$K$、$V$ 投影用列切（输出头维可拼），$O$ 投影用行切（需把多头结果求和）；FFN 的升维用列切、降维用行切。**层间自然交替，每次「拼接或求和」就是一次通信点**。
 
@@ -33,8 +33,8 @@ TP 的核心是把线性层 $Y = XW$ 拆到 $P$ 张卡上。两种基本切法�
 
 TP 的每层通信依赖两类集合通信（collective）：
 
-- **All-Reduce（全归约）**：所有卡把各自的部分和求和，最终每卡都拿到完整结果。行切后的 FFN 降维、attention 的 $O$ 投影都用它。
-- **All-Gather（全收集）**：所有卡把各自的输出块拼成完整输出。列切后的 $Y$ 拼接用它。
+**All-Reduce（全归约）**：所有卡把各自的部分和求和，最终每卡都拿到完整结果。行切后的 FFN 降维、attention 的 $O$ 投影都用它。
+**All-Gather（全收集）**：所有卡把各自的输出块拼成完整输出。列切后的 $Y$ 拼接用它。
 
 每次通信的字节量：All-Reduce 传输约 $2(P-1)/P \times$ 张量字节数（求和一次），All-Gather 约 $(P-1)/P \times$ 张量字节。<span class="marginnote">通信成本的关键是<strong>「每层都要通信」</strong>——TP 的通信点在每层之间，模型越深、层越多，通信总开销越大。NVLink（机内，600 GB/s 级）能消化它；跨节点（网络，~25–100 GB/s）就很吃力。</span>
 

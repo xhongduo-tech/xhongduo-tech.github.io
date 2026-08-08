@@ -34,14 +34,14 @@ date: 2026-08-07
 
 有些情况下保留「被」字句是对的：
 
-- **原文明确强调被动关系、且施事者出现时**：*The plan was approved by the board.* → 该计划被董事会批准了。这里「被」字点明了「计划」是受事、施事是董事会，保留被动关系最清楚。
-- **原文的被动义带有「遭受、不如意」色彩时**：*The house was destroyed by the flood.* → 房子被洪水冲毁了。「冲毁」是坏事，用「被」反而贴切，符合「被」字句的传统色彩。
-- **汉语没有更自然的主动替代时**：*He was caught in the rain.* → 他被雨淋了。若转主动「雨淋了他」反而别扭。
+**原文明确强调被动关系、且施事者出现时**：*The plan was approved by the board.* → 该计划被董事会批准了。这里「被」字点明了「计划」是受事、施事是董事会，保留被动关系最清楚。
+**原文的被动义带有「遭受、不如意」色彩时**：*The house was destroyed by the flood.* → 房子被洪水冲毁了。「冲毁」是坏事，用「被」反而贴切，符合「被」字句的传统色彩。
+**汉语没有更自然的主动替代时**：*He was caught in the rain.* → 他被雨淋了。若转主动「雨淋了他」反而别扭。
 
 保留被动的关键是「**被、让、叫、给、遭、受**」等词的灵活选用：<span class="marginnote">汉语的被动标记是一个「家族」：被、让、叫、给（口语）、遭、受、挨（表遭遇）、由、为……所、是……的（表处置与判断）。选哪个，取决于文体（口语/书面）与感情色彩（中性/不如意）。用好这个家族，译文就「活」了。</span>
 
-- *He was scolded by his father.* → 他挨了父亲一顿骂。（「挨」比「被」更口语化、更贴切）
-- *The city was liberated in 1949.* → 这座城市于 1949 年获得解放。（「获得」软化被动）
+*He was scolded by his father.* → 他挨了父亲一顿骂。（「挨」比「被」更口语化、更贴切）
+*The city was liberated in 1949.* → 这座城市于 1949 年获得解放。（「获得」软化被动）
 
 ## 3 策略二：化被动为主动（最常用的策略）
 
@@ -49,22 +49,22 @@ date: 2026-08-07
 
 **找回施事者作主语**。原文被动句若暗含施事者（常出现在 by 短语或语境里），就把它提为主语：
 
-- *The decision was made by the committee.* → 委员会作出了决定。
+*The decision was made by the committee.* → 委员会作出了决定。
 
 **用通称主语或泛指主语**。英语被动句常不指明施事，汉语可用「人们」「我们」「大家」「有人」等补出：
 
-- *It is believed that …* → 人们相信…… / 一般认为……
-- *He is known as a great writer.* → 人们都知道他是一位伟大的作家。
+*It is believed that …* → 人们相信…… / 一般认为……
+*He is known as a great writer.* → 人们都知道他是一位伟大的作家。
 
 **用无主句**。汉语没有主语照样成句，英语的被动句译成汉语无主句既自然又简洁：
 
-- *The windows must be cleaned.* → 必须把窗户擦干净。
-- *No smoking is allowed here.* → 此处禁止吸烟。
+*The windows must be cleaned.* → 必须把窗户擦干净。
+*No smoking is allowed here.* → 此处禁止吸烟。
 
 **用意义被动句**。让句子保持主动形式、承担被动语义：
 
-- *The book was printed last year.* → 这本书去年印的。（书不能印自己，但汉语直接说「印」）
-- *The soup was cooked by mother.* → 汤是妈妈做的。（用「是……的」判断句）<span class="marginnote">「是……的」结构是汉语表达被动的利器：它既是判断句又是强调句，能自然承载「施事 + 完成」的信息。*The house was built by my grandfather\* 译「这房子是我爷爷盖的」，比「被爷爷盖」自然得多。这类句式的灵活运用是「汉化」译文的关键，可回看《增词与省词》里「范畴词」的补足逻辑。</span>
+*The book was printed last year.* → 这本书去年印的。（书不能印自己，但汉语直接说「印」）
+*The soup was cooked by mother.* → 汤是妈妈做的。（用「是……的」判断句）<span class="marginnote">「是……的」结构是汉语表达被动的利器：它既是判断句又是强调句，能自然承载「施事 + 完成」的信息。*The house was built by my grandfather\* 译「这房子是我爷爷盖的」，比「被爷爷盖」自然得多。这类句式的灵活运用是「汉化」译文的关键，可回看《增词与省词》里「范畴词」的补足逻辑。</span>
 
 ## 4 策略三：译成其他结构（判断句、被动义动词句）
 
@@ -72,14 +72,14 @@ date: 2026-08-07
 
 **判断句（是……的）**。当句子重在说明「施事者或方式」而非「动作过程」时，用判断句：
 
-- *The theory was proposed by Einstein.* → 这个理论是爱因斯坦提出的。
-- *The bridge was completed in 1937.* → 这座桥是 1937 年建成的。
+*The theory was proposed by Einstein.* → 这个理论是爱因斯坦提出的。
+*The bridge was completed in 1937.* → 这座桥是 1937 年建成的。
 
 **含被动义的动词句**。汉语里「遭到、受到、加以、予以、得到」等动词可以直接携带名词化宾语，表被动义而不需要「被」字：
 
-- *He was criticized at the meeting.* → 他在会上受到批评。（受到批评 = 被批评）
-- *The proposal was warmly received.* → 该提案得到热烈反响。
-- *The problem should be solved immediately.* → 这一问题应加以立即解决。
+*He was criticized at the meeting.* → 他在会上受到批评。（受到批评 = 被批评）
+*The proposal was warmly received.* → 该提案得到热烈反响。
+*The problem should be solved immediately.* → 这一问题应加以立即解决。
 
 这些结构的共同点是：**把「被动标记」替换成「带受事意义的动词」**，既保留了受事主语的位置，又避开了「被」字。<span class="marginnote">「受到/遭到/得到/加以」这类词的活用，是英译汉的高级技巧——它们让译文在「保留受事焦点」与「避免被字」之间找到了平衡。到《科技翻译》一节你会看到，科技文本的被动句大量用这种方式处理。</span>
 

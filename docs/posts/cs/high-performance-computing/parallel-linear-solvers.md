@@ -56,7 +56,7 @@ $$\mathbf{L}\mathbf{y} = \mathbf{b}, \qquad \mathbf{U}\mathbf{x} = \mathbf{y}$$
 
 每一步串行的 panel 很小，大部分计算都在并行的更新阶段。
 
-<span class="marginnote">ScaLAPACK 的 `pdgetrf` 就是这种模式：panel 内局部 LU + panel 外并行更新。它把「串行依赖」压缩到极小的一段，让大规模 LU 也能跑到高并行效率。</span>
+<span class="marginnote">ScaLAPACK 的 `PDGETRF` 就是这种模式：panel 内局部 LU + panel 外并行更新。它把「串行依赖」压缩到极小的一段，让大规模 LU 也能跑到高并行效率。</span>
 
 **辨析｜易错点：** 消元要**选主元（pivoting）**保证数值稳定。
 

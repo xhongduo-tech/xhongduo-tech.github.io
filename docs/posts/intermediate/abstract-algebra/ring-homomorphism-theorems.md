@@ -85,13 +85,13 @@ $$
 
 环同态基本定理最常见的用途是「证明商环同构于某个环」。给出标准四步流程。
 
-- **第一步，构造满同态。** 找一个环同态 $\varphi : R \to S$，目标是 $\operatorname{Im}\varphi = S$（满射）且 $R/\ker\varphi$ 恰好是想要的商环。
+**第一步，构造满同态。** 找一个环同态 $\varphi : R \to S$，目标是 $\operatorname{Im}\varphi = S$（满射）且 $R/\ker\varphi$ 恰好是想要的商环。
 
-- **第二步，算核。** 确定 $\ker\varphi = \{ r \mid \varphi(r) = 0 \}$，通常写成主理想 $\langle \text{某关系} \rangle$。
+**第二步，算核。** 确定 $\ker\varphi = \{ r \mid \varphi(r) = 0 \}$，通常写成主理想 $\langle \text{某关系} \rangle$。
 
-- **第三步，套定理。** $R/\ker\varphi \cong \operatorname{Im}\varphi$，即「商环 $\cong$ 像」。
+**第三步，套定理。** $R/\ker\varphi \cong \operatorname{Im}\varphi$，即「商环 $\cong$ 像」。
 
-- **第四步，翻译成目标。** 若 $\ker\varphi = I$ 且 $\operatorname{Im}\varphi = S$，则 $R/I \cong S$。$\blacksquare$
+**第四步，翻译成目标。** 若 $\ker\varphi = I$ 且 $\operatorname{Im}\varphi = S$，则 $R/I \cong S$。$\blacksquare$
 
 **例：$\mathbb{R}[x]/\langle x^2 + 1 \rangle \cong \mathbb{C}$ 用流程重证。** ① 取 $\varphi : \mathbb{R}[x] \to \mathbb{C}$，$\varphi(f) = f(i)$（代入 $i$），满射（$a + bi = \varphi(a + bx)$）；② 核：$f(i) = 0 \iff x^2 + 1 \mid f$（$x^2 + 1$ 是 $f$ 的因子，因为 $f$ 有根 $i$ 且有实系数则也有根 $-i$），$\ker\varphi = \langle x^2 + 1\rangle$；③ 定理给出 $\mathbb{R}[x]/\langle x^2 + 1\rangle \cong \mathbb{C}$。$\blacksquare$<span class="marginnote">这套「构造同态 → 算核 → 套定理」的流程与群论完全同型，是环论里「证明同构」的标准武器。做题时的瓶颈通常在第二步（算核）——它常常归结为「求值同态的核是某个主理想」，需要用到整除性（$f(a) = 0 \iff x - a \mid f$，第九篇带余除法）。</span>
 

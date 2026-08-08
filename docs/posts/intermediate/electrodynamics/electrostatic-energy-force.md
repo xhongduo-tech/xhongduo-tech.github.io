@@ -28,8 +28,8 @@ $$W = \frac{1}{2}\sum_{i=1}^{n} Q_i V_i$$
 
 **电容器的能量与两板受力**：平行板电容器（面积 $A$、间距 $d$、带电荷 $Q$）两板之间的引力可通过两种途径求，得到相同结果：
 
-- 恒电荷：$F = -\left.\dfrac{\partial W}{\partial d}\right|_Q = -\dfrac{Q^2}{2\varepsilon_0 A}$（负号表示能量随 $d$ 增大而增大，力指向减小 $d$——引力）。
-- 恒电势：$F = +\left.\dfrac{\partial W}{\partial d}\right|_V = +\dfrac{\varepsilon_0 A V^2}{2d^2}$。
+恒电荷：$F = -\left.\dfrac{\partial W}{\partial d}\right|_Q = -\dfrac{Q^2}{2\varepsilon_0 A}$（负号表示能量随 $d$ 增大而增大，力指向减小 $d$——引力）。
+恒电势：$F = +\left.\dfrac{\partial W}{\partial d}\right|_V = +\dfrac{\varepsilon_0 A V^2}{2d^2}$。
 
 两式表面上差一个正负号，物理上却是同一种力——区别来自能量函数的选取（见下节公式解析）。
 
@@ -37,8 +37,8 @@ $$W = \frac{1}{2}\sum_{i=1}^{n} Q_i V_i$$
 
 设系统静电能 $W$ 是广义坐标 $\xi$（如板距、转角）的函数。广义力 $F_\xi$ 的两种表达式：
 
-- **恒电荷情形**（与电源断开，$Q$ 恒定）：$F_\xi = -\left.\dfrac{\partial W}{\partial \xi}\right|_Q$。系统隔离，能量减少的方向就是受力方向（力学中 $F = -\mathrm{d}V/\mathrm{d}x$ 的同款）。
-- **恒电势情形**（接在电池上，$V$ 恒定）：$F_\xi = +\left.\dfrac{\partial W}{\partial \xi}\right|_V$。此时电池会向系统提供能量，系统能量的增加不等于外功，符号反过来。
+**恒电荷情形**（与电源断开，$Q$ 恒定）：$F_\xi = -\left.\dfrac{\partial W}{\partial \xi}\right|_Q$。系统隔离，能量减少的方向就是受力方向（力学中 $F = -\mathrm{d}V/\mathrm{d}x$ 的同款）。
+**恒电势情形**（接在电池上，$V$ 恒定）：$F_\xi = +\left.\dfrac{\partial W}{\partial \xi}\right|_V$。此时电池会向系统提供能量，系统能量的增加不等于外功，符号反过来。
 
 **为什么恒电势时符号为正？** 恒 $V$ 下给电容器充入电荷，电池做功；静电力的功 + 电池功 = 系统能量增量。经过简单的能量平衡，得到「力 = 正的能量导数」。<span class="marginnote">两套情形的物理解读：恒电荷是「孤立系统」，能量守恒地转化为机械功；恒电势是「与电源耦合的系统」，电池是能量泵。机电类比：恒电荷像「弹簧」，恒电势像「被恒力源拉着的弹簧」。记住「$Q$ 恒定用负号、$V$ 恒定用正号」这个口诀，能省去每次重推的麻烦。</span>
 
@@ -58,8 +58,8 @@ $$p = \frac{\sigma^2}{2\varepsilon_0} = \frac{1}{2}\varepsilon_0 E^2$$
 
 以平行板电容器为例，这是整个能量法最值得深挖的细节。
 
-- **第一步，写能量**：$W(Q, d) = \dfrac{Q^2 d}{2\varepsilon_0 A}$（用 $Q$ 表达）或 $W(V, d) = \dfrac{\varepsilon_0 A V^2}{2d}$（用 $V$ 表达）。
-- **第二步，恒 $Q$ 求导**：板移动 $\mathrm{d}d$，电源不参与。外功 $\mathrm{d}W_{\text{ext}} = F\,\mathrm{d}d$（克服静电力），全部转化为能量增量 $\mathrm{d}W$。由能量守恒 $F\,\mathrm{d}d = \mathrm{d}W$，即 $F = \partial W/\partial d|_Q$。但注意能量增加时力做负功——把「力」定义为「系统对外做功的能力」，就有 $F = -\partial W/\partial d|_Q$。<span class="marginnote">符号约定是能量法唯一的麻烦：力学里势能减少的方向是力的方向（$F = -\mathrm{d}V/\mathrm{d}x$），恒 $Q$ 情形与力学一致；恒 $V$ 情形因为电池向系统注入能量 $\mathrm{d}W_{\text{battery}} = V\,\mathrm{d}Q$，能量平衡多了一项，力反而等于正的能量导数。把「谁在做功、谁在吸收能量」画出来，符号自然就对了。</span>
+**第一步，写能量**：$W(Q, d) = \dfrac{Q^2 d}{2\varepsilon_0 A}$（用 $Q$ 表达）或 $W(V, d) = \dfrac{\varepsilon_0 A V^2}{2d}$（用 $V$ 表达）。
+**第二步，恒 $Q$ 求导**：板移动 $\mathrm{d}d$，电源不参与。外功 $\mathrm{d}W_{\text{ext}} = F\,\mathrm{d}d$（克服静电力），全部转化为能量增量 $\mathrm{d}W$。由能量守恒 $F\,\mathrm{d}d = \mathrm{d}W$，即 $F = \partial W/\partial d|_Q$。但注意能量增加时力做负功——把「力」定义为「系统对外做功的能力」，就有 $F = -\partial W/\partial d|_Q$。<span class="marginnote">符号约定是能量法唯一的麻烦：力学里势能减少的方向是力的方向（$F = -\mathrm{d}V/\mathrm{d}x$），恒 $Q$ 情形与力学一致；恒 $V$ 情形因为电池向系统注入能量 $\mathrm{d}W_{\text{battery}} = V\,\mathrm{d}Q$，能量平衡多了一项，力反而等于正的能量导数。把「谁在做功、谁在吸收能量」画出来，符号自然就对了。</span>
 - **第三步，恒 $V$ 求导**：电压恒定，电荷随距离变化（$Q = CV$ 变小）。电池注入能量 $V\,\mathrm{d}Q$，系统能量变化 $\mathrm{d}W$，静电力做功 $F\,\mathrm{d}d$。能量平衡 $V\,\mathrm{d}Q = \mathrm{d}W + F\,\mathrm{d}d$（电池能量 = 系统增量 + 对外做功）。代入 $W = \frac{1}{2}QV$ 与 $\mathrm{d}Q = Q\mathrm{d}C/C$，整理得 $F = \frac{1}{2}V^2\mathrm{d}C/\mathrm{d}d = +\partial W/\partial d|_V$。数值上，两种方法给出**完全相同**的力 $F = Q^2/(2\varepsilon_0 A)$。
 
 ## 5 虚功原理的推广应用

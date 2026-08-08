@@ -94,7 +94,7 @@ $$y_d = y\big(1 + k_1 r^2 + k_2 r^4 + k_3 r^6\big) + p_1(r^2 + 2y^2) + 2p_2xy$$
 
 1. **采集**：棋盘放在相机前不同姿态，
 拍 10–20 张，
-每张检测棋盘角点（OpenCV `findChessboardCorners`）。
+每张检测棋盘角点（OpenCV `cv2.findChessboardCorners`）。
 2. **求单应（homography）**：平面上的棋盘到图像是一个平面单应 $H = K\,[r_1\; r_2\; t]$，
 每张图提供一个 $3\times3$ 的单应矩阵。
 3. **线性解内参**：利用旋转矩阵列 $r_1,r_2$ 正交且等长的性质，

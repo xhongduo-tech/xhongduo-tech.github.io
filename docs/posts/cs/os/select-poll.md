@@ -23,15 +23,13 @@ epoll 不是凭空出现的——它的前辈 `select` 与 `poll` 首先实现�
 **select**：监视**读、写、异常**三组 fd，等其中任意就绪。
 
 ```c
-fd_set readfds, writefds;
-FD_ZERO(&readfds); FD_SET(sock, &readfds);
-select(max_fd + 1, &readfds, &writefds, NULL, &timeout);
-if (FD_ISSET(sock, &readfds)) { /* sock 可读 */ }
+int select(int nfds, fd_set *readfds, fd_set *writefds,
+           fd_set *exceptfds, struct timeval *timeout);
 ```
 
 **select 的工作方式**：
 
-- 用户传入**三组 fd 位图**（`fd_set`，每位一个 fd）。
+- 用户传入**三组 fd 位图**（`readfds`、`writefds`、`exceptfds`，每位一个 fd）。
 - 内核**遍历位图**，检查每个 fd 是否就绪。
 - 返回时，位图被修改为「就绪的 fd 集合」——用户用 `FD_ISSET` 逐个检查。
 
@@ -46,9 +44,13 @@ if (FD_ISSET(sock, &readfds)) { /* sock 可读 */ }
 **poll**：用**数组/链表**取代位图，突破 1024 上限。
 
 ```c
-struct pollfd fds[] = { {sock, POLLIN, 0}, ... };
-poll(fds, nfds, timeout);
-if (fds[0].revents & POLLIN) { /* sock 可读 */ }
+int poll(struct pollfd *fds, nfds_t nfds, int timeout);
+
+struct pollfd {
+    int fd;         /* 被监视的文件描述符 */
+    short events;   /* 关注的事件：POLLIN / POLLOUT / POLLERR ... */
+    short revents;  /* 实际发生的事件（内核回填） */
+};
 ```
 
 **poll 的改进**：
@@ -76,9 +78,7 @@ $$\text{每次调用成本} \approx O(N) \quad \text{（内核扫描）} + \text
 
 **公式解析：select 的拷贝开销**
 
-```c
-FD_SET 三组位图拷贝：大小 = 3 × FD_SETSIZE/8 字节 ≈ 384 字节
-```
+$$\text{每次调用拷贝量} = 3 \times \frac{FD\_SETSIZE}{8} = 3 \times 128 = 384\ \text{字节}$$
 
 - 位图本身不大（1024 fd = 128 字节/组），**真正的痛是内核扫描**。
 - 但每次 select **都重新传一遍、扫一遍**——**重复劳动**是 select 的顽疾。

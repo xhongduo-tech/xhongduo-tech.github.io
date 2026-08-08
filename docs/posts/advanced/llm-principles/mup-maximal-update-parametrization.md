@@ -24,8 +24,8 @@ date: 2026-08-07
 
 考虑一个线性层 $y = Wx$，$x \in \mathbb{R}^{d}$，$W \in \mathbb{R}^{d \times d}$，标准初始化 $W_{ij} \sim \mathcal{N}(0, 1/\sqrt{d})$：
 
-- 前向：$y_j = \sum_i W_{ji} x_i$。每个 $y_j$ 是 $d$ 个独立项的求和，方差 $\approx d \cdot \frac{\text{Var}(x)}{d} = \text{Var}(x)$——**$O(1)$，好**。
-- 但反向（对 $W$ 的梯度）：$\frac{\partial \mathcal{L}}{\partial W_{ji}}$ 涉及「求和 d 项」，**梯度范数随 $\sqrt{d}$ 增长**。
+前向：$y_j = \sum_i W_{ji} x_i$。每个 $y_j$ 是 $d$ 个独立项的求和，方差 $\approx d \cdot \frac{\text{Var}(x)}{d} = \text{Var}(x)$——**$O(1)$，好**。
+但反向（对 $W$ 的梯度）：$\frac{\partial \mathcal{L}}{\partial W_{ji}}$ 涉及「求和 d 项」，**梯度范数随 $\sqrt{d}$ 增长**。
 
 于是权重更新的幅度随宽度增长，**最优学习率随宽度变化**——这就是「照搬会崩」的根源。<span class="marginnote">用信号处理的语言：标准参数化保证了「前向 $O(1)$」，但没有保证「更新 $O(1)$」。「前向稳定」与「更新稳定」是两个独立的约束——μP 的核心贡献就是同时保证两者，从而让「宽度」成为一个「中性」的量：无论多宽，行为都一样。</span>
 
@@ -35,15 +35,15 @@ date: 2026-08-07
 
 **规则一：激活保持 $O(1)$（前向）**。
 
-- 对「输入 → 隐藏」的权重 $W$（如第一层、attention 的 Q/K/V/O 投影）：初始化 $\text{Var}(W_{ij}) = O(1/\text{fan\_in})$，学习率 $O(1/\text{fan\_in})$。
+对「输入 → 隐藏」的权重 $W$（如第一层、attention 的 Q/K/V/O 投影）：初始化 $\text{Var}(W_{ij}) = O(1/\text{fan\_in})$，学习率 $O(1/\text{fan\_in})$。
 
 **规则二：更新保持 $O(1)$（反向）**。
 
-- 对「隐藏 → 输出」的权重（如输出头、最后一层）：初始化 $\text{Var} = O(1/\text{fan\_in})$，学习率 $O(1/\text{fan\_in})$。
+对「隐藏 → 输出」的权重（如输出头、最后一层）：初始化 $\text{Var} = O(1/\text{fan\_in})$，学习率 $O(1/\text{fan\_in})$。
 
 **规则三：中间层权重用「冻结」缩放**。
 
-- 对隐藏层间的权重（如 MLP 内部）：初始化 $\text{Var} = O(1/\text{fan\_in})$（标准），但**学习率取 $O(1/\text{fan\_in})$ 或恒定**——具体按「是否影响激活尺度」区分。
+对隐藏层间的权重（如 MLP 内部）：初始化 $\text{Var} = O(1/\text{fan\_in})$（标准），但**学习率取 $O(1/\text{fan\_in})$ 或恒定**——具体按「是否影响激活尺度」区分。
 
 一张简表（μP 的典型配置）：
 
@@ -90,7 +90,7 @@ $$
 
 ## 5 μP 的实践与局限
 
-- **工具**：`mup`（Microsoft）库、`tensor-program` 理论。
+- **工具**：`mup`（Microsoft）库、μP 理论。
 - **适用**：宽度缩放（hidden size）、超参迁移、缩放实验。
 - **局限**：主要针对「宽度」缩放；「深度」缩放与「数据」缩放仍需单独研究。μP 保证「宽度无关」，不保证「深度无关」。
 - **现状**：大型团队（如 OpenAI、Anthropic 的缩放团队）用 μP 或类似方法管理超参；但「完全 μP」在工程里普及度有限，因为它增加了代码复杂度与调试成本。

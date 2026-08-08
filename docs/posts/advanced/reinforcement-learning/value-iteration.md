@@ -82,40 +82,25 @@ $$\lVert T_* u - T_* v \rVert_\infty \le \gamma \lVert u - v \rVert_\infty$$
 值迭代的代码比策略迭代更短——因为它没有内层评估循环：
 
 ```python
-import numpy as np
+# 4×4 网格世界（Example 4.1）：终止态 0 与 15，其余 14 个非终止态
+GAMMA, THETA = 1.0, 1e-4
+ACTIONS = {"up": (-1, 0), "down": (1, 0), "left": (0, -1), "right": (0, 1)}
 
-def value_iteration(terminal, gamma=1.0, theta=1e-4):
-    actions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    n = 4
-    V = np.zeros((n, n))
+def step(s, a):
+    r, c = divmod(s, 4)
+    r = min(3, max(0, r + ACTIONS[a][0]))   # 撞墙则原地不动
+    c = min(3, max(0, c + ACTIONS[a][1]))
+    return r * 4 + c
 
-    while True:
-        delta = 0.0
-        for r in range(n):
-            for c in range(n):
-                if (r, c) in terminal:
-                    continue
-                v_old = V[r, c]
-                best_val = -float("inf")
-                for dr, dc in actions:                 # 对动作取 max
-                    r2, c2 = min(max(r + dr, 0), n - 1), min(max(c + dc, 0), n - 1)
-                    best_val = max(best_val, -1 + gamma * V[r2, c2])
-                V[r, c] = best_val
-                delta = max(delta, abs(V[r, c] - v_old))
-        if delta < theta:
-            break
-
-    # 迭代结束后，从收敛的价值表提取贪心策略
-    policy = np.zeros((n, n), dtype=int)
-    for r in range(n):
-        for c in range(n):
-            if (r, c) in terminal:
-                continue
-            vals = [-1 + gamma * V[min(max(r + dr, 0), n - 1),
-                                   min(max(c + dc, 0), n - 1)]
-                    for dr, dc in actions]
-            policy[r, c] = int(np.argmax(vals))
-    return policy, V
+V = {s: 0.0 for s in range(1, 15)}          # 价值表，只含非终止状态
+while True:
+    delta = 0.0
+    for s in V:                             # 单层循环：没有内层评估
+        v = V[s]
+        V[s] = max(-1 + GAMMA * V[step(s, a)] for a in ACTIONS)   # 贝尔曼最优算子
+        delta = max(delta, abs(v - V[s]))
+    if delta < THETA:
+        break                               # 价值稳定即收敛
 ```
 
 对照上一节的策略迭代，值迭代**少了一层 while 循环**——这就是「评估只做一步」的全部含义。跑在 $4\times4$ 网格世界上，它收敛出的价值与策略迭代完全一致：最优策略会指向一条最短路径到终止。<span class="marginnote">实践提示：网格世界里 $\gamma=1$、每步 $-1$，值迭代每次更新都在「离终止更近一步」的方向上传递信息；所以从 $v_0 = 0$ 出发，第 $k$ 轮扫描后，距离终止不超过 $k$ 步的状态已经被正确赋值。信息的传播速度 = 一次扫描的半径，这是直觉上理解「为什么轮次越多越精确」的好抓手。</span>

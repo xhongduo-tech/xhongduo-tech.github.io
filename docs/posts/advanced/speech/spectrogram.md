@@ -48,8 +48,8 @@ $$
 
 - **第一步，取幅度 $\lvert X(m,k)\rvert$**：$X(m,k)$ 是复数，幅度才是「能量强度」的度量。也可以先取幅度平方（功率谱）再显示——两种画法只差一个整体比例。
 - **第二步，取对数**：语音的动态范围极大。浊音的能量可以是清音的成百上千倍，直接线性画图，清音的细节会被压成一片死黑。$\log_{10}$ 把「差 100 倍」压成「差 2 个数量级」，强弱结构才能在同一个图里共存。<span class="marginnote">人耳对响度的感知近似对数（韦伯—费希纳定律），分贝显示不只是「图好看」，它更接近人真正「听见」的方式——这一点在后面《响度、音高感知与等响曲线》和 Mel 刻度里会反复出现。</span>
-- **第三步，乘以 20**：因为 $\lvert X\rvert^2$ 是功率，$10\log_{10}\lvert X\rvert^2 = 20\log_{10}\lvert X\rvert$。于是「×20」让显示量直接是**分贝（dB）**——幅度每差 10 倍，图上差 20 dB。
-- **第四步，设置显示范围并裁剪**：通常只显示一段动态范围（如从最大值往下 40–80 dB），再亮或再暗的都截断。**显示范围是语谱图主观性最强的旋钮**：范围太窄，清音、弱共振峰被切没；范围太宽，背景噪声浮现、结构被冲淡。
+**第三步，乘以 20**：因为 $\lvert X\rvert^2$ 是功率，$10\log_{10}\lvert X\rvert^2 = 20\log_{10}\lvert X\rvert$。于是「×20」让显示量直接是**分贝（dB）**——幅度每差 10 倍，图上差 20 dB。
+**第四步，设置显示范围并裁剪**：通常只显示一段动态范围（如从最大值往下 40–80 dB），再亮或再暗的都截断。**显示范围是语谱图主观性最强的旋钮**：范围太窄，清音、弱共振峰被切没；范围太宽，背景噪声浮现、结构被冲淡。
 
 ## 3 窄带与宽带：语谱图的两种「镜头」
 
@@ -72,7 +72,7 @@ $$
 
 拿到一张语谱图，按下面的清单逐项看：
 
-- **横向暗带 → 共振峰**。元音的身份就藏在 F1、F2 的位置里。普通话三个典型元音的「坐标」大致是：
+**横向暗带 → 共振峰**。元音的身份就藏在 F1、F2 的位置里。普通话三个典型元音的「坐标」大致是：
 
 | 元音 | F1（约） | F2（约） | 舌位 |
 | --- | --- | --- | --- |
@@ -91,16 +91,24 @@ $$
 要快速生成一张语谱图，Python 里只需几行：
 
 ```python
-import numpy as np, matplotlib.pyplot as plt
-from scipy.signal import stft
+import numpy as np
+import matplotlib.pyplot as plt
 
-f, t, Zxx = stft(x, fs=16000, nperseg=400, noverlap=240)  # 25ms 帧，60% 重叠
-plt.pcolormesh(t, f, 20*np.log10(np.abs(Zxx) + 1e-12), cmap='magma')
-plt.xlabel('时间 (s)'); plt.ylabel('频率 (Hz)'); plt.colorbar(label='dB')
+# x: 16 kHz 语音波形
+n_fft = 400                      # 窗长（点数）：400 点 ≈ 25 ms → 窄带图
+hop   = n_fft // 4               # 帧移：100 点 ≈ 6.25 ms
+win   = np.hanning(n_fft)        # 汉宁窗削边，抑制频谱泄漏
+
+frames = [x[i:i+n_fft] * win for i in range(0, len(x) - n_fft, hop)]
+X = np.fft.rfft(np.asarray(frames), axis=1)   # (帧数, n_fft//2+1)
+S = 20 * np.log10(np.abs(X).T + 1e-12)        # 分贝幅度谱
+
+plt.imshow(S, aspect='auto', origin='lower', cmap='gray_r')
+plt.xlabel('帧'); plt.ylabel('频点')
 plt.show()
 ```
 
-`nperseg` 决定窗长——把它从 400 改到 64，你就会亲眼看到窄带图与宽带图的切换。
+`n_fft` 决定窗长——把它从 400 改到 64，你就会亲眼看到窄带图与宽带图的切换。
 
 ## 5 辨析与易错点
 

@@ -35,11 +35,11 @@ date: 2026-08-07
 **思路**：从任意顶点开始，"生长"一棵树，每步把**已建树与未建树之间最便宜的边**加进树。
 
 ```
-procedure Prim(G, w):
-    任选起点 s; T := {s}
-    while T 不含全部顶点:
-        找权最小的边 (u,v)，u ∈ T、v ∉ T
-        T := T ∪ {v}（连同边 (u,v)）
+procedure Prim(G: 带权连通无向图)
+    T := 包含任一顶点 v_0 的树
+    while T 的顶点数 < G 的顶点数
+        找权最小且连接 T 与 V − T 的边 (u, v)
+        T := T ∪ {(u, v)}
     return T
 ```
 
@@ -54,12 +54,11 @@ procedure Prim(G, w):
 **思路**：把**所有边按权排序**，从小到大逐条加——若加进去不成圈就保留（成圈则跳过），直到 $n-1$ 条边。
 
 ```
-procedure Kruskal(G, w):
-    按权排序所有边
-    T := ∅
-    for each 边 e（按权升序）:
-        if T ∪ {e} 无圈:
-            T := T ∪ {e}
+procedure Kruskal(G: 带权连通无向图)
+    T := ∅（空边集）
+    按权递增序排列 G 的边
+    for 每条按权递增的边 e
+        if T ∪ {e} 无圈 then T := T ∪ {e}
     return T
 ```
 

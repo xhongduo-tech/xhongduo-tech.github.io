@@ -72,7 +72,7 @@ $$
 
 **生态影响**：
 
-- PyTorch 的 `scaled_dot_product_attention` 内置 FlashAttention 路径，`flash_attn` 库被 vLLM、HuggingFace 广泛集成。
+- PyTorch 的 `scaled_dot_product_attention`（SDPA）内置 FlashAttention 路径，`flash-attn` 库被 vLLM、HuggingFace 广泛集成。
 - 它让「稠密注意力 + 长上下文」重新可行——**这是稀疏注意力被边缘化的直接原因**。
 - 衍生工作：Flash-Decoding（长序列推理）、PagedAttention（KV 管理）。
 

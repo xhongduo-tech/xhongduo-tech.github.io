@@ -93,17 +93,25 @@ $$
 **SOR 比高斯-赛德尔快近 30 倍**——这就是松弛因子的价值。对 $n=10^6$ 的 PDE，这个差距意味着「几秒 vs 几个小时」。<span class="marginnote">谱半径从 0.998 降到 0.937，看起来只降了 6%，但迭代步数从 6900 降到 250——<strong>接近 1 的谱半径是「收敛慢」的真正敌人，把它拉离 1 一点点，就是数量级的加速</strong>。这也是预条件方法（现代共轭梯度）的全部动机。</span>
 
 ```python
-def sor(A, b, omega, x0=None, tol=1e-10, max_iter=10000):
-    n = A.shape[0]
-    x = np.zeros(n) if x0 is None else x0.copy()
-    for k in range(max_iter):
-        x_old = x.copy()
+import numpy as np
+
+def sor(A, b, omega, tol=1e-6, max_iter=1000):
+    """SOR 迭代求解 Ax = b。"""
+    n = len(b)
+    x = np.zeros(n)
+    for _ in range(max_iter):
+        x_new = x.copy()
         for i in range(n):
-            s = (b[i] - A[i, :i] @ x[:i] - A[i, i+1:] @ x[i+1:]) / A[i, i]
-            x[i] = (1 - omega) * x_old[i] + omega * s
-        if np.linalg.norm(x - x_old, np.inf) < tol:
-            return x, k + 1
-    return x, max_iter
+            s = b[i] - A[i, :i] @ x_new[:i] - A[i, i+1:] @ x[i+1:]
+            x_new[i] = (1 - omega) * x[i] + omega * s / A[i, i]
+        if np.linalg.norm(x_new - x) < tol:
+            return x_new
+        x = x_new
+    return x
+
+# 例：10x₁ - x₂ - x₃ = 6, -x₁ + 10x₂ - x₃ = 8, -x₁ - x₂ + 10x₃ = 8
+A = np.array([[10, -1, -1], [-1, 10, -1], [-1, -1, 10]], float)
+print(sor(A, np.array([6., 8., 8.]), 1.1))    # 接近 (1, 1, 1)
 ```
 
 ## 5 SOR 与其他迭代法的定位

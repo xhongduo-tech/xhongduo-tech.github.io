@@ -65,7 +65,7 @@ TCP 状态机共有 11 个状态，先逐一立住：<span class="marginnote">�
 | A 回 ACK | FIN_WAIT_2 → TIME_WAIT | LAST_ACK → CLOSED |
 | 2×MSL 后 | TIME_WAIT → CLOSED | — |
 
-**辨析｜易错点：** **B 的状态序列是 ESTABLISHED → CLOSE_WAIT → LAST_ACK → CLOSED**——它从不进 FIN_WAIT。而 **A 的状态序列是 FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED**。把两条「状态链」分开记，抓包时一眼就能判断「谁主动关闭」。<span class="marginnote">排障的实战价值：<strong>`netstat` 里看到大量 FIN_WAIT_2，说明主动关闭方在等对方发 FIN（对方迟迟不关）；看到大量 CLOSE_WAIT，说明被动方应用没调用 close（bug）</strong>。状态机不只是理论，它是生产排障的第一张地图。</span>
+**辨析｜易错点：** **B 的状态序列是 ESTABLISHED → CLOSE_WAIT → LAST_ACK → CLOSED**——它从不进 FIN_WAIT。而 **A 的状态序列是 FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED**。把两条「状态链」分开记，抓包时一眼就能判断「谁主动关闭」。<span class="marginnote">排障的实战价值：`<strong>`netstat`（或 `ss`）里看到大量 FIN_WAIT_2，说明主动关闭方在等对方发 FIN（对方迟迟不关）；看到大量 CLOSE_WAIT，说明被动方应用没调用 close（bug）。状态机不只是理论，它是生产排障的第一张地图。</span>
 
 ## 4 状态机 = 排障地图
 

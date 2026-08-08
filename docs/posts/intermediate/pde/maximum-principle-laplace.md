@@ -42,9 +42,9 @@ $$
 
 **Dirichlet 内问题**：求调和 $u$ 使 $u|_{\partial\Omega} = g$。它的解是唯一的：
 
-- **第一步，取差。** 设 $u_1, u_2$ 是两个解，$w = u_1 - u_2$ 调和且 $w|_{\partial\Omega} = 0$。
-- **第二步，用极值原理。** $\max_{\bar\Omega}w = \max_{\partial\Omega}w = 0$，$\min_{\bar\Omega}w = \min_{\partial\Omega}w = 0$。
-- **第三步，夹住。** $0 \le w \le 0$，故 $w \equiv 0$，$u_1 = u_2$。
+**第一步，取差。** 设 $u_1, u_2$ 是两个解，$w = u_1 - u_2$ 调和且 $w|_{\partial\Omega} = 0$。
+**第二步，用极值原理。** $\max_{\bar\Omega}w = \max_{\partial\Omega}w = 0$，$\min_{\bar\Omega}w = \min_{\partial\Omega}w = 0$。
+**第三步，夹住。** $0 \le w \le 0$，故 $w \equiv 0$，$u_1 = u_2$。
 
 **唯一性证明只有三步。** 同样的论证适用于 Poisson 方程 $\Delta u = f$（$f$ 相同）：差解 $w$ 调和（$\Delta w = \Delta u_1 - \Delta u_2 = f - f = 0$），极值原理照用。<span class="marginnote">对比热传导极值原理证明唯一性：热传导有「底 + 侧壁」，椭圆型只有「墙」——因为椭圆型问题没有初始时刻，时间维不存在，「底」也随之消失。这正是「椭圆 = 无时间」在唯一性论证上的回响。</span>
 

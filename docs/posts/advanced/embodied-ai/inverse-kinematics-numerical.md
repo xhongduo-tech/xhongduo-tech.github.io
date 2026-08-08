@@ -288,32 +288,7 @@ $\alpha$ 是步长系数。
 用平面两连杆验证 DLS 的收敛：让末端到达 $(1.5, 0.3)$，
 从随意初值出发迭代。
 
-```python
-import numpy as np
-
-def fk(q, l1=1.0, l2=1.0):
-    return np.array([
-        l1*np.cos(q[0]) + l2*np.cos(q[0]+q[1]),
-        l1*np.sin(q[0]) + l2*np.sin(q[0]+q[1]),
-    ])
-
-def jac(q, l1=1.0, l2=1.0):
-    s1, c1 = np.sin(q[0]), np.cos(q[0])
-    s12, c12 = np.sin(q[0]+q[1]), np.cos(q[0]+q[1])
-    return np.array([
-        [-l1*s1 - l2*s12, -l2*s12],
-        [ l1*c1 + l2*c12,  l2*c12],
-    ])
-
-target = np.array([1.5, 0.3])
-q = np.array([0.5, 0.5])      # 初始猜测
-lam = 1e-3                    # 阻尼系数
-for it in range(100):
-    e = target - fk(q)
-    if np.linalg.norm(e) < 1e-9:
-        break
-    J = jac(q)
-    dq = J.T @ np.linalg.solve(J @ J.T + lam**2 * np.eye(2), e)    q = q + dqprint("迭代次数:", it + 1)print("末端位置:", np.round(fk(q), 6), "目标:", target)# 把关节角归一化到 [-π, π]，与上一节解析解（肘下构型）对照q_norm = (q + np.pi) % (2 * np.pi) - np.pir2 = target @ targetth2 = np.arccos(np.clip((r2 - 2) / 2, -1, 1))th1_lo = np.arctan2(target[1], target[0]) - np.arctan2(np.sin(-th2), 1 + np.cos(-th2))print("数值解(归一化):", np.round(q_norm, 6))print("解析解(肘下):", np.round([th1_lo, -th2], 6))```运行结果：约 10 次迭代后末端误差降到 $10^{-9}$ 以下；把迭代得到的关节角归一化到 $[-\pi, \pi]$，与上一节的解析解（肘下构型）完全一致。注意 DLS 的核心就一行——`dq = J.T @ solve(J @ J.T + lam**2 * I, e)`——其余都是包装。<span class="marginnote">把上面代码的 $J$ 换成 7 关节的雅可比、任务设成 6 维，加上零空间项 $(I - J^+J)z$，就是一台七自由度协作臂的实时 IK 核心。工业界与开源的 `ikpy`、`TRAC-IK`、ROS 的 `MoveIt` 里跑的，正是这些思路的工程化版本。</span>## 7 小结- **数值 IK**：把「解方程 $f(q)=x_d$」改成「最小化误差 $\|e(q)\|$」，迭代逼近；适合非球腕、冗余、带约束场景。- **牛顿-拉夫森**：一阶线性化 $J\delta q = e$，$\delta q = J^{-1}e$；局部二次收敛，但奇异点附近爆炸。
+$10^{-9}$运行结果：约 10 次迭代后末端误差降到 $10^{-9}$ 以下；把迭代得到的关节角归一化到 $[-\pi, \pi]$，与上一节的解析解（肘下构型）完全一致。注意 DLS 的核心就一行——$[-\pi, \pi]$——其余都是包装。<span class="marginnote">把上面代码的 $J$ 换成 7 关节的雅可比、任务设成 6 维，加上零空间项 $(I - J^+J)z$，就是一台七自由度协作臂的实时 IK 核心。工业界与开源的 $J$、$(I - J^+J)z$、ROS 的 $f(q)=x_d$ 里跑的，正是这些思路的工程化版本。</span>## 7 小结- **数值 IK**：把「解方程 $f(q)=x_d$」改成「最小化误差 $\|e(q)\|$」，迭代逼近；适合非球腕、冗余、带约束场景。- **牛顿-拉夫森**：一阶线性化 $J\delta q = e$，$\delta q = J^{-1}e$；局部二次收敛，但奇异点附近爆炸。
 - **伪逆解** $\delta q = J^+ e$：有解时是最小范数解，
 无解时是最小二乘解；
 $J^+ = V\Sigma^+ U^T$。

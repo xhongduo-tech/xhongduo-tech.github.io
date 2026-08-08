@@ -22,7 +22,7 @@ date: 2026-08-07
 
 条件表达式重构的核心手法：
 
-- **分解条件表达式（Decompose Conditional）**：把复杂的条件与分支各自提炼成函数——`if (isEligible(customer))` 代替一大串 `&& ||`。
+- **分解条件表达式（Decompose Conditional）**：把复杂的条件与分支各自提炼成函数——`isLeapYear(date)` 代替一大串 `year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)`。
 - **合并条件表达式（Consolidate Conditional）**：多个条件走向同一结果时合并——减少重复分支。
 - **卫语句取代嵌套条件（Replace Nested Conditional with Guard Clauses）**：把"层层嵌套的 if"改成"先检查异常条件、提前返回"的卫语句。
 - **以多态取代条件表达式（Replace Conditional with Polymorphism）**：switch 按类型分派 → 用策略/状态模式（第 6 章）——消灭 switch 坏味道。

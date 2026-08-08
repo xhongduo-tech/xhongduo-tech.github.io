@@ -69,9 +69,9 @@ $$
 
 用坐标法完整解一道题：正方体 $ABCD$-$A'B'C'D'$ 棱长为 1，求异面直线 $A'C$ 与 $BD$ 所成的角。
 
-- **第一步，建系取坐标**：以 $A$ 为原点，$\overrightarrow{AB},\overrightarrow{AD},\overrightarrow{AA'}$ 为三个坐标轴方向。$A'(0,0,1)$，$C(1,1,0)$，$B(1,0,0)$，$D(0,1,0)$。
-- **第二步，写方向向量**：$\overrightarrow{A'C}=(1,1,-1)$，$\overrightarrow{BD}=D-B=(-1,1,0)$。
-- **第三步，套夹角公式**：$\cos\theta=\dfrac{|\overrightarrow{A'C}\cdot\overrightarrow{BD}|}{|\overrightarrow{A'C}||\overrightarrow{BD}|}=\dfrac{|1\times(-1)+1\times1+(-1)\times0|}{\sqrt{3}\times\sqrt{2}}=\dfrac{0}{\sqrt6}=0$，故 $\theta=90^\circ$——两直线异面垂直。
+**第一步，建系取坐标**：以 $A$ 为原点，$\overrightarrow{AB},\overrightarrow{AD},\overrightarrow{AA'}$ 为三个坐标轴方向。$A'(0,0,1)$，$C(1,1,0)$，$B(1,0,0)$，$D(0,1,0)$。
+**第二步，写方向向量**：$\overrightarrow{A'C}=(1,1,-1)$，$\overrightarrow{BD}=D-B=(-1,1,0)$。
+**第三步，套夹角公式**：$\cos\theta=\dfrac{|\overrightarrow{A'C}\cdot\overrightarrow{BD}|}{|\overrightarrow{A'C}||\overrightarrow{BD}|}=\dfrac{|1\times(-1)+1\times1+(-1)\times0|}{\sqrt{3}\times\sqrt{2}}=\dfrac{0}{\sqrt6}=0$，故 $\theta=90^\circ$——两直线异面垂直。
 
 <span class="marginnote">整道题从建系到算完，没有画一条辅助线：<strong>建系 → 写坐标 → 算点乘 → 得结论</strong>，四步走完全程。坐标法的威力就在这：异面垂直这种纯几何里要绕弯子的结论，坐标法两行就算出来。注意建系时「选好原点与轴方向」是唯一需要动脑的地方——原则是让尽量多的点落在坐标轴上。</span> 距离问题同理：求点 $P$ 到直线 $l$ 的距离、点 $P$ 到平面 $\alpha$ 的距离，都可化为坐标下的投影计算（下一节详述）。
 
@@ -85,10 +85,10 @@ $$
 
 正方体 $ABCD$-$A'B'C'D'$ 棱长为 1，$E$ 为 $CC'$ 的中点。求 $\overrightarrow{A'E}$ 的坐标、$|\overrightarrow{A'E}|$，以及 $\overrightarrow{A'E}$ 与 $\overrightarrow{BD}$ 是否垂直。
 
-- **第一步，建系取坐标**：以 $A$ 为原点、$\overrightarrow{AB},\overrightarrow{AD},\overrightarrow{AA'}$ 为三轴。$A'(0,0,1)$，$E(1,1,\frac12)$。
-- **第二步，算向量**：$\overrightarrow{A'E}=E-A'=\left(1,1,-\frac12\right)$。
-- **第三步，算模**：$|\overrightarrow{A'E}|=\sqrt{1^2+1^2+\left(-\frac12\right)^2}=\sqrt{\frac94}=\frac32$。
-- **第四步，判垂直**：$\overrightarrow{BD}=D-B=(-1,1,0)$，$\overrightarrow{A'E}\cdot\overrightarrow{BD}=1\times(-1)+1\times1+\left(-\frac12\right)\times0=0$——垂直。
+**第一步，建系取坐标**：以 $A$ 为原点、$\overrightarrow{AB},\overrightarrow{AD},\overrightarrow{AA'}$ 为三轴。$A'(0,0,1)$，$E(1,1,\frac12)$。
+**第二步，算向量**：$\overrightarrow{A'E}=E-A'=\left(1,1,-\frac12\right)$。
+**第三步，算模**：$|\overrightarrow{A'E}|=\sqrt{1^2+1^2+\left(-\frac12\right)^2}=\sqrt{\frac94}=\frac32$。
+**第四步，判垂直**：$\overrightarrow{BD}=D-B=(-1,1,0)$，$\overrightarrow{A'E}\cdot\overrightarrow{BD}=1\times(-1)+1\times1+\left(-\frac12\right)\times0=0$——垂直。
 
 <span class="marginnote">空间坐标运算的标准流程：<strong>建系（选好原点与三轴）→ 写点坐标 → 终点减起点得向量 → 套公式算模/点乘/夹角</strong>。建系的原则是「让尽量多的点落在坐标轴上」，本题以 $A$ 为原点，正方体顶点坐标全是 0 或 1，计算最省。垂直判定「点乘为零」一步到位——<strong>空间里的垂直问题在坐标下都是点乘的算术</strong>。</span>
 

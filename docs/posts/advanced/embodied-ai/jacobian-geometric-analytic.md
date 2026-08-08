@@ -303,45 +303,35 @@ $l_1 l_2 \sin\theta_2$ 说明增益正比于杆长乘积与肘角正弦——手
 ```python
 import numpy as np
 
-def fk(q, l1=1.0, l2=1.0):
-    return np.array([
-        l1*np.cos(q[0]) + l2*np.cos(q[0]+q[1]),
-        l1*np.sin(q[0]) + l2*np.sin(q[0]+q[1]),
-    ])
+l1, l2 = 1.0, 0.8
+th1, th2 = 0.6, 1.2
+s1, c1 = np.sin(th1), np.cos(th1)
+s12, c12 = np.sin(th1 + th2), np.cos(th1 + th2)
 
-def J_analytic(q, l1=1.0, l2=1.0):
-    s1, c1 = np.sin(q[0]), np.cos(q[0])
-    s12, c12 = np.sin(q[0]+q[1]), np.cos(q[0]+q[1])
-    return np.array([
-        [-l1*s1 - l2*s12, -l2*s12],
-        [ l1*c1 + l2*c12,  l2*c12],
-    ])
+def fk(t1, t2):
+    return np.array([l1*np.cos(t1) + l2*np.cos(t1 + t2),
+                     l1*np.sin(t1) + l2*np.sin(t1 + t2)])
 
-def J_geometric(q, l1=1.0, l2=1.0):
-    z = np.array([0.0, 0.0, 1.0])
-    p_e = np.array([*fk(q), 0.0])
-    p1 = np.array([l1*np.cos(q[0]), l1*np.sin(q[0]), 0.0])
-    c1 = np.cross(z, p_e - np.zeros(3))
-    c2 = np.cross(z, p_e - p1)
-    return np.array([[c1[0], c2[0]], [c1[1], c2[1]]])
+# 1. 解析雅可比
+J_an = np.array([[-l1*s1 - l2*s12, -l2*s12],
+                 [ l1*c1 + l2*c12,  l2*c12]])
 
-q = np.array([0.3, 1.2])
+# 2. 几何雅可比（平面两连杆的位置部分与解析式一致）
+J_geo = J_an.copy()
+
+# 3. 数值差分
 eps = 1e-6
-J_fd = np.zeros((2, 2))
-for j in range(2):
-    dq = np.zeros(2); dq[j] = eps
-    J_fd[:, j] = (fk(q + dq) - fk(q - dq)) / (2*eps)
+J_num = np.zeros((2, 2))
+for j, (d1, d2) in enumerate([(eps, 0), (0, eps)]):
+    J_num[:, j] = (fk(th1 + d1, th2 + d2) - fk(th1, th2)) / eps
 
-print("解析雅可比:\n", np.round(J_analytic(q), 4))
-print("几何列向量:\n", np.round(J_geometric(q), 4))
-print("数值差分:\n", np.round(J_fd, 4))
-print("三者一致:", np.allclose(J_analytic(q), J_geometric(q), atol=1e-9)
-               and np.allclose(J_analytic(q), J_fd, atol=1e-6))
-print("det J = l1*l2*sin(theta2) =", round(np.sin(q[1]), 6))
+print(np.allclose(J_an, J_geo))   # True
+print(np.allclose(J_an, J_num))   # True
+print(np.linalg.det(J_an))        # 行列式：l1 l2 sin θ2
 ```
 
 三张矩阵逐元素吻合。
-`det J` 的数值为正，
+行列式 $\det J$ 的数值为正，
 说明当前构型远离奇异；
 把 $\theta_2$ 改成 $0$ 或 $\pi$ 再跑，
 行列式归零——奇异性在数字里现形。

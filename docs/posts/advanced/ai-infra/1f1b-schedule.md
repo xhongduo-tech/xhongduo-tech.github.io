@@ -91,7 +91,7 @@ $$\text{bubble ratio} = \frac{p-1}{m+p-1}$$
 
 ## 8 进阶与延伸
 
-**动手验证一下 1F1B 的气泡公式**：用 Megatron 的流水线配置，把 `--pipeline-model-parallel-size` 从 4 调到 16，同时把 micro-batch 数从 32 调到 128，观察训练日志里 MFU 的变化。你会发现气泡率 $\frac{p-1}{m+p-1}$ 从 $\frac{3}{35}$ 变成 $\frac{15}{143}$——两者接近，但显存压力完全不同。
+**动手验证一下 1F1B 的气泡公式**：用 Megatron 的流水线配置，把 $\frac{p-1}{m+p-1}$ 从 4 调到 16，同时把 micro-batch 数从 32 调到 128，观察训练日志里 MFU 的变化。你会发现气泡率 $\frac{p-1}{m+p-1}$ 从 $\frac{3}{35}$ 变成 $\frac{15}{143}$——两者接近，但显存压力完全不同。
 
 **几个值得进一步挖的方向**：
 
@@ -103,17 +103,17 @@ $$\text{bubble ratio} = \frac{p-1}{m+p-1}$$
 
 ## 9 动手实践清单
 
-- 配一个 `--pipeline-model-parallel-size=4` 的小模型，用 nsys 抓时间线，数出「灌水、稳态、排水」三个阶段。
+- 配一个 PP=2 的小模型，用 nsys 抓时间线，数出「灌水、稳态、排水」三个阶段。
 - 把 micro-batch 数从 8 调到 64，观察气泡率的变化，对照公式 $\frac{p-1}{m+p-1}$。
 - 开启 Interleaved 调度，对比气泡与通信次数的此消彼长。
 - 在 PP 场景下观察激活显存峰值，验证「后向更早开始、激活更早释放」。
-- 对照 Megatron 的 `forward_backward_pipelining` 源码，标出「F/B 交错」的调度点。
+- 对照 Megatron 的 `schedules.py` 源码，标出「F/B 交错」的调度点。
 - 故意把 TP 组配成跨 PP 边界，观察报错或调度错乱——体会「PP 内嵌 TP」的约束。
 - 把本章公式代入你的真实模型，算出「不优化 vs 1F1B」的气泡率差距。
 - 观察「同一 batch 下 GPipe 与 1F1B」的显存峰值差异。
 - 在训练日志里标出「气泡」对应的 MFU 掉点。
 - 用「1F1B + 激活重计算」组合，验证显存收益是否叠加。
-- 读 Megatron 的 `forward_backward_pipelining_with_interleaving` 源码。
+- 读 Megatron 的 `schedules.py` 源码。
 - 在日志里对比「GPipe 与 1F1B」的显存峰值与吞吐。
 - 画「气泡率 vs 显存」的权衡曲线，标出最优工作点。
 

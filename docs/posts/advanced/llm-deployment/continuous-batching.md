@@ -32,7 +32,7 @@ date: 2026-08-07
 
 Continuous Batching（论文里也叫 iteration-level scheduling）改了一条规则：**批的组成不是请求进来时决定的，而是每一步 Decode 结束之后重新决定的。** 每完成一个解码迭代：
 
-1. **踢出完成的**：产生 `<eos>` 或达到 `max_tokens` 的请求，立刻离开批，其 KV 块归还（走上一节的 `free`）。
+1. **踢出完成的**：产生 `<eos>ID0（结束符）或达到 `max_tokens` 上限的请求，立刻离开批，其 KV 块归还（走上一节的 `BlockAllocator`）。
 2. **补进新请求**：只要有等待中的请求、且显存（KV 块）与批大小有富余，就从等待队列补一条进来。
 3. **剩下的继续**：批里剩余请求一起做下一个解码迭代。
 
@@ -44,30 +44,28 @@ Continuous Batching（论文里也叫 iteration-level scheduling）改了一条�
 
 vLLM 用一个调度器（`Scheduler`）实现连续批处理，内部维护三个队列：
 
-- **WAITING（等待）**：已到、尚未开始预填充的请求。
-- **RUNNING（运行）**：正在预填充或解码的请求，每一步都参与迭代。
-- **SWAPPED（换出）**：因显存不足被换到 CPU 的请求，等待被换回（第三节后续专门讲）。
+**WAITING（等待）**：已到、尚未开始预填充的请求。
+**RUNNING（运行）**：正在预填充或解码的请求，每一步都参与迭代。
+**SWAPPED（换出）**：因显存不足被换到 CPU 的请求，等待被换回（第三节后续专门讲）。
 
 每个迭代步，调度器做三件事：**从 WAITING 挑请求进入 RUNNING**（受 `max_num_seqs` 与 KV 余量约束）→ **让 RUNNING 跑一步** → **把完成的请求送走、处理抢占**。<span class="marginnote">两个核心配置：`max_num_seqs` 限制批里最多多少条序列；`max_num_batched_tokens` 限制一步里批内 token 总数上限（vLLM 默认 256）。后者是下一节 Chunked Prefill 的旋钮。</span>新请求能进批的条件是：RUNNING 未满、且有足够 KV 块容纳它的前缀——这一步要查块分配器的空闲块数。
 
 伪代码把「每步重组」写得很直白：
 
 ```python
-def step(scheduler):
-    # 1. 换入/换出处理（显存不足时抢占，见后续章节）
-    # 2. 把等待中的请求补进 RUNNING，只要显存与批大小允许
-    while scheduler.waiting and can_admit(scheduler):
-        seq = scheduler.waiting.pop()
-        scheduler.running.append(seq)
+def scheduler_step():
+    # 1. 准入：从 WAITING 挑请求进入 RUNNING
+    while len(running) < max_num_seqs and waiting and has_free_kv_blocks():
+        running.append(waiting.pop(0))
 
-    # 3. 让 RUNNING 里的所有请求各解码一步（合批成一个 GPU kernel）
-    outputs = decode(scheduler.running)
+    # 2. 解码：批里所有请求合成一次 kernel 调用
+    outputs = model.forward(running)
 
-    # 4. 处理完成/失败的请求，释放其 KV 块
-    for seq, out in zip(scheduler.running, outputs):
-        if out.is_finished():
-            block_allocator.free(seq.kv_blocks)      # ref_count 递减
-            scheduler.running.remove(seq)
+    # 3. 清理：完成的（EOS / max_tokens）离开批
+    for seq in running:
+        if seq.is_finished():
+            running.remove(seq)
+            allocator.free_blocks(seq)
 ```
 
 注意第 3 步：**批里所有请求仍然共享一次 kernel 调用**。连续批处理改变的是「批的边界」，不是「批的粒度」——合批带来的显存带宽摊薄收益一点不少。

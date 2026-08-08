@@ -32,17 +32,18 @@ $$\pi[q] = \max\{ k : k < q \text{ 且 } P[1..k] \text{ 是 } P[1..q] \text{ 的
 
 ```
 KMP-MATCHER(T, P)
-  n = T.length;  m = P.length
-  π = COMPUTE-PREFIX-FUNCTION(P)
-  q = 0
-  for i = 1 to n
-    while q > 0 and P[q+1] != T[i]
-      q = π[q]                        // 回退到「最长可续接前缀」
-    if P[q+1] == T[i]
-      q = q + 1
-    if q == m
-      print "match at shift" i - m
-      q = π[q]                        // 找下一个匹配，先回退
+1  n = T.length
+2  m = P.length
+3  π = COMPUTE-PREFIX-FUNCTION(P)
+4  q = 0                                // 已匹配的字符数
+5  for i = 1 to n                       // 扫描文本，i 从不回退
+6      while q > 0 and P[q+1] ≠ T[i]
+7          q = π[q]                     // 安全回退到 π[q]
+8      if P[q+1] == T[i]
+9          q = q + 1
+10     if q == m                         // 找到一处完整匹配
+11         print "Pattern occurs with shift" i − m
+12         q = π[q]
 ```
 
 **思想**：文本指针 $i$ **从不回退**；只有模式指针 $q$ 在失配时回退到 $\pi[q]$——而 $\pi[q]$ 保证「回退后，已匹配的前缀仍与文本对齐」。<span class="marginnote">「$i$ 不回退、$q$ 回退到 $\pi[q]$」是 KMP 的全部。回退到 $\pi[q]$ 的安全性：$P[1..q]$ 是文本后缀，而 $\pi[q]$ 是「$P[1..q]$ 的最长真前缀-后缀」——所以 $P[1..\pi[q]]$ 也匹配文本，不必重比。这个「安全回退」把朴素算法的重复比较全部省掉。</span>
@@ -51,27 +52,28 @@ KMP-MATCHER(T, P)
 
 ```
 COMPUTE-PREFIX-FUNCTION(P)
-  m = P.length
-  let π[1..m] be a new array
-  π[1] = 0;  k = 0
-  for q = 2 to m
-    while k > 0 and P[k+1] != P[q]
-      k = π[k]
-    if P[k+1] == P[q]
-      k = k + 1
-    π[q] = k
-  return π
+1  m = P.length
+2  let π[1..m] be a new array
+3  π[1] = 0
+4  k = 0                                // 当前最长匹配前缀长度
+5  for q = 2 to m                       // P 匹配 P 自己
+6      while k > 0 and P[k+1] ≠ P[q]
+7          k = π[k]
+8      if P[k+1] == P[q]
+9          k = k + 1
+10     π[q] = k
+11 return π
 ```
 
 与匹配循环同构（$P$ 匹配 $P$ 自己）。**复杂度 $O(m)$**——为什么 while 循环总次数是线性的？
 
-- **第一步，$k$ 的变化**：每次匹配成功 $k$ 加 1；while 里 $k = \pi[k]$ 严格减小。
-- **第二步，摊销论证**：$k$ 最多加到 $m-1$ 次（每轮至多 +1），而每次 while 循环把 $k$ 减至少 1——**总减少次数 ≤ 总增加次数 ≤ $m$**。
-- **第三步，结论**：while 总执行 $O(m)$ 次，外层 $O(m)$，总 $O(m)$。
+**第一步，$k$ 的变化**：每次匹配成功 $k$ 加 1；while 里 $k = \pi[k]$ 严格减小。
+**第二步，摊销论证**：$k$ 最多加到 $m-1$ 次（每轮至多 +1），而每次 while 循环把 $k$ 减至少 1——**总减少次数 ≤ 总增加次数 ≤ $m$**。
+**第三步，结论**：while 总执行 $O(m)$ 次，外层 $O(m)$，总 $O(m)$。
 
 **要点**：$k$ 的「先加后减」被摊销——**增加有限，减少也有限**。这是摊还分析在 KMP 的又一次应用。<span class="marginnote">同样的摊销论证适用于匹配阶段：$q$ 每字符至多 +1（共 $n$ 次），while 里 $q = \pi[q]$ 严格减小——总回退 ≤ 总前进 ≤ $n$。所以匹配阶段也是 $O(n)$。KMP 的双重线性（构造 $O(m)$ + 匹配 $O(n)$）都靠这个「单调回退」证明。</span>
 
-**辨析｜易错点：** while 条件里的 `q > 0` 不能省——$q = 0$ 时没有「可回退的前缀」，直接尝试匹配 $P[1]$。`P[q+1]` 的索引也要小心：$q = m$ 时 $P[m+1]$ 越界，所以匹配到 $m$ 后先 `q = π[q]` 再继续。
+**辨析｜易错点：** while 条件里的 $q = m$ 不能省——$q = 0$ 时没有「可回退的前缀」，直接尝试匹配 $P[1]$。$P[m+1]$ 的索引也要小心：$q = m$ 时 $P[m+1]$ 越界，所以匹配到 $m$ 后先 $m$ 再继续。
 
 ## 4 KMP 复杂度与自动机的关系
 

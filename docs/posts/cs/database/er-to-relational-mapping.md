@@ -16,25 +16,25 @@ date: 2026-08-07
 
 ## 为什么从 ER 到关系模式开始
 
-ER 图是「业务语言」，关系模式是「数据库语言」。**转换（mapping）**是把概念设计翻译成逻辑设计的机械规则集：实体变表、属性变列、联系变外键或连接表。这一节把整张转换规则表过一遍，涵盖普通实体、弱实体、特化/泛化、聚集、复合与多值属性等全部构件。读完后，你拿到任何一张 ER 图都能机械地（甚至半自动化地）转出正确的 `CREATE TABLE`——这是每个数据库工程师的看家手艺。
+ER 图是「业务语言」，关系模式是「数据库语言」。**转换（mapping）**是把概念设计翻译成逻辑设计的机械规则集：实体变表、属性变列、联系变外键或连接表。这一节把整张转换规则表过一遍，涵盖普通实体、弱实体、特化/泛化、聚集、复合与多值属性等全部构件。读完后，你拿到任何一张 ER 图都能机械地（甚至半自动化地）转出正确的关系模式——这是每个数据库工程师的看家手艺。
 
 ## 1 实体与属性的转换规则
 
 **规则 1：每个实体集 → 一张表。** 实体集名作表名，属性作列，主码作主码。
 
-**规则 2：复合属性 → 展平为多列。** `地址(省, 市, 区)` → 三列 `addr_province, addr_city, addr_district`。<span class="marginnote">若复合属性的子部分从不单独使用，也可以保持一列——转换不是无脑展平，而是「按查询需求决定粒度」，这与第 7 章属性设计的判断一致。</span>
+**规则 2：复合属性 → 展平为多列。** 地址（省份、城市、街道）→ 三列 province、city、street。<span class="marginnote">若复合属性的子部分从不单独使用，也可以保持一列——转换不是无脑展平，而是「按查询需求决定粒度」，这与第 7 章属性设计的判断一致。</span>
 
-**规则 3：多值属性 → 单独一张子表。** 学生电话 → `student_phone(student_id, phone)`，主码 `(student_id, phone)`，外码 `student_id` 引用学生表。
+**规则 3：多值属性 → 单独一张子表。** 学生电话 → student_phone 子表，主码 (student_id, phone_number)，外码 student_id 引用学生表。
 
 **规则 4：派生属性 → 不建列**（除非物化）。
 
 ## 2 联系的转换规则
 
-**规则 5：1:n 联系 → 外码放在「多」侧。** 教师 n:1 属于系 → 教师表加 `dept_id` 外码，引用系表主码。联系若有属性（如任职的起始年份），也并入「多」侧表。
+**规则 5：1:n 联系 → 外码放在「多」侧。** 教师 n:1 属于系 → 教师表加 dept_name 外码，引用系表主码。联系若有属性（如任职的起始年份），也并入「多」侧表。
 
 **规则 6：1:1 联系 → 外码放任意一侧**，通常选「访问少」或「必存在」的一侧；联系属性也放外码侧。
 
-**规则 7：m:n 联系 → 独立连接表。** 学生 m:n 课程 → `takes(student_id, course_id, grade)`，主码 `(student_id, course_id)`，两列分别外码引用学生表、课程表；联系属性（成绩）作为连接表的普通列。
+**规则 7：m:n 联系 → 独立连接表。** 学生 m:n 课程 → takes 连接表，主码 (student_id, course_id)，两列分别外码引用学生表、课程表；联系属性（成绩）作为连接表的普通列。
 
 **公式解析：连接表主码的构成**
 
@@ -51,13 +51,13 @@ $$
 
 ## 3 弱实体与特化/泛化的转换
 
-**规则 8：弱实体 → 表的主码 = 宿主主码 + 部分码。** 大纲 → `syllabus(course_id, section_number, content)`，主码 `(course_id, section_number)`，外码 `course_id` 引用课程表，删除级联。
+**规则 8：弱实体 → 表的主码 = 宿主主码 + 部分码。** 大纲 → syllabus 表，主码 (course_id, sec_id)，外码 course_id 引用课程表，删除级联。
 
 **规则 9：特化/泛化 → 三种策略之一：**
 
 | 策略 | 做法 | 适用 |
 | --- | --- | --- |
-| A 单表 | 父类 + 所有子类属性合成一张表，用 `type` 列区分 | disjoint、子类属性少 |
+| A 单表 | 父类 + 所有子类属性合成一张表，用 type 列区分 | disjoint、子类属性少 |
 | B 每类一表 | 父类表 + 每个子类表，子类主码 = 父类主码（外码） | 子类属性多、联系独立 |
 | C 每子类全表 | 每个子类独立成完整表（含继承属性） | 很少访问父类整体 |
 
@@ -70,33 +70,42 @@ $$
 - 先把「辅导」这个联系转成连接表（或并入实体表）。
 - 再把这个结果整体（项目+辅导）作为一张表，与教师建新的 1:n 联系——教师表加外码指向这个「聚集表」。
 
-**核心要点：聚集的转换是「两步走」**——先把联系转成表，再让表参与联系。工程上常见做法是给聚集整体一个代理主码（如 `advisor_id`），后续联系引用它即可。
+**核心要点：聚集的转换是「两步走」**——先把联系转成表，再让表参与联系。工程上常见做法是给聚集整体一个代理主码（如 agg_id），后续联系引用它即可。
 
 ## 5 一个完整的转换示例
 
 把「大学选课系统」ER 图转成 DDL：
 
 ```sql
+CREATE TABLE department (
+    dept_name VARCHAR(20) PRIMARY KEY,
+    building  VARCHAR(15),
+    budget    NUMERIC(12, 2)
+);
+
 CREATE TABLE student (
-  id      INT PRIMARY KEY,
-  name    VARCHAR(50),
-  dept_id INT REFERENCES department(id)
+    student_id VARCHAR(5) PRIMARY KEY,
+    name       VARCHAR(20) NOT NULL,
+    dept_name  VARCHAR(20) REFERENCES department(dept_name)
 );
+
 CREATE TABLE course (
-  course_id VARCHAR(10) PRIMARY KEY,
-  credits   INT
+    course_id VARCHAR(8) PRIMARY KEY,
+    title     VARCHAR(50),
+    credits   NUMERIC(2, 0)
 );
+
 CREATE TABLE takes (
-  student_id INT REFERENCES student(id),
-  course_id  VARCHAR(10) REFERENCES course(course_id),
-  grade      CHAR(2),
-  PRIMARY KEY (student_id, course_id)
+    student_id VARCHAR(5) REFERENCES student(student_id),
+    course_id  VARCHAR(8) REFERENCES course(course_id),
+    grade      VARCHAR(2),
+    PRIMARY KEY (student_id, course_id)
 );
 ```
 
-- 实体 `student` → 表，主码 `id`。
-- 联系「属于」1:n → 外码 `dept_id` 放学生表（多侧）。
-- 联系「选修」m:n → 连接表 `takes`，组合主码，成绩作普通列。
+- 实体 student、course、department → 表，主码 student_id、course_id、dept_name。
+- 联系「属于」1:n → 外码 dept_name 放学生表（多侧）。
+- 联系「选修」m:n → 连接表 takes，组合主码 (student_id, course_id)，成绩作普通列。
 
 **辨析｜易错点：** 转换后必须做一致性检查——**每个外码指向的表都必须存在、主码对应**；m:n 连接表的主码必须是两个外码的组合（缺一个就退化成 1:n 语义）。这一步在手工转换里最易漏，工具生成的 DDL 则靠外码约束自动保证。
 

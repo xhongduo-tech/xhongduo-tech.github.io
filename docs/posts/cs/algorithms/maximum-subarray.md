@@ -52,15 +52,21 @@ $$\text{FIND-MAXIMUM-SUBARRAY}(A, low, high) = \max\begin{cases} \text{FIND-MAXI
 
 伪代码（面向读者，语言无关）：
 
-```
-FIND-MAX-SUBARRAY(A, low, high)
-  if low == high
-    return (low, high, A[low])
-  mid = (low + high) / 2
-  (left-low, left-high, left-sum)  = FIND-MAX-SUBARRAY(A, low, mid)
-  (right-low, right-high, right-sum) = FIND-MAX-SUBARRAY(A, mid+1, high)
-  (cross-low, cross-high, cross-sum) = MAX-CROSSING-SUBARRAY(A, low, mid, high)
-  return 三者中 sum 最大者
+```text
+FIND-MAXIMUM-SUBARRAY(A, low, high):
+    if high == low:                         // 只有一个元素
+        return (low, high, A[low])
+    else:
+        mid = ⌊(low + high) / 2⌋
+        (left_low, left_high, left_sum) = FIND-MAXIMUM-SUBARRAY(A, low, mid)
+        (right_low, right_high, right_sum) = FIND-MAXIMUM-SUBARRAY(A, mid+1, high)
+        (cross_low, cross_high, cross_sum) = MAX-CROSSING-SUBARRAY(A, low, mid, high)
+        if left_sum >= right_sum and left_sum >= cross_sum:
+            return (left_low, left_high, left_sum)
+        elif right_sum >= left_sum and right_sum >= cross_sum:
+            return (right_low, right_high, right_sum)
+        else:
+            return (cross_low, cross_high, cross_sum)
 ```
 
 MAX-CROSSING-SUBARRAY 的代价是线性的：向左累加并记录最大后缀和，向右累加并记录最大前缀和，返回两边拼起来的三元组。
