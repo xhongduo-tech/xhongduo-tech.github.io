@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>一种错误的假说，如果得到认真对待，往往比没有假说更有用。
 </p>
-<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions*，1962）</footer>
+<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions\*，1962）</footer>
 </div>
 
 <div class="article-byline">

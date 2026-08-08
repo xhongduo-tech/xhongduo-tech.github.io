@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" font-family="sans-serif">
+  <title>凌星法光变曲线示意</title>
+  <desc>行星掠过恒星表面时恒星光度小幅下降，光变曲线出现周期性凹陷，凹陷深度正比于行星与恒星半径比的平方</desc>
+  <rect width="440" height="300" fill="#faf9f5"/>
+  <text x="220" y="28" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">凌星法：行星过境造成光度下降</text>
+  <polyline points="40,80 150,80 180,120 220,135 260,120 290,80 400,80" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="40" y1="80" x2="400" y2="80" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="150" y="150" text-anchor="middle" font-size="13" fill="#1f6f8b">深度 ΔF/F ≈ (R<sub>p</sub>/R<sub>*</sub>)²</text>
+  <text x="150" y="168" text-anchor="middle" font-size="13" fill="#555">木星级约 1%，地球级约 0.01%</text>
+  <line x1="150" y1="60" x2="150" y2="80" stroke="#333" stroke-width="1"/>
+  <text x="150" y="52" text-anchor="middle" font-size="12" fill="#333">入凌</text>
+  <line x1="290" y1="60" x2="290" y2="80" stroke="#333" stroke-width="1"/>
+  <text x="290" y="52" text-anchor="middle" font-size="12" fill="#333">出凌</text>
+  <circle cx="220" cy="225" r="42" fill="#c0392b"/>
+  <circle cx="220" cy="225" r="8" fill="#333"/>
+  <text x="220" y="280" text-anchor="middle" font-size="13" fill="#333">左：行星(黑点)掠过恒星表面　右：光度随时间下降再恢复</text>
+</svg>

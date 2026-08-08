@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>草原之下，是几万年的根须织成的大地之网。</p>
-<footer>—— 改自阿道 · 利奥波德《沙乡年鉴》（Aldo Leopold, *A Sand County Almanac*）</footer>
+<footer>—— 改自阿道 · 利奥波德《沙乡年鉴》（Aldo Leopold, *A Sand County Almanac\*）</footer>
 </div>
 
 <div class="article-byline">

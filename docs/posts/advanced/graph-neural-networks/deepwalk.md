@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>图的嵌入学习，本质上是把「图上共现」翻译成「向量空间里靠近」——词是句子的共现，顶点是游走的共现。</p>
-<footer>—— 出自 Perozzi et al., *DeepWalk: Online Learning of Social Representations*（2014）</footer>
+<footer>—— 出自 Perozzi et al., *DeepWalk: Online Learning of Social Representations\*（2014）</footer>
 </div>
 
 <div class="article-byline">

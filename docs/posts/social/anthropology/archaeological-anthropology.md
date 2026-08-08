@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>考古学家的确是从最小的物证中，读出最大的人类故事的读者。</p>
-<footer>—— 伊恩 · 霍德（Ian Hodder），*The Domestication of Europe*（1990）</footer>
+<footer>—— 伊恩 · 霍德（Ian Hodder），*The Domestication of Europe\*（1990）</footer>
 </div>
 
 <div class="article-byline">

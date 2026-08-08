@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>许多（也许是大多数）已发表的结论可能都是错的。
 </p>
-<footer>—— 约翰·约阿尼迪斯（John Ioannidis，*Why Most Published Research Findings Are False*，2005）</footer>
+<footer>—— 约翰·约阿尼迪斯（John Ioannidis，*Why Most Published Research Findings Are False\*，2005）</footer>
 </div>
 
 <div class="article-byline">

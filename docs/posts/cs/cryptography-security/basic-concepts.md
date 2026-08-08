@@ -137,4 +137,4 @@ print("P =", recovered)
 
 在下一节，我们将进入密码学的「威胁面」：攻击者到底能做什么——**被动攻击与主动攻击的分类**。这决定了我们设计的密码到底要防住谁。
 
-> 参考文献：William Stallings, *Cryptography and Network Security: Principles and Practice*, §1.1；C. E. Shannon, *Communication Theory of Secrecy Systems*, 1949。
+> 参考文献：William Stallings, *Cryptography and Network Security: Principles and Practice\*, §1.1；C. E. Shannon, *Communication Theory of Secrecy Systems\*, 1949。

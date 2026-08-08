@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>那里是太阳系的冰封边疆——在幽暗的阳光里，两个蓝绿色的世界缓缓旋转。</p>
-<footer>—— 参考帕特里克 · 摩尔《太阳系图册》（Patrick Moore, *Atlas of the Solar System*）</footer>
+<footer>—— 参考帕特里克 · 摩尔《太阳系图册》（Patrick Moore, *Atlas of the Solar System\*）</footer>
 </div>
 
 <div class="article-byline">

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" width="720" height="460" role="img" aria-labelledby="title desc">
+  <title id="title">地球辐射平衡示意</title>
+  <desc id="desc">太阳入射辐射 340 瓦每平方米，其中约 100 被反射，地表吸收 161、大气吸收 79；地表以长波辐射 396 向上辐射，大气逆辐射 340 返回地表，239 逃逸太空，净辐射失衡约正 0.9 瓦每平方米。</desc>
+  <rect width="720" height="460" fill="#faf9f5"/>
+  <defs>
+    <marker id="ar-solar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e67e22"/>
+    </marker>
+    <marker id="ar-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+    <marker id="ar-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="ar-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="32" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333">太空（向外辐射的出口）</text>
+
+  <!-- 大气层 -->
+  <rect x="60" y="150" width="600" height="110" rx="10" fill="#eef2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="80" y="176" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1f6f8b">大气层</text>
+  <text x="80" y="240" font-family="sans-serif" font-size="14" fill="#1f6f8b">大气吸收 79</text>
+
+  <!-- 地表 -->
+  <rect x="60" y="330" width="600" height="90" rx="10" fill="#f2ecdc" stroke="#8a6d3b" stroke-width="2"/>
+  <text x="80" y="360" font-family="sans-serif" font-size="16" font-weight="bold" fill="#8a6d3b">地表</text>
+  <text x="80" y="392" font-family="sans-serif" font-size="14" fill="#8a6d3b">地表吸收 161</text>
+  <text x="80" y="412" font-family="sans-serif" font-size="13" fill="#8a6d3b">（海洋吸收绝大部分）</text>
+
+  <!-- 太阳入射 -->
+  <line x1="150" y1="60" x2="150" y2="330" stroke="#e67e22" stroke-width="3" marker-end="url(#ar-solar)"/>
+  <text x="160" y="100" font-family="sans-serif" font-size="14" fill="#e67e22">太阳入射 340</text>
+
+  <!-- 反射 -->
+  <line x1="280" y1="330" x2="280" y2="60" stroke="#999" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#ar-gray)"/>
+  <text x="290" y="310" font-family="sans-serif" font-size="14" fill="#666">反射 100</text>
+  <text x="290" y="332" font-family="sans-serif" font-size="13" fill="#666">（反照率≈29%）</text>
+
+  <!-- 地表长波 -->
+  <line x1="430" y1="330" x2="430" y2="210" stroke="#c0392b" stroke-width="3" marker-end="url(#ar-red)"/>
+  <text x="442" y="280" font-family="sans-serif" font-size="14" fill="#c0392b">地表长波 396</text>
+
+  <!-- 大气逆辐射 -->
+  <line x1="540" y1="190" x2="540" y2="330" stroke="#1f6f8b" stroke-width="3" marker-end="url(#ar-blue)"/>
+  <text x="552" y="245" font-family="sans-serif" font-size="14" fill="#1f6f8b">大气逆辐射 340</text>
+  <text x="552" y="267" font-family="sans-serif" font-size="13" fill="#1f6f8b">（温室效应）</text>
+
+  <!-- 出射长波 -->
+  <line x1="625" y1="150" x2="625" y2="60" stroke="#c0392b" stroke-width="3" marker-end="url(#ar-red)"/>
+  <text x="590" y="112" text-anchor="end" font-family="sans-serif" font-size="14" fill="#c0392b">出射长波 239</text>
+
+  <text x="360" y="450" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">净辐射失衡 ≈ +0.9 W/m²（驱动全球变暖）</text>
+</svg>

@@ -12,32 +12,32 @@ pageClass: plain-doc
 
 ### 第一篇 宇宙学基础
 
-- [ ] 宇宙学原理
-- [ ] 哈勃定律与宇宙膨胀
-- [ ] 弗里德曼方程
-- [ ] 宇宙学常数
-- [ ] 距离度量与红移
-- [ ] 标准宇宙学模型（ΛCDM）
+- [x] [宇宙学原理](./cosmological-principle)
+- [x] [哈勃定律与宇宙膨胀](./hubble-law-expansion)
+- [x] [弗里德曼方程](./friedmann-equations)
+- [x] [宇宙学常数](./cosmological-constant)
+- [x] [距离度量与红移](./distance-redshift)
+- [x] [标准宇宙学模型（ΛCDM）](./lcdm-model)
 
 ### 第二篇 早期宇宙
 
-- [ ] 大爆炸与宇宙热历史
-- [ ] 大爆炸核合成
-- [ ] 宇宙微波背景
-- [ ] 宇宙学的三个观测基石
-- [ ] 中微子退耦与遗迹
+- [x] [大爆炸与宇宙热历史](./big-bang-thermal-history)
+- [x] [大爆炸核合成](./big-bang-nucleosynthesis)
+- [x] [宇宙微波背景](./cosmic-microwave-background)
+- [x] [宇宙学的三个观测基石](./three-observational-pillars)
+- [x] [中微子退耦与遗迹](./neutrino-decoupling)
 
 ### 第三篇 结构与暗物质暗能量
 
-- [ ] 暗物质的证据
-- [ ] 暗物质候选粒子
-- [ ] 暗能量与加速膨胀
-- [ ] 宇宙结构形成
-- [ ] 引力不稳定性
-- [ ] 星系形成与大尺度结构
-- [ ] 宇宙微波背景的各向异性
-- [ ] 暴胀理论
-- [ ] 多宇宙与初始条件问题
-- [ ] 宇宙学观测（CMB/超新星/红移巡天）
+- [x] [暗物质的证据](./dark-matter-evidence)
+- [x] [暗物质候选粒子](./dark-matter-candidates)
+- [x] [暗能量与加速膨胀](./dark-energy-acceleration)
+- [x] [宇宙结构形成](./structure-formation)
+- [x] [引力不稳定性](./gravitational-instability)
+- [x] [星系形成与大尺度结构](./galaxy-formation-large-scale-structure)
+- [x] [宇宙微波背景的各向异性](./cmb-anisotropy)
+- [x] [暴胀理论](./inflation-theory)
+- [x] [多宇宙与初始条件问题](./multiverse-initial-conditions)
+- [x] [宇宙学观测（CMB/超新星/红移巡天）](./cosmological-observations)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>城市不只是研究的地点，更是研究的对象：它有自己的文化、自己的结构、自己的陌生人。</p>
-<footer>—— 据乌尔夫 · 汉内斯（Ulf Hannerz），*Exploring the City*（1980）转述</footer>
+<footer>—— 据乌尔夫 · 汉内斯（Ulf Hannerz），*Exploring the City\*（1980）转述</footer>
 </div>
 
 <div class="article-byline">

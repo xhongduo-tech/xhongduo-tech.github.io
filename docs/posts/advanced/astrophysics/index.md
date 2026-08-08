@@ -12,35 +12,35 @@ pageClass: plain-doc
 
 ### 第一篇 恒星物理
 
-- [ ] 恒星的基本参量
-- [ ] 恒星大气与谱线
-- [ ] 恒星结构与平衡
-- [ ] 恒星能量来源
-- [ ] 主序星
-- [ ] 恒星演化：红巨星与白矮星
-- [ ] 超新星与致密天体
-- [ ] 中子星与脉冲星
-- [ ] 黑洞天体
+- [x] [恒星的基本参量](./stellar-basic-parameters)
+- [x] [恒星大气与谱线](./stellar-atmosphere-spectral-lines)
+- [x] [恒星结构与平衡](./stellar-structure-equilibrium)
+- [x] [恒星能量来源](./stellar-energy-sources)
+- [x] [主序星](./main-sequence-stars)
+- [x] [恒星演化：红巨星与白矮星](./stellar-evolution-red-giants-white-dwarfs)
+- [x] [超新星与致密天体](./supernovae-compact-objects)
+- [x] [中子星与脉冲星](./neutron-stars-pulsars)
+- [x] [黑洞天体](./black-holes)
 
 ### 第二篇 星际介质与星系
 
-- [ ] 星际介质与消光
-- [ ] 恒星形成
-- [ ] 银河系结构
-- [ ] 旋臂与恒星动力学
-- [ ] 星系分类与哈勃序列
-- [ ] 星系演化与并合
-- [ ] 活动星系核与类星体
-- [ ] 星系团与暗物质
+- [x] [星际介质与消光](./interstellar-medium-extinction)
+- [x] [恒星形成](./star-formation)
+- [x] [银河系结构](./milky-way-structure)
+- [x] [旋臂与恒星动力学](./spiral-arms-stellar-dynamics)
+- [x] [星系分类与哈勃序列](./galaxy-classification-hubble-sequence)
+- [x] [星系演化与并合](./galaxy-evolution-mergers)
+- [x] [活动星系核与类星体](./active-galactic-nuclei-quasars)
+- [x] [星系团与暗物质](./galaxy-clusters-dark-matter)
 
 ### 第三篇 高能与观测天体物理
 
-- [ ] 宇宙线
-- [ ] X射线与伽马射线天文学
-- [ ] 引力波天体物理
-- [ ] 多信使天文学
-- [ ] 射电天文学
-- [ ] 观测方法与望远镜
-- [ ] 天体物理数值模拟
+- [x] [宇宙线](./cosmic-rays)
+- [x] [X射线与伽马射线天文学](./xray-gamma-ray-astronomy)
+- [x] [引力波天体物理](./gravitational-wave-astrophysics)
+- [x] [多信使天文学](./multimessenger-astronomy)
+- [x] [射电天文学](./radio-astronomy)
+- [x] [观测方法与望远镜](./observational-methods-telescopes)
+- [x] [天体物理数值模拟](./astrophysical-numerical-simulation)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

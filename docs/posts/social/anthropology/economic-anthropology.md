@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>在市场经济出现之前，人类经济生活深深地嵌入在社会关系之中；把经济从社会中抽离出来，是现代性的独特发明。</p>
-<footer>—— 卡尔 · 波兰尼（Karl Polanyi），*The Great Transformation*（1944）</footer>
+<footer>—— 卡尔 · 波兰尼（Karl Polanyi），*The Great Transformation\*（1944）</footer>
 </div>
 
 <div class="article-byline">

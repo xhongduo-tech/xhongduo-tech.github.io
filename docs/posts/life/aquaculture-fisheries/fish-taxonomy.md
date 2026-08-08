@@ -70,16 +70,16 @@ $$Hypophthalmichthys \ molitrix \ (Valenciennes, 1844)$$
 
 | 中文名 | 学名（属名＋种加词） | 所属目 |
 | --- | --- | --- |
-| 青鱼 | *Mylopharyngodon piceus* | 鲤形目 |
-| 草鱼 | *Ctenopharyngodon idella* | 鲤形目 |
-| 鲢 | *Hypophthalmichthys molitrix* | 鲤形目 |
-| 鳙 | *Aristichthys nobilis* | 鲤形目 |
-| 鲤 | *Cyprinus carpio* | 鲤形目 |
-| 鲫 | *Carassius auratus* | 鲤形目 |
-| 鲈（大口黑鲈） | *Micropterus salmoides* | 鲈形目 |
-| 罗非鱼（尼罗罗非鱼） | *Oreochromis niloticus* | 鲈形目 |
-| 大黄鱼 | *Larimichthys crocea* | 鲈形目 |
-| 中华绒螯蟹（非鱼） | *Eriocheir sinensis* | 十足目 |
+| 青鱼 | *Mylopharyngodon piceus\* | 鲤形目 |
+| 草鱼 | *Ctenopharyngodon idella\* | 鲤形目 |
+| 鲢 | *Hypophthalmichthys molitrix\* | 鲤形目 |
+| 鳙 | *Aristichthys nobilis\* | 鲤形目 |
+| 鲤 | *Cyprinus carpio\* | 鲤形目 |
+| 鲫 | *Carassius auratus\* | 鲤形目 |
+| 鲈（大口黑鲈） | *Micropterus salmoides\* | 鲈形目 |
+| 罗非鱼（尼罗罗非鱼） | *Oreochromis niloticus\* | 鲈形目 |
+| 大黄鱼 | *Larimichthys crocea\* | 鲈形目 |
+| 中华绒螯蟹（非鱼） | *Eriocheir sinensis\* | 十足目 |
 
 记住几个规律：鲤形目的六大家鱼学名都以"鲤科"为大宗；鲈形目明星众多，鲈、罗非鱼、大黄鱼都属此目；而"三文鱼"其实是商品名，对应大西洋鲑与虹鳟两个不同种——**看学名，才能识破"商品名混淆"**。
 

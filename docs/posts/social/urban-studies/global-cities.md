@@ -38,7 +38,7 @@ date: 2026-08-07
 取决于集聚的资本与总部数量。
 
 1991 年，
-**萨森（Saskia Sassen）** 出版《全球城市》（*The Global City*），
+**萨森（Saskia Sassen）** 出版《全球城市》（*The Global City\*），
 把概念再推进一层。
 她指出：**世界城市强调的是「老牌权力中心」，
 全球城市强调的是「生产性服务业（producer services）的全球节点」**。

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>把图的邻居信息做一次对称归一化的加权平均，再叠一层非线性——这就是过去十年图深度学习最重要的一次简化。</p>
-<footer>—— 出自 Kipf & Welling, *Semi-Supervised Classification with Graph Convolutional Networks*（ICLR 2017）</footer>
+<footer>—— 出自 Kipf & Welling, *Semi-Supervised Classification with Graph Convolutional Networks\*（ICLR 2017）</footer>
 </div>
 
 <div class="article-byline">

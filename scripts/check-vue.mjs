@@ -31,7 +31,7 @@ const md = await createMarkdownRenderer(join(process.cwd(), 'docs'), {
   config: (m) => {
     m.use(taskLists);
     // 与 build 一致：客户端 MathJax，输出 \(...\) / \[...\] 并转义 HTML 特殊字符
-    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\{/g, '&#123;').replace(/\}/g, '&#125;');
     m.renderer.rules.math_inline = (t, i) => '\\(' + esc(t[i].content) + '\\)';
     m.renderer.rules.math_block = (t, i) => '\\[' + esc(t[i].content) + '\\]';
   },

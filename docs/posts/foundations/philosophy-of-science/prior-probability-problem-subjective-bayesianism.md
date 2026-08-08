@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>概率是信念的度量——不同的人对同一命题可以有不同概率，只要他们都服从概率公理。
 </p>
-<footer>—— 布鲁诺·德菲内蒂（Bruno de Finetti，*Theory of Probability*，1974）</footer>
+<footer>—— 布鲁诺·德菲内蒂（Bruno de Finetti，*Theory of Probability\*，1974）</footer>
 </div>
 
 <div class="article-byline">

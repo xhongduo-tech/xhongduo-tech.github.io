@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>知识就是力量。
 </p>
-<footer>—— 弗朗西斯·培根（Francis Bacon，*Meditationes Sacrae*，1597）</footer>
+<footer>—— 弗朗西斯·培根（Francis Bacon，*Meditationes Sacrae\*，1597）</footer>
 </div>
 
 <div class="article-byline">

@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>我思故我在。
 </p>
-<footer>—— 勒内·笛卡尔（René Descartes，*Discours de la méthode*，1637）</footer>
+<footer>—— 勒内·笛卡尔（René Descartes，*Discours de la méthode\*，1637）</footer>
 </div>
 
 <div class="article-byline">

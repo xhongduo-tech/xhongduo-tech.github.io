@@ -49,7 +49,9 @@ export default defineConfig({
       md.use(taskLists) // 让 - [ ] / - [x] 渲染为复选框
       // 客户端 MathJax：mathjax3 只负责 tokenize 保护 $...$，渲染输出 \(...\) / \[...\]
       // 由浏览器端 MathJax 排版。避免服务端内联 SVG（10257 页导致构建 OOM / 页面臃肿）。
-      const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      // 转义 < > & { }：{ } 会触发 Vue 模板把它当 JS 表达式；浏览器端 MathJax 读 DOM 文本自动解码
+      const esc = (s: string) =>
+        s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\{/g, '&#123;').replace(/\}/g, '&#125;')
       md.renderer.rules.math_inline = (tokens, idx) => '\\(' + esc(tokens[idx].content) + '\\)'
       md.renderer.rules.math_block = (tokens, idx) => '\\[' + esc(tokens[idx].content) + '\\]'
     },

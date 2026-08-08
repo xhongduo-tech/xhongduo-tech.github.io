@@ -118,4 +118,4 @@ $$
 
 在下一节，第一篇概述就此收官。我们带着四件套——问题分类、数据特点、对称性、可微编程——进入具体的第一个模型：**物理信息神经网络（PINN）**，看「把控制方程写进损失函数」这句口号，如何在自动微分的支撑下变成可运行的代码。
 
-> 本篇相关资源：反向传播见 Rumelhart, Hinton &amp; Williams, *Nature* 323:533–536（1986）；AD 的历史与模式见 Griewank &amp; Walther, *Evaluating Derivatives*（2008）；Neural ODE 的伴随法见 Chen et al., NeurIPS 2018（本专题第十一篇详述）；可微物理引擎见 $\Phi$-Flow（Holl, Thuerey et al., 2020）。
+> 本篇相关资源：反向传播见 Rumelhart, Hinton &amp; Williams, *Nature\* 323:533–536（1986）；AD 的历史与模式见 Griewank &amp; Walther, *Evaluating Derivatives\*（2008）；Neural ODE 的伴随法见 Chen et al., NeurIPS 2018（本专题第十一篇详述）；可微物理引擎见 $\Phi$-Flow（Holl, Thuerey et al., 2020）。

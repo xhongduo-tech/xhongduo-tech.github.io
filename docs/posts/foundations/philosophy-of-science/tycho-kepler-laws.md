@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>噢，上帝，我的造物主啊，感谢你仁慈地允许我凝视你所创造的最美妙的作品。
 </p>
-<footer>—— 约翰内斯·开普勒（Johannes Kepler，*Harmonices Mundi*，1619）</footer>
+<footer>—— 约翰内斯·开普勒（Johannes Kepler，*Harmonices Mundi\*，1619）</footer>
 </div>
 
 <div class="article-byline">

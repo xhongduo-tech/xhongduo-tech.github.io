@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>知识图谱把「知识」写成（实体，关系，实体）的三元组——而推理知识，就是在这些三元组之间走一条有意义的路。</p>
-<footer>—— 出自 Schlichtkrull et al., *Modeling Relational Data with Graph Convolutional Networks*（ESWC 2018）导读</footer>
+<footer>—— 出自 Schlichtkrull et al., *Modeling Relational Data with Graph Convolutional Networks\*（ESWC 2018）导读</footer>
 </div>
 
 <div class="article-byline">

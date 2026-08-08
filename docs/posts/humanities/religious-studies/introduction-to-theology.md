@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>信仰寻求理解。</p>
-<footer>——安瑟伦（Anselm of Canterbury, *Fides quaerens intellectum*）</footer>
+<footer>——安瑟伦（Anselm of Canterbury, *Fides quaerens intellectum\*）</footer>
 </div>
 
 <div class="article-byline">
@@ -22,7 +22,7 @@ date: 2026-08-07
 
 ## 1 神学是什么：信仰寻求理解
 
-「神学」（theology）一词源出希腊语 *theologia*——关于神（theos）的言说（logos）。字面义即「谈论神」。但神学不是「关于神的空谈」，它有严格的方法与对象。
+「神学」（theology）一词源出希腊语 *theologia\*——关于神（theos）的言说（logos）。字面义即「谈论神」。但神学不是「关于神的空谈」，它有严格的方法与对象。
 
 **安瑟伦的著名定义**最精确地把握了神学的本质：**「信仰寻求理解」（fides quaerens intellectum）**。神学的起点不是怀疑而是**信仰**——它不像哲学那样「先怀疑、后论证」，而是「先信、后理解」。信仰者已经委身于启示（圣经、古兰经、佛典），神学的工作是用理性去澄清、展开、辩护这个信仰的内涵。用一句话说：**哲学从问题出发走向神，神学从神出发走向问题。**<span class="marginnote">安瑟伦这个定义暗含一个微妙的循环结构：信仰是神学的前提，理解是信仰的目标。但这不是「论证循环」——神学不打算用理性「证明」信仰（那是宗教哲学的事），而要在信仰之内「理解」信仰。用神学家蒂利希的话说：神学是「关切终极之事者，用理性言说自己终极关切」的学问。</span>
 

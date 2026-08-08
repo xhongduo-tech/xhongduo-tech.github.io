@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="sans-serif">
+  <title>史瓦西黑洞视界附近光锥的倾斜</title>
+  <desc>示意在史瓦西坐标下，光锥随半径 r 的变化：远离引力源时光锥竖直（45°），接近视界时逐渐收窄，到视界处塌缩为竖直线，视界以内整体倒向 r 减小的方向。</desc>
+
+  <rect x="0" y="0" width="720" height="460" fill="#faf9f5"/>
+
+  <!-- 视界以内的阴影区 -->
+  <rect x="90" y="80" width="170" height="320" fill="#c0392b" opacity="0.08"/>
+  <text x="100" y="100" fill="#333" font-size="14">视界以内</text>
+  <text x="100" y="118" fill="#333" font-size="14">（r &lt; r&lt;sub&gt;s&lt;/sub&gt;）</text>
+
+  <!-- 坐标轴 -->
+  <line x1="90" y1="400" x2="640" y2="400" stroke="#333" stroke-width="1.5"/>
+  <line x1="90" y1="80" x2="90" y2="400" stroke="#333" stroke-width="1.5"/>
+  <text x="630" y="420" fill="#333" font-size="15">r →</text>
+  <text x="30" y="150" fill="#333" font-size="15">ct（坐标时间）</text>
+
+  <!-- r 轴刻度 -->
+  <text x="80" y="418" fill="#333" font-size="14">r=0</text>
+  <text x="248" y="418" fill="#333" font-size="14">r&lt;sub&gt;s&lt;/sub&gt;</text>
+  <text x="430" y="418" fill="#333" font-size="14">2r&lt;sub&gt;s&lt;/sub&gt;</text>
+
+  <!-- 视界竖线 -->
+  <line x1="260" y1="80" x2="260" y2="400" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="270" y="95" fill="#c0392b" font-size="14">视界</text>
+
+  <!-- 奇点标记 -->
+  <circle cx="90" cy="400" r="4" fill="#333"/>
+  <text x="120" y="230" fill="#333" font-size="14">奇点 r=0</text>
+
+  <!-- 光锥 1：r ≈ 3 r_s，竖直 -->
+  <g stroke="#1f6f8b" stroke-width="2" fill="none">
+    <line x1="600" y1="320" x2="680" y2="240"/>
+    <line x1="600" y1="320" x2="520" y2="240"/>
+  </g>
+  <text x="600" y="230" fill="#1f6f8b" font-size="13" text-anchor="middle">远处光锥竖直</text>
+
+  <!-- 光锥 2：r ≈ 1.5 r_s，收窄 -->
+  <g stroke="#1f6f8b" stroke-width="2" fill="none">
+    <line x1="345" y1="320" x2="372" y2="240"/>
+    <line x1="345" y1="320" x2="318" y2="240"/>
+  </g>
+  <text x="390" y="285" fill="#1f6f8b" font-size="13">接近视界：收窄</text>
+
+  <!-- 光锥 3：r = r_s，塌缩为竖直线 -->
+  <g stroke="#1f6f8b" stroke-width="2" fill="none">
+    <line x1="260" y1="320" x2="264" y2="240"/>
+    <line x1="260" y1="320" x2="256" y2="240"/>
+  </g>
+  <text x="200" y="270" fill="#1f6f8b" font-size="13">视界处：塌缩</text>
+
+  <!-- 光锥 4：r ≈ 0.6 r_s，整体倒向 r 减小 -->
+  <g stroke="#1f6f8b" stroke-width="2" fill="none">
+    <line x1="192" y1="320" x2="157" y2="240"/>
+    <line x1="192" y1="320" x2="112" y2="285"/>
+  </g>
+  <text x="160" y="230" fill="#1f6f8b" font-size="13">视界以内：</text>
+  <text x="160" y="248" fill="#1f6f8b" font-size="13">未来光锥整体指向 r 减小</text>
+
+  <!-- 水平辅助线：ct=0 -->
+  <text x="100" y="388" fill="#888" font-size="13">t=0</text>
+</svg>

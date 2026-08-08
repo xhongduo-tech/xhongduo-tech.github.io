@@ -92,7 +92,7 @@ $$
 **Pieper 准则**：一个 6 自由度串联机械臂，
 如果存在**三个相邻关节的轴线交于一点**，
 则它的逆运动学**有闭式解析解**。
-<span class="marginnote">Pieper 的原始工作发表于 1968 年的论文 *The Kinematics of Manipulators Under Computer Control*。
+<span class="marginnote">Pieper 的原始工作发表于 1968 年的论文 *The Kinematics of Manipulators Under Computer Control\*。
 今天几乎没有人在论文里再引用它，
 但「球腕 + 闭式逆解」这个设计原则，
 仍统治着工业机器人厂商的选型手册。

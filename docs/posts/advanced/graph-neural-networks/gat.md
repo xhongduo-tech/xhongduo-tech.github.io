@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>重要的邻居多听一点，不重要的邻居少听一点——注意力给每个顶点配了一副「该听谁的」的耳朵。</p>
-<footer>—— 出自 Veličković et al., *Graph Attention Networks*（ICLR 2018）</footer>
+<footer>—— 出自 Veličković et al., *Graph Attention Networks\*（ICLR 2018）</footer>
 </div>
 
 <div class="article-byline">

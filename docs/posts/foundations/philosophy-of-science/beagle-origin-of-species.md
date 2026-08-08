@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>从如此简单的开端，演化出无穷无尽的、最美丽最奇妙的生命形式。
 </p>
-<footer>—— 查尔斯·达尔文（Charles Darwin，*On the Origin of Species*，1859）</footer>
+<footer>—— 查尔斯·达尔文（Charles Darwin，*On the Origin of Species\*，1859）</footer>
 </div>
 
 <div class="article-byline">

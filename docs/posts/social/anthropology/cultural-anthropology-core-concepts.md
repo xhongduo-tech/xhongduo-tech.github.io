@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>文化或文明，就其广泛的民族学意义来说，是包括全部的知识、信仰、艺术、道德、法律、风俗以及作为社会成员的人所掌握和接受的任何其他能力和习惯的复合整体。</p>
-<footer>—— 爱德华 · 泰勒（Edward Tylor），*Primitive Culture*（1871）</footer>
+<footer>—— 爱德华 · 泰勒（Edward Tylor），*Primitive Culture\*（1871）</footer>
 </div>
 
 <div class="article-byline">

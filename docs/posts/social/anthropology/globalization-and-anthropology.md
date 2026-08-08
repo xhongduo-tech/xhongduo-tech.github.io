@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>全球化的结果不是全球的同质化，而是一个充满杂音、混血与再创造的全球文化拼盘——本地没有消失，它正在全球的缝隙里重新发明自己。</p>
-<footer>—— 据阿尔若 · 阿帕杜莱（Arjun Appadurai），*Modernity at Large*（1996）转述</footer>
+<footer>—— 据阿尔若 · 阿帕杜莱（Arjun Appadurai），*Modernity at Large\*（1996）转述</footer>
 </div>
 
 <div class="article-byline">

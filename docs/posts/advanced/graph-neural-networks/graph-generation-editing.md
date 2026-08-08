@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>生成一张图，比生成一张图像难得多：没有「从左到右」的天然顺序，每一次选择都落在一个指数级分支的空间里。</p>
-<footer>—— 出自 You et al., *GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models*（ICML 2018）</footer>
+<footer>—— 出自 You et al., *GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models\*（ICML 2018）</footer>
 </div>
 
 <div class="article-byline">

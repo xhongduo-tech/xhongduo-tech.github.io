@@ -32,7 +32,7 @@ date: 2026-08-07
 
 这一时期的信念被称为**理性主义（rationalism）**：语言是规则系统，只要把语法规则写全，机器就能「掌握」语言。乔姆斯基 1957 年出版的《句法结构》为这种信念提供了理论支撑——他提出**生成语法（generative grammar）**，用有限的重写规则生成无限多的句子，并给出了那句著名的「无色的绿色念头在愤怒地睡觉」（Colorless green ideas sleep furiously）：语法完全合法，语义却荒诞不经，恰好证明句法与语义是两个可以分离的层面。<span class="marginnote">「无色的绿色念头在愤怒地睡觉」在乔姆斯基那里是为了说明：句法合法（syntactically well-formed）不等于语义合理（semantically meaningful）。这句 1957 年造出来的话，后来在词向量时代被反复用作测试句。</span>
 
-但规则路线很快撞上了墙。1960 年，语言学家巴希勒尔（Yehoshua Bar-Hillel）指出，机器翻译要真正成功，必须消解一切歧义，而这往往需要百科全书式的世界知识。他的经典例子是：*Little John was looking for his toy box. Finally he found it. The box was in the pen.*——这里的 *pen* 究竟是「钢笔」还是「围栏」？没有任何语法规则能回答，因为答案藏在现实世界（玩具盒子不可能被装进钢笔里）。
+但规则路线很快撞上了墙。1960 年，语言学家巴希勒尔（Yehoshua Bar-Hillel）指出，机器翻译要真正成功，必须消解一切歧义，而这往往需要百科全书式的世界知识。他的经典例子是：*Little John was looking for his toy box. Finally he found it. The box was in the pen.*——这里的 *pen\* 究竟是「钢笔」还是「围栏」？没有任何语法规则能回答，因为答案藏在现实世界（玩具盒子不可能被装进钢笔里）。
 
 1966 年，美国科学院发布著名的 **ALPAC 报告**，结论是机器翻译比人工翻译更慢、更贵、更不准。联邦资助被切断，NLP 迎来第一次「寒冬」。**规则方法留下的教训是：专家书写的规则无法覆盖自然语言的无穷变化，瓶颈在「知识获取」。**<span class="marginnote">ALPAC 全称 Automatic Language Processing Advisory Committee（自动语言处理咨询委员会）。这次「寒冬」的真正成因不是技术失败本身，而是过度承诺：把「示范成功」当成了「问题已解决」。</span>
 

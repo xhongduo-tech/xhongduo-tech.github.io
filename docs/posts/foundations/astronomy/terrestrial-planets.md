@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>人类是好奇的物种，我们总想知道自己从何而来。而理解类地行星，就是在理解我们脚下的地球为什么是现在的样子。</p>
-<footer>—— 参考卡尔 · 萨根《宇宙》（Carl Sagan, *Cosmos*）</footer>
+<footer>—— 参考卡尔 · 萨根《宇宙》（Carl Sagan, *Cosmos\*）</footer>
 </div>
 
 <div class="article-byline">

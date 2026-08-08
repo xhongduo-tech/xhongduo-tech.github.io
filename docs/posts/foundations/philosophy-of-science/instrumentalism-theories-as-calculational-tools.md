@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>理论是预测的工具，不是对实在的画像。
 </p>
-<footer>—— 皮埃尔·迪昂（Pierre Duhem，*The Aim and Structure of Physical Theory*，1906）</footer>
+<footer>—— 皮埃尔·迪昂（Pierre Duhem，*The Aim and Structure of Physical Theory\*，1906）</footer>
 </div>
 
 <div class="article-byline">

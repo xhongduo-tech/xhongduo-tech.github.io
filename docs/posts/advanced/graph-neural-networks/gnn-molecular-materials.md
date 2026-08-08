@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>分子就是一张图：原子是顶点，化学键是边。而把这张图直接喂给神经网络——正是消息传递神经网络诞生的初衷。</p>
-<footer>—— 出自 Gilmer et al., *Neural Message Passing for Quantum Chemistry*（ICML 2017）导读</footer>
+<footer>—— 出自 Gilmer et al., *Neural Message Passing for Quantum Chemistry\*（ICML 2017）导读</footer>
 </div>
 
 <div class="article-byline">

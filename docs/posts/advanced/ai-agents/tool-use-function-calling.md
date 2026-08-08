@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>语言模型不该被困在语言里——它应当学会借助外部工具，来获取它自己无法掌握的信息。</p>
-<footer>—— 蒂姆 · 希克 等（Tim Schick, *Toolformer*）</footer>
+<footer>—— 蒂姆 · 希克 等（Tim Schick, *Toolformer\*）</footer>
 </div>
 
 <div class="article-byline">

@@ -73,7 +73,7 @@ date: 2026-08-08
 
 ## 3 反传统的爱情诗：《第 130 首》
 
-莎士比亚十四行诗里最机智的一首，是**第 130 首**（*My mistress' eyes are nothing like the sun*）：
+莎士比亚十四行诗里最机智的一首，是**第 130 首**（*My mistress' eyes are nothing like the sun\*）：
 
 > 我情人的眼睛绝不像太阳；
 > 珊瑚远比她嘴唇红得多；

@@ -9,7 +9,7 @@ date: 2026-08-07
 <p>物理实在……只是社会建构吗？
 如果真是这样，那我们就太可笑了。
 </p>
-<footer>—— 艾伦·索卡尔（Alan Sokal，*Transgressing the Boundaries*，1996）</footer>
+<footer>—— 艾伦·索卡尔（Alan Sokal，*Transgressing the Boundaries\*，1996）</footer>
 </div>
 
 <div class="article-byline">

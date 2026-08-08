@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>生态学的第一定律：万物与其他万物相连。</p>
-<footer>—— 巴里 · 康芒纳（Barry Commoner, *The Closing Circle*, 1971）</footer>
+<footer>—— 巴里 · 康芒纳（Barry Commoner, *The Closing Circle\*, 1971）</footer>
 </div>
 
 <div class="article-byline">

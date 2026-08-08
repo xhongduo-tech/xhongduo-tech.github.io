@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>常规科学的活动，就像解谜：谜题的存在，正因为它有解答——而且范式保证了答案的存在。
 </p>
-<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions*，1962）</footer>
+<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions\*，1962）</footer>
 </div>
 
 <div class="article-byline">

@@ -117,4 +117,4 @@ $$
 
 在下一节，我们把镜头从「问题分类」转向「原料质量」：无论哪种层级、哪类任务，SciML 都要先面对一个根本前提——**科学数据本身有多难伺候？** 这就是《科学数据的特点：多尺度、稀疏、噪声与物理约束》。
 
-> 本篇相关资源：SciML 学科定位见 Baker et al., *A Manifesto on Computational Science &amp; Scientific Machine Learning*（2019）；PINN 见 Raissi, Perdikaris &amp; Karniadakis, *J. Comput. Phys.* 378:686–707（2019）；神经算子与 Neural ODE、Hamiltonian NN 分别对应本专题第五、十一篇。
+> 本篇相关资源：SciML 学科定位见 Baker et al., *A Manifesto on Computational Science &amp; Scientific Machine Learning\*（2019）；PINN 见 Raissi, Perdikaris &amp; Karniadakis, *J. Comput. Phys.* 378:686–707（2019）；神经算子与 Neural ODE、Hamiltonian NN 分别对应本专题第五、十一篇。

@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>科学不是在真理性上区别于神话，而是在『可以被批判地检验』上区别于神话。
 </p>
-<footer>—— 卡尔·波普尔（Karl Popper，*Conjectures and Refutations*，1963）</footer>
+<footer>—— 卡尔·波普尔（Karl Popper，*Conjectures and Refutations\*，1963）</footer>
 </div>
 
 <div class="article-byline">

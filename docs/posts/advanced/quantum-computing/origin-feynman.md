@@ -81,13 +81,13 @@ $n = 50$ 是量子模拟的关键分界：今天最快的经典超算也存不�
 
 ## 4 Feynman 的提议：用量子系统模拟量子系统
 
-1981 年 5 月，费曼在麻省理工学院举办的「物理学与计算」会议上做了题为 *Simulating Physics with Computers*（用计算机模拟物理）的主题演讲，次年发表在《国际理论物理杂志》。他的论证可以浓缩为三步：
+1981 年 5 月，费曼在麻省理工学院举办的「物理学与计算」会议上做了题为 *Simulating Physics with Computers\*（用计算机模拟物理）的主题演讲，次年发表在《国际理论物理杂志》。他的论证可以浓缩为三步：
 
 1. **经典计算机模拟量子系统的代价随系统大小指数增长**——正是第 3 节算的那笔账。
 2. **但量子系统自身的演化不费这个劲**：大自然每时每刻都在「演算」自己，薛定谔方程对一个态的作用，就是一次指数级的并行更新。
 3. **结论**：与其用经典机器硬模拟量子世界，不如**建造一台可编程的量子系统，让它去模拟其他量子系统**——这就是量子模拟器（quantum simulator）的构想。
 
-费曼还给出了一个更激进的猜想：存在一台**普适量子模拟器**——用足够多的量子比特与合适的相互作用，可以高效模拟任何局域量子系统。这个猜想在 1996 年被 Seth Lloyd 严格证明（*Universal Quantum Simulators*，Science）。<span class="marginnote">费曼论文出处：R. P. Feynman, "Simulating physics with computers," <i>International Journal of Theoretical Physics</i> 21 (1982) 467–488。他的演讲里还有一句流传更广的话：这不是一个容易的问题，「It doesn't look so easy」。</span>
+费曼还给出了一个更激进的猜想：存在一台**普适量子模拟器**——用足够多的量子比特与合适的相互作用，可以高效模拟任何局域量子系统。这个猜想在 1996 年被 Seth Lloyd 严格证明（*Universal Quantum Simulators\*，Science）。<span class="marginnote">费曼论文出处：R. P. Feynman, "Simulating physics with computers," <i>International Journal of Theoretical Physics</i> 21 (1982) 467–488。他的演讲里还有一句流传更广的话：这不是一个容易的问题，「It doesn't look so easy」。</span>
 
 注意费曼关心的并不是「算得更快」的通用计算机，而是**模拟自然**。量子计算的初衷，是补足经典科学方法的一个根本缺口——这也解释了为什么后来量子计算最强的应用预告，恰恰在化学、材料这类「量子系统」的模拟上。
 
@@ -101,7 +101,7 @@ Benioff 的模型说明了一件重要的事：**「计算」本身可以是一�
 
 ## 6 Deutsch：把量子计算形式化
 
-真正把量子计算从「想法」提升为「理论」的，是牛津大学的 David Deutsch。1985 年他在《伦敦皇家学会会刊》发表 *Quantum theory, the Church–Turing principle and the universal quantum computer*，给出了**量子图灵机（quantum Turing machine）**的完整数学模型，并把「通用计算」的思想推广为一条物理原理——**丘奇–图灵原理（Church–Turing principle）**：任何有限可实现的物理系统，都能被一台通用计算装置以有限的方式完美模拟。<span class="marginnote">丘奇–图灵原理把「可计算」从数学概念变成物理概念：既然物理定律允许量子过程，而通用计算机又能模拟任何物理过程，那么量子过程本身也必须在计算模型中有一席之地。Deutsch 出处：D. Deutsch, <i>Proc. R. Soc. Lond. A</i> 400 (1985) 97–117。</span>
+真正把量子计算从「想法」提升为「理论」的，是牛津大学的 David Deutsch。1985 年他在《伦敦皇家学会会刊》发表 *Quantum theory, the Church–Turing principle and the universal quantum computer\*，给出了**量子图灵机（quantum Turing machine）**的完整数学模型，并把「通用计算」的思想推广为一条物理原理——**丘奇–图灵原理（Church–Turing principle）**：任何有限可实现的物理系统，都能被一台通用计算装置以有限的方式完美模拟。<span class="marginnote">丘奇–图灵原理把「可计算」从数学概念变成物理概念：既然物理定律允许量子过程，而通用计算机又能模拟任何物理过程，那么量子过程本身也必须在计算模型中有一席之地。Deutsch 出处：D. Deutsch, <i>Proc. R. Soc. Lond. A</i> 400 (1985) 97–117。</span>
 
 Deutsch 的计算模型第一次让「量子比特的叠加」成为可操作的计算资源。1992 年，他与 Richard Jozsa 一起提出了 **Deutsch–Jozsa 算法**——第一个（在黑盒查询模型下）严格优于任何经典算法的量子算法：对某个「平衡或恒定」的函数，经典算法最坏需要指数次查询，量子算法只需一次。<span class="marginnote">Deutsch–Jozsa 算法解决的问题本身是「玩具」：一个被刻意造出来的黑盒。但它的意义在于证明了「量子算法可以做到经典算法做不到的事」——把 Feynman 的直觉第一次落成了严格的计算结果。第零篇《量子计算的发展简史》会继续讲它。</span>
 

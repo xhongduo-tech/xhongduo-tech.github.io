@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>「所有乌鸦皆黑」与「所有非黑者皆非乌鸦」在逻辑上等价——但观察一只红苹果似乎支持前者，这合理吗？
 </p>
-<footer>—— 卡尔·亨佩尔（Carl Hempel，*Studies in the Logic of Confirmation*，1945）</footer>
+<footer>—— 卡尔·亨佩尔（Carl Hempel，*Studies in the Logic of Confirmation\*，1945）</footer>
 </div>
 
 <div class="article-byline">

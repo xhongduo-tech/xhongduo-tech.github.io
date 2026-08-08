@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>物理学家永远无法把单个假说交给实验检验——检验的总是整个假说网络。
 </p>
-<footer>—— 皮埃尔·迪昂（Pierre Duhem，*The Aim and Structure of Physical Theory*，1906）</footer>
+<footer>—— 皮埃尔·迪昂（Pierre Duhem，*The Aim and Structure of Physical Theory\*，1906）</footer>
 </div>
 
 <div class="article-byline">

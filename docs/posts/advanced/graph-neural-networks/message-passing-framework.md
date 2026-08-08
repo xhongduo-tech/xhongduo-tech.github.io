@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>所有 GNN 都在做同一件事：让每个顶点先「听听邻居怎么说」，再「决定自己怎么改」——不同的只是听与改的方式。</p>
-<footer>—— 出自 Gilmer et al., *Neural Message Passing for Quantum Chemistry*（ICML 2017）</footer>
+<footer>—— 出自 Gilmer et al., *Neural Message Passing for Quantum Chemistry\*（ICML 2017）</footer>
 </div>
 
 <div class="article-byline">

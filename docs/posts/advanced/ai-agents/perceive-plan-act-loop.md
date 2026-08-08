@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>智能体应当不仅仅是一个反应式的机器，而是一个能够想象未来后果、据此选择行动的规划者。</p>
-<footer>—— 斯图尔特 · 罗素 与 彼得 · 诺维格（Stuart Russell & Peter Norvig, *Artificial Intelligence: A Modern Approach*）</footer>
+<footer>—— 斯图尔特 · 罗素 与 彼得 · 诺维格（Stuart Russell & Peter Norvig, *Artificial Intelligence: A Modern Approach\*）</footer>
 </div>
 
 <div class="article-byline">

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>礼物不是为了换取回报，而是为了创造或维持一种社会纽带；把礼物仅仅看作「物的转移」，就错过了它真正的功能。</p>
-<footer>—— 马塞尔 · 莫斯（Marcel Mauss），*The Gift*（1925）</footer>
+<footer>—— 马塞尔 · 莫斯（Marcel Mauss），*The Gift\*（1925）</footer>
 </div>
 
 <div class="article-byline">

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>把「每个顶点都要看到全图」的奢望放下，一次只采样一小撮邻居——归纳式图学习的工程起点。</p>
-<footer>—— 出自 Hamilton, Ying & Leskovec, *Inductive Representation Learning on Large Graphs*（NeurIPS 2017）</footer>
+<footer>—— 出自 Hamilton, Ying & Leskovec, *Inductive Representation Learning on Large Graphs\*（NeurIPS 2017）</footer>
 </div>
 
 <div class="article-byline">

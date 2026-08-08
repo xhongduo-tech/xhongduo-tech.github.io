@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>现在（自然力）运作的方式，与过去是相同的。
 </p>
-<footer>—— 詹姆斯·赫顿（James Hutton，*Theory of the Earth*，1788）</footer>
+<footer>—— 詹姆斯·赫顿（James Hutton，*Theory of the Earth\*，1788）</footer>
 </div>
 
 <div class="article-byline">
@@ -18,7 +18,7 @@ date: 2026-08-07
 ## 为什么从赖尔开始
 
 达尔文的进化论建立在「生物随时间而变」之上，而「地质时间足够长」这个前提，来自 19 世纪的地质学革命。
-**查尔斯·赖尔（Charles Lyell，1797—1875）**的《地质学原理》（*Principles of Geology*，1830—1833）是这场革命的核心文本。
+**查尔斯·赖尔（Charles Lyell，1797—1875）**的《地质学原理》（*Principles of Geology\*，1830—1833）是这场革命的核心文本。
 <span class="marginnote">赖尔是苏格兰律师出身的博物学家，他 1830 年起分三卷出版《地质学原理》，1831 年达尔文随贝格尔号远航时随身携带第一卷——这本书记载的地质方法直接影响了达尔文对生物进化的思考。
 </span>赖尔推广的**均变论（uniformitarianism）**主张：解释地球历史，应只诉诸「现在仍在起作用」的缓慢自然力（河流冲刷、地壳抬升、火山、冰川），而非神迹或灾变。
 理解赖尔，就是理解「深时」（deep time）概念如何进入科学——没有它，进化论在时间上根本无法成立。

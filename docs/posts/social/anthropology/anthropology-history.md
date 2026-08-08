@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>一切知识都是某一时代的产儿；人类学这门学科也不例外，它是 19 世纪欧洲历史结构的产物。</p>
-<footer>—— 埃里克 · 沃尔夫（Eric Wolf），*Anthropology Among the Powerless*（1982）</footer>
+<footer>—— 埃里克 · 沃尔夫（Eric Wolf），*Anthropology Among the Powerless\*（1982）</footer>
 </div>
 
 <div class="article-byline">

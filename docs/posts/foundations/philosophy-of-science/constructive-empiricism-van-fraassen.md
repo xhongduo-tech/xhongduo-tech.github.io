@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>科学的目标是给出经验上适当（empirically adequate）的理论，而不是字面上为真的理论。
 </p>
-<footer>—— 巴斯·范·弗拉森（Bas van Fraassen，*The Scientific Image*，1980）</footer>
+<footer>—— 巴斯·范·弗拉森（Bas van Fraassen，*The Scientific Image\*，1980）</footer>
 </div>
 
 <div class="article-byline">
@@ -17,7 +17,7 @@ date: 2026-08-07
 
 ## 为什么从建构经验论开始
 
-悲观元归纳动摇了「科学逼近真理」，但反实在论需要一个**正面纲领**——范·弗拉森（Bas van Fraassen，1941—）在 1980 年《科学的形象》（*The Scientific Image*）中给出当代最精致的反实在论：**建构经验论（Constructive Empiricism）**。
+悲观元归纳动摇了「科学逼近真理」，但反实在论需要一个**正面纲领**——范·弗拉森（Bas van Fraassen，1941—）在 1980 年《科学的形象》（*The Scientific Image\*）中给出当代最精致的反实在论：**建构经验论（Constructive Empiricism）**。
 <span class="marnote">范·弗拉森是荷裔美国科学哲学家。
 建构经验论是「经验主义」的当代复兴：它保留了「观察是知识的根基」，但拒绝「理论为真」——科学的目的是「经验适当」，不是「真理」。
 </span>建构经验论与朴素工具主义（理论只是计算工具）不同——它承认理论「被建构」来描述世界，只是「目的」是「拯救现象」而非「揭示实在」。

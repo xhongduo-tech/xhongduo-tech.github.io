@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>在无标签的海量图上预习「图的一般规律」，再带着少量标签精修「这个任务的特长」——迁移学习在图上同样成立。</p>
-<footer>—— 出自 Hu et al., *Strategies for Pre-training Graph Neural Networks*（ICLR 2020）</footer>
+<footer>—— 出自 Hu et al., *Strategies for Pre-training Graph Neural Networks\*（ICLR 2020）</footer>
 </div>
 
 <div class="article-byline">

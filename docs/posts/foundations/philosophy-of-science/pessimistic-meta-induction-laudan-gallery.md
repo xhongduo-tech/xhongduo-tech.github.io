@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>如果过去的成功理论后来都被证明是错的，我们凭什么相信现在的成功理论？
 </p>
-<footer>—— 劳丹（Larry Laudan，*A Confutation of Convergent Realism*，1981）</footer>
+<footer>—— 劳丹（Larry Laudan，*A Confutation of Convergent Realism\*，1981）</footer>
 </div>
 
 <div class="article-byline">

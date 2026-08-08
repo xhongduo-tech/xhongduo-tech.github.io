@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>仪式是凝固的时间，是社会在关键时刻排练自己的方式。</p>
-<footer>—— 据埃米尔 · 涂尔干（Émile Durkheim），*The Elementary Forms of Religious Life*（1912）转述</footer>
+<footer>—— 据埃米尔 · 涂尔干（Émile Durkheim），*The Elementary Forms of Religious Life\*（1912）转述</footer>
 </div>
 
 <div class="article-byline">

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>如果我们把人当作自然界的一个物种来研究，就必须说：在生物学意义上，人类根本没有「种族」这种东西——有的只是连续的、渐变的人类多样性。</p>
-<footer>—— 据阿什利 · 蒙塔古（Ashley Montagu），*Man's Most Dangerous Myth: The Fallacy of Race*（1942）转述</footer>
+<footer>—— 据阿什利 · 蒙塔古（Ashley Montagu），*Man's Most Dangerous Myth: The Fallacy of Race\*（1942）转述</footer>
 </div>
 
 <div class="article-byline">

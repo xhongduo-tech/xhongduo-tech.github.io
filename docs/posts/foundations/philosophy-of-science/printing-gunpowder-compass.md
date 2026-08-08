@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>这三种发明改变了整个世界的面貌和状态……没有任何政权、任何学派、任何杰出人物对人类事务的影响，能比这些机械发明更深远。
 </p>
-<footer>—— 弗朗西斯·培根（Francis Bacon，*Novum Organum*，1620）</footer>
+<footer>—— 弗朗西斯·培根（Francis Bacon，*Novum Organum\*，1620）</footer>
 </div>
 
 <div class="article-byline">

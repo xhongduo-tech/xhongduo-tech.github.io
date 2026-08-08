@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>科学革命之后，科学家是在一个不同的世界里工作。
 </p>
-<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions*，1962）</footer>
+<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions\*，1962）</footer>
 </div>
 
 <div class="article-byline">
@@ -18,7 +18,7 @@ date: 2026-08-07
 ## 为什么从库恩开始
 
 到 20 世纪 50 年代，科学哲学的主流（逻辑实证主义、波普尔）仍从「逻辑」看科学：科学是命题的逻辑结构，进步是理论的逻辑替换。
-**托马斯·库恩（Thomas Kuhn，1922—1996）**在 1962 年出版的《科学革命的结构》（*The Structure of Scientific Revolutions*）彻底改变了视角——**从「逻辑」转向「历史」**。
+**托马斯·库恩（Thomas Kuhn，1922—1996）**在 1962 年出版的《科学革命的结构》（*The Structure of Scientific Revolutions\*）彻底改变了视角——**从「逻辑」转向「历史」**。
 <span class="marginnote">库恩是物理学家出身，后在哈佛攻读科学史。
 他在为自然科学通识课程备课研究亚里士多德物理学时，「顿悟」到亚里士多德并非「错了」，而是在「另一个世界里」思考——这个顿悟孕育了范式理论。
 1962 年《科学革命的结构》出版，成为 20 世纪被引用最多的科学哲学著作。

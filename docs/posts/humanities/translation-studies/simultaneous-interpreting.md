@@ -45,7 +45,7 @@ $$ \text{SI} = L + M + P + C $$
 
 同传译员依靠一套专门策略来对抗精力超载：
 
-**策略一：顺句驱动（syntactic linearity）**。这是同传最核心的策略：**尽量按目标语的习惯顺着原文语序译出**，不攒大段再重排。英语的 *I would like to point out that the situation has changed* 不必等全句结束，可先译「我想指出的是，情况已经变了」。顺句驱动把「等结构完成再译」的负担降到最低，让产出紧跟听辨。
+**策略一：顺句驱动（syntactic linearity）**。这是同传最核心的策略：**尽量按目标语的习惯顺着原文语序译出**，不攒大段再重排。英语的 *I would like to point out that the situation has changed\* 不必等全句结束，可先译「我想指出的是，情况已经变了」。顺句驱动把「等结构完成再译」的负担降到最低，让产出紧跟听辨。
 
 **策略二：断句与增补**。把长句按意群切成短句，用「这、它、就是」等词把断开的句子补成完整表达——*We believe, and we have evidence for this, that the plan will work.* → 我们相信，而且我们有证据证明这一点，这个计划会奏效。
 

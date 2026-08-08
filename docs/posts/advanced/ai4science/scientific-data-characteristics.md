@@ -117,4 +117,4 @@ $$
 
 在下一节，我们从一个具体而深刻的物理先验出发：**对称性**。为什么「输入转一下，输出必须跟着转」这样的性质，能成倍地省数据？——这就是群论视角下的**对称性与等变性**。
 
-> 本篇相关资源：能量级联见 Richardson, *Weather Prediction by Numerical Process*（1922）与 Kolmogorov, *Dokl. Akad. Nauk SSSR*（1941）；维度灾难见 Bellman, *Adaptive Control Processes*（1961）；科莫戈罗夫标度 $\eta/L\sim\mathrm{Re}^{-3/4}$ 为湍流标准结论（K41），后续神经算子（第五篇）、FourCastNet（第六篇）、机器学习力场（第七篇）均由此引出的「以学换算」逻辑驱动。
+> 本篇相关资源：能量级联见 Richardson, *Weather Prediction by Numerical Process\*（1922）与 Kolmogorov, *Dokl. Akad. Nauk SSSR\*（1941）；维度灾难见 Bellman, *Adaptive Control Processes\*（1961）；科莫戈罗夫标度 $\eta/L\sim\mathrm{Re}^{-3/4}$ 为湍流标准结论（K41），后续神经算子（第五篇）、FourCastNet（第六篇）、机器学习力场（第七篇）均由此引出的「以学换算」逻辑驱动。

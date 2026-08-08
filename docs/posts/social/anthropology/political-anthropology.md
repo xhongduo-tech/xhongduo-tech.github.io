@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>在国家的阴影之外，人类曾经并且仍在以其他方式治理自己；政治的想象力不应被主权国家所垄断。</p>
-<footer>—— 据皮埃尔 · 克拉斯特尔（Pierre Clastres），*Society Against the State*（1974）转述</footer>
+<footer>—— 据皮埃尔 · 克拉斯特尔（Pierre Clastres），*Society Against the State\*（1974）转述</footer>
 </div>
 
 <div class="article-byline">

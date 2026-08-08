@@ -9,7 +9,7 @@ date: 2026-08-07
 <p>太阳明天还会升起吗？
 ——习惯是人生的伟大指南。
 </p>
-<footer>—— 大卫·休谟（David Hume，*An Enquiry Concerning Human Understanding*，1748）</footer>
+<footer>—— 大卫·休谟（David Hume，*An Enquiry Concerning Human Understanding\*，1748）</footer>
 </div>
 
 <div class="article-byline">

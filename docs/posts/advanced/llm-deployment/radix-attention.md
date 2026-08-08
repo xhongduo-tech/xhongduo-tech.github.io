@@ -18,7 +18,7 @@ date: 2026-08-07
 
 上一章我们花了整整一节讲 vLLM 的 Prefix Caching：用**块哈希 + 引用计数 + LRU** 让共享前缀的 KV 被复用。但 vLLM 的这套方案有两个「先天短板」：共享的单位是**固定大小的块**（默认 16 token），前缀必须块对齐才能命中；而且哈希表只是「内容的索引」，查找是逐块比对，缓存本身没有结构。
 
-SGLang 团队在 2024 年的论文 *Efficiently Programming Large Language Models using SGLang* 里给出了一个更激进的答案：**干脆把 KV Cache 本身组织成一棵前缀树（radix tree）**。在这棵树里，「两个请求共享前缀」不再是一个需要额外判断的巧合，而是树的**默认形态**——凡是前缀相同的路径，天然就合并成一条，KV 只算一次。<span class="marginnote">这就是「整体大于部分之和」的工程版：两份请求合起来，共用的那部分不按两份算。论文报告在共享前缀负载（多轮对话、RAG、few-shot）下能省去一半以上的 Prefill 计算量。</span>
+SGLang 团队在 2024 年的论文 *Efficiently Programming Large Language Models using SGLang\* 里给出了一个更激进的答案：**干脆把 KV Cache 本身组织成一棵前缀树（radix tree）**。在这棵树里，「两个请求共享前缀」不再是一个需要额外判断的巧合，而是树的**默认形态**——凡是前缀相同的路径，天然就合并成一条，KV 只算一次。<span class="marginnote">这就是「整体大于部分之和」的工程版：两份请求合起来，共用的那部分不按两份算。论文报告在共享前缀负载（多轮对话、RAG、few-shot）下能省去一半以上的 Prefill 计算量。</span>
 
 **核心概念：RadixAttention（基数树注意力）**：用一棵前缀树（也叫 radix tree、压缩字典树）组织所有已计算的 KV Cache，新请求从根出发做最长前缀匹配，命中的路径直接复用 KV，只对未命中的后缀做计算。它是 SGLang 的 KV 缓存分配器的底层结构。
 

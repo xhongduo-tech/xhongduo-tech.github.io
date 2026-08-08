@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>信息在图上来回跑，跑得越久越该学会「该记住什么、该忘掉什么」——图也需要一道闸门。</p>
-<footer>—— 出自 Li et al., *Gated Graph Sequence Neural Networks*（ICLR 2016）</footer>
+<footer>—— 出自 Li et al., *Gated Graph Sequence Neural Networks\*（ICLR 2016）</footer>
 </div>
 
 <div class="article-byline">

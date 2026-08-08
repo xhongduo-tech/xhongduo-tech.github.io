@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>我们最终要恢复的，不是土地，而是我们与土地的关系。</p>
-<footer>—— 罗宾 · 沃尔·基默尔（Robin Wall Kimmerer, *Braiding Sweetgrass*）</footer>
+<footer>—— 罗宾 · 沃尔·基默尔（Robin Wall Kimmerer, *Braiding Sweetgrass\*）</footer>
 </div>
 
 <div class="article-byline">

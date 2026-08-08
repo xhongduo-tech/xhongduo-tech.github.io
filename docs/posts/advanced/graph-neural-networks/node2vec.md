@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>同一张图，可以读成「谁和谁是一伙的」，也可以读成「谁扮演什么角色」。好的表示学习，应当能选择用哪只眼睛看。</p>
-<footer>—— 出自 Grover & Leskovec, *node2vec: Scalable Feature Learning for Networks*（KDD 2016）</footer>
+<footer>—— 出自 Grover & Leskovec, *node2vec: Scalable Feature Learning for Networks\*（KDD 2016）</footer>
 </div>
 
 <div class="article-byline">

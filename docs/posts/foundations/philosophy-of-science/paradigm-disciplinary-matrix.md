@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>范式不仅提供地图，还提供绘制地图的方向。
 </p>
-<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions*，1962）</footer>
+<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions\*，1962）</footer>
 </div>
 
 <div class="article-byline">

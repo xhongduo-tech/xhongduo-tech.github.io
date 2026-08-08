@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>性状的分离与独立分配，遵循简单的数量规律。
 </p>
-<footer>—— 格雷戈尔·孟德尔（Gregor Mendel，*Versuche über Pflanzen-Hybriden*，1866）</footer>
+<footer>—— 格雷戈尔·孟德尔（Gregor Mendel，*Versuche über Pflanzen-Hybriden\*，1866）</footer>
 </div>
 
 <div class="article-byline">

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>推理让行动有依据，行动让推理有材料——二者交替，才能解决需要多步思考的复杂任务。</p>
-<footer>—— 姚顺雨 等（Shunyu Yao, *ReAct: Synergizing Reasoning and Acting in Language Models*, 2022）</footer>
+<footer>—— 姚顺雨 等（Shunyu Yao, *ReAct: Synergizing Reasoning and Acting in Language Models\*, 2022）</footer>
 </div>
 
 <div class="article-byline">

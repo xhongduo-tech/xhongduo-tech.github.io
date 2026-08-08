@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>能看见自己的错误，是一切学习的前提；能修正自己的错误，是智能体区别于工具的界线。</p>
-<footer>—— 诺亚 · 希恩 等（Noah Shinn, *Reflexion*）</footer>
+<footer>—— 诺亚 · 希恩 等（Noah Shinn, *Reflexion\*）</footer>
 </div>
 
 <div class="article-byline">

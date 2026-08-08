@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>社会结构不是人们想出来的模型，而是人们在行动中实际遵循的关系模式；它像语法——说话的人不必意识到它，却处处受它支配。</p>
-<footer>—— 据 A. R. 拉德克利夫-布朗（A. R. Radcliffe-Brown），*Structure and Function in Primitive Society*（1952）转述</footer>
+<footer>—— 据 A. R. 拉德克利夫-布朗（A. R. Radcliffe-Brown），*Structure and Function in Primitive Society\*（1952）转述</footer>
 </div>
 
 <div class="article-byline">

@@ -12,46 +12,46 @@ pageClass: plain-doc
 
 ### 第一篇 命题逻辑
 
-- [ ] 命题与逻辑联结词
-- [ ] 真值表与重言式
-- [ ] 蕴含与等值
-- [ ] 范式：合取/析取范式
-- [ ] 逻辑蕴含与推理规则
-- [ ] 自然演绎系统
-- [ ] 公理系统与定理
-- [ ] 命题演算的可靠性与完备性
+- [x] [命题与逻辑联结词](./proposition-and-connectives)
+- [x] [真值表与重言式](./truth-tables-and-tautologies)
+- [x] [蕴含与等值](./implication-and-equivalence)
+- [x] [范式：合取/析取范式](./normal-forms)
+- [x] [逻辑蕴含与推理规则](./logical-consequence-and-inference-rules)
+- [x] [自然演绎系统](./natural-deduction)
+- [x] [公理系统与定理](./axiomatic-systems-and-theorems)
+- [x] [命题演算的可靠性与完备性](./propositional-soundness-completeness)
 
 ### 第二篇 一阶谓词逻辑
 
-- [ ] 谓词、量词与个体
-- [ ] 项与公式
-- [ ] 自由变元与约束变元
-- [ ] 结构与模型
-- [ ] 语义蕴含与有效性
-- [ ] 一阶自然演绎
-- [ ] 斯科伦化与前束范式
-- [ ] 哥德尔完备性定理
-- [ ] 一阶逻辑的不可判定性
+- [x] [谓词、量词与个体](./predicates-quantifiers-individuals)
+- [x] [项与公式](./terms-and-formulas)
+- [x] [自由变元与约束变元](./free-and-bound-variables)
+- [x] [结构与模型](./structures-and-models)
+- [x] [语义蕴含与有效性](./semantic-entailment-and-validity)
+- [x] [一阶自然演绎](./first-order-natural-deduction)
+- [x] [斯科伦化与前束范式](./skolemization-and-prencx-normal-form)
+- [x] [哥德尔完备性定理](./godel-completeness-theorem)
+- [x] [一阶逻辑的不可判定性](./undecidability-of-first-order-logic)
 
 ### 第三篇 可计算性与哥德尔定理
 
-- [ ] 原始递归函数
-- [ ] 可计算函数与图灵机
-- [ ] 停机问题与判定问题
-- [ ] 哥德尔第一不完备定理
-- [ ] 哥德尔第二不完备定理
-- [ ] 丘奇-图灵论题
-- [ ] 不可判定问题的实例
+- [x] [原始递归函数](./primitive-recursive-functions)
+- [x] [可计算函数与图灵机](./computable-functions-and-turing-machines)
+- [x] [停机问题与判定问题](./halting-problem-and-decision-problems)
+- [x] [哥德尔第一不完备定理](./godel-first-incompleteness-theorem)
+- [x] [哥德尔第二不完备定理](./godel-second-incompleteness-theorem)
+- [x] [丘奇-图灵论题](./church-turing-thesis)
+- [x] [不可判定问题的实例](./instances-of-undecidable-problems)
 
 ### 第四篇 模型论与证明论初步
 
-- [ ] 紧致性定理
-- [ ] 洛文海姆-斯科伦定理
-- [ ] 量词消去
-- [ ] 序结构与实数模型
-- [ ] 希尔伯特系统
-- [ ] 序列演算（Gentzen）
-- [ ] 切消定理
-- [ ] 直觉主义逻辑与构造性数学
+- [x] [紧致性定理](./compactness-theorem)
+- [x] [洛文海姆-斯科伦定理](./lowenheim-skolem-theorem)
+- [x] [量词消去](./quantifier-elimination)
+- [x] [序结构与实数模型](./order-structures-and-real-model)
+- [x] [希尔伯特系统](./hilbert-system)
+- [x] [序列演算（Gentzen）](./sequent-calculus)
+- [x] [切消定理](./cut-elimination-theorem)
+- [x] [直觉主义逻辑与构造性数学](./intuitionistic-logic-and-constructive-mathematics)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

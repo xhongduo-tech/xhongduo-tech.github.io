@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>智能体是通过传感器感知环境、通过执行器作用于环境的任何事物。</p>
-<footer>—— 斯图尔特 · 罗素 与 彼得 · 诺维格（Stuart Russell & Peter Norvig, *Artificial Intelligence: A Modern Approach*）</footer>
+<footer>—— 斯图尔特 · 罗素 与 彼得 · 诺维格（Stuart Russell & Peter Norvig, *Artificial Intelligence: A Modern Approach\*）</footer>
 </div>
 
 <div class="article-byline">

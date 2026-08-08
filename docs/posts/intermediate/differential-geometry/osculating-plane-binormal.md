@@ -32,7 +32,7 @@ $$
 \Pi(t) = \operatorname{span}\big\{\alpha'(t),\, \alpha''(t)\big\} = \big\{\,\alpha(t) + u\,\alpha'(t) + v\,\alpha''(t)\;\big|\;u,v\in\mathbb{R}\big\}
 $$
 
-在弧长参数下，$\alpha'(s) = \mathbf{T}$，$\alpha''(s) = \kappa\,\mathbf{N}$，所以**密切平面正是 $\mathbf{T}$ 与 $\mathbf{N}$ 张成的平面**。词源上 "osculating" 来自拉丁语 *osculare*（亲吻）——这个平面与曲线在 $P$ 点「亲吻」在一起，比任何别的平面都贴得更紧。
+在弧长参数下，$\alpha'(s) = \mathbf{T}$，$\alpha''(s) = \kappa\,\mathbf{N}$，所以**密切平面正是 $\mathbf{T}$ 与 $\mathbf{N}$ 张成的平面**。词源上 "osculating" 来自拉丁语 *osculare\*（亲吻）——这个平面与曲线在 $P$ 点「亲吻」在一起，比任何别的平面都贴得更紧。
 
 **重点：密切平面是曲线在一点附近的「最佳二维近似」，正如切线是「最佳一维近似」。** 切线只保证方向相同；密切平面保证曲线局部不再离开这个平面（偏差是三阶小量，见下）。把「直线、圆、平面」三层近似放一起，就得到一张完整的逼近阶梯。
 
@@ -66,7 +66,7 @@ $$
 
 - **密切平面**（$\mathbf{T},\mathbf{N}$ 张成）：曲线局部贴着它，密切圆躺在它里面。
 - **法平面**（$\mathbf{N},\mathbf{B}$ 张成）：垂直于 $\mathbf{T}$，过 $P$ 点的所有「横截面」方向都在其中。
-- **从切平面**（$\mathbf{T},\mathbf{B}$ 张成）：垂直于 $\mathbf{N}$，名字来自拉丁语 *rectificare*（拉直）。
+- **从切平面**（$\mathbf{T},\mathbf{B}$ 张成）：垂直于 $\mathbf{N}$，名字来自拉丁语 *rectificare\*（拉直）。
 
 它们像墙角的三个墙面，两两相交于一条轴：
 

@@ -12,41 +12,41 @@ pageClass: plain-doc
 
 ### 第一篇 复变函数
 
-- [ ] 复数的代数与几何表示
-- [ ] 复变函数与解析函数
-- [ ] 柯西-黎曼方程
-- [ ] 初等解析函数
-- [ ] 复变函数的积分
-- [ ] 柯西积分定理
-- [ ] 柯西积分公式
-- [ ] 泰勒级数与洛朗级数
-- [ ] 孤立奇点分类
-- [ ] 留数定理
-- [ ] 留数在实积分中的应用
-- [ ] 辐角原理与儒歇定理
+- [x] [复数的代数与几何表示](./complex-numbers-algebra-geometry)
+- [x] [复变函数与解析函数](./analytic-functions)
+- [x] [柯西-黎曼方程](./cauchy-riemann-equations)
+- [x] [初等解析函数](./elementary-analytic-functions)
+- [x] [复变函数的积分](./complex-integration)
+- [x] [柯西积分定理](./cauchy-integral-theorem)
+- [x] [柯西积分公式](./cauchy-integral-formula)
+- [x] [泰勒级数与洛朗级数](./taylor-laurent-series)
+- [x] [孤立奇点分类](./isolated-singularities)
+- [x] [留数定理](./residue-theorem)
+- [x] [留数在实积分中的应用](./residues-real-integrals)
+- [x] [辐角原理与儒歇定理](./argument-principle-rouche)
 
 ### 第二篇 积分变换
 
-- [ ] 傅里叶级数
-- [ ] 傅里叶变换
-- [ ] 拉普拉斯变换
-- [ ] 拉普拉斯逆变换
-- [ ] 卷积与Parseval定理
-- [ ] 积分变换在偏微分方程中的应用
+- [x] [傅里叶级数](./fourier-series)
+- [x] [傅里叶变换](./fourier-transform)
+- [x] [拉普拉斯变换](./laplace-transform)
+- [x] [拉普拉斯逆变换](./inverse-laplace-transform)
+- [x] [卷积与Parseval定理](./convolution-parseval)
+- [x] [积分变换在偏微分方程中的应用](./integral-transforms-pde)
 
 ### 第三篇 数学物理方程
 
-- [ ] 三类典型方程：波动/热传导/拉普拉斯
-- [ ] 定解条件的提法
-- [ ] 分离变量法
-- [ ] 本征值问题（斯特姆-刘维尔）
-- [ ] 勒让德多项式
-- [ ] 贝塞尔函数
-- [ ] 傅里叶级数法解方程
-- [ ] 达朗贝尔公式
-- [ ] 格林函数法
-- [ ] 积分变换法解方程
-- [ ] 行波法与特征线法
-- [ ] 变分法与瑞利-里兹法
+- [x] [三类典型方程：波动/热传导/拉普拉斯](./three-classical-equations)
+- [x] [定解条件的提法](./initial-boundary-conditions)
+- [x] [分离变量法](./separation-of-variables)
+- [x] [本征值问题（斯特姆-刘维尔）](./sturm-liouville-eigenvalue)
+- [x] [勒让德多项式](./legendre-polynomials)
+- [x] [贝塞尔函数](./bessel-functions)
+- [x] [傅里叶级数法解方程](./fourier-series-method-pde)
+- [x] [达朗贝尔公式](./d-alembert-formula)
+- [x] [格林函数法](./greens-function-method)
+- [x] [积分变换法解方程](./integral-transform-method-pde)
+- [x] [行波法与特征线法](./traveling-wave-characteristics)
+- [x] [变分法与瑞利-里兹法](./variational-method-rayleigh-ritz)
 
 > 写作完成后：在本目录新建 `xxx.md`，然后把上面对应条目改为 `- [x] [标题](./xxx)`。

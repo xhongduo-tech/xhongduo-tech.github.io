@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>科学革命保留的是数学结构，更换的是实体画像——成功的是结构，被推翻的是本体。
 </p>
-<footer>—— 约翰·沃勒尔（John Worrall，*Structural Realism*，1989）</footer>
+<footer>—— 约翰·沃勒尔（John Worrall，*Structural Realism\*，1989）</footer>
 </div>
 
 <div class="article-byline">

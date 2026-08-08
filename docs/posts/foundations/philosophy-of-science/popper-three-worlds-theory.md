@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>世界 3 是客观的知识世界：书、理论、问题、论证——它们一旦被创造，就有自己的生命。
 </p>
-<footer>—— 卡尔·波普尔（Karl Popper，*Objective Knowledge*，1972）</footer>
+<footer>—— 卡尔·波普尔（Karl Popper，*Objective Knowledge\*，1972）</footer>
 </div>
 
 <div class="article-byline">

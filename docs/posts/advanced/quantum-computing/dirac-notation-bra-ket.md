@@ -16,7 +16,7 @@ date: 2026-08-07
 
 ## 为什么从 Dirac 记号开始
 
-上一节我们有了复数域上的内积空间，却还在用「$\sum_i v_i^* w_i$」这种笨拙的坐标语言描述向量。物理学家 Paul Dirac 在 1939 年的一篇论文 *A New Notation for Quantum Mechanics* 里发明了一套记号，把「向量、对偶、内积、外积」压缩成几个顺手的小符号，从此成为量子力学与量子计算的标准语言。<span class="marginnote">Dirac 本人把这套记号称作「bra-ket」，因为内积 $\langle\phi|\psi\rangle$ 的记号由「bra」$\langle\phi|$ 与「ket」$|\psi\rangle$ 拼合而成——他在论文里幽默地说，bra 与 ket 拼在一起（bracket，即「括号」）。出处：P. A. M. Dirac, <i>Math. Proc. Camb. Phil. Soc.</i> 35 (1939) 416–418。</span>
+上一节我们有了复数域上的内积空间，却还在用「$\sum_i v_i^* w_i$」这种笨拙的坐标语言描述向量。物理学家 Paul Dirac 在 1939 年的一篇论文 *A New Notation for Quantum Mechanics\* 里发明了一套记号，把「向量、对偶、内积、外积」压缩成几个顺手的小符号，从此成为量子力学与量子计算的标准语言。<span class="marginnote">Dirac 本人把这套记号称作「bra-ket」，因为内积 $\langle\phi|\psi\rangle$ 的记号由「bra」$\langle\phi|$ 与「ket」$|\psi\rangle$ 拼合而成——他在论文里幽默地说，bra 与 ket 拼在一起（bracket，即「括号」）。出处：P. A. M. Dirac, <i>Math. Proc. Camb. Phil. Soc.</i> 35 (1939) 416–418。</span>
 
 这套记号不是可有可无的缩写。它把「向量是空间里的元素」这一几何直觉原样保留下来，让推导不依赖坐标——这正是量子计算里「换基」「投影」「求振幅」等高频操作能行云流水的原因。
 

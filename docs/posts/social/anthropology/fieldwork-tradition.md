@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>民族志者所面对的真正难题，在于把土著人平日的、寻常的（而不是罕有的、戏剧性的）生活抓住，把它当作一个整体来呈现。</p>
-<footer>—— 布罗尼斯拉夫 · 马林诺夫斯基（Bronislaw Malinowski），*Argonauts of the Western Pacific*（1922）</footer>
+<footer>—— 布罗尼斯拉夫 · 马林诺夫斯基（Bronislaw Malinowski），*Argonauts of the Western Pacific\*（1922）</footer>
 </div>
 
 <div class="article-byline">

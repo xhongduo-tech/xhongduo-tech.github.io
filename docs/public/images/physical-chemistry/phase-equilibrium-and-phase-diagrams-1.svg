@@ -1,0 +1,31 @@
+<svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+  <title>水的相图示意</title>
+  <desc>压力-温度平面上的三相平衡线：固-气升华线、液-气汽化线与固-液熔化线，交汇于三相点，汽化线止于临界点。</desc>
+  <rect x="0" y="0" width="420" height="320" fill="#fff"/>
+  <!-- axes -->
+  <line x1="60" y1="280" x2="390" y2="280" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="280" x2="60" y2="20" stroke="#333" stroke-width="1.5"/>
+  <text x="225" y="305" text-anchor="middle" font-size="15" fill="#333">温度 T / K</text>
+  <text x="24" y="150" text-anchor="middle" font-size="15" fill="#333" transform="rotate(-90 24 150)">压力 p（示意，对数刻度）</text>
+  <!-- sublimation curve (solid-gas) -->
+  <path d="M 60 60 L 25 270" stroke="#1f6f8b" stroke-width="2.5" fill="none"/>
+  <!-- vaporization curve (liquid-gas) -->
+  <path d="M 60 60 C 150 70, 280 140, 360 240" stroke="#1f6f8b" stroke-width="2.5" fill="none"/>
+  <!-- melting curve (solid-liquid) -->
+  <path d="M 60 60 L 78 12" stroke="#1f6f8b" stroke-width="2.5" fill="none"/>
+  <!-- region labels -->
+  <text x="150" y="235" font-size="16" fill="#333">气（gas）</text>
+  <text x="120" y="120" font-size="16" fill="#333">液（liquid）</text>
+  <text x="250" y="60" font-size="16" fill="#333">固（solid）</text>
+  <!-- triple point -->
+  <circle cx="60" cy="60" r="4" fill="#c0392b"/>
+  <text x="66" y="50" font-size="14" fill="#c0392b">三相点</text>
+  <text x="66" y="66" font-size="13" fill="#666">0.01 °C，611 Pa</text>
+  <!-- critical point -->
+  <circle cx="360" cy="240" r="4" fill="#c0392b"/>
+  <text x="300" y="230" font-size="14" fill="#c0392b">临界点 374 °C</text>
+  <!-- curve labels -->
+  <text x="120" y="170" font-size="13" fill="#1f6f8b">汽化线</text>
+  <text x="14" y="180" font-size="13" fill="#1f6f8b">升华线</text>
+  <text x="80" y="26" font-size="13" fill="#1f6f8b">熔化线</text>
+</svg>

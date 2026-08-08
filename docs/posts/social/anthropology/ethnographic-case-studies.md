@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>一部好的民族志不是关于一个民族的百科全书，而是关于「人类如何生活」的一篇雄辩的论证。</p>
-<footer>—— 据埃文斯-普里查德（E. E. Evans-Pritchard），*The Nuer*（1940）转述</footer>
+<footer>—— 据埃文斯-普里查德（E. E. Evans-Pritchard），*The Nuer\*（1940）转述</footer>
 </div>
 
 <div class="article-byline">

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>亲属制度不是血缘的自然呈现，而是一套社会用来组织关系的分类逻辑。</p>
-<footer>—— 罗宾 · 福克斯（Robin Fox），*Kinship and Marriage*（1967）</footer>
+<footer>—— 罗宾 · 福克斯（Robin Fox），*Kinship and Marriage\*（1967）</footer>
 </div>
 
 <div class="article-byline">

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>要理解另一种生活，你不能只站在旁边看，也不能完全变成他们；你要在「参与」与「观察」之间，找到那条艰难而唯一诚实的路。</p>
-<footer>—— 据迈克尔 · 布若威（Michael Burawoy），*The Extended Case Method*（2009）转述</footer>
+<footer>—— 据迈克尔 · 布若威（Michael Burawoy），*The Extended Case Method\*（2009）转述</footer>
 </div>
 
 <div class="article-byline">

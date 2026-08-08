@@ -24,7 +24,7 @@ date: 2026-08-07
 
 面对一个长句，第一步永远是**分析**，而不是动笔。分析分三个层次：
 
-**第一层，找主干**。划出句子的主谓宾——这是全句的「纲」。*The theory that light is an electromagnetic wave, which was proposed by Maxwell, eventually replaced the corpuscular theory.* 主干是 *The theory replaced the corpuscular theory*，其余都是修饰。
+**第一层，找主干**。划出句子的主谓宾——这是全句的「纲」。*The theory that light is an electromagnetic wave, which was proposed by Maxwell, eventually replaced the corpuscular theory.* 主干是 *The theory replaced the corpuscular theory\*，其余都是修饰。
 
 **第二层，理从句**。找出每个从句，标出它修饰或充当的成分：定语从句挂在哪，状语从句管哪些，名词性从句充当什么成分。
 

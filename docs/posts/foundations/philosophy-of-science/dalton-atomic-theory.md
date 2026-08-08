@@ -9,7 +9,7 @@ date: 2026-08-07
 <p>一切物质都由不可再分的原子组成；
 同种元素的原子完全相同，不同元素的原子重量不同。
 </p>
-<footer>—— 约翰·道尔顿（John Dalton，*A New System of Chemical Philosophy*，1808）</footer>
+<footer>—— 约翰·道尔顿（John Dalton，*A New System of Chemical Philosophy\*，1808）</footer>
 </div>
 
 <div class="article-byline">

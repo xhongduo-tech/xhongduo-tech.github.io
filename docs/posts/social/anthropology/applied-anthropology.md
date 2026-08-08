@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>人类学不满足于理解世界——当它把知识用于改善人的生活时，它就进入了应用人类学的领域。</p>
-<footer>—— 据乔治 · 福斯特（George Foster），*Applied Anthropology*（1969）转述</footer>
+<footer>—— 据乔治 · 福斯特（George Foster），*Applied Anthropology\*（1969）转述</footer>
 </div>
 
 <div class="article-byline">

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>文化不是静止的遗产，而是不断进行的创造；传统并非保存下来的过去，而是被当代人一遍遍重新发明的现在。</p>
-<footer>—— 据埃里克 · 霍布斯鲍姆（Eric Hobsbawm），*The Invention of Tradition*（1983）转述</footer>
+<footer>—— 据埃里克 · 霍布斯鲍姆（Eric Hobsbawm），*The Invention of Tradition\*（1983）转述</footer>
 </div>
 
 <div class="article-byline">

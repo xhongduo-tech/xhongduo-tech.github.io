@@ -34,7 +34,7 @@ date: 2026-08-07
 
 - 奥卡姆著作中的原句：**Pluralitas non est ponenda sine necessitate**——若非必要，不得设立复多。
 - 另一句常被引用的变体：**Frustra fit per plura quod potest fieri per pauciora**——能用较少者完成的事，用较多者去做便是徒劳。
-- 现代最流行的口号「如无必要，勿增实体」（*Entia non sunt multiplicanda praeter necessitatem*），其实是 17 世纪后人的提炼，并非奥卡姆原话。
+- 现代最流行的口号「如无必要，勿增实体」（*Entia non sunt multiplicanda praeter necessitatem\*），其实是 17 世纪后人的提炼，并非奥卡姆原话。
 
 **重点：剃刀是方法论原则，不是本体论断言。** 它不说「只有最少的实体存在」，只说「不要无缘无故地增加实体」。关键在于「必要」（necessitas）二字——一个实体如果确实解释了现象、为理论所必需，它就不在刀下；剃刀只剃那些「解释了也不增加解释力」的冗余。奥卡姆本人接受上帝全能、天使存在、共相之名——这些都「必要」，刀锋并不碰它们。
 

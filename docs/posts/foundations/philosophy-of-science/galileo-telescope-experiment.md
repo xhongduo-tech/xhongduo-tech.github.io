@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>自然之书是用数学语言写成的，其文字是三角形、圆和其他几何图形。
 </p>
-<footer>—— 伽利略·伽利雷（Galileo Galilei，*Il Saggiatore*，1623）</footer>
+<footer>—— 伽利略·伽利雷（Galileo Galilei，*Il Saggiatore\*，1623）</footer>
 </div>
 
 <div class="article-byline">

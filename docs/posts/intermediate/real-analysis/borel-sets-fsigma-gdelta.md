@@ -28,7 +28,7 @@ Borel 集类的重要性怎么强调都不过分：**Lebesgue 可测集的家族
 
 **定义（Gδ 集）**：能写成**可数个开集的交**的集合，记作 $G_\delta$ 型集。
 
-记号来源：$F$ 取自法语 *fermé*（闭），$\sigma$ 表示可数和；$G$ 取自德语 *Gebiet*（区域，开集），$\delta$ 表示可数交（Durchschnitt）。它们是对开、闭的**一层提升**：
+记号来源：$F$ 取自法语 *fermé*（闭），$\sigma$ 表示可数和；$G$ 取自德语 *Gebiet\*（区域，开集），$\delta$ 表示可数交（Durchschnitt）。它们是对开、闭的**一层提升**：
 
 - **例（Fσ）**：$\mathbb{Q}=\bigcup_{r\in\mathbb{Q}}\{r\}$ 是单点集（闭）的可数并，故 $\mathbb{Q}$ 是 $F_\sigma$ 集。$\mathbb{R}\setminus\mathbb{Q}$ 呢？它是 $G_\delta$ 集（无理数集 $=\bigcap_{r\in\mathbb{Q}}(\mathbb{R}\setminus\{r\})$，每个 $\mathbb{R}\setminus\{r\}$ 是开集）。
 - **例（Gδ）**：连续函数的连续点集是 $G_\delta$ 集；单调函数的不连续点集是 $F_\sigma$ 集。

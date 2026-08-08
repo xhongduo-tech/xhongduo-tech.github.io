@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>「猜你喜欢」的本质，是补全一张巨大的二分图——用户画出一条条边，推荐系统预测还没画出的那些。</p>
-<footer>—— 出自 He et al., *LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation*（SIGIR 2020）导读</footer>
+<footer>—— 出自 He et al., *LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation\*（SIGIR 2020）导读</footer>
 </div>
 
 <div class="article-byline">

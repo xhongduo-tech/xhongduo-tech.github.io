@@ -9,7 +9,7 @@ date: 2026-08-07
 <p>科学始于问题，而非观察。
 观察本身是被问题引导的。
 </p>
-<footer>—— 卡尔·波普尔（Karl Popper，*The Logic of Scientific Discovery*，1959 英译）</footer>
+<footer>—— 卡尔·波普尔（Karl Popper，*The Logic of Scientific Discovery\*，1959 英译）</footer>
 </div>
 
 <div class="article-byline">
@@ -18,7 +18,7 @@ date: 2026-08-07
 
 ## 为什么从《科学发现的逻辑》开始
 
-波普尔的证伪主义不是凭空的口号——它有一部奠基著作：1934 年德文版《研究的逻辑》，1959 年英译本改名《科学发现的逻辑》（*The Logic of Scientific Discovery*）。
+波普尔的证伪主义不是凭空的口号——它有一部奠基著作：1934 年德文版《研究的逻辑》，1959 年英译本改名《科学发现的逻辑》（*The Logic of Scientific Discovery\*）。
 <span class="marginnote">这部书的标题有深意：「发现的逻辑」——波普尔试图给出科学发现（提出新理论）的逻辑方法，但他承认「发现」的起点没有逻辑（灵感、直觉），有逻辑的是「检验」——所以严格说他的书是「科学检验的逻辑」。
 书名里的「逻辑」指的是「方法论的规则」而非「发现的心理学」。
 </span>这本书提出了几个关键论点：**科学始于问题**、**发现无逻辑但检验有逻辑**、**科学知识是「可错的知识」**。

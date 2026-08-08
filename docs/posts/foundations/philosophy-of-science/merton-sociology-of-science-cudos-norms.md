@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>科学的精神气质……是有情感色彩的一组规则、价值和规范的总和，它们被规定为对科学家的义务。
 </p>
-<footer>—— 罗伯特·默顿（Robert K. Merton，*The Normative Structure of Science*，1942）</footer>
+<footer>—— 罗伯特·默顿（Robert K. Merton，*The Normative Structure of Science\*，1942）</footer>
 </div>
 
 <div class="article-byline">

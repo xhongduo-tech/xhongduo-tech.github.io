@@ -9,7 +9,7 @@ date: 2026-08-07
 <p>假说演绎法：先猜，再从猜的推论中检验——如果推论被证实，假说得到支持；
 被反驳，假说出局。
 </p>
-<footer>—— 威廉·惠威尔（William Whewell，*Novum Organon Renovatum*，1858）</footer>
+<footer>—— 威廉·惠威尔（William Whewell，*Novum Organon Renovatum\*，1858）</footer>
 </div>
 
 <div class="article-byline">

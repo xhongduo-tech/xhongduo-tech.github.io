@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" font-family="sans-serif">
+  <title>马科维茨有效边界示意图</title>
+  <desc>横轴为标准差（风险），纵轴为期望收益。可行集内的点代表所有可能组合，其左上边界为有效边界，最左侧顶点为最小方差组合。</desc>
+  <rect width="640" height="420" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="1.5" fill="none">
+    <line x1="70" y1="360" x2="600" y2="360"/>
+    <line x1="70" y1="30" x2="70" y2="360"/>
+  </g>
+  <g fill="#333" font-size="15">
+    <text x="300" y="405">风险（标准差 σ）</text>
+    <text x="18" y="190" transform="rotate(-90 18 190)">期望收益 E(r)</text>
+  </g>
+  <g fill="#333" font-size="13" text-anchor="middle">
+    <text x="70" y="378">0</text>
+    <text x="310" y="378">中等</text>
+    <text x="570" y="378">高</text>
+    <text x="52" y="365">0</text>
+    <text x="52" y="225">10%</text>
+    <text x="52" y="85">15%</text>
+  </g>
+  <path d="M 310 290 C 250 220, 180 130, 130 60" stroke="#333" stroke-width="1" fill="none" stroke-dasharray="4 3" opacity="0.6"/>
+  <path d="M 130 60 C 230 70, 380 90, 560 150 L 560 360 L 130 360 Z" fill="#c0392b" opacity="0.12" stroke="none"/>
+  <path d="M 130 60 C 230 70, 380 90, 560 150" stroke="#c0392b" stroke-width="3" fill="none"/>
+  <g stroke="#1f6f8b" stroke-width="2.5">
+    <line x1="190" y1="285" x2="190" y2="115"/>
+  </g>
+  <g fill="#1f6f8b" font-size="14">
+    <text x="150" y="300">无风险资产 rf</text>
+    <text x="196" y="80">资本市场线（CML）</text>
+  </g>
+  <circle cx="130" cy="60" r="6" fill="#c0392b"/>
+  <text x="118" y="44" fill="#333" font-size="14">最小方差组合</text>
+  <circle cx="320" cy="170" r="6" fill="#333"/>
+  <text x="332" y="162" fill="#333" font-size="14">有效边界</text>
+  <circle cx="470" cy="300" r="5" fill="#333" opacity="0.7"/>
+  <text x="480" y="300" fill="#333" font-size="13">可行集内的组合</text>
+  <circle cx="190" cy="115" r="5" fill="#c0392b"/>
+  <text x="200" y="112" fill="#333" font-size="13">切点组合 M</text>
+</svg>

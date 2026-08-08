@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>文化就是这样一些由人自己编织的意义之网；对文化的分析不是寻求规律的经验科学，而是寻求意义解释的解释科学。</p>
-<footer>—— 克利福德 · 格尔茨（Clifford Geertz），*The Interpretation of Cultures*（1973）</footer>
+<footer>—— 克利福德 · 格尔茨（Clifford Geertz），*The Interpretation of Cultures\*（1973）</footer>
 </div>
 
 <div class="article-byline">

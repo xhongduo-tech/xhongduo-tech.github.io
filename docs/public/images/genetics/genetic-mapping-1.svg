@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="640" height="260" role="img" aria-labelledby="title desc">
+<title id="title">三点测交构建的遗传图谱示意</title>
+<desc id="desc">染色体上用三个标记基因 A、B、C 表示相对位置：A 与 B 相距 14.4 cM，B 与 C 相距 8.8 cM，A 与 C 相距 23.2 cM，A 在左端，B 在中间，C 在右端。</desc>
+<rect width="640" height="260" fill="#faf9f5"/>
+<text x="40" y="48" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">三点测交构建的遗传图谱（a–b–c 顺序）</text>
+<line x1="60" y1="150" x2="580" y2="150" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+<line x1="100" y1="130" x2="100" y2="170" stroke="#c0392b" stroke-width="6" stroke-linecap="round"/>
+<line x1="320" y1="130" x2="320" y2="170" stroke="#1f6f8b" stroke-width="6" stroke-linecap="round"/>
+<line x1="520" y1="130" x2="520" y2="170" stroke="#c0392b" stroke-width="6" stroke-linecap="round"/>
+<circle cx="100" cy="150" r="9" fill="#c0392b"/>
+<circle cx="320" cy="150" r="9" fill="#1f6f8b"/>
+<circle cx="520" cy="150" r="9" fill="#c0392b"/>
+<text x="100" y="200" font-family="sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">基因 a</text>
+<text x="320" y="200" font-family="sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">基因 b</text>
+<text x="520" y="200" font-family="sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">基因 c</text>
+<line x1="100" y1="88" x2="320" y2="88" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="100" y1="78" x2="100" y2="98" stroke="#c0392b" stroke-width="2"/>
+<line x1="320" y1="78" x2="320" y2="98" stroke="#c0392b" stroke-width="2"/>
+<text x="210" y="72" font-family="sans-serif" font-size="17" fill="#c0392b" text-anchor="middle">r = 14.4 cM</text>
+<line x1="320" y1="112" x2="520" y2="112" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="320" y1="102" x2="320" y2="122" stroke="#1f6f8b" stroke-width="2"/>
+<line x1="520" y1="102" x2="520" y2="122" stroke="#1f6f8b" stroke-width="2"/>
+<text x="420" y="96" font-family="sans-serif" font-size="17" fill="#1f6f8b" text-anchor="middle">r = 8.8 cM</text>
+<text x="310" y="240" font-family="sans-serif" font-size="15" fill="#666" text-anchor="middle">端到端距离 r(a–c) = 23.2 cM（含双交换乘 2）</text>
+</svg>

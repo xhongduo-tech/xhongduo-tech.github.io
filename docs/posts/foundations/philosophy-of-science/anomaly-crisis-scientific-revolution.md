@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>从范式到新范式的转变，是远非一个累积过程所能达到的、对世界的再描述。
 </p>
-<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions*，1962）</footer>
+<footer>—— 托马斯·库恩（Thomas Kuhn，*The Structure of Scientific Revolutions\*，1962）</footer>
 </div>
 
 <div class="article-byline">

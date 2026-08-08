@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>我们的知识在猜想与反驳中增长：我们猜测，我们被反驳，我们再猜。
 </p>
-<footer>—— 卡尔·波普尔（Karl Popper，*Conjectures and Refutations*，1963）</footer>
+<footer>—— 卡尔·波普尔（Karl Popper，*Conjectures and Refutations\*，1963）</footer>
 </div>
 
 <div class="article-byline">
@@ -17,7 +17,7 @@ date: 2026-08-07
 
 ## 为什么从《猜想与反驳》开始
 
-《科学发现的逻辑》是波普尔的方法论奠基，《猜想与反驳》（*Conjectures and Refutations*，1963）则是他科学观的「普及版」——书名本身就是他的全部方法：**知识在猜想与反驳中增长**。
+《科学发现的逻辑》是波普尔的方法论奠基，《猜想与反驳》（*Conjectures and Refutations\*，1963）则是他科学观的「普及版」——书名本身就是他的全部方法：**知识在猜想与反驳中增长**。
 <span class="marginnote">《猜想与反驳》是论文合集，收录波普尔 1950s—60s 的文章与演讲。
 书名「Conjectures and Refutations」把波普尔的方法浓缩为两个词：大胆猜想（conjecture）+ 严格反驳（refutation）。
 它是科学哲学史上最易读也最有影响力的方法论陈述之一。

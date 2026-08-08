@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" font-family="sans-serif">
+  <title>冷锋与暖锋的垂直剖面结构</title>
+  <desc>温带气旋成熟期沿东西方向的垂直剖面：冷锋坡度陡，暖锋坡度缓，冷暖空气夹出楔形暖区，冷锋附近有积雨云、暖锋前方有层状云系与连续性降水。</desc>
+  <rect width="820" height="460" fill="#faf9f5"/>
+  <rect x="0" y="390" width="820" height="70" fill="#e8e0d0"/>
+  <line x1="0" y1="390" x2="820" y2="390" stroke="#333" stroke-width="2"/>
+  <polygon points="0,390 200,390 330,170 0,170" fill="#d6e8f0" opacity="0.7"/>
+  <polygon points="610,390 820,390 820,170 360,170" fill="#d6e8f0" opacity="0.7"/>
+  <polygon points="200,390 330,170 360,170 610,390" fill="#f5ddd6" opacity="0.85"/>
+  <line x1="200" y1="390" x2="330" y2="170" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="610" y1="390" x2="360" y2="170" stroke="#c0392b" stroke-width="3"/>
+  <text x="85" y="430" font-size="16" fill="#1f6f8b">冷气团</text>
+  <text x="700" y="430" font-size="16" fill="#1f6f8b">冷气团</text>
+  <text x="370" y="330" font-size="16" fill="#c0392b">暖气团</text>
+  <text x="238" y="330" font-size="14" fill="#1f6f8b">冷锋（坡陡）</text>
+  <text x="515" y="330" font-size="14" fill="#c0392b">暖锋（坡缓）</text>
+  <g fill="#d8d8d8" stroke="#333" stroke-width="1.2">
+    <path d="M150,220 a45,40 0 0 1 90,0 l-10,90 h-70 z"/>
+    <path d="M112,200 a38,30 0 0 1 76,0 h-76 z"/>
+  </g>
+  <text x="120" y="150" font-size="14" fill="#333">积雨云</text>
+  <text x="98" y="280" font-size="14" fill="#333">阵性降水</text>
+  <line x1="118" y1="295" x2="118" y2="330" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="3,3"/>
+  <line x1="140" y1="295" x2="140" y2="325" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="3,3"/>
+  <line x1="162" y1="295" x2="162" y2="332" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="3,3"/>
+  <g fill="#efefef" stroke="#333" stroke-width="1.2">
+    <path d="M640,120 a60,18 0 0 1 120,0 h-120 z"/>
+    <path d="M590,185 a70,20 0 0 1 130,0 h-130 z"/>
+    <path d="M560,255 a80,22 0 0 1 130,0 h-130 z"/>
+    <path d="M620,315 a70,18 0 0 1 90,0 h-90 z"/>
+  </g>
+  <text x="690" y="108" font-size="14" fill="#333">卷云</text>
+  <text x="636" y="175" font-size="14" fill="#333">高层云</text>
+  <text x="600" y="245" font-size="14" fill="#333">雨层云</text>
+  <text x="620" y="350" font-size="14" fill="#333">连续性降水</text>
+  <line x1="645" y1="335" x2="645" y2="365" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="3,3"/>
+  <line x1="668" y1="335" x2="668" y2="360" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="3,3"/>
+  <line x1="691" y1="335" x2="691" y2="368" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="3,3"/>
+  <text x="300" y="60" font-size="14" fill="#c0392b">地面冷锋</text>
+  <text x="330" y="80" font-size="13" fill="#333">▲▲▲▲</text>
+  <text x="430" y="60" font-size="14" fill="#c0392b">地面暖锋</text>
+  <text x="465" y="80" font-size="13" fill="#333">●●●●</text>
+  <text x="20" y="60" font-size="14" fill="#333">高空</text>
+  <text x="20" y="80" font-size="14" fill="#333">地面</text>
+</svg>

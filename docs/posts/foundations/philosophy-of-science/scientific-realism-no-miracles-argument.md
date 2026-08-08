@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>如果理论不是对世界的真实描述，那么科学的成功就是奇迹。
 </p>
-<footer>—— 希拉里·普特南（Hilary Putnam，*Mathematics, Matter and Method*，1975）</footer>
+<footer>—— 希拉里·普特南（Hilary Putnam，*Mathematics, Matter and Method\*，1975）</footer>
 </div>
 
 <div class="article-byline">

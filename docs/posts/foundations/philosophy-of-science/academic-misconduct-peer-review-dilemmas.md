@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>科学的信誉建立在诚实之上——一旦诚实被系统性地腐蚀，科学就失去了它的根基。
 </p>
-<footer>—— 理查德·费曼（Richard Feynman，*Cargo Cult Science*，1974）</footer>
+<footer>—— 理查德·费曼（Richard Feynman，*Cargo Cult Science\*，1974）</footer>
 </div>
 
 <div class="article-byline">

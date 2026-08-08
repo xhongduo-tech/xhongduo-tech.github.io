@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>当多个假说都能解释同一现象时，我们选择那个「解释得最好」的——这就是最佳解释推理。
 </p>
-<footer>—— 吉尔伯特·哈曼（Gilbert Harman，*The Inference to the Best Explanation*，1965）</footer>
+<footer>—— 吉尔伯特·哈曼（Gilbert Harman，*The Inference to the Best Explanation\*，1965）</footer>
 </div>
 
 <div class="article-byline">

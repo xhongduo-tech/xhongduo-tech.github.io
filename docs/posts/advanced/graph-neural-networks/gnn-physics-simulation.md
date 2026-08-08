@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>粒子的运动方程写着「力来自其他粒子的作用」——这不就是一条消息传递吗？物理模拟或许是图神经网络最顺理成章的归宿。</p>
-<footer>—— 出自 Battaglia et al., *Interaction Networks for Learning about Objects, Relations and Physics*（2016）导读</footer>
+<footer>—— 出自 Battaglia et al., *Interaction Networks for Learning about Objects, Relations and Physics\*（2016）导读</footer>
 </div>
 
 <div class="article-byline">

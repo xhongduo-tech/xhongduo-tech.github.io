@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>在这一切的正中，太阳端坐于宝座之上……我们在这座最美丽的庙宇中，还能把这盏明灯放在更好的位置吗？
 </p>
-<footer>—— 哥白尼（Nicolaus Copernicus，*De Revolutionibus*，1543）</footer>
+<footer>—— 哥白尼（Nicolaus Copernicus，*De Revolutionibus\*，1543）</footer>
 </div>
 
 <div class="article-byline">
@@ -17,7 +17,7 @@ date: 2026-08-07
 
 ## 为什么从哥白尼开始
 
-科学革命通常被「起算」于 1543 年——哥白尼《天球运行论》（*De Revolutionibus Orbium Coelestium*）出版。
+科学革命通常被「起算」于 1543 年——哥白尼《天球运行论》（*De Revolutionibus Orbium Coelestium\*）出版。
 这本书不是第一部提出日心说的著作（古希腊阿利斯塔克已提过），却第一次把日心说建成了**可计算、可检验的完整天文学体系**。
 <span class="marginnote">阿利斯塔克（Aristarchus，约前 310—前 230）曾提出太阳中心论，但因缺乏行星运动数据而停留在猜测。
 哥白尼的不同在于：他手里有 1500 年的观测数据要解释，而日心说提供了更好的组织框架。

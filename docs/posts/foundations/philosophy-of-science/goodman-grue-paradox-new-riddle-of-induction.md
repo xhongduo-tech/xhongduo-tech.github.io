@@ -8,7 +8,7 @@ date: 2026-08-07
 <div class="epigraph">
 <p>我并非在争论归纳会被『验证』，而是问：哪些归纳是合法的？
 </p>
-<footer>—— 纳尔逊·古德曼（Nelson Goodman，*Fact, Fiction, and Forecast*，1955）</footer>
+<footer>—— 纳尔逊·古德曼（Nelson Goodman，*Fact, Fiction, and Forecast\*，1955）</footer>
 </div>
 
 <div class="article-byline">

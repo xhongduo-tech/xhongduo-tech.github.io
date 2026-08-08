@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>民族志不是「呈现事实」的透明玻璃，而是一种写作的技艺：作者的手在每一个句子里，只是我们常常假装看不见它。</p>
-<footer>—— 据詹姆斯 · 克利福德（James Clifford），*Writing Culture*（1986）转述</footer>
+<footer>—— 据詹姆斯 · 克利福德（James Clifford），*Writing Culture\*（1986）转述</footer>
 </div>
 
 <div class="article-byline">
@@ -58,7 +58,7 @@ date: 2026-08-07
 
 ## 3 写文化批判：1986 年的地震
 
-1986 年，克利福德与马库斯主编的《写文化》（*Writing Culture*）出版，引发了一场被称为**「表征危机」（crisis of representation）**的大讨论。
+1986 年，克利福德与马库斯主编的《写文化》（*Writing Culture\*）出版，引发了一场被称为**「表征危机」（crisis of representation）**的大讨论。
 它的核心指控有三条：
 
 - **民族志是文学**：民族志一直借用小说、游记的叙事技巧（场景、人物、悬念），却宣称自己是「客观报告」——**「科学的包装」掩盖了「文学的本性」。**
