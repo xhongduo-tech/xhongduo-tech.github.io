@@ -61,7 +61,8 @@ export const trees = [
           { name: '博弈论', path: 'intermediate/game-theory' },
           { name: '数学物理方法', path: 'intermediate/mathematical-physics-methods' },
           { name: '统计学习理论', path: 'advanced/machine-learning', tag: 'ref' },
-        ],
+        
+          { name: '金融数学与精算', path: 'advanced/financial-mathematics' },],
       },
     ],
   },
@@ -175,7 +176,8 @@ export const trees = [
           { name: '细胞生物学', path: 'intermediate/cell-biology' },
           { name: '遗传学', path: 'intermediate/genetics' },
           { name: '进化论', path: 'intermediate/evolution' },
-        ],
+        
+          { name: '植物学', path: 'intermediate/botany' },],
       },
       {
         level: '进阶',
@@ -185,7 +187,8 @@ export const trees = [
           { name: '认知科学', path: 'foundations/cognitive-science' },
           { name: '生理学', path: 'life/basic-medicine', tag: 'ref' },
           { name: '微生物学与免疫学', path: 'life/basic-medicine', tag: 'ref' },
-        ],
+        
+          { name: '动物学', path: 'intermediate/zoology' },],
       },
       {
         level: '专业',
@@ -194,14 +197,16 @@ export const trees = [
           { name: '生物信息学', path: 'life/bioinformatics' },
           { name: '合成生物学（引用交叉树）', path: 'frontier/synthetic-biology', tag: 'ref' },
           { name: '医学与健康（引用医学树）', path: 'life/basic-medicine', tag: 'ref' },
-        ],
+        
+          { name: '微生物学', path: 'intermediate/microbiology' },],
       },
       {
         level: '前沿',
         nodes: [
           { name: '基因组学与精准医学', path: 'advanced/genomics-precision-medicine' },
           { name: '计算神经科学', path: 'advanced/computational-neuroscience' },
-        ],
+        
+          { name: '生物物理学', path: 'advanced/biophysics' },],
       },
     ],
   },
@@ -290,7 +295,8 @@ export const trees = [
           { name: '密码学与信息安全', path: 'cs/cryptography-security' },
           { name: '软件工程', path: 'cs/software-engineering' },
           { name: '区块链', path: 'cs/blockchain' },
-        ],
+        
+          { name: '人机交互（HCI）', path: 'cs/hci' },],
       },
       {
         level: '机器学习与深度学习',
@@ -394,7 +400,9 @@ export const trees = [
           { name: '交通运输工程', path: 'engineering/transportation-engineering' },
           { name: '船舶与海洋工程', path: 'engineering/naval-architecture' },
           { name: '航空航天', path: 'engineering/aerospace-engineering' },
-        ],
+        
+          { name: '车辆工程', path: 'engineering/vehicle-engineering' },
+          { name: '航天工程', path: 'engineering/space-engineering' },],
       },
       {
         level: '能源与资源',
@@ -421,7 +429,8 @@ export const trees = [
           { name: '农业工程', path: 'engineering/agricultural-engineering' },
           { name: '林业工程', path: 'engineering/forestry-engineering' },
           { name: '测绘科学与技术', path: 'engineering/surveying-mapping' },
-        ],
+        
+          { name: '工业工程', path: 'engineering/industrial-engineering' },],
       },
     ],
   },
@@ -553,7 +562,12 @@ export const trees = [
           { name: '金融学', path: 'social/finance' },
           { name: '会计学', path: 'social/business-management', tag: 'ref' },
           { name: '工商管理', path: 'social/business-management' },
-        ],
+        
+          { name: '会计学', path: 'social/accounting' },
+          { name: '市场营销', path: 'social/marketing' },
+          { name: '发展经济学', path: 'social/development-economics' },
+          { name: '产业经济学', path: 'social/industrial-economics' },
+          { name: '国际贸易与国际金融', path: 'social/international-trade' },],
       },
       {
         level: '政治与法律',
@@ -564,7 +578,8 @@ export const trees = [
           { name: '马克思主义理论', path: 'social/marxist-theory' },
           { name: '军事学', path: 'social/military-science' },
           { name: '公安学', path: 'social/public-security' },
-        ],
+        
+          { name: '知识产权法', path: 'social/intellectual-property-law' },],
       },
       {
         level: '社会与人口',
@@ -583,7 +598,10 @@ export const trees = [
           { name: '公共管理', path: 'social/public-management' },
           { name: '教育学', path: 'social/education' },
           { name: '新闻传播学', path: 'social/communication' },
-        ],
+        
+          { name: '供应链与物流管理', path: 'social/supply-chain-logistics' },
+          { name: '教育技术', path: 'social/educational-technology' },
+          { name: '学前教育', path: 'social/early-childhood-education' },],
       },
       {
         level: '心理与行为',
@@ -650,7 +668,9 @@ export const trees = [
           { name: '戏剧与影视学', path: 'humanities/drama-film' },
           { name: '设计学', path: 'humanities/design' },
           { name: '建筑', path: 'humanities/architecture-history' },
-        ],
+        
+          { name: '书法与篆刻', path: 'humanities/calligraphy-seal-carving' },
+          { name: '摄影艺术', path: 'humanities/photography' },],
       },
       {
         level: '文化与社会',

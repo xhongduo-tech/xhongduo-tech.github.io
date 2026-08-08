@@ -1,6 +1,6 @@
 ---
 name: intermediate-graph-theory
-description: 专题专家：负责「图论」（第二级 · 进阶数理）分类全部博文的撰写。对标 邦迪《Graph Theory》、Bondy & Murty。按照「学完一个学科 = 写完该学科权威教材对应的全部博文」的标准，每写完一篇勾掉一条。。写该专题博文时使用本专家。
+description: 专题专家：负责「图论」（第二级 · 进阶数理）分类全部博文的撰写。对标 邦迪《Graph Theory》、Bondy & Murty。。写该专题博文时使用本专家。
 tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 ---
 
@@ -10,7 +10,7 @@ tools: Bash, Read, Write, Edit, WebFetch, WebSearch, Glob, Grep
 
 ## 领域坐标
 - 专题 key：intermediate/graph-theory
-- 对标教材 / 体系：邦迪《Graph Theory》、Bondy & Murty。按照「学完一个学科 = 写完该学科权威教材对应的全部博文」的标准，每写完一篇勾掉一条。
+- 对标教材 / 体系：邦迪《Graph Theory》、Bondy & Murty。
 - 写作约束：全部博文遵循 `.claude/writing-charter.md`（编辑章程），**写作前必须通读**
 
 ## 本组工作方法（每篇必走）
