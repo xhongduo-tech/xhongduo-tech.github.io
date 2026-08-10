@@ -2,9 +2,11 @@
 import { ref, computed } from 'vue'
 import { withBase } from 'vitepress'
 import { trees } from '../data/knowledge-tree.mjs'
+import { treeDetails } from '../data/knowledge-tree-detail.mjs'
 
 const expanded = ref({}) // treeId -> bool
 const expandedBranch = ref({}) // treeId.branchIdx -> bool
+const expandedDetail = ref({}) // path -> bool
 
 function toggleTree(id) {
   expanded.value[id] = !expanded.value[id]
@@ -14,6 +16,12 @@ function toggleBranch(key) {
 }
 function isOpen(key) {
   return expandedBranch.value[key] !== false // 默认展开
+}
+function toggleDetail(path) {
+  expandedDetail.value[path] = !expandedDetail.value[path]
+}
+function detailOf(path) {
+  return treeDetails[path] || null
 }
 function href(node) {
   // 待建节点不跳转（即使有 path 也只作占位）
@@ -107,6 +115,11 @@ function treeStats(tree) {
           <ul v-show="isOpen(tree.id + '.' + bi)" class="kt-nodes">
             <li v-for="(node, ni) in branch.nodes" :key="ni" class="kt-node">
               <a v-if="href(node)" :href="href(node)" class="kt-link">{{ node.name }}</a>
+              <span
+                v-else-if="node.tag === 'add' && detailOf(node.path)"
+                class="kt-link kt-link-add kt-link-expandable"
+                @click="toggleDetail(node.path)"
+              >{{ node.name }} <span class="kt-detail-caret">{{ expandedDetail[node.path] ? '▾' : '▸' }}</span></span>
               <span v-else class="kt-link kt-link-add">{{ node.name }}</span>
               <span
                 v-if="node.tag"
@@ -114,6 +127,16 @@ function treeStats(tree) {
                 :class="tagClass(node.tag)"
                 >{{ tagLabel(node.tag) }}</span
               >
+              <!-- 待建专题详细主题 -->
+              <div v-if="node.tag === 'add' && expandedDetail[node.path] && detailOf(node.path)" class="kt-detail">
+                <div class="kt-detail-books">
+                  <span class="kt-detail-label">依据</span>
+                  <span v-for="(book, bi2) in detailOf(node.path).books" :key="bi2" class="kt-book">{{ book }}</span>
+                </div>
+                <ul class="kt-detail-chapters">
+                  <li v-for="(ch, ci) in detailOf(node.path).chapters" :key="ci" class="kt-chapter">{{ ch }}</li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
@@ -150,6 +173,16 @@ function treeStats(tree) {
 .kt-link { color: #1a4f8b; text-decoration: none; border-bottom: 1px dotted #9fb7d0; }
 .kt-link:hover { border-bottom-style: solid; }
 .kt-link-add { color: #9a8a5a; border-bottom: 1px dashed #d4c9a8; cursor: default; }
+.kt-link-expandable { cursor: pointer; border-bottom-style: dashed; }
+.kt-link-expandable:hover { border-bottom-style: solid; color: #b89a4a; }
+.kt-detail-caret { font-size: 0.75rem; color: #b0a878; margin-left: 0.2rem; }
+.kt-detail { margin: 0.3rem 0 0.5rem 0; padding: 0.5rem 0.8rem; background: #faf8f3; border-left: 3px solid #d4c9a8; border-radius: 0 4px 4px 0; font-size: 0.85rem; }
+.kt-detail-books { margin-bottom: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: baseline; }
+.kt-detail-label { font-size: 0.72rem; color: #a0936a; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.kt-book { font-size: 0.78rem; color: #7a6a45; background: #f0ead9; padding: 0.05rem 0.4rem; border-radius: 3px; }
+.kt-detail-chapters { margin: 0; padding-left: 1.2rem; list-style: none; }
+.kt-chapter { font-size: 0.82rem; color: #6b5e42; padding: 0.08rem 0; position: relative; }
+.kt-chapter::before { content: '·'; position: absolute; left: -0.8rem; color: #c9b88a; }
 .kt-tag { font-size: 0.7rem; padding: 0.05rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; vertical-align: 1px; }
 .kt-tag-ref { background: #eef2f7; color: #3a6ea5; }
 .kt-tag-add { background: #f7efdc; color: #a07d2d; }
@@ -169,6 +202,13 @@ function treeStats(tree) {
   .kt-ts-add { color: #c9a45a; }
   .kt-link { color: #6ba3d8; border-bottom-color: #3d5a77; }
   .kt-link-add { color: #b09a60; border-bottom-color: #4a4230; }
+  .kt-link-expandable:hover { color: #d4b870; }
+  .kt-detail-caret { color: #8a7e55; }
+  .kt-detail { background: #2a2620; border-left-color: #4a4230; }
+  .kt-detail-label { color: #8a7e55; }
+  .kt-book { color: #b09a60; background: #3a3320; }
+  .kt-chapter { color: #a0936a; }
+  .kt-chapter::before { color: #6a5e40; }
   .kt-tag-ref { background: #26303a; color: #7ba9d6; }
   .kt-tag-add { background: #3a3320; color: #c9a45a; }
 }
