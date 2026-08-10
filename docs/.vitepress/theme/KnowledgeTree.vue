@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { withBase } from 'vitepress'
 import { trees } from '../data/knowledge-tree.mjs'
 
@@ -16,28 +16,78 @@ function isOpen(key) {
   return expandedBranch.value[key] !== false // 默认展开
 }
 function href(node) {
-  return node.path ? withBase(`/posts/${node.path}/`) : null
+  // 待建节点不跳转（即使有 path 也只作占位）
+  return node.path && node.tag !== 'add' ? withBase(`/posts/${node.path}/`) : null
 }
 function tagLabel(tag) {
   return tag === 'ref' ? '引用' : tag === 'add' ? '待建' : ''
 }
 const tagClass = (t) => (t === 'add' ? 'kt-tag-add' : 'kt-tag-ref')
+
+// 统计：总节点 / 已有 / 待建 / 引用
+function classify(node) {
+  if (node.tag === 'add') return 'add'
+  if (node.tag === 'ref') return 'ref'
+  return 'have'
+}
+const stats = computed(() => {
+  let total = 0,
+    have = 0,
+    add = 0,
+    ref = 0
+  for (const t of trees)
+    for (const b of t.branches)
+      for (const n of b.nodes) {
+        total++
+        const c = classify(n)
+        if (c === 'add') add++
+        else if (c === 'ref') ref++
+        else have++
+      }
+  return { total, have, add, ref, trees: trees.length }
+})
+
+// 每棵树的小统计
+function treeStats(tree) {
+  let have = 0,
+    add = 0,
+    ref = 0
+  for (const b of tree.branches)
+    for (const n of b.nodes) {
+      const c = classify(n)
+      if (c === 'add') add++
+      else if (c === 'ref') ref++
+      else have++
+    }
+  return { have, add, ref }
+}
 </script>
 
 <template>
   <div class="kt">
     <div class="kt-intro">
       <p>
-        全人类知识按领域划分为 <strong>12 棵知识树</strong>，每棵从基础 → 核心 → 进阶 → 专业 → 前沿逐级展开。
-        跨树重合的节点以「引用」呈现（不重复建专题）；「待建」为规划补充的专题。
+        全人类知识按领域划分为 <strong>{{ stats.trees }} 棵知识树</strong>，每棵从基础 → 核心 → 进阶 → 专业 → 前沿逐级展开。
+        本站博文唯一呈现<strong>技术相关内容</strong>（计算机 / AI / 工程 / 数理基础），非技术领域作为知识树结构保留以构建全人类知识图谱。
       </p>
+      <div class="kt-legend">
+        <span class="kt-legend-item"><span class="kt-dot kt-dot-have"></span>已有专题</span>
+        <span class="kt-legend-item"><span class="kt-tag kt-tag-add">待建</span>规划待撰写</span>
+        <span class="kt-legend-item"><span class="kt-tag kt-tag-ref">引用</span>跨树引用</span>
+      </div>
+      <div class="kt-summary">
+        共 <strong>{{ stats.total }}</strong> 节点 · 已有 <strong>{{ stats.have }}</strong> · 待建 <strong>{{ stats.add }}</strong> · 引用 <strong>{{ stats.ref }}</strong>
+      </div>
     </div>
 
     <div v-for="tree in trees" :key="tree.id" class="kt-tree">
       <div class="kt-tree-head" :class="{ open: expanded[tree.id] }" @click="toggleTree(tree.id)">
         <span class="kt-caret">{{ expanded[tree.id] ? '▾' : '▸' }}</span>
         <h3 class="kt-tree-name">{{ tree.name }}</h3>
-        <span class="kt-tree-count">{{ tree.branches.reduce((s, b) => s + b.nodes.length, 0) }} 节点</span>
+        <span class="kt-tree-stats">
+          <span class="kt-ts-have">{{ treeStats(tree).have }}</span>
+          <span class="kt-ts-add" v-if="treeStats(tree).add">+{{ treeStats(tree).add }} 待建</span>
+        </span>
       </div>
 
       <p v-if="expanded[tree.id]" class="kt-tree-desc">{{ tree.desc }}</p>
@@ -75,11 +125,19 @@ const tagClass = (t) => (t === 'add' ? 'kt-tag-add' : 'kt-tag-ref')
 <style scoped>
 .kt { max-width: 72rem; margin: 0 auto; padding: 1rem 0 4rem; }
 .kt-intro { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; }
+.kt-legend { display: flex; flex-wrap: wrap; gap: 1.2rem; margin: 0.8rem 0; font-size: 0.85rem; color: #555; align-items: center; }
+.kt-legend-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+.kt-dot { display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; }
+.kt-dot-have { background: #1a4f8b; }
+.kt-summary { margin-top: 0.4rem; font-size: 0.85rem; color: #888; }
+.kt-summary strong { color: #555; }
 .kt-tree { border: 1px solid #e3e1dc; border-radius: 6px; margin-bottom: 1rem; overflow: hidden; }
 .kt-tree-head { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.8rem 1rem; cursor: pointer; background: #faf9f7; }
 .kt-tree-head:hover { background: #f3f1ec; }
 .kt-tree-name { margin: 0; font-size: 1.15rem; font-weight: 600; }
-.kt-tree-count { margin-left: auto; color: #999; font-size: 0.8rem; }
+.kt-tree-stats { margin-left: auto; font-size: 0.78rem; color: #999; display: inline-flex; gap: 0.4rem; align-items: baseline; }
+.kt-ts-have { color: #1a4f8b; font-weight: 600; }
+.kt-ts-add { color: #a07d2d; }
 .kt-tree-desc { padding: 0.4rem 1rem; color: #777; font-size: 0.9rem; }
 .kt-caret { color: #b0aca3; font-size: 0.8rem; width: 1em; }
 .kt-branches { padding: 0.3rem 0 0.6rem; }
@@ -91,20 +149,26 @@ const tagClass = (t) => (t === 'add' ? 'kt-tag-add' : 'kt-tag-ref')
 .kt-node { padding: 0.18rem 0; font-size: 0.92rem; }
 .kt-link { color: #1a4f8b; text-decoration: none; border-bottom: 1px dotted #9fb7d0; }
 .kt-link:hover { border-bottom-style: solid; }
-.kt-link-add { color: #888; border-bottom: none; cursor: default; }
+.kt-link-add { color: #9a8a5a; border-bottom: 1px dashed #d4c9a8; cursor: default; }
 .kt-tag { font-size: 0.7rem; padding: 0.05rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; vertical-align: 1px; }
 .kt-tag-ref { background: #eef2f7; color: #3a6ea5; }
 .kt-tag-add { background: #f7efdc; color: #a07d2d; }
 @media (prefers-color-scheme: dark) {
   .kt-intro, .kt-tree-desc { color: #9a9a9a; }
+  .kt-legend { color: #aaa; }
+  .kt-dot-have { background: #6ba3d8; }
+  .kt-summary { color: #888; }
+  .kt-summary strong { color: #bbb; }
   .kt-tree { border-color: #3a3a3a; }
   .kt-tree-head { background: #262626; }
   .kt-tree-head:hover { background: #2e2e2e; }
   .kt-branch-head:hover { background: #2a2a2a; }
   .kt-level { color: #cfcfcf; }
   .kt-caret { color: #666; }
+  .kt-ts-have { color: #6ba3d8; }
+  .kt-ts-add { color: #c9a45a; }
   .kt-link { color: #6ba3d8; border-bottom-color: #3d5a77; }
-  .kt-link-add { color: #777; }
+  .kt-link-add { color: #b09a60; border-bottom-color: #4a4230; }
   .kt-tag-ref { background: #26303a; color: #7ba9d6; }
   .kt-tag-add { background: #3a3320; color: #c9a45a; }
 }

@@ -40,6 +40,8 @@ const t = computed(() =>
         knowledgeLink: '/en/knowledge-tree/',
         projects: 'Projects',
         projectsLink: '/en/projects/',
+        fun: 'Fun',
+        funLink: '/en/entertainment/',
         lang: '中文',
         footer: 'From Limits to LLMs · Xu Hongduo · Powered by VitePress ·',
         source: 'Source',
@@ -54,6 +56,8 @@ const t = computed(() =>
         knowledgeLink: '/knowledge-tree/',
         projects: '项目',
         projectsLink: '/projects/',
+        fun: '娱乐',
+        funLink: '/entertainment/',
         lang: 'EN',
         footer: '从极限到大模型 · 徐鸿铎 · Powered by VitePress ·',
         source: '源码',
@@ -80,6 +84,7 @@ watch(
           <a :class="{ active: route.path.startsWith(t.postsLink) }" :href="withBase(t.postsLink)">{{ t.posts }}</a>
           <a :class="{ active: route.path.startsWith(t.knowledgeLink) }" :href="withBase(t.knowledgeLink)">{{ t.knowledge }}</a>
           <a :class="{ active: route.path.startsWith(t.projectsLink) }" :href="withBase(t.projectsLink)">{{ t.projects }}</a>
+          <a :class="{ active: route.path.startsWith(t.funLink) }" :href="withBase(t.funLink)">{{ t.fun }}</a>
         </span>
         <span class="nav-tools">
           <button
