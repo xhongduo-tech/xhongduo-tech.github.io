@@ -53,6 +53,11 @@ export const treeDetails = {
       "矩阵范数与扰动理论 (Horn & Johnson Ch. 5)",
       "正定矩阵与平方根 (Horn & Johnson Ch. 7)",
       "非负矩阵与 Perron-Frobenius 理论 (Horn & Johnson Ch. 8)",
+      "Jordan 标准型与广义特征向量 (Horn §3.1-3.2)",
+      "Cayley-Hamilton 定理与最小多项式 (Horn §3.3)",
+      "矩阵函数（矩阵指数/对数） (Horn §6.1)",
+      "Kronecker 积与张量积 (Horn §4.3)",
+      "线性矩阵方程（Sylvester/Lyapunov） (Horn §4.4)",
     ],
   },
   'intermediate/algebraic-geometry': {
@@ -70,6 +75,11 @@ export const treeDetails = {
       "凝聚层与蛇引理 (Hartshorne Ch. II §5)",
       "除子、线性系与微分形式 (Hartshorne Ch. II §6-8)",
       "Riemann-Roch 定理 (Hartshorne Ch. IV §1)",
+      "层上同调与 Čech 上同调 (Hartshorne §III.2-III.4)",
+      "Serre 对偶定理 (Hartshorne §III.7)",
+      "曲线的 Riemann-Roch 定理 (Hartshorne §IV.1)",
+      "双有理几何（blow-up/有理映射） (Hartshorne §V)",
+      "GAGA 原理 (Hartshorne §III.5)",
     ],
   },
   'intermediate/lie-algebra': {
@@ -141,6 +151,11 @@ export const treeDetails = {
       "离散赋值环与 Dedekind 整环 (Atiyah-Macdonald Ch. 9)",
       "完备化与 Hensel 引理 (Atiyah-Macdonald Ch. 10)",
       "维数理论与正则环 (Matsumura Ch. 5-6)",
+      "张量积与平坦模 (Atiyah §2-3)",
+      "整扩张（Going-up/Going-down） (Atiyah §5)",
+      "深度与正则序列 (Atiyah §6)",
+      "Cohen-Macaulay 模与 Gorenstein 环 (Atiyah §7)",
+      "相伴素与支集 (Atiyah §4)",
     ],
   },
   'intermediate/riemannian-geometry': {
@@ -195,6 +210,10 @@ export const treeDetails = {
       "模形式与 Eisenstein 级数 (Serre Ch. VII)",
       "j-不变量与模曲线 (Serre Ch. VII-VIII)",
       "Hecke 算子与 L-函数 (Koblitz Ch. III)",
+      "同源与对偶同源 (Silverman §III.4)",
+      "椭圆曲线上的复结构（格与一致化） (Silverman §VI)",
+      "BSD 猜想 (Silverman §X.6)",
+      "模性定理（Taniyama-Shimura-Weil） (Silverman §C.16)",
     ],
   },
   'intermediate/analytic-number-theory': {
@@ -572,6 +591,11 @@ export const treeDetails = {
       "涡量、环量与 Kelvin 定理 (Batchelor Ch. 7)",
       "湍流简介与 Reynolds 应力 (Landau & Lifshitz §31-34)",
       "表面波、重力波与声波 (Landau & Lifshitz §9-12)",
+      "可压缩流动与气体动力学（激波/Mach 数） (Landau §VI)",
+      "势流理论与复势 (Landau §III)",
+      "流体稳定性（Rayleigh-Taylor/Kelvin-Helmholtz） (Landau §VIII)",
+      "低雷诺数流动（Stokes 流） (Landau §IV)",
+      "计算流体力学（CFD）方法 (Anderson §8)",
     ],
   },
   'intermediate/nonlinear-dynamics-chaos': {
@@ -752,6 +776,11 @@ export const treeDetails = {
       "T-对偶性 (Polchinski Vol. 1 Ch. 8)",
       "弦场论与规范对称性 (Polchinski Vol. 1 Ch. 6)",
       "量子引力与黑洞熵 (Becker-Becker-Schwarz Ch. 14)",
+      "超弦与 GSO 投影 (Polchinski §10-12)",
+      "Calabi-Yau 紧致化 (Polchinski §15)",
+      "M 理论与 S 对偶 (Polchinski §14)",
+      "AdS/CFT 对应 (Polchinski §23)",
+      "D 膜世界体积规范理论 (Polchinski §13)",
     ],
   },
   'humanities/history-of-physics': {
@@ -860,6 +889,10 @@ export const treeDetails = {
       "化学平衡与平衡常数 (Atkins Ch. 6)",
       "电化学与 Nernst 方程 (Atkins Ch. 6)",
       "表面热力学与 Kelvin 方程 (Atkins Ch. 5)",
+      "统计热力学（配分函数/Boltzmann 分布） (Atkins §22-23)",
+      "非平衡热力学（Onsager 倒易关系） (Atkins §24)",
+      "相图（二元/三元体系） (Atkins §20)",
+      "热化学（Hess 定律/键焓） (Atkins §2)",
     ],
   },
   'intermediate/chemical-kinetics': {
@@ -878,6 +911,11 @@ export const treeDetails = {
       "催化：均相与多相 (Atkins Ch. 7)",
       "光化学反应动力学 (Laidler Ch. 11)",
       "链反应与爆炸机理 (Laidler Ch. 5)",
+      "过渡态理论（Eyring 方程） (Atkins §27.6)",
+      "单分子反应理论（Lindemann/RRKM） (Atkins §27.7)",
+      "酶动力学（Michaelis-Menten） (Atkins §27.8)",
+      "振荡反应（Belousov-Zhabotinsky） (Atkins §27.9)",
+      "飞秒化学与实时观测 (Atkins §27.10)",
     ],
   },
   'intermediate/surface-chemistry': {
@@ -896,6 +934,9 @@ export const treeDetails = {
       "表面光谱技术 (Somorjai Ch. 6)",
       "多相催化原理 (Somorjai Ch. 8-9)",
       "自组装单层 SAM (Butt-Graf-Kappl Ch. 10)",
+      "Langmuir 与 BET 吸附等温线 (Atkins §25.4-25.5)",
+      "表面活性剂与胶束 (Atkins §25.7)",
+      "纳米颗粒表面化学 (Atkins §25.8)",
     ],
   },
   'intermediate/organic-synthesis': {
@@ -914,6 +955,11 @@ export const treeDetails = {
       "芳香化学与亲电取代 (Clayden Ch. 22-24)",
       "杂环化学 (Clayden Ch. 43)",
       "全合成实例：天然产物 (Nicolaou & Sorensen Ch. 1-12)",
+      "氧化与还原反应（Swern/PCC/NaBH4/LiAlH4） (Clayden §34-35)",
+      "过渡金属催化 C-C 偶联（Suzuki/Heck/Sonogashira） (Clayden §47-48)",
+      "不对称合成（手性辅助/Sharpless 环氧化） (Clayden §41)",
+      "保护基策略与正交性 (Clayden §33)",
+      "有机催化（Organocatalysis） (Clayden §42)",
     ],
   },
   'intermediate/stereochemistry': {
@@ -932,6 +978,9 @@ export const treeDetails = {
       "不对称合成方法 (Eliel Ch. 14)",
       "立体异构体的分离 (Eliel Ch. 7)",
       "手性的光谱与 X 射线测定 (Eliel Ch. 11)",
+      "手性识别与对映体过量测定 (Eliel §6)",
+      "不对称诱导与立体选择性控制 (Eliel §7)",
+      "动态立体化学 (Eliel §8)",
     ],
   },
   'intermediate/spectroscopy': {
@@ -950,6 +999,10 @@ export const treeDetails = {
       "二维 NMR：COSY、HSQC、NOESY (Williams & Fleming Ch. 4)",
       "电子顺磁共振 EPR (Atkins Ch. 12)",
       "结构鉴定综合应用 (Silverstein Ch. 7)",
+      "X 射线衍射与晶体结构 (Silverstein §7)",
+      "拉曼光谱与 SERS (Silverstein §8)",
+      "荧光光谱 (Silverstein §9)",
+      "圆二色光谱（CD） (Silverstein §10)",
     ],
   },
   'advanced/photochemistry': {
@@ -1220,6 +1273,9 @@ export const treeDetails = {
       "程序验证与霍尔逻辑 (Nipkow Ch.7)",
       "抽象解释与不变量 (Huth §3.6)",
       "实时与混成系统验证 (Clarke §9)",
+      "SAT/SMT 求解（CDCL/DPLL(T)） (Huth §6)",
+      "精化演算与程序推导 (Huth §8)",
+      "进程代数（CSP/CCS/π-演算） (Hoare Ch.4)",
     ],
   },
   'cs/storage-file-systems': {
@@ -1238,6 +1294,9 @@ export const treeDetails = {
       "分布式文件系统 NFS (Tanenbaum §10.4)",
       "块存储与对象存储 (OSTEP §44)",
       "闪存与 FTL (Tanenbaum §4.9)",
+      "分布式文件系统（GFS/HDFS/Ceph） (Tanenbaum §11)",
+      "一致性模型（CAP/线性一致性） (Tanenbaum §7)",
+      "对象存储（S3/Ceph RGW） (Tanenbaum §12)",
     ],
   },
   'cs/virtualization': {
@@ -1273,6 +1332,8 @@ export const treeDetails = {
       "异常控制流 (CS:APP §8)",
       "系统级 I/O 与网络编程 (CS:APP §10-11)",
       "并发编程 (CS:APP §12)",
+      "虚拟内存与地址翻译 (CS:APP §9)",
+      "网络编程深入 (CS:APP §11)",
     ],
   },
   'cs/system-security': {
@@ -1291,6 +1352,10 @@ export const treeDetails = {
       "网络安全与防火墙 (Stallings §9)",
       "密码学基础与 PKI (Stallings §2)",
       "可信计算与硬件安全 (Gollmann §12)",
+      "Web 安全（SQLi/XSS/CSRF） (OWASP §Top10)",
+      "认证与授权（Kerberos/OAuth/SAML） (Anderson §5)",
+      "内存保护机制（ASLR/DEP/CFI） (Anderson §6)",
+      "模糊测试（Fuzzing） (Anderson §10)",
     ],
   },
   'cs/embedded-systems': {
@@ -1345,6 +1410,10 @@ export const treeDetails = {
       "服务网格 Istio (Atchison §8)",
       "云原生 12 因素应用 (Atchison §3)",
       "分布式系统设计模式 (Burns \"Designing\" Ch.2)",
+      "持久化存储与 CSI (Burns §7)",
+      "网络模型（CNI/Service Mesh） (Burns §8)",
+      "安全（RBAC/NetworkPolicy/Secrets） (Burns §9)",
+      "可观测性（Prometheus/OpenTelemetry） (Burns §10)",
     ],
   },
   'cs/microservices': {
@@ -1363,6 +1432,9 @@ export const treeDetails = {
       "事件驱动架构与 CQRS (Richardson Ch.8)",
       "CAP 与最终一致性 (Newman Ch.11)",
       "微服务部署与监控 (Newman Ch.12)",
+      "弹性模式（熔断/舱壁/重试） (Newman §11)",
+      "每服务数据库与数据一致性 (Newman §4)",
+      "契约测试与 API 版本管理 (Newman §8)",
     ],
   },
   'cs/big-data-systems': {
@@ -1381,6 +1453,9 @@ export const treeDetails = {
       "流处理与 Structured Streaming (Zaharia Ch.20)",
       "Lambda 架构与批流一体 (Marz Ch.1)",
       "数据湖与湖仓一体 (White Ch.17)",
+      "消息队列（Kafka） (White §6)",
+      "流处理（Flink） (White §19)",
+      "NoSQL（Cassandra/MongoDB/HBase） (White §14)",
     ],
   },
   'cs/devops-sre': {
@@ -1399,6 +1474,10 @@ export const treeDetails = {
       "变更管理与发布工程 (SRE Book Ch.8)",
       "DevOps 三步工作法 (DevOps Handbook §1)",
       "混沌工程与弹性测试 (SRE Workbook Ch.9)",
+      "CI/CD 流水线（Jenkins/GitLab/ArgoCD） (Beyer §16)",
+      "基础设施即代码（Terraform/Ansible） (Beyer §14)",
+      "监控与可观测性（Prometheus/Grafana/OpenTelemetry） (Beyer §6)",
+      "SLO/SLI/SLO 错误预算 (Beyer §5)",
     ],
   },
   'cs/edge-computing': {
@@ -1453,6 +1532,11 @@ export const treeDetails = {
       "决策树与随机森林 (ESL §9)",
       "神经网络基础 (ESL §11)",
       "集成学习与 Boosting (ESL §10)",
+      "朴素贝叶斯与贝叶斯网络 (Hastie §6.6, §17.1)",
+      "EM 算法与高斯混合模型 (Hastie §8.5)",
+      "主成分分析（PCA）与降维 (Hastie §14.5)",
+      "聚类方法（K-means/层次聚类） (Hastie §14.3)",
+      "隐马尔可夫模型（HMM） (Hastie §17.2)",
     ],
   },
   'advanced/optimization-algorithms': {
@@ -1615,6 +1699,9 @@ export const treeDetails = {
       "语义角色标注 (Jurafsky §18.6)",
       "词义消歧 WSD (Manning §7)",
       "分布语义与词嵌入 (Eisenstein §14)",
+      "命名实体识别（NER） (Jurafsky §8)",
+      "共指消解 (Jurafsky §21)",
+      "依存句法分析（CKY/Shift-Reduce） (Jurafsky §13)",
     ],
   },
   'advanced/machine-translation': {
@@ -1669,6 +1756,9 @@ export const treeDetails = {
       "U-Net 编码解码结构 (Yang §8)",
       "Mask R-CNN 实例分割 (Szeliski §5.5)",
       "全景分割 Panoptic (Yang §9)",
+      "无锚框检测器（CenterNet/FCOS） (Szeliski §5.4)",
+      "DETR 与 Transformer 检测 (Szeliski §5.5)",
+      "3D 检测与 BEV 感知 (Szeliski §5.6)",
     ],
   },
   'advanced/video-understanding': {
@@ -1705,6 +1795,9 @@ export const treeDetails = {
       "Tacotron 端到端 TTS (Yu §9)",
       "声码器 WaveNet/HifiGAN (Huang §15)",
       "端到端 ASR Conformer (Rabiner §15)",
+      "RNN-T（RNN Transducer） (Huang §13)",
+      "大规模 ASR（Whisper） (Radford §3)",
+      "语音增强与分离 (Huang §15)",
     ],
   },
   'advanced/knowledge-graph': {
@@ -1759,6 +1852,10 @@ export const treeDetails = {
       "RMSNorm 与 SwiGLU (Touvron §2.2)",
       "高效训练与并行 (Touvron §3.2)",
       "评估基准与 zero-shot (Radford §3)",
+      "分词算法（BPE/SentencePiece/Unigram） (Sennrich §3)",
+      "模型初始化与正则化（Xavier/He init） (Goodfellow §8.4)",
+      "优化器选择与学习率调度（AdamW/Cosine） (Goodfellow §8.5)",
+      "检查点保存与断点续训 (Megatron-LM §4)",
     ],
   },
   'advanced/llm-alignment': {
@@ -1849,6 +1946,9 @@ export const treeDetails = {
       "代码评测 HumanEval (Liang §5)",
       "数学评测 GSM8K (Hendrycks §4)",
       "安全与偏见评估 (HELM §6)",
+      "幻觉评测（TruthfulQA/HaluEval） (Lin §4)",
+      "多语言基准（C-Eval/CMMLU） (Huang §5)",
+      "智能体/工具使用评测 (Yao §6)",
     ],
   },
   'advanced/rag': {
@@ -1867,6 +1967,11 @@ export const treeDetails = {
       "检索增强多跳推理 (Asai §4)",
       "检索增强自反 Self-RAG (Asai §5)",
       "RAG 评估与基准 (Asai §6)",
+      "文档分块策略（固定/语义/递归分块） (Lewis §3.2)",
+      "嵌入模型选择与评估 (Reimers §4)",
+      "向量数据库（FAISS/Milvus/Pinecone） (Johnson §4)",
+      "生成融合与 RAG-Fusion (Lewis §3.5)",
+      "查询重写与扩展 (Ma §4)",
     ],
   },
   'advanced/agent-orchestration': {
@@ -2206,6 +2311,7 @@ export const treeDetails = {
       "轨迹规划 (Spong §8)",
       "独立关节控制 (Spong §9)",
       "力控制与视觉伺服 (Craig §6-9)",
+      "移动机器人与运动规划 (Spong §10)",
     ],
   },
   'engineering/intelligent-manufacturing': {
@@ -2222,6 +2328,7 @@ export const treeDetails = {
       "柔性制造系统 (Groover §16)",
       "计算机集成制造系统 (Groover §23)",
       "制造执行系统与工业物联网 (Tay §4)",
+      "数字孪生与智能工厂 (Tay §7)",
     ],
   },
   'engineering/additive-manufacturing': {
@@ -2238,6 +2345,7 @@ export const treeDetails = {
       "三维打印与黏结剂喷射 (Gibson §8)",
       "直接金属激光烧结 (Gibson §5)",
       "增材制造后处理与质量 (Chua §11)",
+      "增材制造设计与生物医学应用 (Gibson §12)",
     ],
   },
   'engineering/engineering-mechanics': {
@@ -2253,6 +2361,11 @@ export const treeDetails = {
       "梁的弯曲 (Hibbeler Mechanics §6)",
       "组合载荷下的应力 (Hibbeler Mechanics §8)",
       "压杆稳定 (Hibbeler Mechanics §13)",
+      "运动学与动力学（速度/加速度分析） (Hibbeler §Dynamics Ch.12-16)",
+      "功-能原理与冲量-动量 (Hibbeler §Dynamics Ch.17-19)",
+      "机械振动（自由/受迫振动） (Hibbeler §Dynamics Ch.22)",
+      "Mohr 应力圆与应变转换 (Hibbeler §MechMat §7)",
+      "失效理论（von Mises/Tresca/Mohr） (Hibbeler §MechMat §10)",
     ],
   },
   'engineering/machine-design': {
@@ -2268,6 +2381,10 @@ export const treeDetails = {
       "齿轮传动设计 (Shigley §13-14)",
       "螺纹联接与紧固件 (Shigley §9)",
       "离合器与制动器 (Norton §16)",
+      "机构运动学（连杆/凸轮/齿轮系） (Norton §Mechanism Ch.2-4)",
+      "轴承设计（滚动/滑动接触） (Norton §Ch.10)",
+      "弹簧设计与带链传动 (Norton §Ch.13-14)",
+      "摩擦学与润滑 (Norton §Ch.11)",
     ],
   },
   'engineering/precision-machining': {
@@ -2283,6 +2400,8 @@ export const treeDetails = {
       "抛光与化学机械抛光 (Kalpakjian §27)",
       "表面粗糙度与测量 (Whitehouse §3-4)",
       "纳米尺度加工 (Kalpakjian §29)",
+      "超精密机床结构与静压轴承 (Kalpakjian §27)",
+      "在线测量与误差补偿技术 (Whitehouse §6)",
     ],
   },
   'engineering/smart-grid': {
@@ -2298,6 +2417,9 @@ export const treeDetails = {
       "分布式能源接入 (Borlase §8)",
       "需求响应与负荷管理 (Borlase §9)",
       "电网自愈与可靠性 (Momoh §7)",
+      "广域测量系统（WAMS/PMU） (Momoh §10)",
+      "微电网与分布式能源 (Momoh §8)",
+      "EV/V2G 集成 (Momoh §11)",
     ],
   },
   'engineering/electric-machines': {
@@ -2313,6 +2435,8 @@ export const treeDetails = {
       "同步电机 (Fitzgerald §5)",
       "感应电机 (Fitzgerald §6)",
       "永磁与特种电机 (Chapman §9)",
+      "电机损耗、发热与冷却 (Fitzgerald §3)",
+      "电力电子驱动与变频控制 (Chapman §10)",
     ],
   },
   'engineering/power-systems': {
@@ -2328,6 +2452,10 @@ export const treeDetails = {
       "不对称故障分析 (Grainger §12)",
       "电力系统稳定性 (Bergen §12-13)",
       "经济调度与最优潮流 (Bergen §14)",
+      "继电保护原理（继电器/断路器） (Grainger §14-15)",
+      "状态估计 (Grainger §16)",
+      "AGC 与 AVR 控制 (Grainger §12)",
+      "HVDC 输电 (Grainger §17)",
     ],
   },
   'engineering/power-electronics': {
@@ -2343,6 +2471,9 @@ export const treeDetails = {
       "电压源逆变器与PWM技术 (Mohan §9)",
       "交流传动控制 (Mohan §11)",
       "谐振变换器 (Rashid §8)",
+      "多电平变换器 (Mohan §11)",
+      "功率因数校正（PFC） (Mohan §8)",
+      "HVDC 与柔性交流输电（FACTS） (Mohan §12)",
     ],
   },
   'engineering/signals-systems': {
@@ -2358,6 +2489,10 @@ export const treeDetails = {
       "拉普拉斯变换 (Oppenheim §9)",
       "离散时间信号与Z变换 (Oppenheim §10)",
       "采样定理 (Oppenheim §7)",
+      "DFT/FFT 与频谱分析 (Oppenheim §9-10)",
+      "数字滤波器（FIR/IIR） (Oppenheim §7-8)",
+      "状态空间表示 (Oppenheim §11)",
+      "随机信号与相关 (Oppenheim §12)",
     ],
   },
   'engineering/nano-engineering': {
@@ -2373,6 +2508,8 @@ export const treeDetails = {
       "纳米表征技术 (Rogers §6)",
       "纳米电子器件 (Rogers §7)",
       "纳米生物医学应用 (Poole §7)",
+      "自组装与分子机器 (Rogers §5)",
+      "纳米环境安全与毒性 (Poole §10)",
     ],
   },
   'engineering/chemical-thermodynamics': {
@@ -2388,6 +2525,8 @@ export const treeDetails = {
       "相平衡与活度系数 (Smith §10-12)",
       "化学反应平衡 (Smith §13)",
       "过程热力学分析 (Smith §15)",
+      "溶液热力学与超额性质 (Smith §11)",
+      "分子热力学与状态方程 (Prausnitz §4-5)",
     ],
   },
   'engineering/transport-phenomena': {
@@ -2403,6 +2542,9 @@ export const treeDetails = {
       "对流传热 (Bird §11-14)",
       "质量传递与扩散 (Bird §16-17)",
       "多组分传递与耦合 (Bird §22-24)",
+      "辐射传热 (Bird §14-15)",
+      "边界层理论 (Bird §4)",
+      "非牛顿流体与流变学 (Bird §8)",
     ],
   },
   'engineering/separation-processes': {
@@ -2418,6 +2560,8 @@ export const treeDetails = {
       "液-液萃取 (Seader §8)",
       "膜分离过程 (Seader §11)",
       "吸附与离子交换 (Seader §15)",
+      "结晶过程与设计 (Seader §17)",
+      "干燥过程与设备 (Geankoplis §9)",
     ],
   },
   'engineering/chemical-reaction-engineering': {
@@ -2433,6 +2577,9 @@ export const treeDetails = {
       "催化反应与催化剂 (Fogler §10)",
       "多相催化反应器 (Fogler §12)",
       "聚合反应工程 (Levenspiel §9)",
+      "非等温反应器设计与能量平衡 (Fogler §9)",
+      "生化反应器与酶动力学 (Fogler §12)",
+      "停留时间分布（RTD）建模 (Fogler §13-14)",
     ],
   },
   'engineering/structural-engineering': {
@@ -2448,6 +2595,11 @@ export const treeDetails = {
       "混凝土梁的弯曲设计 (Nilson §2-3)",
       "混凝土柱设计 (Nilson §8)",
       "钢筋混凝土板 (Nilson §12)",
+      "钢结构设计（梁/柱/连接） (Hibbeler §Structural Analysis Ch.6)",
+      "抗震设计原理与反应谱 (Hibbeler §Seismic §3)",
+      "有限元分析 (Hibbeler §FEA Ch.1-3)",
+      "屈曲与稳定性分析 (Hibbeler §Structural §7)",
+      "预应力混凝土设计 (Nilson §12)",
     ],
   },
   'engineering/geotechnical-engineering': {
@@ -2463,6 +2615,9 @@ export const treeDetails = {
       "土的抗剪强度 (Das §10-11)",
       "浅基础承载力 (Das Foundation §3)",
       "深基础桩基 (Das Foundation §11)",
+      "边坡稳定性分析 (Das §11-12)",
+      "挡土墙与土压力 (Das §13)",
+      "原位测试（SPT/CPT/十字板） (Das §7)",
     ],
   },
   'engineering/bridge-tunnel-engineering': {
@@ -2478,6 +2633,8 @@ export const treeDetails = {
       "隧道围岩力学 (Hoek §2-4)",
       "隧道支护与衬砌设计 (Hoek §8-9)",
       "隧道施工方法 (Hoek §11)",
+      "桥梁施工方法与架设 (Troitsky §7)",
+      "隧道通风与防灾救援 (Hoek §12)",
     ],
   },
   'engineering/renewable-energy': {
@@ -2493,6 +2650,8 @@ export const treeDetails = {
       "生物质能与生物燃料 (Tester §10)",
       "地热能 (Tester §11)",
       "海洋能与水电 (Sørensen §4)",
+      "分布式能源与微电网 (Tester §13)",
+      "氢能与燃料电池 (Sørensen §5)",
     ],
   },
   'engineering/energy-storage': {
@@ -2508,6 +2667,8 @@ export const treeDetails = {
       "超级电容器 (Huggins §9)",
       "飞轮与机械储能 (Huggins §12)",
       "储能系统集成与应用 (Doughty §8)",
+      "压缩空气与抽水蓄能 (Huggins §13)",
+      "相变热储能技术 (Huggins §11)",
     ],
   },
   'engineering/hydrogen-energy': {
@@ -2523,6 +2684,8 @@ export const treeDetails = {
       "氢气制备方法 (Gupta §1-3)",
       "氢气储存与运输 (Gupta §6-8)",
       "氢能系统集成 (Gupta §12)",
+      "固体氧化物与熔融碳酸盐燃料电池 (O'Hayre §9)",
+      "氢安全与规范标准 (Gupta §14)",
     ],
   },
   'engineering/internal-combustion-engine': {
@@ -2538,6 +2701,8 @@ export const treeDetails = {
       "燃油喷射与雾化 (Heywood §7)",
       "排放污染物与控制 (Heywood §11)",
       "增压与进气系统 (Ferguson §5)",
+      "发动机性能与循环分析 (Heywood §5)",
+      "替代燃料与混合动力总成 (Heywood §13)",
     ],
   },
   'engineering/refrigeration-air-conditioning': {
@@ -2553,6 +2718,8 @@ export const treeDetails = {
       "吸收式制冷系统 (Stoecker §15)",
       "空气调节原理 (Stoecker §16-17)",
       "制冷系统部件设计 (Stoecker §7)",
+      "通风与室内空气品质 (ASHRAE §12)",
+      "制冷空调自动控制 (Stoecker §18)",
     ],
   },
   'engineering/water-pollution-control': {
@@ -2568,6 +2735,10 @@ export const treeDetails = {
       "活性污泥法 (Metcalf §10-11)",
       "生物膜法与厌氧处理 (Metcalf §13)",
       "深度处理与消毒 (Metcalf §15)",
+      "污泥处理与处置（浓缩/脱水/消化） (Metcalf&Eddy §14-15)",
+      "生物脱氮除磷（BNR） (Metcalf&Eddy §8)",
+      "膜生物反应器（MBR） (Metcalf&Eddy §10)",
+      "污水再生回用 (Metcalf&Eddy §13)",
     ],
   },
   'engineering/air-pollution-control': {
@@ -2583,6 +2754,10 @@ export const treeDetails = {
       "硫氧化物控制技术 (Cooper §11)",
       "氮氧化物控制技术 (Cooper §12)",
       "挥发性有机物控制 (Cooper §13)",
+      "大气扩散模型（高斯烟羽） (Cooper§Alley §4)",
+      "重金属与汞污染控制 (Cooper§Alley §9)",
+      "室内空气质量 (Cooper§Alley §11)",
+      "CEMS 连续排放监测 (Cooper§Alley §12)",
     ],
   },
   'engineering/solid-waste-management': {
@@ -2598,6 +2773,8 @@ export const treeDetails = {
       "焚烧与热解处理 (Tchobanoglous §12-13)",
       "资源回收与循环利用 (Tchobanoglous §8-9)",
       "生物转化处理 (Vesilind §9)",
+      "危险废物处理与处置 (Tchobanoglous §15)",
+      "电子废物回收处理 (Vesilind §10)",
     ],
   },
   'engineering/soil-remediation': {
@@ -2613,6 +2790,8 @@ export const treeDetails = {
       "土壤化学修复与稳定化 (Sharma §9)",
       "土壤生物修复 (Sharma §10)",
       "污染场地风险评估 (Hester §3)",
+      "地下水污染与修复 (Sharma §11)",
+      "原位化学氧化与还原修复 (Hester §5)",
     ],
   },
   'engineering/ecological-restoration': {
@@ -2628,6 +2807,8 @@ export const treeDetails = {
       "湿地生态系统恢复 (Hobbs §12)",
       "矿区生态重建 (Hobbs §15)",
       "恢复效果监测与评价 (Clewell §7)",
+      "河流与水生生态系统恢复 (Hobbs §10)",
+      "城市与受损土地生态修复 (Hobbs §18)",
     ],
   },
   'engineering/environmental-planning-management': {
@@ -2643,6 +2824,8 @@ export const treeDetails = {
       "环境监测与质量评价 (Clements §7)",
       "环境法规与政策工具 (Goodstein §8-9)",
       "可持续发展管理 (Goodstein §14)",
+      "环境风险评价与管理 (Clements §10)",
+      "企业环境责任与生命周期管理 (Goodstein §16)",
     ],
   },
   'social/environmental-policy-governance': {
@@ -2658,6 +2841,8 @@ export const treeDetails = {
       "环境法规与监管 (Kraft §3-4)",
       "国际环境治理 (Kraft §8)",
       "环境正义与公平 (Kraft §11)",
+      "多层级环境治理体系 (Kraft §6)",
+      "全球气候治理与碳中和政策 (Tietenberg §14)",
     ],
   },
   'engineering/circular-economy-carbon-neutrality': {
@@ -2673,6 +2858,8 @@ export const treeDetails = {
       "碳捕集与封存技术 (MacDowell §5-7)",
       "零碳能源系统 (MacDowell §11)",
       "工业共生与资源循环 (Lyle §9)",
+      "碳捕集利用与封存（CCUS） (MacDowell §8)",
+      "负排放技术与碳汇 (MacDowell §13)",
     ],
   },
   'engineering/biomimetic-engineering': {
@@ -2688,6 +2875,8 @@ export const treeDetails = {
       "仿生传感与执行 (Bar-Cohen §5)",
       "仿生机器人与运动 (Bar-Cohen §8)",
       "仿生表面与界面 (Bar-Cohen §6)",
+      "仿生功能系统与自修复材料 (Vincent §10)",
+      "仿生医学器件与应用 (Bar-Cohen §10)",
     ],
   },
   'engineering/fermentation-engineering': {
@@ -2703,6 +2892,8 @@ export const treeDetails = {
       "发酵过程控制 (Stanbury §9)",
       "灭菌与无菌技术 (Stanbury §5)",
       "下游处理与产物回收 (Stanbury §10)",
+      "动植物细胞培养与生物反应器 (Shuler §9)",
+      "发酵产物分离纯化与制剂 (Stanbury §11)",
     ],
   },
   'foundations/mineralogy': {
@@ -2718,6 +2909,9 @@ export const treeDetails = {
       "硅酸盐矿物分类 (Klein §6)",
       "矿物光性与鉴定 (Nesse §7)",
       "矿物成因与共生 (Klein §8)",
+      "X 射线衍射（XRD）与晶体结构测定 (Klein §6)",
+      "非硅酸盐系统矿物学（氧化物/硫化物/碳酸盐） (Klein §14-16)",
+      "晶体学基础（Miller 指数/点群/空间群） (Klein §5)",
     ],
   },
   'foundations/petrology': {
@@ -2733,6 +2927,8 @@ export const treeDetails = {
       "沉积岩形成与成岩作用 (Boggs §1-2)",
       "沉积岩的分类 (Boggs §4-6)",
       "岩石构造与组构 (Winter §9)",
+      "火成岩地球化学与同位素 (Winter §14)",
+      "岩石大地构造与构造环境 (Winter §16)",
     ],
   },
   'foundations/paleontology': {
@@ -2748,6 +2944,8 @@ export const treeDetails = {
       "脊椎动物演化 (Prothero §15-17)",
       "古植物与孢粉学 (Prothero §19)",
       "演化模式与灭绝事件 (Prothero §10)",
+      "古生态学与群落分析 (Prothero §11)",
+      "生物地层学 (Prothero §12)",
     ],
   },
   'foundations/geochemistry': {
@@ -2763,6 +2961,8 @@ export const treeDetails = {
       "有机地球化学 (White §12)",
       "地球化学循环 (White §12)",
       "水-岩相互作用 (White §6)",
+      "放射性同位素与年代学 (Faure §11-12)",
+      "地球化学热力学与相平衡 (White §5)",
     ],
   },
   'foundations/geophysics': {
@@ -2778,6 +2978,8 @@ export const treeDetails = {
       "地热学与地球内部温度 (Fowler §7)",
       "地球内部结构与板块构造 (Fowler §2)",
       "地球物理探测方法 (Lowrie §9)",
+      "地电学与电磁方法 (Lowrie §6)",
+      "板块运动与地幔动力学 (Fowler §8)",
     ],
   },
   'intermediate/sedimentology-stratigraphy': {
@@ -2793,6 +2995,9 @@ export const treeDetails = {
       "地层学原理与地层对比 (Boggs §14)",
       "层序地层学 (Catuneanu §4-6)",
       "沉积盆地分析 (Boggs §16)",
+      "碳酸盐沉积学 (Boggs §6)",
+      "成岩作用 (Boggs §7)",
+      "层序地层学模型 (Boggs §12)",
     ],
   },
   'intermediate/structural-geology': {
@@ -2808,6 +3013,8 @@ export const treeDetails = {
       "节理与裂隙分析 (Fossen §7)",
       "构造分析方法 (Davis §10)",
       "区域构造与造山带 (Davis §20)",
+      "韧性剪切带与糜棱岩 (Fossen §15)",
+      "盐构造与底辟作用 (Davis §18)",
     ],
   },
   'intermediate/seismology': {
@@ -2823,6 +3030,8 @@ export const treeDetails = {
       "地震观测与地震仪 (Shearer §5)",
       "地震定位方法 (Shearer §6)",
       "地震危险性与预测 (Stein §10)",
+      "地震层析成像 (Stein §7)",
+      "强震动地震学与工程地震 (Shearer §10)",
     ],
   },
   'intermediate/volcanology': {
@@ -2838,6 +3047,8 @@ export const treeDetails = {
       "火山监测与预警 (Francis §7-8)",
       "火山灾害评估 (Sigurdsson §60)",
       "火山与板块构造 (Sigurdsson §2)",
+      "火山碎屑沉积与相模式 (Sigurdsson §25)",
+      "火山喷发与气候影响 (Sigurdsson §65)",
     ],
   },
   'intermediate/meteorology': {
@@ -2853,6 +3064,8 @@ export const treeDetails = {
       "天气系统与气旋 (Ahrens §9-12)",
       "大气边界层 (Wallace §9)",
       "气象观测与预报 (Ahrens §13)",
+      "中尺度气象与对流系统 (Wallace §10)",
+      "雷达与卫星气象观测 (Ahrens §6)",
     ],
   },
   'intermediate/climatology': {
@@ -2868,6 +3081,8 @@ export const treeDetails = {
       "气候分类与气候带 (Ruddiman §7)",
       "古气候与气候历史 (Ruddiman §8-12)",
       "气候模拟与气候模型 (Hartmann §11)",
+      "海洋-大气耦合与 ENSO (Hartmann §10)",
+      "气候变率与年际-年代际振荡 (Ruddiman §11)",
     ],
   },
   'intermediate/atmospheric-dynamics': {
@@ -2883,6 +3098,8 @@ export const treeDetails = {
       "大气波动与罗斯贝波 (Holton §5-7)",
       "大气不稳定性与斜压发展 (Holton §8)",
       "天气尺度动力学 (Holton §9)",
+      "热带动力学与 Kelvin/Rossby 波 (Holton §11)",
+      "数值天气预报与模式 (Holton §13)",
     ],
   },
   'intermediate/physical-oceanography': {
@@ -2898,6 +3115,9 @@ export const treeDetails = {
       "海洋波浪与海浪谱 (Knauss §10)",
       "潮汐与潮流 (Knauss §11)",
       "海洋-大气相互作用 (Talley §7)",
+      "温盐环流与全球传送带 (Knauss §8)",
+      "中尺度涡旋 (Knauss §9)",
+      "海岸海洋学与河口动力学 (Knauss §11)",
     ],
   },
   'intermediate/marine-chemistry': {
@@ -2913,6 +3133,8 @@ export const treeDetails = {
       "海洋同位素化学 (Millero §8)",
       "海洋有机地球化学 (Libes §20)",
       "海洋污染化学 (Millero §10)",
+      "海-气气体交换与 CO₂ (Millero §9)",
+      "化学示踪与古海洋学 (Libes §15)",
     ],
   },
   'intermediate/marine-biology': {
@@ -2928,6 +3150,8 @@ export const treeDetails = {
       "海洋鱼类与脊椎动物 (Castro §7-9)",
       "深海生物与热液生态 (Levinton §7)",
       "海洋生态系统与保护 (Levinton §11)",
+      "珊瑚礁生态系统 (Levinton §10)",
+      "海洋食物网与能流 (Levinton §9)",
     ],
   },
   'intermediate/space-weather': {
@@ -2943,6 +3167,8 @@ export const treeDetails = {
       "电离层扰动与影响 (Hanslmeier §6)",
       "空间天气对技术系统的影响 (Bothmer §9)",
       "空间天气监测与预报 (Hanslmeier §9)",
+      "地球辐射带与高能粒子 (Bothmer §6)",
+      "高层大气与热层耦合 (Hanslmeier §5)",
     ],
   },
   'intermediate/geodesy': {
@@ -2958,6 +3184,8 @@ export const treeDetails = {
       "大地水准面确定 (Hofmann-Wellenhof §7)",
       "卫星大地测量方法 (Torge §9)",
       "地壳形变监测 (Torge §12)",
+      "几何大地测量与三角/导线 (Torge §5)",
+      "参考系与时间系统 (Torge §3)",
     ],
   },
   'intermediate/gnss-positioning': {
@@ -2973,6 +3201,8 @@ export const treeDetails = {
       "误差源与修正模型 (Misra §5)",
       "差分GPS与RTK定位 (Hofmann-Wellenhof §9)",
       "精密单点定位技术 (Hofmann-Wellenhof §10)",
+      "多星座与多频定位 (Hofmann-Wellenhof §11)",
+      "GNSS 遥感与气象应用 (Misra §13)",
     ],
   },
   'intermediate/gis': {
@@ -2988,6 +3218,10 @@ export const treeDetails = {
       "空间数据库设计 (Longley §9)",
       "地理可视化与制图 (Bolstad §7)",
       "GIS应用与项目管理 (Longley §16-17)",
+      "坐标系统与地图投影 (Bolstad §4)",
+      "空间数据质量与不确定性 (Bolstad §9)",
+      "遥感与 GIS 集成 (Bolstad §13)",
+      "空间统计 (Bolstad §14)",
     ],
   },
   'advanced/deep-space-exploration': {
@@ -3003,6 +3237,8 @@ export const treeDetails = {
       "深空通信与测控 (Wertz §19)",
       "电源系统设计 (Brown §9)",
       "行星着陆与表面探测 (Wertz §21)",
+      "热控系统设计 (Brown §10)",
+      "自主导航与制导 (Wertz §15)",
     ],
   },
   'advanced/climate-change-science': {
@@ -3018,6 +3254,8 @@ export const treeDetails = {
       "气候模型与情景预测 (IPCC §1-4)",
       "碳循环与生物地球化学 (IPCC §5)",
       "气候变化影响与极端事件 (IPCC §11-12)",
+      "气候变化的检测与归因 (IPCC §3)",
+      "区域气候变化与极地系统 (IPCC §9-12)",
     ],
   },
   'advanced/planetary-geology': {
@@ -3033,6 +3271,8 @@ export const treeDetails = {
       "撞击坑形成与作用 (Melosh §9)",
       "火星表面地质 (Carr §3-5)",
       "行星大气与气候演化 (Carr §10)",
+      "冰卫星与海洋世界 (Melosh §12)",
+      "行星火山活动 (Carr §7)",
     ],
   },
   'advanced/space-physics': {
@@ -3048,6 +3288,8 @@ export const treeDetails = {
       "地球磁层物理 (Kivelson §8-9)",
       "电离层物理 (Kivelson §11)",
       "空间等离子体波动 (Gurnett §9)",
+      "磁重联与爆发过程 (Gurnett §7)",
+      "地球辐射带动力学 (Kivelson §10)",
     ],
   },
   'intermediate/biochemistry': {
@@ -3067,6 +3309,11 @@ export const treeDetails = {
       "脂质代谢 (Lehninger §17, §21)",
       "氨基酸代谢与尿素循环 (Lehninger §18)",
       "DNA复制与修复 (Lehninger §25)",
+      "转录与 RNA 加工（Lehninger §26）",
+      "翻译与蛋白质合成（Lehninger §27）",
+      "核苷酸代谢（Lehninger §22）",
+      "信号转导（Lehninger §12）",
+      "维生素与辅酶（Lehninger §13）",
     ],
   },
   'intermediate/taxonomy-systematics': {
@@ -3135,6 +3382,9 @@ export const treeDetails = {
       "膜蛋白结构 (Branden §12)",
       "X射线晶体学原理 (Liljas §2)",
       "核磁共振与冷冻电镜 (Liljas §3-4)",
+      "核酸结构（DNA/RNA）（Lodish §5）",
+      "蛋白质-蛋白质复合物（Lodish §3）",
+      "蛋白质结构预测（AlphaFold/CASP）（Lodish §4）",
     ],
   },
   'intermediate/immunology': {
@@ -3152,6 +3402,11 @@ export const treeDetails = {
       "体液与细胞免疫效应机制 (Janeway §10)",
       "免疫耐受与自身免疫 (Janeway §15)",
       "过敏与超敏反应 (Janeway §14)",
+      "补体系统与激活途径（Janeway §2）",
+      "移植免疫与组织相容性（Janeway §15）",
+      "肿瘤免疫与免疫治疗（Janeway §17）",
+      "免疫缺陷病（Janeway §16）",
+      "黏膜免疫（Janeway §12）",
     ],
   },
   'intermediate/virology': {
@@ -3169,6 +3424,10 @@ export const treeDetails = {
       "宿主免疫与抗病毒应答 (Flint §11)",
       "病毒与肿瘤 (Flint §12)",
       "病毒疫苗与抗病毒药物 (Flint §13)",
+      "HIV 与艾滋病（Fields §41）",
+      "流感病毒（Fields §41）",
+      "疱疹病毒（Fields §35）",
+      "肝炎病毒（Fields §28）",
     ],
   },
   'intermediate/behavioral-ecology': {
@@ -3203,6 +3462,10 @@ export const treeDetails = {
       "韧皮部运输 (Taiz §10)",
       "植物激素与信号 (Taiz §19)",
       "植物生长发育与光形态建成 (Taiz §16)",
+      "植物呼吸作用（Taiz §11）",
+      "次生代谢物（Taiz §24）",
+      "逆境生理（干旱/盐/低温）（Taiz §25-26）",
+      "开花与生殖生理（Taiz §21）",
     ],
   },
   'intermediate/animal-physiology': {
@@ -3220,6 +3483,9 @@ export const treeDetails = {
       "循环与血液 (Hill §12)",
       "渗透调节与排泄 (Hill §14)",
       "消化与能量代谢 (Hill §15)",
+      "内分泌生理（Guyton §9-10）",
+      "生殖生理（Guyton §16）",
+      "免疫生理（Guyton §19）",
     ],
   },
   'intermediate/conservation-biology': {
@@ -3237,6 +3503,9 @@ export const treeDetails = {
       "种群与生活史分析 (Primack §11)",
       "保护地与保护区设计 (Primack §15)",
       "恢复生态学 (Primack §19)",
+      "气候变化与生物多样性（Primack §10）",
+      "保护遗传与小种群遗传学（Primack §5）",
+      "保护政策与立法（Primack §16）",
     ],
   },
   'intermediate/enzymology': {
@@ -3407,6 +3676,9 @@ export const treeDetails = {
       "胚层分化与器官形成 (Moore §5)",
       "心血管系统发生 (Moore §13)",
       "消化与呼吸系统发生 (Moore §11)",
+      "血液与免疫系统组织学（Ross §14）",
+      "生殖系统组织学（Ross §22）",
+      "内分泌系统组织学（Ross §18）",
     ],
   },
   'life/pathology': {
@@ -3424,6 +3696,12 @@ export const treeDetails = {
       "呼吸系统疾病 (Robbins §15)",
       "消化系统疾病 (Robbins §17)",
       "肾脏疾病 (Robbins §20)",
+      "免疫性疾病病理（Robbins §6）",
+      "遗传性疾病病理（Robbins §7）",
+      "感染性疾病病理（Robbins §8）",
+      "神经系统病理（Robbins §28）",
+      "肝胆系统病理（Robbins §18）",
+      "内分泌系统病理（Robbins §24）",
     ],
   },
   'life/pathophysiology': {
@@ -3611,6 +3889,10 @@ export const treeDetails = {
       "心脏瓣膜病 (Braunwald §66)",
       "心肌病与心肌炎 (Braunwald §79)",
       "高血压与肺动脉高压 (Braunwald §47)",
+      "先天性心脏病（Braunwald §14）",
+      "心脏药理学（ACEI/ARB/β受体阻滞剂）（Braunwald §36）",
+      "心包疾病（Braunwald §71）",
+      "感染性心内膜炎（Braunwald §73）",
     ],
   },
   'life/pulmonology': {
@@ -3628,6 +3910,9 @@ export const treeDetails = {
       "慢性阻塞性肺疾病 (Murray §55)",
       "肺部感染与肺炎 (Murray §33)",
       "肺栓塞与肺动脉高压 (Murray §70)",
+      "肺癌（West §Respiratory §16）",
+      "间质性肺疾病（West §Respiratory §14）",
+      "胸膜疾病（West §Respiratory §18）",
     ],
   },
   'life/gastroenterology': {
@@ -3645,6 +3930,8 @@ export const treeDetails = {
       "胰腺疾病 (Sleisenger §32)",
       "病毒性肝炎 (Sleisenger §80)",
       "肝硬化与门脉高压 (Sleisenger §86)",
+      "消化道肿瘤（Sleisenger §52）",
+      "功能性胃肠病（Sleisenger §48）",
     ],
   },
   'life/endocrinology': {
@@ -3679,6 +3966,9 @@ export const treeDetails = {
       "慢性肾脏病与透析 (Brenner §54)",
       "高血压与肾脏 (Brenner §45)",
       "遗传性肾病 (Brenner §45)",
+      "肾小管间质疾病（Brenner §34）",
+      "糖尿病肾病（Brenner §38）",
+      "肾移植（Brenner §45）",
     ],
   },
   'life/hematology': {
@@ -3848,6 +4138,9 @@ export const treeDetails = {
       "因果推断 (Rothman §12)",
       "筛检试验评价 (Gordis §11)",
       "传染病流行病学 (Gordis §15)",
+      "实验性研究/RCT 设计（Gordis §9）",
+      "临床流行病学（Gordis §12）",
+      "分子流行病学（Gordis §15）",
     ],
   },
   'life/health-statistics': {
@@ -3984,6 +4277,9 @@ export const treeDetails = {
       "回交与轮回选择 (Allard §14)",
       "分子标记辅助选择 (Acquaah §22)",
       "转基因与基因编辑育种 (Acquaah §25)",
+      "GWAS 与全基因组关联分析（Acquaah §14）",
+      "突变育种与多倍体育种（Acquaah §12）",
+      "分子标记辅助选择（MAS）（Acquaah §15）",
     ],
   },
   'life/plant-protection': {
@@ -4391,6 +4687,10 @@ export const treeDetails = {
       "工具变量与两阶段最小二乘 (Wooldridge §15)",
       "设定与数据问题 (Greene §5)",
       "联立方程模型 (Wooldridge §16)",
+      "时间序列（ARMA/ARIMA/单位根/协整） (Wooldridge §18)",
+      "限值因变量模型（Probit/Logit/Tobit） (Wooldridge §17)",
+      "GMM 广义矩估计 (Wooldridge §19)",
+      "面板数据深化（固定/随机效应） (Wooldridge §14)",
     ],
   },
   'social/labor-economics': {
@@ -4407,6 +4707,7 @@ export const treeDetails = {
       "工资结构与补偿性工资差异 (Borjas §5)",
       "劳动力流动与移民 (Borjas §9)",
       "工会与集体谈判 (Borjas §10)",
+      "劳动市场歧视 (Borjas §9)",
     ],
   },
   'social/monetary-banking': {
@@ -4422,6 +4723,7 @@ export const treeDetails = {
       "货币供给过程 (Mishkin §14)",
       "货币政策工具与策略 (Mishkin §15-16)",
       "外汇市场与国际金融体系 (Mishkin §17-18)",
+      "货币理论与货币政策传导机制 (Mishkin §22-23)",
     ],
   },
   'social/public-finance': {
@@ -4438,6 +4740,7 @@ export const treeDetails = {
       "税收与归宿理论 (Rosen §14)",
       "社会保障与收入再分配 (Rosen §11-12)",
       "财政联邦主义 (Stiglitz §25)",
+      "成本收益分析与公共支出评价 (Rosen §8)",
     ],
   },
   'social/international-economics': {
@@ -4452,6 +4755,8 @@ export const treeDetails = {
       "贸易政策工具 (Krugman §9-10)",
       "汇率与开放经济的宏观经济学 (Krugman §14-16)",
       "国际货币体系 (Krugman §19-20)",
+      "国际要素流动与跨国公司 (Krugman §8)",
+      "汇率决定理论与购买力平价 (Krugman §15)",
     ],
   },
   'social/economic-history': {
@@ -4467,6 +4772,8 @@ export const treeDetails = {
       "大分流与全球不平等 (Allen §7)",
       "殖民主义与世界经济 (Allen §5)",
       "制度变迁的经济史分析 (North §13)",
+      "亚洲经济史与东亚复兴 (Allen §6)",
+      "金融与货币制度演化 (North §9)",
     ],
   },
   'social/institutional-economics': {
@@ -4483,6 +4790,7 @@ export const treeDetails = {
       "产权理论 (North §3)",
       "包容性与榨取性制度 (Acemoglu §1)",
       "国家理论 (North §7)",
+      "意识形态与制度绩效 (North §12)",
     ],
   },
   'social/financial-engineering': {
@@ -4498,6 +4806,7 @@ export const treeDetails = {
       "二叉树模型与Black-Scholes-Merton模型 (Hull §12-14)",
       "希腊字母与风险管理 (Hull §18)",
       "利率衍生品 (Hull §28-29)",
+      "信用衍生品与风险价值 VaR (Hull §22-23)",
     ],
   },
   'social/insurance': {
@@ -4514,6 +4823,7 @@ export const treeDetails = {
       "健康保险与社会保障 (Rejda §15-16)",
       "再保险 (Vaughan §21)",
       "保险监管 (Rejda §3)",
+      "精算原理与风险定价 (Rejda §4)",
     ],
   },
   'social/comparative-politics': {
@@ -4529,6 +4839,9 @@ export const treeDetails = {
       "总统制与议会制 (Lijphart §7)",
       "政治文化与政治社会化 (Hague §5)",
       "国家建构与制度转型 (Hague §4)",
+      "民主化理论（转型学/现代化） (Almond §7)",
+      "民族冲突与革命 (Almond §9)",
+      "联邦主义 (Almond §6)",
     ],
   },
   'social/international-political-economy': {
@@ -4544,6 +4857,8 @@ export const treeDetails = {
       "全球化与跨国投资 (Frieden §11)",
       "发展与不平等 (Oatley §11)",
       "全球治理与金融危机 (Oatley §10)",
+      "国际发展援助与援助政治 (Frieden §17)",
+      "全球化反弹与保护主义 (Oatley §12)",
     ],
   },
   'social/constitutional-administrative-law': {
@@ -4560,6 +4875,7 @@ export const treeDetails = {
       "行政行为 (应松年 §4)",
       "行政程序与行政救济 (应松年 §6-7)",
       "行政复议与行政诉讼 (应松年 §8)",
+      "宪法实施与违宪审查 (许崇德 §7)",
     ],
   },
   'social/civil-commercial-law': {
@@ -4576,6 +4892,9 @@ export const treeDetails = {
       "公司法 (范健 §3)",
       "票据法与证券法 (范健 §6-7)",
       "破产法 (范健 §9)",
+      "婚姻家庭法与继承法 (王利明 §6)",
+      "知识产权法（著作权/专利/商标） (王利明 §7)",
+      "海商法 (王利明 §8)",
     ],
   },
   'social/criminal-law': {
@@ -4592,6 +4911,11 @@ export const treeDetails = {
       "共同犯罪 (高铭暄 §11)",
       "刑罚体系与裁量 (高铭暄 §13)",
       "刑罚执行与消灭 (高铭暄 §15)",
+      "罪数理论（想象竞合/牵连犯/连续犯） (高铭暄 §10)",
+      "侵犯公民人身权利罪 (高铭暄 §14)",
+      "侵犯财产罪 (高铭暄 §15)",
+      "危害公共安全罪 (高铭暄 §12)",
+      "贪污贿赂罪与渎职罪 (高铭暄 §18)",
     ],
   },
   'social/international-law': {
@@ -4608,6 +4932,7 @@ export const treeDetails = {
       "条约法 (Brownlie §13)",
       "国际责任 (邵津 §8)",
       "国际争端解决 (Brownlie §30)",
+      "国际组织与国际责任法 (Brownlie §14)",
     ],
   },
   'social/social-work': {
@@ -4623,6 +4948,8 @@ export const treeDetails = {
       "小组工作 (Kirst-Ashman §8)",
       "社区工作 (王思斌 §7)",
       "社会政策与社会福利 (王思斌 §9)",
+      "儿童与家庭社会工作 (Kirst-Ashman §11)",
+      "医务与精神卫生社会工作 (Kirst-Ashman §13)",
     ],
   },
   'social/social-psychology': {
@@ -4639,6 +4966,8 @@ export const treeDetails = {
       "群体影响 (Myers §8)",
       "偏见与刻板印象 (Myers §9)",
       "攻击、吸引与亲密 (Aronson §8-9)",
+      "自我与同一性 (Myers §3)",
+      "利他行为与亲社会行为 (Myers §11)",
     ],
   },
   'social/rural-sociology': {
@@ -4654,6 +4983,8 @@ export const treeDetails = {
       "血缘与地缘 (费孝通 §11)",
       "从传统到现代的农村变迁 (Fei §9)",
       "城乡关系与小城镇问题 (Fei 附录)",
+      "农村社会结构与家族 (费孝通 §6)",
+      "农民工与城乡流动 (Fei §10)",
     ],
   },
   'social/criminology': {
@@ -4670,6 +5001,9 @@ export const treeDetails = {
       "犯罪类型:暴力、财产与白领犯罪 (Siegel §10-13)",
       "犯罪预防与环境犯罪学 (Siegel §15)",
       "受害者学 (Vold §15)",
+      "社会过程理论（标签/社会学习/社会控制） (Siegel §8)",
+      "社会冲突理论（马克思主义/左翼现实主义） (Siegel §9)",
+      "刑罚学与矫正 (Siegel §14)",
     ],
   },
   'social/public-policy': {
@@ -4685,6 +5019,8 @@ export const treeDetails = {
       "政策评估 (Anderson §7)",
       "政策工具与设计 (Dye §3)",
       "经济政策与管制政策 (Dye §9-10)",
+      "比较公共政策 (Dye §16)",
+      "社会福利政策 (Dye §15)",
     ],
   },
   'social/public-administration': {
@@ -4699,6 +5035,9 @@ export const treeDetails = {
       "预算与财务行政 (Rosenbloom §7)",
       "行政法与公共利益 (Rosenbloom §10)",
       "行政伦理与问责 (Rosenbloom §12)",
+      "新公共管理（NPM） (Rosenbloom §6)",
+      "电子政务 (Rosenbloom §10)",
+      "绩效管理 (Rosenbloom §9)",
     ],
   },
   'social/human-resource-management': {
@@ -4715,6 +5054,7 @@ export const treeDetails = {
       "绩效管理与评估 (Dessler §10)",
       "薪酬管理 (Dessler §11)",
       "员工关系与职业安全 (Noe §15)",
+      "国际人力资源管理 (Dessler §15)",
     ],
   },
   'social/tourism-management': {
@@ -4730,6 +5070,8 @@ export const treeDetails = {
       "旅游营销 (Goeldner §14)",
       "旅游的经济、社会文化与环境影响 (Cooper §13)",
       "旅游业的未来趋势 (Goeldner §17)",
+      "酒店与接待业管理 (Cooper §11)",
+      "可持续旅游与生态旅游 (Cooper §15)",
     ],
   },
   'social/developmental-psychology': {
@@ -4745,6 +5087,9 @@ export const treeDetails = {
       "青少年期的同一性与社会化 (Berk §11)",
       "成年早期与中期的心理发展 (Berk §13-15)",
       "老年期与生命终结 (Berk §17)",
+      "道德发展（Piaget/Kohlberg） (Berk §12)",
+      "性别发展 (Berk §13)",
+      "非典型发展与心理障碍 (Berk §14)",
     ],
   },
   'social/clinical-psychology': {
@@ -4761,6 +5106,9 @@ export const treeDetails = {
       "精神分裂症与其他精神病性障碍 (Kring §11)",
       "人格障碍 (Barlow §12)",
       "心理治疗与干预 (Kring §15)",
+      "物质使用障碍 (Barlow §11)",
+      "进食障碍 (Barlow §10)",
+      "认知行为治疗（CBT）技术 (Barlow §15)",
     ],
   },
   'social/educational-psychology': {
@@ -4776,6 +5124,8 @@ export const treeDetails = {
       "学习动机 (Slavin §10)",
       "课堂管理与教学策略 (Woolfolk §13)",
       "教学评估与标准化测试 (Slavin §14)",
+      "学习者差异与特殊教育 (Woolfolk §4)",
+      "教师心理与专业发展 (Slavin §13)",
     ],
   },
   'social/industrial-organizational-psychology': {
@@ -4792,6 +5142,7 @@ export const treeDetails = {
       "工作动机与工作设计 (Muchinsky §8)",
       "领导力与管理 (Muchinsky §10)",
       "工作压力与职业健康 (Spector §12)",
+      "组织发展与变革管理 (Muchinsky §12)",
     ],
   },
   'humanities/comparative-literature': {
@@ -4807,6 +5158,8 @@ export const treeDetails = {
       "世界文学的流通与翻译 (Damrosch §2-3)",
       "跨文化与跨学科研究 (Damrosch §10)",
       "比较文学的中国学派 (Damrosch §11)",
+      "翻译研究的转向 (Bassnett §8)",
+      "后殖民文学与世界文学 (Damrosch §6)",
     ],
   },
   'humanities/literary-criticism': {
@@ -4823,6 +5176,10 @@ export const treeDetails = {
       "女性主义批评 (Eagleton §6)",
       "新历史主义与文化批评 (Eagleton §7)",
       "文学批评的基本概念 (Abrams §1)",
+      "后殖民主义批评（Said/Spivak） (Eagleton §6)",
+      "接受美学与读者反应批评 (Eagleton §7)",
+      "马克思主义文学批评 (Eagleton §4)",
+      "后现代主义批评 (Eagleton §8)",
     ],
   },
   'humanities/classical-philology': {
@@ -4838,6 +5195,8 @@ export const treeDetails = {
       "辨伪与辑佚 (杜泽逊 §6)",
       "古籍整理方法 (黄永年 §2)",
       "文献的流传与收藏 (杜泽逊 §8)",
+      "训诂与注释学 (杜泽逊 §5)",
+      "古籍数字化与电子文献 (黄永年 §6)",
     ],
   },
   'humanities/historical-geography': {
@@ -4853,6 +5212,8 @@ export const treeDetails = {
       "历史交通地理 (侯仁之 §4)",
       "政区沿革与疆域变迁 (谭其骧 图集说明)",
       "历史城市地理 (侯仁之 §附录)",
+      "历史经济地理 (侯仁之 §5)",
+      "历史军事地理 (谭其骧 图集附录)",
     ],
   },
   'humanities/philology': {
@@ -4868,6 +5229,8 @@ export const treeDetails = {
       "典藏与流传 (程千帆 藏书编)",
       "文献的辑佚与辨伪 (张舜徽 §6)",
       "古代文献的检索与利用 (张舜徽 §8)",
+      "训诂与注释体例 (张舜徽 §5)",
+      "类书、丛书与工具书 (张舜徽 §7)",
     ],
   },
   'humanities/cultural-relics-conservation': {
@@ -4883,6 +5246,8 @@ export const treeDetails = {
       "纸质与纺织品文物保护 (王蕙贞 §6)",
       "金属文物保护 (王蕙贞 §3)",
       "壁画与彩塑保护 (王蕙贞 §8)",
+      "木质与漆器文物保护 (王蕙贞 §7)",
+      "考古现场文物保护 (李晓东 §8)",
     ],
   },
   'humanities/archaeometry': {
@@ -4898,6 +5263,8 @@ export const treeDetails = {
       "动物考古 (Renfrew §10)",
       "植物考古与农业起源 (Renfrew §9)",
       "遥感与GIS考古 (Renfrew §3)",
+      "古DNA与分子考古 (Renfrew §11)",
+      "冶金考古与金属器物研究 (陈铁梅 §9)",
     ],
   },
   'humanities/paleography': {
@@ -4913,6 +5280,8 @@ export const treeDetails = {
       "战国文字 (裘锡圭 §4)",
       "简帛文字 (裘锡圭 §5)",
       "古文字的考释方法 (裘锡圭 §8)",
+      "秦汉文字与小篆 (裘锡圭 §6)",
+      "隶变与汉字演变 (高明 §5)",
     ],
   },
   'humanities/historical-climate': {
@@ -4928,6 +5297,8 @@ export const treeDetails = {
       "气候变化与文明兴衰 (Brooke §4)",
       "灾害史与社会响应 (Brooke §8)",
       "小冰期与近代气候 (Brooke §12)",
+      "树轮气候学与历史重建 (Brooke §3)",
+      "气候危机与社会崩溃 (Brooke §14)",
     ],
   },
   'humanities/historical-population-geography': {
@@ -4943,6 +5314,8 @@ export const treeDetails = {
       "户籍制度与人口统计 (葛剑雄 §2)",
       "人口结构与城镇化 (葛剑雄 §5)",
       "战乱与人口波动 (葛剑雄 移民史 §3)",
+      "人口与资源环境承载力 (葛剑雄 §7)",
+      "海外移民与华人华侨 (葛剑雄 移民史 §7)",
     ],
   },
   'humanities/frontier-historical-geography': {
@@ -4958,6 +5331,8 @@ export const treeDetails = {
       "东北边疆与满洲 (Lattimore §7)",
       "西南边疆与改土归流 (马大正 §6)",
       "海疆与近代边疆危机 (马大正 §9)",
+      "北疆与中俄边界 (马大正 §7)",
+      "边疆民族政策与朝贡体系 (Lattimore §9)",
     ],
   },
   'humanities/historical-agricultural-geography': {
@@ -4973,6 +5348,8 @@ export const treeDetails = {
       "水利与农业地理格局 (Chi §4)",
       "农业技术变迁与人口压力 (李伯重 §5)",
       "农业商品化与市镇经济 (李伯重 §7)",
+      "经济作物与商品农业 (李伯重 §6)",
+      "灾荒与农业波动 (李伯重 §8)",
     ],
   },
   'humanities/historiography': {
@@ -4988,6 +5365,9 @@ export const treeDetails = {
       "《史记》与传统史学体例 (白寿彝 §3)",
       "近代新史学的兴起 (白寿彝 §6)",
       "西方史学流派演变 (Jenkins §5)",
+      "年鉴学派（Annales） (Jenkins §4)",
+      "后现代史学（怀特/安克斯密特） (Jenkins §6)",
+      "马克思主义史学 (Jenkins §3)",
     ],
   },
   'humanities/chinese-intellectual-history': {
@@ -5003,6 +5383,8 @@ export const treeDetails = {
       "魏晋玄学与佛学东传 (侯外庐 §3)",
       "宋明理学 (葛兆光 §4)",
       "明清之际与近代思想转型 (侯外庐 §5)",
+      "清代考据学与实学 (侯外庐 §6)",
+      "近现代思想转型 (葛兆光 §6)",
     ],
   },
   'humanities/western-intellectual-history': {
@@ -5018,6 +5400,8 @@ export const treeDetails = {
       "宗教改革与政治思想 (Skinner §2)",
       "启蒙运动与理性主义 (Skinner §3)",
       "现代性的思想起源 (Skinner §4)",
+      "科学革命与近代世界观 (Lovejoy §5)",
+      "20世纪思想与现代性批判 (Skinner §6)",
     ],
   },
   'humanities/fine-arts': {
@@ -5033,6 +5417,8 @@ export const treeDetails = {
       "巴洛克与洛可可 (Gombrich §19)",
       "19世纪艺术:从浪漫主义到印象派 (Kleiner §24)",
       "现代与当代艺术 (Kleiner §27)",
+      "中国美术史 (Gombrich §10)",
+      "摄影与新媒体艺术 (Kleiner §29)",
     ],
   },
   'humanities/sculpture': {
@@ -5048,6 +5434,8 @@ export const treeDetails = {
       "文艺复兴雕塑 (孙振华 §5)",
       "现代雕塑与公共艺术 (孙振华 §7)",
       "当代雕塑的媒介拓展 (孙振华 §9)",
+      "中世纪雕塑与教堂艺术 (Boardman §5)",
+      "雕塑材料与铸造工艺 (孙振华 §10)",
     ],
   },
   'humanities/animation-digital-media': {
@@ -5063,6 +5451,8 @@ export const treeDetails = {
       "界面与交互美学 (Manovich §2)",
       "数字叙事与数据库逻辑 (Manovich §5)",
       "动画与新媒介融合 (Wells §8)",
+      "3D 动画与计算机图形学 (Wells §6)",
+      "虚拟现实与沉浸式媒介 (Manovich §8)",
     ],
   },
   'humanities/art-theory': {
@@ -5078,6 +5468,8 @@ export const treeDetails = {
       "艺术批评与诠释 (Carroll §6)",
       "艺术、情感与表现 (Carroll §5)",
       "艺术与社会功能 (Danto §7)",
+      "艺术体制理论与历史 (Danto §5)",
+      "非西方艺术理论 (Carroll §10)",
     ],
   },
   'humanities/film-theory': {
@@ -5093,6 +5485,9 @@ export const treeDetails = {
       "作者论与电影作者 (Stam §4)",
       "类型片理论 (Bordwell §9)",
       "精神分析、女性主义与后殖民电影理论 (Stam §7-9)",
+      "现实主义电影理论（巴赞/克拉考尔） (Bordwell §2)",
+      "电影符号学（Metz） (Bordwell §5)",
+      "认知电影理论 (Bordwell §7)",
     ],
   },
   'humanities/cultural-heritage-museology': {
@@ -5108,6 +5503,8 @@ export const treeDetails = {
       "展览策划与诠释 (Macdonald §8)",
       "物质文化遗产保护原则 (ICOMOS Venice Charter)",
       "社区参与与遗产伦理 (Macdonald §17)",
+      "数字博物馆与虚拟展览 (Macdonald §20)",
+      "遗产地管理与旅游 (Macdonald §15)",
     ],
   },
   'humanities/intangible-cultural-heritage': {
@@ -5123,6 +5520,8 @@ export const treeDetails = {
       "社会实践、仪式与节庆 (UNESCO §2.3)",
       "传统手工艺 (UNESCO §2.5)",
       "非遗的保护、传承与伦理 (Kurin §4)",
+      "有关自然和宇宙的知识与实践 (UNESCO §2.4)",
+      "非遗档案化与数字化保护 (Kurin §6)",
     ],
   },
   'humanities/philosophy-overview': {
@@ -5138,6 +5537,8 @@ export const treeDetails = {
       "启蒙运动与德国古典哲学 (Copleston 卷6)",
       "19世纪哲学:黑格尔、马克思、尼采 (Russell §近代)",
       "20世纪哲学:分析哲学与大陆哲学 (Copleston 卷8-9)",
+      "中国与印度哲学概览 (Copleston 卷1东方)",
+      "伊斯兰哲学黄金时代 (Copleston 卷2)",
     ],
   },
   'humanities/metaphysics': {
@@ -5153,6 +5554,8 @@ export const treeDetails = {
       "因果性与自然律 (Loux §7)",
       "自由意志与决定论 (Loux §9)",
       "必然性与可能性 (Loux §5)",
+      "时间与持存的同一性 (Loux §4)",
+      "空间与时间哲学 (Loux §8)",
     ],
   },
   'humanities/epistemology': {
@@ -5168,6 +5571,9 @@ export const treeDetails = {
       "证言与社会认识论 (Audi §7)",
       "先验知识与理性主义 (Moser §6)",
       "自然化认识论 (Audi §9)",
+      "证立理论（基础主义/融贯论/可靠主义） (Audi §4-5)",
+      "归纳问题（Hume/Goodman） (Audi §6)",
+      "信念与真理理论 (Audi §7)",
     ],
   },
   'humanities/ethics': {
@@ -5183,6 +5589,8 @@ export const treeDetails = {
       "德性伦理学:亚里士多德传统 (Cahn §Aristotle)",
       "道德相对主义与道德实在论 (Frankena §6)",
       "应用伦理问题 (Cahn §Applied)",
+      "社会契约论传统 (Cahn §Hobbes)",
+      "道德心理学与道德情感 (Frankena §5)",
     ],
   },
   'humanities/aesthetics': {
@@ -5198,6 +5606,9 @@ export const treeDetails = {
       "艺术批评与诠释 (Beardsley §9)",
       "悲剧理论与崇高 (Beardsley §7)",
       "艺术与道德 (Carroll §7)",
+      "康德判断力批判 (Scruton §3)",
+      "环境美学 (Scruton §8)",
+      "后现代美学 (Scruton §9)",
     ],
   },
   'humanities/chinese-philosophy': {
@@ -5213,6 +5624,9 @@ export const treeDetails = {
       "汉代哲学与经学 (冯友兰 §5)",
       "宋明理学:程朱陆王 (冯友兰 §8)",
       "中国佛学 (冯友兰 §7)",
+      "法家思想（韩非子） (冯友兰 §法家)",
+      "道教哲学（道家宗教化） (冯友兰 §道教)",
+      "现代新儒家（牟宗三/唐君毅） (冯友兰 §近现代)",
     ],
   },
   'humanities/western-philosophy': {
@@ -5228,6 +5642,8 @@ export const treeDetails = {
       "笛卡尔与大陆理性主义 (Russell §近代卷1)",
       "洛克、休谟与英国经验主义 (Russell §近代卷2)",
       "康德与德国唯心论 (Copleston 卷6)",
+      "19世纪：叔本华、尼采与克尔凯郭尔 (Russell §近代卷3)",
+      "现象学与存在主义 (Copleston 卷8)",
     ],
   },
   'humanities/indian-philosophy': {
@@ -5243,6 +5659,8 @@ export const treeDetails = {
       "佛教哲学 (Radhakrishnan 卷1 §6)",
       "耆那教哲学 (Radhakrishnan 卷1 §7)",
       "印度逻辑学与认识论 (Potter 卷2)",
+      "顺世论与印度唯物主义 (Radhakrishnan 卷1 §8)",
+      "当代印度哲学（甘地/奥罗宾多） (Radhakrishnan 卷2 §附录)",
     ],
   },
   'humanities/islamic-philosophy': {
@@ -5258,6 +5676,8 @@ export const treeDetails = {
       "伊本·鲁世德与亚里士多德主义 (Fakhry §6)",
       "照明学派与苏菲主义 (Nasr §3)",
       "伊斯兰哲学的现代发展 (Fakhry §11)",
+      "伊斯玛仪派哲学 (Fakhry §5)",
+      "伊斯兰伦理与政治哲学 (Nasr §4)",
     ],
   },
   'humanities/philosophy-of-mind': {
@@ -5273,6 +5693,10 @@ export const treeDetails = {
       "意识与感受质 (Chalmers §Consciousness)",
       "心理因果性与排除论证 (Kim §7)",
       "意向性与心理内容 (Kim §8)",
+      "自由意志与决定论 (Chalmers §6)",
+      "AI 与心灵（图灵测试/中文房间） (Chalmers §8)",
+      "意识的困难问题（Chalmers §1-2）",
+      "他心问题 (Chalmers §7)",
     ],
   },
   'humanities/comparative-philosophy': {
@@ -5288,6 +5712,8 @@ export const treeDetails = {
       "佛教哲学的跨文化诠释 (Garfield §2)",
       "概念的不可通约性与翻译 (Garfield §5)",
       "普遍主义与文化相对主义 (Larson §8)",
+      "跨文化诠释学 (Garfield §8)",
+      "比较伦理学与跨文化价值 (Larson §6)",
     ],
   },
   'humanities/philosophy-of-mathematics': {
@@ -5303,6 +5729,8 @@ export const treeDetails = {
       "直觉主义与构造主义 (Benacerraf §Brouwer)",
       "数学真理与认识论 (Benacerraf §Benacerraf)",
       "数学应用与不可或缺性论证 (Shapiro §9)",
+      "数学结构主义 (Shapiro §7)",
+      "数学实践与数学哲学 (Shapiro §10)",
     ],
   },
   'humanities/philosophy-of-physics': {
@@ -5318,6 +5746,8 @@ export const treeDetails = {
       "统计力学与时间箭头 (Albert §2)",
       "量子非定域性与纠缠 (Albert §4)",
       "物理定律与自然类 (Sklar §7)",
+      "热力学第二定律与时间 (Albert §3)",
+      "量子测量与诠释比较 (Sklar §6)",
     ],
   },
   'humanities/philosophy-of-technology': {
@@ -5333,6 +5763,9 @@ export const treeDetails = {
       "技术伦理与责任 (Mitcham §7)",
       "技术与社会的共同塑造 (Ihde §6)",
       "人工智能与未来技术 (Mitcham §10)",
+      "海德格尔技术哲学（\"关于技术的追问\"） (Ihde §3)",
+      "法兰克福学派技术批判理论 (Ihde §5)",
+      "技术决定论与社会建构论（SCOT） (Ihde §6)",
     ],
   },
   'humanities/philosophy-of-law': {
@@ -5348,6 +5781,8 @@ export const treeDetails = {
       "法律作为整全性 (Dworkin §6)",
       "权利与原则 (Dworkin §4)",
       "法治与自由裁量 (Dworkin §5)",
+      "法律与道德的关系 (Hart §8)",
+      "法律推理与判决 (Dworkin §1)",
     ],
   },
   'humanities/philosophy-of-education': {
@@ -5363,6 +5798,8 @@ export const treeDetails = {
       "教育公平与社会正义 (Noddings §8)",
       "批判教育学与女性主义教育 (Noddings §7)",
       "道德教育与品格培养 (Siegel §道德)",
+      "杜威与实用主义教育哲学 (Noddings §4)",
+      "教育认识论 (Noddings §6)",
     ],
   },
   'humanities/philosophy-of-history': {
@@ -5378,6 +5815,8 @@ export const treeDetails = {
       "历史客观性与诠释学 (Collingwood §Epilegomena)",
       "历史叙述与叙事 (Dray §7)",
       "历史的意义与目的 (Collingwood §反思)",
+      "马克思主义历史哲学 (Dray §6)",
+      "后现代历史哲学（怀特） (Dray §9)",
     ],
   },
   'humanities/applied-ethics': {
@@ -5393,6 +5832,8 @@ export const treeDetails = {
       "环境伦理与动物权利 (Singer §3-5)",
       "科技伦理与责任 (Singer §10)",
       "人工智能伦理 (Singer 附录)",
+      "商业与企业伦理 (Singer §6)",
+      "工程与计算机伦理 (Singer §11)",
     ],
   },
   'humanities/meta-ethics': {
@@ -5408,6 +5849,8 @@ export const treeDetails = {
       "道德动机与内在主义 (Smith §5)",
       "道德知识与直觉主义 (Shafer-Landau §17)",
       "规范性与道德理由 (Smith §6)",
+      "道德语言与语义学 (Shafer-Landau §16)",
+      "道德心理学与道德判断 (Smith §7)",
     ],
   },
   'humanities/phenomenology-existentialism': {
@@ -5424,6 +5867,8 @@ export const treeDetails = {
       "本真性与向死存在 (Heidegger §6)",
       "自在与自为 (Sartre §1)",
       "他者与凝视 (Sartre §3)",
+      "时间意识与内时间意识 (Husserl §5)",
+      "身体现象学：梅洛-庞蒂 (Heidegger §8)",
     ],
   },
   'humanities/postmodern-philosophy': {
@@ -5439,6 +5884,9 @@ export const treeDetails = {
       "话语分析与陈述形成 (Foucault §2)",
       "系谱学与权力谱系 (Foucault §附录)",
       "差异与延异 (Lyotard §附录)",
+      "德勒兹差异哲学 (Copleston §当代)",
+      "鲍德里亚拟像理论 (Copleston §当代)",
+      "哈贝马斯现代性批判 (Copleston §当代)",
     ],
   },
   'humanities/analytic-continental-philosophy': {
@@ -5454,6 +5902,9 @@ export const treeDetails = {
       "现象学传统 (Critchley §2)",
       "存在主义与解释学 (Critchley §3)",
       "两大传统的对话与融合 (Critchley §导论)",
+      "维特根斯坦前后期哲学 (Russell §晚期)",
+      "弗雷格与罗素（分析哲学源头） (Russell §逻辑)",
+      "后结构主义（Derrida/Deleuze） (Copleston §后现代)",
     ],
   },
   'humanities/philosophy-of-action': {
@@ -5469,6 +5920,8 @@ export const treeDetails = {
       "行动的因果关系理论 (Mele §Causation)",
       "实践推理与意志薄弱 (Mele §Akrasia)",
       "自由行动与代理人因果 (Mele §Free Will)",
+      "集体行动与社会行动 (Mele §Collective)",
+      "行动知识与道义学 (Anscombe §7)",
     ],
   },
 }
