@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 330" width="460" height="330" role="img">
+<title>三相绕组产生的旋转磁场</title>
+<desc>定子截面图：A、B、C 三相绕组轴线在空间相隔 120°，合成磁动势向量 F 以同步转速匀速旋转。</desc>
+<rect x="0" y="0" width="460" height="330" fill="#faf9f5"/>
+
+<!-- 定子内圆 -->
+<circle cx="210" cy="165" r="130" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="210" cy="165" r="6" fill="#333"/>
+
+<!-- 三相轴线 -->
+<g stroke-width="3" fill="none">
+  <!-- A 相（右侧，0°） -->
+  <line x1="210" y1="165" x2="330" y2="165" stroke="#1f6f8b"/>
+  <polygon points="330,165 320,160 320,170" fill="#1f6f8b"/>
+  <text x="345" y="170" font-family="sans-serif" font-size="16" fill="#1f6f8b" font-weight="bold">A 相</text>
+
+  <!-- B 相（120°：左上） -->
+  <line x1="210" y1="165" x2="105" y2="70" stroke="#b08d3e"/>
+  <polygon points="105,70 116,66 111,78" fill="#b08d3e"/>
+  <text x="82" y="55" font-family="sans-serif" font-size="16" fill="#b08d3e" font-weight="bold">B 相</text>
+
+  <!-- C 相（240°：左下） -->
+  <line x1="210" y1="165" x2="105" y2="260" stroke="#7a7a7a"/>
+  <polygon points="105,260 116,264 111,252" fill="#7a7a7a"/>
+  <text x="72" y="285" font-family="sans-serif" font-size="16" fill="#7a7a7a" font-weight="bold">C 相</text>
+</g>
+
+<!-- 合成磁动势（红色，指向约 45°） -->
+<line x1="210" y1="165" x2="300" y2="85" stroke="#c0392b" stroke-width="4" fill="none"/>
+<polygon points="300,85 286,83 293,97" fill="#c0392b"/>
+<text x="308" y="80" font-family="sans-serif" font-size="17" fill="#c0392b" font-weight="bold">合成磁动势 F</text>
+
+<!-- 旋转方向弧线 -->
+<path d="M 320 205 A 78 78 0 0 1 255 250" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arw)"/>
+<defs>
+  <marker id="arw" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <polygon points="0,0 8,4 0,8" fill="#c0392b"/>
+  </marker>
+</defs>
+<text x="322" y="248" font-family="sans-serif" font-size="15" fill="#c0392b">旋转方向（ω）</text>
+
+<text x="210" y="318" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">三相电流时间相差 120°，流入空间相隔 120° 的绕组，合成磁场匀速旋转</text>
+</svg>

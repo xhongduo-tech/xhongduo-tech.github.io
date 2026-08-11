@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+  <title>失效率函数的浴盆曲线</title>
+  <desc>失效率随时间先降（早期故障期）、后平（偶然故障期）、再升（损耗故障期），形似浴盆。可靠性的三个典型阶段由失效率函数的形状决定。</desc>
+  <rect x="0" y="0" width="680" height="420" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <line x1="70" y1="350" x2="620" y2="350"/>
+    <line x1="70" y1="80" x2="70" y2="350"/>
+  </g>
+  <path d="M 70 160 C 125 300 175 338 220 340 L 450 340 C 490 340 555 290 610 150" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <g stroke="#999" stroke-width="1.5" stroke-dasharray="6 5">
+    <line x1="220" y1="80" x2="220" y2="350"/>
+    <line x1="450" y1="80" x2="450" y2="350"/>
+  </g>
+  <g text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333">
+    <text x="145" y="395">早期故障期</text>
+    <text x="335" y="395">偶然故障期</text>
+    <text x="525" y="395">损耗故障期</text>
+  </g>
+  <g text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">
+    <text x="145" y="215">失效率递减</text>
+    <text x="335" y="330">失效率 ≈ 常数</text>
+    <text x="525" y="235">失效率递增</text>
+  </g>
+  <g font-family="sans-serif" font-size="15" fill="#333">
+    <text x="640" y="355">时间 t</text>
+    <text x="30" y="70">失效率 λ(t)</text>
+  </g>
+</svg>

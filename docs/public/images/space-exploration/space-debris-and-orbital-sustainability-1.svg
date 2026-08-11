@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="sans-serif">
+<title>凯斯勒效应（空间碎片级联）示意图</title>
+<desc>碎片群在高速碰撞中碎裂产生更多碎片，碎片密度上升又推高碰撞概率，形成自我强化的级联循环。</desc>
+<rect x="0" y="0" width="640" height="340" fill="#faf9f5"/>
+<text x="20" y="32" font-size="15" fill="#333"><tspan font-weight="bold">凯斯勒效应</tspan>：碰撞 → 碎裂 → 更多碰撞 的自强化循环</text>
+<rect x="30" y="50" width="180" height="90" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="120" y="82" text-anchor="middle" font-size="13" fill="#333">① 碎片群</text>
+<text x="120" y="102" text-anchor="middle" font-size="13" fill="#333">死卫星 · 火箭残骸 · 碰撞渣</text>
+<text x="120" y="122" text-anchor="middle" font-size="13" fill="#333">（>10 cm 可跟踪约数万个）</text>
+<line x1="210" y1="95" x2="235" y2="95" stroke="#333" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="240" y="50" width="180" height="90" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="330" y="82" text-anchor="middle" font-size="13" fill="#333">② 高速碰撞</text>
+<text x="330" y="102" text-anchor="middle" font-size="13" fill="#333">相对速度可达 10+ km/s</text>
+<text x="330" y="122" text-anchor="middle" font-size="13" fill="#333">（一碰撞能量如小型炸药）</text>
+<line x1="420" y1="95" x2="445" y2="95" stroke="#333" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="450" y="50" width="160" height="90" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="530" y="82" text-anchor="middle" font-size="13" fill="#333">③ 碎裂</text>
+<text x="530" y="102" text-anchor="middle" font-size="13" fill="#333">产生大量更小碎片</text>
+<text x="530" y="122" text-anchor="middle" font-size="13" fill="#333">（数量倍增）</text>
+<line x1="530" y1="140" x2="530" y2="195" stroke="#333" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="450" y="200" width="160" height="70" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="530" y="228" text-anchor="middle" font-size="13" fill="#c0392b">④ 碎片密度↑</text>
+<text x="530" y="248" text-anchor="middle" font-size="13" fill="#c0392b">碰撞概率随之上升</text>
+<path d="M 450 235 L 120 235 L 120 145" fill="none" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arw)"/>
+<text x="280" y="225" text-anchor="middle" font-size="13" fill="#c0392b">回到①：级联自强化，轨道带逐渐不可用</text>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+</marker>
+</defs>
+</svg>

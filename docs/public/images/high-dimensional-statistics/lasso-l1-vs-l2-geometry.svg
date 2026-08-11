@@ -1,0 +1,58 @@
+<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>Lasso 与岭回归解的几何对比</title>
+  <desc>左图：椭圆等高线（平方损失）与 ℓ1 菱形罚球相切于顶点，解落在坐标轴上（稀疏）；右图：与 ℓ2 圆形罚球相切于光滑点，解落在轴外（稠密）。</desc>
+  <rect width="760" height="360" fill="#faf9f5"/>
+
+  <text x="190" y="36" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">Lasso（ℓ1 罚）</text>
+  <text x="570" y="36" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">岭回归（ℓ2 罚）</text>
+
+  <!-- Panel A: lasso -->
+  <g>
+    <!-- axes -->
+    <line x1="185" y1="300" x2="185" y2="80" stroke="#bbb" stroke-width="1"/>
+    <line x1="80" y1="185" x2="300" y2="185" stroke="#bbb" stroke-width="1"/>
+    <text x="292" y="180" font-size="13" fill="#333">β₁</text>
+    <text x="191" y="94" font-size="13" fill="#333">β₂</text>
+
+    <!-- loss ellipses (horizontal, centered at OLS point 230,185) -->
+    <ellipse cx="230" cy="185" rx="160" ry="38" fill="none" stroke="#c0392b" stroke-width="1" opacity="0.35"/>
+    <ellipse cx="230" cy="185" rx="147" ry="31" fill="none" stroke="#c0392b" stroke-width="1" opacity="0.5"/>
+    <ellipse cx="230" cy="185" rx="133" ry="24" fill="none" stroke="#c0392b" stroke-width="1" opacity="0.7"/>
+    <ellipse cx="230" cy="185" rx="117" ry="18" fill="none" stroke="#c0392b" stroke-width="1.4"/>
+
+    <!-- l1 diamond -->
+    <polygon points="113,185 185,113 257,185 185,257" fill="#c0392b" fill-opacity="0.06" stroke="#c0392b" stroke-width="2"/>
+
+    <!-- OLS point and solution -->
+    <circle cx="230" cy="185" r="3.5" fill="#333"/>
+    <text x="238" y="178" font-size="13" fill="#333">无约束解</text>
+    <circle cx="113" cy="185" r="5" fill="#c0392b"/>
+    <text x="40" y="190" font-size="13" fill="#c0392b" font-weight="bold">Lasso 解</text>
+    <text x="40" y="206" font-size="13" fill="#333">顶点 = 稀疏（β₂=0）</text>
+  </g>
+
+  <!-- Panel B: ridge -->
+  <g>
+    <line x1="570" y1="300" x2="570" y2="80" stroke="#bbb" stroke-width="1"/>
+    <line x1="455" y1="185" x2="685" y2="185" stroke="#bbb" stroke-width="1"/>
+    <text x="677" y="180" font-size="13" fill="#333">β₁</text>
+    <text x="576" y="94" font-size="13" fill="#333">β₂</text>
+
+    <!-- loss ellipses rotated, centered at 240,215 -->
+    <g transform="rotate(-22 240 215)">
+      <ellipse cx="240" cy="215" rx="100" ry="58" fill="none" stroke="#1f6f8b" stroke-width="1" opacity="0.35"/>
+      <ellipse cx="240" cy="215" rx="82" ry="46" fill="none" stroke="#1f6f8b" stroke-width="1" opacity="0.5"/>
+      <ellipse cx="240" cy="215" rx="64" ry="35" fill="none" stroke="#1f6f8b" stroke-width="1" opacity="0.7"/>
+      <ellipse cx="240" cy="215" rx="48" ry="27" fill="none" stroke="#1f6f8b" stroke-width="1.4"/>
+    </g>
+
+    <!-- l2 ball -->
+    <circle cx="570" cy="185" r="72" fill="#1f6f8b" fill-opacity="0.06" stroke="#1f6f8b" stroke-width="2"/>
+
+    <circle cx="620" cy="195" r="3.5" fill="#333"/>
+    <text x="630" y="190" font-size="13" fill="#333">无约束解</text>
+    <circle cx="524" cy="156" r="5" fill="#1f6f8b"/>
+    <text x="400" y="130" font-size="13" fill="#1f6f8b" font-weight="bold">岭回归解</text>
+    <text x="400" y="146" font-size="13" fill="#333">光滑切点 = 稠密（β₁,β₂≠0）</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="sans-serif">
+  <title>量子隐形传态电路</title>
+  <desc>Alice 持有未知态 |ψ⟩ 与 Bell 对的一半，Bob 持有另一半；Alice 做 Bell 测量并把两个经典结果发给 Bob，Bob 据结果施加 X 与 Z 纠正门，恢复出 |ψ⟩。</desc>
+  <rect width="760" height="300" fill="#faf9f5"/>
+  <!-- wires -->
+  <line x1="90" y1="55" x2="690" y2="55" stroke="#333" stroke-width="2"/>
+  <text x="30" y="60" font-size="15" fill="#333">|ψ⟩</text>
+  <text x="30" y="78" font-size="12" fill="#666">Alice 的未知态</text>
+  <line x1="90" y1="150" x2="690" y2="150" stroke="#333" stroke-width="2"/>
+  <text x="30" y="155" font-size="15" fill="#333">|0⟩</text>
+  <text x="30" y="173" font-size="12" fill="#666">Alice 的 Bell 对一半</text>
+  <line x1="90" y1="245" x2="690" y2="245" stroke="#333" stroke-width="2"/>
+  <text x="30" y="250" font-size="15" fill="#333">|0⟩</text>
+  <text x="30" y="268" font-size="12" fill="#666">Bob 的 Bell 对一半</text>
+  <!-- Bell pair: H on middle wire, CNOT middle->bottom -->
+  <rect x="160" y="125" width="46" height="46" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="183" y="155" font-size="18" text-anchor="middle" fill="#1f6f8b">H</text>
+  <circle cx="250" cy="150" r="6" fill="#c0392b"/>
+  <line x1="250" y1="156" x2="250" y2="238" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="250" cy="245" r="11" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <!-- CNOT |ψ⟩ -> middle -->
+  <circle cx="330" cy="55" r="6" fill="#c0392b"/>
+  <line x1="330" y1="61" x2="330" y2="143" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="330" cy="150" r="11" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <!-- H on |ψ⟩ -->
+  <rect x="400" y="30" width="46" height="46" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="423" y="60" font-size="18" text-anchor="middle" fill="#1f6f8b">H</text>
+  <!-- measurements -->
+  <circle cx="480" cy="55" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+  <line x1="475" y1="60" x2="485" y2="50" stroke="#333" stroke-width="2"/>
+  <line x1="485" y1="60" x2="475" y2="50" stroke="#333" stroke-width="2"/>
+  <circle cx="480" cy="150" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+  <line x1="475" y1="155" x2="485" y2="145" stroke="#333" stroke-width="2"/>
+  <line x1="485" y1="155" x2="475" y2="145" stroke="#333" stroke-width="2"/>
+  <!-- classical bits to Bob with correction gates -->
+  <line x1="493" y1="55" x2="520" y2="55" stroke="#666" stroke-width="1.5"/>
+  <line x1="520" y1="55" x2="520" y2="245" stroke="#666" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="520" cy="245" r="3" fill="#666"/>
+  <rect x="540" y="222" width="46" height="46" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="563" y="252" font-size="18" text-anchor="middle" fill="#333">X</text>
+  <line x1="493" y1="150" x2="620" y2="150" stroke="#666" stroke-width="1.5"/>
+  <line x1="620" y1="150" x2="620" y2="245" stroke="#666" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="620" cy="245" r="3" fill="#666"/>
+  <rect x="640" y="222" width="46" height="46" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="663" y="252" font-size="18" text-anchor="middle" fill="#333">Z</text>
+  <!-- output -->
+  <text x="700" y="60" font-size="15" fill="#1f6f8b">|ψ⟩ 复原</text>
+  <text x="700" y="78" font-size="12" fill="#666">(Bob 侧)</text>
+  <text x="250" y="290" font-size="13" fill="#333">经典信道传送两个测量结果 → Bob 施加 X 与 Z 纠正 → 未知态在 Bob 处复原</text>
+</svg>

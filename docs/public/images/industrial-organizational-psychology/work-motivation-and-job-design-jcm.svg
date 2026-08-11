@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="sans-serif" fill="#333">
+<title>哈克曼与奥尔德姆的工作特征模型（JCM）</title>
+<desc>五项核心工作特征经由三种关键心理状态，驱动员工与工作结果；中间的动机潜能分数（MPS）衡量工作本身的内在激励强度。</desc>
+<rect x="0" y="0" width="960" height="420" fill="#faf9f5"/>
+
+<text x="480" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f6f8b">工作特征模型（Hackman &amp; Oldham）</text>
+
+<rect x="30" y="80" width="280" height="270" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="170" y="108" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f6f8b">五项核心工作特征</text>
+<text x="170" y="138" text-anchor="middle" font-size="14">技能多样性</text>
+<text x="170" y="166" text-anchor="middle" font-size="14">任务完整性</text>
+<text x="170" y="194" text-anchor="middle" font-size="14">任务重要性</text>
+<text x="170" y="222" text-anchor="middle" font-size="14">自主性</text>
+<text x="170" y="250" text-anchor="middle" font-size="14">工作反馈</text>
+<text x="170" y="288" text-anchor="middle" font-size="13" fill="#666">核心特征三件套：</text>
+<text x="170" y="310" text-anchor="middle" font-size="13" fill="#666">技能多样性、任务完整性、任务重要性</text>
+<text x="170" y="330" text-anchor="middle" font-size="13" fill="#666">→ 共同组成意义感维度</text>
+
+<rect x="360" y="80" width="240" height="180" rx="10" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="480" y="112" text-anchor="middle" font-size="16" font-weight="bold">三种关键心理状态</text>
+<text x="480" y="146" text-anchor="middle" font-size="14">体验到工作有意义</text>
+<text x="480" y="172" text-anchor="middle" font-size="14">体验到对结果的负责</text>
+<text x="480" y="198" text-anchor="middle" font-size="14">了解工作结果</text>
+<text x="480" y="238" text-anchor="middle" font-size="13" fill="#c0392b">MPS = (意义/3) × 自主性 × 反馈</text>
+
+<rect x="650" y="80" width="280" height="180" rx="10" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+<text x="790" y="112" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">个人与工作结果</text>
+<text x="790" y="146" text-anchor="middle" font-size="14">高内在工作动机</text>
+<text x="790" y="172" text-anchor="middle" font-size="14">高工作绩效与满意度</text>
+<text x="790" y="198" text-anchor="middle" font-size="14">低缺勤与低离职</text>
+
+<path d="M 310 170 C 335 170, 335 170, 355 170" fill="none" stroke="#333" stroke-width="2.5" marker-end="url(#a)"/>
+<path d="M 600 170 C 620 170, 620 170, 645 170" fill="none" stroke="#333" stroke-width="2.5" marker-end="url(#a)"/>
+<defs>
+<marker id="a" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#333"/>
+</marker>
+</defs>
+
+<rect x="360" y="296" width="240" height="56" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="480" y="322" text-anchor="middle" font-size="14" font-weight="bold">调节变量</text>
+<text x="480" y="342" text-anchor="middle" font-size="13" fill="#666">成长需求强度（GNS）</text>
+
+<text x="960" y="410" text-anchor="end" font-size="13" fill="#666">加粗箭头：特征 → 心理状态 → 结果；GNS 调节整个链条。</text>
+</svg>

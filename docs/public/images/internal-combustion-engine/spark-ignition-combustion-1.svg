@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" width="560" height="430" role="img" aria-labelledby="title desc">
+  <title id="title">火花点火发动机火焰传播示意图（气缸俯视）</title>
+  <desc id="desc">火花塞点火后，火焰前锋从火花塞向四周扩张，已燃区逐渐扩大、未燃区被压缩；远离火花塞的末端气体被压缩加热，若在火焰到达前自行着火则发生爆震。</desc>
+  <rect width="560" height="430" fill="#faf9f5"/>
+  <g font-family="sans-serif" fill="#333" font-size="14">
+    <!-- bore -->
+    <circle cx="285" cy="200" r="140" fill="#fff" stroke="#333" stroke-width="2"/>
+    <!-- burned region fill -->
+    <circle cx="160" cy="200" r="40" fill="#c0392b" fill-opacity="0.25"/>
+    <!-- flame fronts -->
+    <circle cx="160" cy="200" r="40" fill="none" stroke="#c0392b" stroke-width="2.6"/>
+    <circle cx="160" cy="200" r="85" fill="none" stroke="#c0392b" stroke-width="2.6" stroke-dasharray="6 4"/>
+    <circle cx="160" cy="200" r="128" fill="none" stroke="#c0392b" stroke-width="2.6" stroke-dasharray="3 5"/>
+    <!-- spark plug -->
+    <circle cx="160" cy="200" r="7" fill="#333"/>
+    <circle cx="160" cy="200" r="13" fill="none" stroke="#555" stroke-width="1.4"/>
+    <!-- end gas region -->
+    <circle cx="395" cy="200" r="46" fill="none" stroke="#1f6f8b" stroke-width="1.8" stroke-dasharray="4 3"/>
+    <!-- labels -->
+    <text x="140" y="182" fill="#fff" font-size="14" text-anchor="middle">火花塞</text>
+    <text x="160" y="240" fill="#333" font-size="14" text-anchor="middle">已燃区</text>
+    <text x="205" y="120" fill="#c0392b" font-size="14">火焰前锋</text>
+    <text x="248" y="252" fill="#555" font-size="14">未燃混合气</text>
+    <text x="383" y="226" fill="#1f6f8b" font-size="14">末端气体</text>
+    <text x="383" y="246" fill="#1f6f8b" font-size="14">（易爆震区）</text>
+    <!-- propagation arrow -->
+    <line x1="205" y1="190" x2="255" y2="190" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arr)"/>
+    <!-- note -->
+    <text x="285" y="382" text-anchor="middle" fill="#333" font-size="14">点火后火焰前锋从火花塞向外扩张，把末端气体不断压缩加热</text>
+    <text x="285" y="404" text-anchor="middle" fill="#333" font-size="14">——若末端气体在火焰到达前自燃，就发生爆震（knock）</text>
+  </g>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

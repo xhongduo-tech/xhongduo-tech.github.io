@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420">
+<title>旋转水桶实验：水面凹陷</title>
+<desc>盛水的水桶绕竖直轴旋转，桶壁与水面同速转动、彼此相对静止，但水面中心下凹成抛物面，证明旋转效应不依赖水与桶的相对运动。</desc>
+<rect x="0" y="0" width="640" height="420" fill="#faf9f5"/>
+<!-- 水桶（梯形桶壁） -->
+<path d="M235 110 L405 110 L440 340 L200 340 Z" fill="#e9eef2" stroke="#333" stroke-width="3"/>
+<!-- 桶底 -->
+<line x1="200" y1="340" x2="440" y2="340" stroke="#333" stroke-width="3"/>
+<!-- 水面：中心下凹 -->
+<path d="M238 150 Q320 210 402 150" fill="none" stroke="#1f6f8b" stroke-width="4"/>
+<path d="M238 150 Q320 210 402 150 L402 160 Q320 220 238 160 Z" fill="#cfe8f0" opacity="0.7"/>
+<!-- 竖直旋转轴 -->
+<line x1="320" y1="80" x2="320" y2="360" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 6"/>
+<!-- 旋转方向箭头 -->
+<path d="M320 372 a52 52 0 1 1 0.2 0" fill="none" stroke="#c0392b" stroke-width="4"/>
+<polygon points="378,366 360,356 372,342" fill="#c0392b"/>
+<text x="340" y="396" font-family="sans-serif" font-size="15" fill="#c0392b">旋转方向</text>
+<!-- 标注 -->
+<text x="452" y="135" font-family="sans-serif" font-size="15" fill="#333">桶壁与水同速转动</text>
+<text x="452" y="155" font-family="sans-serif" font-size="15" fill="#333">（彼此相对静止）</text>
+<text x="270" y="235" font-family="sans-serif" font-size="16" fill="#1f6f8b">水面中心下凹</text>
+<text x="270" y="257" font-family="sans-serif" font-size="15" fill="#333">旋转效应依然可测</text>
+<text x="60" y="110" font-family="sans-serif" font-size="15" fill="#333">竖直轴</text>
+<text x="30" y="80" font-family="sans-serif" font-size="14" fill="#666">即使只比较桶与水，</text>
+<text x="30" y="98" font-family="sans-serif" font-size="14" fill="#666">相对运动为零，凹陷仍在</text>
+</svg>

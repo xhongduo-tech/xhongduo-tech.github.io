@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 380" font-family="sans-serif">
+<title>氧合血红蛋白解离曲线</title>
+<desc>S 形的氧合血红蛋白解离曲线，标注 P50、静脉血与动脉血工作点，以及 Bohr 效应导致的曲线右移。</desc>
+<rect x="0" y="0" width="660" height="380" fill="#faf9f5"/>
+<text x="330" y="30" font-size="16" fill="#333" text-anchor="middle">氧合血红蛋白解离曲线</text>
+<!-- 坐标轴 -->
+<line x1="70" y1="320" x2="600" y2="320" stroke="#333" stroke-width="1.5"/>
+<line x1="70" y1="320" x2="70" y2="55" stroke="#333" stroke-width="1.5"/>
+<text x="590" y="345" font-size="14" fill="#333">PO₂ (mmHg)</text>
+<text x="40" y="60" font-size="13" fill="#333">饱和度 %</text>
+<!-- 刻度 -->
+<text x="70" y="338" font-size="13" fill="#333" text-anchor="middle">0</text>
+<text x="170" y="338" font-size="13" fill="#333" text-anchor="middle">20</text>
+<text x="270" y="338" font-size="13" fill="#333" text-anchor="middle">40</text>
+<text x="370" y="338" font-size="13" fill="#333" text-anchor="middle">60</text>
+<text x="470" y="338" font-size="13" fill="#333" text-anchor="middle">80</text>
+<text x="570" y="338" font-size="13" fill="#333" text-anchor="middle">100</text>
+<text x="42" y="323" font-size="13" fill="#333">0</text>
+<text x="42" y="258" font-size="13" fill="#333">25</text>
+<text x="42" y="193" font-size="13" fill="#333">50</text>
+<text x="42" y="128" font-size="13" fill="#333">75</text>
+<text x="30" y="63" font-size="13" fill="#333">100</text>
+<!-- Bohr 移位曲线 -->
+<path d="M 105 320 C 130 318 147 306 163 278 C 181 250 200 220 230 198 C 260 177 285 158 315 133 C 350 106 395 88 465 78 C 515 72 560 70 598 72"
+      fill="none" stroke="#1f6f8b" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="470" y="105" font-size="14" fill="#1f6f8b">pH↓ / 2,3-DPG↑ / 温度↑</text>
+<text x="470" y="122" font-size="14" fill="#1f6f8b">曲线右移（Bohr 效应）</text>
+<!-- 正常曲线 -->
+<path d="M 70 320 C 95 318 112 306 128 278 C 146 250 165 220 195 198 C 225 177 250 158 280 133 C 315 106 360 88 430 78 C 490 71 540 68 570 66"
+      fill="none" stroke="#c0392b" stroke-width="3.5"/>
+<text x="405" y="52" font-size="14" fill="#c0392b">正常 (pH 7.4)</text>
+<!-- P50 点 -->
+<circle cx="205" cy="190" r="4.5" fill="#c0392b"/>
+<line x1="205" y1="190" x2="205" y2="325" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 4"/>
+<text x="205" y="355" font-size="14" fill="#c0392b" text-anchor="middle">P50 ≈ 26 mmHg</text>
+<!-- 静脉血与动脉血点 -->
+<circle cx="270" cy="125" r="4.5" fill="#333"/>
+<text x="278" y="118" font-size="13" fill="#333">静脉血：PO₂≈40，饱和度≈75%</text>
+<circle cx="570" cy="66" r="4.5" fill="#333"/>
+<text x="432" y="150" font-size="13" fill="#333">动脉血：PO₂≈100，饱和度≈97%</text>
+</svg>

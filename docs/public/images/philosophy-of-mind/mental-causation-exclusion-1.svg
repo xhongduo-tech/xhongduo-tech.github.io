@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-labelledby="title desc">
+<title>心理因果的排除难题</title>
+<desc>心理属性 M 引起心理属性 M*（上层），物理基座 P 引起 P*（下层）。M 随附于 P，M* 随附于 P*。若 P 已充分导致 P*，M 作为非物理属性的因果力被排除。</desc>
+<rect width="720" height="420" fill="#faf9f5"/>
+<text x="360" y="32" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#333">心理因果的排除难题</text>
+<rect x="130" y="62" width="130" height="44" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="195" y="83" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">心理属性 M</text>
+<text x="195" y="99" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">（信念、欲望）</text>
+<rect x="460" y="62" width="130" height="44" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="525" y="83" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">心理属性 M*</text>
+<text x="525" y="99" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">（随后状态、行为）</text>
+<line x1="260" y1="84" x2="460" y2="84" stroke="#1f6f8b" stroke-width="2"/>
+<polygon points="456,84 466,84 460,78" fill="#1f6f8b"/>
+<text x="360" y="72" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">心理因果：M 引起 M*？</text>
+<rect x="130" y="300" width="130" height="44" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="195" y="321" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">物理基座 P</text>
+<text x="195" y="337" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">（脑状态）</text>
+<rect x="460" y="300" width="130" height="44" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="525" y="321" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">物理状态 P*</text>
+<text x="525" y="337" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">（身体动作）</text>
+<line x1="260" y1="322" x2="460" y2="322" stroke="#c0392b" stroke-width="2"/>
+<polygon points="456,322 466,322 460,316" fill="#c0392b"/>
+<text x="360" y="310" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">物理因果：P 充分导致 P*（因果封闭）</text>
+<line x1="195" y1="300" x2="195" y2="106" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4"/>
+<polygon points="195,112 188,124 202,124" fill="#333"/>
+<text x="200" y="205" font-family="sans-serif" font-size="13" fill="#333" transform="rotate(-90 200 205)">随附：M 依随 P</text>
+<line x1="525" y1="300" x2="525" y2="106" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4"/>
+<polygon points="525,112 518,124 532,124" fill="#333"/>
+<text x="530" y="205" font-family="sans-serif" font-size="13" fill="#333" transform="rotate(90 530 205)">随附：M* 依随 P*</text>
+<text x="360" y="172" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b">排除论证的质问</text>
+<text x="360" y="194" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">若 P 已充分导致 P*，且 M 不是 P，</text>
+<text x="360" y="212" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">那么 M 凭什么仍是 M* 的原因？</text>
+<text x="360" y="238" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">要么 M＝P（还原），要么 M 被排除（附象论）。</text>
+<text x="360" y="384" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">金在权：非还原物理主义在此无处可逃。</text>
+</svg>

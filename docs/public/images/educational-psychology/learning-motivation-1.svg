@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>期望—价值理论示意</title>
+<desc>动机强度等于期望与价值的乘积，期望与价值各有来源，任一为零则动机为零。</desc>
+<rect width="800" height="360" fill="#faf9f5"/>
+<text x="400" y="44" text-anchor="middle" font-size="18" fill="#333" font-family="sans-serif" font-weight="bold">期望—价值理论：动机 M = 期望 E × 价值 V</text>
+
+<rect x="60" y="84" width="280" height="120" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="200" y="110" text-anchor="middle" font-size="15" fill="#1f6f8b" font-family="sans-serif" font-weight="bold">期望 E：我能不能做到？</text>
+<text x="200" y="138" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">· 自我效能感（我做成过类似的事）</text>
+<text x="200" y="160" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">· 先前成败经验 · 任务难度感知</text>
+<text x="200" y="182" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">· 他人（榜样）的相似成败</text>
+
+<rect x="460" y="84" width="280" height="120" rx="10" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+<text x="600" y="110" text-anchor="middle" font-size="15" fill="#c0392b" font-family="sans-serif" font-weight="bold">价值 V：值不值得做？</text>
+<text x="600" y="138" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">· 内在价值：我感兴趣</text>
+<text x="600" y="160" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">· 成就价值：这关系到我是谁</text>
+<text x="600" y="182" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">· 实用价值 · 代价（时间与焦虑）</text>
+
+<path d="M 200 204 L 370 262" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 600 204 L 430 262" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+<path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+</marker>
+</defs>
+
+<rect x="310" y="244" width="180" height="64" rx="10" fill="#f0ede6" stroke="#333" stroke-width="2"/>
+<text x="400" y="276" text-anchor="middle" font-size="16" fill="#333" font-family="sans-serif" font-weight="bold">M = E × V</text>
+<text x="400" y="296" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">动机强度</text>
+
+<path d="M 490 276 L 560 276" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="560" y="244" width="180" height="64" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="650" y="272" text-anchor="middle" font-size="14" fill="#333" font-family="sans-serif">投入 · 坚持 · 选择</text>
+<text x="650" y="292" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">（真正发生的学习行为）</text>
+
+<text x="400" y="340" text-anchor="middle" font-size="14" fill="#c0392b" font-family="sans-serif">相乘的含义：E 或 V 任一为零，动机即为零。</text>
+</svg>

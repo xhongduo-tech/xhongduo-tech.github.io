@@ -1,0 +1,37 @@
+<svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>梯形速度轨迹（LSPB）与对应的位置曲线</title>
+  <desc>左图为梯形速度曲线 v(t)：先匀加速到最大速度，匀速保持，再匀减速到零。右图为对应的位置曲线 q(t)：两端是抛物线（匀变速），中间是直线（匀速），整体光滑连续。</desc>
+  <rect width="640" height="340" fill="#faf9f5"/>
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#333"/></marker>
+  </defs>
+  <text x="170" y="30" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">速度曲线 v(t)</text>
+  <text x="495" y="30" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">位置曲线 q(t)</text>
+
+  <line x1="40" y1="260" x2="300" y2="260" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="40" y1="260" x2="40" y2="60" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="308" y="278" font-size="13" fill="#333">t</text>
+  <text x="20" y="48" font-size="13" fill="#333">v</text>
+
+  <polyline points="40,260 110,90 230,90 300,260" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <line x1="110" y1="260" x2="110" y2="90" stroke="#333" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="230" y1="260" x2="230" y2="90" stroke="#333" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="75" y="200" font-size="13" fill="#1f6f8b" text-anchor="middle">加速段</text>
+  <text x="170" y="80" font-size="13" fill="#1f6f8b" text-anchor="middle">匀速段</text>
+  <text x="265" y="200" font-size="13" fill="#1f6f8b" text-anchor="middle">减速段</text>
+  <text x="110" y="278" font-size="13" fill="#333" text-anchor="middle">t_a</text>
+  <text x="230" y="278" font-size="13" fill="#333" text-anchor="middle">t_f−t_a</text>
+  <text x="170" y="310" font-size="13" fill="#333" text-anchor="middle">v_max</text>
+
+  <line x1="350" y1="260" x2="620" y2="260" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="350" y1="260" x2="350" y2="60" stroke="#333" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="628" y="278" font-size="13" fill="#333">t</text>
+  <text x="330" y="48" font-size="13" fill="#333">q</text>
+
+  <path d="M 350 260 Q 385 125 425 125 L 545 125 Q 585 60 615 60" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="380" y="175" font-size="13" fill="#1f6f8b" text-anchor="middle">抛物线</text>
+  <text x="485" y="115" font-size="13" fill="#1f6f8b" text-anchor="middle">直线</text>
+  <text x="560" y="175" font-size="13" fill="#1f6f8b" text-anchor="middle">抛物线</text>
+  <text x="345" y="278" font-size="13" fill="#333" text-anchor="middle">q₀</text>
+  <text x="610" y="52" font-size="13" fill="#333" text-anchor="middle">q_f</text>
+</svg>

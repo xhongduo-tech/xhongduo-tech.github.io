@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img">
+<title>二元共晶体系的温度—组成相图</title>
+<desc>二元合金/混合物的 T-x 相图：液相线两条支线从纯组分熔点下降到共晶点，水平固相线即共晶温度线；标出液相区、A固溶体+液、B固溶体+液、A固溶体+B固溶体四个相区。</desc>
+<rect x="0" y="0" width="640" height="480" fill="#faf9f5"/>
+<!-- 坐标轴 -->
+<line x1="80" y1="440" x2="600" y2="440" stroke="#333" stroke-width="2"/>
+<line x1="80" y1="440" x2="80" y2="60" stroke="#333" stroke-width="2"/>
+<polygon points="600,440 588,435 588,445" fill="#333"/>
+<polygon points="80,60 75,72 85,72" fill="#333"/>
+<text x="560" y="468" font-family="sans-serif" font-size="16" fill="#333">组成 x_B</text>
+<text x="18" y="60" font-family="sans-serif" font-size="16" fill="#333">温度 T</text>
+<!-- 液相线：A 支 -->
+<path d="M 80 150 Q 210 250 340 300" fill="none" stroke="#c0392b" stroke-width="3"/>
+<!-- 液相线：B 支 -->
+<path d="M 600 120 Q 470 240 340 300" fill="none" stroke="#c0392b" stroke-width="3"/>
+<!-- 固相线（共晶温度水平线） -->
+<line x1="80" y1="300" x2="600" y2="300" stroke="#1f6f8b" stroke-width="3"/>
+<!-- 纯组分熔点 -->
+<circle cx="80" cy="150" r="4" fill="#c0392b"/>
+<circle cx="600" cy="120" r="4" fill="#c0392b"/>
+<text x="14" y="148" font-family="sans-serif" font-size="13" fill="#333">T<sub>A</sub>的熔点</text>
+<text x="480" y="105" font-family="sans-serif" font-size="13" fill="#333">T<sub>B</sub>的熔点</text>
+<!-- 共晶点 -->
+<circle cx="340" cy="300" r="5" fill="#333"/>
+<text x="352" y="318" font-family="sans-serif" font-size="14" fill="#333">共晶点</text>
+<text x="352" y="334" font-family="sans-serif" font-size="13" fill="#666">(共晶温度 T<sub>E</sub>)</text>
+<!-- 相区标注 -->
+<text x="200" y="110" font-family="sans-serif" font-size="20" fill="#333">液</text>
+<text x="250" y="240" font-family="sans-serif" font-size="16" fill="#333">固溶体 A + 液</text>
+<text x="380" y="240" font-family="sans-serif" font-size="16" fill="#333">固溶体 B + 液</text>
+<text x="300" y="390" font-family="sans-serif" font-size="16" fill="#333">固溶体 A + 固溶体 B</text>
+<!-- 组成轴刻度 -->
+<text x="80" y="452" font-family="sans-serif" font-size="13" fill="#333">0 (纯 A)</text>
+<text x="572" y="452" font-family="sans-serif" font-size="13" fill="#333">1 (纯 B)</text>
+<!-- 固相线注释 -->
+<text x="430" y="290" font-family="sans-serif" font-size="13" fill="#666">固相线（共晶温度）</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 470" font-family="sans-serif">
+  <title>云边端三层架构</title>
+  <desc>边缘计算的三层架构示意：云端负责模型训练与全局调度，边缘层就近处理实时任务，终端层负责感知与轻量执行，上下行数据在层级间流动。</desc>
+  <rect width="640" height="470" fill="#faf9f5"/>
+  <text x="20" y="36" font-size="20" fill="#333" font-weight="bold">云 - 边 - 端 三层架构</text>
+
+  <!-- 云端 -->
+  <rect x="40" y="60" width="560" height="100" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <g fill="#1f6f8b" opacity="0.9">
+    <ellipse cx="150" cy="96" rx="34" ry="20"/>
+    <ellipse cx="190" cy="88" rx="26" ry="16"/>
+    <ellipse cx="122" cy="92" rx="22" ry="14"/>
+  </g>
+  <text x="235" y="92" font-size="17" fill="#333" font-weight="bold">云端 Cloud</text>
+  <text x="235" y="118" font-size="14" fill="#555">模型训练 · 海量离线分析 · 全局调度</text>
+  <text x="235" y="142" font-size="14" fill="#555">跨城数据中心，RTT 50–200ms</text>
+
+  <!-- 边缘层 -->
+  <rect x="40" y="200" width="560" height="120" rx="10" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+  <text x="60" y="230" font-size="17" fill="#333" font-weight="bold">边缘层 Edge</text>
+  <rect x="60" y="246" width="150" height="58" rx="6" fill="#fdf0ec" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="135" y="272" font-size="14" fill="#333" text-anchor="middle">边缘服务器</text>
+  <text x="135" y="292" font-size="13" fill="#666" text-anchor="middle">实时推理 / 缓存</text>
+  <rect x="245" y="246" width="150" height="58" rx="6" fill="#fdf0ec" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="320" y="272" font-size="14" fill="#333" text-anchor="middle">基站内计算池</text>
+  <text x="320" y="292" font-size="13" fill="#666" text-anchor="middle">MEC 平台</text>
+  <rect x="430" y="246" width="150" height="58" rx="6" fill="#fdf0ec" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="505" y="272" font-size="14" fill="#333" text-anchor="middle">车载 / 工厂边缘</text>
+  <text x="505" y="292" font-size="13" fill="#666" text-anchor="middle">控制 / 视频分析</text>
+
+  <!-- 终端层 -->
+  <rect x="40" y="360" width="560" height="90" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="60" y="390" font-size="17" fill="#333" font-weight="bold">端 End / Device</text>
+  <rect x="200" y="374" width="80" height="30" rx="5" fill="#e8f2f6"/>
+  <text x="240" y="393" font-size="13" fill="#333" text-anchor="middle">传感器</text>
+  <rect x="300" y="374" width="80" height="30" rx="5" fill="#e8f2f6"/>
+  <text x="340" y="393" font-size="13" fill="#333" text-anchor="middle">手机</text>
+  <rect x="400" y="374" width="80" height="30" rx="5" fill="#e8f2f6"/>
+  <text x="440" y="393" font-size="13" fill="#333" text-anchor="middle">摄像头</text>
+  <rect x="500" y="374" width="80" height="30" rx="5" fill="#e8f2f6"/>
+  <text x="540" y="393" font-size="13" fill="#333" text-anchor="middle">车载终端</text>
+  <text x="320" y="436" font-size="13" fill="#666" text-anchor="middle">感知 · 轻量预处理 · 触发</text>
+
+  <!-- 箭头：上行 -->
+  <line x1="320" y1="355" x2="320" y2="325" stroke="#1f6f8b" stroke-width="2.5"/>
+  <polygon points="312,327 320,316 328,327" fill="#1f6f8b"/>
+  <text x="338" y="340" font-size="13" fill="#1f6f8b">上行：感知数据 / 请求</text>
+
+  <!-- 箭头：下行 -->
+  <line x1="220" y1="165" x2="220" y2="195" stroke="#c0392b" stroke-width="2.5"/>
+  <polygon points="212,193 220,204 228,193" fill="#c0392b"/>
+  <text x="52" y="186" font-size="13" fill="#c0392b">下行：模型 / 指令 / 内容</text>
+</svg>

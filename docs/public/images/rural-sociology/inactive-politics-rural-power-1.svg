@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" font-family="sans-serif">
+  <title>乡土社会双轨政治示意</title>
+  <desc>自上而下的皇权止于县衙，天高皇帝远；县衙之下，由长老、士绅组成的自下而上的地方自治网络处理乡土事务，两轨在县一级交接。</desc>
+  <rect width="820" height="400" fill="#faf9f5"/>
+  <text x="410" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">乡土社会的双轨政治</text>
+
+  <rect x="330" y="70" width="160" height="52" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="410" y="100" text-anchor="middle" font-size="15" fill="#c0392b">皇权（朝廷）</text>
+
+  <line x1="410" y1="122" x2="410" y2="185" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrowR)"/>
+  <text x="438" y="160" font-size="13" fill="#c0392b">自上而下（税赋·政令）</text>
+
+  <rect x="330" y="185" width="160" height="52" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="410" y="214" text-anchor="middle" font-size="15" fill="#c0392b">县衙</text>
+  <text x="410" y="232" text-anchor="middle" font-size="13" fill="#1f6f8b">皇权的末梢</text>
+
+  <rect x="55" y="280" width="150" height="60" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="130" y="305" text-anchor="middle" font-size="14" fill="#1f6f8b">长老</text>
+  <rect x="245" y="280" width="150" height="60" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="320" y="305" text-anchor="middle" font-size="14" fill="#1f6f8b">士绅</text>
+  <rect x="435" y="280" width="150" height="60" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="510" y="305" text-anchor="middle" font-size="14" fill="#1f6f8b">宗族</text>
+  <rect x="625" y="280" width="150" height="60" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="700" y="305" text-anchor="middle" font-size="14" fill="#1f6f8b">乡民自治</text>
+
+  <line x1="130" y1="340" x2="700" y2="340" stroke="#1f6f8b" stroke-width="2.5" marker-end="url(#arrowB)"/>
+  <text x="320" y="362" font-size="13" fill="#1f6f8b">自下而上（绅权·教化·调解）</text>
+
+  <defs>
+    <marker id="arrowR" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker>
+    <marker id="arrowB" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1f6f8b"/></marker>
+  </defs>
+  <line x1="410" y1="237" x2="410" y2="300" stroke="#333" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="424" y="272" font-size="13" fill="#333">皇权不下县</text>
+</svg>

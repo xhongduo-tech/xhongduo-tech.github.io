@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 580" font-family="sans-serif">
+  <title>李帕特民主类型二维图</title>
+  <desc>以行政—政党维度为横轴、联邦—单一维度为纵轴，把代表性民主国家放置进多数民主与共识民主的二维空间。</desc>
+  <rect width="820" height="580" fill="#faf9f5"/>
+  <!-- axes -->
+  <line x1="80" y1="500" x2="760" y2="500" stroke="#333" stroke-width="2"/>
+  <line x1="80" y1="500" x2="80" y2="80" stroke="#333" stroke-width="2"/>
+  <polygon points="760,500 750,493 750,507" fill="#333"/>
+  <polygon points="80,80 73,90 87,90" fill="#333"/>
+  <text x="770" y="510" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">行政—政党维度</text>
+  <text x="420" y="528" text-anchor="middle" font-size="14" fill="#c0392b">权力集中（多数民主）</text>
+  <text x="620" y="528" text-anchor="middle" font-size="14" fill="#1f6f8b">权力分享（共识民主）</text>
+  <text x="42" y="290" text-anchor="middle" font-size="16" font-weight="bold" fill="#333" transform="rotate(-90 42 290)">联邦—单一维度</text>
+  <text x="26" y="120" text-anchor="middle" font-size="14" fill="#1f6f8b" transform="rotate(-90 26 120)">联邦分权</text>
+  <text x="26" y="470" text-anchor="middle" font-size="14" fill="#c0392b" transform="rotate(-90 26 470)">单一集权</text>
+  <!-- quadrant labels -->
+  <text x="150" y="110" text-anchor="middle" font-size="13" fill="#666">联邦化多数制</text>
+  <text x="570" y="110" text-anchor="middle" font-size="13" fill="#666">最强共识民主</text>
+  <text x="150" y="470" text-anchor="middle" font-size="13" fill="#666">威斯敏斯特模型</text>
+  <text x="570" y="470" text-anchor="middle" font-size="13" fill="#666">协商型共识民主</text>
+  <!-- country dots -->
+  <!-- bottom-left: UK -->
+  <circle cx="150" cy="440" r="7" fill="#c0392b"/>
+  <text x="150" y="415" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">英国</text>
+  <!-- Japan -->
+  <circle cx="200" cy="450" r="7" fill="#c0392b"/>
+  <text x="205" y="475" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">日本</text>
+  <!-- NZ -->
+  <circle cx="260" cy="420" r="7" fill="#c0392b"/>
+  <text x="265" y="405" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">新西兰</text>
+  <!-- USA top-left -->
+  <circle cx="180" cy="180" r="7" fill="#c0392b"/>
+  <text x="180" y="160" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">美国</text>
+  <!-- Canada -->
+  <circle cx="250" cy="190" r="7" fill="#c0392b"/>
+  <text x="255" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">加拿大</text>
+  <!-- Australia -->
+  <circle cx="260" cy="250" r="7" fill="#c0392b"/>
+  <text x="265" y="272" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">澳大利亚</text>
+  <!-- France -->
+  <circle cx="360" cy="360" r="7" fill="#333"/>
+  <text x="350" y="345" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">法国</text>
+  <!-- Italy -->
+  <circle cx="440" cy="330" r="7" fill="#333"/>
+  <text x="445" y="312" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">意大利</text>
+  <!-- Spain -->
+  <circle cx="450" cy="420" r="7" fill="#333"/>
+  <text x="455" y="442" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">西班牙</text>
+  <!-- Germany -->
+  <circle cx="600" cy="200" r="7" fill="#1f6f8b"/>
+  <text x="600" y="180" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">德国</text>
+  <!-- Switzerland -->
+  <circle cx="700" cy="130" r="7" fill="#1f6f8b"/>
+  <text x="700" y="110" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">瑞士</text>
+  <!-- Austria -->
+  <circle cx="590" cy="240" r="7" fill="#1f6f8b"/>
+  <text x="590" y="262" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">奥地利</text>
+  <!-- Netherlands -->
+  <circle cx="640" cy="330" r="7" fill="#1f6f8b"/>
+  <text x="640" y="352" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">荷兰</text>
+  <!-- Belgium -->
+  <circle cx="680" cy="380" r="7" fill="#1f6f8b"/>
+  <text x="680" y="402" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">比利时</text>
+  <!-- Nordic -->
+  <circle cx="620" cy="450" r="7" fill="#1f6f8b"/>
+  <text x="625" y="472" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">瑞典·挪威</text>
+  <circle cx="530" cy="460" r="7" fill="#1f6f8b"/>
+  <text x="520" y="482" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">芬兰·丹麦</text>
+  <!-- caption -->
+  <text x="420" y="560" text-anchor="middle" font-size="13" fill="#666">示意位置，取自 Lijphart《民主的模式》对 36 个民主国家的实证定位</text>
+</svg>

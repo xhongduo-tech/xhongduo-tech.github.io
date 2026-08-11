@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 440" font-family="sans-serif">
+  <title>排污权交易与排污税的均衡：边际治理成本与边际损害相交</title>
+  <desc>坐标图：横轴为排放量，纵轴为边际成本/边际损害。边际治理成本 MAC 随排放量增加而下降，边际损害 MD 随排放量增加而上升，二者相交于最优排放量 E* 与价格 P*。排污权交易把排放总量定为 E*，许可证市场价由 MAC 决定；排污税定在 P* 也能收敛到同一结果。</desc>
+  <rect x="0" y="0" width="540" height="440" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="1.5" fill="none">
+    <line x1="70" y1="380" x2="510" y2="380"/>
+    <line x1="70" y1="380" x2="70" y2="40"/>
+  </g>
+  <text x="500" y="398" font-size="14" fill="#333" text-anchor="end">排放量 E</text>
+  <text x="60" y="36" font-size="14" fill="#333" text-anchor="end">价格 / 成本</text>
+  <text x="40" y="270" font-size="13" fill="#666" transform="rotate(-90 40 270)" text-anchor="middle">元/吨</text>
+  <line x1="70" y1="60" x2="70" y2="380" stroke="#999" stroke-width="1"/>
+  <text x="60" y="55" font-size="12" fill="#999" text-anchor="end">0</text>
+
+  <g stroke="#c0392b" stroke-width="2.5" fill="none">
+    <line x1="100" y1="120" x2="470" y2="370"/>
+  </g>
+  <g stroke="#1f6f8b" stroke-width="2.5" fill="none">
+    <line x1="90" y1="350" x2="480" y2="101"/>
+  </g>
+  <text x="130" y="135" font-size="15" fill="#c0392b">边际损害 MD</text>
+  <text x="130" y="332" font-size="15" fill="#1f6f8b">边际治理成本 MAC</text>
+
+  <line x1="270" y1="235" x2="270" y2="380" stroke="#333" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="270" y1="235" x2="70" y2="235" stroke="#333" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <circle cx="270" cy="235" r="5" fill="#333"/>
+  <text x="270" y="398" font-size="14" fill="#333" text-anchor="middle">E*（最优排放量 = 许可证总量）</text>
+  <text x="58" y="230" font-size="14" fill="#333" text-anchor="end">P*</text>
+
+  <text x="405" y="150" font-size="13" fill="#666">MAC = MD 时</text>
+  <text x="405" y="168" font-size="13" fill="#666">社会总成本最小</text>
+</svg>

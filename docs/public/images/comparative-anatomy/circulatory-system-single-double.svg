@@ -1,0 +1,83 @@
+<svg viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">循环系统的两种方案：单循环与双循环</title>
+  <desc id="desc">左图为鱼类单循环：血液经两腔心脏泵入鳃，再经体循环回到心脏。右图为鸟类与哺乳类双循环：四腔心脏将肺循环与体循环串联，血液每次流经两套回路。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="840" height="400" fill="#faf9f5"/>
+  <text x="420" y="36" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="bold" fill="#333">循环系统的两种方案：单循环与双循环</text>
+
+  <!-- 左栏标题 -->
+  <text x="210" y="72" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#1f6f8b">鱼类 · 单循环</text>
+  <text x="640" y="72" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#1f6f8b">鸟类与哺乳类 · 双循环</text>
+  <line x1="420" y1="88" x2="420" y2="380" stroke="#ccc" stroke-width="2"/>
+
+  <!-- ================= 左栏：鱼类单循环 ================= -->
+  <!-- 心脏 -->
+  <rect x="60" y="250" width="130" height="70" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="125" y="280" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#333">心脏</text>
+  <text x="125" y="302" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">（心房＋心室）</text>
+
+  <!-- 鳃 -->
+  <rect x="250" y="140" width="120" height="60" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="310" y="165" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">鳃</text>
+  <text x="310" y="185" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">（逆流交换）</text>
+
+  <!-- 体循环 -->
+  <rect x="250" y="250" width="120" height="60" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="310" y="283" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">体循环</text>
+
+  <!-- 箭头 -->
+  <line x1="190" y1="260" x2="245" y2="195" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="203" y="222" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">①</text>
+
+  <line x1="310" y1="200" x2="310" y2="245" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="320" y="228" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">②</text>
+
+  <line x1="250" y1="285" x2="195" y2="290" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="216" y="300" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">③</text>
+
+  <text x="210" y="360" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">血液每圈只过心脏一次：鳃与体循环串联</text>
+
+  <!-- ================= 右栏：哺乳类双循环 ================= -->
+  <!-- 肺 -->
+  <rect x="470" y="90" width="140" height="60" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="540" y="123" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">肺循环</text>
+
+  <!-- 体循环 -->
+  <rect x="470" y="250" width="140" height="60" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="540" y="283" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#333">体循环</text>
+
+  <!-- 四腔心脏 -->
+  <rect x="600" y="150" width="200" height="130" rx="8" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <rect x="608" y="158" width="88" height="50" fill="#f2ece4" stroke="#333" stroke-width="1.5"/>
+  <text x="652" y="188" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">右房</text>
+  <rect x="704" y="158" width="88" height="50" fill="#eaf3f5" stroke="#333" stroke-width="1.5"/>
+  <text x="748" y="188" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">左房</text>
+  <rect x="608" y="222" width="88" height="50" fill="#f2ece4" stroke="#333" stroke-width="1.5"/>
+  <text x="652" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">右室</text>
+  <rect x="704" y="222" width="88" height="50" fill="#eaf3f5" stroke="#333" stroke-width="1.5"/>
+  <text x="748" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">左室</text>
+
+  <!-- ① 右室 → 肺 -->
+  <path d="M600,250 L570,250 L570,150 L605,150" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="572" y="196" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">①</text>
+
+  <!-- ② 肺 → 左房 -->
+  <path d="M610,140 L680,140 L680,156" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="640" y="132" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">②</text>
+
+  <!-- ③ 左室 → 体 -->
+  <path d="M700,280 L700,300 L614,300" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="648" y="318" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">③</text>
+
+  <!-- ④ 体 → 右房 -->
+  <path d="M470,280 L430,280 L430,180 L596,180" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="434" y="236" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">④</text>
+
+  <text x="640" y="360" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">血液每圈过心脏两次：肺循环与体循环串联</text>
+</svg>

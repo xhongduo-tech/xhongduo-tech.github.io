@@ -1,0 +1,37 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>神经肌肉接头结构与重症肌无力</title>
+  <desc>突触前膜、突触间隙、突触后膜的结构，乙酰胆碱量子释放与受体结合的传递过程，以及抗体攻击受体导致的重症肌无力。</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+  <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">神经肌肉接头 · 20 纳米的化学接力</text>
+
+  <!-- 突触前膜 -->
+  <rect x="60" y="55" width="520" height="70" rx="6" fill="#1f6f8b" opacity="0.10" stroke="#1f6f8b"/>
+  <text x="90" y="78" font-size="14" font-weight="bold" fill="#333">突触前膜（运动神经末梢）</text>
+  <text x="90" y="98" font-size="13" fill="#333">动作电位 → 钙内流 → 囊泡以「量子」释放乙酰胆碱</text>
+  <circle cx="430" cy="92" r="12" fill="#1f6f8b" opacity="0.25"/>
+  <text x="430" y="96" text-anchor="middle" font-size="11" fill="#1f6f8b">囊泡</text>
+  <circle cx="470" cy="92" r="12" fill="#1f6f8b" opacity="0.25"/>
+  <text x="470" y="96" text-anchor="middle" font-size="11" fill="#1f6f8b">囊泡</text>
+
+  <!-- 突触间隙 -->
+  <rect x="60" y="130" width="520" height="28" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="320" y="149" text-anchor="middle" font-size="13" fill="#333">突触间隙（约 20–30 nm）· 乙酰胆碱酯酶在此分解 ACh</text>
+
+  <!-- 突触后膜 -->
+  <rect x="60" y="163" width="520" height="90" rx="6" fill="#c0392b" opacity="0.08" stroke="#c0392b"/>
+  <text x="90" y="186" font-size="14" font-weight="bold" fill="#333">突触后膜（肌膜皱褶 · AChR）</text>
+  <text x="90" y="206" font-size="13" fill="#333">ACh 结合受体 → 终板电位 → 肌纤维动作电位 → 收缩</text>
+  <rect x="330" y="196" width="120" height="26" rx="4" fill="#c0392b" opacity="0.85"/>
+  <text x="390" y="213" text-anchor="middle" font-size="12" fill="#fff">AChR（受体）</text>
+  <rect x="330" y="228" width="120" height="20" rx="4" fill="#c0392b" opacity="0.45"/>
+  <text x="390" y="243" text-anchor="middle" font-size="11" fill="#333">被抗体攻击（MG）</text>
+
+  <!-- 肌纤维 -->
+  <rect x="60" y="270" width="520" height="36" rx="6" fill="#1f6f8b" opacity="0.10" stroke="#1f6f8b"/>
+  <text x="320" y="293" text-anchor="middle" font-size="13" fill="#333">肌纤维收缩 · 越用越没力 → 疲劳试验阳性（MG）</text>
+
+  <!-- 传递链条 -->
+  <text x="320" y="330" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">AChR 被抗体破坏 → 有效受体减少 → 终板电位衰减</text>
+  <text x="320" y="352" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">3 Hz 重复刺激：第 1 到第 5 次波幅递减 ≥ 10% → 支持 MG</text>
+  <text x="320" y="376" text-anchor="middle" font-size="13" fill="#333">吡啶斯的明（抑 AChE）延长 ACh 寿命 → 症状性治疗</text>
+</svg>

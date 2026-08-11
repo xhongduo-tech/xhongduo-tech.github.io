@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 560" font-family="sans-serif" font-size="14">
+  <title>三羧酸循环（柠檬酸循环）</title>
+  <desc>八个中间物围成圆环，标注各步酶的辅因子得失：NAD+/FAD 还原、GTP 生成、CO2 释放，以及乙酰 CoA 的进入口。</desc>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="660" height="560" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+    <path d="M 70,50 C 120,40 170,55 200,78"/>
+    <path d="M 395,95 C 430,80 440,110 452,138"/>
+    <path d="M 522,160 C 560,180 545,235 528,272"/>
+    <path d="M 508,305 C 530,340 480,400 448,418"/>
+    <path d="M 430,442 C 410,470 385,470 360,468"/>
+    <path d="M 270,478 C 245,495 225,470 205,448"/>
+    <path d="M 142,408 C 118,390 128,330 138,300"/>
+    <path d="M 118,260 C 85,230 130,170 168,148"/>
+    <path d="M 238,130 C 220,100 240,85 265,80"/>
+  </g>
+  <g fill="#c0392b" font-size="13">
+    <text x="60" y="35">丙酮酸 → 乙酰CoA</text>
+    <text x="200" y="52">（丙酮酸脱氢酶复合体）</text>
+    <text x="418" y="98">乌头酸酶</text>
+    <text x="560" y="196">异柠檬酸脱氢酶</text>
+    <text x="555" y="212" fill="#333">NAD⁺→NADH，CO₂</text>
+    <text x="545" y="340">α-酮戊二酸脱氢酶</text>
+    <text x="548" y="356" fill="#333">NAD⁺→NADH，CO₂</text>
+    <text x="448" y="470">琥珀酰CoA合成酶</text>
+    <text x="452" y="486" fill="#333">GDP+Pi→GTP</text>
+    <text x="268" y="492">琥珀酸脱氢酶</text>
+    <text x="272" y="508" fill="#333">FAD→FADH₂</text>
+    <text x="60" y="352">延胡索酸酶</text>
+    <text x="63" y="368" fill="#333">H₂O</text>
+    <text x="40" y="220">苹果酸脱氢酶</text>
+    <text x="43" y="236" fill="#333">NAD⁺→NADH</text>
+    <text x="215" y="66">柠檬酸合酶</text>
+    <text x="220" y="82" fill="#333">+乙酰CoA</text>
+  </g>
+  <g stroke="#1f6f8b" stroke-width="1.6" stroke-dasharray="5,4" fill="none">
+    <path d="M 262,95 C 295,30 345,30 378,95"/>
+  </g>
+  <text x="320" y="42" text-anchor="middle" fill="#1f6f8b">缩合：草酰乙酸 + 乙酰CoA → 柠檬酸</text>
+  <g font-size="15" font-weight="bold" text-anchor="middle">
+    <g stroke="#333" stroke-width="1.4" fill="#fff">
+      <rect x="250" y="57" width="140" height="36" rx="6"/>
+      <rect x="405" y="122" width="140" height="36" rx="6"/>
+      <rect x="478" y="272" width="140" height="36" rx="6"/>
+      <rect x="405" y="427" width="140" height="36" rx="6"/>
+      <rect x="250" y="477" width="140" height="36" rx="6"/>
+      <rect x="95" y="427" width="140" height="36" rx="6"/>
+      <rect x="22" y="272" width="140" height="36" rx="6"/>
+      <rect x="95" y="122" width="140" height="36" rx="6"/>
+    </g>
+    <text x="320" y="80" fill="#333">柠檬酸</text>
+    <text x="475" y="145" fill="#333">异柠檬酸</text>
+    <text x="548" y="295" fill="#333">α-酮戊二酸</text>
+    <text x="475" y="450" fill="#333">琥珀酰CoA</text>
+    <text x="320" y="500" fill="#333">琥珀酸</text>
+    <text x="165" y="450" fill="#333">延胡索酸</text>
+    <text x="92" y="295" fill="#333">苹果酸</text>
+    <text x="165" y="145" fill="#333">草酰乙酸</text>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>洛伦兹曲线与基尼系数</title>
+  <desc>正方形图表：横轴为累计人口份额，纵轴为累计收入份额；对角线为完全平等线，向下凹陷的曲线为洛伦兹曲线，两者之间的面积 A 与对角线下方总面积 A+B 之比即为基尼系数。</desc>
+  <rect width="800" height="480" fill="#faf9f5"/>
+  <g font-family="sans-serif" fill="#333">
+    <text x="400" y="40" text-anchor="middle" font-size="20" font-weight="bold">洛伦兹曲线与基尼系数 G = A / (A + B)</text>
+  </g>
+  <!-- axes -->
+  <line x1="90" y1="420" x2="710" y2="420" stroke="#333" stroke-width="2"/>
+  <line x1="90" y1="420" x2="90" y2="80" stroke="#333" stroke-width="2"/>
+  <text x="400" y="452" text-anchor="middle" font-size="14" fill="#333">累计人口份额 p（0 → 1）</text>
+  <text x="30" y="260" font-size="14" fill="#333" transform="rotate(-90 30 260)" text-anchor="middle">累计收入份额 L(p)</text>
+  <!-- equality diagonal -->
+  <line x1="90" y1="420" x2="710" y2="100" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="660" y="115" font-size="13" fill="#1f6f8b" text-anchor="end">完全平等线 L(p)=p</text>
+  <!-- lorenz curve -->
+  <path d="M 90 420 Q 300 360 500 280 T 710 100" fill="none" stroke="#c0392b" stroke-width="4"/>
+  <text x="560" y="250" font-size="13" fill="#c0392b" text-anchor="start">洛伦兹曲线（实际分配）</text>
+  <!-- area labels -->
+  <text x="300" y="330" font-size="14" fill="#333" text-anchor="middle">面积 A（不平等程度）</text>
+  <text x="470" y="380" font-size="14" fill="#333" text-anchor="middle">面积 B</text>
+  <text x="400" y="75" font-size="14" fill="#333" text-anchor="middle">完全平等 G=0；一人独占 G≈1</text>
+</svg>

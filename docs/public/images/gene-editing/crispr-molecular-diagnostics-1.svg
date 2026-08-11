@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="sans-serif">
+<title>SHERLOCK 与 DETECTR 检测流程对比示意图</title>
+<desc>两级检测流程：RPA 恒温扩增放大靶核酸，Cas13（SHERLOCK）或 Cas12a（DETECTR）识别靶序列后反式切割报告分子，产生荧光或试纸条信号。</desc>
+<rect width="960" height="470" fill="#faf9f5"/>
+<text x="480" y="34" text-anchor="middle" font-size="22" fill="#333" font-weight="bold">基于 CRISPR 的分子诊断：把「识别」翻译成「信号」</text>
+
+<!-- stage headers -->
+<text x="90" y="66" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">① 样本</text>
+<text x="310" y="66" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">② RPA 恒温扩增</text>
+<text x="540" y="66" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">③ 识别并激活</text>
+<text x="830" y="66" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">④ 反式切割 → 读出</text>
+
+<!-- lane labels -->
+<text x="480" y="100" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">SHERLOCK · Cas13a（靶向 RNA）</text>
+<text x="480" y="300" text-anchor="middle" font-size="14" fill="#1f6f8b" font-weight="bold">DETECTR · Cas12a（靶向 dsDNA）</text>
+
+<!-- top lane boxes -->
+<rect x="20" y="120" width="140" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<text x="90" y="150" text-anchor="middle" font-size="14" fill="#333">血液 / 尿液样本</text>
+<text x="90" y="172" text-anchor="middle" font-size="14" fill="#333">（病毒 RNA）</text>
+<rect x="235" y="120" width="150" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<text x="310" y="150" text-anchor="middle" font-size="14" fill="#333">37–42 °C 恒温</text>
+<text x="310" y="172" text-anchor="middle" font-size="14" fill="#333">10⁶–10⁹ 倍放大</text>
+<rect x="465" y="120" width="150" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<circle cx="540" cy="150" r="20" fill="#1f6f8b" opacity="0.16" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="540" y="155" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">Cas13a</text>
+<rect x="525" y="122" width="30" height="7" fill="#c0392b" opacity="0.85"/>
+<text x="562" y="132" font-size="13" fill="#333">crRNA</text>
+<text x="540" y="190" text-anchor="middle" font-size="13" fill="#333">识别靶 RNA → 激活</text>
+<rect x="740" y="120" width="180" height="90" fill="#fff" stroke="#c0392b" stroke-width="2" rx="6"/>
+<text x="830" y="150" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">反式切割</text>
+<text x="830" y="172" text-anchor="middle" font-size="13" fill="#333">RNA 报告分子</text>
+<text x="830" y="194" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">→ 荧光 / 试纸条</text>
+
+<!-- bottom lane boxes -->
+<rect x="20" y="320" width="140" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<text x="90" y="350" text-anchor="middle" font-size="14" fill="#333">样本</text>
+<text x="90" y="372" text-anchor="middle" font-size="14" fill="#333">（dsDNA）</text>
+<rect x="235" y="320" width="150" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<text x="310" y="350" text-anchor="middle" font-size="14" fill="#333">37–42 °C 恒温</text>
+<text x="310" y="372" text-anchor="middle" font-size="14" fill="#333">放大靶 DNA</text>
+<rect x="465" y="320" width="150" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<circle cx="540" cy="350" r="20" fill="#1f6f8b" opacity="0.16" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="540" y="355" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">Cas12a</text>
+<rect x="525" y="322" width="30" height="7" fill="#c0392b" opacity="0.85"/>
+<text x="562" y="332" font-size="13" fill="#333">crRNA</text>
+<text x="540" y="390" text-anchor="middle" font-size="13" fill="#333">识别 dsDNA（TTTV PAM）</text>
+<rect x="740" y="320" width="180" height="90" fill="#fff" stroke="#c0392b" stroke-width="2" rx="6"/>
+<text x="830" y="350" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">反式切割</text>
+<text x="830" y="372" text-anchor="middle" font-size="13" fill="#333">ssDNA 报告分子</text>
+<text x="830" y="394" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">→ 试纸条 T 线</text>
+
+<!-- arrows -->
+<line x1="160" y1="165" x2="235" y2="165" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="385" y1="165" x2="465" y2="165" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="615" y1="165" x2="740" y2="165" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="160" y1="365" x2="235" y2="365" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="385" y1="365" x2="465" y2="365" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="615" y1="365" x2="740" y2="365" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- footer -->
+<text x="480" y="444" text-anchor="middle" font-size="14" fill="#333">两级放大：RPA 放大「拷贝数」× 反式切割放大「每个结合事件的信号」→ 灵敏度可达阿托摩尔（aM）</text>
+
+<defs>
+<marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+<path d="M0,0 L9,4.5 L0,9 z" fill="#333"/>
+</marker>
+</defs>
+</svg>

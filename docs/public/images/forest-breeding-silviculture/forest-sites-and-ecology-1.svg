@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" font-family="sans-serif">
+  <title>立地四因素：气候、土壤、生物在特定地形上交互作用</title>
+  <desc>等边三角形三个顶点分别标注气候、土壤、生物因素，底边标注地形背景，中心圆标注立地与树木生长，三条边上用双向箭头表示因素间的相互作用。</desc>
+  <rect width="720" height="470" fill="#faf9f5"/>
+  <text x="360" y="36" text-anchor="middle" font-size="18" fill="#333">立地 = 气候 + 土壤 + 生物 × 地形背景</text>
+
+  <!-- 地形 base band -->
+  <rect x="80" y="396" width="560" height="44" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="360" y="416" text-anchor="middle" font-size="14" fill="#333">地形背景：坡向 · 坡度 · 坡位 · 海拔</text>
+  <text x="360" y="432" text-anchor="middle" font-size="12" fill="#666">不提供资源，只重新分配气候与土壤资源</text>
+
+  <!-- triangle -->
+  <polygon points="360,96 120,366 600,366" fill="none" stroke="#333" stroke-width="2"/>
+
+  <!-- corners -->
+  <circle cx="360" cy="96" r="42" fill="#1f6f8b"/>
+  <text x="360" y="92" text-anchor="middle" font-size="15" fill="#fff">气候</text>
+  <text x="360" y="110" text-anchor="middle" font-size="13" fill="#fff">光温水风</text>
+
+  <circle cx="120" cy="366" r="42" fill="#1f6f8b"/>
+  <text x="120" y="362" text-anchor="middle" font-size="15" fill="#fff">土壤</text>
+  <text x="120" y="380" text-anchor="middle" font-size="13" fill="#fff">水养通气</text>
+
+  <circle cx="600" cy="366" r="42" fill="#1f6f8b"/>
+  <text x="600" y="362" text-anchor="middle" font-size="15" fill="#fff">生物</text>
+  <text x="600" y="380" text-anchor="middle" font-size="13" fill="#fff">菌根竞争</text>
+
+  <!-- interaction arrows -->
+  <defs>
+    <marker id="arw" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <line x1="322" y1="126" x2="176" y2="332" stroke="#c0392b" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="176" y1="332" x2="322" y2="126" stroke="#c0392b" stroke-width="2" marker-end="url(#arw)"/>
+
+  <line x1="398" y1="126" x2="544" y2="332" stroke="#c0392b" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="544" y1="332" x2="398" y2="126" stroke="#c0392b" stroke-width="2" marker-end="url(#arw)"/>
+
+  <line x1="164" y1="366" x2="556" y2="366" stroke="#c0392b" stroke-width="2" marker-end="url(#arw)"/>
+  <line x1="556" y1="366" x2="164" y2="366" stroke="#c0392b" stroke-width="2" marker-end="url(#arw)"/>
+
+  <!-- center site circle -->
+  <circle cx="360" cy="231" r="52" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="360" y="222" text-anchor="middle" font-size="17" fill="#c0392b">立地</text>
+  <text x="360" y="242" text-anchor="middle" font-size="13" fill="#333">树木生长环境</text>
+  <text x="360" y="258" text-anchor="middle" font-size="13" fill="#333">之总和</text>
+
+  <!-- time factor -->
+  <text x="360" y="330" text-anchor="middle" font-size="13" fill="#666">随时间演变：火烧 · 风倒 · 人类经营</text>
+</svg>

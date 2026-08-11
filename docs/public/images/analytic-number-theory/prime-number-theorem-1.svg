@@ -1,0 +1,61 @@
+<svg viewBox="0 0 640 400" width="640" height="400" xmlns="http://www.w3.org/2000/svg">
+<title>素数计数函数 π(x) 与 x/log x、Li(x) 的增长对比（示意图）</title>
+<desc>对数值为 10^3 到 10^9 的 x，画出 π(x)（实线）、Li(x)（虚线）、x/log x（点划线）的增长，横轴为 x 的对数，纵轴为函数值。</desc>
+<rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+<g font-family="sans-serif" font-size="14" fill="#333">
+  <!-- axes -->
+  <line x1="70" y1="340" x2="610" y2="340" stroke="#333" stroke-width="2"/>
+  <line x1="70" y1="340" x2="70" y2="40" stroke="#333" stroke-width="2"/>
+  <text x="55" y="350" text-anchor="middle">10³</text>
+  <text x="150" y="350" text-anchor="middle">10⁴</text>
+  <text x="230" y="350" text-anchor="middle">10⁵</text>
+  <text x="310" y="350" text-anchor="middle">10⁶</text>
+  <text x="390" y="350" text-anchor="middle">10⁷</text>
+  <text x="470" y="350" text-anchor="middle">10⁸</text>
+  <text x="550" y="350" text-anchor="middle">10⁹</text>
+  <text x="340" y="378" text-anchor="middle">x（对数刻度）</text>
+  <text x="30" y="180" text-anchor="middle" transform="rotate(-90 30 180)">函数值</text>
+  <!-- x tick marks at log10 positions: x=70 corresponds to 10^3, scale 60 per decade -->
+  <line x1="70" y1="340" x2="70" y2="346" stroke="#333"/>
+  <line x1="130" y1="340" x2="130" y2="346" stroke="#333"/>
+  <line x1="190" y1="340" x2="190" y2="346" stroke="#333"/>
+  <line x1="250" y1="340" x2="250" y2="346" stroke="#333"/>
+  <line x1="310" y1="340" x2="310" y2="346" stroke="#333"/>
+  <line x1="370" y1="340" x2="370" y2="346" stroke="#333"/>
+  <line x1="430" y1="340" x2="430" y2="346" stroke="#333"/>
+  <line x1="490" y1="340" x2="490" y2="346" stroke="#333"/>
+  <line x1="550" y1="340" x2="550" y2="346" stroke="#333"/>
+</g>
+<!-- Plot curves: value(v) mapped to y = 340 - 60*log10(v/100) so that v=10^4 (10000) -> y=220, v=10^6 -> y=100, v=10^8 -> near 40 -->
+<!-- π(x): 168, 1229, 9592, 78498, 664579, 5761455, 50847534 -->
+<!-- Li(x): 177, 1246, 9630, 78628, 664918, 5762209, 50849235 -->
+<!-- x/log x: 145, 1086, 8686, 72382, 620420, 5428681, 48254942 -->
+<!-- map: y = 340 - 60*log10(v) + 240 (since 60*log10(100)=120, 340-120=220 for v=10^4) -->
+<!-- v=168: log10=2.225, y=340-133.5+240? Let's use y = 340 - 60*(log10(v)-2). For v=168: log10=2.225 -> 340-60*0.225=326.5 -->
+<!-- v=1229: log10=3.0896 -> 340-60*1.0896=274.6 -->
+<!-- v=9592: log10=3.982 -> 340-60*1.982=221 -->
+<!-- v=78498: log10=4.895 -> 340-60*2.895=166 -->
+<!-- v=664579: log10=5.8226 -> 340-60*3.8226=110.6 -->
+<!-- v=5761455: log10=6.7605 -> 340-60*4.7605=54.4 -->
+<!-- v=50847534: log10=7.706 -> 340-60*5.706= -2.4 -> clamp to 40 -->
+<!-- Li: 177(325.7),1246(274.9),9630(221.4),78628(166.7),664918(111.1),5762209(55.1),50849235(0.8->clamp 40) -->
+<!-- x/logx: 145(326.3),1086(273.5),8686(220.9),72382(165.3),620420(110.2),5428681(53.4),48254942(5.5->40) -->
+<g stroke="#1f6f8b" stroke-width="2.5" fill="none">
+  <polyline points="70,326 130,275 190,221 250,166 310,111 370,54 430,40 490,40 550,40"/>
+</g>
+<g stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8 5" fill="none">
+  <polyline points="70,326 130,275 190,221 250,167 310,111 370,55 430,40 490,40 550,40"/>
+</g>
+<g stroke="#333" stroke-width="2" stroke-dasharray="3 4" fill="none">
+  <polyline points="70,327 130,274 190,221 250,165 310,110 370,53 430,40 490,40 550,40"/>
+</g>
+<!-- legend -->
+<rect x="400" y="52" width="220" height="86" fill="#fff" stroke="#333"/>
+<line x1="412" y1="72" x2="452" y2="72" stroke="#1f6f8b" stroke-width="2.5"/>
+<text x="460" y="77" font-family="sans-serif" font-size="13" fill="#333">π(x)（真实素数个数）</text>
+<line x1="412" y1="95" x2="452" y2="95" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8 5"/>
+<text x="460" y="100" font-family="sans-serif" font-size="13" fill="#333">Li(x)（高斯猜测）</text>
+<line x1="412" y1="118" x2="452" y2="118" stroke="#333" stroke-width="2" stroke-dasharray="3 4"/>
+<text x="460" y="123" font-family="sans-serif" font-size="13" fill="#333">x / log x（PNT 主项）</text>
+<text x="70" y="52" font-family="sans-serif" font-size="13" fill="#333">示意图：三条曲线在对数坐标下几乎重合，Li(x) 最贴近 π(x)</text>
+</svg>

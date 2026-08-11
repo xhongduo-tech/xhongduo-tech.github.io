@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" font-family="sans-serif">
+<title>ROC 曲线与 AUC 示意图</title>
+<desc>横轴为假正率 FPR，纵轴为真正率 TPR。分类器随阈值滑动形成从 (0,0) 到 (1,1) 的 ROC 曲线，AUC 为曲线下的面积，对角线为随机分类器的参考线。</desc>
+<rect width="820" height="440" fill="#faf9f5"/>
+<text x="410" y="36" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">ROC 曲线与 AUC</text>
+<rect x="150" y="60" width="360" height="320" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<line x1="150" y1="380" x2="510" y2="380" stroke="#333" stroke-width="2"/>
+<line x1="150" y1="380" x2="150" y2="60" stroke="#333" stroke-width="2"/>
+<text x="330" y="408" font-size="14" fill="#333" text-anchor="middle">假正率 FPR →</text>
+<text x="110" y="220" font-size="14" fill="#333" text-anchor="middle" transform="rotate(-90 110 220)">真正率 TPR →</text>
+<text x="150" y="94" font-size="13" fill="#333" text-anchor="middle">1</text>
+<text x="510" y="396" font-size="13" fill="#333" text-anchor="middle">1</text>
+<line x1="150" y1="380" x2="510" y2="60" stroke="#999" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="468" y="86" font-size="13" fill="#999">随机分类器（对角线）</text>
+<path d="M150 380 C 240 380, 290 340, 330 300 C 380 250, 400 190, 430 150 C 455 120, 480 100, 500 74 L 510 60 L 150 380 Z" fill="#1f6f8b" fill-opacity="0.22"/>
+<path d="M150 380 C 240 380, 290 340, 330 300 C 380 250, 400 190, 430 150 C 455 120, 480 100, 500 74 L 510 60" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+<circle cx="470" cy="125" r="5" fill="#c0392b"/>
+<text x="478" y="118" font-size="13" fill="#c0392b" font-weight="bold">当前阈值点</text>
+<text x="470" y="142" font-size="13" fill="#c0392b">(FPR, TPR)</text>
+<text x="330" y="240" font-size="16" fill="#1f6f8b" font-weight="bold" text-anchor="middle">AUC = 曲线下面积</text>
+<rect x="560" y="80" width="220" height="170" rx="8" fill="#faf9f5" stroke="#333" stroke-width="1"/>
+<text x="670" y="104" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">AUC 的两种解读</text>
+<text x="576" y="132" font-size="13" fill="#333">几何：ROC 曲线下的面积</text>
+<text x="576" y="158" font-size="13" fill="#333">排序：随机取正样本与负</text>
+<text x="576" y="180" font-size="13" fill="#333">样本，正样本得分更高的</text>
+<text x="576" y="202" font-size="13" fill="#333">概率（Wilcoxon 秩和）</text>
+<text x="576" y="236" font-size="13" fill="#333">取值区间：[0.5, 1]</text>
+<rect x="560" y="270" width="220" height="90" rx="8" fill="#f5e6e0"/>
+<text x="670" y="296" font-size="14" fill="#c0392b" text-anchor="middle" font-weight="bold">局限</text>
+<text x="576" y="322" font-size="13" fill="#333">类别极不平衡时 AUC 可能</text>
+<text x="576" y="344" font-size="13" fill="#333">虚高，需配合 PR 曲线评估</text>
+</svg>

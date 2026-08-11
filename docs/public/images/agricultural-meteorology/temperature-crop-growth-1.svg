@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <title>作物生长速率的基点温度曲线</title>
+  <desc>生长速率随温度变化的示意曲线：最低温度 10°C 时生长为零，最适温度 25°C 时达到峰值，最高温度 35°C 时再次降为零</desc>
+  <rect width="640" height="360" fill="#faf9f5"/>
+  <g font-family="sans-serif" fill="#333">
+
+    <text x="320" y="30" font-size="18" text-anchor="middle" font-weight="bold">基点温度曲线：生长速率随温度的变化</text>
+
+    <g stroke="#333" stroke-width="1.5">
+      <line x1="80" y1="300" x2="560" y2="300"/>
+      <line x1="80" y1="60" x2="80" y2="300"/>
+    </g>
+    <g font-size="13" fill="#666">
+      <text x="80" y="320" text-anchor="middle">0</text>
+      <text x="200" y="320" text-anchor="middle">10°C</text>
+      <text x="320" y="320" text-anchor="middle">20°C</text>
+      <text x="440" y="320" text-anchor="middle">30°C</text>
+      <text x="560" y="320" text-anchor="middle">40°C</text>
+      <text x="72" y="310" text-anchor="end">0</text>
+      <text x="72" y="185" text-anchor="end">0.5</text>
+      <text x="72" y="70" text-anchor="end">1.0</text>
+    </g>
+    <text x="300" y="345" font-size="13" text-anchor="middle">温度（℃）</text>
+    <text x="30" y="185" font-size="13" text-anchor="middle" transform="rotate(-90 30 185)">相对生长速率</text>
+
+    <g stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3">
+      <line x1="200" y1="60" x2="200" y2="300"/>
+      <line x1="380" y1="60" x2="380" y2="300"/>
+      <line x1="500" y1="60" x2="500" y2="300"/>
+    </g>
+    <polyline points="200,300 260,208 320,116 380,70 440,185 500,300" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+
+    <text x="200" y="48" font-size="14" fill="#c0392b" text-anchor="middle">T 最低</text>
+    <text x="380" y="48" font-size="14" fill="#c0392b" text-anchor="middle">T 最适</text>
+    <text x="500" y="48" font-size="14" fill="#c0392b" text-anchor="middle">T 最高</text>
+    <text x="200" y="316" font-size="13" text-anchor="middle">生长为零（下限）</text>
+    <text x="500" y="316" font-size="13" text-anchor="middle">生长为零（上限）</text>
+    <text x="242" y="178" font-size="14" fill="#1f6f8b">从 T 最低到 T 最适，生长随温度近线性上升</text>
+
+  </g>
+</svg>

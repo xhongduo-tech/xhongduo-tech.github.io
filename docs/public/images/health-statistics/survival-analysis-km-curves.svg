@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-labelledby="title desc">
+<title>Kaplan–Meier 生存曲线示意图</title>
+<desc>两组患者的 Kaplan–Meier 生存曲线：横轴时间（月），纵轴生存概率。治疗组（蓝）下降平缓且阶梯较长，对照组（红）下降陡峭；曲线上的小竖线表示删失（失访或观察终点未发生事件）的个体。</desc>
+<rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+<g font-family="sans-serif">
+  <text x="320" y="30" text-anchor="middle" font-size="17" fill="#333">Kaplan–Meier 生存曲线（治疗组 vs 对照组）</text>
+
+  <!-- axes -->
+  <line x1="70" y1="300" x2="598" y2="300" stroke="#333" stroke-width="1.5"/>
+  <line x1="70" y1="300" x2="70" y2="60" stroke="#333" stroke-width="1.5"/>
+  <text x="330" y="330" text-anchor="middle" font-size="14" fill="#333">时间（月）</text>
+  <text x="34" y="185" text-anchor="middle" font-size="14" fill="#333" transform="rotate(-90 34 185)">生存概率 S(t)</text>
+
+  <!-- y ticks -->
+  <line x1="65" y1="300" x2="70" y2="300" stroke="#333" stroke-width="1"/>
+  <text x="58" y="305" text-anchor="end" font-size="13" fill="#333">0</text>
+  <line x1="65" y1="180" x2="70" y2="180" stroke="#333" stroke-width="1"/>
+  <text x="58" y="185" text-anchor="end" font-size="13" fill="#333">0.5</text>
+  <line x1="65" y1="60" x2="70" y2="60" stroke="#333" stroke-width="1"/>
+  <text x="58" y="65" text-anchor="end" font-size="13" fill="#333">1.0</text>
+
+  <!-- x ticks -->
+  <text x="70" y="318" text-anchor="middle" font-size="13" fill="#333">0</text>
+  <text x="202" y="318" text-anchor="middle" font-size="13" fill="#333">6</text>
+  <text x="334" y="318" text-anchor="middle" font-size="13" fill="#333">12</text>
+  <text x="466" y="318" text-anchor="middle" font-size="13" fill="#333">18</text>
+  <text x="598" y="318" text-anchor="middle" font-size="13" fill="#333">24</text>
+
+  <!-- control (red) KM step curve -->
+  <path d="M70,60 H92 V108 H136 V173 H158 V173 H202 V204 H246 V228 H290 V228 H334 V259 H400 V288 H466 V307 H532 V323 H598"
+        fill="none" stroke="#c0392b" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- control censor ticks -->
+  <path d="M158,163 L158,183 M290,218 L290,238" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- treatment (blue) KM step curve -->
+  <path d="M70,60 H114 V84 H180 V108 H246 V132 H268 V132 H312 V139 H356 V139 H422 V180 H488 V197 H554 V197 H598"
+        fill="none" stroke="#1f6f8b" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- treatment censor ticks -->
+  <path d="M268,122 L268,142 M356,129 L356,149 M554,187 L554,207" stroke="#1f6f8b" stroke-width="2"/>
+
+  <!-- legend -->
+  <line x1="420" y1="52" x2="460" y2="52" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="468" y="56" font-size="13" fill="#333">治疗组</text>
+  <line x1="420" y1="72" x2="460" y2="72" stroke="#c0392b" stroke-width="3"/>
+  <text x="468" y="76" font-size="13" fill="#333">对照组</text>
+  <path d="M552,52 L552,60" stroke="#333" stroke-width="2"/>
+  <text x="560" y="62" font-size="13" fill="#333">删失</text>
+
+  <!-- annotation -->
+  <text x="120" y="258" text-anchor="middle" font-size="13" fill="#c0392b">中位生存时间</text>
+  <line x1="120" y1="264" x2="120" y2="300" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="340" y="145" text-anchor="middle" font-size="13" fill="#1f6f8b">治疗组阶梯平缓、事件更少</text>
+</g>
+</svg>

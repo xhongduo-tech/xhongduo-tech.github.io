@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" width="680" height="420">
+<title>碳十四衰变曲线与测年上限</title>
+<desc>指数衰变曲线 N(t)/N0 随时间下降，每过一个半衰期 5730 年剩余减半；约 5 万年后降到 0.1% 以下，超出可测范围。</desc>
+<rect width="680" height="420" fill="#faf9f5"/>
+<g font-family="sans-serif" font-size="14" fill="#333">
+  <!-- axes -->
+  <line x1="60" y1="60" x2="60" y2="350" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="340" x2="620" y2="340" stroke="#333" stroke-width="1.5"/>
+  <text x="628" y="345" text-anchor="start">t（距今·千年）</text>
+  <text x="30" y="52" text-anchor="middle" transform="rotate(-90 30 52)">剩余比例 N/N₀</text>
+  <!-- tick labels x -->
+  <text x="60" y="360" text-anchor="middle">0</text>
+  <text x="165" y="360" text-anchor="middle">10</text>
+  <text x="270" y="360" text-anchor="middle">20</text>
+  <text x="375" y="360" text-anchor="middle">30</text>
+  <text x="480" y="360" text-anchor="middle">40</text>
+  <text x="600" y="360" text-anchor="middle">50</text>
+  <!-- tick labels y -->
+  <text x="48" y="64" text-anchor="end">1</text>
+  <text x="48" y="204" text-anchor="end">0.5</text>
+  <text x="48" y="344" text-anchor="end">0</text>
+  <!-- dashed half-life grid -->
+  <line x1="60" y1="200" x2="600" y2="200" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="4 4"/>
+  <line x1="60" y1="60" x2="600" y2="60" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="4 4"/>
+  <!-- detection floor band -->
+  <rect x="60" y="337" width="540" height="3" fill="#1f6f8b"/>
+  <text x="620" y="330" text-anchor="end" font-size="13" fill="#1f6f8b">~0.1% 探测下限</text>
+  <!-- decay curve -->
+  <polyline fill="none" stroke="#1f6f8b" stroke-width="3" stroke-linejoin="round" points="60,60 105,187 150,257 195,294 240,315 285,326 330,333 375,336 420,338 465,339 510,339 555,340 600,340"/>
+  <!-- half-life markers -->
+  <circle cx="111" cy="200" r="4" fill="#c0392b"/>
+  <circle cx="162" cy="270" r="4" fill="#c0392b"/>
+  <circle cx="213" cy="305" r="4" fill="#c0392b"/>
+  <line x1="111" y1="200" x2="111" y2="345" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="2 3"/>
+  <line x1="162" y1="270" x2="162" y2="345" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="2 3"/>
+  <line x1="213" y1="305" x2="213" y2="345" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="2 3"/>
+  <text x="96" y="375" text-anchor="middle" font-size="13">5.73 千年</text>
+  <text x="147" y="382" text-anchor="middle" font-size="13">11.46 千年</text>
+  <text x="198" y="375" text-anchor="middle" font-size="13">17.19 千年</text>
+  <text x="330" y="120" text-anchor="middle" font-size="15" fill="#1f6f8b">N(t) = N₀ · 2^(−t / 5730)</text>
+</g>
+</svg>

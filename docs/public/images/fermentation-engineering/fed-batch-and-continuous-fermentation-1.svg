@@ -1,0 +1,42 @@
+<svg viewBox="0 0 420 360" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>恒化器（连续培养罐）示意图</title>
+<desc>恒化器：培养基以流量 F 连续进料，罐内体积 V 恒定，培养液经溢流管以相同流量连续排出，实现稳态 μ=D。带搅拌、无菌空气入口与恒温夹套。</desc>
+<rect x="0" y="0" width="420" height="360" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333" font-size="14">
+  <!-- 罐体 -->
+  <rect x="140" y="70" width="150" height="180" rx="12" fill="none" stroke="#333" stroke-width="3"/>
+  <!-- 恒温夹套 -->
+  <rect x="126" y="86" width="178" height="148" rx="12" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="96" y="46" text-anchor="middle" fill="#1f6f8b" font-size="13">恒温夹套</text>
+  <!-- 进料管 -->
+  <line x1="70" y1="86" x2="138" y2="86" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="138,86 128,82 128,90" fill="#c0392b"/>
+  <text x="70" y="74" text-anchor="middle" fill="#c0392b" font-size="13">进料 F, S₀</text>
+  <!-- 溢流出口 -->
+  <line x1="290" y1="150" x2="350" y2="150" stroke="#333" stroke-width="3"/>
+  <polygon points="350,150 340,146 340,154" fill="#333"/>
+  <text x="322" y="138" font-size="13">溢流出口</text>
+  <text x="322" y="170" font-size="13">F, X, S</text>
+  <!-- 搅拌轴与叶轮 -->
+  <line x1="215" y1="60" x2="215" y2="230" stroke="#333" stroke-width="4"/>
+  <rect x="195" y="42" width="40" height="24" rx="4" fill="#c0392b"/>
+  <text x="215" y="58" text-anchor="middle" fill="#faf9f5" font-size="13">电机</text>
+  <g stroke="#333" stroke-width="3" fill="none">
+    <line x1="185" y1="120" x2="245" y2="120"/>
+    <line x1="215" y1="100" x2="215" y2="140"/>
+    <line x1="185" y1="120" x2="215" y2="105"/>
+    <line x1="215" y1="105" x2="245" y2="120"/>
+    <line x1="185" y1="120" x2="215" y2="135"/>
+    <line x1="215" y1="135" x2="245" y2="120"/>
+  </g>
+  <!-- 液面 -->
+  <line x1="142" y1="195" x2="288" y2="195" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="253" y="208" font-size="13" fill="#1f6f8b">液面（恒容 V）</text>
+  <!-- 空气入口 -->
+  <line x1="215" y1="250" x2="215" y2="310" stroke="#1f6f8b" stroke-width="3"/>
+  <polygon points="215,250 209,260 221,260" fill="#1f6f8b"/>
+  <text x="215" y="334" text-anchor="middle" fill="#1f6f8b" font-size="13">无菌空气</text>
+  <!-- 稳态标注 -->
+  <text x="215" y="288" text-anchor="middle" fill="#c0392b" font-size="14">稳态：μ = D</text>
+</g>
+</svg>

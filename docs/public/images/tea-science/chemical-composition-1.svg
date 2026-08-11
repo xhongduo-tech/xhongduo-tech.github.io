@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="sans-serif">
+  <title>茶叶干物质近似构成条形图</title>
+  <desc>以典型中点值展示茶树鲜叶干物质中茶多酚、蛋白质、糖类、矿物质、生物碱、氨基酸、色素与芳香物质的近似占比条形图。</desc>
+
+  <rect x="0" y="0" width="900" height="520" fill="#faf9f5"/>
+
+  <text x="450" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#333333">茶叶干物质近似构成（% 干重 · 典型中点值）</text>
+
+  <!-- 多酚 -->
+  <text x="60" y="92" font-size="15" fill="#333333">茶多酚类</text>
+  <rect x="230" y="78" width="270" height="20" fill="#1f6f8b"/>
+  <text x="510" y="93" font-size="15" fill="#333333">27%</text>
+
+  <!-- 蛋白质 -->
+  <text x="60" y="132" font-size="15" fill="#333333">蛋白质</text>
+  <rect x="230" y="118" width="250" height="20" fill="#3a8f5f"/>
+  <text x="490" y="133" font-size="15" fill="#333333">25%</text>
+
+  <!-- 糖类 -->
+  <text x="60" y="172" font-size="15" fill="#333333">糖类</text>
+  <rect x="230" y="158" width="250" height="20" fill="#8fae4a"/>
+  <text x="490" y="173" font-size="15" fill="#333333">25%</text>
+
+  <!-- 矿物质 -->
+  <text x="60" y="212" font-size="15" fill="#333333">矿物质（灰分）</text>
+  <rect x="230" y="198" width="50" height="20" fill="#b0a8a0"/>
+  <text x="290" y="213" font-size="15" fill="#333333">5%</text>
+
+  <!-- 生物碱 -->
+  <text x="60" y="252" font-size="15" fill="#333333">生物碱（咖啡碱为主）</text>
+  <rect x="230" y="238" width="35" height="20" fill="#d9a441"/>
+  <text x="275" y="253" font-size="15" fill="#333333">3.5%</text>
+
+  <!-- 氨基酸 -->
+  <text x="60" y="292" font-size="15" fill="#333333">氨基酸（茶氨酸等）</text>
+  <rect x="230" y="278" width="25" height="20" fill="#c06b2b"/>
+  <text x="265" y="293" font-size="15" fill="#333333">2.5%</text>
+
+  <!-- 色素 -->
+  <text x="60" y="332" font-size="15" fill="#333333">色素（叶绿素等）</text>
+  <rect x="230" y="318" width="10" height="20" fill="#a3402b"/>
+  <text x="250" y="333" font-size="15" fill="#333333">1%</text>
+
+  <!-- 芳香物质 -->
+  <text x="60" y="372" font-size="15" fill="#333333">芳香物质</text>
+  <rect x="230" y="358" width="2" height="20" fill="#c0392b"/>
+  <text x="244" y="373" font-size="15" fill="#c0392b">≈ 0.01%（香气极微而极烈）</text>
+
+  <!-- 刻度线 -->
+  <line x1="230" y1="70" x2="230" y2="388" stroke="#999999" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="330" y1="70" x2="330" y2="388" stroke="#cccccc" stroke-width="1"/>
+  <line x1="430" y1="70" x2="430" y2="388" stroke="#cccccc" stroke-width="1"/>
+
+  <text x="230" y="410" text-anchor="middle" font-size="13" fill="#999999">0%</text>
+  <text x="330" y="410" text-anchor="middle" font-size="13" fill="#999999">10%</text>
+  <text x="430" y="410" text-anchor="middle" font-size="13" fill="#999999">20%</text>
+
+  <text x="450" y="450" text-anchor="middle" font-size="14" fill="#666666">图中为典型中点值；实际区间：茶多酚 20–35%、蛋白质 20–30%、糖类 20–30%</text>
+  <text x="450" y="474" text-anchor="middle" font-size="14" fill="#666666">水浸出物（热水可溶部分）约占干物质 36–45%</text>
+</svg>

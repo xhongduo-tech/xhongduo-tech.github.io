@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="sans-serif">
+  <title>布拉格衍射：晶面反射与光程差 2d sinθ</title>
+  <desc>入射 X 射线以掠射角 θ 打到间距为 d 的两层晶面上，两条平行射线的光程差为 2d sinθ。当 2d sinθ 为波长的整数倍时发生相长干涉，满足布拉格条件 nλ = 2d sinθ。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="760" height="440" fill="#faf9f5"/>
+  <text x="380" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">布拉格衍射：nλ = 2d sinθ</text>
+
+  <!-- 晶面 -->
+  <line x1="60" y1="210" x2="700" y2="210" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="60" y1="260" x2="700" y2="260" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="60" y1="310" x2="700" y2="310" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="60" y1="360" x2="700" y2="360" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="90" y="205" text-anchor="middle" font-size="14" fill="#1f6f8b">晶面</text>
+  <text x="90" y="385" text-anchor="middle" font-size="14" fill="#333">晶面间距 d</text>
+
+  <!-- 面间距 d 双箭头 -->
+  <line x1="340" y1="210" x2="340" y2="260" stroke="#333" stroke-width="2" marker-start="url(#arrow)"/>
+  <line x1="340" y1="260" x2="340" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="352" y="240" font-size="15" fill="#333">d</text>
+
+  <!-- 法线 -->
+  <line x1="300" y1="210" x2="300" y2="120" stroke="#333" stroke-width="1.2" stroke-dasharray="6 4"/>
+
+  <!-- 入射射线 1：到达 A(300,210) -->
+  <line x1="144" y1="120" x2="300" y2="210" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <!-- 反射射线 1 -->
+  <line x1="300" y1="210" x2="456" y2="120" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <!-- 入射射线 2：到达 B(386.6,260) -->
+  <line x1="230" y1="170" x2="386.6" y2="260" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <!-- 反射射线 2 -->
+  <line x1="386.6" y1="260" x2="542" y2="170" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- θ 弧 -->
+  <path d="M 255 210 A 45 45 0 0 1 261 187.5" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="246" y="198" font-size="15" fill="#333">θ</text>
+
+  <!-- 标注 -->
+  <text x="170" y="150" font-size="14" fill="#333">入射 X 射线</text>
+  <text x="400" y="105" font-size="14" fill="#333">衍射（反射）射线</text>
+  <text x="430" y="300" font-size="14" fill="#333">光程差 = 2d sinθ</text>
+
+  <!-- 公式框 -->
+  <rect x="180" y="398" width="400" height="34" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="380" y="421" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">nλ = 2d sinθ（θ 为掠射角）</text>
+</svg>

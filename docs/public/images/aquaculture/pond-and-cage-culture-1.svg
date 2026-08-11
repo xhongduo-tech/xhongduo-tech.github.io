@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" font-family="sans-serif">
+  <title>四大家鱼池塘混养水层示意</title>
+  <desc>池塘水体分上中下三层：上层放养滤食浮游植物的鲢，中层放养草鱼与鳙，底层放养吃螺蛳的青鱼，池底有沉积底泥，水面设增氧机，阳光照入水体滋养藻类。</desc>
+  <rect x="0" y="0" width="760" height="380" fill="#faf9f5"/>
+  <!-- sky -->
+  <rect x="0" y="0" width="760" height="70" fill="#fff"/>
+  <text x="60" y="30" font-size="15" fill="#333" text-anchor="middle">阳光</text>
+  <circle cx="60" cy="45" r="14" fill="#f2d184" stroke="#d9a441" stroke-width="1.5"/>
+  <g stroke="#d9a441" stroke-width="2">
+    <line x1="45" y1="45" x2="34" y2="45"/><line x1="75" y1="45" x2="86" y2="45"/>
+    <line x1="60" y1="30" x2="60" y2="20"/><line x1="60" y1="60" x2="60" y2="70"/>
+  </g>
+  <!-- pond banks -->
+  <polygon points="90,70 110,300 650,300 670,70" fill="none"/>
+  <polygon points="90,70 670,70 650,300 110,300" fill="#bfe3ee"/>
+  <!-- water layers -->
+  <rect x="112" y="72" width="536" height="78" fill="#1f6f8b" opacity="0.12"/>
+  <rect x="112" y="150" width="536" height="85" fill="#1f6f8b" opacity="0.20"/>
+  <rect x="112" y="235" width="536" height="63" fill="#1f6f8b" opacity="0.30"/>
+  <!-- sediment -->
+  <rect x="112" y="298" width="536" height="30" fill="#8b7355" opacity="0.7"/>
+  <polygon points="90,70 670,70 650,300 110,300" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- algae dots in upper water -->
+  <g fill="#1f6f8b">
+    <circle cx="180" cy="100" r="3"/><circle cx="230" cy="120" r="3"/><circle cx="330" cy="95" r="3"/>
+    <circle cx="410" cy="125" r="3"/><circle cx="500" cy="90" r="3"/><circle cx="580" cy="115" r="3"/>
+    <circle cx="620" cy="140" r="3"/><circle cx="260" cy="135" r="3"/><circle cx="470" cy="105" r="3"/>
+  </g>
+  <!-- band labels -->
+  <g font-size="15" fill="#333" text-anchor="middle">
+    <text x="55" y="115">上</text><text x="55" y="132">层</text>
+    <text x="55" y="195">中</text><text x="55" y="212">下</text><text x="55" y="229">层</text>
+    <text x="55" y="270">底</text><text x="55" y="287">层</text>
+  </g>
+  <!-- fish: ellipse body + tail + eye -->
+  <g stroke="#333" stroke-width="1.2" fill="#fff">
+    <!-- 鲢 upper -->
+    <ellipse cx="200" cy="105" rx="20" ry="10"/><polygon points="222,105 234,97 234,113"/><circle cx="192" cy="103" r="1.6"/>
+    <ellipse cx="320" cy="122" rx="20" ry="10"/><polygon points="342,122 354,114 354,130"/><circle cx="312" cy="120" r="1.6"/>
+    <ellipse cx="450" cy="98" rx="20" ry="10"/><polygon points="472,98 484,90 484,106"/><circle cx="442" cy="96" r="1.6"/>
+    <!-- 鳙 mid upper -->
+    <ellipse cx="270" cy="175" rx="20" ry="10"/><polygon points="292,175 304,167 304,183"/><circle cx="262" cy="173" r="1.6"/>
+    <ellipse cx="420" cy="188" rx="20" ry="10"/><polygon points="442,188 454,180 454,196"/><circle cx="412" cy="186" r="1.6"/>
+    <ellipse cx="560" cy="172" rx="20" ry="10"/><polygon points="582,172 594,164 594,180"/><circle cx="552" cy="170" r="1.6"/>
+    <!-- 草鱼 mid lower -->
+    <ellipse cx="200" cy="210" rx="20" ry="10"/><polygon points="222,210 234,202 234,218"/><circle cx="192" cy="208" r="1.6"/>
+    <ellipse cx="360" cy="222" rx="20" ry="10"/><polygon points="382,222 394,214 394,230"/><circle cx="352" cy="220" r="1.6"/>
+    <ellipse cx="510" cy="205" rx="20" ry="10"/><polygon points="532,205 544,197 544,213"/><circle cx="502" cy="203" r="1.6"/>
+    <!-- 青鱼 bottom -->
+    <ellipse cx="260" cy="262" rx="20" ry="10"/><polygon points="282,262 294,254 294,270"/><circle cx="252" cy="260" r="1.6"/>
+    <ellipse cx="420" cy="272" rx="20" ry="10"/><polygon points="442,272 454,264 454,280"/><circle cx="412" cy="270" r="1.6"/>
+    <ellipse cx="580" cy="258" rx="20" ry="10"/><polygon points="602,258 614,250 614,266"/><circle cx="572" cy="256" r="1.6"/>
+  </g>
+  <!-- species labels -->
+  <g font-size="14" fill="#333" text-anchor="start">
+    <text x="200" y="92">鲢（浮游植物）</text>
+    <text x="320" y="140">鳙（浮游动物）</text>
+    <text x="430" y="88">鲢（上层）</text>
+    <text x="255" y="196">鳙（中层）</text>
+    <text x="415" y="210">草鱼（中下层）</text>
+    <text x="500" y="193">草鱼</text>
+    <text x="230" y="252">青鱼（底层，吃螺蛳）</text>
+    <text x="430" y="292">青鱼</text>
+  </g>
+  <!-- snails -->
+  <g fill="#8b7355" stroke="#333" stroke-width="1">
+    <circle cx="170" cy="306" r="6"/><circle cx="182" cy="312" r="6"/><circle cx="540" cy="310" r="6"/>
+  </g>
+  <!-- aerator -->
+  <g>
+    <circle cx="380" cy="64" r="10" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <line x1="380" y1="56" x2="380" y2="72" stroke="#c0392b" stroke-width="2"/>
+    <line x1="372" y1="64" x2="388" y2="64" stroke="#c0392b" stroke-width="2"/>
+    <text x="380" y="45" font-size="14" fill="#c0392b" text-anchor="middle">增氧机</text>
+    <g fill="#c0392b">
+      <circle cx="394" cy="74" r="3"/><circle cx="404" cy="68" r="2.5"/><circle cx="368" cy="76" r="2.5"/>
+    </g>
+  </g>
+  <!-- water flow hint -->
+  <text x="380" y="325" font-size="14" fill="#333" text-anchor="middle">底泥：微生物分解残饵粪便，矿化供藻类再利用</text>
+</svg>

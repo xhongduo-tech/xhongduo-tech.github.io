@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%">
+<title>极值曲线场</title>
+<desc>示意图：一族从左侧公共点发出的极值曲线充满区域 D，每点恰有一条曲线通过；其中一条加粗高亮表示我们关注的极值曲线，虚线方框标记区域 D。</desc>
+<rect width="600" height="400" fill="#faf9f5"/>
+
+<!-- 区域 D 的虚线框 -->
+<rect x="150" y="40" width="400" height="310" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="540" y="62" font-family="sans-serif" font-size="14" fill="#777">区域 D</text>
+
+<!-- 场的若干条极值曲线 -->
+<path d="M 120,200 C 240,120 400,70 560,60" fill="none" stroke="#9fc0c9" stroke-width="2"/>
+<path d="M 120,200 C 240,145 400,100 560,95" fill="none" stroke="#9fc0c9" stroke-width="2"/>
+<path d="M 120,200 C 240,200 400,200 560,200" fill="none" stroke="#1f6f8b" stroke-width="4"/>
+<path d="M 120,200 C 240,260 400,300 560,305" fill="none" stroke="#9fc0c9" stroke-width="2"/>
+<path d="M 120,200 C 240,300 400,340 560,345" fill="none" stroke="#9fc0c9" stroke-width="2"/>
+
+<!-- 公共起点 -->
+<circle cx="120" cy="200" r="6" fill="#333"/>
+<text x="95" y="175" font-family="sans-serif" font-size="14" fill="#333">公共点</text>
+
+<!-- 高亮极值曲线的标签 -->
+<text x="330" y="182" font-family="sans-serif" font-size="15" fill="#1f6f8b">待检验的极值曲线</text>
+
+<!-- 说明文字 -->
+<text x="300" y="382" font-family="sans-serif" font-size="14" fill="#555" text-anchor="middle">场：区域内每一点恰有一条极值曲线通过，斜率函数 p(x,y) 良定义</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="sans-serif">
+  <title>GNSS 定位原理：四颗卫星的伪距球面交会</title>
+  <desc>地面接收机同时观测四颗卫星，每颗卫星的伪距对应一个以卫星为中心的球面（图上为虚线圆），四个球面交会于接收机位置；第四个未知量是接收机钟差。</desc>
+  <rect width="680" height="440" fill="#faf9f5"/>
+
+  <!-- 地面 -->
+  <line x1="40" y1="385" x2="640" y2="385" stroke="#333333" stroke-width="2"/>
+  <text x="60" y="410" font-size="14" fill="#333333">地面</text>
+
+  <!-- 四个伪距球面（截面为圆） -->
+  <g fill="none" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 5">
+    <circle cx="150" cy="90" r="330"/>
+    <circle cx="530" cy="80" r="338"/>
+    <circle cx="250" cy="170" r="210"/>
+    <circle cx="610" cy="230" r="300"/>
+  </g>
+
+  <!-- 接收机 -->
+  <circle cx="340" cy="360" r="5" fill="#c0392b"/>
+  <text x="348" y="374" font-size="15" fill="#c0392b">接收机（X, Y, Z）</text>
+
+  <!-- 伪距连线 -->
+  <g stroke="#999999" stroke-width="1.2">
+    <line x1="150" y1="90" x2="340" y2="360"/>
+    <line x1="530" y1="80" x2="340" y2="360"/>
+    <line x1="250" y1="170" x2="340" y2="360"/>
+    <line x1="610" y1="230" x2="340" y2="360"/>
+  </g>
+  <text x="206" y="222" font-size="14" fill="#333333">ρ₁</text>
+  <text x="470" y="222" font-size="14" fill="#333333">ρ₂</text>
+  <text x="250" y="290" font-size="14" fill="#333333">ρ₃</text>
+  <text x="500" y="310" font-size="14" fill="#333333">ρ₄</text>
+
+  <!-- 卫星 -->
+  <g fill="#333333">
+    <circle cx="150" cy="90" r="5"/><circle cx="530" cy="80" r="5"/>
+    <circle cx="250" cy="170" r="5"/><circle cx="610" cy="230" r="5"/>
+  </g>
+  <text x="110" y="80" font-size="15" fill="#333333">卫星1</text>
+  <text x="538" y="66" font-size="15" fill="#333333">卫星2</text>
+  <text x="258" y="160" font-size="15" fill="#333333">卫星3</text>
+  <text x="618" y="244" font-size="15" fill="#333333">卫星4</text>
+
+  <text x="60" y="432" font-size="13" fill="#888888">注：每颗卫星给一个以卫星为中心、伪距为半径的球面；四个球面交于一点即接收机位置，多余的自由度用于解接收机钟差</text>
+</svg>

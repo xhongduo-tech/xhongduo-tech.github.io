@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" font-family="sans-serif">
+  <title>J=1 多重态在磁场中的塞曼分裂演化</title>
+  <desc>弱场下按 m_J 均匀分裂（塞曼效应），中间区域能级弯曲并发生避让，强场下过渡到以 m_L、m_S 为量子数的帕邢-巴克效应。</desc>
+  <rect width="540" height="300" fill="#faf9f5"/>
+  <text x="18" y="30" font-size="14" fill="#333">能量</text>
+  <line x1="70" y1="20" x2="70" y2="280" stroke="#333" stroke-width="2"/>
+  <text x="70" y="296" font-size="14" fill="#333">磁场 B（弱 → 强）</text>
+  <line x1="70" y1="160" x2="500" y2="160" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="432" y="152" font-size="13" fill="#666">零场能级 E0</text>
+  <text x="120" y="46" font-size="13" fill="#1f6f8b">塞曼区</text>
+  <text x="120" y="62" font-size="13" fill="#1f6f8b">（m_J 好量子数）</text>
+  <text x="398" y="46" font-size="13" fill="#c0392b">帕邢-巴克区</text>
+  <text x="398" y="62" font-size="13" fill="#c0392b">（m_L、m_S 好量子数）</text>
+  <path d="M 90 160 Q 300 118 500 78" fill="none" stroke="#333" stroke-width="2.5"/>
+  <path d="M 90 160 Q 300 165 500 160" fill="none" stroke="#333" stroke-width="2.5"/>
+  <path d="M 90 160 Q 300 202 500 242" fill="none" stroke="#333" stroke-width="2.5"/>
+  <text x="508" y="78" font-size="14" fill="#333">m_J = +1</text>
+  <text x="508" y="164" font-size="14" fill="#333">m_J = 0</text>
+  <text x="508" y="246" font-size="14" fill="#333">m_J = −1</text>
+  <text x="96" y="286" font-size="13" fill="#333">分裂宽度随 B 线性增大（弱场）或由 m_L + 2m_S 决定（强场）</text>
+</svg>

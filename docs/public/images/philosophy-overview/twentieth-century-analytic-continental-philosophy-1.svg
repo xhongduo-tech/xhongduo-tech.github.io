@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" font-family="sans-serif">
+<title>二十世纪哲学的两条大河：分析哲学与大陆哲学</title>
+<desc>从康德出发，二十世纪哲学分裂为分析哲学与大陆哲学两条支流，各自继承不同的问题与工具。</desc>
+<rect width="720" height="500" fill="#faf9f5"/>
+<text x="360" y="30" text-anchor="middle" font-size="19" fill="#333" font-weight="bold">二十世纪哲学的两条大河</text>
+
+<rect x="290" y="52" width="140" height="34" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="360" y="74" text-anchor="middle" font-size="14" fill="#333">康德（德国古典哲学）</text>
+
+<line x1="360" y1="86" x2="190" y2="126" stroke="#333" stroke-width="1.5"/>
+<line x1="360" y1="86" x2="530" y2="126" stroke="#333" stroke-width="1.5"/>
+
+<rect x="120" y="126" width="140" height="30" rx="6" fill="#1f6f8b"/>
+<text x="190" y="146" text-anchor="middle" font-size="14" fill="#fff">分析哲学</text>
+<rect x="460" y="126" width="140" height="30" rx="6" fill="#c0392b"/>
+<text x="530" y="146" text-anchor="middle" font-size="14" fill="#fff">大陆哲学</text>
+
+<g fill="#fff" stroke="#1f6f8b" stroke-width="1.2">
+<rect x="95" y="172" width="190" height="28" rx="5"/>
+<rect x="95" y="208" width="190" height="28" rx="5"/>
+<rect x="95" y="244" width="190" height="28" rx="5"/>
+<rect x="95" y="280" width="190" height="28" rx="5"/>
+<rect x="95" y="316" width="190" height="28" rx="5"/>
+<rect x="95" y="352" width="190" height="28" rx="5"/>
+</g>
+<g font-size="13" fill="#333">
+<text x="190" y="191" text-anchor="middle">弗雷格：逻辑奠基</text>
+<text x="190" y="227" text-anchor="middle">罗素：逻辑原子主义</text>
+<text x="190" y="263" text-anchor="middle">维特根斯坦：《逻辑哲学论》</text>
+<text x="190" y="299" text-anchor="middle">维也纳学派：逻辑实证主义</text>
+<text x="190" y="335" text-anchor="middle">后期维特根斯坦：语言游戏</text>
+<text x="190" y="371" text-anchor="middle">蒯因：整体论 · 自然主义</text>
+</g>
+
+<g fill="#fff" stroke="#c0392b" stroke-width="1.2">
+<rect x="435" y="172" width="190" height="28" rx="5"/>
+<rect x="435" y="208" width="190" height="28" rx="5"/>
+<rect x="435" y="244" width="190" height="28" rx="5"/>
+<rect x="435" y="280" width="190" height="28" rx="5"/>
+<rect x="435" y="316" width="190" height="28" rx="5"/>
+<rect x="435" y="352" width="190" height="28" rx="5"/>
+</g>
+<g font-size="13" fill="#333">
+<text x="530" y="191" text-anchor="middle">胡塞尔：现象学</text>
+<text x="530" y="227" text-anchor="middle">海德格尔：存在与时间</text>
+<text x="530" y="263" text-anchor="middle">萨特：存在先于本质</text>
+<text x="530" y="299" text-anchor="middle">梅洛-庞蒂：身体现象学</text>
+<text x="530" y="335" text-anchor="middle">列维-斯特劳斯：结构主义</text>
+<text x="530" y="371" text-anchor="middle">福柯 / 德里达：后结构主义</text>
+</g>
+
+<g stroke="#9a9388" stroke-width="1">
+<line x1="190" y1="200" x2="190" y2="206"/>
+<line x1="190" y1="236" x2="190" y2="242"/>
+<line x1="190" y1="272" x2="190" y2="278"/>
+<line x1="190" y1="308" x2="190" y2="314"/>
+<line x1="190" y1="344" x2="190" y2="350"/>
+<line x1="530" y1="200" x2="530" y2="206"/>
+<line x1="530" y1="236" x2="530" y2="242"/>
+<line x1="530" y1="272" x2="530" y2="278"/>
+<line x1="530" y1="308" x2="530" y2="314"/>
+<line x1="530" y1="344" x2="530" y2="350"/>
+</g>
+
+<rect x="85" y="398" width="210" height="30" rx="6" fill="#eef2f4" stroke="#1f6f8b" stroke-width="1"/>
+<text x="190" y="417" text-anchor="middle" font-size="13" fill="#1f6f8b">工具：逻辑 · 语言分析 · 科学</text>
+<rect x="425" y="398" width="210" height="30" rx="6" fill="#f7efee" stroke="#c0392b" stroke-width="1"/>
+<text x="530" y="417" text-anchor="middle" font-size="13" fill="#c0392b">主题：存在 · 意义 · 历史</text>
+
+<text x="360" y="458" text-anchor="middle" font-size="14" fill="#333">分歧焦点：哲学该为知识奠基（分析），还是为生活释义（大陆）？</text>
+<text x="360" y="484" text-anchor="middle" font-size="13" fill="#666">两条支流同源于对康德遗留问题的回应，却走向了不同的语言与关切。</text>
+</svg>

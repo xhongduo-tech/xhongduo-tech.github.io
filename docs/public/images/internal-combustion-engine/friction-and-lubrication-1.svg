@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">斯特里贝克曲线：三种润滑状态</title>
+  <desc id="desc">以轴承特性数 Z = ηN/P 为横轴，摩擦系数 f 为纵轴。边界润滑区摩擦系数高且平坦，混合润滑区摩擦骤降至最低点，流体动力润滑区摩擦随 Z 缓慢上升。</desc>
+  <rect width="560" height="400" fill="#faf9f5"/>
+  <g font-family="sans-serif" fill="#333" font-size="14">
+    <!-- axes -->
+    <line x1="80" y1="320" x2="540" y2="320" stroke="#333" stroke-width="1.8"/>
+    <line x1="80" y1="320" x2="80" y2="40" stroke="#333" stroke-width="1.8"/>
+    <text x="300" y="352" text-anchor="middle" font-size="14">轴承特性数 Z = ηN/P（粘度·转速 ÷ 载荷，对数坐标）</text>
+    <text x="40" y="180" font-size="14" transform="rotate(-90 40 180)" text-anchor="middle">摩擦系数 f</text>
+    <!-- region dividers -->
+    <line x1="230" y1="60" x2="230" y2="320" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="345" y1="60" x2="345" y2="320" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+    <!-- Stribeck curve -->
+    <path d="M 92 80 C 140 83, 195 92, 228 108 C 262 130, 296 176, 315 224 C 326 250, 342 258, 360 254 C 402 247, 455 236, 522 220"
+          fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+    <!-- minimum point -->
+    <circle cx="348" cy="254" r="4.5" fill="#1f6f8b"/>
+    <text x="348" y="236" fill="#1f6f8b" font-size="14" text-anchor="middle">最低摩擦点</text>
+    <!-- region labels -->
+    <text x="155" y="130" fill="#333" font-size="15" text-anchor="middle">边界润滑</text>
+    <text x="155" y="152" fill="#555" font-size="13" text-anchor="middle">油膜极薄、直接接触</text>
+    <text x="155" y="170" fill="#555" font-size="13" text-anchor="middle">摩擦大、磨损快</text>
+    <text x="287" y="150" fill="#333" font-size="15" text-anchor="middle">混合润滑</text>
+    <text x="287" y="172" fill="#555" font-size="13" text-anchor="middle">微凸体与油膜共存</text>
+    <text x="433" y="128" fill="#333" font-size="15" text-anchor="middle">流体动力润滑</text>
+    <text x="433" y="150" fill="#555" font-size="13" text-anchor="middle">完整油膜隔开金属面</text>
+    <text x="433" y="168" fill="#555" font-size="13" text-anchor="middle">摩擦随 Z 缓慢上升</text>
+    <!-- engine operating points -->
+    <text x="128" y="50" fill="#c0392b" font-size="14">起动 / 低速大负荷 → 边界区（磨损最大）</text>
+    <text x="330" y="285" fill="#1f6f8b" font-size="14">正常运转 → 流体动力区</text>
+    <text x="80" y="385" fill="#555" font-size="13">油膜厚度：边界区为分子级，流体动力区达数微米</text>
+  </g>
+</svg>

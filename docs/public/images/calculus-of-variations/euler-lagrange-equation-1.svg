@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="100%">
+<title>极值曲线与扰动曲线</title>
+<desc>示意图：固定端点 A、B 之间，极值曲线 y(x) 与两条扰动曲线 y(x)±εη(x)，箭头标注扰动幅度 εη(x)。</desc>
+<rect width="600" height="420" fill="#faf9f5"/>
+
+<!-- 端点的虚线竖直参考 -->
+<line x1="80" y1="30" x2="80" y2="395" stroke="#ccc" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="520" y1="30" x2="520" y2="395" stroke="#ccc" stroke-width="1" stroke-dasharray="4 4"/>
+
+<!-- 下扰动曲线 y(x)−εη(x) -->
+<path d="M 80,360 C 200,340 320,200 520,60" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="470" y="120" font-family="sans-serif" font-size="14" fill="#666">y(x) − εη(x)</text>
+
+<!-- 上扰动曲线 y(x)+εη(x) -->
+<path d="M 80,360 C 200,300 320,160 520,60" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="380" y="150" font-family="sans-serif" font-size="14" fill="#c0392b">y(x) + εη(x)</text>
+
+<!-- 极值曲线 y(x) -->
+<path d="M 80,360 C 200,320 320,180 520,60" fill="none" stroke="#1f6f8b" stroke-width="3.5"/>
+<text x="140" y="250" font-family="sans-serif" font-size="16" fill="#1f6f8b">极值曲线 y(x)</text>
+
+<!-- 扰动箭头 εη(x) -->
+<line x1="270" y1="252" x2="270" y2="216" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowR)"/>
+<defs>
+  <marker id="arrowR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L7,3 L0,6 Z" fill="#c0392b"/>
+  </marker>
+</defs>
+<text x="280" y="228" font-family="sans-serif" font-size="14" fill="#c0392b">εη(x)</text>
+
+<!-- 端点 -->
+<circle cx="80" cy="360" r="6" fill="#333"/>
+<circle cx="520" cy="60" r="6" fill="#333"/>
+<text x="55" y="382" font-family="sans-serif" font-size="16" fill="#333">A</text>
+<text x="520" y="42" font-family="sans-serif" font-size="16" fill="#333">B</text>
+
+<text x="330" y="330" font-family="sans-serif" font-size="14" fill="#555">端点固定：η(a)=η(b)=0</text>
+</svg>

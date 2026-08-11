@@ -1,0 +1,23 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>典型低碳钢的工程应力-应变曲线</title>
+<desc>横轴为工程应变，纵轴为工程应力。曲线依次经过比例极限、屈服点、抗拉强度，随后发生颈缩，最终在断裂点断开。整段分为弹性区与塑性区。</desc>
+<rect width="640" height="420" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333">
+<text x="20" y="52" font-size="16">工程应力 σ / MPa</text>
+<line x1="70" y1="360" x2="600" y2="360" stroke="#333" stroke-width="2"/>
+<line x1="70" y1="360" x2="70" y2="60" stroke="#333" stroke-width="2"/>
+<text x="600" y="385" font-size="14" text-anchor="end">工程应变 ε</text>
+<path d="M70 360 L290 155 Q310 135 345 126 L480 88 Q500 84 505 92 Q540 130 560 205" fill="none" stroke="#1f6f8b" stroke-width="3.5"/>
+<circle cx="290" cy="155" r="5" fill="#c0392b"/>
+<circle cx="345" cy="126" r="5" fill="#c0392b"/>
+<circle cx="505" cy="88" r="5" fill="#c0392b"/>
+<circle cx="560" cy="205" r="5" fill="#c0392b"/>
+<text x="120" y="212" font-size="13" fill="#1f6f8b">比例极限</text>
+<text x="200" y="138" font-size="13" fill="#1f6f8b">弹性区</text>
+<text x="356" y="118" font-size="13" fill="#1f6f8b">屈服点 σs</text>
+<text x="438" y="74" font-size="13" fill="#c0392b">抗拉强度 σb</text>
+<text x="462" y="150" font-size="13" fill="#c0392b">颈缩</text>
+<text x="300" y="315" font-size="13">塑性区</text>
+<text x="512" y="252" font-size="13">断裂点 σf</text>
+</g>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="sans-serif" font-size="14">
+  <title>表面活性剂分子与球形胶束</title>
+  <desc>左侧是表面活性剂分子：亲水头加疏水尾；右侧是球形胶束：疏水尾蜷缩在内核、亲水头朝外与水接触。</desc>
+  <rect width="800" height="460" fill="#faf9f5"/>
+  <!-- 图例：表面活性剂分子 -->
+  <text x="60" y="60" fill="#333" font-size="17">表面活性剂分子</text>
+  <circle cx="140" cy="140" r="24" fill="#1f6f8b"/>
+  <text x="102" y="190" fill="#1f6f8b" font-size="14">亲水头</text>
+  <path d="M140 164 Q158 184 146 202 Q134 220 150 240 Q158 250 156 262"
+        fill="none" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+  <text x="108" y="300" fill="#333" font-size="14">疏水尾</text>
+  <text x="60" y="340" fill="#333" font-size="14">两亲：一头亲水、一头怕水</text>
+  <!-- 分隔线 -->
+  <line x1="280" y1="50" x2="280" y2="400" stroke="#333" stroke-width="1" opacity="0.3"/>
+  <!-- 胶束 -->
+  <text x="430" y="60" fill="#333" font-size="17">球形胶束（约 5–50 nm）</text>
+  <text x="470" y="90" fill="#333" font-size="14">水（极性介质）</text>
+  <circle cx="500" cy="235" r="120" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <circle cx="500" cy="235" r="82" fill="#eee8da" stroke="#333" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="520" y="235" fill="#333" font-size="15">疏水核</text>
+  <text x="520" y="258" fill="#333" font-size="13">（烃尾）</text>
+  <!-- 头部与尾部 -->
+  <g stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M620 235 Q600 245 582 235"/>
+    <path d="M608 190 Q585 200 572 185"/>
+    <path d="M575 160 Q555 175 545 158"/>
+    <path d="M527 145 Q515 165 505 153"/>
+    <path d="M470 150 Q468 170 455 160"/>
+    <path d="M430 170 Q435 190 422 182"/>
+    <path d="M400 208 Q415 220 410 232"/>
+    <path d="M392 250 Q408 260 405 270"/>
+    <path d="M412 290 Q428 295 425 308"/>
+    <path d="M455 312 Q465 300 475 315"/>
+    <path d="M500 322 Q500 340 495 322"/>
+    <path d="M545 312 Q540 298 555 310"/>
+    <path d="M582 292 Q575 280 592 288"/>
+    <path d="M605 265 Q595 252 610 260"/>
+  </g>
+  <g fill="#1f6f8b">
+    <circle cx="620" cy="235" r="13"/>
+    <circle cx="612" cy="188" r="13"/>
+    <circle cx="576" cy="155" r="13"/>
+    <circle cx="523" cy="142" r="13"/>
+    <circle cx="468" cy="147" r="13"/>
+    <circle cx="428" cy="175" r="13"/>
+    <circle cx="400" cy="215" r="13"/>
+    <circle cx="395" cy="258" r="13"/>
+    <circle cx="410" cy="300" r="13"/>
+    <circle cx="452" cy="325" r="13"/>
+    <circle cx="500" cy="335" r="13"/>
+    <circle cx="548" cy="325" r="13"/>
+    <circle cx="590" cy="300" r="13"/>
+    <circle cx="610" cy="258" r="13"/>
+  </g>
+  <text x="380" y="395" fill="#333" font-size="15">亲水头朝外 · 疏水尾朝内（临界胶束浓度 CMC 以上自发形成）</text>
+</svg>

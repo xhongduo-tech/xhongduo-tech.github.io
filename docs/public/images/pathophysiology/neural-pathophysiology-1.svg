@@ -1,0 +1,94 @@
+<svg viewBox="0 0 820 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>神经元的动作电位波形图</title>
+<desc>动作电位波形：静息电位约 -70 mV，刺激达阈电位（-55 mV，红色虚线）后，电压门控 Na+ 通道快速开放引起去极化至约 +30 mV，随后 Na+ 通道失活、K+ 通道延迟开放引起复极化与后超极化，再回到静息电位。</desc>
+<defs>
+<marker id="arrowUp" markerWidth="8" markerHeight="8" refX="4" refY="8" orient="auto">
+<polygon points="0,8 4,0 8,8" fill="#999"/>
+</marker>
+<marker id="arrowRight" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+<polygon points="0,0 8,4 0,8" fill="#999"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="820" height="470" fill="#faf9f5"/>
+<text x="40" y="32" font-family="sans-serif" font-size="17" font-weight="bold" fill="#333">神经元的动作电位：一次阈值触发的「开关」事件</text>
+
+<!-- 电压门控通道标注框 -->
+<rect x="110" y="52" width="262" height="52" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<text x="122" y="72" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f6f8b">① 电压门控 Na⁺ 通道</text>
+<text x="122" y="92" font-family="sans-serif" font-size="13" fill="#333">激活快、失活更快 → 绝对不应期</text>
+
+<rect x="430" y="52" width="272" height="52" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5" rx="6"/>
+<text x="442" y="72" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f6f8b">② 电压门控 K⁺ 通道</text>
+<text x="442" y="92" font-family="sans-serif" font-size="13" fill="#333">延迟激活、关闭缓慢 → 复极化 + 后超极化</text>
+
+<!-- 连接线 -->
+<line x1="280" y1="104" x2="258" y2="175" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="500" y1="104" x2="360" y2="215" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3"/>
+
+<!-- 电压轴 -->
+<line x1="80" y1="410" x2="80" y2="175" stroke="#999" stroke-width="1.5" marker-end="url(#arrowUp)"/>
+<line x1="80" y1="410" x2="760" y2="410" stroke="#999" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+<text x="55" y="168" font-family="sans-serif" font-size="14" fill="#333">膜电位 (mV)</text>
+<text x="700" y="448" font-family="sans-serif" font-size="14" fill="#333">时间 (ms)</text>
+
+<!-- 刻度与基线 -->
+<line x1="74" y1="189" x2="80" y2="189" stroke="#999" stroke-width="1"/>
+<text x="30" y="193" font-family="sans-serif" font-size="13" fill="#333">+30</text>
+<line x1="74" y1="240" x2="80" y2="240" stroke="#999" stroke-width="1"/>
+<text x="52" y="244" font-family="sans-serif" font-size="13" fill="#333">0</text>
+<line x1="74" y1="333.5" x2="80" y2="333.5" stroke="#999" stroke-width="1"/>
+<text x="32" y="337" font-family="sans-serif" font-size="13" fill="#333">−55</text>
+<line x1="74" y1="359" x2="80" y2="359" stroke="#999" stroke-width="1"/>
+<text x="30" y="363" font-family="sans-serif" font-size="13" fill="#333">−70</text>
+<line x1="74" y1="393" x2="80" y2="393" stroke="#999" stroke-width="1"/>
+<text x="30" y="397" font-family="sans-serif" font-size="13" fill="#333">−90</text>
+
+<!-- 时间刻度 -->
+<line x1="230" y1="410" x2="230" y2="416" stroke="#999" stroke-width="1"/>
+<text x="226" y="432" font-family="sans-serif" font-size="13" fill="#333">1</text>
+<line x1="340" y1="410" x2="340" y2="416" stroke="#999" stroke-width="1"/>
+<text x="336" y="432" font-family="sans-serif" font-size="13" fill="#333">2</text>
+<line x1="450" y1="410" x2="450" y2="416" stroke="#999" stroke-width="1"/>
+<text x="446" y="432" font-family="sans-serif" font-size="13" fill="#333">3</text>
+<line x1="560" y1="410" x2="560" y2="416" stroke="#999" stroke-width="1"/>
+<text x="556" y="432" font-family="sans-serif" font-size="13" fill="#333">4</text>
+
+<!-- 阈电位虚线 -->
+<line x1="80" y1="333.5" x2="640" y2="333.5" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="86" y="322" font-family="sans-serif" font-size="13" fill="#c0392b">阈电位（阈值）</text>
+
+<!-- 动作电位曲线 -->
+<polyline fill="none" stroke="#1f6f8b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="
+120,359
+186,359
+219,352.2
+230,338.6
+241,321.6
+252,294.4
+268.5,253.6
+279.5,219.6
+290.5,192.4
+296,185.6
+307,202.6
+329,240
+351,280.8
+373,321.6
+395,355.6
+428,386.2
+472,396.4
+516,386.2
+560,359"/>
+
+<!-- 刺激箭头 -->
+<polyline fill="none" stroke="#c0392b" stroke-width="1.5" points="214,333.5 222,318 230,333.5" stroke-linejoin="round"/>
+<text x="150" y="308" font-family="sans-serif" font-size="13" fill="#c0392b">刺激使膜电位升至阈值</text>
+
+<!-- 阶段标注 -->
+<text x="132" y="345" font-family="sans-serif" font-size="13" font-weight="bold" fill="#333">静息期</text>
+<text x="242" y="168" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f6f8b">去极化</text>
+<text x="352" y="222" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f6f8b">复极化</text>
+<text x="478" y="412" font-family="sans-serif" font-size="13" font-weight="bold" fill="#333">后超极化</text>
+
+<!-- 底部说明 -->
+<text x="300" y="452" font-family="sans-serif" font-size="13" fill="#333">Na⁺/K⁺-ATPase 持续泵回离子梯度，把膜电位「拉回」静息 −70 mV</text>
+</svg>

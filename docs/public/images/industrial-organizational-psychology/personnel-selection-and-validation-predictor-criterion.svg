@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" font-family="sans-serif" fill="#333">
+<title>人员选拔的预测源—效标模型</title>
+<desc>选拔研究的核心逻辑：用预测源的测验分数预测效标（工作绩效），效度系数衡量两者相关；选拔决策造成的范围限制会使观测效度被低估。</desc>
+<rect x="0" y="0" width="920" height="460" fill="#faf9f5"/>
+
+<text x="460" y="42" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f6f8b">人员选拔的核心逻辑：预测源 → 效标</text>
+
+<rect x="40" y="90" width="300" height="250" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="190" y="122" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f6f8b">预测源 Predictor</text>
+<text x="190" y="150" text-anchor="middle" font-size="14">认知能力测验</text>
+<text x="190" y="176" text-anchor="middle" font-size="14">人格测验（大五）</text>
+<text x="190" y="202" text-anchor="middle" font-size="14">结构化面试</text>
+<text x="190" y="228" text-anchor="middle" font-size="14">工作样本测试</text>
+<text x="190" y="254" text-anchor="middle" font-size="14">评价中心</text>
+<text x="190" y="290" text-anchor="middle" font-size="13" fill="#666">（对全体申请者施测）</text>
+
+<rect x="580" y="90" width="300" height="250" rx="10" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+<text x="730" y="122" text-anchor="middle" font-size="17" font-weight="bold" fill="#c0392b">效标 Criterion</text>
+<text x="730" y="150" text-anchor="middle" font-size="14">工作绩效</text>
+<text x="730" y="176" text-anchor="middle" font-size="14">培训成功</text>
+<text x="730" y="202" text-anchor="middle" font-size="14">任职期限 / 晋升</text>
+<text x="730" y="228" text-anchor="middle" font-size="14">事故 / 缺勤</text>
+<text x="730" y="290" text-anchor="middle" font-size="13" fill="#666">（只能对入职者测到）</text>
+
+<path d="M 345 200 C 440 150, 480 150, 570 200" fill="none" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+<path d="M0,0 L10,4 L0,8 Z" fill="#333"/>
+</marker>
+</defs>
+<text x="460" y="158" text-anchor="middle" font-size="16" font-weight="bold">效度系数 r</text>
+<text x="460" y="184" text-anchor="middle" font-size="13" fill="#666">效标关联效度</text>
+
+<rect x="80" y="378" width="760" height="58" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="460" y="404" text-anchor="middle" font-size="15" font-weight="bold">选拔决策</text>
+<text x="460" y="426" text-anchor="middle" font-size="14" fill="#666">选拔率 SR = 录用人数 / 申请人数；</text>
+<text x="460" y="446" text-anchor="middle" font-size="14" fill="#666">只测到被录用者 → 范围限制（restriction of range）→ 观测效度被低估，元分析中需校正。</text>
+
+<text x="40" y="340" font-size="13" fill="#1f6f8b">依据：工作分析（内容效度的源头）</text>
+</svg>

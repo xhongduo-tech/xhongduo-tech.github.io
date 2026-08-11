@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="sans-serif">
+  <title>地球磁层结构示意</title>
+  <desc>太阳风从左侧超声速来袭，在弓激波处减速；磁层顶围成磁层腔，日侧磁重联在极尖区打开磁力线，磁尾拖向夜侧并再次磁重联。</desc>
+  <rect x="0" y="0" width="800" height="480" fill="#faf9f5"/>
+  <defs>
+    <marker id="sw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <path d="M 40 130 L 150 130 M 40 240 L 150 240 M 40 350 L 150 350" stroke="#c0392b" stroke-width="2.5" marker-end="url(#sw)"/>
+  <text x="60" y="105" fill="#c0392b" font-size="15" font-weight="bold">太阳风</text>
+  <path d="M 175,55 Q 62,240 175,425" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="90" y="285" fill="#333" font-size="14">弓激波</text>
+  <text x="140" y="205" fill="#333" font-size="13">磁鞘</text>
+  <path d="M 205,240 C 207,160 255,95 320,88 C 440,85 600,98 690,128 L 735,240 C 690,352 600,395 320,392 C 255,385 207,320 205,240 Z" fill="#1f6f8b" opacity="0.08" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="140" y="150" fill="#1f6f8b" font-size="14" font-weight="bold">磁层顶</text>
+  <path d="M 315,88 L 285,80 M 315,392 L 285,400" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="255" y="62" fill="#1f6f8b" font-size="13">极尖区</text>
+  <circle cx="330" cy="240" r="30" fill="#1f6f8b"/>
+  <text x="330" y="244" text-anchor="middle" fill="#faf9f5" font-size="15" font-weight="bold">地球</text>
+  <path d="M 322,212 C 300,218 288,246 322,268 C 340,262 342,220 322,212 Z" fill="none" stroke="#1f6f8b" stroke-width="1.5"/>
+  <path d="M 326,204 C 292,214 278,258 326,276 C 350,268 352,214 326,204 Z" fill="none" stroke="#1f6f8b" stroke-width="1.5"/>
+  <path d="M 330,206 C 420,190 560,195 660,215 C 688,222 694,258 660,265 C 560,285 420,290 330,274 C 318,270 318,212 330,206 Z" fill="none" stroke="#1f6f8b" stroke-width="1.5"/>
+  <path d="M 333,206 C 460,120 590,125 675,172" fill="none" stroke="#1f6f8b" stroke-width="1.5"/>
+  <path d="M 333,274 C 460,360 590,355 675,308" fill="none" stroke="#1f6f8b" stroke-width="1.5"/>
+  <rect x="430" y="220" width="250" height="40" fill="#c0392b" opacity="0.12"/>
+  <text x="555" y="225" text-anchor="middle" fill="#c0392b" font-size="14" font-weight="bold">等离子体片</text>
+  <text x="555" y="250" text-anchor="middle" fill="#333" font-size="13">太阳风-磁层对流</text>
+  <path d="M 600 240 L 500 240" stroke="#333" stroke-width="1.5" marker-end="url(#flow)"/>
+  <text x="540" y="118" fill="#333" font-size="13">磁尾瓣</text>
+  <text x="620" y="362" fill="#333" font-size="13">磁尾瓣</text>
+  <path d="M 196 240 L 184 228 M 196 240 L 184 252 M 196 240 L 208 230" stroke="#c0392b" stroke-width="2"/>
+  <path d="M 674 240 L 662 228 M 674 240 L 662 252 M 674 240 L 686 230" stroke="#c0392b" stroke-width="2"/>
+  <text x="188" y="208" text-anchor="middle" fill="#c0392b" font-size="13" font-weight="bold">日侧磁重联</text>
+  <text x="726" y="212" text-anchor="middle" fill="#c0392b" font-size="13" font-weight="bold">磁尾磁重联</text>
+  <text x="555" y="430" text-anchor="middle" fill="#333" font-size="13">磁尾（可延伸超过 1000 个地球半径）</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">下丘脑—垂体轴的结构与两条联系通路</title>
+  <desc id="d">下丘脑通过门脉系统把释放激素送到腺垂体（前叶），通过神经垂体束把抗利尿激素和催产素轴突运输到神经垂体（后叶）。</desc>
+  <rect width="640" height="500" fill="#faf9f5"/>
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <g stroke="#333" stroke-width="2" fill="#ffffff">
+    <rect x="170" y="24" width="300" height="64" rx="8"/>
+    <rect x="295" y="88" width="50" height="46" rx="6"/>
+    <ellipse cx="205" cy="190" rx="80" ry="30"/>
+    <ellipse cx="205" cy="300" rx="100" ry="72"/>
+    <ellipse cx="455" cy="300" rx="85" ry="72"/>
+  </g>
+
+  <g fill="#333" font-family="sans-serif" font-size="16" text-anchor="middle">
+    <text x="320" y="52">下丘脑</text>
+    <text x="320" y="78" font-size="13">（室旁核 PVN、视上核 SON、弓状核）</text>
+    <text x="320" y="116">垂体柄</text>
+    <text x="205" y="196">门脉毛细血管网</text>
+    <text x="205" y="306">腺垂体（前叶）</text>
+    <text x="455" y="306">神经垂体（后叶）</text>
+  </g>
+
+  <g stroke="#1f6f8b" stroke-width="2.5" fill="none">
+    <line x1="205" y1="88" x2="205" y2="158" marker-end="url(#a2)"/>
+    <line x1="205" y1="222" x2="205" y2="226"/>
+    <path d="M 205 226 L 205 246 L 205 300" marker-end="url(#a2)"/>
+    <path d="M 440 88 C 520 120, 560 180, 545 268" marker-end="url(#a2)" stroke="#c0392b"/>
+  </g>
+
+  <g fill="#1f6f8b" font-family="sans-serif" font-size="14" text-anchor="start">
+    <text x="220" y="132">门脉系统：释放激素（TRH / CRH / GnRH）</text>
+    <text x="220" y="150">经血液到达腺垂体</text>
+  </g>
+  <g fill="#c0392b" font-family="sans-serif" font-size="14" text-anchor="start">
+    <text x="470" y="190">下丘脑—垂体束：</text>
+    <text x="470" y="208">轴突直接运送</text>
+    <text x="470" y="226">ADH 与催产素</text>
+  </g>
+
+  <g stroke="#333" stroke-width="1.5" fill="#fffaf0">
+    <rect x="95" y="372" width="220" height="90" rx="8"/>
+    <rect x="330" y="372" width="250" height="90" rx="8"/>
+  </g>
+  <g fill="#333" font-family="sans-serif" font-size="14">
+    <text x="105" y="394">腺垂体分泌：</text>
+    <text x="105" y="414">生长激素 GH、催乳素 PRL、</text>
+    <text x="105" y="432">TSH、ACTH、FSH、LH</text>
+    <text x="340" y="394">神经垂体释放：</text>
+    <text x="340" y="414">抗利尿激素 ADH（加压素）</text>
+    <text x="340" y="432">催产素 Oxytocin</text>
+  </g>
+</svg>

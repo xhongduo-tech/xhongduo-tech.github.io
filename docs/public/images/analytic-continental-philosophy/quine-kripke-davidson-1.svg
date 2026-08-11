@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="sans-serif">
+  <title>固定指称与非固定摹状词的可能世界图景</title>
+  <desc>在可能世界 w1 与 w2 中，「昏星」固定指称金星（虚线）；而「晨星」这类摹状词在 w2 中指称火星（虚线）。同一对象由固定指称跨世界锁定。</desc>
+  <rect x="0" y="0" width="720" height="400" fill="#faf9f5"/>
+  <!-- world w1 -->
+  <rect x="40" y="70" width="300" height="270" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="60" y="100" font-size="18" fill="#333">可能世界 w₁</text>
+  <text x="60" y="330" font-size="15" fill="#666">真实世界</text>
+  <circle cx="290" cy="220" r="34" fill="#1f6f8b" opacity="0.85"/>
+  <text x="290" y="226" text-anchor="middle" font-size="15" fill="#fff">金星</text>
+  <circle cx="140" cy="220" r="20" fill="#c0392b" opacity="0.75"/>
+  <text x="140" y="225" text-anchor="middle" font-size="13" fill="#fff">火星</text>
+  <text x="60" y="310" font-size="14" fill="#1f6f8b">「昏星」→ 金星（固定指称）</text>
+  <text x="60" y="150" font-size="14" fill="#c0392b">「晨星」→ 金星（非固定）</text>
+  <!-- world w2 -->
+  <rect x="380" y="70" width="300" height="270" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="400" y="100" font-size="18" fill="#333">可能世界 w₂</text>
+  <circle cx="290" cy="220" r="34" fill="#1f6f8b" opacity="0.85"/>
+  <circle cx="640" cy="220" r="34" fill="#1f6f8b" opacity="0.85"/>
+  <text x="640" y="226" text-anchor="middle" font-size="15" fill="#fff">金星</text>
+  <circle cx="500" cy="220" r="20" fill="#c0392b" opacity="0.75"/>
+  <text x="500" y="225" text-anchor="middle" font-size="13" fill="#fff">火星</text>
+  <text x="400" y="310" font-size="14" fill="#1f6f8b">「昏星」→ 金星（不变）</text>
+  <text x="400" y="150" font-size="14" fill="#c0392b">「晨星」→ 火星（变了）</text>
+  <!-- labels -->
+  <line x1="290" y1="220" x2="340" y2="220" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="500" y1="220" x2="548" y2="220" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="290" y1="256" x2="640" y2="256" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="2 4"/>
+  <text x="465" y="250" text-anchor="middle" font-size="14" fill="#1f6f8b">同一对象被「昏星」跨世界锁定</text>
+  <text x="360" y="380" text-anchor="middle" font-size="15" fill="#333">固定指称在所有可能世界中指称同一对象；摹状词则随世界改变指称</text>
+</svg>

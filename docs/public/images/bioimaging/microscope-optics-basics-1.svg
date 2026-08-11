@@ -1,0 +1,21 @@
+<svg viewBox="0 0 640 400" width="640" height="400" xmlns="http://www.w3.org/2000/svg">
+<title>数值孔径示意图：物镜收集光锥</title>
+<desc>物镜在其物方收集一个半角为 θ 的光锥，介质折射率 n 与半角 θ 共同决定数值孔径 NA = n·sinθ。</desc>
+<rect width="640" height="400" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333">
+<line x1="320" y1="30" x2="320" y2="170" stroke="#333" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="336" y="100" font-size="14">光轴</text>
+<line x1="60" y1="200" x2="580" y2="200" stroke="#1f6f8b" stroke-width="3"/>
+<text x="230" y="228" font-size="15">样品面（焦点平面）</text>
+<path d="M 320 200 L 150 40 M 320 200 L 490 40" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+<path d="M 320 200 A 160 160 0 0 1 233 104" stroke="#c0392b" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+<text x="252" y="140" font-size="15">θ</text>
+<path d="M 100 30 L 540 30 L 520 80 L 120 80 Z" fill="#1f6f8b" opacity="0.25"/>
+<text x="270" y="58" font-size="16">物镜前表面</text>
+<rect x="270" y="260" width="100" height="40" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="284" y="285" font-size="15">介质 n</text>
+<text x="90" y="330" font-size="15">NA = n · sinθ</text>
+<text x="90" y="360" font-size="14">空气 n≈1.0，θ 最大约 72°，NA≈0.95</text>
+<text x="90" y="382" font-size="14">浸油 n≈1.5，NA 可超 1.4</text>
+</g>
+</svg>

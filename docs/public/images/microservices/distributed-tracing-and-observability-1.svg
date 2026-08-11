@@ -1,0 +1,31 @@
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>一次请求的分布式追踪调用树</title>
+  <desc>根 span 为网关；网关调用订单服务，订单服务又调用库存与支付服务；每个 span 有耗时，树形结构揭示延迟归因。</desc>
+  <rect width="640" height="300" fill="#faf9f5"/>
+  <text x="320" y="26" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">trace：一次下单请求的调用树</text>
+  <rect x="40" y="50" width="60" height="26" rx="4" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="70" y="67" font-size="12" fill="#333" text-anchor="middle">网关</text>
+  <rect x="40" y="92" width="120" height="26" rx="4" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <text x="100" y="109" font-size="12" fill="#333" text-anchor="middle">订单服务</text>
+  <rect x="40" y="134" width="220" height="26" rx="4" fill="#e8f0f5" stroke="#1f6f8b" stroke-width="1.2"/>
+  <text x="150" y="151" font-size="12" fill="#1f6f8b" text-anchor="middle">库存服务：扣减库存</text>
+  <rect x="40" y="176" width="200" height="26" rx="4" fill="#fdeaea" stroke="#c0392b" stroke-width="1.2"/>
+  <text x="140" y="193" font-size="12" fill="#333" text-anchor="middle">支付服务：扣款（超时 2600ms）</text>
+  <line x1="100" y1="76" x2="100" y2="92" stroke="#333" stroke-width="1.5"/>
+  <line x1="150" y1="118" x2="150" y2="134" stroke="#1f6f8b" stroke-width="1.5"/>
+  <line x1="140" y1="160" x2="140" y2="176" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="40" y1="56" x2="40" y2="256" stroke="#333" stroke-width="1" stroke-dasharray="2 3"/>
+  <text x="30" y="58" font-size="12" fill="#333" text-anchor="end">t=0</text>
+  <line x1="470" y1="56" x2="470" y2="256" stroke="#333" stroke-width="1" stroke-dasharray="2 3"/>
+  <text x="480" y="58" font-size="12" fill="#333" text-anchor="start">t=3000ms</text>
+  <rect x="340" y="50" width="140" height="24" rx="4" fill="#e8f0f5" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="410" y="66" font-size="12" fill="#333" text-anchor="middle">根 span trace_id=abc</text>
+  <rect x="340" y="90" width="180" height="24" rx="4" fill="#e8f0f5" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="430" y="106" font-size="12" fill="#333" text-anchor="middle">span_id=s1, parent=null</text>
+  <rect x="340" y="130" width="240" height="24" rx="4" fill="#e8f0f5" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="460" y="146" font-size="12" fill="#333" text-anchor="middle">span_id=s2, parent=s1</text>
+  <rect x="340" y="170" width="260" height="24" rx="4" fill="#fdeaea" stroke="#c0392b" stroke-width="1"/>
+  <text x="470" y="186" font-size="12" fill="#333" text-anchor="middle">span_id=s3, parent=s1 失败</text>
+  <text x="340" y="240" font-size="12" fill="#333" text-anchor="middle">span 字段：trace_id、span_id、</text>
+  <text x="340" y="258" font-size="12" fill="#333" text-anchor="middle">parent_span_id、开始/耗时</text>
+</svg>

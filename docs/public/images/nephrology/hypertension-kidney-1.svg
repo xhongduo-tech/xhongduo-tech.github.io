@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="sans-serif">
+  <title>压—利尿曲线与高血压</title>
+  <desc>健康肾脏的压—利尿曲线陡峭，血压微升即大量排钠；慢性高血压时曲线右移，需要更高的血压才能排出等量钠，形成新的调定点。</desc>
+  <rect x="0" y="0" width="720" height="420" fill="#faf9f5"/>
+
+  <!-- axes -->
+  <line x1="90" y1="60" x2="90" y2="350" stroke="#333" stroke-width="2"/>
+  <line x1="90" y1="350" x2="660" y2="350" stroke="#333" stroke-width="2"/>
+  <polygon points="90,46 82,62 98,62" fill="#333"/>
+  <polygon points="674,350 658,342 658,358" fill="#333"/>
+  <text x="30" y="50" font-size="14" fill="#333">钠排出量</text>
+  <text x="560" y="380" font-size="14" fill="#333">平均动脉压（mmHg）</text>
+  <text x="110" y="372" font-size="14" fill="#333">80</text>
+  <text x="315" y="372" font-size="14" fill="#333">110</text>
+  <text x="500" y="372" font-size="14" fill="#333">140</text>
+
+  <!-- equilibrium dashed vertical lines -->
+  <line x1="250" y1="350" x2="250" y2="90" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <line x1="430" y1="350" x2="430" y2="90" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="225" y="86" font-size="14" fill="#1f6f8b">健康调定点 ~120</text>
+  <text x="432" y="86" font-size="14" fill="#c0392b">高血压调定点 ~150</text>
+
+  <!-- healthy curve -->
+  <path d="M110 340 C170 330 200 240 250 200 C300 160 330 150 360 148 L640 140" fill="none" stroke="#1f6f8b" stroke-width="4"/>
+  <text x="560" y="132" font-size="15" fill="#1f6f8b">健康肾脏（陡）</text>
+
+  <!-- hypertensive curve -->
+  <path d="M150 348 C240 345 320 330 370 300 C420 272 480 230 540 190 L640 150" fill="none" stroke="#c0392b" stroke-width="4"/>
+  <text x="540" y="200" font-size="15" fill="#c0392b">高血压（右移、变平）</text>
+
+  <!-- annotation arrows -->
+  <line x1="250" y1="120" x2="430" y2="120" stroke="#333" stroke-width="1.5"/>
+  <polygon points="430,120 418,114 418,126" fill="#333"/>
+  <text x="298" y="112" font-size="14" fill="#333">曲线右移 = 调定点抬高</text>
+</svg>

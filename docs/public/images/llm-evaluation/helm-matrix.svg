@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-labelledby="title desc">
+<title id="title">HELM 评估矩阵：场景 × 指标</title>
+<desc id="desc">示意 HELM 把每个测试场景都同时放在七个指标维度下测量，形成「场景 × 指标」的评估网格。</desc>
+<rect width="640" height="440" fill="#faf9f5"/>
+<text x="320" y="34" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">HELM：场景 × 指标 的评估网格</text>
+<text x="320" y="58" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#666">同一个模型，在每一个场景下都要量七把尺子</text>
+
+<g font-family="sans-serif" font-size="14" fill="#333">
+<text x="150" y="92" text-anchor="end" font-weight="bold">问答 QA</text>
+<text x="270" y="92" text-anchor="end" font-weight="bold">摘要</text>
+<text x="380" y="92" text-anchor="end" font-weight="bold">翻译</text>
+<text x="490" y="92" text-anchor="end" font-weight="bold">指令遵从</text>
+</g>
+
+<g font-family="sans-serif" font-size="15" fill="#333">
+<text x="120" y="120" text-anchor="end">准确率</text>
+<text x="120" y="165" text-anchor="end">校准度</text>
+<text x="120" y="210" text-anchor="end">鲁棒性</text>
+<text x="120" y="255" text-anchor="end">公平性</text>
+<text x="120" y="300" text-anchor="end">偏见</text>
+<text x="120" y="345" text-anchor="end">毒性</text>
+<text x="120" y="390" text-anchor="end">效率</text>
+</g>
+
+<g>
+<rect x="170" y="100" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.85"/>
+<rect x="290" y="100" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.85"/>
+<rect x="410" y="100" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.85"/>
+<rect x="170" y="145" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.55"/>
+<rect x="410" y="145" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.55"/>
+<rect x="170" y="190" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.55"/>
+<rect x="290" y="190" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.55"/>
+<rect x="410" y="190" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.55"/>
+<rect x="290" y="235" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.35"/>
+<rect x="410" y="235" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.35"/>
+<rect x="170" y="280" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.35"/>
+<rect x="290" y="280" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.35"/>
+<rect x="410" y="280" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.35"/>
+<rect x="170" y="325" width="95" height="34" rx="6" fill="#c0392b" opacity="0.4"/>
+<rect x="290" y="325" width="95" height="34" rx="6" fill="#c0392b" opacity="0.4"/>
+<rect x="170" y="370" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.85"/>
+<rect x="290" y="370" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.85"/>
+<rect x="410" y="370" width="95" height="34" rx="6" fill="#1f6f8b" opacity="0.85"/>
+</g>
+
+<text x="320" y="428" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#666">深色格 = 该场景实测该项指标（示意，实际 HELM 含 42 个场景）</text>
+</svg>

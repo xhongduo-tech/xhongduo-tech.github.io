@@ -1,0 +1,84 @@
+<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>束搜索解码示意（beam size = 2）</title>
+  <desc>从开始符号逐层扩展候选译文，每层只保留得分最高的两条路径，其余剪枝</desc>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect width="760" height="470" fill="#faf9f5"/>
+
+  <text x="380" y="26" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">束搜索解码（beam size = 2，每层保留得分最高的 2 条）</text>
+
+  <!-- 根节点 -->
+  <rect x="330" y="52" width="100" height="34" rx="8" fill="#333"/>
+  <text x="380" y="74" text-anchor="middle" font-size="14" fill="#fff">&lt;开始&gt;</text>
+
+  <!-- 第 1 层 -->
+  <g stroke="#333" stroke-width="1.3">
+    <line x1="355" y1="86" x2="185" y2="136" marker-end="url(#a)"/>
+    <line x1="380" y1="86" x2="380" y2="136" marker-end="url(#a)"/>
+    <line x1="405" y1="86" x2="575" y2="136" marker-end="url(#a)"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="125" y="140" width="120" height="44" rx="8" fill="#eef4f6" stroke="#1f6f8b"/>
+    <rect x="320" y="140" width="120" height="44" rx="8" fill="#eef4f6" stroke="#1f6f8b"/>
+    <rect x="515" y="140" width="120" height="44" rx="8" fill="#eee" stroke="#999"/>
+  </g>
+  <g font-size="14" text-anchor="middle">
+    <text x="185" y="159" fill="#333">he −0.9</text>
+    <text x="185" y="177" fill="#1f6f8b" font-size="13">保留</text>
+    <text x="380" y="159" fill="#333">it −1.2</text>
+    <text x="380" y="177" fill="#1f6f8b" font-size="13">保留</text>
+    <text x="575" y="159" fill="#999">she −1.6</text>
+    <text x="575" y="177" fill="#999" font-size="13">剪枝</text>
+  </g>
+
+  <!-- 第 2 层 -->
+  <g stroke="#333" stroke-width="1.3">
+    <line x1="175" y1="184" x2="115" y2="264" marker-end="url(#a)"/>
+    <line x1="195" y1="184" x2="255" y2="264" marker-end="url(#a)"/>
+    <line x1="365" y1="184" x2="495" y2="264" marker-end="url(#a)"/>
+    <line x1="395" y1="184" x2="655" y2="264" marker-end="url(#a)"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="50"  y="268" width="130" height="44" rx="8" fill="#eef4f6" stroke="#1f6f8b"/>
+    <rect x="190" y="268" width="130" height="44" rx="8" fill="#eef4f6" stroke="#1f6f8b"/>
+    <rect x="430" y="268" width="130" height="44" rx="8" fill="#eee" stroke="#999"/>
+    <rect x="590" y="268" width="130" height="44" rx="8" fill="#eee" stroke="#999"/>
+  </g>
+  <g font-size="14" text-anchor="middle">
+    <text x="115" y="287" fill="#333">he is −1.7</text>
+    <text x="115" y="305" fill="#1f6f8b" font-size="13">保留</text>
+    <text x="255" y="287" fill="#333">he was −1.8</text>
+    <text x="255" y="305" fill="#1f6f8b" font-size="13">保留</text>
+    <text x="495" y="287" fill="#999">it was −1.9</text>
+    <text x="495" y="305" fill="#999" font-size="13">剪枝</text>
+    <text x="655" y="287" fill="#999">it is −2.0</text>
+    <text x="655" y="305" fill="#999" font-size="13">剪枝</text>
+  </g>
+
+  <!-- 第 3 层 -->
+  <g stroke="#333" stroke-width="1.3">
+    <line x1="105" y1="312" x2="135" y2="392" marker-end="url(#a)"/>
+    <line x1="125" y1="312" x2="305" y2="392" marker-end="url(#a)"/>
+    <line x1="125" y1="312" x2="465" y2="392" marker-end="url(#a)"/>
+    <line x1="245" y1="312" x2="615" y2="392" marker-end="url(#a)"/>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="70"   y="396" width="130" height="44" rx="8" fill="#eef4f6" stroke="#1f6f8b"/>
+    <rect x="240"  y="396" width="130" height="44" rx="8" fill="#eee" stroke="#999"/>
+    <rect x="400"  y="396" width="130" height="44" rx="8" fill="#eee" stroke="#999"/>
+    <rect x="550"  y="396" width="130" height="44" rx="8" fill="#eef4f6" stroke="#1f6f8b"/>
+  </g>
+  <g font-size="14" text-anchor="middle">
+    <text x="135" y="415" fill="#333">he is a −2.6</text>
+    <text x="135" y="433" fill="#1f6f8b" font-size="13">保留</text>
+    <text x="305" y="415" fill="#999">he is the −2.8</text>
+    <text x="305" y="433" fill="#999" font-size="13">剪枝</text>
+    <text x="465" y="415" fill="#999">he is my −2.9</text>
+    <text x="465" y="433" fill="#999" font-size="13">剪枝</text>
+    <text x="615" y="415" fill="#333">he was a −2.7</text>
+    <text x="615" y="433" fill="#1f6f8b" font-size="13">保留</text>
+  </g>
+</svg>

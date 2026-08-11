@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 310" font-family="sans-serif">
+  <title>单相接地故障时三个序网络的串联连接</title>
+  <desc>正序、负序、零序三个序网络在故障点 F 处首尾串联，构成单相接地故障的序网络方程</desc>
+  <rect width="900" height="310" fill="#faf9f5"/>
+  <rect x="0" y="0" width="900" height="310" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="450" y="26" text-anchor="middle" font-size="17" fill="#c0392b" font-weight="bold">故障点 F（a 相）—— 三个序网络串联</text>
+  <line x1="90" y1="40" x2="810" y2="40" stroke="#c0392b" stroke-width="3"/>
+  <line x1="190" y1="40" x2="190" y2="75" stroke="#333" stroke-width="2"/>
+  <line x1="450" y1="40" x2="450" y2="75" stroke="#333" stroke-width="2"/>
+  <line x1="710" y1="40" x2="710" y2="75" stroke="#333" stroke-width="2"/>
+  <text x="450" y="270" text-anchor="middle" font-size="17" fill="#c0392b" font-weight="bold">基准 / 中性点（N）</text>
+  <line x1="90" y1="255" x2="810" y2="255" stroke="#c0392b" stroke-width="3"/>
+  <line x1="190" y1="220" x2="190" y2="255" stroke="#333" stroke-width="2"/>
+  <line x1="450" y1="220" x2="450" y2="255" stroke="#333" stroke-width="2"/>
+  <line x1="710" y1="220" x2="710" y2="255" stroke="#333" stroke-width="2"/>
+
+  <rect x="90" y="75" width="200" height="145" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="190" y="100" text-anchor="middle" font-size="16" fill="#1f6f8b" font-weight="bold">正序网络</text>
+  <text x="190" y="125" text-anchor="middle" font-size="15" fill="#333">Z₁（含电源 E）</text>
+  <circle cx="170" cy="160" r="16" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="170" y="166" text-anchor="middle" font-size="15" fill="#333">E</text>
+  <line x1="170" y1="176" x2="170" y2="200" stroke="#333" stroke-width="2"/>
+  <text x="190" y="205" text-anchor="middle" font-size="14" fill="#666">正序电流 I₁</text>
+
+  <rect x="350" y="75" width="200" height="145" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="450" y="100" text-anchor="middle" font-size="16" fill="#1f6f8b" font-weight="bold">负序网络</text>
+  <text x="450" y="125" text-anchor="middle" font-size="15" fill="#333">Z₂（无源）</text>
+  <line x1="420" y1="150" x2="480" y2="150" stroke="#333" stroke-width="2"/>
+  <line x1="480" y1="150" x2="470" y2="145" stroke="#333" stroke-width="2"/>
+  <line x1="480" y1="150" x2="470" y2="155" stroke="#333" stroke-width="2"/>
+  <text x="450" y="185" text-anchor="middle" font-size="14" fill="#666">负序电流 I₂</text>
+
+  <rect x="610" y="75" width="200" height="145" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="710" y="100" text-anchor="middle" font-size="16" fill="#1f6f8b" font-weight="bold">零序网络</text>
+  <text x="710" y="125" text-anchor="middle" font-size="15" fill="#333">Z₀（接地方式决定）</text>
+  <line x1="680" y1="150" x2="740" y2="150" stroke="#333" stroke-width="2"/>
+  <line x1="740" y1="150" x2="730" y2="145" stroke="#333" stroke-width="2"/>
+  <line x1="740" y1="150" x2="730" y2="155" stroke="#333" stroke-width="2"/>
+  <text x="710" y="185" text-anchor="middle" font-size="14" fill="#666">零序电流 I₀</text>
+
+  <text x="450" y="300" text-anchor="middle" font-size="14" fill="#333">单相接地：正、负、零序网络首尾串联，故障电流 Iₐ = 3·I₁</text>
+</svg>

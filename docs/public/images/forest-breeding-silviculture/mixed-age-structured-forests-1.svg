@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" font-family="sans-serif">
+  <title>同龄林与异龄林的直径分布对比</title>
+  <desc>左侧为异龄林的反J形直径分布，小径级株数多、随径级增大株数指数式减少；右侧为同龄林的正态峰形分布，大部分株数集中在少数中间径级。</desc>
+  <rect width="720" height="470" fill="#faf9f5"/>
+  <text x="360" y="32" text-anchor="middle" font-size="18" fill="#333">林分结构的指纹：直径分布</text>
+
+  <!-- panel divider -->
+  <line x1="360" y1="52" x2="360" y2="420" stroke="#ccc" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- left panel: reverse-J -->
+  <text x="180" y="58" text-anchor="middle" font-size="15" fill="#1f6f8b">异龄林 · 反 J 形</text>
+  <line x1="70" y1="400" x2="330" y2="400" stroke="#333" stroke-width="1.5"/>
+  <line x1="70" y1="90" x2="70" y2="400" stroke="#333" stroke-width="1.5"/>
+  <polygon points="330,400 342,400 330,392" fill="#333"/>
+  <polygon points="70,90 70,78 78,90" fill="#333"/>
+  <!-- bars -->
+  <rect x="88"  y="200" width="28" height="200" fill="#1f6f8b"/>
+  <rect x="132" y="240" width="28" height="160" fill="#1f6f8b"/>
+  <rect x="176" y="272" width="28" height="128" fill="#1f6f8b"/>
+  <rect x="220" y="298" width="28" height="102" fill="#1f6f8b"/>
+  <rect x="264" y="320" width="28" height="80"  fill="#1f6f8b"/>
+  <rect x="308" y="338" width="28" height="62"  fill="#1f6f8b"/>
+  <text x="182" y="418" text-anchor="middle" font-size="13" fill="#333">胸径 → 大</text>
+  <text x="58" y="250" text-anchor="middle" font-size="13" fill="#333" transform="rotate(-90 58 250)">株数</text>
+  <text x="200" y="180" text-anchor="middle" font-size="13" fill="#333">每径级都有树</text>
+  <text x="200" y="196" text-anchor="middle" font-size="13" fill="#333">小树多、大树少</text>
+
+  <!-- right panel: bell -->
+  <text x="540" y="58" text-anchor="middle" font-size="15" fill="#c0392b">同龄林 · 正态峰形</text>
+  <line x1="400" y1="400" x2="660" y2="400" stroke="#333" stroke-width="1.5"/>
+  <line x1="400" y1="90" x2="400" y2="400" stroke="#333" stroke-width="1.5"/>
+  <polygon points="660,400 672,400 660,392" fill="#333"/>
+  <polygon points="400,90 400,78 408,90" fill="#333"/>
+  <!-- bars -->
+  <rect x="418" y="352" width="28" height="48"  fill="#c0392b"/>
+  <rect x="462" y="310" width="28" height="90"  fill="#c0392b"/>
+  <rect x="506" y="268" width="28" height="132" fill="#c0392b"/>
+  <rect x="550" y="258" width="28" height="142" fill="#c0392b"/>
+  <rect x="594" y="310" width="28" height="90"  fill="#c0392b"/>
+  <rect x="638" y="352" width="28" height="48"  fill="#c0392b"/>
+  <text x="530" y="418" text-anchor="middle" font-size="13" fill="#333">胸径 → 大</text>
+  <text x="530" y="180" text-anchor="middle" font-size="13" fill="#333">株数集中在少数</text>
+  <text x="530" y="196" text-anchor="middle" font-size="13" fill="#333">中间径级（同龄同批）</text>
+
+  <!-- bottom takeaway -->
+  <rect x="70" y="432" width="580" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1"/>
+  <text x="360" y="452" text-anchor="middle" font-size="13" fill="#333">反 J 形 = 永续后备军（随时可采）　｜　峰形 = 一批树共同长大（到期一次收获）</text>
+</svg>

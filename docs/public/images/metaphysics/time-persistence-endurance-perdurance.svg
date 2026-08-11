@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="sans-serif">
+  <title>持续论与接续论：对象如何跨越时间保持同一</title>
+  <desc>左图持续论：同一个三维对象 O 整体地出现在每个时刻；右图接续论：O 是一个横跨时间的四维蠕虫，每个时刻只有它的一个时间部分在场。</desc>
+  <rect x="0" y="0" width="720" height="380" fill="#faf9f5"/>
+  <text x="360" y="28" text-anchor="middle" font-size="19" font-weight="bold" fill="#333">持续论与接续论：对象如何跨越时间</text>
+
+  <defs>
+    <marker id="arrowD" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L10,0 L5,10 Z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="48" width="330" height="300" rx="6" fill="#fff" stroke="#ccc"/>
+  <rect x="370" y="48" width="330" height="300" rx="6" fill="#fff" stroke="#ccc"/>
+  <text x="185" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f6f8b">持续论（endurantism）</text>
+  <text x="535" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">接续论（perdurantism）</text>
+
+  <line x1="50" y1="95" x2="50" y2="315" stroke="#666" stroke-width="2" marker-end="url(#arrowD)"/>
+  <text x="50" y="336" text-anchor="middle" font-size="13" fill="#666">时间</text>
+  <line x1="400" y1="95" x2="400" y2="315" stroke="#666" stroke-width="2" marker-end="url(#arrowD)"/>
+  <text x="400" y="336" text-anchor="middle" font-size="13" fill="#666">时间</text>
+
+  <line x1="80" y1="120" x2="300" y2="120" stroke="#bbb" stroke-width="1"/>
+  <text x="308" y="124" font-size="13" fill="#333">t₁</text>
+  <line x1="80" y1="200" x2="300" y2="200" stroke="#bbb" stroke-width="1"/>
+  <text x="308" y="204" font-size="13" fill="#333">t₂</text>
+  <line x1="80" y1="280" x2="300" y2="280" stroke="#bbb" stroke-width="1"/>
+  <text x="308" y="284" font-size="13" fill="#333">t₃</text>
+
+  <circle cx="180" cy="120" r="24" fill="#dbe9f0" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="180" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f6f8b">O</text>
+  <circle cx="180" cy="200" r="24" fill="#dbe9f0" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="180" y="205" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f6f8b">O</text>
+  <circle cx="180" cy="280" r="24" fill="#dbe9f0" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="180" y="285" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f6f8b">O</text>
+
+  <text x="185" y="316" text-anchor="middle" font-size="13" fill="#333">同一个三维对象 O，在每个时刻整体在场</text>
+
+  <line x1="440" y1="120" x2="690" y2="120" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="698" y="124" font-size="13" fill="#333">t₁</text>
+  <line x1="440" y1="200" x2="690" y2="200" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="698" y="204" font-size="13" fill="#333">t₂</text>
+  <line x1="440" y1="280" x2="690" y2="280" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="698" y="284" font-size="13" fill="#333">t₃</text>
+
+  <rect x="545" y="92" width="70" height="216" rx="35" fill="#f6e3d8" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="580" y="198" text-anchor="middle" font-size="15" font-weight="bold" fill="#c0392b">O</text>
+  <text x="580" y="220" text-anchor="middle" font-size="13" fill="#c0392b">四维蠕虫</text>
+
+  <text x="535" y="316" text-anchor="middle" font-size="13" fill="#333">O 是时间部分的并集，每时刻仅部分在场</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="sans-serif">
+<title>Couette 流与 Poiseuille 流的速度分布</title>
+<desc>左图：上板匀速运动的 Couette 流，速度剖面为线性；右图：压强驱动的 Poiseuille 流，速度剖面为抛物线，壁面速度为零。</desc>
+<rect x="0" y="0" width="760" height="330" fill="#faf9f5"/>
+<text x="60" y="30" font-size="16" fill="#333" font-weight="bold">Couette 流：运动板拖动</text>
+<text x="395" y="30" font-size="16" fill="#333" font-weight="bold">Poiseuille 流：压强梯度驱动</text>
+
+<!-- Couette: top moving plate -->
+<rect x="55" y="92" width="250" height="10" fill="#333"/>
+<line x1="55" y1="78" x2="130" y2="78" stroke="#1f6f8b" stroke-width="3"/>
+<polygon points="130,72 142,78 130,84" fill="#1f6f8b"/>
+<text x="150" y="82" font-size="14" fill="#333">U（板速）</text>
+<rect x="55" y="240" width="250" height="10" fill="#333"/>
+<text x="62" y="228" font-size="14" fill="#333">v = 0（固定板）</text>
+
+<!-- Couette velocity arrows (linear) -->
+<line x1="130" y1="115" x2="148" y2="115" stroke="#1f6f8b" stroke-width="3"/>
+<polygon points="148,110 160,115 148,120" fill="#1f6f8b"/>
+<line x1="130" y1="145" x2="173" y2="145" stroke="#1f6f8b" stroke-width="3"/>
+<polygon points="173,140 185,145 173,150" fill="#1f6f8b"/>
+<line x1="130" y1="175" x2="198" y2="175" stroke="#1f6f8b" stroke-width="3"/>
+<polygon points="198,170 210,175 198,180" fill="#1f6f8b"/>
+<line x1="130" y1="205" x2="223" y2="205" stroke="#1f6f8b" stroke-width="3"/>
+<polygon points="223,200 235,205 223,210" fill="#1f6f8b"/>
+<line x1="130" y1="232" x2="240" y2="232" stroke="#1f6f8b" stroke-width="3"/>
+<polygon points="240,227 252,232 240,237" fill="#1f6f8b"/>
+<line x1="160" y1="232" x2="240" y2="115" stroke="#999" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="260" y="180" font-size="14" fill="#333">线性剖面</text>
+
+<!-- Poiseuille: fixed plates -->
+<rect x="390" y="92" width="250" height="10" fill="#333"/>
+<text x="440" y="82" font-size="14" fill="#333">固定板</text>
+<rect x="390" y="240" width="250" height="10" fill="#333"/>
+<text x="440" y="258" font-size="14" fill="#333">固定板</text>
+
+<!-- Poiseuille velocity arrows (parabolic) -->
+<line x1="470" y1="100" x2="484" y2="100" stroke="#c0392b" stroke-width="3"/>
+<polygon points="484,95 496,100 484,105" fill="#c0392b"/>
+<line x1="470" y1="122" x2="522" y2="122" stroke="#c0392b" stroke-width="3"/>
+<polygon points="522,117 534,122 522,127" fill="#c0392b"/>
+<line x1="470" y1="144" x2="560" y2="144" stroke="#c0392b" stroke-width="3"/>
+<polygon points="560,139 572,144 560,149" fill="#c0392b"/>
+<line x1="470" y1="166" x2="600" y2="166" stroke="#c0392b" stroke-width="3"/>
+<polygon points="600,161 612,166 600,171" fill="#c0392b"/>
+<line x1="470" y1="188" x2="560" y2="188" stroke="#c0392b" stroke-width="3"/>
+<polygon points="560,183 572,188 560,193" fill="#c0392b"/>
+<line x1="470" y1="210" x2="522" y2="210" stroke="#c0392b" stroke-width="3"/>
+<polygon points="522,205 534,210 522,215" fill="#c0392b"/>
+<line x1="470" y1="232" x2="484" y2="232" stroke="#c0392b" stroke-width="3"/>
+<polygon points="484,227 496,232 484,237" fill="#c0392b"/>
+<path d="M 484 232 Q 612 166 484 100" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="4,4"/>
+<text x="620" y="130" font-size="14" fill="#333">抛物线剖面</text>
+<text x="620" y="180" font-size="14" fill="#333">中心最快，</text>
+<text x="620" y="198" font-size="14" fill="#333">壁面 v = 0</text>
+
+<text x="60" y="310" font-size="14" fill="#555">同是定常平行剪切流：一个由运动边界驱动，一个由压强梯度驱动；壁面处都必须满足无滑移条件 v = 0。</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>隐马尔可夫模型图模型</title>
+<desc>三个隐藏状态通过转移弧与自环相连，每个状态以发射分布产生可观测序列</desc>
+<rect width="800" height="420" fill="#faf9f5"/>
+<!-- 隐藏状态 -->
+<circle cx="150" cy="150" r="45" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+<circle cx="400" cy="150" r="45" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+<circle cx="650" cy="150" r="45" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+<text x="150" y="157" fill="#333" font-size="17" text-anchor="middle">S1</text>
+<text x="400" y="157" fill="#333" font-size="17" text-anchor="middle">S2</text>
+<text x="650" y="157" fill="#333" font-size="17" text-anchor="middle">S3</text>
+<!-- 状态间转移 -->
+<line x1="195" y1="150" x2="350" y2="150" stroke="#333" stroke-width="1.8"/>
+<polygon points="350,150 340,143 340,157" fill="#333"/>
+<line x1="445" y1="150" x2="600" y2="150" stroke="#333" stroke-width="1.8"/>
+<polygon points="600,150 590,143 590,157" fill="#333"/>
+<text x="270" y="140" fill="#c0392b" font-size="15" text-anchor="middle">a12</text>
+<text x="520" y="140" fill="#c0392b" font-size="15" text-anchor="middle">a23</text>
+<!-- 自环 -->
+<path d="M 150 105 A 45 45 0 0 1 150 105" fill="none" stroke="#333" stroke-width="1.8" transform="translate(0,-20)"/>
+<path d="M 108 132 C 92 88, 208 88, 192 132" fill="none" stroke="#333" stroke-width="1.8"/>
+<path d="M 358 132 C 342 88, 458 88, 442 132" fill="none" stroke="#333" stroke-width="1.8"/>
+<path d="M 608 132 C 592 88, 708 88, 692 132" fill="none" stroke="#333" stroke-width="1.8"/>
+<text x="150" y="82" fill="#c0392b" font-size="14" text-anchor="middle">a11</text>
+<text x="400" y="82" fill="#c0392b" font-size="14" text-anchor="middle">a22</text>
+<text x="650" y="82" fill="#c0392b" font-size="14" text-anchor="middle">a33</text>
+<!-- 发射连线 -->
+<line x1="150" y1="195" x2="150" y2="290" stroke="#333" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="400" y1="195" x2="400" y2="290" stroke="#333" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="650" y1="195" x2="650" y2="290" stroke="#333" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="150" y="252" fill="#c0392b" font-size="14" text-anchor="middle">b1(o)</text>
+<text x="400" y="252" fill="#c0392b" font-size="14" text-anchor="middle">b2(o)</text>
+<text x="650" y="252" fill="#c0392b" font-size="14" text-anchor="middle">b3(o)</text>
+<!-- 观测 -->
+<circle cx="150" cy="320" r="26" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<circle cx="400" cy="320" r="26" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<circle cx="650" cy="320" r="26" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="150" y="327" fill="#333" font-size="15" text-anchor="middle">o1</text>
+<text x="400" y="327" fill="#333" font-size="15" text-anchor="middle">o2</text>
+<text x="650" y="327" fill="#333" font-size="15" text-anchor="middle">o3</text>
+<text x="400" y="392" fill="#333" font-size="15" text-anchor="middle">隐藏状态链不可见，观测序列可见</text>
+</svg>

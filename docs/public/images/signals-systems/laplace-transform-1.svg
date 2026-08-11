@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" width="460" height="300" font-family="sans-serif">
+  <title>s 平面：极点、零点与收敛域</title>
+  <desc>s 平面以实轴 σ 与虚轴 jω 为坐标。两个极点在左半平面的实轴上（σ=-1 与 σ=-2），零个零点；收敛域 ROC 为最右极点（σ=-1）右侧的整个右半平面，用青色半透明填充。</desc>
+  <rect x="0" y="0" width="460" height="300" fill="#faf9f5"/>
+  <text x="12" y="20" font-size="14" fill="#c0392b" font-weight="bold">s 平面：极点决定稳定性，ROC 定性质</text>
+
+  <!-- ROC 填充 -->
+  <rect x="185" y="25" width="250" height="250" fill="#1f6f8b" opacity="0.15"/>
+  <line x1="185" y1="25" x2="185" y2="275" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- 坐标轴 -->
+  <line x1="20" y1="150" x2="440" y2="150" stroke="#333" stroke-width="1.5"/>
+  <line x1="230" y1="25" x2="230" y2="275" stroke="#333" stroke-width="1.5"/>
+  <text x="432" y="166" font-size="13" fill="#333">σ</text>
+  <text x="238" y="34" font-size="13" fill="#333">jω</text>
+
+  <!-- 极点 -->
+  <g stroke="#c0392b" stroke-width="3">
+    <line x1="178" y1="143" x2="192" y2="157"/>
+    <line x1="192" y1="143" x2="178" y2="157"/>
+    <line x1="133" y1="143" x2="147" y2="157"/>
+    <line x1="147" y1="143" x2="133" y2="157"/>
+  </g>
+  <text x="150" y="132" font-size="13" fill="#c0392b">极点 σ=-1, -2</text>
+
+  <text x="192" y="265" font-size="13" fill="#1f6f8b">ROC：σ &gt; -1（因果 + 稳定）</text>
+  <text x="56" y="258" font-size="12" fill="#666">左半平面</text>
+  <text x="330" y="258" font-size="12" fill="#666">右半平面</text>
+</svg>

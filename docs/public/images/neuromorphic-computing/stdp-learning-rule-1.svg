@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif" font-size="14">
+  <title>STDP 学习窗</title>
+  <desc>横轴为突触前脉冲与突触后脉冲的时间差，纵轴为突触权重变化。时间差为正时权重增强，为负时权重减弱，均按指数衰减。</desc>
+  <rect x="0" y="0" width="640" height="420" fill="#fff"/>
+  <!-- axes -->
+  <line x1="320" y1="380" x2="320" y2="40" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="200" x2="600" y2="200" stroke="#333" stroke-width="1.5"/>
+  <polygon points="320,40 314,48 326,48" fill="#333"/>
+  <polygon points="600,200 592,194 592,206" fill="#333"/>
+  <text x="575" y="392" fill="#333">时间差 Δt = t_post − t_pre (ms)</text>
+  <text x="300" y="26" fill="#333">权重变化 Δw</text>
+  <!-- LTP branch (Δt>0, positive) -->
+  <path d="M 320 200 L 330 200 C 350 92 372 60 400 54 C 430 47 460 60 500 80 C 540 100 565 116 585 124" fill="none" stroke="#c0392b" stroke-width="2.6"/>
+  <!-- LTD branch (Δt<0, negative) -->
+  <path d="M 320 200 L 310 200 C 290 308 268 340 240 346 C 210 353 180 340 140 320 C 100 300 75 284 55 276" fill="none" stroke="#1f6f8b" stroke-width="2.6"/>
+  <!-- zero line -->
+  <line x1="320" y1="40" x2="320" y2="380" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="330" y="196" fill="#8a8a8a">Δt = 0</text>
+  <!-- annotations -->
+  <text x="398" y="44" fill="#c0392b" font-size="15">长时程增强 LTP</text>
+  <text x="398" y="60" fill="#333">突触前先放电（因果）→ 增强</text>
+  <text x="60" y="340" fill="#1f6f8b" font-size="15">长时程抑制 LTD</text>
+  <text x="60" y="356" fill="#333">突触后先放电（反因果）→ 减弱</text>
+  <text x="440" y="300" fill="#333">Δw 随 |Δt| 增大</text>
+  <text x="440" y="314" fill="#333">指数衰减，时间常数 τ±</text>
+  <text x="96" y="230" fill="#333">|Δt| 越大越「不同步」</text>
+  <text x="96" y="244" fill="#333">修正作用越弱</text>
+</svg>

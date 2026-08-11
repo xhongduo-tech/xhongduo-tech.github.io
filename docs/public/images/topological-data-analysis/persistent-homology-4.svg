@@ -1,0 +1,53 @@
+<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+  <title>过滤过程与条形码：环的诞生与消亡</title>
+  <desc>上方三个小图展示六个点随尺度 r 增大逐渐连成六边形轮廓，再被填实的过滤过程；下方条形码展示 H0 各连通分量相继合并、H1 在轮廓形成时诞生并在填实时消亡。</desc>
+  <rect width="700" height="360" fill="#faf9f5"/>
+  <text x="350" y="28" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">过滤的三个阶段</text>
+  <!-- 阶段1：六个孤立点 -->
+  <text x="120" y="52" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">r 小：孤立点</text>
+  <circle cx="120" cy="75" r="4" fill="#333"/>
+  <circle cx="120" cy="95" r="4" fill="#333"/>
+  <circle cx="120" cy="115" r="4" fill="#333"/>
+  <circle cx="120" cy="135" r="4" fill="#333"/>
+  <circle cx="120" cy="155" r="4" fill="#333"/>
+  <circle cx="120" cy="175" r="4" fill="#333"/>
+  <!-- 阶段2：六边形轮廓 -->
+  <text x="350" y="52" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">r 中：轮廓闭合（H₁ 诞生）</text>
+  <polygon points="350,78 330,98 330,138 350,158 370,138 370,98" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <circle cx="350" cy="78" r="4" fill="#333"/>
+  <circle cx="330" cy="98" r="4" fill="#333"/>
+  <circle cx="330" cy="138" r="4" fill="#333"/>
+  <circle cx="350" cy="158" r="4" fill="#333"/>
+  <circle cx="370" cy="138" r="4" fill="#333"/>
+  <circle cx="370" cy="98" r="4" fill="#333"/>
+  <!-- 阶段3：填实 -->
+  <text x="580" y="52" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">r 大：被填实（H₁ 消亡）</text>
+  <polygon points="580,78 560,98 560,138 580,158 600,138 600,98" fill="#c8dce3" stroke="#1f6f8b" stroke-width="3"/>
+  <circle cx="580" cy="78" r="4" fill="#333"/>
+  <circle cx="560" cy="98" r="4" fill="#333"/>
+  <circle cx="560" cy="138" r="4" fill="#333"/>
+  <circle cx="580" cy="158" r="4" fill="#333"/>
+  <circle cx="600" cy="138" r="4" fill="#333"/>
+  <circle cx="600" cy="98" r="4" fill="#333"/>
+  <!-- 条形码 -->
+  <line x1="50" y1="210" x2="660" y2="210" stroke="#333" stroke-width="2"/>
+  <line x1="50" y1="210" x2="50" y2="340" stroke="#333" stroke-width="2"/>
+  <text x="355" y="350" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">尺度 r →</text>
+  <text x="40" y="340" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">H₀ 连通分量</text>
+  <text x="40" y="300" font-family="sans-serif" font-size="13" fill="#333" text-anchor="end">H₁ 一维圈</text>
+  <!-- H0 条形码：5 个短条 + 1 个无限条 -->
+  <rect x="50" y="322" width="90" height="10" fill="#1f6f8b"/>
+  <rect x="50" y="306" width="90" height="10" fill="#1f6f8b"/>
+  <rect x="50" y="290" width="160" height="10" fill="#1f6f8b"/>
+  <rect x="50" y="274" width="160" height="10" fill="#1f6f8b"/>
+  <rect x="50" y="258" width="220" height="10" fill="#1f6f8b"/>
+  <rect x="50" y="322" width="600" height="10" fill="#c0392b"/>
+  <line x1="650" y1="322" x2="660" y2="322" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="650,317 650,327 659,322" fill="#c0392b"/>
+  <text x="258" y="242" font-family="sans-serif" font-size="13" fill="#1f6f8b" text-anchor="middle">分量陆续合并</text>
+  <!-- H1 条形码 -->
+  <rect x="330" y="290" width="210" height="10" fill="#c0392b"/>
+  <text x="435" y="268" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">环存活（330→540）</text>
+  <line x1="330" y1="292" x2="330" y2="298" stroke="#333" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="540" y1="292" x2="540" y2="298" stroke="#333" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>

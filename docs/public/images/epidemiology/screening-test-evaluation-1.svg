@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="sans-serif">
+  <title>筛检试验评价四格表</title>
+  <desc>四格表：筛检结果（阳性/阴性）与金标准（有病/无病）交叉为 a、b、c、d 四格，并给出灵敏度、特异度、阳性预测值、阴性预测值的公式。</desc>
+  <rect width="720" height="360" fill="#faf9f5"/>
+  <text x="360" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">筛检试验评价四格表</text>
+  <rect x="40" y="58" width="600" height="210" fill="none" stroke="#333" stroke-width="1.5"/>
+  <line x1="140" y1="58" x2="140" y2="268" stroke="#333" stroke-width="1.5"/>
+  <line x1="340" y1="58" x2="340" y2="268" stroke="#333" stroke-width="1.5"/>
+  <line x1="540" y1="58" x2="540" y2="268" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="103" x2="640" y2="103" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="163" x2="640" y2="163" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="223" x2="640" y2="223" stroke="#333" stroke-width="1.5"/>
+  <text x="240" y="88" text-anchor="middle" font-size="15" fill="#333">有病（金标准阳性）</text>
+  <text x="440" y="88" text-anchor="middle" font-size="15" fill="#333">无病（金标准阴性）</text>
+  <text x="590" y="88" text-anchor="middle" font-size="15" fill="#333">合计</text>
+  <text x="90" y="140" text-anchor="middle" font-size="15" fill="#333">试验阳性</text>
+  <text x="90" y="200" text-anchor="middle" font-size="15" fill="#333">试验阴性</text>
+  <text x="90" y="252" text-anchor="middle" font-size="15" fill="#333">合计</text>
+  <text x="240" y="145" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">a（真阳性）</text>
+  <text x="440" y="145" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">b（假阳性）</text>
+  <text x="240" y="205" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">c（假阴性）</text>
+  <text x="440" y="205" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">d（真阴性）</text>
+  <text x="590" y="145" text-anchor="middle" font-size="14" fill="#555">a+b</text>
+  <text x="590" y="205" text-anchor="middle" font-size="14" fill="#555">c+d</text>
+  <text x="240" y="252" text-anchor="middle" font-size="14" fill="#555">a+c</text>
+  <text x="440" y="252" text-anchor="middle" font-size="14" fill="#555">b+d</text>
+  <text x="590" y="252" text-anchor="middle" font-size="14" fill="#555">N</text>
+  <text x="360" y="296" text-anchor="middle" font-size="14" fill="#333">灵敏度 = a/(a+c)，特异度 = d/(b+d)</text>
+  <text x="360" y="320" text-anchor="middle" font-size="14" fill="#333">阳性预测值 PPV = a/(a+b)，阴性预测值 NPV = d/(c+d)</text>
+  <text x="360" y="344" text-anchor="middle" font-size="13" fill="#555">预测值随患病率（先验概率）变化；灵敏度与特异度是试验自身性质</text>
+</svg>

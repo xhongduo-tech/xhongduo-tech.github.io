@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 280" width="440" height="280" role="img">
+<title>带气隙的铁芯磁路</title>
+<desc>一个 C 形铁芯磁路，左侧绕有 N 匝线圈，顶部留有一个气隙，红色虚线箭头表示磁通 Φ 的闭合路径。</desc>
+<rect x="0" y="0" width="440" height="280" fill="#faf9f5"/>
+
+<!-- 铁芯（C 形） -->
+<rect x="70" y="70" width="40" height="160" fill="#e3d5b8" stroke="#333" stroke-width="2"/>
+<rect x="70" y="210" width="280" height="40" fill="#e3d5b8" stroke="#333" stroke-width="2"/>
+<rect x="330" y="70" width="40" height="160" fill="#e3d5b8" stroke="#333" stroke-width="2"/>
+<rect x="70" y="50" width="140" height="40" fill="#e3d5b8" stroke="#333" stroke-width="2"/>
+<rect x="250" y="50" width="120" height="40" fill="#e3d5b8" stroke="#333" stroke-width="2"/>
+
+<!-- 气隙（顶部中间） -->
+<rect x="210" y="50" width="40" height="40" fill="#faf9f5" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="230" y="120" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">气隙 g</text>
+
+<!-- 绕组（左腿上的线圈） -->
+<g stroke="#1f6f8b" stroke-width="2.5" fill="none">
+  <ellipse cx="90" cy="105" rx="24" ry="9"/>
+  <ellipse cx="90" cy="130" rx="24" ry="9"/>
+  <ellipse cx="90" cy="155" rx="24" ry="9"/>
+  <ellipse cx="90" cy="180" rx="24" ry="9"/>
+</g>
+<text x="90" y="75" font-family="sans-serif" font-size="16" fill="#1f6f8b" text-anchor="middle" font-weight="bold">绕组 N 匝</text>
+<text x="118" y="48" font-family="sans-serif" font-size="16" fill="#1f6f8b">电流 i</text>
+<polygon points="172,43 178,48 172,53" fill="#1f6f8b"/>
+
+<!-- 磁通路径（红色虚线箭头） -->
+<g stroke="#c0392b" stroke-width="2.5" fill="none" stroke-dasharray="7 4">
+  <line x1="90" y1="70" x2="90" y2="58"/>
+  <line x1="90" y1="50" x2="230" y2="50"/>
+  <line x1="250" y1="50" x2="350" y2="50"/>
+  <line x1="350" y1="50" x2="350" y2="210"/>
+  <line x1="350" y1="230" x2="90" y2="230"/>
+  <line x1="90" y1="230" x2="90" y2="70"/>
+</g>
+<g fill="#c0392b">
+  <polygon points="90,52 94,58 86,58"/>
+  <polygon points="230,47 236,50 230,53"/>
+  <polygon points="350,48 354,54 346,54"/>
+  <polygon points="350,230 354,236 346,236"/>
+  <polygon points="90,230 86,236 94,236"/>
+</g>
+
+<text x="220" y="190" font-family="sans-serif" font-size="17" fill="#c0392b" text-anchor="middle">磁通 Φ（闭合路径）</text>
+<text x="220" y="262" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">铁芯为高磁导率材料，气隙是磁路中磁阻最大的「瓶颈」</text>
+</svg>

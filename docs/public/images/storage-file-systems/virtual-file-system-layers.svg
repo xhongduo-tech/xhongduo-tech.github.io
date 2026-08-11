@@ -1,0 +1,82 @@
+<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>虚拟文件系统 VFS 的分层结构</title>
+  <desc>应用程序通过统一的 open/read/write 系统调用访问 VFS，VFS 将请求分发到 ext4、XFS、tmpfs、procfs、NFS 等具体文件系统，后者再落到磁盘、内存或网络。</desc>
+  <rect x="0" y="0" width="760" height="470" fill="#faf9f5"/>
+  <rect x="140" y="18" width="480" height="56" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="380" y="42" font-size="16" fill="#333" text-anchor="middle">应用程序</text>
+  <text x="380" y="63" font-size="13" fill="#555" text-anchor="middle">open( ) · read( ) · write( ) · seek( )</text>
+  <line x1="380" y1="74" x2="380" y2="94" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="140" y="94" width="480" height="56" rx="6" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="380" y="118" font-size="16" fill="#1f6f8b" text-anchor="middle">虚拟文件系统 VFS</text>
+  <text x="380" y="139" font-size="13" fill="#555" text-anchor="middle">通用文件模型 + 请求分发</text>
+  <line x1="170" y1="94" x2="170" y2="74" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="14" y="74" font-size="13" fill="#c0392b">同一套</text>
+  <text x="14" y="91" font-size="13" fill="#c0392b">系统调用接口</text>
+  <line x1="650" y1="94" x2="650" y2="74" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="656" y="78" font-size="13" fill="#c0392b">vfs 文件操作接口</text>
+  <text x="656" y="94" font-size="13" fill="#c0392b">(file_operations)</text>
+  <line x1="380" y1="150" x2="380" y2="196" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+  <g id="fses">
+    <g>
+      <rect x="40" y="196" width="128" height="58" rx="4" fill="#e8f0f4" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="104" y="222" font-size="15" fill="#333" text-anchor="middle">ext4</text>
+      <text x="104" y="242" font-size="12" fill="#555" text-anchor="middle">磁盘日志文件系统</text>
+    </g>
+    <g>
+      <rect x="180" y="196" width="128" height="58" rx="4" fill="#e8f0f4" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="244" y="222" font-size="15" fill="#333" text-anchor="middle">XFS</text>
+      <text x="244" y="242" font-size="12" fill="#555" text-anchor="middle">大文件性能</text>
+    </g>
+    <g>
+      <rect x="320" y="196" width="128" height="58" rx="4" fill="#e8f0f4" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="384" y="222" font-size="15" fill="#333" text-anchor="middle">tmpfs</text>
+      <text x="384" y="242" font-size="12" fill="#555" text-anchor="middle">内存文件系统</text>
+    </g>
+    <g>
+      <rect x="460" y="196" width="128" height="58" rx="4" fill="#e8f0f4" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="524" y="222" font-size="15" fill="#333" text-anchor="middle">procfs</text>
+      <text x="524" y="242" font-size="12" fill="#555" text-anchor="middle">进程虚拟信息</text>
+    </g>
+    <g>
+      <rect x="600" y="196" width="128" height="58" rx="4" fill="#e8f0f4" stroke="#1f6f8b" stroke-width="1.5"/>
+      <text x="664" y="222" font-size="15" fill="#333" text-anchor="middle">NFS</text>
+      <text x="664" y="242" font-size="12" fill="#555" text-anchor="middle">网络文件系统</text>
+    </g>
+  </g>
+  <g font-size="13" fill="#555">
+    <text x="14" y="220">具体文件系统各自</text>
+    <text x="14" y="237">实现自己的 inode、</text>
+    <text x="14" y="254">目录、读写逻辑</text>
+  </g>
+  <line x1="104" y1="254" x2="104" y2="322" stroke="#333" stroke-width="1.5" marker-end="url(#arrow2)"/>
+  <line x1="244" y1="254" x2="244" y2="322" stroke="#333" stroke-width="1.5" marker-end="url(#arrow2)"/>
+  <line x1="384" y1="254" x2="384" y2="322" stroke="#333" stroke-width="1.5" marker-end="url(#arrow2)"/>
+  <line x1="524" y1="254" x2="524" y2="322" stroke="#333" stroke-width="1.5" marker-end="url(#arrow2)"/>
+  <line x1="664" y1="254" x2="664" y2="322" stroke="#333" stroke-width="1.5" marker-end="url(#arrow2)"/>
+  <g id="devices">
+    <rect x="40" y="322" width="128" height="46" rx="4" fill="#f4ede7" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="104" y="341" font-size="14" fill="#333" text-anchor="middle">块设备驱动</text>
+    <text x="104" y="359" font-size="13" fill="#555" text-anchor="middle">(磁盘)</text>
+    <rect x="180" y="322" width="128" height="46" rx="4" fill="#f4ede7" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="244" y="341" font-size="14" fill="#333" text-anchor="middle">块设备驱动</text>
+    <text x="244" y="359" font-size="13" fill="#555" text-anchor="middle">(磁盘)</text>
+    <rect x="320" y="322" width="128" height="46" rx="4" fill="#f4ede7" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="384" y="341" font-size="14" fill="#333" text-anchor="middle">内存</text>
+    <text x="384" y="359" font-size="13" fill="#555" text-anchor="middle">(RAM)</text>
+    <rect x="460" y="322" width="128" height="46" rx="4" fill="#f4ede7" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="524" y="341" font-size="14" fill="#333" text-anchor="middle">内核数据</text>
+    <text x="524" y="359" font-size="13" fill="#555" text-anchor="middle">(虚拟)</text>
+    <rect x="600" y="322" width="128" height="46" rx="4" fill="#f4ede7" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="664" y="341" font-size="14" fill="#333" text-anchor="middle">网络协议栈</text>
+    <text x="664" y="359" font-size="13" fill="#555" text-anchor="middle">(RPC)</text>
+  </g>
+  <text x="380" y="402" font-size="14" fill="#1f6f8b" text-anchor="middle">应用只认识一套接口，底下随便换 —— 这就是「一切皆文件」的工程实现</text>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

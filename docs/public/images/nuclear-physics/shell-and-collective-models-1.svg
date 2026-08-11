@@ -1,0 +1,66 @@
+<svg viewBox="0 0 620 560" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>壳模型能级示意图</title>
+  <desc>单粒子能级在自旋轨道耦合作用下的劈裂，每一组闭合壳层对应一个幻数：2, 8, 20, 28, 50, 82, 126</desc>
+  <rect width="620" height="560" fill="#faf9f5"/>
+  <text x="40" y="36" fill="#333" font-size="15">无自旋–轨道耦合</text>
+  <text x="360" y="36" fill="#333" font-size="15">加上自旋–轨道耦合后的劈裂</text>
+  <line x1="290" y1="70" x2="290" y2="530" stroke="#999" stroke-width="2"/>
+  <!-- left levels (harmonic-ish) -->
+  <line x1="60" y1="80" x2="240" y2="80" stroke="#333" stroke-width="2"/>
+  <text x="52" y="84" fill="#333" font-size="14">1s</text>
+  <line x1="60" y1="140" x2="240" y2="140" stroke="#333" stroke-width="2"/>
+  <text x="52" y="144" fill="#333" font-size="14">1p</text>
+  <line x1="60" y1="200" x2="240" y2="200" stroke="#333" stroke-width="2"/>
+  <text x="52" y="204" fill="#333" font-size="14">1d, 2s</text>
+  <line x1="60" y1="260" x2="240" y2="260" stroke="#333" stroke-width="2"/>
+  <text x="52" y="264" fill="#333" font-size="14">1f, 2p</text>
+  <line x1="60" y1="320" x2="240" y2="320" stroke="#333" stroke-width="2"/>
+  <text x="52" y="324" fill="#333" font-size="14">1g, 2d, 3s</text>
+  <line x1="60" y1="380" x2="240" y2="380" stroke="#333" stroke-width="2"/>
+  <text x="52" y="384" fill="#333" font-size="14">1h, 2f, 3p</text>
+  <!-- right levels with splitting -->
+  <line x1="320" y1="96" x2="500" y2="96" stroke="#c0392b" stroke-width="2"/>
+  <text x="508" y="100" fill="#c0392b" font-size="13">1s½ (2)</text>
+  <line x1="320" y1="132" x2="500" y2="132" stroke="#c0392b" stroke-width="2"/>
+  <text x="508" y="136" fill="#c0392b" font-size="13">1p¾ (4)</text>
+  <line x1="320" y1="152" x2="470" y2="152" stroke="#c0392b" stroke-width="2"/>
+  <text x="478" y="156" fill="#c0392b" font-size="13">1p½ (2)</text>
+  <line x1="320" y1="188" x2="500" y2="188" stroke="#c0392b" stroke-width="2"/>
+  <text x="508" y="192" fill="#c0392b" font-size="13">1d¾ (6)</text>
+  <line x1="320" y1="206" x2="480" y2="206" stroke="#c0392b" stroke-width="2"/>
+  <text x="488" y="210" fill="#c0392b" font-size="13">2s½ (2)</text>
+  <line x1="320" y1="224" x2="470" y2="224" stroke="#c0392b" stroke-width="2"/>
+  <text x="478" y="228" fill="#c0392b" font-size="13">1d½ (4)</text>
+  <line x1="320" y1="246" x2="500" y2="246" stroke="#c0392b" stroke-width="2"/>
+  <text x="508" y="250" fill="#c0392b" font-size="13">1f⅞ (8)</text>
+  <line x1="320" y1="270" x2="480" y2="270" stroke="#c0392b" stroke-width="2"/>
+  <text x="488" y="274" fill="#c0392b" font-size="13">2p¾ (4)</text>
+  <line x1="320" y1="288" x2="470" y2="288" stroke="#c0392b" stroke-width="2"/>
+  <text x="478" y="292" fill="#c0392b" font-size="13">1f½ (6)</text>
+  <line x1="320" y1="304" x2="455" y2="304" stroke="#c0392b" stroke-width="2"/>
+  <text x="463" y="308" fill="#c0392b" font-size="13">2p½ (2)</text>
+  <line x1="320" y1="330" x2="500" y2="330" stroke="#c0392b" stroke-width="2"/>
+  <text x="508" y="334" fill="#c0392b" font-size="13">1g¾ (10)</text>
+  <line x1="320" y1="360" x2="480" y2="360" stroke="#c0392b" stroke-width="2"/>
+  <text x="488" y="364" fill="#c0392b" font-size="13">2d¾ (6)</text>
+  <line x1="320" y1="374" x2="468" y2="374" stroke="#c0392b" stroke-width="2"/>
+  <text x="476" y="378" fill="#c0392b" font-size="13">3s½ (2)</text>
+  <line x1="320" y1="390" x2="465" y2="390" stroke="#c0392b" stroke-width="2"/>
+  <text x="473" y="394" fill="#c0392b" font-size="13">1g½ (8)</text>
+  <line x1="320" y1="414" x2="495" y2="414" stroke="#c0392b" stroke-width="2"/>
+  <text x="503" y="418" fill="#c0392b" font-size="13">1h¹¹⁄₂ (12)</text>
+  <!-- magic number annotations on right -->
+  <text x="530" y="96" fill="#333" font-size="13"></text>
+  <line x1="320" y1="112" x2="560" y2="112" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="560" y="116" fill="#1f6f8b" font-size="14">幻数 2</text>
+  <line x1="320" y1="168" x2="560" y2="168" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="560" y="172" fill="#1f6f8b" font-size="14">幻数 8</text>
+  <line x1="320" y1="236" x2="560" y2="236" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="560" y="240" fill="#1f6f8b" font-size="14">幻数 20</text>
+  <line x1="320" y1="314" x2="560" y2="314" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="560" y="318" fill="#1f6f8b" font-size="14">幻数 28</text>
+  <line x1="320" y1="404" x2="560" y2="404" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="560" y="408" fill="#1f6f8b" font-size="14">幻数 50</text>
+  <text x="320" y="520" fill="#1f6f8b" font-size="15">幻数 82 与 126 在更高能级处</text>
+  <text x="320" y="540" fill="#333" font-size="13">括号内为能级可容纳的核子数（2j+1）</text>
+</svg>

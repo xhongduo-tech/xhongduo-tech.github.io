@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420">
+  <title>粒子群速度更新示意图</title>
+  <desc>粒子当前位置 x 的下一步速度，由三个方向合成：惯性项（保持原速度）、认知项（飞向个体历史最优 p_i）、社会项（飞向群体全局最优 p_g），三者加权合成新速度 v。</desc>
+  <rect x="0" y="0" width="780" height="420" fill="#faf9f5"/>
+  <text x="390" y="34" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#333">粒子速度更新：惯性 + 认知 + 社会 三项合成</text>
+
+  <!-- 当前粒子 x -->
+  <circle cx="200" cy="230" r="14" fill="#c0392b"/>
+  <text x="200" y="266" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b" font-weight="bold">x (当前位置)</text>
+
+  <!-- 个体最优 p_i -->
+  <circle cx="520" cy="120" r="12" fill="#1f6f8b" opacity="0.85"/>
+  <text x="520" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b" font-weight="bold">p_i (个体记忆)</text>
+
+  <!-- 全局最优 p_g -->
+  <circle cx="620" cy="330" r="12" fill="#c0392b" opacity="0.7"/>
+  <text x="625" y="372" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b" font-weight="bold">p_g (群体最优)</text>
+
+  <!-- 惯性项（短箭头，保持原方向） -->
+  <line x1="200" y1="230" x2="300" y2="270" stroke="#333" stroke-width="2.5" stroke-dasharray="5 3"/>
+  <text x="240" y="286" font-family="sans-serif" font-size="13" fill="#333">惯性 w·v</text>
+
+  <!-- 认知项 p_i -->
+  <line x1="212" y1="224" x2="505" y2="130" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrowB)"/>
+  <text x="390" y="135" font-family="sans-serif" font-size="13" fill="#1f6f8b">认知 c₁r₁(p_i − x)</text>
+
+  <!-- 社会项 p_g -->
+  <line x1="208" y1="238" x2="605" y2="318" stroke="#c0392b" stroke-width="3" marker-end="url(#arrowR)"/>
+  <text x="430" y="330" font-family="sans-serif" font-size="13" fill="#c0392b">社会 c₂r₂(p_g − x)</text>
+
+  <!-- 合成速度 -->
+  <line x1="200" y1="230" x2="380" y2="120" stroke="#333" stroke-width="4" marker-end="url(#arrowK)"/>
+  <text x="330" y="70" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">新速度 v′ (合力)</text>
+
+  <!-- 新位置 -->
+  <circle cx="380" cy="120" r="9" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="450" y="52" font-family="sans-serif" font-size="13" fill="#333">x′ = x + v′</text>
+
+  <defs>
+    <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#1f6f8b"/></marker>
+    <marker id="arrowR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#c0392b"/></marker>
+    <marker id="arrowK" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 Z" fill="#333"/></marker>
+  </defs>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" font-family="sans-serif">
+  <title>虚拟地址翻译：TLB 与页表</title>
+  <desc>虚拟地址拆成 VPN 与 VPO；VPN 先查 TLB，未命中则查页表取页表项，得到 PPN；PPN 与 VPO 拼成物理地址访问物理缓存或主存。</desc>
+  <rect width="840" height="470" fill="#faf9f5"/>
+  <text x="20" y="28" font-size="16" font-weight="bold" fill="#333">虚拟地址翻译：TLB → 页表 → 物理地址</text>
+  <text x="20" y="48" font-size="13" fill="#666">VPN 决定「哪个虚拟页」，VPO 决定「页内哪个字节」——翻译只换页号，偏移原样保留</text>
+
+  <!-- virtual address -->
+  <text x="40" y="92" font-size="13" fill="#333">虚拟地址（VA）</text>
+  <rect x="40" y="100" width="250" height="64" fill="#cfe8ee" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="165" y="130" font-size="14" fill="#333" text-anchor="middle">VPN 虚拟页号</text>
+  <text x="165" y="150" font-size="13" fill="#555" text-anchor="middle">一个虚拟页 = 2^p 字节</text>
+  <rect x="290" y="100" width="110" height="64" fill="#eae6de" stroke="#999" stroke-width="1"/>
+  <text x="345" y="138" font-size="14" fill="#333" text-anchor="middle">VPO</text>
+
+  <!-- TLB -->
+  <rect x="560" y="100" width="240" height="90" fill="#f6f4ee" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="680" y="124" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">TLB（地址翻译快表）</text>
+  <text x="680" y="148" font-size="13" fill="#555" text-anchor="middle">每项：标记 | PPN</text>
+  <text x="680" y="172" font-size="13" fill="#1f6f8b" text-anchor="middle">命中 → 直接得到 PPN</text>
+
+  <!-- page table -->
+  <rect x="560" y="260" width="240" height="120" fill="#f6f4ee" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="680" y="284" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">页表（位于内存中）</text>
+  <text x="680" y="308" font-size="13" fill="#555" text-anchor="middle">每项 PTE：有效位 | PPN</text>
+  <text x="680" y="330" font-size="13" fill="#555" text-anchor="middle">按 VPN 索引，取 PTE</text>
+  <text x="680" y="352" font-size="13" fill="#c0392b" text-anchor="middle">有效位=0 → 缺页故障</text>
+
+  <!-- physical address -->
+  <text x="40" y="292" font-size="13" fill="#333">物理地址（PA）</text>
+  <rect x="40" y="300" width="250" height="64" fill="#e8eef2" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="165" y="330" font-size="14" fill="#333" text-anchor="middle">PPN 物理页号</text>
+  <text x="165" y="350" font-size="13" fill="#555" text-anchor="middle">由 TLB 或页表提供</text>
+  <rect x="290" y="300" width="110" height="64" fill="#eae6de" stroke="#999" stroke-width="1"/>
+  <text x="345" y="338" font-size="14" fill="#333" text-anchor="middle">PPO</text>
+
+  <!-- cache / memory -->
+  <rect x="560" y="300" width="240" height="64" fill="#eae6de" stroke="#999" stroke-width="1"/>
+  <text x="680" y="328" font-size="14" fill="#333" text-anchor="middle">物理缓存 / 主存</text>
+  <text x="680" y="348" font-size="13" fill="#555" text-anchor="middle">按 PPN + PPO 访问</text>
+
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- VA -> TLB -->
+  <path d="M 290 132 L 558 140" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arr2)" fill="none"/>
+  <text x="420" y="124" font-size="13" fill="#1f6f8b">送 VPN 查 TLB</text>
+
+  <!-- TLB -> page table -->
+  <path d="M 680 190 L 680 258" stroke="#c0392b" stroke-width="2" marker-end="url(#arrRed)" fill="none"/>
+  <text x="692" y="228" font-size="13" fill="#c0392b">TLB 未命中，查页表</text>
+
+  <!-- TLB hit -> PA -->
+  <path d="M 580 190 L 400 328" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arr2)" fill="none"/>
+  <text x="452" y="248" font-size="13" fill="#1f6f8b">TLB 命中</text>
+
+  <!-- page table -> PA -->
+  <path d="M 558 320 L 402 320" stroke="#c0392b" stroke-width="2" marker-end="url(#arrRed)" fill="none"/>
+  <text x="476" y="308" font-size="13" fill="#c0392b">页表命中，取 PTE 得 PPN</text>
+
+  <!-- VPO -> PA -->
+  <path d="M 345 164 L 345 298" stroke="#999" stroke-width="2" marker-end="url(#arr2)" fill="none"/>
+  <text x="240" y="224" font-size="13" fill="#555">VPO 不参与查表</text>
+  <text x="240" y="242" font-size="13" fill="#555">原样成为物理页内偏移</text>
+
+  <!-- PA -> cache -->
+  <path d="M 402 340 L 558 340" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arr2)" fill="none"/>
+  <text x="476" y="330" font-size="13" fill="#1f6f8b">按物理地址访问</text>
+
+  <line x1="20" y1="400" x2="820" y2="400" stroke="#ddd" stroke-width="1"/>
+  <text x="20" y="426" font-size="13" fill="#333"><tspan fill="#1f6f8b">■</tspan> 命中路径（TLB 或页表命中）　<tspan fill="#c0392b">■</tspan> 缺失路径　<tspan fill="#999">■</tspan> 不翻译的偏移位</text>
+  <text x="20" y="450" font-size="13" fill="#666">缺页（PTE 有效位=0）时，内核调入页面、更新页表，再重试原指令——见《按需调页》</text>
+</svg>

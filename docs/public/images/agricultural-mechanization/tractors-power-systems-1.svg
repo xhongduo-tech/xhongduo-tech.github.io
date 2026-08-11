@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>拖拉机功率分配示意</title>
+  <desc>从发动机到牵引、PTO、液压三个功率出口的分配与损耗示意</desc>
+  <rect width="800" height="460" fill="#faf9f5"/>
+  <g font-size="15" fill="#333">
+    <rect x="40" y="40" width="200" height="70" rx="10" fill="#1f6f8b" opacity="0.18" stroke="#1f6f8b"/>
+    <text x="140" y="70" text-anchor="middle" font-weight="bold">发动机</text>
+    <text x="140" y="95" text-anchor="middle">轴功率 100 kW</text>
+
+    <rect x="340" y="40" width="180" height="70" rx="10" fill="#faf9f5" stroke="#333"/>
+    <text x="430" y="70" text-anchor="middle" font-weight="bold">传动系</text>
+    <text x="430" y="95" text-anchor="middle">损耗 5%–10%</text>
+
+    <line x1="240" y1="75" x2="340" y2="75" stroke="#333" stroke-width="2" marker-end="url(#arw)"/>
+
+    <rect x="600" y="40" width="160" height="70" rx="10" fill="#c0392b" opacity="0.15" stroke="#c0392b"/>
+    <text x="680" y="70" text-anchor="middle" font-weight="bold">液压系统</text>
+    <text x="680" y="95" text-anchor="middle">输出液压功率</text>
+    <line x1="520" y1="55" x2="600" y2="55" stroke="#333" stroke-width="2"/>
+    <line x1="600" y1="55" x2="610" y2="65" stroke="#333" stroke-width="2"/>
+    <line x1="600" y1="55" x2="610" y2="45" stroke="#333" stroke-width="2"/>
+
+    <rect x="600" y="160" width="160" height="70" rx="10" fill="#c0392b" opacity="0.15" stroke="#c0392b"/>
+    <text x="680" y="190" text-anchor="middle" font-weight="bold">PTO 动力轴</text>
+    <text x="680" y="215" text-anchor="middle">旋转功率 540/1000 r/min</text>
+    <line x1="520" y1="95" x2="520" y2="160" stroke="#333" stroke-width="2"/>
+    <line x1="520" y1="160" x2="600" y2="160" stroke="#333" stroke-width="2"/>
+
+    <rect x="340" y="160" width="180" height="70" rx="10" fill="#faf9f5" stroke="#333"/>
+    <text x="430" y="190" text-anchor="middle" font-weight="bold">驱动轮 / 行走系</text>
+    <text x="430" y="215" text-anchor="middle">滑转 + 滚动阻力（最大损耗）</text>
+    <line x1="430" y1="110" x2="430" y2="160" stroke="#333" stroke-width="2" marker-end="url(#arw)"/>
+
+    <rect x="340" y="300" width="180" height="70" rx="10" fill="#c0392b" opacity="0.15" stroke="#c0392b"/>
+    <text x="430" y="330" text-anchor="middle" font-weight="bold">牵引功率出口</text>
+    <text x="430" y="355" text-anchor="middle">牵引效率 η_t = 50%–70%</text>
+    <line x1="430" y1="230" x2="430" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arw)"/>
+    <text x="430" y="265" text-anchor="middle" font-size="14">附着力 F_max ≈ μ·W_d 约束</text>
+
+    <rect x="140" y="300" width="200" height="70" rx="10" fill="#faf9f5" stroke="#1f6f8b"/>
+    <text x="240" y="330" text-anchor="middle" font-weight="bold">作业机具</text>
+    <text x="240" y="355" text-anchor="middle">犁 / 播种机 / 喷雾机 …</text>
+    <line x1="430" y1="335" x2="340" y2="335" stroke="#333" stroke-width="2" marker-end="url(#arw)"/>
+
+    <rect x="140" y="160" width="200" height="70" rx="10" fill="#faf9f5" stroke="#1f6f8b"/>
+    <text x="240" y="190" text-anchor="middle" font-weight="bold">土壤</text>
+    <text x="240" y="215" text-anchor="middle">牵引阻力 D 与比阻 k</text>
+    <line x1="340" y1="195" x2="340" y2="195" stroke="#333" stroke-width="2"/>
+    <line x1="340" y1="195" x2="440" y2="335" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arw)"/>
+    <text x="455" y="225" font-size="13" fill="#c0392b">阻力反馈：决定所需牵引功率</text>
+  </g>
+  <defs>
+    <marker id="arw" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

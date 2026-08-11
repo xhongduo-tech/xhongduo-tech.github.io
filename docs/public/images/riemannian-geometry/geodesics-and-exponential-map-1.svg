@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <title>指数映射示意图</title>
+  <desc>黎曼流形上点 p 的切平面 T_pM 中的切向量 v，被指数映射 exp_p 映为流形上从 p 出发的测地线。</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+
+  <!-- 穹顶形曲面 M -->
+  <path d="M 100 330 A 220 80 0 0 1 540 330 Z" fill="#efe9dc" stroke="#333" stroke-width="2"/>
+  <!-- 曲面等高线 -->
+  <path d="M 165 308 A 160 48 0 0 1 475 308" fill="none" stroke="#c9c2b2" stroke-width="1.5"/>
+  <path d="M 225 283 A 100 30 0 0 1 415 283" fill="none" stroke="#c9c2b2" stroke-width="1.5"/>
+
+  <!-- 点 p -->
+  <circle cx="320" cy="250" r="5" fill="#c0392b"/>
+
+  <!-- 切平面 -->
+  <polygon points="180,190 460,190 480,215 200,215" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <!-- 法向连线 -->
+  <line x1="320" y1="250" x2="320" y2="215" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- 切平面上的径向箭头（切向量 v） -->
+  <line x1="320" y1="202" x2="262" y2="184" stroke="#c0392b" stroke-width="2.5"/>
+  <polygon points="262,184 274,187 268,198" fill="#c0392b"/>
+  <line x1="320" y1="202" x2="378" y2="184" stroke="#c0392b" stroke-width="2.5"/>
+  <polygon points="378,184 366,187 372,198" fill="#c0392b"/>
+  <line x1="320" y1="202" x2="238" y2="212" stroke="#c0392b" stroke-width="2.5"/>
+  <polygon points="238,212 248,204 250,216" fill="#c0392b"/>
+  <line x1="320" y1="202" x2="402" y2="212" stroke="#c0392b" stroke-width="2.5"/>
+  <polygon points="402,212 392,204 390,216" fill="#c0392b"/>
+
+  <!-- 曲面上的测地线（各方向，像从极点放射） -->
+  <path d="M 320 250 Q 200 285 140 330" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <path d="M 320 250 Q 440 285 500 330" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <path d="M 320 250 Q 260 305 210 335" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <path d="M 320 250 Q 380 305 430 335" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <path d="M 320 250 L 320 334" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- exp_p 对应虚线：切向量端点 → 测地线终点 -->
+  <line x1="262" y1="184" x2="140" y2="330" stroke="#1f6f8b" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <line x1="378" y1="184" x2="500" y2="330" stroke="#1f6f8b" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <line x1="238" y1="212" x2="210" y2="335" stroke="#1f6f8b" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <line x1="402" y1="212" x2="430" y2="335" stroke="#1f6f8b" stroke-width="1.8" stroke-dasharray="6 4"/>
+
+  <!-- 标注 -->
+  <text x="330" y="244" font-family="sans-serif" font-size="15" fill="#333">p</text>
+  <text x="196" y="178" font-family="sans-serif" font-size="15" fill="#1f6f8b">切平面 T_pM</text>
+  <text x="466" y="244" font-family="sans-serif" font-size="14" fill="#333">exp_p(v)</text>
+  <text x="452" y="305" font-family="sans-serif" font-size="15" fill="#c0392b">测地线</text>
+  <text x="120" y="255" font-family="sans-serif" font-size="15" fill="#333">黎曼流形 M</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">单相全控整流桥带阻感负载的输出波形（触发角 α）</title>
+  <desc id="desc">实线为输出电压波形：0 到 α 为上一对晶闸管的负半段，α 到 π 输出正电压，π 到 π+α 为逆变区（输出为负）；虚线为输入正弦电压；水平虚线为平均值 V_d，随 cosα 变化。</desc>
+  <rect x="0" y="0" width="640" height="360" fill="#faf9f5"/>
+  <g font-family="sans-serif" fill="#333" font-size="15">
+    <text x="30" y="28">单相全控桥（阻感负载，连续导电）：实线为输出电压 v_o，虚线为输入电压 v_s</text>
+  </g>
+  <!-- axis -->
+  <line x1="40" y1="190" x2="600" y2="190" stroke="#333" stroke-width="1.6"/>
+  <line x1="40" y1="30" x2="40" y2="330" stroke="#333" stroke-width="1.2"/>
+  <g stroke="#999" stroke-width="1.3" stroke-dasharray="5,5">
+    <line x1="133.3" y1="36" x2="133.3" y2="190"/>
+    <line x1="320" y1="36" x2="320" y2="190"/>
+    <line x1="413.3" y1="36" x2="413.3" y2="190"/>
+    <line x1="600" y1="36" x2="600" y2="190"/>
+  </g>
+  <!-- input sine (dashed) 0-360deg -->
+  <polyline points="40,190 63.3,161.5 86.7,135 110,112.2 133.3,94.7 156.7,83.7 180,80 203.3,83.7 226.7,94.7 250,112.2 273.3,135 296.7,161.5 320,190 343.3,218.5 366.7,245 390,267.8 413.3,285.3 436.7,296.3 460,300 483.3,296.3 506.7,285.3 530,267.8 553.3,245 576.7,218.5 600,190" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,5"/>
+  <!-- output waveform (solid) -->
+  <polyline points="40,190 63.3,218.5 86.7,245 110,267.8 133.3,285.3 156.7,83.7 180,80 203.3,83.7 226.7,94.7 250,112.2 273.3,135 296.7,161.5 320,190 343.3,218.5 366.7,245 390,267.8 413.3,285.3 436.7,83.7 460,80 483.3,83.7 506.7,94.7 530,112.2 553.3,135 576.7,161.5 600,190" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- average line -->
+  <line x1="40" y1="155" x2="600" y2="155" stroke="#333" stroke-width="1.8" stroke-dasharray="9,5"/>
+  <!-- firing markers -->
+  <g stroke="#333" stroke-width="2.4">
+    <line x1="133.3" y1="52" x2="145" y2="52"/>
+    <line x1="133.3" y1="60" x2="145" y2="60"/>
+    <line x1="413.3" y1="52" x2="425" y2="52"/>
+    <line x1="413.3" y1="60" x2="425" y2="60"/>
+  </g>
+  <g font-family="sans-serif" fill="#333" font-size="15">
+    <text x="149" y="70">α 触发</text>
+    <text x="429" y="70">α 触发</text>
+    <text x="96" y="180">α</text>
+    <text x="300" y="180">π</text>
+    <text x="380" y="180">π+α</text>
+    <text x="562" y="180">2π</text>
+    <text x="44" y="146">V_d</text>
+    <text x="200" y="60" fill="#c0392b">v_s</text>
+    <text x="196" y="222" fill="#1f6f8b">v_o</text>
+    <text x="250" y="330" font-size="14" fill="#333">逆变区（π, π+α）：输出电压为负，能量由直流侧回馈电网</text>
+  </g>
+</svg>

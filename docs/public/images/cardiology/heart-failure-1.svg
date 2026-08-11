@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" font-family="sans-serif">
+<title>Frank-Starling 曲线：正常心脏与心力衰竭</title>
+<desc>以舒张末期容积为横轴、每搏量为纵轴，比较正常心脏与衰竭心脏的功能曲线，显示心衰时曲线压低、代偿性舒张末期容积增大。</desc>
+<rect x="0" y="0" width="560" height="400" fill="#faf9f5"/>
+<line x1="60" y1="360" x2="540" y2="360" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="360" x2="60" y2="40" stroke="#333" stroke-width="1.5"/>
+<text x="300" y="392" font-size="13" fill="#333">舒张末期容积 EDV（前负荷）→</text>
+<text x="14" y="200" font-size="13" fill="#333" transform="rotate(-90 14 200)">每搏量 SV</text>
+<text x="56" y="366" font-size="12" fill="#333">0</text>
+<text x="210" y="378" font-size="12" fill="#333">200</text>
+<text x="370" y="378" font-size="12" fill="#333">400</text>
+<text x="48" y="205" font-size="12" fill="#333">50</text>
+<text x="42" y="48" font-size="12" fill="#333">100</text>
+<path d="M 100,300 C 120,210 150,110 190,80 C 240,72 330,72 380,76 C 440,78 470,78 500,79" fill="none" stroke="#c0392b" stroke-width="3"/>
+<path d="M 140,360 C 160,330 200,270 250,235 C 300,230 380,232 400,233 C 450,234 470,235 500,236" fill="none" stroke="#1f6f8b" stroke-width="3" stroke-dasharray="6,3"/>
+<circle cx="156" cy="100" r="6" fill="#c0392b"/>
+<circle cx="204" cy="216" r="6" fill="#1f6f8b"/>
+<line x1="156" y1="100" x2="204" y2="216" stroke="#666" stroke-width="1.5" stroke-dasharray="3,3"/>
+<text x="170" y="90" font-size="13" fill="#c0392b">正常工作点</text>
+<text x="225" y="245" font-size="13" fill="#1f6f8b">心衰工作点</text>
+<text x="210" y="150" font-size="12" fill="#666">代偿：EDV 增大</text>
+<text x="330" y="60" font-size="14" fill="#c0392b">正常心脏</text>
+<text x="380" y="160" font-size="14" fill="#1f6f8b">心力衰竭</text>
+</svg>

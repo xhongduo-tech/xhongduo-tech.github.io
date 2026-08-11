@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif">
+  <title>托卡马克磁场几何：环向场与极向场合成螺旋磁力线</title>
+  <desc>环形真空室（剖开一半显示截面），环向磁场由围绕大环的线圈产生（青色弧线），极向磁场由等离子体电流产生（红色小环），两者合成绕大环扭转的螺旋磁力线（深色曲线）。</desc>
+  <rect width="640" height="420" fill="#faf9f5"/>
+  <text x="320" y="28" text-anchor="middle" font-size="16" fill="#333">托卡马克：环向场 + 极向场 = 螺旋磁力线</text>
+  <!-- torus body -->
+  <ellipse cx="320" cy="225" rx="200" ry="130" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="320" cy="225" rx="90" ry="58" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="250" y="95" font-size="13" fill="#333">等离子体电流 I_p</text>
+  <!-- toroidal field coils (cyan arcs) -->
+  <path d="M 120 225 A 200 130 0 0 1 520 225" fill="none" stroke="#1f6f8b" stroke-width="6" opacity="0.55"/>
+  <path d="M 100 120 A 200 130 0 0 0 540 120" fill="none" stroke="#1f6f8b" stroke-width="6" opacity="0.55"/>
+  <path d="M 100 330 A 200 130 0 0 1 540 330" fill="none" stroke="#1f6f8b" stroke-width="6" opacity="0.55"/>
+  <text x="200" y="205" font-size="14" fill="#1f6f8b">环向场线圈 B_φ</text>
+  <!-- poloidal field (red small circles) -->
+  <ellipse cx="250" cy="200" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="300" cy="172" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="350" cy="165" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="395" cy="185" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="410" cy="225" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="390" cy="268" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="345" cy="292" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="295" cy="295" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="248" cy="272" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <ellipse cx="228" cy="238" rx="16" ry="10" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="120" y="330" font-size="14" fill="#c0392b">极向场 B_θ（电流产生）</text>
+  <!-- helical field line -->
+  <path d="M 130 225 C 150 210 175 196 200 192 C 225 188 255 196 285 222 C 315 248 345 258 372 250 C 400 242 420 215 435 190 C 455 158 490 140 520 150" fill="none" stroke="#333" stroke-width="3"/>
+  <text x="180" y="120" font-size="14" fill="#333">螺旋磁力线（q 圈后闭合）</text>
+  <!-- labels -->
+  <text x="90" y="60" font-size="14" fill="#333">大半径 R（环形主轴）</text>
+  <text x="500" y="360" font-size="14" fill="#333">小半径 a（等离子体截面）</text>
+  <text x="320" y="405" text-anchor="middle" font-size="14" fill="#333">q = rB_φ / (R B_θ) 衡量磁力线扭转</text>
+</svg>

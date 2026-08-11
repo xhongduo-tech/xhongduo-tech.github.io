@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" width="600" height="560" font-family="sans-serif">
+  <title>logistic 映射的倍周期分岔图（示意）</title>
+  <desc>横轴为控制参数 r，纵轴为稳态 x。r 从 3 开始倍周期分裂，在约 3.57 处进入混沌带，3.83 附近出现周期 3 窗口。</desc>
+  <rect width="600" height="560" fill="#faf9f5"/>
+
+  <!-- 混沌带（示意） -->
+  <polygon points="374,105 560,105 560,415 374,415" fill="#1f6f8b" opacity="0.13"/>
+
+  <!-- 周期 5 / 周期 6 窗口空隙 -->
+  <rect x="443" y="105" width="10" height="310" fill="#faf9f5"/>
+  <rect x="526" y="105" width="9" height="310" fill="#faf9f5"/>
+
+  <!-- 周期 3 窗口 -->
+  <rect x="486" y="105" width="18" height="310" fill="#faf9f5"/>
+  <path d="M487 415 Q 489 220 492 105" fill="none" stroke="#333" stroke-width="1.8"/>
+  <path d="M492 415 Q 494 270 496 105" fill="none" stroke="#333" stroke-width="1.8"/>
+  <path d="M497 415 Q 499 220 501 105" fill="none" stroke="#333" stroke-width="1.8"/>
+
+  <!-- 周期 1 主分支 -->
+  <path d="M40 224 Q 90 217 127 213" fill="none" stroke="#333" stroke-width="2.5"/>
+  <!-- 周期 2 两支 -->
+  <path d="M127 213 Q 200 178 321 129" fill="none" stroke="#333" stroke-width="2.5"/>
+  <path d="M127 213 Q 200 252 321 318" fill="none" stroke="#333" stroke-width="2.5"/>
+
+  <!-- 周期级联区：越来越密的短线 -->
+  <line x1="332" y1="150" x2="332" y2="128" stroke="#333" stroke-width="1.5"/>
+  <line x1="332" y1="322" x2="332" y2="344" stroke="#333" stroke-width="1.5"/>
+  <line x1="347" y1="160" x2="347" y2="136" stroke="#333" stroke-width="1.5"/>
+  <line x1="347" y1="315" x2="347" y2="339" stroke="#333" stroke-width="1.5"/>
+  <line x1="362" y1="168" x2="362" y2="143" stroke="#333" stroke-width="1.5"/>
+  <line x1="362" y1="308" x2="362" y2="333" stroke="#333" stroke-width="1.5"/>
+
+  <!-- 坐标轴 -->
+  <line x1="30" y1="460" x2="575" y2="460" stroke="#555" stroke-width="1.5"/>
+  <line x1="40" y1="90" x2="40" y2="475" stroke="#555" stroke-width="1.5"/>
+  <polygon points="575,460 563,454 563,466" fill="#555"/>
+  <polygon points="40,90 34,102 46,102" fill="#555"/>
+
+  <!-- 刻度 -->
+  <line x1="127" y1="460" x2="127" y2="468" stroke="#555" stroke-width="1.2"/>
+  <text x="120" y="480" font-size="14" fill="#333">3.0</text>
+  <line x1="321" y1="460" x2="321" y2="468" stroke="#555" stroke-width="1.2"/>
+  <text x="311" y="480" font-size="14" fill="#333">3.45</text>
+  <line x1="374" y1="460" x2="374" y2="468" stroke="#555" stroke-width="1.2"/>
+  <text x="364" y="480" font-size="14" fill="#333">3.57</text>
+  <line x1="560" y1="460" x2="560" y2="468" stroke="#555" stroke-width="1.2"/>
+  <text x="552" y="480" font-size="14" fill="#333">4.0</text>
+
+  <!-- 标注 -->
+  <text x="52" y="202" font-size="14" fill="#333">周期 1</text>
+  <text x="175" y="120" font-size="14" fill="#333">周期 2</text>
+  <text x="420" y="90" font-size="15" fill="#1f6f8b">周期级联 → 混沌</text>
+  <text x="486" y="500" font-size="14" fill="#c0392b" text-anchor="middle">周期 3 窗口</text>
+  <text x="460" y="560" font-size="14" fill="#333">r</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="sans-serif">
+  <title>布罗代尔的三层时间结构</title>
+  <desc>展示布罗代尔提出的三种历史时间：短时段（事件，如泡沫与浪花）、中时段（局势，数十年周期的经济人口波动）、长时段（结构，几乎不动的地理与文明框架）。</desc>
+  <rect width="860" height="460" fill="#faf9f5"/>
+  <text x="430" y="36" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">布罗代尔的三层时间</text>
+  <text x="430" y="60" text-anchor="middle" font-size="13" fill="#333">——《地中海与菲利普二世时代的地中海世界》的组织结构</text>
+
+  <!-- 短时段 -->
+  <rect x="60" y="84" width="540" height="96" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="330" y="104" text-anchor="middle" font-size="16" fill="#c0392b" font-weight="bold">短时段 · 事件（événements）</text>
+  <polyline points="90,152 120,122 150,148 180,116 210,150 240,124 270,152 300,120 330,148 360,118 390,152 420,126 450,150 480,122 510,150 540,124 570,150" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="330" y="168" text-anchor="middle" font-size="13" fill="#333">泡沫与浪花：战争、政变、人物、条约——传统政治史的全部</text>
+
+  <!-- 中时段 -->
+  <rect x="60" y="200" width="540" height="96" rx="8" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="330" y="220" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">中时段 · 局势（conjonctures）</text>
+  <path d="M90 264 Q 120 244 150 264 T 210 264 T 270 264 T 330 264 T 390 264 T 450 264 T 510 264 T 570 264" fill="none" stroke="#333" stroke-width="2.5"/>
+  <text x="330" y="284" text-anchor="middle" font-size="13" fill="#333">数十年到百年的波动：价格、人口、农业收成、经济周期</text>
+
+  <!-- 长时段 -->
+  <rect x="60" y="316" width="540" height="96" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="330" y="336" text-anchor="middle" font-size="16" fill="#1f6f8b" font-weight="bold">长时段 · 结构（structures）</text>
+  <line x1="90" y1="382" x2="570" y2="380" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="330" y="400" text-anchor="middle" font-size="13" fill="#333">近乎不动的历史：地理、气候、海洋、生产方式、文明框架</text>
+
+  <!-- 时间尺度箭头 -->
+  <line x1="680" y1="84" x2="680" y2="412" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <text x="706" y="120" font-size="13" fill="#333">时间尺度</text>
+  <text x="706" y="250" font-size="13" fill="#333">从瞬时</text>
+  <text x="706" y="396" font-size="13" fill="#333">到千年</text>
+
+  <text x="330" y="440" text-anchor="middle" font-size="13" fill="#333">三层时间交织并进，史学的任务是同时观察三层，而非只看浪花</text>
+</svg>

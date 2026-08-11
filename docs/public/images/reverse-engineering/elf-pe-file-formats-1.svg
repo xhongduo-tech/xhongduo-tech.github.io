@@ -1,0 +1,58 @@
+<svg viewBox="0 0 780 460" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>ELF 与 PE 文件格式对照</title>
+<desc>ELF 与 PE 两种可执行文件格式的并排对照图：ELF 有 ELF 头、程序头表、节区、节头表；PE 有 DOS 头、PE 头、节头、节区与导入导出表。</desc>
+<rect x="0" y="0" width="780" height="460" fill="#faf9f5"/>
+<text x="390" y="32" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">两种可执行文件格式的骨架对照</text>
+
+<!-- ELF 区块 -->
+<text x="200" y="64" text-anchor="middle" font-size="16" fill="#1f6f8b" font-weight="bold">ELF（Linux/Unix）</text>
+
+<g font-size="13" fill="#333">
+<rect x="40" y="78" width="320" height="30" rx="3" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="60" y="98">ELF 头（魔数 7f 45 4c 46、e_entry…）</text>
+
+<rect x="40" y="114" width="320" height="30" rx="3" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="60" y="134">程序头表（段：R/X/W 权限）</text>
+
+<rect x="40" y="150" width="320" height="30" rx="3" fill="#eef4f6" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="60" y="170">.text 代码节</text>
+<rect x="40" y="184" width="320" height="30" rx="3" fill="#eef4f6" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="60" y="204">.data / .bss 数据节</text>
+<rect x="40" y="218" width="320" height="30" rx="3" fill="#eef4f6" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="60" y="238">.rodata 只读数据 / .symtab 符号表</text>
+
+<rect x="40" y="254" width="320" height="30" rx="3" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="60" y="274">节头表（节区的索引）</text>
+</g>
+
+<!-- PE 区块 -->
+<text x="580" y="64" text-anchor="middle" font-size="16" fill="#c0392b" font-weight="bold">PE（Windows）</text>
+
+<g font-size="13" fill="#333">
+<rect x="420" y="78" width="320" height="30" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="440" y="98">DOS 头（MZ 魔数、e_lfanew 指针）</text>
+
+<rect x="420" y="114" width="320" height="30" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="440" y="134">PE 头（签名 PE\0\0、ImageBase 0x00400000）</text>
+
+<rect x="420" y="150" width="320" height="30" rx="3" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="440" y="170">节头表（.text/.data/.rsrc… 的索引）</text>
+
+<rect x="420" y="184" width="320" height="30" rx="3" fill="#fdf0ee" stroke="#c0392b" stroke-width="1.5"/>
+<text x="440" y="204">.text 代码节</text>
+<rect x="420" y="218" width="320" height="30" rx="3" fill="#fdf0ee" stroke="#c0392b" stroke-width="1.5"/>
+<text x="440" y="238">.data / .rdata 数据节</text>
+<rect x="420" y="252" width="320" height="30" rx="3" fill="#fdf0ee" stroke="#c0392b" stroke-width="1.5"/>
+<text x="440" y="272">.rsrc 资源 / .reloc 重定位</text>
+</g>
+
+<!-- 导入导出表备注 -->
+<g font-size="13" fill="#333">
+<rect x="130" y="330" width="520" height="52" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+<text x="390" y="354" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">导入表 / 导出表</text>
+<text x="390" y="374" text-anchor="middle" font-size="13" fill="#333">PE 的 IAT 描述表与导出表 = 静态分析的军火库</text>
+</g>
+
+<line x1="390" y1="88" x2="390" y2="298" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="390" y="318" text-anchor="middle" font-size="13" fill="#333">「头 + 表 + 块」同构</text>
+</svg>

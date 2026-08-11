@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" width="640" height="560">
+  <title>经典 Dynkin 图：A、D、E 族与例外 F4、G2</title>
+  <desc>展示 A4 单链、D4 末叉、E6/E7/E8 树、F4 与 G2 短长根箭头的 Dynkin 图示例。</desc>
+  <rect width="640" height="560" fill="#faf9f5"/>
+
+  <!-- A4 -->
+  <text x="20" y="46" font-family="sans-serif" font-size="18" fill="#333">A₄</text>
+  <line x1="90" y1="38" x2="470" y2="38" stroke="#333" stroke-width="3"/>
+  <circle cx="90" cy="38" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="185" cy="38" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="38" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="375" cy="38" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="470" cy="38" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- D4 -->
+  <text x="20" y="126" font-family="sans-serif" font-size="18" fill="#333">D₄</text>
+  <line x1="90" y1="118" x2="350" y2="118" stroke="#333" stroke-width="3"/>
+  <line x1="350" y1="118" x2="350" y2="78" stroke="#333" stroke-width="3"/>
+  <line x1="350" y1="118" x2="350" y2="158" stroke="#333" stroke-width="3"/>
+  <circle cx="90" cy="118" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="185" cy="118" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="118" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="350" cy="118" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="350" cy="78" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="350" cy="158" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- E6 -->
+  <text x="20" y="216" font-family="sans-serif" font-size="18" fill="#333">E₆</text>
+  <line x1="90" y1="208" x2="470" y2="208" stroke="#333" stroke-width="3"/>
+  <line x1="280" y1="208" x2="280" y2="168" stroke="#333" stroke-width="3"/>
+  <circle cx="90" cy="208" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="185" cy="208" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="208" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="375" cy="208" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="470" cy="208" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="168" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- E7 -->
+  <text x="20" y="286" font-family="sans-serif" font-size="18" fill="#333">E₇</text>
+  <line x1="90" y1="278" x2="470" y2="278" stroke="#333" stroke-width="3"/>
+  <line x1="280" y1="278" x2="280" y2="238" stroke="#333" stroke-width="3"/>
+  <circle cx="90" cy="278" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="185" cy="278" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="278" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="375" cy="278" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="470" cy="278" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="238" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- E8 -->
+  <text x="20" y="356" font-family="sans-serif" font-size="18" fill="#333">E₈</text>
+  <line x1="90" y1="348" x2="470" y2="348" stroke="#333" stroke-width="3"/>
+  <line x1="375" y1="348" x2="375" y2="308" stroke="#333" stroke-width="3"/>
+  <circle cx="90" cy="348" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="185" cy="348" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="348" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="375" cy="348" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="470" cy="348" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="375" cy="308" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- F4 -->
+  <text x="20" y="426" font-family="sans-serif" font-size="18" fill="#333">F₄</text>
+  <line x1="90" y1="418" x2="230" y2="418" stroke="#333" stroke-width="3"/>
+  <line x1="230" y1="418" x2="330" y2="418" stroke="#333" stroke-width="4"/>
+  <line x1="330" y1="418" x2="430" y2="418" stroke="#333" stroke-width="3"/>
+  <circle cx="90" cy="418" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="160" cy="418" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="280" cy="418" r="9" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2.5"/>
+  <circle cx="430" cy="418" r="9" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2.5"/>
+  <polygon points="315,413 315,423 330,418" fill="#333"/>
+  <polygon points="245,413 245,423 230,418" fill="#333"/>
+
+  <!-- G2 -->
+  <text x="20" y="496" font-family="sans-serif" font-size="18" fill="#333">G₂</text>
+  <line x1="90" y1="488" x2="150" y2="488" stroke="#333" stroke-width="3"/>
+  <line x1="150" y1="488" x2="230" y2="488" stroke="#333" stroke-width="5"/>
+  <circle cx="90" cy="488" r="9" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="230" cy="488" r="9" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2.5"/>
+  <polygon points="190,478 190,498 205,488" fill="#333"/>
+  <polygon points="145,478 145,498 160,488" fill="#333"/>
+  <polygon points="140,478 140,498 155,488" fill="#333"/>
+
+  <text x="500" y="60" font-family="sans-serif" font-size="16" fill="#c0392b">● 长根（参考）</text>
+  <text x="500" y="90" font-family="sans-serif" font-size="16" fill="#1f6f8b">● 短根</text>
+  <text x="500" y="130" font-family="sans-serif" font-size="16" fill="#333">→ 箭头指向短根</text>
+</svg>

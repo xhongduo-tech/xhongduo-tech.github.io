@@ -1,0 +1,48 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>拓扑优化与点阵填充设计流程</title>
+  <desc>三阶段示意：矩形设计空间给定载荷与固定点，拓扑优化输出骨骼化结构，点阵填充得到可打印零件。</desc>
+  <rect x="0" y="0" width="900" height="300" fill="#faf9f5"/>
+  <!-- Panel 1: design space -->
+  <g>
+    <text x="155" y="40" text-anchor="middle" font-size="15" fill="#333333" font-weight="bold">① 设计空间</text>
+    <rect x="60" y="55" width="190" height="190" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <!-- fixed support -->
+    <path d="M 80 220 L 80 245 L 120 245 L 120 220" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <path d="M 70 222 L 130 222" stroke="#1f6f8b" stroke-width="3"/>
+    <text x="100" y="262" text-anchor="middle" font-size="13" fill="#1f6f8b">固定端</text>
+    <!-- load arrow -->
+    <line x1="240" y1="90" x2="240" y2="60" stroke="#c0392b" stroke-width="3" marker-end="url(#arr)"/>
+    <text x="252" y="78" font-size="13" fill="#c0392b">载荷</text>
+    <text x="155" y="95" text-anchor="middle" font-size="13" fill="#999999">材料待定</text>
+  </g>
+  <!-- arrow 1->2 -->
+  <text x="278" y="155" font-size="26" fill="#333333">→</text>
+  <!-- Panel 2: topology result -->
+  <g>
+    <text x="440" y="40" text-anchor="middle" font-size="15" fill="#333333" font-weight="bold">② 拓扑优化结果</text>
+    <rect x="330" y="55" width="220" height="190" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <path d="M 360 245 L 400 120 L 430 245 Z" fill="#1f6f8b" opacity="0.9"/>
+    <path d="M 430 245 L 440 80 L 455 245 Z" fill="#1f6f8b" opacity="0.75"/>
+    <path d="M 455 245 L 470 110 L 510 245 Z" fill="#1f6f8b" opacity="0.9"/>
+    <text x="440" y="282" text-anchor="middle" font-size="13" fill="#333333">骨骼化传力结构</text>
+  </g>
+  <!-- arrow 2->3 -->
+  <text x="578" y="155" font-size="26" fill="#333333">→</text>
+  <!-- Panel 3: lattice part -->
+  <g>
+    <text x="735" y="40" text-anchor="middle" font-size="15" fill="#333333" font-weight="bold">③ 点阵填充可打印件</text>
+    <rect x="650" y="55" width="170" height="190" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+    <!-- lattice pattern -->
+    <path d="M 670 75 L 800 75 M 670 110 L 800 110 M 670 145 L 800 145 M 670 180 L 800 180 M 670 215 L 800 215" stroke="#999999" stroke-width="1"/>
+    <path d="M 670 75 L 760 215 M 685 75 L 775 215 M 700 75 L 790 215 M 715 75 L 800 200 M 730 75 L 800 185" stroke="#999999" stroke-width="1"/>
+    <path d="M 800 75 L 710 215 M 785 75 L 695 215 M 770 75 L 680 215 M 755 75 L 670 190 M 740 75 L 670 175" stroke="#999999" stroke-width="1"/>
+    <!-- outer outline keeps shape -->
+    <path d="M 670 75 L 800 75 L 800 215 L 670 215 Z" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+    <text x="735" y="282" text-anchor="middle" font-size="13" fill="#333333">Gyroid / 桁架点阵</text>
+  </g>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,45 @@
+<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg">
+  <title>行星内部分层结构示意图</title>
+  <desc>剖开一颗类地行星，从外到内依次为薄地壳、地幔、液态外核与固态内核，右侧图例标注各层名称与相对尺度。</desc>
+  <rect width="720" height="480" fill="#faf9f5"/>
+  <!-- 行星剖面：壳 -->
+  <circle cx="250" cy="240" r="205" fill="#c9a06c" stroke="#333" stroke-width="2"/>
+  <circle cx="250" cy="240" r="201" fill="#d9b57f"/>
+  <!-- 幔 -->
+  <circle cx="250" cy="240" r="201" fill="#c0392b"/>
+  <circle cx="250" cy="240" r="96" fill="#1f6f8b"/>
+  <!-- 外核 -->
+  <circle cx="250" cy="240" r="96" fill="#1f6f8b"/>
+  <!-- 内核 -->
+  <circle cx="250" cy="240" r="40" fill="#f4d03f" stroke="#333" stroke-width="1.5"/>
+  <!-- 壳层补丁：把最外两环重画为壳色 -->
+  <circle cx="250" cy="240" r="205" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="250" y="38" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#333">一颗类地行星的剖面（示意，非等比）</text>
+  <!-- 标注线：壳 -->
+  <line x1="250" y1="40" x2="250" y2="36" stroke="#333" stroke-width="1"/>
+  <line x1="250" y1="240" x2="250" y2="240" stroke="none"/>
+  <text x="300" y="88" font-family="sans-serif" font-size="15" fill="#333">① 地壳（crust）</text>
+  <text x="300" y="108" font-family="sans-serif" font-size="13" fill="#555">岩石圈最外层，厚度占半径不足 5%</text>
+  <line x1="250" y1="240" x2="490" y2="78" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="250" y1="44" x2="250" y2="40" stroke="#333" stroke-width="2"/>
+  <line x1="250" y1="44" x2="300" y2="44" stroke="#999" stroke-width="1"/>
+  <!-- 标注线：幔 -->
+  <line x1="250" y1="240" x2="250" y2="200" stroke="none"/>
+  <line x1="250" y1="240" x2="160" y2="290" stroke="none"/>
+  <line x1="154" y1="296" x2="220" y2="360" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="230" y="378" font-family="sans-serif" font-size="15" fill="#333">② 地幔（mantle）</text>
+  <text x="230" y="398" font-family="sans-serif" font-size="13" fill="#555">体积最大的硅酸盐层，半塑性可对流</text>
+  <line x1="250" y1="240" x2="130" y2="348" stroke="none"/>
+  <line x1="120" y1="352" x2="70" y2="410" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="10" y="428" font-family="sans-serif" font-size="15" fill="#333">③ 外核（outer core）</text>
+  <text x="10" y="448" font-family="sans-serif" font-size="13" fill="#555">液态铁镍，流动产生行星磁场（地球）</text>
+  <line x1="250" y1="240" x2="250" y2="290" stroke="none"/>
+  <!-- 内核标注 -->
+  <line x1="250" y1="240" x2="420" y2="240" stroke="none"/>
+  <line x1="250" y1="240" x2="250" y2="200" stroke="none"/>
+  <text x="560" y="200" font-family="sans-serif" font-size="15" fill="#333">④ 内核（inner core）</text>
+  <text x="560" y="220" font-family="sans-serif" font-size="13" fill="#555">固态铁镍（地球），致密高温高压相</text>
+  <line x1="250" y1="240" x2="546" y2="196" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <!-- 底部说明 -->
+  <text x="250" y="460" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#777">各行星比例差异巨大：月球壳厚约 60 km、火星壳约 30–50 km、地球壳平均约 20 km；火星核心半径约 1800 km，水星核心占其半径约 83%。</text>
+</svg>

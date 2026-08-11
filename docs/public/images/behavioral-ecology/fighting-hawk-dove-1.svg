@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif">
+<title>鹰鸽博弈：期望收益与进化稳定频率</title>
+<desc>鹰与鸽两种策略的期望收益随鹰频率 p 变化，两条线相交于 p* = V/C，即进化稳定策略。</desc>
+<rect width="640" height="420" fill="#fff"/>
+
+<!-- axes -->
+<line x1="120" y1="380" x2="620" y2="380" stroke="#333" stroke-width="1.5"/>
+<line x1="120" y1="380" x2="120" y2="60" stroke="#333" stroke-width="1.5"/>
+
+<!-- ESS vertical dashed line -->
+<line x1="360" y1="380" x2="360" y2="80" stroke="#333" stroke-width="1" stroke-dasharray="5,4"/>
+
+<!-- payoff lines -->
+<line x1="120" y1="80" x2="600" y2="350" stroke="#c0392b" stroke-width="2.5"/>
+<line x1="120" y1="170" x2="600" y2="260" stroke="#1f6f8b" stroke-width="2.5"/>
+<circle cx="360" cy="215" r="5" fill="#333"/>
+
+<!-- axis labels -->
+<text x="370" y="408" fill="#333" font-size="14" text-anchor="middle">鹰策略在种群中的频率 p</text>
+<text x="60" y="215" fill="#333" font-size="14" text-anchor="middle">期望收益</text>
+<text x="104" y="390" fill="#333" font-size="13" text-anchor="end">p = 0</text>
+<text x="615" y="390" fill="#333" font-size="13" text-anchor="middle">p = 1</text>
+
+<!-- strategy labels -->
+<text x="490" y="300" fill="#c0392b" font-size="14" text-anchor="start">鹰策略 E(H) = p(V-C)/2 + (1-p)V</text>
+<text x="490" y="248" fill="#1f6f8b" font-size="14" text-anchor="start">鸽策略 E(D) = (1-p)V/2</text>
+
+<!-- region labels -->
+<text x="240" y="120" fill="#333" font-size="13" text-anchor="middle">此处 E(H) &gt; E(D)</text>
+<text x="240" y="138" fill="#333" font-size="13" text-anchor="middle">→ 鹰频率上升</text>
+<text x="520" y="120" fill="#333" font-size="13" text-anchor="middle">此处 E(D) &gt; E(H)</text>
+<text x="520" y="138" fill="#333" font-size="13" text-anchor="middle">→ 鹰频率下降</text>
+
+<!-- ESS label -->
+<text x="360" y="200" fill="#333" font-size="14" text-anchor="middle">p* = V/C = 0.5</text>
+<text x="360" y="182" fill="#333" font-size="13" text-anchor="middle">进化稳定策略 ESS</text>
+
+<!-- parameter note -->
+<text x="120" y="72" fill="#999" font-size="13" text-anchor="start">设 V = 6，C = 12（V &lt; C 时 ESS 为混合策略）</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg viewBox="0 0 600 420" width="600" height="420" xmlns="http://www.w3.org/2000/svg">
+  <title>椭圆曲线上的点加法</title>
+  <desc>椭圆曲线 y²=x³−x 上，过点 P 与 Q 的直线交曲线于第三点 −R；将其关于 x 轴对称翻转得到 R，即 R=P+Q。</desc>
+  <rect width="600" height="420" fill="#faf9f5"/>
+  <g stroke="#999" stroke-width="1" stroke-dasharray="4 4">
+    <line x1="30" y1="200" x2="580" y2="200"/>
+    <line x1="300" y1="410" x2="300" y2="10"/>
+  </g>
+  <text x="572" y="188" font-family="sans-serif" font-size="15" fill="#666">x</text>
+  <text x="310" y="26" font-family="sans-serif" font-size="15" fill="#666">y</text>
+  <text x="40" y="48" font-family="sans-serif" font-size="16" fill="#333">y² = x³ − x</text>
+  <path d="M 176 200 C 191 164, 238 157, 272 200 C 238 243, 191 236, 176 200 Z" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <path d="M 368 200 C 381 145, 413 108, 454 58" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <path d="M 368 200 C 381 255, 413 292, 454 342" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="330" y1="236" x2="494" y2="0" stroke="#333" stroke-width="2"/>
+  <line x1="392" y1="147" x2="392" y2="253" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="392" cy="147" r="5" fill="#c0392b"/>
+  <circle cx="406" cy="126" r="5" fill="#c0392b"/>
+  <circle cx="459" cy="50" r="5" fill="#c0392b"/>
+  <circle cx="392" cy="253" r="5" fill="#c0392b"/>
+  <text x="376" y="137" font-family="sans-serif" font-size="16" fill="#c0392b">−R</text>
+  <text x="418" y="120" font-family="sans-serif" font-size="16" fill="#c0392b">P</text>
+  <text x="471" y="44" font-family="sans-serif" font-size="16" fill="#c0392b">Q</text>
+  <text x="404" y="272" font-family="sans-serif" font-size="16" fill="#c0392b">R = P+Q</text>
+  <text x="120" y="392" font-family="sans-serif" font-size="14" fill="#333">过 P、Q 的直线交曲线于第三点 −R，反射得到 R = P+Q</text>
+</svg>

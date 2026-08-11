@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" font-family="sans-serif">
+<title>七个晶系的晶胞形状示意</title>
+<desc>用斜轴测画法示意等轴、四方、正交、六方、三方（菱面体）、单斜、三斜七个晶系的晶胞棱长与轴角关系；虚线表示被遮挡的棱。</desc>
+<style>
+  .edge{stroke:#333;stroke-width:2;fill:none}
+  .hidden{stroke:#999;stroke-width:1.4;stroke-dasharray:5,4;fill:none}
+  .lab{fill:#333;font-size:14px;text-anchor:middle}
+  .ax{fill:#c0392b;font-size:13px;font-style:italic}
+</style>
+
+<!-- 1 等轴（立方） -->
+<g>
+  <rect x="60" y="35" width="42" height="42" class="edge"/>
+  <rect x="81" y="56" width="42" height="42" class="edge"/>
+  <line x1="102" y1="35" x2="123" y2="56" class="edge"/>
+  <line x1="102" y1="77" x2="123" y2="98" class="edge"/>
+  <line x1="60" y1="77" x2="81" y2="98" class="edge"/>
+  <line x1="60" y1="35" x2="81" y2="56" class="hidden"/>
+  <text x="66" y="72" class="ax">a</text>
+  <text x="107" y="58" class="ax">b</text>
+  <text x="110" y="41" class="ax">c</text>
+  <text x="81" y="118" class="lab">等轴晶系（立方）</text>
+</g>
+
+<!-- 2 四方 -->
+<g>
+  <rect x="225" y="30" width="34" height="34" class="edge"/>
+  <rect x="249" y="54" width="34" height="34" class="edge"/>
+  <line x1="259" y1="30" x2="283" y2="54" class="edge"/>
+  <line x1="259" y1="64" x2="283" y2="88" class="edge"/>
+  <line x1="225" y1="64" x2="249" y2="88" class="edge"/>
+  <line x1="225" y1="30" x2="249" y2="54" class="hidden"/>
+  <text x="254" y="108" class="lab">四方晶系</text>
+</g>
+
+<!-- 3 正交 -->
+<g>
+  <rect x="390" y="32" width="54" height="30" class="edge"/>
+  <rect x="408" y="50" width="54" height="30" class="edge"/>
+  <line x1="444" y1="32" x2="462" y2="50" class="edge"/>
+  <line x1="444" y1="62" x2="462" y2="80" class="edge"/>
+  <line x1="390" y1="62" x2="408" y2="80" class="edge"/>
+  <line x1="390" y1="32" x2="408" y2="50" class="hidden"/>
+  <text x="417" y="100" class="lab">正交晶系</text>
+</g>
+
+<!-- 4 六方 -->
+<g>
+  <polygon points="577,55 561,82.7 529,82.7 513,55 529,27.3 561,27.3" class="edge"/>
+  <polygon points="599,77 583,104.7 551,104.7 535,77 551,49.3 583,49.3" class="edge"/>
+  <line x1="577" y1="55" x2="599" y2="77" class="edge"/>
+  <line x1="561" y1="82.7" x2="583" y2="104.7" class="edge"/>
+  <line x1="529" y1="82.7" x2="551" y2="104.7" class="edge"/>
+  <line x1="513" y1="55" x2="535" y2="77" class="edge"/>
+  <line x1="529" y1="27.3" x2="551" y2="49.3" class="hidden"/>
+  <line x1="561" y1="27.3" x2="583" y2="49.3" class="hidden"/>
+  <text x="556" y="122" class="lab">六方晶系</text>
+</g>
+
+<!-- 5 三方（菱面体） -->
+<g>
+  <polygon points="110,190 152,190 152,232 110,232" class="edge"/>
+  <polygon points="146,210 188,210 188,252 146,252" class="edge"/>
+  <line x1="152" y1="190" x2="188" y2="210" class="edge"/>
+  <line x1="152" y1="232" x2="188" y2="252" class="edge"/>
+  <line x1="110" y1="232" x2="146" y2="252" class="edge"/>
+  <line x1="110" y1="190" x2="146" y2="210" class="hidden"/>
+  <text x="149" y="274" class="lab">三方晶系（菱面体）</text>
+</g>
+
+<!-- 6 单斜 -->
+<g>
+  <polygon points="290,188 340,188 340,216 290,216" class="edge"/>
+  <polygon points="324,208 374,208 374,236 324,236" class="edge"/>
+  <line x1="340" y1="188" x2="374" y2="208" class="edge"/>
+  <line x1="340" y1="216" x2="374" y2="236" class="edge"/>
+  <line x1="290" y1="216" x2="324" y2="236" class="edge"/>
+  <line x1="290" y1="188" x2="324" y2="208" class="hidden"/>
+  <text x="332" y="260" class="lab">单斜晶系</text>
+</g>
+
+<!-- 7 三斜 -->
+<g>
+  <polygon points="470,186 518,180 528,208 480,214" class="edge"/>
+  <polygon points="490,206 538,200 548,228 500,234" class="edge"/>
+  <line x1="518" y1="180" x2="538" y2="200" class="edge"/>
+  <line x1="528" y1="208" x2="548" y2="228" class="edge"/>
+  <line x1="480" y1="214" x2="500" y2="234" class="edge"/>
+  <line x1="470" y1="186" x2="490" y2="206" class="hidden"/>
+  <text x="499" y="258" class="lab">三斜晶系</text>
+</g>
+</svg>

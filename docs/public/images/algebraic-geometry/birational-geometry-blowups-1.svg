@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="sans-serif">
+  <title>在原点 blow-up：把一点展开成一条例外除子</title>
+  <desc>左图是原平面 A^2，曲线 C 穿过原点 O；右图是 blow-up 之后，原点被替换成一条例外除子 E（同构于 P^1），曲线被分开成两支，各自与 E 交于一点。</desc>
+  <rect x="0" y="0" width="700" height="420" fill="#faf9f5"/>
+  <text x="350" y="34" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">在原点做 blow-up：把一点“展开”成一条例外除子</text>
+
+  <!-- 左面板 -->
+  <g stroke="#333" fill="none">
+    <rect x="30" y="60" width="290" height="330" stroke="#999"/>
+  </g>
+  <text x="175" y="84" text-anchor="middle" font-size="16" fill="#1f6f8b" font-weight="bold">原平面 A²</text>
+  <line x1="60" y1="340" x2="300" y2="340" stroke="#333" stroke-width="1.5"/>
+  <line x1="180" y1="360" x2="180" y2="90" stroke="#333" stroke-width="1.5"/>
+  <text x="292" y="356" font-size="13" fill="#333">x</text>
+  <text x="190" y="100" font-size="13" fill="#333">y</text>
+  <circle cx="180" cy="340" r="4" fill="#c0392b"/>
+  <text x="150" y="332" font-size="13" fill="#c0392b">O</text>
+  <path d="M70,290 Q110,340 180,340 Q250,340 300,290" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+  <text x="250" y="320" font-size="13" fill="#c0392b">C</text>
+
+  <!-- 箭头 -->
+  <line x1="340" y1="225" x2="400" y2="225" stroke="#333" stroke-width="2"/>
+  <polygon points="400,220 414,225 400,230" fill="#333"/>
+  <text x="360" y="215" font-size="13" fill="#333">blow-up π</text>
+
+  <!-- 右面板 -->
+  <g stroke="#333" fill="none">
+    <rect x="420" y="60" width="250" height="330" stroke="#999"/>
+  </g>
+  <text x="545" y="84" text-anchor="middle" font-size="16" fill="#1f6f8b" font-weight="bold">blow-up 之后</text>
+  <line x1="440" y1="340" x2="660" y2="340" stroke="#333" stroke-width="1.5"/>
+  <line x1="540" y1="360" x2="540" y2="90" stroke="#333" stroke-width="1.5"/>
+  <text x="652" y="356" font-size="13" fill="#333">x</text>
+  <text x="550" y="100" font-size="13" fill="#333">y</text>
+  <!-- 例外除子 E -->
+  <line x1="540" y1="245" x2="540" y2="335" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="522" y="288" font-size="13" fill="#1f6f8b">E ≅ P¹</text>
+  <!-- 曲线两支 -->
+  <path d="M660,120 Q600,190 543,252" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+  <path d="M420,120 Q480,190 537,260" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+  <circle cx="543" cy="252" r="3.5" fill="#c0392b"/>
+  <circle cx="537" cy="260" r="3.5" fill="#c0392b"/>
+  <text x="596" y="170" font-size="13" fill="#c0392b">C̃ 的两支</text>
+  <text x="428" y="300" font-size="13" fill="#333">O 被展开成 E，曲线 C 被分开</text>
+</svg>

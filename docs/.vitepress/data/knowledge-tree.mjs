@@ -588,7 +588,7 @@ export const trees = [
           { name: 'RLHF（Reward Modeling）', path: 'advanced/reinforcement-learning/rlhf-reward-modeling' },
           { name: 'PPO for LLM Alignment', path: 'advanced/reinforcement-learning/ppo-llm-alignment' },
           { name: 'DPO', path: 'advanced/reinforcement-learning/dpo-direct-preference-optimization' },
-          { name: 'Decision Transformer', path: 'advanced/reinforcement-learning/decision-transformer', tag: 'add' },
+          { name: 'Decision Transformer（论文解析）', path: 'advanced/decision-transformer-paper', tag: 'add' },
           { name: 'Dreamer / 世界模型', path: 'advanced/embodied-ai/world-models-dreamer', tag: 'ref' },
         ],
       },
@@ -613,8 +613,8 @@ export const trees = [
           { name: 'Mamba / SSM', path: 'advanced/llm-principles/linear-attention-and-mamba' },
           { name: 'CLIP（对比对齐）', path: 'advanced/llm-principles/clip-contrastive-alignment' },
           { name: 'LLaVA（视觉指令微调）', path: 'advanced/llm-principles/llava-projector-visual-instruction-tuning' },
-          { name: 'RWKV', path: 'advanced/llm-principles/rwkv', tag: 'add' },
-          { name: 'GShard（MoE 并行）', path: 'advanced/llm-principles/gshard', tag: 'add' },
+          { name: 'RWKV（论文解析）', path: 'advanced/rwkv', tag: 'add' },
+          { name: 'GShard（论文解析）', path: 'advanced/gshard', tag: 'add' },
         ],
       },
       {
@@ -657,7 +657,7 @@ export const trees = [
           { name: 'LLaVA', path: 'advanced/computer-vision/llava' },
           { name: 'UNet', path: 'advanced/computer-vision/unet' },
           { name: 'EfficientNet / MobileNet', path: 'advanced/computer-vision/efficientnet-mobilenet' },
-          { name: 'DiT / Sora', path: 'advanced/computer-vision/dit-sora', tag: 'add' },
+          { name: 'DiT / Sora（论文解析）', path: 'advanced/dit-sora', tag: 'add' },
         ],
       },
       {

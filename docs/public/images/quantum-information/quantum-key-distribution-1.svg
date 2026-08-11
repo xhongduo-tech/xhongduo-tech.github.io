@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="sans-serif">
+  <title>BB84 量子密钥分发协议流程</title>
+  <desc>Alice 用两个基（Z 基与 X 基）随机制备光子态并发送，Eve 中途窃听会扰动量子态，Bob 随机选基测量，双方随后通过经典信道公开基信息、筛出密钥并检查误码率。</desc>
+  <rect width="720" height="300" fill="#faf9f5"/>
+  <!-- Alice box -->
+  <rect x="20" y="100" width="150" height="100" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="95" y="135" font-size="16" text-anchor="middle" fill="#1f6f8b">Alice</text>
+  <text x="95" y="160" font-size="13" text-anchor="middle" fill="#333">随机选基制备光子</text>
+  <text x="95" y="182" font-size="13" text-anchor="middle" fill="#333">Z基: |0⟩|1⟩  X基: |+⟩|−⟩</text>
+  <!-- Eve box -->
+  <rect x="285" y="70" width="150" height="160" rx="10" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="360" y="105" font-size="16" text-anchor="middle" fill="#c0392b">Eve（窃听者）</text>
+  <text x="360" y="135" font-size="13" text-anchor="middle" fill="#333">截获光子并测量</text>
+  <text x="360" y="158" font-size="13" text-anchor="middle" fill="#333">随机选基 → 可能</text>
+  <text x="360" y="178" font-size="13" text-anchor="middle" fill="#333">扰动量子态（25% 误码）</text>
+  <text x="360" y="205" font-size="13" text-anchor="middle" fill="#c0392b">⚠ 不可克隆：无法无痕复制</text>
+  <!-- Bob box -->
+  <rect x="550" y="100" width="150" height="100" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="625" y="135" font-size="16" text-anchor="middle" fill="#1f6f8b">Bob</text>
+  <text x="625" y="160" font-size="13" text-anchor="middle" fill="#333">随机选基测量</text>
+  <text x="625" y="182" font-size="13" text-anchor="middle" fill="#333">公开对基 → 筛出密钥</text>
+  <!-- arrows -->
+  <line x1="170" y1="150" x2="283" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="435" y1="150" x2="548" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="226" y="140" font-size="13" text-anchor="middle" fill="#333">量子信道（光子）</text>
+  <!-- classical channel back -->
+  <path d="M 625 200 L 625 260 L 95 260 L 95 202" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowC)"/>
+  <text x="360" y="252" font-size="13" text-anchor="middle" fill="#666">经典公开信道：比对基与误码率 → 误码率高于阈值则弃密钥</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="arrowC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

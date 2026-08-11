@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="sans-serif" font-size="14">
+  <title>双单倍体（DH）加速纯合示意</title>
+  <desc>杂种 F1 花药（或微孢子）离体培养成单倍体植株，秋水仙碱加倍染色体成纯合双单倍体，一代即达纯合，与系谱法多代自交对比。</desc>
+  <rect width="640" height="360" fill="#faf9f5"/>
+  <text x="320" y="28" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">双单倍体（DH）：一代纯合 vs 多代自交</text>
+
+  <text x="150" y="62" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">DH 路线（离体培养）</text>
+  <rect x="55" y="72" width="190" height="36" rx="6" fill="#fff" stroke="#1f6f8b"/>
+  <text x="150" y="95" text-anchor="middle" fill="#333">杂种 F₁</text>
+  <line x1="150" y1="108" x2="150" y2="120" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="55" y="120" width="190" height="36" rx="6" fill="#fff" stroke="#1f6f8b"/>
+  <text x="150" y="143" text-anchor="middle" fill="#333">花药/微孢子离体培养</text>
+  <line x1="150" y1="156" x2="150" y2="168" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="55" y="168" width="190" height="36" rx="6" fill="#fff" stroke="#1f6f8b"/>
+  <text x="150" y="191" text-anchor="middle" fill="#333">单倍体植株（n）</text>
+  <line x1="150" y1="204" x2="150" y2="216" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="55" y="216" width="190" height="36" rx="6" fill="#fff" stroke="#1f6f8b"/>
+  <text x="150" y="239" text-anchor="middle" fill="#333">秋水仙碱加倍 → 纯合 DH</text>
+  <text x="150" y="272" text-anchor="middle" fill="#1f6f8b" font-size="13">1 年即达纯合（杂合度 ≈ 0）</text>
+
+  <text x="470" y="62" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">常规系谱路线（自交）</text>
+  <rect x="390" y="72" width="190" height="36" rx="6" fill="#fff" stroke="#c0392b"/>
+  <text x="485" y="95" text-anchor="middle" fill="#333">杂种 F₁</text>
+  <line x1="485" y1="108" x2="485" y2="120" stroke="#c0392b" stroke-width="2"/>
+  <rect x="390" y="120" width="190" height="36" rx="6" fill="#fff" stroke="#c0392b"/>
+  <text x="485" y="143" text-anchor="middle" fill="#333">F₂–F₆ 连续自交 + 选择</text>
+  <line x1="485" y1="156" x2="485" y2="168" stroke="#c0392b" stroke-width="2"/>
+  <rect x="390" y="168" width="190" height="36" rx="6" fill="#fff" stroke="#c0392b"/>
+  <text x="485" y="191" text-anchor="middle" fill="#333">F₇ 纯合株系</text>
+  <text x="485" y="239" text-anchor="middle" fill="#c0392b" font-size="13">6–8 年才纯合</text>
+
+  <text x="320" y="320" text-anchor="middle" fill="#555" font-size="13">DH 路线用「花药培养 + 加倍」把纯合时间从 6–8 年压缩到 1–2 年，并让每个 DH 系 = 一个完全纯合、可直接评价的基因型</text>
+</svg>

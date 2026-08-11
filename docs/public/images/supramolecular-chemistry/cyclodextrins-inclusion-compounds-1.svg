@@ -1,0 +1,53 @@
+<svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>环糊精截锥结构与包合原理</title>
+<desc>左侧为环糊精截锥形结构：外壁亲水（青色小圆），内腔疏水（橙色）；右侧为客体分子进入空腔形成包合物的示意。</desc>
+<rect x="0" y="0" width="760" height="420" fill="#faf9f5"/>
+
+<text x="380" y="34" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#333" font-weight="bold">环糊精：亲水外壳 + 疏水内腔</text>
+
+<!-- left: CD truncated cone (toroid) -->
+<g transform="translate(160,240)">
+  <!-- outer truncated cone: frustum from top small to bottom large -->
+  <path d="M -90 -70 L 90 -70 L 130 70 L -130 70 Z" fill="#dce6ee" stroke="#1f6f8b" stroke-width="2.5"/>
+  <!-- inner cavity (hole) -->
+  <path d="M -38 -52 L 38 -52 L 58 52 L -58 52 Z" fill="#fdf0dc" stroke="#c0392b" stroke-width="2"/>
+  <!-- hydroxyl rows -->
+  <line x1="-130" y1="70" x2="130" y2="70" stroke="#333" stroke-width="1.5"/>
+  <text x="0" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">仲羟基（大口端，亲水）</text>
+  <line x1="-90" y1="-70" x2="90" y2="-70" stroke="#333" stroke-width="1.5"/>
+  <text x="0" y="-86" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">伯羟基（小口端，亲水）</text>
+</g>
+
+<!-- labels on cavity -->
+<text x="160" y="108" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">内腔（疏水，装客体）</text>
+<text x="160" y="128" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">C–H + 糖苷氧，无羟基</text>
+
+<!-- water dots outside -->
+<g fill="#1f6f8b">
+  <circle cx="40" cy="120" r="4"/><circle cx="300" cy="90" r="4"/><circle cx="330" cy="160" r="4"/>
+  <circle cx="30" cy="200" r="4"/><circle cx="290" cy="300" r="4"/><circle cx="40" cy="330" r="4"/>
+  <circle cx="80" cy="330" r="4"/><circle cx="120" cy="60" r="4"/>
+</g>
+<text x="200" y="400" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">蓝色：水分子（被内腔排除，回到体相即熵增）</text>
+
+<!-- arrow -->
+<path d="M 330 210 L 420 210" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+  <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+</marker>
+</defs>
+<text x="375" y="196" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">包合（可逆）</text>
+
+<!-- right: guest entering CD -->
+<g transform="translate(560,240)">
+  <!-- CD as ring -->
+  <ellipse cx="0" cy="-20" rx="105" ry="34" fill="none" stroke="#1f6f8b" stroke-width="5"/>
+  <ellipse cx="0" cy="-20" rx="105" ry="34" fill="#dce6ee" opacity="0.35"/>
+  <!-- guest benzene-like hexagon inside -->
+  <polygon points="-22,-32 -11,-18 11,-18 22,-32 11,-46 -11,-46" fill="#fdf0dc" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="0" y="-22" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">客体</text>
+</g>
+<text x="560" y="120" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">疏水客体进入空腔 → 包合物</text>
+<text x="560" y="142" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">尺寸匹配 + 弱作用协同</text>
+</svg>

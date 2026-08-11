@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" width="420" height="320" font-family="sans-serif" font-size="14">
+  <title>鞍结分岔示意图</title>
+  <desc>以参数 μ 为横轴、不动点 x* 为纵轴，画出标准形 x' = μ + x² 的分岔图：μ 小于 0 时上下两支不动点并存，μ 大于 0 时没有任何不动点，两支在 μ = 0 处相遇消失。</desc>
+  <rect width="420" height="320" fill="#faf9f5"/>
+  <line x1="30" y1="160" x2="410" y2="160" stroke="#333" stroke-width="1.5"/>
+  <line x1="210" y1="20" x2="210" y2="300" stroke="#333" stroke-width="1.5"/>
+  <text x="398" y="178" fill="#333">μ</text>
+  <text x="220" y="30" fill="#333">x*</text>
+  <text x="205" y="178" fill="#888">0</text>
+  <text x="60" y="178" fill="#888">-2</text>
+  <text x="382" y="178" fill="#888">2</text>
+  <text x="218" y="100" fill="#888">2</text>
+  <text x="218" y="232" fill="#888">-2</text>
+  <!-- 下支：稳定（实线） -->
+  <path d="M210,160 Q120,210 40,245" fill="none" stroke="#1f6f8b" stroke-width="2.4"/>
+  <!-- 上支：不稳定（虚线） -->
+  <path d="M210,160 Q120,110 40,75" fill="none" stroke="#c0392b" stroke-width="2.4" stroke-dasharray="6 4"/>
+  <path d="M128,197 L120,202 M118,200 L127,205" stroke="#1f6f8b" stroke-width="2" fill="none"/>
+  <path d="M128,123 L120,118 M118,120 L127,115" stroke="#c0392b" stroke-width="2" fill="none"/>
+  <circle cx="210" cy="160" r="5" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+  <text x="70" y="230" fill="#1f6f8b">稳定不动点</text>
+  <text x="60" y="62" fill="#c0392b">不稳定不动点</text>
+  <text x="318" y="140" fill="#333">无不动点</text>
+  <text x="226" y="188" fill="#333">鞍结分岔点</text>
+  <path d="M260,150 C280,146 300,144 320,143" fill="none" stroke="#333" stroke-width="1.2" stroke-dasharray="3 2"/>
+</svg>

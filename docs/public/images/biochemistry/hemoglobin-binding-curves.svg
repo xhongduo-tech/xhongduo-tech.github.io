@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 480" font-family="sans-serif" font-size="14">
+  <title>肌红蛋白与血红蛋白的氧合曲线</title>
+  <desc>横轴为氧分压（mmHg），纵轴为氧饱和度；肌红蛋白呈双曲线，血红蛋白呈 S 形曲线，标注两者的 P50。</desc>
+  <rect x="0" y="0" width="660" height="480" fill="#faf9f5"/>
+  <g stroke="#e5e1da" stroke-width="1">
+    <line x1="70" y1="348" x2="620" y2="348"/>
+    <line x1="70" y1="276" x2="620" y2="276"/>
+    <line x1="70" y1="204" x2="620" y2="204"/>
+    <line x1="70" y1="132" x2="620" y2="132"/>
+    <line x1="195" y1="60" x2="195" y2="420"/>
+    <line x1="320" y1="60" x2="320" y2="420"/>
+    <line x1="445" y1="60" x2="445" y2="420"/>
+    <line x1="570" y1="60" x2="570" y2="420"/>
+  </g>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <line x1="70" y1="420" x2="620" y2="420"/>
+    <line x1="70" y1="60" x2="70" y2="430"/>
+    <polygon points="620,420 612,416 612,424" fill="#333"/>
+    <polygon points="70,60 66,68 74,68" fill="#333"/>
+  </g>
+  <g stroke="#999" stroke-width="1.2" stroke-dasharray="5,4">
+    <line x1="82" y1="420" x2="82" y2="205"/>
+    <line x1="178" y1="420" x2="178" y2="330"/>
+    <line x1="70" y1="240" x2="620" y2="240"/>
+  </g>
+  <text x="86" y="198" font-size="13" fill="#333">P50(Mb)≈2.8 mmHg</text>
+  <text x="182" y="322" font-size="13" fill="#333">P50(Hb)≈26 mmHg</text>
+  <g stroke="#c0392b" stroke-width="3" fill="none">
+    <path d="M 70,420 C 80,320 95,225 112,145 C 128,108 160,84 200,74 C 300,60 480,62 610,66"/>
+  </g>
+  <g stroke="#1f6f8b" stroke-width="3" fill="none">
+    <path d="M 70,420 C 130,418 205,406 245,340 C 275,292 305,215 350,152 C 402,106 500,82 610,72"/>
+  </g>
+  <text x="92" y="452" text-anchor="middle" fill="#333">pO2（mmHg）</text>
+  <text x="24" y="250" text-anchor="middle" fill="#333" transform="rotate(-90 24 250)">氧饱和度 Y</text>
+  <g fill="#333" text-anchor="middle">
+    <text x="70" y="440">0</text>
+    <text x="195" y="440">30</text>
+    <text x="320" y="440">60</text>
+    <text x="445" y="440">90</text>
+    <text x="570" y="440">120</text>
+    <text x="54" y="352">0.2</text>
+    <text x="54" y="280">0.4</text>
+    <text x="54" y="208">0.6</text>
+    <text x="54" y="136">0.8</text>
+    <text x="54" y="66">1.0</text>
+  </g>
+  <g font-size="14">
+    <line x1="330" y1="40" x2="380" y2="40" stroke="#c0392b" stroke-width="3"/>
+    <text x="388" y="44" fill="#333">肌红蛋白（单亚基，双曲线）</text>
+    <line x1="330" y1="20" x2="380" y2="20" stroke="#1f6f8b" stroke-width="3"/>
+    <text x="388" y="24" fill="#333">血红蛋白（四聚体，S 形曲线）</text>
+  </g>
+</svg>

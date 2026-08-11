@@ -1,0 +1,52 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>植物逆境应答的三层防线</title>
+<desc>干旱、盐、低温三类逆境汇聚到失水与氧化损伤，植物以气孔关闭、渗透调节、相容性溶质与保护蛋白应答。</desc>
+<rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+<g font-family="sans-serif" font-size="15" fill="#333">
+
+<text x="320" y="40" text-anchor="middle" fill="#c0392b" font-size="18"><tspan font-weight="bold">三大逆境 → 同一核心问题</tspan></text>
+
+<rect x="30" y="70" width="160" height="50" fill="#f5d9a0" stroke="#c0392b" stroke-width="2"/>
+<text x="110" y="95" text-anchor="middle">干旱</text>
+<text x="110" y="114" text-anchor="middle" font-size="13">气孔关闭</text>
+
+<rect x="240" y="70" width="160" height="50" fill="#f5d9a0" stroke="#c0392b" stroke-width="2"/>
+<text x="320" y="95" text-anchor="middle">盐害</text>
+<text x="320" y="114" text-anchor="middle" font-size="13">Na⁺ 毒 + 失水</text>
+
+<rect x="450" y="70" width="160" height="50" fill="#f5d9a0" stroke="#c0392b" stroke-width="2"/>
+<text x="530" y="95" text-anchor="middle">低温/冻害</text>
+<text x="530" y="114" text-anchor="middle" font-size="13">膜相变 / 冰晶</text>
+
+<path d="M 110 120 L 110 160" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 320 120 L 320 160" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M 530 120 L 530 160" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+<rect x="30" y="160" width="580" height="55" fill="#cfe0ee" stroke="#1f6f8b" stroke-width="2"/>
+<text x="320" y="183" text-anchor="middle" fill="#1f6f8b" font-size="16">共同伤害：细胞失水 + 活性氧（ROS）爆发</text>
+<text x="320" y="205" text-anchor="middle" font-size="13">ROS 既是损伤源，也是信号分子</text>
+
+<path d="M 320 215 L 320 255" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+
+<rect x="30" y="255" width="180" height="70" fill="#a8d8a8" stroke="#2e7d32" stroke-width="2"/>
+<text x="120" y="280" text-anchor="middle" fill="#2e7d32">快线：ABA→气孔关闭</text>
+<text x="120" y="302" text-anchor="middle" font-size="13">分钟级，先止损</text>
+
+<rect x="230" y="255" width="180" height="70" fill="#a8d8a8" stroke="#2e7d32" stroke-width="2"/>
+<text x="320" y="280" text-anchor="middle" fill="#2e7d32">渗透调节：相容性溶质</text>
+<text x="320" y="302" text-anchor="middle" font-size="13">脯氨酸/甜菜碱/糖</text>
+
+<rect x="430" y="255" width="180" height="70" fill="#a8d8a8" stroke="#2e7d32" stroke-width="2"/>
+<text x="520" y="280" text-anchor="middle" fill="#2e7d32">长程：LEA/热激蛋白</text>
+<text x="520" y="302" text-anchor="middle" font-size="13">DREB/CBF 转录程序</text>
+
+<text x="320" y="360" text-anchor="middle" fill="#666" font-size="13">抗逆有成本：相容性溶质与保护蛋白都要花碳氮预算 → 生长-抗逆权衡</text>
+<text x="320" y="385" text-anchor="middle" fill="#c0392b" font-size="14"><tspan font-weight="bold">策略：先止损（气孔），再重建（溶质/蛋白）</tspan></text>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+<path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+</marker>
+</defs>
+</g>
+</svg>

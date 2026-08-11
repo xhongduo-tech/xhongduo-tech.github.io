@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" width="800" height="620">
+  <title>高血压管理决策流程（基层版）</title>
+  <desc>从规范测量血压、血压分级、心血管风险评估到起始治疗、药物选择、随访滴定与转诊的基层高血压管理流程图。</desc>
+  <rect x="0" y="0" width="800" height="560" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <text x="400" y="30" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#c0392b">高血压管理决策流程（基层版）</text>
+  <text x="400" y="48" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">对照：2017 ACC/AHA 血压分级与治疗阈值思路（Taylor §35）</text>
+
+  <!-- A: measurement -->
+  <rect x="120" y="62" width="560" height="56" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="400" y="82" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">① 规范测量</text>
+  <text x="400" y="102" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">静坐 5 分钟、多次测量取均值；>180/120 伴症状 → 急症分诊</text>
+  <line x1="400" y1="118" x2="400" y2="136" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- B: classification -->
+  <rect x="120" y="136" width="560" height="76" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="400" y="156" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">② 血压分级（2017 ACC/AHA，mmHg）</text>
+  <text x="400" y="176" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">正常 &lt;120/&lt;80 ｜ 升高 120–129/&lt;80 ｜ 1 级 130–139/80–89 ｜ 2 级 ≥140/≥90</text>
+  <text x="400" y="196" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">确认高血压需不同场合多次测量，排除白大衣与测量误差</text>
+  <line x1="400" y1="212" x2="400" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- C: risk assessment -->
+  <rect x="120" y="230" width="560" height="60" rx="8" fill="#fbe9e7" stroke="#c0392b" stroke-width="2"/>
+  <text x="400" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">③ 评估总体心血管风险与合并症</text>
+  <text x="400" y="272" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">ASCVD 10 年风险评分 + 糖尿病、慢性肾病、已确诊心脑血管病等</text>
+  <line x1="400" y1="290" x2="400" y2="308" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- D: threshold -->
+  <rect x="120" y="308" width="560" height="66" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="400" y="328" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">④ 起始治疗阈值（分层）</text>
+  <text x="400" y="348" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">高危（ASCVD ≥10% 或合并症）→ ≥130/80 即起始药物；低危 → ≥140/90 起始</text>
+  <text x="400" y="366" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">生活方式干预（低盐、运动、减重、限酒）所有患者同步进行</text>
+  <line x1="400" y1="374" x2="400" y2="392" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- E: drug -->
+  <rect x="120" y="392" width="560" height="60" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="400" y="414" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">⑤ 药物起始与联合</text>
+  <text x="400" y="434" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">噻嗪类 / ACEi / ARB / CCB 选一；1 个月未达标 → 加量或联合</text>
+  <text x="400" y="452" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">合并糖尿病蛋白尿者优先 ACEi/ARB；老年体弱者起始宜温和</text>
+  <line x1="400" y1="452" x2="400" y2="470" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- F: follow-up -->
+  <rect x="120" y="470" width="560" height="58" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="400" y="492" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6f8b">⑥ 随访滴定</text>
+  <text x="400" y="512" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">多数患者目标 &lt;130/80；达标前每 1–4 周复诊调药，达标后定期随访</text>
+  <line x1="400" y1="528" x2="400" y2="546" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- G: referral -->
+  <rect x="120" y="546" width="560" height="44" rx="8" fill="#fbe9e7" stroke="#c0392b" stroke-width="2"/>
+  <text x="400" y="566" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">⑦ ≥3 种足量药物仍未达标，或怀疑继发性高血压 → 转诊专科</text>
+  <text x="400" y="584" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">先核查依从性与测量误差，再排查肾动脉狭窄、醛固酮增多症等继发因素</text>
+</svg>

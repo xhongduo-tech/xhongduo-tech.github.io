@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 460" font-family="sans-serif">
+  <title>牛发情周期中的激素消长</title>
+  <desc>约 21 天发情周期内四种激素的相对水平：雌二醇在发情期出现高峰，LH 峰紧随其后触发排卵；孕酮在黄体期维持高位，第 17 天前后 PGF2alpha 脉冲溶解黄体使孕酮骤降，周期重启。</desc>
+  <rect width="780" height="460" fill="#faf9f5"/>
+  <text x="375" y="26" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">牛发情周期中的激素消长（约 21 天）</text>
+
+  <!-- 坐标轴 -->
+  <line x1="60" y1="70" x2="60" y2="390" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="390" x2="690" y2="390" stroke="#333" stroke-width="1.5"/>
+  <!-- 网格线 -->
+  <line x1="270" y1="390" x2="270" y2="75" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="480" y1="390" x2="480" y2="75" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="60" y="410" text-anchor="middle" font-size="13" fill="#333">0（发情）</text>
+  <text x="270" y="410" text-anchor="middle" font-size="13" fill="#333">7</text>
+  <text x="480" y="410" text-anchor="middle" font-size="13" fill="#333">14</text>
+  <text x="690" y="410" text-anchor="middle" font-size="13" fill="#333">21（发情）</text>
+  <text x="375" y="446" text-anchor="middle" font-size="14" fill="#333">发情周期天数（牛）</text>
+  <text x="30" y="245" text-anchor="middle" font-size="14" fill="#333" transform="rotate(-90 30 245)">相对激素水平</text>
+
+  <!-- 雌二醇 E2 -->
+  <path d="M60,80 C68,150 80,220 90,312 C100,355 112,370 120,365 C135,377 145,379 150,381 L360,381 L510,381 L540,381 L570,381 C585,381 592,380 600,379 C615,360 622,345 630,328 C644,290 652,255 660,219 C672,155 682,105 690,80"
+        fill="none" stroke="#c0392b" stroke-width="3"/>
+  <text x="112" y="100" font-size="13" fill="#c0392b" font-weight="bold">雌二醇（E2）</text>
+
+  <!-- LH 峰 -->
+  <path d="M60,385 L63,78 L72,385" fill="none" stroke="#8e44ad" stroke-width="3"/>
+  <text x="86" y="70" font-size="13" fill="#8e44ad" font-weight="bold">LH 峰</text>
+
+  <!-- 孕酮 P4 -->
+  <path d="M60,372 L90,370 L120,368 L150,366 L180,330 L210,266 L240,188 L270,158 L360,158 L480,158 L510,158 L540,176 L570,250 L585,340 L600,372 L630,372 L660,372 L690,372"
+        fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="370" y="136" font-size="13" fill="#1f6f8b" font-weight="bold">孕酮（P4）· 黄体期</text>
+
+  <!-- PGF2α 脉冲 -->
+  <line x1="576" y1="388" x2="576" y2="338" stroke="#e67e22" stroke-width="3"/>
+  <line x1="592" y1="388" x2="592" y2="348" stroke="#e67e22" stroke-width="3"/>
+  <line x1="608" y1="388" x2="608" y2="358" stroke="#e67e22" stroke-width="3"/>
+  <text x="585" y="424" text-anchor="middle" font-size="13" fill="#e67e22" font-weight="bold">溶黄体：PGF2α 脉冲</text>
+
+  <!-- 事件标注 -->
+  <text x="60" y="50" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">发情</text>
+  <text x="690" y="50" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">发情</text>
+  <text x="78" y="428" text-anchor="middle" font-size="13" fill="#333">排卵</text>
+  <path d="M76,392 L76,418" stroke="#333" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="180" y="300" font-size="13" fill="#333">黄体形成，孕酮攀升</text>
+
+  <!-- 图例 -->
+  <rect x="520" y="56" width="200" height="100" rx="6" fill="#ffffff" stroke="#333" stroke-width="1"/>
+  <line x1="532" y1="76" x2="562" y2="76" stroke="#c0392b" stroke-width="3"/>
+  <text x="570" y="80" font-size="13" fill="#333">雌二醇（卵泡期）</text>
+  <line x1="532" y1="100" x2="562" y2="100" stroke="#8e44ad" stroke-width="3"/>
+  <text x="570" y="104" font-size="13" fill="#333">LH（排卵峰）</text>
+  <line x1="532" y1="124" x2="562" y2="124" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="570" y="128" font-size="13" fill="#333">孕酮（黄体期）</text>
+  <line x1="532" y1="148" x2="562" y2="148" stroke="#e67e22" stroke-width="3"/>
+  <text x="570" y="152" font-size="13" fill="#333">PGF2α（溶黄体）</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="sans-serif">
+  <title>2D 卷积与 3D 卷积对比示意</title>
+  <desc>左图：2D 卷积核在单帧内滑动，只处理空间邻域；右图：3D 卷积核跨越多个帧，同时处理时间与空间邻域。</desc>
+  <rect x="0" y="0" width="900" height="460" fill="#faf9f5"/>
+  <rect x="0" y="0" width="450" height="460" fill="#faf9f5"/>
+  <rect x="450" y="0" width="450" height="460" fill="#faf9f5"/>
+
+  <!-- 左面板标题 -->
+  <text x="225" y="40" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">2D 卷积：单帧内滑动</text>
+
+  <!-- 三帧 -->
+  <rect x="60"  y="120" width="90" height="90" fill="#fff" stroke="#333" stroke-width="2"/>
+  <rect x="170" y="120" width="90" height="90" fill="#fff" stroke="#333" stroke-width="2"/>
+  <rect x="280" y="120" width="90" height="90" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="105" y="235" text-anchor="middle" font-size="14" fill="#333">第 t-1 帧</text>
+  <text x="215" y="235" text-anchor="middle" font-size="14" fill="#333">第 t 帧</text>
+  <text x="325" y="235" text-anchor="middle" font-size="14" fill="#333">第 t+1 帧</text>
+
+  <!-- 中间帧的 3x3 网格线 -->
+  <line x1="215" y1="150" x2="215" y2="180" stroke="#999" stroke-width="1"/>
+  <line x1="245" y1="150" x2="245" y2="180" stroke="#999" stroke-width="1"/>
+  <line x1="200" y1="150" x2="230" y2="150" stroke="#999" stroke-width="1"/>
+  <line x1="200" y1="180" x2="230" y2="180" stroke="#999" stroke-width="1"/>
+
+  <!-- 2D 核 -->
+  <rect x="200" y="150" width="30" height="30" fill="#c0392b" fill-opacity="0.35" stroke="#c0392b" stroke-width="2"/>
+  <text x="215" y="300" text-anchor="middle" font-size="14" fill="#c0392b">3×3 核只在一帧内滑动</text>
+
+  <!-- 时间轴 -->
+  <text x="215" y="330" text-anchor="middle" font-size="14" fill="#1f6f8b">时间 →</text>
+  <line x1="120" y1="322" x2="330" y2="322" stroke="#1f6f8b" stroke-width="2"/>
+  <polygon points="330,322 320,318 320,326" fill="#1f6f8b"/>
+
+  <!-- 右面板标题 -->
+  <text x="675" y="40" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">3D 卷积：时空立方体内滑动</text>
+
+  <!-- 视频体（等轴立方体） -->
+  <rect x="560" y="150" width="150" height="120" fill="#fff" stroke="#333" stroke-width="2"/>
+  <polygon points="560,150 620,120 770,120 710,150" fill="#f2efe9" stroke="#333" stroke-width="2"/>
+  <polygon points="710,150 770,120 770,240 710,270" fill="#eae6de" stroke="#333" stroke-width="2"/>
+  <text x="635" y="295" text-anchor="middle" font-size="14" fill="#333">视频体 T×H×W</text>
+
+  <!-- 3D 核（3x3x3 立方体） -->
+  <rect x="620" y="185" width="45" height="45" fill="#c0392b" fill-opacity="0.4" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="620,185 650,170 695,170 665,185" fill="#c0392b" fill-opacity="0.25" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="665,185 695,170 695,215 665,230" fill="#c0392b" fill-opacity="0.15" stroke="#c0392b" stroke-width="2"/>
+  <text x="662" y="350" text-anchor="middle" font-size="14" fill="#c0392b">3×3×3 核跨越时间与空间</text>
+
+  <!-- 滑动箭头 -->
+  <line x1="560" y1="270" x2="760" y2="125" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6,4"/>
+  <polygon points="760,125 748,130 752,120" fill="#1f6f8b"/>
+  <text x="668" y="382" text-anchor="middle" font-size="14" fill="#1f6f8b">沿时间轴逐帧滑动</text>
+
+  <!-- 底部注 -->
+  <text x="225" y="420" text-anchor="middle" font-size="13" fill="#555">时间维不参与 2D 核</text>
+  <text x="675" y="420" text-anchor="middle" font-size="13" fill="#555">时间维成为核的第三个维度</text>
+</svg>

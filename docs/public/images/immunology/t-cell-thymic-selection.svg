@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560" font-family="sans-serif">
+  <title>T 细胞在胸腺中的选择漏斗</title>
+  <desc>从双阴性到成熟单阳性 T 细胞，经过 pre-TCR 检查点、正选择与负选择，绝大部分胸腺细胞凋亡，仅约 1% 至 3% 的细胞输出。</desc>
+  <rect x="0" y="0" width="800" height="560" fill="#faf9f5"/>
+  <text x="400" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">T 细胞在胸腺中的选择漏斗</text>
+
+  <!-- Stage 1: DN -->
+  <rect x="120" y="80" width="560" height="80" rx="8" fill="#eaf2f6" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="150" y="108" font-size="16" font-weight="bold" fill="#1f6f8b">① 双阴性（DN）</text>
+  <text x="150" y="132" font-size="14" fill="#333">骨髓祖细胞入胸腺，TCRβ 重排 + pre-TCR 检查点</text>
+  <text x="150" y="152" font-size="14" fill="#c0392b">通过率约 1/3，其余重排无效而凋亡</text>
+
+  <path d="M400 162 L400 190" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: DP -->
+  <rect x="150" y="192" width="500" height="80" rx="8" fill="#eaf2f6" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="180" y="220" font-size="16" font-weight="bold" fill="#1f6f8b">② 双阳性（DP，CD4⁺CD8⁺）</text>
+  <text x="180" y="244" font-size="14" fill="#333">TCRα 重排，表达完整 αβ TCR，进入皮质开始考试</text>
+  <text x="180" y="264" font-size="14" fill="#333">此时是胸腺细胞数量最多的阶段</text>
+
+  <path d="M400 274 L400 302" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: positive selection -->
+  <rect x="180" y="304" width="440" height="80" rx="8" fill="#fdf0e4" stroke="#c0392b" stroke-width="2"/>
+  <text x="210" y="332" font-size="16" font-weight="bold" fill="#c0392b">③ 正选择（皮质）</text>
+  <text x="210" y="356" font-size="14" fill="#333">TCR 能结合自身 MHC → 存活并定型 CD4/CD8</text>
+  <text x="210" y="376" font-size="14" fill="#c0392b">约 95% 以上结合不上，因无用而凋亡</text>
+
+  <path d="M400 386 L400 414" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: negative selection -->
+  <rect x="220" y="416" width="360" height="80" rx="8" fill="#fdf0e4" stroke="#c0392b" stroke-width="2"/>
+  <text x="250" y="444" font-size="16" font-weight="bold" fill="#c0392b">④ 负选择（髓质）</text>
+  <text x="250" y="468" font-size="14" fill="#333">AIRE 展示全身自身肽样张，强结合者被清除</text>
+  <text x="250" y="488" font-size="14" fill="#c0392b">幸存者最终约 1%–3% 毕业</text>
+
+  <path d="M400 498 L400 520" stroke="#2e7d5b" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Output -->
+  <rect x="280" y="522" width="240" height="30" rx="8" fill="#eaf7ef" stroke="#2e7d5b" stroke-width="2"/>
+  <text x="400" y="542" text-anchor="middle" font-size="14" font-weight="bold" fill="#2e7d5b">成熟单阳性 T 细胞（CD4⁺ 或 CD8⁺）出胸腺</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

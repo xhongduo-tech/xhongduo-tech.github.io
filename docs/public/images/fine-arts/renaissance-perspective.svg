@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" role="img">
+  <title>一点透视原理图</title>
+  <desc>文艺复兴画家建立的一点透视：视平线上的消失点，正面与画面平行，侧面的边线全部汇聚到消失点。</desc>
+  <rect x="0" y="0" width="800" height="520" fill="#faf9f5"/>
+
+  <!-- 天空与地面分区 -->
+  <rect x="0" y="0" width="800" height="250" fill="#f2efe7"/>
+
+  <!-- 视平线（虚线） -->
+  <line x1="50" y1="250" x2="750" y2="250" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="8,5"/>
+  <text x="60" y="238" font-family="sans-serif" font-size="14" fill="#1f6f8b">视平线（地平线，与眼睛同高）</text>
+
+  <!-- 消失点 -->
+  <circle cx="400" cy="250" r="6" fill="#c0392b"/>
+  <text x="414" y="243" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">消失点（vanishing point）</text>
+
+  <!-- 地面 -->
+  <line x1="80" y1="460" x2="720" y2="460" stroke="#333" stroke-width="2"/>
+  <text x="90" y="480" font-family="sans-serif" font-size="14" fill="#333">地面（画面纵深方向，与画面成直角）</text>
+  <text x="90" y="498" font-family="sans-serif" font-size="14" fill="#333">观察者视点（单眼，高度与视平线齐平）</text>
+
+  <!-- 红色正交构造线（虚线）：从前景方体各角连向消失点 -->
+  <line x1="300" y1="180" x2="400" y2="250" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="460" y1="180" x2="400" y2="250" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="300" y1="360" x2="400" y2="250" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="460" y1="360" x2="400" y2="250" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- 方体前面（正面，与画面平行）：不缩形的矩形 -->
+  <rect x="300" y="180" width="160" height="180" fill="#ffffff" stroke="#333" stroke-width="2.5"/>
+
+  <!-- 方体背面（透视缩小） -->
+  <polygon points="360,225 440,225 440,306 360,306" fill="#e8e2d4" stroke="#333" stroke-width="1.8"/>
+
+  <!-- 方体顶面与侧面边线 -->
+  <line x1="300" y1="180" x2="360" y2="225" stroke="#333" stroke-width="1.8"/>
+  <line x1="460" y1="180" x2="440" y2="225" stroke="#333" stroke-width="1.8"/>
+  <line x1="300" y1="360" x2="360" y2="306" stroke="#333" stroke-width="1.8"/>
+  <line x1="460" y1="360" x2="440" y2="306" stroke="#333" stroke-width="1.8"/>
+
+  <!-- 图注 -->
+  <text x="312" y="352" font-family="sans-serif" font-size="14" fill="#333">正面（与画面平行，保持直角）</text>
+  <text x="470" y="330" font-family="sans-serif" font-size="14" fill="#c0392b">侧边线 → 消失点</text>
+  <text x="470" y="348" font-family="sans-serif" font-size="14" fill="#333">（即正交线）</text>
+
+  <!-- 地面透视横线（等距横向线向远处加密） -->
+  <line x1="300" y1="390" x2="460" y2="390" stroke="#999" stroke-width="1"/>
+  <line x1="330" y1="420" x2="430" y2="420" stroke="#999" stroke-width="1"/>
+  <text x="300" y="412" font-family="sans-serif" font-size="13" fill="#666">等距的地面横线在画面上越远越密</text>
+</svg>

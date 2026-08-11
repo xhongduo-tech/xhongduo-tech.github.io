@@ -1,0 +1,62 @@
+<svg viewBox="0 0 660 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>北半球三圈环流经向剖面示意</title>
+<desc>从赤道到北极的剖面。地面有信风、盛行西风、极地东风三条风带；高空有副热带急流与极锋急流。三个环流圈：哈德莱环流、费雷尔环流、极地环流。</desc>
+<defs>
+<marker id="arw-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#c0392b"/></marker>
+<marker id="arw-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f6f8b"/></marker>
+<marker id="arw-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#666"/></marker>
+</defs>
+<rect x="0" y="0" width="660" height="430" fill="#ffffff"/>
+<!-- 对流层顶 -->
+<line x1="330" y1="105" x2="630" y2="105" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="330" y="98" font-family="sans-serif" font-size="13" fill="#666">对流层顶（约 10–12 km）</text>
+<!-- 地面 -->
+<line x1="330" y1="330" x2="630" y2="330" stroke="#333" stroke-width="3"/>
+<!-- 边界竖线 -->
+<line x1="330" y1="105" x2="330" y2="330" stroke="#888" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="430" y1="105" x2="430" y2="330" stroke="#888" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="530" y1="105" x2="530" y2="330" stroke="#888" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="630" y1="105" x2="630" y2="330" stroke="#888" stroke-width="1" stroke-dasharray="3 3"/>
+<!-- 哈德莱环流：上升 -->
+<line x1="345" y1="318" x2="345" y2="185" stroke="#c0392b" stroke-width="3" marker-end="url(#arw-red)"/>
+<!-- 哈德莱环流：高空向极 -->
+<line x1="345" y1="160" x2="425" y2="160" stroke="#c0392b" stroke-width="3" marker-end="url(#arw-red)"/>
+<!-- 哈德莱环流：下沉 -->
+<line x1="430" y1="180" x2="430" y2="318" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arw-blue)"/>
+<!-- 哈德莱环流：地面向赤道（信风） -->
+<line x1="425" y1="322" x2="345" y2="322" stroke="#c0392b" stroke-width="3" marker-end="url(#arw-red)"/>
+<!-- 费雷尔环流：地面向极（西风） -->
+<line x1="435" y1="322" x2="525" y2="322" stroke="#666" stroke-width="3" marker-end="url(#arw-gray)"/>
+<!-- 费雷尔环流：高空向赤道 -->
+<line x1="530" y1="160" x2="435" y2="160" stroke="#666" stroke-width="3" marker-end="url(#arw-gray)"/>
+<!-- 极地环流：地面向赤道（极地东风） -->
+<line x1="625" y1="322" x2="535" y2="322" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arw-blue)"/>
+<!-- 极地环流：高空向极 -->
+<line x1="530" y1="185" x2="625" y2="185" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arw-blue)"/>
+<!-- 极地环流：极地下沉 -->
+<line x1="625" y1="200" x2="625" y2="318" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arw-blue)"/>
+<!-- 急流 -->
+<circle cx="425" cy="138" r="4" fill="#e67e22"/>
+<text x="370" y="142" font-family="sans-serif" font-size="13" fill="#e67e22">副热带急流</text>
+<circle cx="545" cy="150" r="4" fill="#e67e22"/>
+<text x="545" y="146" font-family="sans-serif" font-size="13" fill="#e67e22">极锋急流</text>
+<!-- 纬度标注 -->
+<text x="330" y="352" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">赤道（0°）</text>
+<text x="430" y="352" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">30°N</text>
+<text x="530" y="352" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">60°N</text>
+<text x="630" y="352" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">90°N</text>
+<!-- 环流名 -->
+<text x="380" y="255" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle" font-weight="bold">哈德莱环流</text>
+<text x="480" y="255" font-family="sans-serif" font-size="14" fill="#666" text-anchor="middle" font-weight="bold">费雷尔环流</text>
+<text x="580" y="255" font-family="sans-serif" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">极地环流</text>
+<!-- 风带标注 -->
+<text x="385" y="395" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">东北信风（东风）</text>
+<text x="480" y="395" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">盛行西风</text>
+<text x="580" y="395" font-family="sans-serif" font-size="13" fill="#1f6f8b" text-anchor="middle">极地东风</text>
+<!-- 特征带 -->
+<text x="330" y="380" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">赤道辐合带（ITCZ）</text>
+<text x="430" y="380" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">副热带高压带</text>
+<text x="530" y="380" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">极锋（低压带）</text>
+<text x="630" y="380" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">极地高压</text>
+<text x="480" y="420" font-family="sans-serif" font-size="13" fill="#999" text-anchor="middle">北半球经向剖面示意（南半球镜像对称）</text>
+</svg>

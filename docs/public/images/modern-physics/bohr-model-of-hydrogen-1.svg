@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" width="600" height="470" font-family="sans-serif">
+  <title>氢原子玻尔模型的能级图与谱线系</title>
+  <desc>氢原子能级按 1/n² 排列，箭头表示莱曼系、巴耳末系、帕邢系的跃迁谱线。</desc>
+  <rect width="600" height="470" fill="#faf9f5"/>
+
+  <line x1="70" y1="40" x2="70" y2="405" stroke="#333" stroke-width="2"/>
+  <text x="42" y="48" font-size="14" fill="#333">E = 0</text>
+  <text x="52" y="430" font-size="14" fill="#333">n</text>
+  <text x="30" y="42" font-size="14" fill="#333">能级</text>
+
+  <!-- levels -->
+  <line x1="70" y1="400" x2="430" y2="400" stroke="#333" stroke-width="2"/>
+  <text x="440" y="404" font-size="15" fill="#333">n=1  −13.6 eV</text>
+
+  <line x1="70" y1="130" x2="430" y2="130" stroke="#333" stroke-width="2"/>
+  <text x="440" y="134" font-size="15" fill="#333">n=2  −3.40 eV</text>
+
+  <line x1="70" y1="80" x2="430" y2="80" stroke="#333" stroke-width="2"/>
+  <text x="440" y="84" font-size="15" fill="#333">n=3  −1.51 eV</text>
+
+  <line x1="70" y1="62" x2="430" y2="62" stroke="#333" stroke-width="2"/>
+  <text x="440" y="66" font-size="15" fill="#333">n=4  −0.85 eV</text>
+
+  <line x1="70" y1="40" x2="430" y2="40" stroke="#333" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="440" y="44" font-size="15" fill="#333">n=∞  0 eV</text>
+
+  <!-- Lyman series: to n=1 -->
+  <line x1="130" y1="130" x2="130" y2="398" stroke="#c0392b" stroke-width="3" marker-end="url(#arrowr)"/>
+  <line x1="160" y1="80" x2="160" y2="398" stroke="#c0392b" stroke-width="3" marker-end="url(#arrowr)"/>
+  <line x1="190" y1="62" x2="190" y2="398" stroke="#c0392b" stroke-width="3" marker-end="url(#arrowr)"/>
+
+  <!-- Balmer series: to n=2 -->
+  <line x1="250" y1="80" x2="250" y2="128" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrowb)"/>
+  <line x1="280" y1="62" x2="280" y2="128" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrowb)"/>
+
+  <!-- Paschen: n=4 to n=3 -->
+  <line x1="360" y1="62" x2="360" y2="78" stroke="#7f8c1d" stroke-width="3" marker-end="url(#arrowg)"/>
+
+  <text x="105" y="250" font-size="14" fill="#c0392b" transform="rotate(-90 105 250)">莱曼系（紫外）→ n=1</text>
+  <text x="220" y="95" font-size="14" fill="#1f6f8b">巴耳末系（可见）</text>
+  <text x="300" y="80" font-size="14" fill="#1f6f8b">→ n=2</text>
+  <text x="325" y="60" font-size="14" fill="#7f8c1d">帕邢系 → n=3</text>
+
+  <defs>
+    <marker id="arrowr" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+    <marker id="arrowb" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrowg" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#7f8c1d"/>
+    </marker>
+  </defs>
+</svg>

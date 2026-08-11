@@ -1,0 +1,29 @@
+<svg viewBox="0 0 700 480" width="700" height="480" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>洛伦兹曲线与基尼系数</title>
+<desc>横轴为人口累计百分比，纵轴为收入累计百分比；完全均等线为对角线，实际洛伦兹曲线弯在对角线之下，基尼系数等于 A 面积除以 A 加 B 面积。</desc>
+<rect width="700" height="480" fill="#faf9f5"/>
+<!-- plot area -->
+<polygon points="100,400 600,400 600,100" fill="#fff" stroke="#333" stroke-width="2"/>
+<!-- axes labels -->
+<text x="350" y="445" text-anchor="middle" font-size="15" fill="#333">人口累计百分比（由低收入到高收入）</text>
+<text x="30" y="250" text-anchor="middle" font-size="15" fill="#333" transform="rotate(-90 30 250)">收入累计百分比</text>
+<text x="105" y="420" font-size="13" fill="#333">0</text>
+<text x="585" y="420" font-size="13" fill="#333">100%</text>
+<text x="30" y="100" font-size="13" fill="#333">100%</text>
+<!-- equality diagonal -->
+<line x1="100" y1="400" x2="600" y2="100" stroke="#1f6f8b" stroke-width="2"/>
+<text x="600" y="80" text-anchor="end" font-size="14" fill="#1f6f8b">完全均等线（对角线）</text>
+<!-- Lorenz curve -->
+<path d="M 100 400 C 200 400, 270 395, 360 355 C 430 325, 520 220, 600 100" fill="none" stroke="#c0392b" stroke-width="3"/>
+<!-- region B -->
+<path d="M 100 400 C 200 400, 270 395, 360 355 C 430 325, 520 220, 600 100 L 600 400 Z" fill="#1f6f8b" fill-opacity="0.15"/>
+<!-- region A -->
+<path d="M 100 400 L 600 100 C 520 220, 430 325, 360 355 C 270 395, 200 400, 100 400 Z" fill="#c0392b" fill-opacity="0.18"/>
+<!-- labels A and B -->
+<text x="250" y="330" text-anchor="middle" font-size="22" fill="#c0392b" font-weight="bold">A</text>
+<text x="400" y="390" text-anchor="middle" font-size="22" fill="#1f6f8b" font-weight="bold">B</text>
+<text x="640" y="250" font-size="14" fill="#c0392b">洛伦兹曲线</text>
+<line x1="560" y1="240" x2="615" y2="215" stroke="#c0392b" stroke-width="1.5"/>
+<!-- formula -->
+<text x="350" y="468" text-anchor="middle" font-size="16" fill="#333">基尼系数 G = A / (A + B)</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460">
+<title>光锥：类时、类光与类空区域</title>
+<desc>以事件 O 为原点的四维时空光锥：光锥内部是类时区域（与 O 有因果联系），光锥面上是类光区域，光锥外部是类空区域（与 O 无因果联系）。</desc>
+<rect x="0" y="0" width="640" height="460" fill="#faf9f5"/>
+<!-- 时间轴 -->
+<line x1="320" y1="30" x2="320" y2="430" stroke="#333" stroke-width="3"/>
+<polygon points="320,20 312,40 328,40" fill="#333"/>
+<text x="338" y="42" font-family="sans-serif" font-size="16" fill="#333">t（时间）</text>
+<!-- 光锥轮廓 -->
+<path d="M320 40 L160 240 L320 240 L480 240 Z" fill="#f0d9a8" opacity="0.55"/>
+<path d="M320 440 L160 240 L320 240 L480 240 Z" fill="#d9e8f0" opacity="0.55"/>
+<path d="M320 40 L160 240 L320 440 L480 240 Z" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+<!-- 空间轴 -->
+<line x1="60" y1="240" x2="600" y2="240" stroke="#333" stroke-width="3"/>
+<polygon points="610,240 590,230 590,250" fill="#333"/>
+<text x="590" y="228" font-family="sans-serif" font-size="16" fill="#333">x（空间）</text>
+<!-- 原点事件 -->
+<circle cx="320" cy="240" r="6" fill="#c0392b"/>
+<text x="335" y="245" font-family="sans-serif" font-size="15" fill="#c0392b">事件 O（现在）</text>
+<!-- 区域标注 -->
+<text x="150" y="120" font-family="sans-serif" font-size="16" fill="#333">未来光锥</text>
+<text x="112" y="140" font-family="sans-serif" font-size="14" fill="#666">类时：可与 O 因果相关</text>
+<text x="150" y="330" font-family="sans-serif" font-size="16" fill="#333">过去光锥</text>
+<text x="112" y="352" font-family="sans-serif" font-size="14" fill="#666">O 的因果来源区</text>
+<text x="470" y="180" font-family="sans-serif" font-size="16" fill="#333">类空</text>
+<text x="440" y="200" font-family="sans-serif" font-size="14" fill="#666">与 O 无因果联系</text>
+<text x="210" y="220" font-family="sans-serif" font-size="13" fill="#1f6f8b">光锥面：s² = 0</text>
+</svg>

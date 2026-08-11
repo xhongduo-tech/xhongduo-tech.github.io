@@ -1,0 +1,41 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" width="760" height="300" role="img" aria-labelledby="title desc">
+<title>无锁链表（Harris 链表）的插入操作</title>
+<desc>链表中 A 与 B 相邻，线程插入新节点 D。第一步先用 CAS 把 D 接到 B 前面，使链表暂时成 A-D-B 且 D 的标记位为未删除；第二步再用 CAS 把 A 的 next 从 B 改指到 D。</desc>
+<rect x="0" y="0" width="760" height="300" fill="#faf9f5" />
+
+<text x="20" y="36" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">Harris 无锁链表：插入节点 D 的两步 CAS</text>
+
+<!-- 第一步：D 插入到 B 前面 -->
+<text x="30" y="80" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">第 1 步：CAS(D.next, B, D) 使 D 接在 B 前</text>
+
+<!-- 头哨兵 -->
+<rect x="40" y="100" width="70" height="50" rx="6" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="75" y="130" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">A</text>
+<line x1="112" y1="125" x2="160" y2="125" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" />
+<text x="136" y="115" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">第 2 步</text>
+
+<rect x="200" y="100" width="70" height="50" rx="6" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="235" y="130" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">B</text>
+<line x1="272" y1="125" x2="320" y2="125" stroke="#333" stroke-width="2" />
+<rect x="330" y="100" width="70" height="50" rx="6" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="365" y="130" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">C</text>
+<line x1="402" y1="125" x2="430" y2="125" stroke="#333" stroke-width="2" />
+
+<!-- 新节点 D -->
+<rect x="450" y="180" width="70" height="50" rx="6" fill="#f5e6e3" stroke="#c0392b" stroke-width="2.5" />
+<text x="485" y="210" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">D</text>
+<line x1="520" y1="180" x2="520" y2="158" stroke="#1f6f8b" stroke-width="2" marker-end="url(#up1)" />
+<line x1="290" y1="145" x2="455" y2="178" stroke="#1f6f8b" stroke-width="2" marker-end="url(#up2)" />
+
+<defs>
+<marker id="up1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#1f6f8b" /></marker>
+<marker id="up2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#1f6f8b" /></marker>
+</defs>
+
+<line x1="120" y1="95" x2="95" y2="95" stroke="none" />
+<text x="30" y="175" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">第 2 步：CAS(A.next, B, D) 使 A 直接指向 D</text>
+
+<rect x="30" y="240" width="700" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5" />
+<text x="40" y="264" font-family="sans-serif" font-size="14" fill="#333">为什么安全：B 先被「逻辑标记」为已删除，若 A 已指向 D，B 无法再被插入者利用</text>
+<text x="40" y="282" font-family="sans-serif" font-size="14" fill="#666">—— 插入与删除并发时，链表短暂成环也可被 CAS 修复，无锁链表因此无需全表加锁</text>
+</svg>

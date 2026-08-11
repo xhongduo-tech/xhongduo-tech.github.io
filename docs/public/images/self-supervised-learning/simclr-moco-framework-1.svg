@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="920" height="520" font-family="sans-serif">
+  <title>对比学习通用框架：SimCLR 与 MoCo</title>
+  <desc>左图展示 SimCLR 以批内其他样本为负样本的对比框架；右图展示 MoCo 以动量编码器与负样本队列为核心的结构。</desc>
+  <rect x="0" y="0" width="920" height="520" fill="#faf9f5"/>
+  <text x="460" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">对比学习通用框架：SimCLR（批内负样本）与 MoCo（队列 + 动量编码器）</text>
+
+  <!-- Panel A: SimCLR -->
+  <text x="45" y="68" font-size="16" font-weight="bold" fill="#1f6f8b">A · SimCLR：同一图像的两个增广视角 + 批内负样本</text>
+  <rect x="55" y="86" width="140" height="34" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="125" y="108" text-anchor="middle" font-size="14" fill="#333">样本 xᵢ</text>
+
+  <rect x="60" y="150" width="120" height="30" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="120" y="169" text-anchor="middle" font-size="13" fill="#1f6f8b">增广 t₁</text>
+  <rect x="190" y="150" width="120" height="30" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="250" y="169" text-anchor="middle" font-size="13" fill="#1f6f8b">增广 t₂</text>
+  <line x1="125" y1="120" x2="120" y2="150" stroke="#333" stroke-width="1.5"/>
+  <line x1="125" y1="120" x2="250" y2="150" stroke="#333" stroke-width="1.5"/>
+
+  <rect x="60" y="210" width="120" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="120" y="229" text-anchor="middle" font-size="13" fill="#333">编码器 f(·)</text>
+  <rect x="190" y="210" width="120" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="250" y="229" text-anchor="middle" font-size="13" fill="#333">编码器 f(·)</text>
+  <line x1="120" y1="180" x2="120" y2="210" stroke="#333" stroke-width="1.5"/>
+  <line x1="250" y1="180" x2="250" y2="210" stroke="#333" stroke-width="1.5"/>
+
+  <rect x="60" y="270" width="120" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="120" y="289" text-anchor="middle" font-size="13" fill="#333">投影头 g(·)</text>
+  <rect x="190" y="270" width="120" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="250" y="289" text-anchor="middle" font-size="13" fill="#333">投影头 g(·)</text>
+  <line x1="120" y1="240" x2="120" y2="270" stroke="#333" stroke-width="1.5"/>
+  <line x1="250" y1="240" x2="250" y2="270" stroke="#333" stroke-width="1.5"/>
+
+  <rect x="60" y="330" width="120" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="120" y="349" text-anchor="middle" font-size="14" fill="#333">zᵢ</text>
+  <rect x="190" y="330" width="120" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="250" y="349" text-anchor="middle" font-size="14" fill="#333">zᵢ′</text>
+  <line x1="120" y1="300" x2="120" y2="330" stroke="#333" stroke-width="1.5"/>
+  <line x1="250" y1="300" x2="250" y2="330" stroke="#333" stroke-width="1.5"/>
+
+  <rect x="55" y="400" width="255" height="40" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+  <text x="182" y="425" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">相似度 s(zᵢ, zᵢ′) 拉近</text>
+  <line x1="120" y1="360" x2="150" y2="400" stroke="#c0392b" stroke-width="2"/>
+  <line x1="250" y1="360" x2="215" y2="400" stroke="#c0392b" stroke-width="2"/>
+
+  <rect x="180" y="330" width="150" height="56" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="255" y="352" text-anchor="middle" font-size="13" fill="#1f6f8b">批内其余样本</text>
+  <text x="255" y="372" text-anchor="middle" font-size="13" fill="#1f6f8b">（负样本，4095 个）</text>
+  <line x1="330" y1="358" x2="312" y2="420" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="337" y="390" font-size="13" fill="#1f6f8b">推远</text>
+
+  <!-- Panel B: MoCo -->
+  <line x1="465" y1="70" x2="465" y2="490" stroke="#ccc" stroke-width="1.5"/>
+  <text x="490" y="68" font-size="16" font-weight="bold" fill="#c0392b">B · MoCo：动量编码器 + 负样本队列</text>
+
+  <rect x="490" y="86" width="150" height="34" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="565" y="108" text-anchor="middle" font-size="14" fill="#333">查询样本 x_qu</text>
+  <rect x="660" y="86" width="170" height="34" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="745" y="108" text-anchor="middle" font-size="14" fill="#333">键样本 x_k（增广）</text>
+
+  <rect x="480" y="150" width="170" height="34" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="565" y="171" text-anchor="middle" font-size="13" fill="#333">查询编码器 θ_q</text>
+  <text x="565" y="186" text-anchor="middle" font-size="12" fill="#666">梯度更新</text>
+  <rect x="660" y="150" width="170" height="34" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="745" y="171" text-anchor="middle" font-size="13" fill="#333">键编码器 θ_k</text>
+  <text x="745" y="186" text-anchor="middle" font-size="12" fill="#666">动量更新（EMA）</text>
+  <line x1="565" y1="120" x2="565" y2="150" stroke="#333" stroke-width="1.5"/>
+  <line x1="745" y1="120" x2="745" y2="150" stroke="#333" stroke-width="1.5"/>
+  <line x1="650" y1="167" x2="660" y2="167" stroke="#c0392b" stroke-width="2"/>
+  <text x="630" y="140" text-anchor="middle" font-size="12" fill="#c0392b">θ_k ← m·θ_k + (1−m)·θ_q</text>
+
+  <rect x="480" y="214" width="170" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="565" y="234" text-anchor="middle" font-size="14" fill="#333">查询嵌入 q</text>
+  <rect x="660" y="214" width="170" height="30" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="745" y="234" text-anchor="middle" font-size="14" fill="#333">正键嵌入 k₊</text>
+  <line x1="565" y1="184" x2="565" y2="214" stroke="#333" stroke-width="1.5"/>
+  <line x1="745" y1="184" x2="745" y2="214" stroke="#333" stroke-width="1.5"/>
+
+  <rect x="600" y="300" width="250" height="60" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="725" y="324" text-anchor="middle" font-size="13" fill="#1f6f8b">负样本队列（FIFO）</text>
+  <text x="725" y="344" text-anchor="middle" font-size="13" fill="#1f6f8b">65536 个历史键 k₋</text>
+  <line x1="745" y1="244" x2="745" y2="300" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="760" y="275" font-size="12" fill="#1f6f8b">新键入队</text>
+
+  <rect x="490" y="400" width="360" height="40" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+  <text x="670" y="425" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">损失：q 匹配 k₊，排斥队列中的 k₋</text>
+  <line x1="565" y1="244" x2="580" y2="400" stroke="#c0392b" stroke-width="2"/>
+  <line x1="745" y1="244" x2="720" y2="400" stroke="#c0392b" stroke-width="2"/>
+  <line x1="660" y1="330" x2="640" y2="400" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="668" y="360" font-size="12" fill="#1f6f8b">旧键出队</text>
+</svg>

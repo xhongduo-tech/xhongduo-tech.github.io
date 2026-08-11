@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="640" height="260" font-family="sans-serif">
+  <title>BCI 闭环解码流水线示意图</title>
+  <desc>从左到右五个环节：大脑神经活动、信号采集、特征提取、解码器、设备输出，再由设备输出的反馈箭头回到大脑，构成闭环。</desc>
+  <rect x="0" y="0" width="640" height="260" fill="#faf9f5"/>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <rect x="20" y="95" width="110" height="70" rx="8" fill="#1f6f8b"/>
+    <text x="75" y="122" fill="#fff" font-weight="bold">神经活动</text>
+    <text x="75" y="142" fill="#fff">EEG / ECoG</text>
+    <rect x="150" y="95" width="110" height="70" rx="8" fill="#fff" stroke="#333"/>
+    <text x="205" y="122" font-weight="bold">信号采集</text>
+    <text x="205" y="142">滤波 · 采样</text>
+    <rect x="280" y="95" width="110" height="70" rx="8" fill="#fff" stroke="#333"/>
+    <text x="335" y="122" font-weight="bold">特征提取</text>
+    <text x="335" y="142">功率 · CSP</text>
+    <rect x="410" y="95" width="110" height="70" rx="8" fill="#c0392b"/>
+    <text x="465" y="122" fill="#fff" font-weight="bold">解码器</text>
+    <text x="465" y="142" fill="#fff">LDA / 卡尔曼</text>
+    <rect x="540" y="95" width="85" height="70" rx="8" fill="#fff" stroke="#333"/>
+    <text x="582" y="122" font-weight="bold">设备</text>
+    <text x="582" y="142">光标 / 拼写</text>
+  </g>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <path d="M 130 130 L 150 130"/>
+    <path d="M 260 130 L 280 130"/>
+    <path d="M 390 130 L 410 130"/>
+    <path d="M 520 130 L 540 130"/>
+  </g>
+  <g stroke="#c0392b" stroke-width="2" fill="none" stroke-dasharray="6 4">
+    <path d="M 582 165 L 582 205 L 75 205 L 75 165"/>
+  </g>
+  <text x="330" y="198" font-size="14" fill="#c0392b" text-anchor="middle">视觉 / 触觉反馈：大脑据此调整下一次意图（闭环）</text>
+  <path d="M 582 205 L 588 205" stroke="#333" stroke-width="2" fill="none"/>
+  <text x="120" y="228" font-size="13" fill="#333">意图 → 命令（正向）与 反馈 → 可塑性（反向）同时存在</text>
+</svg>

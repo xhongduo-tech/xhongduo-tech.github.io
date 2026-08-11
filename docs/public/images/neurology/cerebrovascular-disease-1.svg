@@ -1,0 +1,45 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>缺血半暗带与时间演化</title>
+  <desc>梗死核心、缺血半暗带、正常灌注三圈结构，以及随时间推移半暗带向核心演化的过程。</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+  <text x="320" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">缺血半暗带：救的是「还活着」的部分</text>
+
+  <!-- 左侧同心圆图 -->
+  <g>
+    <circle cx="190" cy="200" r="120" fill="#1f6f8b" opacity="0.10" stroke="#1f6f8b"/>
+    <circle cx="190" cy="200" r="78" fill="#c0392b" opacity="0.20" stroke="#c0392b"/>
+    <circle cx="190" cy="200" r="38" fill="#c0392b" opacity="0.55"/>
+    <text x="190" y="196" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">梗死核心</text>
+    <text x="190" y="213" text-anchor="middle" font-size="12" fill="#fff">CBF &lt; 10</text>
+    <text x="190" y="118" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">缺血半暗带</text>
+    <text x="190" y="140" text-anchor="middle" font-size="12" fill="#c0392b">CBF 10–20 · 电活动停止</text>
+    <text x="190" y="153" text-anchor="middle" font-size="12" fill="#c0392b">结构仍存活 · 可挽救</text>
+    <text x="190" y="78" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">正常灌注区</text>
+    <text x="190" y="95" text-anchor="middle" font-size="12" fill="#1f6f8b">CBF ≈ 50 ml/100g/min</text>
+    <text x="190" y="330" text-anchor="middle" font-size="13" fill="#333">溶栓/取栓目标：把半暗带从「睡眠」唤醒</text>
+  </g>
+
+  <!-- 中间箭头 -->
+  <text x="330" y="200" text-anchor="middle" font-size="22" fill="#333">→</text>
+
+  <!-- 右侧时间演化 -->
+  <g>
+    <rect x="360" y="90" width="240" height="40" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+    <text x="480" y="108" text-anchor="middle" font-size="13" fill="#333">0–3 小时 · 半暗带最大</text>
+    <text x="480" y="124" text-anchor="middle" font-size="12" fill="#1f6f8b">溶栓窗口内</text>
+
+    <rect x="360" y="150" width="240" height="40" rx="6" fill="#1f6f8b" opacity="0.25" stroke="#1f6f8b"/>
+    <text x="480" y="168" text-anchor="middle" font-size="13" fill="#333">4.5 小时 · 溶栓窗口上限</text>
+    <text x="480" y="184" text-anchor="middle" font-size="12" fill="#1f6f8b">核心扩大、半暗带收窄</text>
+
+    <rect x="360" y="210" width="240" height="40" rx="6" fill="#c0392b" opacity="0.15" stroke="#c0392b"/>
+    <text x="480" y="228" text-anchor="middle" font-size="13" fill="#333">24 小时 · 影像筛选后取栓可至</text>
+    <text x="480" y="244" text-anchor="middle" font-size="12" fill="#c0392b">依赖灌注成像确认仍有可救组织</text>
+
+    <rect x="360" y="270" width="240" height="40" rx="6" fill="#c0392b" opacity="0.30" stroke="#c0392b"/>
+    <text x="480" y="288" text-anchor="middle" font-size="13" fill="#333">数天后 · 半暗带全部并入核心</text>
+    <text x="480" y="304" text-anchor="middle" font-size="12" fill="#c0392b">→ 永久梗死，进入康复期</text>
+
+    <text x="480" y="345" text-anchor="middle" font-size="13" font-weight="bold" fill="#c0392b">每一分钟，约 190 万神经元在死去</text>
+  </g>
+</svg>

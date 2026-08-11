@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" width="460" height="300" font-family="sans-serif">
+  <title>调制把基带频谱搬移到载波频率两侧</title>
+  <desc>上：基带信号 m(t) 的频谱集中在零频附近；下：乘以载波 cos(ωc t) 后，频谱被搬到 ±ωc 两侧，各出现一份，靠近零频的是下边带、远离零频的是上边带。</desc>
+  <rect x="0" y="0" width="460" height="300" fill="#faf9f5"/>
+  <text x="12" y="20" font-size="14" fill="#c0392b" font-weight="bold">调制 = 频谱搬家：把基带搬到载频两侧</text>
+
+  <!-- 上栏：基带频谱 -->
+  <text x="12" y="46" font-size="13" fill="#333">基带频谱 M(jω)（集中在零频附近）</text>
+  <line x1="30" y1="105" x2="430" y2="105" stroke="#333" stroke-width="1"/>
+  <polygon points="160,105 230,45 300,105" fill="#1f6f8b" opacity="0.85"/>
+  <text x="300" y="140" font-size="12" fill="#666">0（零频）</text>
+  <line x1="230" y1="105" x2="230" y2="95" stroke="#333" stroke-width="1"/>
+
+  <!-- 下栏：DSB-SC 频谱 -->
+  <text x="12" y="176" font-size="13" fill="#333">乘载波后：在 ±ωc 各出现一份拷贝</text>
+  <line x1="30" y1="235" x2="430" y2="235" stroke="#333" stroke-width="1"/>
+  <polygon points="30,235 100,175 170,235" fill="#1f6f8b" opacity="0.8"/>
+  <polygon points="290,235 360,175 430,235" fill="#1f6f8b" opacity="0.8"/>
+  <line x1="100" y1="235" x2="100" y2="225" stroke="#333" stroke-width="1"/>
+  <line x1="360" y1="235" x2="360" y2="225" stroke="#333" stroke-width="1"/>
+  <text x="55" y="228" font-size="12" fill="#666">下边带</text>
+  <text x="118" y="228" font-size="12" fill="#c0392b">上边带</text>
+  <text x="338" y="228" font-size="12" fill="#666">下边带</text>
+  <text x="392" y="228" font-size="12" fill="#c0392b">上边带</text>
+  <text x="88" y="252" font-size="12" fill="#666">-ωc</text>
+  <text x="222" y="252" font-size="12" fill="#666">0</text>
+  <text x="348" y="252" font-size="12" fill="#666">+ωc</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>FAO 土地适宜性分类等级树</title>
+<desc>从适宜性纲、级、亚级到单元的树状结构：S 纲含 S1/S2/S3，N 纲含 N1/N2，并示例亚级标注。</desc>
+<rect x="0" y="0" width="860" height="400" fill="#faf9f5"/>
+<!-- Root -->
+<rect x="330" y="30" width="200" height="44" rx="6" fill="#1f6f8b"/>
+<text x="430" y="58" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">适宜性等级</text>
+<!-- S branch -->
+<line x1="430" y1="74" x2="210" y2="110" stroke="#333" stroke-width="2"/>
+<line x1="430" y1="74" x2="640" y2="110" stroke="#333" stroke-width="2"/>
+<rect x="105" y="110" width="210" height="44" rx="6" fill="#c0392b"/>
+<text x="210" y="138" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">S 纲 适宜</text>
+<rect x="535" y="110" width="210" height="44" rx="6" fill="#c0392b"/>
+<text x="640" y="138" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">N 纲 不适宜</text>
+<!-- S1 S2 S3 -->
+<line x1="160" y1="154" x2="100" y2="190" stroke="#333" stroke-width="2"/>
+<line x1="210" y1="154" x2="210" y2="190" stroke="#333" stroke-width="2"/>
+<line x1="260" y1="154" x2="320" y2="190" stroke="#333" stroke-width="2"/>
+<rect x="30" y="190" width="140" height="40" rx="5" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="100" y="216" text-anchor="middle" fill="#333" font-size="15" font-weight="bold">S1 高度适宜</text>
+<rect x="155" y="190" width="110" height="40" rx="5" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="210" y="216" text-anchor="middle" fill="#333" font-size="15" font-weight="bold">S2 中等适宜</text>
+<rect x="275" y="190" width="110" height="40" rx="5" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="330" y="216" text-anchor="middle" fill="#333" font-size="15" font-weight="bold">S3 勉强适宜</text>
+<!-- N1 N2 -->
+<line x1="590" y1="154" x2="550" y2="190" stroke="#333" stroke-width="2"/>
+<line x1="690" y1="154" x2="730" y2="190" stroke="#333" stroke-width="2"/>
+<rect x="490" y="190" width="120" height="40" rx="5" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="550" y="216" text-anchor="middle" fill="#333" font-size="15" font-weight="bold">N1 目前不适宜</text>
+<rect x="650" y="190" width="160" height="40" rx="5" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="730" y="216" text-anchor="middle" fill="#333" font-size="15" font-weight="bold">N2 永久不适宜</text>
+<!-- subclass example -->
+<line x1="210" y1="230" x2="210" y2="260" stroke="#333" stroke-width="2"/>
+<rect x="90" y="260" width="240" height="52" rx="5" fill="#faf9f5" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="210" y="282" text-anchor="middle" fill="#333" font-size="14">亚级标注示例：S2w / S2s / N1e</text>
+<text x="210" y="302" text-anchor="middle" fill="#555" font-size="13">w=水分限制　s=土壤限制　e=侵蚀风险</text>
+<!-- units note -->
+<line x1="210" y1="312" x2="210" y2="340" stroke="#333" stroke-width="2"/>
+<rect x="120" y="340" width="180" height="40" rx="5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="210" y="365" text-anchor="middle" fill="#333" font-size="14">单元：S2w-1（最小管理级）</text>
+</svg>

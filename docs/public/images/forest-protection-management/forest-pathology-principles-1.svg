@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>病害三角</title>
+  <desc>寄主、病原、环境三个因子必须同时具备且环境有利，病害才会发生</desc>
+  <rect width="900" height="560" fill="#faf9f5"/>
+  <polygon points="450,120 170,470 730,470" fill="#1f6f8b" opacity="0.08" stroke="#333" stroke-width="3"/>
+  <circle cx="450" cy="120" r="46" fill="#1f6f8b"/>
+  <circle cx="170" cy="470" r="46" fill="#c0392b"/>
+  <circle cx="730" cy="470" r="46" fill="#c0392b"/>
+  <text x="450" y="118" text-anchor="middle" fill="#ffffff" font-size="19" font-weight="bold">寄主</text>
+  <text x="450" y="141" text-anchor="middle" fill="#ffffff" font-size="14">Host</text>
+  <text x="170" y="468" text-anchor="middle" fill="#ffffff" font-size="19" font-weight="bold">病原</text>
+  <text x="170" y="491" text-anchor="middle" fill="#ffffff" font-size="14">Pathogen</text>
+  <text x="730" y="468" text-anchor="middle" fill="#ffffff" font-size="19" font-weight="bold">环境</text>
+  <text x="730" y="491" text-anchor="middle" fill="#ffffff" font-size="14">Environment</text>
+  <text x="310" y="290" text-anchor="middle" fill="#333" font-size="15">侵染 · 毒力</text>
+  <text x="590" y="290" text-anchor="middle" fill="#333" font-size="15">温湿 · 养分 · 胁迫</text>
+  <text x="450" y="512" text-anchor="middle" fill="#333" font-size="15">湿度 · 存活 · 传播</text>
+  <circle cx="450" cy="348" r="54" fill="#333"/>
+  <text x="450" y="343" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">病害</text>
+  <text x="450" y="366" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">发生</text>
+</svg>

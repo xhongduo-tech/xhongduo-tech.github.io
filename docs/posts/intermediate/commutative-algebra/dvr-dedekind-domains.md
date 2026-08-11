@@ -1,0 +1,97 @@
+---
+title: 离散赋值环与 Dedekind 整环
+date: 2026-08-11
+---
+
+# 离散赋值环与 Dedekind 整环
+
+<div class="epigraph">
+<p>素数在数论中的地位，正如……不可约多项式在几何中的地位。</p>
+<footer>—— 抽象代数传统下的观念（经 Richard Dedekind 的系统化）</footer>
+</div>
+
+<div class="article-byline">
+<p>第二级 · 进阶数理 · 交换代数 ｜ 对标教材 ｜ 2026-08-11</p>
+</div>
+
+## 为什么从赋值环开始
+
+数论最深的主题之一是：代数整数环里，唯一分解会失败。而交换代数给出的答案优雅得惊人——**换成理想，分解反而总是唯一的**。承载这件事的环就是 **Dedekind 整环**；而理解它的最小积木，是**离散赋值环（DVR）**——只需一个「次数/阶」就能掌控全局的一维局部环。<span class="marginnote">典型图景：数域 $K$ 的整数环 $\mathcal{O}_K$ 中 $6$ 可以「两类分解」：$6 = 2 \cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5})$。唯一分解的失败不表示数学崩塌——它表示要换一个分解的层次：把理想而不是元素拿来分解。</span>
+
+从第1篇《局部化与分数理想》的分数理想出发，这一篇回答：什么样的环能保证「每个非零理想 = 素理想的唯一乘积」？答案是三个条件（Noether、一维、整闭）的合取。而离散赋值环正是它局部的样子。
+
+## 1 离散赋值与离散赋值环
+
+**离散赋值（discrete valuation）**：域 $K$ 上的满射 $v: K^* \to \mathbb{Z}$，满足
+$v(xy) = v(x) + v(y)$（对数法则）；
+- $v(x + y) \geq \min\{v(x), v(y)\}$（非阿基米德三角不等式）。
+
+经典例子：$\mathbb{Q}$ 上 $v_p$ 数 $x$ 中 $p$ 的指数；$k((t))$ 上 $v(f)$ 是 $f$ 的级数首项次数（$t$ 的阶）。<span class="marginnote">第二条件与「$|x| = c^{v(x)}$（$0 < c < 1$）给出的绝对值」等价，满足 $|x+y| \leq \max\{|x|, |y|\}$ 的<strong>非阿基米德</strong>绝对值——$p$-进数理论的入口，见本专题《完备化与 Hensel 引理》。</span>
+
+**离散赋值环（DVR）**：由离散赋值 $v$ 决定的环
+
+$$R = \{x \in K \mid v(x) \geq 0\},$$
+
+配备唯一极大理想 $\mathfrak{m} = \{x \mid v(x) > 0\}$，其中取 $v(x) = 1$ 的元素称为**一致化参数（uniformizer）**。
+
+标准例子：$\mathbb{Z}_{(p)} = \{a/b \mid p \nmid b\}$（有理数中分母不被 $p$ 整除者）与幂级数环 $k[[t]]$。两者的赋值分别是 $v_p$ 与「首项阶数」——**DVR 只有两个素理想 $(0)$ 与 $\mathfrak{m}$，一条链、一个参数、一切由阶数排序。**
+
+**重点：DVR 是「一维局部主理想整环」。** 下面一组等价刻画是局部环理论的第一个里程碑：
+
+$$R \text{ 是 DVR} \iff R \text{ 是一维 Noether 局部整环} \iff R \text{ 是一维整闭 Noether 局部整环}$$
+
+其中最后一条（DVR = 一维正规局部环）把 DVR 装进了「正规环」的框架。<span class="marginnote">等价证明的核心是 Nakayama 引理与「$\mathfrak{m} = (t)$ 主理想」的推出——细节见 Atiyah–Macdonald 第 9 章。直觉：一维局部环的极大理想若由一个元素生成，就有一致化参数 $t$，一切元素 $x = ut^n$ 的阶数 $v(x) = n$ 全由 $t$ 确定。</span>
+
+## 2 Dedekind 整环：三个条件合成一个定理
+
+**Dedekind 整环（Dedekind domain）**：整环 $A$，满足
+1. **Noether 性**（理想升链稳定）；
+2. **维数为 1**（每个非零素理想都是极大的）；
+3. **整闭**（$K = \operatorname{Frac}(A)$ 中「在 $A$ 上整」的元素都在 $A$ 里）。
+
+标准例子：$\mathbb{Z}$、代数整数环 $\mathcal{O}_K$、$k[t]$ 与 $k[x,y]/(y^2 - x^3 + x)$ 的坐标环。
+
+**重点：这三个条件合起来，等价于「非零理想唯一分解为素理想乘积」：**
+
+$$A \text{ 是 Dedekind} \iff \text{每个非零理想 } \mathfrak{a} \text{ 唯一地写成 } \mathfrak{a} = \prod \mathfrak{p}_i^{e_i}.$$
+
+反过来，如果每个非零理想都能写成素理想乘积（不要求唯一），那 $A$ 已经自动是 Dedekind 整环——**分解的唯一性居然是结构的后果，而不是条件**。<span class="marginnote">这解释了前一篇《局部化与分数理想》里分数理想群的重要性：Dedekind 整环的非零分数理想全体构成一个群，而「每个分数理想可逆」正是「素理想分解」的等价表述。Kummer 当年在 $\mathbb{Z}[\zeta_p]$ 里做的一切，最终被 Dedekind 收编为这个群的算术。</span>
+
+**辨析｜易错点：** Dedekind 整环 ≠ 主理想整环（PID）。$\mathbb{Z}[\sqrt{-5}]$ 是 Dedekind 但非 PID（$6 = 2\cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5})$，理想 $(2, 1+\sqrt{-5})$ 不可由单元素生成）。区别度量在**理想类群**：类群平凡 ⇔ PID；类群有限是「基本定理」，类数 $h$ 是数域最重要的算术不变量。<span class="marginnote">类群有限性由 Minkowski 几何数论保证：$h$ 有限。正则素数条件里「$p \nmid h$」正是库默尔证明费马大定理重要情形的关键——见第1篇《局部化与分数理想》的边注。</span>
+
+## 3 为什么「唯一分解」在 Dedekind 环里成立
+
+从元素分解失败到理想分解成功，中间的机制值得停下来想清楚。设 $A$ 是 Dedekind 整环，$\mathfrak{a}$ 是非零真理想。
+
+**第一步（局部化到 DVR）**：对每个极大理想 $\mathfrak{m}$，$A_{\mathfrak{m}}$ 是一维 Noether 局部整环，从而是 DVR。$A_{\mathfrak{m}}$ 中 $\mathfrak{a}_{\mathfrak{m}} = \mathfrak{m}^{e_{\mathfrak{m}}} A_{\mathfrak{m}}$，指数 $e_{\mathfrak{m}} = v_{\mathfrak{m}}(\mathfrak{a})$ 良定义，且几乎处处为 0。
+
+**第二步（拼回整体）**：定义
+
+$$\mathfrak{a} \;\longmapsto\; \prod_{\mathfrak{m}} \mathfrak{m}^{e_{\mathfrak{m}}},$$
+
+**重点：分解来自「每个局部都是 DVR、而每个 $\mathfrak{m}$ 的幂在局部是互素的」。** 中国剩余定理（第1篇）把「幂在局部精确、互素可拼」合成整体等式。唯一性来自「$v_{\mathfrak{m}}$ 唯一确定 $e_{\mathfrak{m}}$」。<span class="marginnote">这套「局部化到 DVR → 局部指数 → CRT 拼回」的流程，是交换代数里「先局部后整体」的标准招式，在《张量积与平坦模》与《相伴素与支集》中会反复出现。</span>
+
+**第三步（回到元素）**：$\mathfrak{p}^e$ 形理想未必主理想，但**类群**把理想分成有限个类，$n = h$ 次方后 $\mathfrak{p}^{nh}$ 主化——于是「某个幂次成为元素」：「元素唯一分解」退化为「理想唯一分解」，这正是 Dedekind 的贡献所在。
+
+## 4 公式解析：赋值与分解的对偶
+
+DVR 里赋值与分解互相翻译。设 $(R, \mathfrak{m} = (t))$ 是 DVR，$x \in R$，$x \neq 0$，$n = v(x)$，则
+
+$$(x) = \mathfrak{m}^{n}, \qquad x = u \cdot t^{n} \ (u \in R^\times).$$
+
+拆解这条公式：
+
+- **第一步，主理想**：$v(x) = n$ 意味着 $x = u t^n$、$u$ 可逆。于是 $x$ 生成的理想等于 $\mathfrak{m}^n$——**元素分解 = 极大理想幂的分解**，因为 $v$ 把乘法变成加法。
+- **第二步，$n$ 的唯一性**：$v(x) = n$ 由赋值唯一；故 $(x) = \mathfrak{m}^n$ 的幂次由 $x$ 唯一确定。
+- **第三步，推广**：Dedekind 整环里，非主理想（如 $(2, 1+\sqrt{-5})$）拆不开成「元素」，却拆得开成「素理想乘积」——这就是上一节的分解定理：**赋值把元素的阶数，推广成理想在素点处的指数。**
+
+**辨析｜易错点：** DVR 的赋值域是 $\mathbb{Z}$，不是 $\mathbb{R}$。带实值赋值的环一般不是 Noether 的（如 $k[[t^\alpha]]_{\alpha \in \mathbb{Q}_{\geq 0}}$ 形式的环），而「离散」正是 Noether 性的根源。看到「赋值」先问「值群是什么」：$\mathbb{Z}$ 是离散，$\mathbb{R}$ 或 $\mathbb{Q}$ 是另一世界。
+
+## 5 小结
+
+- **离散赋值** $v: K^* \to \mathbb{Z}$：对数法则 + 非阿基米德三角不等式；例子 $v_p$、$k[[t]]$ 的阶。
+- **DVR**：$v \geq 0$ 的元素构成的环，一维 Noether 局部整环，唯一一致化参数 $t$，一切元素 $x = ut^n$。
+- **Dedekind 整环** = Noether + 一维 + 整闭 ⇔ 非零理想唯一分解为素理想乘积；类群平凡 ⇔ PID。
+- 分解机制 = 「局部 DVR + CRT 拼回」；赋值把元素阶数推广为理想在素点指数。
+
+在下一节，我们从「阶数」走向「逼近」：把 $\mathbb{Z}$ 装上 $p$-进度量并取极限，就得到**完备化**；在完备环里，多项式根的提升由 **Hensel 引理** 接管——这是算术与分析的又一次合流。

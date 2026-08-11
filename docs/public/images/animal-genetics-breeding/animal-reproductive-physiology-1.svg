@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>下丘脑—垂体—性腺轴与激素反馈</title>
+  <desc>三级指挥链示意图：下丘脑释放 GnRH 刺激垂体前叶分泌 FSH/LH，性腺分泌雌二醇、孕酮、睾酮；类固醇通过负反馈抑制上层分泌，排卵前雌二醇峰通过正反馈激发 LH 峰。</desc>
+  <rect width="900" height="560" fill="#faf9f5"/>
+  <text x="450" y="26" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">下丘脑—垂体—性腺轴（HPG Axis）与激素反馈</text>
+
+  <!-- 下丘脑 -->
+  <rect x="240" y="52" width="320" height="72" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="400" y="82" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">下丘脑（Hypothalamus）</text>
+  <text x="400" y="108" text-anchor="middle" font-size="14" fill="#333">脉冲式释放 GnRH</text>
+
+  <!-- 垂体 -->
+  <rect x="240" y="196" width="320" height="72" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="400" y="226" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">垂体前叶（Anterior Pituitary）</text>
+  <text x="400" y="252" text-anchor="middle" font-size="14" fill="#333">分泌 FSH 与 LH</text>
+
+  <!-- 性腺 -->
+  <rect x="240" y="340" width="320" height="88" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="400" y="372" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">性腺（卵巢 / 睾丸）</text>
+  <text x="400" y="396" text-anchor="middle" font-size="14" fill="#333">分泌 雌二醇 E2 · 孕酮 P4 · 睾酮 T</text>
+  <text x="400" y="416" text-anchor="middle" font-size="13" fill="#666">类固醇激素经血液循环返回上层</text>
+
+  <!-- 刺激箭头 -->
+  <path d="M400 124 L400 188" stroke="#c0392b" stroke-width="3" fill="none"/>
+  <polygon points="400,194 394,182 406,182" fill="#c0392b"/>
+  <path d="M400 268 L400 332" stroke="#c0392b" stroke-width="3" fill="none"/>
+  <polygon points="400,338 394,326 406,326" fill="#c0392b"/>
+  <text x="430" y="160" font-size="13" fill="#c0392b">GnRH</text>
+  <text x="430" y="306" font-size="13" fill="#c0392b">FSH / LH</text>
+
+  <!-- 负反馈回路（青虚线） -->
+  <path d="M560 380 H715 V240 H572" stroke="#1f6f8b" stroke-width="2.5" stroke-dasharray="7,5" fill="none"/>
+  <polygon points="566,240 578,234 578,246" fill="#1f6f8b"/>
+  <text x="723" y="300" font-size="14" fill="#1f6f8b" font-weight="bold">负反馈</text>
+  <text x="723" y="318" font-size="13" fill="#1f6f8b">E2、P4、T</text>
+  <text x="723" y="334" font-size="13" fill="#1f6f8b">抑制 FSH/LH 分泌</text>
+
+  <!-- 正反馈回路（红虚线） -->
+  <path d="M560 412 H820 V100 H572" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7,5" fill="none"/>
+  <polygon points="566,100 578,94 578,106" fill="#c0392b"/>
+  <text x="828" y="250" font-size="14" fill="#c0392b" font-weight="bold">正反馈</text>
+  <text x="828" y="268" font-size="13" fill="#c0392b">排卵前 E2 峰</text>
+  <text x="828" y="284" font-size="13" fill="#c0392b">激发 LH 峰 → 排卵</text>
+
+  <!-- 图例 -->
+  <rect x="240" y="476" width="420" height="64" rx="6" fill="#ffffff" stroke="#333" stroke-width="1"/>
+  <line x1="260" y1="496" x2="308" y2="496" stroke="#c0392b" stroke-width="3"/>
+  <text x="316" y="500" font-size="13" fill="#333">刺激（释放、合成、排卵）</text>
+  <line x1="260" y1="522" x2="308" y2="522" stroke="#1f6f8b" stroke-width="2.5" stroke-dasharray="7,5"/>
+  <text x="316" y="526" font-size="13" fill="#333">负反馈：稳定激素水平</text>
+  <line x1="520" y1="522" x2="568" y2="522" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7,5"/>
+  <text x="576" y="526" font-size="13" fill="#333">正反馈：点火触发 LH 峰</text>
+</svg>

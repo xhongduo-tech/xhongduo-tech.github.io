@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="sans-serif" font-size="14">
+  <title>DLVO 势能曲线</title>
+  <desc>两条胶体粒子之间的总势能随表面间距变化的曲线：范德华吸引加静电排斥合成一条先入初级极小、越过能垒、再入次级极小、最后趋于零的曲线。</desc>
+  <rect width="800" height="560" fill="#faf9f5"/>
+  <!-- 坐标轴 -->
+  <line x1="100" y1="250" x2="780" y2="250" stroke="#333" stroke-width="1.5"/>
+  <line x1="100" y1="250" x2="100" y2="520" stroke="#333" stroke-width="1.5"/>
+  <text x="720" y="288" fill="#333" font-size="16">表面间距 h</text>
+  <text x="30" y="70" fill="#333" font-size="16">势能 V</text>
+  <text x="742" y="244" fill="#999" font-size="13">V = 0</text>
+  <text x="112" y="242" fill="#333" font-size="13">0</text>
+  <!-- 范德华吸引 VA（红虚线） -->
+  <path d="M730 251 Q660 253 570 260 Q490 270 430 288 Q380 312 350 348 Q320 396 305 444 Q296 470 288 500"
+        fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5"/>
+  <!-- 静电排斥 VR（青虚线） -->
+  <path d="M285 500 Q300 455 330 405 Q365 345 430 295 Q500 262 570 252 Q660 246 730 252"
+        fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="7 5"/>
+  <!-- 总势能 VT（墨色实线） -->
+  <path d="M110 470 Q120 488 150 475 Q205 415 250 250 Q285 130 370 112 Q420 110 470 160 Q520 225 560 292 Q590 320 620 305 Q660 285 700 265 Q735 252 760 251"
+        fill="none" stroke="#333" stroke-width="3"/>
+  <!-- 关键区域标注 -->
+  <circle cx="152" cy="476" r="3.5" fill="#333"/>
+  <text x="120" y="510" fill="#333" font-size="14">初级极小（聚沉）</text>
+  <circle cx="370" cy="112" r="3.5" fill="#333"/>
+  <text x="386" y="88" fill="#c0392b" font-size="15" font-weight="bold">能垒 ΔV</text>
+  <circle cx="560" cy="292" r="3.5" fill="#333"/>
+  <text x="580" y="348" fill="#333" font-size="14">次级极小（可逆絮凝）</text>
+  <!-- 能垒高度双向箭头 -->
+  <line x1="396" y1="112" x2="396" y2="250" stroke="#c0392b" stroke-width="1.2"/>
+  <line x1="391" y1="112" x2="401" y2="112" stroke="#c0392b" stroke-width="1.2"/>
+  <line x1="391" y1="250" x2="401" y2="250" stroke="#c0392b" stroke-width="1.2"/>
+  <text x="470" y="260" fill="#333" font-size="14">越过能垒 → 聚沉（不可逆）</text>
+  <text x="300" y="150" fill="#333" font-size="14">粒子悬浮在次级极小附近（亚稳分散）</text>
+  <!-- 图例 -->
+  <line x1="120" y1="40" x2="170" y2="40" stroke="#333" stroke-width="3"/>
+  <text x="178" y="45" fill="#333" font-size="14">总势能 V&#8346; = V&#8344; + V&#8345;</text>
+  <line x1="120" y1="66" x2="170" y2="66" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="178" y="71" fill="#c0392b" font-size="14">范德华吸引 V&#8344;</text>
+  <line x1="120" y1="92" x2="170" y2="92" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="178" y="97" fill="#1f6f8b" font-size="14">静电排斥 V&#8345;</text>
+</svg>

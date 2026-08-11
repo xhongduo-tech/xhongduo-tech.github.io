@@ -1,0 +1,53 @@
+<svg viewBox="0 0 660 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>八面体晶体场中 d 轨道的分裂</title>
+  <desc>自由离子的五个简并 d 轨道，在八面体场中分裂为低能的三重简并 t2g（dxy、dxz、dyz）与高能的双重简并 eg（dz2、dx2-y2），能隙为 Δo，重心守恒。</desc>
+  <rect x="0" y="0" width="660" height="440" fill="#faf9f5"/>
+
+  <!-- energy axis -->
+  <line x1="40" y1="60" x2="40" y2="330" stroke="#333" stroke-width="2"/>
+  <line x1="40" y1="60" x2="52" y2="60" stroke="#333" stroke-width="2"/>
+  <text x="16" y="52" fill="#333" font-size="15">能量</text>
+  <text x="16" y="78" fill="#333" font-size="15">↑</text>
+
+  <!-- free ion degenerate level -->
+  <line x1="80" y1="195" x2="230" y2="195" stroke="#333" stroke-width="2.5"/>
+  <line x1="92" y1="185" x2="92" y2="205" stroke="#333" stroke-width="3"/>
+  <line x1="118" y1="185" x2="118" y2="205" stroke="#333" stroke-width="3"/>
+  <line x1="144" y1="185" x2="144" y2="205" stroke="#333" stroke-width="3"/>
+  <line x1="170" y1="185" x2="170" y2="205" stroke="#333" stroke-width="3"/>
+  <line x1="196" y1="185" x2="196" y2="205" stroke="#333" stroke-width="3"/>
+  <text x="128" y="155" fill="#333" font-size="16" text-anchor="middle">自由离子</text>
+  <text x="155" y="225" fill="#333" font-size="14" text-anchor="middle">五个简并 d 轨道</text>
+
+  <!-- arrow to octahedral field -->
+  <line x1="256" y1="195" x2="308" y2="195" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="318,195 304,187 304,203" fill="#c0392b"/>
+  <text x="258" y="178" fill="#c0392b" font-size="15">八面体场</text>
+  <text x="258" y="216" fill="#c0392b" font-size="15">O_h 微扰</text>
+
+  <!-- eg level -->
+  <line x1="350" y1="80" x2="560" y2="80" stroke="#1f6f8b" stroke-width="2.5"/>
+  <line x1="392" y1="70" x2="392" y2="90" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="508" y1="70" x2="508" y2="90" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="576" y="85" fill="#1f6f8b" font-size="16" font-style="italic">eg</text>
+  <text x="390" y="52" fill="#333" font-size="14">dz²、dx²−y²</text>
+  <text x="390" y="112" fill="#333" font-size="14">+ 0.6 Δo</text>
+
+  <!-- t2g level -->
+  <line x1="350" y1="230" x2="560" y2="230" stroke="#c0392b" stroke-width="2.5"/>
+  <line x1="378" y1="220" x2="378" y2="240" stroke="#c0392b" stroke-width="3"/>
+  <line x1="432" y1="220" x2="432" y2="240" stroke="#c0392b" stroke-width="3"/>
+  <line x1="486" y1="220" x2="486" y2="240" stroke="#c0392b" stroke-width="3"/>
+  <text x="576" y="235" fill="#c0392b" font-size="16" font-style="italic">t2g</text>
+  <text x="378" y="262" fill="#333" font-size="14">dxy、dxz、dyz</text>
+  <text x="378" y="285" fill="#333" font-size="14">− 0.4 Δo</text>
+
+  <!-- Δo arrow -->
+  <line x1="612" y1="80" x2="612" y2="230" stroke="#333" stroke-width="2"/>
+  <polygon points="612,74 605,88 619,88" fill="#333"/>
+  <polygon points="612,236 605,222 619,222" fill="#333"/>
+  <text x="638" y="152" fill="#333" font-size="16">Δo = 10 Dq</text>
+
+  <!-- barycenter note -->
+  <text x="455" y="330" fill="#333" font-size="14" text-anchor="middle">重心守恒：3×(−0.4) + 2×(+0.6) = 0</text>
+</svg>

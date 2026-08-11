@@ -1,0 +1,25 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>正常金属-超导界面的 Andreev 反射</title>
+  <desc>入射电子在界面处与超导体交换库珀对，反射为空穴沿原路径返回，形成无耗散的镜像电荷传输。</desc>
+  <rect x="0" y="0" width="640" height="420" fill="#faf9f5"/>
+  <text x="320" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">正常金属–超导界面的 Andreev 反射</text>
+  <line x1="320" y1="55" x2="320" y2="400" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="160" y="75" text-anchor="middle" font-size="14" fill="#333">正常金属（N）</text>
+  <text x="490" y="75" text-anchor="middle" font-size="14" fill="#333">超导体（S，能隙 Δ）</text>
+  <g stroke="#333" stroke-width="0.6" fill="#fff">
+    <rect x="200" y="85" width="240" height="40" fill="#fff"/>
+  </g>
+  <text x="320" y="110" text-anchor="middle" font-size="13" fill="#333">库珀对进入超导体</text>
+  <polygon points="200,85 320,105 200,125" fill="#c0392b"/>
+  <polygon points="440,85 320,105 440,125" fill="#1f6f8b"/>
+  <line x1="80" y1="200" x2="315" y2="200" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="315,194 330,200 315,206" fill="#c0392b"/>
+  <text x="170" y="188" font-size="14" fill="#c0392b">入射电子 e⁻</text>
+  <line x1="315" y1="245" x2="80" y2="245" stroke="#1f6f8b" stroke-width="3"/>
+  <polygon points="80,239 65,245 80,251" fill="#1f6f8b"/>
+  <text x="170" y="260" font-size="14" fill="#1f6f8b">反射空穴 h⁺（沿原路返回）</text>
+  <path d="M 90 210 Q 200 150 300 210" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+  <path d="M 90 235 Q 200 295 300 235" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+  <text x="320" y="310" text-anchor="middle" font-size="13" fill="#666">空穴「逆向」跟踪电子的入射轨迹，形成时间反演配对</text>
+  <text x="320" y="340" text-anchor="middle" font-size="13" fill="#1f6f8b">无势垒界面的零偏压电导 G = 2 · (2e²/h) 每通道</text>
+</svg>

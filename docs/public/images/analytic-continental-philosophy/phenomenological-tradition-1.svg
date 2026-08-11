@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="sans-serif">
+  <title>现象学悬置：把自然态度放进括号</title>
+  <desc>左侧为自然态度：主体 S 面对世界 W 中独立存在的事物；右侧经悬置后，世界被放进括号（epoché），主体转向意识自身，事物变成意向对象（Noema），由 Noesis 与 Noema 构成相关对。</desc>
+  <rect x="0" y="0" width="720" height="400" fill="#faf9f5"/>
+  <text x="40" y="48" font-size="18" fill="#333">自然态度</text>
+  <text x="410" y="48" font-size="18" fill="#333">悬置之后（epoché）</text>
+  <!-- left: natural attitude -->
+  <circle cx="120" cy="210" r="44" fill="#1f6f8b" opacity="0.9"/>
+  <text x="120" y="205" text-anchor="middle" font-size="16" fill="#fff">主体</text>
+  <text x="120" y="228" text-anchor="middle" font-size="14" fill="#fff">S</text>
+  <rect x="250" y="120" width="120" height="180" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="310" y="215" text-anchor="middle" font-size="16" fill="#333">世界</text>
+  <text x="310" y="238" text-anchor="middle" font-size="14" fill="#333">W</text>
+  <circle cx="310" cy="170" r="12" fill="#c0392b" opacity="0.7"/>
+  <text x="310" y="174" text-anchor="middle" font-size="11" fill="#fff">树</text>
+  <line x1="164" y1="210" x2="250" y2="210" stroke="#333" stroke-width="2"/>
+  <text x="207" y="198" text-anchor="middle" font-size="14" fill="#333">知觉意向</text>
+  <text x="207" y="336" text-anchor="middle" font-size="14" fill="#666">事物被当作独立实存</text>
+  <!-- arrow -->
+  <path d="M 375 210 L 405 210" stroke="#333" stroke-width="2.5" marker-end="url(#arr)"/>
+  <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#333"/></marker></defs>
+  <text x="390" y="195" text-anchor="middle" font-size="14" fill="#333">还原</text>
+  <!-- right: after epoché -->
+  <rect x="410" y="90" width="300" height="260" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="425" y="115" font-size="15" fill="#333">括号（悬置）</text>
+  <circle cx="485" cy="210" r="40" fill="#1f6f8b" opacity="0.9"/>
+  <text x="485" y="205" text-anchor="middle" font-size="15" fill="#fff">意识</text>
+  <text x="485" y="228" text-anchor="middle" font-size="13" fill="#fff">Noesis</text>
+  <circle cx="640" cy="210" r="40" fill="#c0392b" opacity="0.85"/>
+  <text x="640" y="205" text-anchor="middle" font-size="15" fill="#fff">对象</text>
+  <text x="640" y="228" text-anchor="middle" font-size="13" fill="#fff">Noema</text>
+  <line x1="525" y1="210" x2="600" y2="210" stroke="#333" stroke-width="2"/>
+  <text x="563" y="200" text-anchor="middle" font-size="13" fill="#333">相关对 ⟨n,m⟩</text>
+  <text x="560" y="325" text-anchor="middle" font-size="14" fill="#666">事物作为「被意识到的意义」在场</text>
+  <text x="360" y="380" text-anchor="middle" font-size="15" fill="#333">悬置不是否定世界，而是中止其存在设定，把目光转向意识的意向结构</text>
+</svg>

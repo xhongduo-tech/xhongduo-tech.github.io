@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" width="640" height="250">
+  <title>失蜡法（cire perdue）五步剖面示意</title>
+  <desc>从左到右五步：塑泥芯、涂蜡模、裹泥壳、融蜡脱蜡、浇铸成器，每步以圆柱剖面示意，并标注蜡与铜的对应关系。</desc>
+  <rect width="640" height="250" fill="#faf9f5"/>
+  <text x="320" y="24" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333">失蜡法（cire perdue）五步剖面示意</text>
+
+  <!-- 步骤1：塑泥芯 -->
+  <g>
+    <rect x="12" y="48" width="88" height="104" rx="10" fill="#c98a4b" stroke="#333" stroke-width="1.5"/>
+    <text x="56" y="110" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#fff">泥芯</text>
+    <text x="56" y="168" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">① 塑泥芯</text>
+    <text x="56" y="186" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">撑出大致形体</text>
+  </g>
+
+  <!-- 步骤2：涂蜡模 -->
+  <g>
+    <rect x="12" y="38" width="88" height="124" rx="10" fill="#e6c04c" stroke="#333" stroke-width="1.5"/>
+    <rect x="28" y="50" width="56" height="100" rx="8" fill="#c98a4b"/>
+    <text x="56" y="96" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#fff">泥芯</text>
+    <text x="56" y="140" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">蜡层</text>
+    <text x="56" y="180" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">② 涂蜡模</text>
+    <text x="56" y="198" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">蜡厚即铜壁厚</text>
+  </g>
+
+  <!-- 步骤3：裹泥壳 -->
+  <g>
+    <rect x="12" y="28" width="88" height="144" rx="10" fill="#b8a98f" stroke="#333" stroke-width="1.5"/>
+    <rect x="26" y="40" width="60" height="120" rx="8" fill="#e6c04c"/>
+    <rect x="40" y="52" width="32" height="96" rx="6" fill="#c98a4b"/>
+    <text x="56" y="84" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#fff">芯</text>
+    <text x="56" y="118" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">蜡</text>
+    <text x="56" y="154" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">泥壳</text>
+    <text x="56" y="192" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">③ 裹泥壳</text>
+    <text x="56" y="210" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">三层复合</text>
+  </g>
+
+  <!-- 步骤4：融蜡脱蜡 -->
+  <g>
+    <rect x="12" y="28" width="88" height="144" rx="10" fill="#b8a98f" stroke="#333" stroke-width="1.5"/>
+    <rect x="26" y="40" width="60" height="120" rx="8" fill="#faf9f5" stroke="#999" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="56" y="90" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#999">空腔</text>
+    <text x="56" y="106" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#999">（蜡已流失）</text>
+    <text x="56" y="160" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">④ 融蜡脱蜡</text>
+    <text x="56" y="178" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">加热，蜡熔流出</text>
+    <circle cx="70" cy="196" r="3" fill="#e6c04c"/>
+    <circle cx="80" cy="210" r="3" fill="#e6c04c"/>
+    <circle cx="90" cy="222" r="3" fill="#e6c04c"/>
+  </g>
+
+  <!-- 步骤5：浇铸成器 -->
+  <g>
+    <rect x="12" y="28" width="88" height="144" rx="10" fill="#b8a98f" stroke="#333" stroke-width="1.5"/>
+    <rect x="26" y="40" width="60" height="120" rx="8" fill="#b87333"/>
+    <text x="56" y="104" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#fff">青铜</text>
+    <line x1="56" y1="28" x2="56" y2="8" stroke="#b87333" stroke-width="3"/>
+    <text x="56" y="192" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">⑤ 浇铸成器</text>
+    <text x="56" y="210" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">铜入空腔，冷却成形</text>
+  </g>
+
+  <!-- 步骤间箭头 -->
+  <g stroke="#333" stroke-width="1.5" fill="#333">
+    <path d="M 106 112 l 10 -5 v 10 z"/>
+    <path d="M 232 112 l 10 -5 v 10 z"/>
+    <path d="M 358 112 l 10 -5 v 10 z"/>
+    <path d="M 484 112 l 10 -5 v 10 z"/>
+  </g>
+
+  <text x="320" y="240" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#777">经验法则：1 千克蜡 ≈ 10 千克铜（同体积下铜密度约为蜡的 10 倍）</text>
+</svg>

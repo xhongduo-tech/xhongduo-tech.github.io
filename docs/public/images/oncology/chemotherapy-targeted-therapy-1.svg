@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" font-family="sans-serif">
+  <title>对数杀伤模型下的肿瘤细胞数与治疗周期</title>
+  <desc>每次化疗杀死固定比例（1 个对数）的细胞，但肿瘤在疗程间再增殖，所以需要多周期联合</desc>
+  <rect width="640" height="480" fill="#fff"/>
+  <text x="320" y="40" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">对数杀伤模型：每疗程杀伤 90%（1 个对数），肿瘤在两疗程间再增殖</text>
+
+  <line x1="80" y1="420" x2="600" y2="420" stroke="#333" stroke-width="1.5"/>
+  <line x1="80" y1="60" x2="80" y2="420" stroke="#333" stroke-width="1.5"/>
+  <text x="40" y="80" font-size="13" fill="#333" text-anchor="middle">10⁶</text>
+  <text x="40" y="200" font-size="13" fill="#333" text-anchor="middle">10³</text>
+  <text x="44" y="415" font-size="13" fill="#333" text-anchor="middle">10⁰</text>
+  <text x="360" y="452" font-size="13" fill="#333" text-anchor="middle">治疗周期（每个箭头 = 一次化疗 + 期间再增殖）</text>
+
+  <polyline points="80,60 160,60 240,200 320,200 400,330 480,330 560,415"
+            fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <line x1="160" y1="60" x2="160" y2="200" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="320" y1="200" x2="320" y2="330" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="480" y1="330" x2="480" y2="415" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <text x="170" y="130" font-size="13" fill="#c0392b">化疗：杀 90%</text>
+  <text x="330" y="265" font-size="13" fill="#c0392b">化疗：杀 90%</text>
+  <text x="490" y="375" font-size="13" fill="#c0392b">化疗：杀 90%</text>
+  <text x="120" y="52" font-size="13" fill="#333">治疗前 10⁶</text>
+  <text x="560" y="408" font-size="13" fill="#333">10⁰ 接近治愈</text>
+</svg>

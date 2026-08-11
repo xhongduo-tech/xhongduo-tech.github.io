@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="sans-serif">
+<title>黑体辐射：紫外灾变与普朗克曲线</title>
+<desc>坐标系横轴为波长、纵轴为辐射强度。经典瑞利—金斯曲线在短波方向无限发散（紫外灾变），普朗克量子曲线先升后降、与实验一致，两曲线之间的红色区域标示出经典理论的失败区间。</desc>
+<rect x="0" y="0" width="720" height="360" fill="#faf9f5"/>
+
+<text x="360" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">黑体辐射：紫外灾变与普朗克曲线</text>
+
+<!-- 坐标轴 -->
+<line x1="90" y1="60" x2="90" y2="310" stroke="#333" stroke-width="1.5"/>
+<line x1="90" y1="310" x2="660" y2="310" stroke="#333" stroke-width="1.5"/>
+<polygon points="90,54 84,66 96,66" fill="#333"/>
+<polygon points="654,304 666,310 654,316" fill="#333"/>
+<text transform="rotate(-90 38 185)" x="38" y="185" text-anchor="middle" font-size="13" fill="#333">辐射强度</text>
+<text x="640" y="336" text-anchor="middle" font-size="13" fill="#333">λ（波长，左短右长）</text>
+<text x="100" y="330" font-size="12" fill="#555">短波</text>
+<text x="600" y="330" font-size="12" fill="#555">长波</text>
+
+<!-- 经典理论发散区（紫外灾变） -->
+<path d="M 360 112 L 330 74 L 300 50 L 260 40 L 220 32 L 180 30 L 140 30 L 140 268 L 200 210 L 260 175 L 300 160 L 360 160 Z" fill="#c0392b" opacity="0.15"/>
+
+<!-- 瑞利—金斯曲线：经典理论，短波发散 -->
+<path d="M 660 308 C 600 280, 540 240, 480 210 C 430 185, 390 150, 360 112 C 330 74, 300 50, 260 40 C 220 32, 180 30, 140 30" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<text x="232" y="24" font-size="13" fill="#c0392b">瑞利—金斯（经典）：短波处发散 → 紫外灾变</text>
+
+<!-- 普朗克曲线：量子理论，与实验一致 -->
+<path d="M 90 310 C 150 260, 220 200, 300 160 C 340 143, 380 143, 420 152 C 480 168, 540 210, 600 260 C 620 278, 640 296, 660 308" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+<text x="430" y="220" font-size="13" fill="#1f6f8b">普朗克曲线（量子）：与实验完全一致</text>
+
+<!-- 峰位参考线 -->
+<line x1="330" y1="142" x2="330" y2="310" stroke="#333" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="336" y="330" font-size="12" fill="#555">峰位随温度升高而左移（维恩位移）</text>
+</svg>

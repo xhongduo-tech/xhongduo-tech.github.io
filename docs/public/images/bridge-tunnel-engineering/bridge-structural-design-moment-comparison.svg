@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="sans-serif" font-size="14">
+  <title>简支梁与两跨连续梁弯矩图对比</title>
+  <desc>左为简支梁，跨中正弯矩峰值 wL²/8；右为两跨连续梁，支座负弯矩峰值 wL²/8，跨中正弯矩仅 9wL²/128，约为简支梁的 9/16。</desc>
+  <rect x="0" y="0" width="720" height="400" fill="#faf9f5"/>
+  <!-- 左：简支梁 -->
+  <text x="90" y="40" fill="#333" font-size="18">简支梁（单跨）</text>
+  <line x1="60" y1="70" x2="340" y2="70" stroke="#333" stroke-width="3"/>
+  <polygon points="52,70 68,70 60,88" fill="#333"/>
+  <circle cx="340" cy="70" r="5" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="320" y1="82" x2="360" y2="82" stroke="#333" stroke-width="2"/>
+  <!-- 正弯矩图（向下为正） -->
+  <path d="M 60,70 Q 200,370 340,70" fill="#1f6f8b" fill-opacity="0.22" stroke="#1f6f8b" stroke-width="2.5"/>
+  <line x1="200" y1="70" x2="200" y2="220" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="150" y="252" fill="#c0392b" font-size="16">M_max = wL²/8</text>
+  <text x="92" y="310" fill="#333" font-size="14">整个跨径都由「受弯」承担</text>
+  <text x="92" y="332" fill="#333" font-size="14">跨中截面最不利</text>
+
+  <!-- 右：两跨连续梁 -->
+  <text x="430" y="40" fill="#333" font-size="18">两跨连续梁</text>
+  <line x1="400" y1="70" x2="680" y2="70" stroke="#333" stroke-width="3"/>
+  <polygon points="392,70 408,70 400,88" fill="#333"/>
+  <polygon points="532,70 548,70 540,88" fill="#333"/>
+  <polygon points="672,70 688,70 680,88" fill="#333"/>
+  <!-- 支座负弯矩（上凸） -->
+  <path d="M 400,70 Q 470,40 540,22 L 610,40 Q 540,40 680,70" fill="#c0392b" fill-opacity="0.18" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="502" y="34" fill="#c0392b" font-size="15">−wL²/8</text>
+  <!-- 跨中正弯矩（下凹） -->
+  <path d="M 400,70 Q 470,300 540,70" fill="#1f6f8b" fill-opacity="0.22" stroke="#1f6f8b" stroke-width="2"/>
+  <path d="M 540,70 Q 610,300 680,70" fill="#1f6f8b" fill-opacity="0.22" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="410" y="222" fill="#1f6f8b" font-size="15">+9wL²/128</text>
+  <text x="596" y="222" fill="#1f6f8b" font-size="15">+9wL²/128</text>
+  <text x="408" y="310" fill="#333" font-size="14">支座处「受压区在梁底」，正好放得下负弯矩钢筋</text>
+  <text x="408" y="336" fill="#333" font-size="14">跨中正弯矩仅为简支梁的 9/16 ≈ 0.56</text>
+
+  <line x1="20" y1="382" x2="700" y2="382" stroke="#999" stroke-width="1"/>
+  <text x="24" y="370" fill="#666" font-size="14">连续化之后：最大弯矩减半 → 梁高可大幅降低</text>
+</svg>

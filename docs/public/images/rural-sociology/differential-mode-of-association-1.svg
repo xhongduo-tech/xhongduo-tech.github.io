@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" font-family="sans-serif">
+  <title>差序格局与团体格局对比示意</title>
+  <desc>左侧为中国差序格局：以「己」为圆心的同心波纹，一圈圈推出去；右侧为西方团体格局：个人如捆柴一般被捆在团体边界内。</desc>
+  <rect width="820" height="400" fill="#faf9f5"/>
+  <text x="200" y="40" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">差序格局（中国）</text>
+  <text x="610" y="40" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">团体格局（西洋）</text>
+
+  <g stroke="#c0392b" stroke-width="2" fill="none">
+    <circle cx="200" cy="225" r="55"/>
+    <circle cx="200" cy="225" r="100"/>
+    <circle cx="200" cy="225" r="145"/>
+    <circle cx="200" cy="225" r="190"/>
+  </g>
+  <circle cx="200" cy="225" r="16" fill="#333"/>
+  <text x="200" y="231" text-anchor="middle" font-size="15" fill="#faf9f5">己</text>
+
+  <text x="205" y="160" font-size="14" fill="#333">家</text>
+  <text x="205" y="122" font-size="14" fill="#333">族</text>
+  <text x="205" y="84" font-size="14" fill="#333">国</text>
+  <text x="205" y="46" font-size="14" fill="#333">天下</text>
+
+  <line x1="115" y1="285" x2="80" y2="345" stroke="#333" stroke-width="1.5"/>
+  <text x="15" y="360" font-size="13" fill="#1f6f8b">愈推愈远，愈推愈薄</text>
+
+  <rect x="440" y="80" width="340" height="280" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="610" y="105" text-anchor="middle" font-size="14" fill="#1f6f8b">团体边界：界限分明</text>
+
+  <g fill="#e8d9c9" stroke="#333" stroke-width="1.5">
+    <rect x="470" y="160" width="34" height="170" rx="6"/>
+    <rect x="522" y="160" width="34" height="170" rx="6"/>
+    <rect x="574" y="160" width="34" height="170" rx="6"/>
+    <rect x="626" y="160" width="34" height="170" rx="6"/>
+    <rect x="678" y="160" width="34" height="170" rx="6"/>
+    <rect x="720" y="160" width="34" height="170" rx="6"/>
+  </g>
+  <text x="487" y="150" text-anchor="middle" font-size="13" fill="#333">个</text>
+  <text x="539" y="150" text-anchor="middle" font-size="13" fill="#333">个</text>
+  <text x="591" y="150" text-anchor="middle" font-size="13" fill="#333">个</text>
+  <text x="643" y="150" text-anchor="middle" font-size="13" fill="#333">个</text>
+  <text x="695" y="150" text-anchor="middle" font-size="13" fill="#333">个</text>
+  <text x="737" y="150" text-anchor="middle" font-size="13" fill="#333">个</text>
+  <text x="610" y="378" text-anchor="middle" font-size="13" fill="#1f6f8b">人人如捆柴：团体与个人相对</text>
+</svg>

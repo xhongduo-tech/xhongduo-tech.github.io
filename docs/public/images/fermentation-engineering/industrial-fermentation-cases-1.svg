@@ -1,0 +1,29 @@
+<svg viewBox="0 0 420 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>青霉素分批补料发酵的时间进程曲线</title>
+<desc>两阶段补料发酵示意：第一阶段生长期，菌体指数生长、葡萄糖逐步补入缓慢下降；第二阶段生产期，补糖受控、菌体平稳，青霉素大量合成并持续上升。</desc>
+<rect x="0" y="0" width="420" height="320" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333" font-size="14">
+  <!-- 坐标轴 -->
+  <line x1="60" y1="250" x2="390" y2="250" stroke="#333" stroke-width="2"/>
+  <line x1="60" y1="250" x2="60" y2="40" stroke="#333" stroke-width="2"/>
+  <text x="380" y="270" text-anchor="end" font-size="14">时间 t (h)</text>
+  <text x="60" y="36" text-anchor="middle" font-size="14">浓度</text>
+  <!-- 阶段分隔线 -->
+  <line x1="215" y1="50" x2="215" y2="248" stroke="#999" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="137" y="268" text-anchor="middle" font-size="14">生长期</text>
+  <text x="300" y="268" text-anchor="middle" font-size="14">生产期</text>
+  <!-- 菌体曲线 -->
+  <path d="M60,248 C90,248 120,247 150,210 C180,120 195,85 230,72 C260,62 340,58 385,58" fill="none" stroke="#333" stroke-width="3"/>
+  <text x="60" y="66" font-size="14">菌体 X</text>
+  <!-- 青霉素曲线 -->
+  <path d="M60,248 C150,249 200,248 220,246 C260,235 320,170 385,88" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <text x="330" y="90" font-size="14" fill="#c0392b">青霉素 P</text>
+  <!-- 葡萄糖曲线（补料锯齿） -->
+  <path d="M60,120 L80,150 L80,122 L100,152 L100,124 L120,154 L120,126 L140,156 L140,128 L160,158 L160,130 L180,160 L180,132 L200,162 L200,134 L215,164" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <path d="M215,164 C240,170 300,185 385,210" fill="none" stroke="#1f6f8b" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <text x="60" y="118" font-size="14" fill="#1f6f8b">葡萄糖 S</text>
+  <text x="228" y="228" font-size="13" fill="#1f6f8b">受控补糖</text>
+  <!-- 图注 -->
+  <text x="60" y="300" font-size="13">生长期产抗生素极少；进入生产期后受控补糖，青霉素持续合成</text>
+</g>
+</svg>

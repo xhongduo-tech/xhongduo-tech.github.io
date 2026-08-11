@@ -1,0 +1,33 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>窑干过程含水率随时间的变化</title>
+<desc>含水率随干燥时间下降的曲线，标出自由水蒸发、吸着水脱除、稳定化三个阶段以及纤维饱和点分界。</desc>
+<rect width="640" height="420" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333">
+<!-- 坐标轴 -->
+<line x1="70" y1="360" x2="610" y2="360" stroke="#333" stroke-width="2"/>
+<line x1="70" y1="40" x2="70" y2="360" stroke="#333" stroke-width="2"/>
+<text x="52" y="40" text-anchor="end" font-size="14">含水率 MC(%)</text>
+<text x="320" y="398" text-anchor="middle" font-size="14">干燥时间</text>
+<!-- 刻度 -->
+<text x="48" y="150" text-anchor="end" font-size="14">30（FSP）</text>
+<text x="48" y="245" text-anchor="end" font-size="14">15</text>
+<text x="48" y="60" text-anchor="end" font-size="14">150</text>
+<!-- FSP 虚线 -->
+<line x1="70" y1="150" x2="610" y2="150" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="560" y="140" font-size="14" fill="#1f6f8b">纤维饱和点 FSP</text>
+<!-- 干燥曲线 -->
+<path d="M70 62 L150 66 L230 96 L320 150 L430 236 L510 330 L590 352" fill="none" stroke="#c0392b" stroke-width="4"/>
+<!-- 阶段分隔线 -->
+<line x1="320" y1="40" x2="320" y2="360" stroke="#888" stroke-width="1.5" stroke-dasharray="4 5"/>
+<line x1="500" y1="40" x2="500" y2="360" stroke="#888" stroke-width="1.5" stroke-dasharray="4 5"/>
+<!-- 阶段标注 -->
+<text x="180" y="330" text-anchor="middle" font-size="15"><tspan font-weight="bold">阶段一</tspan> 自由水蒸发</text>
+<text x="180" y="312" text-anchor="middle" font-size="14" fill="#666">不收缩，只减重</text>
+<text x="410" y="330" text-anchor="middle" font-size="15"><tspan font-weight="bold">阶段二</tspan> 吸着水脱除</text>
+<text x="410" y="312" text-anchor="middle" font-size="14" fill="#666">细胞壁收缩、变强</text>
+<text x="555" y="330" text-anchor="middle" font-size="15"><tspan font-weight="bold">阶段三</tspan> 稳定化</text>
+<text x="555" y="312" text-anchor="middle" font-size="14" fill="#666">消除内应力</text>
+<!-- 曲线标注 -->
+<text x="120" y="90" font-size="14" fill="#c0392b">生材，自由水多</text>
+</g>
+</svg>

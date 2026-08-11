@@ -1,0 +1,24 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>阿施线段判断实验示意图</title>
+  <desc>左侧为标准线段，右侧为三条比较线段 A、B、C，其中只有 A 与标准线段等长；被试需要当众报出哪一条与标准线等长。</desc>
+  <rect width="640" height="360" fill="#faf9f5"/>
+  <text x="320" y="44" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">阿施线段判断实验（示意图）</text>
+  <text x="150" y="90" text-anchor="middle" font-size="15" fill="#333">标准线段</text>
+  <line x1="150" y1="130" x2="150" y2="250" stroke="#333" stroke-width="5"/>
+  <text x="150" y="290" text-anchor="middle" font-size="14" fill="#333">长度 100</text>
+
+  <text x="380" y="90" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">A</text>
+  <line x1="380" y1="130" x2="380" y2="230" stroke="#1f6f8b" stroke-width="5"/>
+  <text x="380" y="290" text-anchor="middle" font-size="14" fill="#333">长度 100（正确）</text>
+
+  <text x="470" y="90" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">B</text>
+  <line x1="470" y1="115" x2="470" y2="245" stroke="#333" stroke-width="5"/>
+  <text x="470" y="290" text-anchor="middle" font-size="14" fill="#333">长度 130</text>
+
+  <text x="560" y="90" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">C</text>
+  <line x1="560" y1="145" x2="560" y2="235" stroke="#333" stroke-width="5"/>
+  <text x="560" y="290" text-anchor="middle" font-size="14" fill="#333">长度 90</text>
+
+  <text x="320" y="335" text-anchor="middle" font-size="14" fill="#666">被试要当众说出哪一条与标准线段等长。线段毫无歧义，</text>
+  <text x="320" y="352" text-anchor="middle" font-size="14" fill="#666">但前几位「演员」统一报错时，约 3/4 的被试至少附和过一次。</text>
+</svg>

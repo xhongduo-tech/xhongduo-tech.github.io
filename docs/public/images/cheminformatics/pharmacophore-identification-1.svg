@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>药效团：特征与距离约束</title>
+  <desc>配体分子上的氢键受体、氢键给体、芳香环三个药效特征及其彼此的距离约束示意</desc>
+  <rect width="800" height="360" fill="#faf9f5"/>
+  <text x="400" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">药效团 = 特征 + 距离约束（示意图）</text>
+
+  <!-- aromatic ring -->
+  <g stroke="#2e7d32" stroke-width="3" fill="none">
+    <polygon points="540,130 578.7,150 578.7,190 540,210 501.3,190 501.3,150"/>
+  </g>
+  <circle cx="540" cy="170" r="62" fill="#2e7d32" opacity="0.15"/>
+
+  <!-- chain -->
+  <g stroke="#333" stroke-width="3">
+    <line x1="501.3" y1="170" x2="460" y2="170"/>
+    <line x1="460" y1="170" x2="400" y2="170"/>
+    <line x1="440" y1="170" x2="440" y2="215"/>
+  </g>
+
+  <!-- carbonyl HBA -->
+  <g stroke="#333" stroke-width="3" fill="none">
+    <line x1="400" y1="170" x2="400" y2="130"/>
+  </g>
+  <g stroke="#333" stroke-width="5" fill="none">
+    <line x1="392" y1="130" x2="392" y2="100"/>
+  </g>
+  <text x="412" y="118" font-size="15" fill="#333">O</text>
+  <circle cx="400" cy="130" r="26" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+
+  <!-- HBD -->
+  <text x="452" y="242" font-size="15" fill="#333">OH</text>
+  <circle cx="440" cy="215" r="24" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="5 4"/>
+
+  <!-- distance constraints -->
+  <g stroke="#888" stroke-width="1.5" stroke-dasharray="3 4">
+    <line x1="400" y1="130" x2="440" y2="215"/>
+    <line x1="440" y1="215" x2="540" y2="170"/>
+    <line x1="540" y1="170" x2="400" y2="130"/>
+  </g>
+  <g fill="#888" font-size="13">
+    <text x="403" y="178">5.2 Å</text>
+    <text x="472" y="200">6.1 Å</text>
+    <text x="458" y="146">7.5 Å</text>
+  </g>
+
+  <!-- feature labels -->
+  <g fill="#c0392b" font-size="14" font-weight="bold">
+    <text x="340" y="88">HBA</text>
+  </g>
+  <g fill="#1f6f8b" font-size="14" font-weight="bold">
+    <text x="350" y="252">HBD</text>
+  </g>
+  <g fill="#2e7d32" font-size="14" font-weight="bold">
+    <text x="536" y="120">ARO</text>
+  </g>
+
+  <!-- legend -->
+  <g font-size="14" fill="#333">
+    <rect x="120" y="290" width="18" height="18" rx="9" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="150" y="305">氢键受体（羰基 O）</text>
+    <rect x="340" y="290" width="18" height="18" rx="9" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="370" y="305">氢键给体（OH）</text>
+    <circle cx="585" cy="299" r="9" fill="#2e7d32" opacity="0.2" stroke="#2e7d32"/>
+    <text x="602" y="305">芳香环</text>
+  </g>
+  <text x="400" y="342" text-anchor="middle" font-size="13" fill="#888">虚线是特征中心之间的距离约束；分子必须能在某个构象中同时满足全部约束才算匹配</text>
+</svg>

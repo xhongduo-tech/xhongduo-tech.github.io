@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" width="820" height="520" role="img" aria-labelledby="title desc">
+<title>招聘产出金字塔示例</title>
+<desc>从 42 名申请者逐层筛选：初筛后 21 人，面试后 13 人，发 offer 10 人，最终录用 10 人，各层通过率标注在右侧。</desc>
+<rect x="0" y="0" width="820" height="520" fill="#faf9f5"/>
+<text x="410" y="40" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">招聘产出金字塔：各层通过率回推漏斗口</text>
+
+<!-- 金字塔层级（梯形） -->
+<g font-family="sans-serif" font-size="15" fill="#fff" stroke="#fff" stroke-width="1">
+<!-- 申请 42 -->
+<polygon points="410,80 140,120 680,120 410,80" fill="#1f6f8b"/>
+<!-- 初筛 21 -->
+<polygon points="410,140 210,178 610,178 410,140" fill="#2c7f94"/>
+<!-- 面试 13 -->
+<polygon points="410,198 270,234 550,234 410,198" fill="#3f92a8"/>
+<!-- offer 10 -->
+<polygon points="410,254 310,286 510,286 410,254" fill="#c0392b"/>
+<!-- 入职 10 -->
+<polygon points="410,306 350,330 470,330 410,306" fill="#d85c3f"/>
+</g>
+
+<text x="330" y="112" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">申请 42</text>
+<text x="330" y="164" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">初筛 21</text>
+<text x="330" y="220" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">面试 13</text>
+<text x="330" y="276" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">Offer 10</text>
+<text x="330" y="322" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">入职 10</text>
+
+<!-- 通过率标注 -->
+<g font-family="sans-serif" font-size="15" fill="#333">
+<text x="700" y="108" text-anchor="end">21 ÷ 42 ≈ 50%</text>
+<text x="700" y="162" text-anchor="end">13 ÷ 21 ≈ 62%</text>
+<text x="700" y="218" text-anchor="end">10 ÷ 13 ≈ 77%</text>
+<text x="700" y="274" text-anchor="end">10 ÷ 10 = 100%</text>
+</g>
+<line x1="640" y1="100" x2="640" y2="286" stroke="#333" stroke-width="1.5" stroke-dasharray="5,5"/>
+
+<!-- 公式 -->
+<rect x="120" y="370" width="580" height="110" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="410" y="398" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#333">所需申请者 = H ÷ (ρ₁ × ρ₂ × ρ₃)</text>
+<text x="410" y="424" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">= 10 ÷ (0.50 × 0.62 × 0.77) ≈ 42</text>
+<text x="410" y="452" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">想要 10 人入职，漏斗口至少要 42 名申请者</text>
+</svg>

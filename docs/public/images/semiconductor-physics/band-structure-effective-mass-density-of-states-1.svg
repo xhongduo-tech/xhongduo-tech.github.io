@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+  <title>半导体能带示意图（E-k 图）</title>
+  <desc>抛物近似下导带与价带的 E-k 关系，两带之间为禁带 E_g，标注导带底 E_c、价带顶 E_v、电子与空穴</desc>
+  <rect x="0" y="0" width="480" height="360" fill="#faf9f5"/>
+  <!-- 能量轴 -->
+  <line x1="60" y1="300" x2="60" y2="40" stroke="#333" stroke-width="2"/>
+  <line x1="60" y1="300" x2="430" y2="300" stroke="#333" stroke-width="2"/>
+  <text x="40" y="42" font-family="sans-serif" font-size="15" fill="#333">E</text>
+  <text x="420" y="318" font-family="sans-serif" font-size="15" fill="#333">k</text>
+  <text x="240" y="318" font-family="sans-serif" font-size="14" fill="#333">k=0（Γ 点）</text>
+  <text x="46" y="304" font-family="sans-serif" font-size="14" fill="#333">0</text>
+  <!-- 导带 -->
+  <path d="M60 158.6 Q240 110 420 158.6" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- 价带 -->
+  <path d="M60 201.4 Q240 250 420 201.4" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <!-- 导带底虚线 -->
+  <line x1="60" y1="110" x2="420" y2="110" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="424" y="114" font-family="sans-serif" font-size="14" fill="#1f6f8b">E_c（导带底）</text>
+  <text x="72" y="104" font-family="sans-serif" font-size="14" fill="#1f6f8b">导带（电子）</text>
+  <!-- 价带顶虚线 -->
+  <line x1="60" y1="250" x2="420" y2="250" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="424" y="254" font-family="sans-serif" font-size="14" fill="#c0392b">E_v（价带顶）</text>
+  <text x="72" y="266" font-family="sans-serif" font-size="14" fill="#c0392b">价带（空穴）</text>
+  <!-- 禁带宽度标注 -->
+  <line x1="150" y1="110" x2="150" y2="250" stroke="#333" stroke-width="1.5"/>
+  <line x1="145" y1="110" x2="155" y2="110" stroke="#333" stroke-width="1.5"/>
+  <line x1="145" y1="250" x2="155" y2="250" stroke="#333" stroke-width="1.5"/>
+  <text x="158" y="186" font-family="sans-serif" font-size="15" fill="#333">禁带 E_g</text>
+  <!-- 电子标记 -->
+  <circle cx="330" cy="140" r="7" fill="#1f6f8b"/>
+  <text x="340" y="136" font-family="sans-serif" font-size="14" fill="#333">电子 e⁻</text>
+  <!-- 空穴标记 -->
+  <circle cx="330" cy="228" r="7" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <text x="340" y="232" font-family="sans-serif" font-size="14" fill="#333">空穴 h⁺</text>
+</svg>

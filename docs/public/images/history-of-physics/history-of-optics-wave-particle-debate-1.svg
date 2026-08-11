@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" font-family="sans-serif">
+<title>杨氏双缝实验：波动说的决定性证据</title>
+<desc>光源发出的光穿过挡板上的两条狭缝，两条缝各自发出半圆波前，向右传播并在屏幕上相干叠加，形成明暗相间的干涉条纹。</desc>
+<rect x="0" y="0" width="720" height="360" fill="#faf9f5"/>
+
+<text x="360" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">杨氏双缝实验：波动说的决定性证据</text>
+
+<!-- 光源 -->
+<circle cx="40" cy="170" r="8" fill="#c0392b"/>
+<text x="30" y="152" font-size="13" fill="#333">光源</text>
+<line x1="40" y1="170" x2="120" y2="130" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 3"/>
+<line x1="40" y1="170" x2="120" y2="210" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+<!-- 挡板（含两条缝） -->
+<line x1="120" y1="70" x2="120" y2="105" stroke="#333" stroke-width="5"/>
+<line x1="120" y1="155" x2="120" y2="185" stroke="#333" stroke-width="5"/>
+<line x1="120" y1="235" x2="120" y2="270" stroke="#333" stroke-width="5"/>
+<text x="120" y="292" text-anchor="middle" font-size="12" fill="#333">挡板（两条缝）</text>
+
+<!-- 从两缝发出的半圆波前 -->
+<g stroke="#1f6f8b" stroke-width="1.2" fill="none" opacity="0.6">
+  <g>
+    <path d="M 120 130 A 40 40 0 0 1 160 130"/>
+    <path d="M 120 130 A 80 80 0 0 1 200 130"/>
+    <path d="M 120 130 A 120 120 0 0 1 240 130"/>
+    <path d="M 120 130 A 160 160 0 0 1 280 130"/>
+    <path d="M 120 130 A 200 200 0 0 1 320 130"/>
+    <path d="M 120 130 A 240 240 0 0 1 360 130"/>
+    <path d="M 120 130 A 280 280 0 0 1 400 130"/>
+  </g>
+  <g>
+    <path d="M 120 210 A 40 40 0 0 1 160 210"/>
+    <path d="M 120 210 A 80 80 0 0 1 200 210"/>
+    <path d="M 120 210 A 120 120 0 0 1 240 210"/>
+    <path d="M 120 210 A 160 160 0 0 1 280 210"/>
+    <path d="M 120 210 A 200 200 0 0 1 320 210"/>
+    <path d="M 120 210 A 240 240 0 0 1 360 210"/>
+    <path d="M 120 210 A 280 280 0 0 1 400 210"/>
+  </g>
+</g>
+
+<!-- 屏幕 -->
+<rect x="640" y="55" width="8" height="250" fill="#e8e4da" stroke="#333" stroke-width="1"/>
+<g>
+  <circle cx="644" cy="95" r="6" fill="#c0392b"/>
+  <circle cx="644" cy="120" r="6" fill="#c0392b"/>
+  <circle cx="644" cy="145" r="6" fill="#c0392b"/>
+  <circle cx="644" cy="170" r="6" fill="#c0392b"/>
+  <circle cx="644" cy="195" r="6" fill="#c0392b"/>
+  <circle cx="644" cy="220" r="6" fill="#c0392b"/>
+  <circle cx="644" cy="245" r="6" fill="#c0392b"/>
+</g>
+<g fill="#999">
+  <circle cx="644" cy="107.5" r="4"/>
+  <circle cx="644" cy="132.5" r="4"/>
+  <circle cx="644" cy="157.5" r="4"/>
+  <circle cx="644" cy="182.5" r="4"/>
+  <circle cx="644" cy="207.5" r="4"/>
+  <circle cx="644" cy="232.5" r="4"/>
+</g>
+<text x="644" y="325" text-anchor="middle" font-size="13" fill="#333">屏幕（明暗相间条纹）</text>
+
+<text x="360" y="340" text-anchor="middle" font-size="13" fill="#555">两条缝成为两个相干新波源：路程差为波长整数倍处加强（明纹），半波长奇数倍处相消（暗纹）</text>
+</svg>

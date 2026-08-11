@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="560" height="420" font-family="sans-serif">
+  <title>国际 10-20 系统电极分布示意图</title>
+  <desc>从头顶俯视的 10-20 电极定位系统：以鼻根到枕外隆凸的中线为基准，把颅骨按 10%、20% 等间距划分出 Fp、F、C、P、O 等矢状位置，两侧对应 T 与颞侧位，每电极用字母+数字命名。</desc>
+  <rect x="0" y="0" width="560" height="420" fill="#faf9f5"/>
+  <g stroke="#333" fill="none" stroke-width="1.5">
+    <!-- skull outline -->
+    <ellipse cx="280" cy="210" rx="250" ry="175"/>
+    <path d="M 55 210 Q 280 -5 505 210" stroke="#1f6f8b" stroke-dasharray="6 4"/>
+  </g>
+  <g fill="#1f6f8b" font-size="14">
+    <!-- midline electrodes: Fpz near nasion to Oz near inion -->
+    <circle cx="280" cy="78" r="13" fill="#1f6f8b"/>
+    <circle cx="280" cy="136" r="13" fill="#1f6f8b"/>
+    <circle cx="280" cy="195" r="13" fill="#1f6f8b"/>
+    <circle cx="280" cy="254" r="13" fill="#1f6f8b"/>
+    <circle cx="280" cy="312" r="13" fill="#1f6f8b"/>
+  </g>
+  <g fill="#c0392b" font-size="14">
+    <!-- left side -->
+    <circle cx="180" cy="130" r="13" fill="#c0392b"/>
+    <circle cx="140" cy="200" r="13" fill="#c0392b"/>
+    <circle cx="180" cy="275" r="13" fill="#c0392b"/>
+    <!-- right side -->
+    <circle cx="380" cy="130" r="13" fill="#c0392b"/>
+    <circle cx="420" cy="200" r="13" fill="#c0392b"/>
+    <circle cx="380" cy="275" r="13" fill="#c0392b"/>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="middle" font-weight="bold">
+    <text x="280" y="82">Fpz</text>
+    <text x="280" y="140">Fz</text>
+    <text x="280" y="199">Cz</text>
+    <text x="280" y="258">Pz</text>
+    <text x="280" y="316">Oz</text>
+    <text x="170" y="124" fill="#c0392b">F3</text>
+    <text x="130" y="194" fill="#c0392b">C3</text>
+    <text x="170" y="269" fill="#c0392b">P3</text>
+    <text x="390" y="124" fill="#c0392b">F4</text>
+    <text x="430" y="194" fill="#c0392b">C4</text>
+    <text x="390" y="269" fill="#c0392b">P4</text>
+  </g>
+  <g font-size="14" fill="#333">
+    <text x="30" y="80">鼻根（Nasion）</text>
+    <text x="330" y="360">枕外隆凸（Inion）</text>
+    <text x="62" y="408" text-anchor="start">命名规则：F=额 Fp=前额 C=中央 P=顶 O=枕 z=中线，偶数=右侧，奇数=左侧</text>
+  </g>
+</svg>

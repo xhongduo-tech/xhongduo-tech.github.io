@@ -1,0 +1,47 @@
+<svg viewBox="0 0 640 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">纵隔分区示意图（矢状位观）</title>
+  <desc id="desc">以胸骨角平面（T4/T5）为界，将纵隔分为上纵隔与下纵隔；下纵隔再分为前纵隔、中纵隔与后纵隔。中纵隔含心脏与心包。</desc>
+  <rect width="640" height="460" fill="#faf9f5" />
+  <text x="320" y="36" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#333" font-weight="bold">纵隔分区（矢状位剖面，前面向左）</text>
+
+  <!-- 胸腔外轮廓 -->
+  <path d="M 70 80 L 590 80 Q 610 80 610 100 L 610 410 Q 610 430 590 430 L 70 430 Q 50 430 50 410 L 50 100 Q 50 80 70 80 Z" fill="#ffffff" stroke="#333" stroke-width="2.5" />
+
+  <!-- 前胸壁（胸骨）标注 -->
+  <line x1="55" y1="430" x2="20" y2="445" stroke="#1f6f8b" stroke-width="2" />
+  <text x="16" y="452" font-family="sans-serif" font-size="15" fill="#1f6f8b" text-anchor="middle">胸骨（前）</text>
+
+  <!-- 后背（椎体）标注 -->
+  <line x1="605" y1="430" x2="620" y2="445" stroke="#1f6f8b" stroke-width="2" />
+  <text x="622" y="452" font-family="sans-serif" font-size="15" fill="#1f6f8b" text-anchor="middle">椎体（后）</text>
+
+  <!-- 上纵隔 -->
+  <rect x="60" y="90" width="540" height="90" fill="#f0e8d8" stroke="none" />
+  <text x="330" y="150" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#333">上纵隔</text>
+  <text x="330" y="172" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#555">胸腺 · 主动脉弓 · 上腔静脉 · 气管 · 食管</text>
+
+  <!-- T4/T5 平面 -->
+  <line x1="60" y1="180" x2="600" y2="180" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8 6" />
+  <text x="330" y="210" font-family="sans-serif" font-size="15" text-anchor="middle" fill="#c0392b">胸骨角平面（T4 / T5）</text>
+
+  <!-- 下纵隔三个分区 -->
+  <rect x="60" y="230" width="170" height="190" fill="#f7f3ea" stroke="#333" stroke-width="1.5" />
+  <text x="145" y="300" font-family="sans-serif" font-size="17" text-anchor="middle" fill="#333">前纵隔</text>
+  <text x="145" y="322" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#555">胸腺下部 · 脂肪</text>
+
+  <rect x="235" y="230" width="200" height="190" fill="#e8f1f4" stroke="#333" stroke-width="1.5" />
+  <!-- 心脏 -->
+  <ellipse cx="335" cy="330" rx="62" ry="70" fill="#c0392b" opacity="0.85" />
+  <text x="335" y="310" font-family="sans-serif" font-size="15" text-anchor="middle" fill="#fff">心</text>
+  <text x="335" y="332" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#fff">（心包内）</text>
+  <text x="335" y="270" font-family="sans-serif" font-size="17" text-anchor="middle" fill="#1f6f8b">中纵隔</text>
+
+  <rect x="440" y="230" width="160" height="190" fill="#f7f3ea" stroke="#333" stroke-width="1.5" />
+  <text x="520" y="300" font-family="sans-serif" font-size="17" text-anchor="middle" fill="#333">后纵隔</text>
+  <text x="520" y="322" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#555">食管 · 胸主动脉</text>
+  <text x="520" y="340" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#555">胸导管 · 交感干</text>
+
+  <!-- 膈 -->
+  <line x1="70" y1="430" x2="590" y2="430" stroke="#333" stroke-width="3" />
+  <text x="330" y="452" font-family="sans-serif" font-size="15" text-anchor="middle" fill="#333">膈肌</text>
+</svg>

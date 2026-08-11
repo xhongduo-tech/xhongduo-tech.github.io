@@ -1,0 +1,66 @@
+<svg viewBox="0 0 800 640" xmlns="http://www.w3.org/2000/svg">
+  <title>人—技术—世界的四种关系（Ihde）</title>
+  <desc>伊德（Ihde）现象学技术哲学中，人、技术、世界之间的四种关系结构：具身关系、诠释关系、他者关系、背景关系。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333333"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <rect width="800" height="640" fill="#faf9f5"/>
+
+  <!-- 面板 1：具身关系 -->
+  <rect x="20" y="20" width="370" height="270" rx="12" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+  <text x="40" y="52" font-family="sans-serif" font-size="19" font-weight="bold" fill="#1f6f8b">① 具身关系（embodiment）</text>
+  <text x="40" y="76" font-family="sans-serif" font-size="14" fill="#333333">人“透过”技术看世界：技术隐身，人世界合体</text>
+  <circle cx="130" cy="175" r="34" fill="#333333"/>
+  <text x="130" y="182" font-family="sans-serif" font-size="16" fill="#ffffff" text-anchor="middle">人</text>
+  <rect x="150" y="150" width="95" height="36" rx="8" fill="#1f6f8b" opacity="0.85"/>
+  <text x="197" y="174" font-family="sans-serif" font-size="15" fill="#ffffff" text-anchor="middle">技术</text>
+  <line x1="250" y1="175" x2="292" y2="175" stroke="#333333" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="298" y="153" width="78" height="44" rx="6" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="337" y="181" font-family="sans-serif" font-size="16" fill="#c0392b" text-anchor="middle">世界</text>
+  <text x="40" y="260" font-family="sans-serif" font-size="14" fill="#333333">例：眼镜、望远镜、驾驶的汽车</text>
+
+  <!-- 面板 2：诠释关系 -->
+  <rect x="410" y="20" width="370" height="270" rx="12" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+  <text x="430" y="52" font-family="sans-serif" font-size="19" font-weight="bold" fill="#1f6f8b">② 诠释关系（hermeneutic）</text>
+  <text x="430" y="76" font-family="sans-serif" font-size="14" fill="#333333">人“阅读”技术给出的世界：世界以读数的形式显现</text>
+  <circle cx="130" cy="175" r="34" fill="#333333"/>
+  <text x="130" y="182" font-family="sans-serif" font-size="16" fill="#ffffff" text-anchor="middle">人</text>
+  <line x1="168" y1="175" x2="205" y2="175" stroke="#333333" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="210" y="140" width="150" height="70" rx="8" fill="#1f6f8b" opacity="0.12" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="285" y="167" font-family="sans-serif" font-size="15" fill="#1f6f8b" text-anchor="middle">技术（仪器）</text>
+  <text x="285" y="193" font-family="sans-serif" font-size="14" fill="#333333" text-anchor="middle">读数 → 世界</text>
+  <text x="430" y="260" font-family="sans-serif" font-size="14" fill="#333333">例：温度计、仪表盘、B 超影像</text>
+
+  <!-- 面板 3：他者关系 -->
+  <rect x="20" y="310" width="370" height="270" rx="12" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+  <text x="40" y="342" font-family="sans-serif" font-size="19" font-weight="bold" fill="#1f6f8b">③ 他者关系（alterity）</text>
+  <text x="40" y="366" font-family="sans-serif" font-size="14" fill="#333333">技术成为被“面对面”相处的准他者，世界退居背后</text>
+  <circle cx="120" cy="440" r="34" fill="#333333"/>
+  <text x="120" y="447" font-family="sans-serif" font-size="16" fill="#ffffff" text-anchor="middle">人</text>
+  <line x1="158" y1="440" x2="204" y2="440" stroke="#333333" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="204" y1="430" x2="158" y2="450" stroke="#333333" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="210" y="410" width="130" height="60" rx="8" fill="#ffffff" stroke="#333333" stroke-width="2.5"/>
+  <text x="275" y="446" font-family="sans-serif" font-size="15" fill="#333333" text-anchor="middle">技术（准他者）</text>
+  <circle cx="330" cy="500" r="30" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="330" y="505" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">世界</text>
+  <text x="40" y="552" font-family="sans-serif" font-size="14" fill="#333333">例：ATM、下棋对手、聊天机器人</text>
+
+  <!-- 面板 4：背景关系 -->
+  <rect x="410" y="310" width="370" height="270" rx="12" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+  <text x="430" y="342" font-family="sans-serif" font-size="19" font-weight="bold" fill="#1f6f8b">④ 背景关系（background）</text>
+  <text x="430" y="366" font-family="sans-serif" font-size="14" fill="#333333">技术退居环境的背景，几乎不被注意</text>
+  <circle cx="150" cy="440" r="34" fill="#333333"/>
+  <text x="150" y="447" font-family="sans-serif" font-size="16" fill="#ffffff" text-anchor="middle">人</text>
+  <rect x="260" y="400" width="130" height="55" rx="8" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4" opacity="0.6"/>
+  <text x="325" y="433" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle" opacity="0.7">世界</text>
+  <rect x="260" y="475" width="130" height="55" rx="8" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="5 4" opacity="0.55"/>
+  <text x="325" y="508" font-family="sans-serif" font-size="14" fill="#1f6f8b" text-anchor="middle" opacity="0.7">技术</text>
+  <text x="430" y="552" font-family="sans-serif" font-size="14" fill="#333333">例：恒温空调、供电管网、网络基础设施</text>
+
+  <text x="20" y="618" font-family="sans-serif" font-size="15" fill="#333333">关系式简记：① (人–技术)→世界 ｜ ② 人→(技术–世界) ｜ ③ 人↔技术（世界退后） ｜ ④ 人→(世界/技术为背景)</text>
+</svg>

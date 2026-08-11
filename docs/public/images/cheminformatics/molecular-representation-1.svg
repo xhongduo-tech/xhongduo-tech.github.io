@@ -1,0 +1,113 @@
+<svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>阿司匹林的多种计算机表示</title>
+  <desc>从二维结构式到分子图、连接表、SMILES 的表示流水线示意</desc>
+  <rect width="960" height="300" fill="#faf9f5"/>
+  <text x="480" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">阿司匹林（aspirin）的四种计算机表示</text>
+
+  <!-- Panel 1: 2D structure -->
+  <rect x="20" y="48" width="210" height="240" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="125" y="68" text-anchor="middle" font-size="14" fill="#1f6f8b" font-weight="bold">① 二维结构式</text>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <polygon points="100,128 136.4,149 136.4,191 100,212 63.6,191 63.6,149" />
+    <line x1="100" y1="128" x2="100" y2="90"/>
+    <line x1="100" y1="90" x2="116" y2="78"/>
+    <line x1="100" y1="90" x2="84" y2="76"/>
+    <line x1="63.6" y1="149" x2="38" y2="120"/>
+    <line x1="38" y1="120" x2="30" y2="88"/>
+    <line x1="30" y1="88" x2="30" y2="64"/>
+    <line x1="30" y1="88" x2="60" y2="86"/>
+  </g>
+  <g stroke="#333" stroke-width="3" fill="none">
+    <line x1="96" y1="90" x2="112" y2="78"/>
+    <line x1="26" y1="88" x2="26" y2="64"/>
+  </g>
+  <g fill="#333" font-size="13" text-anchor="middle">
+    <text x="124" y="72">O</text>
+    <text x="76" y="74">OH</text>
+    <text x="18" y="60">O</text>
+    <text x="72" y="88">CH₃</text>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#c0392b" stroke-width="2.5" fill="#c0392b">
+    <line x1="238" y1="170" x2="268" y2="170"/>
+    <polygon points="268,170 258,164 258,176"/>
+  </g>
+
+  <!-- Panel 2: molecular graph with labels -->
+  <rect x="278" y="48" width="210" height="240" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="383" y="68" text-anchor="middle" font-size="14" fill="#1f6f8b" font-weight="bold">② 分子图（编号）</text>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <line x1="358" y1="128" x2="394.4" y2="149"/>
+    <line x1="394.4" y1="149" x2="394.4" y2="191"/>
+    <line x1="394.4" y1="191" x2="358" y2="212"/>
+    <line x1="358" y1="212" x2="321.6" y2="191"/>
+    <line x1="321.6" y1="191" x2="321.6" y2="149"/>
+    <line x1="321.6" y1="149" x2="358" y2="128"/>
+    <line x1="358" y1="128" x2="358" y2="90"/>
+    <line x1="321.6" y1="149" x2="296" y2="120"/>
+    <line x1="296" y1="120" x2="288" y2="88"/>
+    <line x1="288" y1="88" x2="318" y2="86"/>
+  </g>
+  <g stroke="#333" stroke-width="3" fill="none">
+    <line x1="358" y1="128" x2="358" y2="90"/>
+    <line x1="288" y1="88" x2="288" y2="64"/>
+  </g>
+  <g>
+    <circle cx="358" cy="128" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="394.4" cy="149" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="394.4" cy="191" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="358" cy="212" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="321.6" cy="191" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="321.6" cy="149" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="358" cy="90" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="296" cy="120" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="288" cy="88" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="288" cy="64" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="318" cy="86" r="11" fill="#fff" stroke="#333"/>
+    <circle cx="330" cy="188" r="11" fill="#fff" stroke="#333"/>
+  </g>
+  <g fill="#c0392b" font-size="12" text-anchor="middle">
+    <text x="358" y="132">7</text><text x="394.4" y="153">1</text>
+    <text x="394.4" y="195">2</text><text x="358" y="216">3</text>
+    <text x="321.6" y="195">4</text><text x="321.6" y="153">5</text>
+    <text x="358" y="94">6</text><text x="296" y="124">8</text>
+    <text x="288" y="92">9</text><text x="288" y="68">10</text>
+    <text x="318" y="90">11</text><text x="330" y="192">12</text>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#c0392b" stroke-width="2.5" fill="#c0392b">
+    <line x1="496" y1="170" x2="526" y2="170"/>
+    <polygon points="526,170 516,164 516,176"/>
+  </g>
+
+  <!-- Panel 3: connection table -->
+  <rect x="536" y="48" width="200" height="240" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="636" y="68" text-anchor="middle" font-size="14" fill="#1f6f8b" font-weight="bold">③ 连接表</text>
+  <g fill="#333" font-size="13">
+    <text x="550" y="96" font-weight="bold">原子表</text>
+    <text x="550" y="118">1–6  C（芳香）</text>
+    <text x="550" y="138">7, 9, 11  C</text>
+    <text x="550" y="158">8, 10, 12  O</text>
+    <text x="550" y="192" font-weight="bold">键表（节选）</text>
+    <text x="550" y="214">1–2 单   1–6 单</text>
+    <text x="550" y="234">6–7 单   7–8 双</text>
+    <text x="550" y="254">5–8 单   9–10 双</text>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#c0392b" stroke-width="2.5" fill="#c0392b">
+    <line x1="744" y1="170" x2="774" y2="170"/>
+    <polygon points="774,170 764,164 764,176"/>
+  </g>
+
+  <!-- Panel 4: SMILES -->
+  <rect x="784" y="48" width="160" height="240" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="864" y="68" text-anchor="middle" font-size="14" fill="#1f6f8b" font-weight="bold">④ SMILES</text>
+  <text x="864" y="150" text-anchor="middle" font-size="15" fill="#333" font-family="monospace">CC(=O)Oc1ccccc1</text>
+  <text x="864" y="176" text-anchor="middle" font-size="15" fill="#333" font-family="monospace">C(=O)O</text>
+  <text x="864" y="230" text-anchor="middle" font-size="13" fill="#333">一行字符串，可读可写</text>
+
+  <text x="480" y="292" text-anchor="middle" font-size="13" fill="#888">信息完备度相近，紧凑度与可读性递减：结构式 ≈ 图 ≈ 连接表 &gt; SMILES</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="sans-serif">
+  <title>三种历史编纂体例结构示意</title>
+  <desc>对比编年体、纪传体与纪事本末体三种史书体例的组织结构：编年体以时间为经，纪传体以人物为纬，纪事本末体以事件为纲。</desc>
+  <rect width="900" height="400" fill="#faf9f5"/>
+  <text x="450" y="36" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">三种历史编纂体例</text>
+
+  <!-- 编年体 -->
+  <rect x="24" y="60" width="276" height="300" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="162" y="88" text-anchor="middle" font-size="16" fill="#c0392b" font-weight="bold">编年体：以时间为经</text>
+  <line x1="162" y1="110" x2="162" y2="330" stroke="#1f6f8b" stroke-width="2.5"/>
+  <circle cx="162" cy="128" r="5" fill="#c0392b"/>
+  <text x="176" y="132" font-size="13" fill="#333">前722 鲁隐公元年《春秋》始</text>
+  <circle cx="162" cy="172" r="5" fill="#c0392b"/>
+  <text x="176" y="176" font-size="13" fill="#333">前632 城濮之战</text>
+  <circle cx="162" cy="216" r="5" fill="#c0392b"/>
+  <text x="176" y="220" font-size="13" fill="#333">前597 邲之战</text>
+  <circle cx="162" cy="260" r="5" fill="#c0392b"/>
+  <text x="176" y="264" font-size="13" fill="#333">前479 孔子卒</text>
+  <circle cx="162" cy="304" r="5" fill="#c0392b"/>
+  <text x="176" y="308" font-size="13" fill="#333">前453 三家分晋</text>
+  <text x="162" y="348" text-anchor="middle" font-size="13" fill="#333">《春秋》《左传》《资治通鉴》</text>
+
+  <!-- 纪传体 -->
+  <rect x="312" y="60" width="276" height="300" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="450" y="88" text-anchor="middle" font-size="16" fill="#c0392b" font-weight="bold">纪传体：以人物为纬</text>
+  <g>
+    <rect x="332" y="108" width="236" height="30" rx="5" fill="#1f6f8b" opacity="0.12"/>
+    <text x="450" y="128" text-anchor="middle" font-size="13" fill="#333">本纪 12 篇（帝王编年）</text>
+    <rect x="332" y="150" width="236" height="30" rx="5" fill="#1f6f8b" opacity="0.12"/>
+    <text x="450" y="170" text-anchor="middle" font-size="13" fill="#333">表 10 篇（世表、年表、月表）</text>
+    <rect x="332" y="192" width="236" height="30" rx="5" fill="#1f6f8b" opacity="0.12"/>
+    <text x="450" y="212" text-anchor="middle" font-size="13" fill="#333">书 8 篇（典章制度）</text>
+    <rect x="332" y="234" width="236" height="30" rx="5" fill="#1f6f8b" opacity="0.12"/>
+    <text x="450" y="254" text-anchor="middle" font-size="13" fill="#333">世家 30 篇（诸侯、要人）</text>
+    <rect x="332" y="276" width="236" height="30" rx="5" fill="#1f6f8b" opacity="0.12"/>
+    <text x="450" y="296" text-anchor="middle" font-size="13" fill="#333">列传 70 篇（人物传记）</text>
+  </g>
+  <text x="450" y="348" text-anchor="middle" font-size="13" fill="#333">《史记》开创，二十四史相沿</text>
+
+  <!-- 纪事本末体 -->
+  <rect x="600" y="60" width="276" height="300" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="738" y="88" text-anchor="middle" font-size="16" fill="#c0392b" font-weight="bold">纪事本末体：以事件为纲</text>
+  <g>
+    <rect x="620" y="106" width="236" height="64" rx="6" fill="#faf9f5" stroke="#1f6f8b"/>
+    <text x="738" y="124" text-anchor="middle" font-size="13" fill="#c0392b">事件一：三家分晋</text>
+    <circle cx="660" cy="146" r="4" fill="#1f6f8b"/>
+    <circle cx="738" cy="146" r="4" fill="#1f6f8b"/>
+    <circle cx="816" cy="146" r="4" fill="#1f6f8b"/>
+    <line x1="664" y1="146" x2="734" y2="146" stroke="#1f6f8b" stroke-width="1.5"/>
+    <line x1="742" y1="146" x2="812" y2="146" stroke="#1f6f8b" stroke-width="1.5"/>
+    <rect x="620" y="180" width="236" height="64" rx="6" fill="#faf9f5" stroke="#1f6f8b"/>
+    <text x="738" y="198" text-anchor="middle" font-size="13" fill="#c0392b">事件二：赤壁之战</text>
+    <circle cx="660" cy="220" r="4" fill="#1f6f8b"/>
+    <circle cx="738" cy="220" r="4" fill="#1f6f8b"/>
+    <circle cx="816" cy="220" r="4" fill="#1f6f8b"/>
+    <line x1="664" y1="220" x2="734" y2="220" stroke="#1f6f8b" stroke-width="1.5"/>
+    <line x1="742" y1="220" x2="812" y2="220" stroke="#1f6f8b" stroke-width="1.5"/>
+    <rect x="620" y="254" width="236" height="64" rx="6" fill="#faf9f5" stroke="#1f6f8b"/>
+    <text x="738" y="272" text-anchor="middle" font-size="13" fill="#c0392b">事件三：安史之乱</text>
+    <circle cx="660" cy="294" r="4" fill="#1f6f8b"/>
+    <circle cx="738" cy="294" r="4" fill="#1f6f8b"/>
+    <circle cx="816" cy="294" r="4" fill="#1f6f8b"/>
+    <line x1="664" y1="294" x2="734" y2="294" stroke="#1f6f8b" stroke-width="1.5"/>
+    <line x1="742" y1="294" x2="812" y2="294" stroke="#1f6f8b" stroke-width="1.5"/>
+  </g>
+  <text x="738" y="348" text-anchor="middle" font-size="13" fill="#333">《通鉴纪事本末》始创</text>
+</svg>

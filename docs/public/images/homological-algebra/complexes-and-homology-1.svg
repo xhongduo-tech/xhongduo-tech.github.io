@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="sans-serif">
+<title>循环与边界：同调群测洞的直觉图</title>
+<desc>左图：实心圆盘是二维填充，其边界圆是边界链，在 H1 中为零类；右图：独立圆周内部是洞，它是循环但非边界，在 H1 中给出非零类。</desc>
+<rect x="0" y="0" width="640" height="360" fill="#faf9f5"/>
+<text x="320" y="36" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">循环（闭链）与边界：洞是怎么被数出来的</text>
+
+<!-- 左：圆盘（边界属于 B1） -->
+<text x="170" y="84" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">情况一：圆是边界</text>
+<circle cx="170" cy="200" r="78" fill="#1f6f8b" fill-opacity="0.15" stroke="#333" stroke-width="2.5"/>
+<text x="170" y="196" text-anchor="middle" font-size="14" fill="#1f6f8b">二维填充</text>
+<text x="170" y="216" text-anchor="middle" font-size="14" fill="#1f6f8b">（有内部）</text>
+<text x="170" y="300" text-anchor="middle" font-size="14" fill="#333">边界圆 ∈ B₁</text>
+<text x="170" y="322" text-anchor="middle" font-size="14" fill="#333">⇒ 在 H₁ 中为零类（无洞）</text>
+
+<!-- 右：独立圆周（洞） -->
+<text x="470" y="84" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">情况二：圆周独立存在</text>
+<circle cx="470" cy="200" r="78" fill="none" stroke="#333" stroke-width="2.5"/>
+<circle cx="470" cy="200" r="34" fill="#faf9f5" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="470" cy="200" y="204" text-anchor="middle" font-size="13" fill="#c0392b">洞</text>
+<text x="470" y="300" text-anchor="middle" font-size="14" fill="#333">圆周是循环但 ∉ B₁</text>
+<text x="470" y="322" text-anchor="middle" font-size="14" fill="#333">⇒ 在 H₁ 中非零（有一个洞）</text>
+
+<line x1="330" y1="160" x2="330" y2="240" stroke="#999" stroke-width="1.5"/>
+<text x="330" y="280" text-anchor="middle" font-size="13" fill="#999">对照</text>
+</svg>

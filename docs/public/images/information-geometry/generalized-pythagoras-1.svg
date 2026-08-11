@@ -1,0 +1,33 @@
+<svg viewBox="0 0 640 420" width="640" height="420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>广义 Pythagoras 定理示意</title>
+  <desc>双平坦流形上，P 经 e-测地线到 Q，Q 经 m-测地线到 R，在 Q 处正交，斜边散度等于两直角边散度之和。</desc>
+  <rect width="640" height="420" fill="#faf9f5"/>
+  <!-- 定义小弯曲的流形背景 -->
+  <path d="M 40 330 C 200 270, 420 250, 600 200" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+  <text x="540" y="180" font-family="sans-serif" font-size="15" fill="#333" opacity="0.6">流形 S（对偶平坦）</text>
+
+  <!-- e-测地线：P -> Q -->
+  <path d="M 140 300 C 180 250, 260 210, 330 200" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- m-测地线：Q -> R -->
+  <path d="M 330 200 C 360 200, 400 190, 440 160" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <!-- 斜边：P -> R -->
+  <path d="M 140 300 C 220 250, 340 210, 440 160" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="8 5"/>
+
+  <!-- 直角标记在 Q -->
+  <path d="M 330 200 L 318 180 L 338 178 L 350 198 Z" fill="none" stroke="#666" stroke-width="1.5"/>
+
+  <!-- 点 -->
+  <circle cx="140" cy="300" r="7" fill="#1f6f8b"/>
+  <circle cx="330" cy="200" r="7" fill="#c0392b"/>
+  <circle cx="440" cy="160" r="7" fill="#333"/>
+
+  <!-- 标签 -->
+  <text x="112" y="322" font-family="sans-serif" font-size="18" fill="#1f6f8b" font-weight="bold">P</text>
+  <text x="338" y="230" font-family="sans-serif" font-size="18" fill="#c0392b" font-weight="bold">Q（正交点）</text>
+  <text x="448" y="158" font-family="sans-serif" font-size="18" fill="#333" font-weight="bold">R</text>
+
+  <!-- 边长标注 -->
+  <text x="200" y="262" font-family="sans-serif" font-size="15" fill="#1f6f8b">e-测地线</text>
+  <text x="392" y="168" font-family="sans-serif" font-size="15" fill="#c0392b" transform="rotate(-24 396 178)">m-测地线</text>
+  <text x="270" y="300" font-family="sans-serif" font-size="15" fill="#333" transform="rotate(-20 290 288)">D[P:R] = D[P:Q] + D[Q:R]</text>
+</svg>

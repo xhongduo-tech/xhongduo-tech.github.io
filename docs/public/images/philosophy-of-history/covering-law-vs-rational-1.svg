@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" font-family="sans-serif">
+  <title>覆盖律模型与合理性解释的对照</title>
+  <desc>左侧展示 Hempel 的演绎—律则模型：由覆盖律与初始条件演绎推出被解释事件；右侧展示 Dray 的合理性解释：由情境、目标、信念与合理性原则重构行动者的理由，推出其所做行动。</desc>
+  <rect width="860" height="430" fill="#faf9f5"/>
+
+  <!-- 左侧标题 -->
+  <text x="225" y="42" text-anchor="middle" font-size="17" fill="#1f6f8b" font-weight="bold">覆盖律模型（Hempel 1942）</text>
+
+  <!-- 左侧前提 -->
+  <rect x="40" y="70" width="370" height="110" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="225" y="102" text-anchor="middle" font-size="14" fill="#333">覆盖律 L₁, L₂, …, Lᵣ（普遍定律）</text>
+  <text x="225" y="130" text-anchor="middle" font-size="14" fill="#333">初始条件 C₁, C₂, …, Cₖ（先行状态）</text>
+  <text x="225" y="162" text-anchor="middle" font-size="13" fill="#333">前提（explanans）</text>
+
+  <!-- 左侧箭头 -->
+  <line x1="225" y1="180" x2="225" y2="220" stroke="#333" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="240" y="205" font-size="13" fill="#333">演绎推理（逻辑蕴含）</text>
+
+  <!-- 左侧结论 -->
+  <rect x="40" y="225" width="370" height="90" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="225" y="272" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">被解释项 E：事件描述</text>
+  <text x="225" y="296" text-anchor="middle" font-size="13" fill="#333">（如「法国大革命爆发」）</text>
+
+  <!-- 右侧标题 -->
+  <text x="635" y="42" text-anchor="middle" font-size="17" fill="#1f6f8b" font-weight="bold">合理性解释（Dray 1957）</text>
+
+  <!-- 右侧前提 -->
+  <rect x="450" y="70" width="370" height="110" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="635" y="102" text-anchor="middle" font-size="14" fill="#333">情境 C + 行动者 X 的目标 G 与信念 B</text>
+  <text x="635" y="130" text-anchor="middle" font-size="14" fill="#333">合理性原则：A 是达成 G 的恰当手段</text>
+  <text x="635" y="162" text-anchor="middle" font-size="13" fill="#333">前提（行动者的理由）</text>
+
+  <!-- 右侧箭头 -->
+  <line x1="635" y1="180" x2="635" y2="220" stroke="#333" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="650" y="205" font-size="13" fill="#333">实践推理（重演其理由）</text>
+
+  <!-- 右侧结论 -->
+  <rect x="450" y="225" width="370" height="90" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="635" y="272" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">行动 A：X 做了 A</text>
+  <text x="635" y="296" text-anchor="middle" font-size="13" fill="#333">（如「民众攻占了巴士底狱」）</text>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <text x="430" y="398" text-anchor="middle" font-size="13" fill="#333">自然科学的解释：把事件代入定律；历史学的解释：把行动放回理性（Dray 的核心反驳）</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 320" width="800" height="320" xmlns="http://www.w3.org/2000/svg">
+<title>SIR 传染病模型分箱流转图</title>
+<desc>三个圆角矩形分别代表易感者 S、感染者 I、康复者 R，箭头表示以 βSI 速率从 S 转为 I、以 γI 速率从 I 转为 R，标注总人数守恒 S+I+R=N。</desc>
+<rect x="0" y="0" width="800" height="320" fill="#faf9f5"/>
+<text x="400" y="40" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#333">SIR 模型：三个状态箱的流转</text>
+<!-- S -->
+<rect x="60" y="100" width="170" height="110" rx="14" fill="#1f6f8b"/>
+<text x="145" y="146" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#ffffff" font-weight="bold">易感者 S</text>
+<text x="145" y="176" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ffffff">Susceptible</text>
+<!-- I -->
+<rect x="315" y="100" width="170" height="110" rx="14" fill="#c0392b"/>
+<text x="400" y="146" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#ffffff" font-weight="bold">感染者 I</text>
+<text x="400" y="176" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ffffff">Infectious</text>
+<!-- R -->
+<rect x="570" y="100" width="170" height="110" rx="14" fill="#4a7c59"/>
+<text x="655" y="146" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#ffffff" font-weight="bold">康复者 R</text>
+<text x="655" y="176" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ffffff">Recovered</text>
+<!-- 箭头 S->I -->
+<line x1="230" y1="155" x2="310" y2="155" stroke="#333" stroke-width="3"/>
+<polygon points="315,155 300,148 300,162" fill="#333"/>
+<text x="272" y="140" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">感染 βSI</text>
+<!-- 箭头 I->R -->
+<line x1="485" y1="155" x2="565" y2="155" stroke="#333" stroke-width="3"/>
+<polygon points="570,155 555,148 555,162" fill="#333"/>
+<text x="527" y="140" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">康复 γI</text>
+<!-- 守恒标注 -->
+<text x="400" y="260" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">总人数守恒：S + I + R = N（忽略出生与死亡）</text>
+<text x="400" y="286" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">R₀ = βN/γ：大于 1 爆发，小于 1 自灭</text>
+</svg>

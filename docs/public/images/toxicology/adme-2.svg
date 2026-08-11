@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 340" font-family="sans-serif">
+  <title>毒物体内命运：ADME 四阶段</title>
+  <desc>毒物从经口/吸入/经皮进入体内，经历吸收、分布、代谢、排泄四个阶段，代谢活化可生成活性代谢物导致靶器官损伤。</desc>
+  <rect width="480" height="340" fill="#faf9f5"/>
+  <g font-size="13" fill="#333">
+    <rect x="20" y="150" width="90" height="50" rx="8" fill="#1f6f8b"/>
+    <rect x="150" y="150" width="90" height="50" rx="8" fill="#1f6f8b"/>
+    <rect x="280" y="150" width="90" height="50" rx="8" fill="#1f6f8b"/>
+    <rect x="370" y="240" width="90" height="50" rx="8" fill="#c0392b"/>
+  </g>
+  <g font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">
+    <text x="65" y="180">吸收</text>
+    <text x="195" y="180">分布</text>
+    <text x="325" y="180">代谢</text>
+    <text x="415" y="270">排泄</text>
+  </g>
+  <g font-size="13" fill="#333">
+    <text x="65" y="222" text-anchor="middle">胃肠/肺/皮肤</text>
+    <text x="195" y="222" text-anchor="middle">血液→组织</text>
+    <text x="325" y="222" text-anchor="middle">I相/II相</text>
+    <text x="415" y="310" text-anchor="middle">肾/胆汁/呼气</text>
+  </g>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <line x1="110" y1="175" x2="148" y2="175" marker-end="url(#arrow)"/>
+    <line x1="240" y1="175" x2="278" y2="175" marker-end="url(#arrow)"/>
+    <line x1="325" y1="200" x2="325" y2="238" marker-end="url(#arrow)"/>
+  </g>
+  <g font-size="13" fill="#c0392b">
+    <text x="360" y="200">活性代谢物</text>
+    <text x="240" y="60" text-anchor="middle">经口/吸入/经皮进入</text>
+  </g>
+  <line x1="65" y1="75" x2="65" y2="148" stroke="#333" stroke-width="2" stroke-dasharray="5 4"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

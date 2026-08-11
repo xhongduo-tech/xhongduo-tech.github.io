@@ -1,0 +1,25 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>卫星定位原理：伪距交会</title>
+<desc>三颗卫星分别以测得的伪距为半径画圆，圆面在接收机处交于一点，由此确定地面接收机的位置。</desc>
+<rect width="720" height="420" fill="#faf9f5"/>
+<line x1="60" y1="330" x2="680" y2="330" stroke="#333" stroke-width="2"/>
+<text x="640" y="355" font-size="14" fill="#666">地面</text>
+<circle cx="200" cy="110" r="215" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="8 6" opacity="0.7"/>
+<circle cx="560" cy="90" r="260" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="8 6" opacity="0.7"/>
+<circle cx="640" cy="300" r="287" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="8 6" opacity="0.7"/>
+<circle cx="200" cy="110" r="9" fill="#1f6f8b"/>
+<text x="170" y="92" font-size="16" fill="#1f6f8b">卫星1</text>
+<text x="120" y="150" font-size="14" fill="#1f6f8b">伪距 R1 = c·Δt1</text>
+<circle cx="560" cy="90" r="9" fill="#1f6f8b"/>
+<text x="535" y="72" font-size="16" fill="#1f6f8b">卫星2</text>
+<text x="585" y="165" font-size="14" fill="#1f6f8b">R2</text>
+<circle cx="640" cy="300" r="9" fill="#1f6f8b"/>
+<text x="630" y="285" font-size="16" fill="#1f6f8b">卫星3</text>
+<text x="468" y="350" font-size="14" fill="#1f6f8b">R3</text>
+<circle cx="360" cy="240" r="10" fill="#c0392b"/>
+<text x="320" y="225" font-size="16" fill="#c0392b">接收机（农机）</text>
+<line x1="360" y1="240" x2="200" y2="110" stroke="#999" stroke-width="1"/>
+<line x1="360" y1="240" x2="560" y2="90" stroke="#999" stroke-width="1"/>
+<line x1="360" y1="240" x2="640" y2="300" stroke="#999" stroke-width="1"/>
+<text x="120" y="390" font-size="13" fill="#666">示意原理图：实际卫星距地面约 2 万 km，本地段可近似为平面；伪距由信号传播时间 c·Δt 求得。</text>
+</svg>

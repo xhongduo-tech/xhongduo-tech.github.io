@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="480" height="200">
+  <title>用 H 门与 CNOT 制造 Bell 态</title>
+  <desc>量子线路：第一个量子比特经 Hadamard 门后作为 CNOT 的控制位，作用于第二个量子比特，输出纠缠态 |Φ+&gt;。</desc>
+  <rect width="480" height="200" fill="#faf9f5"/>
+  <line x1="60" y1="70" x2="420" y2="70" stroke="#333" stroke-width="2"/>
+  <line x1="60" y1="140" x2="420" y2="140" stroke="#333" stroke-width="2"/>
+  <text x="30" y="76" font-family="sans-serif" font-size="16" fill="#333">|0⟩</text>
+  <text x="30" y="146" font-family="sans-serif" font-size="16" fill="#333">|0⟩</text>
+  <rect x="130" y="50" width="46" height="40" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="141" y="77" font-family="sans-serif" font-size="16" fill="#1f6f8b" font-weight="bold">H</text>
+  <circle cx="250" cy="70" r="6" fill="#c0392b"/>
+  <line x1="250" y1="70" x2="250" y2="140" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="250" cy="140" r="14" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+  <line x1="240" y1="140" x2="260" y2="140" stroke="#c0392b" stroke-width="2"/>
+  <line x1="250" y1="130" x2="250" y2="150" stroke="#c0392b" stroke-width="2"/>
+  <text x="438" y="76" font-family="sans-serif" font-size="17" fill="#c0392b" font-weight="bold">(|00⟩+|11⟩)/√2</text>
+  <text x="438" y="146" font-family="sans-serif" font-size="15" fill="#333">时间 →</text>
+  <text x="105" y="178" font-family="sans-serif" font-size="14" fill="#333">q₀：控制位</text>
+  <text x="272" y="178" font-family="sans-serif" font-size="14" fill="#333">q₁：目标位（控制位为 1 时翻转）</text>
+</svg>

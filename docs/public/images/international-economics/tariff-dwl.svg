@@ -1,0 +1,41 @@
+<svg viewBox="0 0 640 440" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>关税的局部均衡福利分析</title>
+<desc>供给与需求曲线图中，关税使国内价格从世界价格升到含税价格，产生生产者获益 a、生产扭曲 b、政府关税收入 c、消费扭曲 d 四个区域。</desc>
+<rect width="640" height="440" fill="#faf9f5"/>
+<g stroke="#333" stroke-width="2">
+  <line x1="60" y1="380" x2="600" y2="380"/>
+  <line x1="60" y1="380" x2="60" y2="60"/>
+</g>
+<line x1="60" y1="275" x2="580" y2="275" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="205" x2="580" y2="205" stroke="#333" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="585" y="280" font-size="15" fill="#333">P_W</text>
+<text x="585" y="210" font-size="15" fill="#333">P_T</text>
+<text x="74" y="240" font-size="14" fill="#333">t</text>
+<g stroke="#1f6f8b" stroke-width="3">
+  <line x1="60" y1="100" x2="430" y2="275"/>
+  <line x1="60" y1="310" x2="319" y2="65"/>
+</g>
+<text x="480" y="110" font-size="16" fill="#1f6f8b">需求 D</text>
+<text x="330" y="150" font-size="16" fill="#1f6f8b">供给 S</text>
+<polygon points="97,275 171,205 97,205" fill="#1f6f8b" fill-opacity="0.30"/>
+<polygon points="97,275 171,205 171,275" fill="#c0392b" fill-opacity="0.35"/>
+<polygon points="171,205 282,205 282,275 171,275" fill="#1f6f8b" fill-opacity="0.5"/>
+<polygon points="282,205 430,275 282,275" fill="#c0392b" fill-opacity="0.35"/>
+<circle cx="97" cy="275" r="3.5" fill="#333"/>
+<circle cx="171" cy="205" r="3.5" fill="#333"/>
+<circle cx="282" cy="205" r="3.5" fill="#333"/>
+<circle cx="430" cy="275" r="3.5" fill="#333"/>
+<text x="92" y="258" font-size="14" fill="#333">a</text>
+<text x="140" y="260" font-size="14" fill="#c0392b">b</text>
+<text x="200" y="250" font-size="14" fill="#333">c</text>
+<text x="368" y="258" font-size="14" fill="#c0392b">d</text>
+<text x="70" y="392" font-size="14" fill="#333">0</text>
+<text x="90" y="392" font-size="14" fill="#333">S0</text>
+<text x="160" y="392" font-size="14" fill="#333">S1</text>
+<text x="270" y="392" font-size="14" fill="#333">D1</text>
+<text x="418" y="392" font-size="14" fill="#333">D0</text>
+<text x="540" y="392" font-size="16" fill="#333">数量 Q</text>
+<text x="26" y="330" font-size="16" fill="#333">价格 P</text>
+<text x="60" y="430" font-size="15" fill="#333">a 生产者获益　c 政府关税收入　b + d 无谓损失（小国情形）</text>
+<text x="60" y="420" font-size="14" fill="#c0392b">税后消费量 D1、生产量 S1：进口从 D0−S0 缩为 D1−S1</text>
+</svg>

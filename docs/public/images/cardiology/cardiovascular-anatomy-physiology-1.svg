@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" font-family="sans-serif">
+<title>心动周期示意：主动脉压、左室压与左室容积</title>
+<desc>示意一个心动周期内主动脉压、左室压和左室容积随时间的变化，标出等容收缩、射血期、等容舒张、充盈期与心房收缩五个阶段。</desc>
+<rect x="0" y="0" width="800" height="520" fill="#faf9f5"/>
+<g stroke="#333" stroke-width="1.5">
+<line x1="80" y1="460" x2="720" y2="460"/>
+<line x1="80" y1="460" x2="80" y2="60"/>
+</g>
+<text x="30" y="460" font-size="13" fill="#333">0</text>
+<text x="30" y="140" font-size="13" fill="#333">120</text>
+<text x="30" y="243" font-size="13" fill="#333">80</text>
+<text x="38" y="40" font-size="13" fill="#333">压力 (mmHg)</text>
+<text x="420" y="485" font-size="13" fill="#333">时间 →</text>
+<g stroke-dasharray="4,4" stroke="#999" stroke-width="1">
+<line x1="160" y1="60" x2="160" y2="460"/>
+<line x1="320" y1="60" x2="320" y2="460"/>
+<line x1="460" y1="60" x2="460" y2="460"/>
+<line x1="620" y1="60" x2="620" y2="460"/>
+</g>
+<polyline points="80,433 160,150 200,134 320,160 460,446 620,430 660,400 700,395 720,415" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<polyline points="80,243 160,190 220,134 300,150 320,200 460,243 720,243" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6,3"/>
+<polyline points="80,96 160,96 180,120 320,387 460,387 480,370 620,96 640,96 660,80 700,80 720,90" fill="none" stroke="#6b8e23" stroke-width="2.5"/>
+<text x="500" y="120" font-size="14" fill="#c0392b">左室压</text>
+<text x="500" y="140" font-size="14" fill="#1f6f8b">主动脉压</text>
+<text x="500" y="160" font-size="14" fill="#6b8e23">左室容积</text>
+<text x="120" y="70" font-size="13" fill="#333">等容收缩</text>
+<text x="210" y="70" font-size="13" fill="#333">射血期</text>
+<text x="370" y="70" font-size="13" fill="#333">等容舒张</text>
+<text x="500" y="70" font-size="13" fill="#333">快速充盈期</text>
+<text x="640" y="70" font-size="13" fill="#333">心房收缩</text>
+<text x="330" y="300" font-size="13" fill="#333">收缩期</text>
+<text x="500" y="300" font-size="13" fill="#333">舒张期</text>
+<text x="150" y="220" font-size="12" fill="#333">AV 关闭</text>
+<text x="345" y="260" font-size="12" fill="#333">AV 开放</text>
+</svg>

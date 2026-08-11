@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif">
+<title>动作电位波形图</title>
+<desc>神经细胞动作电位的四个阶段：去极化、复极化、后超极化，以及阈电位、静息电位与不应期的标注。</desc>
+<rect x="0" y="0" width="640" height="420" fill="#faf9f5"/>
+<!-- 坐标轴 -->
+<line x1="40" y1="60" x2="40" y2="350" stroke="#333" stroke-width="1.5"/>
+<line x1="40" y1="350" x2="610" y2="350" stroke="#333" stroke-width="1.5"/>
+<text x="15" y="60" font-size="14" fill="#333" transform="rotate(-90 15 60)">膜电位</text>
+<text x="590" y="380" font-size="14" fill="#333" text-anchor="end">时间 (ms)</text>
+<!-- 参考线 -->
+<line x1="50" y1="170" x2="600" y2="170" stroke="#333" stroke-width="1" stroke-dasharray="4 4" opacity="0.45"/>
+<text x="600" y="162" font-size="13" fill="#333" text-anchor="end">0 mV</text>
+<line x1="50" y1="280" x2="600" y2="280" stroke="#1f6f8b" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="600" y="274" font-size="14" fill="#1f6f8b" text-anchor="end">阈电位 −55 mV</text>
+<line x1="50" y1="310" x2="600" y2="310" stroke="#1f6f8b" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="600" y="304" font-size="14" fill="#1f6f8b" text-anchor="end">静息电位 −70 mV</text>
+<!-- 不应期阴影 -->
+<rect x="205" y="80" width="120" height="260" fill="#c0392b" opacity="0.08"/>
+<rect x="325" y="80" width="135" height="260" fill="#1f6f8b" opacity="0.08"/>
+<text x="265" y="396" font-size="14" fill="#c0392b" text-anchor="middle">绝对不应期</text>
+<text x="392" y="396" font-size="14" fill="#1f6f8b" text-anchor="middle">相对不应期</text>
+<!-- 动作电位波形 -->
+<path d="M 40 310 L 190 310 C 210 310 213 205 230 140 C 240 100 250 90 270 90 C 290 90 300 90 312 91 C 345 93 355 180 375 240 C 390 288 402 322 422 328 C 442 334 460 330 475 322 C 490 315 505 310 520 310 L 600 310"
+      fill="none" stroke="#c0392b" stroke-width="3"/>
+<!-- 刺激箭头 -->
+<line x1="190" y1="340" x2="200" y2="315" stroke="#333" stroke-width="1.5"/>
+<polygon points="200,312 195,320 205,320" fill="#333"/>
+<text x="160" y="352" font-size="14" fill="#333">刺激</text>
+<!-- 阶段标注 -->
+<text x="235" y="135" font-size="15" fill="#c0392b" text-anchor="middle">去极化</text>
+<text x="238" y="153" font-size="13" fill="#333" text-anchor="middle">Na⁺ 通道开放</text>
+<text x="365" y="205" font-size="15" fill="#c0392b" text-anchor="middle">复极化</text>
+<text x="368" y="223" font-size="13" fill="#333" text-anchor="middle">K⁺ 通道开放</text>
+<text x="470" y="345" font-size="14" fill="#c0392b" text-anchor="middle">后超极化</text>
+<text x="60" y="96" font-size="13" fill="#333">峰值约 +40 mV（接近 E_Na）</text>
+</svg>

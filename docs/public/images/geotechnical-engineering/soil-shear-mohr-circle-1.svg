@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" width="720" height="440" role="img" aria-labelledby="title desc">
+  <title>莫尔圆与破坏包线</title>
+  <desc>有效应力平面（横轴 σ'、纵轴 τ）上的莫尔应力圆与库仑破坏包线：初始应力圆（虚线）随偏应力增大扩展，直到与包线相切即发生剪切破坏。</desc>
+  <rect x="0" y="0" width="720" height="440" fill="#faf9f5"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">莫尔圆与破坏包线</text>
+  <!-- axes -->
+  <line x1="120" y1="380" x2="660" y2="380" stroke="#333" stroke-width="2"/>
+  <line x1="120" y1="380" x2="120" y2="60" stroke="#333" stroke-width="2"/>
+  <text x="648" y="404" font-family="sans-serif" font-size="16" fill="#333">有效正应力 σ'</text>
+  <text x="96" y="84" font-family="sans-serif" font-size="16" fill="#333">剪应力 τ</text>
+  <text x="128" y="402" font-family="sans-serif" font-size="14" fill="#666">O</text>
+  <!-- failure envelope -->
+  <line x1="120" y1="335" x2="500" y2="108" stroke="#c0392b" stroke-width="3"/>
+  <text x="452" y="96" font-family="sans-serif" font-size="15" fill="#c0392b">τ_f = c' + σ' tan φ'</text>
+  <!-- cohesion intercept -->
+  <line x1="120" y1="380" x2="120" y2="335" stroke="#333" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="126" y="352" font-family="sans-serif" font-size="14" fill="#c0392b">c'</text>
+  <!-- initial Mohr circle (dashed) -->
+  <circle cx="210" cy="380" r="45" fill="none" stroke="#999" stroke-width="1.8" stroke-dasharray="6 5"/>
+  <text x="196" y="418" font-family="sans-serif" font-size="14" fill="#666">初始应力圆</text>
+  <!-- failure Mohr circle -->
+  <circle cx="288" cy="380" r="123" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- principal stress ticks -->
+  <line x1="165" y1="380" x2="165" y2="372" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="150" y="420" font-family="sans-serif" font-size="14" fill="#1f6f8b">σ'₃</text>
+  <line x1="411" y1="380" x2="411" y2="372" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="396" y="420" font-family="sans-serif" font-size="14" fill="#1f6f8b">σ'₁</text>
+  <!-- tangent point -->
+  <circle cx="226" cy="274" r="5" fill="#c0392b"/>
+  <text x="120" y="252" font-family="sans-serif" font-size="15" fill="#c0392b">相切 = 破坏</text>
+  <!-- friction angle arc -->
+  <line x1="280" y1="231" x2="322" y2="231" stroke="#333" stroke-width="1.2"/>
+  <path d="M 282 231 A 18 18 0 0 1 315 222" fill="none" stroke="#333" stroke-width="1.4"/>
+  <text x="324" y="218" font-family="sans-serif" font-size="16" fill="#333">φ'</text>
+</svg>

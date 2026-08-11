@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="sans-serif">
+  <title>矢量模型与栅格模型对比</title>
+  <desc>左侧为矢量模型用坐标点、线、面表达湖面与道路；右侧为栅格模型用规则网格单元表达同一区域。</desc>
+  <rect x="0" y="0" width="720" height="400" fill="#faf9f5"/>
+  <text x="180" y="36" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">矢量模型 Vector</text>
+  <text x="540" y="36" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">栅格模型 Raster</text>
+  <g transform="translate(30,70)">
+    <rect x="0" y="0" width="300" height="300" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <polygon points="60,220 140,180 200,210 240,150 180,80 90,110 40,160" fill="#cde6f0" stroke="#1f6f8b" stroke-width="3"/>
+    <path d="M 20,40 L 90,120 L 160,100 L 280,180" fill="none" stroke="#c0392b" stroke-width="4"/>
+    <circle cx="60" cy="220" r="5" fill="#333"/>
+    <circle cx="200" cy="210" r="5" fill="#333"/>
+    <circle cx="160" cy="100" r="5" fill="#333"/>
+    <text x="150" y="292" text-anchor="middle" font-size="13" fill="#333">坐标点 (x, y) 串：点 · 线 · 面</text>
+  </g>
+  <g transform="translate(390,70)">
+    <rect x="0" y="0" width="300" height="300" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <g font-size="12" fill="#333" text-anchor="middle">
+      <text x="15" y="15">L</text><text x="45" y="15">L</text><text x="75" y="15">L</text><text x="105" y="15">W</text>
+      <text x="15" y="45">L</text><text x="45" y="45">L</text><text x="75" y="45">W</text><text x="105" y="45">W</text>
+      <text x="15" y="75">L</text><text x="45" y="75">W</text><text x="75" y="75">W</text><text x="105" y="75">W</text>
+      <text x="15" y="105">W</text><text x="45" y="105">W</text><text x="75" y="105">W</text><text x="105" y="105">W</text>
+    </g>
+    <g stroke="#b0b0b0" stroke-width="1">
+      <line x1="30" y1="0" x2="30" y2="120"/>
+      <line x1="60" y1="0" x2="60" y2="120"/>
+      <line x1="90" y1="0" x2="90" y2="120"/>
+      <line x1="120" y1="0" x2="120" y2="120"/>
+      <line x1="0" y1="30" x2="120" y2="30"/>
+      <line x1="0" y1="60" x2="120" y2="60"/>
+      <line x1="0" y1="90" x2="120" y2="90"/>
+      <line x1="0" y1="120" x2="120" y2="120"/>
+    </g>
+    <text x="150" y="292" text-anchor="middle" font-size="13" fill="#333">规则单元 (cell)：每个格存一个值</text>
+  </g>
+  <text x="30" y="390" font-size="14" fill="#666">L = 陆地 Land，W = 水面 Water；网格越细，表达越接近连续场，但存储越大。</text>
+</svg>

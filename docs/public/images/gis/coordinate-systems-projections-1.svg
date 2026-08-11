@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="sans-serif">
+  <title>从椭球到平面：地图投影的基本思想</title>
+  <desc>三维椭球上的经纬网格通过投影变换展平为二维平面地图，投影必然引入长度、角度或面积变形。</desc>
+  <rect x="0" y="0" width="720" height="360" fill="#faf9f5"/>
+  <ellipse cx="180" cy="180" rx="130" ry="90" fill="#cde6f0" stroke="#1f6f8b" stroke-width="2"/>
+  <ellipse cx="180" cy="180" rx="130" ry="90" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="4,4"/>
+  <g stroke="#1f6f8b" stroke-width="1">
+    <ellipse cx="180" cy="140" rx="130" ry="90" fill="none"/>
+    <ellipse cx="180" cy="100" rx="130" ry="90" fill="none"/>
+    <ellipse cx="180" cy="60" rx="130" ry="90" fill="none"/>
+    <line x1="50" y1="180" x2="310" y2="180"/>
+    <line x1="50" y1="270" x2="310" y2="270"/>
+  </g>
+  <text x="180" y="40" text-anchor="middle" font-size="15" fill="#333">椭球 Geoid / Ellipsoid</text>
+  <text x="180" y="290" text-anchor="middle" font-size="14" fill="#666">球面经纬网格 (λ, φ)</text>
+  <path d="M 320,180 C 380,180 400,160 470,150" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <path d="M 320,180 C 380,180 400,200 470,210" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="450,60 560,60 590,300 440,300" fill="#f5e6dc" stroke="#1f6f8b" stroke-width="2"/>
+  <g stroke="#333" stroke-width="1">
+    <line x1="445" y1="120" x2="585" y2="120"/>
+    <line x1="440" y1="180" x2="588" y2="180"/>
+    <line x1="438" y1="240" x2="590" y2="240"/>
+    <line x1="465" y1="60" x2="460" y2="300"/>
+    <line x1="500" y1="60" x2="497" y2="300"/>
+    <line x1="535" y1="60" x2="535" y2="300"/>
+    <line x1="570" y1="60" x2="572" y2="300"/>
+  </g>
+  <text x="515" y="330" text-anchor="middle" font-size="15" fill="#333">平面地图：规则经纬格网</text>
+  <text x="360" y="150" font-size="14" fill="#c0392b">投影 Projection</text>
+  <text x="515" y="30" font-size="14" fill="#666">变形：长度 / 角度 / 面积</text>
+</svg>

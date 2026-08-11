@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 480" width="520" height="480" font-family="sans-serif">
+  <title>P300 拼写器 6×6 矩阵与行/列闪烁示意</title>
+  <desc>6×6 字母矩阵，中间一行以青蓝高亮表示当前闪烁的行，右列高亮表示当前闪烁的列；被注视的目标字母在脑电上诱发出 P300 电位。</desc>
+  <rect x="0" y="0" width="520" height="480" fill="#faf9f5"/>
+  <g font-size="20" text-anchor="middle">
+    <!-- 6x6 grid cells, rows y=60..360, cols x=40..340 -->
+    <!-- row 2 (index 1) highlighted in cyan -->
+    <g>
+      <rect x="40" y="60" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="65" y="91">A</text>
+      <rect x="90" y="60" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="115" y="91">B</text>
+      <rect x="140" y="60" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="165" y="91">C</text>
+      <rect x="190" y="60" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="215" y="91">D</text>
+      <rect x="240" y="60" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="265" y="91">E</text>
+      <rect x="290" y="60" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="315" y="91">F</text>
+    </g>
+    <g>
+      <rect x="40" y="110" width="50" height="50" fill="#1f6f8b"/>
+      <text x="65" y="141" fill="#fff">G</text>
+      <rect x="90" y="110" width="50" height="50" fill="#1f6f8b"/>
+      <text x="115" y="141" fill="#fff">H</text>
+      <rect x="140" y="110" width="50" height="50" fill="#1f6f8b"/>
+      <text x="165" y="141" fill="#fff">I</text>
+      <rect x="190" y="110" width="50" height="50" fill="#1f6f8b"/>
+      <text x="215" y="141" fill="#fff">J</text>
+      <rect x="240" y="110" width="50" height="50" fill="#1f6f8b"/>
+      <text x="265" y="141" fill="#fff">K</text>
+      <rect x="290" y="110" width="50" height="50" fill="#1f6f8b"/>
+      <text x="315" y="141" fill="#fff">L</text>
+    </g>
+    <g>
+      <rect x="40" y="160" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="65" y="191">M</text>
+      <rect x="90" y="160" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="115" y="191">N</text>
+      <rect x="140" y="160" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="165" y="191">O</text>
+      <rect x="190" y="160" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="215" y="191">P</text>
+      <rect x="240" y="160" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="265" y="191">Q</text>
+      <rect x="290" y="160" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="315" y="191">R</text>
+    </g>
+    <g>
+      <rect x="40" y="210" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="65" y="241">S</text>
+      <rect x="90" y="210" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="115" y="241">T</text>
+      <rect x="140" y="210" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="165" y="241">U</text>
+      <rect x="190" y="210" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="215" y="241">V</text>
+      <rect x="240" y="210" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="265" y="241">W</text>
+      <rect x="290" y="210" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="315" y="241">X</text>
+    </g>
+    <g>
+      <rect x="40" y="260" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="65" y="291">Y</text>
+      <rect x="90" y="260" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="115" y="291">Z</text>
+      <rect x="140" y="260" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="165" y="291">1</text>
+      <rect x="190" y="260" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="215" y="291">2</text>
+      <rect x="240" y="260" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="265" y="291">3</text>
+      <rect x="290" y="260" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="315" y="291">4</text>
+    </g>
+    <g>
+      <rect x="40" y="310" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="65" y="341">5</text>
+      <rect x="90" y="310" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="115" y="341">6</text>
+      <rect x="140" y="310" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="165" y="341">7</text>
+      <rect x="190" y="310" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="215" y="341">8</text>
+      <rect x="240" y="310" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="265" y="341">9</text>
+      <rect x="290" y="310" width="50" height="50" fill="#fff" stroke="#333"/>
+      <text x="315" y="341">_</text>
+    </g>
+  </g>
+  <!-- highlighted column -->
+  <g fill="none" stroke="#c0392b" stroke-width="4">
+    <rect x="90" y="55" width="55" height="315" rx="4"/>
+  </g>
+  <text x="240" y="375" font-size="14" fill="#333" text-anchor="middle">行列交替闪烁：目标字母 H 所在的行或列亮起时，脑电会多出一个 P300 电位</text>
+  <text x="240" y="395" font-size="14" fill="#333" text-anchor="middle">红色框 = 当前闪烁的列；青色行 = 刚才闪烁过的行</text>
+  <text x="240" y="425" font-size="14" fill="#333" text-anchor="middle">P300 拼写器把「闪烁 12 行/列 → 记录 P300 → 取最大值」反复多轮，提高识别正确率</text>
+</svg>

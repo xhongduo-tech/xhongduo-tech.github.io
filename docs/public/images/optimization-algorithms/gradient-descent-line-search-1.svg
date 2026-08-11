@@ -1,0 +1,28 @@
+<svg viewBox="0 0 720 430" width="720" height="430" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>最速下降法在椭圆等高线上的锯齿形轨迹</title>
+<desc>条件数较大时，最速下降法沿负梯度方向反复横穿狭窄山谷，形成垂直相交的锯齿折线，收敛缓慢。</desc>
+<rect width="720" height="430" fill="#faf9f5"/>
+<text x="360" y="34" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#333">最速下降法的锯齿形轨迹</text>
+
+<ellipse cx="360" cy="255" rx="260" ry="130" fill="none" stroke="#c8bfae" stroke-width="1.2"/>
+<ellipse cx="360" cy="255" rx="190" ry="95" fill="none" stroke="#c8bfae" stroke-width="1.2"/>
+<ellipse cx="360" cy="255" rx="130" ry="65" fill="none" stroke="#c8bfae" stroke-width="1.2"/>
+<ellipse cx="360" cy="255" rx="80" ry="40" fill="none" stroke="#c8bfae" stroke-width="1.2"/>
+<ellipse cx="360" cy="255" rx="40" ry="20" fill="none" stroke="#c8bfae" stroke-width="1.2"/>
+<text x="600" y="140" font-family="sans-serif" font-size="13" fill="#666">等高线（椭圆，山谷狭长）</text>
+
+<path d="M 600 390 L 520 300 L 468 332 L 426 262 L 396 288 L 376 258 L 366 264 L 360 255"
+      stroke="#c0392b" stroke-width="2.4" fill="none" stroke-linejoin="round" marker-end="url(#arrowr)"/>
+<text x="618" y="406" font-family="sans-serif" font-size="14" fill="#c0392b">起点</text>
+<text x="360" y="243" font-family="sans-serif" font-size="14" fill="#c0392b">最优解</text>
+
+<path d="M 520 300 L 470 330" stroke="#333" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
+<text x="470" y="314" font-family="sans-serif" font-size="13" fill="#333">第 1 步（垂直切等高线）</text>
+<text x="200" y="196" font-family="sans-serif" font-size="13" fill="#333">相邻两步近似垂直</text>
+
+<text x="360" y="420" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">条件数 κ ≈ 4 时，越往山谷底越慢，收敛率 (κ−1)/(κ+1)</text>
+
+<defs>
+<marker id="arrowr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#c0392b"/></marker>
+</defs>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" font-family="sans-serif">
+  <title>流量-容积环：正常与阻塞性通气障碍对比</title>
+  <desc>流量-容积环示意图，横轴为肺容积，纵轴为呼气流速；正常环呼气峰流速高、呈平滑上升后下降；阻塞性环呼气峰流速降低、呼气相内凹，反映气道阻力增加</desc>
+  <rect x="0" y="0" width="640" height="460" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <line x1="100" y1="50" x2="100" y2="400"/>
+    <line x1="100" y1="225" x2="610" y2="225"/>
+  </g>
+  <g font-size="15" fill="#333">
+    <text x="620" y="215" text-anchor="end">肺容积 (L) →</text>
+    <text x="90" y="40" text-anchor="middle">流速</text>
+  </g>
+  <g font-size="13" fill="#555">
+    <text x="100" y="415" text-anchor="middle">RV</text>
+    <text x="190" y="415" text-anchor="middle">FVC 起</text>
+    <text x="340" y="415" text-anchor="middle">TLC</text>
+    <text x="35" y="232" text-anchor="end">0</text>
+  </g>
+  <!-- axes -->
+  <g stroke="#bbb" stroke-width="1">
+    <line x1="190" y1="225" x2="190" y2="418"/>
+    <line x1="340" y1="225" x2="340" y2="418"/>
+  </g>
+  <!-- normal loop: expiration above line, inspiration below -->
+  <path d="M 190 225 C 200 170, 215 120, 235 82 C 258 52, 282 40, 300 40 C 322 40, 336 55, 340 82 C 344 118, 340 168, 334 225 C 330 258, 326 290, 320 320 C 314 348, 306 372, 292 392 C 278 408, 260 416, 240 418 C 218 414, 205 396, 197 372 C 190 344, 190 290, 190 225"
+        stroke="#1f6f8b" stroke-width="3.5" fill="none"/>
+  <text x="248" y="118" fill="#1f6f8b" font-size="15">正常：PEF 高、上升陡、呼气末快速回落</text>
+  <!-- obstructive loop -->
+  <path d="M 200 225 C 208 185, 218 150, 232 120 C 248 96, 264 84, 278 84 C 296 84, 306 96, 312 118 C 318 148, 322 196, 330 225 C 338 260, 344 300, 344 336 C 344 368, 336 392, 318 408 C 296 424, 270 428, 250 420 C 232 412, 220 392, 214 366 C 206 336, 202 286, 200 225"
+        stroke="#c0392b" stroke-width="3.5" fill="none" stroke-dasharray="8 5"/>
+  <text x="300" y="150" fill="#c0392b" font-size="15">阻塞性：PEF 下降、呼气支凹陷（呼气相拖长）</text>
+  <text x="120" y="300" fill="#333" font-size="14">呼气相（曲线上方）</text>
+  <text x="120" y="360" fill="#333" font-size="14">吸气相（曲线下方）</text>
+</svg>

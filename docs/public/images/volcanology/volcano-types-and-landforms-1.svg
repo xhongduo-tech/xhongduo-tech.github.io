@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="sans-serif">
+  <title>火山锥形态对比图</title>
+  <desc>四座火山的侧视轮廓：盾状火山、层状火山、火山渣锥与破火山口，坡角与内部结构依次对比。</desc>
+  <rect width="800" height="300" fill="#faf9f5"/>
+  <!-- ground -->
+  <line x1="30" y1="232" x2="770" y2="232" stroke="#8a8178" stroke-width="2"/>
+  <rect x="30" y="232" width="740" height="10" fill="#d8cfc0" opacity="0.5"/>
+
+  <!-- Shield volcano (x center 140) -->
+  <path d="M 55 232 L 140 188 L 225 232 Z" fill="#d9a45b" stroke="#333" stroke-width="2"/>
+  <line x1="95" y1="232" x2="145" y2="210" stroke="#c0392b" stroke-width="3" opacity="0.6"/>
+  <line x1="185" y1="232" x2="150" y2="214" stroke="#c0392b" stroke-width="3" opacity="0.6"/>
+  <text x="140" y="175" text-anchor="middle" font-size="14" fill="#333">盾状火山</text>
+  <text x="140" y="192" text-anchor="middle" font-size="13" fill="#c0392b">坡角 5°–10°，熔岩漫流</text>
+
+  <!-- Stratovolcano (x center 360) -->
+  <path d="M 240 232 L 360 128 L 480 232 Z" fill="#8aa08f" stroke="#333" stroke-width="2"/>
+  <line x1="270" y1="232" x2="355" y2="155" stroke="#1f6f8b" stroke-width="4"/>
+  <line x1="450" y1="232" x2="365" y2="155" stroke="#d9a45b" stroke-width="4"/>
+  <line x1="300" y1="232" x2="358" y2="172" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="420" y1="232" x2="362" y2="172" stroke="#d9a45b" stroke-width="3"/>
+  <line x1="330" y1="232" x2="360" y2="185" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="390" y1="232" x2="360" y2="185" stroke="#d9a45b" stroke-width="2"/>
+  <text x="360" y="112" text-anchor="middle" font-size="14" fill="#333">层状火山</text>
+  <text x="360" y="129" text-anchor="middle" font-size="13" fill="#1f6f8b">约 30°，熔岩+碎屑互层</text>
+
+  <!-- Cinder cone (x center 580) -->
+  <path d="M 490 232 L 580 177 L 670 232 Z" fill="#b0704a" stroke="#333" stroke-width="2"/>
+  <circle cx="580" cy="177" r="6" fill="#c0392b"/>
+  <text x="580" y="161" text-anchor="middle" font-size="14" fill="#333">火山渣锥</text>
+  <text x="580" y="178" text-anchor="middle" font-size="13" fill="#b0704a">碎屑堆到安息角（约 30°）</text>
+
+  <!-- Caldera (x center 700) -->
+  <path d="M 640 232 L 700 178 L 700 178 L 760 232 Z" fill="#8b7d6b" stroke="#333" stroke-width="2"/>
+  <path d="M 640 232 L 700 178 L 700 178 L 760 232 Z" fill="#6b5d4b" opacity="0.0"/>
+  <path d="M 700 178 L 690 210 L 710 210 Z" fill="#6b5d4b" stroke="#333" stroke-width="1.5"/>
+  <text x="700" y="160" text-anchor="middle" font-size="14" fill="#333">破火山口</text>
+  <text x="700" y="177" text-anchor="middle" font-size="13" fill="#6b5d4b">顶盖塌陷成平底巨碗</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="100%" role="img" aria-labelledby="title desc">
+  <title id="title">RAG 三段流水线</title>
+  <desc id="desc">上方为离线建索引流程（维基百科、分块、编码器、向量索引），下方为在线检索与生成流程（用户查询、查询编码器、ANN 检索、Top-k 文档、生成器、答案）。</desc>
+  <rect x="0" y="0" width="900" height="380" fill="#faf9f5"/>
+  <text x="20" y="38" font-family="sans-serif" font-size="17" font-weight="bold" fill="#333">离线：建索引</text>
+  <g>
+    <rect x="20" y="60" width="160" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="100" y="89" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">知识语料</text>
+    <line x1="180" y1="84" x2="218" y2="84" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="220" y="60" width="160" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="300" y="89" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">分块（≈100词/段）</text>
+    <line x1="380" y1="84" x2="418" y2="84" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="420" y="60" width="160" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="500" y="89" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">编码器</text>
+    <line x1="580" y1="84" x2="618" y2="84" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="620" y="60" width="160" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="700" y="89" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">向量索引（≈2100万段）</text>
+  </g>
+  <text x="20" y="205" font-family="sans-serif" font-size="17" font-weight="bold" fill="#333">在线：检索 + 生成</text>
+  <g>
+    <rect x="20" y="230" width="120" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="80" y="259" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">用户查询</text>
+    <line x1="140" y1="254" x2="158" y2="254" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="160" y="230" width="120" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="220" y="259" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">查询编码器</text>
+    <line x1="280" y1="254" x2="298" y2="254" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="300" y="230" width="120" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="360" y="259" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">ANN 检索 Top-k</text>
+    <line x1="420" y1="254" x2="438" y2="254" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="440" y="230" width="120" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="500" y="259" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">Top-k 文档</text>
+    <line x1="560" y1="254" x2="578" y2="254" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="580" y="230" width="120" height="48" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="640" y="259" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">生成器（BART）</text>
+    <line x1="700" y1="254" x2="718" y2="254" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)"/>
+    <rect x="720" y="230" width="120" height="48" rx="6" fill="#c0392b" stroke="#333" stroke-width="1.5"/>
+    <text x="780" y="259" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#fff">答案</text>
+  </g>
+  <path d="M 700 108 L 700 130 L 360 130 L 360 228" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ar2)"/>
+  <text x="700" y="150" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">在线查询</text>
+  <text x="470" y="205" font-family="sans-serif" font-size="13" fill="#c0392b">复用离线索引</text>
+  <defs>
+    <marker id="ar1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="ar2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

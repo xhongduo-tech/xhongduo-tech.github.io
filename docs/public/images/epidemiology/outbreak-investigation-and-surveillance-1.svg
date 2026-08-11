@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 310" font-family="sans-serif">
+  <title>点源暴发与人传人暴发的暴发曲线对比</title>
+  <desc>左图为点源暴发曲线：单峰、急升急降；右图为人传人连续传播曲线：多代病例形成逐代升高的峰。</desc>
+  <rect width="720" height="310" fill="#faf9f5"/>
+
+  <text x="185" y="32" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">点源暴发</text>
+  <text x="185" y="52" text-anchor="middle" font-size="13" fill="#666">单峰，急升急降</text>
+  <rect x="70" y="80" width="1" height="150" fill="#999"/>
+  <rect x="70" y="230" width="290" height="1" fill="#999"/>
+  <text x="66" y="74" text-anchor="end" font-size="13" fill="#333">病例数</text>
+  <rect x="90" y="205" width="17" height="25" fill="#1f6f8b"/>
+  <rect x="110" y="190" width="17" height="40" fill="#1f6f8b"/>
+  <rect x="130" y="170" width="17" height="60" fill="#1f6f8b"/>
+  <rect x="150" y="140" width="17" height="90" fill="#1f6f8b"/>
+  <rect x="170" y="105" width="17" height="125" fill="#1f6f8b"/>
+  <rect x="190" y="130" width="17" height="100" fill="#1f6f8b"/>
+  <rect x="210" y="160" width="17" height="70" fill="#1f6f8b"/>
+  <rect x="230" y="185" width="17" height="45" fill="#1f6f8b"/>
+  <rect x="250" y="205" width="17" height="25" fill="#1f6f8b"/>
+  <rect x="270" y="215" width="17" height="15" fill="#1f6f8b"/>
+  <rect x="290" y="220" width="17" height="10" fill="#1f6f8b"/>
+  <rect x="310" y="225" width="17" height="5" fill="#1f6f8b"/>
+  <rect x="330" y="225" width="17" height="5" fill="#1f6f8b"/>
+  <line x1="178" y1="98" x2="178" y2="60" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <text x="178" y="72" text-anchor="middle" font-size="13" fill="#c0392b">峰值≈潜伏期</text>
+  <text x="90" y="246" text-anchor="middle" font-size="13" fill="#333">1</text>
+  <text x="170" y="246" text-anchor="middle" font-size="13" fill="#333">5</text>
+  <text x="250" y="246" text-anchor="middle" font-size="13" fill="#333">9</text>
+  <text x="330" y="246" text-anchor="middle" font-size="13" fill="#333">14</text>
+  <text x="180" y="266" text-anchor="middle" font-size="13" fill="#555">暴露后第 n 天</text>
+
+  <text x="545" y="32" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">人传人（连续传播）</text>
+  <text x="545" y="52" text-anchor="middle" font-size="13" fill="#666">多代病例，逐代升高</text>
+  <rect x="395" y="80" width="1" height="150" fill="#999"/>
+  <rect x="395" y="230" width="320" height="1" fill="#999"/>
+  <text x="391" y="74" text-anchor="end" font-size="13" fill="#333">病例数</text>
+  <rect x="400" y="220" width="13" height="10" fill="#c0392b"/>
+  <rect x="418" y="210" width="13" height="20" fill="#c0392b"/>
+  <rect x="436" y="195" width="13" height="35" fill="#c0392b"/>
+  <rect x="454" y="205" width="13" height="25" fill="#c0392b"/>
+  <rect x="472" y="215" width="13" height="15" fill="#c0392b"/>
+  <rect x="490" y="210" width="13" height="20" fill="#c0392b"/>
+  <rect x="508" y="190" width="13" height="40" fill="#c0392b"/>
+  <rect x="526" y="165" width="13" height="65" fill="#c0392b"/>
+  <rect x="544" y="180" width="13" height="50" fill="#c0392b"/>
+  <rect x="562" y="200" width="13" height="30" fill="#c0392b"/>
+  <rect x="580" y="200" width="13" height="30" fill="#c0392b"/>
+  <rect x="598" y="175" width="13" height="55" fill="#c0392b"/>
+  <rect x="616" y="140" width="13" height="90" fill="#c0392b"/>
+  <rect x="634" y="160" width="13" height="70" fill="#c0392b"/>
+  <rect x="652" y="190" width="13" height="40" fill="#c0392b"/>
+  <rect x="670" y="205" width="13" height="25" fill="#c0392b"/>
+  <rect x="688" y="215" width="13" height="15" fill="#c0392b"/>
+  <rect x="706" y="220" width="13" height="10" fill="#c0392b"/>
+  <line x1="472" y1="230" x2="472" y2="246" stroke="#333" stroke-width="1.2"/>
+  <line x1="562" y1="230" x2="562" y2="246" stroke="#333" stroke-width="1.2"/>
+  <line x1="616" y1="230" x2="616" y2="246" stroke="#333" stroke-width="1.2"/>
+  <text x="472" y="262" text-anchor="middle" font-size="13" fill="#333">第1代</text>
+  <text x="562" y="262" text-anchor="middle" font-size="13" fill="#333">第2代</text>
+  <text x="616" y="262" text-anchor="middle" font-size="13" fill="#333">第3代</text>
+  <text x="555" y="282" text-anchor="middle" font-size="13" fill="#555">代际间隔 ≈ 潜伏期</text>
+  <text x="400" y="246" text-anchor="middle" font-size="13" fill="#333">1</text>
+  <text x="526" y="246" text-anchor="middle" font-size="13" fill="#333">9</text>
+  <text x="706" y="246" text-anchor="middle" font-size="13" fill="#333">18</text>
+</svg>

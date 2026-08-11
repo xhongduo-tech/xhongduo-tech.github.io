@@ -1,0 +1,35 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>LIGO 灵敏度曲线示意</title>
+<desc>横轴为频率（对数刻度），纵轴为振幅谱密度（对数刻度）。低频段由地震噪声主导、中频段由热噪声主导、高频段由散粒噪声主导，三者的包络形成碗形灵敏度曲线。</desc>
+<rect x="0" y="0" width="640" height="420" fill="#faf9f5"/>
+<!-- plot area -->
+<rect x="80" y="40" width="500" height="290" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<!-- axes lines -->
+<line x1="80" y1="330" x2="580" y2="330" stroke="#333" stroke-width="1.5"/>
+<line x1="80" y1="40" x2="80" y2="330" stroke="#333" stroke-width="1.5"/>
+<!-- axis labels -->
+<text x="330" y="360" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">频率 f (Hz, 对数)</text>
+<text x="40" y="185" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle" transform="rotate(-90 40 185)">ASD √Sₙ(f) (对数)</text>
+<!-- seismic noise: steep fall on low frequency -->
+<path d="M90,70 L140,90 L200,130 L250,175 L290,215"
+      fill="none" stroke="#666" stroke-width="2" stroke-dasharray="6 4"/>
+<!-- thermal noise: bowl in middle -->
+<path d="M290,215 L330,255 L380,265 L430,250 L470,220"
+      fill="none" stroke="#999" stroke-width="2" stroke-dasharray="6 4"/>
+<!-- shot noise: rise at high frequency -->
+<path d="M470,220 L510,185 L550,150 L575,130"
+      fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<!-- total sensitivity curve: envelope (bowl) -->
+<path d="M90,70 C180,200 300,260 400,225 C470,200 540,140 575,115"
+      fill="none" stroke="#1f6f8b" stroke-width="4"/>
+<!-- region labels -->
+<text x="140" y="120" font-family="sans-serif" font-size="13" fill="#666">地震 / 牛顿噪声</text>
+<text x="330" y="300" font-family="sans-serif" font-size="13" fill="#999">悬挂摆 / 镜面热噪声</text>
+<text x="505" y="120" font-family="sans-serif" font-size="13" fill="#c0392b">散粒噪声</text>
+<text x="415" y="195" font-family="sans-serif" font-size="14" fill="#1f6f8b" font-weight="bold">总灵敏度曲线</text>
+<!-- shading: region below curve (invisible) -->
+<path d="M90,70 C180,200 300,260 400,225 C470,200 540,140 575,115 L575,330 L90,330 Z"
+      fill="#1f6f8b" opacity="0.10"/>
+<text x="270" y="105" font-family="sans-serif" font-size="13" fill="#1f6f8b">曲线以下：噪声太大，信号不可见</text>
+<text x="330" y="50" font-family="sans-serif" font-size="13" fill="#333">灵敏度（噪声）随频率分布</text>
+</svg>

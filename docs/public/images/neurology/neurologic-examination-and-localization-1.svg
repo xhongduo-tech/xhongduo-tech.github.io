@@ -1,0 +1,41 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>神经轴五站位定位示意图</title>
+  <desc>从大脑半球到肌肉的五个定位站位，各站位典型体征与代表疾病。</desc>
+  <rect x="0" y="0" width="640" height="420" fill="#faf9f5"/>
+  <text x="320" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">神经轴五站位 · 从哪一级下手</text>
+  <!-- 轴线 -->
+  <line x1="90" y1="70" x2="90" y2="380" stroke="#1f6f8b" stroke-width="4"/>
+  <!-- 站位 1: 大脑半球 -->
+  <rect x="120" y="60" width="420" height="46" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+  <circle cx="90" cy="83" r="13" fill="#1f6f8b"/>
+  <text x="90" y="88" text-anchor="middle" font-size="13" fill="#faf9f5" font-weight="bold">1</text>
+  <text x="130" y="80" font-size="14" font-weight="bold" fill="#333">大脑半球</text>
+  <text x="130" y="97" font-size="13" fill="#333">对侧偏瘫 / 偏身感觉障碍 · 失语 · 视野缺损</text>
+  <!-- 站位 2: 脑干 -->
+  <rect x="120" y="116" width="420" height="46" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+  <circle cx="90" cy="139" r="13" fill="#1f6f8b"/>
+  <text x="90" y="144" text-anchor="middle" font-size="13" fill="#faf9f5" font-weight="bold">2</text>
+  <text x="130" y="136" font-size="14" font-weight="bold" fill="#333">脑干</text>
+  <text x="130" y="153" font-size="13" fill="#333">交叉性体征（同侧脑神经 + 对侧肢体）· 复视</text>
+  <!-- 站位 3: 脊髓 -->
+  <rect x="120" y="172" width="420" height="46" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+  <circle cx="90" cy="195" r="13" fill="#1f6f8b"/>
+  <text x="90" y="200" text-anchor="middle" font-size="13" fill="#faf9f5" font-weight="bold">3</text>
+  <text x="130" y="192" font-size="14" font-weight="bold" fill="#333">脊髓</text>
+  <text x="130" y="209" font-size="13" fill="#333">传导束体征 · 节段性感觉缺失 · 括约肌障碍</text>
+  <!-- 站位 4: 周围神经 -->
+  <rect x="120" y="228" width="420" height="46" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+  <circle cx="90" cy="251" r="13" fill="#1f6f8b"/>
+  <text x="90" y="256" text-anchor="middle" font-size="13" fill="#faf9f5" font-weight="bold">4</text>
+  <text x="130" y="248" font-size="14" font-weight="bold" fill="#333">周围神经</text>
+  <text x="130" y="265" font-size="13" fill="#333">手套袜套样感觉减退 · 腱反射减弱 · 远端肌萎缩</text>
+  <!-- 站位 5: NMJ / 肌肉 -->
+  <rect x="120" y="284" width="420" height="46" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+  <circle cx="90" cy="307" r="13" fill="#1f6f8b"/>
+  <text x="90" y="312" text-anchor="middle" font-size="13" fill="#faf9f5" font-weight="bold">5</text>
+  <text x="130" y="304" font-size="14" font-weight="bold" fill="#333">神经肌肉接头与肌肉</text>
+  <text x="130" y="321" font-size="13" fill="#333">对称性无力 · 疲劳性波动 · 腱反射相对保留</text>
+  <!-- 底部提示 -->
+  <text x="320" y="368" text-anchor="middle" font-size="13" fill="#c0392b">病灶定得越靠下，越要警惕全身性（代谢/中毒）因素</text>
+  <text x="320" y="392" text-anchor="middle" font-size="13" fill="#333">配合「反射 / 肌张力」里程标逐级甄别</text>
+</svg>

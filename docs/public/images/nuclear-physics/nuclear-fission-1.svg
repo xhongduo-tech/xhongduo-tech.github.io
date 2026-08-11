@@ -1,0 +1,28 @@
+<svg viewBox="0 0 620 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>裂变位垒示意图</title>
+  <desc>原子核势能随形变程度的变化：从球形基态经过鞍点（裂变位垒约 6 MeV）达到裂变点，能量下降并释放约 200 MeV</desc>
+  <rect width="620" height="420" fill="#faf9f5"/>
+  <line x1="80" y1="360" x2="580" y2="360" stroke="#333" stroke-width="2"/>
+  <text x="560" y="378" fill="#333" font-size="14">形变程度（伸长量）</text>
+  <line x1="120" y1="360" x2="120" y2="40" stroke="#333" stroke-width="2"/>
+  <text x="42" y="60" fill="#333" font-size="14">势能 U</text>
+  <text x="88" y="374" fill="#333" font-size="13">球形</text>
+  <text x="430" y="374" fill="#333" font-size="13">拉长（鞍点后裂开）</text>
+  <path d="M 120 330 C 180 260 240 160 300 96 C 360 150 420 240 500 330 L 560 336"
+        fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <circle cx="120" cy="330" r="5" fill="#c0392b"/>
+  <text x="40" y="336" fill="#c0392b" font-size="14">基态</text>
+  <line x1="300" y1="96" x2="300" y2="360" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="150" y="78" fill="#c0392b" font-size="15">鞍点（裂变位垒 ≈ 6 MeV）</text>
+  <text x="120" y="210" fill="#333" font-size="14">输入能量 &gt; 位垒高度</text>
+  <text x="120" y="232" fill="#333" font-size="14">→ 越过鞍点，一分为二</text>
+  <text x="340" y="240" fill="#333" font-size="14">两碎片迅速分开，</text>
+  <text x="340" y="262" fill="#333" font-size="14">释放约 200 MeV</text>
+  <path d="M 500 330 C 510 300 540 280 560 268" fill="none" stroke="#c0392b" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="470" y="180" fill="#333" font-size="14">裂变点：碎片 + 中子 + γ</text>
+  <defs>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

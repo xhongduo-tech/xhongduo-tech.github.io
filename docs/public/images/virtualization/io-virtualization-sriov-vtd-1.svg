@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="680" height="430" role="img" aria-labelledby="title desc">
+  <title>SR-IOV：物理功能拆成多个虚拟功能，分别直通给虚拟机</title>
+  <desc>顶部为三台虚拟机 VM1、VM2、VM3，各自运行客户操作系统与客户驱动。中部为 VMM/Hypervisor 负责管理物理功能 PF。底部为一块物理网卡，包含一个物理功能 PF 与多个虚拟功能 VF0、VF1、VF2。每个 VF 通过虚拟 PCIe 连接直通给一台虚拟机，数据由网卡内建交换逻辑在硬件内部分流。</desc>
+  <style>
+    text { font-family: sans-serif; fill: #333; }
+    .box { stroke: #333; stroke-width: 1.5; }
+    .soft { fill: #e7eef2; }
+    .vmmb { fill: #f2e6de; }
+    .hwbox { fill: #efe8dd; }
+    .accent { fill: #c0392b; }
+    .cyan { fill: #1f6f8b; }
+  </style>
+  <rect x="0" y="0" width="680" height="430" fill="#faf9f5"/>
+
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="bold">SR-IOV：一块网卡分成多个直通 VF</text>
+
+  <!-- VM 行 -->
+  <g>
+    <rect class="box soft" x="40" y="52" width="180" height="66" rx="4"/>
+    <text x="130" y="74" text-anchor="middle" font-size="14" font-weight="bold">VM1</text>
+    <text x="130" y="92" text-anchor="middle" font-size="12">客户 OS + 驱动</text>
+    <text x="130" y="108" text-anchor="middle" font-size="12">（直通 VF0）</text>
+
+    <rect class="box soft" x="250" y="52" width="180" height="66" rx="4"/>
+    <text x="340" y="74" text-anchor="middle" font-size="14" font-weight="bold">VM2</text>
+    <text x="340" y="92" text-anchor="middle" font-size="12">客户 OS + 驱动</text>
+    <text x="340" y="108" text-anchor="middle" font-size="12">（直通 VF1）</text>
+
+    <rect class="box soft" x="460" y="52" width="180" height="66" rx="4"/>
+    <text x="550" y="74" text-anchor="middle" font-size="14" font-weight="bold">VM3</text>
+    <text x="550" y="92" text-anchor="middle" font-size="12">客户 OS + 驱动</text>
+    <text x="550" y="108" text-anchor="middle" font-size="12">（直通 VF2）</text>
+  </g>
+
+  <!-- VMM 行 -->
+  <rect class="box vmmb" x="40" y="150" width="600" height="44" rx="4"/>
+  <text x="340" y="169" text-anchor="middle" font-size="14" font-weight="bold">VMM / Hypervisor（管理控制面）</text>
+  <text x="340" y="186" text-anchor="middle" font-size="12">管理 PF：配置、固件、VLAN；不介入数据路径</text>
+
+  <!-- 网卡行 -->
+  <rect class="box hwbox" x="40" y="236" width="600" height="96" rx="6"/>
+  <text x="340" y="258" text-anchor="middle" font-size="14" font-weight="bold">物理网卡（PCIe SR-IOV）</text>
+  <rect class="box" x="60" y="270" width="120" height="40" rx="4" fill="#f2e6de"/>
+  <text x="120" y="286" text-anchor="middle" font-size="13" font-weight="bold">PF</text>
+  <text x="120" y="301" text-anchor="middle" font-size="11">物理功能</text>
+  <rect class="box" x="250" y="270" width="100" height="40" rx="4"/>
+  <text x="300" y="286" text-anchor="middle" font-size="13" font-weight="bold">VF0</text>
+  <text x="300" y="301" text-anchor="middle" font-size="11">虚拟功能</text>
+  <rect class="box" x="380" y="270" width="100" height="40" rx="4"/>
+  <text x="430" y="286" text-anchor="middle" font-size="13" font-weight="bold">VF1</text>
+  <text x="430" y="301" text-anchor="middle" font-size="11">虚拟功能</text>
+  <rect class="box" x="510" y="270" width="100" height="40" rx="4"/>
+  <text x="560" y="286" text-anchor="middle" font-size="13" font-weight="bold">VF2</text>
+  <text x="560" y="301" text-anchor="middle" font-size="11">虚拟功能</text>
+  <text x="340" y="322" text-anchor="middle" font-size="11">设备内建交换逻辑：数据面多路复用由硬件完成</text>
+
+  <!-- 直通连线 -->
+  <path d="M 130 118 L 130 148" fill="none" stroke="#c0392b" stroke-width="1.8"/>
+  <path d="M 130 194 L 130 232 L 300 232 L 300 268" fill="none" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 340 118 L 340 148" fill="none" stroke="#c0392b" stroke-width="1.8"/>
+  <path d="M 340 194 L 340 232 L 430 232 L 430 268" fill="none" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arr)"/>
+  <path d="M 550 118 L 550 148" fill="none" stroke="#c0392b" stroke-width="1.8"/>
+  <path d="M 550 194 L 550 232 L 560 232 L 560 268" fill="none" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- IOMMU 标注 -->
+  <text x="620" y="80" font-size="12" class="cyan" text-anchor="end">配合 VT-d / IOMMU：</text>
+  <text x="620" y="97" font-size="12" class="cyan" text-anchor="end">DMA 翻译 + 设备隔离</text>
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 底部说明 -->
+  <text x="340" y="376" text-anchor="middle" font-size="13">每个 VF 独立配置空间、寄存器、DMA 地址空间与中断（MSI-X）</text>
+  <text x="340" y="396" text-anchor="middle" font-size="13">限制：VF 数量由硬件决定、热迁移困难、需要 IOMMU 保护</text>
+</svg>

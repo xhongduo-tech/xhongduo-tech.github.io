@@ -1,0 +1,46 @@
+<svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="14">
+  <title>Wenzel 湿润态与 Cassie-Baxter 悬挂态对比</title>
+  <desc>左图：Wenzel 态，液滴渗入粗糙谷，接触面积被放大；右图：Cassie-Baxter 态，液滴悬浮在微结构顶端，谷中充满空气，接触角更大。</desc>
+  <rect width="900" height="360" fill="#faf9f5"/>
+  <text x="40" y="40" font-size="16" font-weight="bold" fill="#333">Wenzel 态（湿润态）：液滴渗入微结构</text>
+  <text x="40" y="62" font-size="13" fill="#1f6f8b">接触面积大，粗糙度放大本征疏水性</text>
+  <text x="500" y="40" font-size="16" font-weight="bold" fill="#333">Cassie–Baxter 态（悬挂态）：液滴躺上空气垫</text>
+  <text x="500" y="62" font-size="13" fill="#1f6f8b">谷内充满空气，接触角大，液滴易滚动 → 自洁</text>
+  <g stroke="#333" stroke-width="1.5">
+    <path d="M60 200 q60 60 150 60" fill="#5fa8c9" opacity="0.9"/>
+  </g>
+  <g fill="#8d6e63">
+    <rect x="80" y="255" width="16" height="40"/>
+    <rect x="110" y="275" width="16" height="20"/>
+    <rect x="140" y="255" width="16" height="40"/>
+    <rect x="170" y="275" width="16" height="20"/>
+  </g>
+  <g fill="none" stroke="#4a4a4a">
+    <rect x="80" y="295" width="16" height="6"/>
+    <rect x="110" y="295" width="16" height="6"/>
+    <rect x="140" y="295" width="16" height="6"/>
+    <rect x="170" y="295" width="16" height="6"/>
+  </g>
+  <line x1="60" y1="300" x2="240" y2="300" stroke="#333" stroke-width="2"/>
+  <text x="80" y="330" font-size="13" fill="#333">粗糙固体表面（微米柱阵列）</text>
+  <text x="80" y="350" font-size="13" fill="#c0392b">水填满谷 → 表观接触角 θ* 变小</text>
+  <path d="M530 180 q60 50 150 50" fill="#5fa8c9" opacity="0.9"/>
+  <g fill="#8d6e63">
+    <rect x="560" y="235" width="14" height="65"/>
+    <rect x="610" y="235" width="14" height="65"/>
+    <rect x="660" y="235" width="14" height="65"/>
+  </g>
+  <g fill="none" stroke="#4a4a4a">
+    <rect x="560" y="300" width="14" height="4"/>
+    <rect x="610" y="300" width="14" height="4"/>
+    <rect x="660" y="300" width="14" height="4"/>
+  </g>
+  <line x1="520" y1="300" x2="730" y2="300" stroke="#333" stroke-width="2"/>
+  <g fill="none" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3">
+    <line x1="575" y1="238" x2="575" y2="300"/>
+    <line x1="625" y1="238" x2="625" y2="300"/>
+    <line x1="675" y1="238" x2="675" y2="300"/>
+  </g>
+  <text x="560" y="330" font-size="13" fill="#333">空气（气垫）</text>
+  <text x="560" y="350" font-size="13" fill="#c0392b">表观接触角 θ* ≈ 150°+，滚动角 &lt; 10°</text>
+</svg>

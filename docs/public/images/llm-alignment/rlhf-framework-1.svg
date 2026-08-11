@@ -1,0 +1,72 @@
+<svg viewBox="0 0 820 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rlhf-title rlhf-desc">
+<title id="rlhf-title">RLHF 三步流水线：SFT → RM → PPO</title>
+<desc id="rlhf-desc">从监督微调（SFT）、奖励模型（RM）训练到 PPO 强化学习的三阶段对齐流程示意图。</desc>
+<rect x="0" y="0" width="820" height="500" fill="#faf9f5"/>
+<text x="410" y="34" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">RLHF 三步流水线：SFT → RM → PPO</text>
+
+<!-- 第 1 行：SFT -->
+<rect x="20" y="70" width="230" height="66" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="135" y="96" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">人工演示数据</text>
+<text x="135" y="118" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">13k 条指令 + 标注员手写回答</text>
+
+<rect x="300" y="70" width="210" height="66" rx="8" fill="#eef4f6" stroke="#1f6f8b" stroke-width="2"/>
+<text x="405" y="96" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">① SFT 监督微调</text>
+<text x="405" y="118" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">标准语言建模损失</text>
+
+<rect x="570" y="70" width="230" height="66" rx="8" fill="#fdf1ef" stroke="#c0392b" stroke-width="2"/>
+<text x="685" y="96" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">SFT 模型</text>
+<text x="685" y="118" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">对齐流水线的起点</text>
+
+<!-- 第 2 行：RM -->
+<rect x="20" y="205" width="230" height="66" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="135" y="231" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">偏好数据</text>
+<text x="135" y="253" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">33k 条指令、约 130 万条两两比较</text>
+
+<rect x="300" y="205" width="210" height="66" rx="8" fill="#eef4f6" stroke="#1f6f8b" stroke-width="2"/>
+<text x="405" y="231" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">② 奖励模型训练</text>
+<text x="405" y="253" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">成对排序损失（Bradley–Terry）</text>
+
+<rect x="570" y="205" width="230" height="66" rx="8" fill="#fdf1ef" stroke="#c0392b" stroke-width="2"/>
+<text x="685" y="231" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">奖励模型 RM</text>
+<text x="685" y="253" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">为回答打分的代理评委</text>
+
+<!-- 第 3 行：PPO -->
+<rect x="20" y="340" width="230" height="66" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="135" y="366" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">SFT 模型（初始策略）</text>
+<text x="135" y="388" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">＋ RM 给出奖励信号</text>
+
+<rect x="300" y="340" width="210" height="66" rx="8" fill="#eef4f6" stroke="#1f6f8b" stroke-width="2"/>
+<text x="405" y="366" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">③ PPO 强化学习</text>
+<text x="405" y="388" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">带 KL 惩罚的策略优化</text>
+
+<rect x="570" y="340" width="230" height="66" rx="8" fill="#fdf1ef" stroke="#c0392b" stroke-width="2"/>
+<text x="685" y="366" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">InstructGPT</text>
+<text x="685" y="388" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">最终的对齐模型</text>
+
+<!-- 横向箭头 -->
+<g stroke="#333" stroke-width="2">
+<line x1="252" y1="103" x2="298" y2="103" marker-end="url(#arrow1)"/>
+<line x1="512" y1="103" x2="568" y2="103" marker-end="url(#arrow1)"/>
+<line x1="252" y1="238" x2="298" y2="238" marker-end="url(#arrow1)"/>
+<line x1="512" y1="238" x2="568" y2="238" marker-end="url(#arrow1)"/>
+<line x1="252" y1="373" x2="298" y2="373" marker-end="url(#arrow1)"/>
+<line x1="512" y1="373" x2="568" y2="373" marker-end="url(#arrow1)"/>
+</g>
+
+<!-- 虚线：RM 为策略打分（右侧竖向） -->
+<g stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" fill="none">
+<line x1="776" y1="273" x2="776" y2="338" marker-end="url(#arrow2)"/>
+</g>
+<text x="768" y="310" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">打分</text>
+
+<defs>
+<marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+</marker>
+<marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+</marker>
+</defs>
+
+<text x="410" y="460" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">③ 循环：策略采样 → RM 打分 → 策略更新，迭代若干轮（PPO）</text>
+</svg>

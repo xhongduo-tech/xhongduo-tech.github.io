@@ -1,0 +1,32 @@
+<svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>简单线性回归的 OLS 拟合</title>
+  <desc>散点图上画出一条最小二乘拟合直线，残差为点到直线的竖直距离。</desc>
+  <rect width="480" height="360" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="60" y1="300" x2="440" y2="300"/>
+    <line x1="60" y1="300" x2="60" y2="40"/>
+  </g>
+  <g fill="#333" font-size="14">
+    <text x="430" y="322">x</text>
+    <text x="36" y="48">y</text>
+  </g>
+  <g fill="#1f6f8b">
+    <circle cx="90" cy="268" r="5"/>
+    <circle cx="130" cy="250" r="5"/>
+    <circle cx="160" cy="230" r="5"/>
+    <circle cx="205" cy="225" r="5"/>
+    <circle cx="240" cy="200" r="5"/>
+    <circle cx="275" cy="180" r="5"/>
+    <circle cx="310" cy="165" r="5"/>
+    <circle cx="345" cy="150" r="5"/>
+    <circle cx="380" cy="128" r="5"/>
+    <circle cx="415" cy="112" r="5"/>
+  </g>
+  <line x1="70" y1="278" x2="425" y2="105" stroke="#c0392b" stroke-width="2.5"/>
+  <g fill="#c0392b" font-size="14">
+    <text x="330" y="132">y = β₀ + β₁x</text>
+  </g>
+  <line x1="240" y1="200" x2="240" y2="214" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="244" y="215" fill="#c0392b" font-size="13">残差 û</text>
+  <text x="180" y="335" fill="#333" font-size="13">竖直距离的平方和最小，即最小二乘</text>
+</svg>

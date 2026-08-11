@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+  <title>洛伦兹曲线与基尼系数</title>
+  <desc>横轴为累计人口比例，纵轴为累计收入比例。45 度对角线表示完全平等，实际洛伦兹曲线在下方，两者之间面积 A 与整个三角形面积之比即基尼系数。</desc>
+  <rect width="480" height="360" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="80" y1="80" x2="80" y2="300"/>
+    <line x1="80" y1="300" x2="400" y2="300"/>
+  </g>
+  <line x1="80" y1="300" x2="380" y2="80" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <polygon points="80,300 150,284 220,240 290,165 340,100 380,80 380,80 80,300"
+           fill="#1f6f8b" fill-opacity="0.12"/>
+  <polyline points="80,300 150,284 220,240 290,165 340,100 380,80"
+            fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="330" y="96" font-family="sans-serif" font-size="13" fill="#333">平等线（45°）</text>
+  <text x="250" y="170" font-family="sans-serif" font-size="13" fill="#c0392b">洛伦兹曲线</text>
+  <text x="140" y="120" font-family="sans-serif" font-size="13" fill="#333">A</text>
+  <text x="215" y="215" font-family="sans-serif" font-size="13" fill="#333">B</text>
+  <text x="352" y="320" font-family="sans-serif" font-size="13" fill="#333">累计人口比例</text>
+  <text x="14" y="190" font-family="sans-serif" font-size="13" fill="#333">累计</text>
+  <text x="14" y="206" font-family="sans-serif" font-size="13" fill="#333">收入比例</text>
+  <text x="110" y="280" font-family="sans-serif" font-size="13" fill="#333">Gini = A / (A + B)</text>
+</svg>

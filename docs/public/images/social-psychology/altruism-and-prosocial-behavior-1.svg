@@ -1,0 +1,47 @@
+<svg viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>旁观者干预五步决策模型</title>
+  <desc>帮助行为的五步决策链：注意事件、解释为紧急、承担责任、知道如何帮、决定帮助；任一步为否则进入不帮助，全部通过则帮助。</desc>
+  <rect width="680" height="560" fill="#faf9f5"/>
+  <text x="340" y="40" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">旁观者干预模型（Darley &amp; Latané，五步决策）</text>
+
+  <g font-size="15" fill="#333">
+    <rect x="60" y="70" width="360" height="52" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="240" y="98" text-anchor="middle">1. 注意到事件？</text>
+    <rect x="60" y="150" width="360" height="52" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="240" y="178" text-anchor="middle">2. 解释为紧急事件？</text>
+    <rect x="60" y="230" width="360" height="52" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="240" y="258" text-anchor="middle">3. 承担责任？（责任扩散在此发生）</text>
+    <rect x="60" y="310" width="360" height="52" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="240" y="338" text-anchor="middle">4. 知道该怎么做？</text>
+    <rect x="60" y="390" width="360" height="52" fill="#fff" stroke="#333" stroke-width="2"/>
+    <text x="240" y="418" text-anchor="middle">5. 决定去帮助</text>
+  </g>
+
+  <g stroke="#333" stroke-width="2">
+    <line x1="240" y1="122" x2="240" y2="150"/>
+    <line x1="240" y1="202" x2="240" y2="230"/>
+    <line x1="240" y1="282" x2="240" y2="310"/>
+    <line x1="240" y1="362" x2="240" y2="390"/>
+    <line x1="240" y1="442" x2="240" y2="470"/>
+  </g>
+
+  <rect x="60" y="470" width="360" height="56" fill="#1f6f8b"/>
+  <text x="240" y="503" text-anchor="middle" font-size="17" fill="#fff" font-weight="bold">帮助行为</text>
+
+  <g font-size="14">
+    <text x="455" y="99" fill="#c0392b">否 →</text>
+    <text x="455" y="179" fill="#c0392b">否 →</text>
+    <text x="455" y="259" fill="#c0392b">否 →</text>
+    <text x="455" y="339" fill="#c0392b">否 →</text>
+    <text x="455" y="419" fill="#c0392b">否 →</text>
+  </g>
+  <g stroke="#c0392b" stroke-width="1.5">
+    <line x1="500" y1="96" x2="500" y2="500"/>
+    <line x1="420" y1="96" x2="500" y2="96"/>
+    <line x1="420" y1="176" x2="500" y2="176"/>
+    <line x1="420" y1="256" x2="500" y2="256"/>
+    <line x1="420" y1="336" x2="500" y2="336"/>
+    <line x1="420" y1="416" x2="500" y2="416"/>
+  </g>
+  <text x="548" y="300" text-anchor="middle" fill="#c0392b" font-size="15" font-weight="bold">不帮助</text>
+</svg>

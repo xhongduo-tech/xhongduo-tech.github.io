@@ -1,0 +1,49 @@
+<svg viewBox="0 0 760 400" xmlns="http://www.w3.org/2000/svg" width="760" height="400" role="img" aria-labelledby="title desc">
+<title>生产者-消费者问题中的有界缓冲区与三个信号量</title>
+<desc>多个生产者线程向一个容量为 n 的有界缓冲区放入物品，多个消费者线程从中取出物品；互斥锁 mutex 保护缓冲区结构，信号量 slots 记录空位，信号量 items 记录物品数。</desc>
+<rect x="0" y="0" width="760" height="400" fill="#faf9f5" />
+<text x="20" y="36" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">生产者-消费者：三个同步变量守护一个有界缓冲区</text>
+
+<!-- 生产者 -->
+<rect x="40" y="120" width="150" height="120" rx="8" fill="#eef3f5" stroke="#1f6f8b" stroke-width="2" />
+<text x="115" y="180" font-family="sans-serif" font-size="16" fill="#333" text-anchor="middle">生产者线程</text>
+<text x="115" y="206" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">put（生产物品）</text>
+
+<!-- 消费者 -->
+<rect x="570" y="120" width="150" height="120" rx="8" fill="#eef3f5" stroke="#c0392b" stroke-width="2" />
+<text x="645" y="180" font-family="sans-serif" font-size="16" fill="#333" text-anchor="middle">消费者线程</text>
+<text x="645" y="206" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">get（取走物品）</text>
+
+<!-- 缓冲区 -->
+<rect x="280" y="130" width="200" height="100" rx="6" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="380" y="155" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">有界缓冲区 buf[0..n-1]</text>
+<rect x="292" y="168" width="40" height="44" fill="#f5e6e3" stroke="#c0392b" stroke-width="1.5" />
+<rect x="340" y="168" width="40" height="44" fill="#f5e6e3" stroke="#c0392b" stroke-width="1.5" />
+<rect x="388" y="168" width="40" height="44" fill="#e3eef2" stroke="#1f6f8b" stroke-width="1.5" />
+<rect x="436" y="168" width="40" height="44" fill="#e3eef2" stroke="#1f6f8b" stroke-width="1.5" />
+<text x="380" y="244" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">容量 n，满时插不进去，空时取不出来</text>
+
+<!-- 箭头：生产者 -> 缓冲区 -->
+<line x1="190" y1="165" x2="278" y2="165" stroke="#1f6f8b" stroke-width="2" marker-end="url(#ar1)" />
+<!-- 箭头：缓冲区 -> 消费者 -->
+<line x1="482" y1="195" x2="568" y2="195" stroke="#c0392b" stroke-width="2" marker-end="url(#ar2)" />
+
+<defs>
+<marker id="ar1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#1f6f8b" /></marker>
+<marker id="ar2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 z" fill="#c0392b" /></marker>
+</defs>
+
+<!-- 信号量说明 -->
+<text x="20" y="300" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">三个同步变量：</text>
+<rect x="20" y="312" width="200" height="62" rx="6" fill="#fff" stroke="#c0392b" stroke-width="1.5" />
+<text x="120" y="334" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">mutex（二元）保护缓冲区结构</text>
+<text x="120" y="356" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">初始值 1，进入临界区时 P</text>
+<rect x="240" y="312" width="200" height="62" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" />
+<text x="340" y="334" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">slots（计数）空位数</text>
+<text x="340" y="356" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">初始值 n，生产前 P(slots)</text>
+<rect x="460" y="312" width="200" height="62" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" />
+<text x="560" y="334" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">items（计数）物品数</text>
+<text x="560" y="356" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">初始值 0，消费前 P(items)</text>
+
+<text x="20" y="392" font-family="sans-serif" font-size="13" fill="#666">不变量：slots + items + mutex 恰好 = n —— 永远不丢物品，也不制造空位。</text>
+</svg>

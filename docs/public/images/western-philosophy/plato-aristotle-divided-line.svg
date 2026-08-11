@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" font-family="sans-serif">
+<title>柏拉图的分割线之喻</title>
+<desc>一条竖直线段被分成四段，对应四种认识方式与四个认识对象：影像、实物、数学对象、理念。</desc>
+<rect width="760" height="520" fill="#faf9f5"/>
+<line x1="380" y1="40" x2="380" y2="470" stroke="#333" stroke-width="3"/>
+<text x="380" y="30" text-anchor="middle" fill="#c0392b" font-size="16" font-weight="bold">柏拉图的分割线之喻（Divided Line）</text>
+
+<text x="420" y="66" fill="#1f6f8b" font-size="15" font-weight="bold">理念（Form）——可知世界，最高实在</text>
+<text x="420" y="88" fill="#333" font-size="14">理智（noesis）↔ 辩证法；如「善」「圆」本身</text>
+<line x1="330" y1="46" x2="430" y2="46" stroke="#c0392b" stroke-width="2"/>
+
+<text x="420" y="136" fill="#1f6f8b" font-size="15" font-weight="bold">数学对象——可知世界，次高</text>
+<text x="420" y="158" fill="#333" font-size="14">理智（dianoia）↔ 数学：从假设出发演绎</text>
+<line x1="330" y1="112" x2="430" y2="112" stroke="#c0392b" stroke-width="2"/>
+
+<text x="420" y="216" fill="#1f6f8b" font-size="15" font-weight="bold">实物（具体事物）——可见世界，高段</text>
+<text x="420" y="238" fill="#333" font-size="14">信念（pistis）：看到具体的桌子、圆的木盘</text>
+<line x1="330" y1="190" x2="430" y2="190" stroke="#c0392b" stroke-width="2"/>
+
+<text x="420" y="296" fill="#1f6f8b" font-size="15" font-weight="bold">影像（阴影、映象）——可见世界，最低</text>
+<text x="420" y="318" fill="#333" font-size="14">想象（eikasia）：只能看到事物的影子</text>
+
+<text x="380" y="366" text-anchor="middle" fill="#333" font-size="14">越向上，越真实、越可知、越接近善</text>
+<text x="380" y="392" text-anchor="middle" fill="#333" font-size="14">知识：意见（doxa）只属于可见世界</text>
+<text x="380" y="430" text-anchor="middle" fill="#c0392b" font-size="14" font-weight="bold">对应山洞之喻：走出洞穴、面对太阳 = 由影像上升到理念</text>
+<text x="380" y="468" text-anchor="middle" fill="#333" font-size="13">认识论递进：想象 → 信念 → 数学 → 辩证法</text>
+</svg>

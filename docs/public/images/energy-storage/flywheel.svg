@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif">
+  <title>飞轮储能系统示意图</title>
+  <desc>飞轮储能：飞轮转子在真空腔体内高速旋转，上端磁悬浮轴承减少摩擦，电机/发电机在转轴下方进行能量转换，通过电力电子装置接入电网。</desc>
+  <rect x="0" y="0" width="640" height="420" fill="#faf9f5"/>
+  <text x="320" y="34" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">飞轮储能系统剖面</text>
+
+  <!-- 真空腔体 -->
+  <rect x="150" y="70" width="300" height="300" rx="20" fill="none" stroke="#333" stroke-width="3" stroke-dasharray="8 5"/>
+  <text x="610" y="230" text-anchor="middle" font-size="14" fill="#333">真空腔体</text>
+
+  <!-- 上磁轴承 -->
+  <rect x="295" y="60" width="10" height="40" fill="#4a4a4a"/>
+  <ellipse cx="300" cy="55" rx="22" ry="8" fill="#c0392b"/>
+  <text x="430" y="70" text-anchor="middle" font-size="13" fill="#333">磁悬浮轴承</text>
+
+  <!-- 飞轮转子 -->
+  <ellipse cx="300" cy="210" rx="105" ry="85" fill="#4a4a4a"/>
+  <ellipse cx="300" cy="210" rx="105" ry="85" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="300" cy="210" rx="50" ry="40" fill="none" stroke="#faf9f5" stroke-width="2" opacity="0.6"/>
+  <text x="300" y="205" text-anchor="middle" font-size="16" fill="#faf9f5" font-weight="bold">转子</text>
+  <text x="300" y="225" text-anchor="middle" font-size="13" fill="#faf9f5">E = ½Iω²</text>
+  <text x="150" y="170" text-anchor="middle" font-size="13" fill="#333">碳纤维复合材料</text>
+
+  <!-- 旋转示意 -->
+  <path d="M 360 140 A 100 70 0 0 1 400 200" fill="none" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrowW)"/>
+  <text x="415" y="160" font-size="13" fill="#1f6f8b">高速旋转 ω</text>
+
+  <!-- 转轴 -->
+  <rect x="296" y="295" width="8" height="45" fill="#333"/>
+
+  <!-- 电机/发电机 -->
+  <rect x="260" y="340" width="80" height="30" rx="6" fill="#1f6f8b" opacity="0.8"/>
+  <text x="300" y="360" text-anchor="middle" font-size="13" fill="#faf9f5">电机 / 发电机</text>
+
+  <!-- 电力电子 -->
+  <rect x="480" y="150" width="90" height="60" rx="6" fill="#f5f1e8" stroke="#333" stroke-width="2"/>
+  <text x="525" y="180" text-anchor="middle" font-size="14" fill="#333">电力电子</text>
+  <text x="525" y="198" text-anchor="middle" font-size="13" fill="#333">变流器</text>
+  <line x1="340" y1="355" x2="480" y2="185" stroke="#333" stroke-width="2"/>
+  <line x1="570" y1="180" x2="625" y2="180" stroke="#333" stroke-width="3" marker-end="url(#arrowW)"/>
+  <text x="600" y="170" text-anchor="middle" font-size="13" fill="#333">电网</text>
+
+  <!-- 下磁轴承 -->
+  <rect x="295" y="395" width="10" height="0" fill="none"/>
+  <ellipse cx="300" cy="390" rx="22" ry="7" fill="#c0392b"/>
+  <text x="430" y="390" text-anchor="middle" font-size="13" fill="#333">磁悬浮轴承</text>
+
+  <defs>
+    <marker id="arrowW" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+</svg>

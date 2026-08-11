@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 660" font-family="sans-serif">
+  <title>COSY 谱原理：对角峰与交叉峰</title>
+  <desc>二维 COSY 谱示意图：沿对角线分布青色对角峰，对角线两侧对称分布红色交叉峰。交叉峰位置（δ_A, δ_B）表示两个氢之间存在自旋-自旋耦合。顶部与右侧展示 1H 谱投影。</desc>
+  <rect x="0" y="0" width="760" height="660" fill="#faf9f5"/>
+  <text x="380" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">COSY 谱原理：对角峰与交叉峰</text>
+
+  <!-- 绘图区（方形） -->
+  <rect x="180" y="80" width="500" height="500" fill="#fff" stroke="#333" stroke-width="2"/>
+
+  <!-- F2 轴（底部） -->
+  <text x="430" y="628" text-anchor="middle" font-size="16" fill="#333">F2：¹H 化学位移 δ (ppm) →</text>
+  <text x="180" y="612" text-anchor="middle" font-size="15" fill="#333">8</text>
+  <text x="305" y="612" text-anchor="middle" font-size="15" fill="#333">6</text>
+  <text x="430" y="612" text-anchor="middle" font-size="15" fill="#333">4</text>
+  <text x="555" y="612" text-anchor="middle" font-size="15" fill="#333">2</text>
+  <text x="680" y="612" text-anchor="middle" font-size="15" fill="#333">0</text>
+
+  <!-- F1 轴（左侧） -->
+  <text x="120" y="330" text-anchor="middle" font-size="16" fill="#333" transform="rotate(-90 120 330)">F1：¹H δ (ppm)</text>
+  <text x="165" y="85" text-anchor="middle" font-size="15" fill="#333">8</text>
+  <text x="165" y="210" text-anchor="middle" font-size="15" fill="#333">6</text>
+  <text x="165" y="335" text-anchor="middle" font-size="15" fill="#333">4</text>
+  <text x="165" y="460" text-anchor="middle" font-size="15" fill="#333">2</text>
+  <text x="165" y="585" text-anchor="middle" font-size="15" fill="#333">0</text>
+
+  <!-- 对角线（F1 = F2） -->
+  <line x1="680" y1="580" x2="180" y2="80" stroke="#999" stroke-width="1.5" stroke-dasharray="8 5"/>
+
+  <!-- 对角峰 -->
+  <circle cx="617.5" cy="517.5" r="12" fill="#1f6f8b" stroke="#1f6f8b"/>
+  <circle cx="555" cy="455" r="12" fill="#1f6f8b" stroke="#1f6f8b"/>
+  <circle cx="461.25" cy="361.25" r="12" fill="#1f6f8b" stroke="#1f6f8b"/>
+
+  <!-- 交叉峰（CH3 与 CH2 耦合） -->
+  <circle cx="461.25" cy="517.5" r="17" fill="#c0392b" stroke="#c0392b"/>
+  <circle cx="617.5" cy="361.25" r="17" fill="#c0392b" stroke="#c0392b"/>
+
+  <!-- 顶部 1H 投影（F1） -->
+  <line x1="461.25" y1="110" x2="461.25" y2="78" stroke="#333" stroke-width="6"/>
+  <line x1="617.5" y1="110" x2="617.5" y2="78" stroke="#333" stroke-width="6"/>
+  <text x="380" y="66" text-anchor="middle" font-size="15" fill="#333">1H 谱投影（顶）</text>
+  <text x="461.25" y="125" text-anchor="middle" font-size="14" fill="#333">CH2 3.5</text>
+  <text x="617.5" y="125" text-anchor="middle" font-size="14" fill="#333">CH3 1.0</text>
+
+  <!-- 右侧 1H 投影（F2） -->
+  <line x1="700" y1="517.5" x2="732" y2="517.5" stroke="#333" stroke-width="6"/>
+  <line x1="700" y1="361.25" x2="732" y2="361.25" stroke="#333" stroke-width="6"/>
+
+  <!-- 注释 -->
+  <line x1="660" y1="330" x2="660" y2="430" stroke="#333" stroke-width="1.5"/>
+  <text x="735" y="365" text-anchor="middle" font-size="15" fill="#c0392b">交叉峰</text>
+  <text x="735" y="385" text-anchor="middle" font-size="13" fill="#333">(δ_A, δ_B)</text>
+
+  <line x1="555" y1="455" x2="560" y2="330" stroke="#333" stroke-width="1.5"/>
+  <text x="700" y="285" text-anchor="middle" font-size="15" fill="#1f6f8b">对角峰</text>
+  <text x="700" y="305" text-anchor="middle" font-size="13" fill="#333">F1 = F2</text>
+
+  <!-- 图注 -->
+  <text x="380" y="655" text-anchor="middle" font-size="15" fill="#333">交叉峰（δ_A, δ_B）表示 A、B 两个氢共享耦合常数 J——即互为邻居</text>
+</svg>

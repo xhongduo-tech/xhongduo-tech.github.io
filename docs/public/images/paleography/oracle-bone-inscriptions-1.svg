@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="sans-serif">
+  <title>甲骨卜辞结构示意图</title>
+  <desc>一条完整卜辞由前辞、命辞、占辞、验辞四段构成，示意图在一枚龟甲形轮廓中标注四段。</desc>
+  <rect width="640" height="400" fill="#faf9f5"/>
+
+  <path d="M 40 60 Q 180 20 300 60 Q 360 100 340 200 Q 360 320 280 360 Q 140 395 70 340 Q 20 280 30 180 Q 20 100 40 60 Z"
+        fill="#f3e8d0" stroke="#8a6d3b" stroke-width="2"/>
+  <path d="M 330 40 L 350 40 L 345 120 L 330 120 Z" fill="#c9b27c" stroke="#8a6d3b" stroke-width="1.5"/>
+  <path d="M 60 300 L 60 320 L 120 330 L 125 310 Z" fill="#c9b27c" stroke="#8a6d3b" stroke-width="1.5"/>
+
+  <g font-size="15" fill="#333">
+    <text x="60" y="110">癸巳卜，殻贞……</text>
+    <text x="60" y="145">旬亡（无）祸？</text>
+    <text x="60" y="200">王占曰：吉。</text>
+    <text x="60" y="255">……允有来艰。</text>
+  </g>
+
+  <text x="60" y="90" font-size="14" font-weight="bold" fill="#c0392b">〔前辞〕日期 + 贞人</text>
+  <text x="60" y="180" font-size="14" font-weight="bold" fill="#1f6f8b">〔命辞〕所问之事</text>
+  <text x="60" y="235" font-size="14" font-weight="bold" fill="#1f6f8b">〔占辞〕王断吉凶</text>
+  <text x="60" y="290" font-size="14" font-weight="bold" fill="#1f6f8b">〔验辞〕事后验证</text>
+
+  <line x1="400" y1="50" x2="400" y2="360" stroke="#d5d0c8" stroke-width="2"/>
+
+  <g font-size="14" fill="#333">
+    <text x="420" y="70">前辞：记日期与贞人</text>
+    <text x="420" y="92">如「癸巳卜，殻贞」</text>
+    <text x="420" y="130">命辞：卜问之事</text>
+    <text x="420" y="152">「旬亡祸？」（此旬无祸？）</text>
+    <text x="420" y="190">占辞：商王据兆纹判断</text>
+    <text x="420" y="230">验辞：事后应验记录</text>
+    <text x="420" y="290" font-size="13" fill="#666">读卜辞先分四段，</text>
+    <text x="420" y="312" font-size="13" fill="#666">主语、文意由框架而定</text>
+  </g>
+</svg>

@@ -16,6 +16,17 @@ const TIER = {
 }
 
 function benchmarkOf(md) {
+  // 优先取「## 对标教材」section 下的书籍行
+  const booksMatch = md.match(/## 对标教材\n([\s\S]*?)(?=\n## |\n### |$)/)
+  if (booksMatch) {
+    const books = booksMatch[1]
+      .split('\n')
+      .map((l) => l.trim())
+      .filter((l) => /^-/.test(l))
+      .map((l) => l.replace(/^- /, '').trim())
+      .filter(Boolean)
+    if (books.length) return books.slice(0, 2).join('；').slice(0, 120)
+  }
   const lines = md.split('\n')
   for (const ln of lines) {
     if (/^(#|---|##|###|pageClass)/.test(ln)) continue

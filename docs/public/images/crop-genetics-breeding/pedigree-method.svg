@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif" font-size="14">
+  <title>系谱法世代推进示意</title>
+  <desc>从杂交 F1 到 F8，每代播种、单株选择、单株收获并记录系谱，逐步纯合固定目标性状，最终升入鉴定与产量比较试验。</desc>
+  <rect width="640" height="420" fill="#faf9f5"/>
+  <text x="320" y="28" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">系谱法（Pedigree Method）世代推进</text>
+
+  <!-- 世代方块 -->
+  <g text-anchor="middle">
+    <rect x="40" y="50" width="180" height="40" rx="6" fill="#fff" stroke="#333"/>
+    <text x="130" y="75" fill="#333">F₁ 杂交种子（整齐）</text>
+
+    <rect x="40" y="110" width="180" height="40" rx="6" fill="#fff" stroke="#333"/>
+    <text x="130" y="135" fill="#333">F₂ 分离群体（大群体）</text>
+
+    <rect x="40" y="170" width="180" height="40" rx="6" fill="#fff" stroke="#333"/>
+    <text x="130" y="195" fill="#333">F₃ 选单株、单株播种</text>
+
+    <rect x="40" y="230" width="180" height="40" rx="6" fill="#fff" stroke="#333"/>
+    <text x="130" y="255" fill="#333">F₄–F₆ 继续单株选择</text>
+
+    <rect x="40" y="290" width="180" height="40" rx="6" fill="#fff" stroke="#333"/>
+    <text x="130" y="315" fill="#333">F₇ 株系基本纯合</text>
+
+    <rect x="40" y="350" width="180" height="40" rx="6" fill="#fff" stroke="#333"/>
+    <text x="130" y="375" fill="#333">F₈+ 升入品系鉴定</text>
+  </g>
+
+  <!-- 右侧说明 -->
+  <g fill="#555">
+    <text x="260" y="70" font-size="13">杂合度：F₁ 100%</text>
+    <text x="260" y="110" font-size="13">每代自交杂合度 ÷ 2</text>
+    <text x="260" y="150" font-size="13">F₂ 是选择起点：目标基因型概率</text>
+    <text x="260" y="190" font-size="13">系谱记录：株系血缘可追溯</text>
+    <text x="260" y="230" font-size="13">淘汰不良株系，只留目标系</text>
+    <text x="260" y="270" font-size="13">杂合度 → ~0，基因型趋于纯合</text>
+    <text x="260" y="310" font-size="13">每系一小区，评价一致性</text>
+    <text x="260" y="350" font-size="13">产量比较试验（多年多点）</text>
+  </g>
+
+  <line x1="130" y1="90" x2="130" y2="108" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="130" y1="150" x2="130" y2="168" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="130" y1="210" x2="130" y2="228" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="130" y1="270" x2="130" y2="288" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="130" y1="330" x2="130" y2="348" stroke="#1f6f8b" stroke-width="2"/>
+</svg>

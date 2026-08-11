@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" font-family="sans-serif">
+<title>经史子集四部分类示意图</title>
+<desc>四库全书总目采用的经史子集四部分类，以及四部之下各类目的树状结构图</desc>
+<rect width="880" height="470" fill="#faf9f5"/>
+<text x="440" y="36" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">四部分类法：经 史 子 集</text>
+<text x="440" y="64" text-anchor="middle" font-size="14" fill="#666">《四库全书总目》：四部 · 四十四类 · 六十五属</text>
+
+<circle cx="440" cy="86" r="5" fill="#333"/>
+<line x1="440" y1="91" x2="130" y2="118" stroke="#999" stroke-width="1.5"/>
+<line x1="440" y1="91" x2="330" y2="118" stroke="#999" stroke-width="1.5"/>
+<line x1="440" y1="91" x2="540" y2="118" stroke="#999" stroke-width="1.5"/>
+<line x1="440" y1="91" x2="760" y2="118" stroke="#999" stroke-width="1.5"/>
+
+<rect x="45" y="106" width="170" height="36" rx="6" fill="#1f6f8b"/>
+<text x="130" y="130" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">经部</text>
+
+<rect x="245" y="106" width="170" height="36" rx="6" fill="#1f6f8b"/>
+<text x="330" y="130" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">史部</text>
+
+<rect x="455" y="106" width="170" height="36" rx="6" fill="#1f6f8b"/>
+<text x="540" y="130" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">子部</text>
+
+<rect x="675" y="106" width="170" height="36" rx="6" fill="#1f6f8b"/>
+<text x="760" y="130" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">集部</text>
+
+<text x="130" y="176" text-anchor="middle" font-size="13" fill="#333">易</text>
+<text x="130" y="198" text-anchor="middle" font-size="13" fill="#333">书</text>
+<text x="130" y="220" text-anchor="middle" font-size="13" fill="#333">诗</text>
+<text x="130" y="242" text-anchor="middle" font-size="13" fill="#333">礼</text>
+<text x="130" y="264" text-anchor="middle" font-size="13" fill="#333">春秋</text>
+<text x="130" y="286" text-anchor="middle" font-size="13" fill="#333">孝经</text>
+<text x="130" y="308" text-anchor="middle" font-size="13" fill="#333">四书</text>
+<text x="130" y="330" text-anchor="middle" font-size="13" fill="#333">乐</text>
+<text x="130" y="352" text-anchor="middle" font-size="13" fill="#333">小学</text>
+<text x="130" y="374" text-anchor="middle" font-size="13" fill="#333">五经总义</text>
+
+<text x="330" y="176" text-anchor="middle" font-size="13" fill="#333">正史</text>
+<text x="330" y="198" text-anchor="middle" font-size="13" fill="#333">编年</text>
+<text x="330" y="220" text-anchor="middle" font-size="13" fill="#333">纪事本末</text>
+<text x="330" y="242" text-anchor="middle" font-size="13" fill="#333">别史 · 杂史</text>
+<text x="330" y="264" text-anchor="middle" font-size="13" fill="#333">诏令奏议</text>
+<text x="330" y="286" text-anchor="middle" font-size="13" fill="#333">传记</text>
+<text x="330" y="308" text-anchor="middle" font-size="13" fill="#333">地理</text>
+<text x="330" y="330" text-anchor="middle" font-size="13" fill="#333">职官</text>
+<text x="330" y="352" text-anchor="middle" font-size="13" fill="#333">政书</text>
+<text x="330" y="374" text-anchor="middle" font-size="13" fill="#333">目录</text>
+<text x="330" y="396" text-anchor="middle" font-size="13" fill="#333">史评</text>
+
+<text x="540" y="176" text-anchor="middle" font-size="13" fill="#333">儒家</text>
+<text x="540" y="198" text-anchor="middle" font-size="13" fill="#333">兵家</text>
+<text x="540" y="220" text-anchor="middle" font-size="13" fill="#333">法家</text>
+<text x="540" y="242" text-anchor="middle" font-size="13" fill="#333">农家</text>
+<text x="540" y="264" text-anchor="middle" font-size="13" fill="#333">医家</text>
+<text x="540" y="286" text-anchor="middle" font-size="13" fill="#333">天文算法</text>
+<text x="540" y="308" text-anchor="middle" font-size="13" fill="#333">术数</text>
+<text x="540" y="330" text-anchor="middle" font-size="13" fill="#333">艺术 · 谱录</text>
+<text x="540" y="352" text-anchor="middle" font-size="13" fill="#333">杂家</text>
+<text x="540" y="374" text-anchor="middle" font-size="13" fill="#333">类书</text>
+<text x="540" y="396" text-anchor="middle" font-size="13" fill="#333">小说家</text>
+<text x="540" y="418" text-anchor="middle" font-size="13" fill="#333">释家 · 道家</text>
+
+<text x="760" y="176" text-anchor="middle" font-size="13" fill="#333">楚辞</text>
+<text x="760" y="198" text-anchor="middle" font-size="13" fill="#333">别集</text>
+<text x="760" y="220" text-anchor="middle" font-size="13" fill="#333">总集</text>
+<text x="760" y="242" text-anchor="middle" font-size="13" fill="#333">诗文评</text>
+<text x="760" y="264" text-anchor="middle" font-size="13" fill="#333">词曲</text>
+</svg>

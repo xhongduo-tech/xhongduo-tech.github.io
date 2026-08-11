@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480">
+  <title>Poincaré 圆盘模型中的测地三角形</title>
+  <desc>双曲平面 H² 的 Poincaré 圆盘模型中，测地线是与边界正交的圆弧；三条测地线围成的三角形内角和小于 π，角亏等于面积。</desc>
+  <rect x="0" y="0" width="640" height="480" fill="#faf9f5"/>
+
+  <!-- 边界圆（理想边界） -->
+  <circle cx="320" cy="240" r="200" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <circle cx="320" cy="240" r="3" fill="#1f6f8b"/>
+
+  <!-- 测地线（与边界正交的圆弧，用二次贝塞尔近似） -->
+  <path d="M 210 330 Q 320 282.8 430 330" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <path d="M 320 70 Q 308.2 218.8 210 330" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <path d="M 320 70 Q 331.8 218.8 430 330" fill="none" stroke="#c0392b" stroke-width="3"/>
+
+  <!-- 顶点 -->
+  <circle cx="320" cy="70" r="5" fill="#333"/>
+  <circle cx="210" cy="330" r="5" fill="#333"/>
+  <circle cx="430" cy="330" r="5" fill="#333"/>
+
+  <!-- 内角弧与标注 -->
+  <path d="M 309.1 95.8 Q 320 112 330.9 95.8" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="335" y="95" font-family="sans-serif" font-size="16" fill="#1f6f8b">α</text>
+  <path d="M 221 304.2 Q 214 322 240 330" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="184" y="346" font-family="sans-serif" font-size="16" fill="#1f6f8b">β</text>
+  <path d="M 419 304.2 Q 426 322 400 330" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="436" y="346" font-family="sans-serif" font-size="16" fill="#1f6f8b">γ</text>
+
+  <!-- 文字标注 -->
+  <text x="84" y="100" font-family="sans-serif" font-size="14" fill="#333">边界 = 无穷远</text>
+  <text x="96" y="118" font-family="sans-serif" font-size="14" fill="#333">（理想边界）</text>
+  <text x="70" y="426" font-family="sans-serif" font-size="14" fill="#c0392b">测地线：与边界正交的圆弧</text>
+  <text x="330" y="60" font-family="sans-serif" font-size="16" fill="#1f6f8b">α + β + γ &lt; π</text>
+  <text x="362" y="252" font-family="sans-serif" font-size="14" fill="#1f6f8b">角亏 = 面积</text>
+  <text x="118" y="462" font-family="sans-serif" font-size="14" fill="#333">Poincaré 圆盘模型 H²（曲率 -1）</text>
+</svg>

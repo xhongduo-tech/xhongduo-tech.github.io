@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" font-family="sans-serif">
+  <title>元伦理学的立场地图</title>
+  <desc>从道德判断出发，实在论与反实在论两大分支及五个子立场：自然主义、非自然主义、相对主义、错误论、表达主义。</desc>
+  <rect width="760" height="520" fill="#faf9f5"/>
+
+  <text x="380" y="38" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">元伦理学的立场地图：道德判断是什么？</text>
+
+  <!-- connector lines drawn first -->
+  <line x1="380" y1="110" x2="380" y2="140" stroke="#333" stroke-width="2"/>
+  <line x1="190" y1="140" x2="570" y2="140" stroke="#333" stroke-width="2"/>
+  <line x1="190" y1="140" x2="190" y2="222" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="570" y1="140" x2="570" y2="222" stroke="#c0392b" stroke-width="2"/>
+  <line x1="190" y1="222" x2="190" y2="360" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="570" y1="222" x2="570" y2="492" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- top node -->
+  <rect x="240" y="60" width="280" height="50" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="380" y="81" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">道德判断（命题）</text>
+  <text x="380" y="101" text-anchor="middle" font-size="13" fill="#666">有真值吗？真值客观吗？</text>
+
+  <!-- realism -->
+  <rect x="40" y="170" width="300" height="52" rx="8" fill="#eaf3f6" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="190" y="192" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">道德实在论（客观主义）</text>
+  <text x="190" y="212" text-anchor="middle" font-size="13" fill="#333">认知主义：判断有真值，且客观</text>
+
+  <rect x="40" y="280" width="300" height="46" rx="8" fill="#fff" stroke="#1f6f8b"/>
+  <text x="190" y="300" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">自然主义</text>
+  <text x="190" y="318" text-anchor="middle" font-size="13" fill="#666">善 = 自然属性（快乐、欲望）</text>
+
+  <rect x="40" y="360" width="300" height="46" rx="8" fill="#fff" stroke="#1f6f8b"/>
+  <text x="190" y="380" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">非自然主义</text>
+  <text x="190" y="398" text-anchor="middle" font-size="13" fill="#666">不可还原（摩尔、罗斯）</text>
+
+  <!-- anti-realism -->
+  <rect x="420" y="170" width="300" height="52" rx="8" fill="#fbeaea" stroke="#c0392b" stroke-width="2"/>
+  <text x="570" y="192" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">道德反实在论</text>
+  <text x="570" y="212" text-anchor="middle" font-size="13" fill="#333">否定客观真值，或否定有真值</text>
+
+  <rect x="420" y="286" width="300" height="46" rx="8" fill="#fff" stroke="#c0392b"/>
+  <text x="570" y="306" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">相对主义</text>
+  <text x="570" y="324" text-anchor="middle" font-size="13" fill="#666">真值依于文化 / 个人</text>
+
+  <rect x="420" y="366" width="300" height="46" rx="8" fill="#fff" stroke="#c0392b"/>
+  <text x="570" y="386" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">错误论</text>
+  <text x="570" y="404" text-anchor="middle" font-size="13" fill="#666">有真值，但全都为假（麦基）</text>
+
+  <rect x="420" y="446" width="300" height="46" rx="8" fill="#fff" stroke="#c0392b"/>
+  <text x="570" y="466" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">表达主义（非认知主义）</text>
+  <text x="570" y="484" text-anchor="middle" font-size="13" fill="#666">无真值，表达态度（艾耶尔、黑尔）</text>
+
+  <text x="380" y="512" text-anchor="middle" font-size="12" fill="#888">注：相对主义与错误论仍属认知主义（承认有真值）；表达主义否认道德判断有真值</text>
+</svg>

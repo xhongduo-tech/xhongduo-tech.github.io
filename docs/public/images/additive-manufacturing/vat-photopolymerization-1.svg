@@ -1,0 +1,27 @@
+<svg viewBox="0 0 640 460" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>光固化工作曲线</title>
+  <desc>固化深度 C_d 随曝光量的自然对数 ln E 线性增长，斜率等于渗透深度 D_p，与横轴交于 ln E_c。</desc>
+  <rect x="0" y="0" width="640" height="460" fill="#faf9f5"/>
+  <!-- Axes -->
+  <line x1="70" y1="390" x2="590" y2="390" stroke="#333333" stroke-width="2"/>
+  <line x1="70" y1="390" x2="70" y2="60" stroke="#333333" stroke-width="2"/>
+  <text x="560" y="420" text-anchor="end" font-size="14" fill="#333333">曝光剂量 ln E →</text>
+  <text x="40" y="230" text-anchor="middle" font-size="14" fill="#333333" transform="rotate(-90 40 230)">固化深度 C_d →</text>
+  <!-- Working curve line: intercept at ln E_c on x-axis, slope up-right -->
+  <line x1="190" y1="390" x2="545" y2="120" stroke="#c0392b" stroke-width="3"/>
+  <!-- Intercept E_c -->
+  <line x1="190" y1="390" x2="190" y2="400" stroke="#333333" stroke-width="2"/>
+  <text x="190" y="412" text-anchor="middle" font-size="13" fill="#333333">ln E_c</text>
+  <!-- dashed helper from intercept to point on line -->
+  <line x1="190" y1="390" x2="460" y2="390" stroke="#999999" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="460" y1="390" x2="460" y2="200" stroke="#999999" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="190" y1="200" x2="460" y2="200" stroke="#999999" stroke-width="1" stroke-dasharray="5 4"/>
+  <circle cx="460" cy="200" r="4" fill="#c0392b"/>
+  <!-- Slope triangle annotation -->
+  <text x="300" y="330" font-size="13" fill="#333333">斜率 = D_p（渗透深度）</text>
+  <text x="300" y="350" font-size="13" fill="#c0392b">C_d = D_p · ln(E / E_c)</text>
+  <text x="120" y="240" font-size="13" fill="#333333">固化深度随曝光量的</text>
+  <text x="120" y="260" font-size="13" fill="#333333">对数线性增长</text>
+  <!-- arrow from lnE label to E=I0*t note -->
+  <text x="380" y="432" font-size="13" fill="#1f6f8b">曝光量 E = I₀ · t（光强 × 时间）</text>
+</svg>

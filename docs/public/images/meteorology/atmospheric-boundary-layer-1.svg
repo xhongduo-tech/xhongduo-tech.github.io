@@ -1,0 +1,32 @@
+<svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>埃克曼螺线示意</title>
+<desc>从地面到边界层顶，风矢量随高度顺时针旋转、风速增大：地面风穿越等压线偏向低压约 45 度，到边界层顶转为与等压线平行的地转风。左侧为低压，右侧为高压。</desc>
+<defs>
+<marker id="ek-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1f6f8b"/></marker>
+</defs>
+<rect x="0" y="0" width="460" height="400" fill="#ffffff"/>
+<!-- 等压线 -->
+<line x1="70" y1="60" x2="70" y2="370" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 4"/>
+<line x1="200" y1="60" x2="200" y2="370" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 4"/>
+<line x1="330" y1="60" x2="330" y2="370" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="55" y="52" font-family="sans-serif" font-size="16" fill="#c0392b" font-weight="bold">L（低压）</text>
+<text x="345" y="52" font-family="sans-serif" font-size="16" fill="#1f6f8b" font-weight="bold">H（高压）</text>
+<text x="135" y="80" font-family="sans-serif" font-size="12" fill="#999">等压线</text>
+<!-- 埃克曼螺线：风矢量（共原点） -->
+<!-- 地面风 -->
+<line x1="210" y1="330" x2="167.6" y2="287.6" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ek-arrow)"/>
+<line x1="210" y1="330" x2="152.6" y2="248.1" stroke="#1f6f8b" stroke-width="2.5" marker-end="url(#ek-arrow)"/>
+<line x1="210" y1="330" x2="150.8" y2="203.1" stroke="#1f6f8b" stroke-width="2.5" marker-end="url(#ek-arrow)"/>
+<line x1="210" y1="330" x2="166.0" y2="165.8" stroke="#1f6f8b" stroke-width="2.5" marker-end="url(#ek-arrow)"/>
+<line x1="210" y1="330" x2="187.5" y2="146.4" stroke="#1f6f8b" stroke-width="2.5" marker-end="url(#ek-arrow)"/>
+<line x1="210" y1="330" x2="210" y2="140" stroke="#1f6f8b" stroke-width="3" marker-end="url(#ek-arrow)"/>
+<!-- 螺线连线 -->
+<polyline points="167.6,287.6 152.6,248.1 150.8,203.1 166.0,165.8 187.5,146.4 210,140" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="4 3"/>
+<!-- 标注 -->
+<text x="132" y="292" font-family="sans-serif" font-size="13" fill="#c0392b">地面风（偏低压约 45°）</text>
+<text x="92" y="250" font-family="sans-serif" font-size="13" fill="#1f6f8b">0.2 倍埃克曼深度</text>
+<text x="88" y="208" font-family="sans-serif" font-size="13" fill="#1f6f8b">0.4 倍</text>
+<text x="96" y="162" font-family="sans-serif" font-size="13" fill="#1f6f8b">0.6 倍</text>
+<text x="216" y="120" font-family="sans-serif" font-size="13" fill="#1f6f8b">边界层顶：地转风（沿等压线）</text>
+<text x="210" y="375" font-family="sans-serif" font-size="13" fill="#999" text-anchor="middle">北半球：风随高度增大并顺时针旋转，形成埃克曼螺线（示意图）</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 360" font-family="sans-serif">
+  <title>吠陀文献四层与思想分期</title>
+  <desc>吠陀文献按时间分为本集、梵书、森林书、奥义书四层，思想由祭祀外求逐步转向内在省察。</desc>
+  <rect x="0" y="0" width="840" height="360" fill="#faf9f5"/>
+
+  <text x="420" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">吠陀文献四层：由外求到内省</text>
+
+  <!-- main arrow -->
+  <line x1="95" y1="62" x2="745" y2="62" stroke="#333" stroke-width="2"/>
+  <polygon points="745,62 733,56 733,68" fill="#333"/>
+
+  <!-- year ticks and labels -->
+  <text x="95" y="46" text-anchor="middle" font-size="13" fill="#666">前1500</text>
+  <text x="255" y="46" text-anchor="middle" font-size="13" fill="#666">前1000</text>
+  <text x="415" y="46" text-anchor="middle" font-size="13" fill="#666">前800</text>
+  <text x="575" y="46" text-anchor="middle" font-size="13" fill="#666">前700</text>
+  <text x="745" y="46" text-anchor="middle" font-size="13" fill="#666">前500</text>
+
+  <line x1="95" y1="66" x2="95" y2="110" stroke="#b0a89a" stroke-dasharray="3,3"/>
+  <line x1="255" y1="66" x2="255" y2="110" stroke="#b0a89a" stroke-dasharray="3,3"/>
+  <line x1="415" y1="66" x2="415" y2="110" stroke="#b0a89a" stroke-dasharray="3,3"/>
+  <line x1="575" y1="66" x2="575" y2="110" stroke="#b0a89a" stroke-dasharray="3,3"/>
+  <line x1="745" y1="66" x2="745" y2="110" stroke="#b0a89a" stroke-dasharray="3,3"/>
+
+  <!-- stratum boxes -->
+  <g stroke="#333" stroke-width="1.5">
+    <rect x="95" y="115" width="150" height="55" fill="#ffffff"/>
+    <rect x="255" y="115" width="150" height="55" fill="#ffffff"/>
+    <rect x="415" y="115" width="150" height="55" fill="#ffffff"/>
+    <rect x="575" y="115" width="150" height="55" fill="#ffffff"/>
+  </g>
+  <text x="170" y="137" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">本集</text>
+  <text x="170" y="156" text-anchor="middle" font-size="12" fill="#666">Saṃhitā</text>
+  <text x="330" y="137" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">梵书</text>
+  <text x="330" y="156" text-anchor="middle" font-size="12" fill="#666">Brāhmaṇa</text>
+  <text x="490" y="137" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">森林书</text>
+  <text x="490" y="156" text-anchor="middle" font-size="12" fill="#666">Āraṇyaka</text>
+  <text x="650" y="137" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">奥义书</text>
+  <text x="650" y="156" text-anchor="middle" font-size="12" fill="#666">Upaniṣad</text>
+
+  <!-- thought bands -->
+  <rect x="95" y="190" width="150" height="80" fill="#1f6f8b"/>
+  <text x="170" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">多神祭祀</text>
+  <text x="170" y="240" text-anchor="middle" font-size="13" fill="#dceef2">众神 · 颂歌 · 自然</text>
+  <rect x="255" y="190" width="150" height="80" fill="#1f6f8b"/>
+  <text x="330" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">祭祀全能</text>
+  <text x="330" y="240" text-anchor="middle" font-size="13" fill="#dceef2">祭式效能 · 业之萌芽</text>
+  <rect x="415" y="190" width="150" height="80" fill="#1f6f8b"/>
+  <text x="490" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">苦行内省</text>
+  <text x="490" y="240" text-anchor="middle" font-size="13" fill="#dceef2">祭祀内化为冥想</text>
+  <rect x="575" y="190" width="150" height="80" fill="#c0392b"/>
+  <text x="650" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">梵我哲学</text>
+  <text x="650" y="240" text-anchor="middle" font-size="13" fill="#f4d9d3">追问终极实在</text>
+
+  <!-- bottom gradient arrow -->
+  <line x1="170" y1="315" x2="650" y2="315" stroke="#c0392b" stroke-width="2.5"/>
+  <polygon points="650,315 636,308 636,322" fill="#c0392b"/>
+  <text x="410" y="303" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">祭祀外求 → 内在省察</text>
+  <text x="410" y="340" text-anchor="middle" font-size="13" fill="#888">年代为学界估计，跨度可有数百年出入</text>
+</svg>

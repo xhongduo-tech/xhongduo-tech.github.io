@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" font-family="sans-serif">
+  <title>海-气气体交换的滞膜（双膜）模型示意</title>
+  <desc>大气层与海洋主体之间夹一层很薄的滞流膜，气体分子依靠分子扩散穿过该膜，通量等于扩散系数除以膜厚再乘以浓度差；风速越大膜越薄、交换越快。</desc>
+  <rect width="860" height="470" fill="#faf9f5"/>
+  <rect x="0" y="0" width="860" height="180" fill="#eef3f6"/>
+  <rect x="0" y="195" width="860" height="80" fill="#f5ddd6" opacity="0.8"/>
+  <rect x="0" y="280" width="860" height="190" fill="#d6e8f0"/>
+  <line x1="20" y1="195" x2="840" y2="195" stroke="#333" stroke-width="3"/>
+  <line x1="20" y1="275" x2="840" y2="275" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6,5"/>
+  <text x="40" y="90" font-size="17" fill="#333">大气层</text>
+  <text x="40" y="120" font-size="15" fill="#1f6f8b">p(CO₂) p(O₂) p(N₂O)…</text>
+  <text x="40" y="240" font-size="16" fill="#333">滞流膜（厚度 δ ≈ 10–100 μm）</text>
+  <text x="40" y="265" font-size="14" fill="#c0392b">分子扩散</text>
+  <text x="40" y="360" font-size="17" fill="#1f6f8b">海洋主体（湍流充分混合）</text>
+  <text x="40" y="390" font-size="15" fill="#333">C_w = 实际浓度</text>
+  <text x="40" y="415" font-size="15" fill="#333">C_sat = 与大气平衡的溶解度</text>
+  <path d="M600,90 L600,190" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,4"/>
+  <path d="M600,280 L600,190" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,4"/>
+  <path d="M600,190 L585,210" stroke="#c0392b" stroke-width="2"/>
+  <path d="M600,190 L615,210" stroke="#c0392b" stroke-width="2"/>
+  <text x="612" y="170" font-size="15" fill="#c0392b">F = D/δ · (C_w − C_sat)</text>
+  <text x="330" y="70" font-size="14" fill="#333">通量 F（向下为正）</text>
+  <path d="M700,330 L730,330" stroke="#333" stroke-width="2"/>
+  <path d="M750,330 L780,330" stroke="#333" stroke-width="2"/>
+  <path d="M690,330 L703,342" stroke="#333" stroke-width="1.6"/>
+  <path d="M690,330 L703,318" stroke="#333" stroke-width="1.6"/>
+  <text x="790" y="335" font-size="14" fill="#333">风速驱动湍流（使 δ 变薄）</text>
+</svg>

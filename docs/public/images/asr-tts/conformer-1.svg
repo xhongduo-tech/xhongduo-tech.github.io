@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>Conformer 块结构</title>
+<desc>一个 Conformer 块：前馈(一半) → 多头自注意力 → 卷积模块 → 前馈(一半)，宏残差从输入直达末尾，最后过 LayerNorm</desc>
+<rect width="800" height="560" fill="#faf9f5"/>
+<!-- 各子层 -->
+<rect x="80" y="40" width="340" height="50" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="250" y="70" fill="#333" font-size="16" text-anchor="middle">输入特征 x</text>
+<rect x="80" y="120" width="340" height="50" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="250" y="150" fill="#333" font-size="16" text-anchor="middle">FFN（½）</text>
+<rect x="80" y="200" width="340" height="50" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="250" y="230" fill="#333" font-size="16" text-anchor="middle">多头自注意力 MHSA</text>
+<rect x="80" y="280" width="340" height="50" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="250" y="310" fill="#333" font-size="16" text-anchor="middle">卷积模块 Conv</text>
+<rect x="80" y="360" width="340" height="50" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="250" y="390" fill="#333" font-size="16" text-anchor="middle">FFN（½）</text>
+<rect x="80" y="440" width="340" height="50" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="250" y="470" fill="#333" font-size="16" text-anchor="middle">LayerNorm</text>
+<text x="250" y="535" fill="#333" font-size="16" text-anchor="middle">输出 y</text>
+<!-- 主流程箭头 -->
+<line x1="250" y1="90" x2="250" y2="118" stroke="#333" stroke-width="1.8"/>
+<polygon points="250,118 244,108 256,108" fill="#333"/>
+<line x1="250" y1="170" x2="250" y2="198" stroke="#333" stroke-width="1.8"/>
+<polygon points="250,198 244,188 256,188" fill="#333"/>
+<line x1="250" y1="250" x2="250" y2="278" stroke="#333" stroke-width="1.8"/>
+<polygon points="250,278 244,268 256,268" fill="#333"/>
+<line x1="250" y1="330" x2="250" y2="358" stroke="#333" stroke-width="1.8"/>
+<polygon points="250,358 244,348 256,348" fill="#333"/>
+<line x1="250" y1="410" x2="250" y2="438" stroke="#333" stroke-width="1.8"/>
+<polygon points="250,438 244,428 256,428" fill="#333"/>
+<line x1="250" y1="490" x2="250" y2="515" stroke="#333" stroke-width="1.8"/>
+<polygon points="250,515 244,505 256,505" fill="#333"/>
+<!-- 宏残差 -->
+<path d="M 420 65 L 560 65 L 560 455 L 420 455" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5"/>
+<circle cx="420" cy="455" r="10" fill="#fff" stroke="#c0392b" stroke-width="1.8"/>
+<text x="420" y="460" fill="#c0392b" font-size="16" text-anchor="middle">+</text>
+<text x="585" y="70" fill="#c0392b" font-size="14">宏残差 x</text>
+</svg>

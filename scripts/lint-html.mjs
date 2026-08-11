@@ -19,6 +19,8 @@ ins kbd label legend li link main map mark math menu meta meter nav noscript obj
 option output p param picture pre progress q rp rt ruby s samp script search section select slot
 small source span strong style sub summary sup svg table tbody td template textarea tfoot th
 thead time title tr track u ul var video wbr
+desc rect path line g circle ellipse polygon polyline defs stop linearGradient radialGradient
+clipPath use marker filter tspan pattern mask symbol foreignObject text textPath
 `.trim().split(/\s+/));
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
@@ -82,9 +84,12 @@ for (const file of walk(root)) {
   }
 
   // --- C/D. 围栏外全部尖括号记号：未知标签 → D；已知标签不平衡 → C ---
+  // 先剥除自闭合标签 <tag ... />（它们天然开闭平衡，不应计入 C），
+  // 再对剩余开闭标签计数。
+  const outNoSelf = out.replace(/<[A-Za-z][A-Za-z0-9]*(?:\s[^>]*?)?\/>/g, '');
   const tagCounts = new Map();
   const unknown = new Set();
-  for (const m of out.matchAll(/<(\/?)([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*)?)>/g)) {
+  for (const m of outNoSelf.matchAll(/<(\/?)([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*)?)>/g)) {
     const closing = m[1] === '/';
     const name = m[2].toLowerCase();
     if (!HTML_TAGS.has(name)) {

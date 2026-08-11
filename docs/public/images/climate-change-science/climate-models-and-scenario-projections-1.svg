@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+<title>气候模型谱系：从能量平衡到高分辨率地球系统模型</title>
+<desc>金字塔式示意图，自顶向下依次为能量平衡模型、辐射对流模型、中等复杂度模型、大气-海洋环流模型、地球系统模型与公里尺度高分辨率模型。</desc>
+<rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+<text x="320" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333" font-weight="bold">气候模型谱系：复杂度上升、网格更细</text>
+<!-- pyramid layers -->
+<polygon points="220,60 420,60 390,105 250,105" fill="#d8e6ec" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="320" y="88" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">能量平衡模型（EBM）</text>
+<polygon points="250,105 390,105 360,150 280,150" fill="#cfe2ea" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="320" y="133" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">辐射对流模型（RCM）</text>
+<polygon points="280,150 360,150 335,195 305,195" fill="#c6dcea" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="320" y="178" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">中等复杂度模型（EMIC）</text>
+<polygon points="305,195 335,195 360,260 280,260" fill="#bdd5e8" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="320" y="230" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">大气-海洋环流模型（AOGCM）</text>
+<text x="320" y="248" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">约 100 km 网格</text>
+<polygon points="280,260 360,260 420,330 220,330" fill="#aacae0" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="320" y="290" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">地球系统模型（ESM）</text>
+<text x="320" y="308" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">耦合碳循环 · 大气化学</text>
+<polygon points="220,330 420,330 430,365 210,365" fill="#8fb8d4" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="320" y="351" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">公里尺度 / 对流分辨模式（1–10 km）</text>
+<!-- side notes -->
+<text x="470" y="100" font-family="sans-serif" font-size="13" fill="#333">简单</text>
+<line x1="460" y1="108" x2="460" y2="352" stroke="#333" stroke-width="1.5"/>
+<text x="470" y="360" font-family="sans-serif" font-size="13" fill="#333">复杂</text>
+<text x="560" y="200" font-family="sans-serif" font-size="13" fill="#1f6f8b">物理过程</text>
+<text x="560" y="218" font-family="sans-serif" font-size="13" fill="#1f6f8b">越多</text>
+<text x="560" y="270" font-family="sans-serif" font-size="13" fill="#1f6f8b">网格越细</text>
+<text x="560" y="288" font-family="sans-serif" font-size="13" fill="#1f6f8b">算力越大</text>
+</svg>

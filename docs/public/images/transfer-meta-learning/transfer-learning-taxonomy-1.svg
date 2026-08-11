@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480" font-family="sans-serif">
+<title>迁移学习三种设定分类图</title>
+<desc>从迁移学习根节点分出归纳迁移、转导迁移与无监督迁移三个分支，并标注各自的条件、源标签与目标标签。</desc>
+<rect width="820" height="480" fill="#faf9f5"/>
+<text x="410" y="44" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">迁移学习（D_S ≠ D_T 或 T_S ≠ T_T）</text>
+<line x1="410" y1="62" x2="410" y2="110" stroke="#333" stroke-width="2"/>
+<line x1="150" y1="110" x2="670" y2="110" stroke="#333" stroke-width="2"/>
+<line x1="150" y1="110" x2="150" y2="140" stroke="#333" stroke-width="2"/>
+<line x1="410" y1="110" x2="410" y2="140" stroke="#333" stroke-width="2"/>
+<line x1="670" y1="110" x2="670" y2="140" stroke="#333" stroke-width="2"/>
+<rect x="55" y="140" width="190" height="64" rx="8" fill="#1f6f8b"/>
+<text x="150" y="168" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">归纳迁移</text>
+<text x="150" y="190" font-size="13" fill="#fff" text-anchor="middle">任务不同 T_S ≠ T_T</text>
+<rect x="315" y="140" width="190" height="64" rx="8" fill="#c0392b"/>
+<text x="410" y="168" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">转导迁移</text>
+<text x="410" y="190" font-size="13" fill="#fff" text-anchor="middle">任务相同 · 领域不同</text>
+<rect x="575" y="140" width="190" height="64" rx="8" fill="#333"/>
+<text x="670" y="168" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">无监督迁移</text>
+<text x="670" y="190" font-size="13" fill="#fff" text-anchor="middle">任务不同 · 皆无标签</text>
+<text x="150" y="228" font-size="13" fill="#333" text-anchor="middle">目标有标签</text>
+<text x="410" y="228" font-size="13" fill="#333" text-anchor="middle">目标无标签</text>
+<text x="670" y="228" font-size="13" fill="#333" text-anchor="middle">目标无标签</text>
+<line x1="150" y1="204" x2="150" y2="238" stroke="#666" stroke-width="1"/>
+<line x1="410" y1="204" x2="410" y2="238" stroke="#666" stroke-width="1"/>
+<line x1="670" y1="204" x2="670" y2="238" stroke="#666" stroke-width="1"/>
+<rect x="30" y="258" width="240" height="72" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="150" y="282" font-size="13" fill="#333" text-anchor="middle" font-weight="bold">源有标签 → 多任务学习</text>
+<text x="150" y="304" font-size="13" fill="#333" text-anchor="middle">源无标签 → 自学习</text>
+<rect x="290" y="258" width="240" height="72" rx="6" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="410" y="282" font-size="13" fill="#333" text-anchor="middle" font-weight="bold">P(x) 变、P(y|x) 不变</text>
+<text x="410" y="304" font-size="13" fill="#333" text-anchor="middle">→ 协变量偏移</text>
+<text x="410" y="322" font-size="13" fill="#333" text-anchor="middle">领域大变 → 域适应</text>
+<rect x="550" y="258" width="240" height="72" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="670" y="282" font-size="13" fill="#333" text-anchor="middle" font-weight="bold">迁移无监督目标</text>
+<text x="670" y="304" font-size="13" fill="#333" text-anchor="middle">聚类结构 · 降维流形</text>
+<line x1="150" y1="238" x2="150" y2="258" stroke="#1f6f8b" stroke-width="1.5"/>
+<line x1="410" y1="238" x2="410" y2="258" stroke="#c0392b" stroke-width="1.5"/>
+<line x1="670" y1="238" x2="670" y2="258" stroke="#333" stroke-width="1.5"/>
+<text x="410" y="372" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">若 D_S = D_T 且 T_S = T_T → 退化为传统学习</text>
+<line x1="410" y1="380" x2="410" y2="410" stroke="#666" stroke-width="1.5"/>
+<rect x="180" y="410" width="460" height="44" rx="8" fill="#f5e6e0"/>
+<text x="410" y="438" font-size="14" fill="#c0392b" text-anchor="middle">共享结构太少 → 负迁移（迁移比不迁移更差）</text>
+</svg>

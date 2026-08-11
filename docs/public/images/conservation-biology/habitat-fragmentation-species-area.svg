@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" font-family="sans-serif">
+  <title>物种-面积关系（对数坐标）</title>
+  <desc>在对数-对数坐标系中，物种数 S 与面积 A 满足 S = c A^z，图像为直线，斜率即 z 值。岛屿 z 约 0.30（陡），大陆样方 z 约 0.15（缓）。面积减小沿曲线下滑，物种数按幂律减少。</desc>
+  <rect width="640" height="440" fill="#faf9f5"/>
+  <text x="320" y="34" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">物种-面积关系：S = cAᶻ（对数坐标下为直线）</text>
+
+  <line x1="90" y1="360" x2="600" y2="360" stroke="#333" stroke-width="2"/>
+  <line x1="90" y1="360" x2="90" y2="60" stroke="#333" stroke-width="2"/>
+  <text x="555" y="386" font-size="15" fill="#333" text-anchor="end">面积 A（对数）</text>
+  <text x="78" y="86" font-size="15" fill="#333">物种数 S（对数）</text>
+  <text x="70" y="368" font-size="13" fill="#666">0</text>
+
+  <line x1="130" y1="330" x2="500" y2="95" stroke="#1f6f8b" stroke-width="4"/>
+  <text x="508" y="108" font-size="15" fill="#1f6f8b">岛屿：z ≈ 0.30</text>
+
+  <line x1="130" y1="330" x2="560" y2="195" stroke="#c0392b" stroke-width="4"/>
+  <text x="500" y="183" font-size="15" fill="#c0392b">大陆样方：z ≈ 0.15</text>
+
+  <circle cx="430" cy="140" r="6" fill="#333"/>
+  <circle cx="250" cy="254" r="6" fill="#333"/>
+  <line x1="430" y1="140" x2="250" y2="254" stroke="#333" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="430" y="126" font-size="14" fill="#333" text-anchor="middle">面积 A₁</text>
+  <text x="250" y="276" font-size="14" fill="#333" text-anchor="middle">面积 A₂ &lt; A₁</text>
+  <text x="320" y="205" font-size="13" fill="#666" text-anchor="middle">生境减少 → 物种数沿曲线下降</text>
+
+  <text x="130" y="418" font-size="13" fill="#666">读法：z 越大曲线越陡，同样的面积损失造成的物种数下降越剧烈。</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" font-family="sans-serif">
+  <title>CRISPR-Cas9 剪切与 NHEJ/HDR 两种修复结局</title>
+  <desc>Cas9 借助 gRNA 与 PAM 定位并在靶位制造双链断裂，细胞随后走 NHEJ（敲除）或 HDR（精确校正）两条修复路径。</desc>
+  <rect width="800" height="430" fill="#faf9f5"/>
+  <text x="400" y="26" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">CRISPR-Cas9：剪切与两种修复结局</text>
+
+  <!-- DNA 双链 -->
+  <text x="120" y="74" text-anchor="end" font-size="13" fill="#333">目标 DNA</text>
+  <line x1="150" y1="58" x2="650" y2="58" stroke="#333" stroke-width="3"/>
+  <line x1="150" y1="82" x2="650" y2="82" stroke="#333" stroke-width="3"/>
+  <line x1="175" y1="58" x2="175" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="200" y1="58" x2="200" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="225" y1="58" x2="225" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="250" y1="58" x2="250" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="275" y1="58" x2="275" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="300" y1="58" x2="300" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="325" y1="58" x2="325" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="350" y1="58" x2="350" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="375" y1="58" x2="375" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="400" y1="58" x2="400" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="425" y1="58" x2="425" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="450" y1="58" x2="450" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="475" y1="58" x2="475" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="500" y1="58" x2="500" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="525" y1="58" x2="525" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="550" y1="58" x2="550" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="575" y1="58" x2="575" y2="82" stroke="#333" stroke-width="1.5"/>
+  <line x1="600" y1="58" x2="600" y2="82" stroke="#333" stroke-width="1.5"/>
+
+  <!-- PAM 标记 -->
+  <line x1="625" y1="54" x2="625" y2="86" stroke="#c0392b" stroke-width="4"/>
+  <text x="655" y="48" text-anchor="middle" font-size="13" font-weight="bold" fill="#c0392b">PAM(NGG)</text>
+
+  <!-- Cas9 蛋白 -->
+  <ellipse cx="390" cy="70" rx="145" ry="50" fill="#1f6f8b" fill-opacity="0.12" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="390" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="#1f6f8b">Cas9 蛋白</text>
+  <text x="390" y="116" text-anchor="middle" font-size="13" fill="#1f6f8b">HNH / RuvC 切割域</text>
+
+  <!-- gRNA -->
+  <path d="M 255 96 C 320 128, 470 128, 545 96" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="400" y="146" text-anchor="middle" font-size="13" fill="#c0392b">gRNA（20 nt 引导序列，与靶链配对）</text>
+
+  <!-- 剪切点 -->
+  <text x="400" y="52" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">✂</text>
+
+  <!-- 分支箭头 -->
+  <line x1="330" y1="128" x2="255" y2="188" stroke="#333" stroke-width="2.5"/>
+  <line x1="470" y1="128" x2="545" y2="188" stroke="#333" stroke-width="2.5"/>
+
+  <!-- 左：NHEJ -->
+  <rect x="120" y="195" width="270" height="125" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="255" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f6f8b">NHEJ · 易错修复</text>
+  <text x="255" y="246" text-anchor="middle" font-size="13" fill="#333">小段插入 / 缺失（indel）</text>
+  <text x="255" y="268" text-anchor="middle" font-size="13" fill="#333">蛋白被破坏 → 基因敲除</text>
+  <text x="255" y="290" text-anchor="middle" font-size="13" fill="#666">用于敲除有害基因</text>
+
+  <!-- 右：HDR -->
+  <rect x="410" y="195" width="270" height="125" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="545" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f6f8b">HDR · 同源重组</text>
+  <text x="545" y="246" text-anchor="middle" font-size="13" fill="#333">需供体模板 + 分裂期细胞</text>
+  <text x="545" y="268" text-anchor="middle" font-size="13" fill="#333">精确写入 → 基因校正</text>
+  <text x="545" y="290" text-anchor="middle" font-size="13" fill="#666">用于修复致病点突变</text>
+  <rect x="470" y="168" width="150" height="20" rx="4" fill="#faf9f5" stroke="#c0392b" stroke-dasharray="4 3" stroke-width="1.5"/>
+  <text x="545" y="183" text-anchor="middle" font-size="13" fill="#c0392b">供体模板 DNA</text>
+
+  <!-- 底部说明 -->
+  <text x="400" y="366" text-anchor="middle" font-size="13" fill="#666">无 PAM 则 Cas9 不剪切；CRISPR 只制造 DSB，最终写下的答案由 NHEJ 与 HDR 的竞争决定。</text>
+  <text x="400" y="390" text-anchor="middle" font-size="13" fill="#666">碱基编辑 / 先导编辑绕开 DSB，是对「易错修复」这一缺点的直接回应。</text>
+</svg>

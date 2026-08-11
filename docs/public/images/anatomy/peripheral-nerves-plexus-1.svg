@@ -1,0 +1,80 @@
+<svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">臂丛结构示意图（根—干—股—束—支）</title>
+  <desc id="desc">臂丛由 C5、C6、C7、C8、T1 脊神经前支构成，先汇成上、中、下三干，各干分前、后股，再合成外侧束、后束、内侧束，最终发出肌皮神经、正中神经、尺神经、桡神经、腋神经等主要分支。</desc>
+  <rect width="720" height="440" fill="#faf9f5" />
+  <text x="360" y="30" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#333" font-weight="bold">臂丛（brachial plexus）：根—干—股—束—支</text>
+
+  <!-- 根 -->
+  <text x="30" y="78" font-family="sans-serif" font-size="15" fill="#333" text-anchor="end">C5</text>
+  <text x="30" y="128" font-family="sans-serif" font-size="15" fill="#333" text-anchor="end">C6</text>
+  <text x="30" y="178" font-family="sans-serif" font-size="15" fill="#333" text-anchor="end">C7</text>
+  <text x="30" y="228" font-family="sans-serif" font-size="15" fill="#333" text-anchor="end">C8</text>
+  <text x="30" y="278" font-family="sans-serif" font-size="15" fill="#333" text-anchor="end">T1</text>
+
+  <circle cx="55" cy="70" r="4" fill="#333" />
+  <circle cx="55" cy="120" r="4" fill="#333" />
+  <circle cx="55" cy="170" r="4" fill="#333" />
+  <circle cx="55" cy="220" r="4" fill="#333" />
+  <circle cx="55" cy="270" r="4" fill="#333" />
+
+  <!-- 干 -->
+  <line x1="59" y1="70" x2="140" y2="88" stroke="#1f6f8b" stroke-width="3" />
+  <line x1="59" y1="120" x2="140" y2="88" stroke="#1f6f8b" stroke-width="3" />
+  <line x1="59" y1="170" x2="140" y2="165" stroke="#1f6f8b" stroke-width="3" />
+  <line x1="59" y1="220" x2="140" y2="240" stroke="#1f6f8b" stroke-width="3" />
+  <line x1="59" y1="270" x2="140" y2="240" stroke="#1f6f8b" stroke-width="3" />
+
+  <rect x="120" y="80" width="34" height="22" rx="4" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" />
+  <text x="137" y="95" font-family="sans-serif" font-size="13" fill="#1f6f8b" text-anchor="middle">上干</text>
+  <rect x="120" y="157" width="34" height="22" rx="4" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" />
+  <text x="137" y="172" font-family="sans-serif" font-size="13" fill="#1f6f8b" text-anchor="middle">中干</text>
+  <rect x="120" y="232" width="34" height="22" rx="4" fill="#fff" stroke="#1f6f8b" stroke-width="1.5" />
+  <text x="137" y="247" font-family="sans-serif" font-size="13" fill="#1f6f8b" text-anchor="middle">下干</text>
+
+  <!-- 股：每干分前、后股 -->
+  <line x1="154" y1="91" x2="235" y2="120" stroke="#1f6f8b" stroke-width="2.5" />
+  <line x1="154" y1="91" x2="235" y2="150" stroke="#1f6f8b" stroke-width="2.5" />
+  <line x1="154" y1="168" x2="235" y2="150" stroke="#1f6f8b" stroke-width="2.5" />
+  <line x1="154" y1="168" x2="235" y2="185" stroke="#1f6f8b" stroke-width="2.5" />
+  <line x1="154" y1="243" x2="235" y2="215" stroke="#1f6f8b" stroke-width="2.5" />
+  <line x1="154" y1="243" x2="235" y2="245" stroke="#1f6f8b" stroke-width="2.5" />
+  <text x="200" y="138" font-family="sans-serif" font-size="12" fill="#1f6f8b" text-anchor="middle">前股</text>
+  <text x="200" y="205" font-family="sans-serif" font-size="12" fill="#1f6f8b" text-anchor="middle">后股</text>
+
+  <!-- 束 -->
+  <line x1="239" y1="120" x2="330" y2="120" stroke="#c0392b" stroke-width="3" />
+  <line x1="239" y1="150" x2="330" y2="150" stroke="#c0392b" stroke-width="3" />
+  <line x1="239" y1="150" x2="330" y2="150" stroke="#c0392b" stroke-width="3" />
+  <line x1="239" y1="185" x2="330" y2="185" stroke="#c0392b" stroke-width="3" />
+  <line x1="239" y1="150" x2="330" y2="185" stroke="#c0392b" stroke-width="3" />
+  <line x1="239" y1="215" x2="330" y2="150" stroke="#c0392b" stroke-width="3" />
+  <line x1="239" y1="245" x2="330" y2="215" stroke="#c0392b" stroke-width="3" />
+
+  <rect x="315" y="112" width="30" height="22" rx="4" fill="#fff" stroke="#c0392b" stroke-width="1.5" />
+  <text x="330" y="127" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">外侧束</text>
+  <rect x="315" y="177" width="30" height="22" rx="4" fill="#fff" stroke="#c0392b" stroke-width="1.5" />
+  <text x="330" y="192" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">后束</text>
+  <rect x="315" y="207" width="30" height="22" rx="4" fill="#fff" stroke="#c0392b" stroke-width="1.5" />
+  <text x="330" y="222" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">内侧束</text>
+
+  <!-- 支 -->
+  <line x1="345" y1="120" x2="470" y2="80" stroke="#333" stroke-width="3" />
+  <line x1="345" y1="185" x2="470" y2="150" stroke="#333" stroke-width="3" />
+  <line x1="345" y1="120" x2="470" y2="185" stroke="#333" stroke-width="3" />
+  <line x1="345" y1="185" x2="470" y2="210" stroke="#333" stroke-width="3" />
+  <line x1="345" y1="218" x2="470" y2="250" stroke="#333" stroke-width="3" />
+
+  <text x="480" y="72" font-family="sans-serif" font-size="14" fill="#333">肌皮神经（C5–7）</text>
+  <text x="480" y="145" font-family="sans-serif" font-size="14" fill="#333">腋神经（C5–6）</text>
+  <text x="480" y="178" font-family="sans-serif" font-size="14" fill="#333">正中神经（C5–T1）</text>
+  <text x="480" y="205" font-family="sans-serif" font-size="14" fill="#333">桡神经（C5–T1）</text>
+  <text x="480" y="245" font-family="sans-serif" font-size="14" fill="#333">尺神经（C8–T1）</text>
+
+  <!-- 图例 -->
+  <line x1="70" y1="400" x2="110" y2="400" stroke="#333" stroke-width="3" />
+  <text x="118" y="404" font-family="sans-serif" font-size="14" fill="#333">根 / 支</text>
+  <line x1="240" y1="400" x2="280" y2="400" stroke="#1f6f8b" stroke-width="3" />
+  <text x="288" y="404" font-family="sans-serif" font-size="14" fill="#333">干 / 股</text>
+  <line x1="430" y1="400" x2="470" y2="400" stroke="#c0392b" stroke-width="3" />
+  <text x="478" y="404" font-family="sans-serif" font-size="14" fill="#333">束</text>
+</svg>

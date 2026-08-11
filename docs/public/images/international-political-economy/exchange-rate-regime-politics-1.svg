@@ -1,0 +1,23 @@
+<svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>不可能三角：资本自由流动、固定汇率、独立货币政策至多取二</title>
+  <desc>等边三角形三顶点分别为三项政策目标，三条边对应三种历史制度组合：金本位、布雷顿森林、后布雷顿森林体系。</desc>
+  <rect width="800" height="520" fill="#faf9f5"/>
+  <g font-family="sans-serif" fill="#333">
+    <text x="400" y="44" text-anchor="middle" font-size="20" font-weight="bold">不可能三角（三元悖论）</text>
+    <text x="400" y="72" text-anchor="middle" font-size="14">资本自由流动 · 固定汇率 · 独立货币政策 —— 至多同时实现两个</text>
+  </g>
+  <!-- triangle -->
+  <polygon points="400,120 120,420 680,420" fill="#ffffff" stroke="#333" stroke-width="3"/>
+  <!-- vertices -->
+  <circle cx="400" cy="120" r="6" fill="#c0392b"/>
+  <circle cx="120" cy="420" r="6" fill="#c0392b"/>
+  <circle cx="680" cy="420" r="6" fill="#c0392b"/>
+  <text x="400" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">固定汇率</text>
+  <text x="108" y="450" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">资本自由流动</text>
+  <text x="692" y="450" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">独立货币政策</text>
+  <!-- side labels -->
+  <text x="220" y="270" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">金本位<br/>（放弃货币政策）</text>
+  <text x="580" y="270" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">布雷顿森林<br/>（放弃资本流动）</text>
+  <text x="400" y="452" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">后布雷顿：浮动汇率<br/>（放弃固定汇率）</text>
+  <text x="400" y="492" text-anchor="middle" font-size="13" fill="#333">取一条边 = 放弃对面顶点对应的目标</text>
+</svg>

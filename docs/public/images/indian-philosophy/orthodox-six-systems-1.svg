@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 480" font-family="sans-serif">
+  <title>正统六派哲学体系图</title>
+  <desc>六派以尊吠陀为权威划归正统，三对互补：数论瑜伽、正理胜论、弥曼差吠檀多；佛教耆那教顺世论为异端。</desc>
+  <rect x="0" y="0" width="840" height="480" fill="#faf9f5"/>
+
+  <text x="420" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">正统六派（Ṣaḍ-darśana）—— 皆尊吠陀为权威</text>
+  <line x1="270" y1="44" x2="570" y2="44" stroke="#c0392b" stroke-width="3"/>
+  <text x="420" y="66" text-anchor="middle" font-size="14" fill="#666">三对互补：行与知 ｜ 量与理 ｜ 言与智</text>
+
+  <!-- row 1 -->
+  <rect x="90" y="100" width="210" height="64" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="195" y="126" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">数论（Sāṅkhya）</text>
+  <text x="195" y="148" text-anchor="middle" font-size="13" fill="#666">原人 · 自性 · 二十五谛</text>
+  <line x1="300" y1="132" x2="328" y2="132" stroke="#333" stroke-width="2"/>
+  <polygon points="328,132 318,127 318,137" fill="#333"/>
+  <rect x="330" y="100" width="210" height="64" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="435" y="126" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">瑜伽（Yoga）</text>
+  <text x="435" y="148" text-anchor="middle" font-size="13" fill="#666">八支行法 · 独存（kaivalya）</text>
+  <rect x="600" y="100" width="210" height="64" fill="#1f6f8b"/>
+  <text x="705" y="126" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">分别智 → 独存</text>
+  <text x="705" y="148" text-anchor="middle" font-size="13" fill="#dceef2">二元论 + 解脱实践</text>
+
+  <!-- row 2 -->
+  <rect x="90" y="190" width="210" height="64" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="195" y="216" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">正理（Nyāya）</text>
+  <text x="195" y="238" text-anchor="middle" font-size="13" fill="#666">四量 · 十六范畴 · 推理</text>
+  <line x1="300" y1="222" x2="328" y2="222" stroke="#333" stroke-width="2"/>
+  <polygon points="328,222 318,217 318,227" fill="#333"/>
+  <rect x="330" y="190" width="210" height="64" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="435" y="216" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">胜论（Vaiśeṣika）</text>
+  <text x="435" y="238" text-anchor="middle" font-size="13" fill="#666">六范畴 · 原子论 · 实在</text>
+  <rect x="600" y="190" width="210" height="64" fill="#1f6f8b"/>
+  <text x="705" y="216" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">量论 → 实义</text>
+  <text x="705" y="238" text-anchor="middle" font-size="13" fill="#dceef2">认识论 + 本体论基石</text>
+
+  <!-- row 3 -->
+  <rect x="90" y="280" width="210" height="64" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="195" y="306" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">弥曼差（Mīmāṃsā）</text>
+  <text x="195" y="328" text-anchor="middle" font-size="13" fill="#666">声常住 · 法（dharma）</text>
+  <line x1="300" y1="312" x2="328" y2="312" stroke="#333" stroke-width="2"/>
+  <polygon points="328,312 318,307 318,317" fill="#333"/>
+  <rect x="330" y="280" width="210" height="64" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="435" y="306" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">吠檀多（Vedānta）</text>
+  <text x="435" y="328" text-anchor="middle" font-size="13" fill="#666">梵我同一 · 不二论</text>
+  <rect x="600" y="280" width="210" height="64" fill="#1f6f8b"/>
+  <text x="705" y="306" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">言词 → 梵知</text>
+  <text x="705" y="328" text-anchor="middle" font-size="13" fill="#dceef2">祭仪之语 / 终极解脱</text>
+
+  <!-- heterodox box -->
+  <rect x="90" y="380" width="720" height="72" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="450" y="407" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">异端（nāstika）：佛教 · 耆那教 · 顺世论</text>
+  <text x="450" y="432" text-anchor="middle" font-size="14" fill="#666">不承认吠陀为权威，故被排除在「正统六派」之外——后文将逐一展开</text>
+</svg>

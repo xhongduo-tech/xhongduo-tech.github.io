@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" role="img" aria-labelledby="title desc">
+  <title>细菌生长曲线</title>
+  <desc>细菌数量（对数纵轴）随时间的四阶段曲线：迟缓期、对数期、稳定期、衰亡期</desc>
+  <rect width="800" height="460" fill="#ffffff"/>
+  <!-- 坐标轴 -->
+  <line x1="90" y1="400" x2="760" y2="400" stroke="#333333" stroke-width="2"/>
+  <line x1="90" y1="400" x2="90" y2="50" stroke="#333333" stroke-width="2"/>
+  <!-- 纵轴刻度与标签 -->
+  <g fill="#333333" font-family="sans-serif" font-size="15">
+    <text x="70" y="405" text-anchor="end">1</text>
+    <text x="70" y="322" text-anchor="end">10²</text>
+    <text x="70" y="240" text-anchor="end">10⁴</text>
+    <text x="70" y="158" text-anchor="end">10⁶</text>
+    <text x="70" y="76" text-anchor="end">10⁸</text>
+    <text x="30" y="225" text-anchor="middle" transform="rotate(-90 30 225)">活菌数（log₁₀）</text>
+  </g>
+  <line x1="90" y1="322" x2="756" y2="322" stroke="#cccccc" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="90" y1="240" x2="756" y2="240" stroke="#cccccc" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="90" y1="158" x2="756" y2="158" stroke="#cccccc" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="90" y1="76" x2="756" y2="76" stroke="#cccccc" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- 曲线（四段不同颜色） -->
+  <path d="M 120 400 L 250 400" stroke="#1f6f8b" stroke-width="4" fill="none"/>
+  <path d="M 250 400 C 290 398, 320 386, 350 360 C 390 328, 430 300, 470 286 L 560 254" stroke="#c0392b" stroke-width="4" fill="none"/>
+  <path d="M 560 254 L 660 256" stroke="#1f6f8b" stroke-width="4" fill="none"/>
+  <path d="M 660 256 C 700 262, 720 286, 740 340" stroke="#333333" stroke-width="4" fill="none"/>
+  <!-- 阶段标注 -->
+  <g fill="#333333" font-family="sans-serif" font-size="16">
+    <text x="150" y="420">迟缓期</text>
+    <text x="430" y="345">对数期</text>
+    <text x="580" y="290">稳定期</text>
+    <text x="700" y="380">衰亡期</text>
+  </g>
+  <!-- 横轴 -->
+  <text x="420" y="448" text-anchor="middle" fill="#333333" font-family="sans-serif" font-size="16">时间 t（h）</text>
+  <!-- 世代时间标注：对数期每 g 分钟翻一倍 -->
+  <line x1="300" y1="322" x2="390" y2="322" stroke="#c0392b" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="345" y="362" text-anchor="middle" fill="#c0392b" font-family="sans-serif" font-size="15">每 g 分钟翻一倍</text>
+</svg>

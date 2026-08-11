@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="sans-serif">
+  <title>安乐死与医助自杀的类型学</title>
+  <desc>以「行为方式 × 意愿来源」两个维度划分临终决策的类型：主动与被动、自愿与非自愿，并标注安乐死与医助自杀的区分。</desc>
+  <rect width="800" height="520" fill="#faf9f5"/>
+  <text x="400" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">临终决策的类型学：行为方式 × 意愿来源</text>
+
+  <!-- column headers -->
+  <text x="255" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f6f8b">主动（加速死亡）</text>
+  <text x="555" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f6f8b">被动（撤除/不予）</text>
+
+  <!-- row labels -->
+  <text x="40" y="215" font-size="15" font-weight="bold" fill="#1f6f8b">自愿</text>
+  <text x="40" y="235" font-size="13" fill="#555">（患者本人请求）</text>
+  <text x="40" y="410" font-size="15" font-weight="bold" fill="#1f6f8b">非自愿</text>
+  <text x="40" y="430" font-size="13" fill="#555">（无法请求或反对）</text>
+
+  <!-- cells -->
+  <rect x="150" y="115" width="210" height="150" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="255" y="150" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">主动自愿安乐死</text>
+  <text x="255" y="180" text-anchor="middle" font-size="13" fill="#333">医生给药致死</text>
+  <text x="255" y="202" text-anchor="middle" font-size="13" fill="#333">须患者自愿请求</text>
+  <text x="255" y="224" text-anchor="middle" font-size="13" fill="#555">例：荷兰、比利时</text>
+  <text x="255" y="248" text-anchor="middle" font-size="13" fill="#555">（合法化法域）</text>
+
+  <rect x="450" y="115" width="210" height="150" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="555" y="150" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">被动自愿</text>
+  <text x="555" y="180" text-anchor="middle" font-size="13" fill="#333">按患者意愿撤除治疗</text>
+  <text x="555" y="202" text-anchor="middle" font-size="13" fill="#333">如 DNR、撤除呼吸机</text>
+  <text x="555" y="224" text-anchor="middle" font-size="13" fill="#555">多数法域合法</text>
+  <text x="555" y="248" text-anchor="middle" font-size="13" fill="#555">属「拒绝治疗权」</text>
+
+  <rect x="150" y="310" width="210" height="150" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="255" y="345" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">主动非自愿</text>
+  <text x="255" y="375" text-anchor="middle" font-size="13" fill="#333">对无能力者给药致死</text>
+  <text x="255" y="397" text-anchor="middle" font-size="13" fill="#333">几乎普遍禁止</text>
+  <text x="255" y="419" text-anchor="middle" font-size="13" fill="#555">（最受谴责的类型）</text>
+
+  <rect x="450" y="310" width="210" height="150" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="555" y="345" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">被动非自愿</text>
+  <text x="555" y="375" text-anchor="middle" font-size="13" fill="#333">依代理决策撤除治疗</text>
+  <text x="555" y="397" text-anchor="middle" font-size="13" fill="#333">按「最大利益」标准</text>
+  <text x="555" y="419" text-anchor="middle" font-size="13" fill="#555">例：意识障碍患者</text>
+
+  <!-- bottom note -->
+  <rect x="150" y="478" width="510" height="30" rx="8" fill="#1f6f8b"/>
+  <text x="405" y="497" text-anchor="middle" font-size="14" fill="#faf9f5">医助自杀（PAS）：医生开具药物，由患者本人自行服用 —— 属另一轴，不与上表重叠</text>
+</svg>

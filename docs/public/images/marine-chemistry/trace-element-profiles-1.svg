@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="sans-serif">
+  <title>海洋中三类痕量元素的典型垂直剖面</title>
+  <desc>左图为保守型元素（与盐度近似成比例，剖面近垂直）；中图为营养盐型元素（表层被生物消耗、深层再生富集）；右图为清除型元素（随深度被颗粒清除而递减）。纵轴为深度，横轴为浓度。</desc>
+  <rect width="900" height="460" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="2">
+    <line x1="90" y1="50" x2="90" y2="390"/>
+    <line x1="90" y1="390" x2="310" y2="390"/>
+    <line x1="340" y1="50" x2="340" y2="390"/>
+    <line x1="340" y1="390" x2="560" y2="390"/>
+    <line x1="590" y1="50" x2="590" y2="390"/>
+    <line x1="590" y1="390" x2="810" y2="390"/>
+  </g>
+  <text x="200" y="38" font-size="15" fill="#333">保守型（如 钠、氯）</text>
+  <text x="450" y="38" font-size="15" fill="#333">营养盐型（如 镉、锌）</text>
+  <text x="700" y="38" font-size="15" fill="#333">清除型（如 铝、锰）</text>
+  <line x1="200" y1="60" x2="200" y2="330" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="200" y1="330" x2="250" y2="350" stroke="#1f6f8b" stroke-width="3"/>
+  <path d="M400,60 C 400,90 410,150 445,220 C 475,280 480,330 490,370" fill="none" stroke="#c0392b" stroke-width="3"/>
+  <path d="M700,60 C 685,120 675,200 660,300 C 652,360 650,380 648,390" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="200" y="180" font-size="14" fill="#1f6f8b">表层</text>
+  <text x="230" y="300" font-size="13" fill="#1f6f8b">≈恒定</text>
+  <text x="445" y="80" font-size="14" fill="#c0392b">表层耗尽</text>
+  <text x="370" y="300" font-size="14" fill="#c0392b">深层再生富集</text>
+  <text x="650" y="130" font-size="14" fill="#1f6f8b">随深度</text>
+  <text x="650" y="150" font-size="14" fill="#1f6f8b">被清除</text>
+  <text x="80" y="120" font-size="13" fill="#333">深度↑</text>
+  <text x="80" y="140" font-size="13" fill="#333">0 m</text>
+  <text x="80" y="385" font-size="13" fill="#333">深层</text>
+  <text x="30" y="215" font-size="13" fill="#333" transform="rotate(-90 30,215)">深度（下）</text>
+  <text x="200" y="415" font-size="13" fill="#333">浓度 →</text>
+  <text x="450" y="415" font-size="13" fill="#333">浓度 →</text>
+  <text x="700" y="415" font-size="13" fill="#333">浓度 →</text>
+  <text x="30" y="60" font-size="13" fill="#333">表层</text>
+</svg>

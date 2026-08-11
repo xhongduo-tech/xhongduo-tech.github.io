@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="sans-serif">
+  <title>双极直流输电系统结构</title>
+  <desc>送端交流系统经整流站变为直流，经双极直流线路传送，再由逆变站变回交流并入受端系统；功率流向由两端触发角控制</desc>
+  <rect width="900" height="380" fill="#faf9f5"/>
+  <rect x="0" y="0" width="900" height="380" fill="none" stroke="#333" stroke-width="1"/>
+  <text x="450" y="26" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">双极 HVDC 输电系统：交流 → 整流站 → 直流线路 → 逆变站 → 交流</text>
+
+  <!-- 送端交流系统 -->
+  <rect x="30" y="90" width="120" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="90" y="120" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">送端交流</text>
+  <text x="90" y="142" text-anchor="middle" font-size="14" fill="#333">系统</text>
+  <text x="90" y="165" text-anchor="middle" font-size="13" fill="#666">三相交流 50 Hz</text>
+
+  <!-- 变压器 -->
+  <circle cx="195" cy="135" r="16" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="195" cy="135" r="24" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="195" y="175" text-anchor="middle" font-size="13" fill="#333">变压器</text>
+
+  <!-- 整流站 -->
+  <rect x="250" y="90" width="130" height="90" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="315" y="115" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">整流站</text>
+  <text x="315" y="137" text-anchor="middle" font-size="14" fill="#333">LCC 换流器</text>
+  <text x="315" y="157" text-anchor="middle" font-size="13" fill="#666">交流 → 直流</text>
+
+  <!-- 直流线路双极 -->
+  <line x1="380" y1="110" x2="520" y2="110" stroke="#c0392b" stroke-width="4"/>
+  <line x1="380" y1="160" x2="520" y2="160" stroke="#1f6f8b" stroke-width="4"/>
+  <text x="450" y="100" text-anchor="middle" font-size="14" fill="#333">+ 极</text>
+  <text x="450" y="186" text-anchor="middle" font-size="14" fill="#333">− 极</text>
+  <text x="450" y="215" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="bold">直流输电线路 P = U_d·I_d</text>
+  <polygon points="440,113 456,135 434,135" fill="#c0392b"/>
+  <polygon points="440,163 456,185 434,185" fill="#1f6f8b"/>
+
+  <!-- 逆变站 -->
+  <rect x="520" y="90" width="130" height="90" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="585" y="115" text-anchor="middle" font-size="15" fill="#c0392b" font-weight="bold">逆变站</text>
+  <text x="585" y="137" text-anchor="middle" font-size="14" fill="#333">LCC 换流器</text>
+  <text x="585" y="157" text-anchor="middle" font-size="13" fill="#666">直流 → 交流</text>
+
+  <!-- 变压器 -->
+  <circle cx="700" cy="135" r="16" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="700" cy="135" r="24" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="700" y="175" text-anchor="middle" font-size="13" fill="#333">变压器</text>
+
+  <!-- 受端交流系统 -->
+  <rect x="750" y="90" width="120" height="90" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="810" y="120" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">受端交流</text>
+  <text x="810" y="142" text-anchor="middle" font-size="14" fill="#333">系统</text>
+  <text x="810" y="165" text-anchor="middle" font-size="13" fill="#666">三相交流 50 Hz</text>
+
+  <text x="450" y="270" text-anchor="middle" font-size="14" fill="#333">整流侧触发角 α 小（cosα &gt; 0），逆变侧熄弧角 γ 小（cosα &lt; 0）→ 功率从送端流向受端</text>
+  <text x="450" y="300" text-anchor="middle" font-size="14" fill="#333">两端触发角配合控制功率大小与方向，毫秒级电子调节，无需机械开关</text>
+
+  <!-- 12脉动说明 -->
+  <text x="450" y="340" text-anchor="middle" font-size="14" fill="#333">换流站内含 12 脉动换流器：两个相位差 30° 的六脉动桥串联，抵消 5、7 次谐波</text>
+</svg>

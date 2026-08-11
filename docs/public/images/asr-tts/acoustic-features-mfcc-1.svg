@@ -1,0 +1,31 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>梅尔滤波器组示意图</title>
+<desc>三角滤波器在梅尔轴上均匀排列，映射到线性频率轴后呈现低频率处滤波器密集、高频率处稀疏的分布</desc>
+<rect width="800" height="420" fill="#faf9f5"/>
+<!-- 8 个三角滤波器 -->
+<polygon points="60,330 93,70 136,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<polygon points="93,330 136,70 189,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<polygon points="136,330 189,70 257,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<polygon points="189,330 257,70 344,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<polygon points="257,330 344,70 453,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<polygon points="344,330 453,70 593,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<polygon points="453,330 593,70 769,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<polygon points="593,330 769,70 800,330" fill="#1f6f8b" fill-opacity="0.15" stroke="#1f6f8b" stroke-width="1.5"/>
+<!-- 坐标轴 -->
+<line x1="60" y1="330" x2="800" y2="330" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="60" x2="60" y2="330" stroke="#333" stroke-width="1.5"/>
+<!-- 频率刻度 -->
+<line x1="60" y1="330" x2="60" y2="338" stroke="#333" stroke-width="1.5"/>
+<line x1="237" y1="330" x2="237" y2="338" stroke="#333" stroke-width="1.5"/>
+<line x1="415" y1="330" x2="415" y2="338" stroke="#333" stroke-width="1.5"/>
+<line x1="592" y1="330" x2="592" y2="338" stroke="#333" stroke-width="1.5"/>
+<line x1="769" y1="330" x2="769" y2="338" stroke="#333" stroke-width="1.5"/>
+<text x="52" y="352" fill="#333" font-size="14" text-anchor="middle">0</text>
+<text x="237" y="352" fill="#333" font-size="14" text-anchor="middle">1k</text>
+<text x="415" y="352" fill="#333" font-size="14" text-anchor="middle">2k</text>
+<text x="592" y="352" fill="#333" font-size="14" text-anchor="middle">3k</text>
+<text x="769" y="352" fill="#333" font-size="14" text-anchor="middle">4k</text>
+<text x="430" y="385" fill="#333" font-size="15" text-anchor="middle">频率 (Hz)</text>
+<text x="24" y="200" fill="#333" font-size="15" text-anchor="middle" transform="rotate(-90 24 200)">增益</text>
+<text x="400" y="35" fill="#c0392b" font-size="16" text-anchor="middle">梅尔刻度上均匀 → 线性频率上低频密、高频疏</text>
+</svg>

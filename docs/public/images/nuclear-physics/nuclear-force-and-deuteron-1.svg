@@ -1,0 +1,30 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>氘核势阱示意图</title>
+  <desc>氘核可看作中子质子对在深度约 35 MeV、半径约 2 fm 的核力势阱中形成的束缚态，其束缚能级仅约 2.2 MeV，非常靠近阱顶</desc>
+  <rect width="640" height="400" fill="#faf9f5"/>
+  <line x1="320" y1="40" x2="320" y2="350" stroke="#333" stroke-width="2"/>
+  <text x="332" y="50" fill="#333" font-size="14">V(r)</text>
+  <line x1="90" y1="330" x2="560" y2="330" stroke="#333" stroke-width="2"/>
+  <text x="548" y="348" fill="#333" font-size="14">r</text>
+  <text x="96" y="344" fill="#333" font-size="13">0</text>
+  <text x="420" y="344" fill="#333" font-size="13">R ≈ 2.2 fm</text>
+  <path d="M 90 330 L 300 330 L 300 80 L 340 80 L 340 330 L 560 330" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="90" y1="120" x2="560" y2="120" stroke="#e0dcd4" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="360" y="112" fill="#999" font-size="13">V = 0（核力范围之外）</text>
+  <text x="110" y="150" fill="#1f6f8b" font-size="14">核力势阱 V₀ ≈ 35 MeV</text>
+  <line x1="260" y1="238" x2="360" y2="238" stroke="#c0392b" stroke-width="3"/>
+  <text x="180" y="228" fill="#c0392b" font-size="15">束缚能级 E ≈ −2.2 MeV</text>
+  <text x="180" y="260" fill="#333" font-size="13">（离阱顶只差约 33 MeV，</text>
+  <text x="180" y="278" fill="#333" font-size="13">故氘核极其松散、易被激发）</text>
+  <circle cx="200" cy="330" r="7" fill="#c0392b"/>
+  <text x="200" y="362" fill="#c0392b" font-size="14" text-anchor="middle">质子 p</text>
+  <circle cx="280" cy="330" r="7" fill="#1f6f8b"/>
+  <text x="280" y="362" fill="#1f6f8b" font-size="14" text-anchor="middle">中子 n</text>
+  <path d="M 226 330 C 240 306 264 306 278 330" fill="none" stroke="#333" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="252" y="292" fill="#333" font-size="13" text-anchor="middle">靠核力结合</text>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

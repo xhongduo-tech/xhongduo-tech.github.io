@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="sans-serif">
+  <title>共同环境试验揭示的地理渐变群</title>
+  <desc>横轴为产地纬度（南方到北方），纵轴为在共同试验地测得的平均树高，散点随纬度升高而下降，红色回归线显示负向渐变群。</desc>
+  <rect width="720" height="460" fill="#faf9f5"/>
+  <text x="360" y="34" text-anchor="middle" font-size="18" fill="#333">共同环境试验揭示的地理渐变群</text>
+  <text x="360" y="56" text-anchor="middle" font-size="13" fill="#666">同一种树 · 相同试验地 · 各产地种子 · 10 年生平均树高</text>
+
+  <!-- axes -->
+  <line x1="80" y1="400" x2="660" y2="400" stroke="#333" stroke-width="1.5"/>
+  <line x1="80" y1="80" x2="80" y2="400" stroke="#333" stroke-width="1.5"/>
+  <polygon points="660,400 672,400 660,392" fill="#333"/>
+  <polygon points="80,80 80,68 88,80" fill="#333"/>
+
+  <!-- x ticks -->
+  <text x="80" y="420" text-anchor="middle" font-size="13" fill="#333">南（30°N）</text>
+  <text x="215" y="420" text-anchor="middle" font-size="13" fill="#333">35°N</text>
+  <text x="350" y="420" text-anchor="middle" font-size="13" fill="#333">40°N</text>
+  <text x="485" y="420" text-anchor="middle" font-size="13" fill="#333">45°N</text>
+  <text x="620" y="420" text-anchor="middle" font-size="13" fill="#333">北（50°N）</text>
+  <line x1="215" y1="400" x2="215" y2="406" stroke="#333"/>
+  <line x1="350" y1="400" x2="350" y2="406" stroke="#333"/>
+  <line x1="485" y1="400" x2="485" y2="406" stroke="#333"/>
+  <line x1="620" y1="400" x2="620" y2="406" stroke="#333"/>
+  <text x="370" y="448" text-anchor="middle" font-size="14" fill="#333">产地纬度（向北升高）</text>
+
+  <!-- y ticks -->
+  <line x1="80" y1="200" x2="74" y2="200" stroke="#333"/>
+  <line x1="80" y1="300" x2="74" y2="300" stroke="#333"/>
+  <text x="70" y="204" text-anchor="end" font-size="13" fill="#333">15</text>
+  <text x="70" y="304" text-anchor="end" font-size="13" fill="#333">20</text>
+  <text x="70" y="404" text-anchor="end" font-size="13" fill="#333">25</text>
+  <text x="24" y="240" text-anchor="middle" font-size="13" fill="#333" transform="rotate(-90 24 240)">10 年生树高 / m</text>
+
+  <!-- data points: south high, north low -->
+  <circle cx="110" cy="118" r="6" fill="#1f6f8b"/>
+  <circle cx="180" cy="150" r="6" fill="#1f6f8b"/>
+  <circle cx="255" cy="196" r="6" fill="#1f6f8b"/>
+  <circle cx="330" cy="240" r="6" fill="#1f6f8b"/>
+  <circle cx="405" cy="282" r="6" fill="#1f6f8b"/>
+  <circle cx="475" cy="318" r="6" fill="#1f6f8b"/>
+  <circle cx="545" cy="348" r="6" fill="#1f6f8b"/>
+  <circle cx="620" cy="372" r="6" fill="#1f6f8b"/>
+
+  <!-- regression line -->
+  <line x1="100" y1="106" x2="630" y2="378" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="400" y="200" text-anchor="middle" font-size="14" fill="#c0392b">回归线：β₁ &lt; 0</text>
+  <text x="400" y="220" text-anchor="middle" font-size="13" fill="#c0392b">每北移 1° 纬度，树高下降约 0.3 m</text>
+
+  <!-- annotation box -->
+  <rect x="430" y="70" width="230" height="66" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="545" y="92" text-anchor="middle" font-size="13" fill="#333">共同试验地 → 环境一致</text>
+  <text x="545" y="112" text-anchor="middle" font-size="13" fill="#333">散点下降只能来自</text>
+  <text x="545" y="130" text-anchor="middle" font-size="14" fill="#c0392b">遗传的渐变群</text>
+</svg>

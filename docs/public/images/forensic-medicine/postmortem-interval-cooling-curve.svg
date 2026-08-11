@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" font-family="sans-serif">
+  <title>尸冷曲线与尸变征象时间轴</title>
+  <desc>横轴为死后时间（小时），纵轴为直肠温度（摄氏度）。体温先经历平台期，再按牛顿冷却定律近似指数下降，最终趋近环境温度。图下方时间尺标注尸斑、尸僵等尸变征象出现的时间窗。</desc>
+  <rect width="820" height="500" fill="#faf9f5"/>
+  <rect x="0" y="0" width="820" height="500" fill="none" stroke="#333" stroke-width="2"/>
+
+  <!-- title -->
+  <text x="410" y="34" text-anchor="middle" font-size="19" font-weight="bold" fill="#333">尸冷曲线：体温按牛顿冷却定律衰减</text>
+
+  <!-- plot axes -->
+  <line x1="80" y1="380" x2="760" y2="380" stroke="#333" stroke-width="2"/>
+  <line x1="80" y1="380" x2="80" y2="70" stroke="#333" stroke-width="2"/>
+
+  <!-- axis labels -->
+  <text x="420" y="412" text-anchor="middle" font-size="15" fill="#333">死后时间（小时）</text>
+  <text x="36" y="225" text-anchor="middle" font-size="15" fill="#333" transform="rotate(-90 36 225)">直肠温度（℃）</text>
+
+  <!-- y ticks: 20, 25, 30, 35 -->
+  <line x1="76" y1="360" x2="84" y2="360" stroke="#333" stroke-width="2"/>
+  <text x="70" y="364" text-anchor="end" font-size="14" fill="#333">20</text>
+  <line x1="76" y1="280" x2="84" y2="280" stroke="#333" stroke-width="2"/>
+  <text x="70" y="284" text-anchor="end" font-size="14" fill="#333">25</text>
+  <line x1="76" y1="200" x2="84" y2="200" stroke="#333" stroke-width="2"/>
+  <text x="70" y="204" text-anchor="end" font-size="14" fill="#333">30</text>
+  <line x1="76" y1="120" x2="84" y2="120" stroke="#333" stroke-width="2"/>
+  <text x="70" y="124" text-anchor="end" font-size="14" fill="#333">35</text>
+
+  <!-- ambient line -->
+  <line x1="80" y1="368" x2="760" y2="368" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="600" y="360" font-size="14" fill="#1f6f8b">环境温度（恒定近似）</text>
+
+  <!-- cooling curve -->
+  <path d="M 80 86 L 99 96 L 118 116 L 156 154 L 193 193 L 250 225 L 307 258 L 420 306 L 533 338 L 647 352 L 760 362"
+        fill="none" stroke="#c0392b" stroke-width="3.5"/>
+
+  <!-- plateau annotation -->
+  <line x1="80" y1="86" x2="156" y2="86" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="95" y="66" font-size="14" fill="#c0392b">平台期（约 0–3 h）</text>
+  <text x="95" y="84" font-size="13" fill="#333">残余代谢维持体温</text>
+
+  <!-- start point marker -->
+  <circle cx="80" cy="86" r="5" fill="#c0392b"/>
+  <text x="140" y="96" font-size="14" fill="#333">死后体温约 37 ℃</text>
+
+  <!-- rapid cooling note -->
+  <text x="230" y="165" font-size="14" fill="#c0392b">指数下降期：早期约 0.5–1.5 ℃/h</text>
+  <text x="230" y="182" font-size="13" fill="#333">温差越大，冷却越快</text>
+
+  <!-- approaching env note -->
+  <text x="560" y="345" font-size="13" fill="#333">趋向环境温度，方法失效</text>
+
+  <!-- x ticks: 0, 6, 12, 24, 36 -->
+  <line x1="80" y1="380" x2="80" y2="388" stroke="#333" stroke-width="2"/>
+  <text x="80" y="404" text-anchor="middle" font-size="14" fill="#333">0</text>
+  <line x1="193" y1="380" x2="193" y2="388" stroke="#333" stroke-width="2"/>
+  <text x="193" y="404" text-anchor="middle" font-size="14" fill="#333">6</text>
+  <line x1="307" y1="380" x2="307" y2="388" stroke="#333" stroke-width="2"/>
+  <text x="307" y="404" text-anchor="middle" font-size="14" fill="#333">12</text>
+  <line x1="533" y1="380" x2="533" y2="388" stroke="#333" stroke-width="2"/>
+  <text x="533" y="404" text-anchor="middle" font-size="14" fill="#333">24</text>
+  <line x1="760" y1="380" x2="760" y2="388" stroke="#333" stroke-width="2"/>
+  <text x="760" y="404" text-anchor="middle" font-size="14" fill="#333">36</text>
+
+  <!-- time ruler strip -->
+  <line x1="80" y1="440" x2="760" y2="440" stroke="#333" stroke-width="3"/>
+  <rect x="80" y="436" width="680" height="8" fill="#1f6f8b" opacity="0.25"/>
+  <text x="420" y="462" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">尸变征象时间轴（小时）</text>
+  <text x="82" y="490" font-size="13" fill="#333">0 死亡</text>
+  <text x="136" y="490" font-size="13" fill="#333">2 尸斑出现</text>
+  <text x="200" y="490" font-size="13" fill="#333">3 尸僵出现</text>
+  <text x="286" y="490" font-size="13" fill="#333">8 尸斑固定</text>
+  <text x="368" y="490" font-size="13" fill="#333">12 尸僵达峰</text>
+  <text x="486" y="490" font-size="13" fill="#333">24–48 尸僵缓解</text>
+  <text x="638" y="490" font-size="13" fill="#333">48+ 腐败／昆虫学</text>
+</svg>

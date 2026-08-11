@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" font-family="sans-serif">
+  <title>因果注意力掩码示意图</title>
+  <desc>因果掩码：位置 i 只能注意到 i 及其左侧的 token（下三角），右侧未来位置被屏蔽为负无穷。</desc>
+  <rect x="0" y="0" width="560" height="380" fill="#faf9f5"/>
+  <text x="40" y="34" font-size="16" fill="#333">因果掩码：位置 i 只能注意到 i 及其左侧</text>
+
+  <!-- grid 5x5 -->
+  <!-- cells with row/col from 1..5, box at (60+col*64, 70+row*64) size 56 -->
+  <!-- diagonal i==j (row index r, col c, 0-based) -->
+  <g stroke="#999" stroke-width="1">
+    <rect x="60" y="70" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="124" y="70" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="188" y="70" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="252" y="70" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="316" y="70" width="56" height="56" fill="#1f6f8b"/>
+
+    <rect x="60" y="134" width="56" height="56" fill="#eae7df"/>
+    <rect x="124" y="134" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="188" y="134" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="252" y="134" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="316" y="134" width="56" height="56" fill="#1f6f8b"/>
+
+    <rect x="60" y="198" width="56" height="56" fill="#eae7df"/>
+    <rect x="124" y="198" width="56" height="56" fill="#eae7df"/>
+    <rect x="188" y="198" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="252" y="198" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="316" y="198" width="56" height="56" fill="#1f6f8b"/>
+
+    <rect x="60" y="262" width="56" height="56" fill="#eae7df"/>
+    <rect x="124" y="262" width="56" height="56" fill="#eae7df"/>
+    <rect x="188" y="262" width="56" height="56" fill="#eae7df"/>
+    <rect x="252" y="262" width="56" height="56" fill="#1f6f8b"/>
+    <rect x="316" y="262" width="56" height="56" fill="#1f6f8b"/>
+
+    <rect x="60" y="326" width="56" height="56" fill="#eae7df"/>
+    <rect x="124" y="326" width="56" height="56" fill="#eae7df"/>
+    <rect x="188" y="326" width="56" height="56" fill="#eae7df"/>
+    <rect x="252" y="326" width="56" height="56" fill="#eae7df"/>
+    <rect x="316" y="326" width="56" height="56" fill="#1f6f8b"/>
+  </g>
+
+  <!-- row labels -->
+  <text x="52" y="103" font-size="13" fill="#333" text-anchor="end">位置 1</text>
+  <text x="52" y="167" font-size="13" fill="#333" text-anchor="end">位置 2</text>
+  <text x="52" y="231" font-size="13" fill="#333" text-anchor="end">位置 3</text>
+  <text x="52" y="295" font-size="13" fill="#333" text-anchor="end">位置 4</text>
+  <text x="52" y="359" font-size="13" fill="#333" text-anchor="end">位置 5</text>
+
+  <!-- column labels -->
+  <text x="88" y="60" font-size="13" fill="#333" text-anchor="middle">位置 1</text>
+  <text x="152" y="60" font-size="13" fill="#333" text-anchor="middle">位置 2</text>
+  <text x="216" y="60" font-size="13" fill="#333" text-anchor="middle">位置 3</text>
+  <text x="280" y="60" font-size="13" fill="#333" text-anchor="middle">位置 4</text>
+  <text x="344" y="60" font-size="13" fill="#333" text-anchor="middle">位置 5</text>
+
+  <!-- legend -->
+  <rect x="396" y="70" width="24" height="18" fill="#1f6f8b"/>
+  <text x="428" y="84" font-size="13" fill="#333">允许注意（i ≥ j）</text>
+  <rect x="396" y="100" width="24" height="18" fill="#eae7df" stroke="#999"/>
+  <text x="428" y="114" font-size="13" fill="#333">屏蔽（设为 −∞）</text>
+  <text x="396" y="150" font-size="13" fill="#666">行 = 查询位置 i</text>
+  <text x="396" y="170" font-size="13" fill="#666">列 = 键位置 j</text>
+  <text x="396" y="196" font-size="13" fill="#c0392b">预测 a_t 时，</text>
+  <text x="396" y="216" font-size="13" fill="#c0392b">位置 i 看不到任何</text>
+  <text x="396" y="236" font-size="13" fill="#c0392b">未来（右侧）token</text>
+</svg>

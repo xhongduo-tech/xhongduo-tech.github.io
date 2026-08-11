@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">拟像的四阶段示意图</title>
+  <desc id="desc">四列依次展示形象（红色圆角方块）与现实（蓝色圆形）关系的演变：第一阶段方块完整映出圆形（反映现实）；第二阶段圆形被拉成椭圆（歪曲现实）；第三阶段圆形变为虚线残影（遮蔽现实的缺席）；第四阶段只有方块、圆形消失（纯粹拟像，超真实）。底部文字总结：形象从现实的仆人变成现实的替代者。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="360" y="34" text-anchor="middle" font-size="17" fill="#333">拟像的四阶段：形象如何杀死现实</text>
+
+  <!-- 阶段框 -->
+  <g>
+    <rect x="20"  y="60" width="150" height="170" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.8"/>
+    <rect x="196" y="60" width="150" height="170" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.8"/>
+    <rect x="372" y="60" width="150" height="170" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.8"/>
+    <rect x="548" y="60" width="150" height="170" rx="8" fill="#ffffff" stroke="#333" stroke-width="1.8"/>
+  </g>
+
+  <!-- 阶段 1：反映现实 -->
+  <g>
+    <rect x="55" y="130" width="80" height="80" rx="4" fill="none" stroke="#c0392b" stroke-width="2.4"/>
+    <circle cx="95" cy="170" r="24" fill="none" stroke="#1f6f8b" stroke-width="2.4"/>
+  </g>
+  <text x="95" y="90"  text-anchor="middle" font-size="14" fill="#333">① 反映现实</text>
+  <text x="95" y="108" text-anchor="middle" font-size="12" fill="#666">形象忠实映出现实</text>
+  <text x="95" y="248" text-anchor="middle" font-size="13" fill="#c0392b">形象</text>
+  <text x="95" y="268" text-anchor="middle" font-size="13" fill="#1f6f8b">现实</text>
+
+  <!-- 阶段 2：歪曲现实 -->
+  <g>
+    <rect x="231" y="130" width="80" height="80" rx="4" fill="none" stroke="#c0392b" stroke-width="2.4"/>
+    <ellipse cx="271" cy="170" rx="34" ry="12" fill="none" stroke="#1f6f8b" stroke-width="2.4"/>
+  </g>
+  <text x="271" y="90"  text-anchor="middle" font-size="14" fill="#333">② 歪曲现实</text>
+  <text x="271" y="108" text-anchor="middle" font-size="12" fill="#666">形象美化/丑化现实</text>
+
+  <!-- 阶段 3：遮蔽现实的缺席 -->
+  <g>
+    <rect x="407" y="130" width="80" height="80" rx="4" fill="none" stroke="#c0392b" stroke-width="2.4"/>
+    <circle cx="447" cy="170" r="24" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="447" y="174" text-anchor="middle" font-size="11" fill="#1f6f8b">残留</text>
+  </g>
+  <text x="447" y="90"  text-anchor="middle" font-size="14" fill="#333">③ 遮蔽现实的缺席</text>
+  <text x="447" y="108" text-anchor="middle" font-size="12" fill="#666">现实已消失，假装还在</text>
+
+  <!-- 阶段 4：纯粹拟像 -->
+  <g>
+    <rect x="583" y="130" width="80" height="80" rx="4" fill="none" stroke="#c0392b" stroke-width="2.4"/>
+    <text x="623" y="176" text-anchor="middle" font-size="13" fill="#c0392b">无现实</text>
+  </g>
+  <text x="623" y="90"  text-anchor="middle" font-size="14" fill="#333">④ 纯粹拟像</text>
+  <text x="623" y="108" text-anchor="middle" font-size="12" fill="#666">形象复制形象 = 超真实</text>
+
+  <!-- 箭头 -->
+  <g stroke="#333" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="172" y1="145" x2="194" y2="145"/>
+    <line x1="348" y1="145" x2="370" y2="145"/>
+    <line x1="524" y1="145" x2="546" y2="145"/>
+  </g>
+
+  <!-- 底部总结 -->
+  <text x="360" y="280" text-anchor="middle" font-size="14" fill="#333">形象的指涉物逐渐消失，到第四阶段只剩符号本身的自我复制</text>
+  <text x="360" y="306" text-anchor="middle" font-size="14" fill="#c0392b">地图先于领土：仿真先于现实</text>
+</svg>

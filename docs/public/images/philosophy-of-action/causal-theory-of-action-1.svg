@@ -1,0 +1,52 @@
+<svg viewBox="0 0 820 400" width="820" height="400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>正常因果链与异常因果链的对照</title>
+  <desc>上半行展示欲求加信念经过意向引起行动的规范因果链；下半行展示欲求加信念绕过意向、经由紧张直接引起手松开，属于异常因果链。</desc>
+  <rect width="820" height="400" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="32" font-size="15" fill="#333" font-weight="bold">正常链：理由经由意向通向行动（意向行动）</text>
+  <text x="20" y="212" font-size="15" fill="#c0392b" font-weight="bold">异常链：理由绕过意向、走偏（非意向行动）</text>
+
+  <rect x="40" y="55" width="170" height="75" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="125" y="88" font-size="15" fill="#333" text-anchor="middle">欲求 D + 信念 B</text>
+  <text x="125" y="110" font-size="14" fill="#1f6f8b" text-anchor="middle">（主要理由）</text>
+
+  <line x1="215" y1="92" x2="300" y2="92" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="257" y="78" font-size="13" fill="#333" text-anchor="middle">因果地引起</text>
+
+  <rect x="305" y="55" width="170" height="75" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="390" y="88" font-size="15" fill="#333" text-anchor="middle">意向 I</text>
+  <text x="390" y="110" font-size="14" fill="#1f6f8b" text-anchor="middle">（中间站）</text>
+
+  <line x1="480" y1="92" x2="565" y2="92" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="522" y="78" font-size="13" fill="#333" text-anchor="middle">因果地引起</text>
+
+  <rect x="570" y="55" width="210" height="75" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="675" y="88" font-size="15" fill="#333" text-anchor="middle">行动（身体运动 M）</text>
+  <text x="675" y="110" font-size="14" fill="#1f6f8b" text-anchor="middle">意向行动</text>
+
+  <rect x="40" y="235" width="170" height="75" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="125" y="268" font-size="15" fill="#333" text-anchor="middle">欲求 D + 信念 B</text>
+  <text x="125" y="290" font-size="14" fill="#c0392b" text-anchor="middle">（强烈到紧张）</text>
+
+  <line x1="215" y1="272" x2="300" y2="272" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="257" y="258" font-size="13" fill="#c0392b" text-anchor="middle">引起（走偏）</text>
+
+  <rect x="305" y="235" width="170" height="75" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="390" y="268" font-size="15" fill="#333" text-anchor="middle">紧张 / 失手</text>
+  <text x="390" y="290" font-size="14" fill="#c0392b" text-anchor="middle">（没有意向中介）</text>
+
+  <line x1="480" y1="272" x2="565" y2="272" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="522" y="258" font-size="13" fill="#c0392b" text-anchor="middle">引起</text>
+
+  <rect x="570" y="235" width="210" height="75" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="675" y="268" font-size="15" fill="#333" text-anchor="middle">手松开</text>
+  <text x="675" y="290" font-size="14" fill="#c0392b" text-anchor="middle">（非意向行动）</text>
+</svg>

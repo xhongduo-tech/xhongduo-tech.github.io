@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 372" width="420" height="372">
+  <title>对立平衡（contrapposto）示意图</title>
+  <desc>人体重心落在承重腿上，髋轴线向承重侧抬起，肩轴线向反方向倾斜，脊柱呈 S 形曲线，自由腿放松。</desc>
+  <rect width="420" height="372" fill="#faf9f5"/>
+  <text x="210" y="28" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333">对立平衡（contrapposto）</text>
+
+  <!-- 地面 -->
+  <line x1="80" y1="320" x2="340" y2="320" stroke="#333" stroke-width="2"/>
+
+  <!-- 头 -->
+  <circle cx="210" cy="66" r="22" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+
+  <!-- 脊柱 S 形 -->
+  <path d="M210 92 C 204 132, 220 170, 227 204 S 221 244, 222 252" fill="none" stroke="#c0392b" stroke-width="3"/>
+
+  <!-- 肩轴线（反方向倾斜） -->
+  <line x1="186" y1="146" x2="240" y2="154" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="250" y="132" font-family="sans-serif" font-size="13" fill="#1f6f8b">肩轴线（反方向倾）</text>
+
+  <!-- 髋轴线（承重侧抬起） -->
+  <line x1="184" y1="262" x2="248" y2="252" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="252" y="256" font-family="sans-serif" font-size="13" fill="#1f6f8b">髋轴线（承重侧抬）</text>
+
+  <!-- 承重腿（右，粗） -->
+  <path d="M222 258 C 228 278, 234 300, 242 318" fill="none" stroke="#333" stroke-width="6"/>
+  <!-- 自由腿（左，细，膝微屈） -->
+  <path d="M198 254 C 190 274, 180 298, 168 318" fill="none" stroke="#333" stroke-width="3"/>
+
+  <text x="252" y="308" font-family="sans-serif" font-size="13" fill="#555">承重腿（实）</text>
+  <text x="120" y="308" font-family="sans-serif" font-size="13" fill="#555">自由腿（虚）</text>
+
+  <!-- S 形曲线标注 -->
+  <text x="252" y="180" font-family="sans-serif" font-size="13" fill="#c0392b">脊柱呈 S 形</text>
+  <path d="M238 190 C 250 200, 252 220, 246 240" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <text x="210" y="352" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#777">头 : 身高 ≈ 1 : 7（波利克里托斯法则）</text>
+</svg>

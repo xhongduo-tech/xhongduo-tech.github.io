@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" font-family="sans-serif">
+  <title>循环水养殖系统流程示意</title>
+  <desc>养殖池的水经固液分离去除悬浮物，再进入生物滤池完成氨氮硝化，随后脱气除二氧化碳并增氧，经紫外线消毒后返回养殖池，形成闭路循环；系统仅需每日少量补水并定期排污。</desc>
+  <rect x="0" y="0" width="760" height="420" fill="#faf9f5"/>
+  <!-- boxes -->
+  <g font-size="15" fill="#333" text-anchor="middle">
+    <!-- tank -->
+    <rect x="300" y="40" width="160" height="70" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+    <text x="380" y="70">养殖池</text>
+    <text x="380" y="92" font-size="14" fill="#1f6f8b">高密度养鱼</text>
+    <!-- solids filter -->
+    <rect x="530" y="40" width="170" height="70" rx="10" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="615" y="66">固液分离</text>
+    <text x="615" y="88" font-size="13">机械过滤（残饵/粪便）</text>
+    <!-- biofilter -->
+    <rect x="530" y="180" width="170" height="70" rx="10" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+    <text x="615" y="206" fill="#c0392b">生物滤池</text>
+    <text x="615" y="228" font-size="13" fill="#c0392b">硝化：NH3→NO2−→NO3−</text>
+    <!-- degas + oxygen -->
+    <rect x="300" y="180" width="160" height="70" rx="10" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="380" y="206">脱气 + 增氧</text>
+    <text x="380" y="228" font-size="13">去 CO2，补纯氧</text>
+    <!-- UV -->
+    <rect x="80" y="180" width="160" height="70" rx="10" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <text x="160" y="206">紫外线 / 臭氧</text>
+    <text x="160" y="228" font-size="13">消毒灭病原</text>
+  </g>
+  <!-- arrows (teal flow) -->
+  <g fill="#1f6f8b" stroke="#1f6f8b" stroke-width="2.5">
+    <line x1="462" y1="75" x2="522" y2="75"/>
+    <polygon points="528,75 516,69 516,81"/>
+    <line x1="615" y1="112" x2="615" y2="172"/>
+    <polygon points="615,178 609,166 621,166"/>
+    <line x1="528" y1="215" x2="468" y2="215"/>
+    <polygon points="462,215 474,209 474,221"/>
+    <line x1="298" y1="215" x2="248" y2="215"/>
+    <polygon points="242,215 254,209 254,221"/>
+    <line x1="160" y1="178" x2="330" y2="90"/>
+    <polygon points="335,87 320,89 331,99"/>
+  </g>
+  <!-- make-up water -->
+  <g stroke="#333" stroke-width="2" fill="#333">
+    <line x1="380" y1="18" x2="380" y2="36"/>
+    <polygon points="380,42 374,30 386,30"/>
+    <text x="380" y="12" font-size="14" text-anchor="middle">每日少量补水</text>
+  </g>
+  <!-- sludge discharge -->
+  <g stroke="#c0392b" stroke-width="2" fill="#c0392b">
+    <line x1="702" y1="215" x2="724" y2="215"/>
+    <polygon points="730,215 718,209 718,221"/>
+    <text x="713" y="205" font-size="14" text-anchor="middle">排污</text>
+  </g>
+  <!-- captions -->
+  <text x="380" y="315" font-size="14" fill="#333" text-anchor="middle">水流方向：养殖池 → 固液分离 → 生物滤池 → 脱气增氧 → 消毒 → 回池</text>
+  <rect x="140" y="340" width="480" height="46" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="380" y="362" font-size="14" fill="#c0392b" text-anchor="middle">生物滤池是 RAS 的心脏：每氧化 1 g 氨氮耗氧约 4.6 g，且消耗碱度</text>
+  <text x="380" y="380" font-size="14" fill="#c0392b" text-anchor="middle">停电停硝化 → 氨氮数小时升至致死浓度，须备用电源与自动监控</text>
+</svg>

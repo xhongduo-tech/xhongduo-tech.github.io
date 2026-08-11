@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" font-family="sans-serif">
+  <title>古籍版式示意图</title>
+  <desc>雕版书页版式示意：版框、界行、版心、鱼尾、书口、黑口、天头、地脚。</desc>
+  <rect x="0" y="0" width="640" height="560" fill="#ffffff"/>
+  <rect x="70" y="50" width="500" height="450" fill="#faf9f5"/>
+  <rect x="70" y="50" width="500" height="450" fill="none" stroke="#333" stroke-width="2.5"/>
+  <line x1="290" y1="55" x2="290" y2="495" stroke="#999" stroke-width="1.5"/>
+  <line x1="350" y1="55" x2="350" y2="495" stroke="#999" stroke-width="1.5"/>
+  <rect x="290" y="58" width="60" height="9" fill="#333"/>
+  <rect x="290" y="483" width="60" height="9" fill="#333"/>
+  <polygon points="300,75 340,75 320,92" fill="#333"/>
+  <polygon points="300,452 340,452 320,435" fill="#333"/>
+  <line x1="320" y1="92" x2="320" y2="435" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <g fill="#333" opacity="0.85">
+    <rect x="90" y="70" width="14" height="14"/><rect x="90" y="100" width="14" height="14"/><rect x="90" y="130" width="14" height="14"/><rect x="90" y="160" width="14" height="14"/>
+    <rect x="90" y="250" width="14" height="14"/><rect x="90" y="280" width="14" height="14"/><rect x="90" y="310" width="14" height="14"/><rect x="90" y="400" width="14" height="14"/>
+    <rect x="130" y="70" width="14" height="14"/><rect x="130" y="100" width="14" height="14"/><rect x="130" y="130" width="14" height="14"/><rect x="130" y="160" width="14" height="14"/>
+    <rect x="170" y="70" width="14" height="14"/><rect x="170" y="100" width="14" height="14"/><rect x="170" y="130" width="14" height="14"/><rect x="170" y="160" width="14" height="14"/>
+    <rect x="210" y="70" width="14" height="14"/><rect x="210" y="100" width="14" height="14"/><rect x="210" y="130" width="14" height="14"/><rect x="210" y="160" width="14" height="14"/>
+    <rect x="400" y="70" width="14" height="14"/><rect x="400" y="100" width="14" height="14"/><rect x="400" y="130" width="14" height="14"/><rect x="400" y="160" width="14" height="14"/>
+    <rect x="440" y="70" width="14" height="14"/><rect x="440" y="100" width="14" height="14"/><rect x="440" y="130" width="14" height="14"/><rect x="440" y="160" width="14" height="14"/>
+    <rect x="480" y="70" width="14" height="14"/><rect x="480" y="100" width="14" height="14"/><rect x="480" y="130" width="14" height="14"/><rect x="480" y="160" width="14" height="14"/>
+    <rect x="520" y="70" width="14" height="14"/><rect x="520" y="100" width="14" height="14"/><rect x="520" y="130" width="14" height="14"/><rect x="520" y="160" width="14" height="14"/>
+  </g>
+  <g stroke="#c0392b" stroke-width="1.2">
+    <line x1="320" y1="36" x2="320" y2="46"/>
+    <line x1="320" y1="508" x2="320" y2="518"/>
+    <line x1="38" y1="180" x2="66" y2="180"/>
+    <line x1="320" y1="530" x2="320" y2="540"/>
+  </g>
+  <g fill="#c0392b" font-size="14">
+    <text x="320" y="30" text-anchor="middle">天头</text>
+    <text x="320" y="528" text-anchor="middle">地脚</text>
+    <text x="24" y="184">版框</text>
+    <text x="110" y="300" transform="rotate(-90 110 300)" text-anchor="middle">文字栏（竖排）</text>
+    <text x="545" y="300" transform="rotate(90 545 300)" text-anchor="middle">文字栏（竖排）</text>
+  </g>
+  <text x="320" y="112" text-anchor="middle" fill="#1f6f8b" font-size="13">书口</text>
+  <text x="320" y="160" text-anchor="middle" fill="#1f6f8b" font-size="13">鱼尾</text>
+  <text x="320" y="230" text-anchor="middle" fill="#1f6f8b" font-size="13">版心</text>
+  <text x="320" y="255" text-anchor="middle" fill="#1f6f8b" font-size="13">（书名·页码）</text>
+  <text x="430" y="470" fill="#1f6f8b" font-size="13">界行（栏线）</text>
+  <text x="166" y="470" fill="#1f6f8b" font-size="13">象鼻（黑口）</text>
+  <text x="122" y="530" fill="#333" font-size="13">上黑口＝象鼻＋书口为黑口；无黑口者称白口</text>
+</svg>

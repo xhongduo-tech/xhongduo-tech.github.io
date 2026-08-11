@@ -1,0 +1,41 @@
+<svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>对话策略的强化学习训练回路</title>
+<desc>智能体（对话策略）在环境（模拟用户加状态转移）中执行动作，环境返回新状态与奖励，智能体据此更新策略，循环往复直至收敛</desc>
+<rect width="880" height="320" fill="#faf9f5"/>
+
+<defs>
+<marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L0,6 L9,3 z" fill="#333333"/>
+</marker>
+</defs>
+
+<!-- 环境 -->
+<rect x="70" y="100" width="240" height="120" rx="10" fill="#1f6f8b" opacity="0.12" stroke="#1f6f8b" stroke-width="2"/>
+<text x="190" y="140" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333333">环境</text>
+<text x="190" y="163" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333333">模拟用户 + 状态转移</text>
+<text x="190" y="183" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">T(s' | s, a), r(s, a)</text>
+<text x="190" y="203" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">任务完成 +100，每轮 -0.1</text>
+
+<!-- 智能体 -->
+<rect x="570" y="100" width="240" height="120" rx="10" fill="#c0392b" opacity="0.12" stroke="#c0392b" stroke-width="2"/>
+<text x="690" y="140" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333333">智能体（对话策略）</text>
+<text x="690" y="163" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333333">策略 π(a | s)</text>
+<text x="690" y="183" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333333">Q 学习 / 策略梯度</text>
+<text x="690" y="203" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">更新 π ← 最大化长期回报</text>
+
+<!-- 状态：环境 -> 智能体 (上方) -->
+<line x1="190" y1="100" x2="190" y2="60" stroke="#333333" stroke-width="2"/>
+<line x1="190" y1="60" x2="690" y2="60" stroke="#333333" stroke-width="2"/>
+<line x1="690" y1="60" x2="690" y2="98" stroke="#333333" stroke-width="2" marker-end="url(#arrow2)"/>
+<text x="440" y="52" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">状态 / 信念状态 s</text>
+
+<!-- 动作：智能体 -> 环境 (下方) -->
+<line x1="690" y1="220" x2="690" y2="260" stroke="#333333" stroke-width="2"/>
+<line x1="690" y1="260" x2="190" y2="260" stroke="#333333" stroke-width="2"/>
+<line x1="190" y1="260" x2="190" y2="222" stroke="#333333" stroke-width="2" marker-end="url(#arrow2)"/>
+<text x="440" y="253" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">系统动作 a（说什么 / 问什么 / 查库）</text>
+
+<!-- 奖励：环境 -> 智能体 (中部) -->
+<line x1="312" y1="150" x2="568" y2="150" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow2)"/>
+<text x="440" y="143" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">奖励 r</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="sans-serif">
+  <title>Diels-Alder 反应的 [4+2] 环加成示意图</title>
+  <desc>左侧为共轭二烯（C1=C2-C3=C4）与亲双烯体（C5=C6）在加热条件下发生环加成，右侧为产物环己烯。红色虚线表示新生成的 σ 键。</desc>
+  <rect width="720" height="360" fill="#faf9f5"/>
+  <text x="60" y="60" font-size="18" fill="#333">Diels-Alder 环加成：二烯 + 亲双烯体 → 环己烯</text>
+
+  <!-- 反应物：二烯 -->
+  <text x="90" y="110" font-size="15" fill="#1f6f8b">二烯（共轭）</text>
+  <g stroke="#333" stroke-width="2.5">
+    <line x1="120" y1="180" x2="200" y2="140"/>
+    <line x1="200" y1="140" x2="280" y2="180"/>
+    <line x1="280" y1="180" x2="360" y2="140"/>
+  </g>
+  <text x="108" y="205" font-size="14" fill="#333">C1</text>
+  <text x="192" y="130" font-size="14" fill="#333">C2</text>
+  <text x="272" y="205" font-size="14" fill="#333">C3</text>
+  <text x="352" y="130" font-size="14" fill="#333">C4</text>
+
+  <!-- 反应物：亲双烯体 -->
+  <text x="90" y="250" font-size="15" fill="#1f6f8b">亲双烯体（烯烃）</text>
+  <g stroke="#333" stroke-width="2.5">
+    <line x1="180" y1="300" x2="280" y2="300"/>
+  </g>
+  <text x="168" y="322" font-size="14" fill="#333">C5</text>
+  <text x="272" y="322" font-size="14" fill="#333">C6</text>
+
+  <!-- 反应箭头 -->
+  <text x="410" y="225" font-size="18" fill="#c0392b">Δ</text>
+  <line x1="430" y1="190" x2="490" y2="190" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 产物：环己烯 -->
+  <text x="500" y="110" font-size="15" fill="#1f6f8b">产物：环己烯</text>
+  <polygon points="540,140 610,140 645,190 610,240 540,240 505,190" fill="none" stroke="#333" stroke-width="2.5"/>
+  <line x1="505" y1="190" x2="540" y2="140" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <line x1="610" y1="240" x2="540" y2="240" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <line x1="540" y1="140" x2="610" y2="140" stroke="#333" stroke-width="2.5"/>
+  <line x1="610" y1="140" x2="645" y2="190" stroke="#333" stroke-width="2.5"/>
+  <line x1="645" y1="190" x2="610" y2="240" stroke="#333" stroke-width="2.5"/>
+  <text x="560" y="205" font-size="14" fill="#c0392b">新 C-C σ 键</text>
+</svg>

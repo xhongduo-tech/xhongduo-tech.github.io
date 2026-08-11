@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="sans-serif">
+  <title>轨迹 token 化示意图</title>
+  <desc>一条轨迹被重排为 (剩余回报, 状态, 动作) 三元组 token 序列，输入 GPT 因果 Transformer，输出预测动作。</desc>
+  <rect x="0" y="0" width="920" height="300" fill="#faf9f5"/>
+  <text x="40" y="34" font-size="16" fill="#333">一条轨迹的 token 化：每个时间步 = (剩余回报 R̂, 状态 s, 动作 a) 三个 token</text>
+
+  <!-- Triple 1: t-2 -->
+  <rect x="40" y="70" width="84" height="42" rx="4" fill="#e8f1f4" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="82" y="95" font-size="14" fill="#1f6f8b" text-anchor="middle">R̂ t-2</text>
+  <rect x="134" y="70" width="84" height="42" rx="4" fill="#eae7df" stroke="#333" stroke-width="1.5"/>
+  <text x="176" y="95" font-size="14" fill="#333" text-anchor="middle">s t-2</text>
+  <rect x="228" y="70" width="84" height="42" rx="4" fill="#f9e5e2" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="270" y="95" font-size="14" fill="#c0392b" text-anchor="middle">a t-2</text>
+  <line x1="40" y1="120" x2="312" y2="120" stroke="#999" stroke-width="1"/>
+  <text x="176" y="140" font-size="13" fill="#666" text-anchor="middle">时间步 t-2</text>
+
+  <!-- Triple 2: t-1 -->
+  <rect x="322" y="70" width="84" height="42" rx="4" fill="#e8f1f4" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="364" y="95" font-size="14" fill="#1f6f8b" text-anchor="middle">R̂ t-1</text>
+  <rect x="416" y="70" width="84" height="42" rx="4" fill="#eae7df" stroke="#333" stroke-width="1.5"/>
+  <text x="458" y="95" font-size="14" fill="#333" text-anchor="middle">s t-1</text>
+  <rect x="510" y="70" width="84" height="42" rx="4" fill="#f9e5e2" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="552" y="95" font-size="14" fill="#c0392b" text-anchor="middle">a t-1</text>
+  <line x1="322" y1="120" x2="594" y2="120" stroke="#999" stroke-width="1"/>
+  <text x="458" y="140" font-size="13" fill="#666" text-anchor="middle">时间步 t-1</text>
+
+  <!-- Triple 3: t (current) -->
+  <rect x="604" y="70" width="84" height="42" rx="4" fill="#e8f1f4" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="646" y="95" font-size="14" fill="#1f6f8b" text-anchor="middle">R̂ t</text>
+  <rect x="698" y="70" width="84" height="42" rx="4" fill="#eae7df" stroke="#333" stroke-width="1.5"/>
+  <text x="740" y="95" font-size="14" fill="#333" text-anchor="middle">s t</text>
+  <rect x="792" y="70" width="88" height="42" rx="4" fill="#ffffff" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="836" y="95" font-size="14" fill="#c0392b" text-anchor="middle">a t*</text>
+  <line x1="604" y1="120" x2="880" y2="120" stroke="#999" stroke-width="1"/>
+  <text x="742" y="140" font-size="13" fill="#666" text-anchor="middle">时间步 t（当前）</text>
+
+  <!-- arrows down to transformer -->
+  <path d="M 240 150 L 240 196" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 450 150 L 450 196" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 742 150 L 742 196" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- transformer box -->
+  <rect x="330" y="196" width="240" height="52" rx="6" fill="#333" stroke="#333" stroke-width="1.5"/>
+  <text x="450" y="227" font-size="15" fill="#faf9f5" text-anchor="middle">GPT 因果 Transformer</text>
+
+  <!-- output -->
+  <path d="M 570 222 L 640 222" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <rect x="640" y="196" width="170" height="52" rx="6" fill="#f9e5e2" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="725" y="227" font-size="14" fill="#c0392b" text-anchor="middle">预测动作 a t*</text>
+
+  <text x="640" y="282" font-size="13" fill="#666">虚线框 a t* 是模型要预测的目标：输入序列只到 s t，不含 a t</text>
+  <text x="40" y="282" font-size="13" fill="#666">因果掩码保证模型不看未来 token（见第 4 篇）</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#333"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

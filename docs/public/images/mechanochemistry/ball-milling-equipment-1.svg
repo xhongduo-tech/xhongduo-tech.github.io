@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 400" font-family="sans-serif">
+  <title>行星式球磨机原理示意</title>
+  <desc>研磨罐固定在绕中心轴公转的转盘上并反向自转，罐内研磨球在碰撞中把转动动能传递给粉末。</desc>
+  <rect width="540" height="400" fill="#faf9f5"/>
+  <g stroke="#333" fill="none" stroke-width="2">
+    <circle cx="270" cy="200" r="150"/>
+  </g>
+  <line x1="270" y1="200" x2="270" y2="50" stroke="#999" stroke-width="1.5"/>
+  <line x1="270" y1="200" x2="120" y2="310" stroke="#999" stroke-width="1.5"/>
+  <line x1="270" y1="200" x2="420" y2="310" stroke="#999" stroke-width="1.5"/>
+  <text x="270" y="38" text-anchor="middle" fill="#c0392b" font-size="14"><tspan font-weight="bold">中心轴（公转轴）</tspan></text>
+  <text x="150" y="245" text-anchor="middle" fill="#1f6f8b" font-size="14">转盘（俯视）</text>
+  <g fill="none" stroke="#1f6f8b" stroke-width="2">
+    <circle cx="120" cy="310" r="46"/>
+    <circle cx="420" cy="310" r="46"/>
+  </g>
+  <text x="120" y="330" text-anchor="middle" fill="#1f6f8b" font-size="14"><tspan font-weight="bold">研磨罐</tspan></text>
+  <text x="420" y="330" text-anchor="middle" fill="#1f6f8b" font-size="14"><tspan font-weight="bold">研磨罐</tspan></text>
+  <g fill="#333">
+    <circle cx="105" cy="295" r="7"/>
+    <circle cx="135" cy="300" r="7"/>
+    <circle cx="120" cy="322" r="7"/>
+    <circle cx="405" cy="298" r="7"/>
+    <circle cx="432" cy="305" r="7"/>
+    <circle cx="420" cy="324" r="7"/>
+  </g>
+  <text x="120" y="370" text-anchor="middle" fill="#333" font-size="13">黑色圆点 = 研磨球</text>
+  <path d="M 60 150 A 30 30 0 0 1 90 150" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#ar1)"/>
+  <defs>
+    <marker id="ar1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#c0392b"/>
+    </marker>
+    <marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+  <text x="75" y="120" text-anchor="middle" fill="#c0392b" font-size="14">公转方向</text>
+  <path d="M 120 285 A 18 18 0 0 1 138 290" fill="none" stroke="#1f6f8b" stroke-width="2.5" marker-end="url(#ar2)"/>
+  <text x="160" y="285" fill="#1f6f8b" font-size="13">自转（反向）</text>
+  <text x="270" y="195" text-anchor="middle" fill="#333" font-size="14">罐体公转+自转，</text>
+  <text x="270" y="215" text-anchor="middle" fill="#333" font-size="14">磨球反复碰撞粉末</text>
+</svg>

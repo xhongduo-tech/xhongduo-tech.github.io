@@ -1,0 +1,56 @@
+<svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>视频经压缩网络与时空 Patch 化得到 token 序列</title>
+<desc>原始视频块先经过视频压缩网络降维为视频 latent，再经时空 Patch 化切成三维小块，最终展平为 patch token 序列，其中高亮一个小块作为示意。</desc>
+<rect x="0" y="0" width="640" height="520" fill="#faf9f5"/>
+<g stroke="#333333" stroke-width="1.5" fill="#ffffff">
+<rect x="260" y="20" width="140" height="88" rx="4"/>
+<path d="M 260 20 L 300 2 L 440 2 L 400 20 Z" fill="#ffffff"/>
+<path d="M 400 20 L 440 2 L 440 90 L 400 108 Z" fill="#ffffff"/>
+<g stroke="#1f6f8b" stroke-width="1">
+<line x1="260" y1="42" x2="400" y2="42"/>
+<line x1="260" y1="64" x2="400" y2="64"/>
+<line x1="260" y1="86" x2="400" y2="86"/>
+</g>
+</g>
+<text x="410" y="55" fill="#333333" font-size="14" text-anchor="middle">视频</text>
+<text x="410" y="75" fill="#333333" font-size="14" text-anchor="middle">T 帧 × H × W × 3</text>
+<g stroke="#333333" stroke-width="1.5" fill="none">
+<path d="M 330 112 L 330 150" marker-end="url(#a2)"/>
+</g>
+<rect x="200" y="152" width="260" height="40" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+<text x="330" y="177" fill="#333333" font-size="14" text-anchor="middle">视频压缩网络（空间 × 时间降维）</text>
+<g stroke="#333333" stroke-width="1.5" fill="none">
+<path d="M 330 192 L 330 230" marker-end="url(#a2)"/>
+</g>
+<g stroke="#333333" stroke-width="1.5" fill="#ffffff">
+<rect x="285" y="232" width="90" height="66" rx="4"/>
+<path d="M 285 232 L 315 218 L 405 218 L 375 232 Z" fill="#ffffff"/>
+<path d="M 375 232 L 405 218 L 405 284 L 375 298 Z" fill="#ffffff"/>
+</g>
+<text x="335" y="322" fill="#333333" font-size="14" text-anchor="middle">视频 latent</text>
+<text x="335" y="340" fill="#333333" font-size="14" text-anchor="middle">T′×H′×W′×C</text>
+<g stroke="#333333" stroke-width="1.5" fill="none">
+<path d="M 330 352 L 330 390" marker-end="url(#a2)"/>
+</g>
+<rect x="200" y="392" width="260" height="40" rx="8" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="330" y="417" fill="#c0392b" font-size="14" text-anchor="middle">时空 Patch 化：空间切块 + 时间切段</text>
+<g stroke="#333333" stroke-width="1.5" fill="none">
+<path d="M 330 432 L 330 470" marker-end="url(#a2)"/>
+</g>
+<g stroke="#333333" stroke-width="1" fill="#1f6f8b">
+<rect x="210" y="474" width="18" height="18" rx="2"/>
+<rect x="236" y="474" width="18" height="18" rx="2"/>
+<rect x="262" y="474" width="18" height="18" rx="2"/>
+<rect x="288" y="474" width="18" height="18" rx="2"/>
+<rect x="314" y="474" width="18" height="18" rx="2" fill="#c0392b"/>
+<rect x="340" y="474" width="18" height="18" rx="2"/>
+<rect x="366" y="474" width="18" height="18" rx="2"/>
+<rect x="392" y="474" width="18" height="18" rx="2"/>
+</g>
+<text x="315" y="510" fill="#333333" font-size="13" text-anchor="middle">patch token 序列（含文本条件 token）</text>
+<defs>
+<marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+<path d="M 0 0 L 8 4 L 0 8 z" fill="#333333"/>
+</marker>
+</defs>
+</svg>

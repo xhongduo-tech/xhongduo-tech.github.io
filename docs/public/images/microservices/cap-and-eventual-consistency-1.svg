@@ -1,0 +1,21 @@
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>CAP 定理三角</title>
+  <desc>一致性、可用性、分区容错三者构成三角；分区发生时只能在一致性与可用性之间二选一。</desc>
+  <rect width="640" height="320" fill="#faf9f5"/>
+  <polygon points="320,40 90,270 550,270" fill="#f7f1e6" stroke="#333" stroke-width="2"/>
+  <circle cx="320" cy="40" r="16" fill="#e8f0f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="320" y="45" font-size="13" fill="#1f6f8b" text-anchor="middle" font-weight="bold">C</text>
+  <text x="320" y="14" font-size="14" fill="#333" text-anchor="middle">一致性 Consistency</text>
+  <circle cx="90" cy="270" r="16" fill="#e8f0f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="90" y="275" font-size="13" fill="#1f6f8b" text-anchor="middle" font-weight="bold">A</text>
+  <text x="90" y="310" font-size="14" fill="#333" text-anchor="middle">可用性 Availability</text>
+  <circle cx="550" cy="270" r="16" fill="#fdeaea" stroke="#c0392b" stroke-width="2"/>
+  <text x="550" y="275" font-size="13" fill="#c0392b" text-anchor="middle" font-weight="bold">P</text>
+  <text x="550" y="310" font-size="14" fill="#333" text-anchor="middle">分区容错 Partition tolerance</text>
+  <line x1="230" y1="120" x2="175" y2="200" stroke="#333" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="150" y="150" font-size="12" fill="#333" text-anchor="middle">分区发生时</text>
+  <text x="150" y="166" font-size="12" fill="#333" text-anchor="middle">二选一</text>
+  <line x1="410" y1="120" x2="465" y2="200" stroke="#333" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="480" y="150" font-size="12" fill="#333" text-anchor="middle">CP：放弃可用</text>
+  <text x="480" y="166" font-size="12" fill="#333" text-anchor="middle">AP：放弃一致</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif" font-size="14">
+  <title>LIF 神经元膜电位随时间演化</title>
+  <desc>膜电位曲线：输入电流使其上升，越过阈值时发放脉冲并重置，之后经历不应期并再次积分。</desc>
+  <rect x="0" y="0" width="640" height="420" fill="#fff"/>
+  <!-- axes -->
+  <line x1="60" y1="360" x2="620" y2="360" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="40" x2="60" y2="360" stroke="#333" stroke-width="1.5"/>
+  <text x="620" y="378" fill="#333" text-anchor="end">时间 t (ms)</text>
+  <text x="28" y="70" fill="#333">膜电位 V</text>
+  <polygon points="620,360 614,355 614,365" fill="#333"/>
+  <polygon points="60,40 55,46 65,46" fill="#333"/>
+  <!-- threshold line -->
+  <line x1="60" y1="130" x2="620" y2="130" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <text x="466" y="122" fill="#c0392b">发放阈值 V_thr</text>
+  <!-- resting line -->
+  <line x1="60" y1="300" x2="620" y2="300" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="470" y="292" fill="#8a8a8a">静息电位 V_rest</text>
+  <!-- membrane trace -->
+  <polyline points="80,300 170,300 210,286 250,266 290,238 330,202 360,164 382,132 390,128" fill="none" stroke="#1f6f8b" stroke-width="2.4"/>
+  <!-- spike 1 -->
+  <polyline points="390,128 390,60 398,60 400,128 400,300 420,300" fill="none" stroke="#c0392b" stroke-width="2.4"/>
+  <!-- refractory plateau -->
+  <line x1="400" y1="300" x2="470" y2="300" stroke="#1f6f8b" stroke-width="2.4"/>
+  <!-- rise again with stronger input -->
+  <polyline points="470,300 500,292 530,274 556,246 574,208 588,160 598,110" fill="none" stroke="#1f6f8b" stroke-width="2.4"/>
+  <!-- spike 2 -->
+  <polyline points="598,110 598,60 606,60 608,110" fill="none" stroke="#c0392b" stroke-width="2.4"/>
+  <!-- annotations -->
+  <text x="150" y="340" fill="#333">注入电流 I_in，膜电位泄漏地上升</text>
+  <text x="96" y="172" fill="#c0392b">① 越过阈值 → 发放脉冲</text>
+  <text x="404" y="352" fill="#333">② 发放后重置回静息电位</text>
+  <text x="452" y="330" fill="#8a8a8a">③ 不应期（对输入不敏感）</text>
+  <text x="470" y="90" fill="#333">④ 更强的输入 → 更陡地再次积分</text>
+  <text x="96" y="60" fill="#8a8a8a">脉冲高度固定（全或无）</text>
+</svg>

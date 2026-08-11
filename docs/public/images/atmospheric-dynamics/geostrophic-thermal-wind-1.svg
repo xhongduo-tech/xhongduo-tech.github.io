@@ -1,0 +1,80 @@
+<svg viewBox="0 0 820 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>地转平衡与热成风示意</title>
+  <desc>左图：北半球地转平衡，等压线、气压梯度力与科里奥利力相平衡，地转风沿等压线吹。右图：经向剖面，北冷南暖，等压面倾斜导致西风随高度增强（热成风）。</desc>
+  <rect x="0" y="0" width="820" height="420" fill="#faf9f5"/>
+  <g stroke="#333" fill="none" stroke-width="1.2">
+    <!-- Panel a: isobars (diagonal) -->
+    <line x1="40" y1="80" x2="360" y2="80"/>
+    <line x1="40" y1="140" x2="360" y2="140"/>
+    <line x1="40" y1="200" x2="360" y2="200"/>
+    <line x1="40" y1="260" x2="360" y2="260"/>
+    <line x1="40" y1="320" x2="360" y2="320"/>
+  </g>
+  <g fill="#333" font-size="14">
+    <text x="200" y="62" text-anchor="middle">等压线（p 减小方向向下）</text>
+    <text x="200" y="112" text-anchor="middle">1004 hPa</text>
+    <text x="200" y="172" text-anchor="middle">1000 hPa</text>
+    <text x="200" y="232" text-anchor="middle">996 hPa</text>
+    <text x="200" y="292" text-anchor="middle">992 hPa</text>
+    <text x="200" y="352" text-anchor="middle">988 hPa</text>
+    <!-- Panel a annotations -->
+    <text x="56" y="400" text-anchor="start">低压（L）</text>
+    <text x="318" y="400" text-anchor="end">高压（H）</text>
+  </g>
+  <g stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrowBlue)">
+    <defs>
+      <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6 z" fill="#1f6f8b"/>
+      </marker>
+      <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6 z" fill="#c0392b"/>
+      </marker>
+      <marker id="arrowDark" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6 z" fill="#333"/>
+      </marker>
+    </defs>
+    <!-- PGF downward -->
+    <line x1="200" y1="150" x2="200" y2="280"/>
+  </g>
+  <text x="208" y="222" fill="#1f6f8b" font-size="14">气压梯度力</text>
+  <g stroke="#c0392b" stroke-width="3">
+    <!-- Coriolis upward -->
+    <line x1="200" y1="290" x2="200" y2="160" marker-end="url(#arrowRed)"/>
+  </g>
+  <text x="208" y="200" fill="#c0392b" font-size="14">科里奥利力</text>
+  <g stroke="#333" stroke-width="3">
+    <!-- Geostrophic wind along isobars (to the right) -->
+    <line x1="120" y1="140" x2="300" y2="140" marker-end="url(#arrowDark)"/>
+  </g>
+  <text x="205" y="132" text-anchor="middle" fill="#333" font-size="14">地转风 Vg（沿等压线，NH 低压在左）</text>
+
+  <!-- Panel b: cross section -->
+  <rect x="430" y="70" width="360" height="280" fill="#fff" stroke="#333" stroke-width="1.2"/>
+  <line x1="430" y1="350" x2="790" y2="350" stroke="#333" stroke-width="2"/>
+  <g fill="#333" font-size="14">
+    <text x="460" y="330">北（冷）</text>
+    <text x="770" y="330" text-anchor="end">南（暖）</text>
+    <text x="610" y="62" text-anchor="middle">经向剖面（向北在左，向东穿出纸面 ⊗）</text>
+  </g>
+  <!-- isobaric surfaces tilt -->
+  <g stroke="#999" stroke-width="1" fill="none" stroke-dasharray="4 4">
+    <line x1="440" y1="120" x2="780" y2="100"/>
+    <line x1="440" y1="200" x2="780" y2="180"/>
+    <line x1="440" y1="280" x2="780" y2="260"/>
+  </g>
+  <!-- westerly wind symbols, increasing with height -->
+  <g fill="#c0392b">
+    <circle cx="610" cy="270" r="5"/>
+    <line x1="606" y1="267" x2="614" y2="273" stroke="#c0392b" stroke-width="1.4"/>
+    <line x1="614" y1="267" x2="606" y2="273" stroke="#c0392b" stroke-width="1.4"/>
+    <circle cx="610" cy="190" r="8"/>
+    <line x1="604" y1="185" x2="616" y2="195" stroke="#c0392b" stroke-width="1.8"/>
+    <line x1="616" y1="185" x2="604" y2="195" stroke="#c0392b" stroke-width="1.8"/>
+    <circle cx="610" cy="110" r="11"/>
+    <line x1="602" y1="103" x2="618" y2="117" stroke="#c0392b" stroke-width="2.2"/>
+    <line x1="618" y1="103" x2="602" y2="117" stroke="#c0392b" stroke-width="2.2"/>
+  </g>
+  <text x="640" y="195" fill="#c0392b" font-size="14">西风 ⊗ 随高度增强</text>
+  <text x="640" y="120" fill="#333" font-size="14">等压面北高南低</text>
+  <text x="610" y="385" text-anchor="middle" fill="#333" font-size="14">冷北暖南 → 西风随高度增强（热成风）</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="sans-serif">
+  <title>GPI 锚定蛋白的结构</title>
+  <desc>蛋白质 C 端通过磷酸乙醇胺连接三分子甘露糖与葡萄糖胺，再接肌醇磷脂插入膜外叶；PI-PLC 在肌醇环与磷酸之间切割可将蛋白释放。</desc>
+  <rect width="760" height="400" fill="#faf9f5" />
+
+  <text x="40" y="40" font-size="18" fill="#333" font-weight="bold">GPI 锚：把蛋白「钉」在膜外叶上</text>
+
+  <!-- 蛋白 -->
+  <rect x="250" y="55" width="260" height="55" rx="12" fill="#e8f0f5" stroke="#333" stroke-width="2.5"/>
+  <text x="320" y="87" font-size="16" fill="#333">GPI 锚定蛋白</text>
+  <text x="315" y="105" font-size="13" fill="#333">（C 端羧基朝下）</text>
+
+  <!-- C 端肽段 -->
+  <line x1="380" y1="110" x2="380" y2="130" stroke="#333" stroke-width="3"/>
+
+  <!-- PE -->
+  <rect x="300" y="130" width="160" height="26" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="306" y="148" font-size="13" fill="#333">CONH-CH2CH2-PO4</text>
+  <text x="470" y="148" font-size="13" fill="#333">（磷酸乙醇胺）</text>
+
+  <!-- Man3 -->
+  <line x1="330" y1="156" x2="310" y2="180" stroke="#333" stroke-width="2.5"/>
+  <circle cx="300" cy="196" r="20" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="288" y="200" font-size="13" fill="#1f6f8b">Man</text>
+
+  <line x1="380" y1="156" x2="360" y2="180" stroke="#333" stroke-width="2.5"/>
+  <circle cx="352" cy="196" r="20" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="340" y="200" font-size="13" fill="#1f6f8b">Man</text>
+
+  <line x1="430" y1="156" x2="430" y2="176" stroke="#333" stroke-width="2.5"/>
+  <circle cx="430" cy="196" r="20" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="418" y="200" font-size="13" fill="#1f6f8b">Man</text>
+
+  <line x1="430" y1="216" x2="410" y2="232" stroke="#333" stroke-width="2.5"/>
+  <circle cx="300" cy="226" r="20" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="288" y="230" font-size="13" fill="#c0392b">GlcN</text>
+
+  <!-- 肌醇 -->
+  <line x1="300" y1="246" x2="368" y2="252" stroke="#333" stroke-width="2.5"/>
+  <polygon points="410,238 428,252 428,270 410,284 392,270 392,252" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <text x="386" y="266" font-size="13" fill="#333">肌醇</text>
+
+  <!-- 磷酸 -->
+  <circle cx="410" cy="300" r="13" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <text x="404" y="304" font-size="13" fill="#333">P</text>
+
+  <!-- PI-PLC 切割位点 -->
+  <line x1="410" y1="284" x2="410" y2="287" stroke="#c0392b" stroke-width="4"/>
+  <text x="428" y="282" font-size="14" fill="#c0392b" font-weight="bold">PI-PLC 切割位点</text>
+
+  <!-- 脂质尾 -->
+  <line x1="404" y1="313" x2="368" y2="352" stroke="#c39b3c" stroke-width="3"/>
+  <line x1="416" y1="313" x2="452" y2="352" stroke="#c39b3c" stroke-width="3"/>
+
+  <!-- 膜 -->
+  <rect x="30" y="348" width="700" height="22" fill="#dce8ef" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="30" y="370" width="700" height="22" fill="#cfe0ea" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="470" y="364" font-size="14" fill="#1f6f8b">外叶</text>
+  <text x="470" y="386" font-size="14" fill="#1f6f8b">内叶</text>
+  <text x="60" y="392" font-size="13" fill="#333">两条脂肪酸链插入膜双分子层</text>
+</svg>

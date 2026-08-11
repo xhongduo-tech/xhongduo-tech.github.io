@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc" font-family="sans-serif">
+  <title id="title">延异的意义链条示意图</title>
+  <desc id="desc">五个能指方框由箭头连成开放的链条：S1 指向 S2，S2 指向 S3，S3 指向 S4，S4 指向 S5，S5 之后为省略号。每个方框下方标注「意义在别处」，链条顶端标注「没有最终所指」，底部文字说明意义由差异与延宕生成，永不彻底在场。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="360" y="40" text-anchor="middle" font-size="17" fill="#333">延异的意义链条：能指永远指向能指</text>
+  <text x="360" y="64" text-anchor="middle" font-size="13" fill="#666">没有「最终所指」——意义永远在别处</text>
+
+  <!-- 五个能指方框 -->
+  <g font-size="15" fill="#333">
+    <rect x="30"  y="110" width="96"  height="52" rx="6" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+    <text x="78"  y="142" text-anchor="middle">S₁</text>
+
+    <rect x="176" y="110" width="96"  height="52" rx="6" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+    <text x="224" y="142" text-anchor="middle">S₂</text>
+
+    <rect x="322" y="110" width="96"  height="52" rx="6" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+    <text x="370" y="142" text-anchor="middle">S₃</text>
+
+    <rect x="468" y="110" width="96"  height="52" rx="6" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+    <text x="516" y="142" text-anchor="middle">S₄</text>
+
+    <rect x="614" y="110" width="76"  height="52" rx="6" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+    <text x="652" y="142" text-anchor="middle">S₅</text>
+  </g>
+
+  <!-- 箭头 -->
+  <g stroke="#c0392b" stroke-width="2.2" marker-end="url(#arrow)">
+    <line x1="128" y1="136" x2="174" y2="136"/>
+    <line x1="274" y1="136" x2="320" y2="136"/>
+    <line x1="420" y1="136" x2="466" y2="136"/>
+    <line x1="566" y1="136" x2="612" y2="136"/>
+  </g>
+
+  <!-- 链尾省略号 -->
+  <text x="706" y="142" font-size="22" fill="#c0392b">…</text>
+
+  <!-- 底部说明 -->
+  <g font-size="14" fill="#333">
+    <text x="30" y="205">每个「意义」都要由下一个符号来给出：</text>
+    <text x="30" y="228">意义被不断<span style="font-weight:bold">延宕</span>，永不彻底在场。</text>
+  </g>
+  <g font-size="13" fill="#1f6f8b">
+    <text x="30" y="256">同时每个符号都与相邻符号「不同」：</text>
+    <text x="30" y="276">意义 = 差异 + 延宕（differ + defer）。</text>
+  </g>
+</svg>

@@ -1,0 +1,63 @@
+<svg viewBox="0 0 860 560" width="860" height="560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>AMI 体系结构：从智能电表到计量数据管理系统</title>
+<desc>左侧三户家庭各装智能电表并连入家庭能源网关，电表数据经射频网状网/电力线载波汇集到数据集中器，再经通信网络送入主站的 MDMS 计量数据管理系统。</desc>
+<rect x="0" y="0" width="860" height="560" fill="#faf9f5" />
+<text x="430" y="40" font-family="sans-serif" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">AMI 体系结构：从智能电表到主站</text>
+
+<!-- 用户侧 -->
+<rect x="40" y="100" width="230" height="420" rx="8" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="155" y="128" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1f6f8b">用户侧</text>
+
+<rect x="62" y="150" width="92" height="70" rx="6" fill="#fff" stroke="#333" />
+<text x="108" y="178" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">智能电表1</text>
+<text x="108" y="200" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">(15min×96点/日)</text>
+
+<rect x="62" y="245" width="92" height="70" rx="6" fill="#fff" stroke="#333" />
+<text x="108" y="273" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">智能电表2</text>
+<text x="108" y="295" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">(双向计量)</text>
+
+<rect x="62" y="340" width="92" height="70" rx="6" fill="#fff" stroke="#333" />
+<text x="108" y="368" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">智能电表N</text>
+<text x="108" y="390" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">(停电上报)</text>
+
+<rect x="170" y="220" width="88" height="72" rx="6" fill="#fff" stroke="#c0392b" stroke-width="2" />
+<text x="214" y="248" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c0392b" text-anchor="middle">家庭能源网关</text>
+<text x="214" y="272" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">HAN 出口</text>
+
+<!-- 通信层：RF mesh/PLC -->
+<rect x="330" y="130" width="180" height="90" rx="8" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="420" y="160" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1f6f8b" text-anchor="middle">采集通信网络</text>
+<text x="420" y="185" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">RF 网状网 / PLC</text>
+<text x="420" y="205" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">电表 → 集中器</text>
+
+<!-- DCU -->
+<rect x="330" y="280" width="180" height="80" rx="8" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="420" y="310" font-family="sans-serif" font-size="15" font-weight="bold" fill="#333" text-anchor="middle">数据集中器 DCU</text>
+<text x="420" y="338" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">汇聚数百只电表</text>
+
+<!-- 骨干 -->
+<rect x="330" y="420" width="180" height="80" rx="8" fill="#fff" stroke="#333" stroke-width="2" />
+<text x="420" y="450" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1f6f8b" text-anchor="middle">骨干通信网</text>
+<text x="420" y="478" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">光纤 / 蜂窝 4G/5G</text>
+
+<!-- 主站侧 -->
+<rect x="620" y="230" width="210" height="130" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2" />
+<text x="725" y="260" font-family="sans-serif" font-size="16" font-weight="bold" fill="#c0392b" text-anchor="middle">主站 MDMS</text>
+<text x="725" y="290" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">计量数据管理</text>
+<text x="725" y="312" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">计费 / 停电 / 需求响应</text>
+<text x="725" y="334" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">时序数据仓库（数十TB/年）</text>
+
+<!-- 连线 -->
+<line x1="272" y1="185" x2="330" y2="175" stroke="#333" stroke-width="2" />
+<line x1="272" y1="280" x2="330" y2="320" stroke="#333" stroke-width="2" />
+<line x1="272" y1="375" x2="330" y2="320" stroke="#333" stroke-width="2" />
+<line x1="262" y1="256" x2="330" y2="175" stroke="#333" stroke-width="2" stroke-dasharray="5,4" />
+<line x1="420" y1="220" x2="420" y2="280" stroke="#333" stroke-width="2" />
+<line x1="420" y1="360" x2="420" y2="420" stroke="#333" stroke-width="2" />
+<line x1="510" y1="460" x2="620" y2="330" stroke="#c0392b" stroke-width="3" />
+<polygon points="612,332 620,315 626,336" fill="#c0392b" />
+<text x="545" y="420" font-family="sans-serif" font-size="13" font-weight="bold" fill="#c0392b">双向数据流</text>
+
+<!-- 底部说明 -->
+<text x="430" y="540" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">数据：15 分钟/条 → 96 点/日 → 每只表一年约 3.5 万条记录</text>
+</svg>

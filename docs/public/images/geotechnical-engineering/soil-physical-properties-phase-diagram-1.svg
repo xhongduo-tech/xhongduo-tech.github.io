@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-labelledby="title desc">
+  <title>土的三相图</title>
+  <desc>三相图示意：左侧为体积（空气 Va、水 Vw、土粒 Vs），右侧为重量（空气忽略、水 Ww、土粒 Ws），底部给出 V 与 W 的组合关系。</desc>
+  <rect x="0" y="0" width="720" height="420" fill="#faf9f5"/>
+  <text x="30" y="46" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">三相图</text>
+  <text x="30" y="72" font-family="sans-serif" font-size="14" fill="#666">体积 V</text>
+  <text x="452" y="72" font-family="sans-serif" font-size="14" fill="#666">重量 W</text>
+  <!-- air -->
+  <rect x="160" y="100" width="250" height="55" fill="#e8e2d5"/>
+  <rect x="160" y="100" width="250" height="55" fill="none" stroke="#333" stroke-width="1.5"/>
+  <!-- water -->
+  <rect x="160" y="155" width="250" height="70" fill="#bfd9e3"/>
+  <rect x="160" y="155" width="250" height="70" fill="none" stroke="#333" stroke-width="1.5"/>
+  <!-- solids -->
+  <rect x="160" y="225" width="250" height="115" fill="#c9b18a"/>
+  <rect x="160" y="225" width="250" height="115" fill="none" stroke="#333" stroke-width="1.5"/>
+  <!-- left volume labels -->
+  <text x="120" y="134" font-family="sans-serif" font-size="15" fill="#333">V_a（气）</text>
+  <text x="118" y="196" font-family="sans-serif" font-size="15" fill="#1f6f8b">V_w（水）</text>
+  <text x="120" y="290" font-family="sans-serif" font-size="15" fill="#8a6d3b">V_s（土粒）</text>
+  <!-- right weight labels -->
+  <text x="438" y="134" font-family="sans-serif" font-size="15" fill="#333">W_a ≈ 0</text>
+  <text x="438" y="196" font-family="sans-serif" font-size="15" fill="#1f6f8b">W_w</text>
+  <text x="438" y="290" font-family="sans-serif" font-size="15" fill="#8a6d3b">W_s</text>
+  <!-- bracket for Vv -->
+  <line x1="86" y1="100" x2="86" y2="225" stroke="#333" stroke-width="1.4"/>
+  <line x1="78" y1="100" x2="94" y2="100" stroke="#333" stroke-width="1.4"/>
+  <line x1="78" y1="225" x2="94" y2="225" stroke="#333" stroke-width="1.4"/>
+  <text x="20" y="168" font-family="sans-serif" font-size="15" fill="#c0392b">V_v = V_a + V_w</text>
+  <!-- bracket for V -->
+  <line x1="492" y1="100" x2="492" y2="340" stroke="#333" stroke-width="1.4"/>
+  <line x1="484" y1="100" x2="500" y2="100" stroke="#333" stroke-width="1.4"/>
+  <line x1="484" y1="340" x2="500" y2="340" stroke="#333" stroke-width="1.4"/>
+  <text x="510" y="226" font-family="sans-serif" font-size="15" fill="#c0392b">V = V_s + V_v</text>
+  <!-- bottom summary -->
+  <text x="160" y="382" font-family="sans-serif" font-size="16" fill="#333">V = V_s + V_v，　W = W_s + W_w，　w = W_w / W_s，　e = V_v / V_s</text>
+</svg>

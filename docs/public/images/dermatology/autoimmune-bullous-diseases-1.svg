@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 460" width="840" height="460" role="img" aria-labelledby="title desc">
+  <title>表皮内与表皮下大疱的位置对比</title>
+  <desc>左图为天疱疮的表皮内（棘层上方）裂隙，右图为大疱性类天疱疮的表皮下大疱，基底膜位置用红色虚线标出。</desc>
+  <rect x="0" y="0" width="840" height="460" fill="#faf9f5"/>
+  <!-- 左图：天疱疮 -->
+  <text x="80" y="36" font-family="sans-serif" font-size="17" fill="#1f6f8b">天疱疮（表皮内大疱）</text>
+  <!-- 角质层 -->
+  <rect x="60" y="56" width="300" height="26" fill="#efe6d0" stroke="#333" stroke-width="1.2"/>
+  <text x="75" y="73" font-family="sans-serif" font-size="12" fill="#333">角质层</text>
+  <!-- 颗粒层 -->
+  <rect x="60" y="82" width="300" height="22" fill="#f5efe0" stroke="#333" stroke-width="1.2"/>
+  <text x="75" y="97" font-family="sans-serif" font-size="12" fill="#333">颗粒层</text>
+  <!-- 棘层（被疱劈开） -->
+  <rect x="60" y="104" width="300" height="40" fill="#faf3e3" stroke="#333" stroke-width="1.2"/>
+  <text x="75" y="128" font-family="sans-serif" font-size="12" fill="#333">棘层（桥粒断裂）</text>
+  <!-- 大疱（裂隙位于棘层/基底层交界上方） -->
+  <path d="M80 144 L80 156 Q210 180 340 156 L340 144 Q210 130 80 144 Z" fill="#dceef5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="180" y="170" font-family="sans-serif" font-size="13" fill="#1f6f8b">松弛性大疱（棘层松解）</text>
+  <line x1="180" y1="178" x2="180" y2="196" stroke="#1f6f8b" stroke-width="1.2"/>
+  <!-- 基底层 -->
+  <rect x="60" y="198" width="300" height="22" fill="#f0e6d2" stroke="#333" stroke-width="1.2"/>
+  <text x="75" y="213" font-family="sans-serif" font-size="12" fill="#333">基底层（桥粒完整）</text>
+  <!-- 基底膜 -->
+  <line x1="60" y1="220" x2="360" y2="220" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="370" y="224" font-family="sans-serif" font-size="12" fill="#c0392b">基底膜</text>
+  <!-- 真皮 -->
+  <rect x="60" y="220" width="300" height="60" fill="#f9e7e0" stroke="#333" stroke-width="1.2"/>
+  <text x="75" y="255" font-family="sans-serif" font-size="12" fill="#333">真皮</text>
+  <!-- 箭头：疱在基底膜上方 -->
+  <text x="75" y="316" font-family="sans-serif" font-size="13" fill="#c0392b">疱位于基底膜上方 →</text>
+  <text x="75" y="334" font-family="sans-serif" font-size="13" fill="#333">Nikolsky 征（+），松弛、易破</text>
+
+  <!-- 分割线 -->
+  <line x1="400" y1="40" x2="400" y2="400" stroke="#cfc8bb" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- 右图：大疱性类天疱疮 -->
+  <text x="450" y="36" font-family="sans-serif" font-size="17" fill="#1f6f8b">大疱性类天疱疮（表皮下大疱）</text>
+  <rect x="440" y="56" width="300" height="26" fill="#efe6d0" stroke="#333" stroke-width="1.2"/>
+  <text x="455" y="73" font-family="sans-serif" font-size="12" fill="#333">角质层</text>
+  <rect x="440" y="82" width="300" height="22" fill="#f5efe0" stroke="#333" stroke-width="1.2"/>
+  <text x="455" y="97" font-family="sans-serif" font-size="12" fill="#333">颗粒层</text>
+  <rect x="440" y="104" width="300" height="52" fill="#faf3e3" stroke="#333" stroke-width="1.2"/>
+  <text x="455" y="130" font-family="sans-serif" font-size="12" fill="#333">棘层（桥粒完整）</text>
+  <rect x="440" y="156" width="300" height="20" fill="#f0e6d2" stroke="#333" stroke-width="1.2"/>
+  <text x="455" y="169" font-family="sans-serif" font-size="12" fill="#333">基底层</text>
+  <!-- 基底膜虚线 -->
+  <line x1="440" y1="176" x2="740" y2="176" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="750" y="180" font-family="sans-serif" font-size="12" fill="#c0392b">基底膜</text>
+  <!-- 大疱位于基底膜下方（真皮顶部） -->
+  <path d="M460 186 L460 196 Q590 218 720 196 L720 186 Q590 172 460 186 Z" fill="#dceef5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="560" y="212" font-family="sans-serif" font-size="13" fill="#1f6f8b">紧张性大疱（表皮下）</text>
+  <line x1="560" y1="220" x2="560" y2="238" stroke="#1f6f8b" stroke-width="1.2"/>
+  <rect x="440" y="240" width="300" height="40" fill="#f9e7e0" stroke="#333" stroke-width="1.2"/>
+  <text x="455" y="263" font-family="sans-serif" font-size="12" fill="#333">真皮</text>
+  <text x="455" y="316" font-family="sans-serif" font-size="13" fill="#c0392b">疱位于基底膜下方 →</text>
+  <text x="455" y="334" font-family="sans-serif" font-size="13" fill="#333">Nikolsky 征（−），紧张、不易破</text>
+</svg>

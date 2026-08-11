@@ -1,0 +1,32 @@
+<svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>囚徒困境支付矩阵</title>
+  <desc>我方与合作方的策略两两组合下的刑期：双方合作各 1 年；一方背叛一方合作时背叛者 0 年、合作者 3 年；双方背叛各 2 年。</desc>
+  <rect width="680" height="380" fill="#faf9f5"/>
+  <text x="340" y="42" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">囚徒困境支付矩阵（单位：年）</text>
+  <text x="340" y="68" text-anchor="middle" font-size="14" fill="#666">数字为「我的刑期 / 对方刑期」，越少越好</text>
+
+  <text x="200" y="92" font-size="15" fill="#333">对方</text>
+  <text x="260" y="105" text-anchor="middle" font-size="15" fill="#333">合作</text>
+  <text x="460" y="105" text-anchor="middle" font-size="15" fill="#333">背叛</text>
+  <text x="90" y="148" font-size="15" fill="#333">我</text>
+  <text x="70" y="195" text-anchor="end" font-size="15" fill="#333">合作</text>
+  <text x="70" y="295" text-anchor="end" font-size="15" fill="#333">背叛</text>
+
+  <g stroke="#333" stroke-width="2" fill="#fff">
+    <rect x="170" y="160" width="180" height="90"/>
+    <rect x="370" y="160" width="180" height="90"/>
+    <rect x="170" y="260" width="180" height="90"/>
+    <rect x="370" y="260" width="180" height="90"/>
+  </g>
+
+  <text x="260" y="198" text-anchor="middle" font-size="15" fill="#333">我 1 年 / 对方 1 年</text>
+  <text x="260" y="222" text-anchor="middle" font-size="13" fill="#1f6f8b">共信 → 双赢</text>
+  <text x="460" y="198" text-anchor="middle" font-size="15" fill="#333">我 3 年 / 对方 0 年</text>
+  <text x="460" y="222" text-anchor="middle" font-size="13" fill="#c0392b">我吃亏</text>
+  <text x="260" y="298" text-anchor="middle" font-size="15" fill="#333">我 0 年 / 对方 3 年</text>
+  <text x="260" y="322" text-anchor="middle" font-size="13" fill="#c0392b">对方吃亏</text>
+  <text x="460" y="298" text-anchor="middle" font-size="15" fill="#333">我 2 年 / 对方 2 年</text>
+  <text x="460" y="322" text-anchor="middle" font-size="13" fill="#c0392b">互不信任 → 双输</text>
+
+  <text x="340" y="358" text-anchor="middle" font-size="14" fill="#666">无论对方怎么选，背叛都让「我」的刑期更短 → 理性双方都背叛，结果双输。</text>
+</svg>

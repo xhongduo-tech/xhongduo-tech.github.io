@@ -1,0 +1,57 @@
+<svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>故意犯罪停止形态判定流程</title>
+<desc>从犯意、犯罪预备、着手实行到犯罪既遂的流程，并分别展示犯罪中止与犯罪未遂两个分支的判定条件。</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="760" height="560" fill="#faf9f5"/>
+<text x="380" y="28" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#333" font-weight="bold">故意犯罪停止形态：判定流程</text>
+
+<!-- 犯意 -->
+<rect x="290" y="50" width="180" height="42" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="380" y="76" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">犯意（内心决意）</text>
+<text x="475" y="76" font-family="sans-serif" font-size="13" fill="#1f6f8b">犯意表示不构成犯罪</text>
+
+<!-- 预备 -->
+<rect x="235" y="125" width="290" height="52" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="380" y="148" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">犯罪预备</text>
+<text x="380" y="166" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">为犯罪准备工具、制造条件</text>
+<text x="535" y="156" font-family="sans-serif" font-size="13" fill="#333">可以比照既遂犯</text>
+<text x="535" y="173" font-family="sans-serif" font-size="13" fill="#333">从轻、减轻或免除处罚</text>
+
+<!-- 着手 -->
+<rect x="285" y="215" width="190" height="42" rx="6" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="380" y="241" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">着手实行</text>
+
+<!-- 既遂 -->
+<rect x="285" y="490" width="190" height="42" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="380" y="516" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">犯罪既遂（具备全部构成要件）</text>
+
+<!-- 中止 -->
+<rect x="20" y="360" width="250" height="90" rx="6" fill="#eaf3f5" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="145" y="384" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">犯罪中止</text>
+<text x="145" y="406" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">自动放弃犯罪或自动有效</text>
+<text x="145" y="424" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">防止结果发生（能达目的而不欲）</text>
+<text x="20" y="468" font-family="sans-serif" font-size="13" fill="#1f6f8b">无损害→应当免除处罚</text>
+<text x="20" y="486" font-family="sans-serif" font-size="13" fill="#1f6f8b">有损害→应当减轻处罚</text>
+
+<!-- 未遂 -->
+<rect x="490" y="360" width="250" height="90" rx="6" fill="#fdf1ef" stroke="#c0392b" stroke-width="1.5"/>
+<text x="615" y="384" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">犯罪未遂</text>
+<text x="615" y="406" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">已经着手实行，因意志以外</text>
+<text x="615" y="424" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">的原因而未得逞（欲达目的而不能）</text>
+<text x="490" y="468" font-family="sans-serif" font-size="13" fill="#c0392b">可以比照既遂犯从轻或者减轻处罚</text>
+
+<!-- 箭头 -->
+<line x1="380" y1="92" x2="380" y2="120" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="380" y1="177" x2="380" y2="210" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="380" y1="257" x2="380" y2="485" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="395" y="380" font-family="sans-serif" font-size="14" fill="#1f6f8b">得逞（结果发生）</text>
+
+<line x1="285" y1="240" x2="258" y2="356" stroke="#1f6f8b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="185" y="300" font-family="sans-serif" font-size="14" fill="#1f6f8b" font-weight="bold">自动性</text>
+<line x1="475" y1="240" x2="502" y2="356" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="515" y="300" font-family="sans-serif" font-size="14" fill="#c0392b" font-weight="bold">意志以外原因</text>
+</svg>

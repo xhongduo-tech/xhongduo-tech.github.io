@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="sans-serif">
+<title>肌肉长度-张力关系与力-速度关系曲线</title>
+<desc>左图：骨骼肌长度-张力关系，主动张力在肌小节约 2.2 微米处最大；右图：希尔方程描述的力-速度关系，速度越快力越小。</desc>
+<rect x="0" y="0" width="640" height="320" fill="#faf9f5"/>
+<!-- ======== 左图：长度-张力 ======== -->
+<text x="175" y="30" font-size="15" fill="#333" text-anchor="middle">长度-张力关系</text>
+<line x1="50" y1="270" x2="310" y2="270" stroke="#333" stroke-width="1.5"/>
+<line x1="50" y1="270" x2="50" y2="55" stroke="#333" stroke-width="1.5"/>
+<text x="28" y="60" font-size="13" fill="#333">张力</text>
+<text x="300" y="295" font-size="13" fill="#333">肌小节长度 (μm)</text>
+<text x="42" y="274" font-size="12" fill="#333">1.6</text>
+<text x="150" y="274" font-size="12" fill="#333">2.2</text>
+<text x="280" y="274" font-size="12" fill="#333">3.6</text>
+<!-- 主动张力曲线 -->
+<path d="M 62 268 C 70 268 76 262 84 252 C 100 230 130 185 150 160 C 160 148 170 145 178 150 C 200 165 225 205 245 240 C 258 264 268 268 285 269"
+      fill="none" stroke="#c0392b" stroke-width="3"/>
+<text x="120" y="200" font-size="14" fill="#c0392b">主动张力</text>
+<!-- 被动张力曲线 -->
+<path d="M 62 269 C 150 269 195 268 225 262 C 250 257 270 245 285 225 C 295 213 300 195 303 175"
+      fill="none" stroke="#1f6f8b" stroke-width="2.5" stroke-dasharray="6 4"/>
+<text x="240" y="240" font-size="14" fill="#1f6f8b">被动张力</text>
+<!-- 总张力 -->
+<path d="M 62 268 C 140 268 200 250 240 205 C 265 178 285 140 298 95"
+      fill="none" stroke="#333" stroke-width="1.5"/>
+<text x="255" y="120" font-size="13" fill="#333">总张力</text>
+<!-- 峰值标注 -->
+<line x1="150" y1="160" x2="150" y2="274" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="138" y="150" font-size="13" fill="#c0392b" text-anchor="middle">最适初长 2.2 μm</text>
+<!-- ======== 右图：力-速度关系 ======== -->
+<text x="480" y="30" font-size="15" fill="#333" text-anchor="middle">力-速度关系（希尔方程）</text>
+<line x1="350" y1="270" x2="620" y2="270" stroke="#333" stroke-width="1.5"/>
+<line x1="350" y1="270" x2="350" y2="55" stroke="#333" stroke-width="1.5"/>
+<text x="322" y="60" font-size="13" fill="#333">负荷 P</text>
+<text x="605" y="295" font-size="13" fill="#333">缩短速度 V</text>
+<path d="M 350 65 C 365 130 405 195 455 235 C 505 262 560 269 612 270"
+      fill="none" stroke="#c0392b" stroke-width="3"/>
+<text x="352" y="58" font-size="13" fill="#c0392b">P₀</text>
+<text x="614" y="283" font-size="13" fill="#c0392b">Vmax</text>
+<text x="420" y="180" font-size="14" fill="#333">力越大，速度越小</text>
+<text x="420" y="200" font-size="13" fill="#333">(P+a)(V+b) = b(P₀+a)</text>
+<text x="362" y="242" font-size="13" fill="#1f6f8b">等长收缩</text>
+<text x="452" y="262" font-size="13" fill="#1f6f8b">无负荷最大速度</text>
+</svg>

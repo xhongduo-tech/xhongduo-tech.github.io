@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="sans-serif" font-size="14">
+  <title>恶性循环与良性循环</title>
+  <desc>左侧为榨取性制度的恶性循环：榨取型政治制度、榨取型经济制度、财富集中于精英、事实权力强化并压制改革，四者首尾相接循环。右侧为包容性制度的良性循环：包容型政治制度、包容型经济制度、创新与共同繁荣、权力分散与制度改善，四者首尾相接循环。</desc>
+  <rect width="640" height="400" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrowRed" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#c0392b"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <text x="190" y="36" text-anchor="middle" font-size="17" font-weight="bold" fill="#c0392b">恶性循环：榨取性制度</text>
+  <text x="450" y="36" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f6f8b">良性循环：包容性制度</text>
+
+  <g font-size="13.5">
+    <rect x="70" y="60" width="130" height="64" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <text x="135" y="84" text-anchor="middle" fill="#333">榨取型</text>
+    <text x="135" y="104" text-anchor="middle" fill="#333">政治制度</text>
+
+    <rect x="230" y="60" width="130" height="64" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <text x="295" y="84" text-anchor="middle" fill="#333">榨取型</text>
+    <text x="295" y="104" text-anchor="middle" fill="#333">经济制度</text>
+
+    <rect x="230" y="170" width="130" height="64" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <text x="295" y="194" text-anchor="middle" fill="#333">财富集中</text>
+    <text x="295" y="214" text-anchor="middle" fill="#333">于精英</text>
+
+    <rect x="70" y="170" width="130" height="64" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <text x="135" y="188" text-anchor="middle" fill="#333">权力压制</text>
+    <text x="135" y="208" text-anchor="middle" fill="#333">制度变革</text>
+
+    <rect x="390" y="60" width="130" height="64" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="455" y="84" text-anchor="middle" fill="#333">包容型</text>
+    <text x="455" y="104" text-anchor="middle" fill="#333">政治制度</text>
+
+    <rect x="540" y="60" width="90" height="64" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="585" y="84" text-anchor="middle" fill="#333">包容型</text>
+    <text x="585" y="104" text-anchor="middle" fill="#333">经济制度</text>
+
+    <rect x="540" y="170" width="90" height="64" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="585" y="188" text-anchor="middle" fill="#333">创新与</text>
+    <text x="585" y="208" text-anchor="middle" fill="#333">共同繁荣</text>
+
+    <rect x="390" y="170" width="130" height="64" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="455" y="188" text-anchor="middle" fill="#333">权力分散</text>
+    <text x="455" y="208" text-anchor="middle" fill="#333">制度改善</text>
+  </g>
+
+  <g fill="none" stroke-width="2">
+    <line x1="200" y1="92" x2="228" y2="92" stroke="#c0392b" marker-end="url(#arrowRed)"/>
+    <line x1="295" y1="124" x2="295" y2="168" stroke="#c0392b" marker-end="url(#arrowRed)"/>
+    <line x1="228" y1="202" x2="200" y2="202" stroke="#c0392b" marker-end="url(#arrowRed)"/>
+    <line x1="135" y1="168" x2="135" y2="126" stroke="#c0392b" marker-end="url(#arrowRed)"/>
+
+    <line x1="520" y1="92" x2="538" y2="92" stroke="#1f6f8b" marker-end="url(#arrowCyan)"/>
+    <line x1="585" y1="124" x2="585" y2="168" stroke="#1f6f8b" marker-end="url(#arrowCyan)"/>
+    <line x1="538" y1="202" x2="522" y2="202" stroke="#1f6f8b" marker-end="url(#arrowCyan)"/>
+    <line x1="455" y1="168" x2="455" y2="126" stroke="#1f6f8b" marker-end="url(#arrowCyan)"/>
+  </g>
+
+  <text x="214" y="82" fill="#c0392b" font-size="13">统治</text>
+  <text x="305" y="150" fill="#c0392b" font-size="13">掠夺</text>
+  <text x="214" y="212" fill="#c0392b" font-size="13">供养</text>
+  <text x="125" y="150" fill="#c0392b" font-size="13">维护</text>
+
+  <text x="529" y="82" fill="#1f6f8b" font-size="13">支撑</text>
+  <text x="595" y="150" fill="#1f6f8b" font-size="13">驱动</text>
+  <text x="529" y="212" fill="#1f6f8b" font-size="13">巩固</text>
+  <text x="445" y="150" fill="#1f6f8b" font-size="13">开放</text>
+
+  <text x="320" y="380" text-anchor="middle" fill="#333" font-size="15">两个回路各自自我强化——好者越好，坏者越坏</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 780 470" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>可解释 AI 分类体系总图</title>
+<desc>以「时间（内在/事后）、粒度（全局/局部）、依赖（模型无关/模型特定）」三个维度组织的 XAI 分类树。</desc>
+<rect width="780" height="470" fill="#faf9f5"/>
+<text x="390" y="28" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">可解释 AI 的分类体系（Adadi &amp; Berrada 2018 / Arrieta 2020）</text>
+<rect x="240" y="46" width="300" height="40" rx="6" fill="#1f6f8b"/>
+<text x="390" y="70" text-anchor="middle" font-size="15" fill="#fff">已训练模型（黑箱）f(x)</text>
+<line x1="330" y1="86" x2="170" y2="124" stroke="#333" stroke-width="1.5"/>
+<line x1="450" y1="86" x2="610" y2="124" stroke="#333" stroke-width="1.5"/>
+<rect x="60" y="124" width="220" height="44" rx="6" fill="#c0392b"/>
+<text x="170" y="144" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">内在可解释（白盒）</text>
+<text x="170" y="160" text-anchor="middle" font-size="12" fill="#fff">训练即解释，模型自身透明</text>
+<rect x="500" y="124" width="220" height="44" rx="6" fill="#c0392b"/>
+<text x="610" y="144" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">事后解释（post-hoc）</text>
+<text x="610" y="160" text-anchor="middle" font-size="12" fill="#fff">解释任意已训练好的模型</text>
+<line x1="130" y1="168" x2="130" y2="202" stroke="#333"/>
+<line x1="240" y1="168" x2="240" y2="202" stroke="#333"/>
+<rect x="40" y="202" width="180" height="54" rx="6" fill="#fff" stroke="#333"/>
+<text x="130" y="224" text-anchor="middle" font-size="13" fill="#333">参数型：线性回归</text>
+<text x="130" y="242" text-anchor="middle" font-size="13" fill="#333">逻辑回归 / GLM / GAM</text>
+<rect x="150" y="202" width="180" height="54" rx="6" fill="#fff" stroke="#333"/>
+<text x="240" y="224" text-anchor="middle" font-size="13" fill="#333">结构型：决策树</text>
+<text x="240" y="242" text-anchor="middle" font-size="13" fill="#333">规则列表 / 评分卡</text>
+<line x1="560" y1="168" x2="500" y2="206" stroke="#333"/>
+<line x1="660" y1="168" x2="700" y2="206" stroke="#333"/>
+<rect x="410" y="206" width="180" height="46" rx="6" fill="#1f6f8b"/>
+<text x="500" y="228" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">全局解释</text>
+<text x="500" y="244" text-anchor="middle" font-size="12" fill="#fff">整个模型的行为规律</text>
+<rect x="610" y="206" width="180" height="46" rx="6" fill="#1f6f8b"/>
+<text x="700" y="228" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">局部解释</text>
+<text x="700" y="244" text-anchor="middle" font-size="12" fill="#fff">单次预测的归因</text>
+<line x1="500" y1="252" x2="500" y2="286" stroke="#333"/>
+<rect x="360" y="286" width="280" height="88" rx="6" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="500" y="308" text-anchor="middle" font-size="13" fill="#1f6f8b" font-weight="bold">特征重要性 / 置换重要性</text>
+<text x="500" y="328" text-anchor="middle" font-size="13" fill="#333">PDP / ICE / ALE 曲线</text>
+<text x="500" y="348" text-anchor="middle" font-size="13" fill="#333">全局替代模型（决策树）</text>
+<text x="500" y="366" text-anchor="middle" font-size="12" fill="#666">第4篇详细展开</text>
+<line x1="700" y1="252" x2="700" y2="286" stroke="#333"/>
+<rect x="560" y="286" width="200" height="116" rx="6" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="660" y="306" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">LIME（局部替代）</text>
+<text x="660" y="326" text-anchor="middle" font-size="13" fill="#333">SHAP（博弈论归因）</text>
+<text x="660" y="346" text-anchor="middle" font-size="13" fill="#333">反事实解释</text>
+<text x="660" y="366" text-anchor="middle" font-size="13" fill="#333">锚点 / 原型 / 批评样本</text>
+<text x="660" y="392" text-anchor="middle" font-size="12" fill="#666">第5～8篇详细展开</text>
+<text x="390" y="436" text-anchor="middle" font-size="12" fill="#666">模型特定方法（saliency / Grad-CAM / 注意力）另成一族，见第9、10篇</text>
+</svg>

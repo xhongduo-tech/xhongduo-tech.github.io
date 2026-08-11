@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="sans-serif">
+  <title>时间投影室（TPC）原理示意</title>
+  <desc>一个圆柱形漂移体积内，带电粒子穿过留下电离电子；电子在均匀电场 E 中向下漂移到端盖分段读出垫，x、y 由垫位置给出，z 由漂移时间换算，从而重建三维径迹。</desc>
+  <rect width="640" height="400" fill="#faf9f5"/>
+  <!-- drift volume -->
+  <rect x="150" y="60" width="340" height="240" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="290" y="50" font-size="15" fill="#333">漂移体积（气体 / 液体）</text>
+  <!-- E field arrows -->
+  <line x1="320" y1="300" x2="320" y2="180" stroke="#1f6f8b" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <text x="345" y="240" font-size="14" fill="#1f6f8b">漂移电场 E</text>
+  <!-- particle path -->
+  <path d="M 60 150 L 480 150" stroke="#c0392b" stroke-width="3" stroke-dasharray="6,4"/>
+  <text x="70" y="140" font-size="14" fill="#c0392b">带电粒子径迹（产生电离电子）</text>
+  <!-- ionization electrons drifting down -->
+  <line x1="180" y1="165" x2="180" y2="300" stroke="#333" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <line x1="250" y1="175" x2="250" y2="300" stroke="#333" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <line x1="340" y1="185" x2="340" y2="300" stroke="#333" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <line x1="430" y1="175" x2="430" y2="300" stroke="#333" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <text x="130" y="285" font-size="13" fill="#333">电子向端盖漂移</text>
+  <!-- endcap pads -->
+  <rect x="150" y="300" width="340" height="10" fill="#1f6f8b"/>
+  <line x1="180" y1="300" x2="180" y2="310" stroke="#fff" stroke-width="2"/>
+  <line x1="250" y1="300" x2="250" y2="310" stroke="#fff" stroke-width="2"/>
+  <line x1="340" y1="300" x2="340" y2="310" stroke="#fff" stroke-width="2"/>
+  <line x1="430" y1="300" x2="430" y2="310" stroke="#fff" stroke-width="2"/>
+  <text x="280" y="330" font-size="14" fill="#333">端盖分段读出垫：垫位 → (x, y)</text>
+  <text x="280" y="350" font-size="14" fill="#333">漂移时间 → z（三维重建）</text>
+  <!-- B field -->
+  <text x="500" y="330" font-size="14" fill="#666">磁场 B 沿 z</text>
+  <line x1="500" y1="318" x2="520" y2="318" stroke="#666" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1f6f8b"/></marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#666"/></marker>
+  </defs>
+</svg>

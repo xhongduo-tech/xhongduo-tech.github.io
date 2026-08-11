@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" width="860" height="420" role="img" aria-labelledby="title desc">
+  <title>血管壁三层与按血管大小分类的血管炎</title>
+  <desc>血管壁分内膜、中膜、外膜三层；小血管炎（真皮浅层小静脉/毛细血管，白癫风样紫癜）、中血管炎（皮肤结节）与大血管炎（巨大细胞动脉炎）的病变层次示意。</desc>
+  <rect x="0" y="0" width="860" height="420" fill="#faf9f5"/>
+
+  <!-- 血管横断面（管壁三层） -->
+  <text x="60" y="40" font-family="sans-serif" font-size="17" fill="#1f6f8b">血管壁的三层结构</text>
+  <circle cx="180" cy="180" r="110" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="180" cy="180" r="70" fill="#f0d8d0" stroke="#333" stroke-width="1.5"/>
+  <circle cx="180" cy="180" r="40" fill="#c0392b" stroke="#333" stroke-width="1.5"/>
+  <text x="148" y="176" font-family="sans-serif" font-size="13" fill="#7a1f12">内膜（内皮）</text>
+  <text x="80" y="132" font-family="sans-serif" font-size="13" fill="#333">中膜（平滑肌）</text>
+  <text x="250" y="232" font-family="sans-serif" font-size="13" fill="#333">外膜（结缔组织）</text>
+  <line x1="290" y1="180" x2="360" y2="180" stroke="#1f6f8b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#1f6f8b"/></marker></defs>
+
+  <!-- 右半：三档血管大小 -->
+  <text x="440" y="40" font-family="sans-serif" font-size="17" fill="#1f6f8b">按受累血管大小分型</text>
+
+  <!-- 小血管 -->
+  <rect x="440" y="60" width="380" height="100" fill="#f9f4ea" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="456" y="84" font-family="sans-serif" font-size="14" fill="#333">小血管血管炎（皮肤紫癜）</text>
+  <text x="456" y="106" font-family="sans-serif" font-size="13" fill="#333">真皮浅层小静脉/毛细血管、白细胞破碎</text>
+  <text x="456" y="126" font-family="sans-serif" font-size="13" fill="#333">可触及性紫癜 → IgA 血管炎（HSP）、ANCA 相关</text>
+  <text x="456" y="146" font-family="sans-serif" font-size="13" fill="#333">检查：DIF（IgA 颗粒）+ ANCA + 尿常规</text>
+
+  <!-- 中血管 -->
+  <rect x="440" y="170" width="380" height="100" fill="#f3ede1" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="456" y="194" font-family="sans-serif" font-size="14" fill="#333">中血管血管炎（皮肤结节、网状青斑）</text>
+  <text x="456" y="216" font-family="sans-serif" font-size="13" fill="#333">结节性多动脉炎（PAN）、Kawasaki 病</text>
+  <text x="456" y="236" font-family="sans-serif" font-size="13" fill="#333">皮损深在：结节、溃疡、坏死</text>
+  <text x="456" y="256" font-family="sans-serif" font-size="13" fill="#333">检查：深部活检 + 血管造影</text>
+
+  <!-- 大血管 -->
+  <rect x="440" y="280" width="380" height="100" fill="#eee7d8" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="456" y="304" font-family="sans-serif" font-size="14" fill="#333">大血管血管炎（少见皮肤表现）</text>
+  <text x="456" y="326" font-family="sans-serif" font-size="13" fill="#333">巨大细胞动脉炎（颞动脉）、Takayasu 动脉炎</text>
+  <text x="456" y="346" font-family="sans-serif" font-size="13" fill="#333">头痛、视力障碍、脉搏减弱；皮肤表现隐匿</text>
+  <text x="456" y="366" font-family="sans-serif" font-size="13" fill="#333">检查：ESR/CRP、颞动脉活检</text>
+</svg>

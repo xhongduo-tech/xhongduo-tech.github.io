@@ -1,0 +1,22 @@
+<svg viewBox="0 0 620 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>光镊拉伸 DNA 的力谱实验示意</title>
+<desc>激光经高数值孔径物镜聚焦形成光阱捕获微球；DNA 分子一端连在阱中微球，另一端连在移液管吸附的微球上，拉动移液管即可拉伸分子并测出皮牛级拉力。</desc>
+<rect width="620" height="420" fill="#faf9f5"/>
+<text x="310" y="36" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#333">光镊拉伸 DNA 示意图</text>
+<rect x="80" y="58" width="460" height="72" rx="10" fill="#1f6f8b" opacity="0.15"/>
+<text x="310" y="100" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b">高数值孔径物镜</text>
+<polygon points="310,130 185,300 435,300" fill="#c0392b" opacity="0.08"/>
+<polygon points="310,130 250,300 370,300" fill="#c0392b" opacity="0.12"/>
+<circle cx="425" cy="300" r="26" fill="#fff" stroke="#c0392b" stroke-width="3"/>
+<text x="425" y="305" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">微球</text>
+<text x="425" y="360" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">激光阱 F = k·Δx</text>
+<rect x="40" y="286" width="92" height="26" fill="#666"/>
+<text x="86" y="278" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">移液管</text>
+<circle cx="150" cy="300" r="26" fill="#fff" stroke="#1f6f8b" stroke-width="3"/>
+<text x="150" y="305" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">微球</text>
+<path d="M 176,300 Q 225,282 300,300 T 399,300" fill="none" stroke="#333" stroke-width="3" stroke-dasharray="5 4"/>
+<text x="286" y="252" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">DNA / 蛋白质分子</text>
+<line x1="178" y1="322" x2="399" y2="322" stroke="#c0392b" stroke-width="2"/>
+<polygon points="399,322 387,315 387,329" fill="#c0392b"/>
+<text x="288" y="346" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">拉力 F（皮牛量级）</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 720 430" width="720" height="430" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>信赖域方法：在半径内信任二次模型</title>
+<desc>当前点周围有一个信赖域圆，二次模型只在圆内被信任；圆外真实函数的等高线弯曲，不再可用模型近似。</desc>
+<rect width="720" height="430" fill="#faf9f5"/>
+<text x="360" y="34" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#333">信赖域：在半径内信任二次模型</text>
+
+<ellipse cx="330" cy="250" rx="220" ry="150" fill="none" stroke="#c8bfae" stroke-width="1.4"/>
+<ellipse cx="330" cy="250" rx="160" ry="100" fill="none" stroke="#c8bfae" stroke-width="1.4"/>
+<ellipse cx="330" cy="250" rx="80" ry="48" fill="none" stroke="#c8bfae" stroke-width="1.4"/>
+<text x="500" y="160" font-family="sans-serif" font-size="13" fill="#666">真实函数等高线</text>
+
+<circle cx="330" cy="250" r="96" fill="none" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="330" cy="250" r="4" fill="#c0392b"/>
+<text x="330" y="270" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">当前点 x_k</text>
+
+<ellipse cx="330" cy="250" rx="34" ry="52" fill="none" stroke="#1f6f8b" stroke-width="1.8"/>
+<ellipse cx="330" cy="250" rx="17" ry="30" fill="none" stroke="#1f6f8b" stroke-width="1.8"/>
+<text x="376" y="156" font-family="sans-serif" font-size="13" fill="#1f6f8b">圆内二次模型 m(p)</text>
+
+<line x1="330" y1="250" x2="330" y2="154" stroke="#333" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="300" y="200" font-family="sans-serif" font-size="13" fill="#333">半径 Δ_k</text>
+
+<text x="360" y="420" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">先求圆内子问题的近似解，再根据实际下降幅度决定是否扩大信任半径</text>
+
+<defs>
+<marker id="arrowb2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#1f6f8b"/></marker>
+</defs>
+</svg>

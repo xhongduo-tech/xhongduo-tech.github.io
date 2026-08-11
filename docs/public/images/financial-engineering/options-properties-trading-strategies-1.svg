@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" font-family="sans-serif">
+  <title>多头跨式期权损益图</title>
+  <desc>买入执行价 K=50 的看涨与看跌期权，权利金各 2.5，总成本 5；三条线分别显示看涨、看跌与组合的到期损益。</desc>
+  <rect x="0" y="0" width="560" height="380" fill="#faf9f5"/>
+  <!-- 坐标轴 -->
+  <line x1="60" y1="320" x2="540" y2="320" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="320" x2="60" y2="40" stroke="#333" stroke-width="1.5"/>
+  <!-- 刻度：K=50 处，x 轴 60..540 映射 S=10..100 -->
+  <!-- S=10 -> x=60, S=100 -> x=540, 比例 480/90 -->
+  <!-- K=50 -> x=60+(50-10)*5.333=273 -->
+  <line x1="273" y1="316" x2="273" y2="324" stroke="#333" stroke-width="1"/>
+  <text x="273" y="338" text-anchor="middle" font-size="14" fill="#333">K = 50</text>
+  <text x="520" y="342" text-anchor="end" font-size="14" fill="#333">到期股价 S&#8344;</text>
+  <!-- y 轴刻度：y=320 对应 0；每 14 像素 = 5 元 -->
+  <line x1="56" y1="320" x2="64" y2="320" stroke="#333" stroke-width="1"/>
+  <text x="52" y="325" text-anchor="end" font-size="14" fill="#333">0</text>
+  <line x1="56" y1="250" x2="64" y2="250" stroke="#333" stroke-width="1"/>
+  <text x="52" y="255" text-anchor="end" font-size="14" fill="#333">5</text>
+  <line x1="56" y1="110" x2="64" y2="110" stroke="#333" stroke-width="1"/>
+  <text x="52" y="115" text-anchor="end" font-size="14" fill="#333">15</text>
+  <text x="20" y="180" font-size="14" fill="#333" transform="rotate(-90 20 180)" text-anchor="middle">到期损益</text>
+  <!-- 虚线 y=0 辅助 -->
+  <line x1="60" y1="320" x2="540" y2="320" stroke="#999" stroke-width="0.75" stroke-dasharray="4 4"/>
+  <!-- 看涨：买入价 50，权利金 2.5，成本线 -2.5 -->
+  <!-- S<=50: y=320+2.5*2.8=327; S>50: 斜率 5.333*2.8=14.93/元 -->
+  <line x1="60" y1="327" x2="273" y2="327" stroke="#c0392b" stroke-width="2"/>
+  <line x1="273" y1="327" x2="540" y2="293" stroke="#c0392b" stroke-width="2"/>
+  <!-- 看跌：S>=50: -2.5; S<50: 斜率向上 -->
+  <line x1="60" y1="45" x2="273" y2="327" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="273" y1="327" x2="540" y2="327" stroke="#1f6f8b" stroke-width="2"/>
+  <!-- 组合跨式：S<=50: put-2.5 + call-2.5 = 损益 = (50-S)-5；S=50: -5 -> y=334; S=45 -> (5-5)=0 -> y=320；S=55: 0 -->
+  <line x1="60" y1="291" x2="273" y2="334" stroke="#000" stroke-width="2.5"/>
+  <line x1="273" y1="334" x2="540" y2="296" stroke="#000" stroke-width="2.5"/>
+  <!-- 盈亏平衡点 45 与 55 -->
+  <!-- S=45 -> x=60+(45-10)*5.333=246.7 -->
+  <circle cx="246.7" cy="320" r="3" fill="#333"/>
+  <text x="246.7" y="352" text-anchor="middle" font-size="13" fill="#333">45</text>
+  <!-- S=55 -> x=60+(55-10)*5.333=300 -->
+  <circle cx="300" cy="320" r="3" fill="#333"/>
+  <text x="300" y="352" text-anchor="middle" font-size="13" fill="#333">55</text>
+  <text x="300" y="310" text-anchor="middle" font-size="13" fill="#333">组合盈亏</text>
+  <!-- 图例 -->
+  <line x1="360" y1="60" x2="400" y2="60" stroke="#c0392b" stroke-width="2"/>
+  <text x="410" y="65" font-size="14" fill="#333">买入看涨</text>
+  <line x1="360" y1="85" x2="400" y2="85" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="410" y="90" font-size="14" fill="#333">买入看跌</text>
+  <line x1="360" y1="110" x2="400" y2="110" stroke="#000" stroke-width="2.5"/>
+  <text x="410" y="115" font-size="14" fill="#333">跨式组合</text>
+</svg>

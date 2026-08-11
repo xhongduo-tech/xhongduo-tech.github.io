@@ -1,0 +1,33 @@
+<svg viewBox="0 0 640 420" width="640" height="420" xmlns="http://www.w3.org/2000/svg">
+<title>雅布隆斯基图</title>
+<desc>荧光分子能级：吸收光子从基态 S0 跃迁到激发态 S1，经振动弛豫损失能量，再发射较长波长光子回到 S0。</desc>
+<rect width="640" height="420" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333">
+<!-- energy levels -->
+<line x1="120" y1="70" x2="560" y2="70" stroke="#1f6f8b" stroke-width="2.5"/>
+<text x="570" y="75" font-size="14">S1 高振动能级</text>
+<line x1="120" y1="130" x2="560" y2="130" stroke="#1f6f8b" stroke-width="2.5"/>
+<text x="570" y="135" font-size="14">S1 最低振动能级</text>
+<line x1="120" y1="250" x2="560" y2="250" stroke="#c0392b" stroke-width="2.5"/>
+<text x="570" y="255" font-size="14">S0 基态</text>
+<!-- absorption arrow -->
+<line x1="240" y1="240" x2="240" y2="80" stroke="#c0392b" stroke-width="3"/>
+<polygon points="235,80 245,80 240,68" fill="#c0392b"/>
+<text x="80" y="160" font-size="15">吸收：</text>
+<text x="80" y="182" font-size="14">短波长 λex</text>
+<text x="340" y="105" font-size="15" fill="#c0392b">吸收光子</text>
+<!-- vibrational relaxation wiggle -->
+<path d="M 300 130 q 10 -18 20 0 q 10 18 20 0 q 10 -18 20 0 q 10 18 20 0 q 10 -18 20 0" stroke="#666" stroke-width="1.8" fill="none"/>
+<text x="415" y="125" font-size="14">振动弛豫（热耗散）</text>
+<!-- emission arrow -->
+<line x1="360" y1="140" x2="360" y2="240" stroke="#1f6f8b" stroke-width="3"/>
+<polygon points="355,240 365,240 360,252" fill="#1f6f8b"/>
+<text x="455" y="190" font-size="15" fill="#1f6f8b">荧光发射</text>
+<text x="455" y="212" font-size="14">长波长 λem</text>
+<!-- axis -->
+<line x1="110" y1="300" x2="620" y2="300" stroke="#333" stroke-width="1.5"/>
+<text x="560" y="325" font-size="14">λem &gt; λex （Stokes 位移）</text>
+<text x="120" y="350" font-size="15">能量 E = hc/λ</text>
+<text x="120" y="375" font-size="14">吸收光子能量高 → 发射光子能量低</text>
+</g>
+</svg>

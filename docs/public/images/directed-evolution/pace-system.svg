@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="sans-serif">
+  <title>PACE 连续进化装置</title>
+  <desc>培养基持续流入泻湖，泻湖内大肠杆菌与携带进化对象基因的 M13 噬菌体共存；噬菌体感染力取决于进化对象活性驱动的辅助质粒 pIII 表达，流出液带走被淘汰者。</desc>
+  <rect width="640" height="400" fill="#faf9f5"/>
+  <text x="60" y="30" text-anchor="middle" font-size="14" fill="#1f6f8b">含诱导剂与营养物的培养基</text>
+  <path d="M 60 40 L 60 150" stroke="#333" stroke-width="2.5" marker-end="url(#a1)"/>
+  <rect x="200" y="80" width="260" height="220" rx="14" fill="#fff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="330" y="110" text-anchor="middle" font-size="16" fill="#1f6f8b">泻湖（lagoon）</text>
+  <circle cx="250" cy="150" r="14" fill="#c0392b"/>
+  <circle cx="310" cy="200" r="14" fill="#c0392b"/>
+  <circle cx="250" cy="250" r="14" fill="#c0392b"/>
+  <text x="230" y="290" text-anchor="middle" font-size="13" fill="#333">大肠杆菌宿主</text>
+  <path d="M 395 150 l 18 -10 l 18 10 l -18 10 Z" fill="#1f6f8b"/>
+  <path d="M 400 210 l 18 -10 l 18 10 l -18 10 Z" fill="#1f6f8b"/>
+  <text x="420" y="258" text-anchor="middle" font-size="13" fill="#333">M13 噬菌体</text>
+  <text x="330" y="330" text-anchor="middle" font-size="13" fill="#666">诱变质粒：持续表达低保真聚合酶</text>
+  <text x="330" y="350" text-anchor="middle" font-size="13" fill="#666">辅助质粒：目标活性驱动 pIII → 感染力</text>
+  <path d="M 460 190 L 560 190" stroke="#333" stroke-width="2.5" marker-end="url(#a2)"/>
+  <text x="585" y="180" text-anchor="middle" font-size="14" fill="#1f6f8b">流出液</text>
+  <text x="585" y="200" text-anchor="middle" font-size="13" fill="#333">带走被淘汰者</text>
+  <defs>
+    <marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+    <marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="sans-serif">
+  <title>三种板块构造背景下的火山成因示意</title>
+  <desc>左：洋中脊减压熔融；中：俯冲带脱水助熔与弧火山；右：地幔热点与火山岛链。</desc>
+  <rect width="800" height="300" fill="#faf9f5"/>
+  <line x1="290" y1="40" x2="290" y2="285" stroke="#d5cdbf" stroke-width="1.5"/>
+  <line x1="540" y1="40" x2="540" y2="285" stroke="#d5cdbf" stroke-width="1.5"/>
+
+  <!-- Panel 1: mid-ocean ridge -->
+  <line x1="45" y1="95" x2="280" y2="95" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="160" y="82" text-anchor="middle" font-size="14" fill="#333">洋中脊（板块分离）</text>
+  <polygon points="45,130 45,155 160,155 160,130" fill="#c9b18a" stroke="#8a8178" stroke-width="1.5"/>
+  <polygon points="280,130 280,155 160,155 160,130" fill="#c9b18a" stroke="#8a8178" stroke-width="1.5"/>
+  <polygon points="150,130 160,108 170,130" fill="#c0392b" stroke="#8a1f12" stroke-width="1"/>
+  <line x1="160" y1="245" x2="160" y2="145" stroke="#c0392b" stroke-width="5"/>
+  <polygon points="160,135 152,150 168,150" fill="#c0392b"/>
+  <line x1="120" y1="180" x2="88" y2="180" stroke="#333" stroke-width="3"/>
+  <polygon points="80,180 95,173 95,187" fill="#333"/>
+  <line x1="200" y1="180" x2="232" y2="180" stroke="#333" stroke-width="3"/>
+  <polygon points="240,180 225,173 225,187" fill="#333"/>
+  <text x="160" y="215" text-anchor="middle" font-size="13" fill="#333">减压熔融</text>
+
+  <!-- Panel 2: subduction -->
+  <line x1="300" y1="105" x2="430" y2="105" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="412" y="122" text-anchor="middle" font-size="13" fill="#333">海沟</text>
+  <polygon points="300,155 300,180 420,180 415,155" fill="#c9b18a" stroke="#8a8178" stroke-width="1.5"/>
+  <polygon points="430,140 530,140 530,165 430,165" fill="#b9a57f" stroke="#8a8178" stroke-width="1.5"/>
+  <line x1="418" y1="172" x2="330" y2="268" stroke="#7a6a5a" stroke-width="8"/>
+  <line x1="382" y1="238" x2="376" y2="218" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="362" y1="252" x2="356" y2="232" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="342" y1="260" x2="336" y2="240" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="400" y="255" text-anchor="middle" font-size="13" fill="#1f6f8b">板片脱水 → 助熔</text>
+  <polygon points="460,140 480,96 500,140" fill="#c0392b" stroke="#8a1f12" stroke-width="1.5"/>
+  <circle cx="480" cy="108" r="4" fill="#faf9f5"/>
+  <text x="480" y="78" text-anchor="middle" font-size="14" fill="#333">弧火山（火环）</text>
+
+  <!-- Panel 3: hotspot -->
+  <polygon points="550,190 780,190 780,215 550,215" fill="#b9a57f" stroke="#8a8178" stroke-width="1.5"/>
+  <path d="M655 288 C 640 260, 605 225, 610 205 C 615 195, 695 195, 700 205 C 705 225, 670 260, 655 288 Z" fill="#c0392b" opacity="0.7" stroke="#8a1f12" stroke-width="1"/>
+  <polygon points="625,190 665,142 705,190" fill="#8b5a2b" stroke="#5a3a1b" stroke-width="1.5"/>
+  <polygon points="657,162 665,142 673,162" fill="#c0392b"/>
+  <text x="665" y="122" text-anchor="middle" font-size="14" fill="#333">热点火山（夏威夷型）</text>
+  <line x1="725" y1="232" x2="650" y2="232" stroke="#333" stroke-width="3"/>
+  <polygon points="640,232 655,225 655,239" fill="#333"/>
+  <text x="700" y="250" text-anchor="middle" font-size="13" fill="#333">板块移动</text>
+  <text x="650" y="278" text-anchor="middle" font-size="13" fill="#c0392b">地幔柱</text>
+</svg>

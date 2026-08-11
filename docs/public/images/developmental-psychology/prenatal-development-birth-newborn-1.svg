@@ -1,0 +1,26 @@
+<svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>产前发育三个时期与致畸敏感期示意图</title>
+  <desc>时间轴展示胚芽期、胚胎期、胎儿期，并标注中枢神经系统致畸敏感区间</desc>
+  <rect width="640" height="380" fill="#faf9f5"/>
+  <text x="320" y="36" text-anchor="middle" font-size="18" fill="#333">产前发育：胚芽期 · 胚胎期 · 胎儿期</text>
+  <line x1="60" y1="120" x2="600" y2="120" stroke="#333" stroke-width="2"/>
+  <line x1="60" y1="120" x2="60" y2="320" stroke="#555" stroke-width="1.5"/>
+  <line x1="600" y1="120" x2="600" y2="320" stroke="#555" stroke-width="1.5"/>
+  <rect x="60" y="60" width="72" height="60" fill="#1f6f8b" opacity="0.5"/>
+  <rect x="132" y="60" width="168" height="60" fill="#c0392b" opacity="0.5"/>
+  <rect x="300" y="60" width="300" height="60" fill="#1f6f8b" opacity="0.35"/>
+  <text x="96" y="52" text-anchor="middle" font-size="14" fill="#333">胚芽期</text>
+  <text x="216" y="52" text-anchor="middle" font-size="14" fill="#333">胚胎期</text>
+  <text x="450" y="52" text-anchor="middle" font-size="14" fill="#333">胎儿期</text>
+  <text x="96" y="82" text-anchor="middle" font-size="12" fill="#333">0–2 周</text>
+  <text x="216" y="82" text-anchor="middle" font-size="12" fill="#333">3–8 周</text>
+  <text x="450" y="82" text-anchor="middle" font-size="12" fill="#333">9 周–出生</text>
+  <text x="96" y="136" text-anchor="middle" font-size="13" fill="#1f6f8b">受精·着床</text>
+  <text x="216" y="136" text-anchor="middle" font-size="13" fill="#c0392b">器官形成（致畸最敏感）</text>
+  <text x="450" y="136" text-anchor="middle" font-size="13" fill="#1f6f8b">生长与精细分化</text>
+  <text x="60" y="175" text-anchor="start" font-size="13" fill="#333">中枢神经系统的致畸敏感期最长：</text>
+  <line x1="60" y1="210" x2="600" y2="210" stroke="#c0392b" stroke-width="8" opacity="0.7"/>
+  <text x="60" y="240" text-anchor="start" font-size="12" fill="#555">受精后第 3 周左右开始，一直延伸到婴儿期——大脑的发育窗口比心脏、四肢长得多。</text>
+  <text x="60" y="290" text-anchor="start" font-size="13" fill="#333">这意味着：孕期越早接触酒精等致畸原，</text>
+  <text x="60" y="312" text-anchor="start" font-size="13" fill="#333">对中枢神经系统的伤害往往越严重、越不可逆。</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+<title>贝尔实验示意图：纠缠粒子对与远距测量</title>
+<desc>一对纠缠光子从中央光源向左右两个探测器飞行，两处测量设置 a 与 b 随机且空间分离，记录的两粒子结果关联违背定域隐变量允许的贝尔不等式上限。</desc>
+<rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+<!-- 光源 -->
+<circle cx="320" cy="200" r="14" fill="#c0392b"/>
+<text x="300" y="180" font-family="sans-serif" font-size="15" fill="#c0392b">光源</text>
+<!-- 两条光路 -->
+<line x1="320" y1="186" x2="120" y2="150" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arr)"/>
+<line x1="320" y1="214" x2="520" y2="250" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arr)"/>
+<!-- 探测器 A -->
+<rect x="70" y="120" width="90" height="60" fill="#e9eef2" stroke="#333" stroke-width="3"/>
+<text x="88" y="155" font-family="sans-serif" font-size="16" fill="#333">探测器 A</text>
+<!-- 探测器 B -->
+<rect x="480" y="220" width="90" height="60" fill="#e9eef2" stroke="#333" stroke-width="3"/>
+<text x="498" y="255" font-family="sans-serif" font-size="16" fill="#333">探测器 B</text>
+<!-- 测量设置 -->
+<text x="70" y="105" font-family="sans-serif" font-size="15" fill="#c0392b">测量设置 a</text>
+<text x="480" y="205" font-family="sans-serif" font-size="15" fill="#c0392b">测量设置 b</text>
+<!-- 空间分离标注 -->
+<line x1="175" y1="140" x2="175" y2="300" stroke="#666" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="465" y1="140" x2="465" y2="300" stroke="#666" stroke-width="1.5" stroke-dasharray="5 5"/>
+<text x="200" y="330" font-family="sans-serif" font-size="14" fill="#666">空间分离：信号来不及在测量间往返</text>
+<!-- 纠缠标注 -->
+<text x="300" y="245" font-family="sans-serif" font-size="14" fill="#333">纠缠光子对</text>
+<text x="300" y="265" font-family="sans-serif" font-size="14" fill="#333">（单态：总自旋为零）</text>
+<!-- 结果标注 -->
+<text x="95" y="210" font-family="sans-serif" font-size="14" fill="#333">结果 +1 / −1</text>
+<text x="470" y="300" font-family="sans-serif" font-size="14" fill="#333">结果 +1 / −1</text>
+<text x="200" y="60" font-family="sans-serif" font-size="16" fill="#1f6f8b">关联超边界：|S| ≈ 2.83 &gt; 2</text>
+<defs>
+<marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+<polygon points="0,0 8,3 0,6" fill="#1f6f8b"/>
+</marker>
+</defs>
+</svg>

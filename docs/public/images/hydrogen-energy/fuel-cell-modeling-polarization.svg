@@ -1,0 +1,49 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>燃料电池极化曲线与三区损耗</title>
+<desc>氢氧燃料电池极化曲线示意图：横轴为电流密度，纵轴为电压，曲线分活化、欧姆、浓差三个损耗区段。</desc>
+<rect width="640" height="400" fill="#fff"/>
+<g stroke="#333" stroke-width="1.5">
+  <!-- axes -->
+  <line x1="90" y1="330" x2="600" y2="330" stroke="#333"/>
+  <line x1="90" y1="330" x2="90" y2="40" stroke="#333"/>
+  <!-- axis ticks -->
+  <line x1="90" y1="330" x2="600" y2="330" stroke="#333"/>
+</g>
+<g fill="#333" font-size="13">
+  <text x="330" y="368" text-anchor="middle">电流密度 i (A/cm²) →</text>
+  <text x="40" y="185" text-anchor="middle" transform="rotate(-90 40 185)">电压 V (V)</text>
+  <text x="105" y="345">0</text>
+  <text x="300" y="345">0.5</text>
+  <text x="500" y="345">1.0</text>
+</g>
+<!-- theoretical Eocv line -->
+<line x1="90" y1="45" x2="600" y2="45" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="430" y="32" fill="#1f6f8b" font-size="14">理论电压 E° ≈ 1.23 V</text>
+<text x="430" y="58" fill="#1f6f8b" font-size="13">开路电压 OCV ≈ 1.0 V</text>
+<circle cx="90" cy="70" r="3.5" fill="#c0392b"/>
+<!-- polarization curve: start high, three regions -->
+<path d="M90 70 C 150 78, 200 96, 250 116 L 420 210 L 555 322" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<!-- region shading -->
+<line x1="250" y1="70" x2="250" y2="330" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+<line x1="420" y1="70" x2="420" y2="330" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+<!-- region labels -->
+<g fill="#333" font-size="14">
+  <text x="165" y="200" text-anchor="middle">活化损耗区</text>
+  <text x="165" y="220" text-anchor="middle" font-size="13" fill="#666">塔菲尔段</text>
+  <text x="335" y="200" text-anchor="middle">欧姆损耗区</text>
+  <text x="335" y="220" text-anchor="middle" font-size="13" fill="#666">线性段（斜率 = ASR）</text>
+  <text x="485" y="200" text-anchor="middle">浓差损耗区</text>
+  <text x="485" y="220" text-anchor="middle" font-size="13" fill="#666">传质极限 i_L</text>
+</g>
+<!-- power curve -->
+<path d="M90 330 C 200 330, 380 300, 480 330 L 480 330" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="5 3" opacity="0.0"/>
+<!-- arrows for losses -->
+<g stroke="#666" stroke-width="1" marker-end="url(#arrow)">
+  <line x1="330" y1="180" x2="330" y2="215"/>
+</g>
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#666"/>
+  </marker>
+</defs>
+</svg>

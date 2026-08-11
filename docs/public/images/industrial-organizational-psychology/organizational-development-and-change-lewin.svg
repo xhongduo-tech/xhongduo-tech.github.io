@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="sans-serif" fill="#333">
+<title>勒温的变革三步模型与阻力</title>
+<desc>勒温把组织变革分为解冻、改变、再冻结三步，每一步面对不同的组织阻力与领导任务；解冻是变革成功与否的关键第一步。</desc>
+<rect x="0" y="0" width="960" height="430" fill="#faf9f5"/>
+
+<text x="480" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#1f6f8b">勒温（Lewin）变革三步模型</text>
+
+<rect x="40" y="100" width="270" height="150" rx="10" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+<text x="175" y="130" text-anchor="middle" font-size="17" font-weight="bold" fill="#c0392b">① 解冻 Unfreezing</text>
+<text x="175" y="162" text-anchor="middle" font-size="14">打破现状：制造变革紧迫感</text>
+<text x="175" y="186" text-anchor="middle" font-size="14">揭示旧行为为何不可持续</text>
+<text x="175" y="210" text-anchor="middle" font-size="14">降低对旧状态的依赖</text>
+<text x="175" y="238" text-anchor="middle" font-size="13" fill="#666">最常被跳过，最致命</text>
+
+<rect x="345" y="100" width="270" height="150" rx="10" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="480" y="130" text-anchor="middle" font-size="17" font-weight="bold">② 改变 Moving / Changing</text>
+<text x="480" y="162" text-anchor="middle" font-size="14">引入新行为、新结构、新规范</text>
+<text x="480" y="186" text-anchor="middle" font-size="14">培训 + 试错 + 标杆示范</text>
+<text x="480" y="210" text-anchor="middle" font-size="14">让新方案被尝试并验证</text>
+
+<rect x="650" y="100" width="270" height="150" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="785" y="130" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f6f8b">③ 再冻结 Refreezing</text>
+<text x="785" y="162" text-anchor="middle" font-size="14">新行为被制度化、固化</text>
+<text x="785" y="186" text-anchor="middle" font-size="14">与薪酬、考核、文化绑定</text>
+<text x="785" y="210" text-anchor="middle" font-size="14">防止反弹回旧状态</text>
+
+<path d="M 310 175 L 340 175" fill="none" stroke="#333" stroke-width="3" marker-end="url(#ar)"/>
+<path d="M 615 175 L 645 175" fill="none" stroke="#333" stroke-width="3" marker-end="url(#ar)"/>
+<defs>
+<marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+<path d="M0,0 L10,4 L0,8 Z" fill="#333"/>
+</marker>
+</defs>
+
+<rect x="40" y="290" width="880" height="60" rx="8" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+<text x="480" y="316" text-anchor="middle" font-size="15" font-weight="bold" fill="#c0392b">变革阻力（resistance）贯穿全程：</text>
+<text x="480" y="340" text-anchor="middle" font-size="14" fill="#666">对未知的恐惧、既得利益的损失、惯性的锚定、信任缺失——阻力不是"员工不配合"，而是变革未被有效管理。</text>
+
+<text x="480" y="390" text-anchor="middle" font-size="14" fill="#666">解冻（紧迫感）→ 改变（新行为）→ 再冻结（制度化）；缺了解冻，变革一启动就遭反弹。</text>
+</svg>

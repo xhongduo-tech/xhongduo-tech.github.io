@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 315" width="460" height="315">
+  <title>Krull 维数：素理想链与 Hilbert–Samuel 多项式</title>
+  <desc>左：三个环的素理想链决定维数；右：局部环的 Hilbert–Samuel 函数渐近为多项式，其次数等于 Krull 维数</desc>
+  <rect width="460" height="315" fill="#faf9f5"/>
+  <text x="230" y="24" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">Krull 维数 = 素理想链的长度</text>
+
+  <text x="105" y="46" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">素理想链（左）→ 维数（右）</text>
+  <line x1="20" y1="60" x2="190" y2="60" stroke="#999" stroke-width="0.5"/>
+  <circle cx="105" cy="66" r="4" fill="#1f6f8b"/>
+  <text x="120" y="70" font-family="sans-serif" font-size="13" fill="#333">(x, y)</text>
+  <line x1="105" y1="70" x2="105" y2="92" stroke="#1f6f8b" stroke-width="1.5"/>
+  <circle cx="105" cy="98" r="4" fill="#1f6f8b"/>
+  <text x="120" y="102" font-family="sans-serif" font-size="13" fill="#333">(x)</text>
+  <line x1="105" y1="102" x2="105" y2="124" stroke="#1f6f8b" stroke-width="1.5"/>
+  <circle cx="105" cy="130" r="4" fill="#1f6f8b"/>
+  <text x="120" y="134" font-family="sans-serif" font-size="13" fill="#333">(0)</text>
+  <text x="105" y="150" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">k[x,y]：dim 2</text>
+
+  <circle cx="105" cy="178" r="4" fill="#c0392b"/>
+  <text x="120" y="182" font-family="sans-serif" font-size="13" fill="#333">(p)</text>
+  <line x1="105" y1="182" x2="105" y2="204" stroke="#c0392b" stroke-width="1.5"/>
+  <circle cx="105" cy="210" r="4" fill="#c0392b"/>
+  <text x="120" y="214" font-family="sans-serif" font-size="13" fill="#333">(0)</text>
+  <text x="105" y="230" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">ℤ：dim 1</text>
+
+  <circle cx="105" cy="258" r="4" fill="#666"/>
+  <text x="120" y="262" font-family="sans-serif" font-size="13" fill="#333">(0)</text>
+  <text x="105" y="280" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">k：dim 0</text>
+
+  <line x1="215" y1="40" x2="215" y2="295" stroke="#999" stroke-width="1"/>
+  <text x="310" y="46" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">Hilbert–Samuel：λ(R/𝔪ⁿ)</text>
+
+  <line x1="235" y1="280" x2="450" y2="280" stroke="#333" stroke-width="1.2"/>
+  <line x1="235" y1="60" x2="235" y2="280" stroke="#333" stroke-width="1.2"/>
+  <text x="232" y="284" text-anchor="end" font-family="sans-serif" font-size="12" fill="#333">0</text>
+  <text x="266" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">1</text>
+  <text x="298" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">2</text>
+  <text x="330" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">3</text>
+  <text x="362" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">4</text>
+  <text x="394" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">5</text>
+  <text x="426" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#333">6</text>
+  <text x="444" y="286" font-family="sans-serif" font-size="12" fill="#333">n</text>
+  <text x="238" y="64" text-anchor="end" font-family="sans-serif" font-size="12" fill="#333">22</text>
+  <text x="238" y="178" text-anchor="end" font-family="sans-serif" font-size="12" fill="#333">10</text>
+
+  <polyline points="250,280 282,270 313,249 345,217 377,175 408,123 440,60"
+            fill="none" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="282" cy="270" r="3" fill="#c0392b"/>
+  <circle cx="345" cy="217" r="3" fill="#c0392b"/>
+  <circle cx="408" cy="123" r="3" fill="#c0392b"/>
+  <text x="412" y="70" font-family="sans-serif" font-size="13" fill="#c0392b">k[x,y]_{(x,y)}：</text>
+  <text x="412" y="88" font-family="sans-serif" font-size="13" fill="#c0392b">λ = n(n+1)/2</text>
+  <text x="240" y="240" font-family="sans-serif" font-size="13" fill="#333">次数 2 = dim</text>
+  <text x="240" y="258" font-family="sans-serif" font-size="13" fill="#333">渐近多项式次数</text>
+  <text x="240" y="306" font-family="sans-serif" font-size="13" fill="#333">λ(A/𝔪ⁿ) ≈ (e/d!)·nᵈ，d = dim A</text>
+</svg>

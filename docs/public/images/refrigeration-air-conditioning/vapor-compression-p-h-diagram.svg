@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">蒸气压缩制冷循环压焓图</title>
+<desc id="desc">以焓为横轴、对数压力为纵轴的压焓图：饱和液体线与饱和蒸气线构成气液两相区，循环由蒸发、压缩、冷凝、节流四个过程构成闭合回路。</desc>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+  </marker>
+  <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="800" height="560" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333">
+
+  <!-- 坐标轴 -->
+  <line x1="90" y1="500" x2="760" y2="500" stroke="#333" stroke-width="1.5"/>
+  <line x1="90" y1="500" x2="90" y2="70" stroke="#333" stroke-width="1.5"/>
+  <polygon points="760,500 752,496 752,504" fill="#333"/>
+  <polygon points="90,70 86,78 94,78" fill="#333"/>
+  <text x="660" y="524" font-size="15">比焓 h（kJ/kg）</text>
+  <text x="40" y="80" font-size="15" text-anchor="middle">压力 p（对数坐标）</text>
+
+  <!-- 饱和液体线 -->
+  <polyline points="170,470 210,410 250,345 290,280 320,210 355,175 400,150" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <!-- 饱和蒸气线 -->
+  <polyline points="400,150 470,185 520,250 565,320 610,390 650,440 700,480" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="405" y="140" font-size="14" fill="#1f6f8b">临界点</text>
+  <text x="148" y="220" font-size="13" fill="#1f6f8b">饱和液体线</text>
+  <text x="612" y="300" font-size="13" fill="#1f6f8b">饱和蒸气线</text>
+
+  <!-- 区域标注 -->
+  <text x="180" y="320" font-size="13">过冷液体区</text>
+  <text x="470" y="360" font-size="13">气液两相区</text>
+  <text x="620" y="150" font-size="13">过热蒸气区</text>
+
+  <!-- 低压线 / 高压线 -->
+  <line x1="170" y1="470" x2="700" y2="470" stroke="#c0c0c0" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="320" y1="200" x2="430" y2="200" stroke="#c0c0c0" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <!-- 循环：4->1 蒸发，1->2 压缩，2->3 冷凝，3->4 节流 -->
+  <!-- 蒸发 4->1 -->
+  <line x1="320" y1="470" x2="650" y2="470" stroke="#c0392b" stroke-width="3" marker-end="url(#arr-red)"/>
+  <!-- 压缩 1->2 -->
+  <path d="M 655 468 C 620 400, 500 280, 435 205" fill="none" stroke="#333" stroke-width="3" marker-end="url(#arr)"/>
+  <!-- 冷凝 2->3 -->
+  <line x1="430" y1="200" x2="325" y2="200" stroke="#c0392b" stroke-width="3" marker-end="url(#arr-red)"/>
+  <!-- 节流 3->4 -->
+  <line x1="320" y1="205" x2="320" y2="465" stroke="#333" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- 状态点 -->
+  <g fill="#fff" stroke="#333" stroke-width="1.5">
+    <circle cx="655" cy="470" r="5"/><circle cx="435" cy="205" r="5"/>
+    <circle cx="325" cy="200" r="5"/><circle cx="320" cy="470" r="5"/>
+  </g>
+  <text x="665" y="462" font-size="14" font-weight="bold">1（饱和蒸气）</text>
+  <text x="442" y="196" font-size="14" font-weight="bold">2（过热蒸气）</text>
+  <text x="296" y="194" font-size="14" font-weight="bold" text-anchor="end">3（饱和液体）</text>
+  <text x="308" y="490" font-size="14" font-weight="bold" text-anchor="end">4（湿蒸气）</text>
+
+  <!-- 过程标注 -->
+  <text x="452" y="440" font-size="13">1→2 压缩机耗功 w = h2−h1</text>
+  <text x="470" y="230" font-size="13">2→3 冷凝放热 q = h2−h3</text>
+  <text x="336" y="345" font-size="13" transform="rotate(-90 336 345)">3→4 节流（等焓）</text>
+  <text x="500" y="486" font-size="13">4→1 蒸发吸热 q_e = h1−h4</text>
+
+</g>
+</svg>

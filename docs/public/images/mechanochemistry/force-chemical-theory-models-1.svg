@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" font-family="sans-serif">
+  <title>外力倾斜能量势垒示意图</title>
+  <desc>无外力时反应物需爬越较高的势垒；施加张力 F 后，能量曲线沿反应坐标方向倾斜，势垒被削低 F 乘以活化距离 x†，反应坐标位置也向解离方向漂移。</desc>
+  <rect width="540" height="360" fill="#faf9f5"/>
+  <line x1="70" y1="300" x2="510" y2="300" stroke="#333" stroke-width="2"/>
+  <line x1="70" y1="300" x2="70" y2="40" stroke="#333" stroke-width="2"/>
+  <text x="520" y="316" text-anchor="end" fill="#333" font-size="14">反应坐标 x</text>
+  <text x="38" y="50" text-anchor="middle" fill="#333" font-size="14" transform="rotate(-90 38 175)">势能 U</text>
+  <path d="M 90 296 C 150 296, 165 180, 210 150 C 250 122, 268 152, 300 158 C 360 170, 395 300, 490 296"
+        fill="none" stroke="#333" stroke-width="3"/>
+  <path d="M 90 298 C 160 300, 175 210, 220 192 C 268 174, 288 196, 320 210 C 370 236, 405 300, 490 298"
+        fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="8 5"/>
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="210" y1="150" x2="210" y2="252" stroke-dasharray="4 4"/>
+    <line x1="220" y1="192" x2="220" y2="252" stroke-dasharray="4 4"/>
+  </g>
+  <line x1="130" y1="120" x2="196" y2="120" stroke="#1f6f8b" stroke-width="2"/>
+  <line x1="130" y1="172" x2="196" y2="172" stroke="#c0392b" stroke-width="2"/>
+  <text x="163" y="105" text-anchor="middle" fill="#1f6f8b" font-size="13">无外力势垒 ΔG‡</text>
+  <text x="163" y="162" text-anchor="middle" fill="#c0392b" font-size="13">有外力势垒</text>
+  <text x="300" y="140" text-anchor="middle" fill="#c0392b" font-size="14">削低量 ≈ F·x†</text>
+  <text x="163" y="190" text-anchor="middle" fill="#333" font-size="13">（外力做的功）</text>
+  <circle cx="90" cy="296" r="5" fill="#333"/>
+  <text x="90" y="330" text-anchor="middle" fill="#333" font-size="14">反应物</text>
+  <circle cx="210" cy="150" r="5" fill="#333"/>
+  <text x="210" y="135" text-anchor="middle" fill="#333" font-size="14">过渡态</text>
+  <text x="400" y="290" text-anchor="middle" fill="#333" font-size="14">产物</text>
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="130" y1="296" x2="130" y2="150" stroke-dasharray="3 3"/>
+    <line x1="130" y1="150" x2="130" y2="120"/>
+  </g>
+  <text x="118" y="120" text-anchor="end" fill="#333" font-size="13">ΔG‡</text>
+</svg>

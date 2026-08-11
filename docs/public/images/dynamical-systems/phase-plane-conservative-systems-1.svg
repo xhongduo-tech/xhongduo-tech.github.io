@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" font-family="sans-serif" font-size="14">
+  <title>无阻尼单摆的相平面示意</title>
+  <desc>在角度-角速度平面中画出单摆的相图：中心点周围是代表小幅摆动的闭合椭圆，鞍点之间由代表临界能量的分界线相连，分界线上下方是代表整圈旋转的波浪形轨线。</desc>
+  <rect width="480" height="320" fill="#faf9f5"/>
+  <line x1="30" y1="160" x2="460" y2="160" stroke="#333" stroke-width="1.5"/>
+  <line x1="240" y1="30" x2="240" y2="290" stroke="#333" stroke-width="1.5"/>
+  <text x="445" y="180" fill="#333">θ</text>
+  <text x="250" y="42" fill="#333">ω</text>
+  <text x="45" y="180" fill="#888">-π</text>
+  <text x="135" y="180" fill="#888">0</text>
+  <text x="232" y="180" fill="#888">π</text>
+  <text x="332" y="180" fill="#888">2π</text>
+  <text x="432" y="180" fill="#888">3π</text>
+  <text x="252" y="100" fill="#888">2</text>
+  <text x="252" y="226" fill="#888">-2</text>
+  <!-- 旋转区波浪（E>临界） -->
+  <path d="M40,40 Q115,62 190,40 Q265,18 340,40 Q415,62 460,40" fill="none" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M40,280 Q115,258 190,280 Q265,302 340,280 Q415,258 460,280" fill="none" stroke="#1f6f8b" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <!-- 分界线：过鞍点的临界轨道（上半） -->
+  <path d="M40,160 C53,142 73,118 90,98 C108,76 128,52 140,50 C152,52 172,76 190,98 C207,118 227,142 240,160 C253,142 273,118 290,98 C308,76 328,52 340,50 C352,52 372,76 390,98 C407,118 427,142 440,160" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <!-- 分界线：过鞍点的临界轨道（下半） -->
+  <path d="M40,160 C53,178 73,202 90,222 C108,244 128,268 140,270 C152,268 172,244 190,222 C207,202 227,178 240,160 C253,178 273,202 290,222 C308,244 328,268 340,270 C352,268 372,244 390,222 C407,202 427,178 440,160" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <!-- 摆动区闭合椭圆（中心附近） -->
+  <ellipse cx="140" cy="160" rx="55" ry="32" fill="none" stroke="#1f6f8b" stroke-width="1.4"/>
+  <ellipse cx="140" cy="160" rx="32" ry="17" fill="none" stroke="#1f6f8b" stroke-width="1.4"/>
+  <ellipse cx="340" cy="160" rx="55" ry="32" fill="none" stroke="#1f6f8b" stroke-width="1.4"/>
+  <ellipse cx="340" cy="160" rx="32" ry="17" fill="none" stroke="#1f6f8b" stroke-width="1.4"/>
+  <!-- 鞍点与中心 -->
+  <circle cx="40" cy="160" r="4.5" fill="#faf9f5" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="240" cy="160" r="4.5" fill="#faf9f5" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="440" cy="160" r="4.5" fill="#faf9f5" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="140" cy="160" r="4" fill="#c0392b"/>
+  <circle cx="340" cy="160" r="4" fill="#c0392b"/>
+  <path d="M52,92 C58,84 66,78 76,76" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker></defs>
+  <text x="60" y="72" fill="#333">摆动（椭圆）</text>
+  <text x="72" y="300" fill="#c0392b">分界线（临界能量）</text>
+  <text x="320" y="60" fill="#1f6f8b">整圈旋转（波浪）</text>
+  <text x="96" y="132" fill="#333">中心</text>
+  <text x="312" y="132" fill="#333">中心</text>
+  <text x="216" y="178" fill="#333">鞍点</text>
+</svg>

@@ -89,9 +89,9 @@ Llama 3 把 ChatML 的优雅与 Llama 家族的习惯合并，改用「header + 
 
 | 家族 | 角色标记 | 轮次终止 | 系统提示词 | 代表模型 |
 | --- | --- | --- | --- | --- |
-| ChatML | `<|im_start|>` | `<|im_end|>` | 独立 system 角色 | GPT、Qwen、DeepSeek |
-| Llama 2 | `[INST]` |  | <`<SYS>`>` 块 | Llama 2 |
-| Llama 3 | `<|start_header_id|>` | `<|eot_id|>` | 独立 system 角色 | Llama 3、Mistral-NeMo |
+| ChatML | `<\|im_start\|>` | `<\|im_end\|>` | 独立 system 角色 | GPT、Qwen、DeepSeek |
+| Llama 2 | `[INST]` |  | `<SYS>` 块 | Llama 2 |
+| Llama 3 | `<\|start_header_id\|>` | `<\|eot_id\|>` | 独立 system 角色 | Llama 3、Mistral-NeMo |
 
 ## 3 公式解析：模板是一个确定性序列化函数
 

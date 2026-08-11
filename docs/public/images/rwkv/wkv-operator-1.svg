@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="sans-serif">
+  <title>WKV 的两种计算模式：串行递推与并行扫描</title>
+  <desc>左图为推理时的串行递推：状态沿时间逐点滚动；右图为训练时的并行扫描：递推步骤两两复合、逐层归约，深度从 T 降到 log T。</desc>
+  <rect width="900" height="400" fill="#faf9f5"/>
+
+  <!-- 左半：串行递推 -->
+  <line x1="440" y1="40" x2="440" y2="360" stroke="#333" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="240" y="44" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">推理：串行递推（每步 O(1) 状态更新）</text>
+
+  <g>
+    <circle cx="90" cy="210" r="26" fill="#1f6f8b"/>
+    <text x="90" y="215" font-size="15" fill="#fff" text-anchor="middle">s₀</text>
+  </g>
+  <g>
+    <circle cx="200" cy="210" r="26" fill="#1f6f8b"/>
+    <text x="200" y="215" font-size="15" fill="#fff" text-anchor="middle">s₁</text>
+  </g>
+  <g>
+    <circle cx="310" cy="210" r="26" fill="#1f6f8b"/>
+    <text x="310" y="215" font-size="15" fill="#fff" text-anchor="middle">s₂</text>
+  </g>
+  <g>
+    <circle cx="420" cy="210" r="26" fill="#1f6f8b" opacity="0.35"/>
+    <text x="420" y="215" font-size="15" fill="#333" text-anchor="middle">…</text>
+  </g>
+
+  <g stroke="#c0392b" stroke-width="2">
+    <line x1="116" y1="210" x2="172" y2="210"/>
+    <line x1="226" y1="210" x2="282" y2="210"/>
+    <line x1="336" y1="210" x2="392" y2="210"/>
+  </g>
+  <text x="144" y="182" font-size="13" fill="#c0392b" text-anchor="middle">x₁ 更新</text>
+  <text x="254" y="182" font-size="13" fill="#c0392b" text-anchor="middle">x₂ 更新</text>
+  <text x="364" y="182" font-size="13" fill="#c0392b" text-anchor="middle">x₃ 更新</text>
+  <text x="255" y="270" font-size="13" fill="#333" text-anchor="middle">s ← e^{-w} ⊙ s + e^{k} ⊙ v</text>
+  <text x="255" y="320" font-size="13" fill="#333" text-anchor="middle">时间串行，状态定长 (a, b)</text>
+  <text x="255" y="345" font-size="13" fill="#333" text-anchor="middle">序列多长都不增显存</text>
+
+  <!-- 右半：并行扫描 -->
+  <text x="670" y="44" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">训练：并行扫描（深度 O(log T)）</text>
+
+  <!-- 底部：4 个输入 -->
+  <g>
+    <rect x="530" y="320" width="52" height="34" rx="6" fill="#1f6f8b"/>
+    <text x="556" y="342" font-size="14" fill="#fff" text-anchor="middle">x₁</text>
+  </g>
+  <g>
+    <rect x="622" y="320" width="52" height="34" rx="6" fill="#1f6f8b"/>
+    <text x="648" y="342" font-size="14" fill="#fff" text-anchor="middle">x₂</text>
+  </g>
+  <g>
+    <rect x="714" y="320" width="52" height="34" rx="6" fill="#1f6f8b"/>
+    <text x="740" y="342" font-size="14" fill="#fff" text-anchor="middle">x₃</text>
+  </g>
+  <g>
+    <rect x="806" y="320" width="52" height="34" rx="6" fill="#1f6f8b"/>
+    <text x="832" y="342" font-size="14" fill="#fff" text-anchor="middle">x₄</text>
+  </g>
+
+  <!-- 中间：两两复合 -->
+  <g>
+    <rect x="556" y="200" width="90" height="40" rx="8" fill="#c0392b"/>
+    <text x="601" y="225" font-size="14" fill="#fff" text-anchor="middle">复合 1-2</text>
+  </g>
+  <g>
+    <rect x="740" y="200" width="90" height="40" rx="8" fill="#c0392b"/>
+    <text x="785" y="225" font-size="14" fill="#fff" text-anchor="middle">复合 3-4</text>
+  </g>
+
+  <!-- 顶层：总复合 -->
+  <g>
+    <rect x="615" y="90" width="140" height="44" rx="8" fill="#333"/>
+    <text x="685" y="117" font-size="14" fill="#fff" text-anchor="middle">全部前缀状态</text>
+  </g>
+
+  <!-- 连线 -->
+  <g stroke="#333" stroke-width="1.6">
+    <line x1="556" y1="320" x2="590" y2="240"/>
+    <line x1="648" y1="320" x2="612" y2="240"/>
+    <line x1="740" y1="320" x2="774" y2="240"/>
+    <line x1="832" y1="320" x2="796" y2="240"/>
+    <line x1="620" y1="200" x2="672" y2="134"/>
+    <line x1="766" y1="200" x2="710" y2="134"/>
+  </g>
+  <text x="685" y="292" font-size="13" fill="#c0392b" text-anchor="middle">两两复合（结合律）</text>
+  <text x="685" y="370" font-size="13" fill="#333" text-anchor="middle">4 步 → 2 步 → 1 步，T 步只需 log₂T 层</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="sans-serif">
+  <title>记录宽度子类型与函数子类型规则</title>
+  <desc>左半部分展示记录类型加字段得到更具体的子类型；右半部分展示函数子类型输入逆变、输出协变。</desc>
+  <rect x="0" y="0" width="760" height="430" fill="#faf9f5"/>
+  <text x="20" y="34" font-size="17" fill="#333" font-weight="bold">记录子类型：加字段，变得更具体</text>
+  <text x="390" y="34" font-size="17" fill="#333" font-weight="bold">函数子类型：输入逆变、输出协变</text>
+  <line x1="350" y1="20" x2="350" y2="410" stroke="#d8d2c8" stroke-width="1.5"/>
+
+  <!-- 左面板：记录宽度子类型链 -->
+  <rect x="50" y="80" width="260" height="52" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="180" y="112" font-size="14" fill="#333" text-anchor="middle">R₁ = { x : Nat }</text>
+  <rect x="50" y="180" width="260" height="52" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="180" y="212" font-size="14" fill="#333" text-anchor="middle">R₂ = { x : Nat, y : Bool }</text>
+  <rect x="50" y="280" width="260" height="52" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="180" y="312" font-size="14" fill="#333" text-anchor="middle">R₃ = { x : Nat, y : Bool, z : Bool }</text>
+
+  <path d="M180 180 L180 138" stroke="#c0392b" stroke-width="2" fill="none" marker-end="url(#arrowR)"/>
+  <text x="192" y="164" font-size="14" fill="#c0392b">R₂ &lt;: R₁（宽度）</text>
+  <path d="M180 280 L180 238" stroke="#c0392b" stroke-width="2" fill="none" marker-end="url(#arrowR)"/>
+  <text x="192" y="264" font-size="14" fill="#c0392b">R₃ &lt;: R₂（宽度）</text>
+  <text x="50" y="372" font-size="13" fill="#666">字段越多越具体，可顶替字段少者（宽度子类型）</text>
+
+  <!-- 右面板：函数子类型 -->
+  <rect x="420" y="80" width="280" height="52" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="560" y="112" font-size="15" fill="#333" text-anchor="middle">G : Dog → Animal</text>
+  <rect x="420" y="180" width="280" height="52" rx="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="560" y="212" font-size="15" fill="#333" text-anchor="middle">F : Animal → Dog</text>
+
+  <path d="M560 180 L560 138" stroke="#c0392b" stroke-width="2.5" fill="none" marker-end="url(#arrowR)"/>
+  <text x="575" y="164" font-size="15" fill="#c0392b" font-weight="bold">F &lt;: G（成立）</text>
+
+  <text x="395" y="270" font-size="14" fill="#c0392b">输入：Dog &lt;: Animal（逆变 · 方向翻转）</text>
+  <text x="395" y="296" font-size="14" fill="#c0392b">输出：Dog &lt;: Animal（协变 · 方向保持）</text>
+  <text x="395" y="372" font-size="13" fill="#666">替身 F 的输入装得下 G 的一切实参，输出都被当作 G 的输出</text>
+
+  <defs>
+    <marker id="arrowR" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L6,3 L0,6 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

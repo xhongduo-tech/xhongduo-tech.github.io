@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" width="720" height="460">
+  <title>Minkowski 格点定理：中心对称凸体必含非零格点</title>
+  <desc>平面上格点组成的格子，原点为中心对称凸体 X 的中心；当体积大于 2^n 倍格协体积时，X 必含原点以外的格点。虚线椭圆为翻倍的 2X。</desc>
+  <rect x="0" y="0" width="720" height="460" fill="#faf9f5" />
+
+  <text x="360" y="36" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="#333">Minkowski 格点定理</text>
+  <text x="360" y="60" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">中心对称凸体 X 绕原点放置，若 vol(X) &gt; 2ⁿ·vol(Λ) 则必含非零格点</text>
+
+  <!-- 格点 -->
+  <g fill="#999">
+    <circle cx="120" cy="88" r="3.5" /><circle cx="168" cy="88" r="3.5" /><circle cx="216" cy="88" r="3.5" /><circle cx="264" cy="88" r="3.5" /><circle cx="312" cy="88" r="3.5" /><circle cx="360" cy="88" r="3.5" /><circle cx="408" cy="88" r="3.5" /><circle cx="456" cy="88" r="3.5" /><circle cx="504" cy="88" r="3.5" /><circle cx="552" cy="88" r="3.5" /><circle cx="600" cy="88" r="3.5" />
+    <circle cx="120" cy="136" r="3.5" /><circle cx="168" cy="136" r="3.5" /><circle cx="216" cy="136" r="3.5" /><circle cx="264" cy="136" r="3.5" /><circle cx="312" cy="136" r="3.5" /><circle cx="360" cy="136" r="3.5" /><circle cx="408" cy="136" r="3.5" /><circle cx="456" cy="136" r="3.5" /><circle cx="504" cy="136" r="3.5" /><circle cx="552" cy="136" r="3.5" /><circle cx="600" cy="136" r="3.5" />
+    <circle cx="120" cy="184" r="3.5" /><circle cx="168" cy="184" r="3.5" /><circle cx="216" cy="184" r="3.5" /><circle cx="264" cy="184" r="3.5" /><circle cx="312" cy="184" r="3.5" /><circle cx="360" cy="184" r="3.5" /><circle cx="408" cy="184" r="3.5" /><circle cx="456" cy="184" r="3.5" /><circle cx="504" cy="184" r="3.5" /><circle cx="552" cy="184" r="3.5" /><circle cx="600" cy="184" r="3.5" />
+    <circle cx="120" cy="232" r="3.5" /><circle cx="168" cy="232" r="3.5" /><circle cx="216" cy="232" r="3.5" /><circle cx="264" cy="232" r="3.5" /><circle cx="312" cy="232" r="3.5" /><circle cx="360" cy="232" r="3.5" /><circle cx="408" cy="232" r="3.5" /><circle cx="456" cy="232" r="3.5" /><circle cx="504" cy="232" r="3.5" /><circle cx="552" cy="232" r="3.5" /><circle cx="600" cy="232" r="3.5" />
+    <circle cx="120" cy="280" r="3.5" /><circle cx="168" cy="280" r="3.5" /><circle cx="216" cy="280" r="3.5" /><circle cx="264" cy="280" r="3.5" /><circle cx="312" cy="280" r="3.5" /><circle cx="360" cy="280" r="3.5" /><circle cx="408" cy="280" r="3.5" /><circle cx="456" cy="280" r="3.5" /><circle cx="504" cy="280" r="3.5" /><circle cx="552" cy="280" r="3.5" /><circle cx="600" cy="280" r="3.5" />
+    <circle cx="120" cy="328" r="3.5" /><circle cx="168" cy="328" r="3.5" /><circle cx="216" cy="328" r="3.5" /><circle cx="264" cy="328" r="3.5" /><circle cx="312" cy="328" r="3.5" /><circle cx="360" cy="328" r="3.5" /><circle cx="408" cy="328" r="3.5" /><circle cx="456" cy="328" r="3.5" /><circle cx="504" cy="328" r="3.5" /><circle cx="552" cy="328" r="3.5" /><circle cx="600" cy="328" r="3.5" />
+    <circle cx="120" cy="376" r="3.5" /><circle cx="168" cy="376" r="3.5" /><circle cx="216" cy="376" r="3.5" /><circle cx="264" cy="376" r="3.5" /><circle cx="312" cy="376" r="3.5" /><circle cx="360" cy="376" r="3.5" /><circle cx="408" cy="376" r="3.5" /><circle cx="456" cy="376" r="3.5" /><circle cx="504" cy="376" r="3.5" /><circle cx="552" cy="376" r="3.5" /><circle cx="600" cy="376" r="3.5" />
+  </g>
+
+  <!-- 翻倍体 2X（虚线） -->
+  <ellipse cx="360" cy="232" rx="220" ry="150" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="7 6" />
+  <text x="590" y="96" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#666">2X（翻倍）</text>
+
+  <!-- 中心对称凸体 X -->
+  <ellipse cx="360" cy="232" rx="112" ry="74" fill="#1f6f8b" fill-opacity="0.12" stroke="#1f6f8b" stroke-width="2" />
+  <text x="360" y="150" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">X</text>
+
+  <!-- 原点 -->
+  <circle cx="360" cy="232" r="7" fill="#c0392b" />
+  <text x="360" y="260" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">原点</text>
+
+  <!-- X 内非零格点 -->
+  <circle cx="408" cy="232" r="7" fill="#c0392b" />
+  <text x="408" y="214" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">非零格点</text>
+
+  <!-- 图例 -->
+  <line x1="60" y1="430" x2="112" y2="430" stroke="#1f6f8b" stroke-width="2" />
+  <text x="120" y="434" font-family="sans-serif" font-size="13" fill="#333">X：中心对称凸体（体积大于 2ⁿ·vol(Λ)）</text>
+  <circle cx="360" cy="430" r="5" fill="#c0392b" />
+  <text x="372" y="434" font-family="sans-serif" font-size="13" fill="#333">格点（原点与非零格点）</text>
+</svg>

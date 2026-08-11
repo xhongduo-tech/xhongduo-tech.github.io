@@ -1,0 +1,39 @@
+<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>潘诺夫斯基图像学三层次示意</title>
+<desc>自下而上三个层次：前图像志描述、图像志分析、图像学阐释；每层对应不同的研究对象、所需素养与校正原则。</desc>
+<rect x="0" y="0" width="760" height="470" fill="#faf9f5"/>
+<g font-family="sans-serif">
+  <!-- Top layer: iconological interpretation -->
+  <rect x="60" y="40" width="640" height="110" rx="10" fill="#1f6f8b" opacity="0.12" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="80" y="72" font-size="20" font-weight="bold" fill="#1f6f8b">图像学阐释（Iconological Interpretation）</text>
+  <text x="80" y="98" font-size="14" fill="#333">研究对象：内在意义 / 内容——时代的世界观、民族精神、哲学态度</text>
+  <text x="80" y="122" font-size="14" fill="#333">所需素养：综合直觉（synthetic intuition）</text>
+  <text x="80" y="146" font-size="14" fill="#c0392b">校正原则：文化征候史（history of cultural symptoms）</text>
+
+  <!-- Middle layer: iconographical analysis -->
+  <rect x="60" y="180" width="640" height="110" rx="10" fill="#1f6f8b" opacity="0.07" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="80" y="212" font-size="20" font-weight="bold" fill="#1f6f8b">图像志分析（Iconographical Analysis）</text>
+  <text x="80" y="238" font-size="14" fill="#333">研究对象：惯例的题材——故事、寓言、圣徒传说（如《最后的晚餐》）</text>
+  <text x="80" y="262" font-size="14" fill="#333">所需素养：文献知识（对文学、神话、圣典的了解）</text>
+  <text x="80" y="286" font-size="14" fill="#c0392b">校正原则：类型史（history of types）</text>
+
+  <!-- Bottom layer: pre-iconographical description -->
+  <rect x="60" y="320" width="640" height="110" rx="10" fill="#1f6f8b" opacity="0.04" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="80" y="352" font-size="20" font-weight="bold" fill="#1f6f8b">前图像志描述（Pre-iconographical Description）</text>
+  <text x="80" y="378" font-size="14" fill="#333">研究对象：自然的题材——事实性（人、桌、面包）+ 表现性（哀伤的手势）</text>
+  <text x="80" y="402" font-size="14" fill="#333">所需素养：实际经验（对世界的熟悉）</text>
+  <text x="80" y="426" font-size="14" fill="#c0392b">校正原则：风格史（history of style）</text>
+
+  <!-- Arrows -->
+  <path d="M 700 150 L 700 180" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M 700 290 L 700 320" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Side note -->
+  <text x="60" y="465" font-size="14" fill="#555">自下而上：描述（是什么）→ 图像志（讲什么故事）→ 图像学（为何这样讲、反映了什么世界）</text>
+</g>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+    <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+  </marker>
+</defs>
+</svg>

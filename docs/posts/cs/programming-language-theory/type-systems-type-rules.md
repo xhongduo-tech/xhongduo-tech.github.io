@@ -1,0 +1,106 @@
+---
+title: 类型系统与类型规则
+date: 2026-08-11
+---
+
+# 类型系统与类型规则
+
+<div class="epigraph">
+<p>类型系统是一种可操作的句法方法，通过按「它们计算出的值的种类」对短语分类，来证明程序不存在某些行为。</p>
+<footer>—— 本杰明 · 皮尔斯（Benjamin C. Pierce），《类型与程序设计语言》</footer>
+</div>
+
+<div class="article-byline">
+<p>第三级 · 计算机基础 · 程序设计语言理论 ｜ 对标教材 ｜ 2026-08-11</p>
+</div>
+
+## 为什么从类型系统开始
+
+上一课我们认识了最小语言 λ 演算，它只有一个问题：**太自由了**。在 $\lambda x.\,x\;x$ 里，一个函数被当作实参传给了它自己；这样的项在运行时可能卡死（stuck）。真实语言不会放任这种自由——它用一套**编译期检查**把坏程序挡在门外，这套检查就是类型系统。**类型系统（type system）**：一种在程序运行前，通过给每个表达式赋予「值的种类」，从而排除某些错误行为的静态（编译期）机制。皮尔斯把这一章的框架浓缩成一句格言：**良类型程序不会出错（well-typed programs do not go wrong）**。本课的目标是把这句话变成一组可以推演的形式规则。
+
+## 1 从「值域」到「类型」
+
+在无类型 λ 演算里，$t_1\;t_2$ 对 $t_1$ 没有任何要求。有了类型之后，我们给每个项一个**类型（type）**，例如：
+
+- 布尔值：$\texttt{true}$、$\texttt{false}$ 有类型 $\texttt{Bool}$。
+- 自然数：$\overline{1}$、$\overline{2}$ 有类型 $\texttt{Nat}$。
+- 函数：$f$ 若把 $\texttt{Nat}$ 变成 $\texttt{Bool}$，则 $f$ 有类型 $\texttt{Nat} \to \texttt{Bool}$。
+
+**类型是「该值来自哪个集合」的静态记录。** 简单类型化 λ 演算（simply typed lambda-calculus，记作 $\lambda_\to$）的语法就是在 λ 演算上给抽象标注参数类型：
+
+$$t ::= x \;\big|\; \lambda x: T.\, t \;\big|\; t\;t \;\big|\; \texttt{true} \;\big|\; \texttt{false}$$
+$$T ::= \texttt{Bool} \;\big|\; \texttt{Nat} \;\big|\; T \to T$$
+
+函数类型 $T_1 \to T_2$ 中的箭头**右结合**，所以 $\texttt{Nat}\to\texttt{Nat}\to\texttt{Bool}$ 是 $\texttt{Nat}\to(\texttt{Nat}\to\texttt{Bool})$——一个吃一个自然数、返回一个函数的函数，对应柯里化后的二参数函数。
+
+## 2 判定关系 Γ ⊢ t : T
+
+类型检查的核心是一个三元的**判定（judgment）**：
+
+$$\Gamma \vdash t : T$$
+
+读作「**在类型环境 Γ 下，项 t 有类型 T**」。其中 **类型环境（context）** $\Gamma$ 是一张「变量 → 类型」的登记表，形如 $x_1: T_1, x_2: T_2, \dots$。判定是一条断言，而我们对它的证明用**推理规则（inference rule）**书写：横线上方是前提，下方是结论，若前提全部成立则结论成立。
+
+**三条最重要的规则**（分别对应语法三构造）——变量规则、抽象规则、应用规则：
+
+$$
+\frac{}{\Gamma \vdash x : T}\;\text{若}\;x:T \in \Gamma
+\qquad
+\frac{\Gamma, x: T_1 \vdash t_2 : T_2}{\Gamma \vdash \lambda x: T_1.\, t_2 : T_1 \to T_2}
+\qquad
+\frac{\Gamma \vdash t_1 : T_1 \to T_2 \quad \Gamma \vdash t_2 : T_1}{\Gamma \vdash t_1\;t_2 : T_2}
+$$
+
+**重点：** 抽象规则说「要证明 $\lambda x:T_1.\,t_2$ 的类型，就把 $x$ 以类型 $T_1$ 加入环境，去证明函数体 $t_2$」；应用规则说「把类型 $T_1 \to T_2$ 的函数应用于类型 $T_1$ 的实参，得到 $T_2$」——**类型检查因此是对语法结构的递归走查**，每个子表达式各得其所，这套规则集合被称为**类型推导系统（typing derivation system）**。<span class="marginnote">规则底下的「若 $x:T \in \Gamma$」是前提的另一种写法。这类规则与数理逻辑里的自然演绎同构——类型就是命题，项就是证明（Curry–Howard 对应），在第三级《数理逻辑》中会正面相遇。</span>
+
+## 3 类型安全：进展 + 保持
+
+类型系统好在哪里？皮尔斯把「良类型程序不会出错」拆成两条引理来证明，合称**类型安全（type safety）**：
+
+**进展（progress）**：一个良类型的封闭项，要么是值，要么可以再走一步（$t \longrightarrow t'$）——**它绝不会卡死（stuck）**，即绝不会停在「$\texttt{true}\;\overline{3}$」这种无路可走却未完成的形态。
+- **保持（preservation，又称 subject reduction）**：良类型项走一步之后仍然是良类型的——**求值不破坏类型**。
+
+两条合起来形成归纳论证：程序从良类型出发，每一步都保持良类型，而良类型保证总能前进，于是**求值要么成功完成，要么永不终止，但绝不会以「卡在类型错误上」告终**。这正是静态类型语言的核心承诺。<span class="marginnote">「永不终止」仍可能发生（如 $\Omega$ 的良类型版本 $(\lambda x: \texttt{Bool}.\,\lambda y: \texttt{Bool}.\,y)\;\Omega'$ 按值调用会发散），所以类型安全说的是「不出类型错误」，而不是「必然停机」。</span>
+
+**辨析｜易错点：** 初学者常把「类型检查」和「程序正确」混为一谈。**类型系统只能排除它登记在案的那几类错误（如把布尔当函数用、把字符串当数字加），不能证明程序的逻辑正确性**。`x + 1` 类型安全，但这并不保证「$x$ 是答案」——类型安全是正确性的必要不充分条件，它把错误类的天花板降下来，而不是把正确性买回来。
+
+## 4 类型检查、类型推导与类型重构
+
+依据上面的规则「自底向上地」验证一个项的类型，称为**类型检查（type checking）**：项已经带标注，只需核对是否一致。若项不写类型、由系统算出它该有的类型，则是**类型推导（type inference）**或**类型重构（type reconstruction）**。例如：
+
+$$\lambda f: \texttt{Bool} \to \texttt{Bool}.\; f\;\texttt{true} : \texttt{Bool}$$
+
+这里是检查。而让 ML 从 $f\;\texttt{true}$ 反推出 $f$ 的类型，就需要统一化（unification）技术——那是本专题《类型推导》一课的完整主题。此刻只需记住：**检查验证标注，推导生成标注，二者共用同一套规则，只是求解方向相反**。<span class="marginnote">规则里每一条都「由结论的形状决定该用哪条」——这类规则叫<strong>语法导向的（syntax-directed）</strong>规则。语法导向保证了类型检查是确定性算法，不会在多个规则间无谓徘徊。Haskell 的 `GHC`、Java 的 `javac` 背后的类型器，都是这种递归走查的工业级放大版。</span>
+
+## 5 公式解析：应用规则是类型系统的咽喉
+
+我们解剖应用规则——它是类型错误最常发生的地方：
+
+$$
+\frac{\Gamma \vdash t_1 : T_1 \to T_2 \quad \Gamma \vdash t_2 : T_1}{\Gamma \vdash t_1\;t_2 : T_2}
+$$
+
+- **两个前提**：要应用 $t_1$，必须先分别验证函数 $t_1$ 的类型是某个箭头类型 $T_1 \to T_2$（形式完全确定），再验证实参 $t_2$ 的类型**恰好等于箭头左边的 $T_1$**。
+- **$T_1$ 是咽喉**：它同时出现在「函数的输入」和「实参的类型」两处，两处必须一致，否则判定失败。$t_1:\texttt{Bool}\to\texttt{Bool}$ 与 $t_2:\texttt{Nat}$ 时，规则报错——**一个类型的形状不匹配，整棵推导树崩塌**。
+- **结论 $T_2$**：应用的结果类型就是箭头右边的类型。它完全由前提决定，不引入新信息——规则是**语法导向且确定性**的。
+
+一个完整的判定例子：
+
+$$
+\frac{}{\Gamma' \vdash \lambda x: \texttt{Bool}.\, x : \texttt{Bool} \to \texttt{Bool}}
+\quad
+\frac{}{\Gamma' \vdash \texttt{true} : \texttt{Bool}}
+\quad \text{，其中 } \Gamma' \vdash (\lambda x: \texttt{Bool}.\, x)\;\texttt{true} : \texttt{Bool}
+$$
+
+把恒等函数作用于 $\texttt{true}$，结论是 $\texttt{Bool}$；而 $( \lambda x: \texttt{Bool}.\, x)\;\overline{1}$ 因 $\overline{1}:\texttt{Nat} \neq \texttt{Bool}$ 而无从推导——这正是「拒绝坏程序」发生的精确位置。
+
+## 6 小结
+
+- **类型系统**在运行前按「值的种类」对项分类，核心判定是 $\Gamma \vdash t : T$，其中 Γ 是变量类型环境。
+- 类型规则对应语法结构：**变量、抽象、应用**三条规则构成 $\lambda_\to$ 的类型系统，规则是语法导向、确定性的。
+- **类型安全** = **进展**（不卡死）+ **保持**（求值保类型），合起来保证良类型程序不会出类型错误。
+- 类型系统只排除登记在案的错误类别，**不等于逻辑正确性**；检查验证标注，推导生成标注，二者方向相反。
+- Curry–Howard 对应把类型当作命题、项当作证明，与数理逻辑深层相通。
+
+在下一节，我们把「类型安全」的形式化支柱展开——程序的意义究竟由什么给出？两种主流答案构成了**操作语义与指称语义**。

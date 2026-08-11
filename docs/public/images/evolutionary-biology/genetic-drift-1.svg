@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" width="860" height="460" font-family="sans-serif">
+  <title>遗传漂变的随机漫步轨迹</title>
+  <desc>对比小群体（N=50，剧烈锯齿）与大群体（N=5000，平缓蠕动）中中性等位基因频率随时间变化的随机漫步轨迹。</desc>
+  <rect x="0" y="0" width="860" height="460" fill="#faf9f5"/>
+  <!-- 小群体子图 -->
+  <g>
+    <text x="30" y="30" font-size="16" fill="#333" font-weight="bold">小群体 N = 50：剧烈随机漫步，早早就固定或丢失</text>
+    <!-- 坐标轴 -->
+    <line x1="40" y1="60" x2="40" y2="300" stroke="#333" stroke-width="1.5"/>
+    <line x1="40" y1="300" x2="400" y2="300" stroke="#333" stroke-width="1.5"/>
+    <text x="14" y="65" font-size="13" fill="#333">1</text>
+    <text x="14" y="300" font-size="13" fill="#333">0</text>
+    <text x="8" y="180" font-size="13" fill="#333">0.5</text>
+    <text x="405" y="318" font-size="13" fill="#333">时间 →</text>
+    <!-- 三条小群体轨迹 -->
+    <polyline points="40,150 70,120 100,160 130,95 160,130 190,70 220,105 250,50 280,80 310,35 340,55 370,20 400,30" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <polyline points="40,150 70,180 100,130 130,200 160,150 190,230 220,185 250,270 280,225 310,290 340,260 370,295 400,285" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <polyline points="40,150 70,140 100,170 130,145 160,180 190,155 220,200 250,175 280,240 310,210 340,260 370,235 400,270" fill="none" stroke="#8b7a1f" stroke-width="2"/>
+    <text x="250" y="45" font-size="13" fill="#c0392b">红：固定于 1</text>
+    <text x="250" y="62" font-size="13" fill="#1f6f8b">青：丢失于 0</text>
+    <text x="250" y="79" font-size="13" fill="#8b7a1f">黄：仍在漫步</text>
+  </g>
+  <!-- 大群体子图 -->
+  <g>
+    <text x="460" y="30" font-size="16" fill="#333" font-weight="bold">大群体 N = 5000：平缓蠕动，长期徘徊在中间</text>
+    <line x1="470" y1="60" x2="470" y2="300" stroke="#333" stroke-width="1.5"/>
+    <line x1="470" y1="300" x2="830" y2="300" stroke="#333" stroke-width="1.5"/>
+    <text x="444" y="65" font-size="13" fill="#333">1</text>
+    <text x="444" y="300" font-size="13" fill="#333">0</text>
+    <text x="438" y="180" font-size="13" fill="#333">0.5</text>
+    <text x="835" y="318" font-size="13" fill="#333">时间 →</text>
+    <polyline points="470,180 490,178 510,183 530,179 550,184 570,180 590,176 610,181 630,178 650,184 670,180 690,177 710,182 730,178 750,183 770,179 790,181 810,178 830,180" fill="none" stroke="#c0392b" stroke-width="2"/>
+    <polyline points="470,180 490,182 510,178 530,183 550,177 570,181 590,179 610,183 630,180 650,176 670,181 690,184 710,179 730,182 750,177 770,181 790,183 810,180 830,182" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <polyline points="470,180 490,177 510,182 530,180 550,178 570,183 590,181 610,177 630,183 650,179 670,184 690,181 710,177 730,183 750,180 770,178 790,182 810,181 830,179" fill="none" stroke="#8b7a1f" stroke-width="2"/>
+    <text x="690" y="45" font-size="13" fill="#333">三条中性等位基因轨迹都仍在 0.5 附近徘徊</text>
+    <text x="690" y="62" font-size="13" fill="#333">需要约 4N 代才会抵达固定或丢失</text>
+  </g>
+  <!-- 底部说明 -->
+  <text x="40" y="360" font-size="14" fill="#333">每代注入的随机方差为 q(1−q)/(2N)：</text>
+  <text x="40" y="382" font-size="14" fill="#c0392b">分母 2N 越小 → 噪声越大 → 轨迹越陡峭、越早吸收到 0 或 1</text>
+  <text x="40" y="404" font-size="14" fill="#1f6f8b">分母 2N 越大 → 噪声越小 → 轨迹越平缓、中性变异越持久</text>
+</svg>

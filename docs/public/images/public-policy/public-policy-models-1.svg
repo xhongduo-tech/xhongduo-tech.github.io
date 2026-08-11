@@ -1,0 +1,39 @@
+<svg viewBox="0 0 900 340" width="900" height="340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>伊斯顿系统模型：输入—转换—输出—反馈</title>
+<desc>需求与支持作为输入进入政治系统，经过转换后输出政策与决定，再以反馈形式回到输入，构成闭环。</desc>
+<rect width="900" height="340" fill="#faf9f5"/>
+<!-- environment ellipse -->
+<ellipse cx="450" cy="170" rx="420" ry="150" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="450" y="24" text-anchor="middle" font-size="15" fill="#333">环境（社会、经济、文化）</text>
+<!-- input box -->
+<rect x="70" y="110" width="200" height="120" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+<text x="170" y="150" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">输入</text>
+<text x="170" y="180" text-anchor="middle" font-size="14" fill="#333">需求 demands</text>
+<text x="170" y="205" text-anchor="middle" font-size="14" fill="#333">支持 support</text>
+<!-- system box -->
+<rect x="350" y="110" width="200" height="120" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="450" y="150" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">政治系统</text>
+<text x="450" y="180" text-anchor="middle" font-size="14" fill="#333">转换 conversion</text>
+<text x="450" y="205" text-anchor="middle" font-size="13" fill="#333">黑箱：机构与决策机制</text>
+<!-- output box -->
+<rect x="630" y="110" width="200" height="120" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+<text x="730" y="150" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">输出</text>
+<text x="730" y="180" text-anchor="middle" font-size="14" fill="#333">政策与决定 outputs</text>
+<text x="730" y="205" text-anchor="middle" font-size="13" fill="#333">行动 + 不作为</text>
+<!-- arrows input->system, system->output -->
+<line x1="270" y1="170" x2="350" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arr1)"/>
+<line x1="550" y1="170" x2="630" y2="170" stroke="#333" stroke-width="2" marker-end="url(#arr1)"/>
+<defs>
+<marker id="arr1" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+<polygon points="0 0, 10 5, 0 10" fill="#333"/>
+</marker>
+</defs>
+<!-- feedback arrow -->
+<path d="M 730 230 C 730 290 170 290 170 230" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arr2)"/>
+<defs>
+<marker id="arr2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+<polygon points="0 0, 10 5, 0 10" fill="#c0392b"/>
+</marker>
+</defs>
+<text x="450" y="305" text-anchor="middle" font-size="14" fill="#c0392b">反馈 feedback：政策效果回到环境，重塑下一次输入</text>
+</svg>

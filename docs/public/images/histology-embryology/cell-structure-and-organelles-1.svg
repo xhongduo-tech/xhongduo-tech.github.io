@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560" role="img" aria-labelledby="title desc">
+  <title id="title">动物细胞结构示意：质膜、细胞器与细胞核</title>
+  <desc id="desc">手绘示意图，展示细胞膜包裹的细胞内各结构：细胞核、粗面内质网、高尔基体、线粒体、溶酶体、中心体与表面微绒毛。</desc>
+  <rect x="0" y="0" width="800" height="560" fill="#faf9f5"/>
+
+  <!-- plasma membrane -->
+  <ellipse cx="400" cy="290" rx="330" ry="230" fill="#f2efe6" stroke="#1f6f8b" stroke-width="4"/>
+
+  <!-- microvilli (top) -->
+  <g stroke="#1f6f8b" stroke-width="3">
+    <line x1="205" y1="63" x2="205" y2="34"/>
+    <line x1="228" y1="60" x2="228" y2="30"/>
+    <line x1="251" y1="58" x2="251" y2="30"/>
+    <line x1="274" y1="60" x2="274" y2="32"/>
+    <line x1="297" y1="63" x2="297" y2="34"/>
+  </g>
+
+  <!-- nucleus -->
+  <ellipse cx="335" cy="265" rx="122" ry="102" fill="#ffffff" stroke="#333" stroke-width="3"/>
+  <ellipse cx="335" cy="265" rx="108" ry="88" fill="none" stroke="#c8c4ba" stroke-width="1.5"/>
+  <circle cx="322" cy="248" r="22" fill="#c0392b" opacity="0.8"/>
+  <g stroke="#6b675f" stroke-width="4" fill="none" opacity="0.6">
+    <path d="M405 210 Q 430 230 408 252"/>
+    <path d="M278 295 Q 302 318 332 312"/>
+  </g>
+
+  <!-- RER -->
+  <g fill="none" stroke="#1f6f8b" stroke-width="3">
+    <path d="M148 322 Q 198 302 248 322 Q 298 342 328 327"/>
+    <path d="M138 352 Q 188 332 238 352 Q 288 372 318 357"/>
+    <path d="M128 382 Q 178 362 228 382 Q 278 402 308 387"/>
+  </g>
+  <g fill="#c0392b">
+    <circle cx="168" cy="325" r="3"/><circle cx="198" cy="315" r="3"/><circle cx="228" cy="325" r="3"/>
+    <circle cx="158" cy="355" r="3"/><circle cx="188" cy="345" r="3"/><circle cx="218" cy="355" r="3"/>
+    <circle cx="148" cy="385" r="3"/><circle cx="178" cy="375" r="3"/><circle cx="208" cy="385" r="3"/>
+  </g>
+
+  <!-- SER -->
+  <path d="M150 225 Q 182 205 212 220 Q 244 236 268 220" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+
+  <!-- Golgi -->
+  <g fill="none" stroke="#c0392b" stroke-width="3">
+    <path d="M505 188 Q 555 172 605 192"/>
+    <path d="M510 208 Q 560 192 610 212"/>
+    <path d="M515 228 Q 565 212 615 232"/>
+  </g>
+  <circle cx="606" cy="200" r="5" fill="#c0392b"/>
+  <circle cx="596" cy="222" r="5" fill="#c0392b"/>
+
+  <!-- mitochondria -->
+  <ellipse cx="150" cy="155" rx="56" ry="30" fill="#ffffff" stroke="#333" stroke-width="3"/>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <path d="M120 140 Q 135 160 120 170"/>
+    <path d="M152 137 Q 167 157 152 170"/>
+    <path d="M182 143 Q 197 163 182 173"/>
+  </g>
+  <ellipse cx="655" cy="330" rx="56" ry="30" fill="#ffffff" stroke="#333" stroke-width="3"/>
+  <g stroke="#333" stroke-width="2" fill="none">
+    <path d="M625 315 Q 640 335 625 345"/>
+    <path d="M657 312 Q 672 332 657 345"/>
+    <path d="M687 318 Q 702 338 687 348"/>
+  </g>
+
+  <!-- lysosome -->
+  <circle cx="492" cy="392" r="26" fill="#e8d8b8" stroke="#333" stroke-width="3"/>
+  <g fill="#c0392b">
+    <circle cx="484" cy="387" r="3"/><circle cx="498" cy="400" r="3"/><circle cx="502" cy="384" r="3"/>
+  </g>
+
+  <!-- centrosome -->
+  <circle cx="335" cy="392" r="11" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <g stroke="#333" stroke-width="2">
+    <line x1="312" y1="397" x2="350" y2="397"/>
+    <line x1="333" y1="380" x2="333" y2="410"/>
+  </g>
+
+  <!-- labels + leader lines -->
+  <g font-family="sans-serif" font-size="15" fill="#333">
+    <text x="205" y="16" text-anchor="middle">微绒毛（microvilli）</text>
+    <text x="60" y="318">粗面内质网（RER）</text>
+    <text x="40" y="520">线粒体（mitochondrion）</text>
+    <text x="560" y="150">高尔基体（Golgi apparatus）</text>
+    <text x="535" y="440">溶酶体（lysosome）</text>
+    <text x="300" y="452">中心体（centrosome）</text>
+    <text x="335" y="405" text-anchor="middle" font-size="0" fill="none"/>
+    <text x="240" y="528">细胞核（nucleus）</text>
+  </g>
+  <g stroke="#8a877f" stroke-width="1.5">
+    <line x1="150" y1="320" x2="180" y2="345"/>
+    <line x1="150" y1="175" x2="150" y2="515"/>
+    <line x1="560" y1="205" x2="610" y2="225"/>
+    <line x1="560" y1="225" x2="520" y2="390"/>
+    <line x1="335" y1="404" x2="335" y2="450"/>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+<svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>任务型对话系统的经典流水线</title>
+<desc>用户输入依次经过自然语言理解、对话状态跟踪、对话策略、自然语言生成四个核心模块得到系统回应；知识库为状态跟踪与策略提供查询支持</desc>
+<rect width="880" height="320" fill="#faf9f5"/>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L0,6 L9,3 z" fill="#333333"/>
+</marker>
+</defs>
+
+<!-- 输入 -->
+<rect x="20" y="80" width="120" height="60" rx="8" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="80" y="107" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">用户输入</text>
+<text x="80" y="126" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">文本 / 语音</text>
+
+<!-- NLU -->
+<rect x="180" y="80" width="120" height="60" rx="8" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b" stroke-width="2"/>
+<text x="240" y="107" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">自然语言理解</text>
+<text x="240" y="126" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">意图 + 槽位</text>
+
+<!-- DST -->
+<rect x="340" y="80" width="120" height="60" rx="8" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b" stroke-width="2"/>
+<text x="400" y="107" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">对话状态跟踪</text>
+<text x="400" y="126" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">信念状态</text>
+
+<!-- Policy -->
+<rect x="500" y="80" width="120" height="60" rx="8" fill="#c0392b" opacity="0.15" stroke="#c0392b" stroke-width="2"/>
+<text x="560" y="107" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">对话策略</text>
+<text x="560" y="126" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">选择动作</text>
+
+<!-- NLG -->
+<rect x="660" y="80" width="120" height="60" rx="8" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b" stroke-width="2"/>
+<text x="720" y="107" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">自然语言生成</text>
+<text x="720" y="126" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">系统回应</text>
+
+<!-- 输出 -->
+<rect x="820" y="80" width="50" height="60" rx="8" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="845" y="112" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333333">输出</text>
+
+<!-- 横向箭头 -->
+<line x1="140" y1="110" x2="178" y2="110" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="300" y1="110" x2="338" y2="110" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="460" y1="110" x2="498" y2="110" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="620" y1="110" x2="658" y2="110" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="780" y1="110" x2="818" y2="110" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- 知识库 -->
+<rect x="340" y="230" width="200" height="50" rx="8" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+<text x="440" y="252" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333333">知识库 / 数据库</text>
+<text x="440" y="269" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666666">航班、餐饮等业务数据</text>
+
+<!-- 知识库连接虚线 -->
+<line x1="400" y1="140" x2="400" y2="228" stroke="#333333" stroke-width="1.5" stroke-dasharray="5,4"/>
+<line x1="560" y1="140" x2="560" y2="228" stroke="#333333" stroke-width="1.5" stroke-dasharray="5,4"/>
+</svg>

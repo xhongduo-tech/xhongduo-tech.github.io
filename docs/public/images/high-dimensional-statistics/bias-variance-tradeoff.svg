@@ -1,0 +1,37 @@
+<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>偏差-方差权衡曲线</title>
+  <desc>横轴为模型复杂度，纵轴为期望测试误差。偏差平方随复杂度下降，方差随复杂度上升，总误差呈 U 形，在两者交叉处取得最优复杂度。</desc>
+  <rect width="760" height="380" fill="#faf9f5"/>
+
+  <!-- axes -->
+  <line x1="70" y1="320" x2="720" y2="320" stroke="#333" stroke-width="1.5"/>
+  <line x1="70" y1="320" x2="70" y2="55" stroke="#333" stroke-width="1.5"/>
+  <text x="395" y="352" text-anchor="middle" font-size="15" fill="#333">模型复杂度（变量数 / 1-λ）</text>
+  <text x="26" y="190" text-anchor="middle" font-size="15" fill="#333" transform="rotate(-90 26 190)">期望测试误差</text>
+
+  <!-- variance curve (ascending, teal) -->
+  <path d="M 80 72 C 180 80, 300 120, 420 172 C 520 218, 620 268, 700 300"
+        fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="618" y="292" font-size="14" fill="#1f6f8b" font-weight="bold">方差</text>
+
+  <!-- bias^2 curve (descending, red) -->
+  <path d="M 80 296 C 180 280, 300 230, 420 178 C 520 135, 620 100, 700 82"
+        fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="128" y="288" font-size="14" fill="#c0392b" font-weight="bold">偏差²</text>
+
+  <!-- total risk (U-shape, ink, thick) -->
+  <path d="M 80 302 C 180 240, 300 196, 420 176 C 520 194, 620 258, 700 312"
+        fill="none" stroke="#333" stroke-width="3.5"/>
+  <text x="560" y="248" font-size="14" fill="#333" font-weight="bold">总误差 = 偏差² + 方差</text>
+
+  <!-- optimal complexity -->
+  <line x1="420" y1="322" x2="420" y2="172" stroke="#333" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <circle cx="420" cy="176" r="5" fill="#333"/>
+  <text x="432" y="196" font-size="14" fill="#333" font-weight="bold">最优复杂度</text>
+
+  <!-- regime labels -->
+  <text x="150" y="150" font-size="14" fill="#333">欠拟合</text>
+  <text x="150" y="167" font-size="14" fill="#333">（偏差主导）</text>
+  <text x="640" y="170" font-size="14" fill="#333">过拟合</text>
+  <text x="640" y="187" font-size="14" fill="#333">（方差主导）</text>
+</svg>

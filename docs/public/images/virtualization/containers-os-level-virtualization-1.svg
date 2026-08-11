@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 430" width="680" height="430" role="img" aria-labelledby="title desc">
+  <title>容器与虚拟机：共享内核 vs 独立内核</title>
+  <desc>左侧为容器架构：多个容器应用（App A、App B、App C）共享同一个宿主操作系统内核，由命名空间与 cgroup 提供隔离；右侧为虚拟机架构：每个虚拟机包含完整的客户操作系统内核，由 VMM/Hypervisor 与硬件隔离。容器轻、共享内核；虚拟机重、各自独立内核。</desc>
+  <style>
+    text { font-family: sans-serif; fill: #333; }
+    .box { stroke: #333; stroke-width: 1.5; }
+    .soft { fill: #e7eef2; }
+    .vmmb { fill: #f2e6de; }
+    .hwbox { fill: #efe8dd; }
+    .accent { fill: #c0392b; }
+    .cyan { fill: #1f6f8b; }
+  </style>
+  <rect x="0" y="0" width="680" height="430" fill="#faf9f5"/>
+
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="bold">容器 vs 虚拟机：共享内核 vs 独立内核</text>
+
+  <!-- 左列：容器 -->
+  <text x="170" y="60" text-anchor="middle" font-size="16" font-weight="bold" class="cyan">容器（共享内核）</text>
+  <rect class="box soft" x="30" y="74" width="280" height="34" rx="4"/>
+  <rect class="box soft" x="30" y="112" width="280" height="34" rx="4"/>
+  <rect class="box soft" x="30" y="150" width="280" height="34" rx="4"/>
+  <text x="170" y="94" text-anchor="middle" font-size="13">App A（namespaces + cgroups）</text>
+  <text x="170" y="132" text-anchor="middle" font-size="13">App B（namespaces + cgroups）</text>
+  <text x="170" y="170" text-anchor="middle" font-size="13">App C（namespaces + cgroups）</text>
+
+  <rect class="box vmmb" x="30" y="190" width="280" height="44" rx="4"/>
+  <text x="170" y="209" text-anchor="middle" font-size="14" font-weight="bold">共享宿主内核（namespaces / cgroups）</text>
+  <text x="170" y="226" text-anchor="middle" font-size="11">一个内核，一份系统软件</text>
+
+  <rect class="box hwbox" x="30" y="240" width="280" height="36" rx="4"/>
+  <text x="170" y="262" text-anchor="middle" font-size="13">物理硬件</text>
+
+  <!-- 右列：虚拟机 -->
+  <text x="510" y="60" text-anchor="middle" font-size="16" font-weight="bold" class="accent">虚拟机（独立内核）</text>
+  <rect class="box soft" x="370" y="74" width="280" height="34" rx="4"/>
+  <text x="510" y="94" text-anchor="middle" font-size="13">VM1：App + 客户 OS 内核</text>
+  <rect class="box soft" x="370" y="112" width="280" height="34" rx="4"/>
+  <text x="510" y="132" text-anchor="middle" font-size="13">VM2：App + 客户 OS 内核</text>
+  <rect class="box soft" x="370" y="150" width="280" height="34" rx="4"/>
+  <text x="510" y="170" text-anchor="middle" font-size="13">VM3：App + 客户 OS 内核</text>
+
+  <rect class="box vmmb" x="370" y="190" width="280" height="44" rx="4"/>
+  <text x="510" y="209" text-anchor="middle" font-size="14" font-weight="bold">VMM / Hypervisor</text>
+  <text x="510" y="226" text-anchor="middle" font-size="11">硬件辅助：VT-x / EPT / IOMMU</text>
+
+  <rect class="box hwbox" x="370" y="240" width="280" height="36" rx="4"/>
+  <text x="510" y="262" text-anchor="middle" font-size="13">物理硬件</text>
+
+  <!-- 底部对比 -->
+  <rect x="30" y="300" width="620" height="104" rx="6" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="50" y="324" font-size="13" font-weight="bold">容器</text>
+  <text x="50" y="344" font-size="12">启动毫秒级 · 内存 MB 级 · 单机数百上千个 · 性能损失约 1–5%</text>
+  <text x="50" y="362" font-size="12">隔离靠 namespaces + cgroups，共享内核 = 共享攻击面</text>
+  <text x="360" y="324" font-size="13" font-weight="bold">虚拟机</text>
+  <text x="360" y="344" font-size="12">启动秒级 · 内存 GB 级 · 单机数十个 · 性能损失 5–20%+</text>
+  <text x="360" y="362" font-size="12">隔离靠硬件（EPT / IOMMU / 直通），边界硬、安全性高</text>
+  <text x="50" y="392" font-size="12" class="cyan">生产实践：虚拟机做租户硬隔离，容器做租户内灵活部署，二者叠用</text>
+</svg>

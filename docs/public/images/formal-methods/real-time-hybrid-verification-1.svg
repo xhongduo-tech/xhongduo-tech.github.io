@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 270" width="560" height="270">
+  <title>单时钟时间自动机示例</title>
+  <desc>位置 A（空闲）与位置 B（响应）之间的迁移带有时钟守卫与时钟重置；位置 B 上带驻留不变量 x 小于等于 10，限制连续时间的流逝。</desc>
+  <rect x="0" y="0" width="560" height="270" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrowTime" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 位置 A -->
+  <circle cx="150" cy="135" r="32" fill="#ffffff" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="150" y="130" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">A</text>
+  <text x="150" y="150" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">空闲</text>
+  <text x="150" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">inv: true</text>
+
+  <!-- 位置 B -->
+  <circle cx="410" cy="135" r="32" fill="#ffffff" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="410" y="130" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">B</text>
+  <text x="410" y="150" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">响应</text>
+  <text x="410" y="200" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">inv: x ≤ 10</text>
+
+  <!-- A -> B 上弧 -->
+  <path d="M180,108 C 250,55 340,55 376,108" fill="none" stroke="#333" stroke-width="1.8" marker-end="url(#arrowTime)"/>
+  <text x="278" y="66" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">请求到达：x ≥ 1, x := 0</text>
+
+  <!-- B -> A 下弧 -->
+  <path d="M376,162 C 340,215 250,215 180,162" fill="none" stroke="#333" stroke-width="1.8" marker-end="url(#arrowTime)"/>
+  <text x="278" y="228" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">完成服务：x ≥ 3, x := 0</text>
+
+  <text x="280" y="252" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">时钟 x 连续流逝；守卫控制迁移，不变量限制驻留时间</text>
+</svg>

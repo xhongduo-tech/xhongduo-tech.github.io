@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <title>Lennard-Jones 势能曲线</title>
+  <desc>纵轴为两粒子间势能 V(r)，横轴为间距 r。r⁻¹² 排斥项使小间距处势能陡升，r⁻⁶ 吸引项使中等间距处出现势阱，平衡距离 r_m = 2^{1/6}σ，阱深 −ε。</desc>
+  <rect width="640" height="400" fill="#faf9f5"/>
+  <!-- 坐标轴 -->
+  <line x1="90" y1="360" x2="590" y2="360" stroke="#333" stroke-width="1.5"/>
+  <line x1="90" y1="360" x2="90" y2="70" stroke="#333" stroke-width="1.5"/>
+  <text x="60" y="80" font-family="sans-serif" font-size="14" fill="#333">V(r)</text>
+  <text x="600" y="364" font-family="sans-serif" font-size="14" fill="#333">r</text>
+  <!-- V=0 参考线 -->
+  <line x1="90" y1="199" x2="590" y2="199" stroke="#333" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="578" y="192" font-family="sans-serif" font-size="13" text-anchor="end" fill="#333">V = 0</text>
+  <!-- σ 标记 -->
+  <line x1="120" y1="199" x2="120" y2="360" stroke="#b8b2a4" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="120" y="375" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">σ</text>
+  <!-- r_min 标记与阱深 -->
+  <line x1="144.4" y1="318.1" x2="144.4" y2="360" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="90" y1="318.1" x2="144.4" y2="318.1" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="144" y="375" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#c0392b">r_m = 2^{1/6}σ</text>
+  <text x="82" y="313" font-family="sans-serif" font-size="14" text-anchor="end" fill="#c0392b">−ε</text>
+  <!-- LJ 曲线 -->
+  <polyline fill="none" stroke="#1f6f8b" stroke-width="2.5"
+    points="100,70 106,70 110,70 116,130 120,199 130,289 140,316 144.4,318.1 150,315.7 160,305 180,277 200,254 220,237 240,226 280,212.6 320,206.4 360,203 420,201 520,199.7 590,199.3"/>
+  <!-- 极小值点 -->
+  <circle cx="144.4" cy="318.1" r="6" fill="#c0392b"/>
+  <!-- 说明文字 -->
+  <text x="122" y="90" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#c0392b">排斥 r⁻¹²</text>
+  <text x="122" y="108" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#333">原子靠太近会剧烈反弹</text>
+  <text x="430" y="218" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#c0392b">吸引 r⁻⁶</text>
+  <text x="430" y="238" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#333">长距离缓慢趋近 V=0</text>
+  <text x="240" y="350" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">V(r) = 4ε [ (σ/r)¹² − (σ/r)⁶ ]</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440" font-family="sans-serif">
+  <title>霍曼转移与引力辅助示意图</title>
+  <desc>左图为地火霍曼转移椭圆弧，右图为探测器相对行星飞掠时双曲线转向的引力辅助示意</desc>
+  <rect width="640" height="440" fill="#faf9f5"/>
+
+  <!-- 左侧：霍曼转移 -->
+  <circle cx="150" cy="220" r="6" fill="#333"/>
+  <text x="150" y="200" text-anchor="middle" font-size="14" fill="#333">太阳</text>
+  <circle cx="150" cy="220" r="70" fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="150" cy="220" r="140" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="150" y="125" text-anchor="middle" font-size="13" fill="#1f6f8b">地球轨道 r1</text>
+  <text x="150" y="70" text-anchor="middle" font-size="13" fill="#c0392b">火星轨道 r2</text>
+
+  <!-- 转移椭圆弧（上半段从右切点到左切点） -->
+  <ellipse cx="150" cy="220" rx="105" ry="105" fill="none" stroke="#333" stroke-width="2.5"/>
+  <ellipse cx="150" cy="220" rx="105" ry="105" fill="none" stroke="#faf9f5" stroke-width="3"/>
+  <path d="M 255 220 A 105 105 0 0 0 45 220" fill="none" stroke="#333" stroke-width="2.5"/>
+
+  <!-- 两次点火位置 -->
+  <circle cx="255" cy="220" r="7" fill="#c0392b"/>
+  <text x="285" y="215" font-size="13" fill="#c0392b">Δv1 加速</text>
+  <circle cx="45" cy="220" r="7" fill="#c0392b"/>
+  <text x="12" y="245" font-size="13" fill="#c0392b">Δv2 入轨</text>
+
+  <!-- 飞行方向箭头 -->
+  <path d="M 215 175 l 22 -22" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M 0 0 L 7 3 L 0 6 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 分隔线 -->
+  <line x1="330" y1="40" x2="330" y2="400" stroke="#ccc" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- 右侧：引力辅助 -->
+  <text x="485" y="70" text-anchor="middle" font-size="15" fill="#333">引力辅助（飞掠转向）</text>
+  <circle cx="485" cy="230" r="42" fill="#dce8ec" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="485" cy="230" y="235" text-anchor="middle" font-size="13" fill="#1f6f8b">行星</text>
+  <text x="485" y="188" text-anchor="middle" font-size="12" fill="#1f6f8b">引力影响球</text>
+
+  <!-- 飞掠双曲线：进入 + 离开 -->
+  <path d="M 320 300 Q 460 300 470 250" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <path d="M 470 210 Q 480 160 620 120" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <text x="300" y="318" font-size="13" fill="#c0392b">进入速度 v_in</text>
+  <text x="560" y="108" font-size="13" fill="#1f6f8b">离开速度 v_out</text>
+  <text x="520" y="270" font-size="13" fill="#333">相对速度大小不变，</text>
+  <text x="520" y="288" font-size="13" fill="#333">方向转向太阳系参考系被甩飞</text>
+  <path d="M 545 165 l 30 -12" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+</svg>

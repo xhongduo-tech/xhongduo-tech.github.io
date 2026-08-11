@@ -1,0 +1,47 @@
+<svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">内分泌系统的负反馈调节闭环</title>
+  <desc id="d">下丘脑释放促释放激素刺激垂体，垂体分泌促激素刺激靶腺，靶腺分泌靶激素，靶激素沿虚线负反馈抑制下丘脑与垂体。</desc>
+  <rect width="640" height="480" fill="#faf9f5"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <g stroke="#333" stroke-width="2" fill="#ffffff">
+    <rect x="190" y="24" width="220" height="52" rx="8"/>
+    <rect x="190" y="140" width="220" height="52" rx="8"/>
+    <rect x="190" y="256" width="220" height="52" rx="8"/>
+    <rect x="450" y="256" width="150" height="52" rx="8"/>
+  </g>
+  <g fill="#333" font-family="sans-serif" font-size="16" text-anchor="middle">
+    <text x="300" y="55">下丘脑</text>
+    <text x="300" y="171">垂体</text>
+    <text x="300" y="287">靶腺（甲状腺 / 肾上腺）</text>
+    <text x="525" y="279">靶激素</text>
+    <text x="525" y="297" font-size="13">（T4 / 皮质醇）</text>
+  </g>
+
+  <g stroke="#1f6f8b" stroke-width="2" fill="none">
+    <line x1="300" y1="76" x2="300" y2="138" marker-end="url(#arr)"/>
+    <line x1="300" y1="192" x2="300" y2="254" marker-end="url(#arr)"/>
+    <line x1="410" y1="282" x2="448" y2="282" marker-end="url(#arr)"/>
+  </g>
+  <g fill="#1f6f8b" font-family="sans-serif" font-size="14" text-anchor="start">
+    <text x="312" y="112">促释放激素（TRH / CRH / GnRH）</text>
+    <text x="312" y="228">促激素（TSH / ACTH / FSH·LH）</text>
+    <text x="312" y="330">靶激素入血 → 作用于全身靶组织</text>
+  </g>
+
+  <g stroke="#c0392b" stroke-width="2" stroke-dasharray="6 5" fill="none">
+    <path d="M 470 256 C 545 180, 560 96, 410 78" marker-end="url(#arrR)"/>
+    <path d="M 470 262 C 570 240, 580 180, 410 168" marker-end="url(#arrR)"/>
+  </g>
+  <g fill="#c0392b" font-family="sans-serif" font-size="14">
+    <text x="500" y="140">负反馈（−）</text>
+    <text x="516" y="212">负反馈（−）</text>
+  </g>
+</svg>

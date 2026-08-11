@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 470" width="820" height="470" role="img" aria-labelledby="title desc">
+<title>五分之四法则示例</title>
+<desc>多数群体选择率 50%，受保护群体选择率 25%，比值 0.5 小于 0.8，构成不利影响触发条件。</desc>
+<rect x="0" y="0" width="820" height="470" fill="#faf9f5"/>
+<text x="410" y="40" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">五分之四法则：选择率的比较</text>
+
+<!-- 表头 -->
+<text x="120" y="80" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">群体</text>
+<text x="300" y="80" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">申请人数</text>
+<text x="460" y="80" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">录用人数</text>
+<text x="620" y="80" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">选择率 SR</text>
+<line x1="60" y1="92" x2="760" y2="92" stroke="#333" stroke-width="1.5"/>
+
+<text x="120" y="122" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">多数群体</text>
+<text x="300" y="122" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">100</text>
+<text x="460" y="122" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">50</text>
+<text x="620" y="122" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b" font-weight="bold">50%</text>
+<line x1="60" y1="138" x2="760" y2="138" stroke="#ccc" stroke-width="1"/>
+
+<text x="120" y="168" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">受保护群体</text>
+<text x="300" y="168" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">60</text>
+<text x="460" y="168" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">15</text>
+<text x="620" y="168" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b" font-weight="bold">25%</text>
+<line x1="60" y1="184" x2="760" y2="184" stroke="#ccc" stroke-width="1"/>
+
+<!-- 条形图 -->
+<text x="410" y="230" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333" font-weight="bold">选择率对比</text>
+<line x1="120" y1="320" x2="700" y2="320" stroke="#333" stroke-width="2"/>
+<text x="120" y="340" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">0%</text>
+<text x="410" y="340" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">50%</text>
+<text x="700" y="340" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">100%</text>
+
+<rect x="130" y="250" width="290" height="70" fill="#1f6f8b"/>
+<text x="275" y="295" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff">多数群体 50%</text>
+
+<rect x="440" y="250" width="145" height="70" fill="#c0392b"/>
+<text x="512" y="295" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff">受保护 25%</text>
+
+<!-- 比值 -->
+<rect x="130" y="360" width="560" height="52" rx="8" fill="#fff" stroke="#333" stroke-width="1.5"/>
+<text x="410" y="380" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333">比值 = 25% ÷ 50% = 0.5</text>
+<text x="410" y="400" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#c0392b" font-weight="bold">0.5 ＜ 0.8 → 不利影响的初步证据</text>
+
+<text x="410" y="445" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#666">雇主须证明该标准属「经营必需」且与工作相关，方可抗辩</text>
+</svg>

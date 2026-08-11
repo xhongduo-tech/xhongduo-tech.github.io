@@ -54,9 +54,7 @@ data: [DONE]
 
 三个关键点：
 
-**`delta` 是增量**：第一条通常是 `delta.role`（角色声明），中间是 `delta.content`（每段的文本增量），最后 `delta` 变成 `{}`（空对象，仅带 `finish_reason`）。<span class="marginnote">客户端解析流式的核心逻辑：<strong>把每条消息的 <code>delta.content</code> 追加到缓冲区。增量而非全量，是流式协议的灵魂——全量会让「打字机效果」失效。</strong>
-**finish_reason` 在最后一条**：非流式时它在响应里；流式时它作为「收尾消息」的字段出现。客户端要等它确认「生成结束」。
-**[DONE]` 是流的终止**：客户端遇到 `[DONE]` 就关闭连接、结束渲染。</span>
+**`delta` 是增量**：第一条通常是 `delta.role`（角色声明），中间是 `delta.content`（每段的文本增量），最后 `delta` 变成 `{}`（空对象，仅带 `finish_reason`）。<span class="marginnote">客户端解析流式的核心逻辑：<strong>把每条消息的 <code>delta.content</code> 追加到缓冲区</strong>。增量而非全量，是流式协议的灵魂——全量会让「打字机效果」失效。finish_reason 在最后一条：非流式时它在响应里；流式时它作为「收尾消息」的字段出现，客户端要等它确认「生成结束」。`[DONE]` 是流的终止：客户端遇到 `[DONE]` 就关闭连接、结束渲染。</span>
 
 ## 3 流式背后的引擎机制
 

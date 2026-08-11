@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460" font-family="sans-serif">
+  <title>破产财产清偿顺序金字塔</title>
+  <desc>破产财产在支付破产费用与共益债务后，按第一顺位职工工资社保、第二顺位税款、第三顺位普通债权的顺序清偿，同一顺序不足时按比例分配；有担保债权通过别除权就担保物优先受偿。</desc>
+  <rect x="0" y="0" width="640" height="460" fill="#faf9f5"/>
+  <text x="320" y="36" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">破产财产清偿顺序金字塔</text>
+
+  <!-- 塔尖：破产费用与共益债务 -->
+  <polygon points="320,60 180,140 460,140" fill="#1f6f8b" stroke="#0f4a5f" stroke-width="2"/>
+  <text x="320" y="112" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">破产费用 · 共益债务</text>
+  <text x="320" y="132" text-anchor="middle" font-size="13" fill="#e8f4f8">最先支付</text>
+
+  <!-- 第一顺位 -->
+  <polygon points="160,150 320,150 430,150 500,150 480,235 200,235" fill="#c0392b" stroke="#8f2216" stroke-width="2"/>
+  <text x="340" y="190" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">第一顺位</text>
+  <text x="340" y="212" text-anchor="middle" font-size="13" fill="#fdecea">职工工资 · 医疗伤残补助</text>
+  <text x="340" y="230" text-anchor="middle" font-size="13" fill="#fdecea">社保费用 · 法定补偿金</text>
+
+  <!-- 第二顺位 -->
+  <polygon points="200,245 480,245 470,320 210,320" fill="#8a6d3b" stroke="#5f4a24" stroke-width="2"/>
+  <text x="340" y="278" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">第二顺位</text>
+  <text x="340" y="300" text-anchor="middle" font-size="13" fill="#f6efe0">社会保险费 · 税款</text>
+
+  <!-- 第三顺位 -->
+  <polygon points="210,330 470,330 520,400 160,400" fill="#4d4d4d" stroke="#2a2a2a" stroke-width="2"/>
+  <text x="340" y="362" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">第三顺位</text>
+  <text x="340" y="384" text-anchor="middle" font-size="13" fill="#e6e6e6">普通破产债权（不足则按比例分配）</text>
+
+  <!-- 侧注：别除权 -->
+  <rect x="470" y="150" width="150" height="70" rx="8" fill="#fff" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="545" y="172" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="bold">别除权</text>
+  <text x="545" y="194" text-anchor="middle" font-size="13" fill="#333">有担保债权就担保物</text>
+  <text x="545" y="212" text-anchor="middle" font-size="13" fill="#333">优先受偿</text>
+  <line x1="468" y1="185" x2="440" y2="185" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- 脚注 -->
+  <text x="320" y="432" text-anchor="middle" font-size="13" fill="#666">先支付破产费用与共益债务，再按 1→2→3 顺位清偿</text>
+  <text x="320" y="452" text-anchor="middle" font-size="13" fill="#666">不足清偿同一顺序的，按债权比例分配</text>
+</svg>

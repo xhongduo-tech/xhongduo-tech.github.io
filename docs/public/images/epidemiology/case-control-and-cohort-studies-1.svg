@@ -1,0 +1,56 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto">
+<title>队列研究与病例对照研究的时间方向对比</title>
+<desc>左图为队列研究：从暴露组与未暴露组出发向前随访，观察发病与否；右图为病例对照研究：从病例与对照出发向后回溯暴露史。两图方向相反。</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+  </marker>
+</defs>
+<rect width="860" height="420" fill="#faf9f5"/>
+<line x1="430" y1="60" x2="430" y2="360" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 4" opacity="0.35"/>
+
+<text x="225" y="32" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#333">队列研究：顺流而下</text>
+<line x1="40" y1="70" x2="420" y2="70" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="408" y="58" text-anchor="end" font-family="sans-serif" font-size="13" fill="#1f6f8b">前瞻随访 →</text>
+
+<rect x="40" y="110" width="130" height="38" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+<text x="105" y="134" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">暴露组</text>
+<rect x="40" y="200" width="130" height="38" rx="6" fill="#1f6f8b" opacity="0.08" stroke="#1f6f8b"/>
+<text x="105" y="224" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">未暴露组</text>
+
+<line x1="255" y1="95" x2="255" y2="280" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="263" y="100" font-family="sans-serif" font-size="13" fill="#c0392b">入选时刻</text>
+
+<rect x="320" y="110" width="110" height="38" rx="6" fill="#c0392b" opacity="0.15" stroke="#c0392b"/>
+<text x="375" y="134" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">发病</text>
+<rect x="320" y="200" width="110" height="38" rx="6" fill="#c0392b" opacity="0.08" stroke="#c0392b"/>
+<text x="375" y="224" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">未发病</text>
+
+<line x1="170" y1="122" x2="320" y2="122" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="170" y1="148" x2="320" y2="206" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="170" y1="212" x2="320" y2="126" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="170" y1="238" x2="320" y2="236" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<text x="225" y="392" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1f6f8b">先分组，再等待结局：可算发病率与相对危险度 RR</text>
+
+<text x="645" y="32" text-anchor="middle" font-family="sans-serif" font-size="17" font-weight="bold" fill="#333">病例对照研究：逆流而上</text>
+<line x1="820" y1="70" x2="440" y2="70" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="455" y="58" text-anchor="end" font-family="sans-serif" font-size="13" fill="#1f6f8b">回溯暴露史 ←</text>
+
+<rect x="700" y="110" width="140" height="38" rx="6" fill="#c0392b" opacity="0.15" stroke="#c0392b"/>
+<text x="770" y="134" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">病例（患病的）</text>
+<rect x="700" y="200" width="140" height="38" rx="6" fill="#c0392b" opacity="0.08" stroke="#c0392b"/>
+<text x="770" y="224" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">对照（未患病）</text>
+
+<rect x="470" y="110" width="120" height="38" rx="6" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+<text x="530" y="134" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">暴露过</text>
+<rect x="470" y="200" width="120" height="38" rx="6" fill="#1f6f8b" opacity="0.08" stroke="#1f6f8b"/>
+<text x="530" y="224" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">未暴露过</text>
+
+<line x1="700" y1="122" x2="590" y2="122" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="700" y1="148" x2="590" y2="206" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="700" y1="212" x2="590" y2="126" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="700" y1="238" x2="590" y2="236" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<text x="645" y="392" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">先选结局，再问暴露史：只能算比值比 OR</text>
+</svg>

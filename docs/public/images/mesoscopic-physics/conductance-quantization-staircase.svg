@@ -1,0 +1,31 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>量子点接触的电导量子化台阶</title>
+  <desc>电导 G 随门电压 Vg 的增大呈台阶状上升，台阶高度为 2e^2/h，横坐标从阈值开始标出通道数 N=1,2,3。</desc>
+  <rect x="0" y="0" width="640" height="400" fill="#faf9f5"/>
+  <text x="320" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">量子点接触的电导量子化台阶</text>
+  <line x1="80" y1="60" x2="80" y2="340" stroke="#333" stroke-width="1.5"/>
+  <line x1="80" y1="340" x2="600" y2="340" stroke="#333" stroke-width="1.5"/>
+  <text x="55" y="70" text-anchor="end" font-size="13" fill="#333">G</text>
+  <text x="330" y="375" text-anchor="middle" font-size="13" fill="#333">门电压 V_g（通道数增大 →）</text>
+  <g fill="#c0392b">
+    <line x1="120" y1="340" x2="150" y2="340" stroke="#c0392b" stroke-width="4"/>
+    <line x1="150" y1="340" x2="150" y2="300" stroke="#c0392b" stroke-width="4"/>
+    <line x1="150" y1="300" x2="300" y2="300" stroke="#c0392b" stroke-width="4"/>
+    <line x1="300" y1="300" x2="300" y2="260" stroke="#c0392b" stroke-width="4"/>
+    <line x1="300" y1="260" x2="450" y2="260" stroke="#c0392b" stroke-width="4"/>
+    <line x1="450" y1="260" x2="450" y2="220" stroke="#c0392b" stroke-width="4"/>
+    <line x1="450" y1="220" x2="580" y2="220" stroke="#c0392b" stroke-width="4"/>
+  </g>
+  <line x1="80" y1="300" x2="600" y2="300" stroke="#999" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="620" y="304" font-size="13" fill="#666">2e²/h</text>
+  <line x1="80" y1="260" x2="600" y2="260" stroke="#999" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="620" y="264" font-size="13" fill="#666">4e²/h</text>
+  <line x1="80" y1="220" x2="600" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="6 4"/>
+  <text x="620" y="224" font-size="13" fill="#666">6e²/h</text>
+  <text x="120" y="352" font-size="13" fill="#666">阈值</text>
+  <text x="150" y="392" text-anchor="middle" font-size="13" fill="#333">N=1</text>
+  <text x="300" y="392" text-anchor="middle" font-size="13" fill="#333">N=2</text>
+  <text x="450" y="392" text-anchor="middle" font-size="13" fill="#333">N=3</text>
+  <text x="350" y="120" text-anchor="middle" font-size="13" fill="#1f6f8b">每个传播模贡献一个电导量子 2e²/h</text>
+  <text x="350" y="140" text-anchor="middle" font-size="13" fill="#1f6f8b">台阶宽度由模间距 ΔE 与费米能量共同决定</text>
+</svg>

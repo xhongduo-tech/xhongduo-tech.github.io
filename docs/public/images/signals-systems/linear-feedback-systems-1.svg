@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" width="460" height="300" font-family="sans-serif">
+  <title>单位反馈闭环结构框图</title>
+  <desc>输入 R(s) 经求和节点（加号）与反馈支路（减号）相减后进入前向通路 G(s)，输出 Y(s)；Y(s) 分支经反馈支路 K(s) 送回求和节点，构成闭环。</desc>
+  <rect x="0" y="0" width="460" height="300" fill="#faf9f5"/>
+  <text x="12" y="24" font-size="14" fill="#c0392b" font-weight="bold">反馈闭环：Y = G(R − KY)</text>
+
+  <!-- 输入 -->
+  <text x="14" y="136" font-size="14" fill="#333">R(s)</text>
+  <line x1="48" y1="130" x2="70" y2="130" stroke="#333" stroke-width="1.5"/>
+  <polygon points="78,130 68,125 68,135" fill="#333"/>
+
+  <!-- 求和节点 -->
+  <circle cx="85" cy="130" r="15" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="78" y="111" font-size="15" fill="#333">+</text>
+  <text x="78" y="153" font-size="15" fill="#333">−</text>
+
+  <!-- 前向通路 -->
+  <line x1="100" y1="130" x2="148" y2="130" stroke="#333" stroke-width="1.5"/>
+  <polygon points="155,130 145,125 145,135" fill="#333"/>
+  <rect x="155" y="95" width="95" height="70" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="186" y="133" font-size="14" fill="#1f6f8b">G(s)</text>
+
+  <!-- 输出 -->
+  <line x1="250" y1="130" x2="308" y2="130" stroke="#333" stroke-width="1.5"/>
+  <polygon points="315,130 305,125 305,135" fill="#333"/>
+  <text x="322" y="136" font-size="14" fill="#333">Y(s)</text>
+
+  <!-- 反馈支路 -->
+  <line x1="290" y1="130" x2="290" y2="220" stroke="#333" stroke-width="1.5"/>
+  <line x1="290" y1="220" x2="182" y2="220" stroke="#333" stroke-width="1.5"/>
+  <rect x="98" y="200" width="84" height="40" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="122" y="226" font-size="14" fill="#c0392b">K(s)</text>
+  <line x1="98" y1="220" x2="85" y2="220" stroke="#333" stroke-width="1.5"/>
+  <line x1="85" y1="220" x2="85" y2="147" stroke="#333" stroke-width="1.5"/>
+  <polygon points="85,139 80,147 90,147" fill="#333"/>
+
+  <text x="328" y="222" font-size="13" fill="#666">反馈支路（单位负反馈 K=1 时）</text>
+</svg>

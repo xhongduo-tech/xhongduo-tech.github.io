@@ -1,0 +1,73 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>并合事件三段式引力波波形示意</title>
+<desc>波形随时间从左到右演化：旋近段振幅缓慢增长、频率上扫；并合段振幅达到峰值；衰减段振幅指数衰减。</desc>
+<rect x="0" y="0" width="640" height="360" fill="#faf9f5"/>
+<!-- axes -->
+<line x1="50" y1="300" x2="620" y2="300" stroke="#333" stroke-width="1.5"/>
+<line x1="50" y1="40" x2="50" y2="310" stroke="#333" stroke-width="1.5"/>
+<!-- labels -->
+<text x="610" y="320" font-family="sans-serif" font-size="14" fill="#333">时间 t</text>
+<text x="30" y="175" font-family="sans-serif" font-size="14" fill="#333" transform="rotate(-90 30 175)">应变 h(t)</text>
+<!-- inspiral region boundary -->
+<line x1="300" y1="60" x2="300" y2="310" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="430" y1="60" x2="430" y2="310" stroke="#999" stroke-width="1" stroke-dasharray="4 4"/>
+<!-- inspiral waveform: increasing frequency, slow amplitude growth -->
+<path d="M50,300 C90,298 110,300 130,296 C150,292 170,296 190,288 C210,282 230,286 250,272 C270,258 285,246 296,228"
+      fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+<path d="M50,300 C90,302 110,300 130,304 C150,308 170,304 190,312 C210,318 230,314 250,328 C270,342 285,354 296,372"
+      fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<!-- merger waveform: peak amplitude, oscillating at high frequency -->
+<path d="M300,300
+       C312,240 318,360 330,280
+       C338,228 348,372 360,268
+       C368,220 380,380 392,260
+       C400,214 412,386 424,258
+       C430,220 436,360 442,284
+       C448,250 456,330 462,292
+       C466,268 472,318 476,296"
+      fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+<path d="M300,300
+       C312,360 318,240 330,320
+       C338,372 348,228 360,332
+       C368,380 380,220 392,340
+       C400,386 412,214 424,342
+       C430,380 436,240 442,316
+       C448,350 456,270 462,308
+       C466,332 472,282 476,304"
+      fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<!-- ringdown: damped oscillation -->
+<path d="M476,300
+       C496,270 506,326 518,300
+       C528,282 534,314 542,300
+       C548,290 552,308 558,300
+       C562,294 566,304 570,300
+       C573,296 575,303 578,300
+       C581,297 583,302 586,300
+       C589,298 591,301 594,300
+       C597,299 599,301 602,300
+       C605,299 607,301 610,300"
+      fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+<path d="M476,300
+       C496,330 506,274 518,300
+       C528,318 534,286 542,300
+       C548,310 552,292 558,300
+       C562,306 566,296 570,300
+       C573,304 575,297 578,300
+       C581,303 583,298 586,300
+       C589,301 591,299 594,300
+       C597,301 599,299 602,300
+       C605,301 607,299 610,300"
+      fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<!-- region labels -->
+<text x="175" y="85" font-family="sans-serif" font-size="16" fill="#1f6f8b" text-anchor="middle" font-weight="bold">旋近</text>
+<text x="175" y="105" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">inspiral（PN 解析）</text>
+<text x="365" y="85" font-family="sans-serif" font-size="16" fill="#c0392b" text-anchor="middle" font-weight="bold">并合</text>
+<text x="365" y="105" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">merger（数值相对论）</text>
+<text x="543" y="85" font-family="sans-serif" font-size="16" fill="#1f6f8b" text-anchor="middle" font-weight="bold">衰减</text>
+<text x="543" y="105" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">ringdown（QNM）</text>
+<text x="535" y="140" font-family="sans-serif" font-size="13" fill="#666" text-anchor="middle">振幅指数衰减</text>
+<text x="200" y="150" font-family="sans-serif" font-size="13" fill="#666">频率上扫（啁啾）</text>
+<!-- amplitude peak annotation -->
+<line x1="430" y1="200" x2="430" y2="310" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="430" y="40" font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">峰值振幅</text>
+</svg>

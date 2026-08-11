@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="640" height="460" role="img" aria-labelledby="title desc">
+  <title>弹簧-质量系统的自由振动</title>
+  <desc>上图为弹簧-质量系统示意图（k 为刚度，m 为质量）；下图为欠阻尼自由振动的位移-时间曲线，振幅按指数衰减。</desc>
+  <rect x="0" y="0" width="640" height="460" fill="#faf9f5"/>
+  <!-- ============ top: spring-mass ============ -->
+  <text x="20" y="34" font-family="sans-serif" font-size="16" fill="#333" font-weight="bold">① 弹簧-质量系统</text>
+  <!-- ceiling -->
+  <line x1="60" y1="60" x2="320" y2="60" stroke="#333" stroke-width="4"/>
+  <line x1="180" y1="60" x2="180" y2="82" stroke="#333" stroke-width="3"/>
+  <!-- spring -->
+  <polyline points="180,82 200,96 160,110 200,124 160,138 200,152 160,166 180,180" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="180" y1="180" x2="180" y2="206" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- mass -->
+  <rect x="140" y="206" width="80" height="44" rx="4" fill="#fff" stroke="#333" stroke-width="3"/>
+  <text x="168" y="234" font-family="sans-serif" font-size="15" fill="#333">m</text>
+  <text x="196" y="150" font-family="sans-serif" font-size="15" fill="#1f6f8b">k</text>
+  <!-- equilibrium dashed -->
+  <line x1="220" y1="228" x2="300" y2="228" stroke="#999" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="304" y="232" font-family="sans-serif" font-size="14" fill="#666">平衡位置</text>
+  <text x="300" y="70" font-family="sans-serif" font-size="14" fill="#666">光滑面</text>
+  <text x="300" y="88" font-family="sans-serif" font-size="14" fill="#666">（无摩擦）</text>
+  <!-- ============ bottom: response ============ -->
+  <text x="20" y="296" font-family="sans-serif" font-size="16" fill="#333" font-weight="bold">② 欠阻尼自由振动 x(t)</text>
+  <line x1="70" y1="404" x2="610" y2="404" stroke="#333" stroke-width="2"/>
+  <line x1="70" y1="344" x2="70" y2="430" stroke="#333" stroke-width="2"/>
+  <text x="596" y="426" font-family="sans-serif" font-size="15" fill="#333">t</text>
+  <text x="30" y="348" font-family="sans-serif" font-size="15" fill="#333">x</text>
+  <path d="M 70 404 C 150 404, 150 344, 200 344 C 250 344, 250 404, 300 404 C 350 404, 350 362, 400 362 C 450 362, 450 404, 500 404 C 540 404, 540 380, 580 380" fill="none" stroke="#c0392b" stroke-width="3.5"/>
+  <path d="M 70 404 C 150 404, 150 460, 200 460 C 250 460, 250 404, 300 404 C 350 404, 350 445, 400 445 C 450 445, 450 404, 500 404 C 540 404, 540 428, 580 428" fill="none" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="130" y="332" font-family="sans-serif" font-size="15" fill="#c0392b">A</text>
+  <text x="218" y="330" font-family="sans-serif" font-size="15" fill="#1f6f8b">Ae^-ζωnt（包络）</text>
+  <text x="470" y="420" font-family="sans-serif" font-size="14" fill="#666">周期 Td = 2π/ωd</text>
+  <text x="80" y="440" font-family="sans-serif" font-size="14" fill="#666">振幅按指数衰减，频率 ωd = ωn√(1-ζ²)</text>
+</svg>

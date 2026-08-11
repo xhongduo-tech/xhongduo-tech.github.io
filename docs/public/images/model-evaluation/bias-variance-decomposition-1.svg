@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" font-family="sans-serif">
+<title>偏差-方差权衡曲线</title>
+<desc>横轴为模型复杂度，纵轴为误差。偏差平方随复杂度下降，方差随复杂度上升，不可约噪声为常数，总期望误差呈 U 形，其最低点对应最佳复杂度。</desc>
+<rect width="820" height="440" fill="#faf9f5"/>
+<text x="410" y="36" font-size="20" font-weight="bold" fill="#333" text-anchor="middle">偏差-方差权衡</text>
+<line x1="90" y1="390" x2="760" y2="390" stroke="#333" stroke-width="2"/>
+<line x1="90" y1="390" x2="90" y2="60" stroke="#333" stroke-width="2"/>
+<text x="425" y="416" font-size="14" fill="#333" text-anchor="middle">模型复杂度 →</text>
+<text x="30" y="225" font-size="14" fill="#333" text-anchor="middle" transform="rotate(-90 30 225)">误差 →</text>
+<line x1="120" y1="78" x2="140" y2="78" stroke="#333" stroke-width="2"/>
+<text x="120" y="78" font-size="13" fill="#333" text-anchor="end">高</text>
+<line x1="120" y1="390" x2="140" y2="390" stroke="#333" stroke-width="2"/>
+<text x="120" y="393" font-size="13" fill="#333" text-anchor="end">低</text>
+<line x1="90" y1="84" x2="730" y2="84" stroke="#999" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="738" y="88" font-size="13" fill="#999">不可约噪声</text>
+<path d="M100 385 C 180 260, 300 92, 720 80" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<text x="726" y="70" font-size="14" fill="#c0392b" font-weight="bold">偏差平方</text>
+<path d="M100 82 C 220 100, 400 120, 470 160 C 560 230, 660 320, 740 360" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+<text x="746" y="368" font-size="14" fill="#1f6f8b" font-weight="bold">方差</text>
+<path d="M100 150 C 180 120, 420 110, 470 128 C 560 175, 640 300, 720 330" fill="none" stroke="#333" stroke-width="3"/>
+<text x="728" y="318" font-size="14" fill="#333" font-weight="bold">总期望误差（U 形）</text>
+<line x1="420" y1="62" x2="420" y2="400" stroke="#666" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="420" y="55" font-size="14" fill="#666" font-weight="bold" text-anchor="middle">最佳复杂度</text>
+<circle cx="420" cy="126" r="6" fill="#c0392b"/>
+<text x="290" y="150" font-size="13" fill="#333">欠拟合：偏差主导</text>
+<text x="520" y="300" font-size="13" fill="#333">过拟合：方差主导</text>
+</svg>
