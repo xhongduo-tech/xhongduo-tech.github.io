@@ -2,11 +2,13 @@
 import { ref, computed } from 'vue'
 import { withBase } from 'vitepress'
 import { trees } from '../data/knowledge-tree.mjs'
-import { treeDetails } from '../data/knowledge-tree-detail.mjs'
+import posts from '../data/posts.json'
 
 const expanded = ref({}) // treeId -> bool
 const expandedBranch = ref({}) // treeId.branchIdx -> bool
-const expandedDetail = ref({}) // path -> bool
+
+// 全部文章路由集合（/posts/<tier>/<cat>/<slug>），用于区分「专题目录」与「单篇文章」
+const postRoutes = new Set(posts.map((p) => p.path))
 
 function toggleTree(id) {
   expanded.value[id] = !expanded.value[id]
@@ -17,42 +19,35 @@ function toggleBranch(key) {
 function isOpen(key) {
   return expandedBranch.value[key] !== false // 默认展开
 }
-function toggleDetail(path) {
-  expandedDetail.value[path] = !expandedDetail.value[path]
-}
-function detailOf(path) {
-  return treeDetails[path] || null
-}
 function href(node) {
-  // 待建节点不跳转（即使有 path 也只作占位）
-  return node.path && node.tag !== 'add' ? withBase(`/posts/${node.path}/`) : null
+  if (!node.path) return null
+  // 若是单篇文章路由（如 advanced/reinforcement-learning/ppo），指向文章页
+  if (postRoutes.has(`/posts/${node.path}`)) return withBase(`/posts/${node.path}`)
+  // 否则指向专题目录首页
+  return withBase(`/posts/${node.path}/`)
 }
 function tagLabel(tag) {
-  return tag === 'ref' ? '引用' : tag === 'add' ? '待建' : ''
+  return tag === 'ref' ? '引用' : ''
 }
-const tagClass = (t) => (t === 'add' ? 'kt-tag-add' : 'kt-tag-ref')
+const tagClass = () => 'kt-tag-ref'
 
-// 统计：总节点 / 已有 / 待建 / 引用
+// 统计：总节点 / 已有 / 引用
 function classify(node) {
-  if (node.tag === 'add') return 'add'
-  if (node.tag === 'ref') return 'ref'
-  return 'have'
+  return node.tag === 'ref' ? 'ref' : 'have'
 }
 const stats = computed(() => {
   let total = 0,
     have = 0,
-    add = 0,
     ref = 0
   for (const t of trees)
     for (const b of t.branches)
       for (const n of b.nodes) {
         total++
         const c = classify(n)
-        if (c === 'add') add++
-        else if (c === 'ref') ref++
+        if (c === 'ref') ref++
         else have++
       }
-  return { total, have, add, ref, trees: trees.length }
+  return { total, have, ref, trees: trees.length }
 })
 
 // 每棵树的小统计
@@ -63,11 +58,10 @@ function treeStats(tree) {
   for (const b of tree.branches)
     for (const n of b.nodes) {
       const c = classify(n)
-      if (c === 'add') add++
-      else if (c === 'ref') ref++
+      if (c === 'ref') ref++
       else have++
     }
-  return { have, add, ref }
+  return { have, ref }
 }
 </script>
 
@@ -80,11 +74,10 @@ function treeStats(tree) {
       </p>
       <div class="kt-legend">
         <span class="kt-legend-item"><span class="kt-dot kt-dot-have"></span>已有专题</span>
-        <span class="kt-legend-item"><span class="kt-tag kt-tag-add">待建</span>规划待撰写</span>
         <span class="kt-legend-item"><span class="kt-tag kt-tag-ref">引用</span>跨树引用</span>
       </div>
       <div class="kt-summary">
-        共 <strong>{{ stats.total }}</strong> 节点 · 已有 <strong>{{ stats.have }}</strong> · 待建 <strong>{{ stats.add }}</strong> · 引用 <strong>{{ stats.ref }}</strong>
+        共 <strong>{{ stats.total }}</strong> 节点 · 已有 <strong>{{ stats.have }}</strong> · 引用 <strong>{{ stats.ref }}</strong>
       </div>
     </div>
 
@@ -94,7 +87,6 @@ function treeStats(tree) {
         <h3 class="kt-tree-name">{{ tree.name }}</h3>
         <span class="kt-tree-stats">
           <span class="kt-ts-have">{{ treeStats(tree).have }}</span>
-          <span class="kt-ts-add" v-if="treeStats(tree).add">+{{ treeStats(tree).add }} 待建</span>
         </span>
       </div>
 
@@ -114,29 +106,13 @@ function treeStats(tree) {
           </div>
           <ul v-show="isOpen(tree.id + '.' + bi)" class="kt-nodes">
             <li v-for="(node, ni) in branch.nodes" :key="ni" class="kt-node">
-              <a v-if="href(node)" :href="href(node)" class="kt-link">{{ node.name }}</a>
-              <span
-                v-else-if="node.tag === 'add' && detailOf(node.path)"
-                class="kt-link kt-link-add kt-link-expandable"
-                @click="toggleDetail(node.path)"
-              >{{ node.name }} <span class="kt-detail-caret">{{ expandedDetail[node.path] ? '▾' : '▸' }}</span></span>
-              <span v-else class="kt-link kt-link-add">{{ node.name }}</span>
+              <a :href="href(node)" class="kt-link">{{ node.name }}</a>
               <span
                 v-if="node.tag"
                 class="kt-tag"
                 :class="tagClass(node.tag)"
                 >{{ tagLabel(node.tag) }}</span
               >
-              <!-- 待建专题详细主题 -->
-              <div v-if="node.tag === 'add' && expandedDetail[node.path] && detailOf(node.path)" class="kt-detail">
-                <div class="kt-detail-books">
-                  <span class="kt-detail-label">依据</span>
-                  <span v-for="(book, bi2) in detailOf(node.path).books" :key="bi2" class="kt-book">{{ book }}</span>
-                </div>
-                <ul class="kt-detail-chapters">
-                  <li v-for="(ch, ci) in detailOf(node.path).chapters" :key="ci" class="kt-chapter">{{ ch }}</li>
-                </ul>
-              </div>
             </li>
           </ul>
         </div>
