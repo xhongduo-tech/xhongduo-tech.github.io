@@ -17,20 +17,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 细胞病理生理学 (McCance §2)
-- [ ] 水电解质与酸碱平衡 (McCance §5)
-- [ ] 炎症与免疫紊乱 (McCance §6)
-- [ ] 应激与缺血再灌注损伤 (McCance §6)
-- [ ] 发热与缺氧 (Porth §9)
-- [ ] 肿瘤生物学 (McCance §10)
-- [ ] 血液系统病理生理（贫血与出血） (McCance §20)
-- [ ] 心血管病理生理 (McCance §23)
+- [x] [细胞病理生理学 (McCance §2)](./cell-pathophysiology)
+- [x] [水电解质与酸碱平衡 (McCance §5)](./fluid-electrolyte-acid-base)
+- [x] [炎症与免疫紊乱 (McCance §6)](./inflammation-immune-disorders)
+- [x] [应激与缺血再灌注损伤 (McCance §6)](./stress-ischemia-reperfusion)
+- [x] [发热与缺氧 (Porth §9)](./fever-hypoxia)
+- [x] [肿瘤生物学 (McCance §10)](./cancer-biology)
+- [x] [血液系统病理生理（贫血与出血） (McCance §20)](./blood-system-pathophysiology)
+- [x] [心血管病理生理 (McCance §23)](./cardiovascular-pathophysiology)
 
 ### 第2篇
 
-- [ ] 呼吸病理生理 (McCance §27)
-- [ ] 休克与DIC（弥散性血管内凝血） (Porth §29)
-- [ ] 肾脏病理生理 (McCance §31)
-- [ ] 内分泌系统病理生理（糖尿病等） (McCance §32)
-- [ ] 肝功能不全与消化系统病理生理 (McCance §33)
-- [ ] 神经病理生理 (McCance §36)
+- [x] [呼吸病理生理 (McCance §27)](./respiratory-pathophysiology)
+- [x] [休克与DIC（弥散性血管内凝血） (Porth §29)](./shock-dic)
+- [x] [肾脏病理生理 (McCance §31)](./renal-pathophysiology)
+- [x] [内分泌系统病理生理（糖尿病等） (McCance §32)](./endocrine-pathophysiology)
+- [x] [肝功能不全与消化系统病理生理 (McCance §33)](./hepatic-gi-pathophysiology)
+- [x] [神经病理生理 (McCance §36)](./neural-pathophysiology)

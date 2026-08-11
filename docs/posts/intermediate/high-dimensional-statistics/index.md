@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 集中不等式 (Wainwright Ch. 2)
-- [ ] Rademacher 复杂性与经验过程 (Wainwright Ch. 4)
-- [ ] 高维线性回归与 Lasso (Wainwright Ch. 7)
-- [ ] 压缩感知与稀疏恢复 (Wainwright Ch. 7.5)
-- [ ] 非渐近方法与样本复杂性 (Wainwright Ch. 5-6)
-- [ ] 矩阵低秩恢复与 RPCA (Wainwright Ch. 9)
-- [ ] 偏差-方差权衡与 oracle 不等式 (Wainwright Ch. 12)
-- [ ] 图形模型学习 (Bühlmann & van de Geer Ch. 13)
+- [x] [集中不等式 (Wainwright Ch. 2)](./concentration-inequalities)
+- [x] [Rademacher 复杂性与经验过程 (Wainwright Ch. 4)](./rademacher-complexity)
+- [x] [高维线性回归与 Lasso (Wainwright Ch. 7)](./lasso-high-dimensional-regression)
+- [x] [压缩感知与稀疏恢复 (Wainwright Ch. 7.5)](./compressed-sensing-sparse-recovery)
+- [x] [非渐近方法与样本复杂性 (Wainwright Ch. 5-6)](./non-asymptotic-sample-complexity)
+- [x] [矩阵低秩恢复与 RPCA (Wainwright Ch. 9)](./matrix-completion-low-rank-rpca)
+- [x] [偏差-方差权衡与 oracle 不等式 (Wainwright Ch. 12)](./bias-variance-oracle-inequality)
+- [x] [图形模型学习 (Bühlmann & van de Geer Ch. 13)](./graphical-model-learning)
 
 ### 第2篇
 
-- [ ] 高维 minimax 下界与信息论下界 (Wainwright Ch. 14-15)
-- [ ] 协方差矩阵估计与随机矩阵理论 (Bühlmann & van de Geer Ch. 6)
-- [ ] 非参数回归与 RKHS 方法 (Wainwright Ch. 13)
+- [x] [高维 minimax 下界与信息论下界 (Wainwright Ch. 14-15)](./minimax-lower-bounds)
+- [x] [协方差矩阵估计与随机矩阵理论 (Bühlmann & van de Geer Ch. 6)](./covariance-estimation-random-matrix)
+- [x] [非参数回归与 RKHS 方法 (Wainwright Ch. 13)](./nonparametric-regression-rkhs)

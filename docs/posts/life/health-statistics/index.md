@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 统计学基础与描述 (Rosner §2)
-- [ ] 概率与概率分布 (Rosner §3)
-- [ ] 参数估计与置信区间 (Rosner §6)
-- [ ] 假设检验 (Rosner §7)
-- [ ] 方差分析 (Rosner §8)
-- [ ] 样本量与检验效能计算 (Rosner §8)
-- [ ] 非参数检验 (Rosner §9)
-- [ ] 分类数据分析 (Rosner §10)
+- [x] [统计学基础与描述 (Rosner §2)](./descriptive-statistics)
+- [x] [概率与概率分布 (Rosner §3)](./probability-and-distributions)
+- [x] [参数估计与置信区间 (Rosner §6)](./confidence-intervals)
+- [x] [假设检验 (Rosner §7)](./hypothesis-testing)
+- [x] [方差分析 (Rosner §8)](./analysis-of-variance)
+- [x] [样本量与检验效能计算 (Rosner §8)](./sample-size-and-power)
+- [x] [非参数检验 (Rosner §9)](./nonparametric-tests)
+- [x] [分类数据分析 (Rosner §10)](./categorical-data-analysis)
 
 ### 第2篇
 
-- [ ] 回归与相关 (Rosner §11)
-- [ ] 多元线性回归与Logistic回归 (Daniel §11)
-- [ ] 重复测量与纵向数据分析 (Rosner §12)
-- [ ] 统计软件应用（R/SAS/SPSS） (Daniel §13)
-- [ ] 生存分析 (Rosner §14)
+- [x] [回归与相关 (Rosner §11)](./correlation-and-regression)
+- [x] [多元线性回归与Logistic回归 (Daniel §11)](./multiple-and-logistic-regression)
+- [x] [重复测量与纵向数据分析 (Rosner §12)](./longitudinal-data-analysis)
+- [x] [统计软件应用（R/SAS/SPSS） (Daniel §13)](./statistical-software)
+- [x] [生存分析 (Rosner §14)](./survival-analysis)

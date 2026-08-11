@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 神经系统检查与定位诊断 (Adams §1)
-- [ ] 脑神经与脑干病变 (Adams §13)
-- [ ] 头痛与疼痛障碍（偏头痛/紧张型） (Adams §10)
-- [ ] 脊髓疾病（脊髓炎/脊髓压迫） (Adams §11)
-- [ ] 脑血管疾病 (Adams §34)
-- [ ] 癫痫与发作性疾病 (Adams §16)
-- [ ] 运动障碍疾病 (Adams §39)
-- [ ] 多发性硬化与脱髓鞘疾病 (Bradley §90)
+- [x] [神经系统检查与定位诊断 (Adams §1)](./neurologic-examination-and-localization)
+- [x] [脑神经与脑干病变 (Adams §13)](./cranial-nerves-and-brainstem)
+- [x] [头痛与疼痛障碍（偏头痛/紧张型） (Adams §10)](./headache-and-pain-disorders)
+- [x] [脊髓疾病（脊髓炎/脊髓压迫） (Adams §11)](./spinal-cord-diseases)
+- [x] [脑血管疾病 (Adams §34)](./cerebrovascular-disease)
+- [x] [癫痫与发作性疾病 (Adams §16)](./epilepsy-and-seizure-disorders)
+- [x] [运动障碍疾病 (Adams §39)](./movement-disorders)
+- [x] [多发性硬化与脱髓鞘疾病 (Bradley §90)](./multiple-sclerosis-and-demyelination)
 
 ### 第2篇
 
-- [ ] 痴呆与认知障碍 (Adams §21)
-- [ ] 周围神经病 (Bradley §85)
-- [ ] 神经肌肉接头与肌肉疾病（重症肌无力/肌营养不良） (Bradley §96)
-- [ ] 中枢神经系统感染 (Bradley §75)
+- [x] [痴呆与认知障碍 (Adams §21)](./dementia-and-cognitive-disorders)
+- [x] [周围神经病 (Bradley §85)](./peripheral-neuropathy)
+- [x] [神经肌肉接头与肌肉疾病（重症肌无力/肌营养不良） (Bradley §96)](./neuromuscular-junction-and-myopathy)
+- [x] [中枢神经系统感染 (Bradley §75)](./cns-infections)

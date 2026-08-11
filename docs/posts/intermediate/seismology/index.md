@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 弹性理论与地震波 (Shearer §2-3)
-- [ ] 地震波传播与射线理论 (Stein §2-3)
-- [ ] 震源机制与震源参数 (Stein §4-5)
-- [ ] 面波与地球自由振荡 (Stein §5, Shearer §8)
-- [ ] 地震观测与地震仪 (Shearer §11)
-- [ ] 地震定位方法 (Shearer §4-5)
-- [ ] 地球内部结构与地震学成像 (Stein §8-9, Shearer §4-5)
-- [ ] 震源破裂过程与震源谱/矩张量反演 (Stein §8, Shearer §9)
+- [x] [弹性理论与地震波 (Shearer §2-3)](./elasticity-and-seismic-waves)
+- [x] [地震波传播与射线理论 (Stein §2-3)](./seismic-ray-theory)
+- [x] [震源机制与震源参数 (Stein §4-5)](./focal-mechanism-and-source-parameters)
+- [x] [面波与地球自由振荡 (Stein §5, Shearer §8)](./surface-waves-and-free-oscillations)
+- [x] [地震观测与地震仪 (Shearer §11)](./seismic-observation-and-seismometers)
+- [x] [地震定位方法 (Shearer §4-5)](./earthquake-location)
+- [x] [地球内部结构与地震学成像 (Stein §8-9, Shearer §4-5)](./earth-internal-structure)
+- [x] [震源破裂过程与震源谱/矩张量反演 (Stein §8, Shearer §9)](./source-spectra-and-moment-tensor-inversion)
 
 ### 第2篇
 
-- [ ] 地震层析成像 (Stein §7, Shearer §5)
-- [ ] 地震危险性与预测 (Stein §10, Shearer §10)
-- [ ] 强震动地震学与工程地震 (Stein §10)
+- [x] [地震层析成像 (Stein §7, Shearer §5)](./seismic-tomography)
+- [x] [地震危险性与预测 (Stein §10, Shearer §10)](./seismic-hazard-and-prediction)
+- [x] [强震动地震学与工程地震 (Stein §10)](./strong-motion-and-engineering-seismology)

@@ -17,21 +17,21 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 矩阵的基本运算与分块 (Horn & Johnson Ch. 0-1)
-- [ ] 特征值、特征向量与谱定理 (Horn & Johnson Ch. 1-2)
-- [ ] 酉等价与正规矩阵 (Horn & Johnson Ch. 2)
-- [ ] Schur 三角化与奇异值分解 (Horn & Johnson Ch. 2-3)
-- [ ] Hermite 矩阵与复对称矩阵 (Horn & Johnson Ch. 4)
-- [ ] 矩阵范数 (Horn & Johnson Ch. 5)
-- [ ] 特征值定位与扰动理论：Gershgorin 圆盘定理、Weyl 不等式与 Hoffman-Wielandt 定理 (Horn & Johnson Ch. 6)
-- [ ] 正定矩阵与平方根 (Horn & Johnson Ch. 7)
+- [x] [矩阵的基本运算与分块 (Horn & Johnson Ch. 0-1)](./matrix-basics-and-partitioning)
+- [x] [特征值、特征向量与谱定理 (Horn & Johnson Ch. 1-2)](./eigenvalues-and-spectral-theorem)
+- [x] [酉等价与正规矩阵 (Horn & Johnson Ch. 2)](./unitary-equivalence-normal-matrices)
+- [x] [Schur 三角化与奇异值分解 (Horn & Johnson Ch. 2-3)](./schur-triangularization-svd)
+- [x] [Hermite 矩阵与复对称矩阵 (Horn & Johnson Ch. 4)](./hermitian-matrices)
+- [x] [矩阵范数 (Horn & Johnson Ch. 5)](./matrix-norms)
+- [x] [特征值定位与扰动理论：Gershgorin 圆盘定理、Weyl 不等式与 Hoffman-Wielandt 定理 (Horn & Johnson Ch. 6)](./gershgorin-discs-perturbation)
+- [x] [正定矩阵与平方根 (Horn & Johnson Ch. 7)](./positive-definite-matrices)
 
 ### 第2篇
 
-- [ ] 非负矩阵与 Perron-Frobenius 理论 (Horn & Johnson Ch. 8)
-- [ ] Jordan 标准型与广义特征向量 (Horn §3.1-3.2)
-- [ ] Cayley-Hamilton 定理与最小多项式 (Horn §3.3)
-- [ ] 矩阵函数：矩阵指数与对数 (Lancaster & Tismenetsky Ch. 9)
-- [ ] Kronecker 积与张量积 (Horn §4.3)
-- [ ] 线性矩阵方程（Sylvester/Lyapunov） (Horn §4.4)
-- [ ] 广义逆与 Moore-Penrose 伪逆 (Lancaster & Tismenetsky Ch. 12)
+- [x] [非负矩阵与 Perron-Frobenius 理论 (Horn & Johnson Ch. 8)](./perron-frobenius-theory)
+- [x] [Jordan 标准型与广义特征向量 (Horn §3.1-3.2)](./jordan-canonical-form)
+- [x] [Cayley-Hamilton 定理与最小多项式 (Horn §3.3)](./cayley-hamilton-minimal-polynomial)
+- [x] [矩阵函数：矩阵指数与对数 (Lancaster & Tismenetsky Ch. 9)](./matrix-exponential-logarithm)
+- [x] [Kronecker 积与张量积 (Horn §4.3)](./kronecker-product)
+- [x] [线性矩阵方程（Sylvester/Lyapunov） (Horn §4.4)](./sylvester-lyapunov-equations)
+- [x] [广义逆与 Moore-Penrose 伪逆 (Lancaster & Tismenetsky Ch. 12)](./moore-penrose-pseudoinverse)

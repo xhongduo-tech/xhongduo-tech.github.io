@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 法医学概论与现场调查 (Spitz §1)
-- [ ] 死亡时间推断 (Spitz §2)
-- [ ] 机械性损伤 (Dolinak §4)
-- [ ] 枪伤与爆炸伤 (Spitz §9)
-- [ ] 性犯罪与虐待 (Spitz §10)
-- [ ] 窒息死亡 (Dolinak §6)
-- [ ] 溺死与电击烧死（热损伤） (Spitz §12)
-- [ ] 猝死与心血管死亡 (Dolinak §8)
+- [x] [法医学概论与现场调查 (Spitz §1)](./forensic-medicine-overview)
+- [x] [死亡时间推断 (Spitz §2)](./postmortem-interval)
+- [x] [机械性损伤 (Dolinak §4)](./mechanical-injury)
+- [x] [枪伤与爆炸伤 (Spitz §9)](./gunshot-and-blast-injury)
+- [x] [性犯罪与虐待 (Spitz §10)](./sexual-assault-and-abuse)
+- [x] [窒息死亡 (Dolinak §6)](./asphyxia-death)
+- [x] [溺死与电击烧死（热损伤） (Spitz §12)](./drowning-electrocution-thermal-injury)
+- [x] [猝死与心血管死亡 (Dolinak §8)](./sudden-cardiac-death)
 
 ### 第2篇
 
-- [ ] 中毒法医学 (Dolinak §11)
-- [ ] 法医临床学与伤残鉴定（损伤程度） (Dolinak §12)
-- [ ] 法医精神病学 (Dolinak §13)
-- [ ] 法医物证与亲子鉴定（血痕/精斑） (Spitz §28)
-- [ ] 法医DNA分型 (Spitz §28)
+- [x] [中毒法医学 (Dolinak §11)](./forensic-toxicology)
+- [x] [法医临床学与伤残鉴定（损伤程度） (Dolinak §12)](./forensic-clinical-medicine)
+- [x] [法医精神病学 (Dolinak §13)](./forensic-psychiatry)
+- [x] [法医物证与亲子鉴定（血痕/精斑） (Spitz §28)](./forensic-biological-evidence)
+- [x] [法医DNA分型 (Spitz §28)](./forensic-dna-typing)

@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] MapReduce 计算模型 (White Ch.2)
-- [ ] HDFS 分布式存储 (White Ch.3)
-- [ ] YARN 资源调度 (White Ch.4)
-- [ ] 序列化与列式存储（Avro/Parquet/ORC） (White §5,12-13)
-- [ ] Spark RDD 与 DAG (Zaharia Ch.2)
-- [ ] Spark SQL 与 DataFrame (Zaharia Ch.9)
-- [ ] 流处理与 Structured Streaming (Zaharia Ch.20)
-- [ ] Lambda 架构与批流一体 (Marz Ch.1)
+- [x] [MapReduce 计算模型 (White Ch.2)](./mapreduce-computational-model)
+- [x] [HDFS 分布式存储 (White Ch.3)](./hdfs-distributed-storage)
+- [x] [YARN 资源调度 (White Ch.4)](./yarn-resource-scheduling)
+- [x] [序列化与列式存储（Avro/Parquet/ORC） (White §5,12-13)](./apache-flink-streaming)
+- [x] [Spark RDD 与 DAG (Zaharia Ch.2)](./spark-rdd-dag)
+- [x] [Spark SQL 与 DataFrame (Zaharia Ch.9)](./spark-sql-dataframe)
+- [x] [流处理与 Structured Streaming (Zaharia Ch.20)](./structured-streaming)
+- [x] [Lambda 架构与批流一体 (Marz Ch.1)](./lambda-architecture)
 
 ### 第2篇
 
-- [ ] 数据仓库与 SQL-on-Hadoop（Hive） (White Ch.17)
-- [ ] 消息队列（Kafka） (书目外)
-- [ ] 分布式协调 ZooKeeper (White Ch.21)
-- [ ] 流处理（Flink） (书目外)
-- [ ] NoSQL（Cassandra/MongoDB/HBase） (White Ch.20)
+- [x] [数据仓库与 SQL-on-Hadoop（Hive） (White Ch.17)](./apache-kafka-message-queue)
+- [x] [消息队列（Kafka） (书目外)](./hdfs-distributed-storage)
+- [x] [分布式协调 ZooKeeper (White Ch.21)](./zookeeper-coordination)
+- [x] [流处理（Flink） (书目外)](./hive-sql-on-hadoop)
+- [x] [NoSQL（Cassandra/MongoDB/HBase） (White Ch.20)](./lambda-architecture)

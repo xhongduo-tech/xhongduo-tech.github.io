@@ -17,15 +17,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 思想史的写法与方法 (葛兆光 导论)
-- [ ] 先秦诸子百家 (侯外庐 §1)
-- [ ] 汉代经学与大一统 (葛兆光 §2)
-- [ ] 魏晋玄学与佛学东传 (侯外庐 §3)
-- [ ] 隋唐佛学鼎盛与三教论衡：韩愈、柳宗元 (葛兆光 卷二 / 侯外庐 §隋唐)
-- [ ] 宋明理学 (葛兆光 §4)
-- [ ] 明清之际与近代思想转型 (侯外庐 §5)
-- [ ] 清代考据学与实学 (侯外庐 §6)
+- [x] [思想史的写法与方法 (葛兆光 导论)](./writing-intellectual-history)
+- [x] [先秦诸子百家 (侯外庐 §1)](./pre-qin-hundred-schools)
+- [x] [汉代经学与大一统 (葛兆光 §2)](./han-classics-unification)
+- [x] [魏晋玄学与佛学东传 (侯外庐 §3)](./wei-jin-xuanxue-buddhism)
+- [x] [隋唐佛学鼎盛与三教论衡：韩愈、柳宗元 (葛兆光 卷二 / 侯外庐 §隋唐)](./tang-buddhism-three-teachings)
+- [x] [宋明理学 (葛兆光 §4)](./song-ming-neo-confucianism)
+- [x] [明清之际与近代思想转型 (侯外庐 §5)](./ming-qing-intellectual-transition)
+- [x] [清代考据学与实学 (侯外庐 §6)](./qing-evidential-research)
 
 ### 第2篇
 
-- [ ] 近现代思想转型 (葛兆光 §6)
+- [x] [近现代思想转型 (葛兆光 §6)](./modern-intellectual-transition)

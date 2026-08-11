@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 放射性核素与物理基础 (Mettler §1)
-- [ ] 辐射剂量与防护 (Mettler §2)
-- [ ] PET与SPECT成像 (Mettler §3)
-- [ ] 骨显像 (Mettler §7)
-- [ ] 心血管核医学 (Mettler §6)
-- [ ] 神经核医学（痴呆/癫痫定位） (Mettler §8)
-- [ ] 肾脏与肺核医学显像（肾图/VQ） (Mettler §9)
-- [ ] 肿瘤PET显像 (Mettler §10)
+- [x] [放射性核素与物理基础 (Mettler §1)](./radioactive-nuclides-and-physics)
+- [x] [辐射剂量与防护 (Mettler §2)](./radiation-dose-and-protection)
+- [x] [PET与SPECT成像 (Mettler §3)](./pet-and-spect-imaging)
+- [x] [骨显像 (Mettler §7)](./bone-scintigraphy)
+- [x] [心血管核医学 (Mettler §6)](./cardiovascular-nuclear-medicine)
+- [x] [神经核医学（痴呆/癫痫定位） (Mettler §8)](./bone-scintigraphy)
+- [x] [肾脏与肺核医学显像（肾图/VQ） (Mettler §9)](./renal-and-pulmonary-imaging)
+- [x] [肿瘤PET显像 (Mettler §10)](./tumor-pet-imaging)
 
 ### 第2篇
 
-- [ ] 炎症/感染与消化系统显像（白细胞显像） (Mettler §11)
-- [ ] 甲状腺与甲状旁腺显像 (Mettler §12)
-- [ ] 放射性药物治疗 (Saha §14)
+- [x] [炎症/感染与消化系统显像（白细胞显像） (Mettler §11)](./cardiovascular-nuclear-medicine)
+- [x] [甲状腺与甲状旁腺显像 (Mettler §12)](./thyroid-and-parathyroid-imaging)
+- [x] [放射性药物治疗 (Saha §14)](./radiopharmaceutical-therapy)

@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 雕塑的语言与基本原理 (孙振华 §1 / 西方雕塑史 §导论)
-- [ ] 古希腊雕塑：古典时期 (Boardman §2)
-- [ ] 古罗马雕塑：写实与纪念性 (西方雕塑史 §古罗马)
-- [ ] 中世纪雕塑与教堂艺术 (西方雕塑史 §中世纪)
-- [ ] 文艺复兴雕塑：多纳泰罗与米开朗琪罗 (西方雕塑史 §文艺复兴)
-- [ ] 巴洛克雕塑（贝尼尼）与新古典主义 (西方雕塑史 §巴洛克)
-- [ ] 罗丹与现代雕塑：布朗库西与亨利·摩尔 (西方雕塑史 §现代)
-- [ ] 中国古代雕塑：陵墓与宗教 (孙振华 §3)
+- [x] [雕塑的语言与基本原理 (孙振华 §1 / 西方雕塑史 §导论)](./sculpture-language-basics)
+- [x] [古希腊雕塑：古典时期 (Boardman §2)](./greek-sculpture-classical)
+- [x] [古罗马雕塑：写实与纪念性 (西方雕塑史 §古罗马)](./roman-sculpture-realism-monumental)
+- [x] [中世纪雕塑与教堂艺术 (西方雕塑史 §中世纪)](./medieval-sculpture-church-art)
+- [x] [文艺复兴雕塑：多纳泰罗与米开朗琪罗 (西方雕塑史 §文艺复兴)](./renaissance-sculpture-donatello-michelangelo)
+- [x] [巴洛克雕塑（贝尼尼）与新古典主义 (西方雕塑史 §巴洛克)](./baroque-neoclassicism-sculpture)
+- [x] [罗丹与现代雕塑：布朗库西与亨利·摩尔 (西方雕塑史 §现代)](./rodin-modern-sculpture-brancusi-moore)
+- [x] [中国古代雕塑：陵墓与宗教 (孙振华 §3)](./ancient-chinese-sculpture-tombs-religion)
 
 ### 第2篇
 
-- [ ] 现当代中国雕塑 (孙振华 §7)
-- [ ] 当代雕塑的媒介拓展 (孙振华 §9)
-- [ ] 雕塑材料与铸造工艺 (孙振华 §10)
+- [x] [现当代中国雕塑 (孙振华 §7)](./modern-chinese-sculpture)
+- [x] [当代雕塑的媒介拓展 (孙振华 §9)](./contemporary-sculpture-media-expansion)
+- [x] [雕塑材料与铸造工艺 (孙振华 §10)](./sculpture-materials-casting)

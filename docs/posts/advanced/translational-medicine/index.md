@@ -17,11 +17,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 转化医学概论 (Wehling §1)
-- [ ] 从基础到临床的转化路径 (Wehling §2)
-- [ ] 生物标志物与诊断 (Wehling §5)
-- [ ] 药物研发与临床前研究 (Wehling §7)
-- [ ] 临床试验设计 (Sectish §9)
-- [ ] 精准医学与个体化治疗 (Wehling §12)
-- [ ] 健康大数据与真实世界研究 (Sectish §14)
-- [ ] 转化医学伦理与监管 (Wehling §19)
+- [x] [转化医学概论 (Wehling §1)](./what-is-translational-medicine)
+- [x] [从基础到临床的转化路径 (Wehling §2)](./the-translational-pathway)
+- [x] [生物标志物与诊断 (Wehling §5)](./biomarkers-and-diagnostics)
+- [x] [药物研发与临床前研究 (Wehling §7)](./drug-development-and-preclinical)
+- [x] [临床试验设计 (Sectish §9)](./clinical-trial-design)
+- [x] [精准医学与个体化治疗 (Wehling §12)](./precision-medicine-and-individualized-therapy)
+- [x] [健康大数据与真实世界研究 (Sectish §14)](./health-big-data-and-real-world-evidence)
+- [x] [转化医学伦理与监管 (Wehling §19)](./ethics-and-regulation-in-translational-medicine)

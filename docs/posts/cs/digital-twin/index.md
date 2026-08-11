@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 数字孪生概念与建模 (Tao Ch.1)
-- [ ] 数字孪生使能技术栈（IoT/5G/AI/仿真建模） (Tao Ch.2)
-- [ ] 虚实映射与同步机制 (Tao Ch.3)
-- [ ] 数字孪生驱动的智能制造 (Tao Ch.4)
-- [ ] 实时数据采集与互联 (Tao Ch.5)
-- [ ] 仿真验证与预测维护 (Tao Ch.7)
-- [ ] 工业 4.0 与数字孪生应用 (Tao Ch.8)
-- [ ] 跨领域应用：城市/能源/交通数字孪生 (书目外)
+- [x] [数字孪生概念与建模 (Tao Ch.1)](./digital-twin-concept-modeling)
+- [x] [数字孪生使能技术栈（IoT/5G/AI/仿真建模） (Tao Ch.2)](./enabling-technology-stack)
+- [x] [虚实映射与同步机制 (Tao Ch.3)](./virtual-physical-mapping-sync)
+- [x] [数字孪生驱动的智能制造 (Tao Ch.4)](./dt-driven-smart-manufacturing)
+- [x] [实时数据采集与互联 (Tao Ch.5)](./realtime-data-acquisition-interconnection)
+- [x] [仿真验证与预测维护 (Tao Ch.7)](./simulation-validation-predictive-maintenance)
+- [x] [工业 4.0 与数字孪生应用 (Tao Ch.8)](./industry40-digital-twin-applications)
+- [x] [跨领域应用：城市/能源/交通数字孪生 (书目外)](./cross-domain-digital-twin-applications)
 
 ### 第2篇
 
-- [ ] 数字孪生平台架构 (Kritzinger §4)
-- [ ] 数字孪生标准与成熟度评估（Kritzinger 分类体系延伸） (Kritzinger §2)
-- [ ] 开放挑战与未来方向 (Dutta §5)
+- [x] [数字孪生平台架构 (Kritzinger §4)](./digital-twin-platform-architecture)
+- [x] [数字孪生标准与成熟度评估（Kritzinger 分类体系延伸） (Kritzinger §2)](./digital-twin-standards-maturity)
+- [x] [开放挑战与未来方向 (Dutta §5)](./open-challenges-future-directions)

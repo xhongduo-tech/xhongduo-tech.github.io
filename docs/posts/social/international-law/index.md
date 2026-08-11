@@ -17,20 +17,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 国际法基础理论 (邵津 §1)
-- [ ] 国际法渊源与基本原则（主权平等、不干涉、禁止使用武力） (邵津 §2)
-- [ ] 国际法主体 (邵津 §3)
-- [ ] 国际责任与国家责任法 (邵津 §4)
-- [ ] 国家领土法 (邵津 §5)
-- [ ] 海洋法 (邵津 §6)
-- [ ] 外交与领事关系法（外交特权与豁免） (邵津 §8)
-- [ ] 条约法 (邵津 §9)
+- [x] [国际法基础理论 (邵津 §1)](./international-law-foundations)
+- [x] [国际法渊源与基本原则（主权平等、不干涉、禁止使用武力） (邵津 §2)](./sources-of-international-law)
+- [x] [国际法主体 (邵津 §3)](./subjects-of-international-law)
+- [x] [国际责任与国家责任法 (邵津 §4)](./state-responsibility)
+- [x] [国家领土法 (邵津 §5)](./state-territory)
+- [x] [海洋法 (邵津 §6)](./law-of-the-sea)
+- [x] [外交与领事关系法（外交特权与豁免） (邵津 §8)](./diplomatic-and-consular-relations)
+- [x] [条约法 (邵津 §9)](./law-of-treaties)
 
 ### 第2篇
 
-- [ ] 国际人权法 (邵津 §10)
-- [ ] 国际环境法 (邵津 §11)
-- [ ] 联合国与国际组织法：安理会与专门机构 (邵津 §12)
-- [ ] 和平解决国际争端 (邵津 §13)
-- [ ] 武装冲突法与国际人道法（战争法） (邵津 §14)
-- [ ] 引渡、庇护与国际刑法（国际刑事法院） (邵津 §15)
+- [x] [国际人权法 (邵津 §10)](./international-human-rights-law)
+- [x] [国际环境法 (邵津 §11)](./international-environmental-law)
+- [x] [联合国与国际组织法：安理会与专门机构 (邵津 §12)](./un-and-international-organizations)
+- [x] [和平解决国际争端 (邵津 §13)](./peaceful-settlement-of-disputes)
+- [x] [武装冲突法与国际人道法（战争法） (邵津 §14)](./international-humanitarian-law)
+- [x] [引渡、庇护与国际刑法（国际刑事法院） (邵津 §15)](./extradition-asylum-international-criminal-law)

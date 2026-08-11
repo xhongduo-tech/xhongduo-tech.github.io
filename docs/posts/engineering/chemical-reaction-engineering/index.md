@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 反应速率与化学计量 (Fogler §2-3)
-- [ ] 反应速率数据收集与分析 (Fogler §5)
-- [ ] 理想反应器设计 (Fogler §4-5)
-- [ ] 多重反应（平行/串联）与选择性优化 (Fogler §6)
-- [ ] 反应机理与速率方程推导 (Fogler §7)
-- [ ] 非等温反应器设计与能量平衡 (Fogler §9)
-- [ ] 催化反应与催化剂 (Fogler §10)
-- [ ] 多相催化反应器 (Fogler §12)
+- [x] [反应速率与化学计量 (Fogler §2-3)](./reaction-rate-and-stoichiometry)
+- [x] [反应速率数据收集与分析 (Fogler §5)](./rate-data-collection-and-analysis)
+- [x] [理想反应器设计 (Fogler §4-5)](./ideal-reactor-design)
+- [x] [多重反应（平行/串联）与选择性优化 (Fogler §6)](./biochemical-reactors-and-enzyme-kinetics)
+- [x] [反应机理与速率方程推导 (Fogler §7)](./reaction-mechanism-and-rate-law)
+- [x] [非等温反应器设计与能量平衡 (Fogler §9)](./non-isothermal-reactors-and-energy-balance)
+- [x] [催化反应与催化剂 (Fogler §10)](./catalysis-and-catalysts)
+- [x] [多相催化反应器 (Fogler §12)](./heterogeneous-catalytic-reactors)
 
 ### 第2篇
 
-- [ ] 非理想反应器与停留时间分布 (Fogler §13-14)
-- [ ] 停留时间分布（RTD）建模 (Fogler §13-14)
-- [ ] 聚合反应工程 (Levenspiel §9)
-- [ ] 生化反应器与酶动力学 (Fogler §12)
+- [x] [非理想反应器与停留时间分布 (Fogler §13-14)](./nonideal-reactors-and-rtd)
+- [x] [停留时间分布（RTD）建模 (Fogler §13-14)](./rtd-modeling)
+- [x] [聚合反应工程 (Levenspiel §9)](./polymerization-reaction-engineering)
+- [x] [生化反应器与酶动力学 (Fogler §12)](./biochemical-reactors-and-enzyme-kinetics)

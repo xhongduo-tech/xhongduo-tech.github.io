@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 化石保存与埋藏学 (Prothero §1-2)
-- [ ] 系统学与分类学基础：物种概念与支序分类 (Prothero §3-4)
-- [ ] 微体古生物与化石记录 (Prothero §12)
-- [ ] 无脊椎动物演化（按门类展开） (Clarkson §2-5)
-- [ ] 脊椎动物演化 (Prothero §18)
-- [ ] 古植物与孢粉学 (Prothero §20)
-- [ ] 演化模式与灭绝事件 (Prothero §5-6)
-- [ ] 古生态学与群落分析 (Prothero §8)
+- [x] [化石保存与埋藏学 (Prothero §1-2)](./biostratigraphy)
+- [x] [系统学与分类学基础：物种概念与支序分类 (Prothero §3-4)](./systematics-cladistics)
+- [x] [微体古生物与化石记录 (Prothero §12)](./micropaleontology-fossil-record)
+- [x] [无脊椎动物演化（按门类展开） (Clarkson §2-5)](./invertebrate-evolution)
+- [x] [脊椎动物演化 (Prothero §18)](./vertebrate-evolution)
+- [x] [古植物与孢粉学 (Prothero §20)](./paleobotany-palynology)
+- [x] [演化模式与灭绝事件 (Prothero §5-6)](./evolution-patterns-extinction-events)
+- [x] [古生态学与群落分析 (Prothero §8)](./paleoecology-community-analysis)
 
 ### 第2篇
 
-- [ ] 古生物地理学 (Prothero §9)
-- [ ] 生物地层学 (Prothero §10)
+- [x] [古生物地理学 (Prothero §9)](./paleobiogeography)
+- [x] [生物地层学 (Prothero §10)](./biostratigraphy)

@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 历史地理学理论与方法 (侯仁之 §1 / 邹逸麟 §1)
-- [ ] 历史气候变迁 (侯仁之 §2)
-- [ ] 历史自然地理：河流改道、湖泊海岸与沙漠化 (邹逸麟《中国历史地理概述》§自然地理)
-- [ ] 历史人口地理 (侯仁之 §3)
-- [ ] 历史交通地理 (侯仁之 §4)
-- [ ] 政区沿革与疆域变迁 (谭其骧 图集说明 / 邹逸麟 §政区)
-- [ ] 历史城市地理 (侯仁之 §附录)
-- [ ] 历史经济地理 (侯仁之 §5)
+- [x] [历史地理学理论与方法 (侯仁之 §1 / 邹逸麟 §1)](./theory-and-methods)
+- [x] [历史气候变迁 (侯仁之 §2)](./historical-climate-change)
+- [x] [历史自然地理：河流改道、湖泊海岸与沙漠化 (邹逸麟《中国历史地理概述》§自然地理)](./historical-physical-geography)
+- [x] [历史人口地理 (侯仁之 §3)](./historical-population-geography)
+- [x] [历史交通地理 (侯仁之 §4)](./historical-transport-geography)
+- [x] [政区沿革与疆域变迁 (谭其骧 图集说明 / 邹逸麟 §政区)](./administrative-divisions-and-territory)
+- [x] [历史城市地理 (侯仁之 §附录)](./historical-urban-geography)
+- [x] [历史经济地理 (侯仁之 §5)](./historical-economic-geography)
 
 ### 第2篇
 
-- [ ] 历史军事地理 (谭其骧 图集附录)
-- [ ] 历史地图学与历史地理信息系统（HGIS） (谭其骧 图集 / 邹逸麟 §地图)
+- [x] [历史军事地理 (谭其骧 图集附录)](./historical-military-geography)
+- [x] [历史地图学与历史地理信息系统（HGIS） (谭其骧 图集 / 邹逸麟 §地图)](./historical-cartography-hgis)

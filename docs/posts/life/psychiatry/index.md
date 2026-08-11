@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 精神障碍分类与诊断 (DSM-5 §1)
-- [ ] 精神分裂症 (Synopsis §7)
-- [ ] 心境障碍 (Synopsis §8)
-- [ ] 焦虑与应激相关障碍 (Synopsis §9)
-- [ ] 躯体症状障碍 (Synopsis §14)
-- [ ] 进食障碍与睡眠障碍 (Synopsis §20)
-- [ ] 物质相关障碍 (Synopsis §12)
-- [ ] 人格障碍 (Synopsis §22)
+- [x] [精神障碍分类与诊断 (DSM-5 §1)](./classification-and-diagnosis)
+- [x] [精神分裂症 (Synopsis §7)](./schizophrenia)
+- [x] [心境障碍 (Synopsis §8)](./mood-disorders)
+- [x] [焦虑与应激相关障碍 (Synopsis §9)](./anxiety-and-stress-disorders)
+- [x] [躯体症状障碍 (Synopsis §14)](./somatic-symptom-disorders)
+- [x] [进食障碍与睡眠障碍 (Synopsis §20)](./eating-and-sleep-disorders)
+- [x] [物质相关障碍 (Synopsis §12)](./substance-related-disorders)
+- [x] [人格障碍 (Synopsis §22)](./personality-disorders)
 
 ### 第2篇
 
-- [ ] 精神药理学（抗精神病药/抗抑郁药/锂盐） (Synopsis §34)
-- [ ] 心理治疗 (Synopsis §30)
-- [ ] 自杀与危机干预 (Synopsis §29)
-- [ ] 儿童青少年精神障碍 (Synopsis §31)
-- [ ] 认知障碍 (Synopsis §21)
+- [x] [精神药理学（抗精神病药/抗抑郁药/锂盐） (Synopsis §34)](./psychopharmacology)
+- [x] [心理治疗 (Synopsis §30)](./psychotherapy)
+- [x] [自杀与危机干预 (Synopsis §29)](./suicide-and-crisis-intervention)
+- [x] [儿童青少年精神障碍 (Synopsis §31)](./child-and-adolescent-disorders)
+- [x] [认知障碍 (Synopsis §21)](./cognitive-disorders)

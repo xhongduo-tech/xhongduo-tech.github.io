@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 农村发展理论 (Chambers §1)
-- [ ] 农村生计与农户经济 (Ellis §2)
-- [ ] 参与式发展方法 (Chambers §5)
-- [ ] 贫困与不平等 (Chambers §4)
-- [ ] 农村资源管理与可持续 (Chambers §7)
-- [ ] 农村产业与乡村振兴 (Chambers §8)
-- [ ] 乡村振兴战略与城乡融合发展 (Chambers §12)
-- [ ] 农村金融与保险（产业振兴） (Chambers §13)
+- [x] [农村发展理论 (Chambers §1)](./rural-development-theory)
+- [x] [农村生计与农户经济 (Ellis §2)](./rural-livelihood-peasant-economy)
+- [x] [参与式发展方法 (Chambers §5)](./participatory-rural-development)
+- [x] [贫困与不平等 (Chambers §4)](./poverty-and-inequality)
+- [x] [农村资源管理与可持续 (Chambers §7)](./rural-resource-management-and-sustainability)
+- [x] [农村产业与乡村振兴 (Chambers §8)](./rural-industry-and-rural-revitalization)
+- [x] [乡村振兴战略与城乡融合发展 (Chambers §12)](./rural-revitalization-strategy-and-urban-rural-integration)
+- [x] [农村金融与保险（产业振兴） (Chambers §13)](./rural-finance-and-insurance)
 
 ### 第2篇
 
-- [ ] 农村电商与数字乡村 (Chambers §14)
-- [ ] 农村土地制度与流转 (Ellis §9)
-- [ ] 农民合作组织 (Ellis §10)
-- [ ] 农村基础设施与服务 (Chambers §10)
-- [ ] 农村治理与制度 (Ellis §12)
+- [x] [农村电商与数字乡村 (Chambers §14)](./rural-ecommerce-and-digital-village)
+- [x] [农村土地制度与流转 (Ellis §9)](./rural-land-institution-and-transfer)
+- [x] [农民合作组织 (Ellis §10)](./farmer-cooperative-organizations)
+- [x] [农村基础设施与服务 (Chambers §10)](./rural-infrastructure-and-services)
+- [x] [农村治理与制度 (Ellis §12)](./rural-governance-and-institutions)

@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 词法分析与分词 (Jurafsky §2)
-- [ ] N-gram 语言模型 (Jurafsky §3)
-- [ ] 隐马尔可夫与词性标注 (Manning & Schütze §10)
-- [ ] 上下文无关文法与 CFG (Jurafsky §13)
-- [ ] 成分句法分析（CKY 算法） (Jurafsky §13)
-- [ ] 概率上下文无关文法 PCFG 与概率句法分析 (Jurafsky §14)
-- [ ] 依存句法分析 (Jurafsky §18)
-- [ ] 语义角色标注 (Jurafsky §22)
+- [x] [词法分析与分词 (Jurafsky §2)](./lexical-analysis-tokenization)
+- [x] [N-gram 语言模型 (Jurafsky §3)](./ngram-language-models)
+- [x] [隐马尔可夫与词性标注 (Manning & Schütze §10)](./hidden-markov-pos-tagging)
+- [x] [上下文无关文法与 CFG (Jurafsky §13)](./context-free-grammar)
+- [x] [成分句法分析（CKY 算法） (Jurafsky §13)](./cky-parsing)
+- [x] [概率上下文无关文法 PCFG 与概率句法分析 (Jurafsky §14)](./pcfg-probabilistic-parsing)
+- [x] [依存句法分析 (Jurafsky §18)](./dependency-parsing)
+- [x] [语义角色标注 (Jurafsky §22)](./semantic-role-labeling)
 
 ### 第2篇
 
-- [ ] 词义消歧 WSD (Manning & Schütze §7)
-- [ ] 词汇语义与词汇资源（WordNet/FrameNet） (Manning & Schütze §19)
-- [ ] 分布语义与词嵌入 (Eisenstein §14)
-- [ ] 命名实体识别（NER） (Jurafsky §8)
-- [ ] 共指消解 (Jurafsky §21)
+- [x] [词义消歧 WSD (Manning & Schütze §7)](./word-sense-disambiguation)
+- [x] [词汇语义与词汇资源（WordNet/FrameNet） (Manning & Schütze §19)](./lexical-semantics-wordnet)
+- [x] [分布语义与词嵌入 (Eisenstein §14)](./distributional-semantics-word-embeddings)
+- [x] [命名实体识别（NER） (Jurafsky §8)](./named-entity-recognition)
+- [x] [共指消解 (Jurafsky §21)](./coreference-resolution)

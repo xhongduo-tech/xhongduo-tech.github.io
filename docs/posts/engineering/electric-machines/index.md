@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 磁路与磁性材料 (Fitzgerald §1)
-- [ ] 变压器原理 (Fitzgerald §2)
-- [ ] 机电能量转换原理 (Fitzgerald §3)
-- [ ] 旋转电机概述与交流绕组磁场 (Fitzgerald §4)
-- [ ] 同步电机 (Fitzgerald §5)
-- [ ] 感应电机 (Fitzgerald §6)
-- [ ] 直流电机 (Fitzgerald §7)
-- [ ] 变磁阻电机与步进电机 (Fitzgerald §8)
+- [x] [磁路与磁性材料 (Fitzgerald §1)](./magnetic-circuits-and-materials)
+- [x] [变压器原理 (Fitzgerald §2)](./transformers-principles)
+- [x] [机电能量转换原理 (Fitzgerald §3)](./electromechanical-energy-conversion)
+- [x] [旋转电机概述与交流绕组磁场 (Fitzgerald §4)](./rotating-machines-and-ac-windings)
+- [x] [同步电机 (Fitzgerald §5)](./synchronous-machines)
+- [x] [感应电机 (Fitzgerald §6)](./induction-machines)
+- [x] [直流电机 (Fitzgerald §7)](./dc-machines)
+- [x] [变磁阻电机与步进电机 (Fitzgerald §8)](./reluctance-and-stepper-motors)
 
 ### 第2篇
 
-- [ ] 单相与两相电机 (Fitzgerald §9)
-- [ ] 电机调速与转速转矩控制 (Fitzgerald §10)
-- [ ] 永磁与特种电机 (Chapman §9)
-- [ ] 电力电子驱动与变频控制 (Chapman §10)
+- [x] [单相与两相电机 (Fitzgerald §9)](./single-phase-and-two-phase-motors)
+- [x] [电机调速与转速转矩控制 (Fitzgerald §10)](./speed-torque-control)
+- [x] [永磁与特种电机 (Chapman §9)](./permanent-magnet-and-special-motors)
+- [x] [电力电子驱动与变频控制 (Chapman §10)](./power-electronics-drives)

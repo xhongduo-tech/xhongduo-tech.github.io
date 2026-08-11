@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] MMLU 多任务知识评测 (Hendrycks et al., MMLU 2021)
-- [ ] HELM 全方位评估 (Liang et al., HELM 2022)
-- [ ] BigBench 任务基准 (Srivastava et al., BigBench 2022)
-- [ ] 人类对齐评估 (Zheng et al., MT-Bench 2023)
-- [ ] LLM-as-a-Judge (Zheng et al., 2023)
-- [ ] 代码评测 HumanEval (Chen et al., HumanEval 2021)
-- [ ] 数学评测 GSM8K (Cobbe et al., GSM8K 2021)
-- [ ] 幻觉评测（TruthfulQA/HaluEval） (Lin et al., TruthfulQA 2022)
+- [x] [MMLU 多任务知识评测 (Hendrycks et al., MMLU 2021)](./mmlu)
+- [x] [HELM 全方位评估 (Liang et al., HELM 2022)](./helm)
+- [x] [BigBench 任务基准 (Srivastava et al., BigBench 2022)](./bigbench)
+- [x] [人类对齐评估 (Zheng et al., MT-Bench 2023)](./mt-bench)
+- [x] [LLM-as-a-Judge (Zheng et al., 2023)](./llm-as-a-judge)
+- [x] [代码评测 HumanEval (Chen et al., HumanEval 2021)](./humaneval)
+- [x] [数学评测 GSM8K (Cobbe et al., GSM8K 2021)](./gsm8k)
+- [x] [幻觉评测（TruthfulQA/HaluEval） (Lin et al., TruthfulQA 2022)](./hallucination-evaluation)
 
 ### 第2篇
 
-- [ ] 多语言基准（C-Eval/CMMLU） (Huang et al., C-Eval 2023)
-- [ ] 智能体/工具使用评测 (Yao et al., 2023)
-- [ ] 安全与偏见评估 (Liang et al., HELM 2022)
-- [ ] 基准污染与数据泄漏评测 (Sainz et al., Contamination 2023)
-- [ ] 开放域与长上下文评测（NEEDLE） (Li et al., NEEDLE 2024; Bai et al., LongBench 2023)
+- [x] [多语言基准（C-Eval/CMMLU） (Huang et al., C-Eval 2023)](./multilingual-benchmarks)
+- [x] [智能体/工具使用评测 (Yao et al., 2023)](./agent-tool-use-evaluation)
+- [x] [安全与偏见评估 (Liang et al., HELM 2022)](./safety-bias-evaluation)
+- [x] [基准污染与数据泄漏评测 (Sainz et al., Contamination 2023)](./benchmark-contamination)
+- [x] [开放域与长上下文评测（NEEDLE） (Li et al., NEEDLE 2024; Bai et al., LongBench 2023)](./long-context-evaluation)

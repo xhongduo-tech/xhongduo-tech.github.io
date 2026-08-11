@@ -17,11 +17,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 行动与行为的区分 (Anscombe §1)
-- [ ] 意向性行动 (Anscombe §5)
-- [ ] 行动的理由与动机 (Mele §Reasons)
-- [ ] 行动的因果关系理论 (Mele §Causation)
-- [ ] 实践推理与意志薄弱 (Mele §Akrasia)
-- [ ] 自由行动与代理人因果 (Mele §Free Will)
-- [ ] 集体行动与社会行动 (Mele §Collective)
-- [ ] 行动知识与道义学 (Anscombe §7)
+- [x] [行动与行为的区分 (Anscombe §1)](./action-vs-behavior)
+- [x] [意向性行动 (Anscombe §5)](./intentional-action)
+- [x] [行动的理由与动机 (Mele §Reasons)](./reasons-and-motives)
+- [x] [行动的因果关系理论 (Mele §Causation)](./causal-theory-of-action)
+- [x] [实践推理与意志薄弱 (Mele §Akrasia)](./practical-reasoning-and-akrasia)
+- [x] [自由行动与代理人因果 (Mele §Free Will)](./free-action-and-agent-causation)
+- [x] [集体行动与社会行动 (Mele §Collective)](./collective-and-social-action)
+- [x] [行动知识与道义学 (Anscombe §7)](./action-knowledge-and-deontology)

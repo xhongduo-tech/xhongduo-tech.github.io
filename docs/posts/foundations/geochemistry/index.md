@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 地球化学组成与元素丰度 (White §1-2)
-- [ ] 同位素地球化学 (Faure §1-3)
-- [ ] 稳定同位素地球化学应用：H、O、C、S、N 分馏与示踪 (White §9)
-- [ ] 微量元素地球化学 (White §7)
-- [ ] 地幔与地壳地球化学、岩浆过程示踪 (White §11)
-- [ ] 有机地球化学 (White §12)
-- [ ] 生物地球化学与全球元素循环 (White §12 之碳循环与气候；Faure §24-25)
-- [ ] 水-岩相互作用 (White §6)
+- [x] [地球化学组成与元素丰度 (White §1-2)](./composition-and-abundance)
+- [x] [同位素地球化学 (Faure §1-3)](./isotope-geochemistry)
+- [x] [稳定同位素地球化学应用：H、O、C、S、N 分馏与示踪 (White §9)](./stable-isotope-fractionation)
+- [x] [微量元素地球化学 (White §7)](./trace-element-geochemistry)
+- [x] [地幔与地壳地球化学、岩浆过程示踪 (White §11)](./mantle-crust-magmatic-tracers)
+- [x] [有机地球化学 (White §12)](./organic-geochemistry)
+- [x] [生物地球化学与全球元素循环 (White §12 之碳循环与气候；Faure §24-25)](./biogeochemistry-global-cycles)
+- [x] [水-岩相互作用 (White §6)](./water-rock-interaction)
 
 ### 第2篇
 
-- [ ] 放射性同位素与年代学 (Faure §11-12)
-- [ ] 地球化学热力学与相平衡 (White §2-4)
+- [x] [放射性同位素与年代学 (Faure §11-12)](./radioisotope-geochronology)
+- [x] [地球化学热力学与相平衡 (White §2-4)](./thermodynamics-phase-equilibria)

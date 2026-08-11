@@ -17,11 +17,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 目录学 (杜泽逊 §2)
-- [ ] 版本学 (杜泽逊 §3)
-- [ ] 校勘学 (杜泽逊 §4)
-- [ ] 辨伪与辑佚 (杜泽逊 §6)
-- [ ] 古籍整理方法 (黄永年 §2)
-- [ ] 文献的流传与收藏 (杜泽逊 §8)
-- [ ] 训诂与注释学 (杜泽逊 §5)
-- [ ] 古籍数字化与电子文献 (黄永年 §6)
+- [x] [目录学 (杜泽逊 §2)](./ancient-text-digitization)
+- [x] [版本学 (杜泽逊 §3)](./bibliography-studies)
+- [x] [校勘学 (杜泽逊 §4)](./classical-text-editing)
+- [x] [辨伪与辑佚 (杜泽逊 §6)](./collation-studies)
+- [x] [古籍整理方法 (黄永年 §2)](./edition-studies)
+- [x] [文献的流传与收藏 (杜泽逊 §8)](./exegesis-and-commentary)
+- [x] [训诂与注释学 (杜泽逊 §5)](./forgery-and-recovery)
+- [x] [古籍数字化与电子文献 (黄永年 §6)](./transmission-and-collection)

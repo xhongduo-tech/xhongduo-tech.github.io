@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 迁移学习分类与定义 (Pan & Yang, Survey 2010 §2)
-- [ ] 域适应与域对抗 (Pan & Yang, Survey 2010 §4)
-- [ ] 微调与特征迁移 (Goodfellow §5.4)
-- [ ] 元学习框架 (Hospedales et al., TPAMI 2022 §3)
-- [ ] 基于度量的 ProtoNet/MatchingNet (Hospedales et al., TPAMI 2022 §4)
-- [ ] 基于优化的 MAML (Hospedales et al., TPAMI 2022 §5)
-- [ ] 基于模型的元学习 (Hospedales et al., TPAMI 2022 §6)
-- [ ] 少样本学习应用 (Hospedales et al., TPAMI 2022 §8)
+- [x] [迁移学习分类与定义 (Pan & Yang, Survey 2010 §2)](./transfer-learning-taxonomy)
+- [x] [域适应与域对抗 (Pan & Yang, Survey 2010 §4)](./domain-adaptation-adversarial)
+- [x] [微调与特征迁移 (Goodfellow §5.4)](./finetuning-feature-transfer)
+- [x] [元学习框架 (Hospedales et al., TPAMI 2022 §3)](./meta-learning-framework)
+- [x] [基于度量的 ProtoNet/MatchingNet (Hospedales et al., TPAMI 2022 §4)](./metric-based-meta-learning)
+- [x] [基于优化的 MAML (Hospedales et al., TPAMI 2022 §5)](./optimization-based-maml)
+- [x] [基于模型的元学习 (Hospedales et al., TPAMI 2022 §6)](./model-based-meta-learning)
+- [x] [少样本学习应用 (Hospedales et al., TPAMI 2022 §8)](./few-shot-learning-applications)
 
 ### 第2篇
 
-- [ ] 零样本学习与开放世界识别 (Hospedales et al., TPAMI 2022 §8)
-- [ ] 域泛化 Domain Generalization (Wang et al., DG Survey 2022)
+- [x] [零样本学习与开放世界识别 (Hospedales et al., TPAMI 2022 §8)](./zero-shot-learning-open-world)
+- [x] [域泛化 Domain Generalization (Wang et al., DG Survey 2022)](./domain-generalization)

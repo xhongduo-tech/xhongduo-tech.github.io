@@ -17,15 +17,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 连续时间信号与系统 (Oppenheim §1-2)
-- [ ] 线性时不变系统与卷积 (Oppenheim §2-3)
-- [ ] 连续时间傅里叶分析 (Oppenheim §4-5)
-- [ ] 频域系统特性与滤波（Bode/谐振/滤波器整形） (Oppenheim §6)
-- [ ] 采样定理 (Oppenheim §7)
-- [ ] 通信系统与调制 (Oppenheim §8)
-- [ ] 拉普拉斯变换 (Oppenheim §9)
-- [ ] 离散时间信号与Z变换 (Oppenheim §10)
+- [x] [连续时间信号与系统 (Oppenheim §1-2)](./continuous-time-signals-and-systems)
+- [x] [线性时不变系统与卷积 (Oppenheim §2-3)](./lti-systems-and-convolution)
+- [x] [连续时间傅里叶分析 (Oppenheim §4-5)](./continuous-time-fourier-analysis)
+- [x] [频域系统特性与滤波（Bode/谐振/滤波器整形） (Oppenheim §6)](./frequency-response-filtering)
+- [x] [采样定理 (Oppenheim §7)](./sampling-theorem)
+- [x] [通信系统与调制 (Oppenheim §8)](./communication-systems-modulation)
+- [x] [拉普拉斯变换 (Oppenheim §9)](./laplace-transform)
+- [x] [离散时间信号与Z变换 (Oppenheim §10)](./discrete-time-z-transform)
 
 ### 第2篇
 
-- [ ] 线性反馈系统 (Oppenheim §11)
+- [x] [线性反馈系统 (Oppenheim §11)](./linear-feedback-systems)

@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 前苏格拉底哲学与自然哲学 (Copleston 卷1 / Russell §古代卷1)
-- [ ] 古希腊哲学:苏格拉底、柏拉图、亚里士多德 (Russell §古代)
-- [ ] 中世纪哲学:教父与经院哲学 (Copleston 卷2)
-- [ ] 文艺复兴哲学 (Copleston 卷3)
-- [ ] 近代哲学:理性主义与经验主义 (Russell §近代)
-- [ ] 启蒙运动与德国古典哲学 (Copleston 卷6)
-- [ ] 19世纪哲学:黑格尔、马克思、尼采 (Russell §近代)
-- [ ] 20世纪哲学:分析哲学与大陆哲学 (Copleston 卷8-9)
+- [x] [前苏格拉底哲学与自然哲学 (Copleston 卷1 / Russell §古代卷1)](./chinese-indian-philosophy-overview)
+- [x] [古希腊哲学:苏格拉底、柏拉图、亚里士多德 (Russell §古代)](./early-modern-rationalism-empiricism)
+- [x] [中世纪哲学:教父与经院哲学 (Copleston 卷2)](./enlightenment-german-classical-philosophy)
+- [x] [文艺复兴哲学 (Copleston 卷3)](./islamic-golden-age-philosophy)
+- [x] [近代哲学:理性主义与经验主义 (Russell §近代)](./medieval-patristic-scholastic-philosophy)
+- [x] [启蒙运动与德国古典哲学 (Copleston 卷6)](./nineteenth-century-philosophy-hegel-marx-nietzsche)
+- [x] [19世纪哲学:黑格尔、马克思、尼采 (Russell §近代)](./presocratic-natural-philosophy)
+- [x] [20世纪哲学:分析哲学与大陆哲学 (Copleston 卷8-9)](./renaissance-philosophy)
 
 ### 第2篇
 
-- [ ] 中国与印度哲学概览 (冯友兰《中国哲学史》/ Radhakrishnan《Indian Philosophy》)
-- [ ] 伊斯兰哲学黄金时代 (Copleston 卷2)
+- [x] [中国与印度哲学概览 (冯友兰《中国哲学史》/ Radhakrishnan《Indian Philosophy》)](./socrates-plato-aristotle)
+- [x] [伊斯兰哲学黄金时代 (Copleston 卷2)](./twentieth-century-analytic-continental-philosophy)

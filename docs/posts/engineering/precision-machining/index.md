@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 精密加工基础 (Kalpakjian §25)
-- [ ] 金刚石车削技术 (Kalpakjian §25)
-- [ ] 超精密加工刀具与材料 (Kalpakjian §25)
-- [ ] 精密磨削工艺 (Kalpakjian §26)
-- [ ] 抛光与化学机械抛光 (Kalpakjian §27)
-- [ ] 加工误差来源与精度分析理论 (Kalpakjian §25)
-- [ ] 加工环境控制（恒温/洁净/隔振） (Kalpakjian §27)
-- [ ] 微细加工与特种加工（微EDM/激光微加工/电化学微加工） (Kalpakjian §28)
+- [x] [精密加工基础 (Kalpakjian §25)](./precision-machining-basics)
+- [x] [金刚石车削技术 (Kalpakjian §25)](./diamond-turning)
+- [x] [超精密加工刀具与材料 (Kalpakjian §25)](./ultraprecision-tools-materials)
+- [x] [精密磨削工艺 (Kalpakjian §26)](./precision-grinding)
+- [x] [抛光与化学机械抛光 (Kalpakjian §27)](./polishing-and-cmp)
+- [x] [加工误差来源与精度分析理论 (Kalpakjian §25)](./machining-error-sources-precision-analysis)
+- [x] [加工环境控制（恒温/洁净/隔振） (Kalpakjian §27)](./processing-environment-control)
+- [x] [微细加工与特种加工（微EDM/激光微加工/电化学微加工） (Kalpakjian §28)](./micro-special-machining)
 
 ### 第2篇
 
-- [ ] 表面粗糙度与测量 (Whitehouse §3-4)
-- [ ] 纳米尺度加工 (Kalpakjian §29)
-- [ ] 超精密机床结构与静压轴承 (Kalpakjian §27)
-- [ ] 在线测量与误差补偿技术 (Whitehouse §6)
+- [x] [表面粗糙度与测量 (Whitehouse §3-4)](./surface-roughness-measurement)
+- [x] [纳米尺度加工 (Kalpakjian §29)](./nanoscale-machining)
+- [x] [超精密机床结构与静压轴承 (Kalpakjian §27)](./ultraprecision-machine-tools-hydrostatic-bearings)
+- [x] [在线测量与误差补偿技术 (Whitehouse §6)](./on-machine-measurement-error-compensation)

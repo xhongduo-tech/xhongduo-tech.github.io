@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] GPU 架构与 Tensor Core (Hennessy & Patterson §4)
-- [ ] TPU 脉动阵列 (Jouppi et al., TPU 2017; Hennessy & Patterson §7)
-- [ ] AI 加速器数据流 (Sze et al., 2020 §3)
-- [ ] 硬件加速器设计与编译器映射 (Sze et al., 2020 §6)
-- [ ] 量化与稀疏计算 (Sze et al., 2020 §5)
-- [ ] 内存层次与带宽 (Sze et al., 2020 §4)
-- [ ] 近存计算与存内计算 (Karl et al., 2019 §3)
-- [ ] 能效评估与 Roofline (Hennessy & Patterson §4.6)
+- [x] [GPU 架构与 Tensor Core (Hennessy & Patterson §4)](./gpu-architecture-tensor-core)
+- [x] [TPU 脉动阵列 (Jouppi et al., TPU 2017; Hennessy & Patterson §7)](./tpu-systolic-array)
+- [x] [AI 加速器数据流 (Sze et al., 2020 §3)](./ai-accelerator-dataflow)
+- [x] [硬件加速器设计与编译器映射 (Sze et al., 2020 §6)](./hardware-compiler-mapping)
+- [x] [量化与稀疏计算 (Sze et al., 2020 §5)](./quantization-sparse-computing)
+- [x] [内存层次与带宽 (Sze et al., 2020 §4)](./memory-hierarchy-bandwidth)
+- [x] [近存计算与存内计算 (Karl et al., 2019 §3)](./near-memory-computing)
+- [x] [能效评估与 Roofline (Hennessy & Patterson §4.6)](./roofline-model)
 
 ### 第2篇
 
-- [ ] AI 芯片评测基准（MLPerf） (Reddi et al., MLPerf 2020)
-- [ ] 代表性 AI 加速器案例（昇腾/寒武纪/Groq/Habana） (厂商技术白皮书; Jouppi et al., TPU 2017)
-- [ ] 边缘 AI 芯片设计 (Sze et al., 2020 §7)
+- [x] [AI 芯片评测基准（MLPerf） (Reddi et al., MLPerf 2020)](./mlperf-benchmark)
+- [x] [代表性 AI 加速器案例（昇腾/寒武纪/Groq/Habana） (厂商技术白皮书; Jouppi et al., TPU 2017)](./representative-ai-accelerators)
+- [x] [边缘 AI 芯片设计 (Sze et al., 2020 §7)](./edge-ai-chip-design)

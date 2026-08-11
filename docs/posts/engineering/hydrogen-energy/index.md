@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 燃料电池热力学基础 (O'Hayre §2-3)
-- [ ] 燃料电池电化学原理 (O'Hayre §4)
-- [ ] 燃料电池系统建模与表征（极化曲线/阻抗谱） (O'Hayre §6-7)
-- [ ] 质子交换膜燃料电池 (O'Hayre §8)
-- [ ] 碱性燃料电池 (O'Hayre §8.4)
-- [ ] 直接甲醇燃料电池 (O'Hayre §8.7)
-- [ ] 固体氧化物与熔融碳酸盐燃料电池 (O'Hayre §9)
-- [ ] 燃料重整与燃料处理（天然气重整/水煤气变换/净化） (O'Hayre §11)
+- [x] [燃料电池热力学基础 (O'Hayre §2-3)](./fuel-cell-thermodynamics)
+- [x] [燃料电池电化学原理 (O'Hayre §4)](./fuel-cell-electrochemistry)
+- [x] [燃料电池系统建模与表征（极化曲线/阻抗谱） (O'Hayre §6-7)](./fuel-cell-modeling-and-characterization)
+- [x] [质子交换膜燃料电池 (O'Hayre §8)](./proton-exchange-membrane-fuel-cells)
+- [x] [碱性燃料电池 (O'Hayre §8.4)](./alkaline-fuel-cells)
+- [x] [直接甲醇燃料电池 (O'Hayre §8.7)](./direct-methanol-fuel-cells)
+- [x] [固体氧化物与熔融碳酸盐燃料电池 (O'Hayre §9)](./solid-oxide-and-molten-carbonate-fuel-cells)
+- [x] [燃料重整与燃料处理（天然气重整/水煤气变换/净化） (O'Hayre §11)](./fuel-reforming-and-processing)
 
 ### 第2篇
 
-- [ ] 氢气制备方法 (Gupta §1-3)
-- [ ] 氢气储存与运输 (Gupta §6-8)
-- [ ] 氢能系统集成 (Gupta §12)
-- [ ] 氢安全与规范标准 (Gupta §14)
+- [x] [氢气制备方法 (Gupta §1-3)](./hydrogen-production)
+- [x] [氢气储存与运输 (Gupta §6-8)](./hydrogen-storage-and-transport)
+- [x] [氢能系统集成 (Gupta §12)](./hydrogen-system-integration)
+- [x] [氢安全与规范标准 (Gupta §14)](./hydrogen-safety-and-standards)

@@ -18,11 +18,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 扩散模型基础 DDPM (Ho §2)
-- [ ] DiT 架构与 Patch 化 (Peebles §3)
-- [ ] 条件控制 AdaLN-Zero (Peebles §4)
-- [ ] Scaling 与性能分析 (Peebles §5)
-- [ ] Sora 视频生成框架 (OpenAI §2)
-- [ ] 时空 Patch 表示 (OpenAI §3)
-- [ ] 扩散 Transformer 视频 scaling (OpenAI §4)
-- [ ] 世界模拟器与世界模型 (OpenAI §5)
+- [x] [扩散模型基础 DDPM (Ho §2)](./ddpm-diffusion-basics)
+- [x] [DiT 架构与 Patch 化 (Peebles §3)](./dit-architecture-patchify)
+- [x] [条件控制 AdaLN-Zero (Peebles §4)](./adaln-zero-conditioning)
+- [x] [Scaling 与性能分析 (Peebles §5)](./dit-scaling-analysis)
+- [x] [Sora 视频生成框架 (OpenAI §2)](./sora-video-generation-framework)
+- [x] [时空 Patch 表示 (OpenAI §3)](./sora-spatiotemporal-patches)
+- [x] [扩散 Transformer 视频 scaling (OpenAI §4)](./sora-video-scaling)
+- [x] [世界模拟器与世界模型 (OpenAI §5)](./world-simulators-world-models)

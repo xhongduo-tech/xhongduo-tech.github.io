@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 渔业资源与种群动态 (Hilborn §1)
-- [ ] 渔业资源评估模型 (Hilborn §4)
-- [ ] 剩余产量模型 (Hilborn §5)
-- [ ] 单位补充量产量 (Hilborn §8)
-- [ ] 渔业管理策略与决策 (Hilborn §12)
-- [ ] 渔具渔法与捕捞技术（拖网/围网/刺网/钓具） (Jennings §4)
-- [ ] 渔船与捕捞技术装备 (Jennings §4)
-- [ ] 渔具选择性与兼捕（副渔获）控制 (Jennings §14)
+- [x] [渔业资源与种群动态 (Hilborn §1)](./fish-stock-and-population-dynamics)
+- [x] [渔业资源评估模型 (Hilborn §4)](./fishery-stock-assessment-models)
+- [x] [剩余产量模型 (Hilborn §5)](./surplus-production-models)
+- [x] [单位补充量产量 (Hilborn §8)](./yield-per-recruit)
+- [x] [渔业管理策略与决策 (Hilborn §12)](./fishery-management-strategies)
+- [x] [渔具渔法与捕捞技术（拖网/围网/刺网/钓具） (Jennings §4)](./fishing-gears-and-methods)
+- [x] [渔船与捕捞技术装备 (Jennings §4)](./fishing-vessels-and-technologies)
+- [x] [渔具选择性与兼捕（副渔获）控制 (Jennings §14)](./fish-stock-and-population-dynamics)
 
 ### 第2篇
 
-- [ ] 国际渔业管理与法规（UNCLOS/RFMO） (Jennings §16)
-- [ ] 渔业经济学 (Hilborn §12)
-- [ ] 海洋生态系统与渔业 (Jennings §2)
-- [ ] 捕捞对群落的影响 (Jennings §14)
-- [ ] 渔业可持续发展 (Jennings §17)
+- [x] [国际渔业管理与法规（UNCLOS/RFMO） (Jennings §16)](./international-fisheries-law-rfmo)
+- [x] [渔业经济学 (Hilborn §12)](./fisheries-economics)
+- [x] [海洋生态系统与渔业 (Jennings §2)](./marine-ecosystems-and-fisheries)
+- [x] [捕捞对群落的影响 (Jennings §14)](./fishing-effects-on-communities)
+- [x] [渔业可持续发展 (Jennings §17)](./fisheries-sustainability)

@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 整除性与欧几里得算法 (Hardy & Wright §1.1-1.7)
-- [ ] 素数与算术基本定理 (Hardy & Wright §1.3-2.1)
-- [ ] 素数分布与素数定理 (Hardy & Wright §1-2, 22；Rosen 素数分布章)
-- [ ] 同余、剩余类与中国剩余定理 (Niven-Zuckerman §2.3-2.6)
-- [ ] 费马小定理、欧拉定理与 Wilson 定理 (Hardy & Wright §6.1-6.5)
-- [ ] 二次剩余与 Gauss 互反律 (Hardy & Wright §9)
-- [ ] 原根与指标 (Niven-Zuckerman §4.2-4.4)
-- [ ] 连分数与最佳逼近 (Hardy & Wright §10.1-10.9)
+- [x] [整除性与欧几里得算法 (Hardy & Wright §1.1-1.7)](./divisibility-and-euclidean-algorithm)
+- [x] [素数与算术基本定理 (Hardy & Wright §1.3-2.1)](./primes-and-fundamental-theorem-of-arithmetic)
+- [x] [素数分布与素数定理 (Hardy & Wright §1-2, 22；Rosen 素数分布章)](./prime-distribution-and-prime-number-theorem)
+- [x] [同余、剩余类与中国剩余定理 (Niven-Zuckerman §2.3-2.6)](./congruences-and-chinese-remainder-theorem)
+- [x] [费马小定理、欧拉定理与 Wilson 定理 (Hardy & Wright §6.1-6.5)](./fermats-euler-wilson-theorems)
+- [x] [二次剩余与 Gauss 互反律 (Hardy & Wright §9)](./quadratic-residues-and-quadratic-reciprocity)
+- [x] [原根与指标 (Niven-Zuckerman §4.2-4.4)](./primitive-roots-and-indices)
+- [x] [连分数与最佳逼近 (Hardy & Wright §10.1-10.9)](./continued-fractions-and-best-approximation)
 
 ### 第2篇
 
-- [ ] 丢番图方程：线性丢番图、勾股三元组、四平方和与 Pell 方程 (Hardy & Wright §15, 18；Niven-Zuckerman §5)
-- [ ] 数论函数与 Möbius 反演 (Hardy & Wright §13)
-- [ ] 数论在密码学中的应用 (Rosen §8-9)
+- [x] [丢番图方程：线性丢番图、勾股三元组、四平方和与 Pell 方程 (Hardy & Wright §15, 18；Niven-Zuckerman §5)](./arithmetic-functions-and-mobius-inversion)
+- [x] [数论函数与 Möbius 反演 (Hardy & Wright §13)](./arithmetic-functions-and-mobius-inversion)
+- [x] [数论在密码学中的应用 (Rosen §8-9)](./number-theory-in-cryptography)

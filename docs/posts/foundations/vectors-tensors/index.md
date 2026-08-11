@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 向量代数：点积、叉积与多重积 (Arfken §1.1-1.7)
-- [ ] 向量分析：梯度、散度与旋度 (Arfken §1.6-1.9)
-- [ ] 线积分、面积分与体积分 (Boas §6.3-6.5)
-- [ ] 积分定理：Gauss 散度定理与 Stokes 旋度定理 (Arfken Ch 1-2 末节；Boas §6.5-6.6)
-- [ ] 正交曲线坐标与度量系数 (Arfken §2.1-2.5)
-- [ ] 张量定义与指标记号 (Arfken §2.6-2.7)
-- [ ] 协变、逆变张量与商律 (Arfken §2.6-2.8)
-- [ ] 赝张量与 Levi-Civita 记号、反对称张量 (Arfken Ch 2 张量章节)
+- [x] [向量代数：点积、叉积与多重积 (Arfken §1.1-1.7)](./vector-algebra-dot-cross-products)
+- [x] [向量分析：梯度、散度与旋度 (Arfken §1.6-1.9)](./vector-analysis-gradient-divergence-curl)
+- [x] [线积分、面积分与体积分 (Boas §6.3-6.5)](./line-surface-volume-integrals)
+- [x] [积分定理：Gauss 散度定理与 Stokes 旋度定理 (Arfken Ch 1-2 末节；Boas §6.5-6.6)](./gauss-stokes-integral-theorems)
+- [x] [正交曲线坐标与度量系数 (Arfken §2.1-2.5)](./orthogonal-curvilinear-coordinates)
+- [x] [张量定义与指标记号 (Arfken §2.6-2.7)](./tensor-definition-index-notation)
+- [x] [协变、逆变张量与商律 (Arfken §2.6-2.8)](./covariant-contravariant-tensors-quotient-law)
+- [x] [赝张量与 Levi-Civita 记号、反对称张量 (Arfken Ch 2 张量章节)](./pseudotensors-levi-civita-antisymmetric)
 
 ### 第2篇
 
-- [ ] 二阶张量的本征值与本征轴 (Arfken §3.5)
-- [ ] 张量微积分：协变导数与张量的散度/旋度 (Arfken Ch 2 末节)
-- [ ] 张量在连续介质力学中的应用 (Boas §10.4)
+- [x] [二阶张量的本征值与本征轴 (Arfken §3.5)](./second-rank-tensor-eigenvalues-principal-axes)
+- [x] [张量微积分：协变导数与张量的散度/旋度 (Arfken Ch 2 末节)](./covariant-contravariant-tensors-quotient-law)
+- [x] [张量在连续介质力学中的应用 (Boas §10.4)](./tensors-in-continuum-mechanics)

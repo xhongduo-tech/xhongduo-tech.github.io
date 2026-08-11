@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 心身问题:二元论与物理主义 (Kim §2-3)
-- [ ] 行为主义与心脑同一论 (Kim §4)
-- [ ] 功能主义 (Kim §5)
-- [ ] 意识与感受质 (Chalmers §Consciousness)
-- [ ] 心理因果性与排除论证 (Kim §7)
-- [ ] 意向性与心理内容 (Kim §8)
-- [ ] 自由意志与决定论 (Chalmers §6)
-- [ ] AI 与心灵（图灵测试/中文房间） (Chalmers §8)
+- [x] [心身问题:二元论与物理主义 (Kim §2-3)](./ai-and-mind)
+- [x] [行为主义与心脑同一论 (Kim §4)](./behaviorism-and-identity-theory)
+- [x] [功能主义 (Kim §5)](./functionalism)
+- [x] [意识与感受质 (Chalmers §Consciousness)](./consciousness-and-qualia)
+- [x] [心理因果性与排除论证 (Kim §7)](./mental-causation-and-exclusion)
+- [x] [意向性与心理内容 (Kim §8)](./intentionality-and-mental-content)
+- [x] [自由意志与决定论 (Chalmers §6)](./free-will-and-determinism)
+- [x] [AI 与心灵（图灵测试/中文房间） (Chalmers §8)](./behaviorism-and-identity-theory)
 
 ### 第2篇
 
-- [ ] 意识的困难问题（Chalmers §1-2）
-- [ ] 他心问题 (Chalmers §7)
+- [x] [意识的困难问题（Chalmers §1-2）](./hard-problem-of-consciousness)
+- [x] [他心问题 (Chalmers §7)](./problem-of-other-minds)

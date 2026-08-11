@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 医学伦理学基本原则 (Beauchamp §1)
-- [ ] 道德地位（moral status） (Beauchamp §3)
-- [ ] 自主原则与知情同意 (Beauchamp §4)
-- [ ] 不伤害与有利原则 (Beauchamp §5-6)
-- [ ] 公正原则与资源分配 (Beauchamp §7)
-- [ ] 医患关系与共同决策（专业—患者关系） (Beauchamp §8 / Lo §4)
-- [ ] 医疗保密与隐私 (Beauchamp §8 / Lo §保密)
-- [ ] 临终决策与安乐死 (Lo §17)
+- [x] [医学伦理学基本原则 (Beauchamp §1)](./principles-of-bioethics)
+- [x] [道德地位（moral status） (Beauchamp §3)](./moral-status)
+- [x] [自主原则与知情同意 (Beauchamp §4)](./autonomy-informed-consent)
+- [x] [不伤害与有利原则 (Beauchamp §5-6)](./nonmaleficence-beneficence)
+- [x] [公正原则与资源分配 (Beauchamp §7)](./justice-resource-allocation)
+- [x] [医患关系与共同决策（专业—患者关系） (Beauchamp §8 / Lo §4)](./physician-patient-relationship)
+- [x] [医疗保密与隐私 (Beauchamp §8 / Lo §保密)](./confidentiality-privacy)
+- [x] [临终决策与安乐死 (Lo §17)](./end-of-life-euthanasia)
 
 ### 第2篇
 
-- [ ] 人类受试者研究伦理 (Belmont Report §B)
-- [ ] 器官移植伦理 (Lo §20)
-- [ ] 公共卫生伦理：防疫、疫苗与分配 (Beauchamp §11)
-- [ ] 遗传与生殖伦理：基因检测与优生 (Beauchamp §9)
+- [x] [人类受试者研究伦理 (Belmont Report §B)](./research-ethics)
+- [x] [器官移植伦理 (Lo §20)](./organ-transplantation-ethics)
+- [x] [公共卫生伦理：防疫、疫苗与分配 (Beauchamp §11)](./public-health-ethics)
+- [x] [遗传与生殖伦理：基因检测与优生 (Beauchamp §9)](./genetic-reproductive-ethics)

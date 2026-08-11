@@ -18,11 +18,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 量子比特与量子门 (Nielsen & Chuang Ch. 4)
-- [ ] 量子测量与 POVM 形式 (Nielsen & Chuang Ch. 2)
-- [ ] 量子纠缠与 Bell 不等式 (Nielsen & Chuang Ch. 2)
-- [ ] 量子算法：Shor 与 Grover (Nielsen & Chuang Ch. 5-6)
-- [ ] 量子错误更正码 (Nielsen & Chuang Ch. 10)
-- [ ] 量子密码与 BB84 协议 (Nielsen & Chuang Ch. 12)
-- [ ] 量子噪声与量子信道 (Nielsen & Chuang Ch. 8)
-- [ ] 量子信息熵与 Schumacher 压缩 (Nielsen & Chuang Ch. 11)
+- [x] [量子比特与量子门 (Nielsen & Chuang Ch. 4)](./qubits-and-quantum-gates)
+- [x] [量子测量与 POVM 形式 (Nielsen & Chuang Ch. 2)](./quantum-measurement-and-povm)
+- [x] [量子纠缠与 Bell 不等式 (Nielsen & Chuang Ch. 2)](./entanglement-and-bell-inequality)
+- [x] [量子算法：Shor 与 Grover (Nielsen & Chuang Ch. 5-6)](./quantum-algorithms-shor-grover)
+- [x] [量子错误更正码 (Nielsen & Chuang Ch. 10)](./quantum-error-correction)
+- [x] [量子密码与 BB84 协议 (Nielsen & Chuang Ch. 12)](./quantum-cryptography-bb84)
+- [x] [量子噪声与量子信道 (Nielsen & Chuang Ch. 8)](./quantum-noise-and-channels)
+- [x] [量子信息熵与 Schumacher 压缩 (Nielsen & Chuang Ch. 11)](./quantum-entropy-and-schumacher-compression)

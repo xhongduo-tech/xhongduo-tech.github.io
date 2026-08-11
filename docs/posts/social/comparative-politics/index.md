@@ -17,21 +17,21 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 国家建构与制度转型 (Hague §2)
-- [ ] 民主与威权政体 (Hague §3)
-- [ ] 政治文化与政治社会化 (Hague §4)
-- [ ] 政治参与：投票、抗议与公民参与 (Hague §5)
-- [ ] 选举与选民行为 (Hague §6)
-- [ ] 选举制度与政党制度 (Hague §8)
-- [ ] 利益集团与社团政治 (Hague §9)
-- [ ] 宪法、司法与违宪审查 (Hague §10)
+- [x] [国家建构与制度转型 (Hague §2)](./state-building-and-regime-transition)
+- [x] [民主与威权政体 (Hague §3)](./democracy-and-authoritarianism)
+- [x] [政治文化与政治社会化 (Hague §4)](./political-culture-and-political-socialization)
+- [x] [政治参与：投票、抗议与公民参与 (Hague §5)](./political-participation)
+- [x] [选举与选民行为 (Hague §6)](./elections-and-voter-behavior)
+- [x] [选举制度与政党制度 (Hague §8)](./electoral-systems-and-party-systems)
+- [x] [利益集团与社团政治 (Hague §9)](./interest-groups-and-associational-politics)
+- [x] [宪法、司法与违宪审查 (Hague §10)](./constitutions-and-judicial-review)
 
 ### 第2篇
 
-- [ ] 立法机关（议会）比较 (Hague §11)
-- [ ] 官僚制比较 (Hague §13)
-- [ ] 多数民主与共识民主 (Lijphart §2)
-- [ ] 总统制与议会制 (Lijphart §6)
-- [ ] 民主化理论（转型学/现代化） (Almond §7)
-- [ ] 民族冲突与革命 (Almond §9)
-- [ ] 联邦主义 (Almond §6)
+- [x] [立法机关（议会）比较 (Hague §11)](./comparative-legislatures)
+- [x] [官僚制比较 (Hague §13)](./comparative-bureaucracy)
+- [x] [多数民主与共识民主 (Lijphart §2)](./majoritarian-and-consensus-democracy)
+- [x] [总统制与议会制 (Lijphart §6)](./presidential-and-parliamentary-systems)
+- [x] [民主化理论（转型学/现代化） (Almond §7)](./democratization-theory)
+- [x] [民族冲突与革命 (Almond §9)](./ethnic-conflict-and-revolution)
+- [x] [联邦主义 (Almond §6)](./federalism)

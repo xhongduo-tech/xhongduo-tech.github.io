@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 分析哲学的起源：弗雷格、罗素与摩尔 (Soames 卷1 §1)
-- [ ] 逻辑实证主义与语言转向 (Soames 卷1 §4)
-- [ ] 维特根斯坦前后期哲学 (Soames 卷1 §5-6)
-- [ ] 日常语言哲学 (Soames 卷2 §3)
-- [ ] 美国实用主义：皮尔士、詹姆斯与杜威 (Soames 卷1 §实用主义 / James《实用主义》)
-- [ ] 当代分析哲学：奎因、克里普克与戴维森 (Soames 卷2 §奎因/§克里普克)
-- [ ] 现象学传统 (Critchley §2)
-- [ ] 存在主义与解释学 (Critchley §3)
+- [x] [分析哲学的起源：弗雷格、罗素与摩尔 (Soames 卷1 §1)](./origins-frege-russell-moore)
+- [x] [逻辑实证主义与语言转向 (Soames 卷1 §4)](./logical-positivism-linguistic-turn)
+- [x] [维特根斯坦前后期哲学 (Soames 卷1 §5-6)](./wittgenstein-tractatus-investigations)
+- [x] [日常语言哲学 (Soames 卷2 §3)](./ordinary-language-philosophy)
+- [x] [美国实用主义：皮尔士、詹姆斯与杜威 (Soames 卷1 §实用主义 / James《实用主义》)](./american-pragmatism)
+- [x] [当代分析哲学：奎因、克里普克与戴维森 (Soames 卷2 §奎因/§克里普克)](./quine-kripke-davidson)
+- [x] [现象学传统 (Critchley §2)](./phenomenological-tradition)
+- [x] [存在主义与解释学 (Critchley §3)](./existentialism-hermeneutics)
 
 ### 第2篇
 
-- [ ] 后结构主义（Derrida/Deleuze） (Critchley §后结构主义)
-- [ ] 两大传统的对话与融合 (Critchley §导论)
+- [x] [后结构主义（Derrida/Deleuze） (Critchley §后结构主义)](./poststructuralism)
+- [x] [两大传统的对话与融合 (Critchley §导论)](./two-traditions-dialogue)

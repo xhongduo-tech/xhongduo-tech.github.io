@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 艺术的定义问题 (Carroll §1)
-- [ ] 艺术本体论 (Carroll §3)
-- [ ] 审美经验与艺术价值 (Danto §4)
-- [ ] 形式主义：贝尔与格林伯格、现代主义艺术理论 (Bell《艺术》/ Greenberg《艺术与文化》)
-- [ ] 图像学与艺术史理论：潘诺夫斯基 (Panofsky《图像学研究》)
-- [ ] 西方美学史脉络：康德与黑格尔的审美论 (朱光潜《西方美学史》§康德/黑格尔)
-- [ ] 艺术批评与诠释 (Carroll §6)
-- [ ] 艺术、情感与表现 (Carroll §5)
+- [x] [艺术的定义问题 (Carroll §1)](./definition-of-art)
+- [x] [艺术本体论 (Carroll §3)](./ontology-of-art)
+- [x] [审美经验与艺术价值 (Danto §4)](./aesthetic-experience-and-value)
+- [x] [形式主义：贝尔与格林伯格、现代主义艺术理论 (Bell《艺术》/ Greenberg《艺术与文化》)](./aesthetic-experience-and-value)
+- [x] [图像学与艺术史理论：潘诺夫斯基 (Panofsky《图像学研究》)](./criticism-and-interpretation)
+- [x] [西方美学史脉络：康德与黑格尔的审美论 (朱光潜《西方美学史》§康德/黑格尔)](./definition-of-art)
+- [x] [艺术批评与诠释 (Carroll §6)](./criticism-and-interpretation)
+- [x] [艺术、情感与表现 (Carroll §5)](./emotion-and-expression)
 
 ### 第2篇
 
-- [ ] 艺术与社会功能 (Danto §7)
-- [ ] 艺术体制理论与历史 (Danto §5)
-- [ ] 非西方艺术理论 (Carroll §10)
+- [x] [艺术与社会功能 (Danto §7)](./social-function-of-art)
+- [x] [艺术体制理论与历史 (Danto §5)](./institutional-theory-of-art)
+- [x] [非西方艺术理论 (Carroll §10)](./non-western-art-theories)

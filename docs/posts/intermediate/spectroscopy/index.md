@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 紫外-可见光谱与共轭体系 (Silverstein Ch. 7)
-- [ ] 红外光谱与官能团鉴定 (Silverstein Ch. 2)
-- [ ] 质谱与分子量测定 (Silverstein Ch. 1)
-- [ ] 质谱碎裂规律与 McLafferty 重排（高分辨质谱） (Silverstein Ch. 1)
-- [ ] 核磁共振：1H 与 13C NMR (Silverstein Ch. 3-5)
-- [ ] 自旋-自旋耦合与化学位移 (Williams & Fleming Ch. 3)
-- [ ] 二维 NMR：COSY、HSQC、NOESY (Williams & Fleming Ch. 4)
-- [ ] 动态 NMR 与化学交换（变温 NMR） (Williams & Fleming Ch. 3)
+- [x] [紫外-可见光谱与共轭体系 (Silverstein Ch. 7)](./uv-vis-spectroscopy)
+- [x] [红外光谱与官能团鉴定 (Silverstein Ch. 2)](./ir-spectroscopy)
+- [x] [质谱与分子量测定 (Silverstein Ch. 1)](./mass-spectrometry-basics)
+- [x] [质谱碎裂规律与 McLafferty 重排（高分辨质谱） (Silverstein Ch. 1)](./mass-spectrometry-fragmentation)
+- [x] [核磁共振：1H 与 13C NMR (Silverstein Ch. 3-5)](./nmr-basics)
+- [x] [自旋-自旋耦合与化学位移 (Williams & Fleming Ch. 3)](./nmr-coupling-chemical-shift)
+- [x] [二维 NMR：COSY、HSQC、NOESY (Williams & Fleming Ch. 4)](./nmr-2d-experiments)
+- [x] [动态 NMR 与化学交换（变温 NMR） (Williams & Fleming Ch. 3)](./nmr-dynamic-exchange)
 
 ### 第2篇
 
-- [ ] 电子顺磁共振 EPR (Atkins Focus 12)
-- [ ] 结构鉴定综合应用 (Silverstein Ch. 7-8)
-- [ ] X 射线衍射原理与晶体结构（Bragg 定律、结构因子、相问题） (Atkins Focus 16)
-- [ ] 拉曼光谱与 SERS (Atkins Focus 11)
-- [ ] 荧光光谱 (Atkins Focus 11)
-- [ ] 圆二色光谱（CD） (Atkins Focus 11)
+- [x] [电子顺磁共振 EPR (Atkins Focus 12)](./epr-spectroscopy)
+- [x] [结构鉴定综合应用 (Silverstein Ch. 7-8)](./structure-elucidation)
+- [x] [X 射线衍射原理与晶体结构（Bragg 定律、结构因子、相问题） (Atkins Focus 16)](./x-ray-diffraction)
+- [x] [拉曼光谱与 SERS (Atkins Focus 11)](./raman-spectroscopy)
+- [x] [荧光光谱 (Atkins Focus 11)](./fluorescence-spectroscopy)
+- [x] [圆二色光谱（CD） (Atkins Focus 11)](./circular-dichroism)

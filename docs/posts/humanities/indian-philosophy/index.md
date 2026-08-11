@@ -17,11 +17,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 吠陀文献与思想起源 (Radhakrishnan 卷1 §1)
-- [ ] 奥义书的哲学 (Radhakrishnan 卷1 §3)
-- [ ] 正统六派哲学 (Radhakrishnan 卷2 §2)
-- [ ] 佛教哲学 (Radhakrishnan 卷1 §6)
-- [ ] 耆那教哲学 (Radhakrishnan 卷1 §7)
-- [ ] 印度逻辑学与认识论 (Potter 卷2)
-- [ ] 顺世论与印度唯物主义 (Radhakrishnan 卷1 §8)
-- [ ] 当代印度哲学（甘地/奥罗宾多） (Radhakrishnan 卷2 §附录)
+- [x] [吠陀文献与思想起源 (Radhakrishnan 卷1 §1)](./veda-literature-origins)
+- [x] [奥义书的哲学 (Radhakrishnan 卷1 §3)](./upanishads-philosophy)
+- [x] [正统六派哲学 (Radhakrishnan 卷2 §2)](./orthodox-six-systems)
+- [x] [佛教哲学 (Radhakrishnan 卷1 §6)](./buddhist-philosophy)
+- [x] [耆那教哲学 (Radhakrishnan 卷1 §7)](./jain-philosophy)
+- [x] [印度逻辑学与认识论 (Potter 卷2)](./indian-logic-epistemology)
+- [x] [顺世论与印度唯物主义 (Radhakrishnan 卷1 §8)](./carvaka-materialism)
+- [x] [当代印度哲学（甘地/奥罗宾多） (Radhakrishnan 卷2 §附录)](./contemporary-indian-philosophy)

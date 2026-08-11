@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] X线成像原理 (Brant §1)
-- [ ] CT成像原理与技术 (Webb §1)
-- [ ] MRI成像基础 (Brant §2)
-- [ ] 超声成像原理与诊断 (Brant §3)
-- [ ] 胸部影像学 (Webb §2)
-- [ ] 心血管影像（CTA/MRA/超声心动） (Brant §5)
-- [ ] 腹部与盆腔CT (Webb §4)
-- [ ] 泌尿生殖系统影像 (Webb §5)
+- [x] [X线成像原理 (Brant §1)](./x-ray-imaging-principles)
+- [x] [CT成像原理与技术 (Webb §1)](./ct-imaging-principles)
+- [x] [MRI成像基础 (Brant §2)](./mri-imaging-basics)
+- [x] [超声成像原理与诊断 (Brant §3)](./ultrasound-imaging)
+- [x] [胸部影像学 (Webb §2)](./chest-imaging)
+- [x] [心血管影像（CTA/MRA/超声心动） (Brant §5)](./cardiovascular-imaging)
+- [x] [腹部与盆腔CT (Webb §4)](./abdominal-pelvic-ct)
+- [x] [泌尿生殖系统影像 (Webb §5)](./genitourinary-imaging)
 
 ### 第2篇
 
-- [ ] 骨骼系统影像 (Brant §8)
-- [ ] 神经影像学 (Brant §10)
-- [ ] 乳腺影像 (Brant §13)
-- [ ] 介入放射学 (Brant §12)
+- [x] [骨骼系统影像 (Brant §8)](./musculoskeletal-imaging)
+- [x] [神经影像学 (Brant §10)](./neuroimaging)
+- [x] [乳腺影像 (Brant §13)](./breast-imaging)
+- [x] [介入放射学 (Brant §12)](./interventional-radiology)

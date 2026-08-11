@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 历史认识论与后现代挑战 (Jenkins §2)
-- [ ] 史料学与历史考证方法（考据学） (白寿彝 §史料学 / 梁启超《中国历史研究法》)
-- [ ] 历史编纂体例：编年、纪传与纪事本末 (白寿彝 §2-3)
-- [ ] 中国史学的发展历程 (白寿彝 §1)
-- [ ] 《史记》与传统史学体例 (白寿彝 §3)
-- [ ] 近代新史学的兴起 (白寿彝 §6)
-- [ ] 西方古典史学：希罗多德、修昔底德与兰克学派 (Jenkins §5 / 白寿彝 §西方史学)
-- [ ] 西方史学流派演变 (Jenkins §5)
+- [x] [历史认识论与后现代挑战 (Jenkins §2)](./rethinking-history-knowledge)
+- [x] [史料学与历史考证方法（考据学） (白寿彝 §史料学 / 梁启超《中国历史研究法》)](./historical-source-criticism)
+- [x] [历史编纂体例：编年、纪传与纪事本末 (白寿彝 §2-3)](./historical-compilation-forms)
+- [x] [中国史学的发展历程 (白寿彝 §1)](./development-of-chinese-historiography)
+- [x] [《史记》与传统史学体例 (白寿彝 §3)](./shiji-and-traditional-historiography)
+- [x] [近代新史学的兴起 (白寿彝 §6)](./rise-of-modern-chinese-historiography)
+- [x] [西方古典史学：希罗多德、修昔底德与兰克学派 (Jenkins §5 / 白寿彝 §西方史学)](./western-classical-and-rankean-historiography)
+- [x] [西方史学流派演变 (Jenkins §5)](./evolution-of-western-historiography)
 
 ### 第2篇
 
-- [ ] 年鉴学派（Annales） (Jenkins §4)
-- [ ] 后现代史学（怀特/安克斯密特） (Jenkins §6)
-- [ ] 马克思主义史学 (Jenkins §3)
+- [x] [年鉴学派（Annales） (Jenkins §4)](./annales-school)
+- [x] [后现代史学（怀特/安克斯密特） (Jenkins §6)](./postmodern-historiography)
+- [x] [马克思主义史学 (Jenkins §3)](./marxist-historiography)

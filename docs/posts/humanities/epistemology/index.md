@@ -17,15 +17,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 知识的定义与盖梯尔问题 (Audi §1)
-- [ ] 怀疑论与确定性 (Moser §4)
-- [ ] 知觉与经验知识 (Audi §3)
-- [ ] 证言与社会认识论 (Audi §7)
-- [ ] 先验知识与理性主义 (Moser §6)
-- [ ] 自然化认识论 (Audi §9)
-- [ ] 证立理论（基础主义/融贯论/可靠主义） (Audi §4-5)
-- [ ] 归纳问题（Hume/Goodman） (Audi §6)
+- [x] [知识的定义与盖梯尔问题 (Audi §1)](./knowledge-definition-gettier)
+- [x] [怀疑论与确定性 (Moser §4)](./skepticism-and-certainty)
+- [x] [知觉与经验知识 (Audi §3)](./perception-and-empirical-knowledge)
+- [x] [证言与社会认识论 (Audi §7)](./testimony-and-social-epistemology)
+- [x] [先验知识与理性主义 (Moser §6)](./a-priori-knowledge-and-rationalism)
+- [x] [自然化认识论 (Audi §9)](./naturalized-epistemology)
+- [x] [证立理论（基础主义/融贯论/可靠主义） (Audi §4-5)](./theories-of-justification)
+- [x] [归纳问题（Hume/Goodman） (Audi §6)](./problem-of-induction)
 
 ### 第2篇
 
-- [ ] 信念与真理理论 (Audi §7)
+- [x] [信念与真理理论 (Audi §7)](./belief-and-theories-of-truth)

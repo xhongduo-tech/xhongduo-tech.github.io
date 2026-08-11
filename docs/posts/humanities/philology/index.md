@@ -17,11 +17,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 文献的载体与形制 (张舜徽 §2)
-- [ ] 文献的分类与目录 (张舜徽 §3)
-- [ ] 版本与校勘 (程千帆 版本编)
-- [ ] 典藏与流传 (程千帆 藏书编)
-- [ ] 文献的辑佚与辨伪 (张舜徽 §6)
-- [ ] 古代文献的检索与利用 (张舜徽 §8)
-- [ ] 训诂与注释体例 (张舜徽 §5)
-- [ ] 类书、丛书与工具书 (张舜徽 §7)
+- [x] [文献的载体与形制 (张舜徽 §2)](./carriers-and-material-forms)
+- [x] [文献的分类与目录 (张舜徽 §3)](./classification-and-catalogs)
+- [x] [版本与校勘 (程千帆 版本编)](./editions-and-collation)
+- [x] [典藏与流传 (程千帆 藏书编)](./collections-and-transmission)
+- [x] [文献的辑佚与辨伪 (张舜徽 §6)](./reconstruction-and-authentication)
+- [x] [古代文献的检索与利用 (张舜徽 §8)](./retrieval-and-use)
+- [x] [训诂与注释体例 (张舜徽 §5)](./xungu-and-annotation)
+- [x] [类书、丛书与工具书 (张舜徽 §7)](./leishu-congshu-and-reference-works)

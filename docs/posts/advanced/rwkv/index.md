@@ -18,11 +18,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] RNN 与 Transformer 对比 (Peng §2)
-- [ ] 线性注意力机制 (Peng §3)
-- [ ] 时间混合 Time Mixing (Peng §4.1)
-- [ ] 通道混合 Channel Mixing (Peng §4.2)
-- [ ] WKV 算子与并行训练 (Peng §5)
-- [ ] 时间衰减与位置编码 (Peng §6)
-- [ ] 模型扩展与 scaling (Peng §7)
-- [ ] 与 Transformer 的实验对比 (Peng §8)
+- [x] [RNN 与 Transformer 对比 (Peng §2)](./rnn-vs-transformer)
+- [x] [线性注意力机制 (Peng §3)](./linear-attention)
+- [x] [时间混合 Time Mixing (Peng §4.1)](./time-mixing)
+- [x] [通道混合 Channel Mixing (Peng §4.2)](./channel-mixing)
+- [x] [WKV 算子与并行训练 (Peng §5)](./wkv-operator)
+- [x] [时间衰减与位置编码 (Peng §6)](./time-decay-positional-encoding)
+- [x] [模型扩展与 scaling (Peng §7)](./model-scaling)
+- [x] [与 Transformer 的实验对比 (Peng §8)](./experimental-comparison)

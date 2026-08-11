@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 核稳定性与放射性衰变 (Choppin Ch. 3-5)
-- [ ] α、β、γ 衰变模式 (Choppin Ch. 5)
-- [ ] 放射性活度与半衰期 (Choppin Ch. 5)
-- [ ] 核结构与核模型（结合能、液滴模型、壳模型） (Choppin Ch. 6)
-- [ ] 核反应与中子活化 (Choppin Ch. 10)
-- [ ] 核裂变与核聚变（裂变产物、核反应堆原理） (Choppin Ch. 19-20)
-- [ ] 辐射化学（水的辐解、辐射对物质的作用） (Choppin Ch. 8)
-- [ ] 辐射防护与剂量学（剂量当量、防护标准、内照射） (Choppin Ch. 15)
+- [x] [核稳定性与放射性衰变 (Choppin Ch. 3-5)](./nuclear-stability-and-radioactive-decay)
+- [x] [α、β、γ 衰变模式 (Choppin Ch. 5)](./alpha-beta-gamma-decay-modes)
+- [x] [放射性活度与半衰期 (Choppin Ch. 5)](./radioactivity-and-half-life)
+- [x] [核结构与核模型（结合能、液滴模型、壳模型） (Choppin Ch. 6)](./nuclear-structure-and-models)
+- [x] [核反应与中子活化 (Choppin Ch. 10)](./nuclear-reactions-and-neutron-activation)
+- [x] [核裂变与核聚变（裂变产物、核反应堆原理） (Choppin Ch. 19-20)](./fission-and-fusion)
+- [x] [辐射化学（水的辐解、辐射对物质的作用） (Choppin Ch. 8)](./alpha-beta-gamma-decay-modes)
+- [x] [辐射防护与剂量学（剂量当量、防护标准、内照射） (Choppin Ch. 15)](./radiation-protection-and-dosimetry)
 
 ### 第2篇
 
-- [ ] 放射性核素的化学分离 (Choppin Ch. 18, 21)
-- [ ] 放射性测量技术 (Choppin Ch. 9)
-- [ ] 同位素示踪剂应用 (Loveland Ch. 17)
-- [ ] 核废料管理与环境影响 (Choppin Ch. 21-22)
+- [x] [放射性核素的化学分离 (Choppin Ch. 18, 21)](./radiochemical-separation)
+- [x] [放射性测量技术 (Choppin Ch. 9)](./radioactivity-measurement-techniques)
+- [x] [同位素示踪剂应用 (Loveland Ch. 17)](./isotope-tracer-applications)
+- [x] [核废料管理与环境影响 (Choppin Ch. 21-22)](./nuclear-waste-management)

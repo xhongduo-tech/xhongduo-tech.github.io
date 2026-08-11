@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] s 区元素：碱金属与碱土金属 (Housecroft Ch. 11-12)
-- [ ] p 区元素：第 13-15 族 (Housecroft Ch. 13-15)
-- [ ] p 区第 16-18 族：氧族、卤素与稀有气体 (Housecroft Ch. 16-18)
-- [ ] d 区元素与配位化学 (Housecroft Ch. 19-22)
-- [ ] 配位化合物的电子光谱与磁性（晶体场/配位场理论、Jahn-Teller 效应） (Housecroft Ch. 20)
-- [ ] d 区配合物的反应机理 (Housecroft Ch. 26)
-- [ ] d 区有机金属化学 (Housecroft Ch. 24)
-- [ ] 过渡金属的氧化态与颜色 (Cotton Ch. 17-18)
+- [x] [s 区元素：碱金属与碱土金属 (Housecroft Ch. 11-12)](./s-block-alkali-and-alkaline-earth-metals)
+- [x] [p 区元素：第 13-15 族 (Housecroft Ch. 13-15)](./crystal-field-theory-spectra-and-magnetism)
+- [x] [p 区第 16-18 族：氧族、卤素与稀有气体 (Housecroft Ch. 16-18)](./d-block-and-coordination-chemistry)
+- [x] [d 区元素与配位化学 (Housecroft Ch. 19-22)](./d-block-and-coordination-chemistry)
+- [x] [配位化合物的电子光谱与磁性（晶体场/配位场理论、Jahn-Teller 效应） (Housecroft Ch. 20)](./crystal-field-theory-spectra-and-magnetism)
+- [x] [d 区配合物的反应机理 (Housecroft Ch. 26)](./reaction-mechanisms-of-coordination-compounds)
+- [x] [d 区有机金属化学 (Housecroft Ch. 24)](./organometallic-chemistry-of-transition-metals)
+- [x] [过渡金属的氧化态与颜色 (Cotton Ch. 17-18)](./oxidation-states-and-colors-of-transition-metals)
 
 ### 第2篇
 
-- [ ] f 区元素：镧系与锕系 (Housecroft Ch. 27)
-- [ ] 主族氢化物与卤化物 (Cotton Ch. 5-7)
-- [ ] 金属簇化合物 (Cotton Ch. 18)
-- [ ] 固态结构与离子固体 (Housecroft Ch. 6)
+- [x] [f 区元素：镧系与锕系 (Housecroft Ch. 27)](./f-block-lanthanides-and-actinides)
+- [x] [主族氢化物与卤化物 (Cotton Ch. 5-7)](./main-group-hydrides-and-halides)
+- [x] [金属簇化合物 (Cotton Ch. 18)](./metal-cluster-compounds)
+- [x] [固态结构与离子固体 (Housecroft Ch. 6)](./solid-state-structures-and-ionic-solids)

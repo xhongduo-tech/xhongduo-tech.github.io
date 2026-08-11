@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 农业资源环境概论 (Lal §1)
-- [ ] 土壤资源与退化 (Lal §3)
-- [ ] 盐碱化与水土流失防治 (Lal §4)
-- [ ] 水资源与农业利用 (Lal §5)
-- [ ] 农业环境质量监测与评价 (Lal §6)
-- [ ] 农业生态系统养分循环 (Matson §4)
-- [ ] 农业面源污染 (Lal §9)
-- [ ] 农田重金属污染与修复技术 (Lal §10)
+- [x] [农业资源环境概论 (Lal §1)](./agricultural-environment-monitoring-assessment)
+- [x] [土壤资源与退化 (Lal §3)](./soil-resources-and-degradation)
+- [x] [盐碱化与水土流失防治 (Lal §4)](./salinization-and-erosion-control)
+- [x] [水资源与农业利用 (Lal §5)](./water-resources-and-agriculture)
+- [x] [农业环境质量监测与评价 (Lal §6)](./agricultural-environment-monitoring-assessment)
+- [x] [农业生态系统养分循环 (Matson §4)](./agroecosystem-nutrient-cycling)
+- [x] [农业面源污染 (Lal §9)](./agricultural-nonpoint-source-pollution)
+- [x] [农田重金属污染与修复技术 (Lal §10)](./farmland-heavy-metal-contamination-remediation)
 
 ### 第2篇
 
-- [ ] 农用化学品环境行为与农业环保法规 (Matson §5)
-- [ ] 农业温室气体与气候变化 (Lal §11)
-- [ ] 废弃物资源化利用 (Lal §13)
-- [ ] 可持续农业管理 (Lal §16)
+- [x] [农用化学品环境行为与农业环保法规 (Matson §5)](./agrochemical-environment-behavior-regulation)
+- [x] [农业温室气体与气候变化 (Lal §11)](./agricultural-greenhouse-gases-climate-change)
+- [x] [废弃物资源化利用 (Lal §13)](./agricultural-waste-resource-utilization)
+- [x] [可持续农业管理 (Lal §16)](./sustainable-agriculture-management)

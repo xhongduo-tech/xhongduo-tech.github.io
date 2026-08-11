@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 生态恢复理论与目标 (Clewell §1-3)
-- [ ] 生态修复规划与设计方法（目标设定/参考生态系统） (Clewell §4)
-- [ ] 植被恢复与重建 (Clewell §5)
-- [ ] 恢复生态学的种群与群落生态学基础（演替/干扰） (Clewell §6)
-- [ ] 乡土物种与种源/种子库技术 (Hobbs §7)
-- [ ] 土壤生态修复 (Hobbs §8)
-- [ ] 湿地生态系统恢复 (Hobbs §12)
-- [ ] 河流与水生生态系统恢复 (Hobbs §10)
+- [x] [生态恢复理论与目标 (Clewell §1-3)](./restoration-theory-and-goals)
+- [x] [生态修复规划与设计方法（目标设定/参考生态系统） (Clewell §4)](./restoration-planning-and-design)
+- [x] [植被恢复与重建 (Clewell §5)](./vegetation-restoration)
+- [x] [恢复生态学的种群与群落生态学基础（演替/干扰） (Clewell §6)](./population-community-ecology-basics)
+- [x] [乡土物种与种源/种子库技术 (Hobbs §7)](./native-species-and-seed-technology)
+- [x] [土壤生态修复 (Hobbs §8)](./soil-ecological-restoration)
+- [x] [湿地生态系统恢复 (Hobbs §12)](./wetland-ecosystem-restoration)
+- [x] [河流与水生生态系统恢复 (Hobbs §10)](./river-and-aquatic-ecosystem-restoration)
 
 ### 第2篇
 
-- [ ] 矿区生态重建 (Hobbs §15)
-- [ ] 城市与受损土地生态修复 (Hobbs §18)
-- [ ] 恢复效果监测与评价 (Clewell §7)
+- [x] [矿区生态重建 (Hobbs §15)](./mining-ecological-reclamation)
+- [x] [城市与受损土地生态修复 (Hobbs §18)](./urban-degraded-land-restoration)
+- [x] [恢复效果监测与评价 (Clewell §7)](./restoration-monitoring-and-evaluation)

@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] Zero-shot/Few-shot 提示 (Jurafsky §13.3)
-- [ ] 思维链 Chain-of-Thought (Wei et al., CoT 2022)
-- [ ] 思维树 Tree-of-Thought (Yao et al., ToT 2023)
-- [ ] 自洽性 Self-Consistency (Wang et al., 2022)
-- [ ] 复杂推理分解 Least-to-Most (Zhou et al., 2022)
-- [ ] ReAct 推理与行动 (Yao et al., ReAct 2023)
-- [ ] 提示模板与角色扮演 (Jurafsky §13.5)
-- [ ] 提示优化与自动提示搜索（AutoPrompt/OPRO） (Shin et al., AutoPrompt 2020; Yang et al., OPRO 2023)
+- [x] [Zero-shot/Few-shot 提示 (Jurafsky §13.3)](./zero-shot-few-shot)
+- [x] [思维链 Chain-of-Thought (Wei et al., CoT 2022)](./chain-of-thought)
+- [x] [思维树 Tree-of-Thought (Yao et al., ToT 2023)](./tree-of-thought)
+- [x] [自洽性 Self-Consistency (Wang et al., 2022)](./self-consistency)
+- [x] [复杂推理分解 Least-to-Most (Zhou et al., 2022)](./least-to-most)
+- [x] [ReAct 推理与行动 (Yao et al., ReAct 2023)](./react-reasoning-acting)
+- [x] [提示模板与角色扮演 (Jurafsky §13.5)](./prompt-template-role-play)
+- [x] [提示优化与自动提示搜索（AutoPrompt/OPRO） (Shin et al., AutoPrompt 2020; Yang et al., OPRO 2023)](./prompt-optimization)
 
 ### 第2篇
 
-- [ ] 结构化输出提示（JSON/XML 输出约束） (工程实践)
-- [ ] 提示安全与注入防御 (Jurafsky §13.7)
+- [x] [结构化输出提示（JSON/XML 输出约束） (工程实践)](./structured-output)
+- [x] [提示安全与注入防御 (Jurafsky §13.7)](./prompt-safety-injection)

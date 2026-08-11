@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] IPE的理论传统 (Oatley §1-2)
-- [ ] 国际贸易体系的政治经济学 (Oatley §4-5)
-- [ ] 跨国公司与全球生产网络（FDI、外包、价值链） (Oatley §6)
-- [ ] 汇率制度选择的政治经济学 (Oatley §7)
-- [ ] 国际货币体系与汇率政治 (Oatley §8)
-- [ ] 国际金融机构的政治：IMF、世界银行与区域开发银行 (Oatley §9)
-- [ ] 区域经济一体化（欧盟、北美、RCEP） (Oatley §13)
-- [ ] 发展中国家债务危机与结构调整 (Frieden §10)
+- [x] [IPE的理论传统 (Oatley §1-2)](./ipe-theoretical-traditions)
+- [x] [国际贸易体系的政治经济学 (Oatley §4-5)](./international-trade-politics)
+- [x] [跨国公司与全球生产网络（FDI、外包、价值链） (Oatley §6)](./multinationals-global-production)
+- [x] [汇率制度选择的政治经济学 (Oatley §7)](./exchange-rate-regime-politics)
+- [x] [国际货币体系与汇率政治 (Oatley §8)](./international-monetary-system)
+- [x] [国际金融机构的政治：IMF、世界银行与区域开发银行 (Oatley §9)](./developing-country-debt)
+- [x] [区域经济一体化（欧盟、北美、RCEP） (Oatley §13)](./regional-economic-integration)
+- [x] [发展中国家债务危机与结构调整 (Frieden §10)](./developing-country-debt)
 
 ### 第2篇
 
-- [ ] 全球化与跨国投资 (Frieden §11)
-- [ ] 发展与不平等 (Oatley §11)
-- [ ] 全球治理与金融危机 (Oatley §10)
-- [ ] 国际发展援助与援助政治 (Frieden §17)
-- [ ] 全球化反弹与保护主义 (Oatley §12)
+- [x] [全球化与跨国投资 (Frieden §11)](./globalization-and-investment)
+- [x] [发展与不平等 (Oatley §11)](./development-and-inequality)
+- [x] [全球治理与金融危机 (Oatley §10)](./global-governance-financial-crisis)
+- [x] [国际发展援助与援助政治 (Frieden §17)](./development-aid-politics)
+- [x] [全球化反弹与保护主义 (Oatley §12)](./globalization-backlash-protectionism)

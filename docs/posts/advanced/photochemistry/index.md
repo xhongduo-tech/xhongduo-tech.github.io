@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 光吸收与激发态 (Turro Ch. 1-3)
-- [ ] Jablonski 图与辐射跃迁 (Turro Ch. 4)
-- [ ] 无辐射跃迁与系间窜越 (Turro Ch. 5)
-- [ ] 单重态与三重态动力学 (Turro Ch. 2-3)
-- [ ] 光致电子转移与 Marcus 理论 (Turro Ch. 7)
-- [ ] 光敏化与猝灭 (Turro Ch. 7)
-- [ ] 三重态-三重态湮灭上转换 TTA (Turro Ch. 7)
-- [ ] 光化学反应：周环与异构化 (Turro Ch. 6)
+- [x] [光吸收与激发态 (Turro Ch. 1-3)](./light-absorption-excited-states)
+- [x] [Jablonski 图与辐射跃迁 (Turro Ch. 4)](./jablonski-diagram-radiative-transitions)
+- [x] [无辐射跃迁与系间窜越 (Turro Ch. 5)](./nonradiative-transitions-isc)
+- [x] [单重态与三重态动力学 (Turro Ch. 2-3)](./singlet-triplet-dynamics)
+- [x] [光致电子转移与 Marcus 理论 (Turro Ch. 7)](./photoinduced-electron-transfer-marcus)
+- [x] [光敏化与猝灭 (Turro Ch. 7)](./photosensitization-quenching)
+- [x] [三重态-三重态湮灭上转换 TTA (Turro Ch. 7)](./tta-upconversion)
+- [x] [光化学反应：周环与异构化 (Turro Ch. 6)](./photochemical-pericyclic-isomerization)
 
 ### 第2篇
 
-- [ ] 命名光化学反应：Norrish I/II、Paternò-Büchi 与光环加成 (Turro, Modern Molecular Photochemistry of Organic Molecules)
-- [ ] 激光化学与光催化 (Turro Ch. 1)
-- [ ] 化学发光与生物发光 (Turro, Modern Molecular Photochemistry of Organic Molecules)
+- [x] [命名光化学反应：Norrish I/II、Paternò-Büchi 与光环加成 (Turro, Modern Molecular Photochemistry of Organic Molecules)](./named-photoreactions-norrish-paterno-buchi)
+- [x] [激光化学与光催化 (Turro Ch. 1)](./laser-chemistry-photocatalysis)
+- [x] [化学发光与生物发光 (Turro, Modern Molecular Photochemistry of Organic Molecules)](./chemiluminescence-bioluminescence)

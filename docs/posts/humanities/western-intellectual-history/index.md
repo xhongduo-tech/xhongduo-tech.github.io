@@ -17,15 +17,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 古希腊思想传统 (Lovejoy §2)
-- [ ] 中世纪基督教思想 (Lovejoy §3)
-- [ ] 文艺复兴人文主义 (Skinner §1)
-- [ ] 宗教改革与政治思想 (Skinner §2)
-- [ ] 启蒙运动与理性主义 (Skinner §3)
-- [ ] 现代性的思想起源 (Skinner §4)
-- [ ] 科学革命与近代世界观 (Lovejoy §5)
-- [ ] 19 世纪思想：浪漫主义、黑格尔、马克思主义、达尔文主义与自由主义 (Lovejoy §6-7)
+- [x] [古希腊思想传统 (Lovejoy §2)](./ancient-greek-thought-tradition)
+- [x] [中世纪基督教思想 (Lovejoy §3)](./medieval-christian-thought)
+- [x] [文艺复兴人文主义 (Skinner §1)](./renaissance-humanism)
+- [x] [宗教改革与政治思想 (Skinner §2)](./reformation-and-political-thought)
+- [x] [启蒙运动与理性主义 (Skinner §3)](./enlightenment-and-rationalism)
+- [x] [现代性的思想起源 (Skinner §4)](./origins-of-modernity)
+- [x] [科学革命与近代世界观 (Lovejoy §5)](./scientific-revolution-and-modern-worldview)
+- [x] [19 世纪思想：浪漫主义、黑格尔、马克思主义、达尔文主义与自由主义 (Lovejoy §6-7)](./nineteenth-century-thought)
 
 ### 第2篇
 
-- [ ] 20世纪思想与现代性批判 (Skinner §6)
+- [x] [20世纪思想与现代性批判 (Skinner §6)](./twentieth-century-thought-and-critique)

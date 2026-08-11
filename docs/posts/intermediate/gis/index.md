@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] GIS基础与空间数据模型 (Longley §3-5)
-- [ ] 矢量与栅格数据结构 (Bolstad §4-5)
-- [ ] 坐标系统与地图投影 (Bolstad §4)
-- [ ] 地形分析与数字高程模型（DEM）(Bolstad §12)
-- [ ] 空间分析方法 (Longley §14-15)
-- [ ] 空间数据库设计 (Longley §9)
-- [ ] 地理可视化与制图 (Bolstad §7)
-- [ ] 空间数据质量与不确定性 (Bolstad §9)
+- [x] [GIS基础与空间数据模型 (Longley §3-5)](./gis-foundations-spatial-data-model)
+- [x] [矢量与栅格数据结构 (Bolstad §4-5)](./vector-raster-data-structures)
+- [x] [坐标系统与地图投影 (Bolstad §4)](./coordinate-systems-map-projections)
+- [x] [地形分析与数字高程模型（DEM）(Bolstad §12)](./terrain-analysis-dem)
+- [x] [空间分析方法 (Longley §14-15)](./spatial-analysis-methods)
+- [x] [空间数据库设计 (Longley §9)](./spatial-database-design)
+- [x] [地理可视化与制图 (Bolstad §7)](./geovisualization-cartography)
+- [x] [空间数据质量与不确定性 (Bolstad §9)](./spatial-data-quality-uncertainty)
 
 ### 第2篇
 
-- [ ] 遥感与 GIS 集成 (Bolstad §13)
-- [ ] 空间统计 (Bolstad §14)
-- [ ] GIS应用与项目管理 (Longley §16-17)
+- [x] [遥感与 GIS 集成 (Bolstad §13)](./remote-sensing-gis-integration)
+- [x] [空间统计 (Bolstad §14)](./spatial-statistics)
+- [x] [GIS应用与项目管理 (Longley §16-17)](./gis-applications-project-management)

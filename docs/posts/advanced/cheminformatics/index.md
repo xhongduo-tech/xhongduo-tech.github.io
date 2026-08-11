@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 化学结构的计算机表示 (Gasteiger & Engel Ch. 2)
-- [ ] 化学数据库与信息检索 (Leach & Gillet Ch. 3)
-- [ ] 子结构搜索与 SMARTS 模式语言 (Leach & Gillet Ch. 1)
-- [ ] 分子描述符与拓扑指标 (Gasteiger & Engel Ch. 4)
-- [ ] 构象生成与 3D 结构预测 (Gasteiger & Engel Ch. 5)
-- [ ] 分子相似性与分子指纹（Tanimoto、MACCS、ECFP/Morgan） (Leach & Gillet Ch. 5)
-- [ ] 化学空间与分子多样性分析 (Leach & Gillet Ch. 6)
-- [ ] 定量构效关系 QSAR (Leach & Gillet Ch. 4)
+- [x] [化学结构的计算机表示 (Gasteiger & Engel Ch. 2)](./molecular-representation)
+- [x] [化学数据库与信息检索 (Leach & Gillet Ch. 3)](./chemical-databases)
+- [x] [子结构搜索与 SMARTS 模式语言 (Leach & Gillet Ch. 1)](./substructure-search-smarts)
+- [x] [分子描述符与拓扑指标 (Gasteiger & Engel Ch. 4)](./molecular-descriptors)
+- [x] [构象生成与 3D 结构预测 (Gasteiger & Engel Ch. 5)](./conformer-generation-3d)
+- [x] [分子相似性与分子指纹（Tanimoto、MACCS、ECFP/Morgan） (Leach & Gillet Ch. 5)](./molecular-similarity-fingerprints)
+- [x] [化学空间与分子多样性分析 (Leach & Gillet Ch. 6)](./chemical-space-diversity)
+- [x] [定量构效关系 QSAR (Leach & Gillet Ch. 4)](./qsar)
 
 ### 第2篇
 
-- [ ] 药效团识别 (Leach & Gillet Ch. 8)
-- [ ] 分子对接与虚拟筛选 (Leach & Gillet Ch. 8)
-- [ ] 逆合成分析与计算机辅助合成设计 CAOS（LHASA/Chematica/Reaxys） (Gasteiger & Engel)
-- [ ] 机器学习与化学数据挖掘 (Bajorath Ch. 4)
+- [x] [药效团识别 (Leach & Gillet Ch. 8)](./pharmacophore-identification)
+- [x] [分子对接与虚拟筛选 (Leach & Gillet Ch. 8)](./molecular-docking-virtual-screening)
+- [x] [逆合成分析与计算机辅助合成设计 CAOS（LHASA/Chematica/Reaxys） (Gasteiger & Engel)](./chemical-databases)
+- [x] [机器学习与化学数据挖掘 (Bajorath Ch. 4)](./ml-chem-data-mining)

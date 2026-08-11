@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] SRE 原则与角色 (SRE Book Ch.1)
-- [ ] SLI/SLO/SLA 指标体系 (SRE Book Ch.2)
-- [ ] 风险接纳与错误预算 (SRE Book Ch.3-4)
-- [ ] 消除工作量与 Toil (SRE Book Ch.5)
-- [ ] 自动化与简单性 (SRE Book Ch.7/9)
-- [ ] 事件管理与事后复盘 (SRE Book Ch.12)
-- [ ] 告警与 On-Call 工程 (SRE Book Ch.10-11)
-- [ ] 容量规划与负载测试 (SRE Book Ch.18)
+- [x] [SRE 原则与角色 (SRE Book Ch.1)](./sre-principles-and-roles)
+- [x] [SLI/SLO/SLA 指标体系 (SRE Book Ch.2)](./sli-slo-sla)
+- [x] [风险接纳与错误预算 (SRE Book Ch.3-4)](./risk-tolerance-and-error-budget)
+- [x] [消除工作量与 Toil (SRE Book Ch.5)](./eliminating-toil)
+- [x] [自动化与简单性 (SRE Book Ch.7/9)](./automation-and-simplicity)
+- [x] [事件管理与事后复盘 (SRE Book Ch.12)](./incident-management-and-blameless-postmortem)
+- [x] [告警与 On-Call 工程 (SRE Book Ch.10-11)](./alerting-and-oncall)
+- [x] [容量规划与负载测试 (SRE Book Ch.18)](./capacity-planning-and-load-testing)
 
 ### 第2篇
 
-- [ ] 变更管理与发布工程 (SRE Book Ch.8)
-- [ ] DevOps 三步工作法 (DevOps Handbook §1)
-- [ ] 混沌工程与弹性测试 (SRE Workbook Ch.9)
-- [ ] CI/CD 流水线（Jenkins/GitLab/ArgoCD） (Beyer §16)
-- [ ] 基础设施即代码（Terraform/Ansible） (Beyer §14)
-- [ ] 监控与可观测性（Prometheus/Grafana/OpenTelemetry） (Beyer §6)
+- [x] [变更管理与发布工程 (SRE Book Ch.8)](./change-management-and-release-engineering)
+- [x] [DevOps 三步工作法 (DevOps Handbook §1)](./devops-three-ways)
+- [x] [混沌工程与弹性测试 (SRE Workbook Ch.9)](./chaos-engineering)
+- [x] [CI/CD 流水线（Jenkins/GitLab/ArgoCD） (Beyer §16)](./cicd-pipelines)
+- [x] [基础设施即代码（Terraform/Ansible） (Beyer §14)](./infrastructure-as-code)
+- [x] [监控与可观测性（Prometheus/Grafana/OpenTelemetry） (Beyer §6)](./monitoring-and-observability)

@@ -18,26 +18,26 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 流体运动学与连续性方程 (Batchelor Ch. 2-3)
-- [ ] 应力张量与本构关系 (Batchelor Ch. 4)
-- [ ] Navier-Stokes 方程 (Batchelor Ch. 5)
-- [ ] 粘性流动精确解：Couette 与 Poiseuille 流 (Landau & Lifshitz Ch. II)
-- [ ] 粘性流动与边界层 (Batchelor Ch. 5-6)
-- [ ] 边界层理论系统 (Landau & Lifshitz Ch. IV)
-- [ ] 不可压缩无粘流动与势流理论 (Batchelor Ch. 7)
-- [ ] 涡量、环量与 Kelvin 定理 (Batchelor Ch. 7-8)
+- [x] [流体运动学与连续性方程 (Batchelor Ch. 2-3)](./fluid-kinematics-continuity)
+- [x] [应力张量与本构关系 (Batchelor Ch. 4)](./stress-tensor-constitutive-relations)
+- [x] [Navier-Stokes 方程 (Batchelor Ch. 5)](./navier-stokes-equations)
+- [x] [粘性流动精确解：Couette 与 Poiseuille 流 (Landau & Lifshitz Ch. II)](./couette-poiseuille-flow)
+- [x] [粘性流动与边界层 (Batchelor Ch. 5-6)](./viscous-flow-and-boundary-layer)
+- [x] [边界层理论系统 (Landau & Lifshitz Ch. IV)](./boundary-layer-theory)
+- [x] [不可压缩无粘流动与势流理论 (Batchelor Ch. 7)](./incompressible-potential-flow)
+- [x] [涡量、环量与 Kelvin 定理 (Batchelor Ch. 7-8)](./vorticity-circulation-kelvin)
 
 ### 第2篇
 
-- [ ] 低雷诺数流动（Stokes 流） (Landau & Lifshitz Ch. II §20-24)
-- [ ] 表面波与重力波 (Landau & Lifshitz §9-12)
-- [ ] 声波 (Landau & Lifshitz Ch. VII)
-- [ ] 可压缩流动与气体动力学（激波/Mach 数） (Landau & Lifshitz Ch. VIII-IX)
-- [ ] 流体中的热传导与扩散 (Landau & Lifshitz Ch. V-VI)
-- [ ] 势流理论与复势 (Landau & Lifshitz §III)
-- [ ] 湍流简介与 Reynolds 应力 (Landau & Lifshitz §31-34)
-- [ ] 流体稳定性（Rayleigh-Taylor/Kelvin-Helmholtz） (Landau & Lifshitz §VIII)
+- [x] [低雷诺数流动（Stokes 流） (Landau & Lifshitz Ch. II §20-24)](./stokes-low-reynolds-flow)
+- [x] [表面波与重力波 (Landau & Lifshitz §9-12)](./surface-gravity-waves)
+- [x] [声波 (Landau & Lifshitz Ch. VII)](./sound-waves-acoustics)
+- [x] [可压缩流动与气体动力学（激波/Mach 数） (Landau & Lifshitz Ch. VIII-IX)](./compressible-flow-gas-dynamics)
+- [x] [流体中的热传导与扩散 (Landau & Lifshitz Ch. V-VI)](./heat-conduction-diffusion-fluid)
+- [x] [势流理论与复势 (Landau & Lifshitz §III)](./potential-flow-complex-potential)
+- [x] [湍流简介与 Reynolds 应力 (Landau & Lifshitz §31-34)](./turbulence-reynolds-stress)
+- [x] [流体稳定性（Rayleigh-Taylor/Kelvin-Helmholtz） (Landau & Lifshitz §VIII)](./hydrodynamic-stability)
 
 ### 第3篇
 
-- [ ] 计算流体力学（CFD）方法 (Anderson §8)
+- [x] [计算流体力学（CFD）方法 (Anderson §8)](./computational-fluid-dynamics)

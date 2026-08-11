@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 全科医学原理与模式 (Rakel §1)
-- [ ] 以患者为中心的诊疗 (Rakel §3)
-- [ ] 循证临床决策 (Rakel §2)
-- [ ] 预防保健与健康促进 (Rakel §7)
-- [ ] 妇幼保健与筛查（女性与儿童保健） (Rakel §14)
-- [ ] 常见呼吸道感染 (Taylor §22)
-- [ ] 高血压与心血管管理 (Taylor §35)
-- [ ] 糖尿病管理 (Taylor §45)
+- [x] [全科医学原理与模式 (Rakel §1)](./principles-and-models)
+- [x] [以患者为中心的诊疗 (Rakel §3)](./patient-centered-care)
+- [x] [循证临床决策 (Rakel §2)](./evidence-based-clinical-decision)
+- [x] [预防保健与健康促进 (Rakel §7)](./prevention-and-health-promotion)
+- [x] [妇幼保健与筛查（女性与儿童保健） (Rakel §14)](./women-child-health-screening)
+- [x] [常见呼吸道感染 (Taylor §22)](./common-respiratory-infections)
+- [x] [高血压与心血管管理 (Taylor §35)](./hypertension-cardiovascular-care)
+- [x] [糖尿病管理 (Taylor §45)](./diabetes-management)
 
 ### 第2篇
 
-- [ ] 肌肉骨骼常见问题（背痛/关节痛） (Taylor §49)
-- [ ] 心理健康与基层干预 (Taylor §55)
-- [ ] 慢病共病管理与转诊、连续性照护 (Rakel §17)
-- [ ] 老年与缓和医疗 (Rakel §21)
+- [x] [肌肉骨骼常见问题（背痛/关节痛） (Taylor §49)](./musculoskeletal-common-problems)
+- [x] [心理健康与基层干预 (Taylor §55)](./mental-health-primary-care)
+- [x] [慢病共病管理与转诊、连续性照护 (Rakel §17)](./multimorbidity-referral-continuity)
+- [x] [老年与缓和医疗 (Rakel §21)](./geriatrics-palliative-care)

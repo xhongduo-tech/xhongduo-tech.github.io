@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 古希腊到牛顿力学的建立 (Segrè Part I)
-- [ ] 科学革命：哥白尼—伽利略—开普勒 (Segrè Part I)
-- [ ] 光学史与波动说之争 (Segrè Part III)
-- [ ] 热学与统计力学的发展 (Segrè Part II)
-- [ ] 电磁学的建立：从奥斯特到麦克斯韦 (Segrè Part III)
-- [ ] 相对论的诞生 (Pais Part II)
-- [ ] 量子力学的建立：普朗克到海森堡 (Jammer Ch. 3-5)
-- [ ] 原子核物理与粒子物理的兴起 (Segrè, From X-rays to Quarks §4)
+- [x] [古希腊到牛顿力学的建立 (Segrè Part I)](./ancient-greece-to-newtonian-mechanics)
+- [x] [科学革命：哥白尼—伽利略—开普勒 (Segrè Part I)](./scientific-revolution-copernicus-galileo-kepler)
+- [x] [光学史与波动说之争 (Segrè Part III)](./history-of-optics-wave-particle-debate)
+- [x] [热学与统计力学的发展 (Segrè Part II)](./thermodynamics-statistical-mechanics)
+- [x] [电磁学的建立：从奥斯特到麦克斯韦 (Segrè Part III)](./electromagnetism-oersted-to-maxwell)
+- [x] [相对论的诞生 (Pais Part II)](./birth-of-relativity)
+- [x] [量子力学的建立：普朗克到海森堡 (Jammer Ch. 3-5)](./ancient-greece-to-newtonian-mechanics)
+- [x] [原子核物理与粒子物理的兴起 (Segrè, From X-rays to Quarks §4)](./nuclear-and-particle-physics)
 
 ### 第2篇
 
-- [ ] 凝聚态物理的兴起 (Segrè, From X-rays to Quarks §10)
-- [ ] 20 世纪物理学的统一 (Pais, Inward Bound §20)
+- [x] [凝聚态物理的兴起 (Segrè, From X-rays to Quarks §10)](./condensed-matter-physics)
+- [x] [20 世纪物理学的统一 (Pais, Inward Bound §20)](./unification-of-20th-century-physics)

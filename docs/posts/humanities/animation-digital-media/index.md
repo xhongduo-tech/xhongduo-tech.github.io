@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 动画的历史与发展 (Wells §2)
-- [ ] 动画类型学：二维、三维、定格、实验动画与日本动画 (Wells §4-5)
-- [ ] 动画原理与叙事 (Wells §3)
-- [ ] 数字媒体的本体论 (Manovich §1)
-- [ ] 界面与交互美学 (Manovich §2)
-- [ ] 数字叙事与数据库逻辑 (Manovich §5)
-- [ ] 游戏与互动艺术 (Manovich §4)
-- [ ] 声音与影像装置 (Manovich §7)
+- [x] [动画的历史与发展 (Wells §2)](./animation-history)
+- [x] [动画类型学：二维、三维、定格、实验动画与日本动画 (Wells §4-5)](./animation-typology)
+- [x] [动画原理与叙事 (Wells §3)](./animation-principles-narrative)
+- [x] [数字媒体的本体论 (Manovich §1)](./new-media-ontology)
+- [x] [界面与交互美学 (Manovich §2)](./interface-interaction-aesthetics)
+- [x] [数字叙事与数据库逻辑 (Manovich §5)](./database-narrative)
+- [x] [游戏与互动艺术 (Manovich §4)](./games-interactive-art)
+- [x] [声音与影像装置 (Manovich §7)](./sound-image-installation)
 
 ### 第2篇
 
-- [ ] 动画与新媒介融合 (Wells §8)
-- [ ] 3D 动画与计算机图形学 (Wells §6)
-- [ ] 虚拟现实与沉浸式媒介 (Manovich §8)
+- [x] [动画与新媒介融合 (Wells §8)](./animation-new-media-convergence)
+- [x] [3D 动画与计算机图形学 (Wells §6)](./3d-animation-computer-graphics)
+- [x] [虚拟现实与沉浸式媒介 (Manovich §8)](./vr-immersive-media)

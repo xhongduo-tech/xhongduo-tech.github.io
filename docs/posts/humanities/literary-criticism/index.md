@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 俄国形式主义与新批评 (Eagleton §1)
-- [ ] 现象学、诠释学与读者反应理论 (Eagleton §2)
-- [ ] 结构主义与符号学 (Eagleton §3)
-- [ ] 后结构主义与解构 (Eagleton §4)
-- [ ] 精神分析批评 (Eagleton §5 / Abrams §Psychoanalytic)
-- [ ] 马克思主义文学批评（政治批评） (Eagleton §6)
-- [ ] 女性主义批评 (Eagleton §6)
-- [ ] 后殖民主义批评（Said/Spivak） (Eagleton §6)
+- [x] [俄国形式主义与新批评 (Eagleton §1)](./basic-concepts-of-literary-criticism)
+- [x] [现象学、诠释学与读者反应理论 (Eagleton §2)](./feminist-criticism)
+- [x] [结构主义与符号学 (Eagleton §3)](./marxist-criticism)
+- [x] [后结构主义与解构 (Eagleton §4)](./new-historicism-cultural-criticism)
+- [x] [精神分析批评 (Eagleton §5 / Abrams §Psychoanalytic)](./phenomenology-hermeneutics-reader-response)
+- [x] [马克思主义文学批评（政治批评） (Eagleton §6)](./postcolonial-criticism)
+- [x] [女性主义批评 (Eagleton §6)](./postmodernism-criticism)
+- [x] [后殖民主义批评（Said/Spivak） (Eagleton §6)](./poststructuralism-deconstruction)
 
 ### 第2篇
 
-- [ ] 新历史主义与文化批评 (Eagleton 结语)
-- [ ] 后现代主义批评 (Eagleton 结语 / Jameson/Hassan)
-- [ ] 文学批评的基本概念 (Abrams §1)
+- [x] [新历史主义与文化批评 (Eagleton 结语)](./psychoanalytic-criticism)
+- [x] [后现代主义批评 (Eagleton 结语 / Jameson/Hassan)](./russian-formalism-new-criticism)
+- [x] [文学批评的基本概念 (Abrams §1)](./structuralism-semiotics)

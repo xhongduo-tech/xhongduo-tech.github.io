@@ -16,19 +16,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 感染病学基本原理 (Mandell §1)
-- [ ] 抗生素作用机制与耐药 (Mandell §14)
-- [ ] 败血症与感染性休克 (Mandell §17)
-- [ ] 免疫功能低下宿主感染（HIV机会性感染） (Mandell §52)
-- [ ] 真菌感染（念珠菌/曲霉/隐球菌） (Mandell §55)
-- [ ] 局部感染综合征（脑膜炎/心内膜炎/骨髓炎/UTI） (Mandell §65)
-- [ ] 革兰阳性菌感染 (Mandell §31)
-- [ ] 革兰阴性菌感染 (Mandell §35)
+- [x] [感染病学基本原理 (Mandell §1)](./principles-infectious-disease)
+- [x] [抗生素作用机制与耐药 (Mandell §14)](./antibiotics-mechanisms-resistance)
+- [x] [败血症与感染性休克 (Mandell §17)](./sepsis-septic-shock)
+- [x] [免疫功能低下宿主感染（HIV机会性感染） (Mandell §52)](./immunocompromised-host-infections)
+- [x] [真菌感染（念珠菌/曲霉/隐球菌） (Mandell §55)](./fungal-infections)
+- [x] [局部感染综合征（脑膜炎/心内膜炎/骨髓炎/UTI） (Mandell §65)](./focal-infection-syndromes)
+- [x] [革兰阳性菌感染 (Mandell §31)](./gram-positive-infections)
+- [x] [革兰阴性菌感染 (Mandell §35)](./gram-negative-infections)
 
 ### 第2篇
 
-- [ ] 结核与非结核分枝杆菌 (Mandell §41)
-- [ ] 病毒性感染 (Mandell §76)
-- [ ] 性传播感染 (Mandell §75)
-- [ ] 寄生虫感染 (Mandell §88)
-- [ ] 医院感染与感染控制 (Mandell §90)
+- [x] [结核与非结核分枝杆菌 (Mandell §41)](./tuberculosis-mycobacteria)
+- [x] [病毒性感染 (Mandell §76)](./viral-infections)
+- [x] [性传播感染 (Mandell §75)](./sexually-transmitted-infections)
+- [x] [寄生虫感染 (Mandell §88)](./parasitic-infections)
+- [x] [医院感染与感染控制 (Mandell §90)](./hospital-infection-control)

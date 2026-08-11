@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 现象学方法与悬置 (Husserl §1)
-- [ ] 意向性与本质直观 (Husserl §3)
-- [ ] 时间意识与内时间意识 (Husserl §5)
-- [ ] 此在与在世存在 (Heidegger §1-2)
-- [ ] 本真性与向死存在 (Heidegger §6)
-- [ ] 海德格尔后期思想：语言、艺术与真理 (Heidegger《林中路》/《艺术作品的起源》)
-- [ ] 自在与自为 (Sartre §1)
-- [ ] 他者与凝视 (Sartre §3)
+- [x] [现象学方法与悬置 (Husserl §1)](./phenomenological-method-epoche)
+- [x] [意向性与本质直观 (Husserl §3)](./intentionality-eidetic-intuition)
+- [x] [时间意识与内时间意识 (Husserl §5)](./time-consciousness-inner-time)
+- [x] [此在与在世存在 (Heidegger §1-2)](./dasein-being-in-the-world)
+- [x] [本真性与向死存在 (Heidegger §6)](./authenticity-being-toward-death)
+- [x] [海德格尔后期思想：语言、艺术与真理 (Heidegger《林中路》/《艺术作品的起源》)](./heidegger-later-language-art-truth)
+- [x] [自在与自为 (Sartre §1)](./being-in-itself-being-for-itself)
+- [x] [他者与凝视 (Sartre §3)](./the-other-the-gaze)
 
 ### 第2篇
 
-- [ ] 身体现象学：梅洛-庞蒂《知觉现象学》 (Merleau-Ponty《知觉现象学》§身体)
-- [ ] 伽达默尔哲学诠释学 (Gadamer《真理与方法》§诠释学循环)
+- [x] [身体现象学：梅洛-庞蒂《知觉现象学》 (Merleau-Ponty《知觉现象学》§身体)](./merleau-ponty-body-phenomenology)
+- [x] [伽达默尔哲学诠释学 (Gadamer《真理与方法》§诠释学循环)](./gadamer-hermeneutics)

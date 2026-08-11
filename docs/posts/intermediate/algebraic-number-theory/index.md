@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 代数整数与数环 (Neukirch Ch. I §1-3)
-- [ ] Dedekind 整环与理想唯一分解 (Neukirch Ch. I §2-3)
-- [ ] 类数与理想类群 (Neukirch Ch. I §6)
-- [ ] Dirichlet 单位定理 (Neukirch Ch. I §7)
-- [ ] 赋值、完备化与 p-adic 数 (Neukirch Ch. II §1-5)
-- [ ] 分歧理论深入：惯性群、分歧群与高阶分歧 (Neukirch Ch. II §7-10)
-- [ ] Minkowski 几何与类数有限性定理 (Neukirch Ch. I §5-6)
-- [ ] 差积与判别式 (Neukirch Ch. III §2)
+- [x] [代数整数与数环 (Neukirch Ch. I §1-3)](./algebraic-integers-and-number-rings)
+- [x] [Dedekind 整环与理想唯一分解 (Neukirch Ch. I §2-3)](./dedekind-domains-ideal-factorization)
+- [x] [类数与理想类群 (Neukirch Ch. I §6)](./ideal-class-group-and-class-number)
+- [x] [Dirichlet 单位定理 (Neukirch Ch. I §7)](./dirichlet-unit-theorem)
+- [x] [赋值、完备化与 p-adic 数 (Neukirch Ch. II §1-5)](./valuations-completion-padic-numbers)
+- [x] [分歧理论深入：惯性群、分歧群与高阶分歧 (Neukirch Ch. II §7-10)](./ramification-inertia-groups-higher-ramification)
+- [x] [Minkowski 几何与类数有限性定理 (Neukirch Ch. I §5-6)](./minkowski-geometry-finiteness-of-class-group)
+- [x] [差积与判别式 (Neukirch Ch. III §2)](./different-and-discriminant)
 
 ### 第2篇
 
-- [ ] 局部类域论 (Neukirch Ch. V)
-- [ ] Artin 互反律 (Neukirch Ch. VI)
-- [ ] Chebotarev 密度定理 (Neukirch Ch. VI §3 / VII)
-- [ ] Dedekind Zeta 函数与类数公式 (Neukirch Ch. VII)
-- [ ] Gauss 和与 Jacobi 和 (Ireland & Rosen Ch. 8-9)
+- [x] [局部类域论 (Neukirch Ch. V)](./local-class-field-theory)
+- [x] [Artin 互反律 (Neukirch Ch. VI)](./artin-reciprocity-law)
+- [x] [Chebotarev 密度定理 (Neukirch Ch. VI §3 / VII)](./chebotarev-density-theorem)
+- [x] [Dedekind Zeta 函数与类数公式 (Neukirch Ch. VII)](./dedekind-zeta-function-class-number-formula)
+- [x] [Gauss 和与 Jacobi 和 (Ireland & Rosen Ch. 8-9)](./gauss-sums-jacobi-sums)

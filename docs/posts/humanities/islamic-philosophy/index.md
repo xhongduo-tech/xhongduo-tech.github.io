@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 伊斯兰神学与凯拉姆 (Fakhry §2)
-- [ ] 法拉比的哲学 (Nasr §1)
-- [ ] 伊本·西那的哲学 (Nasr §2)
-- [ ] 安萨里与哲学—信仰之调和：《哲学家的矛盾》 (Fakhry §7)
-- [ ] 伊本·鲁世德与亚里士多德主义 (Fakhry §6)
-- [ ] 照明学派与苏菲主义 (Nasr §3)
-- [ ] 穆拉·萨德拉与波斯超越哲学 (Fakhry §9)
-- [ ] 伊斯兰哲学的现代发展 (Fakhry §11)
+- [x] [伊斯兰神学与凯拉姆 (Fakhry §2)](./islamic-theology-kalam)
+- [x] [法拉比的哲学 (Nasr §1)](./al-farabi-philosophy)
+- [x] [伊本·西那的哲学 (Nasr §2)](./ibn-sina-philosophy)
+- [x] [安萨里与哲学—信仰之调和：《哲学家的矛盾》 (Fakhry §7)](./al-ghazali-incoherence-philosophers)
+- [x] [伊本·鲁世德与亚里士多德主义 (Fakhry §6)](./ibn-rushd-aristotelianism)
+- [x] [照明学派与苏菲主义 (Nasr §3)](./ishraqi-school-sufism)
+- [x] [穆拉·萨德拉与波斯超越哲学 (Fakhry §9)](./mulla-sadra-transcendent-philosophy)
+- [x] [伊斯兰哲学的现代发展 (Fakhry §11)](./modern-islamic-philosophy)
 
 ### 第2篇
 
-- [ ] 伊斯玛仪派哲学 (Fakhry §5)
-- [ ] 伊斯兰伦理与政治哲学 (Nasr §4)
+- [x] [伊斯玛仪派哲学 (Fakhry §5)](./ismaili-philosophy)
+- [x] [伊斯兰伦理与政治哲学 (Nasr §4)](./islamic-ethics-political-philosophy)

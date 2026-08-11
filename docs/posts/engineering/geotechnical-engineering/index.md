@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 土的物理性质与分类 (Das §3-4)
-- [ ] 土的压实 (Das §5)
-- [ ] 土的渗透性与渗流（流网/达西定律） (Das §6)
-- [ ] 土中应力与有效应力原理 (Das §7)
-- [ ] 土的压缩性与固结 (Das §8-9)
-- [ ] 土的抗剪强度 (Das §10-11)
-- [ ] 土动力学与地基抗震（液化/动强度） (Das Foundation §12)
-- [ ] 浅基础承载力 (Das Foundation §3)
+- [x] [土的物理性质与分类 (Das §3-4)](./soil-physical-properties-and-classification)
+- [x] [土的压实 (Das §5)](./soil-compaction)
+- [x] [土的渗透性与渗流（流网/达西定律） (Das §6)](./soil-permeability-and-seepage)
+- [x] [土中应力与有效应力原理 (Das §7)](./soil-stresses-and-effective-stress)
+- [x] [土的压缩性与固结 (Das §8-9)](./soil-compressibility-and-consolidation)
+- [x] [土的抗剪强度 (Das §10-11)](./soil-shear-strength)
+- [x] [土动力学与地基抗震（液化/动强度） (Das Foundation §12)](./soil-dynamics-and-liquefaction)
+- [x] [浅基础承载力 (Das Foundation §3)](./shallow-foundation-bearing-capacity)
 
 ### 第2篇
 
-- [ ] 深基础桩基 (Das Foundation §11)
-- [ ] 边坡稳定性分析 (Das §11-12)
-- [ ] 挡土墙与土压力 (Das §13)
-- [ ] 原位测试（SPT/CPT/十字板） (Das §7)
+- [x] [深基础桩基 (Das Foundation §11)](./deep-foundation-piles)
+- [x] [边坡稳定性分析 (Das §11-12)](./slope-stability-analysis)
+- [x] [挡土墙与土压力 (Das §13)](./retaining-walls-and-earth-pressure)
+- [x] [原位测试（SPT/CPT/十字板） (Das §7)](./in-situ-testing-spt-cpt-vane)

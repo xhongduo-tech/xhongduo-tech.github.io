@@ -17,20 +17,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 发展理论与研究方法 (Berk §1)
-- [ ] 遗传与环境基础 (Berk §2)
-- [ ] 产前发育、出生与新生儿 (Berk §3)
-- [ ] 婴儿期的生理与认知发展 (Berk §4)
-- [ ] 婴儿期的情绪与社会发展 (Berk §6)
-- [ ] 儿童期认知与语言发展 (Berk §5-6)
-- [ ] 学前期与童年中期的社会性发展 (Berk §8, §10)
-- [ ] 青少年期的同一性与社会化 (Berk §11)
+- [x] [发展理论与研究方法 (Berk §1)](./developmental-theories-and-research-methods)
+- [x] [遗传与环境基础 (Berk §2)](./heredity-environment-foundations)
+- [x] [产前发育、出生与新生儿 (Berk §3)](./prenatal-development-birth-newborn)
+- [x] [婴儿期的生理与认知发展 (Berk §4)](./infant-physical-cognitive-development)
+- [x] [婴儿期的情绪与社会发展 (Berk §6)](./infant-emotional-social-development)
+- [x] [儿童期认知与语言发展 (Berk §5-6)](./childhood-cognitive-language-development)
+- [x] [学前期与童年中期的社会性发展 (Berk §8, §10)](./early-mid-childhood-social-development)
+- [x] [青少年期的同一性与社会化 (Berk §11)](./adolescence-identity-socialization)
 
 ### 第2篇
 
-- [ ] 道德发展（Piaget/Kohlberg） (Berk §12)
-- [ ] 性别发展 (Berk §13)
-- [ ] 成年早期与中期的心理发展 (Berk §13-15)
-- [ ] 老年期与生命终结 (Berk §17)
-- [ ] 死亡、临终与丧亲 (Berk §19)
-- [ ] 发展障碍与特殊需要 (Santrock 相应章)
+- [x] [道德发展（Piaget/Kohlberg） (Berk §12)](./moral-development-piaget-kohlberg)
+- [x] [性别发展 (Berk §13)](./gender-development)
+- [x] [成年早期与中期的心理发展 (Berk §13-15)](./adulthood-psychological-development)
+- [x] [老年期与生命终结 (Berk §17)](./late-adulthood-end-of-life)
+- [x] [死亡、临终与丧亲 (Berk §19)](./death-dying-bereavement)
+- [x] [发展障碍与特殊需要 (Santrock 相应章)](./developmental-disorders-special-needs)

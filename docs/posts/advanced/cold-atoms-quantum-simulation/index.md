@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 玻色-爱因斯坦凝聚基础 (Pethick & Smith Ch. 2-3)
-- [ ] Gross-Pitaevskii 方程与 Bogoliubov 元激发 (Pethick & Smith Ch. 4-6)
-- [ ] Doppler 与 Sisyphus 激光冷却 (Metcalf & van der Straten Ch. 3-6)
-- [ ] 磁光阱与磁阱 (Metcalf & van der Straten Ch. 7-11)
-- [ ] 蒸发冷却与光学势阱 (Metcalf & van der Straten)
-- [ ] Feshbach 共振 (Pethick & Smith Ch. 5)
-- [ ] 光晶格与 Bose-Hubbard 模型 (Bloch-Dalibard-Zwerger §III)
-- [ ] 旋量凝聚体 (Pethick & Smith Ch. 12)
+- [x] [玻色-爱因斯坦凝聚基础 (Pethick & Smith Ch. 2-3)](./bose-einstein-condensation-basics)
+- [x] [Gross-Pitaevskii 方程与 Bogoliubov 元激发 (Pethick & Smith Ch. 4-6)](./gross-pitaevskii-bogoliubov-excitations)
+- [x] [Doppler 与 Sisyphus 激光冷却 (Metcalf & van der Straten Ch. 3-6)](./doppler-sisyphus-laser-cooling)
+- [x] [磁光阱与磁阱 (Metcalf & van der Straten Ch. 7-11)](./magneto-optical-trap-and-magnetic-trap)
+- [x] [蒸发冷却与光学势阱 (Metcalf & van der Straten)](./evaporative-cooling-optical-dipole-trap)
+- [x] [Feshbach 共振 (Pethick & Smith Ch. 5)](./feshbach-resonance)
+- [x] [光晶格与 Bose-Hubbard 模型 (Bloch-Dalibard-Zwerger §III)](./optical-lattice-bose-hubbard-model)
+- [x] [旋量凝聚体 (Pethick & Smith Ch. 12)](./spinor-condensates)
 
 ### 第2篇
 
-- [ ] 超冷费米气体与 BCS-BEC 穿越 (Pethick & Smith Ch. 16)
-- [ ] 量子模拟：磁性相变与 Hubbard 模型 (Bloch-Dalibard-Zwerger §V)
+- [x] [超冷费米气体与 BCS-BEC 穿越 (Pethick & Smith Ch. 16)](./ultracold-fermi-gas-bcs-bec-crossover)
+- [x] [量子模拟：磁性相变与 Hubbard 模型 (Bloch-Dalibard-Zwerger §V)](./quantum-simulation-magnetic-phase-transition)

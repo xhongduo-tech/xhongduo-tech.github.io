@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] SFT 监督微调 (Ouyang et al., InstructGPT 2022 §3)
-- [ ] RLHF 框架流程 (Ouyang et al., InstructGPT 2022 §2)
-- [ ] 偏好数据构建与标注 (Ouyang et al., InstructGPT 2022 §2)
-- [ ] 奖励模型训练 (Ouyang et al., InstructGPT 2022 §4)
-- [ ] 奖励黑客与过度优化（reward hacking） (Gao et al., Reward Model Overoptimization 2023)
-- [ ] PPO 强化学习优化 (Ouyang et al., InstructGPT 2022 §5)
-- [ ] DPO 直接偏好优化 (Rafailov et al., DPO 2023 §3)
-- [ ] 宪法 AI 与 RLAIF (Bai et al., Constitutional AI 2022)
+- [x] [SFT 监督微调 (Ouyang et al., InstructGPT 2022 §3)](./sft-supervised-fine-tuning)
+- [x] [RLHF 框架流程 (Ouyang et al., InstructGPT 2022 §2)](./rlhf-framework)
+- [x] [偏好数据构建与标注 (Ouyang et al., InstructGPT 2022 §2)](./preference-data-construction)
+- [x] [奖励模型训练 (Ouyang et al., InstructGPT 2022 §4)](./reward-model-training)
+- [x] [奖励黑客与过度优化（reward hacking） (Gao et al., Reward Model Overoptimization 2023)](./reward-hacking-overoptimization)
+- [x] [PPO 强化学习优化 (Ouyang et al., InstructGPT 2022 §5)](./ppo-rl-optimization)
+- [x] [DPO 直接偏好优化 (Rafailov et al., DPO 2023 §3)](./dpo-direct-preference-optimization)
+- [x] [宪法 AI 与 RLAIF (Bai et al., Constitutional AI 2022)](./constitutional-ai-rlaif)
 
 ### 第2篇
 
-- [ ] 对齐税与平衡 (Ouyang et al., InstructGPT 2022 §6)
-- [ ] 安全对齐与红队 (Ouyang et al., InstructGPT 2022 §7)
+- [x] [对齐税与平衡 (Ouyang et al., InstructGPT 2022 §6)](./alignment-tax-balance)
+- [x] [安全对齐与红队 (Ouyang et al., InstructGPT 2022 §7)](./safety-alignment-red-teaming)

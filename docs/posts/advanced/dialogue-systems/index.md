@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 对话系统分类 (Jurafsky §24)
-- [ ] 意图识别与槽位填充 (Gao et al., 2019 §2)
-- [ ] 对话状态跟踪 (Tur & De Mori Ch.5)
-- [ ] 对话策略学习 (Tur & De Mori Ch.6)
-- [ ] 对话策略的强化学习训练 (Williams & Young, 2007)
-- [ ] 自然语言生成 NLG (Jurafsky §24.2)
-- [ ] 检索式问答系统 (Jurafsky §23)
-- [ ] 生成式闲聊模型 (Gao et al., 2019 §4)
+- [x] [对话系统分类 (Jurafsky §24)](./dialogue-system-taxonomy)
+- [x] [意图识别与槽位填充 (Gao et al., 2019 §2)](./intent-detection-slot-filling)
+- [x] [对话状态跟踪 (Tur & De Mori Ch.5)](./dialogue-state-tracking)
+- [x] [对话策略学习 (Tur & De Mori Ch.6)](./dialogue-policy-learning)
+- [x] [对话策略的强化学习训练 (Williams & Young, 2007)](./dialogue-policy-rl)
+- [x] [自然语言生成 NLG (Jurafsky §24.2)](./natural-language-generation)
+- [x] [检索式问答系统 (Jurafsky §23)](./retrieval-based-qa)
+- [x] [生成式闲聊模型 (Gao et al., 2019 §4)](./generative-chat-models)
 
 ### 第2篇
 
-- [ ] 端到端神经对话系统 (Gao et al., 2019 §5)
-- [ ] 对话系统评测（自动指标/人工评估） (Jurafsky §24.5)
+- [x] [端到端神经对话系统 (Gao et al., 2019 §5)](./end-to-end-neural-dialogue)
+- [x] [对话系统评测（自动指标/人工评估） (Jurafsky §24.5)](./dialogue-evaluation)

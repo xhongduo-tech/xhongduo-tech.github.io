@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 可解释性概念与分类 (Arrieta §2)
-- [ ] 内在可解释模型 (Molnar §4)
-- [ ] 事后解释方法（模型无关）(Molnar §5)
-- [ ] 全局模型无关事后解释：PDP/ICE/ALE 与特征重要性 (Molnar §5)
-- [ ] LIME 局部解释 (Arrieta §3.2)
-- [ ] SHAP 与博弈论归因 (Molnar §5)
-- [ ] 基于示例的解释：原型/批评样本/锚点/对抗样本 (Molnar §6)
-- [ ] 反事实解释 (Molnar §6)
+- [x] [可解释性概念与分类 (Arrieta §2)](./explainability-concepts-taxonomy)
+- [x] [内在可解释模型 (Molnar §4)](./inherently-interpretable-models)
+- [x] [事后解释方法（模型无关）(Molnar §5)](./counterfactual-explanations)
+- [x] [全局模型无关事后解释：PDP/ICE/ALE 与特征重要性 (Molnar §5)](./global-model-agnostic-pdp-ice-ale)
+- [x] [LIME 局部解释 (Arrieta §3.2)](./deep-learning-explainability)
+- [x] [SHAP 与博弈论归因 (Molnar §5)](./deep-viz-saliency-gradcam-attention)
+- [x] [基于示例的解释：原型/批评样本/锚点/对抗样本 (Molnar §6)](./example-based-explanations)
+- [x] [反事实解释 (Molnar §6)](./explainability-concepts-taxonomy)
 
 ### 第2篇
 
-- [ ] 深度学习可解释性 (Arrieta §4)
-- [ ] 深度模型可视化归因：saliency/Grad-CAM/注意力 (Arrieta §4)
-- [ ] XAI 评估与人类研究 (Adadi §4)
+- [x] [深度学习可解释性 (Arrieta §4)](./deep-learning-explainability)
+- [x] [深度模型可视化归因：saliency/Grad-CAM/注意力 (Arrieta §4)](./global-model-agnostic-pdp-ice-ale)
+- [x] [XAI 评估与人类研究 (Adadi §4)](./xai-evaluation-human-studies)

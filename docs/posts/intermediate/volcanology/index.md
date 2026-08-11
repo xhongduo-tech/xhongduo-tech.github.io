@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 岩浆的物理性质 (Sigurdsson §3)
-- [ ] 火山喷发机制与类型 (Francis §5-6)
-- [ ] 火山类型与火山地形、破火山口 (Sigurdsson §12-14)
-- [ ] 火山气体与喷发柱动力学 (Sigurdsson §32, Francis §5)
-- [ ] 火山喷发产物 (Sigurdsson §15-17)
-- [ ] 火山碎屑沉积与相模式 (Sigurdsson §25)
-- [ ] 火山口/地热系统与火山-水文交互 (Sigurdsson §48-50)
-- [ ] 火山与板块构造 (Sigurdsson §2)
+- [x] [岩浆的物理性质 (Sigurdsson §3)](./magma-physical-properties)
+- [x] [火山喷发机制与类型 (Francis §5-6)](./eruption-mechanisms-and-types)
+- [x] [火山类型与火山地形、破火山口 (Sigurdsson §12-14)](./volcano-types-and-landforms)
+- [x] [火山气体与喷发柱动力学 (Sigurdsson §32, Francis §5)](./volcanic-gases-and-eruption-columns)
+- [x] [火山喷发产物 (Sigurdsson §15-17)](./eruption-products)
+- [x] [火山碎屑沉积与相模式 (Sigurdsson §25)](./pyroclastic-deposits-and-facies)
+- [x] [火山口/地热系统与火山-水文交互 (Sigurdsson §48-50)](./hydrothermal-systems-and-volcano-water-interaction)
+- [x] [火山与板块构造 (Sigurdsson §2)](./volcanoes-and-plate-tectonics)
 
 ### 第2篇
 
-- [ ] 火山监测与预警 (Francis §7-8)
-- [ ] 火山灾害评估 (Sigurdsson §60)
-- [ ] 火山喷发与气候影响 (Sigurdsson §65)
+- [x] [火山监测与预警 (Francis §7-8)](./volcano-monitoring-and-warning)
+- [x] [火山灾害评估 (Sigurdsson §60)](./volcanic-hazard-assessment)
+- [x] [火山喷发与气候影响 (Sigurdsson §65)](./volcanic-eruptions-and-climate)

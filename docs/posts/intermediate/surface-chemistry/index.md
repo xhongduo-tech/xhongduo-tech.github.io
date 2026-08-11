@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 表面结构与吸附等温线 (Somorjai Ch. 2-3)
-- [ ] Langmuir 与 BET 吸附理论 (Adamson Ch. 17)
-- [ ] 吸附动力学（粘附系数、表面扩散、前驱态） (Somorjai Ch. 3-4)
-- [ ] 表面电子结构与功函数（金属表面、d 带中心） (Somorjai Ch. 4-5)
-- [ ] 表面张力与毛细现象 (Butt-Graf-Kappl Ch. 2)
-- [ ] 表面能与润湿性 (Butt-Graf-Kappl Ch. 3, 6)
-- [ ] 双电层与 Zeta 电势 (Butt-Graf-Kappl Ch. 4)
-- [ ] 表面光谱技术 (Somorjai Ch. 6)
+- [x] [表面结构与吸附等温线 (Somorjai Ch. 2-3)](./surface-structure-and-adsorption-isotherms)
+- [x] [Langmuir 与 BET 吸附理论 (Adamson Ch. 17)](./langmuir-and-bet-theory)
+- [x] [吸附动力学（粘附系数、表面扩散、前驱态） (Somorjai Ch. 3-4)](./adsorption-dynamics)
+- [x] [表面电子结构与功函数（金属表面、d 带中心） (Somorjai Ch. 4-5)](./electric-double-layer-and-zeta-potential)
+- [x] [表面张力与毛细现象 (Butt-Graf-Kappl Ch. 2)](./surface-tension-and-capillarity)
+- [x] [表面能与润湿性 (Butt-Graf-Kappl Ch. 3, 6)](./surface-energy-and-wetting)
+- [x] [双电层与 Zeta 电势 (Butt-Graf-Kappl Ch. 4)](./electric-double-layer-and-zeta-potential)
+- [x] [表面光谱技术 (Somorjai Ch. 6)](./heterogeneous-catalysis-principles)
 
 ### 第2篇
 
-- [ ] 多相催化原理 (Somorjai Ch. 8-9)
-- [ ] 自组装单层 SAM (Butt-Graf-Kappl Ch. 9)
-- [ ] Langmuir-Blodgett 膜 (Adamson Ch. 15)
-- [ ] 表面活性剂与胶束 (Butt-Graf-Kappl Ch. 11)
-- [ ] 纳米颗粒表面化学 (Somorjai Ch. 7)
+- [x] [多相催化原理 (Somorjai Ch. 8-9)](./heterogeneous-catalysis-principles)
+- [x] [自组装单层 SAM (Butt-Graf-Kappl Ch. 9)](./langmuir-and-bet-theory)
+- [x] [Langmuir-Blodgett 膜 (Adamson Ch. 15)](./langmuir-blodgett-films)
+- [x] [表面活性剂与胶束 (Butt-Graf-Kappl Ch. 11)](./surfactants-and-micelles)
+- [x] [纳米颗粒表面化学 (Somorjai Ch. 7)](./nanoparticle-surface-chemistry)

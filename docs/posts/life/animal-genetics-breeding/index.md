@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 动物育种遗传基础 (Bourdon §2)
-- [ ] 群体遗传与数量性状 (Bourdon §7)
-- [ ] 育种值估计与选择 (Bourdon §11)
-- [ ] 杂交与杂种优势 (Bourdon §15)
-- [ ] 基因组选择与分子育种 (Bourdon §17)
-- [ ] 动物遗传资源保护 (Bourdon §18)
-- [ ] 动物繁殖生理 (Senger §2)
-- [ ] 发情周期与人工授精 (Senger §6)
+- [x] [动物育种遗传基础 (Bourdon §2)](./animal-breeding-genetic-basics)
+- [x] [群体遗传与数量性状 (Bourdon §7)](./population-genetics-quantitative-traits)
+- [x] [育种值估计与选择 (Bourdon §11)](./breeding-value-estimation-selection)
+- [x] [杂交与杂种优势 (Bourdon §15)](./crossbreeding-heterosis)
+- [x] [基因组选择与分子育种 (Bourdon §17)](./genomic-selection-molecular-breeding)
+- [x] [动物遗传资源保护 (Bourdon §18)](./animal-genetic-resources-conservation)
+- [x] [动物繁殖生理 (Senger §2)](./animal-reproductive-physiology)
+- [x] [发情周期与人工授精 (Senger §6)](./estrous-cycle-artificial-insemination)
 
 ### 第2篇
 
-- [ ] 妊娠与分娩 (Senger §11)
-- [ ] 繁殖障碍与不孕不育诊疗 (Senger §13)
-- [ ] 胚胎工程与繁殖生物技术细化（胚胎移植） (Senger §14)
-- [ ] 繁殖生物技术 (Senger §14)
+- [x] [妊娠与分娩 (Senger §11)](./pregnancy-parturition)
+- [x] [繁殖障碍与不孕不育诊疗 (Senger §13)](./reproductive-disorders-infertility)
+- [x] [胚胎工程与繁殖生物技术细化（胚胎移植） (Senger §14)](./embryo-transfer)
+- [x] [繁殖生物技术 (Senger §14)](./reproductive-biotechnology)

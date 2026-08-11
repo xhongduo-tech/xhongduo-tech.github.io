@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 边缘计算定义与架构 (Shi Ch.1)
-- [ ] 移动边缘计算 MEC (Shi Ch.4)
-- [ ] 5G 与边缘协同（MEC 网络切片） (书目外)
-- [ ] 边缘 AI 与模型部署 (Shi Ch.7)
-- [ ] 边缘推理与模型轻量化（TensorRT/ONNX/量化/剪枝） (书目外)
-- [ ] 计算卸载与任务调度 (Osama §3)
-- [ ] 边缘存储与缓存 (Shi Ch.5)
-- [ ] 边缘安全与隐私 (Yang Ch.6)
+- [x] [边缘计算定义与架构 (Shi Ch.1)](./edge-computing-definition-architecture)
+- [x] [移动边缘计算 MEC (Shi Ch.4)](./5g-edge-network-slicing)
+- [x] [5G 与边缘协同（MEC 网络切片） (书目外)](./cloud-edge-end-collaboration)
+- [x] [边缘 AI 与模型部署 (Shi Ch.7)](./computation-offloading-task-scheduling)
+- [x] [边缘推理与模型轻量化（TensorRT/ONNX/量化/剪枝） (书目外)](./edge-ai-model-deployment)
+- [x] [计算卸载与任务调度 (Osama §3)](./edge-computing-definition-architecture)
+- [x] [边缘存储与缓存 (Shi Ch.5)](./edge-inference-model-compression)
+- [x] [边缘安全与隐私 (Yang Ch.6)](./edge-platform-orchestration)
 
 ### 第2篇
 
-- [ ] 边缘计算平台与编排（KubeEdge/EdgeX/OpenYurt） (书目外)
-- [ ] 车联网与工业边缘应用 (Shi Ch.8)
-- [ ] 云-边-端协同 (Shi Ch.9)
+- [x] [边缘计算平台与编排（KubeEdge/EdgeX/OpenYurt） (书目外)](./edge-security-privacy)
+- [x] [车联网与工业边缘应用 (Shi Ch.8)](./edge-storage-caching)
+- [x] [云-边-端协同 (Shi Ch.9)](./mec-mobile-edge-computing)

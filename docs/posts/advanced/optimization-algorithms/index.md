@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 凸优化基础 (Boyd §4)
-- [ ] 梯度下降与线搜索 (Nocedal §3)
-- [ ] 牛顿法与拟牛顿 (Nocedal §6)
-- [ ] 信赖域方法 (Nocedal §4)
-- [ ] 共轭梯度法 (Nocedal §5)
-- [ ] 非线性最小二乘与 Levenberg-Marquardt (Nocedal §10.3)
-- [ ] 随机梯度下降与方差减小 (Bertsekas §2)
-- [ ] Adam 与自适应优化器 (Goodfellow §8.5)
+- [x] [凸优化基础 (Boyd §4)](./convex-optimization-basics)
+- [x] [梯度下降与线搜索 (Nocedal §3)](./gradient-descent-line-search)
+- [x] [牛顿法与拟牛顿 (Nocedal §6)](./newton-quasi-newton)
+- [x] [信赖域方法 (Nocedal §4)](./trust-region-methods)
+- [x] [共轭梯度法 (Nocedal §5)](./conjugate-gradient-methods)
+- [x] [非线性最小二乘与 Levenberg-Marquardt (Nocedal §10.3)](./nonlinear-least-squares-levenberg-marquardt)
+- [x] [随机梯度下降与方差减小 (Bertsekas §2)](./stochastic-gradient-descent-variance-reduction)
+- [x] [Adam 与自适应优化器 (Goodfellow §8.5)](./adam-adaptive-optimizers)
 
 ### 第2篇
 
-- [ ] 对偶理论与 KKT (Boyd §5)
-- [ ] 次梯度与近端方法 (Boyd §5)
-- [ ] 罚函数与增广拉格朗日方法 (Nocedal §17)
-- [ ] 序列二次规划 SQP (Nocedal §18)
-- [ ] 内点法 (Boyd §11)
+- [x] [对偶理论与 KKT (Boyd §5)](./duality-theory-kkt)
+- [x] [次梯度与近端方法 (Boyd §5)](./subgradient-proximal-methods)
+- [x] [罚函数与增广拉格朗日方法 (Nocedal §17)](./penalty-augmented-lagrangian)
+- [x] [序列二次规划 SQP (Nocedal §18)](./sequential-quadratic-programming)
+- [x] [内点法 (Boyd §11)](./interior-point-methods)

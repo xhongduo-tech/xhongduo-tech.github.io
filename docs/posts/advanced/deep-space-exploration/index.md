@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 深空探测任务案例与科学目标总览 (Brown §1 / SMAD §1)
-- [ ] 任务分析与系统工程（任务生命周期） (SMAD §1-6)
-- [ ] 轨道力学与星际轨道设计 (Brown §3)
-- [ ] 空间环境与防护（空间辐射与微流星体） (Brown §2 / SMAD §7)
-- [ ] 航天器结构与机构 (Brown §10)
-- [ ] 推进系统设计 (Brown §4)
-- [ ] 深空通信与测控 (Wertz §19)
-- [ ] 电源系统设计 (Brown §6)
+- [x] [深空探测任务案例与科学目标总览 (Brown §1 / SMAD §1)](./mission-overview-and-science-goals)
+- [x] [任务分析与系统工程（任务生命周期） (SMAD §1-6)](./attitude-determination-control)
+- [x] [轨道力学与星际轨道设计 (Brown §3)](./orbital-mechanics-interplanetary-trajectories)
+- [x] [空间环境与防护（空间辐射与微流星体） (Brown §2 / SMAD §7)](./autonomous-navigation-and-guidance)
+- [x] [航天器结构与机构 (Brown §10)](./data-handling-onboard-computer)
+- [x] [推进系统设计 (Brown §4)](./propulsion-system-design)
+- [x] [深空通信与测控 (Wertz §19)](./deep-space-communication-tracking)
+- [x] [电源系统设计 (Brown §6)](./power-system-design)
 
 ### 第2篇
 
-- [ ] 行星着陆与表面探测 (Wertz §21)
-- [ ] 热控系统设计 (Brown §7)
-- [ ] 自主导航与制导 (Wertz §15)
-- [ ] 姿态确定与控制 ADCS (Brown §5 / SMAD §19)
-- [ ] 星载数据管理与星上计算机 C&DH (Brown §8 / SMAD §20)
+- [x] [行星着陆与表面探测 (Wertz §21)](./planetary-landing-and-surface-exploration)
+- [x] [热控系统设计 (Brown §7)](./thermal-control-system)
+- [x] [自主导航与制导 (Wertz §15)](./autonomous-navigation-and-guidance)
+- [x] [姿态确定与控制 ADCS (Brown §5 / SMAD §19)](./attitude-determination-control)
+- [x] [星载数据管理与星上计算机 C&DH (Brown §8 / SMAD §20)](./data-handling-onboard-computer)

@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 一维线性与非线性流 (Hirsch-Smale-Devaney Ch. 1-2)
-- [ ] 不动点与稳定性分析 (Hirsch-Smale-Devaney Ch. 2-3)
-- [ ] 相平面与保守系统 (Perko Ch. 2-3)
-- [ ] 分岔理论：鞍结与 Hopf 分岔 (Guckenheimer & Holmes Ch. 3)
-- [ ] Lorenz 方程与混沌 (Hirsch-Smale-Devaney Ch. 14)
-- [ ] Poincaré 映射与周期轨道 (Guckenheimer & Holmes Ch. 1-2)
-- [ ] Hamilton 系统与 KAM 简介 (Guckenheimer & Holmes Ch. 7)
-- [ ] 奇怪吸引子与 Lyapunov 指数 (Hirsch-Smale-Devaney Ch. 15)
+- [x] [一维线性与非线性流 (Hirsch-Smale-Devaney Ch. 1-2)](./one-dimensional-flows)
+- [x] [不动点与稳定性分析 (Hirsch-Smale-Devaney Ch. 2-3)](./fixed-points-stability)
+- [x] [相平面与保守系统 (Perko Ch. 2-3)](./phase-plane-conservative-systems)
+- [x] [分岔理论：鞍结与 Hopf 分岔 (Guckenheimer & Holmes Ch. 3)](./bifurcations-saddle-node-hopf)
+- [x] [Lorenz 方程与混沌 (Hirsch-Smale-Devaney Ch. 14)](./lorenz-equations-chaos)
+- [x] [Poincaré 映射与周期轨道 (Guckenheimer & Holmes Ch. 1-2)](./poincare-maps-periodic-orbits)
+- [x] [Hamilton 系统与 KAM 简介 (Guckenheimer & Holmes Ch. 7)](./hamiltonian-systems-kam)
+- [x] [奇怪吸引子与 Lyapunov 指数 (Hirsch-Smale-Devaney Ch. 15)](./strange-attractors-lyapunov-exponents)
 
 ### 第2篇
 
-- [ ] 离散动力系统与迭代映射：logistic 映射、周期倍化与混沌 (Hirsch-Smale-Devaney Ch. 15)
-- [ ] 全局分岔：同宿/异宿轨道与 Shilnikov 混沌 (Guckenheimer & Holmes Ch. 6, Hirsch-Smale-Devaney Ch. 16)
+- [x] [离散动力系统与迭代映射：logistic 映射、周期倍化与混沌 (Hirsch-Smale-Devaney Ch. 15)](./logistic-map-iteration-chaos)
+- [x] [全局分岔：同宿/异宿轨道与 Shilnikov 混沌 (Guckenheimer & Holmes Ch. 6, Hirsch-Smale-Devaney Ch. 16)](./global-bifurcations-homoclinic-shilnikov)

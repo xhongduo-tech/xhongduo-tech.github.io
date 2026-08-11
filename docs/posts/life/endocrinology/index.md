@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 内分泌学原理与激素作用 (Williams §1)
-- [ ] 下丘脑与垂体疾病 (Williams §8)
-- [ ] 甲状腺疾病 (Williams §11)
-- [ ] 甲状腺结节与甲状腺癌 (Williams §12)
-- [ ] 肾上腺皮质与髓质疾病 (Williams §15)
-- [ ] 糖尿病与代谢综合征 (Williams §34)
-- [ ] 低血糖症 (Williams §34)
-- [ ] 肥胖症与能量代谢 (Williams §35)
+- [x] [内分泌学原理与激素作用 (Williams §1)](./endocrine-principles-hormone-action)
+- [x] [下丘脑与垂体疾病 (Williams §8)](./hypothalamus-pituitary-disorders)
+- [x] [甲状腺疾病 (Williams §11)](./thyroid-disorders)
+- [x] [甲状腺结节与甲状腺癌 (Williams §12)](./thyroid-nodules-cancer)
+- [x] [肾上腺皮质与髓质疾病 (Williams §15)](./adrenal-disorders)
+- [x] [糖尿病与代谢综合征 (Williams §34)](./diabetes-metabolic-syndrome)
+- [x] [低血糖症 (Williams §34)](./hypoglycemia)
+- [x] [肥胖症与能量代谢 (Williams §35)](./obesity-energy-metabolism)
 
 ### 第2篇
 
-- [ ] 钙磷代谢与骨病 (Williams §27)
-- [ ] 男性与女性生殖内分泌 (Williams §19-22)
-- [ ] 性腺与性分化异常 (Williams §23)
-- [ ] 多发性内分泌腺瘤（MEN）综合征 (Williams §42)
-- [ ] 内分泌肿瘤综合征 (Williams §42)
+- [x] [钙磷代谢与骨病 (Williams §27)](./calcium-phosphorus-bone-disease)
+- [x] [男性与女性生殖内分泌 (Williams §19-22)](./reproductive-endocrinology)
+- [x] [性腺与性分化异常 (Williams §23)](./gonadal-sex-differentiation-disorders)
+- [x] [多发性内分泌腺瘤（MEN）综合征 (Williams §42)](./multiple-endocrine-neoplasia)
+- [x] [内分泌肿瘤综合征 (Williams §42)](./endocrine-tumor-syndromes)

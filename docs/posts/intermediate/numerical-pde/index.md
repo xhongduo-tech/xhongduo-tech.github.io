@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 有限差分法基础 (LeVeque Ch. 1-3)
-- [ ] 椭圆方程与迭代求解 (LeVeque Ch. 4)
-- [ ] 一维抛物方程的稳定性分析 (LeVeque Ch. 9)
-- [ ] 双曲方程与 CFL 条件 (LeVeque Ch. 10)
-- [ ] Lax-Richtmyer 等价定理 (Strikwerda Ch. 2)
-- [ ] 有限元变分形式 (C. Johnson Ch. 1-2)
-- [ ] Sobolev 空间与误差估计 (C. Johnson Ch. 4-5)
-- [ ] 多维问题与边界条件处理 (LeVeque Ch. 13)
+- [x] [有限差分法基础 (LeVeque Ch. 1-3)](./finite-difference-basics)
+- [x] [椭圆方程与迭代求解 (LeVeque Ch. 4)](./elliptic-iterative-solvers)
+- [x] [一维抛物方程的稳定性分析 (LeVeque Ch. 9)](./parabolic-stability-analysis)
+- [x] [双曲方程与 CFL 条件 (LeVeque Ch. 10)](./hyperbolic-cfl-condition)
+- [x] [Lax-Richtmyer 等价定理 (Strikwerda Ch. 2)](./lax-richtmyer-equivalence)
+- [x] [有限元变分形式 (C. Johnson Ch. 1-2)](./finite-element-variational)
+- [x] [Sobolev 空间与误差估计 (C. Johnson Ch. 4-5)](./sobolev-error-estimates)
+- [x] [多维问题与边界条件处理 (LeVeque Ch. 13)](./multidimensional-boundary-conditions)
 
 ### 第2篇
 
-- [ ] 非线性守恒律与激波捕捉：Riemann 问题与 Godunov 型格式 (LeVeque Ch. 11-12)
-- [ ] 有限体积法 (LeVeque Part V)
-- [ ] 抛物方程分裂方法：ADI 与算子分裂 (LeVeque Ch. 6-8)
+- [x] [非线性守恒律与激波捕捉：Riemann 问题与 Godunov 型格式 (LeVeque Ch. 11-12)](./riemann-problem-godunov)
+- [x] [有限体积法 (LeVeque Part V)](./finite-volume-methods)
+- [x] [抛物方程分裂方法：ADI 与算子分裂 (LeVeque Ch. 6-8)](./adi-operator-splitting)

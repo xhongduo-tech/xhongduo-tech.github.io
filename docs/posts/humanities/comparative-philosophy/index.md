@@ -17,11 +17,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 比较哲学的方法论 (Larson §1)
-- [ ] 中西哲学比较 (Larson §3)
-- [ ] 印度思想与西方哲学 (Larson §5)
-- [ ] 佛教哲学的跨文化诠释 (Garfield §2)
-- [ ] 概念的不可通约性与翻译 (Garfield §5)
-- [ ] 普遍主义与文化相对主义 (Larson §8)
-- [ ] 跨文化诠释学 (Garfield §8)
-- [ ] 比较伦理学与跨文化价值 (Larson §6)
+- [x] [比较哲学的方法论 (Larson §1)](./methodology-of-comparative-philosophy)
+- [x] [中西哲学比较 (Larson §3)](./chinese-western-philosophy-comparison)
+- [x] [印度思想与西方哲学 (Larson §5)](./indian-thought-and-western-philosophy)
+- [x] [佛教哲学的跨文化诠释 (Garfield §2)](./buddhist-philosophy-cross-cultural-interpretation)
+- [x] [概念的不可通约性与翻译 (Garfield §5)](./conceptual-incommensurability-and-translation)
+- [x] [普遍主义与文化相对主义 (Larson §8)](./universalism-and-cultural-relativism)
+- [x] [跨文化诠释学 (Garfield §8)](./cross-cultural-hermeneutics)
+- [x] [比较伦理学与跨文化价值 (Larson §6)](./comparative-ethics-and-cross-cultural-values)

@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 大气运动方程组 (Holton §1-2)
-- [ ] 地转风与平衡流、热成风 (Holton §3)
-- [ ] 环流定理、涡度与大气环流 (Holton §4, §10)
-- [ ] 大气波动与罗斯贝波 (Holton §5)
-- [ ] 准地转分析与天气尺度动力学 (Holton §6-7)
-- [ ] 斜压不稳定性与气旋发展 (Holton §7)
-- [ ] 行星边界层动力学与埃克曼抽吸 (Holton §8)
-- [ ] 中层大气动力学与平流层 (Holton §12)
+- [x] [大气运动方程组 (Holton §1-2)](./governing-equations)
+- [x] [地转风与平衡流、热成风 (Holton §3)](./geostrophic-thermal-wind)
+- [x] [环流定理、涡度与大气环流 (Holton §4, §10)](./circulation-vorticity)
+- [x] [大气波动与罗斯贝波 (Holton §5)](./atmospheric-waves-rossby)
+- [x] [准地转分析与天气尺度动力学 (Holton §6-7)](./quasi-geostrophic-analysis)
+- [x] [斜压不稳定性与气旋发展 (Holton §7)](./baroclinic-instability)
+- [x] [行星边界层动力学与埃克曼抽吸 (Holton §8)](./planetary-boundary-layer)
+- [x] [中层大气动力学与平流层 (Holton §12)](./middle-atmosphere-dynamics)
 
 ### 第2篇
 
-- [ ] 热带动力学与赤道波 (Holton §11)
-- [ ] 数值天气预报与模式 (Holton §13)
+- [x] [热带动力学与赤道波 (Holton §11)](./tropical-dynamics-equatorial-waves)
+- [x] [数值天气预报与模式 (Holton §13)](./numerical-weather-prediction)

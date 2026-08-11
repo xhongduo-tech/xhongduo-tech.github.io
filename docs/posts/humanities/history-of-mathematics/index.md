@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 古代埃及与巴比伦数学 (Katz Ch. 1)
-- [ ] 古希腊数学：泰勒斯到欧几里得 (Katz Ch. 2-3)
-- [ ] 中国与印度古代数学 (Katz Ch. 6)
-- [ ] 中世纪伊斯兰数学 (Katz Ch. 7)
-- [ ] 文艺复兴与代数兴起 (Katz Ch. 9)
-- [ ] 微积分的创立：牛顿与莱布尼茨 (Katz Ch. 13-14)
-- [ ] 18 世纪数学：欧拉、伯努利家族与分析学的扩张 (Katz Ch. 16-17)
-- [ ] 非欧几何的发现与几何学革命 (Katz Ch. 18-19)
+- [x] [古代埃及与巴比伦数学 (Katz Ch. 1)](./egyptian-babylonian-mathematics)
+- [x] [古希腊数学：泰勒斯到欧几里得 (Katz Ch. 2-3)](./greek-mathematics-thales-to-euclid)
+- [x] [中国与印度古代数学 (Katz Ch. 6)](./chinese-and-indian-mathematics)
+- [x] [中世纪伊斯兰数学 (Katz Ch. 7)](./islamic-mathematics)
+- [x] [文艺复兴与代数兴起 (Katz Ch. 9)](./renaissance-and-algebra)
+- [x] [微积分的创立：牛顿与莱布尼茨 (Katz Ch. 13-14)](./invention-of-calculus)
+- [x] [18 世纪数学：欧拉、伯努利家族与分析学的扩张 (Katz Ch. 16-17)](./eighteenth-century-mathematics)
+- [x] [非欧几何的发现与几何学革命 (Katz Ch. 18-19)](./non-euclidean-geometry)
 
 ### 第2篇
 
-- [ ] 概率论与数理统计史 (Katz Ch. 20)
-- [ ] 19 世纪抽象代数与分析严密化 (Katz Ch. 21)
-- [ ] 20 世纪数学与公理化方法 (Katz Ch. 25)
+- [x] [概率论与数理统计史 (Katz Ch. 20)](./history-of-probability)
+- [x] [19 世纪抽象代数与分析严密化 (Katz Ch. 21)](./nineteenth-century-algebra-and-rigor)
+- [x] [20 世纪数学与公理化方法 (Katz Ch. 25)](./twentieth-century-mathematics)

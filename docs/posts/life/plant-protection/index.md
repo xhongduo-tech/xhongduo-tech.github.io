@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 植物病理学概论 (Agrios §1)
-- [ ] 植物病原生物 (Agrios §3)
-- [ ] 植物病害发生与流行 (Agrios §5)
-- [ ] 植物病害防治策略 (Agrios §9)
-- [ ] 昆虫形态与生理 (Pedigo §3-4)
-- [ ] 昆虫分类与种群动态 (Pedigo §6-7)
-- [ ] 害虫综合治理 (Pedigo §13)
-- [ ] 杂草防除与除草剂 (Pedigo §14)
+- [x] [植物病理学概论 (Agrios §1)](./plant-pathology-overview)
+- [x] [植物病原生物 (Agrios §3)](./plant-pathogens)
+- [x] [植物病害发生与流行 (Agrios §5)](./disease-epidemiology)
+- [x] [植物病害防治策略 (Agrios §9)](./disease-management)
+- [x] [昆虫形态与生理 (Pedigo §3-4)](./insect-morphology-physiology)
+- [x] [昆虫分类与种群动态 (Pedigo §6-7)](./insect-taxonomy-population)
+- [x] [害虫综合治理 (Pedigo §13)](./integrated-pest-management)
+- [x] [杂草防除与除草剂 (Pedigo §14)](./weed-control-herbicides)
 
 ### 第2篇
 
-- [ ] 植物检疫与生物防治 (Pedigo §12)
-- [ ] 主要作物病害各论（小麦锈病/稻瘟病/病毒病/线虫病） (Agrios §11)
-- [ ] 杀虫剂与杀菌剂应用 (Pedigo §11)
-- [ ] 农药安全与环境 (Pedigo §15)
+- [x] [植物检疫与生物防治 (Pedigo §12)](./biological-control-quarantine)
+- [x] [主要作物病害各论（小麦锈病/稻瘟病/病毒病/线虫病） (Agrios §11)](./major-crop-diseases)
+- [x] [杀虫剂与杀菌剂应用 (Pedigo §11)](./pesticide-application)
+- [x] [农药安全与环境 (Pedigo §15)](./pesticide-safety-environment)

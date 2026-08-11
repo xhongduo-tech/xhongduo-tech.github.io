@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 稀疏门控 MoE 原理 (Shazeer et al., Sparsely-Gated MoE 2017)
-- [ ] Top-k 路由机制 (Fedus et al., Switch Transformer 2022)
-- [ ] 负载均衡损失 (Lepikhin et al., GShard 2020)
-- [ ] 负载均衡与专家退化（dead experts）机制 (Dai et al., DeepSeek-MoE 2024)
-- [ ] 专家容量因子 (Fedus et al., Switch Transformer 2022)
-- [ ] 专家并行 Expert Parallelism (Lepikhin et al., GShard 2020)
-- [ ] 路由策略对比 (Shazeer et al., 2017)
-- [ ] DeepSeek MoE 细粒度专家 (Dai et al., DeepSeek-MoE 2024)
+- [x] [稀疏门控 MoE 原理 (Shazeer et al., Sparsely-Gated MoE 2017)](./sparse-gated-moe)
+- [x] [Top-k 路由机制 (Fedus et al., Switch Transformer 2022)](./topk-routing)
+- [x] [负载均衡损失 (Lepikhin et al., GShard 2020)](./load-balancing-loss)
+- [x] [负载均衡与专家退化（dead experts）机制 (Dai et al., DeepSeek-MoE 2024)](./expert-collapse)
+- [x] [专家容量因子 (Fedus et al., Switch Transformer 2022)](./expert-capacity-factor)
+- [x] [专家并行 Expert Parallelism (Lepikhin et al., GShard 2020)](./expert-parallelism)
+- [x] [路由策略对比 (Shazeer et al., 2017)](./routing-strategy-comparison)
+- [x] [DeepSeek MoE 细粒度专家 (Dai et al., DeepSeek-MoE 2024)](./deepseek-fine-grained-moe)
 
 ### 第2篇
 
-- [ ] MoE 训练稳定性 (Fedus et al., Switch Transformer 2022)
-- [ ] MoE 推理部署与专家卸载 (Rajbhandari et al., DeepSpeed-MoE 2022)
+- [x] [MoE 训练稳定性 (Fedus et al., Switch Transformer 2022)](./moe-training-stability)
+- [x] [MoE 推理部署与专家卸载 (Rajbhandari et al., DeepSpeed-MoE 2022)](./moe-inference-deployment)

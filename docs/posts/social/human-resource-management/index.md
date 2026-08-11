@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 战略人力资源管理 (Noe §1)
-- [ ] 平等就业机会与反歧视法律（EEO/肯定性行动） (Dessler §2)
-- [ ] 人力资源规划与工作分析 (Dessler §3-4)
-- [ ] 招聘与甄选 (Dessler §6-7)
-- [ ] 培训与开发 (Noe §7)
-- [ ] 绩效管理与评估 (Dessler §9)
-- [ ] 职业生涯管理与员工保留 (Dessler §10)
-- [ ] 薪酬管理 (Dessler §11)
+- [x] [战略人力资源管理 (Noe §1)](./strategic-human-resource-management)
+- [x] [平等就业机会与反歧视法律（EEO/肯定性行动） (Dessler §2)](./equal-employment-opportunity-law)
+- [x] [人力资源规划与工作分析 (Dessler §3-4)](./hr-planning-and-job-analysis)
+- [x] [招聘与甄选 (Dessler §6-7)](./recruitment-and-selection)
+- [x] [培训与开发 (Noe §7)](./training-and-development)
+- [x] [绩效管理与评估 (Dessler §9)](./performance-management-and-appraisal)
+- [x] [职业生涯管理与员工保留 (Dessler §10)](./career-management-and-retention)
+- [x] [薪酬管理 (Dessler §11)](./compensation-management)
 
 ### 第2篇
 
-- [ ] 绩效薪酬与财务激励计划 (Dessler §12)
-- [ ] 福利与服务管理 (Dessler §13)
-- [ ] 员工关系与职业安全 (Noe §15)
-- [ ] 人力资源信息系统与 HR 分析（HRIS/People Analytics） (Dessler 现代章)
-- [ ] 国际人力资源管理 (Dessler §17)
+- [x] [绩效薪酬与财务激励计划 (Dessler §12)](./pay-for-performance-and-incentives)
+- [x] [福利与服务管理 (Dessler §13)](./benefits-and-services)
+- [x] [员工关系与职业安全 (Noe §15)](./employee-relations-and-safety)
+- [x] [人力资源信息系统与 HR 分析（HRIS/People Analytics） (Dessler 现代章)](./hris-and-people-analytics)
+- [x] [国际人力资源管理 (Dessler §17)](./international-human-resource-management)

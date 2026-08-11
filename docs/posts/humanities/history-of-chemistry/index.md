@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 炼金术与早期化学工艺 (Brock Ch. 1-3)
-- [ ] 医疗化学与帕拉塞尔苏斯（十六世纪 iatrochemistry） (Brock Ch. 4-5)
-- [ ] 燃素说与拉瓦锡革命 (Brock Ch. 7-8)
-- [ ] 原子论与分子学说 (Brock Ch. 10)
-- [ ] 电化学史：伏打、戴维与法拉第 (Brock Ch. 11)
-- [ ] 元素周期表的发现 (Brock Ch. 12)
-- [ ] 有机化学的兴起 (Brock Ch. 13-14)
-- [ ] 物理化学的建立 (Brock Ch. 15)
+- [x] [炼金术与早期化学工艺 (Brock Ch. 1-3)](./alchemy-and-early-chemical-arts)
+- [x] [医疗化学与帕拉塞尔苏斯（十六世纪 iatrochemistry） (Brock Ch. 4-5)](./iatrochemistry-and-paracelsus)
+- [x] [燃素说与拉瓦锡革命 (Brock Ch. 7-8)](./phlogiston-and-lavoisier-revolution)
+- [x] [原子论与分子学说 (Brock Ch. 10)](./atomic-theory-and-molecular-doctrine)
+- [x] [电化学史：伏打、戴维与法拉第 (Brock Ch. 11)](./electrochemistry-volta-davy-faraday)
+- [x] [元素周期表的发现 (Brock Ch. 12)](./discovery-of-the-periodic-table)
+- [x] [有机化学的兴起 (Brock Ch. 13-14)](./rise-of-organic-chemistry)
+- [x] [物理化学的建立 (Brock Ch. 15)](./founding-of-physical-chemistry)
 
 ### 第2篇
 
-- [ ] 20 世纪化学键理论 (Brock Ch. 16)
-- [ ] 放射化学与核化学 (Brock Ch. 17)
-- [ ] 现代仪器分析与化学工业 (Brock Ch. 18)
+- [x] [20 世纪化学键理论 (Brock Ch. 16)](./twentieth-century-chemical-bonding)
+- [x] [放射化学与核化学 (Brock Ch. 17)](./radiochemistry-and-nuclear-chemistry)
+- [x] [现代仪器分析与化学工业 (Brock Ch. 18)](./modern-instrumental-analysis-and-chemical-industry)

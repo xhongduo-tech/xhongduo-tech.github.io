@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 统计机器翻译与 IBM 模型 (Koehn SMT Ch.4)
-- [ ] 词对齐模型 (Koehn SMT Ch.5)
-- [ ] 短语翻译模型 (Koehn SMT Ch.6)
-- [ ] 神经机器翻译 Encoder-Decoder (Koehn NMT Ch.5)
-- [ ] 注意力机制 (Bahdanau et al., 2015; Vaswani et al., 2017)
-- [ ] Transformer 完整结构（自注意力/多头/位置编码） (Vaswani et al., 2017)
-- [ ] 子词 BPE 与词汇表 (Koehn NMT Ch.7)
-- [ ] 解码策略与束搜索 (Koehn NMT Ch.6)
+- [x] [统计机器翻译与 IBM 模型 (Koehn SMT Ch.4)](./statistical-mt-ibm-models)
+- [x] [词对齐模型 (Koehn SMT Ch.5)](./word-alignment)
+- [x] [短语翻译模型 (Koehn SMT Ch.6)](./phrase-based-mt)
+- [x] [神经机器翻译 Encoder-Decoder (Koehn NMT Ch.5)](./attention-mechanism)
+- [x] [注意力机制 (Bahdanau et al., 2015; Vaswani et al., 2017)](./attention-mechanism)
+- [x] [Transformer 完整结构（自注意力/多头/位置编码） (Vaswani et al., 2017)](./back-translation)
+- [x] [子词 BPE 与词汇表 (Koehn NMT Ch.7)](./subword-bpe-vocab)
+- [x] [解码策略与束搜索 (Koehn NMT Ch.6)](./decoding-beam-search)
 
 ### 第2篇
 
-- [ ] BLEU 与翻译评估 (Papineni et al., BLEU 2002; Koehn NMT Ch.9)
-- [ ] 反向翻译与数据增强 (Koehn NMT Ch.9)
-- [ ] 多语言机器翻译与零资源 MT (Liu et al., mBART 2020; Xue et al., mT5 2021)
+- [x] [BLEU 与翻译评估 (Papineni et al., BLEU 2002; Koehn NMT Ch.9)](./bleu-evaluation)
+- [x] [反向翻译与数据增强 (Koehn NMT Ch.9)](./back-translation)
+- [x] [多语言机器翻译与零资源 MT (Liu et al., mBART 2020; Xue et al., mT5 2021)](./multilingual-mt)

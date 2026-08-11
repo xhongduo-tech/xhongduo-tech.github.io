@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 自然选择与行为适应 (Davies §1)
-- [ ] 行为生态学研究方法：假设检验 (Davies §2)
-- [ ] 觅食行为与最优化 (Davies §3)
-- [ ] 捕食者与猎物策略 (Davies §4)
-- [ ] 资源竞争 (Davies §5)
-- [ ] 打斗与评估 (Davies §5)
-- [ ] 群居生活 (Davies §6)
-- [ ] 配偶选择与性选择 (Davies §7)
+- [x] [自然选择与行为适应 (Davies §1)](./natural-selection-and-behavior)
+- [x] [行为生态学研究方法：假设检验 (Davies §2)](./research-methods-hypothesis-testing)
+- [x] [觅食行为与最优化 (Davies §3)](./foraging-and-optimization)
+- [x] [捕食者与猎物策略 (Davies §4)](./predator-prey-strategies)
+- [x] [资源竞争 (Davies §5)](./resource-competition)
+- [x] [打斗与评估 (Davies §5)](./fighting-and-assessment)
+- [x] [群居生活 (Davies §6)](./living-in-groups)
+- [x] [配偶选择与性选择 (Davies §7)](./mate-choice-and-sexual-selection)
 
 ### 第2篇
 
-- [ ] 交配系统 (Davies §9)
-- [ ] 亲本照顾与繁殖策略 (Davies §8)
-- [ ] 社会行为与利他主义 (Davies §11)
-- [ ] 通讯行为 (Davies §14)
+- [x] [交配系统 (Davies §9)](./mating-systems)
+- [x] [亲本照顾与繁殖策略 (Davies §8)](./parental-care-and-reproductive-strategies)
+- [x] [社会行为与利他主义 (Davies §11)](./social-behavior-and-altruism)
+- [x] [通讯行为 (Davies §14)](./communication)

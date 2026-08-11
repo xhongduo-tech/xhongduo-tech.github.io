@@ -17,15 +17,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 电影形式与风格 (Bordwell §2-3)
-- [ ] 电影叙事学 (Bordwell §4)
-- [ ] 蒙太奇理论与形式主义 (Stam §2)
-- [ ] 作者论与电影作者 (Stam §4)
-- [ ] 类型片理论 (Bordwell §9)
-- [ ] 精神分析、女性主义与后殖民电影理论 (Stam §7-9)
-- [ ] 现实主义电影理论（巴赞/克拉考尔） (Bordwell §2)
-- [ ] 电影符号学（Metz） (Bordwell §5)
+- [x] [电影形式与风格 (Bordwell §2-3)](./film-form-style)
+- [x] [电影叙事学 (Bordwell §4)](./film-narratology)
+- [x] [蒙太奇理论与形式主义 (Stam §2)](./montage-theory-formalism)
+- [x] [作者论与电影作者 (Stam §4)](./auteur-theory)
+- [x] [类型片理论 (Bordwell §9)](./genre-theory)
+- [x] [精神分析、女性主义与后殖民电影理论 (Stam §7-9)](./psychoanalysis-feminism-postcolonial)
+- [x] [现实主义电影理论（巴赞/克拉考尔） (Bordwell §2)](./realism-bazin-kracauer)
+- [x] [电影符号学（Metz） (Bordwell §5)](./film-semiotics-metz)
 
 ### 第2篇
 
-- [ ] 认知电影理论 (Bordwell §7)
+- [x] [认知电影理论 (Bordwell §7)](./cognitive-film-theory)

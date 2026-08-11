@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 美的概念与审美经验 (Beardsley §1)
-- [ ] 西方美学史主线：柏拉图—康德《判断力批判》—黑格尔 (朱光潜《西方美学史》§柏拉图/§康德/§黑格尔)
-- [ ] 康德《判断力批判》与审美判断力 (康德《判断力批判》§审美判断)
-- [ ] 叔本华、尼采与意志美学 (朱光潜《西方美学史》§叔本华/§尼采)
-- [ ] 艺术的定义 (Carroll §1)
-- [ ] 艺术本体论与艺术作品 (Carroll §3)
-- [ ] 艺术批评与诠释 (Beardsley §9)
-- [ ] 悲剧理论与崇高 (Beardsley §7)
+- [x] [美的概念与审美经验 (Beardsley §1)](./concept-of-beauty-and-aesthetic-experience)
+- [x] [西方美学史主线：柏拉图—康德《判断力批判》—黑格尔 (朱光潜《西方美学史》§柏拉图/§康德/§黑格尔)](./analytic-and-phenomenological-aesthetics)
+- [x] [康德《判断力批判》与审美判断力 (康德《判断力批判》§审美判断)](./kant-critique-of-judgment)
+- [x] [叔本华、尼采与意志美学 (朱光潜《西方美学史》§叔本华/§尼采)](./schopenhauer-nietzsche-will-aesthetics)
+- [x] [艺术的定义 (Carroll §1)](./definition-of-art)
+- [x] [艺术本体论与艺术作品 (Carroll §3)](./ontology-of-art)
+- [x] [艺术批评与诠释 (Beardsley §9)](./art-criticism-interpretation)
+- [x] [悲剧理论与崇高 (Beardsley §7)](./tragedy-and-sublime)
 
 ### 第2篇
 
-- [ ] 艺术与道德 (Carroll §7)
-- [ ] 20 世纪分析美学与现象学美学：杜夫海纳 (Beardsley §9 / Dufrenne《审美经验现象学》)
-- [ ] 环境美学 (Beardsley §环境 / 环境美学文献)
-- [ ] 后现代美学 (Carroll §后现代 / 后现代美学文献)
+- [x] [艺术与道德 (Carroll §7)](./art-and-morality)
+- [x] [20 世纪分析美学与现象学美学：杜夫海纳 (Beardsley §9 / Dufrenne《审美经验现象学》)](./analytic-and-phenomenological-aesthetics)
+- [x] [环境美学 (Beardsley §环境 / 环境美学文献)](./environmental-aesthetics)
+- [x] [后现代美学 (Carroll §后现代 / 后现代美学文献)](./postmodern-aesthetics)

@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 视频时序建模 (Wang Survey §2)
-- [ ] 3D 卷积 C3D/I3D (Ji §3)
-- [ ] 双流网络与光流 (Wang Survey §3)
-- [ ] 视频动作识别时序网络 (Szeliski §11.6)
-- [ ] 时空注意力机制 (Wang Survey §5)
-- [ ] 视频目标分割 (Szeliski §11.7)
-- [ ] 视频密集预测与跟踪 (Wang Survey §6)
-- [ ] 视频-语言多模态理解 (Wang Survey §8)
+- [x] [视频时序建模 (Wang Survey §2)](./video-temporal-modeling)
+- [x] [3D 卷积 C3D/I3D (Ji §3)](./3d-conv-c3d-i3d)
+- [x] [双流网络与光流 (Wang Survey §3)](./two-stream-network-optical-flow)
+- [x] [视频动作识别时序网络 (Szeliski §11.6)](./temporal-action-recognition)
+- [x] [时空注意力机制 (Wang Survey §5)](./spatio-temporal-attention)
+- [x] [视频目标分割 (Szeliski §11.7)](./video-object-segmentation)
+- [x] [视频密集预测与跟踪 (Wang Survey §6)](./video-dense-prediction-tracking)
+- [x] [视频-语言多模态理解 (Wang Survey §8)](./video-language-multimodal)
 
 ### 第2篇
 
-- [ ] 视频数据集与评测基准（Kinetics/UCF101） (Kay et al., Kinetics 2017; Soomro et al., UCF101 2012)
-- [ ] 视频超分与视频生成 (Vondrick et al., 2016; OpenAI Sora 2024)
+- [x] [视频数据集与评测基准（Kinetics/UCF101） (Kay et al., Kinetics 2017; Soomro et al., UCF101 2012)](./video-datasets-benchmarks)
+- [x] [视频超分与视频生成 (Vondrick et al., 2016; OpenAI Sora 2024)](./video-super-resolution-generation)

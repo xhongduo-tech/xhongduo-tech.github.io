@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] RAG 框架与架构 (Lewis et al., RAG 2020)
-- [ ] 向量检索与 ANN (Karpukhin et al., DPR 2020)
-- [ ] 稠密检索 DPR (Karpukhin et al., DPR 2020)
-- [ ] 重排序 Cross-Encoder (Karpukhin et al., DPR 2020)
-- [ ] RAG-Sequence 与 RAG-Token (Lewis et al., RAG 2020)
-- [ ] 检索增强多跳推理 (Asai et al., 2024)
-- [ ] 检索增强自反 Self-RAG (Asai et al., Self-RAG 2023)
-- [ ] RAG 评估与基准 (Asai et al., 2024)
+- [x] [RAG 框架与架构 (Lewis et al., RAG 2020)](./rag-framework-architecture)
+- [x] [向量检索与 ANN (Karpukhin et al., DPR 2020)](./vector-search-ann)
+- [x] [稠密检索 DPR (Karpukhin et al., DPR 2020)](./dense-passage-retrieval)
+- [x] [重排序 Cross-Encoder (Karpukhin et al., DPR 2020)](./reranking-cross-encoder)
+- [x] [RAG-Sequence 与 RAG-Token (Lewis et al., RAG 2020)](./rag-sequence-rag-token)
+- [x] [检索增强多跳推理 (Asai et al., 2024)](./multi-hop-retrieval)
+- [x] [检索增强自反 Self-RAG (Asai et al., Self-RAG 2023)](./self-rag)
+- [x] [RAG 评估与基准 (Asai et al., 2024)](./rag-evaluation-benchmarks)
 
 ### 第2篇
 
-- [ ] 文档分块策略（固定/语义/递归分块） (Gao et al., RAG Survey 2023)
-- [ ] 嵌入模型选择与评估 (Reimers & Gurevych, SBERT 2019)
-- [ ] 向量数据库（FAISS/Milvus/Pinecone） (Johnson et al., FAISS 2017)
-- [ ] 生成融合与 RAG-Fusion (Raudaschl, RAG-Fusion 2023)
-- [ ] 查询重写与扩展 (Ma et al., 2023)
-- [ ] 混合检索（BM25+稠密混合） (Robertson & Zaragoza, BM25 2009)
+- [x] [文档分块策略（固定/语义/递归分块） (Gao et al., RAG Survey 2023)](./chunking-strategies)
+- [x] [嵌入模型选择与评估 (Reimers & Gurevych, SBERT 2019)](./embedding-model-selection)
+- [x] [向量数据库（FAISS/Milvus/Pinecone） (Johnson et al., FAISS 2017)](./vector-databases)
+- [x] [生成融合与 RAG-Fusion (Raudaschl, RAG-Fusion 2023)](./rag-fusion)
+- [x] [查询重写与扩展 (Ma et al., 2023)](./chunking-strategies)
+- [x] [混合检索（BM25+稠密混合） (Robertson & Zaragoza, BM25 2009)](./hybrid-search-bm25)

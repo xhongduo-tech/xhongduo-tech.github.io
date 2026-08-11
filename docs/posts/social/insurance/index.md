@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 风险与风险管理 (Rejda §1, §3)
-- [ ] 企业风险管理（ERM）与风险控制 (Rejda §4)
-- [ ] 保险公司运营：核保、理赔、营销系统与中介 (Rejda §5-6)
-- [ ] 保险公司的财务运作与精算/准备金 (Rejda §7)
-- [ ] 保险监管 (Rejda §8)
-- [ ] 保险合同原理 (Rejda §9-10)
-- [ ] 人寿保险 (Vaughan §13-14)
-- [ ] 年金与退休计划、员工福利 (Rejda §14, §17)
+- [x] [风险与风险管理 (Rejda §1, §3)](./risk-and-risk-management)
+- [x] [企业风险管理（ERM）与风险控制 (Rejda §4)](./enterprise-risk-management)
+- [x] [保险公司运营：核保、理赔、营销系统与中介 (Rejda §5-6)](./insurer-operations)
+- [x] [保险公司的财务运作与精算/准备金 (Rejda §7)](./insurer-finance-and-reserving)
+- [x] [保险监管 (Rejda §8)](./insurance-regulation)
+- [x] [保险合同原理 (Rejda §9-10)](./insurance-contract-principles)
+- [x] [人寿保险 (Vaughan §13-14)](./life-insurance)
+- [x] [年金与退休计划、员工福利 (Rejda §14, §17)](./annuities-and-retirement)
 
 ### 第2篇
 
-- [ ] 健康保险与社会保障 (Rejda §15-16)
-- [ ] 财产与责任保险 (Rejda §19, §24-26)
-- [ ] 汽车保险与家财保险各论 (Rejda §20-23)
-- [ ] 再保险 (Vaughan §21)
+- [x] [健康保险与社会保障 (Rejda §15-16)](./health-insurance-and-social-security)
+- [x] [财产与责任保险 (Rejda §19, §24-26)](./property-and-liability-insurance)
+- [x] [汽车保险与家财保险各论 (Rejda §20-23)](./auto-and-homeowners-insurance)
+- [x] [再保险 (Vaughan §21)](./reinsurance)

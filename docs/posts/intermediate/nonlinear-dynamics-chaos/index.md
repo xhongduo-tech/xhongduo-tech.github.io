@@ -18,11 +18,11 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 一维流与不动点稳定性 (Strogatz Ch. 2-3)
-- [ ] 分岔：鞍结、跨临界与音叉分岔 (Strogatz Ch. 3-4)
-- [ ] 二维线性系统与相平面 (Strogatz Ch. 5-6)
-- [ ] 极限环与 Poincaré-Bendixson 定理 (Strogatz Ch. 7-8)
-- [ ] Lorenz 方程与混沌吸引子 (Strogatz Ch. 9)
-- [ ] 一维映射与倍周期分岔 (Strogatz Ch. 10)
-- [ ] 分形几何与奇怪吸引子 (Strogatz Ch. 11)
-- [ ] Hamilton 系统与 KAM 定理 (Guckenheimer & Holmes Ch. 7)
+- [x] [一维流与不动点稳定性 (Strogatz Ch. 2-3)](./one-dimensional-flows-stability)
+- [x] [分岔：鞍结、跨临界与音叉分岔 (Strogatz Ch. 3-4)](./bifurcations-saddle-transcritical-pitchfork)
+- [x] [二维线性系统与相平面 (Strogatz Ch. 5-6)](./two-dimensional-systems-phase-plane)
+- [x] [极限环与 Poincaré-Bendixson 定理 (Strogatz Ch. 7-8)](./bifurcations-saddle-transcritical-pitchfork)
+- [x] [Lorenz 方程与混沌吸引子 (Strogatz Ch. 9)](./lorenz-equation-chaotic-attractor)
+- [x] [一维映射与倍周期分岔 (Strogatz Ch. 10)](./one-dimensional-maps-period-doubling)
+- [x] [分形几何与奇怪吸引子 (Strogatz Ch. 11)](./fractals-strange-attractors)
+- [x] [Hamilton 系统与 KAM 定理 (Guckenheimer & Holmes Ch. 7)](./hamiltonian-systems-kam-theorem)

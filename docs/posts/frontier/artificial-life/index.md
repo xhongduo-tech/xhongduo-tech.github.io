@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 人工生命定义与方法论 (Langton §1)
-- [ ] 生命的形式化与边界 (Boden §2)
-- [ ] 元胞自动机与生命游戏 (Adami §3)
-- [ ] 人工化学与自复制 (Adami §4)
-- [ ] 生命起源与最小细胞：RNA 世界与人工细胞 (Adami §2)
-- [ ] 演化与数字生命 Tierra (Adami §5)
-- [ ] Avida 与开放进化 (Adami §5-6)
-- [ ] 复杂系统与涌现 (Langton §4)
+- [x] [人工生命定义与方法论 (Langton §1)](./what-is-artificial-life)
+- [x] [生命的形式化与边界 (Boden §2)](./formalizing-life-and-boundary)
+- [x] [元胞自动机与生命游戏 (Adami §3)](./cellular-automata-game-of-life)
+- [x] [人工化学与自复制 (Adami §4)](./artificial-chemistry-self-replication)
+- [x] [生命起源与最小细胞：RNA 世界与人工细胞 (Adami §2)](./origin-of-life-rna-world-minimal-cell)
+- [x] [演化与数字生命 Tierra (Adami §5)](./digital-life-tierra-evolution)
+- [x] [Avida 与开放进化 (Adami §5-6)](./avida-open-ended-evolution)
+- [x] [复杂系统与涌现 (Langton §4)](./complex-systems-emergence)
 
 ### 第2篇
 
-- [ ] 群体动力学 (Adami §7)
-- [ ] 形态发生与发育模型 (Adami §8 / Langton 论文集)
-- [ ] 合成生物学交叉 (Boden §5)
+- [x] [群体动力学 (Adami §7)](./swarm-dynamics)
+- [x] [形态发生与发育模型 (Adami §8 / Langton 论文集)](./morphogenesis-development-models)
+- [x] [合成生物学交叉 (Boden §5)](./synthetic-biology-intersection)

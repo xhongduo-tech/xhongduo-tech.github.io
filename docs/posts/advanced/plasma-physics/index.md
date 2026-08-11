@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 等离子体定义与 Debye 屏蔽 (Chen Ch. 1-2)
-- [ ] 单粒子轨道与漂移运动 (Chen Ch. 2)
-- [ ] 磁流体力学方程 (Chen Ch. 3)
-- [ ] 等离子体振荡与色散关系 (Chen Ch. 4)
-- [ ] 等离子体波分类（EM 波与磁化等离子体色散） (Chen Ch. 4)
-- [ ] 输运过程与碰撞 (Chen Ch. 5)
-- [ ] 等离子体不稳定性 (Chen Ch. 6)
-- [ ] 动理学理论：Vlasov 方程与朗道阻尼 (Chen Ch. 7)
+- [x] [等离子体定义与 Debye 屏蔽 (Chen Ch. 1-2)](./inertial-confinement-fusion)
+- [x] [单粒子轨道与漂移运动 (Chen Ch. 2)](./single-particle-orbits-drifts)
+- [x] [磁流体力学方程 (Chen Ch. 3)](./mhd-equations)
+- [x] [等离子体振荡与色散关系 (Chen Ch. 4)](./plasma-oscillations-dispersion)
+- [x] [等离子体波分类（EM 波与磁化等离子体色散） (Chen Ch. 4)](./kinetic-theory-vlasov-landau-damping)
+- [x] [输运过程与碰撞 (Chen Ch. 5)](./transport-collisions)
+- [x] [等离子体不稳定性 (Chen Ch. 6)](./plasma-instabilities)
+- [x] [动理学理论：Vlasov 方程与朗道阻尼 (Chen Ch. 7)](./kinetic-theory-vlasov-landau-damping)
 
 ### 第2篇
 
-- [ ] 非线性效应与等离子体湍流 (Chen Ch. 8)
-- [ ] 磁约束与托卡马克 (Chen Ch. 9)
-- [ ] 惯性约束聚变 (Chen Ch. 9)
-- [ ] 等离子体诊断方法 (Goldston & Rutherford)
+- [x] [非线性效应与等离子体湍流 (Chen Ch. 8)](./nonlinear-effects-turbulence)
+- [x] [磁约束与托卡马克 (Chen Ch. 9)](./magnetic-confinement-tokamak)
+- [x] [惯性约束聚变 (Chen Ch. 9)](./inertial-confinement-fusion)
+- [x] [等离子体诊断方法 (Goldston & Rutherford)](./plasma-diagnostics)
