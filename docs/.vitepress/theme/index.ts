@@ -11,6 +11,7 @@ import './tufte-base.css'
 import './tufted.css'
 import './theme.css'
 import './custom.css'
+import './entertainment.css'
 
 export default {
   Layout,

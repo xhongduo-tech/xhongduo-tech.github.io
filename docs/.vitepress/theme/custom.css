@@ -173,7 +173,8 @@ ul div[class*='language-'] {
 .plain-doc .tuf-article section .pg,
 .plain-doc .tuf-article section .po-tier,
 .plain-doc .tuf-article section .pj-list,
-.plain-doc .tuf-article section .hs-band {
+.plain-doc .tuf-article section .hs-band,
+.plain-doc .tuf-article section .ent {
   width: 100%;
   max-width: none;
 }
@@ -550,7 +551,8 @@ body {
   .tuf-article section .pg,
   .tuf-article section .po-tier,
   .tuf-article section .pj-list,
-  .tuf-article section .hs-band {
+  .tuf-article section .hs-band,
+  .tuf-article section .ent {
     width: 100%;
     max-width: none;
   }

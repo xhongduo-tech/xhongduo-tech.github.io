@@ -1,0 +1,313 @@
+{
+  "cat": "movies",
+  "count": 13,
+  "stats": {
+    "totalAwards": 11,
+    "genres": {
+      "drama": 11,
+      "crime": 2,
+      "biopic": 4,
+      "war": 2,
+      "comedy": 2,
+      "animation": 1,
+      "fantasy": 1,
+      "action": 1,
+      "thriller": 1
+    },
+    "decades": {
+      "1950": 1,
+      "1970": 2,
+      "1980": 1,
+      "1990": 5,
+      "2000": 1,
+      "2010": 3
+    },
+    "regions": {
+      "US": 6,
+      "CN": 4,
+      "JP": 1,
+      "UK": 2
+    },
+    "yearRange": [
+      1957,
+      2017
+    ]
+  },
+  "items": [
+    {
+      "id": "12-angry-men",
+      "title": "十二怒汉",
+      "en": "12 Angry Men",
+      "year": 1957,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Sidney Lumet",
+      "region": "US",
+      "rating": {
+        "douban": 9.4,
+        "imdb": 9
+      },
+      "awards": [],
+      "note": "一间屋、十二把椅子、一场关于合理怀疑的陪审团辩论——单场景电影的天花板。",
+      "noteEn": "One room, twelve men, one argument for reasonable doubt — the ceiling of single-set cinema."
+    },
+    {
+      "id": "the-godfather",
+      "title": "教父",
+      "en": "The Godfather",
+      "year": 1972,
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "creator": "Francis Ford Coppola",
+      "region": "US",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 9.2,
+        "metacritic": 100
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "家族即系统：忠诚、背叛与权力继承的黑帮史诗，奠定了整个帮派片语法的地基。",
+      "noteEn": "The family as a system: an epic of loyalty, betrayal and succession that built the mafia-film grammar."
+    },
+    {
+      "id": "the-godfather-part-ii",
+      "title": "教父2",
+      "en": "The Godfather Part II",
+      "year": 1974,
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "creator": "Francis Ford Coppola",
+      "region": "US",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 9,
+        "metacritic": 90
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "双线交叉剪辑把移民血泪与家族崩塌并置，续集比肩原作的罕见样本。",
+      "noteEn": "Dual timelines braid an immigrant's rise against a family's fall — the rare sequel that rivals the original."
+    },
+    {
+      "id": "the-last-emperor",
+      "title": "末代皇帝",
+      "en": "The Last Emperor",
+      "year": 1987,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Bernardo Bertolucci",
+      "region": "CN",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 7.7,
+        "metacritic": 77
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "紫禁城实景拍摄，把一个囚徒皇帝的一生拍成东方与西方眼光的对话。",
+      "noteEn": "Shot inside the Forbidden City, a captive emperor's life becomes a dialogue between East and West."
+    },
+    {
+      "id": "farewell-my-concubine",
+      "title": "霸王别姬",
+      "en": "Farewell My Concubine",
+      "year": 1993,
+      "genres": [
+        "drama"
+      ],
+      "creator": "陈凯歌",
+      "region": "CN",
+      "rating": {
+        "douban": 9.6,
+        "imdb": 8.1
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "戏梦人生半个世纪，把京剧国粹、性别与政治悲剧熔进一炉的华语巅峰。",
+      "noteEn": "Half a century of opera, love and political tragedy — the pinnacle of Chinese-language cinema."
+    },
+    {
+      "id": "schindlers-list",
+      "title": "辛德勒的名单",
+      "en": "Schindler's List",
+      "year": 1993,
+      "genres": [
+        "biopic",
+        "war",
+        "drama"
+      ],
+      "creator": "Steven Spielberg",
+      "region": "US",
+      "rating": {
+        "douban": 9.5,
+        "imdb": 9,
+        "metacritic": 94
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "黑白影像里那一点红衣，是人性在灰烬中仍未被抹去的证据。",
+      "noteEn": "A single red coat in a world of black and white — proof that humanity survived the ashes."
+    },
+    {
+      "id": "forrest-gump",
+      "title": "阿甘正传",
+      "en": "Forrest Gump",
+      "year": 1994,
+      "genres": [
+        "drama",
+        "comedy"
+      ],
+      "creator": "Robert Zemeckis",
+      "region": "US",
+      "rating": {
+        "douban": 9.5,
+        "imdb": 8.8,
+        "metacritic": 82
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "用一颗纯真的心穿过美国半个世纪的乱流，笨拙本身就是一种幸运。",
+      "noteEn": "Running on innocence through half a century of American chaos — simplicity as luck."
+    },
+    {
+      "id": "the-shawshank-redemption",
+      "title": "肖申克的救赎",
+      "en": "The Shawshank Redemption",
+      "year": 1994,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Frank Darabont",
+      "region": "US",
+      "rating": {
+        "douban": 9.7,
+        "imdb": 9.3,
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "希望是好的，也许是世上最好的东西——体制化的温柔反叛。",
+      "noteEn": "Hope is a good thing, maybe the best of things — a gentle rebellion against the system."
+    },
+    {
+      "id": "to-live",
+      "title": "活着",
+      "en": "To Live",
+      "year": 1994,
+      "genres": [
+        "drama"
+      ],
+      "creator": "张艺谋",
+      "region": "CN",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 8.2
+      },
+      "awards": [],
+      "note": "一个家庭在时代洪流里反复失去，活着的意义被逼到只剩「活着」。",
+      "noteEn": "A family stripped of everything by history, until meaning is reduced to survival itself."
+    },
+    {
+      "id": "spirited-away",
+      "title": "千与千寻",
+      "en": "Spirited Away",
+      "year": 2001,
+      "genres": [
+        "animation",
+        "fantasy",
+        "drama"
+      ],
+      "creator": "宫崎骏",
+      "region": "JP",
+      "rating": {
+        "douban": 9.4,
+        "imdb": 8.6,
+        "metacritic": 96
+      },
+      "awards": [
+        "oscar",
+        "golden-bear"
+      ],
+      "note": "名字是身份的键——失去名字就失去对自身的引用，宫崎骏写给成长的温柔警告。",
+      "noteEn": "A name is the key to identity — a gentle warning about growing up from Hayao Miyazaki."
+    },
+    {
+      "id": "let-the-bullets-fly",
+      "title": "让子弹飞",
+      "en": "Let the Bullets Fly",
+      "year": 2010,
+      "genres": [
+        "action",
+        "comedy",
+        "drama"
+      ],
+      "creator": "姜文",
+      "region": "CN",
+      "rating": {
+        "douban": 9,
+        "imdb": 7.3
+      },
+      "awards": [],
+      "note": "枪声一响、隐喻满场，张麻子与黄四郎的对弈是讲不尽的寓言。",
+      "noteEn": "Bullets flying, allegory everywhere — Zhang's duel with Huang is an inexhaustible fable."
+    },
+    {
+      "id": "the-imitation-game",
+      "title": "模仿游戏",
+      "en": "The Imitation Game",
+      "year": 2014,
+      "genres": [
+        "biopic",
+        "thriller"
+      ],
+      "creator": "Morten Tyldum",
+      "region": "UK",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8,
+        "metacritic": 73
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "图灵破译恩尼格玛的秘密战争，与一个天才被时代辜负的悲剧。",
+      "noteEn": "Turing's secret war against Enigma — and a genius betrayed by the very system he saved."
+    },
+    {
+      "id": "darkest-hour",
+      "title": "至暗时刻",
+      "en": "Darkest Hour",
+      "year": 2017,
+      "genres": [
+        "biopic",
+        "war"
+      ],
+      "creator": "Joe Wright",
+      "region": "UK",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.4,
+        "metacritic": 75
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "加里·奥德曼的丘吉尔，把嘴硬、焦虑与绝不投降揉进每一次呼吸。",
+      "noteEn": "Gary Oldman's Churchill — stubbornness, anxiety and refusal to yield in every breath."
+    }
+  ]
+}

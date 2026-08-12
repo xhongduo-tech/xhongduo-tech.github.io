@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "progress": "node scripts/gen-progress.mjs",
+    "progress": "node scripts/gen-progress.mjs && node scripts/gen-entertainment.mjs",
+    "entertainment": "node scripts/gen-entertainment.mjs",
     "docs:dev": "npm run progress && NODE_OPTIONS=--max-old-space-size=8192 vitepress dev docs",
     "docs:build": "npm run progress && NODE_OPTIONS=--max-old-space-size=65536 vitepress build docs && node scripts/externalize-hashmap.mjs",
     "docs:preview": "vitepress preview docs"

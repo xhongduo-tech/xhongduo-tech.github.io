@@ -37,6 +37,23 @@ html[data-theme] 由首屏内联脚本写入，sessionStorage 持久化）
   --tuf-rule: #e0ddd0;
   --tuf-soft: #f5f5f5;
   --tuf-done: #2e7d32;
+
+  /* 娱乐大典分类色（Entertainment）：
+     --ent-X  强强调（年份徽章底/激活tab下划线/卡片顶条/评分值）
+     --ent-X-soft  卡片底/激活chip/hero色带
+     --ent-X-ink  强调底上的文字/悬停 */
+  --ent-film: #e63946;
+  --ent-film-soft: rgba(230, 57, 70, 0.10);
+  --ent-film-ink: #c1121f;
+  --ent-games: #0fb9b1;
+  --ent-games-soft: rgba(15, 185, 177, 0.12);
+  --ent-games-ink: #0a7f7a;
+  --ent-music: #7b2ff7;
+  --ent-music-soft: rgba(123, 47, 247, 0.10);
+  --ent-music-ink: #5a12c8;
+  --ent-photo: #f59e0b;
+  --ent-photo-soft: rgba(245, 158, 11, 0.12);
+  --ent-photo-ink: #b45309;
 }
 
 html[data-theme='dark'] {
@@ -77,6 +94,20 @@ html[data-theme='dark'] {
   --accent: #d98a7d;
   --accent-soft: rgba(217, 138, 125, 0.14);
   --accent-ink: #e6a499;
+
+  /* 娱乐大典分类色（暗色：提亮 + soft 提高 alpha 保可读） */
+  --ent-film: #ff6b6b;
+  --ent-film-soft: rgba(255, 107, 107, 0.16);
+  --ent-film-ink: #ffb3b3;
+  --ent-games: #2dd4bf;
+  --ent-games-soft: rgba(45, 212, 191, 0.16);
+  --ent-games-ink: #99f0e6;
+  --ent-music: #a78bfa;
+  --ent-music-soft: rgba(167, 139, 250, 0.16);
+  --ent-music-ink: #d5c8fd;
+  --ent-photo: #fbbf24;
+  --ent-photo-soft: rgba(251, 191, 36, 0.16);
+  --ent-photo-ink: #fde68a;
 }
 
 html {

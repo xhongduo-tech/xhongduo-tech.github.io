@@ -1,0 +1,247 @@
+// 娱乐大典唯一真源：四类键列表 + 分类元数据 + 校验规则。
+// gen-entertainment.mjs 从这里读取以校验并生成 meta.json；
+// 内容 Agent 只写 raw/*.json 数组，无法破坏本文件。
+//
+// 每个键 = { zh, en, emoji }；地区额外带 flag。
+
+export const CATEGORIES = {
+  movies: {
+    zh: '电影',
+    en: 'Film',
+    emoji: '🎬',
+    color: '--ent-film',
+    soft: '--ent-film-soft',
+    ink: '--ent-film-ink',
+    yearRange: [1880, 2027],
+    ratingSources: [
+      { key: 'douban', label: '豆瓣', en: 'Douban', max: 10 },
+      { key: 'imdb', label: 'IMDb', en: 'IMDb', max: 10 },
+      { key: 'metacritic', label: 'Metacritic', en: 'Metacritic', max: 100 },
+    ],
+  },
+  games: {
+    zh: '游戏',
+    en: 'Games',
+    emoji: '🎮',
+    color: '--ent-games',
+    soft: '--ent-games-soft',
+    ink: '--ent-games-ink',
+    yearRange: [1958, 2027],
+    ratingSources: [
+      { key: 'metacritic', label: 'Metacritic', en: 'Metacritic', max: 100 },
+      { key: 'steam', label: 'Steam', en: 'Steam', max: 10 },
+      { key: 'ign', label: 'IGN', en: 'IGN', max: 10 },
+    ],
+  },
+  music: {
+    zh: '音乐',
+    en: 'Music',
+    emoji: '🎵',
+    color: '--ent-music',
+    soft: '--ent-music-soft',
+    ink: '--ent-music-ink',
+    yearRange: [1400, 2027],
+    ratingSources: [
+      { key: 'rym', label: 'RYM', en: 'RYM', max: 10 },
+      { key: 'pitchfork', label: 'Pitchfork', en: 'Pitchfork', max: 10 },
+      { key: 'douban', label: '豆瓣', en: 'Douban', max: 10 },
+    ],
+  },
+  photography: {
+    zh: '摄影',
+    en: 'Photography',
+    emoji: '📷',
+    color: '--ent-photo',
+    soft: '--ent-photo-soft',
+    ink: '--ent-photo-ink',
+    yearRange: [1800, 2027],
+    ratingSources: [], // 摄影无评分
+  },
+}
+
+// 各分类流派（en 标签用于英文页；emoji 用于 chip/卡片）
+export const GENRES = {
+  movies: {
+    drama: { zh: '剧情', en: 'Drama', emoji: '🎭' },
+    comedy: { zh: '喜剧', en: 'Comedy', emoji: '😂' },
+    action: { zh: '动作', en: 'Action', emoji: '💥' },
+    scifi: { zh: '科幻', en: 'Sci-Fi', emoji: '🛸' },
+    fantasy: { zh: '奇幻', en: 'Fantasy', emoji: '🐉' },
+    horror: { zh: '恐怖', en: 'Horror', emoji: '👻' },
+    thriller: { zh: '悬疑', en: 'Thriller', emoji: '🕵️' },
+    crime: { zh: '犯罪', en: 'Crime', emoji: '🔫' },
+    romance: { zh: '爱情', en: 'Romance', emoji: '❤️' },
+    animation: { zh: '动画', en: 'Animation', emoji: '🎨' },
+    documentary: { zh: '纪录', en: 'Documentary', emoji: '🎥' },
+    war: { zh: '战争', en: 'War', emoji: '⚔️' },
+    western: { zh: '西部', en: 'Western', emoji: '🤠' },
+    musical: { zh: '歌舞', en: 'Musical', emoji: '🎶' },
+    biopic: { zh: '传记', en: 'Biopic', emoji: '🎬' },
+    noir: { zh: '黑色', en: 'Noir', emoji: '🕶️' },
+  },
+  games: {
+    'action-adventure': { zh: '动作冒险', en: 'Action-Adventure', emoji: '⚔️' },
+    rpg: { zh: '角色扮演', en: 'RPG', emoji: '🧙' },
+    'open-world': { zh: '开放世界', en: 'Open World', emoji: '🌍' },
+    shooter: { zh: '射击', en: 'Shooter', emoji: '🔫' },
+    platformer: { zh: '平台跳跃', en: 'Platformer', emoji: '🏃' },
+    puzzle: { zh: '解谜', en: 'Puzzle', emoji: '🧩' },
+    strategy: { zh: '策略', en: 'Strategy', emoji: '♟️' },
+    sim: { zh: '模拟', en: 'Simulation', emoji: '🛠️' },
+    indie: { zh: '独立', en: 'Indie', emoji: '🎲' },
+    horror: { zh: '恐怖', en: 'Horror', emoji: '👻' },
+    sports: { zh: '体育', en: 'Sports', emoji: '🏅' },
+    racing: { zh: '竞速', en: 'Racing', emoji: '🏎️' },
+    fighting: { zh: '格斗', en: 'Fighting', emoji: '🥊' },
+    rhythm: { zh: '节奏', en: 'Rhythm', emoji: '🎵' },
+    'visual-novel': { zh: '视觉小说', en: 'Visual Novel', emoji: '📖' },
+    party: { zh: '派对', en: 'Party', emoji: '🎉' },
+  },
+  music: {
+    classical: { zh: '古典', en: 'Classical', emoji: '🎻' },
+    jazz: { zh: '爵士', en: 'Jazz', emoji: '🎷' },
+    rock: { zh: '摇滚', en: 'Rock', emoji: '🎸' },
+    pop: { zh: '流行', en: 'Pop', emoji: '🎤' },
+    electronic: { zh: '电子', en: 'Electronic', emoji: '🎛️' },
+    'folk-country': { zh: '民谣乡村', en: 'Folk & Country', emoji: '🪕' },
+    hiphop: { zh: '嘻哈', en: 'Hip-Hop', emoji: '🎧' },
+    'rnb-soul': { zh: '节奏布鲁斯', en: 'R&B / Soul', emoji: '🎙️' },
+    blues: { zh: '蓝调', en: 'Blues', emoji: '🎹' },
+    world: { zh: '世界音乐', en: 'World', emoji: '🌍' },
+    'chinese-pop': { zh: '华语流行', en: 'Chinese Pop', emoji: '🎶' },
+    'japanese-korean': { zh: '日韩音乐', en: 'JP/KR Music', emoji: '🎌' },
+    soundtrack: { zh: '影视原声', en: 'Soundtrack', emoji: '🎬' },
+    'ambient-newage': { zh: '氛围/新世纪', en: 'Ambient & New Age', emoji: '🌙' },
+  },
+  photography: {
+    street: { zh: '街头', en: 'Street', emoji: '📸' },
+    bw: { zh: '黑白', en: 'Black & White', emoji: '⬛' },
+    landscape: { zh: '风光', en: 'Landscape', emoji: '🏔️' },
+    portrait: { zh: '人像', en: 'Portrait', emoji: '👤' },
+    documentary: { zh: '纪实', en: 'Documentary', emoji: '🗞️' },
+    minimal: { zh: '极简', en: 'Minimalist', emoji: '⬜' },
+    architecture: { zh: '建筑', en: 'Architecture', emoji: '🏛️' },
+    fashion: { zh: '时尚', en: 'Fashion', emoji: '👗' },
+    'nature-wildlife': { zh: '自然生态', en: 'Nature & Wildlife', emoji: '🦁' },
+    astro: { zh: '天文', en: 'Astro', emoji: '🌌' },
+    night: { zh: '夜景', en: 'Night', emoji: '🌃' },
+    urban: { zh: '城市', en: 'Urban', emoji: '🏙️' },
+  },
+}
+
+// 各分类奖项
+export const AWARDS = {
+  movies: {
+    oscar: { zh: '奥斯卡', en: 'Academy Award', emoji: '🏆' },
+    'palme-dor': { zh: '戛纳金棕榈', en: "Palme d'Or", emoji: '🌴' },
+    'golden-lion': { zh: '威尼斯金狮', en: 'Golden Lion', emoji: '🦁' },
+    'golden-bear': { zh: '柏林金熊', en: 'Golden Bear', emoji: '🐻' },
+    bafta: { zh: '英国学院奖', en: 'BAFTA', emoji: '🎭' },
+    'golden-globe': { zh: '金球奖', en: 'Golden Globe', emoji: '🌐' },
+    cesar: { zh: '凯撒奖', en: 'César', emoji: '🥇' },
+    'golden-rooster': { zh: '金鸡奖', en: 'Golden Rooster', emoji: '🐔' },
+    'golden-horse': { zh: '金马奖', en: 'Golden Horse', emoji: '🐎' },
+    'hk-film-award': { zh: '金像奖', en: 'HK Film Award', emoji: '🎬' },
+    'blue-dragon': { zh: '青龙奖', en: 'Blue Dragon', emoji: '🐉' },
+    'japan-academy': { zh: '日本学院奖', en: 'Japan Academy Prize', emoji: '🎌' },
+    siff: { zh: '金爵奖', en: 'SIFF Golden Goblet', emoji: '🏅' },
+    sundance: { zh: '圣丹斯评审团', en: 'Sundance Grand Jury', emoji: '🎪' },
+  },
+  games: {
+    'tga-goty': { zh: '年度最佳游戏', en: 'TGA Game of the Year', emoji: '🏆' },
+    dice: { zh: 'DICE 年度游戏', en: 'DICE GOTY', emoji: '🎲' },
+    'bafta-games': { zh: 'BAFTA 游戏奖', en: 'BAFTA Games', emoji: '🎮' },
+    'golden-joystick': { zh: '金摇杆', en: 'Golden Joystick', emoji: '🕹️' },
+    'japan-game-award': { zh: '日本游戏大赏', en: 'Japan Game Awards', emoji: '🎌' },
+    gdc: { zh: 'GDC 开发者选择', en: 'GDC Choice', emoji: '🛠️' },
+    igf: { zh: '独立游戏节', en: 'IGF Award', emoji: '🎮' },
+  },
+  music: {
+    grammy: { zh: '格莱美', en: 'Grammy', emoji: '🎤' },
+    mercury: { zh: '水星奖', en: 'Mercury Prize', emoji: '💿' },
+    'oscar-score': { zh: '奥斯卡配乐', en: 'Academy Score', emoji: '🎻' },
+    'golden-melody': { zh: '金曲奖', en: 'Golden Melody', emoji: '🏆' },
+    'brit-award': { zh: '全英音乐奖', en: 'BRIT Award', emoji: '🇬🇧' },
+    'polar-music': { zh: '极地音乐奖', en: 'Polar Music Prize', emoji: '🎼' },
+  },
+  photography: {
+    'world-press-photo': { zh: '荷赛奖', en: 'World Press Photo', emoji: '📰' },
+    pulitzer: { zh: '普利策', en: 'Pulitzer Prize', emoji: '🏅' },
+    hasselblad: { zh: '哈苏奖', en: 'Hasselblad Award', emoji: '📷' },
+    'leica-oscar-barnack': { zh: '徕卡巴纳克奖', en: 'Leica Oskar Barnack', emoji: '🎖️' },
+    'sony-world-photo': { zh: '索尼世界摄影奖', en: 'Sony World Photo', emoji: '📸' },
+    'nat-geo': { zh: '国家地理摄影师', en: 'Nat Geo Photographer', emoji: '🐾' },
+    'taylor-wessing': { zh: '泰勒·韦辛肖像奖', en: 'Taylor Wessing', emoji: '🎭' },
+  },
+}
+
+// 地区（ISO alpha-2 → 标签 + 旗帜）
+export const REGIONS = {
+  CN: { zh: '中国', en: 'China', flag: '🇨🇳' },
+  HK: { zh: '中国香港', en: 'Hong Kong', flag: '🇭🇰' },
+  TW: { zh: '中国台湾', en: 'Taiwan', flag: '🇹🇼' },
+  US: { zh: '美国', en: 'USA', flag: '🇺🇸' },
+  UK: { zh: '英国', en: 'UK', flag: '🇬🇧' },
+  FR: { zh: '法国', en: 'France', flag: '🇫🇷' },
+  DE: { zh: '德国', en: 'Germany', flag: '🇩🇪' },
+  IT: { zh: '意大利', en: 'Italy', flag: '🇮🇹' },
+  ES: { zh: '西班牙', en: 'Spain', flag: '🇪🇸' },
+  JP: { zh: '日本', en: 'Japan', flag: '🇯🇵' },
+  KR: { zh: '韩国', en: 'South Korea', flag: '🇰🇷' },
+  RU: { zh: '俄罗斯', en: 'Russia', flag: '🇷🇺' },
+  IN: { zh: '印度', en: 'India', flag: '🇮🇳' },
+  BR: { zh: '巴西', en: 'Brazil', flag: '🇧🇷' },
+  CA: { zh: '加拿大', en: 'Canada', flag: '🇨🇦' },
+  AU: { zh: '澳大利亚', en: 'Australia', flag: '🇦🇺' },
+  SE: { zh: '瑞典', en: 'Sweden', flag: '🇸🇪' },
+  NO: { zh: '挪威', en: 'Norway', flag: '🇳🇴' },
+  NL: { zh: '荷兰', en: 'Netherlands', flag: '🇳🇱' },
+  CH: { zh: '瑞士', en: 'Switzerland', flag: '🇨🇭' },
+  IE: { zh: '爱尔兰', en: 'Ireland', flag: '🇮🇪' },
+  PL: { zh: '波兰', en: 'Poland', flag: '🇵🇱' },
+  CZ: { zh: '捷克', en: 'Czechia', flag: '🇨🇿' },
+  AT: { zh: '奥地利', en: 'Austria', flag: '🇦🇹' },
+  BE: { zh: '比利时', en: 'Belgium', flag: '🇧🇪' },
+  PT: { zh: '葡萄牙', en: 'Portugal', flag: '🇵🇹' },
+  GR: { zh: '希腊', en: 'Greece', flag: '🇬🇷' },
+  TR: { zh: '土耳其', en: 'Turkey', flag: '🇹🇷' },
+  IL: { zh: '以色列', en: 'Israel', flag: '🇮🇱' },
+  TH: { zh: '泰国', en: 'Thailand', flag: '🇹🇭' },
+  SG: { zh: '新加坡', en: 'Singapore', flag: '🇸🇬' },
+  MY: { zh: '马来西亚', en: 'Malaysia', flag: '🇲🇾' },
+  ID: { zh: '印度尼西亚', en: 'Indonesia', flag: '🇮🇩' },
+  NZ: { zh: '新西兰', en: 'New Zealand', flag: '🇳🇿' },
+  ZA: { zh: '南非', en: 'South Africa', flag: '🇿🇦' },
+  EG: { zh: '埃及', en: 'Egypt', flag: '🇪🇬' },
+  MX: { zh: '墨西哥', en: 'Mexico', flag: '🇲🇽' },
+  AR: { zh: '阿根廷', en: 'Argentina', flag: '🇦🇷' },
+  CL: { zh: '智利', en: 'Chile', flag: '🇨🇱' },
+  CO: { zh: '哥伦比亚', en: 'Colombia', flag: '🇨🇴' },
+  VE: { zh: '委内瑞拉', en: 'Venezuela', flag: '🇻🇪' },
+  UA: { zh: '乌克兰', en: 'Ukraine', flag: '🇺🇦' },
+  RO: { zh: '罗马尼亚', en: 'Romania', flag: '🇷🇴' },
+  DK: { zh: '丹麦', en: 'Denmark', flag: '🇩🇰' },
+  FI: { zh: '芬兰', en: 'Finland', flag: '🇫🇮' },
+  IS: { zh: '冰岛', en: 'Iceland', flag: '🇮🇸' },
+  LU: { zh: '卢森堡', en: 'Luxembourg', flag: '🇱🇺' },
+  MC: { zh: '摩纳哥', en: 'Monaco', flag: '🇲🇨' },
+  SA: { zh: '沙特阿拉伯', en: 'Saudi Arabia', flag: '🇸🇦' },
+  AE: { zh: '阿联酋', en: 'UAE', flag: '🇦🇪' },
+  NG: { zh: '尼日利亚', en: 'Nigeria', flag: '🇳🇬' },
+  KE: { zh: '肯尼亚', en: 'Kenya', flag: '🇰🇪' },
+}
+
+// 各分类评分键（值必须在 [0, max] 内）
+export const RATING_KEYS = Object.fromEntries(
+  Object.entries(CATEGORIES).map(([cat, m]) => [
+    cat,
+    Object.fromEntries(m.ratingSources.map((s) => [s.key, s.max])),
+  ]),
+)
+
+export const REQUIRED_FIELDS = ['title', 'en', 'creator', 'note', 'noteEn']
+
+export const MAX_GENRES = 3
+export const MAX_AWARDS_DISPLAY = 3
+
+export const SCHEMA_VERSION = 1
