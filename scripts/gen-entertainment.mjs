@@ -89,8 +89,13 @@ function validateEntry(cat, file, idx, e) {
     }
   }
   e.genres = [...new Set(e.genres)] // 去重流派
+  // awards 可为数组；null/缺失/空 一律归一化为 []（Agent 对不确定奖项如实留空，
+  // 符合「禁止编造」红线，不应因此报错）
+  if (e.awards === undefined || e.awards === null) {
+    e.awards = []
+  }
   if (!Array.isArray(e.awards)) {
-    err(`${where} awards 必须为数组`)
+    err(`${where} awards 必须为数组（当前: ${JSON.stringify(e.awards)}）`)
     return null
   }
   const aw = []
@@ -133,14 +138,6 @@ function validateEntry(cat, file, idx, e) {
     err(`${where} id 必须为非空字符串`)
     return null
   }
-  // 去重
-  const key = normEn(e.en)
-  if (seenEn.has(key)) {
-    const prev = seenEn.get(key)
-    err(`${where} 与 ${prev.file}[${prev.idx}]（en: "${prev.en}"）重复；若为翻拍/重制请用可区分的 en 标题`)
-    return null
-  }
-  seenEn.set(key, { cat, file, idx, en: e.en })
   return e
 }
 
@@ -154,6 +151,7 @@ function mergeCat(cat) {
     return []
   }
   const items = []
+  const byKey = new Map() // normEn -> item
   for (const file of files) {
     let raw
     try {
@@ -175,7 +173,26 @@ function mergeCat(cat) {
     }
     arr.forEach((e, idx) => {
       const v = validateEntry(cat, file, idx, e)
-      if (v) items.push(v)
+      if (!v) return
+      // 同一电影被多个 Agent 按不同主流派收录（如 Inception 既是 scifi 也属 action）：
+      // 合并流派/奖项/评分，保留第一个的 title/en/creator/region/note。
+      const key = normEn(v.en)
+      const prev = byKey.get(key)
+      if (prev) {
+        warn(`[${cat}] ${file}[${idx}]（en: "${v.en}"）与 ${prev.__src} 为同一部作品，已合并流派/奖项/评分`)
+        prev.genres = [...new Set([...prev.genres, ...v.genres])]
+        prev.awards = [...new Set([...prev.awards, ...v.awards])]
+        if (v.rating) {
+          prev.rating = { ...(prev.rating || {}), ...v.rating }
+        }
+        // note 保留更具体的一条（字数多者优先）
+        if ((v.note || '').length > (prev.note || '').length) prev.note = v.note
+        if ((v.noteEn || '').length > (prev.noteEn || '').length) prev.noteEn = v.noteEn
+        return
+      }
+      v.__src = `${file}[${idx}]`
+      byKey.set(key, v)
+      items.push(v)
     })
   }
   // 排序：year 升序，同年在按 en 字母序
@@ -189,6 +206,7 @@ function computeStats(cat, items) {
   const regions = {}
   let totalAwards = 0
   for (const it of items) {
+    delete it.__src // 内部字段不进最终数据
     for (const g of it.genres) genres[g] = (genres[g] || 0) + 1
     const d = Math.floor(it.year / 10) * 10
     decades[d] = (decades[d] || 0) + 1
@@ -205,7 +223,7 @@ function computeStats(cat, items) {
   }
 }
 
-function buildMeta() {
+function buildMeta(results) {
   return {
     schemaVersion: 1,
     categories: Object.fromEntries(
@@ -220,6 +238,13 @@ function buildMeta() {
           ink: m.ink,
           ratingSources: m.ratingSources,
         },
+      ]),
+    ),
+    // 各分类统计摘要：组件 hero 无需加载分类数据即可显示完整数字（配合懒加载）
+    categoryStats: Object.fromEntries(
+      Object.entries(results).map(([cat, r]) => [
+        cat,
+        { count: r.count, totalAwards: r.stats.totalAwards, yearRange: r.stats.yearRange },
       ]),
     ),
     genres: GENRES,
@@ -302,7 +327,20 @@ for (const cat of Object.keys(CATEGORIES)) {
   )
 }
 
-const meta = buildMeta()
+// ---------- id 唯一性校验（同 id 不同 en = 未消歧的重复，报错） ----------
+for (const cat of Object.keys(CATEGORIES)) {
+  const seen = new Map() // id -> en
+  for (const it of results[cat].items) {
+    const prevEn = seen.get(it.id)
+    if (prevEn && prevEn !== it.en) {
+      err(`[${cat}] id "${it.id}" 被两个不同作品使用（"${prevEn}" 与 "${it.en}"）；请给其中一个提供唯一 id`)
+    } else {
+      seen.set(it.id, it.en)
+    }
+  }
+}
+
+const meta = buildMeta(results)
 writeFileSync(join(OUT_DIR, 'meta.json'), JSON.stringify(meta, null, 2) + '\n')
 writeFileSync(CHARTER_PATH, renderCharter())
 

@@ -1,12 +1,3809 @@
 {
   "cat": "photography",
-  "count": 0,
+  "count": 250,
   "stats": {
-    "totalAwards": 0,
-    "genres": {},
-    "decades": {},
-    "regions": {},
-    "yearRange": null
+    "totalAwards": 42,
+    "genres": {
+      "astro": 23,
+      "portrait": 42,
+      "landscape": 35,
+      "nature-wildlife": 28,
+      "documentary": 41,
+      "bw": 43,
+      "urban": 47,
+      "night": 29,
+      "street": 41,
+      "architecture": 23,
+      "fashion": 24,
+      "minimal": 22
+    },
+    "decades": {
+      "1840": 1,
+      "1860": 4,
+      "1870": 1,
+      "1880": 1,
+      "1890": 1,
+      "1900": 3,
+      "1910": 4,
+      "1920": 6,
+      "1930": 14,
+      "1940": 12,
+      "1950": 17,
+      "1960": 18,
+      "1970": 26,
+      "1980": 23,
+      "1990": 42,
+      "2000": 37,
+      "2010": 39,
+      "2020": 1
+    },
+    "regions": {
+      "US": 117,
+      "FR": 19,
+      "UK": 20,
+      "DE": 18,
+      "TW": 1,
+      "CA": 9,
+      "JP": 17,
+      "HK": 3,
+      "CZ": 1,
+      "ES": 2,
+      "IT": 3,
+      "TR": 2,
+      "ZA": 4,
+      "AU": 3,
+      "IN": 2,
+      "BR": 4,
+      "MX": 1,
+      "CN": 9,
+      "RU": 1,
+      "NL": 5,
+      "UA": 1,
+      "DK": 1,
+      "CH": 1,
+      "KE": 2,
+      "NZ": 1,
+      "NO": 1,
+      "SE": 1,
+      "IL": 1
+    },
+    "yearRange": [
+      1840,
+      2022
+    ]
   },
-  "items": []
+  "items": [
+    {
+      "id": "first-daguerreotype-of-the-moon",
+      "title": "首张月球银版照片",
+      "en": "First Daguerreotype of the Moon",
+      "year": 1840,
+      "genres": [
+        "astro"
+      ],
+      "creator": "John W. Draper",
+      "region": "US",
+      "note": "摄影术诞生仅一年后即拍下月球表面细节，天文摄影的开端。",
+      "noteEn": "Lunar surface detail captured just a year after photography's invention — the dawn of astrophotography.",
+      "awards": []
+    },
+    {
+      "id": "sarah-bernhardt-nadar",
+      "title": "莎拉·伯恩哈特",
+      "en": "Sarah Bernhardt",
+      "year": 1864,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Nadar",
+      "region": "FR",
+      "awards": [],
+      "note": "19世纪名流的「肖像圣殿」，作者本人还是乘气球航拍巴黎的第一人。",
+      "noteEn": "A 19th-century temple of celebrity portraits, by a photographer-aeronaut who also made Paris's first aerial shots."
+    },
+    {
+      "id": "alfred-lord-tennyson",
+      "title": "阿尔弗雷德·丁尼生",
+      "en": "Alfred, Lord Tennyson",
+      "year": 1866,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Julia Margaret Cameron",
+      "region": "UK",
+      "awards": [],
+      "note": "柔焦湿板里的桂冠诗人，摄影争取艺术身份的早期证明。",
+      "noteEn": "A soft-focus wet-plate poet laureate—photography claiming its place as art."
+    },
+    {
+      "id": "valley-of-the-yosemite",
+      "title": "约塞米蒂河谷",
+      "en": "Valley of the Yosemite",
+      "year": 1866,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Carleton Watkins",
+      "region": "US",
+      "awards": [],
+      "note": "19世纪用巨型湿板相机拍约塞米蒂，直接推动了国家公园的建立。",
+      "noteEn": "Mammoth wet-plate views of Yosemite in the 19th century that helped create the national parks."
+    },
+    {
+      "id": "yosemite-valley",
+      "title": "优胜美地谷",
+      "en": "Yosemite Valley",
+      "year": 1867,
+      "genres": [
+        "nature-wildlife",
+        "landscape"
+      ],
+      "creator": "Carleton Watkins",
+      "region": "US",
+      "note": "湿版大画幅第一次让美国西部荒野震撼国会，直接促成优胜美地成为受保护公园。",
+      "noteEn": "Giant wet-plate views of the West so awed Congress they helped make Yosemite a protected park.",
+      "awards": []
+    },
+    {
+      "id": "ancient-ruins-canyon-de-chelly",
+      "title": "峡谷地古城遗址",
+      "en": "Ancient Ruins in the Canyon de Chelle",
+      "year": 1873,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Timothy O'Sullivan",
+      "region": "US",
+      "awards": [],
+      "note": "内战后西部勘探摄影的产物，岩壁与废墟有一种惊人的现代感。",
+      "noteEn": "A product of post-Civil War survey photography—cliffs and ruins startlingly modern in feel."
+    },
+    {
+      "id": "andromeda-galaxy",
+      "title": "仙女座星系",
+      "en": "The Andromeda Galaxy",
+      "year": 1888,
+      "genres": [
+        "astro"
+      ],
+      "creator": "Isaac Roberts",
+      "region": "UK",
+      "note": "首次用长时间曝光揭示仙女座星系的旋涡结构，证明摄影能看见人眼看不到的宇宙。",
+      "noteEn": "Long exposure revealing Andromeda's spiral structure — proof photography sees what the eye cannot.",
+      "awards": []
+    },
+    {
+      "id": "how-the-other-half-lives",
+      "title": "另一半人怎么活",
+      "en": "How the Other Half Lives",
+      "year": 1890,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Jacob Riis",
+      "region": "US",
+      "awards": [],
+      "note": "用镁光闪进纽约贫民窟，社会纪实摄影的起点。",
+      "noteEn": "Flash-lit tenements of the New York poor—the dawn of social documentary."
+    },
+    {
+      "id": "the-flatiron",
+      "title": "平顶大厦",
+      "en": "The Flatiron",
+      "year": 1904,
+      "genres": [
+        "bw",
+        "urban"
+      ],
+      "creator": "Edward Steichen",
+      "region": "US",
+      "awards": [],
+      "note": "雨雾中湿漉漉的熨斗大厦，画意摄影最著名的浪漫剪影。",
+      "noteEn": "The Flatiron in rain and fog—the most famous romantic silhouette of Pictorialism."
+    },
+    {
+      "id": "flatiron-building",
+      "title": "熨斗大厦",
+      "en": "The Flatiron Building",
+      "year": 1904,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Edward Steichen",
+      "region": "US",
+      "note": "暮色与雪中的熨斗大厦被拍成印象派式的剪影，早期画意摄影转向现代的一步。",
+      "noteEn": "The Flatiron in dusk and snow as an Impressionist silhouette — pictorialism stepping toward the modern.",
+      "awards": []
+    },
+    {
+      "id": "the-steerage",
+      "title": "舵楼",
+      "en": "The Steerage",
+      "year": 1907,
+      "genres": [
+        "bw",
+        "street"
+      ],
+      "creator": "Alfred Stieglitz",
+      "region": "US",
+      "awards": [],
+      "note": "三等舱甲板上的人群被抽象成几何，被视作现代摄影的分水岭。",
+      "noteEn": "Passengers on the steerage deck abstracted into geometry—a watershed of modern photography."
+    },
+    {
+      "id": "old-paris-atget",
+      "title": "老巴黎",
+      "en": "Old Paris",
+      "year": 1910,
+      "genres": [
+        "bw",
+        "urban"
+      ],
+      "creator": "Eugène Atget",
+      "region": "FR",
+      "awards": [],
+      "note": "赶在现代化前，为旧巴黎的店铺与街巷留下一整座影像档案馆。",
+      "noteEn": "An archive of old Paris storefronts and streets, made before modernisation swept them away."
+    },
+    {
+      "id": "vieux-paris",
+      "title": "老巴黎",
+      "en": "Vieux Paris",
+      "year": 1911,
+      "genres": [
+        "architecture",
+        "street"
+      ],
+      "creator": "Eugène Atget",
+      "region": "FR",
+      "note": "在大拆建前记录中世纪巴黎的街巷与店面，被超现实主义者奉为先知，纪实与艺术在此交汇。",
+      "noteEn": "Documenting medieval Paris before the wrecking ball — adopted by the Surrealists as a prophet of documentary art.",
+      "awards": []
+    },
+    {
+      "id": "wall-street-strand",
+      "title": "华尔街",
+      "en": "Wall Street",
+      "year": 1915,
+      "genres": [
+        "bw",
+        "urban"
+      ],
+      "creator": "Paul Strand",
+      "region": "US",
+      "awards": [],
+      "note": "金融区街角穿黑衣的上班族排成抽象剪影，现代主义摄影的序章。",
+      "noteEn": "Black-coated clerks at a Wall Street corner—abstraction before its time."
+    },
+    {
+      "id": "the-1919-solar-eclipse",
+      "title": "1919年日全食",
+      "en": "The 1919 Solar Eclipse",
+      "year": 1919,
+      "genres": [
+        "astro"
+      ],
+      "creator": "Arthur Eddington (expedition)",
+      "region": "UK",
+      "note": "日食观测中恒星位置的偏移验证了广义相对论，摄影直接参与了物理学革命。",
+      "noteEn": "Starlight bending during totality confirmed general relativity — photography at the heart of a physics revolution.",
+      "awards": []
+    },
+    {
+      "id": "powerhouse-mechanic",
+      "title": "动力车间机械师",
+      "en": "Powerhouse Mechanic",
+      "year": 1920,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Lewis Hine",
+      "region": "US",
+      "awards": [],
+      "note": "童工调查摄影师把工人拍成雕像般的英雄，摄影推动了劳动法。",
+      "noteEn": "The child-labour reformer photographed workers as statuesque heroes—images that helped change labour law."
+    },
+    {
+      "id": "noire-et-blanche",
+      "title": "黑与白",
+      "en": "Noire et Blanche",
+      "year": 1926,
+      "genres": [
+        "portrait",
+        "fashion"
+      ],
+      "creator": "Man Ray",
+      "region": "US",
+      "awards": [],
+      "note": "非洲面具与基基的脸并置，超现实主义肖像的经典。",
+      "noteEn": "An African mask beside Kiki's face—a classic surrealist portrait."
+    },
+    {
+      "id": "atlas-of-selected-regions",
+      "title": "银河选区星图",
+      "en": "Atlas of Selected Regions of the Milky Way",
+      "year": 1927,
+      "genres": [
+        "astro"
+      ],
+      "creator": "E. E. Barnard",
+      "region": "US",
+      "note": "几十年巡天的摄影星图集，首次系统展示银河暗星云的结构，天文学里程碑。",
+      "noteEn": "Decades of sky photography that first charted the Milky Way's dark nebulae — a milestone of astronomy.",
+      "awards": []
+    },
+    {
+      "id": "nautilus-shell",
+      "title": "鹦鹉螺",
+      "en": "Nautilus Shell",
+      "year": 1927,
+      "genres": [
+        "nature-wildlife",
+        "bw"
+      ],
+      "creator": "Edward Weston",
+      "region": "US",
+      "note": "一颗螺壳被拍成螺旋的完美几何，现代主义把「直接摄影」推向造型的极致。",
+      "noteEn": "A single shell distilled into perfect spiral geometry — modernist \"straight photography\" at its sculptural peak.",
+      "awards": []
+    },
+    {
+      "id": "art-forms-in-nature",
+      "title": "自然的艺术形态",
+      "en": "Art Forms in Nature",
+      "year": 1928,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Karl Blossfeldt",
+      "region": "DE",
+      "awards": [],
+      "note": "植物局部的放大特写，成为包豪斯与极简美学的意外灵感。",
+      "noteEn": "Extreme close-ups of plant forms—an unlikely source of Bauhaus and minimalist aesthetics."
+    },
+    {
+      "id": "people-of-the-20th-century",
+      "title": "二十世纪的人",
+      "en": "People of the 20th Century",
+      "year": 1929,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "August Sander",
+      "region": "DE",
+      "awards": [],
+      "note": "按职业分类的德国社会档案，被纳粹视为危险而禁售。",
+      "noteEn": "A social archive of Germany classified by occupation—banned by the Nazis as dangerous."
+    },
+    {
+      "id": "pepper-no-30",
+      "title": "胡椒 No.30",
+      "en": "Pepper No. 30",
+      "year": 1930,
+      "genres": [
+        "bw",
+        "minimal"
+      ],
+      "creator": "Edward Weston",
+      "region": "US",
+      "awards": [],
+      "note": "一颗青椒被拍出雕塑般的曲线，证明照片能抵达物的本质。",
+      "noteEn": "A single pepper rendered as sculpture—proof that a photograph can reach a thing's essence."
+    },
+    {
+      "id": "behind-the-gare-saint-lazare",
+      "title": "圣拉扎尔车站后",
+      "en": "Behind the Gare Saint-Lazare",
+      "year": 1932,
+      "genres": [
+        "street",
+        "bw"
+      ],
+      "creator": "Henri Cartier-Bresson",
+      "region": "FR",
+      "awards": [],
+      "note": "跃过水洼的男子与身后海报女郎剪影几乎悬空呼应，被奉为抓拍的圣像。",
+      "noteEn": "A man leaping over a puddle answers the dancer on the poster—canonised as the icon of the candid shot."
+    },
+    {
+      "id": "nightview-new-york",
+      "title": "纽约夜景",
+      "en": "Nightview, New York",
+      "year": 1932,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Berenice Abbott",
+      "region": "US",
+      "note": "在摩天楼拔地而起的年代记录曼哈顿夜色，「变化中的纽约」项目的代表影像。",
+      "noteEn": "Manhattan at night during the skyscraper boom — a signature of her \"Changing New York\" project.",
+      "awards": []
+    },
+    {
+      "id": "jean-harlow-hurrell",
+      "title": "琼·哈洛",
+      "en": "Jean Harlow",
+      "year": 1933,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "George Hurrell",
+      "region": "US",
+      "awards": [],
+      "note": "好莱坞黄金时代的光影把明星拍成神，一代影人的造像标准。",
+      "noteEn": "Hollywood's golden-age lighting that shot stars as gods—the standard for a generation of glamour."
+    },
+    {
+      "id": "paris-by-night",
+      "title": "巴黎之夜",
+      "en": "Paris by Night",
+      "year": 1933,
+      "genres": [
+        "street",
+        "night"
+      ],
+      "creator": "Brassaï",
+      "region": "FR",
+      "awards": [],
+      "note": "深夜巴黎的雾、煤气灯与情侣，把夜生活拍成一座地下宫殿。",
+      "noteEn": "Fog, gaslight and lovers in night Paris—the nocturnal city as an underground palace."
+    },
+    {
+      "id": "paris-de-nuit",
+      "title": "夜巴黎",
+      "en": "Paris de nuit",
+      "year": 1933,
+      "genres": [
+        "night",
+        "street"
+      ],
+      "creator": "Brassaï",
+      "region": "FR",
+      "note": "第一次系统拍摄雨夜巴黎的湿漉街巷与咖啡馆，确立了「夜间摄影」这一体裁。",
+      "noteEn": "The first systematic night portrait of wet Paris streets and cafés — founding night photography as a genre.",
+      "awards": []
+    },
+    {
+      "id": "majestic-solitude",
+      "title": "春树奇峰",
+      "en": "Majestic Solitude",
+      "year": 1934,
+      "genres": [
+        "bw",
+        "landscape"
+      ],
+      "creator": "Lang Jingshan",
+      "region": "TW",
+      "awards": [],
+      "note": "用多张底片在暗房合成的水墨山水，集锦摄影的开山之作。",
+      "noteEn": "A darkroom composite of multiple negatives turned into ink-wash landscape—the origin of \"composite photography\"."
+    },
+    {
+      "id": "migrant-mother",
+      "title": "迁徙的母亲",
+      "en": "Migrant Mother",
+      "year": 1936,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Dorothea Lange",
+      "region": "US",
+      "awards": [],
+      "note": "大萧条营地里的母亲，一根皱紧的眉成为整整一个时代的脸。",
+      "noteEn": "A mother in a Depression camp—one furrowed brow became the face of an era."
+    },
+    {
+      "id": "the-falling-soldier",
+      "title": "倒下的士兵",
+      "en": "The Falling Soldier",
+      "year": 1936,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Robert Capa",
+      "region": "US",
+      "awards": [],
+      "note": "西班牙内战里士兵中弹倒下的瞬间，战地摄影的传说（真实性常被质疑）。",
+      "noteEn": "A soldier caught mid-fall in the Spanish Civil War—the legend of war photography, authenticity long debated."
+    },
+    {
+      "id": "fallingwater",
+      "title": "流水别墅",
+      "en": "Fallingwater",
+      "year": 1937,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Bill Hedrich (Hedrich-Blessing)",
+      "region": "US",
+      "note": "赖特悬在瀑布上的名宅，1937年的经典影像让「有机建筑」理念成为全美焦点。",
+      "noteEn": "The iconic 1937 view of Wright's house over the waterfall — the image that made organic architecture famous.",
+      "awards": []
+    },
+    {
+      "id": "a-night-in-london",
+      "title": "伦敦之夜",
+      "en": "A Night in London",
+      "year": 1938,
+      "genres": [
+        "night",
+        "street",
+        "bw"
+      ],
+      "creator": "Bill Brandt",
+      "region": "UK",
+      "note": "战前伦敦的霓虹、睡在桥下的人与剧场后台，用强烈明暗写出城市的阶层剖面。",
+      "noteEn": "Pre-war neon, sleepers under bridges, theater wings — stark chiaroscuro mapping London's class divide.",
+      "awards": []
+    },
+    {
+      "id": "american-photographs",
+      "title": "美国照片",
+      "en": "American Photographs",
+      "year": 1938,
+      "genres": [
+        "urban",
+        "documentary",
+        "bw"
+      ],
+      "creator": "Walker Evans",
+      "region": "US",
+      "note": "大萧条时期美国城乡的冷静实录，确立纪实摄影的美学与伦理标高。",
+      "noteEn": "A dispassionate record of Depression-era America — setting the aesthetic and ethical bar for documentary.",
+      "awards": []
+    },
+    {
+      "id": "changing-new-york",
+      "title": "纽约变迁",
+      "en": "Changing New York",
+      "year": 1939,
+      "genres": [
+        "bw",
+        "architecture",
+        "urban"
+      ],
+      "creator": "Berenice Abbott",
+      "region": "US",
+      "awards": [],
+      "note": "在旧纽约被拆掉之前，用大画幅相机为它的街巷立传。",
+      "noteEn": "Large-format portraits of old New York, made before demolition erased it."
+    },
+    {
+      "id": "mainbocher-corset",
+      "title": "曼波彻束腰",
+      "en": "Mainbocher Corset",
+      "year": 1939,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Horst P. Horst",
+      "region": "US",
+      "note": "背对镜头的模特束腰曲线如古典雕塑，是《Vogue》黄金时代最著名的时尚影像之一。",
+      "noteEn": "A model's back in a Mainbocher corset, sculptural as a Greek statue — one of Vogue's golden-age icons.",
+      "awards": []
+    },
+    {
+      "id": "moonrise-hernandez",
+      "title": "月升，埃尔南德斯",
+      "en": "Moonrise, Hernandez, New Mexico",
+      "year": 1941,
+      "genres": [
+        "nature-wildlife",
+        "landscape",
+        "bw"
+      ],
+      "creator": "Ansel Adams",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "在光线转瞬即逝里凭「预视」拍下的月升，是安塞尔·亚当斯区域曝光法的完美例证。",
+      "noteEn": "A moonrise captured on instinct through \"previsualization\" — the perfect proof of Adams' zone system."
+    },
+    {
+      "id": "winston-churchill-karsh",
+      "title": "温斯顿·丘吉尔",
+      "en": "Winston Churchill",
+      "year": 1941,
+      "genres": [
+        "bw"
+      ],
+      "creator": "Yousuf Karsh",
+      "region": "CA",
+      "awards": [],
+      "note": "夺走雪茄换来的怒目而视，成了英国不愿屈服的象征。",
+      "noteEn": "The snatched cigar earned a glare that became Britain's defiance."
+    },
+    {
+      "id": "the-tetons-and-the-snake-river",
+      "title": "提顿山与蛇河",
+      "en": "The Tetons and the Snake River",
+      "year": 1942,
+      "genres": [
+        "landscape",
+        "bw"
+      ],
+      "creator": "Ansel Adams",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "区域曝光法把山脉与河流压成层次分明的乐章，美国西部的圣像。",
+      "noteEn": "The Zone System turns mountain and river into a clearly-articulated symphony—the American West's icon."
+    },
+    {
+      "id": "clearing-winter-storm",
+      "title": "清除冬季风暴",
+      "en": "Clearing Winter Storm, Yosemite",
+      "year": 1944,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Ansel Adams",
+      "region": "US",
+      "awards": [],
+      "note": "风暴初歇的约塞米蒂，云与花岗岩的剧烈对照。",
+      "noteEn": "Yosemite as the storm lifts—a stark play of cloud against granite."
+    },
+    {
+      "id": "naked-city",
+      "title": "赤裸城市",
+      "en": "Naked City",
+      "year": 1945,
+      "genres": [
+        "night",
+        "street",
+        "documentary"
+      ],
+      "creator": "Weegee",
+      "region": "US",
+      "note": "闪光灯+夜班收音机扫街，把凶案、火灾与夜店写成纽约最赤裸的社会纪实。",
+      "noteEn": "Flash and a police-band radio — crime, fire and nightlife as the rawest social record of New York.",
+      "awards": []
+    },
+    {
+      "id": "igor-stravinsky",
+      "title": "斯特拉文斯基",
+      "en": "Igor Stravinsky",
+      "year": 1946,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Arnold Newman",
+      "region": "US",
+      "awards": [],
+      "note": "钢琴盖像帽子一样扣住作曲家，环境肖像的教科书。",
+      "noteEn": "A piano lid framing the composer like a hat—the environmental portrait perfected."
+    },
+    {
+      "id": "point-lobos",
+      "title": "波因特洛沃斯",
+      "en": "Point Lobos",
+      "year": 1946,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Edward Weston",
+      "region": "US",
+      "awards": [],
+      "note": "岩石与海水的形态被拍成雕塑般的纹理，一生凝视同一片海岸。",
+      "noteEn": "Rocks and surf reduced to sculptural form and texture—a lifetime at one coastline."
+    },
+    {
+      "id": "country-doctor",
+      "title": "乡间医生",
+      "en": "Country Doctor",
+      "year": 1948,
+      "genres": [
+        "bw",
+        "documentary"
+      ],
+      "creator": "W. Eugene Smith",
+      "region": "US",
+      "awards": [],
+      "note": "与科罗拉多乡村医生同吃同住数周，把照片故事（photo essay）推到巅峰。",
+      "noteEn": "Weeks living with a rural Colorado doctor—the photo essay pushed to its peak."
+    },
+    {
+      "id": "dali-atomicus",
+      "title": "达利的原子",
+      "en": "Dalí Atomicus",
+      "year": 1948,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Philippe Halsman",
+      "region": "US",
+      "awards": [],
+      "note": "六小时、28次跳跃与泼水，才定格下达利与猫同时悬空的一瞬。",
+      "noteEn": "Six hours, 28 jumps and flying water to freeze Dalí and the cats mid-air."
+    },
+    {
+      "id": "in-the-street",
+      "title": "在街上",
+      "en": "In the Street",
+      "year": 1948,
+      "genres": [
+        "urban",
+        "street",
+        "documentary"
+      ],
+      "creator": "Helen Levitt",
+      "region": "US",
+      "note": "哈莱姆儿童在街头游戏的黑白影像，把城市街头拍成孩子主宰的剧场。",
+      "noteEn": "Children at play in Harlem's streets — the urban sidewalk as a theater ruled by kids.",
+      "awards": []
+    },
+    {
+      "id": "chicago-callahan",
+      "title": "芝加哥",
+      "en": "Chicago",
+      "year": 1949,
+      "genres": [
+        "street"
+      ],
+      "creator": "Harry Callahan",
+      "region": "US",
+      "awards": [],
+      "note": "多重曝光与极简构图把芝加哥的日常抽成黑白几何，妻女是永远的主角。",
+      "noteEn": "Multiple exposures and stark minimalism abstract Chicago's everyday—his wife and daughter the eternal subjects."
+    },
+    {
+      "id": "new-york-at-night",
+      "title": "纽约之夜",
+      "en": "New York at Night",
+      "year": 1949,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Andreas Feininger",
+      "region": "US",
+      "note": "LIFE杂志的摩天楼夜景，长焦压缩把曼哈顿的天际线叠成一片光的墙。",
+      "noteEn": "LIFE's telephoto night shots stacking Manhattan's skyline into a wall of light.",
+      "awards": []
+    },
+    {
+      "id": "le-baiser-de-l-hotel-de-ville",
+      "title": "市政厅之吻",
+      "en": "Le Baiser de l'Hôtel de Ville",
+      "year": 1950,
+      "genres": [
+        "street"
+      ],
+      "creator": "Robert Doisneau",
+      "region": "FR",
+      "awards": [],
+      "note": "巴黎街头拥吻的定格，多年后才承认是摆拍，却依旧是浪漫街拍的代名词。",
+      "noteEn": "A kiss on a Paris street, later admitted staged—still the emblem of romantic street photography."
+    },
+    {
+      "id": "rudolph-burckhardt-new-york",
+      "title": "鲁道夫·伯克哈特：纽约",
+      "en": "Rudolph Burckhardt: New York",
+      "year": 1950,
+      "genres": [
+        "urban",
+        "street"
+      ],
+      "creator": "Rudolph Burckhardt",
+      "region": "US",
+      "note": "毕生拍摄纽约街景的「城市诗人」，用轻快的构图见证都市的日常诗意。",
+      "noteEn": "A lifelong chronicler of New York street life — light compositions catching the everyday poetry of the city.",
+      "awards": []
+    },
+    {
+      "id": "sand-dune-ueda",
+      "title": "砂丘",
+      "en": "Sand Dune",
+      "year": 1950,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Shoji Ueda",
+      "region": "JP",
+      "awards": [],
+      "note": "鸟取砂丘上家人摆成的超现实剪影，像一场被导演的白日梦。",
+      "noteEn": "Family posed on Tottori's dunes as surreal silhouettes—a staged daydream."
+    },
+    {
+      "id": "the-mermaid-dress",
+      "title": "美人鱼礼服",
+      "en": "The Mermaid Dress",
+      "year": 1950,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Irving Penn",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "丽莎·冯萨格里斯身穿紧身鱼尾礼服，严谨构图与雕塑感剪影奠定工作室时尚摄影范式。",
+      "noteEn": "Lisa Fonssagrives in a form-fitting evening gown — precise composition and sculpted silhouette define studio fashion."
+    },
+    {
+      "id": "small-trades",
+      "title": "小商贩",
+      "en": "Small Trades",
+      "year": 1951,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Irving Penn",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "巴黎与伦敦的屠夫、面包师站在灰色背景前，每个职业都有尊严。",
+      "noteEn": "Paris and London tradespeople posed against grey—the dignity of craft, one trade at a time."
+    },
+    {
+      "id": "the-decisive-moment",
+      "title": "决定性瞬间",
+      "en": "The Decisive Moment",
+      "year": 1952,
+      "genres": [
+        "street",
+        "bw"
+      ],
+      "creator": "Henri Cartier-Bresson",
+      "region": "FR",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "布列松把「决定性瞬间」变成摄影的方法论：在流动的街头等几何与时机同时闭合的那一帧。",
+      "noteEn": "Cartier-Bresson turned \"the decisive moment\" into a method: waiting for geometry and timing to close in one flowing frame."
+    },
+    {
+      "id": "unite-dhabitation",
+      "title": "马赛公寓",
+      "en": "Unité d'Habitation",
+      "year": 1953,
+      "genres": [
+        "architecture",
+        "bw"
+      ],
+      "creator": "Lucien Hervé",
+      "region": "FR",
+      "note": "勒·柯布西耶的御用摄影师，用强烈黑白明暗与俯仰角度把混凝土粗野主义拍出雕塑般的节奏。",
+      "noteEn": "Le Corbusier's house photographer, whose stark blacks and bold angles give raw concrete a sculptural rhythm.",
+      "awards": []
+    },
+    {
+      "id": "approaching-shadow",
+      "title": "临近的阴影",
+      "en": "Approaching Shadow",
+      "year": 1954,
+      "genres": [
+        "night",
+        "street",
+        "bw"
+      ],
+      "creator": "何藩 Fan Ho",
+      "region": "HK",
+      "note": "香港旧楼间的光影几何，构图精练得像版画，是何藩最出圈的一张。",
+      "noteEn": "Light and geometry between old Hong Kong tenements, composed like a woodcut—Fan Ho's best-known frame.",
+      "awards": []
+    },
+    {
+      "id": "the-window-of-my-atelier",
+      "title": "工作室之窗",
+      "en": "The Window of My Atelier",
+      "year": 1954,
+      "genres": [
+        "bw",
+        "minimal"
+      ],
+      "creator": "Josef Sudek",
+      "region": "CZ",
+      "awards": [],
+      "note": "数十年凝视同一扇窗，光在玻璃与雾气上画水彩。",
+      "noteEn": "Decades of the same window—light painting watercolours on glass and fog."
+    },
+    {
+      "id": "dovima-with-elephants",
+      "title": "朵维玛与大象",
+      "en": "Dovima with Elephants",
+      "year": 1955,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Richard Avedon",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "巴黎马戏团里黑衣模特在两头大象间的定格，被评为一世纪最重要的时尚照片之一。",
+      "noteEn": "A black-gowned model frozen between circus elephants in Paris — voted one of the century's defining fashion images."
+    },
+    {
+      "id": "marilyn-monroe-arnold",
+      "title": "玛丽莲·梦露",
+      "en": "Marilyn Monroe",
+      "year": 1955,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Eve Arnold",
+      "region": "US",
+      "awards": [],
+      "note": "镁光灯下的倦怠，明星面孔背后藏着一层脆弱。",
+      "noteEn": "Weariness under the lights—the fragility behind the star."
+    },
+    {
+      "id": "the-family-of-man",
+      "title": "人类的大家庭",
+      "en": "The Family of Man",
+      "year": 1955,
+      "genres": [
+        "bw"
+      ],
+      "creator": "Edward Steichen",
+      "region": "US",
+      "awards": [],
+      "note": "273位摄影师、503张照片的史诗展览，冷战年代「人同此心」的最大证明。",
+      "noteEn": "An epic exhibition of 503 prints by 273 photographers—a Cold War testament to shared humanity."
+    },
+    {
+      "id": "vivian-maier-street-photographer",
+      "title": "薇薇安·迈尔街头摄影",
+      "en": "Vivian Maier: Street Photographer",
+      "year": 1955,
+      "genres": [
+        "urban",
+        "street"
+      ],
+      "creator": "Vivian Maier",
+      "region": "US",
+      "note": "保姆身份藏匿一生的街头杰作，遗物拍卖后被世界发现，成为业余摄影的传奇。",
+      "noteEn": "A nanny's hidden lifetime of street genius, discovered at auction — the legend of the amateur rediscovered.",
+      "awards": []
+    },
+    {
+      "id": "william-klein-new-york",
+      "title": "纽约",
+      "en": "New York",
+      "year": 1956,
+      "genres": [
+        "street"
+      ],
+      "creator": "William Klein",
+      "region": "US",
+      "awards": [],
+      "note": "粗颗粒、广角变形与运动模糊，把街头摄影从优雅里一把拽出来。",
+      "noteEn": "Grain, wide-angle distortion and blur yanked street photography out of its elegance."
+    },
+    {
+      "id": "new-york-klein",
+      "title": "纽约（威廉·克莱因）",
+      "en": "New York (William Klein)",
+      "year": 1956,
+      "genres": [
+        "urban",
+        "street",
+        "bw"
+      ],
+      "creator": "William Klein",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "广角、虚焦、冲撞式的街头快照，把纽约拍成喧闹的暴力拼贴。",
+      "noteEn": "Wide-angle, blurry, colliding street snapshots — New York as a violent, noisy collage."
+    },
+    {
+      "id": "aspens-northern-new-mexico",
+      "title": "白杨",
+      "en": "Aspens, Northern New Mexico",
+      "year": 1958,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Ansel Adams",
+      "region": "US",
+      "awards": [],
+      "note": "逆光的白杨树皮近乎抽象，银盐质感被拉到极致。",
+      "noteEn": "Backlit aspen trunks verging on abstraction—silver gelatin at its finest."
+    },
+    {
+      "id": "the-americans",
+      "title": "美国人",
+      "en": "The Americans",
+      "year": 1958,
+      "genres": [
+        "urban",
+        "documentary",
+        "bw",
+        "street"
+      ],
+      "creator": "Robert Frank",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "两万七千张底片炼成的「别样的美国」，彻底改写了街头与纪实的语法。",
+      "noteEn": "A cross-country road vision that rewrote photography's grammar, making subjective documentary possible."
+    },
+    {
+      "id": "brasilia-gautherot",
+      "title": "巴西利亚",
+      "en": "Brasília (Gautherot)",
+      "year": 1960,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Marcel Gautherot",
+      "region": "FR",
+      "note": "记录尼迈耶新首都拔地而起的曲线，混凝土被拍得轻盈如纸，巴西现代主义的视觉圣像。",
+      "noteEn": "Niemeyer's new capital rising in concrete made to look paper-light — the visual icon of Brazilian modernism.",
+      "awards": []
+    },
+    {
+      "id": "case-study-house-22",
+      "title": "凯斯研究住宅22号（斯塔尔住宅）",
+      "en": "Case Study House #22",
+      "year": 1960,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Julius Shulman",
+      "region": "US",
+      "note": "玻璃盒悬在洛杉矶夜空的经典一瞬，定义了现代主义住宅的「山顶神话」，20世纪被引用最多的建筑照片之一。",
+      "noteEn": "The glass box floating over Los Angeles at night — the image that defined modernism's hilltop myth and one of the most reproduced architecture photos of the 20th century.",
+      "awards": []
+    },
+    {
+      "id": "moon-and-half-dome",
+      "title": "月亮与半圆丘",
+      "en": "Moon and Half Dome",
+      "year": 1960,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Ansel Adams",
+      "region": "US",
+      "awards": [],
+      "note": "满月悬在花岗岩穹顶之上，精准到像一次天文计算。",
+      "noteEn": "A full moon poised over granite domes—precise as celestial calculation."
+    },
+    {
+      "id": "perspective-of-nudes",
+      "title": "裸体的透视",
+      "en": "Perspective of Nudes",
+      "year": 1961,
+      "genres": [
+        "bw"
+      ],
+      "creator": "Bill Brandt",
+      "region": "UK",
+      "awards": [],
+      "note": "广角畸变把人体变成起伏的丘陵，超现实的黑白地貌。",
+      "noteEn": "Wide-angle distortion turns the body into rolling hills—surreal monochrome terrain."
+    },
+    {
+      "id": "raval",
+      "title": "拉瓦尔",
+      "en": "Raval",
+      "year": 1961,
+      "genres": [
+        "urban",
+        "street"
+      ],
+      "creator": "Joan Colom",
+      "region": "ES",
+      "note": "巴塞罗那红灯区的偷拍式街头快照，粗野直接，堪称西班牙街头摄影的孤峰。",
+      "noteEn": "Sneaky, raw street flashes from Barcelona's red-light Raval — a lone peak of Spanish street photography.",
+      "awards": []
+    },
+    {
+      "id": "in-wildness-is-the-preservation-of-the-world",
+      "title": "荒野蕴藏着世界的救赎",
+      "en": "In Wildness Is the Preservation of the World",
+      "year": 1962,
+      "genres": [
+        "nature-wildlife",
+        "landscape"
+      ],
+      "creator": "Eliot Porter",
+      "region": "US",
+      "note": "新英格兰森林的彩色特写与梭罗箴言并置，是最早把彩色用于严肃自然的书籍之一。",
+      "noteEn": "Color close-ups of New England woods paired with Thoreau — among the first books to take color nature seriously.",
+      "awards": []
+    },
+    {
+      "id": "twa-flight-center",
+      "title": "TWA航站楼",
+      "en": "TWA Flight Center",
+      "year": 1962,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Ezra Stoller",
+      "region": "US",
+      "note": "用中画幅把沙里宁的混凝土翼楼拍成白色鸟翼的流体雕塑，建筑摄影与建筑本身从此互相成就。",
+      "noteEn": "Medium-format precision turns Saarinen's concrete wings into a fluid white bird — the shot that made architectural photography inseparable from architecture.",
+      "awards": []
+    },
+    {
+      "id": "scanno",
+      "title": "斯卡诺",
+      "en": "Scanno",
+      "year": 1963,
+      "genres": [
+        "bw"
+      ],
+      "creator": "Mario Giacomelli",
+      "region": "IT",
+      "awards": [],
+      "note": "高反差把意大利山村的黑衣人剪成几何图形，近乎抽象表现主义。",
+      "noteEn": "High contrast cuts black-clad figures in an Italian mountain village into geometry—near Abstract Expressionism."
+    },
+    {
+      "id": "the-place-no-one-knew",
+      "title": "无人知晓之地",
+      "en": "The Place No One Knew",
+      "year": 1963,
+      "genres": [
+        "landscape",
+        "nature-wildlife"
+      ],
+      "creator": "Eliot Porter",
+      "region": "US",
+      "awards": [],
+      "note": "格伦峡谷被水库淹没前的彩色挽歌，一张照片也无法让水坝回头。",
+      "noteEn": "A colour elegy for Glen Canyon before the dam drowned it—photography that could not turn the water back."
+    },
+    {
+      "id": "moon-and-wall-encrustations",
+      "title": "月亮与墙",
+      "en": "Moon and Wall Encrustations",
+      "year": 1964,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Minor White",
+      "region": "US",
+      "awards": [],
+      "note": "把月亮、墙面与霜花拍成精神性的抽象，静观即修行。",
+      "noteEn": "Moon, wall and frost as spiritual abstraction—looking as meditation."
+    },
+    {
+      "id": "reaching-out",
+      "title": "伸手",
+      "en": "Reaching Out",
+      "year": 1966,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Larry Burrows",
+      "region": "US",
+      "awards": [],
+      "note": "彩色战争摄影的先驱，越战中救护伤员的一组连贯叙事。",
+      "noteEn": "A pioneer of colour war photography—one wounded soldier's arc through Vietnam."
+    },
+    {
+      "id": "identical-twins",
+      "title": "双胞胎",
+      "en": "Identical Twins, Roselle, New Jersey",
+      "year": 1967,
+      "genres": [
+        "bw",
+        "portrait"
+      ],
+      "creator": "Diane Arbus",
+      "region": "US",
+      "awards": [],
+      "note": "一模一样却气质迥异的两姐妹，凝视里长出了不安。",
+      "noteEn": "Identical yet utterly different sisters—unease staring out of the frame."
+    },
+    {
+      "id": "running-white-deer",
+      "title": "奔跑的白鹿",
+      "en": "Running White Deer",
+      "year": 1967,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Paul Caponigro",
+      "region": "US",
+      "awards": [],
+      "note": "白鹿在林中瞬间的凝滞，银盐里近乎灵视。",
+      "noteEn": "A white deer held still in the trees—vision in silver."
+    },
+    {
+      "id": "earthrise",
+      "title": "地出",
+      "en": "Earthrise",
+      "year": 1968,
+      "genres": [
+        "astro",
+        "landscape"
+      ],
+      "creator": "William Anders (Apollo 8)",
+      "region": "US",
+      "note": "人类首次绕月时回望蓝白地球升起，被称作「人类历史上最具影响力的环境照片」。",
+      "noteEn": "Earth rising over the lunar horizon on the first crewed Moon orbit — called the most influential environmental photo ever.",
+      "awards": []
+    },
+    {
+      "id": "provoke",
+      "title": "挑衅（摄影杂志）",
+      "en": "Provoke",
+      "year": 1968,
+      "genres": [
+        "urban",
+        "street",
+        "bw"
+      ],
+      "creator": "中平卓马·高梨丰·森山大道",
+      "region": "JP",
+      "note": "三期限定却影响深远的战后日本摄影杂志，「作为反叛的影像」运动的原点。",
+      "noteEn": "A three-issue magazine that shook post-war Japanese photography — ground zero of \"image as provocation.\"",
+      "awards": []
+    },
+    {
+      "id": "saigon-execution",
+      "title": "西贡枪决",
+      "en": "Saigon Execution",
+      "year": 1968,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Eddie Adams",
+      "region": "US",
+      "awards": [
+        "pulitzer"
+      ],
+      "note": "枪口对准头部的千分之一秒，成为反战浪潮的催化剂。",
+      "noteEn": "One split second of a pistol at a head—a catalyst of the anti-war movement."
+    },
+    {
+      "id": "buzz-aldrin-on-the-moon",
+      "title": "巴兹·奥尔德林踏上月面",
+      "en": "Buzz Aldrin on the Moon",
+      "year": 1969,
+      "genres": [
+        "astro"
+      ],
+      "creator": "Neil Armstrong (Apollo 11)",
+      "region": "US",
+      "note": "人类首次登月中阿姆斯特朗为同伴拍下的影像，头盔面罩映出月球荒原与登月舱。",
+      "noteEn": "Armstrong's photo of Aldrin during the first Moon walk, the visor reflecting the lunar wasteland.",
+      "awards": []
+    },
+    {
+      "id": "the-animals-winogrand",
+      "title": "动物",
+      "en": "The Animals",
+      "year": 1969,
+      "genres": [
+        "urban",
+        "street"
+      ],
+      "creator": "Garry Winogrand",
+      "region": "US",
+      "note": "动物园里人与动物面面相觑的荒诞瞬间，城市人目光的绝妙人类学。",
+      "noteEn": "People and animals staring each other down at the zoo — brilliant anthropology of the urban gaze.",
+      "awards": []
+    },
+    {
+      "id": "istanbul-guler",
+      "title": "伊斯坦布尔",
+      "en": "Istanbul (Ara Güler)",
+      "year": 1970,
+      "genres": [
+        "urban",
+        "street",
+        "bw"
+      ],
+      "creator": "Ara Güler",
+      "region": "TR",
+      "note": "「伊斯坦布尔之眼」半个世纪的黑白街影，为一个正在消逝的城市留下灵魂。",
+      "noteEn": "Half a century of black-and-white streets from the \"Eye of Istanbul\" — the soul of a vanishing city.",
+      "awards": []
+    },
+    {
+      "id": "friedlander-self-portrait",
+      "title": "自拍像",
+      "en": "Self Portrait",
+      "year": 1970,
+      "genres": [
+        "street"
+      ],
+      "creator": "Lee Friedlander",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "影子、橱窗与反光里的自己，街头与自恋叠成一张复杂的底片。",
+      "noteEn": "The self in shadows, shop windows and reflections—street-flavoured self-obsession on one complex negative."
+    },
+    {
+      "id": "the-somnambulist",
+      "title": "梦游者",
+      "en": "The Somnambulist",
+      "year": 1970,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Ralph Gibson",
+      "region": "US",
+      "awards": [],
+      "note": "身体局部与光影的碎片，超现实的黑白拼图。",
+      "noteEn": "Fragments of body and light—a surreal monochrome jigsaw."
+    },
+    {
+      "id": "on-reading",
+      "title": "阅读中",
+      "en": "On Reading",
+      "year": 1971,
+      "genres": [
+        "street"
+      ],
+      "creator": "André Kertész",
+      "region": "US",
+      "awards": [],
+      "note": "全球街头读书人的侧影，安静而专注，构成一部世界阅读群像。",
+      "noteEn": "Absorbed readers on streets around the world—a quiet, global portrait gallery of reading."
+    },
+    {
+      "id": "sentimental-journey",
+      "title": "感伤之旅",
+      "en": "Sentimental Journey",
+      "year": 1971,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Nobuyoshi Araki",
+      "region": "JP",
+      "awards": [],
+      "note": "蜜月途中私拍妻子阳子，日本「私摄影」的起点。",
+      "noteEn": "Intimate photos of his wife Yoko on their honeymoon—the origin of Japanese \"private photography\"."
+    },
+    {
+      "id": "stray-dog",
+      "title": "流浪狗",
+      "en": "Stray Dog",
+      "year": 1971,
+      "genres": [
+        "street",
+        "bw"
+      ],
+      "creator": "Daido Moriyama",
+      "region": "JP",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "一只回头的流浪狗被他认作自己的自画像，成为都市疏离的图腾。",
+      "noteEn": "A stray dog glancing back read as a self-portrait—an icon of urban alienation."
+    },
+    {
+      "id": "the-destruction-business",
+      "title": "破坏的生意",
+      "en": "The Destruction Business",
+      "year": 1971,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Don McCullin",
+      "region": "UK",
+      "awards": [
+        "world-press-photo"
+      ],
+      "note": "战场上的崩溃瞬间，把战争的痛拍到骨头里。",
+      "noteEn": "Moments of breakdown in war—conflict photographed to the bone."
+    },
+    {
+      "id": "a-hunter",
+      "title": "猎人",
+      "en": "A Hunter",
+      "year": 1972,
+      "genres": [
+        "urban",
+        "street",
+        "bw"
+      ],
+      "creator": "Daido Moriyama",
+      "region": "JP",
+      "note": "粗颗粒、高反差、摇晃镜头下的日本城市，森山大道的「粗野美学」宣言。",
+      "noteEn": "Grainy, high-contrast, jittery views of urban Japan — Moriyama's manifesto of the \"are-bure-boke\" aesthetic.",
+      "awards": []
+    },
+    {
+      "id": "cacharel-campaign",
+      "title": "卡夏尔广告",
+      "en": "Cacharel Campaign",
+      "year": 1972,
+      "genres": [
+        "fashion",
+        "bw"
+      ],
+      "creator": "Sarah Moon",
+      "region": "FR",
+      "note": "柔焦与流动的纱裙把广告拍成梦境，女性摄影师以「朦胧」对抗时装工业的硬朗。",
+      "noteEn": "Soft focus and drifting chiffon turn an ad into a dream — a female gaze of haze against fashion's hardness.",
+      "awards": []
+    },
+    {
+      "id": "farewell-photography",
+      "title": "告别摄影",
+      "en": "Farewell Photography",
+      "year": 1972,
+      "genres": [
+        "street"
+      ],
+      "creator": "Daido Moriyama",
+      "region": "JP",
+      "awards": [],
+      "note": "过曝、失焦、粗颗粒的激进自否，森山大道式「粗糙、模糊、失焦」的宣言书。",
+      "noteEn": "A radical self-negation of overexposure, blur and grain—the manifesto of Moriyama's \"are, bure, boke\"."
+    },
+    {
+      "id": "minamata",
+      "title": "水俣",
+      "en": "Minamata",
+      "year": 1972,
+      "genres": [
+        "bw",
+        "documentary"
+      ],
+      "creator": "W. Eugene Smith",
+      "region": "US",
+      "awards": [],
+      "note": "母亲为患水俣病的女儿沐浴的经典画面，他为此被厂方打伤也不放手。",
+      "noteEn": "The famous bath scene of a mercury-poisoned girl—he was beaten for the photos and would not stop."
+    },
+    {
+      "id": "the-blue-marble",
+      "title": "蓝色弹珠",
+      "en": "The Blue Marble",
+      "year": 1972,
+      "genres": [
+        "astro"
+      ],
+      "creator": "NASA (Apollo 17 crew)",
+      "region": "US",
+      "note": "阿波罗17号在距地4.5万公里拍下的完整地球，至今是「地球」最具标志性的形象。",
+      "noteEn": "A fully lit Earth from Apollo 17 — still the most iconic portrait of our planet ever made.",
+      "awards": []
+    },
+    {
+      "id": "the-terror-of-war",
+      "title": "火从天降",
+      "en": "The Terror of War",
+      "year": 1972,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Nick Ut",
+      "region": "US",
+      "awards": [
+        "pulitzer"
+      ],
+      "note": "汽油弹中赤身奔逃的女孩，越战最痛的一张照片。",
+      "noteEn": "A naked girl running from napalm—the most painful image of the Vietnam War."
+    },
+    {
+      "id": "water-towers",
+      "title": "水塔",
+      "en": "Water Towers",
+      "year": 1972,
+      "genres": [
+        "architecture",
+        "bw",
+        "minimal"
+      ],
+      "creator": "Bernd & Hilla Becher",
+      "region": "DE",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "同一正面视角拍遍欧洲工业水塔，「类型学」自此成为摄影方法，也是杜塞尔多夫学派的起点。",
+      "noteEn": "Identical frontal views of industrial water towers across Europe founded the typology method and the Düsseldorf School."
+    },
+    {
+      "id": "american-surfaces",
+      "title": "美国表象",
+      "en": "American Surfaces",
+      "year": 1973,
+      "genres": [
+        "street"
+      ],
+      "creator": "Stephen Shore",
+      "region": "US",
+      "awards": [],
+      "note": "公路旅行沿途的平凡桌面与街角，把彩色快照抬进美术馆。",
+      "noteEn": "Ordinary tabletops and street corners along a road trip—snapshot aesthetics elevated to the museum."
+    },
+    {
+      "id": "on-the-mines",
+      "title": "矿上",
+      "en": "On the Mines",
+      "year": 1973,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "David Goldblatt",
+      "region": "ZA",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "南非金矿工的黑与白，种族隔离制度下的劳动与尊严。",
+      "noteEn": "Black and white of South Africa's gold miners—labour and dignity under apartheid."
+    },
+    {
+      "id": "plateau-light",
+      "title": "高原之光",
+      "en": "Plateau Light",
+      "year": 1973,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "David Muench",
+      "region": "US",
+      "awards": [],
+      "note": "大画幅彩色拍科罗拉多高原，美国西部风景明信片美学的源头。",
+      "noteEn": "Large-format colour of the Colorado Plateau—the source of the American West's postcard grandeur."
+    },
+    {
+      "id": "the-new-west",
+      "title": "新西部",
+      "en": "The New West",
+      "year": 1974,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Robert Adams",
+      "region": "US",
+      "awards": [],
+      "note": "不动声色地拍科罗拉多被扩张吞噬的郊区，把「新地形学」变成现实。",
+      "noteEn": "Unblinking frames of Colorado suburbs overtaken by sprawl—New Topographics made real."
+    },
+    {
+      "id": "bathhouse",
+      "title": "浴场",
+      "en": "Bathhouse",
+      "year": 1975,
+      "genres": [
+        "fashion",
+        "bw"
+      ],
+      "creator": "Deborah Turbeville",
+      "region": "US",
+      "note": "粗颗粒、虚焦、苍白的泳装故事，像被遗忘的旧照片，预言了时尚摄影的情绪转向。",
+      "noteEn": "Grainy, soft-focus, faded swimwear story that looks like forgotten photographs — foretelling fashion's emotional turn.",
+      "awards": []
+    },
+    {
+      "id": "new-topographics",
+      "title": "新地形学",
+      "en": "New Topographics",
+      "year": 1975,
+      "genres": [
+        "landscape",
+        "urban"
+      ],
+      "creator": "Robert Adams, Lewis Baltz et al.",
+      "region": "US",
+      "awards": [],
+      "note": "1975年罗切斯特的展览，用中性目光拍无人的郊区与工业带，终结了风景的浪漫。",
+      "noteEn": "The 1975 Rochester show that looked at unpeopled suburbs and industrial strips with a deadpan eye, ending landscape's romance."
+    },
+    {
+      "id": "women-are-beautiful",
+      "title": "女人是美丽的",
+      "en": "Women are Beautiful",
+      "year": 1975,
+      "genres": [
+        "street"
+      ],
+      "creator": "Garry Winogrand",
+      "region": "US",
+      "awards": [],
+      "note": "倾斜的取景框追逐纽约街头的女性，能量与失衡并存。",
+      "noteEn": "Tilted frames chase women on New York streets—energy born of imbalance."
+    },
+    {
+      "id": "charles-jourdan-campaign",
+      "title": "查尔斯·乔丹广告",
+      "en": "Charles Jourdan Campaign",
+      "year": 1976,
+      "genres": [
+        "fashion"
+      ],
+      "creator": "Guy Bourdin",
+      "region": "FR",
+      "note": "高跟鞋广告拍成叙事悬疑的超现实静物，模糊商品与噩梦的界限，改写广告美学。",
+      "noteEn": "Shoe ads staged as surreal narrative stills, blurring product and nightmare — a rewrite of advertising aesthetics.",
+      "awards": []
+    },
+    {
+      "id": "sugimoto-dioramas",
+      "title": "立体模型",
+      "en": "Dioramas",
+      "year": 1976,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Hiroshi Sugimoto",
+      "region": "JP",
+      "awards": [],
+      "note": "拍博物馆的动物标本布景，以假乱真到开始失真。",
+      "noteEn": "Museum dioramas photographed until the fake starts to feel real—and then not."
+    },
+    {
+      "id": "grace-jones-caribbean-queen",
+      "title": "格蕾丝·琼斯 · 加勒比女王",
+      "en": "Grace Jones, Caribbean Queen",
+      "year": 1978,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Jean-Paul Goude",
+      "region": "FR",
+      "note": "把歌手塑造成黑白剪影、夸张身体的「图腾」，预演了后现代身份扮演的图像学。",
+      "noteEn": "The singer carved into a black-and-white totem of exaggerated body — prescient iconography of postmodern identity play.",
+      "awards": []
+    },
+    {
+      "id": "son-of-a-bitch",
+      "title": "狗（杂种）",
+      "en": "Son of a Bitch",
+      "year": 1979,
+      "genres": [
+        "street"
+      ],
+      "creator": "Elliott Erwitt",
+      "region": "US",
+      "awards": [],
+      "note": "蹲到狗的高度看世界，幽默全藏在巧合里，狗成了他的签名。",
+      "noteEn": "Shooting at dog's-eye height, humour hiding in coincidence—dogs became his signature."
+    },
+    {
+      "id": "the-park",
+      "title": "公园",
+      "en": "The Park",
+      "year": 1979,
+      "genres": [
+        "night",
+        "street",
+        "documentary"
+      ],
+      "creator": "Kohei Yoshiyuki",
+      "region": "JP",
+      "note": "红外闪光记录东京公园夜里的隐秘窥视，把「观看」本身拍成不安的证据。",
+      "noteEn": "Infrared flash exposes covert encounters in a Tokyo park at night — looking captured as unease itself.",
+      "awards": []
+    },
+    {
+      "id": "john-lennon-yoko-ono",
+      "title": "约翰·列侬与小野洋子",
+      "en": "John Lennon and Yoko Ono",
+      "year": 1980,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Annie Leibovitz",
+      "region": "US",
+      "awards": [],
+      "note": "滚石封面那张列侬蜷曲亲吻洋子的照片，拍后数小时他遇刺身亡。",
+      "noteEn": "The Rolling Stone cover of Lennon curled against Ono—shot hours before his murder."
+    },
+    {
+      "id": "subway-davidson",
+      "title": "地铁",
+      "en": "Subway",
+      "year": 1980,
+      "genres": [
+        "urban",
+        "documentary"
+      ],
+      "creator": "Bruce Davidson",
+      "region": "US",
+      "note": "彩色闪光灯贴身记录纽约地铁众生相，把最拥挤的空间拍成最诚实的剧场。",
+      "noteEn": "On-board flash portraits of the New York subway — the most crowded space as the most honest theater.",
+      "awards": []
+    },
+    {
+      "id": "sugimoto-theaters",
+      "title": "剧场",
+      "en": "Theaters",
+      "year": 1980,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Hiroshi Sugimoto",
+      "region": "JP",
+      "awards": [],
+      "note": "一场电影的长曝光，让整个影厅亮成一块白色矩形。",
+      "noteEn": "A feature-length exposure turns a movie screen into a single white rectangle."
+    },
+    {
+      "id": "big-nudes",
+      "title": "大裸体",
+      "en": "Big Nudes",
+      "year": 1981,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Helmut Newton",
+      "region": "AU",
+      "note": "超大尺幅、高跟鞋与权力的对峙，把时尚摄影推向挑衅与欲望的边界。",
+      "noteEn": "Oversized, high-heeled and confrontational — fashion photography pushed to the edge of provocation and desire.",
+      "awards": []
+    },
+    {
+      "id": "nicaragua-meiselas",
+      "title": "尼加拉瓜",
+      "en": "Nicaragua",
+      "year": 1981,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Susan Meiselas",
+      "region": "US",
+      "awards": [],
+      "note": "革命与日常交织的中美洲，马格南镜头下的女性视角。",
+      "noteEn": "Revolution and everyday life in Central America—a Magnum woman's view."
+    },
+    {
+      "id": "in-boksburg",
+      "title": "在博克斯堡",
+      "en": "In Boksburg",
+      "year": 1982,
+      "genres": [
+        "urban",
+        "documentary"
+      ],
+      "creator": "David Goldblatt",
+      "region": "ZA",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "南非白人小镇的日常细节，把种族隔离社会的「正常」拍得令人不安。",
+      "noteEn": "Everyday detail of a white South African town — the \"normal\" of apartheid made unsettling."
+    },
+    {
+      "id": "china-after-mao",
+      "title": "毛以后的中国",
+      "en": "China After Mao",
+      "year": 1983,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Liu Heung Shing",
+      "region": "HK",
+      "awards": [
+        "pulitzer"
+      ],
+      "note": "改革开放初期的日常面孔，普利策得主留下的第一手中国档案。",
+      "noteEn": "Everyday faces of China's reform era—a Pulitzer-winning, first-hand archive."
+    },
+    {
+      "id": "tokyo-yokosuka",
+      "title": "东京-横须贺",
+      "en": "Tokyo-Yokosuka",
+      "year": 1983,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Greg Girard",
+      "region": "CA",
+      "note": "70年代末驻日外景的霓虹夜街，在城市化前夜为日本留下一份彩色夜生活档案。",
+      "noteEn": "Neon night streets of late-'70s Japan, shot before the boom — a color archive of a vanishing nightlife.",
+      "awards": []
+    },
+    {
+      "id": "afghan-girl",
+      "title": "阿富汗少女",
+      "en": "Afghan Girl",
+      "year": 1984,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Steve McCurry",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "绿眼睛难民少女登上《国家地理》封面，成了全世界最熟悉的难民之脸。",
+      "noteEn": "The green-eyed refugee girl on National Geographic's cover—the world's most familiar face of exile."
+    },
+    {
+      "id": "bhopal-gas-tragedy",
+      "title": "博帕尔惨案",
+      "en": "Bhopal Gas Tragedy",
+      "year": 1984,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Raghu Rai",
+      "region": "IN",
+      "awards": [],
+      "note": "毒气泄漏后的受害者，把工业灾难拍成印度的集体创伤。",
+      "noteEn": "Victims of the gas leak—an industrial catastrophe rendered as India's collective wound."
+    },
+    {
+      "id": "desert-cantos",
+      "title": "沙漠组歌",
+      "en": "Desert Cantos",
+      "year": 1984,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Richard Misrach",
+      "region": "US",
+      "awards": [],
+      "note": "把美国西南沙漠当成一场持续数十年的摄影实验，荒芜里全是政治。",
+      "noteEn": "The American Southwest desert as a decades-long photographic experiment—politics hiding in the emptiness."
+    },
+    {
+      "id": "nakta",
+      "title": "纳克塔",
+      "en": "Nakta",
+      "year": 1984,
+      "genres": [
+        "urban",
+        "documentary"
+      ],
+      "creator": "Miguel Rio Branco",
+      "region": "BR",
+      "note": "巴西东北部的暴力色彩与贫困身体，把纪实推向视觉冲击的极限。",
+      "noteEn": "Violent color and hard-lived bodies of Brazil's northeast — documentary pushed to visceral extremes.",
+      "awards": []
+    },
+    {
+      "id": "streetwise",
+      "title": "街头智慧",
+      "en": "Streetwise",
+      "year": 1984,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Mary Ellen Mark",
+      "region": "US",
+      "awards": [],
+      "note": "西雅图街头的流浪少年，「小老鼠」的凝视久久不散。",
+      "noteEn": "Runaway teens in Seattle—the gaze of \"Tiny\" lingers long after the page turns."
+    },
+    {
+      "id": "in-the-american-west",
+      "title": "美国西部",
+      "en": "In the American West",
+      "year": 1985,
+      "genres": [
+        "bw",
+        "portrait"
+      ],
+      "creator": "Richard Avedon",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "灰底影棚前直视镜头的矿工、牛仔，把肖像剥离成人的本质。",
+      "noteEn": "Miners and cowboys staring into a grey studio backdrop—portraiture stripped to its essence."
+    },
+    {
+      "id": "mountain-light",
+      "title": "山之光",
+      "en": "Mountain Light",
+      "year": 1985,
+      "genres": [
+        "nature-wildlife",
+        "landscape"
+      ],
+      "creator": "Galen Rowell",
+      "region": "US",
+      "note": "登山者的视角与「等待最佳光线」的哲学，让风光摄影成为一场与时间的赛跑。",
+      "noteEn": "A climber's eye and a wait-for-the-light philosophy make landscape a race against time.",
+      "awards": []
+    },
+    {
+      "id": "serra-pelada",
+      "title": "塞拉佩拉达",
+      "en": "Serra Pelada",
+      "year": 1986,
+      "genres": [
+        "bw"
+      ],
+      "creator": "Sebastião Salgado",
+      "region": "BR",
+      "awards": [],
+      "note": "五万淘金者挤在巨大矿坑里如蚁群般攀爬，劳动者的地狱图景。",
+      "noteEn": "50,000 gold miners swarming a vast open pit, climbing like an ant colony—a hellscape of labour."
+    },
+    {
+      "id": "the-ballad-of-sexual-dependency",
+      "title": "性依赖的叙事曲",
+      "en": "The Ballad of Sexual Dependency",
+      "year": 1986,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Nan Goldin",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "快照式私影像记录波西米亚圈的爱与暴力，幻灯片放映成为仪式。",
+      "noteEn": "Snapshot-style images of a bohemian circle—love and violence in a slide-show ritual."
+    },
+    {
+      "id": "the-last-resort",
+      "title": "最后的度假地",
+      "en": "The Last Resort",
+      "year": 1986,
+      "genres": [
+        "urban",
+        "documentary",
+        "street"
+      ],
+      "creator": "Martin Parr",
+      "region": "UK",
+      "note": "新布莱顿海滨的明艳庸常，用「俗艳」戳破英国的阶级与度假神话。",
+      "noteEn": "The gaudy, ordinary seaside of New Brighton — garishness puncturing Britain's myths of class and holiday.",
+      "awards": []
+    },
+    {
+      "id": "unconscious-places",
+      "title": "无意识之地",
+      "en": "Unconscious Places",
+      "year": 1987,
+      "genres": [
+        "architecture",
+        "urban"
+      ],
+      "creator": "Thomas Struth",
+      "region": "DE",
+      "note": "正面平视的城市立面排比，把街道拍成心理档案，杜塞尔多夫学派冷静客观的典范。",
+      "noteEn": "Flat, deadpan facade typologies turn streets into psychological archives — the cool objectivity of the Düsseldorf School.",
+      "awards": []
+    },
+    {
+      "id": "waffenruhe",
+      "title": "停火",
+      "en": "Waffenruhe",
+      "year": 1987,
+      "genres": [
+        "urban",
+        "documentary"
+      ],
+      "creator": "Michael Schmidt",
+      "region": "DE",
+      "note": "冷战后期的柏林市井与人像，严谨克制地记录分裂城市的日常生活。",
+      "noteEn": "Everyday Berlin life and faces in the late Cold War — a rigorous record of a divided city.",
+      "awards": []
+    },
+    {
+      "id": "catch-of-the-day",
+      "title": "今日之获",
+      "en": "Catch of the Day",
+      "year": 1988,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Thomas D. Mangelsen",
+      "region": "US",
+      "note": "鲑鱼跃瀑直入棕熊之口的决定性瞬间，史上流传最广的野生动物照片之一。",
+      "noteEn": "A spawning salmon leaping straight into a bear's jaws at Brooks Falls — one of the most circulated wildlife photos ever.",
+      "awards": []
+    },
+    {
+      "id": "seascapes",
+      "title": "海景",
+      "en": "Seascapes",
+      "year": 1988,
+      "genres": [
+        "landscape",
+        "minimal",
+        "bw"
+      ],
+      "creator": "Hiroshi Sugimoto",
+      "region": "JP",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "长曝光把海天各压成一半灰阶，时间在其中静止成永恒。",
+      "noteEn": "Long exposures split sea and sky into equal halves—time suspended into eternity."
+    },
+    {
+      "id": "juchitan",
+      "title": "胡奇坦",
+      "en": "Juchitán",
+      "year": 1989,
+      "genres": [
+        "urban",
+        "documentary"
+      ],
+      "creator": "Graciela Iturbide",
+      "region": "MX",
+      "note": "墨西哥萨波特克女性的日常与庆典，混血、幽默而庄重，拉美纪实摄影的杰作。",
+      "noteEn": "The daily life and festivals of Zapotec women in Oaxaca — mixed, funny and solemn Latin American documentary.",
+      "awards": []
+    },
+    {
+      "id": "claudia-schiffer-for-guess",
+      "title": "克劳迪娅·希弗的Guess广告",
+      "en": "Claudia Schiffer for Guess",
+      "year": 1990,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Ellen von Unwerth",
+      "region": "DE",
+      "note": "把牛仔广告拍成即兴、俏皮、带欲望意味的「窥视」，模特本人成为镜头前最亮眼的主角。",
+      "noteEn": "Jeans ads shot as playful, voyeuristic improvisation that made the model the star of her own film.",
+      "awards": []
+    },
+    {
+      "id": "houses-ruff",
+      "title": "住宅（类型学系列）",
+      "en": "Houses (Ruff)",
+      "year": 1990,
+      "genres": [
+        "architecture",
+        "minimal"
+      ],
+      "creator": "Thomas Ruff",
+      "region": "DE",
+      "note": "德国平庸民居的正面照被放大到极致，让「无聊」本身成为值得凝视的主题。",
+      "noteEn": "Blown-up frontal views of banal German homes, elevating boredom itself into a subject worth staring at.",
+      "awards": []
+    },
+    {
+      "id": "kitchen-table-series",
+      "title": "厨房餐桌系列",
+      "en": "Kitchen Table Series",
+      "year": 1990,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Carrie Mae Weems",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "自导自演的餐桌场景，把种族与性别叙事搬上家庭剧场。",
+      "noteEn": "Self-directed scenes at a kitchen table—a domestic theatre of race and gender."
+    },
+    {
+      "id": "looking-for-the-summer",
+      "title": "寻找夏天",
+      "en": "Looking for the Summer",
+      "year": 1990,
+      "genres": [
+        "nature-wildlife",
+        "landscape"
+      ],
+      "creator": "Jim Brandenburg",
+      "region": "US",
+      "note": "90天只拍90张照片的自我节制，让每一张都成为对大自然的郑重注视。",
+      "noteEn": "Ninety days, just ninety exposures — restraint that turns every frame into a deliberate act of attention.",
+      "awards": []
+    },
+    {
+      "id": "our-forbidden-land",
+      "title": "我们被禁止的土地",
+      "en": "Our Forbidden Land",
+      "year": 1990,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Fay Godwin",
+      "region": "UK",
+      "awards": [],
+      "note": "在「禁止进入」的英国旷野上行走拍摄，把风景拍成了政治。",
+      "noteEn": "Photographing Britain's fenced-off moors—landscape turned into politics."
+    },
+    {
+      "id": "pale-blue-dot",
+      "title": "暗淡蓝点",
+      "en": "Pale Blue Dot",
+      "year": 1990,
+      "genres": [
+        "astro"
+      ],
+      "creator": "NASA / Voyager 1",
+      "region": "US",
+      "note": "旅行者1号在64亿公里外回望地球仅为0.12像素，萨根借此写下著名的「暗淡蓝点」。",
+      "noteEn": "From 4 billion miles out, Earth is a 0.12-pixel speck — the image behind Sagan's famous \"Pale Blue Dot.\"",
+      "awards": []
+    },
+    {
+      "id": "supermodels-1990",
+      "title": "超级名模",
+      "en": "Supermodels (British Vogue)",
+      "year": 1990,
+      "genres": [
+        "portrait",
+        "fashion"
+      ],
+      "creator": "Peter Lindbergh",
+      "region": "DE",
+      "awards": [],
+      "note": "一月号群像把五位超模拍成素颜伙伴，九十年代时尚的开场白。",
+      "noteEn": "The January cover shot of five supermodels barefaced—the opening statement of 1990s fashion."
+    },
+    {
+      "id": "the-supermodels",
+      "title": "超级名模",
+      "en": "The Supermodels",
+      "year": 1990,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Peter Lindbergh",
+      "region": "DE",
+      "note": "不化妆的名模群像在海滩拍成黑白快照，终结了80年代浓妆风潮，开启「超模时代」。",
+      "noteEn": "Unretouched, makeup-free supermodels on a beach — it ended the '80s gloss and opened the supermodel era.",
+      "awards": []
+    },
+    {
+      "id": "the-third-summer-of-love",
+      "title": "第三个爱之夏",
+      "en": "The Third Summer of Love",
+      "year": 1990,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Corinne Day",
+      "region": "UK",
+      "note": "租屋里的凯特·摩丝穿着薄衫，以真实、粗颗粒、近乎纪实的语言打破华丽时尚。",
+      "noteEn": "A teenage Kate Moss in a rented flat, shot raw and grainy — grunge realism that shattered glossy fashion.",
+      "awards": []
+    },
+    {
+      "id": "versace-dress-el-mirage",
+      "title": "范思哲礼服，埃尔米拉日",
+      "en": "Versace Dress, El Mirage",
+      "year": 1990,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Herb Ritts",
+      "region": "US",
+      "note": "沙漠里露背礼服与极简天空形成经典剪影，把时装拍成希腊雕塑般的身体颂歌。",
+      "noteEn": "A backless gown against desert and sky — fashion turned into a Grecian sculptural ode to the body.",
+      "awards": []
+    },
+    {
+      "id": "angela-merkel-series",
+      "title": "默克尔岁月",
+      "en": "Angela Merkel (Series)",
+      "year": 1991,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Herlinde Koelbl",
+      "region": "DE",
+      "awards": [],
+      "note": "三十年间同一机位拍默克尔，权力与衰老一起写在脸上。",
+      "noteEn": "Thirty years of Merkel in the same framing—power and ageing written on one face."
+    },
+    {
+      "id": "beirut-basilico",
+      "title": "贝鲁特",
+      "en": "Beirut (Basilico)",
+      "year": 1991,
+      "genres": [
+        "architecture",
+        "urban"
+      ],
+      "creator": "Gabriele Basilico",
+      "region": "IT",
+      "note": "内战废墟上冷静的战后城市肖像，大画幅把创伤拍成克制而有尊严的测绘图。",
+      "noteEn": "Dispassionate large-format portraits of a post-civil-war city, dignifying ruin with the discipline of a survey.",
+      "awards": []
+    },
+    {
+      "id": "demi-moore",
+      "title": "黛米·摩尔",
+      "en": "Demi Moore (Vanity Fair)",
+      "year": 1991,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Annie Leibovitz",
+      "region": "US",
+      "awards": [],
+      "note": "怀孕裸照登上《名利场》封面，引爆了身体与封面文化的争论。",
+      "noteEn": "A nude pregnant Demi Moore on Vanity Fair—igniting debates on the body and magazine covers."
+    },
+    {
+      "id": "the-big-eyes",
+      "title": "大眼睛",
+      "en": "The Big Eyes (Project Hope)",
+      "year": 1991,
+      "genres": [
+        "documentary",
+        "portrait"
+      ],
+      "creator": "Xie Hailong",
+      "region": "CN",
+      "awards": [],
+      "note": "那双「大眼睛」让无数人看见贫困儿童对读书的渴望，成为希望工程的象征。",
+      "noteEn": "Those \"big eyes\" made a nation see a poor child's hunger to learn—the symbol of Project Hope."
+    },
+    {
+      "id": "a-view-of-the-universe",
+      "title": "宇宙之景",
+      "en": "A View of the Universe",
+      "year": 1992,
+      "genres": [
+        "astro"
+      ],
+      "creator": "David Malin",
+      "region": "AU",
+      "note": "用化学方法合成三色影像，把南半球星云的色彩与纤维细节首次带进大众视野。",
+      "noteEn": "Three-color photographic synthesis that first brought the color and filament detail of southern nebulae to the public.",
+      "awards": []
+    },
+    {
+      "id": "city-of-shadows",
+      "title": "影之城",
+      "en": "City of Shadows",
+      "year": 1992,
+      "genres": [
+        "street"
+      ],
+      "creator": "Alexey Titarenko",
+      "region": "RU",
+      "awards": [],
+      "note": "圣彼得堡的长曝光把人流拖成幽灵般的灰影，街头变成时间的河床。",
+      "noteEn": "Long exposures in St. Petersburg drag crowds into ghostly grey streaks—the street as a riverbed of time."
+    },
+    {
+      "id": "madonna-sex",
+      "title": "麦当娜《Sex》",
+      "en": "Madonna: Sex",
+      "year": 1992,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Steven Meisel",
+      "region": "US",
+      "note": "把流行天后铸成挑衅与审美试验的载体，1992年文化事件级时尚写真集。",
+      "noteEn": "The pop queen remade as provocation and aesthetic experiment — a culture-event fashion book of 1992.",
+      "awards": []
+    },
+    {
+      "id": "city-of-darkness",
+      "title": "黑暗之城",
+      "en": "City of Darkness",
+      "year": 1993,
+      "genres": [
+        "night",
+        "urban",
+        "documentary"
+      ],
+      "creator": "Greg Girard & Ian Lambot",
+      "region": "CA",
+      "note": "深入九龙城寨的日光与夜景纪实，为已消失的「无主之城」留下最完整的影像。",
+      "noteEn": "Daylight and night records of Kowloon Walled City — the most complete visual archive of the lost enclave.",
+      "awards": []
+    },
+    {
+      "id": "the-vulture-and-the-little-girl",
+      "title": "秃鹫与小女孩",
+      "en": "The Vulture and the Little Girl",
+      "year": 1993,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Kevin Carter",
+      "region": "ZA",
+      "awards": [
+        "pulitzer"
+      ],
+      "note": "饥荒中蹲踞的秃鹫与垂死孩童，获奖后却引来巨大的争议与自责。",
+      "noteEn": "A vulture waiting beside a starving child—a Pulitzer followed by public outcry and guilt."
+    },
+    {
+      "id": "workers-salgado",
+      "title": "劳动者",
+      "en": "Workers",
+      "year": 1993,
+      "genres": [
+        "bw",
+        "documentary"
+      ],
+      "creator": "Sebastião Salgado",
+      "region": "BR",
+      "awards": [],
+      "note": "煤矿、油田与手工作坊里被汗水和体力定义的肉身，劳动的纪念碑。",
+      "noteEn": "Mines, oil fields and workshops—bodies defined by sweat and muscle, a monument to labour."
+    },
+    {
+      "id": "beach-portraits",
+      "title": "海滩肖像",
+      "en": "Beach Portraits",
+      "year": 1994,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Rineke Dijkstra",
+      "region": "NL",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "青春期少年少女站在海边，姿态与不安暴露无遗。",
+      "noteEn": "Adolescents at the shore—posture and unease laid bare against the sea."
+    },
+    {
+      "id": "kate-moss-for-calvin-klein",
+      "title": "凯特·摩丝 · CK Obsession",
+      "en": "Kate Moss for Calvin Klein",
+      "year": 1994,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Mario Sorrenti",
+      "region": "IT",
+      "note": "卧室里黑白近摄的摩丝写真，把「真实」包装成90年代最有力的香水广告。",
+      "noteEn": "Intimate black-and-white close-ups of Moss in bed — authenticity packaged as the decade's most powerful perfume ad.",
+      "awards": []
+    },
+    {
+      "id": "ground-barth",
+      "title": "地面",
+      "en": "Ground",
+      "year": 1995,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Uta Barth",
+      "region": "US",
+      "awards": [],
+      "note": "模糊的室内光线与角落，让人重新看见「看」本身。",
+      "noteEn": "Blurred light and corners—making us see seeing itself."
+    },
+    {
+      "id": "pillars-of-creation",
+      "title": "创生之柱",
+      "en": "Pillars of Creation",
+      "year": 1995,
+      "genres": [
+        "astro"
+      ],
+      "creator": "NASA / ESA (Hubble)",
+      "region": "US",
+      "note": "哈勃拍摄鹰状星云的恒星育婴室，成为天文摄影史上被转载最多的照片之一。",
+      "noteEn": "Hubble's view of star nurseries in the Eagle Nebula — one of the most reproduced images in astronomical history.",
+      "awards": []
+    },
+    {
+      "id": "gilden-haiti",
+      "title": "海地",
+      "en": "Haiti",
+      "year": 1996,
+      "genres": [
+        "street"
+      ],
+      "creator": "Bruce Gilden",
+      "region": "US",
+      "awards": [],
+      "note": "直怼人脸的闪光灯人像，粗暴却充满生命力，把街头逼近到冒犯。",
+      "noteEn": "In-your-face flash portraits, brutal yet brimming with life—street photography pushed into provocation."
+    },
+    {
+      "id": "scotland-light-and-land",
+      "title": "苏格兰之光与土地",
+      "en": "Scotland: The Light and the Land",
+      "year": 1996,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "Colin Prior",
+      "region": "UK",
+      "awards": [],
+      "note": "大画幅相机把苏格兰高地拍得壮阔而纯净，像地球的骨架。",
+      "noteEn": "Large-format clarity across the Scottish Highlands—the planet's bare bones."
+    },
+    {
+      "id": "we-this-generation",
+      "title": "我们这一代",
+      "en": "We (This Generation)",
+      "year": 1996,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Xiao Quan",
+      "region": "CN",
+      "awards": [],
+      "note": "记录崔健、张艺谋等一代文化名人，一个时代的精神群像。",
+      "noteEn": "Portraits of Cui Jian, Zhang Yimou and a generation—the psyche of an era in one book."
+    },
+    {
+      "id": "acquainted-with-the-night",
+      "title": "与夜相识",
+      "en": "Acquainted with the Night",
+      "year": 1997,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Lynn Saville",
+      "region": "US",
+      "note": "黄昏与黎明之交的城市空镜，把纽约拍成介于昼与夜之间的静谧地带。",
+      "noteEn": "Cities at the border of dusk and dawn — New York as a quiet zone between day and night.",
+      "awards": []
+    },
+    {
+      "id": "hale-bopp-monument-valley",
+      "title": "海尔-波普彗星 · 纪念碑谷",
+      "en": "Comet Hale-Bopp over Monument Valley",
+      "year": 1997,
+      "genres": [
+        "astro",
+        "landscape"
+      ],
+      "creator": "Wally Pacholka",
+      "region": "US",
+      "note": "双尾彗星悬在红色砂岩孤峰之上，成为上世纪90年代末最著名的天文照片之一。",
+      "noteEn": "The twin-tailed comet above red rock spires — one of the most famous astronomical images of the late '90s.",
+      "awards": []
+    },
+    {
+      "id": "eye-to-eye",
+      "title": "凝视",
+      "en": "Eye to Eye",
+      "year": 1997,
+      "genres": [
+        "nature-wildlife",
+        "landscape"
+      ],
+      "creator": "Frans Lanting",
+      "region": "NL",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "低角度把野生动物拍成与人类平视的个体，黑白影棚式肖像赋予它们尊严与性格。",
+      "noteEn": "Studio-like, low-angle portraits that meet wild animals as equals, giving them dignity and character."
+    },
+    {
+      "id": "long-exposures-wesely",
+      "title": "长时间曝光",
+      "en": "Long Exposures",
+      "year": 1997,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Michael Wesely",
+      "region": "DE",
+      "awards": [],
+      "note": "快门开了三年，把施工中的柏林拍成时间的残影。",
+      "noteEn": "Shutters open for years turn a Berlin construction site into a trace of time."
+    },
+    {
+      "id": "the-year-of-the-tiger",
+      "title": "虎之年",
+      "en": "The Year of the Tiger",
+      "year": 1997,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Michael Nichols",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "与印度科学家用自动相机拍到野生孟加拉虎，为大型猫科动物建立了可亲近的影像。",
+      "noteEn": "Remote cameras in India capturing wild Bengal tigers — making the big cats approachable on the page."
+    },
+    {
+      "id": "wheat-harvesters",
+      "title": "麦客",
+      "en": "Wheat Harvesters",
+      "year": 1998,
+      "genres": [
+        "bw"
+      ],
+      "creator": "Hou Dengke",
+      "region": "CN",
+      "awards": [],
+      "note": "关中麦客候鸟般迁徙割麦，黄土高原上一个人的史诗。",
+      "noteEn": "Migrant wheat-cutters crossing the Guanzhong plain—one man's epic of the loess plateau."
+    },
+    {
+      "id": "99-cent",
+      "title": "99美分",
+      "en": "99 Cent",
+      "year": 1999,
+      "genres": [
+        "urban"
+      ],
+      "creator": "Andreas Gursky",
+      "region": "DE",
+      "note": "超市货架的万花筒式俯视，把消费主义景观拍成无限重复的数字矩阵。",
+      "noteEn": "A kaleidoscopic supermarket interior — consumerist spectacle as an endlessly repeated digital matrix.",
+      "awards": []
+    },
+    {
+      "id": "case-history",
+      "title": "病历",
+      "en": "Case History",
+      "year": 1999,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Boris Mikhailov",
+      "region": "UA",
+      "awards": [],
+      "note": "乌克兰后苏联街头的流民，用身体表演自己的绝望。",
+      "noteEn": "The homeless of post-Soviet Kharkiv, performing their own despair."
+    },
+    {
+      "id": "go-sees",
+      "title": "试镜",
+      "en": "Go-Sees",
+      "year": 1999,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Juergen Teller",
+      "region": "DE",
+      "note": "用傻瓜相机拍模特们的「海选」照，不修片、不摆pose，把时尚拉回素人状态。",
+      "noteEn": "Point-and-shoot casting photos, unretouched and unposed — fashion dragged back to the amateur present.",
+      "awards": []
+    },
+    {
+      "id": "inferno",
+      "title": "地狱",
+      "en": "Inferno",
+      "year": 1999,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "James Nachtwey",
+      "region": "US",
+      "awards": [
+        "world-press-photo"
+      ],
+      "note": "九年间九场冲突的集结，战地摄影沉重的史诗。",
+      "noteEn": "Nine conflicts across nine years—a grave epic of photojournalism."
+    },
+    {
+      "id": "liebeslied-my-suicides",
+      "title": "情歌（我的自尽）",
+      "en": "Liebeslied (My Suicides)",
+      "year": 1999,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Rut Blees Luxemburg",
+      "region": "DE",
+      "note": "伦敦街头的长曝光把霓虹与雨水拍成抒情诗，让「城市之夜」有了哲学化的暧昧。",
+      "noteEn": "Long exposures turn London's neon and rain into lyric — the urban night given philosophical ambivalence.",
+      "awards": []
+    },
+    {
+      "id": "rhein-ii",
+      "title": "莱茵河2号",
+      "en": "Rhein II",
+      "year": 1999,
+      "genres": [
+        "architecture",
+        "urban",
+        "minimal",
+        "landscape"
+      ],
+      "creator": "Andreas Gursky",
+      "region": "DE",
+      "note": "数字抹除厂房后的极简莱茵河，2011年以430万美元成交，曾是全球最贵照片。",
+      "noteEn": "A digitally purified Rhine, stripped of factories into minimal horizontals — sold for $4.3M in 2011, then the most expensive photo ever.",
+      "awards": []
+    },
+    {
+      "id": "river-of-colour",
+      "title": "色彩之河",
+      "en": "River of Colour",
+      "year": 1999,
+      "genres": [
+        "urban",
+        "street"
+      ],
+      "creator": "Raghubir Singh",
+      "region": "IN",
+      "note": "在西方纪实仍偏爱黑白时，用徕卡拍出印度街头的饱和色彩，开创彩色街头传统。",
+      "noteEn": "Saturated Leica color of Indian streets while Western documentary favored black-and-white — founder of a color street tradition.",
+      "awards": []
+    },
+    {
+      "id": "sidewalk-mermelstein",
+      "title": "人行道",
+      "en": "Sidewalk",
+      "year": 1999,
+      "genres": [
+        "street"
+      ],
+      "creator": "Jeff Mermelstein",
+      "region": "US",
+      "awards": [],
+      "note": "纽约人行道上电话与私语的瞬间，像在城市里偷听。",
+      "noteEn": "Moments of phones and whispers on New York sidewalks—eavesdropping on the city."
+    },
+    {
+      "id": "water-light-time",
+      "title": "水、光、时间",
+      "en": "Water, Light, Time",
+      "year": 1999,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "David Doubilet",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "国家地理水摄泰斗的精选，证明海面之下同样有着剧场般的秩序与颜色。",
+      "noteEn": "Nat Geo's master of underwater photography shows the sea holds its own theater of order and color."
+    },
+    {
+      "id": "showstudio",
+      "title": "SHOWstudio",
+      "en": "SHOWstudio",
+      "year": 2000,
+      "genres": [
+        "fashion"
+      ],
+      "creator": "Nick Knight",
+      "region": "UK",
+      "note": "首个把时尚影像直播化、实验化的平台，让摄影与动态影像、科技持续交锋。",
+      "noteEn": "The first platform to broadcast and experiment with fashion imagery live — where photography meets film and tech.",
+      "awards": []
+    },
+    {
+      "id": "the-living-wild",
+      "title": "野性生灵",
+      "en": "The Living Wild",
+      "year": 2000,
+      "genres": [
+        "nature-wildlife",
+        "landscape"
+      ],
+      "creator": "Art Wolfe",
+      "region": "US",
+      "note": "用绝佳构图把动物的姿态与背景图案化，证明野生动物摄影也可以是形式艺术。",
+      "noteEn": "Animals' postures composed into graphic patterns — wildlife photography as formal art.",
+      "awards": []
+    },
+    {
+      "id": "the-mennonites",
+      "title": "门诺派",
+      "en": "The Mennonites",
+      "year": 2000,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Larry Towell",
+      "region": "CA",
+      "awards": [
+        "world-press-photo"
+      ],
+      "note": "与门诺派同住多年，马格南为封闭社群留下一部影像档案。",
+      "noteEn": "Years living among the Mennonites—a Magnum archive of a closed community."
+    },
+    {
+      "id": "america-from-the-air",
+      "title": "空中看美国",
+      "en": "America from the Air",
+      "year": 2001,
+      "genres": [
+        "architecture",
+        "landscape"
+      ],
+      "creator": "Yann Arthus-Bertrand",
+      "region": "FR",
+      "note": "直升机低空航拍把美国的几何田野与城市肌理变成抽象图案，全球最畅销航拍书「从空中看地球」的美洲卷。",
+      "noteEn": "Low-altitude aerial views turn American farmland and city grids into abstract geometry — the America volume of the world's best-selling \"Earth from the Air.\"",
+      "awards": []
+    },
+    {
+      "id": "chinese-on-the-train",
+      "title": "火车上的中国人",
+      "en": "Chinese on the Train",
+      "year": 2001,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Wang Fuchun",
+      "region": "CN",
+      "awards": [],
+      "note": "绿皮车里三十年的人生百态，流动中国的横向切片。",
+      "noteEn": "Thirty years of life inside China's hard-seat carriages—a cross-section of a nation in motion."
+    },
+    {
+      "id": "house-hunting",
+      "title": "逐屋",
+      "en": "House Hunting",
+      "year": 2001,
+      "genres": [
+        "night",
+        "minimal"
+      ],
+      "creator": "Todd Hido",
+      "region": "US",
+      "note": "透过车窗外拍的美国郊区住宅，在幽蓝夜色里暧昧不安，重新定义了夜间快照。",
+      "noteEn": "Suburban homes shot through a car window in uneasy blue dark — redefining the nocturnal snapshot.",
+      "awards": []
+    },
+    {
+      "id": "melting-point",
+      "title": "熔点",
+      "en": "Melting Point",
+      "year": 2001,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Stéphane Couturier",
+      "region": "FR",
+      "note": "汽车工厂内部被拆解重组成马赛克般的几何抽象，工业建筑转化为像素化图像。",
+      "noteEn": "Car-factory interiors dissected into mosaic-like abstraction, industrial architecture turned pixelated image.",
+      "awards": []
+    },
+    {
+      "id": "my-father-and-mother",
+      "title": "俺爹俺娘",
+      "en": "My Father and Mother",
+      "year": 2001,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Jiao Bo",
+      "region": "CN",
+      "awards": [],
+      "note": "三十年拍父母在乡下的日常，中国乡村亲情最绵长的注脚。",
+      "noteEn": "Thirty years of a peasant couple's daily life—the longest footnote to Chinese family love."
+    },
+    {
+      "id": "nakazora",
+      "title": "中空",
+      "en": "Nakazora",
+      "year": 2001,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Masao Yamamoto",
+      "region": "JP",
+      "awards": [],
+      "note": "小尺寸照片像一页页俳句，留白本身就是禅。",
+      "noteEn": "Small prints like pages of haiku—emptiness as the point."
+    },
+    {
+      "id": "utatane",
+      "title": "假寐",
+      "en": "Utatane",
+      "year": 2001,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Rinko Kawauchi",
+      "region": "JP",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "日常里瞬间的光，轻柔得几乎无声，却让时间慢下来。",
+      "noteEn": "Fleeting light in the everyday, soft almost to silence—yet it slows time."
+    },
+    {
+      "id": "sugimoto-architecture",
+      "title": "建筑（模糊系列）",
+      "en": "Architecture (Sugimoto)",
+      "year": 2003,
+      "genres": [
+        "architecture",
+        "bw"
+      ],
+      "creator": "Hiroshi Sugimoto",
+      "region": "JP",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "故意失焦把地标建筑还原成记忆中的模糊剪影，让建筑照片变成关于「看见」本身的冥想。",
+      "noteEn": "Deliberate defocus reduces landmarks to blurred memory-traces — architecture as a meditation on seeing itself."
+    },
+    {
+      "id": "architecture-of-density",
+      "title": "密度建筑",
+      "en": "Architecture of Density",
+      "year": 2003,
+      "genres": [
+        "architecture",
+        "urban"
+      ],
+      "creator": "Michael Wolf",
+      "region": "HK",
+      "note": "正面压缩香港公屋外立面的重复窗格，把高密度居住拍成令人窒息的秩序图案。",
+      "noteEn": "Front-on compression of Hong Kong housing facades turns density into a suffocating grid of repetition.",
+      "awards": []
+    },
+    {
+      "id": "aila",
+      "title": "艾拉",
+      "en": "AILA",
+      "year": 2004,
+      "genres": [
+        "minimal"
+      ],
+      "creator": "Rinko Kawauchi",
+      "region": "JP",
+      "awards": [],
+      "note": "用轻薄色彩捕捉空气里的浮尘与呼吸，日常如偈语。",
+      "noteEn": "Dust and breath caught in gossamer colour—the everyday as a Zen phrase."
+    },
+    {
+      "id": "hubble-ultra-deep-field",
+      "title": "哈勃超深场",
+      "en": "Hubble Ultra Deep Field",
+      "year": 2004,
+      "genres": [
+        "astro"
+      ],
+      "creator": "NASA / ESA (Hubble)",
+      "region": "US",
+      "note": "对准天球极小一块累积曝光百万秒，数出约一万个星系——可见宇宙的「深场」剖面。",
+      "noteEn": "A million-second exposure of a tiny patch of sky revealing ~10,000 galaxies — a core sample of the visible universe.",
+      "awards": []
+    },
+    {
+      "id": "minutes-to-midnight",
+      "title": "午夜前",
+      "en": "Minutes to Midnight",
+      "year": 2004,
+      "genres": [
+        "urban",
+        "night",
+        "street"
+      ],
+      "creator": "Trent Parke",
+      "region": "AU",
+      "note": "澳洲盛夏黄昏的奇异光线与城市幽灵，把「家国」拍成末日将至的寓言。",
+      "noteEn": "A 90,000 km road trip across Australia in brooding black and white—the nation rendered dark and incandescent.",
+      "awards": []
+    },
+    {
+      "id": "trinity-college-library",
+      "title": "都柏林圣三一学院图书馆",
+      "en": "Trinity College Library Dublin",
+      "year": 2004,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Candida Höfer",
+      "region": "DE",
+      "note": "无人空间的宏大堂内景观，对称、静谧、色彩精准，让公共建筑的秩序之美自己说话。",
+      "noteEn": "Vast, people-free interiors of public institutions — symmetry, silence and exact color let order speak for itself.",
+      "awards": []
+    },
+    {
+      "id": "chen-man-vision",
+      "title": "视觉",
+      "en": "Vision (Chen Man)",
+      "year": 2004,
+      "genres": [
+        "fashion"
+      ],
+      "creator": "陈漫 Chen Man",
+      "region": "CN",
+      "note": "数码后期与东方视觉符号混融的时装大片，开创中国时尚摄影的「视觉系」语言。",
+      "noteEn": "Digital retouching fused with Eastern visual symbols — the \"visionary\" language that opened Chinese fashion photography.",
+      "awards": []
+    },
+    {
+      "id": "celestial-realm",
+      "title": "天域黄山",
+      "en": "Celestial Realm",
+      "year": 2005,
+      "genres": [
+        "landscape",
+        "bw"
+      ],
+      "creator": "Wang Wusheng",
+      "region": "CN",
+      "awards": [],
+      "note": "以水墨笔意拍黄山云海，把东方山水翻译成银盐黑白。",
+      "noteEn": "Huangshan clouds shot with ink-wash intent—Eastern landscape redeveloped in silver."
+    },
+    {
+      "id": "close-up",
+      "title": "特写",
+      "en": "Close Up",
+      "year": 2005,
+      "genres": [
+        "portrait"
+      ],
+      "creator": "Martin Schoeller",
+      "region": "DE",
+      "awards": [],
+      "note": "明星与普通人的「大头照」，同一盏灯抹平了所有等级。",
+      "noteEn": "Celebrities and strangers as \"big heads\"—one light erases all hierarchy."
+    },
+    {
+      "id": "manufactured-landscapes",
+      "title": "人造风景",
+      "en": "Manufactured Landscapes",
+      "year": 2005,
+      "genres": [
+        "architecture",
+        "landscape"
+      ],
+      "creator": "Edward Burtynsky",
+      "region": "CA",
+      "note": "采石场、煤矿与集装箱港口的巨幅俯视，让工业破坏呈现出近乎美的震撼尺度。",
+      "noteEn": "Huge views of quarries, mines and ports make industrial destruction almost beautiful in scale.",
+      "awards": []
+    },
+    {
+      "id": "after-the-flood",
+      "title": "洪水之后",
+      "en": "After the Flood",
+      "year": 2006,
+      "genres": [
+        "architecture",
+        "urban"
+      ],
+      "creator": "Robert Polidori",
+      "region": "CA",
+      "note": "飓风卡特里娜后新奥尔良民居的霉菌墙面，大画幅把灾难痕迹拍成静物般庄严的遗存。",
+      "noteEn": "Katrina-ravaged New Orleans interiors, the moldy walls shot large-format into solemn still lifes of loss.",
+      "awards": []
+    },
+    {
+      "id": "aftermath-world-trade-center",
+      "title": "9·11 之后",
+      "en": "Aftermath: World Trade Center Archive",
+      "year": 2006,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Joel Meyerowitz",
+      "region": "US",
+      "awards": [],
+      "note": "获准进入世贸遗址的摄影师，记录下整整一年的清理与重生。",
+      "noteEn": "Granted rare access to Ground Zero, he documented a full year of recovery and rebirth."
+    },
+    {
+      "id": "early-color-leiter",
+      "title": "早期彩色",
+      "en": "Early Color",
+      "year": 2006,
+      "genres": [
+        "urban",
+        "street"
+      ],
+      "creator": "Saul Leiter",
+      "region": "US",
+      "note": "1950年代纽约彩色街头被尘封半世纪后才出版，色块与倒影的绘画感改写街头摄影。",
+      "noteEn": "1950s New York color unseen for half a century — color fields and reflections that redefined street photography.",
+      "awards": []
+    },
+    {
+      "id": "hokkaido-kenna",
+      "title": "北海道",
+      "en": "Hokkaido",
+      "year": 2006,
+      "genres": [
+        "landscape",
+        "minimal"
+      ],
+      "creator": "Michael Kenna",
+      "region": "UK",
+      "awards": [],
+      "note": "雪原上的孤树与冰面，极简到只剩下呼吸，长曝光把雪抹成缎子。",
+      "noteEn": "Lone trees and ice fields in snow, reduced to breath—long exposure turns snow to silk."
+    },
+    {
+      "id": "i-tokyo",
+      "title": "我，东京",
+      "en": "I, Tokyo",
+      "year": 2006,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Jacob Aue Sobol",
+      "region": "DK",
+      "note": "深夜东京地铁与街头的高感光黑白，把陌生都市拍成心跳般的亲密存在。",
+      "noteEn": "High-ISO black-and-white of late-night Tokyo transit and streets — the alien city felt as a heartbeat.",
+      "awards": []
+    },
+    {
+      "id": "out-my-window",
+      "title": "我的窗外",
+      "en": "Out My Window",
+      "year": 2006,
+      "genres": [
+        "urban",
+        "portrait"
+      ],
+      "creator": "Gail Albert Halaban",
+      "region": "US",
+      "note": "长焦隔着窗户拍摄都市邻居的生活片段，把窥视变成带有距离的温柔。",
+      "noteEn": "Telephoto glimpses of neighbors through windows — voyeurism made tender by distance.",
+      "awards": []
+    },
+    {
+      "id": "quiet-light",
+      "title": "静谧之光",
+      "en": "Quiet Light",
+      "year": 2006,
+      "genres": [
+        "landscape"
+      ],
+      "creator": "John Sexton",
+      "region": "US",
+      "awards": [],
+      "note": "继承亚当斯的区域曝光法，专拍清晨的雾与微光。",
+      "noteEn": "The Zone System's heir, photographing dawn light and fog."
+    },
+    {
+      "id": "disney-dream-portrait",
+      "title": "迪士尼梦境肖像",
+      "en": "Disney Dream Portrait",
+      "year": 2007,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Annie Leibovitz",
+      "region": "US",
+      "note": "把明星扮进童话名场面，高预算时装叙事与流行文化的交汇之作。",
+      "noteEn": "Stars staged into fairy-tale tableaux — where high-budget fashion storytelling meets pop culture.",
+      "awards": []
+    },
+    {
+      "id": "gorillas-in-the-crossfire",
+      "title": "战火中的大猩猩",
+      "en": "Gorillas in the Crossfire",
+      "year": 2007,
+      "genres": [
+        "nature-wildlife",
+        "documentary"
+      ],
+      "creator": "Brent Stirton",
+      "region": "ZA",
+      "awards": [
+        "world-press-photo"
+      ],
+      "note": "刚果战乱中被杀害的山地大猩猩被士兵抬出，获2008年荷赛年度照片。",
+      "noteEn": "Dead mountain gorillas carried from Congo's conflict — World Press Photo of the Year 2008."
+    },
+    {
+      "id": "the-lost-vanguard",
+      "title": "失落的前卫",
+      "en": "The Lost Vanguard",
+      "year": 2007,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Richard Pare",
+      "region": "UK",
+      "note": "逐栋记录苏联构成主义建筑的危楼遗存，很多建筑在他拍摄后即被拆除，成为救赎性的档案。",
+      "noteEn": "A survey of surviving Soviet Constructivist buildings, many demolished right after he shot them — a redemptive archive.",
+      "awards": []
+    },
+    {
+      "id": "america-by-car",
+      "title": "开车看美国",
+      "en": "America by Car",
+      "year": 2008,
+      "genres": [
+        "urban",
+        "landscape"
+      ],
+      "creator": "Lee Friedlander",
+      "region": "US",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "挡风玻璃内外叠影的美国公路，把「汽车社会」拍成不断叠加的视觉白噪音。",
+      "noteEn": "Windshield-framed America, foreground and street stacked — car culture as layered visual noise."
+    },
+    {
+      "id": "flamboya",
+      "title": "弗拉姆博亚",
+      "en": "Flamboya",
+      "year": 2008,
+      "genres": [
+        "fashion",
+        "minimal"
+      ],
+      "creator": "Viviane Sassen",
+      "region": "NL",
+      "note": "非洲炽烈阳光下几何化的身体与影子，让时尚摄影有了观念艺术的锐度。",
+      "noteEn": "Bodies and shadows reduced to geometry in harsh African sun — fashion with the edge of conceptual art.",
+      "awards": []
+    },
+    {
+      "id": "hiroshima-ishiuci",
+      "title": "广岛",
+      "en": "Hiroshima",
+      "year": 2008,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Ishiuchi Miyako",
+      "region": "JP",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "遇难者的衣服、眼镜与鞋的特写，记忆被缝进织物里。",
+      "noteEn": "Close-ups of victims' garments, glasses and shoes—memory stitched into fabric."
+    },
+    {
+      "id": "snow-leopard-winter",
+      "title": "雪豹",
+      "en": "Snow Leopard",
+      "year": 2008,
+      "genres": [
+        "nature-wildlife",
+        "night"
+      ],
+      "creator": "Steve Winter",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "用遥控相机在喜马拉雅夜间拍到野生雪豹正面照，完成了一次堪称奇迹的拍摄工程。",
+      "noteEn": "A remote-camera night shot of a wild snow leopard in the Himalayas — a near-impossible photographic feat."
+    },
+    {
+      "id": "the-forgotten-people",
+      "title": "被人遗忘的人",
+      "en": "The Forgotten People",
+      "year": 2008,
+      "genres": [
+        "bw"
+      ],
+      "creator": "Lü Nan",
+      "region": "CN",
+      "awards": [],
+      "note": "1989-90年走访38家精神病院，用三年时间把尊严还给被遗忘者。",
+      "noteEn": "Three years inside 38 psychiatric hospitals (1989-90) that gave dignity back to the forgotten."
+    },
+    {
+      "id": "vivan-maier-street-self-portraits",
+      "title": "街头自拍",
+      "en": "Street Self-Portraits",
+      "year": 2009,
+      "genres": [
+        "street"
+      ],
+      "creator": "Vivian Maier",
+      "region": "US",
+      "awards": [],
+      "note": "保姆身份拍下逾十万张底片，死后才被发掘，影子里反复出现的自拍最迷人。",
+      "noteEn": "A nanny left over 100,000 negatives found posthumously—her shadow self-portraits are the most haunting."
+    },
+    {
+      "id": "the-world-at-night",
+      "title": "夜色中的世界",
+      "en": "The World at Night",
+      "year": 2009,
+      "genres": [
+        "astro",
+        "night"
+      ],
+      "creator": "Tunc Tezel",
+      "region": "TR",
+      "note": "TWAN「夜空世界」网络的核心成员，让星空与地景的摄影成为跨文化协作。",
+      "noteEn": "A core member of TWAN's night-sky network — sky-and-landscape photography as cross-cultural collaboration.",
+      "awards": []
+    },
+    {
+      "id": "infidel",
+      "title": "异教徒",
+      "en": "Infidel",
+      "year": 2010,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Tim Hetherington",
+      "region": "UK",
+      "awards": [],
+      "note": "与美军同驻阿富汗山谷，镜头贴近到能听见呼吸。",
+      "noteEn": "Embedded with US troops in Afghanistan's valley—close enough to hear them breathe."
+    },
+    {
+      "id": "maxxi-rome",
+      "title": "罗马MAXXI美术馆",
+      "en": "MAXXI Rome",
+      "year": 2010,
+      "genres": [
+        "architecture"
+      ],
+      "creator": "Hélène Binet",
+      "region": "CH",
+      "note": "只用胶片和自然光拍扎哈的流动混凝土曲面，把建筑细部抽象成光与影的素描。",
+      "noteEn": "Film and natural light alone render Zaha's flowing concrete as a drawing in light and shadow.",
+      "awards": []
+    },
+    {
+      "id": "on-this-earth-a-shadow-falls",
+      "title": "在这片土地上，阴影降临",
+      "en": "On This Earth, A Shadow Falls",
+      "year": 2010,
+      "genres": [
+        "nature-wildlife",
+        "bw"
+      ],
+      "creator": "Nick Brandt",
+      "region": "UK",
+      "note": "东非动物站在人类改造的风景里如肖像般凝视，把生态哀歌拍成庄严肃穆的黑白剧。",
+      "noteEn": "East African animals posed like human portraits amid altered land — an ecological elegy as solemn black-and-white drama.",
+      "awards": []
+    },
+    {
+      "id": "deep-sky-colors",
+      "title": "深空之色",
+      "en": "Deep Sky Colors",
+      "year": 2011,
+      "genres": [
+        "astro"
+      ],
+      "creator": "Rogelio Bernal Andreo",
+      "region": "ES",
+      "note": "用窄带滤镜把猎户座一带拍出斑斓气体细节，业余天文摄影技艺的巅峰示范。",
+      "noteEn": "Narrowband filters turn the Orion region into swirls of gas and color — amateur astrophotography at its peak.",
+      "awards": []
+    },
+    {
+      "id": "illuminance",
+      "title": "光明",
+      "en": "Illuminance",
+      "year": 2011,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Rinko Kawauchi",
+      "region": "JP",
+      "note": "以柔焦与低饱和看城市夜光、雪花与萤火，把日常之光拍成恍惚的微光诗。",
+      "noteEn": "Soft, pale views of city lights, snow and fireflies — everyday luminance as a dreamy poem of light.",
+      "awards": []
+    },
+    {
+      "id": "ocean-soul",
+      "title": "海洋之魂",
+      "en": "Ocean Soul",
+      "year": 2011,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Brian Skerry",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "二十年潜入全球海域的鲸豚档案，把海洋生物拍成需要被保护的「人物」。",
+      "noteEn": "Two decades of whale and dolphin imagery — ocean life portrayed as characters worthy of protection."
+    },
+    {
+      "id": "panda-release-sichuan",
+      "title": "野放熊猫",
+      "en": "Panda Release, Sichuan",
+      "year": 2011,
+      "genres": [
+        "nature-wildlife",
+        "documentary"
+      ],
+      "creator": "Ami Vitale",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "记录人工繁育大熊猫走向野外的瞬间，保育议题从此有了温柔而有力的影像面孔。",
+      "noteEn": "Captive-bred pandas stepping into the wild — conservation given a tender, powerful visual face."
+    },
+    {
+      "id": "polar-obsession",
+      "title": "极地执念",
+      "en": "Polar Obsession",
+      "year": 2011,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Paul Nicklen",
+      "region": "CA",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "极地摄影师的毕生档案，把冰下世界与北极熊拍成冷冽而亲密的存在。",
+      "noteEn": "A lifetime of polar archives, rendering the under-ice world and polar bears cold and intimate."
+    },
+    {
+      "id": "serengeti-spy",
+      "title": "塞伦盖蒂间谍",
+      "en": "Serengeti Spy",
+      "year": 2011,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Anup Shah",
+      "region": "KE",
+      "note": "用遥控相机把镜头贴进狮群，让草原之王卸下防备，露出近乎家庭化的日常。",
+      "noteEn": "Remote cameras placed inside the pride make the kings of the savanna drop their guard into near-family scenes.",
+      "awards": []
+    },
+    {
+      "id": "the-deluge",
+      "title": "洪水（拉沙佩勒）",
+      "en": "The Deluge",
+      "year": 2011,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "David LaChapelle",
+      "region": "US",
+      "note": "奢华与末日在艳俗色彩里同框，让时尚摄影成为批判消费主义的寓言。",
+      "noteEn": "Luxury and apocalypse share one garish frame — fashion photography as a fable against consumerism.",
+      "awards": []
+    },
+    {
+      "id": "the-suffering-of-light",
+      "title": "光的苦痛",
+      "en": "The Suffering of Light",
+      "year": 2011,
+      "genres": [
+        "urban",
+        "street"
+      ],
+      "creator": "Alex Webb",
+      "region": "US",
+      "note": "加勒比与墨西哥的浓烈色彩，复杂构图层层嵌套，每帧都像解谜。",
+      "noteEn": "Three decades of intricate color street across continents — color stretched between density and solitude.",
+      "awards": []
+    },
+    {
+      "id": "birds-of-paradise",
+      "title": "极乐鸟",
+      "en": "Birds of Paradise",
+      "year": 2012,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Tim Laman & Ed Scholes",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "走遍新几内亚为所有极乐鸟物种建立影像档案，堪称鸟类摄影的「物种大全」。",
+      "noteEn": "Crossing New Guinea to archive every bird-of-paradise species — an almost complete inventory of one bird family."
+    },
+    {
+      "id": "more-than-human",
+      "title": "不止于人类",
+      "en": "More Than Human",
+      "year": 2012,
+      "genres": [
+        "nature-wildlife",
+        "portrait"
+      ],
+      "creator": "Tim Flach",
+      "region": "UK",
+      "note": "影棚里的动物肖像被拍成拟人化的「他者」，审视人类与动物间的镜像关系。",
+      "noteEn": "Studio portraits that anthropomorphize animals into \"others\" — a mirror held between species.",
+      "awards": []
+    },
+    {
+      "id": "story-teller",
+      "title": "说书人",
+      "en": "Story Teller",
+      "year": 2012,
+      "genres": [
+        "fashion"
+      ],
+      "creator": "Tim Walker",
+      "region": "UK",
+      "note": "手工置景的童话奇观，超大裙摆与超现实道具在胶片里复活维多利亚式幻想。",
+      "noteEn": "Hand-built fairytale tableaux where oversized gowns and surreal props revive Victorian fantasy on film.",
+      "awards": []
+    },
+    {
+      "id": "torre-david",
+      "title": "大卫塔",
+      "en": "Torre David",
+      "year": 2012,
+      "genres": [
+        "architecture",
+        "urban"
+      ],
+      "creator": "Iwan Baan",
+      "region": "NL",
+      "note": "委内瑞拉未完工摩天楼被数千居民自建改造的垂直社区，让「建筑」从设计走向真实生活。",
+      "noteEn": "An unfinished Caracas skyscraper turned self-built vertical village — architecture as lived reality, not render.",
+      "awards": []
+    },
+    {
+      "id": "birth-of-venus",
+      "title": "维纳斯的诞生",
+      "en": "Birth of Venus",
+      "year": 2013,
+      "genres": [
+        "night",
+        "astro"
+      ],
+      "creator": "Mark Gee",
+      "region": "NZ",
+      "note": "跳入星海的人影剪影，获2013年「年度天文摄影师」总冠军。",
+      "noteEn": "A silhouette leaping into the Milky Way — overall winner of the 2013 Astronomy Photographer of the Year.",
+      "awards": []
+    },
+    {
+      "id": "genesis",
+      "title": "创世纪",
+      "en": "Genesis",
+      "year": 2013,
+      "genres": [
+        "nature-wildlife",
+        "landscape",
+        "documentary",
+        "bw"
+      ],
+      "creator": "Sebastião Salgado",
+      "region": "BR",
+      "awards": [
+        "hasselblad"
+      ],
+      "note": "八年奔走全球寻找未经文明触碰之地，用大画幅黑白为地球留下「创世记」档案。",
+      "noteEn": "Eight years seeking the planet's pristine places — a large-format black-and-white Genesis archive of Earth."
+    },
+    {
+      "id": "volcanic-sky-of-reunion",
+      "title": "留尼汪火山星空",
+      "en": "Volcanic Sky of Réunion",
+      "year": 2013,
+      "genres": [
+        "astro",
+        "night"
+      ],
+      "creator": "Luc Perrot",
+      "region": "FR",
+      "note": "熔岩红与银河银在同一画面里对峙，火山口成为星空摄影最戏剧性的前景。",
+      "noteEn": "Molten glow and the galactic core in one frame — an erupting crater as the most dramatic of foregrounds.",
+      "awards": []
+    },
+    {
+      "id": "the-arctic-light",
+      "title": "北极光",
+      "en": "The Arctic Light",
+      "year": 2014,
+      "genres": [
+        "astro",
+        "night"
+      ],
+      "creator": "Ole Salomonsen",
+      "region": "NO",
+      "note": "挪威摄影师在极夜小镇持续数年的极光延时与静帧，把舞动的光拍成天体剧场。",
+      "noteEn": "Years of aurora time-lapses and stills from a Norwegian polar town — dancing light as celestial theater.",
+      "awards": []
+    },
+    {
+      "id": "oldest-living-things",
+      "title": "世上最古老的生灵",
+      "en": "The Oldest Living Things in the World",
+      "year": 2014,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Rachel Sussman",
+      "region": "US",
+      "note": "为树龄数千年的个体生命建档，用摄影丈量时间尺度，也让「活体」有了肖像。",
+      "noteEn": "Archiving organisms thousands of years old — photography measuring deep time, giving ancient life a portrait.",
+      "awards": []
+    },
+    {
+      "id": "think-of-england",
+      "title": "想一想英格兰",
+      "en": "Think of England",
+      "year": 2014,
+      "genres": [
+        "street"
+      ],
+      "creator": "Matt Stuart",
+      "region": "UK",
+      "awards": [],
+      "note": "伦敦街头的巧合错位，幽默藏在三次快门之间。",
+      "noteEn": "Coincidental collisions on London streets—humour hiding between three quick frames."
+    },
+    {
+      "id": "brothers-grimm-landscapes",
+      "title": "格林童话景观",
+      "en": "Brothers Grimm Landscapes",
+      "year": 2015,
+      "genres": [
+        "night",
+        "landscape"
+      ],
+      "creator": "Kilian Schönberger",
+      "region": "DE",
+      "note": "色盲摄影师拍出的雾林夜色，恰好呼应德国童话里神秘的森林氛围。",
+      "noteEn": "A color-blind photographer's misty forest nights — perfectly matching the eerie woods of German fairy tales.",
+      "awards": []
+    },
+    {
+      "id": "full-spectrum-dominance",
+      "title": "全谱优势",
+      "en": "Full Spectrum Dominance",
+      "year": 2015,
+      "genres": [
+        "architecture",
+        "documentary"
+      ],
+      "creator": "Simon Norfolk",
+      "region": "UK",
+      "note": "德国美军基地被拍成迷彩般的彩绘城，把「军事建筑即景观」这一逻辑推到极致。",
+      "noteEn": "US bases in Germany become camouflage-painted cityscapes — military architecture as landscape, pushed to its end.",
+      "awards": []
+    },
+    {
+      "id": "nairobi-urban",
+      "title": "内罗毕城市",
+      "en": "Nairobi Urban",
+      "year": 2015,
+      "genres": [
+        "urban"
+      ],
+      "creator": "Mutua Matheka",
+      "region": "KE",
+      "note": "以现代建筑与滑板青年重塑非洲首都的视觉形象，突破西方视角的单一想象。",
+      "noteEn": "Modern towers and skateboarders reframing an African capital — pushing past the single Western image of Africa.",
+      "awards": []
+    },
+    {
+      "id": "the-coelacanth",
+      "title": "腔棘鱼",
+      "en": "The Coelacanth",
+      "year": 2015,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Laurent Ballesta",
+      "region": "FR",
+      "note": "潜水记录活体腔棘鱼这一「活化石」，填补了人类对该物种影像的百年空白。",
+      "noteEn": "Diving to film a living coelacanth — a \"living fossil\" unseen alive by humans for a century.",
+      "awards": []
+    },
+    {
+      "id": "milky-way-above-the-great-wall",
+      "title": "长城上的银河",
+      "en": "The Milky Way above the Great Wall",
+      "year": 2015,
+      "genres": [
+        "astro",
+        "night"
+      ],
+      "creator": "戴建峰 Jeff Dai",
+      "region": "CN",
+      "note": "让长城与银河同框，带动了中文互联网天文摄影的爆发式普及。",
+      "noteEn": "The Great Wall under a Milky Way arch — a catalyst for the explosion of Chinese astrophotography online.",
+      "awards": []
+    },
+    {
+      "id": "aurora-over-sweden",
+      "title": "瑞典极光",
+      "en": "Aurora over Sweden",
+      "year": 2016,
+      "genres": [
+        "astro",
+        "night"
+      ],
+      "creator": "Göran Strand",
+      "region": "SE",
+      "note": "用全景接片把极光拱门与雪原树影收入画面，极光摄影中「环境」意识的代表。",
+      "noteEn": "A full-arch aurora over snow and pines — emblematic of the environmental turn in aurora photography.",
+      "awards": []
+    },
+    {
+      "id": "polar-bear-huddle",
+      "title": "北极熊群像",
+      "en": "Polar Bear Huddle",
+      "year": 2016,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Roie Galitz",
+      "region": "IL",
+      "note": "无人机视角的北极熊群聚影像走红全球，也让气候议题以可爱又忧伤的方式被看见。",
+      "noteEn": "A drone-view crowd of polar bears that went viral — climate grief delivered with charm.",
+      "awards": []
+    },
+    {
+      "id": "the-golden-monkey",
+      "title": "金丝猴",
+      "en": "The Golden Monkey",
+      "year": 2016,
+      "genres": [
+        "nature-wildlife"
+      ],
+      "creator": "Marsel van Oosten",
+      "region": "NL",
+      "awards": [
+        "sony-world-photo"
+      ],
+      "note": "中国滇金丝猴与环境融为一体的构图，斩获索尼世界摄影奖野生动物类大奖。",
+      "noteEn": "A Yunnan snub-nosed monkey fused into its landscape — winner of Sony World Photography's wildlife prize."
+    },
+    {
+      "id": "tokyo-nights-wakui",
+      "title": "东京夜色",
+      "en": "Tokyo Nights",
+      "year": 2016,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Masashi Wakui",
+      "region": "JP",
+      "note": "社交媒体时代崛起的霓虹街拍，把东京后街拍成宫崎骏动画里的静谧夜景。",
+      "noteEn": "Neon backstreet shots that swept social media — Tokyo as a hushed Ghibli night.",
+      "awards": []
+    },
+    {
+      "id": "iss-transit-of-the-sun",
+      "title": "空间站凌日",
+      "en": "ISS Transit of the Sun",
+      "year": 2017,
+      "genres": [
+        "astro"
+      ],
+      "creator": "Thierry Legault",
+      "region": "FR",
+      "note": "在精确计算的瞬间拍到空间站掠过日面的剪影，把「巧合」变成一门精密的科学。",
+      "noteEn": "Calculating the exact second the ISS crosses the solar disk — serendipity turned into exact science.",
+      "awards": []
+    },
+    {
+      "id": "fred-herzog-modern-color",
+      "title": "现代色彩",
+      "en": "Modern Color",
+      "year": 2017,
+      "genres": [
+        "street"
+      ],
+      "creator": "Fred Herzog",
+      "region": "CA",
+      "awards": [],
+      "note": "1950年代就用柯达克罗姆拍温哥华街头，比彩色摄影主流早了二十年。",
+      "noteEn": "Kodachrome street scenes of 1950s Vancouver, decades ahead of the mainstream colour movement."
+    },
+    {
+      "id": "photo-ark",
+      "title": "影像方舟",
+      "en": "Photo Ark",
+      "year": 2017,
+      "genres": [
+        "nature-wildlife",
+        "portrait"
+      ],
+      "creator": "Joel Sartore",
+      "region": "US",
+      "awards": [
+        "nat-geo"
+      ],
+      "note": "为全球物种建立黑白棚拍肖像库，用「方舟」隐喻回应第六次大灭绝。",
+      "noteEn": "Studio portraits of Earth's species against black and white — an ark against the sixth extinction."
+    },
+    {
+      "id": "beyonce-on-vogue",
+      "title": "碧昂丝 · Vogue封面",
+      "en": "Beyoncé on Vogue",
+      "year": 2018,
+      "genres": [
+        "fashion",
+        "portrait"
+      ],
+      "creator": "Tyler Mitchell",
+      "region": "US",
+      "note": "26岁成为Vogue创刊126年来首位拍摄封面的黑人摄影师，用田园阳光改写时尚权力地图。",
+      "noteEn": "At 26, the first Black photographer to shoot a Vogue cover in its 126-year history — sunlit, pastoral, redefining fashion's power map.",
+      "awards": []
+    },
+    {
+      "id": "lights-of-the-west",
+      "title": "西部之光",
+      "en": "Lights of the West",
+      "year": 2018,
+      "genres": [
+        "night",
+        "landscape"
+      ],
+      "creator": "Paul Zizka",
+      "region": "CA",
+      "note": "落基山脉的星空、极光与冰川之夜，让夜间风光摄影抵达可攀可近的现场感。",
+      "noteEn": "Star-filled nights over the Canadian Rockies — night landscape made physically reachable and present.",
+      "awards": []
+    },
+    {
+      "id": "nightscapes-shainblum",
+      "title": "夜空景观",
+      "en": "Nightscapes (Shainblum)",
+      "year": 2018,
+      "genres": [
+        "astro",
+        "night"
+      ],
+      "creator": "Michael Shainblum",
+      "region": "US",
+      "note": "把美国西部的银河接片与前景合成，代表了现代「夜空风景」的视觉美学。",
+      "noteEn": "Milky Way panoramas fused with western US foregrounds — the look of the contemporary night-landscape wave.",
+      "awards": []
+    },
+    {
+      "id": "m87-black-hole",
+      "title": "M87黑洞",
+      "en": "M87 Black Hole",
+      "year": 2019,
+      "genres": [
+        "astro"
+      ],
+      "creator": "Event Horizon Telescope",
+      "region": "US",
+      "note": "事件视界望远镜用全球射电阵列首次给黑洞拍照，橙红光环成为科学的全民符号。",
+      "noteEn": "The first image of a black hole's shadow, built from a planet-wide radio array — science's viral orange ring.",
+      "awards": []
+    },
+    {
+      "id": "snow-leopard-tibet",
+      "title": "雪豹 · 青藏",
+      "en": "Snow Leopard: Tibet",
+      "year": 2019,
+      "genres": [
+        "nature-wildlife",
+        "minimal"
+      ],
+      "creator": "Vincent Munier",
+      "region": "FR",
+      "note": "在青藏高原风雪中用长焦守候雪豹，把濒危猛兽拍成天地间一抹极简的灰影。",
+      "noteEn": "Long-lens vigils in the Tibetan highlands render the endangered cat a wisp of gray in a vast white world.",
+      "awards": []
+    },
+    {
+      "id": "to-ky-o",
+      "title": "东京夜游",
+      "en": "TO:KY:O",
+      "year": 2019,
+      "genres": [
+        "night",
+        "urban"
+      ],
+      "creator": "Liam Wong",
+      "region": "UK",
+      "note": "游戏美术师出身，用赛博朋克配色把雨夜东京拍成电子游戏般的场景。",
+      "noteEn": "A game designer's cyberpunk palette turns rainy Tokyo into a playable-looking cityscape.",
+      "awards": []
+    },
+    {
+      "id": "jwst-first-deep-field",
+      "title": "韦布首张深场",
+      "en": "JWST First Deep Field",
+      "year": 2022,
+      "genres": [
+        "astro"
+      ],
+      "creator": "NASA / ESA / CSA (JWST)",
+      "region": "US",
+      "note": "韦布望远镜以红外之眼深挖130亿年前的星系团，宣告下一代深空时代的开启。",
+      "noteEn": "The Webb telescope's infrared gaze into a 13-billion-year-old cluster, opening the next era of deep space.",
+      "awards": []
+    }
+  ]
 }

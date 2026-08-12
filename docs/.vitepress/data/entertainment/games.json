@@ -1,12 +1,5296 @@
 {
   "cat": "games",
-  "count": 0,
+  "count": 300,
   "stats": {
-    "totalAwards": 0,
-    "genres": {},
-    "decades": {},
-    "regions": {},
-    "yearRange": null
+    "totalAwards": 77,
+    "genres": {
+      "shooter": 33,
+      "racing": 20,
+      "puzzle": 36,
+      "platformer": 29,
+      "sim": 35,
+      "strategy": 36,
+      "fighting": 16,
+      "sports": 15,
+      "party": 14,
+      "rpg": 45,
+      "rhythm": 13,
+      "action-adventure": 70,
+      "open-world": 38,
+      "horror": 26,
+      "indie": 37,
+      "visual-novel": 16
+    },
+    "decades": {
+      "1970": 1,
+      "1980": 7,
+      "1990": 48,
+      "2000": 84,
+      "2010": 135,
+      "2020": 25
+    },
+    "regions": {
+      "JP": 99,
+      "RU": 1,
+      "US": 98,
+      "CA": 27,
+      "UK": 31,
+      "FR": 5,
+      "DE": 2,
+      "UA": 1,
+      "NL": 3,
+      "FI": 4,
+      "SE": 10,
+      "PL": 4,
+      "CZ": 3,
+      "IT": 1,
+      "MX": 1,
+      "AT": 2,
+      "DK": 1,
+      "VE": 1,
+      "BE": 2,
+      "AU": 2,
+      "ES": 1,
+      "CN": 1
+    },
+    "yearRange": [
+      1978,
+      2024
+    ]
   },
-  "items": []
+  "items": [
+    {
+      "title": "太空侵略者",
+      "en": "Space Invaders",
+      "year": 1978,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Taito",
+      "region": "JP",
+      "awards": [],
+      "note": "外星人逐行下压的节奏与心跳音效，是整个射击游戏类型的第一块奠基石。",
+      "noteEn": "The descending alien march and heartbeat blips laid the foundation of the entire shooting genre.",
+      "id": "space-invaders"
+    },
+    {
+      "title": "极速赛车",
+      "en": "Pole Position",
+      "year": 1982,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Namco",
+      "region": "JP",
+      "awards": [],
+      "note": "伪 3D 道路与排位赛机制，确立了整个竞速游戏类型的基本语法。",
+      "noteEn": "Pseudo-3D roads and qualifying rounds fixed the basic grammar of the racing game.",
+      "id": "pole-position"
+    },
+    {
+      "id": "tetris",
+      "title": "俄罗斯方块",
+      "en": "Tetris",
+      "year": 1984,
+      "genres": [
+        "puzzle"
+      ],
+      "creator": "Alexey Pajitnov",
+      "region": "RU",
+      "note": "七种方块下落消除的最纯粹形式，几乎在任何硬件上都能完美运行。",
+      "noteEn": "The purest falling-block puzzle; seven pieces, infinite depth, playable on virtually any machine.",
+      "awards": []
+    },
+    {
+      "title": "超级马力欧兄弟",
+      "en": "Super Mario Bros.",
+      "year": 1985,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Nintendo R&D4",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "顶砖、跳踩与秘密通道定义了平台跳跃的基本语汇，1985 年的 1-1 关是一代人的集体记忆。",
+      "noteEn": "Brick-smashing, stomping and secrets defined the platformer's vocabulary — level 1-1 is a shared childhood.",
+      "id": "super-mario-bros"
+    },
+    {
+      "title": "狂飙赛车",
+      "en": "OutRun",
+      "year": 1986,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Sega AM2",
+      "region": "JP",
+      "awards": [],
+      "note": "选择岔路的磁带公路、夕阳配色与兜风气氛，定义了「开着车去度假」的浪漫。",
+      "noteEn": "Branching roads, a convertible and sunset palettes defined the romance of a Sunday drive.",
+      "id": "outrun"
+    },
+    {
+      "title": "R 型战机",
+      "en": "R-Type",
+      "year": 1987,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Irem",
+      "region": "JP",
+      "awards": [],
+      "note": "蓄力波动炮与可分离的强力装甲，把卷轴射击的战术深度推上前无古人的高度。",
+      "noteEn": "A chargeable wave cannon and detachable Force pod pushed the side-scrolling shooter's tactical depth to new heights.",
+      "id": "r-type"
+    },
+    {
+      "title": "超级马力欧兄弟3",
+      "en": "Super Mario Bros. 3",
+      "year": 1988,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Nintendo R&D4",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "变身、地图关卡与道具箱把马力欧从一关游戏升级成一场远征，是 8 位机的结构巅峰。",
+      "noteEn": "Power-ups, an overworld map and item boxes turned Mario into an expedition — the NES's structural peak.",
+      "id": "super-mario-bros-3"
+    },
+    {
+      "title": "模拟城市",
+      "en": "SimCity",
+      "year": 1989,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Maxis",
+      "region": "US",
+      "awards": [],
+      "note": "没有输赢、只有规划的「软件玩具」，城市模拟类型的起点。",
+      "noteEn": "A software toy with no win state — only planning — where the city-builder began.",
+      "id": "simcity"
+    },
+    {
+      "title": "零式赛车",
+      "en": "F-Zero",
+      "year": 1990,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "awards": [],
+      "note": "Mode 7 伪 3D 的贴地飞行，用 15 秒一圈的极限速度定义了「快」。",
+      "noteEn": "Mode 7 pseudo-3D flight 15 seconds a lap — the game that defined raw velocity.",
+      "id": "f-zero"
+    },
+    {
+      "title": "超级马力欧世界",
+      "en": "Super Mario World",
+      "year": 1990,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "耀西、开关与幽灵屋的机关密度，加上存档与隐藏出口，是 16 位平台跳跃的完整体。",
+      "noteEn": "Yoshi, switches and ghost-house tricks plus save files and secret exits — the 16-bit platformer complete.",
+      "id": "super-mario-world"
+    },
+    {
+      "title": "文明",
+      "en": "Sid Meier's Civilization",
+      "year": 1991,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "MicroProse",
+      "region": "US",
+      "awards": [],
+      "note": "从石器时代到星际航行的一声「再来一回合」，4X 策略的万恶之源。",
+      "noteEn": "From stone age to spaceflight — the 'one more turn' origin of all 4X strategy.",
+      "id": "sid-meier-s-civilization"
+    },
+    {
+      "title": "索尼克",
+      "en": "Sonic the Hedgehog",
+      "year": 1991,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Sonic Team",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "速度与环的物理，绿山区的卷轴滚动让『跑』第一次成为快感本身。",
+      "noteEn": "Speed and ring physics — Green Hill's scrolling made running the pleasure itself.",
+      "id": "sonic-the-hedgehog"
+    },
+    {
+      "id": "street-fighter-ii",
+      "title": "街头霸王2",
+      "en": "Street Fighter II: The World Warrior",
+      "year": 1991,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "note": "定义了现代格斗游戏的八人可选阵容与必杀技输入，街机厅的一代神话。",
+      "noteEn": "Eight selectable fighters and special-move inputs defined modern fighting games; an arcade legend.",
+      "awards": []
+    },
+    {
+      "title": "沙丘 II",
+      "en": "Dune II: The Building of a Dynasty",
+      "year": 1992,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Westwood Studios",
+      "region": "US",
+      "awards": [],
+      "note": "鼠标框选、采矿造兵、雷达小地图——现代 RTS 的语法几乎都诞生于此。",
+      "noteEn": "Mouse selection, harvester economy and a radar map — the grammar of the modern RTS was written here.",
+      "id": "dune-ii-the-building-of-a-dynasty"
+    },
+    {
+      "title": "超级马力欧赛车",
+      "en": "Super Mario Kart",
+      "year": 1992,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "awards": [],
+      "note": "香蕉皮与红龟壳的四人对战，让「竞速」从此有了合家欢的入口。",
+      "noteEn": "Banana-slip four-player chaos — the party game hiding inside a racer.",
+      "id": "super-mario-kart"
+    },
+    {
+      "title": "德军总部 3D",
+      "en": "Wolfenstein 3D",
+      "year": 1992,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "id Software",
+      "region": "US",
+      "awards": [],
+      "note": "用射线投射技术在 486 上画出可以走进去的城堡，第一人称射击的起点。",
+      "noteEn": "Ray-casting drew walkable castle corridors on a 486 — the birthplace of the first-person shooter.",
+      "id": "wolfenstein-3d"
+    },
+    {
+      "title": "毁灭战士",
+      "en": "Doom",
+      "year": 1993,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "id Software",
+      "region": "US",
+      "awards": [],
+      "note": "联网死亡竞赛的鼻祖，也是第一代让玩家半夜拔掉电话线只为多杀一局的游戏。",
+      "noteEn": "The pioneer of networked deathmatch and the first game to make players yank the phone line at 2am.",
+      "id": "doom"
+    },
+    {
+      "id": "mortal-kombat-ii",
+      "title": "真人快打2",
+      "en": "Mortal Kombat II",
+      "year": 1993,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Midway",
+      "region": "US",
+      "awards": [],
+      "note": "终结技升级为血池与断头等名场面，藏了 Jade、Smoke、Noob Saibot 三个秘密角色，把话题性炼成了真格斗游戏。",
+      "noteEn": "Fatalities escalated to pit and spine-rip classics, with hidden fighters Jade, Smoke and Noob Saibot turning notoriety into craft."
+    },
+    {
+      "id": "nba-jam",
+      "title": "NBA 嘉年华",
+      "en": "NBA Jam",
+      "year": 1993,
+      "genres": [
+        "sports",
+        "party"
+      ],
+      "creator": "Midway",
+      "region": "US",
+      "note": "二对二的街机篮球，夸张灌篮与「他着火了！」的解说成就了街机厅的疯狂。",
+      "noteEn": "2v2 arcade basketball with booming dunks and 'He's on fire!'; pure arcade mayhem.",
+      "awards": []
+    },
+    {
+      "id": "nhl-94",
+      "title": "NHL冰球94",
+      "en": "NHL 94",
+      "year": 1993,
+      "genres": [
+        "sports"
+      ],
+      "creator": "EA Canada",
+      "region": "CA",
+      "awards": [],
+      "note": "一键传球与行云流水的滑行手感，被一代玩家与媒体奉为「史上最好的冰球游戏」。",
+      "noteEn": "One-button passing and effortless skating flow — widely hailed as the greatest hockey game ever made."
+    },
+    {
+      "title": "山脊赛车",
+      "en": "Ridge Racer",
+      "year": 1993,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Namco",
+      "region": "JP",
+      "awards": [],
+      "note": "首款把漂移当成艺术品的街机赛车，也是 PlayStation 的首发护航大作。",
+      "noteEn": "The arcade racer that made drifting an art — and a PlayStation launch icon.",
+      "id": "ridge-racer"
+    },
+    {
+      "title": "模拟城市 2000",
+      "en": "SimCity 2000",
+      "year": 1993,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Maxis",
+      "region": "US",
+      "awards": [],
+      "note": "地下管线、教育预算与通勤模型，让治理一座城市第一次如此令人着迷。",
+      "noteEn": "Underground pipes, education budgets and commute models made running a city genuinely addictive.",
+      "id": "simcity-2000"
+    },
+    {
+      "title": "戴托纳美国",
+      "en": "Daytona USA",
+      "year": 1994,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Sega AM2",
+      "region": "JP",
+      "awards": [],
+      "note": "「Rolling start!」的欢呼与三圈环道，是 Sega Model 2 基板时代最响亮的引擎声。",
+      "noteEn": "The 'Rolling Start!' roar and tri-oval thrash — the loudest engine on Sega's Model 2 board.",
+      "id": "daytona-usa"
+    },
+    {
+      "title": "大金刚国度",
+      "en": "Donkey Kong Country",
+      "year": 1994,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Rare",
+      "region": "UK",
+      "rating": {},
+      "awards": [],
+      "note": "预渲染 3D 建模转 2D 的画面革命，配合 Rare 的关卡密度，是 90 年代初的技术宣言。",
+      "noteEn": "Pre-rendered 3D sprites and Rare's dense level design — the early-90s technical manifesto.",
+      "id": "donkey-kong-country"
+    },
+    {
+      "title": "地球冒险",
+      "en": "EarthBound",
+      "year": 1994,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Ape & HAL Laboratory",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "把美式小镇日常放进 RPG，电话存档与 PSI 让『战斗』第一次可以谈判与和解。",
+      "noteEn": "American small-town life inside an RPG — telephones for saving, PSI powers that make battles negotiable.",
+      "id": "earthbound"
+    },
+    {
+      "title": "最终幻想6",
+      "en": "Final Fantasy VI",
+      "year": 1994,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Square",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "十四名角色的群像在帝国崩溃后各寻出路，魔大战的悲剧底色让『希望』有了分量。",
+      "noteEn": "Fourteen party members search for purpose after an empire falls — tragedy gives every hope real weight.",
+      "id": "final-fantasy-vi"
+    },
+    {
+      "title": "运输大亨豪华版",
+      "en": "Transport Tycoon Deluxe",
+      "year": 1994,
+      "genres": [
+        "sim",
+        "strategy"
+      ],
+      "creator": "Chris Sawyer",
+      "region": "UK",
+      "awards": [],
+      "note": "用铁路网把整片大陆盘活，它的信号灯与经济模型至今仍被开源社区供养。",
+      "noteEn": "A rail empire that breathes life into a continent — its signals and economy still thrive in open source.",
+      "id": "transport-tycoon-deluxe"
+    },
+    {
+      "id": "virtua-fighter-2",
+      "title": "VR战士2",
+      "en": "Virtua Fighter 2",
+      "year": 1994,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Sega AM2",
+      "region": "JP",
+      "awards": [],
+      "note": "SEGA Model 2 基板上的 3D 格斗教科书，没有飞行道具，纯靠走位与帧数判定立身，是写实格斗流派的原点。",
+      "noteEn": "The Sega Model 2 textbook of 3D fighting — no fireballs, just footwork and frame data that founded the realistic branch."
+    },
+    {
+      "title": "时空之轮",
+      "en": "Chrono Trigger",
+      "year": 1995,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Square",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "穿越纪元、多结局与『新游戏+』，在 16 位机上做出了后来所有时间旅行 RPG 的样板。",
+      "noteEn": "Era-hopping, multiple endings and New Game+ — the template every time-travel RPG still follows.",
+      "id": "chrono-trigger"
+    },
+    {
+      "title": "命令与征服",
+      "en": "Command & Conquer",
+      "year": 1995,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Westwood Studios",
+      "region": "US",
+      "awards": [],
+      "note": "真人过场与 GDI/Nod 的阵营对抗，让 RTS 第一次有了电影般的号召力。",
+      "noteEn": "Live-action cutscenes and GDI-vs-Nod rivalry gave the RTS its first real star power.",
+      "id": "command-conquer"
+    },
+    {
+      "title": "魔兽争霸 2：黑暗之潮",
+      "en": "Warcraft II: Tides of Darkness",
+      "year": 1995,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Blizzard Entertainment",
+      "region": "US",
+      "awards": [],
+      "note": "海陆空三军与更顺滑的操作，确立了 Blizzard「易上手、难精通」的 RTS 路线。",
+      "noteEn": "Naval, land and air forces with slick controls set Blizzard's easy-to-learn, hard-to-master RTS course.",
+      "id": "warcraft-ii-tides-of-darkness"
+    },
+    {
+      "title": "反重力赛车",
+      "en": "Wipeout",
+      "year": 1995,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Psygnosis",
+      "region": "UK",
+      "awards": [],
+      "note": "把锐舞文化与电子乐灌进反重力赛车，成为电玩潮流与时尚的标志。",
+      "noteEn": "Anti-gravity racing fused with rave culture and electronic soundtracks — gaming's style icon.",
+      "id": "wipeout"
+    },
+    {
+      "id": "parappa-the-rapper",
+      "title": "啪啦啪啦啪",
+      "en": "PaRappa the Rapper",
+      "year": 1996,
+      "genres": [
+        "rhythm"
+      ],
+      "creator": "NanaOn-Sha",
+      "region": "JP",
+      "note": "把说唱节奏对战做成整个玩法，松浦雅也以纸片动画定义了节奏游戏。",
+      "noteEn": "Rap-battle timing as pure gameplay; paper-cutout animation that defined the rhythm genre.",
+      "awards": []
+    },
+    {
+      "title": "宝可梦 红／绿",
+      "en": "Pokémon Red and Blue",
+      "year": 1996,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Game Freak",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "捕捉、培育与交换让收集本身成为叙事，151 只宝可梦是几代人共享的童年词表。",
+      "noteEn": "Catch, train, trade — collection becomes narrative; 151 creatures form a shared childhood vocabulary.",
+      "id": "pokemon-red-and-blue"
+    },
+    {
+      "title": "雷神之锤",
+      "en": "Quake",
+      "year": 1996,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "id Software",
+      "region": "US",
+      "awards": [],
+      "note": "真正的 3D 引擎让你第一次能低头看见自己的脚，也为竞技 FPS 立下准绳。",
+      "noteEn": "True 3D let you look down at your own feet and set the benchmark for competitive FPS.",
+      "id": "quake"
+    },
+    {
+      "title": "超级马力欧64",
+      "en": "Super Mario 64",
+      "year": 1996,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "三维摇杆让马力欧第一次真正『跳』进空间，桃花公主城堡的开放式关卡是 3D 平台跳跃的源点。",
+      "noteEn": "An analog stick put Mario truly in 3D — Peach's castle's open hub is the origin of the 3D platformer.",
+      "id": "super-mario-64"
+    },
+    {
+      "title": "最终幻想战略版",
+      "en": "Final Fantasy Tactics",
+      "year": 1997,
+      "genres": [
+        "strategy",
+        "rpg"
+      ],
+      "creator": "Square",
+      "region": "JP",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "伊瓦利斯大陆的政治权谋与转职系统，是日式战棋叙事的一座珠峰。",
+      "noteEn": "Ivalice's political intrigue and job system — the Everest of Japanese tactical RPGs.",
+      "id": "final-fantasy-tactics"
+    },
+    {
+      "title": "最终幻想7",
+      "en": "Final Fantasy VII",
+      "year": 1997,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Square",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "魔晄都市米德加与克劳德的记忆拼图，让 JRPG 第一次认真谈起了身份与生态。",
+      "noteEn": "Midgar and Cloud's fractured memory gave JRPGs their first serious take on identity and ecology.",
+      "id": "final-fantasy-vii"
+    },
+    {
+      "title": "黄金眼 007",
+      "en": "GoldenEye 007",
+      "year": 1997,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Rare",
+      "region": "UK",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "用一支 N64 手柄做出爆头、潜行与四人分屏，主机 FPS 从此不再只是 PC 的附庸。",
+      "noteEn": "Headshots, stealth and four-player split-screen on one N64 pad — the console FPS finally came of age.",
+      "id": "goldeneye-007"
+    },
+    {
+      "title": "跑车浪漫旅",
+      "en": "Gran Turismo",
+      "year": 1997,
+      "genres": [
+        "racing",
+        "sim"
+      ],
+      "creator": "Polyphony Digital",
+      "region": "JP",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "数百辆真实授权车与驾照考试，把「拟真驾驶」变成一项值得练习的技能。",
+      "noteEn": "Hundreds of licensed cars and a license test that turned realistic driving into a skill worth mastering.",
+      "id": "gran-turismo"
+    },
+    {
+      "id": "tekken-3",
+      "title": "铁拳3",
+      "en": "Tekken 3",
+      "year": 1997,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Namco",
+      "region": "JP",
+      "rating": {
+        "metacritic": 96
+      },
+      "note": "把 3D 格斗的动作流畅度提升到新高度，被视为 PS1 上最完美的格斗游戏。",
+      "noteEn": "3D fighting rendered with unprecedented fluidity; often called the PS1's finest fighter.",
+      "awards": []
+    },
+    {
+      "title": "横扫千军",
+      "en": "Total Annihilation",
+      "year": 1997,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Cavedog Entertainment",
+      "region": "US",
+      "awards": [],
+      "note": "数千单位同屏与全自动建造经济，把 RTS 的规模感整整抬高了一个量级。",
+      "noteEn": "Thousands of units on screen and a self-building economy scaled the RTS up a full order of magnitude.",
+      "id": "total-annihilation"
+    },
+    {
+      "id": "dance-dance-revolution",
+      "title": "热舞革命",
+      "en": "Dance Dance Revolution",
+      "year": 1998,
+      "genres": [
+        "rhythm"
+      ],
+      "creator": "Konami",
+      "region": "JP",
+      "note": "街机脚垫踩出节拍的国民级音游，把游戏厅变成舞池。",
+      "noteEn": "The arcade dance pad that turned game rooms into dance floors; a national rhythm institution.",
+      "awards": []
+    },
+    {
+      "title": "半条命",
+      "en": "Half-Life",
+      "year": 1998,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "用脚本事件串起无缝叙事，把 FPS 从「清空房间继续走」变成一场发生在你身上的故事。",
+      "noteEn": "Seamless scripted storytelling turned the FPS from room-clearing into a story that happens to you.",
+      "id": "half-life"
+    },
+    {
+      "title": "合金装备",
+      "en": "Metal Gear Solid",
+      "year": 1998,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Konami (Kojima Productions)",
+      "region": "JP",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "躲过摄像头与脚步声、靠剧情过场推进的战术谍报，是潜入玩法与电影叙事的合流点。",
+      "noteEn": "Camera-dodging, footstep-aware stealth driven by cinema — the confluence of infiltration and filmic storytelling.",
+      "id": "metal-gear-solid"
+    },
+    {
+      "id": "soulcalibur",
+      "title": "魂之利刃",
+      "en": "Soulcalibur",
+      "year": 1998,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Namco",
+      "region": "JP",
+      "rating": {
+        "metacritic": 98
+      },
+      "awards": [],
+      "note": "刀剑格斗引入八方向移动，武器相克与判定精密，Dreamcast 首发护航之作，Metacritic 98 至今是格斗游戏之最。",
+      "noteEn": "Weapon-based combat with eight-way-run movement and razor hitboxes; a Dreamcast launch title that still tops Metacritic at 98."
+    },
+    {
+      "title": "星际争霸",
+      "en": "StarCraft",
+      "year": 1998,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Blizzard Entertainment",
+      "region": "US",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "三个种族在平衡性上互相咬合，直接养大了韩国的电竞产业。",
+      "noteEn": "Three races locked in exquisite balance — the game that built South Korea's esports industry.",
+      "id": "starcraft"
+    },
+    {
+      "id": "the-king-of-fighters-98",
+      "title": "拳皇'98",
+      "en": "The King of Fighters '98",
+      "year": 1998,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "SNK",
+      "region": "JP",
+      "awards": [],
+      "note": "3v3 组队制与「梦想对决」全明星阵容，SNK 把前两代系统打磨到极致，成为拳皇系列的竞技天花板。",
+      "noteEn": "Three-on-three teams and a dream-match all-star roster; SNK's polished peak, still the series' competitive gold standard."
+    },
+    {
+      "title": "塞尔达传说：时之笛",
+      "en": "The Legend of Zelda: Ocarina of Time",
+      "year": 1998,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 99
+      },
+      "awards": [
+        "dice"
+      ],
+      "note": "把锁定视角、目标导向探索与『时之笛』的时间解谜编织成被反复临摹数十年的动作冒险语法。",
+      "noteEn": "Wove lock-on combat, goal-driven exploration and a time-traveling ocarina into the action-adventure grammar still copied today.",
+      "id": "the-legend-of-zelda-ocarina-of-time"
+    },
+    {
+      "title": "帝国时代 2：国王时代",
+      "en": "Age of Empires II: The Age of Kings",
+      "year": 1999,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Ensemble Studios",
+      "region": "US",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "「伐伐伐伐木工」的钟声还在回响，它的战役手册读起来像半部中世纪史。",
+      "noteEn": "Those woodcutter shouts still echo — its campaigns read like half a medieval history textbook.",
+      "id": "age-of-empires-ii-the-age-of-kings"
+    },
+    {
+      "title": "时空之轮 2",
+      "en": "Chrono Cross",
+      "year": 1999,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Square",
+      "region": "JP",
+      "rating": {},
+      "awards": [],
+      "note": "六十余角色与平行世界的叙事野心，配以光田康典的竖琴与钢琴，是续作中罕见的艺术冒险。",
+      "noteEn": "Sixty-plus characters across parallel worlds, scored by Mitsuda's harp — a sequel that dared to be art.",
+      "id": "chrono-cross"
+    },
+    {
+      "title": "异域镇魂曲",
+      "en": "Planescape: Torment",
+      "year": 1999,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Black Isle Studios",
+      "region": "US",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "文字量堪比小说，与『无名氏』的对话如同哲学论辩，证明 RPG 可以只靠文本抵达深渊。",
+      "noteEn": "Novel-length prose and dialogue as philosophy — proof an RPG can reach the abyss with text alone.",
+      "id": "planescape-torment"
+    },
+    {
+      "title": "过山车大亨",
+      "en": "RollerCoaster Tycoon",
+      "year": 1999,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Chris Sawyer",
+      "region": "UK",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "手绘像素加硬核经营，让「把游客甩晕再收门票」成了快乐源泉。",
+      "noteEn": "Hand-drawn pixels and hardcore economics — spinning guests dizzy and charging them for it.",
+      "id": "rollercoaster-tycoon"
+    },
+    {
+      "title": "莎木",
+      "en": "Shenmue",
+      "year": 1999,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Sega AM2",
+      "region": "JP",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "1999 年的横须贺有天气、工作与街机厅，铃木裕用预算把『生活感』浇灌成开放世界前史。",
+      "noteEn": "1999 Yokosuka with weather, jobs and an arcade — Yu Suzuki's budget made everyday life the proto-open-world.",
+      "id": "shenmue"
+    },
+    {
+      "title": "半人马座阿尔法星",
+      "en": "Sid Meier's Alpha Centauri",
+      "year": 1999,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Firaxis Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "把《文明》搬上外星球，七个阵营的剧情文本读起来像哲学宣言。",
+      "noteEn": "Civilization on a hostile planet — seven factions whose texts read like philosophical manifestos.",
+      "id": "sid-meier-s-alpha-centauri"
+    },
+    {
+      "id": "street-fighter-iii-3rd-strike",
+      "title": "街头霸王3三度冲击",
+      "en": "Street Fighter III: 3rd Strike",
+      "year": 1999,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "awards": [],
+      "note": "「格挡」让攻守逆转只在一帧之间，Evo 2004 梅原大吾的背水逆转至今仍是格斗电竞赛事的传说。",
+      "noteEn": "The parry flips offense and defense in a single frame; Daigo's Evo Moment 37 remains fighting-game esports folklore."
+    },
+    {
+      "title": "命令与征服：红色警戒 2",
+      "en": "Command & Conquer: Red Alert 2",
+      "year": 2000,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Westwood Pacific",
+      "region": "US",
+      "awards": [],
+      "note": "磁暴坦克与尤里的搞怪过场，把冷战梗做成了一部 B 级片狂欢。",
+      "noteEn": "Tesla tanks and Yuri's camp cutscenes — the Cold War as an unhinged B-movie.",
+      "id": "command-conquer-red-alert-2"
+    },
+    {
+      "title": "反恐精英",
+      "en": "Counter-Strike",
+      "year": 2000,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "awards": [],
+      "note": "从《半条命》模组变成职业电竞的地基，一把 AWP 的命准能改写整局经济。",
+      "noteEn": "A Half-Life mod that became pro esports' bedrock — one AWP round can flip an entire economy.",
+      "id": "counter-strike"
+    },
+    {
+      "title": "暗黑破坏神2",
+      "en": "Diablo II",
+      "year": 2000,
+      "genres": [
+        "rpg",
+        "action-adventure"
+      ],
+      "creator": "Blizzard North",
+      "region": "US",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "随机地图、符文之语与刷宝循环，定义了 ARPG『再来一把』的诅咒，直到今天。",
+      "noteEn": "Random maps, runewords and loot loops defined the 'one more run' curse that still rules ARPGs.",
+      "id": "diablo-ii"
+    },
+    {
+      "id": "mario-tennis",
+      "title": "马力欧网球",
+      "en": "Mario Tennis",
+      "year": 2000,
+      "genres": [
+        "sports"
+      ],
+      "creator": "Camelot Software Planning",
+      "region": "JP",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "N64 四人对战神器，强力扣杀与刁钻角度让菜鸟和高手在同一张网上找到乐趣，Metacritic 91 的合家欢巅峰。",
+      "noteEn": "The N64's four-player killer app; power shots and sharp angles keep rookies and pros on the same court."
+    },
+    {
+      "id": "marvel-vs-capcom-2",
+      "title": "漫画英雄VS卡普空2",
+      "en": "Marvel vs. Capcom 2: New Age of Heroes",
+      "year": 2000,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "awards": [],
+      "note": "3v3 换人加空中连段的高速大乱斗，56 名角色的狂野阵容把「助阵格斗」推到极致。",
+      "noteEn": "Chaotic 3v3 tags and air combos; a 56-character roster that pushed assist fighters to their peak."
+    },
+    {
+      "title": "完美黑暗",
+      "en": "Perfect Dark",
+      "year": 2000,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Rare",
+      "region": "UK",
+      "awards": [],
+      "note": "《黄金眼》的精神续作，把仿生机器人队友与复杂枪械改造塞进一张 N64 卡带。",
+      "noteEn": "GoldenEye's spiritual sequel packed simulant bots and a deep weapon-lab into one N64 cart.",
+      "id": "perfect-dark"
+    },
+    {
+      "title": "塞尔达传说：梅祖拉的假面",
+      "en": "The Legend of Zelda: Majora's Mask",
+      "year": 2000,
+      "genres": [
+        "action-adventure",
+        "puzzle"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 95
+      },
+      "awards": [],
+      "note": "三天循环倒计时让每个抉择都带代价，是系列里最黑暗、也最懂『时间』的一作。",
+      "noteEn": "A three-day groundhog loop turns every choice into a sacrifice — the series' darkest meditation on time.",
+      "id": "the-legend-of-zelda-majora-s-mask"
+    },
+    {
+      "title": "模拟人生",
+      "en": "The Sims",
+      "year": 2000,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Maxis",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "用几根「需求条」模拟日常琐碎，却让全世界玩家对虚拟小人产生真实同理心。",
+      "noteEn": "Daily needs rendered as little bars — yet players worldwide felt real empathy for those pixels.",
+      "id": "the-sims"
+    },
+    {
+      "id": "tony-hawks-pro-skater-2",
+      "title": "托尼·霍克职业滑板2",
+      "en": "Tony Hawk's Pro Skater 2",
+      "year": 2000,
+      "genres": [
+        "sports"
+      ],
+      "creator": "Neversoft",
+      "region": "US",
+      "rating": {
+        "metacritic": 92
+      },
+      "note": "加入抓板与手动组合的滑板游戏巅峰，连招系统至今仍是同类标杆。",
+      "noteEn": "The skateboarding summit with reverts and manuals; its combo system remains the genre benchmark.",
+      "awards": []
+    },
+    {
+      "title": "高级战争",
+      "en": "Advance Wars",
+      "year": 2001,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Intelligent Systems",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "像素小人、CO 技能与兵种相克压缩进一张 GBA 卡带，是回合制策略的教科书。",
+      "noteEn": "Pixel troops, CO powers and a rock-paper-scissors counter system in a GBA cart — turn-based tactics distilled.",
+      "id": "advance-wars"
+    },
+    {
+      "title": "鬼泣",
+      "en": "Devil May Cry",
+      "year": 2001,
+      "genres": [
+        "action-adventure",
+        "horror"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "把『风格即难度』做成华丽连招秀，红墓城塔为动作游戏立下了技术标尺。",
+      "noteEn": "Style-based combos made skill the difficulty — the game that set the bar for spectacle action.",
+      "id": "devil-may-cry"
+    },
+    {
+      "title": "最终幻想10",
+      "en": "Final Fantasy X",
+      "year": 2001,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Square",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "泰达对斯彼拉的陌生眼光就是玩家的眼光，尤娜的旅程以『反抗宿命』收束成泪水。",
+      "noteEn": "Tidus' outsider gaze is the player's; Yuna's pilgrimage ends in tears against a scripted fate.",
+      "id": "final-fantasy-x"
+    },
+    {
+      "title": "侠盗猎车手3",
+      "en": "Grand Theft Auto III",
+      "year": 2001,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "DMA Design",
+      "region": "UK",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "自由城的三维街道首次允许『想去哪就去哪』，汽车与暴力从此成为开放世界的模板。",
+      "noteEn": "Liberty City's 3D streets first let you go anywhere — cars and chaos became the open-world template.",
+      "id": "grand-theft-auto-iii"
+    },
+    {
+      "title": "光环：战斗进化",
+      "en": "Halo: Combat Evolved",
+      "year": 2001,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Bungie",
+      "region": "US",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "双武器、一颗雷与能量护盾的设计，让主机射击终于追上鼠标精度，也成就了 Xbox 首发。",
+      "noteEn": "Two weapons, a grenade and a shield — the design that let console shooters finally rival the mouse.",
+      "id": "halo-combat-evolved"
+    },
+    {
+      "title": "古堡迷踪",
+      "en": "Ico",
+      "year": 2001,
+      "genres": [
+        "action-adventure",
+        "puzzle"
+      ],
+      "creator": "Team Ico",
+      "region": "JP",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "牵手系统把陪伴做成核心玩法，没有血条与菜单，却让逃生路每一步都像告别。",
+      "noteEn": "Holding hands as core gameplay — no health bars, no menus, yet every step of escape feels like farewell.",
+      "id": "ico"
+    },
+    {
+      "id": "nba-street",
+      "title": "NBA街头篮球",
+      "en": "NBA Street",
+      "year": 2001,
+      "genres": [
+        "sports"
+      ],
+      "creator": "EA Canada",
+      "region": "CA",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "3v3 街头斗牛把 NBA 球星放进铁笼球场，花式运球与「灌篮火拼」比正代更自由奔放。",
+      "noteEn": "3-on-3 streetball drops NBA stars into cage courts; tricks and dunk battles feel freer than the sims."
+    },
+    {
+      "id": "silent-hill-2",
+      "title": "寂静岭2",
+      "en": "Silent Hill 2",
+      "year": 2001,
+      "genres": [
+        "horror"
+      ],
+      "creator": "Team Silent",
+      "region": "JP",
+      "rating": {
+        "metacritic": 89
+      },
+      "note": "把恐怖的重心从怪物转向内心的愧疚，雾镇里的每个怪物都是心魔的投影。",
+      "noteEn": "Horror turned inward: the fog town's creatures are projections of guilt, not just monsters.",
+      "awards": []
+    },
+    {
+      "id": "ssx-tricky",
+      "title": "SSX 极限滑雪",
+      "en": "SSX Tricky",
+      "year": 2001,
+      "genres": [
+        "sports",
+        "racing"
+      ],
+      "creator": "EA Canada",
+      "region": "CA",
+      "rating": {
+        "metacritic": 86
+      },
+      "note": "把滑雪玩成花式特技的极限运动，快节奏与夸张动作定义了街头文化的爽快。",
+      "noteEn": "Snowboarding as high-flying stunt spectacle; speed and audacity define its arcade soul.",
+      "awards": []
+    },
+    {
+      "id": "super-smash-bros-melee",
+      "title": "任天堂明星大乱斗DX",
+      "en": "Super Smash Bros. Melee",
+      "year": 2001,
+      "genres": [
+        "fighting",
+        "party"
+      ],
+      "creator": "HAL Laboratory",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "note": "把击飞百分比做成竞技深度的平台格斗，二十年后的职业赛场上依然活跃。",
+      "noteEn": "Platform fighting where knockback percent breeds depth; still thriving on pro circuits decades later.",
+      "awards": []
+    },
+    {
+      "id": "tony-hawks-pro-skater-3",
+      "title": "托尼·霍克滑板3",
+      "en": "Tony Hawk's Pro Skater 3",
+      "year": 2001,
+      "genres": [
+        "sports"
+      ],
+      "creator": "Neversoft",
+      "region": "US",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "新增的「回板」让连招在地面与空中彻底打通，Metacritic 97 至今是滑板游戏不可逾越的高峰。",
+      "noteEn": "The revert bridged manual and air combos into one endless line; at 97 it remains the skate-game benchmark."
+    },
+    {
+      "title": "银河战士 Prime",
+      "en": "Metroid Prime",
+      "year": 2002,
+      "genres": [
+        "action-adventure",
+        "shooter"
+      ],
+      "creator": "Retro Studios",
+      "region": "US",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "第一人称把萨姆斯的孤独与异星恐惧装进扫描面甲与护甲界面，是 2D 银河城转向 3D 的教科书。",
+      "noteEn": "First-person immersion wraps Samus' solitude in scan visors and suit readouts — the textbook 2D-to-3D Metroidvania.",
+      "id": "metroid-prime"
+    },
+    {
+      "title": "上古卷轴3：晨风",
+      "en": "The Elder Scrolls III: Morrowind",
+      "year": 2002,
+      "genres": [
+        "rpg",
+        "open-world"
+      ],
+      "creator": "Bethesda Game Studios",
+      "region": "US",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "没有任务箭头、只有文字日记，瓦登费尔的怪异生态逼玩家真正学会读地图。",
+      "noteEn": "No quest markers, only a written journal — Vvardenfell's alien ecology forces you to actually read the map.",
+      "id": "the-elder-scrolls-iii-morrowind"
+    },
+    {
+      "title": "魔兽争霸 3：混乱之治",
+      "en": "Warcraft III: Reign of Chaos",
+      "year": 2002,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Blizzard Entertainment",
+      "region": "US",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "英雄单位与经验值让 RTS 有了 RPG 的心跳，也顺手埋下了 Dota 的种子。",
+      "noteEn": "Hero units and XP gave the RTS an RPG heartbeat — and quietly planted the seed of Dota.",
+      "id": "warcraft-iii-reign-of-chaos"
+    },
+    {
+      "title": "超越善恶",
+      "en": "Beyond Good & Evil",
+      "year": 2003,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Ubisoft",
+      "region": "FR",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "摄影记者打游击、偷拍与地下电台揭露谎言，反乌托邦寓言嵌在明亮的童话外壳里。",
+      "noteEn": "A photojournalist runs an underground newsroom against a police state — a dystopian fable in bright cartoon clothes.",
+      "id": "beyond-good-evil"
+    },
+    {
+      "title": "零式赛车 GX",
+      "en": "F-Zero GX",
+      "year": 2003,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Amusement Vision",
+      "region": "JP",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "赛博朋克街机风格与地狱级难度，被公认为史上最硬核的高速赛车之一。",
+      "noteEn": "Cyberpunk arcade style and brutal difficulty — arguably the hardest high-speed racer ever made.",
+      "id": "f-zero-gx"
+    },
+    {
+      "id": "mario-golf-toadstool-tour",
+      "title": "马力欧高尔夫：蘑菇杯巡回赛",
+      "en": "Mario Golf: Toadstool Tour",
+      "year": 2003,
+      "genres": [
+        "sports"
+      ],
+      "creator": "Camelot Software Planning",
+      "region": "JP",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "Camelot 把挥杆计量做得既严谨又任天堂式亲切，力度与风向的博弈让人一杆接一杆停不下来。",
+      "noteEn": "Camelot's swing meter is demanding yet approachable — wind and power gambling that hooks for hours."
+    },
+    {
+      "title": "极品飞车：地下狂飙",
+      "en": "Need for Speed: Underground",
+      "year": 2003,
+      "genres": [
+        "racing",
+        "open-world"
+      ],
+      "creator": "EA Black Box",
+      "region": "CA",
+      "awards": [],
+      "note": "霓虹街灯、改装文化与氮气加速，让午夜街头赛成为一代人的向往。",
+      "noteEn": "Neon streets, tuning culture and nitrous boosts — midnight street racing as a generation's fantasy.",
+      "id": "need-for-speed-underground"
+    },
+    {
+      "title": "波斯王子：时之砂",
+      "en": "Prince of Persia: The Sands of Time",
+      "year": 2003,
+      "genres": [
+        "action-adventure",
+        "puzzle"
+      ],
+      "creator": "Ubisoft Montreal",
+      "region": "CA",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "时间倒带让失误变成创作素材，王子与公主的插科打诨让波斯宫廷有了人气。",
+      "noteEn": "Rewind turns mistakes into material; the prince and princess' banter gives the Persian court real warmth.",
+      "id": "prince-of-persia-the-sands-of-time"
+    },
+    {
+      "title": "星球大战：旧共和国武士",
+      "en": "Star Wars: Knights of the Old Republic",
+      "year": 2003,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "BioWare",
+      "region": "CA",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "原力、光剑与抉择，加上后期反转的身份谜底，是星战故事在 RPG 里的最佳形态。",
+      "noteEn": "The Force, sabers and choices — capped by a mid-game identity twist — Star Wars' finest RPG form.",
+      "id": "star-wars-knights-of-the-old-republic"
+    },
+    {
+      "title": "横冲直撞 3",
+      "en": "Burnout 3: Takedown",
+      "year": 2004,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Criterion Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "把「撞毁对手」做成得分核心，每一次追尾都配有慢动作回放。",
+      "noteEn": "Crashes as the scoring system — every takedown rewarded with a slow-motion replay.",
+      "id": "burnout-3-takedown"
+    },
+    {
+      "id": "cave-story",
+      "title": "洞窟物语",
+      "en": "Cave Story",
+      "year": 2004,
+      "genres": [
+        "indie",
+        "platformer",
+        "action-adventure"
+      ],
+      "creator": "Studio Pixel",
+      "region": "JP",
+      "note": "天谷大辅一人耗时五年免费发布的同人游戏，被视为现代独立游戏的起点之一。",
+      "noteEn": "Daisuke Amaya's five-year solo freeware that many call the birthplace of the modern indie scene.",
+      "awards": []
+    },
+    {
+      "id": "clannad",
+      "title": "CLANNAD",
+      "en": "Clannad",
+      "year": 2004,
+      "genres": [
+        "visual-novel"
+      ],
+      "creator": "Key",
+      "region": "JP",
+      "note": "Key 社催泪三作的代表，小镇、家庭与光玉的叙事足以让人哭到透支。",
+      "noteEn": "Key's tearjerker masterpiece; a town, a family and orbs of light that leave you emotionally spent.",
+      "awards": []
+    },
+    {
+      "id": "fate-stay-night",
+      "title": "命运之夜",
+      "en": "Fate/stay night",
+      "year": 2004,
+      "genres": [
+        "visual-novel"
+      ],
+      "creator": "Type-Moon",
+      "region": "JP",
+      "note": "圣杯战争与英灵召唤的宏大设定，直接催生了横跨十余年的超级 IP。",
+      "noteEn": "The Holy Grail War saga whose worldbuilding spawned a multi-decade multimedia empire.",
+      "awards": []
+    },
+    {
+      "title": "侠盗猎车手：圣安地列斯",
+      "en": "Grand Theft Auto: San Andreas",
+      "year": 2004,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Rockstar North",
+      "region": "UK",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [],
+      "note": "三座城市与荒野、帮派地盘与健身系统，把开放世界的规模从街区扩大到生活方式。",
+      "noteEn": "Three cities, gang turf and a gym system grew the open world from blocks to a lifestyle.",
+      "id": "grand-theft-auto-san-andreas"
+    },
+    {
+      "title": "半条命 2",
+      "en": "Half-Life 2",
+      "year": 2004,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "Source 引擎的物理谜题与重力枪，让场景里每一件杂物都能成为武器。",
+      "noteEn": "The Source engine's physics puzzles and gravity gun turned every loose object into a weapon.",
+      "id": "half-life-2"
+    },
+    {
+      "title": "光环 2",
+      "en": "Halo 2",
+      "year": 2004,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Bungie",
+      "region": "US",
+      "rating": {
+        "metacritic": 95
+      },
+      "awards": [],
+      "note": "双持武器与士官长/神风烈士双线叙事，也是 Xbox Live 联机体验的里程碑。",
+      "noteEn": "Dual wielding and a two-sided narrative — the benchmark that defined Xbox Live multiplayer.",
+      "id": "halo-2"
+    },
+    {
+      "id": "lumines",
+      "title": "音乐方块",
+      "en": "Lumines",
+      "year": 2004,
+      "genres": [
+        "puzzle",
+        "rhythm"
+      ],
+      "creator": "Q Entertainment",
+      "region": "JP",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "方块消除跟随音乐节拍扫过，水口哲也把抽象拼图变成视听一体的冥想。",
+      "noteEn": "Tetsuya Mizuguchi's puzzle where a beat-line sweeps away blocks, fusing matching with audiovisual trance.",
+      "awards": []
+    },
+    {
+      "title": "模拟人生 2",
+      "en": "The Sims 2",
+      "year": 2004,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Maxis",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "加入生命周期与遗传系统，小人第一次会长大、老去并留下后代。",
+      "noteEn": "Lifespans, genetics and generations — for the first time your sims aged, died and left heirs.",
+      "id": "the-sims-2"
+    },
+    {
+      "title": "恐惧",
+      "en": "F.E.A.R.",
+      "year": 2005,
+      "genres": [
+        "shooter",
+        "horror"
+      ],
+      "creator": "Monolith Productions",
+      "region": "US",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "至今少有人及的敌人 AI——他们会包抄、会压制、会在走廊里设伏等你。",
+      "noteEn": "Enemy AI few games have matched — they flank, suppress and ambush you in the hallways.",
+      "id": "f-e-a-r"
+    },
+    {
+      "id": "guitar-hero",
+      "title": "吉他英雄",
+      "en": "Guitar Hero",
+      "year": 2005,
+      "genres": [
+        "rhythm"
+      ],
+      "creator": "Harmonix",
+      "region": "US",
+      "rating": {
+        "metacritic": 91
+      },
+      "note": "五键塑料吉他让普通人体验摇滚主唱的幻觉，直接引爆了音乐游戏热潮。",
+      "noteEn": "A five-button plastic guitar gives everyone a rock-star fantasy; it ignited the rhythm-game boom.",
+      "awards": []
+    },
+    {
+      "title": "极品飞车：最高通缉",
+      "en": "Need for Speed: Most Wanted",
+      "year": 2005,
+      "genres": [
+        "racing",
+        "open-world"
+      ],
+      "creator": "EA Black Box",
+      "region": "CA",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "警匪追逐与黑名单 15 人，把「被通缉」做成了最刺激的猫鼠游戏。",
+      "noteEn": "Police chases and a Blacklist of 15 — being hunted made into the most thrilling cat-and-mouse.",
+      "id": "need-for-speed-most-wanted"
+    },
+    {
+      "id": "phoenix-wright-ace-attorney",
+      "title": "逆转裁判",
+      "en": "Phoenix Wright: Ace Attorney",
+      "year": 2005,
+      "genres": [
+        "visual-novel",
+        "puzzle"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "rating": {
+        "metacritic": 78
+      },
+      "note": "以「异议！」翻盘庭审的法庭推理，把调查、举证与嘴炮做成教科书式视觉小说。",
+      "noteEn": "Courtroom deduction built on 'Objection!' turns; investigation and cross-examination as VN canon.",
+      "awards": []
+    },
+    {
+      "id": "pro-evolution-soccer-5",
+      "title": "实况足球9",
+      "en": "Pro Evolution Soccer 5",
+      "year": 2005,
+      "genres": [
+        "sports",
+        "sim"
+      ],
+      "creator": "Konami",
+      "region": "JP",
+      "note": "实况系列公认的巅峰作，球员 AI 与传控手感至今仍被玩家怀念。",
+      "noteEn": "The consensus peak of the Winning Eleven series; its passing and AI still feel years ahead.",
+      "awards": []
+    },
+    {
+      "title": "生化危机4",
+      "en": "Resident Evil 4",
+      "year": 2005,
+      "genres": [
+        "action-adventure",
+        "horror"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "过肩视角与体术击打把生存恐怖改写成动作射击，村庄一役定义了新世代的枪战节奏。",
+      "noteEn": "Over-the-shoulder aim and suplexes turned survival horror into action — the village fight redefined shooter rhythm.",
+      "id": "resident-evil-4"
+    },
+    {
+      "title": "旺达与巨像",
+      "en": "Shadow of the Colossus",
+      "year": 2005,
+      "genres": [
+        "action-adventure",
+        "puzzle"
+      ],
+      "creator": "Team Ico",
+      "region": "JP",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "去掉杂兵与小怪，十六场与巨像的一对一对话就是全部，空寂草原回响着『为谁而战』。",
+      "noteEn": "Strips away minor enemies: sixteen one-on-one duels with colossi on an empty plain — the whole game asks for whom you fight.",
+      "id": "shadow-of-the-colossus"
+    },
+    {
+      "title": "文明 4",
+      "en": "Sid Meier's Civilization IV",
+      "year": 2005,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Firaxis Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "宗教、公民制度与伦纳德·尼莫伊配音的科技树，是系列口碑的巅峰。",
+      "noteEn": "Religion, civics and Leonard Nimoy-narrated tech quotes — the series' critical peak.",
+      "id": "sid-meier-s-civilization-iv"
+    },
+    {
+      "title": "恶霸鲁尼",
+      "en": "Bully",
+      "year": 2006,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Rockstar Vancouver",
+      "region": "CA",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "校园版 GTA，恶作剧、翘课与老师巡逻把青春期的压迫感做成开放世界喜剧。",
+      "noteEn": "GTA set in a school — pranks, skipping class and teacher patrols turn teen pressure into open-world comedy.",
+      "id": "bully"
+    },
+    {
+      "title": "英雄连",
+      "en": "Company of Heroes",
+      "year": 2006,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Relic Entertainment",
+      "region": "CA",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [],
+      "note": "掩体机制与完全可摧毁的地形，让二战战术第一次有了真正的「地形感」。",
+      "noteEn": "Cover mechanics and fully destructible terrain gave WWII tactics real spatial depth.",
+      "id": "company-of-heroes"
+    },
+    {
+      "title": "矮人要塞",
+      "en": "Dwarf Fortress",
+      "year": 2006,
+      "genres": [
+        "sim",
+        "strategy",
+        "indie"
+      ],
+      "creator": "Bay 12 Games",
+      "region": "US",
+      "awards": [],
+      "note": "用字符界面模拟一整座要塞的生态与传说，是游戏史上最深的模拟之一。",
+      "noteEn": "A fortress's ecology and legends simulated in ASCII — among the deepest simulations ever made.",
+      "id": "dwarf-fortress"
+    },
+    {
+      "id": "elite-beat-agents",
+      "title": "精英节拍特工",
+      "en": "Elite Beat Agents",
+      "year": 2006,
+      "genres": [
+        "rhythm"
+      ],
+      "creator": "iNiS",
+      "region": "JP",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "用触屏点按跟上旋律的特工小队，把真人照片故事演成荒诞又热血的音乐剧。",
+      "noteEn": "Touch-screen agents dance to the beat through photo-real stories; a bizarrely heartfelt rhythm musical.",
+      "awards": []
+    },
+    {
+      "title": "微软模拟飞行 X",
+      "en": "Microsoft Flight Simulator X",
+      "year": 2006,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Aces Game Studio",
+      "region": "US",
+      "awards": [],
+      "note": "一度是许多人心中的「飞行教科书」，也是装机党偷偷拿来测显卡的常客。",
+      "noteEn": "For years a flight textbook, and the benchmark every PC builder secretly ran to test their GPU.",
+      "id": "microsoft-flight-simulator-x"
+    },
+    {
+      "title": "大神",
+      "en": "Okami",
+      "year": 2006,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Clover Studio",
+      "region": "JP",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "以水墨笔触挥毫解谜与战斗，把日本神话装进一卷会呼吸的浮世绘，天照的画笔至今无二。",
+      "noteEn": "Brush-stroke puzzles and combat painted in sumi-e ink — Japanese myth in a breathing ukiyo-e scroll.",
+      "id": "okami"
+    },
+    {
+      "id": "pro-evolution-soccer-6",
+      "title": "实况足球10",
+      "en": "Pro Evolution Soccer 6",
+      "year": 2006,
+      "genres": [
+        "sports"
+      ],
+      "creator": "Konami",
+      "region": "JP",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "即日版《胜利十一人10》，把拟真传球与战术自由度做到系列巅峰，是 FIFA 全面反超前实况最后的荣光。",
+      "noteEn": "Known as Winning Eleven 10 — the tactical peak of the series before FIFA caught up for good."
+    },
+    {
+      "id": "wii-sports",
+      "title": "Wii 运动",
+      "en": "Wii Sports",
+      "year": 2006,
+      "genres": [
+        "sports",
+        "party"
+      ],
+      "creator": "Nintendo",
+      "region": "JP",
+      "rating": {
+        "metacritic": 76
+      },
+      "note": "用体感挥动 Wii 遥控器的全家同乐套装，是史上最畅销的电子游戏之一。",
+      "noteEn": "Motion-controlled tennis, bowling and more; one of the best-selling video games of all time.",
+      "awards": []
+    },
+    {
+      "title": "生化奇兵",
+      "en": "BioShock",
+      "year": 2007,
+      "genres": [
+        "shooter",
+        "horror"
+      ],
+      "creator": "Irrational Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [
+        "dice"
+      ],
+      "note": "水下乌托邦 Rapture 用一句「Would you kindly?」当众拷问玩家的自由意志。",
+      "noteEn": "The underwater utopia of Rapture interrogates free will with one phrase: 'Would you kindly?'",
+      "id": "bioshock"
+    },
+    {
+      "title": "使命召唤 4：现代战争",
+      "en": "Call of Duty 4: Modern Warfare",
+      "year": 2007,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Infinity Ward",
+      "region": "US",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [
+        "bafta-games"
+      ],
+      "note": "把战场从二战拉回现代，AC-130 炮火支援与核爆序章把脚本演出推到电影级。",
+      "noteEn": "Modern warfare, AC-130 gunship strikes and a nuke sequence that pushed scripted set-pieces to cinema.",
+      "id": "call-of-duty-4-modern-warfare"
+    },
+    {
+      "title": "孤岛危机",
+      "en": "Crysis",
+      "year": 2007,
+      "genres": [
+        "shooter",
+        "open-world"
+      ],
+      "creator": "Crytek",
+      "region": "DE",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "纳米服的隐身与力量模式、可摧毁的植被，成了当年「你的电脑跑得动吗」的终极拷问。",
+      "noteEn": "Nanosuit stealth, strength modes and destructible jungle — the ultimate 'can your PC run it?' benchmark.",
+      "id": "crysis"
+    },
+    {
+      "title": "光环 3",
+      "en": "Halo 3",
+      "year": 2007,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Bungie",
+      "region": "US",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "士官长三部曲的收束，锻造模式与电影回放让玩家亲手制作自己的传奇。",
+      "noteEn": "The Master Chief trilogy's finale — Forge maps and film replays let players author their own legend.",
+      "id": "halo-3"
+    },
+    {
+      "title": "质量效应",
+      "en": "Mass Effect",
+      "year": 2007,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "BioWare",
+      "region": "CA",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "把太空歌剧装进对话轮，谢泼德的选择在星系尺度的道德光谱上不断回响。",
+      "noteEn": "Space opera via a dialogue wheel — Shepard's choices ripple across a galactic moral spectrum.",
+      "id": "mass-effect"
+    },
+    {
+      "id": "portal",
+      "title": "传送门",
+      "en": "Portal",
+      "year": 2007,
+      "genres": [
+        "puzzle",
+        "platformer"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [
+        "gdc"
+      ],
+      "note": "用两个传送门改写空间与动量，GLaDOS 的黑色幽默让每个房间都难忘。",
+      "noteEn": "Two portals rewrite space and momentum; GLaDOS' dark wit makes every chamber memorable."
+    },
+    {
+      "id": "professor-layton-and-the-curious-village",
+      "title": "雷顿教授与不可思议的小镇",
+      "en": "Professor Layton and the Curious Village",
+      "year": 2007,
+      "genres": [
+        "puzzle",
+        "visual-novel"
+      ],
+      "creator": "Level-5",
+      "region": "JP",
+      "rating": {
+        "metacritic": 86
+      },
+      "note": "把上百道脑力题装进优雅的欧式小镇谜案，谜题与叙事相得益彰。",
+      "noteEn": "Hundreds of brainteasers folded into an elegant European mystery; puzzles and story lift each other.",
+      "awards": []
+    },
+    {
+      "id": "rock-band",
+      "title": "摇滚乐队",
+      "en": "Rock Band",
+      "year": 2007,
+      "genres": [
+        "rhythm",
+        "party"
+      ],
+      "creator": "Harmonix",
+      "region": "US",
+      "rating": {
+        "metacritic": 92
+      },
+      "note": "四人齐奏吉他、贝斯、鼓与麦克风的合奏体验，把客厅变成家庭乐队现场。",
+      "noteEn": "Four-player guitar, bass, drums and vocals turned living rooms into a full family band.",
+      "awards": []
+    },
+    {
+      "title": "潜行者：切尔诺贝利的阴影",
+      "en": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+      "year": 2007,
+      "genres": [
+        "shooter",
+        "open-world"
+      ],
+      "creator": "GSC Game World",
+      "region": "UA",
+      "rating": {
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "把切尔诺贝利禁区做成 A-Life 生态模拟的开放世界，潮湿、残酷又莫名迷人。",
+      "noteEn": "The Zone as a living A-Life ecosystem — damp, brutal and strangely magnetic.",
+      "id": "s-t-a-l-k-e-r-shadow-of-chernobyl"
+    },
+    {
+      "title": "超级马力欧银河",
+      "en": "Super Mario Galaxy",
+      "year": 2007,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "引力把平台铺成球形，管弦乐与宫本茂的『重力』实验让每一关都像微型太阳系。",
+      "noteEn": "Gravity bends platforms into spheres; orchestral scores and Miyamoto's experiments make each level a tiny solar system.",
+      "id": "super-mario-galaxy"
+    },
+    {
+      "title": "最高指挥官",
+      "en": "Supreme Commander",
+      "year": 2007,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Gas Powered Games",
+      "region": "US",
+      "awards": [],
+      "note": "无限拉近又无限拉远的战略视图，让绵延数百公里的战场尽收一屏。",
+      "noteEn": "Zoom from a single tank to a continent-wide battlefield — RTS scale reinvented.",
+      "id": "supreme-commander"
+    },
+    {
+      "title": "军团要塞 2",
+      "en": "Team Fortress 2",
+      "year": 2007,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "九个职业、漫画画风与每年一度的更新季，为「喜剧 FPS」立下了范本。",
+      "noteEn": "Nine classes, a comic-book look and yearly updates — the template for the comedy FPS.",
+      "id": "team-fortress-2"
+    },
+    {
+      "id": "428-shibuya-scramble",
+      "title": "428：被封锁的涩谷",
+      "en": "428: Shibuya Scramble",
+      "year": 2008,
+      "genres": [
+        "visual-novel"
+      ],
+      "creator": "Chunsoft",
+      "region": "JP",
+      "note": "用真人影像推进 5 条并行故事线，实时连锁的抉择让涩谷一夜层层失控。",
+      "noteEn": "Live-action vignettes across five interlocking timelines; one night in Shibuya spirals out of control.",
+      "awards": []
+    },
+    {
+      "id": "braid",
+      "title": "时空幻境",
+      "en": "Braid",
+      "year": 2008,
+      "genres": [
+        "indie",
+        "platformer",
+        "puzzle"
+      ],
+      "creator": "Number None",
+      "region": "US",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [
+        "igf"
+      ],
+      "note": "以时间倒流为核心机制的独立游戏里程碑，Jonathan Blow 用平台跳跃讲了一个关于悔恨的故事。",
+      "noteEn": "The indie milestone that rewrote time-rewind mechanics, using platforming to tell a story about regret."
+    },
+    {
+      "id": "dead-space",
+      "title": "死亡空间",
+      "en": "Dead Space",
+      "year": 2008,
+      "genres": [
+        "horror",
+        "action-adventure",
+        "shooter"
+      ],
+      "creator": "Visceral Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 89
+      },
+      "note": "把肢解异形当作战斗核心的太空船恐怖，UI 全部融入世界观没有一处跳出。",
+      "noteEn": "Space-horror where dismemberment is the core strategy; the UI lives entirely inside the diegetic world.",
+      "awards": []
+    },
+    {
+      "title": "侠盗猎车手4",
+      "en": "Grand Theft Auto IV",
+      "year": 2008,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Rockstar North",
+      "region": "UK",
+      "rating": {
+        "metacritic": 98
+      },
+      "awards": [],
+      "note": "自由城被湿漉漉的写实压得喘不过气，物理与人际把黑帮叙事拉回地面。",
+      "noteEn": "A rain-soaked, crushingly realistic Liberty City grounds the mob story in physics and human frailty.",
+      "id": "grand-theft-auto-iv"
+    },
+    {
+      "title": "孢子",
+      "en": "Spore",
+      "year": 2008,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Maxis",
+      "region": "US",
+      "rating": {
+        "metacritic": 84
+      },
+      "awards": [],
+      "note": "从单细胞到星际文明的五阶段进化，把上帝视角玩成了物种养成。",
+      "noteEn": "Five stages from single cell to spacefaring civilization — god games as species husbandry.",
+      "id": "spore"
+    },
+    {
+      "title": "赛道狂飙：国家永恒",
+      "en": "TrackMania Nations Forever",
+      "year": 2008,
+      "genres": [
+        "racing"
+      ],
+      "creator": "Nadeo",
+      "region": "FR",
+      "awards": [],
+      "note": "免费联机的花样赛道编辑器，让「撞墙也能夺冠」的欢乐成了电竞赛事。",
+      "noteEn": "Free-to-play stunt racing with a track editor — where crashing into a wall can still win the race.",
+      "id": "trackmania-nations-forever"
+    },
+    {
+      "id": "world-of-goo",
+      "title": "粘粘世界",
+      "en": "World of Goo",
+      "year": 2008,
+      "genres": [
+        "puzzle",
+        "indie"
+      ],
+      "creator": "2D Boy",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "note": "黏黏小球搭桥的解谜小品，物理互动与荒诞叙事开创了 Wii 平台独立游戏时代。",
+      "noteEn": "Gloopy goo-balls and physics bridges with absurdist wit; it opened Wii to the indie scene.",
+      "awards": []
+    },
+    {
+      "title": "刺客信条2",
+      "en": "Assassin's Creed II",
+      "year": 2009,
+      "genres": [
+        "action-adventure",
+        "open-world"
+      ],
+      "creator": "Ubisoft Montreal",
+      "region": "CA",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "文艺复兴的佛罗伦萨与威尼斯成了跑酷舞台，埃齐奥的成长线让刺客信条有了灵魂。",
+      "noteEn": "Renaissance Florence and Venice as parkour arenas — Ezio's arc gave Assassin's Creed its soul.",
+      "id": "assassin-s-creed-ii"
+    },
+    {
+      "title": "蝙蝠侠：阿卡姆疯人院",
+      "en": "Batman: Arkham Asylum",
+      "year": 2009,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Rocksteady Studios",
+      "region": "UK",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [
+        "bafta-games"
+      ],
+      "note": "『侦探视觉』与斯巴达式潜行把蝙蝠侠还原成黑夜中的猎手，疯人院本身就是会说话的迷宫。",
+      "noteEn": "Detective vision and predator stealth make Batman a hunter in the dark — the asylum itself is a talking maze.",
+      "id": "batman-arkham-asylum"
+    },
+    {
+      "title": "猎天使魔女",
+      "en": "Bayonetta",
+      "year": 2009,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "PlatinumGames",
+      "region": "JP",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "以舞步编排枪术与召唤，贝优妮塔的夸张姿态把动作游戏做成了一场午夜嘉年华。",
+      "noteEn": "Dance-choreographed gunplay and demon summons — Bayonetta turns action into a midnight carnival.",
+      "id": "bayonetta"
+    },
+    {
+      "title": "龙腾世纪：起源",
+      "en": "Dragon Age: Origins",
+      "year": 2009,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "BioWare",
+      "region": "CA",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "六种起源开场与战术 AI 编程，把《博德之门》的血统推进了实时暂停的新世代。",
+      "noteEn": "Six origin stories and tactical AI scripting carry Baldur's Gate's lineage into the real-time-with-pause era.",
+      "id": "dragon-age-origins"
+    },
+    {
+      "id": "hatsune-miku-project-diva",
+      "title": "初音未来：歌姬计划",
+      "en": "Hatsune Miku: Project DIVA",
+      "year": 2009,
+      "genres": [
+        "rhythm",
+        "visual-novel"
+      ],
+      "creator": "Sega",
+      "region": "JP",
+      "note": "让虚拟歌姬在精致 PV 中登台演唱的按键音游，把 Vocaloid 文化带向大众。",
+      "noteEn": "Tap to the beat as virtual idol Miku performs in gorgeous PVs; it carried Vocaloid culture mainstream.",
+      "awards": []
+    },
+    {
+      "id": "just-dance",
+      "title": "舞力全开",
+      "en": "Just Dance",
+      "year": 2009,
+      "genres": [
+        "rhythm",
+        "party"
+      ],
+      "creator": "Ubisoft",
+      "region": "FR",
+      "note": "用体感识别跟着热门单曲起舞，派对与家庭聚会的万能暖场神器。",
+      "noteEn": "Motion-tracking dance to chart hits; the surest way to warm up any party or family gathering.",
+      "awards": []
+    },
+    {
+      "title": "杀戮地带 2",
+      "en": "Killzone 2",
+      "year": 2009,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Guerrilla Games",
+      "region": "NL",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "沉重的手感与暴烈的粒子效果，把「战争的重量」压进每一次扣扳机。",
+      "noteEn": "Weighty gunplay and ferocious particle effects put the sheer weight of war behind every trigger pull.",
+      "id": "killzone-2"
+    },
+    {
+      "title": "求生之路 2",
+      "en": "Left 4 Dead 2",
+      "year": 2009,
+      "genres": [
+        "shooter",
+        "horror"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "AI 导演会偷看你的血量临时调整尸潮，让每一次通关都像第一次那么紧张。",
+      "noteEn": "The AI Director peeks at your health and reshuffles the horde, so no run ever plays the same.",
+      "id": "left-4-dead-2"
+    },
+    {
+      "id": "steins-gate",
+      "title": "命运石之门",
+      "en": "Steins;Gate",
+      "year": 2009,
+      "genres": [
+        "visual-novel"
+      ],
+      "creator": "5pb.",
+      "region": "JP",
+      "note": "微波炉改造成时光机的时间旅行叙事，从日常喜剧到绝望螺旋的转换教科书。",
+      "noteEn": "A microwave time machine and the cost of every 'D-Mail'; the canonical descent from comedy to despair.",
+      "awards": []
+    },
+    {
+      "title": "神秘海域2：纵横贼道",
+      "en": "Uncharted 2: Among Thieves",
+      "year": 2009,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Naughty Dog",
+      "region": "US",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [
+        "tga-goty",
+        "dice"
+      ],
+      "note": "把电影式过场与攀爬枪战无缝衔接，火车与藏地雪山的场面调度至今仍是第三人称动作的标杆。",
+      "noteEn": "Seamless set-piece cinema — trains and Himalayan chases — still the benchmark for third-person spectacle.",
+      "id": "uncharted-2-among-thieves"
+    },
+    {
+      "id": "wii-sports-resort",
+      "title": "Wii运动：度假胜地",
+      "en": "Wii Sports Resort",
+      "year": 2009,
+      "genres": [
+        "sports"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 80
+      },
+      "awards": [],
+      "note": "Wii MotionPlus 让挥剑与掷飞盘有了真实位移，剑术决斗成为 Wii 时代最棒的体感社交。",
+      "noteEn": "MotionPlus adds real motion to swordplay and disc toss — sword duels are the Wii's best motion-social experience."
+    },
+    {
+      "id": "alan-wake",
+      "title": "心灵杀手",
+      "en": "Alan Wake",
+      "year": 2010,
+      "genres": [
+        "horror",
+        "action-adventure"
+      ],
+      "creator": "Remedy Entertainment",
+      "region": "FI",
+      "rating": {
+        "metacritic": 83
+      },
+      "note": "以手电筒驱散黑暗的湖畔小镇惊悚，把创作焦虑与电视剧式分集叙事结合。",
+      "noteEn": "Flashlight-lit dread in a lakeside town, fusing creative anxiety with TV-style episodic pacing.",
+      "awards": []
+    },
+    {
+      "id": "amnesia-the-dark-descent",
+      "title": "失忆症：黑暗后裔",
+      "en": "Amnesia: The Dark Descent",
+      "year": 2010,
+      "genres": [
+        "horror"
+      ],
+      "creator": "Frictional Games",
+      "region": "SE",
+      "rating": {
+        "metacritic": 85
+      },
+      "note": "没有武器、只能逃跑与躲藏的第一人称恐怖，奠定了「逃生恐怖」的模板。",
+      "noteEn": "First-person terror with no weapons, only hiding; it codified the run-and-hide survival horror template.",
+      "awards": []
+    },
+    {
+      "id": "danganronpa-trigger-happy-havoc",
+      "title": "弹丸论破：希望的学园与绝望高中生",
+      "en": "Danganronpa: Trigger Happy Havoc",
+      "year": 2010,
+      "genres": [
+        "visual-novel",
+        "puzzle",
+        "horror"
+      ],
+      "creator": "Spike Chunsoft",
+      "region": "JP",
+      "rating": {
+        "metacritic": 80
+      },
+      "note": "黑白熊的互相残杀学级裁判，把日常推理、法庭辩论与「论破」炫技结合。",
+      "noteEn": "Monokuma's killing game: slice-of-life, courtroom debate and 'breaking' contradictions in one trial.",
+      "awards": []
+    },
+    {
+      "title": "辐射：新维加斯",
+      "en": "Fallout: New Vegas",
+      "year": 2010,
+      "genres": [
+        "rpg",
+        "open-world"
+      ],
+      "creator": "Obsidian Entertainment",
+      "region": "US",
+      "rating": {
+        "metacritic": 84
+      },
+      "awards": [],
+      "note": "莫哈维废土的阵营之间没有纯善，凯撒军团与 NCR 的选择把冷战宿命塞进点 44 口径。",
+      "noteEn": "No clean side in the Mojave — Caesar's Legion vs. the NCR stuffs Cold War destiny into .44 rounds.",
+      "id": "fallout-new-vegas"
+    },
+    {
+      "title": "质量效应2",
+      "en": "Mass Effect 2",
+      "year": 2010,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "BioWare",
+      "region": "CA",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [
+        "dice",
+        "bafta-games",
+        "golden-joystick",
+        "gdc"
+      ],
+      "note": "以『忠诚任务』做角色驱动，自杀任务的倒计时让每段羁绊都可能在终点前断裂。",
+      "noteEn": "Loyalty missions make it character-driven — the suicide run's countdown can sever any bond before the end.",
+      "id": "mass-effect-2"
+    },
+    {
+      "id": "nba-2k11",
+      "title": "NBA 2K11",
+      "en": "NBA 2K11",
+      "year": 2010,
+      "genres": [
+        "sports"
+      ],
+      "creator": "Visual Concepts",
+      "region": "US",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "「乔丹挑战模式」重现飞人的十场传奇比赛，把怀旧与拟真手感缝合，是 2K 系列的封神一作。",
+      "noteEn": "The Jordan Challenge replays ten MJ legends, fusing nostalgia with sim polish — the 2K series' masterpiece."
+    },
+    {
+      "id": "nine-hours-nine-persons-nine-doors",
+      "title": "极限脱出 9小时9人9之门",
+      "en": "Nine Hours, Nine Persons, Nine Doors",
+      "year": 2010,
+      "genres": [
+        "visual-novel",
+        "puzzle",
+        "horror"
+      ],
+      "creator": "Spike Chunsoft",
+      "region": "JP",
+      "rating": {
+        "metacritic": 82
+      },
+      "note": "密室逃脱谜题与多重结局交织的数字根谜团，第九人身份的反转令人拍案。",
+      "noteEn": "Escape-the-room puzzles wired into a digital-root conspiracy; the ninth-person twist stuns.",
+      "awards": []
+    },
+    {
+      "title": "荒野大镖客：救赎",
+      "en": "Red Dead Redemption",
+      "year": 2010,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Rockstar San Diego",
+      "region": "US",
+      "rating": {
+        "metacritic": 95
+      },
+      "awards": [
+        "tga-goty"
+      ],
+      "note": "荒野西部的黄昏，马背上的长镜头与约翰·马斯顿的还债之旅是工业时代的挽歌。",
+      "noteEn": "The Old West at dusk — horseback long shots and Marston's debt-paying ride are an elegy for an industrial age.",
+      "id": "red-dead-redemption"
+    },
+    {
+      "title": "文明 5",
+      "en": "Sid Meier's Civilization V",
+      "year": 2010,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Firaxis Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "六边形格与「一单位一格」的改动，彻底重写了系列的地图逻辑。",
+      "noteEn": "Hex tiles and one-unit-per-tile reinvented the series' map logic from the ground up.",
+      "id": "sid-meier-s-civilization-v"
+    },
+    {
+      "title": "超级马力欧银河2",
+      "en": "Super Mario Galaxy 2",
+      "year": 2010,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "把一代的奇想浓缩成更密、更硬的核心关卡，耀西加入后连行星都能骑。",
+      "noteEn": "Distills the first game's wonder into denser, harder core levels — and you can ride Yoshi on planets.",
+      "id": "super-mario-galaxy-2"
+    },
+    {
+      "title": "超级食肉男孩",
+      "en": "Super Meat Boy",
+      "year": 2010,
+      "genres": [
+        "platformer",
+        "indie"
+      ],
+      "creator": "Team Meat",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "以像素级精确操作与海量关卡闻名的硬核平台跳跃，开创了本世代 roguelike 平台游戏的先河。",
+      "noteEn": "A razor-precise hardcore platformer whose tight controls and massive level count redefined indie action.",
+      "id": "super-meat-boy"
+    },
+    {
+      "title": "异度神剑",
+      "en": "Xenoblade Chronicles",
+      "year": 2010,
+      "genres": [
+        "rpg",
+        "open-world"
+      ],
+      "creator": "Monolith Soft",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "站在两具巨神身上看世界的科幻神话，自动战斗与广阔地图是新一代 JRPG 的宣言。",
+      "noteEn": "A world staged on two sleeping titans — auto-attacks and a vast map declare the next-gen JRPG.",
+      "id": "xenoblade-chronicles"
+    },
+    {
+      "id": "bastion",
+      "title": "堡垒",
+      "en": "Bastion",
+      "year": 2011,
+      "genres": [
+        "indie",
+        "action-adventure",
+        "rpg"
+      ],
+      "creator": "Supergiant Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 86
+      },
+      "note": "旁白叙述随玩家行动实时生成的等距动作 RPG，Supergiant 的第一款作品一鸣惊人。",
+      "noteEn": "An isometric action-RPG whose narrator reacts to your every move in real time; Supergiant's dazzling debut.",
+      "awards": []
+    },
+    {
+      "title": "蝙蝠侠：阿卡姆之城",
+      "en": "Batman: Arkham City",
+      "year": 2011,
+      "genres": [
+        "action-adventure",
+        "open-world"
+      ],
+      "creator": "Rocksteady Studios",
+      "region": "UK",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "把疯人院扩成一座露天监狱城，空中滑翔与全息案件档案让哥谭第一次有了实体。",
+      "noteEn": "Expands the asylum into an open-air prison city — gliding and holographic case files give Gotham physical weight.",
+      "id": "batman-arkham-city"
+    },
+    {
+      "title": "子弹风暴",
+      "en": "Bulletstorm",
+      "year": 2011,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "People Can Fly",
+      "region": "PL",
+      "rating": {
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "用鞭子把敌人甩进仙人掌再补一记飞踢，把「处刑分」做成了一套作秀系统。",
+      "noteEn": "Whip enemies into cacti then kick them mid-air — a skill-shot scoring system built for showboating.",
+      "id": "bulletstorm"
+    },
+    {
+      "id": "catherine",
+      "title": "凯瑟琳",
+      "en": "Catherine",
+      "year": 2011,
+      "genres": [
+        "puzzle",
+        "visual-novel",
+        "horror"
+      ],
+      "creator": "Atlus",
+      "region": "JP",
+      "rating": {
+        "metacritic": 79
+      },
+      "note": "推箱子与成人婚恋恐惧的诡异组合，噩梦关卡是真正的硬核考验。",
+      "noteEn": "Block-pushing welded to adult dread about commitment; the nightmare towers are genuinely brutal.",
+      "awards": []
+    },
+    {
+      "title": "黑暗之魂",
+      "en": "Dark Souls",
+      "year": 2011,
+      "genres": [
+        "rpg",
+        "action-adventure"
+      ],
+      "creator": "FromSoftware",
+      "region": "JP",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "以地图咬合与信息碎片撑起难度，死亡不是惩罚而是世界运转的语法。",
+      "noteEn": "Interlocking maps and cryptic lore underpin the difficulty — death is not punishment but the world's grammar.",
+      "id": "dark-souls"
+    },
+    {
+      "id": "portal-2",
+      "title": "传送门2",
+      "en": "Portal 2",
+      "year": 2011,
+      "genres": [
+        "puzzle",
+        "platformer"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "rating": {
+        "metacritic": 95
+      },
+      "awards": [
+        "bafta-games"
+      ],
+      "note": "把凝胶、光束与时光机制全数展开的双人合作解谜，剧本与演出媲美电影。",
+      "noteEn": "Gels, beams and time mechanics unfold into a co-op puzzle epic with movie-grade writing and staging."
+    },
+    {
+      "id": "spacechem",
+      "title": "太空化学",
+      "en": "SpaceChem",
+      "year": 2011,
+      "genres": [
+        "puzzle",
+        "sim"
+      ],
+      "creator": "Zachtronics",
+      "region": "US",
+      "rating": {
+        "metacritic": 86
+      },
+      "note": "编写化学工厂的反应管线，是 Zachtronics 编程解谜传统的开山之作。",
+      "noteEn": "Program reaction pipelines in a chemistry factory; the template for Zachtronics' coding-puzzle lineage.",
+      "awards": []
+    },
+    {
+      "title": "上古卷轴5：天际",
+      "en": "The Elder Scrolls V: Skyrim",
+      "year": 2011,
+      "genres": [
+        "rpg",
+        "open-world"
+      ],
+      "creator": "Bethesda Game Studios",
+      "region": "US",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "golden-joystick",
+        "gdc"
+      ],
+      "note": "龙吼与天际省的山谷雪原把『随便往哪走都有事做』变成了一种世界观而非功能。",
+      "noteEn": "Dragon shouts and snowy valleys made 'go anywhere, find something' a worldview rather than a feature.",
+      "id": "the-elder-scrolls-v-skyrim"
+    },
+    {
+      "title": "全面战争：幕府将军 2",
+      "en": "Total War: Shogun 2",
+      "year": 2011,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Creative Assembly",
+      "region": "UK",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "回合制治国与实时合战的无缝结合，是战国题材策略的巅峰答卷。",
+      "noteEn": "Turn-based realm management fused with real-time battles — the definitive Sengoku strategy game.",
+      "id": "total-war-shogun-2"
+    },
+    {
+      "title": "十字军之王 2",
+      "en": "Crusader Kings II",
+      "year": 2012,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Paradox Development Studio",
+      "region": "SE",
+      "rating": {
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "你不是在统治国家，而是在扮演一个会恋爱、会暗杀、也会死于感冒的贵族。",
+      "noteEn": "You don't rule a nation — you play a noble who falls in love, plots murder and dies of a cold.",
+      "id": "crusader-kings-ii"
+    },
+    {
+      "title": "欧洲卡车模拟 2",
+      "en": "Euro Truck Simulator 2",
+      "year": 2012,
+      "genres": [
+        "sim"
+      ],
+      "creator": "SCS Software",
+      "region": "CZ",
+      "rating": {
+        "steam": 10
+      },
+      "awards": [],
+      "note": "把「开卡车送货」做成养老型治愈，电台配乐让每一公里都变成享受。",
+      "noteEn": "Trucking as a cozy retirement sim — radio, autobahn and endless delivery zen.",
+      "id": "euro-truck-simulator-2"
+    },
+    {
+      "title": "孤岛惊魂3",
+      "en": "Far Cry 3",
+      "year": 2012,
+      "genres": [
+        "open-world",
+        "shooter"
+      ],
+      "creator": "Ubisoft Montreal",
+      "region": "CA",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "瓦斯的丛林与反派 Vaas 的疯言疯语，让『信号塔开图』从此成了开放世界标配。",
+      "noteEn": "Rook Island's jungle and Vaas's madness made radio-tower map-unlocking a genre default.",
+      "id": "far-cry-3"
+    },
+    {
+      "id": "fez",
+      "title": "菲斯",
+      "en": "Fez",
+      "year": 2012,
+      "genres": [
+        "indie",
+        "puzzle",
+        "platformer"
+      ],
+      "creator": "Polytron Corporation",
+      "region": "CA",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [
+        "igf"
+      ],
+      "note": "通过旋转视角把 2D 世界变成 3D 谜题的像素冒险，纯手工绘制的美术充满谜语。",
+      "noteEn": "A pixel-art adventure that rotates a 2D world into 3D puzzles, wrapped in handmade visuals and hidden riddles."
+    },
+    {
+      "title": "极限竞速：地平线",
+      "en": "Forza Horizon",
+      "year": 2012,
+      "genres": [
+        "racing",
+        "open-world"
+      ],
+      "creator": "Playground Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "把科罗拉多州做成音乐节般的开放世界，竞速第一次有了「假期感」。",
+      "noteEn": "Colorado as an open-world music festival — the first racer that felt like a road trip.",
+      "id": "forza-horizon"
+    },
+    {
+      "id": "ftl-faster-than-light",
+      "title": "超越光速",
+      "en": "FTL: Faster Than Light",
+      "year": 2012,
+      "genres": [
+        "indie",
+        "strategy",
+        "sim"
+      ],
+      "creator": "Subset Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 84
+      },
+      "note": "逐房间管理飞船能源与船员的一击毙命 roguelike，每次跃迁都可能终结旅程。",
+      "noteEn": "Manage a spaceship room-by-room under permadeath pressure; every jump may be your last.",
+      "awards": []
+    },
+    {
+      "id": "hotline-miami",
+      "title": "迈阿密热线",
+      "en": "Hotline Miami",
+      "year": 2012,
+      "genres": [
+        "indie",
+        "action-adventure",
+        "shooter"
+      ],
+      "creator": "Dennaton Games",
+      "region": "SE",
+      "rating": {
+        "metacritic": 89
+      },
+      "note": "霓虹与电子乐包裹的极速杀戮，一击必死的规则把每一次出击都变成精确规划。",
+      "noteEn": "Neon-soaked, synth-driven ultraviolence where one-hit deaths turn every sweep into a precise plan.",
+      "awards": []
+    },
+    {
+      "id": "journey",
+      "title": "风之旅人",
+      "en": "Journey",
+      "year": 2012,
+      "genres": [
+        "indie",
+        "action-adventure"
+      ],
+      "creator": "thatgamecompany",
+      "region": "US",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [
+        "dice",
+        "bafta-games",
+        "gdc"
+      ],
+      "note": "用无文字的沙漠漫游让陌生玩家彼此合作同行，Austin Wintory 的配乐是点睛之笔。",
+      "noteEn": "A wordless desert pilgrimage where strangers cooperate wordlessly; Wintory's score is the soul of it."
+    },
+    {
+      "title": "热血无赖",
+      "en": "Sleeping Dogs",
+      "year": 2012,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "United Front Games",
+      "region": "CA",
+      "rating": {
+        "metacritic": 80
+      },
+      "awards": [],
+      "note": "香港霓虹与功夫擒拿，警匪卧底戏在雨夜街巷里打出一套硬桥硬马。",
+      "noteEn": "Hong Kong neon and kung-fu takedowns — an undercover cop drama staged in rain-slick alleys.",
+      "id": "sleeping-dogs"
+    },
+    {
+      "title": "特殊行动：一线生机",
+      "en": "Spec Ops: The Line",
+      "year": 2012,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Yager Development",
+      "region": "DE",
+      "rating": {
+        "metacritic": 76
+      },
+      "awards": [],
+      "note": "表面是掩体射击，内里是对「战争英雄叙事」的反战控诉，白磷弹一幕令人难忘。",
+      "noteEn": "A cover shooter that indicts war-hero narratives — the white-phosphorus scene is unforgettable.",
+      "id": "spec-ops-the-line"
+    },
+    {
+      "id": "spelunky",
+      "title": "洞穴探险",
+      "en": "Spelunky",
+      "year": 2012,
+      "genres": [
+        "indie",
+        "platformer",
+        "action-adventure"
+      ],
+      "creator": "Mossmouth",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "note": "程序生成洞穴的 roguelike 平台游戏始祖，每个陷阱都能相互联动制造意外死亡。",
+      "noteEn": "The roguelike platformer that pioneered procedural caves where every trap chains into a glorious death.",
+      "awards": []
+    },
+    {
+      "id": "the-house-in-fata-morgana",
+      "title": "海市蜃楼之馆",
+      "en": "The House in Fata Morgana",
+      "year": 2012,
+      "genres": [
+        "visual-novel",
+        "horror"
+      ],
+      "creator": "Novectacle",
+      "region": "JP",
+      "rating": {
+        "steam": 9.5
+      },
+      "note": "被诅咒之馆横跨千年的悲剧群像，哥特式的爱与赎罪让人久久无法出戏。",
+      "noteEn": "A cursed mansion's thousand-year tragedy; Gothic love and atonement that stays with you long after.",
+      "awards": []
+    },
+    {
+      "id": "the-room",
+      "title": "谜室",
+      "en": "The Room",
+      "year": 2012,
+      "genres": [
+        "puzzle"
+      ],
+      "creator": "Fireproof Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [
+        "bafta-games"
+      ],
+      "note": "把触屏滑动做成的立体机关盒解谜，手感细腻到每个旋钮都像真实存在。",
+      "noteEn": "Touch-driven puzzle boxes so tactile every knob feels real; a landmark of mobile puzzle craft."
+    },
+    {
+      "id": "virtues-last-reward",
+      "title": "极限脱出 善人死亡",
+      "en": "Virtue's Last Reward",
+      "year": 2012,
+      "genres": [
+        "visual-novel",
+        "puzzle"
+      ],
+      "creator": "Spike Chunsoft",
+      "region": "JP",
+      "rating": {
+        "metacritic": 85
+      },
+      "note": "把囚徒困境搬进密室逃脱，剧情树分支庞大到需要用流程图来导航。",
+      "noteEn": "Prisoner's dilemma inside escape rooms; its branching story tree is so wide it needs a flowchart.",
+      "awards": []
+    },
+    {
+      "title": "XCOM：未知敌人",
+      "en": "XCOM: Enemy Unknown",
+      "year": 2012,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Firaxis Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "把 95% 命中率打空的绝望与基地经营绑定，让每一次失败都刻骨铭心。",
+      "noteEn": "Binds the despair of a 95% shot that misses to base management — every loss cuts deep.",
+      "id": "xcom-enemy-unknown"
+    },
+    {
+      "title": "刀塔 2",
+      "en": "Dota 2",
+      "year": 2013,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Valve",
+      "region": "US",
+      "awards": [],
+      "note": "一个英雄只给四个技能，减法设计却孕育出全世界最深的竞技体系之一。",
+      "noteEn": "One hero, four buttons — an economy of design that bred one of the deepest competitive scenes on Earth.",
+      "id": "dota-2"
+    },
+    {
+      "title": "欧陆风云 4",
+      "en": "Europa Universalis IV",
+      "year": 2013,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Paradox Development Studio",
+      "region": "SE",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "从 1444 到 1821 的四百年代理棋，贸易、宗教与王朝阴谋织成一张巨网。",
+      "noteEn": "Four hundred years of grand strategy from 1444 — trade, religion and dynastic intrigue in one web.",
+      "id": "europa-universalis-iv"
+    },
+    {
+      "id": "fifa-14",
+      "title": "FIFA 14",
+      "en": "FIFA 14",
+      "year": 2013,
+      "genres": [
+        "sports",
+        "sim"
+      ],
+      "creator": "EA Canada",
+      "region": "CA",
+      "note": "首次引入「纯正射门」与物理引擎的 FIFA，是把足球模拟带上新台阶的一作。",
+      "noteEn": "Introduced pure shot physics to the franchise; a milestone in making virtual football feel real.",
+      "awards": []
+    },
+    {
+      "title": "侠盗猎车手5",
+      "en": "Grand Theft Auto V",
+      "year": 2013,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Rockstar North",
+      "region": "UK",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [
+        "tga-goty"
+      ],
+      "note": "三位主角的切人与合流让抢劫不再是任务而是编排，洛圣都的讽刺光谱亮到刺眼。",
+      "noteEn": "Three protagonists and heists as choreography — Los Santos' satire is bright enough to sting.",
+      "id": "grand-theft-auto-v"
+    },
+    {
+      "id": "outlast",
+      "title": "逃生",
+      "en": "Outlast",
+      "year": 2013,
+      "genres": [
+        "horror"
+      ],
+      "creator": "Red Barrels",
+      "region": "CA",
+      "rating": {
+        "metacritic": 80
+      },
+      "note": "全程只能靠夜视摄影机逃亡的精神病院之旅，电量与恐惧同步耗尽。",
+      "noteEn": "Flee a mental asylum with only a night-vision camcorder; batteries and nerve drain together.",
+      "awards": []
+    },
+    {
+      "id": "papers-please",
+      "title": "请出示证件",
+      "en": "Papers, Please",
+      "year": 2013,
+      "genres": [
+        "indie",
+        "puzzle",
+        "sim"
+      ],
+      "creator": "3909 LLC",
+      "region": "US",
+      "rating": {
+        "metacritic": 85
+      },
+      "awards": [
+        "igf"
+      ],
+      "note": "扮演边境检查员在无数细则中辨认伪造文件，把道德抉择塞进一张张小卡片里。",
+      "noteEn": "Play a border inspector flagging forged documents; it turns moral choice into a stack of tiny stamps."
+    },
+    {
+      "title": "雷曼：传奇",
+      "en": "Rayman Legends",
+      "year": 2013,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Ubisoft Montpellier",
+      "region": "FR",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "手绘关卡与音乐节奏关的同步演出，多人接力让这场水彩冒险像乐队合奏。",
+      "noteEn": "Hand-drawn stages and rhythm levels synced to music — co-op makes the watercolor romp play like a band.",
+      "id": "rayman-legends"
+    },
+    {
+      "title": "最后生还者",
+      "en": "The Last of Us",
+      "year": 2013,
+      "genres": [
+        "action-adventure",
+        "horror"
+      ],
+      "creator": "Naughty Dog",
+      "region": "US",
+      "rating": {
+        "metacritic": 95,
+        "ign": 10
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "bafta-games",
+        "golden-joystick"
+      ],
+      "note": "把僵尸末世写成一部公路片，乔尔与艾莉的关系弧线比感染本身更致命。",
+      "noteEn": "A zombie apocalypse told as a road movie — Joel and Ellie's bond cuts deeper than the infection.",
+      "id": "the-last-of-us"
+    },
+    {
+      "title": "古墓丽影（2013）",
+      "en": "Tomb Raider (2013)",
+      "year": 2013,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Crystal Dynamics",
+      "region": "US",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "用求生与攀爬重启劳拉，从温室少女到独当一面的成长写得比机关更动人。",
+      "noteEn": "Survival and climbing reboot Lara — her arc from green girl to survivor outshines the traps.",
+      "id": "tomb-raider-2013"
+    },
+    {
+      "id": "alien-isolation",
+      "title": "异形：隔离",
+      "en": "Alien: Isolation",
+      "year": 2014,
+      "genres": [
+        "horror",
+        "action-adventure"
+      ],
+      "creator": "Creative Assembly",
+      "region": "UK",
+      "rating": {
+        "metacritic": 79
+      },
+      "note": "异形由 AI 驱动、无法预判行踪，把一个猎手放进永远不能放松的太空站。",
+      "noteEn": "An AI-driven Xenomorph that learns and hunts you across a space station; you can never relax.",
+      "awards": []
+    },
+    {
+      "title": "神力科莎",
+      "en": "Assetto Corsa",
+      "year": 2014,
+      "genres": [
+        "racing",
+        "sim"
+      ],
+      "creator": "Kunos Simulazioni",
+      "region": "IT",
+      "rating": {
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "面向硬核玩家的物理引擎与激光扫描赛道，靠 MOD 生态长盛不衰。",
+      "noteEn": "A physics engine built for hardcore sim racers — laser-scanned tracks and mods keep it alive.",
+      "id": "assetto-corsa"
+    },
+    {
+      "title": "声名狼藉：次子",
+      "en": "Infamous Second Son",
+      "year": 2014,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Sucker Punch Productions",
+      "region": "US",
+      "rating": {
+        "metacritic": 80
+      },
+      "awards": [],
+      "note": "西雅图的霓虹与烟尘，善与恶两套超能力树让『选择』有了看得见的后果。",
+      "noteEn": "Neon Seattle where karmic power trees make every choice visibly reshape the city.",
+      "id": "infamous-second-son"
+    },
+    {
+      "id": "monument-valley",
+      "title": "纪念碑谷",
+      "en": "Monument Valley",
+      "year": 2014,
+      "genres": [
+        "puzzle"
+      ],
+      "creator": "ustwo games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 85
+      },
+      "awards": [
+        "bafta-games"
+      ],
+      "note": "以视错觉与埃舍尔式建筑打造的极简几何之旅，每一帧都是壁纸。",
+      "noteEn": "Escher-esque optical illusions in minimalist geometry; every frame is a wallpaper."
+    },
+    {
+      "id": "pt",
+      "title": "PT",
+      "en": "P.T.",
+      "year": 2014,
+      "genres": [
+        "horror"
+      ],
+      "creator": "Kojima Productions",
+      "region": "JP",
+      "note": "可玩预告片用一段循环走廊颠覆了整代恐怖游戏，可惜最终随项目取消而绝版。",
+      "noteEn": "A playable teaser that reinvented horror in one looping corridor, delisted forever with Silent Hills.",
+      "awards": []
+    },
+    {
+      "title": "铲子骑士",
+      "en": "Shovel Knight",
+      "year": 2014,
+      "genres": [
+        "platformer",
+        "indie",
+        "action-adventure"
+      ],
+      "creator": "Yacht Club Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "以 8-bit 风格复刻红白机时代手感的高完成度动作平台游戏，关卡设计堪称教科书。",
+      "noteEn": "An 8-bit revival that nails NES-era feel; its level design is a masterclass in retro platforming.",
+      "id": "shovel-knight"
+    },
+    {
+      "id": "the-evil-within",
+      "title": "恶灵附身",
+      "en": "The Evil Within",
+      "year": 2014,
+      "genres": [
+        "horror",
+        "action-adventure"
+      ],
+      "creator": "Tango Gameworks",
+      "region": "JP",
+      "rating": {
+        "metacritic": 75
+      },
+      "note": "三上真司回归生存恐怖的执念之作，场景在精神世界与现实间反复扭曲。",
+      "noteEn": "Shinji Mikami's return to survival horror; reality warps between mind and matter without mercy.",
+      "awards": []
+    },
+    {
+      "id": "transistor",
+      "title": "晶体管",
+      "en": "Transistor",
+      "year": 2014,
+      "genres": [
+        "indie",
+        "action-adventure",
+        "rpg"
+      ],
+      "creator": "Supergiant Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 83
+      },
+      "note": "以巨剑里寄存的爱人声音为叙述者，实时与回合制融合的战斗华丽而伤感。",
+      "noteEn": "A sword that carries a lover's voice narrates; real-time and turn-based combat melt into melancholy beauty.",
+      "awards": []
+    },
+    {
+      "title": "看门狗",
+      "en": "Watch Dogs",
+      "year": 2014,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Ubisoft Montreal",
+      "region": "CA",
+      "rating": {
+        "metacritic": 80
+      },
+      "awards": [],
+      "note": "芝加哥的摄像头与手机入侵，把整座城市变成可破解的界面，是黑客视角开放世界的先行者。",
+      "noteEn": "Chicago's CCTV and phone-hacking render the whole city as a hackable interface — the hacker's open world, first try.",
+      "id": "watch-dogs"
+    },
+    {
+      "title": "血源诅咒",
+      "en": "Bloodborne",
+      "year": 2015,
+      "genres": [
+        "rpg",
+        "action-adventure",
+        "horror"
+      ],
+      "creator": "FromSoftware",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "维多利亚哥特与克苏鲁畸变咬合，锯肉刀与内脏暴击鼓励以攻代守的近身狂舞。",
+      "noteEn": "Victorian gothic meets Lovecraftian horror — sawblades and visceral attacks reward aggressive, close-range dancing.",
+      "id": "bloodborne"
+    },
+    {
+      "title": "城市：天际线",
+      "en": "Cities: Skylines",
+      "year": 2015,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Colossal Order",
+      "region": "FI",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "交通建模细致到每一条匝道，是《模拟城市》玩家集体流亡后的应许之地。",
+      "noteEn": "Traffic modeled down to every off-ramp — the promised land SimCity players fled to.",
+      "id": "cities-skylines"
+    },
+    {
+      "id": "crypt-of-the-necrodancer",
+      "title": "节奏地牢",
+      "en": "Crypt of the NecroDancer",
+      "year": 2015,
+      "genres": [
+        "rhythm",
+        "indie"
+      ],
+      "creator": "Brace Yourself Games",
+      "region": "CA",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "把 roguelike 行动锁定到节拍上的天才融合，打拍子即走位、即杀敌。",
+      "noteEn": "Roguelike movement locked to a beat; every step and strike must land on the downbeat.",
+      "awards": []
+    },
+    {
+      "title": "辐射4",
+      "en": "Fallout 4",
+      "year": 2015,
+      "genres": [
+        "rpg",
+        "open-world"
+      ],
+      "creator": "Bethesda Game Studios",
+      "region": "US",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "定居点建造与动力甲改装让废土变成可经营的沙盘，『义勇军将军』是带着锤子的幻想。",
+      "noteEn": "Settlement building and power-armor mods turn the wasteland into a sandbox you can run with a hammer.",
+      "id": "fallout-4"
+    },
+    {
+      "id": "human-resource-machine",
+      "title": "人力资源机器",
+      "en": "Human Resource Machine",
+      "year": 2015,
+      "genres": [
+        "puzzle",
+        "sim"
+      ],
+      "creator": "Tomorrow Corporation",
+      "region": "US",
+      "rating": {
+        "metacritic": 81
+      },
+      "note": "把汇编语言包装成办公室小职员的任务，编程概念在欢笑中自然习得。",
+      "noteEn": "Assembly programming disguised as office busywork; coding concepts sneak in through giggles.",
+      "awards": []
+    },
+    {
+      "id": "keep-talking-and-nobody-explodes",
+      "title": "保持通话，没人爆炸",
+      "en": "Keep Talking and Nobody Explodes",
+      "year": 2015,
+      "genres": [
+        "party",
+        "puzzle"
+      ],
+      "creator": "Steel Crate Games",
+      "region": "CA",
+      "rating": {
+        "metacritic": 80
+      },
+      "note": "一人拆弹、同伴翻手册指路的 VR 经典，把沟通失误变成最欢乐的爆炸现场。",
+      "noteEn": "One player defuses, friends read the manual; miscommunication becomes the funniest blast.",
+      "awards": []
+    },
+    {
+      "title": "坎巴拉太空计划",
+      "en": "Kerbal Space Program",
+      "year": 2015,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Squad",
+      "region": "MX",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "用真实的轨道力学把火箭送上天的沙盒，是一代人的航天物理启蒙。",
+      "noteEn": "Real orbital mechanics in a rocket sandbox — the aerospace physics primer a generation deserved.",
+      "id": "kerbal-space-program"
+    },
+    {
+      "title": "奥日与黑暗森林",
+      "en": "Ori and the Blind Forest",
+      "year": 2015,
+      "genres": [
+        "platformer",
+        "action-adventure"
+      ],
+      "creator": "Moon Studios",
+      "region": "AT",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "塞尔达式的技能成长配上手绘森林与催泪开场，把银河城做成一首长镜头诗。",
+      "noteEn": "Metroidvania growth, hand-painted forest and a gut-punch prologue — the genre as a long-take poem.",
+      "id": "ori-and-the-blind-forest"
+    },
+    {
+      "id": "rocket-league",
+      "title": "火箭联盟",
+      "en": "Rocket League",
+      "year": 2015,
+      "genres": [
+        "sports",
+        "racing"
+      ],
+      "creator": "Psyonix",
+      "region": "US",
+      "rating": {
+        "metacritic": 86
+      },
+      "note": "把足球与喷气赛车拼在一起的奇想，物理掌握到极致后就是电子竞技天花板。",
+      "noteEn": "Soccer with rocket cars; mastered physics turn it into one of esports' most skill-expressive titles.",
+      "awards": []
+    },
+    {
+      "id": "soma",
+      "title": "活体脑细胞",
+      "en": "SOMA",
+      "year": 2015,
+      "genres": [
+        "horror"
+      ],
+      "creator": "Frictional Games",
+      "region": "SE",
+      "rating": {
+        "metacritic": 84
+      },
+      "note": "深海基地里拷问意识与复制体的科幻恐怖，惊吓背后是令人失眠的哲学。",
+      "noteEn": "Sci-fi dread in an underwater base probing consciousness; the horror lingers as sleepless philosophy.",
+      "awards": []
+    },
+    {
+      "title": "斯普拉遁",
+      "en": "Splatoon",
+      "year": 2015,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Nintendo EAD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 81
+      },
+      "awards": [],
+      "note": "用墨水涂地代替爆头计数，证明射击游戏不必总是灰暗与血腥的。",
+      "noteEn": "Inking turf instead of counting headshots — proof that a shooter doesn't have to be grim.",
+      "id": "splatoon"
+    },
+    {
+      "title": "巫师3：狂猎",
+      "en": "The Witcher 3: Wild Hunt",
+      "year": 2015,
+      "genres": [
+        "rpg",
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "CD Projekt Red",
+      "region": "PL",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "golden-joystick",
+        "gdc"
+      ],
+      "note": "猎魔人的支线没有对错只有代价，血腥男爵的故事证明 RPG 的良心藏在字里行间。",
+      "noteEn": "Side quests with no right answers, only costs — the Bloody Baron proves an RPG's conscience lives in its writing.",
+      "id": "the-witcher-3-wild-hunt"
+    },
+    {
+      "title": "传说之下",
+      "en": "Undertale",
+      "year": 2015,
+      "genres": [
+        "rpg",
+        "indie"
+      ],
+      "creator": "Toby Fox",
+      "region": "US",
+      "rating": {
+        "metacritic": 92,
+        "ign": 10
+      },
+      "awards": [
+        "igf"
+      ],
+      "note": "你可以不杀任何一个怪物通关，弹幕式的战斗与幽默旁白彻底颠覆 RPG 的常规。",
+      "noteEn": "Mercy as a victory condition turns the violence loop back on the player — beneath the pixels, pure rules.",
+      "id": "undertale"
+    },
+    {
+      "id": "until-dawn",
+      "title": "直到黎明",
+      "en": "Until Dawn",
+      "year": 2015,
+      "genres": [
+        "horror",
+        "visual-novel"
+      ],
+      "creator": "Supermassive Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 79
+      },
+      "note": "把好莱坞恐怖片变成可玩交互，蝴蝶效应让每个角色的生死都由你的选择决定。",
+      "noteEn": "A playable slasher movie where butterfly-effect choices decide who survives the cabin night.",
+      "awards": []
+    },
+    {
+      "title": "如龙0",
+      "en": "Yakuza 0",
+      "year": 2015,
+      "genres": [
+        "rpg",
+        "action-adventure"
+      ],
+      "creator": "Ryu Ga Gotoku Studio",
+      "region": "JP",
+      "rating": {
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "神室町的烟火气与八十年代泡沫经济，让街头打架和小游戏都成了庶民史诗。",
+      "noteEn": "Kamurocho's neon bustle and the bubble economy make street brawls and minigames into an everyman epic.",
+      "id": "yakuza-0"
+    },
+    {
+      "title": "黑暗之魂3",
+      "en": "Dark Souls III",
+      "year": 2016,
+      "genres": [
+        "rpg",
+        "action-adventure"
+      ],
+      "creator": "FromSoftware",
+      "region": "JP",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [
+        "golden-joystick"
+      ],
+      "note": "把前两代的武器与地图做了终曲式缝合，灰烬的余火在薪王传说里烧到最后。",
+      "noteEn": "A finale suturing the first two games' gear and vistas — the Ashen One carries the embers to the end.",
+      "id": "dark-souls-iii"
+    },
+    {
+      "title": "毁灭战士 2016",
+      "en": "DOOM (2016)",
+      "year": 2016,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "id Software",
+      "region": "US",
+      "rating": {
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "用处决回血取代掩体，把「射爆一切」本身做成了一套优雅自洽的循环。",
+      "noteEn": "Glory kills replace cover — a perfectly elegant loop built entirely around ripping demons apart.",
+      "id": "doom-2016"
+    },
+    {
+      "title": "钢铁雄心 4",
+      "en": "Hearts of Iron IV",
+      "year": 2016,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Paradox Development Studio",
+      "region": "SE",
+      "rating": {
+        "metacritic": 83
+      },
+      "awards": [],
+      "note": "从「柏林之路」国策树到自绘装甲师徽章，是全二战史的军宅狂欢。",
+      "noteEn": "From the Berlin Express focus tree to custom tank-division emblems — a full-warfare military history sandbox.",
+      "id": "hearts-of-iron-iv"
+    },
+    {
+      "id": "hyper-light-drifter",
+      "title": "光明旅者",
+      "en": "Hyper Light Drifter",
+      "year": 2016,
+      "genres": [
+        "indie",
+        "action-adventure"
+      ],
+      "creator": "Heart Machine",
+      "region": "US",
+      "rating": {
+        "metacritic": 84
+      },
+      "note": "没有一句对白的 16-bit 动作冒险，节奏凌厉、残影美学，向《暗黑破坏神》致敬的地城战斗。",
+      "noteEn": "A wordless 16-bit action-adventure with sharp, afterimage-soaked combat that evokes Diablo's dungeons.",
+      "awards": []
+    },
+    {
+      "id": "inside",
+      "title": "Inside",
+      "en": "Inside",
+      "year": 2016,
+      "genres": [
+        "indie",
+        "puzzle",
+        "platformer"
+      ],
+      "creator": "Playdead",
+      "region": "DK",
+      "rating": {
+        "metacritic": 91
+      },
+      "note": "《地狱边境》团队打造的黑色反乌托邦解谜，压抑氛围在结局达到令人不安的高潮。",
+      "noteEn": "Playdead's dystopian puzzle-platformer whose suffocating mood crescendos into a haunting final act.",
+      "awards": []
+    },
+    {
+      "title": "无人深空",
+      "en": "No Man's Sky",
+      "year": 2016,
+      "genres": [
+        "open-world",
+        "sim"
+      ],
+      "creator": "Hello Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 71
+      },
+      "awards": [],
+      "note": "一亿八千万颗星球程序生成，从发售翻车到八年补全，是『承诺』与『救赎』并存的活标本。",
+      "noteEn": "18 quintillion procedural planets, from launch disaster to eight years of updates — a living monument to redemption.",
+      "id": "no-man-s-sky"
+    },
+    {
+      "title": "守望先锋",
+      "en": "Overwatch",
+      "year": 2016,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Blizzard Entertainment",
+      "region": "US",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [
+        "tga-goty",
+        "dice"
+      ],
+      "note": "把 MOBA 的职责分工塞进 6v6 射击，用英雄与高饱和配色重构了团队对抗。",
+      "noteEn": "MOBA-style roles distilled into 6v6 shooting, reimagining team combat around heroes and color.",
+      "id": "overwatch"
+    },
+    {
+      "id": "oxenfree",
+      "title": "奥森弗里",
+      "en": "Oxenfree",
+      "year": 2016,
+      "genres": [
+        "indie",
+        "visual-novel"
+      ],
+      "creator": "Night School Studio",
+      "region": "US",
+      "rating": {
+        "metacritic": 78
+      },
+      "note": "电台频率扰动时空的超自然青少年群像，对话在行走与打断中自然生长。",
+      "noteEn": "A supernatural teen story where radio frequencies tear time; dialogue flows through interruption and movement.",
+      "awards": []
+    },
+    {
+      "title": "过山车之星",
+      "en": "Planet Coaster",
+      "year": 2016,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Frontier Developments",
+      "region": "UK",
+      "rating": {
+        "metacritic": 84
+      },
+      "awards": [],
+      "note": "造景自由度堪比专业建模软件，让「主题乐园设计师」成了热门虚拟职业。",
+      "noteEn": "Scenery tools rivaling pro modeling software — a virtual career for theme-park designers.",
+      "id": "planet-coaster"
+    },
+    {
+      "id": "stardew-valley",
+      "title": "星露谷物语",
+      "en": "Stardew Valley",
+      "year": 2016,
+      "genres": [
+        "indie",
+        "sim",
+        "rpg"
+      ],
+      "creator": "ConcernedApe",
+      "region": "US",
+      "rating": {
+        "metacritic": 89,
+        "steam": 10
+      },
+      "note": "一人开发四年的田园经营经典，种田、采矿、恋爱与小镇节庆层层叠叠地填满生活感。",
+      "noteEn": "Built by one developer over four years; farming, mining, romance and festivals stack into a lived-in town.",
+      "awards": []
+    },
+    {
+      "title": "群星",
+      "en": "Stellaris",
+      "year": 2016,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Paradox Development Studio",
+      "region": "SE",
+      "rating": {
+        "metacritic": 78
+      },
+      "awards": [],
+      "note": "把《文明》的探索搬进银河系，虫子、机器与灵能文明在同一片星海崛起。",
+      "noteEn": "Civilization-style exploration scaled to the galaxy, where bugs, bots and psionics all rise.",
+      "id": "stellaris"
+    },
+    {
+      "id": "stephens-sausage-roll",
+      "title": "斯蒂芬的香肠卷",
+      "en": "Stephen's Sausage Roll",
+      "year": 2016,
+      "genres": [
+        "puzzle"
+      ],
+      "creator": "Increpare Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 84
+      },
+      "note": "只用滚肠与烤炉就构筑出令人绝望的拓扑难题，硬核解谜玩家的圣杯。",
+      "noteEn": "Just a sausage and a grill yield agonizing topological puzzles; a holy grail for hardcore solvers.",
+      "awards": []
+    },
+    {
+      "id": "the-jackbox-party-pack-3",
+      "title": "杰克盒派对合集3",
+      "en": "The Jackbox Party Pack 3",
+      "year": 2016,
+      "genres": [
+        "party"
+      ],
+      "creator": "Jackbox Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 84
+      },
+      "note": "手机当手柄的答题派对合集，《Quiplash》让损友金句成为全场笑点。",
+      "noteEn": "A phone-as-controller quiz party; Quiplash turns your friends' dumbest answers into the show.",
+      "awards": []
+    },
+    {
+      "id": "the-witness",
+      "title": "见证者",
+      "en": "The Witness",
+      "year": 2016,
+      "genres": [
+        "puzzle"
+      ],
+      "creator": "Thekla, Inc.",
+      "region": "US",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "一座岛上千条线谜题，规则从不说明却能被直觉与观察学会。",
+      "noteEn": "An island of line puzzles whose rules are never told yet learned through observation and epiphany.",
+      "awards": []
+    },
+    {
+      "id": "thumper",
+      "title": "重击者",
+      "en": "Thumper",
+      "year": 2016,
+      "genres": [
+        "rhythm",
+        "horror"
+      ],
+      "creator": "Drool",
+      "region": "US",
+      "rating": {
+        "metacritic": 83
+      },
+      "note": "以金属节拍撞击轨道的高速恐怖音游，狂暴视听把玩家推向节奏深渊。",
+      "noteEn": "A violent rhythm racer slamming a beetle through hyperspeed tunnels; it weaponizes the beat.",
+      "awards": []
+    },
+    {
+      "title": "泰坦陨落 2",
+      "en": "Titanfall 2",
+      "year": 2016,
+      "genres": [
+        "shooter"
+      ],
+      "creator": "Respawn Entertainment",
+      "region": "US",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "单机关卡「Effect and Cause」把双时间线玩出花，是近十年最被低估的 FPS 战役之一。",
+      "noteEn": "The time-shift level 'Effect and Cause' is one of the decade's most underrated FPS campaigns.",
+      "id": "titanfall-2"
+    },
+    {
+      "title": "神秘海域4：盗贼末路",
+      "en": "Uncharted 4: A Thief's End",
+      "year": 2016,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Naughty Dog",
+      "region": "US",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [
+        "bafta-games"
+      ],
+      "note": "兄弟情与盗墓史的纠缠给了德雷克一个体面的退场，钩索与载具把线性关卡玩出开放感。",
+      "noteEn": "A brother's return gives Drake a dignified exit, while rope-swinging and vehicles widen the linear stages into openness.",
+      "id": "uncharted-4-a-thief-s-end"
+    },
+    {
+      "id": "va-11-hall-a",
+      "title": "赛博朋克酒保行动",
+      "en": "Va-11 Hall-A",
+      "year": 2016,
+      "genres": [
+        "visual-novel",
+        "indie"
+      ],
+      "creator": "Sukeban Games",
+      "region": "VE",
+      "rating": {
+        "metacritic": 80
+      },
+      "note": "在霓虹酒馆调酒听客人倾诉的赛博朋克日常，调酒配方本身就是故事线索。",
+      "noteEn": "Mix drinks and listen to a neon city's regulars; every cocktail recipe doubles as story.",
+      "awards": []
+    },
+    {
+      "title": "茶杯头",
+      "en": "Cuphead",
+      "year": 2017,
+      "genres": [
+        "platformer",
+        "indie",
+        "shooter"
+      ],
+      "creator": "Studio MDHR",
+      "region": "CA",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "逐帧手绘的 1930 年代橡皮管动画风格跑轰游戏，BOSS 战如同会动的老电影。",
+      "noteEn": "A run-and-gun rendered in hand-drawn 1930s rubber-hose animation; boss fights move like old cartoons.",
+      "id": "cuphead"
+    },
+    {
+      "title": "神界：原罪2",
+      "en": "Divinity: Original Sin II",
+      "year": 2017,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Larian Studios",
+      "region": "BE",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [],
+      "note": "元素地表与物理环境互相点火，行动自由到连 NPC 都可以是经验值——或是队友。",
+      "noteEn": "Elemental surfaces and physics interplay; freedom so total that NPCs can be XP — or party members.",
+      "id": "divinity-original-sin-ii"
+    },
+    {
+      "id": "doki-doki-literature-club",
+      "title": "心跳文学部",
+      "en": "Doki Doki Literature Club",
+      "year": 2017,
+      "genres": [
+        "visual-novel",
+        "horror",
+        "indie"
+      ],
+      "creator": "Team Salvato",
+      "region": "US",
+      "rating": {
+        "steam": 9.5
+      },
+      "note": "披着恋爱喜剧外衣的元恐怖，越界修改文件的那一刻起就再也回不了头。",
+      "noteEn": "A dating-sim shell hiding meta-horror; once it starts editing its own files, you cannot unsee it.",
+      "awards": []
+    },
+    {
+      "title": "勇者斗恶龙11",
+      "en": "Dragon Quest XI",
+      "year": 2017,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Square Enix (Armor Project)",
+      "region": "JP",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "鸟山明人设与椙山浩一的交响乐，把王道 RPG 的『确定感』打磨成安心与感动。",
+      "noteEn": "Toriyama's art and Sugiyama's symphonies polish the comfort of a classic JRPG into pure reassurance.",
+      "id": "dragon-quest-xi"
+    },
+    {
+      "id": "gang-beasts",
+      "title": "群殴野兽",
+      "en": "Gang Beasts",
+      "year": 2017,
+      "genres": [
+        "party",
+        "fighting"
+      ],
+      "creator": "Boneloaf",
+      "region": "UK",
+      "rating": {
+        "metacritic": 68
+      },
+      "note": "软体布偶互殴的物理格斗派对，僵硬到极致的打斗反而笑料百出。",
+      "noteEn": "Gelatinous brawlers fight with hilariously floppy physics; every punch is a pratfall.",
+      "awards": []
+    },
+    {
+      "title": "空洞骑士",
+      "en": "Hollow Knight",
+      "year": 2017,
+      "genres": [
+        "platformer",
+        "action-adventure",
+        "indie"
+      ],
+      "creator": "Team Cherry",
+      "region": "AU",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "圣巢的地下遗迹层层咬合，手绘虫族与晦暗叙事让银河城的探索带上了考古味。",
+      "noteEn": "A hand-drawn insect kingdom Metroidvania so vast it invites getting lost; combat and exploration feel superb.",
+      "id": "hollow-knight"
+    },
+    {
+      "title": "地平线：零之曙光",
+      "en": "Horizon Zero Dawn",
+      "year": 2017,
+      "genres": [
+        "action-adventure",
+        "open-world",
+        "rpg"
+      ],
+      "creator": "Guerrilla Games",
+      "region": "NL",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "机械恐龙与部落图腾交错，用考古叙事揭开文明崩坏的真相，阿洛伊是近十年最有说服力的新英雄。",
+      "noteEn": "Machine-dinosaurs meet tribal totems; archaeology-driven lore explains the fall — Aloy is the decade's most credible new hero.",
+      "id": "horizon-zero-dawn"
+    },
+    {
+      "id": "little-nightmares",
+      "title": "小小梦魇",
+      "en": "Little Nightmares",
+      "year": 2017,
+      "genres": [
+        "horror",
+        "platformer",
+        "puzzle"
+      ],
+      "creator": "Tarsier Studios",
+      "region": "SE",
+      "rating": {
+        "metacritic": 81
+      },
+      "note": "黄雨衣小人穿过巨型怪物的邮轮，尺寸反差把恐惧做成精致的黑暗童话。",
+      "noteEn": "A child in a yellow raincoat crawls through a giant's ship; scale becomes a delicate dark fairy tale.",
+      "awards": []
+    },
+    {
+      "id": "mario-kart-8-deluxe",
+      "title": "马力欧卡丁车8 豪华版",
+      "en": "Mario Kart 8 Deluxe",
+      "year": 2017,
+      "genres": [
+        "party",
+        "racing"
+      ],
+      "creator": "Nintendo",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "note": "蓝龟壳与道具乱斗的国民赛车，把竞速变成人人能赢的派对狂欢。",
+      "noteEn": "Item-fueled chaos on the track; the blue shell keeps every racer one spin away from losing.",
+      "awards": []
+    },
+    {
+      "title": "尼尔：机械纪元",
+      "en": "Nier: Automata",
+      "year": 2017,
+      "genres": [
+        "rpg",
+        "action-adventure"
+      ],
+      "creator": "PlatinumGames",
+      "region": "JP",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "2B 的视角在 2D、弹幕与砍杀间切换，多周目结局用『删除存档』逼你直面意义。",
+      "noteEn": "2B's view shifts between 2D, bullet-hell and slashing; the finale asks you to delete your save to mean it.",
+      "id": "nier-automata"
+    },
+    {
+      "id": "opus-magnum",
+      "title": "杰出之作",
+      "en": "Opus Magnum",
+      "year": 2017,
+      "genres": [
+        "puzzle",
+        "sim"
+      ],
+      "creator": "Zachtronics",
+      "region": "US",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "用机械臂搭建炼金流水线，解法没有唯一答案，只有更优雅的答案。",
+      "noteEn": "Build alchemy assembly lines with robotic arms; there is no right answer, only more elegant ones.",
+      "awards": []
+    },
+    {
+      "id": "puyo-puyo-tetris",
+      "title": "噗哟噗哟俄罗斯方块",
+      "en": "Puyo Puyo Tetris",
+      "year": 2017,
+      "genres": [
+        "puzzle",
+        "party"
+      ],
+      "creator": "Sega",
+      "region": "JP",
+      "rating": {
+        "metacritic": 80
+      },
+      "note": "两种国民级消除规则的梦幻联动，跨规则对战让节奏与策略激烈碰撞。",
+      "noteEn": "Two national puzzle rules collide in cross-mode battles where timing and strategy clash.",
+      "awards": []
+    },
+    {
+      "id": "resident-evil-7-biohazard",
+      "title": "生化危机7",
+      "en": "Resident Evil 7: Biohazard",
+      "year": 2017,
+      "genres": [
+        "horror"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "rating": {
+        "metacritic": 86
+      },
+      "note": "第一人称视角回归密室恐怖，贝克一家的美国南方邪典味浓到化不开。",
+      "noteEn": "First-person survival returns to cramped dread; the Baker family drips Southern Gothic menace.",
+      "awards": []
+    },
+    {
+      "title": "索尼克狂热",
+      "en": "Sonic Mania",
+      "year": 2017,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Headcannon & PagodaWest Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "老粉丝手作的新关卡把 2D 索尼克的速度哲学复活，是官方重拾初心的最好示范。",
+      "noteEn": "Fan-made new zones revive 2D Sonic's speed philosophy — proof the franchise's heart was never lost.",
+      "id": "sonic-mania"
+    },
+    {
+      "title": "超级马力欧：奥德赛",
+      "en": "Super Mario Odyssey",
+      "year": 2017,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Nintendo EPD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 97,
+        "ign": 10
+      },
+      "awards": [],
+      "note": "附身系统让每个敌人都是新玩具，全球各地的王国与月亮收集把开放探索装进箱庭。",
+      "noteEn": "Capturing enemies turns everyone into a toy; worldwide kingdoms and moons pack open exploration into dioramas.",
+      "id": "super-mario-odyssey"
+    },
+    {
+      "id": "tekken-7",
+      "title": "铁拳7",
+      "en": "Tekken 7",
+      "year": 2017,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Bandai Namco Studios",
+      "region": "JP",
+      "rating": {
+        "metacritic": 82
+      },
+      "note": "用虚幻引擎表现 3D 格斗的帧级手感，三岛家族恩怨在最终章落幕。",
+      "noteEn": "Unreal Engine polish on frame-perfect 3D combat; the Mishima saga reaches its final showdown.",
+      "awards": []
+    },
+    {
+      "title": "塞尔达传说：旷野之息",
+      "en": "The Legend of Zelda: Breath of the Wild",
+      "year": 2017,
+      "genres": [
+        "action-adventure",
+        "open-world"
+      ],
+      "creator": "Nintendo EPD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 97,
+        "ign": 10
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "golden-joystick",
+        "japan-game-award",
+        "gdc"
+      ],
+      "note": "把『好奇心即攻略』推向极致：爬山、滑翔与物理相互作用取代了路标，玩家自己书写路线。",
+      "noteEn": "Championed curiosity-as-guide: climbing, gliding and physics interactions replace waypoints, letting players write their own routes.",
+      "id": "the-legend-of-zelda-breath-of-the-wild"
+    },
+    {
+      "title": "全面战争：战锤 2",
+      "en": "Total War: Warhammer II",
+      "year": 2017,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Creative Assembly",
+      "region": "UK",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "魔法、巨兽与漩涡仪式战，把中古战锤的疯狂搬上宏大战役地图。",
+      "noteEn": "Magic, monsters and vortex ritual battles bring the Warhammer Old World's madness to the campaign map.",
+      "id": "total-war-warhammer-ii"
+    },
+    {
+      "title": "刺客信条：奥德赛",
+      "en": "Assassin's Creed Odyssey",
+      "year": 2018,
+      "genres": [
+        "open-world",
+        "rpg"
+      ],
+      "creator": "Ubisoft Quebec",
+      "region": "CA",
+      "rating": {
+        "metacritic": 83
+      },
+      "awards": [],
+      "note": "古希腊的每座山都藏着一个神话，育碧把历史旅游做成了刺客信条的招牌。",
+      "noteEn": "Every Greek peak hides a myth — Ubisoft turned historical tourism into Assassin's Creed's calling card.",
+      "id": "assassin-s-creed-odyssey"
+    },
+    {
+      "id": "beat-saber",
+      "title": "节奏光剑",
+      "en": "Beat Saber",
+      "year": 2018,
+      "genres": [
+        "rhythm"
+      ],
+      "creator": "Beat Games",
+      "region": "CZ",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "用 VR 光剑切开迎面而来的音符，把健身与音游合二为一的杀手级作品。",
+      "noteEn": "Slice incoming beats with VR sabers; the killer app that fused fitness with rhythm games.",
+      "awards": []
+    },
+    {
+      "title": "蔚蓝",
+      "en": "Celeste",
+      "year": 2018,
+      "genres": [
+        "platformer",
+        "indie"
+      ],
+      "creator": "Maddy Makes Games",
+      "region": "CA",
+      "rating": {
+        "metacritic": 92,
+        "ign": 10
+      },
+      "awards": [],
+      "note": "把登山的挫败感写进『协助模式』与剧情，玛德琳的焦虑和玩家的手柄一起深呼吸。",
+      "noteEn": "It builds the climb's frustration into its assist mode and story — Madeline's anxiety breathes with your controller.",
+      "id": "celeste"
+    },
+    {
+      "id": "dragon-ball-fighterz",
+      "title": "龙珠斗士Z",
+      "en": "Dragon Ball FighterZ",
+      "year": 2018,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Arc System Works",
+      "region": "JP",
+      "rating": {
+        "metacritic": 87,
+        "ign": 8.7
+      },
+      "awards": [],
+      "note": "2.5D 手绘质感的 3v3 组队战，把龙珠的瞬移与对波做成行云流水的格斗，拿下 2018 TGA 最佳格斗游戏。",
+      "noteEn": "Hand-drawn 2.5D 3v3 battles translate Dragon Ball's teleports and ki blasts into fluid fighting — TGA 2018 Best Fighting Game."
+    },
+    {
+      "title": "冰汽时代",
+      "en": "Frostpunk",
+      "year": 2018,
+      "genres": [
+        "strategy",
+        "sim"
+      ],
+      "creator": "11 bit studios",
+      "region": "PL",
+      "rating": {
+        "metacritic": 84
+      },
+      "awards": [],
+      "note": "当世界只剩零下 150 度，你会签下童工法案，还是看着整座城市冻死？",
+      "noteEn": "When the world freezes to -150°C, do you sign the child-labor law or watch the city die?",
+      "id": "frostpunk"
+    },
+    {
+      "title": "战神（2018）",
+      "en": "God of War (2018)",
+      "year": 2018,
+      "genres": [
+        "action-adventure",
+        "rpg"
+      ],
+      "creator": "Santa Monica Studio",
+      "region": "US",
+      "rating": {
+        "metacritic": 94,
+        "ign": 10
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "bafta-games",
+        "gdc"
+      ],
+      "note": "把希腊战神塞进北欧神话与父子关系，一镜到底的镜头把斧头投掷玩成了抒情。",
+      "noteEn": "A Greek god remade for Norse myth and fatherhood, with a single-shot camera making the axe throw lyrical.",
+      "id": "god-of-war-2018"
+    },
+    {
+      "id": "gris",
+      "title": "格丽斯",
+      "en": "Gris",
+      "year": 2018,
+      "genres": [
+        "indie",
+        "platformer"
+      ],
+      "creator": "Nomada Studio",
+      "region": "ES",
+      "rating": {
+        "metacritic": 84
+      },
+      "note": "水彩画般的解谜平台游戏，色彩随主角情绪逐渐苏醒，全程无文字却极富感染力。",
+      "noteEn": "A watercolor puzzle-platformer where color returns with the heroine's grief; wordless yet deeply moving.",
+      "awards": []
+    },
+    {
+      "id": "into-the-breach",
+      "title": "陷阵之志",
+      "en": "Into the Breach",
+      "year": 2018,
+      "genres": [
+        "indie",
+        "strategy"
+      ],
+      "creator": "Subset Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 90
+      },
+      "note": "每回合都能推演敌人行动的小型棋盘策略，把挫败感做成值得反复咀嚼的难题。",
+      "noteEn": "Turn-based tactics shrunk to an 8x8 grid where enemies telegraph every move — victory by shove and push.",
+      "awards": []
+    },
+    {
+      "title": "漫威蜘蛛侠",
+      "en": "Marvel's Spider-Man",
+      "year": 2018,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Insomniac Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "蛛网摆荡的物理手感是曼哈顿的通行证，漫画式演出让超级英雄第一次有了体重。",
+      "noteEn": "Web-swinging physics is the ticket to Manhattan; comic-book beats give a superhero real gravity.",
+      "id": "marvel-s-spider-man"
+    },
+    {
+      "id": "overcooked-2",
+      "title": "胡闹厨房2",
+      "en": "Overcooked! 2",
+      "year": 2018,
+      "genres": [
+        "party",
+        "sim"
+      ],
+      "creator": "Ghost Town Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 81
+      },
+      "note": "在会移动的厨房里分工烹饪，是检验友情与默契的终极压力测试。",
+      "noteEn": "Coordinate a kitchen on moving platforms; the ultimate stress test for friendships.",
+      "awards": []
+    },
+    {
+      "title": "荒野大镖客：救赎2",
+      "en": "Red Dead Redemption 2",
+      "year": 2018,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Rockstar Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [
+        "golden-joystick"
+      ],
+      "note": "营地兄弟情与马匹毛发的物理细节，把西部开放世界做成一件能触摸的标本。",
+      "noteEn": "Camp brotherhood and horse-grooming physics make the frontier an open world you can touch.",
+      "id": "red-dead-redemption-2"
+    },
+    {
+      "id": "return-of-the-obra-dinn",
+      "title": "奥伯拉·丁的回归",
+      "en": "Return of the Obra Dinn",
+      "year": 2018,
+      "genres": [
+        "indie",
+        "puzzle"
+      ],
+      "creator": "3909 LLC",
+      "region": "US",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [
+        "igf"
+      ],
+      "note": "用一帧帧死亡瞬间拼凑沉船船员身份的海上悬案，1-bit 美术下是极其精密的推理。",
+      "noteEn": "Reconstruct a lost ship's crew from frozen death moments; under 1-bit art hides razor-sharp deduction."
+    },
+    {
+      "title": "环世界",
+      "en": "RimWorld",
+      "year": 2018,
+      "genres": [
+        "sim",
+        "strategy",
+        "indie"
+      ],
+      "creator": "Ludeon Studios",
+      "region": "CA",
+      "rating": {
+        "metacritic": 87,
+        "steam": 10
+      },
+      "awards": [],
+      "note": "AI 讲故事机：一场疯狗袭击就能毁掉三年的殖民地，然后变成传奇。",
+      "noteEn": "An AI storyteller — one mad-dog raid can topple a three-year colony, then become legend.",
+      "id": "rimworld"
+    },
+    {
+      "id": "super-smash-bros-ultimate",
+      "title": "任天堂明星大乱斗 特别版",
+      "en": "Super Smash Bros. Ultimate",
+      "year": 2018,
+      "genres": [
+        "fighting",
+        "party"
+      ],
+      "creator": "Bandai Namco Studios",
+      "region": "JP",
+      "rating": {
+        "metacritic": 93
+      },
+      "note": "收录历代全部角色的「全明星」阵容，是任天堂跨世代 IP 的终极庆典。",
+      "noteEn": "Every fighter in series history returns; the ultimate crossover celebration of Nintendo's IP.",
+      "awards": []
+    },
+    {
+      "id": "tetris-effect",
+      "title": "俄罗斯方块效应",
+      "en": "Tetris Effect",
+      "year": 2018,
+      "genres": [
+        "puzzle",
+        "rhythm"
+      ],
+      "creator": "Monstars / Resonair",
+      "region": "JP",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "在经典规则上叠加声光电的沉浸式演出，通关时的通感体验近乎冥想。",
+      "noteEn": "Classic rules under a synesthetic light-and-sound show; clearing the final stage feels like meditation.",
+      "awards": []
+    },
+    {
+      "title": "双点医院",
+      "en": "Two Point Hospital",
+      "year": 2018,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Two Point Studios",
+      "region": "UK",
+      "rating": {
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "《主题医院》的精神续作，用英式冷幽默处理「头晕病」与光怪陆离的疑难杂症。",
+      "noteEn": "Theme Hospital's spiritual heir, treating lightheadedness and other absurd ailments with British wit.",
+      "id": "two-point-hospital"
+    },
+    {
+      "id": "baba-is-you",
+      "title": "巴巴是你",
+      "en": "Baba Is You",
+      "year": 2019,
+      "genres": [
+        "puzzle",
+        "indie"
+      ],
+      "creator": "Hempuli",
+      "region": "FI",
+      "rating": {
+        "metacritic": 90
+      },
+      "note": "用词块改写关卡规则本身，把「推箱子」扩展成可编程的逻辑宇宙。",
+      "noteEn": "Push words that rewrite the rules of the level; it turns Sokoban into a programmable logic universe.",
+      "awards": []
+    },
+    {
+      "title": "死亡搁浅",
+      "en": "Death Stranding",
+      "year": 2019,
+      "genres": [
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "Kojima Productions",
+      "region": "JP",
+      "rating": {
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "把『送快递』做成连接主义寓言，山峦与雨雪让每一步负重都有意义，是反暴力开放世界的宣言。",
+      "noteEn": "Package delivery as a connectivity fable — every loaded step through rain and rock matters; an anti-violent open world.",
+      "id": "death-stranding"
+    },
+    {
+      "title": "尘埃拉力赛 2.0",
+      "en": "Dirt Rally 2.0",
+      "year": 2019,
+      "genres": [
+        "racing",
+        "sim"
+      ],
+      "creator": "Codemasters",
+      "region": "UK",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "领航员口播与动态路面损毁，把拉力赛的紧张感压进每一次刹车。",
+      "noteEn": "Co-driver calls and a dynamic surface model deliver rally tension in every braking zone.",
+      "id": "dirt-rally-2-0"
+    },
+    {
+      "id": "disco-elysium",
+      "title": "极乐迪斯科",
+      "en": "Disco Elysium",
+      "year": 2019,
+      "genres": [
+        "indie",
+        "rpg"
+      ],
+      "creator": "ZA/UM",
+      "region": "UK",
+      "rating": {
+        "metacritic": 97
+      },
+      "awards": [
+        "bafta-games",
+        "gdc"
+      ],
+      "note": "侦探的外衣下是彻底的意识形态与自我对话，24 种技能让内心戏成为主要玩法。",
+      "noteEn": "Beneath a detective premise lies pure ideology and self-talk; 24 skills make your inner monologue the gameplay."
+    },
+    {
+      "title": "火焰之纹章：风花雪月",
+      "en": "Fire Emblem: Three Houses",
+      "year": 2019,
+      "genres": [
+        "strategy",
+        "rpg"
+      ],
+      "creator": "Intelligent Systems",
+      "region": "JP",
+      "rating": {
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "学院日常与五年后战场的双时段结构，让每场战斗都背负着人情债。",
+      "noteEn": "Monastery life and a five-year jump make every battle carry the weight of old bonds.",
+      "id": "fire-emblem-three-houses"
+    },
+    {
+      "id": "mortal-kombat-11",
+      "title": "真人快打11",
+      "en": "Mortal Kombat 11",
+      "year": 2019,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "NetherRealm Studios",
+      "region": "US",
+      "rating": {
+        "metacritic": 82
+      },
+      "note": "以极致血腥终结技闻名的格斗系列，故事模式拍得像院线动作片。",
+      "noteEn": "Notorious for its gory fatalities; the story mode alone plays like a blockbuster action film.",
+      "awards": []
+    },
+    {
+      "id": "outer-wilds",
+      "title": "星际拓荒",
+      "en": "Outer Wilds",
+      "year": 2019,
+      "genres": [
+        "indie",
+        "puzzle",
+        "sim"
+      ],
+      "creator": "Mobius Digital",
+      "region": "US",
+      "rating": {
+        "metacritic": 85
+      },
+      "note": "太阳系每 22 分钟毁灭一次的宇宙解谜，所有知识都靠玩家亲自探索获得。",
+      "noteEn": "A solar system that explodes every 22 minutes; every clue is knowledge you earn through exploration.",
+      "awards": []
+    },
+    {
+      "title": "女神异闻录5 皇家版",
+      "en": "Persona 5 Royal",
+      "year": 2019,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Atlus",
+      "region": "JP",
+      "rating": {
+        "metacritic": 95
+      },
+      "awards": [],
+      "note": "怪盗团在东京的日常与宫殿双线并进，视觉与爵士配乐把高中生造反写成风格宣言。",
+      "noteEn": "Tokyo's daily life runs parallel to Palace heists; style and jazz turn teenage rebellion into a manifesto.",
+      "id": "persona-5-royal"
+    },
+    {
+      "title": "动物园之星",
+      "en": "Planet Zoo",
+      "year": 2019,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Frontier Developments",
+      "region": "UK",
+      "rating": {
+        "metacritic": 81
+      },
+      "awards": [],
+      "note": "每只动物都带遗传与行为模型，经营之下更像一座活的生态博物馆。",
+      "noteEn": "Every animal has genetics and behavior — a living museum beneath the management game.",
+      "id": "planet-zoo"
+    },
+    {
+      "id": "resident-evil-2",
+      "title": "生化危机2 重制版",
+      "en": "Resident Evil 2",
+      "year": 2019,
+      "genres": [
+        "horror",
+        "action-adventure"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "rating": {
+        "metacritic": 91
+      },
+      "note": "以现代引擎重建浣熊市的暴君追逐，恐怖与弹药管理的紧张感精准复刻。",
+      "noteEn": "Raccoon City rebuilt in a modern engine; Mr. X's pursuit keeps tension and ammo scarcity razor-sharp.",
+      "awards": []
+    },
+    {
+      "id": "sayonara-wild-hearts",
+      "title": "再见狂野之心",
+      "en": "Sayonara Wild Hearts",
+      "year": 2019,
+      "genres": [
+        "rhythm",
+        "action-adventure"
+      ],
+      "creator": "Simogo",
+      "region": "SE",
+      "rating": {
+        "metacritic": 85
+      },
+      "note": "流媒体流行乐的梦幻跑酷，霓虹、心碎与骑行在 90 分钟里一气呵成。",
+      "noteEn": "A dream-pop on-rails arcade ride; neon, heartbreak and motorcycles in one euphoric 90 minutes.",
+      "awards": []
+    },
+    {
+      "title": "只狼：影逝二度",
+      "en": "Sekiro: Shadows Die Twice",
+      "year": 2019,
+      "genres": [
+        "action-adventure",
+        "rpg"
+      ],
+      "creator": "FromSoftware",
+      "region": "JP",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [
+        "tga-goty",
+        "dice"
+      ],
+      "note": "以『架势』取代血条、以弹反定胜负，把剑戟决斗还原成节奏与呼吸的博弈。",
+      "noteEn": "Posture replaces health bars — deflection decides duels, reducing sword fights to rhythm and breath.",
+      "id": "sekiro-shadows-die-twice"
+    },
+    {
+      "title": "杀戮尖塔",
+      "en": "Slay the Spire",
+      "year": 2019,
+      "genres": [
+        "strategy",
+        "indie"
+      ],
+      "creator": "Mega Crit Games",
+      "region": "US",
+      "rating": {
+        "steam": 10
+      },
+      "awards": [],
+      "note": "卡牌构建 × Roguelike 的祖师爷，每一次抓牌都是一场与随机性的谈判。",
+      "noteEn": "The deckbuilder-roguelike progenitor — every card pick is a negotiation with randomness.",
+      "id": "slay-the-spire"
+    },
+    {
+      "id": "untitled-goose-game",
+      "title": "无名之鹅",
+      "en": "Untitled Goose Game",
+      "year": 2019,
+      "genres": [
+        "indie",
+        "puzzle",
+        "sim"
+      ],
+      "creator": "House House",
+      "region": "AU",
+      "rating": {
+        "metacritic": 81
+      },
+      "note": "扮演一只在村庄里到处捣乱的鹅，把「恶作剧清单」玩成行为艺术。",
+      "noteEn": "Play a mischievous goose terrorizing a village; a checklist of pranks turned into performance art.",
+      "awards": []
+    },
+    {
+      "id": "a-monsters-expedition",
+      "title": "怪物的远征",
+      "en": "A Monster's Expedition",
+      "year": 2020,
+      "genres": [
+        "puzzle",
+        "indie"
+      ],
+      "creator": "Draknek & Friends",
+      "region": "UK",
+      "rating": {
+        "metacritic": 89
+      },
+      "note": "用漂流的原木搭桥横穿群岛的开放解谜，规则简单到一句话却无穷无尽。",
+      "noteEn": "Rafting across an archipelago with floating logs; one-sentence rules spiral into endless puzzles.",
+      "awards": []
+    },
+    {
+      "title": "集合啦！动物森友会",
+      "en": "Animal Crossing: New Horizons",
+      "year": 2020,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Nintendo EPD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "一座荒岛在真实时间里缓缓成形，成为疫情隔离期千万人的情感缓冲垫。",
+      "noteEn": "An island shaping itself in real time — the emotional cushion millions needed during lockdown.",
+      "id": "animal-crossing-new-horizons"
+    },
+    {
+      "title": "赛博朋克2077",
+      "en": "Cyberpunk 2077",
+      "year": 2020,
+      "genres": [
+        "open-world",
+        "rpg"
+      ],
+      "creator": "CD Projekt Red",
+      "region": "PL",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "夜之城的霓虹密度无出其右，历经修葺与《往日之影》后，它终于兑现了『赛博朋克』的承诺。",
+      "noteEn": "Night City's neon density is unmatched; after patches and Phantom Liberty, it finally keeps its cyberpunk promise.",
+      "id": "cyberpunk-2077"
+    },
+    {
+      "title": "异星工厂",
+      "en": "Factorio",
+      "year": 2020,
+      "genres": [
+        "sim",
+        "strategy"
+      ],
+      "creator": "Wube Software",
+      "region": "CZ",
+      "rating": {
+        "metacritic": 90,
+        "steam": 10
+      },
+      "awards": [],
+      "note": "传送带与机械臂的自动化诗歌，「再优化一条产线就睡」是最甜蜜的时间黑洞。",
+      "noteEn": "An automated symphony of belts and inserters — the time-sink that outgrew its own factory.",
+      "id": "factorio"
+    },
+    {
+      "title": "原神",
+      "en": "Genshin Impact",
+      "year": 2020,
+      "genres": [
+        "open-world",
+        "rpg",
+        "action-adventure"
+      ],
+      "creator": "miHoYo",
+      "region": "CN",
+      "rating": {
+        "metacritic": 81
+      },
+      "awards": [],
+      "note": "把开放世界搬上手机并做成长线更新，提瓦特的七国地图与抽卡范式改写了大作的下沉方式。",
+      "noteEn": "Open world on phones with a live-service cadence — Teyvat's map and gacha model rewrote how big games reach everyone.",
+      "id": "genshin-impact"
+    },
+    {
+      "title": "对马岛之魂",
+      "en": "Ghost of Tsushima",
+      "year": 2020,
+      "genres": [
+        "action-adventure",
+        "open-world"
+      ],
+      "creator": "Sucker Punch Productions",
+      "region": "US",
+      "rating": {
+        "metacritic": 83
+      },
+      "awards": [],
+      "note": "对马岛的俳句、风引与决斗姿态让武士片活了过来，黑白模式『黑泽』是献给电影的情书。",
+      "noteEn": "Haiku, wind-guided travel and duel stances revive the chanbara film — the Kurosawa mode is a love letter to cinema.",
+      "id": "ghost-of-tsushima"
+    },
+    {
+      "id": "hades",
+      "title": "哈迪斯",
+      "en": "Hades",
+      "year": 2020,
+      "genres": [
+        "indie",
+        "action-adventure",
+        "rpg"
+      ],
+      "creator": "Supergiant Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [
+        "dice",
+        "gdc",
+        "bafta-games"
+      ],
+      "note": "把 roguelike 的死亡循环写成逃离冥界的神话，故事在每次失败中持续推进。",
+      "noteEn": "A roguelike escape from the underworld where narrative advances with every death; myth made iterative."
+    },
+    {
+      "title": "微软模拟飞行",
+      "en": "Microsoft Flight Simulator (2020)",
+      "year": 2020,
+      "genres": [
+        "sim"
+      ],
+      "creator": "Asobo Studio",
+      "region": "FR",
+      "rating": {
+        "metacritic": 91
+      },
+      "awards": [],
+      "note": "卫星测绘让整个地球都可飞，机外视角里的云海是工程与视觉的双重奇观。",
+      "noteEn": "The whole planet flyable via satellite data — cloudscapes that are a feat of engineering and art.",
+      "id": "microsoft-flight-simulator-2020"
+    },
+    {
+      "title": "奥日与萤火意志",
+      "en": "Ori and the Will of the Wisps",
+      "year": 2020,
+      "genres": [
+        "platformer",
+        "action-adventure"
+      ],
+      "creator": "Moon Studios",
+      "region": "AT",
+      "rating": {
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "灰烬森林的机关密度与大型 Boss 战补齐了系列短板，两作并看才是完整叙事。",
+      "noteEn": "Denser challenges and real bosses fill the gaps of the first — together the two make a complete arc.",
+      "id": "ori-and-the-will-of-the-wisps"
+    },
+    {
+      "title": "最后生还者 第二部",
+      "en": "The Last of Us Part II",
+      "year": 2020,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Naughty Dog",
+      "region": "US",
+      "rating": {
+        "metacritic": 93
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "golden-joystick"
+      ],
+      "note": "用双主角视角逼你重审仇恨，艾比的出拳与艾莉的收刀同样沉重，复仇叙事由此反转。",
+      "noteEn": "Dual protagonists force you to re-litigate revenge — Abby's blows and Ellie's retreat weigh equally.",
+      "id": "the-last-of-us-part-ii"
+    },
+    {
+      "title": "帝国时代 4",
+      "en": "Age of Empires IV",
+      "year": 2021,
+      "genres": [
+        "strategy"
+      ],
+      "creator": "Relic Entertainment",
+      "region": "CA",
+      "rating": {
+        "metacritic": 81
+      },
+      "awards": [],
+      "note": "纪录片式战役与全新文明机制，稳稳接住了老玩家二十年的期待。",
+      "noteEn": "Documentary-style campaigns and fresh civ mechanics carry two decades of pent-up expectations.",
+      "id": "age-of-empires-iv"
+    },
+    {
+      "title": "极限竞速：地平线 5",
+      "en": "Forza Horizon 5",
+      "year": 2021,
+      "genres": [
+        "racing",
+        "open-world"
+      ],
+      "creator": "Playground Games",
+      "region": "UK",
+      "rating": {
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "墨西哥的火山、雨林与沙漠同屏驰骋，是开放世界赛车目前的天花板。",
+      "noteEn": "Volcano, jungle and desert in one Mexican map — the current ceiling of open-world racing.",
+      "id": "forza-horizon-5"
+    },
+    {
+      "id": "guilty-gear-strive",
+      "title": "罪恶装备 奋战",
+      "en": "Guilty Gear Strive",
+      "year": 2021,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Arc System Works",
+      "region": "JP",
+      "rating": {
+        "metacritic": 87
+      },
+      "note": "2D 手绘动画渲染到极致的格斗，华丽连段与重金属摇滚相得益彰。",
+      "noteEn": "Hand-drawn anime fighters at peak fidelity; flashy combos meet a heavy-metal heart.",
+      "awards": []
+    },
+    {
+      "id": "inscryption",
+      "title": "邪恶冥刻",
+      "en": "Inscryption",
+      "year": 2021,
+      "genres": [
+        "indie",
+        "puzzle",
+        "strategy"
+      ],
+      "creator": "Daniel Mullins Games",
+      "region": "CA",
+      "rating": {
+        "metacritic": 85
+      },
+      "note": "卡片游戏外皮下藏着层层元叙事的惊悚，每拆开一层都让人脊背发凉。",
+      "noteEn": "A card game wrapped in nested meta-horror; each layer you peel back chills the spine further.",
+      "awards": []
+    },
+    {
+      "title": "双人成行",
+      "en": "It Takes Two",
+      "year": 2021,
+      "genres": [
+        "platformer",
+        "action-adventure",
+        "party"
+      ],
+      "creator": "Hazelight Studios",
+      "region": "SE",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [
+        "tga-goty",
+        "dice"
+      ],
+      "note": "双人分屏强制协作，每关换一套玩法，把『关系修复』的主题做成了关卡本身。",
+      "noteEn": "Forced co-op with a new mechanic every level — the theme of mending a relationship becomes the level design.",
+      "id": "it-takes-two"
+    },
+    {
+      "id": "mario-party-superstars",
+      "title": "马力欧派对 超级巨星",
+      "en": "Mario Party Superstars",
+      "year": 2021,
+      "genres": [
+        "party"
+      ],
+      "creator": "NDcube",
+      "region": "JP",
+      "rating": {
+        "metacritic": 80
+      },
+      "note": "复刻 N64 时代经典地图与小游戏，一掷骰子就让友谊翻脸如翻书。",
+      "noteEn": "Classic N64 boards and minigames remastered; one dice roll is all it takes to end friendships.",
+      "awards": []
+    },
+    {
+      "title": "死亡回归",
+      "en": "Returnal",
+      "year": 2021,
+      "genres": [
+        "shooter",
+        "action-adventure"
+      ],
+      "creator": "Housemarque",
+      "region": "FI",
+      "rating": {
+        "metacritic": 86
+      },
+      "awards": [
+        "bafta-games"
+      ],
+      "note": "把 Roguelike 死亡循环与第三人称弹幕枪战嫁接，故障美学与身体恐怖同行。",
+      "noteEn": "A roguelike death-loop fused with third-person bullet-hell — glitch aesthetic meets body horror.",
+      "id": "returnal"
+    },
+    {
+      "title": "艾尔登法环",
+      "en": "Elden Ring",
+      "year": 2022,
+      "genres": [
+        "rpg",
+        "open-world",
+        "action-adventure"
+      ],
+      "creator": "FromSoftware",
+      "region": "JP",
+      "rating": {
+        "metacritic": 96,
+        "ign": 10
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "golden-joystick",
+        "gdc",
+        "japan-game-award"
+      ],
+      "note": "无缝开放世界与魂系硬核咬合，骑马、骨灰与战灰让受苦变成一种可以被分享的朝圣。",
+      "noteEn": "Open world fused with Souls difficulty — Torrent, spirit ashes and ashes' arts turn suffering into shared pilgrimage.",
+      "id": "elden-ring"
+    },
+    {
+      "title": "战神：诸神黄昏",
+      "en": "God of War Ragnarök",
+      "year": 2022,
+      "genres": [
+        "action-adventure"
+      ],
+      "creator": "Santa Monica Studio",
+      "region": "US",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "九界地图更立体、剧情锤点更重，阿特柔斯的成年礼与诸神黄昏同步降临。",
+      "noteEn": "A more vertical Nine Realms and heavier emotional beats — Atreus' coming of age rides on Ragnarök's arrival.",
+      "id": "god-of-war-ragnarok"
+    },
+    {
+      "title": "地平线：西之绝境",
+      "en": "Horizon Forbidden West",
+      "year": 2022,
+      "genres": [
+        "open-world",
+        "action-adventure",
+        "rpg"
+      ],
+      "creator": "Guerrilla Games",
+      "region": "NL",
+      "rating": {
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "旧金山废墟与热带雨林同框，飞行坐骑把地平线的垂直探索带上新高度。",
+      "noteEn": "San Francisco ruins beside rainforests — a flying mount lifts Horizon's vertical exploration to new heights.",
+      "id": "horizon-forbidden-west"
+    },
+    {
+      "title": "漫威暗夜之子",
+      "en": "Marvel's Midnight Suns",
+      "year": 2022,
+      "genres": [
+        "strategy",
+        "rpg"
+      ],
+      "creator": "Firaxis Games",
+      "region": "US",
+      "rating": {
+        "metacritic": 83
+      },
+      "awards": [],
+      "note": "XCOM 团队的卡牌战棋让漫威角色同台斗法，可惜栽在了发行档期上。",
+      "noteEn": "XCOM's card-based tactics meet Marvel's roster — a gem that fell victim to release timing.",
+      "id": "marvel-s-midnight-suns"
+    },
+    {
+      "title": "博德之门3",
+      "en": "Baldur's Gate 3",
+      "year": 2023,
+      "genres": [
+        "rpg"
+      ],
+      "creator": "Larian Studios",
+      "region": "BE",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "bafta-games",
+        "golden-joystick",
+        "gdc"
+      ],
+      "note": "骰子、环境互动与自由杀生的密度，让桌面规则在电脑上第一次有了呼吸感。",
+      "noteEn": "Dice rolls, environmental trickery and goblin-killing freedom let tabletop rules breathe on PC for the first time.",
+      "id": "baldur-s-gate-3"
+    },
+    {
+      "id": "street-fighter-6",
+      "title": "街头霸王6",
+      "en": "Street Fighter 6",
+      "year": 2023,
+      "genres": [
+        "fighting"
+      ],
+      "creator": "Capcom",
+      "region": "JP",
+      "rating": {
+        "metacritic": 92
+      },
+      "note": "以「现代模式」降低入门门槛并保留深度，时隔多年让街霸回到主流视野。",
+      "noteEn": "A 'Modern' control scheme lowers the bar without losing depth, reviving the franchise's mainstream pull.",
+      "awards": []
+    },
+    {
+      "title": "塞尔达传说：王国之泪",
+      "en": "The Legend of Zelda: Tears of the Kingdom",
+      "year": 2023,
+      "genres": [
+        "action-adventure",
+        "open-world"
+      ],
+      "creator": "Nintendo EPD",
+      "region": "JP",
+      "rating": {
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "在旷野之息的地基上抛出『究极手』合成系统，把整个世界变成可拆装、可组装的巨型道具箱。",
+      "noteEn": "Adds the Ultrahand build system to BotW's world, turning the entire map into a kit of detachable, buildable parts.",
+      "id": "the-legend-of-zelda-tears-of-the-kingdom"
+    },
+    {
+      "title": "宇宙机器人",
+      "en": "Astro Bot",
+      "year": 2024,
+      "genres": [
+        "platformer"
+      ],
+      "creator": "Team Asobi",
+      "region": "JP",
+      "rating": {
+        "metacritic": 94
+      },
+      "awards": [
+        "tga-goty",
+        "dice",
+        "bafta-games",
+        "golden-joystick"
+      ],
+      "note": "把 PS5 手柄的触觉与自适应扳机做成关卡语言，复古致敬关卡的密度高到令人窒息。",
+      "noteEn": "DualSense haptics and adaptive triggers become level grammar; the nostalgia levels are breathtakingly dense.",
+      "id": "astro-bot"
+    }
+  ]
 }

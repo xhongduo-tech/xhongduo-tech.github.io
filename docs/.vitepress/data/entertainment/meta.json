@@ -95,6 +95,40 @@
       "ratingSources": []
     }
   },
+  "categoryStats": {
+    "movies": {
+      "count": 351,
+      "totalAwards": 200,
+      "yearRange": [
+        1922,
+        2023
+      ]
+    },
+    "games": {
+      "count": 300,
+      "totalAwards": 77,
+      "yearRange": [
+        1978,
+        2024
+      ]
+    },
+    "music": {
+      "count": 336,
+      "totalAwards": 84,
+      "yearRange": [
+        1721,
+        2022
+      ]
+    },
+    "photography": {
+      "count": 250,
+      "totalAwards": 42,
+      "yearRange": [
+        1840,
+        2022
+      ]
+    }
+  },
   "genres": {
     "movies": {
       "drama": {

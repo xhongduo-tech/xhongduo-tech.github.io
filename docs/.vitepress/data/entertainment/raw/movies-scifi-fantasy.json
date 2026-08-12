@@ -1,0 +1,1630 @@
+[
+  {
+    "id": "2001-a-space-odyssey",
+    "title": "2001 太空漫游",
+    "en": "2001: A Space Odyssey",
+    "year": 1968,
+    "genres": [
+      "scifi"
+    ],
+    "creator": "Stanley Kubrick",
+    "region": "US",
+    "rating": {
+      "douban": 8.8,
+      "imdb": 8.3
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "从猿骨到星童，用极简对白铺陈人类进化的宏大冥想。",
+    "noteEn": "From bone to star-child, a cosmic meditation told with near-silence."
+  },
+  {
+    "id": "blade-runner",
+    "title": "银翼杀手",
+    "en": "Blade Runner",
+    "year": 1982,
+    "genres": [
+      "scifi",
+      "noir"
+    ],
+    "creator": "Ridley Scott",
+    "region": "US",
+    "rating": {
+      "douban": 8.6,
+      "imdb": 8.1
+    },
+    "awards": [
+      "bafta"
+    ],
+    "note": "赛博朋克视觉的原点，雨夜霓虹下的复制人悲歌。",
+    "noteEn": "The neon-noir blueprint of cyberpunk, mourning replicants in the rain."
+  },
+  {
+    "id": "alien",
+    "title": "异形",
+    "en": "Alien",
+    "year": 1979,
+    "genres": [
+      "scifi",
+      "horror"
+    ],
+    "creator": "Ridley Scott",
+    "region": "US",
+    "rating": {
+      "douban": 8.2,
+      "imdb": 8.5
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "把太空船变成屠宰场，让太空恐怖落回脏兮兮的现实。",
+    "noteEn": "Turns a starship into a slaughterhouse, grounding space horror in grime."
+  },
+  {
+    "id": "star-wars",
+    "title": "星球大战",
+    "en": "Star Wars",
+    "year": 1977,
+    "genres": [
+      "scifi",
+      "action"
+    ],
+    "creator": "George Lucas",
+    "region": "US",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.6
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "用太空歌剧重启好莱坞暑期档，把原力变成世代神话。",
+    "noteEn": "Rebooted the Hollywood blockbuster as space opera, building a generational myth."
+  },
+  {
+    "id": "the-matrix",
+    "title": "黑客帝国",
+    "en": "The Matrix",
+    "year": 1999,
+    "genres": [
+      "scifi",
+      "action"
+    ],
+    "creator": "The Wachowskis",
+    "region": "US",
+    "rating": {
+      "douban": 9.0,
+      "imdb": 8.7
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "子弹时间与红蓝药丸，把存在主义问号装进动作片。",
+    "noteEn": "Bullet-time and the red pill folded philosophy into action filmmaking."
+  },
+  {
+    "id": "inception",
+    "title": "盗梦空间",
+    "en": "Inception",
+    "year": 2010,
+    "genres": [
+      "scifi",
+      "action",
+      "thriller"
+    ],
+    "creator": "Christopher Nolan",
+    "region": "US",
+    "rating": {
+      "douban": 9.4,
+      "imdb": 8.8,
+      "metacritic": 74
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "梦境嵌套的陀螺永不停转，诺兰把偷盗片拍成脑内迷宫。",
+    "noteEn": "A spinning top inside nested dreams — Nolan's maze of the mind."
+  },
+  {
+    "id": "interstellar",
+    "title": "星际穿越",
+    "en": "Interstellar",
+    "year": 2014,
+    "genres": [
+      "scifi",
+      "drama"
+    ],
+    "creator": "Christopher Nolan",
+    "region": "US",
+    "rating": {
+      "douban": 9.4,
+      "imdb": 8.7
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "黑洞、五维书架与麦田，父女情跨越引力与时间。",
+    "noteEn": "A black hole, a tesseract and a father-daughter bond spanning gravity and time."
+  },
+  {
+    "id": "arrival",
+    "title": "降临",
+    "en": "Arrival",
+    "year": 2016,
+    "genres": [
+      "scifi",
+      "drama"
+    ],
+    "creator": "Denis Villeneuve",
+    "region": "US",
+    "rating": {
+      "douban": 8.3,
+      "imdb": 7.9,
+      "metacritic": 81
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "语言学家用非线性时间观改写第一类接触。",
+    "noteEn": "A linguist redefines first contact through a non-linear view of time."
+  },
+  {
+    "id": "dune",
+    "title": "沙丘",
+    "en": "Dune",
+    "year": 2021,
+    "genres": [
+      "scifi",
+      "action"
+    ],
+    "creator": "Denis Villeneuve",
+    "region": "US",
+    "rating": {
+      "douban": 7.8,
+      "imdb": 8.0,
+      "metacritic": 74
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "沙丘美学与巨型尺度，维伦纽瓦把厄拉科斯拍成神迹。",
+    "noteEn": "Desert colossalism — Villeneuve's awe-scale adaptation of Herbert's epic."
+  },
+  {
+    "id": "ghost-in-the-shell",
+    "title": "攻壳机动队",
+    "en": "Ghost in the Shell",
+    "year": 1995,
+    "genres": [
+      "scifi",
+      "animation"
+    ],
+    "creator": "Mamoru Oshii",
+    "region": "JP",
+    "rating": {
+      "douban": 9.0,
+      "imdb": 7.9
+    },
+    "note": "素子与傀儡师的哲学对话，奠定赛博朋克动画语法。",
+    "noteEn": "Major Kusanagi's identity duel with the Puppet Master, a cyberpunk animation landmark."
+  },
+  {
+    "id": "akira",
+    "title": "阿基拉",
+    "en": "Akira",
+    "year": 1988,
+    "genres": [
+      "scifi",
+      "animation"
+    ],
+    "creator": "Katsuhiro Otomo",
+    "region": "JP",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.0
+    },
+    "note": "赛博东京的失控觉醒，手绘动画的暴力美学巅峰。",
+    "noteEn": "Neo-Tokyo's psychic meltdown, the peak of hand-drawn animated mayhem."
+  },
+  {
+    "id": "solaris",
+    "title": "飞向太空",
+    "en": "Solaris",
+    "year": 1972,
+    "genres": [
+      "scifi",
+      "drama"
+    ],
+    "creator": "Andrei Tarkovsky",
+    "region": "RU",
+    "rating": {
+      "douban": 8.4,
+      "imdb": 8.1
+    },
+    "note": "海洋行星用记忆吞噬船员，塔可夫斯基对太空歌剧的哲学反写。",
+    "noteEn": "A sentient ocean resurrects memories; Tarkovsky's philosophical answer to space opera."
+  },
+  {
+    "id": "stalker",
+    "title": "潜行者",
+    "en": "Stalker",
+    "year": 1979,
+    "genres": [
+      "scifi",
+      "drama"
+    ],
+    "creator": "Andrei Tarkovsky",
+    "region": "RU",
+    "rating": {
+      "douban": 8.7,
+      "imdb": 8.1
+    },
+    "note": "穿越「区」的朝圣之旅，把科幻拍成形而上学。",
+    "noteEn": "A pilgrimage through the Zone that turns sci-fi into metaphysics."
+  },
+  {
+    "id": "metropolis",
+    "title": "大都会",
+    "en": "Metropolis",
+    "year": 1927,
+    "genres": [
+      "scifi"
+    ],
+    "creator": "Fritz Lang",
+    "region": "DE",
+    "rating": {
+      "douban": 8.9,
+      "imdb": 8.3
+    },
+    "note": "1927 年的摩天都市寓言，机器人玛丽亚开创银幕科幻造型。",
+    "noteEn": "A 1927 fable of the vertical city and the robot Maria, founding sci-fi imagery."
+  },
+  {
+    "id": "children-of-men",
+    "title": "人类之子",
+    "en": "Children of Men",
+    "year": 2006,
+    "genres": [
+      "scifi",
+      "drama",
+      "thriller"
+    ],
+    "creator": "Alfonso Cuarón",
+    "region": "US",
+    "rating": {
+      "douban": 7.9,
+      "imdb": 7.6
+    },
+    "awards": [
+      "bafta"
+    ],
+    "note": "一镜到底的逃亡长镜，末世废墟里诞生的唯一婴儿。",
+    "noteEn": "A one-shot war-zone escape and the last baby born into a sterile future."
+  },
+  {
+    "id": "eternal-sunshine",
+    "title": "暖暖内含光",
+    "en": "Eternal Sunshine of the Spotless Mind",
+    "year": 2004,
+    "genres": [
+      "scifi",
+      "romance"
+    ],
+    "creator": "Michel Gondry",
+    "region": "US",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.3,
+      "metacritic": 89
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "记忆清除手术中的爱情回溯，把浪漫拍成意识流。",
+    "noteEn": "A memory-wipe romance that swims backwards through the mind."
+  },
+  {
+    "id": "blade-runner-2049",
+    "title": "银翼杀手 2049",
+    "en": "Blade Runner 2049",
+    "year": 2017,
+    "genres": [
+      "scifi",
+      "noir"
+    ],
+    "creator": "Denis Villeneuve",
+    "region": "US",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.0,
+      "metacritic": 81
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "在复制人世界的废墟里寻找灵魂，摄影与配乐皆封神。",
+    "noteEn": "Searching for a soul among replicant ruins, with otherworldly photography and score."
+  },
+  {
+    "id": "her",
+    "title": "她",
+    "en": "Her",
+    "year": 2013,
+    "genres": [
+      "scifi",
+      "romance"
+    ],
+    "creator": "Spike Jonze",
+    "region": "US",
+    "rating": {
+      "douban": 8.4,
+      "imdb": 8.0
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "操作系统成了最懂爱的「人」，孤独都市的温柔低语。",
+    "noteEn": "An operating system becomes the most human lover — a tender whisper for lonely cities."
+  },
+  {
+    "id": "terminator-2",
+    "title": "终结者 2：审判日",
+    "en": "Terminator 2: Judgment Day",
+    "year": 1991,
+    "genres": [
+      "scifi",
+      "action"
+    ],
+    "creator": "James Cameron",
+    "region": "US",
+    "rating": {
+      "douban": 8.6,
+      "imdb": 8.6
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "液态金属追杀下的划时代特效，阿诺从反派变慈父。",
+    "noteEn": "Liquid-metal terror rewrote visual effects; the Terminator turns protector."
+  },
+  {
+    "id": "back-to-the-future",
+    "title": "回到未来",
+    "en": "Back to the Future",
+    "year": 1985,
+    "genres": [
+      "scifi",
+      "comedy"
+    ],
+    "creator": "Robert Zemeckis",
+    "region": "US",
+    "rating": {
+      "douban": 8.7,
+      "imdb": 8.5
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "德罗宁载着少年穿越 1955，把时间旅行拍成青春喜剧。",
+    "noteEn": "A DeLorean joyride to 1955 that turned time travel into teenage comedy."
+  },
+  {
+    "id": "the-fifth-element",
+    "title": "第五元素",
+    "en": "The Fifth Element",
+    "year": 1997,
+    "genres": [
+      "scifi",
+      "action"
+    ],
+    "creator": "Luc Besson",
+    "region": "FR",
+    "rating": {
+      "douban": 8.0,
+      "imdb": 7.6
+    },
+    "note": "吕克·贝松的高概念彩色漫画，太空歌剧的欧陆想象。",
+    "noteEn": "Besson's comic-book high concept — a candy-colored European space opera."
+  },
+  {
+    "id": "walle",
+    "title": "机器人总动员",
+    "en": "WALL-E",
+    "year": 2008,
+    "genres": [
+      "scifi",
+      "animation"
+    ],
+    "creator": "Andrew Stanton",
+    "region": "US",
+    "rating": {
+      "douban": 9.3,
+      "imdb": 8.4
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "废土上的小机器人用眼神谈情，皮克斯最浪漫的环保寓言。",
+    "noteEn": "A trash-compacting robot falls in love with a glance — Pixar's most romantic eco-fable."
+  },
+  {
+    "id": "paprika",
+    "title": "红辣椒",
+    "en": "Paprika",
+    "year": 2006,
+    "genres": [
+      "scifi",
+      "animation"
+    ],
+    "creator": "Satoshi Kon",
+    "region": "JP",
+    "rating": {
+      "douban": 8.9,
+      "imdb": 7.7
+    },
+    "note": "今敏把梦境剪辑成蒙太奇，千层梦境如万花筒迸裂。",
+    "noteEn": "Kon edits dreams into montage, a kaleidoscope of layered realities."
+  },
+  {
+    "id": "ex-machina",
+    "title": "机械姬",
+    "en": "Ex Machina",
+    "year": 2014,
+    "genres": [
+      "scifi",
+      "thriller"
+    ],
+    "creator": "Alex Garland",
+    "region": "UK",
+    "rating": {
+      "douban": 7.5,
+      "imdb": 7.7,
+      "metacritic": 78
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "图灵测试的密室反转，Ava 的美与野心令人背脊发凉。",
+    "noteEn": "A chamber-room Turing test where Ava's beauty and guile chill the spine."
+  },
+  {
+    "id": "la-jette",
+    "title": "堤",
+    "en": "La Jetée",
+    "year": 1962,
+    "genres": [
+      "scifi"
+    ],
+    "creator": "Chris Marker",
+    "region": "FR",
+    "rating": {
+      "imdb": 8.3
+    },
+    "note": "全片几乎由静态照片构成，穿越时空只为一眼爱情。",
+    "noteEn": "A time-travel story told in still photographs, all for a single glance."
+  },
+  {
+    "id": "brazil",
+    "title": "妙想天开",
+    "en": "Brazil",
+    "year": 1985,
+    "genres": [
+      "scifi",
+      "comedy"
+    ],
+    "creator": "Terry Gilliam",
+    "region": "UK",
+    "rating": {
+      "douban": 8.8,
+      "imdb": 7.9
+    },
+    "awards": [
+      "bafta"
+    ],
+    "note": "官僚反乌托邦的荒诞噩梦，吉列姆的黑色寓言。",
+    "noteEn": "Gilliam's Kafkaesque nightmare of bureaucracy run mad."
+  },
+  {
+    "id": "gattaca",
+    "title": "千钧一发",
+    "en": "Gattaca",
+    "year": 1997,
+    "genres": [
+      "scifi",
+      "drama"
+    ],
+    "creator": "Andrew Niccol",
+    "region": "US",
+    "rating": {
+      "douban": 8.8,
+      "imdb": 7.7
+    },
+    "note": "基因决定命运的近未来，「我不给返程留燃料」的逆袭。",
+    "noteEn": "In a gene-sorted future, a 'god-child' proves will outranks DNA."
+  },
+  {
+    "id": "the-martian",
+    "title": "火星救援",
+    "en": "The Martian",
+    "year": 2015,
+    "genres": [
+      "scifi"
+    ],
+    "creator": "Ridley Scott",
+    "region": "US",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.0
+    },
+    "awards": [
+      "golden-globe"
+    ],
+    "note": "用科学与幽默在火星自救，NASA 自救手册的电影版。",
+    "noteEn": "MacGyvering survival on Mars with science and wisecracks."
+  },
+  {
+    "id": "lotr-fellowship",
+    "title": "指环王：护戒使者",
+    "en": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": 2001,
+    "genres": [
+      "fantasy",
+      "action"
+    ],
+    "creator": "Peter Jackson",
+    "region": "NZ",
+    "rating": {
+      "douban": 9.0,
+      "imdb": 8.8
+    },
+    "awards": [
+      "oscar",
+      "bafta"
+    ],
+    "note": "中土远征的开端，从夏尔到摩瑞亚的史诗行旅。",
+    "noteEn": "The quest begins — from the Shire to Moria, an epic journey into myth."
+  },
+  {
+    "id": "lotr-two-towers",
+    "title": "指环王：双塔奇兵",
+    "en": "The Lord of the Rings: The Two Towers",
+    "year": 2002,
+    "genres": [
+      "fantasy",
+      "action"
+    ],
+    "creator": "Peter Jackson",
+    "region": "NZ",
+    "rating": {
+      "douban": 9.0,
+      "imdb": 8.7
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "圣盔谷一夜守城战，树人与咕噜的双线暗涌。",
+    "noteEn": "Helm's Deep under siege, while Gollum and the Ents shift the tide."
+  },
+  {
+    "id": "lotr-return-of-the-king",
+    "title": "指环王：王者无敌",
+    "en": "The Lord of the Rings: The Return of the King",
+    "year": 2003,
+    "genres": [
+      "fantasy",
+      "action"
+    ],
+    "creator": "Peter Jackson",
+    "region": "NZ",
+    "rating": {
+      "douban": 9.2,
+      "imdb": 8.9
+    },
+    "awards": [
+      "oscar",
+      "bafta"
+    ],
+    "note": "九人护戒团终结于末日火山，奥斯卡横扫 11 项。",
+    "noteEn": "The quest ends at Mount Doom in a sweep of eleven Oscars."
+  },
+  {
+    "id": "harry-potter-sorcerers-stone",
+    "title": "哈利·波特与魔法石",
+    "en": "Harry Potter and the Sorcerer's Stone",
+    "year": 2001,
+    "genres": [
+      "fantasy"
+    ],
+    "creator": "Chris Columbus",
+    "region": "UK",
+    "rating": {
+      "douban": 9.1,
+      "imdb": 7.6
+    },
+    "note": "魔法石开启霍格沃茨世界，全球孩子的共同童年。",
+    "noteEn": "Hogwarts opens its doors — the shared childhood of a generation."
+  },
+  {
+    "id": "pans-labyrinth",
+    "title": "潘神的迷宫",
+    "en": "Pan's Labyrinth",
+    "year": 2006,
+    "genres": [
+      "fantasy",
+      "drama",
+      "war"
+    ],
+    "creator": "Guillermo del Toro",
+    "region": "ES",
+    "rating": {
+      "douban": 7.8,
+      "imdb": 8.2
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "法西斯阴影下小女孩的黑暗童话，现实与幻境互噬。",
+    "noteEn": "A dark fairy tale under Franco's shadow where reality and fable devour each other."
+  },
+  {
+    "id": "the-princess-bride",
+    "title": "公主新娘",
+    "en": "The Princess Bride",
+    "year": 1987,
+    "genres": [
+      "fantasy",
+      "comedy",
+      "romance"
+    ],
+    "creator": "Rob Reiner",
+    "region": "US",
+    "rating": {
+      "douban": 8.0,
+      "imdb": 8.0
+    },
+    "note": "真爱与剑术的童话恶作剧，台词被引用到如今。",
+    "noteEn": "A fairy-tale swashbuckler of true love and wit, endlessly quoted."
+  },
+  {
+    "id": "howls-moving-castle",
+    "title": "哈尔的移动城堡",
+    "en": "Howl's Moving Castle",
+    "year": 2004,
+    "genres": [
+      "fantasy",
+      "animation"
+    ],
+    "creator": "Hayao Miyazaki",
+    "region": "JP",
+    "rating": {
+      "douban": 9.1,
+      "imdb": 8.2
+    },
+    "note": "宫崎骏用移动城堡解构战争与衰老，苏菲的勇气是魔法。",
+    "noteEn": "Miyazaki's walking castle against war and age — Sophie's magic is courage."
+  },
+  {
+    "id": "my-neighbor-totoro",
+    "title": "龙猫",
+    "en": "My Neighbor Totoro",
+    "year": 1988,
+    "genres": [
+      "fantasy",
+      "animation"
+    ],
+    "creator": "Hayao Miyazaki",
+    "region": "JP",
+    "rating": {
+      "douban": 9.2,
+      "imdb": 8.1
+    },
+    "note": "龙猫巴士驶过乡野夏天，宫崎骏最温柔的生态乡愁。",
+    "noteEn": "A Catbus across a country summer — Miyazaki's tenderest ode to nature."
+  },
+  {
+    "id": "princess-mononoke",
+    "title": "幽灵公主",
+    "en": "Princess Mononoke",
+    "year": 1997,
+    "genres": [
+      "fantasy",
+      "animation"
+    ],
+    "creator": "Hayao Miyazaki",
+    "region": "JP",
+    "rating": {
+      "douban": 8.8,
+      "imdb": 8.3
+    },
+    "awards": [
+      "japan-academy"
+    ],
+    "note": "人与森林之战的史诗，幽灵公主扛起生态寓言。",
+    "noteEn": "An epic clash between industry and forest, a call against war on nature."
+  },
+  {
+    "id": "the-neverending-story",
+    "title": "大魔域",
+    "en": "The NeverEnding Story",
+    "year": 1984,
+    "genres": [
+      "fantasy"
+    ],
+    "creator": "Wolfgang Petersen",
+    "region": "DE",
+    "rating": {
+      "douban": 8.2,
+      "imdb": 7.3
+    },
+    "note": "男孩从书页进入幻想国，童年在龙与飞行中永续。",
+    "noteEn": "A boy falls into a book's world, where childhood never ends."
+  },
+  {
+    "id": "the-wizard-of-oz",
+    "title": "绿野仙踪",
+    "en": "The Wizard of Oz",
+    "year": 1939,
+    "genres": [
+      "fantasy",
+      "musical"
+    ],
+    "creator": "Victor Fleming",
+    "region": "US",
+    "rating": {
+      "douban": 8.7,
+      "imdb": 8.1
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "黄砖路上的桃乐茜，彩色宽银幕的奇幻原典。",
+    "noteEn": "Dorothy's yellow-brick odyssey — the ur-text of screen fantasy."
+  },
+  {
+    "id": "stardust",
+    "title": "星尘",
+    "en": "Stardust",
+    "year": 2007,
+    "genres": [
+      "fantasy",
+      "romance"
+    ],
+    "creator": "Matthew Vaughn",
+    "region": "UK",
+    "rating": {
+      "douban": 7.7,
+      "imdb": 7.6
+    },
+    "note": "流星坠落的英国童话镇，海盗船长与王子争夺星星。",
+    "noteEn": "A fallen star, a sky pirate and a prince — a cozy British fairy-tale caper."
+  },
+  {
+    "id": "coraline",
+    "title": "鬼妈妈",
+    "en": "Coraline",
+    "year": 2009,
+    "genres": [
+      "fantasy",
+      "animation",
+      "horror"
+    ],
+    "creator": "Henry Selick",
+    "region": "US",
+    "rating": {
+      "douban": 8.2,
+      "imdb": 7.7
+    },
+    "note": "纽扣眼的另一个妈妈，莱卡的定格动画暗黑魔法。",
+    "noteEn": "A button-eyed Other Mother — Laika's stop-motion dark enchantment."
+  },
+  {
+    "id": "the-shape-of-water",
+    "title": "水形物语",
+    "en": "The Shape of Water",
+    "year": 2017,
+    "genres": [
+      "fantasy",
+      "romance"
+    ],
+    "creator": "Guillermo del Toro",
+    "region": "US",
+    "rating": {
+      "douban": 7.6,
+      "imdb": 7.3
+    },
+    "awards": [
+      "oscar",
+      "golden-lion"
+    ],
+    "note": "人鱼与哑女相拥于冷战实验室，爱的形状跨越物种。",
+    "noteEn": "A mute woman and an amphibian god embrace in a Cold War lab."
+  },
+  {
+    "id": "labyrinth",
+    "title": "魔幻迷宫",
+    "en": "Labyrinth",
+    "year": 1986,
+    "genres": [
+      "fantasy"
+    ],
+    "creator": "Jim Henson",
+    "region": "US",
+    "rating": {
+      "imdb": 7.4
+    },
+    "note": "吉姆·亨森的木偶迷宫，大卫·鲍伊的紧身裤与妖歌。",
+    "noteEn": "Henson's puppet labyrinth, with David Bowie's Goblin King and songs."
+  },
+  {
+    "id": "nausicaa",
+    "title": "风之谷",
+    "en": "Nausicaä of the Valley of the Wind",
+    "year": 1984,
+    "genres": [
+      "fantasy",
+      "scifi",
+      "animation"
+    ],
+    "creator": "Hayao Miyazaki",
+    "region": "JP",
+    "rating": {
+      "douban": 8.9,
+      "imdb": 8.0
+    },
+    "note": "腐海与巨虫的末日生态诗，娜乌西卡是风之谷的救赎。",
+    "noteEn": "An eco-parable of the toxic jungle and the girl who rides the wind."
+  },
+  {
+    "id": "the-green-knight",
+    "title": "绿衣骑士",
+    "en": "The Green Knight",
+    "year": 2021,
+    "genres": [
+      "fantasy",
+      "drama"
+    ],
+    "creator": "David Lowery",
+    "region": "US",
+    "rating": {
+      "douban": 6.9,
+      "imdb": 6.6
+    },
+    "note": "高文骑士的绿林试炼，亚瑟王传说的仪式化改编。",
+    "noteEn": "Gawain's chivalric trial reimagined as a slow, ritualistic fable."
+  },
+  {
+    "id": "the-shining",
+    "title": "闪灵",
+    "en": "The Shining",
+    "year": 1980,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Stanley Kubrick",
+    "region": "US",
+    "rating": {
+      "douban": 8.3,
+      "imdb": 8.4
+    },
+    "note": "全景酒店的走廊迷宫与打字机「只工作不玩耍」，库布里克把恐怖拍成几何。",
+    "noteEn": "A maze-hotel and an axe-wielding father — Kubrick's horror of cold geometry."
+  },
+  {
+    "id": "psycho",
+    "title": "惊魂记",
+    "en": "Psycho",
+    "year": 1960,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Alfred Hitchcock",
+    "region": "US",
+    "rating": {
+      "douban": 8.9,
+      "imdb": 8.5
+    },
+    "note": "浴室戏 78 个机位剪出 45 秒，希区柯克改写恐怖电影语法。",
+    "noteEn": "The 78-shot shower scene rewrote the grammar of screen terror."
+  },
+  {
+    "id": "the-exorcist",
+    "title": "驱魔人",
+    "en": "The Exorcist",
+    "year": 1973,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "William Friedkin",
+    "region": "US",
+    "rating": {
+      "douban": 8.1,
+      "imdb": 8.0
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "绿豌豆汤与倒走楼梯，宗教恐怖的天花板之作。",
+    "noteEn": "The benchmark of religious horror, from pea soup to backward stair-walks."
+  },
+  {
+    "id": "ringu",
+    "title": "午夜凶铃",
+    "en": "Ringu",
+    "year": 1998,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Hideo Nakata",
+    "region": "JP",
+    "rating": {
+      "douban": 7.5,
+      "imdb": 7.2
+    },
+    "note": "录像带七日诅咒，开启日式心理恐怖的全球浪潮。",
+    "noteEn": "A cursed videotape and seven days — the wave-maker of J-horror."
+  },
+  {
+    "id": "ju-on-the-grudge",
+    "title": "咒怨",
+    "en": "Ju-On: The Grudge",
+    "year": 2002,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Takashi Shimizu",
+    "region": "JP",
+    "rating": {
+      "douban": 7.0,
+      "imdb": 6.4
+    },
+    "note": "怨念盘踞老宅，伽椰子的爬梯声成为都市噩梦。",
+    "noteEn": "A curse that lives in a house — Kayako's crawl-scratch haunts a decade."
+  },
+  {
+    "id": "audition",
+    "title": "切肤之爱",
+    "en": "Audition",
+    "year": 1999,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Takashi Miike",
+    "region": "JP",
+    "rating": {
+      "douban": 7.6,
+      "imdb": 7.1
+    },
+    "note": "相亲变酷刑的缓慢窒息，三池崇史把日常撕出血腥。",
+    "noteEn": "A blind-date romance curdles into torture — Miike's surgical shock."
+  },
+  {
+    "id": "the-wailing",
+    "title": "哭声",
+    "en": "The Wailing",
+    "year": 2016,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Na Hong-jin",
+    "region": "KR",
+    "rating": {
+      "douban": 7.6,
+      "imdb": 7.4
+    },
+    "note": "韩国山村驱魔疑云，邪灵与病毒纠缠的多义恐怖。",
+    "noteEn": "A Korean village, a shaman and a demon — ambiguity as dread."
+  },
+  {
+    "id": "a-tale-of-two-sisters",
+    "title": "蔷花，红莲",
+    "en": "A Tale of Two Sisters",
+    "year": 2003,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Kim Jee-woon",
+    "region": "KR",
+    "rating": {
+      "douban": 7.5,
+      "imdb": 7.1
+    },
+    "note": "韩式心理恐怖杰作，姐妹与继母的镜像纠葛。",
+    "noteEn": "A masterpiece of Korean psychological horror, a mirror-maze of family grief."
+  },
+  {
+    "id": "train-to-busan",
+    "title": "釜山行",
+    "en": "Train to Busan",
+    "year": 2016,
+    "genres": [
+      "horror",
+      "action"
+    ],
+    "creator": "Yeon Sang-ho",
+    "region": "KR",
+    "rating": {
+      "douban": 8.6,
+      "imdb": 7.6
+    },
+    "note": "丧尸列车的封闭空间逃杀，韩影工业的类型爆发。",
+    "noteEn": "A zombie outbreak on a Seoul-bound train — K-horror at full throttle."
+  },
+  {
+    "id": "hereditary",
+    "title": "遗传厄运",
+    "en": "Hereditary",
+    "year": 2018,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Ari Aster",
+    "region": "US",
+    "rating": {
+      "douban": 7.3,
+      "imdb": 7.3
+    },
+    "note": "家族遗传的创伤与邪教，被视作「现代恐怖已死」的回应。",
+    "noteEn": "Grief and a cult conspiracy run in the blood — a new horror benchmark."
+  },
+  {
+    "id": "midsommar",
+    "title": "仲夏夜惊魂",
+    "en": "Midsommar",
+    "year": 2019,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Ari Aster",
+    "region": "US",
+    "rating": {
+      "douban": 6.8,
+      "imdb": 7.1
+    },
+    "note": "白昼永昼下的瑞典祭祀，分手电影变成民俗噩梦。",
+    "noteEn": "Sunlit pagan rites turn a breakup into a folk-horror nightmare."
+  },
+  {
+    "id": "get-out",
+    "title": "逃出绝命镇",
+    "en": "Get Out",
+    "year": 2017,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Jordan Peele",
+    "region": "US",
+    "rating": {
+      "douban": 7.8,
+      "imdb": 7.8
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "黑人体检变器官移植，把种族议题装进惊悚容器。",
+    "noteEn": "A liberal getaway that hides body-snatching — race as horror."
+  },
+  {
+    "id": "the-babadook",
+    "title": "鬼书",
+    "en": "The Babadook",
+    "year": 2014,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Jennifer Kent",
+    "region": "AU",
+    "rating": {
+      "douban": 6.5,
+      "imdb": 6.8
+    },
+    "note": "绘本怪物与丧夫创伤，把恐惧拍成单亲妈妈的战争。",
+    "noteEn": "A pop-up monster born of grief — one mother's war against the dark."
+  },
+  {
+    "id": "the-witch",
+    "title": "女巫",
+    "en": "The Witch",
+    "year": 2015,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Robert Eggers",
+    "region": "US",
+    "rating": {
+      "douban": 6.7,
+      "imdb": 7.0
+    },
+    "note": "新英格兰清教徒家庭的信仰崩塌，「魔鬼就在树林里」。",
+    "noteEn": "A Puritan family's faith unravels — the devil is real in the wood."
+  },
+  {
+    "id": "suspiria",
+    "title": "阴风阵阵",
+    "en": "Suspiria",
+    "year": 1977,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Dario Argento",
+    "region": "IT",
+    "rating": {
+      "douban": 7.5,
+      "imdb": 7.3
+    },
+    "note": "芭蕾学院的血色霓虹，阿基多的彩色噩梦。",
+    "noteEn": "A ballet academy bathed in giallo neon — Argento's lurid nightmare."
+  },
+  {
+    "id": "nosferatu",
+    "title": "诺斯费拉图",
+    "en": "Nosferatu",
+    "year": 1922,
+    "genres": [
+      "horror"
+    ],
+    "creator": "F. W. Murnau",
+    "region": "DE",
+    "rating": {
+      "douban": 8.3,
+      "imdb": 7.9
+    },
+    "note": "影子爬上楼梯的默片哥特，吸血鬼电影的原型。",
+    "noteEn": "A shadow crawling up the stairs — the ur-text of vampire cinema."
+  },
+  {
+    "id": "halloween",
+    "title": "月光光心慌慌",
+    "en": "Halloween",
+    "year": 1978,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "John Carpenter",
+    "region": "US",
+    "rating": {
+      "douban": 6.7,
+      "imdb": 7.7
+    },
+    "note": "迈克·迈尔斯的面具与五音符配乐，开创砍杀片模板。",
+    "noteEn": "The Shape, the mask and the motif — the template of the slasher."
+  },
+  {
+    "id": "the-texas-chain-saw-massacre",
+    "title": "德州电锯杀人狂",
+    "en": "The Texas Chain Saw Massacre",
+    "year": 1974,
+    "genres": [
+      "horror",
+      "thriller"
+    ],
+    "creator": "Tobe Hooper",
+    "region": "US",
+    "rating": {
+      "douban": 6.9,
+      "imdb": 7.5
+    },
+    "note": "链锯与皮脸在德州农场的暴行，粗粝的纪录式惊悚。",
+    "noteEn": "A chainsaw and a face of skin — grindhouse brutality as documentary."
+  },
+  {
+    "id": "apocalypse-now",
+    "title": "现代启示录",
+    "en": "Apocalypse Now",
+    "year": 1979,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Francis Ford Coppola",
+    "region": "US",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.4
+    },
+    "awards": [
+      "palme-dor"
+    ],
+    "note": "沿湄公河溯流而上寻找上校，战争是精神崩溃的镜像。",
+    "noteEn": "A river voyage into madness — the Vietnam War as a journey into the self."
+  },
+  {
+    "id": "full-metal-jacket",
+    "title": "全金属外壳",
+    "en": "Full Metal Jacket",
+    "year": 1987,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Stanley Kubrick",
+    "region": "US",
+    "rating": {
+      "douban": 8.4,
+      "imdb": 8.2
+    },
+    "note": "新兵营的口号到街头狙击手，库布里克拆解战争中的灵魂。",
+    "noteEn": "Boot-camp chants and a Hue sniper — Kubrick strips war to the bone."
+  },
+  {
+    "id": "saving-private-ryan",
+    "title": "拯救大兵瑞恩",
+    "en": "Saving Private Ryan",
+    "year": 1998,
+    "genres": [
+      "war",
+      "action",
+      "drama"
+    ],
+    "creator": "Steven Spielberg",
+    "region": "US",
+    "rating": {
+      "douban": 9.1,
+      "imdb": 8.6
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "奥马哈滩头 24 分钟开场，战争片史上最真实的血腥。",
+    "noteEn": "The 24-minute Omaha Beach landing — the most visceral combat ever shot."
+  },
+  {
+    "id": "platoon",
+    "title": "野战排",
+    "en": "Platoon",
+    "year": 1986,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Oliver Stone",
+    "region": "US",
+    "rating": {
+      "douban": 8.4,
+      "imdb": 8.1
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "新兵在老兵的善恶两极间撕裂，奥利弗·斯通的越战自传。",
+    "noteEn": "A grunt torn between sergeants of good and evil — Oliver Stone's tour of duty."
+  },
+  {
+    "id": "the-thin-red-line",
+    "title": "细细的红线",
+    "en": "The Thin Red Line",
+    "year": 1998,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Terrence Malick",
+    "region": "US",
+    "rating": {
+      "douban": 8.0,
+      "imdb": 7.6
+    },
+    "awards": [
+      "golden-bear"
+    ],
+    "note": "瓜岛战役中的自然独白，马利克的诗化战争。",
+    "noteEn": "Guadalcanal war seen through nature's eye — Malick's lyrical combat."
+  },
+  {
+    "id": "come-and-see",
+    "title": "自己去看",
+    "en": "Come and See",
+    "year": 1985,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Elem Klimov",
+    "region": "RU",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.4
+    },
+    "note": "少年目睹游击队村的毁灭，白俄罗斯炼狱的灼眼真实。",
+    "noteEn": "A boy watches his village erased — Soviet cinema's scorching anti-war."
+  },
+  {
+    "id": "paths-of-glory",
+    "title": "光荣之路",
+    "en": "Paths of Glory",
+    "year": 1957,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Stanley Kubrick",
+    "region": "US",
+    "rating": {
+      "douban": 8.8,
+      "imdb": 8.4
+    },
+    "note": "法军将领用士兵性命换取荣誉，军事法庭的荒谬正义。",
+    "noteEn": "Generals court-martial their own men — the absurd justice of war."
+  },
+  {
+    "id": "das-boot",
+    "title": "从海底出击",
+    "en": "Das Boot",
+    "year": 1981,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Wolfgang Petersen",
+    "region": "DE",
+    "rating": {
+      "douban": 9.0,
+      "imdb": 8.3
+    },
+    "note": "U 型潜艇的深水炸弹与幽闭恐惧，德国视角的海战。",
+    "noteEn": "Depth charges and claustrophobia inside a U-boat — war from the German side."
+  },
+  {
+    "id": "all-quiet-on-the-western-front-1930",
+    "title": "西线无战事（1930）",
+    "en": "All Quiet on the Western Front (1930)",
+    "year": 1930,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Lewis Milestone",
+    "region": "US",
+    "rating": {
+      "douban": 8.7,
+      "imdb": 8.0
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "一战战壕里的少年凋零，反战电影的早期丰碑。",
+    "noteEn": "Schoolboys withering in the trenches — an early monument of anti-war cinema."
+  },
+  {
+    "id": "all-quiet-on-the-western-front-2022",
+    "title": "西线无战事（2022）",
+    "en": "All Quiet on the Western Front (2022)",
+    "year": 2022,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Edward Berger",
+    "region": "DE",
+    "rating": {
+      "douban": 8.6,
+      "imdb": 7.8
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "新版把战争拍成绞肉机，获最佳国际影片等三项奥斯卡。",
+    "noteEn": "The 2022 retelling renders war as a meat-grinder, winning Best International Feature."
+  },
+  {
+    "id": "dunkirk",
+    "title": "敦刻尔克",
+    "en": "Dunkirk",
+    "year": 2017,
+    "genres": [
+      "war",
+      "thriller"
+    ],
+    "creator": "Christopher Nolan",
+    "region": "UK",
+    "rating": {
+      "douban": 8.4,
+      "imdb": 7.8
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "陆海空三线交叉剪辑的敦刻尔克撤退，时间本身就是敌人。",
+    "noteEn": "Three timelines converge on the beach — time itself is the enemy."
+  },
+  {
+    "id": "1917",
+    "title": "1917",
+    "en": "1917",
+    "year": 2019,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Sam Mendes",
+    "region": "UK",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.2
+    },
+    "awards": [
+      "oscar",
+      "golden-globe"
+    ],
+    "note": "一镜到底穿越战壕送信，把一战拍成实时炼狱。",
+    "noteEn": "A continuous single-shot dash across No Man's Land — WWI in real time."
+  },
+  {
+    "id": "hacksaw-ridge",
+    "title": "血战钢锯岭",
+    "en": "Hacksaw Ridge",
+    "year": 2016,
+    "genres": [
+      "war",
+      "biopic"
+    ],
+    "creator": "Mel Gibson",
+    "region": "AU",
+    "rating": {
+      "douban": 8.7,
+      "imdb": 8.1
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "拒持枪的军医在钢锯岭空手救下 75 人，信仰的奇迹。",
+    "noteEn": "A conscientious objector saves 75 men unarmed — faith under fire."
+  },
+  {
+    "id": "the-hurt-locker",
+    "title": "拆弹部队",
+    "en": "The Hurt Locker",
+    "year": 2008,
+    "genres": [
+      "war",
+      "thriller"
+    ],
+    "creator": "Kathryn Bigelow",
+    "region": "US",
+    "rating": {
+      "douban": 7.7,
+      "imdb": 7.5
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "拆弹兵的肾上腺素上瘾，伊拉克战场的心理拉锯。",
+    "noteEn": "Bomb-disposal as addiction — the psychology of war in Iraq."
+  },
+  {
+    "id": "letters-from-iwo-jima",
+    "title": "硫磺岛来信",
+    "en": "Letters from Iwo Jima",
+    "year": 2006,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "Clint Eastwood",
+    "region": "US",
+    "rating": {
+      "douban": 8.1,
+      "imdb": 7.9
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "从日方视角写硫磺岛，战争双方都并非英雄。",
+    "noteEn": "Iwo Jima from the Japanese side — no heroes, only soldiers."
+  },
+  {
+    "id": "the-bridge-on-the-river-kwai",
+    "title": "桂河大桥",
+    "en": "The Bridge on the River Kwai",
+    "year": 1957,
+    "genres": [
+      "war",
+      "drama"
+    ],
+    "creator": "David Lean",
+    "region": "UK",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.1
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "日军战俘营修桥的道德悖论，大卫·里恩的殖民史诗。",
+    "noteEn": "A bridge built for the enemy — Lean's moral paradox of command."
+  },
+  {
+    "id": "the-cranes-are-flying",
+    "title": "雁南飞",
+    "en": "The Cranes Are Flying",
+    "year": 1957,
+    "genres": [
+      "war",
+      "romance"
+    ],
+    "creator": "Mikhail Kalatozov",
+    "region": "RU",
+    "rating": {
+      "douban": 8.8,
+      "imdb": 8.1
+    },
+    "awards": [
+      "palme-dor"
+    ],
+    "note": "战争撕裂的恋人，苏联电影首夺金棕榈。",
+    "noteEn": "A war-torn romance — the first Soviet Palme d'Or."
+  },
+  {
+    "id": "grave-of-the-fireflies",
+    "title": "萤火虫之墓",
+    "en": "Grave of the Fireflies",
+    "year": 1988,
+    "genres": [
+      "war",
+      "animation",
+      "drama"
+    ],
+    "creator": "Isao Takahata",
+    "region": "JP",
+    "rating": {
+      "douban": 9.1,
+      "imdb": 8.5
+    },
+    "note": "兄妹在空袭余烬中求存，动画反战的最痛之作。",
+    "noteEn": "Two orphans fading in war's embers — animation's most devastating anti-war cry."
+  },
+  {
+    "id": "lawrence-of-arabia",
+    "title": "阿拉伯的劳伦斯",
+    "en": "Lawrence of Arabia",
+    "year": 1962,
+    "genres": [
+      "war",
+      "biopic"
+    ],
+    "creator": "David Lean",
+    "region": "UK",
+    "rating": {
+      "douban": 8.7,
+      "imdb": 8.3
+    },
+    "awards": [
+      "oscar"
+    ],
+    "note": "沙漠起义与自我神化，宽银幕史诗的巅峰。",
+    "noteEn": "A desert revolt and a self-made myth — the summit of widescreen epic."
+  },
+  {
+    "id": "downfall",
+    "title": "帝国的毁灭",
+    "en": "Downfall",
+    "year": 2004,
+    "genres": [
+      "war",
+      "biopic"
+    ],
+    "creator": "Oliver Hirschbiegel",
+    "region": "DE",
+    "rating": {
+      "douban": 8.5,
+      "imdb": 8.2
+    },
+    "note": "地堡里的最后 12 天，把希特勒还原为凡人悲剧。",
+    "noteEn": "Twelve days in the Führerbunker — the human face of an empire's end."
+  }
+]

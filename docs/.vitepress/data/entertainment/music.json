@@ -1,12 +1,6093 @@
 {
   "cat": "music",
-  "count": 0,
+  "count": 336,
   "stats": {
-    "totalAwards": 0,
-    "genres": {},
-    "decades": {},
-    "regions": {},
-    "yearRange": null
+    "totalAwards": 84,
+    "genres": {
+      "classical": 62,
+      "ambient-newage": 15,
+      "jazz": 45,
+      "folk-country": 30,
+      "blues": 16,
+      "world": 21,
+      "rnb-soul": 37,
+      "rock": 58,
+      "pop": 75,
+      "soundtrack": 17,
+      "japanese-korean": 24,
+      "electronic": 44,
+      "chinese-pop": 37,
+      "hiphop": 29
+    },
+    "decades": {
+      "1720": 3,
+      "1740": 2,
+      "1770": 1,
+      "1780": 1,
+      "1790": 1,
+      "1800": 2,
+      "1820": 3,
+      "1830": 2,
+      "1840": 2,
+      "1850": 1,
+      "1860": 1,
+      "1870": 4,
+      "1880": 2,
+      "1890": 2,
+      "1900": 2,
+      "1910": 2,
+      "1920": 3,
+      "1930": 3,
+      "1940": 7,
+      "1950": 18,
+      "1960": 39,
+      "1970": 54,
+      "1980": 46,
+      "1990": 65,
+      "2000": 35,
+      "2010": 30,
+      "2020": 5
+    },
+    "regions": {
+      "DE": 13,
+      "IT": 7,
+      "UK": 47,
+      "AT": 7,
+      "PL": 2,
+      "RU": 8,
+      "FR": 9,
+      "CZ": 1,
+      "US": 136,
+      "CN": 17,
+      "CA": 7,
+      "IN": 3,
+      "EG": 2,
+      "CL": 1,
+      "JP": 22,
+      "ZA": 2,
+      "BR": 3,
+      "ES": 1,
+      "NG": 1,
+      "SE": 1,
+      "TW": 15,
+      "AU": 1,
+      "GR": 2,
+      "HK": 9,
+      "AR": 1,
+      "IE": 2,
+      "IL": 1,
+      "TR": 1,
+      "KR": 9,
+      "IS": 2,
+      "SG": 1,
+      "NZ": 1
+    },
+    "yearRange": [
+      1721,
+      2022
+    ]
   },
-  "items": []
+  "items": [
+    {
+      "id": "brandenburg-concertos",
+      "title": "勃兰登堡协奏曲",
+      "en": "Brandenburg Concertos",
+      "year": 1721,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Johann Sebastian Bach",
+      "region": "DE",
+      "note": "六首大协奏曲风格各异，几乎穷尽了巴洛克协奏曲的形态可能，是管弦乐配器的教科书。",
+      "noteEn": "Six concerti grossi of wildly varied scoring — a masterclass in Baroque orchestration.",
+      "awards": []
+    },
+    {
+      "id": "well-tempered-clavier-book-1",
+      "title": "平均律钢琴曲集（第一卷）",
+      "en": "The Well-Tempered Clavier, Book 1",
+      "year": 1722,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Johann Sebastian Bach",
+      "region": "DE",
+      "note": "二十四对前奏曲与赋格遍历全部大小调，确立了调性体系与复调钢琴的圣经。",
+      "noteEn": "Twenty-four preludes and fugues in every key — the Old Testament of tonal counterpoint.",
+      "awards": []
+    },
+    {
+      "id": "the-four-seasons",
+      "title": "四季",
+      "en": "The Four Seasons",
+      "year": 1725,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Antonio Vivaldi",
+      "region": "IT",
+      "note": "四首小提琴协奏曲配十四行诗，鸟鸣、冰面与风暴被音符写实到几乎可以看见。",
+      "noteEn": "Four violin concertos with sonnets — birdsong, ice and storms painted in literal tone.",
+      "awards": []
+    },
+    {
+      "id": "goldberg-variations",
+      "title": "哥德堡变奏曲",
+      "en": "Goldberg Variations",
+      "year": 1741,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Johann Sebastian Bach",
+      "region": "DE",
+      "note": "一首咏叹调引出三十段变奏，单主题穷尽键盘技法与对位的宇宙。",
+      "noteEn": "One aria spinning into thirty variations — a universe of counterpoint and keyboard technique.",
+      "awards": []
+    },
+    {
+      "id": "messiah",
+      "title": "弥赛亚",
+      "en": "Messiah",
+      "year": 1742,
+      "genres": [
+        "classical"
+      ],
+      "creator": "George Frideric Handel",
+      "region": "UK",
+      "note": "从诞生到复活的全本清唱剧，《哈利路亚》合唱让英王起立的传说流传至今。",
+      "noteEn": "An oratorio from Nativity to Resurrection — the Hallelujah Chorus that made kings rise.",
+      "awards": []
+    },
+    {
+      "id": "haydn-symphony-45-farewell",
+      "title": "第45交响曲「告别」",
+      "en": "Symphony No. 45 'Farewell' (Haydn)",
+      "year": 1772,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Joseph Haydn",
+      "region": "AT",
+      "note": "末乐章乐手逐一吹灭蜡烛离席，向雇主暗示该给乐手们放假了。",
+      "noteEn": "Players snuff out candles and leave one by one — a hint that the court should grant a holiday.",
+      "awards": []
+    },
+    {
+      "id": "eine-kleine-nachtmusik",
+      "title": "G大调弦乐小夜曲",
+      "en": "Eine kleine Nachtmusik",
+      "year": 1787,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Wolfgang Amadeus Mozart",
+      "region": "AT",
+      "note": "四乐章如被压缩到极限的古典主义样本，小夜曲成了莫扎特最出圈的旋律之一。",
+      "noteEn": "Four movements of concentrated Classicism — the serenade that made Mozart ubiquitous.",
+      "awards": []
+    },
+    {
+      "id": "mozart-requiem",
+      "title": "D小调安魂曲",
+      "en": "Requiem in D minor (Mozart)",
+      "year": 1791,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Wolfgang Amadeus Mozart",
+      "region": "AT",
+      "note": "未竟之作由学生续完，安魂弥撒成了莫扎特死亡的预写。",
+      "noteEn": "Left unfinished, completed by a pupil — the Requiem as a prophecy of Mozart's own death.",
+      "awards": []
+    },
+    {
+      "id": "beethoven-moonlight-sonata",
+      "title": "第14钢琴奏鸣曲「月光」",
+      "en": "Piano Sonata No. 14 'Moonlight' (Beethoven)",
+      "year": 1801,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Ludwig van Beethoven",
+      "region": "DE",
+      "note": "三连音琶音的第一乐章如夜曲，慢-中-快的不寻常结构预演了浪漫主义。",
+      "noteEn": "The triplet arpeggios of the first movement read like a nocturne — an unusual slow-mid-fast shape.",
+      "awards": []
+    },
+    {
+      "id": "beethoven-symphony-5",
+      "title": "C小调第五交响曲",
+      "en": "Symphony No. 5 in C minor (Beethoven)",
+      "year": 1808,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Ludwig van Beethoven",
+      "region": "DE",
+      "note": "三短一长的「命运动机」从第一小节统治到末乐章，是交响曲中最强的叙事弧。",
+      "noteEn": "The four-note fate motif governs the whole symphony — Western music's most famous arc.",
+      "awards": []
+    },
+    {
+      "id": "schubert-symphony-8-unfinished",
+      "title": "第八交响曲「未完成」",
+      "en": "Symphony No. 8 'Unfinished' (Schubert)",
+      "year": 1822,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Franz Schubert",
+      "region": "AT",
+      "note": "只写完两个乐章却已自足，第一乐章的歌唱性主部是浪漫主义交响的曙光。",
+      "noteEn": "Only two movements, yet complete in itself — its lyric first movement dawns the Romantic symphony.",
+      "awards": []
+    },
+    {
+      "id": "beethoven-symphony-9-choral",
+      "title": "D小调第九交响曲「合唱」",
+      "en": "Symphony No. 9 in D minor 'Choral' (Beethoven)",
+      "year": 1824,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Ludwig van Beethoven",
+      "region": "DE",
+      "note": "首次把席勒《欢乐颂》唱进交响曲，人声与乐队在末乐章合流为乌托邦式的高潮。",
+      "noteEn": "Schiller's Ode to Joy sung by chorus and orchestra — a utopian finale that changed the form.",
+      "awards": []
+    },
+    {
+      "id": "schubert-winterreise",
+      "title": "冬之旅",
+      "en": "Winterreise",
+      "year": 1828,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Franz Schubert",
+      "region": "AT",
+      "note": "二十四首歌串起一个失恋者走向雪夜的旅程，艺术歌曲的心理深度由此确立。",
+      "noteEn": "Twenty-four songs tracing a jilted wanderer's walk into the snow — the emotional summit of the Lied.",
+      "awards": []
+    },
+    {
+      "id": "chopin-ballade-1",
+      "title": "G小调第一叙事曲",
+      "en": "Ballade No. 1 in G minor (Chopin)",
+      "year": 1836,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Frédéric Chopin",
+      "region": "PL",
+      "note": "叙事曲体裁的奠基之作，复杂的和声与即兴般的展开让钢琴成为说故事的乐器。",
+      "noteEn": "The genre's founding work — narrative drama smuggled into pianistic texture.",
+      "awards": []
+    },
+    {
+      "id": "schumann-kinderszenen",
+      "title": "童年情景",
+      "en": "Kinderszenen",
+      "year": 1838,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Robert Schumann",
+      "region": "DE",
+      "note": "十三首钢琴小品回望童年，《梦幻曲》用简单到极致的和声制造无限温柔。",
+      "noteEn": "Thirteen piano miniatures looking back at childhood; Traumerei's simple harmony is pure tenderness.",
+      "awards": []
+    },
+    {
+      "id": "mendelssohn-violin-concerto",
+      "title": "E小调小提琴协奏曲",
+      "en": "Violin Concerto in E minor (Mendelssohn)",
+      "year": 1845,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Felix Mendelssohn",
+      "region": "DE",
+      "note": "独奏开头即直入主题、三乐章无间断衔接，甜美与炫技并存的协奏曲典范。",
+      "noteEn": "The soloist enters with the theme at once and movements run on — sweetness and virtuosity fused.",
+      "awards": []
+    },
+    {
+      "id": "liszt-hungarian-rhapsody-2",
+      "title": "匈牙利狂想曲第二号",
+      "en": "Hungarian Rhapsody No. 2",
+      "year": 1847,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Franz Liszt",
+      "region": "HU",
+      "note": "慢板引子到弗里斯舞曲，吉普赛音阶与炫技跑动让这首作品成了动画配乐常客。",
+      "noteEn": "Lassan to friska, Gypsy scales and bravura runs — a cartoon-score staple.",
+      "awards": []
+    },
+    {
+      "id": "verdi-la-traviata",
+      "title": "茶花女",
+      "en": "La traviata",
+      "year": 1853,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Giuseppe Verdi",
+      "region": "IT",
+      "note": "让交际花当女主角的写实歌剧，《饮酒歌》的轻快与第三幕的哀歌同样锋利。",
+      "noteEn": "A courtesan heroine breaks operatic convention — brindisi sparkle and final-act elegy cut equally.",
+      "awards": []
+    },
+    {
+      "id": "wagner-tristan-und-isolde",
+      "title": "特里斯坦与伊索尔德",
+      "en": "Tristan und Isolde",
+      "year": 1865,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Richard Wagner",
+      "region": "DE",
+      "note": "前奏曲的和声迟迟不肯解决，被称「特里斯坦和弦」，直接松开调性的地基。",
+      "noteEn": "The unresolved 'Tristan chord' loosens tonality's foundations — an erotic, endless prelude.",
+      "awards": []
+    },
+    {
+      "id": "verdi-requiem",
+      "title": "安魂弥撒",
+      "en": "Messa da Requiem (Verdi)",
+      "year": 1874,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Giuseppe Verdi",
+      "region": "IT",
+      "note": "把歌剧的戏剧张力带进弥撒，《Dies irae》的铜管与合唱是末日的音响。",
+      "noteEn": "Operatic drama inside the liturgy — the Dies irae's brass and chorus sound like Judgment Day.",
+      "awards": []
+    },
+    {
+      "id": "tchaikovsky-piano-concerto-1",
+      "title": "降B小调第一钢琴协奏曲",
+      "en": "Piano Concerto No. 1 in B-flat minor (Tchaikovsky)",
+      "year": 1875,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Pyotr Ilyich Tchaikovsky",
+      "region": "RU",
+      "note": "开篇圆号奏出辉煌主题，被作曲家称为「洪水般的浪漫主义」，是比赛舞台常客。",
+      "noteEn": "The horn's opening fanfare floods with romance — a competition-stage warhorse.",
+      "awards": []
+    },
+    {
+      "id": "tchaikovsky-swan-lake",
+      "title": "天鹅湖",
+      "en": "Swan Lake",
+      "year": 1876,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Pyotr Ilyich Tchaikovsky",
+      "region": "RU",
+      "note": "双簧管奏出的天鹅主题与黑天鹅的变奏，让芭蕾音乐第一次获得交响的深度。",
+      "noteEn": "The oboe's swan theme and Odile's variations give ballet music symphonic weight.",
+      "awards": []
+    },
+    {
+      "id": "brahms-symphony-1",
+      "title": "C小调第一交响曲",
+      "en": "Symphony No. 1 in C minor (Brahms)",
+      "year": 1876,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Johannes Brahms",
+      "region": "DE",
+      "note": "被汉斯利克称「贝多芬第十」，终乐章主题与贝九呼应，是二十年磨一剑的答卷。",
+      "noteEn": "Dubbed 'Beethoven's Tenth' — the finale nods to the Ninth in a two-decade-long answer.",
+      "awards": []
+    },
+    {
+      "id": "gymnopedies",
+      "title": "吉诺佩蒂",
+      "en": "Gymnopedies",
+      "year": 1888,
+      "genres": [
+        "ambient-newage",
+        "classical"
+      ],
+      "creator": "Erik Satie",
+      "region": "FR",
+      "note": "三首裸体舞曲的疏离和声为「背景音乐」开了先河，被视为氛围音乐的精神始祖。",
+      "noteEn": "Three detached piano dances that prefigure background music — ambient's spiritual ancestor.",
+      "awards": []
+    },
+    {
+      "id": "rimsky-korsakov-scheherazade",
+      "title": "天方夜谭",
+      "en": "Scheherazade",
+      "year": 1888,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Nikolai Rimsky-Korsakov",
+      "region": "RU",
+      "note": "独奏小提琴代表王妃舍赫拉查德，用音画配器把一千零一夜讲成管弦乐。",
+      "noteEn": "A solo violin voices Scheherazade herself — a thousand and one nights as orchestral color.",
+      "awards": []
+    },
+    {
+      "id": "tchaikovsky-symphony-6-pathetique",
+      "title": "第六交响曲「悲怆」",
+      "en": "Symphony No. 6 'Pathetique' (Tchaikovsky)",
+      "year": 1893,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Pyotr Ilyich Tchaikovsky",
+      "region": "RU",
+      "note": "末乐章一反常规以慢板收束并渐弱至无声，九天之后作曲家离世。",
+      "noteEn": "The finale breaks convention — a slow fade to nothing, days before the composer's death.",
+      "awards": []
+    },
+    {
+      "id": "dvorak-symphony-9-new-world",
+      "title": "第九交响曲「自新大陆」",
+      "en": "Symphony No. 9 in E minor 'From the New World' (Dvorak)",
+      "year": 1893,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Antonín Dvořák",
+      "region": "CZ",
+      "note": "在美国写就的思乡之作，第二乐章英国管旋律被改编成《念故乡》。",
+      "noteEn": "A homesick symphony written in America — the Largo's cor anglais melody became Goin' Home.",
+      "awards": []
+    },
+    {
+      "id": "mahler-symphony-5",
+      "title": "第五交响曲",
+      "en": "Symphony No. 5 (Mahler)",
+      "year": 1904,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Gustav Mahler",
+      "region": "AT",
+      "note": "从葬礼进行曲到终乐章回旋曲，著名的柔板曾被电影《魂断威尼斯》借用。",
+      "noteEn": "Funeral march to rondo; the Adagietto became a film score for Death in Venice.",
+      "awards": []
+    },
+    {
+      "id": "debussy-clair-de-lune",
+      "title": "月光",
+      "en": "Clair de Lune (Debussy)",
+      "year": 1905,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Claude Debussy",
+      "region": "FR",
+      "note": "《贝加马斯克组曲》第三段，全音阶与踏板制造出水面浮光的印象派月色。",
+      "noteEn": "The third movement of Suite bergamasque — whole tones and pedal paint Impressionist moonlight.",
+      "awards": []
+    },
+    {
+      "id": "mahler-das-lied-von-der-erde",
+      "title": "大地之歌",
+      "en": "Das Lied von der Erde",
+      "year": 1911,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Gustav Mahler",
+      "region": "AT",
+      "note": "以唐诗德译入歌的交响声乐套曲，末乐章《告别》绵延近半小时。",
+      "noteEn": "Tang poems in German sung over orchestra — the half-hour Farewell closes on solitude.",
+      "awards": []
+    },
+    {
+      "id": "stravinsky-rite-of-spring",
+      "title": "春之祭",
+      "en": "The Rite of Spring",
+      "year": 1913,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Igor Stravinsky",
+      "region": "RU",
+      "note": "首演引发骚乱，不协和音与重音错位的原始主义把音乐史拦腰截断。",
+      "noteEn": "Its premiere caused a riot — dissonance and displaced accents split music history in two.",
+      "awards": []
+    },
+    {
+      "id": "gershwin-rhapsody-in-blue",
+      "title": "蓝色狂想曲",
+      "en": "Rhapsody in Blue",
+      "year": 1924,
+      "genres": [
+        "classical"
+      ],
+      "creator": "George Gershwin",
+      "region": "US",
+      "note": "爵士与古典的混血，开篇单簧管滑音成了二十世纪最著名的起手式之一。",
+      "noteEn": "Jazz meets the concert hall — the opening clarinet glissando is a century-defining lick.",
+      "awards": []
+    },
+    {
+      "id": "ravel-bolero",
+      "title": "波莱罗",
+      "en": "Bolero",
+      "year": 1928,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Maurice Ravel",
+      "region": "FR",
+      "note": "同一旋律在固定节奏上反复十八遍、只靠配器渐强，是一场渐变而非变奏的赌注。",
+      "noteEn": "One tune repeated eighteen times over a fixed rhythm — crescendo by orchestration alone.",
+      "awards": []
+    },
+    {
+      "id": "west-end-blues",
+      "title": "西区布鲁斯",
+      "en": "West End Blues",
+      "year": 1928,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Louis Armstrong",
+      "region": "US",
+      "note": "开场六小节小号华彩与结尾即兴，把爵士从合奏时代带到独奏天才的时代。",
+      "noteEn": "Six opening bars of trumpet cadenza reset jazz — the soloist era begins.",
+      "awards": []
+    },
+    {
+      "id": "shostakovich-symphony-5",
+      "title": "第五交响曲",
+      "en": "Symphony No. 5 (Shostakovich)",
+      "year": 1937,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Dmitri Shostakovich",
+      "region": "RU",
+      "note": "在遭受批判后以「一个苏联艺术家对公正批评的答复」自述，末乐章在掌声与疑虑之间摇摆。",
+      "noteEn": "A 'Soviet artist's reply to just criticism' — a finale torn between triumph and irony.",
+      "awards": []
+    },
+    {
+      "id": "strange-fruit",
+      "title": "奇异果实",
+      "en": "Strange Fruit",
+      "year": 1939,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Billie Holiday",
+      "region": "US",
+      "note": "把私刑受害者的尸体唱成「南方树上的奇异果实」，爵士最痛的反抗之声。",
+      "noteEn": "Lynched bodies as 'strange fruit' on Southern trees — jazz's most searing protest.",
+      "awards": []
+    },
+    {
+      "id": "yellow-river-cantata",
+      "title": "黄河大合唱",
+      "en": "Yellow River Cantata",
+      "year": 1939,
+      "genres": [
+        "classical"
+      ],
+      "creator": "冼星海",
+      "region": "CN",
+      "note": "八乐章合唱套曲写于延安窑洞，《黄河颂》与《保卫黄河》成为民族抗战的号角。",
+      "noteEn": "An eight-movement cantata written in a Yan'an cave — a rallying cry of national resistance.",
+      "awards": []
+    },
+    {
+      "id": "dust-bowl-ballads",
+      "title": "沙尘暴民谣",
+      "en": "Dust Bowl Ballads",
+      "year": 1940,
+      "genres": [
+        "folk-country"
+      ],
+      "creator": "Woody Guthrie",
+      "region": "US",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "《This Land Is Your Land》的作者把大萧条写进美国歌本。",
+      "noteEn": "The work of 'This Land Is Your Land''s author, setting the Depression to song."
+    },
+    {
+      "id": "black-brown-and-beige",
+      "title": "黑、棕与米色",
+      "en": "Black, Brown and Beige",
+      "year": 1943,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Duke Ellington",
+      "region": "US",
+      "note": "三乐章的爵士长作首演于卡内基音乐厅，想「把美国黑人的历史写进音乐」。",
+      "noteEn": "A three-movement jazz epic premiered at Carnegie Hall, telling African-American history in sound.",
+      "awards": []
+    },
+    {
+      "id": "copland-appalachian-spring",
+      "title": "阿巴拉契亚之春",
+      "en": "Appalachian Spring",
+      "year": 1944,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Aaron Copland",
+      "region": "US",
+      "note": "为芭蕾而作，香客主题的变奏透出开阔的美国大地气质，是柯普兰「美式之声」的代表。",
+      "noteEn": "Ballet score whose Shaker-tune variations breathe the American prairie — Copland's open sound.",
+      "awards": []
+    },
+    {
+      "id": "strange-things-happening-every-day",
+      "title": "每天都发生怪事",
+      "en": "Strange Things Happening Every Day",
+      "year": 1944,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Sister Rosetta Tharpe",
+      "region": "US",
+      "note": "把福音与布吉乌吉钢琴合成一体，常被视为摇滚乐的最早萌芽之一。",
+      "noteEn": "Gospel swing with boogie piano — often cited as a seed of rock and roll.",
+      "awards": []
+    },
+    {
+      "id": "koko-parker",
+      "title": "Ko-Ko",
+      "en": "Ko-Ko",
+      "year": 1945,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Charlie Parker",
+      "region": "US",
+      "note": "以不协和的前奏和极速的即兴奠定比波普语法，帕克在此彻底告别摇摆乐。",
+      "noteEn": "Dissonant head and breakneck lines lock in bebop — swing is left behind for good.",
+      "awards": []
+    },
+    {
+      "id": "call-it-stormy-monday",
+      "title": "暴风雨般的星期一",
+      "en": "Call It Stormy Monday (But Tuesday Is Just as Bad)",
+      "year": 1947,
+      "genres": [
+        "blues"
+      ],
+      "creator": "T-Bone Walker",
+      "region": "US",
+      "note": "电吉他在蓝调中的奠基之作，推弦与爵士式独奏影响了整整一代吉他手。",
+      "noteEn": "Electric guitar blues at its root — bends and jazz lines that shaped a generation of pickers.",
+      "awards": []
+    },
+    {
+      "id": "manteca-gillespie",
+      "title": "猪油",
+      "en": "Manteca",
+      "year": 1947,
+      "genres": [
+        "jazz",
+        "world"
+      ],
+      "creator": "Dizzy Gillespie",
+      "region": "US",
+      "note": "与古巴康加鼓手查诺·波索共创，非洲古巴节奏正式进入爵士。",
+      "noteEn": "Co-written with Cuban conguero Chano Pozo — Afro-Cuban rhythm enters jazz for good.",
+      "awards": []
+    },
+    {
+      "id": "erquan-yingyue",
+      "title": "二泉映月",
+      "en": "Erquan Yingyue (Moon Reflected on Second Spring)",
+      "year": 1950,
+      "genres": [
+        "classical"
+      ],
+      "creator": "华彦钧（阿炳）",
+      "region": "CN",
+      "note": "盲人艺术家阿炳的二胡曲，1950年抢救式录音后成为民族器乐的巅峰之作。",
+      "noteEn": "Blind musician Abing's erhu piece, preserved in a 1950 field recording — the apex of Chinese solo strings.",
+      "awards": []
+    },
+    {
+      "id": "elmore-james-dust-my-broom",
+      "title": "扫掉灰尘",
+      "en": "Dust My Broom",
+      "year": 1951,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Elmore James",
+      "region": "US",
+      "note": "把罗伯特·约翰逊的《I Believe I'll Dust My Broom》电声化，滑棒吉他的「啸叫」在此定格。",
+      "noteEn": "Electrifying Robert Johnson's song — the slide-guitar wail that became Elmore James' signature.",
+      "awards": []
+    },
+    {
+      "id": "gould-goldberg-variations-1955",
+      "title": "哥德堡变奏曲（古尔德1955年录音）",
+      "en": "Bach: Goldberg Variations (1955 Gould Recording)",
+      "year": 1955,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Glenn Gould",
+      "region": "CA",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "22岁的古尔德用断奏与飞奔速度重定义巴赫，录音室成为演奏家的新舞台。",
+      "noteEn": "A 22-year-old rethinks Bach in clipped, breakneck style — the studio as concert stage.",
+      "awards": []
+    },
+    {
+      "id": "ellington-at-newport",
+      "title": "纽波特现场",
+      "en": "Ellington at Newport",
+      "year": 1956,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Duke Ellington",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "《渐弱与渐强之蓝》中长达六分多钟的萨克斯即兴让现场沸腾，爵士乐迎来复兴拐点。",
+      "noteEn": "A six-minute saxophone solo on Diminuendo and Crescendo in Blue ignites a career revival.",
+      "awards": []
+    },
+    {
+      "id": "saxophone-colossus",
+      "title": "萨克斯巨像",
+      "en": "Saxophone Colossus",
+      "year": 1956,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Sonny Rollins",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "《St. Thomas》的加勒比节奏与《You Don't Know What Love Is》的慢板，罗林斯的轮转即兴巅峰。",
+      "noteEn": "Caribbean St. Thomas and a searching ballad — Rollins at his thematic-improv peak.",
+      "awards": []
+    },
+    {
+      "id": "three-ragas",
+      "title": "三首拉格",
+      "en": "Three Ragas",
+      "year": 1956,
+      "genres": [
+        "world",
+        "classical"
+      ],
+      "creator": "Ravi Shankar",
+      "region": "IN",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "西塔琴大师为西方录制的经典，印度古典乐的世界信使。",
+      "noteEn": "The sitar master's classic Western release — India's classical ambassador to the world."
+    },
+    {
+      "id": "birth-of-the-cool",
+      "title": "酷派的诞生",
+      "en": "Birth of the Cool",
+      "year": 1957,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Miles Davis",
+      "region": "US",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "九重奏的非典型编制与弱化颤音的吹奏，为冷爵士定下「以退为进」的美学。",
+      "noteEn": "A nonet's mellow textures and vibrato-free playing define cool jazz as understatement.",
+      "awards": []
+    },
+    {
+      "id": "brilliant-corners",
+      "title": "璀璨角落",
+      "en": "Brilliant Corners",
+      "year": 1957,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Thelonious Monk",
+      "region": "US",
+      "rating": {
+        "rym": 4.2
+      },
+      "note": "标题曲的节奏角度刁钻到乐队录了25遍，蒙克的棱角在混乱中自成秩序。",
+      "noteEn": "The title track's crooked angles took 25 takes — Monk's jagged logic orders the chaos.",
+      "awards": []
+    },
+    {
+      "id": "blue-train",
+      "title": "蓝色列车",
+      "en": "Blue Train",
+      "year": 1958,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "John Coltrane",
+      "region": "US",
+      "rating": {
+        "rym": 4
+      },
+      "note": "硬波普的标准范本，同名曲的蓝调节奏与首句号角般的旋律辨识度极高。",
+      "noteEn": "A hard-bop textbook — the title tune's blues line and fanfare head are instantly recognizable.",
+      "awards": []
+    },
+    {
+      "id": "little-girl-blue",
+      "title": "忧郁小女孩",
+      "en": "Little Girl Blue",
+      "year": 1958,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Nina Simone",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "首张专辑里的《My Baby Just Cares for Me》几十年后被香水广告重新带红。",
+      "noteEn": "Debut LP whose My Baby Just Cares for Me returned to fame decades later via an ad.",
+      "awards": []
+    },
+    {
+      "id": "moanin",
+      "title": "呻吟",
+      "en": "Moanin'",
+      "year": 1958,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Art Blakey & The Jazz Messengers",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "鲍比·蒂蒙斯的灵魂蓝调主题让硬波普有了「教堂感」，鼓手的轰鸣定义Messengers之声。",
+      "noteEn": "Bobby Timmons' gospel-tinged theme sanctifies hard bop — Blakey's drive defines the sound.",
+      "awards": []
+    },
+    {
+      "id": "somethin-else",
+      "title": "别的什么",
+      "en": "Somethin' Else",
+      "year": 1958,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Cannonball Adderley",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "米尔斯·戴维斯以小号嘉宾身份助阵，《Autumn Leaves》与同名曲的慢板堪称教科书。",
+      "noteEn": "Miles Davis guests on trumpet — Autumn Leaves and the title cut are studies in taste.",
+      "awards": []
+    },
+    {
+      "id": "butterfly-lovers-violin-concerto",
+      "title": "梁祝小提琴协奏曲",
+      "en": "Butterfly Lovers' Violin Concerto",
+      "year": 1959,
+      "genres": [
+        "classical"
+      ],
+      "creator": "何占豪 & 陈钢",
+      "region": "CN",
+      "note": "越剧音调入交响，小提琴与大提琴的「楼台会」把东方爱情悲剧写成单乐章协奏曲。",
+      "noteEn": "Shaoxing opera inside a one-movement concerto — an Eastern love tragedy told by two instruments.",
+      "awards": []
+    },
+    {
+      "id": "kind-of-blue",
+      "title": "蓝色情调",
+      "en": "Kind of Blue",
+      "year": 1959,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Miles Davis",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.4
+      },
+      "note": "全调式即兴的杰作，《So What》的两音动机让爵士摆脱和弦变化的束缚。",
+      "noteEn": "Modal jazz's defining statement — the two-note So What riff frees soloists from chord changes.",
+      "awards": []
+    },
+    {
+      "id": "mingus-ah-um",
+      "title": "明格斯，嗯",
+      "en": "Mingus Ah Um",
+      "year": 1959,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Charles Mingus",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "《Goodbye Pork Pie Hat》悼念莱斯特·扬，整张专辑是民权时代美国的声音侧写。",
+      "noteEn": "Goodbye Pork Pie Hat mourns Lester Young — the album is a sonic profile of civil-rights America.",
+      "awards": []
+    },
+    {
+      "id": "moanin-in-the-moonlight",
+      "title": "月光下呻吟",
+      "en": "Moanin' in the Moonlight",
+      "year": 1959,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Howlin' Wolf",
+      "region": "US",
+      "note": "首张专辑收录《Smokestack Lightnin'》，沃夫沙哑的嚎叫定义了芝加哥蓝调的另一极。",
+      "noteEn": "Debuting Smokestack Lightnin' — Howlin' Wolf's guttural howl defines the other pole of Chicago blues.",
+      "awards": []
+    },
+    {
+      "id": "shape-of-jazz-to-come",
+      "title": "爵士乐未来的形状",
+      "en": "The Shape of Jazz to Come",
+      "year": 1959,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Ornette Coleman",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "无既定和声伴奏的自由即兴（Harmolodics），让爵士进入没有和弦图的开放空间。",
+      "noteEn": "Free improvisation without preset changes — harmonolodics opens jazz to boundless space.",
+      "awards": []
+    },
+    {
+      "id": "time-out",
+      "title": "暂停时间",
+      "en": "Time Out",
+      "year": 1959,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "The Dave Brubeck Quartet",
+      "region": "US",
+      "rating": {
+        "rym": 4
+      },
+      "note": "《Take Five》的5/4拍成为爵士最出圈的节奏实验，封面几何画亦是经典。",
+      "noteEn": "Take Five's 5/4 meter is jazz's most famous rhythmic gamble, wrapped in geometric art.",
+      "awards": []
+    },
+    {
+      "id": "ella-in-berlin",
+      "title": "艾拉在柏林",
+      "en": "Ella in Berlin: Mack the Knife",
+      "year": 1960,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Ella Fitzgerald",
+      "region": "US",
+      "rating": {
+        "rym": 4
+      },
+      "note": "忘词后用即兴拟声唱完《Mack the Knife》，现场史上最著名的「救场」。",
+      "noteEn": "Forgetting the lyrics, she scats her way through Mack the Knife — live jazz's greatest save.",
+      "awards": []
+    },
+    {
+      "id": "giant-steps",
+      "title": "大步流星",
+      "en": "Giant Steps",
+      "year": 1960,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "John Coltrane",
+      "region": "US",
+      "rating": {
+        "rym": 4
+      },
+      "note": "同名曲的和声每两个小节就转调，被乐手当作即兴的「毕业考试」。",
+      "noteEn": "The title tune changes key every two bars — the endurance test of jazz improvisation.",
+      "awards": []
+    },
+    {
+      "id": "shostakovich-string-quartet-8",
+      "title": "第八弦乐四重奏",
+      "en": "String Quartet No. 8 (Shostakovich)",
+      "year": 1960,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Dmitri Shostakovich",
+      "region": "RU",
+      "note": "题献「纪念法西斯主义的受难者」，却在其中嵌入作曲家自己的签名动机DSCH。",
+      "noteEn": "Dedicated to victims of fascism yet built on his own DSCH motto — a coded self-portrait.",
+      "awards": []
+    },
+    {
+      "id": "free-jazz",
+      "title": "自由爵士：集体即兴",
+      "en": "Free Jazz: A Collective Improvisation",
+      "year": 1961,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Ornette Coleman",
+      "region": "US",
+      "rating": {
+        "rym": 3.8
+      },
+      "note": "双四重奏分置左右声道，近40分钟不间断的集体即兴，为整个流派命名。",
+      "noteEn": "Two quartets in separate stereo channels improvise for 40 minutes — the genre gets its name.",
+      "awards": []
+    },
+    {
+      "id": "sunday-at-the-village-vanguard",
+      "title": "村庄先锋周日现场",
+      "en": "Sunday at the Village Vanguard",
+      "year": 1961,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Bill Evans Trio",
+      "region": "US",
+      "rating": {
+        "rym": 4.3
+      },
+      "note": "爵士钢琴三重奏的圣杯，贝斯手斯科特·拉法罗离世前四天的现场录音。",
+      "noteEn": "The holy grail of piano trios — recorded four days before bassist Scott LaFaro died.",
+      "awards": []
+    },
+    {
+      "id": "modern-sounds-in-country-and-western-music",
+      "title": "乡村与西部音乐的新声音",
+      "en": "Modern Sounds in Country and Western Music",
+      "year": 1962,
+      "genres": [
+        "rnb-soul",
+        "folk-country"
+      ],
+      "creator": "Ray Charles",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "把乡村金曲改造成灵魂乐编曲，跨类型的胆识震惊了整个行业。",
+      "noteEn": "Country standards reimagined as soul arrangements — a genre-bending move that stunned the industry."
+    },
+    {
+      "id": "live-at-the-apollo",
+      "title": "阿波罗现场",
+      "en": "Live at the Apollo",
+      "year": 1963,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "James Brown",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "一张现场专辑让灵魂乐第一次拥有「史诗现场」的概念，能量几乎掀翻屋顶。",
+      "noteEn": "A live album that invented the idea of the epic soul concert — energy threatening to lift the roof."
+    },
+    {
+      "id": "black-saint-and-sinner-lady",
+      "title": "黑圣人与罪妇",
+      "en": "The Black Saint and the Sinner Lady",
+      "year": 1963,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Charles Mingus",
+      "region": "US",
+      "rating": {
+        "rym": 4.2
+      },
+      "note": "六乐章的大编制芭蕾式组曲，班卓琴与低音号让明格斯的野心近乎管弦乐。",
+      "noteEn": "A six-movement ballet for a large ensemble — banjo and tuba push Mingus near orchestral scale.",
+      "awards": []
+    },
+    {
+      "id": "enta-omri",
+      "title": "你是我的一生",
+      "en": "Enta Omri",
+      "year": 1964,
+      "genres": [
+        "world"
+      ],
+      "creator": "Oum Kalthoum",
+      "region": "EG",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "阿拉伯世界的月亮，一首歌长达四十分钟的即兴史诗。",
+      "noteEn": "The 'Star of the East' — a 40-minute improvisatory epic that still hypnotizes the Arab world."
+    },
+    {
+      "id": "getz-gilberto",
+      "title": "盖茨与吉尔伯托",
+      "en": "Getz/Gilberto",
+      "year": 1964,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Stan Getz & João Gilberto",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "《The Girl from Ipanema》让巴萨诺瓦席卷全球，1965年获格莱美年度专辑。",
+      "noteEn": "The Girl from Ipanema took bossa nova worldwide — the 1965 Album of the Year."
+    },
+    {
+      "id": "out-to-lunch",
+      "title": "出去吃午饭",
+      "en": "Out to Lunch!",
+      "year": 1964,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Eric Dolphy",
+      "region": "US",
+      "rating": {
+        "rym": 4
+      },
+      "note": "低音单簧管与铁琴的奇异音色对话，前卫爵士中最具音色想象力的奇作。",
+      "noteEn": "Bass clarinet and vibes in skewed dialogue — avant-garde jazz's most colorful mind.",
+      "awards": []
+    },
+    {
+      "id": "a-love-supreme",
+      "title": "至高无上的爱",
+      "en": "A Love Supreme",
+      "year": 1965,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "John Coltrane",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.4
+      },
+      "note": "四乐章组曲是科川写给上帝的感恩献词，「Acknowledgement」里的四音动机贯穿全篇。",
+      "noteEn": "A four-part suite of gratitude to God — the four-note motto of Acknowledgement binds it.",
+      "awards": []
+    },
+    {
+      "id": "highway-61-revisited",
+      "title": "重返61号公路",
+      "en": "Highway 61 Revisited",
+      "year": 1965,
+      "genres": [
+        "folk-country",
+        "rock"
+      ],
+      "creator": "Bob Dylan",
+      "region": "US",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "《Like a Rolling Stone》开创民谣摇滚纪元，电吉他对民谣的背叛与新生。",
+      "noteEn": "'Like a Rolling Stone' announced the folk-rock era — electric betrayal and rebirth of folk."
+    },
+    {
+      "id": "idle-moments",
+      "title": "闲暇时刻",
+      "en": "Idle Moments",
+      "year": 1965,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Grant Green",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "同名曲的十二分钟慢板慵懒到极致，是灵魂爵士里被低估的宝藏。",
+      "noteEn": "The twelve-minute title ballad lounges to perfection — soul jazz's hidden gem.",
+      "awards": []
+    },
+    {
+      "id": "live-at-the-regal",
+      "title": "皇宫剧院现场",
+      "en": "Live at the Regal",
+      "year": 1965,
+      "genres": [
+        "blues"
+      ],
+      "creator": "B.B. King",
+      "region": "US",
+      "rating": {
+        "rym": 4.2
+      },
+      "awards": [
+        "polar-music"
+      ],
+      "note": "单音式颤音吉他对着芝加哥观众全力释放，被公认为最佳现场蓝调录音之一；金2004年获极地音乐奖。",
+      "noteEn": "Vibrato guitar at full fire before a Chicago crowd — one of the greatest live blues records; King won the 2004 Polar Prize."
+    },
+    {
+      "id": "maiden-voyage",
+      "title": "处女航",
+      "en": "Maiden Voyage",
+      "year": 1965,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Herbie Hancock",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "每首曲子都以海洋命名，调式与空灵和声让整张专辑像一张海图。",
+      "noteEn": "Every tune named for the sea — modal washes that chart an ocean voyage.",
+      "awards": []
+    },
+    {
+      "id": "otis-blue",
+      "title": "奥蒂斯蓝调",
+      "en": "Otis Blue",
+      "year": 1965,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "Otis Redding",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "一天之内录完的灵魂巅峰，把翻唱与原创一起烧成南部热浪。",
+      "noteEn": "A soul peak recorded in a single day, originals and covers scorching with Southern heat."
+    },
+    {
+      "id": "blues-breakers-with-eric-clapton",
+      "title": "布鲁斯破坏者（与克莱普顿）",
+      "en": "Blues Breakers with Eric Clapton",
+      "year": 1966,
+      "genres": [
+        "blues"
+      ],
+      "creator": "John Mayall & The Bluesbreakers",
+      "region": "UK",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "把芝加哥蓝调带回英国并催生「克莱普顿是上帝」涂鸦，英式布鲁斯摇滚由此发端。",
+      "noteEn": "It imported Chicago blues to Britain and spawned 'Clapton is God' — British blues-rock begins.",
+      "awards": []
+    },
+    {
+      "id": "las-ultimas-composiciones",
+      "title": "最后的作品",
+      "en": "Las últimas composiciones",
+      "year": 1966,
+      "genres": [
+        "world",
+        "folk-country"
+      ],
+      "creator": "Violeta Parra",
+      "region": "CL",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "智利民谣之母的绝笔，《Gracias a la vida》的诞生地。",
+      "noteEn": "The Chilean folk matriarch's final songs — where 'Gracias a la vida' was born."
+    },
+    {
+      "id": "revolver",
+      "title": "左轮手枪",
+      "en": "Revolver",
+      "year": 1966,
+      "genres": [
+        "rock",
+        "pop"
+      ],
+      "creator": "The Beatles",
+      "region": "UK",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.6
+      },
+      "awards": [],
+      "note": "反卷带、西塔琴与磁带循环齐上阵，披头士从偶像乐队走向录音室实验室的分水岭。",
+      "noteEn": "Backwards tapes, sitar and tape loops turn the Beatles from pop idols into studio scientists."
+    },
+    {
+      "id": "the-good-the-bad-and-the-ugly",
+      "title": "黄金三镖客",
+      "en": "The Good, the Bad and the Ugly (Original Soundtrack)",
+      "year": 1966,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "Ennio Morricone",
+      "region": "IT",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "口哨、电吉他与人声合唱，莫里康内把西部片配乐变成艺术。",
+      "noteEn": "Whistles, electric guitar and choral shouts — Morricone turned Western scoring into art."
+    },
+    {
+      "id": "are-you-experienced",
+      "title": "你经历过了吗",
+      "en": "Are You Experienced",
+      "year": 1967,
+      "genres": [
+        "rock",
+        "blues"
+      ],
+      "creator": "The Jimi Hendrix Experience",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "首张专辑就把电吉他的语言改写：反馈、哇音与那首〈Purple Haze〉。",
+      "noteEn": "A debut that rewrote the electric guitar's grammar — feedback, wah and \"Purple Haze.\""
+    },
+    {
+      "id": "born-under-a-bad-sign",
+      "title": "生于坏兆头",
+      "en": "Born Under a Bad Sign",
+      "year": 1967,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Albert King",
+      "region": "US",
+      "rating": {
+        "rym": 4
+      },
+      "note": "同名曲的连奏与标题成了布鲁斯文化梗，是电声蓝调后期的代表作。",
+      "noteEn": "The title riff and phrase became blues shorthand — late-period electric blues at its peak.",
+      "awards": []
+    },
+    {
+      "id": "i-never-loved-a-man",
+      "title": "我从未如此爱过一个男人",
+      "en": "I Never Loved a Man the Way I Love You",
+      "year": 1967,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "Aretha Franklin",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "Aretha 在 Atlantic 的首张专辑，〈Respect〉从此成为权利与尊严的国歌。",
+      "noteEn": "Aretha's Atlantic debut — \"Respect\" became an anthem of rights and dignity forever."
+    },
+    {
+      "id": "takemitsu-november-steps",
+      "title": "十一月的脚步",
+      "en": "November Steps",
+      "year": 1967,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Tōru Takemitsu",
+      "region": "JP",
+      "note": "为琵琶、尺八与管弦乐团而作，东方乐器与西方乐队的音色对话充满空间感。",
+      "noteEn": "Biwa, shakuhachi and orchestra converse — Eastern timbres in a spacious Western frame.",
+      "awards": []
+    },
+    {
+      "id": "pata-pata",
+      "title": "帕塔帕塔",
+      "en": "Pata Pata",
+      "year": 1967,
+      "genres": [
+        "world",
+        "pop"
+      ],
+      "creator": "Miriam Makeba",
+      "region": "ZA",
+      "rating": {
+        "douban": 8.5
+      },
+      "awards": [],
+      "note": "非洲母亲让流行乐有了第一个非洲韵律出口。",
+      "noteEn": "Mama Africa gave pop its first great African-rhythm export."
+    },
+    {
+      "id": "sgt-peppers-lonely-hearts-club-band",
+      "title": "佩珀军士的孤独之心俱乐部乐队",
+      "en": "Sgt. Pepper's Lonely Hearts Club Band",
+      "year": 1967,
+      "genres": [
+        "rock"
+      ],
+      "creator": "The Beatles",
+      "region": "UK",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.5
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "第一张把录音室当作创作乐器的「概念专辑」，为 60 年代末的听觉野心立下标准。",
+      "noteEn": "The first concept album to treat the studio as an instrument, setting the sonic ambition of the late '60s."
+    },
+    {
+      "id": "songs-of-leonard-cohen",
+      "title": "莱昂纳德·科恩之歌",
+      "en": "Songs of Leonard Cohen",
+      "year": 1967,
+      "genres": [
+        "folk-country"
+      ],
+      "creator": "Leonard Cohen",
+      "region": "CA",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "《Suzanne》与诗人的低音，把文学性带进民谣的深渊。",
+      "noteEn": "With 'Suzanne', the poet's bass-baritone dropped literature into folk's depths."
+    },
+    {
+      "id": "velvet-underground-and-nico",
+      "title": "地下丝绒与妮可",
+      "en": "The Velvet Underground & Nico",
+      "year": 1967,
+      "genres": [
+        "rock"
+      ],
+      "creator": "The Velvet Underground",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "当年几乎卖不动，却启发了无数乐队——关于药、性与噪音的坦白被时间正名。",
+      "noteEn": "Sold next to nothing yet inspired countless bands — time vindicated this unflinching, noisy debut."
+    },
+    {
+      "id": "at-folsom-prison",
+      "title": "福尔松监狱现场",
+      "en": "At Folsom Prison",
+      "year": 1968,
+      "genres": [
+        "folk-country"
+      ],
+      "creator": "Johnny Cash",
+      "region": "US",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "在囚犯面前录制的现场专辑，把乡村乐带回它的阶级根源。",
+      "noteEn": "Recorded before inmates, it returned country to its class roots."
+    },
+    {
+      "id": "caetano-veloso-1968",
+      "title": "卡埃塔诺·维洛索",
+      "en": "Caetano Veloso (1968)",
+      "year": 1968,
+      "genres": [
+        "world",
+        "pop",
+        "rock"
+      ],
+      "creator": "Caetano Veloso",
+      "region": "BR",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "Tropicália 宣言专辑之一，用实验搅动巴西流行乐。",
+      "noteEn": "A Tropicália manifesto that stirred Brazilian pop with experimentation."
+    },
+    {
+      "id": "odessey-and-oracle",
+      "title": "奥德赛与神谕",
+      "en": "Odessey and Oracle",
+      "year": 1968,
+      "genres": [
+        "rock",
+        "pop"
+      ],
+      "creator": "The Zombies",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "巴洛克流行遗珠，发行即被忽视，多年后〈Time of the Season〉让它成为经典。",
+      "noteEn": "A baroque-pop gem ignored at release, resurrected when \"Time of the Season\" finally charted."
+    },
+    {
+      "id": "os-mutantes",
+      "title": "变种人",
+      "en": "Os Mutantes",
+      "year": 1968,
+      "genres": [
+        "world",
+        "rock"
+      ],
+      "creator": "Os Mutantes",
+      "region": "BR",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "迷幻之声与巴西节奏的嫁接，Tropicália 最狂野的一极。",
+      "noteEn": "Psychedelia grafted onto Brazilian rhythm — the wildest pole of Tropicália."
+    },
+    {
+      "id": "the-beatles-white-album",
+      "title": "白色专辑",
+      "en": "The Beatles (The White Album)",
+      "year": 1968,
+      "genres": [
+        "rock",
+        "pop"
+      ],
+      "creator": "The Beatles",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "三十首歌的私人拼贴，四人的个性裂痕本身就是这张专辑真正的主题。",
+      "noteEn": "Thirty songs as a private collage — the four personalities drifting apart become the album's own subject."
+    },
+    {
+      "id": "abbey-road",
+      "title": "艾比路",
+      "en": "Abbey Road",
+      "year": 1969,
+      "genres": [
+        "rock"
+      ],
+      "creator": "The Beatles",
+      "region": "UK",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.6
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "第二面那组无懈可击的组曲，是录音室精密度与旋律天赋的最后一次完美合体。",
+      "noteEn": "The seamless side-two medley is the final perfect union of studio craft and melodic genius."
+    },
+    {
+      "id": "in-a-silent-way",
+      "title": "寂静之路",
+      "en": "In a Silent Way",
+      "year": 1969,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Miles Davis",
+      "region": "US",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "电子键盘与两把电吉他的绵长织体，预告了爵士摇滚的融合时代。",
+      "noteEn": "Long electric textures from keyboards and two guitars — fusion's quiet dawn.",
+      "awards": []
+    },
+    {
+      "id": "karma-sanders",
+      "title": "业报",
+      "en": "Karma",
+      "year": 1969,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Pharoah Sanders",
+      "region": "US",
+      "rating": {
+        "rym": 4
+      },
+      "note": "《The Creator Has a Master Plan》32分钟的自由赞歌，精神爵士的顶点之一。",
+      "noteEn": "A 32-minute free-jazz hymn — the summit of spiritual jazz.",
+      "awards": []
+    },
+    {
+      "id": "townes-van-zandt",
+      "title": "汤斯·范·赞特",
+      "en": "Townes Van Zandt",
+      "year": 1969,
+      "genres": [
+        "folk-country",
+        "blues"
+      ],
+      "creator": "Townes Van Zandt",
+      "region": "US",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "被低估的吟游诗人，《Pancho and Lefty》是他留给世界的情书。",
+      "noteEn": "The under-sung troubadour whose 'Pancho and Lefty' is a love letter to the world."
+    },
+    {
+      "id": "yellow-river-piano-concerto",
+      "title": "黄河钢琴协奏曲",
+      "en": "Yellow River Piano Concerto",
+      "year": 1969,
+      "genres": [
+        "classical"
+      ],
+      "creator": "殷承宗等",
+      "region": "CN",
+      "note": "取材冼星海《黄河大合唱》，钢琴与乐队的对抗如黄河怒涛，是革命年代的音乐图腾。",
+      "noteEn": "Drawn from the Yellow River Cantata — piano versus orchestra as a torrent of revolution.",
+      "awards": []
+    },
+    {
+      "id": "bitches-brew",
+      "title": "泼妇之酿",
+      "en": "Bitches Brew",
+      "year": 1970,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Miles Davis",
+      "region": "US",
+      "rating": {
+        "rym": 3.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "把录音室剪辑当作创作手段的电气化即兴，获得格莱美最佳爵士团体演奏。",
+      "noteEn": "Electrified jamming edited into structure — it won the Grammy for Best Jazz Group Performance."
+    },
+    {
+      "id": "bridge-over-troubled-water",
+      "title": "忧愁河上的金桥",
+      "en": "Bridge over Troubled Water",
+      "year": 1970,
+      "genres": [
+        "folk-country",
+        "pop"
+      ],
+      "creator": "Simon & Garfunkel",
+      "region": "US",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "同名主打是流行乐史上最动人的二重唱之一，解散前的谢幕，格莱美年度专辑。",
+      "noteEn": "Its title track is one of pop's most moving duets — a farewell that won the Grammy Album of the Year."
+    },
+    {
+      "id": "sweet-baby-james",
+      "title": "甜心詹姆斯",
+      "en": "Sweet Baby James",
+      "year": 1970,
+      "genres": [
+        "folk-country",
+        "pop"
+      ],
+      "creator": "James Taylor",
+      "region": "US",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "《Fire and Rain》把歌手-创作人运动推向主流。",
+      "noteEn": "'Fire and Rain' carried the singer-songwriter movement mainstream."
+    },
+    {
+      "id": "tea-for-the-tillerman",
+      "title": "农夫之茶",
+      "en": "Tea for the Tillerman",
+      "year": 1970,
+      "genres": [
+        "folk-country",
+        "pop"
+      ],
+      "creator": "Cat Stevens",
+      "region": "UK",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "《Wild World》与《Father and Son》，70 年代最温柔的哲学民谣。",
+      "noteEn": "With 'Wild World' and 'Father and Son', the gentlest philosophizing of 70s folk."
+    },
+    {
+      "id": "blue-joni-mitchell",
+      "title": "蓝色",
+      "en": "Blue (Joni Mitchell)",
+      "year": 1971,
+      "genres": [
+        "folk-country",
+        "pop"
+      ],
+      "creator": "Joni Mitchell",
+      "region": "CA",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "自我剖白的极致，把心碎唱成冰蓝色的透明。",
+      "noteEn": "The apogee of confession, singing heartbreak in crystalline blue."
+    },
+    {
+      "id": "journey-in-satchidananda",
+      "title": "萨奇达南达之旅",
+      "en": "Journey in Satchidananda",
+      "year": 1971,
+      "genres": [
+        "jazz",
+        "ambient-newage"
+      ],
+      "creator": "Alice Coltrane",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "竖琴与印度坦布拉琴织成冥想之声，艾丽斯的音乐早已超越了「爵士」标签。",
+      "noteEn": "Harp and tambura weave a meditative drone — music that outgrows the jazz label.",
+      "awards": []
+    },
+    {
+      "id": "led-zeppelin-iv",
+      "title": "齐柏林飞艇四",
+      "en": "Led Zeppelin IV",
+      "year": 1971,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Led Zeppelin",
+      "region": "UK",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.6
+      },
+      "awards": [],
+      "note": "无标题专辑，却靠〈Stairway to Heaven〉成为重型摇滚的原型教科书。",
+      "noteEn": "An untitled record that became heavy rock's founding text via \"Stairway to Heaven.\""
+    },
+    {
+      "id": "tapestry-carole-king",
+      "title": "织锦",
+      "en": "Tapestry (Carole King)",
+      "year": 1971,
+      "genres": [
+        "folk-country",
+        "pop"
+      ],
+      "creator": "Carole King",
+      "region": "US",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "《It's Too Late》——从幕后写手到前台歌后的转型范本，格莱美年度专辑。",
+      "noteEn": "With 'It's Too Late', the songwriter's leap to front-stage stardom; Grammy Album of the Year."
+    },
+    {
+      "id": "theres-a-riot-goin-on",
+      "title": "暴乱进行时",
+      "en": "There's a Riot Goin' On",
+      "year": 1971,
+      "genres": [
+        "rnb-soul",
+        "rock"
+      ],
+      "creator": "Sly and the Family Stone",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "用失真的鼓机与低沉的 funk 讲出理想幻灭，比同时代的任何专辑都更阴郁。",
+      "noteEn": "Distorted drums and low-slung funk about disillusionment — gloomier than almost anything of its time."
+    },
+    {
+      "id": "whats-going-on",
+      "title": "怎么了",
+      "en": "What's Going On",
+      "year": 1971,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "Marvin Gaye",
+      "region": "US",
+      "rating": {
+        "rym": 4.4,
+        "douban": 9.5
+      },
+      "awards": [],
+      "note": "第一张把越战、环保与都市绝望唱进灵魂乐的概念专辑，黑人的时代省思。",
+      "noteEn": "The first soul concept album addressing Vietnam, ecology and urban despair — Black America's reckoning."
+    },
+    {
+      "id": "whos-next",
+      "title": "下一个是谁",
+      "en": "Who's Next",
+      "year": 1971,
+      "genres": [
+        "rock"
+      ],
+      "creator": "The Who",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "〈Baba O'Riley〉的合成器律动与〈Behind Blue Eyes〉的脆弱，撑起硬摇滚的抒情边界。",
+      "noteEn": "The synth pulse of \"Baba O'Riley\" and the fragility of \"Behind Blue Eyes\" stretch hard rock's emotional range."
+    },
+    {
+      "id": "amazing-grace",
+      "title": "奇异恩典",
+      "en": "Amazing Grace",
+      "year": 1972,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "Aretha Franklin",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "在洛杉矶教堂实况录制的福音现场，被公认为史上最伟大的福音专辑之一。",
+      "noteEn": "A live gospel recording in an LA church — widely ranked among the greatest live gospel albums ever."
+    },
+    {
+      "id": "exile-on-main-st",
+      "title": "流亡大街",
+      "en": "Exile on Main St.",
+      "year": 1972,
+      "genres": [
+        "rock",
+        "blues"
+      ],
+      "creator": "The Rolling Stones",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "在法国流亡别墅地下室录成的双专辑，蓝调与摇滚最脏也最性感的交织。",
+      "noteEn": "A double album cut in a French exile basement — the Stones at their grittiest, bluesiest best."
+    },
+    {
+      "id": "harvest-neil-young",
+      "title": "丰收",
+      "en": "Harvest (Neil Young)",
+      "year": 1972,
+      "genres": [
+        "folk-country",
+        "rock"
+      ],
+      "creator": "Neil Young",
+      "region": "CA",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "《Heart of Gold》与乡谣弦乐，木吉他叙事与时代挽歌并存。",
+      "noteEn": "With 'Heart of Gold', rustic acoustic country meets an era's elegy."
+    },
+    {
+      "id": "pink-moon",
+      "title": "粉月",
+      "en": "Pink Moon",
+      "year": 1972,
+      "genres": [
+        "folk-country"
+      ],
+      "creator": "Nick Drake",
+      "region": "UK",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "仅以人声与吉他录制的告别，忧郁到近乎透明。",
+      "noteEn": "Recorded with just voice and guitar — a farewell so melancholy it turns translucent."
+    },
+    {
+      "id": "talking-book",
+      "title": "会说话的书",
+      "en": "Talking Book",
+      "year": 1972,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "Stevie Wonder",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "〈Superstition〉的 Clavinet 律动成为放克灵魂的教科书段落。",
+      "noteEn": "\"Superstition\"'s clavinet riff became a textbook passage in funk-soul rhythm."
+    },
+    {
+      "id": "the-godfather-1972",
+      "title": "教父",
+      "en": "The Godfather (Original Soundtrack)",
+      "year": 1972,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "Nino Rota",
+      "region": "IT",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "西西里小调的弦乐，让黑帮史诗有了宿命的温柔。",
+      "noteEn": "Sicilian-inflected strings lent the mafia epic a fatal tenderness."
+    },
+    {
+      "id": "ziggy-stardust",
+      "title": "齐格星尘的兴衰",
+      "en": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+      "year": 1972,
+      "genres": [
+        "rock",
+        "pop"
+      ],
+      "creator": "David Bowie",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "虚构外星摇滚巨星 Ziggy 的末日叙事，把舞台人格彻底写进摇滚史。",
+      "noteEn": "The end-of-world story of fictional alien rock star Ziggy, making persona itself an art form."
+    },
+    {
+      "id": "fuente-y-caudal",
+      "title": "源头与水流",
+      "en": "Fuente y caudal",
+      "year": 1973,
+      "genres": [
+        "world",
+        "jazz"
+      ],
+      "creator": "Paco de Lucía",
+      "region": "ES",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "《Entre dos aguas》让弗拉门戈吉他与爵士即兴握手。",
+      "noteEn": "With 'Entre dos aguas', flamenco guitar shook hands with jazz improvisation."
+    },
+    {
+      "id": "head-hunters",
+      "title": "猎头者",
+      "en": "Head Hunters",
+      "year": 1973,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Herbie Hancock",
+      "region": "US",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "《Chameleon》的放克贝斯线与合成器，让爵士放克进入大众视野。",
+      "noteEn": "Chameleon's funk bass and synths took jazz-funk to a mass audience.",
+      "awards": []
+    },
+    {
+      "id": "hosono-house",
+      "title": "细野之家",
+      "en": "Hosono House",
+      "year": 1973,
+      "genres": [
+        "japanese-korean",
+        "folk-country",
+        "electronic"
+      ],
+      "creator": "细野晴臣",
+      "region": "JP",
+      "rating": {
+        "douban": 8.5
+      },
+      "awards": [],
+      "note": "细野晴臣用低保真乡谣开启 Exotica 与民谣的私人宇宙。",
+      "noteEn": "Haruomi Hosono's lo-fi folk home-studio universe that seeded Japanese exotica."
+    },
+    {
+      "id": "innervisions",
+      "title": "内在视觉",
+      "en": "Innervisions",
+      "year": 1973,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "Stevie Wonder",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.4
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "合成器与政治自觉同时成熟的杰作，〈Living for the City〉是他的叙事巅峰。",
+      "noteEn": "Synths and political consciousness maturing together — \"Living for the City\" at his narrative peak."
+    },
+    {
+      "id": "kori-no-sekai",
+      "title": "冰的世界",
+      "en": "Kōri no Sekai",
+      "year": 1973,
+      "genres": [
+        "japanese-korean",
+        "folk-country"
+      ],
+      "creator": "井上阳水",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "日本唱片史首张销量破百万的专辑，井上阳水以民谣与意象统治七十年代。",
+      "noteEn": "Japan's first million-selling album; Yōsui Inoue's folk-poetry ruled the early 70s."
+    },
+    {
+      "id": "light-as-a-feather",
+      "title": "轻如羽毛",
+      "en": "Light as a Feather",
+      "year": 1973,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Chick Corea & Return to Forever",
+      "region": "US",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "《Spain》把弗拉门戈与爵士和声结合，是融合时代最轻盈优美的门面。",
+      "noteEn": "Spain folds flamenco into jazz harmony — fusion's airiest, loveliest calling card.",
+      "awards": []
+    },
+    {
+      "id": "space-is-the-place",
+      "title": "太空即此地",
+      "en": "Space Is the Place",
+      "year": 1973,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Sun Ra",
+      "region": "US",
+      "rating": {
+        "rym": 3.8
+      },
+      "note": "太阳神方舟拉的非洲未来主义宣言，电子琴与异域和声营造出宇宙剧场的错觉。",
+      "noteEn": "Afrofuturism avant la lettre — synths and exotic harmonies stage an interstellar revue.",
+      "awards": []
+    },
+    {
+      "id": "the-dark-side-of-the-moon",
+      "title": "月之暗面",
+      "en": "The Dark Side of the Moon",
+      "year": 1973,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Pink Floyd",
+      "region": "UK",
+      "rating": {
+        "rym": 4.4,
+        "douban": 9.7
+      },
+      "awards": [],
+      "note": "把摇滚做成工程级精密的概念专辑，在公告牌榜上驻留了惊人的 900 多周。",
+      "noteEn": "Rock built with engineering precision — a concept album that spent over 900 weeks on the Billboard chart."
+    },
+    {
+      "id": "a-night-at-the-opera",
+      "title": "歌剧院之夜",
+      "en": "A Night at the Opera",
+      "year": 1975,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Queen",
+      "region": "UK",
+      "rating": {
+        "rym": 3.8,
+        "douban": 9.6
+      },
+      "awards": [],
+      "note": "〈Bohemian Rhapsody〉把歌剧、民谣与金属缝进一首六分钟单曲，是录音室挥霍的胜利。",
+      "noteEn": "\"Bohemian Rhapsody\" sews opera, ballad and metal into one six-minute single — profligacy as triumph."
+    },
+    {
+      "id": "blood-on-the-tracks",
+      "title": "路上的血迹",
+      "en": "Blood on the Tracks",
+      "year": 1975,
+      "genres": [
+        "folk-country"
+      ],
+      "creator": "Bob Dylan",
+      "region": "US",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "离婚阴霾下的叙事巅峰，Dylan 把私生活写成美国神话。",
+      "noteEn": "Dylan's narrative peak under the shadow of divorce, turning private pain into American myth."
+    },
+    {
+      "id": "born-to-run",
+      "title": "生为奔跑",
+      "en": "Born to Run",
+      "year": 1975,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Bruce Springsteen",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "「今晚我们奔向胜利」的逃逸宣言，把新泽西的蓝领渴望谱成摇滚国歌。",
+      "noteEn": "An anthem of escape and working-class longing, turning New Jersey into rock's promised land."
+    },
+    {
+      "id": "expensive-shit",
+      "title": "昂贵的屎",
+      "en": "Expensive Shit",
+      "year": 1975,
+      "genres": [
+        "world"
+      ],
+      "creator": "Fela Kuti",
+      "region": "NG",
+      "rating": {
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "Afrobeat 之父的录音室名盘，把政治讽刺与十人铜管熔成一炉。",
+      "noteEn": "The Afrobeat pioneer's studio classic, fusing political satire with a ten-piece horn section."
+    },
+    {
+      "id": "koln-concert",
+      "title": "科隆音乐会",
+      "en": "The Koln Concert",
+      "year": 1975,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Keith Jarrett",
+      "region": "US",
+      "rating": {
+        "rym": 4.4
+      },
+      "note": "在劣质钢琴上即兴出的抒情长河，史上最畅销的爵士钢琴独奏录音。",
+      "noteEn": "An improvised lyric river on a substandard piano — the best-selling solo jazz piano record.",
+      "awards": []
+    },
+    {
+      "id": "wish-you-were-here",
+      "title": "愿你在此",
+      "en": "Wish You Were Here",
+      "year": 1975,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Pink Floyd",
+      "region": "UK",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.6
+      },
+      "awards": [],
+      "note": "献给迷失在名利场的前队友 Syd Barrett，〈Shine On You Crazy Diamond〉是摇滚最动人的悼词之一。",
+      "noteEn": "An elegy for lost bandmate Syd Barrett — \"Shine On You Crazy Diamond\" is rock's most moving farewell."
+    },
+    {
+      "id": "arrival",
+      "title": "抵达",
+      "en": "Arrival",
+      "year": 1976,
+      "genres": [
+        "pop"
+      ],
+      "creator": "ABBA",
+      "region": "SE",
+      "rating": {
+        "rym": 3.8,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "〈Dancing Queen〉就在这张里，把瑞典的旋律工业推向全球。",
+      "noteEn": "Home of \"Dancing Queen\" — the record that made Sweden's melody machine global."
+    },
+    {
+      "id": "glass-einstein-on-the-beach",
+      "title": "海滩上的爱因斯坦",
+      "en": "Einstein on the Beach",
+      "year": 1976,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Philip Glass",
+      "region": "US",
+      "note": "与罗伯特·威尔逊合作的五小时歌剧，数字、字母与重复音型剥离了传统叙事。",
+      "noteEn": "A five-hour opera with Robert Wilson — numbers, letters and repetition strip away narrative.",
+      "awards": []
+    },
+    {
+      "id": "estudando-o-samba",
+      "title": "学习桑巴",
+      "en": "Estudando o Samba",
+      "year": 1976,
+      "genres": [
+        "world",
+        "electronic"
+      ],
+      "creator": "Tom Zé",
+      "region": "BR",
+      "rating": {
+        "douban": 8.5
+      },
+      "awards": [],
+      "note": "被大卫·伯恩重新发现的巴西怪才，用解构桑巴预演未来。",
+      "noteEn": "Rediscovered by David Byrne, Tom Zé deconstructed samba into a preview of the future."
+    },
+    {
+      "id": "reich-music-for-18-musicians",
+      "title": "十八位音乐家的音乐",
+      "en": "Music for 18 Musicians",
+      "year": 1976,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Steve Reich",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "awards": [
+        "polar-music"
+      ],
+      "note": "由11个和弦驱动整场约一小时的脉动，简约主义用最小材料造出最大推进感，莱希2007年获极地音乐奖。",
+      "noteEn": "Eleven chords drive a pulsing hour — minimalism's fullest statement; Reich won the 2007 Polar Prize."
+    },
+    {
+      "id": "oxygene",
+      "title": "氧气",
+      "en": "Oxygène",
+      "year": 1976,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Jean-Michel Jarre",
+      "region": "FR",
+      "rating": {
+        "rym": 3.8,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "全模拟合成器做成的法国电子原声带，全球销量超 1500 万张。",
+      "noteEn": "French electronic score built entirely on analogue synths — over 15 million copies sold worldwide."
+    },
+    {
+      "id": "songs-in-the-key-of-life",
+      "title": "生命之钥",
+      "en": "Songs in the Key of Life",
+      "year": 1976,
+      "genres": [
+        "rnb-soul",
+        "pop"
+      ],
+      "creator": "Stevie Wonder",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.4
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "双碟的流行灵魂百科全书，1977 年格莱美年度专辑。",
+      "noteEn": "A double-album encyclopedia of pop-soul, Grammy Album of the Year 1977."
+    },
+    {
+      "id": "gorecki-symphony-3",
+      "title": "第三交响曲「悲痛之歌」",
+      "en": "Symphony No. 3 'Symphony of Sorrowful Songs' (Gorecki)",
+      "year": 1976,
+      "genres": [
+        "classical"
+      ],
+      "creator": "Henryk Górecki",
+      "region": "PL",
+      "note": "三个慢乐章用波兰圣母祷文与集中营刻字，1992年的录音意外成为畅销奇迹。",
+      "noteEn": "Three slow movements on Polish prayers and a prison-wall inscription — a 1992 chart surprise.",
+      "awards": []
+    },
+    {
+      "id": "hard-again",
+      "title": "更猛",
+      "en": "Hard Again",
+      "year": 1977,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Muddy Waters",
+      "region": "US",
+      "awards": [
+        "grammy"
+      ],
+      "note": "约翰尼·温特制作的电声蓝调回春之作，获1978年格莱美传统民谣类大奖。",
+      "noteEn": "Johnny Winter-produced comeback electricity — the 1978 Grammy-winning Traditional Folk Album."
+    },
+    {
+      "id": "heavy-weather",
+      "title": "坏天气",
+      "en": "Heavy Weather",
+      "year": 1977,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Weather Report",
+      "region": "US",
+      "rating": {
+        "rym": 3.8
+      },
+      "note": "《Birdland》的复合节奏与雅各布的电贝斯，融合爵士的旗舰专辑。",
+      "noteEn": "Birdland's odd meters and Jaco's bass — the fusion flagship.",
+      "awards": []
+    },
+    {
+      "id": "low",
+      "title": "低迷",
+      "en": "Low",
+      "year": 1977,
+      "genres": [
+        "rock",
+        "electronic"
+      ],
+      "creator": "David Bowie",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "柏林三部曲之首，把断裂的器乐与冰冷的合成器拼在一起，预示了后朋克与氛围。",
+      "noteEn": "First of the Berlin trilogy, splicing broken instrumentals with cold synths — a blueprint for post-punk and ambient."
+    },
+    {
+      "id": "rumours",
+      "title": "谣言",
+      "en": "Rumours",
+      "year": 1977,
+      "genres": [
+        "rock",
+        "pop"
+      ],
+      "creator": "Fleetwood Mac",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "乐队成员集体分手的产物，把私密伤痛做成软摇滚最精致的流行机器。",
+      "noteEn": "Forged from the band's collective breakups, it polished private pain into the sleekest pop-rock machine of the '70s."
+    },
+    {
+      "id": "star-wars-a-new-hope",
+      "title": "星球大战：新希望",
+      "en": "Star Wars: A New Hope (Original Soundtrack)",
+      "year": 1977,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "John Williams",
+      "region": "US",
+      "rating": {
+        "douban": 9.4
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "开场号角定义了太空歌剧的听觉想象，奥斯卡最佳原创配乐。",
+      "noteEn": "The opening fanfare defined how space opera should sound; Academy Award-winning score."
+    },
+    {
+      "id": "trans-europe-express",
+      "title": "欧洲特快列车",
+      "en": "Trans-Europe Express",
+      "year": 1977,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Kraftwerk",
+      "region": "DE",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "用节拍器般的电子脉冲模拟列车之旅，彻底改写了流行乐对「机械」的想象。",
+      "noteEn": "Simulating a train journey with metronomic pulses, it rewired pop's imagination of the machine."
+    },
+    {
+      "id": "music-for-airports",
+      "title": "机场音乐",
+      "en": "Ambient 1: Music for Airports",
+      "year": 1978,
+      "genres": [
+        "ambient-newage",
+        "electronic"
+      ],
+      "creator": "Brian Eno",
+      "region": "UK",
+      "rating": {
+        "rym": 3.8,
+        "douban": 8.9
+      },
+      "note": "Eno 定义「氛围音乐」的开山之作，为机场候机厅设计出可忽略又动人的背景。",
+      "noteEn": "The founding text of ambient — music designed to be ignorable yet affecting, first for an airport lobby.",
+      "awards": []
+    },
+    {
+      "id": "the-man-machine",
+      "title": "人机",
+      "en": "The Man-Machine",
+      "year": 1978,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Kraftwerk",
+      "region": "DE",
+      "rating": {
+        "rym": 4,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "机器人穿西装唱歌的封面，是「人机合一」美学最直接的宣言。",
+      "noteEn": "Robots in suits on the cover — the most literal statement of the man-machine aesthetic."
+    },
+    {
+      "id": "thousand-knives",
+      "title": "千之刃",
+      "en": "Thousand Knives",
+      "year": 1978,
+      "genres": [
+        "japanese-korean",
+        "electronic",
+        "classical"
+      ],
+      "creator": "坂本龙一",
+      "region": "JP",
+      "rating": {
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "坂本龙一将电子乐与亚欧传统素材并置，学院派的先锋起点。",
+      "noteEn": "Ryuichi Sakamoto fusing electronics with Asian and European traditions — an academician's avant-garde debut."
+    },
+    {
+      "id": "london-calling",
+      "title": "伦敦呼叫",
+      "en": "London Calling",
+      "year": 1979,
+      "genres": [
+        "rock"
+      ],
+      "creator": "The Clash",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "朋克没有限制他们的愤怒，反而让他们写进雷鬼、放克与摇滚混合的双专辑。",
+      "noteEn": "Punk didn't limit their rage — it let them splice reggae, funk and rock into a double album."
+    },
+    {
+      "id": "off-the-wall",
+      "title": "墙外",
+      "en": "Off the Wall",
+      "year": 1979,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Michael Jackson",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9.3
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "与 Quincy Jones 的首次合作，把迪斯科、放克与灵魂乐熔成成人流行的模板。",
+      "noteEn": "First collaboration with Quincy Jones, fusing disco, funk and soul into the template for adult pop."
+    },
+    {
+      "id": "olive-tree",
+      "title": "橄榄树",
+      "en": "Olive Tree",
+      "year": 1979,
+      "genres": [
+        "chinese-pop",
+        "folk-country"
+      ],
+      "creator": "齐豫",
+      "region": "TW",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "三毛作词的《橄榄树》让齐豫的声音成为台湾民歌运动的化身。",
+      "noteEn": "With lyrics by Sanmao, 'Olive Tree' made Chyi Yu's voice the embodiment of Taiwan's folk-song movement."
+    },
+    {
+      "id": "solid-state-survivor",
+      "title": "Solid State Survivor",
+      "en": "Solid State Survivor",
+      "year": 1979,
+      "genres": [
+        "japanese-korean",
+        "electronic"
+      ],
+      "creator": "Yellow Magic Orchestra",
+      "region": "JP",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "YMO 第二张专辑，把 Techno 流行化的世界宣言，《Behind the Mask》走向全球。",
+      "noteEn": "YMO's second LP turned techno into pop and sent 'Behind the Mask' around the world."
+    },
+    {
+      "id": "the-wall",
+      "title": "迷墙",
+      "en": "The Wall",
+      "year": 1979,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Pink Floyd",
+      "region": "UK",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9.6
+      },
+      "awards": [],
+      "note": "把心墙筑成双专辑歌剧，疏离、战争与疯狂在每一块砖里膨胀。",
+      "noteEn": "A double-album opera about alienation, war and madness, brick by brick."
+    },
+    {
+      "id": "unknown-pleasures",
+      "title": "未知的欢愉",
+      "en": "Unknown Pleasures",
+      "year": 1979,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Joy Division",
+      "region": "UK",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "那张脉冲星封面与 Ian Curtis 的深渊低吟，共同定义了后朋克的冷。",
+      "noteEn": "A pulsar cover and Ian Curtis's abyssal baritone defined the cold of post-punk."
+    },
+    {
+      "id": "back-in-black",
+      "title": "回到黑暗",
+      "en": "Back in Black",
+      "year": 1980,
+      "genres": [
+        "rock"
+      ],
+      "creator": "AC/DC",
+      "region": "AU",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "在故主 Bon Scott 离世后以新主唱重生，成为史上最畅销的摇滚专辑之一。",
+      "noteEn": "Reborn with a new singer after Bon Scott's death — one of the best-selling rock albums ever."
+    },
+    {
+      "id": "fourth-world-possible-musics",
+      "title": "第四世界卷一：可能的音乐",
+      "en": "Fourth World Vol. 1: Possible Musics",
+      "year": 1980,
+      "genres": [
+        "ambient-newage"
+      ],
+      "creator": "Jon Hassell & Brian Eno",
+      "region": "US",
+      "rating": {
+        "rym": 3.8
+      },
+      "note": "小号的「第四世界」理论——把世界各地的素材融化进数字延迟的雾中。",
+      "noteEn": "Trumpet through digital delay — 'Fourth World' music, global sources in a haze.",
+      "awards": []
+    },
+    {
+      "id": "remain-in-light",
+      "title": "留在光明中",
+      "en": "Remain in Light",
+      "year": 1980,
+      "genres": [
+        "rock",
+        "electronic"
+      ],
+      "creator": "Talking Heads",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "把非洲放克律动塞进后朋克骨架，循环采样让乐队听起来像一支不断增殖的方阵。",
+      "noteEn": "African funk polyrhythms in a post-punk chassis — looping samples make the band feel like a multiplying ensemble."
+    },
+    {
+      "id": "silk-road",
+      "title": "丝绸之路",
+      "en": "Silk Road",
+      "year": 1980,
+      "genres": [
+        "ambient-newage"
+      ],
+      "creator": "喜多郎",
+      "region": "JP",
+      "note": "为NHK纪录片所作，合成器描摹驼铃与沙漠，是日本新世纪音乐走向世界的名片。",
+      "noteEn": "Synthesizers evoke caravans and dunes for an NHK series — Japanese New Age goes global.",
+      "awards": []
+    },
+    {
+      "id": "plateaux-of-mirror",
+      "title": "镜之高地",
+      "en": "The Plateaux of Mirror",
+      "year": 1980,
+      "genres": [
+        "ambient-newage"
+      ],
+      "creator": "Harold Budd & Brian Eno",
+      "region": "UK",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "钢琴与电子延音的极简对话，像雨后山谷里的回响。",
+      "noteEn": "Minimal piano over electronic sustain — an echo in a rain-washed valley.",
+      "awards": []
+    },
+    {
+      "id": "a-long-vacation",
+      "title": "A Long Vacation",
+      "en": "A Long Vacation",
+      "year": 1981,
+      "genres": [
+        "japanese-korean",
+        "pop"
+      ],
+      "creator": "大泷咏一",
+      "region": "JP",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "大泷咏一的盛夏概念专辑，City Pop 命名的重要源头之一。",
+      "noteEn": "Ōtaki's midsummer concept album and one of the wellsprings of the 'city pop' name."
+    },
+    {
+      "id": "chariots-of-fire",
+      "title": "烈火战车",
+      "en": "Chariots of Fire",
+      "year": 1981,
+      "genres": [
+        "ambient-newage",
+        "soundtrack"
+      ],
+      "creator": "Vangelis",
+      "region": "GR",
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "合成器主题与慢镜头奔跑绑定，1982年获奥斯卡最佳原创配乐。",
+      "noteEn": "The synth theme IS the slow-motion run — winner of the 1982 Academy Award for Best Score."
+    },
+    {
+      "id": "blade-runner-vangelis",
+      "title": "银翼杀手",
+      "en": "Blade Runner (Original Soundtrack)",
+      "year": 1982,
+      "genres": [
+        "soundtrack",
+        "electronic"
+      ],
+      "creator": "Vangelis",
+      "region": "GR",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "合成器描绘的霓虹雨夜，赛博朋克配乐的模板。",
+      "noteEn": "Synths painting a neon rain — the template of cyberpunk scoring."
+    },
+    {
+      "id": "for-you-tatsuro",
+      "title": "For You",
+      "en": "For You (Tatsuro Yamashita)",
+      "year": 1982,
+      "genres": [
+        "japanese-korean",
+        "rnb-soul",
+        "pop"
+      ],
+      "creator": "山下达郎",
+      "region": "JP",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "City Pop 的教科书，夏季海岸与合成器的完美共振。",
+      "noteEn": "A textbook of city pop — the perfect resonance of summer coasts and synths."
+    },
+    {
+      "id": "thriller",
+      "title": "颤栗",
+      "en": "Thriller",
+      "year": 1982,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Michael Jackson",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 9.5
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "史上最畅销专辑之一，七首 Top 10 单曲，把音乐录影带变成一门产业。",
+      "noteEn": "One of the best-selling albums ever, with seven Top-10 singles — it turned the music video into an industry."
+    },
+    {
+      "id": "zhi-hu-zhe-ye",
+      "title": "之乎者也",
+      "en": "Zhi Hu Zhe Ye",
+      "year": 1982,
+      "genres": [
+        "chinese-pop",
+        "folk-country"
+      ],
+      "creator": "罗大佑",
+      "region": "TW",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "一把电吉他把文言成语砸进摇滚，被奉为台湾流行音乐百佳第一的破格之作。",
+      "noteEn": "Anchoring classical idioms to electric rock, it is crowned No.1 in Taiwan's 100 Best Pop Albums."
+    },
+    {
+      "id": "dan-dan-you-qing",
+      "title": "淡淡幽情",
+      "en": "Dan Dan You Qing",
+      "year": 1983,
+      "genres": [
+        "chinese-pop"
+      ],
+      "creator": "邓丽君",
+      "region": "TW",
+      "rating": {
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "把宋词谱曲成歌，邓丽君最「文人」的一张，词牌与气声互为表里。",
+      "noteEn": "Setting Song-dynasty ci poetry to melody, Teresa Teng's most literary album pairs ancient lyrics with her signature breathy voice."
+    },
+    {
+      "id": "merry-christmas-mr-lawrence",
+      "title": "圣诞快乐，劳伦斯先生",
+      "en": "Merry Christmas, Mr. Lawrence (Original Soundtrack)",
+      "year": 1983,
+      "genres": [
+        "soundtrack",
+        "electronic",
+        "classical"
+      ],
+      "creator": "坂本龙一",
+      "region": "JP",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "同名主题成为坂本龙一最著名的旋律，战争与和解的东方回响。",
+      "noteEn": "Its title theme is Sakamoto's most famous melody — a reconciliation of East and West amid war."
+    },
+    {
+      "id": "papa-can-you-hear-me-sing",
+      "title": "搭错车",
+      "en": "Papa, Can You Hear Me Sing? (Original Soundtrack)",
+      "year": 1983,
+      "genres": [
+        "chinese-pop",
+        "soundtrack"
+      ],
+      "creator": "苏芮",
+      "region": "TW",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "《酒干倘卖无》《一样的月光》——苏芮把西洋摇滚嗓带进华语电影配乐。",
+      "noteEn": "With 'Wine Glasses' and 'Same Moon', Su Rui's Western rock voice electrified a Chinese film score for the first time."
+    },
+    {
+      "id": "shes-so-unusual",
+      "title": "她如此不寻常",
+      "en": "She's So Unusual",
+      "year": 1983,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Cyndi Lauper",
+      "region": "US",
+      "rating": {
+        "rym": 3.7,
+        "douban": 8.8
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "彩虹发色与〈Time After Time〉，把新浪潮气质做成畅销排行榜的主流。",
+      "noteEn": "Rainbow hair and \"Time After Time\" — new-wave quirk turned into chart-topping mainstream."
+    },
+    {
+      "id": "texas-flood",
+      "title": "德州洪水",
+      "en": "Texas Flood",
+      "year": 1983,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Stevie Ray Vaughan & Double Trouble",
+      "region": "US",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "在蒙特勒现场救场后录制的首专，把布鲁斯摇滚带回吉他的中心。",
+      "noteEn": "A debut recorded after a Montreux rescue — putting the guitar back at blues-rock's center.",
+      "awards": []
+    },
+    {
+      "id": "purple-rain",
+      "title": "紫雨",
+      "en": "Purple Rain",
+      "year": 1984,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Prince and the Revolution",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9.3
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "同名电影与专辑互为注脚，〈Purple Rain〉让 Prince 成为当时代的天王，并拿下奥斯卡原创歌曲配乐奖。",
+      "noteEn": "Album and film in dialogue — \"Purple Rain\" made Prince the reigning star of the era and won an Academy Award for its score."
+    },
+    {
+      "id": "source-of-love",
+      "title": "爱的根源",
+      "en": "The Source of Love",
+      "year": 1984,
+      "genres": [
+        "chinese-pop"
+      ],
+      "creator": "谭咏麟",
+      "region": "HK",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "谭咏麟全盛期神作，奠定香港都会情歌的录音室美学。",
+      "noteEn": "Alan Tam at his peak; a studio masterpiece that defined Hong Kong's metropolitan love-song sound."
+    },
+    {
+      "id": "variety-mariya",
+      "title": "Variety",
+      "en": "Variety (Mariya Takeuchi)",
+      "year": 1984,
+      "genres": [
+        "japanese-korean",
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "竹内まりや",
+      "region": "JP",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "《Plastic Love》的原点，被互联网重新发现的昭和都会律动。",
+      "noteEn": "The source of 'Plastic Love', a Shōwa urban groove rediscovered by the internet."
+    },
+    {
+      "id": "hounds-of-love",
+      "title": "爱的猎犬",
+      "en": "Hounds of Love",
+      "year": 1985,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Kate Bush",
+      "region": "UK",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "〈Running Up That Hill〉把电子流行带进高概念叙事，第二面是完整的艺术歌剧。",
+      "noteEn": "\"Running Up That Hill\" fuses electronic pop with high concept; side two is a complete art-opera."
+    },
+    {
+      "id": "whitney-houston",
+      "title": "惠特妮·休斯顿",
+      "en": "Whitney Houston",
+      "year": 1985,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Whitney Houston",
+      "region": "US",
+      "rating": {
+        "rym": 3.6,
+        "douban": 9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "史上最畅销的女歌手处子专辑之一，〈Saving All My Love for You〉为她捧回第一座格莱美。",
+      "noteEn": "One of the best-selling female debuts ever; \"Saving All My Love for You\" won her first Grammy."
+    },
+    {
+      "id": "master-of-puppets",
+      "title": "傀儡之主",
+      "en": "Master of Puppets",
+      "year": 1986,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Metallica",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "把鞭击金属的复杂编曲推到巅峰，2016 年入选美国国家录音典藏。",
+      "noteEn": "Thrash metal's compositional peak, added to the National Recording Registry in 2016."
+    },
+    {
+      "id": "raising-hell",
+      "title": "掀起地狱",
+      "en": "Raising Hell",
+      "year": 1986,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Run-D.M.C.",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "与 Aerosmith 合作〈Walk This Way〉，把说唱与摇滚一起推上主流电台。",
+      "noteEn": "Teaming with Aerosmith on \"Walk This Way\" carried rap and rock to mainstream radio together."
+    },
+    {
+      "id": "the-queen-is-dead",
+      "title": "女王已死",
+      "en": "The Queen Is Dead",
+      "year": 1986,
+      "genres": [
+        "rock"
+      ],
+      "creator": "The Smiths",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "Morrissey 的机智刻薄配上 Marr 的吉他清亮，把独立流行写成反主流宣言。",
+      "noteEn": "Morrissey's wit and Marr's gleaming guitar turn indie pop into a counter-mainstream manifesto."
+    },
+    {
+      "id": "spirits-of-life",
+      "title": "生命中的精灵",
+      "en": "The Spirits of Life",
+      "year": 1986,
+      "genres": [
+        "chinese-pop",
+        "folk-country"
+      ],
+      "creator": "李宗盛",
+      "region": "TW",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "李宗盛首张个人专辑，城市男性的心事独白，语感即是旋律。",
+      "noteEn": "Jonathan Lee's solo debut — intimate monologues of urban men where speech rhythm becomes melody."
+    },
+    {
+      "id": "zero-hour-piazzolla",
+      "title": "零点",
+      "en": "Zero Hour (Astor Piazzolla)",
+      "year": 1986,
+      "genres": [
+        "world",
+        "jazz",
+        "classical"
+      ],
+      "creator": "Astor Piazzolla",
+      "region": "AR",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "新探戈的宣言，手风琴在古典与爵士之间起舞。",
+      "noteEn": "The manifesto of tango nuevo — the bandoneón dancing between classical and jazz."
+    },
+    {
+      "id": "bad",
+      "title": "飙",
+      "en": "Bad",
+      "year": 1987,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Michael Jackson",
+      "region": "US",
+      "rating": {
+        "rym": 3.5,
+        "douban": 9.3
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "紧接 Thriller 的连冠专辑，〈Smooth Criminal〉把舞蹈编排推向电影级。",
+      "noteEn": "The chart-topping follow-up to Thriller — \"Smooth Criminal\" pushed choreography to cinematic scale."
+    },
+    {
+      "id": "faith",
+      "title": "信念",
+      "en": "Faith",
+      "year": 1987,
+      "genres": [
+        "pop"
+      ],
+      "creator": "George Michael",
+      "region": "UK",
+      "rating": {
+        "rym": 3.5,
+        "douban": 8.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "单飞后的全能宣言，包办词曲制作，〈Faith〉拿下 1988 年格莱美年度专辑。",
+      "noteEn": "A one-man solo statement — written, produced and performed by George Michael, Grammy Album of the Year 1988."
+    },
+    {
+      "id": "making-music-zakir",
+      "title": "即兴之声",
+      "en": "Making Music",
+      "year": 1987,
+      "genres": [
+        "world",
+        "jazz"
+      ],
+      "creator": "Zakir Hussain",
+      "region": "IN",
+      "rating": {
+        "douban": 8.5
+      },
+      "awards": [],
+      "note": "塔布拉鼓王与 Jan Garbarek、John McLaughlin 的 ECM 即兴，印度节奏与北欧萨克斯的对话。",
+      "noteEn": "The tabla master improvising with Jan Garbarek and John McLaughlin — an ECM dialogue of Indian rhythm and Nordic sax."
+    },
+    {
+      "id": "shaka-zulu",
+      "title": "沙卡·祖鲁",
+      "en": "Shaka Zulu",
+      "year": 1987,
+      "genres": [
+        "world"
+      ],
+      "creator": "Ladysmith Black Mambazo",
+      "region": "ZA",
+      "rating": {
+        "douban": 8.6
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "祖鲁合唱与《Graceland》一同把南非声音带进西方客厅，格莱美最佳传统民谣。",
+      "noteEn": "Zulu isicathamiya that, alongside Graceland, carried South African voices into Western homes; Grammy winner."
+    },
+    {
+      "id": "shi-tou-ji",
+      "title": "石头记",
+      "en": "Shi Tou Ji (The Story of the Stone)",
+      "year": 1987,
+      "genres": [
+        "chinese-pop",
+        "electronic"
+      ],
+      "creator": "达明一派",
+      "region": "HK",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "以《红楼梦》入歌，电子编曲包裹文言意象，香港新浪潮的巅峰。",
+      "noteEn": "Adapting Dream of the Red Chamber into synth-pop, it marks the zenith of Hong Kong's new-wave scene."
+    },
+    {
+      "id": "sign-o-the-times",
+      "title": "时代印记",
+      "en": "Sign o' the Times",
+      "year": 1987,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Prince",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "双碟横跨放克、民谣、摇滚与电子，是 Prince 一生创造力最湍急的河流。",
+      "noteEn": "A double album spanning funk, balladry, rock and electronics — Prince's most torrential creative peak."
+    },
+    {
+      "id": "the-joshua-tree",
+      "title": "约书亚之树",
+      "en": "The Joshua Tree",
+      "year": 1987,
+      "genres": [
+        "rock"
+      ],
+      "creator": "U2",
+      "region": "IE",
+      "rating": {
+        "rym": 3.8,
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "在美国沙漠里拍出的大片感摇滚，让 U2 从都柏林乐队变成世界级命题。",
+      "noteEn": "Cinematic rock shot in the American desert, turning U2 from Dublin band into global statement."
+    },
+    {
+      "id": "the-last-emperor",
+      "title": "末代皇帝",
+      "en": "The Last Emperor (Original Soundtrack)",
+      "year": 1987,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "坂本龙一",
+      "region": "JP",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "坂本龙一、大卫·伯恩与苏聪共享奥斯卡，东西配乐的水乳交融。",
+      "noteEn": "Sakamoto, Byrne and Cong Su shared an Oscar — a seamless East-West fusion."
+    },
+    {
+      "id": "cinema-paradiso",
+      "title": "天堂电影院",
+      "en": "Cinema Paradiso (Original Soundtrack)",
+      "year": 1988,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "Ennio Morricone",
+      "region": "IT",
+      "rating": {
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "《Love Theme》的弦乐让乡愁可触，莫里康内最柔情的旋律。",
+      "noteEn": "The 'Love Theme''s strings make nostalgia tangible — Morricone's tenderest melody."
+    },
+    {
+      "id": "daydream-nation",
+      "title": "白日梦国度",
+      "en": "Daydream Nation",
+      "year": 1988,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Sonic Youth",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "pitchfork": 10,
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "另类摇滚把调音当作创作手段的长篇宣言，影响整个九十年代的独立场景。",
+      "noteEn": "A sprawling alt-rock manifesto treating alternate tunings as composition — the blueprint for '90s indie."
+    },
+    {
+      "id": "my-neighbor-totoro",
+      "title": "龙猫",
+      "en": "My Neighbor Totoro (Original Soundtrack)",
+      "year": 1988,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "久石让",
+      "region": "JP",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "《散步》的旋律让宫崎骏的田园魔法有了心跳。",
+      "noteEn": "'The Path of the Wind' gave Miyazaki's pastoral magic a heartbeat."
+    },
+    {
+      "id": "shaday-ofra-haza",
+      "title": "沙代",
+      "en": "Shaday (Ofra Haza)",
+      "year": 1988,
+      "genres": [
+        "world",
+        "pop"
+      ],
+      "creator": "Ofra Haza",
+      "region": "IL",
+      "rating": {
+        "douban": 8
+      },
+      "awards": [],
+      "note": "《Im Nin'alu》把也门犹太传统与合成器流行嫁接，风靡欧洲舞池。",
+      "noteEn": "'Im Nin'alu' grafted Yemenite-Jewish tradition onto synth-pop and conquered European dance floors."
+    },
+    {
+      "id": "watermark",
+      "title": "水印",
+      "en": "Watermark",
+      "year": 1988,
+      "genres": [
+        "ambient-newage"
+      ],
+      "creator": "Enya",
+      "region": "IE",
+      "note": "《Orinoco Flow》的多轨人声叠出空灵圣所，让新世纪音乐登上排行榜。",
+      "noteEn": "Orinoco Flow's layered vocals built a cathedral of air — New Age on the pop charts.",
+      "awards": []
+    },
+    {
+      "id": "blue-blood-x",
+      "title": "Blue Blood",
+      "en": "Blue Blood (X Japan)",
+      "year": 1989,
+      "genres": [
+        "japanese-korean",
+        "rock"
+      ],
+      "creator": "X Japan",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "Visual Kei 的圣经，华丽金属包裹着古典钢琴的底色。",
+      "noteEn": "The bible of visual kei — glam metal wrapped around classical piano."
+    },
+    {
+      "id": "doolittle",
+      "title": "杜立德",
+      "en": "Doolittle",
+      "year": 1989,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Pixies",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "动静切换的「软-硬」范式，直接催生了 Nirvana 的 Nevermind。",
+      "noteEn": "The loud-quiet-loud template that directly fathered Nirvana's Nevermind."
+    },
+    {
+      "id": "rhythm-nation-1814",
+      "title": "节奏国度 1814",
+      "en": "Janet Jackson's Rhythm Nation 1814",
+      "year": 1989,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Janet Jackson",
+      "region": "US",
+      "rating": {
+        "rym": 3.8,
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "用放克节拍讲社会议题，概念与舞蹈编排都走在时代前头。",
+      "noteEn": "Funk beats carrying social commentary — a concept and choreography years ahead of its time."
+    },
+    {
+      "id": "like-a-prayer",
+      "title": "宛如祈祷者",
+      "en": "Like a Prayer",
+      "year": 1989,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Madonna",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "麦当娜最私人也最大胆的一张，MV 里的宗教意象让全世界哗然。",
+      "noteEn": "Madonna's most personal and provocative record — its religious imagery ignited global controversy."
+    },
+    {
+      "id": "rock-on-the-new-long-march",
+      "title": "新长征路上的摇滚",
+      "en": "Rock on the New Long March",
+      "year": 1989,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "崔健",
+      "region": "CN",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "《一无所有》之外，崔健把迷茫与反叛焊进摇滚，中国摇滚的起点。",
+      "noteEn": "Beyond 'Nothing to My Name', Cui Jian welded restlessness into rock — the starting point of Chinese rock."
+    },
+    {
+      "id": "talk-to-you-listen-to-you",
+      "title": "跟你说 听你说",
+      "en": "Talk to You, Listen to You",
+      "year": 1989,
+      "genres": [
+        "chinese-pop",
+        "pop"
+      ],
+      "creator": "陈淑桦",
+      "region": "TW",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "《梦醒时分》——李宗盛操刀的都会情歌，台湾百万销量的城市蓝调。",
+      "noteEn": "With 'Dream Awake', Jonathan Lee's urban balladry made Sarah Chen a million-selling Taipei voice."
+    },
+    {
+      "id": "the-healer",
+      "title": "疗愈者",
+      "en": "The Healer",
+      "year": 1989,
+      "genres": [
+        "blues"
+      ],
+      "creator": "John Lee Hooker",
+      "region": "US",
+      "awards": [
+        "grammy"
+      ],
+      "note": "与桑塔纳等合作的回归之作，1990年获格莱美最佳传统蓝调录音。",
+      "noteEn": "A comeback with Santana and guests — the 1990 Grammy for Best Traditional Blues Recording."
+    },
+    {
+      "id": "robert-johnson-complete-recordings",
+      "title": "罗伯特·约翰逊全集",
+      "en": "The Complete Recordings (Robert Johnson)",
+      "year": 1990,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Robert Johnson",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "1936-37年的29首录音合辑，1991年获格莱美最佳传统蓝调专辑，是三角洲蓝调的源头。",
+      "noteEn": "Twenty-nine 1936-37 sides collected; a 1991 Grammy winner — the delta blues at its source."
+    },
+    {
+      "id": "violator",
+      "title": "侵犯者",
+      "en": "Violator",
+      "year": 1990,
+      "genres": [
+        "electronic",
+        "pop"
+      ],
+      "creator": "Depeche Mode",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "〈Personal Jesus〉与〈Enjoy the Silence〉，把合成器流行推到教堂般庄严的高度。",
+      "noteEn": "\"Personal Jesus\" and \"Enjoy the Silence\" lift synth-pop to cathedral solemnity."
+    },
+    {
+      "id": "black-panther",
+      "title": "黑豹",
+      "en": "Black Panther",
+      "year": 1991,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "黑豹乐队",
+      "region": "CN",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "《Don't Break My Heart》让摇滚第一次进入内地主流视野。",
+      "noteEn": "'Don't Break My Heart' brought rock into China's mainstream consciousness."
+    },
+    {
+      "id": "blue-lines",
+      "title": "蓝线",
+      "en": "Blue Lines",
+      "year": 1991,
+      "genres": [
+        "electronic",
+        "hiphop"
+      ],
+      "creator": "Massive Attack",
+      "region": "UK",
+      "rating": {
+        "rym": 4,
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "被追认为「Trip-Hop」的起点，把缓拍、爵士采样与说唱揉成一团烟雾。",
+      "noteEn": "Retroactively the birthplace of trip-hop — slow beats, jazz samples and rap dissolved into smoke."
+    },
+    {
+      "id": "damn-right-ive-got-the-blues",
+      "title": "没错，我有蓝调",
+      "en": "Damn Right, I've Got the Blues",
+      "year": 1991,
+      "genres": [
+        "blues"
+      ],
+      "creator": "Buddy Guy",
+      "region": "US",
+      "rating": {
+        "rym": 3.6
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "芝加哥传奇重出江湖，1992年获格莱美最佳当代蓝调专辑。",
+      "noteEn": "A Chicago legend returns in form — the 1992 Grammy for Best Contemporary Blues Album."
+    },
+    {
+      "id": "gulumse",
+      "title": "微笑",
+      "en": "Gülümse",
+      "year": 1991,
+      "genres": [
+        "world",
+        "pop"
+      ],
+      "creator": "Sezen Aksu",
+      "region": "TR",
+      "rating": {
+        "douban": 8.3
+      },
+      "awards": [],
+      "note": "土耳其乐坛女王的转折之作，阿拉伯花腔与流行乐的结合。",
+      "noteEn": "The Turkish queen's pivotal record, fusing arabesque melisma with pop."
+    },
+    {
+      "id": "nevermind",
+      "title": "别在意",
+      "en": "Nevermind",
+      "year": 1991,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Nirvana",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "把另类摇滚砸进主流视野的爆炸性专辑，〈Smells Like Teen Spirit〉改写了一代人的音量。",
+      "noteEn": "The record that detonated alternative rock into the mainstream, rewiring a generation's volume."
+    },
+    {
+      "id": "the-low-end-theory",
+      "title": "低音端理论",
+      "en": "The Low End Theory",
+      "year": 1991,
+      "genres": [
+        "hiphop",
+        "jazz"
+      ],
+      "creator": "A Tribe Called Quest",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "把爵士贝斯与清醒的韵律接在一起，奠定了「另类说唱」的语法。",
+      "noteEn": "Jazz bass and a lucid flow — the record that codified alternative rap's grammar."
+    },
+    {
+      "id": "automatic-for-the-people",
+      "title": "为人民自动",
+      "en": "Automatic for the People",
+      "year": 1992,
+      "genres": [
+        "rock"
+      ],
+      "creator": "R.E.M.",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "近乎民谣的安静内省之作，〈Nightswimming〉把乡愁拍成黑白胶片。",
+      "noteEn": "Quiet, near-folk introspection — \"Nightswimming\" develops nostalgia like a roll of black-and-white film."
+    },
+    {
+      "id": "deep-forest",
+      "title": "深林",
+      "en": "Deep Forest",
+      "year": 1992,
+      "genres": [
+        "ambient-newage",
+        "world"
+      ],
+      "creator": "Deep Forest",
+      "region": "FR",
+      "awards": [
+        "grammy"
+      ],
+      "note": "把喀麦隆俾格米人采样放进电子节拍，1995年获格莱美最佳世界音乐专辑。",
+      "noteEn": "Cameroonian Pygmy samples inside dance beats — the 1995 Grammy for Best World Music Album."
+    },
+    {
+      "id": "selected-ambient-works-85-92",
+      "title": "精选环境作品85-92",
+      "en": "Selected Ambient Works 85-92",
+      "year": 1992,
+      "genres": [
+        "ambient-newage",
+        "electronic"
+      ],
+      "creator": "Aphex Twin",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9
+      },
+      "note": "用极简合成器音色把氛围与节拍缝在一起，让卧室制作成为一门艺术。",
+      "noteEn": "Stitching ambient and beat-driven electronics from minimal synth tones, it made bedroom production an art.",
+      "awards": []
+    },
+    {
+      "id": "seo-taiji-and-boys",
+      "title": "徐太志和孩子们",
+      "en": "Seo Taiji and Boys",
+      "year": 1992,
+      "genres": [
+        "japanese-korean",
+        "hiphop",
+        "electronic"
+      ],
+      "creator": "徐太志和孩子们",
+      "region": "KR",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "《Nan Arayo》引爆韩国乐坛地震，K-Pop 真正的创世纪。",
+      "noteEn": "With 'I Know', Seo Taiji's debut shook Korea — the true genesis of K-pop."
+    },
+    {
+      "id": "tang-dynasty",
+      "title": "唐朝",
+      "en": "Tang Dynasty",
+      "year": 1992,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "唐朝乐队",
+      "region": "CN",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "《梦回唐朝》以重金属书写盛唐气象，中国摇滚最壮阔的想象。",
+      "noteEn": "Heavy-metal grandeur conjuring the Tang dynasty — Chinese rock's most epic vision."
+    },
+    {
+      "id": "the-chronic",
+      "title": "慢性",
+      "en": "The Chronic",
+      "year": 1992,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Dr. Dre",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "G-funk 的奠基之作，慢速放克采样让西海岸说唱找到了标志性的「慵懒」。",
+      "noteEn": "The founding document of G-funk — slowed funk samples gave West Coast rap its signature lope."
+    },
+    {
+      "id": "clapton-unplugged",
+      "title": "不插电",
+      "en": "Unplugged",
+      "year": 1992,
+      "genres": [
+        "blues",
+        "rock"
+      ],
+      "creator": "Eric Clapton",
+      "region": "UK",
+      "rating": {
+        "rym": 3.7
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "《Layla》被改成原声慢板，1993年包揽六项格莱美含年度专辑。",
+      "noteEn": "An unplugged Layla reimagined — six Grammys in 1993, including Album of the Year."
+    },
+    {
+      "id": "doggystyle",
+      "title": "狗样",
+      "en": "Doggystyle",
+      "year": 1993,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Snoop Dogg",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "Snoop 松弛的唱腔配上 G-funk，让说唱听起来像一种毫不费力的生活方式。",
+      "noteEn": "Snoop's laid-back drawl over G-funk made rap sound like an effortless lifestyle."
+    },
+    {
+      "id": "enter-the-wu-tang",
+      "title": "武当派入门（三十六房）",
+      "en": "Enter the Wu-Tang (36 Chambers)",
+      "year": 1993,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Wu-Tang Clan",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "把武侠片采样、粗糙节拍与九人团体变成东海岸的一支民兵队。",
+      "noteEn": "Martial-arts samples, raw beats and a nine-man crew as an East Coast militia."
+    },
+    {
+      "id": "rock-and-roll-beyond",
+      "title": "乐与怒",
+      "en": "Rock & Roll (Beyond)",
+      "year": 1993,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "Beyond",
+      "region": "HK",
+      "rating": {
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "收录《海阔天空》，黄家驹离世前的绝唱，理想主义者的墓志铭。",
+      "noteEn": "Housing 'Boundless Oceans, Vast Skies', it stands as Wong Ka-kui's final testament before his death."
+    },
+    {
+      "id": "schindlers-list",
+      "title": "辛德勒的名单",
+      "en": "Schindler's List (Original Soundtrack)",
+      "year": 1993,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "John Williams",
+      "region": "US",
+      "rating": {
+        "douban": 9.5
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "伊扎克·帕尔曼的小提琴如泣如诉，大屠杀最哀恸的旋律，奥斯卡配乐。",
+      "noteEn": "Itzhak Perlman's violin weeps through the Holocaust's most mournful theme; Oscar-winning score."
+    },
+    {
+      "id": "wen-bie",
+      "title": "吻别",
+      "en": "Wen Bie (Kiss Goodbye)",
+      "year": 1993,
+      "genres": [
+        "chinese-pop"
+      ],
+      "creator": "张学友",
+      "region": "HK",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "情歌时代的高峰，同名主打在华语圈家喻户晓，Jacky 以气声统治九十年代。",
+      "noteEn": "The peak of the love-song era; its title track is ubiquitous across the Sinophone world and defined Jacky Cheung's 90s."
+    },
+    {
+      "id": "black-dream-dou-wei",
+      "title": "黑梦",
+      "en": "Black Dream (Dou Wei)",
+      "year": 1994,
+      "genres": [
+        "chinese-pop",
+        "rock",
+        "electronic"
+      ],
+      "creator": "窦唯",
+      "region": "CN",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [],
+      "note": "窦唯首张个人专辑，梦呓与鼓机营造的黑暗美学，领先时代十年。",
+      "noteEn": "Dou Wei's solo debut, a dark dreamscape of mumbles and drum machines a decade ahead of its time."
+    },
+    {
+      "id": "dubnobasswithmyheadman",
+      "title": "低音在我的脑海中",
+      "en": "Dubnobasswithmyheadman",
+      "year": 1994,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Underworld",
+      "region": "UK",
+      "rating": {
+        "rym": 3.9,
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "把浩室、科技舞曲与即兴人声黏合成夜店圣歌，为英国锐舞时代立传。",
+      "noteEn": "House, techno and improvised vocals fused into rave anthems — the soundtrack to UK rave culture."
+    },
+    {
+      "id": "dummy",
+      "title": "假人",
+      "en": "Dummy",
+      "year": 1994,
+      "genres": [
+        "electronic",
+        "pop"
+      ],
+      "creator": "Portishead",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9
+      },
+      "awards": [
+        "mercury"
+      ],
+      "note": "1995 年水星奖得主，把电影配乐的幽暗与嘻哈采样接到 Beth Gibbons 的鬼魅人声。",
+      "noteEn": "Winner of the 1995 Mercury Prize — film-score gloom and hip-hop samples under Beth Gibbons's ghostly voice."
+    },
+    {
+      "id": "illmatic",
+      "title": "图解",
+      "en": "Illmatic",
+      "year": 1994,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Nas",
+      "region": "US",
+      "rating": {
+        "rym": 4.4,
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "二十岁 Nas 的处子作，十首歌十位金牌制作人，说唱写作的完美范本。",
+      "noteEn": "A twenty-year-old's debut — ten tracks, ten A-list producers, hip-hop lyricism at its purest."
+    },
+    {
+      "id": "naked-zheng-jun",
+      "title": "赤裸裸",
+      "en": "Naked (Zheng Jun)",
+      "year": 1994,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "郑钧",
+      "region": "CN",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "《回到拉萨》与同名主打——西式摇滚与西北血脉混血的内地经典。",
+      "noteEn": "With 'Return to Lhasa', Zheng Jun's raw fusion of Western rock and northwest-China roots."
+    },
+    {
+      "id": "ready-to-die",
+      "title": "准备好赴死",
+      "en": "Ready to Die",
+      "year": 1994,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "The Notorious B.I.G.",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "Biggie 用厚实的叙事流把街头苦难讲成电影，东海岸复兴的核心文献。",
+      "noteEn": "Biggie's dense narrative flow turns street struggle into cinema — the core text of East Coast revival."
+    },
+    {
+      "id": "the-lion-king-1994",
+      "title": "狮子王",
+      "en": "The Lion King (Original Soundtrack)",
+      "year": 1994,
+      "genres": [
+        "soundtrack",
+        "classical",
+        "world"
+      ],
+      "creator": "Hans Zimmer",
+      "region": "US",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "非洲合唱与百老汇旋律合体，奥斯卡最佳原创配乐。",
+      "noteEn": "African choral textures meet Broadway melody; Academy Award-winning score."
+    },
+    {
+      "id": "the-orphans-lament",
+      "title": "孤儿挽歌",
+      "en": "The Orphan's Lament",
+      "year": 1994,
+      "genres": [
+        "world"
+      ],
+      "creator": "Huun-Huur-Tu",
+      "region": "RU",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "图瓦呼麦的喉音合唱，把草原风声装进五声音阶。",
+      "noteEn": "Tuvan throat-singing ensemble turning steppe wind into pentatonic song."
+    },
+    {
+      "id": "whats-the-story-morning-glory",
+      "title": "晨光荣耀",
+      "en": "(What's the Story) Morning Glory?",
+      "year": 1995,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Oasis",
+      "region": "UK",
+      "rating": {
+        "rym": 3.6,
+        "douban": 9.2
+      },
+      "awards": [
+        "brit-award"
+      ],
+      "note": "英伦流行最大声的宣言，〈Wonderwall〉与〈Don't Look Back in Anger〉成为一代国歌。",
+      "noteEn": "Britpop's loudest statement — \"Wonderwall\" and \"Don't Look Back in Anger\" became generational anthems."
+    },
+    {
+      "id": "love-sandy",
+      "title": "Love, Sandy",
+      "en": "Love, Sandy",
+      "year": 1995,
+      "genres": [
+        "chinese-pop",
+        "rnb-soul"
+      ],
+      "creator": "林忆莲",
+      "region": "HK",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "李宗盛为其量身打造，都市女性情歌的教科书，伤痕与缠绵并存。",
+      "noteEn": "Tailored by Jonathan Lee, it is the textbook of urban women's ballads — wounds wrapped in tenderness."
+    },
+    {
+      "id": "wrecking-ball-emmylou",
+      "title": "破城锤",
+      "en": "Wrecking Ball (Emmylou Harris)",
+      "year": 1995,
+      "genres": [
+        "folk-country",
+        "rock"
+      ],
+      "creator": "Emmylou Harris",
+      "region": "US",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "Daniel Lanois 操刀，用氛围声景重造乡村乐，格莱美最佳当代民谣专辑。",
+      "noteEn": "Produced by Daniel Lanois, it rebuilt country through ambient soundscapes and won a Grammy."
+    },
+    {
+      "id": "all-eyez-on-me",
+      "title": "众目睽睽",
+      "en": "All Eyez on Me",
+      "year": 1996,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "2Pac",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "嘻哈史上第一张双碟全长专辑，把西海岸黑帮说唱写成宏大的自传。",
+      "noteEn": "Hip-hop's first full-length double album, turning West Coast gangsta rap into a sprawling autobiography."
+    },
+    {
+      "id": "deep-sea-mr-children",
+      "title": "深海",
+      "en": "Deep Sea (Mr.Children)",
+      "year": 1996,
+      "genres": [
+        "japanese-korean",
+        "rock"
+      ],
+      "creator": "Mr.Children",
+      "region": "JP",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "Mr.Children 最深邃的一张，把通俗摇滚做成文学。",
+      "noteEn": "Mr.Children's deepest record, turning mass-market rock into literature."
+    },
+    {
+      "id": "falling-into-you",
+      "title": "坠入爱河",
+      "en": "Falling Into You",
+      "year": 1996,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Celine Dion",
+      "region": "CA",
+      "rating": {
+        "rym": 3.2,
+        "douban": 8.7
+      },
+      "awards": [
+        "grammy",
+        "brit-award"
+      ],
+      "note": "全球超三千万销量的抒情巨轮，为成人抒情在格莱美正名。",
+      "noteEn": "A 30-million-selling ballad juggernaut that gave adult contemporary its Grammy vindication."
+    },
+    {
+      "id": "nour-el-ain",
+      "title": "眼中的光",
+      "en": "Nour El Ain",
+      "year": 1996,
+      "genres": [
+        "world",
+        "pop"
+      ],
+      "creator": "Amr Diab",
+      "region": "EG",
+      "rating": {
+        "douban": 8
+      },
+      "awards": [],
+      "note": "《Habibi Ya Nour El Ain》让埃及流行乐传遍中东与北非。",
+      "noteEn": "'Habibi Ya Nour El Ain' carried Egyptian pop across the Middle East and North Africa."
+    },
+    {
+      "id": "reasonable-doubt",
+      "title": "合理怀疑",
+      "en": "Reasonable Doubt",
+      "year": 1996,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Jay-Z",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "处子作就是巅峰级黑帮叙事，冷静的弦乐采样定义了纽约九十年代的雅痞说唱。",
+      "noteEn": "A debut at peak gangsta-narrative form — cool string samples defined '90s New York rap refinement."
+    },
+    {
+      "id": "hong-leslie-cheung",
+      "title": "红",
+      "en": "Red (Leslie Cheung)",
+      "year": 1996,
+      "genres": [
+        "chinese-pop",
+        "electronic"
+      ],
+      "creator": "张国荣",
+      "region": "HK",
+      "rating": {
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "张国荣×林夕×C.Y.Kong 的铁三角，红是华语流行最妖冶的艺术人格。",
+      "noteEn": "The triad of Leslie Cheung, Lin Xi and C.Y. Kong; 'Red' is the most androgynous art-persona in Mandarin pop."
+    },
+    {
+      "id": "restless-faye-wong",
+      "title": "浮躁",
+      "en": "Restless (Faye Wong)",
+      "year": 1996,
+      "genres": [
+        "chinese-pop",
+        "electronic"
+      ],
+      "creator": "王菲",
+      "region": "HK",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "几乎全中文创作，王菲最任性的一张，梦呓式吟唱裹着北京摇滚的底色。",
+      "noteEn": "Almost entirely self-penned, Faye Wong's most willful record, mixing dreamy scat-singing with Beijing-rock textures."
+    },
+    {
+      "id": "richard-d-james-album",
+      "title": "理查德·D·詹姆斯专辑",
+      "en": "Richard D. James Album",
+      "year": 1996,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Aphex Twin",
+      "region": "UK",
+      "rating": {
+        "rym": 4,
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "复杂到近乎痉挛的节拍，把电子音乐的「精确疯狂」推到极限。",
+      "noteEn": "Breakbeats complex to the point of spasm — electronic precision taken to the edge of madness."
+    },
+    {
+      "id": "sisters-amei",
+      "title": "姊妹",
+      "en": "Sisters (A-Mei)",
+      "year": 1996,
+      "genres": [
+        "chinese-pop"
+      ],
+      "creator": "张惠妹",
+      "region": "TW",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "出道即巅峰，原住民的力量嗓音刷新华语女声标准。",
+      "noteEn": "A debut at full power; A-Mei's indigenous-rooted voice reset the bar for Mandarin female vocals."
+    },
+    {
+      "id": "sweet-19-blues",
+      "title": "SWEET 19 BLUES",
+      "en": "SWEET 19 BLUES",
+      "year": 1996,
+      "genres": [
+        "japanese-korean",
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "安室奈美惠",
+      "region": "JP",
+      "rating": {
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "安室 19 岁的出道告白，日本女歌手销量纪录的缔造者。",
+      "noteEn": "Namie's coming-of-age statement at 19, setting a sales record for a solo female artist."
+    },
+    {
+      "id": "the-score",
+      "title": "乐谱",
+      "en": "The Score",
+      "year": 1996,
+      "genres": [
+        "hiphop",
+        "rnb-soul"
+      ],
+      "creator": "The Fugees",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9.1
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "〈Killing Me Softly〉让嘻哈灵魂翻唱火遍全球，Lauryn Hill 一鸣惊人。",
+      "noteEn": "\"Killing Me Softly\" took hip-hop soul worldwide and made Lauryn Hill a star overnight."
+    },
+    {
+      "id": "h-o-t-debut",
+      "title": "反对一切暴力",
+      "en": "We Hate All Kinds of Violence… (H.O.T.)",
+      "year": 1996,
+      "genres": [
+        "japanese-korean",
+        "pop",
+        "hiphop"
+      ],
+      "creator": "H.O.T.",
+      "region": "KR",
+      "rating": {
+        "douban": 8.4
+      },
+      "awards": [],
+      "note": "第一代偶像男团的起点，H.O.T. 定义了 K-Pop 的粉丝工业。",
+      "noteEn": "The start of the first-generation idol boy band, defining K-pop's fandom industry."
+    },
+    {
+      "id": "baduizm",
+      "title": "巴杜主义",
+      "en": "Baduizm",
+      "year": 1997,
+      "genres": [
+        "rnb-soul",
+        "hiphop"
+      ],
+      "creator": "Erykah Badu",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 8.7
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "头巾与唱腔把「另类 R&B」带上主流，1998 年拿下最佳 R&B 专辑。",
+      "noteEn": "Head-wraps and phrasing brought \"alternative R&B\" mainstream — Grammy Best R&B Album 1998."
+    },
+    {
+      "id": "blood-on-the-fields",
+      "title": "土地上的血",
+      "en": "Blood on the Fields",
+      "year": 1997,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Wynton Marsalis",
+      "region": "US",
+      "note": "三小时清唱剧式的爵士长作，首部获普利策音乐奖的爵士作品。",
+      "noteEn": "A three-hour jazz oratorio — the first jazz work to win the Pulitzer Prize for Music.",
+      "awards": []
+    },
+    {
+      "id": "david-tao",
+      "title": "David Tao",
+      "en": "David Tao",
+      "year": 1997,
+      "genres": [
+        "chinese-pop",
+        "rnb-soul"
+      ],
+      "creator": "陶喆",
+      "region": "TW",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "《爱，很简单》——陶喆把美式 R&B 缝进华语歌词，宣告新派情歌。",
+      "noteEn": "With 'Love, It's Simple', David Tao stitched American R&B into Mandarin lyrics, ushering a new pop."
+    },
+    {
+      "id": "dig-your-own-hole",
+      "title": "自掘坟墓",
+      "en": "Dig Your Own Hole",
+      "year": 1997,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "The Chemical Brothers",
+      "region": "UK",
+      "rating": {
+        "rym": 3.8,
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "Big Beat 在商业与创意上的双料巅峰，〈Block Rockin' Beats〉是仓库派对的战鼓。",
+      "noteEn": "Big-beat's commercial and creative peak — \"Block Rockin' Beats\" as the warehouse war drum."
+    },
+    {
+      "id": "homework",
+      "title": "作业",
+      "en": "Homework",
+      "year": 1997,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Daft Punk",
+      "region": "FR",
+      "rating": {
+        "rym": 3.8,
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "把粗粝的芝加哥浩室与放克采样打包，定义了法国电子入侵的起点。",
+      "noteEn": "Raw Chicago house and funk samples packed into a debut that launched the French electronic invasion."
+    },
+    {
+      "id": "homogenic",
+      "title": "同质",
+      "en": "Homogenic",
+      "year": 1997,
+      "genres": [
+        "electronic",
+        "pop"
+      ],
+      "creator": "Björk",
+      "region": "IS",
+      "rating": {
+        "rym": 4.1,
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "弦乐与节拍撞击出冰岛式的冷艳，〈Jóga〉是她最锋利的一张名片。",
+      "noteEn": "Strings colliding with beats in Icelandic cold beauty — \"Jóga\" is her sharpest calling card."
+    },
+    {
+      "id": "kou-shi-xin-fei",
+      "title": "口是心非",
+      "en": "Kou Shi Xin Fei",
+      "year": 1997,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "张雨生",
+      "region": "TW",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [
+        "golden-melody"
+      ],
+      "note": "张雨生最后的完整作品，编曲繁复的摇滚概念专辑，翌年追授金曲奖最佳专辑。",
+      "noteEn": "Chang Yu-sheng's final full album — an intricately arranged rock statement that took the Golden Melody Best Album a year later."
+    },
+    {
+      "id": "ok-computer",
+      "title": "OK 电脑",
+      "en": "OK Computer",
+      "year": 1997,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Radiohead",
+      "region": "UK",
+      "rating": {
+        "rym": 4.4,
+        "pitchfork": 10,
+        "douban": 9.4
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "用吉他、电子脉冲与不安的歌词预演了千禧年的疏离，屡被票选为九十年代最佳专辑。",
+      "noteEn": "Guitar, electronic pulses and paranoid lyrics foretold millennial alienation — repeatedly crowned the '90s' best album."
+    },
+    {
+      "id": "the-fat-of-the-land",
+      "title": "土地的肥脂",
+      "en": "The Fat of the Land",
+      "year": 1997,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "The Prodigy",
+      "region": "UK",
+      "rating": {
+        "rym": 3.7,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "〈Smack My Bitch Up〉与〈Firestarter〉把电子乐的狂暴带进主流体育场。",
+      "noteEn": "\"Smack My Bitch Up\" and \"Firestarter\" carried electronic rage into the mainstream arena."
+    },
+    {
+      "id": "aquemini",
+      "title": "水瓶与双子",
+      "en": "Aquemini",
+      "year": 1998,
+      "genres": [
+        "hiphop",
+        "rnb-soul"
+      ],
+      "creator": "OutKast",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "南方的怪诞灵魂乐与说唱在亚特兰大相遇，〈Rosa Parks〉让它进入流行视野。",
+      "noteEn": "Southern weirdness, soul and rap meeting in Atlanta — \"Rosa Parks\" pushed it into the mainstream."
+    },
+    {
+      "id": "car-wheels-on-a-gravel-road",
+      "title": "砾石路上的车轮",
+      "en": "Car Wheels on a Gravel Road",
+      "year": 1998,
+      "genres": [
+        "folk-country",
+        "rock"
+      ],
+      "creator": "Lucinda Williams",
+      "region": "US",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "八年的打磨换来南方叙事的琥珀，格莱美最佳当代民谣专辑。",
+      "noteEn": "Eight years of polish yielding amber Southern narratives; Grammy Best Contemporary Folk Album."
+    },
+    {
+      "id": "conquest-na-ying",
+      "title": "征服",
+      "en": "Conquest (Na Ying)",
+      "year": 1998,
+      "genres": [
+        "chinese-pop"
+      ],
+      "creator": "那英",
+      "region": "CN",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "那英北派大气嗓的国民代表作，同名主打唱进 KTV 殿堂。",
+      "noteEn": "Na Ying's signature big-voice anthem, a national hit that became a karaoke staple."
+    },
+    {
+      "id": "mezzanine",
+      "title": "夹层",
+      "en": "Mezzanine",
+      "year": 1998,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Massive Attack",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "〈Teardrop〉的冰冷吟唱配上吉他失真，让 Trip-Hop 走向暗黑与宏大。",
+      "noteEn": "The cold vocal of \"Teardrop\" over distorted guitar — trip-hop grown dark and monumental."
+    },
+    {
+      "id": "moon-safari",
+      "title": "月球旅行",
+      "en": "Moon Safari",
+      "year": 1998,
+      "genres": [
+        "electronic",
+        "pop"
+      ],
+      "creator": "Air",
+      "region": "FR",
+      "rating": {
+        "rym": 3.9,
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "法式闲适电子的代表作，〈Sexy Boy〉让「轻松」成为九十年代末的奢侈。",
+      "noteEn": "The sound of French nonchalance — \"Sexy Boy\" made effortlessness the luxury of the late '90s."
+    },
+    {
+      "id": "music-has-the-right-to-children",
+      "title": "音乐有权属于孩子",
+      "en": "Music Has the Right to Children",
+      "year": 1998,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Boards of Canada",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "用老旧合成器与教育影片采样制造「童年记忆的失真」，IDM 的乡愁鼻祖。",
+      "noteEn": "Old synths and educational-film samples as corrupted childhood memory — IDM's nostalgic origin."
+    },
+    {
+      "id": "ray-of-light",
+      "title": "光芒万丈",
+      "en": "Ray of Light",
+      "year": 1998,
+      "genres": [
+        "pop",
+        "electronic"
+      ],
+      "creator": "Madonna",
+      "region": "US",
+      "rating": {
+        "rym": 3.8,
+        "douban": 8.8
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "与 William Orbit 合作的电子流行转向，也是麦当娜的灵性转折点。",
+      "noteEn": "A William Orbit-produced turn into electronic pop — and Madonna's spiritual reinvention."
+    },
+    {
+      "id": "revolution-leehom",
+      "title": "公转自转",
+      "en": "Revolution (Wang Leehom)",
+      "year": 1998,
+      "genres": [
+        "chinese-pop",
+        "pop"
+      ],
+      "creator": "王力宏",
+      "region": "TW",
+      "rating": {
+        "douban": 8.3
+      },
+      "awards": [
+        "golden-melody"
+      ],
+      "note": "王力宏凭此拿下金曲奖最佳男演唱人，美式唱作站稳华语。",
+      "noteEn": "Wang Leehom's Golden Melody-winning Best Male Vocalist record planted American songwriting in Mandopop."
+    },
+    {
+      "id": "the-miseducation-of-lauryn-hill",
+      "title": "劳伦·希尔的教育",
+      "en": "The Miseducation of Lauryn Hill",
+      "year": 1998,
+      "genres": [
+        "hiphop",
+        "rnb-soul"
+      ],
+      "creator": "Lauryn Hill",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "首位凭说唱专辑拿下格莱美年度专辑的女性，灵魂、雷鬼与嘻哈一体。",
+      "noteEn": "The first woman to win Album of the Year for a rap album — soul, reggae and hip-hop as one."
+    },
+    {
+      "id": "2001",
+      "title": "2001",
+      "en": "2001",
+      "year": 1999,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Dr. Dre",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "启用 Eminem 与 Snoop 的跨世纪制作大秀，〈Still D.R.E.〉是西海岸的加冕礼。",
+      "noteEn": "A millennial production showcase launching Eminem — \"Still D.R.E.\" as West Coast coronation."
+    },
+    {
+      "id": "first-love-utada",
+      "title": "First Love",
+      "en": "First Love (Hikaru Utada)",
+      "year": 1999,
+      "genres": [
+        "japanese-korean",
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "宇多田光",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "日本史上销量最高的专辑，15 岁的宇多田光定义了平成 R&B 流行。",
+      "noteEn": "Japan's best-selling album ever; a 15-year-old Utada defined Heisei R&B pop."
+    },
+    {
+      "id": "i-go-to-the-year-2000",
+      "title": "我去2000年",
+      "en": "I Go to the Year 2000",
+      "year": 1999,
+      "genres": [
+        "chinese-pop",
+        "folk-country"
+      ],
+      "creator": "朴树",
+      "region": "CN",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "《那些花儿》《白桦林》——千禧前夕内地独立流行的青春碑。",
+      "noteEn": "With 'Those Flowers' and 'Birch Forest', it is the monument of pre-millennium Chinese indie pop."
+    },
+    {
+      "id": "muzai-moratorium",
+      "title": "无罪偿债期",
+      "en": "Muzai Moratorium",
+      "year": 1999,
+      "genres": [
+        "japanese-korean",
+        "rock",
+        "pop"
+      ],
+      "creator": "椎名林檎",
+      "region": "JP",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "椎名林檎的病娇美学与涩谷系编曲，J-Pop 最异色的天才登场。",
+      "noteEn": "Shiina Ringo's debut — her ailing-girlish aesthetics and Shibuya-kei arrangements announced a singular genius."
+    },
+    {
+      "id": "crouching-tiger-hidden-dragon-ost",
+      "title": "卧虎藏龙",
+      "en": "Crouching Tiger, Hidden Dragon (Original Soundtrack)",
+      "year": 2000,
+      "genres": [
+        "soundtrack",
+        "classical",
+        "world"
+      ],
+      "creator": "谭盾",
+      "region": "CN",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "马友友的大提琴与东方打击乐对话，华人首座奥斯卡最佳配乐。",
+      "noteEn": "Yo-Yo Ma's cello dialogues with Chinese percussion — the first Chinese Academy Award for score."
+    },
+    {
+      "id": "kid-a",
+      "title": "一号复制人",
+      "en": "Kid A",
+      "year": 2000,
+      "genres": [
+        "rock",
+        "electronic"
+      ],
+      "creator": "Radiohead",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "pitchfork": 10,
+        "douban": 8.8
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "抛弃吉他摇滚，用鼓机、采样与扭曲人声重建一个冰河纪的听觉景观。",
+      "noteEn": "Ditching guitars for drum machines, samples and mangled vocals, Radiohead rebuilt a glacial landscape."
+    },
+    {
+      "id": "still-lonely",
+      "title": "还是会寂寞",
+      "en": "Still Lonely",
+      "year": 2000,
+      "genres": [
+        "chinese-pop",
+        "folk-country"
+      ],
+      "creator": "陈绮贞",
+      "region": "TW",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "陈绮贞第二张，把吉他民谣做成文艺青年的身份徽章。",
+      "noteEn": "Cheer Chen's second album turned guitar folk into the badge of a generation's literary youth."
+    },
+    {
+      "id": "yan-zi-self-titled",
+      "title": "孙燕姿",
+      "en": "Sun Yan-Zi (self-titled)",
+      "year": 2000,
+      "genres": [
+        "chinese-pop"
+      ],
+      "creator": "孙燕姿",
+      "region": "SG",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "《天黑黑》——新加坡短发女孩用清亮中音横扫华语乐坛。",
+      "noteEn": "With 'Dark Sky', the short-haired Singaporean swept the Sinophone charts with a crystalline mid-range."
+    },
+    {
+      "id": "that-year-xu-wei",
+      "title": "那一年",
+      "en": "That Year (Xu Wei)",
+      "year": 2000,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "许巍",
+      "region": "CN",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "许巍从地下摇滚转向温暖民谣的转折点，吉他声如秋天。",
+      "noteEn": "Xu Wei's pivot from underground rock to warm balladry, with guitars that feel like autumn."
+    },
+    {
+      "id": "the-marshall-mathers-lp",
+      "title": "马歇尔·马瑟斯专辑",
+      "en": "The Marshall Mathers LP",
+      "year": 2000,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Eminem",
+      "region": "US",
+      "rating": {
+        "rym": 3.8,
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "把自传式的愤怒与恶趣味做成世纪之交最畅销的说唱专辑之一。",
+      "noteEn": "Autobiographical rage and bad taste — one of the best-selling rap albums of the era."
+    },
+    {
+      "id": "voodoo",
+      "title": "巫毒",
+      "en": "Voodoo",
+      "year": 2000,
+      "genres": [
+        "rnb-soul"
+      ],
+      "creator": "D'Angelo",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 8.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "现场乐队录制的「新灵魂乐」杰作，〈Untitled (How Does It Feel)〉让 MTV 一度瘫痪。",
+      "noteEn": "A neo-soul masterpiece cut live in the studio — \"Untitled (How Does It Feel)\" froze MTV."
+    },
+    {
+      "id": "discovery",
+      "title": "发现",
+      "en": "Discovery",
+      "year": 2001,
+      "genres": [
+        "electronic",
+        "pop"
+      ],
+      "creator": "Daft Punk",
+      "region": "FR",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "用采样把七十年代迪斯科变成未来主义流行，〈One More Time〉是全球舞池的共同记忆。",
+      "noteEn": "Sampling '70s disco into futuristic pop — \"One More Time\" is dance music's shared memory."
+    },
+    {
+      "id": "fantasy-jay-chou",
+      "title": "范特西",
+      "en": "Fantasy (Jay Chou)",
+      "year": 2001,
+      "genres": [
+        "chinese-pop",
+        "rnb-soul"
+      ],
+      "creator": "周杰伦",
+      "region": "TW",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [
+        "golden-melody"
+      ],
+      "note": "双截棍、爱在西元前、安静——一张专辑定义华语 R&B 的黄金范式，金曲奖最佳专辑。",
+      "noteEn": "With 'Nunchucks' and 'Love Before A.D.', one album set the golden template for Mandarin R&B."
+    },
+    {
+      "id": "spirited-away",
+      "title": "千与千寻",
+      "en": "Spirited Away (Original Soundtrack)",
+      "year": 2001,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "久石让",
+      "region": "JP",
+      "rating": {
+        "douban": 9.4
+      },
+      "awards": [],
+      "note": "《那个夏天》与《第六号站台》，久石让为东方幻想配乐立下标杆。",
+      "noteEn": "With 'That Summer' and 'The Sixth Station', Hisaishi set the bar for East-Asian fantasy scoring."
+    },
+    {
+      "id": "the-blueprint",
+      "title": "蓝图",
+      "en": "The Blueprint",
+      "year": 2001,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Jay-Z",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "在 9·11 当周发行，Kanye 制作的灵魂采样节拍让 Jay-Z 找到中年后的自信。",
+      "noteEn": "Released the week of 9/11, Kanye's soul-sampled beats gave Jay-Z a new, assured maturity."
+    },
+    {
+      "id": "fellowship-of-the-ring",
+      "title": "指环王：护戒使者",
+      "en": "The Lord of the Rings: The Fellowship of the Ring (Original Soundtrack)",
+      "year": 2001,
+      "genres": [
+        "soundtrack",
+        "classical"
+      ],
+      "creator": "Howard Shore",
+      "region": "CA",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "霍华德·肖用庞大的主题矩阵为托尔金世界立传，奥斯卡配乐。",
+      "noteEn": "Howard Shore's vast leitmotif architecture gave Tolkien's world its epic voice; Oscar-winning."
+    },
+    {
+      "id": "vespertine",
+      "title": "昼伏夜出",
+      "en": "Vespertine",
+      "year": 2001,
+      "genres": [
+        "electronic",
+        "pop"
+      ],
+      "creator": "Björk",
+      "region": "IS",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "把竖琴、冰晶般的音色与耳语人声做成冬日情书，私密到令人屏息。",
+      "noteEn": "Harps, crystalline textures and whispered vocals as a winter love letter — intimate enough to hold your breath."
+    },
+    {
+      "id": "american-iv",
+      "title": "美国 IV：人终将逝去",
+      "en": "American IV: The Man Comes Around",
+      "year": 2002,
+      "genres": [
+        "folk-country",
+        "rock"
+      ],
+      "creator": "Johnny Cash",
+      "region": "US",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "病榻前的翻唱绝唱，一曲《Hurt》的苍凉让一代人重新认识死亡。",
+      "noteEn": "A cover masterwork from the sickbed; 'Hurt' taught a generation about mortality."
+    },
+    {
+      "id": "disintegration-loops",
+      "title": "消解循环",
+      "en": "The Disintegration Loops",
+      "year": 2002,
+      "genres": [
+        "ambient-newage"
+      ],
+      "creator": "William Basinski",
+      "region": "US",
+      "rating": {
+        "rym": 4.3
+      },
+      "note": "一盘正在氧化老化的磁带循环逐渐剥落，被听作911事件当天的悼亡。",
+      "noteEn": "A decaying tape loop slowly disintegrates — heard as an elegy for 9/11.",
+      "awards": []
+    },
+    {
+      "id": "black-white-grey",
+      "title": "黑白灰",
+      "en": "Black, White & Grey",
+      "year": 2003,
+      "genres": [
+        "chinese-pop",
+        "pop"
+      ],
+      "creator": "陈奕迅",
+      "region": "HK",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "《十年》《兄妹》——Eason 用三色概念划分都市情感的三种灰。",
+      "noteEn": "With 'Ten Years' and 'Brother & Sister', Eason maps urban emotion in three shades."
+    },
+    {
+      "id": "magic-jolin",
+      "title": "看我72变",
+      "en": "Magic (Jolin Tsai)",
+      "year": 2003,
+      "genres": [
+        "chinese-pop",
+        "electronic",
+        "pop"
+      ],
+      "creator": "蔡依林",
+      "region": "TW",
+      "rating": {
+        "douban": 7.9
+      },
+      "awards": [],
+      "note": "Jolin 转型唱跳天后之作，舞曲美学正式接管华语女歌手。",
+      "noteEn": "Jolin's reinvention into a dance diva — club-ready pop took over Mandarin female stardom."
+    },
+    {
+      "id": "rounds",
+      "title": "轮舞",
+      "en": "Rounds",
+      "year": 2003,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Four Tet",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "pitchfork": 9,
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "把爵士、民谣与电子采样织成一张会呼吸的有机挂毯，现场感独一无二。",
+      "noteEn": "Jazz, folk and electronic samples woven into a breathing, organic tapestry — a one-of-a-kind texture."
+    },
+    {
+      "id": "speakerboxxx-love-below",
+      "title": "扬声器与爱之深",
+      "en": "Speakerboxxx/The Love Below",
+      "year": 2003,
+      "genres": [
+        "hiphop",
+        "pop"
+      ],
+      "creator": "OutKast",
+      "region": "US",
+      "rating": {
+        "rym": 3.7,
+        "douban": 8.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "两张个人唱片合成一张双碟，〈Hey Ya!〉让它拿到 2004 年格莱美年度专辑。",
+      "noteEn": "Two solo records in one double album — \"Hey Ya!\" carried it to the 2004 Grammy Album of the Year."
+    },
+    {
+      "id": "ye-hui-mei",
+      "title": "叶惠美",
+      "en": "Ye Hui Mei",
+      "year": 2003,
+      "genres": [
+        "chinese-pop",
+        "rnb-soul"
+      ],
+      "creator": "周杰伦",
+      "region": "TW",
+      "rating": {
+        "douban": 9.2
+      },
+      "awards": [
+        "golden-melody"
+      ],
+      "note": "《东风破》《晴天》——周杰伦「中国风」开山金曲专辑，金曲奖最佳专辑。",
+      "noteEn": "With 'East Wind Breaks' and 'Sunny Day', the album that birthed Jay's Chinese-style hits and won the Golden Melody Best Album."
+    },
+    {
+      "id": "kyoiku",
+      "title": "教育",
+      "en": "Kyoiku (Tokyo Jihen)",
+      "year": 2004,
+      "genres": [
+        "japanese-korean",
+        "rock",
+        "jazz"
+      ],
+      "creator": "东京事变",
+      "region": "JP",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "东京事变首张，把摇滚与爵士学院化，椎名林檎的集体变奏。",
+      "noteEn": "Tokyo Jihen's debut academizing rock and jazz — Ringo's collective reinvention."
+    },
+    {
+      "id": "madvillainy",
+      "title": "疯狂恶棍",
+      "en": "Madvillainy",
+      "year": 2004,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Madvillain (MF DOOM & Madlib)",
+      "region": "US",
+      "rating": {
+        "rym": 4.4,
+        "pitchfork": 10,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "两位地下怪杰的合体，把采样拼贴与意识流押韵做成抽象说唱的圣杯。",
+      "noteEn": "Two underground eccentrics colliding — sample collage and stream-of-consciousness rhyme as abstract rap's grail."
+    },
+    {
+      "id": "the-college-dropout",
+      "title": "辍学",
+      "en": "The College Dropout",
+      "year": 2004,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Kanye West",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "把灵魂乐采样切成高级时装般的节拍，Kanye 把说唱带进学院与教堂之间。",
+      "noteEn": "Soul samples cut like couture — Kanye placed rap between the academy and the church."
+    },
+    {
+      "id": "una-mattina",
+      "title": "一个早晨",
+      "en": "Una Mattina",
+      "year": 2004,
+      "genres": [
+        "ambient-newage",
+        "classical"
+      ],
+      "creator": "Ludovico Einaudi",
+      "region": "IT",
+      "note": "极简钢琴与弦乐的小品集，同名曲因《无法触碰》电影成为大众入口。",
+      "noteEn": "Minimal piano miniatures; the title piece reached millions via the film The Intouchables.",
+      "awards": []
+    },
+    {
+      "id": "late-registration",
+      "title": "迟到注册",
+      "en": "Late Registration",
+      "year": 2005,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Kanye West",
+      "region": "US",
+      "rating": {
+        "rym": 4.1,
+        "douban": 9.1
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "与 Jon Brion 联手引入弦乐编排，〈Gold Digger〉把他推向全球舞台。",
+      "noteEn": "Jon Brion's string arrangements and \"Gold Digger\" — Kanye's orchestral pop-rap breakthrough."
+    },
+    {
+      "id": "soul-boy-khalil",
+      "title": "Soul Boy",
+      "en": "Soul Boy (Khalil Fong)",
+      "year": 2005,
+      "genres": [
+        "chinese-pop",
+        "rnb-soul"
+      ],
+      "creator": "方大同",
+      "region": "HK",
+      "rating": {
+        "douban": 8.5
+      },
+      "awards": [],
+      "note": "香港罕见的灵魂乐全创作，方大同以律动重塑华语男声。",
+      "noteEn": "Hong Kong's rare all-original soul album; Khalil Fong rebuilt the Mandarin male voice on groove."
+    },
+    {
+      "id": "back-to-black",
+      "title": "回到黑色",
+      "en": "Back to Black",
+      "year": 2006,
+      "genres": [
+        "rnb-soul",
+        "pop"
+      ],
+      "creator": "Amy Winehouse",
+      "region": "UK",
+      "rating": {
+        "rym": 3.9,
+        "douban": 8.9
+      },
+      "awards": [
+        "grammy",
+        "brit-award"
+      ],
+      "note": "六十年代女子组合式的复古灵魂，2008 年格莱美年度专辑。",
+      "noteEn": "'60s girl-group soul rebuilt in the modern day — Grammy Album of the Year 2008."
+    },
+    {
+      "id": "not-as-bad-as-you-think",
+      "title": "这一切没有想象的那么糟",
+      "en": "It's Not as Bad as You Think",
+      "year": 2006,
+      "genres": [
+        "folk-country",
+        "chinese-pop"
+      ],
+      "creator": "万晓利",
+      "region": "CN",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [],
+      "note": "《狐狸》《陀螺》——万晓利把民谣玩成机智的黑色寓言。",
+      "noteEn": "With 'The Fox' and 'Spinning Top', Wan Xiaoli turns folk into wry dark fables."
+    },
+    {
+      "id": "refinement-of-the-decline",
+      "title": "衰败的精致化",
+      "en": "And Their Refinement of the Decline",
+      "year": 2007,
+      "genres": [
+        "ambient-newage"
+      ],
+      "creator": "Stars of the Lid",
+      "region": "US",
+      "rating": {
+        "rym": 4.1
+      },
+      "note": "弦乐与管风琴的慢速长音，把睡眠与聆听的边界磨得几乎消失。",
+      "noteEn": "Slow strings and organ drones blur the line between listening and sleep.",
+      "awards": []
+    },
+    {
+      "id": "chinese-kid",
+      "title": "中国孩子",
+      "en": "Chinese Kid",
+      "year": 2007,
+      "genres": [
+        "folk-country",
+        "chinese-pop"
+      ],
+      "creator": "周云蓬",
+      "region": "CN",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "盲诗人用歌声给底层写传，诗意与愤怒并存的民谣良心。",
+      "noteEn": "A blind poet singing for the dispossessed — folk's conscience where poetry meets anger."
+    },
+    {
+      "id": "in-rainbows",
+      "title": "彩虹里",
+      "en": "In Rainbows",
+      "year": 2007,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Radiohead",
+      "region": "UK",
+      "rating": {
+        "rym": 4.1,
+        "pitchfork": 10,
+        "douban": 9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "「随你付」定价开启数字发行的新范式，音乐本身却是他们最温暖的一张。",
+      "noteEn": "A pay-what-you-want release that rewrote digital economics — and the band's warmest record."
+    },
+    {
+      "id": "untrue",
+      "title": "不真实",
+      "en": "Untrue",
+      "year": 2007,
+      "genres": [
+        "electronic"
+      ],
+      "creator": "Burial",
+      "region": "UK",
+      "rating": {
+        "rym": 4.2,
+        "pitchfork": 9,
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "把车库人声采样、雨声与地下铁音效做成一张失恋后的南伦敦夜地图。",
+      "noteEn": "Sampled garage vocals, rain and tube-station ambience — a night map of south London after heartbreak."
+    },
+    {
+      "id": "game-perfume",
+      "title": "Game",
+      "en": "Game (Perfume)",
+      "year": 2008,
+      "genres": [
+        "japanese-korean",
+        "electronic",
+        "pop"
+      ],
+      "creator": "Perfume",
+      "region": "JP",
+      "rating": {
+        "douban": 8.5
+      },
+      "awards": [],
+      "note": "电音女团 Perfume 的主流突破，极简 Techno 与偶像文化的结合。",
+      "noteEn": "Perfume's mainstream breakthrough, marrying minimal techno with idol culture."
+    },
+    {
+      "id": "slumdog-millionaire",
+      "title": "贫民窟的百万富翁",
+      "en": "Slumdog Millionaire (Original Soundtrack)",
+      "year": 2008,
+      "genres": [
+        "soundtrack",
+        "world",
+        "electronic"
+      ],
+      "creator": "A.R. Rahman",
+      "region": "IN",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "《Jai Ho》的节庆能量让印度声音登顶奥斯卡。",
+      "noteEn": "'Jai Ho''s festive energy carried Indian sound to an Oscar."
+    },
+    {
+      "id": "the-fame",
+      "title": "名声",
+      "en": "The Fame",
+      "year": 2008,
+      "genres": [
+        "pop",
+        "electronic"
+      ],
+      "creator": "Lady Gaga",
+      "region": "US",
+      "rating": {
+        "rym": 3.3,
+        "douban": 8.5
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "〈Poker Face〉与〈Just Dance〉把舞池流行和艺术人格一起推向主流。",
+      "noteEn": "\"Poker Face\" and \"Just Dance\" took dance-pop and an art-school persona straight to the mainstream."
+    },
+    {
+      "id": "my-beautiful-dark-twisted-fantasy",
+      "title": "我美丽黑暗扭曲的幻想",
+      "en": "My Beautiful Dark Twisted Fantasy",
+      "year": 2010,
+      "genres": [
+        "hiphop",
+        "pop"
+      ],
+      "creator": "Kanye West",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "pitchfork": 10,
+        "douban": 8.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "众星云集的巴洛克说唱史诗，把自负与脆弱同时放大到专辑规模。",
+      "noteEn": "A baroque, all-star rap epic that amplifies ego and fragility to album scale."
+    },
+    {
+      "id": "omnipotent-youth-society",
+      "title": "万能青年旅店",
+      "en": "Omnipotent Youth Society",
+      "year": 2010,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "万能青年旅店",
+      "region": "CN",
+      "rating": {
+        "douban": 9.1
+      },
+      "awards": [],
+      "note": "《杀死那个石家庄人》——华北小城抑郁与爵士摇滚十年一遇的杰作。",
+      "noteEn": "With 'Kill That Shijiazhuang Person', a once-a-decade jazz-rock portrait of northern-town ennui."
+    },
+    {
+      "id": "the-suburbs",
+      "title": "郊区",
+      "en": "The Suburbs",
+      "year": 2010,
+      "genres": [
+        "rock"
+      ],
+      "creator": "Arcade Fire",
+      "region": "CA",
+      "rating": {
+        "rym": 4,
+        "douban": 8.4
+      },
+      "awards": [
+        "mercury",
+        "grammy"
+      ],
+      "note": "把郊区的怀旧与焦虑写成乐队摇滚的宏大叙事，2011 年同时拿下水星奖与格莱美。",
+      "noteEn": "Nostalgia and anxiety about suburbia as grand indie rock — Mercury Prize and Grammy winner in 2011."
+    },
+    {
+      "id": "21",
+      "title": "21",
+      "en": "21",
+      "year": 2011,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Adele",
+      "region": "UK",
+      "rating": {
+        "rym": 3.7,
+        "douban": 8.7
+      },
+      "awards": [
+        "grammy",
+        "brit-award"
+      ],
+      "note": "分手专辑卖出三千万张，〈Rolling in the Deep〉把灵魂乐推向全球广播。",
+      "noteEn": "A breakup album that sold 30 million — \"Rolling in the Deep\" carried soul onto global radio."
+    },
+    {
+      "id": "second-round-mayday",
+      "title": "第二人生",
+      "en": "Second Round",
+      "year": 2011,
+      "genres": [
+        "chinese-pop",
+        "rock"
+      ],
+      "creator": "五月天",
+      "region": "TW",
+      "rating": {
+        "douban": 8.9
+      },
+      "awards": [
+        "golden-melody"
+      ],
+      "note": "末日与重生双概念，2012 金曲奖最佳国语专辑的摇滚大碟。",
+      "noteEn": "A dual concept of apocalypse and rebirth; the rock album that took the 2012 Golden Melody Best Album."
+    },
+    {
+      "id": "the-boys-snsd",
+      "title": "The Boys",
+      "en": "The Boys (Girls' Generation)",
+      "year": 2011,
+      "genres": [
+        "japanese-korean",
+        "pop",
+        "electronic"
+      ],
+      "creator": "少女时代",
+      "region": "KR",
+      "rating": {
+        "douban": 8
+      },
+      "awards": [],
+      "note": "少女时代进军美国之作，K-Pop 女团工业化的巅峰展示。",
+      "noteEn": "Girls' Generation's U.S.-bound statement, a peak display of the industrialized K-pop girl group."
+    },
+    {
+      "id": "black-radio",
+      "title": "黑电台",
+      "en": "Black Radio",
+      "year": 2012,
+      "genres": [
+        "jazz",
+        "rnb-soul"
+      ],
+      "creator": "Robert Glasper Experiment",
+      "region": "US",
+      "rating": {
+        "rym": 3.5
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "爵士三重奏请来嘻哈与R&B歌手，2013年获格莱美最佳R&B专辑。",
+      "noteEn": "A jazz trio fronted by R&B and hip-hop guests — the 2013 Grammy for Best R&B Album."
+    },
+    {
+      "id": "channel-orange",
+      "title": "橙色频道",
+      "en": "Channel Orange",
+      "year": 2012,
+      "genres": [
+        "rnb-soul",
+        "pop"
+      ],
+      "creator": "Frank Ocean",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 8.8
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "把自传式的诚实放进 R&B 的柔光里，〈Thinkin Bout You〉让酷儿叙事进入主流。",
+      "noteEn": "Autobiographical honesty in R&B's soft focus — \"Thinkin Bout You\" brought queer narratives mainstream."
+    },
+    {
+      "id": "good-kid-maad-city",
+      "title": "好孩子，疯狂的城",
+      "en": "good kid, m.A.A.d city",
+      "year": 2012,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Kendrick Lamar",
+      "region": "US",
+      "rating": {
+        "rym": 4.2,
+        "douban": 9
+      },
+      "awards": [],
+      "note": "概念化的康普顿成长日记，把街头叙事拍成一部可以反复重看的电影。",
+      "noteEn": "A conceptual Compton coming-of-age diary, shot like a film you can rewatch endlessly."
+    },
+    {
+      "id": "silver-hotel",
+      "title": "白银饭店",
+      "en": "Silver Hotel",
+      "year": 2012,
+      "genres": [
+        "folk-country",
+        "chinese-pop"
+      ],
+      "creator": "张玮玮和郭龙",
+      "region": "CN",
+      "rating": {
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "西北民谣的手风琴挽歌，《米店》的情歌至今仍在回响。",
+      "noteEn": "Accordion elegies of northwest folk; the love-song 'Rice Shop' still echoes."
+    },
+    {
+      "id": "random-access-memories",
+      "title": "随机存取记忆",
+      "en": "Random Access Memories",
+      "year": 2013,
+      "genres": [
+        "electronic",
+        "pop"
+      ],
+      "creator": "Daft Punk",
+      "region": "FR",
+      "rating": {
+        "rym": 3.9,
+        "douban": 8.8
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "请来真人乐手重新演奏迪斯科，〈Get Lucky〉让 Daft Punk 拿下格莱美年度专辑。",
+      "noteEn": "Live musicians re-playing disco — \"Get Lucky\" carried Daft Punk to a Grammy Album of the Year."
+    },
+    {
+      "id": "xoxo-exo",
+      "title": "XOXO",
+      "en": "XOXO (EXO)",
+      "year": 2013,
+      "genres": [
+        "japanese-korean",
+        "pop"
+      ],
+      "creator": "EXO",
+      "region": "KR",
+      "rating": {
+        "douban": 8.2
+      },
+      "awards": [],
+      "note": "时隔 12 年韩国首张百万销量专辑，《咆哮》确立新世代男团秩序。",
+      "noteEn": "Korea's first million-selling album in 12 years; 'Growl' crowned the new boy-group order."
+    },
+    {
+      "id": "1989",
+      "title": "1989",
+      "en": "1989",
+      "year": 2014,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Taylor Swift",
+      "region": "US",
+      "rating": {
+        "rym": 3.4,
+        "douban": 8.6
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "从乡村转向全合成器流行，〈Shake It Off〉让她成为奖项收割机。",
+      "noteEn": "A full synth-pop pivot from country — \"Shake It Off\" turned her into an awards machine."
+    },
+    {
+      "id": "play-akmu",
+      "title": "PLAY",
+      "en": "PLAY (AKMU)",
+      "year": 2014,
+      "genres": [
+        "japanese-korean",
+        "folk-country",
+        "pop"
+      ],
+      "creator": "乐童音乐家",
+      "region": "KR",
+      "rating": {
+        "douban": 8.5
+      },
+      "awards": [],
+      "note": "兄妹俩的清新民谣奇想，《200%》里都是元音的游戏。",
+      "noteEn": "Siblings' winsome folk-pop fantasy, with the vowel-play of '200%'."
+    },
+    {
+      "id": "25",
+      "title": "25",
+      "en": "25",
+      "year": 2015,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Adele",
+      "region": "UK",
+      "rating": {
+        "rym": 3.3,
+        "douban": 8.4
+      },
+      "awards": [
+        "grammy",
+        "brit-award"
+      ],
+      "note": "〈Hello〉一出手就打破首周销量纪录，用最朴素的写法收割最广的听众。",
+      "noteEn": "\"Hello\" smashed first-week sales records — the plainest songwriting reaching the widest audience."
+    },
+    {
+      "id": "max-richter-sleep",
+      "title": "睡眠",
+      "en": "Sleep",
+      "year": 2015,
+      "genres": [
+        "ambient-newage",
+        "classical"
+      ],
+      "creator": "Max Richter",
+      "region": "DE",
+      "note": "八小时、31段的「摇篮曲」，按睡眠节律设计，是夜晚真正的配乐。",
+      "noteEn": "An eight-hour, 31-movement lullaby built to sleep through — music for the night.",
+      "awards": []
+    },
+    {
+      "id": "the-epic",
+      "title": "史诗",
+      "en": "The Epic",
+      "year": 2015,
+      "genres": [
+        "jazz"
+      ],
+      "creator": "Kamasi Washington",
+      "region": "US",
+      "rating": {
+        "rym": 3.9
+      },
+      "note": "三小时、17人的大编制，把科川式精神爵士带回2010年代的主流视野。",
+      "noteEn": "Three hours, seventeen players — Coltrane-scale spiritual jazz restored to the mainstream.",
+      "awards": []
+    },
+    {
+      "id": "to-pimp-a-butterfly",
+      "title": "给蝴蝶拉皮条",
+      "en": "To Pimp a Butterfly",
+      "year": 2015,
+      "genres": [
+        "hiphop",
+        "rnb-soul"
+      ],
+      "creator": "Kendrick Lamar",
+      "region": "US",
+      "rating": {
+        "rym": 4.4,
+        "pitchfork": 9.3,
+        "douban": 9.1
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "放克、爵士与自由爵士的现场乐队质感，把黑人性、阶级与自我怀疑写成一部长诗。",
+      "noteEn": "Live funk, jazz and free-jazz textures turning Blackness, class and self-doubt into a long-form poem."
+    },
+    {
+      "id": "anti",
+      "title": "反了",
+      "en": "Anti",
+      "year": 2016,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Rihanna",
+      "region": "US",
+      "rating": {
+        "rym": 3.9,
+        "douban": 8.4
+      },
+      "awards": [],
+      "note": "比流行更松、比 R&B 更怪，〈Work〉之外塞满险象环生的冒险。",
+      "noteEn": "Looser than pop, stranger than R&B — beyond \"Work,\" a record full of adventurous detours."
+    },
+    {
+      "id": "blonde",
+      "title": "金发",
+      "en": "Blonde",
+      "year": 2016,
+      "genres": [
+        "rnb-soul",
+        "pop"
+      ],
+      "creator": "Frank Ocean",
+      "region": "US",
+      "rating": {
+        "rym": 4.3,
+        "pitchfork": 9,
+        "douban": 8.8
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "极简的编曲与人声采样，把私人记忆做成一张可以被反复解读的概念专辑。",
+      "noteEn": "Minimal arrangements and vocal samples turning private memory into endlessly interpretable concept art."
+    },
+    {
+      "id": "la-la-land",
+      "title": "爱乐之城",
+      "en": "La La Land (Original Soundtrack)",
+      "year": 2016,
+      "genres": [
+        "soundtrack",
+        "jazz",
+        "pop"
+      ],
+      "creator": "Justin Hurwitz",
+      "region": "US",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [
+        "oscar-score"
+      ],
+      "note": "《City of Stars》重拾歌舞片配乐的爵士灵魂，奥斯卡最佳配乐。",
+      "noteEn": "'City of Stars' revived the jazz soul of movie musicals; Academy Award-winning score."
+    },
+    {
+      "id": "lemonade",
+      "title": "柠檬水",
+      "en": "Lemonade",
+      "year": 2016,
+      "genres": [
+        "pop",
+        "rnb-soul"
+      ],
+      "creator": "Beyoncé",
+      "region": "US",
+      "rating": {
+        "rym": 4,
+        "douban": 8.7
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "一张视觉专辑，把背叛、黑人与女性经验拍成六十分钟的檄文。",
+      "noteEn": "A visual album — sixty minutes on betrayal, Blackness and womanhood, delivered as a manifesto."
+    },
+    {
+      "id": "made-bigbang",
+      "title": "MADE",
+      "en": "MADE (BIGBANG)",
+      "year": 2016,
+      "genres": [
+        "japanese-korean",
+        "hiphop",
+        "pop"
+      ],
+      "creator": "BIGBANG",
+      "region": "KR",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "《Bang Bang Bang》与《Loser》——BIGBANG 对 K-Pop EDM 时代的声音总结。",
+      "noteEn": "With 'Bang Bang Bang' and 'Loser', BIGBANG's assembled masterwork of K-pop's EDM era."
+    },
+    {
+      "id": "sakamoto-async",
+      "title": "异步",
+      "en": "async",
+      "year": 2017,
+      "genres": [
+        "ambient-newage",
+        "electronic"
+      ],
+      "creator": "Ryuichi Sakamoto",
+      "region": "JP",
+      "rating": {
+        "rym": 3.8
+      },
+      "note": "坂本龙一癌症康复后的声响日记，钢琴与故障噪音并置出生命感。",
+      "noteEn": "Sakamoto's sonic diary after cancer — piano and glitch set side by side, vividly alive.",
+      "awards": []
+    },
+    {
+      "id": "bootleg-kenshi",
+      "title": "BOOTLEG",
+      "en": "BOOTLEG (Kenshi Yonezu)",
+      "year": 2017,
+      "genres": [
+        "japanese-korean",
+        "pop",
+        "rock"
+      ],
+      "creator": "米津玄师",
+      "region": "JP",
+      "rating": {
+        "douban": 8.8
+      },
+      "awards": [],
+      "note": "《打上花火》与《Loser》——米津玄师从 Vocaloid 到国民创作人的登基。",
+      "noteEn": "With 'Uchiage Hanabi' and 'Loser', Yonezu ascended from Vocaloid to national songwriter."
+    },
+    {
+      "id": "damn",
+      "title": "该死",
+      "en": "DAMN.",
+      "year": 2017,
+      "genres": [
+        "hiphop"
+      ],
+      "creator": "Kendrick Lamar",
+      "region": "US",
+      "rating": {
+        "rym": 3.8,
+        "douban": 8.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "更紧凑也更流行的转向，2018 年成为首个获得普利策音乐奖的说唱专辑。",
+      "noteEn": "A tighter, more pop-facing turn — the first rap album to win the Pulitzer Prize for Music."
+    },
+    {
+      "id": "melodrama",
+      "title": "纯真挽歌",
+      "en": "Melodrama",
+      "year": 2017,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Lorde",
+      "region": "NZ",
+      "rating": {
+        "rym": 4,
+        "pitchfork": 8.8,
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "把青春期的心碎与派对做成概念化的室内乐流行，水星奖遗珠。",
+      "noteEn": "Teenage heartbreak and house parties as a chamber-pop concept record — a Mercury shortlist gem."
+    },
+    {
+      "id": "palette-iu",
+      "title": "Palette",
+      "en": "Palette (IU)",
+      "year": 2017,
+      "genres": [
+        "japanese-korean",
+        "pop",
+        "folk-country"
+      ],
+      "creator": "IU",
+      "region": "KR",
+      "rating": {
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "IU 从国民妹妹到创作歌手的成年礼，慵懒而自洽。",
+      "noteEn": "IU's coming-of-age from nation's little sister to singer-songwriter — languid and self-possessed."
+    },
+    {
+      "id": "love-yourself-tear",
+      "title": "Love Yourself 转 Tear",
+      "en": "Love Yourself: Tear",
+      "year": 2018,
+      "genres": [
+        "japanese-korean",
+        "hiphop",
+        "pop"
+      ],
+      "creator": "BTS 防弹少年团",
+      "region": "KR",
+      "rating": {
+        "douban": 8.6
+      },
+      "awards": [],
+      "note": "首张登顶 Billboard 200 的 K-Pop 专辑，《Fake Love》席卷全球。",
+      "noteEn": "The first K-pop album to top the Billboard 200, with 'Fake Love' sweeping the globe."
+    },
+    {
+      "id": "when-we-all-fall-asleep",
+      "title": "当我们睡着时，我们去往何处",
+      "en": "When We All Fall Asleep, Where Do We Go?",
+      "year": 2019,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Billie Eilish",
+      "region": "US",
+      "rating": {
+        "rym": 3.5,
+        "douban": 8.2
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "卧室录音的耳语美学横扫格莱美四大通类，成为 Z 世代的时代音。",
+      "noteEn": "Bedroom-recorded whisper-pop swept the four general Grammy categories — the sound of a generation."
+    },
+    {
+      "id": "folklore",
+      "title": "民俗志",
+      "en": "Folklore",
+      "year": 2020,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Taylor Swift",
+      "region": "US",
+      "rating": {
+        "rym": 3.6,
+        "douban": 8.3
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "隔离期的民谣转向，与 The National 的合作让她的写作沉到室内乐般的密度。",
+      "noteEn": "A lockdown indie-folk turn with The National, sinking her songwriting to chamber-music density."
+    },
+    {
+      "id": "future-nostalgia",
+      "title": "未来乡愁",
+      "en": "Future Nostalgia",
+      "year": 2020,
+      "genres": [
+        "pop",
+        "electronic"
+      ],
+      "creator": "Dua Lipa",
+      "region": "UK",
+      "rating": {
+        "rym": 3.9,
+        "pitchfork": 8.2,
+        "douban": 8.5
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "把迪斯科回潮做成疫情时代的逃生舱，〈Levitating〉是全世界的舞池。",
+      "noteEn": "Disco revival as pandemic escape pod — \"Levitating\" became the world's dance floor."
+    },
+    {
+      "id": "the-album-blackpink",
+      "title": "THE ALBUM",
+      "en": "THE ALBUM (BLACKPINK)",
+      "year": 2020,
+      "genres": [
+        "japanese-korean",
+        "pop"
+      ],
+      "creator": "BLACKPINK",
+      "region": "KR",
+      "rating": {
+        "douban": 7.6
+      },
+      "awards": [],
+      "note": "BLACKPINK 首张正规专辑，Girl Crush 美学的全球总攻。",
+      "noteEn": "BLACKPINK's debut LP — the global assault of the 'girl crush' aesthetic."
+    },
+    {
+      "id": "sour",
+      "title": "酸",
+      "en": "Sour",
+      "year": 2021,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Olivia Rodrigo",
+      "region": "US",
+      "rating": {
+        "rym": 3.5,
+        "douban": 8.1
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "把少女的心碎写得句句扎心，〈drivers license〉创下流媒体时代的纪录。",
+      "noteEn": "Teen heartbreak written with brutal precision — \"drivers license\" set streaming-era records."
+    },
+    {
+      "id": "harrys-house",
+      "title": "哈里的房子",
+      "en": "Harry's House",
+      "year": 2022,
+      "genres": [
+        "pop"
+      ],
+      "creator": "Harry Styles",
+      "region": "UK",
+      "rating": {
+        "rym": 3.2,
+        "douban": 7.9
+      },
+      "awards": [
+        "grammy"
+      ],
+      "note": "以七十年代软摇滚为底的流行私房照，2023 年拿下格莱美年度专辑。",
+      "noteEn": "A '70s-soft-rock-tinged pop house tour that won Album of the Year at the 2023 Grammys."
+    }
+  ]
 }

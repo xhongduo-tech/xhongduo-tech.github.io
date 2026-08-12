@@ -1,39 +1,742 @@
 {
   "cat": "movies",
-  "count": 13,
+  "count": 351,
   "stats": {
-    "totalAwards": 11,
+    "totalAwards": 200,
     "genres": {
-      "drama": 11,
-      "crime": 2,
-      "biopic": 4,
-      "war": 2,
-      "comedy": 2,
-      "animation": 1,
-      "fantasy": 1,
-      "action": 1,
-      "thriller": 1
+      "documentary": 29,
+      "horror": 22,
+      "comedy": 50,
+      "action": 53,
+      "scifi": 33,
+      "war": 30,
+      "drama": 146,
+      "romance": 42,
+      "noir": 21,
+      "crime": 65,
+      "thriller": 73,
+      "animation": 39,
+      "fantasy": 33,
+      "musical": 23,
+      "western": 19,
+      "biopic": 44
     },
     "decades": {
-      "1950": 1,
-      "1970": 2,
-      "1980": 1,
-      "1990": 5,
-      "2000": 1,
-      "2010": 3
+      "1920": 5,
+      "1930": 8,
+      "1940": 11,
+      "1950": 20,
+      "1960": 18,
+      "1970": 24,
+      "1980": 30,
+      "1990": 62,
+      "2000": 88,
+      "2010": 75,
+      "2020": 10
     },
     "regions": {
-      "US": 6,
-      "CN": 4,
-      "JP": 1,
-      "UK": 2
+      "US": 193,
+      "DE": 8,
+      "RU": 6,
+      "IT": 11,
+      "UK": 25,
+      "JP": 19,
+      "IN": 3,
+      "FR": 20,
+      "SE": 2,
+      "CN": 14,
+      "HK": 15,
+      "TW": 3,
+      "BR": 2,
+      "NZ": 3,
+      "MX": 2,
+      "PL": 2,
+      "KR": 10,
+      "AR": 2,
+      "ES": 1,
+      "IE": 3,
+      "AT": 1,
+      "IL": 1,
+      "ID": 1,
+      "AU": 2,
+      "CH": 1,
+      "ZA": 1
     },
     "yearRange": [
-      1957,
-      2017
+      1922,
+      2023
     ]
   },
   "items": [
+    {
+      "id": "nanook-of-the-north",
+      "title": "北方的纳努克",
+      "en": "Nanook of the North",
+      "year": 1922,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Robert J. Flaherty",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.3
+      },
+      "awards": [],
+      "note": "公认的纪录片起点，用镜头「重建」因纽特人冰原上的生存方式。",
+      "noteEn": "The acknowledged birthplace of the documentary, reconstructing Inuit life on film."
+    },
+    {
+      "id": "nosferatu",
+      "title": "诺斯费拉图",
+      "en": "Nosferatu",
+      "year": 1922,
+      "genres": [
+        "horror"
+      ],
+      "creator": "F. W. Murnau",
+      "region": "DE",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.9
+      },
+      "note": "影子爬上楼梯的默片哥特，吸血鬼电影的原型。",
+      "noteEn": "A shadow crawling up the stairs — the ur-text of vampire cinema.",
+      "awards": []
+    },
+    {
+      "id": "the-general",
+      "title": "将军号",
+      "en": "The General",
+      "year": 1926,
+      "genres": [
+        "comedy",
+        "action"
+      ],
+      "creator": "Buster Keaton & Clyde Bruckman",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.2
+      },
+      "awards": [],
+      "note": "实拍的真实火车追逐至今让人手心冒汗，基顿面无表情的「石头脸」把特技喜剧推到顶峰。",
+      "noteEn": "A real locomotive chase that still dazzles — Keaton's stone-faced stunt comedy at its peak."
+    },
+    {
+      "id": "metropolis",
+      "title": "大都会",
+      "en": "Metropolis",
+      "year": 1927,
+      "genres": [
+        "scifi"
+      ],
+      "creator": "Fritz Lang",
+      "region": "DE",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.3
+      },
+      "note": "1927 年的摩天都市寓言，机器人玛丽亚开创银幕科幻造型。",
+      "noteEn": "A 1927 fable of the vertical city and the robot Maria, founding sci-fi imagery.",
+      "awards": []
+    },
+    {
+      "id": "man-with-a-movie-camera",
+      "title": "持摄影机的人",
+      "en": "Man with a Movie Camera",
+      "year": 1929,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Dziga Vertov",
+      "region": "RU",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.3
+      },
+      "awards": [],
+      "note": "一座城市的一日被剪成纯蒙太奇，摄影机既是主角也是眼睛。",
+      "noteEn": "A day in the city edited as pure montage — the camera itself as hero and eye."
+    },
+    {
+      "id": "all-quiet-on-the-western-front-1930",
+      "title": "西线无战事（1930）",
+      "en": "All Quiet on the Western Front (1930)",
+      "year": 1930,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Lewis Milestone",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "一战战壕里的少年凋零，反战电影的早期丰碑。",
+      "noteEn": "Schoolboys withering in the trenches — an early monument of anti-war cinema."
+    },
+    {
+      "id": "city-lights",
+      "title": "城市之光",
+      "en": "City Lights",
+      "year": 1931,
+      "genres": [
+        "comedy",
+        "romance"
+      ],
+      "creator": "Charlie Chaplin",
+      "region": "US",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 8.5
+      },
+      "awards": [],
+      "note": "流浪汉爱上盲女，用无声与配乐写尽最温柔的体面，卓别林喜剧里的一滴泪。",
+      "noteEn": "A tramp's love for a blind flower girl — silent comedy with the gentlest of hearts."
+    },
+    {
+      "id": "m-1931",
+      "title": "M就是凶手",
+      "en": "M",
+      "year": 1931,
+      "genres": [
+        "noir",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Fritz Lang",
+      "region": "DE",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.3,
+        "metacritic": 100
+      },
+      "awards": [],
+      "note": "以口哨与气球追踪恋童凶手的德国前法典之作，黑帮与警察联手审判。",
+      "noteEn": "A killer hunted by whistle and balloon in pre-Code Germany — mob and police hold court together."
+    },
+    {
+      "id": "modern-times",
+      "title": "摩登时代",
+      "en": "Modern Times",
+      "year": 1936,
+      "genres": [
+        "comedy"
+      ],
+      "creator": "Charlie Chaplin",
+      "region": "US",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 8.5
+      },
+      "awards": [],
+      "note": "流水线上拧螺丝的工人被机器吞进齿轮，工业时代最后的伟大默片喜剧。",
+      "noteEn": "A factory worker devoured by the assembly line — the last great comedy of the silent era."
+    },
+    {
+      "id": "snow-white-and-the-seven-dwarfs",
+      "title": "白雪公主和七个小矮人",
+      "en": "Snow White and the Seven Dwarfs",
+      "year": 1937,
+      "genres": [
+        "animation",
+        "fantasy",
+        "musical"
+      ],
+      "creator": "Walt Disney",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.6,
+        "metacritic": 95
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "世界第一部彩色动画长片，让动画从短片一跃成为影院的正式艺术。",
+      "noteEn": "The first full-length animated feature, lifting cartoons into the cinema's mainstream."
+    },
+    {
+      "id": "gone-with-the-wind",
+      "title": "乱世佳人",
+      "en": "Gone with the Wind",
+      "year": 1939,
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "creator": "Victor Fleming",
+      "region": "US",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 8.2
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "南北战争的硝烟里，斯嘉丽那句「明天又是新的一天」撑起整部南方史诗。",
+      "noteEn": "Scarlett's 'tomorrow is another day' through the ashes of the Civil War South."
+    },
+    {
+      "id": "stagecoach",
+      "title": "关山飞渡",
+      "en": "Stagecoach",
+      "year": 1939,
+      "genres": [
+        "western"
+      ],
+      "creator": "John Ford",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "一辆驿车穿越 Apache 领地的公路冒险，约翰·韦恩由此登场，西部片语法的奠基作。",
+      "noteEn": "A stagecoach run through Apache country — the ride that built John Wayne and the genre."
+    },
+    {
+      "id": "the-wizard-of-oz",
+      "title": "绿野仙踪",
+      "en": "The Wizard of Oz",
+      "year": 1939,
+      "genres": [
+        "fantasy",
+        "musical"
+      ],
+      "creator": "Victor Fleming",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.1
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "黄砖路上的桃乐茜，彩色宽银幕的奇幻原典。",
+      "noteEn": "Dorothy's yellow-brick odyssey — the ur-text of screen fantasy."
+    },
+    {
+      "id": "fantasia",
+      "title": "幻想曲",
+      "en": "Fantasia",
+      "year": 1940,
+      "genres": [
+        "animation",
+        "musical"
+      ],
+      "creator": "Walt Disney",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.7
+      },
+      "awards": [],
+      "note": "米老鼠敲响《魔法师的学徒》，把古典音乐画成无叙事的纯视觉诗。",
+      "noteEn": "Mickey as the sorcerer's apprentice — classical music rendered as pure visual poetry."
+    },
+    {
+      "id": "pinocchio",
+      "title": "木偶奇遇记",
+      "en": "Pinocchio",
+      "year": 1940,
+      "genres": [
+        "animation",
+        "fantasy",
+        "musical"
+      ],
+      "creator": "Walt Disney",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.5
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "说谎就长鼻子的匹诺曹，把「诚实」二字唱进一代人的童年底色。",
+      "noteEn": "A boy whose nose grows when he lies — honesty sung into a generation's childhood."
+    },
+    {
+      "id": "the-maltese-falcon",
+      "title": "马耳他之鹰",
+      "en": "The Maltese Falcon",
+      "year": 1941,
+      "genres": [
+        "noir",
+        "crime"
+      ],
+      "creator": "John Huston",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8,
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "萨姆·斯佩德与一群谎言的猎手，猎物的猎鹰雕像是虚无本身。",
+      "noteEn": "Sam Spade vs. a nest of liars — the falcon statuette turns out to be nothing at all."
+    },
+    {
+      "id": "casablanca",
+      "title": "卡萨布兰卡",
+      "en": "Casablanca",
+      "year": 1942,
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "creator": "Michael Curtiz",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.5
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "「世界上有那么多城镇，她却走进了我的」——战时爱情与牺牲的永恒范本。",
+      "noteEn": "'Of all the gin joints in all the towns in all the world' — romance and sacrifice under war."
+    },
+    {
+      "id": "double-indemnity",
+      "title": "双重赔偿",
+      "en": "Double Indemnity",
+      "year": 1944,
+      "genres": [
+        "noir",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Billy Wilder",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.3,
+        "metacritic": 95
+      },
+      "awards": [],
+      "note": "保险理赔员与蛇蝎美人的杀夫计划，黑色电影蛇蝎美人原型的奠基作。",
+      "noteEn": "An insurance man and a femme fatale plot murder — the archetypal blueprint of noir."
+    },
+    {
+      "id": "my-darling-clementine",
+      "title": "我亲爱的克莱明汀",
+      "en": "My Darling Clementine",
+      "year": 1946,
+      "genres": [
+        "western"
+      ],
+      "creator": "John Ford",
+      "region": "US",
+      "rating": {
+        "imdb": 7.7
+      },
+      "awards": [],
+      "note": "福特把 OK 牧场枪战拍成纪念碑谷下的田园诗，亨利·方达的怀特·厄普克制而悲悯，法律与乡愁各占一半。",
+      "noteEn": "Ford turns the O.K. Corral into a pastoral under Monument Valley; Henry Fonda's Wyatt Earp balances law and longing."
+    },
+    {
+      "id": "the-big-sleep",
+      "title": "夜长梦多",
+      "en": "The Big Sleep",
+      "year": 1946,
+      "genres": [
+        "noir",
+        "crime"
+      ],
+      "creator": "Howard Hawks",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.9,
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "情节本就混沌，鲍嘉与芭考尔的化学反应就是全部逻辑。",
+      "noteEn": "The plot barely matters — Bogart and Bacall's chemistry is the whole logic."
+    },
+    {
+      "id": "out-of-the-past",
+      "title": "漩涡之外",
+      "en": "Out of the Past",
+      "year": 1947,
+      "genres": [
+        "noir",
+        "crime"
+      ],
+      "creator": "Jacques Tourneur",
+      "region": "US",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.9,
+        "metacritic": 92
+      },
+      "awards": [],
+      "note": "过去的女人追着私家侦探不放，黑色电影宿命论的完美缩影。",
+      "noteEn": "The past in a femme fatale won't let a private eye go — noir fatalism in miniature."
+    },
+    {
+      "id": "bicycle-thieves",
+      "title": "偷自行车的人",
+      "en": "Bicycle Thieves",
+      "year": 1948,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Vittorio De Sica",
+      "region": "IT",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.3,
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "失业父亲带着儿子满城找一辆被偷的自行车，新现实主义的眼泪至今未干。",
+      "noteEn": "An unemployed father and son hunt one stolen bicycle — neorealism's tears never dried."
+    },
+    {
+      "id": "red-river",
+      "title": "红河谷",
+      "en": "Red River",
+      "year": 1948,
+      "genres": [
+        "western"
+      ],
+      "creator": "Howard Hawks",
+      "region": "US",
+      "rating": {
+        "imdb": 7.8
+      },
+      "awards": [],
+      "note": "一场横贯中西部的超长途牛群迁徙，韦恩与克利夫特的养父子冲突把「文明 vs 蛮荒」的张力拉满。",
+      "noteEn": "A monumental cattle drive across the Midwest, powered by the surrogate father-son clash between Wayne and Clift."
+    },
+    {
+      "id": "the-third-man",
+      "title": "第三个人",
+      "en": "The Third Man",
+      "year": 1949,
+      "genres": [
+        "noir",
+        "thriller"
+      ],
+      "creator": "Carol Reed",
+      "region": "UK",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.1,
+        "metacritic": 97
+      },
+      "awards": [],
+      "note": "战后维也纳的下水道与旋转木马，齐特琴声里藏着最著名的'不存在'第三个人。",
+      "noteEn": "Post-war Vienna's sewers and ferris wheel — a zither score for cinema's most famous absent man."
+    },
+    {
+      "id": "sunset-boulevard",
+      "title": "日落大道",
+      "en": "Sunset Boulevard",
+      "year": 1950,
+      "genres": [
+        "noir",
+        "drama"
+      ],
+      "creator": "Billy Wilder",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.4,
+        "metacritic": 96
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "过气默片女星用游泳池收留落魄编剧，好莱坞对自己最刻薄的挽歌。",
+      "noteEn": "A faded silent star keeps a hack writer in her pool — Hollywood's cruellest self-elegy."
+    },
+    {
+      "id": "high-noon",
+      "title": "正午",
+      "en": "High Noon",
+      "year": 1952,
+      "genres": [
+        "western"
+      ],
+      "creator": "Fred Zinnemann",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "即将卸任的警长独自等待四名枪手，钟声倒计时把悬念压进每一分钟。",
+      "noteEn": "A retiring marshal waits alone for four gunmen — a western ticking in real time."
+    },
+    {
+      "id": "singin-in-the-rain",
+      "title": "雨中曲",
+      "en": "Singin' in the Rain",
+      "year": 1952,
+      "genres": [
+        "musical",
+        "comedy",
+        "romance"
+      ],
+      "creator": "Gene Kelly & Stanley Donen",
+      "region": "US",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.3,
+        "metacritic": 99
+      },
+      "awards": [],
+      "note": "从默片到有声片的转型闹剧，金·凯利雨中起舞的镜头定义了整个歌舞片类型。",
+      "noteEn": "The silent-to-sound transition as a farce — Gene Kelly's rain dance defines the genre."
+    },
+    {
+      "id": "roman-holiday",
+      "title": "罗马假日",
+      "en": "Roman Holiday",
+      "year": 1953,
+      "genres": [
+        "romance",
+        "comedy"
+      ],
+      "creator": "William Wyler",
+      "region": "US",
+      "rating": {
+        "douban": 9,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "公主与记者的一天「私奔」，奥黛丽·赫本以一头短发成了银幕上最亮的光。",
+      "noteEn": "A princess's one-day escape with a reporter — Audrey Hepburn's luminous breakthrough."
+    },
+    {
+      "id": "tokyo-story",
+      "title": "东京物语",
+      "en": "Tokyo Story",
+      "year": 1953,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Yasujirō Ozu",
+      "region": "JP",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.2,
+        "metacritic": 100
+      },
+      "awards": [],
+      "note": "老夫妇进城看望子女却遭冷落，小津用低机位和静默拍出亲情最温柔的残酷。",
+      "noteEn": "Elderly parents visit indifferent children; Ozu's low angles and silence make family love gently cruel."
+    },
+    {
+      "id": "rear-window",
+      "title": "后窗",
+      "en": "Rear Window",
+      "year": 1954,
+      "genres": [
+        "thriller"
+      ],
+      "creator": "Alfred Hitchcock",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.5,
+        "metacritic": 100
+      },
+      "awards": [],
+      "note": "把偷窥拍成观众的道德困境，整部戏困在一扇窗前的凝视奇观。",
+      "noteEn": "Voyeurism as moral trap — an entire thriller staged inside one window's gaze."
+    },
+    {
+      "id": "pather-panchali",
+      "title": "大地之歌",
+      "en": "Pather Panchali",
+      "year": 1955,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Satyajit Ray",
+      "region": "IN",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.1
+      },
+      "awards": [],
+      "note": "印度乡村孩童阿普的贫苦童年，雷伊的自然主义让第三世界电影登上世界舞台。",
+      "noteEn": "Apu's impoverished rural childhood; Ray's naturalism put Third World cinema on the world stage."
+    },
+    {
+      "id": "night-and-fog",
+      "title": "夜与雾",
+      "en": "Night and Fog",
+      "year": 1956,
+      "genres": [
+        "documentary",
+        "war"
+      ],
+      "creator": "Alain Resnais",
+      "region": "FR",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.5
+      },
+      "awards": [],
+      "note": "彩色的集中营遗址与黑白档案交错，把大屠杀的寒意推进每一帧。",
+      "noteEn": "Color ruins against black-and-white archives — the Holocaust's chill in every frame."
+    },
+    {
+      "id": "the-killing",
+      "title": "杀手",
+      "en": "The Killing",
+      "year": 1956,
+      "genres": [
+        "noir",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Stanley Kubrick",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.9,
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "赛马场劫案的多线时间回环，库布里克用剪辑把宿命拆成碎片。",
+      "noteEn": "A racetrack heist in nonlinear fragments — Kubrick's editing turns fate into splinters."
+    },
+    {
+      "id": "the-searchers",
+      "title": "搜索者",
+      "en": "The Searchers",
+      "year": 1956,
+      "genres": [
+        "western"
+      ],
+      "creator": "John Ford",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.9
+      },
+      "awards": [],
+      "note": "数年追凶穿越西部，约翰·韦恩的种族执念让英雄与怪物合二为一。",
+      "noteEn": "Years of pursuit across the frontier — Wayne's bigotry blurs hero and monster."
+    },
     {
       "id": "12-angry-men",
       "title": "十二怒汉",
@@ -53,13 +756,604 @@
       "noteEn": "One room, twelve men, one argument for reasonable doubt — the ceiling of single-set cinema."
     },
     {
+      "id": "paths-of-glory",
+      "title": "光荣之路",
+      "en": "Paths of Glory",
+      "year": 1957,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Stanley Kubrick",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.4
+      },
+      "note": "法军将领用士兵性命换取荣誉，军事法庭的荒谬正义。",
+      "noteEn": "Generals court-martial their own men — the absurd justice of war.",
+      "awards": []
+    },
+    {
+      "id": "the-bridge-on-the-river-kwai",
+      "title": "桂河大桥",
+      "en": "The Bridge on the River Kwai",
+      "year": 1957,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "David Lean",
+      "region": "UK",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.1
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "日军战俘营修桥的道德悖论，大卫·里恩的殖民史诗。",
+      "noteEn": "A bridge built for the enemy — Lean's moral paradox of command."
+    },
+    {
+      "id": "the-cranes-are-flying",
+      "title": "雁南飞",
+      "en": "The Cranes Are Flying",
+      "year": 1957,
+      "genres": [
+        "war",
+        "romance"
+      ],
+      "creator": "Mikhail Kalatozov",
+      "region": "RU",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.1
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "战争撕裂的恋人，苏联电影首夺金棕榈。",
+      "noteEn": "A war-torn romance — the first Soviet Palme d'Or."
+    },
+    {
+      "id": "the-seventh-seal",
+      "title": "第七封印",
+      "en": "The Seventh Seal",
+      "year": 1957,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Ingmar Bergman",
+      "region": "SE",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.1,
+        "metacritic": 89
+      },
+      "awards": [],
+      "note": "骑士与死神对弈拖延审判，瘟疫时代的人追问上帝为何沉默。",
+      "noteEn": "A knight plays chess with Death; a plague-torn age asks why God is silent."
+    },
+    {
+      "id": "touch-of-evil",
+      "title": "历劫佳人",
+      "en": "Touch of Evil",
+      "year": 1958,
+      "genres": [
+        "noir",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Orson Welles",
+      "region": "US",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 8,
+        "metacritic": 99
+      },
+      "awards": [],
+      "note": "三分钟一镜到底的边境开场，威尔斯用胖警察的丑陋肉身拍尽腐败。",
+      "noteEn": "A legendary three-minute opening take; Welles embodies corruption in one fat cop."
+    },
+    {
+      "id": "vertigo",
+      "title": "迷魂记",
+      "en": "Vertigo",
+      "year": 1958,
+      "genres": [
+        "thriller",
+        "romance"
+      ],
+      "creator": "Alfred Hitchcock",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.3,
+        "metacritic": 100
+      },
+      "awards": [],
+      "note": "螺旋式镜头与痴恋轮回，被影评人奉为电影语言本身的爱情暗面。",
+      "noteEn": "The dolly-zoom spiral of obsession — critics' pick for cinema's own dark love language."
+    },
+    {
+      "id": "north-by-northwest",
+      "title": "西北偏北",
+      "en": "North by Northwest",
+      "year": 1959,
+      "genres": [
+        "thriller",
+        "action",
+        "comedy"
+      ],
+      "creator": "Alfred Hitchcock",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.3,
+        "metacritic": 98
+      },
+      "awards": [],
+      "note": "被误认身份的好人一路狂奔，从玉米田农药机到总统山攀岩的经典追逐。",
+      "noteEn": "A man mistaken and on the run — crop-duster strafing and Mount Rushmore define the chase."
+    },
+    {
+      "id": "rio-bravo",
+      "title": "赤胆屠龙",
+      "en": "Rio Bravo",
+      "year": 1959,
+      "genres": [
+        "western"
+      ],
+      "creator": "Howard Hawks",
+      "region": "US",
+      "rating": {
+        "imdb": 8
+      },
+      "awards": [],
+      "note": "霍克斯写给《正午》的反题：不靠孤独英雄，而靠醉汉、老人与新手各司其职，一起守一座监狱。",
+      "noteEn": "Hawks' answer to High Noon: no lone hero, just a drunk, an old man and a kid holding one jail together."
+    },
+    {
+      "id": "some-like-it-hot",
+      "title": "热情似火",
+      "en": "Some Like It Hot",
+      "year": 1959,
+      "genres": [
+        "comedy",
+        "romance"
+      ],
+      "creator": "Billy Wilder",
+      "region": "US",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.2,
+        "metacritic": 98
+      },
+      "awards": [
+        "golden-globe"
+      ],
+      "note": "逃命的乐手男扮女装混入女子乐团，结尾那句「没有人是完美的」是影史最妙收场。",
+      "noteEn": "Musicians on the run in drag — 'Nobody's perfect' remains one of cinema's greatest punchlines."
+    },
+    {
+      "id": "la-dolce-vita",
+      "title": "甜蜜的生活",
+      "en": "La Dolce Vita",
+      "year": 1960,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Federico Fellini",
+      "region": "IT",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 93
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "罗马夜生活的狗仔与明星们，费里尼让「甜蜜生活」变成一具华丽的空壳。",
+      "noteEn": "Paparazzi and starlets in Rome's nightlife — Fellini renders \"la dolce vita\" a gilded void."
+    },
+    {
+      "id": "psycho",
+      "title": "惊魂记",
+      "en": "Psycho",
+      "year": 1960,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Alfred Hitchcock",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.5
+      },
+      "note": "浴室戏 78 个机位剪出 45 秒，希区柯克改写恐怖电影语法。",
+      "noteEn": "The 78-shot shower scene rewrote the grammar of screen terror.",
+      "awards": []
+    },
+    {
+      "id": "the-magnificent-seven",
+      "title": "豪勇七蛟龙",
+      "en": "The Magnificent Seven",
+      "year": 1960,
+      "genres": [
+        "western",
+        "action"
+      ],
+      "creator": "John Sturges",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.7
+      },
+      "awards": [],
+      "note": "七名枪手保护墨西哥村庄，翻拍《七武士》的好莱坞西部群像经典。",
+      "noteEn": "Seven gunmen defend a village — Hollywood's star-studded take on Seven Samurai."
+    },
+    {
+      "id": "west-side-story-1961",
+      "title": "西区故事",
+      "en": "West Side Story (1961)",
+      "year": 1961,
+      "genres": [
+        "musical",
+        "romance"
+      ],
+      "creator": "Robert Wise & Jerome Robbins",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.6
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "罗密欧与朱丽叶搬到纽约街头帮派，把歌舞推上社会冲突的舞台。",
+      "noteEn": "Romeo and Juliet reimagined as New York street gangs — the musical as social tragedy."
+    },
+    {
+      "id": "la-jette",
+      "title": "堤",
+      "en": "La Jetée",
+      "year": 1962,
+      "genres": [
+        "scifi"
+      ],
+      "creator": "Chris Marker",
+      "region": "FR",
+      "rating": {
+        "imdb": 8.3
+      },
+      "note": "全片几乎由静态照片构成，穿越时空只为一眼爱情。",
+      "noteEn": "A time-travel story told in still photographs, all for a single glance.",
+      "awards": []
+    },
+    {
+      "id": "lawrence-of-arabia",
+      "title": "阿拉伯的劳伦斯",
+      "en": "Lawrence of Arabia",
+      "year": 1962,
+      "genres": [
+        "biopic",
+        "war",
+        "drama"
+      ],
+      "creator": "David Lean",
+      "region": "UK",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.3,
+        "metacritic": 100
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "沙漠史诗中一个英国人成为阿拉伯传奇，劳伦斯的自我分裂和沙丘一样辽阔。",
+      "noteEn": "An Englishman becomes an Arab legend in a desert epic; Lawrence's fractured self is vast as the dunes."
+    },
+    {
+      "id": "the-man-who-shot-liberty-valance",
+      "title": "双虎屠龙",
+      "en": "The Man Who Shot Liberty Valance",
+      "year": 1962,
+      "genres": [
+        "western"
+      ],
+      "creator": "John Ford",
+      "region": "US",
+      "rating": {
+        "imdb": 8.1
+      },
+      "awards": [],
+      "note": "「当传说成为事实，就印传说。」福特用近乎舞台化的黑白影像清算西部神话与历史的裂缝。",
+      "noteEn": "When the legend becomes fact, print the legend — Ford's stark black-and-white reckoning with myth versus history."
+    },
+    {
+      "id": "eight-and-a-half",
+      "title": "八部半",
+      "en": "8½",
+      "year": 1963,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Federico Fellini",
+      "region": "IT",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 92
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "灵感枯竭的导演在梦与现实之间打转，费里尼把创作焦虑拍成电影自反性的教科书。",
+      "noteEn": "A blocked director floats between dream and reality — Fellini's textbook of cinematic self-reflection."
+    },
+    {
+      "id": "a-fistful-of-dollars",
+      "title": "荒野大镖客",
+      "en": "A Fistful of Dollars",
+      "year": 1964,
+      "genres": [
+        "western",
+        "action"
+      ],
+      "creator": "Sergio Leone",
+      "region": "IT",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8
+      },
+      "awards": [],
+      "note": "无名客挑动两大家族火并，翻拍黑泽明的同时让「通心粉西部片」横空出世。",
+      "noteEn": "A stranger plays two clans against each other — the film that launched the spaghetti western."
+    },
+    {
+      "id": "havoc-in-heaven",
+      "title": "大闹天宫",
+      "en": "Havoc in Heaven",
+      "year": 1964,
+      "genres": [
+        "animation",
+        "fantasy"
+      ],
+      "creator": "万籁鸣",
+      "region": "CN",
+      "rating": {
+        "douban": 9.4,
+        "imdb": 7.9
+      },
+      "awards": [],
+      "note": "上美厂手绘神作，孙悟空的形象自此定格在几代华人的共同记忆里。",
+      "noteEn": "Shanghai Animation Studio's hand-drawn classic that fixed Sun Wukong in a nation's memory."
+    },
+    {
+      "id": "the-sound-of-music",
+      "title": "音乐之声",
+      "en": "The Sound of Music",
+      "year": 1965,
+      "genres": [
+        "musical",
+        "drama"
+      ],
+      "creator": "Robert Wise",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.1
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "修道院见习修女当上七个孩子的家庭教师，阿尔卑斯山上的歌声与自由。",
+      "noteEn": "A postulant governess and seven children — songs of freedom above the Alps."
+    },
+    {
+      "id": "la-grande-vadrouille",
+      "title": "虎口脱险",
+      "en": "La Grande Vadrouille",
+      "year": 1966,
+      "genres": [
+        "comedy",
+        "war"
+      ],
+      "creator": "Gérard Oury",
+      "region": "FR",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 7.5
+      },
+      "awards": [],
+      "note": "二战逃亡路上两位法国平民把德军耍得团团转，法式喜剧的国民记忆。",
+      "noteEn": "A WWII cat-and-mouse farce of civilians outwitting the Germans — France's beloved national comedy."
+    },
+    {
+      "id": "the-good-the-bad-and-the-ugly",
+      "title": "黄金三镖客",
+      "en": "The Good, the Bad and the Ugly",
+      "year": 1966,
+      "genres": [
+        "western"
+      ],
+      "creator": "Sergio Leone",
+      "region": "IT",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.8
+      },
+      "awards": [],
+      "note": "三个枪手寻宝的墓地决斗把对峙推向极致，莫里康内配乐与宽银幕的巅峰。",
+      "noteEn": "Three gunmen hunt Confederate gold — a cemetery standoff and Morricone at his peak."
+    },
+    {
+      "id": "le-samourai",
+      "title": "独行杀手",
+      "en": "Le Samourai",
+      "year": 1967,
+      "genres": [
+        "noir",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Jean-Pierre Melville",
+      "region": "FR",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "阿兰·德龙的帽檐与风衣，极简到近乎禅意的杀手仪式，无数杀手片的源头。",
+      "noteEn": "Delon's hat and trench coat in a near-silent ritual — the wellspring of every hitman film."
+    },
+    {
+      "id": "2001-a-space-odyssey",
+      "title": "2001 太空漫游",
+      "en": "2001: A Space Odyssey",
+      "year": 1968,
+      "genres": [
+        "scifi"
+      ],
+      "creator": "Stanley Kubrick",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.3
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "从猿骨到星童，用极简对白铺陈人类进化的宏大冥想。",
+      "noteEn": "From bone to star-child, a cosmic meditation told with near-silence."
+    },
+    {
+      "id": "once-upon-a-time-in-the-west",
+      "title": "西部往事",
+      "en": "Once Upon a Time in the West",
+      "year": 1968,
+      "genres": [
+        "western"
+      ],
+      "creator": "Sergio Leone",
+      "region": "IT",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.5
+      },
+      "awards": [],
+      "note": "铁路时代的来临碾过旧西部，开场 20 分钟无对白的复仇戏却句句是戏。",
+      "noteEn": "Railroads kill the old West — a wordless 20-minute opening that says everything."
+    },
+    {
+      "id": "butch-cassidy-and-the-sundance-kid",
+      "title": "虎豹小霸王",
+      "en": "Butch Cassidy and the Sundance Kid",
+      "year": 1969,
+      "genres": [
+        "western",
+        "comedy"
+      ],
+      "creator": "George Roy Hill",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "两个被追杀的抢匪有说有笑地浪迹天涯，把西部片拍成最潇洒的双人喜剧。",
+      "noteEn": "Two outlaws on the run, laughing all the way — the western as a buddy comedy."
+    },
+    {
+      "id": "the-wild-bunch",
+      "title": "日落黄沙",
+      "en": "The Wild Bunch",
+      "year": 1969,
+      "genres": [
+        "western"
+      ],
+      "creator": "Sam Peckinpah",
+      "region": "US",
+      "rating": {
+        "imdb": 7.9,
+        "metacritic": 96
+      },
+      "awards": [],
+      "note": "把慢镜头枪战拍成血腥芭蕾，墨西哥革命背景下的末日西部，一举重写银幕暴力美学。",
+      "noteEn": "Slow-motion gunfire as blood ballet; an apocalyptic western set against the Mexican Revolution that rewrote screen violence."
+    },
+    {
+      "id": "mccabe-and-mrs-miller",
+      "title": "花村",
+      "en": "McCabe & Mrs. Miller",
+      "year": 1971,
+      "genres": [
+        "western"
+      ],
+      "creator": "Robert Altman",
+      "region": "US",
+      "rating": {
+        "imdb": 7.6,
+        "metacritic": 93
+      },
+      "awards": [],
+      "note": "阿尔特曼的反神话西部：淘金小镇从泥泞里长出市井百态，配乐竟是莱昂纳德·科恩的民谣。",
+      "noteEn": "Altman's anti-mythic western — a frontier town built from mud and greed, scored by Leonard Cohen's folk."
+    },
+    {
+      "id": "cabaret",
+      "title": "歌厅",
+      "en": "Cabaret",
+      "year": 1972,
+      "genres": [
+        "musical",
+        "drama"
+      ],
+      "creator": "Bob Fosse",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "柏林夜总会的纸醉金迷掩盖着纳粹阴影，丽莎·明尼利的表演燃到极致。",
+      "noteEn": "Berlin's decadent cabaret under the Nazi shadow — Liza Minnelli at full blaze."
+    },
+    {
+      "id": "solaris",
+      "title": "飞向太空",
+      "en": "Solaris",
+      "year": 1972,
+      "genres": [
+        "scifi",
+        "drama"
+      ],
+      "creator": "Andrei Tarkovsky",
+      "region": "RU",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8.1
+      },
+      "note": "海洋行星用记忆吞噬船员，塔可夫斯基对太空歌剧的哲学反写。",
+      "noteEn": "A sentient ocean resurrects memories; Tarkovsky's philosophical answer to space opera.",
+      "awards": []
+    },
+    {
       "id": "the-godfather",
       "title": "教父",
       "en": "The Godfather",
       "year": 1972,
       "genres": [
-        "crime",
-        "drama"
+        "drama",
+        "crime"
       ],
       "creator": "Francis Ford Coppola",
       "region": "US",
@@ -75,13 +1369,95 @@
       "noteEn": "The family as a system: an epic of loyalty, betrayal and succession that built the mafia-film grammar."
     },
     {
+      "id": "enter-the-dragon",
+      "title": "龙争虎斗",
+      "en": "Enter the Dragon",
+      "year": 1973,
+      "genres": [
+        "action",
+        "crime"
+      ],
+      "creator": "Robert Clouse",
+      "region": "HK",
+      "rating": {
+        "douban": 7.8,
+        "imdb": 7.6
+      },
+      "awards": [],
+      "note": "李小龙的好莱坞破冰之作，把功夫带上国际银幕的类型总动员。",
+      "noteEn": "Bruce Lee's Hollywood breakthrough that brought kung fu to the world's screens."
+    },
+    {
+      "id": "the-exorcist",
+      "title": "驱魔人",
+      "en": "The Exorcist",
+      "year": 1973,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "William Friedkin",
+      "region": "US",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "绿豌豆汤与倒走楼梯，宗教恐怖的天花板之作。",
+      "noteEn": "The benchmark of religious horror, from pea soup to backward stair-walks."
+    },
+    {
+      "id": "the-long-goodbye",
+      "title": "漫长的告别",
+      "en": "The Long Goodbye",
+      "year": 1973,
+      "genres": [
+        "noir",
+        "crime"
+      ],
+      "creator": "Robert Altman",
+      "region": "US",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.6,
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "把马洛拖进七十年代嬉皮洛杉矶，一只流浪猫与一支口琴的松弛孤独。",
+      "noteEn": "Philip Marlowe lost in '70s LA — a stray cat and a harmonica's easy-going loneliness."
+    },
+    {
+      "id": "chinatown",
+      "title": "唐人街",
+      "en": "Chinatown",
+      "year": 1974,
+      "genres": [
+        "noir",
+        "crime"
+      ],
+      "creator": "Roman Polanski",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.1,
+        "metacritic": 92
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "水权阴谋与乱伦阴影下的黑色侦探史诗，'唐人街'三个字就是全片的注脚。",
+      "noteEn": "A noir detective epic of water rights and incest — 'Chinatown' is the film's entire footnote."
+    },
+    {
       "id": "the-godfather-part-ii",
       "title": "教父2",
       "en": "The Godfather Part II",
       "year": 1974,
       "genres": [
-        "crime",
-        "drama"
+        "drama",
+        "crime"
       ],
       "creator": "Francis Ford Coppola",
       "region": "US",
@@ -95,6 +1471,690 @@
       ],
       "note": "双线交叉剪辑把移民血泪与家族崩塌并置，续集比肩原作的罕见样本。",
       "noteEn": "Dual timelines braid an immigrant's rise against a family's fall — the rare sequel that rivals the original."
+    },
+    {
+      "id": "the-texas-chain-saw-massacre",
+      "title": "德州电锯杀人狂",
+      "en": "The Texas Chain Saw Massacre",
+      "year": 1974,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Tobe Hooper",
+      "region": "US",
+      "rating": {
+        "douban": 6.9,
+        "imdb": 7.5
+      },
+      "note": "链锯与皮脸在德州农场的暴行，粗粝的纪录式惊悚。",
+      "noteEn": "A chainsaw and a face of skin — grindhouse brutality as documentary.",
+      "awards": []
+    },
+    {
+      "id": "dog-day-afternoon",
+      "title": "热天午后",
+      "en": "Dog Day Afternoon",
+      "year": 1975,
+      "genres": [
+        "crime",
+        "biopic"
+      ],
+      "creator": "Sidney Lumet",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 75
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "阿尔·帕西诺的银行劫案即兴表演，把荒诞现实拍成令人窒息的群像剧。",
+      "noteEn": "Pacino's bank-job improv turns absurd reality into a suffocating ensemble drama."
+    },
+    {
+      "id": "monty-python-and-the-holy-grail",
+      "title": "巨蟒与圣杯",
+      "en": "Monty Python and the Holy Grail",
+      "year": 1975,
+      "genres": [
+        "comedy",
+        "fantasy"
+      ],
+      "creator": "Terry Gilliam & Terry Jones",
+      "region": "UK",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 8.2
+      },
+      "awards": [],
+      "note": "用椰子壳当马蹄、骑着假马「攻城」的荒诞亚瑟王传奇，英式无厘头的圣杯。",
+      "noteEn": "King Arthur's quest with coconuts for hoofbeats — the holy grail of absurdist British comedy."
+    },
+    {
+      "id": "one-flew-over-the-cuckoos-nest",
+      "title": "飞越疯人院",
+      "en": "One Flew Over the Cuckoo's Nest",
+      "year": 1975,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Milos Forman",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.7,
+        "metacritic": 83
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "麦克墨菲撞上制度化的疯人院，自由与秩序的角力至今没有结局。",
+      "noteEn": "A free spirit collides with an institution — the contest between freedom and order never ends."
+    },
+    {
+      "id": "the-irony-of-fate",
+      "title": "命运的捉弄",
+      "en": "The Irony of Fate",
+      "year": 1975,
+      "genres": [
+        "comedy",
+        "romance"
+      ],
+      "creator": "Eldar Ryazanov",
+      "region": "RU",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.1
+      },
+      "awards": [],
+      "note": "醉汉被误送进另一座城市同一条街同一号房，俄罗斯除夕夜年年重播的国民爱情喜剧。",
+      "noteEn": "A drunkard wakes in an identical apartment in another city — Russia's New Year's Eve staple."
+    },
+    {
+      "id": "harlan-county-usa",
+      "title": "美国哈兰县",
+      "en": "Harlan County, USA",
+      "year": 1976,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Barbara Kopple",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "矿工罢工的枪火与歌声，让芭芭拉成为首位捧起奥斯卡纪录长片的女导演。",
+      "noteEn": "Guns and singing in a miners' strike — Kopple became the first woman to win Best Documentary."
+    },
+    {
+      "id": "taxi-driver",
+      "title": "出租车司机",
+      "en": "Taxi Driver",
+      "year": 1976,
+      "genres": [
+        "drama",
+        "thriller",
+        "noir"
+      ],
+      "creator": "Martin Scorsese",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.2,
+        "metacritic": 94
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "越战老兵特拉维斯在午夜纽约的孤独与愤怒，「你在跟我说话吗」成为影史独白。",
+      "noteEn": "Travis's loneliness and rage in a midnight New York; De Niro's \"You talkin' to me?\" is screen legend."
+    },
+    {
+      "id": "annie-hall",
+      "title": "安妮·霍尔",
+      "en": "Annie Hall",
+      "year": 1977,
+      "genres": [
+        "comedy",
+        "romance"
+      ],
+      "creator": "Woody Allen",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 92
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "把神经质知识分子的爱情拍成打破第四面墙的话痨拼贴画，改写了好莱坞爱情喜剧的语法。",
+      "noteEn": "Neurotic intellectual romance as a wall-breaking collage of gags — rewrote the romantic comedy grammar."
+    },
+    {
+      "id": "star-wars",
+      "title": "星球大战",
+      "en": "Star Wars",
+      "year": 1977,
+      "genres": [
+        "scifi",
+        "action"
+      ],
+      "creator": "George Lucas",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.6
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "用太空歌剧重启好莱坞暑期档，把原力变成世代神话。",
+      "noteEn": "Rebooted the Hollywood blockbuster as space opera, building a generational myth."
+    },
+    {
+      "id": "suspiria",
+      "title": "阴风阵阵",
+      "en": "Suspiria",
+      "year": 1977,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Dario Argento",
+      "region": "IT",
+      "rating": {
+        "douban": 7.5,
+        "imdb": 7.3
+      },
+      "note": "芭蕾学院的血色霓虹，阿基多的彩色噩梦。",
+      "noteEn": "A ballet academy bathed in giallo neon — Argento's lurid nightmare.",
+      "awards": []
+    },
+    {
+      "id": "halloween",
+      "title": "月光光心慌慌",
+      "en": "Halloween",
+      "year": 1978,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "John Carpenter",
+      "region": "US",
+      "rating": {
+        "douban": 6.7,
+        "imdb": 7.7
+      },
+      "note": "迈克·迈尔斯的面具与五音符配乐，开创砍杀片模板。",
+      "noteEn": "The Shape, the mask and the motif — the template of the slasher.",
+      "awards": []
+    },
+    {
+      "id": "alien",
+      "title": "异形",
+      "en": "Alien",
+      "year": 1979,
+      "genres": [
+        "scifi",
+        "horror"
+      ],
+      "creator": "Ridley Scott",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8.5
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "把太空船变成屠宰场，让太空恐怖落回脏兮兮的现实。",
+      "noteEn": "Turns a starship into a slaughterhouse, grounding space horror in grime."
+    },
+    {
+      "id": "apocalypse-now",
+      "title": "现代启示录",
+      "en": "Apocalypse Now",
+      "year": 1979,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Francis Ford Coppola",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.4
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "沿湄公河溯流而上寻找上校，战争是精神崩溃的镜像。",
+      "noteEn": "A river voyage into madness — the Vietnam War as a journey into the self."
+    },
+    {
+      "id": "nezha-conquers-the-dragon-king",
+      "title": "哪吒闹海",
+      "en": "Nezha Conquers the Dragon King",
+      "year": 1979,
+      "genres": [
+        "animation",
+        "fantasy",
+        "action"
+      ],
+      "creator": "王树忱",
+      "region": "CN",
+      "rating": {
+        "douban": 9,
+        "imdb": 7.4
+      },
+      "awards": [],
+      "note": "哪吒剔骨还父的悲壮，被上美厂画成东方的「叛逆即牺牲」。",
+      "noteEn": "Nezha's self-sacrifice drawn as the East's fable of rebellion through sacrifice."
+    },
+    {
+      "id": "stalker",
+      "title": "潜行者",
+      "en": "Stalker",
+      "year": 1979,
+      "genres": [
+        "scifi",
+        "drama"
+      ],
+      "creator": "Andrei Tarkovsky",
+      "region": "RU",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.1
+      },
+      "note": "穿越「区」的朝圣之旅，把科幻拍成形而上学。",
+      "noteEn": "A pilgrimage through the Zone that turns sci-fi into metaphysics.",
+      "awards": []
+    },
+    {
+      "id": "raging-bull",
+      "title": "愤怒的公牛",
+      "en": "Raging Bull",
+      "year": 1980,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Martin Scorsese",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8.2,
+        "metacritic": 90
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "拳王拉莫塔的嫉妒与自毁，黑白拳台成为德尼罗自我惩罚的祭坛。",
+      "noteEn": "LaMotta's jealousy and self-destruction; the black-and-white ring is De Niro's altar of self-flagellation."
+    },
+    {
+      "id": "the-shining",
+      "title": "闪灵",
+      "en": "The Shining",
+      "year": 1980,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Stanley Kubrick",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 8.4
+      },
+      "note": "全景酒店的走廊迷宫与打字机「只工作不玩耍」，库布里克把恐怖拍成几何。",
+      "noteEn": "A maze-hotel and an axe-wielding father — Kubrick's horror of cold geometry.",
+      "awards": []
+    },
+    {
+      "id": "das-boot",
+      "title": "从海底出击",
+      "en": "Das Boot",
+      "year": 1981,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Wolfgang Petersen",
+      "region": "DE",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.3
+      },
+      "note": "U 型潜艇的深水炸弹与幽闭恐惧，德国视角的海战。",
+      "noteEn": "Depth charges and claustrophobia inside a U-boat — war from the German side.",
+      "awards": []
+    },
+    {
+      "id": "blade-runner",
+      "title": "银翼杀手",
+      "en": "Blade Runner",
+      "year": 1982,
+      "genres": [
+        "noir",
+        "scifi"
+      ],
+      "creator": "Ridley Scott",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.1,
+        "metacritic": 84
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "复制人的雨夜哭泣与雨中独白，把黑色侦探放进霓虹的未来洛杉矶。",
+      "noteEn": "Replicants weeping in acid rain — a noir detective dropped into neon-future LA."
+    },
+    {
+      "id": "gandhi",
+      "title": "甘地传",
+      "en": "Gandhi",
+      "year": 1982,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Richard Attenborough",
+      "region": "UK",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 79
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "本·金斯利化身为「圣雄」，非暴力不合作以八十一年的生命写进历史。",
+      "noteEn": "Ben Kingsley becomes the Mahatma; a lifetime of non-violence inscribed on history."
+    },
+    {
+      "id": "sans-soleil",
+      "title": "日月无光",
+      "en": "Sans Soleil",
+      "year": 1983,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Chris Marker",
+      "region": "FR",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 7.9
+      },
+      "awards": [],
+      "note": "一封没有收件人的影像信，在东京与非洲之间讨论时间、记忆与图像的熵。",
+      "noteEn": "A video letter to no one, meditating on time, memory and the entropy of images."
+    },
+    {
+      "id": "scarface",
+      "title": "疤面煞星",
+      "en": "Scarface",
+      "year": 1983,
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "creator": "Brian De Palma",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 8.3,
+        "metacritic": 65
+      },
+      "awards": [],
+      "note": "'小个子'的野心直到那句'Say hello to my little friend'，黑帮堕落的巴洛克寓言。",
+      "noteEn": "A little man's greed all the way to 'Say hello to my little friend' — a baroque fable of downfall."
+    },
+    {
+      "id": "amadeus",
+      "title": "莫扎特传",
+      "en": "Amadeus",
+      "year": 1984,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Miloš Forman",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8,
+        "metacritic": 93
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "庸才萨列里与天才莫扎特的嫉妒对峙，「上帝选中了莫扎特，却让我在一旁观看」。",
+      "noteEn": "Mediocre Salieri vs divine Mozart — \"God chose Mozart, and left me to watch.\""
+    },
+    {
+      "id": "nausicaa",
+      "title": "风之谷",
+      "en": "Nausicaä of the Valley of the Wind",
+      "year": 1984,
+      "genres": [
+        "fantasy",
+        "scifi",
+        "animation"
+      ],
+      "creator": "Hayao Miyazaki",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8
+      },
+      "note": "腐海与巨虫的末日生态诗，娜乌西卡是风之谷的救赎。",
+      "noteEn": "An eco-parable of the toxic jungle and the girl who rides the wind.",
+      "awards": []
+    },
+    {
+      "id": "the-neverending-story",
+      "title": "大魔域",
+      "en": "The NeverEnding Story",
+      "year": 1984,
+      "genres": [
+        "fantasy"
+      ],
+      "creator": "Wolfgang Petersen",
+      "region": "DE",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.3
+      },
+      "note": "男孩从书页进入幻想国，童年在龙与飞行中永续。",
+      "noteEn": "A boy falls into a book's world, where childhood never ends.",
+      "awards": []
+    },
+    {
+      "id": "back-to-the-future",
+      "title": "回到未来",
+      "en": "Back to the Future",
+      "year": 1985,
+      "genres": [
+        "scifi",
+        "comedy"
+      ],
+      "creator": "Robert Zemeckis",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.5
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "德罗宁载着少年穿越 1955，把时间旅行拍成青春喜剧。",
+      "noteEn": "A DeLorean joyride to 1955 that turned time travel into teenage comedy."
+    },
+    {
+      "id": "brazil",
+      "title": "妙想天开",
+      "en": "Brazil",
+      "year": 1985,
+      "genres": [
+        "scifi",
+        "comedy"
+      ],
+      "creator": "Terry Gilliam",
+      "region": "UK",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 7.9
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "官僚反乌托邦的荒诞噩梦，吉列姆的黑色寓言。",
+      "noteEn": "Gilliam's Kafkaesque nightmare of bureaucracy run mad."
+    },
+    {
+      "id": "come-and-see",
+      "title": "自己去看",
+      "en": "Come and See",
+      "year": 1985,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Elem Klimov",
+      "region": "RU",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.4
+      },
+      "note": "少年目睹游击队村的毁灭，白俄罗斯炼狱的灼眼真实。",
+      "noteEn": "A boy watches his village erased — Soviet cinema's scorching anti-war.",
+      "awards": []
+    },
+    {
+      "id": "police-story",
+      "title": "警察故事",
+      "en": "Police Story",
+      "year": 1985,
+      "genres": [
+        "action",
+        "crime",
+        "comedy"
+      ],
+      "creator": "Jackie Chan",
+      "region": "HK",
+      "rating": {
+        "douban": 7.9,
+        "imdb": 7.6
+      },
+      "awards": [],
+      "note": "成龙的搏命肉身喜剧，商场滑梯与巴士跳车戏至今无人敢照搬。",
+      "noteEn": "Jackie Chan's suicidal stunt comedy — the mall slide and bus jump remain unmatched."
+    },
+    {
+      "id": "shoah",
+      "title": "浩劫",
+      "en": "Shoah",
+      "year": 1985,
+      "genres": [
+        "documentary",
+        "war"
+      ],
+      "creator": "Claude Lanzmann",
+      "region": "FR",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.6
+      },
+      "awards": [],
+      "note": "九小时零影像资料的采访长卷，只让幸存者与凶手开口，档案都被悬置。",
+      "noteEn": "Nine hours without archival footage — only survivors and perpetrators speak."
+    },
+    {
+      "id": "a-better-tomorrow",
+      "title": "英雄本色",
+      "en": "A Better Tomorrow",
+      "year": 1986,
+      "genres": [
+        "action",
+        "crime",
+        "drama"
+      ],
+      "creator": "John Woo",
+      "region": "HK",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.4
+      },
+      "awards": [],
+      "note": "周润发风衣墨镜的双枪场面开启英雄片潮流，定义了八九十年代香港黑帮浪漫。",
+      "noteEn": "Chow Yun-fat's trench-coat gun ballet launched the heroic-bloodshed wave and defined HK gangster romance."
+    },
+    {
+      "id": "labyrinth",
+      "title": "魔幻迷宫",
+      "en": "Labyrinth",
+      "year": 1986,
+      "genres": [
+        "fantasy"
+      ],
+      "creator": "Jim Henson",
+      "region": "US",
+      "rating": {
+        "imdb": 7.4
+      },
+      "note": "吉姆·亨森的木偶迷宫，大卫·鲍伊的紧身裤与妖歌。",
+      "noteEn": "Henson's puppet labyrinth, with David Bowie's Goblin King and songs.",
+      "awards": []
+    },
+    {
+      "id": "platoon",
+      "title": "野战排",
+      "en": "Platoon",
+      "year": 1986,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Oliver Stone",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8.1
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "新兵在老兵的善恶两极间撕裂，奥利弗·斯通的越战自传。",
+      "noteEn": "A grunt torn between sergeants of good and evil — Oliver Stone's tour of duty."
+    },
+    {
+      "id": "full-metal-jacket",
+      "title": "全金属外壳",
+      "en": "Full Metal Jacket",
+      "year": 1987,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Stanley Kubrick",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8.2
+      },
+      "note": "新兵营的口号到街头狙击手，库布里克拆解战争中的灵魂。",
+      "noteEn": "Boot-camp chants and a Hue sniper — Kubrick strips war to the bone.",
+      "awards": []
     },
     {
       "id": "the-last-emperor",
@@ -120,6 +2180,442 @@
       "noteEn": "Shot inside the Forbidden City, a captive emperor's life becomes a dialogue between East and West."
     },
     {
+      "id": "the-princess-bride",
+      "title": "公主新娘",
+      "en": "The Princess Bride",
+      "year": 1987,
+      "genres": [
+        "fantasy",
+        "comedy",
+        "romance"
+      ],
+      "creator": "Rob Reiner",
+      "region": "US",
+      "rating": {
+        "douban": 8,
+        "imdb": 8
+      },
+      "note": "真爱与剑术的童话恶作剧，台词被引用到如今。",
+      "noteEn": "A fairy-tale swashbuckler of true love and wit, endlessly quoted.",
+      "awards": []
+    },
+    {
+      "id": "the-untouchables",
+      "title": "铁面无私",
+      "en": "The Untouchables",
+      "year": 1987,
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "creator": "Brian De Palma",
+      "region": "US",
+      "rating": {
+        "douban": 7.9,
+        "imdb": 7.9,
+        "metacritic": 66
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "车站婴儿车阶梯枪战致敬《战舰波将金号》，禁酒令年代的黑帮正典。",
+      "noteEn": "The pram-on-the-stairs shootout salutes Battleship Potemkin — a Prohibition-era classic."
+    },
+    {
+      "id": "a-fish-called-wanda",
+      "title": "一条叫旺达的鱼",
+      "en": "A Fish Called Wanda",
+      "year": 1988,
+      "genres": [
+        "comedy",
+        "crime"
+      ],
+      "creator": "Charles Crichton",
+      "region": "UK",
+      "rating": {
+        "imdb": 7.5
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "一伙笨贼为钻石互相背叛，凯文·克莱恩演的「愚蠢至极」骗过所有观众拿下奥斯卡男配。",
+      "noteEn": "Diamond thieves double-crossing each other — Kevin Kline's idiot act won him an Oscar."
+    },
+    {
+      "id": "akira",
+      "title": "阿基拉",
+      "en": "Akira",
+      "year": 1988,
+      "genres": [
+        "animation",
+        "scifi",
+        "action"
+      ],
+      "creator": "大友克洋",
+      "region": "JP",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8,
+        "metacritic": 67
+      },
+      "awards": [],
+      "note": "手绘赛博朋克的巅峰，霓虹都市与生物装甲点燃了九十年代全球动画热。",
+      "noteEn": "The peak of hand-drawn cyberpunk, igniting the global anime boom of the nineties."
+    },
+    {
+      "id": "cinema-paradiso",
+      "title": "天堂电影院",
+      "en": "Cinema Paradiso",
+      "year": 1988,
+      "genres": [
+        "drama",
+        "romance"
+      ],
+      "creator": "Giuseppe Tornatore",
+      "region": "IT",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.5,
+        "metacritic": 79
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "胶片与初恋一起被剪辑成回望，结尾那卷亲吻合集是写给电影的情书。",
+      "noteEn": "Film reels and first love spliced into memory; the closing kiss-reel is a love letter to cinema."
+    },
+    {
+      "id": "die-hard",
+      "title": "虎胆龙威",
+      "en": "Die Hard",
+      "year": 1988,
+      "genres": [
+        "action",
+        "thriller"
+      ],
+      "creator": "John McTiernan",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 8.2,
+        "metacritic": 72
+      },
+      "awards": [],
+      "note": "把孤胆警探困进摩天楼，用地下室、电梯井与通风管道改写了好莱坞动作片的空间语法。",
+      "noteEn": "Traps a lone cop inside a skyscraper, rewriting the spatial grammar of the Hollywood action film."
+    },
+    {
+      "id": "feeling-from-mountain-and-water",
+      "title": "山水情",
+      "en": "Feeling from Mountain and Water",
+      "year": 1988,
+      "genres": [
+        "animation",
+        "drama"
+      ],
+      "creator": "特伟",
+      "region": "CN",
+      "rating": {
+        "douban": 9.3
+      },
+      "awards": [],
+      "note": "水墨动画的绝唱，古琴声里一师一徒，每一帧都是活的山水画。",
+      "noteEn": "The swan song of ink-wash animation — a teacher and pupil bound by the qin's music."
+    },
+    {
+      "id": "grave-of-the-fireflies",
+      "title": "萤火虫之墓",
+      "en": "Grave of the Fireflies",
+      "year": 1988,
+      "genres": [
+        "animation",
+        "war",
+        "drama"
+      ],
+      "creator": "高畑勋",
+      "region": "JP",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.5,
+        "metacritic": 94
+      },
+      "awards": [],
+      "note": "兄妹在战败后的日本挨饿，反战不是口号，而是每一勺糖水的重量。",
+      "noteEn": "A brother and sister starve in postwar Japan — anti-war made of each spoonful of sugar water."
+    },
+    {
+      "id": "my-neighbor-totoro",
+      "title": "龙猫",
+      "en": "My Neighbor Totoro",
+      "year": 1988,
+      "genres": [
+        "animation",
+        "fantasy"
+      ],
+      "creator": "宫崎骏",
+      "region": "JP",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.1,
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "把乡愁画成毛茸茸的森林守护神，龙猫巴士载着全世界失眠的孩子回家。",
+      "noteEn": "Nostalgia as a furry forest spirit; the Catbus carries every sleepless child home."
+    },
+    {
+      "id": "dead-poets-society",
+      "title": "死亡诗社",
+      "en": "Dead Poets Society",
+      "year": 1989,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Peter Weir",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.1,
+        "metacritic": 79
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "「及时行乐」的基廷老师教学生站在课桌上换一种眼光看世界，代价是青春的觉醒与断裂。",
+      "noteEn": "Carpe diem — Keating makes his boys stand on desks to see the world anew, at the cost of their awakening."
+    },
+    {
+      "id": "dances-with-wolves",
+      "title": "与狼共舞",
+      "en": "Dances with Wolves",
+      "year": 1990,
+      "genres": [
+        "western",
+        "drama",
+        "romance"
+      ],
+      "creator": "Kevin Costner",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "一名军官投奔苏族印第安人，第一次真正站到原住民视角的西部史诗。",
+      "noteEn": "A lieutenant goes native among the Sioux — the first great western from their side."
+    },
+    {
+      "id": "goodfellas",
+      "title": "好家伙",
+      "en": "Goodfellas",
+      "year": 1990,
+      "genres": [
+        "crime",
+        "biopic",
+        "drama"
+      ],
+      "creator": "Martin Scorsese",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8.7,
+        "metacritic": 90
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "推拉镜头与旁白把黑帮日常拍成摇滚乐，叙述者视角的犯罪片圣经。",
+      "noteEn": "Steadicam and voiceover turn gangster life into rock 'n' roll — the narrator's-eye crime bible."
+    },
+    {
+      "id": "a-brighter-summer-day",
+      "title": "牯岭街少年杀人事件",
+      "en": "A Brighter Summer Day",
+      "year": 1991,
+      "genres": [
+        "drama",
+        "crime"
+      ],
+      "creator": "Edward Yang",
+      "region": "TW",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.3
+      },
+      "awards": [],
+      "note": "近四小时的少年史诗，小四的一刀既刺向爱人，也刺向整个时代的压抑。",
+      "noteEn": "A four-hour youth epic — Xiao Si's knife strikes both his love and the repression of an era."
+    },
+    {
+      "id": "beauty-and-the-beast",
+      "title": "美女与野兽",
+      "en": "Beauty and the Beast",
+      "year": 1991,
+      "genres": [
+        "animation",
+        "fantasy",
+        "musical"
+      ],
+      "creator": "Gary Trousdale, Kirk Wise",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8,
+        "metacritic": 95
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "首部提名奥斯卡最佳影片的动画，把百老汇音乐剧的骨架搬进赛璐珞。",
+      "noteEn": "The first animated film nominated for Best Picture, transplanting Broadway's bones into cel animation."
+    },
+    {
+      "id": "terminator-2",
+      "title": "终结者2：审判日",
+      "en": "Terminator 2: Judgment Day",
+      "year": 1991,
+      "genres": [
+        "action",
+        "scifi"
+      ],
+      "creator": "James Cameron",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.6,
+        "metacritic": 75
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "液态金属 T-1000 是全 CGI 角色的分水岭，动作与悲悯并存，续集片的天花板。",
+      "noteEn": "The liquid-metal T-1000 set the bar for CGI characters; spectacle and melancholy in one sequel."
+    },
+    {
+      "id": "the-silence-of-the-lambs",
+      "title": "沉默的羔羊",
+      "en": "The Silence of the Lambs",
+      "year": 1991,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "Jonathan Demme",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.6,
+        "metacritic": 85
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "史达琳与汉尼拔的隔栏对话，让心理惊悚成为横扫五座奥斯卡的经典。",
+      "noteEn": "Clarice's cage-side talks with Hannibal made psychological horror sweep five Oscars."
+    },
+    {
+      "id": "center-stage",
+      "title": "阮玲玉",
+      "en": "Center Stage",
+      "year": 1992,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Stanley Kwan",
+      "region": "HK",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.2
+      },
+      "awards": [],
+      "note": "戏中戏与史料交织，张曼玉凭阮玲玉拿下柏林银熊，把默片女星的身前身后揉进光影。",
+      "noteEn": "Film-within-film meets archival footage; Maggie Cheung's Berlin-winning turn haunts the silent star."
+    },
+    {
+      "id": "hard-boiled",
+      "title": "辣手神探",
+      "en": "Hard Boiled",
+      "year": 1992,
+      "genres": [
+        "action",
+        "crime",
+        "thriller"
+      ],
+      "creator": "John Woo",
+      "region": "HK",
+      "rating": {
+        "douban": 7.9,
+        "imdb": 7.6
+      },
+      "awards": [],
+      "note": "吴宇森英雄片暴力美学的终点站，医院枪战一镜到底的奇观。",
+      "noteEn": "John Woo's heroic-bloodshed crescendo, capped by the legendary single-take hospital shootout."
+    },
+    {
+      "id": "malcolm-x",
+      "title": "马尔科姆 X",
+      "en": "Malcolm X",
+      "year": 1992,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Spike Lee",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.7
+      },
+      "awards": [],
+      "note": "从罪犯到民权领袖再到朝圣者，丹泽尔·华盛顿撑起一部黑人觉醒的编年史。",
+      "noteEn": "From convict to civil-rights leader to pilgrim; Denzel carries a chronicle of Black awakening."
+    },
+    {
+      "id": "reservoir-dogs",
+      "title": "落水狗",
+      "en": "Reservoir Dogs",
+      "year": 1992,
+      "genres": [
+        "crime",
+        "thriller"
+      ],
+      "creator": "Quentin Tarantino",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 8.3,
+        "metacritic": 79
+      },
+      "awards": [],
+      "note": "一场被提前揭晓的抢劫、六个互不信任的代号者，昆汀处女作即奠定黑色幽默。",
+      "noteEn": "A heist already gone wrong and six distrustful colors — Tarantino's debut set his noir-comic tone."
+    },
+    {
+      "id": "unforgiven",
+      "title": "不可饶恕",
+      "en": "Unforgiven",
+      "year": 1992,
+      "genres": [
+        "western"
+      ],
+      "creator": "Clint Eastwood",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.2,
+        "metacritic": 85
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "退休枪手为赏金重出江湖，伊斯特伍德为整个西部神话亲手写下的挽歌。",
+      "noteEn": "A retired gunman takes one last job — Eastwood's elegy for the western myth."
+    },
+    {
       "id": "farewell-my-concubine",
       "title": "霸王别姬",
       "en": "Farewell My Concubine",
@@ -138,6 +2634,47 @@
       ],
       "note": "戏梦人生半个世纪，把京剧国粹、性别与政治悲剧熔进一炉的华语巅峰。",
       "noteEn": "Half a century of opera, love and political tragedy — the pinnacle of Chinese-language cinema."
+    },
+    {
+      "id": "flirting-scholar",
+      "title": "唐伯虎点秋香",
+      "en": "Flirting Scholar",
+      "year": 1993,
+      "genres": [
+        "comedy"
+      ],
+      "creator": "李力持",
+      "region": "HK",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7
+      },
+      "awards": [],
+      "note": "「小强」与「旺财」的梗从这里走向全国，周星驰古装无厘头的最巅峰之一。",
+      "noteEn": "Where the 'Little Qiang' cockroach meme was born — peak costume mo-lei-tau from Stephen Chow."
+    },
+    {
+      "id": "groundhog-day",
+      "title": "土拨鼠之日",
+      "en": "Groundhog Day",
+      "year": 1993,
+      "genres": [
+        "comedy",
+        "fantasy",
+        "romance"
+      ],
+      "creator": "Harold Ramis",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 72
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "被困在同一天的主角被迫一遍遍重活，直到学会善良——所有时间循环片的祖本。",
+      "noteEn": "A man relives the same day until he learns kindness — the ur-text of every time-loop comedy."
     },
     {
       "id": "schindlers-list",
@@ -163,6 +2700,86 @@
       "noteEn": "A single red coat in a world of black and white — proof that humanity survived the ashes."
     },
     {
+      "id": "the-eagle-shooting-heroes",
+      "title": "东成西就",
+      "en": "The Eagle Shooting Heroes",
+      "year": 1993,
+      "genres": [
+        "comedy",
+        "action"
+      ],
+      "creator": "刘镇伟",
+      "region": "HK",
+      "rating": {
+        "douban": 8.7
+      },
+      "awards": [],
+      "note": "全港顶流明星贺岁反串大乱斗，一本正经地讲最离谱的笑话，港产喜剧的年味担当。",
+      "noteEn": "Every HK star of the era in gender-bending holiday chaos — Lunar New Year comedy at its most unhinged."
+    },
+    {
+      "id": "tombstone",
+      "title": "墓碑镇",
+      "en": "Tombstone",
+      "year": 1993,
+      "genres": [
+        "western"
+      ],
+      "creator": "George P. Cosmatos",
+      "region": "US",
+      "rating": {
+        "imdb": 7.8
+      },
+      "awards": [],
+      "note": "90 年代最爽快的枪手群像，瓦尔·基默的「医生」霍利迪把每句对白都嚼出了烟与酒的味道。",
+      "noteEn": "The swaggering gunman ensemble of the '90s; Val Kilmer's Doc Holliday chews every line like tobacco and gin."
+    },
+    {
+      "id": "chungking-express",
+      "title": "重庆森林",
+      "en": "Chungking Express",
+      "year": 1994,
+      "genres": [
+        "romance",
+        "comedy",
+        "drama"
+      ],
+      "creator": "王家卫",
+      "region": "HK",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.1,
+        "metacritic": 77
+      },
+      "awards": [
+        "hk-film-award"
+      ],
+      "note": "金城武吃罐头、王菲晃荡的都市失恋絮语，杜可风手持镜头下的香港夜色。",
+      "noteEn": "Expired pineapple cans and midnight sleepwalkers — Wong Kar-wai films urban loneliness sweet and sour."
+    },
+    {
+      "id": "ed-wood",
+      "title": "艾德·伍德",
+      "en": "Ed Wood",
+      "year": 1994,
+      "genres": [
+        "biopic",
+        "comedy",
+        "drama"
+      ],
+      "creator": "Tim Burton",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "影史最烂导演的真诚与狂热被伯顿拍成黑白温柔，热爱本身就不输任何天才。",
+      "noteEn": "Burton films the \"worst director ever\" with black-and-white tenderness — passion alone rivals genius."
+    },
+    {
       "id": "forrest-gump",
       "title": "阿甘正传",
       "en": "Forrest Gump",
@@ -183,6 +2800,114 @@
       ],
       "note": "用一颗纯真的心穿过美国半个世纪的乱流，笨拙本身就是一种幸运。",
       "noteEn": "Running on innocence through half a century of American chaos — simplicity as luck."
+    },
+    {
+      "id": "hoop-dreams",
+      "title": "篮球梦",
+      "en": "Hoop Dreams",
+      "year": 1994,
+      "genres": [
+        "documentary",
+        "drama"
+      ],
+      "creator": "Steve James",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.3
+      },
+      "awards": [],
+      "note": "七年跟拍两名芝加哥少年的篮球梦，体育纪录片的巅峰与奥斯卡遗珠。",
+      "noteEn": "Seven years tracking two Chicago teens' basketball dreams — the peak, and an Oscar snub, of sports docs."
+    },
+    {
+      "id": "leon-the-professional",
+      "title": "这个杀手不太冷",
+      "en": "Leon: The Professional",
+      "year": 1994,
+      "genres": [
+        "crime",
+        "thriller",
+        "action"
+      ],
+      "creator": "Luc Besson",
+      "region": "FR",
+      "rating": {
+        "douban": 9.4,
+        "imdb": 8.5,
+        "metacritic": 64
+      },
+      "awards": [],
+      "note": "冷面杀手与孤女玛蒂尔达的忘年羁绊，让暴力片里长出最温柔的花。",
+      "noteEn": "A hitman and a twelve-year-old orphan's bond — tenderness blooming inside a violent thriller."
+    },
+    {
+      "id": "pulp-fiction",
+      "title": "低俗小说",
+      "en": "Pulp Fiction",
+      "year": 1994,
+      "genres": [
+        "crime"
+      ],
+      "creator": "Quentin Tarantino",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.9,
+        "metacritic": 94
+      },
+      "awards": [
+        "oscar",
+        "palme-dor"
+      ],
+      "note": "环形叙事把三个黑色故事拧成一团，台词与配乐成为九零年代流行文化代名词。",
+      "noteEn": "Circular storytelling braids three tales; its dialogue and soundtrack defined '90s pop culture."
+    },
+    {
+      "id": "speed",
+      "title": "生死时速",
+      "en": "Speed",
+      "year": 1994,
+      "genres": [
+        "action",
+        "thriller"
+      ],
+      "creator": "Jan de Bont",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.3,
+        "metacritic": 78
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "一列不能低于五十英里的公交车，把高概念悬念焊死在轮子上。",
+      "noteEn": "A bus that must stay above fifty — high-concept suspense welded to four wheels."
+    },
+    {
+      "id": "the-lion-king",
+      "title": "狮子王",
+      "en": "The Lion King",
+      "year": 1994,
+      "genres": [
+        "animation",
+        "drama",
+        "musical"
+      ],
+      "creator": "Roger Allers, Rob Minkoff",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.5,
+        "metacritic": 88
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "把《哈姆雷特》放到非洲草原，生死轮回让动画第一次认真地谈代价。",
+      "noteEn": "Hamlet on the savanna — the circle of life made animation talk seriously about cost."
     },
     {
       "id": "the-shawshank-redemption",
@@ -222,10 +2947,383 @@
       "noteEn": "A family stripped of everything by history, until meaning is reduced to survival itself."
     },
     {
-      "id": "spirited-away",
-      "title": "千与千寻",
-      "en": "Spirited Away",
-      "year": 2001,
+      "id": "a-chinese-odyssey-part-two-cinderella",
+      "title": "大话西游之大圣娶亲",
+      "en": "A Chinese Odyssey Part Two: Cinderella",
+      "year": 1995,
+      "genres": [
+        "comedy",
+        "fantasy",
+        "romance"
+      ],
+      "creator": "刘镇伟",
+      "region": "HK",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.1
+      },
+      "awards": [],
+      "note": "至尊宝那句「一万年」的台词被华人影迷背了大半生，无厘头里藏的是放不下的遗憾。",
+      "noteEn": "The 'ten thousand years' vow that Chinese audiences still quote — absurdist comedy hiding deep regret."
+    },
+    {
+      "id": "before-sunrise",
+      "title": "爱在黎明破晓前",
+      "en": "Before Sunrise",
+      "year": 1995,
+      "genres": [
+        "romance"
+      ],
+      "creator": "Richard Linklater",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.1
+      },
+      "awards": [],
+      "note": "维也纳的一夜全靠聊天撑起，爱情被还原成最纯粹的交谈与可能性。",
+      "noteEn": "One night of talk in Vienna — romance reduced to pure conversation and possibility."
+    },
+    {
+      "id": "casino",
+      "title": "赌城风云",
+      "en": "Casino",
+      "year": 1995,
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "creator": "Martin Scorsese",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8.2,
+        "metacritic": 73
+      },
+      "awards": [],
+      "note": "拉斯维加斯的黄金时代与倾覆，赌场黑帮权力之巅最喧哗的挽歌。",
+      "noteEn": "The rise and fall of Vegas's golden age — the loudest dirge for casino-era power."
+    },
+    {
+      "id": "ghost-in-the-shell",
+      "title": "攻壳机动队",
+      "en": "Ghost in the Shell",
+      "year": 1995,
+      "genres": [
+        "animation",
+        "scifi",
+        "thriller"
+      ],
+      "creator": "押井守",
+      "region": "JP",
+      "rating": {
+        "douban": 9,
+        "imdb": 7.9,
+        "metacritic": 76
+      },
+      "awards": [],
+      "note": "义体人素子的身份之问，是《黑客帝国》哲学与视觉的直接前身。",
+      "noteEn": "Major Kusanagi's identity duel with the Puppet Master, a cyberpunk animation landmark."
+    },
+    {
+      "id": "heat",
+      "title": "盗火线",
+      "en": "Heat",
+      "year": 1995,
+      "genres": [
+        "crime",
+        "action",
+        "thriller"
+      ],
+      "creator": "Michael Mann",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.3,
+        "metacritic": 76
+      },
+      "awards": [],
+      "note": "德尼罗与帕西诺首度同框的枪战对谈，把警匪片拍成都市悲剧双人舞。",
+      "noteEn": "De Niro and Pacino finally face off — cop and robber as a tragic urban pas de deux."
+    },
+    {
+      "id": "la-haine",
+      "title": "怒火青春",
+      "en": "La Haine",
+      "year": 1995,
+      "genres": [
+        "drama",
+        "crime"
+      ],
+      "creator": "Mathieu Kassovitz",
+      "region": "FR",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.1,
+        "metacritic": 77
+      },
+      "awards": [
+        "cesar"
+      ],
+      "note": "巴黎郊区三个青年在骚乱夜游荡，黑白影像里「这世界属于你们」满是火药味。",
+      "noteEn": "Three youths roam a riot-torn Paris suburb; \"This world belongs to you\" rings with gunpowder."
+    },
+    {
+      "id": "love-letter",
+      "title": "情书",
+      "en": "Love Letter",
+      "year": 1995,
+      "genres": [
+        "romance"
+      ],
+      "creator": "Shunji Iwai",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 7.6
+      },
+      "awards": [],
+      "note": "一封寄往天国的信牵出同名同姓的青春往事，雪国的暗恋温柔而悲伤。",
+      "noteEn": "A letter to the dead uncovers a shared name and a buried teenage love."
+    },
+    {
+      "id": "se7en",
+      "title": "七宗罪",
+      "en": "Se7en",
+      "year": 1995,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "David Fincher",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.6,
+        "metacritic": 65
+      },
+      "awards": [],
+      "note": "七宗罪连环凶杀，雨夜城市的下水道里藏着最后一个'愤怒'的盒子。",
+      "noteEn": "A seven-sins killer in a rain-soaked city — the final box holds one last 'wrath'."
+    },
+    {
+      "id": "the-usual-suspects",
+      "title": "非常嫌疑犯",
+      "en": "The Usual Suspects",
+      "year": 1995,
+      "genres": [
+        "crime",
+        "thriller"
+      ],
+      "creator": "Bryan Singer",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.5,
+        "metacritic": 77
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "凯撒·苏尔的名字在最后一刻改写整个故事，叙事诡计的教科书。",
+      "noteEn": "The name Kaiser Soze rewrites everything at the last minute — a textbook narrative trick."
+    },
+    {
+      "id": "toy-story",
+      "title": "玩具总动员",
+      "en": "Toy Story",
+      "year": 1995,
+      "genres": [
+        "animation",
+        "comedy"
+      ],
+      "creator": "John Lasseter",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.3,
+        "metacritic": 96
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "全球首部全 CG 长片，玩具的嫉妒与忠诚定义了皮克斯的情感语法。",
+      "noteEn": "The first all-CG feature; the toys' jealousy and loyalty defined Pixar's emotional grammar."
+    },
+    {
+      "id": "comrades-almost-a-love-story",
+      "title": "甜蜜蜜",
+      "en": "Comrades: Almost a Love Story",
+      "year": 1996,
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "creator": "陈可辛",
+      "region": "HK",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 7.2
+      },
+      "awards": [
+        "hk-film-award",
+        "golden-horse"
+      ],
+      "note": "邓丽君的歌声串起两个内地移民在香港的十年聚散，华语爱情片的一座高峰。",
+      "noteEn": "Teresa Teng's songs carry a decade of separations and reunions — a peak of Chinese romance."
+    },
+    {
+      "id": "face-off",
+      "title": "变脸",
+      "en": "Face/Off",
+      "year": 1997,
+      "genres": [
+        "action",
+        "thriller",
+        "crime"
+      ],
+      "creator": "John Woo",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.2
+      },
+      "awards": [],
+      "note": "换脸设定让正邪在两张皮囊里互换，吴宇森的好莱坞巅峰与双雄宿命论。",
+      "noteEn": "Facial transplants swap hero and villain — Woo's Hollywood peak and his fated-duel obsession."
+    },
+    {
+      "id": "gattaca",
+      "title": "千钧一发",
+      "en": "Gattaca",
+      "year": 1997,
+      "genres": [
+        "scifi",
+        "drama"
+      ],
+      "creator": "Andrew Niccol",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 7.7
+      },
+      "note": "基因决定命运的近未来，「我不给返程留燃料」的逆袭。",
+      "noteEn": "In a gene-sorted future, a 'god-child' proves will outranks DNA.",
+      "awards": []
+    },
+    {
+      "id": "good-will-hunting",
+      "title": "心灵捕手",
+      "en": "Good Will Hunting",
+      "year": 1997,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Gus Van Sant",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.3,
+        "metacritic": 70
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "天才清洁工与老心理师互相拯救，「这不是你的错」是一场迟到的自我赦免。",
+      "noteEn": "A janitor-genius and his shrink rescue each other; \"It's not your fault\" becomes a late absolution."
+    },
+    {
+      "id": "hana-bi",
+      "title": "花火",
+      "en": "Hana-bi",
+      "year": 1997,
+      "genres": [
+        "crime",
+        "drama",
+        "noir"
+      ],
+      "creator": "Takeshi Kitano",
+      "region": "JP",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.6
+      },
+      "awards": [
+        "golden-lion"
+      ],
+      "note": "北野武把暴力剪成顿挫的诗句，把对垂死妻子的温柔画进每一帧。",
+      "noteEn": "Kitano cuts violence into staccato poetry and paints tenderness for a dying wife into every frame."
+    },
+    {
+      "id": "la-confidential",
+      "title": "洛城机密",
+      "en": "L.A. Confidential",
+      "year": 1997,
+      "genres": [
+        "noir",
+        "crime"
+      ],
+      "creator": "Curtis Hanson",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.2,
+        "metacritic": 90
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "五十年代洛杉矶的杂志光鲜与警察黑幕，黑色电影的九零年代复兴范本。",
+      "noteEn": "Glossy '50s LA vs. corrupt cops — the blueprint for the '90s neo-noir revival."
+    },
+    {
+      "id": "life-is-beautiful",
+      "title": "美丽人生",
+      "en": "Life Is Beautiful",
+      "year": 1997,
+      "genres": [
+        "comedy",
+        "drama"
+      ],
+      "creator": "Roberto Benigni",
+      "region": "IT",
+      "rating": {
+        "douban": 9.5,
+        "imdb": 8.6
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "父亲用游戏与谎言为儿子守住集中营里的童年，把最残酷的历史讲成最温柔的爱。",
+      "noteEn": "A father turns the Holocaust into a game to protect his son — tragedy told as the gentlest love."
+    },
+    {
+      "id": "perfect-blue",
+      "title": "未麻的部屋",
+      "en": "Perfect Blue",
+      "year": 1997,
+      "genres": [
+        "animation",
+        "thriller",
+        "horror"
+      ],
+      "creator": "今敏",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8,
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "偶像转型演员的幻象崩塌，虚实剪辑比《黑天鹅》早了十三年。",
+      "noteEn": "An idol's identity collapses in real time — reality-splicing that predates Black Swan by a decade."
+    },
+    {
+      "id": "princess-mononoke",
+      "title": "幽灵公主",
+      "en": "Princess Mononoke",
+      "year": 1997,
       "genres": [
         "animation",
         "fantasy",
@@ -234,16 +3332,2225 @@
       "creator": "宫崎骏",
       "region": "JP",
       "rating": {
-        "douban": 9.4,
-        "imdb": 8.6,
-        "metacritic": 96
+        "douban": 8.8,
+        "imdb": 8.3,
+        "metacritic": 76
+      },
+      "awards": [
+        "japan-academy"
+      ],
+      "note": "森林与铁镇没有对错只有互害，宫崎骏亲手撕掉非黑即白的童话。",
+      "noteEn": "Forest and forge-town with no side entirely right — Miyazaki tearing up black-and-white fairy tales."
+    },
+    {
+      "id": "the-dream-factory",
+      "title": "甲方乙方",
+      "en": "The Dream Factory",
+      "year": 1997,
+      "genres": [
+        "comedy"
+      ],
+      "creator": "冯小刚",
+      "region": "CN",
+      "rating": {
+        "douban": 7.9
+      },
+      "awards": [],
+      "note": "「好梦一日游」替人圆梦的荒诞生意，冯氏幽默与内地贺岁片的开山之作。",
+      "noteEn": "A company that rents out fantasy lives — the film that launched Feng Xiaogang's New Year comedy tradition."
+    },
+    {
+      "id": "the-fifth-element",
+      "title": "第五元素",
+      "en": "The Fifth Element",
+      "year": 1997,
+      "genres": [
+        "scifi",
+        "action"
+      ],
+      "creator": "Luc Besson",
+      "region": "FR",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.6
+      },
+      "note": "吕克·贝松的高概念彩色漫画，太空歌剧的欧陆想象。",
+      "noteEn": "Besson's comic-book high concept — a candy-colored European space opera.",
+      "awards": []
+    },
+    {
+      "id": "titanic",
+      "title": "泰坦尼克号",
+      "en": "Titanic",
+      "year": 1997,
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "creator": "James Cameron",
+      "region": "US",
+      "rating": {
+        "douban": 9.5,
+        "imdb": 7.9,
+        "metacritic": 75
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "杰克与露丝的生死之恋沉入大西洋，也沉进几代人的记忆深处。",
+      "noteEn": "Jack and Rose's doomed love sinks into the Atlantic — and into global memory."
+    },
+    {
+      "id": "central-station",
+      "title": "中央车站",
+      "en": "Central Station",
+      "year": 1998,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Walter Salles",
+      "region": "BR",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8
+      },
+      "awards": [
+        "golden-bear"
+      ],
+      "note": "代写书信的老妇与寻父男孩踏上巴西腹地之旅，两个孤独的灵魂彼此缝合。",
+      "noteEn": "A letter-writing old woman and a fatherless boy cross the Brazilian heartland, mending each other."
+    },
+    {
+      "id": "lock-stock-and-two-smoking-barrels",
+      "title": "两杆大烟枪",
+      "en": "Lock, Stock and Two Smoking Barrels",
+      "year": 1998,
+      "genres": [
+        "crime",
+        "comedy"
+      ],
+      "creator": "Guy Ritchie",
+      "region": "UK",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.2,
+        "metacritic": 66
+      },
+      "awards": [],
+      "note": "四组人马围绕两把古董枪的多线混剪，盖·里奇把英伦黑帮喜剧拍得眼花缭乱。",
+      "noteEn": "Four gangs collide over two antique guns in a dazzling braid — Ritchie's dazzling calling card."
+    },
+    {
+      "id": "ringu",
+      "title": "午夜凶铃",
+      "en": "Ringu",
+      "year": 1998,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Hideo Nakata",
+      "region": "JP",
+      "rating": {
+        "douban": 7.5,
+        "imdb": 7.2
+      },
+      "note": "录像带七日诅咒，开启日式心理恐怖的全球浪潮。",
+      "noteEn": "A cursed videotape and seven days — the wave-maker of J-horror.",
+      "awards": []
+    },
+    {
+      "id": "saving-private-ryan",
+      "title": "拯救大兵瑞恩",
+      "en": "Saving Private Ryan",
+      "year": 1998,
+      "genres": [
+        "war",
+        "action",
+        "drama"
+      ],
+      "creator": "Steven Spielberg",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.6
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "奥马哈滩头 24 分钟开场，战争片史上最真实的血腥。",
+      "noteEn": "The 24-minute Omaha Beach landing — the most visceral combat ever shot."
+    },
+    {
+      "id": "the-big-lebowski",
+      "title": "谋杀绿脚趾",
+      "en": "The Big Lebowski",
+      "year": 1998,
+      "genres": [
+        "comedy",
+        "crime"
+      ],
+      "creator": "Joel & Ethan Coen",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.1
+      },
+      "awards": [],
+      "note": "一个被误认的「督爷」卷进荒唐绑架案，慵懒哲学与白俄罗斯人的邪典狂欢。",
+      "noteEn": "A case of mistaken identity drags a slacker into absurd chaos — the Dude abides."
+    },
+    {
+      "id": "the-thin-red-line",
+      "title": "细细的红线",
+      "en": "The Thin Red Line",
+      "year": 1998,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Terrence Malick",
+      "region": "US",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.6
+      },
+      "awards": [
+        "golden-bear"
+      ],
+      "note": "瓜岛战役中的自然独白，马利克的诗化战争。",
+      "noteEn": "Guadalcanal war seen through nature's eye — Malick's lyrical combat."
+    },
+    {
+      "id": "american-beauty",
+      "title": "美国丽人",
+      "en": "American Beauty",
+      "year": 1999,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Sam Mendes",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.3,
+        "metacritic": 86
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "中产郊区的假象被一袋塑料袋和青春期欲望戳破，美国梦的背面是虚无。",
+      "noteEn": "Suburban facades collapse under a drifting plastic bag and teenage desire — the American Dream's hollow reverse."
+    },
+    {
+      "id": "audition",
+      "title": "切肤之爱",
+      "en": "Audition",
+      "year": 1999,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Takashi Miike",
+      "region": "JP",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.1
+      },
+      "note": "相亲变酷刑的缓慢窒息，三池崇史把日常撕出血腥。",
+      "noteEn": "A blind-date romance curdles into torture — Miike's surgical shock.",
+      "awards": []
+    },
+    {
+      "id": "fight-club",
+      "title": "搏击俱乐部",
+      "en": "Fight Club",
+      "year": 1999,
+      "genres": [
+        "drama",
+        "thriller"
+      ],
+      "creator": "David Fincher",
+      "region": "US",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.8,
+        "metacritic": 66
+      },
+      "awards": [],
+      "note": "被消费主义规训的失眠者用拳头找回痛感，第一诫：不许谈论搏击俱乐部。",
+      "noteEn": "An insomniac regains feeling through fists; first rule: you do not talk about Fight Club."
+    },
+    {
+      "id": "notting-hill",
+      "title": "诺丁山",
+      "en": "Notting Hill",
+      "year": 1999,
+      "genres": [
+        "romance",
+        "comedy"
+      ],
+      "creator": "Roger Michell",
+      "region": "UK",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.2
+      },
+      "awards": [],
+      "note": "书店老板与大明星的街角爱情，休·格兰特笨拙的真诚让人没法不喜欢。",
+      "noteEn": "A bookseller and a movie star fall in love on a London street corner."
+    },
+    {
+      "id": "the-iron-giant",
+      "title": "钢铁巨人",
+      "en": "The Iron Giant",
+      "year": 1999,
+      "genres": [
+        "animation",
+        "scifi",
+        "drama"
+      ],
+      "creator": "Brad Bird",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.1,
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "冷战底色里「你选择成为什么样的人」的温柔反问，票房的败笔、影史的遗珠。",
+      "noteEn": "A gentle 'you are who you choose to be' against the Cold War — a flop at release, a canon gem."
+    },
+    {
+      "id": "the-matrix",
+      "title": "黑客帝国",
+      "en": "The Matrix",
+      "year": 1999,
+      "genres": [
+        "action",
+        "scifi"
+      ],
+      "creator": "Lana & Lilly Wachowski",
+      "region": "US",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.7,
+        "metacritic": 73
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "子弹时间把功夫与哲学缝进同一帧，让每个观众都开始怀疑眼前的红蓝药丸。",
+      "noteEn": "Bullet time fused kung fu and philosophy into one frame, making us all question the pill."
+    },
+    {
+      "id": "the-sixth-sense",
+      "title": "第六感",
+      "en": "The Sixth Sense",
+      "year": 1999,
+      "genres": [
+        "thriller",
+        "horror"
+      ],
+      "creator": "M. Night Shyamalan",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.2,
+        "metacritic": 79
+      },
+      "awards": [],
+      "note": "'I see dead people'后的反转改写全片，儿童心理与鬼故事温柔相遇。",
+      "noteEn": "The twist behind 'I see dead people' rewrites the film — a gentle ghost story of a boy's pain."
+    },
+    {
+      "id": "crouching-tiger-hidden-dragon",
+      "title": "卧虎藏龙",
+      "en": "Crouching Tiger, Hidden Dragon",
+      "year": 2000,
+      "genres": [
+        "action",
+        "fantasy",
+        "drama",
+        "romance"
+      ],
+      "creator": "Ang Lee",
+      "region": "TW",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.9,
+        "metacritic": 93
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "飞檐走壁的武侠想像配西方古典乐，让东方侠义美学拿下奥斯卡外语片。",
+      "noteEn": "Wire-fu wuxia romance set to Western classical music, winning the Oscar for foreign film."
+    },
+    {
+      "id": "gladiator",
+      "title": "角斗士",
+      "en": "Gladiator",
+      "year": 2000,
+      "genres": [
+        "action",
+        "drama",
+        "war"
+      ],
+      "creator": "Ridley Scott",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.5,
+        "metacritic": 67
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "古罗马角斗场的复仇史诗，罗素·克劳用剑与泪重振了剑与凉鞋类型。",
+      "noteEn": "A Roman revenge epic that revived the sword-and-sandal genre with Russell Crowe's sword and tears."
+    },
+    {
+      "id": "in-the-mood-for-love",
+      "title": "花样年华",
+      "en": "In the Mood for Love",
+      "year": 2000,
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "creator": "王家卫",
+      "region": "HK",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8.1,
+        "metacritic": 85
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "旗袍与领带在走廊里反复错过，一段婚外情被拍成东方美学的极致暧昧。",
+      "noteEn": "Cheongsam and tie brush past in a corridor — infidelity refined into pure style and longing."
+    },
+    {
+      "id": "malena",
+      "title": "西西里的美丽传说",
+      "en": "Malèna",
+      "year": 2000,
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "creator": "Giuseppe Tornatore",
+      "region": "IT",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 7.5
+      },
+      "awards": [],
+      "note": "少年眼中风韵迷人的玛莲娜，是青春期欲望与小镇流言的残酷寓言。",
+      "noteEn": "A boy's obsession with the beautiful Malèna — desire and rumor in a small Sicilian town."
+    },
+    {
+      "id": "memento",
+      "title": "记忆碎片",
+      "en": "Memento",
+      "year": 2000,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "Christopher Nolan",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.4,
+        "metacritic": 80
+      },
+      "awards": [],
+      "note": "倒叙剪辑模拟失忆者的时间感，纹身是记忆也是自我欺骗。",
+      "noteEn": "Backward editing mimics a man with no short-term memory — tattoos as memory and self-deceit."
+    },
+    {
+      "id": "snatch",
+      "title": "偷拐抢骗",
+      "en": "Snatch",
+      "year": 2000,
+      "genres": [
+        "crime",
+        "comedy"
+      ],
+      "creator": "Guy Ritchie",
+      "region": "UK",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 8.3,
+        "metacritic": 55
+      },
+      "awards": [],
+      "note": "伦敦底层各色人等的钻石与拳赛闹剧，多线剪辑的英伦痞气范本。",
+      "noteEn": "A diamond, a bare-knuckle fight and London's underworld — British cheek in braided timelines."
+    },
+    {
+      "id": "yi-yi",
+      "title": "一一",
+      "en": "Yi Yi",
+      "year": 2000,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Edward Yang",
+      "region": "TW",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.1,
+        "metacritic": 93
+      },
+      "awards": [],
+      "note": "婚礼、怀孕、葬礼串联三代人的中年困局，「我们是不是只能看到一半的事情？」",
+      "noteEn": "Wedding, birth and funeral braid three generations; \"Can we only see half of things?\""
+    },
+    {
+      "id": "amelie",
+      "title": "天使爱美丽",
+      "en": "Amélie",
+      "year": 2001,
+      "genres": [
+        "comedy",
+        "romance"
+      ],
+      "creator": "Jean-Pierre Jeunet",
+      "region": "FR",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.3,
+        "metacritic": 69
+      },
+      "awards": [
+        "cesar",
+        "bafta"
+      ],
+      "note": "巴黎女孩用一连串恶作剧式的善举点亮他人的生活，把平凡日子过成了童话。",
+      "noteEn": "A Parisian girl quietly rewrites strangers' lives with whimsical acts of kindness."
+    },
+    {
+      "id": "harry-potter-sorcerers-stone",
+      "title": "哈利·波特与魔法石",
+      "en": "Harry Potter and the Sorcerer's Stone",
+      "year": 2001,
+      "genres": [
+        "fantasy"
+      ],
+      "creator": "Chris Columbus",
+      "region": "UK",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 7.6
+      },
+      "note": "魔法石开启霍格沃茨世界，全球孩子的共同童年。",
+      "noteEn": "Hogwarts opens its doors — the shared childhood of a generation.",
+      "awards": []
+    },
+    {
+      "id": "mulholland-drive",
+      "title": "穆赫兰道",
+      "en": "Mulholland Drive",
+      "year": 2001,
+      "genres": [
+        "noir",
+        "drama"
+      ],
+      "creator": "David Lynch",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8,
+        "metacritic": 85
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "梦与好莱坞的两半拼图，林奇把失落与欲望拼成无法合拢的蓝盒子。",
+      "noteEn": "Hollywood dream and nightmare in two halves — Lynch's blue box never quite closes."
+    },
+    {
+      "id": "lotr-fellowship",
+      "title": "指环王：护戒使者",
+      "en": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "genres": [
+        "fantasy",
+        "action"
+      ],
+      "creator": "Peter Jackson",
+      "region": "NZ",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.8
       },
       "awards": [
         "oscar",
-        "golden-bear"
+        "bafta"
       ],
-      "note": "名字是身份的键——失去名字就失去对自身的引用，宫崎骏写给成长的温柔警告。",
-      "noteEn": "A name is the key to identity — a gentle warning about growing up from Hayao Miyazaki."
+      "note": "中土远征的开端，从夏尔到摩瑞亚的史诗行旅。",
+      "noteEn": "The quest begins — from the Shire to Moria, an epic journey into myth."
+    },
+    {
+      "id": "winged-migration",
+      "title": "迁徙的鸟",
+      "en": "Winged Migration",
+      "year": 2001,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Jacques Perrin",
+      "region": "FR",
+      "rating": {
+        "douban": 9,
+        "imdb": 7.8,
+        "metacritic": 79
+      },
+      "awards": [
+        "cesar"
+      ],
+      "note": "与鸟群并肩飞行的航拍，三年跟拍只为一帧擦过翅膀的呼吸。",
+      "noteEn": "Flying wing-to-wing with migratory birds — three years of shooting for one brush of a wing."
+    },
+    {
+      "id": "bowling-for-columbine",
+      "title": "科伦拜校园事件",
+      "en": "Bowling for Columbine",
+      "year": 2002,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Michael Moore",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.9,
+        "metacritic": 72
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "从校园枪击一路追问美国的枪支文化，把纪录片变成一次社会手术。",
+      "noteEn": "From a school shooting to America's gun culture — documentary as social surgery."
+    },
+    {
+      "id": "catch-me-if-you-can",
+      "title": "猫鼠游戏",
+      "en": "Catch Me If You Can",
+      "year": 2002,
+      "genres": [
+        "biopic",
+        "crime",
+        "comedy"
+      ],
+      "creator": "Steven Spielberg",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.1,
+        "metacritic": 75
+      },
+      "awards": [],
+      "note": "少年骗子与追捕他的探员之间奇妙的亦敌亦友，莱昂纳多把谎言演得闪闪发光。",
+      "noteEn": "A teen con artist and the agent chasing him — an odd friendship where DiCaprio makes lies shine."
+    },
+    {
+      "id": "chicago",
+      "title": "芝加哥",
+      "en": "Chicago",
+      "year": 2002,
+      "genres": [
+        "musical",
+        "crime"
+      ],
+      "creator": "Rob Marshall",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.2,
+        "metacritic": 82
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "爵士时代的谋杀与名利场，监狱探戈和「All That Jazz」把罪恶跳成了欢场。",
+      "noteEn": "Murder as entertainment in Jazz Age Chicago — prison tango and all that jazz."
+    },
+    {
+      "id": "city-of-god",
+      "title": "上帝之城",
+      "en": "City of God",
+      "year": 2002,
+      "genres": [
+        "drama",
+        "crime"
+      ],
+      "creator": "Fernando Meirelles",
+      "region": "BR",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.6,
+        "metacritic": 79
+      },
+      "awards": [],
+      "note": "里约贫民窟的孩子在枪口下长大，快剪与狂欢把暴力拍成一部残酷青春史诗。",
+      "noteEn": "Kids grow up at gunpoint in a Rio favela — frenzied editing turns violence into a brutal youth epic."
+    },
+    {
+      "id": "frida",
+      "title": "弗里达",
+      "en": "Frida",
+      "year": 2002,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Julie Taymor",
+      "region": "MX",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.3,
+        "metacritic": 61
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "弗里达·卡罗把疼痛画成画布上的自画像，萨玛·海耶克让生命开成不凋的花。",
+      "noteEn": "Kahlo's pain blooms as self-portraits; Salma Hayek makes a life that refuses to wilt."
+    },
+    {
+      "id": "hero",
+      "title": "英雄",
+      "en": "Hero",
+      "year": 2002,
+      "genres": [
+        "action",
+        "drama"
+      ],
+      "creator": "张艺谋",
+      "region": "CN",
+      "rating": {
+        "douban": 7.7,
+        "imdb": 7.9,
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "以色彩分章的刺客寓言，把书法、古琴与天下观熔进武侠的骨血。",
+      "noteEn": "A color-coded assassin fable folding calligraphy, zither and 'all under heaven' into wuxia."
+    },
+    {
+      "id": "infernal-affairs",
+      "title": "无间道",
+      "en": "Infernal Affairs",
+      "year": 2002,
+      "genres": [
+        "crime",
+        "thriller"
+      ],
+      "creator": "刘伟强 / 麦兆辉",
+      "region": "HK",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 8,
+        "metacritic": 88
+      },
+      "awards": [
+        "hk-film-award",
+        "golden-horse"
+      ],
+      "note": "卧底与黑警的双面人生，港片巅峰的细腻剪辑后来被好莱坞直接翻拍。",
+      "noteEn": "A cop in the mob, a mole in the police — HK's taut duel that Hollywood later remade."
+    },
+    {
+      "id": "ju-on-the-grudge",
+      "title": "咒怨",
+      "en": "Ju-On: The Grudge",
+      "year": 2002,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Takashi Shimizu",
+      "region": "JP",
+      "rating": {
+        "douban": 7,
+        "imdb": 6.4
+      },
+      "note": "怨念盘踞老宅，伽椰子的爬梯声成为都市噩梦。",
+      "noteEn": "A curse that lives in a house — Kayako's crawl-scratch haunts a decade.",
+      "awards": []
+    },
+    {
+      "id": "lotr-two-towers",
+      "title": "指环王：双塔奇兵",
+      "en": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "genres": [
+        "fantasy",
+        "action"
+      ],
+      "creator": "Peter Jackson",
+      "region": "NZ",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.7
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "圣盔谷一夜守城战，树人与咕噜的双线暗涌。",
+      "noteEn": "Helm's Deep under siege, while Gollum and the Ents shift the tide."
+    },
+    {
+      "id": "the-pianist",
+      "title": "钢琴家",
+      "en": "The Pianist",
+      "year": 2002,
+      "genres": [
+        "biopic",
+        "war",
+        "drama"
+      ],
+      "creator": "Roman Polanski",
+      "region": "PL",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.5,
+        "metacritic": 85
+      },
+      "awards": [
+        "palme-dor",
+        "oscar"
+      ],
+      "note": "波兰钢琴家席皮尔曼在华沙废墟中求生，钢琴声是文明最后的余温。",
+      "noteEn": "Szpilman survives among Warsaw's ruins; music is civilization's last warmth."
+    },
+    {
+      "id": "a-tale-of-two-sisters",
+      "title": "蔷花，红莲",
+      "en": "A Tale of Two Sisters",
+      "year": 2003,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Kim Jee-woon",
+      "region": "KR",
+      "rating": {
+        "douban": 7.5,
+        "imdb": 7.1
+      },
+      "note": "韩式心理恐怖杰作，姐妹与继母的镜像纠葛。",
+      "noteEn": "A masterpiece of Korean psychological horror, a mirror-maze of family grief.",
+      "awards": []
+    },
+    {
+      "id": "finding-nemo",
+      "title": "海底总动员",
+      "en": "Finding Nemo",
+      "year": 2003,
+      "genres": [
+        "animation",
+        "drama",
+        "comedy"
+      ],
+      "creator": "Andrew Stanton",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8.2,
+        "metacritic": 90
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "用横跨大洋的寻子冒险讲一个父亲的放手，每一帧海水都在呼吸。",
+      "noteEn": "An ocean-wide quest about a father letting go — every frame of water seems to breathe."
+    },
+    {
+      "id": "kill-bill-vol-1",
+      "title": "杀死比尔1",
+      "en": "Kill Bill: Vol. 1",
+      "year": 2003,
+      "genres": [
+        "action",
+        "crime"
+      ],
+      "creator": "Quentin Tarantino",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8.2
+      },
+      "awards": [],
+      "note": "血溅五尺的武士刀与黄黑连体衣，昆汀写给邵氏与日本剑戟片的情书。",
+      "noteEn": "Samurai blades, geysers of blood and the yellow jumpsuit — Tarantino's love letter to Shaw Brothers and chanbara."
+    },
+    {
+      "id": "memories-of-murder",
+      "title": "杀人回忆",
+      "en": "Memories of Murder",
+      "year": 2003,
+      "genres": [
+        "crime",
+        "thriller"
+      ],
+      "creator": "Bong Joon-ho",
+      "region": "KR",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.1,
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "改编自华城连环案的乡野追凶，在时代之踵里看见荒诞与无力。",
+      "noteEn": "Rural detectives chase Korea's first serial killer — absurdity and helplessness inside a time of trauma."
+    },
+    {
+      "id": "oldboy",
+      "title": "老男孩",
+      "en": "Oldboy",
+      "year": 2003,
+      "genres": [
+        "drama",
+        "thriller",
+        "action"
+      ],
+      "creator": "Park Chan-wook",
+      "region": "KR",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8.3
+      },
+      "awards": [],
+      "note": "被囚禁十五年的男人走出密室，走廊群殴与生吃章鱼都是复仇的仪式。",
+      "noteEn": "Fifteen years locked in a room — the corridor brawl and live octopus are rituals of revenge."
+    },
+    {
+      "id": "the-fog-of-war",
+      "title": "战争迷雾",
+      "en": "The Fog of War",
+      "year": 2003,
+      "genres": [
+        "documentary",
+        "biopic"
+      ],
+      "creator": "Errol Morris",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8,
+        "metacritic": 84
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "麦克纳马拉的十一条经验，让决策者的愧疚像迷雾一样弥漫开来。",
+      "noteEn": "McNamara's eleven lessons — a decision-maker's remorse spreading like fog."
+    },
+    {
+      "id": "lotr-return-of-the-king",
+      "title": "指环王：王者无敌",
+      "en": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "genres": [
+        "fantasy",
+        "action"
+      ],
+      "creator": "Peter Jackson",
+      "region": "NZ",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.9
+      },
+      "awards": [
+        "oscar",
+        "bafta"
+      ],
+      "note": "九人护戒团终结于末日火山，奥斯卡横扫 11 项。",
+      "noteEn": "The quest ends at Mount Doom in a sweep of eleven Oscars."
+    },
+    {
+      "id": "the-triplets-of-belleville",
+      "title": "疯狂约会美丽都",
+      "en": "The Triplets of Belleville",
+      "year": 2003,
+      "genres": [
+        "animation",
+        "comedy",
+        "drama"
+      ],
+      "creator": "Sylvain Chomet",
+      "region": "FR",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.7,
+        "metacritic": 86
+      },
+      "awards": [
+        "cesar"
+      ],
+      "note": "法国式怪诞：老太太、胖狗与三轮车闯进大都会，几乎整片没有对白。",
+      "noteEn": "French whimsy — a grandmother, a fat dog and a bicycle plunge into a metropolis, almost wordlessly."
+    },
+    {
+      "id": "tiexi-qu",
+      "title": "铁西区",
+      "en": "Tiexi Qu",
+      "year": 2003,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "王兵",
+      "region": "CN",
+      "rating": {
+        "douban": 9
+      },
+      "awards": [],
+      "note": "九小时纪录沈阳铁西区的工厂与失业，中国独立纪录片的纪念碑。",
+      "noteEn": "Nine hours on Shenyang's Tiexi district and its lost factory jobs — a monument of Chinese indie documentary."
+    },
+    {
+      "id": "downfall",
+      "title": "帝国的毁灭",
+      "en": "Downfall",
+      "year": 2004,
+      "genres": [
+        "biopic",
+        "war",
+        "drama"
+      ],
+      "creator": "Oliver Hirschbiegel",
+      "region": "DE",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.2,
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "地堡里希特勒的最后十二天，布鲁诺·甘茨让元首褪去神话、露出人的颤抖。",
+      "noteEn": "Hitler's last twelve days in the bunker — Ganz strips the Führer of myth, leaving human tremor."
+    },
+    {
+      "id": "eternal-sunshine-of-the-spotless-mind",
+      "title": "暖暖内含光",
+      "en": "Eternal Sunshine of the Spotless Mind",
+      "year": 2004,
+      "genres": [
+        "drama",
+        "romance",
+        "scifi"
+      ],
+      "creator": "Michel Gondry",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.3,
+        "metacritic": 89
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "把一段爱情从记忆里逐格删除时，才看见自己有多舍不得——科幻外壳下的心碎寓言。",
+      "noteEn": "Deleting a love memory by memory reveals how much you wanted to keep it — a heartbreak dressed as sci-fi."
+    },
+    {
+      "id": "fahrenheit-911",
+      "title": "华氏911",
+      "en": "Fahrenheit 9/11",
+      "year": 2004,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Michael Moore",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.4,
+        "metacritic": 52
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "首部拿下戛纳金棕榈的纪录片，直刺伊拉克战争与媒体合谋。",
+      "noteEn": "The first documentary to win the Palme d'Or, aimed at the Iraq war and media complicity."
+    },
+    {
+      "id": "howls-moving-castle",
+      "title": "哈尔的移动城堡",
+      "en": "Howl's Moving Castle",
+      "year": 2004,
+      "genres": [
+        "fantasy",
+        "animation"
+      ],
+      "creator": "Hayao Miyazaki",
+      "region": "JP",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.2
+      },
+      "note": "宫崎骏用移动城堡解构战争与衰老，苏菲的勇气是魔法。",
+      "noteEn": "Miyazaki's walking castle against war and age — Sophie's magic is courage.",
+      "awards": []
+    },
+    {
+      "id": "kung-fu-hustle",
+      "title": "功夫",
+      "en": "Kung Fu Hustle",
+      "year": 2004,
+      "genres": [
+        "comedy",
+        "action"
+      ],
+      "creator": "周星驰",
+      "region": "HK",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.7
+      },
+      "awards": [
+        "hk-film-award"
+      ],
+      "note": "把武侠、漫画与特效熔成一场草根逆袭的热血狂欢，金像奖最佳影片证明了它的成色。",
+      "noteEn": "Stephen Chow fuses kung fu, comics and CGI into a riotous underdog fantasy that swept the HK Film Awards."
+    },
+    {
+      "id": "les-choristes",
+      "title": "放牛班的春天",
+      "en": "Les Choristes",
+      "year": 2004,
+      "genres": [
+        "musical",
+        "drama"
+      ],
+      "creator": "Christophe Barratier",
+      "region": "FR",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 7.9
+      },
+      "awards": [],
+      "note": "失意音乐老师用合唱团点亮问题少年，「池塘之底」的春天由歌声救赎。",
+      "noteEn": "A teacher's choir transforms troubled boys — music as redemption for the lost."
+    },
+    {
+      "id": "ray",
+      "title": "灵魂歌王",
+      "en": "Ray",
+      "year": 2004,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Taylor Hackford",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.7,
+        "metacritic": 73
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "杰米·福克斯还原盲眼歌王雷·查尔斯，蓝调与福音在他的生命里打架又和解。",
+      "noteEn": "Jamie Foxx channels blind Ray Charles — blues and gospel fight and reconcile inside him."
+    },
+    {
+      "id": "the-aviator",
+      "title": "飞行家",
+      "en": "The Aviator",
+      "year": 2004,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Martin Scorsese",
+      "region": "US",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 7.5,
+        "metacritic": 77
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "霍华德·休斯的飞机制造、好莱坞情史与强迫症，小李子在洁癖里演尽天才的疯狂。",
+      "noteEn": "Hughes's planes, loves and OCD — DiCaprio turns obsession into the price of genius."
+    },
+    {
+      "id": "the-incredibles",
+      "title": "超人总动员",
+      "en": "The Incredibles",
+      "year": 2004,
+      "genres": [
+        "animation",
+        "action",
+        "comedy"
+      ],
+      "creator": "Brad Bird",
+      "region": "US",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 8,
+        "metacritic": 90
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "中年危机的超级英雄一家，动作场面是动画界的谍战巅峰。",
+      "noteEn": "Superheroes with a midlife crisis — action staging that rivals live-action spy films."
+    },
+    {
+      "id": "the-motorcycle-diaries",
+      "title": "摩托日记",
+      "en": "The Motorcycle Diaries",
+      "year": 2004,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Walter Salles",
+      "region": "AR",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.7,
+        "metacritic": 75
+      },
+      "awards": [],
+      "note": "年轻的切·格瓦拉骑摩托穿越拉美大陆，沿途的贫穷把医学生变成革命者。",
+      "noteEn": "Young Che rides a motorcycle across Latin America; poverty turns a med student into a revolutionary."
+    },
+    {
+      "id": "the-notebook",
+      "title": "恋恋笔记本",
+      "en": "The Notebook",
+      "year": 2004,
+      "genres": [
+        "romance"
+      ],
+      "creator": "Nick Cassavetes",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.8
+      },
+      "awards": [],
+      "note": "养老院里每天重读的信，把一生一次的爱情讲给遗忘听。",
+      "noteEn": "A love story read aloud to a fading memory — one lifetime, one true love."
+    },
+    {
+      "id": "the-phantom-of-the-opera-2004",
+      "title": "歌剧魅影",
+      "en": "The Phantom of the Opera (2004)",
+      "year": 2004,
+      "genres": [
+        "musical",
+        "romance"
+      ],
+      "creator": "Joel Schumacher",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7.2
+      },
+      "awards": [],
+      "note": "地下歌剧院的魅影与克里斯汀，韦伯音乐剧被搬上银幕的华丽版本。",
+      "noteEn": "The Phantom beneath the Paris opera house — Webber's musical brought to lush life."
+    },
+    {
+      "id": "a-bittersweet-life",
+      "title": "甜蜜的人生",
+      "en": "A Bittersweet Life",
+      "year": 2005,
+      "genres": [
+        "crime",
+        "action",
+        "drama"
+      ],
+      "creator": "Kim Jee-woon",
+      "region": "KR",
+      "rating": {
+        "douban": 7.5,
+        "imdb": 7.5
+      },
+      "awards": [],
+      "note": "向老板的女人多看一眼就万劫不复，金知云的风格化暴力与宿命美学。",
+      "noteEn": "One glance at the boss's girl seals a stylish doom — Kim Jee-woon's stylized violence."
+    },
+    {
+      "id": "brick",
+      "title": "追凶",
+      "en": "Brick",
+      "year": 2005,
+      "genres": [
+        "noir",
+        "crime"
+      ],
+      "creator": "Rian Johnson",
+      "region": "US",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.4,
+        "metacritic": 77
+      },
+      "awards": [],
+      "note": "把黑色电影对白塞进高中校园，少年侦探在储物柜间追查毒品谜案。",
+      "noteEn": "Hard-boiled dialogue transplanted to high school — a teen detective hunts through lockers."
+    },
+    {
+      "id": "brokeback-mountain",
+      "title": "断背山",
+      "en": "Brokeback Mountain",
+      "year": 2005,
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "creator": "Ang Lee",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 7.7,
+        "metacritic": 87
+      },
+      "awards": [
+        "oscar",
+        "golden-lion"
+      ],
+      "note": "两个牛仔二十年压抑的深情，李安拍出了克制到极致的遗憾与思念。",
+      "noteEn": "Two cowboys hide a lifetime on Brokeback Mountain; Ang Lee films regret as vast as the range."
+    },
+    {
+      "id": "grizzly-man",
+      "title": "灰熊人",
+      "en": "Grizzly Man",
+      "year": 2005,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Werner Herzog",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.8,
+        "metacritic": 78
+      },
+      "awards": [],
+      "note": "与灰熊共处十三年的提摩西，赫尔佐格在自恋里读出人性的深渊。",
+      "noteEn": "Thirteen years among grizzlies — Herzog finds the human abyss inside self-delusion."
+    },
+    {
+      "id": "march-of-the-penguins",
+      "title": "帝企鹅日记",
+      "en": "March of the Penguins",
+      "year": 2005,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Luc Jacquet",
+      "region": "FR",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.5,
+        "metacritic": 79
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "帝企鹅在极寒里接力孵蛋，把动物行为拍成一部生存主义的史诗。",
+      "noteEn": "Emperor penguins hatching eggs in polar cold — animal behavior as survivalist epic."
+    },
+    {
+      "id": "pride-and-prejudice",
+      "title": "傲慢与偏见",
+      "en": "Pride & Prejudice",
+      "year": 2005,
+      "genres": [
+        "romance"
+      ],
+      "creator": "Joe Wright",
+      "region": "UK",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.8
+      },
+      "awards": [],
+      "note": "达西先生清晨雾中走来的告白，把简·奥斯汀的机锋拍得又冷又烫。",
+      "noteEn": "Mr. Darcy walking through the dawn mist — Austen's wit made cinematic and warm."
+    },
+    {
+      "id": "sin-city",
+      "title": "罪恶之城",
+      "en": "Sin City",
+      "year": 2005,
+      "genres": [
+        "noir",
+        "crime",
+        "action"
+      ],
+      "creator": "Robert Rodriguez / Frank Miller",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8,
+        "metacritic": 74
+      },
+      "awards": [],
+      "note": "把漫画分镜直接搬上银幕的黑白高反差，雨滴与血珠都颗粒分明。",
+      "noteEn": "Comic panels brought to screen in stark black and white — every raindrop and blood bead visible."
+    },
+    {
+      "id": "walk-the-line",
+      "title": "与歌同行",
+      "en": "Walk the Line",
+      "year": 2005,
+      "genres": [
+        "biopic",
+        "drama",
+        "musical"
+      ],
+      "creator": "James Mangold",
+      "region": "US",
+      "rating": {
+        "douban": 7.9,
+        "imdb": 7.8,
+        "metacritic": 72
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "约翰尼·卡什的毒瘾与救赎，瑞茜·威瑟斯彭的琼·卡特让乡村音乐有了灵魂。",
+      "noteEn": "Cash's addiction and redemption; Witherspoon's June Carter gives country music its soul."
+    },
+    {
+      "id": "an-inconvenient-truth",
+      "title": "难以忽视的真相",
+      "en": "An Inconvenient Truth",
+      "year": 2006,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Davis Guggenheim",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.4,
+        "metacritic": 75
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "戈尔用一屏图表把全球变暖讲成最急迫、也最反高潮的幻灯片。",
+      "noteEn": "Al Gore turns climate change into the most urgent — and least dramatic — slideshow ever."
+    },
+    {
+      "id": "borat",
+      "title": "波拉特",
+      "en": "Borat",
+      "year": 2006,
+      "genres": [
+        "comedy"
+      ],
+      "creator": "Larry Charles",
+      "region": "US",
+      "rating": {
+        "imdb": 7.3
+      },
+      "awards": [
+        "golden-globe"
+      ],
+      "note": "哈萨克记者闯荡美国的伪纪录片，用一路冒犯测试西方社会的每一根神经。",
+      "noteEn": "A mockumentary provocation that tests America's tolerance with total impunity."
+    },
+    {
+      "id": "children-of-men",
+      "title": "人类之子",
+      "en": "Children of Men",
+      "year": 2006,
+      "genres": [
+        "scifi",
+        "drama",
+        "thriller"
+      ],
+      "creator": "Alfonso Cuarón",
+      "region": "US",
+      "rating": {
+        "douban": 7.9,
+        "imdb": 7.6
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "一镜到底的逃亡长镜，末世废墟里诞生的唯一婴儿。",
+      "noteEn": "A one-shot war-zone escape and the last baby born into a sterile future."
+    },
+    {
+      "id": "crazy-stone",
+      "title": "疯狂的石头",
+      "en": "Crazy Stone",
+      "year": 2006,
+      "genres": [
+        "comedy",
+        "crime"
+      ],
+      "creator": "宁浩",
+      "region": "CN",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 7
+      },
+      "awards": [],
+      "note": "一块翡翠引来的多线混战，小成本黑色喜剧让「石头」成了内地喜剧的新标杆。",
+      "noteEn": "A jade stone ignites a multi-strand scramble — the low-budget hit that rebooted mainland comedy."
+    },
+    {
+      "id": "letters-from-iwo-jima",
+      "title": "硫磺岛来信",
+      "en": "Letters from Iwo Jima",
+      "year": 2006,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Clint Eastwood",
+      "region": "US",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 7.9
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "从日方视角写硫磺岛，战争双方都并非英雄。",
+      "noteEn": "Iwo Jima from the Japanese side — no heroes, only soldiers."
+    },
+    {
+      "id": "pans-labyrinth",
+      "title": "潘神的迷宫",
+      "en": "Pan's Labyrinth",
+      "year": 2006,
+      "genres": [
+        "fantasy",
+        "drama",
+        "war"
+      ],
+      "creator": "Guillermo del Toro",
+      "region": "ES",
+      "rating": {
+        "douban": 7.8,
+        "imdb": 8.2
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "法西斯阴影下小女孩的黑暗童话，现实与幻境互噬。",
+      "noteEn": "A dark fairy tale under Franco's shadow where reality and fable devour each other."
+    },
+    {
+      "id": "paprika",
+      "title": "红辣椒",
+      "en": "Paprika",
+      "year": 2006,
+      "genres": [
+        "animation",
+        "scifi",
+        "thriller"
+      ],
+      "creator": "今敏",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 7.7,
+        "metacritic": 81
+      },
+      "awards": [],
+      "note": "梦境治疗仪让整座东京做同一个梦，是《盗梦空间》的视觉先声。",
+      "noteEn": "A dream machine makes Tokyo share one dream — Inception's visual ancestor."
+    },
+    {
+      "id": "planet-earth",
+      "title": "地球脉动",
+      "en": "Planet Earth",
+      "year": 2006,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Alastair Fothergill",
+      "region": "UK",
+      "rating": {
+        "douban": 9.7,
+        "imdb": 9.5
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "高空航拍与微距并列，BBC 把自然纪录片推上电影级的影像高度。",
+      "noteEn": "Aerial and macro side by side — BBC pushed nature documentary to cinematic heights."
+    },
+    {
+      "id": "the-departed",
+      "title": "无间道风云",
+      "en": "The Departed",
+      "year": 2006,
+      "genres": [
+        "crime",
+        "thriller"
+      ],
+      "creator": "Martin Scorsese",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.5,
+        "metacritic": 85
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "波士顿警匪双面卧底，双线绞杀让老马丁终于捧起最佳影片小金人。",
+      "noteEn": "Two moles at war in Boston — the double-agent duel that finally won Scorsese his Best Picture."
+    },
+    {
+      "id": "the-lives-of-others",
+      "title": "窃听风暴",
+      "en": "The Lives of Others",
+      "year": 2006,
+      "genres": [
+        "drama",
+        "thriller"
+      ],
+      "creator": "Florian Henckel von Donnersmarck",
+      "region": "DE",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.4,
+        "metacritic": 89
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "东德秘密警察从监听者变成守护者，一个人的良知照亮了整部极权机器。",
+      "noteEn": "A Stasi agent turns from listener to guardian — one conscience lights up an entire apparatus."
+    },
+    {
+      "id": "the-prestige",
+      "title": "致命魔术",
+      "en": "The Prestige",
+      "year": 2006,
+      "genres": [
+        "thriller",
+        "drama"
+      ],
+      "creator": "Christopher Nolan",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.5,
+        "metacritic": 66
+      },
+      "awards": [],
+      "note": "两个魔术师以命相博的骗局，电影本身就是最大的障眼法。",
+      "noteEn": "Two magicians destroying each other for one trick — the film itself is the ultimate misdirection."
+    },
+    {
+      "id": "the-pursuit-of-happyness",
+      "title": "当幸福来敲门",
+      "en": "The Pursuit of Happyness",
+      "year": 2006,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Gabriele Muccino",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8,
+        "metacritic": 64
+      },
+      "awards": [],
+      "note": "睡在厕所也要抱着儿子的单亲爸爸，史密斯父子的真实出演让励志有了体温。",
+      "noteEn": "A homeless dad sleeps in a subway restroom with his son; father-and-son casting makes it warm."
+    },
+    {
+      "id": "la-vie-en-rose",
+      "title": "玫瑰人生",
+      "en": "La Vie en Rose",
+      "year": 2007,
+      "genres": [
+        "biopic",
+        "drama",
+        "musical"
+      ],
+      "creator": "Olivier Dahan",
+      "region": "FR",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.6,
+        "metacritic": 66
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "玛丽昂·歌迪亚化身为法国小云雀皮雅芙，玫瑰色的人生也是荆棘满身的一生。",
+      "noteEn": "Cotillard becomes the Little Sparrow Piaf — a life in roses, thorned through and through."
+    },
+    {
+      "id": "no-country-for-old-men",
+      "title": "老无所依",
+      "en": "No Country for Old Men",
+      "year": 2007,
+      "genres": [
+        "drama",
+        "thriller"
+      ],
+      "creator": "Joel & Ethan Coen",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 8.2,
+        "metacritic": 91
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "冷面杀手用硬币决定生死，老警长输给了时代——恶不再需要理由。",
+      "noteEn": "A coin flip decides life and death; the old sheriff loses to an age where evil needs no reason."
+    },
+    {
+      "id": "once",
+      "title": "曾经",
+      "en": "Once",
+      "year": 2007,
+      "genres": [
+        "musical",
+        "romance"
+      ],
+      "creator": "John Carney",
+      "region": "IE",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.8,
+        "metacritic": 88
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "都柏林街头卖唱者与卖花女的相遇，音乐本身就是他们的爱情信物。",
+      "noteEn": "A busker and a flower-seller in Dublin — the songs are the love story."
+    },
+    {
+      "id": "persepolis",
+      "title": "我在伊朗长大",
+      "en": "Persepolis",
+      "year": 2007,
+      "genres": [
+        "animation",
+        "biopic",
+        "drama"
+      ],
+      "creator": "Marjane Satrapi, Vincent Paronnaud",
+      "region": "FR",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8,
+        "metacritic": 90
+      },
+      "awards": [
+        "cesar"
+      ],
+      "note": "黑白漫画自传，在伊斯兰革命与流亡中长成一个女孩倔强的自我。",
+      "noteEn": "A black-and-white comic autobiography — a girl's self forged through revolution and exile."
+    },
+    {
+      "id": "stardust",
+      "title": "星尘",
+      "en": "Stardust",
+      "year": 2007,
+      "genres": [
+        "fantasy",
+        "romance"
+      ],
+      "creator": "Matthew Vaughn",
+      "region": "UK",
+      "rating": {
+        "douban": 7.7,
+        "imdb": 7.6
+      },
+      "note": "流星坠落的英国童话镇，海盗船长与王子争夺星星。",
+      "noteEn": "A fallen star, a sky pirate and a prince — a cozy British fairy-tale caper.",
+      "awards": []
+    },
+    {
+      "id": "the-assassination-of-jesse-james",
+      "title": "神枪手之死",
+      "en": "The Assassination of Jesse James by the Coward Robert Ford",
+      "year": 2007,
+      "genres": [
+        "western"
+      ],
+      "creator": "Andrew Dominik",
+      "region": "US",
+      "rating": {
+        "imdb": 7.5,
+        "metacritic": 68
+      },
+      "awards": [],
+      "note": "罗杰·迪金斯镜头下的黄昏蓝调，把英雄的陨落与懦夫的成名写成互为镜像的悲剧。",
+      "noteEn": "Roger Deakins' twilight-blue study of how a hero's fall and a coward's fame mirror each other."
+    },
+    {
+      "id": "the-bourne-ultimatum",
+      "title": "谍影重重3",
+      "en": "The Bourne Ultimatum",
+      "year": 2007,
+      "genres": [
+        "action",
+        "thriller"
+      ],
+      "creator": "Paul Greengrass",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8,
+        "metacritic": 85
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "手持摄影的晃动美学终结了谍战片的西装雅痞，杰森·伯恩是当代动作语法的转折点。",
+      "noteEn": "Shaky-cam realism killed the tuxedo spy; Jason Bourne is the pivot of modern action grammar."
+    },
+    {
+      "id": "the-counterfeiters",
+      "title": "伪钞制造者",
+      "en": "The Counterfeiters",
+      "year": 2007,
+      "genres": [
+        "biopic",
+        "drama",
+        "crime"
+      ],
+      "creator": "Stefan Ruzowitzky",
+      "region": "AT",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.5,
+        "metacritic": 68
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "集中营里被逼伪造英镑的犹太匠人，生存的道德底线在流水线上反复烧灼。",
+      "noteEn": "Jewish forgers forced to print pounds in a camp — survival's ethics burn on the assembly line."
+    },
+    {
+      "id": "there-will-be-blood",
+      "title": "血色将至",
+      "en": "There Will Be Blood",
+      "year": 2007,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Paul Thomas Anderson",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8.2,
+        "metacritic": 91
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "石油大亨把贪婪、信仰与父爱全部烧进油井，「我喝光了你的奶昔」是资本主义的墓志铭。",
+      "noteEn": "Daniel's greed consumes faith and fatherhood in the oil fields; \"I drink your milkshake\" is capitalism's epitaph."
+    },
+    {
+      "id": "zodiac",
+      "title": "十二宫",
+      "en": "Zodiac",
+      "year": 2007,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "David Fincher",
+      "region": "US",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 7.7,
+        "metacritic": 78
+      },
+      "awards": [],
+      "note": "用报社编辑的执念还原未破悬案，克制而绵长的数字时代前奏。",
+      "noteEn": "A cartoonist's obsession maps an unsolved case — a patient, procedural pre-internet thriller."
+    },
+    {
+      "id": "departures",
+      "title": "入殓师",
+      "en": "Departures",
+      "year": 2008,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Yōjirō Takita",
+      "region": "JP",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8,
+        "metacritic": 68
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "把为逝者整理仪容拍成温柔仪式，入殓师让生者与死者都体面告别。",
+      "noteEn": "Preparing the dead becomes a tender ritual — a way for the living to say farewell with dignity."
+    },
+    {
+      "id": "ip-man",
+      "title": "叶问",
+      "en": "Ip Man",
+      "year": 2008,
+      "genres": [
+        "action",
+        "biopic"
+      ],
+      "creator": "Wilson Yip",
+      "region": "HK",
+      "rating": {
+        "douban": 8,
+        "imdb": 8
+      },
+      "awards": [],
+      "note": "甄子丹十连击咏春拳，把一代宗师的儒雅与家国尊严打在银幕上。",
+      "noteEn": "Donnie Yen's ten-hit Wing Chun, projecting the master's poise and national dignity."
+    },
+    {
+      "id": "man-on-wire",
+      "title": "走钢丝的人",
+      "en": "Man on Wire",
+      "year": 2008,
+      "genres": [
+        "documentary",
+        "biopic"
+      ],
+      "creator": "James Marsh",
+      "region": "UK",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 7.9,
+        "metacritic": 84
+      },
+      "awards": [
+        "oscar",
+        "bafta"
+      ],
+      "note": "菲利普·珀蒂偷渡双子塔之间的钢丝，一次关于纯粹之美的完美盗窃。",
+      "noteEn": "Petit's illegal wire-walk between the Twin Towers — a theft of pure beauty, perfectly told."
+    },
+    {
+      "id": "milk",
+      "title": "米尔克",
+      "en": "Milk",
+      "year": 2008,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Gus Van Sant",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.5,
+        "metacritic": 84
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "首位公开出柜的民选官员哈维·米尔克，西恩·潘把竞选演讲变成平权宣言。",
+      "noteEn": "Harvey Milk, first openly gay elected official — Penn turns a campaign speech into a rights manifesto."
+    },
+    {
+      "id": "taken",
+      "title": "飓风营救",
+      "en": "Taken",
+      "year": 2008,
+      "genres": [
+        "action",
+        "thriller",
+        "crime"
+      ],
+      "creator": "Pierre Morel",
+      "region": "FR",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.7
+      },
+      "awards": [],
+      "note": "一句'我会找到你'的电话台词，让连姆·尼森成为最优雅的暴怒父亲。",
+      "noteEn": "A single phone line — 'I will find you' — turned Liam Neeson into cinema's most elegant fury."
+    },
+    {
+      "id": "the-chaser",
+      "title": "追击者",
+      "en": "The Chaser",
+      "year": 2008,
+      "genres": [
+        "thriller",
+        "crime",
+        "action"
+      ],
+      "creator": "Na Hong-jin",
+      "region": "KR",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.8,
+        "metacritic": 80
+      },
+      "awards": [],
+      "note": "皮条客追凶却屡屡擦肩而过，韩国新黑色电影把无力感拧到窒息。",
+      "noteEn": "A pimp hunting a killer he keeps missing — Korean neo-noir tightening helplessness to suffocation."
+    },
+    {
+      "id": "the-dark-knight",
+      "title": "蝙蝠侠：黑暗骑士",
+      "en": "The Dark Knight",
+      "year": 2008,
+      "genres": [
+        "action",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Christopher Nolan",
+      "region": "US",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 9,
+        "metacritic": 84
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "希斯·莱杰的小丑把超级英雄片拖进道德深渊，犯罪戏码比动作更惊心。",
+      "noteEn": "Ledger's Joker drags the superhero film into a moral abyss; the crime beats outshine the action."
+    },
+    {
+      "id": "the-hurt-locker",
+      "title": "拆弹部队",
+      "en": "The Hurt Locker",
+      "year": 2008,
+      "genres": [
+        "war",
+        "thriller"
+      ],
+      "creator": "Kathryn Bigelow",
+      "region": "US",
+      "rating": {
+        "douban": 7.7,
+        "imdb": 7.5
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "拆弹兵的肾上腺素上瘾，伊拉克战场的心理拉锯。",
+      "noteEn": "Bomb-disposal as addiction — the psychology of war in Iraq."
+    },
+    {
+      "id": "wall-e",
+      "title": "机器人总动员",
+      "en": "WALL·E",
+      "year": 2008,
+      "genres": [
+        "animation",
+        "scifi",
+        "romance"
+      ],
+      "creator": "Andrew Stanton",
+      "region": "US",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 8.4,
+        "metacritic": 95
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "前四十分钟几乎无对白，垃圾星球上的清洁机器人对着绿色植物心动。",
+      "noteEn": "A trash-compacting robot falls in love with a glance — Pixar's most romantic eco-fable."
+    },
+    {
+      "id": "waltz-with-bashir",
+      "title": "和巴什尔跳华尔兹",
+      "en": "Waltz with Bashir",
+      "year": 2008,
+      "genres": [
+        "animation",
+        "documentary",
+        "war"
+      ],
+      "creator": "Ari Folman",
+      "region": "IL",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8,
+        "metacritic": 91
+      },
+      "awards": [
+        "golden-globe"
+      ],
+      "note": "动画重建记忆，一名以军士兵直面贝鲁特大屠杀的失忆与罪责。",
+      "noteEn": "Animation as recovered memory — a soldier confronts amnesia and guilt over the Beirut massacre."
+    },
+    {
+      "id": "3-idiots",
+      "title": "三傻大闹宝莱坞",
+      "en": "3 Idiots",
+      "year": 2009,
+      "genres": [
+        "comedy",
+        "drama"
+      ],
+      "creator": "Rajkumar Hirani",
+      "region": "IN",
+      "rating": {
+        "douban": 9.2,
+        "imdb": 8.4
+      },
+      "awards": [],
+      "note": "「追求卓越，成功自然来」——印度教育体制下三个好友的青春反叛与温情。",
+      "noteEn": "Three friends rebel against rote schooling — Bollywood's anthem for learning with joy."
+    },
+    {
+      "id": "coraline",
+      "title": "鬼妈妈",
+      "en": "Coraline",
+      "year": 2009,
+      "genres": [
+        "fantasy",
+        "animation",
+        "horror"
+      ],
+      "creator": "Henry Selick",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.7
+      },
+      "note": "纽扣眼的另一个妈妈，莱卡的定格动画暗黑魔法。",
+      "noteEn": "A button-eyed Other Mother — Laika's stop-motion dark enchantment.",
+      "awards": []
+    },
+    {
+      "id": "the-cove",
+      "title": "海豚湾",
+      "en": "The Cove",
+      "year": 2009,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Louie Psihoyos",
+      "region": "US",
+      "rating": {
+        "douban": 9.3,
+        "imdb": 8.4,
+        "metacritic": 83
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "卧底镜头潜入日本太地町，血色海湾让人无法移开眼睛。",
+      "noteEn": "Hidden cameras in Taiji's cove — a blood-red bay you cannot look away from."
+    },
+    {
+      "id": "the-hangover",
+      "title": "宿醉",
+      "en": "The Hangover",
+      "year": 2009,
+      "genres": [
+        "comedy"
+      ],
+      "creator": "Todd Phillips",
+      "region": "US",
+      "rating": {
+        "douban": 7.7,
+        "imdb": 7.7,
+        "metacritic": 73
+      },
+      "awards": [
+        "golden-globe"
+      ],
+      "note": "婚礼前夜的烂醉狂欢换来一觉醒来丢了新娘子，R 级疯狂喜剧史上最黑的票房黑马。",
+      "noteEn": "A bachelor party blackout that loses the groom — the R-rated comedy that took Vegas by storm."
+    },
+    {
+      "id": "up",
+      "title": "飞屋环游记",
+      "en": "Up",
+      "year": 2009,
+      "genres": [
+        "animation",
+        "comedy",
+        "drama"
+      ],
+      "creator": "Pete Docter",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 8.3,
+        "metacritic": 88
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "开头四分钟讲完一生，然后用万千气球把房子拽向天堂瀑布。",
+      "noteEn": "Four minutes to tell a lifetime, then a thousand balloons drag a house to Paradise Falls."
+    },
+    {
+      "id": "flipped",
+      "title": "怦然心动",
+      "en": "Flipped",
+      "year": 2010,
+      "genres": [
+        "romance",
+        "comedy"
+      ],
+      "creator": "Rob Reiner",
+      "region": "US",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 7.7
+      },
+      "awards": [],
+      "note": "一棵梧桐树上的风景，女孩先喜欢再离开——青春心动用双视角讲得又轻又重。",
+      "noteEn": "A sycamore tree, first crushes and shifting perspectives — childhood love told from both sides."
+    },
+    {
+      "id": "inception",
+      "title": "盗梦空间",
+      "en": "Inception",
+      "year": 2010,
+      "genres": [
+        "thriller",
+        "scifi",
+        "action"
+      ],
+      "creator": "Christopher Nolan",
+      "region": "US",
+      "rating": {
+        "douban": 9.4,
+        "imdb": 8.8,
+        "metacritic": 74
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "梦中梦的陀螺永不停转，把潜入梦境的盗贼故事拍成视觉与概念的双重迷宫。",
+      "noteEn": "Dreams within dreams and a spinning top — a heist inside the mind as visual and conceptual maze."
     },
     {
       "id": "let-the-bullets-fly",
@@ -251,9 +5558,9 @@
       "en": "Let the Bullets Fly",
       "year": 2010,
       "genres": [
-        "action",
+        "drama",
         "comedy",
-        "drama"
+        "action"
       ],
       "creator": "姜文",
       "region": "CN",
@@ -264,6 +5571,521 @@
       "awards": [],
       "note": "枪声一响、隐喻满场，张麻子与黄四郎的对弈是讲不尽的寓言。",
       "noteEn": "Bullets flying, allegory everywhere — Zhang's duel with Huang is an inexhaustible fable."
+    },
+    {
+      "id": "shutter-island",
+      "title": "禁闭岛",
+      "en": "Shutter Island",
+      "year": 2010,
+      "genres": [
+        "thriller",
+        "drama"
+      ],
+      "creator": "Martin Scorsese",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.2,
+        "metacritic": 63
+      },
+      "awards": [],
+      "note": "精神病院的迷宫叙事，真相与幻觉在风暴中的灯塔里对峙。",
+      "noteEn": "A mental-hospital labyrinth — truth and delusion face off in a lighthouse amid the storm."
+    },
+    {
+      "id": "the-kings-speech",
+      "title": "国王的演讲",
+      "en": "The King's Speech",
+      "year": 2010,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Tom Hooper",
+      "region": "UK",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8,
+        "metacritic": 88
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "口吃国王与草根治疗师互相成就，一场演讲治好一个帝国的怯场。",
+      "noteEn": "A stammering king and an unlicensed therapist lift each other; one speech steadies an empire."
+    },
+    {
+      "id": "the-social-network",
+      "title": "社交网络",
+      "en": "The Social Network",
+      "year": 2010,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "David Fincher",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.8,
+        "metacritic": 95
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "扎克伯格的背叛与诉讼，芬奇把「改变世界」拍成一场冰冷的智力游戏。",
+      "noteEn": "Zuckerberg's betrayals and lawsuits — Fincher films \"changing the world\" as a cold mind game."
+    },
+    {
+      "id": "toy-story-3",
+      "title": "玩具总动员3",
+      "en": "Toy Story 3",
+      "year": 2010,
+      "genres": [
+        "animation",
+        "comedy",
+        "drama"
+      ],
+      "creator": "Lee Unkrich",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.3,
+        "metacritic": 92
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "玩具被送进焚化炉的那一幕，是皮克斯对「长大与告别」最重的一笔。",
+      "noteEn": "The toys at the incinerator — Pixar's heaviest statement on growing up and letting go."
+    },
+    {
+      "id": "drive-2011",
+      "title": "亡命驾驶",
+      "en": "Drive",
+      "year": 2011,
+      "genres": [
+        "noir",
+        "crime",
+        "action"
+      ],
+      "creator": "Nicolas Winding Refn",
+      "region": "US",
+      "rating": {
+        "douban": 7.9,
+        "imdb": 7.8,
+        "metacritic": 78
+      },
+      "awards": [],
+      "note": "粉字霓虹下近乎沉默的司机，把复古合成器与暴力反差推到极致。",
+      "noteEn": "A near-silent wheelman under pink neon — synthwave score against bursts of brutality."
+    },
+    {
+      "id": "the-girl-with-the-dragon-tattoo",
+      "title": "龙纹身的女孩",
+      "en": "The Girl with the Dragon Tattoo",
+      "year": 2011,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "David Fincher",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.8,
+        "metacritic": 71
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "黑客少女与记者的北欧悬案联手，冰冷雪原下的家族罪恶被一点点掘开。",
+      "noteEn": "A hacker and a journalist dig into a cold Nordic family's buried crimes."
+    },
+    {
+      "id": "the-raid",
+      "title": "突袭",
+      "en": "The Raid",
+      "year": 2011,
+      "genres": [
+        "action",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Gareth Evans",
+      "region": "ID",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.6
+      },
+      "awards": [],
+      "note": "印尼武打片的一记重拳，把整栋黑帮大楼变成擂台，Pencak Silat 格斗教科书。",
+      "noteEn": "A punch of Indonesian action, turning a gang tower block into a ring — a pencak silat textbook."
+    },
+    {
+      "id": "amour",
+      "title": "爱",
+      "en": "Amour",
+      "year": 2012,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Michael Haneke",
+      "region": "FR",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.8,
+        "metacritic": 94
+      },
+      "awards": [
+        "palme-dor",
+        "oscar"
+      ],
+      "note": "一对老夫妻直面衰老与死亡的每一帧都克制到残忍，爱到尽头是慈悲也是责任。",
+      "noteEn": "Every frame of an elderly couple facing decay is cruel restraint — love's end is mercy and duty."
+    },
+    {
+      "id": "les-miserables-2012",
+      "title": "悲惨世界",
+      "en": "Les Misérables",
+      "year": 2012,
+      "genres": [
+        "musical",
+        "drama"
+      ],
+      "creator": "Tom Hooper",
+      "region": "UK",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.5
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "全程现场收音的演唱式电影，让雨果的史诗在歌声里翻涌。",
+      "noteEn": "Sung-through and recorded live on set, Hugo's epic surges through song."
+    },
+    {
+      "id": "lincoln",
+      "title": "林肯",
+      "en": "Lincoln",
+      "year": 2012,
+      "genres": [
+        "biopic",
+        "drama",
+        "war"
+      ],
+      "creator": "Steven Spielberg",
+      "region": "US",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.3,
+        "metacritic": 86
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "丹尼尔·戴-刘易斯把林肯还原为疲惫的政治博弈者，废除奴隶制是一场幕后的算计与信念。",
+      "noteEn": "DDL's Lincoln is a weary political operator; abolishing slavery is backroom math and conviction."
+    },
+    {
+      "id": "searching-for-sugar-man",
+      "title": "寻找小糖人",
+      "en": "Searching for Sugar Man",
+      "year": 2012,
+      "genres": [
+        "documentary",
+        "biopic",
+        "musical"
+      ],
+      "creator": "Malik Bendjelloul",
+      "region": "SE",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.2,
+        "metacritic": 78
+      },
+      "awards": [
+        "oscar",
+        "bafta"
+      ],
+      "note": "底特律歌手在南非成神而他一无所知，查案式纪录片最浪漫的一页。",
+      "noteEn": "A Detroit singer worshipped in South Africa, unaware — investigative documentary at its most romantic."
+    },
+    {
+      "id": "the-act-of-killing",
+      "title": "杀戮演绎",
+      "en": "The Act of Killing",
+      "year": 2012,
+      "genres": [
+        "documentary",
+        "crime",
+        "drama"
+      ],
+      "creator": "Joshua Oppenheimer",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.2,
+        "metacritic": 89
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "让印尼大屠杀的刽子手重演当年的杀戮，纪录片伦理的极限实验。",
+      "noteEn": "Having Indonesian executioners re-enact their murders — the outer limit of documentary ethics."
+    },
+    {
+      "id": "her",
+      "title": "她",
+      "en": "Her",
+      "year": 2013,
+      "genres": [
+        "scifi",
+        "romance"
+      ],
+      "creator": "Spike Jonze",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "操作系统成了最懂爱的「人」，孤独都市的温柔低语。",
+      "noteEn": "An operating system becomes the most human lover — a tender whisper for lonely cities."
+    },
+    {
+      "id": "prisoners",
+      "title": "囚徒",
+      "en": "Prisoners",
+      "year": 2013,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "Denis Villeneuve",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8.2,
+        "metacritic": 81
+      },
+      "awards": [],
+      "note": "两个女孩失踪引爆小镇的道德崩解，雨夜里的信仰与私刑纠缠。",
+      "noteEn": "Two missing girls crack a town's morality — faith and vigilantism tangled in the rain."
+    },
+    {
+      "id": "the-grandmaster",
+      "title": "一代宗师",
+      "en": "The Grandmaster",
+      "year": 2013,
+      "genres": [
+        "biopic",
+        "drama",
+        "action"
+      ],
+      "creator": "Wong Kar-wai",
+      "region": "HK",
+      "rating": {
+        "douban": 7.9,
+        "imdb": 6.6
+      },
+      "awards": [
+        "hk-film-award"
+      ],
+      "note": "「见自己、见天地、见众生」，王家卫把咏春宗师叶问拍成一招一式的东方哲学。",
+      "noteEn": "\"See self, see heaven and earth, see all beings\" — Wong turns Ip Man into moving Eastern philosophy."
+    },
+    {
+      "id": "the-tale-of-the-princess-kaguya",
+      "title": "辉夜姬物语",
+      "en": "The Tale of the Princess Kaguya",
+      "year": 2013,
+      "genres": [
+        "animation",
+        "fantasy",
+        "drama"
+      ],
+      "creator": "高畑勋",
+      "region": "JP",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8,
+        "metacritic": 89
+      },
+      "awards": [
+        "japan-academy"
+      ],
+      "note": "水墨淡彩的速写长卷，用最老的传说问一个最现代的问题：回月亮还是留在人间。",
+      "noteEn": "A watercolor sketchbook epic asking an ancient question anew: the moon or this world?"
+    },
+    {
+      "id": "citizenfour",
+      "title": "第四公民",
+      "en": "Citizenfour",
+      "year": 2014,
+      "genres": [
+        "documentary",
+        "thriller"
+      ],
+      "creator": "Laura Poitras",
+      "region": "US",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.9,
+        "metacritic": 82
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "与斯诺登在香港酒店实拍，让观众亲历一场泄密发生的现场。",
+      "noteEn": "Filmed live with Snowden in a Hong Kong hotel — you witness the leak as it happens."
+    },
+    {
+      "id": "ex-machina",
+      "title": "机械姬",
+      "en": "Ex Machina",
+      "year": 2014,
+      "genres": [
+        "scifi",
+        "thriller"
+      ],
+      "creator": "Alex Garland",
+      "region": "UK",
+      "rating": {
+        "douban": 7.5,
+        "imdb": 7.7,
+        "metacritic": 78
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "图灵测试的密室反转，Ava 的美与野心令人背脊发凉。",
+      "noteEn": "A chamber-room Turing test where Ava's beauty and guile chill the spine."
+    },
+    {
+      "id": "gone-girl",
+      "title": "消失的爱人",
+      "en": "Gone Girl",
+      "year": 2014,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "David Fincher",
+      "region": "US",
+      "rating": {
+        "douban": 8.9,
+        "imdb": 8.1,
+        "metacritic": 79
+      },
+      "awards": [],
+      "note": "反转婚姻惊悚，把媒体狂欢与性别博弈一层层剥给人看。",
+      "noteEn": "A marriage thriller that flips into a media circus — a scalpel on gender and spectacle."
+    },
+    {
+      "id": "interstellar",
+      "title": "星际穿越",
+      "en": "Interstellar",
+      "year": 2014,
+      "genres": [
+        "scifi",
+        "drama"
+      ],
+      "creator": "Christopher Nolan",
+      "region": "US",
+      "rating": {
+        "douban": 9.4,
+        "imdb": 8.7
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "黑洞、五维书架与麦田，父女情跨越引力与时间。",
+      "noteEn": "A black hole, a tesseract and a father-daughter bond spanning gravity and time."
+    },
+    {
+      "id": "john-wick",
+      "title": "疾速追杀",
+      "en": "John Wick",
+      "year": 2014,
+      "genres": [
+        "action",
+        "crime",
+        "thriller"
+      ],
+      "creator": "Chad Stahelski",
+      "region": "US",
+      "rating": {
+        "douban": 7.7,
+        "imdb": 7.4,
+        "metacritic": 68
+      },
+      "awards": [],
+      "note": "为一条狗复仇的退役杀手，以枪斗术和霓虹美学重造了动作片的节奏感。",
+      "noteEn": "A retired hitman avenging his dog, redefining action rhythm with gun-fu and neon style."
+    },
+    {
+      "id": "nightcrawler",
+      "title": "夜行者",
+      "en": "Nightcrawler",
+      "year": 2014,
+      "genres": [
+        "thriller",
+        "crime"
+      ],
+      "creator": "Dan Gilroy",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.8,
+        "metacritic": 77
+      },
+      "awards": [],
+      "note": "把新闻底线熬成商业野心的吉伦哈尔，病态魅力照出现代媒体的镜像。",
+      "noteEn": "Gyllenhaal's sociopath selling blood-soaked footage — a mirror held to modern media."
+    },
+    {
+      "id": "song-of-the-sea",
+      "title": "海洋之歌",
+      "en": "Song of the Sea",
+      "year": 2014,
+      "genres": [
+        "animation",
+        "fantasy",
+        "drama"
+      ],
+      "creator": "Tomm Moore",
+      "region": "IE",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8,
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "凯尔特神话里的海豹精与即将消亡的传说，几何装饰风的美术教科书。",
+      "noteEn": "A selkie and a dying mythology — a textbook of geometric, decorative animation."
+    },
+    {
+      "id": "the-babadook",
+      "title": "鬼书",
+      "en": "The Babadook",
+      "year": 2014,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Jennifer Kent",
+      "region": "AU",
+      "rating": {
+        "douban": 6.5,
+        "imdb": 6.8
+      },
+      "note": "绘本怪物与丧夫创伤，把恐惧拍成单亲妈妈的战争。",
+      "noteEn": "A pop-up monster born of grief — one mother's war against the dark.",
+      "awards": []
     },
     {
       "id": "the-imitation-game",
@@ -288,6 +6110,555 @@
       "noteEn": "Turing's secret war against Enigma — and a genius betrayed by the very system he saved."
     },
     {
+      "id": "the-theory-of-everything",
+      "title": "万物理论",
+      "en": "The Theory of Everything",
+      "year": 2014,
+      "genres": [
+        "biopic",
+        "romance",
+        "drama"
+      ],
+      "creator": "James Marsh",
+      "region": "UK",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.7,
+        "metacritic": 67
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "霍金的宇宙理论之外，是简·霍金在病床边的坚守，时间对爱情同样无情。",
+      "noteEn": "Beyond Hawking's cosmos is Jane's vigil at his bedside — time is as cruel to love as to stars."
+    },
+    {
+      "id": "wild-tales",
+      "title": "荒蛮故事",
+      "en": "Wild Tales",
+      "year": 2014,
+      "genres": [
+        "drama",
+        "comedy"
+      ],
+      "creator": "Damián Szifrón",
+      "region": "AR",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.1,
+        "metacritic": 77
+      },
+      "awards": [],
+      "note": "六个失控的复仇小故事，从婚礼到公路，文明随时准备被撕成碎片。",
+      "noteEn": "Six stories of rage snapping — from wedding to highway, civilization is a bomb waiting to go off."
+    },
+    {
+      "id": "amy",
+      "title": "艾米",
+      "en": "Amy",
+      "year": 2015,
+      "genres": [
+        "documentary",
+        "biopic",
+        "musical"
+      ],
+      "creator": "Asif Kapadia",
+      "region": "UK",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.8,
+        "metacritic": 85
+      },
+      "awards": [
+        "oscar",
+        "bafta"
+      ],
+      "note": "用家庭录像拼出艾米·怀恩豪斯的一生，成名与毁灭同步发生。",
+      "noteEn": "Family tapes reassembling Amy Winehouse's life — fame and ruin arriving together."
+    },
+    {
+      "id": "anomalisa",
+      "title": "失常",
+      "en": "Anomalisa",
+      "year": 2015,
+      "genres": [
+        "animation",
+        "drama"
+      ],
+      "creator": "Charlie Kaufman, Duke Johnson",
+      "region": "US",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 7.2,
+        "metacritic": 88
+      },
+      "awards": [],
+      "note": "定格动画拍中年男人在千人一面的世界里，撞见唯一不同的声音。",
+      "noteEn": "Stop-motion for a midlife man who, in a world of identical faces, meets one unique voice."
+    },
+    {
+      "id": "inside-out",
+      "title": "头脑特工队",
+      "en": "Inside Out",
+      "year": 2015,
+      "genres": [
+        "animation",
+        "comedy",
+        "drama"
+      ],
+      "creator": "Pete Docter",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.1,
+        "metacritic": 94
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "把情绪做成五个小人，告诉你悲伤其实是成长真正的燃料。",
+      "noteEn": "Emotions as five little people — sadness turns out to be the real fuel of growing up."
+    },
+    {
+      "id": "mad-max-fury-road",
+      "title": "疯狂的麦克斯4：狂暴之路",
+      "en": "Mad Max: Fury Road",
+      "year": 2015,
+      "genres": [
+        "action",
+        "scifi"
+      ],
+      "creator": "George Miller",
+      "region": "AU",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.1,
+        "metacritic": 90
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "两小时不间断的沙漠追车芭蕾，实拍特效的极致，反乌托邦的女性主义寓言。",
+      "noteEn": "Two hours of non-stop desert chase ballet, practical effects at their peak, a feminist dystopian fable."
+    },
+    {
+      "id": "sicario",
+      "title": "边境杀手",
+      "en": "Sicario",
+      "year": 2015,
+      "genres": [
+        "thriller",
+        "crime",
+        "action"
+      ],
+      "creator": "Denis Villeneuve",
+      "region": "US",
+      "rating": {
+        "douban": 7.7,
+        "imdb": 7.6,
+        "metacritic": 82
+      },
+      "awards": [],
+      "note": "美墨边境的灰色地带，'墙'上开出的不是正义而是纪律化的邪恶。",
+      "noteEn": "The moral grey of the border — the 'wall' grows disciplined evil, not justice."
+    },
+    {
+      "id": "the-martian",
+      "title": "火星救援",
+      "en": "The Martian",
+      "year": 2015,
+      "genres": [
+        "scifi"
+      ],
+      "creator": "Ridley Scott",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8
+      },
+      "awards": [
+        "golden-globe"
+      ],
+      "note": "用科学与幽默在火星自救，NASA 自救手册的电影版。",
+      "noteEn": "MacGyvering survival on Mars with science and wisecracks."
+    },
+    {
+      "id": "the-witch",
+      "title": "女巫",
+      "en": "The Witch",
+      "year": 2015,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Robert Eggers",
+      "region": "US",
+      "rating": {
+        "douban": 6.7,
+        "imdb": 7
+      },
+      "note": "新英格兰清教徒家庭的信仰崩塌，「魔鬼就在树林里」。",
+      "noteEn": "A Puritan family's faith unravels — the devil is real in the wood.",
+      "awards": []
+    },
+    {
+      "id": "13th",
+      "title": "第十三修正案",
+      "en": "13th",
+      "year": 2016,
+      "genres": [
+        "documentary",
+        "crime"
+      ],
+      "creator": "Ava DuVernay",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.2,
+        "metacritic": 78
+      },
+      "awards": [
+        "bafta"
+      ],
+      "note": "从宪法第十三修正案的漏洞，追踪美国监狱工业的百年闭环。",
+      "noteEn": "From the 13th Amendment's loophole to America's prison-industrial century."
+    },
+    {
+      "id": "arrival",
+      "title": "降临",
+      "en": "Arrival",
+      "year": 2016,
+      "genres": [
+        "scifi",
+        "drama"
+      ],
+      "creator": "Denis Villeneuve",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.9,
+        "metacritic": 81
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "语言学家用非线性时间观改写第一类接触。",
+      "noteEn": "A linguist redefines first contact through a non-linear view of time."
+    },
+    {
+      "id": "dangal",
+      "title": "摔跤吧！爸爸",
+      "en": "Dangal",
+      "year": 2016,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Nitesh Tiwari",
+      "region": "IN",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.4
+      },
+      "awards": [],
+      "note": "阿米尔·汗把女儿们训练成摔跤冠军，一位父亲替她们对抗整个世界，直到她们能自己选择。",
+      "noteEn": "Aamir Khan turns daughters into wrestlers — a father fights the world so they can choose their own."
+    },
+    {
+      "id": "fire-at-sea",
+      "title": "海上火焰",
+      "en": "Fire at Sea",
+      "year": 2016,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Gianfranco Rosi",
+      "region": "IT",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.3,
+        "metacritic": 84
+      },
+      "awards": [
+        "golden-bear"
+      ],
+      "note": "兰佩杜萨岛的孩童日常与难民船并置，罕见的纪录长片金熊奖得主。",
+      "noteEn": "A child's routine on Lampedusa against refugee boats — a rare documentary Golden Bear."
+    },
+    {
+      "id": "hacksaw-ridge",
+      "title": "血战钢锯岭",
+      "en": "Hacksaw Ridge",
+      "year": 2016,
+      "genres": [
+        "biopic",
+        "war",
+        "drama"
+      ],
+      "creator": "Mel Gibson",
+      "region": "US",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8.1,
+        "metacritic": 71
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "拒绝持枪的军医戴斯蒙德在冲绳救下七十五条命，信仰可以是一个人的战争。",
+      "noteEn": "A medic who refuses to bear arms saves 75 lives on Okinawa — faith can fight a one-man war."
+    },
+    {
+      "id": "hidden-figures",
+      "title": "隐藏人物",
+      "en": "Hidden Figures",
+      "year": 2016,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Theodore Melfi",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 7.8,
+        "metacritic": 74
+      },
+      "awards": [],
+      "note": "三位黑人女数学家把人类送上轨道，办公室里的种族隔离比太空更远。",
+      "noteEn": "Three Black women mathematicians put humans in orbit — office segregation farther than space."
+    },
+    {
+      "id": "la-la-land",
+      "title": "爱乐之城",
+      "en": "La La Land",
+      "year": 2016,
+      "genres": [
+        "musical",
+        "romance"
+      ],
+      "creator": "Damien Chazelle",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 8,
+        "metacritic": 93
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "洛杉矶追梦者的爵士与霓虹，结尾那段蒙太奇是写给错过的挽歌。",
+      "noteEn": "Dreamers, jazz and LA neon — a final montage that mourns the road not taken."
+    },
+    {
+      "id": "manchester-by-the-sea",
+      "title": "海边的曼彻斯特",
+      "en": "Manchester by the Sea",
+      "year": 2016,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Kenneth Lonergan",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.8,
+        "metacritic": 96
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "失去孩子的父亲拒绝和解，悲伤不一定要被治愈——它只是被携带着活下去。",
+      "noteEn": "A grieving father refuses closure; sorrow need not heal — only be carried on."
+    },
+    {
+      "id": "moonlight",
+      "title": "月光男孩",
+      "en": "Moonlight",
+      "year": 2016,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Barry Jenkins",
+      "region": "US",
+      "rating": {
+        "douban": 7.4,
+        "imdb": 7.4,
+        "metacritic": 99
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "三段式描摹黑人男孩的成长、身份与爱，海边的蓝是温柔也是枷锁。",
+      "noteEn": "Three acts of a Black boy's coming of age — the blue by the sea is both tenderness and a cage."
+    },
+    {
+      "id": "my-life-as-a-courgette",
+      "title": "西葫芦的生活",
+      "en": "My Life as a Courgette",
+      "year": 2016,
+      "genres": [
+        "animation",
+        "drama"
+      ],
+      "creator": "Claude Barras",
+      "region": "CH",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.7,
+        "metacritic": 89
+      },
+      "awards": [
+        "cesar"
+      ],
+      "note": "定格黏土孤儿院，把儿童眼中的创伤拍得既明亮又疼痛。",
+      "noteEn": "Claymation in a children's home — trauma seen through a child's bright, hurting eyes."
+    },
+    {
+      "id": "the-red-turtle",
+      "title": "红海龟",
+      "en": "The Red Turtle",
+      "year": 2016,
+      "genres": [
+        "animation",
+        "fantasy",
+        "drama"
+      ],
+      "creator": "Michael Dudok de Wit",
+      "region": "FR",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.5,
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "吉卜力监制的无对白寓言，一个人与一只红龟在荒岛上的半生轮回。",
+      "noteEn": "A dialogue-free fable produced by Studio Ghibli — one man, one turtle, a lifetime on an island."
+    },
+    {
+      "id": "the-wailing",
+      "title": "哭声",
+      "en": "The Wailing",
+      "year": 2016,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Na Hong-jin",
+      "region": "KR",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.4
+      },
+      "note": "韩国山村驱魔疑云，邪灵与病毒纠缠的多义恐怖。",
+      "noteEn": "A Korean village, a shaman and a demon — ambiguity as dread.",
+      "awards": []
+    },
+    {
+      "id": "train-to-busan",
+      "title": "釜山行",
+      "en": "Train to Busan",
+      "year": 2016,
+      "genres": [
+        "horror",
+        "action"
+      ],
+      "creator": "Yeon Sang-ho",
+      "region": "KR",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.6
+      },
+      "note": "丧尸列车的封闭空间逃杀，韩影工业的类型爆发。",
+      "noteEn": "A zombie outbreak on a Seoul-bound train — K-horror at full throttle.",
+      "awards": []
+    },
+    {
+      "id": "your-name",
+      "title": "你的名字。",
+      "en": "Your Name",
+      "year": 2016,
+      "genres": [
+        "animation",
+        "fantasy",
+        "romance"
+      ],
+      "creator": "新海诚",
+      "region": "JP",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.4,
+        "metacritic": 79
+      },
+      "awards": [
+        "japan-academy"
+      ],
+      "note": "互换身体的少男少女隔着时间与灾厄寻找彼此，新海诚美学的全球爆点。",
+      "noteEn": "Body-swapping teens search for each other across time and disaster — Shinkai's global breakthrough."
+    },
+    {
+      "id": "a-taxi-driver",
+      "title": "出租车司机",
+      "en": "A Taxi Driver",
+      "year": 2017,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Jang Hoon",
+      "region": "KR",
+      "rating": {
+        "douban": 9,
+        "imdb": 7.6
+      },
+      "awards": [],
+      "note": "光州事件的目击者：首尔出租车司机误闯戒严现场，一个人用方向盘载起一段历史。",
+      "noteEn": "A Seoul taxi driver stumbles into the Gwangju crackdown — one wheeled witness carries history."
+    },
+    {
+      "id": "baby-driver",
+      "title": "极盗车神",
+      "en": "Baby Driver",
+      "year": 2017,
+      "genres": [
+        "action",
+        "crime"
+      ],
+      "creator": "Edgar Wright",
+      "region": "US",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.6,
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "追逐戏与流行金曲精准卡拍的音画同步，让汽车追逐有了节奏与乐感。",
+      "noteEn": "Chases choreographed to pop tunes — car chases finally have rhythm and pitch."
+    },
+    {
+      "id": "blade-runner-2049",
+      "title": "银翼杀手2049",
+      "en": "Blade Runner 2049",
+      "year": 2017,
+      "genres": [
+        "noir",
+        "scifi"
+      ],
+      "creator": "Denis Villeneuve",
+      "region": "US",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8,
+        "metacritic": 81
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "延续原作的存在主义追问，橙灰两色的末日摄影拿下奥斯卡。",
+      "noteEn": "The existential question continues — its burnt-orange cinematography earned an Oscar."
+    },
+    {
       "id": "darkest-hour",
       "title": "至暗时刻",
       "en": "Darkest Hour",
@@ -308,6 +6679,642 @@
       ],
       "note": "加里·奥德曼的丘吉尔，把嘴硬、焦虑与绝不投降揉进每一次呼吸。",
       "noteEn": "Gary Oldman's Churchill — stubbornness, anxiety and refusal to yield in every breath."
+    },
+    {
+      "id": "dunkirk",
+      "title": "敦刻尔克",
+      "en": "Dunkirk",
+      "year": 2017,
+      "genres": [
+        "war",
+        "thriller"
+      ],
+      "creator": "Christopher Nolan",
+      "region": "UK",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "陆海空三线交叉剪辑的敦刻尔克撤退，时间本身就是敌人。",
+      "noteEn": "Three timelines converge on the beach — time itself is the enemy."
+    },
+    {
+      "id": "faces-places",
+      "title": "脸庞，村庄",
+      "en": "Faces Places",
+      "year": 2017,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Agnès Varda, JR",
+      "region": "FR",
+      "rating": {
+        "douban": 9.1,
+        "imdb": 7.9,
+        "metacritic": 85
+      },
+      "awards": [],
+      "note": "八十九岁的瓦尔达与三十三岁的 JR 开着卡车巡游法国，把巨幅肖像贴满村庄。",
+      "noteEn": "An eighty-nine-year-old Varda and thirty-three-year-old JR plaster giant portraits across French villages."
+    },
+    {
+      "id": "get-out",
+      "title": "逃出绝命镇",
+      "en": "Get Out",
+      "year": 2017,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Jordan Peele",
+      "region": "US",
+      "rating": {
+        "douban": 7.8,
+        "imdb": 7.8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "黑人体检变器官移植，把种族议题装进惊悚容器。",
+      "noteEn": "A liberal getaway that hides body-snatching — race as horror."
+    },
+    {
+      "id": "the-shape-of-water",
+      "title": "水形物语",
+      "en": "The Shape of Water",
+      "year": 2017,
+      "genres": [
+        "romance",
+        "fantasy",
+        "drama"
+      ],
+      "creator": "Guillermo del Toro",
+      "region": "US",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 7.3,
+        "metacritic": 87
+      },
+      "awards": [
+        "oscar",
+        "golden-lion"
+      ],
+      "note": "清洁女工与水池怪物的跨物种之恋，冷战灰暗年代里最温柔的童话。",
+      "noteEn": "A cleaner and an amphibian creature fall in love — a fairy tale inside the Cold War."
+    },
+    {
+      "id": "a-star-is-born-2018",
+      "title": "一个明星的诞生",
+      "en": "A Star Is Born (2018)",
+      "year": 2018,
+      "genres": [
+        "musical",
+        "romance",
+        "drama"
+      ],
+      "creator": "Bradley Cooper",
+      "region": "US",
+      "rating": {
+        "douban": 7.5,
+        "imdb": 7.6,
+        "metacritic": 88
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "巨星陨落与新人升起同框，「Shallow」把爱情与才华的代价唱进骨头里。",
+      "noteEn": "A legend fades as a star rises — 'Shallow' cuts to the bone of love and fame."
+    },
+    {
+      "id": "bohemian-rhapsody",
+      "title": "波西米亚狂想曲",
+      "en": "Bohemian Rhapsody",
+      "year": 2018,
+      "genres": [
+        "musical",
+        "biopic",
+        "drama"
+      ],
+      "creator": "Bryan Singer",
+      "region": "UK",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 7.9,
+        "metacritic": 49
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "拉米·马雷克在 Live Aid 舞台上复刻皇后乐队，弗雷迪的璀璨与孤独同频共振。",
+      "noteEn": "Rami Malek relives Queen at Live Aid — Freddie's brilliance and loneliness resonate as one."
+    },
+    {
+      "id": "burning",
+      "title": "燃烧",
+      "en": "Burning",
+      "year": 2018,
+      "genres": [
+        "drama",
+        "thriller"
+      ],
+      "creator": "Lee Chang-dong",
+      "region": "KR",
+      "rating": {
+        "douban": 8,
+        "imdb": 7.4,
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "消失的女孩与温室之谜，李沧东把村上春树的短篇改写成当代韩国的愤怒与虚无。",
+      "noteEn": "A missing girl and vanishing greenhouses — Lee turns Murakami's short story into Korean rage and void."
+    },
+    {
+      "id": "cold-war",
+      "title": "冷战",
+      "en": "Cold War",
+      "year": 2018,
+      "genres": [
+        "drama",
+        "romance"
+      ],
+      "creator": "Paweł Pawlikowski",
+      "region": "PL",
+      "rating": {
+        "douban": 7.8,
+        "imdb": 7.5,
+        "metacritic": 90
+      },
+      "awards": [],
+      "note": "铁幕两侧分合二十年的恋人，黑白胶片与一首歌贯穿冷战年代的流亡。",
+      "noteEn": "Lovers split and reunite across the Iron Curtain; a song threads through two decades of exile."
+    },
+    {
+      "id": "free-solo",
+      "title": "徒手攀岩",
+      "en": "Free Solo",
+      "year": 2018,
+      "genres": [
+        "documentary",
+        "biopic"
+      ],
+      "creator": "Elizabeth Chai Vasarhelyi, Jimmy Chin",
+      "region": "US",
+      "rating": {
+        "douban": 9,
+        "imdb": 8.1,
+        "metacritic": 83
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "无保护攀登酋长岩，镜头的每一次靠近都让人手心出汗。",
+      "noteEn": "Climbing El Capitan without ropes — every camera move makes you sweat with him."
+    },
+    {
+      "id": "hereditary",
+      "title": "遗传厄运",
+      "en": "Hereditary",
+      "year": 2018,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Ari Aster",
+      "region": "US",
+      "rating": {
+        "douban": 7.3,
+        "imdb": 7.3
+      },
+      "note": "家族遗传的创伤与邪教，被视作「现代恐怖已死」的回应。",
+      "noteEn": "Grief and a cult conspiracy run in the blood — a new horror benchmark.",
+      "awards": []
+    },
+    {
+      "id": "mission-impossible-fallout",
+      "title": "碟中谍6：全面瓦解",
+      "en": "Mission: Impossible - Fallout",
+      "year": 2018,
+      "genres": [
+        "action",
+        "thriller"
+      ],
+      "creator": "Christopher McQuarrie",
+      "region": "US",
+      "rating": {
+        "douban": 8.3,
+        "imdb": 7.7,
+        "metacritic": 86
+      },
+      "awards": [],
+      "note": "阿汤哥亲自跳直升机与 HALO 跳伞，实拍特技堆出好莱坞最后的奇观主义。",
+      "noteEn": "Cruise really jumps from a helicopter and free-falls in HALO — practical stunts as final spectacle."
+    },
+    {
+      "id": "roma",
+      "title": "罗马",
+      "en": "Roma",
+      "year": 2018,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Alfonso Cuarón",
+      "region": "MX",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 7.7,
+        "metacritic": 96
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "黑白镜头凝视墨西哥城一个中产家庭与女佣，卡隆把私人记忆拍成时代的涟漪。",
+      "noteEn": "A monochrome gaze on a Mexico City household and its maid — Cuarón turns memory into an era's ripple."
+    },
+    {
+      "id": "shoplifters",
+      "title": "小偷家族",
+      "en": "Shoplifters",
+      "year": 2018,
+      "genres": [
+        "drama"
+      ],
+      "creator": "Hirokazu Kore-eda",
+      "region": "JP",
+      "rating": {
+        "douban": 8.7,
+        "imdb": 8,
+        "metacritic": 93
+      },
+      "awards": [
+        "palme-dor"
+      ],
+      "note": "没有血缘的一家人靠偷窃维生，却比许多家庭更接近「家」的定义。",
+      "noteEn": "A family bound not by blood but by shoplifting — closer to \"family\" than most real ones."
+    },
+    {
+      "id": "spider-man-into-the-spider-verse",
+      "title": "蜘蛛侠：平行宇宙",
+      "en": "Spider-Man: Into the Spider-Verse",
+      "year": 2018,
+      "genres": [
+        "animation",
+        "action",
+        "scifi"
+      ],
+      "creator": "Bob Persichetti, Peter Ramsey, Rodney Rothman",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.4,
+        "metacritic": 87
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "漫画半色调、破格分镜、六位蜘蛛侠同框，把纸页质感炸进了银幕。",
+      "noteEn": "Halftone dots, broken panels, six Spider-People — comic-page texture detonated on screen."
+    },
+    {
+      "id": "the-ballad-of-buster-scruggs",
+      "title": "巴斯特·斯克鲁格斯的歌谣",
+      "en": "The Ballad of Buster Scruggs",
+      "year": 2018,
+      "genres": [
+        "western",
+        "comedy"
+      ],
+      "creator": "Joel & Ethan Coen",
+      "region": "US",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.3
+      },
+      "awards": [],
+      "note": "六个风格迥异的西部短篇，科恩兄弟把死亡与荒诞嵌进明信片般的风景。",
+      "noteEn": "Six very different tales of the frontier — the Coens frame death and absurdity beautifully."
+    },
+    {
+      "id": "1917",
+      "title": "1917",
+      "en": "1917",
+      "year": 2019,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Sam Mendes",
+      "region": "UK",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8.2
+      },
+      "awards": [
+        "oscar",
+        "golden-globe"
+      ],
+      "note": "一镜到底穿越战壕送信，把一战拍成实时炼狱。",
+      "noteEn": "A continuous single-shot dash across No Man's Land — WWI in real time."
+    },
+    {
+      "id": "midsommar",
+      "title": "仲夏夜惊魂",
+      "en": "Midsommar",
+      "year": 2019,
+      "genres": [
+        "horror",
+        "thriller"
+      ],
+      "creator": "Ari Aster",
+      "region": "US",
+      "rating": {
+        "douban": 6.8,
+        "imdb": 7.1
+      },
+      "note": "白昼永昼下的瑞典祭祀，分手电影变成民俗噩梦。",
+      "noteEn": "Sunlit pagan rites turn a breakup into a folk-horror nightmare.",
+      "awards": []
+    },
+    {
+      "id": "ne-zha",
+      "title": "哪吒之魔童降世",
+      "en": "Ne Zha",
+      "year": 2019,
+      "genres": [
+        "animation",
+        "fantasy",
+        "action"
+      ],
+      "creator": "饺子",
+      "region": "CN",
+      "rating": {
+        "douban": 8.4,
+        "imdb": 7.4
+      },
+      "awards": [
+        "golden-rooster"
+      ],
+      "note": "魔童设定重写「我命由我不由天」，一举打破中国动画的票房天花板。",
+      "noteEn": "'My fate is mine to decide' — a reimagined Nezha that broke China's animation box-office records."
+    },
+    {
+      "id": "parasite",
+      "title": "寄生虫",
+      "en": "Parasite",
+      "year": 2019,
+      "genres": [
+        "drama",
+        "thriller"
+      ],
+      "creator": "Bong Joon-ho",
+      "region": "KR",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.5,
+        "metacritic": 96
+      },
+      "awards": [
+        "palme-dor",
+        "oscar"
+      ],
+      "note": "地下室与豪宅之间只隔一段楼梯，奉俊昊的阶级寓言在暴雨夜轰然崩塌。",
+      "noteEn": "A basement and a mansion, one staircase apart — Bong's class fable collapses on a stormy night."
+    },
+    {
+      "id": "the-legend-of-hei",
+      "title": "罗小黑战记",
+      "en": "The Legend of Hei",
+      "year": 2019,
+      "genres": [
+        "animation",
+        "fantasy",
+        "comedy"
+      ],
+      "creator": "MTJJ",
+      "region": "CN",
+      "rating": {
+        "douban": 8.1,
+        "imdb": 7.5
+      },
+      "awards": [],
+      "note": "治愈系小黑猫流落人间，把国漫的利落打斗与温柔日常揉进同一帧。",
+      "noteEn": "A healing black cat adrift among humans, blending crisp Chinese-style action with quiet warmth."
+    },
+    {
+      "id": "leap",
+      "title": "夺冠",
+      "en": "Leap",
+      "year": 2020,
+      "genres": [
+        "biopic",
+        "drama"
+      ],
+      "creator": "Peter Chan",
+      "region": "CN",
+      "rating": {
+        "douban": 7.5,
+        "imdb": 6.8
+      },
+      "awards": [],
+      "note": "从女排五连冠到里约重夺金，郎平与女排姑娘们把「女排精神」压进每一个扣杀。",
+      "noteEn": "From five straight titles to Rio's gold — Lang Ping and her team pack \"volleyball spirit\" into every spike."
+    },
+    {
+      "id": "my-octopus-teacher",
+      "title": "我的章鱼老师",
+      "en": "My Octopus Teacher",
+      "year": 2020,
+      "genres": [
+        "documentary"
+      ],
+      "creator": "Pippa Ehrlich, James Reed",
+      "region": "ZA",
+      "rating": {
+        "douban": 8.5,
+        "imdb": 8,
+        "metacritic": 81
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "潜水员与一只章鱼的跨物种友谊，把海底拍成最温柔的相遇。",
+      "noteEn": "A diver and an octopus's cross-species friendship — the gentlest encounter under the sea."
+    },
+    {
+      "id": "wolfwalkers",
+      "title": "狼行者",
+      "en": "Wolfwalkers",
+      "year": 2020,
+      "genres": [
+        "animation",
+        "fantasy",
+        "drama"
+      ],
+      "creator": "Tomm Moore, Ross Stewart",
+      "region": "IE",
+      "rating": {
+        "douban": 8.2,
+        "imdb": 8.1,
+        "metacritic": 87
+      },
+      "awards": [],
+      "note": "十七世纪爱尔兰的森林魔法，手绘线条里藏着对殖民与压制的隐喻。",
+      "noteEn": "Woodland magic in seventeenth-century Ireland, with colonialism hidden in the hand-drawn lines."
+    },
+    {
+      "id": "dune",
+      "title": "沙丘",
+      "en": "Dune",
+      "year": 2021,
+      "genres": [
+        "scifi",
+        "action"
+      ],
+      "creator": "Denis Villeneuve",
+      "region": "US",
+      "rating": {
+        "douban": 7.8,
+        "imdb": 8,
+        "metacritic": 74
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "沙丘美学与巨型尺度，维伦纽瓦把厄拉科斯拍成神迹。",
+      "noteEn": "Desert colossalism — Villeneuve's awe-scale adaptation of Herbert's epic."
+    },
+    {
+      "id": "summer-of-soul",
+      "title": "灵魂乐之夏",
+      "en": "Summer of Soul",
+      "year": 2021,
+      "genres": [
+        "documentary",
+        "musical"
+      ],
+      "creator": "Questlove",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.9,
+        "metacritic": 85
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "尘封五十年的哈莱姆文化节影像重见天日，一场被遗忘的黑人音乐盛典。",
+      "noteEn": "Harlem's lost festival footage resurfaces after fifty years — a forgotten Black music celebration."
+    },
+    {
+      "id": "the-green-knight",
+      "title": "绿衣骑士",
+      "en": "The Green Knight",
+      "year": 2021,
+      "genres": [
+        "fantasy",
+        "drama"
+      ],
+      "creator": "David Lowery",
+      "region": "US",
+      "rating": {
+        "douban": 6.9,
+        "imdb": 6.6
+      },
+      "note": "高文骑士的绿林试炼，亚瑟王传说的仪式化改编。",
+      "noteEn": "Gawain's chivalric trial reimagined as a slow, ritualistic fable.",
+      "awards": []
+    },
+    {
+      "id": "all-quiet-on-the-western-front-2022",
+      "title": "西线无战事（2022）",
+      "en": "All Quiet on the Western Front (2022)",
+      "year": 2022,
+      "genres": [
+        "war",
+        "drama"
+      ],
+      "creator": "Edward Berger",
+      "region": "DE",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 7.8
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "新版把战争拍成绞肉机，获最佳国际影片等三项奥斯卡。",
+      "noteEn": "The 2022 retelling renders war as a meat-grinder, winning Best International Feature."
+    },
+    {
+      "id": "everything-everywhere-all-at-once",
+      "title": "瞬息全宇宙",
+      "en": "Everything Everywhere All at Once",
+      "year": 2022,
+      "genres": [
+        "drama",
+        "scifi",
+        "comedy"
+      ],
+      "creator": "Daniel Kwan & Daniel Scheinert",
+      "region": "US",
+      "rating": {
+        "douban": 7.6,
+        "imdb": 8,
+        "metacritic": 81
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "用多元宇宙的疯狂想象讲华裔母亲的母女关系，报税单上的家庭也能拯救所有宇宙。",
+      "noteEn": "Multiverse madness as a Chinese-American mother-daughter story — even a laundromat family saves every universe."
+    },
+    {
+      "id": "top-gun-maverick",
+      "title": "壮志凌云2：独行侠",
+      "en": "Top Gun: Maverick",
+      "year": 2022,
+      "genres": [
+        "action",
+        "drama"
+      ],
+      "creator": "Joseph Kosinski",
+      "region": "US",
+      "rating": {
+        "douban": 8.6,
+        "imdb": 8.2,
+        "metacritic": 78
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "实拍 F-18 驾驶舱与 IMAX 空战，让三十五年后的续集比前作更酣畅。",
+      "noteEn": "Real F-18 cockpits and IMAX dogfights make the 35-years-later sequel out-fly its original."
+    },
+    {
+      "id": "oppenheimer",
+      "title": "奥本海默",
+      "en": "Oppenheimer",
+      "year": 2023,
+      "genres": [
+        "biopic",
+        "drama",
+        "thriller"
+      ],
+      "creator": "Christopher Nolan",
+      "region": "US",
+      "rating": {
+        "douban": 8.8,
+        "imdb": 8.3,
+        "metacritic": 89
+      },
+      "awards": [
+        "oscar"
+      ],
+      "note": "「现在我成了死神」，诺兰用 IMAX 与黑白听证会拆解原子弹之父的道德十字架。",
+      "noteEn": "\"Now I am become Death\" — Nolan's IMAX hearings dissect the father of the bomb's moral cross."
     }
   ]
 }

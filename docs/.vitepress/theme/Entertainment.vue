@@ -2,20 +2,28 @@
 // 娱乐大典：数据驱动的明快卡片浏览页。
 // 数据来自 ../data/entertainment/{movies,games,music,photography}.json 与 meta.json（均由
 // scripts/gen-entertainment.mjs 生成）。语言检测沿用全站 relativePath.startsWith('en/')。
-// SSR 安全：setup 无 window/document，全静态 JSON + ref/reactive/computed。
+// 性能：movies 静态导入（保 SSR 首屏完整渲染）；games/music/photography 用动态 import 懒加载
+// （仅在切到该 tab 时 fetch，避免 4.2MB 数据进全站共享 theme chunk）。hero 统计读 meta.categoryStats，
+// 无需加载分类数据即可显示。SSR 安全：setup 无 window/document。
 import { computed, reactive, ref } from 'vue'
 import { useData } from 'vitepress'
 import EntertainmentCard from './EntertainmentCard.vue'
 import meta from '../data/entertainment/meta.json'
 import movies from '../data/entertainment/movies.json'
-import games from '../data/entertainment/games.json'
-import music from '../data/entertainment/music.json'
-import photography from '../data/entertainment/photography.json'
 
 const { page } = useData()
 const isEn = computed(() => page.value.relativePath.startsWith('en/'))
 
-const DATA = { movies, games, music, photography }
+// 懒加载器：rollup 静态分析用对象字面量（不能用模板字符串动态路径）
+const LAZY = {
+  games: () => import('../data/entertainment/games.json'),
+  music: () => import('../data/entertainment/music.json'),
+  photography: () => import('../data/entertainment/photography.json'),
+}
+const DATA = reactive({ movies, games: null, music: null, photography: null })
+const loaded = reactive({ movies: true, games: false, music: false, photography: false })
+const loadingKey = ref(null) // 正在加载的分类 key（null 表示空闲）
+
 const PAGE_SIZE = 24
 
 const catList = Object.entries(meta.categories).map(([key, m]) => ({ key, ...m }))
@@ -32,28 +40,26 @@ const filters = reactive({
 })
 const active = ref('movies')
 
+async function activate(cat) {
+  if (active.value === cat && loaded[cat]) return
+  loadingKey.value = cat
+  try {
+    if (!loaded[cat]) {
+      const mod = await LAZY[cat]()
+      DATA[cat] = mod.default
+      loaded[cat] = true
+    }
+    active.value = cat
+  } finally {
+    loadingKey.value = null
+  }
+}
+
 // ---------- 每类筛选 ----------
 function regionLabel(region) {
   const r = meta.regions[region]
   if (!r) return region
   return isEn.value ? r.en : r.zh
-}
-
-function filtered(cat) {
-  const f = filters[cat]
-  const q = f.q.trim().toLowerCase()
-  const genreSet = new Set(f.genres)
-  const items = DATA[cat].items.filter((it) => {
-    if (f.onlyAwards && !it.awards.length) return false
-    if (genreSet.size && !it.genres.some((g) => genreSet.has(g))) return false
-    if (f.decade !== null && (it.year < f.decade || it.year >= f.decade + 10)) return false
-    if (q) {
-      const hay = `${it.title} ${it.en} ${it.creator} ${regionLabel(it.region)}`.toLowerCase()
-      if (!hay.includes(q)) return false
-    }
-    return true
-  })
-  return sortItems(cat, items, f.sort)
 }
 
 function sortItems(cat, items, sort) {
@@ -78,9 +84,30 @@ function bestRating(cat, it) {
 }
 
 function decadeKeys(cat) {
-  return Object.keys(DATA[cat].stats.decades)
+  const st = DATA[cat]?.stats
+  if (!st) return []
+  return Object.keys(st.decades)
     .map(Number)
     .sort((a, b) => a - b)
+}
+
+function filtered(cat) {
+  const d = DATA[cat]
+  if (!d) return []
+  const f = filters[cat]
+  const q = f.q.trim().toLowerCase()
+  const genreSet = new Set(f.genres)
+  const items = d.items.filter((it) => {
+    if (f.onlyAwards && !it.awards.length) return false
+    if (genreSet.size && !it.genres.some((g) => genreSet.has(g))) return false
+    if (f.decade !== null && (it.year < f.decade || it.year >= f.decade + 10)) return false
+    if (q) {
+      const hay = `${it.title} ${it.en} ${it.creator} ${regionLabel(it.region)}`.toLowerCase()
+      if (!hay.includes(q)) return false
+    }
+    return true
+  })
+  return sortItems(cat, items, f.sort)
 }
 
 function visible(cat) {
@@ -118,19 +145,19 @@ function resetPage(cat) {
   filters[cat].page = 1
 }
 
-// ---------- Hero 统计 ----------
+// ---------- Hero 统计（读 meta.categoryStats，无需加载分类数据） ----------
 const totalEntries = computed(() =>
-  catList.reduce((s, c) => s + (DATA[c.key].count || 0), 0),
+  catList.reduce((s, c) => s + (meta.categoryStats[c.key]?.count || 0), 0),
 )
 const totalAwards = computed(() =>
-  catList.reduce((s, c) => s + (DATA[c.key].stats?.totalAwards || 0), 0),
+  catList.reduce((s, c) => s + (meta.categoryStats[c.key]?.totalAwards || 0), 0),
 )
 const genresCovered = computed(() =>
   Object.values(meta.genres).reduce((s, g) => s + Object.keys(g).length, 0),
 )
 const yearRange = computed(() => {
   const ranges = catList
-    .map((c) => DATA[c.key].stats?.yearRange)
+    .map((c) => meta.categoryStats[c.key]?.yearRange)
     .filter((r) => r && r.length === 2)
   if (!ranges.length) return null
   return [Math.min(...ranges.map((r) => r[0])), Math.max(...ranges.map((r) => r[1]))]
@@ -146,7 +173,7 @@ function onTabKeydown(e) {
   else if (e.key === 'End') next = catList.length - 1
   if (next !== null) {
     e.preventDefault()
-    active.value = catList[next].key
+    activate(catList[next].key)
     // 让焦点跟随激活 tab
     const tab = e.currentTarget.querySelector(`[data-key="${catList[next].key}"]`)
     tab?.focus()
@@ -193,11 +220,11 @@ function t(key) {
         :aria-selected="active === c.key"
         :aria-controls="`ent-panel-${c.key}`"
         :id="`ent-tab-${c.key}`"
-        @click="active = c.key"
+        @click="activate(c.key)"
       >
         <span class="ent-tab-emoji">{{ c.emoji }}</span>
         <span class="ent-tab-name">{{ t(c) }}</span>
-        <span class="ent-tab-count">{{ DATA[c.key].count || 0 }}</span>
+        <span class="ent-tab-count">{{ meta.categoryStats[c.key]?.count || 0 }}</span>
       </button>
     </nav>
 
@@ -289,6 +316,10 @@ function t(key) {
         </div>
       </div>
 
+      <div v-if="!DATA[c.key]" class="ent-empty">
+        {{ isEn ? 'Loading…' : '加载中…' }}
+      </div>
+      <template v-else>
       <div class="ent-grid">
         <EntertainmentCard
           v-for="it in visible(c.key)"
@@ -305,6 +336,7 @@ function t(key) {
       <p v-else-if="filtered(c.key).length === 0" class="ent-empty">
         {{ isEn ? '😢 Nothing matches — try clearing a filter.' : '😢 没有匹配的作品——试试清空筛选。' }}
       </p>
+      </template>
     </section>
     </template>
   </div>
