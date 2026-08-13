@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="sans-serif">
+<title>低碳水饮食下的代谢转换：从糖供能到酮体供能</title>
+<desc>示意图展示低碳水化合物膳食如何使机体从依赖葡萄糖供能切换为依赖脂肪酸与酮体供能。</desc>
+<rect width="860" height="400" fill="#faf9f5"/>
+<!-- 标题 -->
+<text x="430" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">低碳水饮食：代谢开关的拨动</text>
+<!-- 左侧：糖供能模式 -->
+<rect x="40" y="90" width="230" height="200" rx="12" fill="#1f6f8b" opacity="0.12" stroke="#1f6f8b" stroke-width="2"/>
+<text x="155" y="120" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f6f8b">常态：糖供能</text>
+<text x="155" y="155" text-anchor="middle" font-size="14" fill="#333">碳水充足 → 血糖稳定</text>
+<text x="155" y="185" text-anchor="middle" font-size="14" fill="#333">胰岛素水平较高</text>
+<text x="155" y="215" text-anchor="middle" font-size="14" fill="#333">脂肪分解受抑制</text>
+<text x="155" y="250" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">主要燃料：葡萄糖</text>
+<text x="155" y="275" text-anchor="middle" font-size="13" fill="#555">脂肪主要被储存</text>
+<!-- 中间：触发条件 -->
+<rect x="330" y="120" width="200" height="140" rx="12" fill="#fff" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="430" y="155" text-anchor="middle" font-size="16" font-weight="bold" fill="#c0392b">低碳水干预</text>
+<text x="430" y="185" text-anchor="middle" font-size="14" fill="#333">碳水供能 &lt; 40%</text>
+<text x="430" y="212" text-anchor="middle" font-size="14" fill="#333">（生酮：每日 &lt; 20–50 g）</text>
+<text x="430" y="240" text-anchor="middle" font-size="13" fill="#555">持续数日 → 糖原耗竭</text>
+<!-- 右侧：酮体供能模式 -->
+<rect x="590" y="90" width="230" height="200" rx="12" fill="#c0392b" opacity="0.12" stroke="#c0392b" stroke-width="2"/>
+<text x="705" y="120" text-anchor="middle" font-size="17" font-weight="bold" fill="#c0392b">低碳后：酮体供能</text>
+<text x="705" y="155" text-anchor="middle" font-size="14" fill="#333">胰岛素下降 → 脂肪动员</text>
+<text x="705" y="185" text-anchor="middle" font-size="14" fill="#333">肝脏生成酮体（BHB / AcAc）</text>
+<text x="705" y="215" text-anchor="middle" font-size="14" fill="#333">肌肉、大脑改用酮体</text>
+<text x="705" y="250" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">主要燃料：脂肪酸 + 酮体</text>
+<text x="705" y="275" text-anchor="middle" font-size="13" fill="#555">脂肪被分解供能</text>
+<!-- 箭头：左 → 中 -->
+<path d="M 270 160 L 325 160" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+<text x="297" y="150" text-anchor="middle" font-size="12" fill="#555">持续</text>
+<!-- 箭头：中 → 右 -->
+<path d="M 530 160 L 585 160" stroke="#333" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+<text x="557" y="150" text-anchor="middle" font-size="12" fill="#555">达成</text>
+<!-- 底部说明 -->
+<rect x="120" y="325" width="620" height="52" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="430" y="348" text-anchor="middle" font-size="14" fill="#333">代谢开关的代价：需要 1–2 周「燃料转换期」</text>
+<text x="430" y="368" text-anchor="middle" font-size="13" fill="#555">此期间乏力、头晕、口臭（「酮流感」），随后机体适应</text>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+</marker>
+</defs>
+</svg>

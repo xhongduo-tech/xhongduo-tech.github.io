@@ -1,0 +1,45 @@
+<svg viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>中国三级阶梯西东向剖面示意</title>
+  <desc>自西向东依次为第一级阶梯（青藏高原，平均海拔 4000 米以上）、第二级阶梯（1000—2000 米）、第三级阶梯（500 米以下）与东海。</desc>
+  <rect width="820" height="400" fill="#faf9f5"/>
+  <text x="20" y="30" font-size="16" fill="#333" font-weight="bold">中国三级阶梯西东向剖面（示意）</text>
+
+  <!-- 三级阶梯地形面 -->
+  <path d="M0,400 L0,150 L30,128 L75,168 L120,120 L170,152 L215,138 L250,172 L280,205
+           L330,235 L390,252 L450,242 L520,272
+           L565,305 L620,318 L675,312 L720,338
+           L800,338 L800,400 Z" fill="#1f6f8b" opacity="0.35"/>
+  <path d="M0,150 L30,128 L75,168 L120,120 L170,152 L215,138 L250,172 L280,205
+           L330,235 L390,252 L450,242 L520,272
+           L565,305 L620,318 L675,312 L720,338
+           L800,338" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+
+  <!-- 东海海水 -->
+  <path d="M720,338 L800,338 L800,400 L720,400 Z" fill="#1f6f8b" opacity="0.55"/>
+  <text x="748" y="376" font-size="15" fill="#faf9f5">东海</text>
+
+  <!-- 阶梯界线（虚线） -->
+  <line x1="280" y1="60" x2="280" y2="400" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="520" y1="60" x2="520" y2="400" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- 阶梯标注 -->
+  <text x="130" y="52" font-size="16" fill="#c0392b" font-weight="bold">第一级阶梯</text>
+  <text x="96" y="74" font-size="14" fill="#333">青藏高原</text>
+  <text x="82" y="94" font-size="13" fill="#333">平均海拔 4000 米以上</text>
+
+  <text x="388" y="52" font-size="16" fill="#c0392b" font-weight="bold">第二级阶梯</text>
+  <text x="330" y="74" font-size="14" fill="#333">高原、盆地</text>
+  <text x="322" y="94" font-size="13" fill="#333">海拔 1000—2000 米</text>
+
+  <text x="612" y="52" font-size="16" fill="#c0392b" font-weight="bold">第三级阶梯</text>
+  <text x="580" y="74" font-size="14" fill="#333">平原、丘陵</text>
+  <text x="574" y="94" font-size="13" fill="#333">海拔 500 米以下</text>
+
+  <!-- 界线名称 -->
+  <text x="8" y="330" font-size="13" fill="#333">昆仑山—祁连山—横断山</text>
+  <text x="330" y="330" font-size="13" fill="#333">大兴安岭—太行山—巫山—雪峰山</text>
+
+  <!-- 方位 -->
+  <text x="20" y="385" font-size="14" fill="#333" font-weight="bold">西</text>
+  <text x="780" y="385" font-size="14" fill="#333" font-weight="bold">东</text>
+</svg>

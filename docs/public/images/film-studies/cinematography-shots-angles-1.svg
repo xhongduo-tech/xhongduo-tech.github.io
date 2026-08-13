@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="sans-serif">
+  <title>五种基本景别对照</title>
+  <desc>以同一站立人物为参照，展示远景、全景、中景、特写、大特写五种景别的取景范围差异。</desc>
+  <rect width="820" height="420" fill="#faf9f5"/>
+  <text x="30" y="36" font-size="18" fill="#333" font-weight="bold">五种基本景别（以同一站立人物为参照）</text>
+  <!-- 人物 -->
+  <circle cx="120" cy="150" r="22" fill="none" stroke="#333" stroke-width="2.5"/>
+  <line x1="120" y1="172" x2="120" y2="280" stroke="#333" stroke-width="3"/>
+  <line x1="120" y1="200" x2="80" y2="240" stroke="#333" stroke-width="3"/>
+  <line x1="120" y1="200" x2="160" y2="240" stroke="#333" stroke-width="3"/>
+  <line x1="120" y1="280" x2="92" y2="352" stroke="#333" stroke-width="3"/>
+  <line x1="120" y1="280" x2="148" y2="352" stroke="#333" stroke-width="3"/>
+  <text x="120" y="390" font-size="14" fill="#666" text-anchor="middle">全身人物</text>
+  <!-- 景别框 -->
+  <g stroke="#1f6f8b" stroke-width="2" fill="none">
+    <rect x="300" y="60" width="120" height="300"/>
+    <rect x="450" y="90" width="120" height="270"/>
+    <rect x="600" y="150" width="120" height="210"/>
+    <rect x="300" y="60" width="120" height="300" opacity="0"/>
+  </g>
+  <g font-size="14" fill="#333">
+    <text x="360" y="40" text-anchor="middle">① 远景</text>
+    <text x="510" y="70" text-anchor="middle">② 全景</text>
+    <text x="660" y="130" text-anchor="middle">③ 中景</text>
+    <text x="360" y="380" text-anchor="middle">④ 特写</text>
+    <text x="510" y="380" text-anchor="middle">⑤ 大特写</text>
+  </g>
+  <!-- 说明箭头 -->
+  <g stroke="#c0392b" stroke-width="1.5" fill="none">
+    <path d="M 300 210 L 290 210"/>
+    <path d="M 450 225 L 440 225"/>
+    <path d="M 600 255 L 590 255"/>
+    <path d="M 300 240 L 290 240"/>
+    <path d="M 450 245 L 440 245"/>
+  </g>
+  <text x="330" y="210" font-size="13" fill="#c0392b" text-anchor="end">框外是环境</text>
+</svg>

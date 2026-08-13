@@ -1,0 +1,65 @@
+<svg viewBox="0 0 580 740" width="580" height="740" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>GB200 NVL72 机架结构示意图</title>
+<desc>展示计算托架、NVSwitch 托架、电源托架与液冷歧管在机柜中的布局：顶部为 9 个 NVSwitch 托架（每托架 2 颗交换机），中部为 18 个计算托架（每托架 2 个超级芯片），底部为电源托架，两侧为液冷歧管。</desc>
+<rect width="100%" height="100%" fill="#faf9f5"/>
+<text x="300" y="30" font-size="18" font-weight="bold" fill="#333333" text-anchor="middle">GB200 NVL72 机架（正面示意）</text>
+<!-- 机柜外框 -->
+<rect x="60" y="50" width="280" height="640" fill="#ffffff" stroke="#333333" stroke-width="3"/>
+<!-- 两侧液冷歧管 -->
+<rect x="38" y="55" width="14" height="630" fill="#1f6f8b" rx="3"/>
+<rect x="348" y="55" width="14" height="630" fill="#1f6f8b" rx="3"/>
+<text x="45" y="650" font-size="13" fill="#333333" text-anchor="middle" transform="rotate(-90 45 650)">液冷歧管</text>
+<!-- 顶部：9 个 NVSwitch 托架 -->
+<g>
+<rect x="80" y="70" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="92" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="114" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="136" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="158" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="180" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="202" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="224" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<rect x="80" y="246" width="240" height="16" fill="#1f6f8b" rx="2"/>
+<text x="200" y="158" font-size="13" fill="#faf9f5" text-anchor="middle">9 个 NVSwitch 托架</text>
+<text x="200" y="174" font-size="13" fill="#faf9f5" text-anchor="middle">（每托架 2 颗，共 18 颗）</text>
+</g>
+<!-- 中部：18 个计算托架 -->
+<g>
+<rect x="80" y="280" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="298" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="316" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="334" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="352" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="370" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="388" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="406" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="424" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="442" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="460" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="478" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="496" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="514" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="532" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="550" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="568" width="240" height="12" fill="#c0392b" rx="2"/>
+<rect x="80" y="586" width="240" height="12" fill="#c0392b" rx="2"/>
+</g>
+<!-- 底部：电源托架 -->
+<rect x="80" y="640" width="240" height="30" fill="#888888" rx="3"/>
+<text x="200" y="660" font-size="13" fill="#faf9f5" text-anchor="middle">电源托架 · 48V 直流（约 120 kW）</text>
+<!-- 右侧分组标注 -->
+<text x="500" y="120" font-size="14" fill="#1f6f8b" text-anchor="middle" font-weight="bold">顶部</text>
+<text x="500" y="138" font-size="13" fill="#333333" text-anchor="middle">9 个 NVSwitch 托架</text>
+<text x="500" y="154" font-size="13" fill="#333333" text-anchor="middle">每托架 2 颗</text>
+<line x1="470" y1="130" x2="330" y2="130" stroke="#1f6f8b" stroke-width="1.5"/>
+<text x="500" y="430" font-size="14" fill="#c0392b" text-anchor="middle" font-weight="bold">中部</text>
+<text x="500" y="448" font-size="13" fill="#333333" text-anchor="middle">18 个计算托架</text>
+<text x="500" y="464" font-size="13" fill="#333333" text-anchor="middle">每托架 2 个超级芯片</text>
+<text x="500" y="480" font-size="13" fill="#333333" text-anchor="middle">（4 GPU + 2 Grace）</text>
+<line x1="470" y1="450" x2="330" y2="450" stroke="#c0392b" stroke-width="1.5"/>
+<text x="500" y="665" font-size="14" fill="#333333" text-anchor="middle" font-weight="bold">底部</text>
+<text x="500" y="683" font-size="13" fill="#333333" text-anchor="middle">电源托架</text>
+<line x1="470" y1="660" x2="330" y2="660" stroke="#333333" stroke-width="1.5"/>
+<!-- 底部汇总 -->
+<text x="300" y="720" font-size="13" fill="#333333" text-anchor="middle">18 托架 × 2 超级芯片 = 36 超级芯片 = 72 GPU + 36 Grace CPU</text>
+</svg>

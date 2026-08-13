@@ -1,0 +1,105 @@
+---
+title: Roofline 性能分析与 Profiling
+date: 2026-08-07
+---
+
+# Roofline 性能分析与 Profiling
+
+<div class="epigraph">
+<p>你不能优化一个你无法测量的系统。</p>
+<footer>—— 性能工程的第一定律</footer>
+</div>
+
+<div class="article-byline">
+<p>第四级 · AI 硬件：NVIDIA H100/Hopper ｜ CUDA 官方 Profiling 文档 ｜ 2026-08-07</p>
+</div>
+
+## 为什么从性能分析讲起
+
+前 18 节我们认识了 H100 的每一个部件和每一种编程技巧。但「知道有哪些优化手段」和「知道该优化哪里」是两回事——后者需要**分析（profiling）**。H100 花了大价钱做出来的算力与带宽，一个 kernel 到底用上了几成？瓶颈在计算、在带宽、还是在延迟？本节用 **Roofline 模型**给出一套系统化的回答框架，再介绍 NSight 等 profiling 工具怎么落地这套框架。<span class="marginnote">Roofline 由伯克利团队（Williams、Waterman、Patterson）在 2009 年提出，如今是异构计算的标配分析模型。它把「算法需要多少运算」「硬件提供多少带宽」画在一张图上，一眼就能看出程序是「算得慢」还是「搬得慢」——这是「从极限到大模型」主线上第一次把「极限」落到硬件性能上。</span>
+
+## 1 算术强度：程序的第一性属性
+
+Roofline 的起点是一个叫**算术强度（arithmetic intensity）**的量：
+
+$$
+I = \frac{\text{总浮点运算量（FLOP）}}{\text{总数据搬运量（Byte）}}
+$$
+
+它回答的问题是：**每个字节的数据，平均被算了几次？** 单位是 FLOP/Byte。
+
+不同程序差异巨大：
+
+- **矩阵乘（GEMM）**：$I$ 可达数百 FLOP/Byte。一个 $M \times N \times K$ 的矩阵乘运算量 $2MNK$，数据量 $MK + KN + MN$，分块好时比值很高——**计算密集**。
+- **向量加（axpy）**：$y = ax + y$ 读两个写一个，每元素约 3 FLOP、12 Byte，$I \approx 0.25$ FLOP/Byte——**访存密集**。
+- **注意力 softmax**：读全部 K，输出少量，$I$ 很低——**访存密集**。
+
+算术强度决定了程序「站在 Roofline 的哪一侧」，进而决定它受限于算力还是带宽。**同一个程序，把数据分块用好，算术强度可以提高（因为同一份数据算更多次）——这是所有优化的本质。**
+
+## 2 Roofline：把硬件画成一条「屋顶线」
+
+Roofline 模型把硬件的两个极限画在坐标轴上：
+
+- 横轴：算术强度 $I$（FLOP/Byte，对数轴）；
+- 纵轴：可达到的性能（FLOP/s）。
+
+硬件的能力画成一条**分段屋顶线**：
+
+$$
+P_{\max}(I) = \min\left(P_{\text{peak}},\ B \times I\right)
+$$
+
+- 当 $I$ 小（访存密集），性能受限于带宽：$P = B \times I$——沿着斜率 $B$ 的斜线上升；
+- 当 $I$ 大（计算密集），性能受限于算力：$P = P_{\text{peak}}$——水平线。
+- 两段交界处的 $I$ 叫 **ridge point**：$I_{\text{ridge}} = P_{\text{peak}} / B$，是「从带宽受限切换到算力受限」的临界算术强度。
+
+代入 H100：$P_{\text{peak}} \approx 989$ TFLOPS（FP16），$B \approx 3.35$ TB/s，于是：
+
+$$
+I_{\text{ridge}} = \frac{989 \times 10^{12}}{3.35 \times 10^{12}} \approx 295\ \mathrm{FLOP/Byte}
+$$
+
+**含义：** 在 H100 上，只有算术强度超过约 295 FLOP/Byte 的程序，才可能逼近峰值算力；低于这个值的程序，再优化计算也没用——它被带宽锁死。这就是为什么矩阵乘要使劲做分块复用：把算术强度从几十拉到几百，才够得着算力屋顶。<span class="marginnote">对比 A100：$P_{\text{peak}} \approx 312$ TFLOPS（FP16），$B \approx 1.6$ TB/s，$I_{\text{ridge}} \approx 195$。H100 的 ridge point 更高（295），说明它「更偏算力」——要在 H100 上跑满，程序的算术强度要求更苛刻。这解释了为什么老 kernel 搬到 H100 常常不达标。</span>
+
+## 3 用 Roofline 判断瓶颈：计算受限还是带宽受限
+
+Roofline 的使用方法很直接：**测出程序的实际算术强度与性能，画到图上，看它落在哪一段屋顶之下。**
+
+若程序点落在**斜线段下方**：它是带宽受限，且离屋顶越远说明带宽利用越差——优化方向是**提高数据复用**（分块、融合、TMA），而不是堆计算。
+若程序点落在**水平段下方**：它是计算受限，优化方向是**提高计算效率**（更宽的指令、更低的精度、更少的冗余计算）。
+- 若程序点贴近屋顶线：说明已接近硬件极限，再优化空间有限——该考虑算法级改动（如改变算术强度）。
+
+这套判断把「玄学式优化」变成「目标明确的问题定位」。配合 profiling 工具，可以量化每个 kernel 离屋顶还有多远：
+
+- **NSight Compute**：逐 kernel 分析，给出 SM 利用率、带宽利用率、算术强度、瓶颈归因（memory/compute/latency）；
+- **NSight Systems**：时间轴视角，看 kernel 之间的间隙、CPU/GPU 同步等待、通信开销——适合发现「启动开销」「数据拷贝」「同步等待」这类宏观瓶颈；
+- **ncu / nvprof** 命令行工具：快速定位热点 kernel。
+
+用两个工具配合：**NSight Systems 找「时间去哪了」，NSight Compute 找「GPU 内部为什么没跑满」。**<span class="marginnote">一个实践技巧：先看「kernel 占用 GPU 的时间比例」。如果 GPU 空闲率高，瓶颈在 CPU 侧（启动/拷贝/同步），用 CUDA Graphs 或流并行解决；如果 GPU 忙碌但 SM 利用率低，才是 kernel 内部的问题，用 NSight Compute 深挖。</span>
+
+## 4 公式解析：Roofline 的三个关键量
+
+Roofline 只有三个数，但每个都有工程含义：
+
+$$
+I = \frac{\text{FLOP}}{\text{Byte}}, \qquad
+I_{\text{ridge}} = \frac{P_{\text{peak}}}{B}, \qquad
+P = \min(P_{\text{peak}},\ B \times I)
+$$
+
+- **算术强度 $I$**：程序属性，可由理论分析或实测得到（实测用 profiling 的「FLOP / 内存字节」）。
+- **ridge point $I_{\text{ridge}}$**：硬件属性，是「两种受限模式的分界」。$I > I_{\text{ridge}}$ 则可能算力受限，$I \lt  I_{\text{ridge}}$ 则必然带宽受限。
+- **可达性能 $P$**：$B \times I$ 意味着「每个字节最多产生 $I$ 次运算，而带宽每秒只提供 $B$ 字节」，两者相乘就是带宽给性能设的上限。
+
+举个具体例子。假设你的 kernel 实测算术强度 $I = 150$ FLOP/Byte，在 H100 上（$I_{\text{ridge}} \approx 295$），则理论上限：
+
+$$
+P = B \times I = 3.35 \times 10^{12} \times 150 = 502\ \mathrm{TFLOPS}
+$$
+
+即使 H100 峰值有 989 TFLOPS，这个 kernel 的天花板也只有 502 TFLOPS——**因为它被带宽锁死在屋顶的斜线段**。若实测只有 250 TFLOPS，则差距（502 vs 250）来自带宽利用率不足，优化方向是把数据复用做好、让实际带宽逼近 3.35 TB/s。
+
+## 5 小结
+
+- **算术强度 $I$** 是程序第一性属性：每字节数据算多少次，决定程序是计算密集还是访存密集。
+- **Roofline 屋顶线**由算力峰值与带宽斜率构成，ridge point $I_{\text{ridge}} = P_{\text{peak}}/B$

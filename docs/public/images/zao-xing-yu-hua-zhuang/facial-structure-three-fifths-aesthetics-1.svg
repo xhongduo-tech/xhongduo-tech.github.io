@@ -1,0 +1,46 @@
+<svg viewBox="0 0 440 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>三庭五眼面部比例示意图</title>
+<desc>正面脸型上，发际线、眉线、鼻底线、下巴线将脸分成三等分（三庭）；眼宽将脸宽分成五等分（五眼）。</desc>
+<rect x="0" y="0" width="440" height="560" fill="#faf9f5"/>
+<g font-family="sans-serif" fill="#333" font-size="15">
+  <!-- 脸型轮廓 -->
+  <ellipse cx="220" cy="300" rx="120" ry="205" fill="#fdf3ec" stroke="#333" stroke-width="2"/>
+  <!-- 发际线 -->
+  <line x1="100" y1="110" x2="340" y2="110" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- 眉线 -->
+  <line x1="110" y1="235" x2="330" y2="235" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- 鼻底线 -->
+  <line x1="110" y1="375" x2="330" y2="375" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- 下巴线 -->
+  <line x1="105" y1="495" x2="335" y2="495" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- 中轴线 -->
+  <line x1="220" y1="105" x2="220" y2="500" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="3 4"/>
+  <!-- 五眼竖线 -->
+  <g stroke="#c0392b" stroke-width="1.5">
+    <line x1="220" y1="285" x2="220" y2="310"/>
+    <line x1="174" y1="285" x2="174" y2="310"/>
+    <line x1="128" y1="285" x2="128" y2="310"/>
+    <line x1="266" y1="285" x2="266" y2="310"/>
+    <line x1="312" y1="285" x2="312" y2="310"/>
+  </g>
+  <!-- 眼睛示意 -->
+  <ellipse cx="192" cy="298" rx="24" ry="9" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="248" cy="298" rx="24" ry="9" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- 鼻 -->
+  <path d="M220 298 L212 355 Q220 372 228 355 Z" fill="#e8cbbd" stroke="#333" stroke-width="1.5"/>
+  <!-- 眉 -->
+  <path d="M170 222 Q192 214 214 222" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M226 222 Q248 214 270 222" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- 唇 -->
+  <path d="M200 425 Q220 418 240 425 Q220 438 200 425 Z" fill="#e8b0a8" stroke="#333" stroke-width="1.5"/>
+  <!-- 标注 -->
+  <text x="348" y="115" fill="#1f6f8b">发际线</text>
+  <text x="348" y="240" fill="#1f6f8b">眉线</text>
+  <text x="348" y="380" fill="#1f6f8b">鼻底线</text>
+  <text x="348" y="500" fill="#1f6f8b">下巴线</text>
+  <text x="60" y="180" fill="#333">上庭</text>
+  <text x="60" y="305" fill="#333">中庭</text>
+  <text x="60" y="440" fill="#333">下庭</text>
+  <text x="70" y="545" fill="#c0392b">五眼：脸宽 ≈ 五个眼宽</text>
+</g>
+</svg>

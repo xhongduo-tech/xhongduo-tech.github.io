@@ -1,0 +1,54 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>九种体质分类框架示意图</title>
+  <desc>平和质居于中央，八种偏颇体质分为虚性体质、实性体质与特禀质三大类。</desc>
+  <rect width="900" height="580" fill="#faf9f5"/>
+
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">九种体质分类框架</text>
+  <text x="450" y="64" text-anchor="middle" font-size="14" fill="#666">依据 GB/T 46939-2025《中医体质分类与判定》</text>
+
+  <!-- 中央平和质 -->
+  <circle cx="450" cy="285" r="80" fill="#ffffff" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="450" y="278" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">平和质</text>
+  <text x="450" y="305" text-anchor="middle" font-size="13" fill="#1f6f8b">阴阳调和 · 气血均衡</text>
+
+  <!-- 连接线 -->
+  <line x1="380" y1="285" x2="300" y2="285" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="520" y1="285" x2="600" y2="285" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="450" y1="365" x2="450" y2="492" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- 虚性体质 -->
+  <rect x="40" y="90" width="250" height="390" rx="10" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+  <text x="165" y="122" text-anchor="middle" font-size="18" font-weight="bold" fill="#c0392b">虚性体质</text>
+  <text x="165" y="144" text-anchor="middle" font-size="13" fill="#666">虚者不足 · 宜补宜温</text>
+  <rect x="60" y="170" width="210" height="52" rx="6" fill="#fdf1f0" stroke="#c0392b" stroke-width="1"/>
+  <text x="165" y="192" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">气虚质</text>
+  <text x="165" y="212" text-anchor="middle" font-size="13" fill="#666">易疲乏 · 气短懒言</text>
+  <rect x="60" y="250" width="210" height="52" rx="6" fill="#fdf1f0" stroke="#c0392b" stroke-width="1"/>
+  <text x="165" y="272" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">阳虚质</text>
+  <text x="165" y="292" text-anchor="middle" font-size="13" fill="#666">畏寒 · 手足不温</text>
+  <rect x="60" y="330" width="210" height="52" rx="6" fill="#fdf1f0" stroke="#c0392b" stroke-width="1"/>
+  <text x="165" y="352" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">阴虚质</text>
+  <text x="165" y="372" text-anchor="middle" font-size="13" fill="#666">五心烦热 · 口燥咽干</text>
+
+  <!-- 实性体质 -->
+  <rect x="610" y="90" width="250" height="390" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="735" y="122" text-anchor="middle" font-size="18" font-weight="bold" fill="#1f6f8b">实性体质</text>
+  <text x="735" y="144" text-anchor="middle" font-size="13" fill="#666">实者邪盛 · 宜清宜泄</text>
+  <rect x="630" y="165" width="210" height="44" rx="6" fill="#eef5f7" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="735" y="184" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">痰湿质</text>
+  <text x="735" y="202" text-anchor="middle" font-size="13" fill="#666">肥胖 · 多汗黏腻</text>
+  <rect x="630" y="235" width="210" height="44" rx="6" fill="#eef5f7" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="735" y="254" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">湿热质</text>
+  <text x="735" y="272" text-anchor="middle" font-size="13" fill="#666">面垢油光 · 口苦口臭</text>
+  <rect x="630" y="305" width="210" height="44" rx="6" fill="#eef5f7" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="735" y="324" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">血瘀质</text>
+  <text x="735" y="342" text-anchor="middle" font-size="13" fill="#666">肤色晦暗 · 易痛易瘀</text>
+  <rect x="630" y="375" width="210" height="44" rx="6" fill="#eef5f7" stroke="#1f6f8b" stroke-width="1"/>
+  <text x="735" y="394" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">气郁质</text>
+  <text x="735" y="412" text-anchor="middle" font-size="13" fill="#666">神情抑郁 · 烦闷不乐</text>
+
+  <!-- 特禀质 -->
+  <rect x="300" y="500" width="300" height="66" rx="8" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+  <text x="450" y="528" text-anchor="middle" font-size="18" font-weight="bold" fill="#c0392b">特禀质</text>
+  <text x="450" y="550" text-anchor="middle" font-size="13" fill="#666">先天特殊 · 易过敏 · 宜避宜养</text>
+</svg>

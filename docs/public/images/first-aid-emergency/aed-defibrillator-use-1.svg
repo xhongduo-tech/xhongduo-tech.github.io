@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420" width="400" height="420">
+<title>成人 AED 电极片前侧位贴放示意</title>
+<desc>人体胸部正面示意：一片电极片贴于右侧锁骨下方胸骨右缘，另一片贴于左侧腋前线，两片连线斜穿心脏。</desc>
+<rect width="400" height="420" fill="#faf9f5"/>
+<!-- 头部 -->
+<ellipse cx="200" cy="52" rx="52" ry="42" fill="#e8e2d8" stroke="#333" stroke-width="2"/>
+<!-- 颈部 -->
+<rect x="176" y="90" width="48" height="28" fill="#e8e2d8" stroke="#333" stroke-width="2"/>
+<!-- 躯干 -->
+<path d="M120 118 Q120 108 135 108 L265 108 Q280 108 280 118 L292 330 Q292 348 272 348 L128 348 Q108 348 108 330 Z" fill="#f3efe6" stroke="#333" stroke-width="2"/>
+<!-- 锁骨线 -->
+<path d="M132 150 Q200 172 268 150" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="4 3"/>
+<!-- 乳头点 -->
+<circle cx="168" cy="222" r="5" fill="#333"/>
+<circle cx="232" cy="222" r="5" fill="#333"/>
+<!-- 心脏位置示意（左中胸） -->
+<ellipse cx="228" cy="236" rx="30" ry="34" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="228" y="290" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">心脏</text>
+<!-- 右上电极片 -->
+<rect x="140" y="158" width="66" height="52" rx="8" fill="#1f6f8b" fill-opacity="0.22" stroke="#1f6f8b" stroke-width="2"/>
+<text x="173" y="184" font-family="sans-serif" font-size="14" fill="#1f6f8b" text-anchor="middle">电极片</text>
+<text x="173" y="200" font-family="sans-serif" font-size="13" fill="#1f6f8b" text-anchor="middle">右上</text>
+<!-- 左下电极片 -->
+<rect x="214" y="228" width="72" height="60" rx="8" transform="rotate(14 250 258)" fill="#1f6f8b" fill-opacity="0.22" stroke="#1f6f8b" stroke-width="2"/>
+<text x="252" y="252" font-family="sans-serif" font-size="14" fill="#1f6f8b" text-anchor="middle" transform="rotate(14 250 258)">电极片</text>
+<text x="252" y="270" font-family="sans-serif" font-size="13" fill="#1f6f8b" text-anchor="middle" transform="rotate(14 250 258)">左下</text>
+<!-- 连接线 -->
+<path d="M173 210 L252 226" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="4 3"/>
+<!-- 标注线 -->
+<path d="M173 118 L173 132" stroke="#333" stroke-width="1.5"/>
+<text x="173" y="112" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">右锁骨下方</text>
+<path d="M330 320 L300 322" stroke="#333" stroke-width="1.5"/>
+<text x="330" y="336" font-family="sans-serif" font-size="14" fill="#333">左腋前线（第5肋间）</text>
+<text x="200" y="402" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">两片连线应斜穿心脏</text>
+</svg>

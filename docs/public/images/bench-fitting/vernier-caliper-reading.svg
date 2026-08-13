@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="sans-serif">
+  <title>游标卡尺读数原理示意</title>
+  <desc>主尺读整毫米，游标读细分。示例：主尺 12 mm + 游标第 23 格 × 0.02 mm = 12.46 mm。</desc>
+  <rect x="0" y="0" width="800" height="340" fill="#faf9f5"/>
+  <text x="400" y="28" text-anchor="middle" font-size="16" fill="#333">游标卡尺读数原理（示意，非按比例）</text>
+
+  <!-- 主尺 -->
+  <text x="40" y="92" font-size="15" fill="#333">主尺</text>
+  <rect x="120" y="70" width="580" height="22" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <line x1="120" y1="70" x2="700" y2="70" stroke="#333" stroke-width="2"/>
+  <!-- 主尺刻度：0..14 mm，每格 40px -->
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="120" y1="70" x2="120" y2="88"/>
+    <line x1="160" y1="70" x2="160" y2="88"/>
+    <line x1="200" y1="70" x2="200" y2="88"/>
+    <line x1="240" y1="70" x2="240" y2="88"/>
+    <line x1="280" y1="70" x2="280" y2="88"/>
+    <line x1="320" y1="70" x2="320" y2="96"/>
+    <line x1="360" y1="70" x2="360" y2="88"/>
+    <line x1="400" y1="70" x2="400" y2="88"/>
+    <line x1="440" y1="70" x2="440" y2="88"/>
+    <line x1="480" y1="70" x2="480" y2="88"/>
+    <line x1="520" y1="70" x2="520" y2="96"/>
+    <line x1="560" y1="70" x2="560" y2="88"/>
+    <line x1="600" y1="70" x2="600" y2="96"/>
+    <line x1="640" y1="70" x2="640" y2="88"/>
+    <line x1="680" y1="70" x2="680" y2="88"/>
+    <line x1="700" y1="70" x2="700" y2="88"/>
+  </g>
+  <g font-size="14" fill="#333" text-anchor="middle">
+    <text x="120" y="118">0</text>
+    <text x="320" y="118">5</text>
+    <text x="520" y="118">10</text>
+    <text x="700" y="118">14</text>
+  </g>
+  <text x="700" y="136" text-anchor="end" font-size="12" fill="#666">（单位 mm）</text>
+
+  <!-- 主尺整数读数指示：12 mm -->
+  <line x1="600" y1="52" x2="600" y2="132" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="600" y="46" text-anchor="middle" font-size="14" fill="#c0392b">12（主尺整数）</text>
+
+  <!-- 游标 -->
+  <text x="40" y="182" font-size="15" fill="#333">游标</text>
+  <rect x="600" y="160" width="180" height="22" fill="#f7e9e6" stroke="#c0392b" stroke-width="1.5"/>
+  <g stroke="#c0392b" stroke-width="1">
+    <line x1="600" y1="160" x2="600" y2="182"/>
+    <line x1="616" y1="160" x2="616" y2="182"/>
+    <line x1="632" y1="160" x2="632" y2="182"/>
+    <line x1="648" y1="160" x2="648" y2="182"/>
+    <line x1="664" y1="160" x2="664" y2="182"/>
+    <line x1="680" y1="160" x2="680" y2="182"/>
+    <line x1="696" y1="160" x2="696" y2="182"/>
+    <line x1="712" y1="160" x2="712" y2="182"/>
+    <line x1="728" y1="160" x2="728" y2="182"/>
+    <line x1="744" y1="160" x2="744" y2="182"/>
+    <line x1="760" y1="160" x2="760" y2="182"/>
+    <line x1="776" y1="160" x2="776" y2="182"/>
+  </g>
+  <g font-size="12" fill="#c0392b" text-anchor="middle">
+    <text x="600" y="200">0</text>
+    <text x="632" y="200">4</text>
+    <text x="664" y="200">8</text>
+    <text x="696" y="200">12</text>
+    <text x="728" y="200">16</text>
+    <text x="760" y="200">20</text>
+    <text x="780" y="200" text-anchor="end">… 50</text>
+  </g>
+  <text x="780" y="176" text-anchor="end" font-size="12" fill="#666">游标 50 格 = 主尺 49 mm</text>
+
+  <!-- 对齐格高亮：第 23 格（示意位置） -->
+  <circle cx="696" cy="171" r="9" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <text x="696" y="230" text-anchor="middle" font-size="13" fill="#c0392b">第 23 格对齐 → 23 × 0.02 = 0.46 mm</text>
+
+  <!-- 公式框 -->
+  <rect x="140" y="258" width="520" height="62" fill="#fff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="400" y="284" text-anchor="middle" font-size="16" fill="#1f6f8b">总读数 = 主尺 12 mm + 游标 0.46 mm = 12.46 mm</text>
+  <text x="400" y="306" text-anchor="middle" font-size="13" fill="#666">分度值 a = 主尺每格 s ÷ 游标格数 n = 1 ÷ 50 = 0.02 mm</text>
+</svg>

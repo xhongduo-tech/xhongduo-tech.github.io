@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="sans-serif">
+<title>摩托车五大系统构成示意图</title>
+<desc>摩托车侧视示意图，标注发动机、传动、行驶制动、电气、转向操纵五大系统在整车上的位置</desc>
+<rect x="0" y="0" width="640" height="360" fill="#faf9f5"/>
+<line x1="40" y1="305" x2="600" y2="305" stroke="#333" stroke-width="2"/>
+<line x1="40" y1="300" x2="600" y2="300" stroke="#333" stroke-width="1"/>
+<circle cx="170" cy="252" r="45" fill="none" stroke="#333" stroke-width="3"/>
+<circle cx="170" cy="252" r="9" fill="#333"/>
+<circle cx="480" cy="252" r="45" fill="none" stroke="#333" stroke-width="3"/>
+<circle cx="480" cy="252" r="9" fill="#333"/>
+<path d="M170 252 L215 218 L300 196 L380 200 L470 226 L480 252" fill="none" stroke="#1f6f8b" stroke-width="5"/>
+<rect x="248" y="222" width="82" height="42" rx="6" fill="#c0392b" opacity="0.85"/>
+<rect x="308" y="180" width="66" height="13" rx="6" fill="#333"/>
+<path d="M290 196 L308 196 L302 183 L290 183 Z" fill="#333"/>
+<line x1="470" y1="228" x2="496" y2="196" stroke="#333" stroke-width="4"/>
+<line x1="470" y1="228" x2="452" y2="200" stroke="#333" stroke-width="4"/>
+<path d="M258 264 L258 288 L150 288 L150 280" fill="none" stroke="#333" stroke-width="3"/>
+<path d="M170 258 L242 258" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="4 3"/>
+<g stroke="#333" stroke-width="1.5" fill="#333">
+<line x1="289" y1="222" x2="270" y2="110"/>
+<text x="250" y="95" font-size="16" font-weight="bold">① 发动机系统</text>
+<line x1="170" y1="207" x2="170" y2="80"/>
+<text x="115" y="65" font-size="16" font-weight="bold">② 传动系统</text>
+<line x1="340" y1="180" x2="415" y2="70"/>
+<text x="385" y="55" font-size="16" font-weight="bold">③ 电气系统</text>
+<line x1="470" y1="207" x2="525" y2="70"/>
+<text x="490" y="55" font-size="16" font-weight="bold">④ 转向与操纵</text>
+<line x1="480" y1="297" x2="560" y2="297"/>
+<text x="520" y="325" font-size="16" font-weight="bold">⑤ 行驶与制动</text>
+</g>
+</svg>

@@ -1,0 +1,82 @@
+---
+title: RL-DPO 微调实践
+date: 2026-08-07
+---
+
+# RL-DPO 微调实践
+
+<div class="epigraph">
+<p>教会模型「什么不该说」，和教会它「说什么」同样重要。</p>
+<footer>—— 面向偏好对齐的工程共识</footer>
+</div>
+
+<div class="article-byline">
+<p>第四级 · ktransformers（消费级 MoE 推理引擎） ｜ 官方文档 DPO 教程 ｜ 2026-08-07</p>
+</div>
+
+## 为什么微调的最后一站是 DPO
+
+SFT 教会模型「模仿好的回答」，但**「好」的标准**往往不是单一的——需要人类偏好来校准。**DPO（Direct Preference Optimization，直接偏好优化）**是比 RLHF 更简洁的偏好对齐方法：不需要训练奖励模型，直接用「好/坏回答对」更新策略。<span class="marginnote">DPO 由 Rafailov et al.（NeurIPS 2023）提出，用闭式解把 RLHF 的「奖励模型 + PPO」简化为一次直接优化。ktransformers 的 DPO 教程让这项技术在消费级硬件上落地——<strong>偏好对齐也平民化了</strong>。DPO 本身的理论在第四级《对齐技术（RLHF/DPO）》有专门展开，本节聚焦它在 ktransformers 里的实践形态。</span>
+
+## 1 DPO 在干什么：一句话版
+
+DPO 的数据是一批**偏好对**：对同一 prompt，有一对回答 $(y_w, y_l)$——$y_w$ 是「更受青睐」的（chosen），$y_l$ 是「较逊色」的（rejected）。训练目标：**提高模型对 $y_w$ 的概率、压低对 $y_l$ 的概率**，同时**别离原始模型（参考策略）太远**。
+
+DPO 的损失函数（省略常数项）：
+
+$$
+\mathcal{L}_{\text{DPO}} = -\log \sigma\Big( \beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \Big)
+$$
+
+直观读法：若模型对「好回答」的胜出程度（相对参考模型）大于「坏回答」，损失小——**模型被推向「更喜欢好的、更不喜欢坏的」**。
+
+## 2 在 ktransformers 里跑 DPO
+
+官方 DPO 教程的启动命令（示例）：
+
+```bash
+USE_KT=1 llamafactory-cli train examples/train_lora/deepseek2_lora_dpo_kt.yaml
+```
+
+与 SFT 的差异集中在**训练配置**：
+
+```yaml
+stage: dpo          # 从 sft 切换为 dpo
+pref_loss: sigmoid  # DPO 损失变体：sigmoid / orpo / simpo
+```
+
+- **`stage: dpo`**：告诉 LLaMA-Factory 走偏好对齐训练循环（处理 chosen/rejected 对）。
+- **`pref_loss`**：选损失变体。`sigmoid` 是经典 DPO；`orpo`、`simpo` 是省参考模型的变体。
+
+「省参考模型的变体」是资源紧张的福音：ORPO/SimPO 连「参考前向」都省了（用当前策略自己当参照），把 DPO 的「两次前向」降回「一次」——**消费级 DPO 的成本再砍一半**。代价是理论保证略弱（少了显式参考的约束）。**「多一个选项就多一个权衡」**：经典 sigmoid 稳但贵，ORPO/SimPO 省但约——按你的「资源 × 质量」需求选，没有绝对最优。
+
+**关键：参考模型（reference model）怎么处理？** 经典 DPO 需要参考策略 $\pi_{\text{ref}}$ 的概率。ktransformers 的做法是**冻结一份「参考」副本**——但它不需要第二份 671B 权重：参考概率由**同一个模型在冻结状态下的前向**给出，或由 SFT 基座的缓存 logits 充当。
+
+「不需要第二份权重」是消费级 DPO 的命门：若参考模型要单独存一份 671B，内存直接翻倍到 700GB+，消费级立刻出局。ktransformers 用「同一份权重、两种状态」破解——当前策略（带 LoRA）与参考策略（冻结）共享同一份基座权重，只是「是否叠加 LoRA」的区别。**「一份权重、两种角色」是资源受限下的巧妙设计**：它把「参考模型」从「一个额外的模型」降级为「一份权重的另一个状态」，成本趋近于零。<span class="marginnote">DPO 比 RLHF 省资源的一个原因就在这：RLHF 要训一个<strong>奖励模型</strong>（另一套大模型），DPO 只要「参考模型的 logits」——<strong>可以用冻结副本或缓存，不必再训一个模型</strong>。消费级硬件上这个差别是「跑得动」与「跑不动」的差别。</span>
+
+## 3 异构执行：DPO 的两次前向
+
+DPO 的每次训练步要算**两次前向**——当前策略与参考策略——这正是它在消费级硬件上的挑战。ktransformers 的异构流水线怎么扛？
+
+**前向一（当前策略）**：LoRA 增量生效，走 KTransformers 异构前向——Attention/热专家在 GPU、冻结专家在 CPU。
+**前向二（参考策略）**：禁用 LoRA（或读缓存），同一套冻结权重再前向一次。
+
+两次前向的「共享」不止是权重，还有**布局**：两次前向走同一套注入规则、同一批专家掩码，所以第二次前向的「路」与第一次完全相同——**唯一区别是 LoRA 是否生效**。这个「同路复用」让第二次前向几乎没有额外的配置成本，纯粹是「多跑一遍」。**「共享布局 + 只差 LoRA」**，是「一份权重跑两种角色」能够便宜的工程基础。
+
+两次前向都吃 CPU 专家计算——**CPU 带宽再次成为瓶颈**。所以 DPO 训练的速度预期低于 SFT：每个训练步的代价≈两次 SFT 步。
+
+「速度预期低于 SFT」对资源配置有实际指导意义：**同样的预算，SFT 可以跑更多数据、更大 batch；DPO 则要在更少的数据上精打细算**。这解释了为什么实践里「DPO 数据量通常远小于 SFT」——不只是「数据难收集」，更是「每步更贵」。**「单位成本 × 数据量」的预算思维，让「用多少数据」从「感觉」变成「算账」**：先算清每步成本，再决定数据规模，比「多多益善」理性得多。<span class="marginnote">这就是为什么教程建议「先 SFT 再 DPO」的流程要<strong>控制数据规模</strong>：DPO 的偏好对通常远少于 SFT 数据（几千–几万对），因为每步更贵、数据更精。工程智慧：<strong>贵的东西要用在刀刃上</strong>。</span>
+
+## 4 公式解析：DPO 为什么能「省掉奖励模型」
+
+把 RLHF 与 DPO 的优化目标对比，看 DPO 的简化从何而来。RLHF 先训奖励模型 $r_\phi$，再优化策略：
+
+$$
+\mathcal{L}_{\text{RLHF}} = \mathbb{E}\big[ r_\phi(x, y) \big] - \beta \, D_{\text{KL}}\big( \pi_\theta \,\|\, \pi_{\text{ref}} \big)
+$$
+
+DPO 的关键洞察：在 KL 约束下，最优策略与奖励存在**闭式关系** $r(x,y) \propto \beta \log \frac{\pi_\theta(y\mid x)}{\pi_{\text{ref}}(y\mid x)}$——把奖励**反向代入** Bradley-Terry 偏好模型，奖励模型就消失了。逐项拆解：
+
+- **第一步**：RLHF 需要显式奖励 $r_\phi$（一个要训练的模型）。
+- **第二步**：DPO 用「策略与参考的对数比」**替代**奖励——奖励是隐式的，从策略里读出来。
+- **第三步**：于是损失直接在 $\pi_\theta$

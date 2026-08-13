@@ -1,0 +1,58 @@
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">坡口形式随板厚的演变：I 形、V 形、X 形、U 形</title>
+  <desc id="desc">四块剖面图展示四种对接坡口形式：薄板用 I 形直口，中板用 V 形单面坡口，厚板用 X 形双面坡口，超厚板用 U 形圆弧坡口，并标注坡口角度、根部间隙与钝边。</desc>
+  <style>
+    text { font-family: sans-serif; fill: #333; }
+    .plate { fill: #e8e2d4; stroke: #333; stroke-width: 1.5; }
+    .dim { stroke: #c0392b; stroke-width: 1; }
+    .lbl { fill: #c0392b; font-size: 13px; }
+    .dimtxt { fill: #1f6f8b; font-size: 13px; }
+    .title { font-size: 14px; font-weight: bold; }
+  </style>
+
+  <!-- 面板 A：I 形 -->
+  <rect x="35" y="40" width="62" height="160" class="plate"/>
+  <rect x="103" y="40" width="62" height="160" class="plate"/>
+  <line x1="97" y1="40" x2="97" y2="200" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="103" y1="40" x2="103" y2="200" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="100" y="30" text-anchor="middle" class="dimtxt">间隙 b 0–2mm</text>
+  <text x="100" y="260" text-anchor="middle" class="title">I形 · 薄板 δ≤6mm</text>
+  <text x="100" y="278" text-anchor="middle" style="font-size:13px">直口，不开坡口</text>
+
+  <!-- 面板 B：V 形 -->
+  <polygon points="215,200 215,40 231,40 277,160 277,200" class="plate"/>
+  <polygon points="345,200 345,40 329,40 283,160 283,200" class="plate"/>
+  <!-- 坡口角度 -->
+  <line x1="231" y1="36" x2="280" y2="14" class="dim"/>
+  <line x1="329" y1="36" x2="280" y2="14" class="dim"/>
+  <text x="280" y="10" text-anchor="middle" class="lbl">坡口角度 α</text>
+  <!-- 间隙 -->
+  <line x1="277" y1="208" x2="283" y2="208" class="dim"/>
+  <line x1="277" y1="204" x2="277" y2="212" class="dim"/>
+  <line x1="283" y1="204" x2="283" y2="212" class="dim"/>
+  <text x="280" y="226" text-anchor="middle" class="lbl">间隙 b</text>
+  <!-- 钝边 -->
+  <line x1="295" y1="160" x2="295" y2="200" class="dim"/>
+  <line x1="291" y1="160" x2="299" y2="160" class="dim"/>
+  <line x1="291" y1="200" x2="299" y2="200" class="dim"/>
+  <text x="302" y="184" text-anchor="start" class="lbl">钝边 p</text>
+  <text x="280" y="260" text-anchor="middle" class="title">V形 · 中板 6–12mm</text>
+  <text x="280" y="278" text-anchor="middle" style="font-size:13px">单面坡口，留钝边防烧穿</text>
+
+  <!-- 面板 C：X 形 -->
+  <polygon points="395,40 427,40 457,110 457,150 427,200 395,200" class="plate"/>
+  <polygon points="525,40 493,40 463,110 463,150 493,200 525,200" class="plate"/>
+  <text x="460" y="30" text-anchor="middle" class="dimtxt">正面</text>
+  <text x="460" y="222" text-anchor="middle" class="dimtxt">背面</text>
+  <text x="460" y="260" text-anchor="middle" class="title">X形 · 厚板 12–26mm</text>
+  <text x="460" y="278" text-anchor="middle" style="font-size:13px">双面坡口，对称施焊抵消变形</text>
+
+  <!-- 面板 D：U 形 -->
+  <polygon points="575,40 607,40 607,128 633,154 633,200 575,200" class="plate"/>
+  <rect x="647" y="40" width="58" height="160" class="plate"/>
+  <text x="620" y="118" text-anchor="middle" class="lbl">U形坡口面</text>
+  <line x1="633" y1="160" x2="647" y2="160" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="640" y="176" text-anchor="middle" class="lbl">根部间隙 b</text>
+  <text x="640" y="260" text-anchor="middle" class="title">U形 · 超厚板 &gt;26mm</text>
+  <text x="640" y="278" text-anchor="middle" style="font-size:13px">圆弧坡口，省焊材、应力集中小</text>
+</svg>
