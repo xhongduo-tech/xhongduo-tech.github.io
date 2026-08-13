@@ -1,0 +1,32 @@
+<svg viewBox="0 0 640 360" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>山谷冰川的积累区、平衡线与消融区示意图</title>
+  <desc>一张山谷冰川的纵剖面示意：上方积累区接受降雪，平衡线以下消融区冰舌融化后退，冰体在重力作用下向下流动。</desc>
+  <rect width="640" height="360" fill="#faf9f5"/>
+  <!-- 冰川体 -->
+  <polygon points="70,95 210,130 330,170 450,225 560,295 615,335 615,370 70,370" fill="#cfe3ea" stroke="#1f6f8b" stroke-width="2"/>
+  <!-- 积累区（平衡线以上） -->
+  <polygon points="70,95 210,130 330,170 330,210 210,190 70,160" fill="#a8d0de" stroke="none"/>
+  <!-- 平衡线 -->
+  <line x1="60" y1="210" x2="620" y2="210" stroke="#c0392b" stroke-width="2" stroke-dasharray="8,5"/>
+  <text x="472" y="200" font-size="13" fill="#c0392b">平衡线（粒雪线）</text>
+  <!-- 降雪符号 -->
+  <text x="120" y="140" font-size="16" fill="#1f6f8b">❄</text>
+  <text x="165" y="160" font-size="16" fill="#1f6f8b">❄</text>
+  <text x="210" y="150" font-size="16" fill="#1f6f8b">❄</text>
+  <text x="255" y="165" font-size="16" fill="#1f6f8b">❄</text>
+  <!-- 消融符号 -->
+  <text x="420" y="250" font-size="15" fill="#c0392b">💧</text>
+  <text x="475" y="280" font-size="15" fill="#c0392b">💧</text>
+  <text x="530" y="310" font-size="15" fill="#c0392b">💧</text>
+  <!-- 流动箭头 -->
+  <text x="300" y="300" font-size="14" fill="#333">→</text>
+  <text x="360" y="330" font-size="14" fill="#333">→</text>
+  <!-- 标签 -->
+  <text x="90" y="120" font-size="16" fill="#0d4a5c">积累区</text>
+  <text x="90" y="138" font-size="13" fill="#0d4a5c">（收入：降雪）</text>
+  <text x="400" y="245" font-size="16" fill="#8a2b1a">消融区</text>
+  <text x="400" y="263" font-size="13" fill="#8a2b1a">（支出：融化）</text>
+  <text x="70" y="352" font-size="14" fill="#555">基岩/山谷</text>
+  <text x="330" y="356" font-size="14" fill="#333">冰舌末端</text>
+  <line x1="330" y1="342" x2="330" y2="330" stroke="#333" stroke-width="1.5"/>
+</svg>

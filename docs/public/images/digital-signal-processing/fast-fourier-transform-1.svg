@@ -1,0 +1,89 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title>8 点基 2 按时间抽取 FFT 蝶形流图</title>
+<desc>三层蝶形运算从位反转输入推进到自然顺序输出，每层含 4 个蝶形，标注各层旋转因子。</desc>
+<rect width="900" height="480" fill="#faf9f5"/>
+
+<text x="70" y="30" font-family="sans-serif" font-size="14" fill="#333" font-weight="bold">输入（位反转序）</text>
+<text x="860" y="30" font-family="sans-serif" font-size="14" fill="#333" font-weight="bold">输出（自然序）</text>
+<text x="150" y="30" font-family="sans-serif" font-size="14" fill="#1f6f8b" font-weight="bold">第 1 层</text>
+<text x="360" y="30" font-family="sans-serif" font-size="14" fill="#1f6f8b" font-weight="bold">第 2 层</text>
+<text x="575" y="30" font-family="sans-serif" font-size="14" fill="#1f6f8b" font-weight="bold">第 3 层</text>
+
+<g font-family="sans-serif" font-size="14" fill="#333">
+  <text x="18" y="64">x[0]</text>
+  <text x="18" y="114">x[4]</text>
+  <text x="18" y="164">x[2]</text>
+  <text x="18" y="214">x[6]</text>
+  <text x="18" y="264">x[1]</text>
+  <text x="18" y="314">x[5]</text>
+  <text x="18" y="364">x[3]</text>
+  <text x="18" y="414">x[7]</text>
+
+  <text x="870" y="64">X[0]</text>
+  <text x="870" y="114">X[1]</text>
+  <text x="870" y="164">X[2]</text>
+  <text x="870" y="214">X[3]</text>
+  <text x="870" y="264">X[4]</text>
+  <text x="870" y="314">X[5]</text>
+  <text x="870" y="364">X[6]</text>
+  <text x="870" y="414">X[7]</text>
+</g>
+
+<g stroke="#666" stroke-width="1.5" fill="none">
+  <!-- Stage 1 butterflies: (0,1)(2,3)(4,5)(6,7), W=1 -->
+  <path d="M 70 60 L 160 85 L 70 110"/>
+  <path d="M 160 85 L 250 60 M 160 85 L 250 110"/>
+  <path d="M 70 160 L 160 185 L 70 210"/>
+  <path d="M 160 185 L 250 160 M 160 185 L 250 210"/>
+  <path d="M 70 260 L 160 285 L 70 310"/>
+  <path d="M 160 285 L 250 260 M 160 285 L 250 310"/>
+  <path d="M 70 360 L 160 385 L 70 410"/>
+  <path d="M 160 385 L 250 360 M 160 385 L 250 410"/>
+
+  <!-- Stage 2 butterflies: (0,2)W4^0 (1,3)W4^1 (4,6)W4^0 (5,7)W4^1 -->
+  <path d="M 250 60 L 360 110 L 250 160"/>
+  <path d="M 360 110 L 470 60 M 360 110 L 470 110"/>
+  <path d="M 250 110 L 360 160 L 250 210"/>
+  <path d="M 360 160 L 470 160 M 360 160 L 470 210"/>
+  <path d="M 250 260 L 360 310 L 250 360"/>
+  <path d="M 360 310 L 470 260 M 360 310 L 470 310"/>
+  <path d="M 250 310 L 360 360 L 250 410"/>
+  <path d="M 360 360 L 470 360 M 360 360 L 470 410"/>
+
+  <!-- Stage 3 butterflies: (0,4)W8^0 (1,5)W8^1 (2,6)W8^2 (3,7)W8^3 -->
+  <path d="M 470 60 L 580 160 L 470 260"/>
+  <path d="M 580 160 L 690 60 M 580 160 L 690 260"/>
+  <path d="M 470 110 L 580 210 L 470 310"/>
+  <path d="M 580 210 L 690 110 M 580 210 L 690 310"/>
+  <path d="M 470 160 L 580 260 L 470 360"/>
+  <path d="M 580 260 L 690 160 M 580 260 L 690 360"/>
+  <path d="M 470 210 L 580 310 L 470 410"/>
+  <path d="M 580 310 L 690 210 M 580 310 L 690 410"/>
+
+  <!-- Output wires s3 -> X -->
+  <path d="M 690 60 L 860 60"/>
+  <path d="M 690 110 L 860 110"/>
+  <path d="M 690 160 L 860 160"/>
+  <path d="M 690 210 L 860 210"/>
+  <path d="M 690 260 L 860 260"/>
+  <path d="M 690 310 L 860 310"/>
+  <path d="M 690 360 L 860 360"/>
+  <path d="M 690 410 L 860 410"/>
+</g>
+
+<g font-family="sans-serif" font-size="13" fill="#c0392b">
+  <text x="335" y="150">W₄⁰</text>
+  <text x="335" y="200">W₄¹</text>
+  <text x="335" y="350">W₄⁰</text>
+  <text x="335" y="400">W₄¹</text>
+  <text x="555" y="150">W₈⁰</text>
+  <text x="555" y="200">W₈¹</text>
+  <text x="555" y="250">W₈²</text>
+  <text x="555" y="300">W₈³</text>
+</g>
+
+<g font-family="sans-serif" font-size="13" fill="#333">
+  <text x="810" y="455" text-anchor="end">蝶形：上支 = a + W·b，下支 = a − W·b</text>
+  <text x="810" y="473" text-anchor="end">每层 4 个蝶形，共 3 层，共 12 次复数乘法</text>
+</g>
+</svg>

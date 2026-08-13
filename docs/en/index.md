@@ -30,17 +30,19 @@ and arrives at the frontier of AI and large language models.
 
 ## The Writing System
 
-Content here is organized in four ascending tiers. This is not a blog index —
-it is a long-term study plan: every discipline follows a classic textbook,
-written chapter by chapter, section by section.<span class="marginnote">The full map of 60 disciplines and live writing progress: see [Posts](/en/posts/).</span>
+This site has two halves, each doing its own job.
 
-**Tier 1 · [Foundations](/en/posts/foundations/math/)**<span class="marginnote">Tier 1 covers 11 disciplines, mirroring high-school to early-undergraduate textbooks; the full map lives at [Posts](/en/posts/).</span> — math, physics, chemistry, biology, plus astronomy, earth science, cognitive science, psychology, logic, philosophy of science and economics.
+**Posts — my technical research.** Organized along **four pillars**: Mathematics & Physics → Computer Science → AI & Large Models → Engineering. Each topic follows authoritative textbooks, written chapter by chapter, running from the "limits to LLMs" backbone into the inference architecture and production practice I work on by day.<span class="marginnote">The full map of technical topics and live writing progress: see [My Technical Research](/en/posts/).</span>
 
-**Tier 2 · [Intermediate Mathematics](/en/posts/intermediate/advanced-math/)**<span class="marginnote">Tier 2 covers 17 disciplines — the backbone of undergraduate mathematics, from calculus to real analysis, functional analysis, topology and differential geometry.</span> — calculus, probability, linear algebra, discrete math, up to real analysis, functional analysis, topology and differential geometry.
+**Pillar 1 · [Mathematics & Physics](/en/posts/#mathematics-physics)**<span class="marginnote">88 topics: from basic math and physics through higher mathematics, to physics frontiers.</span> — basic math & physics, calculus and analysis, linear algebra, probability & statistics, up to real/functional analysis, topology, geometry, field theory, string theory and quantum information.
 
-**Tier 3 · [Computer Science](/en/posts/cs/data-structures/)**<span class="marginnote">Tier 3 covers 14 CS core courses, mirroring the classic undergraduate curriculum.</span> — data structures, computer organization, operating systems, networks, databases, compilers, distributed systems: the complete CS core.
+**Pillar 2 · [Computer Science](/en/posts/#computer-science)**<span class="marginnote">35 CS core courses and engineering practice, mirroring the classic undergraduate curriculum.</span> — data structures, computer organization, operating systems, networks, databases, compilers, plus distributed systems, cloud-native, HPC, security and blockchain.
 
-**Tier 4 · [Advanced Topics](/en/posts/advanced/llm-principles/)**<span class="marginnote">Tier 4 covers 18 disciplines — from machine learning and deep learning to LLM principles, fine-tuning, deployment and AI infrastructure, right up to the frontier.</span> — machine learning, deep learning, reinforcement learning, LLM principles, fine-tuning, deployment and infrastructure, up to AI safety and quantum computing.
+**Pillar 3 · [AI & Large Models](/en/posts/#ai-large-models)**<span class="marginnote">63 AI topics — from machine learning and deep learning to LLMs, multimodality and agents, plus AI cross-disciplinary frontiers.</span> — machine learning, deep learning, reinforcement learning, LLM principles/deployment/alignment, CV, NLP, speech, multimodality, embodied AI and AI infrastructure.
+
+**Pillar 4 · [Engineering](/en/posts/#engineering)**<span class="marginnote">69 engineering disciplines across mechanical, electrical, civil, chemical, energy, aerospace, environmental and bio-engineering.</span> — mechanical, electrical, civil, chemical, materials, aerospace, nuclear, electronics, communications, control, environmental and biomedical engineering.
+
+**Knowledge Tree — all human knowledge.** Thirteen domain trees, growing from foundations to the frontier, organizing all of humanity's knowledge into interconnected trees — the complete picture of the world beyond my daily research.<span class="marginnote">Philosophy, humanities, social sciences, medicine, agriculture and other non-technical domains are preserved as knowledge-tree structure; explore them anytime in the [Human Knowledge Tree](/en/knowledge-tree).</span>
 
 <HomeStats />
 

@@ -23,6 +23,7 @@ export const trees = [
       {
         level: '核心',
         nodes: [
+          { name: '马克思主义哲学', path: 'humanities/marxist-philosophy' },
           { name: '形而上学', path: 'humanities/metaphysics' },
           { name: '认识论（知识论）', path: 'humanities/epistemology' },
           { name: '伦理学', path: 'humanities/ethics' },
@@ -32,6 +33,8 @@ export const trees = [
       {
         level: '进阶（哲学史）',
         nodes: [
+          { name: '佛教哲学', path: 'humanities/buddhist-philosophy' },
+          { name: '日本哲学', path: 'humanities/japanese-philosophy' },
           { name: '中国哲学', path: 'humanities/chinese-philosophy' },
           { name: '西方哲学史', path: 'humanities/western-philosophy' },
           { name: '印度哲学', path: 'humanities/indian-philosophy' },
@@ -42,6 +45,10 @@ export const trees = [
       {
         level: '专业',
         nodes: [
+          { name: '逻辑哲学', path: 'humanities/philosophy-of-logic' },
+          { name: '经济学哲学', path: 'humanities/philosophy-of-economics' },
+          { name: '社会科学哲学', path: 'humanities/philosophy-of-social-science' },
+          { name: '生物学哲学', path: 'humanities/philosophy-of-biology' },
           { name: '政治哲学', path: 'social/political-science', tag: 'ref' },
           { name: '心灵哲学', path: 'humanities/philosophy-of-mind' },
           { name: '语言哲学', path: 'humanities/linguistics', tag: 'ref' },
@@ -59,6 +66,13 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
+          { name: '实用主义', path: 'humanities/pragmatism' },
+          { name: '解释学', path: 'humanities/hermeneutics' },
+          { name: '环境哲学', path: 'humanities/environmental-philosophy' },
+          { name: '批判理论（法兰克福学派）', path: 'humanities/critical-theory' },
+          { name: '信息哲学', path: 'humanities/philosophy-of-information' },
+          { name: '情感哲学', path: 'humanities/philosophy-of-emotions' },
+          { name: '女性主义哲学', path: 'humanities/feminist-philosophy' },
           { name: '应用伦理学（科技/生命/环境）', path: 'humanities/applied-ethics' },
           { name: '元伦理学', path: 'humanities/meta-ethics' },
           { name: '现象学与存在主义', path: 'humanities/phenomenology-existentialism' },
@@ -88,6 +102,7 @@ export const trees = [
       {
         level: '核心',
         nodes: [
+          { name: '回归分析与线性模型', path: 'intermediate/regression-and-linear-models' },
           { name: '高等数学（微积分）', path: 'intermediate/advanced-math' },
           { name: '线性代数', path: 'intermediate/linear-algebra' },
           { name: '概率论与数理统计', path: 'intermediate/probability' },
@@ -121,6 +136,17 @@ export const trees = [
       {
         level: '专业',
         nodes: [
+          { name: '多复变函数论', path: 'intermediate/several-complex-variables' },
+          { name: '算子代数', path: 'intermediate/operator-algebras' },
+          { name: '格论与序理论', path: 'intermediate/lattice-theory-and-order-theory' },
+          { name: '纽结理论与低维拓扑', path: 'intermediate/knot-theory-and-low-dimensional-topology' },
+          { name: '遍历理论', path: 'intermediate/ergodic-theory' },
+          { name: '凸分析', path: 'intermediate/convex-analysis' },
+          { name: '编码理论（纠错编码）', path: 'intermediate/coding-theory' },
+          { name: '公理集合论与模型论', path: 'intermediate/axiomatic-set-theory-and-model-theory' },
+          { name: '辛几何', path: 'intermediate/symplectic-geometry' },
+          { name: '控制论与最优控制', path: 'intermediate/control-theory-and-optimal-control' },
+          { name: '代数拓扑', path: 'intermediate/algebraic-topology' },
           { name: '常微分方程', path: 'intermediate/ordinary-differential-equations' },
           { name: '偏微分方程', path: 'intermediate/pde' },
           { name: '数值分析', path: 'intermediate/numerical-analysis' },
@@ -146,6 +172,7 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
+          { name: '生物数学', path: 'intermediate/mathematical-biology' },
           { name: '随机过程', path: 'intermediate/stochastic-processes' },
           { name: '博弈论', path: 'intermediate/game-theory' },
           { name: '数学物理方法', path: 'intermediate/mathematical-physics-methods' },
@@ -195,6 +222,18 @@ export const trees = [
       {
         level: '专业',
         nodes: [
+          { name: '超导物理', path: 'advanced/superconductivity' },
+          { name: '无线电物理', path: 'advanced/radio-physics' },
+          { name: '量子光学', path: 'advanced/quantum-optics' },
+          { name: '非线性光学', path: 'advanced/nonlinear-optics' },
+          { name: '非平衡统计物理', path: 'advanced/non-equilibrium-statistical-physics' },
+          { name: '天体测量与天体力学', path: 'advanced/astrometry-and-celestial-mechanics' },
+          { name: '表面物理', path: 'advanced/surface-physics' },
+          { name: '中微子物理', path: 'advanced/neutrino-physics' },
+          { name: '磁性物理', path: 'advanced/magnetism' },
+          { name: '固体物理', path: 'advanced/solid-state-physics' },
+          { name: '光学（经典与波动光学）', path: 'advanced/optics' },
+          { name: '声学', path: 'advanced/acoustics' },
           { name: '光学工程（引用工程树）', path: 'engineering/optical-engineering', tag: 'ref' },
           { name: '天文学（引用地球空间树）', path: 'foundations/astronomy', tag: 'ref' },
           { name: '相对论', path: 'intermediate/relativity' },
@@ -213,6 +252,7 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
+          { name: '量子多体理论', path: 'advanced/quantum-many-body-theory' },
           { name: '量子计算（引用计算机树）', path: 'advanced/quantum-computing', tag: 'ref' },
           { name: '量子场论', path: 'advanced/quantum-field-theory' },
           { name: '天体物理', path: 'advanced/astrophysics' },
@@ -265,6 +305,16 @@ export const trees = [
       {
         level: '专业',
         nodes: [
+          { name: '固体化学', path: 'intermediate/solid-state-chemistry' },
+          { name: '高分子物理', path: 'intermediate/polymer-physics' },
+          { name: '天然产物化学', path: 'intermediate/natural-product-chemistry' },
+          { name: '电分析化学', path: 'intermediate/electroanalytical-chemistry' },
+          { name: '晶体学与衍射分析（X 射线晶体学）', path: 'intermediate/crystallography-and-diffraction' },
+          { name: '生物无机化学', path: 'intermediate/bioinorganic-chemistry' },
+          { name: '物理有机化学', path: 'intermediate/physical-organic-chemistry' },
+          { name: '金属有机化学', path: 'intermediate/organometallic-chemistry' },
+          { name: '配位化学', path: 'intermediate/coordination-chemistry' },
+          { name: '催化化学', path: 'intermediate/catalysis-chemistry' },
           { name: '化学工程（引用工程树）', path: 'engineering/chemical-engineering', tag: 'ref' },
           { name: '材料科学与工程（引用工程树）', path: 'engineering/materials-science', tag: 'ref' },
           { name: '药物化学（引用医学树）', path: 'life/pharmacy', tag: 'ref' },
@@ -279,6 +329,9 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
+          { name: '分子反应动力学', path: 'intermediate/molecular-reaction-dynamics' },
+          { name: '食品化学', path: 'intermediate/food-chemistry' },
+          { name: '化学计量学', path: 'intermediate/chemometrics' },
           { name: '计算化学', path: 'advanced/computational-chemistry' },
           { name: '电化学与储能', path: 'advanced/electrochemistry-energy-storage' },
           { name: '绿色化学', path: 'advanced/green-chemistry' },
@@ -333,6 +386,18 @@ export const trees = [
       {
         level: '专业',
         nodes: [
+          { name: '群体遗传学', path: 'intermediate/population-genetics' },
+          { name: '寄生虫学', path: 'intermediate/parasitology' },
+          { name: '真菌学', path: 'intermediate/mycology' },
+          { name: '表观遗传学', path: 'intermediate/epigenetics' },
+          { name: 'RNA 生物学', path: 'advanced/rna-biology' },
+          { name: '藻类学', path: 'intermediate/phycology' },
+          { name: '进化发育生物学（Evo-Devo）', path: 'intermediate/evolutionary-developmental-biology' },
+          { name: '生物地理学', path: 'intermediate/biogeography' },
+          { name: '植物病理学', path: 'intermediate/plant-pathology' },
+          { name: '昆虫学', path: 'intermediate/entomology' },
+          { name: '水生生物学', path: 'intermediate/aquatic-biology' },
+          { name: '水产学与鱼类学', path: 'life/aquaculture-fisheries', tag: 'ref' },
           { name: '生物技术与生物工程', path: 'life/biotechnology' },
           { name: '生物信息学', path: 'life/bioinformatics' },
           { name: '合成生物学（引用交叉树）', path: 'frontier/synthetic-biology', tag: 'ref' },
@@ -348,6 +413,10 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
+          { name: '蛋白质组学', path: 'advanced/proteomics' },
+          { name: '代谢组学', path: 'advanced/metabolomics' },
+          { name: '干细胞与再生医学', path: 'advanced/stem-cell-and-regenerative-medicine' },
+          { name: '生物医学工程', path: 'engineering/biomedical-engineering', tag: 'ref' },
           { name: '基因组学与精准医学', path: 'advanced/genomics-precision-medicine' },
           { name: '计算神经科学', path: 'advanced/computational-neuroscience' },
           { name: '生物物理学', path: 'advanced/biophysics' },
@@ -406,6 +475,19 @@ export const trees = [
       {
         level: '专业',
         nodes: [
+          { name: '古地磁学与地磁学', path: 'foundations/paleomagnetism-and-geomagnetism' },
+          { name: '冰川学与冰冻圈科学', path: 'foundations/glaciology-and-cryosphere-science' },
+          { name: '地貌学', path: 'foundations/geomorphology' },
+          { name: '生物地球化学', path: 'foundations/biogeochemistry' },
+          { name: '水文学', path: 'intermediate/hydrology' },
+          { name: '大气物理学与大气化学', path: 'intermediate/atmospheric-physics-and-chemistry' },
+          { name: '第四纪地质学', path: 'foundations/quaternary-geology' },
+          { name: '矿床学', path: 'foundations/ore-deposits' },
+          { name: '海洋地质学', path: 'foundations/marine-geology' },
+          { name: '人文地理学', path: 'foundations/human-geography' },
+          { name: '土壤学（土壤地理学）', path: 'life/soil-science-plant-nutrition', tag: 'ref' },
+          { name: '古海洋学与古气候学', path: 'intermediate/climatology', tag: 'ref' },
+          { name: '天体物理学', path: 'advanced/astrophysics', tag: 'ref' },
           { name: '遥感科学与技术', path: 'frontier/remote-sensing' },
           { name: '测绘科学与技术（引用工程树）', path: 'engineering/surveying-mapping', tag: 'ref' },
           { name: '环境科学与工程（引用工程树）', path: 'engineering/environmental-engineering', tag: 'ref' },
@@ -419,6 +501,7 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
+          { name: '天体生物学', path: 'foundations/astrobiology' },
           { name: '地球系统科学', path: 'advanced/earth-system-science' },
           { name: '行星科学', path: 'advanced/planetary-science' },
           { name: '深空探测', path: 'advanced/deep-space-exploration' },
@@ -438,6 +521,10 @@ export const trees = [
       {
         level: '基础（引用）',
         nodes: [
+          { name: '随机算法与概率方法', path: 'cs/randomized-and-probabilistic-algorithms' },
+          { name: '近似算法', path: 'cs/approximation-algorithms' },
+          { name: '计算理论（可计算性与计算复杂性）', path: 'cs/computation-theory' },
+          { name: '数值分析与科学计算', path: 'intermediate/numerical-analysis', tag: 'ref' },
           { name: '离散数学（数学树）', path: 'intermediate/discrete-math', tag: 'ref' },
           { name: '概率论与数理统计（数学树）', path: 'intermediate/probability', tag: 'ref' },
           { name: '线性代数（数学树）', path: 'intermediate/linear-algebra', tag: 'ref' },
@@ -447,6 +534,8 @@ export const trees = [
       {
         level: '编程与数据',
         nodes: [
+          { name: '数据可视化与科学可视化', path: 'cs/data-visualization' },
+          { name: '计算几何', path: 'intermediate/computational-geometry', tag: 'ref' },
           { name: '程序设计语言', path: 'cs/programming-languages' },
           { name: '汇编语言', path: 'cs/assembly-language' },
           { name: '数据结构', path: 'cs/data-structures' },
@@ -478,6 +567,7 @@ export const trees = [
       {
         level: '系统与软件',
         nodes: [
+          { name: '程序分析（静态分析/符号执行）', path: 'cs/program-analysis' },
           { name: '分布式系统', path: 'cs/distributed-systems' },
           { name: '高性能计算', path: 'cs/high-performance-computing' },
           { name: '云计算', path: 'cs/cloud-computing' },
@@ -497,6 +587,9 @@ export const trees = [
       {
         level: '机器学习与深度学习',
         nodes: [
+          { name: '机器学习理论（学习理论）', path: 'advanced/machine-learning', tag: 'ref' },
+          { name: '凸优化与最优化理论', path: 'intermediate/optimization', tag: 'ref' },
+          { name: '信息论', path: 'intermediate/information-theory', tag: 'ref' },
           { name: '机器学习', path: 'advanced/machine-learning' },
           { name: '统计学习方法', path: 'advanced/statistical-learning' },
           { name: '优化算法（梯度下降族）', path: 'advanced/optimization-algorithms' },
@@ -514,6 +607,7 @@ export const trees = [
       {
         level: '强化学习',
         nodes: [
+          { name: '算法博弈论与机制设计', path: 'intermediate/game-theory', tag: 'ref' },
           { name: '强化学习（总览）', path: 'advanced/reinforcement-learning' },
           { name: 'RL · 基础与 MDP（值函数/贝尔曼）', path: 'advanced/reinforcement-learning', tag: 'ref' },
           { name: 'RL · 多臂老虎机与探索', path: 'advanced/reinforcement-learning', tag: 'ref' },
@@ -535,6 +629,8 @@ export const trees = [
       {
         level: 'AI 各模态',
         nodes: [
+          { name: '数据挖掘', path: 'advanced/data-mining' },
+          { name: '生物信息学与计算生物学', path: 'life/bioinformatics', tag: 'ref' },
           { name: '自然语言处理', path: 'advanced/nlp' },
           { name: 'NLP · 句法与语义分析', path: 'advanced/nlp-syntax-semantics' },
           { name: 'NLP · 机器翻译', path: 'advanced/machine-translation' },
@@ -663,6 +759,7 @@ export const trees = [
       {
         level: 'AI 前沿',
         nodes: [
+          { name: '计算神经科学', path: 'advanced/computational-neuroscience', tag: 'ref' },
           { name: '具身智能', path: 'advanced/embodied-ai' },
           { name: '自动驾驶', path: 'advanced/autonomous-driving' },
           { name: 'AI 智能体', path: 'advanced/ai-agents' },
@@ -694,6 +791,7 @@ export const trees = [
       {
         level: '力学与机械',
         nodes: [
+          { name: '流体力学（工程流体力学）', path: 'intermediate/fluid-mechanics', tag: 'ref' },
           { name: '机械工程', path: 'engineering/mechanical-engineering' },
           { name: '材料科学与工程', path: 'engineering/materials-science' },
           { name: '冶金工程', path: 'engineering/metallurgical-engineering' },
@@ -708,6 +806,8 @@ export const trees = [
       {
         level: '电气与电子',
         nodes: [
+          { name: '高电压与绝缘技术', path: 'engineering/high-voltage-and-insulation-technology' },
+          { name: '数字信号处理', path: 'engineering/digital-signal-processing' },
           { name: '电气工程', path: 'engineering/electrical-engineering' },
           { name: '电子科学与技术', path: 'engineering/electronic-science' },
           { name: '微电子与集成电路', path: 'engineering/microelectronics' },
@@ -725,6 +825,9 @@ export const trees = [
       {
         level: '化工与材料加工',
         nodes: [
+          { name: '过程装备与控制工程（化工机械/压力容器）', path: 'engineering/process-equipment-and-control' },
+          { name: '纳米科学与工程', path: 'engineering/nanoscience-and-engineering' },
+          { name: '材料加工工程（焊接/铸造/锻压/热处理）', path: 'engineering/material-processing-engineering' },
           { name: '化学工程', path: 'engineering/chemical-engineering' },
           { name: '轻工技术与工程', path: 'engineering/light-industry' },
           { name: '纺织科学与工程', path: 'engineering/textile-engineering' },
@@ -738,6 +841,9 @@ export const trees = [
       {
         level: '土木与建筑',
         nodes: [
+          { name: '市政工程（给排水科学与工程）', path: 'engineering/municipal-engineering' },
+          { name: '港口、海岸及近海工程', path: 'engineering/harbor-coastal-and-offshore-engineering' },
+          { name: '建筑学（建筑设计/建筑技术科学）', path: 'engineering/architecture' },
           { name: '土木工程', path: 'engineering/civil-engineering' },
           { name: '水利工程', path: 'engineering/water-conservancy' },
           { name: '城乡规划学', path: 'engineering/urban-planning' },
@@ -750,6 +856,7 @@ export const trees = [
       {
         level: '交通与运输',
         nodes: [
+          { name: '航空宇航推进理论与工程（航空发动机）', path: 'engineering/aerospace-propulsion-engineering' },
           { name: '交通运输工程', path: 'engineering/transportation-engineering' },
           { name: '船舶与海洋工程', path: 'engineering/naval-architecture' },
           { name: '航空航天', path: 'engineering/aerospace-engineering' },
@@ -760,6 +867,8 @@ export const trees = [
       {
         level: '能源与资源',
         nodes: [
+          { name: '热能工程（锅炉与热力发电）', path: 'engineering/thermal-energy-engineering' },
+          { name: '矿物加工工程（选矿）', path: 'engineering/mineral-processing-engineering' },
           { name: '动力工程及工程热物理', path: 'engineering/energy-power' },
           { name: '核科学与技术', path: 'engineering/nuclear-engineering' },
           { name: '矿业工程', path: 'engineering/mining-engineering' },
@@ -775,6 +884,7 @@ export const trees = [
       {
         level: '环境与安全',
         nodes: [
+          { name: '噪声与振动控制（环境物理污染控制）', path: 'engineering/noise-and-vibration-control' },
           { name: '环境科学与工程', path: 'engineering/environmental-engineering' },
           { name: '安全科学与工程', path: 'engineering/safety-engineering' },
           { name: '兵器科学与技术', path: 'engineering/military-engineering' },
@@ -791,6 +901,7 @@ export const trees = [
       {
         level: '交叉工程',
         nodes: [
+          { name: '生物工程（生物制造与生化工程）', path: 'life/biotechnology', tag: 'ref' },
           { name: '生物医学工程', path: 'engineering/biomedical-engineering' },
           { name: '农业工程', path: 'engineering/agricultural-engineering' },
           { name: '林业工程', path: 'engineering/forestry-engineering' },
@@ -818,6 +929,9 @@ export const trees = [
       {
         level: '基础医学',
         nodes: [
+          { name: '临床检验诊断学', path: 'life/clinical-laboratory-diagnostics' },
+          { name: '医学遗传学', path: 'life/medical-genetics' },
+          { name: '免疫学', path: 'intermediate/immunology', tag: 'ref' },
           { name: '基础医学（解剖/生理/生化/病理/药理/免疫/微生物）', path: 'life/basic-medicine' },
           { name: '系统解剖学', path: 'life/anatomy' },
           { name: '组织学与胚胎学', path: 'life/histology-embryology' },
@@ -829,6 +943,15 @@ export const trees = [
       {
         level: '临床医学',
         nodes: [
+          { name: '泌尿外科学', path: 'life/urology' },
+          { name: '胸心血管外科', path: 'life/thoracic-and-cardiovascular-surgery' },
+          { name: '生殖医学', path: 'life/reproductive-medicine' },
+          { name: '姑息医学与临终关怀', path: 'life/palliative-and-end-of-life-care' },
+          { name: '神经外科学', path: 'life/neurosurgery' },
+          { name: '儿科学', path: 'life/pediatrics' },
+          { name: '骨科学', path: 'life/orthopedics' },
+          { name: '妇产科学', path: 'life/obstetrics-and-gynecology' },
+          { name: '重症医学', path: 'life/critical-care-medicine' },
           { name: '临床医学（诊断/内/外/妇产/儿/神经/精神）', path: 'life/clinical-medicine' },
           { name: '医学技术', path: 'life/medical-technology' },
           { name: '康复医学', path: 'life/rehabilitation-medicine' },
@@ -867,6 +990,8 @@ export const trees = [
       {
         level: '中医药',
         nodes: [
+          { name: '民族医学（藏/蒙/维医学）', path: 'life/ethnic-medicine' },
+          { name: '针灸推拿学', path: 'life/acupuncture-and-tuina' },
           { name: '中医学', path: 'life/traditional-chinese-medicine' },
           { name: '中药学与中药鉴定', path: 'life/traditional-chinese-pharmacy' },
           { name: '中西医结合', path: 'life/integrated-medicine' },
@@ -875,6 +1000,9 @@ export const trees = [
       {
         level: '公共卫生',
         nodes: [
+          { name: '全球健康', path: 'life/global-health' },
+          { name: '社会医学与卫生事业管理', path: 'life/social-medicine-and-health-management' },
+          { name: '职业卫生与环境卫生学', path: 'life/occupational-and-environmental-health' },
           { name: '公共卫生与预防医学', path: 'life/public-health' },
           { name: '体育科学（健康）', path: 'life/sports-science' },
           { name: '医学伦理学', path: 'humanities/medical-ethics' },
@@ -887,6 +1015,8 @@ export const trees = [
       {
         level: '前沿',
         nodes: [
+          { name: '特种医学', path: 'life/special-medicine' },
+          { name: '生物医学信息学', path: 'life/biomedical-informatics' },
           { name: '生物医学工程（工程树）', path: 'engineering/biomedical-engineering', tag: 'ref' },
           { name: '兽医学（引用农学树）', path: 'life/veterinary', tag: 'ref' },
           { name: '精准医学', path: 'advanced/precision-medicine' },
@@ -915,6 +1045,8 @@ export const trees = [
       {
         level: '种植',
         nodes: [
+          { name: '药用植物栽培学', path: 'life/medicinal-plant-cultivation' },
+          { name: '食用菌学', path: 'intermediate/edible-fungi-science' },
           { name: '农学（作物栽培/植保/园艺/土壤）', path: 'life/agriculture' },
           { name: '作物遗传育种', path: 'life/crop-genetics-breeding' },
           { name: '植物保护（植物病理/农业昆虫/农药）', path: 'life/plant-protection' },
@@ -930,6 +1062,7 @@ export const trees = [
       {
         level: '养殖',
         nodes: [
+          { name: '特种经济动物饲养', path: 'life/special-economic-animal-breeding' },
           { name: '畜牧学', path: 'life/animal-husbandry' },
           { name: '动物营养与饲料科学', path: 'life/animal-nutrition-feed' },
           { name: '动物遗传育种与繁殖', path: 'life/animal-genetics-breeding' },
@@ -942,6 +1075,8 @@ export const trees = [
       {
         level: '林与食品',
         nodes: [
+          { name: '林产化学加工工程', path: 'engineering/forest-products-chemical-processing' },
+          { name: '风景园林学', path: 'engineering/landscape-architecture', tag: 'ref' },
           { name: '林学', path: 'life/forestry' },
           { name: '林木遗传育种与森林培育', path: 'life/forest-breeding-silviculture' },
           { name: '森林保护与经理', path: 'life/forest-protection-management' },
@@ -954,6 +1089,8 @@ export const trees = [
       {
         level: '资源与环境',
         nodes: [
+          { name: '野生动植物保护与利用', path: 'life/wildlife-conservation-and-utilization' },
+          { name: '水土保持与荒漠化防治', path: 'life/soil-water-conservation-and-desertification' },
           { name: '农业资源与环境', path: 'life/agricultural-resources-environment' },
           { name: '农业生态学', path: 'life/agroecology' },
           { name: '土壤学与植物营养（深化）', path: 'life/soil-science-plant-nutrition' },
@@ -962,6 +1099,8 @@ export const trees = [
       {
         level: '工程与经济（引用）',
         nodes: [
+          { name: '农业生物技术', path: 'life/agricultural-biotechnology' },
+          { name: '农业推广学', path: 'life/agricultural-extension' },
           { name: '农业工程', path: 'engineering/agricultural-engineering', tag: 'ref' },
           { name: '林业工程', path: 'engineering/forestry-engineering', tag: 'ref' },
           { name: '农业经济管理', path: 'social/agricultural-economics' },
@@ -989,6 +1128,9 @@ export const trees = [
       {
         level: '经济',
         nodes: [
+          { name: '区域经济学', path: 'social/regional-economics' },
+          { name: '政治经济学', path: 'social/political-economy' },
+          { name: '农林经济管理', path: 'social/agroforestry-economics-management' },
           { name: '微观经济学', path: 'foundations/economics', tag: 'ref' },
           { name: '宏观经济学', path: 'foundations/economics', tag: 'ref' },
           { name: '博弈论（数学树）', path: 'intermediate/game-theory', tag: 'ref' },
@@ -1015,6 +1157,8 @@ export const trees = [
       {
         level: '政治与法律',
         nodes: [
+          { name: '中共党史党建学', path: 'social/history-of-cpc-and-party-building' },
+          { name: '外交学', path: 'social/diplomacy' },
           { name: '政治学', path: 'social/political-science' },
           { name: '法学', path: 'social/law' },
           { name: '国际关系', path: 'social/international-relations' },
@@ -1033,6 +1177,7 @@ export const trees = [
       {
         level: '社会与人口',
         nodes: [
+          { name: '社会保障', path: 'social/social-security' },
           { name: '社会学', path: 'social/sociology' },
           { name: '人类学', path: 'social/anthropology' },
           { name: '民族学', path: 'social/ethnology' },
@@ -1047,6 +1192,8 @@ export const trees = [
       {
         level: '管理与公共',
         nodes: [
+          { name: '教育经济与管理', path: 'social/educational-economics-and-management' },
+          { name: '管理科学与工程', path: 'social/management-science-and-engineering' },
           { name: '管理学', path: 'social/management' },
           { name: '公共管理', path: 'social/public-management' },
           { name: '教育学', path: 'social/education' },
@@ -1097,6 +1244,8 @@ export const trees = [
       {
         level: '文学与翻译',
         nodes: [
+          { name: '中国少数民族语言文学', path: 'humanities/chinese-minority-languages-and-literature' },
+          { name: '创意写作', path: 'humanities/creative-writing' },
           { name: '中国文学', path: 'humanities/chinese-literature' },
           { name: '外国文学', path: 'humanities/foreign-literature' },
           { name: '文学理论', path: 'humanities/literary-theory' },
@@ -1109,6 +1258,10 @@ export const trees = [
       {
         level: '历史与考古',
         nodes: [
+          { name: '敦煌学', path: 'humanities/dunhuang-studies' },
+          { name: '古典学（希腊罗马文明研究）', path: 'humanities/classics' },
+          { name: '中国经济史（社会经济史）', path: 'humanities/chinese-economic-history' },
+          { name: '公共史学（公共历史学）', path: 'humanities/public-history' },
           { name: '中国历史', path: 'humanities/chinese-history' },
           { name: '世界历史', path: 'humanities/world-history' },
           { name: '考古学', path: 'humanities/archaeology' },
@@ -1138,6 +1291,8 @@ export const trees = [
       {
         level: '艺术',
         nodes: [
+          { name: '戏曲与曲艺学', path: 'humanities/xiqu-and-quyi-studies' },
+          { name: '工艺美术学', path: 'humanities/arts-and-crafts' },
           { name: '艺术史', path: 'humanities/art-history' },
           { name: '音乐', path: 'humanities/music' },
           { name: '舞蹈学', path: 'humanities/dance' },
@@ -1156,6 +1311,8 @@ export const trees = [
       {
         level: '文化与社会',
         nodes: [
+          { name: '文化产业学（文化创意产业）', path: 'humanities/cultural-industry-studies' },
+          { name: '新闻传播学（新闻学/传播学）', path: 'social/communication', tag: 'ref' },
           { name: '民俗学', path: 'humanities/folklore' },
           { name: '文化研究', path: 'humanities/cultural-studies' },
           { name: '图书情报与档案管理', path: 'humanities/library-information' },
@@ -1190,6 +1347,9 @@ export const trees = [
       {
         level: '数据与计算',
         nodes: [
+          { name: '地理信息科学（GIScience/空间信息科学）', path: 'frontier/geographic-information-science' },
+          { name: '材料信息学', path: 'frontier/materials-informatics' },
+          { name: '生物统计', path: 'intermediate/probability', tag: 'ref' },
           { name: '数据科学', path: 'frontier/data-science' },
           { name: '计算社会科学', path: 'frontier/computational-social-science' },
           { name: '科学计量学', path: 'frontier/scientometrics' },
@@ -1209,6 +1369,7 @@ export const trees = [
       {
         level: '生命与环境交叉',
         nodes: [
+          { name: '环境健康', path: 'frontier/environmental-health' },
           { name: '合成生物学', path: 'frontier/synthetic-biology' },
           { name: '遥感科学与技术', path: 'frontier/remote-sensing' },
           { name: '可持续发展科学', path: 'frontier/sustainability-science' },
@@ -1217,6 +1378,10 @@ export const trees = [
       {
         level: '社会与治理',
         nodes: [
+          { name: '科技政策与创新管理（科学学与科技管理）', path: 'frontier/science-technology-policy-and-innovation' },
+          { name: '应急管理与灾害科学', path: 'frontier/emergency-management-and-disaster-science' },
+          { name: '生态经济学', path: 'frontier/ecological-economics' },
+          { name: '行为经济学', path: 'social/behavioral-economics', tag: 'ref' },
           { name: '国家安全学', path: 'frontier/national-security' },
           { name: '区域国别学', path: 'frontier/area-studies' },
           { name: '未来学', path: 'frontier/futurology' },

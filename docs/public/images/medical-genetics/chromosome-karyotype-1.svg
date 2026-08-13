@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" font-family="sans-serif">
+  <title>人类染色体按着丝粒位置分类</title>
+  <desc>中着丝粒、亚中着丝粒、近端着丝粒三类染色体的形态对比，示短臂 p、长臂 q、着丝粒与随体</desc>
+  <rect x="0" y="0" width="900" height="340" fill="#faf9f5"/>
+  <text x="450" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">人类染色体按着丝粒位置分类</text>
+
+  <!-- 中着丝粒染色体 -->
+  <g>
+    <text x="170" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f6f8b">中着丝粒 metacentric</text>
+    <line x1="170" y1="90" x2="170" y2="250" stroke="#333" stroke-width="22" stroke-linecap="round"/>
+    <circle cx="170" cy="170" r="7" fill="#c0392b"/>
+    <text x="200" y="130" font-size="13" fill="#333">短臂 p</text>
+    <text x="200" y="215" font-size="13" fill="#333">长臂 q</text>
+    <text x="200" y="170" font-size="13" fill="#c0392b">着丝粒</text>
+  </g>
+
+  <!-- 亚中着丝粒染色体 -->
+  <g>
+    <text x="450" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f6f8b">亚中着丝粒 submetacentric</text>
+    <line x1="450" y1="105" x2="450" y2="250" stroke="#333" stroke-width="22" stroke-linecap="round"/>
+    <circle cx="450" cy="160" r="7" fill="#c0392b"/>
+    <text x="480" y="130" font-size="13" fill="#333">短臂 p</text>
+    <text x="480" y="215" font-size="13" fill="#333">长臂 q</text>
+    <text x="480" y="160" font-size="13" fill="#c0392b">着丝粒</text>
+  </g>
+
+  <!-- 近端着丝粒染色体 -->
+  <g>
+    <text x="730" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f6f8b">近端着丝粒 acrocentric</text>
+    <line x1="730" y1="160" x2="730" y2="250" stroke="#333" stroke-width="22" stroke-linecap="round"/>
+    <circle cx="730" cy="150" r="7" fill="#c0392b"/>
+    <line x1="730" y1="128" x2="730" y2="138" stroke="#333" stroke-width="5"/>
+    <circle cx="730" cy="120" r="9" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+    <text x="760" y="118" font-size="13" fill="#1f6f8b">随体</text>
+    <text x="760" y="155" font-size="13" fill="#c0392b">着丝粒（近端）</text>
+    <text x="760" y="215" font-size="13" fill="#333">长臂 q</text>
+    <text x="760" y="250" font-size="13" fill="#666">短臂极小（含核仁组织区）</text>
+  </g>
+
+  <text x="450" y="300" text-anchor="middle" font-size="13" fill="#666">13、14、15、21、22 号与 Y 为近端着丝粒；其余常染色体与 X 为中或亚中着丝粒</text>
+</svg>

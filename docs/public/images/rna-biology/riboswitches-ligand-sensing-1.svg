@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" font-family="sans-serif">
+  <title>核开关的转录终止双态模型</title>
+  <desc>上图为无配体状态：抗终止子发夹折叠，RNA 聚合酶继续转录，基因开启；下图为配体结合状态：适体域结合配体，终止子发夹与多聚 U 折叠，聚合酶脱落，转录提前终止。</desc>
+  <rect x="0" y="0" width="640" height="440" fill="#faf9f5"/>
+
+  <!-- 通道 1：无配体 → 基因 ON -->
+  <rect x="20" y="30" width="600" height="180" fill="#ffffff" stroke="#d8d2c5" stroke-width="1.5"/>
+  <text x="40" y="56" fill="#1f6f8b" font-size="15" font-weight="bold">无配体：抗终止子折叠，基因 ON</text>
+
+  <line x1="60" y1="150" x2="580" y2="150" stroke="#9aa0a6" stroke-width="2"/>
+  <line x1="60" y1="154" x2="580" y2="154" stroke="#9aa0a6" stroke-width="2"/>
+  <text x="62" y="145" fill="#8a8a8a" font-size="13">DNA</text>
+
+  <!-- 适体域（未结合） -->
+  <line x1="185" y1="85" x2="185" y2="130" stroke="#333" stroke-width="3"/>
+  <line x1="228" y1="85" x2="228" y2="130" stroke="#333" stroke-width="3"/>
+  <line x1="189" y1="98" x2="224" y2="98" stroke="#c0392b" stroke-width="2"/>
+  <line x1="189" y1="110" x2="224" y2="110" stroke="#c0392b" stroke-width="2"/>
+  <line x1="189" y1="122" x2="224" y2="122" stroke="#c0392b" stroke-width="2"/>
+  <path d="M185,85 A21.5,21.5 0 0 1 228,85" fill="none" stroke="#333" stroke-width="3"/>
+  <text x="206" y="78" fill="#333" font-size="13" text-anchor="middle">适体域</text>
+
+  <!-- 抗终止子发夹 -->
+  <line x1="300" y1="88" x2="300" y2="128" stroke="#333" stroke-width="3"/>
+  <line x1="352" y1="88" x2="352" y2="128" stroke="#333" stroke-width="3"/>
+  <line x1="304" y1="98" x2="348" y2="98" stroke="#c0392b" stroke-width="2"/>
+  <line x1="304" y1="110" x2="348" y2="110" stroke="#c0392b" stroke-width="2"/>
+  <line x1="304" y1="122" x2="348" y2="122" stroke="#c0392b" stroke-width="2"/>
+  <path d="M300,88 A26,26 0 0 1 352,88" fill="none" stroke="#333" stroke-width="3"/>
+  <text x="326" y="56" fill="#333" font-size="13" text-anchor="middle">抗终止子发夹</text>
+
+  <line x1="228" y1="108" x2="300" y2="108" stroke="#333" stroke-width="2.5"/>
+  <path d="M352,108 C380,118 400,124 430,132" fill="none" stroke="#333" stroke-width="2.5"/>
+
+  <!-- 聚合酶 -->
+  <rect x="430" y="126" width="92" height="42" rx="6" fill="#eaf3f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="476" y="152" fill="#1f6f8b" font-size="13" text-anchor="middle">RNA 聚合酶</text>
+
+  <line x1="300" y1="172" x2="575" y2="172" stroke="#1f6f8b" stroke-width="2.5"/>
+  <path d="M575,172 L565,167 M575,172 L565,177" stroke="#1f6f8b" stroke-width="2.5" fill="none"/>
+  <text x="437" y="192" fill="#1f6f8b" font-size="14" text-anchor="middle">转录继续 → 完整 mRNA</text>
+
+  <!-- 通道 2：配体结合 → 基因 OFF -->
+  <rect x="20" y="235" width="600" height="180" fill="#ffffff" stroke="#d8d2c5" stroke-width="1.5"/>
+  <text x="40" y="261" fill="#c0392b" font-size="15" font-weight="bold">配体结合：终止子折叠，基因 OFF</text>
+
+  <line x1="60" y1="355" x2="580" y2="355" stroke="#9aa0a6" stroke-width="2"/>
+  <line x1="60" y1="359" x2="580" y2="359" stroke="#9aa0a6" stroke-width="2"/>
+  <text x="62" y="350" fill="#8a8a8a" font-size="13">DNA</text>
+
+  <!-- 适体域（结合配体） -->
+  <line x1="185" y1="290" x2="185" y2="335" stroke="#333" stroke-width="3"/>
+  <line x1="228" y1="290" x2="228" y2="335" stroke="#333" stroke-width="3"/>
+  <line x1="189" y1="303" x2="224" y2="303" stroke="#c0392b" stroke-width="2"/>
+  <line x1="189" y1="315" x2="224" y2="315" stroke="#c0392b" stroke-width="2"/>
+  <line x1="189" y1="327" x2="224" y2="327" stroke="#c0392b" stroke-width="2"/>
+  <path d="M185,290 A21.5,21.5 0 0 1 228,290" fill="none" stroke="#333" stroke-width="3"/>
+  <polygon points="206,274 212,280 206,286 200,280" fill="#c0392b"/>
+  <text x="206" y="346" fill="#333" font-size="13" text-anchor="middle">适体域（结合配体）</text>
+
+  <!-- 终止子发夹 + 多聚 U -->
+  <line x1="300" y1="292" x2="300" y2="332" stroke="#333" stroke-width="3"/>
+  <line x1="352" y1="292" x2="352" y2="332" stroke="#333" stroke-width="3"/>
+  <line x1="304" y1="302" x2="348" y2="302" stroke="#c0392b" stroke-width="2"/>
+  <line x1="304" y1="314" x2="348" y2="314" stroke="#c0392b" stroke-width="2"/>
+  <line x1="304" y1="326" x2="348" y2="326" stroke="#c0392b" stroke-width="2"/>
+  <path d="M300,292 A26,26 0 0 1 352,292" fill="none" stroke="#333" stroke-width="3"/>
+  <text x="326" y="348" fill="#c0392b" font-size="14" text-anchor="middle">UUUU</text>
+  <text x="360" y="312" fill="#333" font-size="13" text-anchor="start">终止子发夹</text>
+
+  <line x1="228" y1="312" x2="300" y2="306" stroke="#333" stroke-width="2.5"/>
+
+  <!-- 聚合酶脱落 -->
+  <rect x="430" y="315" width="92" height="40" rx="6" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+  <text x="476" y="345" fill="#c0392b" font-size="13" text-anchor="middle">RNA 聚合酶</text>
+  <path d="M352,310 C380,318 400,324 430,330" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="540" y="358" fill="#c0392b" font-size="20" text-anchor="middle">✕</text>
+
+  <text x="437" y="395" fill="#c0392b" font-size="14" text-anchor="middle">转录提前终止 → 截短 RNA</text>
+</svg>

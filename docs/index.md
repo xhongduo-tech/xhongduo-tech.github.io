@@ -28,52 +28,35 @@
 
 ## 写作体系
 
-本站的内容按**九级递进**组织。这不是博客的目录，是一份长期学习计划——
-每个学科对标经典教材，逐章逐节写作，从数理基础一路延伸到全人类知识。<span class="marginnote">全部 181 个学科的知识地图与实时写作进度见 [博文总览](/posts/)。完整分级方案见 <a href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener noreferrer">CURRICULUM.md</a>。</span>
+本站的内容分成两块，各司其职。
 
-<div class="tier">
-  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a14 14 0 0 1 0 18M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/></svg></span>
-  <p><strong>第一级 · <a href="/posts/foundations/math/">基础科学</a></strong><span class="marginnote">第一级共 11 个学科，对标高中到大学低年级的教材体系，全部清单见 <a href="/posts/">知识地图</a>。</span> —— 数学、物理、化学、生物，及天文、地学、认知、心理、逻辑、科哲、经济学：一切的地基。</p>
-</div>
+**博文 —— 我的技术研究**。按**四大技术领域**组织：数理基础 → 计算机科学 → AI 与大模型 → 工程技术。每个专题对标权威教材，逐章逐节写作，从「从极限到大模型」的主线一路延伸到我白天工作的推理架构与生产实践。<span class="marginnote">技术专题的完整清单与实时写作进度见 [我的技术研究](/posts/)。</span>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-6"/></svg></span>
-  <p><strong>第二级 · <a href="/posts/intermediate/advanced-math/">进阶数理</a></strong><span class="marginnote">第二级共 26 个学科：从微积分、概率、线代一路到实变、泛函、拓扑、微分几何，并深化四大力学、数论、博弈论与计算复杂性。</span> —— 数学分析、线性代数、概率统计、离散数学，直至实变、泛函、拓扑、微分几何与理论力学、电动力学、量子力学、统计力学。</p>
+  <p><strong><a href="/posts/#数理基础">数理基础</a></strong><span class="marginnote">88 个数学与物理专题：从基础数理到数学深化、物理深化与物理前沿。</span> —— 基础数学与物理、高等数学与数学分析、线性代数、概率统计，直至实变泛函、拓扑几何、场论弦论与量子信息。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span>
-  <p><strong>第三级 · <a href="/posts/cs/data-structures/">计算机基础</a></strong><span class="marginnote">第三级共 17 门 CS 核心课，对标考研 408 科目、CMU 经典课程，并补充云计算、高性能计算与区块链。</span> —— 数据结构、组成原理、操作系统、网络、数据库、编译原理、分布式系统、云计算、高性能计算、区块链：CS 核心课全集。</p>
+  <p><strong><a href="/posts/#计算机科学">计算机科学</a></strong><span class="marginnote">35 门 CS 核心课与工程实践，对标考研 408、CMU 经典课程与工业体系。</span> —— 数据结构、组成原理、操作系统、网络、数据库、编译原理，及分布式、云原生、高性能计算、安全与区块链。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-3 6.6A4 4 0 0 0 7 21h10a4 4 0 0 0 2-7.4A4 4 0 0 0 16 7V6a4 4 0 0 0-4-4z"/><path d="M12 8v5M12 16h.01"/></svg></span>
-  <p><strong>第四级 · <a href="/posts/advanced/llm-principles/">高阶专题</a></strong><span class="marginnote">第四级共 22 个学科：从机器学习、深度学习到 LLM 原理、微调、部署与 AI 基础设施，并深化图神经网络、生成模型、多模态与 AI 智能体。</span> —— 机器学习、深度学习、强化学习，大模型原理、微调、部署与基础设施，图神经网络、生成模型、多模态与智能体，直至 AI 安全与量子计算。</p>
-</div>
-
-<div class="tier">
-  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></span>
-  <p><strong>第五级 · <a href="/posts/life/basic-medicine/">生命与健康</a></strong><span class="marginnote">第五级共 23 个学科，对标人卫教材、农学与生命科学体系。</span> —— 基础/临床/口腔/中医/康复医学、药学、公共卫生、护理、兽医、农学、畜牧、水产、林学、草学、生态、神经、生物技术、生物信息学、食品科学、体育科学：生命的完整图景。</p>
+  <p><strong><a href="/posts/#ai-与大模型">AI 与大模型</a></strong><span class="marginnote">63 个 AI 专题：从机器学习、深度学习到大模型、多模态与智能体，并延伸到 AI 交叉前沿。</span> —— 机器学习、深度学习、强化学习，大模型原理、部署与对齐，CV、NLP、语音、多模态、具身智能与 AI 基础设施。</p>
 </div>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4L14 12l-2-2z"/></svg></span>
-  <p><strong>第六级 · <a href="/posts/engineering/mechanical-engineering/">工程技术</a></strong><span class="marginnote">第六级共 32 个学科，覆盖全部工科主干学科。</span> —— 机械、电气、土木、化工、材料、航空航天、船舶、核能、电子、通信、控制、环境、生医工、动力、微电子，及水利、测绘、矿业、石油、纺织、轻工、交通、农业、林业工程等：工科全谱。</p>
+  <p><strong><a href="/posts/#工程技术">工程技术</a></strong><span class="marginnote">69 个工科主干学科，覆盖机械、电气电子、土木、化工材料、能源动力、交通与环保。</span> —— 机械、电气、土木、化工、材料、航空航天、核能、电子、通信、控制、环境与生物医学工程等：工科全谱。</p>
 </div>
 
-<div class="tier">
-  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
-  <p><strong>第七级 · <a href="/posts/humanities/chinese-literature/">人文与艺术</a></strong><span class="marginnote">第七级共 19 个学科，对标文学史、艺术史、语言学、考古学等经典体系。</span> —— 中外文学、文学理论、中外历史、考古、艺术史、音乐、舞蹈、戏剧影视、建筑、设计、语言、翻译、宗教、图书情报、民俗学、文化研究、哲学深化。</p>
-</div>
-
-<div class="tier">
-  <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
-  <p><strong>第八级 · <a href="/posts/social/law/">社会科学</a></strong><span class="marginnote">第八级共 17 个学科，对标法学、社会学、管理学、政治学等学科体系。</span> —— 法学、社会学、政治学、教育学、管理学、工商管理、公共管理、新闻传播、人类学、国际关系、心理学应用、马克思主义理论、军事学、公安学、民族学、人口学、城市研究。</p>
-</div>
+**知识树 —— 全人类知识**。13 棵领域树，从基础到前沿逐级展开，把人类全部知识组织成相互联结的树，是我白天研究之外完整的世界图景。<span class="marginnote">哲学、人文、社科、医学、农学等非技术领域作为知识树结构保留，可在 [全人类知识树](/knowledge-tree) 中随时进入学习。</span>
 
 <div class="tier">
   <span class="tier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h8M8 18h8M6 8v8M18 8v8"/></svg></span>
-  <p><strong>第九级 · <a href="/posts/frontier/complexity-science/">交叉与前沿</a></strong><span class="marginnote">第九级共 14 个学科：复杂性与跨学科研究的前沿。</span> —— 复杂性科学、网络科学、系统科学、计算社会科学、科学计量学、数据科学、合成生物学、数字人文、未来学、认知计算、遥感、智能科学、国家安全学、区域国别学。</p>
+  <p><strong><a href="/knowledge-tree">全人类知识树</a></strong><span class="marginnote">13 棵树 · 约 700 个专题：哲学、数学、物理、化学、生命科学、地球与空间、计算机与 AI、工程、医学、农学、社科、人文与艺术、交叉前沿。</span> —— 我的技术研究挂在技术上；哲学、人文、社科、医学、农学等全人类知识在这里完整呈现。</p>
 </div>
 
 <HomeStats />
@@ -112,7 +95,8 @@
 
 ## 从这里开始
 
-- [博文总览](/posts/)<span class="marginnote">60 个学科、5832 个选题的完整知识地图，写作进度实时更新；本站源码在 GitHub 开源，欢迎 star 与 issue。</span> —— 60 个学科的完整知识地图与写作进度
+- [我的技术研究](/posts/)<span class="marginnote">255 个技术专题 · 四大领域：数理基础、计算机科学、AI 与大模型、工程技术，写作进度实时更新；本站源码在 GitHub 开源，欢迎 star 与 issue。</span> —— 我的技术研究：数理、CS、AI 与工程的完整体系与写作进度
+- [全人类知识树](/knowledge-tree)<span class="marginnote">13 棵树 · 约 700 个专题：哲学、人文、社科、医学、农学等非技术领域作为知识树结构完整保留。</span> —— 全人类知识图谱：技术之外的世界图景
 - [项目](/projects/)<span class="marginnote">8 个项目，横跨 2021–2026：从卫星可视化的全栈实习，到大模型推理架构与开放平台的独立开发，部分运行于内网环境。</span> —— 我做过的东西：推理架构、开放平台、业务系统与论文
 - [娱乐](/entertainment/)<span class="marginnote">代码之外：电影、音乐、游戏与摄影的私人品味，每条附一句它为什么打动我。</span> —— 代码之外，我反复回到的电影、音乐、游戏与摄影
 - [样式演示](/posts/style-demo)<span class="marginnote">多级标题、行内与块级公式、化学方程式、代码高亮、表格与边注——写博文前不妨先看一眼这份排版参考。</span> —— 本站支持的排版能力（公式、化学方程式、边注）

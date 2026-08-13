@@ -1,0 +1,26 @@
+<svg viewBox="0 0 420 330" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>药用植物细胞结构示意图</title>
+  <desc>展示植物细胞的主要结构：细胞壁、细胞膜、中央液泡、叶绿体、细胞核、线粒体与淀粉粒等后含物</desc>
+  <rect width="420" height="330" fill="#faf9f5"/>
+  <text x="210" y="24" font-size="16" fill="#333" text-anchor="middle">药用植物细胞结构示意</text>
+  <rect x="30" y="40" width="360" height="270" rx="10" fill="none" stroke="#333" stroke-width="6"/>
+  <text x="46" y="58" font-size="13" fill="#333">细胞壁（纤维素 + 果胶）</text>
+  <rect x="55" y="65" width="310" height="220" rx="8" fill="#fff" stroke="#1f6f8b" stroke-width="3" stroke-dasharray="6,4"/>
+  <text x="70" y="84" font-size="13" fill="#1f6f8b">细胞膜（半透性）</text>
+  <ellipse cx="272" cy="180" rx="72" ry="58" fill="#cfe3e8" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="272" y="176" font-size="14" fill="#1f6f8b" text-anchor="middle">中央液泡</text>
+  <text x="272" y="194" font-size="13" fill="#1f6f8b" text-anchor="middle">（细胞液/后含物）</text>
+  <circle cx="150" cy="120" r="32" fill="#f3d9b0" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="150" cy="120" r="10" fill="#c0392b"/>
+  <text x="150" y="100" font-size="13" fill="#c0392b" text-anchor="middle">细胞核</text>
+  <ellipse cx="120" cy="235" rx="45" ry="20" fill="#d9e8c8" stroke="#4a7a2e" stroke-width="2"/>
+  <line x1="95" y1="232" x2="145" y2="232" stroke="#4a7a2e" stroke-width="2"/>
+  <line x1="95" y1="240" x2="145" y2="240" stroke="#4a7a2e" stroke-width="2"/>
+  <text x="120" y="268" font-size="13" fill="#4a7a2e" text-anchor="middle">叶绿体（含基粒）</text>
+  <ellipse cx="305" cy="95" rx="26" ry="14" fill="#f0d0c8" stroke="#c0392b" stroke-width="2"/>
+  <path d="M 300 88 q 10 6 4 13 M 312 86 q 10 8 3 14" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="305" y="128" font-size="13" fill="#c0392b" text-anchor="middle">线粒体</text>
+  <circle cx="70" cy="225" r="9" fill="#f5e6c8" stroke="#8a6d3b" stroke-width="2"/>
+  <circle cx="73" cy="222" r="2" fill="#8a6d3b"/>
+  <text x="70" y="252" font-size="13" fill="#8a6d3b" text-anchor="middle">淀粉粒</text>
+</svg>

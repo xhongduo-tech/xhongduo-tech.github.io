@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="sans-serif">
+<title>二维点阵：基元、晶胞与基矢</title>
+<desc>一个倾斜的二维点阵，每个点阵点附着由两个原子构成的基元；红色平行四边形标出晶胞，基矢 a 与 b 从原点引出，右侧为图例。</desc>
+<rect width="760" height="400" fill="#faf9f5"/>
+<line x1="565" y1="20" x2="565" y2="380" stroke="#ccc" stroke-width="1"/>
+<text x="60" y="28" font-size="14" fill="#333">二维晶体 = 点阵 + 基元</text>
+
+<g stroke="#c0392b" stroke-width="2" fill="none">
+<polygon points="60,300 150,300 195,220 105,220"/>
+</g>
+<text x="127" y="262" font-size="14" fill="#c0392b" text-anchor="middle">晶胞</text>
+
+<g fill="#1f6f8b">
+<circle cx="60" cy="300" r="3"/>
+<circle cx="150" cy="300" r="3"/>
+<circle cx="240" cy="300" r="3"/>
+<circle cx="330" cy="300" r="3"/>
+<circle cx="420" cy="300" r="3"/>
+<circle cx="105" cy="220" r="3"/>
+<circle cx="195" cy="220" r="3"/>
+<circle cx="285" cy="220" r="3"/>
+<circle cx="375" cy="220" r="3"/>
+<circle cx="465" cy="220" r="3"/>
+<circle cx="150" cy="140" r="3"/>
+<circle cx="240" cy="140" r="3"/>
+<circle cx="330" cy="140" r="3"/>
+<circle cx="420" cy="140" r="3"/>
+<circle cx="510" cy="140" r="3"/>
+<circle cx="195" cy="60" r="3"/>
+<circle cx="285" cy="60" r="3"/>
+<circle cx="375" cy="60" r="3"/>
+<circle cx="465" cy="60" r="3"/>
+<circle cx="555" cy="60" r="3"/>
+</g>
+
+<g stroke="#c0392b" stroke-width="2" fill="#c0392b">
+<line x1="60" y1="300" x2="30" y2="300"/>
+<circle cx="30" cy="300" r="5"/>
+<line x1="150" y1="300" x2="120" y2="300"/>
+<circle cx="120" cy="300" r="5"/>
+<line x1="240" y1="300" x2="210" y2="300"/>
+<circle cx="210" cy="300" r="5"/>
+<line x1="330" y1="300" x2="300" y2="300"/>
+<circle cx="300" cy="300" r="5"/>
+<line x1="420" y1="300" x2="390" y2="300"/>
+<circle cx="390" cy="300" r="5"/>
+<line x1="105" y1="220" x2="75" y2="220"/>
+<circle cx="75" cy="220" r="5"/>
+<line x1="195" y1="220" x2="165" y2="220"/>
+<circle cx="165" cy="220" r="5"/>
+<line x1="285" y1="220" x2="255" y2="220"/>
+<circle cx="255" cy="220" r="5"/>
+<line x1="375" y1="220" x2="345" y2="220"/>
+<circle cx="345" cy="220" r="5"/>
+<line x1="465" y1="220" x2="435" y2="220"/>
+<circle cx="435" cy="220" r="5"/>
+</g>
+
+<g stroke="#333" stroke-width="2" fill="none">
+<path d="M 60 300 L 150 300" marker-end="url(#arrow)"/>
+<path d="M 60 300 L 105 220" marker-end="url(#arrow)"/>
+</g>
+<text x="120" y="320" font-size="15" fill="#333">a</text>
+<text x="38" y="248" font-size="15" fill="#333">b</text>
+
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L0,6 L8,3 z" fill="#333"/>
+</marker>
+</defs>
+
+<g font-size="14" fill="#333">
+<text x="585" y="60">图例</text>
+<circle cx="600" cy="95" r="3" fill="#1f6f8b"/>
+<text x="615" y="99">点阵点（周期位置）</text>
+<line x1="585" y1="130" x2="605" y2="130" stroke="#c0392b" stroke-width="2"/>
+<circle cx="610" cy="130" r="5" fill="#c0392b"/>
+<text x="625" y="134">基元（含 2 个原子）</text>
+<rect x="585" y="155" width="30" height="20" fill="none" stroke="#c0392b" stroke-width="2"/>
+<text x="625" y="170">晶胞（单位重复体）</text>
+<path d="M 585 200 L 615 200" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="625" y="204">基矢 a、b</text>
+</g>
+</svg>

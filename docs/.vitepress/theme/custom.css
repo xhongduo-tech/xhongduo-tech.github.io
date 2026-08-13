@@ -564,3 +564,45 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* ---- 文章页知识树位置信息条（研究手记风） ---- */
+.article-tree-pos {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.2rem;
+  padding: 0.45rem 0.7rem;
+  border-left: 3px solid var(--tuf-accent, #c0392b);
+  background: color-mix(in srgb, var(--tuf-rule, #ddd) 35%, transparent);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.85rem;
+  color: var(--tuf-muted, #666);
+}
+.atp-domain {
+  font-size: 0.72rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+  background: #e8f2ea;
+  color: #2e7d4f;
+  font-weight: 600;
+}
+.atp-label {
+  font-size: 0.72rem;
+  color: #a0936a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.atp-path {
+  color: var(--tuf-ink, #333);
+}
+@media (prefers-color-scheme: dark) {
+  .atp-domain {
+    background: #233a2c;
+    color: #7cc29a;
+  }
+  .atp-path {
+    color: #cfcfcf;
+  }
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 340" font-family="sans-serif">
+  <title>场所的三层结构</title>
+  <desc>西田场所逻辑的三层嵌套：有之场所、无之场所、绝对无之场所，个体在最内层。</desc>
+  <rect x="0" y="0" width="480" height="340" fill="#faf9f5"/>
+  <text x="240" y="28" font-size="15" fill="#333" text-anchor="middle">场所逻辑的三层嵌套结构</text>
+
+  <!-- 绝对无之场所（最外层） -->
+  <rect x="30" y="55" width="420" height="255" rx="18" fill="#1f6f8b" opacity="0.18" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="50" y="80" font-size="14" fill="#1f6f8b">絶対無の場所（绝对无之场所）</text>
+
+  <!-- 无之场所（中层） -->
+  <rect x="80" y="110" width="320" height="175" rx="14" fill="#ffffff" stroke="#c0392b" stroke-width="2"/>
+  <text x="100" y="135" font-size="14" fill="#c0392b">無の場所（意识・自觉）</text>
+
+  <!-- 有之场所（内层） -->
+  <rect x="130" y="165" width="220" height="95" rx="10" fill="#faf9f5" stroke="#333" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="150" y="190" font-size="14" fill="#333">有の場所（判断・一般者）</text>
+
+  <!-- 个体 -->
+  <circle cx="240" cy="235" r="16" fill="#c0392b"/>
+  <text x="240" y="240" font-size="14" fill="#fff" text-anchor="middle">個</text>
+
+  <text x="420" y="300" font-size="13" fill="#333" text-anchor="end">个体在判断中被一般者规定（有之场所）</text>
+  <text x="420" y="318" font-size="13" fill="#333" text-anchor="end">意识自觉超越对象化（无之场所）</text>
+  <text x="420" y="336" font-size="13" fill="#333" text-anchor="end">一切以此之场所为根据（绝对无之场所）</text>
+</svg>

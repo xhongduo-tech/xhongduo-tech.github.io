@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="title desc">
+  <title>黄酮类化合物的 C6-C3-C6 骨架</title>
+  <desc>黄酮类母核由 A 环（苯环）、C 环（三碳杂环）与 B 环（苯环）组成，生源上来自查尔酮合酶缩合的三分子前体。</desc>
+  <rect width="640" height="360" fill="#faf9f5"/>
+  <g font-family="sans-serif" fill="#333">
+    <text x="40" y="48" font-size="20" font-weight="bold">黄酮类母核：C6-C3-C6 骨架</text>
+
+    <!-- A ring: hexagon -->
+    <polygon points="180,120 180,220 260,270 340,220 340,120 260,70" fill="#f5e6c8" stroke="#333" stroke-width="2.5"/>
+    <text x="250" y="175" font-size="18" text-anchor="middle" fill="#c0392b">A</text>
+    <text x="250" y="198" font-size="14" text-anchor="middle">C6</text>
+
+    <!-- C ring: pentagon-ish (heterocycle) -->
+    <polygon points="340,120 420,110 470,170 420,240 340,220" fill="#cfe3e8" stroke="#333" stroke-width="2.5"/>
+    <text x="405" y="180" font-size="18" text-anchor="middle" fill="#1f6f8b">C</text>
+    <text x="405" y="203" font-size="14" text-anchor="middle">C3</text>
+
+    <!-- B ring: hexagon -->
+    <polygon points="470,170 520,110 610,90 660,140 640,230 560,250" fill="#e8f0d8" stroke="#333" stroke-width="2.5"/>
+    <text x="585" y="172" font-size="18" text-anchor="middle" fill="#c0392b">B</text>
+    <text x="585" y="195" font-size="14" text-anchor="middle">C6</text>
+
+    <!-- connecting O atom marker on C ring -->
+    <circle cx="420" cy="110" r="8" fill="#1f6f8b"/>
+    <text x="420" y="115" font-size="13" text-anchor="middle" fill="#fff">O</text>
+
+    <!-- labels -->
+    <text x="180" y="60" font-size="15" text-anchor="middle">A 环（生源：3×丙二酰CoA）</text>
+    <text x="330" y="285" font-size="15" text-anchor="middle">C 环含氧杂环（生源：查尔酮合酶）</text>
+    <text x="330" y="310" font-size="15" text-anchor="middle">B 环（生源：苯丙素 C6-C3）</text>
+
+    <text x="40" y="340" font-size="14">三环拼合：A + C + B → 黄酮母核（2-苯基色原酮）</text>
+  </g>
+</svg>

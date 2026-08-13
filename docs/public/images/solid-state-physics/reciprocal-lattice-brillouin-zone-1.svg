@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title>实空间格子、倒格子与第一布里渊区</title>
+  <desc>左图：实空间正方格子的格点与基矢 a1、a2；右图：倒空间格点、倒基矢 b1、b2，以及以原点为中心的 Wigner-Seitz 原胞（第一布里渊区，阴影区域）。</desc>
+  <rect width="640" height="300" fill="#faf9f5"/>
+  <text x="20" y="26" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">左：实空间（晶格常数 a）</text>
+  <text x="330" y="26" font-family="sans-serif" font-size="15" fill="#333" font-weight="bold">右：倒空间（间距 2π/a）＋第一布里渊区</text>
+
+  <!-- 左面板：实空间正方格子 -->
+  <g>
+    <g stroke="#999" stroke-width="1">
+      <line x1="50" y1="240" x2="290" y2="240"/>
+      <line x1="50" y1="210" x2="290" y2="210"/>
+      <line x1="50" y1="180" x2="290" y2="180"/>
+      <line x1="50" y1="150" x2="290" y2="150"/>
+      <line x1="50" y1="120" x2="290" y2="120"/>
+      <line x1="50" y1="240" x2="50" y2="120"/>
+      <line x1="80" y1="240" x2="80" y2="120"/>
+      <line x1="110" y1="240" x2="110" y2="120"/>
+      <line x1="140" y1="240" x2="140" y2="120"/>
+      <line x1="170" y1="240" x2="170" y2="120"/>
+      <line x1="200" y1="240" x2="200" y2="120"/>
+      <line x1="230" y1="240" x2="230" y2="120"/>
+      <line x1="260" y1="240" x2="260" y2="120"/>
+      <line x1="290" y1="240" x2="290" y2="120"/>
+    </g>
+    <g fill="#333">
+      <circle cx="50" cy="240" r="4.5"/><circle cx="80" cy="240" r="4.5"/><circle cx="110" cy="240" r="4.5"/><circle cx="140" cy="240" r="4.5"/><circle cx="170" cy="240" r="4.5"/><circle cx="200" cy="240" r="4.5"/><circle cx="230" cy="240" r="4.5"/><circle cx="260" cy="240" r="4.5"/><circle cx="290" cy="240" r="4.5"/>
+      <circle cx="50" cy="210" r="4.5"/><circle cx="80" cy="210" r="4.5"/><circle cx="110" cy="210" r="4.5"/><circle cx="140" cy="210" r="4.5"/><circle cx="170" cy="210" r="4.5"/><circle cx="200" cy="210" r="4.5"/><circle cx="230" cy="210" r="4.5"/><circle cx="260" cy="210" r="4.5"/><circle cx="290" cy="210" r="4.5"/>
+      <circle cx="50" cy="180" r="4.5"/><circle cx="80" cy="180" r="4.5"/><circle cx="110" cy="180" r="4.5"/><circle cx="140" cy="180" r="4.5"/><circle cx="170" cy="180" r="4.5"/><circle cx="200" cy="180" r="4.5"/><circle cx="230" cy="180" r="4.5"/><circle cx="260" cy="180" r="4.5"/><circle cx="290" cy="180" r="4.5"/>
+      <circle cx="50" cy="150" r="4.5"/><circle cx="80" cy="150" r="4.5"/><circle cx="110" cy="150" r="4.5"/><circle cx="140" cy="150" r="4.5"/><circle cx="170" cy="150" r="4.5"/><circle cx="200" cy="150" r="4.5"/><circle cx="230" cy="150" r="4.5"/><circle cx="260" cy="150" r="4.5"/><circle cx="290" cy="150" r="4.5"/>
+      <circle cx="50" cy="120" r="4.5"/><circle cx="80" cy="120" r="4.5"/><circle cx="110" cy="120" r="4.5"/><circle cx="140" cy="120" r="4.5"/><circle cx="170" cy="120" r="4.5"/><circle cx="200" cy="120" r="4.5"/><circle cx="230" cy="120" r="4.5"/><circle cx="260" cy="120" r="4.5"/><circle cx="290" cy="120" r="4.5"/>
+    </g>
+    <!-- 原胞与基矢 -->
+    <path d="M 50 240 L 80 240 L 80 210 L 50 210 Z" fill="#f3e9dc" stroke="#c0392b" stroke-width="1.4" stroke-dasharray="4 3"/>
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+      </marker>
+    </defs>
+    <g marker-end="url(#arrow)">
+      <line x1="50" y1="240" x2="80" y2="240" stroke="#c0392b" stroke-width="2"/>
+      <line x1="50" y1="240" x2="50" y2="210" stroke="#1f6f8b" stroke-width="2"/>
+    </g>
+    <text x="61" y="252" font-family="sans-serif" font-size="13" fill="#c0392b" font-style="italic">a₁</text>
+    <text x="36" y="228" font-family="sans-serif" font-size="13" fill="#1f6f8b" font-style="italic">a₂</text>
+    <text x="60" y="270" font-family="sans-serif" font-size="13" fill="#666">晶胞边长 a</text>
+  </g>
+
+  <!-- 分隔线 -->
+  <line x1="305" y1="60" x2="305" y2="270" stroke="#999" stroke-width="1"/>
+
+  <!-- 右面板：倒格子 + 第一布里渊区 -->
+  <g>
+    <g stroke="#999" stroke-width="1">
+      <line x1="350" y1="230" x2="600" y2="230"/>
+      <line x1="350" y1="205" x2="600" y2="205"/>
+      <line x1="350" y1="180" x2="600" y2="180"/>
+      <line x1="350" y1="155" x2="600" y2="155"/>
+      <line x1="350" y1="230" x2="350" y2="155"/>
+      <line x1="375" y1="230" x2="375" y2="155"/>
+      <line x1="400" y1="230" x2="400" y2="155"/>
+      <line x1="425" y1="230" x2="425" y2="155"/>
+      <line x1="450" y1="230" x2="450" y2="155"/>
+      <line x1="475" y1="230" x2="475" y2="155"/>
+      <line x1="500" y1="230" x2="500" y2="155"/>
+      <line x1="525" y1="230" x2="525" y2="155"/>
+      <line x1="550" y1="230" x2="550" y2="155"/>
+      <line x1="575" y1="230" x2="575" y2="155"/>
+      <line x1="600" y1="230" x2="600" y2="155"/>
+    </g>
+    <!-- 第一布里渊区：以原点 (475,192.5) 为中心的方形 W-S 胞 -->
+    <rect x="450" y="167.5" width="50" height="50" fill="#dbe9ee" stroke="#1f6f8b" stroke-width="2"/>
+    <!-- 倒格点 -->
+    <g fill="#333">
+      <circle cx="350" cy="230" r="4"/><circle cx="375" cy="230" r="4"/><circle cx="400" cy="230" r="4"/><circle cx="425" cy="230" r="4"/><circle cx="450" cy="230" r="4"/><circle cx="475" cy="230" r="4"/><circle cx="500" cy="230" r="4"/><circle cx="525" cy="230" r="4"/><circle cx="550" cy="230" r="4"/><circle cx="575" cy="230" r="4"/><circle cx="600" cy="230" r="4"/>
+      <circle cx="350" cy="205" r="4"/><circle cx="375" cy="205" r="4"/><circle cx="400" cy="205" r="4"/><circle cx="425" cy="205" r="4"/><circle cx="450" cy="205" r="4"/><circle cx="475" cy="205" r="4"/><circle cx="500" cy="205" r="4"/><circle cx="525" cy="205" r="4"/><circle cx="550" cy="205" r="4"/><circle cx="575" cy="205" r="4"/><circle cx="600" cy="205" r="4"/>
+      <circle cx="350" cy="180" r="4"/><circle cx="375" cy="180" r="4"/><circle cx="400" cy="180" r="4"/><circle cx="425" cy="180" r="4"/><circle cx="450" cy="180" r="4"/><circle cx="475" cy="180" r="4"/><circle cx="500" cy="180" r="4"/><circle cx="525" cy="180" r="4"/><circle cx="550" cy="180" r="4"/><circle cx="575" cy="180" r="4"/><circle cx="600" cy="180" r="4"/>
+      <circle cx="350" cy="155" r="4"/><circle cx="375" cy="155" r="4"/><circle cx="400" cy="155" r="4"/><circle cx="425" cy="155" r="4"/><circle cx="450" cy="155" r="4"/><circle cx="475" cy="155" r="4"/><circle cx="500" cy="155" r="4"/><circle cx="525" cy="155" r="4"/><circle cx="550" cy="155" r="4"/><circle cx="575" cy="155" r="4"/><circle cx="600" cy="155" r="4"/>
+    </g>
+    <!-- 原点标记与倒基矢 -->
+    <circle cx="475" cy="192.5" r="6" fill="#c0392b"/>
+    <text x="479" y="196" font-family="sans-serif" font-size="12" fill="#fff">0</text>
+    <g marker-end="url(#arrow)">
+      <line x1="475" y1="192.5" x2="500" y2="192.5" stroke="#c0392b" stroke-width="2"/>
+      <line x1="475" y1="192.5" x2="475" y2="167.5" stroke="#1f6f8b" stroke-width="2"/>
+    </g>
+    <text x="497" y="186" font-family="sans-serif" font-size="13" fill="#c0392b" font-style="italic">b₁</text>
+    <text x="457" y="181" font-family="sans-serif" font-size="13" fill="#1f6f8b" font-style="italic">b₂</text>
+    <text x="453" y="142" font-family="sans-serif" font-size="13" fill="#1f6f8b">■ 第一布里渊区（倒空间的 W-S 原胞）</text>
+    <text x="350" y="260" font-family="sans-serif" font-size="13" fill="#666">倒格点间距 = 2π/a（比实空间更密）</text>
+    <text x="350" y="284" font-family="sans-serif" font-size="13" fill="#666">BZ 边界 k = ±π/a ↔ 布拉格反射面</text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">30 的正因子按整除关系排成的哈斯图</title>
+  <desc id="desc">哈斯图展示偏序集 {1,2,3,5,6,10,15,30} 按整除序排列：1 在最底层，素数 2,3,5 覆盖它，6,10,15 覆盖各素数，30 在顶层覆盖 6,10,15，边只画覆盖关系。</desc>
+  <rect x="0" y="0" width="300" height="240" fill="#faf9f5" rx="8"/>
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="150" y1="150" x2="60" y2="90"/>
+    <line x1="150" y1="150" x2="150" y2="90"/>
+    <line x1="150" y1="150" x2="240" y2="90"/>
+    <line x1="60" y1="210" x2="60" y2="150"/>
+    <line x1="60" y1="210" x2="150" y2="150"/>
+    <line x1="60" y1="210" x2="240" y2="150"/>
+    <line x1="60" y1="90" x2="150" y2="30"/>
+    <line x1="150" y1="90" x2="150" y2="30"/>
+    <line x1="240" y1="90" x2="150" y2="30"/>
+  </g>
+  <g fill="#1f6f8b" stroke="#333" stroke-width="1">
+    <circle cx="150" cy="30" r="16"/>
+    <circle cx="60" cy="90" r="16"/>
+    <circle cx="150" cy="90" r="16"/>
+    <circle cx="240" cy="90" r="16"/>
+    <circle cx="60" cy="150" r="16"/>
+    <circle cx="150" cy="150" r="16"/>
+    <circle cx="240" cy="150" r="16"/>
+    <circle cx="150" cy="210" r="16"/>
+  </g>
+  <g fill="#333" font-size="14" text-anchor="middle" dominant-baseline="central">
+    <text x="150" y="30">30</text>
+    <text x="60" y="90">6</text>
+    <text x="150" y="90">10</text>
+    <text x="240" y="90">15</text>
+    <text x="60" y="150">2</text>
+    <text x="150" y="150">3</text>
+    <text x="240" y="150">5</text>
+    <text x="150" y="210">1</text>
+  </g>
+  <text x="150" y="235" fill="#c0392b" font-size="13" text-anchor="middle">边 = 覆盖关系（传递线已省略）</text>
+</svg>

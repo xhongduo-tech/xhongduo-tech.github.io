@@ -3,54 +3,67 @@ import { computed } from 'vue'
 import { withBase, useData } from 'vitepress'
 import dataZh from '../data/progress.json'
 import dataEn from '../data/progress.en.json'
+import techTopics from '../data/tech-topics.json'
 
 const { page } = useData()
 const isEn = computed(() => page.value.relativePath.startsWith('en/'))
 const data = computed(() => (isEn.value ? dataEn : dataZh))
 
-const tiers = computed(() =>
+// 四大技术领域（博文范围），专题清单来自 tech-topics.json
+const domains = computed(() =>
   isEn.value
     ? [
-        { key: 'foundations', name: 'Level 1 · Foundations' },
-        { key: 'intermediate', name: 'Level 2 · Intermediate Mathematics' },
-        { key: 'cs', name: 'Level 3 · Computer Science' },
-        { key: 'advanced', name: 'Level 4 · Advanced Topics' },
-        { key: 'life', name: 'Level 5 · Life & Health' },
-        { key: 'engineering', name: 'Level 6 · Engineering' },
-        { key: 'humanities', name: 'Level 7 · Humanities & Arts' },
-        { key: 'social', name: 'Level 8 · Social Sciences' },
-        { key: 'frontier', name: 'Level 9 · Interdisciplinary & Frontier' },
+        { key: 'math-physics', name: 'Mathematics & Physics' },
+        { key: 'cs', name: 'Computer Science' },
+        { key: 'ai', name: 'AI & Large Models' },
+        { key: 'engineering', name: 'Engineering' },
       ]
     : [
-        { key: 'foundations', name: '第一级 · 基础科学' },
-        { key: 'intermediate', name: '第二级 · 进阶数理' },
-        { key: 'cs', name: '第三级 · 计算机基础' },
-        { key: 'advanced', name: '第四级 · 高阶专题' },
-        { key: 'life', name: '第五级 · 生命与健康' },
-        { key: 'engineering', name: '第六级 · 工程技术' },
-        { key: 'humanities', name: '第七级 · 人文与艺术' },
-        { key: 'social', name: '第八级 · 社会科学' },
-        { key: 'frontier', name: '第九级 · 交叉与前沿' },
+        { key: 'math-physics', name: '数理基础' },
+        { key: 'cs', name: '计算机科学' },
+        { key: 'ai', name: 'AI 与大模型' },
+        { key: 'engineering', name: '工程技术' },
       ],
 )
 
-function catsOf(tier) {
+function catsOf(domainKey) {
   const prefix = isEn.value ? '/en/posts/' : '/posts/'
-  return Object.entries(data.value)
-    .filter(([k]) => k.startsWith(tier + '/'))
-    .map(([k, v]) => ({ path: prefix + k + '/', ...v }))
+  return (techTopics.domains[domainKey] || [])
+    .map((k) => {
+      const v = data.value[k]
+      return v ? { path: prefix + k + '/', ...v } : null
+    })
+    .filter(Boolean)
 }
 
 function pct(c) {
   return c.total ? Math.round((c.done / c.total) * 100) : 0
 }
+
+// 总进度统计（技术专题）
+const summary = computed(() => {
+  let total = 0,
+    done = 0,
+    count = 0
+  for (const d of domains.value)
+    for (const c of catsOf(d.key)) {
+      total += c.total
+      done += c.done
+      count++
+    }
+  return { total, done, count, pct: total ? Math.round((done / total) * 100) : 0 }
+})
 </script>
 
 <template>
-  <div v-for="t in tiers" :key="t.key" class="po-tier">
-    <h3>{{ t.name }}</h3>
+  <p class="po-summary">
+    技术专题共 <strong>{{ summary.count }}</strong> 个 · 完成
+    <strong>{{ summary.done }}/{{ summary.total }}</strong>（{{ summary.pct }}%）
+  </p>
+  <div v-for="d in domains" :key="d.key" class="po-tier">
+    <h3>{{ d.name }}</h3>
     <div class="po-list">
-      <a v-for="c in catsOf(t.key)" :key="c.path" :href="withBase(c.path)" class="po-row">
+      <a v-for="c in catsOf(d.key)" :key="c.path" :href="withBase(c.path)" class="po-row">
         <span class="po-name">{{ c.name }}</span>
         <span class="po-bar"><span class="po-bar-fill" :style="{ width: pct(c) + '%' }"></span></span>
         <span class="po-stat">{{ c.done }}/{{ c.total }}</span>
@@ -60,6 +73,14 @@ function pct(c) {
 </template>
 
 <style scoped>
+.po-summary {
+  margin: 0.5rem 0 0.8rem;
+  color: var(--tuf-muted);
+  font-size: 0.92rem;
+}
+.po-summary strong {
+  color: var(--tuf-ink);
+}
 .po-list {
   margin: 0.5rem 0 1rem;
   border-top: 1px solid var(--tuf-rule);

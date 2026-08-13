@@ -6,6 +6,8 @@ import ProgressOverview from './ProgressOverview.vue'
 import ProjectList from './ProjectList.vue'
 import KnowledgeTree from './KnowledgeTree.vue'
 import Entertainment from './Entertainment.vue'
+import RecentResearch from './RecentResearch.vue'
+import ResearchDomains from './ResearchDomains.vue'
 import './fonts.css'
 import './tufte-base.css'
 import './tufted.css'
@@ -23,5 +25,7 @@ export default {
     app.component('ProjectList', ProjectList)
     app.component('KnowledgeTree', KnowledgeTree)
     app.component('Entertainment', Entertainment)
+    app.component('RecentResearch', RecentResearch)
+    app.component('ResearchDomains', ResearchDomains)
   },
 }

@@ -1,0 +1,60 @@
+<svg viewBox="0 0 640 520" xmlns="http://www.w3.org/2000/svg" width="640" height="520" font-family="sans-serif">
+  <title>if-else 与 while 循环的控制流图</title>
+  <desc>左侧为一段带条件与循环的源码，右侧为对应基本块拼接而成的控制流图，标注入口、出口与回边。</desc>
+  <rect x="0" y="0" width="640" height="520" fill="#faf9f5"/>
+  <text x="30" y="40" font-size="16" fill="#333" font-weight="bold">源码</text>
+  <rect x="20" y="55" width="270" height="360" rx="6" fill="#ffffff" stroke="#333" stroke-width="1"/>
+  <text x="40" y="85" font-size="13" fill="#333">int f(int x){</text>
+  <text x="55" y="112" font-size="13" fill="#333">if (x &gt; 0) {</text>
+  <text x="70" y="139" font-size="13" fill="#333">y = x + 1;</text>
+  <text x="55" y="166" font-size="13" fill="#333">} else {</text>
+  <text x="70" y="193" font-size="13" fill="#333">y = -x;</text>
+  <text x="55" y="220" font-size="13" fill="#333">}</text>
+  <text x="55" y="247" font-size="13" fill="#333">while (y &lt; 100) {</text>
+  <text x="70" y="274" font-size="13" fill="#333">y = y * 2;</text>
+  <text x="55" y="301" font-size="13" fill="#333">}</text>
+  <text x="40" y="328" font-size="13" fill="#333">return y;</text>
+  <text x="40" y="355" font-size="13" fill="#333">}</text>
+  <text x="310" y="40" font-size="16" fill="#333" font-weight="bold">控制流图（CFG）</text>
+  <rect x="340" y="60" width="140" height="46" rx="6" fill="#fff7e6" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="380" y="88" font-size="13" fill="#333">入口 B0</text>
+  <line x1="410" y1="106" x2="410" y2="130" stroke="#333" stroke-width="1.2"/>
+  <polygon points="410,136 405,128 415,128" fill="#333"/>
+  <rect x="340" y="140" width="140" height="46" rx="6" fill="#eef4f7" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="355" y="163" font-size="13" fill="#333">B1: if x&gt;0</text>
+  <text x="380" y="178" font-size="12" fill="#666">条件分支</text>
+  <line x1="395" y1="186" x2="330" y2="220" stroke="#333" stroke-width="1.2"/>
+  <polygon points="325,225 336,221 334,232" fill="#333"/>
+  <line x1="425" y1="186" x2="490" y2="220" stroke="#333" stroke-width="1.2"/>
+  <polygon points="495,225 484,221 486,232" fill="#333"/>
+  <text x="345" y="235" font-size="12" fill="#666">真</text>
+  <text x="478" y="235" font-size="12" fill="#666">假</text>
+  <rect x="250" y="230" width="140" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.2"/>
+  <text x="270" y="253" font-size="13" fill="#333">B2: y = x+1</text>
+  <text x="285" y="268" font-size="12" fill="#666">真分支</text>
+  <rect x="440" y="230" width="140" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.2"/>
+  <text x="465" y="253" font-size="13" fill="#333">B3: y = -x</text>
+  <text x="480" y="268" font-size="12" fill="#666">假分支</text>
+  <line x1="320" y1="276" x2="350" y2="305" stroke="#333" stroke-width="1.2"/>
+  <polygon points="355,311 344,307 348,318" fill="#333"/>
+  <line x1="510" y1="276" x2="470" y2="305" stroke="#333" stroke-width="1.2"/>
+  <polygon points="465,311 476,307 472,318" fill="#333"/>
+  <rect x="345" y="316" width="140" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.2"/>
+  <text x="365" y="339" font-size="13" fill="#333">B4: y &lt; 100?</text>
+  <text x="400" y="354" font-size="12" fill="#666">循环头</text>
+  <line x1="415" y1="362" x2="415" y2="386" stroke="#333" stroke-width="1.2"/>
+  <polygon points="415,392 410,384 420,384" fill="#333"/>
+  <rect x="345" y="396" width="140" height="46" rx="6" fill="#ffffff" stroke="#333" stroke-width="1.2"/>
+  <text x="363" y="419" font-size="13" fill="#333">B5: y = y*2</text>
+  <text x="380" y="434" font-size="12" fill="#666">循环体</text>
+  <line x1="415" y1="442" x2="415" y2="300" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <polygon points="415,294 410,302 420,302" fill="#1f6f8b"/>
+  <text x="428" y="380" font-size="12" fill="#1f6f8b">回边（循环）</text>
+  <line x1="345" y1="339" x2="200" y2="339" stroke="#333" stroke-width="1.2"/>
+  <polygon points="194,339 202,334 202,344" fill="#333"/>
+  <text x="210" y="330" font-size="12" fill="#666">假</text>
+  <rect x="110" y="452" width="160" height="40" rx="6" fill="#fdf2f2" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="145" y="477" font-size="13" fill="#333">出口 B6: return</text>
+  <line x1="194" y1="339" x2="190" y2="452" stroke="#333" stroke-width="1.2"/>
+  <polygon points="188,458 195,450 185,450" fill="#333"/>
+</svg>

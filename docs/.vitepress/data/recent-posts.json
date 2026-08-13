@@ -1,0 +1,90 @@
+{
+  "generated": "by scripts/gen-recent-posts.mjs",
+  "limit": 12,
+  "posts": [
+    {
+      "path": "/posts/advanced/agent-orchestration/agent-architecture-overview",
+      "title": "智能体架构概览",
+      "category": "advanced/agent-orchestration",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/ai-chip/ai-accelerator-dataflow",
+      "title": "AI 加速器数据流",
+      "category": "advanced/ai-chip",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/asr-tts/acoustic-features-mfcc",
+      "title": "声学特征 MFCC 与 Filterbank",
+      "category": "advanced/asr-tts",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/atomic-molecular-optical-physics/hydrogen-fine-structure",
+      "title": "氢原子精细结构",
+      "category": "advanced/atomic-molecular-optical-physics",
+      "date": "2026-08-11",
+      "domain": "数理基础"
+    },
+    {
+      "path": "/posts/advanced/brain-inspired-intelligence/artificial-neural-networks-and-brain-inspired-computing",
+      "title": "人工神经网络与类脑计算",
+      "category": "advanced/brain-inspired-intelligence",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/causal-inference/causal-discovery",
+      "title": "因果发现算法",
+      "category": "advanced/causal-inference",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/cold-atoms-quantum-simulation/bose-einstein-condensation-basics",
+      "title": "玻色-爱因斯坦凝聚基础",
+      "category": "advanced/cold-atoms-quantum-simulation",
+      "date": "2026-08-11",
+      "domain": "数理基础"
+    },
+    {
+      "path": "/posts/advanced/computational-physics/fast-fourier-transform",
+      "title": "快速傅里叶变换",
+      "category": "advanced/computational-physics",
+      "date": "2026-08-11",
+      "domain": "数理基础"
+    },
+    {
+      "path": "/posts/advanced/decision-transformer/causal-self-attention-transformer",
+      "title": "因果自注意力 Transformer",
+      "category": "advanced/decision-transformer",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/decision-transformer-paper/causal-self-attention-transformer",
+      "title": "因果自注意力 Transformer",
+      "category": "advanced/decision-transformer-paper",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/detection-segmentation/anchor-free-centernet-fcos",
+      "title": "无锚框检测器：CenterNet 与 FCOS",
+      "category": "advanced/detection-segmentation",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    },
+    {
+      "path": "/posts/advanced/dialogue-systems/dialogue-evaluation",
+      "title": "对话系统评测",
+      "category": "advanced/dialogue-systems",
+      "date": "2026-08-11",
+      "domain": "AI 与大模型"
+    }
+  ]
+}

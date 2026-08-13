@@ -2,6 +2,8 @@
 import { withBase, useRoute, useData, useRouter } from 'vitepress'
 import { computed, onMounted, watch, nextTick } from 'vue'
 import { initEnhancements, enhancePage } from './enhance'
+import { trees } from '../data/knowledge-tree.mjs'
+import techTopics from '../data/tech-topics.json'
 
 const route = useRoute()
 const { page } = useData()
@@ -64,6 +66,35 @@ const t = computed(() =>
       },
 )
 
+// ---- 文章页「在知识树中的位置」+ 技术领域徽标 ----
+const techSet = new Set(techTopics.tech)
+const DOMAIN_NAMES = { 'math-physics': '数理基础', cs: '计算机科学', ai: 'AI 与大模型', engineering: '工程技术' }
+const domainOfTopic = new Map()
+for (const [dom, list] of Object.entries(techTopics.domains))
+  for (const t of list) domainOfTopic.set(t, dom)
+
+// 专题 -> 知识树位置（树名 + 分支 + 节点名），取自第一棵出现的树
+const topicPos = new Map()
+for (const tree of trees)
+  for (const branch of tree.branches)
+    for (const node of branch.nodes) {
+      const topic = (node.path || '').split('/').slice(0, 2).join('/')
+      if (topic && !topicPos.has(topic))
+        topicPos.set(topic, { tree: tree.name, branch: branch.level, node: node.name })
+    }
+
+// 仅单篇文章页显示：/posts/<tier>/<key>/<slug>（3 段）为文章；/posts/<tier>/<key>/（2 段）为专题目录
+const articleTreePos = computed(() => {
+  const p = route.path
+  if (!p.startsWith('/posts/')) return null
+  const segs = p.replace('/posts/', '').split('/').filter(Boolean)
+  if (segs.length < 3) return null
+  const topic = segs.slice(0, 2).join('/')
+  const pos = topicPos.get(topic)
+  if (!pos) return null
+  return { ...pos, domain: DOMAIN_NAMES[domainOfTopic.get(topic)] || '', isTech: techSet.has(topic) }
+})
+
 onMounted(() => {
   initEnhancements()
   enhancePage()
@@ -112,6 +143,11 @@ watch(
 
     <article class="tuf-article">
       <section>
+        <div v-if="articleTreePos" class="article-tree-pos">
+          <span v-if="articleTreePos.isTech" class="atp-domain">{{ articleTreePos.domain }}</span>
+          <span class="atp-label">知识树位置</span>
+          <span class="atp-path">{{ articleTreePos.tree }} › {{ articleTreePos.branch }} › {{ articleTreePos.node }}</span>
+        </div>
         <Content />
       </section>
     </article>

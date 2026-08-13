@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" font-family="sans-serif">
+  <title>针叶材管胞细胞壁的分层超微结构</title>
+  <desc>相邻两个管胞之间细胞壁的横截面分层：细胞腔、次生壁 S3/S2/S1、初生壁 P、中层 M（复合胞间层）</desc>
+  <rect width="640" height="430" fill="#faf9f5"/>
+  <text x="320" y="32" text-anchor="middle" font-size="16" fill="#333">针叶材相邻管胞细胞壁分层示意（横截面）</text>
+
+  <!-- 管胞 A 的细胞腔 -->
+  <rect x="30" y="70" width="120" height="300" fill="#ffffff" stroke="#9a9a9a" stroke-width="1.5"/>
+  <text x="90" y="225" text-anchor="middle" font-size="14" fill="#9a9a9a">细胞腔</text>
+  <text x="90" y="244" text-anchor="middle" font-size="12" fill="#9a9a9a">(lumen)</text>
+
+  <!-- S3 -->
+  <rect x="150" y="70" width="20" height="300" fill="#dde9ed" stroke="#9a9a9a" stroke-width="0.5"/>
+  <!-- S2 -->
+  <rect x="170" y="70" width="70" height="300" fill="#bcd6de" stroke="#9a9a9a" stroke-width="0.5"/>
+  <!-- S1 -->
+  <rect x="240" y="70" width="20" height="300" fill="#9cc3cf" stroke="#9a9a9a" stroke-width="0.5"/>
+  <!-- P -->
+  <rect x="260" y="70" width="20" height="300" fill="#c9b7ae" stroke="#9a9a9a" stroke-width="0.5"/>
+  <!-- M 中层 -->
+  <rect x="280" y="70" width="20" height="300" fill="#8a6d5b" stroke="#6b5344" stroke-width="1"/>
+  <!-- P -->
+  <rect x="300" y="70" width="20" height="300" fill="#c9b7ae" stroke="#9a9a9a" stroke-width="0.5"/>
+  <!-- S1 -->
+  <rect x="320" y="70" width="20" height="300" fill="#9cc3cf" stroke="#9a9a9a" stroke-width="0.5"/>
+  <!-- S2 -->
+  <rect x="340" y="70" width="70" height="300" fill="#bcd6de" stroke="#9a9a9a" stroke-width="0.5"/>
+  <!-- S3 -->
+  <rect x="410" y="70" width="20" height="300" fill="#dde9ed" stroke="#9a9a9a" stroke-width="0.5"/>
+
+  <!-- 管胞 B 的细胞腔 -->
+  <rect x="430" y="70" width="180" height="300" fill="#ffffff" stroke="#9a9a9a" stroke-width="1.5"/>
+  <text x="520" y="225" text-anchor="middle" font-size="14" fill="#9a9a9a">相邻管胞</text>
+  <text x="520" y="244" text-anchor="middle" font-size="12" fill="#9a9a9a">细胞腔</text>
+
+  <!-- 标注引线 -->
+  <g stroke="#1f6f8b" stroke-width="1">
+    <line x1="160" y1="70" x2="160" y2="52"/>
+    <line x1="160" y1="52" x2="470" y2="52"/>
+  </g>
+  <text x="478" y="56" font-size="13" fill="#1f6f8b">S3</text>
+
+  <g stroke="#1f6f8b" stroke-width="1">
+    <line x1="205" y1="70" x2="205" y2="78"/>
+    <line x1="205" y1="78" x2="470" y2="78"/>
+  </g>
+  <text x="478" y="82" font-size="13" fill="#1f6f8b">S2（最厚，微纤丝角 10–30°）</text>
+
+  <g stroke="#1f6f8b" stroke-width="1">
+    <line x1="250" y1="70" x2="250" y2="104"/>
+    <line x1="250" y1="104" x2="470" y2="104"/>
+  </g>
+  <text x="478" y="108" font-size="13" fill="#1f6f8b">S1</text>
+
+  <g stroke="#c0392b" stroke-width="1">
+    <line x1="270" y1="70" x2="270" y2="130"/>
+    <line x1="270" y1="130" x2="470" y2="130"/>
+  </g>
+  <text x="478" y="134" font-size="13" fill="#c0392b">P 初生壁</text>
+
+  <g stroke="#c0392b" stroke-width="1">
+    <line x1="290" y1="370" x2="290" y2="390"/>
+    <line x1="290" y1="390" x2="470" y2="390"/>
+  </g>
+  <text x="478" y="394" font-size="13" fill="#c0392b">M 中层（木质素浓度最高）</text>
+
+  <!-- 底部说明 -->
+  <text x="320" y="412" text-anchor="middle" font-size="13" fill="#333">复合胞间层 CML = M + 两层 P；S2 层占壁厚绝大部分，决定纤维力学性质</text>
+</svg>
