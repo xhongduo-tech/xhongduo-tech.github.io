@@ -18,35 +18,35 @@ pageClass: plain-doc
 
 ### 第1篇 剑道基础与礼仪装备
 
-- [ ] [剑道的历史发展与现代转型](./history-and-modern-development)（《剑道》教材 第1章）
-- [ ] [剑道礼仪与武道精神](./etiquette-and-martial-spirit)（《剑道》教材 第2章）
-- [ ] [竹刀、木刀与防具的构造、穿戴与保养](./equipment-shinai-bogu)（《剑道》教材 第3章）
-- [ ] [基本姿势与构型：中段构及其他构型](./basic-posture-camae)（《剑道》教材 第4章）
-- [ ] [基本步法：送足、继足与进退](./footwork-ashi-sabaki)（《剑道》教材 第5章）
-- [ ] [素振与挥刀要领](./suburi-swing-practice)（《剑道》教材 第6章）
+- [x] [剑道的历史发展与现代转型](./history-and-modern-development)（《剑道》教材 第1章）
+- [x] [剑道礼仪与武道精神](./etiquette-and-martial-spirit)（《剑道》教材 第2章）
+- [x] [竹刀、木刀与防具的构造、穿戴与保养](./equipment-shinai-bogu)（《剑道》教材 第3章）
+- [x] [基本姿势与构型：中段构及其他构型](./basic-posture-camae)（《剑道》教材 第4章）
+- [x] [基本步法：送足、继足与进退](./footwork-ashi-sabaki)（《剑道》教材 第5章）
+- [x] [素振与挥刀要领](./suburi-swing-practice)（《剑道》教材 第6章）
 
 ### 第2篇 基本打击技与攻防意识
 
-- [ ] [有效打击的判定：气剑体一致](./effective-strike-kiseki-ittai)（《剑道》教材 第7章）
-- [ ] [面打击技术](./men-strike)（《剑道》教材 第8章）
-- [ ] [小手打击技术](./kote-strike)（《剑道》教材 第9章）
-- [ ] [胴打击技术](./do-strike)（《剑道》教材 第10章）
-- [ ] [刺突、受流与防守反击技术](./tsuki-and-defense)（《剑道》教材 第11章）
-- [ ] [间合、攻防转换与残心](./maai-and-zanshin)（《剑道》教材 第12章）
+- [x] [有效打击的判定：气剑体一致](./effective-strike-kiseki-ittai)（《剑道》教材 第7章）
+- [x] [面打击技术](./men-strike)（《剑道》教材 第8章）
+- [x] [小手打击技术](./kote-strike)（《剑道》教材 第9章）
+- [x] [胴打击技术](./do-strike)（《剑道》教材 第10章）
+- [x] [刺突、受流与防守反击技术](./tsuki-and-defense)（《剑道》教材 第11章）
+- [x] [间合、攻防转换与残心](./maai-and-zanshin)（《剑道》教材 第12章）
 
 ### 第3篇 剑道形与稽古
 
-- [ ] [剑道形总论与日本剑道形概说](./kendo-kata-overview)（全日本剑道联盟《剑道形》）
-- [ ] [日本剑道形 第1式至第3式](./kendo-kata-1-3)（全日本剑道联盟《剑道形》）
-- [ ] [日本剑道形 第4式至第6式](./kendo-kata-4-6)（全日本剑道联盟《剑道形》）
-- [ ] [日本剑道形 第7式至第10式](./kendo-kata-7-10)（全日本剑道联盟《剑道形》）
-- [ ] [打込稽古、挂稽古与基本稽古](./uchikomi-kakari-geiko)（《剑道》教材 第13章）
-- [ ] [地稽古与自由稽古](./ji-geiko)（《剑道》教材 第14章）
+- [x] [剑道形总论与日本剑道形概说](./kendo-kata-overview)（全日本剑道联盟《剑道形》）
+- [x] [日本剑道形 第1式至第3式](./kendo-kata-1-3)（全日本剑道联盟《剑道形》）
+- [x] [日本剑道形 第4式至第6式](./kendo-kata-4-6)（全日本剑道联盟《剑道形》）
+- [x] [日本剑道形 第7式至第10式](./kendo-kata-7-10)（全日本剑道联盟《剑道形》）
+- [x] [打込稽古、挂稽古与基本稽古](./uchikomi-kakari-geiko)（《剑道》教材 第13章）
+- [x] [地稽古与自由稽古](./ji-geiko)（《剑道》教材 第14章）
 
 ### 第4篇 竞赛规则与段位体系
 
-- [ ] [剑道比赛规则：场地、时间与胜负判定](./competition-rules)（全日本剑道联盟《剑道比赛规则》）
-- [ ] [有效打击的裁判判定与剑审](./referee-scoring)（全日本剑道联盟《剑道裁判规则》）
-- [ ] [犯规行为与警告、罚则](./fouls-penalties)（全日本剑道联盟《剑道比赛规则》）
-- [ ] [剑道级位制度与晋升审查](./kyu-promotion-test)（剑道段位体系）
-- [ ] [剑道段位体系与升段考核要点](./dan-grading-system)（剑道段位体系）
+- [x] [剑道比赛规则：场地、时间与胜负判定](./competition-rules)（全日本剑道联盟《剑道比赛规则》）
+- [x] [有效打击的裁判判定与剑审](./referee-scoring)（全日本剑道联盟《剑道裁判规则》）
+- [x] [犯规行为与警告、罚则](./fouls-penalties)（全日本剑道联盟《剑道比赛规则》）
+- [x] [剑道级位制度与晋升审查](./kyu-promotion-test)（剑道段位体系）
+- [x] [剑道段位体系与升段考核要点](./dan-grading-system)（剑道段位体系）

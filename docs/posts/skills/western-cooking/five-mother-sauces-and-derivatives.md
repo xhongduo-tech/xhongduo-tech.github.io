@@ -42,7 +42,7 @@ date: 2026-08-07
 
 **白 roux（White Roux）**：炒 2–3 分钟，不发色，增稠力最强，用于 Béchamel、白 Velouté。
 **淡金 roux（Blond Roux）**：炒至淡金色，用于 Velouté。
-- **棕 roux（Brown Roux）**：炒至核桃色，增稠力减弱但带来坚果香，用于 Espagnole。炒过头会发苦。
+**棕 roux（Brown Roux）**：炒至核桃色，增稠力减弱但带来坚果香，用于 Espagnole。炒过头会发苦。
 
 roux 的做法是「面糊」的另一种形态：**把黄油化开 → 加入等量面粉 → 小火不停翻炒**，直到达到目标色泽。炒 roux 不能急，火大了面粉焦糊发苦，酱汁就毁了。
 

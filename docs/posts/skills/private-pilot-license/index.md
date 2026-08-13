@@ -18,42 +18,42 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] [私用驾驶员执照体系与培训路径](./ppl-overview-path)（CCAR-61 私照分部）
-- [ ] [私照申请人资格与条件](./ppl-eligibility-requirements)（CCAR-61 第61.123条）
-- [ ] [航空人员体检合格证与等级要求](./medical-certificate-requirements)（CCAR-61 私照分部）
-- [ ] [航空知识训练与理论要求](./aeronautical-knowledge-training)（CCAR-61 第61.125条）
-- [ ] [飞行经历与训练时长要求](./flight-experience-requirements)（CCAR-61 第61.127条）
-- [ ] [飞行技能考核与考试程序](./flight-skill-check-procedure)（CCAR-61 第61.129条）
-- [ ] [私照权利、限制与执照管理](./ppl-privileges-limitations)（CCAR-61 私照分部）
-- [ ] [运动驾驶员执照与私照的关系](./sport-license-vs-ppl)（CCAR-61 运动照分部）
+- [x] [私用驾驶员执照体系与培训路径](./ppl-overview-path)（CCAR-61 私照分部）
+- [x] [私照申请人资格与条件](./ppl-eligibility-requirements)（CCAR-61 第61.123条）
+- [x] [航空人员体检合格证与等级要求](./medical-certificate-requirements)（CCAR-61 私照分部）
+- [x] [航空知识训练与理论要求](./aeronautical-knowledge-training)（CCAR-61 第61.125条）
+- [x] [飞行经历与训练时长要求](./flight-experience-requirements)（CCAR-61 第61.127条）
+- [x] [飞行技能考核与考试程序](./flight-skill-check-procedure)（CCAR-61 第61.129条）
+- [x] [私照权利、限制与执照管理](./ppl-privileges-limitations)（CCAR-61 私照分部）
+- [x] [运动驾驶员执照与私照的关系](./sport-license-vs-ppl)（CCAR-61 运动照分部）
 
 ### 第2篇
 
-- [ ] [飞机结构组成与机体分类](./aircraft-structure-classification)（FAA 手册 第3章）
-- [ ] [飞行原理与空气动力学基础](./principles-flight-aerodynamics)（FAA 手册 第4章）
-- [ ] [飞行性能与气动特性](./flight-performance-characteristics)（FAA 手册 第5章）
-- [ ] [飞行操纵系统与操纵面](./flight-controls-surfaces)（FAA 手册 第6章）
-- [ ] [飞机系统：动力、电气与液压](./aircraft-systems-power)（FAA 手册 第7章）
-- [ ] [飞行仪表与仪表系统](./flight-instruments-systems)（FAA 手册 第8章）
-- [ ] [载重与平衡](./weight-and-balance)（FAA 手册 第10章）
-- [ ] [飞机性能图表与计算](./aircraft-performance-charts)（FAA 手册 第11章）
+- [x] [飞机结构组成与机体分类](./aircraft-structure-classification)（FAA 手册 第3章）
+- [x] [飞行原理与空气动力学基础](./principles-flight-aerodynamics)（FAA 手册 第4章）
+- [x] [飞行性能与气动特性](./flight-performance-characteristics)（FAA 手册 第5章）
+- [x] [飞行操纵系统与操纵面](./flight-controls-surfaces)（FAA 手册 第6章）
+- [x] [飞机系统：动力、电气与液压](./aircraft-systems-power)（FAA 手册 第7章）
+- [x] [飞行仪表与仪表系统](./flight-instruments-systems)（FAA 手册 第8章）
+- [x] [载重与平衡](./weight-and-balance)（FAA 手册 第10章）
+- [x] [飞机性能图表与计算](./aircraft-performance-charts)（FAA 手册 第11章）
 
 ### 第3篇
 
-- [ ] [航空气象理论：大气与天气系统](./weather-theory-atmosphere)（FAA 手册 第12章）
-- [ ] [航空气象服务与天气报文](./aviation-weather-services)（FAA 手册 第13章）
-- [ ] [机场运行与地面标志](./airport-operations-signs)（FAA 手册 第14章）
-- [ ] [空域分类与飞行规则](./airspace-classification-rules)（FAA 手册 第15章）
-- [ ] [航空导航基础与地图](./navigation-basics-charts)（FAA 手册 第16章）
-- [ ] [飞行计划与航行通告](./flight-planning-notams)（FAA 手册 第9章）
+- [x] [航空气象理论：大气与天气系统](./weather-theory-atmosphere)（FAA 手册 第12章）
+- [x] [航空气象服务与天气报文](./aviation-weather-services)（FAA 手册 第13章）
+- [x] [机场运行与地面标志](./airport-operations-signs)（FAA 手册 第14章）
+- [x] [空域分类与飞行规则](./airspace-classification-rules)（FAA 手册 第15章）
+- [x] [航空导航基础与地图](./navigation-basics-charts)（FAA 手册 第16章）
+- [x] [飞行计划与航行通告](./flight-planning-notams)（FAA 手册 第9章）
 
 ### 第4篇
 
-- [ ] [飞行前准备与检查单](./preflight-preparation-checklists)（FAA 手册 第9章）
-- [ ] [基本飞行操纵与机动](./basic-maneuvers-controls)（考试大纲 运行程序篇）
-- [ ] [起飞、着陆与正常操作程序](./takeoff-landing-procedures)（考试大纲 运行程序篇）
-- [ ] [应急程序与特殊飞行情况](./emergency-procedures-special)（考试大纲 应急篇）
-- [ ] [夜间飞行与目视飞行规则运行](./night-vfr-operations)（考试大纲 运行篇）
-- [ ] [航空医学与人的因素](./aeromedical-human-factors)（FAA 手册 第17章）
-- [ ] [航空决策与飞行安全](./aeronautical-decision-making)（FAA 手册 第2章）
-- [ ] [私照理论考试要点与应试](./ppl-written-exam-guide)（考试大纲 全部）
+- [x] [飞行前准备与检查单](./preflight-preparation-checklists)（FAA 手册 第9章）
+- [x] [基本飞行操纵与机动](./basic-maneuvers-controls)（考试大纲 运行程序篇）
+- [x] [起飞、着陆与正常操作程序](./takeoff-landing-procedures)（考试大纲 运行程序篇）
+- [x] [应急程序与特殊飞行情况](./emergency-procedures-special)（考试大纲 应急篇）
+- [x] [夜间飞行与目视飞行规则运行](./night-vfr-operations)（考试大纲 运行篇）
+- [x] [航空医学与人的因素](./aeromedical-human-factors)（FAA 手册 第17章）
+- [x] [航空决策与飞行安全](./aeronautical-decision-making)（FAA 手册 第2章）
+- [x] [私照理论考试要点与应试](./ppl-written-exam-guide)（考试大纲 全部）

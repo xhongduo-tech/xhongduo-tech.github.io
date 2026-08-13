@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" font-family="sans-serif">
+  <title>垂直 stack 与水平 stack 站位对比</title>
+  <desc>左图为垂直 stack：切盘手沿纵深排成一列，清出横向空间；右图为水平 stack：切盘手沿宽度排成一行，清出纵深空间。</desc>
+  <rect x="0" y="0" width="820" height="300" fill="#ffffff"/>
+  <text x="200" y="28" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">垂直 stack（竖排）</text>
+  <text x="620" y="28" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">水平 stack（横排）</text>
+  <rect x="40" y="45" width="320" height="220" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+  <rect x="40" y="45" width="70" height="220" fill="#e8eef1" stroke="#333" stroke-width="1.5"/>
+  <rect x="290" y="45" width="70" height="220" fill="#e8eef1" stroke="#333" stroke-width="1.5"/>
+  <rect x="470" y="45" width="320" height="220" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+  <rect x="470" y="45" width="70" height="220" fill="#e8eef1" stroke="#333" stroke-width="1.5"/>
+  <rect x="720" y="45" width="70" height="220" fill="#e8eef1" stroke="#333" stroke-width="1.5"/>
+  <circle cx="130" cy="155" r="7" fill="#c0392b"/>
+  <text x="130" y="180" text-anchor="middle" font-size="13" fill="#c0392b">盘</text>
+  <circle cx="95" cy="80" r="6" fill="#1f6f8b"/>
+  <circle cx="95" cy="130" r="6" fill="#1f6f8b"/>
+  <circle cx="95" cy="180" r="6" fill="#1f6f8b"/>
+  <circle cx="95" cy="230" r="6" fill="#1f6f8b"/>
+  <text x="95" y="255" text-anchor="middle" font-size="13" fill="#1f6f8b">切盘手列</text>
+  <circle cx="200" cy="180" r="6" fill="#666"/>
+  <circle cx="250" cy="210" r="6" fill="#666"/>
+  <text x="225" y="240" text-anchor="middle" font-size="13" fill="#666">handler</text>
+  <text x="200" y="285" text-anchor="middle" font-size="13" fill="#666">清出横向切盘空间</text>
+  <circle cx="580" cy="120" r="6" fill="#1f6f8b"/>
+  <circle cx="620" cy="120" r="6" fill="#1f6f8b"/>
+  <circle cx="660" cy="120" r="6" fill="#1f6f8b"/>
+  <circle cx="700" cy="120" r="6" fill="#1f6f8b"/>
+  <text x="640" y="95" text-anchor="middle" font-size="13" fill="#1f6f8b">切盘手行</text>
+  <circle cx="530" cy="170" r="6" fill="#666"/>
+  <circle cx="560" cy="200" r="6" fill="#666"/>
+  <circle cx="590" cy="230" r="6" fill="#666"/>
+  <circle cx="520" cy="155" r="7" fill="#c0392b"/>
+  <text x="520" y="180" text-anchor="middle" font-size="13" fill="#c0392b">盘</text>
+  <text x="640" y="285" text-anchor="middle" font-size="13" fill="#666">清出纵深切盘空间</text>
+</svg>

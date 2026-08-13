@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="sans-serif">
+  <title>大货车右转的内轮差与盲区示意</title>
+  <desc>俯视图：大货车右转时，前轮轨迹半径大于后轮轨迹半径，两轨迹之间形成内轮差危险区（死亡弯月）；电动自行车若停在该区域，极易被卷入。</desc>
+
+  <rect x="0" y="0" width="800" height="560" fill="#faf9f5"/>
+
+  <!-- 道路 -->
+  <rect x="120" y="0" width="560" height="560" fill="#f3f0e9"/>
+  <rect x="180" y="0" width="440" height="560" fill="#e9e4da"/>
+  <rect x="0" y="430" width="800" height="130" fill="#e9e4da"/>
+
+  <!-- 道路标线 -->
+  <line x1="180" y1="0" x2="180" y2="560" stroke="#fff" stroke-width="3" stroke-dasharray="14 12"/>
+  <line x1="620" y1="0" x2="620" y2="560" stroke="#fff" stroke-width="3" stroke-dasharray="14 12"/>
+  <line x1="0" y1="470" x2="800" y2="470" stroke="#fff" stroke-width="3" stroke-dasharray="14 12"/>
+
+  <!-- 内轮差危险区（死亡弯月） -->
+  <path d="M 600 250 A 300 300 0 0 1 300 550 L 300 450 A 200 200 0 0 0 500 250 Z"
+        fill="#c0392b" fill-opacity="0.28" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- 前轮轨迹 -->
+  <path d="M 600 250 A 300 300 0 0 1 300 550" fill="none" stroke="#1f6f8b" stroke-width="3" stroke-dasharray="8 6"/>
+
+  <!-- 后轮轨迹 -->
+  <path d="M 500 250 A 200 200 0 0 1 300 450" fill="none" stroke="#1f6f8b" stroke-width="3" stroke-dasharray="3 5"/>
+
+  <!-- 大货车 -->
+  <rect x="330" y="218" width="250" height="64" rx="8" fill="#1f6f8b"/>
+  <rect x="322" y="222" width="16" height="56" rx="4" fill="#15505f"/>
+  <text x="455" y="253" fill="#ffffff" font-size="20" text-anchor="middle">大货车</text>
+  <rect x="352" y="282" width="46" height="16" rx="4" fill="#333"/>
+  <rect x="500" y="282" width="46" height="16" rx="4" fill="#333"/>
+
+  <!-- 右侧盲区 -->
+  <polygon points="580,284 770,330 780,392 580,340" fill="#999999" fill-opacity="0.4"/>
+  <text x="690" y="368" fill="#333" font-size="15" text-anchor="middle">右侧盲区</text>
+
+  <!-- 车头盲区 -->
+  <polygon points="580,218 770,238 770,256 580,252" fill="#999999" fill-opacity="0.4"/>
+  <text x="680" y="236" fill="#333" font-size="15" text-anchor="middle">车头盲区</text>
+
+  <!-- 电动自行车（危险位置） -->
+  <circle cx="520" cy="380" r="11" fill="#c0392b"/>
+  <path d="M 515 375 L 525 385 M 525 375 L 515 385" stroke="#fff" stroke-width="2.5"/>
+  <line x1="520" y1="392" x2="520" y2="418" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="520" y="434" fill="#c0392b" font-size="15" text-anchor="middle">电动自行车</text>
+
+  <!-- 标注 -->
+  <text x="612" y="185" fill="#1f6f8b" font-size="15">前轮轨迹（半径大）</text>
+  <text x="300" y="490" fill="#1f6f8b" font-size="15">后轮轨迹（半径小）</text>
+  <text x="620" y="452" fill="#c0392b" font-size="17"><tspan font-weight="bold">内轮差（死亡弯月）</tspan></text>
+  <text x="620" y="472" fill="#c0392b" font-size="14">前轮与后轮轨迹之间的区域</text>
+  <text x="620" y="490" fill="#c0392b" font-size="14">大车右转时后轮向内侧扫过</text>
+
+  <!-- 图例 -->
+  <rect x="40" y="500" width="720" height="46" rx="8" fill="#fff" stroke="#d8d2c4"/>
+  <rect x="60" y="514" width="18" height="18" fill="#c0392b" fill-opacity="0.28" stroke="#c0392b"/>
+  <text x="88" y="528" fill="#333" font-size="14">内轮差危险区</text>
+  <rect x="230" y="514" width="18" height="18" fill="#999999" fill-opacity="0.4"/>
+  <text x="258" y="528" fill="#333" font-size="14">车辆盲区</text>
+  <line x1="420" y1="514" x2="452" y2="514" stroke="#1f6f8b" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="462" y="528" fill="#333" font-size="14">行驶轨迹</text>
+  <circle cx="600" cy="523" r="9" fill="#c0392b"/>
+  <text x="616" y="528" fill="#333" font-size="14">电动自行车（危险位置）</text>
+</svg>

@@ -20,36 +20,36 @@ pageClass: plain-doc
 
 - [x] [家庭组网概述与设备选型](./home-networking-overview)
 - [x] [TCP/IP 协议体系与网络分层](./tcp-ip-layering)
-- [ ] IP 地址与子网划分（TCP/IP 网络管理 第2章）
-- [ ] 以太网与局域网基础（路由与交换技术基础 第2章）
-- [ ] 交换机与路由器的工作原理（路由与交换技术基础 第3章）
-- [ ] DNS 与 DHCP 服务机制（TCP/IP 网络管理 第7章）
+- [x] [IP 地址与子网划分](./ip-address-subnetting)
+- [x] [以太网与局域网基础](./ethernet-lan-basics)
+- [x] [交换机与路由器的工作原理](./switch-router-principles)
+- [x] [DNS 与 DHCP 服务机制](./dns-dhcp)
 
 ### 第2篇 路由器配置与家庭局域网搭建
 
-- [ ] 宽带接入方式与 PPPoE 拨号（家庭网络搭建与路由器配置 第2章）
-- [ ] 路由器初始配置与后台管理（家庭网络搭建与路由器配置 第3章）
-- [ ] 无线局域网（WiFi）基本配置（家庭网络搭建与路由器配置 第4章）
-- [ ] 家庭有线组网与网线布设（家庭网络搭建与路由器配置 第5章）
-- [ ] 网络地址转换（NAT）与端口映射（TCP/IP 网络管理 第5章）
-- [ ] 静态路由与动态路由（路由与交换技术基础 第5章）
-- [ ] VLAN 划分与多网段管理（路由与交换技术基础 第6章）
+- [x] [宽带接入方式与 PPPoE 拨号](./broadband-access-pppoe)
+- [x] [路由器初始配置与后台管理](./router-initial-setup)
+- [x] [无线局域网（WiFi）基本配置](./wifi-basic-config)
+- [x] [家庭有线组网与网线布设](./wired-networking-cabling)
+- [x] [网络地址转换（NAT）与端口映射](./nat-port-forwarding)
+- [x] [静态路由与动态路由](./static-dynamic-routing)
+- [x] [VLAN 划分与多网段管理](./vlan-multisegment)
 
 ### 第3篇 WiFi 优化与网络安全
 
-- [ ] WiFi 频段与信道选择优化（家庭网络搭建与路由器配置 第6章）
-- [ ] Mesh 组网与无线漫游（家庭网络搭建与路由器配置 第7章）
-- [ ] QoS 流量控制与带宽管理（家庭网络搭建与路由器配置 第8章）
-- [ ] 无线加密与接入安全（TCP/IP 网络管理 第12章）
-- [ ] 防火墙与访问控制策略（TCP/IP 网络管理 第13章）
-- [ ] 远程访问与家庭 VPN 搭建（TCP/IP 网络管理 第14章）
-- [ ] 智能家居设备联网与物联网接入（家庭网络搭建与路由器配置 第9章）
+- [x] [WiFi 频段与信道选择优化](./wifi-bands-channels)
+- [x] [Mesh 组网与无线漫游](./mesh-networking-roaming)
+- [x] [QoS 流量控制与带宽管理](./qos-bandwidth-management)
+- [x] [无线加密与接入安全](./wireless-encryption-security)
+- [x] [防火墙与访问控制策略](./firewall-access-control)
+- [x] [远程访问与家庭 VPN 搭建](./remote-access-home-vpn)
+- [x] [智能家居设备联网与物联网接入](./smart-home-iot)
 
 ### 第4篇 故障排查与网络维护
 
-- [ ] 网络故障排查思路与常用工具（TCP/IP 网络管理 第15章）
-- [ ] 常见家庭网络故障诊断与解决（家庭网络搭建与路由器配置 第10章）
-- [ ] 无线信号测量与覆盖优化（家庭网络搭建与路由器配置 第11章）
-- [ ] 网络性能测试与监控（TCP/IP 网络管理 第16章）
-- [ ] 固件升级与路由器日常维护（家庭网络搭建与路由器配置 第12章）
-- [ ] 家庭网络安全防护与隐私保护（TCP/IP 网络管理 第17章）
+- [x] [网络故障排查思路与常用工具](./network-troubleshooting-tools)
+- [x] [常见家庭网络故障诊断与解决](./common-network-faults)
+- [x] [无线信号测量与覆盖优化](./wireless-signal-coverage)
+- [x] [网络性能测试与监控](./network-performance-testing)
+- [x] [固件升级与路由器日常维护](./firmware-upgrade-maintenance)
+- [x] [家庭网络安全防护与隐私保护](./home-network-security-privacy)

@@ -20,35 +20,35 @@ pageClass: plain-doc
 
 - [x] [桥牌基本规则与打牌流程（《桥牌基础》第1章）](./bridge-basic-rules-and-play)
 - [x] [牌张组合与牌型分布（《桥牌基础》第2章）](./hand-patterns-and-distribution)
-- [ ] 赢墩原理与花色控制（《桥牌基础》第3章）
-- [ ] 计分规则：部分定约、成局与满贯（《桥牌基础》第4章）
-- [ ] 局况、罚分与计分表（《桥牌基础》第5章）
-- [ ] 桥牌礼仪与比赛形式（《桥牌基础》第6章）
+- [x] [赢墩原理与花色控制（《桥牌基础》第3章）](./trick-principles-and-suit-control)
+- [x] [计分规则：部分定约、成局与满贯（《桥牌基础》第4章）](./scoring-partial-game-slam)
+- [x] [局况、罚分与计分表（《桥牌基础》第5章）](./vulnerability-penalties-score-sheet)
+- [x] [桥牌礼仪与比赛形式（《桥牌基础》第6章）](./etiquette-and-competition-formats)
 
 ### 第2篇 叫牌体系基础
 
-- [ ] 叫牌规则与叫品要素（中国桥牌协会体系 第1章）
-- [ ] 一阶自然开叫与应叫原则（中国桥牌协会体系 第2章）
-- [ ] 无将开叫与应叫（中国桥牌协会体系 第3章）
-- [ ] 高花开叫与应叫（中国桥牌协会体系 第4章）
-- [ ] 低花开叫与应叫（中国桥牌协会体系 第5章）
-- [ ] 强开叫与 2NT 开叫（中国桥牌协会体系 第6章）
+- [x] [叫牌规则与叫品要素（中国桥牌协会体系 第1章）](./bidding-rules-and-call-elements)
+- [x] [一阶自然开叫与应叫原则（中国桥牌协会体系 第2章）](./natural-opening-and-responses)
+- [x] [无将开叫与应叫（中国桥牌协会体系 第3章）](./notrump-opening-and-responses)
+- [x] [高花开叫与应叫（中国桥牌协会体系 第4章）](./major-suit-opening-and-responses)
+- [x] [低花开叫与应叫（中国桥牌协会体系 第5章）](./minor-suit-opening-and-responses)
+- [x] [强开叫与 2NT 开叫（中国桥牌协会体系 第6章）](./strong-openings-and-2nt)
 
 ### 第3篇 叫牌进阶与满贯
 
-- [ ] 阻击叫与弱二开叫（中国桥牌协会体系 第7章）
-- [ ] 满贯叫牌：黑木问叫与罗马关键张（《桥牌叫牌与打法》满贯叫牌章）
-- [ ] 防守叫牌：争叫与技术性加倍（《桥牌叫牌与打法》防守叫牌章）
-- [ ] 竞叫与牺牲叫（《桥牌叫牌与打法》竞叫章）
-- [ ] 精确体系概述（中国桥牌协会体系 附录）
+- [x] [阻击叫与弱二开叫（中国桥牌协会体系 第7章）](./preemptive-bids-and-weak-twos)
+- [x] [满贯叫牌：黑木问叫与罗马关键张（《桥牌叫牌与打法》满贯叫牌章）](./slam-bidding-blackwood-and-rkcb)
+- [x] [防守叫牌：争叫与技术性加倍（《桥牌叫牌与打法》防守叫牌章）](./overcalls-and-takeout-double)
+- [x] [竞叫与牺牲叫（《桥牌叫牌与打法》竞叫章）](./competitive-bidding-and-sacrifice)
+- [x] [精确体系概述（中国桥牌协会体系 附录）](./precision-system-overview)
 
 ### 第4篇 坐庄与防守打法
 
-- [ ] 坐庄计划与赢墩计算（《桥牌叫牌与打法》坐庄章）
-- [ ] 无将坐庄技术（《桥牌叫牌与打法》无将坐庄章）
-- [ ] 将牌坐庄：将吃与树立长套（《桥牌叫牌与打法》将牌坐庄章）
-- [ ] 飞牌、进张管理与安全打法（《桥牌叫牌与打法》坐庄技术章）
-- [ ] 紧逼与终局打法（《桥牌叫牌与打法》高级打法章）
-- [ ] 首攻选择（《桥牌叫牌与打法》防守章）
-- [ ] 防守信号体系（《桥牌叫牌与打法》信号章）
-- [ ] 防守计划与推理（《桥牌叫牌与打法》防守章）
+- [x] [坐庄计划与赢墩计算（《桥牌叫牌与打法》坐庄章）](./declarer-plan-and-trick-count)
+- [x] [无将坐庄技术（《桥牌叫牌与打法》无将坐庄章）](./notrump-play-techniques)
+- [x] [将牌坐庄：将吃与树立长套（《桥牌叫牌与打法》将牌坐庄章）](./trump-play-and-ruffing)
+- [x] [飞牌、进张管理与安全打法（《桥牌叫牌与打法》坐庄技术章）](./finesse-entries-safety-plays)
+- [x] [紧逼与终局打法（《桥牌叫牌与打法》高级打法章）](./squeeze-and-endplay)
+- [x] [首攻选择（《桥牌叫牌与打法》防守章）](./opening-lead-selection)
+- [x] [防守信号体系（《桥牌叫牌与打法》信号章）](./defensive-signaling-systems)
+- [x] [防守计划与推理（《桥牌叫牌与打法》防守章）](./defensive-plan-and-reasoning)

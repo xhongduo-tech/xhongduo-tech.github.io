@@ -1,0 +1,21 @@
+<svg viewBox="0 0 640 300" width="640" height="300" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>爆款视频的三段式结构</title>
+<desc>一条视频的时间轴被分为三部分：开头钩子、中段价值展开、结尾行动引导</desc>
+<rect width="640" height="300" fill="#faf9f5"/>
+<text x="320" y="40" text-anchor="middle" fill="#333" font-size="18" font-weight="bold">爆款视频的三段式结构</text>
+<rect x="20" y="80" width="600" height="120" rx="8" fill="#e8e3da"/>
+<rect x="20" y="80" width="90" height="120" fill="#c0392b"/>
+<text x="65" y="120" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">开头</text>
+<text x="65" y="143" text-anchor="middle" fill="#ffffff" font-size="13">0–3 秒</text>
+<text x="65" y="166" text-anchor="middle" fill="#ffffff" font-size="13">钩子</text>
+<rect x="110" y="80" width="430" height="120" fill="#1f6f8b"/>
+<text x="325" y="115" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">中段 · 价值展开</text>
+<text x="325" y="138" text-anchor="middle" fill="#ffffff" font-size="13">信息密度 + 情绪起伏</text>
+<text x="325" y="161" text-anchor="middle" fill="#ffffff" font-size="13">问题 → 拆解 → 答案</text>
+<text x="325" y="184" text-anchor="middle" fill="#ffffff" font-size="13">3–45 秒</text>
+<rect x="540" y="80" width="80" height="120" fill="#8a6d3b"/>
+<text x="580" y="120" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">结尾</text>
+<text x="580" y="143" text-anchor="middle" fill="#ffffff" font-size="13">CTA</text>
+<text x="580" y="166" text-anchor="middle" fill="#ffffff" font-size="13">45–60 秒</text>
+<text x="320" y="240" text-anchor="middle" fill="#333" font-size="13">完播率由开头决定，转粉由结尾决定，价值由中段决定</text>
+</svg>

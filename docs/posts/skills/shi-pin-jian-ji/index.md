@@ -19,35 +19,35 @@ pageClass: plain-doc
 ### 第1篇 剪辑软件操作基础
 
 - [x] [Premiere 界面与剪辑工作流](./premiere-interface-edit-workflow)
-- [ ] 素材导入与项目管理（《Premiere 视频剪辑》第2章）
-- [ ] 时间线编辑与剪辑工具（《Premiere 视频剪辑》第3章）
-- [ ] 剪映界面与快速剪辑入门（《剪映视频剪辑教程》第1章）
-- [ ] 剪映素材库、智能成片与文本转语音（《剪映视频剪辑教程》第2章）
-- [ ] 多轨剪辑与音频处理基础（《Premiere 视频剪辑》第4章）
+- [x] [素材导入与项目管理](./material-import-project-management)
+- [x] [时间线编辑与剪辑工具](./timeline-editing-cut-tools)
+- [x] [剪映界面与快速剪辑入门](./jianying-interface-quick-cut)
+- [x] [剪映素材库、智能成片与文本转语音](./jianying-material-library-auto-cut-tts)
+- [x] [多轨剪辑与音频处理基础](./multitrack-editing-audio-basics)
 
 ### 第2篇 镜头语言与剪辑节奏
 
-- [ ] 镜头语言与蒙太奇基础（《电影剪辑技巧》第1章）
-- [ ] 剪辑点选择与匹配剪辑（《电影剪辑技巧》第2章）
-- [ ] 动作匹配与连续性剪辑（《电影剪辑技巧》第3章）
-- [ ] 平行剪辑与交叉剪辑（《电影剪辑技巧》第4章）
-- [ ] 叙事节奏与段落结构（《电影剪辑技巧》第5章）
-- [ ] 音画关系与声音节奏设计（《电影剪辑技巧》第6章）
+- [x] [镜头语言与蒙太奇基础](./shot-language-montage-basics)
+- [x] [剪辑点选择与匹配剪辑](./cut-point-selection-match-cut)
+- [x] [动作匹配与连续性剪辑](./action-matching-continuity-editing)
+- [x] [平行剪辑与交叉剪辑](./parallel-editing-cross-cutting)
+- [x] [叙事节奏与段落结构](./narrative-rhythm-paragraph-structure)
+- [x] [音画关系与声音节奏设计](./audio-visual-relationship-sound-rhythm)
 
 ### 第3篇 转场、字幕与特效包装
 
-- [ ] 转场类型与应用时机（《Premiere 视频剪辑》第5章）
-- [ ] 剪映转场与画中画玩法（《剪映视频剪辑教程》第3章）
-- [ ] 字幕制作与样式设计（《Premiere 视频剪辑》第6章）
-- [ ] 关键帧动画与运动效果（《Premiere 视频剪辑》第7章）
-- [ ] 剪映滤镜、贴纸与特效模板（《剪映视频剪辑教程》第4章）
-- [ ] 片头片尾与成片包装（《剪映视频剪辑教程》第5章）
+- [x] [转场类型与应用时机](./transition-types-application-timing)
+- [x] [剪映转场与画中画玩法](./jianying-transitions-pip)
+- [x] [字幕制作与样式设计](./subtitle-making-style-design)
+- [x] [关键帧动画与运动效果](./keyframe-animation-motion-effects)
+- [x] [剪映滤镜、贴纸与特效模板](./jianying-filters-stickers-effects)
+- [x] [片头片尾与成片包装](./intro-outro-video-packaging)
 
 ### 第4篇 调色、音频与成片输出
 
-- [ ] 色彩理论基础与色彩校正（《Premiere 视频剪辑》第8章）
-- [ ] Lumetri 面板与一级调色（《Premiere 视频剪辑》第9章）
-- [ ] 二级调色与风格化色调（《Premiere 视频剪辑》第10章）
-- [ ] 剪映滤镜与曲线调色（《剪映视频剪辑教程》第6章）
-- [ ] 音频剪辑与混音技巧（《Premiere 视频剪辑》第11章）
-- [ ] 成片输出与多平台发布（《Premiere 视频剪辑》第12章 / 《剪映视频剪辑教程》第7章）
+- [x] [色彩理论基础与色彩校正](./color-theory-color-correction)
+- [x] [Lumetri 面板与一级调色](./lumetri-panel-primary-grading)
+- [x] [二级调色与风格化色调](./secondary-grading-stylized-tone)
+- [x] [剪映滤镜与曲线调色](./jianying-curves-color-grading)
+- [x] [音频剪辑与混音技巧](./audio-editing-mixing-techniques)
+- [x] [成片输出与多平台发布](./export-multiplatform-publishing)

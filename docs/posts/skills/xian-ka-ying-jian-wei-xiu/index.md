@@ -23,39 +23,39 @@ pageClass: plain-doc
 - [x] [显存类型与带宽原理](./vram-types-and-bandwidth)
 - [x] [PCIe 接口与显卡扩展总线](./pcie-interface-and-extension-bus)
 - [x] [显卡供电与功耗规格](./gpu-power-delivery-and-consumption)
-- [ ] 显卡选购与整机搭配（NVIDIA/AMD 官方选购指南）
+- [x] [显卡选购与整机搭配](./gpu-selection-and-system-matching)
 
 ### 第2篇 散热改造与日常维护
 
-- [ ] 显卡散热原理与风道设计（iFixit GPU 维修指南 散热篇）
-- [ ] 显卡拆解与清灰保养（iFixit GPU 维修指南 拆解篇）
-- [ ] 硅脂更换与导热垫维护（iFixit GPU 维修指南 维护篇）
-- [ ] 散热器改装与背板加固（iFixit GPU 维修指南 改装篇）
-- [ ] 水冷散热改装方案（iFixit GPU 维修指南 改装篇）
+- [x] [显卡散热原理与风道设计](./gpu-cooling-principles-and-airflow)
+- [x] [显卡拆解与清灰保养](./gpu-disassembly-and-cleaning)
+- [x] [硅脂更换与导热垫维护](./thermal-paste-and-pad-replacement)
+- [x] [散热器改装与背板加固](./cooler-modding-and-backplate)
+- [x] [水冷散热改装方案](./liquid-cooling-modding)
 
 ### 第3篇 显卡 BIOS 与超频
 
-- [ ] 显卡 BIOS 结构与固件组成（《显卡维修与芯片级维修》BIOS 篇）
-- [ ] BIOS 备份、刷写与还原（《显卡维修与芯片级维修》BIOS 篇）
-- [ ] BIOS 修改与功耗解锁（《显卡维修与芯片级维修》BIOS 篇）
-- [ ] 显卡超频原理与软件工具（GPU 硬件技术资料 超频篇）
-- [ ] 核心与显存超频调试（GPU 硬件技术资料 超频篇）
-- [ ] 超频稳定性测试与故障恢复（《显卡维修与芯片级维修》超频篇）
+- [x] [显卡 BIOS 结构与固件组成](./gpu-bios-structure-and-firmware)
+- [x] [BIOS 备份、刷写与还原](./bios-backup-flash-and-restore)
+- [x] [BIOS 修改与功耗解锁](./bios-modding-and-power-unlock)
+- [x] [显卡超频原理与软件工具](./overclocking-principles-and-tools)
+- [x] [核心与显存超频调试](./core-and-vram-overclocking)
+- [x] [超频稳定性测试与故障恢复](./overclock-stability-test-and-recovery)
 
 ### 第4篇 故障诊断与供电显存维修
 
-- [ ] 显卡故障分类与诊断思路（《显卡维修与芯片级维修》诊断篇）
-- [ ] 显卡供电电路原理与检修（《显卡维修与芯片级维修》供电篇）
-- [ ] 电源管理芯片与 MOSFET 维修（《显卡维修与芯片级维修》供电篇）
-- [ ] 显存故障检测与更换（《显卡维修与芯片级维修》显存篇）
-- [ ] 显示接口与输出电路维修（《显卡维修与芯片级维修》接口篇）
-- [ ] 维修仪器与测量实操（iFixit GPU 维修指南 工具篇）
+- [x] [显卡故障分类与诊断思路](./gpu-fault-classification-and-diagnosis)
+- [x] [显卡供电电路原理与检修](./gpu-power-circuit-principles-and-repair)
+- [x] [电源管理芯片与 MOSFET 维修](./power-management-ic-and-mosfet-repair)
+- [x] [显存故障检测与更换](./vram-fault-detection-and-replacement)
+- [x] [显示接口与输出电路维修](./display-interface-and-output-circuit-repair)
+- [x] [维修仪器与测量实操](./repair-instruments-and-measurement)
 
 ### 第5篇 BGA 与芯片级维修
 
-- [ ] BGA 返修设备与工艺流程（《显卡维修与芯片级维修》BGA 篇）
-- [ ] GPU 芯片拆焊与植球（《显卡维修与芯片级维修》BGA 篇）
-- [ ] 显存颗粒更换与重焊（《显卡维修与芯片级维修》BGA 篇）
-- [ ] 显卡 PCB 板级检修（《显卡维修与芯片级维修》PCB 篇）
-- [ ] 芯片级维修典型案例分析（iFixit GPU 维修指南 案例篇）
-- [ ] 维修质量检验与可靠性测试（《显卡维修与芯片级维修》质量篇）
+- [x] [BGA 返修设备与工艺流程](./bga-rework-equipment-and-process)
+- [x] [GPU 芯片拆焊与植球](./gpu-die-removal-and-reballing)
+- [x] [显存颗粒更换与重焊](./vram-chip-replacement-and-resoldering)
+- [x] [显卡 PCB 板级检修](./gpu-pcb-board-level-repair)
+- [x] [芯片级维修典型案例分析](./chip-level-repair-case-studies)
+- [x] [维修质量检验与可靠性测试](./repair-quality-inspection-and-reliability)

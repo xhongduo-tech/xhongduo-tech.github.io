@@ -26,37 +26,37 @@ pageClass: plain-doc
 
 ### 第2篇 硬盘阵列与存储规划
 
-- [ ] RAID 基础概念与单盘直通（《NAS 搭建与私有云》第3章）
-- [ ] RAID 0/1/5/6/10 对比与选型（《家庭数据中心搭建》第3章）
-- [ ] Synology Hybrid RAID 与卷组（群晖官方文档）
-- [ ] 存储池、卷与文件系统规划（群晖/威联通官方文档）
-- [ ] 硬盘健康监控与 SMART（《家庭数据中心搭建》第4章）
-- [ ] 坏道检测与硬盘更换流程（《NAS 搭建与私有云》第4章）
+- [x] [RAID 基础概念与单盘直通](./raid-basics-and-single-disk)
+- [x] [RAID 0/1/5/6/10 对比与选型](./raid-0-1-5-6-10-comparison)
+- [x] [Synology Hybrid RAID 与卷组](./synology-hybrid-raid)
+- [x] [存储池、卷与文件系统规划](./storage-pool-volume-filesystem)
+- [x] [硬盘健康监控与 SMART](./disk-health-monitoring-smart)
+- [x] [坏道检测与硬盘更换流程](./bad-sector-detection-disk-replacement)
 
 ### 第3篇 系统部署与基础服务
 
-- [ ] 操作系统选择：DSM、QTS 与 TrueNAS（群晖/威联通官方文档）
-- [ ] 系统安装与初始化配置（群晖官方文档）
-- [ ] 用户、权限与共享文件夹（《NAS 搭建与私有云》第5章）
-- [ ] 存储池与卷的创建管理（威联通官方文档）
-- [ ] 文件服务：SMB/NFS/AFP 与挂载（《家庭数据中心搭建》第5章）
-- [ ] Docker 基础与容器化应用部署（《NAS 搭建与私有云》第6章）
+- [x] [操作系统选择：DSM、QTS 与 TrueNAS](./nas-os-selection)
+- [x] [系统安装与初始化配置](./nas-system-installation)
+- [x] [用户、权限与共享文件夹](./nas-users-permissions-shares)
+- [x] [存储池与卷的创建管理（威联通）](./qnap-storage-pool-volume-management)
+- [x] [文件服务：SMB/NFS/AFP 与挂载](./file-services-smb-nfs-afp)
+- [x] [Docker 基础与容器化应用部署](./docker-basics-container-deployment)
 
 ### 第4篇 远程访问与网络安全
 
-- [ ] 内网穿透与 DDNS 基础（《NAS 搭建与私有云》第7章）
-- [ ] QuickConnect 与零配置远程访问（群晖官方文档）
-- [ ] 路由器端口转发与 UPnP（《家庭数据中心搭建》第6章）
-- [ ] 公网 IP、IPv6 与异地组网（《家庭数据中心搭建》第7章）
-- [ ] SSL 证书与 HTTPS 加密访问（《NAS 搭建与私有云》第8章）
-- [ ] 网络安全基线：防火墙与防暴力破解（《NAS 搭建与私有云》第8章）
+- [x] [内网穿透与 DDNS 基础](./nat-traversal-ddns-basics)
+- [x] [QuickConnect 与零配置远程访问](./synology-quickconnect)
+- [x] [路由器端口转发与 UPnP](./router-port-forwarding-upnp)
+- [x] [公网 IP、IPv6 与异地组网](./public-ip-ipv6-remote-networking)
+- [x] [SSL 证书与 HTTPS 加密访问](./ssl-certificates-https)
+- [x] [网络安全基线：防火墙与防暴力破解](./network-security-baseline)
 
 ### 第5篇 私有云与数据备份
 
-- [ ] 私有云应用：相册、影音、笔记与网盘（《家庭数据中心搭建》第8章）
-- [ ] 多媒体管理：Plex/Jellyfin/Emby 影音库（《NAS 搭建与私有云》第9章）
-- [ ] 数据备份策略：3-2-1 原则（《家庭数据中心搭建》第9章）
-- [ ] 本地备份：Hyper Backup 与 Rsync（群晖官方文档）
-- [ ] 云备份与异地备份方案（《NAS 搭建与私有云》第10章）
-- [ ] 快照与版本回滚（群晖官方文档）
-- [ ] 灾难恢复与应急预案（《家庭数据中心搭建》第10章）
+- [x] [私有云应用：相册、影音、笔记与网盘](./private-cloud-apps)
+- [x] [多媒体管理：Plex/Jellyfin/Emby 影音库](./media-management-plex-jellyfin-emby)
+- [x] [数据备份策略：3-2-1 原则](./backup-strategy-3-2-1)
+- [x] [本地备份：Hyper Backup 与 Rsync](./local-backup-hyper-backup-rsync)
+- [x] [云备份与异地备份方案](./cloud-offsite-backup)
+- [x] [快照与版本回滚](./snapshots-version-rollback)
+- [x] [灾难恢复与应急预案](./disaster-recovery-emergency-plan)

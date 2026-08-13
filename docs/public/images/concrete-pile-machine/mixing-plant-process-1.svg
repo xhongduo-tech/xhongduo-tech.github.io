@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="sans-serif">
+  <title>混凝土搅拌站总体工艺流程示意</title>
+  <desc>骨料经配料机称量后由皮带送入搅拌主机，水泥与粉料经螺旋输送机送入主机，水和外加剂经管路计量泵入主机，主机搅拌后卸入搅拌运输车。</desc>
+  <rect width="720" height="340" fill="#faf9f5"/>
+  <!-- 骨料仓 -->
+  <rect x="30" y="40" width="110" height="70" rx="4" fill="#1f6f8b"/>
+  <text x="85" y="70" text-anchor="middle" font-size="14" fill="#fff">骨料仓</text>
+  <text x="85" y="92" text-anchor="middle" font-size="12" fill="#fff">砂/石</text>
+  <!-- 配料机 -->
+  <rect x="30" y="150" width="110" height="70" rx="4" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="85" y="180" text-anchor="middle" font-size="14" fill="#333">配料机</text>
+  <text x="85" y="200" text-anchor="middle" font-size="12" fill="#333">称量斗</text>
+  <!-- 皮带输送机 -->
+  <rect x="170" y="180" width="150" height="34" rx="4" fill="#e8e2d5" stroke="#333" stroke-width="1.5"/>
+  <text x="245" y="202" text-anchor="middle" font-size="14" fill="#333">皮带输送机</text>
+  <!-- 水泥仓 -->
+  <rect x="360" y="40" width="110" height="70" rx="4" fill="#c0392b"/>
+  <text x="415" y="70" text-anchor="middle" font-size="14" fill="#fff">水泥仓</text>
+  <text x="415" y="92" text-anchor="middle" font-size="12" fill="#fff">粉料</text>
+  <!-- 螺旋输送机 -->
+  <rect x="360" y="150" width="110" height="34" rx="4" fill="#e8e2d5" stroke="#333" stroke-width="1.5"/>
+  <text x="415" y="172" text-anchor="middle" font-size="13" fill="#333">螺旋输送机</text>
+  <!-- 搅拌主机 -->
+  <rect x="270" y="250" width="200" height="60" rx="4" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="370" y="278" text-anchor="middle" font-size="14" fill="#333">搅拌主机</text>
+  <text x="370" y="297" text-anchor="middle" font-size="12" fill="#333">双卧轴搅拌</text>
+  <!-- 卸料 -->
+  <rect x="520" y="258" width="150" height="44" rx="4" fill="#1f6f8b"/>
+  <text x="595" y="285" text-anchor="middle" font-size="14" fill="#fff">卸入搅拌车</text>
+  <!-- 水/外加剂 -->
+  <rect x="520" y="150" width="150" height="44" rx="4" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="595" y="168" text-anchor="middle" font-size="13" fill="#333">水/外加剂</text>
+  <text x="595" y="186" text-anchor="middle" font-size="12" fill="#333">计量泵</text>
+  <!-- 箭头 -->
+  <line x1="85" y1="110" x2="85" y2="150" stroke="#333" stroke-width="1.5"/>
+  <polygon points="85,156 79,144 91,144" fill="#333"/>
+  <line x1="140" y1="185" x2="170" y2="185" stroke="#333" stroke-width="1.5"/>
+  <polygon points="176,185 164,179 164,191" fill="#333"/>
+  <line x1="320" y1="197" x2="360" y2="197" stroke="#333" stroke-width="1.5"/>
+  <polygon points="366,197 354,191 354,203" fill="#333"/>
+  <line x1="415" y1="110" x2="415" y2="150" stroke="#333" stroke-width="1.5"/>
+  <polygon points="415,156 409,144 421,144" fill="#333"/>
+  <line x1="470" y1="184" x2="520" y2="184" stroke="#333" stroke-width="1.5"/>
+  <polygon points="526,184 514,178 514,190" fill="#333"/>
+  <line x1="520" y1="194" x2="520" y2="258" stroke="#333" stroke-width="1.5"/>
+  <polygon points="520,264 514,252 526,252" fill="#333"/>
+  <line x1="470" y1="280" x2="520" y2="280" stroke="#333" stroke-width="1.5"/>
+  <polygon points="526,280 514,274 514,286" fill="#333"/>
+</svg>

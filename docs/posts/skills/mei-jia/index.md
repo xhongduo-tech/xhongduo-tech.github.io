@@ -23,31 +23,31 @@ pageClass: plain-doc
 - [x] [卫生消毒与安全规范](./hygiene-disinfection-safety)（美甲师职业技能标准 卫生安全）
 - [x] [手部清洁与软化护理](./hand-cleaning-softening)（美甲教程 第2章）
 - [x] [甲型修剪与打磨塑形](./nail-shaping-filing)（美甲教程 第3章）
-- [ ] 指皮护理与甲周护理（美甲教程 第4章）
-- [ ] 底油涂法与基础养护（美甲教程 第5章）
+- [x] [指皮护理与甲周护理](./cuticle-para-nail-care)（美甲教程 第4章）
+- [x] [底油涂法与基础养护](./base-coat-basic-care)（美甲教程 第5章）
 
 ### 第2篇 彩绘与美甲艺术设计
 
-- [ ] 色彩理论与配色基础（美甲艺术 第1章）
-- [ ] 指甲油涂抹技巧（美甲教程 第6章）
-- [ ] 彩绘工具与画笔运用（美甲艺术 第2章）
-- [ ] 基础彩绘图案技法（美甲艺术 第3章）
-- [ ] 法式美甲与渐变技法（美甲艺术 第4章）
-- [ ] 雕花与浮雕艺术（美甲艺术 第5章）
-- [ ] 主题设计与整体造型（美甲艺术 第6章）
+- [x] [色彩理论与配色基础](./color-theory-matching)（美甲艺术 第1章）
+- [x] [指甲油涂抹技巧](./polish-application-techniques)（美甲教程 第6章）
+- [x] [彩绘工具与画笔运用](./nail-art-brushes-tools)（美甲艺术 第2章）
+- [x] [基础彩绘图案技法](./basic-nail-art-patterns)（美甲艺术 第3章）
+- [x] [法式美甲与渐变技法](./french-manicure-gradient)（美甲艺术 第4章）
+- [x] [雕花与浮雕艺术](./carving-relief-art)（美甲艺术 第5章）
+- [x] [主题设计与整体造型](./theme-design-overall-styling)（美甲艺术 第6章）
 
 ### 第3篇 延长与建构技术
 
-- [ ] 甲片延长与贴片技术（美甲教程 第7章）
-- [ ] 水晶甲制作（美甲教程 第8章）
-- [ ] 光疗凝胶甲制作（美甲教程 第9章）
-- [ ] 甲面建构与加固（美甲教程 第10章）
-- [ ] 延长甲修复与卸除（美甲教程 第11章）
+- [x] [甲片延长与贴片技术](./nail-extension-tips)（美甲教程 第7章）
+- [x] [水晶甲制作](./acrylic-nails)（美甲教程 第8章）
+- [x] [光疗凝胶甲制作](./gel-nails)（美甲教程 第9章）
+- [x] [甲面建构与加固](./nail-construction-reinforcement)（美甲教程 第10章）
+- [x] [延长甲修复与卸除](./extension-repair-removal)（美甲教程 第11章）
 
 ### 第4篇 美甲师职业规范与经营
 
-- [ ] 美甲师职业素养与行为规范（美甲师职业技能标准 职业道德）
-- [ ] 客户沟通与需求分析（美甲师职业技能标准 服务规范）
-- [ ] 卫生管理与设备维护（美甲师职业技能标准 安全卫生）
-- [ ] 作品摄影与个人风格建立（美甲艺术 第7章）
-- [ ] 美甲门店经营与客户维护（美甲师职业技能标准 经营管理）
+- [x] [美甲师职业素养与行为规范](./professional-ethics-conduct)（美甲师职业技能标准 职业道德）
+- [x] [客户沟通与需求分析](./client-communication-needs)（美甲师职业技能标准 服务规范）
+- [x] [卫生管理与设备维护](./sanitation-management-maintenance)（美甲师职业技能标准 安全卫生）
+- [x] [作品摄影与个人风格建立](./work-photography-personal-style)（美甲艺术 第7章）
+- [x] [美甲门店经营与客户维护](./shop-operation-customer-retention)（美甲师职业技能标准 经营管理）

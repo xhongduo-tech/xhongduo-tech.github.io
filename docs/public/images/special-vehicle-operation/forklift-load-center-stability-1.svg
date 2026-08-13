@@ -1,0 +1,30 @@
+<svg viewBox="0 0 560 400" width="560" height="400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<title>叉车载荷曲线示意</title>
+<desc>横轴为载荷中心距（毫米），纵轴为允许起重量（公斤），曲线随载荷中心距增大而下降，额定点标注在 500 毫米、3000 公斤处。</desc>
+<rect x="0" y="0" width="560" height="400" fill="#faf9f5"/>
+<text x="280" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">叉车载荷曲线（额定 3 t，标准载荷中心 500 mm）</text>
+<!-- 坐标轴 -->
+<line x1="80" y1="330" x2="520" y2="330" stroke="#333" stroke-width="1.5"/>
+<line x1="80" y1="50" x2="80" y2="330" stroke="#333" stroke-width="1.5"/>
+<!-- 刻度与轴名 -->
+<text x="300" y="355" text-anchor="middle" font-size="14" fill="#333">载荷中心距（mm）</text>
+<text x="38" y="190" text-anchor="middle" font-size="14" fill="#333" transform="rotate(-90 38 190)">允许起重量（kg）</text>
+<text x="500" y="348" text-anchor="middle" font-size="13" fill="#333">800</text>
+<text x="373" y="348" text-anchor="middle" font-size="13" fill="#333">700</text>
+<text x="300" y="348" text-anchor="middle" font-size="13" fill="#333">600</text>
+<text x="227" y="348" text-anchor="middle" font-size="13" fill="#333">500</text>
+<text x="80" y="348" text-anchor="middle" font-size="13" fill="#333">400</text>
+<text x="70" y="124" text-anchor="end" font-size="13" fill="#333">3000</text>
+<text x="70" y="194" text-anchor="end" font-size="13" fill="#333">2500</text>
+<text x="70" y="264" text-anchor="end" font-size="13" fill="#333">2000</text>
+<text x="70" y="324" text-anchor="end" font-size="13" fill="#333">1500</text>
+<!-- 曲线 -->
+<polyline points="227,120 300,190 373,240 447,278" fill="none" stroke="#c0392b" stroke-width="3"/>
+<!-- 额定点 -->
+<circle cx="227" cy="120" r="5" fill="#1f6f8b"/>
+<line x1="227" y1="120" x2="227" y2="330" stroke="#1f6f8b" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="227" y="105" text-anchor="middle" font-size="14" fill="#1f6f8b" font-weight="bold">额定点 3000 kg</text>
+<!-- 示意说明 -->
+<text x="420" y="110" text-anchor="middle" font-size="13" fill="#333">载荷中心越远，</text>
+<text x="420" y="128" text-anchor="middle" font-size="13" fill="#333">允许起重量越小</text>
+</svg>

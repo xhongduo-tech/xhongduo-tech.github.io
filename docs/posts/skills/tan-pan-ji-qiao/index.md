@@ -20,43 +20,43 @@ pageClass: plain-doc
 
 - [x] [谈判的本质与两种谈判范式](./negotiation-nature-paradigms)
 - [x] [不要把立场当作讨价还价的筹码](./bargain-over-positions)
-- [ ] 把人与问题分开（《谈判力》第2章）
-- [ ] 着眼于利益而非立场（《谈判力》第3章）
-- [ ] 为共同利益创造选择方案（《谈判力》第4章）
-- [ ] 坚持使用客观标准（《谈判力》第5章）
+- [x] [把人与问题分开](./separate-people-from-problem)
+- [x] [着眼于利益而非立场](./focus-on-interests)
+- [x] [为共同利益创造选择方案](./invent-options-mutual-gain)
+- [x] [坚持使用客观标准](./objective-criteria)
 
 ### 第2篇 谈判准备与策略设计
 
-- [ ] BATNA 与最佳替代方案（《谈判力》第6章）
-- [ ] 谈判前的信息收集与目标设定（《哈佛谈判课》准备篇）
-- [ ] 锚定、报价与开价策略（《哈佛谈判课》报价策略）
-- [ ] 让步与互惠的节奏设计（《影响力》第2章）
-- [ ] 谈判中的沟通与提问技巧（《哈佛谈判课》沟通篇）
-- [ ] 时间压力与谈判节奏控制（《哈佛谈判课》战术篇）
+- [x] [BATNA 与最佳替代方案](./batna-best-alternative)
+- [x] [谈判前的信息收集与目标设定](./preparation-info-goals)
+- [x] [锚定、报价与开价策略](./anchoring-price-offer)
+- [x] [让步与互惠的节奏设计](./concession-reciprocity)
+- [x] [谈判中的沟通与提问技巧](./communication-questioning)
+- [x] [时间压力与谈判节奏控制](./time-pressure-rhythm)
 
 ### 第3篇 说服心理学与影响力法则
 
-- [ ] 影响力的武器与自动顺从（《影响力》第1章）
-- [ ] 互惠原理（《影响力》第2章）
-- [ ] 承诺与一致性原理（《影响力》第3章）
-- [ ] 社会认同原理（《影响力》第4章）
-- [ ] 喜好原理（《影响力》第5章）
-- [ ] 权威原理（《影响力》第6章）
-- [ ] 稀缺原理（《影响力》第7章）
-- [ ] 联合原理与即时影响力（《影响力》第8章）
+- [x] [影响力的武器与自动顺从](./weapons-of-influence)
+- [x] [互惠原理](./reciprocity-principle)
+- [x] [承诺与一致性原理](./commitment-consistency)
+- [x] [社会认同原理](./social-proof)
+- [x] [喜好原理](./liking-principle)
+- [x] [权威原理](./authority-principle)
+- [x] [稀缺原理](./scarcity-principle)
+- [x] [联合原理与即时影响力](./unity-instant-influence)
 
 ### 第4篇 实战场景谈判
 
-- [ ] 与难对付的人谈判（《谈判力》第8章）
-- [ ] 识别并应对对方的谈判战术（《谈判力》第9章）
-- [ ] 多方谈判与团队谈判（《哈佛谈判课》多方谈判）
-- [ ] 代理、中介与第三方介入（《哈佛谈判课》第三方篇）
-- [ ] 薪酬与职业发展谈判（《哈佛谈判课》职场篇）
-- [ ] 采购与销售的商业谈判（《哈佛谈判课》商业篇）
+- [x] [与难对付的人谈判](./difficult-people)
+- [x] [识别并应对对方的谈判战术](./counter-tactics)
+- [x] [多方谈判与团队谈判](./multiparty-team-negotiation)
+- [x] [代理、中介与第三方介入](./agents-third-party)
+- [x] [薪酬与职业发展谈判](./salary-career-negotiation)
+- [x] [采购与销售的商业谈判](./procurement-sales-negotiation)
 
 ### 第5篇 关系与跨文化谈判进阶
 
-- [ ] 情绪管理与谈判心理（《哈佛谈判课》心理篇）
-- [ ] 关系型谈判与长期合作（《哈佛谈判课》关系篇）
-- [ ] 跨文化谈判与风格差异（《哈佛谈判课》跨文化篇）
-- [ ] 谈判复盘、评估与能力提升（《哈佛谈判课》总结篇）
+- [x] [情绪管理与谈判心理](./emotion-negotiation-psychology)
+- [x] [关系型谈判与长期合作](./relationship-long-term)
+- [x] [跨文化谈判与风格差异](./cross-cultural-negotiation)
+- [x] [谈判复盘、评估与能力提升](./review-improvement)

@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>定位不是你对产品做的事，而是你对潜在顾客的心智做的事。</p>
-<footer>—— 艾 · 里斯、杰克 · 特劳特（Al Ries & Jack Trout, *Positioning: The Battle for Your Mind*）</footer>
+<footer>—— 艾 · 里斯、杰克 · 特劳特（Al Ries & Jack Trout, *Positioning: The Battle for Your Mind\*）</footer>
 </div>
 
 <div class="article-byline">

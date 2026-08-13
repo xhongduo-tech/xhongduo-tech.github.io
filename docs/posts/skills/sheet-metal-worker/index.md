@@ -20,43 +20,43 @@ pageClass: plain-doc
 
 - [x] [冷作钣金工职业概述与安全操作规程](./occupation-overview-safety-rules)
 - [x] [钣金加工常用设备与工量具认知](./equipment-tools-measuring)
-- [ ] 机械制图基础与三视图识读（《钣金工手册》第2章）
-- [ ] 展开放样原理与常用展开方法（《钣金工手册》第3章）
-- [ ] 钣金常用金属材料与性能选用（《钣金工手册》第4章）
-- [ ] 下料尺寸公差与质量检验（职业技能标准 基础知识）
+- [x] [机械制图基础与三视图识读](./mechanical-drawing-three-view)
+- [x] [展开放样原理与常用展开方法](./development-layout-principles-methods)
+- [x] [钣金常用金属材料与性能选用](./sheet-metal-materials-selection)
+- [x] [下料尺寸公差与质量检验](./blanking-tolerance-quality-inspection)
 
 ### 第2篇 板材下料与切割成形
 
-- [ ] 划线下料与手工剪切工艺（《钣金工手册》第5章）
-- [ ] 机械剪切机操作与剪刃调整（《钣金工手册》第6章）
-- [ ] 氧气切割与火焰切割工艺（《钣金工手册》第7章）
-- [ ] 等离子切割与数控切割技术（《钣金工手册》第8章）
-- [ ] 冲裁下料与冲模选用（职业技能标准 冲压下料）
-- [ ] 下料常见缺陷分析与矫正（职业技能标准 下料检验）
+- [x] [划线下料与手工剪切工艺](./marking-manual-shearing)
+- [x] [机械剪切机操作与剪刃调整](./mechanical-shear-operation-blade-adjustment)
+- [x] [氧气切割与火焰切割工艺](./oxy-fuel-cutting)
+- [x] [等离子切割与数控切割技术](./plasma-nc-cutting)
+- [x] [冲裁下料与冲模选用](./blanking-die-selection)
+- [x] [下料常见缺陷分析与矫正](./blanking-defects-correction)
 
 ### 第3篇 折弯、冲压与成形工艺
 
-- [ ] 手工折弯与板料弯曲原理（《钣金工手册》第9章）
-- [ ] 折弯机操作与折弯系数计算（《钣金工手册》第10章）
-- [ ] 卷板成形与卷板机操作（《钣金工手册》第11章）
-- [ ] 冲压成形工艺与模具结构（《钣金工手册》第12章）
-- [ ] 翻边、卷边与咬边工艺（职业技能标准 成形）
-- [ ] 成形质量缺陷分析与矫正技术（《钣金工手册》第13章）
+- [x] [手工折弯与板料弯曲原理](./hand-bending-plate-bending-principles)
+- [x] [折弯机操作与折弯系数计算](./press-brake-operation-bend-allowance)
+- [x] [卷板成形与卷板机操作](./plate-rolling-roll-bending)
+- [x] [冲压成形工艺与模具结构](./stamping-process-die-structure)
+- [x] [翻边、卷边与咬边工艺](./flanging-curling-seaming)
+- [x] [成形质量缺陷分析与矫正技术](./forming-defects-analysis-correction)
 
 ### 第4篇 焊接拼装与连接装配
 
-- [ ] 焊接基础与常用焊接方法（《钣金工手册》第14章）
-- [ ] 手工电弧焊操作技术（《钣金工手册》第15章）
-- [ ] 气焊、钎焊与气体保护焊（《钣金工手册》第16章）
-- [ ] 铆接与螺栓连接工艺（职业技能标准 连接装配）
-- [ ] 构件拼装与装配基准选择（职业技能标准 装配）
-- [ ] 焊接变形控制与构件检验（《钣金工手册》第17章）
+- [x] [焊接基础与常用焊接方法](./welding-basics-common-methods)
+- [x] [手工电弧焊操作技术](./manual-arc-welding-technique)
+- [x] [气焊、钎焊与气体保护焊](./gas-brazing-mig-tig-welding)
+- [x] [铆接与螺栓连接工艺](./riveting-bolting)
+- [x] [构件拼装与装配基准选择](./assembly-datum-selection)
+- [x] [焊接变形控制与构件检验](./welding-deformation-control-inspection)
 
 ### 第5篇 汽车车身钣金修复
 
-- [ ] 汽车车身结构与碰撞损伤评估（《汽车车身修复技术》第3章）
-- [ ] 车身测量与拉伸矫正定位（《汽车车身修复技术》第4章）
-- [ ] 车身板件手工整形与敲击修平（《汽车车身修复技术》第5章）
-- [ ] 车身焊接与板件更换（《汽车车身修复技术》第6章）
-- [ ] 加热矫正与结构件修复（《汽车车身修复技术》第7章）
-- [ ] 车身修复质量检验与竣工验收（《汽车车身修复技术》第9章）
+- [x] [汽车车身结构与碰撞损伤评估](./vehicle-body-structure-damage-assessment)
+- [x] [车身测量与拉伸矫正定位](./body-measuring-pull-correction)
+- [x] [车身板件手工整形与敲击修平](./panel-beating-hand-finishing)
+- [x] [车身焊接与板件更换](./body-welding-panel-replacement)
+- [x] [加热矫正与结构件修复](./heat-straightening-structural-repair)
+- [x] [车身修复质量检验与竣工验收](./repair-quality-inspection-acceptance)

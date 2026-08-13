@@ -1,0 +1,78 @@
+<svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>两居室功能分区示意图</title>
+  <desc>一个典型两居室公寓的平面功能分区图：动区（客厅、餐厅、厨房）靠入口与走廊一侧，静区（主卧、次卧）靠里侧，湿区（厨房、卫生间）集中布置，玄关与走廊构成过渡区。</desc>
+
+  <!-- 标题 -->
+  <text x="400" y="40" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">两居室功能分区示意</text>
+
+  <!-- 功能分区色块 -->
+  <!-- 玄关（过渡区） -->
+  <rect x="20" y="60" width="180" height="180" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+  <text x="110" y="130" text-anchor="middle" font-size="18" fill="#333">玄关</text>
+  <text x="110" y="156" text-anchor="middle" font-size="13" fill="#666">过渡区</text>
+
+  <!-- 厨房（湿区） -->
+  <rect x="200" y="60" width="180" height="200" fill="#dbeae2" stroke="#333" stroke-width="2"/>
+  <text x="290" y="140" text-anchor="middle" font-size="18" fill="#333">厨房</text>
+  <text x="290" y="166" text-anchor="middle" font-size="13" fill="#666">湿区 · 动区</text>
+
+  <!-- 卫生间（湿区） -->
+  <rect x="380" y="60" width="160" height="200" fill="#dbeae2" stroke="#333" stroke-width="2"/>
+  <text x="460" y="140" text-anchor="middle" font-size="18" fill="#333">卫生间</text>
+  <text x="460" y="166" text-anchor="middle" font-size="13" fill="#666">湿区</text>
+
+  <!-- 次卧（静区） -->
+  <rect x="540" y="60" width="240" height="260" fill="#f3e9da" stroke="#333" stroke-width="2"/>
+  <text x="660" y="170" text-anchor="middle" font-size="18" fill="#333">次卧</text>
+  <text x="660" y="196" text-anchor="middle" font-size="13" fill="#666">静区</text>
+
+  <!-- 走廊（过渡区） -->
+  <rect x="20" y="240" width="520" height="80" fill="#faf9f5" stroke="#333" stroke-width="2"/>
+  <text x="280" y="286" text-anchor="middle" font-size="16" fill="#666">走廊（过渡区）</text>
+
+  <!-- 客厅（动区） -->
+  <rect x="20" y="320" width="360" height="320" fill="#dcecf1" stroke="#333" stroke-width="2"/>
+  <text x="200" y="460" text-anchor="middle" font-size="18" fill="#333">客厅</text>
+  <text x="200" y="486" text-anchor="middle" font-size="13" fill="#666">动区</text>
+
+  <!-- 餐厅（动区） -->
+  <rect x="380" y="320" width="160" height="320" fill="#dcecf1" stroke="#333" stroke-width="2"/>
+  <text x="460" y="460" text-anchor="middle" font-size="18" fill="#333">餐厅</text>
+  <text x="460" y="486" text-anchor="middle" font-size="13" fill="#666">动区</text>
+
+  <!-- 主卧（静区） -->
+  <rect x="540" y="320" width="240" height="320" fill="#f3e9da" stroke="#333" stroke-width="2"/>
+  <text x="660" y="460" text-anchor="middle" font-size="18" fill="#333">主卧</text>
+  <text x="660" y="486" text-anchor="middle" font-size="13" fill="#666">静区</text>
+
+  <!-- 门（青色的开门弧） -->
+  <!-- 入户门：玄关左侧外墙 -->
+  <path d="M 20 110 A 40 40 0 0 1 60 70 L 20 70 Z" fill="#1f6f8b" opacity="0.85"/>
+  <!-- 玄关→走廊 -->
+  <path d="M 110 240 A 40 40 0 0 0 70 280 L 110 280 Z" fill="#1f6f8b" opacity="0.85"/>
+  <!-- 厨房→走廊 -->
+  <path d="M 290 260 A 40 40 0 0 0 250 300 L 290 300 Z" fill="#1f6f8b" opacity="0.85"/>
+  <!-- 卫生间→走廊 -->
+  <path d="M 460 260 A 40 40 0 0 0 420 300 L 460 300 Z" fill="#1f6f8b" opacity="0.85"/>
+  <!-- 走廊→次卧 -->
+  <path d="M 540 250 A 40 40 0 0 1 580 210 L 580 250 Z" fill="#1f6f8b" opacity="0.85"/>
+  <!-- 走廊→客厅 -->
+  <path d="M 200 320 A 40 40 0 0 0 160 360 L 200 360 Z" fill="#1f6f8b" opacity="0.85"/>
+  <!-- 走廊→餐厅 -->
+  <path d="M 460 320 A 40 40 0 0 0 420 360 L 460 360 Z" fill="#1f6f8b" opacity="0.85"/>
+  <!-- 走廊→主卧 -->
+  <path d="M 540 330 A 40 40 0 0 1 580 290 L 580 330 Z" fill="#1f6f8b" opacity="0.85"/>
+
+  <!-- 图例 -->
+  <line x1="60" y1="660" x2="660" y2="660" stroke="#ccc" stroke-width="1"/>
+  <rect x="60" y="676" width="24" height="16" fill="#dcecf1" stroke="#333" stroke-width="1"/>
+  <text x="92" y="689" font-size="14" fill="#333">动区</text>
+  <rect x="180" y="676" width="24" height="16" fill="#f3e9da" stroke="#333" stroke-width="1"/>
+  <text x="212" y="689" font-size="14" fill="#333">静区</text>
+  <rect x="300" y="676" width="24" height="16" fill="#dbeae2" stroke="#333" stroke-width="1"/>
+  <text x="332" y="689" font-size="14" fill="#333">湿区</text>
+  <rect x="420" y="676" width="24" height="16" fill="#faf9f5" stroke="#333" stroke-width="1"/>
+  <text x="452" y="689" font-size="14" fill="#333">过渡区</text>
+  <path d="M 560 684 A 12 12 0 0 1 572 672 L 572 684 Z" fill="#1f6f8b" opacity="0.85"/>
+  <text x="580" y="689" font-size="14" fill="#333">门</text>
+</svg>

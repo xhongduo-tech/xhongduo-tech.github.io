@@ -18,37 +18,37 @@ pageClass: plain-doc
 
 ### 第1篇 白酒基础与香型体系
 
-- [ ] 中国白酒的定义、分类与基本生产工艺（《中国白酒品评》第1章）
-- [ ] 白酒香型体系与典型代表概述（《中国白酒品评》第2章）
-- [ ] 酱香型白酒工艺与风味特点（《中国白酒品评》第3章）
-- [ ] 浓香型白酒工艺与风味特点（《中国白酒品评》第4章）
-- [ ] 清香型白酒工艺与风味特点（《中国白酒品评》第5章）
-- [ ] 米香、凤香、兼香及其他香型（《中国白酒品评》第6章）
-- [ ] 原料、曲药与发酵贮存对酒体的影响（《中国白酒品评》第7章）
+- [x] [中国白酒的定义、分类与基本生产工艺](./chinese-baijiu-definition-classification-process)
+- [x] [白酒香型体系与典型代表概述](./baijiu-aroma-type-system-overview)
+- [x] [酱香型白酒工艺与风味特点](./jiangxiang-aroma-process-flavor)
+- [x] [浓香型白酒工艺与风味特点](./nongxiang-aroma-process-flavor)
+- [x] [清香型白酒工艺与风味特点](./qingxiang-aroma-process-flavor)
+- [x] [米香、凤香、兼香及其他香型](./mixiang-fengxiang-jianxiang-other-aromas)
+- [x] [原料、曲药与发酵贮存对酒体的影响](./raw-materials-qu-fermentation-aging-effects)
 
 ### 第2篇 白酒品评原理与方法
 
-- [ ] 感官品评的生理学与心理学基础（《中国白酒品评》第8章）
-- [ ] 品评环境、器皿与品评程序（《中国白酒品评》第9章）
-- [ ] 色泽、香气、口味与风格四要素（《中国白酒品评》第10章）
-- [ ] 白酒评语与感官描述术语体系（《中国白酒品评》第11章）
-- [ ] 名优白酒的对比品评与实战练习（《中国白酒品评》第12章）
-- [ ] 白酒常见缺陷与异味识别（《中国白酒品评》第13章）
+- [x] [感官品评的生理学与心理学基础](./sensory-evaluation-physiology-psychology)
+- [x] [品评环境、器皿与品评程序](./tasting-environment-vessels-procedure)
+- [x] [色泽、香气、口味与风格四要素](./color-aroma-taste-style-four-elements)
+- [x] [白酒评语与感官描述术语体系](./tasting-notes-description-terminology)
+- [x] [名优白酒的对比品评与实战练习](./famous-liquor-comparative-tasting)
+- [x] [白酒常见缺陷与异味识别](./baijiu-defects-off-flavor-identification)
 
 ### 第3篇 品酒师职业标准与技能等级
 
-- [ ] 品酒师职业定义、等级划分与基本要求（《白酒品酒师国家职业技能标准》第1章）
-- [ ] 初级品酒师职业技能要求（《白酒品酒师国家职业技能标准》第2章）
-- [ ] 中级品酒师职业技能要求（《白酒品酒师国家职业技能标准》第3章）
-- [ ] 高级品酒师职业技能要求（《白酒品酒师国家职业技能标准》第4章）
-- [ ] 技师与高级技师职业技能要求（《白酒品酒师国家职业技能标准》第5章）
-- [ ] 品酒师考核鉴定、培训与职业发展（《白酒品酒师国家职业技能标准》第6章）
+- [x] [品酒师职业定义、等级划分与基本要求](./taster-profession-definition-levels-requirements)
+- [x] [初级品酒师职业技能要求](./junior-taster-skill-requirements)
+- [x] [中级品酒师职业技能要求](./intermediate-taster-skill-requirements)
+- [x] [高级品酒师职业技能要求](./senior-taster-skill-requirements)
+- [x] [技师与高级技师职业技能要求](./technician-senior-technician-skill-requirements)
+- [x] [品酒师考核鉴定、培训与职业发展](./taster-certification-training-career)
 
 ### 第4篇 中华酒文化与酒礼酒俗
 
-- [ ] 中国酒史源流与酒的起源（《中国酒文化》第1章）
-- [ ] 酒与文学艺术的交融（《中国酒文化》第2章）
-- [ ] 酒礼酒俗与宴饮文化（《中国酒文化》第3章）
-- [ ] 名酒文化与地域酒俗（《中国酒文化》第4章）
-- [ ] 酒令、酒德与饮酒礼仪（《中国酒文化》第5章）
-- [ ] 酒文化在当代的传承与创新（《中国酒文化》第6章）
+- [x] [中国酒史源流与酒的起源](./chinese-liquor-history-origin)
+- [x] [酒与文学艺术的交融](./liquor-literature-art-intertwining)
+- [x] [酒礼酒俗与宴饮文化](./liquor-etiquette-banquet-culture)
+- [x] [名酒文化与地域酒俗](./famous-liquor-culture-regional-customs)
+- [x] [酒令、酒德与饮酒礼仪](./drinking-games-morality-etiquette)
+- [x] [酒文化在当代的传承与创新](./liquor-culture-contemporary-inheritance-innovation)

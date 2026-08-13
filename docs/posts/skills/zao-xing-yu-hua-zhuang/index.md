@@ -23,35 +23,35 @@ pageClass: plain-doc
 - [x] [面部结构与三庭五眼美学](./facial-structure-three-fifths-aesthetics)
 - [x] [皮肤类型认识与妆前护理](./skin-types-pre-makeup-care)
 - [x] [化妆色彩基础与配色原理](./makeup-color-theory)
-- [ ] 化妆工具的认识、选择与保养（《化妆造型》第4章）
-- [ ] 化妆品的选择与使用规范（化妆师职业技能标准 基础知识部分）
+- [x] [化妆工具的认识、选择与保养](./makeup-tools-selection-care)
+- [x] [化妆品的选择与使用规范](./cosmetics-selection-usage)
 
 ### 第2篇 基础化妆技术
 
-- [ ] 底妆技术：粉底选择与上妆手法（《日常妆与新娘妆》第2章）
-- [ ] 遮瑕技术：瑕疵修饰与立体轮廓（《日常妆与新娘妆》第2章）
-- [ ] 眉妆技术：眉形设计与画眉手法（《化妆造型》第5章）
-- [ ] 眼妆技术：眼影晕染与眼线画法（《化妆造型》第6章）
-- [ ] 睫毛技术：夹翘、睫毛膏与假睫毛（《化妆造型》第6章）
-- [ ] 腮红与修容：面部立体感塑造（《化妆造型》第7章）
-- [ ] 唇妆技术：唇形修正与口红应用（《化妆造型》第7章）
-- [ ] 整体定妆与补妆技巧（《日常妆与新娘妆》第3章）
+- [x] [底妆技术：粉底选择与上妆手法](./foundation-selection-application)
+- [x] [遮瑕技术：瑕疵修饰与立体轮廓](./concealer-correction-contouring)
+- [x] [眉妆技术：眉形设计与画眉手法](./eyebrow-design-techniques)
+- [x] [眼妆技术：眼影晕染与眼线画法](./eyeshadow-eyeliner-techniques)
+- [x] [睫毛技术：夹翘、睫毛膏与假睫毛](./eyelash-curling-mascara-false)
+- [x] [腮红与修容：面部立体感塑造](./blush-contouring-sculpting)
+- [x] [唇妆技术：唇形修正与口红应用](./lipstick-lip-shape-techniques)
+- [x] [整体定妆与补妆技巧](./setting-makeup-retouch)
 
 ### 第3篇 场合妆容与造型设计
 
-- [ ] 日常通勤妆的画法（《日常妆与新娘妆》第4章）
-- [ ] 职业妆容：得体专业形象的打造（《日常妆与新娘妆》第5章）
-- [ ] 晚宴妆与社交妆（《日常妆与新娘妆》第6章）
-- [ ] 舞台妆：舞台灯光下的妆容设计（《化妆造型》第8章）
-- [ ] 摄影妆与镜头妆容（《化妆造型》第9章）
-- [ ] 发型设计与脸型搭配（《化妆造型》第10章）
-- [ ] 整体造型设计：妆、发、服与色彩搭配（《化妆造型》第11章）
+- [x] [日常通勤妆的画法](./daily-commute-makeup)
+- [x] [职业妆容：得体专业形象的打造](./professional-business-makeup)
+- [x] [晚宴妆与社交妆](./evening-party-makeup)
+- [x] [舞台妆：舞台灯光下的妆容设计](./stage-makeup-lighting)
+- [x] [摄影妆与镜头妆容](./photography-camera-makeup)
+- [x] [发型设计与脸型搭配](./hairstyle-face-shape-matching)
+- [x] [整体造型设计：妆、发、服与色彩搭配](./overall-styling-design)
 
 ### 第4篇 新娘妆与职业进阶
 
-- [ ] 新娘妆的特点与妆前沟通（《日常妆与新娘妆》第7章）
-- [ ] 新娘妆的底妆与持久定妆（《日常妆与新娘妆》第7章）
-- [ ] 新娘妆的眼妆与唇妆打造（《日常妆与新娘妆》第8章）
-- [ ] 新娘发型与头纱造型设计（《日常妆与新娘妆》第9章）
-- [ ] 婚礼当天跟妆与快速补妆（《日常妆与新娘妆》第10章）
-- [ ] 化妆师职业技能标准与等级考核（化妆师职业技能标准 职业技能鉴定部分）
+- [x] [新娘妆的特点与妆前沟通](./bridal-makeup-characteristics-consultation)
+- [x] [新娘妆的底妆与持久定妆](./bridal-base-long-lasting-set)
+- [x] [新娘妆的眼妆与唇妆打造](./bridal-eye-lip-makeup)
+- [x] [新娘发型与头纱造型设计](./bridal-hairstyle-veil-design)
+- [x] [婚礼当天跟妆与快速补妆](./wedding-day-follow-up-makeup)
+- [x] [化妆师职业技能标准与等级考核](./professional-standards-certification)

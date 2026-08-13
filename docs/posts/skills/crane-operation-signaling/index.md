@@ -22,32 +22,32 @@ pageClass: plain-doc
 - [x] [起重机司机(Q2)与起重指挥(Q1)的考核大纲要求](./q2-q1-examination-outline)
 - [x] [作业人员考核、发证与证书管理](./examination-certificate-management)
 - [x] [用人单位与作业人员的职责义务](./employer-worker-responsibilities)
-- [ ] 特种设备安全监督管理与法律责任（监督管理办法 第5章）
-- [ ] 起重机械作业的安全教育与事故预防（监督管理办法 第4章）
+- [x] [特种设备安全监督管理与法律责任](./supervision-legal-liability)
+- [x] [起重机械作业的安全教育与事故预防](./safety-education-accident-prevention)
 
 ### 第2篇
 
-- [ ] 起重机械的分类与工作原理（TSG Z6001 考核大纲）
-- [ ] 桥式、门式起重机的结构组成（TSG Z6001 考核大纲）
-- [ ] 塔式起重机的结构与稳定性（TSG Z6001 考核大纲）
-- [ ] 流动式起重机的结构与性能参数（TSG Z6001 考核大纲）
-- [ ] 钢丝绳、吊钩与吊索具（TSG Z6001 考核大纲）
-- [ ] 制动器、限位器与超载保护装置（TSG Z6001 考核大纲）
-- [ ] 起重机的交接班检查与维护保养（TSG Z6001 考核大纲）
+- [x] [起重机械的分类与工作原理](./crane-classification-working-principle)
+- [x] [桥式、门式起重机的结构组成](./bridge-gantry-crane-structure)
+- [x] [塔式起重机的结构与稳定性](./tower-crane-structure-stability)
+- [x] [流动式起重机的结构与性能参数](./mobile-crane-performance-parameters)
+- [x] [钢丝绳、吊钩与吊索具](./wire-rope-hook-slings)
+- [x] [制动器、限位器与超载保护装置](./brake-limiter-overload-protection)
+- [x] [起重机的交接班检查与维护保养](./shift-inspection-maintenance)
 
 ### 第3篇
 
-- [ ] 指挥信号的基本要求与沟通原则（GB 5082 第3章）
-- [ ] 手势信号（GB 5082 第4章）
-- [ ] 旗语信号（GB 5082 第5章）
-- [ ] 音响信号（GB 5082 第6章）
-- [ ] 信号指挥与司机的协同配合（GB 5082 第7章）
+- [x] [指挥信号的基本要求与沟通原则](./signal-basic-requirements-communication)
+- [x] [手势信号](./hand-signals)
+- [x] [旗语信号](./flag-signals)
+- [x] [音响信号](./audio-signals)
+- [x] [信号指挥与司机的协同配合](./signalman-driver-coordination)
 
 ### 第4篇
 
-- [ ] 吊运作业前的安全准备与作业方案（TSG Z6001 考核大纲）
-- [ ] 常用吊具索具的选择与检查（TSG Z6001 考核大纲）
-- [ ] 起重吊运的基本操作要领（TSG Z6001 考核大纲）
-- [ ] 大型构件与危险品吊装安全技术（TSG Z6001 考核大纲）
-- [ ] 起重指挥的现场站位与视线盲区控制（GB 5082 第5章）
-- [ ] 起重伤害事故的类型与应急处置（监督管理办法 第4章）
+- [x] [吊运作业前的安全准备与作业方案](./pre-lift-safety-preparation-work-plan)
+- [x] [常用吊具索具的选择与检查](./rigging-selection-inspection)
+- [x] [起重吊运的基本操作要领](./lifting-operation-essentials)
+- [x] [大型构件与危险品吊装安全技术](./heavy-oversized-dangerous-goods-lifting)
+- [x] [起重指挥的现场站位与视线盲区控制](./signalman-positioning-blind-spot-control)
+- [x] [起重伤害事故的类型与应急处置](./crane-injury-types-emergency-response)

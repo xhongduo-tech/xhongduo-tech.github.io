@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" font-family="sans-serif">
+  <title>女儿墙泛水节点剖面示意</title>
+  <desc>屋面防水层在女儿墙根部向上翻起做泛水，转角处设附加层，卷材收头用压条固定并嵌密封胶，泛水高度不小于 250mm。</desc>
+  <rect x="0" y="0" width="640" height="440" fill="#faf9f5"/>
+  <!-- 屋面找平层（浅灰） -->
+  <rect x="60" y="340" width="520" height="40" fill="#e8e4da" stroke="#333" stroke-width="1.5"/>
+  <text x="70" y="325" font-size="14" fill="#333">屋面找平层</text>
+  <!-- 防水层（红，横向） -->
+  <rect x="60" y="328" width="520" height="12" fill="#c0392b"/>
+  <text x="70" y="316" font-size="14" fill="#c0392b">屋面防水层</text>
+  <!-- 女儿墙（左侧结构） -->
+  <rect x="60" y="60" width="120" height="280" fill="#d8d4ca" stroke="#333" stroke-width="1.5"/>
+  <text x="80" y="180" font-size="15" fill="#333">女儿墙</text>
+  <!-- 转角附加层（深红，弧形） -->
+  <path d="M 60 328 Q 60 250 132 250" fill="none" stroke="#8b1a24" stroke-width="10" stroke-linecap="round"/>
+  <text x="140" y="300" font-size="13" fill="#8b1a24">转角附加层</text>
+  <!-- 泛水卷材沿女儿墙向上翻起 -->
+  <rect x="60" y="120" width="12" height="208" fill="#c0392b"/>
+  <text x="20" y="240" font-size="14" fill="#c0392b">泛水卷材</text>
+  <!-- 收头压条 -->
+  <rect x="50" y="104" width="32" height="16" fill="#1f6f8b"/>
+  <text x="88" y="116" font-size="13" fill="#1f6f8b">金属压条</text>
+  <!-- 密封胶 -->
+  <ellipse cx="72" cy="96" rx="26" ry="10" fill="#f2c94c"/>
+  <text x="102" y="82" font-size="13" fill="#8a6d00">密封胶封口</text>
+  <!-- 泛水高度标注 -->
+  <line x1="30" y1="120" x2="30" y2="250" stroke="#333" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="36" y="192" font-size="14" fill="#333">泛水高度 ≥ 250mm</text>
+  <!-- 密封胶至收头提示 -->
+  <line x1="96" y1="96" x2="96" y2="60" stroke="#333" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="104" y="64" font-size="13" fill="#333">收头距屋面最低处 ≥ 250mm</text>
+</svg>

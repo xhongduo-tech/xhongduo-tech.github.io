@@ -20,38 +20,38 @@ pageClass: plain-doc
 
 - [x] [每个广告必须完成的销售使命](./advertising-sales-mission)
 - [x] [概念先行：好文案的灵魂](./concept-first-soul)
-- [ ] 心理学运用：好奇心与自我利益（文案训练手册 第4章）
-- [ ] 具体化表达：让细节打动人心（文案训练手册 第5章）
-- [ ] 个人风格与可信度（文案训练手册 第6章）
-- [ ] 第一句话的魔力（文案训练手册 第7章）
-- [ ] 第二句话与段落节奏（文案训练手册 第8-9章）
-- [ ] 让文字带节奏与视觉构图（文案训练手册 第12-13章）
+- [x] [心理学运用：好奇心与自我利益](./psychology-curiosity-self-interest)
+- [x] [具体化表达：让细节打动人心](./specific-expression-details)
+- [x] [个人风格与可信度](./personal-style-credibility)
+- [x] [第一句话的魔力](./magic-first-sentence)
+- [x] [第二句话与段落节奏](./second-sentence-rhythm)
+- [x] [让文字带节奏与视觉构图](./rhythm-visual-composition)
 
 ### 第2篇 爆款文案实战
 
-- [ ] 卖点提炼：把购买理由写透（爆款文案 第1章）
-- [ ] 标题的五个套路（爆款文案 第2章）
-- [ ] 戳中痛点的开头（爆款文案 第3章）
-- [ ] 正文结构：SCQA 模型与说服逻辑（爆款文案 第3章）
-- [ ] 画面感与生动表达（爆款文案 第4章）
-- [ ] 权威背书与信任状（爆款文案 第5章）
-- [ ] 价格锚点与促成下单（爆款文案 第6章）
+- [x] [卖点提炼：把购买理由写透](./selling-point-extraction)
+- [x] [标题的五个套路](./headline-five-formulas)
+- [x] [戳中痛点的开头](./pain-point-openings)
+- [x] [正文结构：SCQA 模型与说服逻辑](./scqa-structure)
+- [x] [画面感与生动表达](./vivid-expression)
+- [x] [权威背书与信任状](./authority-endorsement)
+- [x] [价格锚点与促成下单](./price-anchor-conversion)
 
 ### 第3篇 自媒体写作进阶
 
-- [ ] 新媒体写作的底层认知（写作是最好的自我投资 第1章）
-- [ ] 选题技巧：好文章是选出来的（写作是最好的自我投资 第2章）
-- [ ] 标题打磨：决定打开率的关键（写作是最好的自我投资 第3章）
-- [ ] 文章结构：总分总与递进式框架（写作是最好的自我投资 第4章）
-- [ ] 素材收集与日常积累（写作是最好的自我投资 第5章）
-- [ ] 语言表达与行文节奏（写作是最好的自我投资 第6章）
-- [ ] 情绪价值：如何让人愿意转发（写作是最好的自我投资 第7章）
+- [x] [新媒体写作的底层认知](./new-media-writing-basics)
+- [x] [选题技巧：好文章是选出来的](./topic-selection)
+- [x] [标题打磨：决定打开率的关键](./headline-polishing)
+- [x] [文章结构：总分总与递进式框架](./article-structure)
+- [x] [素材收集与日常积累](./material-collection)
+- [x] [语言表达与行文节奏](./language-expression)
+- [x] [情绪价值：如何让人愿意转发](./emotional-value-sharing)
 
 ### 第4篇 平台运营与个人品牌
 
-- [ ] 平台特性：公众号、小红书、头条差异化运营（写作是最好的自我投资 第8章）
-- [ ] 排版与视觉呈现（写作是最好的自我投资 第8章）
-- [ ] 发布时间与账号定位（写作是最好的自我投资 第8章）
-- [ ] 数据复盘与选题迭代（写作是最好的自我投资 第9章）
-- [ ] 个人品牌建设与写作矩阵（写作是最好的自我投资 第10章）
-- [ ] 内容变现路径与商业写作（写作是最好的自我投资 第10章）
+- [x] [平台特性：公众号、小红书、头条差异化运营](./platform-differentiation)
+- [x] [排版与视觉呈现](./typography-visual-presentation)
+- [x] [发布时间与账号定位](./publish-time-account-positioning)
+- [x] [数据复盘与选题迭代](./data-review-iteration)
+- [x] [个人品牌建设与写作矩阵](./personal-brand-matrix)
+- [x] [内容变现路径与商业写作](./content-monetization)

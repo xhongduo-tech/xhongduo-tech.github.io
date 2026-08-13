@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 400" font-family="sans-serif">
+  <title>剑道试合场示意图</title>
+  <desc>剑道比赛场地示意：中央×标记、左右开始线、场地边界线及场外余地</desc>
+  <rect x="0" y="0" width="440" height="400" fill="#faf9f5"/>
+  <rect x="30" y="10" width="380" height="360" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="70" y="50" width="300" height="300" fill="#fff" stroke="#333" stroke-width="2.5"/>
+  <line x1="200" y1="90" x2="200" y2="130" stroke="#c0392b" stroke-width="3"/>
+  <line x1="180" y1="110" x2="220" y2="110" stroke="#c0392b" stroke-width="3"/>
+  <line x1="200" y1="130" x2="220" y2="110" stroke="#c0392b" stroke-width="3"/>
+  <line x1="200" y1="90" x2="180" y2="110" stroke="#c0392b" stroke-width="3"/>
+  <line x1="150" y1="180" x2="150" y2="240" stroke="#333" stroke-width="3"/>
+  <line x1="290" y1="180" x2="290" y2="240" stroke="#333" stroke-width="3"/>
+  <circle cx="220" cy="200" r="5" fill="#c0392b"/>
+  <text x="220" y="200" text-anchor="middle" font-size="13" fill="#c0392b">×</text>
+  <text x="220" y="375" text-anchor="middle" font-size="15" fill="#333">试合场（边长 9–11 m，含边界线）</text>
+  <text x="220" y="395" text-anchor="middle" font-size="13" fill="#666">场外余地 ≥ 1.5 m（虚线外区域）</text>
+  <text x="150" y="260" text-anchor="middle" font-size="13" fill="#333">开始线</text>
+  <text x="290" y="260" text-anchor="middle" font-size="13" fill="#333">开始线</text>
+  <text x="220" y="40" text-anchor="middle" font-size="13" fill="#666">中央 × 标记</text>
+  <text x="410" y="35" text-anchor="end" font-size="13" fill="#666">边界线（白线，宽 5–10 cm）</text>
+</svg>

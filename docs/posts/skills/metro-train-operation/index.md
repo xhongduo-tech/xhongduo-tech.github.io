@@ -27,35 +27,35 @@ pageClass: plain-doc
 
 ### 第2篇 车辆设备与行车基础
 
-- [ ] 城轨车辆结构与司机室设备（职业技能标准 第2章）
-- [ ] 牵引与制动系统原理（职业技能标准 第2章）
-- [ ] 信号系统与列车自动防护（职业技能标准 第2章）
-- [ ] 列车运行控制系统与驾驶模式（职业技能标准 第2章）
-- [ ] 车门系统与列车界面操作（职业技能标准 第2章）
-- [ ] 线路、站场与限界基础（职业技能标准 第2章）
+- [x] [城轨车辆结构与司机室设备](./metro-vehicle-structure-cab-equipment)
+- [x] [牵引与制动系统原理](./traction-braking-system-principles)
+- [x] [信号系统与列车自动防护](./signaling-system-automatic-train-protection)
+- [x] [列车运行控制系统与驾驶模式](./train-control-system-driving-modes)
+- [x] [车门系统与列车界面操作](./door-system-train-interface)
+- [x] [线路、站场与限界基础](./line-station-gauges-basics)
 
 ### 第3篇 列车驾驶操作技能
 
-- [ ] 出乘整备与列车检查作业（职业技能标准 第3章）
-- [ ] 列车起动、牵引与调速操作（职业技能标准 第3章）
-- [ ] 列车制动与停车对标作业（职业技能标准 第3章）
-- [ ] 自动驾驶与人工驾驶模式切换（职业技能标准 第3章）
-- [ ] 折返、连挂与调车作业（职业技能标准 第3章）
-- [ ] 车门开关与乘客上下车操作（职业技能标准 第3章）
+- [x] [出乘整备与列车检查作业](./pre-departure-preparation-inspection)
+- [x] [列车起动、牵引与调速操作](./train-starting-traction-speed-control)
+- [x] [列车制动与停车对标作业](./braking-parking-alignment)
+- [x] [自动驾驶与人工驾驶模式切换](./auto-manual-driving-mode-switching)
+- [x] [折返、连挂与调车作业](./turnaround-coupling-shunting)
+- [x] [车门开关与乘客上下车操作](./door-operations-passenger-boarding-alighting)
 
 ### 第4篇 行车组织与运营管理
 
-- [ ] 列车运行图与调度指挥（职业技能标准 第4章）
-- [ ] 行车闭塞方式与运行间隔控制（职业技能标准 第4章）
-- [ ] 运营管理规定总则与基本要求（运营管理规定 第1章）
-- [ ] 运营服务质量与乘务组织（运营管理规定 第3章）
-- [ ] 运营安全管理体系与责任划分（安全管理办法 第1章）
+- [x] [列车运行图与调度指挥](./train-diagram-dispatch-command)
+- [x] [行车闭塞方式与运行间隔控制](./blocking-methods-headway-control)
+- [x] [运营管理规定总则与基本要求](./operation-regulation-general-provisions)
+- [x] [运营服务质量与乘务组织](./service-quality-crew-organization)
+- [x] [运营安全管理体系与责任划分](./safety-management-system-responsibilities)
 
 ### 第5篇 应急处置与安全运营
 
-- [ ] 突发事件分类与应急响应机制（安全管理办法 第2章）
-- [ ] 列车火灾与重大突发事件处置（职业技能标准 第5章）
-- [ ] 列车故障模式与现场处置（职业技能标准 第5章）
-- [ ] 乘客安全防护与疏散组织（职业技能标准 第5章）
-- [ ] 运营安全事故报告与调查处理（安全管理办法 第4章）
-- [ ] 安全运营监督与法律责任（安全管理办法 第5章）
+- [x] [突发事件分类与应急响应机制](./emergency-classification-response-mechanism)
+- [x] [列车火灾与重大突发事件处置](./train-fire-major-emergency-handling)
+- [x] [列车故障模式与现场处置](./train-fault-modes-on-scene-handling)
+- [x] [乘客安全防护与疏散组织](./passenger-safety-evacuation)
+- [x] [运营安全事故报告与调查处理](./accident-reporting-investigation)
+- [x] [安全运营监督与法律责任](./safety-supervision-legal-liability)

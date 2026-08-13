@@ -20,34 +20,34 @@ pageClass: plain-doc
 
 - [x] [机动车年检制度与法规体系](./vehicle-inspection-legal-system)
 - [x] [机动车分类与检验术语](./vehicle-classification-and-terminology)
-- [ ] 检验机构资质认定与检验员要求（汽车维修检测工 第2章）
-- [ ] 检验流程与检验周期管理（GB 38900-2020 第5章）
-- [ ] 车辆唯一性认定与标识核对（GB 38900-2020 第4章）
+- [x] [检验机构资质认定与检验员要求](./inspection-agency-qualification)
+- [x] [检验流程与检验周期管理](./inspection-process-and-cycle)
+- [x] [车辆唯一性认定与标识核对](./vehicle-uniqueness-identification)
 
 ### 第2篇
 
-- [ ] 整车参数与尺寸质量检验（GB 7258-2017 第4章）
-- [ ] 发动机与动力传动装置检查（GB 7258-2017 第5章）
-- [ ] 转向系与行驶系静态检验（GB 7258-2017 第6-8章）
-- [ ] 车身结构及外观检验（GB 7258-2017 第10章）
-- [ ] 安全防护装置检验（GB 7258-2017 第11章）
-- [ ] 灯光与信号装置检验（GB 7258-2017 第13章）
+- [x] [整车参数与尺寸质量检验](./vehicle-dimensions-and-mass)
+- [x] [发动机与动力传动装置检查](./engine-and-drivetrain-inspection)
+- [x] [转向系与行驶系静态检验](./steering-and-running-gear)
+- [x] [车身结构及外观检验](./body-structure-inspection)
+- [x] [安全防护装置检验](./safety-protection-devices)
+- [x] [灯光与信号装置检验](./lighting-and-signal-devices)
 
 ### 第3篇
 
-- [ ] 制动性能检验（GB 38900-2020 第6章）
-- [ ] 转向性能与侧滑检验（GB 38900-2020 第6章）
-- [ ] 前照灯光束检验（GB 38900-2020 第6章）
-- [ ] 底盘动态检验与道路试验（GB 38900-2020 第4章）
-- [ ] 车辆底盘部件检验（GB 38900-2020 第4章）
-- [ ] 排放检测与噪声检验（GB 38900-2020 第7章）
-- [ ] 新能源汽车专项检验（GB 38900-2020 附录）
+- [x] [制动性能检验](./brake-performance-inspection)
+- [x] [转向性能与侧滑检验](./steering-performance-and-sideslip)
+- [x] [前照灯光束检验](./headlight-beam-inspection)
+- [x] [底盘动态检验与道路试验](./chassis-dynamic-inspection)
+- [x] [车辆底盘部件检验](./chassis-component-inspection)
+- [x] [排放检测与噪声检验](./emission-and-noise-inspection)
+- [x] [新能源汽车专项检验](./new-energy-vehicle-inspection)
 
 ### 第4篇
 
-- [ ] 检验仪器设备原理与周期检定（汽车维修检测工 第6章）
-- [ ] 检验结果判定与结论出具（GB 38900-2020 第7章）
-- [ ] 检验报告编制与档案管理（GB 38900-2020 第8章）
-- [ ] 检验数据联网与信息监管（GB 38900-2020 第9章）
-- [ ] 检验异议处理与复检复核（GB 38900-2020 第10章）
-- [ ] 检验质量监督与法律责任（GB 38900-2020 第11章）
+- [x] [检验仪器设备原理与周期检定](./inspection-equipment-principles)
+- [x] [检验结果判定与结论出具](./result-determination)
+- [x] [检验报告编制与档案管理](./inspection-report-and-archive)
+- [x] [检验数据联网与信息监管](./data-networking-and-supervision)
+- [x] [检验异议处理与复检复核](./objection-and-reinspection)
+- [x] [检验质量监督与法律责任](./quality-supervision-and-legal-liability)

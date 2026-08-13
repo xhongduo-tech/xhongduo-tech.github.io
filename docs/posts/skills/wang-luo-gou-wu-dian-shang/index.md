@@ -27,34 +27,34 @@ pageClass: plain-doc
 ### 第2篇 购物技巧与比价
 
 - [x] [商品搜索与关键词筛选](./product-search-keywords)
-- [ ] 商品详情页解读与图文甄别（《淘宝/拼多多运营》第3章）
-- [ ] 价格构成分析与比价工具（《电子商务基础》第5章）
-- [ ] 促销节点与大促玩法规则（《淘宝/拼多多运营》第4章）
-- [ ] 优惠券、满减与跨店凑单技巧（《淘宝/拼多多运营》第5章）
-- [ ] 商品评价与口碑可信度甄别（《电子商务基础》第6章）
+- [x] [商品详情页解读与图文甄别](./detail-page-reading)
+- [x] [价格构成分析与比价工具](./price-composition-compare)
+- [x] [促销节点与大促玩法规则](./promotion-calendar-rules)
+- [x] [优惠券、满减与跨店凑单技巧](./coupon-discount-rule-stacking)
+- [x] [商品评价与口碑可信度甄别](./review-credibility)
 
 ### 第3篇 支付安全与交易保障
 
-- [ ] 第三方支付与资金安全（《电子商务基础》第7章）
-- [ ] 个人信息与账号安全防护（《电子商务基础》第8章）
-- [ ] 交易保障服务与平台担保机制（《电子商务基础》第9章）
-- [ ] 常见网购骗局识别与防范（《电子商务基础》第10章）
+- [x] [第三方支付与资金安全](./third-party-payment-security)
+- [x] [个人信息与账号安全防护](./personal-info-account-security)
+- [x] [交易保障服务与平台担保机制](./transaction-protection-escrow)
+- [x] [常见网购骗局识别与防范](./shopping-scam-identification)
 
 ### 第4篇 售后维权与消费者权益
 
-- [ ] 消费者基本权利与消保法概述（《消费者权益保护法》第1章）
-- [ ] 七日无理由退货制度（《消费者权益保护法》第2章）
-- [ ] 退换货流程与运费责任划分（《淘宝/拼多多运营》第6章）
-- [ ] 商品质量纠纷与索赔要点（《消费者权益保护法》第3章）
-- [ ] 客服沟通技巧与平台投诉（《淘宝/拼多多运营》第7章）
-- [ ] 市场监管投诉与12315维权渠道（《消费者权益保护法》第4章）
+- [x] [消费者基本权利与消保法概述](./consumer-rights-law-basics)
+- [x] [七日无理由退货制度](./seven-day-unconditional-return)
+- [x] [退换货流程与运费责任划分](./return-flow-freight-liability)
+- [x] [商品质量纠纷与索赔要点](./quality-dispute-claims)
+- [x] [客服沟通技巧与平台投诉](./customer-service-complaint-skills)
+- [x] [市场监管投诉与12315维权渠道](./samr-12315-complaint)
 
 ### 第5篇 电商运营基础
 
-- [ ] 开店流程与店铺定位（《淘宝/拼多多运营》第8章）
-- [ ] 商品上架与标题优化（《淘宝/拼多多运营》第9章）
-- [ ] 店铺装修与视觉呈现（《淘宝/拼多多运营》第10章）
-- [ ] 定价策略与促销组合（《淘宝/拼多多运营》第11章）
-- [ ] 客户服务与评价管理（《淘宝/拼多多运营》第12章）
-- [ ] 物流发货与仓储管理（《电子商务基础》第11章）
-- [ ] 运营数据分析与店铺优化（《电子商务基础》第12章）
+- [x] [开店流程与店铺定位](./store-opening-positioning)
+- [x] [商品上架与标题优化](./product-listing-title-optimization)
+- [x] [店铺装修与视觉呈现](./store-decoration-visual)
+- [x] [定价策略与促销组合](./pricing-promotion-strategy)
+- [x] [客户服务与评价管理](./customer-service-review-management)
+- [x] [物流发货与仓储管理](./logistics-warehouse-management)
+- [x] [运营数据分析与店铺优化](./operations-data-analysis)

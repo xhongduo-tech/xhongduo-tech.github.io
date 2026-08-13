@@ -23,31 +23,31 @@ pageClass: plain-doc
 - [x] [烘焙基本原理与化学反应](./baking-basic-principles-chemistry)
 - [x] [烘焙百分比与配方换算](./baking-percentage-formula-conversion)
 - [x] [称量、计量与家庭烘焙卫生](./baking-weighing-hygiene)
-- [ ] 发酵剂与膨松剂：酵母、泡打粉与小苏打（Reinhart 第3章）
+- [x] [发酵剂与膨松剂：酵母、泡打粉与小苏打](./leavening-agents-yeast-baking-powder-soda)
 
 ### 第2篇 家庭面包烘焙
 
-- [ ] 酵母发酵与面团基础（Reinhart 第4章）
-- [ ] 基础白面包与吐司（Gisslen 第4章）
-- [ ] 甜面团与调理面包（Gisslen 第5章）
-- [ ] 欧包与天然酵种（Reinhart 第8、9章）
-- [ ] 快手面包：司康与香蕉面包（社区资料）
-- [ ] 家庭面包常见问题与补救（社区资料）
+- [x] [酵母发酵与面团基础](./yeast-fermentation-dough-basics)
+- [x] [基础白面包与吐司](./basic-white-bread-toast)
+- [x] [甜面团与调理面包](./sweet-dough-shape-breads)
+- [x] [欧包与天然酵种](./artisan-bread-sourdough)
+- [x] [快手面包：司康与香蕉面包](./quick-bread-scones-banana-bread)
+- [x] [家庭面包常见问题与补救](./bread-troubleshooting)
 
 ### 第3篇 家庭蛋糕与饼干
 
-- [ ] 蛋糕配方原理：糖油蛋比例（Gisslen 第6章）
-- [ ] 黄油蛋糕与海绵蛋糕（Gisslen 第6章）
-- [ ] 戚风与天使蛋糕（Gisslen 第6章）
-- [ ] 家庭蛋糕烤制与脱模技巧（社区资料）
-- [ ] 曲奇与饼干工艺（Gisslen 第8章）
-- [ ] 挞、派与酥皮点心（Gisslen 第7章）
+- [x] [蛋糕配方原理：糖油蛋比例](./cake-formula-principles)
+- [x] [黄油蛋糕与海绵蛋糕](./butter-cake-sponge-cake)
+- [x] [戚风与天使蛋糕](./chiffon-angel-cake)
+- [x] [家庭蛋糕烤制与脱模技巧](./cake-baking-pan-techniques)
+- [x] [曲奇与饼干工艺](./cookie-technique)
+- [x] [挞、派与酥皮点心](./tart-pie-pastry)
 
 ### 第4篇 甜点、馅料与基础装饰
 
-- [ ] 卡仕达奶油与馅料（Gisslen 第9章）
-- [ ] 蛋白霜、慕斯与布丁（Gisslen 第10章）
-- [ ] 焦糖与家常甜点（Gisslen 第9章）
-- [ ] 奶油霜与糖霜（Gisslen 第10章）
-- [ ] 蛋糕抹面与裱花基础（社区资料）
-- [ ] 家庭烘焙装饰与甜品出品（社区资料）
+- [x] [卡仕达奶油与馅料](./custard-cream-fillings)
+- [x] [蛋白霜、慕斯与布丁](./meringue-mousse-pudding)
+- [x] [焦糖与家常甜点](./caramel-home-desserts)
+- [x] [奶油霜与糖霜](./buttercream-frosting)
+- [x] [蛋糕抹面与裱花基础](./cake-frosting-piping)
+- [x] [家庭烘焙装饰与甜品出品](./home-baking-decoration-plating)

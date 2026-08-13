@@ -28,35 +28,35 @@ pageClass: plain-doc
 ### 第2篇 金属矫正与钣金成形
 
 - [x] [车身损伤评估与修复方案制定](./damage-assessment-repair-planning)（《汽车车身修复技术》第3章）
-- [ ] 钣金手工整形工艺与顶铁撬棒技法（《汽车车身修复技术》第5章）
-- [ ] 车身测量定位与拉伸校正（职业技能标准 车身整形工种）
-- [ ] 车身焊接技术与焊接变形控制（《汽车车身修复技术》第4章）
-- [ ] 加热矫正与热处理工艺（职业技能标准 车身整形工种）
-- [ ] 车身板件更换与结构件修复（《汽车车身修复技术》第6章）
-- [ ] 复合材料板件修复与防锈处理（《汽车车身修复技术》第7章）
+- [x] [钣金手工整形工艺与顶铁撬棒技法](./hand-forming-dolly-spoon-techniques)（《汽车车身修复技术》第5章）
+- [x] [车身测量定位与拉伸校正](./body-measuring-pulling-correction)（职业技能标准 车身整形工种）
+- [x] [车身焊接技术与焊接变形控制](./welding-techniques-deformation-control)（《汽车车身修复技术》第4章）
+- [x] [加热矫正与热处理工艺](./heat-shrinking-thermal-treatment)（职业技能标准 车身整形工种）
+- [x] [车身板件更换与结构件修复](./panel-replacement-structural-repair)（《汽车车身修复技术》第6章）
+- [x] [复合材料板件修复与防锈处理](./composite-panel-repair-corrosion-protection)（《汽车车身修复技术》第7章）
 
 ### 第3篇 涂装前处理与底中涂施工
 
-- [ ] 涂装前处理与表面清洁脱脂（《汽车涂装技术》第5章）
-- [ ] 原子灰刮涂与打磨找平（《汽车车身修复技术》第8章）
-- [ ] 打磨工艺与除尘处理（《汽车涂装技术》第6章）
-- [ ] 遮蔽保护与喷涂环境控制（《汽车涂装技术》第7章）
-- [ ] 底漆喷涂与防锈底漆施工（《汽车涂装技术》第8章）
-- [ ] 中涂漆喷涂与漆面找平（《汽车涂装技术》第9章）
+- [x] [涂装前处理与表面清洁脱脂](./pre-treatment-surface-degreasing)（《汽车涂装技术》第5章）
+- [x] [原子灰刮涂与打磨找平](./putty-applying-sanding-leveling)（《汽车车身修复技术》第8章）
+- [x] [打磨工艺与除尘处理](./sanding-process-dust-removal)（《汽车涂装技术》第6章）
+- [x] [遮蔽保护与喷涂环境控制](./masking-protection-spray-environment)（《汽车涂装技术》第7章）
+- [x] [底漆喷涂与防锈底漆施工](./primer-spraying-rust-primer)（《汽车涂装技术》第8章）
+- [x] [中涂漆喷涂与漆面找平](./surfacer-spraying-leveling)（《汽车涂装技术》第9章）
 
 ### 第4篇 调漆配色与面漆喷涂
 
-- [ ] 调漆基础与色觉配色原理（《汽车涂装技术》第10章）
-- [ ] 金属漆与珍珠漆配色技术（职业技能标准 涂装工种）
-- [ ] 面漆喷涂工艺与喷枪参数设定（《汽车涂装技术》第11章）
-- [ ] 烤漆固化与烘烤设备使用（《汽车涂装技术》第12章）
-- [ ] 双色喷涂与特殊漆面工艺（职业技能标准 涂装工种）
-- [ ] 喷涂设备清洗与维护保养（《汽车涂装技术》第13章）
+- [x] [调漆基础与色觉配色原理](./paint-mixing-color-matching-principles)（《汽车涂装技术》第10章）
+- [x] [金属漆与珍珠漆配色技术](./metallic-pearl-paint-color-matching)（职业技能标准 涂装工种）
+- [x] [面漆喷涂工艺与喷枪参数设定](./topcoat-spraying-gun-settings)（《汽车涂装技术》第11章）
+- [x] [烤漆固化与烘烤设备使用](./baking-curing-oven-use)（《汽车涂装技术》第12章）
+- [x] [双色喷涂与特殊漆面工艺](./two-tone-spraying-special-finishes)（职业技能标准 涂装工种）
+- [x] [喷涂设备清洗与维护保养](./spray-equipment-cleaning-maintenance)（《汽车涂装技术》第13章）
 
 ### 第5篇 质量检验与经营管理
 
-- [ ] 漆膜质量检验与附着力检测（《汽车涂装技术》第14章）
-- [ ] 常见漆膜缺陷分析与修复（职业技能标准 涂装工种）
-- [ ] 车身修复质量检验与竣工验收（职业技能标准 竣工检验）
-- [ ] 钣喷作业质量体系与返工控制（《机动车维修管理规定》）
-- [ ] 钣喷工时定额与保险理赔协作（《机动车维修管理规定》）
+- [x] [漆膜质量检验与附着力检测](./film-quality-adhesion-testing)（《汽车涂装技术》第14章）
+- [x] [常见漆膜缺陷分析与修复](./common-film-defects-repair)（职业技能标准 涂装工种）
+- [x] [车身修复质量检验与竣工验收](./quality-inspection-final-acceptance)（职业技能标准 竣工检验）
+- [x] [钣喷作业质量体系与返工控制](./quality-system-rework-control)（《机动车维修管理规定》）
+- [x] [钣喷工时定额与保险理赔协作](./labor-hours-insurance-collaboration)（《机动车维修管理规定》）

@@ -19,37 +19,37 @@ pageClass: plain-doc
 ### 第1篇 膳食指南与均衡膳食基础
 
 - [x] [膳食指南概述与营养科学观念](./dietary-guidelines-overview)
-- [ ] 食物多样与合理搭配（《中国居民膳食指南（2022）》第2章）
-- [ ] 吃动平衡与健康体重管理（《中国居民膳食指南（2022）》第3章）
-- [ ] 多吃蔬果、奶类、全谷与大豆（《中国居民膳食指南（2022）》第4章）
-- [ ] 适量吃鱼、禽、蛋与瘦肉（《中国居民膳食指南（2022）》第5章）
-- [ ] 少盐少油、控糖限酒（《中国居民膳食指南（2022）》第6章）
+- [x] [食物多样与合理搭配](./food-diversity-and-combination)
+- [x] [吃动平衡与健康体重管理](./energy-balance-weight-management)
+- [x] [多吃蔬果、奶类、全谷与大豆](./vegetables-fruits-dairy-wholegrains-soy)
+- [x] [适量吃鱼、禽、蛋与瘦肉](./fish-poultry-eggs-lean-meat)
+- [x] [少盐少油、控糖限酒](./less-salt-less-oil-sugar-alcohol)
 
 ### 第2篇 营养素基础与食物营养
 
-- [ ] 能量与宏量营养素：碳水、蛋白质与脂肪（《营养与食品卫生学》第1章）
-- [ ] 矿物质与维生素的营养功能（《营养与食品卫生学》第1章）
-- [ ] 水与膳食纤维（《营养与食品卫生学》第1章）
-- [ ] 营养素的消化、吸收与代谢（《营养与食品卫生学》第1章）
-- [ ] 食物中的生物活性成分（《营养与食品卫生学》第2章）
-- [ ] 各类食物的营养价值（《营养与食品卫生学》第3章）
+- [x] [能量与宏量营养素：碳水、蛋白质与脂肪](./energy-and-macronutrients)
+- [x] [矿物质与维生素的营养功能](./minerals-and-vitamins)
+- [x] [水与膳食纤维](./water-and-dietary-fiber)
+- [x] [营养素的消化、吸收与代谢](./nutrient-digestion-absorption-metabolism)
+- [x] [食物中的生物活性成分](./bioactive-compounds)
+- [x] [各类食物的营养价值](./nutritional-value-of-foods)
 
 ### 第3篇 营养评价与配餐设计
 
-- [ ] 中国居民膳食营养素参考摄入量（DRIs）（《公共营养师》基础理论）
-- [ ] 膳食调查与膳食评价方法（《公共营养师》第1章）
-- [ ] 人体营养状况的测定与评价（《公共营养师》第2章）
-- [ ] 食谱编制原理与配餐原则（《公共营养师》第3章）
-- [ ] 家庭一周营养配餐的编制实践（《公共营养师》第3章）
-- [ ] 儿童、孕产妇与老年人群营养（《营养与食品卫生学》第4章）
-- [ ] 常见慢性病的膳食干预（《营养与食品卫生学》第7章）
+- [x] [中国居民膳食营养素参考摄入量（DRIs）](./dietary-reference-intakes)
+- [x] [膳食调查与膳食评价方法](./dietary-survey-and-evaluation)
+- [x] [人体营养状况的测定与评价](./nutritional-status-assessment)
+- [x] [食谱编制原理与配餐原则](./menu-planning-principles)
+- [x] [家庭一周营养配餐的编制实践](./weekly-meal-planning-practice)
+- [x] [儿童、孕产妇与老年人群营养](./special-population-nutrition)
+- [x] [常见慢性病的膳食干预](./dietary-intervention-chronic-diseases)
 
 ### 第4篇 食品安全与营养实践
 
-- [ ] 会烹会选与食品标签阅读（《中国居民膳食指南（2022）》第7章）
-- [ ] 食品安全与食品卫生基础（《营养与食品卫生学》第8章）
-- [ ] 食品污染及其预防（《营养与食品卫生学》第8章）
-- [ ] 食品添加剂与食品安全管理（《营养与食品卫生学》第9章）
-- [ ] 各类食品的卫生要求（《营养与食品卫生学》第10章）
-- [ ] 食源性疾病及其预防（《营养与食品卫生学》第11章）
-- [ ] 家庭厨房卫生与食材储存实践（《营养与食品卫生学》第10章）
+- [x] [会烹会选与食品标签阅读](./cooking-choices-food-labels)
+- [x] [食品安全与食品卫生基础](./food-safety-hygiene-basics)
+- [x] [食品污染及其预防](./food-contamination-prevention)
+- [x] [食品添加剂与食品安全管理](./food-additives-safety-management)
+- [x] [各类食品的卫生要求](./hygiene-requirements-food-categories)
+- [x] [食源性疾病及其预防](./foodborne-diseases-prevention)
+- [x] [家庭厨房卫生与食材储存实践](./kitchen-hygiene-food-storage)
