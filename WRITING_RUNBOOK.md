@@ -83,7 +83,8 @@ git add -A && git commit -m "..." && git push
 > **MathJax 已改客户端渲染（2026-08-08 关键变更）**：10257 页若用服务端内联 SVG，构建需 ~64GB（CI 必挂）。
 > 现改为 markdown-it-mathjax3 仅 tokenize、输出 `\(…\)`/`\[…\]`，由浏览器端 MathJax（head 里的 CDN 脚本）排版；
 > `enhance.ts` 在路由切换后调 `MathJax.typesetPromise()`。数学内容中的 `< > &` 已转义。
-> 本地构建 92s、内存正常；CI 用默认 runner 即可。
+> 本地构建 ~14 分钟（28.5k 页）；CI 默认 runner 已不够用（2026-08-14 曾 OOM 被取消），
+> `deploy.yml` 已扩容 swap 至 10G、堆上限 12G、job 超时 60 分钟。
 
 ## 五、构建安全红线（代理易犯，主控必查）
 

@@ -11,6 +11,7 @@ permissions:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -21,9 +22,23 @@ jobs:
 
       - run: npm ci
 
+      # 站点已达 ~2.8 万页，渲染峰值内存超过 runner 物理内存；
+      # 默认 4G swap 不够会导致 runner 被 OOM 杀死（日志表现为 "The operation was canceled"）。
+      # 扩容 swap 到 10G 并把堆上限调到 12G，用时间换内存。
+      - name: Expand swap to 10G
+        run: |
+          sudo swapoff -a
+          sudo rm -f /mnt/swapfile
+          sudo fallocate -l 10G /mnt/swapfile
+          sudo chmod 600 /mnt/swapfile
+          sudo mkswap /mnt/swapfile
+          sudo swapon /mnt/swapfile
+          sudo sysctl vm.swappiness=60
+          free -h
+
       - name: Build site
         env:
-          NODE_OPTIONS: --max-old-space-size=8192
+          NODE_OPTIONS: --max-old-space-size=12288
         run: npm run docs:build
 
       - name: Publish dist to main (GitHub Pages legacy source)
