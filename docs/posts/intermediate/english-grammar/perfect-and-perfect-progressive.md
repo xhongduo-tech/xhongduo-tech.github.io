@@ -58,7 +58,7 @@ date: 2026-08-07
 
 `I saw the film yesterday.`（√ 有明确过去时间）
 `I have seen the film.`（√ 强调「所以我知道剧情/不用再看了」）
-- *`I have seen the film yesterday.`（× 完成体与明确过去时间状语不兼容）<span class="marginnote">这条「完成体忌过去时间状语」是硬约束，原因正是「当前相关性」：`yesterday` 把时间钉死在过去，与「连接现在」的完成体语义冲突。但注意，`today`、`this week`、`recently` 这类「含现在的时间段」可以与完成体连用——`I have been busy this week.`</span>
+*`I have seen the film yesterday.`（× 完成体与明确过去时间状语不兼容）<span class="marginnote">这条「完成体忌过去时间状语」是硬约束，原因正是「当前相关性」：`yesterday` 把时间钉死在过去，与「连接现在」的完成体语义冲突。但注意，`today`、`this week`、`recently` 这类「含现在的时间段」可以与完成体连用——`I have been busy this week.`</span>
 
 **辨析｜易错点：** 过去时的句子也能「对现在有影响」，但说话者**选择**了切断联系；完成体则**选择**建立联系。所以这条界线与其说是「规则」，不如说是「说话者的视角选择」：`I lost my keys.`（陈述过去丢了，现在怎样不管）与 `I have lost my keys.`（我丢了钥匙，现在正为此着急）。**同样的事实，不同的框定。**
 
@@ -81,8 +81,8 @@ date: 2026-08-07
 
 **完成体 vs 完成进行体的分工**：完成体（`has done`）强调**结果或完成**，完成进行体（`has been doing`）强调**持续的进行**。
 
-- `I have read the book.`（我读完了这本书——结果）。
-- `I have been reading the book.`（我一直在读这本书——可能没读完，强调持续）。<span class="marginnote">完成进行体不能与表「具体次数」的状语连用：可以说 `I have been to Beijing twice.`（去过两次，完成体），但不能说 *`I have been being to Beijing twice.`（完成进行不表次数）。<strong>「次数」是完成体的事，「持续」是完成进行体的事</strong>——语义分工在形态选择上再次显现。</span>
+`I have read the book.`（我读完了这本书——结果）。
+`I have been reading the book.`（我一直在读这本书——可能没读完，强调持续）。<span class="marginnote">完成进行体不能与表「具体次数」的状语连用：可以说 `I have been to Beijing twice.`（去过两次，完成体），但不能说 *`I have been being to Beijing twice.`（完成进行不表次数）。<strong>「次数」是完成体的事，「持续」是完成进行体的事</strong>——语义分工在形态选择上再次显现。</span>
 
 **辨析｜易错点：** 状态动词不用于完成进行体（延续上一节的禁忌）：`I have known him for years.`（√ 完成体）与 *`I have been knowing him for years.`（× 完成进行）。**状态动词的完成体用 `has done`，动态动词才谈得上 `has been doing`。**
 

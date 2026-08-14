@@ -59,8 +59,8 @@ date: 2026-08-07
 
 **`a number of + 复数名词`**（许多）→ 复数：`A number of students are absent.`
 **`the number of + 复数名词`**（……的数目）→ 单数：`The number of students is increasing.`
-- **`a lot of / lots of / plenty of / half of / most of + 名词`** → 视名词可数性：`A lot of water is wasted.`（不可数，单数）与 `A lot of books are on sale.`（可数，复数）。
-- **`分数/百分数 + of + 名词`** → 视 of 后名词（回收《数词与量的表达》）：`Two thirds of the work is done.`（`work` 不可数）与 `Two thirds of the students have passed.`（`students` 复数）。<span class="marginnote">这条「`of` 后名词决定数」的规则，本质是<strong>「of 短语的中心词」决定谓语</strong>——`a number of students` 的中心是 `students`，所以复数；`the number of students` 的中心是 `number`，所以单数。<strong>找「中心名词」是处理一切数量短语一致问题的万能钥匙。</strong></span>
+**`a lot of / lots of / plenty of / half of / most of + 名词`** → 视名词可数性：`A lot of water is wasted.`（不可数，单数）与 `A lot of books are on sale.`（可数，复数）。
+**`分数/百分数 + of + 名词`** → 视 of 后名词（回收《数词与量的表达》）：`Two thirds of the work is done.`（`work` 不可数）与 `Two thirds of the students have passed.`（`students` 复数）。<span class="marginnote">这条「`of` 后名词决定数」的规则，本质是<strong>「of 短语的中心词」决定谓语</strong>——`a number of students` 的中心是 `students`，所以复数；`the number of students` 的中心是 `number`，所以单数。<strong>找「中心名词」是处理一切数量短语一致问题的万能钥匙。</strong></span>
 
 **辨析｜易错点：** `a pair of` / `a kind of` / `a piece of` 家族——谓语跟**量词单数**：`A pair of shoes is on the floor.`（√ `is`，跟 `a pair`）、`This kind of apples is sweet.`（跟 `this kind`）。**「量词 + of + 名词」中，量词是中心词**。
 
@@ -76,7 +76,7 @@ date: 2026-08-07
 
 **并列不同事物** → 复数：`Tom and Mary are classmates.`
 **指同一人或同一概念** → 单数：`The writer and poet is coming.`（既是作家又是诗人，同一个人）、`Bread and butter is my favorite breakfast.`（黄油面包——一个整体概念）。
-- **`each/every + 单数 and 单数`** → 单数：`Every boy and girl has a chance.`（`has` 单数）。<span class="marginnote">「`the writer and poet` vs `the writer and the poet`」是微妙的一对：前者无第二个 `the`，指同一个人（单数）；后者有第二个 `the`，指两个人（复数）。<strong>一个冠词之差，单复数之别</strong>——冠词（第1篇第3节）再次扮演语法信号的角色。</span>
+**`each/every + 单数 and 单数`** → 单数：`Every boy and girl has a chance.`（`has` 单数）。<span class="marginnote">「`the writer and poet` vs `the writer and the poet`」是微妙的一对：前者无第二个 `the`，指同一个人（单数）；后者有第二个 `the`，指两个人（复数）。<strong>一个冠词之差，单复数之别</strong>——冠词（第1篇第3节）再次扮演语法信号的角色。</span>
 
 **辨析｜易错点：** `neither of / either of + 复数名词`：规范语法用单数（`Neither of the answers is correct.`），口语常见复数（`Neither of them are ready.`）。**正式书面语用单数，口语复数已常见**——这又是「规范 vs 用法」的经典张力。
 

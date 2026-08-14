@@ -65,7 +65,7 @@ date: 2026-08-07
 
 **使役动词**：`make`、`let`、`have`——`He made me laugh.`（让我笑）、`Let me go.`、`I had him fix the car.`
 **感官动词**：`see`、`hear`、`watch`、`notice`、`feel`——`I saw him enter the room.`（看见他进了房间——强调全过程）、`We heard her sing.`
-- **`help`**：后接不定式可带 `to` 也可不带——`He helped me (to) carry the box.`
+**`help`**：后接不定式可带 `to` 也可不带——`He helped me (to) carry the box.`
 
 **辨析｜易错点：** 感官动词后接 **裸不定式**与 **-ing 分词**语义不同：`I saw him enter the room.`（看见他**走进**——整个过程）与 `I saw him entering the room.`（看见他**正在走**——进行中的片段）。**裸不定式表「完整动作」，-ing 表「进行片段」**——这条对立是感官动词的非谓语考点核心。<span class="marginnote">使役/感官动词后接裸不定式，一旦变<strong>被动语态</strong>，`to` 就要回来：`He was made to laugh.`、`He was seen to enter.`——主动句丢掉的 `to`，在被动句里「复活」。这条「被动补 `to`」规则，是使役/感官动词被动化的必考细节。</span>
 

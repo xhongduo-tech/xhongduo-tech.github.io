@@ -80,7 +80,7 @@ date: 2026-08-07
 
 **私钥/公钥对**：每台设备生成自己的密钥对，公钥相互交换。
 **端点（Endpoint）**：家里路由器的公网地址 + 端口（配合 DDNS）。
-- **AllowedIPs**：声明「哪些网段的流量走这条隧道」——通常是家里的 `192.168.1.0/24`。<span class="marginnote">WireGuard 的精髓是「每个对等方只有一把公钥、一条 Endpoint、一组 AllowedIPs」，配置全部浓缩在一段配置文件里。它比 OpenVPN 的证书体系简单一个量级——这正是它近年成为家庭 VPN 主流的根本原因。</span>
+**AllowedIPs**：声明「哪些网段的流量走这条隧道」——通常是家里的 `192.168.1.0/24`。<span class="marginnote">WireGuard 的精髓是「每个对等方只有一把公钥、一条 Endpoint、一组 AllowedIPs」，配置全部浓缩在一段配置文件里。它比 OpenVPN 的证书体系简单一个量级——这正是它近年成为家庭 VPN 主流的根本原因。</span>
 
 **公式解析：VPN 隧道要吃掉多少带宽**
 

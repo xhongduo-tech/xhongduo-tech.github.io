@@ -39,8 +39,8 @@ $$
 
 一般动词直接加 `-ing`：`work → working`、`read → reading`。
 以不发音的 `e` 结尾，去 `e` 加 `-ing`：`make → making`、`write → writing`。
-- 以重读闭音节（辅音+元音+辅音）结尾，双写末尾辅音：`sit → sitting`、`run → running`、`begin → beginning`。
-- 以 `ie` 结尾，改 `ie` 为 `y` 加 `-ing`：`die → dying`、`lie → lying`、`tie → tying`。
+以重读闭音节（辅音+元音+辅音）结尾，双写末尾辅音：`sit → sitting`、`run → running`、`begin → beginning`。
+以 `ie` 结尾，改 `ie` 为 `y` 加 `-ing`：`die → dying`、`lie → lying`、`tie → tying`。
 
 ## 2 进行体的核心语义：临时、未完成、动态
 

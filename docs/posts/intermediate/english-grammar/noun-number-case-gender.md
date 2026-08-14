@@ -82,7 +82,7 @@ date: 2026-08-07
 
 **后缀区分**：`actor`/`actress`、`waiter`/`waitress`、`hero`/`heroine`、`host`/`hostess`。
 **不同词根**：`man`/`woman`、`boy`/`girl`、`uncle`/`aunt`、`king`/`queen`。
-- **复合词前加性别词**：`boy friend`/`girl friend`、`male nurse`/`female nurse`、`he-goat`/`she-goat`。
+**复合词前加性别词**：`boy friend`/`girl friend`、`male nurse`/`female nurse`、`he-goat`/`she-goat`。
 
 **重点：** 英语的性真正起作用的地方是**代词回指**。指人的名词按自然性别选 `he` 或 `she`；指动物的名词一般用 `it`，但拟人化时（童话、诗歌）可用 `he`/`she`；**无生命事物**通常用 `it`，但**国家、船只、汽车**在拟人化语境中习惯用 `she`——`The ship lost her way in the storm.`<span class="marginnote">中性名词（如 `doctor`、`teacher`）在不知道性别时的代词选择是当代英语的敏感点：传统上默认 `he`，现在更自然的做法是用 `they`（单数 they）或 `he or she`。单数 `they` 在《代词体系与回指》一节会专门讨论。</span>
 

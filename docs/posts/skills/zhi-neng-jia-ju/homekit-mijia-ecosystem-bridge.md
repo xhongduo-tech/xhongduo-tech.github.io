@@ -34,7 +34,7 @@ HA 里有一个官方集成叫 **HomeKit Bridge（HomeKit 桥）**，它的作�
 
 在 HA 中安装并启用 HomeKit 桥，选择要桥接的域（灯、开关、传感器、门锁、恒温器等）。
 桥生成一个配对二维码（HomeKit Setup Code），用苹果家庭 App 扫码添加，就像添加一台普通 HomeKit 设备一样。
-- 桥接后，在 iPhone/HomePod 上即可用 **Siri 与家庭 App** 控制这些本属于米家的设备。<span class="marginnote">HomeKit 桥一次只暴露「一个 HomeKit 桥设备」：<strong>HA 里 50 台灯，桥成一个 HomeKit Bridge，扫码一次全进来</strong>。这是桥与逐台配网的本质区别——桥是「批量翻译」，不是「逐台搬家」。</span>
+桥接后，在 iPhone/HomePod 上即可用 **Siri 与家庭 App** 控制这些本属于米家的设备。<span class="marginnote">HomeKit 桥一次只暴露「一个 HomeKit 桥设备」：<strong>HA 里 50 台灯，桥成一个 HomeKit Bridge，扫码一次全进来</strong>。这是桥与逐台配网的本质区别——桥是「批量翻译」，不是「逐台搬家」。</span>
 
 **桥接的边界**：HA → HomeKit 是**单向**的——HA 设备能被 HomeKit 看到，但 HomeKit 原生设备进不了 HA 的米家侧（反向需要另一条桥，见第 16 篇）。同时，HA 场景（自动化）不会自动变成 HomeKit 场景，需要在两端分别设置或用 HA 主导自动化。
 
@@ -56,7 +56,7 @@ Matter 想解决的问题，与桥接殊途同归：**让设备原生同时属�
 
 一台 Matter 灯，可同时被 HomeKit（iPhone 扫码）、Google Home、Alexa 认领，且**本地**控制。
 Matter 设备走 **Thread 或 Wi-Fi**（第 2 篇），需要 Thread 边界路由器或 Wi-Fi 直连。
-- 对 HomeKit 用户的意义：买 Matter 认证的灯，Apple 家庭 App 原生控制，无需 HA 桥。
+对 HomeKit 用户的意义：买 Matter 认证的灯，Apple 家庭 App 原生控制，无需 HA 桥。
 
 **现状与选择建议**：Matter 设备品类（灯、开关、锁、窗帘）在快速增加，但成熟度、价格仍不如米家性价比路线。**给客户的现实方案**：新购设备优先看是否支持 Matter/HomeKit；存量米家设备走 HA 桥接过渡。两条路不冲突，桥接保证今天能用，Matter 是明天的省力方向。<span class="marginnote">Matter 的「多管理员（Multi-Admin）」特性是它区别于桥接的核心：<strong>一台设备可被多个生态同时「认领」，而不是被桥「翻译」</strong>——认领是原生身份，翻译是代理身份。前者断电重启后依然原生，后者依赖桥一直在线。</span>
 

@@ -1,0 +1,48 @@
+<svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" role="img" aria-labelledby="title desc">
+  <title>单向链表结构</title>
+  <desc>头指针 head 依次指向各节点，每个节点含数据域与 next 指针，最后一个节点的 next 指向 NULL。</desc>
+  <rect width="800" height="220" fill="#faf9f5"/>
+  <g fill="#333" font-size="15">
+    <text x="20" y="50">head</text>
+  </g>
+  <line x1="62" y1="44" x2="120" y2="44" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="120,40 132,44 120,48" fill="#c0392b"/>
+  <g stroke="#333" stroke-width="2">
+    <rect x="130" y="20" width="70" height="48" fill="#fff"/>
+    <rect x="200" y="20" width="70" height="48" fill="#fff"/>
+    <rect x="330" y="20" width="70" height="48" fill="#fff"/>
+    <rect x="400" y="20" width="70" height="48" fill="#fff"/>
+    <rect x="530" y="20" width="70" height="48" fill="#fff"/>
+    <rect x="600" y="20" width="70" height="48" fill="#fff"/>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="middle">
+    <text x="165" y="47">3</text>
+    <text x="235" y="47">7</text>
+    <text x="365" y="47">13</text>
+    <text x="435" y="47">42</text>
+    <text x="565" y="47">99</text>
+    <text x="635" y="47">·</text>
+  </g>
+  <g stroke="#999" stroke-width="2">
+    <line x1="270" y1="44" x2="325" y2="44"/>
+    <line x1="470" y1="44" x2="525" y2="44"/>
+  </g>
+  <g fill="#1f6f8b" font-size="14" text-anchor="middle">
+    <text x="165" y="88">data</text>
+    <text x="235" y="88">next</text>
+    <text x="365" y="88">data</text>
+    <text x="435" y="88">next</text>
+    <text x="565" y="88">data</text>
+    <text x="635" y="88">next</text>
+  </g>
+  <g stroke="#555" stroke-width="1.5" stroke-dasharray="4 4">
+    <line x1="470" y1="68" x2="435" y2="72"/>
+  </g>
+  <g fill="#333" font-size="14" text-anchor="middle">
+    <text x="610" y="140">next = NULL</text>
+    <line x1="635" y1="72" x2="635" y2="120" stroke="#555" stroke-width="1.5" stroke-dasharray="4 4"/>
+  </g>
+  <g fill="#555" font-size="14">
+    <text x="20" y="190">每个节点在堆上 malloc 分配；最后一个节点的 next 指向 NULL，作为链表结束的哨兵。</text>
+  </g>
+</svg>

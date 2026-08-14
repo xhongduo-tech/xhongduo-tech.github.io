@@ -24,7 +24,7 @@ BIOS 是显卡的「出厂设置」，而刷写是把设置替换掉。替换一
 
 NVIDIA：**GPU-Z**（保存当前 BIOS，点「BIOS 版本」旁的保存按钮）或 **NVFlash** 的 `--save` 参数。
 AMD：**GPU-Z** 或 **ATIFlash**（`-s` 参数）。
-- 优点：不动硬件、最快。缺点：**软件读到的只是「驱动可见」的 BIOS 区域**，双 BIOS 卡的第二个 BIOS 不一定能全量读出。
+优点：不动硬件、最快。缺点：**软件读到的只是「驱动可见」的 BIOS 区域**，双 BIOS 卡的第二个 BIOS 不一定能全量读出。
 
 **编程器备份（离线）**：拆下 Flash 芯片或用编程器夹子（SOP8 夹）夹住芯片，用编程器软件读出完整镜像。
 
@@ -36,7 +36,7 @@ AMD：**GPU-Z** 或 **ATIFlash**（`-s` 参数）。
 
 **NVIDIA**：NVFlash（命令行），`nvflash -6 <bios.rom>`。
 **AMD**：ATIFlash / amdvbflash（`-f -p <index> <bios.rom>`）。
-- **Windows GUI**：个别厂商提供刷写工具，但命令行工具更通用、更可控。
+**Windows GUI**：个别厂商提供刷写工具，但命令行工具更通用、更可控。
 
 刷写三查，缺一不可：
 

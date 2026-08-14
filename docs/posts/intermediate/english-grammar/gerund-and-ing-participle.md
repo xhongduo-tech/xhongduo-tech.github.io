@@ -52,8 +52,8 @@ date: 2026-08-07
 
 时间：`Walking along the street, I met an old friend.`（走在街上时……）。
 原因：`Being tired, he went to bed early.`（因为累了……）。
-- 条件：`Working hard, you will succeed.`（只要努力……）。
-- 伴随：`He sat there, reading a book.`（坐在那儿，读着书）。
+条件：`Working hard, you will succeed.`（只要努力……）。
+伴随：`He sat there, reading a book.`（坐在那儿，读着书）。
 - 结果：`The fire lasted a whole night, causing great damage.`（……造成巨大损失）。<span class="marginnote">分词作状语的「悬垂（dangling）」问题是写作大忌：分词的<strong>逻辑主语必须等于句子主语</strong>。`Walking along the street, an old friend met me.` 是错的——走路的是「我」，不是「朋友」。正确句是 `Walking along the street, I met an old friend.`。<strong>检查方式：把分词短语还原成 `when/while + 主句主语 + be + 分词`，主谓能对上就合法。</strong></span>
 
 **辨析｜易错点：** 现在分词与过去分词作定语的「主动/被动」对立：`a boring film`（令人无聊的电影——主动，`film` 使人生厌）与 `a bored audience`（感到无聊的观众——被动，观众被 film 弄无聊）。**`-ing` 分词表「使人……」，`-ed` 分词表「感到……」**——这是下一节《过去分词》的核心语义，先在这里立住。

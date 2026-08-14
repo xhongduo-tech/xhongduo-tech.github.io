@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 520" font-family="sans-serif">
+  <title>中餐圆桌座次示意图</title>
+  <desc>以主陪（主人）为基准的圆桌座次：面门为上、以右为尊。主宾坐主人右手，副主宾坐主人左手，副主陪坐主人对面，其余按右高左低就座。</desc>
+  <rect width="460" height="520" fill="#faf9f5"/>
+  <text x="230" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#333">中餐圆桌座次示意图</text>
+  <text x="230" y="50" text-anchor="middle" font-size="13" fill="#666">（面门为上 · 以右为尊 · 主陪视角）</text>
+  <circle cx="230" cy="235" r="105" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="230" y="240" text-anchor="middle" font-size="14" fill="#999">圆 桌</text>
+  <rect x="200" y="452" width="60" height="32" fill="#1f6f8b" opacity="0.15" stroke="#333"/>
+  <text x="230" y="473" text-anchor="middle" font-size="14" fill="#333">门</text>
+  <circle cx="230" cy="80" r="10" fill="#c0392b" stroke="#333"/>
+  <text x="230" y="64" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">主人 · 主陪</text>
+  <text x="230" y="112" text-anchor="middle" font-size="13" fill="#666">（面门）</text>
+  <circle cx="96" cy="158" r="10" fill="#c0392b" stroke="#333"/>
+  <text x="64" y="155" text-anchor="end" font-size="14" font-weight="bold" fill="#333">主宾 · 1号客</text>
+  <text x="64" y="172" text-anchor="end" font-size="13" fill="#666">（主人右手）</text>
+  <circle cx="364" cy="158" r="10" fill="#1f6f8b" stroke="#333"/>
+  <text x="396" y="155" text-anchor="start" font-size="14" font-weight="bold" fill="#333">副主宾 · 2号客</text>
+  <text x="396" y="172" text-anchor="start" font-size="13" fill="#666">（主人左手）</text>
+  <circle cx="96" cy="313" r="10" fill="#1f6f8b" stroke="#333"/>
+  <text x="64" y="310" text-anchor="end" font-size="14" fill="#333">3号陪同</text>
+  <circle cx="364" cy="313" r="10" fill="#1f6f8b" stroke="#333"/>
+  <text x="396" y="310" text-anchor="start" font-size="14" fill="#333">4号陪同</text>
+  <circle cx="230" cy="390" r="10" fill="#1f6f8b" stroke="#333"/>
+  <text x="230" y="412" text-anchor="middle" font-size="14" fill="#333">副主陪（背门）</text>
+  <text x="30" y="505" font-size="13" fill="#333">红点＝尊者位；其余按右高左低就座</text>
+</svg>

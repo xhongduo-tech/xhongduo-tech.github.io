@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" font-family="sans-serif">
+  <title>场地自行车赛的椭圆赛道俯视图</title>
+  <desc>标准 250 米场地自行车赛道的俯视示意：外缘、弯道坡面、黑色测量线、红色冲刺线、蓝色领先线与中央蓝色安全区。</desc>
+  <rect width="820" height="520" fill="#faf9f5"/>
+  <!-- 外缘 -->
+  <rect x="60" y="80" width="700" height="360" rx="175" fill="none" stroke="#333" stroke-width="3"/>
+  <!-- 弯道坡面示意（阴影带） -->
+  <rect x="75" y="95" width="670" height="330" rx="160" fill="#c0392b" opacity="0.08"/>
+  <!-- 中央蓝色安全区（côte d'azur） -->
+  <rect x="210" y="190" width="400" height="140" rx="70" fill="#1f6f8b" opacity="0.15"/>
+  <!-- 黑色测量线 -->
+  <rect x="160" y="152" width="500" height="216" rx="105" fill="none" stroke="#333" stroke-width="3"/>
+  <!-- 红色冲刺线 -->
+  <rect x="205" y="185" width="410" height="150" rx="73" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <!-- 蓝色领先线 -->
+  <rect x="258" y="222" width="304" height="76" rx="38" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <!-- 直道标注 -->
+  <text x="410" y="72" text-anchor="middle" fill="#333" font-size="15">上方直道</text>
+  <text x="410" y="470" text-anchor="middle" fill="#333" font-size="15">下方直道（冲刺决胜段）</text>
+  <text x="52" y="270" text-anchor="middle" fill="#333" font-size="14" transform="rotate(-90 52 270)">左弯（坡面）</text>
+  <text x="768" y="270" text-anchor="middle" fill="#333" font-size="14" transform="rotate(90 768 270)">右弯（坡面）</text>
+  <!-- 线标注 -->
+  <text x="172" y="145" fill="#333" font-size="13">黑色测量线：赛道基准，起点/终点计时线</text>
+  <text x="430" y="165" fill="#c0392b" font-size="13">红色冲刺线：距黑线 85 cm</text>
+  <text x="430" y="140" fill="#1f6f8b" font-size="13">蓝色领先线：距黑线 2.45 m</text>
+  <text x="410" y="400" text-anchor="middle" fill="#333" font-size="13">中央蓝色安全区（côte d'azur）</text>
+  <text x="410" y="420" text-anchor="middle" fill="#333" font-size="13">弯道坡面约 12°–45°，木制赛道</text>
+  <text x="410" y="300" text-anchor="middle" fill="#333" font-size="14">红色与蓝色线之间为「冲刺区」</text>
+</svg>

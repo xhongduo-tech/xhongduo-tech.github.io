@@ -24,8 +24,8 @@ date: 2026-08-07
 
 **冠词**：`a/an`、`the`。
 **指示限定词**：`this`、`that`、`these`、`those`。
-- **物主限定词**：`my`、`your`、`his`、`her`、`its`、`our`、`their`。
-- **量限定词**：`some`、`any`、`no`、`much`、`many`、`few`、`little`、`several`、`enough`。
+**物主限定词**：`my`、`your`、`his`、`her`、`its`、`our`、`their`。
+**量限定词**：`some`、`any`、`no`、`much`、`many`、`few`、`little`、`several`、`enough`。
 - **疑问限定词**：`which`、`what`、`whose`。
 - **数词**：`one`、`two`、`first`、`second` 等。
 
@@ -48,7 +48,7 @@ date: 2026-08-07
 
 **前位限定词**：`all`、`both`、`half`、`double`、`twice`、`one-third`——表示「全部/部分/倍数」，永远在最前。`all the students`。
 **中位限定词**：`a/an`、`the`、`this/that`、`my/your`、`some/any/no`、`every/each`、`either/neither`——表示「确指/属有/指量」，紧接在前位之后。`all my students`。
-- **后位限定词**：基数词（`three`）、序数词（`first`）、`next`、`last`、`other`、`many`、`much`、`few`、`several`——进一步细分数量与顺序。`all my three students`。
+**后位限定词**：基数词（`three`）、序数词（`first`）、`next`、`last`、`other`、`many`、`much`、`few`、`several`——进一步细分数量与顺序。`all my three students`。
 
 **重点：** **中位限定词是互斥的**——一个名词短语里只能有一个中位限定词。可以说 `my book`、`this book`，但不能说 `my this book`；`the book` 与 `my book` 只能二选一。这条「中位互斥」规则，是限定词序列中最硬的一条约束。<span class="marginnote">反观前位限定词可以跨过中位与其他词连用：`all the books`、`both my books`、`half a book`。所以序列口诀是「前位 + 中位 + 后位 + 名词」，中位至多一个，前位与后位可自由进出。</span>
 
@@ -62,8 +62,8 @@ date: 2026-08-07
 
 **泛指一类**：`A dog is a loyal animal.`（狗这一类动物）——此时可换用复数泛指 `Dogs are loyal.`。
 **首次提到**：`I saw a man at the door.`（第一次提及，听者不知是谁）——第二次再提就要转 `the`。
-- **表职业/身份**：`She is a teacher.`（注意：职业名词前必须有 `a/an`）。
-- **表单位**：`twice a week`（每周两次）、`50 km an hour`（每小时 50 公里）。
+**表职业/身份**：`She is a teacher.`（注意：职业名词前必须有 `a/an`）。
+**表单位**：`twice a week`（每周两次）、`50 km an hour`（每小时 50 公里）。
 - **与 `what/such` 构成感叹**：`What a beautiful day!`、`such a pity`。
 
 **辨析｜易错点：** 抽象名词与物质名词一旦加 `a/an`，就被「个体化」了：`a pleasure`（一件乐事）、`a tea`（一杯茶）。这与上一节「可数与不可数的语境转换」完全一致——冠词是名词身份转换的指示灯。

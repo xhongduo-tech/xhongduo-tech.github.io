@@ -26,8 +26,8 @@ date: 2026-08-07
 
 **名词**：`in the morning`。
 **代词宾格**：`for me`、`with her`。
-- **动名词（-ing 形式）**：`good at swimming`、`insist on doing`。
-- **wh- 从句**：`He is worried about what will happen.`
+**动名词（-ing 形式）**：`good at swimming`、`insist on doing`。
+**wh- 从句**：`He is worried about what will happen.`
 
 介词本身按构造分三类：
 
@@ -57,7 +57,7 @@ date: 2026-08-07
 
 **`at` 管「点」**：时刻与瞬间——`at 5 o'clock`、`at noon`、`at midnight`、`at the moment`。
 **`on` 管「线/面」**：具体的某一天——`on Monday`、`on May 4th`、`on my birthday`、`on New Year's Day`。
-- **`in` 管「块/范围」**：较长的时间段——`in 2026`、`in May`、`in summer`、`in the morning`、`in the 21st century`。
+**`in` 管「块/范围」**：较长的时间段——`in 2026`、`in May`、`in summer`、`in the morning`、`in the 21st century`。
 
 **辨析｜易错点：** 同一时段因「有没有具体某天」而切换介词：`in the morning`（泛指早晨）与 `on Monday morning`（具体某个周一早晨）、`at night`（夜晚）但 `on a cold night`（某个寒冷的夜晚）。**「粒度细化」会把 `in/at` 拉回 `on`**，因为一旦落到「具体某一天」，就用 `on`。<span class="marginnote">时间介词的粒度法则与地点介词的粒度法则（下一节）是同构的：`at` 是「点」、`on` 是「线/面」、`in` 是「范围」。一条法则管两套语义，这是介词逻辑里最优雅的对称。</span>
 
@@ -65,8 +65,8 @@ date: 2026-08-07
 
 **`since` + 过去时间点**（自……以来）与 **`for` + 时间段**（持续……）：`since 2020`、`for two years`——这对组合是完成体的黄金搭档，第2篇《完成体与完成进行体》会专门使用。
 **`by`** 表「不迟于某时」：`by Friday`（周五前）；**`until/till`** 表「直到」：`until midnight`。
-- **`from...to`** 表起止：`from 9 a.m. to 5 p.m.`；**`during`** 表「在……期间」：`during the meeting`。
-- 时间状语前的介词常省略：`last week`、`next month`、`this year`、`every day` 前**不用介词**（不能说 *in last week）。
+**`from...to`** 表起止：`from 9 a.m. to 5 p.m.`；**`during`** 表「在……期间」：`during the meeting`。
+时间状语前的介词常省略：`last week`、`next month`、`this year`、`every day` 前**不用介词**（不能说 *in last week）。
 
 ## 4 地点介词：点、线、面
 

@@ -72,7 +72,7 @@ Magisk 的原理上一节讲清楚了，但「原理懂了」和「装得上」�
 
 **Direct Install（直接安装）**：Magisk App 检测到新版本后，选择「直接安装」——App 读取当前 boot、注入新 Magisk、写回。前提是当前 boot 就是「带 Magisk 的版本」，且系统没升级过。
 **Select and Patch（修补文件）**：系统刚升级过、boot 是新版本的，先选新的 boot 修补再刷入。
-- **安装到未激活槽位（Install to Inactive Slot）**：A/B 设备在 OTA 升级后，可把 Magisk 装到尚未激活的新槽，保持升级后的无缝体验。
+**安装到未激活槽位（Install to Inactive Slot）**：A/B 设备在 OTA 升级后，可把 Magisk 装到尚未激活的新槽，保持升级后的无缝体验。
 
 **系统升级（OTA）与 Magisk 的配合**：Magisk 保留 OTA 能力，但 OTA 后 boot 会被替换成原版——**root 会消失**。恢复方式：OTA 完成后，在 App 里对**新系统的 boot** 重新修补（或 Direct Install 若 boot 未被替换）。**顺序记牢：先 OTA，再重装 Magisk，别倒过来**。
 

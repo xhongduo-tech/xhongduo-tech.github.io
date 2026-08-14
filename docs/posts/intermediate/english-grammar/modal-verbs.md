@@ -26,8 +26,8 @@ date: 2026-08-07
 
 **无第三人称 `-s`**：`He can swim.`（不是 *`He cans`）。
 **后接动词原形**：`She must go.`（不是 `must goes` 或 `must to go`）。
-- **无人称/数/时的词形变化**：`could` 是 `can` 的过去式，但更像独立的词。
-- **否定直接加 `not`**：`I cannot go.`、`must not`、`should not`。
+**无人称/数/时的词形变化**：`could` 是 `can` 的过去式，但更像独立的词。
+**否定直接加 `not`**：`I cannot go.`、`must not`、`should not`。
 - **疑问直接提前**：`Can you help me?`、`Must I stay?`
 - **无不定式与分词形式**：*`to can`、*`canning` 都不存在——需要「情态的等价表达」时改用半情态动词（见第 5 节）。
 
@@ -71,8 +71,8 @@ date: 2026-08-07
 
 **`must have done`**：对过去的**必然推断**——`He must have missed the train.`（他一定误了火车）。
 **`can't / couldn't have done`**：对过去的**否定推断**——`She can't have said that.`（她不可能那样说）。
-- **`may / might have done`**：对过去的**可能推测**——`They may have arrived.`（他们可能已经到了）。
-- **`should / ought to have done`**：**本应该做而没做**——`You should have told me.`（你本应该告诉我——但没告诉）。
+**`may / might have done`**：对过去的**可能推测**——`They may have arrived.`（他们可能已经到了）。
+**`should / ought to have done`**：**本应该做而没做**——`You should have told me.`（你本应该告诉我——但没告诉）。
 - **`shouldn't have done`**：**本不该做却做了**——`You shouldn't have told him.`（你不该告诉他——但告诉了）。
 - **`could have done`**：**本可以做而没做**——`I could have won, but I gave up.`（我本可以赢，但放弃了）。<span class="marginnote">观察这组公式：<strong>`must/can't` 表「推断」，`should/could` 表「遗憾评价」</strong>。推断类描述「过去发生了什么」，评价类描述「过去该发生什么却未发生」——前者是认知情态，后者是义务情态在时间轴上的回望。这个「认知 vs 义务」的划分在这里再次统摄全局。</span>
 

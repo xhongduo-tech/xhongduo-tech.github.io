@@ -42,7 +42,7 @@ date: 2026-08-07
 
 **`when`** 修饰时间先行词（`the day`、`the time`）：`the day when we met`（我们相遇的那天）——`when` = `on which`。
 **`where`** 修饰地点先行词（`the place`、`the city`）：`the city where I was born`——`where` = `in which`。
-- **`why`** 修饰原因先行词（`the reason`）：`the reason why he left`——`why` = `for which`。
+**`why`** 修饰原因先行词（`the reason`）：`the reason why he left`——`why` = `for which`。
 
 **重点：** 关系副词都能还原成「**介词 + which**」：`when` → `on/in/at which`、`where` → `in/at which`、`why` → `for which`。**「关系副词 = 介词 + which」**这条等式，是定语从句的万能换算器。<span class="marginnote">`where` 的先行词可以是<strong>抽象地点</strong>：`the point where we disagree`（分歧点）、`the situation where we have no choice`（处境）。只要语义上可作「处所」理解，`where` 就能用——这是 `where` 区别于 `in which` 硬套的灵活之处。</span>
 
@@ -56,11 +56,11 @@ date: 2026-08-07
 
 先行词是**不定代词**（`all`、`everything`、`nothing`、`something`、`anything`）：`Everything that he said is true.`
 先行词被**最高级/序数词/`only`/`very`/`the last`** 修饰：`the best film that I have seen`、`the first book that I read`、`the only thing that matters`。
-- 先行词**既有人又有物**：`the teachers and schools that I visited`。
+先行词**既有人又有物**：`the teachers and schools that I visited`。
 
 **只用 `which` 的情况**——
 
-- **非限制性定语从句**（见下节）：`I lost my watch, which was a gift from my father.`（不能用 `that`）。
+**非限制性定语从句**（见下节）：`I lost my watch, which was a gift from my father.`（不能用 `that`）。
 - **介词后**：`the desk on which the book lies`（介词后只能用 `which`，不能 `that`）。<span class="marginnote">「只用 that」的几条规则本质是同一个原理：<strong>当先行词被「最高级/唯一/不定」等最强烈地「定死」时，用 `that` 收束</strong>——`that` 在此起「聚焦」作用。记忆顺口溜：「最高序数 `only`，不定代词都用 `that`」。</span>
 
 **辨析｜易错点：** `that` 与 `which` 作**宾语**时可省略：`the book (that/which) I bought`——宾语位置的关系代词可省，主语位置不可省（`the man who helped me` 中 `who` 不能省）。**「从句缺宾语，关系词可省；缺主语，不可省」**是定语从句省略的黄金规则。

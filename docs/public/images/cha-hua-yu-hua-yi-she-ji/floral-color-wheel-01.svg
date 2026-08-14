@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 460" font-family="sans-serif">
+<title>十二色相环与互补色关系</title>
+<desc>一个 12 色的色相环，标注三原色、三间色与红绿、橙蓝、黄紫三组互补色关系，说明花艺配色的色彩基础。</desc>
+<rect x="0" y="0" width="420" height="460" fill="#faf9f5"/>
+<!-- 12 个色相楔形，中心 (200,200)，外半径 160，内半径 70 -->
+<g stroke="#faf9f5" stroke-width="2">
+<path d="M 200,130 L 200,40 A 160 160 0 0 1 280,61.44 L 235,139.38 A 70 70 0 0 0 200,130 Z" fill="#E63946"/>
+<path d="M 235,139.38 L 280,61.44 A 160 160 0 0 1 338.56,120 L 260.62,165 A 70 70 0 0 0 235,139.38 Z" fill="#E76F51"/>
+<path d="M 260.62,165 L 338.56,120 A 160 160 0 0 1 360,200 L 270,200 A 70 70 0 0 0 260.62,165 Z" fill="#F4A261"/>
+<path d="M 270,200 L 360,200 A 160 160 0 0 1 338.56,280 L 260.62,235 A 70 70 0 0 0 270,200 Z" fill="#E9C46A"/>
+<path d="M 260.62,235 L 338.56,280 A 160 160 0 0 1 280,338.56 L 235,260.62 A 70 70 0 0 0 260.62,235 Z" fill="#FFD166"/>
+<path d="M 235,260.62 L 280,338.56 A 160 160 0 0 1 200,360 L 200,270 A 70 70 0 0 0 235,260.62 Z" fill="#A7C957"/>
+<path d="M 200,270 L 200,360 A 160 160 0 0 1 120,338.56 L 165,260.62 A 70 70 0 0 0 200,270 Z" fill="#2A9D8F"/>
+<path d="M 165,260.62 L 120,338.56 A 160 160 0 0 1 61.44,280 L 139.38,235 A 70 70 0 0 0 165,260.62 Z" fill="#1B7F79"/>
+<path d="M 139.38,235 L 61.44,280 A 160 160 0 0 1 40,200 L 130,200 A 70 70 0 0 0 139.38,235 Z" fill="#457B9D"/>
+<path d="M 130,200 L 40,200 A 160 160 0 0 1 61.44,120 L 139.38,165 A 70 70 0 0 0 130,200 Z" fill="#5E548E"/>
+<path d="M 139.38,165 L 61.44,120 A 160 160 0 0 1 120,61.44 L 165,139.38 A 70 70 0 0 0 139.38,165 Z" fill="#9D4EDD"/>
+<path d="M 165,139.38 L 120,61.44 A 160 160 0 0 1 200,40 L 200,130 A 70 70 0 0 0 165,139.38 Z" fill="#C77DFF"/>
+</g>
+<circle cx="200" cy="200" r="70" fill="#faf9f5" stroke="#d8d2c5" stroke-width="1.5"/>
+<!-- 互补色连线（虚线） -->
+<g stroke="#333" stroke-width="1.5" stroke-dasharray="5 4" fill="none">
+<line x1="200" y1="40" x2="200" y2="360"/>
+<line x1="338.56" y1="120" x2="61.44" y2="280"/>
+<line x1="338.56" y1="280" x2="61.44" y2="120"/>
+</g>
+<!-- 中心文字 -->
+<text x="200" y="195" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">十二色</text>
+<text x="200" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">相环</text>
+<!-- 外侧色相名称标注 -->
+<text x="200" y="18" text-anchor="middle" font-size="14" fill="#333">红</text>
+<text x="372" y="108" text-anchor="middle" font-size="14" fill="#333">橙</text>
+<text x="372" y="297" text-anchor="middle" font-size="14" fill="#333">黄</text>
+<text x="200" y="390" text-anchor="middle" font-size="14" fill="#333">绿</text>
+<text x="28" y="297" text-anchor="middle" font-size="14" fill="#333">蓝</text>
+<text x="28" y="108" text-anchor="middle" font-size="14" fill="#333">紫</text>
+<!-- 三原色与三间色小字 -->
+<text x="200" y="238" text-anchor="middle" font-size="13" fill="#1f6f8b">内圈：红·黄·蓝（原色）</text>
+<text x="200" y="258" text-anchor="middle" font-size="13" fill="#1f6f8b">橙·绿·紫（间色）</text>
+<!-- 底部说明 -->
+<text x="210" y="430" text-anchor="middle" font-size="14" fill="#333">互补色 = 色相环上相差 180° 的两种色（虚线相连）</text>
+</svg>

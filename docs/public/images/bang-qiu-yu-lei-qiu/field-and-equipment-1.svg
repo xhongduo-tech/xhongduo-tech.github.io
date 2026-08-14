@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 700" font-family="sans-serif">
+  <title>棒球场场地示意图</title>
+  <desc>从本垒俯瞰棒球场的菱形布局，标注本垒、一垒、二垒、三垒、投手丘、击球区、界内外与外场围栏</desc>
+  <rect x="0" y="0" width="720" height="700" fill="#faf9f5"/>
+  <path d="M 130 620 A 400 400 0 0 1 590 620 Z" fill="#e8efe2" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="360" y1="620" x2="130" y2="620" stroke="#333" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="360" y1="620" x2="590" y2="620" stroke="#333" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M 360 620 L 560 480 L 360 340 L 160 480 Z" fill="#e8dcc8" stroke="#333" stroke-width="2"/>
+  <line x1="360" y1="620" x2="560" y2="480" stroke="#333" stroke-width="2"/>
+  <line x1="560" y1="480" x2="360" y2="340" stroke="#333" stroke-width="2"/>
+  <line x1="360" y1="340" x2="160" y2="480" stroke="#333" stroke-width="2"/>
+  <line x1="160" y1="480" x2="360" y2="620" stroke="#333" stroke-width="2"/>
+  <circle cx="360" cy="430" r="24" fill="#faf9f5" stroke="#c0392b" stroke-width="2"/>
+  <text x="360" y="434" text-anchor="middle" font-size="13" fill="#333">投手丘</text>
+  <rect x="352" y="332" width="16" height="16" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="360" y="322" text-anchor="middle" font-size="14" fill="#333">二垒</text>
+  <rect x="552" y="472" width="16" height="16" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="582" y="466" text-anchor="middle" font-size="14" fill="#333">一垒</text>
+  <rect x="152" y="472" width="16" height="16" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="128" y="466" text-anchor="middle" font-size="14" fill="#333">三垒</text>
+  <polygon points="348,632 372,632 372,622 360,614 348,622" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="360" y="660" text-anchor="middle" font-size="14" fill="#333">本垒</text>
+  <rect x="328" y="548" width="18" height="52" fill="none" stroke="#999" stroke-width="1.5"/>
+  <text x="290" y="636" text-anchor="end" font-size="13" fill="#666">击球区</text>
+  <text x="500" y="300" text-anchor="middle" font-size="14" fill="#1f6f8b">外场围栏（全垒打墙）</text>
+  <text x="360" y="258" text-anchor="middle" font-size="13" fill="#666">本垒到二垒 ≈ 127.3 英尺（90√2）</text>
+  <text x="452" y="576" font-size="13" fill="#666">90 英尺</text>
+  <text x="258" y="576" font-size="13" fill="#666">90 英尺</text>
+  <text x="540" y="180" text-anchor="middle" font-size="13" fill="#999">界外区</text>
+  <text x="180" y="180" text-anchor="middle" font-size="13" fill="#999">界外区</text>
+</svg>

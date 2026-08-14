@@ -30,7 +30,7 @@ date: 2026-08-07
 
 **互惠（reciprocity）**：受人恩惠就想回报。
 **承诺与一致（commitment & consistency）**：公开表态后，行为会努力与之对齐。
-- **社会认同（social proof）**：别人怎么做，我就怎么做。
+**社会认同（social proof）**：别人怎么做，我就怎么做。
 - **喜好（liking）**：我喜欢的人，我更愿意答应。
 - **权威（authority）**：专家说的，我倾向于信。
 - **稀缺（scarcity）**：越稀少越想要。

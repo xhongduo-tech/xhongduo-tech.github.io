@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 580" width="440" height="580" font-family="sans-serif">
+  <title>面部三庭五眼比例示意图</title>
+  <desc>正面脸部示意图，标注三庭（上庭、中庭、下庭等长）与五眼（正面脸宽约为五个眼宽）的面部美学比例参数。</desc>
+  <rect width="440" height="580" fill="#faf9f5"/>
+  <!-- 面部外轮廓 -->
+  <ellipse cx="210" cy="310" rx="105" ry="200" fill="#fdf6e9" stroke="#333" stroke-width="2"/>
+  <!-- 发际线 / 眉毛 / 鼻下点 / 颏下点 水平虚线 -->
+  <line x1="105" y1="130" x2="315" y2="130" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="105" y1="250" x2="315" y2="250" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="105" y1="370" x2="315" y2="370" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="105" y1="490" x2="315" y2="490" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <!-- 五眼标尺（五段等宽） -->
+  <rect x="110" y="30" width="40" height="40" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="150" y="30" width="40" height="40" fill="#cfe3ea" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="190" y="30" width="40" height="40" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="230" y="30" width="40" height="40" fill="#cfe3ea" stroke="#1f6f8b" stroke-width="2"/>
+  <rect x="270" y="30" width="40" height="40" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="220" y="16" text-anchor="middle" font-size="15" fill="#333">五眼：正面脸宽 ≈ 五个眼宽</text>
+  <!-- 眉与眼 -->
+  <line x1="150" y1="238" x2="192" y2="238" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+  <line x1="228" y1="238" x2="270" y2="238" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+  <path d="M150 252 Q170 248 190 252" stroke="#333" stroke-width="3" fill="none"/>
+  <path d="M230 252 Q250 248 270 252" stroke="#333" stroke-width="3" fill="none"/>
+  <!-- 鼻 -->
+  <path d="M196 300 L210 368 L224 300" stroke="#333" stroke-width="3" fill="none"/>
+  <!-- 唇 -->
+  <path d="M180 420 Q210 410 240 420 L210 434 Z" stroke="#333" stroke-width="3" fill="#f3d9cf"/>
+  <!-- 三庭标注 -->
+  <text x="345" y="180" font-size="15" fill="#c0392b">上庭</text>
+  <text x="345" y="300" font-size="15" fill="#c0392b">中庭</text>
+  <text x="345" y="420" font-size="15" fill="#c0392b">下庭</text>
+  <line x1="335" y1="190" x2="318" y2="205" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="335" y1="310" x2="318" y2="310" stroke="#c0392b" stroke-width="1.5"/>
+  <line x1="335" y1="430" x2="318" y2="415" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="220" y="545" text-anchor="middle" font-size="15" fill="#333">发际线—眉间—鼻下点—颏下点三段等长</text>
+  <text x="220" y="570" text-anchor="middle" font-size="13" fill="#666">三庭各约面高 1/3；五眼为正面脸宽的基线比例</text>
+</svg>

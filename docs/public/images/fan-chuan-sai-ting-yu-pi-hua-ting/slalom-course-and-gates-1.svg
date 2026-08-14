@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 560" font-family="sans-serif">
+  <title>激流回旋水门示意图</title>
+  <desc>俯视图：赛道自左上向右下，水流方向用箭头标示；两道顺水门（绿白杆）沿水流方向穿过，一道逆水门（红白杆）须逆流向上穿过。</desc>
+  <rect x="0" y="0" width="440" height="560" fill="#faf9f5"/>
+
+  <!-- 赛道边界 -->
+  <path d="M 40 30 L 400 150 L 400 500" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="8,5"/>
+  <path d="M 40 30 L 70 130 L 90 500" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="8,5"/>
+
+  <!-- 水流方向箭头（斜向） -->
+  <g stroke="#1f6f8b" stroke-width="3" fill="#1f6f8b">
+    <line x1="90" y1="60" x2="380" y2="180"/>
+    <polygon points="388,184 360,190 370,168"/>
+  </g>
+  <text x="30" y="70" fill="#1f6f8b" font-size="15">水流方向</text>
+
+  <!-- 顺水门 1（绿白杆） -->
+  <circle cx="120" cy="180" r="8" fill="#2e7d32" stroke="#333" stroke-width="1.5"/>
+  <circle cx="180" cy="205" r="8" fill="#fff" stroke="#2e7d32" stroke-width="2"/>
+  <text x="190" y="195" fill="#333" font-size="14">顺水门（绿/白）</text>
+  <path d="M 120 180 L 180 205" stroke="#2e7d32" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- 顺水门 2（绿白杆） -->
+  <circle cx="200" cy="330" r="8" fill="#2e7d32" stroke="#333" stroke-width="1.5"/>
+  <circle cx="260" cy="355" r="8" fill="#fff" stroke="#2e7d32" stroke-width="2"/>
+  <text x="268" y="345" fill="#333" font-size="14">顺水门（绿/白）</text>
+  <path d="M 200 330 L 260 355" stroke="#2e7d32" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- 逆水门（红白杆） -->
+  <circle cx="300" cy="430" r="8" fill="#c0392b" stroke="#333" stroke-width="1.5"/>
+  <circle cx="300" cy="485" r="8" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+  <text x="310" y="470" fill="#333" font-size="14">逆水门（红/白）</text>
+  <path d="M 300 430 L 300 485" stroke="#c0392b" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- 逆水穿门箭头（逆流向上） -->
+  <g stroke="#c0392b" stroke-width="2.5" fill="#c0392b">
+    <line x1="275" y1="480" x2="275" y2="435"/>
+    <polygon points="275,428 267,450 283,450"/>
+  </g>
+  <text x="250" y="510" fill="#c0392b" font-size="13">逆流穿过</text>
+
+  <!-- 顺水穿门箭头 -->
+  <g stroke="#2e7d32" stroke-width="2.5" fill="#2e7d32">
+    <line x1="95" y1="168" x2="145" y2="193"/>
+    <polygon points="152,197 128,201 138,181"/>
+  </g>
+  <text x="55" y="155" fill="#2e7d32" font-size="13">顺流穿过</text>
+
+  <!-- 终点 -->
+  <text x="330" y="520" fill="#333" font-size="15">赛道终点</text>
+</svg>

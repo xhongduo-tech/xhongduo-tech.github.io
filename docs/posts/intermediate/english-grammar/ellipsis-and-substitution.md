@@ -66,7 +66,7 @@ date: 2026-08-07
 
 `— Would you like to come? — Yes, I'd love to.`（`to` 后省略 `come`）。
 `I don't want to go, but I have to.`（`to` 后省略 `go`）。
-- `He asked me to help, and I agreed to.`（`to` 后省略 `help`）。
+`He asked me to help, and I agreed to.`（`to` 后省略 `help`）。
 
 **重点：** 这个「保留 `to`」的省略是有条件的——**`to` 后的动词必须在上文明确出现过**，且省略后语义仍清楚。`I'd love to`、`I'd like to`、`I have to`、`I'm afraid to`、`I refuse to` 都是高频搭配。<span class="marginnote">「保留 `to` 省略动词」是现代英语的规范用法，但若情态动词后接（`can`、`will`），则<strong>连 `to` 一起省</strong>——`Can you help me? — I can.`（不是 `I can to`）。<strong>情态动词后不留 `to`，实义动词/半情态后留 `to`</strong>——`must`、`can` 不带 `to`，`have to`、`need to`、`want to` 带 `to`。</span>
 

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img">
+  <title>CSS 盒模型四层结构示意图</title>
+  <desc>从外到内依次为 margin 外边距、border 边框、padding 内边距、content 内容区，并标注各部分尺寸属性</desc>
+  <style>
+    text { font-family: sans-serif; fill: #333; }
+    .label { font-size: 14px; }
+    .small { font-size: 13px; }
+    .dim { fill: #8a8a8a; }
+  </style>
+
+  <!-- margin 层 -->
+  <rect x="30" y="20" width="420" height="320" rx="6" fill="#faf9f5" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="240" y="14" class="label" fill="#c0392b" text-anchor="middle">margin 外边距</text>
+
+  <!-- border 层 -->
+  <rect x="70" y="60" width="340" height="240" rx="4" fill="#eaf2f6" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="240" y="52" class="label" fill="#1f6f8b" text-anchor="middle">border 边框</text>
+
+  <!-- padding 层 -->
+  <rect x="110" y="100" width="260" height="160" rx="3" fill="#f3f0e7" stroke="#b08a3e" stroke-width="1.5"/>
+  <text x="240" y="92" class="label" fill="#b08a3e" text-anchor="middle">padding 内边距</text>
+
+  <!-- content 层 -->
+  <rect x="150" y="140" width="180" height="80" rx="3" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+  <text x="240" y="172" class="label" text-anchor="middle">content 内容区</text>
+  <text x="240" y="194" class="small dim" text-anchor="middle">width × height</text>
+
+  <!-- 尺寸标注 -->
+  <text x="14" y="190" class="small dim">margin</text>
+  <text x="16" y="272" class="small dim">边框外缘</text>
+  <text x="116" y="318" class="small dim">border</text>
+  <text x="142" y="318" class="small dim">padding</text>
+
+  <!-- 箭头标注：左外边缘 -->
+  <line x1="30" y1="352" x2="448" y2="352" stroke="#c0392b" stroke-width="1.5" marker-start="url(#arwL)" marker-end="url(#arwR)"/>
+  <text x="240" y="352" class="small dim" text-anchor="middle" dy="14">outer 总宽 = content + padding + border + margin</text>
+
+  <defs>
+    <marker id="arwL" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto">
+      <path d="M8,0 L0,4 L8,8 Z" fill="#c0392b"/>
+    </marker>
+    <marker id="arwR" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+</svg>

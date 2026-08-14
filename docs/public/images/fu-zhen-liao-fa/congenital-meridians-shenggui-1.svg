@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" width="660" height="510">
+  <title>腹针神龟图取穴示意</title>
+  <desc>腹部穴位排列形似仰卧的神龟：龟头对应头面，龟颈对应颈项，龟背对应胸背，龟尾对应腰骶，四只龟肢对应四肢；图中同时标出神阙与中脘、下脘、气海、关元、天枢、滑肉门、外陵等腹针常用穴位。</desc>
+  <rect width="440" height="340" fill="#faf9f5"/>
+  <ellipse cx="220" cy="170" rx="175" ry="132" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <circle cx="220" cy="170" r="10" fill="#1f6f8b"/>
+  <text x="220" y="175" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff">神</text>
+  <ellipse cx="220" cy="60" rx="32" ry="23" fill="#e8d9c0" stroke="#333" stroke-width="1.5"/>
+  <circle cx="231" cy="53" r="2.5" fill="#333"/>
+  <circle cx="211" cy="53" r="2.5" fill="#333"/>
+  <path d="M208 66 q12 8 24 0" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="220" y="40" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#c0392b">头面</text>
+  <rect x="203" y="81" width="34" height="42" rx="12" fill="#efe4d0" stroke="#333" stroke-width="1.5"/>
+  <text x="220" y="107" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#333">颈项</text>
+  <ellipse cx="220" cy="178" rx="98" ry="70" fill="#f3ead9" stroke="#333" stroke-width="2"/>
+  <text x="220" y="176" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#333">胸背</text>
+  <ellipse cx="128" cy="128" rx="30" ry="19" fill="#efe4d0" stroke="#333" stroke-width="1.5" transform="rotate(-24 128 128)"/>
+  <ellipse cx="312" cy="128" rx="30" ry="19" fill="#efe4d0" stroke="#333" stroke-width="1.5" transform="rotate(24 312 128)"/>
+  <text x="96" y="114" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">上肢</text>
+  <text x="344" y="114" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">上肢</text>
+  <ellipse cx="128" cy="228" rx="32" ry="20" fill="#efe4d0" stroke="#333" stroke-width="1.5" transform="rotate(25 128 228)"/>
+  <ellipse cx="312" cy="228" rx="32" ry="20" fill="#efe4d0" stroke="#333" stroke-width="1.5" transform="rotate(-25 312 228)"/>
+  <text x="92" y="250" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">下肢</text>
+  <text x="348" y="250" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1f6f8b">下肢</text>
+  <polygon points="210,243 230,243 220,268" fill="#efe4d0" stroke="#333" stroke-width="1.5"/>
+  <text x="220" y="292" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#c0392b">腰骶</text>
+  <g fill="#c0392b" font-family="sans-serif" font-size="13">
+    <circle cx="220" cy="118" r="3.5"/>
+    <circle cx="220" cy="146" r="3.5"/>
+    <circle cx="220" cy="202" r="3.5"/>
+    <circle cx="220" cy="226" r="3.5"/>
+    <circle cx="258" cy="170" r="3.5"/>
+    <circle cx="252" cy="137" r="3.5"/>
+    <circle cx="254" cy="200" r="3.5"/>
+  </g>
+  <g fill="#1f6f8b" font-family="sans-serif" font-size="14">
+    <text x="243" y="121">中脘</text>
+    <text x="243" y="149">下脘</text>
+    <text x="243" y="205">气海</text>
+    <text x="243" y="229">关元</text>
+    <text x="276" y="174">天枢</text>
+    <text x="276" y="140">滑肉门</text>
+    <text x="276" y="204">外陵</text>
+  </g>
+</svg>

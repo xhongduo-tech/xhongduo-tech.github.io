@@ -51,7 +51,7 @@ date: 2026-08-07
 
 **OTA 后 root 会消失**：OTA 会替换 boot 分区的原版镜像，Magisk 被冲掉。**升级后需重新修补新 boot 重装 Magisk**（顺序：先 OTA，再重装 root）。
 **OTA 可能失败**：改过系统分区、TWRP 顶掉了官方 Recovery，OTA 校验过不了。**解决**：恢复官方 Recovery/系统后升级，或改用「下载全量包 + TWRP 保资料刷」的方式。
-- **跨大版本升级建议 clean flash**：从 Android 大版本升级，即使同 ROM，也建议备份后 clean flash——大版本数据迁移的坑最多。<span class="marginnote">「OTA 后 root 消失」是刷机者最常「惊到」的现象：<strong>不是 root 坏了，而是 OTA 把 boot 换回了原版</strong>。牢记「先系统、后 root」的顺序——OTA 完成后对新 boot 重新 patch 即可，别在 OTA 前折腾 root。</span>
+**跨大版本升级建议 clean flash**：从 Android 大版本升级，即使同 ROM，也建议备份后 clean flash——大版本数据迁移的坑最多。<span class="marginnote">「OTA 后 root 消失」是刷机者最常「惊到」的现象：<strong>不是 root 坏了，而是 OTA 把 boot 换回了原版</strong>。牢记「先系统、后 root」的顺序——OTA 完成后对新 boot 重新 patch 即可，别在 OTA 前折腾 root。</span>
 
 **升级前的标准动作**：**备份（Nandroid + 数据）→ 确认电量与存储空间充足 → 确认升级包与机型匹配 → 读 changelog/Known Issues → 执行升级**。
 
@@ -61,7 +61,7 @@ date: 2026-08-07
 
 **OTA 下载后安装失败**：多半是系统被改动（root/TWRP）。回官方状态再升，或改走全量包。
 **升级后 bootloop**：跨大版本未 clean 的典型症状。备份数据 → 回 TWRP clean flash 当前版本。
-- **升级后 root 没了 / 应用 FC**：root 消失按「重装 Magisk」处理；FC 多半是数据不兼容，按「清应用数据 → clean flash」顺序排查。
+**升级后 root 没了 / 应用 FC**：root 消失按「重装 Magisk」处理；FC 多半是数据不兼容，按「清应用数据 → clean flash」顺序排查。
 - **升级后变砖（罕见）**：按上一节救砖流程处理——线刷官方包兜底。
 
 **维护习惯**（让升级少翻车的长期策略）：

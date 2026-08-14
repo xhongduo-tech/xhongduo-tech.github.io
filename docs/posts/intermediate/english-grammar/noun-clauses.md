@@ -45,7 +45,7 @@ date: 2026-08-07
 
 **陈述动词 + that**：`say`、`know`、`believe`、`think`、`hope`、`agree`——`I think (that) it will rain.`
 **疑问动词 + wh-/whether**：`ask`、`wonder`、`know`、`see`、`understand`——`I wonder why he left.`
-- **建议/要求动词 + that（虚拟）**：`suggest`、`demand`、`insist`——`He suggested that we (should) leave.`（回收第2篇第14节的虚拟规则）。
+**建议/要求动词 + that（虚拟）**：`suggest`、`demand`、`insist`——`He suggested that we (should) leave.`（回收第2篇第14节的虚拟规则）。
 
 **重点：** 宾语从句的**时态一致（sequence of tenses）**：主句是过去时，从句时态随之「后移」——现在时变过去时、过去时变过去完成、将来 `will` 变 `would`：`He said, "I am tired."` → `He said that he was tired.`；`He said, "I will come."` → `He said that he would come.`。**但客观真理不受时态一致约束**：`The teacher said that the earth goes round the sun.`（`goes` 保持现在时——真理永恒）。<span class="marginnote">时态一致的「后移」机制，与虚拟语气的「时态回移」（第2篇第14节）是同一台机器：都是把时间轴「往过去推一格」。区别在于：时态一致是<strong>强制性语法呼应</strong>（主句过去时触发），虚拟语气是<strong>语义性时间错位</strong>（反事实触发）。两条规则、一台机器。</span>
 
@@ -59,8 +59,8 @@ date: 2026-08-07
 
 `It is + 形容词 + that`：`It is important that we be on time.`
 `It is + 名词 + that`：`It is a pity that you missed it.`
-- `It + 动词 + that`：`It seems that he is right.`、`It happened that...`
-- `It is + 过去分词 + that`：`It is said that...`（据说）、`It is reported that...`（据报道）。<span class="marginnote">`It is said/reported/believed that...` 是新闻英语的「无敌句型」：它把「报道者」藏起来，只留信息本身，客观而简洁。这个结构与被动语态（第2篇第12节）的「施事省略」一脉相承——<strong>「谁说的不重要，说什么才重要」。</strong></span>
+`It + 动词 + that`：`It seems that he is right.`、`It happened that...`
+`It is + 过去分词 + that`：`It is said that...`（据说）、`It is reported that...`（据报道）。<span class="marginnote">`It is said/reported/believed that...` 是新闻英语的「无敌句型」：它把「报道者」藏起来，只留信息本身，客观而简洁。这个结构与被动语态（第2篇第12节）的「施事省略」一脉相承——<strong>「谁说的不重要，说什么才重要」。</strong></span>
 
 **辨析｜易错点：** 主语从句作主语时，主句谓语用**单数**：`What he said is true.`（√ `is`，不是 `are`）、`Whether he comes doesn't matter.`（√ `doesn't`）。**「从句作主语 = 单数概念」**是主谓一致（第4篇第21节）的预演。
 

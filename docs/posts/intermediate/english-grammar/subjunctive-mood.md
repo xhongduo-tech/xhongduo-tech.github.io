@@ -24,7 +24,7 @@ date: 2026-08-07
 
 **陈述语气**：陈述事实或提问——`Water boils at 100 °C.`、`Did you see it?`
 **祈使语气**：直接下达命令或请求——`Sit down.`、`Please be quiet.`（用动词原形）。
-- **虚拟语气**：表达假设、愿望、建议、要求等非现实语义——`If I were you...`、`I suggest that he leave.`
+**虚拟语气**：表达假设、愿望、建议、要求等非现实语义——`If I were you...`、`I suggest that he leave.`
 
 **重点：** 虚拟语气的特征是**时态错位（tense shift）**：明明谈现在，却用过去式（`If I had time now`）；明明谈过去，却用过去完成式（`If I had known then`）。**「时态往过去退一格」=「现实性往后退一格」**，这就是虚拟语气的全部秘密。<span class="marginnote">注意虚拟语气在现代英语中的「萎缩」：`be` 的虚拟式 `were`（`If I were you`）是保留下来的最显眼标记，而 `that he leave` 这类「动词原形虚拟式」正在被 `should + 原形` 或陈述语气取代。虚拟语气是「活化石」与「活语言」的混合体。</span>
 
@@ -50,7 +50,7 @@ date: 2026-08-07
 
 **对现在**：`wish + 过去式`——`I wish I knew the answer.`（我希望我现在知道答案——但不知道）。
 **对过去**：`wish + had done`——`I wish I had listened to your advice.`（我要是当初听了你的建议就好了——没听）。
-- **对将来**：`wish + would/could + 原形`——`I wish it would stop raining.`（我希望雨快停——不太可能马上停）。
+**对将来**：`wish + would/could + 原形`——`I wish it would stop raining.`（我希望雨快停——不太可能马上停）。
 
 **if only**（要是……就好了）与 wish 同义但语气更强烈：`If only I had seen it earlier!`（要是我早点看到就好了！）。<span class="marginnote">`wish` 与 `hope` 的分工值得记牢：`hope` 表「可实现的愿望」，用陈述时态（`I hope you pass the exam.`）；`wish` 表「难实现/不现实的愿望」，用虚拟时态（`I wish you would pass the exam.`）。<strong>`hope` 说「可能」，`wish` 说「但愿」</strong>——一个走陈述，一个走虚拟。</span>
 

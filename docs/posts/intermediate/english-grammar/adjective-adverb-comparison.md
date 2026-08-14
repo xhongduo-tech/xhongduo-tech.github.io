@@ -54,8 +54,8 @@ date: 2026-08-07
 
 **单音节词**：加 `-er/-est`——`small → smaller → smallest`。
 **以 `e` 结尾**：只加 `-r/-st`——`large → larger → largest`。
-- **重读闭音节（辅音+元音+辅音）**：双写末尾辅音——`big → bigger → biggest`、`hot → hotter`。
-- **以「辅音 + y」结尾**：改 `y` 为 `i` 加 `-er/-est`——`happy → happier → happiest`。
+**重读闭音节（辅音+元音+辅音）**：双写末尾辅音——`big → bigger → biggest`、`hot → hotter`。
+**以「辅音 + y」结尾**：改 `y` 为 `i` 加 `-er/-est`——`happy → happier → happiest`。
 - **双音节词**：以 `-y`、`-er`、`-ow`、`-le` 结尾的常用词用词缀（`easy → easier`、`narrow → narrower`），其余双音节词多用 `more/most`（`more careful`）。
 - **多音节词（≥3 音节）**：一律用 `more/most`——`more beautiful → most beautiful`。
 

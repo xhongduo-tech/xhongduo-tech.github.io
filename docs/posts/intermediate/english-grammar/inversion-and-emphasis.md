@@ -60,8 +60,8 @@ date: 2026-08-07
 
 强调主语：`It was John who broke the window.`（是约翰打破了窗户）。
 强调宾语：`It was the window that John broke.`（约翰打破的是窗户）。
-- 强调状语：`It was yesterday that John broke the window.`（约翰是昨天打破窗户的）。
-- 强调时间/地点状语：`It was in the park that I met her.`（我是在公园遇见她的）。
+强调状语：`It was yesterday that John broke the window.`（约翰是昨天打破窗户的）。
+强调时间/地点状语：`It was in the park that I met her.`（我是在公园遇见她的）。
 
 **重点：** 强调句的本质是「**一句拆两句**」：把 `John broke the window yesterday.` 切成「被强调的部分」（`John`、`the window`、`yesterday`）与「剩余部分」（`who broke the window` 等），再用 `It is...that` 焊回去。**拆哪块，哪块就站上焦点位。**<span class="marginnote">强调句几乎是英语里唯一的「万能焦点装置」：它不像倒装那样受触发词限制，而是能高亮任意名词、介词短语、状语从句——`It was because he was ill that he stayed home.`（正是因为他病了才待在家）。写作中想突出哪块，就用 `It is...that` 框哪块。</span>
 

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="sans-serif">
+  <title>疼痛传导通路示意图</title>
+  <desc>伤害性刺激经初级传入纤维进入脊髓背角，交叉后沿脊髓丘脑束上行至丘脑与大脑皮层；下行抑制系统从脑干投射回脊髓背角进行调控。</desc>
+  <rect width="720" height="460" fill="#faf9f5"/>
+  <text x="360" y="30" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">疼痛传导通路示意</text>
+
+  <!-- 大脑 -->
+  <rect x="430" y="55" width="230" height="90" rx="12" fill="#1f6f8b" opacity="0.15" stroke="#1f6f8b"/>
+  <text x="545" y="85" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">大脑皮层（疼痛矩阵）</text>
+  <text x="545" y="105" text-anchor="middle" font-size="13" fill="#333">感觉辨别 · 情感动机 · 认知评价</text>
+  <text x="545" y="125" text-anchor="middle" font-size="13" fill="#333">产生「疼痛意识」</text>
+
+  <!-- 丘脑 -->
+  <rect x="490" y="165" width="120" height="50" rx="8" fill="#1f6f8b" opacity="0.25" stroke="#1f6f8b"/>
+  <text x="550" y="188" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">丘脑</text>
+  <text x="550" y="205" text-anchor="middle" font-size="12" fill="#333">中继站</text>
+
+  <!-- 脑干 -->
+  <rect x="95" y="160" width="170" height="95" rx="12" fill="#c0392b" opacity="0.12" stroke="#c0392b"/>
+  <text x="180" y="182" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">脑干</text>
+  <text x="180" y="200" text-anchor="middle" font-size="12" fill="#333">中脑导水管周围灰质（PAG）</text>
+  <text x="180" y="217" text-anchor="middle" font-size="12" fill="#333">延髓头端腹内侧（RVM）</text>
+  <text x="180" y="240" text-anchor="middle" font-size="11" fill="#1f6f8b">下行抑制系统中枢</text>
+
+  <!-- 脊髓 -->
+  <rect x="190" y="290" width="150" height="130" rx="10" fill="#c0392b" opacity="0.1" stroke="#c0392b"/>
+  <text x="265" y="315" text-anchor="middle" font-size="13" fill="#333" font-weight="bold">脊髓</text>
+  <text x="265" y="335" text-anchor="middle" font-size="12" fill="#333">背角（背根）</text>
+  <text x="265" y="353" text-anchor="middle" font-size="12" fill="#333">Ⅱ层：传递 · 调制</text>
+  <text x="265" y="371" text-anchor="middle" font-size="12" fill="#333">Ⅰ/Ⅴ层：投射神经元</text>
+  <text x="265" y="395" text-anchor="middle" font-size="11" fill="#1f6f8b">疼痛第一中继站</text>
+
+  <!-- 外周 -->
+  <text x="60" y="340" font-size="13" fill="#333" font-weight="bold">伤害性刺激</text>
+  <text x="60" y="358" font-size="12" fill="#333">皮肤 · 肌肉 · 内脏</text>
+  <text x="60" y="376" font-size="12" fill="#333">机械 / 热 / 化学</text>
+
+  <!-- 背根神经节 -->
+  <ellipse cx="140" cy="355" rx="38" ry="20" fill="#1f6f8b" opacity="0.2" stroke="#1f6f8b"/>
+  <text x="140" y="352" text-anchor="middle" font-size="11" fill="#333">背根</text>
+  <text x="140" y="366" text-anchor="middle" font-size="11" fill="#333">神经节</text>
+
+  <!-- 通路箭头 -->
+  <line x1="120" y1="340" x2="178" y2="330" stroke="#333" stroke-width="2"/>
+  <text x="128" y="316" font-size="11" fill="#333">Aδ / C 纤维</text>
+
+  <!-- 上行：脊髓→丘脑（对侧交叉） -->
+  <path d="M 265 290 L 265 250 L 505 250 L 505 165" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arwR)"/>
+  <text x="360" y="245" font-size="12" fill="#c0392b">脊髓丘脑束（对侧交叉上行）</text>
+
+  <!-- 丘脑→皮层 -->
+  <line x1="545" y1="165" x2="545" y2="145" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arwR)"/>
+  <text x="560" y="158" font-size="11" fill="#c0392b">丘脑皮层投射</text>
+
+  <!-- 下行抑制 -->
+  <path d="M 180 215 L 180 240 L 190 290" fill="none" stroke="#1f6f8b" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arwB)"/>
+  <text x="210" y="258" font-size="11" fill="#1f6f8b">下行抑制（内啡肽 / 5-HT / NE）</text>
+
+  <defs>
+    <marker id="arwR" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+    <marker id="arwB" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+</svg>

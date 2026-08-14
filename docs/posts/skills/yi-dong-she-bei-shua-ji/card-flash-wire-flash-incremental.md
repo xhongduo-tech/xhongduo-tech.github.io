@@ -57,7 +57,7 @@ update.zip
 
 **Fastboot 线刷**：解压后是若干 `.img`（`boot.img`、`system.img`、`vendor.img`…）加一个 `flash-all.sh`/`.bat` 脚本，脚本里就是按序的 `fastboot flash` 命令。
 **MiFlash**：`.tgz` 解压后是镜像加刷写配置文件，工具读配置自动刷。
-- **Odin**：`.tar.md5` 分 BL/AP/CP/CSC 四份，工具按槽位写入。
+**Odin**：`.tar.md5` 分 BL/AP/CP/CSC 四份，工具按槽位写入。
 - **QFIL/MSM**：`.xml` 配置 + 镜像文件，工具按 XML 的分区映射深刷。
 
 **线刷包与卡刷包的本质区别在「谁在执行」**：卡刷由手机端 Recovery 里的脚本执行，线刷由电脑端工具按配置把镜像直接写入分区——线刷不依赖手机上的 Recovery，因此能刷更底层、也能在 Recovery 损坏时救砖。<span class="marginnote">「卡刷包 vs 线刷包」不是文件格式之争，是执行环境之争：<strong>卡刷包在手机端跑脚本，线刷包在电脑端跑工具</strong>。所以「Recovery 进不去时，卡刷包废了、线刷包还能救」——底层通道不依赖手机端软件。</span>

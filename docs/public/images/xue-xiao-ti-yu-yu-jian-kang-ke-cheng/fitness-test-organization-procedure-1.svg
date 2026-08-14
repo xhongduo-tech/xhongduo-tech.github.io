@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="sans-serif">
+  <title>体质测试组织流程示意图</title>
+  <desc>从测试前准备到数据上报的四个阶段流程</desc>
+  <rect width="640" height="420" fill="#faf9f5"/>
+  <text x="320" y="36" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">体质测试组织流程</text>
+
+  <!-- 阶段1：测试前准备 -->
+  <rect x="170" y="64" width="300" height="52" rx="8" fill="#1f6f8b"/>
+  <text x="320" y="86" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">1 测试前准备</text>
+  <text x="320" y="105" text-anchor="middle" font-size="13" fill="#fff">方案·仪器·人员·培训·安全预案</text>
+
+  <!-- 箭头 -->
+  <line x1="320" y1="116" x2="320" y2="142" stroke="#333" stroke-width="2"/>
+  <polygon points="312,140 320,152 328,140" fill="#333"/>
+
+  <!-- 阶段2：现场测试实施 -->
+  <rect x="170" y="152" width="300" height="52" rx="8" fill="#1f6f8b"/>
+  <text x="320" y="174" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">2 现场测试实施</text>
+  <text x="320" y="193" text-anchor="middle" font-size="13" fill="#fff">分站组织·规范测量·复测确认</text>
+
+  <!-- 箭头 -->
+  <line x1="320" y1="204" x2="320" y2="230" stroke="#333" stroke-width="2"/>
+  <polygon points="312,228 320,240 328,228" fill="#333"/>
+
+  <!-- 阶段3：数据记录与复核 -->
+  <rect x="170" y="240" width="300" height="52" rx="8" fill="#1f6f8b"/>
+  <text x="320" y="262" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">3 数据记录与复核</text>
+  <text x="320" y="281" text-anchor="middle" font-size="13" fill="#fff">双人核对·异常复测·签字确认</text>
+
+  <!-- 箭头 -->
+  <line x1="320" y1="292" x2="320" y2="318" stroke="#333" stroke-width="2"/>
+  <polygon points="312,316 320,328 328,316" fill="#333"/>
+
+  <!-- 阶段4：评分上报与反馈 -->
+  <rect x="170" y="328" width="300" height="52" rx="8" fill="#c0392b"/>
+  <text x="320" y="350" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">4 评分上报与反馈</text>
+  <text x="320" y="369" text-anchor="middle" font-size="13" fill="#fff">评定等级·网络直报·结果反馈</text>
+
+  <!-- 侧注 -->
+  <text x="500" y="80" font-size="13" fill="#666">全程贯穿：安全防护与健康教育</text>
+  <text x="500" y="102" font-size="13" fill="#666">（热身·着装·应急值守）</text>
+</svg>

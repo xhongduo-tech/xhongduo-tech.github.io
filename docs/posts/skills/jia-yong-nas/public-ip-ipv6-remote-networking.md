@@ -42,7 +42,7 @@ IPv6 远程访问的形态：
 
 **NAS 获取 IPv6 地址**：路由器开启 IPv6，NAS 的「网络」设置里获取 IPv6 地址（SLAAC/DHCPv6）。
 **外网访问**：用 `http://[NAS的IPv6地址]:端口` 直接访问（IPv6 地址含冒号，URL 里需加方括号）。
-- **IPv6 + DDNS**：多数 DDNS 服务商已支持 IPv6 记录（AAAA 记录），把域名解析到 IPv6 地址即可。
+**IPv6 + DDNS**：多数 DDNS 服务商已支持 IPv6 记录（AAAA 记录），把域名解析到 IPv6 地址即可。
 
 IPv6 的现实障碍：
 

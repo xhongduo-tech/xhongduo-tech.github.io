@@ -50,8 +50,8 @@ date: 2026-08-07
 
 **主格**管主语，**宾格**管宾语：`She` likes `him`（她喜欢他）——`she` 是动作发出者，`him` 是承受者。英语名词没有主宾格之分，**代词却保留了这套「残余的格」**，这是上一节「英语靠位置表成分」的一个显眼例外。
 **形容词性物主**是「限定词」，后面必须接名词（`my book`）；**名词性物主**是「代词」，独立使用（`This book is mine`）。
-- `you` 单复数同形，主宾同形；`it` 只有一格形式（主格 = 宾格 = `it`）。
-- **反身代词**由「物主/宾格 + `-self/-selves`」构成：第一、二人称用物主（`myself`、`yourself`），第三人称用宾格（`himself`、`themselves`）。
+`you` 单复数同形，主宾同形；`it` 只有一格形式（主格 = 宾格 = `it`）。
+**反身代词**由「物主/宾格 + `-self/-selves`」构成：第一、二人称用物主（`myself`、`yourself`），第三人称用宾格（`himself`、`themselves`）。
 
 **辨析｜易错点：** 名词性物主代词绝不带 `'s`，也不加撇号：`the book is hers`（不是 `her's`）、`a friend of mine`（我的一位朋友）。`its`（它的）是物主代词，`it's` 是 `it is` 的缩略——这是英语书写错误率最高的同音异形词之一。<span class="marginnote">「`its` vs `it's`」与中文的「的地得」问题同构：前者按「所有格 vs 是」判断，后者按「定语/状语/补语」判断，都是低频规则 + 高频使用造成的顽固错别字。</span>
 
@@ -67,7 +67,7 @@ date: 2026-08-07
 
 **数**：`The students finished their homework.`（复数先行词配复数物主）。
 **人称**：`I love my job.`（第一人称先行词配第一人称物主）。
-- **性**：`Mary lost her key.`（阴性先行词配 `her`）。
+**性**：`Mary lost her key.`（阴性先行词配 `her`）。
 
 **辨析｜易错点：** 当代英语最富争议的回指问题是**单数 `they`（singular they）**：先行词是单数但性别不明或不愿指明时，用 `they/them/their` 回指——`Everyone should bring their own book.`。传统语法曾要求用 `his` 统称，但现代用法已广泛接受单数 `they`，章振邦与 Quirk 的新版本都对此作了更新说明。**写作中与性别无关的泛指先行词（`everyone`、`someone`、`a person`），用 `they` 回指是当今最自然的做法。**<span class="marginnote">这正好回收《名词的数、格与性》一节埋的伏笔：中性职业名词（`a doctor`）与不定代词（`everyone`）的回指选择，是「语言随社会惯例演化」的活样本——语法规则不是刻在石头上的。</span>
 
@@ -91,8 +91,8 @@ date: 2026-08-07
 
 `I have some money.`（肯定）
 `Do you have any money?`（一般疑问）
-- `Would you like some tea?`（邀请——期待肯定，用 `some`）
-- `If you have any questions, please ask.`（条件）
+`Would you like some tea?`（邀请——期待肯定，用 `some`）
+`If you have any questions, please ask.`（条件）
 - `I don't have any money.`（否定）<span class="marginnote">`no` 与 `not ... any` 等价：`I have no money` = `I don't have any money`。两者的语域差别是，`no` 更书面、更有力；`any` 在否定结构中更口语化。</span>
 
 **辨析｜易错点：** `somebody`、`something` 的谓词一致性也有讲究：它们作主语时谓语用**单数**（`Somebody is waiting for you.`），但回指代词在现代英语中常用 `they`（`Somebody left their umbrella here.`）——这正是第 3 节「单数 they」的又一例证。

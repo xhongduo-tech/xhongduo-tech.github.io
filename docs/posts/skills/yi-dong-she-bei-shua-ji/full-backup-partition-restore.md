@@ -36,7 +36,7 @@ date: 2026-08-07
 
 **Boot**：内核 + ramdisk。
 **System**：系统主体。
-- **Data**：用户数据与应用（**加密 data 需输入屏锁密码**）。
+**Data**：用户数据与应用（**加密 data 需输入屏锁密码**）。
 - **EFS**：基带身份数据（IMEI、校准）。
 - **Vendor**：厂商分区（部分机型）。
 - **Modem**：基带固件。
@@ -55,7 +55,7 @@ date: 2026-08-07
 
 **TWRP 勾选 EFS 分区备份**：最常用，随 Nandroid 一起备。
 **`dd` 命令手动备份**：在 TWRP 的 Terminal 或 root 的 shell 里执行 `dd if=/dev/block/bootdevice/by-name/efs of=/sdcard/efs.img`——直接读分区做镜像。适合 TWRP 不支持该机型 EFS 备份的情况。
-- **专用工具**：部分机型有专门的 EFS 备份工具。
+**专用工具**：部分机型有专门的 EFS 备份工具。
 
 **EFS 的恢复**：在 TWRP 的 Restore 里选包含 EFS 的备份恢复；或用 `dd` 反向写回。**恢复 EFS 后必须重启验证信号与 IMEI**——IMEI 变 0 则恢复失败，别再继续操作。
 

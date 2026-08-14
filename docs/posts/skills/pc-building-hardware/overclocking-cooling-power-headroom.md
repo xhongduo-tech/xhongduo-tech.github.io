@@ -46,7 +46,7 @@ $$
 
 **前提**：主板芯片组支持（Intel Z 系 / AMD X 系，回看「芯片组」）、CPU 不锁倍频（Intel K 后缀）、散热与电源够。
 **方法**：BIOS 里逐步提高**倍频（multiplier）**或**外频（BCLK）**，必要时加电压，每档**验证稳定性**（烤机测试）。
-- **建议**：用主板自带的「自动超频」（如 Intel XTU、AMD PBO/Auto OC）起步——**自动超频是厂商在安全范围内选的档，比手动稳得多**。<span class="marginnote"><strong>AMD 的 PBO（Precision Boost Overdrive）</strong>是「官方自动超频」的典范：让 CPU 在散热与供电允许范围内自动顶到更高频率。<strong>多数人的超频需求，用 PBO / 自动超频就够</strong>——手动调参是进阶玩家的玩法，普通用户收益不大、风险不小。</span>
+**建议**：用主板自带的「自动超频」（如 Intel XTU、AMD PBO/Auto OC）起步——**自动超频是厂商在安全范围内选的档，比手动稳得多**。<span class="marginnote"><strong>AMD 的 PBO（Precision Boost Overdrive）</strong>是「官方自动超频」的典范：让 CPU 在散热与供电允许范围内自动顶到更高频率。<strong>多数人的超频需求，用 PBO / 自动超频就够</strong>——手动调参是进阶玩家的玩法，普通用户收益不大、风险不小。</span>
 
 **GPU 超频**：用软件（MSI Afterburner 等）在系统内调**核心频率偏移、显存频率、功耗上限**。GPU 超频比 CPU 温和——功耗上限默认锁着，散热是主要限制。**建议只拉功耗上限与温度上限，小幅超频，验证游戏与压力测试稳定**。
 

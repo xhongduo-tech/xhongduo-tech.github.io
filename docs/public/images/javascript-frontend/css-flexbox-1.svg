@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300" role="img">
+  <title>Flex 布局主轴与交叉轴示意图</title>
+  <desc>展示 flex-direction row 时主轴与交叉轴方向，以及 justify-content 沿主轴、align-items 沿交叉轴的对齐关系</desc>
+  <style>
+    text { font-family: sans-serif; fill: #333; }
+    .label { font-size: 14px; }
+    .small { font-size: 13px; }
+    .dim { fill: #8a8a8a; }
+  </style>
+
+  <!-- 容器 -->
+  <rect x="30" y="60" width="420" height="150" rx="6" fill="#faf9f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="240" y="44" class="label" fill="#1f6f8b" text-anchor="middle">flex 容器（display: flex）</text>
+
+  <!-- 三个项目 -->
+  <rect x="60" y="95" width="90" height="80" rx="4" fill="#eaf2f6" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="105" y="140" class="label" text-anchor="middle">item 1</text>
+  <rect x="195" y="95" width="90" height="80" rx="4" fill="#eaf2f6" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="240" y="140" class="label" text-anchor="middle">item 2</text>
+  <rect x="330" y="95" width="90" height="80" rx="4" fill="#eaf2f6" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="375" y="140" class="label" text-anchor="middle">item 3</text>
+
+  <!-- 主轴箭头 -->
+  <defs>
+    <marker id="am" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#c0392b"/>
+    </marker>
+    <marker id="ac" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#b08a3e"/>
+    </marker>
+  </defs>
+
+  <!-- 主轴 -->
+  <line x1="30" y1="238" x2="440" y2="238" stroke="#c0392b" stroke-width="2" marker-end="url(#am)"/>
+  <text x="240" y="262" class="small" fill="#c0392b" text-anchor="middle">主轴 main axis（flex-direction: row →）</text>
+  <text x="240" y="280" class="small dim" text-anchor="middle">justify-content 沿此轴对齐 / 分配空间</text>
+
+  <!-- 交叉轴 -->
+  <line x1="14" y1="60" x2="14" y2="200" stroke="#b08a3e" stroke-width="2" marker-end="url(#ac)"/>
+  <text x="14" y="230" class="small" fill="#b08a3e" text-anchor="middle">交叉轴</text>
+  <text x="14" y="248" class="small dim" text-anchor="middle">cross axis</text>
+</svg>

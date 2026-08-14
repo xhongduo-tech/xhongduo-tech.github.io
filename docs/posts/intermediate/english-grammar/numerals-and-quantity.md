@@ -24,8 +24,8 @@ date: 2026-08-07
 
 **1–12**：独立成词——`one`、`two`、…、`twelve`，必须逐个记忆。
 **13–19**：以 `-teen` 结尾——`thirteen`、`fourteen`、…、`nineteen`。注意三个变形：`three → thirteen`、`five → fifteen`、`eight → eighteen`（少一个 `t`）。
-- **20–90 的整十**：以 `-ty` 结尾——`twenty`、`thirty`、…、`ninety`。注意 `two → twenty`、`three → thirty`、`four → forty`（无 `u`）、`five → fifty`。
-- **21–99 的非整十**：十位与个位之间加**连字符**——`twenty-one`、`forty-five`。
+**20–90 的整十**：以 `-ty` 结尾——`twenty`、`thirty`、…、`ninety`。注意 `two → twenty`、`three → thirty`、`four → forty`（无 `u`）、`five → fifty`。
+**21–99 的非整十**：十位与个位之间加**连字符**——`twenty-one`、`forty-five`。
 - **三位以上**：百位与十位/个位之间加 **`and`**——`one hundred and twenty-three`、`five hundred and six`。<span class="marginnote">这个 `and` 是英式英语的惯例；美式口语常省略。考试与正式书面语中，英式的 `and` 更稳妥。`hundred`、`thousand`、`million` 前有具体数字时一律用单数：`two hundred`（不是 `two hundreds`）。</span>
 
 **大数的读法**是基数词的高阶关卡。英语没有「万」，`10,000` 读作 `ten thousand`；没有「亿」，`100,000,000` 读作 `one hundred million`。数字从右往左每三位一段：
@@ -47,8 +47,8 @@ date: 2026-08-07
 
 `1/3` → `one third`
 `2/3` → `two thirds`
-- `1/2` → `a half`（特例，不用 `one second`）
-- `1/4` → `a quarter` 或 `one fourth`
+`1/2` → `a half`（特例，不用 `one second`）
+`1/4` → `a quarter` 或 `one fourth`
 - `3/4` → `three quarters`（或 `three fourths`）
 
 **小数（decimal）**：`0.5` 读 `zero point five`（或 `point five`）；`3.14` 读 `three point one four`（数字逐位读，不读 fourteen）。

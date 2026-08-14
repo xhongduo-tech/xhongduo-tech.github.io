@@ -59,7 +59,7 @@ date: 2026-08-07
 
 **有 `by + 施事` 就是被动语态**（`by the boy`），无 `by` 多为系表结构。
 **能加 `very` 修饰的是系表结构**（`The window is very broken.`? 部分形容词化分词可以；`The door is very closed.` 就不自然——`closed` 太「动词化」）。
-- **时态能自由变化的是被动语态**（`The window was broken.`、`The window has been broken.`——被动可随时态变；系表结构一般用 `is/was` 表当前状态）。<span class="marginnote">系表结构与被动语态的界线并不总是清晰的，许多语法书承认存在「渐变带」。实用判据是问「说者关注的是<strong>状态</strong>还是<strong>事件</strong>」——`The shop is closed.`（状态：没开门）与 `The shop was closed at six.`（事件：六点被关门）。<strong>「现在怎么样」是状态，「什么时候被怎样」是事件。</strong></span>
+**时态能自由变化的是被动语态**（`The window was broken.`、`The window has been broken.`——被动可随时态变；系表结构一般用 `is/was` 表当前状态）。<span class="marginnote">系表结构与被动语态的界线并不总是清晰的，许多语法书承认存在「渐变带」。实用判据是问「说者关注的是<strong>状态</strong>还是<strong>事件</strong>」——`The shop is closed.`（状态：没开门）与 `The shop was closed at six.`（事件：六点被关门）。<strong>「现在怎么样」是状态，「什么时候被怎样」是事件。</strong></span>
 
 **辨析｜易错点：** 系表结构的分词已经「形容词化」，能被副词 `very`、`quite`、`rather` 修饰：`I am very interested in the book.`（√）、`He was quite surprised.`（√）。**形容词化的 `-ed` 词（`interested`、`surprised`、`tired`、`excited`）是准形容词**，与被动语态的行为动词 `-ed` 是两类。
 
@@ -71,8 +71,8 @@ date: 2026-08-07
 
 时间：`Seen from the hill, the town looks beautiful.`（从山上看时——`seen` 是被看）。
 原因：`Exhausted by the work, he fell asleep quickly.`（因为工作累坏了——`exhausted` 是被耗尽）。
-- 条件：`Given more time, I could do it better.`（若给更多时间——`given` = if given）。
-- 伴随：`He entered the room, followed by his dog.`（进了房间，身后跟着他的狗）。
+条件：`Given more time, I could do it better.`（若给更多时间——`given` = if given）。
+伴随：`He entered the room, followed by his dog.`（进了房间，身后跟着他的狗）。
 
 **作宾语补语**：过去分词放在宾语后补充说明宾语，构成「**使役结构**」的核心：
 

@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" role="img" aria-labelledby="title desc">
+  <title>进程内存布局</title>
+  <desc>栈从高地址向下增长，堆从低地址向上增长，之间是共享库等区域；再往下是 BSS 段、数据段与代码段。</desc>
+  <rect width="800" height="360" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="2" fill="#fff">
+    <rect x="300" y="20" width="200" height="46" rx="6"/>
+    <rect x="300" y="66" width="200" height="52" rx="6"/>
+    <rect x="300" y="118" width="200" height="40" rx="6"/>
+    <rect x="300" y="158" width="200" height="60" rx="6"/>
+    <rect x="300" y="218" width="200" height="36" rx="6"/>
+    <rect x="300" y="254" width="200" height="36" rx="6"/>
+    <rect x="300" y="290" width="200" height="36" rx="6"/>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="middle">
+    <text x="400" y="48">栈（stack）</text>
+    <text x="400" y="96">堆（heap）</text>
+    <text x="400" y="142">共享库等区域</text>
+    <text x="400" y="196">BSS 段（未初始化全局/静态）</text>
+    <text x="400" y="240">数据段（已初始化全局/静态）</text>
+    <text x="400" y="276">只读数据（字符串字面量）</text>
+    <text x="400" y="312">代码段（text）</text>
+  </g>
+  <g stroke="#1f6f8b" stroke-width="2">
+    <line x1="240" y1="43" x2="295" y2="43"/>
+    <line x1="505" y1="43" x2="560" y2="43"/>
+    <line x1="240" y1="92" x2="295" y2="92"/>
+    <line x1="505" y1="92" x2="560" y2="92"/>
+  </g>
+  <g fill="#1f6f8b" font-size="14">
+    <text x="150" y="48" text-anchor="end">高地址</text>
+    <text x="150" y="92" text-anchor="end">低地址</text>
+    <text x="570" y="48">局部变量、调用帧</text>
+    <text x="570" y="92">malloc / free</text>
+  </g>
+  <g stroke="#c0392b" stroke-width="2" fill="none">
+    <line x1="300" y1="43" x2="300" y2="92"/>
+    <line x1="500" y1="43" x2="500" y2="92"/>
+  </g>
+  <g fill="#c0392b" font-size="14" text-anchor="middle">
+    <text x="400" y="76">栈向下、堆向上，相向增长</text>
+    <text x="400" y="340">内存耗尽 = 栈与堆在中间「撞车」</text>
+  </g>
+</svg>

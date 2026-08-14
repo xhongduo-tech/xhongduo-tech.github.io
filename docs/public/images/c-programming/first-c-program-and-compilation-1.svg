@@ -1,0 +1,47 @@
+<svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" role="img" aria-labelledby="title desc">
+  <title>C 程序编译流水线</title>
+  <desc>hello.c 源码经预处理、编译、汇编、链接四个阶段，最终生成可执行文件 hello。</desc>
+  <rect width="800" height="320" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="2" fill="#fff">
+    <rect x="20" y="120" width="120" height="60" rx="8"/>
+    <rect x="190" y="120" width="120" height="60" rx="8"/>
+    <rect x="360" y="120" width="120" height="60" rx="8"/>
+    <rect x="530" y="120" width="120" height="60" rx="8"/>
+    <rect x="650" y="120" width="120" height="60" rx="8"/>
+  </g>
+  <g fill="#333" font-size="15" text-anchor="middle">
+    <text x="80" y="146">hello.c</text>
+    <text x="80" y="166">源码</text>
+    <text x="250" y="146">预处理</text>
+    <text x="250" y="166">gcc -E</text>
+    <text x="420" y="146">编译</text>
+    <text x="420" y="166">gcc -S</text>
+    <text x="590" y="146">汇编</text>
+    <text x="590" y="166">gcc -c</text>
+    <text x="710" y="146">链接</text>
+    <text x="710" y="166">gcc -o</text>
+  </g>
+  <g stroke="#c0392b" stroke-width="2">
+    <line x1="140" y1="150" x2="185" y2="150"/>
+    <line x1="310" y1="150" x2="355" y2="150"/>
+    <line x1="480" y1="150" x2="525" y2="150"/>
+    <line x1="650" y1="150" x2="645" y2="150"/>
+  </g>
+  <g fill="#333" font-size="14" text-anchor="middle">
+    <text x="250" y="106" fill="#1f6f8b">展开宏、包含头文件</text>
+    <text x="420" y="106" fill="#1f6f8b">翻译成汇编语言</text>
+    <text x="590" y="106" fill="#1f6f8b">翻译成机器指令</text>
+    <text x="710" y="106" fill="#1f6f8b">拼接库与目标文件</text>
+  </g>
+  <g fill="#333" font-size="14" text-anchor="middle">
+    <text x="250" y="205">hello.i</text>
+    <text x="420" y="205">hello.s</text>
+    <text x="590" y="205">hello.o</text>
+    <text x="710" y="205">hello</text>
+  </g>
+  <g fill="#555" font-size="14">
+    <text x="20" y="250">标准库 libc</text>
+    <line x1="90" y1="256" x2="650" y2="180" stroke="#555" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="500" y="240">printf 的实现</text>
+  </g>
+</svg>
