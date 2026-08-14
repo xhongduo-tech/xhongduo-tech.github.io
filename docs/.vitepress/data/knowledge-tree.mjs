@@ -2,7 +2,8 @@
 // 每棵树：基础 → 核心 → 进阶 → 专业 → 前沿，逐级依赖清晰。
 // 节点 = 已有专题（path 为 tier/key，指向 /posts/<tier>/<key>/）。
 // 跨树重合以「引用」呈现（tag: 'ref'），不重复建主题。
-// 全部专题已撰写完成（2026-08），增补节点均已转为已有节点。
+// 2026-08-14 增补 53 个节点（42 个新专题 + 4 条跨树引用 + 7 个生活技能节点）：
+// 新专题已在 knowledge-tree-detail.mjs 建条目并生成 index.md 脚手架，内容按 WRITING_RUNBOOK 流水线续写。
 // 说明：本站博文唯一呈现技术相关内容（计算机/AI/工程/数理基础等），
 // 非技术领域作为知识树结构保留以构建全人类知识图谱。
 
@@ -27,6 +28,7 @@ export const trees = [
           { name: '形而上学', path: 'humanities/metaphysics' },
           { name: '认识论（知识论）', path: 'humanities/epistemology' },
           { name: '伦理学', path: 'humanities/ethics' },
+          { name: '规范伦理学（功利主义/义务论/德性伦理）', path: 'humanities/normative-ethics' },
           { name: '美学', path: 'humanities/aesthetics' },
         ],
       },
@@ -61,6 +63,8 @@ export const trees = [
           { name: '法哲学', path: 'humanities/philosophy-of-law' },
           { name: '教育哲学', path: 'humanities/philosophy-of-education' },
           { name: '历史哲学', path: 'humanities/philosophy-of-history' },
+          { name: '哲学逻辑（模态/道义/时态逻辑）', path: 'humanities/philosophical-logic' },
+          { name: '数理逻辑（数学树）', path: 'intermediate/mathematical-logic', tag: 'ref' },
         ],
       },
       {
@@ -80,6 +84,7 @@ export const trees = [
           { name: '分析哲学与大陆哲学', path: 'humanities/analytic-continental-philosophy' },
           { name: 'AI 伦理（引用计算机树）', path: 'advanced/ai-safety', tag: 'ref' },
           { name: '行动哲学', path: 'humanities/philosophy-of-action' },
+          { name: '实验哲学', path: 'humanities/experimental-philosophy' },
         ],
       },
     ],
@@ -167,6 +172,13 @@ export const trees = [
           { name: '密码学数学基础', path: 'intermediate/cryptography-math' },
           { name: '数值线性代数', path: 'intermediate/numerical-linear-algebra' },
           { name: '偏微分方程数值解', path: 'intermediate/numerical-pde' },
+          { name: '群表示论', path: 'intermediate/representation-theory' },
+          { name: '微分拓扑', path: 'intermediate/differential-topology' },
+          { name: '函数逼近论', path: 'intermediate/approximation-theory' },
+          { name: '渐近分析与摄动方法', path: 'intermediate/asymptotic-perturbation' },
+          { name: '蒙特卡罗方法与随机模拟', path: 'intermediate/monte-carlo-methods' },
+          { name: '多元统计分析', path: 'intermediate/multivariate-statistics' },
+          { name: '符号计算与计算机代数', path: 'intermediate/symbolic-computation' },
         ],
       },
       {
@@ -186,6 +198,8 @@ export const trees = [
           { name: '时间序列分析', path: 'intermediate/time-series-analysis' },
           { name: '拓扑数据分析', path: 'intermediate/topological-data-analysis' },
           { name: '信息几何', path: 'intermediate/information-geometry' },
+          { name: '小波分析', path: 'intermediate/wavelet-analysis' },
+          { name: '最优传输理论', path: 'intermediate/optimal-transport' },
         ],
       },
     ],
@@ -217,6 +231,7 @@ export const trees = [
           { name: '统计力学与热力学', path: 'intermediate/statistical-mechanics' },
           { name: '流体力学', path: 'intermediate/fluid-mechanics' },
           { name: '非线性动力学与混沌', path: 'intermediate/nonlinear-dynamics-chaos' },
+          { name: '物理学中的群论', path: 'intermediate/group-theory-in-physics' },
         ],
       },
       {
@@ -247,6 +262,8 @@ export const trees = [
           { name: '介观物理与介观输运', path: 'advanced/mesoscopic-physics' },
           { name: '量子信息基础', path: 'advanced/quantum-information' },
           { name: '粒子物理实验方法', path: 'advanced/particle-physics-experiments' },
+          { name: '软物质物理', path: 'advanced/soft-matter-physics' },
+          { name: '相变与临界现象', path: 'advanced/phase-transitions-critical-phenomena' },
         ],
       },
       {
@@ -263,6 +280,7 @@ export const trees = [
           { name: '拓扑量子计算', path: 'advanced/topological-quantum-computing' },
           { name: '冷原子与量子模拟', path: 'advanced/cold-atoms-quantum-simulation' },
           { name: '引力波天文学', path: 'advanced/gravitational-wave-astronomy' },
+          { name: '量子精密测量与量子传感', path: 'advanced/quantum-metrology-sensing' },
         ],
       },
     ],
@@ -324,6 +342,7 @@ export const trees = [
           { name: '化学信息学', path: 'advanced/cheminformatics' },
           { name: '放射化学', path: 'advanced/radiochemistry' },
           { name: '色谱与分离分析', path: 'advanced/chromatography-separation' },
+          { name: '电化学原理（电极过程动力学）', path: 'intermediate/electrochemistry-principles' },
         ],
       },
       {
@@ -381,6 +400,7 @@ export const trees = [
           { name: '免疫学', path: 'intermediate/immunology' },
           { name: '病毒学', path: 'intermediate/virology' },
           { name: '行为生态学', path: 'intermediate/behavioral-ecology' },
+          { name: '动物行为学', path: 'intermediate/animal-behavior' },
         ],
       },
       {
@@ -408,6 +428,8 @@ export const trees = [
           { name: '酶学', path: 'intermediate/enzymology' },
           { name: '糖生物学', path: 'intermediate/glycobiology' },
           { name: '生物成像技术', path: 'intermediate/bioimaging' },
+          { name: '分子进化与系统发育学', path: 'intermediate/molecular-evolution-phylogenetics' },
+          { name: '生物力学', path: 'advanced/biomechanics' },
         ],
       },
       {
@@ -426,6 +448,8 @@ export const trees = [
           { name: '单细胞测序与空间组学', path: 'advanced/single-cell-spatial-omics' },
           { name: '基因编辑（CRISPR）', path: 'advanced/gene-editing' },
           { name: '定向进化与蛋白质设计', path: 'advanced/directed-evolution' },
+          { name: '衰老生物学', path: 'advanced/aging-biology' },
+          { name: '微生物组学', path: 'advanced/microbiome-science' },
         ],
       },
     ],
@@ -496,6 +520,8 @@ export const trees = [
           { name: '大地测量学', path: 'intermediate/geodesy' },
           { name: 'GNSS 定位与导航', path: 'intermediate/gnss-positioning' },
           { name: '地理信息系统（GIS）', path: 'intermediate/gis' },
+          { name: '同位素地质年代学', path: 'intermediate/isotope-geochronology' },
+          { name: '观测天文学与天文技术', path: 'foundations/observational-astronomy' },
         ],
       },
       {
@@ -582,6 +608,8 @@ export const trees = [
           { name: '人机交互（HCI）', path: 'cs/hci' },
           { name: '边缘计算', path: 'cs/edge-computing' },
           { name: '数字孪生', path: 'cs/digital-twin' },
+          { name: 'MLOps 与 LLMOps', path: 'cs/mlops-llmops' },
+          { name: '隐私计算（差分隐私/同态加密/安全多方计算）', path: 'cs/privacy-preserving-computing' },
         ],
       },
       {
@@ -663,6 +691,7 @@ export const trees = [
           { name: '大模型评测', path: 'advanced/llm-evaluation' },
           { name: 'RAG 与检索增强', path: 'advanced/rag' },
           { name: 'AI 智能体编排', path: 'advanced/agent-orchestration' },
+          { name: '代码智能与 AI 辅助编程', path: 'advanced/code-intelligence' },
         ],
       },
       {
@@ -820,6 +849,7 @@ export const trees = [
           { name: '电力系统分析', path: 'engineering/power-systems' },
           { name: '电力电子与电力传动', path: 'engineering/power-electronics' },
           { name: '信号与系统', path: 'engineering/signals-systems' },
+          { name: '微机电系统与微纳制造（MEMS/NEMS）', path: 'engineering/mems-microfabrication' },
         ],
       },
       {
@@ -909,6 +939,7 @@ export const trees = [
           { name: '工业工程', path: 'engineering/industrial-engineering' },
           { name: '仿生工程', path: 'engineering/biomimetic-engineering' },
           { name: '发酵工程', path: 'engineering/fermentation-engineering' },
+          { name: '可靠性工程', path: 'engineering/reliability-engineering' },
         ],
       },
     ],
@@ -977,6 +1008,8 @@ export const trees = [
           { name: '风湿免疫科', path: 'life/rheumatology' },
           { name: '全科医学', path: 'life/general-practice' },
           { name: '核医学', path: 'life/nuclear-medicine' },
+          { name: '普通外科学', path: 'life/general-surgery' },
+          { name: '整形外科与烧伤外科', path: 'life/plastic-burn-surgery' },
         ],
       },
       {
@@ -1010,6 +1043,8 @@ export const trees = [
           { name: '卫生统计学', path: 'life/health-statistics' },
           { name: '营养与食品卫生学', path: 'life/nutrition-food-hygiene' },
           { name: '毒理学', path: 'life/toxicology' },
+          { name: '疫苗与免疫预防', path: 'life/vaccinology' },
+          { name: '循证医学', path: 'life/evidence-based-medicine' },
         ],
       },
       {
@@ -1172,6 +1207,8 @@ export const trees = [
           { name: '民商法学', path: 'social/civil-commercial-law' },
           { name: '刑法学', path: 'social/criminal-law' },
           { name: '国际法学', path: 'social/international-law' },
+          { name: '诉讼法学（民事诉讼/刑事诉讼/行政诉讼）', path: 'social/procedural-law' },
+          { name: '经济法学', path: 'social/economic-law' },
         ],
       },
       {
@@ -1205,6 +1242,9 @@ export const trees = [
           { name: '行政管理', path: 'social/public-administration' },
           { name: '人力资源管理', path: 'social/human-resource-management' },
           { name: '旅游管理', path: 'social/tourism-management' },
+          { name: '比较教育学', path: 'social/comparative-education' },
+          { name: '高等教育学', path: 'social/higher-education' },
+          { name: '广告学', path: 'social/advertising' },
         ],
       },
       {
@@ -1224,6 +1264,7 @@ export const trees = [
         nodes: [
           { name: '计算社会科学（交叉树）', path: 'frontier/computational-social-science', tag: 'ref' },
           { name: '区域国别学（交叉树）', path: 'frontier/area-studies', tag: 'ref' },
+          { name: '科学技术与社会（STS）', path: 'social/science-technology-society' },
         ],
       },
     ],
@@ -1239,6 +1280,8 @@ export const trees = [
         nodes: [
           { name: '语言学', path: 'humanities/linguistics' },
           { name: '逻辑学', path: 'foundations/logic' },
+          { name: '汉语言文字学（古代/现代汉语与汉语史）', path: 'humanities/chinese-language-philology' },
+          { name: '计算语言学（引用计算机树）', path: 'advanced/nlp', tag: 'ref' },
         ],
       },
       {
@@ -1318,6 +1361,7 @@ export const trees = [
           { name: '图书情报与档案管理', path: 'humanities/library-information' },
           { name: '文化遗产与博物馆学', path: 'humanities/cultural-heritage-museology' },
           { name: '非物质文化遗产', path: 'humanities/intangible-cultural-heritage' },
+          { name: '编辑出版学', path: 'humanities/editing-publishing' },
         ],
       },
       {
@@ -1353,6 +1397,7 @@ export const trees = [
           { name: '数据科学', path: 'frontier/data-science' },
           { name: '计算社会科学', path: 'frontier/computational-social-science' },
           { name: '科学计量学', path: 'frontier/scientometrics' },
+          { name: '金融科技（FinTech）', path: 'frontier/financial-technology' },
         ],
       },
       {
@@ -1364,6 +1409,7 @@ export const trees = [
           { name: '群体智能', path: 'frontier/swarm-intelligence' },
           { name: '可解释 AI', path: 'frontier/explainable-ai' },
           { name: '量子信息', path: 'frontier/quantum-information' },
+          { name: '计算神经科学（引用生命/计算机树）', path: 'advanced/computational-neuroscience', tag: 'ref' },
         ],
       },
       {
@@ -1447,12 +1493,17 @@ export const trees = [
         level: '学习与成长',
         nodes: [
           { name: '高效学习方法论（费曼/刻意练习/间隔重复）', path: 'skills/learning-methodology' },
+          { name: '演讲与公众表达', path: 'skills/演讲与公众表达' },
+          { name: '时间管理与效率工具', path: 'skills/时间管理与效率工具' },
         ],
       },
       {
         level: '安全防护',
         nodes: [
           { name: '个人安全与应急防护', path: 'skills/personal-safety' },
+          { name: '防诈骗与金融安全', path: 'skills/防诈骗与金融安全' },
+          { name: '网络安全与个人信息保护', path: 'skills/网络安全与个人信息保护' },
+          { name: '自然灾害避险与自救互救', path: 'skills/自然灾害避险与自救互救' },
         ],
       },
       {
@@ -1559,6 +1610,8 @@ export const trees = [
           { name: '观赏鱼饲养与家庭水族造景', path: 'skills/观赏鱼饲养与家庭水族造景' },
           { name: '遗产继承与家庭财富传承', path: 'skills/遗产继承与家庭财富传承' },
           { name: '青春期家庭教育与性教育', path: 'skills/青春期家庭教育与性教育' },
+          { name: '消费者权益保护与维权', path: 'skills/消费者权益保护与维权' },
+          { name: '劳动权益与职场法律常识', path: 'skills/劳动权益与职场法律常识' },
         ],
       },
       {
@@ -1628,6 +1681,7 @@ export const trees = [
           { name: '马拉松与长跑', path: 'skills/马拉松与长跑' },
           { name: '高尔夫运动', path: 'skills/高尔夫运动' },
           { name: '高山滑雪与单板滑雪', path: 'skills/高山滑雪与单板滑雪' },
+          { name: '户外运动与野外生存', path: 'skills/户外运动与野外生存' },
         ],
       },
     ],
