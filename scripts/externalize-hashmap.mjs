@@ -1,6 +1,9 @@
-// VitePress 会把 __VP_HASH_MAP__（路由哈希表，10000+ 页时达数百 KB）内联到每一页。
-// 10439 页 × ~786KB = 8GB，超 GitHub Pages 1GB 上限。
-// 本脚本把它提取为共享的 /hash-map.js，页面只留 ~8KB 引用 → 全站骤降。
+// 历史背景：VitePress 曾把 __VP_HASH_MAP__（路由哈希表，数万页时达数 MB）内联到每一页，
+// 10439 页 × ~786KB = 8GB，超 GitHub Pages 1GB 上限。本脚本曾负责事后剥离为 /hash-map.js。
+//
+// 现状（2026-08-14 起）：config.mts 已开启 metaChunk: true，VitePress 在构建期直接把元数据
+// 外置为 assets/chunks/metadata.*.js，页面不再内联。本脚本保留为兼容兜底：
+// 若页面里还有内联 __VP_HASH_MAP__ 则照常剥离；若没有（metaChunk 已生效）则静默成功退出。
 // 用法：vitepress build 之后运行：node scripts/externalize-hashmap.mjs
 
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
@@ -47,7 +50,7 @@ for (const f of files) {
 }
 
 if (extracted === null) {
-  console.log('未找到 __VP_HASH_MAP__');
-  process.exit(1);
+  console.log('未发现内联 __VP_HASH_MAP__（metaChunk 已在构建期外置，无需剥离）');
+  process.exit(0);
 }
 console.log(`已提取 hash-map.js (${(extracted.length / 1024).toFixed(0)} KB)，更新 ${fixed} 个页面，失败 ${fail}`);

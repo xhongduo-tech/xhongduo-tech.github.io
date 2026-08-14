@@ -77,14 +77,16 @@ git add -A && git commit -m "..." && git push
 ```
 推送 `source` 分支后 GitHub Actions 自动构建部署。**红线/构建不过不许提交**。
 
-> **站点体积**：VitePress 会把路由哈希表（`__VP_HASH_MAP__`）内联到每页——10000+ 页时达数百 KB/页，全站 8GB+ 超 GitHub Pages 1GB 上限。
-> `docs:build` 末尾的 `scripts/externalize-hashmap.mjs` 已把它外置为共享 `/hash-map.js`，全站降至 ~325MB。
+> **站点体积与构建速度**：VitePress 会把路由哈希表（`__VP_HASH_MAP__`）内联到每页——数万页时每页 ~2MB，
+> 构建体量随页数平方膨胀（2.8 万页约 60GB 页面输出，CI 上近 60 分钟、且超 runner 内存被取消）。
+> 已在 `config.mts` 开启 `metaChunk: true`：构建期直接把元数据外置为共享 `assets/chunks/metadata.*.js`，
+> 本地全量构建 819s → 229s。`scripts/externalize-hashmap.mjs` 保留为兼容兜底（无内联时静默退出）。
 >
 > **MathJax 已改客户端渲染（2026-08-08 关键变更）**：10257 页若用服务端内联 SVG，构建需 ~64GB（CI 必挂）。
 > 现改为 markdown-it-mathjax3 仅 tokenize、输出 `\(…\)`/`\[…\]`，由浏览器端 MathJax（head 里的 CDN 脚本）排版；
 > `enhance.ts` 在路由切换后调 `MathJax.typesetPromise()`。数学内容中的 `< > &` 已转义。
-> 本地构建 ~14 分钟（28.5k 页）；CI 默认 runner 已不够用（2026-08-14 曾 OOM 被取消），
-> `deploy.yml` 已扩容 swap 至 10G、堆上限 12G、job 超时 60 分钟。
+> 本地全量构建 ~4 分钟（28.5k 页，metaChunk 外置后）；CI 上预计 ~15–30 分钟。
+> `deploy.yml` 保留 10G swap 与 12G 堆上限作为安全垫，job 超时 150 分钟（2026-08-14 曾因渲染超时被取消）。
 
 ## 五、构建安全红线（代理易犯，主控必查）
 

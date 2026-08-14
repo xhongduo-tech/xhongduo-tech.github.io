@@ -16,6 +16,11 @@ export default defineConfig({
   lastUpdated: true,
   appearance: false, // 暗色模式由自定义主题管理
 
+  // 元数据（路由哈希表 __VP_HASH_MAP__ + __VP_SITE_DATA__）外置为共享 chunk，
+  // 不再内联进每页 HTML。2.8 万页时内联会让构建体量随页数平方膨胀（约 60GB 页面输出），
+  // 外置后构建接近线性。取代了 scripts/externalize-hashmap.mjs 的事后剥离。
+  metaChunk: true,
+
   locales: {
     root: { lang: 'zh-CN', label: '中文' },
     en: { lang: 'en', label: 'English' },
