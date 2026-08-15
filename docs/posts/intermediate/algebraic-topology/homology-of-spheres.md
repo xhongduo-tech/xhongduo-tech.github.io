@@ -35,8 +35,7 @@ $n$-维的洞，再无其他。算清楚它的同调，等于拥有了一组**�
 
 $$\widetilde{H}_i(S^n) = \begin{cases} \mathbb{Z} & i = n, \\ 0 & i \neq n. \end{cases}$$
 
-用普通（未约化）同调写出来：$H_0(S^n) = \mathbb{Z}$（$n \ge 1$ 时 $S^n$ 道路连通），$H_n(S^n) =
-\mathbb{Z}$，其余 $H_i(S^n) = 0$。<span class="marginnote">$S^0$
+用普通（未约化）同调写出来：$H_0(S^n) = \mathbb{Z}$（$n \ge 1$ 时 $S^n$ 道路连通），$H_n(S^n) =\mathbb{Z}$，其余 $H_i(S^n) = 0$。<span class="marginnote">$S^0$
 是两个点，$\widetilde{H}_0(S^0) = \mathbb{Z}$（公式里 $i = n = 0$ 处的 $\mathbb{Z}$
 正是它）——约化同调让 $S^0$ 也乖乖服从同一套公式，这正是「约化」记号价值的一次体现。</span>
 
@@ -65,9 +64,7 @@ $A$ 为北半圆盘的开邻域、$B$ 为南半圆盘的开邻域：
 
 $$H_i(S^n, A) \cong H_i(B,\ A \cap B) \cong H_i(D^n, S^{n-1})$$
 
-再由 $(S^n, A)$ 对的长正合序列与 $A \simeq \{*\}$（可缩），得到 $H_i(S^n) \cong H_i(S^n, A)$（$i
-\ge 2$ 且低维照看边界），于是 $H_i(S^n) \cong H_i(D^n, S^{n-1}) \cong
-\widetilde{H}_{i-1}(S^{n-1})$。<span class="marginnote">这条链「$S^n \to (S^n, A)
+再由 $(S^n, A)$ 对的长正合序列与 $A \simeq \{*\}$（可缩），得到 $H_i(S^n) \cong H_i(S^n, A)$（$i\ge 2$ 且低维照看边界），于是 $H_i(S^n) \cong H_i(D^n, S^{n-1}) \cong\widetilde{H}_{i-1}(S^{n-1})$。<span class="marginnote">这条链「$S^n \to (S^n, A)
 \to (B, A\cap B) \to (D^n, S^{n-1}) \to
 S^{n-1}$」是同调论的经典马拉松：正合序列、切除、可缩子空间逐个上场，每一步都是前面各节训练过的动作。</span>
 

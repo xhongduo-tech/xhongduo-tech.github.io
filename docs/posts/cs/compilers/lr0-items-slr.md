@@ -58,7 +58,8 @@ $$A \to \cdot XYZ, \quad A \to X\cdot YZ, \quad A \to XY\cdot Z, \quad A \to XYZ
 
 某状态含归约项 $E \to T\cdot$，另有移进项期待 $T \to T\cdot\times F$。
 若 $\times$ 同时属于 FOLLOW($E$)，表里会出现「又移进又归约」的**冲突**。
-本例中 $\times$ 并不属于 FOLLOW($E$)（FOLLOW($E$) = {\$, +, )}），所以 $\times$ 列只有移进、没有归约——**这台文法其实没有 SLR 冲突**；SLR 冲突只出现在「FOLLOW 越界」的文法里，届时才需要升级到规范 LR(1)。<span class="marginnote">这就是 SLR 与 LR(1) 的分水岭案例：若 FOLLOW($E$) 里混着「归约 $E$ 之后不该再出现的 $\times$」，就会制造伪冲突。FOLLOW 是全局近似，LR(1) 用「局部上下文」修掉它——下一节的核心。</span>
+本例中 $\times$ 并不属于 FOLLOW($E$)（FOLLOW($E$) = {\$, +, )}），所以 $\times$ 列只有移进、没有归约——**这台文法其实没有 SLR 冲突**；SLR 冲突只出现在「FOLLOW 越界」的文法里，届时才需要升级到规范 LR(1)。
+<span class="marginnote">这就是 SLR 与 LR(1) 的分水岭案例：若 FOLLOW($E$) 里混着「归约 $E$ 之后不该再出现的 $\times$」，就会制造伪冲突。FOLLOW 是全局近似，LR(1) 用「局部上下文」修掉它——下一节的核心。</span>
 
 ## 5 公式解析：CLOSURE 的递归闭包
 

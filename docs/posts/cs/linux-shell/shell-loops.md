@@ -44,7 +44,8 @@ for line in $(cat list.txt); do  # 命令替换：把文件内容当列表
 done
 ```
 
-**易错点**：`for line in $(cat list.txt)` 按**空格**切分列表——文件里含空格的行会被拆开。要按行处理，用 `while read` 更稳（见下节）。另外 `{1..5}` 是 bash 的花括号展开，`{1..100}` 写 100 也没问题，但不能是变量：`for i in {$a..$b}` 不生效。<span class="marginnote">`for` 不写 `in 列表` 时默认遍历命令行参数：`for arg` 等价 `for arg in "$@"`。脚本里写 `for arg in "$@"` 更清晰。列表元素带空格时，`in "a b" c` 中引号内的 `a b` 是一个整体。</span>
+**易错点**：`for line in $(cat list.txt)` 按**空格**切分列表——文件里含空格的行会被拆开。要按行处理，用 `while read` 更稳（见下节）。另外 `{1..5}` 是 bash 的花括号展开，`{1..100}` 写 100 也没问题，但不能是变量：`for i in {$a..$b}` 不生效。
+<span class="marginnote">`for` 不写 `in 列表` 时默认遍历命令行参数：`for arg` 等价 `for arg in "$@"`。脚本里写 `for arg in "$@"` 更清晰。列表元素带空格时，`in "a b" c` 中引号内的 `a b` 是一个整体。</span>
 
 ## 2 C 风格 for：当计数器存在时
 

@@ -83,8 +83,7 @@ $\pi_i(S^n) = 0$ 对 $i \lt  n$：低维球面映射进高维球面，总能收�
 **稳定同伦群**：当 $n$ 足够大（相对 $k$），$\pi_{n+k}(S^n)$ 稳定（与 $n$ 无关），记为
 $\pi_k^S$。**Freudenthal 悬挂定理（suspension theorem）**说：悬挂映射 $\pi_{n+k}(S^n) \to
 \pi_{n+k+1}(S^{n+1})$ 在「稳定范围」$n \ge k+2$
-内是同构。稳定同伦群是当代代数拓扑的主战场，至今只有少量精确值（$\pi_1^S = \mathbb{Z}_2$、$\pi_2^S =
-\mathbb{Z}_2$、$\pi_3^S = \mathbb{Z}_{24}$……）。<span class="marginnote">$\pi_3^S
+内是同构。稳定同伦群是当代代数拓扑的主战场，至今只有少量精确值（$\pi_1^S = \mathbb{Z}_2$、$\pi_2^S =\mathbb{Z}_2$、$\pi_3^S = \mathbb{Z}_{24}$……）。<span class="marginnote">$\pi_3^S
 = \mathbb{Z}_{24}$ 的「24」是整个学科最有名的常数之一：它与 Bött 周期性、球面的 Hopf
 不变量、乃至弦论里的异常消除都有联系。一个「球面绕法有多少」的问题，答案里长出 24——这就是同伦群给世人的见面礼。</span>
 

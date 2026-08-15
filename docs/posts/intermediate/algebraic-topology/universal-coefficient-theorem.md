@@ -63,10 +63,7 @@ $$H_n(X; G) \cong \big(H_n(X) \otimes G\big) \oplus \operatorname{Tor}\big(H_{n-
 - $G = \mathbb{Z}_p$：$H_n(X;\mathbb{Z}_p)$ 同时看见秩与 $p$-挠，是模 $p$ 系数的常用版本。
 - $H_{n-1}(X)$ 无挠时：Tor 项消失，$H_n(X;G) = H_n(X) \otimes G$，换系数就是「张量上去」。
 
-**例**：$\mathbb{RP}^2$，$H_1 = \mathbb{Z}_2$。$H_1(\mathbb{RP}^2;\mathbb{Z}_2) =
-(\mathbb{Z}_2 \otimes \mathbb{Z}_2) \oplus \operatorname{Tor}(H_0,
-\mathbb{Z}_2) = \mathbb{Z}_2 \oplus
-\operatorname{Tor}(\mathbb{Z},\mathbb{Z}_2) = \mathbb{Z}_2$。<span class="marginnote">这里 Tor 项恰好为零；但 $H_2(\mathbb{RP}^2;\mathbb{Z}_2)$
+**例**：$\mathbb{RP}^2$，$H_1 = \mathbb{Z}_2$。$H_1(\mathbb{RP}^2;\mathbb{Z}_2) =(\mathbb{Z}_2 \otimes \mathbb{Z}_2) \oplus \operatorname{Tor}(H_0,\mathbb{Z}_2) = \mathbb{Z}_2 \oplus\operatorname{Tor}(\mathbb{Z},\mathbb{Z}_2) = \mathbb{Z}_2$。<span class="marginnote">这里 Tor 项恰好为零；但 $H_2(\mathbb{RP}^2;\mathbb{Z}_2)$
 就非平凡：$H_2(\mathbb{RP}^2;\mathbb{Z}_2) = (H_2 \otimes \mathbb{Z}_2) \oplus
 \operatorname{Tor}(H_1, \mathbb{Z}_2) = 0 \oplus
 \operatorname{Tor}(\mathbb{Z}_2,\mathbb{Z}_2) = \mathbb{Z}_2$——模 2 同调「看见」了
@@ -80,8 +77,7 @@ $\mathbb{RP}^2$ 的 2-维洞，而整系数同调看不见。模 2 系数是研�
 
 $$0 \longrightarrow \operatorname{Ext}\big(H_{n-1}(X),\ G\big) \longrightarrow H^n(X; G) \longrightarrow \operatorname{Hom}\big(H_n(X),\ G\big) \longrightarrow 0$$
 
-**这个定理的哲学意义**：$H^n(X;G)$ **几乎就是** $\operatorname{Hom}(H_n(X),
-G)$——上同调是「同调群上的线性函数」的集合，只差一个 $\operatorname{Ext}$ 修正项。<span class="marginnote">「上同调 = 同调的 Hom」是理解上同调的第一直觉：$H^n(X;\mathbb{Z})$ 中的每个类给 $H_n$
+**这个定理的哲学意义**：$H^n(X;G)$ **几乎就是** $\operatorname{Hom}(H_n(X),G)$——上同调是「同调群上的线性函数」的集合，只差一个 $\operatorname{Ext}$ 修正项。<span class="marginnote">「上同调 = 同调的 Hom」是理解上同调的第一直觉：$H^n(X;\mathbb{Z})$ 中的每个类给 $H_n$
 的每个类赋一个整数（即「积分」）。第 4 篇的杯积、Poincaré
 对偶都建立在这个直觉上——上同调之所以能「相乘」，正是因为它本质是「函数环」。</span>
 

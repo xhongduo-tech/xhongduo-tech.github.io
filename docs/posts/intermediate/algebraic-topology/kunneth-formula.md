@@ -100,9 +100,7 @@ $(-1)^i$ 的直接后果——误差项永远在维度 $n-1$ 出现。写公式�
 \mathbb{Z}^{\binom{n}{k}}$。$T^2$：$H_0 = \mathbb{Z}$，$H_1 = \mathbb{Z}^2$，$H_2
 = \mathbb{Z}$。
 
-**例 2：$S^p \times S^q$（$p, q \ge 1$）。** $H_0 = \mathbb{Z}$，$H_p =
-\mathbb{Z}$，$H_q = \mathbb{Z}$，$H_{p+q} = \mathbb{Z}$（生成元是基本类 $[S^p] \times
-[S^q]$），其余为 0。<span class="marginnote">$H_{p+q}(S^p \times S^q) = \mathbb{Z}$
+**例 2：$S^p \times S^q$（$p, q \ge 1$）。** $H_0 = \mathbb{Z}$，$H_p =\mathbb{Z}$，$H_q = \mathbb{Z}$，$H_{p+q} = \mathbb{Z}$（生成元是基本类 $[S^p] \times[S^q]$），其余为 0。<span class="marginnote">$H_{p+q}(S^p \times S^q) = \mathbb{Z}$
 来自「整个乘积」作为唯一 $(p+q)$-维洞；生成元 $\alpha \times \beta$ 正是两个因子基本类的交叉积。这为 Poincaré
 对偶篇的「乘积 = 交叠」直觉埋下伏笔。</span>
 

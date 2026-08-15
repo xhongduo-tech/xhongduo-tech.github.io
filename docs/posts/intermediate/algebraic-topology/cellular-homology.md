@@ -96,9 +96,7 @@ $n$，其余为 0——与上一篇一致。
 
 $$\mathbb{Z} \xrightarrow{\;0\;} \mathbb{Z} \xrightarrow{\;2\;} \mathbb{Z} \xrightarrow{\;0\;} \cdots \xrightarrow{\;2\text{ 或 }0\;} \mathbb{Z}$$
 
-（相邻算子在 $0$ 与 $2$ 之间交替）。取核模像得：$H_0(\mathbb{RP}^n) =
-\mathbb{Z}$；$H_k(\mathbb{RP}^n) = \mathbb{Z}_2$ 当 $0 \lt  k \lt  n$ 且 $k$ 奇数；$H_k =
-0$ 当 $k$ 为偶且 $k \neq 0$；若 $n$ 为奇，$H_n(\mathbb{RP}^n) = \mathbb{Z}$。<span class="marginnote">挠群 $\mathbb{Z}_2$ 在这里第一次从计算中自然涌现：$\mathbb{RP}^n$
+（相邻算子在 $0$ 与 $2$ 之间交替）。取核模像得：$H_0(\mathbb{RP}^n) =\mathbb{Z}$；$H_k(\mathbb{RP}^n) = \mathbb{Z}_2$ 当 $0 \lt  k \lt  n$ 且 $k$ 奇数；$H_k =0$ 当 $k$ 为偶且 $k \neq 0$；若 $n$ 为奇，$H_n(\mathbb{RP}^n) = \mathbb{Z}$。<span class="marginnote">挠群 $\mathbb{Z}_2$ 在这里第一次从计算中自然涌现：$\mathbb{RP}^n$
 里绕一圈可以反着绕，反着绕两圈才回到同伦平凡——这个「两圈归零」就是模 2 的结构，也是 $\mathbb{Z}$
 系数同调能看到的、$\mathbb{R}$ 系数看不到的信息。</span>
 

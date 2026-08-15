@@ -80,8 +80,7 @@ $$\widetilde{H}_n(X \vee Y) \cong \widetilde{H}_n(X) \oplus \widetilde{H}_n(Y) \
 
 **例 2：去掉一个点的流形。** 设 $M$ 是 $n$-维闭流形，$M \setminus \{p\}$。把 $M$ 拆成 $A = M
 \setminus \{p\}$（同伦等价于我们要算的）与 $B$ 为 $p$ 的闭圆盘邻域（可缩），$A \cap B$ 同伦等价于
-$S^{n-1}$。Mayer–Vietoris 序列立即给出 $H_k(M) \cong H_k(M \setminus \{p\})$（$k \lt 
-n-1$），而在 $k = n-1$ 处出现 $\mathbb{Z}$ 项，交代「挖掉一点留下一个 $n-1$-维洞」。<span class="marginnote">这解释了直觉：$S^n$ 去掉一点变成 $\mathbb{R}^n$（可缩），而 $S^n \setminus
+$S^{n-1}$。Mayer–Vietoris 序列立即给出 $H_k(M) \cong H_k(M \setminus \{p\})$（$k \lt n-1$），而在 $k = n-1$ 处出现 $\mathbb{Z}$ 项，交代「挖掉一点留下一个 $n-1$-维洞」。<span class="marginnote">这解释了直觉：$S^n$ 去掉一点变成 $\mathbb{R}^n$（可缩），而 $S^n \setminus
 \{p\} \simeq D^n \simeq *$ 的同调为 0；但 $M$ 挖点后保留的低维同调来自 $M$
 自身的骨架，只有最高维被破坏。</span>
 

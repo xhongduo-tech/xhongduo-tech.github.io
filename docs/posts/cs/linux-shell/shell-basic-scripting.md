@@ -59,7 +59,8 @@ echo "Hello, ${name}!"    # 用花括号隔开边界
 
 **变量种类**：脚本内自定义的是**用户变量**；bash 启动时从环境里继承的（`PATH`、`HOME`、`USER`）叫**环境变量**，脚本内也能直接读。`$0` 是脚本名、`$1` `$2` 是位置参数——下一章《处理用户输入》专门展开。
 
-**易错点**：`$` 后面的花括号 `{}` 用来**划清变量名的边界**。`echo "$name_file"` 会把 `name_file` 当整个变量名（多半为空）；`echo "${name}_file"` 才能输出 `world_file`。<span class="marginnote">变量大小写敏感：`$Name` 与 `$name` 是两个变量。惯例是用户变量用小写、环境变量用大写。`. env.sh` 之后脚本里定义的变量会留在当前 shell，所以脚本内定义的变量别指望「脚本跑完还能用」——除非你用 `export` 导出到环境。</span>
+**易错点**：`$` 后面的花括号 `{}` 用来**划清变量名的边界**。`echo "$name_file"` 会把 `name_file` 当整个变量名（多半为空）；`echo "${name}_file"` 才能输出 `world_file`。
+<span class="marginnote">变量大小写敏感：`$Name` 与 `$name` 是两个变量。惯例是用户变量用小写、环境变量用大写。`. env.sh` 之后脚本里定义的变量会留在当前 shell，所以脚本内定义的变量别指望「脚本跑完还能用」——除非你用 `export` 导出到环境。</span>
 
 ## 3 公式解析：命令替换
 
@@ -83,7 +84,8 @@ count=`grep -c error app.log`  # 旧式：反引号
 - **第二步**：这个数字替换掉整个 <code>&#36;(...)</code> 表达式，成为变量 `count` 的值。
 - **第三步**：之后 `echo "$count"` 就能打印它。
 
-命令替换在脚本里无处不在：拿当前时间、读命令输出、把动态值拼进消息。**反引号 `` ` `` 与 <code>&#36;(...)</code> 等价，但反引号里嵌套反引号时需要转义，可读性差**——新脚本一律用 <code>&#36;(...)</code>。<span class="marginnote">命令替换执行的是<strong>子 shell</strong>：<code>&#36;(cd /tmp && pwd)</code> 里 `cd` 只影响子 shell，不会改变当前脚本的工作目录。想在同一 shell 里改状态，用 `source` 而不是命令替换。</span>
+命令替换在脚本里无处不在：拿当前时间、读命令输出、把动态值拼进消息。**反引号 `` ` `` 与 <code>&#36;(...)</code> 等价，但反引号里嵌套反引号时需要转义，可读性差**——新脚本一律用 <code>&#36;(...)</code>。
+<span class="marginnote">命令替换执行的是<strong>子 shell</strong>：<code>&#36;(cd /tmp && pwd)</code> 里 `cd` 只影响子 shell，不会改变当前脚本的工作目录。想在同一 shell 里改状态，用 `source` 而不是命令替换。</span>
 
 ## 4 公式解析：数学运算
 

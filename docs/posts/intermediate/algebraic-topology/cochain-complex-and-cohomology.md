@@ -92,9 +92,7 @@ $f^* \colon C^n(Y;G) \to C^n(X;G)$：
 
 $$f^*(\varphi) := \varphi \circ f_\#, \qquad \text{即} \quad \big(f^*\varphi\big)(\sigma) = \varphi\big(f \circ \sigma\big)$$
 
-因为 $f^* \delta = \delta f^*$（转置与复合可交换），$f^*$ 诱导上同调同态 $f^* \colon H^n(Y;G) \to
-H^n(X;G)$。**注意方向翻转**：空间映射 $f \colon X \to Y$ 在同调上 $f_\* \colon H_n(X) \to
-H_n(Y)$（协变），在上同调上 $f^* \colon H^n(Y) \to H^n(X)$（**反变**）。<span class="marginnote">方向翻转是「函数拉回」的必然结果：$Y$ 上的函数通过 $f$ 拉回成 $X$
+因为 $f^* \delta = \delta f^*$（转置与复合可交换），$f^*$ 诱导上同调同态 $f^* \colon H^n(Y;G) \toH^n(X;G)$。**注意方向翻转**：空间映射 $f \colon X \to Y$ 在同调上 $f_\* \colon H_n(X) \toH_n(Y)$（协变），在上同调上 $f^* \colon H^n(Y) \to H^n(X)$（**反变**）。<span class="marginnote">方向翻转是「函数拉回」的必然结果：$Y$ 上的函数通过 $f$ 拉回成 $X$
 上的函数，自变量反着走。这让上同调成为一个<strong>反变函子</strong>，而同调是<strong>协变函子</strong>——这个区别在障碍理论篇会直接派上用场。</span>
 
 由函子性与同伦不变性（$f \simeq g \Rightarrow f^* = g^*$），上同调同样是同伦不变量；Eilenberg–Steenrod

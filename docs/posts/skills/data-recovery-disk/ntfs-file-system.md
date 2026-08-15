@@ -26,7 +26,7 @@ FAT 把「文件名 → 簇链」藏在目录项里；NTFS 则把「一个文件
 
 **引导扇区（Boot Sector）**：第一个扇区，含 NTFS 的 BPB 参数与 \$MFT 起始位置。NTFS 的引导扇区还有一个特殊能力——**\$Boot 文件**本身就是一条 MFT 记录，引导扇区与 MFT 记录互相引用。
 
-**\$MFT（Master File Table，主文件表）**：NTFS 的中枢。它本身也是一个文件，存放着卷上**每一个文件（包括它自己）的一条记录**。<span class="marginnote">\$MFT 记录一条 1024 字节（1 KB）。记录 0 是 \$MFT 自己，记录 1 是 \\$MFTMirr（\$MFT 前几项的镜像备份），记录 2 是 \$LogFile（日志），记录 3 是 \$Volume（卷信息），记录 4 是 \$AttrDef，记录 5 是根目录「\」，之后才是用户文件。恢复 NTFS，第一步永远是定位 \$MFT。</span>
+**&#36;MFT（Master File Table，主文件表）**：NTFS 的中枢。它本身也是一个文件，存放着卷上**每一个文件（包括它自己）的一条记录**。<span class="marginnote">\$MFT 记录一条 1024 字节（1 KB）。记录 0 是 \$MFT 自己，记录 1 是 \\$MFTMirr（\$MFT 前几项的镜像备份），记录 2 是 \$LogFile（日志），记录 3 是 \$Volume（卷信息），记录 4 是 \$AttrDef，记录 5 是根目录「\」，之后才是用户文件。恢复 NTFS，第一步永远是定位 \$MFT。</span>
 
 **\\$MFTMirr**：\$MFT 开头部分（通常前 4 条记录）的镜像。\$MFT 自身损坏时用它救急。
 

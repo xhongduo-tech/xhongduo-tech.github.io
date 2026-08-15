@@ -34,8 +34,7 @@ f(x_0))$，而且复合与恒等在函子意义下保持。** 由此得到代数
 
 $$f_* : \pi_1(X, x_0) \to \pi_1(Y, f(x_0)), \qquad f_*([\gamma]) = [f \circ \gamma].$$
 
-环路 $\gamma$ 被 $f$ 推成 $Y$ 中的环路 $f \circ \gamma$（因为 $f(\gamma(0)) = f(\gamma(1))
-= f(x_0)$），同伦类也随之推过去。<span class="marginnote">记号 $f_\*$
+环路 $\gamma$ 被 $f$ 推成 $Y$ 中的环路 $f \circ \gamma$（因为 $f(\gamma(0)) = f(\gamma(1))= f(x_0)$），同伦类也随之推过去。<span class="marginnote">记号 $f_\*$
 里的星号读作「pushforward」——把环路沿 $f$ 推出去。这是代数拓扑里最常用的记法之一，后面同调群、上同调的诱导映射也都用星号。</span>
 
 $f_*$ 是良定义的群同态，需要验证两件事：

@@ -107,8 +107,7 @@ $$\cdots \to H_n(A) \xrightarrow{i_*} H_n(X) \xrightarrow{j_*} H_n(X,A) \xrighta
 - **第三步，追图（diagram chasing）**：正合序列的价值在于——只要知道三个位置中任意两个，就能推出第三个。典型场景：已知 $H_n(A)$ 与 $H_n(X)$，利用 $j_*$ 与 $\partial_*$ 的正合性推出 $H_n(X,A)$。这是所有同调计算的骨架，切除定理、Mayer–Vietoris 序列本质都是「把 $H_n(X,A)$ 换成更易算的同调群」。
 
 **一个立即的应用**：取 $A = \{x_0\}$ 为基点。$H_n(\{x_0\}) = 0$（$n \ge 1$），长正合序列在 $n \ge 1$
-处给出 $H_n(X) \cong H_n(X, x_0)$；而在 $n = 1$ 处，$\mathbb{Z} \to H_1(X) \to
-H_1(X,x_0) \to \mathbb{Z} \to H_0(X) \to 0$ 中间的链完整地交代了基点如何影响低维同调。<span class="marginnote">这条「$(X, x_0)$ 对」的序列，与第 1
+处给出 $H_n(X) \cong H_n(X, x_0)$；而在 $n = 1$ 处，$\mathbb{Z} \to H_1(X) \toH_1(X,x_0) \to \mathbb{Z} \to H_0(X) \to 0$ 中间的链完整地交代了基点如何影响低维同调。<span class="marginnote">这条「$(X, x_0)$ 对」的序列，与第 1
 篇基本群里的「基点选取」问题遥相呼应：同调群对基点不敏感（$H_n(X) \cong H_n(X,
 x_0)$），这正是同调优于基本群的又一证据。</span>
 

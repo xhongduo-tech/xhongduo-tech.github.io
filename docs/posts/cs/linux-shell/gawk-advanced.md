@@ -71,7 +71,8 @@ $$
 gawk '{ code[$9]++ } END { for (c in code) print c, code[c] }' access.log
 ```
 
-**易错点**：awk 数组**没有顺序**——`for (key in arr)` 的遍历顺序不保证与插入一致。想按次数排序输出，在 END 里二次处理或仍交给 `sort -rn` 收尾。另一个坑：`arr[$1]` 访问不存在的键会**自动创建**它——判断键是否存在用 `if ($1 in arr)`，而不是 `if (arr[$1])`。<span class="marginnote">`delete arr[key]` 删除单个键、`delete arr` 清空数组。awk 数组也能当「集合」用：`if (!seen[$1]++) print $1` 只输出每个键第一次出现的行——天然去重。</span>
+**易错点**：awk 数组**没有顺序**——`for (key in arr)` 的遍历顺序不保证与插入一致。想按次数排序输出，在 END 里二次处理或仍交给 `sort -rn` 收尾。另一个坑：`arr[$1]` 访问不存在的键会**自动创建**它——判断键是否存在用 `if ($1 in arr)`，而不是 `if (arr[$1])`。
+<span class="marginnote">`delete arr[key]` 删除单个键、`delete arr` 清空数组。awk 数组也能当「集合」用：`if (!seen[$1]++) print $1` 只输出每个键第一次出现的行——天然去重。</span>
 
 ## 3 模式与结构：比逐行更精细
 
