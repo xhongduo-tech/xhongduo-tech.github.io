@@ -117,4 +117,4 @@ $$\mathrm{Res}_K^G\, \mathrm{Ind}_H^G W \cong \bigoplus_{KgH} \mathrm{Ind}_{K \c
 - **Frobenius 互反律**：$\langle \mathrm{Ind}, \rho \rangle_G = \langle \sigma, \mathrm{Res} \rangle_H$；诱导与限制互为伴随，重数可双向计算。
 - 方向口诀：**$\mathrm{Ind}$ 向上、$\mathrm{Res}$ 向下**；互反律是「重数相等」，不是「表示相等」。
 
-在下一节，我们把表示论的全部工具用到最经典也最深刻的群上：**对称群 $S_n$
+在下一节，我们把表示论的全部工具用到最经典也最深刻的群上：**对称群 $S_n$**。它的不可约表示由杨图（Young diagrams）与对称化子（Specht modules）刻画，而诱导表示正是构造它们的引擎——从平凡表示一步步诱导出 $S_n$ 的全部不可约表示，并借 Frobenius 互反律与 Burnside 的轨道计数接通。

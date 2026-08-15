@@ -117,4 +117,4 @@ $$K^{\dagger} y = \sum_{n=1}^{\infty} \frac{\langle y, u_n\rangle}{\sigma_n}\, v
 - 正则化=在奇异值小的方向上重新定义除法：Tikhonov、TSVD、迭代法是同一副算盘的三套打法。
 - 谱与奇异值不同：谱是 $\lambda I - K$ 不可逆的集合，奇异值是 $K^*K$ 特征值的平方根；反问题用后者。
 
-在下一节，我们正式开药。既然病根是「除以 $\sigma_n$」放大了噪声，Tikhonov 的做法就是把除法改成 $\frac{\sigma_n}{\sigma_n^2 + \alpha}$
+在下一节，我们正式开药。既然病根是「除以 $\sigma_n$」放大了噪声，Tikhonov 的做法就是把除法改成 $\frac{\sigma_n}{\sigma_n^2 + \alpha}$——给每个奇异值方向加一个正的「底座」，看它如何在拟合数据与压制噪声之间找到折中。

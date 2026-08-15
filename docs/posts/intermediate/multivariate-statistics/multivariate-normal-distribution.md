@@ -117,4 +117,4 @@ $$
 - **边际、条件都正态**：条件期望 $E(\mathbf{X}_1 \mid \mathbf{X}_2) = \boldsymbol{\mu}_1 + \boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_2-\boldsymbol{\mu}_2)$ 是线性回归的代数内核。
 - **二次型服从卡方**：$(\mathbf{X}-\boldsymbol{\mu})'\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu}) \sim \chi^2_p$，一切均值检验与置信区域的种子。
 
-在下一节，我们将从一个样本出发，把「总体多元正态」推进到「样本推断」：样本协方差矩阵 $\mathbf{S}$ 的分布（Wishart 分布），以及检验均值向量的 Hotelling $T^2$
+在下一节，我们将从一个样本出发，把「总体多元正态」推进到「样本推断」：样本协方差矩阵 $\mathbf{S}$ 的分布（Wishart 分布），以及检验均值向量的 Hotelling $T^2$ 统计量——它会告诉你，一维的 $t$ 检验与 $\chi^2$ 检验在多元世界里分别长成了什么样子，而二次型正态分布的代数将是那里最顺手的语言。

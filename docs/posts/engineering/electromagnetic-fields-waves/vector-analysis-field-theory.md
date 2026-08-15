@@ -117,4 +117,4 @@ $$\nabla^2\varphi = \nabla\cdot(\nabla\varphi) = \frac{\partial^2\varphi}{\parti
 - **亥姆霍兹定理**：场的散度与旋度加边界条件唯一确定场，是后续全部电磁场求解的基石。
 - **矢量恒等式**是推导的引擎：$\nabla\cdot(\nabla\times\mathbf{A})=0$、$\nabla\times(\nabla\varphi)=0$、$\nabla\times(\nabla\times\mathbf{A})=\nabla(\nabla\cdot\mathbf{A})-\nabla^2\mathbf{A}$，前两条对应"无磁单极"与"静电无旋"，第三条导出波动方程。
 
-在下一节，我们带着这三件武器进入第一种具体场——**静电场**：它无旋、有源，于是可以用电势 $\varphi$
+在下一节，我们带着这三件武器进入第一种具体场——**静电场**：它无旋、有源，于是可以用电势 $\varphi$ 来描写，$\mathbf{E} = -\nabla\varphi$ 第一次把梯度的几何直觉变成场方程；而它的源项则由高斯定理的散度形式给出。

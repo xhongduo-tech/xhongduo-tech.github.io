@@ -117,4 +117,4 @@ $$\int_G |f(g)|^2\, d\mu(g) = \sum_{[\rho]} \sum_{i,j} \left| \langle f, \rho_{i
 - **Peter–Weyl 定理**：$L^2(G) \cong \bigoplus_{[\rho]} \mathrm{End}(V_\rho)$，矩阵系数构成 $L^2(G)$ 的正交规范基（Hilbert 直和）。
 - 特例即**傅里叶级数**（$S^1$）、球谐函数（$SO(3)$）、Wigner 函数（$SU(2)$）。
 
-在下一节，我们把 Peter–Weyl 用到量子力学的核心对象上：**$SU(2)$ 与 $SO(3)$ 的表示和角动量**。你将看到「自旋 $j$」「轨道角动量 $l$
+在下一节，我们把 Peter–Weyl 用到量子力学的核心对象上：**$SU(2)$ 与 $SO(3)$ 的表示和角动量**。你将看到「自旋 $j$」「轨道角动量 $l$」这些物理量正是不可约表示的最高权标记，而 Peter–Weyl 的正交基就是角动量本征函数的完备集——Clebsch–Gordan 系数、Wigner D 矩阵，全是表示论同一台机器在不同坐标下的输出。
