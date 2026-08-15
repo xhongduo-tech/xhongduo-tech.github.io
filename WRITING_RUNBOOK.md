@@ -141,8 +141,19 @@ npm run docs:build             # 全量构建（含 dead-link 检查）
 - 扩写 agent 模板：通用 agent，必读 `.claude/writing-charter.md` + 范本 `set-concept.md`，仅扩写指定 <120 行文件，保持 date(2026-08-07)/byline/语气，禁改 index.md，返回「文件名→新行数」。
 - 批次闭环：行数复核 → `tick_index.py --apply` → `node scripts/lint-html.mjs`（须全绿）→ `node scripts/gen-progress.mjs` → `git add -A && git commit`。
 
-**当前剩余（截至 `28a17faf1`）**
-- 待办专题 261 个、未勾条目 3080、需扩写文件 1743、空壳文件 948、已达标 389。
-- 优先顺序：先「无空壳、短文件最少」的专题（如 5 个接近完成者）→ 再空壳重的专题（写全新稿）。
+**2026-08-15 后续批次（同一会话内已完成）**
+6. `28a17faf1` → `9f1d4a385` 之间 8 个批次，共完成 **43 专题 458 篇**：
+   - 批次 3–10：computational-mechanics / phase-transitions-critical-phenomena / molecular-evolution-phylogenetics / modeling-and-simulation / real-time-systems / nonstandard-analysis / underwater-acoustic-engineering / high-energy-astrophysics / optimal-transport / behavioral-genetics / field-experiment-biostatistics / fire-protection-engineering / mechanical-vibration / how-to-prove / design-of-experiments / inverse-problems / representation-theory / quantum-metrology-sensing / inorganic-nonmetallic-materials / discrete-and-convex-geometry / nonparametric-statistics / riemann-surfaces / engineering-thermodynamics / monte-carlo-methods / electromagnetic-fields-waves / computability-theory / survival-analysis / electronic-structure-theory / x-ray-physics / observational-astronomy 等。
 
-**下一个 session 起点**：重跑 `git status` / `node scripts/gen-progress.mjs` 看当前 done 数，按第三节纪律从剩余专题继续。
+**当前剩余（截至 `9f1d4a385`）**
+- 待办专题 **231 个**、未勾条目 **2738**、需扩写 **1567**、空壳 **948**、已达标 223。
+- 分类分布：humanities 49 / life 43 / intermediate 42 / social 36 / advanced 26 / engineering 19 / cs 8 / frontier 7 / foundations 1。
+- 优先顺序：先「无空壳、短文件最少」的专题 → 再空壳重的专题（写全新稿）。
+
+**复用设施（本 session 验证有效）**
+- 勾选脚本 `/tmp/tick_index.py <dir> [--apply]`：按 frontmatter title ↔ index 条目精确匹配，仅勾 ≥120 行者。
+- 标题不一致处理：约 10% 专题有「括号/冒号/斜杠空格」变体，先用 python 对齐文件 title+H1 到 index 权威标题再勾（不要手工改 index）。
+- 批次闭环：行数复核 → tick → `node scripts/lint-html.mjs`（须全绿）→ `node scripts/gen-progress.mjs` → `git add -A && git commit`。每批 6 个通用 agent 并行，每 agent 扩写一个专题的 6–8 个短文件。
+- 大量 100–119 行草稿是**截断稿**（末行断句中、缺小结 bullet/收尾句），扩写先补完截断再增实质内容；约每 3 个专题有 1 个标题变体需对齐。
+
+**下一个 session 起点**：重跑 `git status` / `node scripts/gen-progress.mjs` 看当前 done 数，按第三节纪律从剩余专题继续。剩余分类偏重 humanities/life/intermediate/social（多含空壳，需写全新稿）。
