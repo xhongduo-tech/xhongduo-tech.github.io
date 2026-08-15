@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" font-family="sans-serif">
+  <title>霍尔人际距离四区</title>
+  <desc>以一个人为中心的四层同心圆，分别表示亲密区、个人区、社交区与公共区的距离范围。</desc>
+  <rect width="640" height="480" fill="#faf9f5"/>
+  <circle cx="340" cy="240" r="230" fill="#1f6f8b" fill-opacity="0.05" stroke="#1f6f8b" stroke-opacity="0.30" stroke-dasharray="5 5"/>
+  <circle cx="340" cy="240" r="160" fill="#1f6f8b" fill-opacity="0.09" stroke="#1f6f8b" stroke-opacity="0.45" stroke-dasharray="5 5"/>
+  <circle cx="340" cy="240" r="100" fill="#1f6f8b" fill-opacity="0.14" stroke="#1f6f8b" stroke-opacity="0.55"/>
+  <circle cx="340" cy="240" r="50" fill="#c0392b" fill-opacity="0.16" stroke="#c0392b" stroke-opacity="0.65"/>
+  <circle cx="340" cy="240" r="14" fill="#333"/>
+  <text x="340" y="245" text-anchor="middle" font-size="13" fill="#faf9f5">我</text>
+  <text x="340" y="248" text-anchor="middle" font-size="13" fill="#c0392b">亲密区</text>
+  <text x="340" y="264" text-anchor="middle" font-size="13" fill="#c0392b">0–45 cm</text>
+  <text x="340" y="118" text-anchor="middle" font-size="14" fill="#1f6f8b">个人区</text>
+  <text x="340" y="134" text-anchor="middle" font-size="13" fill="#333">45–120 cm</text>
+  <text x="340" y="58" text-anchor="middle" font-size="14" fill="#1f6f8b">社交区</text>
+  <text x="340" y="74" text-anchor="middle" font-size="13" fill="#333">1.2–3.6 m</text>
+  <text x="94" y="238" text-anchor="end" font-size="14" fill="#1f6f8b">公共区</text>
+  <text x="94" y="254" text-anchor="end" font-size="13" fill="#333">3.6 m 以上</text>
+  <line x1="340" y1="470" x2="570" y2="470" stroke="#999" stroke-width="1"/>
+  <line x1="340" y1="464" x2="340" y2="476" stroke="#999" stroke-width="1"/>
+  <line x1="390" y1="464" x2="390" y2="476" stroke="#999" stroke-width="1"/>
+  <line x1="440" y1="464" x2="440" y2="476" stroke="#999" stroke-width="1"/>
+  <line x1="500" y1="464" x2="500" y2="476" stroke="#999" stroke-width="1"/>
+  <text x="340" y="462" text-anchor="middle" font-size="13" fill="#666">0</text>
+  <text x="390" y="462" text-anchor="middle" font-size="13" fill="#666">0.5 m</text>
+  <text x="440" y="462" text-anchor="middle" font-size="13" fill="#666">1 m</text>
+  <text x="500" y="462" text-anchor="middle" font-size="13" fill="#666">1.6 m</text>
+  <text x="340" y="30" text-anchor="middle" font-size="14" fill="#333">霍尔（Edward T. Hall）人际距离四区</text>
+</svg>

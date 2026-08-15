@@ -1,0 +1,48 @@
+<svg viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>冻结曲线：缓冻与速冻的对比</title>
+  <desc>缓冻在最大冰晶生成带停留时间长，形成大冰晶刺破细胞；速冻快速通过最大冰晶生成带，形成细小冰晶。</desc>
+  <rect width="640" height="430" fill="#faf9f5"/>
+  <text x="320" y="32" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">冻结曲线：缓冻 vs 速冻</text>
+
+  <!-- 坐标轴 -->
+  <line x1="70" y1="380" x2="610" y2="380" stroke="#333" stroke-width="1.5" marker-end="url(#arrx)"/>
+  <line x1="70" y1="380" x2="70" y2="40" stroke="#333" stroke-width="1.5" marker-end="url(#arry)"/>
+  <text x="612" y="400" font-size="14" fill="#333">时间 t</text>
+  <text x="34" y="50" font-size="14" fill="#333" transform="rotate(-90 34 50)">温度 T</text>
+
+  <!-- 温度刻度线 -->
+  <line x1="70" y1="130" x2="600" y2="130" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="250" y="122" font-size="13" fill="#999">0 ℃（冰点）</text>
+  <line x1="70" y1="200" x2="600" y2="200" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="420" y="192" font-size="13" fill="#999">−5 ℃（最大冰晶生成带下界）</text>
+  <line x1="70" y1="320" x2="600" y2="320" stroke="#999" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="455" y="312" font-size="13" fill="#999">−18 ℃（冻藏温度）</text>
+
+  <!-- 最大冰晶生成带背景 -->
+  <rect x="60" y="130" width="550" height="70" fill="#fdecea" opacity="0.5"/>
+  <text x="120" y="162" font-size="13" fill="#c0392b">最大冰晶生成带</text>
+
+  <!-- 缓冻曲线 -->
+  <path d="M 80 90 L 140 90 L 200 118 L 250 130 L 340 133 L 430 180 L 520 300 L 585 318" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="420" y="100" font-size="13" fill="#c0392b">缓冻：带内停留久 → 大冰晶</text>
+
+  <!-- 速冻曲线 -->
+  <path d="M 80 90 L 200 90 L 260 118 L 290 130 L 320 200 L 350 320 L 400 322" fill="none" stroke="#1f6f8b" stroke-width="2.5" marker-end="url(#arrc)"/>
+  <text x="180" y="70" font-size="13" fill="#1f6f8b">速冻：快速穿过 → 细小冰晶</text>
+
+  <!-- 过冷点标注 -->
+  <circle cx="290" cy="138" r="4" fill="#1f6f8b"/>
+  <text x="278" y="155" font-size="12" fill="#333">过冷后回升</text>
+
+  <defs>
+    <marker id="arrx" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+    </marker>
+    <marker id="arry" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+    </marker>
+    <marker id="arrc" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+</svg>

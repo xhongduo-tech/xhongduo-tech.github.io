@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220" width="480" height="220" font-family="sans-serif">
+<title>端接负载的均匀传输线</title>
+<desc>一段特性阻抗为 Z0 的均匀传输线，左端接信号源，右端接负载 ZL，线上同时存在入射波与反射波。</desc>
+<rect x="0" y="0" width="480" height="220" fill="#faf9f5"/>
+<!-- 上下两根导体 -->
+<line x1="40" y1="70" x2="440" y2="70" stroke="#333" stroke-width="3"/>
+<line x1="40" y1="150" x2="440" y2="150" stroke="#333" stroke-width="3"/>
+<!-- 左端信号源 -->
+<circle cx="40" cy="110" r="6" fill="none" stroke="#1f6f8b" stroke-width="2"/>
+<text x="28" y="100" font-size="14" fill="#1f6f8b" text-anchor="middle">源</text>
+<line x1="40" y1="104" x2="40" y2="76" stroke="#1f6f8b" stroke-width="2"/>
+<line x1="40" y1="144" x2="40" y2="116" stroke="#1f6f8b" stroke-width="2"/>
+<!-- 右端负载 -->
+<rect x="432" y="70" width="22" height="80" rx="3" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="460" y="120" font-size="15" fill="#c0392b" text-anchor="middle">Z<sub>L</sub></text>
+<!-- 入射波箭头（向右） -->
+<line x1="90" y1="34" x2="380" y2="34" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 3"/>
+<polygon points="380,34 370,30 370,38" fill="#c0392b"/>
+<text x="230" y="22" font-size="15" fill="#c0392b" text-anchor="middle">入射波 V<sub>i</sub><sup>+</sup></text>
+<!-- 反射波箭头（向左） -->
+<line x1="380" y1="52" x2="90" y2="52" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 3"/>
+<polygon points="90,52 100,48 100,56" fill="#1f6f8b"/>
+<text x="230" y="66" font-size="15" fill="#1f6f8b" text-anchor="middle">反射波 V<sub>i</sub><sup>−</sup></text>
+<!-- 特性阻抗标注 -->
+<text x="200" y="120" font-size="16" fill="#333" text-anchor="middle">特性阻抗 Z<sub>0</sub></text>
+<line x1="40" y1="190" x2="440" y2="190" stroke="#999" stroke-width="1"/>
+<text x="240" y="208" font-size="14" fill="#666" text-anchor="middle">长度 l = nλ 量级，沿线的电压电流不再处处相等</text>
+</svg>

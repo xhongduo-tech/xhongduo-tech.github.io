@@ -1,0 +1,71 @@
+<svg viewBox="0 0 660 360" width="660" height="360" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+  <title>三类漂移示意图</title>
+  <desc>左图为特征分布漂移（协变量漂移），中图为标签分布漂移，右图为概念漂移。</desc>
+  <rect width="660" height="360" fill="#faf9f5"/>
+
+  <!-- Panel 1: covariate shift (x 0-220) -->
+  <text x="110" y="28" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">特征分布漂移</text>
+  <text x="110" y="46" text-anchor="middle" font-size="13" fill="#666">（协变量漂移）</text>
+
+  <!-- training-time curve, center 70 -->
+  <polyline fill="none" stroke="#1f6f8b" stroke-width="2.5"
+    points="0,236 20,221 40,187 55,158 70,145 85,158 100,187 120,221 140,236"/>
+  <!-- production curve, center 130 -->
+  <polyline fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="6 4"
+    points="60,236 80,221 100,187 115,158 130,145 145,158 160,187 180,221 200,236"/>
+  <line x1="5" y1="240" x2="215" y2="240" stroke="#333" stroke-width="1.5"/>
+  <polygon points="215,240 207,236 207,244" fill="#333"/>
+  <text x="50" y="132" text-anchor="middle" font-size="13" fill="#1f6f8b">训练期</text>
+  <text x="150" y="132" text-anchor="middle" font-size="13" fill="#c0392b">当前</text>
+  <line x1="70" y1="245" x2="130" y2="245" stroke="#333" stroke-width="1" marker-end=""/>
+  <text x="100" y="262" text-anchor="middle" font-size="13" fill="#333">输入分布右移</text>
+
+  <!-- Panel 2: label shift (x 230-450) -->
+  <text x="340" y="28" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">标签分布漂移</text>
+  <text x="340" y="46" text-anchor="middle" font-size="13" fill="#666">（先验概率漂移）</text>
+
+  <rect x="240" y="240" width="24" height="48" fill="#1f6f8b" opacity="0.45"/>
+  <rect x="268" y="252" width="24" height="36" fill="#1f6f8b"/>
+  <rect x="308" y="246" width="24" height="42" fill="#1f6f8b" opacity="0.45"/>
+  <rect x="336" y="246" width="24" height="42" fill="#1f6f8b"/>
+  <rect x="376" y="258" width="24" height="30" fill="#1f6f8b" opacity="0.45"/>
+  <rect x="404" y="234" width="24" height="54" fill="#1f6f8b"/>
+  <line x1="230" y1="288" x2="450" y2="288" stroke="#333" stroke-width="1.5"/>
+  <text x="252" y="306" text-anchor="middle" font-size="13" fill="#333">类别 A</text>
+  <text x="320" y="306" text-anchor="middle" font-size="13" fill="#333">类别 B</text>
+  <text x="388" y="306" text-anchor="middle" font-size="13" fill="#333">类别 C</text>
+  <rect x="330" y="315" width="14" height="14" fill="#1f6f8b" opacity="0.45"/>
+  <text x="350" y="327" font-size="13" fill="#333">训练期</text>
+  <rect x="412" y="315" width="14" height="14" fill="#1f6f8b"/>
+  <text x="432" y="327" font-size="13" fill="#333">当前</text>
+
+  <!-- Panel 3: concept drift (x 460-650) -->
+  <text x="555" y="28" text-anchor="middle" font-size="15" fill="#333" font-weight="bold">概念漂移</text>
+  <text x="555" y="46" text-anchor="middle" font-size="13" fill="#666">（P(y|x) 改变）</text>
+
+  <line x1="510" y1="70" x2="510" y2="280" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="585" y1="70" x2="585" y2="280" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="510" y="60" text-anchor="middle" font-size="13" fill="#1f6f8b">旧边界</text>
+  <text x="585" y="60" text-anchor="middle" font-size="13" fill="#c0392b">新边界</text>
+  <line x1="512" y1="150" x2="583" y2="150" stroke="#333" stroke-width="1.2"/>
+  <polygon points="583,150 575,146 575,154" fill="#333"/>
+  <text x="548" y="168" text-anchor="middle" font-size="13" fill="#333">边界右移</text>
+
+  <!-- red circles -->
+  <circle cx="480" cy="100" r="6" fill="#c0392b"/>
+  <circle cx="495" cy="130" r="6" fill="#c0392b"/>
+  <circle cx="475" cy="160" r="6" fill="#c0392b"/>
+  <circle cx="490" cy="190" r="6" fill="#c0392b"/>
+  <circle cx="480" cy="220" r="6" fill="#c0392b"/>
+  <circle cx="500" cy="250" r="6" fill="#c0392b"/>
+  <!-- blue triangles -->
+  <polygon points="560,96 566,108 554,108" fill="#1f6f8b"/>
+  <polygon points="600,126 606,138 594,138" fill="#1f6f8b"/>
+  <polygon points="570,156 576,168 564,168" fill="#1f6f8b"/>
+  <polygon points="610,186 616,198 604,198" fill="#1f6f8b"/>
+  <polygon points="580,216 586,228 574,228" fill="#1f6f8b"/>
+  <polygon points="615,246 621,258 609,258" fill="#1f6f8b"/>
+  <!-- point that changes class under new boundary -->
+  <circle cx="555" cy="200" r="6" fill="#c0392b"/>
+  <text x="568" y="204" font-size="13" fill="#333">变类点</text>
+</svg>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="sans-serif">
+  <title>压水堆两回路系统示意图</title>
+  <desc>压水堆核电站的能量流：一回路（红色热段、青色冷段）把堆芯热量带到蒸汽发生器，二回路把蒸汽送入汽轮发电机，冷凝器用外部冷却水把废热带走。</desc>
+  <rect width="860" height="520" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c0392b"/>
+    </marker>
+    <marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1f6f8b"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#b9770e"/>
+    </marker>
+  </defs>
+
+  <text x="30" y="40" font-size="20" fill="#333" font-weight="bold">压水堆两回路系统示意</text>
+
+  <!-- 反应堆压力容器 -->
+  <rect x="120" y="200" width="130" height="200" rx="16" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="185" y="280" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">反应堆</text>
+  <text x="185" y="302" font-size="14" fill="#555" text-anchor="middle">压力容器</text>
+  <text x="185" y="324" font-size="13" fill="#555" text-anchor="middle">堆芯（燃料）</text>
+
+  <!-- 稳压器 -->
+  <rect x="30" y="90" width="70" height="130" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="65" y="145" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">稳压器</text>
+  <text x="65" y="165" font-size="13" fill="#555" text-anchor="middle">（压力控制）</text>
+
+  <!-- 蒸汽发生器 -->
+  <rect x="450" y="150" width="110" height="220" rx="14" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="505" y="220" font-size="15" fill="#333" text-anchor="middle" font-weight="bold">蒸汽</text>
+  <text x="505" y="240" font-size="15" fill="#333" text-anchor="middle" font-weight="bold">发生器</text>
+  <text x="505" y="262" font-size="13" fill="#555" text-anchor="middle">传热管束</text>
+  <text x="505" y="282" font-size="13" fill="#555" text-anchor="middle">二回路水吸热</text>
+  <text x="505" y="302" font-size="13" fill="#555" text-anchor="middle">→ 沸腾成蒸汽</text>
+
+  <!-- 主泵 -->
+  <circle cx="330" cy="425" r="34" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="330" y="420" font-size="13" fill="#333" text-anchor="middle" font-weight="bold">主泵</text>
+  <text x="330" y="438" font-size="12" fill="#555" text-anchor="middle">一回路泵</text>
+
+  <!-- 汽轮机 -->
+  <circle cx="640" cy="150" r="34" fill="#fff" stroke="#333" stroke-width="2"/>
+  <circle cx="700" cy="150" r="42" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="670" y="110" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">汽轮机</text>
+
+  <!-- 发电机 -->
+  <rect x="755" y="130" width="70" height="46" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="790" y="157" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">发电机</text>
+
+  <!-- 冷凝器 -->
+  <rect x="620" y="300" width="140" height="90" rx="12" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="690" y="340" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">冷凝器</text>
+  <text x="690" y="360" font-size="13" fill="#555" text-anchor="middle">蒸汽→水</text>
+  <text x="690" y="378" font-size="13" fill="#555" text-anchor="middle">废热给冷却水</text>
+
+  <!-- 给水泵 -->
+  <rect x="560" y="360" width="52" height="34" rx="8" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="586" y="382" font-size="12" fill="#333" text-anchor="middle" font-weight="bold">给水泵</text>
+
+  <!-- 一回路热段（红色） 稳压器→堆顶部，堆→蒸汽发生器上部 -->
+  <line x1="100" y1="120" x2="160" y2="120" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow-red)"/>
+  <line x1="155" y1="120" x2="155" y2="200" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow-red)"/>
+  <line x1="250" y1="215" x2="300" y2="215" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow-red)"/>
+  <line x1="300" y1="215" x2="300" y2="170" stroke="#c0392b" stroke-width="3"/>
+  <line x1="300" y1="170" x2="450" y2="170" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow-red)"/>
+  <text x="340" y="158" font-size="13" fill="#c0392b">热段（约 320 ℃）</text>
+
+  <!-- 一回路冷段（青色） 蒸汽发生器下部→泵→堆下部 -->
+  <line x1="505" y1="370" x2="505" y2="425" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="505" y1="425" x2="364" y2="425" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrow-teal)"/>
+  <line x1="330" y1="391" x2="330" y2="355" stroke="#1f6f8b" stroke-width="3"/>
+  <line x1="330" y1="355" x2="250" y2="355" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrow-teal)"/>
+  <line x1="250" y1="355" x2="250" y2="400" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrow-teal)"/>
+  <text x="360" y="415" font-size="13" fill="#1f6f8b">冷段（约 290 ℃）</text>
+
+  <!-- 二回路蒸汽（橙色） -->
+  <line x1="560" y1="175" x2="606" y2="150" stroke="#b9770e" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <line x1="700" y1="192" x2="700" y2="300" stroke="#b9770e" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <text x="590" y="135" font-size="13" fill="#b9770e">蒸汽（约 7 MPa）</text>
+
+  <!-- 二回路给水（青色） 冷凝器→给水泵→蒸汽发生器 -->
+  <line x1="620" y1="345" x2="612" y2="377" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrow-teal)"/>
+  <line x1="560" y1="377" x2="505" y2="377" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arrow-teal)"/>
+  <text x="540" y="355" font-size="13" fill="#1f6f8b">给水</text>
+
+  <!-- 冷却水 -->
+  <path d="M 620 430 Q 660 415 700 430 T 780 430" stroke="#2e86c1" stroke-width="3" fill="none" marker-end="url(#arrow-teal)"/>
+  <text x="660" y="460" font-size="13" fill="#2e86c1">外部冷却水带走废热（海水/冷却塔）</text>
+
+  <!-- 图例 -->
+  <text x="30" y="500" font-size="13" fill="#333">一回路（红色热段 / 青色冷段）：加压不沸腾，传热不发电</text>
+  <text x="30" y="516" font-size="13" fill="#333">二回路（橙色蒸汽 / 青色给水）：发电，与放射性完全隔离</text>
+</svg>

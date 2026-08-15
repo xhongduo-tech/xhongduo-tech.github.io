@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" font-family="sans-serif">
+  <title>RC 电路充电时电容电压的指数上升曲线</title>
+  <desc>u_C(t)=U_s(1-e^{-t/τ}) 曲线，标注时间常数 τ 处电压达 0.632U_s</desc>
+  <rect width="520" height="320" fill="#faf9f5"/>
+
+  <!-- 坐标轴 -->
+  <g stroke="#333" stroke-width="2" fill="none">
+    <line x1="80" y1="270" x2="480" y2="270"/>
+    <line x1="80" y1="50" x2="80" y2="270"/>
+  </g>
+  <text x="70" y="288" font-size="15" fill="#333" text-anchor="middle">0</text>
+  <text x="470" y="292" font-size="15" fill="#333" text-anchor="end">t</text>
+  <text x="35" y="58" font-size="15" fill="#333">u_C(t)</text>
+
+  <!-- 稳态渐近线 -->
+  <line x1="80" y1="50" x2="470" y2="50" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="478" y="55" font-size="14" fill="#1f6f8b">U_s</text>
+
+  <!-- 充电曲线 -->
+  <path d="M 80 270
+           C 92 270, 100 236, 119 183
+           C 138 130, 142 131, 158 131
+           C 178 131, 190 99, 197 99
+           C 210 99, 220 85, 236 80
+           C 260 73, 280 65, 314 61
+           C 350 57, 380 53, 470 51"
+        fill="none" stroke="#c0392b" stroke-width="2.5"/>
+
+  <!-- 时间常数标注 -->
+  <line x1="158" y1="270" x2="158" y2="131" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="80" y1="131" x2="158" y2="131" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="158" cy="131" r="4" fill="#c0392b"/>
+  <text x="158" y="288" font-size="15" fill="#333" text-anchor="middle">τ</text>
+  <text x="168" y="123" font-size="14" fill="#1f6f8b">0.632U_s</text>
+
+  <!-- 5τ 标记 -->
+  <line x1="470" y1="270" x2="470" y2="51" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="470" y="288" font-size="15" fill="#333" text-anchor="middle">5τ</text>
+
+  <text x="180" y="306" font-size="13" fill="#666">t = τ 时升至 63.2%，约 5τ 后到达稳态</text>
+</svg>

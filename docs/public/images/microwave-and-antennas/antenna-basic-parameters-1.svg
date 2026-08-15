@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="480" height="260" font-family="sans-serif">
+<title>天线方向图：主瓣、旁瓣与波束宽度</title>
+<desc>极坐标方向图展示主瓣、旁瓣、后瓣，以及半功率波束宽度 HPBW 与第一零点波束宽度 FNBW。</desc>
+<rect x="0" y="0" width="480" height="260" fill="#faf9f5"/>
+<!-- 网格圆 -->
+<g stroke="#ddd" fill="none">
+  <circle cx="240" cy="200" r="40"/>
+  <circle cx="240" cy="200" r="80"/>
+  <circle cx="240" cy="200" r="120"/>
+</g>
+<line x1="240" y1="20" x2="240" y2="240" stroke="#ddd" stroke-width="1"/>
+<line x1="120" y1="200" x2="360" y2="200" stroke="#ddd" stroke-width="1"/>
+<!-- 主瓣（上半） -->
+<path d="M 240 200
+         Q 200 168 150 150
+         Q 120 118 240 60
+         Q 360 118 330 150
+         Q 280 168 240 200"
+      fill="#c0392b" opacity="0.35" stroke="#c0392b" stroke-width="2"/>
+<!-- 旁瓣 -->
+<path d="M 132 180 Q 120 200 100 214 Q 92 240 132 236 Q 150 218 132 180 Z"
+      fill="#1f6f8b" opacity="0.45" stroke="#1f6f8b" stroke-width="1.5"/>
+<path d="M 348 180 Q 360 200 380 214 Q 388 240 348 236 Q 330 218 348 180 Z"
+      fill="#1f6f8b" opacity="0.45" stroke="#1f6f8b" stroke-width="1.5"/>
+<!-- 后瓣 -->
+<path d="M 216 250 Q 240 238 264 250 Q 272 258 240 258 Q 208 258 216 250 Z"
+      fill="#1f6f8b" opacity="0.4" stroke="#1f6f8b" stroke-width="1.5"/>
+<!-- 标注 -->
+<text x="240" y="44" font-size="15" fill="#333" text-anchor="middle">主瓣（最大辐射方向）</text>
+<text x="116" y="100" font-size="14" fill="#1f6f8b" text-anchor="middle">旁瓣</text>
+<text x="364" y="100" font-size="14" fill="#1f6f8b" text-anchor="middle">旁瓣</text>
+<text x="240" y="272" font-size="14" fill="#1f6f8b" text-anchor="middle">后瓣</text>
+<!-- HPBW 标注 -->
+<line x1="216" y1="116" x2="264" y2="116" stroke="#333" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="240" y="106" font-size="13" fill="#333" text-anchor="middle">HPBW</text>
+<text x="330" y="180" font-size="13" fill="#666" text-anchor="start">−3 dB 方向</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>Rb–Sr 等时线图</title>
+  <desc>以 ⁸⁷Rb/⁸⁶Sr 为横轴、⁸⁷Sr/⁸⁶Sr 为纵轴，同源矿物样品的数据点沿一条直线分布，直线斜率 m=e^{λt}−1 给出年龄，截距给出初始 ⁸⁷Sr/⁸⁶Sr 比值。</desc>
+  <rect width="460" height="360" fill="#faf9f5"/>
+  <!-- axes -->
+  <line x1="60" y1="300" x2="410" y2="300" stroke="#333" stroke-width="2"/>
+  <line x1="60" y1="300" x2="60" y2="40" stroke="#333" stroke-width="2"/>
+  <polygon points="410,300 402,296 402,304" fill="#333"/>
+  <polygon points="60,40 56,48 64,48" fill="#333"/>
+  <!-- grid -->
+  <line x1="60" y1="60" x2="410" y2="60" stroke="#d8d3c8" stroke-width="1"/>
+  <line x1="60" y1="120" x2="410" y2="120" stroke="#d8d3c8" stroke-width="1"/>
+  <line x1="60" y1="180" x2="410" y2="180" stroke="#d8d3c8" stroke-width="1"/>
+  <line x1="60" y1="240" x2="410" y2="240" stroke="#d8d3c8" stroke-width="1"/>
+  <!-- isochron line -->
+  <line x1="60" y1="286" x2="366" y2="100" stroke="#c0392b" stroke-width="3"/>
+  <!-- data points -->
+  <circle cx="83" cy="272" r="5" fill="#1f6f8b"/>
+  <circle cx="128" cy="244" r="5" fill="#1f6f8b"/>
+  <circle cx="196" cy="203" r="5" fill="#1f6f8b"/>
+  <circle cx="275" cy="155" r="5" fill="#1f6f8b"/>
+  <circle cx="366" cy="100" r="5" fill="#1f6f8b"/>
+  <!-- axis labels -->
+  <text x="410" y="330" font-family="sans-serif" font-size="15" fill="#333" text-anchor="end">⁸⁷Rb/⁸⁶Sr</text>
+  <text x="34" y="170" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle" transform="rotate(-90 34 170)">⁸⁷Sr/⁸⁶Sr</text>
+  <!-- intercept -->
+  <line x1="52" y1="286" x2="68" y2="286" stroke="#c0392b" stroke-width="2"/>
+  <text x="60" y="310" font-family="sans-serif" font-size="14" fill="#c0392b" text-anchor="middle">初始比</text>
+  <text x="60" y="325" font-family="sans-serif" font-size="13" fill="#333" text-anchor="middle">(⁸⁷Sr/⁸⁶Sr)ᵢ</text>
+  <!-- slope -->
+  <text x="250" y="120" font-family="sans-serif" font-size="14" fill="#c0392b">斜率 m = e^(λt) − 1</text>
+  <text x="250" y="138" font-family="sans-serif" font-size="13" fill="#333">年龄 t = ln(m+1)/λ</text>
+  <!-- sample labels -->
+  <text x="83" y="292" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">斜长石</text>
+  <text x="196" y="222" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">全岩</text>
+  <text x="366" y="90" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">黑云母</text>
+</svg>

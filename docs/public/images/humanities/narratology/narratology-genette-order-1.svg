@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 430" font-family="sans-serif">
+  <title>时间错位示意图：素材时间与话语顺序</title>
+  <desc>上方为素材时间线（事件按时间顺序排列），下方为话语顺序线（事件按文本出现顺序排列）。连线交叉处即时间错位，图中标注倒叙。</desc>
+  <rect x="0" y="0" width="820" height="430" fill="#faf9f5"/>
+  <text x="410" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">时间错位示意图：两条时间线的交叉</text>
+
+  <!-- 素材时间线（上排） -->
+  <text x="20" y="100" font-size="14" font-weight="bold" fill="#1f6f8b">素材时间线</text>
+  <circle cx="80" cy="120" r="22" fill="#e8f0f3" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="80" y="126" text-anchor="middle" font-size="15" fill="#333">E₁</text>
+  <circle cx="230" cy="120" r="22" fill="#e8f0f3" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="230" y="126" text-anchor="middle" font-size="15" fill="#333">E₂</text>
+  <circle cx="380" cy="120" r="22" fill="#e8f0f3" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="380" y="126" text-anchor="middle" font-size="15" fill="#333">E₃</text>
+  <circle cx="530" cy="120" r="22" fill="#e8f0f3" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="530" y="126" text-anchor="middle" font-size="15" fill="#333">E₄</text>
+  <circle cx="680" cy="120" r="22" fill="#e8f0f3" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="680" y="126" text-anchor="middle" font-size="15" fill="#333">E₅</text>
+  <line x1="102" y1="120" x2="208" y2="120" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="252" y1="120" x2="358" y2="120" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="402" y1="120" x2="508" y2="120" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="552" y1="120" x2="658" y2="120" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="410" y="162" text-anchor="middle" font-size="13" fill="#666">事件按时间先后排成直线：E₁ 最早，E₅ 最晚</text>
+
+  <!-- 话语顺序线（下排） -->
+  <text x="20" y="235" font-size="14" font-weight="bold" fill="#c0392b">话语顺序线</text>
+  <circle cx="80" cy="255" r="22" fill="#f7e8e6" stroke="#c0392b" stroke-width="2"/>
+  <text x="80" y="261" text-anchor="middle" font-size="15" fill="#333">E₃</text>
+  <circle cx="230" cy="255" r="22" fill="#f7e8e6" stroke="#c0392b" stroke-width="2"/>
+  <text x="230" y="261" text-anchor="middle" font-size="15" fill="#333">E₁</text>
+  <circle cx="380" cy="255" r="22" fill="#f7e8e6" stroke="#c0392b" stroke-width="2"/>
+  <text x="380" y="261" text-anchor="middle" font-size="15" fill="#333">E₂</text>
+  <circle cx="530" cy="255" r="22" fill="#f7e8e6" stroke="#c0392b" stroke-width="2"/>
+  <text x="530" y="261" text-anchor="middle" font-size="15" fill="#333">E₄</text>
+  <circle cx="680" cy="255" r="22" fill="#f7e8e6" stroke="#c0392b" stroke-width="2"/>
+  <text x="680" y="261" text-anchor="middle" font-size="15" fill="#333">E₅</text>
+  <line x1="102" y1="255" x2="208" y2="255" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="252" y1="255" x2="358" y2="255" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="402" y1="255" x2="508" y2="255" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="552" y1="255" x2="658" y2="255" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="410" y="297" text-anchor="middle" font-size="13" fill="#666">文本实际呈现次序：先讲 E₃，再跳回 E₁、E₂，然后 E₄、E₅</text>
+
+  <!-- 对应连线 -->
+  <line x1="80" y1="142" x2="230" y2="233" stroke="#999" stroke-width="1.2"/>
+  <line x1="230" y1="142" x2="380" y2="233" stroke="#999" stroke-width="1.2"/>
+  <line x1="380" y1="142" x2="80" y2="233" stroke="#c0392b" stroke-width="2.2"/>
+  <line x1="530" y1="142" x2="530" y2="233" stroke="#999" stroke-width="1.2"/>
+  <line x1="680" y1="142" x2="680" y2="233" stroke="#999" stroke-width="1.2"/>
+
+  <!-- 倒叙标注 -->
+  <line x1="230" y1="188" x2="300" y2="188" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="300,183 312,188 300,193" fill="#c0392b"/>
+  <text x="232" y="182" font-size="14" font-weight="bold" fill="#c0392b">倒叙</text>
+  <text x="232" y="214" font-size="13" fill="#666">（analepsis）</text>
+
+  <!-- 底部图注 -->
+  <text x="410" y="380" text-anchor="middle" font-size="14" fill="#333">红色连线表示 E₃ 被提前讲述：话语落后于素材，随后跳回 E₁ —— 这条交叉线就是时间错位。</text>
+</svg>

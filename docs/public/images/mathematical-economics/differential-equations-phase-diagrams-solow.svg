@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" font-family="sans-serif" font-size="14">
+  <title>索洛模型的相位图</title>
+  <desc>人均资本存量的动态：凹的实际投资曲线 s·f(k) 与直线持平投资 (n+g+δ)k 交于稳态 k*，左侧净投资为正、右侧为负，箭头都指向稳态。</desc>
+  <rect width="400" height="280" fill="#faf9f5"/>
+  <!-- axes -->
+  <line x1="40" y1="240" x2="392" y2="240" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="240" x2="40" y2="20" stroke="#333" stroke-width="1.5"/>
+  <polygon points="392,240 380,235 380,245" fill="#333"/>
+  <polygon points="40,20 35,32 45,32" fill="#333"/>
+  <text x="376" y="262" fill="#333">k（人均资本）</text>
+  <text x="6" y="30" fill="#333">净投资</text>
+  <text x="8" y="44" fill="#333">ḱ</text>
+  <!-- s·f(k) concave curve -->
+  <polyline points="40,240 74,176 108,136 142,108 176,88 210,74 244,64 278,58 312,53 346,50 380,48"
+            fill="none" stroke="#1f6f8b" stroke-width="2.2"/>
+  <text x="248" y="52" fill="#1f6f8b">s·f(k)</text>
+  <!-- (n+g+δ)k straight line -->
+  <line x1="40" y1="240" x2="380" y2="0" stroke="#c0392b" stroke-width="2.2"/>
+  <text x="296" y="26" fill="#c0392b">(n+g+δ)k</text>
+  <!-- equilibrium -->
+  <line x1="305" y1="240" x2="305" y2="53" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <circle cx="305" cy="53" r="4.5" fill="#333"/>
+  <text x="308" y="266" fill="#333">k*</text>
+  <!-- arrows on k axis: right for k<k*, left for k>k* -->
+  <polygon points="150,252 140,244 140,260" fill="#333"/>
+  <line x1="120" y1="252" x2="160" y2="252" stroke="#333" stroke-width="1.4"/>
+  <polygon points="340,252 350,244 350,260" fill="#333"/>
+  <line x1="370" y1="252" x2="330" y2="252" stroke="#333" stroke-width="1.4"/>
+  <text x="128" y="276" fill="#333">k 上升</text>
+  <text x="318" y="276" fill="#333">k 下降</text>
+</svg>

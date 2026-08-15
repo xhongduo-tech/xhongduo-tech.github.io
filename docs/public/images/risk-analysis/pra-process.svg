@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">概率风险评价（PRA）流程</title>
+<desc id="desc">从系统定义、危险识别、情景建模、数据赋值、定量计算、不确定性分析到风险表征并反馈至风险管理决策的完整流程。</desc>
+<rect width="800" height="560" fill="#faf9f5"/>
+<g font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle">
+<rect x="60" y="40" width="310" height="76" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="215" y="72">系统定义与目标</text>
+<text x="215" y="94" font-size="13">边界、成功准则、风险度量</text>
+<rect x="430" y="40" width="310" height="76" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="585" y="72">危险识别</text>
+<text x="585" y="94" font-size="13">危险源清单与初始事件</text>
+<rect x="60" y="160" width="310" height="76" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="215" y="192">情景建模</text>
+<text x="215" y="214" font-size="13">事件树（传播）＋故障树（原因）</text>
+<rect x="430" y="160" width="310" height="76" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="585" y="192">数据与概率赋值</text>
+<text x="585" y="214" font-size="13">失效率、维修率、专家判断</text>
+<rect x="60" y="280" width="310" height="76" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="215" y="312">定量计算</text>
+<text x="215" y="334" font-size="13">极小割集、顶事件概率</text>
+<rect x="430" y="280" width="310" height="76" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="585" y="312">不确定性／灵敏度</text>
+<text x="585" y="334" font-size="13">偶然性＋认识论不确定性</text>
+<rect x="60" y="400" width="310" height="76" rx="10" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="215" y="432">风险表征与报告</text>
+<text x="215" y="454" font-size="13">风险谱、F-N 曲线、排序</text>
+<rect x="430" y="400" width="310" height="76" rx="10" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+<text x="585" y="432">风险管理决策</text>
+<text x="585" y="454" font-size="13">改进、接受、监测（反馈回路）</text>
+</g>
+<g stroke="#1f6f8b" stroke-width="2" fill="none">
+<path d="M370 78 H 430"/>
+<path d="M585 116 V 160"/>
+<path d="M370 198 H 430"/>
+<path d="M215 116 V 160"/>
+<path d="M585 236 V 280"/>
+<path d="M370 318 H 430"/>
+<path d="M215 236 V 280"/>
+<path d="M370 438 H 430"/>
+<path d="M585 356 V 400"/>
+<path d="M215 356 V 400"/>
+</g>
+<g stroke="#c0392b" stroke-width="2" fill="none">
+<path d="M 60 476 V 510 H 585" stroke-dasharray="6 4"/>
+<path d="M 585 476 V 510" stroke-dasharray="6 4"/>
+</g>
+<path d="M 60 476 V 520 H 585 V 400" stroke="#c0392b" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+<g font-family="sans-serif" font-size="13" fill="#c0392b" text-anchor="middle">
+<text x="330" y="538">新证据 / 改进措施 → 回到「系统定义与目标」迭代</text>
+</g>
+</svg>

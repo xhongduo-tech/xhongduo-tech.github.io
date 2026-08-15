@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="sans-serif">
+  <title>声速剖面与深海声道示意图</title>
+  <desc>左侧为典型大洋声速剖面，分混合层、温跃层、深海等温层三段，声速极小值处为声道轴；右侧为深海声道中来回折射、在汇聚区会聚的声线。</desc>
+  <rect width="860" height="520" fill="#faf9f5"/>
+  <rect x="0" y="0" width="860" height="520" fill="none" stroke="#333" stroke-width="2"/>
+
+  <!-- 左面板标题 -->
+  <text x="200" y="26" font-size="17" font-weight="bold" fill="#333" text-anchor="middle">声速剖面 c(z)</text>
+  <text x="200" y="44" font-size="13" fill="#666" text-anchor="middle">声速 c (m/s) →</text>
+
+  <!-- 左面板绘图区：x 60-340，y 60-470；c: 1470-1550，D: 0-4000 -->
+  <!-- 深度网格 -->
+  <g stroke="#ccc" stroke-width="1">
+    <line x1="60" y1="60" x2="60" y2="470"/>
+    <line x1="60" y1="470" x2="340" y2="470"/>
+    <line x1="60" y1="60" x2="340" y2="60" stroke-dasharray="4 4"/>
+    <line x1="60" y1="470" x2="340" y2="470"/>
+    <line x1="60" y1="150" x2="340" y2="150" stroke-dasharray="3 3"/>
+  </g>
+  <text x="52" y="65" font-size="13" fill="#333" text-anchor="end">0 m</text>
+  <text x="52" y="155" font-size="13" fill="#333" text-anchor="end">1000 m</text>
+  <text x="52" y="475" font-size="13" fill="#333" text-anchor="end">4000 m</text>
+
+  <!-- 混合层 0-100m：y 60-70 -->
+  <rect x="60" y="60" width="280" height="10" fill="#cfe3e8" opacity="0.55"/>
+  <!-- 温跃层 100-1000m：y 70-150 -->
+  <rect x="60" y="70" width="280" height="80" fill="#e8c8a8" opacity="0.45"/>
+  <!-- 深海等温层 1000-4000m：y 150-470 -->
+  <rect x="60" y="150" width="280" height="320" fill="#cfe3e8" opacity="0.25"/>
+
+  <!-- c(z) 曲线：海面 1508→(193,60)，100m 1510→(200,70)，1000m 1480→(95,150)，4000m 1500→(165,470) -->
+  <path d="M 193 60 C 200 62, 201 66, 200 70 C 185 88, 140 120, 95 150 C 110 200, 140 320, 165 470"
+        fill="none" stroke="#1f6f8b" stroke-width="3.5"/>
+
+  <!-- 声道轴标注 -->
+  <circle cx="95" cy="150" r="5" fill="#c0392b"/>
+  <text x="95" y="138" font-size="14" font-weight="bold" fill="#c0392b" text-anchor="middle">声道轴</text>
+  <text x="95" y="132" font-size="13" fill="#666" text-anchor="middle">1480 m/s</text>
+
+  <!-- 层标注 -->
+  <text x="268" y="68" font-size="14" fill="#1f6f8b" text-anchor="middle">混合层</text>
+  <text x="268" y="116" font-size="14" fill="#8a5a2b" text-anchor="middle">温跃层</text>
+  <text x="268" y="360" font-size="14" fill="#1f6f8b" text-anchor="middle">深海等温层</text>
+
+  <!-- 右面板标题 -->
+  <text x="600" y="26" font-size="17" font-weight="bold" fill="#333" text-anchor="middle">深海声道中的声线</text>
+  <text x="600" y="44" font-size="13" fill="#666" text-anchor="middle">距离 (km) →</text>
+
+  <!-- 右面板：x 380-820，y 60-470；声道轴在 y=210（约1000m） -->
+  <rect x="380" y="60" width="440" height="410" fill="#fff" stroke="#999"/>
+  <!-- 声道轴虚线 -->
+  <line x1="380" y1="210" x2="820" y2="210" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="388" y="202" font-size="14" font-weight="bold" fill="#c0392b">声道轴</text>
+
+  <!-- 汇聚区：x 540-560 与 700-720 -->
+  <rect x="540" y="60" width="22" height="410" fill="#f6d9d0" opacity="0.7"/>
+  <rect x="700" y="60" width="22" height="410" fill="#f6d9d0" opacity="0.7"/>
+  <text x="551" y="52" font-size="13" fill="#c0392b" text-anchor="middle">汇聚区</text>
+  <text x="711" y="52" font-size="13" fill="#c0392b" text-anchor="middle">汇聚区</text>
+
+  <!-- 声源 -->
+  <circle cx="395" cy="210" r="7" fill="#1f6f8b"/>
+  <text x="395" y="240" font-size="14" font-weight="bold" fill="#1f6f8b" text-anchor="middle">声源</text>
+
+  <!-- 声线：上转折 ~y=80，下转折 ~y=330 -->
+  <g fill="none" stroke="#1f6f8b" stroke-width="2.2">
+    <path d="M 395 210 C 420 80, 480 80, 500 210 C 520 330, 580 330, 600 210 C 620 80, 680 80, 700 210 C 720 330, 780 330, 800 210"/>
+    <path d="M 395 210 C 420 95, 480 95, 500 210 C 520 315, 580 315, 600 210 C 620 95, 680 95, 700 210" stroke="#2e86a0" stroke-width="1.6"/>
+    <path d="M 395 210 C 420 120, 480 120, 500 210 C 520 300, 580 300, 600 210 C 620 120, 680 120, 700 210" stroke="#5a9bb5" stroke-width="1.2"/>
+    <path d="M 395 210 C 420 60, 480 60, 500 210 C 520 345, 580 345, 600 210 C 620 60, 680 60, 700 210 C 720 345, 780 345, 800 210" stroke="#8ab8c9" stroke-width="1.2"/>
+  </g>
+
+  <!-- 上下转折点标注 -->
+  <text x="420" y="78" font-size="13" fill="#666">浅转折点</text>
+  <text x="430" y="352" font-size="13" fill="#666">深转折点</text>
+
+  <!-- 图例 -->
+  <g font-size="13" fill="#333">
+    <line x1="380" y1="492" x2="410" y2="492" stroke="#1f6f8b" stroke-width="3"/>
+    <text x="416" y="496">大掠射角声线</text>
+    <line x1="540" y1="492" x2="570" y2="492" stroke="#2e86a0" stroke-width="1.6"/>
+    <text x="576" y="496">小掠射角声线</text>
+    <rect x="690" y="484" width="14" height="14" fill="#f6d9d0" stroke="#c0392b"/>
+    <text x="710" y="496">声能会聚</text>
+  </g>
+</svg>

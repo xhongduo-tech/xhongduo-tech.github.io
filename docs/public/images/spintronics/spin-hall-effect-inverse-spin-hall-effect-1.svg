@@ -1,0 +1,32 @@
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>自旋霍尔效应与逆自旋霍尔效应的几何</title>
+  <desc>自旋霍尔效应：重金属中电荷电流把两种自旋分别偏折到上下边缘，形成边缘自旋积累。逆自旋霍尔效应：垂直注入的自旋流在横向产生电荷积累与电压。</desc>
+  <rect x="0" y="0" width="720" height="380" fill="#faf9f5"/>
+  <text x="180" y="78" text-anchor="middle" font-size="16" fill="#333">自旋霍尔效应（SHE）</text>
+  <text x="540" y="78" text-anchor="middle" font-size="16" fill="#333">逆自旋霍尔效应（ISHE）</text>
+  <text x="180" y="300" text-anchor="middle" font-size="14" fill="#333">电荷电流偏折两种自旋，边缘出现自旋积累</text>
+  <text x="540" y="300" text-anchor="middle" font-size="14" fill="#333">自旋流被偏折成横向电荷流，读出电压 V</text>
+  <text x="360" y="348" text-anchor="middle" font-size="15" fill="#c0392b">自旋霍尔角 θ_SH = (2e/ħ) · J_s / J_c</text>
+
+  <rect x="50" y="110" width="260" height="120" fill="#e8e2d5" stroke="#333" stroke-width="1.5"/>
+  <rect x="410" y="110" width="260" height="120" fill="#e8e2d5" stroke="#333" stroke-width="1.5"/>
+
+  <path d="M85 162 L235 162 L235 155 L265 170 L235 185 L235 178 L85 178 Z" fill="#c0392b"/>
+  <text x="180" y="100" text-anchor="middle" font-size="14" fill="#1f6f8b">自旋积累 ↑</text>
+  <text x="180" y="248" text-anchor="middle" font-size="14" fill="#1f6f8b">自旋积累 ↓</text>
+  <g font-size="20" fill="#333">
+    <text x="120" y="138">↑</text><text x="155" y="138">↑</text><text x="190" y="138">↑</text><text x="225" y="138">↑</text><text x="260" y="138">↑</text>
+    <text x="120" y="205">↓</text><text x="155" y="205">↓</text><text x="190" y="205">↓</text><text x="225" y="205">↓</text><text x="260" y="205">↓</text>
+  </g>
+  <text x="300" y="180" font-size="14" fill="#c0392b">J_c</text>
+
+  <path d="M532 205 L548 205 L548 150 L558 150 L540 125 L522 150 L532 150 Z" fill="#1f6f8b"/>
+  <text x="565" y="180" font-size="14" fill="#1f6f8b">J_s</text>
+  <text x="662" y="142" font-size="18" fill="#c0392b">+</text>
+  <text x="662" y="175" font-size="18" fill="#c0392b">+</text>
+  <text x="662" y="208" font-size="18" fill="#c0392b">+</text>
+  <text x="410" y="142" font-size="18" fill="#1f6f8b">−</text>
+  <text x="410" y="175" font-size="18" fill="#1f6f8b">−</text>
+  <text x="410" y="208" font-size="18" fill="#1f6f8b">−</text>
+  <text x="540" y="262" text-anchor="middle" font-size="14" fill="#333">横向电压 V</text>
+</svg>

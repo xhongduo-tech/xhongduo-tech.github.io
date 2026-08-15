@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" font-family="sans-serif">
+  <title>典型民航任务剖面示意图</title>
+  <desc>高度-距离坐标系下的任务剖面：滑行、起飞、爬升、巡航、下降、着陆六段，标注各段的燃油消耗特征。</desc>
+  <rect width="640" height="300" fill="#faf9f5"/>
+  <!-- 坐标轴 -->
+  <line x1="50" y1="260" x2="610" y2="260" stroke="#333" stroke-width="2"/>
+  <line x1="50" y1="260" x2="50" y2="40" stroke="#333" stroke-width="2"/>
+  <text x="610" y="282" font-size="14" fill="#333" text-anchor="end">距离 / 时间</text>
+  <text x="36" y="50" font-size="14" fill="#333" text-anchor="middle" transform="rotate(-90 36 50)">高度</text>
+  <!-- 飞行剖面折线 -->
+  <polyline points="60,255 75,255 90,245 150,150 200,100 450,100 500,150 555,235 575,248 590,252"
+            fill="none" stroke="#1f6f8b" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- 巡航高度参考虚线 -->
+  <line x1="200" y1="100" x2="450" y2="100" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <!-- 段标签 -->
+  <text x="62" y="248" font-size="13" fill="#333">滑行</text>
+  <text x="78" y="216" font-size="13" fill="#333">起飞</text>
+  <text x="140" y="132" font-size="13" fill="#333">爬升</text>
+  <text x="305" y="82" font-size="14" fill="#c0392b" text-anchor="middle">巡航（最省油段）</text>
+  <text x="512" y="130" font-size="13" fill="#333">下降</text>
+  <text x="560" y="242" font-size="13" fill="#333">着陆</text>
+  <!-- 图注 -->
+  <text x="60" y="40" font-size="13" fill="#1f6f8b" font-weight="bold">典型民航任务剖面</text>
+  <text x="60" y="58" font-size="12" fill="#333">巡航段占飞行时间最长，Breguet 航程公式在此段最有效</text>
+</svg>

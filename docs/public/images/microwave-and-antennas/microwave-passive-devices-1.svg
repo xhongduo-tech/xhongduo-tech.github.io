@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220" width="480" height="220" font-family="sans-serif">
+<title>定向耦合器四端口结构</title>
+<desc>主波导与副波导靠近耦合区，端口1输入时端口2直通、端口3耦合输出、端口4理想隔离。</desc>
+<rect x="0" y="0" width="480" height="220" fill="#faf9f5"/>
+<!-- 主波导 -->
+<rect x="40" y="60" width="400" height="30" rx="4" fill="#fff" stroke="#333" stroke-width="2"/>
+<!-- 副波导 -->
+<rect x="120" y="130" width="320" height="30" rx="4" fill="#fff" stroke="#333" stroke-width="2"/>
+<!-- 耦合区强调 -->
+<rect x="180" y="56" width="160" height="110" rx="6" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 3"/>
+<text x="260" y="48" font-size="14" fill="#c0392b" text-anchor="middle">耦合区（相邻场耦合）</text>
+<!-- 端口标注 -->
+<text x="30" y="82" font-size="15" fill="#333" text-anchor="end">端口1（输入）</text>
+<text x="450" y="82" font-size="15" fill="#333" text-anchor="start">端口2（直通）</text>
+<text x="110" y="152" font-size="15" fill="#333" text-anchor="end">端口3（耦合）</text>
+<text x="450" y="152" font-size="15" fill="#333" text-anchor="start">端口4（隔离）</text>
+<!-- 功率流箭头 -->
+<line x1="80" y1="75" x2="140" y2="75" stroke="#c0392b" stroke-width="2"/>
+<polygon points="140,75 130,71 130,79" fill="#c0392b"/>
+<line x1="240" y1="145" x2="190" y2="145" stroke="#1f6f8b" stroke-width="2"/>
+<polygon points="190,145 200,141 200,149" fill="#1f6f8b"/>
+<text x="170" y="205" font-size="14" fill="#666" text-anchor="middle">P3 ≈ C·P1，P4 ≈ 0（隔离）</text>
+</svg>

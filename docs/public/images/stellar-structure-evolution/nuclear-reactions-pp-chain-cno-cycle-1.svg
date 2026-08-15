@@ -1,0 +1,26 @@
+<svg viewBox="0 0 480 310" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>伽莫夫峰示意图</title>
+  <desc>热核反应速率由麦克斯韦–玻尔兹曼速度分布与量子隧穿概率的乘积决定，两者相乘在能量 E0 处形成一个狭窄的伽莫夫峰。</desc>
+  <rect width="480" height="310" fill="#faf9f5"/>
+  <g stroke="#333" stroke-width="1.5">
+    <line x1="55" y1="260" x2="455" y2="260"/>
+    <line x1="55" y1="30" x2="55" y2="260"/>
+  </g>
+  <g fill="#333" font-size="13">
+    <text x="250" y="296" text-anchor="middle">粒子能量 E</text>
+    <text x="22" y="145" transform="rotate(-90 22 145)" transform-origin="22 145" text-anchor="middle">相对概率</text>
+  </g>
+  <path d="M 85 246 Q 140 120 185 78 Q 230 62 265 92 Q 320 150 380 205 Q 420 235 440 250"
+    fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <path d="M 85 254 C 190 196 320 120 440 70"
+    fill="none" stroke="#c0392b" stroke-width="3"/>
+  <path d="M 195 253 Q 235 150 270 122 Q 305 140 345 250 Z"
+    fill="#d35400" opacity="0.25" stroke="#d35400" stroke-width="2.5"/>
+  <line x1="270" y1="118" x2="270" y2="262" stroke="#333" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <g fill="#333" font-size="14">
+    <text x="300" y="80" fill="#1f6f8b">麦克斯韦–玻尔兹曼分布</text>
+    <text x="95" y="70" fill="#c0392b">隧穿概率</text>
+    <text x="320" y="225" fill="#d35400">伽莫夫峰</text>
+    <text x="278" y="282" fill="#333">E₀</text>
+  </g>
+</svg>

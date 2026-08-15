@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" font-family="sans-serif">
+  <title>杨图 λ=(3,2,1) 与 hook 长度</title>
+  <desc>对称群 S_6 的划分 (3,2,1) 对应杨图，格内数字为该格的 hook 长度；左上的格用红色边框标出，其臂（右方浅青格，2 个）与腿（下方浅红格，2 个）之和再加 1 恰等于 hook 长度 5。</desc>
+
+  <!-- 表格：第1行 3 格，第2行 2 格，第3行 1 格 -->
+  <!-- 行1 -->
+  <rect x="40"  y="50" width="60" height="60" fill="#faf9f5" stroke="#c0392b" stroke-width="3"/>
+  <rect x="100" y="50" width="60" height="60" fill="#dbe9f0" stroke="#333" stroke-width="1.5"/>
+  <rect x="160" y="50" width="60" height="60" fill="#dbe9f0" stroke="#333" stroke-width="1.5"/>
+  <!-- 行2 -->
+  <rect x="40"  y="110" width="60" height="60" fill="#f3d9d3" stroke="#333" stroke-width="1.5"/>
+  <rect x="100" y="110" width="60" height="60" fill="#faf9f5" stroke="#333" stroke-width="1.5"/>
+  <!-- 行3 -->
+  <rect x="40"  y="170" width="60" height="60" fill="#f3d9d3" stroke="#333" stroke-width="1.5"/>
+
+  <!-- hook 长度数字 -->
+  <text x="70" y="87" font-size="24" text-anchor="middle" fill="#c0392b">5</text>
+  <text x="130" y="87" font-size="24" text-anchor="middle" fill="#1f6f8b">3</text>
+  <text x="190" y="87" font-size="24" text-anchor="middle" fill="#1f6f8b">1</text>
+  <text x="70" y="147" font-size="24" text-anchor="middle" fill="#1f6f8b">3</text>
+  <text x="130" y="147" font-size="24" text-anchor="middle" fill="#333">1</text>
+  <text x="70" y="207" font-size="24" text-anchor="middle" fill="#1f6f8b">1</text>
+
+  <!-- 图例 -->
+  <rect x="40" y="260" width="22" height="16" fill="#faf9f5" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="72" y="273" font-size="15" fill="#333">被计算格（hook 长度 = 臂 + 腿 + 1）</text>
+
+  <rect x="40" y="290" width="22" height="16" fill="#dbe9f0" stroke="#333" stroke-width="1"/>
+  <text x="72" y="303" font-size="15" fill="#333">臂（arm）：向右的格数</text>
+
+  <rect x="300" y="290" width="22" height="16" fill="#f3d9d3" stroke="#333" stroke-width="1"/>
+  <text x="332" y="303" font-size="15" fill="#333">腿（leg）：向下的格数</text>
+
+  <text x="40" y="330" font-size="15" fill="#333">例：左上格 5 = 臂 2 + 腿 2 + 1；全部 hook 之积 = 45，维数 = 6! / 45 = 16</text>
+</svg>

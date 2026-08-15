@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" font-family="sans-serif">
+  <title>水的分子轨道能级示意图（C2v 群）</title>
+  <desc>水分子 H2O 在 C2v 点群下的分子轨道定性能级图：中央列出各分子轨道的对称类型（2a1、1b2、3a1、1b1 为成键或孤对，4a1、2b2 为反键），左侧为氧原子轨道（2s 与 2p），右侧为氢的两个 1s 轨道构成的 SALC（a1 同相、b2 反相）。</desc>
+  <rect width="640" height="480" fill="#faf9f5"/>
+
+  <text x="320" y="34" text-anchor="middle" font-size="17" fill="#333" font-weight="bold">H₂O 分子轨道能级示意（点群 C₂ᵥ）</text>
+
+  <!-- energy arrow -->
+  <line x1="46" y1="70" x2="46" y2="430" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="70" x2="52" y2="70" stroke="#333" stroke-width="1.5"/>
+  <text x="40" y="62" text-anchor="middle" font-size="14" fill="#333">E</text>
+  <polygon points="46,432 41,424 51,424" fill="#333"/>
+
+  <!-- column headers -->
+  <text x="140" y="84" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">O 原子轨道</text>
+  <text x="320" y="84" text-anchor="middle" font-size="14" fill="#1f6f8b" font-weight="bold">分子轨道</text>
+  <text x="520" y="84" text-anchor="middle" font-size="14" fill="#333" font-weight="bold">H₂ SALC</text>
+
+  <!-- O 2s -->
+  <line x1="92" y1="360" x2="188" y2="360" stroke="#333" stroke-width="2.5"/>
+  <text x="140" y="352" text-anchor="middle" font-size="13" fill="#333">2s</text>
+  <text x="196" y="364" font-size="12" fill="#333">a₁</text>
+
+  <!-- O 2p block -->
+  <line x1="92" y1="406" x2="188" y2="406" stroke="#333" stroke-width="2.5"/>
+  <line x1="92" y1="412" x2="188" y2="412" stroke="#333" stroke-width="2.5"/>
+  <line x1="92" y1="418" x2="188" y2="418" stroke="#333" stroke-width="2.5"/>
+  <text x="140" y="400" text-anchor="middle" font-size="13" fill="#333">2p</text>
+  <text x="196" y="412" font-size="12" fill="#333">b₁·b₂·a₁</text>
+
+  <!-- H SALC a1 -->
+  <line x1="466" y1="404" x2="574" y2="404" stroke="#333" stroke-width="2.5"/>
+  <text x="522" y="396" text-anchor="middle" font-size="13" fill="#333">a₁（同相）</text>
+  <!-- H SALC b2 -->
+  <line x1="466" y1="424" x2="574" y2="424" stroke="#333" stroke-width="2.5"/>
+  <text x="522" y="446" text-anchor="middle" font-size="13" fill="#333">b₂（反相）</text>
+
+  <!-- MO levels -->
+  <!-- 4a1 anti -->
+  <line x1="272" y1="150" x2="368" y2="150" stroke="#c0392b" stroke-width="3"/>
+  <text x="376" y="154" font-size="12" fill="#c0392b">4a₁*</text>
+  <!-- 2b2 anti -->
+  <line x1="272" y1="205" x2="368" y2="205" stroke="#c0392b" stroke-width="3"/>
+  <text x="376" y="209" font-size="12" fill="#c0392b">2b₂*</text>
+  <!-- 2a1 bonding -->
+  <line x1="272" y1="268" x2="368" y2="268" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="376" y="272" font-size="12" fill="#1f6f8b">2a₁</text>
+  <!-- 1b2 bonding -->
+  <line x1="272" y1="322" x2="368" y2="322" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="376" y="326" font-size="12" fill="#1f6f8b">1b₂</text>
+  <!-- 3a1 lone pair -->
+  <line x1="272" y1="368" x2="368" y2="368" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="376" y="372" font-size="12" fill="#1f6f8b">3a₁（孤对）</text>
+  <!-- 1b1 lone pair -->
+  <line x1="272" y1="392" x2="368" y2="392" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="376" y="396" font-size="12" fill="#1f6f8b">1b₁（孤对）</text>
+
+  <!-- dashed connectors -->
+  <!-- O 2s -> 2a1 and 4a1 -->
+  <line x1="164" y1="360" x2="292" y2="268" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="164" y1="360" x2="292" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <!-- O 2p b2 -> 1b2 and 2b2 -->
+  <line x1="164" y1="406" x2="292" y2="322" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="164" y1="406" x2="292" y2="205" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <!-- O 2p a1 -> 3a1 -->
+  <line x1="164" y1="418" x2="292" y2="368" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <!-- H a1 -> 2a1 and 4a1 -->
+  <line x1="490" y1="404" x2="348" y2="268" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="490" y1="404" x2="348" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <!-- H b2 -> 1b2 and 2b2 -->
+  <line x1="490" y1="424" x2="348" y2="322" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="490" y1="424" x2="348" y2="205" stroke="#999" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <!-- electrons on occupied MOs -->
+  <g fill="#333">
+    <circle cx="284" cy="264" r="3"/><circle cx="298" cy="264" r="3"/>
+    <circle cx="284" cy="318" r="3"/><circle cx="298" cy="318" r="3"/>
+    <circle cx="284" cy="364" r="3"/><circle cx="298" cy="364" r="3"/>
+    <circle cx="284" cy="388" r="3"/><circle cx="298" cy="388" r="3"/>
+  </g>
+
+  <text x="320" y="470" text-anchor="middle" font-size="12" fill="#666">虚线表示轨道片段与分子轨道的对称匹配连接；反键轨道以红色标出。</text>
+</svg>

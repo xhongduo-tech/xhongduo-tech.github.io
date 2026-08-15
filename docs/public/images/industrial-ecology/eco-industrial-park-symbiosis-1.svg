@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="800" height="540">
+  <title>卡伦堡产业共生网络示意</title>
+  <desc>丹麦卡伦堡工业共生体系中电厂、炼油厂、制药厂、石膏板厂、市政供热、水泥厂、养鱼场与农田之间的物质与能量交换关系。</desc>
+  <rect width="800" height="540" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <g font-family="sans-serif" text-anchor="middle">
+    <text x="400" y="30" font-size="19" font-weight="bold" fill="#333">卡伦堡产业共生网络（经典交换）</text>
+  </g>
+
+  <g font-family="sans-serif">
+    <!-- nodes -->
+    <g fill="#1f6f8b">
+      <rect x="0" y="220" width="70" height="38" rx="8"/>
+      <rect x="70" y="80" width="150" height="38" rx="8"/>
+      <rect x="210" y="220" width="150" height="38" rx="8"/>
+      <rect x="70" y="430" width="150" height="38" rx="8"/>
+      <rect x="580" y="90" width="150" height="38" rx="8"/>
+      <rect x="590" y="220" width="160" height="38" rx="8"/>
+      <rect x="600" y="320" width="150" height="38" rx="8"/>
+      <rect x="590" y="440" width="150" height="38" rx="8"/>
+      <rect x="330" y="470" width="150" height="38" rx="8"/>
+    </g>
+    <g fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">
+      <text x="35" y="244" font-size="13">湖(Tissø)</text>
+      <text x="145" y="104">炼油厂</text>
+      <text x="285" y="244">燃煤电厂</text>
+      <text x="145" y="454">制药厂</text>
+      <text x="655" y="114">石膏板厂</text>
+      <text x="670" y="244">市政区域供热</text>
+      <text x="675" y="344">水泥厂</text>
+      <text x="665" y="464">养鱼场</text>
+      <text x="405" y="494">农田</text>
+    </g>
+  </g>
+
+  <!-- exchange flows -->
+  <g font-family="sans-serif" fill="#333" font-size="13">
+    <!-- lake -> power: cooling water (lake node is the power's cooling source; represent lake as small node left) -->
+    <g stroke="#c0392b" stroke-width="1.6" fill="none" marker-end="url(#arrow)">
+      <path d="M 70 239 L 205 239"/>
+      <path d="M 145 118 L 145 180 L 285 180 L 285 215"/>
+      <path d="M 285 220 L 285 180 L 160 180 L 160 122"/>
+      <path d="M 360 239 L 585 239"/>
+      <path d="M 360 258 L 360 150 L 655 150 L 655 132"/>
+      <path d="M 360 239 L 360 300 L 675 300 L 675 315"/>
+      <path d="M 285 258 L 285 500 L 665 500 L 665 478"/>
+      <path d="M 220 449 L 395 449 L 395 465"/>
+      <path d="M 220 449 L 585 449"/>
+      <path d="M 220 118 L 575 118"/>
+    </g>
+    <text x="137" y="230" fill="#c0392b" font-weight="bold">冷却水</text>
+    <text x="225" y="172" fill="#c0392b">废水回用</text>
+    <text x="205" y="172" fill="#c0392b">蒸汽</text>
+    <text x="470" y="230" fill="#c0392b" font-weight="bold">余热</text>
+    <text x="520" y="144" fill="#c0392b">脱硫石膏</text>
+    <text x="545" y="294" fill="#c0392b">灰渣</text>
+    <text x="500" y="494" fill="#c0392b">余热</text>
+    <text x="330" y="440" fill="#c0392b">污泥作肥料</text>
+    <text x="400" y="440" fill="#c0392b">残渣作饲料</text>
+    <text x="390" y="109" fill="#c0392b">炼厂燃气</text>
+  </g>
+
+  <g font-family="sans-serif" fill="#333" font-size="13" text-anchor="middle">
+    <text x="400" y="528" font-size="12" fill="#666">箭头表示物质或能量的交换方向；图中仅绘出部分经典交换链路</text>
+  </g>
+</svg>

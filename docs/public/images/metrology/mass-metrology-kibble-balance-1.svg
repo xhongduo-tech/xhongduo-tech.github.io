@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 380" width="420" height="380" font-family="sans-serif">
+  <title>基布尔（瓦特）天平原理示意</title>
+  <desc>天平横梁一端悬挂被测质量与线圈，线圈处于永磁体磁场中；称重模式测安培力平衡重力，速度模式测感应电压，由此建立电功率与机械功率的平衡。</desc>
+  <rect x="0" y="0" width="420" height="380" fill="#faf9f5"/>
+  <text x="210" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">基布尔（瓦特）天平原理示意</text>
+
+  <!-- 天平横梁与支点 -->
+  <line x1="40" y1="70" x2="380" y2="70" stroke="#333" stroke-width="3"/>
+  <polygon points="210,70 195,98 225,98" fill="#333"/>
+  <text x="210" y="112" text-anchor="middle" font-size="13" fill="#333">支点</text>
+
+  <!-- 左臂：砝码与线圈 -->
+  <line x1="100" y1="70" x2="100" y2="130" stroke="#333" stroke-width="2"/>
+  <rect x="70" y="130" width="60" height="30" fill="#1f6f8b" fill-opacity="0.2" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="100" y="149" text-anchor="middle" font-size="13" fill="#1f6f8b">砝码 m</text>
+  <line x1="100" y1="160" x2="100" y2="190" stroke="#333" stroke-width="2"/>
+
+  <!-- 线圈与磁体 -->
+  <rect x="80" y="190" width="40" height="46" fill="#c0392b" fill-opacity="0.25" stroke="#c0392b" stroke-width="2"/>
+  <text x="100" y="218" text-anchor="middle" font-size="13" fill="#c0392b">线圈</text>
+  <rect x="56" y="182" width="18" height="62" fill="#1f6f8b"/>
+  <text x="65" y="230" text-anchor="middle" font-size="13" fill="#fff">N</text>
+  <rect x="126" y="182" width="18" height="62" fill="#1f6f8b"/>
+  <text x="135" y="230" text-anchor="middle" font-size="13" fill="#fff">S</text>
+  <text x="100" y="262" text-anchor="middle" font-size="13" fill="#333">磁体中的线圈</text>
+
+  <!-- 右臂：平衡砝码 -->
+  <line x1="320" y1="70" x2="320" y2="130" stroke="#333" stroke-width="2"/>
+  <rect x="290" y="130" width="60" height="30" fill="#c0392b" fill-opacity="0.18" stroke="#c0392b" stroke-width="2"/>
+  <text x="320" y="149" text-anchor="middle" font-size="13" fill="#c0392b">平衡砝码</text>
+
+  <!-- 两种模式标注 -->
+  <text x="100" y="285" text-anchor="middle" font-size="13" fill="#c0392b">称重模式：mg = B·L·I</text>
+  <text x="100" y="303" text-anchor="middle" font-size="13" fill="#1f6f8b">速度模式：U = B·L·v</text>
+
+  <!-- 底部测量系统 -->
+  <line x1="100" y1="262" x2="100" y2="312" stroke="#333" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="30" y="316" width="360" height="52" fill="#1f6f8b" fill-opacity="0.1" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="210" y="336" text-anchor="middle" font-size="13" fill="#1f6f8b">量子测量系统</text>
+  <text x="70" y="356" text-anchor="middle" font-size="13" fill="#333">约瑟夫森电压</text>
+  <text x="210" y="356" text-anchor="middle" font-size="13" fill="#333">量子霍尔电阻</text>
+  <text x="350" y="356" text-anchor="middle" font-size="13" fill="#333">原子钟/激光</text>
+</svg>

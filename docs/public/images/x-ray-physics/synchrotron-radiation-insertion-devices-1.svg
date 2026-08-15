@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" width="800" height="460" font-family="sans-serif">
+  <title>波荡器与扭摆器原理示意图</title>
+  <desc>上图为波荡器：小摆幅电子轨迹，各周期辐射相干叠加成尖锐谐波峰；下图为扭摆器：大摆幅电子轨迹，辐射不相干叠加成连续谱。</desc>
+  <rect width="800" height="460" fill="#faf9f5"/>
+  <text x="400" y="40" text-anchor="middle" font-size="20" fill="#333" font-weight="bold">波荡器与扭摆器</text>
+  <text x="400" y="68" text-anchor="middle" font-size="14" fill="#666">电子沿周期磁结构蜿蜒，K 参数决定相干与否</text>
+
+  <!-- 上部：波荡器 -->
+  <text x="60" y="112" font-size="16" fill="#1f6f8b" font-weight="bold">波荡器 K ≈ 1</text>
+  <g>
+    <!-- 磁铁阵列 -->
+    <rect x="90" y="128" width="80" height="26" fill="#1f6f8b"/>
+    <text x="130" y="146" text-anchor="middle" font-size="13" fill="#fff">N</text>
+    <rect x="182" y="128" width="80" height="26" fill="#c0392b"/>
+    <text x="222" y="146" text-anchor="middle" font-size="13" fill="#fff">S</text>
+    <rect x="274" y="128" width="80" height="26" fill="#1f6f8b"/>
+    <text x="314" y="146" text-anchor="middle" font-size="13" fill="#fff">N</text>
+    <rect x="366" y="128" width="80" height="26" fill="#c0392b"/>
+    <text x="406" y="146" text-anchor="middle" font-size="13" fill="#fff">S</text>
+    <rect x="458" y="128" width="80" height="26" fill="#1f6f8b"/>
+    <text x="498" y="146" text-anchor="middle" font-size="13" fill="#fff">N</text>
+    <rect x="550" y="128" width="80" height="26" fill="#c0392b"/>
+    <text x="590" y="146" text-anchor="middle" font-size="13" fill="#fff">S</text>
+    <rect x="642" y="128" width="80" height="26" fill="#1f6f8b"/>
+    <text x="682" y="146" text-anchor="middle" font-size="13" fill="#fff">N</text>
+
+    <rect x="90" y="256" width="80" height="26" fill="#c0392b"/>
+    <text x="130" y="274" text-anchor="middle" font-size="13" fill="#fff">S</text>
+    <rect x="182" y="256" width="80" height="26" fill="#1f6f8b"/>
+    <text x="222" y="274" text-anchor="middle" font-size="13" fill="#fff">N</text>
+    <rect x="274" y="256" width="80" height="26" fill="#c0392b"/>
+    <text x="314" y="274" text-anchor="middle" font-size="13" fill="#fff">S</text>
+    <rect x="366" y="256" width="80" height="26" fill="#1f6f8b"/>
+    <text x="406" y="274" text-anchor="middle" font-size="13" fill="#fff">N</text>
+    <rect x="458" y="256" width="80" height="26" fill="#c0392b"/>
+    <text x="498" y="274" text-anchor="middle" font-size="13" fill="#fff">S</text>
+    <rect x="550" y="256" width="80" height="26" fill="#1f6f8b"/>
+    <text x="590" y="274" text-anchor="middle" font-size="13" fill="#fff">N</text>
+    <rect x="642" y="256" width="80" height="26" fill="#c0392b"/>
+    <text x="682" y="274" text-anchor="middle" font-size="13" fill="#fff">S</text>
+
+    <!-- 电子轨迹：小摆幅正弦 -->
+    <path d="M70 192 C 130 188, 182 196, 222 192 S 314 188, 362 192 S 454 196, 498 192 S 590 188, 638 192 S 730 196, 760 192"
+          fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="70" cy="192" r="5" fill="#c0392b"/>
+    <text x="58" y="180" font-size="13" fill="#333">e⁻</text>
+    <!-- 辐射锥 -->
+    <path d="M660 192 L 740 150 L 740 234 Z" fill="#1f6f8b" opacity="0.18"/>
+    <text x="742" y="196" font-size="13" fill="#1f6f8b">相干辐射</text>
+  </g>
+
+  <!-- 下部：扭摆器 -->
+  <text x="60" y="322" font-size="16" fill="#1f6f8b" font-weight="bold">扭摆器 K ≫ 1</text>
+  <g>
+    <rect x="90" y="336" width="70" height="22" fill="#1f6f8b"/>
+    <text x="125" y="352" text-anchor="middle" font-size="12" fill="#fff">N</text>
+    <rect x="172" y="336" width="70" height="22" fill="#c0392b"/>
+    <text x="207" y="352" text-anchor="middle" font-size="12" fill="#fff">S</text>
+    <rect x="254" y="336" width="70" height="22" fill="#1f6f8b"/>
+    <text x="289" y="352" text-anchor="middle" font-size="12" fill="#fff">N</text>
+    <rect x="336" y="336" width="70" height="22" fill="#c0392b"/>
+    <text x="371" y="352" text-anchor="middle" font-size="12" fill="#fff">S</text>
+    <rect x="418" y="336" width="70" height="22" fill="#1f6f8b"/>
+    <text x="453" y="352" text-anchor="middle" font-size="12" fill="#fff">N</text>
+    <rect x="500" y="336" width="70" height="22" fill="#c0392b"/>
+    <text x="535" y="352" text-anchor="middle" font-size="12" fill="#fff">S</text>
+    <rect x="582" y="336" width="70" height="22" fill="#1f6f8b"/>
+    <text x="617" y="352" text-anchor="middle" font-size="12" fill="#fff">N</text>
+
+    <rect x="90" y="422" width="70" height="22" fill="#c0392b"/>
+    <text x="125" y="438" text-anchor="middle" font-size="12" fill="#fff">S</text>
+    <rect x="172" y="422" width="70" height="22" fill="#1f6f8b"/>
+    <text x="207" y="438" text-anchor="middle" font-size="12" fill="#fff">N</text>
+    <rect x="254" y="422" width="70" height="22" fill="#c0392b"/>
+    <text x="289" y="438" text-anchor="middle" font-size="12" fill="#fff">S</text>
+    <rect x="336" y="422" width="70" height="22" fill="#1f6f8b"/>
+    <text x="371" y="438" text-anchor="middle" font-size="12" fill="#fff">N</text>
+    <rect x="418" y="422" width="70" height="22" fill="#c0392b"/>
+    <text x="453" y="438" text-anchor="middle" font-size="12" fill="#fff">S</text>
+    <rect x="500" y="422" width="70" height="22" fill="#1f6f8b"/>
+    <text x="535" y="438" text-anchor="middle" font-size="12" fill="#fff">N</text>
+    <rect x="582" y="422" width="70" height="22" fill="#c0392b"/>
+    <text x="617" y="438" text-anchor="middle" font-size="12" fill="#fff">S</text>
+
+    <!-- 电子轨迹：大摆幅 -->
+    <path d="M70 400 C 125 360, 172 440, 207 400 S 289 360, 324 400 S 406 440, 441 400 S 523 360, 558 400 S 640 440, 675 400 S 730 380, 760 396"
+          fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="70" cy="400" r="5" fill="#c0392b"/>
+    <text x="58" y="412" font-size="13" fill="#333">e⁻</text>
+    <path d="M600 396 L 672 366 L 700 416 Z" fill="#1f6f8b" opacity="0.18"/>
+    <text x="706" y="396" font-size="13" fill="#1f6f8b">不相干辐射</text>
+  </g>
+
+  <text x="400" y="452" text-anchor="middle" font-size="12" fill="#999">辐射性质由 K = eBλu / 2πmec 决定</text>
+</svg>

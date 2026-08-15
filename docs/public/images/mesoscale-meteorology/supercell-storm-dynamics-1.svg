@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500" font-family="sans-serif">
+  <title>超级单体风暴结构示意</title>
+  <desc>示意旋转上升气流（中尺度气旋）、前侧与后侧下沉气流、入流通道及降水区的空间配置，风暴整体向右移动。</desc>
+  <rect width="680" height="500" fill="#faf9f5"/>
+  <text x="340" y="34" text-anchor="middle" font-size="19" font-weight="bold" fill="#333">超级单体结构：上升与下沉气流分离</text>
+
+  <!-- 云体轮廓 -->
+  <path d="M 150 300 Q 120 260 150 230 Q 180 200 220 190 Q 260 150 300 130 Q 340 118 380 130 Q 430 150 470 180 Q 520 200 540 240 Q 550 260 530 280 L 170 300 Z" fill="#cfd8dc" opacity="0.85"/>
+  <!-- 砧云 -->
+  <path d="M 380 130 Q 500 90 600 95 Q 660 100 665 130 Q 620 120 560 125 L 540 140 Z" fill="#b0bec5" opacity="0.7"/>
+
+  <!-- 上升气流（倾斜） -->
+  <path d="M 215 440 Q 250 360 300 250 Q 340 170 400 130" fill="none" stroke="#1f6f8b" stroke-width="4"/>
+  <text x="262" y="330" font-size="14" fill="#1f6f8b">旋转上升气流（中尺度气旋）</text>
+
+  <!-- 前侧下沉气流 -->
+  <path d="M 470 250 Q 500 320 520 390" fill="none" stroke="#c0392b" stroke-width="3.5"/>
+  <text x="500" y="300" font-size="14" fill="#c0392b">前侧下沉气流</text>
+
+  <!-- 后侧下沉气流 -->
+  <path d="M 320 250 Q 300 330 285 400" fill="none" stroke="#c0392b" stroke-width="3.5"/>
+  <text x="175" y="330" font-size="14" fill="#c0392b">后侧下沉气流</text>
+
+  <!-- 入流 -->
+  <path d="M 60 430 Q 140 420 215 440" fill="none" stroke="#2e8b8b" stroke-width="3" stroke-dasharray="6,4"/>
+  <text x="40" y="420" font-size="14" fill="#2e8b8b">暖湿入流</text>
+
+  <!-- 降水 -->
+  <ellipse cx="505" cy="380" rx="34" ry="18" fill="#5b8db8" opacity="0.6"/>
+  <text x="505" y="420" font-size="13" fill="#333">暴雨 / 冰雹</text>
+
+  <!-- 龙卷位置标记 -->
+  <circle cx="285" cy="408" r="7" fill="#c0392b"/>
+  <text x="285" y="452" font-size="13" text-anchor="middle" fill="#c0392b">龙卷常发区</text>
+
+  <!-- 移动方向 -->
+  <path d="M 600 460 L 660 460" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="630" y="478" text-anchor="middle" font-size="14" fill="#333">风暴移动方向（向右）</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 底部风切变示意 -->
+  <line x1="60" y1="85" x2="60" y2="70" stroke="#333" stroke-width="1.5"/>
+  <line x1="120" y1="90" x2="120" y2="62" stroke="#333" stroke-width="2"/>
+  <line x1="180" y1="92" x2="180" y2="55" stroke="#333" stroke-width="2.5"/>
+  <text x="140" y="52" text-anchor="middle" font-size="13" fill="#333">环境风随高度增大（垂直风切变）</text>
+</svg>

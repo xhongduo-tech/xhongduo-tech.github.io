@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" font-family="sans-serif">
+  <title>相量图：电压相量超前电流相量相位差 θ</title>
+  <desc>复平面上电压相量 V 与电流相量 I，电压超前电流 θ 角，实轴投影为瞬时值</desc>
+  <rect width="440" height="340" fill="#faf9f5"/>
+
+  <!-- 坐标轴 -->
+  <g stroke="#333" stroke-width="2" fill="none">
+    <line x1="40" y1="220" x2="400" y2="220"/>
+    <line x1="210" y1="30" x2="210" y2="310"/>
+  </g>
+  <text x="400" y="212" font-size="15" fill="#333" text-anchor="end">Re</text>
+  <text x="224" y="38" font-size="15" fill="#333">Im</text>
+  <text x="200" y="238" font-size="15" fill="#333" text-anchor="middle">O</text>
+
+  <!-- 电流相量 I 沿实轴 -->
+  <g stroke="#1f6f8b" stroke-width="2.5" fill="#1f6f8b">
+    <line x1="210" y1="220" x2="300" y2="220"/>
+    <path d="M 300 220 L 288 213 M 300 220 L 288 227" fill="none"/>
+  </g>
+  <text x="300" y="206" font-size="15" fill="#1f6f8b" text-anchor="middle">I</text>
+
+  <!-- 电压相量 V 超前 θ -->
+  <g stroke="#c0392b" stroke-width="2.5" fill="#c0392b">
+    <line x1="210" y1="220" x2="352" y2="98"/>
+    <path d="M 352 98 L 336 98 M 352 98 L 346 114" fill="none"/>
+  </g>
+  <text x="360" y="92" font-size="15" fill="#c0392b">V</text>
+
+  <!-- 相位角弧线 -->
+  <path d="M 270 220 A 60 60 0 0 0 256 166" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="244" y="196" font-size="14" fill="#333">θ</text>
+
+  <!-- 投影虚线 -->
+  <line x1="352" y1="98" x2="352" y2="220" stroke="#999" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="358" y="240" font-size="13" fill="#666">投影 = Vcos(ωt+θ)</text>
+
+  <text x="40" y="40" font-size="13" fill="#666">电压相量超前电流相量 θ，二者同频率、以 ω 同步旋转</text>
+</svg>

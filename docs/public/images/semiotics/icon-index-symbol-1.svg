@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" font-family="sans-serif">
+  <title>像似符、指示符与规约符的三类连接方式</title>
+  <desc>三个并列图板分别展示像似符靠相似、指示符靠因果、规约符靠约定来连接符号与对象。</desc>
+  <rect x="0" y="0" width="720" height="280" fill="#faf9f5"/>
+  <text x="360" y="34" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">符号与对象的三类连接方式</text>
+
+  <!-- Panel 1: icon -->
+  <rect x="30" y="56" width="200" height="196" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="130" y="82" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">像似符（icon）</text>
+  <rect x="52" y="100" width="68" height="40" rx="6" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="86" y="125" text-anchor="middle" font-size="14" fill="#333">照片</text>
+  <rect x="150" y="100" width="68" height="40" rx="6" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="184" y="125" text-anchor="middle" font-size="14" fill="#333">实物</text>
+  <path d="M 122 120 L 148 120" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="148,115 158,120 148,125" fill="#c0392b"/>
+  <text x="140" y="108" text-anchor="middle" font-size="13" fill="#c0392b">相似</text>
+  <text x="130" y="168" text-anchor="middle" font-size="13" fill="#333">靠「像」连接</text>
+  <text x="130" y="188" text-anchor="middle" font-size="13" fill="#666">对象不存在仍是符号</text>
+  <text x="130" y="232" text-anchor="middle" font-size="13" fill="#666">例：地图、图表、隐喻</text>
+
+  <!-- Panel 2: index -->
+  <rect x="260" y="56" width="200" height="196" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="360" y="82" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">指示符（index）</text>
+  <rect x="282" y="100" width="68" height="40" rx="6" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="316" y="125" text-anchor="middle" font-size="14" fill="#333">烟</text>
+  <rect x="380" y="100" width="68" height="40" rx="6" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="414" y="125" text-anchor="middle" font-size="14" fill="#333">火</text>
+  <path d="M 352 120 L 378 120" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="378,115 388,120 378,125" fill="#c0392b"/>
+  <text x="370" y="108" text-anchor="middle" font-size="13" fill="#c0392b">因果</text>
+  <text x="360" y="168" text-anchor="middle" font-size="13" fill="#333">靠「连」连接</text>
+  <text x="360" y="188" text-anchor="middle" font-size="13" fill="#666">对象被移走即失效</text>
+  <text x="360" y="232" text-anchor="middle" font-size="13" fill="#666">例：脚印、指针、「我」</text>
+
+  <!-- Panel 3: symbol -->
+  <rect x="490" y="56" width="200" height="196" rx="8" fill="#ffffff" stroke="#1f6f8b" stroke-width="1.5"/>
+  <text x="590" y="82" text-anchor="middle" font-size="15" fill="#1f6f8b" font-weight="bold">规约符（symbol）</text>
+  <rect x="512" y="100" width="68" height="40" rx="6" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="546" y="125" text-anchor="middle" font-size="14" fill="#333">「桌子」</text>
+  <rect x="610" y="100" width="68" height="40" rx="6" fill="#eef4f6" stroke="#333" stroke-width="1"/>
+  <text x="644" y="125" text-anchor="middle" font-size="14" fill="#333">桌</text>
+  <path d="M 582 120 L 608 120" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="608,115 618,120 608,125" fill="#c0392b"/>
+  <text x="600" y="108" text-anchor="middle" font-size="13" fill="#c0392b">约定</text>
+  <text x="590" y="168" text-anchor="middle" font-size="13" fill="#333">靠「约」连接</text>
+  <text x="590" y="188" text-anchor="middle" font-size="13" fill="#666">无解释项即失效</text>
+  <text x="590" y="232" text-anchor="middle" font-size="13" fill="#666">例：语词、数字、国旗</text>
+</svg>

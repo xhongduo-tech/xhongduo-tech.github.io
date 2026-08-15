@@ -1,0 +1,70 @@
+<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">气流上升式烤房结构示意图</title>
+  <desc id="desc">火炉加热火管，热空气自下而上穿过挂烟层，湿气从顶部天窗排出，底部地洞进风。</desc>
+  <rect x="0" y="0" width="720" height="480" fill="#faf9f5"/>
+  <text x="360" y="34" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#333" font-weight="bold">气流上升式烤房结构示意图</text>
+
+  <!-- 烤房外壁 -->
+  <rect x="80" y="70" width="560" height="360" fill="#faf9f5" stroke="#333" stroke-width="3"/>
+  <!-- 墙体材质线 -->
+  <line x1="80" y1="88" x2="640" y2="88" stroke="#333" stroke-width="1"/>
+  <line x1="80" y1="422" x2="640" y2="422" stroke="#333" stroke-width="1"/>
+
+  <!-- 天窗（顶部排湿） -->
+  <rect x="300" y="44" width="120" height="26" fill="#fff" stroke="#333" stroke-width="2"/>
+  <line x1="360" y1="44" x2="360" y2="70" stroke="#333" stroke-width="2"/>
+  <text x="360" y="36" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b">天窗（排湿）</text>
+
+  <!-- 火炉 -->
+  <rect x="120" y="396" width="90" height="34" fill="#c0392b" opacity="0.85" stroke="#333" stroke-width="2"/>
+  <text x="165" y="418" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#fff">火炉</text>
+
+  <!-- 火管（散热管） -->
+  <g stroke="#a0522d" stroke-width="8" fill="none">
+    <line x1="210" y1="404" x2="600" y2="404"/>
+    <line x1="600" y1="404" x2="600" y2="360"/>
+    <line x1="600" y1="360" x2="210" y2="360"/>
+  </g>
+  <text x="480" y="388" font-family="sans-serif" font-size="15" fill="#a0522d">火管（散热）</text>
+
+  <!-- 进风孔（地洞） -->
+  <rect x="560" y="428" width="40" height="22" fill="#1f6f8b" opacity="0.4" stroke="#333" stroke-width="1.5"/>
+  <text x="580" y="462" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#1f6f8b">进风孔</text>
+
+  <!-- 三层挂烟 -->
+  <g stroke="#8d6e63" stroke-width="4">
+    <line x1="130" y1="120" x2="590" y2="120"/>
+    <line x1="130" y1="210" x2="590" y2="210"/>
+    <line x1="130" y1="300" x2="590" y2="300"/>
+  </g>
+  <!-- 烟叶 -->
+  <g fill="#7cb342" opacity="0.85">
+    <ellipse cx="230" cy="150" rx="26" ry="14"/>
+    <ellipse cx="300" cy="150" rx="26" ry="14"/>
+    <ellipse cx="370" cy="150" rx="26" ry="14"/>
+    <ellipse cx="440" cy="150" rx="26" ry="14"/>
+    <ellipse cx="510" cy="150" rx="26" ry="14"/>
+    <ellipse cx="230" cy="240" rx="26" ry="14"/>
+    <ellipse cx="300" cy="240" rx="26" ry="14"/>
+    <ellipse cx="370" cy="240" rx="26" ry="14"/>
+    <ellipse cx="440" cy="240" rx="26" ry="14"/>
+    <ellipse cx="510" cy="240" rx="26" ry="14"/>
+    <ellipse cx="230" cy="330" rx="26" ry="14"/>
+    <ellipse cx="300" cy="330" rx="26" ry="14"/>
+    <ellipse cx="370" cy="330" rx="26" ry="14"/>
+    <ellipse cx="440" cy="330" rx="26" ry="14"/>
+    <ellipse cx="510" cy="330" rx="26" ry="14"/>
+  </g>
+  <text x="130" y="112" font-family="sans-serif" font-size="15" fill="#333">挂烟梁 × 3 层</text>
+
+  <!-- 气流方向箭头 -->
+  <g stroke="#1f6f8b" stroke-width="2.5" fill="#1f6f8b">
+    <line x1="700" y1="250" x2="700" y2="130"/>
+    <polygon points="700,110 693,128 707,128"/>
+    <line x1="700" y1="130" x2="700" y2="250"/>
+    <text x="708" y="200" font-family="sans-serif" font-size="15" fill="#1f6f8b">热气流</text>
+  </g>
+
+  <!-- 注释 -->
+  <text x="360" y="452" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#333">热空气自下而上穿过烟层，携带水汽经天窗排出</text>
+</svg>

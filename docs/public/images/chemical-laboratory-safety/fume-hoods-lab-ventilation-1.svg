@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" font-family="sans-serif">
+  <title>通风柜剖面示意图</title>
+  <desc>侧视剖面：操作者站在玻璃拉门前，空气经拉门开口进入柜内，越过台面上的烧杯，经导流板进入排风管道排出。</desc>
+  <rect x="0" y="0" width="420" height="320" fill="#faf9f5"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <path d="M80 60 H360 V240 H80 Z" fill="#f0ece5" stroke="#333" stroke-width="2"/>
+  <line x1="80" y1="240" x2="360" y2="240" stroke="#333" stroke-width="4"/>
+  <line x1="80" y1="60" x2="80" y2="150" stroke="#1f6f8b" stroke-width="5"/>
+  <line x1="80" y1="150" x2="150" y2="150" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="62" y="115" font-size="13" fill="#1f6f8b" text-anchor="end">玻璃拉门</text>
+  <path d="M280 60 V30 H330 V60" fill="none" stroke="#333" stroke-width="3"/>
+  <text x="305" y="22" font-size="13" fill="#333" text-anchor="middle">排风管道</text>
+  <rect x="330" y="80" width="8" height="120" fill="#999"/>
+  <text x="348" y="150" font-size="13" fill="#555">导流板</text>
+  <rect x="200" y="210" width="30" height="30" fill="#fff" stroke="#333" stroke-width="2"/>
+  <line x1="200" y1="225" x2="230" y2="225" stroke="#333" stroke-width="1.5"/>
+  <text x="215" y="260" font-size="13" fill="#333" text-anchor="middle">烧杯</text>
+  <path d="M120 182 L180 182" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M218 206 C233 182 252 162 282 142" fill="none" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M322 118 L330 100" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="138" y="172" font-size="13" fill="#c0392b">面风速</text>
+  <text x="248" y="185" font-size="13" fill="#c0392b">气流</text>
+  <circle cx="35" cy="172" r="12" fill="#f0a868" stroke="#333" stroke-width="2"/>
+  <path d="M35 184 V228 M35 198 L18 213 M35 198 L52 213 M35 228 L22 262 M35 228 L48 262" stroke="#333" stroke-width="3" fill="none"/>
+  <text x="35" y="285" font-size="13" fill="#333" text-anchor="middle">操作者</text>
+  <text x="300" y="260" font-size="13" fill="#333">台面</text>
+  <text x="220" y="90" font-size="13" fill="#333">柜内空间</text>
+</svg>

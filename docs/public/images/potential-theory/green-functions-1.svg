@@ -1,0 +1,14 @@
+<svg viewBox="0 0 420 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Green 函数的物理图像</title>
+  <desc id="desc">接地区域 D 内位于 y 的单位点电荷，在边界上电位为 0、在 y 处对数发散的电位曲线 G(x,y)</desc>
+  <rect width="420" height="250" fill="#faf9f5"/>
+  <ellipse cx="210" cy="188" rx="140" ry="52" fill="#f0ece0" stroke="#333" stroke-width="2"/>
+  <text x="58" y="196" font-family="sans-serif" font-size="13" fill="#333">∂D：电位为 0（接地）</text>
+  <line x1="210" y1="180" x2="210" y2="78" stroke="#333" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <path d="M70 188 C 130 150, 170 128, 206 84 L 210 52 L 214 84 C 250 128, 290 150, 350 188" fill="none" stroke="#1f6f8b" stroke-width="2.5"/>
+  <circle cx="210" cy="184" r="6" fill="#c0392b"/>
+  <text x="238" y="172" font-family="sans-serif" font-size="14" fill="#c0392b">y（点电荷）</text>
+  <text x="218" y="46" font-family="sans-serif" font-size="13" fill="#c0392b">在 y 处对数发散</text>
+  <text x="258" y="100" font-family="sans-serif" font-size="14" fill="#1f6f8b">电位 G(x,y)</text>
+  <text x="285" y="222" font-family="sans-serif" font-size="13" fill="#333">区域 D（内部为调和区）</text>
+</svg>

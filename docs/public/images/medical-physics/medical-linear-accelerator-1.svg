@@ -1,0 +1,53 @@
+<svg viewBox="0 0 760 500" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>医用直线加速器束流链示意图</title>
+  <desc>电子枪注入电子，经加速波导加速至兆电子伏级，偏转磁铁使其转射向下，依次穿过钨靶、均整器、监测电离室、准直器与多叶准直器后照射患者。</desc>
+  <rect x="0" y="0" width="760" height="500" fill="#faf9f5"/>
+  <text x="380" y="36" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="#333">医用直线加速器束流链</text>
+  <line x1="40" y1="50" x2="720" y2="50" stroke="#d9d2c5" stroke-width="1"/>
+  <!-- 电子枪 -->
+  <rect x="80" y="80" width="110" height="44" rx="6" fill="#eef2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="135" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">电子枪</text>
+  <text x="135" y="117" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">热阴极电子源</text>
+  <!-- 电子束箭头 -->
+  <line x1="190" y1="102" x2="252" y2="102" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="220" y="90" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">电子束</text>
+  <!-- 加速波导 -->
+  <rect x="255" y="76" width="230" height="52" rx="6" fill="#eef2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="370" y="98" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">加速波导</text>
+  <text x="370" y="116" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">微波电场加速至 MeV 级</text>
+  <!-- 偏转磁铁 -->
+  <line x1="485" y1="102" x2="545" y2="102" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  <circle cx="562" cy="102" r="30" fill="#f9efe7" stroke="#c0392b" stroke-width="2"/>
+  <text x="562" y="98" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b" font-weight="bold">偏转</text>
+  <text x="562" y="114" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#c0392b">磁铁 90°</text>
+  <!-- 下转箭头 -->
+  <line x1="562" y1="132" x2="562" y2="168" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+  <!-- 靶 -->
+  <rect x="512" y="170" width="100" height="22" rx="5" fill="#333"/>
+  <text x="562" y="186" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#faf9f5" font-weight="bold">钨靶</text>
+  <!-- X射线箭头 -->
+  <line x1="562" y1="192" x2="562" y2="216" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="600" y="208" font-family="sans-serif" font-size="13" fill="#c0392b">X 射线</text>
+  <!-- 均整器 -->
+  <polygon points="532,218 592,218 562,244" fill="#eef2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="628" y="234" font-family="sans-serif" font-size="13" fill="#333">均整器</text>
+  <!-- 监测电离室 -->
+  <rect x="522" y="248" width="80" height="14" rx="3" fill="#eef2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="628" y="261" font-family="sans-serif" font-size="13" fill="#333">监测电离室</text>
+  <!-- 上下准直 jaws -->
+  <polygon points="540,270 584,270 596,300 528,300" fill="#eef2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="620" y="288" font-family="sans-serif" font-size="13" fill="#333">准直器（jaws）</text>
+  <!-- MLC -->
+  <polygon points="548,304 576,304 590,334 534,334" fill="#eef2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="620" y="321" font-family="sans-serif" font-size="13" fill="#333">多叶准直器 MLC</text>
+  <!-- 射束到患者 -->
+  <line x1="562" y1="334" x2="562" y2="342" stroke="#c0392b" stroke-width="2"/>
+  <!-- 患者 -->
+  <ellipse cx="562" cy="375" rx="85" ry="30" fill="#f3e8dc" stroke="#c0392b" stroke-width="2"/>
+  <text x="562" y="380" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#333">患者（肿瘤靶区）</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

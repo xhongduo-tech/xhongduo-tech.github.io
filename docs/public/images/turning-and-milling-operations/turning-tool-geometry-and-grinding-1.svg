@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" font-family="sans-serif">
+  <title>车刀切削部分几何角度示意图（正交平面）</title>
+  <desc>在正交平面内标注前角γ0、后角α0、楔角β0，以及基面、切削平面、前刀面与主后刀面</desc>
+  <rect width="460" height="300" fill="#faf9f5"/>
+  <!-- 工件 -->
+  <rect x="170" y="66" width="100" height="44" fill="#e8e0d0" stroke="#333" stroke-width="1.5"/>
+  <text x="196" y="58" font-size="14" fill="#333">工件</text>
+  <!-- 基面 -->
+  <line x1="120" y1="110" x2="400" y2="110" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="330" y="104" font-size="13" fill="#1f6f8b">基面 Pr</text>
+  <!-- 切削平面 -->
+  <line x1="220" y1="52" x2="220" y2="208" stroke="#1f6f8b" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="232" y="64" font-size="13" fill="#1f6f8b">切削平面 Ps</text>
+  <!-- 车刀楔形截面 -->
+  <polygon points="220,110 300,140 300,190 210,190" fill="#d8cfc0" stroke="#333" stroke-width="1.5"/>
+  <!-- 前刀面标注 -->
+  <text x="268" y="136" font-size="13" fill="#333">前刀面</text>
+  <!-- 主后刀面标注 -->
+  <text x="196" y="172" font-size="13" fill="#333">主后刀面</text>
+  <!-- 前角弧 -->
+  <path d="M 248 110 A 28 28 0 0 0 246 120" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="256" y="114" font-size="15" fill="#c0392b">γ₀</text>
+  <!-- 后角弧 -->
+  <path d="M 220 134 A 24 24 0 0 1 217 134" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="228" y="148" font-size="15" fill="#c0392b">α₀</text>
+  <!-- 楔角弧 -->
+  <path d="M 235 116 A 16 16 0 0 0 218 126" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="232" y="130" font-size="15" fill="#333">β₀</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 270" role="img" aria-labelledby="title desc">
+  <title id="title">DLVO 相互作用势能曲线</title>
+  <desc id="desc">横轴为颗粒表面间距 h，纵轴为相互作用势能 V。红色实线为总势能，含主极小、能垒与次级极小；青色虚线为范德华吸引；绿色点线为双电层静电排斥。</desc>
+
+  <rect x="0" y="0" width="400" height="270" fill="#faf9f5"/>
+  <text x="200" y="26" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#333">DLVO 相互作用势能曲线</text>
+
+  <!-- 坐标轴 -->
+  <polygon points="55,34 50,44 60,44" fill="#333"/>
+  <polygon points="376,150 366,145 366,155" fill="#333"/>
+  <line x1="55" y1="40" x2="55" y2="225" stroke="#333" stroke-width="1.5"/>
+  <line x1="55" y1="150" x2="370" y2="150" stroke="#333" stroke-width="1.5"/>
+  <text x="40" y="155" font-family="sans-serif" font-size="13" text-anchor="end" fill="#333">0</text>
+  <text x="30" y="45" font-family="sans-serif" font-size="13" fill="#333">+V</text>
+  <text x="30" y="238" font-family="sans-serif" font-size="13" fill="#333">−V</text>
+
+  <!-- 轴标签 -->
+  <text x="20" y="140" transform="rotate(-90 20 140)" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">相互作用势能 V</text>
+  <text x="212" y="252" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">表面间距 h</text>
+
+  <!-- 辅助线：能垒与次级极小位置 -->
+  <line x1="206" y1="60" x2="206" y2="148" stroke="#999" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="305" y1="170" x2="305" y2="148" stroke="#999" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- 双电层排斥（绿色点线） -->
+  <path d="M 60 62 C 80 74, 110 98, 150 126 C 195 144, 260 149, 370 150"
+        fill="none" stroke="#4a7a3c" stroke-width="2" stroke-dasharray="2,3"/>
+
+  <!-- 范德华吸引（青色虚线） -->
+  <path d="M 60 228 C 80 200, 120 172, 180 160 C 240 153, 300 150, 370 150"
+        fill="none" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- 总势能（红色实线） -->
+  <path d="M 60 230 C 70 228, 82 218, 96 200 C 120 165, 150 120, 178 82
+           C 196 62, 216 62, 232 84 C 252 112, 272 148, 292 166
+           C 300 174, 312 172, 322 160 C 338 146, 352 150, 370 150"
+        fill="none" stroke="#c0392b" stroke-width="2.5"/>
+  <circle cx="206" cy="60" r="3" fill="#c0392b"/>
+  <circle cx="305" cy="170" r="3" fill="#c0392b"/>
+
+  <!-- 地标标注 -->
+  <text x="63" y="244" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#333">主极小</text>
+  <text x="206" y="42" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#c0392b">能垒</text>
+  <text x="305" y="194" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#333">次级极小</text>
+
+  <!-- 图例 -->
+  <line x1="252" y1="55" x2="272" y2="55" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="278" y="59" font-family="sans-serif" font-size="13" fill="#333">总势能</text>
+  <line x1="252" y1="74" x2="272" y2="74" stroke="#1f6f8b" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="278" y="78" font-family="sans-serif" font-size="13" fill="#333">范德华吸引</text>
+  <line x1="252" y1="93" x2="272" y2="93" stroke="#4a7a3c" stroke-width="2" stroke-dasharray="2,3"/>
+  <text x="278" y="97" font-family="sans-serif" font-size="13" fill="#333">静电排斥</text>
+</svg>

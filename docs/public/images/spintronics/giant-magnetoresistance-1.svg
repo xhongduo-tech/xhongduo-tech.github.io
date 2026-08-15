@@ -1,0 +1,51 @@
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>巨磁电阻多层膜结构：平行态与反平行态</title>
+  <desc>左图为自旋平行排列的磁性多层膜 Fe/Cr，多数自旋通道畅通，总电阻低；右图为反平行排列，两种自旋都被散射，总电阻高。</desc>
+  <rect x="0" y="0" width="720" height="420" fill="#faf9f5"/>
+  <text x="40" y="76" font-size="14" fill="#333">铁磁层 Fe（箭头为磁化方向）</text>
+  <text x="410" y="76" font-size="14" fill="#333">非磁间隔层 Cr</text>
+  <text x="170" y="320" text-anchor="middle" font-size="16" fill="#333">平行态（P）：电阻低</text>
+  <text x="540" y="320" text-anchor="middle" font-size="16" fill="#333">反平行态（AP）：电阻高</text>
+  <text x="170" y="352" text-anchor="middle" font-size="14" fill="#1f6f8b">多数自旋通道畅通，电流「抄近路」</text>
+  <text x="540" y="352" text-anchor="middle" font-size="14" fill="#1f6f8b">两种自旋都被散射，电流「处处碰壁」</text>
+  <text x="360" y="398" text-anchor="middle" font-size="15" fill="#c0392b">GMR 比 = (R_AP − R_P) / R_P</text>
+
+  <g fill="#c0392b" opacity="0.85">
+    <rect x="40" y="100" width="260" height="28"/>
+    <rect x="40" y="140" width="260" height="28"/>
+    <rect x="40" y="180" width="260" height="28"/>
+    <rect x="40" y="220" width="260" height="28"/>
+    <rect x="40" y="260" width="260" height="28"/>
+    <rect x="410" y="100" width="260" height="28"/>
+    <rect x="410" y="140" width="260" height="28"/>
+    <rect x="410" y="180" width="260" height="28"/>
+    <rect x="410" y="220" width="260" height="28"/>
+    <rect x="410" y="260" width="260" height="28"/>
+  </g>
+  <g fill="#b8b2a7">
+    <rect x="40" y="128" width="260" height="12"/>
+    <rect x="40" y="168" width="260" height="12"/>
+    <rect x="40" y="208" width="260" height="12"/>
+    <rect x="40" y="248" width="260" height="12"/>
+    <rect x="410" y="128" width="260" height="12"/>
+    <rect x="410" y="168" width="260" height="12"/>
+    <rect x="410" y="208" width="260" height="12"/>
+    <rect x="410" y="248" width="260" height="12"/>
+  </g>
+
+  <g fill="#333">
+    <path d="M152 107 L184 107 L184 101 L202 114 L184 127 L184 121 L152 121 Z"/>
+    <path d="M152 147 L184 147 L184 141 L202 154 L184 167 L184 161 L152 161 Z"/>
+    <path d="M152 187 L184 187 L184 181 L202 194 L184 207 L184 201 L152 201 Z"/>
+    <path d="M152 227 L184 227 L184 221 L202 234 L184 247 L184 241 L152 241 Z"/>
+    <path d="M152 267 L184 267 L184 261 L202 274 L184 287 L184 281 L152 281 Z"/>
+  </g>
+
+  <g fill="#333">
+    <path d="M522 107 L554 107 L554 101 L572 114 L554 127 L554 121 L522 121 Z"/>
+    <path d="M572 147 L540 147 L540 141 L522 154 L540 167 L540 161 L572 161 Z"/>
+    <path d="M522 187 L554 187 L554 181 L572 194 L554 207 L554 201 L522 201 Z"/>
+    <path d="M572 227 L540 227 L540 221 L522 234 L540 247 L540 241 L572 241 Z"/>
+    <path d="M522 267 L554 267 L554 261 L572 274 L554 287 L554 281 L522 281 Z"/>
+  </g>
+</svg>

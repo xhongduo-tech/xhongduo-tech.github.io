@@ -1,0 +1,39 @@
+<svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>U–Pb 谐和图</title>
+  <desc>以 ²⁰⁷Pb*/²³⁵U 为横轴、²⁰⁶Pb*/²³⁸U 为纵轴，谐和曲线是年龄从零到 45 亿年的参数曲线；发生铅丢失的锆石样品沿不一致线分布，其上下交点分别给出结晶年龄与铅丢失事件年龄。</desc>
+  <rect width="460" height="360" fill="#faf9f5"/>
+  <!-- axes -->
+  <line x1="60" y1="300" x2="420" y2="300" stroke="#333" stroke-width="2"/>
+  <line x1="60" y1="300" x2="60" y2="40" stroke="#333" stroke-width="2"/>
+  <polygon points="420,300 412,296 412,304" fill="#333"/>
+  <polygon points="60,40 56,48 64,48" fill="#333"/>
+  <!-- grid -->
+  <line x1="60" y1="60" x2="420" y2="60" stroke="#d8d3c8" stroke-width="1"/>
+  <line x1="60" y1="120" x2="420" y2="120" stroke="#d8d3c8" stroke-width="1"/>
+  <line x1="60" y1="180" x2="420" y2="180" stroke="#d8d3c8" stroke-width="1"/>
+  <line x1="60" y1="240" x2="420" y2="240" stroke="#d8d3c8" stroke-width="1"/>
+  <!-- concordia curve -->
+  <polyline points="60,300 67,263 84,220 131,170 256,112 382,79" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+  <!-- discordia line -->
+  <line x1="382" y1="79" x2="72" y2="296" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5"/>
+  <!-- analysis points on discordia -->
+  <circle cx="230" cy="174" r="5" fill="#c0392b"/>
+  <circle cx="146" cy="228" r="5" fill="#c0392b"/>
+  <!-- upper intercept marker -->
+  <circle cx="382" cy="79" r="6" fill="#333"/>
+  <!-- axis labels -->
+  <text x="420" y="330" font-family="sans-serif" font-size="15" fill="#333" text-anchor="end">²⁰⁷Pb*/²³⁵U</text>
+  <text x="32" y="170" font-family="sans-serif" font-size="15" fill="#333" text-anchor="middle" transform="rotate(-90 32 170)">²⁰⁶Pb*/²³⁸U</text>
+  <!-- curve label -->
+  <text x="150" y="150" font-family="sans-serif" font-size="14" fill="#1f6f8b">谐和曲线</text>
+  <text x="150" y="167" font-family="sans-serif" font-size="13" fill="#666">(年龄沿曲线增长)</text>
+  <!-- discordia label -->
+  <text x="120" y="255" font-family="sans-serif" font-size="14" fill="#c0392b">不一致线</text>
+  <text x="120" y="272" font-family="sans-serif" font-size="13" fill="#666">(铅丢失样品)</text>
+  <!-- intercepts -->
+  <text x="382" y="68" font-family="sans-serif" font-size="14" fill="#333" text-anchor="middle">上交点 ≈ 4.5 Ga</text>
+  <text x="72" y="312" font-family="sans-serif" font-size="13" fill="#333">下交点 ≈ 铅丢失事件</text>
+  <!-- age ticks on concordia -->
+  <text x="84" y="215" font-family="sans-serif" font-size="12" fill="#666">2 Ga</text>
+  <text x="256" y="105" font-family="sans-serif" font-size="12" fill="#666">4 Ga</text>
+</svg>

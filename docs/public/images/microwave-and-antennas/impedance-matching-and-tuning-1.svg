@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="480" height="200" font-family="sans-serif">
+<title>四分之一波长阻抗变换器</title>
+<desc>一段电长度恰为四分之一波长的传输线接在源阻抗 Z0 与负载 RL 之间，实现阻抗变换。</desc>
+<rect x="0" y="0" width="480" height="200" fill="#faf9f5"/>
+<!-- 主传输线（左侧） -->
+<line x1="40" y1="70" x2="200" y2="70" stroke="#333" stroke-width="3"/>
+<line x1="40" y1="130" x2="200" y2="130" stroke="#333" stroke-width="3"/>
+<!-- 变换器（中间） -->
+<line x1="200" y1="70" x2="340" y2="70" stroke="#c0392b" stroke-width="4"/>
+<line x1="200" y1="130" x2="340" y2="130" stroke="#c0392b" stroke-width="4"/>
+<!-- 负载 -->
+<rect x="352" y="70" width="20" height="60" rx="3" fill="#fff" stroke="#1f6f8b" stroke-width="2"/>
+<text x="382" y="112" font-size="15" fill="#1f6f8b" text-anchor="middle">R<sub>L</sub></text>
+<!-- 源端 -->
+<text x="40" y="48" font-size="14" fill="#333" text-anchor="middle">源</text>
+<line x1="40" y1="56" x2="40" y2="74" stroke="#333" stroke-width="2"/>
+<!-- 标注 -->
+<text x="120" y="158" font-size="14" fill="#333" text-anchor="middle">主传输线 Z<sub>0</sub></text>
+<text x="270" y="52" font-size="15" fill="#c0392b" text-anchor="middle">λ/4 变换器 Z<sub>1</sub> = √(Z<sub>0</sub>R<sub>L</sub>)</text>
+<line x1="270" y1="60" x2="270" y2="140" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="270" y="178" font-size="14" fill="#c0392b" text-anchor="middle">电长度 βl = π/2</text>
+</svg>

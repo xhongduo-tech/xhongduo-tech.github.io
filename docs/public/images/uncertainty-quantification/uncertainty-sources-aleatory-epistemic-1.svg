@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 330" font-family="sans-serif">
+  <title>UQ 传播链条：从输入不确定性到输出不确定性</title>
+  <desc>输入的不确定性（参数、初始条件、边界条件）经数值仿真或代理模型传播，在输出端得到关注量的分布；偶然不确定性不可减少，认知不确定性可随信息增多而收缩。</desc>
+
+  <!-- 纸底 -->
+  <rect x="0" y="0" width="800" height="330" fill="#faf9f5"/>
+
+  <!-- 三个主框 -->
+  <rect x="40" y="90" width="210" height="120" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <rect x="295" y="90" width="210" height="120" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2.5"/>
+  <rect x="550" y="90" width="210" height="120" rx="10" fill="#ffffff" stroke="#1f6f8b" stroke-width="2.5"/>
+
+  <!-- 框标题 -->
+  <text x="145" y="120" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">输入不确定性</text>
+  <text x="400" y="120" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">计算模型</text>
+  <text x="655" y="120" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">输出不确定性</text>
+
+  <!-- 框内细节 -->
+  <text x="145" y="148" text-anchor="middle" font-size="14" fill="#555">参数 / 初始条件</text>
+  <text x="145" y="170" text-anchor="middle" font-size="14" fill="#555">边界条件 / 载荷</text>
+  <text x="400" y="148" text-anchor="middle" font-size="14" fill="#555">数值仿真</text>
+  <text x="400" y="170" text-anchor="middle" font-size="14" fill="#555">或代理模型</text>
+  <text x="655" y="148" text-anchor="middle" font-size="14" fill="#555">关注量（如位移、</text>
+  <text x="655" y="170" text-anchor="middle" font-size="14" fill="#555">洪水位、失效概率）的分布</text>
+
+  <!-- 箭头 -->
+  <line x1="250" y1="150" x2="295" y2="150" stroke="#333" stroke-width="2.5" marker-end="url(#arr)"/>
+  <line x1="505" y1="150" x2="550" y2="150" stroke="#333" stroke-width="2.5" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 底部两类不确定性 -->
+  <rect x="40" y="250" width="340" height="56" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+  <rect x="420" y="250" width="340" height="56" rx="8" fill="#e8f3f6" stroke="#1f6f8b" stroke-width="2"/>
+
+  <text x="56" y="274" font-size="16" font-weight="bold" fill="#c0392b">偶然不确定性</text>
+  <text x="56" y="296" font-size="14" fill="#333">固有变异性 · 不可随数据减少</text>
+
+  <text x="436" y="274" font-size="16" font-weight="bold" fill="#1f6f8b">认知不确定性</text>
+  <text x="436" y="296" font-size="14" fill="#333">知识缺口 · 随信息增多而收缩</text>
+
+  <!-- 顶部标签 -->
+  <text x="400" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">不确定性从输入向输出传播（forward propagation）</text>
+  <line x1="210" y1="58" x2="590" y2="58" stroke="#999" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 420" font-family="sans-serif">
+  <title>Turing 度的跳跃层级</title>
+  <desc>展示 Turing 度的跳跃塔 0 小于 0' 小于 0'' 小于 0'''，以及介于 0 与 0' 之间的中间 c.e. 度。</desc>
+  <rect width="620" height="420" fill="#faf9f5"/>
+  <text x="30" y="36" font-size="20" fill="#333" font-weight="bold">Turing 度：跳跃塔与中间度</text>
+
+  <!-- 左侧：跳跃塔主轴线 -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <line x1="220" y1="345" x2="220" y2="90" stroke="#1f6f8b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 0''' -->
+  <circle cx="220" cy="90" r="12" fill="#1f6f8b"/>
+  <text x="245" y="94" font-size="15" fill="#333">0''' —— 继续跳跃，无顶</text>
+
+  <!-- 0'' -->
+  <circle cx="220" cy="175" r="12" fill="#1f6f8b"/>
+  <text x="245" y="179" font-size="15" fill="#333">0'' —— K'（相对停机问题）</text>
+
+  <!-- 0' -->
+  <circle cx="220" cy="260" r="12" fill="#1f6f8b"/>
+  <text x="245" y="264" font-size="15" fill="#333">0' —— 停机问题 K</text>
+
+  <!-- 0 -->
+  <circle cx="220" cy="345" r="12" fill="#1f6f8b"/>
+  <text x="245" y="349" font-size="15" fill="#333">0 —— 可判定集</text>
+
+  <!-- 右侧：中间 c.e. 度 -->
+  <line x1="430" y1="345" x2="430" y2="260" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,5"/>
+  <circle cx="430" cy="302" r="12" fill="#c0392b"/>
+  <text x="455" y="296" font-size="15" fill="#c0392b">中间 c.e. 度 c</text>
+  <text x="455" y="316" font-size="14" fill="#333">（Friedberg–Muchnik）</text>
+  <text x="430" y="372" font-size="14" fill="#333" text-anchor="middle">严格介于 0 与 0' 之间</text>
+
+  <!-- 图例 -->
+  <rect x="30" y="385" width="560" height="26" rx="4" fill="#fff" stroke="#e0ddd5"/>
+  <text x="45" y="402" font-size="14" fill="#333">图例：实线 = 跳跃关系（上确界方向上更不可判定）；虚线 = 0 与 0' 之间的可嵌入中间度</text>
+</svg>

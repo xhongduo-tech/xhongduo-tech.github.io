@@ -1,0 +1,55 @@
+<svg viewBox="0 0 640 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">成本效果平面</title>
+  <desc id="desc">以效果增量 ΔE 为横轴、成本增量 ΔC 为纵轴，将新技术定位到四个象限，并与支付意愿阈值线比较：右下象限优势必选，左上象限劣势必弃，右上与左下为权衡区。</desc>
+
+  <rect width="640" height="500" fill="#faf9f5"/>
+
+  <!-- 象限背景色 -->
+  <rect x="330" y="50" width="280" height="270" fill="#f5f2ec"/>
+  <rect x="330" y="320" width="280" height="150" fill="#eef4f6"/>
+  <rect x="50" y="50" width="280" height="270" fill="#f8e9e7"/>
+  <rect x="50" y="320" width="280" height="150" fill="#f5f2ec"/>
+
+  <!-- 坐标轴 -->
+  <line x1="50" y1="320" x2="598" y2="320" stroke="#333" stroke-width="2"/>
+  <polygon points="605,320 592,314 592,326" fill="#333"/>
+  <line x1="330" y1="470" x2="330" y2="48" stroke="#333" stroke-width="2"/>
+  <polygon points="330,40 324,54 336,54" fill="#333"/>
+
+  <!-- 轴标签 -->
+  <text x="480" y="358" font-family="sans-serif" font-size="16" fill="#333">ΔE（效果增量，QALY）</text>
+  <text x="348" y="70" font-family="sans-serif" font-size="16" fill="#333">ΔC（成本增量，元）</text>
+  <text x="338" y="316" font-family="sans-serif" font-size="14" fill="#888">O</text>
+
+  <!-- 象限标注 -->
+  <text x="440" y="120" font-family="sans-serif" font-size="16" fill="#333">新技术更有效、更贵</text>
+  <text x="440" y="142" font-family="sans-serif" font-size="14" fill="#666">权衡区：看 ICER</text>
+  <text x="440" y="430" font-family="sans-serif" font-size="16" fill="#333">更有效、更便宜</text>
+  <text x="440" y="452" font-family="sans-serif" font-size="14" fill="#666">优势区：必选</text>
+  <text x="120" y="120" font-family="sans-serif" font-size="16" fill="#333">更无效、更贵</text>
+  <text x="120" y="142" font-family="sans-serif" font-size="14" fill="#666">劣势区：必弃</text>
+  <text x="120" y="430" font-family="sans-serif" font-size="16" fill="#333">更无效、更便宜</text>
+  <text x="120" y="452" font-family="sans-serif" font-size="14" fill="#666">权衡区：省钱的代价</text>
+
+  <!-- 支付意愿阈值线 -->
+  <line x1="330" y1="320" x2="590" y2="130" stroke="#c0392b" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="452" y="175" font-family="sans-serif" font-size="15" fill="#c0392b">阈值线 λ：ICER ≤ λ 采纳</text>
+
+  <!-- 决策点 A（划算） -->
+  <circle cx="510" cy="230" r="6" fill="#1f6f8b"/>
+  <text x="520" y="215" font-family="sans-serif" font-size="15" fill="#1f6f8b">新技术 A：划算</text>
+  <line x1="510" y1="230" x2="510" y2="320" stroke="#999" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="510" y1="230" x2="330" y2="230" stroke="#999" stroke-width="1" stroke-dasharray="3 4"/>
+
+  <!-- 决策点 B（优势） -->
+  <circle cx="470" cy="410" r="6" fill="#1f6f8b"/>
+  <text x="480" y="398" font-family="sans-serif" font-size="15" fill="#1f6f8b">B：更有效更便宜</text>
+
+  <!-- 决策点 C（劣势） -->
+  <circle cx="190" cy="160" r="6" fill="#c0392b"/>
+  <text x="60" y="175" font-family="sans-serif" font-size="15" fill="#c0392b">C：更贵更无效</text>
+
+  <!-- 决策点 D（省钱但无效） -->
+  <circle cx="190" cy="430" r="6" fill="#888"/>
+  <text x="70" y="418" font-family="sans-serif" font-size="15" fill="#888">D：更便宜但更无效</text>
+</svg>

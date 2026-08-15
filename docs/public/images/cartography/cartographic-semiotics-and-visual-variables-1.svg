@@ -1,0 +1,51 @@
+<svg viewBox="0 0 620 410" xmlns="http://www.w3.org/2000/svg" role="img" font-family="sans-serif">
+<title>Bertin 七种视觉变量</title>
+<desc>以点符号为例，展示位置、大小、形状、方向、色相、明度、纹理七种视觉变量的变化方式及其知觉特性。</desc>
+<rect x="0" y="0" width="620" height="410" fill="#faf9f5"/>
+<text x="20" y="38" font-size="15" fill="#333">视觉变量</text>
+<text x="150" y="38" font-size="15" fill="#333">示例（三种取值）</text>
+<text x="430" y="38" font-size="15" fill="#333">知觉特性</text>
+<line x1="20" y1="50" x2="600" y2="50" stroke="#bbb" stroke-width="1"/>
+<!-- 位置 -->
+<text x="20" y="80" font-size="15" fill="#333">位置</text>
+<circle cx="170" cy="75" r="5" fill="#1f6f8b"/>
+<circle cx="220" cy="85" r="5" fill="#1f6f8b"/>
+<circle cx="260" cy="70" r="5" fill="#1f6f8b"/>
+<text x="430" y="84" font-size="14" fill="#555">选择性最强，是平面的主变量</text>
+<!-- 大小 -->
+<text x="20" y="130" font-size="15" fill="#333">大小</text>
+<circle cx="175" cy="128" r="4" fill="#333"/>
+<circle cx="220" cy="128" r="8" fill="#333"/>
+<circle cx="275" cy="128" r="13" fill="#333"/>
+<text x="430" y="133" font-size="14" fill="#555">数量性，可表达定量等级</text>
+<!-- 形状 -->
+<text x="20" y="180" font-size="15" fill="#333">形状</text>
+<circle cx="175" cy="178" r="9" fill="none" stroke="#333" stroke-width="2"/>
+<rect x="212" y="170" width="17" height="17" fill="none" stroke="#333" stroke-width="2"/>
+<polygon points="275,169 286,188 264,188" fill="none" stroke="#333" stroke-width="2"/>
+<text x="430" y="183" font-size="14" fill="#555">质别性，表达类别差异</text>
+<!-- 方向 -->
+<text x="20" y="230" font-size="15" fill="#333">方向</text>
+<line x1="170" y1="230" x2="180" y2="220" stroke="#333" stroke-width="2"/>
+<line x1="215" y1="235" x2="225" y2="225" stroke="#333" stroke-width="2"/>
+<line x1="260" y1="235" x2="270" y2="245" stroke="#333" stroke-width="2"/>
+<text x="430" y="234" font-size="14" fill="#555">选择性，适于方向性符号</text>
+<!-- 色相 -->
+<text x="20" y="280" font-size="15" fill="#333">色相</text>
+<circle cx="175" cy="278" r="9" fill="#c0392b"/>
+<circle cx="222" cy="278" r="9" fill="#1f6f8b"/>
+<circle cx="269" cy="278" r="9" fill="#d9a400"/>
+<text x="430" y="283" font-size="14" fill="#555">质别性，定性分类首选</text>
+<!-- 明度 -->
+<text x="20" y="330" font-size="15" fill="#333">明度</text>
+<circle cx="175" cy="328" r="9" fill="#e8e4dc"/>
+<circle cx="222" cy="328" r="9" fill="#9a958c"/>
+<circle cx="269" cy="328" r="9" fill="#333"/>
+<text x="430" y="333" font-size="14" fill="#555">次序性，表达等级与序列</text>
+<!-- 纹理 -->
+<text x="20" y="380" font-size="15" fill="#333">纹理</text>
+<rect x="166" y="372" width="18" height="18" fill="#e0ded8"/>
+<rect x="213" y="372" width="18" height="18" fill="#b9b4ac"/>
+<rect x="260" y="372" width="18" height="18" fill="#77746e"/>
+<text x="430" y="384" font-size="14" fill="#555">次序性，常与明度联用</text>
+</svg>

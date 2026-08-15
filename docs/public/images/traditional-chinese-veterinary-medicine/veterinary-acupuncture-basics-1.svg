@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="sans-serif">
+  <title>马体常用针灸穴位示意图</title>
+  <desc>侧视马体轮廓，标注大风门、抢风、脾俞、百会、肾俞、后三里、蹄头七个常用穴位。</desc>
+  <rect width="720" height="460" fill="#faf9f5"/>
+  <text x="360" y="36" text-anchor="middle" font-size="22" fill="#333" font-weight="bold">马体常用针灸穴位示意</text>
+  <text x="360" y="60" text-anchor="middle" font-size="14" fill="#666">（侧视 · 每穴为双侧同名穴，图中示一侧）</text>
+
+  <!-- 马体轮廓：简化侧视 -->
+  <g stroke="#333" stroke-width="3" fill="#e8e0d0">
+    <!-- 躯干 -->
+    <path d="M200,150 C200,120 260,105 330,105 L480,105 C530,105 560,125 565,155
+             C580,165 590,185 585,210 L585,250 C585,280 570,295 550,300
+             L180,300 C160,300 148,285 148,260 L148,205 C148,180 165,160 200,150 Z"/>
+    <!-- 颈部与头 -->
+    <path d="M185,155 C165,140 120,95 95,70 C80,52 62,55 60,72 C58,88 78,92 90,100
+             C95,115 100,135 108,150 L145,225 L165,230 Z"/>
+    <!-- 耳 -->
+    <path d="M70,62 L62,30 L86,55 Z"/>
+    <!-- 尾 -->
+    <path d="M568,225 C600,230 615,260 618,300 C618,320 608,330 600,332" fill="none" stroke="#333" stroke-width="3"/>
+    <!-- 前腿 -->
+    <path d="M255,300 L250,390 L275,392 L278,300 Z" fill="#d8cfbc"/>
+    <path d="M330,300 L326,392 L352,390 L355,300 Z" fill="#e8e0d0"/>
+    <!-- 后腿 -->
+    <path d="M470,300 L466,394 L493,392 L498,300 Z" fill="#e8e0d0"/>
+    <path d="M535,302 L530,392 L558,390 L562,300 Z" fill="#d8cfbc"/>
+  </g>
+
+  <!-- 穴位点与标注 -->
+  <g stroke="#c0392b" stroke-width="2" fill="#c0392b">
+    <!-- 大风门 -->
+    <circle cx="78" cy="78" r="5"/>
+    <line x1="78" y1="78" x2="30" y2="95" stroke="#c0392b" stroke-dasharray="3,3"/>
+    <text x="16" y="90" font-size="14" fill="#c0392b" font-weight="bold">大风门</text>
+    <text x="16" y="106" font-size="12" fill="#666">头顶·中暑眩晕</text>
+
+    <!-- 抢风 -->
+    <circle cx="205" cy="152" r="5"/>
+    <line x1="205" y1="152" x2="170" y2="180" stroke="#c0392b" stroke-dasharray="3,3"/>
+    <text x="132" y="182" font-size="14" fill="#c0392b" font-weight="bold">抢风</text>
+    <text x="132" y="198" font-size="12" fill="#666">肩后·前肢病</text>
+
+    <!-- 脾俞 -->
+    <circle cx="330" cy="112" r="5"/>
+    <line x1="330" y1="112" x2="330" y2="58" stroke="#c0392b" stroke-dasharray="3,3"/>
+    <text x="312" y="50" font-size="14" fill="#c0392b" font-weight="bold">脾俞</text>
+    <text x="312" y="66" font-size="12" fill="#666">倒数第三肋间·脾胃</text>
+
+    <!-- 百会 -->
+    <circle cx="492" cy="112" r="5"/>
+    <line x1="492" y1="112" x2="492" y2="56" stroke="#c0392b" stroke-dasharray="3,3"/>
+    <text x="468" y="50" font-size="14" fill="#c0392b" font-weight="bold">百会</text>
+    <text x="468" y="66" font-size="12" fill="#666">腰荐结合·全身要穴</text>
+
+    <!-- 肾俞 -->
+    <circle cx="505" cy="128" r="5"/>
+    <line x1="505" y1="128" x2="600" y2="90" stroke="#c0392b" stroke-dasharray="3,3"/>
+    <text x="602" y="86" font-size="14" fill="#c0392b" font-weight="bold">肾俞</text>
+    <text x="602" y="102" font-size="12" fill="#666">百会旁开·腰胯肾虚</text>
+
+    <!-- 后三里 -->
+    <circle cx="478" cy="268" r="5"/>
+    <line x1="478" y1="268" x2="560" y2="360" stroke="#c0392b" stroke-dasharray="3,3"/>
+    <text x="556" y="372" font-size="14" fill="#c0392b" font-weight="bold">后三里</text>
+    <text x="556" y="388" font-size="12" fill="#666">腓骨小头下·脾胃后肢</text>
+
+    <!-- 蹄头 -->
+    <circle cx="263" cy="394" r="5"/>
+    <line x1="263" y1="394" x2="210" y2="420" stroke="#c0392b" stroke-dasharray="3,3"/>
+    <text x="180" y="424" font-size="14" fill="#c0392b" font-weight="bold">蹄头</text>
+    <text x="180" y="440" font-size="12" fill="#666">蹄冠·热证放血</text>
+  </g>
+</svg>

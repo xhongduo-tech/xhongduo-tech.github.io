@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" font-family="sans-serif" font-size="14">
+  <title>埃奇沃思盒中的竞争均衡</title>
+  <desc>两商品两消费者的交换经济：盒内每点代表一个配置，预算线穿过禀赋点，均衡配置处两个消费者的无差异曲线相切，边际替代率相等。</desc>
+  <rect width="400" height="280" fill="#faf9f5"/>
+  <!-- box: C1 origin bottom-left, C2 origin top-right -->
+  <rect x="60" y="50" width="300" height="180" fill="none" stroke="#333" stroke-width="1.6"/>
+  <text x="56" y="242" fill="#333">消费者 1 原点</text>
+  <text x="206" y="30" fill="#333">消费者 2 原点</text>
+  <text x="250" y="248" fill="#333">x₁ →</text>
+  <text x="36" y="130" fill="#333">x₂</text>
+  <!-- budget line through endowment and equilibrium -->
+  <line x1="60" y1="50" x2="360" y2="230" stroke="#333" stroke-width="1.4" stroke-dasharray="6,3"/>
+  <!-- endowment at bottom-right corner -->
+  <circle cx="360" cy="230" r="4" fill="#333"/>
+  <text x="300" y="244" fill="#333">禀赋 ω</text>
+  <!-- C1 indifference curve through x* -->
+  <polyline points="150,80 180,117.5 210,140 240,155 270,165.5 300,173.8 330,181"
+            fill="none" stroke="#c0392b" stroke-width="2"/>
+  <text x="120" y="70" fill="#c0392b">u¹</text>
+  <!-- C2 indifference curve through x* -->
+  <polyline points="120,106.2 150,114.4 180,125 210,140 240,162.5 255,175"
+            fill="none" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="270" y="196" fill="#1f6f8b">u²</text>
+  <!-- equilibrium -->
+  <circle cx="210" cy="140" r="4.5" fill="#333"/>
+  <text x="216" y="132" fill="#333">均衡 x*</text>
+</svg>

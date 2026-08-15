@@ -1,0 +1,42 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>屏障系统气流与压差设计示意</title>
+  <desc>展示清洁走廊、饲养间、污染走廊之间的气压梯度，气流从高压清洁区流向低压污染区，防止病原进入饲养区。</desc>
+  <rect x="0" y="0" width="800" height="400" fill="#faf9f5"/>
+  <text x="400" y="32" text-anchor="middle" font-size="18" fill="#333" font-weight="bold">屏障系统：压差梯度决定气流方向</text>
+
+  <rect x="40" y="80" width="200" height="200" rx="6" fill="#eaf2f5" stroke="#1f6f8b" stroke-width="2"/>
+  <text x="140" y="130" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">清洁走廊</text>
+  <text x="140" y="160" text-anchor="middle" font-size="14" fill="#1f6f8b">+30 Pa</text>
+  <text x="140" y="190" text-anchor="middle" font-size="13" fill="#333">净手换衣后进入</text>
+  <text x="140" y="220" text-anchor="middle" font-size="13" fill="#333">补给经传递窗</text>
+  <text x="140" y="250" text-anchor="middle" font-size="13" fill="#333">（最高正压）</text>
+
+  <rect x="300" y="80" width="200" height="200" rx="6" fill="#fdf2ec" stroke="#c0392b" stroke-width="2"/>
+  <text x="400" y="130" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">动物饲养间</text>
+  <text x="400" y="160" text-anchor="middle" font-size="14" fill="#c0392b">+20 Pa</text>
+  <text x="400" y="190" text-anchor="middle" font-size="13" fill="#333">IVC / 层流架</text>
+  <text x="400" y="220" text-anchor="middle" font-size="13" fill="#333">SPF 动物笼位</text>
+  <text x="400" y="250" text-anchor="middle" font-size="13" fill="#333">（次级正压）</text>
+
+  <rect x="560" y="80" width="200" height="200" rx="6" fill="#f7f0e6" stroke="#b7791f" stroke-width="2"/>
+  <text x="660" y="130" text-anchor="middle" font-size="16" fill="#333" font-weight="bold">污染走廊</text>
+  <text x="660" y="160" text-anchor="middle" font-size="14" fill="#b7791f">-10 Pa</text>
+  <text x="660" y="190" text-anchor="middle" font-size="13" fill="#333">废弃物、换下的笼具</text>
+  <text x="660" y="220" text-anchor="middle" font-size="13" fill="#333">消毒后运出</text>
+  <text x="660" y="250" text-anchor="middle" font-size="13" fill="#333">（负压区）</text>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+
+  <line x1="240" y1="180" x2="296" y2="180" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="500" y1="180" x2="556" y2="180" stroke="#1f6f8b" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="268" y="172" text-anchor="middle" font-size="13" fill="#1f6f8b">气流→</text>
+  <text x="528" y="172" text-anchor="middle" font-size="13" fill="#1f6f8b">气流→</text>
+
+  <text x="400" y="320" text-anchor="middle" font-size="14" fill="#333">气流总是从高压流向低压：清洁走廊（+30）→ 饲养间（+20）→ 污染走廊（-10）</text>
+  <text x="400" y="348" text-anchor="middle" font-size="13" fill="#666">这样外界与污染区的空气永远进不了饲养区——「干净」由压差而不是由运气维持</text>
+  <text x="400" y="378" text-anchor="middle" font-size="13" fill="#666">示意值仅为量级参考，实际设计按国家标准 GB 14925 确定</text>
+</svg>
