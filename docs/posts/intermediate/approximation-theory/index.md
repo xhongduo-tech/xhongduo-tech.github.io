@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 逼近论的基本问题与赋范空间框架
-- [ ] Weierstrass 逼近定理及其证明
-- [ ] 最佳一致逼近的存在性与唯一性
-- [ ] Chebyshev 交错定理与最小零偏差多项式
-- [ ] 插值方法：Lagrange、Newton 与 Hermite 插值
-- [ ] 正交多项式与最小二乘逼近
-- [ ] Fourier 逼近与 Gibbs 现象
-- [ ] 样条函数与分段多项式逼近
+- [x] [逼近论的基本问题与赋范空间框架](./fundamental-problem-normed-space)
+- [x] [Weierstrass 逼近定理及其证明](./weierstrass-approximation-theorem)
+- [x] [最佳一致逼近的存在性与唯一性](./best-uniform-approximation-existence-uniqueness)
+- [x] [Chebyshev 交错定理与最小零偏差多项式](./chebyshev-alternation-theorem)
+- [x] [插值方法：Lagrange、Newton 与 Hermite 插值](./interpolation-lagrange-newton-hermite)
+- [x] [正交多项式与最小二乘逼近](./orthogonal-polynomials-least-squares)
+- [x] [Fourier 逼近与 Gibbs 现象](./fourier-approximation-gibbs-phenomenon)
+- [x] [样条函数与分段多项式逼近](./spline-piecewise-polynomial-approximation)
 
 ### 第2篇
 
-- [ ] 有理逼近与 Padé 逼近
-- [ ] 逼近论在数值分析与科学计算中的应用
+- [x] [有理逼近与 Padé 逼近](./rational-pade-approximation)
+- [x] [逼近论在数值分析与科学计算中的应用](./applications-numerical-analysis-scientific-computing)

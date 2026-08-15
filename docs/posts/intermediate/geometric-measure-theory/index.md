@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] Hausdorff 测度与 Hausdorff 维数
-- [ ] 覆盖定理（Vitali / Besicovitch）
-- [ ] 密度定理
-- [ ] Rademacher 定理与 Lipschitz 函数
-- [ ] 整流（rectifiable）集与切空间
-- [ ] 面积公式与余面积公式
-- [ ] Frostman 引理与维数估计
-- [ ] 变分几何（varifolds）引论
+- [x] [Hausdorff 测度与 Hausdorff 维数](./hausdorff-measure-dimension)
+- [x] [覆盖定理（Vitali / Besicovitch）](./covering-theorems-vitali-besicovitch)
+- [x] [密度定理](./density-theorems)
+- [x] [Rademacher 定理与 Lipschitz 函数](./rademacher-theorem-lipschitz-functions)
+- [x] [整流（rectifiable）集与切空间](./rectifiable-sets-tangent-spaces)
+- [x] [面积公式与余面积公式](./area-coarea-formulas)
+- [x] [Frostman 引理与维数估计](./frostman-lemma-dimension-estimates)
+- [x] [变分几何（varifolds）引论](./varifolds-introduction)
 
 ### 第2篇
 
-- [ ] 电流（currents）引论
-- [ ] 极小曲面正则性引论
-- [ ] Marstrand 射影定理
-- [ ] 与分形几何的联系
+- [x] [电流（currents）引论](./currents-introduction)
+- [x] [极小曲面正则性引论](./minimal-surfaces-regularity)
+- [x] [Marstrand 射影定理](./marstrand-projection-theorem)
+- [x] [与分形几何的联系](./connection-with-fractal-geometry)

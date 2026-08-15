@@ -7,7 +7,7 @@ date: 2026-08-07
 
 <div class="epigraph">
 <p>把许多变量互相纠缠的演化写成一行 $x_{n+1} = A x_n$，世界瞬间就变得整齐了。</p>
-<footer>—— 引意于 W. G. Kelley & A. C. Peterson（*Difference Equations\*）</footer>
+<footer>—— 引意于 W. G. Kelley & A. C. Peterson（*Difference Equations*）</footer>
 </div>
 
 <div class="article-byline">
@@ -66,6 +66,8 @@ $$J^n = \begin{pmatrix} \lambda^n & n \lambda^{n-1} \\ 0 & \lambda^n \end{pmatri
 
 若某个 $|\lambda_i| > 1$，对应模式爆炸，系统不稳定；若 $|\lambda_i| = 1$ 且其余在圆内，模式持久，系统 Lyapunov 稳定但不渐近稳定。<span class="marginnote">「单位圆」判据在离散系统里是绝对的：连续系统看特征值实部是否 < 0（左半平面），离散系统看模长是否 < 1（单位圆内）。两套语言在《微分方程离散化与差分格式》篇会再次相遇——数值稳定性正是在两套判据之间搭桥。</span>
 
+**统一判据：谱半径。** 记谱半径 $\rho(A) = \max_i |\lambda_i|$，则渐近稳定 ⇔ $\rho(A) < 1$。这个数在《数值线性代数》里会再次登场：幂迭代法 $v_{k+1} = A v_k / \|A v_k\|$ 的收敛速率由次大特征值之比决定——同一矩阵的特征值之比，一端决定差分方程的稳定性，另一端决定迭代算法的收敛快慢。
+
 ## 5 公式解析：捕食—被捕食系统的稳定性
 
 设两个种群 $p_n$（被捕食者）、$q_n$（捕食者）满足：
@@ -110,10 +112,12 @@ $$
 C = \begin{pmatrix} 0 & 1 & \cdots & 0 \\ \vdots & \ddots & \ddots & \vdots \\ 0 & \cdots & 0 & 1 \\ -p_k & \cdots & -p_2 & -p_1 \end{pmatrix}
 $$
 
-$C$ 叫**相伴矩阵（companion matrix）**，其特征多项式 $\det(rI - C) = r^k + p_1 r^{k-1} + \cdots + p_k$ 恰好还原标量方程的特征方程——**标量方程的根 ⇔ 方程组矩阵的特征值**，两个视角彻底打通。Fibonacci 方程 $F_{n+2} = F_{n+1} + F_n$ 的相伴矩阵 $C = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$，$\det C = -1$，故其 Casoratian 每步变号但永不消失，解恒线性无关。
+$C$ 叫**相伴矩阵（companion matrix）**，其特征多项式 $\det(rI - C) = r^k + p_1 r^{k-1} + \cdots + p_k$ 恰好还原标量方程的特征方程——**标量方程的根 ⇔ 方程组矩阵的特征值**，两个视角彻底打通。Fibonacci 方程 $F_{n+2} = F_{n+1} + F_n$ 的相伴矩阵 $C = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$，$\det C = -1$，故其 Casoratian 每步变号但永不消失，解恒线性无关。这份字典也可以反过来用：$C$ 的特征值是黄金比 $\varphi = \frac{1+\sqrt5}{2}$ 与 $\psi = \frac{1-\sqrt5}{2}$，配合初值 $F_0 = 0, F_1 = 1$ 解出叠加系数，即得 Binet 公式 $F_n = \frac{\varphi^n - \psi^n}{\sqrt5}$——特征值分解把一条递推关系「闭式化」，是这一整套方法最直观的回报。
 
 ## 7 小结
 
 - 线性差分方程组 $x_{n+1} = A x_n$ 的解是 $x_n = A^n x_0$，矩阵幂必须靠特征分解计算。
 - 可对角化时解为模式叠加 $x_n = \sum c_i \lambda_i^n v_i$；不可对角化时 Jordan 块带来 $n \lambda^{n-1}$ 修正项。
 - **稳定性判据**：全部特征值 $|\lambda_i| \lt  1$
+
+在下一节，我们不再只看特征值的模长，而是走进**相图与周期解**：当特征值落在单位圆上、或系统带进非线性时，解的行为如何在相平面上画出轨道、又如何走向周期与混沌。

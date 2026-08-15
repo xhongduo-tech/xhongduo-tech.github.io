@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 不确定性来源与偶然/认知分类
-- [ ] 概率框架与贝叶斯框架
-- [ ] 参数辨识与统计反问题
-- [ ] 多项式混沌展开（PCE）
-- [ ] 随机配点与稀疏网格方法
-- [ ] 高斯过程代理模型
-- [ ] 全局灵敏度分析（Sobol 指数）
-- [ ] 贝叶斯反演与 MCMC
+- [x] [不确定性来源与偶然/认知分类](./uncertainty-sources-aleatory-epistemic)
+- [x] [概率框架与贝叶斯框架](./probability-and-bayesian-frameworks)
+- [x] [参数辨识与统计反问题](./parameter-identification-inverse-problems)
+- [x] [多项式混沌展开（PCE）](./polynomial-chaos-expansion)
+- [x] [随机配点与稀疏网格方法](./stochastic-collocation-sparse-grids)
+- [x] [高斯过程代理模型](./gaussian-process-surrogates)
+- [x] [全局灵敏度分析（Sobol 指数）](./global-sensitivity-sobol-indices)
+- [x] [贝叶斯反演与 MCMC](./bayesian-inversion-mcmc)
 
 ### 第2篇
 
-- [ ] 模型校准、确认与外推
-- [ ] 降阶模型与多保真建模
-- [ ] 深度学习中的不确定性（BNN/集成）
-- [ ] UQ 在工程与气候模型中的应用
+- [x] [模型校准、确认与外推](./model-calibration-validation-prediction)
+- [x] [降阶模型与多保真建模](./reduced-order-multifidelity-modeling)
+- [x] [深度学习中的不确定性（BNN/集成）](./uncertainty-deep-learning-bnn-ensembles)
+- [x] [UQ 在工程与气候模型中的应用](./uq-applications-engineering-climate)
