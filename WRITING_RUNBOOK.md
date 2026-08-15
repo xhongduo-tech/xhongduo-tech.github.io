@@ -157,9 +157,13 @@ npm run docs:build             # 全量构建（含 dead-link 检查）
 - 修复 Run3 引入的 52 处 lint 红线。**全站空壳清零（0 空文件），30651 篇博文。**
 - 累计处理 **475 专题 / 9177 文件**（Run1 84 + Run2 147 + Run3 244），全部达标并 push。
 
-**⚠️ 新发现：~8000 个 <120 行文件（401 专题，475 专题之外）**
-- 这些是**核心课程专题**（basic-medicine 242、advanced-physics 141、os 125、data-structures 114、cryptography 106、database 106、computer-networks 104、chinese-history 95 等）里既有内容但篇幅未达章程（60–119 行）。
-- 属于「质量补齐」工作流（扩写而非新写），与本次「空壳清零」不同。**是下一批最大并发扩写候选**。
-- 检测命令：`find docs/posts -name '*.md' ! -name 'index.md' -size +0c | xargs wc -l | awk '$1<120'`。
+**✅ 质量补齐完成并已 push（`a11470d5a`）**
+- 8 路并行 Workflow + 19 文件批补派 + 小批收尾，完成 401 专题 / ~8000 短文件扩写至 ≥120 行（含 6 个溢出大专题按 ~25 文件/agent 切分重派、92 个 119 行文件尾批补齐）。
+- 修复全部 80+ 处 lint 红线。**全站最终状态：0 空壳、0 个 <120 行博文**（仅保留 how-to-publish/style-demo 两个非博文工具文档），30651 篇全部达标，lint 全绿。
 
-**下一个 session 起点**：处理上述 ~8000 个 <120 行文件（用 `/tmp/write-topics-workflow.mjs` 扩写脚本，按专题分组并行），或先跑 `node scripts/lint-html.mjs` + `npm run docs:build` 验证本次部署。
+**复用设施最终版**
+- 扩写脚本：`/tmp/write-topics-workflow.mjs`（按专题）+ `/tmp/expand-files-workflow.mjs`（按文件清单，防单 agent 溢出）。
+- **防溢出关键**：单 agent 处理 >~30 个文件会撞 1M 上下文墙（basic-medicine/os/crypto 等大专题）。解法：按 ~25 文件切批，每批一个 agent；agent 内每写 4-5 个文件用 Bash 确认行数再续。
+- lint 修复：B=marginnote `**`→`<strong>`；C=span 不平衡（span 吞正文模式、游离 `</span>`）；D=裸尖括号（`pH<pI`、`Base<T>` 需空格或反引号）。
+
+**当前状态（截至 `a11470d5a`，已 push）**：全站 0 空壳、0 短文件、lint 全绿。下一 session 可跑 `npm run docs:build` 全量构建验证部署，或按需继续其他工作。
