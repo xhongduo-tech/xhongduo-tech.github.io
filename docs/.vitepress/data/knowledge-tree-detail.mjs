@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 609 个待建专题（2026-08 第一轮增补 42 个、第二轮增补 233 个、定向增补 5 个），约 7280 个章节级子主题
+// 共 640 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20 个），约 7650 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -13117,6 +13117,687 @@ export const treeDetails = {
       "执照与训练体系（私照 PPL/仪表等级/商照 CPL/航线执照 ATPL、教员等级）",
       "高性能与多发机型改装训练",
       "航线运行基础（签派放行、运行规范、与签派/管制的协同）"
+    ],
+  },
+  'engineering/semiconductor-device-physics': {
+    title: "半导体器件物理",
+    books: [
+          "Sze, Ng, \"Physics of Semiconductor Devices\" (3rd ed., 2007)（中译《半导体器件物理》）",
+          "Streetman, Banerjee, \"Solid State Electronic Devices\" (7th ed., 2016)",
+          "Neamen, \"Semiconductor Physics and Devices\" (4th ed., 2012)"
+    ],
+    chapters: [
+      "能带与载流子统计回顾（与《半导体物理》衔接）",
+      "PN 结（内建电势、耗尽层、I-V/C-V 特性、击穿）",
+      "金属-半导体接触（肖特基势垒与欧姆接触）",
+      "双极晶体管 BJT（放大原理、厄利效应、频率特性）",
+      "MOS 电容（平带/阈值电压、C-V 分析）",
+      "MOSFET 长沟道模型（平方律、亚阈值、体效应）",
+      "短沟道效应与器件 scaling（DIBL、速度饱和、热载流子）",
+      "FinFET 与多栅器件（静电控制、三维器件物理）",
+      "GAA 纳米片/纳米线器件与 CFET 展望",
+      "存储器件物理（浮栅/电荷俘获、DRAM 单元、铁电器件）",
+      "化合物半导体器件（HEMT、HBT、光电器件概览）",
+      "器件可靠性（NBTI、TDDB、电迁移）与表征方法"
+    ],
+  },
+  'engineering/digital-ic-design': {
+    title: "数字集成电路设计",
+    books: [
+          "Rabaey, Chandrakasan, Nikolic, \"Digital Integrated Circuits: A Design Perspective\" (2nd ed., 2003)",
+          "Weste, Harris, \"CMOS VLSI Design: A Circuits and Systems Perspective\" (4th ed., 2010)"
+    ],
+    chapters: [
+      "CMOS 反相器（静态特性、动态特性、功耗三成分）",
+      "制造工艺与版图基础（设计规则、与《半导体制造工艺》衔接）",
+      "互连（RC 延迟模型、Elmore 延迟、串扰）",
+      "组合逻辑（静态 CMOS、传输门、动态/多米诺逻辑）",
+      "时序逻辑（寄存器、锁存器、建立/保持时间）",
+      "时序分析与时钟（时钟偏差、抖动、时序收敛概念）",
+      "数据通路运算单元（加法器族、乘法器、移位器）",
+      "存储器阵列（6T SRAM 单元、感放、译码与外围电路）",
+      "低功耗设计（DVFS、时钟门控、电源门控、多阈值）",
+      "设计方法学（RTL→综合→版图流程、标准单元库）",
+      "可测试性设计（扫描链、BIST、ATPG 概念）",
+      "I/O 与 ESD 保护、片上传输线效应"
+    ],
+  },
+  'engineering/analog-ic-design': {
+    title: "模拟集成电路设计",
+    books: [
+          "Razavi, \"Design of Analog CMOS Integrated Circuits\" (2nd ed., 2017)（中译《模拟 CMOS 集成电路设计》）",
+          "Gray, Hurst, Lewis, Meyer, \"Analysis and Design of Analog Integrated Circuits\" (6th ed., 2024)"
+    ],
+    chapters: [
+      "MOS 器件小信号模型与大信号模型回顾",
+      "单级放大器（共源/共栅/源跟随、电流源负载）",
+      "共源共栅（Cascode）与增益提升",
+      "差分放大器（差分对、共模抑制、失调）",
+      "电流镜与偏置技术（匹配、温度特性）",
+      "频率响应（极点/零点、Miller 效应）",
+      "噪声（热噪声/闪烁噪声、输入参考噪声）",
+      "反馈放大器（四种反馈拓扑、稳定性判据）",
+      "运算放大器（两级运放、折叠 Cascode、频率补偿）",
+      "带隙基准与偏置生成",
+      "比较器与开关电容电路",
+      "数据转换器基础（ADC/DAC 架构与指标）",
+      "模拟版图艺术（匹配、对称、共质心、衬底噪声）"
+    ],
+  },
+  'engineering/memory-technology': {
+    title: "存储器技术（DRAM/Flash/HBM/新型存储）",
+    books: [
+          "Sharma, \"Semiconductor Memories: Technology, Testing, and Reliability\" (IEEE Press, 1997)",
+          "Keeth, Baker, Johnson, Lin, \"DRAM Circuit Design: Fundamental and High-Speed Topics\" (2nd ed., 2008)",
+          "Cappelletti, Gola (eds.), \"Flash Memories\" (Springer, 1999)"
+    ],
+    chapters: [
+      "存储层次与存储器指标（容量/带宽/延迟/耐久/成本）",
+      "SRAM（6T 单元读写分析、稳定性 SNM、外围电路）",
+      "DRAM 单元与阵列（1T1C、刷新、读出放大器）",
+      "DRAM 接口演进（SDR→DDR5、LPDDR、GDDR）",
+      "HBM（TSV 堆叠、宽接口、与 GPU/AI 芯片的协同）",
+      "NAND Flash 单元（浮栅/电荷俘获、编程/擦除机理）",
+      "多值存储（MLC/TLC/QLC）与读扰动/保持力",
+      "3D NAND（沟道孔刻蚀、层数演进、串堆叠）",
+      "NOR Flash 与嵌入式存储（eFlash 的 scaling 困境）",
+      "新型非易失存储（PCM、RRAM、MRAM、FeRAM 原理与现状）",
+      "存储可靠性（磨损均衡、ECC、LDPC 纠错）与主控",
+      "存内计算与近存计算（CIM/PIM、CXL 内存池化）"
+    ],
+  },
+  'engineering/advanced-packaging-chiplet': {
+    title: "先进封装与 Chiplet",
+    books: [
+          "Lau, \"3D IC Integration and Packaging\" (McGraw-Hill, 2016)",
+          "Tummala (ed.), \"Fundamentals of Device and Systems Packaging: Technologies and Applications\" (2nd ed., 2019)",
+          "UCIe Consortium, \"UCIe Specification\"（Die-to-Die 互连标准）"
+    ],
+    chapters: [
+      "封装的层级与功能（芯片→封装→板→系统）",
+      "传统封装（引线键合、BGA、倒装焊 Flip-Chip）",
+      "晶圆级封装（WLP/Fan-in/Fan-out）",
+      "2.5D 集成（硅中介层、CoWoS、EMIB、重布线层 RDL）",
+      "3D 集成与硅通孔 TSV（制造、应力、热问题）",
+      "混合键合（Hybrid Bonding，Cu-Cu 直接互连）",
+      "HBM 集成（堆叠、与逻辑芯片的 2.5D 共封装）",
+      "Chiplet 理念（良率经济学、异构组合、KGD 已知良品芯粒）",
+      "Die-to-Die 接口标准（UCIe、BoW、AIB）",
+      "功率完整性与散热（供电网络、热界面材料、液冷封装）",
+      "共封装光学（CPO）与光电异构集成",
+      "系统级封装 SiP 与封装设计流程"
+    ],
+  },
+  'engineering/power-semiconductor': {
+    title: "功率半导体器件（IGBT/SiC/GaN）",
+    books: [
+          "Baliga, \"Fundamentals of Power Semiconductor Devices\" (2nd ed., 2019)",
+          "Lutz et al., \"Semiconductor Power Devices: Physics, Characteristics, Reliability\" (2nd ed., 2018)",
+          "Baliga, \"The IGBT Device\" (2nd ed., 2022)"
+    ],
+    chapters: [
+      "功率器件的指标与根本折中（耐压 vs 导通电阻、Baliga 极限）",
+      "功率二极管（PiN、肖特基、快恢复）",
+      "功率 MOSFET（平面栅/沟槽栅、体二极管）",
+      "超结 MOSFET（电荷平衡原理）",
+      "IGBT（MOS 栅控双极导通、电导调制、拖尾电流、闩锁）",
+      "晶闸管与 GTO（高压大电流场景）",
+      "SiC 材料特性与 SiC MOSFET/SBD（临界电场、高温高频优势）",
+      "GaN HEMT（二维电子气、常关型实现、动态导通电阻）",
+      "栅极驱动与保护（隔离驱动、退饱和保护、短路耐受）",
+      "功率模块封装与热设计（热阻网络、双面散热）",
+      "典型应用拓扑（整流/逆变/DCDC、新能源车电控与充电桩）",
+      "可靠性与失效分析（功率循环、栅氧退化、宇宙射线）"
+    ],
+  },
+  'engineering/advanced-process-integration': {
+    title: "先进制程与器件集成（FinFET→GAA→CFET）",
+    books: [
+          "Colinge (ed.), \"FinFETs and Other Multi-Gate Transistors\" (Springer, 2008)",
+          "Xiao, \"3D IC Devices, Technologies, and Manufacturing\" (SPIE, 2016)",
+          "IRDS（International Roadmap for Devices and Systems）年度路线图 + imec 技术报告"
+    ],
+    chapters: [
+      "摩尔定律 scaling 简史与 Dennard 缩放终结",
+      "晶体管架构演进：平面 → FinFET → GAA 纳米片 → CFET",
+      "high-k/金属栅（栅氧 scaling 困境与解决方案）",
+      "沟道工程（应变硅、SiGe/Ge 沟道、III-V 沟道探索）",
+      "源漏工程与接触电阻（S/D 外延、硅化物、接触 scaling）",
+      "互连演进（铝→铜大马士革→钴/钌、low-k 介质、互连 RC 瓶颈）",
+      "EUV 工艺整合（与《光刻技术与光刻机》衔接：图形化策略）",
+      "背面供电网络（BSPDN）与埋入式电源轨（BPR）",
+      "DTCO/STCO（设计-工艺-系统协同优化方法论）",
+      "3D 单片集成与晶圆键合（顺序式 3D、与封装 3D 的分工）",
+      "制程命名与营销（「3nm/2nm」的真实含义、PPA 指标）",
+      "路线图展望（IRDS/imec：A14/A10 节点、CFET、2D 材料沟道）"
+    ],
+  },
+  'cs/cpu-microarchitecture': {
+    title: "CPU 微架构（乱序/分支预测/存储一致性）",
+    books: [
+          "Hennessy, Patterson, \"Computer Architecture: A Quantitative Approach\" (6th ed., 2017)",
+          "Shen, Lipasti, \"Modern Processor Design: Fundamentals of Superscalar Processors\" (2005)",
+          "Patterson, Hennessy, \"Computer Organization and Design\" (RISC-V ed., 2020)"
+    ],
+    chapters: [
+      "ISA 与微架构的分工、流水线基础（五级流水线）",
+      "冒险与 forwarding、流水线控制",
+      "分支预测（两位饱和计数器、TAGE、感知机预测器）",
+      "超标量发射与动态调度（记分板、Tomasulo 算法）",
+      "寄存器重命名与重排序缓冲（ROB）、精确异常",
+      "推测执行与安全侧信道（Spectre/Meltdown 及缓解）",
+      "存储层次（缓存组织、映射、替换策略、写策略）",
+      "预取（硬件预取器、软件预取）",
+      "存储一致性模型（SC/TSO/弱模型）与缓存一致性协议（MESI/MOESI/目录）",
+      "多核与片上互连（环形/Mesh/NoC）",
+      "SIMD 与向量扩展（SSE/AVX/RVV/SVE）",
+      "性能建模与评估（IPC 分析、Roofline、微基准测试）"
+    ],
+  },
+  'advanced/gpu-architecture-cuda': {
+    title: "GPU 架构与 CUDA 并行编程",
+    books: [
+          "Kirk, Hwu, \"Programming Massively Parallel Processors\" (4th ed., 2022)",
+          "NVIDIA, \"CUDA C++ Programming Guide\"（随 CUDA 版本更新的官方指南）",
+          "Hennessy, Patterson, \"Computer Architecture: A Quantitative Approach\" (6th ed., §4 GPU 章)"
+    ],
+    chapters: [
+      "GPU 简史：从图形管线到通用计算（GPGPU）",
+      "SIMT 执行模型与硬件层次（SM/warp/线程束调度）",
+      "CUDA 编程模型（grid/block/thread、kernel 启动）",
+      "内存层次（全局/共享/常量/纹理内存、合并访问）",
+      "占用率与延迟隐藏（并行度量化分析）",
+      "共享内存与 bank conflict、同步原语",
+      "Tensor Core 与矩阵运算（WMMA/MMA、与 H100/B200 博文联动）",
+      "流、事件与并发执行（计算/传输重叠）",
+      "统一内存与新特性（页迁移、动态并行、协作组）",
+      "性能分析与调优（Nsight、Roofline、内存/计算受限判定）",
+      "多 GPU 编程（NVLink/NVSwitch、NCCL、与集群博文衔接）",
+      "图形管线架构概述（光栅化、光线追踪核心 RT Core）"
+    ],
+  },
+  'cs/eda-algorithms': {
+    title: "EDA 算法与芯片设计流程",
+    books: [
+          "Wang, Chang, Cheng, \"Electronic Design Automation: Synthesis, Verification, and Test\" (Morgan Kaufmann, 2009)",
+          "Kahng, Lienig, Markov, Hu, \"VLSI Physical Design: From Graph Partitioning to Timing Closure\" (2nd ed., 2022)",
+          "Lavagno, Martin, Scheffer (eds.), \"Electronic Design Automation for IC System Design, Verification, and Testing\" (2006)"
+    ],
+    chapters: [
+      "设计流程总览（规格→RTL→综合→布局布线→签核→流片）",
+      "逻辑综合（两级/多级逻辑优化、工艺映射）",
+      "高层次综合 HLS（调度、分配、绑定）",
+      "布图规划与布局（划分、模拟退火、解析式布局器）",
+      "时钟树综合（CTS、偏斜控制）",
+      "布线（Steiner 树、全局/详细布线、轨道分配）",
+      "静态时序分析 STA（时序图、RC 提取、OCV/AOCV）",
+      "物理验证（DRC/LVS/ERC、天线效应）",
+      "仿真与验证（事件驱动仿真、覆盖率、UVM 方法学）",
+      "形式验证（等价性检查、模型检验）",
+      "可制造性设计 DFM（OPC 交互、良率感知设计）",
+      "ML for EDA（布局/布线/良率预测的机器学习方法）"
+    ],
+  },
+  'social/semiconductor-industry': {
+    title: "半导体产业与供应链（芯片战争）",
+    books: [
+          "Miller, \"Chip War: The Fight for the World's Most Critical Technology\" (2022)（中译《芯片战争》）",
+          "O'Mara, \"The Code: Silicon Valley and the Remaking of America\" (2019)",
+          "SIA（美国半导体行业协会）/ McKinsey 半导体产业报告与 IRDS 路线图"
+    ],
+    chapters: [
+      "产业模式演进（IDM → fabless/foundry 垂直分工的诞生）",
+      "台积电模式（纯代工的商业创新、产能与良率的规模壁垒）",
+      "设备供应链（ASML、应用材料、泛林、东京电子、KLA 的垄断格局）",
+      "材料与耗材（信越/SUMCO 硅片、光刻胶、特种气体）",
+      "设计生态（ARM 与 IP 授权模式、EDA 三巨头、RISC-V 的变量）",
+      "市场结构（存储的周期性与寡头化、代工/逻辑/模拟分层）",
+      "摩尔定律经济学（建厂成本曲线、先进节点的客户收窄）",
+      "产业政策（美国 CHIPS 法案、中国大基金、欧盟/日韩补贴竞赛）",
+      "出口管制与技术主权（实体清单、EUV 禁运、算力管制）",
+      "地缘格局（台湾海峡集中度风险、供应链「去风险化」）",
+      "人才与研发模式（产学联盟 imec/SEMATECH 的兴衰）",
+      "中国大陆的追赶路径（成熟制程、设备国产化、先进封装换道）"
+    ],
+  },
+  'engineering/rocket-propulsion': {
+    title: "火箭推进工程",
+    books: [
+          "Sutton, Biblarz, \"Rocket Propulsion Elements\" (9th ed., 2017)（中译《火箭推进原理》）",
+          "Huzel, Huang, \"Modern Engineering for Design of Liquid-Propellant Rocket Engines\" (AIAA, 1992)",
+          "NASA SP 系列液体/固体发动机设计手册（NASA SP-8000 系列公开技术文件）"
+    ],
+    chapters: [
+      "火箭推进基础（推力方程、比冲、齐奥尔科夫斯基公式）",
+      "喷管流动与膨胀比（特征速度、推力系数、高度补偿喷管）",
+      "液体推进剂（液氧煤油/液氧甲烷/液氢/肼类，性能与贮存）",
+      "液体发动机循环（燃气发生器/分级燃烧/全流量分级燃烧/膨胀/抽气循环）",
+      "涡轮泵与阀门（气蚀、轴封、诱导轮设计）",
+      "推力室与燃烧不稳定（喷注器、再生冷却、烧蚀）",
+      "固体火箭发动机（装药型面、内弹道、推力矢量）",
+      "固液混合与电推进（霍尔/离子/MPD，高比冲深空推进）",
+      "推进剂供应与增压系统（贮箱、气瓶、落压/泵压）",
+      "推力矢量控制与姿态动力系统（游动发动机/RCS）",
+      "发动机试车与可靠性（试车台、测量、故障案例）",
+      "典型发动机谱系（Merlin/Raptor/RS-25/RD-180/YF-100/LE-9 对比）"
+    ],
+  },
+  'engineering/astrodynamics-attitude-control': {
+    title: "航天轨道力学与姿态控制",
+    books: [
+          "Vallado, \"Fundamentals of Astrodynamics and Applications\" (4th ed., 2013)",
+          "Bate, Mueller, White, Saylor, \"Fundamentals of Astrodynamics\" (2nd ed., 2020)",
+          "Sidi, \"Spacecraft Dynamics and Control: A Practical Engineering Approach\" (1997)"
+    ],
+    chapters: [
+      "二体问题与开普勒轨道（轨道六根数、星下点）",
+      "轨道机动（霍曼转移、双椭圆转移、平面改变）",
+      "轨道确定与摄动（J2、大气阻力、太阳光压、三体引力）",
+      "发射窗口与交会对接轨道设计",
+      "行星际转移（兰伯特问题、引力弹弓、霍曼链）",
+      "轨道类型谱系（LEO/MEO/GEO/SSO/大椭圆/晕轨道/拉格朗日点）",
+      "再入与返回弹道（气动减速、过载与热流）",
+      "姿态运动学（欧拉角/四元数）与姿态动力学",
+      "姿态确定（太阳/地球/星敏感器、陀螺、卡尔曼滤波）",
+      "姿态控制执行机构（反作用轮/磁力矩器/推力器）与控制律",
+      "轨道维持与星座构型（相位保持、Walker 星座）",
+      "空间碎片环境与规避机动"
+    ],
+  },
+  'engineering/spacecraft-design': {
+    title: "航天器总体设计",
+    books: [
+          "Wertz, Larson (eds.), \"Space Mission Analysis and Design\" (SMAD, 3rd ed., 1999)",
+          "Fortescue, Swinerd, Stark, \"Spacecraft Systems Engineering\" (4th ed., 2011)",
+          "Griffin, French, \"Space Vehicle Design\" (2nd ed., AIAA, 2004)"
+    ],
+    chapters: [
+      "空间任务分析与总体设计流程（任务需求→轨道→载荷→平台）",
+      "空间环境（真空、热、辐射、微流星、原子氧）",
+      "结构与机构（构型、动静载荷、展开机构、分离装置）",
+      "热控分系统（被动/主动热控、热管、百叶窗、低温制冷）",
+      "电源分系统（太阳电池阵、蓄电池、RTG、配电）",
+      "测控与数传（TT&C、链路预算、地面站）",
+      "星载数据管理（OBDH、总线、容错计算）",
+      "推进分系统（单组元/双组元/电推进选型）",
+      "有效载荷集成（光学校准、微振动、电磁兼容）",
+      "可靠性、安全性与质量保证（冗余、FMEA、余度管理）",
+      "空间环境试验与鉴定（振动/噪声/热真空/EMC 试验体系）",
+      "总体方案权衡与成本模型（质量/功率/链路三大预算）"
+    ],
+  },
+  'engineering/satellite-systems': {
+    title: "卫星工程与应用（通信/遥感/导航）",
+    books: [
+          "Maral, Bousquet, Sun, \"Satellite Communications Systems\" (7th ed., 2020)",
+          "Elachi, van Zyl, \"Introduction to the Physics and Techniques of Remote Sensing\" (3rd ed., 2021)",
+          "Misra, Enge, \"Global Positioning System: Signals, Measurements, and Performance\" (2nd ed., 2006)"
+    ],
+    chapters: [
+      "卫星通信系统（透明/再生转发器、频段分配 C/Ku/Ka）",
+      "星地链路预算与调制编码（DVB-S2、雨衰、多波束天线）",
+      "高通量卫星与低轨星座（Starlink/OneWeb/星网的架构）",
+      "光学遥感（推扫/摆扫、分辨率与幅宽折中、定标）",
+      "微波遥感（SAR 成像原理、干涉 InSAR、散射计/高度计）",
+      "遥感数据应用链（辐射校正→几何校正→反演→产品）",
+      "卫星导航原理（伪距测量、卫星钟差、精密定位 PPP/RTK）",
+      "GNSS 系统对比（GPS/GLONASS/伽利略/北斗的信号与体制）",
+      "气象与海洋卫星（静止/极轨双体系、载荷谱系）",
+      "科学卫星与空间天文（巡天、行星际中继）",
+      "小卫星与立方星（CubeSat 标准、搭载发射、编队飞行）",
+      "在轨服务与碎片清除（交会捕获、延寿、主动清除）"
+    ],
+  },
+  'engineering/human-spaceflight': {
+    title: "载人航天与空间生命保障",
+    books: [
+          "Larson, Pranke (eds.), \"Human Spaceflight: Mission Analysis and Design\" (McGraw-Hill, 1999)",
+          "Eckart, \"Spaceflight Life Support and Biospherics\" (1996)",
+          "NASA, \"NASA-STD-3001 载人航天人因与健康标准\"（公开标准文件）"
+    ],
+    chapters: [
+      "载人航天简史与任务类型（近地轨道/登月/深空）",
+      "空间环境对人体的挑战（微重力、辐射、隔离、昼夜节律）",
+      "载人飞船系统（神舟/联盟/龙飞船/猎户座构型对比）",
+      "发射逃逸与救生（逃逸塔/整罩逃逸/中止模式）",
+      "环境控制与生命保障 ECLSS（大气再生、水循环、废物处理）",
+      "航天服（舱内服/舱外服、EMU/飞天服、预呼吸与减压病）",
+      "出舱活动 EVA（气闸、工效学、安全系绳）",
+      "航天医学（骨丢失/肌肉萎缩/心血管失调及对抗措施）",
+      "空间辐射防护（银河宇宙线/太阳粒子事件、屏蔽与限值）",
+      "空间站工程（ISS/天宫的组装、运营与后勤补给）",
+      "交会对接（手动/自动、对接机构、相对导航）",
+      "深空载人任务前瞻（月球门户 Gateway、载人登火的生命保障难题）"
+    ],
+  },
+  'engineering/deep-space-exploration': {
+    title: "深空探测工程（NASA/JPL 任务体系）",
+    books: [
+          "Taylor (ed.), \"Deep Space Communications\" (JPL DESCANSO 系列, 2016)",
+          "NASA/JPL DESCANSO 深空通信与导航系列专著（公开电子版）",
+          "NASA, \"Basics of Space Flight\"（JPL 深空任务公开培训手册）"
+    ],
+    chapters: [
+      "深空任务体系（飞越/环绕/着陆/巡视/采样返回的任务链）",
+      "行星际轨道设计（霍曼链、引力弹弓接力、低推力轨道）",
+      "深空网 DSN（70m/34m 天线阵、上行下行链路、时延通信）",
+      "深空导航（甚长基线干涉 ΔDOR、多普勒/测距、自主导航）",
+      "进入下降着陆 EDL（「恐怖七分钟」：降落伞/反推/空中吊车）",
+      "行星着陆器与巡视器（好奇/毅力/祝融的构型与移动系统）",
+      "采样返回工程（嫦娥五/六号、OSIRIS-REx、隼鸟系列）",
+      "外太阳系任务（旅行者/伽利略/卡西尼/新视野的核电源与长寿命设计）",
+      "着陆选址与行星保护（前向/后向污染防控、COSPAR 规范）",
+      "深空科学载荷（光谱仪/雷达/质谱/地震仪的星载化）",
+      "在轨组装与载人深空（SLS/猎户座、地月空间架构）",
+      "未来方向（木卫二快船、天王星旗舰任务、星际探测器概念）"
+    ],
+  },
+  'engineering/reusable-launch-commercial-space': {
+    title: "可重复使用火箭与商业航天（SpaceX 案例）",
+    books: [
+          "Berger, \"Liftoff: Elon Musk and the Desperate Early Days That Launched SpaceX\" (2021)",
+          "Berger, \"Reentry: SpaceX, Elon Musk, and the Reusable Rockets\" (2024)",
+          "SpaceX 官方用户手册（Falcon 9/Starship Payload User's Guide）与 NASA 商业载人项目公开报告"
+    ],
+    chapters: [
+      "商业航天简史（从政府垄断到 NewSpace：SpaceX/蓝源/火箭实验室）",
+      "Falcon 9 架构（Merlin 发动机簇、铝锂贮箱、过冷推进剂）",
+      "垂直回收技术（再入点火/着陆点火、栅格舵、着陆腿、无人船回收）",
+      "复用经济学（翻新成本、复用次数与报价模型、对一次性火箭的颠覆）",
+      "Falcon Heavy 与拼车发射（Transporter 小卫星搭载模式）",
+      "Starship 系统（全流量分级燃烧 Raptor、不锈钢箭体、筷子臂捕获）",
+      "在轨加注与登月/登火架构（HLS 月面着陆器、燃料库概念）",
+      "Starlink 星座工程（平板卫星、星间激光链路、相控阵用户终端）",
+      "龙飞船与商业载人（NASA 商业乘员计划的采购创新）",
+      "快速迭代研发文化（「测试-爆炸-迭代」与传统航天的对比）",
+      "发射许可与监管（FAA/环境评估/发射场容量）",
+      "全球商业航天格局（中国商业火箭、印度 Skyroot、欧洲阿里安 6 的应对）"
+    ],
+  },
+  'engineering/china-space-program': {
+    title: "中国航天工程（长征/载人/探月/空间站）",
+    books: [
+          "国务院新闻办公室,《2021 中国的航天》白皮书（及历次航天白皮书）",
+          "中国航天科技集团,《中国航天科技活动蓝皮书》（年度公开报告）",
+          "中国载人航天工程办公室 / 国家航天局公开技术资料与任务公报"
+    ],
+    chapters: [
+      "中国航天发展脉络（「两弹一星」→载人三步走→深空探测）",
+      "长征火箭谱系（长征 2/3/5/6/7/8/9 系列的构型与能力定位）",
+      "长征五号的跨越（5m 直径芯级、YF-100/YF-77 新动力）",
+      "载人航天工程（神舟飞船、空间实验室到天宫空间站）",
+      "天宫空间站（三舱构型、机械臂、巡天望远镜共轨飞行）",
+      "探月工程（绕落回三步、嫦娥五号采样、嫦娥六号月背采样）",
+      "行星探测起步（天问一号一次实现绕落巡、后续小行星/火星采样规划）",
+      "北斗导航系统（三步走、混合星座、短报文特色）",
+      "高分/风云/资源卫星体系（对地观测的国家基础设施）",
+      "测控与发射场（酒泉/太原/西昌/文昌、远望船队、深空站）",
+      "商业航天新势力（蓝箭朱雀、星际荣耀、天兵科技、星河动力）",
+      "未来规划（载人登月、长征九号、国际月球科研站 ILRS）"
+    ],
+  },
+  'engineering/radar-systems': {
+    title: "雷达原理与系统",
+    books: [
+          "Skolnik, \"Introduction to Radar Systems\" (3rd ed., 2001)（中译《雷达系统导论》）",
+          "Skolnik (ed.), \"Radar Handbook\" (3rd ed., 2008)",
+          "Richards, \"Fundamentals of Radar Signal Processing\" (2nd ed., 2014)"
+    ],
+    chapters: [
+      "雷达方程与探测距离（功率孔径积、RCS 概念入门）",
+      "波形与匹配滤波（脉冲压缩、线性调频 LFM、相位编码）",
+      "多普勒处理（MTI/MTD、脉冲多普勒体制）",
+      "杂波与干扰环境（地海杂波模型、箔条）",
+      "检测理论（恒虚警 CFAR、检测概率与虚警率）",
+      "相控阵雷达（波束扫描、T/R 组件、有源阵 AESA）",
+      "合成孔径与逆合成孔径（SAR/ISAR 成像雷达）",
+      "跟踪雷达（单脉冲、相控阵跟踪、火控雷达）",
+      "雷达体制谱系（预警/火控/制导/气象/探地/超视距 OTH）",
+      "双/多基地雷达与无源探测（外辐射源雷达）",
+      "抗干扰技术 ECCM（频率捷变、低截获概率 LPI 波形）",
+      "新体制雷达（MIMO 雷达、认知雷达、量子雷达概念辨析）"
+    ],
+  },
+  'engineering/missile-guidance': {
+    title: "导弹与制导控制",
+    books: [
+          "Zarchan, \"Tactical and Strategic Missile Guidance\" (6th ed., AIAA, 2012)",
+          "Siouris, \"Missile Guidance and Control Systems\" (Springer, 2004)",
+          "Fleeman, \"Tactical Missile Design\" (2nd ed., AIAA, 2006)"
+    ],
+    chapters: [
+      "导弹分类与总体组成（巡航/弹道/防空导弹的任务剖面）",
+      "导弹气动布局（正常式/鸭式/无翼式、大攻角气动）",
+      "推进系统选型（固体火箭/冲压/涡喷涡扇/超然冲压）",
+      "制导回路基础（制导-控制一体化结构、脱靶量）",
+      "经典制导律（追踪法/平行接近/比例导引 PN 及其变型）",
+      "现代制导律（最优制导、微分对策、带落角约束制导）",
+      "导引头（雷达/红外成像/激光半主动/多模复合制导）",
+      "自动驾驶仪与执行机构（舵机/燃气舵/推力矢量）",
+      "惯性导航与组合导航（INS/GPS/地形匹配/景象匹配）",
+      "弹道导弹力学（主动段/中段/再入段、突防与诱饵）",
+      "反导拦截动力学（KKV 动能杀伤、碰撞点预测）",
+      "效能评估与仿真（蒙特卡洛打靶、六自由度仿真）"
+    ],
+  },
+  'engineering/combat-aircraft': {
+    title: "战斗机与军用飞机工程",
+    books: [
+          "Raymer, \"Aircraft Design: A Conceptual Approach\" (6th ed., 2018)",
+          "Nicolai, Carichner, \"Fundamentals of Aircraft and Airship Design, Vol. I\" (AIAA, 2010)",
+          "Huenecke, \"Modern Combat Aircraft Design\" (1987)"
+    ],
+    chapters: [
+      "战斗机代际演进（一代到五代/六代的标志性技术跃迁）",
+      "任务需求与总体参数（推重比/翼载/升阻特性权衡）",
+      "高机动气动布局（边条翼/鸭翼/静不稳定与增稳控制）",
+      "超声速与大攻角气动（激波、涡升力、过失速机动）",
+      "隐身外形一体化设计（与《隐身技术与 RCS》衔接）",
+      "推进与进气道（变循环发动机概念、超声速进气道设计）",
+      "飞行控制（电传飞控、推力矢量、综合飞行/火力/推进控制）",
+      "航电与传感器（AESA 雷达、光电分布式孔径 EODAS、头盔显示）",
+      "武器系统集成（内埋弹舱、外挂管理、火力控制）",
+      "运输机与特种飞机（大运的气动/结构/货舱空投设计、预警机/加油机）",
+      "舰载机特殊设计（弹射/拦阻、折叠翼、防腐与甲板适配）",
+      "无人作战飞机（忠诚僚机、隐身无人攻击机的总体特点）"
+    ],
+  },
+  'engineering/helicopter-engineering': {
+    title: "直升机工程",
+    books: [
+          "Leishman, \"Principles of Helicopter Aerodynamics\" (2nd ed., 2016)",
+          "Johnson, \"Helicopter Theory\" (Dover, 1994)",
+          "Seddon, Newman, \"Basic Helicopter Aerodynamics\" (3rd ed., 2011)"
+    ],
+    chapters: [
+      "旋翼气动基础（动量理论、叶素理论、悬停与前飞）",
+      "旋翼运动学（挥舞/摆振/变距、铰接式/无铰/无轴承桨毂）",
+      "前行桨叶压缩性与后行桨叶失速（速度限制的根源）",
+      "尾桨与反扭矩（涵道尾桨、无尾桨 NOTAR）",
+      "直升机性能（悬停升限、前飞航程、自转下滑）",
+      "操纵与稳定性（周期变距、总距、姿态响应特性）",
+      "旋翼振动与噪声（桨-涡干扰 BVI、减振设计）",
+      "传动系统（主减速器、离合器、润滑失效后的干运转设计）",
+      "构型变体（共轴双旋翼/纵列双旋翼/复合式/倾转旋翼 V-22）",
+      "舰载直升机特殊问题（着舰、鱼叉助降、折叠与防腐）",
+      "武装直升机设计要点（装甲/抗弹伤冗余、光电转塔、武器短翼）",
+      "电动垂直起降 eVTOL（分布式电推进对旋翼设计的重塑）"
+    ],
+  },
+  'engineering/naval-vessels': {
+    title: "军用舰艇工程（航母/驱护/两栖）",
+    books: [
+          "Lewis (ed.), \"Principles of Naval Architecture\" (SNAME, 2nd rev., 1988)",
+          "Lamb (ed.), \"Ship Design and Construction\" (SNAME, 2003)",
+          "Friedman, \"U.S. Destroyers: An Illustrated Design History\"（舰艇设计史权威系列）"
+    ],
+    chapters: [
+      "军用舰艇类型谱系（航母/驱护/护卫舰/两栖/补给舰的任务定位）",
+      "舰艇总体设计流程（任务书→方案→技术设计、重量裕度纪律）",
+      "快速性与耐波性（军舰线型、穿浪/深 V/小水线面双体）",
+      "舰艇结构（纵强度、局部强度、抗冲击设计）",
+      "推进系统（柴燃联合 CODOG/CODAG、全燃 COGAG、综合电力推进 IEP）",
+      "隐身与信号特征控制（雷达/红外/声/磁场特征的源头治理）",
+      "舰艇作战系统（相控阵雷达 + 垂发的体系、宙斯盾/中华神盾架构）",
+      "舰载武器集成（导弹垂发系统、舰炮、近防系统 CIWS）",
+      "航母工程专题（弹射/拦阻/滑跃、甲板调度与航空联队运作）",
+      "两栖舰艇（坞登/两攻、气垫登陆艇与直升机投送）",
+      "舰艇损管与生命力（分舱、抗沉性、消防与三防）",
+      "无人舰艇与海上分布式作战（USV 的工程挑战）"
+    ],
+  },
+  'engineering/submarine-engineering': {
+    title: "潜艇工程（总体/静音/核动力）",
+    books: [
+          "Burcher, Rydill, \"Concepts in Submarine Design\" (Cambridge, 1994)",
+          "Ross, \"Mechanics of Underwater Noise\" (1976)（水下噪声经典专著）",
+          "Friedman, \"U.S. Submarines Since 1945: An Illustrated Design History\""
+    ],
+    chapters: [
+      "潜艇类型与任务（攻击型/战略导弹核潜艇、常规潜艇、特种潜艇）",
+      "总体设计（单/双壳体、储备浮力、舱段划分）",
+      "耐压结构（耐压壳强度、极限深度、疲劳寿命）",
+      "潜浮与操纵（压载水舱、均衡系统、水平舵与操艇）",
+      "常规动力（柴电、AIP：斯特林/燃料电池/闭式循环柴油机）",
+      "核动力装置（一体化压水堆、自然循环、一回路与屏蔽）",
+      "静音工程（噪声源分类：螺旋桨/机械/水动力；减振浮筏、消声瓦）",
+      "推进与低噪声（七叶大侧斜螺旋桨、泵喷推进、无轴推进概念）",
+      "声呐系统（舷侧阵/拖曳阵/艇首阵，与《水声工程》衔接）",
+      "水下通信与导航（长波通信、蓝绿激光、惯导 + 重力/地形辅助）",
+      "潜射武器（鱼雷发射管/垂直发射、潜射导弹出水动力学）",
+      "救生与损管（深潜救生艇、舱室破损应急、防火防爆）"
+    ],
+  },
+  'engineering/stealth-rcs': {
+    title: "隐身技术与雷达散射截面（RCS）",
+    books: [
+          "Knott, Shaeffer, Tuley, \"Radar Cross Section\" (2nd ed., 2004)",
+          "Lynch, \"Introduction to RF Stealth\" (SciTech, 2004)",
+          "Jenn, \"Radar and Laser Cross Section Engineering\" (2nd ed., AIAA, 2005)"
+    ],
+    chapters: [
+      "RCS 基础（定义、单位 dBsm、极化与频率/角度依赖）",
+      "散射机理（镜面反射/边缘绕射/爬行波/腔体效应）",
+      "RCS 预估方法（物理光学 PO、几何绕射 GTD/UTD、矩量法 MoM）",
+      "外形隐身设计原则（平行棱边原则、S 形进气道、内埋弹舱）",
+      "雷达吸波材料 RAM（ Salisbury 屏、磁性/介电吸波体、超材料吸波）",
+      "飞机隐身案例剖析（F-117 的多面体、B-2 的飞翼、F-22/J-20 的综合隐身）",
+      "舰艇与车辆的隐身应用（频散设计、上层建筑内倾）",
+      "红外隐身（尾焰冷却、二元喷管、热遮蔽）",
+      "射频隐身的系统观（低截获概率 LPI 雷达、被动探测协同）",
+      "RCS 测量（室外/室内紧缩场、扫频与成像诊断）",
+      "反隐身技术（低频雷达、多基地、无源探测、量子雷达辨析）",
+      "隐身与反隐身的攻防演化（体系对抗视角）"
+    ],
+  },
+  'engineering/electronic-warfare': {
+    title: "电子战与通信对抗",
+    books: [
+          "Adamy, \"EW 101: A First Course in Electronic Warfare\" (2001)",
+          "Adamy, \"EW 102: A Second Course in Electronic Warfare\" (2004)",
+          "Schleher, \"Electronic Warfare in the Information Age\" (1999)"
+    ],
+    chapters: [
+      "电子战体系（电子支援 ES/电子攻击 EA/电子防护 EP 三分法）",
+      "电子支援接收机（晶体视频/超外差/数字接收机、测向体制）",
+      "雷达告警接收机 RWR（威胁识别、告警逻辑）",
+      "压制式干扰（噪声干扰、干扰方程、烧穿距离）",
+      "欺骗式干扰（距离/速度门拖引、DRFM 数字射频存储）",
+      "投掷式对抗（箔条云形成与特性、红外曳光弹）",
+      "通信对抗（跳频/直扩信号的侦察与干扰、数据链对抗）",
+      "导航战（GPS 干扰与抗干扰、欺骗信号生成）",
+      "光电对抗（激光告警、红外定向干扰 DIRCM）",
+      "反辐射武器（反辐射导弹导引头、辐射源定位）",
+      "ECCM 与抗干扰设计（与《雷达原理与系统》抗干扰章互链）",
+      "认知电子战（AI 驱动的实时波形对抗、开放式电磁频谱战）"
+    ],
+  },
+  'engineering/ballistics-ammunition': {
+    title: "弹药工程与弹道学",
+    books: [
+          "Carlucci, Jacobson, \"Ballistics: Theory and Design of Guns and Ammunition\" (3rd ed., 2021)",
+          "Cooper, Kurowski, \"Introduction to the Technology of Explosives\" (1996)",
+          "Walters, Zukas, \"Fundamentals of Shaped Charges\" (1989)"
+    ],
+    chapters: [
+      "内弹道学（发射药燃烧、膛压曲线、身管设计）",
+      "外弹道学（质点弹道、六自由度刚体弹道、气象修正）",
+      "终点弹道学（侵彻、贯穿、杀伤破片、冲击波效应）",
+      "发射装药与火炸药（单/双/三基药、炸药爆轰基础）",
+      "弹药结构（枪弹/炮弹/火箭弹的构造与工艺）",
+      "引信技术（触发/时间/近炸/电子安全系统）",
+      "穿甲弹药（动能穿甲弹 APFSDS、长杆穿甲机理）",
+      "破甲弹药（聚能装药、射流形成与侵彻）",
+      "防空与反导弹药（定向破片战斗部、动能拦截）",
+      "装甲与防护（均质/复合/爆炸反应装甲、间隙装甲）",
+      "制导弹药（末敏弹、制导炮弹、巡飞弹）",
+      "弹药安全性与贮存（钝感弹药、寿命评估）"
+    ],
+  },
+  'engineering/fusion-engineering': {
+    title: "核聚变工程（托卡马克/惯性约束/ITER）",
+    books: [
+          "Freidberg, \"Plasma Physics and Fusion Energy\" (Cambridge, 2007)",
+          "Wesson, Campbell, \"Tokamaks\" (4th ed., 2011)",
+          "ITER 组织与 NIF/LLE 公开技术报告（聚变装置一手工程资料）"
+    ],
+    chapters: [
+      "聚变反应与劳森判据（D-T/D-D/p-B11 反应截面、三重积）",
+      "磁约束原理（磁镜、环向约束、托卡马克位形）",
+      "等离子体平衡与磁流体不稳定性（扭曲/撕裂模、ELM）",
+      "等离子体加热（欧姆/中性束 NBI/射频 ICRH/ECRH）与电流驱动",
+      "约束与输运（L 模/H 模、输运垒、约束定标律）",
+      "偏滤器与等离子体-壁相互作用（第一壁材料、钨/铍选择）",
+      "超导磁体工程（TF/PF 线圈、CICC 导体、失超保护）",
+      "包层与氚增殖（锂铅/氦冷包层、氚自持循环）",
+      "ITER 装置与计划（设计目标、国际合作架构、EAST/CFETR 对照）",
+      "惯性约束聚变（激光间接/直接驱动、NIF 点火成果解读）",
+      "仿星器与替代概念（W7-X、球形托卡马克、场反位形、Z 箍缩）",
+      "聚变电站工程（能量取出、材料辐照损伤、经济性与时间表辨析）"
+    ],
+  },
+  'engineering/radiation-detection-protection': {
+    title: "核辐射探测与防护",
+    books: [
+          "Knoll, \"Radiation Detection and Measurement\" (4th ed., 2010)",
+          "Shultis, Faw, \"Fundamentals of Nuclear Science and Engineering\" (3rd ed., 2017)",
+          "ICRP 出版物与 GB 18871《电离辐射防护与辐射源安全基本标准》"
+    ],
+    chapters: [
+      "辐射与物质的相互作用（带电粒子/γ/中子的作用机制）",
+      "气体探测器（电离室/正比计数器/GM 管）",
+      "闪烁探测器（无机/有机闪烁体、光电倍增与 SiPM）",
+      "半导体探测器（高纯锗 HPGe、硅面垒、CdZnTe）",
+      "中子探测（BF3/He-3、慢化与反冲法）",
+      "γ 谱学与核素识别（全能峰、康普顿平台、效率刻度）",
+      "剂量学量（吸收剂量/当量剂量/有效剂量、ICRU 体系）",
+      "剂量测量（热释光 TLD、电子个人剂量计、场所监测）",
+      "辐射防护原则（正当性/最优化/限值、ALARA）",
+      "屏蔽设计与计算（点核方法、蒙特卡洛 MCNP/Geant4 入门）",
+      "内照射防护与放射性废物管理基础",
+      "天然辐射与氡、核与辐射应急（监测、干预水平）"
+    ],
+  },
+  'engineering/nuclear-fuel-cycle': {
+    title: "核燃料循环与核安全",
+    books: [
+          "Cochran, Tsoulfanidis, \"The Nuclear Fuel Cycle: Analysis and Management\" (2nd ed., 1999)",
+          "Wilson (ed.), \"The Nuclear Fuel Cycle: From Ore to Wastes\" (Oxford, 1996)",
+          "IAEA 安全标准丛书与《核安全公约》公开文件"
+    ],
+    chapters: [
+      "核燃料循环全景（一次通过 vs 闭式循环的路线之争）",
+      "铀矿勘查与采冶（地浸采铀、铀浓缩物黄饼）",
+      "铀转化与浓缩（气体扩散/离心法、激光浓缩概念）",
+      "燃料元件制造（UO2 芯块、锆合金包壳、组件设计）",
+      "堆内辐照行为（燃耗、肿胀、裂变气体释放）",
+      "乏燃料贮存（水池/干式贮存、衰变热管理）",
+      "后处理（PUREX 流程、铀钚分离、高放废液）",
+      "MOX 燃料与快堆闭式循环（嬗变与增殖概念）",
+      "放射性废物分类与处置（低中放近地表、高放地质处置库、芬兰 Onkalo）",
+      "核设施退役（去污、拆除、场址释放）",
+      "核安全文化（纵深防御、三哩岛/切尔诺贝利/福岛事故工程教训）",
+      "核保障监督与不扩散（IAEA 保障、材料衡算、两用技术管控）"
     ],
   },
 }
