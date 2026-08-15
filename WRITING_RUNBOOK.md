@@ -122,3 +122,27 @@ npm run docs:build             # 全量构建（含 dead-link 检查）
 3. 按本手册第二节模板启动**该专题**的批处理代理，≤20 并发、专题内滚动补位。
 4. 上下文到 ~70–80% 时 `/compact`；写完该专题 → 检查点提交 → **关闭本 session**。
 5. 检查点必做：`node scripts/lint-html.mjs` + `npm run docs:build` 全绿后才 `git commit && git push`。
+
+## 八、2026-08-15 批量写博中断恢复现场
+
+> 2026-08-15 08:39 提交 `0d4017425`（增补 233 专题）后启动的大批量写博任务，在上下文压缩时撞 1M 墙中断（错误 `API Error 400 ... maximum context length is 1048576`），**3303 个文件从未提交**。已由新会话恢复：
+
+**已完成（按顺序）**
+1. `b23114cda` — checkpoint：3356 文件（3229 md + 126 svg + posts.json）全部入仓，工作现场不再丢失。
+2. `f5e6e7297` — 完成 2 个已达标专题：algebraic-k-theory、group-theory-in-physics（仅勾选登记）。
+3. `095aa10cc` — 完成 5 专题 56 篇扩写：approximation-theory / uncertainty-quantification / special-functions / geometric-measure-theory / difference-equations。
+4. `f57aa0ec4` — 清零全部 29 个 lint 红线问题（多数为 lint 对跨行数学/`$$` 内联代码的误报，语义等价规避；少数真实缺陷：未闭合 `**`、缺 `$`、表格裸 `|`）。
+5. `28a17faf1` — 完成 6 专题 68 篇扩写：computational-mechanics / phase-transitions-critical-phenomena / molecular-evolution-phylogenetics / modeling-and-simulation / real-time-systems / nonstandard-analysis。
+
+**经验：许多 100–119 行「草稿」其实是截断稿**（末行断在句中、缺小结 bullet 或收尾句），扩写时要先补完截断处再增实质内容。
+
+**复用设施**
+- 勾选脚本：`/tmp/tick_index.py <专题目录> [--apply]` —— 按 frontmatter title ↔ index 条目匹配，仅勾选文件存在且 ≥120 行的条目。标题不一致时先对齐文件 title/H1 到 index 权威标题再勾。
+- 扩写 agent 模板：通用 agent，必读 `.claude/writing-charter.md` + 范本 `set-concept.md`，仅扩写指定 <120 行文件，保持 date(2026-08-07)/byline/语气，禁改 index.md，返回「文件名→新行数」。
+- 批次闭环：行数复核 → `tick_index.py --apply` → `node scripts/lint-html.mjs`（须全绿）→ `node scripts/gen-progress.mjs` → `git add -A && git commit`。
+
+**当前剩余（截至 `28a17faf1`）**
+- 待办专题 261 个、未勾条目 3080、需扩写文件 1743、空壳文件 948、已达标 389。
+- 优先顺序：先「无空壳、短文件最少」的专题（如 5 个接近完成者）→ 再空壳重的专题（写全新稿）。
+
+**下一个 session 起点**：重跑 `git status` / `node scripts/gen-progress.mjs` 看当前 done 数，按第三节纪律从剩余专题继续。
