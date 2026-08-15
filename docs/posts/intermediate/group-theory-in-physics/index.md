@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 对称性与群论基础
-- [ ] 有限群表示论要点
-- [ ] 点群与晶体的宏观对称性
-- [ ] 空间群与固体中的对称操作
-- [ ] 转动群 SO(3) 与角动量理论
-- [ ] SU(2)：自旋与同位旋
-- [ ] SU(3) 与强子分类（八重法）
-- [ ] Lorentz 群与 Poincaré 群
+- [x] [对称性与群论基础](./symmetry-and-group-theory-basics)
+- [x] [有限群表示论要点](./finite-group-representation-theory)
+- [x] [点群与晶体的宏观对称性](./point-groups-crystal-symmetry)
+- [x] [空间群与固体中的对称操作](./space-groups-solid-state-symmetry)
+- [x] [转动群 SO(3) 与角动量理论](./so3-rotation-group-angular-momentum)
+- [x] [SU(2)：自旋与同位旋](./su2-spin-isospin)
+- [x] [SU(3) 与强子分类（八重法）](./su3-hadron-classification)
+- [x] [Lorentz 群与 Poincaré 群](./lorentz-poincare-groups)
 
 ### 第2篇
 
-- [ ] 对称性、简并与守恒律
-- [ ] 群论在分子光谱、固体与粒子物理中的应用
+- [x] [对称性、简并与守恒律](./symmetry-degeneracy-conservation-laws)
+- [x] [群论在分子光谱、固体与粒子物理中的应用](./group-theory-applications)
