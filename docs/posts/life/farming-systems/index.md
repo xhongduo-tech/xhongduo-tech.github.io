@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 耕作制度的概念、功能与类型
-- [ ] 作物布局与种植结构
-- [ ] 复种与多熟制
-- [ ] 间作、混作与套作
-- [ ] 轮作与连作障碍
-- [ ] 土壤耕作（少耕/免耕/深松）
-- [ ] 种养结合与农牧复合系统
-- [ ] 农作制度的区域分异
+- [x] [耕作制度的概念、功能与类型](./farming-system-concept-functions-types)
+- [x] [作物布局与种植结构](./crop-layout-and-planting-structure)
+- [x] [复种与多熟制](./multiple-cropping)
+- [x] [间作、混作与套作](./intercropping-mixed-cropping-relay-cropping)
+- [x] [轮作与连作障碍](./crop-rotation-monoculture-obstacles)
+- [x] [土壤耕作（少耕/免耕/深松）](./soil-tillage-conservation-tillage)
+- [x] [种养结合与农牧复合系统](./crop-livestock-integration)
+- [x] [农作制度的区域分异](./regional-differentiation-farming-systems)
 
 ### 第2篇
 
-- [ ] 耕地保护与撂荒治理
-- [ ] 保护性农业（Conservation Agriculture）
-- [ ] 可持续集约化
-- [ ] 气候智慧型农作制度
+- [x] [耕地保护与撂荒治理](./farmland-protection-abandonment)
+- [x] [保护性农业（Conservation Agriculture）](./conservation-agriculture)
+- [x] [可持续集约化](./sustainable-intensification)
+- [x] [气候智慧型农作制度](./climate-smart-agriculture)

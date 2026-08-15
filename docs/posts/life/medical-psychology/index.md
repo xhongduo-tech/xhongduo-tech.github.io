@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 心理学基础（认知/情绪/人格）
-- [ ] 心理应激与应对
-- [ ] 心身疾病
-- [ ] 心理健康与心理障碍总论
-- [ ] 心理评估（量表与访谈）
-- [ ] 心理咨询与心理治疗
-- [ ] 医患关系与医患沟通
-- [ ] 病人心理与角色适应
+- [x] [心理学基础（认知/情绪/人格）](./psychology-foundations)
+- [x] [心理应激与应对](./psychological-stress-and-coping)
+- [x] [心身疾病](./psychosomatic-disorders)
+- [x] [心理健康与心理障碍总论](./mental-health-and-disorders-overview)
+- [x] [心理评估（量表与访谈）](./psychological-assessment)
+- [x] [心理咨询与心理治疗](./counseling-and-psychotherapy)
+- [x] [医患关系与医患沟通](./doctor-patient-relationship)
+- [x] [病人心理与角色适应](./patient-psychology-and-role-adaptation)
 
 ### 第2篇
 
-- [ ] 疼痛与心理
-- [ ] 睡眠与心理
-- [ ] 临终心理与哀伤辅导
+- [x] [疼痛与心理](./pain-and-psychology)
+- [x] [睡眠与心理](./sleep-and-psychology)
+- [x] [临终心理与哀伤辅导](./end-of-life-psychology-and-grief-counseling)

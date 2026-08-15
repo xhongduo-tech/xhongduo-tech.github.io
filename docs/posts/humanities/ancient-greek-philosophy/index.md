@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 米利都学派与早期自然哲学
-- [ ] 赫拉克利特与毕达哥拉斯学派
-- [ ] 爱利亚学派：巴门尼德与芝诺
-- [ ] 多元论者：恩培多克勒与阿那克萨戈拉
-- [ ] 原子论：德谟克利特
-- [ ] 智者运动与普罗泰戈拉
-- [ ] 苏格拉底与德行即知识
-- [ ] 柏拉图：理念论、知识与政制
+- [x] [米利都学派与早期自然哲学](./milesian-school)
+- [x] [赫拉克利特与毕达哥拉斯学派](./heraclitus-pythagoreans)
+- [x] [爱利亚学派：巴门尼德与芝诺](./eleatic-school-parmenides-zeno)
+- [x] [多元论者：恩培多克勒与阿那克萨戈拉](./pluralists-empedocles-anaxagoras)
+- [x] [原子论：德谟克利特](./atomism-democritus)
+- [x] [智者运动与普罗泰戈拉](./sophist-movement-protagoras)
+- [x] [苏格拉底与德行即知识](./socrates-virtue-is-knowledge)
+- [x] [柏拉图：理念论、知识与政制](./plato-theory-of-forms)
 
 ### 第2篇
 
-- [ ] 亚里士多德：形而上学、伦理学与逻辑学
-- [ ] 希腊化哲学：伊壁鸠鲁学派与斯多亚学派
-- [ ] 怀疑论与犬儒学派
-- [ ] 新柏拉图主义：普罗提诺
+- [x] [亚里士多德：形而上学、伦理学与逻辑学](./aristotle-metaphysics-ethics-logic)
+- [x] [希腊化哲学：伊壁鸠鲁学派与斯多亚学派](./hellenistic-epicureanism-stoicism)
+- [x] [怀疑论与犬儒学派](./skepticism-cynics)
+- [x] [新柏拉图主义：普罗提诺](./neoplatonism-plotinus)

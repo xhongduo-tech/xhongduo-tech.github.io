@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 文字的定义、功能与文字系统分类 (Rogers Ch 1-2)
-- [ ] 文字的起源：从图画记事到楔形文字 (Coulmas Ch 1-2)
-- [ ] 语素文字：汉字与玛雅文字 (Rogers Ch 汉字部分)
-- [ ] 音节文字：日文假名与线性文字 B (Rogers Ch 音节文字)
-- [ ] 辅音文字：腓尼基、阿拉米与阿拉伯字母 (Coulmas Ch 4)
-- [ ] 全音素文字：希腊字母的起源与传播 (Coulmas Ch 5)
-- [ ] 拉丁、西里尔字母的演变与扩散 (Rogers Ch 拉丁字母)
-- [ ] 印度系文字与婆罗米字母体系 (Coulmas Ch 6)
+- [x] [文字的定义、功能与文字系统分类 (Rogers Ch 1-2)](./writing-definition-classification)
+- [x] [文字的起源：从图画记事到楔形文字 (Coulmas Ch 1-2)](./writing-origins-cuneiform)
+- [x] [语素文字：汉字与玛雅文字 (Rogers Ch 汉字部分)](./logographic-scripts-chinese-maya)
+- [x] [音节文字：日文假名与线性文字 B (Rogers Ch 音节文字)](./syllabic-scripts-kana-linear-b)
+- [x] [辅音文字：腓尼基、阿拉米与阿拉伯字母 (Coulmas Ch 4)](./consonantal-scripts-phoenician-arabic)
+- [x] [全音素文字：希腊字母的起源与传播 (Coulmas Ch 5)](./greek-alphabet-origins)
+- [x] [拉丁、西里尔字母的演变与扩散 (Rogers Ch 拉丁字母)](./latin-cyrillic-spread)
+- [x] [印度系文字与婆罗米字母体系 (Coulmas Ch 6)](./brahmi-indic-scripts)
 
 ### 第2篇
 
-- [ ] 文字的形体类型学（周有光「三相」分类） (周有光 Ch 2-4)
-- [ ] 文字改革与现代化：汉字简化、越南国语字 (周有光 Ch 改革部分)
-- [ ] 书写与语言的关系：文字能否独立于口语 (Rogers Ch 2)
-- [ ] 失读文字与文字破译：商博良与罗塞塔石碑 (Coulmas Ch 3)
+- [x] [文字的形体类型学（周有光「三相」分类） (周有光 Ch 2-4)](./graphemic-typology-three-phase)
+- [x] [文字改革与现代化：汉字简化、越南国语字 (周有光 Ch 改革部分)](./writing-reform-modernization)
+- [x] [书写与语言的关系：文字能否独立于口语 (Rogers Ch 2)](./writing-and-speech)
+- [x] [失读文字与文字破译：商博良与罗塞塔石碑 (Coulmas Ch 3)](./decipherment-rosetta)

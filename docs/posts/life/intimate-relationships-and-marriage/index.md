@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 亲密关系的社会科学研究方法
-- [ ] 吸引力与择偶机制
-- [ ] 成人依恋类型（安全/焦虑/回避）
-- [ ] 斯滕伯格爱情三角理论
-- [ ] 亲密沟通与自我表露
-- [ ] 冲突模式与修复尝试（Gottman 四骑士）
-- [ ] 关系中的权力、公平与家务分工
-- [ ] 承诺与关系维持
+- [x] [亲密关系的社会科学研究方法](./research-methods)
+- [x] [吸引力与择偶机制](./attraction-and-mate-selection)
+- [x] [成人依恋类型（安全/焦虑/回避）](./adult-attachment-styles)
+- [x] [斯滕伯格爱情三角理论](./sternberg-triangular-theory-of-love)
+- [x] [亲密沟通与自我表露](./intimate-communication-and-self-disclosure)
+- [x] [冲突模式与修复尝试（Gottman 四骑士）](./conflict-patterns-and-repair-attempts)
+- [x] [关系中的权力、公平与家务分工](./power-fairness-household-labor)
+- [x] [承诺与关系维持](./commitment-and-relationship-maintenance)
 
 ### 第2篇
 
-- [ ] 婚姻法律常识（结婚/财产/离婚）
-- [ ] 家庭暴力识别与求助
-- [ ] 分手、离异与重组家庭
+- [x] [婚姻法律常识（结婚/财产/离婚）](./marriage-law-basics)
+- [x] [家庭暴力识别与求助](./domestic-violence-recognition-and-help)
+- [x] [分手、离异与重组家庭](./breakup-divorce-blended-families)

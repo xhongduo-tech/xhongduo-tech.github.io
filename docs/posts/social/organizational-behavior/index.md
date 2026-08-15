@@ -18,21 +18,21 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 组织行为学的学科基础与研究方法
-- [ ] 个体行为：人格、能力与价值观
-- [ ] 知觉与归因
-- [ ] 态度与工作满意度
-- [ ] 情绪与工作压力
-- [ ] 激励的内容理论：马斯洛、赫茨伯格、麦克利兰
-- [ ] 激励的过程理论：期望理论、公平理论、目标设置
-- [ ] 群体行为与团队动力
+- [x] [组织行为学的学科基础与研究方法](./ob-foundations-and-methods)
+- [x] [个体行为：人格、能力与价值观](./individual-behavior-personality-ability-values)
+- [x] [知觉与归因](./perception-and-attribution)
+- [x] [态度与工作满意度](./attitudes-and-job-satisfaction)
+- [x] [情绪与工作压力](./emotions-and-work-stress)
+- [x] [激励的内容理论：马斯洛、赫茨伯格、麦克利兰](./motivation-content-theories)
+- [x] [激励的过程理论：期望理论、公平理论、目标设置](./motivation-process-theories)
+- [x] [群体行为与团队动力](./group-behavior-and-team-dynamics)
 
 ### 第2篇
 
-- [ ] 沟通与人际过程
-- [ ] 领导理论：特质、行为与权变模型
-- [ ] 变革型领导与领导-成员交换
-- [ ] 权力与政治行为
-- [ ] 冲突与谈判
-- [ ] 组织结构与设计
-- [ ] 组织文化、组织变革与发展
+- [x] [沟通与人际过程](./communication-and-interpersonal-processes)
+- [x] [领导理论：特质、行为与权变模型](./leadership-trait-behavior-contingency)
+- [x] [变革型领导与领导-成员交换](./transformational-leadership-and-lmx)
+- [x] [权力与政治行为](./power-and-political-behavior)
+- [x] [冲突与谈判](./conflict-and-negotiation)
+- [x] [组织结构与设计](./organizational-structure-and-design)
+- [x] [组织文化、组织变革与发展](./organizational-culture-change-and-development)

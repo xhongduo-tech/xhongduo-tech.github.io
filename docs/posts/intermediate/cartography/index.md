@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 地球椭球体与地图数学基础
-- [ ] 地图投影的分类与变形
-- [ ] 常用投影（墨卡托/兰伯特/等积）
-- [ ] 地图符号学与视觉变量
-- [ ] 地图概括（综合）
-- [ ] 专题地图编制方法
-- [ ] 色彩理论与制图配色
-- [ ] 地形图与等高线表示
+- [x] [地球椭球体与地图数学基础](./earth-ellipsoid-and-map-mathematical-foundations)
+- [x] [地图投影的分类与变形](./map-projections-classification-and-distortion)
+- [x] [常用投影（墨卡托/兰伯特/等积）](./common-projections-mercator-lambert-equal-area)
+- [x] [地图符号学与视觉变量](./cartographic-semiotics-and-visual-variables)
+- [x] [地图概括（综合）](./map-generalization)
+- [x] [专题地图编制方法](./thematic-map-compilation-methods)
+- [x] [色彩理论与制图配色](./color-theory-and-cartographic-color)
+- [x] [地形图与等高线表示](./topographic-maps-and-contour-representation)
 
 ### 第2篇
 
-- [ ] 数字制图与自动综合
-- [ ] 地理可视化与虚拟地球
-- [ ] 地图认知与可用性评价
-- [ ] 地图史与制图文化
+- [x] [数字制图与自动综合](./digital-cartography-and-automated-generalization)
+- [x] [地理可视化与虚拟地球](./geovisualization-and-virtual-globes)
+- [x] [地图认知与可用性评价](./map-cognition-and-usability-evaluation)
+- [x] [地图史与制图文化](./history-of-cartography-and-cartographic-culture)

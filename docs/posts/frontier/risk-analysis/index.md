@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 风险概念体系与定量定义（Kaplan & Garrick）
-- [ ] 概率风险评价（PRA）流程
-- [ ] 故障树与事件树分析
-- [ ] 贝叶斯方法与风险更新
-- [ ] 专家判断结构化引出
-- [ ] 风险感知的心理测量范式
-- [ ] 风险的社会放大与风险沟通
-- [ ] 可接受风险与 ALARP 原则
+- [x] [风险概念体系与定量定义（Kaplan & Garrick）](./risk-concept-and-quantitative-definition)
+- [x] [概率风险评价（PRA）流程](./probabilistic-risk-assessment-process)
+- [x] [故障树与事件树分析](./fault-tree-and-event-tree-analysis)
+- [x] [贝叶斯方法与风险更新](./bayesian-methods-and-risk-updating)
+- [x] [专家判断结构化引出](./structured-expert-elicitation)
+- [x] [风险感知的心理测量范式](./psychometric-paradigm-of-risk-perception)
+- [x] [风险的社会放大与风险沟通](./social-amplification-and-risk-communication)
+- [x] [可接受风险与 ALARP 原则](./acceptable-risk-and-alarp)
 
 ### 第2篇
 
-- [ ] 极值与尾部风险建模
-- [ ] 系统性风险与级联失效
-- [ ] 新兴风险与深度不确定性
-- [ ] 风险治理框架（IRGC）与韧性
+- [x] [极值与尾部风险建模](./extreme-value-and-tail-risk-modeling)
+- [x] [系统性风险与级联失效](./systemic-risk-and-cascading-failures)
+- [x] [新兴风险与深度不确定性](./emerging-risk-and-deep-uncertainty)
+- [x] [风险治理框架（IRGC）与韧性](./irgc-risk-governance-and-resilience)

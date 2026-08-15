@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 哺乳动物起源与中生代演化
-- [ ] 单孔类/有袋类/真兽类三大支系
-- [ ] 皮肤、毛与腺体
-- [ ] 体温调节与能量代谢
-- [ ] 感觉与回声定位
-- [ ] 生殖策略与胎盘多样性
-- [ ] 社会行为与通讯
-- [ ] 食性适应与消化系统
+- [x] [哺乳动物起源与中生代演化](./origins-and-mesozoic-evolution)
+- [x] [单孔类/有袋类/真兽类三大支系](./monotremes-marsupials-eutherians)
+- [x] [皮肤、毛与腺体](./skin-hair-and-glands)
+- [x] [体温调节与能量代谢](./thermoregulation-and-energy-metabolism)
+- [x] [感觉与回声定位](./senses-and-echolocation)
+- [x] [生殖策略与胎盘多样性](./reproductive-strategies-and-placental-diversity)
+- [x] [社会行为与通讯](./social-behavior-and-communication)
+- [x] [食性适应与消化系统](./feeding-adaptations-and-digestive-system)
 
 ### 第2篇
 
-- [ ] 主要目级分类（啮齿/食肉/灵长/鲸偶蹄等）
-- [ ] 生物地理与区系
-- [ ] 保护现状与人兽冲突
-- [ ] 野外调查方法（红外相机/无线电追踪）
+- [x] [主要目级分类（啮齿/食肉/灵长/鲸偶蹄等）](./major-orders-classification)
+- [x] [生物地理与区系](./biogeography-and-faunal-regions)
+- [x] [保护现状与人兽冲突](./conservation-status-and-human-wildlife-conflict)
+- [x] [野外调查方法（红外相机/无线电追踪）](./field-survey-methods)

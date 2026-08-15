@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 体育舞蹈分类（标准舞/拉丁舞）
-- [ ] 标准舞基本技术（华尔兹/探戈/维也纳华尔兹）
-- [ ] 拉丁舞基本技术（伦巴/恰恰恰/桑巴）
-- [ ] 音乐节奏识别与舞蹈风格表现
-- [ ] 竞技健美操规则与难度动作
-- [ ] 大众健美操成套动作与创编
-- [ ] 形体训练基础
-- [ ] 竞赛编排与评分标准
+- [x] [体育舞蹈分类（标准舞/拉丁舞）](./sports-dance-classification)
+- [x] [标准舞基本技术（华尔兹/探戈/维也纳华尔兹）](./ballroom-basic-techniques)
+- [x] [拉丁舞基本技术（伦巴/恰恰恰/桑巴）](./latin-basic-techniques)
+- [x] [音乐节奏识别与舞蹈风格表现](./music-rhythm-and-style)
+- [x] [竞技健美操规则与难度动作](./competitive-aerobics-rules)
+- [x] [大众健美操成套动作与创编](./mass-aerobics-routine)
+- [x] [形体训练基础](./body-shaping-training)
+- [x] [竞赛编排与评分标准](./competition-choreography-scoring)
 
 ### 第2篇
 
-- [ ] 教学组织与口令
-- [ ] 常见舞蹈损伤与预防
+- [x] [教学组织与口令](./teaching-organization-commands)
+- [x] [常见舞蹈损伤与预防](./dance-injury-prevention)

@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 自我认知：兴趣、能力与价值观
-- [ ] 霍兰德职业兴趣类型（RIASEC）
-- [ ] Super 生涯发展阶段理论
-- [ ] 职业信息探索与行业分析
-- [ ] 职业目标设定与行动计划
-- [ ] 简历撰写与作品集准备
-- [ ] 面试应对（STAR 法则与结构化面试）
-- [ ] 求职渠道、内推与人脉经营
+- [x] [自我认知：兴趣、能力与价值观](./self-awareness)
+- [x] [霍兰德职业兴趣类型（RIASEC）](./holland-riasec)
+- [x] [Super 生涯发展阶段理论](./super-career-development)
+- [x] [职业信息探索与行业分析](./career-exploration-industry-analysis)
+- [x] [职业目标设定与行动计划](./career-goal-setting-action-plan)
+- [x] [简历撰写与作品集准备](./resume-writing-portfolio)
+- [x] [面试应对（STAR 法则与结构化面试）](./interview-star-structural)
+- [x] [求职渠道、内推与人脉经营](./job-channels-networking)
 
 ### 第2篇
 
-- [ ] Offer 比较与薪酬谈判
-- [ ] 职业转换与终身生涯管理
+- [x] [Offer 比较与薪酬谈判](./offer-comparison-salary-negotiation)
+- [x] [职业转换与终身生涯管理](./career-transition-lifelong-management)

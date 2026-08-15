@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 学生前概念与错误概念研究
-- [ ] 力学概念诊断（FCI/FMCE）
-- [ ] 概念转变理论
-- [ ] 同伴教学法（Peer Instruction）
-- [ ] 探究式实验课程设计
-- [ ] 多表征学习
-- [ ] 认知负荷理论在物理教学中的应用
-- [ ] 学生认识论发展
+- [x] [学生前概念与错误概念研究](./student-preconceptions-and-misconceptions)
+- [x] [力学概念诊断（FCI/FMCE）](./force-concept-inventory-diagnostics)
+- [x] [概念转变理论](./conceptual-change-theory)
+- [x] [同伴教学法（Peer Instruction）](./peer-instruction)
+- [x] [探究式实验课程设计](./inquiry-based-laboratory-design)
+- [x] [多表征学习](./multiple-representations-learning)
+- [x] [认知负荷理论在物理教学中的应用](./cognitive-load-theory-in-physics-teaching)
+- [x] [学生认识论发展](./student-epistemology-development)
 
 ### 第2篇
 
-- [ ] 物理课程评价体系
-- [ ] PER 的量化与质化研究方法
-- [ ] 物理教师教育
+- [x] [物理课程评价体系](./physics-curriculum-assessment)
+- [x] [PER 的量化与质化研究方法](./per-research-methods-quantitative-qualitative)
+- [x] [物理教师教育](./physics-teacher-education)

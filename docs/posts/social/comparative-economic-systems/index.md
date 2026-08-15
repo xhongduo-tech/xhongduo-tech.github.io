@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 经济体制的分类与比较维度
-- [ ] 计划经济体制：短缺经济学与软预算约束
-- [ ] 市场经济的多样性：英美模式与莱茵模式
-- [ ] 东亚发展型政府模式
-- [ ] 转轨的路径之争：休克疗法与渐进主义
-- [ ] 中国渐进式改革的双轨制逻辑
-- [ ] 产权改革与国有企业重组
-- [ ] 价格自由化与宏观经济稳定
+- [x] [经济体制的分类与比较维度](./economic-systems-classification-and-comparison)
+- [x] [计划经济体制：短缺经济学与软预算约束](./planned-economy-shortage-economics-soft-budget-constraint)
+- [x] [市场经济的多样性：英美模式与莱茵模式](./market-economy-diversity-anglo-saxon-rhine-model)
+- [x] [东亚发展型政府模式](./east-asian-developmental-state)
+- [x] [转轨的路径之争：休克疗法与渐进主义](./transition-path-debate-shock-therapy-gradualism)
+- [x] [中国渐进式改革的双轨制逻辑](./chinas-dual-track-reform-logic)
+- [x] [产权改革与国有企业重组](./property-rights-reform-and-soe-restructuring)
+- [x] [价格自由化与宏观经济稳定](./price-liberalization-and-macroeconomic-stabilization)
 
 ### 第2篇
 
-- [ ] 法与金融：法律制度对金融发展的影响
-- [ ] 比较制度分析：博弈论视角的制度多样性
-- [ ] 新比较经济学：政府的'掠夺之手'
-- [ ] 体制绩效的测度与历史教训
+- [x] [法与金融：法律制度对金融发展的影响](./law-and-finance-legal-institutions-and-financial-development)
+- [x] [比较制度分析：博弈论视角的制度多样性](./comparative-institutional-analysis-game-theoretic-diversity)
+- [x] [新比较经济学：政府的'掠夺之手'](./new-comparative-economics-grabbing-hand)
+- [x] [体制绩效的测度与历史教训](./measuring-system-performance-and-historical-lessons)

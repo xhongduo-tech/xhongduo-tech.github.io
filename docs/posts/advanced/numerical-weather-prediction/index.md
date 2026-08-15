@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 控制方程组与滤波近似
-- [ ] 水平离散化（谱方法/格点）
-- [ ] 时间积分格式与稳定性（CFL）
-- [ ] 半拉格朗日方法
-- [ ] 物理过程参数化（积云/微物理/边界层）
-- [ ] 初始条件与客观分析
-- [ ] 最优插值与三维变分（3D-Var）
-- [ ] 四维变分（4D-Var）
+- [x] [控制方程组与滤波近似](./governing-equations-filtering)
+- [x] [水平离散化（谱方法/格点）](./horizontal-discretization)
+- [x] [时间积分格式与稳定性（CFL）](./time-integration-cfl)
+- [x] [半拉格朗日方法](./semi-lagrangian-method)
+- [x] [物理过程参数化（积云/微物理/边界层）](./physical-parameterization)
+- [x] [初始条件与客观分析](./initial-conditions-objective-analysis)
+- [x] [最优插值与三维变分（3D-Var）](./oi-3dvar)
+- [x] [四维变分（4D-Var）](./4dvar)
 
 ### 第2篇
 
-- [ ] 集合卡尔曼滤波（EnKF）
-- [ ] 观测系统（卫星辐射率同化）
-- [ ] 集合预报与可预报性
-- [ ] 次季节—季节预测
-- [ ] 机器学习天气预报模型
+- [x] [集合卡尔曼滤波（EnKF）](./enkf)
+- [x] [观测系统（卫星辐射率同化）](./satellite-radiance-assimilation)
+- [x] [集合预报与可预报性](./ensemble-prediction-predictability)
+- [x] [次季节—季节预测](./subseasonal-seasonal-prediction)
+- [x] [机器学习天气预报模型](./ml-weather-forecasting)

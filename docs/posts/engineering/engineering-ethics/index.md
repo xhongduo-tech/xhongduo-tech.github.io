@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 工程职业与工程师的角色责任
-- [ ] 伦理理论框架（功利/义务/德性）在工程中的应用
-- [ ] 工程中的安全、风险与可接受性
-- [ ] 工程诚实与学术/职业诚信
-- [ ] 利益冲突与保密义务
-- [ ] 告发（whistleblowing）与组织 disobedience 案例（挑战者号）
-- [ ] 环境与可持续发展责任
-- [ ] 信息与人工智能工程的伦理问题
+- [x] [工程职业与工程师的角色责任](./engineering-profession-roles)
+- [x] [伦理理论框架（功利/义务/德性）在工程中的应用](./ethical-theories-frameworks)
+- [x] [工程中的安全、风险与可接受性](./safety-risk-acceptability)
+- [x] [工程诚实与学术/职业诚信](./engineering-honesty-integrity)
+- [x] [利益冲突与保密义务](./conflicts-of-interest-confidentiality)
+- [x] [告发（whistleblowing）与组织 disobedience 案例（挑战者号）](./whistleblowing-challenger)
+- [x] [环境与可持续发展责任](./environment-sustainability)
+- [x] [信息与人工智能工程的伦理问题](./information-ai-engineering-ethics)
 
 ### 第2篇
 
-- [ ] 工程师的跨国责任与全球工程规范
-- [ ] 工程社团伦理守则（NSPE/IEEE）
+- [x] [工程师的跨国责任与全球工程规范](./global-responsibility-cross-border)
+- [x] [工程社团伦理守则（NSPE/IEEE）](./professional-codes-nspe-ieee)

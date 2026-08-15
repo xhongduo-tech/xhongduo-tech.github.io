@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 相机成像原理与曝光三要素
-- [ ] 镜头焦距与景深控制
-- [ ] 构图法则与视觉引导
-- [ ] 自然光与人造光运用、基础布光
-- [ ] 景别与镜头语言
-- [ ] 运动镜头与场面调度
-- [ ] 同期声与录音基础
-- [ ] 剪辑节奏与蒙太奇
+- [x] [相机成像原理与曝光三要素](./camera-imaging-and-exposure-triangle)
+- [x] [镜头焦距与景深控制](./lens-focal-length-and-depth-of-field)
+- [x] [构图法则与视觉引导](./composition-rules-and-visual-guidance)
+- [x] [自然光与人造光运用、基础布光](./natural-and-artificial-light-basic-lighting)
+- [x] [景别与镜头语言](./shot-size-and-camera-language)
+- [x] [运动镜头与场面调度](./camera-movement-and-mise-en-scene)
+- [x] [同期声与录音基础](./sync-sound-and-audio-recording-basics)
+- [x] [剪辑节奏与蒙太奇](./editing-rhythm-and-montage)
 
 ### 第2篇
 
-- [ ] 剪辑软件实操（Premiere/剪映）
-- [ ] 基础调色
-- [ ] 短视频叙事结构与平台适配
+- [x] [剪辑软件实操（Premiere/剪映）](./editing-software-premiere-capcut)
+- [x] [基础调色](./basic-color-grading)
+- [x] [短视频叙事结构与平台适配](./short-video-narrative-and-platform-adaptation)

@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 医学教育史与 Flexner 报告
-- [ ] 课程体系设计（整合课程/PBL/器官系统课程）
-- [ ] 胜任力导向医学教育（CBME）
-- [ ] 临床技能教学与模拟医学教育
-- [ ] 床旁教学与临床带教
-- [ ] 形成性评价与 OSCE 考核
-- [ ] 住院医师规范化培训制度
-- [ ] 继续医学教育与终身学习
+- [x] [医学教育史与 Flexner 报告](./history-flexner-report)
+- [x] [课程体系设计（整合课程/PBL/器官系统课程）](./curriculum-design)
+- [x] [胜任力导向医学教育（CBME）](./cbme)
+- [x] [临床技能教学与模拟医学教育](./clinical-skills-simulation)
+- [x] [床旁教学与临床带教](./bedside-teaching)
+- [x] [形成性评价与 OSCE 考核](./formative-assessment-osce)
+- [x] [住院医师规范化培训制度](./residency-training)
+- [x] [继续医学教育与终身学习](./cme-lifelong-learning)
 
 ### 第2篇
 
-- [ ] 医学教育研究方法
-- [ ] 教育技术与在线医学教育
-- [ ] 医学教师发展
-- [ ] 医学教育认证与质量保障
+- [x] [医学教育研究方法](./medical-education-research-methods)
+- [x] [教育技术与在线医学教育](./edtech-online-learning)
+- [x] [医学教师发展](./faculty-development)
+- [x] [医学教育认证与质量保障](./accreditation-quality-assurance)

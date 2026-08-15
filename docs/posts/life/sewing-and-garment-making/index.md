@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 面料识别与辅料选用
-- [ ] 人体测量与服装号型
-- [ ] 服装纸样基础（原型法/比例法）
-- [ ] 裁剪与排料
-- [ ] 手缝基础工艺
-- [ ] 工业/家用缝纫机使用与维护
-- [ ] 部件工艺：领、袖、口袋、开衩
-- [ ] 裙装与裤装制作
+- [x] [面料识别与辅料选用](./fabric-identification-and-accessories)
+- [x] [人体测量与服装号型](./body-measurement-and-sizing)
+- [x] [服装纸样基础（原型法/比例法）](./pattern-making-basics)
+- [x] [裁剪与排料](./cutting-and-layout)
+- [x] [手缝基础工艺](./hand-stitching-basics)
+- [x] [工业/家用缝纫机使用与维护](./sewing-machine-usage-and-maintenance)
+- [x] [部件工艺：领、袖、口袋、开衩](./collar-sleeve-pocket-slits)
+- [x] [裙装与裤装制作](./skirt-and-trousers-making)
 
 ### 第2篇
 
-- [ ] 衬衫与上衣制作
-- [ ] 熨烫与定型工艺
-- [ ] 服装改款、修补与旧衣改造
+- [x] [衬衫与上衣制作](./shirt-and-top-making)
+- [x] [熨烫与定型工艺](./ironing-and-setting)
+- [x] [服装改款、修补与旧衣改造](./alteration-repair-upcycling)

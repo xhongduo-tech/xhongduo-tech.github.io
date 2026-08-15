@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 代码智能概览：任务谱系、数据集与评测格局
-- [ ] 代码的表示学习：CodeBERT 与 GraphCodeBERT
-- [ ] 代码生成大模型：从 Codex 到 Code LLaMA/DeepSeek-Coder
-- [ ] 代码补全与 IDE 集成的工程实践
-- [ ] 评测基准：HumanEval、MBPP 与 pass@k 估计
-- [ ] 仓库级代码理解与长上下文建模
-- [ ] 检索增强的代码生成
-- [ ] 单元测试生成与自动化程序修复
+- [x] [代码智能概览：任务谱系、数据集与评测格局](./code-intelligence-overview)
+- [x] [代码的表示学习：CodeBERT 与 GraphCodeBERT](./code-representation-codebert-graphcodebert)
+- [x] [代码生成大模型：从 Codex 到 Code LLaMA/DeepSeek-Coder](./code-generation-codex-to-codellama)
+- [x] [代码补全与 IDE 集成的工程实践](./code-completion-ide-integration)
+- [x] [评测基准：HumanEval、MBPP 与 pass@k 估计](./code-evaluation-humaneval-mbpp-passk)
+- [x] [仓库级代码理解与长上下文建模](./repository-level-code-understanding-long-context)
+- [x] [检索增强的代码生成](./retrieval-augmented-code-generation)
+- [x] [单元测试生成与自动化程序修复](./unit-test-generation-automated-program-repair)
 
 ### 第2篇
 
-- [ ] 代码审查、缺陷检测与安全审计
-- [ ] Agent 化编程：SWE-agent 与工具链编排
-- [ ] SWE-bench 与真实仓库 issue 修复评测
-- [ ] 工程落地：Copilot/Cursor 模式、许可证与安全风险
+- [x] [代码审查、缺陷检测与安全审计](./code-review-defect-detection-security-audit)
+- [x] [Agent 化编程：SWE-agent 与工具链编排](./agentic-programming-swe-agent)
+- [x] [SWE-bench 与真实仓库 issue 修复评测](./swe-bench-real-world-issue-resolution)
+- [x] [工程落地：Copilot/Cursor 模式、许可证与安全风险](./copilot-cursor-licensing-security)

@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 出版的概念、属性与中外出版史概要
-- [ ] 编辑工作与编辑流程总览
-- [ ] 选题策划与组稿
-- [ ] 审稿、编辑加工与内容质量管理
-- [ ] 校对与装帧设计
-- [ ] 著作权与版权贸易
-- [ ] 出版物成本核算与定价
-- [ ] 发行渠道与图书营销
+- [x] [出版的概念、属性与中外出版史概要](./publishing-concept-and-history)
+- [x] [编辑工作与编辑流程总览](./editorial-work-and-process)
+- [x] [选题策划与组稿](./topic-planning-and-acquisition)
+- [x] [审稿、编辑加工与内容质量管理](./review-editing-and-quality)
+- [x] [校对与装帧设计](./proofreading-and-design)
+- [x] [著作权与版权贸易](./copyright-and-license-trade)
+- [x] [出版物成本核算与定价](./cost-accounting-and-pricing)
+- [x] [发行渠道与图书营销](./distribution-and-marketing)
 
 ### 第2篇
 
-- [ ] 期刊出版与学术出版
-- [ ] 数字出版、融合出版与出版法规职业道德
+- [x] [期刊出版与学术出版](./journal-and-academic-publishing)
+- [x] [数字出版、融合出版与出版法规职业道德](./digital-publishing-and-professional-ethics)

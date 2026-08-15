@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 应用语言学的学科范围与历史 (Schmitt Ch 1-2)
-- [ ] 第一语言习得与第二语言习得的对比 (Ellis Ch 1-3)
-- [ ] 中介语理论与错误分析 (Ellis Ch 3-4)
-- [ ] SLA 的认知视角：输入、互动与输出假说 (Ellis Ch 6-8)
-- [ ] 学习者个体差异：动机、学能、策略 (Ellis Ch 9-11)
-- [ ] 语法教学法史：语法翻译法、听说法、交际法 (Richards & Rodgers Part I-II)
-- [ ] 任务型语言教学与内容型教学 (Richards & Rodgers Ch 9-10)
-- [ ] 语言测试：信度、效度与构念 (Schmitt Ch 语言测试)
+- [x] [应用语言学的学科范围与历史 (Schmitt Ch 1-2)](./discipline-scope-and-history)
+- [x] [第一语言习得与第二语言习得的对比 (Ellis Ch 1-3)](./l1-vs-l2-acquisition)
+- [x] [中介语理论与错误分析 (Ellis Ch 3-4)](./interlanguage-and-error-analysis)
+- [x] [SLA 的认知视角：输入、互动与输出假说 (Ellis Ch 6-8)](./input-interaction-output)
+- [x] [学习者个体差异：动机、学能、策略 (Ellis Ch 9-11)](./individual-differences-motivation-aptitude-strategies)
+- [x] [语法教学法史：语法翻译法、听说法、交际法 (Richards & Rodgers Part I-II)](./methods-history-grammar-translation-audio-lingual-communicative)
+- [x] [任务型语言教学与内容型教学 (Richards & Rodgers Ch 9-10)](./task-based-and-content-based-instruction)
+- [x] [语言测试：信度、效度与构念 (Schmitt Ch 语言测试)](./language-testing-reliability-validity-construct)
 
 ### 第2篇
 
-- [ ] 语言规划与语言政策 (Schmitt Ch 语言政策)
-- [ ] 语料库在语言教学与词典编纂中的应用 (Schmitt Ch 语料库)
-- [ ] 多语制与全球英语（English as a Lingua Franca）
-- [ ] 应用语言学研究方法：定量与定性 (Schmitt Ch 方法)
+- [x] [语言规划与语言政策 (Schmitt Ch 语言政策)](./language-planning-and-policy)
+- [x] [语料库在语言教学与词典编纂中的应用 (Schmitt Ch 语料库)](./corpus-applications)
+- [x] [多语制与全球英语（English as a Lingua Franca）](./multilingualism-and-elf)
+- [x] [应用语言学研究方法：定量与定性 (Schmitt Ch 方法)](./research-methods-quantitative-qualitative)

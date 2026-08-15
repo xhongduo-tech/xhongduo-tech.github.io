@@ -18,19 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 学科性质与名称演变：对外汉语教学→汉语国际教育→国际中文教育 (刘珣 Ch 1)
-- [ ] 学科理论基础：语言学、教育学、心理学、文化学 (刘珣 Ch 2)
-- [ ] 第二语言教学主要流派在汉语教学中的应用 (刘珣 Ch 6)
-- [ ] 汉语作为第二语言习得研究：偏误分析 (刘珣 Ch 5)
-- [ ] 汉字教学的特殊性与教学方法 (周小兵 Ch 汉字)
-- [ ] 语音教学：声调、轻声与语流音变 (周小兵 Ch 语音)
-- [ ] 词汇教学与语素教学法 (赵金铭 Ch 词汇教学)
-- [ ] 语法教学：把字句、了着过等难点处理 (周小兵 Ch 语法)
-
+- [x] [学科性质与名称演变：对外汉语教学→汉语国际教育→国际中文教育 (刘珣 Ch 1)](./discipline-nature-and-name-evolution)
+- [x] [学科理论基础：语言学、教育学、心理学、文化学 (刘珣 Ch 2)](./discipline-theoretical-foundations)
+- [x] [第二语言教学主要流派在汉语教学中的应用 (刘珣 Ch 6)](./second-language-teaching-approaches)
+- [x] [汉语作为第二语言习得研究：偏误分析 (刘珣 Ch 5)](./sla-error-analysis)
+- [x] [汉字教学的特殊性与教学方法 (周小兵 Ch 汉字)](./chinese-character-teaching)
+- [x] [语音教学：声调、轻声与语流音变 (周小兵 Ch 语音)](./phonetics-teaching-tones)
+- [x] [词汇教学与语素教学法 (赵金铭 Ch 词汇教学)](./vocabulary-teaching-and-morpheme)
+- [x] [语法教学：把字句、了着过等难点处理 (周小兵 Ch 语法)](./grammar-teaching-difficult-points)
 ### 第2篇
 
-- [ ] 听力/口语/阅读/写作技能训练 (赵金铭 Ch 技能训练)
-- [ ] 教材编写原则与评估 (赵金铭 Ch 教材)
-- [ ] 汉语水平考试（HSK）与语言测试 (刘珣 Ch 测试)
-- [ ] 跨文化交际与文化教学 (刘珣 Ch 文化)
-- [ ] 国际中文教师专业发展 (赵金铭 Ch 教师)
+- [x] [听力/口语/阅读/写作技能训练 (赵金铭 Ch 技能训练)](./skills-training-four-modalities)
+- [x] [教材编写原则与评估 (赵金铭 Ch 教材)](./textbook-compilation-and-evaluation)
+- [x] [汉语水平考试（HSK）与语言测试 (刘珣 Ch 测试)](./hsk-and-language-testing)
+- [x] [跨文化交际与文化教学 (刘珣 Ch 文化)](./cross-cultural-communication-and-cultural-teaching)
+- [x] [国际中文教师专业发展 (赵金铭 Ch 教师)](./teacher-professional-development)

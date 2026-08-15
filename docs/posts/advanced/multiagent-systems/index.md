@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 智能体概念与体系结构（反应式/慎思式/混合式）
-- [ ] BDI 模型与实用推理
-- [ ] 多智能体交互与协作问题
-- [ ] 智能体通信语言（KQML/FIPA-ACL）
-- [ ] 协商与谈判协议
-- [ ] 拍卖机制与VCG 机制
-- [ ] 联盟形成与任务分配
-- [ ] 分布式问题求解与分布式约束
+- [x] [智能体概念与体系结构（反应式/慎思式/混合式）](./agent-concept-and-architecture)
+- [x] [BDI 模型与实用推理](./bdi-model-practical-reasoning)
+- [x] [多智能体交互与协作问题](./multiagent-interaction-collaboration)
+- [x] [智能体通信语言（KQML/FIPA-ACL）](./agent-communication-languages)
+- [x] [协商与谈判协议](./negotiation-and-bargaining)
+- [x] [拍卖机制与VCG 机制](./auction-mechanisms-vcg)
+- [x] [联盟形成与任务分配](./coalition-formation-task-allocation)
+- [x] [分布式问题求解与分布式约束](./distributed-problem-solving-constraints)
 
 ### 第2篇
 
-- [ ] 博弈论在多智能体系统中的应用
-- [ ] 论证、信任与声誉模型
-- [ ] 群体行为与涌现现象
-- [ ] 多智能体学习及与深度 MARL 的衔接
+- [x] [博弈论在多智能体系统中的应用](./game-theory-in-mas)
+- [x] [论证、信任与声誉模型](./argumentation-trust-reputation)
+- [x] [群体行为与涌现现象](./collective-behavior-emergence)
+- [x] [多智能体学习及与深度 MARL 的衔接](./multiagent-learning-marl)

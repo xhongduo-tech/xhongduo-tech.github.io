@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 社会科学研究的逻辑：演绎与归纳
-- [ ] 研究设计与选题操作化
-- [ ] 概念化、操作化与测量
-- [ ] 抽样原理与抽样设计
-- [ ] 问卷设计与调查研究
-- [ ] 实验法与准实验设计
-- [ ] 实地研究与参与观察
-- [ ] 深度访谈与焦点小组
+- [x] [社会科学研究的逻辑：演绎与归纳](./logic-of-social-science-research)
+- [x] [研究设计与选题操作化](./research-design-and-topic-operationalization)
+- [x] [概念化、操作化与测量](./conceptualization-operationalization-measurement)
+- [x] [抽样原理与抽样设计](./sampling-principles-and-design)
+- [x] [问卷设计与调查研究](./questionnaire-design-and-survey-research)
+- [x] [实验法与准实验设计](./experimental-and-quasi-experimental-design)
+- [x] [实地研究与参与观察](./field-research-and-participant-observation)
+- [x] [深度访谈与焦点小组](./in-depth-interview-and-focus-group)
 
 ### 第2篇
 
-- [ ] 内容分析与文献研究
-- [ ] 社会统计学基础：描述统计与推断统计
-- [ ] 相关与回归分析
-- [ ] 测量的信度与效度
-- [ ] 研究伦理与学术规范
-- [ ] 混合方法与计算社会科学方法
+- [x] [内容分析与文献研究](./content-analysis-and-literature-research)
+- [x] [社会统计学基础：描述统计与推断统计](./social-statistics-basics)
+- [x] [相关与回归分析](./correlation-and-regression-analysis)
+- [x] [测量的信度与效度](./reliability-and-validity-of-measurement)
+- [x] [研究伦理与学术规范](./research-ethics-and-academic-norms)
+- [x] [混合方法与计算社会科学方法](./mixed-methods-and-computational-social-science)

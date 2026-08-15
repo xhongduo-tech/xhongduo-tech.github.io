@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 战略与战略管理过程
-- [ ] 愿景、使命与战略目标
-- [ ] 外部环境分析：PEST 与五力模型
-- [ ] 内部资源与能力分析：VRIO 框架
-- [ ] 资源基础观与核心竞争力
-- [ ] 业务层战略：成本领先、差异化与聚焦
-- [ ] 蓝海战略与价值创新
-- [ ] 公司层战略：一体化、多元化与并购
+- [x] [战略与战略管理过程](./strategy-and-strategic-management-process)
+- [x] [愿景、使命与战略目标](./vision-mission-strategic-objectives)
+- [x] [外部环境分析：PEST 与五力模型](./external-environment-pest-five-forces)
+- [x] [内部资源与能力分析：VRIO 框架](./internal-analysis-vrio-framework)
+- [x] [资源基础观与核心竞争力](./resource-based-view-core-competence)
+- [x] [业务层战略：成本领先、差异化与聚焦](./business-level-strategy)
+- [x] [蓝海战略与价值创新](./blue-ocean-strategy)
+- [x] [公司层战略：一体化、多元化与并购](./corporate-level-strategy)
 
 ### 第2篇
 
-- [ ] 国际化战略
-- [ ] 战略联盟与合作竞争
-- [ ] 商业模式创新
-- [ ] 战略实施：结构、文化与控制系统
-- [ ] 战略领导与公司治理
-- [ ] 平台战略与生态系统竞争
+- [x] [国际化战略](./internationalization-strategy)
+- [x] [战略联盟与合作竞争](./strategic-alliance-coopetition)
+- [x] [商业模式创新](./business-model-innovation)
+- [x] [战略实施：结构、文化与控制系统](./strategy-implementation)
+- [x] [战略领导与公司治理](./strategic-leadership-corporate-governance)
+- [x] [平台战略与生态系统竞争](./platform-strategy-ecosystem)

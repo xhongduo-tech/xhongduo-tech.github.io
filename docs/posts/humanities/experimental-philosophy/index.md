@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 实验哲学的兴起：哲学自然化与方法论转向
-- [ ] 直觉在哲学论证中的地位与来源
-- [ ] 方法论基础：问卷设计、思想实验场景与统计推断
-- [ ] 知识归因的实验研究：Gettier 案例的跨文化检验
-- [ ] Knobe 效应：意向性判断的副作用不对称
-- [ ] 自由意志与道德责任的民间概念研究
-- [ ] 道德判断的实验研究：电车难题与双效原则
-- [ ] 因果判断与语言指称的实验研究
+- [x] [实验哲学的兴起：哲学自然化与方法论转向](./rise-of-experimental-philosophy)
+- [x] [直觉在哲学论证中的地位与来源](./role-and-source-of-intuitions)
+- [x] [方法论基础：问卷设计、思想实验场景与统计推断](./methodological-foundations)
+- [x] [知识归因的实验研究：Gettier 案例的跨文化检验](./epistemic-intuitions-and-gettier)
+- [x] [Knobe 效应：意向性判断的副作用不对称](./knobe-effect)
+- [x] [自由意志与道德责任的民间概念研究](./folk-concepts-of-free-will)
+- [x] [道德判断的实验研究：电车难题与双效原则](./experimental-moral-judgment)
+- [x] [因果判断与语言指称的实验研究](./causation-and-reference)
 
 ### 第2篇
 
-- [ ] 对实验哲学的批评与回应：限制主义与专家直觉辩护
-- [ ] 实验伦理学、实验美学与实验哲学的学科前景
+- [x] [对实验哲学的批评与回应：限制主义与专家直觉辩护](./criticisms-and-responses)
+- [x] [实验伦理学、实验美学与实验哲学的学科前景](./experimental-ethics-aesthetics-future)

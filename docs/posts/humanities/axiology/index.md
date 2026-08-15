@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 价值与事实的区分：休谟问题
-- [ ] 价值的本质：主观主义、客观主义与关系论
-- [ ] 价值的分类：功利/道德/审美/宗教价值
-- [ ] 内在价值与工具价值
-- [ ] 价值评价与评价标准
-- [ ] 价值认知与价值真理
-- [ ] 价值冲突与价值排序
-- [ ] 善、正当与权利的优先性之争
+- [x] [价值与事实的区分：休谟问题](./value-fact-distinction-hume)
+- [x] [价值的本质：主观主义、客观主义与关系论](./nature-of-value-subjectivism-objectivism-relationism)
+- [x] [价值的分类：功利/道德/审美/宗教价值](./classification-of-values)
+- [x] [内在价值与工具价值](./intrinsic-vs-instrumental-value)
+- [x] [价值评价与评价标准](./value-evaluation-and-criteria)
+- [x] [价值认知与价值真理](./value-cognition-and-value-truth)
+- [x] [价值冲突与价值排序](./value-conflict-and-ordering)
+- [x] [善、正当与权利的优先性之争](./good-rightness-rights-priority)
 
 ### 第2篇
 
-- [ ] 价值的主体性与人的需要
-- [ ] 价值观的形成与社会价值体系
-- [ ] 多元主义与价值相对主义批判
-- [ ] 马克思主义价值论
+- [x] [价值的主体性与人的需要](./value-subjectivity-and-human-needs)
+- [x] [价值观的形成与社会价值体系](./value-formation-and-social-value-system)
+- [x] [多元主义与价值相对主义批判](./pluralism-and-relativism-critique)
+- [x] [马克思主义价值论](./marxist-value-theory)

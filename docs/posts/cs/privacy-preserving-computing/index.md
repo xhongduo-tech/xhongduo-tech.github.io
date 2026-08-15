@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 隐私威胁模型：再识别、属性推断与成员推断攻击
-- [ ] 去标识化与 k-匿名、ℓ-多样性及其局限
-- [ ] 差分隐私：形式化定义与敏感度
-- [ ] 拉普拉斯/高斯机制与组合定理
-- [ ] 本地差分隐私与中心化差分隐私
-- [ ] 同态加密：部分同态、层次型与全同态
-- [ ] 安全多方计算：混淆电路与秘密分享
-- [ ] 隐私求交（PSI）与不经意传输
+- [x] [隐私威胁模型：再识别、属性推断与成员推断攻击](./privacy-threat-models)
+- [x] [去标识化与 k-匿名、ℓ-多样性及其局限](./de-identification-k-anonymity)
+- [x] [差分隐私：形式化定义与敏感度](./differential-privacy-definition)
+- [x] [拉普拉斯/高斯机制与组合定理](./laplace-gaussian-mechanisms)
+- [x] [本地差分隐私与中心化差分隐私](./local-vs-central-differential-privacy)
+- [x] [同态加密：部分同态、层次型与全同态](./homomorphic-encryption)
+- [x] [安全多方计算：混淆电路与秘密分享](./secure-multi-party-computation)
+- [x] [隐私求交（PSI）与不经意传输](./private-set-intersection-ot)
 
 ### 第2篇
 
-- [ ] 联邦学习中的隐私保护与可信执行环境（TEE）
-- [ ] 隐私计算的法规、标准与工程实践
+- [x] [联邦学习中的隐私保护与可信执行环境（TEE）](./federated-learning-privacy-tee)
+- [x] [隐私计算的法规、标准与工程实践](./privacy-regulations-engineering)

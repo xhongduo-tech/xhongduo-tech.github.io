@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 实验动物分类与微生物学等级（普通级/清洁级/SPF/无菌）
-- [ ] 常用实验动物生物学特性（小鼠/大鼠/豚鼠/兔/犬/小型猪）
-- [ ] 实验动物遗传质量控制（近交系/封闭群/杂交群）
-- [ ] 微生物与寄生虫质量监测
-- [ ] 实验动物环境与设施（屏障系统/独立通气笼 IVC）
-- [ ] 实验动物营养与饲料
-- [ ] 动物模型制备原理
-- [ ] 基因工程动物（转基因/基因敲除/条件性敲入）
+- [x] [实验动物分类与微生物学等级（普通级/清洁级/SPF/无菌）](./classification-microbial-grade)
+- [x] [常用实验动物生物学特性（小鼠/大鼠/豚鼠/兔/犬/小型猪）](./common-laboratory-animal-biology)
+- [x] [实验动物遗传质量控制（近交系/封闭群/杂交群）](./genetic-quality-control)
+- [x] [微生物与寄生虫质量监测](./microbial-parasite-monitoring)
+- [x] [实验动物环境与设施（屏障系统/独立通气笼 IVC）](./environment-and-facility)
+- [x] [实验动物营养与饲料](./nutrition-and-feed)
+- [x] [动物模型制备原理](./animal-model-preparation-principles)
+- [x] [基因工程动物（转基因/基因敲除/条件性敲入）](./genetically-engineered-animals)
 
 ### 第2篇
 
-- [ ] 人类疾病动物模型（肿瘤/代谢/神经退行）
-- [ ] 动物实验伦理与 3R 原则
-- [ ] 动物实验基本操作技术
-- [ ] GLP 规范与实验动物法规
+- [x] [人类疾病动物模型（肿瘤/代谢/神经退行）](./human-disease-animal-models)
+- [x] [动物实验伦理与 3R 原则](./animal-ethics-3r)
+- [x] [动物实验基本操作技术](./basic-experimental-operations)
+- [x] [GLP 规范与实验动物法规](./glp-regulation)

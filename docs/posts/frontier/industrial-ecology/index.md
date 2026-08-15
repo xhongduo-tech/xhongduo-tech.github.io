@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 产业代谢与产业生态系统
-- [ ] 物质流分析（MFA）
-- [ ] 生命周期评价（LCA）框架
-- [ ] 过程清单与影响评价方法
-- [ ] 生态工业园与产业共生（卡伦堡模式）
-- [ ] 环境扩展投入产出分析（EEIO-LCA）
-- [ ] 面向环境的设计（DfE/生态设计）
-- [ ] 循环性指标与物质循环率
+- [x] [产业代谢与产业生态系统](./industrial-metabolism-ecosystems)
+- [x] [物质流分析（MFA）](./material-flow-analysis)
+- [x] [生命周期评价（LCA）框架](./life-cycle-assessment-framework)
+- [x] [过程清单与影响评价方法](./life-cycle-inventory-impact-assessment)
+- [x] [生态工业园与产业共生（卡伦堡模式）](./eco-industrial-park-symbiosis)
+- [x] [环境扩展投入产出分析（EEIO-LCA）](./environmentally-extended-input-output-analysis)
+- [x] [面向环境的设计（DfE/生态设计）](./design-for-environment)
+- [x] [循环性指标与物质循环率](./circularity-indicators-material-recycling-rate)
 
 ### 第2篇
 
-- [ ] 碳足迹、水足迹与生态足迹核算
-- [ ] 城市代谢
-- [ ] 生产者责任延伸与政策工具
-- [ ] 工业生态学与碳中和路径
+- [x] [碳足迹、水足迹与生态足迹核算](./carbon-water-ecological-footprint)
+- [x] [城市代谢](./urban-metabolism)
+- [x] [生产者责任延伸与政策工具](./extended-producer-responsibility-policy)
+- [x] [工业生态学与碳中和路径](./industrial-ecology-carbon-neutrality)

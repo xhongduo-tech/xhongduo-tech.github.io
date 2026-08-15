@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 免疫预防简史：从 Jenner 牛痘到 mRNA 疫苗
-- [ ] 疫苗免疫学基础：先天与适应性免疫应答
-- [ ] 疫苗技术路线：灭活疫苗与减毒活疫苗
-- [ ] 重组蛋白、多糖结合与病毒载体疫苗
-- [ ] 核酸疫苗（DNA/mRNA）与新型技术平台
-- [ ] 佐剂与抗原递送系统
-- [ ] 国家免疫规划与免疫程序
-- [ ] 疫苗冷链、接种实施与接种率监测
+- [x] [免疫预防简史：从 Jenner 牛痘到 mRNA 疫苗](./history-of-immunization)
+- [x] [疫苗免疫学基础：先天与适应性免疫应答](./vaccine-immunology-basics)
+- [x] [疫苗技术路线：灭活疫苗与减毒活疫苗](./inactivated-live-attenuated-vaccines)
+- [x] [重组蛋白、多糖结合与病毒载体疫苗](./recombinant-conjugate-vector-vaccines)
+- [x] [核酸疫苗（DNA/mRNA）与新型技术平台](./nucleic-acid-vaccines)
+- [x] [佐剂与抗原递送系统](./adjuvants-and-delivery-systems)
+- [x] [国家免疫规划与免疫程序](./national-immunization-program)
+- [x] [疫苗冷链、接种实施与接种率监测](./cold-chain-and-vaccination-practice)
 
 ### 第2篇
 
-- [ ] 疑似预防接种异常反应（AEFI）的监测与处置
-- [ ] 群体免疫、疾病消除与根除策略
-- [ ] 疫苗犹豫、风险沟通与新疫苗研发展望
+- [x] [疑似预防接种异常反应（AEFI）的监测与处置](./aefi-surveillance)
+- [x] [群体免疫、疾病消除与根除策略](./herd-immunity-and-eradication)
+- [x] [疫苗犹豫、风险沟通与新疫苗研发展望](./vaccine-hesitancy-and-future)

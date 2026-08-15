@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 图灵测试及其批评
-- [ ] 强 AI 与中文屋论证（Searle）
-- [ ] 计算主义与心灵的计算理论
-- [ ] 符号主义 vs 联结主义的哲学意涵
-- [ ] 意向性、意义与接地问题
-- [ ] 机器意识的可能性
-- [ ] 具身性与情境认知对 AI 的挑战
-- [ ] 创造力与美感能否被机器实现
+- [x] [图灵测试及其批评](./turing-test-and-criticism)
+- [x] [强 AI 与中文屋论证（Searle）](./chinese-room-argument)
+- [x] [计算主义与心灵的计算理论](./computationalism-and-ctm)
+- [x] [符号主义 vs 联结主义的哲学意涵](./symbolism-vs-connectionism)
+- [x] [意向性、意义与接地问题](./intentionality-meaning-and-grounding)
+- [x] [机器意识的可能性](./possibility-of-machine-consciousness)
+- [x] [具身性与情境认知对 AI 的挑战](./embodiment-and-situated-cognition)
+- [x] [创造力与美感能否被机器实现](./creativity-and-aesthetics-in-machines)
 
 ### 第2篇
 
-- [ ] 大语言模型带来的哲学新问题
-- [ ] AI 与自由意志、道德主体地位
-- [ ] 奇点论证与超级智能的哲学评估
+- [x] [大语言模型带来的哲学新问题](./llm-new-philosophical-questions)
+- [x] [AI 与自由意志、道德主体地位](./ai-free-will-and-moral-agency)
+- [x] [奇点论证与超级智能的哲学评估](./singularity-and-superintelligence)

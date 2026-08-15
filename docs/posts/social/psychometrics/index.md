@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 心理测量的性质与历史：高尔顿、比内传统
-- [ ] 经典测量理论：真分数模型
-- [ ] 测量的信度：重测、复本、内部一致性
-- [ ] 测量的效度：内容、构想与效标关联效度
-- [ ] 测验的项目分析：难度与区分度
-- [ ] 常模与分数解释
-- [ ] 智力测验：斯坦福-比内、韦克斯勒量表
-- [ ] 人格测验：自陈量表与投射测验
+- [x] [心理测量的性质与历史：高尔顿、比内传统](./nature-and-history-of-psychological-testing)
+- [x] [经典测量理论：真分数模型](./classical-test-theory-true-score-model)
+- [x] [测量的信度：重测、复本、内部一致性](./reliability-of-measurement)
+- [x] [测量的效度：内容、构想与效标关联效度](./validity-of-measurement)
+- [x] [测验的项目分析：难度与区分度](./item-analysis-difficulty-discrimination)
+- [x] [常模与分数解释](./norms-and-score-interpretation)
+- [x] [智力测验：斯坦福-比内、韦克斯勒量表](./intelligence-tests-stanford-binet-wechsler)
+- [x] [人格测验：自陈量表与投射测验](./personality-tests-self-report-projective)
 
 ### 第2篇
 
-- [ ] 项目反应理论（IRT）
-- [ ] 心理统计基础：描述统计与概率分布
-- [ ] 假设检验、t 检验与方差分析
-- [ ] 相关与回归分析
-- [ ] 卡方检验与非参数检验
-- [ ] 测量等值与测验公平性
+- [x] [项目反应理论（IRT）](./item-response-theory)
+- [x] [心理统计基础：描述统计与概率分布](./descriptive-statistics-probability-distributions)
+- [x] [假设检验、t 检验与方差分析](./hypothesis-testing-t-test-anova)
+- [x] [相关与回归分析](./correlation-regression-analysis)
+- [x] [卡方检验与非参数检验](./chi-square-nonparametric-tests)
+- [x] [测量等值与测验公平性](./test-equating-and-fairness)

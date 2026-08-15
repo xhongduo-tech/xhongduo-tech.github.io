@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 健康行为理论（知信行/健康信念模式/行为阶段改变）
-- [ ] 健康传播学基础
-- [ ] 健康教育计划设计（PRECEDE-PROCEED 模式）
-- [ ] 社区健康教育
-- [ ] 学校健康教育
-- [ ] 职业场所健康促进
-- [ ] 医院健康教育与患者教育
-- [ ] 健康促进与《渥太华宪章》
+- [x] [健康行为理论（知信行/健康信念模式/行为阶段改变）](./health-behavior-theories)
+- [x] [健康传播学基础](./health-communication-basics)
+- [x] [健康教育计划设计（PRECEDE-PROCEED 模式）](./health-education-planning-precede-proceed)
+- [x] [社区健康教育](./community-health-education)
+- [x] [学校健康教育](./school-health-education)
+- [x] [职业场所健康促进](./workplace-health-promotion)
+- [x] [医院健康教育与患者教育](./hospital-patient-health-education)
+- [x] [健康促进与《渥太华宪章》](./health-promotion-ottawa-charter)
 
 ### 第2篇
 
-- [ ] 健康城市与健康场所建设
-- [ ] 健康素养评估与提升
-- [ ] 控烟与生活方式干预
-- [ ] 健康教育项目效果评价
+- [x] [健康城市与健康场所建设](./healthy-cities-healthy-settings)
+- [x] [健康素养评估与提升](./health-literacy-assessment)
+- [x] [控烟与生活方式干预](./tobacco-control-lifestyle-intervention)
+- [x] [健康教育项目效果评价](./health-education-program-evaluation)

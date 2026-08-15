@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 行星健康概念与人类世背景
-- [ ] 地球系统边界（planetary boundaries）
-- [ ] 气候变化与健康结局
-- [ ] 生物多样性丧失与人兽共患病溢出
-- [ ] 土地系统变化与食物系统
-- [ ] 淡水系统与涉水健康风险
-- [ ] 海洋健康与海产品安全
-- [ ] 空气污染与化学品暴露
+- [x] [行星健康概念与人类世背景](./planetary-health-concept-and-anthropocene)
+- [x] [地球系统边界（planetary boundaries）](./planetary-boundaries)
+- [x] [气候变化与健康结局](./climate-change-and-health-outcomes)
+- [x] [生物多样性丧失与人兽共患病溢出](./biodiversity-loss-and-zoonotic-spillover)
+- [x] [土地系统变化与食物系统](./land-system-change-and-food-systems)
+- [x] [淡水系统与涉水健康风险](./freshwater-systems-and-waterborne-health-risks)
+- [x] [海洋健康与海产品安全](./ocean-health-and-seafood-safety)
+- [x] [空气污染与化学品暴露](./air-pollution-and-chemical-exposure)
 
 ### 第2篇
 
-- [ ] 营养转型与可持续膳食
-- [ ] 城市化、建成环境与健康
-- [ ] 气候变化迁移与健康公平
-- [ ] 行星健康指标、治理与教育
+- [x] [营养转型与可持续膳食](./nutrition-transition-and-sustainable-diets)
+- [x] [城市化、建成环境与健康](./urbanization-built-environment-and-health)
+- [x] [气候变化迁移与健康公平](./climate-migration-and-health-equity)
+- [x] [行星健康指标、治理与教育](./planetary-health-indicators-governance-and-education)

@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] STS 的学科形成与建制化
-- [ ] 科学知识的实验室研究（Latour & Woolgar）
-- [ ] 爱丁堡学派与科学知识社会学的强纲领
-- [ ] 社会建构论及其争论（科学大战）
-- [ ] 行动者网络理论（ANT）
-- [ ] 技术的社会塑造（SCOT）与技术系统论
-- [ ] 风险社会、专家治理与公众参与科学
-- [ ] 性别、后殖民视角与科学的权力分析
+- [x] [STS 的学科形成与建制化](./sts-discipline-formation)
+- [x] [科学知识的实验室研究（Latour & Woolgar）](./laboratory-life-latour-woolgar)
+- [x] [爱丁堡学派与科学知识社会学的强纲领](./edinburgh-school-strong-programme)
+- [x] [社会建构论及其争论（科学大战）](./social-constructionism-science-wars)
+- [x] [行动者网络理论（ANT）](./actor-network-theory)
+- [x] [技术的社会塑造（SCOT）与技术系统论](./scot-technological-systems)
+- [x] [风险社会、专家治理与公众参与科学](./risk-society-expert-governance)
+- [x] [性别、后殖民视角与科学的权力分析](./gender-postcolonial-science-power)
 
 ### 第2篇
 
-- [ ] 科技政策、国家创新体系与负责任创新
-- [ ] STS 前沿：平台社会与人工智能治理
+- [x] [科技政策、国家创新体系与负责任创新](./sci-tech-policy-nis-rri)
+- [x] [STS 前沿：平台社会与人工智能治理](./platform-society-ai-governance)

@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 汉字的起源与性质
-- [ ] 六书与汉字的构造
-- [ ] 汉字形体的演变：从甲骨文到楷书
-- [ ] 现代汉语语音：声母、韵母、声调与音变
-- [ ] 现代汉语词汇：构词法与词义系统
-- [ ] 现代汉语语法：词类与句法结构
-- [ ] 修辞与语用
-- [ ] 古代汉语通论：文字、词汇与语法
+- [x] [汉字的起源与性质](./hanzi-origin-and-nature)
+- [x] [六书与汉字的构造](./liushu-and-character-formation)
+- [x] [汉字形体的演变：从甲骨文到楷书](./hanzi-form-evolution-jiaguwen-kaishu)
+- [x] [现代汉语语音：声母、韵母、声调与音变](./modern-chinese-phonology)
+- [x] [现代汉语词汇：构词法与词义系统](./modern-chinese-lexicon)
+- [x] [现代汉语语法：词类与句法结构](./modern-chinese-grammar)
+- [x] [修辞与语用](./rhetoric-and-pragmatics)
+- [x] [古代汉语通论：文字、词汇与语法](./classical-chinese-overview)
 
 ### 第2篇
 
-- [ ] 音韵学基础：中古音系与上古音系
-- [ ] 训诂学基础：释义方法与训诂体例
-- [ ] 汉语史概要：语音、词汇与语法的历时演变
-- [ ] 汉语方言、共同语与语言文字规范
+- [x] [音韵学基础：中古音系与上古音系](./phonology-basics-mid-ancient)
+- [x] [训诂学基础：释义方法与训诂体例](./xungu-basics)
+- [x] [汉语史概要：语音、词汇与语法的历时演变](./history-of-chinese-summary)
+- [x] [汉语方言、共同语与语言文字规范](./chinese-dialects-and-standard)

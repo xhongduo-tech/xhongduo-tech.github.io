@@ -17,16 +17,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 射击项目分类（步枪/手枪/飞碟）
-- [ ] 射击原理与内弹道常识
-- [ ] 射击姿势与据枪稳定性
-- [ ] 瞄准与击发技术
-- [ ] 呼吸控制与心理调控
-- [ ] 10 米气步枪与气手枪训练
-- [ ] 飞碟射击（双向/多向）
-- [ ] 竞赛规则与环值判定
+- [x] [射击项目分类（步枪/手枪/飞碟）](./shooting-project-classification)
+- [x] [射击原理与内弹道常识](./shooting-interior-ballistics)
+- [x] [射击姿势与据枪稳定性](./shooting-stance-stability)
+- [x] [瞄准与击发技术](./shooting-aiming-trigger)
+- [x] [呼吸控制与心理调控](./shooting-breathing-psychology)
+- [x] [10 米气步枪与气手枪训练](./air-rifle-pistol-training)
+- [x] [飞碟射击（双向/多向）](./clay-pigeon-shooting)
+- [x] [竞赛规则与环值判定](./competition-rules-scoring)
 
 ### 第2篇
 
-- [ ] 射击运动心理训练
-- [ ] 枪支管理法规与射击安全
+- [x] [射击运动心理训练](./shooting-psychology-training)
+- [x] [枪支管理法规与射击安全](./gun-regulation-safety)

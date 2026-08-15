@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 医学人文的学科史与定义
-- [ ] 叙事医学：细读与倾听
-- [ ] 病史采集与叙事能力
-- [ ] 文学中的疾病与疯狂书写
-- [ ] 艺术、音乐与视觉文化中的医学
-- [ ] 医学人类学与跨文化照护
-- [ ] 疼痛、残疾与具身体验
-- [ ] 衰老、临终与死亡叙事
+- [x] [医学人文的学科史与定义](./history-and-definition-of-medical-humanities)
+- [x] [叙事医学：细读与倾听](./narrative-medicine-close-reading-and-listening)
+- [x] [病史采集与叙事能力](./history-taking-and-narrative-competence)
+- [x] [文学中的疾病与疯狂书写](./literature-disease-and-madness)
+- [x] [艺术、音乐与视觉文化中的医学](./art-music-visual-culture-and-medicine)
+- [x] [医学人类学与跨文化照护](./medical-anthropology-and-cross-cultural-care)
+- [x] [疼痛、残疾与具身体验](./pain-disability-and-embodied-experience)
+- [x] [衰老、临终与死亡叙事](./aging-dying-and-death-narratives)
 
 ### 第2篇
 
-- [ ] 医患沟通与反思性实践教学
-- [ ] 医学人文课程体系设计
-- [ ] 批判医学人文与社会决定因素
-- [ ] 中国医学人文与新医科实践
+- [x] [医患沟通与反思性实践教学](./doctor-patient-communication-and-reflective-practice)
+- [x] [医学人文课程体系设计](./designing-medical-humanities-curricula)
+- [x] [批判医学人文与社会决定因素](./critical-medical-humanities-and-social-determinants)
+- [x] [中国医学人文与新医科实践](./chinese-medical-humanities-and-new-medicine)

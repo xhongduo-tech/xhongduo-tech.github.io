@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 人格心理学的研究对象与方法
-- [ ] 精神分析理论：弗洛伊德的人格结构与发展
-- [ ] 新精神分析：荣格、阿德勒、霍妮与埃里克森
-- [ ] 特质理论：奥尔波特、卡特尔与艾森克
-- [ ] 大五人格模型与人格的结构
-- [ ] 生物学取向：气质、进化与人格的遗传基础
-- [ ] 人本主义：马斯洛与罗杰斯
-- [ ] 行为主义与社会学习理论：斯金纳、班杜拉
+- [x] [人格心理学的研究对象与方法](./research-objectives-methods)
+- [x] [精神分析理论：弗洛伊德的人格结构与发展](./psychoanalysis-freud)
+- [x] [新精神分析：荣格、阿德勒、霍妮与埃里克森](./neo-psychoanalysis-jung-adler-horney-erikson)
+- [x] [特质理论：奥尔波特、卡特尔与艾森克](./trait-theories-allport-cattell-eysenck)
+- [x] [大五人格模型与人格的结构](./big-five-personality)
+- [x] [生物学取向：气质、进化与人格的遗传基础](./biological-approach-temperament-evolution)
+- [x] [人本主义：马斯洛与罗杰斯](./humanism-maslow-rogers)
+- [x] [行为主义与社会学习理论：斯金纳、班杜拉](./behaviorism-social-learning-skinner-bandura)
 
 ### 第2篇
 
-- [ ] 认知取向：凯利的个人构念理论
-- [ ] 人格测量：问卷、投射与行为评定
-- [ ] 人格的稳定性与毕生发展
-- [ ] 人格与文化：跨文化人格研究
-- [ ] 人格障碍的基础知识
+- [x] [认知取向：凯利的个人构念理论](./cognitive-approach-kelly-constructs)
+- [x] [人格测量：问卷、投射与行为评定](./personality-assessment)
+- [x] [人格的稳定性与毕生发展](./personality-stability-development)
+- [x] [人格与文化：跨文化人格研究](./personality-culture-cross-cultural)
+- [x] [人格障碍的基础知识](./personality-disorders-basics)

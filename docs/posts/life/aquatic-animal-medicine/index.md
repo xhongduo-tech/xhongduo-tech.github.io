@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 水产动物病原学（病毒/细菌/真菌/寄生虫）
-- [ ] 鱼类免疫学基础
-- [ ] 水产动物病理学基础
-- [ ] 疾病诊断技术（临床检查/病原分离/分子诊断）
-- [ ] 鱼类病毒性疾病（出血病/淋巴囊肿病）
-- [ ] 细菌性疾病（烂鳃病/肠炎病/败血症）
-- [ ] 寄生虫病（小瓜虫/指环虫/车轮虫）
-- [ ] 虾蟹病害（白斑综合征/急性肝胰腺坏死病）
+- [x] [水产动物病原学（病毒/细菌/真菌/寄生虫）](./aquatic-animal-pathogens)
+- [x] [鱼类免疫学基础](./fish-immunology-basics)
+- [x] [水产动物病理学基础](./aquatic-animal-pathology-basics)
+- [x] [疾病诊断技术（临床检查/病原分离/分子诊断）](./disease-diagnosis-techniques)
+- [x] [鱼类病毒性疾病（出血病/淋巴囊肿病）](./fish-viral-diseases)
+- [x] [细菌性疾病（烂鳃病/肠炎病/败血症）](./fish-bacterial-diseases)
+- [x] [寄生虫病（小瓜虫/指环虫/车轮虫）](./parasitic-diseases-fish)
+- [x] [虾蟹病害（白斑综合征/急性肝胰腺坏死病）](./shrimp-crab-diseases)
 
 ### 第2篇
 
-- [ ] 贝类与两栖爬行类病害
-- [ ] 水质恶化与应激性疾病
-- [ ] 渔药药理学与规范用药
-- [ ] 微生态制剂与免疫增强剂
-- [ ] 疫苗与免疫防控
-- [ ] 养殖场生物安全与健康管理
+- [x] [贝类与两栖爬行类病害](./shellfish-amphibian-reptile-diseases)
+- [x] [水质恶化与应激性疾病](./water-quality-stress-diseases)
+- [x] [渔药药理学与规范用药](./fishery-drug-pharmacology)
+- [x] [微生态制剂与免疫增强剂](./probiotics-immunostimulants)
+- [x] [疫苗与免疫防控](./vaccines-immune-prevention)
+- [x] [养殖场生物安全与健康管理](./farm-biosecurity-health-management)

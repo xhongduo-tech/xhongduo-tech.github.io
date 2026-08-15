@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 微生物组的概念与人类微生物组计划（HMP）
-- [ ] 16S rRNA 扩增子测序与 OTU/ASV 分析
-- [ ] 宏基因组学：组装、分箱与功能注释
-- [ ] 群落生态分析：α/β 多样性、差异丰度与共现网络
-- [ ] 肠道微生物组与宿主代谢
-- [ ] 微生物组与免疫系统的发育和调节
-- [ ] 肠–脑轴与神经行为
-- [ ] 微生物组与疾病：关联、因果与粪菌移植（FMT）
+- [x] [微生物组的概念与人类微生物组计划（HMP）](./microbiome-concept-hmp)
+- [x] [16S rRNA 扩增子测序与 OTU/ASV 分析](./16s-rrna-amplicon-sequencing-otu-asv)
+- [x] [宏基因组学：组装、分箱与功能注释](./metagenomics-assembly-binning-functional-annotation)
+- [x] [群落生态分析：α/β 多样性、差异丰度与共现网络](./community-ecology-analysis-diversity)
+- [x] [肠道微生物组与宿主代谢](./gut-microbiome-host-metabolism)
+- [x] [微生物组与免疫系统的发育和调节](./microbiome-immune-system-development)
+- [x] [肠–脑轴与神经行为](./gut-brain-axis-neurobehavior)
+- [x] [微生物组与疾病：关联、因果与粪菌移植（FMT）](./microbiome-disease-fmt)
 
 ### 第2篇
 
-- [ ] 口腔、皮肤与生殖道微生物组
-- [ ] 环境与工程微生物组、合成菌群设计
+- [x] [口腔、皮肤与生殖道微生物组](./oral-skin-reproductive-microbiome)
+- [x] [环境与工程微生物组、合成菌群设计](./environmental-engineering-microbiome-synthetic-communities)

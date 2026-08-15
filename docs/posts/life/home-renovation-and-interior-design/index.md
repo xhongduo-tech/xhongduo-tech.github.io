@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 户型分析与功能空间规划
-- [ ] 装修风格与色彩搭配
-- [ ] 装修流程、工期与预算编制
-- [ ] 水电改造与隐蔽工程验收
-- [ ] 泥瓦工程（防水/贴砖）验收要点
-- [ ] 木作与油漆工序
-- [ ] 主材选购（瓷砖/地板/门窗/卫浴）
-- [ ] 定制家具与收纳系统设计
+- [x] [户型分析与功能空间规划](./floor-plan-analysis-and-space-planning)
+- [x] [装修风格与色彩搭配](./renovation-styles-and-color-matching)
+- [x] [装修流程、工期与预算编制](./renovation-process-schedule-and-budget)
+- [x] [水电改造与隐蔽工程验收](./plumbing-electrical-and-hidden-works-acceptance)
+- [x] [泥瓦工程（防水/贴砖）验收要点](./masonry-waterproofing-and-tiling-acceptance)
+- [x] [木作与油漆工序](./carpentry-and-painting-processes)
+- [x] [主材选购（瓷砖/地板/门窗/卫浴）](./main-material-selection)
+- [x] [定制家具与收纳系统设计](./custom-furniture-and-storage-design)
 
 ### 第2篇
 
-- [ ] 照明设计与开关插座布局
-- [ ] 环保材料与室内空气检测治理
-- [ ] 装修合同、增项与维权
-- [ ] 竣工验收与保修
+- [x] [照明设计与开关插座布局](./lighting-design-and-switch-outlet-layout)
+- [x] [环保材料与室内空气检测治理](./eco-materials-and-indoor-air-quality)
+- [x] [装修合同、增项与维权](./renovation-contract-variation-and-rights)
+- [x] [竣工验收与保修](./final-acceptance-and-warranty)

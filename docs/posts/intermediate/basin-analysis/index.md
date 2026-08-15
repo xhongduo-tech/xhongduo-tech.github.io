@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 盆地分类（McKenzie 拉张/Wilson 旋回）
-- [ ] 岩石圈伸展与裂谷盆地
-- [ ] 前陆盆地与挠曲沉降
-- [ ] 走滑与克拉通盆地
-- [ ] 沉积充填与层序格架
-- [ ] 沉降史反演与回剥分析
-- [ ] 盆地热流与热史
-- [ ] 成熟度与烃源岩评价
+- [x] [盆地分类（McKenzie 拉张/Wilson 旋回）](./basin-classification)
+- [x] [岩石圈伸展与裂谷盆地](./lithospheric-extension-rift-basins)
+- [x] [前陆盆地与挠曲沉降](./foreland-basins-flexural-subsidence)
+- [x] [走滑与克拉通盆地](./strike-slip-and-cratonic-basins)
+- [x] [沉积充填与层序格架](./sedimentary-fill-and-sequence-stratigraphy)
+- [x] [沉降史反演与回剥分析](./subsidence-history-backstripping)
+- [x] [盆地热流与热史](./heat-flow-and-thermal-history)
+- [x] [成熟度与烃源岩评价](./maturity-and-source-rock-evaluation)
 
 ### 第2篇
 
-- [ ] 沉积物源—汇系统
-- [ ] 盆地模拟方法
-- [ ] 被动边缘与盐构造
-- [ ] 中国含油气盆地实例
+- [x] [沉积物源—汇系统](./sediment-source-to-sink)
+- [x] [盆地模拟方法](./basin-modelling-methods)
+- [x] [被动边缘与盐构造](./passive-margins-and-salt-tectonics)
+- [x] [中国含油气盆地实例](./china-petroliferous-basins)

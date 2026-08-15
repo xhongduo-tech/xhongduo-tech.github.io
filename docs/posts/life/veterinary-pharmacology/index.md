@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 兽药代谢动力学
-- [ ] 兽药效应动力学
-- [ ] 抗菌药物与细菌耐药性
-- [ ] 抗寄生虫药
-- [ ] 解热镇痛抗炎药
-- [ ] 作用于神经系统的药物与麻醉药
-- [ ] 消化系统与呼吸系统药物
-- [ ] 激素类药物与繁殖调控
+- [x] [兽药代谢动力学](./veterinary-drug-pharmacokinetics)
+- [x] [兽药效应动力学](./veterinary-drug-pharmacodynamics)
+- [x] [抗菌药物与细菌耐药性](./antibacterial-drugs-resistance)
+- [x] [抗寄生虫药](./antiparasitic-drugs)
+- [x] [解热镇痛抗炎药](./antipyretic-analgesic-antiinflammatory)
+- [x] [作用于神经系统的药物与麻醉药](./nervous-system-drugs-anesthetics)
+- [x] [消化系统与呼吸系统药物](./digestive-respiratory-system-drugs)
+- [x] [激素类药物与繁殖调控](./hormone-drugs-reproduction-regulation)
 
 ### 第2篇
 
-- [ ] 解毒药
-- [ ] 兽药制剂与剂型
-- [ ] 兽药残留监控与食品安全
-- [ ] 新兽药研发、注册与 GLP/GCP
+- [x] [解毒药](./antidotes)
+- [x] [兽药制剂与剂型](./veterinary-pharmaceutical-preparations)
+- [x] [兽药残留监控与食品安全](./veterinary-drug-residues-food-safety)
+- [x] [新兽药研发、注册与 GLP/GCP](./new-veterinary-drug-rd-registration-glp-gcp)

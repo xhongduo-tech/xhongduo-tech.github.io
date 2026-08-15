@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 艺术社会学的路径：反映论与塑造论 (Alexander Ch 1)
-- [ ] 文化菱形：艺术-创作者-分配者-接受者 (Alexander Ch 2)
-- [ ] 艺术界（art world）作为协作网络 (Becker Ch 1-2)
-- [ ] 惯例、资源与艺术的集体行动 (Becker Ch 3-5)
-- [ ] 国家、赞助人与艺术市场 (Alexander Ch 3-4)
-- [ ] 文化生产视角：文化产业与把关人 (Alexander Ch 5)
-- [ ] 文化资本、惯习与趣味区隔 (Bourdieu 相关章节)
-- [ ] 文学场的生成与自主性 (Bourdieu Part I)
+- [x] [艺术社会学的路径：反映论与塑造论 (Alexander Ch 1)](./reflection-shaping-theories)
+- [x] [文化菱形：艺术-创作者-分配者-接受者 (Alexander Ch 2)](./cultural-diamond)
+- [x] [艺术界（art world）作为协作网络 (Becker Ch 1-2)](./art-world-collaborative-network)
+- [x] [惯例、资源与艺术的集体行动 (Becker Ch 3-5)](./conventions-resources-collective-action)
+- [x] [国家、赞助人与艺术市场 (Alexander Ch 3-4)](./state-patronage-art-market)
+- [x] [文化生产视角：文化产业与把关人 (Alexander Ch 5)](./cultural-production-gatekeepers)
+- [x] [文化资本、惯习与趣味区隔 (Bourdieu 相关章节)](./cultural-capital-habitus-taste)
+- [x] [文学场的生成与自主性 (Bourdieu Part I)](./genesis-autonomy-literary-field)
 
 ### 第2篇
 
-- [ ] 艺术的接受与消费：受众研究 (Alexander Ch 6-7)
-- [ ] 艺术的社会边界：高雅/通俗/民间 (Becker Ch 7-8)
-- [ ] 艺术体制论与艺术的定义之争 (Becker/Alexander 综合)
-- [ ] 全球化与数字时代的艺术生产 (Alexander 新版章)
+- [x] [艺术的接受与消费：受众研究 (Alexander Ch 6-7)](./art-reception-audience)
+- [x] [艺术的社会边界：高雅/通俗/民间 (Becker Ch 7-8)](./boundaries-high-low-folk-art)
+- [x] [艺术体制论与艺术的定义之争 (Becker/Alexander 综合)](./art-institutions-definition-debate)
+- [x] [全球化与数字时代的艺术生产 (Alexander 新版章)](./art-production-globalization-digital)

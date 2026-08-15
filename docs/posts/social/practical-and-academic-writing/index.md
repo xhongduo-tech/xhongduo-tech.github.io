@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 写作目的与读者分析
-- [ ] 金字塔结构与 SCQA 框架
-- [ ] 观点—理由—证据的论证结构
-- [ ] 段落组织与过渡衔接
-- [ ] 简明风格原则（删冗词/主动语态）
-- [ ] 摘要、报告与方案写作
-- [ ] 文献综述与研究问题确立
-- [ ] 引用规范与学术诚信
+- [x] [写作目的与读者分析](./purpose-and-audience-analysis)
+- [x] [金字塔结构与 SCQA 框架](./pyramid-structure-scqa)
+- [x] [观点—理由—证据的论证结构](./claim-reason-evidence)
+- [x] [段落组织与过渡衔接](./paragraph-organization-transitions)
+- [x] [简明风格原则（删冗词/主动语态）](./concise-style-principles)
+- [x] [摘要、报告与方案写作](./abstract-report-proposal-writing)
+- [x] [文献综述与研究问题确立](./literature-review-research-question)
+- [x] [引用规范与学术诚信](./citation-conventions-academic-integrity)
 
 ### 第2篇
 
-- [ ] 公文、邮件与职场文书
-- [ ] 修改、润色与同行反馈
+- [x] [公文、邮件与职场文书](./official-documents-email-workplace-writing)
+- [x] [修改、润色与同行反馈](./revision-polishing-peer-feedback)

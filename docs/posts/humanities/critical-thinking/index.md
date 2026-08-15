@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 论证的识别、结构与重构
-- [ ] 演绎论证与有效性
-- [ ] 归纳论证与归纳强度
-- [ ] 非形式谬误（相干/预设/歧义三大类）
-- [ ] 定义与语言澄清
-- [ ] 类比论证与法律/道德论证
-- [ ] 因果推理与密尔方法
-- [ ] 统计论证与概率推理
+- [x] [论证的识别、结构与重构](./argument-identification-reconstruction)
+- [x] [演绎论证与有效性](./deductive-arguments-validity)
+- [x] [归纳论证与归纳强度](./inductive-arguments-strength)
+- [x] [非形式谬误（相干/预设/歧义三大类）](./informal-fallacies)
+- [x] [定义与语言澄清](./definition-language-clarification)
+- [x] [类比论证与法律/道德论证](./analogical-arguments-legal-moral)
+- [x] [因果推理与密尔方法](./causal-reasoning-mill-methods)
+- [x] [统计论证与概率推理](./statistical-arguments-probabilistic-reasoning)
 
 ### 第2篇
 
-- [ ] 诉诸权威的评估与信源可信度
-- [ ] 科学推理与假说检验
-- [ ] 决策、认知偏差与理性讨论规则
-- [ ] 批判性阅读与论证写作
+- [x] [诉诸权威的评估与信源可信度](./evaluating-authority-source-credibility)
+- [x] [科学推理与假说检验](./scientific-reasoning-hypothesis-testing)
+- [x] [决策、认知偏差与理性讨论规则](./decision-making-cognitive-biases)
+- [x] [批判性阅读与论证写作](./critical-reading-argumentative-writing)

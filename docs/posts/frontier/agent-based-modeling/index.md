@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 复杂适应系统与涌现概念
-- [ ] ABM 范式与 NetLogo 基础
-- [ ] 主体—环境交互与调度
-- [ ] ODD 模型描述协议
-- [ ] 从模式出发的建模（pattern-oriented modeling）
-- [ ] 模型校准、验证与复现
-- [ ] 生态系统个体模型（IBM）
-- [ ] 社会模拟：隔离、扩散与合作演化
+- [x] [复杂适应系统与涌现概念](./complex-adaptive-systems-and-emergence)
+- [x] [ABM 范式与 NetLogo 基础](./abm-paradigm-and-netlogo-basics)
+- [x] [主体—环境交互与调度](./agent-environment-interaction-and-scheduling)
+- [x] [ODD 模型描述协议](./odd-protocol)
+- [x] [从模式出发的建模（pattern-oriented modeling）](./pattern-oriented-modeling)
+- [x] [模型校准、验证与复现](./model-calibration-validation-reproduction)
+- [x] [生态系统个体模型（IBM）](./ecosystem-individual-based-models)
+- [x] [社会模拟：隔离、扩散与合作演化](./social-simulation-segregation-diffusion-cooperation)
 
 ### 第2篇
 
-- [ ] 基于主体的计算经济学（ACE）
-- [ ] 传染病 ABM 与政策评估
-- [ ] 行为空间探索与灵敏度分析
-- [ ] 大规模 ABM 与并行计算（Repast/MASON）
-- [ ] ABM 与机器学习混合建模
+- [x] [基于主体的计算经济学（ACE）](./agent-based-computational-economics)
+- [x] [传染病 ABM 与政策评估](./infectious-disease-abm-and-policy)
+- [x] [行为空间探索与灵敏度分析](./behavior-space-exploration-and-sensitivity-analysis)
+- [x] [大规模 ABM 与并行计算（Repast/MASON）](./large-scale-abm-and-parallel-computing)
+- [x] [ABM 与机器学习混合建模](./abm-machine-learning-hybrid)

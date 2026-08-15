@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 阴阳五行学说
-- [ ] 脏腑与经络学说
-- [ ] 病因与病机
-- [ ] 四诊（望闻问切）
-- [ ] 辨证论治（八纲辨证/脏腑辨证/卫气营血辨证）
-- [ ] 中兽药性能、炮制与配伍禁忌
-- [ ] 常用中兽药（解表/清热/补益等）
-- [ ] 兽医方剂学
+- [x] [阴阳五行学说](./yin-yang-five-elements)
+- [x] [脏腑与经络学说](./zang-fu-and-meridians)
+- [x] [病因与病机](./etiology-and-pathogenesis)
+- [x] [四诊（望闻问切）](./four-diagnostic-methods)
+- [x] [辨证论治（八纲辨证/脏腑辨证/卫气营血辨证）](./syndrome-differentiation)
+- [x] [中兽药性能、炮制与配伍禁忌](./veterinary-herb-properties-processing)
+- [x] [常用中兽药（解表/清热/补益等）](./common-veterinary-herbs)
+- [x] [兽医方剂学](./veterinary-formulas)
 
 ### 第2篇
 
-- [ ] 动物针灸基础与常用穴位
-- [ ] 家畜常见病辨证施治（脾胃病/咳喘/泄泻）
-- [ ] 中药饲料添加剂与减抗替抗
-- [ ] 中西兽医结合
+- [x] [动物针灸基础与常用穴位](./veterinary-acupuncture-basics)
+- [x] [家畜常见病辨证施治（脾胃病/咳喘/泄泻）](./livestock-common-diseases-treatment)
+- [x] [中药饲料添加剂与减抗替抗](./herbal-feed-additives)
+- [x] [中西兽医结合](./integrated-chinese-western-veterinary)

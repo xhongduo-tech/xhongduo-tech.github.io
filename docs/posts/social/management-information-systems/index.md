@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 信息系统与组织：技术、组织、管理三维度
-- [ ] 信息系统战略与竞争优势
-- [ ] 企业级系统：ERP 与业务流程
-- [ ] 供应链管理系统与客户关系管理
-- [ ] 电子商务与数字市场
-- [ ] 决策支持系统与商务智能
-- [ ] 大数据在管理中的应用
-- [ ] 知识管理系统
+- [x] [信息系统与组织：技术、组织、管理三维度](./information-systems-and-organizations)
+- [x] [信息系统战略与竞争优势](./information-systems-strategy-competitive-advantage)
+- [x] [企业级系统：ERP 与业务流程](./enterprise-systems-erp-business-process)
+- [x] [供应链管理系统与客户关系管理](./scm-crm-systems)
+- [x] [电子商务与数字市场](./e-commerce-digital-markets)
+- [x] [决策支持系统与商务智能](./decision-support-business-intelligence)
+- [x] [大数据在管理中的应用](./big-data-in-management)
+- [x] [知识管理系统](./knowledge-management-systems)
 
 ### 第2篇
 
-- [ ] 信息系统规划与开发方法论
-- [ ] IT 治理与 IT 外包
-- [ ] 信息安全管理与隐私
-- [ ] 企业数字化转型
+- [x] [信息系统规划与开发方法论](./information-systems-planning-development)
+- [x] [IT 治理与 IT 外包](./it-governance-outsourcing)
+- [x] [信息安全管理与隐私](./information-security-privacy)
+- [x] [企业数字化转型](./enterprise-digital-transformation)

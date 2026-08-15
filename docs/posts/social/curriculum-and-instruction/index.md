@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 课程与教学的概念及其关系
-- [ ] 课程论的历史发展：学科中心、学生中心、社会中心
-- [ ] 泰勒原理与目标模式
-- [ ] 课程开发的模式：过程模式与实践模式
-- [ ] 课程类型与课程结构：显性课程与隐性课程
-- [ ] 课程标准与教科书制度
-- [ ] 校本课程开发
-- [ ] 教学过程的本质与规律
+- [x] [课程与教学的概念及其关系](./concepts-of-curriculum-and-instruction)
+- [x] [课程论的历史发展：学科中心、学生中心、社会中心](./history-of-curriculum-theory)
+- [x] [泰勒原理与目标模式](./taylor-principle-and-objective-model)
+- [x] [课程开发的模式：过程模式与实践模式](./curriculum-development-models)
+- [x] [课程类型与课程结构：显性课程与隐性课程](./curriculum-types-and-structure)
+- [x] [课程标准与教科书制度](./curriculum-standard-and-textbook)
+- [x] [校本课程开发](./school-based-curriculum-development)
+- [x] [教学过程的本质与规律](./essence-and-laws-of-teaching-process)
 
 ### 第2篇
 
-- [ ] 教学原则与教学方法体系
-- [ ] 教学模式：发现学习、掌握学习、有意义学习
-- [ ] 教学设计理论：加涅与迪克-凯里模型
-- [ ] 课堂管理与教学组织形式
-- [ ] 教学评价：诊断性、形成性与总结性评价
-- [ ] 核心素养导向的课程教学改革
+- [x] [教学原则与教学方法体系](./teaching-principles-and-methods)
+- [x] [教学模式：发现学习、掌握学习、有意义学习](./teaching-models)
+- [x] [教学设计理论：加涅与迪克-凯里模型](./instructional-design-theory)
+- [x] [课堂管理与教学组织形式](./classroom-management-and-organization)
+- [x] [教学评价：诊断性、形成性与总结性评价](./teaching-evaluation-types)
+- [x] [核心素养导向的课程教学改革](./core-competency-curriculum-reform)

@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 湖泊的形态测量与成因类型
-- [ ] 湖水的光热结构与分层
-- [ ] 湖泊水动力（湖震/环流）
-- [ ] 河流的水文与地貌
-- [ ] 淡水化学与离子组成
-- [ ] 营养盐循环（N/P/Si）
-- [ ] 初级生产与浮游生物
-- [ ] 富营养化机理与控制
+- [x] [湖泊的形态测量与成因类型](./lake-morphometry-origin)
+- [x] [湖水的光热结构与分层](./lake-light-thermal-stratification)
+- [x] [湖泊水动力（湖震/环流）](./lake-hydrodynamics)
+- [x] [河流的水文与地貌](./river-hydrology-geomorphology)
+- [x] [淡水化学与离子组成](./freshwater-chemistry-ions)
+- [x] [营养盐循环（N/P/Si）](./nutrient-cycles-n-p-si)
+- [x] [初级生产与浮游生物](./primary-production-plankton)
+- [x] [富营养化机理与控制](./eutrophication-mechanism-control)
 
 ### 第2篇
 
-- [ ] 湖泊食物网与下行/上行效应
-- [ ] 沉积记录与湖泊演化
-- [ ] 湖泊与气候变化
-- [ ] 湿地与河口过渡带
-- [ ] 流域管理与湖泊修复
+- [x] [湖泊食物网与下行/上行效应](./lake-food-web-bottom-up-top-down)
+- [x] [沉积记录与湖泊演化](./sediment-record-lake-evolution)
+- [x] [湖泊与气候变化](./lakes-climate-change)
+- [x] [湿地与河口过渡带](./wetlands-estuarine-transition)
+- [x] [流域管理与湖泊修复](./watershed-management-lake-restoration)

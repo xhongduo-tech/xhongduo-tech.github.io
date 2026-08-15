@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 化学课程论：课程理念与课程标准
-- [ ] 化学教材分析与使用
-- [ ] 化学学习论与学习心理
-- [ ] 化学教学设计与教学模式
-- [ ] 化学基本概念与理论教学
-- [ ] 化学实验教学
-- [ ] 探究式教学与科学探究
-- [ ] 化学教育测量与评价
+- [x] [化学课程论：课程理念与课程标准](./chemistry-curriculum-theory)
+- [x] [化学教材分析与使用](./chemistry-textbook-analysis)
+- [x] [化学学习论与学习心理](./chemistry-learning-psychology)
+- [x] [化学教学设计与教学模式](./chemistry-teaching-design)
+- [x] [化学基本概念与理论教学](./chemistry-concept-theory-teaching)
+- [x] [化学实验教学](./chemistry-experiment-teaching)
+- [x] [探究式教学与科学探究](./inquiry-based-teaching)
+- [x] [化学教育测量与评价](./chemistry-education-assessment)
 
 ### 第2篇
 
-- [ ] 信息技术与化学教学
-- [ ] 化学教师专业发展
-- [ ] 国际化学教育比较（NGSS/IB/AP 化学）
+- [x] [信息技术与化学教学](./it-in-chemistry-teaching)
+- [x] [化学教师专业发展](./chemistry-teacher-development)
+- [x] [国际化学教育比较（NGSS/IB/AP 化学）](./international-chemistry-education)

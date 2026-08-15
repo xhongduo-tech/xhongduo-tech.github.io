@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 测量系统与误差理论、不确定度评定
-- [ ] 传感器静态/动态特性与标定
-- [ ] 电阻式传感器（应变片/热电阻）
-- [ ] 电容式与电感式传感器
-- [ ] 压电/磁电/霍尔传感器
-- [ ] 热电式与光电式传感器
-- [ ] 半导体与 MEMS 传感器
-- [ ] 信号调理：电桥/放大/滤波/隔离
+- [x] [测量系统与误差理论、不确定度评定](./measurement-systems-error-uncertainty)
+- [x] [传感器静态/动态特性与标定](./sensor-static-dynamic-calibration)
+- [x] [电阻式传感器（应变片/热电阻）](./resistive-sensors)
+- [x] [电容式与电感式传感器](./capacitive-inductive-sensors)
+- [x] [压电/磁电/霍尔传感器](./piezoelectric-magnetoelectric-hall)
+- [x] [热电式与光电式传感器](./thermoelectric-photoelectric-sensors)
+- [x] [半导体与 MEMS 传感器](./semiconductor-mems-sensors)
+- [x] [信号调理：电桥/放大/滤波/隔离](./signal-conditioning)
 
 ### 第2篇
 
-- [ ] 数据采集与 ADC/接口总线
-- [ ] 虚拟仪器与自动测试系统
-- [ ] 智能传感器与物联网传感网络
+- [x] [数据采集与 ADC/接口总线](./data-acquisition-adc)
+- [x] [虚拟仪器与自动测试系统](./virtual-instruments-ats)
+- [x] [智能传感器与物联网传感网络](./smart-sensors-iot)

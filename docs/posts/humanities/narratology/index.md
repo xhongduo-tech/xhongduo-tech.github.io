@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 叙事学的兴起：俄国形式主义与法国结构主义 (Bal Introduction)
-- [ ] 故事/话语的区分：fabula 与 sjuzhet (Bal Ch 1)
-- [ ] 热奈特时序理论：顺序、预叙、倒叙 (Genette Part I)
-- [ ] 时距：概要、场景、省略与停顿 (Genette Part II)
-- [ ] 频率：单一/重复/反复叙事 (Genette Part III)
-- [ ] 语式：距离与投影（聚焦理论） (Genette Part IV；Bal Ch 2)
-- [ ] 语态：叙述者层级与叙述类型（同故事/异故事） (Genette Part V)
-- [ ] 隐含作者、隐含读者与不可靠叙述 (申丹 Ch 叙述者)
+- [x] [叙事学的兴起：俄国形式主义与法国结构主义 (Bal Introduction)](./narratology-rise-formalism-structuralism)
+- [x] [故事/话语的区分：fabula 与 sjuzhet (Bal Ch 1)](./narratology-fabula-sjuzhet)
+- [x] [热奈特时序理论：顺序、预叙、倒叙 (Genette Part I)](./narratology-genette-order)
+- [x] [时距：概要、场景、省略与停顿 (Genette Part II)](./narratology-duration)
+- [x] [频率：单一/重复/反复叙事 (Genette Part III)](./narratology-frequency)
+- [x] [语式：距离与投影（聚焦理论） (Genette Part IV；Bal Ch 2)](./narratology-mood-focalization)
+- [x] [语态：叙述者层级与叙述类型（同故事/异故事） (Genette Part V)](./narratology-voice-narrator)
+- [x] [隐含作者、隐含读者与不可靠叙述 (申丹 Ch 叙述者)](./narratology-implied-author-unreliable)
 
 ### 第2篇
 
-- [ ] 人物视点与聚焦模式的文本分析 (Bal Ch 3)
-- [ ] 叙事时间与小说文体的交叉分析 (申丹 Ch 时间/视角)
-- [ ] 后经典叙事学：认知叙事学与跨媒介叙事 (Bal 后经典部分)
-- [ ] 叙事学在非虚构与史学叙述中的应用 (申丹 结语)
+- [x] [人物视点与聚焦模式的文本分析 (Bal Ch 3)](./narratology-focalization-text-analysis)
+- [x] [叙事时间与小说文体的交叉分析 (申丹 Ch 时间/视角)](./narratology-narrative-time-style)
+- [x] [后经典叙事学：认知叙事学与跨媒介叙事 (Bal 后经典部分)](./narratology-postclassical-cognitive-transmedia)
+- [x] [叙事学在非虚构与史学叙述中的应用 (申丹 结语)](./narratology-nonfiction-historiography)

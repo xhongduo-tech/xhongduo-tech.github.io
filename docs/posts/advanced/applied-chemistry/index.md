@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 精细化工的范畴、特点与产品分类
-- [ ] 精细化工工艺学基础与新产品技术开发
-- [ ] 精细化工绿色化与原子经济性
-- [ ] 表面活性剂
-- [ ] 合成材料助剂（增塑剂/抗氧剂/阻燃剂）
-- [ ] 食品添加剂
-- [ ] 胶黏剂
-- [ ] 涂料
+- [x] [精细化工的范畴、特点与产品分类](./scope-characteristics-classification)
+- [x] [精细化工工艺学基础与新产品技术开发](./process-engineering-basics-rd)
+- [x] [精细化工绿色化与原子经济性](./greenification-atomic-economy)
+- [x] [表面活性剂](./surfactants)
+- [x] [合成材料助剂（增塑剂/抗氧剂/阻燃剂）](./polymer-additives)
+- [x] [食品添加剂](./food-additives)
+- [x] [胶黏剂](./adhesives)
+- [x] [涂料](./coatings)
 
 ### 第2篇
 
-- [ ] 香料与香精
-- [ ] 染料与颜料
-- [ ] 电子化学品
-- [ ] 化妆品与日用化学品
-- [ ] 精细有机合成单元反应与技术
+- [x] [香料与香精](./flavors-fragrances)
+- [x] [染料与颜料](./dyes-pigments)
+- [x] [电子化学品](./electronic-chemicals)
+- [x] [化妆品与日用化学品](./cosmetics-household-chemicals)
+- [x] [精细有机合成单元反应与技术](./fine-organic-synthesis-unit-reactions)

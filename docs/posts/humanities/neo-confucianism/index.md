@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 宋明理学的产生：韩愈、李翱与儒学复兴
-- [ ] 北宋五子：周敦颐与《太极图说》
-- [ ] 邵雍的象数学
-- [ ] 张载的气论与《西铭》
-- [ ] 程颢、程颐与天理本体
-- [ ] 朱熹：理气论、心性论与格物致知
-- [ ] 陆九渊与心即理
-- [ ] 朱陆之争与鹅湖之会
+- [x] [宋明理学的产生：韩愈、李翱与儒学复兴](./origin-of-neo-confucianism)
+- [x] [北宋五子：周敦颐与《太极图说》](./zhou-dunyi-taiji-diagram)
+- [x] [邵雍的象数学](./shao-yong-numerology)
+- [x] [张载的气论与《西铭》](./zhang-zai-qi-theory)
+- [x] [程颢、程颐与天理本体](./cheng-brothers-tianli)
+- [x] [朱熹：理气论、心性论与格物致知](./zhu-xi-philosophy)
+- [x] [陆九渊与心即理](./lu-jiuyuan-mind-is-principle)
+- [x] [朱陆之争与鹅湖之会](./zhu-lu-debate-ehu-conference)
 
 ### 第2篇
 
-- [ ] 王阳明：心即理、知行合一与致良知
-- [ ] 阳明后学的分化
-- [ ] 罗钦顺、王廷相的气学回应
-- [ ] 刘宗周与明清之际的理学总结
+- [x] [王阳明：心即理、知行合一与致良知](./wang-yangming-liangzhi)
+- [x] [阳明后学的分化](./yangming-school-diversification)
+- [x] [罗钦顺、王廷相的气学回应](./luo-qinshun-wang-tingxiang-qi-theory)
+- [x] [刘宗周与明清之际的理学总结](./liu-zongzhou-ming-qing-synthesis)

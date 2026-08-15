@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 阅读的四个层次（基础/检视/分析/主题）
-- [ ] 主动阅读与四个基本提问
-- [ ] 书籍分类与差异化阅读策略
-- [ ] 结构笔记与概念笔记
-- [ ] 康奈尔笔记法
-- [ ] 卡片盒笔记法（Zettelkasten）与双向链接
-- [ ] 个人知识库工具与工作流
-- [ ] 速读与精读的适用场景
+- [x] [阅读的四个层次（基础/检视/分析/主题）](./four-levels-of-reading)
+- [x] [主动阅读与四个基本提问](./active-reading-four-questions)
+- [x] [书籍分类与差异化阅读策略](./book-classification-reading-strategies)
+- [x] [结构笔记与概念笔记](./structural-notes-and-conceptual-notes)
+- [x] [康奈尔笔记法](./cornell-notes)
+- [x] [卡片盒笔记法（Zettelkasten）与双向链接](./zettelkasten-and-bidirectional-links)
+- [x] [个人知识库工具与工作流](./personal-knowledge-base-tools-workflow)
+- [x] [速读与精读的适用场景](./speed-reading-vs-deep-reading)
 
 ### 第2篇
 
-- [ ] 主题阅读与知识综合
-- [ ] 输出（写作/讲授）与间隔复习
+- [x] [主题阅读与知识综合](./syntopical-reading-and-knowledge-synthesis)
+- [x] [输出（写作/讲授）与间隔复习](./output-writing-teaching-and-spaced-repetition)

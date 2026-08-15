@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 前古典经济学：重商主义与重农学派
-- [ ] 斯密与古典经济学的创立
-- [ ] 李嘉图体系与古典分配理论
-- [ ] 马尔萨斯、萨伊与古典宏观争论
-- [ ] 约翰·斯图亚特·穆勒的综合
-- [ ] 边际革命：杰文斯、门格尔、瓦尔拉斯
-- [ ] 马歇尔与新古典综合
-- [ ] 奥地利学派传统
+- [x] [前古典经济学：重商主义与重农学派](./mercantilism-physiocrats)
+- [x] [斯密与古典经济学的创立](./smith-classical-economics)
+- [x] [李嘉图体系与古典分配理论](./ricardo-classical-distribution)
+- [x] [马尔萨斯、萨伊与古典宏观争论](./malthus-say-classical-macro)
+- [x] [约翰·斯图亚特·穆勒的综合](./john-stuart-mill-synthesis)
+- [x] [边际革命：杰文斯、门格尔、瓦尔拉斯](./marginal-revolution-jevons-menger-walras)
+- [x] [马歇尔与新古典综合](./marshall-neoclassical-synthesis)
+- [x] [奥地利学派传统](./austrian-school-tradition)
 
 ### 第2篇
 
-- [ ] 凯恩斯革命
-- [ ] 货币主义与新古典宏观经济学
-- [ ] 制度主义传统：凡勃伦到加尔布雷思
-- [ ] 福利经济学与公共选择思想源流
-- [ ] 一般均衡理论的成熟：阿罗-德布鲁
-- [ ] 博弈论与信息经济学的思想脉络
+- [x] [凯恩斯革命](./keynesian-revolution)
+- [x] [货币主义与新古典宏观经济学](./monetarism-new-classical-macro)
+- [x] [制度主义传统：凡勃伦到加尔布雷思](./institutionalism-veblen-galbraith)
+- [x] [福利经济学与公共选择思想源流](./welfare-economics-public-choice)
+- [x] [一般均衡理论的成熟：阿罗-德布鲁](./arrow-debreu-general-equilibrium)
+- [x] [博弈论与信息经济学的思想脉络](./game-theory-information-economics)

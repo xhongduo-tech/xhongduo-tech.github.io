@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 科学传播的历史与学科化
-- [ ] 缺失模型、对话模型与参与模型
-- [ ] 公众理解科学与科学素质测评
-- [ ] 科学新闻的生产与变迁
-- [ ] 博物馆、科学中心与非正式学习
-- [ ] 数字媒体、短视频与科学网红
-- [ ] 风险沟通与健康传播
-- [ ] 科学辟谣与错误信息纠偏
+- [x] [科学传播的历史与学科化](./history-and-disciplinarization)
+- [x] [缺失模型、对话模型与参与模型](./deficit-dialogue-participation-models)
+- [x] [公众理解科学与科学素质测评](./public-understanding-and-science-literacy)
+- [x] [科学新闻的生产与变迁](./science-journalism)
+- [x] [博物馆、科学中心与非正式学习](./museums-science-centers-informal-learning)
+- [x] [数字媒体、短视频与科学网红](./digital-media-science-influencers)
+- [x] [风险沟通与健康传播](./risk-communication-health-communication)
+- [x] [科学辟谣与错误信息纠偏](./science-misinformation-correction)
 
 ### 第2篇
 
-- [ ] 公民科学（citizen science）
-- [ ] 争议性科技议题传播（疫苗/转基因/AI）
-- [ ] 科学传播效果评估方法
-- [ ] 中国科普体系：科普法与全民科学素质行动
+- [x] [公民科学（citizen science）](./citizen-science)
+- [x] [争议性科技议题传播（疫苗/转基因/AI）](./controversial-science-topics)
+- [x] [科学传播效果评估方法](./science-communication-evaluation)
+- [x] [中国科普体系：科普法与全民科学素质行动](./china-science-popularization-system)

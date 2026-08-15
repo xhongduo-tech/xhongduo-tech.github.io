@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 城市感知与多源城市数据
-- [ ] 时空数据管理与索引
-- [ ] 轨迹数据挖掘与地图匹配
-- [ ] 人流预测与 OD 估计
-- [ ] 城市空气质量细粒度推断
-- [ ] 共享出行与智能调度
-- [ ] 城市标度律（urban scaling）
-- [ ] 城市网络与空间交互模型
+- [x] [城市感知与多源城市数据](./urban-sensing-and-multisource-data)
+- [x] [时空数据管理与索引](./spatiotemporal-data-management-indexing)
+- [x] [轨迹数据挖掘与地图匹配](./trajectory-mining-and-map-matching)
+- [x] [人流预测与 OD 估计](./flow-prediction-and-od-estimation)
+- [x] [城市空气质量细粒度推断](./fine-grained-air-quality-inference)
+- [x] [共享出行与智能调度](./ride-hailing-and-smart-dispatch)
+- [x] [城市标度律（urban scaling）](./urban-scaling-laws)
+- [x] [城市网络与空间交互模型](./urban-networks-and-spatial-interaction)
 
 ### 第2篇
 
-- [ ] 智慧城市平台与数据中台
-- [ ] 城市数字孪生
-- [ ] 城市韧性与应急管理应用
-- [ ] 城市计算的隐私与治理
+- [x] [智慧城市平台与数据中台](./smart-city-platforms-and-data-hub)
+- [x] [城市数字孪生](./city-digital-twin)
+- [x] [城市韧性与应急管理应用](./urban-resilience-and-emergency-applications)
+- [x] [城市计算的隐私与治理](./privacy-and-governance-in-urban-computing)

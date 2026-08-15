@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 外科基础：无菌术与围手术期处理
-- [ ] 水电解质与酸碱平衡紊乱、外科营养支持
-- [ ] 外科休克与多器官功能障碍综合征
-- [ ] 甲状腺与甲状旁腺疾病
-- [ ] 乳腺疾病
-- [ ] 腹外疝与腹壁疾病
-- [ ] 急腹症的诊断与处理、腹部创伤
-- [ ] 胃十二指肠疾病与胃肠道肿瘤
+- [x] [外科基础：无菌术与围手术期处理](./aseptic-technique-perioperative-care)
+- [x] [水电解质与酸碱平衡紊乱、外科营养支持](./fluid-electrolyte-acid-base-nutrition)
+- [x] [外科休克与多器官功能障碍综合征](./surgical-shock-mods)
+- [x] [甲状腺与甲状旁腺疾病](./thyroid-parathyroid-diseases)
+- [x] [乳腺疾病](./breast-diseases)
+- [x] [腹外疝与腹壁疾病](./abdominal-hernia)
+- [x] [急腹症的诊断与处理、腹部创伤](./acute-abdomen-abdominal-trauma)
+- [x] [胃十二指肠疾病与胃肠道肿瘤](./gastroduodenal-diseases-gi-tumors)
 
 ### 第2篇
 
-- [ ] 肝脏、胆道与胰腺疾病
-- [ ] 结直肠与肛管疾病
-- [ ] 腹腔镜与微创外科技术
+- [x] [肝脏、胆道与胰腺疾病](./hepatobiliary-pancreatic-diseases)
+- [x] [结直肠与肛管疾病](./colorectal-anal-diseases)
+- [x] [腹腔镜与微创外科技术](./laparoscopic-minimally-invasive-surgery)

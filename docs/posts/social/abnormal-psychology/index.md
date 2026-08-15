@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 变态心理学的研究对象与历史
-- [ ] 心理障碍的分类与诊断：DSM-5 与 ICD-11
-- [ ] 变态心理学的理论模型：生物、心理、社会与整合模型
-- [ ] 临床评估与心理测验
-- [ ] 焦虑障碍：广泛性焦虑、惊恐障碍与恐惧症
-- [ ] 强迫症与创伤后应激障碍
-- [ ] 心境障碍：抑郁障碍与双相障碍
-- [ ] 精神分裂症谱系障碍
+- [x] [变态心理学的研究对象与历史](./research-object-and-history)
+- [x] [心理障碍的分类与诊断：DSM-5 与 ICD-11](./classification-diagnosis-dsm-icd)
+- [x] [变态心理学的理论模型：生物、心理、社会与整合模型](./theoretical-models)
+- [x] [临床评估与心理测验](./clinical-assessment-and-tests)
+- [x] [焦虑障碍：广泛性焦虑、惊恐障碍与恐惧症](./anxiety-disorders)
+- [x] [强迫症与创伤后应激障碍](./ocd-and-ptsd)
+- [x] [心境障碍：抑郁障碍与双相障碍](./mood-disorders)
+- [x] [精神分裂症谱系障碍](./schizophrenia-spectrum)
 
 ### 第2篇
 
-- [ ] 分离障碍与躯体症状障碍
-- [ ] 进食障碍与睡眠障碍
-- [ ] 人格障碍
-- [ ] 神经发育障碍：自闭症谱系与多动症
-- [ ] 物质使用与成瘾障碍
-- [ ] 自杀与危机干预
+- [x] [分离障碍与躯体症状障碍](./dissociative-and-somatic-symptom-disorders)
+- [x] [进食障碍与睡眠障碍](./eating-and-sleep-disorders)
+- [x] [人格障碍](./personality-disorders)
+- [x] [神经发育障碍：自闭症谱系与多动症](./neurodevelopmental-disorders)
+- [x] [物质使用与成瘾障碍](./substance-use-and-addiction-disorders)
+- [x] [自杀与危机干预](./suicide-and-crisis-intervention)

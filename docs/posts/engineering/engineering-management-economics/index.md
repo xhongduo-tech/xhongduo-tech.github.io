@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 工程经济基本原理与资金时间价值
-- [ ] 投资方案评价（NPV/IRR/回收期）
-- [ ] 设备更新与折旧、不确定性分析
-- [ ] 项目可行性研究
-- [ ] 工程项目组织与治理结构
-- [ ] 项目范围与进度管理（WBS/CPM/PERT）
-- [ ] 项目成本管理与挣值分析
-- [ ] 工程质量管理（PDCA/全面质量管理）
+- [x] [工程经济基本原理与资金时间价值](./engineering-economics-fundamentals-time-value-of-money)
+- [x] [投资方案评价（NPV/IRR/回收期）](./investment-evaluation-npv-irr-payback)
+- [x] [设备更新与折旧、不确定性分析](./equipment-replacement-depreciation-uncertainty)
+- [x] [项目可行性研究](./project-feasibility-study)
+- [x] [工程项目组织与治理结构](./project-organization-governance)
+- [x] [项目范围与进度管理（WBS/CPM/PERT）](./project-scope-schedule-wbs-cpm-pert)
+- [x] [项目成本管理与挣值分析](./project-cost-earned-value-analysis)
+- [x] [工程质量管理（PDCA/全面质量管理）](./engineering-quality-management-pdca-tqm)
 
 ### 第2篇
 
-- [ ] 工程招投标与合同管理（FIDIC 条款）
-- [ ] 项目风险管理
-- [ ] 工程安全与职业健康管理
-- [ ] BIM 与数字化项目管理
+- [x] [工程招投标与合同管理（FIDIC 条款）](./bidding-contract-management-fidic)
+- [x] [项目风险管理](./project-risk-management)
+- [x] [工程安全与职业健康管理](./engineering-safety-occupational-health)
+- [x] [BIM 与数字化项目管理](./bim-digital-project-management)

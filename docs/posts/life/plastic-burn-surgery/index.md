@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 整形外科的基本原则与组织移植
-- [ ] 皮瓣学：随意皮瓣、轴型皮瓣与游离皮瓣
-- [ ] 显微外科与断指（肢）再植
-- [ ] 创面愈合、瘢痕形成与防治
-- [ ] 烧伤的面积深度评估与现场急救
-- [ ] 烧伤休克与液体复苏
-- [ ] 烧伤创面处理与感染防治
-- [ ] 体表肿瘤与先天性畸形的修复
+- [x] [整形外科的基本原则与组织移植](./basic-principles-tissue-transplantation)
+- [x] [皮瓣学：随意皮瓣、轴型皮瓣与游离皮瓣](./flap-surgery)
+- [x] [显微外科与断指（肢）再植](./microsurgery-replantation)
+- [x] [创面愈合、瘢痕形成与防治](./wound-healing-scar-prevention)
+- [x] [烧伤的面积深度评估与现场急救](./burn-assessment-first-aid)
+- [x] [烧伤休克与液体复苏](./burn-shock-fluid-resuscitation)
+- [x] [烧伤创面处理与感染防治](./burn-wound-care-infection-control)
+- [x] [体表肿瘤与先天性畸形的修复](./skin-tumors-congenital-deformity-repair)
 
 ### 第2篇
 
-- [ ] 美容外科：基本原则、常见术式与伦理
-- [ ] 组织工程与再生医学在修复重建中的应用
+- [x] [美容外科：基本原则、常见术式与伦理](./aesthetic-surgery-principles-ethics)
+- [x] [组织工程与再生医学在修复重建中的应用](./tissue-engineering-regenerative-medicine)

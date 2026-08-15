@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 性与性别：生理/社会性别的区分 (Shaw & Lee Ch 1-2)
-- [ ] 女性主义理论谱系：自由派/激进/社会主义/后结构 (Shaw & Lee Ch 理论)
-- [ ] 性别化的制度：家庭、教育与劳动 (Connell Part I)
-- [ ] 性征理论：性别的历史建构 (Connell Part II)
-- [ ] 巴特勒的性别操演理论 (Butler Ch 1-3)
-- [ ] 交叉性（intersectionality）：种族、阶级与性别 (Shaw & Lee Ch 交叉性)
-- [ ] 男性气质研究与支配性男性气质 (Connell Ch 男性气质)
-- [ ] 性别与文学：女性书写传统与经典修正 (Shaw & Lee 文学章)
+- [x] [性与性别：生理/社会性别的区分 (Shaw & Lee Ch 1-2)](./sex-gender-distinction)
+- [x] [女性主义理论谱系：自由派/激进/社会主义/后结构 (Shaw & Lee Ch 理论)](./feminist-theory-genealogy)
+- [x] [性别化的制度：家庭、教育与劳动 (Connell Part I)](./gendered-institutions)
+- [x] [性征理论：性别的历史建构 (Connell Part II)](./sexual-character-theory)
+- [x] [巴特勒的性别操演理论 (Butler Ch 1-3)](./butler-gender-performativity)
+- [x] [交叉性（intersectionality）：种族、阶级与性别 (Shaw & Lee Ch 交叉性)](./intersectionality)
+- [x] [男性气质研究与支配性男性气质 (Connell Ch 男性气质)](./masculinity-studies-hegemonic-masculinity)
+- [x] [性别与文学：女性书写传统与经典修正 (Shaw & Lee 文学章)](./gender-literature-female-writing)
 
 ### 第2篇
 
-- [ ] 性别与媒介表征 (Shaw & Lee 媒介章)
-- [ ] 酷儿理论导论 (Butler 后续发展)
-- [ ] 跨国女性主义与后殖民性别研究 (Shaw & Lee 全球章)
-- [ ] 中国语境下的性别研究 (综合)
+- [x] [性别与媒介表征 (Shaw & Lee 媒介章)](./gender-media-representation)
+- [x] [酷儿理论导论 (Butler 后续发展)](./queer-theory-introduction)
+- [x] [跨国女性主义与后殖民性别研究 (Shaw & Lee 全球章)](./transnational-feminism-postcolonial)
+- [x] [中国语境下的性别研究 (综合)](./gender-studies-china-context)

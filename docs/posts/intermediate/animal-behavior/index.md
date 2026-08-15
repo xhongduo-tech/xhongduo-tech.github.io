@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 行为学的奠基：Lorenz、Tinbergen 与 von Frisch
-- [ ] Tinbergen 四问：机制、发育、功能与演化
-- [ ] 本能、固定动作型与关键刺激
-- [ ] 学习行为：习惯化、条件反射与认知能力
-- [ ] 印记与敏感期
-- [ ] 动物通讯：信号、诚实性与信息
-- [ ] 觅食行为与最优觅食理论
-- [ ] 生殖行为、交配系统与性选择
+- [x] [行为学的奠基：Lorenz、Tinbergen 与 von Frisch](./foundations-of-ethology)
+- [x] [Tinbergen 四问：机制、发育、功能与演化](./tinbergen-four-questions)
+- [x] [本能、固定动作型与关键刺激](./instinct-fixed-action-patterns)
+- [x] [学习行为：习惯化、条件反射与认知能力](./learning-habituation-conditioning)
+- [x] [印记与敏感期](./imprinting-and-sensitive-periods)
+- [x] [动物通讯：信号、诚实性与信息](./animal-communication-signals)
+- [x] [觅食行为与最优觅食理论](./foraging-optimal-foraging-theory)
+- [x] [生殖行为、交配系统与性选择](./reproductive-behavior-mating-systems)
 
 ### 第2篇
 
-- [ ] 亲代抚育、亲属选择与汉密尔顿法则
-- [ ] 社群行为、利他与合作的演化
-- [ ] 行为的遗传基础与神经生理机制
+- [x] [亲代抚育、亲属选择与汉密尔顿法则](./parental-care-kin-selection)
+- [x] [社群行为、利他与合作的演化](./social-behavior-altruism-cooperation)
+- [x] [行为的遗传基础与神经生理机制](./genetic-neural-basis-of-behavior)

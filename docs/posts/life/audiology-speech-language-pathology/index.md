@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 听觉系统解剖生理
-- [ ] 听力学检测（纯音测听/声导抗/耳声发射/ABR）
-- [ ] 听力障碍分类与干预策略
-- [ ] 助听器验配
-- [ ] 人工耳蜗与听觉康复
-- [ ] 言语产生机制与语音学
-- [ ] 失语症评估与治疗
-- [ ] 构音障碍与运动性言语障碍
+- [x] [听觉系统解剖生理](./auditory-system-anatomy-physiology)
+- [x] [听力学检测（纯音测听/声导抗/耳声发射/ABR）](./audiologic-assessment)
+- [x] [听力障碍分类与干预策略](./hearing-loss-classification-intervention)
+- [x] [助听器验配](./hearing-aid-fitting)
+- [x] [人工耳蜗与听觉康复](./cochlear-implant-aural-rehabilitation)
+- [x] [言语产生机制与语音学](./speech-production-phonetics)
+- [x] [失语症评估与治疗](./aphasia-assessment-treatment)
+- [x] [构音障碍与运动性言语障碍](./articulation-motor-speech-disorders)
 
 ### 第2篇
 
-- [ ] 儿童语言发育迟缓
-- [ ] 流畅度障碍（口吃）
-- [ ] 吞咽障碍评估与治疗
-- [ ] 嗓音障碍与嗓音训练
+- [x] [儿童语言发育迟缓](./child-language-delay)
+- [x] [流畅度障碍（口吃）](./fluency-disorders-stuttering)
+- [x] [吞咽障碍评估与治疗](./dysphagia-assessment-treatment)
+- [x] [嗓音障碍与嗓音训练](./voice-disorders-voice-therapy)

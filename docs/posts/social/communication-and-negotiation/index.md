@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 沟通的过程与常见障碍
-- [ ] 倾听与同理心反馈
-- [ ] 自我袒露与关系建立
-- [ ] 非语言沟通（表情/姿态/空间）
-- [ ] 语言沟通与人际冲突管理
-- [ ] 立场与利益：原则式谈判
-- [ ] BATNA（最佳替代方案）与谈判准备
-- [ ] 分配式谈判与整合式谈判
+- [x] [沟通的过程与常见障碍](./communication-process-and-barriers)
+- [x] [倾听与同理心反馈](./listening-and-empathy)
+- [x] [自我袒露与关系建立](./self-disclosure-and-relationships)
+- [x] [非语言沟通（表情/姿态/空间）](./nonverbal-communication)
+- [x] [语言沟通与人际冲突管理](./language-and-conflict-management)
+- [x] [立场与利益：原则式谈判](./positions-and-interests)
+- [x] [BATNA（最佳替代方案）与谈判准备](./batna-and-preparation)
+- [x] [分配式谈判与整合式谈判](./distributive-and-integrative-negotiation)
 
 ### 第2篇
 
-- [ ] 说服六原则（互惠/承诺一致/社会认同/喜好/权威/稀缺）
-- [ ] 跨文化沟通
-- [ ] 职场沟通与线上沟通礼仪
+- [x] [说服六原则（互惠/承诺一致/社会认同/喜好/权威/稀缺）](./six-principles-of-persuasion)
+- [x] [跨文化沟通](./intercultural-communication)
+- [x] [职场沟通与线上沟通礼仪](./workplace-and-online-communication)

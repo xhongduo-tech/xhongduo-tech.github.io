@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 循证医学的缘起、理念与五步实践模式
-- [ ] 临床问题的构建：PICO 框架
-- [ ] 证据的分级与质量评价体系
-- [ ] 临床研究设计谱系：从病例报告到随机对照试验
-- [ ] 文献检索策略与常用数据库
-- [ ] 治疗性研究评价：偏倚风险与结果解读
-- [ ] 系统评价与 Meta 分析方法
-- [ ] 诊断试验与预后研究的评价
+- [x] [循证医学的缘起、理念与五步实践模式](./origins-five-steps)
+- [x] [临床问题的构建：PICO 框架](./pico-framework)
+- [x] [证据的分级与质量评价体系](./evidence-hierarchy)
+- [x] [临床研究设计谱系：从病例报告到随机对照试验](./study-design-spectrum)
+- [x] [文献检索策略与常用数据库](./literature-search-strategies)
+- [x] [治疗性研究评价：偏倚风险与结果解读](./therapy-appraisal-risks)
+- [x] [系统评价与 Meta 分析方法](./systematic-review-meta-analysis)
+- [x] [诊断试验与预后研究的评价](./diagnostic-prognostic-studies)
 
 ### 第2篇
 
-- [ ] 临床实践指南与 GRADE 证据分级
-- [ ] 共同决策、患者价值观与循证医学的批评和发展
+- [x] [临床实践指南与 GRADE 证据分级](./clinical-guidelines-grade)
+- [x] [共同决策、患者价值观与循证医学的批评和发展](./shared-decision-making-critique)

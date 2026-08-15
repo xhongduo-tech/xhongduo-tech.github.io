@@ -18,21 +18,21 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 孔德与社会学的创立
-- [ ] 涂尔干：社会事实、分工与自杀论
-- [ ] 马克思：阶级、异化与意识形态
-- [ ] 韦伯：理解社会学、理性化与支配类型
-- [ ] 齐美尔：形式社会学
-- [ ] 帕森斯与结构功能主义
-- [ ] 冲突理论：达伦多夫与科塞
-- [ ] 符号互动论：米德、布鲁默与戈夫曼
+- [x] [孔德与社会学的创立](./comte-foundation-of-sociology)
+- [x] [涂尔干：社会事实、分工与自杀论](./durkheim-social-facts-division-suicide)
+- [x] [马克思：阶级、异化与意识形态](./marx-class-alienation-ideology)
+- [x] [韦伯：理解社会学、理性化与支配类型](./weber-understanding-sociology-rationalization-domination)
+- [x] [齐美尔：形式社会学](./simmel-formal-sociology)
+- [x] [帕森斯与结构功能主义](./parsons-structural-functionalism)
+- [x] [冲突理论：达伦多夫与科塞](./conflict-theory-dahrendorf-coser)
+- [x] [符号互动论：米德、布鲁默与戈夫曼](./symbolic-interactionism-mead-blumer-goffman)
 
 ### 第2篇
 
-- [ ] 交换理论与理性选择：霍曼斯、布劳、科尔曼
-- [ ] 法兰克福学派批判理论
-- [ ] 布迪厄：场域、惯习与资本
-- [ ] 吉登斯：结构化理论
-- [ ] 哈贝马斯：交往行动理论
-- [ ] 福柯与后现代转向
-- [ ] 社会学理论的中国本土化
+- [x] [交换理论与理性选择：霍曼斯、布劳、科尔曼](./exchange-theory-rational-choice-homans-blau-coleman)
+- [x] [法兰克福学派批判理论](./frankfurt-school-critical-theory)
+- [x] [布迪厄：场域、惯习与资本](./bourdieu-field-habitus-capital)
+- [x] [吉登斯：结构化理论](./giddens-structuration-theory)
+- [x] [哈贝马斯：交往行动理论](./habermas-theory-of-communicative-action)
+- [x] [福柯与后现代转向](./foucault-postmodern-turn)
+- [x] [社会学理论的中国本土化](./localization-of-sociological-theory-in-china)
