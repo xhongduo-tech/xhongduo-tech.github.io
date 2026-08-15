@@ -30,9 +30,8 @@ date: 2026-08-07
 
 $$ \text{自由组合} \to \text{搭配} \to \text{语块} \to \text{习语} $$
 
-`drink water`（自由组合）→ `strong coffee`（搭配，有限制）→ `by the way`（语块，整体调用）→ `kick the bucket`（习语，意义不可拆）。<span class="marginnote">这条谱系告诉我们：语块与习语不是两个世界，而是「固定程度」连续体上的不同点。语块理论把搭配、短语动词、习语、惯用语统统放进「预制单位」这一框架——它们都是「被整块存储的语言」。
+`drink water`（自由组合）→ `strong coffee`（搭配，有限制）→ `by the way`（语块，整体调用）→ `kick the bucket`（习语，意义不可拆）。<span class="marginnote">这条谱系告诉我们：语块与习语不是两个世界，而是「固定程度」连续体上的不同点。语块理论把搭配、短语动词、习语、惯用语统统放进「预制单位」这一框架——它们都是「被整块存储的语言」。</span>
 
-</span>
 
 ## 2 语块的分类
 

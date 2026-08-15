@@ -16,9 +16,9 @@ date: 2026-08-07
 
 ## 为什么从 Deutsch-Jozsa 算法开始
 
-上一节我们把黑盒模型立了起来，现在用它打第一仗。**Deutsch 问题**（1985）是史上第一个量子算法解决的问题：判定一个单比特函数是常数还是平衡，经典需要 2 次查询，Deutsch 用 1 次；**Deutsch-Jozsa 问题**（1992）把它推广到 $n$ 比特：判定 $f:\{0,1\}^n\to\{0,1\}$ 是常数还是平衡（恰好一半输入输出 0、一半输出 1），经典最坏要 $2^{n-1}+1$ 次查询，而 Deutsch-Jozsa 算法**只用 1 次**——这是史上第一个「指数级查询加速」的证明。<span class="marginnote">Deutsch 发表于 D. Deutsch, "Quantum theory, the Church–Turing principle and the universal quantum computer," <i>Proc. R. Soc. Lond. A</i>` 400 (1985) 97；Deutsch &amp; Jozsa 发表于 <i>Proc. R. Soc. Lond. A</i>` 439 (1992) 553。问题的学术价值远大于实用价值，但它是理解量子算法「并行+干涉」引擎的最佳样例。本节逐行拆开这台引擎。
+上一节我们把黑盒模型立了起来，现在用它打第一仗。**Deutsch 问题**（1985）是史上第一个量子算法解决的问题：判定一个单比特函数是常数还是平衡，经典需要 2 次查询，Deutsch 用 1 次；**Deutsch-Jozsa 问题**（1992）把它推广到 $n$ 比特：判定 $f:\{0,1\}^n\to\{0,1\}$ 是常数还是平衡（恰好一半输入输出 0、一半输出 1），经典最坏要 $2^{n-1}+1$ 次查询，而 Deutsch-Jozsa 算法**只用 1 次**——这是史上第一个「指数级查询加速」的证明。Deutsch 发表于 D. Deutsch, "Quantum theory, the Church–Turing principle and the universal quantum computer," <i>Proc. R. Soc. Lond. A</i>` 400 (1985) 97；Deutsch &amp; Jozsa 发表于 <i>Proc. R. Soc. Lond. A</i>` 439 (1992) 553。问题的学术价值远大于实用价值，但它是理解量子算法「并行+干涉」引擎的最佳样例。本节逐行拆开这台引擎。
 
-本节是第五篇《量子算法基础》的第一课。它把《量子查询复杂度》的黑盒语言落地成第一个真实线路——读完你会发现「黑盒 + 相位编码 + 干涉读出」就是后面所有算法（BV、Simon、Shor、Grover）的通用骨架。</span>
+本节是第五篇《量子算法基础》的第一课。它把《量子查询复杂度》的黑盒语言落地成第一个真实线路——读完你会发现「黑盒 + 相位编码 + 干涉读出」就是后面所有算法（BV、Simon、Shor、Grover）的通用骨架。
 
 ## 1 Deutsch 算法：单比特版本
 
@@ -36,9 +36,9 @@ $$
 \frac{1}{\sqrt2}\left[(-1)^{f(0)}\lvert0\rangle + (-1)^{f(1)}\lvert1\rangle\right] = \pm\frac{\lvert0\rangle+\lvert1\rangle}{\sqrt2} \text{ 或 } \pm\frac{\lvert0\rangle-\lvert1\rangle}{\sqrt2}
 $$
 
-前者（$f(0)=f(1)$）再 $H$ 后是 $\pm\lvert0\rangle$，后者（$f(0)\ne f(1)$）再 $H$ 后是 $\pm\lvert1\rangle$。<span class="marginnote">判别：测量第一个比特，得 0 说明常数，得 1 说明平衡。经典需要问 $f(0)$ 和 $f(1)$ 两次，Deutsch 只用一次——但只有常数倍的加速。真正的指数加速在下面 $n$ 比特版本。
+前者（$f(0)=f(1)$）再 $H$ 后是 $\pm\lvert0\rangle$，后者（$f(0)\ne f(1)$）再 $H$ 后是 $\pm\lvert1\rangle$。判别：测量第一个比特，得 0 说明常数，得 1 说明平衡。经典需要问 $f(0)$ 和 $f(1)$ 两次，Deutsch 只用一次——但只有常数倍的加速。真正的指数加速在下面 $n$ 比特版本。
 
-把 Deutsch 的单比特算一遍：$f(0)=0, f(1)=1$（平衡）。辅助 $\lvert-\rangle$ 下查询给 $\frac{1}{\sqrt2}(\lvert0\rangle - \lvert1\rangle)$，再 $H$ 后是 $\lvert1\rangle$——测量得 1，判平衡。$f \equiv 0$ 时给 $\lvert0\rangle$，测 0，判常数。一次查询、一次测量，两种答案精确对应。</span>
+把 Deutsch 的单比特算一遍：$f(0)=0, f(1)=1$（平衡）。辅助 $\lvert-\rangle$ 下查询给 $\frac{1}{\sqrt2}(\lvert0\rangle - \lvert1\rangle)$，再 $H$ 后是 $\lvert1\rangle$——测量得 1，判平衡。$f \equiv 0$ 时给 $\lvert0\rangle$，测 0，判常数。一次查询、一次测量，两种答案精确对应。
 
 ## 2 Deutsch-Jozsa 算法：$n$ 比特版本
 
@@ -74,9 +74,9 @@ $$
 
 - **第一步，写振幅**：$H^{\otimes n}$ 把 $\lvert x\rangle$ 映到 $\frac{1}{\sqrt{2^n}}\sum_y (-1)^{x\cdot y}\lvert y\rangle$（$x\cdot y$ 是模 2 内积）。查询相位 $(-1)^{f(x)}$ 与 $H$ 相位合并，得上面的和式。
 - **第二步，看 $y=0$**：当 $y=0$ 时 $x\cdot y = 0$，于是 $\tilde{f}(0) = \frac{1}{2^n}\sum_x (-1)^{f(x)}$。
-- **第三步，两种情形**：$f$ 常数 ⇒ $(-1)^{f(x)}$ 全为 $+1$ 或全为 $-1$ ⇒ $\lvert\tilde{f}(0)\rvert = 1$ ⇒ 测量必为全 0。$f$ 平衡 ⇒ $\sum_x (-1)^{f(x)} = 0$（正负各半）⇒ $\tilde{f}(0) = 0$ ⇒ 测量全 0 的概率为 0。<span class="marginnote">这就是干涉的定量面目：<strong>平衡函数让「全 0」这个结果的振幅精确相消</strong>，而常数函数让它们相长。一次查询 + 两次 Hadamard 层，完成经典需要指数次查询的判断——加速全部来自「把 $2^n$ 个值的相位同时叠加、再由一次干涉统一读出」。
+- **第三步，两种情形**：$f$ 常数 ⇒ $(-1)^{f(x)}$ 全为 $+1$ 或全为 $-1$ ⇒ $\lvert\tilde{f}(0)\rvert = 1$ ⇒ 测量必为全 0。$f$ 平衡 ⇒ $\sum_x (-1)^{f(x)} = 0$（正负各半）⇒ $\tilde{f}(0) = 0$ ⇒ 测量全 0 的概率为 0。这就是干涉的定量面目：<strong>平衡函数让「全 0」这个结果的振幅精确相消</strong>，而常数函数让它们相长。一次查询 + 两次 Hadamard 层，完成经典需要指数次查询的判断——加速全部来自「把 $2^n$ 个值的相位同时叠加、再由一次干涉统一读出」。
 
-还有一个值得注意的点：Deutsch-Jozsa 的「一次查询」不需要知道 $f$ 的任何值——它把「函数性质」整个压进了相位分布，再让干涉读出「全 0 的振幅是否为 1」。这种「不读数值、只读性质」的范式，是量子算法与经典算法的根本分水岭。</span>
+还有一个值得注意的点：Deutsch-Jozsa 的「一次查询」不需要知道 $f$ 的任何值——它把「函数性质」整个压进了相位分布，再让干涉读出「全 0 的振幅是否为 1」。这种「不读数值、只读性质」的范式，是量子算法与经典算法的根本分水岭。
 
 ## 4 公式解析：$H^{\otimes n}$ 的作用与逆作用
 

@@ -78,9 +78,9 @@ qc_rz = QuantumCircuit(1); qc_rz.rz(2.0, 0)   # 绕 Z 轴转 2 弧度
 
 **$H$**：把 $Z$ 轴转成 $X$ 轴（$\lvert0\rangle \to \lvert+\rangle$、$\lvert1\rangle \to \lvert-\rangle$）。
 **$S = R_z(\pi/2)$、$T = R_z(\pi/4)$**：绕 $Z$ 轴的四分之一、八分之一圈。
-**$R_x, R_y, R_z(\theta)$**：连续旋转门，参数是弧度——变分算法的「旋钮」。<span class="marginnote">把这些门依次作用、每次 `plot_bloch_multivector` 画一下，你会看到态在球面上「爬行」。这是建立「门 = 旋转」直觉的最好练习：试着从 $\lvert0\rangle$ 出发，用 $R_y$、$R_z$ 的组合到达球面任意一点——这正是「任意单比特门分解」（第三篇）的几何验证。
+**$R_x, R_y, R_z(\theta)$**：连续旋转门，参数是弧度——变分算法的「旋钮」。把这些门依次作用、每次 `plot_bloch_multivector` 画一下，你会看到态在球面上「爬行」。这是建立「门 = 旋转」直觉的最好练习：试着从 $\lvert0\rangle$ 出发，用 $R_y$、$R_z$ 的组合到达球面任意一点——这正是「任意单比特门分解」（第三篇）的几何验证。
 
-把组合算一个具体例子：$\lvert0\rangle$ 先 $R_y(\pi/2)$（转到 $+X$ 轴）再 $R_z(\pi/2)$（绕 $Z$ 轴转 90°，转到 $+Y$ 轴），得到的态是 $\lvert+\rangle$ 再被 $S$ 作用 = $\frac{1}{\sqrt2}(\lvert0\rangle + i\lvert1\rangle)$。你可以用 `Statevector` 验证：$(0.707, 0.707i)$——这正是「先定纬度、再转经度」的球面导航。</span>
+把组合算一个具体例子：$\lvert0\rangle$ 先 $R_y(\pi/2)$（转到 $+X$ 轴）再 $R_z(\pi/2)$（绕 $Z$ 轴转 90°，转到 $+Y$ 轴），得到的态是 $\lvert+\rangle$ 再被 $S$ 作用 = $\frac{1}{\sqrt2}(\lvert0\rangle + i\lvert1\rangle)$。你可以用 `Statevector` 验证：$(0.707, 0.707i)$——这正是「先定纬度、再转经度」的球面导航。
 
 ## 4 公式解析：验证「门 = 旋转」
 

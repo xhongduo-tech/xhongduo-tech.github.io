@@ -83,8 +83,7 @@ $$N_{\text{叶绿体蛋白}} \;\approx\; N_{\text{叶绿体自身基因}} \;+\; 
 - <strong>第一步，$N_{\text{叶绿体蛋白}}$</strong>：叶绿体正常运作所需的全部蛋白质（约一千多种）；
 - <strong>第二步，$N_{\text{叶绿体自身基因}}</strong>：叶绿体基因组仍保留的基因——现代叶绿体基因组
 通常只编码<strong>约 100–200 个基因</strong>，多为光合核心（RuBisCO 大亚基、部分类囊体蛋白）；
-- <strong>第三步，$N_{\text{核转移基因}}</strong>：其余绝大多数蛋白基因早已转移到<strong>细胞核</strong
->，翻译后在胞质合成，再靠<strong>导肽（transit peptide）</strong>运回叶绿体；
+- <strong>第三步，$N_{\text{核转移基因}}</strong>：其余绝大多数蛋白基因早已转移到<strong>细胞核</strong>，翻译后在胞质合成，再靠<strong>导肽（transit peptide）</strong>运回叶绿体；
 - <strong>第四步，直觉</strong>：叶绿体像一位「把祖产过户给总公司、但仍领工资回老家上班」的老员工——
 基因走了，蛋白还要回来。这个「外迁基因 + 回运蛋白」的格局，正是内共生最深刻而普遍的遗产。
 

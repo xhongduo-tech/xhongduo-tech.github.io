@@ -51,9 +51,12 @@ for (const file of files) {
     continue;
   }
   const errors = [];
-  // 用 compiler-sfc 的 compileTemplate 复刻 vitepress build 的编译路径（compiler-dom 漏报 JS 语法类错误）
+  // 用 compiler-sfc 的 compileTemplate 复刻 vitepress build 的编译路径。
+  // 注意：compileTemplate 对模板语法错误不抛异常，而是收进 result.errors —— 必须显式检查，
+  // 否则「Element is missing end tag」这类错误会被误判为通过（vite:vue 在构建时会 throw）。
   try {
-    compileTemplate({ source: html, filename: file, id: 'x' });
+    const result = compileTemplate({ source: html, filename: file, id: 'x' });
+    for (const e of result.errors ?? []) errors.push(e);
   } catch (e) {
     errors.push(e);
   }

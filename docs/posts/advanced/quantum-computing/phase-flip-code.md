@@ -42,9 +42,9 @@ $$
 \lvert0_L\rangle = \lvert+++\rangle, \qquad \lvert1_L\rangle = \lvert---\rangle
 $$
 
-编码线路 = 比特翻转码线路 + 每比特前后夹 $H$：$H^{\otimes 3}$ 作用把 $Z$ 错误变成 $X$ 错误，$X$ 基的重复码照常工作，再 $H^{\otimes 3}$ 转回计算基。<span class="marginnote">这条「$H^{\otimes 3}$ 包裹」的线路是本节最重要的一张图：它把一个「相位翻转码」变成一个「带上 $H$ 的比特翻转码」。物理实现里你不需要新的校验逻辑——只要在编码前转基、解码后转回，复用比特翻转码的全部纠错机制。
+编码线路 = 比特翻转码线路 + 每比特前后夹 $H$：$H^{\otimes 3}$ 作用把 $Z$ 错误变成 $X$ 错误，$X$ 基的重复码照常工作，再 $H^{\otimes 3}$ 转回计算基。这条「$H^{\otimes 3}$ 包裹」的线路是本节最重要的一张图：它把一个「相位翻转码」变成一个「带上 $H$ 的比特翻转码」。物理实现里你不需要新的校验逻辑——只要在编码前转基、解码后转回，复用比特翻转码的全部纠错机制。
 
-具体编码：要把 $\lvert0\rangle$ 编码成逻辑 $\lvert0_L\rangle$，先把它放进 $X$ 基（$H\lvert0\rangle = \lvert+\rangle$），再按比特翻转码的方式「扩展」到三个比特：$\lvert0\rangle \to \lvert+\rangle \to \lvert+++\rangle$。解码时先测校验、按综合征修复，再 $H^{\otimes 3}$ 转回计算基。<span class="marginnote">这里有个微妙的点：量子不能「复制」未知态（不可克隆定理），但编码的是「已知的计算基态 $\lvert0\rangle$」，可以写成明确线路——所以编码不是克隆。</span></span>
+具体编码：要把 $\lvert0\rangle$ 编码成逻辑 $\lvert0_L\rangle$，先把它放进 $X$ 基（$H\lvert0\rangle = \lvert+\rangle$），再按比特翻转码的方式「扩展」到三个比特：$\lvert0\rangle \to \lvert+\rangle \to \lvert+++\rangle$。解码时先测校验、按综合征修复，再 $H^{\otimes 3}$ 转回计算基。这里有个微妙的点：量子不能「复制」未知态（不可克隆定理），但编码的是「已知的计算基态 $\lvert0\rangle$」，可以写成明确线路——所以编码不是克隆。
 
 ## 3 公式解析：为什么 $H^{\otimes 3}$ 能把相位错误转成比特错误
 
@@ -56,9 +56,9 @@ $$
 
 - **第一步，共轭关系**：由 $HZH = X$（单比特恒等式，可验证：$HZH$ 作用在 $\lvert0\rangle$ 上得 $\lvert1\rangle$，作用在 $\lvert1\rangle$ 上得 $\lvert0\rangle$），张量积给出 $H^{\otimes3}Z_iH^{\otimes3} = X_i$。
 - **第二步，翻译**：若在编码线路里**先** $H^{\otimes3}$ **再**让噪声进来，等效于「噪声直接以 $X$ 形式作用在比特翻转码上」。于是相位错误被「降级」为比特翻转码能处理的错误。
-- **第三步，代价**：付出的额外成本是两个 $H^{\otimes3}$ 层——「转基」的开销。<span class="marginnote">这个「共轭换基」技巧是量子纠错设计的基本功：任何「在 $U$ 基下的错误」都能用「$U$ 包裹的编码」转成「计算基下的错误」。Shor 码、CSS 码正是靠同时处理「$X$ 类」与「$Z$ 类」两组共轭错误而构建的。
+- **第三步，代价**：付出的额外成本是两个 $H^{\otimes3}$ 层——「转基」的开销。这个「共轭换基」技巧是量子纠错设计的基本功：任何「在 $U$ 基下的错误」都能用「$U$ 包裹的编码」转成「计算基下的错误」。Shor 码、CSS 码正是靠同时处理「$X$ 类」与「$Z$ 类」两组共轭错误而构建的。
 
-验证 $HZH = X$（不必背，会推就行）：$HZH = \tfrac{1}{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix}\tfrac{1}{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix} = \begin{pmatrix}0&1\\1&0\end{pmatrix} = X$。三个矩阵连乘，中间是 $Z$、两侧是 $H$——把「相位门」夹在「两重 Hadamard」中间，就变成「翻转门」。这个代数事实是整张相位翻转码线路的理论根基。<span class="marginnote">「夹在 $H$ 中间」这种操作叫「$H$ 共轭」，是「换基」的代数表述：$U^\dagger A U$ 把算子 $A$ 换到 $U$ 的基下再作用。同理有 $HXH = Z$（反向换基）。</span></span>
+验证 $HZH = X$（不必背，会推就行）：$HZH = \tfrac{1}{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix}\tfrac{1}{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix} = \begin{pmatrix}0&1\\1&0\end{pmatrix} = X$。三个矩阵连乘，中间是 $Z$、两侧是 $H$——把「相位门」夹在「两重 Hadamard」中间，就变成「翻转门」。这个代数事实是整张相位翻转码线路的理论根基。「夹在 $H$ 中间」这种操作叫「$H$ 共轭」，是「换基」的代数表述：$U^\dagger A U$ 把算子 $A$ 换到 $U$ 的基下再作用。同理有 $HXH = Z$（反向换基）。
 
 ## 4 相位翻转码的综合征
 

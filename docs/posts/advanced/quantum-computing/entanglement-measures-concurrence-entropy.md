@@ -79,7 +79,7 @@ $$
 
 其中 $\lambda_i$ 是厄米矩阵 $\sqrt{\sqrt{\rho}\,\tilde{\rho}\,\sqrt{\rho}}$ 的本征值（降序排列）。<span class="marginnote">$\sigma_y$ 是 Pauli-Y 矩阵，$\tilde{\rho}$ 叫「自旋翻转态」（spin-flipped state）：对两比特系统的每个「时间反演」翻转做一次翻转。并发度把「纠缠量」压缩进一个 $[0,1]$ 的数：可分态为 0，贝尔态为 1。</span>
 
-对纯态，并发度有简洁闭式：若 $\lvert\psi\rangle = \sum_{ij} a_{ij}\lvert ij\rangle$，则 $C = 2\lvert \det(a_{ij}) \rvert$（系数矩阵行列式）。<span class="marginnote">直觉：系数矩阵的「不可分解性」就是纠缠——若 $\lvert\psi\rangle$ 是积态，系数矩阵秩 1，行列式为 0，并发度 0；贝尔态的系数矩阵是 $\frac{1}{\sqrt2}\begin{pmatrix}1&0\\0&1\end{pmatrix}$，行列式 $\frac12$，$C = 1$。
+对纯态，并发度有简洁闭式：若 $\lvert\psi\rangle = \sum_{ij} a_{ij}\lvert ij\rangle$，则 $C = 2\lvert \det(a_{ij}) \rvert$（系数矩阵行列式）。直觉：系数矩阵的「不可分解性」就是纠缠——若 $\lvert\psi\rangle$ 是积态，系数矩阵秩 1，行列式为 0，并发度 0；贝尔态的系数矩阵是 $\frac{1}{\sqrt2}\begin{pmatrix}1&0\\0&1\end{pmatrix}$，行列式 $\frac12$，$C = 1$。
 
 ### 数值例：部分纠缠态的并发度
 
@@ -89,7 +89,7 @@ $$
 A = \begin{pmatrix} \frac{\sqrt3}{2} & 0 \\ 0 & \frac12 \end{pmatrix}, \qquad \det A = \frac{\sqrt3}{4}, \qquad C = 2 \times \frac{\sqrt3}{4} = \frac{\sqrt3}{2} \approx 0.866
 $$
 
-对应的纠缠熵：$\rho_A$ 本征值为 $\frac34, \frac14$，$S(\rho_A) = -\frac34\log_2\frac34 - \frac14\log_2\frac14 \approx 0.811$ ebit。<span class="marginnote">注意 $C \neq S$：<strong>并发度与纠缠熵是两个不同的数，但纯态上互为单调</strong>，所以「谁大谁小」的排序一致。$C$ 取 $[0,1]$、$S$ 取 $[0,\log_2 d]$——量纲不同，别直接比较数值。</span></span>
+对应的纠缠熵：$\rho_A$ 本征值为 $\frac34, \frac14$，$S(\rho_A) = -\frac34\log_2\frac34 - \frac14\log_2\frac14 \approx 0.811$ ebit。注意 $C \neq S$：<strong>并发度与纠缠熵是两个不同的数，但纯态上互为单调</strong>，所以「谁大谁小」的排序一致。$C$ 取 $[0,1]$、$S$ 取 $[0,\log_2 d]$——量纲不同，别直接比较数值。
 
 ## 5 公式解析：纯态并发度 $C = 2\lvert\det A\rvert$
 
@@ -101,7 +101,7 @@ $$
 
 - **第一步，排系数矩阵**：把 $\lvert\psi\rangle = \sum_{ij}a_{ij}\lvert ij\rangle$ 的系数排成 $2\times2$ 矩阵 $A$。$\lvert\Phi^+\rangle$ 的 $A = \frac{1}{\sqrt2}I$。
 - **第二步，算行列式**：$\det A = \frac12$，取绝对值乘 2：$C = 2 \times \frac12 = 1$。
-- **第三步，对照**：$C = 1$ 对应最大纠缠；由 $E_F = h(C)$，$h(1) = -\frac12\log_2\frac12 - \frac12\log_2\frac12 = 1$ ebit，与纠缠熵 $S(\rho_A)=1$ 对上。<span class="marginnote">这里浮现一条漂亮的对应：<strong>纯态上并发度、纠缠熵、蒸馏熵三个量互为单调函数</strong>，给出相同的纠缠排序；只有进入混合态，它们才各自分化。
+- **第三步，对照**：$C = 1$ 对应最大纠缠；由 $E_F = h(C)$，$h(1) = -\frac12\log_2\frac12 - \frac12\log_2\frac12 = 1$ ebit，与纠缠熵 $S(\rho_A)=1$ 对上。这里浮现一条漂亮的对应：<strong>纯态上并发度、纠缠熵、蒸馏熵三个量互为单调函数</strong>，给出相同的纠缠排序；只有进入混合态，它们才各自分化。
 
 三个度量各有适用面，总结成速查表：
 
@@ -109,7 +109,7 @@ $$
 | --- | --- | --- | --- |
 | 纠缠熵 $S(\rho_A)$ | 纯态 | $[0, \log_2 d]$ | 可蒸馏 ebit 数（纯态） |
 | 纠缠蒸馏熵 $E_F$ | 两比特混合态 | $[0, 1]$ | 制备该态所需贝尔态数 |
-| 并发度 $C$ | 两比特任意态 | $[0, 1]$ | 纠缠含量（不是概率） |</span>
+| 并发度 $C$ | 两比特任意态 | $[0, 1]$ | 纠缠含量（不是概率） |
 
 **辨析｜易错点：** 并发度的取值范围是 $[0,1]$，但**它不是概率**。一个 $C=0.5$ 的态并不意味着「有一半概率纠缠」；它只是说「这个态的纠缠含量相当于半个贝尔态」。把并发度当概率是初学者最常犯的错误。
 

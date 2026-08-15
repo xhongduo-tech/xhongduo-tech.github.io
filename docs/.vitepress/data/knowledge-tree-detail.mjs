@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 604 个待建专题（2026-08 第一轮增补 42 个、第二轮增补 233 个），约 7200 个章节级子主题
+// 共 609 个待建专题（2026-08 第一轮增补 42 个、第二轮增补 233 个、定向增补 5 个），约 7280 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -12996,6 +12996,127 @@ export const treeDetails = {
       "神经发育障碍：自闭症谱系与多动症",
       "物质使用与成瘾障碍",
       "自杀与危机干预"
+    ],
+  },
+  'engineering/semiconductor-manufacturing': {
+    title: "半导体制造工艺与装备",
+    books: [
+          "Quirk, Serda, \"Semiconductor Manufacturing Technology\" (2001)（中译《半导体制造技术》）",
+          "Van Zant, \"Microchip Fabrication\" (6th ed., 2014)（中译《芯片制造：半导体工艺制程实用教程》）",
+          "Sze (ed.), \"VLSI Technology\" (2nd ed., 1988)"
+    ],
+    chapters: [
+      "半导体材料与晶体生长（直拉/区熔单晶、晶圆制备）",
+      "洁净室技术与污染控制（颗粒/金属离子/静电）",
+      "氧化工艺（热氧化、栅氧与场氧）",
+      "光刻工艺（涂胶/曝光/显影，工艺链中的定位）",
+      "刻蚀技术（湿法刻蚀、等离子体与反应离子刻蚀 RIE）",
+      "薄膜沉积（PVD 溅射、CVD/LPCVD/PECVD、ALD）",
+      "掺杂工艺（热扩散与离子注入、退火）",
+      "金属化与多层互连（铝互连、铜大马士革工艺）",
+      "化学机械抛光（CMP）与平坦化",
+      "CMOS 工艺集成（前道 FEOL/后道 BEOL 全流程）",
+      "量测与缺陷检测（膜厚/关键尺寸 CD/套刻量测）",
+      "良率工程与统计过程控制（SPC）",
+      "先进封装（引线键合/倒装焊/2.5D/3D 集成、Chiplet）",
+      "制造装备总览（光刻机/刻蚀机/薄膜沉积/离子注入/量测设备）"
+    ],
+  },
+  'engineering/lithography-technology': {
+    title: "光刻技术与光刻机",
+    books: [
+          "Levinson, \"Principles of Lithography\" (4th ed., SPIE, 2019)",
+          "Mack, \"Fundamental Principles of Optical Lithography\" (Wiley, 2007)",
+          "Bakshi (ed.), \"EUV Lithography\" (2nd ed., SPIE, 2018)"
+    ],
+    chapters: [
+      "光刻原理与投影成像光学基础",
+      "分辨率理论与工艺窗口（Rayleigh 准则、k1 因子、焦深 DOF）",
+      "曝光光源演进（g/i 线、KrF 248nm、ArF 193nm、EUV 13.5nm）",
+      "EUV 光源（激光等离子体 LPP、锡滴发生、驱动激光与收集镜）",
+      "投影物镜（超高 NA 光学、像差校正、浸没式物镜）",
+      "照明系统与分辨率增强（离轴照明、自由形式照明）",
+      "掩模（掩模基板、吸收层、缺陷检测与修补、EUV 反射掩模）",
+      "光刻胶化学（化学放大胶、EUV 胶、显影与线宽粗糙度 LER）",
+      "涂胶显影（Track 工艺与烘烤控制）",
+      "超精密运动系统（双工件台、掩模台、气浮/磁悬浮、nm 级同步扫描）",
+      "对准与套刻控制（Alignment/Overlay 测量与前馈反馈）",
+      "调平调焦与伺服控制、整机热管理与减振",
+      "浸没式光刻（浸液流场、缺陷控制）",
+      "多重图形化（LELE/SADP/SAQP 与自对准工艺）",
+      "计算光刻（OPC 光学邻近效应校正、光源掩模协同优化 SMO、反向光刻 ILT）",
+      "EUV 整机系统集成（真空系统、污染控制、高 NA EUV 展望）",
+      "非光学光刻（电子束直写、纳米压印、X 射线光刻）"
+    ],
+  },
+  'engineering/aircraft-maintenance-engineering': {
+    title: "航空器维修工程（机务）",
+    books: [
+          "FAA, \"Aviation Maintenance Technician Handbook—General\" (FAA-H-8083-30B, 2023)",
+          "FAA, \"Aviation Maintenance Technician Handbook—Airframe\" (FAA-H-8083-31A, 2023)",
+          "FAA, \"Aviation Maintenance Technician Handbook—Powerplant\" (FAA-H-8083-32A, 2023)"
+    ],
+    chapters: [
+      "维修体系与适航法规（CCAR-145 维修单位、CCAR-66 执照、FAA/EASA 体系）",
+      "维修理论与大纲（MSG-3、以可靠性为中心的维修 RCM）",
+      "飞机结构与站位识别、维修分区",
+      "钣金结构修理（铆接、损伤评估与 SRM 结构修理手册）",
+      "复合材料结构维修（损伤检测、铺贴与固化修理）",
+      "机体系统维修（液压、起落架、飞行操纵、燃油、环境控制）",
+      "航空发动机维修（涡扇发动机单元体、孔探、试车）",
+      "航空电气与航电系统维修（线路标准施工、排故）",
+      "无损检测（渗透/磁粉/涡流/超声/射线 NDT）",
+      "技术文件体系（AMM/CMM/IPC/SRM、工卡与服务通告 SB/AD）",
+      "航线维护与定检（过站/A 检/C 检/D 检组织与实施）",
+      "维修人为因素与维修差错（墨菲定律、脏十二）",
+      "机队维修计划、航材管理与可靠性工程"
+    ],
+  },
+  'engineering/design-methodology': {
+    title: "机械设计方法学与系统设计",
+    books: [
+          "Pahl, Beitz, \"Engineering Design: A Systematic Approach\" (3rd ed., 2007)（中译《工程设计方法学》）",
+          "Dieter, Schmidt, \"Engineering Design\" (6th ed., 2020)",
+          "Ulrich, Eppinger, \"Product Design and Development\" (7th ed., 2020)"
+    ],
+    chapters: [
+      "设计过程模型与系统设计方法（需求—功能—原理—结构）",
+      "需求分析、质量功能展开（QFD）与技术规格书",
+      "功能结构分解与物理原理解求解",
+      "概念设计与方案评价（形态学矩阵、决策矩阵）",
+      "创新设计方法（TRIZ 发明原理、矛盾矩阵与进化法则）",
+      "参数化、模块化与产品平台设计",
+      "优化设计方法（数学规划在机械设计中的应用）",
+      "可靠性设计与失效模式分析（FMEA/FTA）",
+      "稳健设计（田口方法与容差设计）",
+      "设计公理（Axiomatic Design：独立公理与信息公理）",
+      "面向制造与装配的设计（DFMA、公差叠加分析）",
+      "全生命周期设计（绿色设计、可维修性、可回收性）",
+      "智能设计（AI 辅助概念生成、生成式设计与拓扑优化）"
+    ],
+  },
+  'life/flight-pilot-training': {
+    title: "飞行驾驶与飞行员训练",
+    books: [
+          "FAA, \"Pilot's Handbook of Aeronautical Knowledge\" (FAA-H-8083-25C, 2023)（中译《飞行员航空知识手册》）",
+          "FAA, \"Airplane Flying Handbook\" (FAA-H-8083-3C, 2021)",
+          "FAA, \"Instrument Flying Handbook\" (FAA-H-8083-15B, 2013)"
+    ],
+    chapters: [
+      "飞行原理（升力/阻力/失速、稳定性与操纵性）",
+      "飞机系统与动力装置（活塞/涡桨/涡扇、电气与燃油系统）",
+      "飞行性能与载重平衡计算",
+      "航空气象（天气系统、危险天气、气象报文识读 METAR/TAF）",
+      "空中领航（推测领航、无线电领航、RNAV/GNSS）",
+      "航空法规与空域运行（CCAR-61/91、ICAO 体系）",
+      "陆空通话与飞行程序（标准通话、离场进场进近程序）",
+      "目视飞行（VFR）操作训练（起落航线、机动飞行、转场）",
+      "仪表飞行（IFR）训练（仪表扫视、等待、ILS/RNP 进近）",
+      "人的因素与机组资源管理（CRM、情景意识、疲劳管理）",
+      "特情与应急程序（发动机失效、失压、火警、迫降）",
+      "执照与训练体系（私照 PPL/仪表等级/商照 CPL/航线执照 ATPL、教员等级）",
+      "高性能与多发机型改装训练",
+      "航线运行基础（签派放行、运行规范、与签派/管制的协同）"
     ],
   },
 }
