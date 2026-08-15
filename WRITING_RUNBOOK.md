@@ -152,11 +152,14 @@ npm run docs:build             # 全量构建（含 dead-link 检查）
 - 批次闭环：`node scripts/lint-html.mjs`（须全绿）→ `node scripts/gen-progress.mjs` → `git add -A && git commit`。Workflow 子代理会建大量噪声任务条目，批次后需清理。
 - ⚠️ 经验：Run2 新写稿引入了 ~24 处 marginnote `**`（应为 `<strong>`）、游离 `</p>`、`<br/>` 等 lint 问题，需修复；另一批 Workflow 完成后必跑 lint。
 
-**⚠️ 重大发现：286 专题 / 4341 空文件（index 已勾选但内容缺失）**
-- 这些专题来自 8-14 skills/知识点脚手架批次：index.md 的 `- [x]` 已勾选，但对应文件是 0 字节空壳（如 family-education-parenting 30 篇全空）。
-- 因为 index 无未勾项，不在「未勾条目」统计内，早期计算漏掉。**「剩余全新博文」的真实规模 = 231 专题 + 286 专题 / 4341 空文件。**
-- Run 3（`wznqnwxlm`）已启动处理这 286 专题 / 4341 空文件，后台最大并发运行中。
+**✅ Run 3 完成并已 push（`a2d8357e3`）**
+- 6 路并行 Workflow + 3 补派 + 2 遗留修复，完成 **244 专题 / 6439 文件**（Run3），全部 ≥120 行、0 空壳。含 skills/知识点脚手架批次的「index 已勾但文件空壳」专题全部补写。
+- 修复 Run3 引入的 52 处 lint 红线。**全站空壳清零（0 空文件），30651 篇博文。**
+- 累计处理 **475 专题 / 9177 文件**（Run1 84 + Run2 147 + Run3 244），全部达标并 push。
 
-**当前状态（Run 3 完成后）**
-- Run 3 完成后：验证行数 → 修复 lint → gen-progress → commit → push。index 已是 `- [x]`，无需勾选（但 gen-progress 的 done 数会因内容补全而更真实）。
-- 下一个 session 起点：等 Run 3 通知或直接重跑 `find docs/posts -name '*.md' ! -name 'index.md' -size 0c` 看剩余空壳，按本手册纪律继续。
+**⚠️ 新发现：~8000 个 <120 行文件（401 专题，475 专题之外）**
+- 这些是**核心课程专题**（basic-medicine 242、advanced-physics 141、os 125、data-structures 114、cryptography 106、database 106、computer-networks 104、chinese-history 95 等）里既有内容但篇幅未达章程（60–119 行）。
+- 属于「质量补齐」工作流（扩写而非新写），与本次「空壳清零」不同。**是下一批最大并发扩写候选**。
+- 检测命令：`find docs/posts -name '*.md' ! -name 'index.md' -size +0c | xargs wc -l | awk '$1<120'`。
+
+**下一个 session 起点**：处理上述 ~8000 个 <120 行文件（用 `/tmp/write-topics-workflow.mjs` 扩写脚本，按专题分组并行），或先跑 `node scripts/lint-html.mjs` + `npm run docs:build` 验证本次部署。
