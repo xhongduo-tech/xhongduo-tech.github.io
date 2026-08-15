@@ -18,7 +18,7 @@ date: 2026-08-07
 
 如果把 CPU 当作文书处理机，那么 **ISA（指令集架构）** 是它与外界签下的合同，**微架构（microarchitecture）** 是它内部办公桌的摆法。
 
-合同规定了「你递进来什么、我保证还给你什么」；至于桌子怎么摆、几道工序并行，合同一概不管。<span class="marginnote">这是体系结构里最重要的抽象分界：ISA 保持稳定十年不动，微架构每一代都换。读者若在《计算机体系结构》专题学过 [架构与组成的区别](/posts/cs/computer-architecture/architecture-vs-organization)，会发现 ISA/微架构正是那句「What」与「How」的另一层说法。</span>
+合同规定了「你递进来什么、我保证还给你什么」；至于桌子怎么摆、几道工序并行，合同一概不管。<span class="marginnote">这是体系结构里最重要的抽象分界：ISA 保持稳定十年不动，微架构每一代都换。读者若在《计算机体系结构》专题学过 [架构与组成的区别](/posts/cs/computer-architecture/architecture-definition)，会发现 ISA/微架构正是那句「What」与「How」的另一层说法。</span>
 
 本专题聚焦微架构——特别是现代处理器引以为傲的**乱序执行**、**分支预测**与**存储一致性**。而这一切都建立在一个地基之上：**流水线（pipeline）**。
 
