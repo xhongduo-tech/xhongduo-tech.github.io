@@ -114,4 +114,8 @@ $$
 - **应力张量**：对称二阶张量，9 个分量只有 6 个独立；由微元体平衡推出 $\sigma_{ij} = \sigma_{ji}$。
 - **应变张量**：小变形下为 $\varepsilon_{ij} = \tfrac{1}{2}(u_{i,j} + u_{j,i})$，对称、6 个独立分量，须满足协调方程。
 - **本构关系**：线弹性 $\boldsymbol{\sigma} = \boldsymbol{D}:\boldsymbol{\varepsilon}$，各向同性材料只需 $E$ 与 $\nu$ 两个参数。
-- **平衡方程** $\nabla\cdot\boldsymbol{\sigma} + \boldsymbol{b} = \boldsymbol{0}$
+- **平衡方程** $\nabla\cdot\boldsymbol{\sigma} + \boldsymbol{b} = \boldsymbol{0}$。
+- **边界条件**：力边界 $\boldsymbol{\sigma}\cdot\boldsymbol{n} = \bar{\boldsymbol{t}}$ 与位移边界 $\boldsymbol{u} = \bar{\boldsymbol{u}}$ 缺一不可；三组方程对应 15 个未知量，加上边界条件问题才封闭。
+- **变分表述**：三大方程可合并成虚位移原理这一等价形式，它是下一节有限元离散的出发点。
+
+在下一节，我们将用**虚位移原理**把三组连续方程改写为「弱形式」，从这里导出有限元的第一块积木——单元刚度矩阵。那是把「连续体的源语言」翻译成「代数机器语言」的第一行。

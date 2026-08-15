@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 弹性力学基本方程（应力/应变/本构）
-- [ ] 能量原理与变分法（最小势能/虚功原理）
-- [ ] 加权残值法与 Galerkin 方法
-- [ ] 一维杆/梁单元直接刚度法
-- [ ] 平面问题的三角形/四边形单元
-- [ ] 等参数单元与数值积分
-- [ ] 轴对称与三维实体单元
-- [ ] 板壳单元（Kirchhoff/Mindlin）
+- [x] [弹性力学基本方程（应力/应变/本构）](./elasticity-fundamental-equations)
+- [x] [能量原理与变分法（最小势能/虚功原理）](./energy-principles-variational-methods)
+- [x] [加权残值法与 Galerkin 方法](./weighted-residual-galerkin)
+- [x] [一维杆/梁单元直接刚度法](./1d-truss-beam-direct-stiffness)
+- [x] [平面问题的三角形/四边形单元](./plane-triangle-quadrilateral-elements)
+- [x] [等参数单元与数值积分](./isoparametric-elements-numerical-integration)
+- [x] [轴对称与三维实体单元](./axisymmetric-3d-solid-elements)
+- [x] [板壳单元（Kirchhoff/Mindlin）](./plate-shell-elements)
 
 ### 第2篇
 
-- [ ] 结构动力学有限元（模态/瞬态）
-- [ ] 材料非线性与几何非线性
-- [ ] 接触问题与有限元软件实践（ANSYS/Abaqus）
-- [ ] 误差估计与网格自适应
+- [x] [结构动力学有限元（模态/瞬态）](./structural-dynamics-fem)
+- [x] [材料非线性与几何非线性](./material-geometric-nonlinearity)
+- [x] [接触问题与有限元软件实践（ANSYS/Abaqus）](./contact-problems-fem-software)
+- [x] [误差估计与网格自适应](./error-estimation-mesh-adaptivity)

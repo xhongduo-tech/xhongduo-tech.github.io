@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 实时系统概念与分类（硬/软/固实时）
-- [ ] 任务模型与可调度性分析
-- [ ] 速率单调调度（RM）与截止期单调调度（DM）
-- [ ] 最早截止期优先（EDF）调度
-- [ ] 资源共享与优先级反转问题
-- [ ] 优先级继承协议与优先级天花板协议
-- [ ] 非周期与偶发任务调度（轮询/偶发服务器）
-- [ ] 多处理器与多核实时调度
+- [x] [实时系统概念与分类（硬/软/固实时）](./real-time-systems-concepts)
+- [x] [任务模型与可调度性分析](./task-model-schedulability)
+- [x] [速率单调调度（RM）与截止期单调调度（DM）](./rm-dm-scheduling)
+- [x] [最早截止期优先（EDF）调度](./edf-scheduling)
+- [x] [资源共享与优先级反转问题](./resource-sharing-priority-inversion)
+- [x] [优先级继承协议与优先级天花板协议](./priority-inheritance-ceiling-protocols)
+- [x] [非周期与偶发任务调度（轮询/偶发服务器）](./aperiodic-sporadic-task-scheduling)
+- [x] [多处理器与多核实时调度](./multiprocessor-multicore-scheduling)
 
 ### 第2篇
 
-- [ ] 实时操作系统（RTOS）内核机制
-- [ ] 时间触发架构（TTA）与实时通信
-- [ ] 分布式实时系统与容错时钟同步
-- [ ] 最坏执行时间（WCET）分析
+- [x] [实时操作系统（RTOS）内核机制](./rtos-kernel-mechanisms)
+- [x] [时间触发架构（TTA）与实时通信](./time-triggered-architecture)
+- [x] [分布式实时系统与容错时钟同步](./distributed-real-time-systems)
+- [x] [最坏执行时间（WCET）分析](./wcet-analysis)
