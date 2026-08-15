@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 表示的定义、例子与基本构造
-- [ ] 完全可约性与 Maschke 定理
-- [ ] 特征标理论
-- [ ] 特征标的第一、第二正交关系
-- [ ] 群代数与正则表示的分解
-- [ ] 不可约表示的个数与类函数空间
-- [ ] 诱导表示与 Frobenius 互反律
-- [ ] 对称群的表示与杨图
+- [x] [表示的定义、例子与基本构造](./representation-definition-examples-construction)
+- [x] [完全可约性与 Maschke 定理](./maschke-theorem-complete-reducibility)
+- [x] [特征标理论](./character-theory)
+- [x] [特征标的第一、第二正交关系](./character-orthogonality-relations)
+- [x] [群代数与正则表示的分解](./group-algebra-regular-representation)
+- [x] [不可约表示的个数与类函数空间](./irreducible-count-class-functions)
+- [x] [诱导表示与 Frobenius 互反律](./induced-representations-frobenius-reciprocity)
+- [x] [对称群的表示与杨图](./symmetric-group-representations-young-diagrams)
 
 ### 第2篇
 
-- [ ] 紧群表示与 Peter–Weyl 定理
-- [ ] SU(2) 与 SO(3) 的表示和角动量
-- [ ] 表示论在物理、化学与数论中的应用
+- [x] [紧群表示与 Peter–Weyl 定理](./compact-group-representations-peter-weyl)
+- [x] [SU(2) 与 SO(3) 的表示和角动量](./su2-so3-representations-angular-momentum)
+- [x] [表示论在物理、化学与数论中的应用](./representation-theory-applications)

@@ -34,6 +34,8 @@ $$1 \to \{\pm I\} \hookrightarrow SU(2) \xrightarrow{\ \Phi\ } SO(3) \to 1$$
 
 **表示的分类关系**：$SO(3)$ 的表示 = 在 $\{\pm I\}$ 上平凡的 $SU(2)$ 表示；$SU(2)$ 的表示要么来自 $SO(3)$（整数 $j$），要么是「半整数自旋」表示（$j = \tfrac12, \tfrac32, \dots$，在 $-I$ 上取 $(-1)^{2j} = -1$）。<span class="marginnote">这是量子力学「$l$ 必须取整数、$j$ 可取半整数」的群论根源：轨道角动量 $l$ 来自 $SO(3)$（整数），自旋 $j$ 来自 $SU(2)$ 的覆盖（允许半整数）。</span>
 
+**绕 $z$ 轴转一角，看两张表。** 绕 $z$ 轴转角 $\theta$ 的 $SO(3)$ 矩阵是 $\begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}$；它的两个 $SU(2)$ 原像分别是 $\pm \begin{pmatrix} e^{i\theta/2} & 0 \\ 0 & e^{-i\theta/2} \end{pmatrix}$。<span class="marginnote">当 $\theta = 2\pi$ 时 $SO(3)$ 矩阵回到单位阵，而 $SU(2)$ 的矩阵是 $-I$——「转一整圈变号」在这里是一行看得见的矩阵。要让 $SU(2)$ 也回原点，$\theta$ 必须走到 $4\pi$，这正是「旋量转两圈才还原」的代数出处。</span>对比两张表：$\theta$ 从 $0$ 走到 $2\pi$，$SO(3)$ 已经闭环，$SU(2)$ 却只走了一半；「$SU(2)$ 二对一覆盖 $SO(3)$」从此有了显式矩阵的支撑。
+
 ## 2 SU(2) 的不可约表示 $V_j$
 
 $SU(2)$ 的全部不可约表示用半整数 $j$ 标记：$j = 0, \tfrac12, 1, \tfrac32, \dots$
@@ -115,4 +117,7 @@ $$V_l \otimes V_1 \cong V_{l-1} \oplus V_l \oplus V_{l+1}$$
 - **不可约表示**：$SU(2)$ 的 $V_j = \mathrm{Sym}^j \mathbb{C}^2$，$\dim V_j = 2j+1$；$J_3$ 权谱 $m = -j, \dots, j$。
 - **CG 级数**：$V_j \otimes V_k = \bigoplus_{l=|j-k|}^{j+k} V_l$，即角动量相加法则；基变换系数为 CG 系数。
 - 维数恒等式 $(2j+1)(2k+1) = \sum (2l+1)$ 是分解自洽性的第一道检验。
-- **应用**：$L^2(S^2) = \bigoplus V_l$ 给出球谐函数；$V_l \otimes V_1$ 的分解给出 $\Delta l = \pm 1, 0$ 选择定则；$V_{1/2}$
+- **应用**：$L^2(S^2) = \bigoplus V_l$ 给出球谐函数；$V_l \otimes V_1$ 的分解给出 $\Delta l = \pm 1, 0$ 选择定则；$V_{1/2}$ 给出自旋与泡利矩阵。
+- **矩阵系数**：$D^j_{mn}(g)$（Wigner $D$-函数）构成 $L^2(SU(2))$ 的正交基；Wigner–Eckart 定理把矩阵元拆成 CG 系数 × 约化矩阵元，选择定则随之而来。
+
+在下一篇，我们将带着 $SU(2)/SO(3)$ 这套语言走出数学，看它如何在量子力学、分子光谱与数论中落地——那是本专题的收束之篇。

@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 试验设计基本原则（随机化/重复/区组）
-- [ ] 单因素方差分析
-- [ ] 多重比较
-- [ ] 随机化区组与拉丁方设计
-- [ ] 多因素方差分析与交互作用
-- [ ] 2^k 与 3^k 因子设计
-- [ ] 部分因子设计与混杂
-- [ ] 正交表与正交试验设计
+- [x] [试验设计基本原则（随机化/重复/区组）](./basic-principles-of-experimental-design)
+- [x] [单因素方差分析](./one-way-anova)
+- [x] [多重比较](./multiple-comparisons)
+- [x] [随机化区组与拉丁方设计](./randomized-block-and-latin-square-designs)
+- [x] [多因素方差分析与交互作用](./factorial-anova-and-interaction)
+- [x] [2^k 与 3^k 因子设计](./2k-and-3k-factorial-designs)
+- [x] [部分因子设计与混杂](./fractional-factorial-and-confounding)
+- [x] [正交表与正交试验设计](./orthogonal-arrays-and-taguchi-designs)
 
 ### 第2篇
 
-- [ ] 裂区设计
-- [ ] 响应面方法
-- [ ] 稳健参数设计（田口方法）
-- [ ] 最优设计（D-最优）引论
+- [x] [裂区设计](./split-plot-designs)
+- [x] [响应面方法](./response-surface-methodology)
+- [x] [稳健参数设计（田口方法）](./robust-parameter-design-taguchi-methods)
+- [x] [最优设计（D-最优）引论](./optimal-designs-d-optimal)

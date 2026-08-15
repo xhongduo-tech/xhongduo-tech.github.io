@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 单自由度系统自由振动
-- [ ] 单自由度强迫振动与频响函数
-- [ ] 隔振与振动测量
-- [ ] 多自由度系统：固有频率与振型
-- [ ] 模态分析与振型叠加法
-- [ ] 连续系统振动：弦/杆/梁
-- [ ] 近似方法：Rayleigh 法与 Ritz 法
-- [ ] 转子动力学基础与临界转速
+- [x] [单自由度系统自由振动](./single-dof-free-vibration)
+- [x] [单自由度强迫振动与频响函数](./single-dof-forced-vibration-frf)
+- [x] [隔振与振动测量](./vibration-isolation-and-measurement)
+- [x] [多自由度系统：固有频率与振型](./multi-dof-natural-frequencies-modes)
+- [x] [模态分析与振型叠加法](./modal-analysis-mode-superposition)
+- [x] [连续系统振动：弦/杆/梁](./continuous-systems-string-rod-beam)
+- [x] [近似方法：Rayleigh 法与 Ritz 法](./rayleigh-ritz-approximate-methods)
+- [x] [转子动力学基础与临界转速](./rotor-dynamics-critical-speed)
 
 ### 第2篇
 
-- [ ] 随机振动基础
-- [ ] 非线性振动初步
-- [ ] 振动试验与模态测试技术
-- [ ] 振动主动/被动控制简介
+- [x] [随机振动基础](./random-vibration-basics)
+- [x] [非线性振动初步](./nonlinear-vibration-intro)
+- [x] [振动试验与模态测试技术](./vibration-testing-modal-testing)
+- [x] [振动主动/被动控制简介](./active-passive-vibration-control)

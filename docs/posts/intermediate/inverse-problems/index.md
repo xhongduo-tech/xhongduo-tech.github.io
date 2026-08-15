@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 反问题与 Hadamard 适定性
-- [ ] 紧算子的奇异系统
-- [ ] Tikhonov 正则化
-- [ ] 截断奇异值分解（TSVD）
-- [ ] 正则化参数选择（偏差原理 / L 曲线）
-- [ ] 迭代正则化（Landweber / 共轭梯度）
-- [ ] 全变差与稀疏正则化
-- [ ] Radon 变换与计算机层析成像
+- [x] [反问题与 Hadamard 适定性](./hadamard-well-posedness)
+- [x] [紧算子的奇异系统](./singular-systems-compact-operators)
+- [x] [Tikhonov 正则化](./tikhonov-regularization)
+- [x] [截断奇异值分解（TSVD）](./truncated-svd)
+- [x] [正则化参数选择（偏差原理 / L 曲线）](./regularization-parameter-selection)
+- [x] [迭代正则化（Landweber / 共轭梯度）](./iterative-regularization)
+- [x] [全变差与稀疏正则化](./total-variation-sparse-regularization)
+- [x] [Radon 变换与计算机层析成像](./radon-transform-computed-tomography)
 
 ### 第2篇
 
-- [ ] 逆散射问题引论
-- [ ] 贝叶斯反问题
-- [ ] 典型应用：医学成像与地球物理反演
+- [x] [逆散射问题引论](./inverse-scattering-intro)
+- [x] [贝叶斯反问题](./bayesian-inverse-problems)
+- [x] [典型应用：医学成像与地球物理反演](./applications-medical-geophysical)
