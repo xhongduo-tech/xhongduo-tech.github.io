@@ -1,0 +1,34 @@
+---
+pageClass: plain-doc
+---
+
+# 中世纪哲学
+
+对标权威教材体系，按章节逐节写成博文。学完一个学科 = 写完该学科权威教材对应的全部博文。
+
+## 对标教材
+
+- 赵敦华, 《基督教哲学1500年》（人民出版社, 1994）
+- Norman Kretzmann, Anthony Kenny and Jan Pinborg (eds.), "The Cambridge History of Later Medieval Philosophy" (Cambridge University Press, 1982)
+- John Marenbon, "Medieval Philosophy: An Historical and Philosophical Introduction" (Routledge, 2007)
+
+## 主题规划
+
+<ProgressGrid cat="humanities/medieval-philosophy" />
+
+### 第1篇
+
+- [ ] 教父哲学与奥古斯丁
+- [ ] 波爱修与中世纪逻辑的开端
+- [ ] 中世纪早期：爱留根纳与加洛林复兴
+- [ ] 安瑟尔谟与本体论证明
+- [ ] 阿拉伯-犹太哲学的影响：阿维森纳、阿维洛伊、迈蒙尼德
+- [ ] 经院哲学的兴起与大学
+- [ ] 托马斯·阿奎那：存在、本质与自然法
+- [ ] 司各脱与唯意志论
+
+### 第2篇
+
+- [ ] 奥卡姆与唯名论革命
+- [ ] 中世纪共相之争
+- [ ] 中世纪晚期与向文艺复兴的过渡

@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 371 个待建专题（2026-08 增补 42 个），约 2850 个章节级子主题
+// 共 604 个待建专题（2026-08 第一轮增补 42 个、第二轮增补 233 个），约 7200 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -7890,6 +7890,5112 @@ export const treeDetails = {
       "监管科技（RegTech）与合规科技",
       "开放银行、API 经济与嵌入式金融",
       "金融科技的风险、伦理与全球监管比较"
+    ],
+  },
+  'life/field-experiment-biostatistics': {
+    title: "田间试验与生物统计（农业试验设计与统计分析）",
+    books: [
+          "盖钧镒主编《试验统计方法》，中国农业出版社，2000（面向21世纪课程教材）",
+          "莫惠栋《农业试验统计》，上海科学技术出版社，1992",
+          "杜荣骞《生物统计学》，高等教育出版社"
+    ],
+    chapters: [
+      "试验设计基本原理（重复、随机、局部控制）",
+      "完全随机设计与随机区组设计",
+      "拉丁方设计与裂区设计",
+      "正交试验设计",
+      "田间试验的实施、管理与误差控制",
+      "统计资料整理与特征数",
+      "概率分布与抽样分布",
+      "参数估计与假设检验",
+      "方差分析（单因素与多因素）",
+      "卡方检验与适合性检验",
+      "相关与回归分析",
+      "多元回归与通径分析",
+      "抽样调查与样本量确定",
+      "统计软件实现（R/SAS）"
+    ],
+  },
+  'life/plant-animal-quarantine': {
+    title: "动植物检疫（植物检疫/动物检验检疫与国门生物安全）",
+    books: [
+          "许志刚主编《植物检疫学》，中国农业出版社，2003",
+          "柳增善、任洪林、张守印主编《动物检疫检验学》，科学出版社，2012",
+          "鞠兴荣主编《动植物检验检疫学》，中国轻工业出版社，2010"
+    ],
+    chapters: [
+      "检疫性有害生物与风险分析（PRA）",
+      "检疫法规体系与 WTO/SPS 协定",
+      "植物检疫程序、产地检疫与除害处理（熏蒸/热处理/辐照）",
+      "检疫性植物病害",
+      "检疫性害虫",
+      "检疫性杂草",
+      "进境种苗与繁殖材料检疫",
+      "WOAH 动物疫病名录与通报",
+      "动物及动物产品检疫检验",
+      "人兽共患病检疫",
+      "口岸检疫与国门生物安全",
+      "检疫性有害生物分子鉴定技术",
+      "入侵生物预警与应急处置",
+      "检疫处理与无害化"
+    ],
+  },
+  'life/traditional-chinese-veterinary-medicine': {
+    title: "中兽医学",
+    books: [
+          "刘钟杰、许剑琴主编《中兽医学》（第四版），中国农业出版社，2020（面向21世纪课程教材）",
+          "杨英主编《兽医针灸学》，高等教育出版社，2006",
+          "钟秀会主编《中兽医学实验指导》，中国农业出版社，2016"
+    ],
+    chapters: [
+      "阴阳五行学说",
+      "脏腑与经络学说",
+      "病因与病机",
+      "四诊（望闻问切）",
+      "辨证论治（八纲辨证/脏腑辨证/卫气营血辨证）",
+      "中兽药性能、炮制与配伍禁忌",
+      "常用中兽药（解表/清热/补益等）",
+      "兽医方剂学",
+      "动物针灸基础与常用穴位",
+      "家畜常见病辨证施治（脾胃病/咳喘/泄泻）",
+      "中药饲料添加剂与减抗替抗",
+      "中西兽医结合"
+    ],
+  },
+  'life/veterinary-public-health': {
+    title: "兽医公共卫生学",
+    books: [
+          "张彦明主编《兽医公共卫生学》（第三版），中国农业出版社，2019（十三五规划教材）",
+          "柳增善主编《兽医公共卫生学》，中国轻工业出版社，2010",
+          "张彦明、佘锐平主编《动物性食品卫生学》（第四版），中国农业出版社，2012"
+    ],
+    chapters: [
+      "One Health 理念与兽医公共卫生定位",
+      "人兽共患传染病（狂犬病/布鲁氏菌病/高致病性禽流感/结核）",
+      "人兽共患寄生虫病（弓形虫/旋毛虫/囊尾蚴）",
+      "动物性食品污染与卫生检验",
+      "肉品卫生与屠宰检疫",
+      "乳与乳制品卫生",
+      "蛋品与水产品卫生",
+      "兽药残留与食品安全",
+      "动物福利与动物伦理",
+      "养殖场生物安全与废弃物处理",
+      "环境污染与生态平衡",
+      "兽医在突发公共卫生事件中的职能",
+      "比较医学"
+    ],
+  },
+  'life/aquatic-animal-medicine': {
+    title: "水生动物医学（水产动物病害学）",
+    books: [
+          "战文斌主编《水产动物病害学》（第二版），中国农业出版社，2011（十一五国家级规划教材）",
+          "黄琪琰主编《水产动物疾病学》，上海科学技术出版社，2004",
+          "麦康森主编《水产动物营养与饲料学》（第二版），中国农业出版社，2011（营养与病害关联参考）"
+    ],
+    chapters: [
+      "水产动物病原学（病毒/细菌/真菌/寄生虫）",
+      "鱼类免疫学基础",
+      "水产动物病理学基础",
+      "疾病诊断技术（临床检查/病原分离/分子诊断）",
+      "鱼类病毒性疾病（出血病/淋巴囊肿病）",
+      "细菌性疾病（烂鳃病/肠炎病/败血症）",
+      "寄生虫病（小瓜虫/指环虫/车轮虫）",
+      "虾蟹病害（白斑综合征/急性肝胰腺坏死病）",
+      "贝类与两栖爬行类病害",
+      "水质恶化与应激性疾病",
+      "渔药药理学与规范用药",
+      "微生态制剂与免疫增强剂",
+      "疫苗与免疫防控",
+      "养殖场生物安全与健康管理"
+    ],
+  },
+  'humanities/history-of-agriculture': {
+    title: "农学史（中国农业科技史）",
+    books: [
+          "梁家勉主编《中国农业科学技术史稿》，农业出版社，1989",
+          "游修龄《中国稻作史》，中国农业出版社，1995",
+          "陈文华《中国古代农业科技史图谱》，农业出版社，1991"
+    ],
+    chapters: [
+      "农业起源与作物驯化（稻/粟/黍）",
+      "新石器时代农具与原始耕作",
+      "先秦农学与《吕氏春秋·上农》四篇",
+      "汉代代田法与区田法",
+      "《齐民要术》与魏晋南北朝农学",
+      "唐宋曲辕犁与江南水田农业体系",
+      "占城稻推广与宋代农业变革",
+      "元代《农桑辑要》与王祯《农书》",
+      "徐光启《农政全书》与《授时通考》",
+      "美洲作物传入（玉米/甘薯/马铃薯/烟草）",
+      "传统多熟制与耕作制度演变",
+      "农田水利史（都江堰/陂塘/坎儿井）",
+      "蚕桑、茶与畜牧兽医史",
+      "近代农学教育、农事试验场与农业改良",
+      "绿色革命与现代农业科技转型"
+    ],
+  },
+  'life/farming-systems': {
+    title: "耕作学与农作制度",
+    books: [
+          "刘巽浩《耕作学》，农业出版社，1994",
+          "曹敏建主编《耕作学》，中国农业出版社（面向21世纪课程教材）",
+          "刘巽浩、高旺盛《农作学》，中国农业大学出版社"
+    ],
+    chapters: [
+      "耕作制度的概念、功能与类型",
+      "作物布局与种植结构",
+      "复种与多熟制",
+      "间作、混作与套作",
+      "轮作与连作障碍",
+      "土壤耕作（少耕/免耕/深松）",
+      "种养结合与农牧复合系统",
+      "农作制度的区域分异",
+      "耕地保护与撂荒治理",
+      "保护性农业（Conservation Agriculture）",
+      "可持续集约化",
+      "气候智慧型农作制度"
+    ],
+  },
+  'life/veterinary-pharmacology': {
+    title: "兽医药理学与动物药学",
+    books: [
+          "陈杖榴主编《兽医药理学》（第四版），中国农业出版社，2017",
+          "沈建忠、肖希龙主编《兽医药理学》（研究生用书），中国农业大学出版社",
+          "胡功政主编《兽药制剂学》，中国农业出版社"
+    ],
+    chapters: [
+      "兽药代谢动力学",
+      "兽药效应动力学",
+      "抗菌药物与细菌耐药性",
+      "抗寄生虫药",
+      "解热镇痛抗炎药",
+      "作用于神经系统的药物与麻醉药",
+      "消化系统与呼吸系统药物",
+      "激素类药物与繁殖调控",
+      "解毒药",
+      "兽药制剂与剂型",
+      "兽药残留监控与食品安全",
+      "新兽药研发、注册与 GLP/GCP"
+    ],
+  },
+  'life/laboratory-animal-science': {
+    title: "实验动物学",
+    books: [
+          "秦川、谭毅、张连峰编《医学实验动物学》（第2版），人民卫生出版社，2015（十二五规划教材）",
+          "刘恩岐主编《医学实验动物学》，科学出版社，2008",
+          "刘恩岐主编《人类疾病动物模型》，人民卫生出版社"
+    ],
+    chapters: [
+      "实验动物分类与微生物学等级（普通级/清洁级/SPF/无菌）",
+      "常用实验动物生物学特性（小鼠/大鼠/豚鼠/兔/犬/小型猪）",
+      "实验动物遗传质量控制（近交系/封闭群/杂交群）",
+      "微生物与寄生虫质量监测",
+      "实验动物环境与设施（屏障系统/独立通气笼 IVC）",
+      "实验动物营养与饲料",
+      "动物模型制备原理",
+      "基因工程动物（转基因/基因敲除/条件性敲入）",
+      "人类疾病动物模型（肿瘤/代谢/神经退行）",
+      "动物实验伦理与 3R 原则",
+      "动物实验基本操作技术",
+      "GLP 规范与实验动物法规"
+    ],
+  },
+  'life/tobacco-science': {
+    title: "烟草科学与工程",
+    books: [
+          "刘国顺主编《烟草栽培学》（第二版），中国农业出版社，2017",
+          "宫长荣编著《烟草调制学》（第二版），中国农业出版社，2017",
+          "于建军主编《卷烟工艺学》，中国农业出版社，2009"
+    ],
+    chapters: [
+      "烟草类型与品种（烤烟/白肋烟/香料烟/晒晾烟）",
+      "烟草生物学特性与栽培生理",
+      "育苗与移栽",
+      "烟草营养与施肥",
+      "烟草育种学",
+      "烟草病虫害防治",
+      "烟草调制学（烤房与烘烤工艺）",
+      "烟叶分级与质量评价",
+      "烟草化学与烟气分析",
+      "卷烟工艺学（制丝/卷接/包装）",
+      "烟叶醇化与发酵",
+      "烟草经济与控烟政策",
+      "新型烟草制品（电子烟/加热不燃烧）"
+    ],
+  },
+  'life/invasion-biology': {
+    title: "入侵生物学",
+    books: [
+          "万方浩主编《入侵生物学》，科学出版社，2011",
+          "徐海根、强胜主编《生物入侵》，科学出版社",
+          "万方浩、郑小波、郭建英《重要农林外来入侵物种的生物学与控制》，科学出版社"
+    ],
+    chapters: [
+      "生物入侵概念与入侵过程（传入/定殖/扩散/暴发）",
+      "入侵机制（入侵种内在特性/群落可入侵性/天敌逃逸假说）",
+      "重要入侵植物（紫茎泽兰/薇甘菊/加拿大一枝黄花）",
+      "重要入侵动物（红火蚁/福寿螺/草地贪夜蛾）",
+      "入侵病原（松材线虫/稻水象甲携带病原）",
+      "生物入侵与全球变化互作",
+      "入侵风险评估与预警",
+      "监测检测与分子溯源技术",
+      "防控技术（物理/化学/生物防治/生态替代）",
+      "入侵生物管理的法规与国际公约（CBD/IPPC）",
+      "入侵对生物多样性与生态系统服务的影响",
+      "典型入侵事件案例与治理"
+    ],
+  },
+  'social/agricultural-policy': {
+    title: "农业政策学",
+    books: [
+          "钟甫宁主编《农业政策学》（第二版），中国农业大学出版社，2013",
+          "孔祥智主编《农业政策学》，高等教育出版社",
+          "张广胜主编《农业政策学》，高等教育出版社"
+    ],
+    chapters: [
+      "农业政策过程与政策评估方法",
+      "粮食安全与粮食政策",
+      "农业补贴与支持保护政策",
+      "农产品价格支持与市场干预",
+      "农村土地制度与承包经营制度",
+      "新型农业经营主体与合作社政策",
+      "农业保险与农业风险管理",
+      "农业科技与教育政策",
+      "农产品贸易政策与 WTO 农业协定",
+      "乡村振兴战略与政策体系",
+      "农业环境与生态补偿政策",
+      "国际农业政策比较（美国/欧盟/日本）"
+    ],
+  },
+  'life/animal-products-processing': {
+    title: "畜产品加工学（肉/乳/蛋加工）",
+    books: [
+          "周光宏主编《畜产品加工学》（第二版），中国农业出版社，2011",
+          "李晓东主编《乳品工艺学》，中国轻工业出版社，2024（十四五规划教材）",
+          "孔保华主编《肉品科学与技术》，中国轻工业出版社"
+    ],
+    chapters: [
+      "肉的组织结构、化学组成与宰后生化（尸僵/成熟）",
+      "肉品加工工艺（腌腊/酱卤/熏烤/发酵肉制品）",
+      "肉品贮藏保鲜与冷链",
+      "乳的化学组成与微生物",
+      "原料乳验收与预处理",
+      "液态乳（巴氏杀菌/超高温灭菌）",
+      "发酵乳与益生菌乳制品",
+      "干酪加工",
+      "乳粉、炼乳与奶油",
+      "冰淇淋与冷冻乳制品",
+      "蛋的构造、品质与保鲜",
+      "蛋制品加工（皮蛋/咸蛋/液蛋/蛋粉）",
+      "畜产品质量安全与控制体系"
+    ],
+  },
+  'life/grain-oil-processing-storage': {
+    title: "粮食油脂与植物蛋白工程（含粮油储藏）",
+    books: [
+          "《粮油储藏学》（第三版），中国轻工业出版社（河南工业大学统编教材）",
+          "陈复生等《蛋白质化学与工艺学》，中国轻工业出版社",
+          "黄亚伟主编《粮油仓储工艺与设备》（第二版），中国轻工业出版社"
+    ],
+    chapters: [
+      "稻谷加工与碾米工艺",
+      "小麦制粉与专用粉",
+      "淀粉生产与变性淀粉",
+      "油脂制取（压榨法/浸出法）",
+      "油脂精炼与改性",
+      "植物蛋白提取与功能性质",
+      "大豆蛋白制品（分离蛋白/组织蛋白）",
+      "粮油储藏生理与品质变化",
+      "储粮害虫与防治",
+      "气调储藏与低温储藏",
+      "粮油仓储工艺与设备",
+      "粮油品质检验与标准",
+      "全谷物食品与主食工业化"
+    ],
+  },
+  'life/postharvest-physiology-storage': {
+    title: "园艺产品采后生理与贮藏加工（农产品加工及贮藏工程）",
+    books: [
+          "罗云波、蔡同一主编《园艺产品贮藏加工学》（贮藏篇/加工篇），中国农业大学出版社",
+          "赵丽芹主编《果蔬加工工艺学》，中国轻工业出版社，2007",
+          "陈昆松等《园艺产品采后生物学基础》，科学出版社"
+    ],
+    chapters: [
+      "采后呼吸生理与蒸腾",
+      "乙烯生理与成熟衰老调控",
+      "采后侵染性病害与生理性病害（冷害/褐变）",
+      "采收、分级、包装与预冷",
+      "冷藏与气调贮藏（CA/MA）",
+      "保鲜剂、涂膜与 1-MCP 处理",
+      "冷链物流与货架期",
+      "果蔬干制与脱水加工",
+      "果蔬汁、果酱与罐藏",
+      "果蔬糖制与腌制",
+      "速冻果蔬加工",
+      "鲜切果蔬（最小加工）",
+      "加工副产物综合利用"
+    ],
+  },
+  'life/viticulture-enology': {
+    title: "葡萄与葡萄酒工程",
+    books: [
+          "李华、王华、袁春龙、王树生《葡萄酒工艺学》（第二版），科学出版社，2023",
+          "李华主编《葡萄栽培学》，中国农业出版社，2008（十一五国家级规划教材）",
+          "李华《葡萄酒品尝学》，科学出版社，2006"
+    ],
+    chapters: [
+      "葡萄种与品种（酿酒葡萄/鲜食葡萄）",
+      "葡萄栽培学（架式/整形修剪/土肥水管理）",
+      "果实发育、成熟调控与采收期确定",
+      "葡萄酒微生物（酿酒酵母/乳酸菌/腐败菌）",
+      "酒精发酵与苹果酸-乳酸发酵",
+      "红葡萄酒酿造工艺",
+      "白葡萄酒与桃红葡萄酒工艺",
+      "起泡葡萄酒与特种酒（冰酒/贵腐）",
+      "陈酿、橡木桶与葡萄酒成熟",
+      "葡萄酒稳定、澄清与灌装",
+      "葡萄酒分析检验与质量控制",
+      "葡萄酒感官品评",
+      "产区、风土（terroir）与地理标志",
+      "葡萄皮渣与副产物综合利用"
+    ],
+  },
+  'advanced/applied-chemistry': {
+    title: "应用化学与精细化工（精细化学品化学）",
+    books: [
+          "宋启煌等主编《精细化工工艺学》（第五版），化学工业出版社，2024",
+          "李和平、葛虹主编《精细化工工艺学》，科学出版社，1997",
+          "冯亚青、王世荣主编《精细有机合成》（第三版），化学工业出版社"
+    ],
+    chapters: [
+      "精细化工的范畴、特点与产品分类",
+      "精细化工工艺学基础与新产品技术开发",
+      "精细化工绿色化与原子经济性",
+      "表面活性剂",
+      "合成材料助剂（增塑剂/抗氧剂/阻燃剂）",
+      "食品添加剂",
+      "胶黏剂",
+      "涂料",
+      "香料与香精",
+      "染料与颜料",
+      "电子化学品",
+      "化妆品与日用化学品",
+      "精细有机合成单元反应与技术"
+    ],
+  },
+  'advanced/energy-chemistry': {
+    title: "能源化学",
+    books: [
+          "陈军、陶占良编著《能源化学》（第二版），化学工业出版社，2014",
+          "李文翠等编《能源化学工程概论》，化学工业出版社，2015",
+          "陈军、陶占良、苟兴龙编著《化学电源：原理、技术与应用》，化学工业出版社，2005"
+    ],
+    chapters: [
+      "能源结构、能源转换与化学热力学基础",
+      "化石燃料化学（煤/石油/天然气）",
+      "氢能：制氢、储氢与氢化学",
+      "燃料电池原理与电催化",
+      "化学电源（锂离子电池与新型电池）",
+      "太阳能电池与光电化学转换",
+      "光催化与人工光合作用（太阳能燃料）",
+      "生物质能与生物燃料",
+      "核能化学基础",
+      "CO2 捕获、转化与利用化学",
+      "能源材料与储能器件"
+    ],
+  },
+  'intermediate/group-theory-in-chemistry': {
+    title: "群论与分子对称性（群论在化学中的应用）",
+    books: [
+          "F. Albert Cotton, Chemical Applications of Group Theory, 3rd ed., Wiley, 1990（中译本《群论在化学中的应用》）",
+          "David M. Bishop, Group Theory and Chemistry, Dover, 1993",
+          "Alan Vincent, Molecular Symmetry and Group Theory, 2nd ed., Wiley, 2001"
+    ],
+    chapters: [
+      "对称操作与对称元素",
+      "点群分类与分子归属",
+      "群的表示与特征标表",
+      "可约表示的约化",
+      "投影算符与对称性匹配线性组合（SALC）",
+      "群论与分子轨道理论",
+      "振动光谱（IR/Raman）的群论分析",
+      "电子光谱与选择定则",
+      "配位场中的轨道分裂",
+      "对称性与化学反应性（轨道对称守恒）",
+      "空间群与晶体对称性简介"
+    ],
+  },
+  'intermediate/heterocyclic-chemistry': {
+    title: "杂环化学",
+    books: [
+          "John A. Joule, Keith Mills, Heterocyclic Chemistry, 5th ed., Wiley, 2010",
+          "Thomas L. Gilchrist, Heterocyclic Chemistry, 3rd ed., Pearson, 1997",
+          "Joule & Mills 著《杂环化学》（中译本），科学出版社"
+    ],
+    chapters: [
+      "杂环化合物的命名、分类与芳香性",
+      "五元单杂环：呋喃、噻吩、吡咯",
+      "稠合五元杂环：吲哚、苯并呋喃、苯并噻吩",
+      "六元杂环：吡啶、喹啉、异喹啉",
+      "含两个及以上杂原子的环系（咪唑/噻唑/嘧啶/嘌呤）",
+      "杂环的经典合成方法",
+      "杂环的亲电/亲核取代与区域选择性",
+      "杂环的金属化与偶联反应",
+      "杂环在药物与天然产物中的应用",
+      "七元环与饱和杂环（氮杂环/氧杂环）"
+    ],
+  },
+  'intermediate/corrosion-electrochemistry': {
+    title: "腐蚀电化学与金属防护",
+    books: [
+          "曹楚南《腐蚀电化学原理》（第三版），化学工业出版社，2008",
+          "Mars G. Fontana, Corrosion Engineering, 3rd ed., McGraw-Hill, 1986",
+          "Denny A. Jones, Principles and Prevention of Corrosion, 2nd ed., Prentice Hall, 1996"
+    ],
+    chapters: [
+      "腐蚀热力学与电位-pH 图（Pourbaix 图）",
+      "腐蚀电极过程动力学与极化曲线",
+      "钝化与钝化膜",
+      "电偶腐蚀",
+      "点蚀与缝隙腐蚀",
+      "晶间腐蚀与选择性腐蚀",
+      "应力腐蚀开裂与氢脆",
+      "大气、海水与土壤腐蚀",
+      "阴极保护与阳极保护",
+      "缓蚀剂",
+      "金属涂层与表面处理",
+      "腐蚀试验与电化学监测方法"
+    ],
+  },
+  'humanities/philosophy-of-chemistry': {
+    title: "化学哲学",
+    books: [
+          "Eric Scerri, The Periodic Table: Its Story and Its Significance, Oxford University Press, 2007（2nd ed. 2019）",
+          "Davis Baird, Eric Scerri, Lee McIntyre (eds.), Philosophy of Chemistry: Synthesis of a New Discipline, Springer (Boston Studies), 2006",
+          "Jaap van Brakel, Philosophy of Chemistry, Leuven University Press, 2000"
+    ],
+    chapters: [
+      "化学能否还原为物理学：还原论之争",
+      "元素概念与元素周期律的哲学",
+      "化学键与分子结构的实在论问题",
+      "物质、纯度与混合物的形而上学",
+      "化学分类与自然类",
+      "化学合成（making）的认识论地位",
+      "化学定律与化学解释的独特性",
+      "化学中的模型与表征（结构式/轨道图）",
+      "化学史案例的哲学分析（燃素说/氧化学说）",
+      "化学与纳米技术的哲学"
+    ],
+  },
+  'social/chemistry-education': {
+    title: "化学教育（化学教学论）",
+    books: [
+          "刘知新主编《化学教学论》（第五版），高等教育出版社，2018",
+          "王后雄主编《新理念化学教学论》，华中师范大学出版社，2011",
+          "ACS, Journal of Chemical Education（期刊与教学资源体系）"
+    ],
+    chapters: [
+      "化学课程论：课程理念与课程标准",
+      "化学教材分析与使用",
+      "化学学习论与学习心理",
+      "化学教学设计与教学模式",
+      "化学基本概念与理论教学",
+      "化学实验教学",
+      "探究式教学与科学探究",
+      "化学教育测量与评价",
+      "信息技术与化学教学",
+      "化学教师专业发展",
+      "国际化学教育比较（NGSS/IB/AP 化学）"
+    ],
+  },
+  'intermediate/chemical-laboratory-safety': {
+    title: "化学实验室安全与健康",
+    books: [
+          "Robert H. Hill Jr., David C. Finster, Laboratory Safety for Chemistry Students, 2nd ed., Wiley, 2016",
+          "National Research Council, Prudent Practices in the Laboratory: Handling and Management of Chemical Hazards, National Academies Press, 2011",
+          "ACS Guidelines for Chemical Laboratory Safety in Academic Institutions, American Chemical Society, 2016"
+    ],
+    chapters: [
+      "GHS 全球化学品统一分类和标签制度",
+      "化学品储存与相容性",
+      "通风柜与实验室通风",
+      "个人防护装备（PPE）",
+      "防火防爆与易燃化学品",
+      "压缩气体与低温液体安全",
+      "化学废弃物分类与处理",
+      "辐射、激光与高压设备安全",
+      "实验室生物危害",
+      "事故应急响应与急救",
+      "风险评估（RAMP 原则）与安全管理体系"
+    ],
+  },
+  'advanced/carbohydrate-chemistry': {
+    title: "碳水化合物化学（糖化学）",
+    books: [
+          "John F. Robyt, Essentials of Carbohydrate Chemistry, Springer, 1998",
+          "Robert V. Stick, Spencer J. Williams, Carbohydrates: The Essential Molecules of Life, 2nd ed., Elsevier, 2009",
+          "Benjamin G. Davis, Antony J. Fairbanks, Carbohydrate Chemistry, Oxford Chemistry Primers, Oxford University Press, 2002"
+    ],
+    chapters: [
+      "单糖的结构、构型与构象",
+      "糖苷键与糖基化反应",
+      "寡糖与多糖的结构（淀粉/纤维素/几丁质/透明质酸）",
+      "糖化学中的保护基策略",
+      "寡糖的化学合成与自动固相合成",
+      "酶法糖基化与化学酶法合成",
+      "糖复合物：糖蛋白与糖脂",
+      "糖的谱学分析与结构鉴定",
+      "糖与分子识别（凝集素-糖相互作用）",
+      "糖药物与糖疫苗"
+    ],
+  },
+  'advanced/combustion-chemistry': {
+    title: "燃烧化学",
+    books: [
+          "Irvin Glassman, Richard A. Yetter, Nick G. Glumac, Combustion, 5th ed., Academic Press, 2015",
+          "Kenneth K. Kuo, Principles of Combustion, 2nd ed., Wiley, 2005",
+          "Stephen R. Turns, An Introduction to Combustion: Concepts and Applications, 3rd ed., McGraw-Hill, 2012"
+    ],
+    chapters: [
+      "燃烧热化学与化学平衡",
+      "燃烧化学动力学与链式反应",
+      "着火、熄火与可燃极限",
+      "层流预混火焰",
+      "扩散火焰",
+      "湍流燃烧基础",
+      "爆燃与爆轰",
+      "污染物生成化学（NOx/碳烟/CO）",
+      "固体推进剂与含能材料燃烧",
+      "燃烧激光诊断技术"
+    ],
+  },
+  'advanced/plasma-chemistry': {
+    title: "等离子体化学",
+    books: [
+          "Alexander Fridman, Plasma Chemistry, Cambridge University Press, 2008",
+          "Alexander Fridman, Lawrence A. Kennedy, Plasma Physics and Engineering, 2nd ed., CRC Press, 2011"
+    ],
+    chapters: [
+      "等离子体中的基元过程与化学活性物种",
+      "气体放电类型与等离子体产生",
+      "热等离子体与非平衡等离子体化学",
+      "等离子体刻蚀与微电子加工",
+      "等离子体增强化学气相沉积（PECVD）",
+      "等离子体催化",
+      "等离子体 CO2 转化与固氮",
+      "等离子体医学与表面改性",
+      "大气压等离子体与等离子体炬",
+      "等离子体化学的工业应用与反应器"
+    ],
+  },
+  'cs/computer-science-overview': {
+    title: "计算机科学导论（计算思维）",
+    books: [
+          "J. Glenn Brookshear, Dennis Brylow《Computer Science: An Overview》（Pearson, 13th ed., 2019）",
+          "Robert Sedgewick, Kevin Wayne《Computer Science: An Interdisciplinary Approach》（Princeton University Press, 2016）",
+          "Behrouz Forouzan《Foundations of Computer Science》（Cengage Learning, 4th ed., 2018）"
+    ],
+    chapters: [
+      "计算思维与问题求解方法",
+      "数据的表示与存储（二进制/字符编码/图像与声音数字化）",
+      "计算机硬件组成（冯·诺依曼体系/指令周期）",
+      "操作系统基础（进程/存储管理）",
+      "算法与程序设计入门",
+      "数据结构与抽象数据类型",
+      "计算机网络与互联网基础",
+      "数据库与信息管理基础",
+      "软件工程与软件开发流程",
+      "人工智能概览",
+      "计算理论初步（图灵机与可计算性）",
+      "信息安全与隐私保护",
+      "计算的社会、伦理与职业问题"
+    ],
+  },
+  'advanced/artificial-intelligence': {
+    title: "经典人工智能（符号主义：搜索/规划/知识表示与推理）",
+    books: [
+          "Stuart Russell, Peter Norvig《Artificial Intelligence: A Modern Approach》（Pearson, 4th ed., 2021）",
+          "David Poole, Alan Mackworth《Artificial Intelligence: Foundations of Computational Agents》（Cambridge University Press, 2nd ed., 2017）",
+          "George F. Luger《Artificial Intelligence: Structures and Strategies for Complex Problem Solving》（Addison-Wesley, 6th ed., 2008）"
+    ],
+    chapters: [
+      "智能体概念与问题求解范式",
+      "无信息搜索（BFS/DFS/一致代价搜索）",
+      "启发式搜索（A*/贪心最佳优先）",
+      "局部搜索与元启发式（爬山法/模拟退火/遗传算法）",
+      "对抗搜索与博弈（极小极大/α-β剪枝）",
+      "约束满足问题（回溯/弧一致性）",
+      "命题逻辑与归结推理",
+      "一阶逻辑与自动定理证明",
+      "知识表示（语义网络/框架/描述逻辑）",
+      "自动规划（STRIPS/状态空间规划/分层任务网络）",
+      "不确定性推理与贝叶斯网络",
+      "专家系统与产生式规则系统"
+    ],
+  },
+  'humanities/history-of-computing': {
+    title: "计算机科学史（计算史）",
+    books: [
+          "Paul E. Ceruzzi《A History of Modern Computing》（MIT Press, 2nd ed., 2003）",
+          "Martin Campbell-Kelly, William Aspray, Nathan Ensmenger, Jeffrey Yost《Computer: A History of the Information Machine》（Westview Press, 3rd ed., 2013）",
+          "Subrata Dasgupta《It Began with Babbage: The Genesis of Computer Science》（Oxford University Press, 2014）"
+    ],
+    chapters: [
+      "前机械时代的计算工具（算筹/算盘/对数表）",
+      "机械计算器（帕斯卡/莱布尼茨）",
+      "巴贝奇差分机与分析机、艾达·洛夫莱斯",
+      "穿孔卡片制表机与霍列瑞斯",
+      "机电计算机（Zuse Z 系列/哈佛 Mark I）",
+      "电子管时代：ENIAC 与 EDVAC",
+      "冯·诺依曼报告与存储程序计算机",
+      "晶体管、集成电路与 IBM System/360",
+      "小型机、分时系统与 UNIX 的诞生",
+      "微处理器与个人计算机革命",
+      "编程语言与操作系统史",
+      "ARPANET、互联网与万维网简史",
+      "人工智能史（达特茅斯会议/专家系统/AI 寒冬/深度学习复兴）"
+    ],
+  },
+  'cs/network-security': {
+    title: "网络安全（协议安全与攻防）",
+    books: [
+          "William Stallings《Cryptography and Network Security: Principles and Practice》（Pearson, 8th ed., 2020）",
+          "Charlie Kaufman, Radia Perlman, Mike Speciner《Network Security: Private Communication in a Public World》（Prentice Hall, 2nd ed., 2002）",
+          "Ross Anderson《Security Engineering: A Guide to Building Dependable Distributed Systems》（Wiley, 3rd ed., 2020）"
+    ],
+    chapters: [
+      "网络安全威胁模型与 CIA 三性",
+      "认证协议与密钥分发（Kerberos）",
+      "公钥基础设施（PKI）与数字证书",
+      "TLS/SSL 协议族",
+      "IPsec 与 VPN",
+      "防火墙与入侵检测/防御系统（IDS/IPS）",
+      "无线网络安全（WEP/WPA2/WPA3）",
+      "Web 安全（XSS/CSRF/SQL 注入/会话安全）",
+      "恶意软件、僵尸网络与蠕虫",
+      "DDoS 攻击与防护",
+      "渗透测试与攻防演练方法论",
+      "数字取证基础",
+      "安全协议的形式化分析（BAN 逻辑/模型检验）"
+    ],
+  },
+  'cs/digital-image-processing': {
+    title: "数字图像处理",
+    books: [
+          "Rafael C. Gonzalez, Richard E. Woods《Digital Image Processing》（Pearson, 4th ed., 2018）",
+          "Milan Sonka, Vaclav Hlavac, Roger Boyle《Image Processing, Analysis, and Machine Vision》（Cengage Learning, 4th ed., 2014）"
+    ],
+    chapters: [
+      "图像获取与数字化（采样/量化/成像几何）",
+      "灰度变换与直方图处理",
+      "空间域滤波（平滑/锐化）",
+      "频率域处理（傅里叶变换/频域滤波器）",
+      "图像复原与重建（退化模型/逆滤波/CT 重建）",
+      "彩色图像处理",
+      "小波与多分辨率分析",
+      "图像压缩（JPEG/JPEG2000）",
+      "形态学图像处理",
+      "图像分割（阈值/区域生长/边缘检测/活动轮廓）",
+      "局部特征提取与描述（SIFT/HOG）",
+      "图像配准与拼接",
+      "表示与描述（边界/区域/纹理特征）"
+    ],
+  },
+  'cs/mobile-computing': {
+    title: "移动计算与无线网络",
+    books: [
+          "Jochen Schiller《Mobile Communications》（Addison-Wesley, 2nd ed., 2003）",
+          "Theodore S. Rappaport《Wireless Communications: Principles and Practice》（Prentice Hall, 2nd ed., 2001）",
+          "Asoke K. Talukder, Hasan Ahmed, Roopa R. Yavagal《Mobile Computing: Technology, Applications and Service Creation》（McGraw-Hill, 2nd ed., 2010）"
+    ],
+    chapters: [
+      "无线传输基础（信道衰落/调制/扩频）",
+      "蜂窝系统原理与频率复用",
+      "移动通信网络演进（2G GSM → 5G NR）",
+      "无线局域网（IEEE 802.11 族）",
+      "蓝牙与无线个域网",
+      "移动 IP 与移动性管理",
+      "无线环境下的 TCP 与传输层优化",
+      "移动计算模型与断接操作",
+      "上下文感知与普适计算",
+      "定位技术与位置服务",
+      "移动边缘计算（MEC）",
+      "无线传感器网络基础"
+    ],
+  },
+  'cs/real-time-systems': {
+    title: "实时系统",
+    books: [
+          "Jane W. S. Liu《Real-Time Systems》（Prentice Hall, 2000）",
+          "Giorgio C. Buttazzo《Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications》（Springer, 3rd ed., 2011）",
+          "Hermann Kopetz《Real-Time Systems: Design Principles for Distributed Embedded Applications》（Springer, 2nd ed., 2011）"
+    ],
+    chapters: [
+      "实时系统概念与分类（硬/软/固实时）",
+      "任务模型与可调度性分析",
+      "速率单调调度（RM）与截止期单调调度（DM）",
+      "最早截止期优先（EDF）调度",
+      "资源共享与优先级反转问题",
+      "优先级继承协议与优先级天花板协议",
+      "非周期与偶发任务调度（轮询/偶发服务器）",
+      "多处理器与多核实时调度",
+      "实时操作系统（RTOS）内核机制",
+      "时间触发架构（TTA）与实时通信",
+      "分布式实时系统与容错时钟同步",
+      "最坏执行时间（WCET）分析"
+    ],
+  },
+  'advanced/multiagent-systems': {
+    title: "多智能体系统（经典 MAS）",
+    books: [
+          "Michael Wooldridge《An Introduction to MultiAgent Systems》（Wiley, 2nd ed., 2009）",
+          "Yoav Shoham, Kevin Leyton-Brown《Multiagent Systems: Algorithmic, Game-Theoretic, and Logical Foundations》（Cambridge University Press, 2009）",
+          "Gerhard Weiss (ed.)《Multiagent Systems: A Modern Approach to Distributed Artificial Intelligence》（MIT Press, 2nd ed., 2013）"
+    ],
+    chapters: [
+      "智能体概念与体系结构（反应式/慎思式/混合式）",
+      "BDI 模型与实用推理",
+      "多智能体交互与协作问题",
+      "智能体通信语言（KQML/FIPA-ACL）",
+      "协商与谈判协议",
+      "拍卖机制与VCG 机制",
+      "联盟形成与任务分配",
+      "分布式问题求解与分布式约束",
+      "博弈论在多智能体系统中的应用",
+      "论证、信任与声誉模型",
+      "群体行为与涌现现象",
+      "多智能体学习及与深度 MARL 的衔接"
+    ],
+  },
+  'cs/performance-evaluation': {
+    title: "计算机系统性能评估",
+    books: [
+          "Raj Jain《The Art of Computer Systems Performance Analysis: Techniques for Experimental Design, Measurement, Simulation, and Modeling》（Wiley, 1991）",
+          "David J. Lilja《Measuring Computer Performance: A Practitioner's Guide》（Cambridge University Press, 2000）",
+          "Edward D. Lazowska, John Zahorjan, G. Scott Graham, Kenneth C. Sevcik《Quantitative System Performance: Computer System Analysis Using Queueing Network Models》（Prentice Hall, 1984）"
+    ],
+    chapters: [
+      "性能指标（响应时间/吞吐量/利用率/加速比）",
+      "测量技术与工具（计数器/剖析器/追踪）",
+      "工作负载特征化",
+      "基准测试体系（SPEC/TPC）",
+      "实验设计与方差分析",
+      "性能数据的统计分析与置信区间",
+      "模拟与仿真方法",
+      "排队论模型基础（M/M/1、Little 定律）",
+      "开排队网络与闭排队网络",
+      "均值分析（MVA）算法",
+      "容量规划与性能预测",
+      "常见性能评估误区与陷阱"
+    ],
+  },
+  'cs/game-development': {
+    title: "游戏引擎与游戏开发",
+    books: [
+          "Jason Gregory《Game Engine Architecture》（CRC Press, 3rd ed., 2018）",
+          "Ian Millington《AI for Games》（CRC Press, 3rd ed., 2019）",
+          "David H. Eberly《3D Game Engine Design: A Practical Approach to Real-Time Computer Graphics》（CRC Press, 2nd ed., 2006）"
+    ],
+    chapters: [
+      "游戏引擎总体架构与主循环",
+      "实时渲染管线",
+      "游戏数学（向量/矩阵/四元数）",
+      "物理引擎与碰撞检测",
+      "动画系统（骨骼动画/动画混合）",
+      "音频系统",
+      "游戏 AI（A* 寻路/行为树/效用系统）",
+      "场景管理与空间数据结构（BVH/八叉树）",
+      "资源系统与资产管线",
+      "脚本系统与游戏逻辑",
+      "多人游戏网络同步架构",
+      "工具链与关卡编辑器"
+    ],
+  },
+  'cs/discrete-event-simulation': {
+    title: "离散事件系统仿真",
+    books: [
+          "Jerry Banks, John S. Carson, Barry L. Nelson, David M. Nicol《Discrete-Event System Simulation》（Pearson, 5th ed., 2010）",
+          "Averill M. Law《Simulation Modeling and Analysis》（McGraw-Hill, 5th ed., 2014）",
+          "Bernard P. Zeigler, Herbert Praehofer, Tag Gon Kim《Theory of Modeling and Simulation》（Academic Press, 2nd ed., 2000）"
+    ],
+    chapters: [
+      "建模与仿真的基本概念与分类",
+      "离散事件仿真原理（事件调度/活动扫描/过程交互）",
+      "随机数生成与统计检验",
+      "随机变量生成（逆变换法/拒绝采样法）",
+      "输入数据分析与概率分布拟合",
+      "排队系统仿真",
+      "库存与制造系统仿真案例",
+      "输出数据分析（终止型/稳态型仿真）",
+      "方差缩减技术",
+      "仿真的验证、确认与认证（VV&A）",
+      "DEVS 形式化体系",
+      "基于智能体的仿真（Agent-based Simulation）"
+    ],
+  },
+  'intermediate/geodynamics': {
+    title: "地球动力学（Geodynamics）",
+    books: [
+          "Turcotte & Schubert, Geodynamics, Cambridge University Press, 3rd ed., 2014",
+          "Schubert, Turcotte & Olson, Mantle Convection in the Earth and Planets, Cambridge University Press, 2001",
+          "Fowler, The Solid Earth: An Introduction to Global Geophysics, Cambridge University Press, 2nd ed., 2005"
+    ],
+    chapters: [
+      "板块构造的定量框架",
+      "岩石圈弯曲与挠曲均衡",
+      "热传导与地球热史",
+      "地幔对流的流体动力学方程",
+      "瑞利数与对流形态",
+      "俯冲带的力学与热结构",
+      "地幔柱与热点动力学",
+      "洋中脊与海底扩张动力学",
+      "大陆岩石圈流变学",
+      "造山带动力学与大陆碰撞",
+      "后冰期回弹与黏弹性地球",
+      "重力、应力场与地球形状",
+      "核幔边界与地核动力学"
+    ],
+  },
+  'intermediate/hydrogeology': {
+    title: "水文地质学（地下水科学）",
+    books: [
+          "Freeze & Cherry, Groundwater, Prentice-Hall, 1979",
+          "Fetter, Applied Hydrogeology, Pearson, 4th ed., 2000",
+          "Domenico & Schwartz, Physical and Chemical Hydrogeology, Wiley, 2nd ed., 1997"
+    ],
+    chapters: [
+      "孔隙度、渗透性与含水层",
+      "达西定律与地下水流方程",
+      "水头、势函数与流网",
+      "非饱和带与入渗",
+      "井流力学（Theis/Jacob 方法）",
+      "抽水试验与参数反演",
+      "地下水化学与水文地球化学过程",
+      "溶质运移与弥散",
+      "污染物运移与场地修复",
+      "地下水数值模拟（MODFLOW 思想）",
+      "区域地下水流系统（Tóth 理论）",
+      "地下水补给、资源评价与管理",
+      "岩溶水文地质与裂隙介质"
+    ],
+  },
+  'intermediate/applied-geophysics': {
+    title: "应用地球物理学（勘探地球物理）",
+    books: [
+          "Telford, Geldart & Sheriff, Applied Geophysics, Cambridge University Press, 2nd ed., 1990",
+          "Kearey, Brooks & Hill, An Introduction to Geophysical Exploration, Blackwell Science, 3rd ed., 2002",
+          "Reynolds, An Introduction to Applied and Environmental Geophysics, Wiley, 2nd ed., 2011"
+    ],
+    chapters: [
+      "重力勘探与密度结构反演",
+      "磁法勘探与磁异常解释",
+      "直流电法与激发极化法",
+      "大地电磁测深（MT）",
+      "地震反射法原理与采集",
+      "地震资料处理（叠加/偏移）",
+      "地震折射法与广角反射",
+      "测井方法（电/声/放射性测井）",
+      "浅层与工程地球物理（GPR）",
+      "航空与地面电磁法",
+      "微震监测与非常规勘探",
+      "海洋地球物理勘探",
+      "综合物探解释与油藏地球物理"
+    ],
+  },
+  'advanced/geophysical-inverse-theory': {
+    title: "地球物理反演理论",
+    books: [
+          "Menke, Geophysical Data Analysis: Discrete Inverse Theory, Academic Press, 3rd ed., 2012",
+          "Tarantola, Inverse Problem Theory and Methods for Model Parameter Estimation, SIAM, 2005",
+          "Aster, Borchers & Thurber, Parameter Estimation and Inverse Problems, Academic Press, 3rd ed., 2019"
+    ],
+    chapters: [
+      "正问题与不适定反问题",
+      "最小二乘与线性反演",
+      "模型分辨矩阵与协方差",
+      "奇异值分解与广义逆",
+      "正则化（Tikhonov）与折衷曲线",
+      "非线性反问题与局部线性化",
+      "贝叶斯反演与后验分布",
+      "蒙特卡洛与马尔可夫链采样",
+      "层析成像（Radon 变换/旅行时反演）",
+      "全波形反演（FWI）概念",
+      "电磁与重力联合反演",
+      "不确定度量化",
+      "机器学习辅助反演"
+    ],
+  },
+  'intermediate/geostatistics': {
+    title: "地统计学（空间统计学）",
+    books: [
+          "Journel & Huijbregts, Mining Geostatistics, Academic Press, 1978",
+          "Cressie, Statistics for Spatial Data, Wiley, 1993",
+          "Chilès & Delfiner, Geostatistics: Modeling Spatial Uncertainty, Wiley, 2nd ed., 2012"
+    ],
+    chapters: [
+      "区域化变量与二阶平稳假设",
+      "变异函数（半方差）估计与拟合",
+      "克里金（普通/简单/泛克里金）",
+      "协克里金与多变量估计",
+      "指示克里金与非参数方法",
+      "储量估算与品位插值",
+      "随机模拟（序贯高斯模拟）",
+      "点过程与空间点模式",
+      "空间自回归与格点数据模型",
+      "地统计在土壤制图与污染评估中的应用",
+      "地统计与 GIS 集成",
+      "不确定性传播与风险评估"
+    ],
+  },
+  'intermediate/basin-analysis': {
+    title: "沉积盆地分析",
+    books: [
+          "Allen & Allen, Basin Analysis: Principles and Application to Petroleum Play Assessment, Wiley-Blackwell, 3rd ed., 2013",
+          "Miall, The Geology of Fluvial Deposits, Springer, 1996",
+          "Einsele, Sedimentary Basins: Evolution, Facies, and Sediment Budget, Springer, 2nd ed., 2000"
+    ],
+    chapters: [
+      "盆地分类（McKenzie 拉张/Wilson 旋回）",
+      "岩石圈伸展与裂谷盆地",
+      "前陆盆地与挠曲沉降",
+      "走滑与克拉通盆地",
+      "沉积充填与层序格架",
+      "沉降史反演与回剥分析",
+      "盆地热流与热史",
+      "成熟度与烃源岩评价",
+      "沉积物源—汇系统",
+      "盆地模拟方法",
+      "被动边缘与盐构造",
+      "中国含油气盆地实例"
+    ],
+  },
+  'intermediate/petroleum-geology': {
+    title: "石油地质学",
+    books: [
+          "Gluyas & Swennen, Petroleum Geoscience, Blackwell Publishing, 2004",
+          "柳广弟等，《石油地质学》，石油工业出版社，第4版，2009",
+          "Selley & Sonnenberg, Elements of Petroleum Geology, Academic Press, 3rd ed., 2014"
+    ],
+    chapters: [
+      "油气成因与烃源岩",
+      "生烃动力学与成熟度",
+      "储集层物理与储层类型",
+      "盖层与封闭机制",
+      "圈闭分类与油气藏类型",
+      "油气运移（初次/二次）",
+      "成藏组合与含油气系统",
+      "非常规油气（页岩油气/致密油/煤层气）",
+      "油气勘探方法与经济评价",
+      "油藏描述与地质建模",
+      "测井与地震在油气评价中的应用",
+      "天然气水合物"
+    ],
+  },
+  'intermediate/isotope-geochemistry': {
+    title: "同位素地球化学",
+    books: [
+          "White, Isotope Geochemistry, Wiley, 2015",
+          "Faure & Mensing, Isotopes: Principles and Applications, Wiley, 3rd ed., 2005",
+          "Rollinson, Using Geochemical Data, Routledge, 2nd ed., 2014"
+    ],
+    chapters: [
+      "同位素丰度与δ值表示",
+      "质量相关/质量无关分馏",
+      "平衡与动力学分馏",
+      "放射性衰变体系（Rb-Sr/Sm-Nd/U-Pb/Lu-Hf）",
+      "放射成因同位素示踪地幔源区",
+      "稳定同位素（H/O/C/S/N）",
+      "氧同位素与古温度",
+      "非传统稳定同位素（Fe/Mo/Li）",
+      "宇宙成因核素与暴露测年",
+      "同位素质谱（TIMS/MC-ICP-MS）",
+      "壳幔循环的同位素证据",
+      "环境与气候研究中的同位素"
+    ],
+  },
+  'intermediate/atmospheric-radiation': {
+    title: "大气辐射学",
+    books: [
+          "Liou, An Introduction to Atmospheric Radiation, Academic Press, 2nd ed., 2002",
+          "Petty, A First Course in Atmospheric Radiation, Sundog Publishing, 2nd ed., 2006",
+          "Thomas & Stamnes, Radiative Transfer in the Atmosphere and Ocean, Cambridge University Press, 2nd ed., 2017"
+    ],
+    chapters: [
+      "黑体辐射与普朗克定律",
+      "比尔—布格—朗伯定律",
+      "分子吸收光谱（H2O/CO2/O3）",
+      "加宽机制与谱线形状",
+      "辐射传输方程",
+      "二流近似与离散纵标法",
+      "瑞利散射与米氏散射",
+      "气溶胶辐射效应",
+      "云的光学性质",
+      "温室效应的定量计算",
+      "卫星遥感反演原理",
+      "地表辐射收支与能量平衡"
+    ],
+  },
+  'intermediate/boundary-layer-meteorology': {
+    title: "大气边界层气象学",
+    books: [
+          "Stull, An Introduction to Boundary Layer Meteorology, Kluwer Academic, 1988",
+          "Arya, Introduction to Micrometeorology, Academic Press, 2nd ed., 2001",
+          "Garratt, The Atmospheric Boundary Layer, Cambridge University Press, 1992"
+    ],
+    chapters: [
+      "湍流的统计描述与谱",
+      "湍动能收支方程",
+      "通量—梯度关系与莫宁—奥布霍夫相似理论",
+      "近地面层结构",
+      "对流边界层与混合层增长",
+      "稳定边界层",
+      "边界层云与夹卷",
+      "陆面—大气相互作用与能量收支",
+      "城市边界层",
+      "海洋大气边界层",
+      "大涡模拟（LES）",
+      "湍流观测技术（涡度相关）"
+    ],
+  },
+  'intermediate/mesoscale-meteorology': {
+    title: "中尺度气象学",
+    books: [
+          "Markowski & Richardson, Mesoscale Meteorology in Midlatitudes, Wiley-Blackwell, 2010",
+          "Lackmann, Midlatitude Synoptic Meteorology, American Meteorological Society, 2011",
+          "Trapp, Mesoscale-Convective Processes in the Atmosphere, Cambridge University Press, 2013"
+    ],
+    chapters: [
+      "中尺度系统的尺度分类与观测",
+      "浮力、CAPE 与热力学图解",
+      "深对流的启动机制",
+      "超级单体风暴动力学",
+      "飑线与中尺度对流系统（MCS）",
+      "龙卷动力学",
+      "中尺度对流涡旋（MCV）",
+      "地形降水与山谷风",
+      "海陆风环流",
+      "锋面动力学与雨带",
+      "重力波与对流耦合",
+      "中尺度数值模拟（WRF）"
+    ],
+  },
+  'advanced/numerical-weather-prediction': {
+    title: "数值天气预报与资料同化",
+    books: [
+          "Kalnay, Atmospheric Modeling, Data Assimilation and Predictability, Cambridge University Press, 2003",
+          "Coiffier, Fundamentals of Numerical Weather Prediction, Cambridge University Press, 2011",
+          "Warner, Numerical Weather and Climate Prediction, Cambridge University Press, 2011"
+    ],
+    chapters: [
+      "控制方程组与滤波近似",
+      "水平离散化（谱方法/格点）",
+      "时间积分格式与稳定性（CFL）",
+      "半拉格朗日方法",
+      "物理过程参数化（积云/微物理/边界层）",
+      "初始条件与客观分析",
+      "最优插值与三维变分（3D-Var）",
+      "四维变分（4D-Var）",
+      "集合卡尔曼滤波（EnKF）",
+      "观测系统（卫星辐射率同化）",
+      "集合预报与可预报性",
+      "次季节—季节预测",
+      "机器学习天气预报模型"
+    ],
+  },
+  'intermediate/cloud-precipitation-physics': {
+    title: "云降水物理学",
+    books: [
+          "Rogers & Yau, A Short Course in Cloud Physics, Butterworth-Heinemann, 3rd ed., 1989",
+          "Pruppacher & Klett, Microphysics of Clouds and Precipitation, Kluwer Academic, 2nd ed., 1997",
+          "Wallace & Hobbs, Atmospheric Science: An Introductory Survey（云物理章）, Academic Press, 2nd ed., 2006"
+    ],
+    chapters: [
+      "湿空气热力学与假绝热过程",
+      "核化理论与云凝结核",
+      "科勒曲线与液滴活化",
+      "云滴凝结增长",
+      "碰并增长与随机碰并",
+      "冰晶形态与贝吉隆过程",
+      "降水粒子（雪/霰/雹）",
+      "云的微物理观测",
+      "云滴谱与雷达定量估测",
+      "暖云/冷云降水机制",
+      "云在气候系统中的作用",
+      "人工增雨与播云原理"
+    ],
+  },
+  'intermediate/upper-atmosphere-physics': {
+    title: "中高层大气物理学（含电离层）",
+    books: [
+          "Kelley, The Earth's Ionosphere: Plasma Physics and Electrodynamics, Academic Press, 2nd ed., 2009",
+          "Rees, Physics and Chemistry of the Upper Atmosphere, Cambridge University Press, 1989",
+          "Brasseur & Solomon, Aeronomy of the Middle Atmosphere, Springer, 3rd ed., 2005"
+    ],
+    chapters: [
+      "中性大气的垂直结构",
+      "平流层臭氧化学",
+      "行星波与平流层爆发性增温",
+      "中间层与极地中间层云",
+      "热层结构与逃逸层",
+      "大气潮汐与重力波上传",
+      "电离层的形成与分层（D/E/F区）",
+      "电离层电动力学与发电机区",
+      "电离层暴与闪烁",
+      "无线电波传播与通信影响",
+      "中层大气光化学（气辉）",
+      "中层—低层耦合"
+    ],
+  },
+  'foundations/limnology': {
+    title: "湖泊学（内陆水体科学）",
+    books: [
+          "Wetzel, Limnology: Lake and River Ecosystems, Academic Press, 3rd ed., 2001",
+          "Kalff, Limnology: Inland Water Ecosystems, Prentice Hall, 2002",
+          "Dodds & Whiles, Freshwater Ecology: Concepts and Environmental Applications of Limnology, Academic Press, 3rd ed., 2019"
+    ],
+    chapters: [
+      "湖泊的形态测量与成因类型",
+      "湖水的光热结构与分层",
+      "湖泊水动力（湖震/环流）",
+      "河流的水文与地貌",
+      "淡水化学与离子组成",
+      "营养盐循环（N/P/Si）",
+      "初级生产与浮游生物",
+      "富营养化机理与控制",
+      "湖泊食物网与下行/上行效应",
+      "沉积记录与湖泊演化",
+      "湖泊与气候变化",
+      "湿地与河口过渡带",
+      "流域管理与湖泊修复"
+    ],
+  },
+  'intermediate/cartography': {
+    title: "地图学",
+    books: [
+          "Slocum et al., Thematic Cartography and Geovisualization, Pearson Prentice Hall, 3rd ed., 2009",
+          "Kraak & Ormeling, Cartography: Visualization of Geospatial Data, CRC Press, 4th ed., 2020",
+          "王家耀等，《地图学原理与方法》，科学出版社，2006"
+    ],
+    chapters: [
+      "地球椭球体与地图数学基础",
+      "地图投影的分类与变形",
+      "常用投影（墨卡托/兰伯特/等积）",
+      "地图符号学与视觉变量",
+      "地图概括（综合）",
+      "专题地图编制方法",
+      "色彩理论与制图配色",
+      "地形图与等高线表示",
+      "数字制图与自动综合",
+      "地理可视化与虚拟地球",
+      "地图认知与可用性评价",
+      "地图史与制图文化"
+    ],
+  },
+  'advanced/meteoritics-cosmochemistry': {
+    title: "陨石学与宇宙化学",
+    books: [
+          "McSween & Huss, Cosmochemistry, Cambridge University Press, 2010",
+          "Lodders & Fegley, The Planetary Scientist's Companion, Oxford University Press, 1998",
+          "Palme & Jones, Treatise on Geochemistry, Volume 1: Meteorites, Comets, and Planets, Elsevier, 2nd ed., 2014"
+    ],
+    chapters: [
+      "元素与同位素的宇宙丰度",
+      "核合成（恒星/超新星/宇宙线）",
+      "太阳星云凝聚序列",
+      "球粒陨石与CAI包体",
+      "无球粒陨石与行星分异",
+      "铁陨石与行星核",
+      "前太阳颗粒（presolar grains）",
+      "短寿命核素与太阳系年表",
+      "小行星与彗星采样返回",
+      "月球岩石与月壤",
+      "火星陨石",
+      "地外有机物与生命前化学",
+      "撞击过程与冲击变质"
+    ],
+  },
+  'advanced/climate-earth-system-modeling': {
+    title: "气候与地球系统数值模拟",
+    books: [
+          "Goosse, Climate System Dynamics and Modelling, Cambridge University Press, 2015",
+          "McGuffie & Henderson-Sellers, A Climate Modelling Primer, Wiley, 4th ed., 2014",
+          "Washington & Parkinson, An Introduction to Three-Dimensional Climate Modeling, University Science Books, 2nd ed., 2005"
+    ],
+    chapters: [
+      "气候模式的谱系（EBM→GCM→ESM）",
+      "大气环流模式的动力框架",
+      "海洋环流模式（坐标与混合参数化）",
+      "海冰模式",
+      "陆面过程模式",
+      "碳循环与生物地球化学模块",
+      "气溶胶与大气化学模块",
+      "耦合技术与通量校正",
+      "初始漂移与模式气候态",
+      "敏感性试验与反馈分析",
+      "CMIP 框架与情景试验",
+      "降尺度（动力/统计）",
+      "模式评估与不确定度",
+      "地球系统模式的机器学习组件"
+    ],
+  },
+  'humanities/history-of-earth-science': {
+    title: "地球科学史",
+    books: [
+          "Gohau, A History of Geology, Rutgers University Press, 1990",
+          "O'Hara, A Brief History of Geology, Cambridge University Press, 2018",
+          "Oldroyd, Thinking About the Earth: A History of Ideas in Geology, Harvard University Press, 1996"
+    ],
+    chapters: [
+      "古代的地学思想",
+      "文艺复兴时期的化石之争",
+      "水成论与火成论（维尔纳/赫顿）",
+      "居维叶与灾变论",
+      "莱伊尔与均变论",
+      "地质年代表的建立",
+      "达尔文与地质学的互动",
+      "魏格纳与大陆漂移",
+      "海底扩张与板块构造革命",
+      "冰期理论的形成",
+      "放射性测年与地球年龄之争",
+      "深空时代：阿波罗与行星科学的诞生",
+      "气象学史（从温度计到数值预报）"
+    ],
+  },
+  'engineering/electric-circuit-analysis': {
+    title: "电路分析基础（电路原理）",
+    books: [
+          "邱关源, 《电路》第5版, 高等教育出版社, 2006",
+          "Charles K. Alexander & Matthew N.O. Sadiku, \"Fundamentals of Electric Circuits\" (6th ed., McGraw-Hill, 2017)",
+          "William H. Hayt, Jack E. Kemmerly, Steven M. Durbin, \"Engineering Circuit Analysis\" (8th ed., McGraw-Hill, 2012)"
+    ],
+    chapters: [
+      "电路模型与基本变量（电压/电流/功率）",
+      "基尔霍夫定律与电阻等效变换",
+      "线性电阻电路分析：节点法与网孔法",
+      "电路定理：叠加/戴维宁/诺顿/最大功率传输",
+      "运算放大器与含受控源电路",
+      "一阶电路（RC/RL）时域分析",
+      "二阶电路与暂态响应",
+      "正弦稳态分析与相量法",
+      "正弦稳态功率与三相电路",
+      "频率响应、谐振与滤波器",
+      "互感与变压器电路",
+      "拉普拉斯变换与网络函数",
+      "二端口网络参数"
+    ],
+  },
+  'engineering/analog-digital-electronics': {
+    title: "模拟与数字电子技术（电子线路基础）",
+    books: [
+          "童诗白、华成英, 《模拟电子技术基础》第5版, 高等教育出版社, 2015",
+          "阎石, 《数字电子技术基础》第6版, 高等教育出版社, 2016",
+          "Adel S. Sedra & Kenneth C. Smith, \"Microelectronic Circuits\" (7th ed., Oxford University Press, 2015)"
+    ],
+    chapters: [
+      "半导体器件：二极管/BJT/MOSFET 特性与模型",
+      "基本放大电路与共射/共集/共基组态",
+      "多级放大与频率响应",
+      "差分放大与电流源",
+      "负反馈放大电路",
+      "集成运放与信号运算/处理电路",
+      "功率放大与直流稳压电源",
+      "数制与逻辑代数基础",
+      "门电路与组合逻辑设计",
+      "触发器与时序逻辑电路",
+      "计数器/寄存器/存储器与可编程逻辑器件",
+      "脉冲产生整形与 ADC/DAC"
+    ],
+  },
+  'engineering/electromagnetic-fields-waves': {
+    title: "电磁场与电磁波（工程电磁场）",
+    books: [
+          "David K. Cheng, \"Field and Wave Electromagnetics\" (2nd ed., Addison-Wesley, 1989)",
+          "谢处方、饶克谨, 《电磁场与电磁波》第4版, 高等教育出版社, 2006",
+          "Constantine A. Balanis, \"Advanced Engineering Electromagnetics\" (2nd ed., Wiley, 2012)"
+    ],
+    chapters: [
+      "矢量分析与场论基础",
+      "静电场与恒定电场",
+      "恒定磁场与电感",
+      "时变电磁场与 Maxwell 方程组",
+      "平面电磁波在理想介质/导电媒质中的传播",
+      "波的反射、折射与极化",
+      "导行电磁波：TEM/TE/TM 模与传输线理论",
+      "矩形/圆波导与谐振腔",
+      "电磁辐射与天线基础",
+      "准静态场与工程电磁场数值方法简介"
+    ],
+  },
+  'engineering/engineering-thermodynamics': {
+    title: "工程热力学",
+    books: [
+          "沈维道、童钧耕, 《工程热力学》第5版, 高等教育出版社, 2016",
+          "Yunus A. Çengel & Michael A. Boles, \"Thermodynamics: An Engineering Approach\" (9th ed., McGraw-Hill, 2019)",
+          "Michael J. Moran & Howard N. Shapiro, \"Fundamentals of Engineering Thermodynamics\" (9th ed., Wiley, 2018)"
+    ],
+    chapters: [
+      "基本概念与热力学第零定律/温标",
+      "热力学第一定律与能量方程",
+      "理想气体与实际气体性质",
+      "热力学第二定律与卡诺循环",
+      "熵与㶲（可用能）分析",
+      "水蒸气与湿空气性质",
+      "气体动力循环：Otto/Diesel/Brayton",
+      "蒸汽动力循环：朗肯循环与再热回热",
+      "制冷与热泵循环",
+      "混合气体与化学热力学初步",
+      "喷管与压气机中的流动"
+    ],
+  },
+  'engineering/heat-and-mass-transfer': {
+    title: "传热学（含传质基础）",
+    books: [
+          "杨世铭、陶文铨, 《传热学》第4版, 高等教育出版社, 2006",
+          "Frank P. Incropera & David P. DeWitt, \"Fundamentals of Heat and Mass Transfer\" (7th ed., Wiley, 2011)",
+          "J.P. Holman, \"Heat Transfer\" (10th ed., McGraw-Hill, 2010)"
+    ],
+    chapters: [
+      "导热基本定律与稳态导热",
+      "非稳态导热与集总参数法",
+      "导热数值解法初步",
+      "对流换热原理与边界层理论",
+      "管内强制对流与外掠换热",
+      "自然对流换热",
+      "凝结与沸腾换热",
+      "热辐射基本定律与黑体辐射",
+      "灰体间辐射换热与角系数",
+      "换热器设计与分析（LMTD/ε-NTU）",
+      "传质基础与类比律"
+    ],
+  },
+  'engineering/systems-engineering': {
+    title: "系统工程",
+    books: [
+          "Benjamin S. Blanchard & Wolter J. Fabrycky, \"Systems Engineering and Analysis\" (5th ed., Pearson, 2011)",
+          "INCOSE, \"Systems Engineering Handbook\" (4th ed., Wiley, 2015)",
+          "汪应洛, 《系统工程》第4版, 机械工业出版社, 2008"
+    ],
+    chapters: [
+      "系统与系统工程概念、生命周期模型",
+      "系统方法论：霍尔三维结构与硬/软系统方法",
+      "需求分析与利益相关者分析",
+      "功能分析与系统体系结构设计",
+      "V 模型与基于模型的系统工程（MBSE/SysML）",
+      "接口管理与技术状态管理",
+      "系统权衡分析与多准则决策",
+      "可靠性/维修性/保障性（RMS）工程",
+      "系统建模与仿真",
+      "验证、确认与系统测试",
+      "系统评价与层次分析法（AHP）",
+      "大型工程项目中的系统工程案例（航天/国防）"
+    ],
+  },
+  'engineering/aerodynamics': {
+    title: "空气动力学",
+    books: [
+          "John D. Anderson, \"Fundamentals of Aerodynamics\" (6th ed., McGraw-Hill, 2017)",
+          "钱翼稷, 《空气动力学》, 北京航空航天大学出版社, 2004",
+          "John D. Anderson, \"Introduction to Flight\" (8th ed., McGraw-Hill, 2016)"
+    ],
+    chapters: [
+      "空气动力学基本原理与标准大气",
+      "流体力学基础：连续/动量/能量方程",
+      "无黏不可压流与位流理论",
+      "翼型绕流与库塔-茹科夫斯基定理",
+      "有限翼展机翼与升力线理论",
+      "黏性流动与边界层",
+      "可压缩流基础与激波/膨胀波",
+      "高速翼型与临界马赫数",
+      "亚/跨/超声速机翼气动特性",
+      "阻力构成与减阻技术",
+      "风洞试验与气动相似准则",
+      "计算流体力学（CFD）入门"
+    ],
+  },
+  'engineering/computational-mechanics': {
+    title: "计算力学与有限元方法",
+    books: [
+          "O.C. Zienkiewicz, R.L. Taylor & J.Z. Zhu, \"The Finite Element Method: Its Basis and Fundamentals\" (7th ed., Butterworth-Heinemann, 2013)",
+          "王勖成, 《有限单元法》, 清华大学出版社, 2003",
+          "Klaus-Jürgen Bathe, \"Finite Element Procedures\" (2nd ed., 2014)"
+    ],
+    chapters: [
+      "弹性力学基本方程（应力/应变/本构）",
+      "能量原理与变分法（最小势能/虚功原理）",
+      "加权残值法与 Galerkin 方法",
+      "一维杆/梁单元直接刚度法",
+      "平面问题的三角形/四边形单元",
+      "等参数单元与数值积分",
+      "轴对称与三维实体单元",
+      "板壳单元（Kirchhoff/Mindlin）",
+      "结构动力学有限元（模态/瞬态）",
+      "材料非线性与几何非线性",
+      "接触问题与有限元软件实践（ANSYS/Abaqus）",
+      "误差估计与网格自适应"
+    ],
+  },
+  'engineering/mechanical-vibration': {
+    title: "机械振动（振动工程基础）",
+    books: [
+          "Singiresu S. Rao, \"Mechanical Vibrations\" (6th ed., Pearson, 2017)",
+          "William T. Thomson & Marie Dillon Dahleh, \"Theory of Vibration with Applications\" (5th ed., 1998)",
+          "倪振华, 《振动力学》, 西安交通大学出版社, 1989"
+    ],
+    chapters: [
+      "单自由度系统自由振动",
+      "单自由度强迫振动与频响函数",
+      "隔振与振动测量",
+      "多自由度系统：固有频率与振型",
+      "模态分析与振型叠加法",
+      "连续系统振动：弦/杆/梁",
+      "近似方法：Rayleigh 法与 Ritz 法",
+      "转子动力学基础与临界转速",
+      "随机振动基础",
+      "非线性振动初步",
+      "振动试验与模态测试技术",
+      "振动主动/被动控制简介"
+    ],
+  },
+  'engineering/communication-principles': {
+    title: "通信原理",
+    books: [
+          "樊昌信、曹丽娜, 《通信原理》第7版, 国防工业出版社, 2012",
+          "John G. Proakis & Masoud Salehi, \"Digital Communications\" (5th ed., McGraw-Hill, 2008)",
+          "Simon Haykin & Michael Moher, \"Communication Systems\" (5th ed., Wiley, 2009)"
+    ],
+    chapters: [
+      "通信系统模型与信道容量（香农公式）",
+      "确知信号与随机过程基础",
+      "模拟调制：AM/DSB/SSB/FM/PM",
+      "模拟信号数字化：抽样/量化/PCM",
+      "数字基带传输与码间串扰（Nyquist 准则）",
+      "数字带通调制：ASK/FSK/PSK/QAM",
+      "最佳接收与匹配滤波器",
+      "信道编码：分组码/卷积码/Turbo/LDPC",
+      "同步原理（载波/位/帧同步）",
+      "衰落信道与分集/均衡",
+      "多路复用与多址技术（FDM/TDM/CDMA）",
+      "现代通信系统案例（蜂窝/卫星）"
+    ],
+  },
+  'engineering/microwave-and-antennas': {
+    title: "微波技术与天线",
+    books: [
+          "David M. Pozar, \"Microwave Engineering\" (4th ed., Wiley, 2012)",
+          "Constantine A. Balanis, \"Antenna Theory: Analysis and Design\" (4th ed., Wiley, 2016)",
+          "梁昌洪, 《简明微波》, 高等教育出版社, 2006"
+    ],
+    chapters: [
+      "传输线理论与 Smith 圆图",
+      "微波网络与 S 参数",
+      "阻抗匹配与调谐",
+      "波导与微波传输线（微带/带状线）",
+      "微波无源器件：耦合器/功分器/滤波器",
+      "微波有源电路与低噪声放大器基础",
+      "天线基本参数（增益/方向图/极化）",
+      "线天线与口径天线",
+      "天线阵与相控阵原理",
+      "微带天线与反射面天线",
+      "微波测量技术"
+    ],
+  },
+  'engineering/combustion': {
+    title: "燃烧学",
+    books: [
+          "Stephen R. Turns, \"An Introduction to Combustion: Concepts and Applications\" (3rd ed., McGraw-Hill, 2012)",
+          "Irvin Glassman, Richard A. Yetter & Nick G. Glumac, \"Combustion\" (5th ed., Academic Press, 2015)",
+          "Chung K. Law, \"Combustion Physics\" (Cambridge University Press, 2006)"
+    ],
+    chapters: [
+      "燃烧热化学与绝热火焰温度",
+      "化学动力学与链式反应机理",
+      "传质与守恒方程（Shvab-Zeldovich）",
+      "预混气体层流火焰与火焰传播速度",
+      "预混火焰稳定与着火/熄火",
+      "扩散火焰与液滴蒸发燃烧",
+      "湍流燃烧基础",
+      "气体爆炸与爆轰",
+      "固体燃料（煤/生物质）燃烧",
+      "污染物生成与控制（NOx/碳烟/CO）",
+      "内燃机与燃气轮机中的燃烧",
+      "燃烧诊断技术"
+    ],
+  },
+  'engineering/nuclear-reactor-engineering': {
+    title: "核反应堆工程（反应堆物理与热工水力）",
+    books: [
+          "John R. Lamarsh & Anthony J. Baratta, \"Introduction to Nuclear Engineering\" (4th ed., Pearson, 2017)",
+          "谢仲生, 《核反应堆物理分析》（修订本/第5版）, 西安交通大学出版社, 2004",
+          "于平安 等, 《核反应堆热工分析》第3版, 上海交通大学出版社, 2002"
+    ],
+    chapters: [
+      "核物理基础：中子与原子核相互作用",
+      "链式裂变反应与反应堆类型",
+      "中子慢化与扩散理论",
+      "反应堆临界理论与几何/材料曲率",
+      "非均匀堆与栅格计算",
+      "反应性系数与燃耗",
+      "反应性控制（控制棒/硼浓度）",
+      "反应堆动力学（点堆方程/缓发中子）",
+      "堆芯热工水力：冷却剂流动与传热",
+      "核燃料循环与燃料管理",
+      "反应堆安全分析（LOCA/纵深防御）",
+      "压水堆/沸水堆/快堆/高温气冷堆系统"
+    ],
+  },
+  'engineering/aircraft-design': {
+    title: "飞行器设计",
+    books: [
+          "Daniel P. Raymer, \"Aircraft Design: A Conceptual Approach\" (6th ed., AIAA, 2018)",
+          "Jan Roskam, \"Airplane Design\" (Parts I-VIII, DARcorporation)",
+          "Egbert Torenbeek, \"Synthesis of Subsonic Airplane Design\" (Delft University Press, 1982)"
+    ],
+    chapters: [
+      "设计流程：概念/初步/详细设计",
+      "需求分析与设计指标（任务剖面）",
+      "重量估算与重心控制",
+      "推重比与翼载选择、总体参数权衡",
+      "气动布局设计（机翼/尾翼/机身）",
+      "推进系统选型与一体化",
+      "结构与材料选型",
+      "稳定性与操纵性设计",
+      "性能分析：起飞/爬升/巡航/着陆",
+      "载荷、起落架与系统布置",
+      "设计权衡、优化与造价分析",
+      "无人机/高超声速飞行器设计特点"
+    ],
+  },
+  'engineering/inorganic-nonmetallic-materials': {
+    title: "无机非金属材料工程（陶瓷/玻璃/水泥）",
+    books: [
+          "W.D. Kingery, H.K. Bowen & D.R. Uhlmann, \"Introduction to Ceramics\" (2nd ed., Wiley, 1976)",
+          "Michel W. Barsoum, \"Fundamentals of Ceramics\" (2nd ed., CRC Press, 2019)",
+          "陆佩文, 《无机材料科学基础》, 武汉工业大学出版社, 1996"
+    ],
+    chapters: [
+      "陶瓷晶体结构与硅酸盐化学",
+      "玻璃结构与非晶态形成",
+      "陶瓷中的缺陷与扩散",
+      "相图与陶瓷相平衡",
+      "烧结机理与致密化动力学",
+      "陶瓷粉体制备与成型工艺",
+      "结构陶瓷（氧化物/氮化物/碳化物）",
+      "功能陶瓷（介电/压电/铁电/磁性）",
+      "玻璃制备与加工工艺",
+      "水泥与混凝土化学（硅酸盐水泥水化）",
+      "耐火材料",
+      "陶瓷的力学性能与脆性断裂"
+    ],
+  },
+  'engineering/disaster-prevention-mitigation': {
+    title: "防灾减灾工程与防护工程",
+    books: [
+          "Anil K. Chopra, \"Dynamics of Structures: Theory and Applications to Earthquake Engineering\" (5th ed., Pearson, 2020)",
+          "Ray W. Clough & Joseph Penzien, \"Dynamics of Structures\" (3rd ed., Computers & Structures, 1995)",
+          "李爱群、丁幼亮, 《工程结构抗震设计》, 中国建筑工业出版社, 2018"
+    ],
+    chapters: [
+      "地震工程基础：震源/震级/地震动参数",
+      "单自由度体系地震反应与反应谱",
+      "多自由度体系振型分解反应谱法",
+      "结构抗震概念设计与延性设计",
+      "隔震与消能减震技术",
+      "工程结构抗风设计（风荷载/风振）",
+      "建筑防火与结构抗火",
+      "爆炸冲击与结构抗爆防护",
+      "地基基础抗震与场地效应",
+      "桥梁抗震与生命线工程",
+      "灾害风险评估与韧性城市",
+      "工程结构检测、鉴定与加固"
+    ],
+  },
+  'engineering/human-factors-ergonomics': {
+    title: "人因工程（工效学）",
+    books: [
+          "Gavriel Salvendy & Waldemar Karwowski (eds.), \"Handbook of Human Factors and Ergonomics\" (5th ed., Wiley, 2021)",
+          "Christopher D. Wickens et al., \"Engineering Psychology and Human Performance\" (5th ed., Routledge, 2021)",
+          "郭伏、钱省三, 《人因工程学》, 机械工业出版社, 2006"
+    ],
+    chapters: [
+      "人因工程概念与人-机-环境系统",
+      "人体测量学与工作空间设计",
+      "感觉与知觉（视觉/听觉显示设计）",
+      "人的信息加工与决策",
+      "人体生物力学与体力作业",
+      "工作负荷与疲劳",
+      "控制器与显示器的人机界面设计",
+      "人为差错与可靠性",
+      "作业环境：照明/噪声/微气候",
+      "安全工效学与事故预防",
+      "认知工效学与自动化中的人因",
+      "可用性评估与用户体验测试"
+    ],
+  },
+  'engineering/engineering-management-economics': {
+    title: "工程管理与工程经济",
+    books: [
+          "William G. Sullivan, Elin M. Wicks & C. Patrick Koelling, \"Engineering Economy\" (17th ed., Pearson, 2019)",
+          "Project Management Institute, \"A Guide to the Project Management Body of Knowledge (PMBOK Guide)\" (7th ed., PMI, 2021)",
+          "Jack R. Meredith & Samuel J. Mantel, \"Project Management: A Managerial Approach\" (9th ed., Wiley, 2015)"
+    ],
+    chapters: [
+      "工程经济基本原理与资金时间价值",
+      "投资方案评价（NPV/IRR/回收期）",
+      "设备更新与折旧、不确定性分析",
+      "项目可行性研究",
+      "工程项目组织与治理结构",
+      "项目范围与进度管理（WBS/CPM/PERT）",
+      "项目成本管理与挣值分析",
+      "工程质量管理（PDCA/全面质量管理）",
+      "工程招投标与合同管理（FIDIC 条款）",
+      "项目风险管理",
+      "工程安全与职业健康管理",
+      "BIM 与数字化项目管理"
+    ],
+  },
+  'engineering/tribology': {
+    title: "摩擦学",
+    books: [
+          "Gwidon W. Stachowiak & Andrew W. Batchelor, \"Engineering Tribology\" (4th ed., Butterworth-Heinemann, 2013)",
+          "Bharat Bhushan, \"Introduction to Tribology\" (2nd ed., Wiley, 2013)",
+          "温诗铸、黄平, 《摩擦学原理》第5版, 清华大学出版社, 2018"
+    ],
+    chapters: [
+      "表面形貌与真实接触面积",
+      "摩擦机理与摩擦定律",
+      "磨损机制：黏着/磨粒/疲劳/腐蚀磨损",
+      "流体动压润滑与 Reynolds 方程",
+      "弹性流体动力润滑（EHL）",
+      "边界润滑与固体润滑",
+      "润滑剂与添加剂",
+      "轴承设计（滑动/滚动轴承）",
+      "密封与摩擦副材料",
+      "摩擦磨损试验方法与失效分析",
+      "微纳摩擦学与生物摩擦学"
+    ],
+  },
+  'engineering/sensors-and-detection': {
+    title: "传感器与检测技术",
+    books: [
+          "Jacob Fraden, \"Handbook of Modern Sensors: Physics, Designs, and Applications\" (5th ed., Springer, 2016)",
+          "Alan S. Morris & Reza Langari, \"Measurement and Instrumentation: Theory and Application\" (3rd ed., Academic Press, 2020)",
+          "John G. Webster & Halit Eren (eds.), \"Measurement, Instrumentation, and Sensors Handbook\" (2nd ed., CRC Press, 2014)"
+    ],
+    chapters: [
+      "测量系统与误差理论、不确定度评定",
+      "传感器静态/动态特性与标定",
+      "电阻式传感器（应变片/热电阻）",
+      "电容式与电感式传感器",
+      "压电/磁电/霍尔传感器",
+      "热电式与光电式传感器",
+      "半导体与 MEMS 传感器",
+      "信号调理：电桥/放大/滤波/隔离",
+      "数据采集与 ADC/接口总线",
+      "虚拟仪器与自动测试系统",
+      "智能传感器与物联网传感网络"
+    ],
+  },
+  'engineering/fire-protection-engineering': {
+    title: "消防工程",
+    books: [
+          "SFPE, \"Handbook of Fire Protection Engineering\" (5th ed., Springer, 2016)",
+          "Dougal Drysdale, \"An Introduction to Fire Dynamics\" (3rd ed., Wiley, 2011)",
+          "Vytenis Babrauskas, \"Ignition Handbook\" (Fire Science Publishers, 2003)"
+    ],
+    chapters: [
+      "燃烧与火灾科学基础（点火/火焰蔓延/轰燃）",
+      "烟气运动与烟气控制",
+      "火灾探测与自动报警系统",
+      "建筑防火设计（防火分区/疏散）",
+      "自动灭火系统：喷淋/气体/泡沫",
+      "结构抗火与耐火设计",
+      "性能化防火设计方法",
+      "工业火灾与爆炸防护（泄爆/抑爆）",
+      "危化品火灾与储罐区消防",
+      "人员疏散模拟与应急照明",
+      "森林与草原火灾",
+      "火灾调查与风险评估"
+    ],
+  },
+  'engineering/underwater-acoustic-engineering': {
+    title: "水声工程",
+    books: [
+          "Robert J. Urick, \"Principles of Underwater Sound\" (3rd ed., McGraw-Hill, 1983)",
+          "刘伯胜、雷家煜, 《水声学原理》第2版, 哈尔滨工程大学出版社, 2010",
+          "Paul C. Etter, \"Underwater Acoustic Modeling and Simulation\" (5th ed., CRC Press, 2018)"
+    ],
+    chapters: [
+      "海洋声学环境（声速剖面/声道）",
+      "声波在海洋中的传播：射线与简正波理论",
+      "声呐方程与声呐参数",
+      "海洋混响与环境噪声",
+      "声传播起伏与目标强度",
+      "水声换能器与基阵（指向性/波束形成）",
+      "主动声呐与目标检测",
+      "被动声呐与目标参数估计",
+      "水声通信与组网",
+      "水声定位与导航（USBL/LBL）",
+      "匹配场处理与水下目标识别"
+    ],
+  },
+  'engineering/engineering-ethics': {
+    title: "工程伦理",
+    books: [
+          "Mike W. Martin & Roland Schinzinger, \"Ethics in Engineering\" (4th ed., McGraw-Hill, 2005)",
+          "李正风、丛杭青、王前 等, 《工程伦理》第2版, 清华大学出版社, 2019",
+          "Charles E. Harris et al., \"Engineering Ethics: Concepts and Cases\" (6th ed., Cengage, 2019)"
+    ],
+    chapters: [
+      "工程职业与工程师的角色责任",
+      "伦理理论框架（功利/义务/德性）在工程中的应用",
+      "工程中的安全、风险与可接受性",
+      "工程诚实与学术/职业诚信",
+      "利益冲突与保密义务",
+      "告发（whistleblowing）与组织 disobedience 案例（挑战者号）",
+      "环境与可持续发展责任",
+      "信息与人工智能工程的伦理问题",
+      "工程师的跨国责任与全球工程规范",
+      "工程社团伦理守则（NSPE/IEEE）"
+    ],
+  },
+  'humanities/history-of-technology': {
+    title: "工程技术史（技术史）",
+    books: [
+          "Charles Singer et al. (eds.), \"A History of Technology\" (7 vols., Oxford University Press, 1954-1978)",
+          "李约瑟, 《中国科学技术史》, 科学出版社",
+          "Donald Cardwell, \"The Norton History of Technology\" (W.W. Norton, 1995)"
+    ],
+    chapters: [
+      "古代技术：农业/冶金/建筑的起源",
+      "中国四大发明与传统工程技术体系",
+      "希腊罗马技术与中世纪技术复兴",
+      "工业革命：蒸汽机与机器制造",
+      "电力时代与电气工程的兴起",
+      "化学工业与材料革命的历程",
+      "交通运输工程史（铁路/汽车/航空）",
+      "通信与信息工程史（电报/电话/无线电）",
+      "土木与水利工程史（桥梁/大坝/摩天楼）",
+      "军事技术与两次世界大战的技术动员",
+      "航天与核能工程的诞生",
+      "技术转移、创新体系与技术史方法论"
+    ],
+  },
+  'frontier/system-dynamics': {
+    title: "系统动力学",
+    books: [
+          "Sterman《Business Dynamics: Systems Thinking and Modeling for a Complex World》（McGraw-Hill, 2000）",
+          "Forrester《Industrial Dynamics》（MIT Press, 1961）",
+          "王其藩《系统动力学》（上海财经大学出版社，修订版 2009）"
+    ],
+    chapters: [
+      "系统思考与反馈回路",
+      "因果回路图与基模",
+      "存量流量图与 Vensim/Stella 建模",
+      "一阶与二阶系统动态",
+      "S 形增长与寻的结构",
+      "振荡、延迟与不稳定结构",
+      "模型检验与真实性验证",
+      "市场与供应链动力学（牛鞭效应）",
+      "人口—资源—环境模型（World3 与增长的极限）",
+      "企业动力学与战略微世界",
+      "公共政策设计与杠杆点",
+      "系统动力学与 ABM/GIS 的集成"
+    ],
+  },
+  'frontier/agent-based-modeling': {
+    title: "基于主体的建模与复杂适应系统",
+    books: [
+          "Wilensky & Rand《An Introduction to Agent-Based Modeling: Modeling Natural, Social, and Engineered Complex Systems with NetLogo》（MIT Press, 2015）",
+          "Railsback & Grimm《Agent-Based and Individual-Based Modeling: A Practical Introduction》（Princeton University Press, 2nd ed. 2019）",
+          "Epstein & Axtell《Growing Artificial Societies: Social Science from the Bottom Up》（MIT Press, 1996）"
+    ],
+    chapters: [
+      "复杂适应系统与涌现概念",
+      "ABM 范式与 NetLogo 基础",
+      "主体—环境交互与调度",
+      "ODD 模型描述协议",
+      "从模式出发的建模（pattern-oriented modeling）",
+      "模型校准、验证与复现",
+      "生态系统个体模型（IBM）",
+      "社会模拟：隔离、扩散与合作演化",
+      "基于主体的计算经济学（ACE）",
+      "传染病 ABM 与政策评估",
+      "行为空间探索与灵敏度分析",
+      "大规模 ABM 与并行计算（Repast/MASON）",
+      "ABM 与机器学习混合建模"
+    ],
+  },
+  'intermediate/modeling-and-simulation': {
+    title: "建模与仿真",
+    books: [
+          "Banks, Carson, Nelson & Nicol《Discrete-Event System Simulation》（Pearson, 5th ed. 2010）",
+          "Law《Simulation Modeling and Analysis》（McGraw-Hill, 5th ed. 2014）",
+          "Zeigler, Muzy & Kofman《Theory of Modeling and Simulation: Discrete Event and Iterative System Computational Foundations》（Academic Press/Elsevier, 3rd ed. 2019）"
+    ],
+    chapters: [
+      "建模与仿真的分类与范式",
+      "伪随机数生成与随机变量采样",
+      "离散事件仿真（事件调度/进程交互）",
+      "输入数据建模与分布拟合",
+      "输出分析：终态与稳态仿真",
+      "置信区间与重复运行设计",
+      "方差缩减技术",
+      "DEVS 形式体系",
+      "连续系统仿真与混合仿真",
+      "并行与分布式仿真（HLA）",
+      "仿真优化（排序选择与元启发式）",
+      "验证、确认与可信度评估（VV&A）",
+      "数字孪生中的在线仿真"
+    ],
+  },
+  'intermediate/uncertainty-quantification': {
+    title: "不确定性量化",
+    books: [
+          "Smith《Uncertainty Quantification: Theory, Implementation, and Applications》（SIAM, 2014）",
+          "Sullivan《Introduction to Uncertainty Quantification》（Springer, 2015）",
+          "Ghanem, Higdon & Owhadi (eds)《Handbook of Uncertainty Quantification》（Springer, 2017）"
+    ],
+    chapters: [
+      "不确定性来源与偶然/认知分类",
+      "概率框架与贝叶斯框架",
+      "参数辨识与统计反问题",
+      "多项式混沌展开（PCE）",
+      "随机配点与稀疏网格方法",
+      "高斯过程代理模型",
+      "全局灵敏度分析（Sobol 指数）",
+      "贝叶斯反演与 MCMC",
+      "模型校准、确认与外推",
+      "降阶模型与多保真建模",
+      "深度学习中的不确定性（BNN/集成）",
+      "UQ 在工程与气候模型中的应用"
+    ],
+  },
+  'frontier/urban-computing': {
+    title: "城市计算与城市科学",
+    books: [
+          "郑宇《Urban Computing》（MIT Press, 2019）",
+          "Bettencourt《Introduction to Urban Science: Evidence and Theory of Cities as Complex Systems》（MIT Press, 2021）",
+          "Batty《The New Science of Cities》（MIT Press, 2013）"
+    ],
+    chapters: [
+      "城市感知与多源城市数据",
+      "时空数据管理与索引",
+      "轨迹数据挖掘与地图匹配",
+      "人流预测与 OD 估计",
+      "城市空气质量细粒度推断",
+      "共享出行与智能调度",
+      "城市标度律（urban scaling）",
+      "城市网络与空间交互模型",
+      "智慧城市平台与数据中台",
+      "城市数字孪生",
+      "城市韧性与应急管理应用",
+      "城市计算的隐私与治理"
+    ],
+  },
+  'frontier/industrial-ecology': {
+    title: "工业生态学",
+    books: [
+          "Graedel & Allenby《Industrial Ecology and Sustainable Engineering》（Prentice Hall, 2010）",
+          "Ayres & Ayres (eds)《A Handbook of Industrial Ecology》（Edward Elgar, 2002）",
+          "邓南圣、吴峰主编《工业生态学：理论与应用》（化学工业出版社，2002）"
+    ],
+    chapters: [
+      "产业代谢与产业生态系统",
+      "物质流分析（MFA）",
+      "生命周期评价（LCA）框架",
+      "过程清单与影响评价方法",
+      "生态工业园与产业共生（卡伦堡模式）",
+      "环境扩展投入产出分析（EEIO-LCA）",
+      "面向环境的设计（DfE/生态设计）",
+      "循环性指标与物质循环率",
+      "碳足迹、水足迹与生态足迹核算",
+      "城市代谢",
+      "生产者责任延伸与政策工具",
+      "工业生态学与碳中和路径"
+    ],
+  },
+  'frontier/planetary-health': {
+    title: "行星健康",
+    books: [
+          "Myers & Frumkin (eds)《Planetary Health: Protecting Nature to Protect Ourselves》（Island Press, 2020）",
+          "Haines & Frumkin《Planetary Health: Safeguarding Human Health and the Environment in the Anthropocene》（Cambridge University Press, 2021）",
+          "Whitmee et al.《Safeguarding human health in the Anthropocene epoch: report of The Rockefeller Foundation–Lancet Commission on planetary health》（The Lancet, 2015）"
+    ],
+    chapters: [
+      "行星健康概念与人类世背景",
+      "地球系统边界（planetary boundaries）",
+      "气候变化与健康结局",
+      "生物多样性丧失与人兽共患病溢出",
+      "土地系统变化与食物系统",
+      "淡水系统与涉水健康风险",
+      "海洋健康与海产品安全",
+      "空气污染与化学品暴露",
+      "营养转型与可持续膳食",
+      "城市化、建成环境与健康",
+      "气候变化迁移与健康公平",
+      "行星健康指标、治理与教育"
+    ],
+  },
+  'frontier/risk-analysis': {
+    title: "风险分析与风险科学",
+    books: [
+          "Aven《Foundations of Risk Analysis: A Knowledge and Decision-Oriented Perspective》（Wiley, 2nd ed. 2012）",
+          "Bedford & Cooke《Probabilistic Risk Analysis: Foundations and Methods》（Cambridge University Press, 2001）",
+          "Modarres《Risk Analysis in Engineering: Techniques, Tools, and Trends》（CRC Press, 2006）"
+    ],
+    chapters: [
+      "风险概念体系与定量定义（Kaplan & Garrick）",
+      "概率风险评价（PRA）流程",
+      "故障树与事件树分析",
+      "贝叶斯方法与风险更新",
+      "专家判断结构化引出",
+      "风险感知的心理测量范式",
+      "风险的社会放大与风险沟通",
+      "可接受风险与 ALARP 原则",
+      "极值与尾部风险建模",
+      "系统性风险与级联失效",
+      "新兴风险与深度不确定性",
+      "风险治理框架（IRGC）与韧性"
+    ],
+  },
+  'advanced/affective-computing': {
+    title: "情感计算",
+    books: [
+          "Picard《Affective Computing》（MIT Press, 1997）",
+          "Calvo, D'Mello, Gratch & Kappas (eds)《The Oxford Handbook of Affective Computing》（Oxford University Press, 2015）",
+          "Schuller & Batliner《Computational Paralinguistics: Emotion, Affect and Personality in Speech and Language Processing》（Wiley, 2013）"
+    ],
+    chapters: [
+      "情绪理论：离散模型与维度模型",
+      "情感的心理生理学基础",
+      "面部表情识别（FACS 与深度学习）",
+      "语音情感与副语言计算",
+      "生理信号情感识别（ECG/EDA/EEG）",
+      "文本情感分析与情绪检测",
+      "多模态情感融合",
+      "情感生成与虚拟人表达",
+      "情感机器人与具身交互",
+      "心理健康与人机交互应用",
+      "数据集、标注与评测基准",
+      "情感计算的伦理、隐私与操纵风险"
+    ],
+  },
+  'humanities/big-history': {
+    title: "大历史",
+    books: [
+          "Christian, Brown & Benjamin《Big History: Between Nothing and Everything》（McGraw-Hill, 2014）",
+          "Christian《Maps of Time: An Introduction to Big History》（University of California Press, 2004）",
+          "Spier《Big History and the Future of Humanity》（Wiley-Blackwell, 2nd ed. 2015）"
+    ],
+    chapters: [
+      "大历史的学科定位与八个复杂度阈值",
+      "宇宙大爆炸与时空起源",
+      "恒星演化与化学元素生成",
+      "太阳系与地球的形成",
+      "生命起源与达尔文进化",
+      "人类起源与集体学习",
+      "采集社会与早期人类扩散",
+      "农业革命与定居文明",
+      "城市、国家与文明网络",
+      "现代革命与化石能源文明",
+      "人类世与未来学视角",
+      "大历史的证据方法与教学设计"
+    ],
+  },
+  'humanities/medical-humanities': {
+    title: "医学人文与叙事医学",
+    books: [
+          "Cole, Carlin & Carson《Medical Humanities: An Introduction》（Cambridge University Press, 2015）",
+          "Charon《Narrative Medicine: Honoring the Stories of Illness》（Oxford University Press, 2006）",
+          "Whitehead & Woods (eds)《The Edinburgh Companion to the Critical Medical Humanities》（Edinburgh University Press, 2016）"
+    ],
+    chapters: [
+      "医学人文的学科史与定义",
+      "叙事医学：细读与倾听",
+      "病史采集与叙事能力",
+      "文学中的疾病与疯狂书写",
+      "艺术、音乐与视觉文化中的医学",
+      "医学人类学与跨文化照护",
+      "疼痛、残疾与具身体验",
+      "衰老、临终与死亡叙事",
+      "医患沟通与反思性实践教学",
+      "医学人文课程体系设计",
+      "批判医学人文与社会决定因素",
+      "中国医学人文与新医科实践"
+    ],
+  },
+  'social/science-communication': {
+    title: "科学传播与公众理解科学",
+    books: [
+          "Bucchi & Trench (eds)《Routledge Handbook of Public Communication of Science and Technology》（Routledge, 3rd ed. 2021）",
+          "National Academies of Sciences《Communicating Science Effectively: A Research Agenda》（National Academies Press, 2017）",
+          "Burns, O'Connor & Stocklmayer《Science Communication: A Contemporary Definition》（Public Understanding of Science, 2003，权威综述）"
+    ],
+    chapters: [
+      "科学传播的历史与学科化",
+      "缺失模型、对话模型与参与模型",
+      "公众理解科学与科学素质测评",
+      "科学新闻的生产与变迁",
+      "博物馆、科学中心与非正式学习",
+      "数字媒体、短视频与科学网红",
+      "风险沟通与健康传播",
+      "科学辟谣与错误信息纠偏",
+      "公民科学（citizen science）",
+      "争议性科技议题传播（疫苗/转基因/AI）",
+      "科学传播效果评估方法",
+      "中国科普体系：科普法与全民科学素质行动"
+    ],
+  },
+  'humanities/applied-linguistics': {
+    title: "应用语言学（第二语言习得与外语教学）",
+    books: [
+          "Rod Ellis, \"The Study of Second Language Acquisition\" (2nd ed., Oxford University Press, 2008)",
+          "Norbert Schmitt (ed.), \"An Introduction to Applied Linguistics\" (2nd ed., Routledge, 2010)",
+          "Jack C. Richards & Theodore S. Rodgers, \"Approaches and Methods in Language Teaching\" (3rd ed., Cambridge University Press, 2014)"
+    ],
+    chapters: [
+      "应用语言学的学科范围与历史 (Schmitt Ch 1-2)",
+      "第一语言习得与第二语言习得的对比 (Ellis Ch 1-3)",
+      "中介语理论与错误分析 (Ellis Ch 3-4)",
+      "SLA 的认知视角：输入、互动与输出假说 (Ellis Ch 6-8)",
+      "学习者个体差异：动机、学能、策略 (Ellis Ch 9-11)",
+      "语法教学法史：语法翻译法、听说法、交际法 (Richards & Rodgers Part I-II)",
+      "任务型语言教学与内容型教学 (Richards & Rodgers Ch 9-10)",
+      "语言测试：信度、效度与构念 (Schmitt Ch 语言测试)",
+      "语言规划与语言政策 (Schmitt Ch 语言政策)",
+      "语料库在语言教学与词典编纂中的应用 (Schmitt Ch 语料库)",
+      "多语制与全球英语（English as a Lingua Franca）",
+      "应用语言学研究方法：定量与定性 (Schmitt Ch 方法)"
+    ],
+  },
+  'humanities/historical-linguistics-typology': {
+    title: "历史语言学与语言类型学",
+    books: [
+          "Lyle Campbell, \"Historical Linguistics: An Introduction\" (4th ed., Edinburgh University Press, 2021)",
+          "Bernard Comrie, \"Language Universals and Linguistic Typology\" (2nd ed., Blackwell, 1989)",
+          "William Croft, \"Typology and Universals\" (2nd ed., Cambridge University Press, 2003)"
+    ],
+    chapters: [
+      "语言演变与语言谱系：印欧语系的发现 (Campbell Ch 1-2)",
+      "语音演变与音变定律（新语法学派假说） (Campbell Ch 2-3)",
+      "类推变化与词汇借用 (Campbell Ch 4-5)",
+      "比较法与原始语重建 (Campbell Ch 6)",
+      "语言年代学与同源词统计法 (Campbell Ch 8)",
+      "语言接触与克里奥尔化 (Campbell Ch 7)",
+      "语言演变的社会与认知动因 (Campbell Ch 9-10)",
+      "类型学的基本概念：跨语言比较与语言共性 (Comrie Ch 1-2)",
+      "语序类型学：SVO/SOV 与 Greenberg 共性 (Comrie Ch 3-4；Croft Ch 3)",
+      "形态类型：孤立/黏着/屈折/多式综合 (Comrie Ch 1)",
+      "主宾格与作格配列类型 (Comrie Ch 5；Croft Ch 5)",
+      "蕴涵共性与标记性理论 (Croft Ch 4)",
+      "语法化理论与单向性假说 (Croft Ch 8)"
+    ],
+  },
+  'humanities/sociolinguistics': {
+    title: "社会语言学",
+    books: [
+          "Ronald Wardhaugh & Janet M. Fuller, \"An Introduction to Sociolinguistics\" (7th ed., Wiley-Blackwell, 2015)",
+          "William Labov, \"Sociolinguistic Patterns\" (University of Pennsylvania Press, 1972)",
+          "Florian Coulmas, \"Sociolinguistics: The Study of Speakers' Choices\" (Cambridge University Press, 2005)"
+    ],
+    chapters: [
+      "社会语言学的对象与方法：语言变项概念 (Wardhaugh Ch 1-2；Labov Ch 1-2)",
+      "语言、方言与变体：言语共同体 (Wardhaugh Ch 2-3)",
+      "语言变异的社会分层：阶级、年龄与性别 (Labov Ch 4-6)",
+      "Labov 纽约市百货公司调查与变异研究方法 (Labov Ch 3)",
+      "语言变异的显像时间与进行中的变化 (Labov Ch 7-8)",
+      "语码转换与双语现象 (Wardhaugh Ch 4)",
+      "语言与性别： Lakoff 假说及其检验 (Wardhaugh Ch 13)",
+      "语言态度与语言认同 (Wardhaugh Ch 11)",
+      "语言保持、转用与消亡 (Wardhaugh Ch 9)",
+      "皮钦语与克里奥尔语 (Wardhaugh Ch 3)",
+      "语言规划：地位规划与本体规划 (Coulmas Part II)",
+      "礼貌原则与会话分析的社会维度 (Wardhaugh Ch 12)"
+    ],
+  },
+  'humanities/corpus-linguistics': {
+    title: "语料库语言学",
+    books: [
+          "Douglas Biber, Susan Conrad & Randi Reppen, \"Corpus Linguistics: Investigating Language Structure and Use\" (Cambridge University Press, 1998)",
+          "Tony McEnery & Andrew Hardie, \"Corpus Linguistics: Method, Theory and Practice\" (Cambridge University Press, 2012)",
+          "Graeme Kennedy, \"An Introduction to Corpus Linguistics\" (Longman, 1998)"
+    ],
+    chapters: [
+      "语料库语言学史：从 Brown 与 LOB 到 BNC/COCA (McEnery & Hardie Ch 1)",
+      "语料库类型：通用/专门、单语/平行、历时语料库 (McEnery & Hardie Ch 2)",
+      "语料库设计：代表性、平衡性与抽样 (Biber et al. Ch 1)",
+      "标注体系：词性标注与句法标注 (McEnery & Hardie Ch 3)",
+      "词频表、关键词表与统计显著性 (Kennedy Ch 2)",
+      "搭配与类联接：MI 值、t 值与对数似然 (Biber et al. Ch 2)",
+      "索引行（KWIC）分析与词汇语法 (McEnery & Hardie Ch 4)",
+      "语域变异的多维分析（Biber MD 分析） (Biber et al. Ch 5)",
+      "学习者语料库与中介语对比分析 (McEnery & Hardie Ch 8)",
+      "平行语料库与翻译研究 (McEnery & Hardie Ch 7)",
+      "语料库驱动的词典编纂 (Kennedy Ch 6)",
+      "语料库方法的批评与三角互证 (McEnery & Hardie Ch 10)"
+    ],
+  },
+  'humanities/graphemics-writing-systems': {
+    title: "普通文字学与世界文字系统",
+    books: [
+          "Florian Coulmas, \"The Writing Systems of the World\" (Blackwell, 1989)",
+          "Henry Rogers, \"Writing Systems: A Linguistic Approach\" (Blackwell, 2005)",
+          "周有光《比较文字学初探》(语文出版社, 1998)"
+    ],
+    chapters: [
+      "文字的定义、功能与文字系统分类 (Rogers Ch 1-2)",
+      "文字的起源：从图画记事到楔形文字 (Coulmas Ch 1-2)",
+      "语素文字：汉字与玛雅文字 (Rogers Ch 汉字部分)",
+      "音节文字：日文假名与线性文字 B (Rogers Ch 音节文字)",
+      "辅音文字：腓尼基、阿拉米与阿拉伯字母 (Coulmas Ch 4)",
+      "全音素文字：希腊字母的起源与传播 (Coulmas Ch 5)",
+      "拉丁、西里尔字母的演变与扩散 (Rogers Ch 拉丁字母)",
+      "印度系文字与婆罗米字母体系 (Coulmas Ch 6)",
+      "文字的形体类型学（周有光「三相」分类） (周有光 Ch 2-4)",
+      "文字改革与现代化：汉字简化、越南国语字 (周有光 Ch 改革部分)",
+      "书写与语言的关系：文字能否独立于口语 (Rogers Ch 2)",
+      "失读文字与文字破译：商博良与罗塞塔石碑 (Coulmas Ch 3)"
+    ],
+  },
+  'humanities/rhetoric': {
+    title: "修辞学",
+    books: [
+          "Edward P.J. Corbett & Robert J. Connors, \"Classical Rhetoric for the Modern Student\" (4th ed., Oxford University Press, 1999)",
+          "George A. Kennedy, \"A New History of Classical Rhetoric\" (Princeton University Press, 1994)",
+          "陈望道《修辞学发凡》(上海教育出版社, 1932/多次再版)"
+    ],
+    chapters: [
+      "修辞学的起源：西西里与智者学派 (Kennedy Ch 1)",
+      "亚里士多德《修辞学》：ethos/pathos/logos 三诉诸 (Kennedy Ch 2；陈望道 题旨情境论)",
+      "修辞五艺：取材/布局/风格/记忆/发表 (Corbett Part I)",
+      "论证模式：恩梯墨玛（省略三段论）与例证 (Corbett Ch 取材)",
+      "西塞罗与昆体良的演说术体系 (Kennedy Ch 3-4)",
+      "文体风格论：三大风格层次与辞格 (Corbett Ch 风格)",
+      "比喻与隐喻理论：从亚里士多德到 Richards (陈望道 譬喻格；Corbett Ch 辞格)",
+      "中国修辞学传统：《文心雕龙》与历代修辞论 (陈望道 引论)",
+      "陈望道两大分野：消极修辞与积极修辞 (陈望道 篇四-五)",
+      "新修辞学：Perelman 论辩修辞与 Burke 认同理论 (Corbett 结语)",
+      "修辞与公共话语：政治演说与媒介修辞 (Kennedy Ch 近现代)",
+      "修辞与写作教学：当代 composition studies (Corbett Part II)"
+    ],
+  },
+  'humanities/semiotics': {
+    title: "符号学",
+    books: [
+          "Umberto Eco, \"A Theory of Semiotics\" (Indiana University Press, 1976)",
+          "Daniel Chandler, \"Semiotics: The Basics\" (2nd ed., Routledge, 2007)",
+          "赵毅衡《符号学：原理与推演》(南京大学出版社, 2011)"
+    ],
+    chapters: [
+      "符号学的两大学统：索绪尔语言学与皮尔斯逻辑学 (Chandler Ch 1)",
+      "能指/所指与符号的任意性 (Chandler Ch 2)",
+      "皮尔斯三分：像似符/指示符/规约符 (Chandler Ch 2；赵毅衡 Ch 1)",
+      "符号过程（semiosis）与无限衍义 (Eco §0-1)",
+      "代码理论：s-代码与规则代码 (Eco §2)",
+      "符号生产理论：识别、记号、复制 (Eco §3)",
+      "组合轴与聚合轴（横组合/纵聚合） (Chandler Ch 4)",
+      "外延/内涵与神话（巴特第二级符号系统） (Chandler Ch 5；赵毅衡 Ch 5)",
+      "文本间性与元语言 (Chandler Ch 6)",
+      "符号双轴与文本的伴随文本 (赵毅衡 Ch 6-7)",
+      "叙述的符号学分析 (赵毅衡 Ch 8)",
+      "符号学在艺术、广告与媒介分析中的应用 (Chandler Ch 7)"
+    ],
+  },
+  'humanities/narratology': {
+    title: "叙事学",
+    books: [
+          "Gérard Genette, \"Narrative Discourse: An Essay in Method\" (Cornell University Press, 1980)",
+          "Mieke Bal, \"Narratology: Introduction to the Theory of Narrative\" (3rd ed., University of Toronto Press, 2009)",
+          "申丹《叙述学与小说文体学研究》(北京大学出版社, 1998, 多次修订再版)"
+    ],
+    chapters: [
+      "叙事学的兴起：俄国形式主义与法国结构主义 (Bal Introduction)",
+      "故事/话语的区分：fabula 与 sjuzhet (Bal Ch 1)",
+      "热奈特时序理论：顺序、预叙、倒叙 (Genette Part I)",
+      "时距：概要、场景、省略与停顿 (Genette Part II)",
+      "频率：单一/重复/反复叙事 (Genette Part III)",
+      "语式：距离与投影（聚焦理论） (Genette Part IV；Bal Ch 2)",
+      "语态：叙述者层级与叙述类型（同故事/异故事） (Genette Part V)",
+      "隐含作者、隐含读者与不可靠叙述 (申丹 Ch 叙述者)",
+      "人物视点与聚焦模式的文本分析 (Bal Ch 3)",
+      "叙事时间与小说文体的交叉分析 (申丹 Ch 时间/视角)",
+      "后经典叙事学：认知叙事学与跨媒介叙事 (Bal 后经典部分)",
+      "叙事学在非虚构与史学叙述中的应用 (申丹 结语)"
+    ],
+  },
+  'humanities/stylistics': {
+    title: "文体学（语言学与文学交叉）",
+    books: [
+          "Geoffrey Leech & Mick Short, \"Style in Fiction: A Linguistic Introduction to English Fictional Prose\" (2nd ed., Pearson/Longman, 2007)",
+          "Paul Simpson, \"Stylistics: A Resource Book for Students\" (Routledge, 2004)",
+          "胡壮麟《理论文体学》(外语教学与研究出版社, 2000)"
+    ],
+    chapters: [
+      "文体的概念：变异、选择与发展前景化 (Leech & Short Ch 1)",
+      "文体分析的语言学清单：词汇/语法/修辞/衔接 (Leech & Short Ch 2)",
+      "前景化与平行结构、偏离 (Simpson Ch 1-2)",
+      "小说中的话语呈现：直接/间接/自由间接引语 (Leech & Short Ch 10)",
+      "思维模式（mind style）与认知文体学 (Simpson Ch 7)",
+      "视角与叙事层面的文体标记 (Leech & Short Ch 6)",
+      "会话含义与戏剧对话分析 (Simpson Ch 5)",
+      "语域理论与功能文体学 (胡壮麟 Ch 功能文体)",
+      "诗歌文体：音系模式与格律分析 (Simpson Ch 3)",
+      "语料库文体学与作者风格统计 (Leech & Short 新版增补)",
+      "批评文体学与意识形态分析 (Simpson Ch 8)",
+      "文体的社会历史维度 (胡壮麟 Ch 文体史)"
+    ],
+  },
+  'humanities/oral-tradition-epic': {
+    title: "口头传统与史诗研究（口头诗学）",
+    books: [
+          "Milman Parry, \"The Making of Homeric Verse: The Collected Papers of Milman Parry\" (ed. Adam Parry, Oxford University Press, 1971)",
+          "Albert B. Lord, \"The Singer of Tales\" (Harvard University Press, 1960)",
+          "John Miles Foley, \"The Theory of Oral Composition: History and Methodology\" (Indiana University Press, 1988)"
+    ],
+    chapters: [
+      "荷马问题：分析派与统一派之争 (Parry 绪论；Foley Ch 1)",
+      "帕里的南斯拉夫田野与程式（formula）概念 (Parry 1928-1935 论文)",
+      "程式系统、节俭原则与格律约束 (Parry 论文集核心)",
+      "洛德的表演理论：演唱中的创编 (Lord Ch 2-4)",
+      "主题（theme）与故事范型 (Lord Ch 4-7)",
+      "口头与书写的对比：文本概念的解构 (Lord Ch 8；Foley Ch 3)",
+      "口头传统的类型学：史诗、歌谣、叙事诗 (Foley Ch 2)",
+      "大词（traditional referentiality）与传统指涉性 (Foley Ch 4)",
+      "荷马史诗分析案例：《伊利亚特》的程式结构 (Parry/Lord 案例)",
+      "中国口头史诗：《格萨尔》《江格尔》《玛纳斯》研究 (Foley 世界传统章)",
+      "民族志诗学与口头文类界定 (Foley Ch 5)",
+      "口头性与非遗保护 (Lord 后记与当代延伸)"
+    ],
+  },
+  'humanities/teaching-chinese-international': {
+    title: "汉语国际教育（对外汉语教学）",
+    books: [
+          "刘珣《对外汉语教育学引论》(北京语言大学出版社, 2000)",
+          "赵金铭主编《对外汉语教学概论》(商务印书馆, 2004)",
+          "周小兵《对外汉语教学入门》(中山大学出版社, 2004)"
+    ],
+    chapters: [
+      "学科性质与名称演变：对外汉语教学→汉语国际教育→国际中文教育 (刘珣 Ch 1)",
+      "学科理论基础：语言学、教育学、心理学、文化学 (刘珣 Ch 2)",
+      "第二语言教学主要流派在汉语教学中的应用 (刘珣 Ch 6)",
+      "汉语作为第二语言习得研究：偏误分析 (刘珣 Ch 5)",
+      "汉字教学的特殊性与教学方法 (周小兵 Ch 汉字)",
+      "语音教学：声调、轻声与语流音变 (周小兵 Ch 语音)",
+      "词汇教学与语素教学法 (赵金铭 Ch 词汇教学)",
+      "语法教学：把字句、了着过等难点处理 (周小兵 Ch 语法)",
+      "听力/口语/阅读/写作技能训练 (赵金铭 Ch 技能训练)",
+      "教材编写原则与评估 (赵金铭 Ch 教材)",
+      "汉语水平考试（HSK）与语言测试 (刘珣 Ch 测试)",
+      "跨文化交际与文化教学 (刘珣 Ch 文化)",
+      "国际中文教师专业发展 (赵金铭 Ch 教师)"
+    ],
+  },
+  'humanities/cultural-history': {
+    title: "文化史（新文化史）",
+    books: [
+          "Peter Burke, \"What is Cultural History?\" (3rd ed., Polity, 2019)",
+          "Peter Burke, \"Varieties of Cultural History\" (Polity, 1997)",
+          "冯天瑜、何晓明、周积明《中华文化史》(上海人民出版社, 1990)"
+    ],
+    chapters: [
+      "经典文化史：布克哈特与赫伊津哈 (Burke, What is Cultural History? Ch 1)",
+      "文化史的社会学转向：艺术社会史传统 (Burke Ch 2)",
+      "年鉴学派与心态史（histoire des mentalités） (Burke Ch 3)",
+      "新文化史的兴起：历史人类学转向 (Burke Ch 4)",
+      "微观史学：金茨堡《奶酪与蛆虫》 (Burke, Varieties Ch 微观史)",
+      "日常生活史与物质文化 (Burke, Varieties)",
+      "阅读史与书籍史 (Burke, Varieties)",
+      "身体史与情感史 (Burke, What is Cultural History? 新版章)",
+      "记忆、纪念与历史表征 (Burke 新版章)",
+      "文化史的方法论问题：表征与实践 (Burke Ch 5)",
+      "中华文化史的分期与结构 (冯天瑜《中华文化史》)",
+      "中国近世文化转型与近代文化史 (冯天瑜 下册)"
+    ],
+  },
+  'humanities/environmental-history': {
+    title: "环境史",
+    books: [
+          "J. Donald Hughes, \"What is Environmental History?\" (2nd ed., Polity, 2016)",
+          "J.R. McNeill, \"Something New Under the Sun: An Environmental History of the Twentieth-Century World\" (W.W. Norton, 2000)",
+          "Donald Worster, \"Nature's Economy: A History of Ecological Ideas\" (2nd ed., Cambridge University Press, 1994)"
+    ],
+    chapters: [
+      "环境史的定义与三大研究主题 (Hughes Ch 1)",
+      "环境史的先驱：地理决定论与年鉴学派 (Hughes Ch 2)",
+      "哥伦布大交换：生态帝国主义 (Hughes Ch 4)",
+      "美国环境史：边疆、荒野与保护运动 (Hughes Ch 5)",
+      "生态思想史：从林奈到生态学 (Worster 全书主线)",
+      "尘暴（Dust Bowl）与大平原生态史 (Worster 研究范式)",
+      "20 世纪能源体制的环境后果 (McNeill Part I)",
+      "大气、水圈与土壤的世纪变迁 (McNeill Part II)",
+      "生物圈变化：物种入侵与生物多样性丧失 (McNeill Part III)",
+      "中国环境史：大象的退却与黄河史 (Hughes 中国章)",
+      "环境史与全球史、大历史的交叉 (McNeill 结语)",
+      "环境正义与后殖民环境史 (Hughes 新版章)"
+    ],
+  },
+  'humanities/oral-history': {
+    title: "口述历史",
+    books: [
+          "Paul Thompson (with Joanna Bornat), \"The Voice of the Past: Oral History\" (4th ed., Oxford University Press, 2017)",
+          "Donald A. Ritchie, \"Doing Oral History\" (3rd ed., Oxford University Press, 2015)",
+          "Alessandro Portelli, \"The Death of Luigi Trastulli and Other Stories: Form and Meaning in Oral History\" (SUNY Press, 1991)"
+    ],
+    chapters: [
+      "口述史的历史：从修昔底德到现代口述史运动 (Thompson Ch 1)",
+      "口述史的成就与局限：证据问题 (Thompson Ch 2-3)",
+      "记忆的科学：自传记忆与遗忘 (Thompson 新版 Ch 记忆)",
+      "访谈的设计与实施：提问技术与录音规范 (Ritchie Ch 3-4)",
+      "口述史的法律与伦理：知情同意与版权 (Ritchie Ch 5)",
+      "口述史档案的整理、转录与著录 (Ritchie Ch 6)",
+      "记忆的不可靠性与口述史的独特价值 (Portelli Ch 1-2)",
+      "「错误」的史料价值：Trastulli 案例分析 (Portelli 标题章)",
+      "口述史与社会史：底层、劳工与妇女史 (Thompson Ch 4-5)",
+      "社区口述史项目与公共史学实践 (Ritchie Ch 7)",
+      "数字时代的口述史：音视频与在线档案 (Ritchie Ch 8)",
+      "口述史在中国：现当代史与非遗口述 (Thompson 国际章)"
+    ],
+  },
+  'humanities/ethnomusicology': {
+    title: "民族音乐学（Ethnomusicology）",
+    books: [
+          "Bruno Nettl, \"The Study of Ethnomusicology: Thirty-Three Discussions\" (3rd ed., University of Illinois Press, 2015)",
+          "Helen Myers (ed.), \"Ethnomusicology: An Introduction\" (W.W. Norton, 1992)",
+          "Jeff Todd Titon (ed.), \"Worlds of Music: An Introduction to the Music of the World's Peoples\" (6th ed., Cengage, 2016)"
+    ],
+    chapters: [
+      "学科史：比较音乐学到民族音乐学 (Nettl Part I)",
+      "田野工作方法与民族志记录 (Nettl Part II；Myers Ch 田野)",
+      "音乐记谱与分析：跨文化记谱问题 (Myers Ch 记谱)",
+      "音乐作为文化：Merriam 三重模式 (Nettl Ch 概念)",
+      "乐器学与乐器分类（Hornbostel-Sachs） (Myers Ch 乐器)",
+      "口头传承与音乐的记忆机制 (Nettl Ch 传承)",
+      "世界音乐文化区：东亚/南亚/中东/非洲 (Titon 各文化章)",
+      "中国传统音乐：民歌、戏曲、器乐 (Titon 中国章)",
+      "仪式音乐与音乐的社会功能 (Myers Ch 功能)",
+      "城市民族音乐学与流行音乐研究 (Nettl 新版章)",
+      "全球化、流散与音乐认同 (Nettl 新版章)",
+      "应用民族音乐学与非遗保护 (Nettl 结语)"
+    ],
+  },
+  'humanities/music-theory-composition': {
+    title: "音乐理论与作曲技术理论",
+    books: [
+          "Walter Piston, \"Harmony\" (5th ed., revised by Mark DeVoto, W.W. Norton, 1987)",
+          "Samuel Adler, \"The Study of Orchestration\" (4th ed., W.W. Norton, 2016)",
+          "Arnold Schoenberg, \"Fundamentals of Musical Composition\" (ed. Gerald Strang & Leonard Stein, Faber & Faber, 1967)"
+    ],
+    chapters: [
+      "音程、音阶与调式体系 (Piston Ch 1-4)",
+      "三和弦与和声进行：正格/变格/半成 (Piston Ch 5-8)",
+      "七和弦与转位、终止式 (Piston Ch 9-12)",
+      "转调与变化和弦 (Piston Ch 转调部分)",
+      "对位法基础：分类对位（福克斯传统） (Piston 对位章)",
+      "曲式学：乐段、单二部、单三部 (Schoenberg Part I)",
+      "奏鸣曲式与回旋曲式 (Schoenberg Part II-III)",
+      "主题发展与动机展开技术 (Schoenberg Ch 动机)",
+      "管弦乐器法：弦/木管/铜管/打击乐性能 (Adler Part I)",
+      "配器法：乐器组合与管弦乐织体 (Adler Part II)",
+      "总谱读法与移调乐器 (Adler Part III)",
+      "20 世纪作曲技术概览：序列主义与音色音乐 (Adler 新版章)"
+    ],
+  },
+  'humanities/sociology-of-art': {
+    title: "艺术社会学",
+    books: [
+          "Victoria D. Alexander, \"Sociology of the Arts: Exploring Fine and Popular Forms\" (Blackwell, 2003)",
+          "Howard S. Becker, \"Art Worlds\" (University of California Press, 1982)",
+          "Pierre Bourdieu, \"The Rules of Art: Genesis and Structure of the Literary Field\" (Stanford University Press, 1996)"
+    ],
+    chapters: [
+      "艺术社会学的路径：反映论与塑造论 (Alexander Ch 1)",
+      "文化菱形：艺术-创作者-分配者-接受者 (Alexander Ch 2)",
+      "艺术界（art world）作为协作网络 (Becker Ch 1-2)",
+      "惯例、资源与艺术的集体行动 (Becker Ch 3-5)",
+      "国家、赞助人与艺术市场 (Alexander Ch 3-4)",
+      "文化生产视角：文化产业与把关人 (Alexander Ch 5)",
+      "文化资本、惯习与趣味区隔 (Bourdieu 相关章节)",
+      "文学场的生成与自主性 (Bourdieu Part I)",
+      "艺术的接受与消费：受众研究 (Alexander Ch 6-7)",
+      "艺术的社会边界：高雅/通俗/民间 (Becker Ch 7-8)",
+      "艺术体制论与艺术的定义之争 (Becker/Alexander 综合)",
+      "全球化与数字时代的艺术生产 (Alexander 新版章)"
+    ],
+  },
+  'humanities/postcolonial-studies': {
+    title: "后殖民理论与后殖民研究",
+    books: [
+          "Edward W. Said, \"Orientalism\" (Pantheon, 1978)",
+          "Bill Ashcroft, Gareth Griffiths & Helen Tiffin, \"The Empire Writes Back: Theory and Practice in Post-Colonial Literatures\" (2nd ed., Routledge, 2002)",
+          "Robert J.C. Young, \"Postcolonialism: An Historical Introduction\" (Blackwell, 2001)"
+    ],
+    chapters: [
+      "东方学：作为话语的东方 (Said 绪论-Ch 1)",
+      "殖民话语分析：从法农到萨义德 (Young Part I)",
+      "斯皮瓦克与底层研究：「底层人能说话吗」 (Young Ch 底层)",
+      "巴巴的杂糅性、模拟与第三空间 (Young Ch 杂糅)",
+      "逆写帝国：后殖民文学的挪用与重置 (Ashcroft Ch 2-4)",
+      "语言问题：弃用英语与本土语言写作之争 (Ashcroft Ch 2)",
+      "后殖民民族文学与经典重构 (Ashcroft Ch 5-6)",
+      "后殖民女性主义与第三世界女性书写 (Young Part III)",
+      "流散、移民与文化认同 (Young Part IV)",
+      "新殖民主义与全球化批判 (Young Part V)",
+      "东方主义批评及其争议 (Said 后记)",
+      "后殖民理论在中国学界的接受 (综合)"
+    ],
+  },
+  'humanities/cultural-memory-studies': {
+    title: "文化记忆研究",
+    books: [
+          "Astrid Erll & Ansgar Nünning (eds.), \"Cultural Memory Studies: An International and Interdisciplinary Handbook\" (De Gruyter, 2008)",
+          "Jan Assmann, \"Cultural Memory and Early Civilization: Writing, Remembrance, and Political Imagination\" (Cambridge University Press, 2011)",
+          "Astrid Erll, \"Memory in Culture\" (Palgrave Macmillan, 2011)"
+    ],
+    chapters: [
+      "哈布瓦赫：集体记忆的社会框架 (Erll Handbook 历史章)",
+      "阿斯曼：交往记忆与文化记忆的区分 (Jan Assmann Ch 1-2)",
+      "记忆的媒介：文字、图像、身体与空间 (Erll, Memory in Culture Ch 2-4)",
+      "文化记忆与认同建构 (Jan Assmann Ch 3)",
+      "记忆的存储方式：功能记忆与存储记忆 (Aleida Assmann 相关章)",
+      "文学作为文化记忆的媒介 (Erll Handbook 文学章)",
+      "创伤记忆与大屠杀记忆研究 (Erll Handbook 创伤章)",
+      "记忆之场（lieux de mémoire）与纪念政治 (Nora 传统；Handbook 空间章)",
+      "跨国记忆与记忆的旅行 (Erll Ch 旅行记忆)",
+      "数字记忆与媒介生态变迁 (Erll Handbook 媒介章)",
+      "记忆与历史书写的关系 (Jan Assmann Ch 4)",
+      "中国的文化记忆研究：国族叙事与地方记忆 (综合)"
+    ],
+  },
+  'humanities/gender-studies': {
+    title: "性别研究",
+    books: [
+          "Susan M. Shaw & Janet Lee, \"Women's Voices, Feminist Visions: Classic and Contemporary Readings\" (6th ed., McGraw-Hill, 2014)",
+          "Judith Butler, \"Gender Trouble: Feminism and the Subversion of Identity\" (Routledge, 1990)",
+          "Raewyn Connell, \"Gender and Power: Society, the Person and Sexual Politics\" (Polity, 1987)"
+    ],
+    chapters: [
+      "性与性别：生理/社会性别的区分 (Shaw & Lee Ch 1-2)",
+      "女性主义理论谱系：自由派/激进/社会主义/后结构 (Shaw & Lee Ch 理论)",
+      "性别化的制度：家庭、教育与劳动 (Connell Part I)",
+      "性征理论：性别的历史建构 (Connell Part II)",
+      "巴特勒的性别操演理论 (Butler Ch 1-3)",
+      "交叉性（intersectionality）：种族、阶级与性别 (Shaw & Lee Ch 交叉性)",
+      "男性气质研究与支配性男性气质 (Connell Ch 男性气质)",
+      "性别与文学：女性书写传统与经典修正 (Shaw & Lee 文学章)",
+      "性别与媒介表征 (Shaw & Lee 媒介章)",
+      "酷儿理论导论 (Butler 后续发展)",
+      "跨国女性主义与后殖民性别研究 (Shaw & Lee 全球章)",
+      "中国语境下的性别研究 (综合)"
+    ],
+  },
+  'intermediate/biostatistics': {
+    title: "生物统计学与实验设计",
+    books: [
+          "Zar, \"Biostatistical Analysis\" (5th ed., Pearson, 2010)",
+          "杜荣骞《生物统计学》（第4版，高等教育出版社，2014）",
+          "Glantz, \"Primer of Biostatistics\" (7th ed., McGraw-Hill, 2012)"
+    ],
+    chapters: [
+      "数据类型与描述统计",
+      "概率分布（二项/Poisson/正态）",
+      "抽样分布与参数估计",
+      "假设检验原理",
+      "t 检验与非参数检验",
+      "单因素与多因素方差分析",
+      "区组设计与拉丁方",
+      "析因实验设计",
+      "相关与回归分析",
+      "卡方检验与列联表",
+      "计数数据与广义线性模型",
+      "多元统计初步（PCA/判别）",
+      "生存分析基础",
+      "功效分析与样本量估计",
+      "R/统计软件实践"
+    ],
+  },
+  'intermediate/cancer-biology': {
+    title: "癌症生物学（基础）",
+    books: [
+          "Weinberg, \"The Biology of Cancer\" (2nd ed., Garland Science, 2014)",
+          "Pecorino, \"Molecular Biology of Cancer\" (4th ed., Oxford UP, 2021)",
+          "DeVita, Lawrence & Rosenberg, \"DeVita, Hellman, and Rosenberg's Cancer: Principles & Practice of Oncology\" (12th ed., Wolters Kluwer, 2023)"
+    ],
+    chapters: [
+      "肿瘤的多步发生与克隆演化",
+      "癌基因（ras/myc/src）",
+      "抑癌基因（Rb/p53）",
+      "细胞周期失控与凋亡逃逸",
+      "端粒酶与永生化",
+      "血管生成",
+      "侵袭与转移",
+      "肿瘤微环境",
+      "肿瘤免疫与免疫逃逸",
+      "基因组不稳定与突变特征",
+      "肿瘤代谢（Warburg 效应）",
+      "肿瘤干细胞",
+      "表观遗传改变",
+      "靶向治疗与耐药机制",
+      "免疫检查点与 CAR-T 原理"
+    ],
+  },
+  'humanities/history-of-biology': {
+    title: "生物学史",
+    books: [
+          "洛伊斯·N. 玛格纳《生命科学史》（刘学礼等译，上海人民出版社，2012）",
+          "Mayr, \"The Growth of Biological Thought\" (Harvard UP, 1982)",
+          "加兰·E. 艾伦《20世纪的生命科学史》（复旦大学出版社，2001）"
+    ],
+    chapters: [
+      "古希腊自然哲学与亚里士多德生物学",
+      "文艺复兴解剖学革命（维萨里）",
+      "哈维与血液循环",
+      "显微镜时代与微生物发现",
+      "林奈分类体系",
+      "胚胎学之争（预成论/渐成论）",
+      "细胞学说",
+      "达尔文与进化论",
+      "孟德尔遗传学的重新发现",
+      "生理学与实验生物学兴起",
+      "分子生物学革命（DNA 双螺旋）",
+      "重组 DNA 与基因组计划",
+      "现代综合进化论",
+      "中国近现代生物学发展"
+    ],
+  },
+  'intermediate/ornithology': {
+    title: "鸟类学",
+    books: [
+          "Gill & Prum, \"Ornithology\" (4th ed., W. H. Freeman, 2019)",
+          "郑光美《鸟类学》（第2版，北京师范大学出版社，2012）",
+          "Lovette & Fitzpatrick (eds.), \"Handbook of Bird Biology\" (3rd ed., Wiley/Cornell Lab, 2016)"
+    ],
+    chapters: [
+      "鸟类的起源与演化（恐龙-鸟类过渡）",
+      "形态与飞行适应",
+      "羽毛与换羽",
+      "呼吸系统与代谢",
+      "鸣声与通讯",
+      "繁殖行为与繁殖系统",
+      "巢址选择与育雏",
+      "迁徙与导航",
+      "食性与群落生态",
+      "鸟类系统分类",
+      "种群动态与保护",
+      "观鸟与环志方法"
+    ],
+  },
+  'intermediate/mammalogy': {
+    title: "哺乳动物学",
+    books: [
+          "Vaughan, Ryan & Czaplewski, \"Mammalogy\" (6th ed., Jones & Bartlett, 2015)",
+          "Feldhamer et al., \"Mammalogy: Adaptation, Diversity, Ecology\" (4th ed., Johns Hopkins UP, 2015)",
+          "Wilson & Mittermeier (eds.), \"Handbook of the Mammals of the World\" (Lynx Edicions, 2009–2019)"
+    ],
+    chapters: [
+      "哺乳动物起源与中生代演化",
+      "单孔类/有袋类/真兽类三大支系",
+      "皮肤、毛与腺体",
+      "体温调节与能量代谢",
+      "感觉与回声定位",
+      "生殖策略与胎盘多样性",
+      "社会行为与通讯",
+      "食性适应与消化系统",
+      "主要目级分类（啮齿/食肉/灵长/鲸偶蹄等）",
+      "生物地理与区系",
+      "保护现状与人兽冲突",
+      "野外调查方法（红外相机/无线电追踪）"
+    ],
+  },
+  'intermediate/herpetology': {
+    title: "两栖爬行动物学",
+    books: [
+          "Pough et al., \"Herpetology\" (4th ed., Sinauer/Oxford UP, 2016)",
+          "Vitt & Caldwell, \"Herpetology: An Introductory Biology of Amphibians and Reptiles\" (4th ed., Academic Press, 2014)",
+          "费梁、叶昌媛、江建平《中国两栖动物及其分布彩色图鉴》（四川科学技术出版社，2012）"
+    ],
+    chapters: [
+      "四足动物起源与登陆",
+      "两栖纲分类（无尾/有尾/蚓螈）",
+      "爬行纲分类（龟鳖/鳞龙/鳄）",
+      "皮肤呼吸与渗透调节",
+      "变温生理与热生态",
+      "繁殖模式与亲代抚育",
+      "鸣声与求偶行为",
+      "蛇类感觉与毒液系统",
+      "生活史与变态",
+      "两栖类全球衰退与壶菌病",
+      "区系与生物地理",
+      "保护与人工繁育"
+    ],
+  },
+  'intermediate/protistology': {
+    title: "原生生物学",
+    books: [
+          "Hausmann, Hülsmann & Radek, \"Protistology\" (3rd ed., E. Schweizerbart'sche, 2003)",
+          "Lee, Leedale & Bradbury (eds.), \"An Illustrated Guide to the Protozoa\" (2nd ed., Society of Protozoologists, 2000)",
+          "Patterson, \"Free-Living Freshwater Protozoa\" (Manson, 1996)"
+    ],
+    chapters: [
+      "原生生物在真核生物树中的位置",
+      "鞭毛虫类",
+      "变形虫与有孔虫",
+      "纤毛虫",
+      "孢子虫（顶复门）",
+      "硅藻与甲藻",
+      "细胞骨架与摄食结构",
+      "无性/有性生殖与生活史",
+      "共生与寄生",
+      "原生生物在食物网中的角色",
+      "环境指示与污水生物处理",
+      "显微镜与培养方法"
+    ],
+  },
+  'intermediate/behavioral-genetics': {
+    title: "行为遗传学",
+    books: [
+          "Knopik, Neiderhiser, DeFries & Plomin, \"Behavioral Genetics\" (7th ed., Worth, 2017)",
+          "Anholt & Mackay, \"Principles of Behavioral Genetics\" (Academic Press, 2010)",
+          "Falconer & Mackay, \"Introduction to Quantitative Genetics\" (4th ed., Pearson, 1996)"
+    ],
+    chapters: [
+      "孟德尔定律与超越孟德尔",
+      "数量性状与多基因遗传",
+      "遗传度概念与误用",
+      "双生子研究设计",
+      "收养研究与家庭研究",
+      "动物模型（果蝇/小鼠）",
+      "连锁与关联分析",
+      "GWAS 与多基因评分",
+      "基因-环境交互（G×E）",
+      "基因-环境相关（rGE）",
+      "智力与认知的遗传研究",
+      "精神疾病的遗传学",
+      "人格与行为的遗传基础",
+      "分子遗传学方法（敲除/光遗传筛选）"
+    ],
+  },
+  'intermediate/ecotoxicology': {
+    title: "生态毒理学",
+    books: [
+          "Newman, \"Fundamentals of Ecotoxicology\" (4th ed., CRC Press, 2015)",
+          "Walker et al., \"Principles of Ecotoxicology\" (4th ed., CRC Press, 2012)",
+          "Newman & Unger, \"Fundamentals of Ecotoxicology: The Science of Pollution\" 配套案例卷 (CRC Press)"
+    ],
+    chapters: [
+      "污染物环境归趋与迁移",
+      "生物富集与生物放大",
+      "剂量-反应关系与毒性终点",
+      "急性与慢性毒性试验",
+      "重金属毒性",
+      "农药与有机污染物",
+      "内分泌干扰物",
+      "微塑料与新兴污染物",
+      "种群与群落水平效应",
+      "生物标志物",
+      "生态风险评估框架",
+      "沉积物与土壤生态毒理",
+      "法规毒理与化学品管理"
+    ],
+  },
+  'intermediate/reproductive-biology': {
+    title: "生殖生物学",
+    books: [
+          "Plant & Zeleznik (eds.), \"Knobil and Neill's Physiology of Reproduction\" (4th ed., Academic Press, 2015)",
+          "Johnson & Everitt, \"Essential Reproduction\" (8th ed., Wiley-Blackwell, 2018)",
+          "Jones & Lopez, \"Human Reproductive Biology\" (4th ed., Academic Press, 2014)"
+    ],
+    chapters: [
+      "下丘脑-垂体-性腺轴",
+      "精子发生与卵子发生",
+      "性腺激素合成与作用",
+      "性决定与性分化",
+      "受精的分子机制",
+      "着床与胎盘形成",
+      "妊娠维持与分娩",
+      "泌乳",
+      "生殖行为的神经内分泌基础",
+      "季节性繁殖",
+      "比较生殖生物学（脊椎动物）",
+      "生殖衰老",
+      "辅助生殖原理"
+    ],
+  },
+  'intermediate/chronobiology': {
+    title: "时间生物学（生物钟与生物节律）",
+    books: [
+          "Refinetti, \"Circadian Physiology\" (3rd ed., CRC Press, 2016)",
+          "Foster & Kreitzman, \"Circadian Rhythms: A Very Short Introduction\" (Oxford UP, 2017)",
+          "Dunlap, Loros & DeCoursey (eds.), \"Chronobiology: Biological Timekeeping\" (Sinauer, 2004)"
+    ],
+    chapters: [
+      "昼夜节律现象与概念（自由运行/授时）",
+      "核心钟基因与转录-翻译反馈环（CLOCK/BMAL1/PER/CRY）",
+      "视交叉上核主钟",
+      "光授时与褪黑素",
+      "外周振荡器与器官时钟",
+      "睡眠-觉醒调控双过程模型",
+      "进食与代谢节律",
+      "季节节律与光周期",
+      "潮汐/月节律",
+      "细胞自主振荡器",
+      "轮班、时差与健康",
+      "时间治疗学（chronotherapy）"
+    ],
+  },
+  'intermediate/landscape-ecology': {
+    title: "景观生态学",
+    books: [
+          "Forman, \"Land Mosaics: The Ecology of Landscapes and Regions\" (Cambridge UP, 1995)",
+          "Turner, Gardner & O'Neill, \"Landscape Ecology in Theory and Practice\" (Springer, 2001)",
+          "傅伯杰等《景观生态学原理及应用》（第2版，科学出版社，2011）"
+    ],
+    chapters: [
+      "景观概念与尺度",
+      "斑块-廊道-基质模型",
+      "空间异质性格局",
+      "景观格局指数与度量",
+      "边缘效应",
+      "景观连接度",
+      "干扰与景观动态",
+      "岛屿生物地理与集合种群",
+      "源-汇动态",
+      "土地利用变化驱动",
+      "景观与生态系统服务",
+      "GIS 与遥感在景观生态中的应用",
+      "景观规划与保护网络设计"
+    ],
+  },
+  'intermediate/special-functions': {
+    title: "特殊函数",
+    books: [
+          "王竹溪、郭敦仁《特殊函数概论》，北京大学出版社",
+          "G. E. Andrews, R. Askey & R. Roy, Special Functions, Cambridge University Press, 1999",
+          "E. T. Whittaker & G. N. Watson, A Course of Modern Analysis, Cambridge University Press (4th ed., 1927)"
+    ],
+    chapters: [
+      "Gamma 函数与 Beta 函数",
+      "超几何函数",
+      "合流超几何函数",
+      "Legendre 函数与球谐函数",
+      "Bessel 函数（三类柱函数）",
+      "正交多项式（Hermite / Laguerre / Jacobi）",
+      "椭圆积分与椭圆函数",
+      "Mathieu 函数与 Lamé 函数",
+      "特殊函数的积分表示与围道积分",
+      "渐近展开与最速下降法",
+      "生成函数方法",
+      "q-级数与基本超几何函数"
+    ],
+  },
+  'intermediate/integral-equations': {
+    title: "积分方程",
+    books: [
+          "R. Kress, Linear Integral Equations, Springer (3rd ed., 2014)",
+          "F. G. Tricomi, Integral Equations, Interscience, 1957 (Dover 重印)"
+    ],
+    chapters: [
+      "积分方程的分类（Fredholm 型 / Volterra 型）",
+      "逐次逼近法与 Neumann 级数",
+      "退化核方程",
+      "Fredholm 择一定理",
+      "Hilbert–Schmidt 理论",
+      "对称核的展开定理",
+      "Volterra 方程与预解核",
+      "奇异积分方程",
+      "Wiener–Hopf 方法",
+      "积分方程与微分方程边值问题的等价",
+      "积分方程的数值方法（Nyström 法 / 配置法）"
+    ],
+  },
+  'intermediate/computability-theory': {
+    title: "可计算性理论（递归论）",
+    books: [
+          "S. B. Cooper, Computability Theory, Chapman & Hall/CRC, 2004",
+          "R. I. Soare, Recursively Enumerable Sets and Degrees, Springer, 1987",
+          "N. Cutland, Computability, Cambridge University Press, 1980"
+    ],
+    chapters: [
+      "Turing 机与 Church–Turing 论题",
+      "原始递归函数与部分递归函数",
+      "可计算枚举集",
+      "停机问题与不可判定问题",
+      "多一归约与 Turing 归约",
+      "跳跃算子与 Turing 度",
+      "优先方法（有穷损害 / 无穷损害）",
+      "算术分层",
+      "相对可计算性与 oracle 计算",
+      "Post 问题与度的结构",
+      "算法随机性（Martin-Löf 随机性）引论",
+      "可计算模型论与可计算分析简介"
+    ],
+  },
+  'intermediate/proof-theory': {
+    title: "证明论",
+    books: [
+          "A. S. Troelstra & H. Schwichtenberg, Basic Proof Theory, Cambridge University Press (2nd ed., 2000)",
+          "G. Takeuti, Proof Theory, North-Holland (2nd ed., 1987)",
+          "S. R. Buss (ed.), Handbook of Proof Theory, Elsevier, 1998"
+    ],
+    chapters: [
+      "自然演绎系统",
+      "Gentzen 序贯演算（LK / LJ）",
+      "截消定理（cut elimination）",
+      "规范化与子公式性质",
+      "直觉主义逻辑",
+      "Peano 算术与归纳",
+      "Gentzen 一致性证明与 ε₀",
+      "序数分析引论",
+      "Curry–Howard 对应",
+      "Gödel 不完全性定理的证明论视角",
+      "证明挖掘（proof mining）简介"
+    ],
+  },
+  'intermediate/algebraic-k-theory': {
+    title: "代数 K 理论",
+    books: [
+          "J. Rosenberg, Algebraic K-Theory and Its Applications, Springer GTM 147, 1994",
+          "C. A. Weibel, The K-book: An Introduction to Algebraic K-theory, AMS GSM 145, 2013",
+          "H. Bass, Algebraic K-Theory, Benjamin, 1968"
+    ],
+    chapters: [
+      "投射模与 Grothendieck 群 K₀",
+      "K₁ 与 Whitehead 引理",
+      "Steinberg 群与 K₂",
+      "Milnor K 理论",
+      "Swan 定理（拓扑与代数的联系）",
+      "Quillen 的 +-构造",
+      "Quillen 的 Q-构造",
+      "高阶 K 群的谱序列",
+      "Bass–Heller–Swan 定理",
+      "群环的 K 理论与 Whitehead 挠率",
+      "与代数数论的联系（类群与调节子）",
+      "拓扑 K 理论概览"
+    ],
+  },
+  'intermediate/riemann-surfaces': {
+    title: "黎曼曲面",
+    books: [
+          "O. Forster, Lectures on Riemann Surfaces, Springer GTM 81, 1981",
+          "R. Miranda, Algebraic Curves and Riemann Surfaces, AMS GSM 5, 1995",
+          "H. M. Farkas & I. Kra, Riemann Surfaces, Springer GTM 71 (2nd ed., 1992)"
+    ],
+    chapters: [
+      "黎曼曲面的定义与例子",
+      "全纯映射与分歧覆盖",
+      "Riemann–Hurwitz 公式",
+      "微分形式与留数定理",
+      "层与层上同调初步",
+      "Riemann–Roch 定理",
+      "Serre 对偶",
+      "Abel 定理与 Jacobi 反演",
+      "单值化定理",
+      "紧黎曼曲面与代数曲线",
+      "椭圆曲线作为黎曼曲面",
+      "模空间与 Teichmüller 理论引论"
+    ],
+  },
+  'intermediate/discrete-and-convex-geometry': {
+    title: "离散与凸几何",
+    books: [
+          "J. Matoušek, Lectures on Discrete Geometry, Springer GTM 212, 2002",
+          "R. Schneider, Convex Bodies: The Brunn–Minkowski Theory, Cambridge University Press (2nd ed., 2014)",
+          "B. Grünbaum, Convex Polytopes, Springer GTM 221 (2nd ed., 2003)"
+    ],
+    chapters: [
+      "凸集与分离定理",
+      "Carathéodory / Helly / Radon 定理",
+      "凸多面体与 f-向量",
+      "格点几何与 Minkowski 基本定理",
+      "Ehrhart 多项式",
+      "Brunn–Minkowski 不等式",
+      "等周不等式",
+      "Borsuk–Ulam 定理及其组合应用",
+      "填充与覆盖问题",
+      "组合几何中的 Erdős 型问题",
+      "VC 维与 ε-网",
+      "与线性规划及计算几何的联系"
+    ],
+  },
+  'intermediate/inverse-problems': {
+    title: "反问题与正则化方法",
+    books: [
+          "A. Kirsch, An Introduction to the Mathematical Theory of Inverse Problems, Springer (3rd ed., 2021)",
+          "H. W. Engl, M. Hanke & A. Neubauer, Regularization of Inverse Problems, Kluwer, 1996",
+          "P. C. Hansen, Discrete Inverse Problems: Insight and Algorithms, SIAM, 2010"
+    ],
+    chapters: [
+      "反问题与 Hadamard 适定性",
+      "紧算子的奇异系统",
+      "Tikhonov 正则化",
+      "截断奇异值分解（TSVD）",
+      "正则化参数选择（偏差原理 / L 曲线）",
+      "迭代正则化（Landweber / 共轭梯度）",
+      "全变差与稀疏正则化",
+      "Radon 变换与计算机层析成像",
+      "逆散射问题引论",
+      "贝叶斯反问题",
+      "典型应用：医学成像与地球物理反演"
+    ],
+  },
+  'intermediate/enumerative-combinatorics': {
+    title: "计数组合学与概率方法",
+    books: [
+          "R. P. Stanley, Enumerative Combinatorics, Vol. 1 & 2, Cambridge University Press, 1997/1999 (Vol. 1, 2nd ed. 2011)",
+          "N. Alon & J. H. Spencer, The Probabilistic Method, Wiley (4th ed., 2016)",
+          "J. H. van Lint & R. M. Wilson, A Course in Combinatorics, Cambridge University Press (2nd ed., 2001)"
+    ],
+    chapters: [
+      "普通生成函数与指数生成函数",
+      "递推关系求解",
+      "容斥原理",
+      "整数分拆",
+      "Catalan 数与格路计数",
+      "Pólya 计数定理",
+      "对称函数引论",
+      "概率方法：期望与删除法",
+      "第二矩方法",
+      "Lovász 局部引理",
+      "相关不等式（FKG）",
+      "Turán 定理与 Ramsey 数的概率下界"
+    ],
+  },
+  'intermediate/nonparametric-statistics': {
+    title: "非参数统计",
+    books: [
+          "L. Wasserman, All of Nonparametric Statistics, Springer, 2006",
+          "M. Hollander, D. A. Wolfe & E. Chicken, Nonparametric Statistical Methods, Wiley (3rd ed., 2014)"
+    ],
+    chapters: [
+      "次序统计量及其分布",
+      "符号检验与 Wilcoxon 符号秩检验",
+      "Wilcoxon 秩和检验与 Mann–Whitney U",
+      "Kruskal–Wallis 与 Friedman 检验",
+      "Kolmogorov–Smirnov 拟合优度检验",
+      "置换检验与自助法（bootstrap）",
+      "U 统计量",
+      "核密度估计与带宽选择",
+      "非参数回归：核与局部多项式",
+      "光滑样条",
+      "渐近相对效率（Pitman ARE）",
+      "半参数模型引论"
+    ],
+  },
+  'intermediate/design-of-experiments': {
+    title: "试验设计与方差分析",
+    books: [
+          "D. C. Montgomery, Design and Analysis of Experiments, Wiley (10th ed., 2019)",
+          "G. E. P. Box, J. S. Hunter & W. G. Hunter, Statistics for Experimenters, Wiley (2nd ed., 2005)",
+          "C. F. J. Wu & M. S. Hamada, Experiments: Planning, Analysis, and Optimization, Wiley (2nd ed., 2009)"
+    ],
+    chapters: [
+      "试验设计基本原则（随机化/重复/区组）",
+      "单因素方差分析",
+      "多重比较",
+      "随机化区组与拉丁方设计",
+      "多因素方差分析与交互作用",
+      "2^k 与 3^k 因子设计",
+      "部分因子设计与混杂",
+      "正交表与正交试验设计",
+      "裂区设计",
+      "响应面方法",
+      "稳健参数设计（田口方法）",
+      "最优设计（D-最优）引论"
+    ],
+  },
+  'intermediate/survival-analysis': {
+    title: "生存分析",
+    books: [
+          "J. D. Kalbfleisch & R. L. Prentice, The Statistical Analysis of Failure Time Data, Wiley (2nd ed., 2002)",
+          "J. P. Klein & M. L. Moeschberger, Survival Analysis: Techniques for Censored and Truncated Data, Springer (2nd ed., 2003)",
+          "T. R. Fleming & D. P. Harrington, Counting Processes and Survival Analysis, Wiley, 1991"
+    ],
+    chapters: [
+      "生存函数与危险函数",
+      "删失与截尾机制",
+      "Kaplan–Meier 估计",
+      "log-rank 检验",
+      "Cox 比例风险模型",
+      "部分似然推断",
+      "参数生存模型（指数 / Weibull）",
+      "加速失效时间模型",
+      "时依协变量",
+      "竞争风险",
+      "脆弱模型（frailty）",
+      "计数过程与鞅方法引论"
+    ],
+  },
+  'advanced/random-matrix-theory': {
+    title: "随机矩阵理论",
+    books: [
+          "M. L. Mehta, Random Matrices, Elsevier (3rd ed., 2004)",
+          "G. W. Anderson, A. Guionnet & O. Zeitouni, An Introduction to Random Matrices, Cambridge University Press, 2010",
+          "T. Tao, Topics in Random Matrix Theory, AMS GSM 132, 2012"
+    ],
+    chapters: [
+      "Wigner 半圆律",
+      "高斯系综（GOE / GUE / GSE）",
+      "特征值联合密度与 Vandermonde 行列式",
+      "行列式点过程",
+      "Tracy–Widom 分布",
+      "Marchenko–Pastur 律",
+      "自由概率引论",
+      "Dyson 布朗运动",
+      "普适性问题",
+      "稀疏随机矩阵",
+      "与数论（L 函数零点）的联系",
+      "在无线通信与高维统计中的应用"
+    ],
+  },
+  'intermediate/geometric-measure-theory': {
+    title: "几何测度论",
+    books: [
+          "P. Mattila, Geometry of Sets and Measures in Euclidean Spaces, Cambridge University Press, 1995",
+          "H. Federer, Geometric Measure Theory, Springer, 1969",
+          "L. C. Evans & R. F. Gariepy, Measure Theory and Fine Properties of Functions, CRC Press (revised ed., 2015)"
+    ],
+    chapters: [
+      "Hausdorff 测度与 Hausdorff 维数",
+      "覆盖定理（Vitali / Besicovitch）",
+      "密度定理",
+      "Rademacher 定理与 Lipschitz 函数",
+      "整流（rectifiable）集与切空间",
+      "面积公式与余面积公式",
+      "Frostman 引理与维数估计",
+      "变分几何（varifolds）引论",
+      "电流（currents）引论",
+      "极小曲面正则性引论",
+      "Marstrand 射影定理",
+      "与分形几何的联系"
+    ],
+  },
+  'intermediate/markov-chains-and-mixing-times': {
+    title: "马尔可夫链与混合时间",
+    books: [
+          "D. A. Levin, Y. Peres & E. L. Wilmer, Markov Chains and Mixing Times, AMS (2nd ed., 2017)",
+          "J. R. Norris, Markov Chains, Cambridge University Press, 1997"
+    ],
+    chapters: [
+      "有限马尔可夫链回顾",
+      "不可约性与周期性",
+      "平稳分布与细致平衡",
+      "全变差距离",
+      "耦合方法与混合时间上界",
+      "谱隙与特征值方法",
+      "对数 Sobolev 不等式引论",
+      "洗牌模型",
+      "Glauber 动力学与 Ising 模型",
+      "Metropolis–Hastings 算法",
+      "MCMC 收敛诊断",
+      "cutoff 现象"
+    ],
+  },
+  'intermediate/finite-group-theory': {
+    title: "有限群论",
+    books: [
+          "I. M. Isaacs, Finite Group Theory, AMS GSM 92, 2008",
+          "D. J. S. Robinson, A Course in the Theory of Groups, Springer GTM 80 (2nd ed., 1996)",
+          "D. Gorenstein, Finite Groups, AMS Chelsea (2nd ed., 1980)"
+    ],
+    chapters: [
+      "Sylow 定理",
+      "p-群的结构",
+      "幂零群",
+      "可解群",
+      "群作用与置换群",
+      "传递群与本原群",
+      "合成列与 Jordan–Hölder 定理",
+      "有限单群分类定理概览",
+      "交错群与散在单群（Mathieu 群）",
+      "Frobenius 定理引论",
+      "转移（transfer）与同调初步",
+      "局部分析与融合引论"
+    ],
+  },
+  'intermediate/universal-algebra': {
+    title: "泛代数（万有代数）",
+    books: [
+          "S. Burris & H. P. Sankappanavar, A Course in Universal Algebra, Springer GTM 78, 1981",
+          "C. Bergman, Universal Algebra: Fundamentals and Selected Topics, CRC Press, 2012",
+          "R. McKenzie, G. McNulty & W. Taylor, Algebras, Lattices, Varieties, Vol. I, AMS Chelsea, 1987"
+    ],
+    chapters: [
+      "代数与同类（type）",
+      "子代数与同态",
+      "同构定理",
+      "同余格",
+      "自由代数",
+      "项与等式",
+      "簇（variety）与 Birkhoff HSP 定理",
+      "等式逻辑的完备性",
+      "Mal'cev 条件",
+      "判别性（primality）引论",
+      "克隆（clone）理论初步",
+      "与格论及模型论的联系"
+    ],
+  },
+  'intermediate/potential-theory': {
+    title: "位势论",
+    books: [
+          "L. L. Helms, Potential Theory, Springer Universitext (2nd ed., 2014)",
+          "J. L. Doob, Classical Potential Theory and Its Probabilistic Counterpart, Springer, 1984",
+          "T. Ransford, Potential Theory in the Complex Plane, Cambridge University Press, 1995"
+    ],
+    chapters: [
+      "调和函数回顾",
+      "次调和函数",
+      "Green 函数",
+      "容量与能量",
+      "平衡测度",
+      "Dirichlet 问题的 Perron 方法",
+      "正则边界点",
+      "Riesz 分解定理",
+      "细拓扑引论",
+      "Martin 边界",
+      "对数位势与复分析的联系",
+      "概率位势论：与布朗运动的联系"
+    ],
+  },
+  'intermediate/difference-equations': {
+    title: "差分方程",
+    books: [
+          "S. Elaydi, An Introduction to Difference Equations, Springer (3rd ed., 2005)",
+          "W. G. Kelley & A. C. Peterson, Difference Equations: An Introduction with Applications, Academic Press (2nd ed., 2001)"
+    ],
+    chapters: [
+      "一阶线性差分方程",
+      "高阶线性差分方程",
+      "Z 变换",
+      "平衡解与稳定性判据",
+      "线性差分方程组",
+      "相图与周期解",
+      "Logistic 方程与混沌",
+      "非线性差分方程",
+      "振荡理论初步",
+      "函数方程（Cauchy / Jensen 方程）",
+      "微分方程离散化与差分格式",
+      "应用：人口模型与经济动态"
+    ],
+  },
+  'intermediate/nonstandard-analysis': {
+    title: "非标准分析",
+    books: [
+          "R. Goldblatt, Lectures on the Hyperreals, Springer GTM 188, 1998",
+          "A. Robinson, Non-standard Analysis, Princeton University Press (rev. ed., 1996)",
+          "A. E. Hurd & P. A. Loeb, An Introduction to Nonstandard Real Analysis, Academic Press, 1985"
+    ],
+    chapters: [
+      "超实数的构造（超滤子）",
+      "转移原理",
+      "无穷小与无穷大量",
+      "标准部分映射",
+      "连续性与极限的非标准刻画",
+      "微积分基本定理的非标准证明",
+      "紧致性与饱和性",
+      "超有限集",
+      "Loeb 测度",
+      "非标准拓扑初步",
+      "与标准分析的保守性",
+      "应用：组合数论与随机过程简介"
+    ],
+  },
+  'foundations/how-to-prove': {
+    title: "数学证明导论（证明方法）",
+    books: [
+          "D. J. Velleman, How to Prove It: A Structured Approach, Cambridge University Press (3rd ed., 2019)",
+          "R. Hammack, Book of Proof (3rd ed., 2018)"
+    ],
+    chapters: [
+      "命题与逻辑联结词",
+      "量词与否定",
+      "直接证明",
+      "逆否命题法",
+      "反证法",
+      "数学归纳法与强归纳法",
+      "存在性与唯一性证明",
+      "集合、关系与函数",
+      "等价关系与划分",
+      "基数初步与可数性",
+      "反例的构造",
+      "数学写作规范"
+    ],
+  },
+  'intermediate/physiology': {
+    title: "生理学",
+    books: [
+          "王庭槐主编《生理学》（第9版，人民卫生出版社，2018）",
+          "Guyton & Hall, Textbook of Medical Physiology（Elsevier，第14版，2020）",
+          "Boron & Boulpaep, Medical Physiology（Elsevier，第3版，2016）"
+    ],
+    chapters: [
+      "细胞的基本功能（膜电位/信号转导）",
+      "血液生理",
+      "血液循环生理",
+      "呼吸生理",
+      "消化与吸收",
+      "能量代谢与体温",
+      "尿的生成与排出",
+      "感觉器官生理",
+      "神经系统生理",
+      "内分泌生理",
+      "生殖生理",
+      "稳态与生理调节"
+    ],
+  },
+  'intermediate/pharmacology': {
+    title: "药理学",
+    books: [
+          "杨宝峰主编《药理学》（第9版，人民卫生出版社，2018）",
+          "Brunton et al., Goodman & Gilman's The Pharmacological Basis of Therapeutics（McGraw-Hill，第13版，2018）",
+          "Katzung et al., Basic & Clinical Pharmacology（McGraw-Hill，第16版，2024）"
+    ],
+    chapters: [
+      "药物效应动力学",
+      "药物代谢动力学",
+      "传出神经系统药物",
+      "中枢神经系统药物",
+      "心血管系统药物",
+      "血液与造血系统药物",
+      "内分泌系统药物",
+      "化学治疗药物（抗菌/抗病毒/抗肿瘤）",
+      "抗炎与免疫调节药物",
+      "影响自体活性物质药物",
+      "新药研发与临床试验概论"
+    ],
+  },
+  'life/medical-psychology': {
+    title: "医学心理学",
+    books: [
+          "姚树桥、杨彦春主编《医学心理学》（第7版，人民卫生出版社，2018）",
+          "姜乾金主编《医学心理学》（人民卫生出版社，八年制规划教材）"
+    ],
+    chapters: [
+      "心理学基础（认知/情绪/人格）",
+      "心理应激与应对",
+      "心身疾病",
+      "心理健康与心理障碍总论",
+      "心理评估（量表与访谈）",
+      "心理咨询与心理治疗",
+      "医患关系与医患沟通",
+      "病人心理与角色适应",
+      "疼痛与心理",
+      "睡眠与心理",
+      "临终心理与哀伤辅导"
+    ],
+  },
+  'life/child-adolescent-and-maternal-health': {
+    title: "儿少卫生与妇幼保健学",
+    books: [
+          "季成叶主编《儿童少年卫生学》（人民卫生出版社，预防医学规划教材）",
+          "Kotch, Maternal and Child Health: Programs, Problems, and Policy in Public Health（Jones & Bartlett）"
+    ],
+    chapters: [
+      "儿童生长发育规律与评价",
+      "青春期发育与卫生",
+      "儿童心理行为发育",
+      "学校卫生与学习环境",
+      "儿童常见病防治（近视/龋齿/肥胖）",
+      "儿童意外伤害预防",
+      "婚前与孕前保健",
+      "孕产期保健与高危妊娠管理",
+      "新生儿与婴幼儿保健",
+      "母乳喂养与婴幼儿喂养",
+      "妇女常见病防治与两癌筛查",
+      "妇幼保健指标与体系建设"
+    ],
+  },
+  'life/health-education-and-promotion': {
+    title: "健康教育与健康促进",
+    books: [
+          "傅华主编《健康教育学》（第3版，人民卫生出版社，2017）",
+          "Glanz, Rimer & Viswanath, Health Behavior: Theory, Research, and Practice（Jossey-Bass，第5版）"
+    ],
+    chapters: [
+      "健康行为理论（知信行/健康信念模式/行为阶段改变）",
+      "健康传播学基础",
+      "健康教育计划设计（PRECEDE-PROCEED 模式）",
+      "社区健康教育",
+      "学校健康教育",
+      "职业场所健康促进",
+      "医院健康教育与患者教育",
+      "健康促进与《渥太华宪章》",
+      "健康城市与健康场所建设",
+      "健康素养评估与提升",
+      "控烟与生活方式干预",
+      "健康教育项目效果评价"
+    ],
+  },
+  'life/clinical-pharmacology': {
+    title: "临床药理学",
+    books: [
+          "李俊主编《临床药理学》（第6版，人民卫生出版社，2018）",
+          "Rowland & Tozer, Clinical Pharmacokinetics and Pharmacodynamics（Wolters Kluwer，第4版）"
+    ],
+    chapters: [
+      "临床药物代谢动力学",
+      "治疗药物监测（TDM）",
+      "药物相互作用",
+      "药品不良反应与药物警戒",
+      "特殊人群用药（妊娠/儿童/老年）",
+      "肝肾功能不全患者用药调整",
+      "药物基因组学与个体化用药",
+      "新药临床试验（I–IV期）设计",
+      "生物等效性评价",
+      "抗菌药物临床应用管理",
+      "循证用药与合理用药评价"
+    ],
+  },
+  'life/radiation-oncology': {
+    title: "放射肿瘤学（肿瘤放射治疗）",
+    books: [
+          "殷蔚伯、余子豪主编《肿瘤放射治疗学》（第4版，中国协和医科大学出版社，2008）",
+          "Halperin et al., Perez and Brady's Principles and Practice of Radiation Oncology（Wolters Kluwer，第7版）"
+    ],
+    chapters: [
+      "放射物理学基础",
+      "放射生物学基础（4R/线性二次模型）",
+      "临床剂量学与治疗计划",
+      "外照射技术（IMRT/IGRT/SBRT）",
+      "近距离放射治疗",
+      "头颈部肿瘤放疗",
+      "胸部肿瘤放疗（肺癌/食管癌）",
+      "腹部与盆腔肿瘤放疗",
+      "妇科肿瘤放疗",
+      "放射反应与正常组织防护",
+      "放疗与化疗/免疫综合治疗"
+    ],
+  },
+  'life/interventional-radiology': {
+    title: "介入放射学",
+    books: [
+          "郭启勇主编《介入放射学》（人民卫生出版社，医学影像学专业规划教材）",
+          "Kandarpa & Machan, Handbook of Interventional Radiologic Procedures（Wolters Kluwer，第5版）"
+    ],
+    chapters: [
+      "血管介入基本技术（Seldinger 技术/导管导丝）",
+      "血管造影与血管栓塞",
+      "肿瘤介入治疗（TACE/消融）",
+      "血管成形术与支架置入",
+      "经皮穿刺引流与活检",
+      "非血管管腔成形（胆道/食管/气道）",
+      "神经介入（取栓/动脉瘤栓塞）",
+      "出血性疾病的急诊栓塞",
+      "静脉介入（滤器/TIPS/输液港）",
+      "介入并发症与围手术期管理"
+    ],
+  },
+  'life/pain-medicine': {
+    title: "疼痛医学",
+    books: [
+          "谭冠先主编《疼痛诊疗学》（第3版，人民卫生出版社，2011；第4版郭政、王国年主编）",
+          "Fishman et al., Bonica's Management of Pain（Wolters Kluwer，第5版）"
+    ],
+    chapters: [
+      "疼痛的基础理论（闸门学说/神经可塑性）",
+      "疼痛评估与诊断学基础",
+      "疼痛药物治疗（NSAIDs/阿片类/辅助用药）",
+      "神经阻滞与局部注射治疗",
+      "微创介入镇痛技术",
+      "头面部疼痛",
+      "颈肩腰背痛",
+      "神经病理性疼痛",
+      "癌性疼痛三阶梯治疗",
+      "术后镇痛",
+      "分娩镇痛",
+      "疼痛的多学科综合管理"
+    ],
+  },
+  'life/sleep-medicine': {
+    title: "睡眠医学",
+    books: [
+          "赵忠新、叶京英主编《睡眠医学》（第2版，人民卫生出版社，2022）",
+          "Kryger, Roth & Dement, Principles and Practice of Sleep Medicine（Elsevier，第7版）"
+    ],
+    chapters: [
+      "睡眠生理与生物节律",
+      "多导睡眠监测（PSG）与睡眠分期",
+      "失眠障碍与认知行为治疗（CBT-I）",
+      "睡眠呼吸障碍（OSA/中枢性）",
+      "中枢性嗜睡（发作性睡病）",
+      "异态睡眠（梦游/REM 睡眠行为障碍）",
+      "睡眠相关运动障碍（不宁腿）",
+      "昼夜节律睡眠-觉醒障碍",
+      "儿童睡眠障碍",
+      "睡眠障碍与精神疾病共病",
+      "睡眠与慢性病的双向关系"
+    ],
+  },
+  'life/transfusion-medicine': {
+    title: "输血医学",
+    books: [
+          "Cohn et al., Technical Manual（AABB，第21版，2023）",
+          "Shaz et al., Transfusion Medicine and Hemostasis: Clinical and Laboratory Aspects（Elsevier，第3版）"
+    ],
+    chapters: [
+      "血型系统与免疫血液学（ABO/Rh）",
+      "血液成分制备与保存",
+      "交叉配血与抗体筛查",
+      "全血与成分输血指征",
+      "自体输血与血液保护",
+      "输血不良反应（溶血/TA-GVHD/TRALI）",
+      "输血传播感染与血液安全",
+      "新生儿溶血病",
+      "大量输血与创伤救治输血",
+      "治疗性单采与血浆置换",
+      "造血干细胞移植相关输血",
+      "合理用血与输血质量管理"
+    ],
+  },
+  'life/tropical-medicine': {
+    title: "热带医学与旅行医学",
+    books: [
+          "Farrar et al., Manson's Tropical Diseases（Elsevier，第24版，2023）",
+          "Ryan et al., Hunter's Tropical Medicine and Emerging Infectious Diseases（Elsevier，第10版）"
+    ],
+    chapters: [
+      "疟疾",
+      "血吸虫病",
+      "利什曼病与锥虫病",
+      "淋巴丝虫病与盘尾丝虫病",
+      "登革热及其他虫媒病毒病",
+      "肠道原虫与蠕虫感染",
+      "霍乱与旅行者腹泻",
+      "麻风病",
+      "被忽视热带病（NTDs）控制策略",
+      "旅行前咨询与预防用药",
+      "气候变化与热带病分布变迁"
+    ],
+  },
+  'life/disaster-medicine': {
+    title: "灾难医学",
+    books: [
+          "Ciottone et al., Ciottone's Disaster Medicine（Elsevier，第2版，2016）",
+          "Koenig & Schultz, Disaster Medicine: Comprehensive Principles and Practices（Cambridge University Press，第2版）"
+    ],
+    chapters: [
+      "灾难分类与医学救援体系",
+      "灾害现场检伤分类（START）",
+      "批量伤员的组织与转运",
+      "创伤急救与损伤控制",
+      "挤压综合征与地震伤",
+      "核与辐射事故医学处置",
+      "化学与生物恐怖应对",
+      "灾后防疫与公共卫生应急",
+      "心理危机干预",
+      "国际人道主义医疗救援",
+      "应急预案与模拟演练"
+    ],
+  },
+  'life/optometry': {
+    title: "眼视光学",
+    books: [
+          "瞿佳主编《眼视光学理论和方法》（第3版，人民卫生出版社，2018）",
+          "Benjamin & Borish, Borish's Clinical Refraction（Elsevier，第2版）"
+    ],
+    chapters: [
+      "眼球光学与屈光基础",
+      "视力与视觉功能检查",
+      "客观与主观验光",
+      "屈光不正与矫正（框架眼镜）",
+      "角膜接触镜学",
+      "双眼视觉与视功能异常",
+      "斜视与弱视的视光学处理",
+      "老视与渐进镜",
+      "低视力康复",
+      "屈光手术概论",
+      "儿童青少年近视防控",
+      "视光门诊与眼病筛查转诊"
+    ],
+  },
+  'life/audiology-speech-language-pathology': {
+    title: "听力学与言语语言病理学",
+    books: [
+          "李胜利、陈卓铭主编《语言治疗学》（第3版，人民卫生出版社，2018）",
+          "Martin & Clark, Introduction to Audiology（Pearson，第13版）"
+    ],
+    chapters: [
+      "听觉系统解剖生理",
+      "听力学检测（纯音测听/声导抗/耳声发射/ABR）",
+      "听力障碍分类与干预策略",
+      "助听器验配",
+      "人工耳蜗与听觉康复",
+      "言语产生机制与语音学",
+      "失语症评估与治疗",
+      "构音障碍与运动性言语障碍",
+      "儿童语言发育迟缓",
+      "流畅度障碍（口吃）",
+      "吞咽障碍评估与治疗",
+      "嗓音障碍与嗓音训练"
+    ],
+  },
+  'life/addiction-medicine': {
+    title: "成瘾医学",
+    books: [
+          "Miller et al., The ASAM Principles of Addiction Medicine（Wolters Kluwer，第6版）",
+          "Johnson, Addiction Medicine: Science and Practice（Springer，2011）"
+    ],
+    chapters: [
+      "成瘾的神经生物学（奖赏环路/多巴胺）",
+      "酒精使用障碍",
+      "阿片类使用障碍与美沙酮维持",
+      "兴奋剂与新型精神活性物质",
+      "烟草依赖与戒烟治疗",
+      "镇静催眠药依赖",
+      "行为成瘾（赌博/游戏障碍）",
+      "成瘾筛查与 DSM-5 诊断",
+      "脱毒治疗与急性戒断管理",
+      "动机访谈与认知行为治疗",
+      "复吸预防与长期康复",
+      "成瘾与精神障碍共病"
+    ],
+  },
+  'humanities/history-of-medicine': {
+    title: "医学史",
+    books: [
+          "张大庆《医学史十五讲》（北京大学出版社，2007）",
+          "Roy Porter, The Greatest Benefit to Mankind: A Medical History of Humanity（W.W. Norton，1997）",
+          "张大庆主编《医学史》（北京大学医学出版社，医学人文规划教材）"
+    ],
+    chapters: [
+      "原始医学与古代文明医学（埃及/美索不达米亚）",
+      "古希腊罗马医学（希波克拉底/盖伦）",
+      "中医学的形成与经典体系",
+      "中世纪医学与伊斯兰医学",
+      "文艺复兴与解剖学革命（维萨里）",
+      "血液循环的发现与生理学奠基",
+      "临床医学的诞生（医院医学/物理诊断）",
+      "细菌学说与传染病学的革命",
+      "麻醉、无菌技术与现代外科",
+      "疫苗与免疫学的兴起",
+      "公共卫生运动史",
+      "20 世纪生物医学（抗生素/影像/分子医学）",
+      "医学职业与医疗制度史"
+    ],
+  },
+  'life/medical-education': {
+    title: "医学教育学",
+    books: [
+          "Swanwick et al. (eds.), Understanding Medical Education: Evidence, Theory and Practice（Wiley-Blackwell，第3版）",
+          "Dent, Harden & Hunt (eds.), A Practical Guide for Medical Teachers（Elsevier，第6版）"
+    ],
+    chapters: [
+      "医学教育史与 Flexner 报告",
+      "课程体系设计（整合课程/PBL/器官系统课程）",
+      "胜任力导向医学教育（CBME）",
+      "临床技能教学与模拟医学教育",
+      "床旁教学与临床带教",
+      "形成性评价与 OSCE 考核",
+      "住院医师规范化培训制度",
+      "继续医学教育与终身学习",
+      "医学教育研究方法",
+      "教育技术与在线医学教育",
+      "医学教师发展",
+      "医学教育认证与质量保障"
+    ],
+  },
+  'humanities/critical-thinking': {
+    title: "批判性思维与非形式逻辑",
+    books: [
+          "Brooke Noel Moore and Richard Parker, \"Critical Thinking\" (13th ed., McGraw-Hill, 2020)",
+          "Douglas N. Walton, \"Informal Logic: A Pragmatic Approach\" (2nd ed., Cambridge University Press, 2008)",
+          "Irving M. Copi, Carl Cohen and Kenneth McMahon, \"Introduction to Logic\" (14th ed., Routledge, 2010)"
+    ],
+    chapters: [
+      "论证的识别、结构与重构",
+      "演绎论证与有效性",
+      "归纳论证与归纳强度",
+      "非形式谬误（相干/预设/歧义三大类）",
+      "定义与语言澄清",
+      "类比论证与法律/道德论证",
+      "因果推理与密尔方法",
+      "统计论证与概率推理",
+      "诉诸权威的评估与信源可信度",
+      "科学推理与假说检验",
+      "决策、认知偏差与理性讨论规则",
+      "批判性阅读与论证写作"
+    ],
+  },
+  'humanities/axiology': {
+    title: "价值论（价值哲学）",
+    books: [
+          "李德顺, 《价值论——一种主体性的研究》（第3版, 中国人民大学出版社, 2013）",
+          "袁贵仁, 《价值学引论》（北京师范大学出版社, 1991）",
+          "Nicholas Rescher, \"Introduction to Value Theory\" (Prentice-Hall, 1969)"
+    ],
+    chapters: [
+      "价值与事实的区分：休谟问题",
+      "价值的本质：主观主义、客观主义与关系论",
+      "价值的分类：功利/道德/审美/宗教价值",
+      "内在价值与工具价值",
+      "价值评价与评价标准",
+      "价值认知与价值真理",
+      "价值冲突与价值排序",
+      "善、正当与权利的优先性之争",
+      "价值的主体性与人的需要",
+      "价值观的形成与社会价值体系",
+      "多元主义与价值相对主义批判",
+      "马克思主义价值论"
+    ],
+  },
+  'humanities/business-ethics': {
+    title: "商业伦理（企业伦理）",
+    books: [
+          "Manuel G. Velasquez, \"Business Ethics: Concepts and Cases\" (8th ed., Pearson, 2017)",
+          "Tom L. Beauchamp, Norman E. Bowie and Denis G. Arnold, \"Ethical Theory and Business\" (9th ed., Pearson, 2012)",
+          "周祖城, 《企业伦理学》（第3版, 清华大学出版社, 2015）"
+    ],
+    chapters: [
+      "伦理理论与商业决策框架",
+      "市场中的道德：自由市场批判与辩护",
+      "企业社会责任（CSR）之争：Friedman 与利益相关者理论",
+      "雇佣关系中的伦理：歧视、隐私与举报",
+      "消费者保护、广告与营销伦理",
+      "环境责任与可持续经营",
+      "公司治理与内部人伦理",
+      "会计诚信与财务舞弊",
+      "全球供应链与跨国经营伦理",
+      "技术、数据与算法带来的商业伦理新问题",
+      "道德文化与合规体系建设"
+    ],
+  },
+  'humanities/decision-theory': {
+    title: "决策论与理性选择理论",
+    books: [
+          "Martin Peterson, \"An Introduction to Decision Theory\" (2nd ed., Cambridge University Press, 2017)",
+          "Richard C. Jeffrey, \"The Logic of Decision\" (2nd ed., University of Chicago Press, 1983)",
+          "R. Duncan Luce and Howard Raiffa, \"Games and Decisions\" (Wiley, 1957; Dover reprint, 1989)"
+    ],
+    chapters: [
+      "决策问题的形式化：状态、行动与结果",
+      "确定性、风险与不确定性下的决策",
+      "期望效用理论与 vNM 公理",
+      "主观概率与拉姆齐-德菲内蒂路径",
+      "Allais 悖论与 Ellsberg 悖论",
+      "贝叶斯决策理论与证据更新",
+      "博弈论基础与纳什均衡的哲学地位",
+      "囚徒困境、集体行动与社会选择",
+      "Newcomb 问题与因果/证据决策论之争",
+      "有限理性与描述性决策理论",
+      "决策论在认识论与伦理学中的应用"
+    ],
+  },
+  'humanities/philosophy-of-probability': {
+    title: "概率哲学与归纳逻辑",
+    books: [
+          "Ian Hacking, \"An Introduction to Probability and Inductive Logic\" (Cambridge University Press, 2001)",
+          "Donald Gillies, \"Philosophical Theories of Probability\" (Routledge, 2000)",
+          "Brian Skyrms, \"Choice and Chance: An Introduction to Inductive Logic\" (4th ed., Wadsworth, 2000)"
+    ],
+    chapters: [
+      "休谟归纳问题及其现代回应",
+      "概率的古典解释与逻辑解释",
+      "频率解释及其困难",
+      "倾向解释",
+      "主观（贝叶斯）解释与荷兰赌论证",
+      "贝叶斯确证理论",
+      "归纳逻辑：Carnap 体系及其遗产",
+      "统计推断哲学：频率派 vs 贝叶斯派",
+      "证据、相关与因果",
+      "最佳解释推理（IBE）",
+      "概率在法律、医学与日常推理中的应用"
+    ],
+  },
+  'humanities/paradoxes': {
+    title: "悖论",
+    books: [
+          "R.M. Sainsbury, \"Paradoxes\" (3rd ed., Cambridge University Press, 2009)",
+          "Michael Clark, \"Paradoxes from A to Z\" (3rd ed., Routledge, 2012)",
+          "Nicholas Rescher, \"Paradoxes: Their Roots, Range, and Resolution\" (Open Court, 2001)"
+    ],
+    chapters: [
+      "悖论的概念与分类",
+      "芝诺悖论与无穷",
+      "说谎者悖论与语义封闭",
+      "集合论悖论：罗素悖论",
+      "语义悖论的解决：Tarski 与 Kripke",
+      "连锁（堆垛）悖论与模糊性",
+      "意外考试悖论与知识",
+      "彩票悖论与序言悖论",
+      "纽康姆悖论与决策",
+      "谷堆/忒修斯之船与同一性",
+      "全能悖论与宗教哲学中的悖论",
+      "自指、对角化方法与不定点"
+    ],
+  },
+  'humanities/ancient-greek-philosophy': {
+    title: "古希腊罗马哲学",
+    books: [
+          "G.S. Kirk, J.E. Raven and M. Schofield, \"The Presocratic Philosophers\" (2nd ed., Cambridge University Press, 1983)",
+          "W.K.C. Guthrie, \"A History of Greek Philosophy\" (6 vols., Cambridge University Press, 1962-1981)",
+          "苗力田 主编, 《古希腊哲学》（中国人民大学出版社, 1989）"
+    ],
+    chapters: [
+      "米利都学派与早期自然哲学",
+      "赫拉克利特与毕达哥拉斯学派",
+      "爱利亚学派：巴门尼德与芝诺",
+      "多元论者：恩培多克勒与阿那克萨戈拉",
+      "原子论：德谟克利特",
+      "智者运动与普罗泰戈拉",
+      "苏格拉底与德行即知识",
+      "柏拉图：理念论、知识与政制",
+      "亚里士多德：形而上学、伦理学与逻辑学",
+      "希腊化哲学：伊壁鸠鲁学派与斯多亚学派",
+      "怀疑论与犬儒学派",
+      "新柏拉图主义：普罗提诺"
+    ],
+  },
+  'humanities/medieval-philosophy': {
+    title: "中世纪哲学",
+    books: [
+          "赵敦华, 《基督教哲学1500年》（人民出版社, 1994）",
+          "Norman Kretzmann, Anthony Kenny and Jan Pinborg (eds.), \"The Cambridge History of Later Medieval Philosophy\" (Cambridge University Press, 1982)",
+          "John Marenbon, \"Medieval Philosophy: An Historical and Philosophical Introduction\" (Routledge, 2007)"
+    ],
+    chapters: [
+      "教父哲学与奥古斯丁",
+      "波爱修与中世纪逻辑的开端",
+      "中世纪早期：爱留根纳与加洛林复兴",
+      "安瑟尔谟与本体论证明",
+      "阿拉伯-犹太哲学的影响：阿维森纳、阿维洛伊、迈蒙尼德",
+      "经院哲学的兴起与大学",
+      "托马斯·阿奎那：存在、本质与自然法",
+      "司各脱与唯意志论",
+      "奥卡姆与唯名论革命",
+      "中世纪共相之争",
+      "中世纪晚期与向文艺复兴的过渡"
+    ],
+  },
+  'humanities/german-classical-philosophy': {
+    title: "德国古典哲学",
+    books: [
+          "俞吾金 等, 《德国古典哲学》（人民出版社, 2009）",
+          "杨祖陶, 《德国古典哲学的逻辑进程》（修订版, 武汉大学出版社, 2003）",
+          "邓晓芒, 《德国古典哲学讲演录》（湖南教育出版社, 2010）"
+    ],
+    chapters: [
+      "德国古典哲学的产生背景与启蒙",
+      "康德哲学的形成与总问题",
+      "康德先验感性论与时空观",
+      "康德先验分析论：范畴与图型",
+      "康德先验辩证论与理性批判",
+      "康德道德哲学：绝对命令",
+      "康德判断力批判与美学/目的论",
+      "费希特的知识学",
+      "谢林的自然哲学与同一哲学",
+      "黑格尔精神现象学",
+      "黑格尔逻辑学与辩证法",
+      "黑格尔法哲学与历史哲学",
+      "费尔巴哈与德国古典哲学的终结"
+    ],
+  },
+  'humanities/neo-confucianism': {
+    title: "宋明理学",
+    books: [
+          "陈来, 《宋明理学》（第2版, 华东师范大学出版社, 2004）",
+          "钱穆, 《宋明理学概述》（台湾学生书局, 1977；九州出版社简体版, 2010）",
+          "张立文, 《宋明理学研究》（中国人民大学出版社, 1985）"
+    ],
+    chapters: [
+      "宋明理学的产生：韩愈、李翱与儒学复兴",
+      "北宋五子：周敦颐与《太极图说》",
+      "邵雍的象数学",
+      "张载的气论与《西铭》",
+      "程颢、程颐与天理本体",
+      "朱熹：理气论、心性论与格物致知",
+      "陆九渊与心即理",
+      "朱陆之争与鹅湖之会",
+      "王阳明：心即理、知行合一与致良知",
+      "阳明后学的分化",
+      "罗钦顺、王廷相的气学回应",
+      "刘宗周与明清之际的理学总结"
+    ],
+  },
+  'humanities/african-philosophy': {
+    title: "非洲哲学",
+    books: [
+          "Kwasi Wiredu (ed.), \"A Companion to African Philosophy\" (Blackwell, 2004)",
+          "Samuel Oluoch Imbo, \"An Introduction to African Philosophy\" (Rowman & Littlefield, 1998)"
+    ],
+    chapters: [
+      "非洲哲学是否存在：学科合法性问题",
+      "民族哲学（ethnophilosophy）之争",
+      "智者哲学：Ogotemmêli 与 Oruka 的方案",
+      "专业哲学与批判传统：Hountondji",
+      "Ubuntu 伦理学",
+      "非洲形而上学：存在、人格与时间观",
+      "非洲政治哲学：公社主义与 Nyerere",
+      "埃及与埃塞俄比亚古典文本传统",
+      "非洲逻辑与认识论问题",
+      "后殖民哲学与去殖民化",
+      "非洲哲学与西方哲学的对话"
+    ],
+  },
+  'humanities/latin-american-philosophy': {
+    title: "拉丁美洲哲学",
+    books: [
+          "Susana Nuccetelli, \"Latin American Thought: Philosophical Problems and Arguments\" (Rowman & Littlefield, 2002)",
+          "Jorge J.E. Gracia and Elizabeth Millán-Zaibert (eds.), \"Latin American Philosophy for the 21st Century\" (Prometheus Books, 2004)"
+    ],
+    chapters: [
+      "殖民时期的经院传统",
+      "独立运动与实证主义",
+      "二十世纪「正常性」之争：拉美是否有自己的哲学",
+      "存在主义与现象学在拉美",
+      "解放哲学：Enrique Dussel",
+      "解放神学及其哲学基础",
+      "拉美马克思主义与依赖理论",
+      "Mariátegui 与印第安主义",
+      "分析哲学在拉美的兴起",
+      "身份、 mestizaje 与文化哲学",
+      "去殖民性（decoloniality）思潮"
+    ],
+  },
+  'humanities/social-epistemology': {
+    title: "社会认识论",
+    books: [
+          "Alvin I. Goldman, \"Knowledge in a Social World\" (Oxford University Press, 1999)",
+          "Alvin I. Goldman and Dennis Whitcomb (eds.), \"Social Epistemology: Essential Readings\" (Oxford University Press, 2011)",
+          "Miranda Fricker, \"Epistemic Injustice: Power and the Ethics of Knowing\" (Oxford University Press, 2007)"
+    ],
+    chapters: [
+      "社会认识论的兴起与定位",
+      "证言认识论",
+      "专家意见的分歧与应对",
+      "群体信念与集体认识主体",
+      "社会制度与真理追求（veritism）",
+      "互联网与信息生态",
+      "回音室、假信息与认识污染",
+      "认识不正义：证言与诠释的不正义",
+      "科学共同体的认识结构",
+      "民主的认识论基础",
+      "社会认识论与女性主义认识论的交叉"
+    ],
+  },
+  'humanities/philosophy-of-ai': {
+    title: "人工智能哲学",
+    books: [
+          "Margaret A. Boden (ed.), \"The Philosophy of Artificial Intelligence\" (Oxford University Press, 1990)",
+          "Margaret A. Boden, \"AI: Its Nature and Future\" (Oxford University Press, 2016)"
+    ],
+    chapters: [
+      "图灵测试及其批评",
+      "强 AI 与中文屋论证（Searle）",
+      "计算主义与心灵的计算理论",
+      "符号主义 vs 联结主义的哲学意涵",
+      "意向性、意义与接地问题",
+      "机器意识的可能性",
+      "具身性与情境认知对 AI 的挑战",
+      "创造力与美感能否被机器实现",
+      "大语言模型带来的哲学新问题",
+      "AI 与自由意志、道德主体地位",
+      "奇点论证与超级智能的哲学评估"
+    ],
+  },
+  'humanities/history-of-western-ethics': {
+    title: "西方伦理思想史",
+    books: [
+          "宋希仁 主编, 《西方伦理思想史》（中国人民大学出版社, 2004）",
+          "万俊人, 《现代西方伦理学史》（上、下卷, 北京大学出版社, 1990-1992）",
+          "Alasdair MacIntyre, \"A Short History of Ethics\" (2nd ed., Routledge, 1998)"
+    ],
+    chapters: [
+      "古希腊伦理学：从荷马到苏格拉底",
+      "柏拉图与亚里士多德的德性伦理",
+      "希腊化时期：伊壁鸠鲁与斯多亚伦理学",
+      "基督教伦理：奥古斯丁与阿奎那",
+      "近代自然法与社会契约伦理",
+      "英国道德感学派：沙夫茨伯里到休谟",
+      "康德的义务论体系",
+      "功利主义的形成：边沁与密尔",
+      "黑格尔与马克思的伦理思想",
+      "尼采的道德批判",
+      "二十世纪元伦理学转向",
+      "当代规范理论的复兴与德性伦理复兴"
+    ],
+  },
+  'intermediate/experimental-physics-methods': {
+    title: "物理实验方法与误差分析",
+    books: [
+          "J. R. Taylor, An Introduction to Error Analysis: The Study of Uncertainties in Physical Measurements, 2nd ed., University Science Books, 1997",
+          "P. R. Bevington & D. K. Robinson, Data Reduction and Error Analysis for the Physical Sciences, 3rd ed., McGraw-Hill, 2003",
+          "A. C. Melissinos & J. Napolitano, Experiments in Modern Physics, 2nd ed., Academic Press, 2003"
+    ],
+    chapters: [
+      "测量、单位与不确定度表示",
+      "随机误差与统计分布（高斯/泊松）",
+      "误差传播定律",
+      "最小二乘法与数据拟合",
+      "系统误差识别与实验设计",
+      "微弱信号检测与锁相放大",
+      "真空技术基础",
+      "低温获得与恒温控制",
+      "实验电子学与数据采集",
+      "经典近代物理实验（密立根油滴/弗兰克-赫兹/光电效应）",
+      "精密干涉测量技术",
+      "蒙特卡洛方法评估不确定度"
+    ],
+  },
+  'advanced/laser-physics': {
+    title: "激光物理",
+    books: [
+          "O. Svelto, Principles of Lasers, 5th ed., Springer, 2010",
+          "A. E. Siegman, Lasers, University Science Books, 1986",
+          "周炳琨、高以智等《激光原理》，国防工业出版社（第7版，2014）"
+    ],
+    chapters: [
+      "受激辐射与爱因斯坦系数",
+      "速率方程与粒子数反转",
+      "光学谐振腔与模式",
+      "高斯光束及其变换",
+      "增益饱和与输出功率",
+      "调 Q 技术",
+      "锁模与超短脉冲",
+      "激光线宽与频率稳定",
+      "半导体激光器",
+      "光纤激光器与放大器",
+      "固体与气体激光器",
+      "激光与物质相互作用"
+    ],
+  },
+  'advanced/low-temperature-physics': {
+    title: "低温物理",
+    books: [
+          "F. Pobell, Matter and Methods at Low Temperatures, 3rd ed., Springer, 2007",
+          "C. Enss & S. Hunklinger, Low-Temperature Physics, Springer, 2005",
+          "G. K. White & P. J. Meeson, Experimental Techniques in Low-Temperature Physics, 4th ed., Oxford University Press, 2002"
+    ],
+    chapters: [
+      "气体液化与制冷循环",
+      "3He/4He 稀释制冷机",
+      "绝热去磁制冷",
+      "低温温度计量",
+      "固体低温比热与热导",
+      "超流 4He 与二流体模型",
+      "超流 3He 与 p 波配对",
+      "量子液体概述",
+      "低温下的量子输运",
+      "超导电子学与 SQUID",
+      "毫开尔文技术与核退磁"
+    ],
+  },
+  'advanced/accelerator-physics': {
+    title: "加速器物理",
+    books: [
+          "D. A. Edwards & M. J. Syphers, An Introduction to the Physics of High Energy Accelerators, Wiley, 1993",
+          "H. Wiedemann, Particle Accelerator Physics, 4th ed., Springer, 2015",
+          "M. Conte & W. W. MacKay, An Introduction to the Physics of Particle Accelerators, 2nd ed., World Scientific, 2008"
+    ],
+    chapters: [
+      "加速器发展简史与分类",
+      "横向束流光学与传输矩阵",
+      "同步加速器原理与纵向动力学",
+      "射频腔与相位稳定",
+      "束流发射度与亮度",
+      "同步辐射及其阻尼效应",
+      "储存环与对撞机",
+      "直线加速器",
+      "束流不稳定性与集体效应",
+      "加速器磁体（含超导磁体）",
+      "束流诊断与测量",
+      "自由电子激光原理"
+    ],
+  },
+  'advanced/stellar-structure-evolution': {
+    title: "恒星结构与演化",
+    books: [
+          "R. Kippenhahn, A. Weigert & A. Weiss, Stellar Structure and Evolution, 2nd ed., Springer, 2012",
+          "黄润乾《恒星物理》（第二版），中国科学技术大学出版社，2012",
+          "D. Prialnik, An Introduction to the Theory of Stellar Structure and Evolution, 2nd ed., Cambridge University Press, 2009"
+    ],
+    chapters: [
+      "恒星观测特征与 H-R 图",
+      "流体静力学平衡与位力定理",
+      "恒星物态方程与简并物质",
+      "不透明度与能量传输（辐射/对流）",
+      "核反应速率与 pp 链、CNO 循环",
+      "恒星结构方程组与数值模型",
+      "主序星结构与质光关系",
+      "后主序演化：红巨星与 AGB",
+      "恒星脉动",
+      "白矮星",
+      "超新星爆发",
+      "中子星与恒星质量黑洞",
+      "双星相互作用演化"
+    ],
+  },
+  'advanced/galactic-physics-and-dynamics': {
+    title: "星系物理与星系动力学",
+    books: [
+          "L. S. Sparke & J. S. Gallagher, Galaxies in the Universe: An Introduction, 2nd ed., Cambridge University Press, 2007",
+          "J. Binney & S. Tremaine, Galactic Dynamics, 2nd ed., Princeton University Press, 2008",
+          "H. Mo, F. van den Bosch & S. White, Galaxy Formation and Evolution, Cambridge University Press, 2010"
+    ],
+    chapters: [
+      "银河系结构与银盘银晕",
+      "星系形态分类与哈勃序列",
+      "星系测光与光谱观测",
+      "恒星轨道理论",
+      "无碰撞玻尔兹曼方程与 Jeans 方程",
+      "旋涡结构与密度波理论",
+      "旋转曲线与暗物质",
+      "星系核球与超大质量黑洞",
+      "活动星系核",
+      "星系群与星系团",
+      "星系形成与等级成团",
+      "星系演化与大尺度结构"
+    ],
+  },
+  'advanced/high-energy-astrophysics': {
+    title: "高能天体物理与宇宙线",
+    books: [
+          "M. S. Longair, High Energy Astrophysics, 3rd ed., Cambridge University Press, 2011",
+          "T. K. Gaisser, R. Engel & E. Resconi, Cosmic Rays and Particle Physics, 2nd ed., Cambridge University Press, 2016",
+          "G. B. Rybicki & A. P. Lightman, Radiative Processes in Astrophysics, Wiley-VCH, 2004（1979 首版）"
+    ],
+    chapters: [
+      "同步辐射与曲率辐射",
+      "逆康普顿散射",
+      "轫致辐射与热辐射",
+      "吸积盘物理",
+      "相对论性喷流",
+      "费米加速与激波加速",
+      "宇宙线成分、能谱与各向异性",
+      "广延大气簇射",
+      "伽马射线天文（地面切伦科夫/卫星）",
+      "高能中微子天体物理",
+      "超高能宇宙线与 GZK 截断",
+      "暗物质间接探测"
+    ],
+  },
+  'advanced/topological-matter': {
+    title: "拓扑物态与拓扑绝缘体",
+    books: [
+          "B. A. Bernevig & T. L. Hughes, Topological Insulators and Topological Superconductors, Princeton University Press, 2013",
+          "J. K. Asbóth, L. Oroszlány & A. Pályi, A Short Course on Topological Insulators, Springer, 2016",
+          "S.-Q. Shen, Topological Insulators: Dirac Equation in Condensed Matter, 2nd ed., Springer, 2017"
+    ],
+    chapters: [
+      "整数量子霍尔效应与 TKNN 不变量",
+      "Berry 相位与 Berry 曲率",
+      "Chern 数与拓扑不变量",
+      "SSH 模型与一维拓扑相",
+      "量子自旋霍尔效应与 Z2 不变量",
+      "三维拓扑绝缘体",
+      "拓扑超导体与 Majorana 零模",
+      "外尔与狄拉克半金属",
+      "对称性保护与十重分类",
+      "拓扑相变与边界态",
+      "分数陈绝缘体与拓扑序"
+    ],
+  },
+  'advanced/medical-physics': {
+    title: "医学物理与放射物理",
+    books: [
+          "F. M. Khan & J. P. Gibbons, Khan's The Physics of Radiation Therapy, 5th ed., Wolters Kluwer/LWW, 2014",
+          "E. B. Podgorsak, Radiation Physics for Medical Physicists, 3rd ed., Springer, 2016",
+          "J. T. Bushberg et al., The Essential Physics of Medical Imaging, 3rd ed., LWW, 2011"
+    ],
+    chapters: [
+      "电离辐射与物质相互作用",
+      "辐射剂量学与腔理论",
+      "X 射线产生与能谱",
+      "医用直线加速器",
+      "外照射治疗计划与剂量计算",
+      "调强放射治疗（IMRT）与容积旋转调强",
+      "近距离放射治疗",
+      "放射防护与剂量限值",
+      "X 射线与 CT 成像物理",
+      "核医学成像（PET/SPECT）",
+      "磁共振成像物理",
+      "医学超声物理"
+    ],
+  },
+  'advanced/spintronics': {
+    title: "自旋电子学",
+    books: [
+          "I. Žutić, J. Fabian & S. Das Sarma, Spintronics: Fundamentals and applications, Reviews of Modern Physics 76, 323 (2004)",
+          "C. Felser & G. H. Fecher (eds.), Spintronics: From Materials to Devices, Springer, 2013",
+          "J. Stöhr & H. C. Siegmann, Magnetism: From Fundamentals to Nanoscale Dynamics, Springer, 2006"
+    ],
+    chapters: [
+      "自旋极化与自旋输运基础",
+      "巨磁电阻（GMR）",
+      "隧穿磁电阻（TMR）",
+      "自旋注入与探测",
+      "自旋轨道耦合（Rashba/Dresselhaus）",
+      "自旋霍尔效应与逆自旋霍尔效应",
+      "自旋转移力矩与自旋轨道力矩",
+      "磁畴壁运动与赛道存储",
+      "稀磁半导体与自旋场效应管",
+      "磁随机存储器（MRAM）",
+      "反铁磁自旋电子学"
+    ],
+  },
+  'advanced/x-ray-physics': {
+    title: "X 射线物理与同步辐射",
+    books: [
+          "J. Als-Nielsen & D. McMorrow, Elements of Modern X-ray Physics, 2nd ed., Wiley, 2011",
+          "D. Attwood, Soft X-Rays and Extreme Ultraviolet Radiation: Principles and Applications, Cambridge University Press, 1999",
+          "P. Willmott, An Introduction to Synchrotron Radiation: Techniques and Applications, Wiley, 2011"
+    ],
+    chapters: [
+      "X 射线与物质相互作用（光电/康普顿/瑞利）",
+      "X 射线源：轫致辐射与特征谱",
+      "同步辐射原理与插入件",
+      "X 射线光学元件（反射镜/单色器/波带片）",
+      "X 射线衍射运动学理论",
+      "小角 X 射线散射（SAXS）",
+      "X 射线吸收精细结构（XAFS/XANES）",
+      "相干衍射成像",
+      "X 射线成像与 CT 原理",
+      "X 射线自由电子激光",
+      "共振非弹性 X 射线散射"
+    ],
+  },
+  'advanced/quantum-foundations': {
+    title: "量子力学基础与诠释",
+    books: [
+          "A. Peres, Quantum Theory: Concepts and Methods, Kluwer Academic, 1993",
+          "J. S. Bell, Speakable and Unspeakable in Quantum Mechanics, 2nd ed., Cambridge University Press, 2004",
+          "G. Auletta, Foundations and Interpretation of Quantum Mechanics, World Scientific, 2000"
+    ],
+    chapters: [
+      "测量问题与波包坍缩",
+      "EPR 佯谬",
+      "Bell 不等式及其实验检验",
+      "退相干理论",
+      "哥本哈根诠释",
+      "多世界诠释",
+      "隐变量理论与 Bohm 力学",
+      "自发坍缩模型（GRW）",
+      "量子贝叶斯主义（QBism）",
+      "宏观量子叠加与薛定谔猫实验",
+      "弱测量与量子态层析",
+      "语境性与 Kochen-Specker 定理"
+    ],
+  },
+  'advanced/electronic-structure-theory': {
+    title: "第一性原理计算与电子结构理论",
+    books: [
+          "R. M. Martin, Electronic Structure: Basic Theory and Practical Methods, Cambridge University Press, 2004（2nd ed. 2020）",
+          "D. S. Sholl & J. A. Steckel, Density Functional Theory: A Practical Introduction, Wiley, 2009",
+          "E. Kaxiras, Atomic and Electronic Structure of Solids, Cambridge University Press, 2003"
+    ],
+    chapters: [
+      "Hartree-Fock 近似",
+      "Hohenberg-Kohn 定理",
+      "Kohn-Sham 方程",
+      "交换关联泛函（LDA/GGA/杂化泛函）",
+      "赝势与平面波基组",
+      "能带结构与态密度计算",
+      "密度泛函微扰理论与声子",
+      "从头算分子动力学",
+      "GW 近似与 Bethe-Salpeter 方程",
+      "强关联体系与 DFT+U/DMFT",
+      "高通量计算与材料数据库"
+    ],
+  },
+  'advanced/metrology': {
+    title: "计量学与 SI 单位制",
+    books: [
+          "M. Gläser & M. Kochsiek (eds.), Handbook of Metrology, Wiley-VCH, 2010",
+          "BIPM, Le Système international d'unités / The International System of Units (SI Brochure), 9th ed., BIPM, 2019",
+          "T. Quinn, From Artefacts to Atoms: The BIPM and the Search for Ultimate Measurement Standards, Oxford University Press, 2011"
+    ],
+    chapters: [
+      "计量学基本概念与量值传递",
+      "SI 单位制的历史演变",
+      "2019 年 SI 新定义与基本常数固定",
+      "时间频率计量与原子钟",
+      "长度计量与稳频激光干涉",
+      "质量计量与基布尔（瓦特）天平",
+      "电学量子基准（约瑟夫森效应/量子霍尔效应）",
+      "温度计量与玻尔兹曼常数测定",
+      "测量不确定度评定（GUM 框架）",
+      "国际比对与计量溯源链"
+    ],
+  },
+  'social/physics-education-research': {
+    title: "物理教育研究",
+    books: [
+          "L. C. McDermott & E. F. Redish, Resource Letter: PER-1: Physics Education Research, American Journal of Physics 67, 755 (1999)",
+          "L. C. McDermott & the Physics Education Group, Physics by Inquiry, Wiley, 1996",
+          "R. D. Knight, Five Easy Lessons: Strategies for Successful Physics Teaching, Addison-Wesley, 2002"
+    ],
+    chapters: [
+      "学生前概念与错误概念研究",
+      "力学概念诊断（FCI/FMCE）",
+      "概念转变理论",
+      "同伴教学法（Peer Instruction）",
+      "探究式实验课程设计",
+      "多表征学习",
+      "认知负荷理论在物理教学中的应用",
+      "学生认识论发展",
+      "物理课程评价体系",
+      "PER 的量化与质化研究方法",
+      "物理教师教育"
+    ],
+  },
+  'social/communication-and-negotiation': {
+    title: "沟通表达与谈判",
+    books: [
+          "Adler & Rodman《沟通的艺术：看入人里，看出人外》(Understanding Human Communication, 世界图书出版公司中译本)",
+          "Fisher & Ury《谈判力》(Getting to Yes, 中信出版社)",
+          "Cialdini《影响力》(Influence: The Psychology of Persuasion, 中国人民大学出版社)"
+    ],
+    chapters: [
+      "沟通的过程与常见障碍",
+      "倾听与同理心反馈",
+      "自我袒露与关系建立",
+      "非语言沟通（表情/姿态/空间）",
+      "语言沟通与人际冲突管理",
+      "立场与利益：原则式谈判",
+      "BATNA（最佳替代方案）与谈判准备",
+      "分配式谈判与整合式谈判",
+      "说服六原则（互惠/承诺一致/社会认同/喜好/权威/稀缺）",
+      "跨文化沟通",
+      "职场沟通与线上沟通礼仪"
+    ],
+  },
+  'social/practical-and-academic-writing': {
+    title: "实用写作与学术写作",
+    books: [
+          "Strunk & White《风格的要素》(The Elements of Style)",
+          "Booth, Colomb & Williams《研究是一门艺术》(The Craft of Research, 新华出版社中译本)",
+          "Minto《金字塔原理》(The Minto Pyramid Principle, 南海出版公司)"
+    ],
+    chapters: [
+      "写作目的与读者分析",
+      "金字塔结构与 SCQA 框架",
+      "观点—理由—证据的论证结构",
+      "段落组织与过渡衔接",
+      "简明风格原则（删冗词/主动语态）",
+      "摘要、报告与方案写作",
+      "文献综述与研究问题确立",
+      "引用规范与学术诚信",
+      "公文、邮件与职场文书",
+      "修改、润色与同行反馈"
+    ],
+  },
+  'social/reading-and-knowledge-management': {
+    title: "阅读方法与知识管理",
+    books: [
+          "Adler & Van Doren《如何阅读一本书》(How to Read a Book, 商务印书馆)",
+          "Ahrens《卡片笔记写作法》(How to Take Smart Notes, 人民邮电出版社)",
+          "奥野宣之《如何有效阅读一本书》(江西人民出版社)"
+    ],
+    chapters: [
+      "阅读的四个层次（基础/检视/分析/主题）",
+      "主动阅读与四个基本提问",
+      "书籍分类与差异化阅读策略",
+      "结构笔记与概念笔记",
+      "康奈尔笔记法",
+      "卡片盒笔记法（Zettelkasten）与双向链接",
+      "个人知识库工具与工作流",
+      "速读与精读的适用场景",
+      "主题阅读与知识综合",
+      "输出（写作/讲授）与间隔复习"
+    ],
+  },
+  'social/career-planning-and-job-hunting': {
+    title: "职业规划与求职技能",
+    books: [
+          "Bolles《你的降落伞是什么颜色？》(What Color Is Your Parachute?, 中信出版社)",
+          "《大学生职业发展与就业指导》（高等教育出版社统编教材）",
+          "Super《生涯发展理论》相关研究综述（学术依据）"
+    ],
+    chapters: [
+      "自我认知：兴趣、能力与价值观",
+      "霍兰德职业兴趣类型（RIASEC）",
+      "Super 生涯发展阶段理论",
+      "职业信息探索与行业分析",
+      "职业目标设定与行动计划",
+      "简历撰写与作品集准备",
+      "面试应对（STAR 法则与结构化面试）",
+      "求职渠道、内推与人脉经营",
+      "Offer 比较与薪酬谈判",
+      "职业转换与终身生涯管理"
+    ],
+  },
+  'life/photography-and-video-production': {
+    title: "摄影与短视频拍摄制作",
+    books: [
+          "颜志刚《摄影技艺教程》（复旦大学出版社）",
+          "任金州《电视摄像》（中国传媒大学出版社）",
+          "傅正义《影视剪辑编辑艺术》（北京广播学院出版社）"
+    ],
+    chapters: [
+      "相机成像原理与曝光三要素",
+      "镜头焦距与景深控制",
+      "构图法则与视觉引导",
+      "自然光与人造光运用、基础布光",
+      "景别与镜头语言",
+      "运动镜头与场面调度",
+      "同期声与录音基础",
+      "剪辑节奏与蒙太奇",
+      "剪辑软件实操（Premiere/剪映）",
+      "基础调色",
+      "短视频叙事结构与平台适配"
+    ],
+  },
+  'life/gymnastics': {
+    title: "体操（竞技体操与艺术体操）",
+    books: [
+          "全国体育院校教材委员会审定《体操》（体育院校通用教材，人民体育出版社，2014）",
+          "《竞技体操高级教程》（体育院校专修通用教材，人民体育出版社，2002）",
+          "FIG《竞技体操评分规则》(Code of Points)"
+    ],
+    chapters: [
+      "体操发展史与项目分类",
+      "徒手体操与队列队形",
+      "轻器械体操",
+      "垫上运动与前滚翻类技术",
+      "支撑跳跃",
+      "单杠练习",
+      "双杠练习",
+      "平衡木与自由体操",
+      "体操保护与帮助方法",
+      "体操动作教学与创编",
+      "竞赛规则与裁判法",
+      "艺术体操器械（绳/圈/球/棒/带）与编排"
+    ],
+  },
+  'life/weightlifting': {
+    title: "举重运动",
+    books: [
+          "杨世勇《举重运动教程》（体育院校通用教材，人民体育出版社，2014）",
+          "IWF《举重技术与竞赛规则》"
+    ],
+    chapters: [
+      "举重运动史与体重级别划分",
+      "抓举技术分解",
+      "挺举技术分解（提铃/上挺）",
+      "辅助力量练习（深蹲/硬拉/推举）",
+      "举重技术教学法与常见错误纠正",
+      "训练计划与周期安排",
+      "举重动作的生物力学分析",
+      "青少年选材与基础训练",
+      "举重损伤预防",
+      "竞赛规则与裁判法"
+    ],
+  },
+  'life/shooting-sport': {
+    title: "射击运动",
+    books: [
+          "国家体育总局编《射击》（人民体育出版社）",
+          "ISSF《国际射击竞赛规则》"
+    ],
+    chapters: [
+      "射击项目分类（步枪/手枪/飞碟）",
+      "射击原理与内弹道常识",
+      "射击姿势与据枪稳定性",
+      "瞄准与击发技术",
+      "呼吸控制与心理调控",
+      "10 米气步枪与气手枪训练",
+      "飞碟射击（双向/多向）",
+      "竞赛规则与环值判定",
+      "射击运动心理训练",
+      "枪支管理法规与射击安全"
+    ],
+  },
+  'life/mind-sports-chess-bridge': {
+    title: "棋类与智力运动（围棋/中国象棋/国际象棋/桥牌）",
+    books: [
+          "聂卫平围棋道场系列教程（辽宁科学技术出版社）",
+          "人民体育出版社棋牌入门系列（围棋/象棋/国际象棋/桥牌）",
+          "ACBL 桥牌教学体系教材（美国定约桥牌联盟）"
+    ],
+    chapters: [
+      "围棋规则与气、提子、打劫",
+      "围棋基本死活与手筋",
+      "围棋布局常识与中盘攻防",
+      "官子与形势判断",
+      "中国象棋基本杀法与实用残局",
+      "象棋开局体系（中炮/屏风马）",
+      "国际象棋基本战术（牵制/击双/闪击）",
+      "国际象棋开局原则与残局基础",
+      "桥牌自然叫牌法体系",
+      "桥牌做庄与防守基本技术",
+      "智力运动竞赛、段位与等级分制度"
+    ],
+  },
+  'life/karate': {
+    title: "空手道",
+    books: [
+          "WKF《空手道竞赛规则》（型与组手）",
+          "中国空手道协会段位制培训教程"
+    ],
+    chapters: [
+      "空手道源流与四大流派（松涛馆/刚柔/糸东/和道）",
+      "道场礼仪与基本功（站架/移动）",
+      "基本技：冲拳与击打",
+      "基本技：踢技",
+      "基本技：受（格挡）",
+      "型（套路）的学习与演练",
+      "约束组手与自由组手",
+      "段位审查制度",
+      "WKF 竞技规则（型比赛/组手比赛）",
+      "体能、柔韧训练与损伤预防"
+    ],
+  },
+  'life/dancesport-and-aerobics': {
+    title: "体育舞蹈与健美操",
+    books: [
+          "张清澍《体育舞蹈》（北京体育大学出版社）",
+          "《健美操》（高等教育出版社高校体育教材）"
+    ],
+    chapters: [
+      "体育舞蹈分类（标准舞/拉丁舞）",
+      "标准舞基本技术（华尔兹/探戈/维也纳华尔兹）",
+      "拉丁舞基本技术（伦巴/恰恰恰/桑巴）",
+      "音乐节奏识别与舞蹈风格表现",
+      "竞技健美操规则与难度动作",
+      "大众健美操成套动作与创编",
+      "形体训练基础",
+      "竞赛编排与评分标准",
+      "教学组织与口令",
+      "常见舞蹈损伤与预防"
+    ],
+  },
+  'engineering/turning-and-milling-operations': {
+    title: "车工与铣工（普通金属切削机床操作）",
+    books: [
+          "《车工工艺与技能训练》（中国劳动社会保障出版社，职业教育规划教材）",
+          "《铣工工艺与技能训练》（中国劳动社会保障出版社，同系列）",
+          "《金属切削原理与刀具》（机械工业出版社，高校机制专业教材）"
+    ],
+    chapters: [
+      "车床结构与安全操作规程",
+      "车刀几何角度与刃磨",
+      "外圆与端面车削",
+      "孔加工（钻孔/镗孔/铰孔）",
+      "螺纹车削",
+      "圆锥面与成形面车削",
+      "铣床类型与铣刀选用",
+      "平面与台阶面铣削",
+      "沟槽、键槽与切断加工",
+      "分度头使用与简单齿轮铣削",
+      "切削用量（速度/进给/背吃刀量）选择",
+      "常用量具使用与精度测量",
+      "机械加工工艺规程基础"
+    ],
+  },
+  'life/sewing-and-garment-making': {
+    title: "缝纫与服装制作",
+    books: [
+          "张文斌《服装工艺学：成衣工艺分册》（中国纺织出版社）",
+          "刘瑞璞《服装纸样设计原理与应用》（中国纺织出版社）",
+          "《服装制作工》职业技能培训教材（中国劳动社会保障出版社）"
+    ],
+    chapters: [
+      "面料识别与辅料选用",
+      "人体测量与服装号型",
+      "服装纸样基础（原型法/比例法）",
+      "裁剪与排料",
+      "手缝基础工艺",
+      "工业/家用缝纫机使用与维护",
+      "部件工艺：领、袖、口袋、开衩",
+      "裙装与裤装制作",
+      "衬衫与上衣制作",
+      "熨烫与定型工艺",
+      "服装改款、修补与旧衣改造"
+    ],
+  },
+  'life/opticianry-and-eyeglasses-dispensing': {
+    title: "眼镜验光与配镜（眼镜验光员/眼镜定配工）",
+    books: [
+          "齐备《眼镜验光员》（国家职业资格培训教程，中国劳动社会保障出版社，2008）",
+          "《眼镜定配工》（国家职业资格培训教程，中国劳动社会保障出版社）",
+          "人社部《眼镜验光员国家职业技能标准（2018年版）》"
+    ],
+    chapters: [
+      "眼球解剖与屈光原理（近视/远视/散光/老视）",
+      "视力检查与眼部初步检查",
+      "客观验光：电脑验光与检影验光",
+      "主观验光与红绿平衡",
+      "散光轴位精调（交叉圆柱镜）",
+      "双眼视功能检查",
+      "处方原则与常见眼病转诊指征",
+      "镜片材料、折射率与镀膜",
+      "镜架选择、瞳距与瞳高测量",
+      "磨边、装配与整形校配",
+      "配装眼镜质量检测",
+      "隐形眼镜验配常识"
+    ],
+  },
+  'engineering/building-painting-and-coating': {
+    title: "油漆工与建筑涂装",
+    books: [
+          "《油漆工》（建筑工人职业技能培训教材，中国建筑工业出版社）",
+          "GB 50210《建筑装饰装修工程质量验收标准》（国家标准）"
+    ],
+    chapters: [
+      "涂料组成与分类（乳胶漆/木器漆/防锈漆/防火涂料）",
+      "基层处理与批刮腻子",
+      "打磨与砂光工艺",
+      "刷涂、滚涂与喷涂工艺",
+      "木器清漆与混油涂装",
+      "金属表面防腐涂装",
+      "墙面涂饰施工与分色",
+      "裱糊与软包基础",
+      "色彩基础与配色",
+      "质量通病防治（流坠/起泡/开裂/泛碱）",
+      "涂装作业安全与职业防护（VOC/防火）"
+    ],
+  },
+  'life/intimate-relationships-and-marriage': {
+    title: "亲密关系与婚姻家庭",
+    books: [
+          "Rowland Miller《亲密关系》(Intimate Relationships, 第 6 版，人民邮电出版社中译本)",
+          "Gottman & Silver《幸福的婚姻》(The Seven Principles for Making Marriage Work, 浙江人民出版社中译本)",
+          "Bowlby 依恋理论经典研究（学术依据）"
+    ],
+    chapters: [
+      "亲密关系的社会科学研究方法",
+      "吸引力与择偶机制",
+      "成人依恋类型（安全/焦虑/回避）",
+      "斯滕伯格爱情三角理论",
+      "亲密沟通与自我表露",
+      "冲突模式与修复尝试（Gottman 四骑士）",
+      "关系中的权力、公平与家务分工",
+      "承诺与关系维持",
+      "婚姻法律常识（结婚/财产/离婚）",
+      "家庭暴力识别与求助",
+      "分手、离异与重组家庭"
+    ],
+  },
+  'life/home-renovation-and-interior-design': {
+    title: "家庭装修与室内设计实务",
+    books: [
+          "陆震纬、来增祥《室内设计原理》（中国建筑工业出版社）",
+          "JGJ 367《住宅室内装饰装修设计规范》与 GB 50327《住宅装饰装修工程施工规范》",
+          "《住宅室内装饰装修工程质量验收规范》JGJ/T 304"
+    ],
+    chapters: [
+      "户型分析与功能空间规划",
+      "装修风格与色彩搭配",
+      "装修流程、工期与预算编制",
+      "水电改造与隐蔽工程验收",
+      "泥瓦工程（防水/贴砖）验收要点",
+      "木作与油漆工序",
+      "主材选购（瓷砖/地板/门窗/卫浴）",
+      "定制家具与收纳系统设计",
+      "照明设计与开关插座布局",
+      "环保材料与室内空气检测治理",
+      "装修合同、增项与维权",
+      "竣工验收与保修"
+    ],
+  },
+  'social/history-of-economic-thought': {
+    title: "经济思想史",
+    books: [
+          "马克·布劳格《经济理论的回顾》（Economic Theory in Retrospect, Cambridge University Press，第5版1997）",
+          "斯坦利·布鲁、兰迪·格兰特《经济思想史》（The Evolution of Economic Thought，北京大学出版社中译本，第8版）",
+          "约瑟夫·熊彼特《经济分析史》（History of Economic Analysis, Oxford University Press, 1954；商务印书馆中译本）"
+    ],
+    chapters: [
+      "前古典经济学：重商主义与重农学派",
+      "斯密与古典经济学的创立",
+      "李嘉图体系与古典分配理论",
+      "马尔萨斯、萨伊与古典宏观争论",
+      "约翰·斯图亚特·穆勒的综合",
+      "边际革命：杰文斯、门格尔、瓦尔拉斯",
+      "马歇尔与新古典综合",
+      "奥地利学派传统",
+      "凯恩斯革命",
+      "货币主义与新古典宏观经济学",
+      "制度主义传统：凡勃伦到加尔布雷思",
+      "福利经济学与公共选择思想源流",
+      "一般均衡理论的成熟：阿罗-德布鲁",
+      "博弈论与信息经济学的思想脉络"
+    ],
+  },
+  'social/public-economics': {
+    title: "公共经济学",
+    books: [
+          "加雷斯·迈尔斯《公共经济学》（Public Economics, Cambridge University Press, 1995）",
+          "约瑟夫·斯蒂格利茨《公共部门经济学》（Economics of the Public Sector, W. W. Norton，第4版2014）",
+          "让-雅克·拉丰《激励理论：委托-代理模型》（The Theory of Incentives, Princeton University Press, 2002）"
+    ],
+    chapters: [
+      "市场失灵与政府干预的边界",
+      "公共品理论与最优供给",
+      "外部性与科斯定理",
+      "公共选择理论：投票、官僚与寻租",
+      "最优税收理论：商品税与所得税",
+      "税收归宿与税收效率分析",
+      "收入分配与再分配政策",
+      "社会保障的经济学分析",
+      "财政分权与地方公共品（蒂布特模型）",
+      "成本-收益分析",
+      "信息不对称与机制设计",
+      "政府规制经济学"
+    ],
+  },
+  'social/mathematical-economics': {
+    title: "数量经济学（数理经济学）",
+    books: [
+          "蒋中一（Alpha C. Chiang）《数理经济学的基本方法》（Fundamental Methods of Mathematical Economics, McGraw-Hill，第4版；北京大学出版社中译本）",
+          "蒋中一《动态最优化基础》（Elements of Dynamic Optimization；商务印书馆中译本）",
+          "高山晟（Akira Takayama）《数理经济学》（Mathematical Economics, Cambridge University Press，第2版1985）"
+    ],
+    chapters: [
+      "矩阵代数与线性经济模型",
+      "比较静态分析与隐函数定理",
+      "无约束与等式约束最优化",
+      "库恩-塔克条件与非线性规划",
+      "凹规划与二阶条件",
+      "包络定理及其应用",
+      "差分方程与经济动态学",
+      "微分方程与相位图分析",
+      "最优控制理论与汉密尔顿函数",
+      "动态规划与贝尔曼方程",
+      "一般均衡的数学表述",
+      "不确定性下的决策：期望效用理论"
+    ],
+  },
+  'social/environmental-resource-economics': {
+    title: "环境与资源经济学",
+    books: [
+          "张帆、李东《环境与自然资源经济学》（格致出版社/上海人民出版社，第3版2016）",
+          "罗杰·珀曼等《自然资源与环境经济学》（Natural Resource and Environmental Economics, Pearson，第4版2011）",
+          "汤姆·蒂坦伯格、琳恩·刘易斯《环境与自然资源经济学》（Environmental and Natural Resource Economics，中国人民大学出版社中译本，第10版）"
+    ],
+    chapters: [
+      "环境问题的经济学本质：外部性再审视",
+      "庇古税与污染最优控制",
+      "可交易排污许可制度",
+      "环境规制工具比较：命令控制与经济激励",
+      "环境价值评估：支付意愿与条件价值法",
+      "旅行费用法与特征价格法",
+      "可耗竭资源的最优开采路径（霍特林法则）",
+      "可再生资源经济学：渔业与森林",
+      "环境库兹涅茨曲线争论",
+      "气候变化经济学：碳定价与贴现率之争",
+      "成本-收益分析在环境政策中的应用",
+      "中国的环境经济政策实践"
+    ],
+  },
+  'social/health-economics': {
+    title: "健康经济学",
+    books: [
+          "舍曼·富兰德、艾伦·古德曼、迈伦·斯坦诺《卫生经济学》（The Economics of Health and Health Care, Routledge/Pearson，第8版；中国人民大学出版社中译本）",
+          "杰伊·巴塔查里亚等《健康经济学》（Health Economics, Palgrave Macmillan, 2014）",
+          "迈克尔·格罗斯曼《健康需求的人力资本模型》（The Demand for Health, NBER/Columbia University Press 经典论文与著作传统）"
+    ],
+    chapters: [
+      "健康的人力资本模型（格罗斯曼模型）",
+      "医疗服务需求与道德风险",
+      "医疗保险：逆向选择与风险分担",
+      "医疗供给方诱导需求",
+      "医院与医生的激励机制",
+      "药品市场与专利制度",
+      "卫生技术评估与成本效果分析",
+      "医疗支付制度改革：DRG 与按人头付费",
+      "健康不平等及其测量",
+      "传染病防控的经济学分析",
+      "公共卫生干预的经济评价",
+      "中国医改的经济学分析"
+    ],
+  },
+  'social/comparative-economic-systems': {
+    title: "比较经济体制与转轨经济学",
+    books: [
+          "雅诺什·科尔奈《社会主义体制：共产主义政治经济学》（The Socialist System, Princeton University Press, 1992；中央编译出版社中译本）",
+          "热拉尔·罗兰《转型与经济学》（Transition and Economics: Politics, Markets, and Firms, MIT Press, 2000；北京大学出版社中译本）",
+          "青木昌彦《比较制度分析》（Comparative Institutional Analysis, MIT Press, 2001；上海远东出版社中译本）"
+    ],
+    chapters: [
+      "经济体制的分类与比较维度",
+      "计划经济体制：短缺经济学与软预算约束",
+      "市场经济的多样性：英美模式与莱茵模式",
+      "东亚发展型政府模式",
+      "转轨的路径之争：休克疗法与渐进主义",
+      "中国渐进式改革的双轨制逻辑",
+      "产权改革与国有企业重组",
+      "价格自由化与宏观经济稳定",
+      "法与金融：法律制度对金融发展的影响",
+      "比较制度分析：博弈论视角的制度多样性",
+      "新比较经济学：政府的'掠夺之手'",
+      "体制绩效的测度与历史教训"
+    ],
+  },
+  'social/jurisprudence': {
+    title: "法理学（法学理论）",
+    books: [
+          "张文显主编《法理学》（高等教育出版社/北京大学出版社，第5版2018）",
+          "H. L. A. 哈特《法律的概念》（The Concept of Law, Oxford University Press，第3版2012；法律出版社中译本）",
+          "埃德加·博登海默《法理学：法律哲学与法律方法》（Jurisprudence: The Philosophy and Method of the Law；中国政法大学出版社中译本，邓正来译）"
+    ],
+    chapters: [
+      "法的概念与本质：分析法学传统",
+      "自然法理论：从阿奎那到菲尼斯",
+      "法律实证主义：奥斯丁、凯尔森、哈特",
+      "德沃金的解释主义与权利理论",
+      "法律现实主义与批判法学",
+      "法律的要素：规则、原则与概念",
+      "法律体系与法律渊源",
+      "法律关系、权利与义务",
+      "法律责任与制裁",
+      "法律解释与法律推理",
+      "立法、司法与执法理论",
+      "法治的概念与原则",
+      "法律与道德的关系之争",
+      "中国社会主义法治理论"
+    ],
+  },
+  'social/legal-history': {
+    title: "法律史（中国法制史与外国法制史）",
+    books: [
+          "张晋藩主编《中国法制史》（中国政法大学出版社，第3版）",
+          "何勤华主编《外国法制史》（法律出版社，第7版）",
+          "曾宪义、赵晓耕主编《中国法制史》（中国人民大学出版社，法学 21 世纪系列教材）"
+    ],
+    chapters: [
+      "中国法律的起源与夏商周法制",
+      "春秋战国的成文法运动",
+      "秦汉法律：睡虎地秦简与汉律",
+      "魏晋南北朝法律的儒家化",
+      "《唐律疏议》与中华法系",
+      "宋元明清法制的演变",
+      "清末修律与法律近代化",
+      "中华民国六法体系",
+      "革命根据地法制与新中国法制建设",
+      "古代两河、希伯来与希腊法律",
+      "罗马法：市民法、万民法与《国法大全》",
+      "中世纪教会法与商法",
+      "英国普通法与衡平法传统",
+      "大陆法系的形成：《法国民法典》与《德国民法典》"
+    ],
+  },
+  'social/law-and-economics': {
+    title: "法律经济学",
+    books: [
+          "理查德·波斯纳《法律的经济分析》（Economic Analysis of Law, Wolters Kluwer，第9版2014；中国大百科全书出版社中译本）",
+          "罗伯特·考特、托马斯·尤伦《法和经济学》（Law & Economics, Pearson，第6版；格致出版社中译本）",
+          "斯蒂文·沙维尔《法律经济分析的基础理论》（Foundations of Economic Analysis of Law, Harvard University Press, 2004）"
+    ],
+    chapters: [
+      "科斯定理与交易成本",
+      "产权的经济分析",
+      "财产法的经济学：占有、使用与征收",
+      "合同法的经济学：效率违约与救济",
+      "侵权法的经济学：过失责任与严格责任",
+      "犯罪与刑罚的经济分析（贝克尔模型）",
+      "公司法与证券监管的经济分析",
+      "反垄断法的经济学基础",
+      "诉讼与和解的经济分析",
+      "法律程序的成本与激励",
+      "法律制度与经济发展",
+      "行为法律经济学"
+    ],
+  },
+  'social/history-of-political-thought': {
+    title: "政治思想史",
+    books: [
+          "乔治·萨拜因《政治学说史》（A History of Political Theory；商务印书馆中译本）",
+          "列奥·施特劳斯、约瑟夫·克罗波西主编《政治哲学史》（History of Political Philosophy, University of Chicago Press，第3版1987；法律出版社/河北人民出版社中译本）",
+          "萧公权《中国政治思想史》（商务印书馆/新星出版社）"
+    ],
+    chapters: [
+      "古希腊政治思想：柏拉图与亚里士多德",
+      "罗马与中世纪政治思想：西塞罗到奥古斯丁、阿奎那",
+      "马基雅维利与现代政治的开端",
+      "近代自然法与社会契约：霍布斯、洛克、卢梭",
+      "启蒙时代的政治思想：孟德斯鸠与联邦党人",
+      "保守主义传统：柏克及其后继者",
+      "自由主义传统：从边沁到密尔、托克维尔",
+      "社会主义思潮：从空想到马克思主义",
+      "民族主义、帝国主义与法西斯主义的思想根源",
+      "20 世纪政治思想：罗尔斯、诺齐克、哈耶克、阿伦特",
+      "先秦政治思想：儒家、法家、道家",
+      "秦汉至明清政治思想的演变",
+      "中国近代政治思想：从康梁到三民主义",
+      "政治概念史与剑桥学派方法"
+    ],
+  },
+  'social/social-research-methods': {
+    title: "社会研究方法",
+    books: [
+          "艾尔·巴比《社会研究方法》（The Practice of Social Research, Cengage，第15版；华夏出版社中译本，邱泽奇译）",
+          "风笑天《社会研究方法》（中国人民大学出版社，第5版2018）",
+          "袁方主编《社会研究方法教程》（北京大学出版社，重排本）"
+    ],
+    chapters: [
+      "社会科学研究的逻辑：演绎与归纳",
+      "研究设计与选题操作化",
+      "概念化、操作化与测量",
+      "抽样原理与抽样设计",
+      "问卷设计与调查研究",
+      "实验法与准实验设计",
+      "实地研究与参与观察",
+      "深度访谈与焦点小组",
+      "内容分析与文献研究",
+      "社会统计学基础：描述统计与推断统计",
+      "相关与回归分析",
+      "测量的信度与效度",
+      "研究伦理与学术规范",
+      "混合方法与计算社会科学方法"
+    ],
+  },
+  'social/sociological-theory': {
+    title: "社会学理论（古典与当代）",
+    books: [
+          "乔治·瑞泽尔《社会学理论》（Sociological Theory, McGraw-Hill，第9版；北京大学出版社/上海古籍出版社中译本）",
+          "侯钧生主编《西方社会学理论教程》（南开大学出版社，第4版）",
+          "乔纳森·特纳《社会学理论的结构》（The Structure of Sociological Theory, Wadsworth，第10版；华夏出版社中译本）"
+    ],
+    chapters: [
+      "孔德与社会学的创立",
+      "涂尔干：社会事实、分工与自杀论",
+      "马克思：阶级、异化与意识形态",
+      "韦伯：理解社会学、理性化与支配类型",
+      "齐美尔：形式社会学",
+      "帕森斯与结构功能主义",
+      "冲突理论：达伦多夫与科塞",
+      "符号互动论：米德、布鲁默与戈夫曼",
+      "交换理论与理性选择：霍曼斯、布劳、科尔曼",
+      "法兰克福学派批判理论",
+      "布迪厄：场域、惯习与资本",
+      "吉登斯：结构化理论",
+      "哈贝马斯：交往行动理论",
+      "福柯与后现代转向",
+      "社会学理论的中国本土化"
+    ],
+  },
+  'social/organizational-behavior': {
+    title: "组织行为学",
+    books: [
+          "斯蒂芬·罗宾斯、蒂莫西·贾奇《组织行为学》（Organizational Behavior, Pearson，第18版；中国人民大学出版社中译本）",
+          "弗雷德·卢森斯《组织行为学》（Organizational Behavior: An Evidence-Based Approach, McGraw-Hill，第12版；人民邮电出版社中译本）",
+          "埃德加·沙因《组织文化与领导力》（Organizational Culture and Leadership, Jossey-Bass，第5版2016；中国人民大学出版社中译本）"
+    ],
+    chapters: [
+      "组织行为学的学科基础与研究方法",
+      "个体行为：人格、能力与价值观",
+      "知觉与归因",
+      "态度与工作满意度",
+      "情绪与工作压力",
+      "激励的内容理论：马斯洛、赫茨伯格、麦克利兰",
+      "激励的过程理论：期望理论、公平理论、目标设置",
+      "群体行为与团队动力",
+      "沟通与人际过程",
+      "领导理论：特质、行为与权变模型",
+      "变革型领导与领导-成员交换",
+      "权力与政治行为",
+      "冲突与谈判",
+      "组织结构与设计",
+      "组织文化、组织变革与发展"
+    ],
+  },
+  'social/strategic-management': {
+    title: "战略管理",
+    books: [
+          "迈克尔·希特、R. 杜安·爱尔兰、罗伯特·霍斯基森《战略管理：概念与案例》（Strategic Management: Concepts and Cases, Cengage，第12版；中国人民大学出版社中译本）",
+          "弗雷德·戴维《战略管理》（Strategic Management: Concepts and Cases, Pearson，第16版；清华大学出版社中译本）",
+          "杰伊·巴尼、威廉·赫斯特里《战略管理》（Strategic Management and Competitive Advantage, Pearson，第6版）"
+    ],
+    chapters: [
+      "战略与战略管理过程",
+      "愿景、使命与战略目标",
+      "外部环境分析：PEST 与五力模型",
+      "内部资源与能力分析：VRIO 框架",
+      "资源基础观与核心竞争力",
+      "业务层战略：成本领先、差异化与聚焦",
+      "蓝海战略与价值创新",
+      "公司层战略：一体化、多元化与并购",
+      "国际化战略",
+      "战略联盟与合作竞争",
+      "商业模式创新",
+      "战略实施：结构、文化与控制系统",
+      "战略领导与公司治理",
+      "平台战略与生态系统竞争"
+    ],
+  },
+  'social/management-information-systems': {
+    title: "管理信息系统",
+    books: [
+          "肯尼斯·劳东、简·劳东《管理信息系统》（Management Information Systems: Managing the Digital Firm, Pearson，第16版；机械工业出版社中译本）",
+          "薛华成主编《管理信息系统》（清华大学出版社，第7版）",
+          "R. Kelly Rainer 等《信息系统导论》（Introduction to Information Systems, Wiley；中国人民大学出版社中译本）"
+    ],
+    chapters: [
+      "信息系统与组织：技术、组织、管理三维度",
+      "信息系统战略与竞争优势",
+      "企业级系统：ERP 与业务流程",
+      "供应链管理系统与客户关系管理",
+      "电子商务与数字市场",
+      "决策支持系统与商务智能",
+      "大数据在管理中的应用",
+      "知识管理系统",
+      "信息系统规划与开发方法论",
+      "IT 治理与 IT 外包",
+      "信息安全管理与隐私",
+      "企业数字化转型"
+    ],
+  },
+  'social/history-of-education': {
+    title: "教育史（中国教育史与外国教育史）",
+    books: [
+          "孙培青主编《中国教育史》（华东师范大学出版社，第4版2019）",
+          "吴式颖、李明德主编《外国教育史教程》（人民教育出版社，第3版2015）",
+          "张斌贤主编《外国教育史》（教育科学出版社，第2版）"
+    ],
+    chapters: [
+      "中国古代教育的起源与官学私学制度",
+      "孔子与儒家教育思想",
+      "稷下学宫与诸子教育思想",
+      "科举制度的创立与演变",
+      "书院制度与理学教育",
+      "西学东渐与近代学制：癸卯学制、壬戌学制",
+      "蔡元培、陶行知与现代教育思潮",
+      "古希腊罗马教育：苏格拉底、柏拉图、昆体良",
+      "中世纪大学与经院教育",
+      "文艺复兴与宗教改革时期的教育",
+      "夸美纽斯、洛克、卢梭的教育思想",
+      "赫尔巴特与科学教育学的奠基",
+      "杜威与进步主义教育运动",
+      "20 世纪欧美教育改革：要素主义、永恒主义与新传统派"
+    ],
+  },
+  'social/curriculum-and-instruction': {
+    title: "课程与教学论",
+    books: [
+          "王本陆主编《课程与教学论》（高等教育出版社，第4版2023）",
+          "施良方《课程理论：课程的基础、原理与问题》（教育科学出版社，1996）",
+          "拉尔夫·泰勒《课程与教学的基本原理》（Basic Principles of Curriculum and Instruction, University of Chicago Press, 1949/2013；中国轻工业出版社中译本）"
+    ],
+    chapters: [
+      "课程与教学的概念及其关系",
+      "课程论的历史发展：学科中心、学生中心、社会中心",
+      "泰勒原理与目标模式",
+      "课程开发的模式：过程模式与实践模式",
+      "课程类型与课程结构：显性课程与隐性课程",
+      "课程标准与教科书制度",
+      "校本课程开发",
+      "教学过程的本质与规律",
+      "教学原则与教学方法体系",
+      "教学模式：发现学习、掌握学习、有意义学习",
+      "教学设计理论：加涅与迪克-凯里模型",
+      "课堂管理与教学组织形式",
+      "教学评价：诊断性、形成性与总结性评价",
+      "核心素养导向的课程教学改革"
+    ],
+  },
+  'social/experimental-psychology': {
+    title: "实验心理学",
+    books: [
+          "郭秀艳《实验心理学》（人民教育出版社，第2版2019）",
+          "朱滢主编《实验心理学》（北京大学出版社，第4版2022）",
+          "坎特威茨等《实验心理学》（Experimental Psychology, Wadsworth，第10版；华东师范大学出版社中译本）"
+    ],
+    chapters: [
+      "实验心理学的科学性质与历史",
+      "心理学实验的变量与设计：被试内与被试间",
+      "实验的信度与效度、额外变量控制",
+      "心理物理学：费希纳与传统心理物理法",
+      "信号检测论",
+      "反应时法：减法法、加法因素法与开窗技术",
+      "注意实验：过滤器理论与双作业范式",
+      "感知觉实验：知觉组织与错觉研究",
+      "记忆实验：感觉记忆、短时记忆与内隐记忆",
+      "思维与问题解决实验",
+      "情绪实验与面部表情研究",
+      "眼动、脑电与 fMRI 技术在心理学实验中的应用",
+      "实验报告的撰写与研究伦理"
+    ],
+  },
+  'social/psychometrics': {
+    title: "心理统计与测量",
+    books: [
+          "戴海崎、张锋主编《心理与教育测量》（暨南大学出版社，第4版2018）",
+          "张厚粲、徐建平《现代心理与教育统计学》（北京师范大学出版社，第5版2020）",
+          "郑日昌、蔡永红、周益群《心理测量学》（人民教育出版社，1999）"
+    ],
+    chapters: [
+      "心理测量的性质与历史：高尔顿、比内传统",
+      "经典测量理论：真分数模型",
+      "测量的信度：重测、复本、内部一致性",
+      "测量的效度：内容、构想与效标关联效度",
+      "测验的项目分析：难度与区分度",
+      "常模与分数解释",
+      "智力测验：斯坦福-比内、韦克斯勒量表",
+      "人格测验：自陈量表与投射测验",
+      "项目反应理论（IRT）",
+      "心理统计基础：描述统计与概率分布",
+      "假设检验、t 检验与方差分析",
+      "相关与回归分析",
+      "卡方检验与非参数检验",
+      "测量等值与测验公平性"
+    ],
+  },
+  'social/cognitive-psychology': {
+    title: "认知心理学",
+    books: [
+          "王甦、汪安圣《认知心理学》（北京大学出版社，重排本2006）",
+          "罗伯特·斯滕伯格《认知心理学》（Cognitive Psychology, Cengage，第7版；中国轻工业出版社中译本）",
+          "罗伯特·索尔所、金伯利·麦克林《认知心理学》（Cognitive Psychology, Pearson，第8版；上海人民出版社中译本）"
+    ],
+    chapters: [
+      "认知心理学的兴起：信息加工范式",
+      "认知神经科学方法：ERP、fMRI 与脑损伤研究",
+      "知觉：模式识别与知觉加工",
+      "注意：选择性注意与注意资源理论",
+      "记忆结构：感觉记忆、短时记忆与工作记忆",
+      "长时记忆：编码、存储与提取",
+      "知识的表征：概念、图式与语义网络",
+      "表象与心理旋转",
+      "语言：语言理解与产生的认知机制",
+      "问题解决与创造性",
+      "推理与决策",
+      "认知发展与个体差异",
+      "认知心理学的应用：教育、人机交互与临床"
+    ],
+  },
+  'social/personality-psychology': {
+    title: "人格心理学",
+    books: [
+          "杰里·伯格（Jerry M. Burger）《人格心理学》（Personality, Cengage，第10版；中国轻工业出版社中译本）",
+          "黄希庭《人格心理学》（浙江教育出版社，2002）",
+          "兰迪·拉森、戴维·巴斯《人格心理学》（Personality Psychology: Domains of Knowledge About Human Nature, McGraw-Hill，第6版；人民邮电出版社中译本）"
+    ],
+    chapters: [
+      "人格心理学的研究对象与方法",
+      "精神分析理论：弗洛伊德的人格结构与发展",
+      "新精神分析：荣格、阿德勒、霍妮与埃里克森",
+      "特质理论：奥尔波特、卡特尔与艾森克",
+      "大五人格模型与人格的结构",
+      "生物学取向：气质、进化与人格的遗传基础",
+      "人本主义：马斯洛与罗杰斯",
+      "行为主义与社会学习理论：斯金纳、班杜拉",
+      "认知取向：凯利的个人构念理论",
+      "人格测量：问卷、投射与行为评定",
+      "人格的稳定性与毕生发展",
+      "人格与文化：跨文化人格研究",
+      "人格障碍的基础知识"
+    ],
+  },
+  'social/abnormal-psychology': {
+    title: "变态心理学",
+    books: [
+          "钱铭怡主编《变态心理学》（北京大学出版社，2006）",
+          "戴维·巴洛、马克·杜兰德《异常心理学》（Abnormal Psychology: An Integrative Approach, Cengage，第8版；中国轻工业出版社中译本）",
+          "苏珊·诺伦-霍克西玛《变态心理学》（Abnormal Psychology, McGraw-Hill，第8版；人民邮电出版社中译本）"
+    ],
+    chapters: [
+      "变态心理学的研究对象与历史",
+      "心理障碍的分类与诊断：DSM-5 与 ICD-11",
+      "变态心理学的理论模型：生物、心理、社会与整合模型",
+      "临床评估与心理测验",
+      "焦虑障碍：广泛性焦虑、惊恐障碍与恐惧症",
+      "强迫症与创伤后应激障碍",
+      "心境障碍：抑郁障碍与双相障碍",
+      "精神分裂症谱系障碍",
+      "分离障碍与躯体症状障碍",
+      "进食障碍与睡眠障碍",
+      "人格障碍",
+      "神经发育障碍：自闭症谱系与多动症",
+      "物质使用与成瘾障碍",
+      "自杀与危机干预"
     ],
   },
 }
