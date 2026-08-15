@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 次序统计量及其分布
-- [ ] 符号检验与 Wilcoxon 符号秩检验
-- [ ] Wilcoxon 秩和检验与 Mann–Whitney U
-- [ ] Kruskal–Wallis 与 Friedman 检验
-- [ ] Kolmogorov–Smirnov 拟合优度检验
-- [ ] 置换检验与自助法（bootstrap）
-- [ ] U 统计量
-- [ ] 核密度估计与带宽选择
+- [x] [次序统计量及其分布](./order-statistics-and-distributions)
+- [x] [符号检验与 Wilcoxon 符号秩检验](./sign-test-wilcoxon-signed-rank)
+- [x] [Wilcoxon 秩和检验与 Mann–Whitney U](./wilcoxon-rank-sum-mann-whitney-u)
+- [x] [Kruskal–Wallis 与 Friedman 检验](./kruskal-wallis-friedman-tests)
+- [x] [Kolmogorov–Smirnov 拟合优度检验](./kolmogorov-smirnov-goodness-of-fit)
+- [x] [置换检验与自助法（bootstrap）](./permutation-tests-bootstrap)
+- [x] [U 统计量](./u-statistics)
+- [x] [核密度估计与带宽选择](./kernel-density-estimation-bandwidth)
 
 ### 第2篇
 
-- [ ] 非参数回归：核与局部多项式
-- [ ] 光滑样条
-- [ ] 渐近相对效率（Pitman ARE）
-- [ ] 半参数模型引论
+- [x] [非参数回归：核与局部多项式](./nonparametric-regression-kernel-local-polynomial)
+- [x] [光滑样条](./smoothing-splines)
+- [x] [渐近相对效率（Pitman ARE）](./pitman-asymptotic-relative-efficiency)
+- [x] [半参数模型引论](./semiparametric-models-introduction)

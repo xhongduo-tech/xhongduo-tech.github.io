@@ -116,4 +116,7 @@ $$
 - **光滑样条**通过惩罚最小二乘全局求解：拟合误差 $+ \lambda\int g''^2$，$\lambda$ 平衡「贴合」与「平滑」。
 - 最优解是**自然三次样条**：分段三次、节点在 $X_i$、边界线性；无穷维问题自动落入有限维样条空间。
 - 解闭合形式 $\hat{\mathbf g} = (\mathbf I+\lambda\mathbf K)^{-1}\mathbf Y$，是线性光滑器；**有效自由度** $\mathrm{tr}(\mathbf S_\lambda)$ 量化复杂度，从 $2$（直线）到 $n$（插值）。
-- $\lambda$
+- $\lambda$ 用留一交叉验证或 GCV 选择；报告**有效自由度** $\mathrm{tr}(\mathbf S_\lambda)$，让读者一眼看出曲线「相当于几个参数」。
+- 样条的谱系很宽：惩罚样条 ≈ 线性混合模型（REML 一步估 $\lambda$）、≈ 贝叶斯 MAP、装进 GLM 即 GAM——理解 $\hat{\mathbf g}=(\mathbf I+\lambda\mathbf K)^{-1}\mathbf Y$，是一把钥匙开多扇门。
+
+在下一节，我们将回到检验的效率问题：不同非参数检验谁更「省样本」？这正是**渐近相对效率（Pitman ARE）**要正面回答的。

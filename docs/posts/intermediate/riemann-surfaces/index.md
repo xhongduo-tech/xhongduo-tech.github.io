@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 黎曼曲面的定义与例子
-- [ ] 全纯映射与分歧覆盖
-- [ ] Riemann–Hurwitz 公式
-- [ ] 微分形式与留数定理
-- [ ] 层与层上同调初步
-- [ ] Riemann–Roch 定理
-- [ ] Serre 对偶
-- [ ] Abel 定理与 Jacobi 反演
+- [x] [黎曼曲面的定义与例子](./definition-and-examples)
+- [x] [全纯映射与分歧覆盖](./holomorphic-maps-and-branched-covers)
+- [x] [Riemann–Hurwitz 公式](./riemann-hurwitz-formula)
+- [x] [微分形式与留数定理](./differential-forms-and-residues)
+- [x] [层与层上同调初步](./sheaves-and-cohomology)
+- [x] [Riemann–Roch 定理](./riemann-roch-theorem)
+- [x] [Serre 对偶](./serre-duality)
+- [x] [Abel 定理与 Jacobi 反演](./abel-theorem-jacobi-inversion)
 
 ### 第2篇
 
-- [ ] 单值化定理
-- [ ] 紧黎曼曲面与代数曲线
-- [ ] 椭圆曲线作为黎曼曲面
-- [ ] 模空间与 Teichmüller 理论引论
+- [x] [单值化定理](./uniformization-theorem)
+- [x] [紧黎曼曲面与代数曲线](./compact-riemann-surfaces-and-algebraic-curves)
+- [x] [椭圆曲线作为黎曼曲面](./elliptic-curves-as-riemann-surfaces)
+- [x] [模空间与 Teichmüller 理论引论](./moduli-space-and-teichmuller-theory)

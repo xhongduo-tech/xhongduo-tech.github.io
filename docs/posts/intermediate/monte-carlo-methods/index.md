@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 蒙特卡罗方法的思想与大数定律、中心极限定理基础
-- [ ] 伪随机数生成器与统计检验
-- [ ] 逆变换法、舍选抽样法与常见分布抽样
-- [ ] 方差缩减：对偶变量、控制变量与分层抽样
-- [ ] 重要性抽样与自归一化估计
-- [ ] 马尔可夫链蒙特卡罗（MCMC）的基本原理
-- [ ] Metropolis–Hastings 算法
-- [ ] Gibbs 抽样与切片采样
+- [x] [蒙特卡罗方法的思想与大数定律、中心极限定理基础](./monte-carlo-idea-law-of-large-numbers-clt)
+- [x] [伪随机数生成器与统计检验](./pseudo-random-number-generators-tests)
+- [x] [逆变换法、舍选抽样法与常见分布抽样](./inverse-transform-rejection-sampling)
+- [x] [方差缩减：对偶变量、控制变量与分层抽样](./variance-reduction-antithetic-control-stratified)
+- [x] [重要性抽样与自归一化估计](./importance-sampling-self-normalized)
+- [x] [马尔可夫链蒙特卡罗（MCMC）的基本原理](./mcmc-basics)
+- [x] [Metropolis–Hastings 算法](./metropolis-hastings)
+- [x] [Gibbs 抽样与切片采样](./gibbs-sampling-slice-sampling)
 
 ### 第2篇
 
-- [ ] MCMC 的收敛诊断与蒙特卡罗误差估计
-- [ ] 序贯蒙特卡罗与粒子滤波
-- [ ] 拟蒙特卡罗方法与物理、金融中的应用
+- [x] [MCMC 的收敛诊断与蒙特卡罗误差估计](./mcmc-convergence-diagnostics-mc-error)
+- [x] [序贯蒙特卡罗与粒子滤波](./sequential-monte-carlo-particle-filter)
+- [x] [拟蒙特卡罗方法与物理、金融中的应用](./quasi-monte-carlo-applications)

@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 凸集与分离定理
-- [ ] Carathéodory / Helly / Radon 定理
-- [ ] 凸多面体与 f-向量
-- [ ] 格点几何与 Minkowski 基本定理
-- [ ] Ehrhart 多项式
-- [ ] Brunn–Minkowski 不等式
-- [ ] 等周不等式
-- [ ] Borsuk–Ulam 定理及其组合应用
+- [x] [凸集与分离定理](./convex-sets-and-separation-theorems)
+- [x] [Carathéodory / Helly / Radon 定理](./caratheodory-helly-radon-theorems)
+- [x] [凸多面体与 f-向量](./convex-polytopes-and-f-vectors)
+- [x] [格点几何与 Minkowski 基本定理](./lattice-geometry-and-minkowski-theorem)
+- [x] [Ehrhart 多项式](./ehrhart-polynomials)
+- [x] [Brunn–Minkowski 不等式](./brunn-minkowski-inequality)
+- [x] [等周不等式](./isoperimetric-inequality)
+- [x] [Borsuk–Ulam 定理及其组合应用](./borsuk-ulam-theorem)
 
 ### 第2篇
 
-- [ ] 填充与覆盖问题
-- [ ] 组合几何中的 Erdős 型问题
-- [ ] VC 维与 ε-网
-- [ ] 与线性规划及计算几何的联系
+- [x] [填充与覆盖问题](./packing-and-covering)
+- [x] [组合几何中的 Erdős 型问题](./erdos-type-problems-in-combinatorial-geometry)
+- [x] [VC 维与 ε-网](./vc-dimension-and-epsilon-nets)
+- [x] [与线性规划及计算几何的联系](./connections-to-lp-and-computational-geometry)

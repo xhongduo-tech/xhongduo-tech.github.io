@@ -94,6 +94,8 @@ $y$ 轴上的距离简化为 $\int_{y_1}^{y_2}\frac{dy}{y} = \ln\frac{y_2}{y_1}$
 **模空间结构**：$g \ge 2$ 的模空间 $M_g = T_g/\mathrm{Mod}_g$，其中 $T_g$ 是 Teichmüller 空间（$3g-3$ 维复流形）、$\mathrm{Mod}_g$ 是**映射类群**（亏格 $g$ 曲面同胚类的外自同构群）。单值化保证 $T_g$ 是「$\mathbb{H}$ 上的 $3g-3$ 个参数」——详见下一节。
 **曲率与除子**：双曲度量下的测地线、基本域配对，还给出「$\mathbb{H}/\Gamma$ 上的周期」与「除子」的直观联系，为 Abel 定理提供「几何证明」的土壤。
 
+**算例（Hurwitz 界取到最大）**：Hurwitz 界 $|\mathrm{Aut}(X)| \le 84(g-1)$ 在亏格 3 取到最大值：Klein 四次曲线 $x^3y + y^3z + z^3x = 0 \subset \mathbb{P}^2$ 有 $168 = 84 \times (3-1)$ 个自同构，是亏格 3 的 Hurwitz 曲线。它的 Fuchsian 表示来自 $(2,3,7)$ 三角形群——把 $\mathbb{H}$ 的「2、3、7 阶顶点」三角剖分按配对粘合，恰得 Klein 四次曲面。**同一曲面同时是代数方程、$\mathbb{H}$ 的商与对称极大的曲面**，单值化定理的「三大身份」在此三合一，是检验 Fuchsian 群构造的黄金例子。
+
 ## 6 模群与自守函数
 
 当 $\Gamma$ 取特殊的 Fuchsian 群，商曲面带有「算术味道」。最著名的是**模群（modular group）** $\Gamma(1) = \mathrm{PSL}(2,\mathbb{Z})$（$\mathbb{H}$ 上整系数的莫比乌斯变换），它的基本域是「标准模域」——由 $|\mathrm{Re}\,z| \le \frac12$、$|z| \ge 1$ 围成的曲边三角形。<span class="marginnote">模群在 $\mathbb{H}$ 上有椭圆不动点（$i$ 与 $e^{2\pi i/3}$ 附近），所以商 $\mathbb{H}/\mathrm{PSL}(2,\mathbb{Z})$ 不是光滑黎曼曲面而是<strong>带尖点的轨道曲面</strong>（3 个尖点与 2 个锥点）。这不违反单值化——商映射不是自由作用。带尖点的曲面是模曲线理论的日常对象，见《模空间与 Teichmüller 理论引论》。</span>
@@ -112,4 +114,9 @@ $y$ 轴上的距离简化为 $\int_{y_1}^{y_2}\frac{dy}{y} = \ln\frac{y_2}{y_1}$
 - **推论**：任意黎曼曲面 $X \cong \tilde X/\Gamma$，$\tilde X$ 是三大模型之一，$\Gamma \cong \pi_1(X)$ 离散地作用。
 - 分类表：球面（$\Gamma=1$）、$\mathbb{C}^*$ 与环面（$\Gamma = \mathbb{Z}, \mathbb{Z}^2$）、亏格 ≥ 2（Fuchsian 群）。
 - **Fuchsian 群** = $\mathrm{PSL}(2,\mathbb{R})$ 的离散无挠子群；商继承双曲度量，$\mathrm{Area} = 2\pi(2g-2)$。
-- 应用：$g\ge2$ 紧曲面自同构群有限（Hurwitz 界 $84(g-1)$）；模空间 $M_g = T_g/\mathrm{Mod}_g$
+- 应用：$g\ge2$ 紧曲面自同构群有限（Hurwitz 界 $84(g-1)$，亏格 3 的 Klein 四次曲线取到 $168$）；模空间 $M_g = T_g/\mathrm{Mod}_g$；双曲面积 $= 2\pi(2g-2)$。
+- 阅读锚点：$X = \tilde X/\Gamma$ 把「曲面的解析结构」分解为「三大模型之一」与「离散子群 $\Gamma \cong \pi_1(X)$」两部分——单值化是全局的坐标系统，胜过任何局部图册。
+
+动手练一练：对 $\Lambda = \mathbb{Z} + i\mathbb{Z}$，写出环面 $\mathbb{C}/\Lambda$ 的四个 2 扭点，并核对其中三个是 $\wp'$ 的零点（半周期处）。
+
+在下一节，我们离开「三大模型的商」的解析框架，问一个更代数的问题：这些紧曲面为什么都能写成多项式方程的解集？紧黎曼曲面与代数曲线的同构，是下一条桥梁。

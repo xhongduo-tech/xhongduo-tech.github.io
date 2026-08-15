@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 基本概念与热力学第零定律/温标
-- [ ] 热力学第一定律与能量方程
-- [ ] 理想气体与实际气体性质
-- [ ] 热力学第二定律与卡诺循环
-- [ ] 熵与㶲（可用能）分析
-- [ ] 水蒸气与湿空气性质
-- [ ] 气体动力循环：Otto/Diesel/Brayton
-- [ ] 蒸汽动力循环：朗肯循环与再热回热
+- [x] [基本概念与热力学第零定律/温标](./basic-concepts-zeroth-law-temperature-scale)
+- [x] [热力学第一定律与能量方程](./first-law-energy-equation)
+- [x] [理想气体与实际气体性质](./ideal-gas-real-gas-properties)
+- [x] [热力学第二定律与卡诺循环](./second-law-carnot-cycle)
+- [x] [熵与㶲（可用能）分析](./entropy-exergy-analysis)
+- [x] [水蒸气与湿空气性质](./water-vapor-moist-air-properties)
+- [x] [气体动力循环：Otto/Diesel/Brayton](./gas-power-cycles-otto-diesel-brayton)
+- [x] [蒸汽动力循环：朗肯循环与再热回热](./steam-power-cycle-rankine-reheat-regeneration)
 
 ### 第2篇
 
-- [ ] 制冷与热泵循环
-- [ ] 混合气体与化学热力学初步
-- [ ] 喷管与压气机中的流动
+- [x] [制冷与热泵循环](./refrigeration-heat-pump-cycles)
+- [x] [混合气体与化学热力学初步](./gas-mixtures-chemical-thermodynamics)
+- [x] [喷管与压气机中的流动](./nozzle-compressor-flow)
