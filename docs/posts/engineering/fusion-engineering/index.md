@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 聚变反应与劳森判据（D-T/D-D/p-B11 反应截面、三重积）
-- [ ] 磁约束原理（磁镜、环向约束、托卡马克位形）
-- [ ] 等离子体平衡与磁流体不稳定性（扭曲/撕裂模、ELM）
-- [ ] 等离子体加热（欧姆/中性束 NBI/射频 ICRH/ECRH）与电流驱动
-- [ ] 约束与输运（L 模/H 模、输运垒、约束定标律）
-- [ ] 偏滤器与等离子体-壁相互作用（第一壁材料、钨/铍选择）
-- [ ] 超导磁体工程（TF/PF 线圈、CICC 导体、失超保护）
-- [ ] 包层与氚增殖（锂铅/氦冷包层、氚自持循环）
+- [x] [聚变反应与劳森判据（D-T/D-D/p-B11 反应截面、三重积）](./fusion-reactions-lawson-criterion)
+- [x] [磁约束原理（磁镜、环向约束、托卡马克位形）](./magnetic-confinement-principles)
+- [x] [等离子体平衡与磁流体不稳定性（扭曲/撕裂模、ELM）](./plasma-equilibrium-mhd-instability)
+- [x] [等离子体加热（欧姆/中性束 NBI/射频 ICRH/ECRH）与电流驱动](./plasma-heating-current-drive)
+- [x] [约束与输运（L 模/H 模、输运垒、约束定标律）](./confinement-transport-h-mode)
+- [x] [偏滤器与等离子体-壁相互作用（第一壁材料、钨/铍选择）](./divertor-plasma-wall-interaction)
+- [x] [超导磁体工程（TF/PF 线圈、CICC 导体、失超保护）](./superconducting-magnet-engineering)
+- [x] [包层与氚增殖（锂铅/氦冷包层、氚自持循环）](./blanket-tritium-breeding)
 
 ### 第2篇
 
-- [ ] ITER 装置与计划（设计目标、国际合作架构、EAST/CFETR 对照）
-- [ ] 惯性约束聚变（激光间接/直接驱动、NIF 点火成果解读）
-- [ ] 仿星器与替代概念（W7-X、球形托卡马克、场反位形、Z 箍缩）
-- [ ] 聚变电站工程（能量取出、材料辐照损伤、经济性与时间表辨析）
+- [x] [ITER 装置与计划（设计目标、国际合作架构、EAST/CFETR 对照）](./iter-program-design)
+- [x] [惯性约束聚变（激光间接/直接驱动、NIF 点火成果解读）](./inertial-confinement-fusion)
+- [x] [仿星器与替代概念（W7-X、球形托卡马克、场反位形、Z 箍缩）](./stellarator-alternative-concepts)
+- [x] [聚变电站工程（能量取出、材料辐照损伤、经济性与时间表辨析）](./fusion-power-plant-engineering)

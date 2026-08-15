@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] GPU 简史：从图形管线到通用计算（GPGPU）
-- [ ] SIMT 执行模型与硬件层次（SM/warp/线程束调度）
-- [ ] CUDA 编程模型（grid/block/thread、kernel 启动）
-- [ ] 内存层次（全局/共享/常量/纹理内存、合并访问）
-- [ ] 占用率与延迟隐藏（并行度量化分析）
-- [ ] 共享内存与 bank conflict、同步原语
-- [ ] Tensor Core 与矩阵运算（WMMA/MMA、与 H100/B200 博文联动）
-- [ ] 流、事件与并发执行（计算/传输重叠）
+- [x] [GPU 简史：从图形管线到通用计算（GPGPU）](./gpu-history-from-graphics-to-gpgpu)
+- [x] [SIMT 执行模型与硬件层次（SM/warp/线程束调度）](./simt-execution-model-hardware-hierarchy)
+- [x] [CUDA 编程模型（grid/block/thread、kernel 启动）](./cuda-programming-model-grid-block-thread)
+- [x] [内存层次（全局/共享/常量/纹理内存、合并访问）](./memory-hierarchy-global-shared-constant-texture)
+- [x] [占用率与延迟隐藏（并行度量化分析）](./occupancy-latency-hiding-parallelism)
+- [x] [共享内存与 bank conflict、同步原语](./shared-memory-bank-conflict-sync-primitives)
+- [x] [Tensor Core 与矩阵运算（WMMA/MMA、与 H100/B200 博文联动）](./tensor-core-matrix-operations-wmma-mma)
+- [x] [流、事件与并发执行（计算/传输重叠）](./streams-events-concurrent-execution)
 
 ### 第2篇
 
-- [ ] 统一内存与新特性（页迁移、动态并行、协作组）
-- [ ] 性能分析与调优（Nsight、Roofline、内存/计算受限判定）
-- [ ] 多 GPU 编程（NVLink/NVSwitch、NCCL、与集群博文衔接）
-- [ ] 图形管线架构概述（光栅化、光线追踪核心 RT Core）
+- [x] [统一内存与新特性（页迁移、动态并行、协作组）](./unified-memory-dynamic-parallelism-cooperative-groups)
+- [x] [性能分析与调优（Nsight、Roofline、内存/计算受限判定）](./performance-analysis-tuning-nsight-roofline)
+- [x] [多 GPU 编程（NVLink/NVSwitch、NCCL、与集群博文衔接）](./multi-gpu-programming-nvlink-nvswitch-nccl)
+- [x] [图形管线架构概述（光栅化、光线追踪核心 RT Core）](./graphics-pipeline-rasterization-rt-core)

@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 产业模式演进（IDM → fabless/foundry 垂直分工的诞生）
-- [ ] 台积电模式（纯代工的商业创新、产能与良率的规模壁垒）
-- [ ] 设备供应链（ASML、应用材料、泛林、东京电子、KLA 的垄断格局）
-- [ ] 材料与耗材（信越/SUMCO 硅片、光刻胶、特种气体）
-- [ ] 设计生态（ARM 与 IP 授权模式、EDA 三巨头、RISC-V 的变量）
-- [ ] 市场结构（存储的周期性与寡头化、代工/逻辑/模拟分层）
-- [ ] 摩尔定律经济学（建厂成本曲线、先进节点的客户收窄）
-- [ ] 产业政策（美国 CHIPS 法案、中国大基金、欧盟/日韩补贴竞赛）
+- [x] [产业模式演进（IDM → fabless/foundry 垂直分工的诞生）](./industry-model-evolution)
+- [x] [台积电模式（纯代工的商业创新、产能与良率的规模壁垒）](./tsmc-foundry-model)
+- [x] [设备供应链（ASML、应用材料、泛林、东京电子、KLA 的垄断格局）](./equipment-supply-chain)
+- [x] [材料与耗材（信越/SUMCO 硅片、光刻胶、特种气体）](./materials-and-consumables)
+- [x] [设计生态（ARM 与 IP 授权模式、EDA 三巨头、RISC-V 的变量）](./design-ecosystem)
+- [x] [市场结构（存储的周期性与寡头化、代工/逻辑/模拟分层）](./market-structure)
+- [x] [摩尔定律经济学（建厂成本曲线、先进节点的客户收窄）](./moores-law-economics)
+- [x] [产业政策（美国 CHIPS 法案、中国大基金、欧盟/日韩补贴竞赛）](./industrial-policy)
 
 ### 第2篇
 
-- [ ] 出口管制与技术主权（实体清单、EUV 禁运、算力管制）
-- [ ] 地缘格局（台湾海峡集中度风险、供应链「去风险化」）
-- [ ] 人才与研发模式（产学联盟 imec/SEMATECH 的兴衰）
-- [ ] 中国大陆的追赶路径（成熟制程、设备国产化、先进封装换道）
+- [x] [出口管制与技术主权（实体清单、EUV 禁运、算力管制）](./export-controls-tech-sovereignty)
+- [x] [地缘格局（台湾海峡集中度风险、供应链「去风险化」）](./geopolitics-and-supply-chain-risk)
+- [x] [人才与研发模式（产学联盟 imec/SEMATECH 的兴衰）](./talent-and-rd-consortia)
+- [x] [中国大陆的追赶路径（成熟制程、设备国产化、先进封装换道）](./china-catch-up-path)

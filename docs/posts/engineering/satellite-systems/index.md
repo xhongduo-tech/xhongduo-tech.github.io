@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 卫星通信系统（透明/再生转发器、频段分配 C/Ku/Ka）
-- [ ] 星地链路预算与调制编码（DVB-S2、雨衰、多波束天线）
-- [ ] 高通量卫星与低轨星座（Starlink/OneWeb/星网的架构）
-- [ ] 光学遥感（推扫/摆扫、分辨率与幅宽折中、定标）
-- [ ] 微波遥感（SAR 成像原理、干涉 InSAR、散射计/高度计）
-- [ ] 遥感数据应用链（辐射校正→几何校正→反演→产品）
-- [ ] 卫星导航原理（伪距测量、卫星钟差、精密定位 PPP/RTK）
-- [ ] GNSS 系统对比（GPS/GLONASS/伽利略/北斗的信号与体制）
+- [x] [卫星通信系统（透明/再生转发器、频段分配 C/Ku/Ka）](./satellite-communication-systems)
+- [x] [星地链路预算与调制编码（DVB-S2、雨衰、多波束天线）](./satellite-link-budget-modulation-coding)
+- [x] [高通量卫星与低轨星座（Starlink/OneWeb/星网的架构）](./high-throughput-satellite-leo-constellations)
+- [x] [光学遥感（推扫/摆扫、分辨率与幅宽折中、定标）](./optical-remote-sensing)
+- [x] [微波遥感（SAR 成像原理、干涉 InSAR、散射计/高度计）](./microwave-remote-sensing-sar)
+- [x] [遥感数据应用链（辐射校正→几何校正→反演→产品）](./remote-sensing-data-processing-chain)
+- [x] [卫星导航原理（伪距测量、卫星钟差、精密定位 PPP/RTK）](./gnss-principle-pseudorange-positioning)
+- [x] [GNSS 系统对比（GPS/GLONASS/伽利略/北斗的信号与体制）](./gnss-systems-comparison)
 
 ### 第2篇
 
-- [ ] 气象与海洋卫星（静止/极轨双体系、载荷谱系）
-- [ ] 科学卫星与空间天文（巡天、行星际中继）
-- [ ] 小卫星与立方星（CubeSat 标准、搭载发射、编队飞行）
-- [ ] 在轨服务与碎片清除（交会捕获、延寿、主动清除）
+- [x] [气象与海洋卫星（静止/极轨双体系、载荷谱系）](./meteorological-ocean-satellites)
+- [x] [科学卫星与空间天文（巡天、行星际中继）](./scientific-satellites-space-astronomy)
+- [x] [小卫星与立方星（CubeSat 标准、搭载发射、编队飞行）](./small-satellites-cubesat)
+- [x] [在轨服务与碎片清除（交会捕获、延寿、主动清除）](./on-orbit-servicing-debris-removal)

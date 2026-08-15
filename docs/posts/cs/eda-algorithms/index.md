@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 设计流程总览（规格→RTL→综合→布局布线→签核→流片）
-- [ ] 逻辑综合（两级/多级逻辑优化、工艺映射）
-- [ ] 高层次综合 HLS（调度、分配、绑定）
-- [ ] 布图规划与布局（划分、模拟退火、解析式布局器）
-- [ ] 时钟树综合（CTS、偏斜控制）
-- [ ] 布线（Steiner 树、全局/详细布线、轨道分配）
-- [ ] 静态时序分析 STA（时序图、RC 提取、OCV/AOCV）
-- [ ] 物理验证（DRC/LVS/ERC、天线效应）
+- [x] [设计流程总览（规格→RTL→综合→布局布线→签核→流片）](./design-flow-overview)
+- [x] [逻辑综合（两级/多级逻辑优化、工艺映射）](./logic-synthesis)
+- [x] [高层次综合 HLS（调度、分配、绑定）](./high-level-synthesis)
+- [x] [布图规划与布局（划分、模拟退火、解析式布局器）](./floorplanning-placement)
+- [x] [时钟树综合（CTS、偏斜控制）](./clock-tree-synthesis)
+- [x] [布线（Steiner 树、全局/详细布线、轨道分配）](./routing)
+- [x] [静态时序分析 STA（时序图、RC 提取、OCV/AOCV）](./static-timing-analysis)
+- [x] [物理验证（DRC/LVS/ERC、天线效应）](./physical-verification)
 
 ### 第2篇
 
-- [ ] 仿真与验证（事件驱动仿真、覆盖率、UVM 方法学）
-- [ ] 形式验证（等价性检查、模型检验）
-- [ ] 可制造性设计 DFM（OPC 交互、良率感知设计）
-- [ ] ML for EDA（布局/布线/良率预测的机器学习方法）
+- [x] [仿真与验证（事件驱动仿真、覆盖率、UVM 方法学）](./simulation-verification)
+- [x] [形式验证（等价性检查、模型检验）](./formal-verification)
+- [x] [可制造性设计 DFM（OPC 交互、良率感知设计）](./design-for-manufacturability)
+- [x] [ML for EDA（布局/布线/良率预测的机器学习方法）](./ml-for-eda)
