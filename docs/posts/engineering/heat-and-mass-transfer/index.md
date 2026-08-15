@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 导热基本定律与稳态导热
-- [ ] 非稳态导热与集总参数法
-- [ ] 导热数值解法初步
-- [ ] 对流换热原理与边界层理论
-- [ ] 管内强制对流与外掠换热
-- [ ] 自然对流换热
-- [ ] 凝结与沸腾换热
-- [ ] 热辐射基本定律与黑体辐射
+- [x] [导热基本定律与稳态导热](./steady-state-conduction)
+- [x] [非稳态导热与集总参数法](./transient-conduction-lumped-parameter)
+- [x] [导热数值解法初步](./conduction-numerical-methods)
+- [x] [对流换热原理与边界层理论](./convection-boundary-layer-theory)
+- [x] [管内强制对流与外掠换热](./internal-external-forced-convection)
+- [x] [自然对流换热](./natural-convection)
+- [x] [凝结与沸腾换热](./condensation-and-boiling)
+- [x] [热辐射基本定律与黑体辐射](./thermal-radiation-blackbody)
 
 ### 第2篇
 
-- [ ] 灰体间辐射换热与角系数
-- [ ] 换热器设计与分析（LMTD/ε-NTU）
-- [ ] 传质基础与类比律
+- [x] [灰体间辐射换热与角系数](./gray-surface-radiation-view-factor)
+- [x] [换热器设计与分析（LMTD/ε-NTU）](./heat-exchanger-lmtd-ntu)
+- [x] [传质基础与类比律](./mass-transfer-basics)

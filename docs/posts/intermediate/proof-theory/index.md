@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 自然演绎系统
-- [ ] Gentzen 序贯演算（LK / LJ）
-- [ ] 截消定理（cut elimination）
-- [ ] 规范化与子公式性质
-- [ ] 直觉主义逻辑
-- [ ] Peano 算术与归纳
-- [ ] Gentzen 一致性证明与 ε₀
-- [ ] 序数分析引论
+- [x] [自然演绎系统](./natural-deduction)
+- [x] [Gentzen 序贯演算（LK / LJ）](./sequent-calculus)
+- [x] [截消定理（cut elimination）](./cut-elimination)
+- [x] [规范化与子公式性质](./normalization-subformula-property)
+- [x] [直觉主义逻辑](./intuitionistic-logic)
+- [x] [Peano 算术与归纳](./peano-arithmetic-and-induction)
+- [x] [Gentzen 一致性证明与 ε₀](./gentzen-consistency-proof)
+- [x] [序数分析引论](./ordinal-analysis)
 
 ### 第2篇
 
-- [ ] Curry–Howard 对应
-- [ ] Gödel 不完全性定理的证明论视角
-- [ ] 证明挖掘（proof mining）简介
+- [x] [Curry–Howard 对应](./curry-howard-correspondence)
+- [x] [Gödel 不完全性定理的证明论视角](./godel-incompleteness)
+- [x] [证明挖掘（proof mining）简介](./proof-mining)
