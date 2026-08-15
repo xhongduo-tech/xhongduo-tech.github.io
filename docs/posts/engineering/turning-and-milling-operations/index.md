@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 车床结构与安全操作规程
-- [ ] 车刀几何角度与刃磨
-- [ ] 外圆与端面车削
-- [ ] 孔加工（钻孔/镗孔/铰孔）
-- [ ] 螺纹车削
-- [ ] 圆锥面与成形面车削
-- [ ] 铣床类型与铣刀选用
-- [ ] 平面与台阶面铣削
+- [x] [车床结构与安全操作规程](./lathe-structure-and-safety)
+- [x] [车刀几何角度与刃磨](./turning-tool-geometry-and-grinding)
+- [x] [外圆与端面车削](./cylindrical-and-face-turning)
+- [x] [孔加工（钻孔/镗孔/铰孔）](./hole-machining)
+- [x] [螺纹车削](./thread-turning)
+- [x] [圆锥面与成形面车削](./taper-and-formed-surface-turning)
+- [x] [铣床类型与铣刀选用](./milling-machine-types-and-cutters)
+- [x] [平面与台阶面铣削](./plane-and-step-face-milling)
 
 ### 第2篇
 
-- [ ] 沟槽、键槽与切断加工
-- [ ] 分度头使用与简单齿轮铣削
-- [ ] 切削用量（速度/进给/背吃刀量）选择
-- [ ] 常用量具使用与精度测量
-- [ ] 机械加工工艺规程基础
+- [x] [沟槽、键槽与切断加工](./grooves-keyslots-and-parting)
+- [x] [分度头使用与简单齿轮铣削](./dividing-head-and-gear-milling)
+- [x] [切削用量（速度/进给/背吃刀量）选择](./cutting-parameters-selection)
+- [x] [常用量具使用与精度测量](./measuring-tools-and-inspection)
+- [x] [机械加工工艺规程基础](./machining-process-planning)

@@ -115,4 +115,7 @@ $$q_0 = q_m + H_0 h_r$$
 - 热传导方程 $\rho c \partial T/\partial t = k \partial^2 T/\partial z^2 + H$，热扩散率 $\kappa \approx 10^{-6}$ m²/s。
 - **半空间冷却模型**给出 $T(z,t) = T_0\operatorname{erf}(z/2\sqrt{\kappa t})$、$q = kT_0/\sqrt{\pi\kappa t}$、$y_L \approx 2.32\sqrt{\kappa t}$。
 - 地球热收支：地表热流约 46 TW，放射性生热约 20 TW，地球正在缓慢冷却。
-- **尤里比** $\mathrm{U}r \approx 0.5$
+- **尤里比** $\mathrm{U}r \approx 0.5$，地球热流约一半来自放射性生热；地表热流 46 TW 中大洋约 32 TW、大陆约 14 TW。
+- 大陆热流需扣除地壳放射性贡献；地温剖面决定岩石圈强度与 $T_e$，与上一节挠曲模型直接衔接。
+
+在下一节，我们把静态的传导换成运动的流体——地球内部的热如何通过**地幔对流**搬运到地表。

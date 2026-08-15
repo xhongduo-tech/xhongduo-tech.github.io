@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 积分方程的分类（Fredholm 型 / Volterra 型）
-- [ ] 逐次逼近法与 Neumann 级数
-- [ ] 退化核方程
-- [ ] Fredholm 择一定理
-- [ ] Hilbert–Schmidt 理论
-- [ ] 对称核的展开定理
-- [ ] Volterra 方程与预解核
-- [ ] 奇异积分方程
+- [x] [积分方程的分类（Fredholm 型 / Volterra 型）](./classification-fredholm-volterra)
+- [x] [逐次逼近法与 Neumann 级数](./successive-approximation-neumann-series)
+- [x] [退化核方程](./degenerate-kernel-equations)
+- [x] [Fredholm 择一定理](./fredholm-alternative)
+- [x] [Hilbert–Schmidt 理论](./hilbert-schmidt-theory)
+- [x] [对称核的展开定理](./symmetric-kernel-expansion)
+- [x] [Volterra 方程与预解核](./volterra-equations-resolvent-kernel)
+- [x] [奇异积分方程](./singular-integral-equations)
 
 ### 第2篇
 
-- [ ] Wiener–Hopf 方法
-- [ ] 积分方程与微分方程边值问题的等价
-- [ ] 积分方程的数值方法（Nyström 法 / 配置法）
+- [x] [Wiener–Hopf 方法](./wiener-hopf-method)
+- [x] [积分方程与微分方程边值问题的等价](./equivalence-boundary-value-problems)
+- [x] [积分方程的数值方法（Nyström 法 / 配置法）](./numerical-methods-nystrom-collocation)

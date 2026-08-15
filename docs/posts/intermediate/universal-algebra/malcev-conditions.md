@@ -34,6 +34,8 @@ $$p(x, y, y) \approx x, \qquad p(y, y, x) \approx x$$
 
 即「$p$ 在第二、三参数相同时消掉中间元」。群里的 $p(x,y,z) = x \cdot y^{-1} \cdot z$ 是 Mal'cev 项（$x y^{-1} y = x$，$y y^{-1} x = x$）；格里的三元多数运算 $\mathrm{m}(x,y,z) = (x \wedge y) \vee (y \wedge z) \vee (z \wedge x)$ 满足 $\mathrm{m}(x,x,z) \approx \mathrm{m}(x,z,x) \approx \mathrm{m}(z,x,x) \approx x$，但**不是** Mal'cev 项——多数运算要求三个参数中至少两个相等才消元，Mal'cev 项只要求第二、三或第一、二相等，更宽松也更强。
 
+为什么「存在项」能等价于「每个代数都怎样」？直觉是：簇里的等式是「语言内部」的陈述，项的复合最终落在语言内部；而「每个代数的同余可换」是「关于语言外部所有结构」的陈述。Mal'cev 条件断言，在某些元性质上两者等价——这是模型论意义下「可定义性」的代数版本。
+
 ## 2 Mal'cev 定理
 
 **定理（Mal'cev, 1954）**：设 $\mathcal{V}$ 是簇，则下列等价：
@@ -45,6 +47,8 @@ $$p(x, y, y) \approx x, \qquad p(y, y, x) \approx x$$
 这个定理开创了整整一个分支。**重点：Mal'cev 条件把「逐代数的性质」与「整个簇的性质」等价起来。** 条件 2 是关于每个成员的陈述，条件 1 是一个全局的项——从「每个」到「一个」，是谓词逻辑到代数语言的一次压缩。<span class="marginnote">这类等价常被概括为「局部 = 全局」：簇里要是每个代数都怎样，那么整个簇用一个项就能保证它。马尔采夫定理是所有 Mal'cev 条件的鼻祖，其后每个同类条件都沿袭它的名字。</span>
 
 证明要点：$(2) \Rightarrow (1)$ 用自由代数 $\mathbf{F}_\mathcal{V}(x, y, z)$——取三个自由生成元，令 $\theta = \operatorname{Cg}(x, y)$（由 $x \sim y$ 生成的同余）、$\psi = \operatorname{Cg}(y, z)$；可换性给出 $(x, z) \in \theta \circ \psi$，即存在项 $p$ 使 $p(x,y,z)$ 同时满足两条 Mal'cev 等式。$(1) \Rightarrow (2)$ 则用 $p$ 显式构造「换位路径」：若 $a \,\theta\, c$ 且 $c \,\psi\, b$，用 $p(a, c, b)$ 验证 $(a, b) \in \psi \circ \theta$。
+
+证明还有一个值得记住的副产品：$(1) \Rightarrow (2)$ 方向的构造是**显式**的——给定 Mal'cev 项 $p$，任意一条换位路径都可以用 $p$ 现场焊接。所以同余可换不只是「存在」，而是「可计算地存在」；这一显式性在算法化代数（如计算机代数里的同余计算）里直接可用。
 
 ## 3 同余模与同余分配
 
@@ -83,9 +87,35 @@ $$
 - **Mal'cev 条件不保证「唯一」**：一个簇里可能有多个 Mal'cev 项，满足条件的是存在性而非唯一性。
 - **同余可换 ≠ 同余模**：可换对应 Mal'cev 项（三元），模对应 Day 项（四元）——条件不同，项不同，不可混为一谈。混淆它们会在后续读文献时立刻翻车。
 
-## 6 小结
+## 6 数值算例：用「减法」把同余可换走通
+
+在整数加法群 $\mathbb{Z}$ 上，Mal'cev 项就是减法 $p(x,y,z) = x - y + z$：$p(x,y,y) = x - y + y = x$，$p(y,y,x) = y - y + x = x$，两条等式都成立。
+
+现在验证同余可换。取同余 $\theta$ 为「模 2」、$\psi$ 为「模 3」。任取 $a \,\theta\, c$ 且 $c \,\psi\, b$，例如 $a = 0, c = 2, b = 5$（$0 \equiv 2 \pmod 2$，$2 \equiv 5 \pmod 3$）。要证 $(a,b) \in \psi \circ \theta$，即找 $d$ 使 $a \,\psi\, d$ 且 $d \,\theta\, b$。取 $d = p(a,c,b) = 0 - 2 + 5 = 3$：$0 \equiv 3 \pmod 3$ 成立，$3 \equiv 5 \pmod 2$ 成立（两者都 $\equiv 1$）。于是 $(0,5) \in \psi \circ \theta$，可换性在这条路上被「算」了出来。
+
+这就是证明要点 $(1) \Rightarrow (2)$ 的数值切片：**中间元素 $d$ 由 Mal'cev 项现场造出**，不需要任何搜索——项就是那个「万能中转站」。
+
+把 $\mathbb{Z}$ 换成任意群、任意环，同一套「减法」都成立——这就是为什么 Mal'cev 项在群、环、模这些「有减」的结构里无处不在，而「没有减」的格类只在特殊子类里才可换。
+
+## 7 术语速查表
+
+| 术语 | 含义 | 一句话辨析 |
+| --- | --- | --- |
+| 同余可换 | $\theta \circ \psi = \psi \circ \theta$ | 可换 ⇔ $\theta \vee \psi = \theta \circ \psi$ |
+| Mal'cev 项 | $p(x,y,y)\approx x$、$p(y,y,x)\approx x$ | 「减法」的等式替身 |
+| Day 项 | 四元项刻画同余模 | 模律的项化 |
+| Jónsson 项 / Gumm 项 | 四元项刻画同余分配等 | 分配性的项化 |
+| 判别函数 $d(x,y,z)$ | $x\neq y$ 取 $x$，否则取 $z$ | 是 Mal'cev 项 |
+| 多数函数 $m$ | 取三参中至少出现两次的值 | 不是 Mal'cev 项 |
+| 关系复合 $\circ$ | $(a,b)\in\theta\circ\psi \iff \exists c:\ a\,\theta\,c\,\psi\,b$ | 可换性检验的基本操作 |
+
+## 8 小结
 
 - **Mal'cev 条件** = 用「存在某个项满足某组等式」来刻画簇的元性质。
 - **Mal'cev 定理**：簇同余可换 ⟺ 存在 Mal'cev 项 $p(x,y,y) \approx x$、$p(y,y,x) \approx x$。
 - **Day 项**刻画同余模簇，**Jónsson 项 / Gumm 项**刻画同余分配及相关性质。
-- 同余可换的代数里，并可显式化：$\theta \vee \psi = \theta \circ \psi$
+- 同余可换的代数里，并可显式化：$\theta \vee \psi = \theta \circ \psi$。
+- Mal'cev 项是「局部 = 全局」的引擎：簇里每个代数可换，就有一个全局的项把换位路径当场造出。
+- Mal'cev 项的换位路径由 $p$ 现场显式焊接，「可换」不只是存在、而是可计算地存在。
+
+在下一节，我们把镜头从「簇能用项捕捉哪些元性质」转向「单个代数能表达多少函数」——这就是**判别性（primality）引论**。

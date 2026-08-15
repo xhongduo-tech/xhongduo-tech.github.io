@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 符号计算的对象、表示与代数系统概览
-- [ ] 多项式算术：稠密与稀疏表示、快速乘法
-- [ ] 多项式的欧几里得算法与最大公因子
-- [ ] 子结式与结式
-- [ ] 多项式因式分解：有限域与整数环上的算法
-- [ ] Gröbner 基与 Buchberger 算法
-- [ ] 符号积分与 Risch 算法
-- [ ] 代数方程组求解与三角化方法
+- [x] [符号计算的对象、表示与代数系统概览](./overview-and-representation)
+- [x] [多项式算术：稠密与稀疏表示、快速乘法](./polynomial-arithmetic)
+- [x] [多项式的欧几里得算法与最大公因子](./polynomial-gcd-euclid)
+- [x] [子结式与结式](./resultants-and-subresultants)
+- [x] [多项式因式分解：有限域与整数环上的算法](./polynomial-factorization)
+- [x] [Gröbner 基与 Buchberger 算法](./groebner-bases-buchberger)
+- [x] [符号积分与 Risch 算法](./symbolic-integration-risch)
+- [x] [代数方程组求解与三角化方法](./triangular-decomposition-systems)
 
 ### 第2篇
 
-- [ ] 符号微分方程求解初步
-- [ ] 计算机代数系统与自动定理证明应用
+- [x] [符号微分方程求解初步](./symbolic-ode-solving)
+- [x] [计算机代数系统与自动定理证明应用](./cas-and-automated-theorem-proving)

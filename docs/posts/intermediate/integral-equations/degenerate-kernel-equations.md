@@ -114,4 +114,8 @@ $$
 - **退化核** $K(x,t) = \sum_{j=1}^n a_j(x)b_j(t)$ 把积分方程**降维**成 $n$ 元线性方程组 $(\boldsymbol{I} - \lambda\boldsymbol{A})\boldsymbol{c} = \boldsymbol{f}$。
 - 解形如 $y(x) = f(x) + \lambda\sum_j c_j a_j(x)$，未知的只是 $n$ 个常数 $c_j = \int b_j(t)y(t)\,dt$。
 - 行列式 $D(\lambda) \neq 0$ 时解唯一，且可写成**预解核** $y = f + \lambda\int \Gamma f$，$\Gamma$ 是 $\lambda$ 的有理函数——Neumann 级数的收敛半径问题被一举消除。
-- $D(\lambda) = 0$ 时齐次方程有**特征函数**，非齐次方程可解当且仅当 $\boldsymbol{f}$
+- $D(\lambda) = 0$ 时齐次方程有**特征函数**，非齐次方程可解当且仅当 $\boldsymbol{f}$ 与伴随方程的解正交（**相容条件** $\sum f_i d_i = 0$）。
+- 特征函数来自矩阵的**右**特征向量，相容条件把关的是**左**特征向量——对称核下两者重合，非对称核下必须区分。
+- 退化核的意义远超自身：Fredholm 正是先在退化核上把结论证完、再用连续核逼近，才把整个理论推广到一般核——它是整套 Fredholm 理论的脚手架。
+
+在下一节，我们将把退化核里「行列式 $D(\lambda)$ 主宰一切」的直觉，提升为对任意连续核都成立的定理——这就是 **Fredholm 择一定理**。

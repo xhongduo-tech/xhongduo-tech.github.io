@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 情绪理论：离散模型与维度模型
-- [ ] 情感的心理生理学基础
-- [ ] 面部表情识别（FACS 与深度学习）
-- [ ] 语音情感与副语言计算
-- [ ] 生理信号情感识别（ECG/EDA/EEG）
-- [ ] 文本情感分析与情绪检测
-- [ ] 多模态情感融合
-- [ ] 情感生成与虚拟人表达
+- [x] [情绪理论：离散模型与维度模型](./emotion-theories)
+- [x] [情感的心理生理学基础](./psychophysiology-of-affect)
+- [x] [面部表情识别（FACS 与深度学习）](./facial-expression-recognition)
+- [x] [语音情感与副语言计算](./speech-emotion-and-paralinguistics)
+- [x] [生理信号情感识别（ECG/EDA/EEG）](./physiological-signal-emotion-recognition)
+- [x] [文本情感分析与情绪检测](./text-sentiment-and-emotion-detection)
+- [x] [多模态情感融合](./multimodal-emotion-fusion)
+- [x] [情感生成与虚拟人表达](./emotion-generation-and-virtual-agents)
 
 ### 第2篇
 
-- [ ] 情感机器人与具身交互
-- [ ] 心理健康与人机交互应用
-- [ ] 数据集、标注与评测基准
-- [ ] 情感计算的伦理、隐私与操纵风险
+- [x] [情感机器人与具身交互](./affective-robots-and-embodied-interaction)
+- [x] [心理健康与人机交互应用](./mental-health-and-hci-applications)
+- [x] [数据集、标注与评测基准](./datasets-annotation-and-evaluation)
+- [x] [情感计算的伦理、隐私与操纵风险](./ethics-privacy-and-manipulation)

@@ -18,21 +18,21 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 数据类型与描述统计
-- [ ] 概率分布（二项/Poisson/正态）
-- [ ] 抽样分布与参数估计
-- [ ] 假设检验原理
-- [ ] t 检验与非参数检验
-- [ ] 单因素与多因素方差分析
-- [ ] 区组设计与拉丁方
-- [ ] 析因实验设计
+- [x] [数据类型与描述统计](./data-types-descriptive-statistics)
+- [x] [概率分布（二项/Poisson/正态）](./probability-distributions)
+- [x] [抽样分布与参数估计](./sampling-distributions-parameter-estimation)
+- [x] [假设检验原理](./hypothesis-testing-principles)
+- [x] [t 检验与非参数检验](./t-test-nonparametric-tests)
+- [x] [单因素与多因素方差分析](./anova-one-way-multi-way)
+- [x] [区组设计与拉丁方](./block-design-latin-square)
+- [x] [析因实验设计](./factorial-experimental-design)
 
 ### 第2篇
 
-- [ ] 相关与回归分析
-- [ ] 卡方检验与列联表
-- [ ] 计数数据与广义线性模型
-- [ ] 多元统计初步（PCA/判别）
-- [ ] 生存分析基础
-- [ ] 功效分析与样本量估计
-- [ ] R/统计软件实践
+- [x] [相关与回归分析](./correlation-regression-analysis)
+- [x] [卡方检验与列联表](./chi-square-contingency-tables)
+- [x] [计数数据与广义线性模型](./count-data-glms)
+- [x] [多元统计初步（PCA/判别）](./multivariate-analysis-pca-discriminant)
+- [x] [生存分析基础](./survival-analysis-basics)
+- [x] [功效分析与样本量估计](./power-analysis-sample-size)
+- [x] [R/统计软件实践](./r-statistical-software)

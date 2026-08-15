@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 音程、音阶与调式体系 (Piston Ch 1-4)
-- [ ] 三和弦与和声进行：正格/变格/半成 (Piston Ch 5-8)
-- [ ] 七和弦与转位、终止式 (Piston Ch 9-12)
-- [ ] 转调与变化和弦 (Piston Ch 转调部分)
-- [ ] 对位法基础：分类对位（福克斯传统） (Piston 对位章)
-- [ ] 曲式学：乐段、单二部、单三部 (Schoenberg Part I)
-- [ ] 奏鸣曲式与回旋曲式 (Schoenberg Part II-III)
-- [ ] 主题发展与动机展开技术 (Schoenberg Ch 动机)
+- [x] [音程、音阶与调式体系 (Piston Ch 1-4)](./intervals-scales-and-modes)
+- [x] [三和弦与和声进行：正格/变格/半成 (Piston Ch 5-8)](./triads-and-harmonic-progression)
+- [x] [七和弦与转位、终止式 (Piston Ch 9-12)](./seventh-chords-and-cadences)
+- [x] [转调与变化和弦 (Piston Ch 转调部分)](./modulation-and-altered-chords)
+- [x] [对位法基础：分类对位（福克斯传统） (Piston 对位章)](./species-counterpoint)
+- [x] [曲式学：乐段、单二部、单三部 (Schoenberg Part I)](./musical-form-period-binary-ternary)
+- [x] [奏鸣曲式与回旋曲式 (Schoenberg Part II-III)](./sonata-and-rondo-form)
+- [x] [主题发展与动机展开技术 (Schoenberg Ch 动机)](./thematic-development-and-motivic-technique)
 
 ### 第2篇
 
-- [ ] 管弦乐器法：弦/木管/铜管/打击乐性能 (Adler Part I)
-- [ ] 配器法：乐器组合与管弦乐织体 (Adler Part II)
-- [ ] 总谱读法与移调乐器 (Adler Part III)
-- [ ] 20 世纪作曲技术概览：序列主义与音色音乐 (Adler 新版章)
+- [x] [管弦乐器法：弦/木管/铜管/打击乐性能 (Adler Part I)](./orchestral-instruments-and-ranges)
+- [x] [配器法：乐器组合与管弦乐织体 (Adler Part II)](./orchestration-combinations-and-texture)
+- [x] [总谱读法与移调乐器 (Adler Part III)](./score-reading-and-transposing-instruments)
+- [x] [20 世纪作曲技术概览：序列主义与音色音乐 (Adler 新版章)](./twentieth-century-techniques-serialism)

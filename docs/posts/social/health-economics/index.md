@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 健康的人力资本模型（格罗斯曼模型）
-- [ ] 医疗服务需求与道德风险
-- [ ] 医疗保险：逆向选择与风险分担
-- [ ] 医疗供给方诱导需求
-- [ ] 医院与医生的激励机制
-- [ ] 药品市场与专利制度
-- [ ] 卫生技术评估与成本效果分析
-- [ ] 医疗支付制度改革：DRG 与按人头付费
+- [x] [健康的人力资本模型（格罗斯曼模型）](./health-capital-model-grossman)
+- [x] [医疗服务需求与道德风险](./medical-service-demand-moral-hazard)
+- [x] [医疗保险：逆向选择与风险分担](./health-insurance-adverse-selection)
+- [x] [医疗供给方诱导需求](./supplier-induced-demand)
+- [x] [医院与医生的激励机制](./hospital-doctor-incentives)
+- [x] [药品市场与专利制度](./pharmaceutical-market-patents)
+- [x] [卫生技术评估与成本效果分析](./health-technology-assessment-cost-effectiveness)
+- [x] [医疗支付制度改革：DRG 与按人头付费](./payment-reform-drg-capitation)
 
 ### 第2篇
 
-- [ ] 健康不平等及其测量
-- [ ] 传染病防控的经济学分析
-- [ ] 公共卫生干预的经济评价
-- [ ] 中国医改的经济学分析
+- [x] [健康不平等及其测量](./health-inequality-measurement)
+- [x] [传染病防控的经济学分析](./infectious-disease-economics)
+- [x] [公共卫生干预的经济评价](./public-health-intervention-evaluation)
+- [x] [中国医改的经济学分析](./china-healthcare-reform)

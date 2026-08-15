@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 杂环化合物的命名、分类与芳香性
-- [ ] 五元单杂环：呋喃、噻吩、吡咯
-- [ ] 稠合五元杂环：吲哚、苯并呋喃、苯并噻吩
-- [ ] 六元杂环：吡啶、喹啉、异喹啉
-- [ ] 含两个及以上杂原子的环系（咪唑/噻唑/嘧啶/嘌呤）
-- [ ] 杂环的经典合成方法
-- [ ] 杂环的亲电/亲核取代与区域选择性
-- [ ] 杂环的金属化与偶联反应
+- [x] [杂环化合物的命名、分类与芳香性](./nomenclature-classification-aromaticity)
+- [x] [五元单杂环：呋喃、噻吩、吡咯](./five-membered-heterocycles-furan-thiophene-pyrrole)
+- [x] [稠合五元杂环：吲哚、苯并呋喃、苯并噻吩](./fused-five-membered-indole-benzofuran-benzothiophene)
+- [x] [六元杂环：吡啶、喹啉、异喹啉](./six-membered-heterocycles-pyridine-quinoline-isoquinoline)
+- [x] [含两个及以上杂原子的环系（咪唑/噻唑/嘧啶/嘌呤）](./polyazoles-and-azines-imidazole-thiazole-pyrimidine-purine)
+- [x] [杂环的经典合成方法](./classical-synthesis-of-heterocycles)
+- [x] [杂环的亲电/亲核取代与区域选择性](./electrophilic-nucleophilic-substitution-and-regioselectivity)
+- [x] [杂环的金属化与偶联反应](./metallation-and-cross-coupling)
 
 ### 第2篇
 
-- [ ] 杂环在药物与天然产物中的应用
-- [ ] 七元环与饱和杂环（氮杂环/氧杂环）
+- [x] [杂环在药物与天然产物中的应用](./heterocycles-in-drugs-and-natural-products)
+- [x] [七元环与饱和杂环（氮杂环/氧杂环）](./seven-membered-and-saturated-heterocycles)

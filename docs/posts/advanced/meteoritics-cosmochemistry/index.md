@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 元素与同位素的宇宙丰度
-- [ ] 核合成（恒星/超新星/宇宙线）
-- [ ] 太阳星云凝聚序列
-- [ ] 球粒陨石与CAI包体
-- [ ] 无球粒陨石与行星分异
-- [ ] 铁陨石与行星核
-- [ ] 前太阳颗粒（presolar grains）
-- [ ] 短寿命核素与太阳系年表
+- [x] [元素与同位素的宇宙丰度](./element-isotope-cosmic-abundances)
+- [x] [核合成（恒星/超新星/宇宙线）](./nucleosynthesis-stellar-supernova-cosmic-ray)
+- [x] [太阳星云凝聚序列](./solar-nebula-condensation-sequence)
+- [x] [球粒陨石与CAI包体](./chondrites-cai-inclusions)
+- [x] [无球粒陨石与行星分异](./achondrites-planetary-differentiation)
+- [x] [铁陨石与行星核](./iron-meteorites-planetary-cores)
+- [x] [前太阳颗粒（presolar grains）](./presolar-grains)
+- [x] [短寿命核素与太阳系年表](./short-lived-radionuclides-solar-system-chronology)
 
 ### 第2篇
 
-- [ ] 小行星与彗星采样返回
-- [ ] 月球岩石与月壤
-- [ ] 火星陨石
-- [ ] 地外有机物与生命前化学
-- [ ] 撞击过程与冲击变质
+- [x] [小行星与彗星采样返回](./asteroid-comet-sample-return)
+- [x] [月球岩石与月壤](./lunar-rocks-regolith)
+- [x] [火星陨石](./martian-meteorites)
+- [x] [地外有机物与生命前化学](./extraterrestrial-organics-prebiotic-chemistry)
+- [x] [撞击过程与冲击变质](./impact-processes-shock-metamorphism)

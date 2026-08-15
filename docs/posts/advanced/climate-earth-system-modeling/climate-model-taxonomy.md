@@ -119,4 +119,6 @@ $$
 
 - 谱系按复杂度排成 **EBM → RCM → EMIC → GCM/CGCM → ESM**，两端相差约九个数量级的计算量。
 - 谱系的意义是**为问题匹配模式**：时间尺度越长、空间尺度越粗，越该用简单模式。
-- EBM 的核心是单条能量平衡方程 $C\frac{\mathrm{d}T}{\mathrm{d}t} = \frac{S_0}{4}(1-\alpha)-\sigma\varepsilon T^4$，温室效应就藏在 $\varepsilon$
+- EBM 的核心是单条能量平衡方程 $C\frac{\mathrm{d}T}{\mathrm{d}t} = \frac{S_0}{4}(1-\alpha)-\sigma\varepsilon T^4$，温室效应就藏在 $\varepsilon$ 的取值里。
+
+在下一节，我们将打开 GCM 的心脏——从单条方程走向大气环流模式的动力框架，看原始方程组如何被离散成可计算的算法。

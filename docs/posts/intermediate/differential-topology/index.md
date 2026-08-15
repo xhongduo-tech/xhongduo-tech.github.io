@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 光滑流形与光滑映射
-- [ ] 切空间、切丛与映射的微分
-- [ ] 正则值与原像定理
-- [ ] Sard 定理与临界值的测度
-- [ ] 浸入、浸没与子流形
-- [ ] 横截性理论
-- [ ] Whitney 嵌入定理
-- [ ] 向量场、流与管状邻域
+- [x] [光滑流形与光滑映射](./smooth-manifolds-and-smooth-maps)
+- [x] [切空间、切丛与映射的微分](./tangent-spaces-tangent-bundle-and-derivative)
+- [x] [正则值与原像定理](./regular-values-and-preimage-theorem)
+- [x] [Sard 定理与临界值的测度](./sard-theorem-and-critical-values)
+- [x] [浸入、浸没与子流形](./immersions-submersions-and-submanifolds)
+- [x] [横截性理论](./transversality)
+- [x] [Whitney 嵌入定理](./whitney-embedding-theorem)
+- [x] [向量场、流与管状邻域](./vector-fields-flows-and-tubular-neighborhoods)
 
 ### 第2篇
 
-- [ ] 映射度与 Brouwer 不动点定理
-- [ ] Poincaré–Hopf 指标定理
-- [ ] Morse 函数与配边理论初步
+- [x] [映射度与 Brouwer 不动点定理](./degree-and-brouwer-fixed-point)
+- [x] [Poincaré–Hopf 指标定理](./poincare-hopf-index-theorem)
+- [x] [Morse 函数与配边理论初步](./morse-functions-and-cobordism)

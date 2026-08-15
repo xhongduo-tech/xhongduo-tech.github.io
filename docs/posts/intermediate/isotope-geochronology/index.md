@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 放射性衰变定律与地质定年原理
-- [ ] Rb–Sr 与 Sm–Nd 等时线定年
-- [ ] U–Th–Pb 体系与锆石定年
-- [ ] K–Ar 与 ⁴⁰Ar/³⁹Ar 定年
-- [ ] ¹⁴C 放射性碳定年
-- [ ] 宇宙成因核素暴露定年（¹⁰Be 等）
-- [ ] 裂变径迹与 (U–Th)/He 低温热年代学
-- [ ] Sr–Nd–Pb–Hf 同位素示踪与源区判别
+- [x] [放射性衰变定律与地质定年原理](./radioactive-decay-law)
+- [x] [Rb–Sr 与 Sm–Nd 等时线定年](./rb-sr-sm-nd-isochron)
+- [x] [U–Th–Pb 体系与锆石定年](./u-th-pb-zircon)
+- [x] [K–Ar 与 ⁴⁰Ar/³⁹Ar 定年](./k-ar-ar-ar-dating)
+- [x] [¹⁴C 放射性碳定年](./radiocarbon-dating)
+- [x] [宇宙成因核素暴露定年（¹⁰Be 等）](./cosmogenic-nuclide-exposure-dating)
+- [x] [裂变径迹与 (U–Th)/He 低温热年代学](./fission-track-u-th-he)
+- [x] [Sr–Nd–Pb–Hf 同位素示踪与源区判别](./sr-nd-pb-hf-tracers)
 
 ### 第2篇
 
-- [ ] 稳定同位素（C/O/S）在地质过程中的应用
-- [ ] 地质年代表与深时定年的综合约束
+- [x] [稳定同位素（C/O/S）在地质过程中的应用](./stable-isotopes-geology)
+- [x] [地质年代表与深时定年的综合约束](./geologic-time-scale)

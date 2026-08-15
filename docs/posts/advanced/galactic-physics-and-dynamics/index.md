@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 银河系结构与银盘银晕
-- [ ] 星系形态分类与哈勃序列
-- [ ] 星系测光与光谱观测
-- [ ] 恒星轨道理论
-- [ ] 无碰撞玻尔兹曼方程与 Jeans 方程
-- [ ] 旋涡结构与密度波理论
-- [ ] 旋转曲线与暗物质
-- [ ] 星系核球与超大质量黑洞
+- [x] [银河系结构与银盘银晕](./milky-way-structure-disk-halo)
+- [x] [星系形态分类与哈勃序列](./galaxy-morphology-hubble-sequence)
+- [x] [星系测光与光谱观测](./galaxy-photometry-spectroscopy)
+- [x] [恒星轨道理论](./stellar-orbit-theory)
+- [x] [无碰撞玻尔兹曼方程与 Jeans 方程](./collisionless-boltzmann-jeans-equations)
+- [x] [旋涡结构与密度波理论](./spiral-structure-density-wave-theory)
+- [x] [旋转曲线与暗物质](./rotation-curves-dark-matter)
+- [x] [星系核球与超大质量黑洞](./galactic-bulges-smbh)
 
 ### 第2篇
 
-- [ ] 活动星系核
-- [ ] 星系群与星系团
-- [ ] 星系形成与等级成团
-- [ ] 星系演化与大尺度结构
+- [x] [活动星系核](./active-galactic-nuclei)
+- [x] [星系群与星系团](./galaxy-groups-clusters)
+- [x] [星系形成与等级成团](./galaxy-formation-hierarchical-assembly)
+- [x] [星系演化与大尺度结构](./galaxy-evolution-large-scale-structure)

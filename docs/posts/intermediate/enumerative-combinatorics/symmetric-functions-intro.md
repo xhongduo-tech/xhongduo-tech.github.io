@@ -116,4 +116,7 @@ $$E(t)H(-t) = 1 \quad\Longleftrightarrow\quad \sum_{k=0}^{n}(-1)^k e_k h_{n-k} =
 - **生成函数对**：$E(t) = \prod(1+x_i t)$，$H(t) = \prod\frac{1}{1-x_i t}$，$E(t)H(-t) = 1$。
 - **$e$ vs $h$**：严格递增 vs 非降，对应「子集 vs 多重集」。
 - **Schur 函数**：半标准 Young 表求和，通向对称群与 $GL_n$ 的表示论。
-- **基底互化**：牛顿恒等式 $ke_k=\sum(-1)^{i-1}e_{k-i}p_i$；$h_k = \sum_{\lambda\vdash k}z_\lambda^{-1}p_\lambda$
+- **基底互化**：牛顿恒等式 $ke_k=\sum(-1)^{i-1}e_{k-i}p_i$；$h_k = \sum_{\lambda\vdash k}z_\lambda^{-1}p_\lambda$。
+- **通往表示论**：Schur 函数 $s_\lambda$ 是表示论的特征标与 $GL_n$ 表示论的坐标——「数 Young 表」与「数表示维数」在这里同义。
+
+在下一节，我们将离开「精确计数」，转向概率方法的第一课：用期望与删除法证明「满足性质的对象存在」——这就是《概率方法：期望与删除法》。

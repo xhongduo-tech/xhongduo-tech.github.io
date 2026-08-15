@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 地震工程基础：震源/震级/地震动参数
-- [ ] 单自由度体系地震反应与反应谱
-- [ ] 多自由度体系振型分解反应谱法
-- [ ] 结构抗震概念设计与延性设计
-- [ ] 隔震与消能减震技术
-- [ ] 工程结构抗风设计（风荷载/风振）
-- [ ] 建筑防火与结构抗火
-- [ ] 爆炸冲击与结构抗爆防护
+- [x] [地震工程基础：震源/震级/地震动参数](./earthquake-engineering-basics)
+- [x] [单自由度体系地震反应与反应谱](./sdof-seismic-response-response-spectrum)
+- [x] [多自由度体系振型分解反应谱法](./mdof-modal-response-spectrum-method)
+- [x] [结构抗震概念设计与延性设计](./seismic-concept-design-ductility)
+- [x] [隔震与消能减震技术](./seismic-isolation-energy-dissipation)
+- [x] [工程结构抗风设计（风荷载/风振）](./structural-wind-resistant-design)
+- [x] [建筑防火与结构抗火](./building-fire-protection-structural-fire)
+- [x] [爆炸冲击与结构抗爆防护](./blast-impact-structural-protection)
 
 ### 第2篇
 
-- [ ] 地基基础抗震与场地效应
-- [ ] 桥梁抗震与生命线工程
-- [ ] 灾害风险评估与韧性城市
-- [ ] 工程结构检测、鉴定与加固
+- [x] [地基基础抗震与场地效应](./foundation-seismic-site-effects)
+- [x] [桥梁抗震与生命线工程](./bridge-seismic-lifeline-engineering)
+- [x] [灾害风险评估与韧性城市](./disaster-risk-assessment-resilient-city)
+- [x] [工程结构检测、鉴定与加固](./structural-inspection-appraisal-strengthening)

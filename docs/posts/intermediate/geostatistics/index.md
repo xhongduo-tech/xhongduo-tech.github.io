@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 区域化变量与二阶平稳假设
-- [ ] 变异函数（半方差）估计与拟合
-- [ ] 克里金（普通/简单/泛克里金）
-- [ ] 协克里金与多变量估计
-- [ ] 指示克里金与非参数方法
-- [ ] 储量估算与品位插值
-- [ ] 随机模拟（序贯高斯模拟）
-- [ ] 点过程与空间点模式
+- [x] [区域化变量与二阶平稳假设](./regionalized-variables-and-second-order-stationarity)
+- [x] [变异函数（半方差）估计与拟合](./variogram-estimation-and-fitting)
+- [x] [克里金（普通/简单/泛克里金）](./kriging-ordinary-simple-universal)
+- [x] [协克里金与多变量估计](./cokriging-and-multivariate-estimation)
+- [x] [指示克里金与非参数方法](./indicator-kriging-and-nonparametric-methods)
+- [x] [储量估算与品位插值](./ore-reserve-estimation-and-grade-interpolation)
+- [x] [随机模拟（序贯高斯模拟）](./stochastic-simulation-sequential-gaussian)
+- [x] [点过程与空间点模式](./point-processes-and-spatial-patterns)
 
 ### 第2篇
 
-- [ ] 空间自回归与格点数据模型
-- [ ] 地统计在土壤制图与污染评估中的应用
-- [ ] 地统计与 GIS 集成
-- [ ] 不确定性传播与风险评估
+- [x] [空间自回归与格点数据模型](./spatial-autoregression-and-lattice-models)
+- [x] [地统计在土壤制图与污染评估中的应用](./geostatistics-in-soil-mapping-and-contamination)
+- [x] [地统计与 GIS 集成](./geostatistics-and-gis-integration)
+- [x] [不确定性传播与风险评估](./uncertainty-propagation-and-risk-assessment)

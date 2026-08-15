@@ -17,19 +17,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 图像获取与数字化（采样/量化/成像几何）
-- [ ] 灰度变换与直方图处理
-- [ ] 空间域滤波（平滑/锐化）
-- [ ] 频率域处理（傅里叶变换/频域滤波器）
-- [ ] 图像复原与重建（退化模型/逆滤波/CT 重建）
-- [ ] 彩色图像处理
-- [ ] 小波与多分辨率分析
-- [ ] 图像压缩（JPEG/JPEG2000）
+- [x] [图像获取与数字化（采样/量化/成像几何）](./image-acquisition-and-digitization)
+- [x] [灰度变换与直方图处理](./grayscale-transformations-and-histogram-processing)
+- [x] [空间域滤波（平滑/锐化）](./spatial-domain-filtering)
+- [x] [频率域处理（傅里叶变换/频域滤波器）](./frequency-domain-processing)
+- [x] [图像复原与重建（退化模型/逆滤波/CT 重建）](./image-restoration-and-reconstruction)
+- [x] [彩色图像处理](./color-image-processing)
+- [x] [小波与多分辨率分析](./wavelet-and-multiresolution-analysis)
+- [x] [图像压缩（JPEG/JPEG2000）](./image-compression)
 
 ### 第2篇
 
-- [ ] 形态学图像处理
-- [ ] 图像分割（阈值/区域生长/边缘检测/活动轮廓）
-- [ ] 局部特征提取与描述（SIFT/HOG）
-- [ ] 图像配准与拼接
-- [ ] 表示与描述（边界/区域/纹理特征）
+- [x] [形态学图像处理](./morphological-image-processing)
+- [x] [图像分割（阈值/区域生长/边缘检测/活动轮廓）](./image-segmentation)
+- [x] [局部特征提取与描述（SIFT/HOG）](./local-feature-extraction-and-description)
+- [x] [图像配准与拼接](./image-registration-and-mosaicing)
+- [x] [表示与描述（边界/区域/纹理特征）](./representation-and-description)

@@ -113,4 +113,9 @@ $$a(x)y(x) + \frac{b(x)}{\pi i}\int_{a}^{b}\frac{y(t)}{t-x}dt + \int_{a}^{b} N(x
 - **奇异积分方程**的核在路径上有一阶极点，积分须按 **Cauchy 主值**理解：$\text{P.V.}\int = \lim_{\varepsilon\to0}\left[\int_a^{x-\varepsilon}+\int_{x+\varepsilon}^b\right]$。
 - **特征方程** $ay + \frac{b}{\pi i}Sy = f$ 是理论的主角，指标 $\kappa = \text{Ind}\,D$ 由系数绕数决定，不再恒为 0。
 - **Plemelj 公式**把奇异积分与解析函数的跳变相连：$\Phi^+ - \Phi^- = f$，$\Phi^+ + \Phi^- = \frac{1}{\pi i}\text{P.V.}\int\frac{f(t)}{t-x}dt$——证明的实质是 **Poisson 核逼近 δ 函数**。
-- 解特征方程的四步：**主值公式 → 指标计数 → 规范化函数 $X$
+- 解特征方程的四步：**主值公式（建立桥）→ 指标计数（数自由度）→ 规范化函数 $X$（吸收跳变）→ Cauchy 积分（显式解出）**。
+- 指标 $\kappa = \text{Ind}\,D$ 是「择一」的推广：障碍数与自由度数之差不再恒为 0；空气动力学里 $\kappa = 1$ 对应的正是 **Kutta 条件**这个物理补丁。
+- 一般奇异方程 = 特征部分 + 正则核扰动；奇异部分决定本质（指标与解的结构），正则部分决定修正量。
+- 强弱奇异之分在于普通积分是否收敛：Abel 型 $(x-t)^{-\alpha}$（$\alpha<1$）弱奇异，Cauchy 型 $(t-x)^{-1}$ 必须用主值。
+
+在下一节，我们把奇异积分方程送上 Fourier 舞台：当区域退化成半直线、核退化成位移核，Plemelj 公式就翻面成 **Wiener–Hopf 方法的分解与延拓**。

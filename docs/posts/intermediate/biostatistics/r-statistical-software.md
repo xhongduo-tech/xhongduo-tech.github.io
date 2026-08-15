@@ -87,4 +87,47 @@ plot(fit)                                                # 残差诊断
 
 # 卡方与列联表（第 10 篇）
 chisq.test(table(df$smoke, df$disease))                  # 卡方独立性检验
-fisher.test(table(df$smoke, df$
+fisher.test(table(df$smoke, df$disease))                 # 小样本精确检验
+
+# 广义线性模型（第 11 篇）
+glm(disease ~ age + smoke, data = df, family = binomial) # logistic 回归
+glm(count ~ exposure, data = df, family = poisson)       # Poisson 回归
+
+# 生存分析（第 13 篇）
+library(survival)
+km <- survfit(Surv(time, status) ~ treatment, data = df) # KM 曲线
+survdiff(Surv(time, status) ~ treatment, data = df)      # 对数秩检验
+coxph(Surv(time, status) ~ treatment + age, data = df)   # Cox 比例风险
+
+# 功效分析（第 14 篇）
+library(pwr)
+pwr.t.test(d = 0.6, sig.level = 0.05, power = 0.8, type = "two.sample")
+```
+
+## 4 随机化与可复现研究
+
+R 的 `set.seed()` 让随机操作可复现：同一种子 → 同一结果。做模拟、抽样、随机分组前先设种子：
+
+```r
+set.seed(20260807)                             # 固定随机种子
+df <- df[sample(nrow(df)), ]                   # 打乱行序（随机化）
+df$group <- sample(c("A", "B"), nrow(df), replace = TRUE)  # 随机分组
+```
+
+**可复现的完整实践**：用 R Markdown / Quarto 把「数据清理 → 分析 → 图表 → 报告」写成一份文档，读者可一键重跑。这比「论文 + 孤立脚本」先进一代——它把可复现性从「附带脚本」提升到「文档即结果」。<span class="marginnote">R Markdown 里代码与叙述并存，同一份文档既是代码也是论文。学术期刊与基金评审正越来越多地要求提供可复现的完整分析，这是统计实践的行业新标准。</span>
+
+## 5 常见陷阱
+
+**读入即错**：CSV 里的中文编码、空值、列名自动加句点，`read.csv()` 之后先 `str()` / `head()` 检查再往下走。
+**忘看缺失值**：R 的 `mean()` 遇到 `NA` 返回 `NA`——先 `na.omit()` 或写 `na.rm = TRUE`。<span class="marginnote">`na.rm = TRUE` 是 R 新手第一个大坑：`mean(x, na.rm = TRUE)` 才算得出，缺了它整行返回 `NA`，后面的管线全部静默失败。</span>
+**factor 陷阱**：`read.csv()` 旧默认把字符串变 factor（`stringsAsFactors = TRUE`），忘写 `stringsAsFactors = FALSE` 会导致分组顺序错乱。
+**绘图先于检验**：先 `hist()` / `qqnorm()` / `boxplot()` 看数据形态，再决定用参数还是非参数检验——把《t 检验与非参数检验》的决策表变成肌肉记忆。
+
+## 6 小结
+
+- R 的**数据框**是分析起点：`read.csv()` 导入、`dplyr` 五个动词（`filter` / `select` / `mutate` / `group_by` / `summarise`）整理。
+- 本专题每个方法都有对应函数：`t.test`、`aov`、`lm`、`chisq.test`、`glm`、`survfit`、`coxph`、`pwr.t.test`。
+- **先画图再算数**是 R 社区第一纪律；`ggplot2` 用「数据 + 几何对象 + 美学映射」画一切图。
+- **可复现**：`set.seed()` 固定随机性，R Markdown / Quarto 让分析一键重跑。
+
+到这里，生物统计学的主干方法——从描述统计、推断检验、方差分析、回归与卡方、GLM、多元与生存分析，到实验设计与功效——已经全部落地为可以运行的工具。十五篇的每一行公式，最终都通向 `t.test()` 之类的一行代码；而更重要的是，你现在知道**每一行代码背后在检验什么假设、问什么科学问题**。在更深的层级里，你将把这些方法组合成完整的分析管线，并逐步接触贝叶斯统计、混合效应模型与因果推断——那是「从极限到大模型」这座知识大厦的更高楼层。

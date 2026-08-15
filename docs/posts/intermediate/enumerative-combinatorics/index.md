@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 普通生成函数与指数生成函数
-- [ ] 递推关系求解
-- [ ] 容斥原理
-- [ ] 整数分拆
-- [ ] Catalan 数与格路计数
-- [ ] Pólya 计数定理
-- [ ] 对称函数引论
-- [ ] 概率方法：期望与删除法
+- [x] [普通生成函数与指数生成函数](./generating-functions-ordinary-exponential)
+- [x] [递推关系求解](./solving-recurrence-relations)
+- [x] [容斥原理](./inclusion-exclusion-principle)
+- [x] [整数分拆](./integer-partitions)
+- [x] [Catalan 数与格路计数](./catalan-numbers-lattice-paths)
+- [x] [Pólya 计数定理](./polya-counting-theorem)
+- [x] [对称函数引论](./symmetric-functions-intro)
+- [x] [概率方法：期望与删除法](./probabilistic-method-expectation-deletion)
 
 ### 第2篇
 
-- [ ] 第二矩方法
-- [ ] Lovász 局部引理
-- [ ] 相关不等式（FKG）
-- [ ] Turán 定理与 Ramsey 数的概率下界
+- [x] [第二矩方法](./second-moment-method)
+- [x] [Lovász 局部引理](./lovasz-local-lemma)
+- [x] [相关不等式（FKG）](./fkg-correlation-inequality)
+- [x] [Turán 定理与 Ramsey 数的概率下界](./turan-ramsey-probabilistic-lower-bounds)

@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 测量问题与波包坍缩
-- [ ] EPR 佯谬
-- [ ] Bell 不等式及其实验检验
-- [ ] 退相干理论
-- [ ] 哥本哈根诠释
-- [ ] 多世界诠释
-- [ ] 隐变量理论与 Bohm 力学
-- [ ] 自发坍缩模型（GRW）
+- [x] [测量问题与波包坍缩](./measurement-problem-wavefunction-collapse)
+- [x] [EPR 佯谬](./epr-paradox)
+- [x] [Bell 不等式及其实验检验](./bell-inequality-experimental-tests)
+- [x] [退相干理论](./decoherence-theory)
+- [x] [哥本哈根诠释](./copenhagen-interpretation)
+- [x] [多世界诠释](./many-worlds-interpretation)
+- [x] [隐变量理论与 Bohm 力学](./hidden-variables-bohmian-mechanics)
+- [x] [自发坍缩模型（GRW）](./spontaneous-collapse-grw)
 
 ### 第2篇
 
-- [ ] 量子贝叶斯主义（QBism）
-- [ ] 宏观量子叠加与薛定谔猫实验
-- [ ] 弱测量与量子态层析
-- [ ] 语境性与 Kochen-Specker 定理
+- [x] [量子贝叶斯主义（QBism）](./qbism-quantum-bayesianism)
+- [x] [宏观量子叠加与薛定谔猫实验](./macroscopic-superposition-schrodingers-cat)
+- [x] [弱测量与量子态层析](./weak-measurement-quantum-state-tomography)
+- [x] [语境性与 Kochen-Specker 定理](./contextuality-kochen-specker)

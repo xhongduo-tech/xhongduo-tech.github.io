@@ -117,4 +117,7 @@ Katz–Sarnak 猜想的要点：**每个 L 函数族对应一个对称类型**�
 - **零点归一化**：$\hat\gamma_n = \frac{\gamma_n}{2\pi}\log\frac{T}{2\pi}$，平均间距为 1。
 - **Montgomery 对关联**：$R_2(u) = 1 - (\sin\pi u/\pi u)^2$——零点排斥，恰为 GUE sine 核的行列式。
 - **sine 核的桥梁**：$K(u) = \frac{\sin\pi u}{\pi u}$ 同时是 GUE 特征值与零点的普适核。
-- **Katz–Sarnak 对称类型**：$U$、$\mathrm{USp}$、$SO$
+- **Katz–Sarnak 对称类型**：$U$、$\mathrm{USp}$、$SO$——L 函数族在原点附近的低零点密度可区分对称类。
+- **函数域是已证版本**：有限域上曲线的 zeta 函数零点 = Frobenius 矩阵特征值统计，随机矩阵对应严格成立。
+
+在下一节，我们将把这些谱工具（MP、TW、DPP、自由概率）汇入真实战场——无线通信与高维统计，看「噪声基线 + 信号检测」如何成为应用的标准范式。

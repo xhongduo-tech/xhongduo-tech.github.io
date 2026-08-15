@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 智能体概念与问题求解范式
-- [ ] 无信息搜索（BFS/DFS/一致代价搜索）
-- [ ] 启发式搜索（A*/贪心最佳优先）
-- [ ] 局部搜索与元启发式（爬山法/模拟退火/遗传算法）
-- [ ] 对抗搜索与博弈（极小极大/α-β剪枝）
-- [ ] 约束满足问题（回溯/弧一致性）
-- [ ] 命题逻辑与归结推理
-- [ ] 一阶逻辑与自动定理证明
+- [x] [智能体概念与问题求解范式](./agent-concept-and-problem-solving)
+- [x] [无信息搜索（BFS/DFS/一致代价搜索）](./uninformed-search)
+- [x] [启发式搜索（A*/贪心最佳优先）](./informed-search-heuristics)
+- [x] [局部搜索与元启发式（爬山法/模拟退火/遗传算法）](./local-search-metaheuristics)
+- [x] [对抗搜索与博弈（极小极大/α-β剪枝）](./adversarial-search-games)
+- [x] [约束满足问题（回溯/弧一致性）](./constraint-satisfaction-problems)
+- [x] [命题逻辑与归结推理](./propositional-logic-resolution)
+- [x] [一阶逻辑与自动定理证明](./first-order-logic-theorem-proving)
 
 ### 第2篇
 
-- [ ] 知识表示（语义网络/框架/描述逻辑）
-- [ ] 自动规划（STRIPS/状态空间规划/分层任务网络）
-- [ ] 不确定性推理与贝叶斯网络
-- [ ] 专家系统与产生式规则系统
+- [x] [知识表示（语义网络/框架/描述逻辑）](./knowledge-representation)
+- [x] [自动规划（STRIPS/状态空间规划/分层任务网络）](./automated-planning)
+- [x] [不确定性推理与贝叶斯网络](./uncertain-reasoning-bayesian-networks)
+- [x] [专家系统与产生式规则系统](./expert-systems-production-rules)

@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 调和函数回顾
-- [ ] 次调和函数
-- [ ] Green 函数
-- [ ] 容量与能量
-- [ ] 平衡测度
-- [ ] Dirichlet 问题的 Perron 方法
-- [ ] 正则边界点
-- [ ] Riesz 分解定理
+- [x] [调和函数回顾](./harmonic-functions-review)
+- [x] [次调和函数](./subharmonic-functions)
+- [x] [Green 函数](./green-functions)
+- [x] [容量与能量](./capacity-and-energy)
+- [x] [平衡测度](./equilibrium-measures)
+- [x] [Dirichlet 问题的 Perron 方法](./perron-method-dirichlet-problem)
+- [x] [正则边界点](./regular-boundary-points)
+- [x] [Riesz 分解定理](./riesz-decomposition-theorem)
 
 ### 第2篇
 
-- [ ] 细拓扑引论
-- [ ] Martin 边界
-- [ ] 对数位势与复分析的联系
-- [ ] 概率位势论：与布朗运动的联系
+- [x] [细拓扑引论](./thin-topology)
+- [x] [Martin 边界](./martin-boundary)
+- [x] [对数位势与复分析的联系](./logarithmic-potential-and-complex-analysis)
+- [x] [概率位势论：与布朗运动的联系](./probabilistic-potential-theory-brownian-motion)

@@ -18,18 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 建模与仿真的基本概念与分类
-- [ ] 离散事件仿真原理（事件调度/活动扫描/过程交互）
-- [ ] 随机数生成与统计检验
-- [ ] 随机变量生成（逆变换法/拒绝采样法）
-- [ ] 输入数据分析与概率分布拟合
-- [ ] 排队系统仿真
-- [ ] 库存与制造系统仿真案例
-- [ ] 输出数据分析（终止型/稳态型仿真）
+- [x] [建模与仿真的基本概念与分类](./modeling-simulation-basics)
+- [x] [离散事件仿真原理（事件调度/活动扫描/过程交互）](./discrete-event-simulation-principles)
+- [x] [随机数生成与统计检验](./random-number-generation)
+- [x] [随机变量生成（逆变换法/拒绝采样法）](./random-variate-generation)
+- [x] [输入数据分析与概率分布拟合](./input-data-analysis)
+- [x] [排队系统仿真](./queueing-system-simulation)
+- [x] [库存与制造系统仿真案例](./inventory-manufacturing-simulation)
+- [x] [输出数据分析（终止型/稳态型仿真）](./output-data-analysis)
 
 ### 第2篇
 
-- [ ] 方差缩减技术
-- [ ] 仿真的验证、确认与认证（VV&A）
-- [ ] DEVS 形式化体系
-- [ ] 基于智能体的仿真（Agent-based Simulation）
+- [x] [方差缩减技术](./variance-reduction-techniques)
+- [x] [仿真的验证、确认与认证（VV&A）](./verification-validation-accreditation)
+- [x] [DEVS 形式化体系](./devs-formalism)
+- [x] [基于智能体的仿真（Agent-based Simulation）](./agent-based-simulation)
+

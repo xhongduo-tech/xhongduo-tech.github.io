@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 对称操作与对称元素
-- [ ] 点群分类与分子归属
-- [ ] 群的表示与特征标表
-- [ ] 可约表示的约化
-- [ ] 投影算符与对称性匹配线性组合（SALC）
-- [ ] 群论与分子轨道理论
-- [ ] 振动光谱（IR/Raman）的群论分析
-- [ ] 电子光谱与选择定则
+- [x] [对称操作与对称元素](./symmetry-operations-elements)
+- [x] [点群分类与分子归属](./point-group-classification)
+- [x] [群的表示与特征标表](./group-representations-character-tables)
+- [x] [可约表示的约化](./reducible-representation-reduction)
+- [x] [投影算符与对称性匹配线性组合（SALC）](./projection-operators-salcs)
+- [x] [群论与分子轨道理论](./group-theory-molecular-orbitals)
+- [x] [振动光谱（IR/Raman）的群论分析](./vibrational-spectroscopy-ir-raman)
+- [x] [电子光谱与选择定则](./electronic-spectra-selection-rules)
 
 ### 第2篇
 
-- [ ] 配位场中的轨道分裂
-- [ ] 对称性与化学反应性（轨道对称守恒）
-- [ ] 空间群与晶体对称性简介
+- [x] [配位场中的轨道分裂](./ligand-field-orbital-splitting)
+- [x] [对称性与化学反应性（轨道对称守恒）](./symmetry-chemical-reactivity)
+- [x] [空间群与晶体对称性简介](./space-groups-crystal-symmetry)

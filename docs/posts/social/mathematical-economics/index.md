@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 矩阵代数与线性经济模型
-- [ ] 比较静态分析与隐函数定理
-- [ ] 无约束与等式约束最优化
-- [ ] 库恩-塔克条件与非线性规划
-- [ ] 凹规划与二阶条件
-- [ ] 包络定理及其应用
-- [ ] 差分方程与经济动态学
-- [ ] 微分方程与相位图分析
+- [x] [矩阵代数与线性经济模型](./matrix-algebra-linear-models)
+- [x] [比较静态分析与隐函数定理](./comparative-statics-implicit-function)
+- [x] [无约束与等式约束最优化](./unconstrained-equality-constrained-optimization)
+- [x] [库恩-塔克条件与非线性规划](./kuhn-tucker-nonlinear-programming)
+- [x] [凹规划与二阶条件](./concave-programming-second-order-conditions)
+- [x] [包络定理及其应用](./envelope-theorem)
+- [x] [差分方程与经济动态学](./difference-equations-economic-dynamics)
+- [x] [微分方程与相位图分析](./differential-equations-phase-diagrams)
 
 ### 第2篇
 
-- [ ] 最优控制理论与汉密尔顿函数
-- [ ] 动态规划与贝尔曼方程
-- [ ] 一般均衡的数学表述
-- [ ] 不确定性下的决策：期望效用理论
+- [x] [最优控制理论与汉密尔顿函数](./optimal-control-hamiltonian)
+- [x] [动态规划与贝尔曼方程](./dynamic-programming-bellman)
+- [x] [一般均衡的数学表述](./general-equilibrium-mathematical-formulation)
+- [x] [不确定性下的决策：期望效用理论](./expected-utility-theory)

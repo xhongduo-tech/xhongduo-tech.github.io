@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 自旋极化与自旋输运基础
-- [ ] 巨磁电阻（GMR）
-- [ ] 隧穿磁电阻（TMR）
-- [ ] 自旋注入与探测
-- [ ] 自旋轨道耦合（Rashba/Dresselhaus）
-- [ ] 自旋霍尔效应与逆自旋霍尔效应
-- [ ] 自旋转移力矩与自旋轨道力矩
-- [ ] 磁畴壁运动与赛道存储
+- [x] [自旋极化与自旋输运基础](./spin-polarization-and-spin-transport-basics)
+- [x] [巨磁电阻（GMR）](./giant-magnetoresistance)
+- [x] [隧穿磁电阻（TMR）](./tunneling-magnetoresistance)
+- [x] [自旋注入与探测](./spin-injection-and-detection)
+- [x] [自旋轨道耦合（Rashba/Dresselhaus）](./spin-orbit-coupling-rashba-dresselhaus)
+- [x] [自旋霍尔效应与逆自旋霍尔效应](./spin-hall-effect-inverse-spin-hall-effect)
+- [x] [自旋转移力矩与自旋轨道力矩](./spin-transfer-torque-spin-orbit-torque)
+- [x] [磁畴壁运动与赛道存储](./domain-wall-motion-racetrack-memory)
 
 ### 第2篇
 
-- [ ] 稀磁半导体与自旋场效应管
-- [ ] 磁随机存储器（MRAM）
-- [ ] 反铁磁自旋电子学
+- [x] [稀磁半导体与自旋场效应管](./diluted-magnetic-semiconductors-spin-fet)
+- [x] [磁随机存储器（MRAM）](./mram)
+- [x] [反铁磁自旋电子学](./antiferromagnetic-spintronics)

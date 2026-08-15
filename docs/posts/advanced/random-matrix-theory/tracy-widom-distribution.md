@@ -110,10 +110,14 @@ $$\frac{L_n - 2\sqrt{n}}{n^{1/6}} \xrightarrow{d} \text{TW}_2$$
 
 **三种 $\beta$ 的位置差异**：数值上 $\beta$ 越大，TW 分布整体越靠右——强排斥把最大特征值推得更高：$F_4$ 相对 $F_2$ 右移约 $O(1)$，$F_1$ 相对 $F_2$ 略左移。三者形状相似，但位置与宽度不同，实际检验时须用对应 $\beta$ 的分位数。
 
+**辨析｜易错点：** TW 的右尾 $1-F_2(s) \sim \frac{e^{-\frac{4}{3}s^{3/2}}}{16\pi s^{3/2}}$ 衰减极快，左尾 $F_2(s) \sim e^{-|s|^3/12}$ 更慢，因此分布强烈不对称。「超过 $b$ 才算显著」必须用**右尾分位数**；若误用对称分位点，会把大量噪声墙内的峰值误判为信号。实际 $p$ 值做法：算 $q = (\lambda_{\max} - b)N^{2/3}$，代入 $F_2$ 右尾即可。
+
 ## 7 小结
 
 - **软边缘标度**：$\lambda_{\max} = 2 + N^{-2/3}\,\zeta$，标度来自半圆密度在边缘的平方根消失。
 - **Airy 核**：边缘极限下 DPP 的核 $K(x,y) = \frac{\operatorname{Ai}(x)\operatorname{Ai}'(y) - \operatorname{Ai}'(x)\operatorname{Ai}(y)}{x-y}$。
 - **Fredholm 行列式**：$\mathbb{P}(\lambda_{\max} \le s) = \det(I - K_s)$，即「$[s,\infty)$ 内无点」的概率。
 - **Painlevé II**：$F_2(s) = e^{-\int_s^\infty (x-s)q(x)^2 dx}$，$q'' = xq + 2q^3$，$q \sim \operatorname{Ai}$——Fredholm 行列式被化为 ODE。
-- **BDJ 定理**：LIS 长度 $(L_n - 2\sqrt{n})/n^{1/6} \to \text{TW}_2$
+- **BDJ 定理**：LIS 长度 $(L_n - 2\sqrt{n})/n^{1/6} \to \text{TW}_2$——TW 跨出矩阵的第一个组合学应用。
+
+在下一节，我们将离开方阵世界，看矩形矩阵样本协方差的谱——那里最大的特征值同样由 TW 控制，而整体谱由 Marchenko–Pastur 律描述。

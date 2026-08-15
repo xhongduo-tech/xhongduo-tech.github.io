@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 可靠性的基本概念与指标体系
-- [ ] 失效规律与寿命分布：指数、Weibull 与对数正态分布
-- [ ] 系统可靠性模型：串联、并联、表决与旁联系统
-- [ ] 可靠性框图与马尔可夫模型
-- [ ] FMEA/FMECA 与故障树分析（FTA）
-- [ ] 可靠性预计、分配与冗余设计
-- [ ] 可靠性试验与加速寿命试验
-- [ ] 可靠性增长：Duane 模型与 AMSAA 模型
+- [x] [可靠性的基本概念与指标体系](./reliability-basic-concepts)
+- [x] [失效规律与寿命分布：指数、Weibull 与对数正态分布](./failure-laws-life-distributions)
+- [x] [系统可靠性模型：串联、并联、表决与旁联系统](./system-reliability-models)
+- [x] [可靠性框图与马尔可夫模型](./reliability-block-diagrams-markov)
+- [x] [FMEA/FMECA 与故障树分析（FTA）](./fmea-fmeca-fault-tree)
+- [x] [可靠性预计、分配与冗余设计](./reliability-prediction-allocation-redundancy)
+- [x] [可靠性试验与加速寿命试验](./reliability-testing-accelerated-life)
+- [x] [可靠性增长：Duane 模型与 AMSAA 模型](./reliability-growth-duane-amsaa)
 
 ### 第2篇
 
-- [ ] 维修性、可用性与综合保障工程
-- [ ] 软件可靠性与 MBSE 中的可靠性工作
+- [x] [维修性、可用性与综合保障工程](./maintainability-availability-logistics)
+- [x] [软件可靠性与 MBSE 中的可靠性工作](./software-reliability-mbse)

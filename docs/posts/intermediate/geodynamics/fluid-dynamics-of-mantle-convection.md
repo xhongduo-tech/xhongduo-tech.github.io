@@ -115,4 +115,7 @@ $$\mathrm{Ra} = \frac{4000 \times 3\times10^{-5} \times 10 \times 2000 \times (2
 - 布西内斯克近似把密度变化压缩进浮力项：$\rho = \rho_0[1-\alpha(T-T_0)]$。
 - 二维流函数 $\psi$ 满足涡度方程 $\mu\nabla^4\psi = \rho_0\alpha g\,\partial T/\partial x$，是解析与数值的基本形式。
 - 无量纲化后唯一的控制参数是**瑞利数** $\mathrm{Ra} = \rho_0\alpha g\Delta T d^3/(\mu\kappa)$。
-- 地幔整体 $\mathrm{Ra} \approx 10^7$
+- 地幔整体 $\mathrm{Ra} \approx 10^7$，远超临界值，对流强烈超临界。
+- 关键简化流程：不可压缩 → 无穷普朗特数 → 布西内斯克 → 斯托克斯流，惯性项被剔除、方程变线性，是地幔对流建模的「从完整到极简」范式。
+
+在下一节，我们问：这样巨大的瑞利数下，对流会长成什么样子——这就是**瑞利数与对流形态**。

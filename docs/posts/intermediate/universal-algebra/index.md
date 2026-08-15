@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 代数与同类（type）
-- [ ] 子代数与同态
-- [ ] 同构定理
-- [ ] 同余格
-- [ ] 自由代数
-- [ ] 项与等式
-- [ ] 簇（variety）与 Birkhoff HSP 定理
-- [ ] 等式逻辑的完备性
+- [x] [代数与同类（type）](./algebras-and-type)
+- [x] [子代数与同态](./subalgebras-and-homomorphisms)
+- [x] [同构定理](./isomorphism-theorems)
+- [x] [同余格](./congruence-lattices)
+- [x] [自由代数](./free-algebras)
+- [x] [项与等式](./terms-and-identities)
+- [x] [簇（variety）与 Birkhoff HSP 定理](./varieties-and-hsp-theorem)
+- [x] [等式逻辑的完备性](./completeness-of-equational-logic)
 
 ### 第2篇
 
-- [ ] Mal'cev 条件
-- [ ] 判别性（primality）引论
-- [ ] 克隆（clone）理论初步
-- [ ] 与格论及模型论的联系
+- [x] [Mal'cev 条件](./malcev-conditions)
+- [x] [判别性（primality）引论](./primality-an-introduction)
+- [x] [克隆（clone）理论初步](./clones-an-introduction)
+- [x] [与格论及模型论的联系](./connections-to-lattice-and-model-theory)

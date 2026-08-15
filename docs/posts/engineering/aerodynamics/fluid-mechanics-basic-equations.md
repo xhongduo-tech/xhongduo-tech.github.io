@@ -115,4 +115,8 @@ $$\Gamma = -\oint_C \mathbf{V} \cdot \mathrm{d}\mathbf{s}$$
 - **连续方程** $\partial\rho/\partial t + \nabla\cdot(\rho\mathbf{V}) = 0$ 表达质量守恒；定常一维形式 $\rho_1V_1A_1 = \rho_2V_2A_2$。
 - **动量方程**：无黏为欧拉方程 $\rho D\mathbf{V}/Dt = -\nabla p$，完整形式为 N-S 方程。
 - **伯努利方程** $p + \tfrac12\rho V^2 = \text{const}$ 沿流线成立，是欧拉方程积分的产物。
-- **能量方程** $h + \tfrac12 V^2 = \text{const}$
+- **能量方程** $h + \tfrac12 V^2 = \text{const}$：定常绝热无轴功时沿流线守恒，是激波前后「总焓不变」的数学依据。
+- **旋度与环量**：$\boldsymbol{\omega} = \nabla\times\mathbf{V}$ 度量局部旋转，$\Gamma = -\oint \mathbf{V}\cdot\mathrm{d}\mathbf{s}$ 是升力理论的主角；流函数与速度势是位流理论的两把钥匙。
+- 三大守恒方程 + 两个流场描述量，构成后续一切分析的「原始方程」，之后所有章节都是它们的简化。
+
+在下一节，我们将把「无黏 + 不可压 + 无旋」的假设放上这三条方程，走进位流理论的殿堂。

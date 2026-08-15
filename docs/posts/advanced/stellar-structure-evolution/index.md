@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 恒星观测特征与 H-R 图
-- [ ] 流体静力学平衡与位力定理
-- [ ] 恒星物态方程与简并物质
-- [ ] 不透明度与能量传输（辐射/对流）
-- [ ] 核反应速率与 pp 链、CNO 循环
-- [ ] 恒星结构方程组与数值模型
-- [ ] 主序星结构与质光关系
-- [ ] 后主序演化：红巨星与 AGB
+- [x] [恒星观测特征与 H-R 图](./stellar-observations-hr-diagram)
+- [x] [流体静力学平衡与位力定理](./hydrostatic-equilibrium-virial-theorem)
+- [x] [恒星物态方程与简并物质](./equation-of-state-degenerate-matter)
+- [x] [不透明度与能量传输（辐射/对流）](./opacity-energy-transport)
+- [x] [核反应速率与 pp 链、CNO 循环](./nuclear-reactions-pp-chain-cno-cycle)
+- [x] [恒星结构方程组与数值模型](./stellar-structure-equations-numerical-models)
+- [x] [主序星结构与质光关系](./main-sequence-mass-luminosity)
+- [x] [后主序演化：红巨星与 AGB](./post-main-sequence-red-giant-agb)
 
 ### 第2篇
 
-- [ ] 恒星脉动
-- [ ] 白矮星
-- [ ] 超新星爆发
-- [ ] 中子星与恒星质量黑洞
-- [ ] 双星相互作用演化
+- [x] [恒星脉动](./stellar-pulsation)
+- [x] [白矮星](./white-dwarfs)
+- [x] [超新星爆发](./supernova-explosions)
+- [x] [中子星与恒星质量黑洞](./neutron-stars-black-holes)
+- [x] [双星相互作用演化](./binary-stellar-evolution)

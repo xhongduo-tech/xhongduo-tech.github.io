@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 决策问题的形式化：状态、行动与结果
-- [ ] 确定性、风险与不确定性下的决策
-- [ ] 期望效用理论与 vNM 公理
-- [ ] 主观概率与拉姆齐-德菲内蒂路径
-- [ ] Allais 悖论与 Ellsberg 悖论
-- [ ] 贝叶斯决策理论与证据更新
-- [ ] 博弈论基础与纳什均衡的哲学地位
-- [ ] 囚徒困境、集体行动与社会选择
+- [x] [决策问题的形式化：状态、行动与结果](./formalizing-decision-problems)
+- [x] [确定性、风险与不确定性下的决策](./certainty-risk-uncertainty)
+- [x] [期望效用理论与 vNM 公理](./expected-utility-vnm-axioms)
+- [x] [主观概率与拉姆齐-德菲内蒂路径](./subjective-probability-ramsey-definetti)
+- [x] [Allais 悖论与 Ellsberg 悖论](./allais-ellsberg-paradoxes)
+- [x] [贝叶斯决策理论与证据更新](./bayesian-decision-theory)
+- [x] [博弈论基础与纳什均衡的哲学地位](./game-theory-nash-equilibrium)
+- [x] [囚徒困境、集体行动与社会选择](./prisoner-dilemma-collective-action-social-choice)
 
 ### 第2篇
 
-- [ ] Newcomb 问题与因果/证据决策论之争
-- [ ] 有限理性与描述性决策理论
-- [ ] 决策论在认识论与伦理学中的应用
+- [x] [Newcomb 问题与因果/证据决策论之争](./newcomb-causal-evidential-decision-theory)
+- [x] [有限理性与描述性决策理论](./bounded-rationality-descriptive-decision-theory)
+- [x] [决策论在认识论与伦理学中的应用](./decision-theory-epistemology-ethics)

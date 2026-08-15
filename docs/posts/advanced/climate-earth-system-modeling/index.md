@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 气候模式的谱系（EBM→GCM→ESM）
-- [ ] 大气环流模式的动力框架
-- [ ] 海洋环流模式（坐标与混合参数化）
-- [ ] 海冰模式
-- [ ] 陆面过程模式
-- [ ] 碳循环与生物地球化学模块
-- [ ] 气溶胶与大气化学模块
-- [ ] 耦合技术与通量校正
+- [x] [气候模式的谱系（EBM→GCM→ESM）](./climate-model-taxonomy)
+- [x] [大气环流模式的动力框架](./agcm-dynamical-core)
+- [x] [海洋环流模式（坐标与混合参数化）](./ocean-general-circulation-models)
+- [x] [海冰模式](./sea-ice-models)
+- [x] [陆面过程模式](./land-surface-process-models)
+- [x] [碳循环与生物地球化学模块](./carbon-cycle-biogeochemistry-modules)
+- [x] [气溶胶与大气化学模块](./aerosol-atmospheric-chemistry-modules)
+- [x] [耦合技术与通量校正](./coupling-techniques-flux-correction)
 
 ### 第2篇
 
-- [ ] 初始漂移与模式气候态
-- [ ] 敏感性试验与反馈分析
-- [ ] CMIP 框架与情景试验
-- [ ] 降尺度（动力/统计）
-- [ ] 模式评估与不确定度
-- [ ] 地球系统模式的机器学习组件
+- [x] [初始漂移与模式气候态](./initial-drift-and-model-climatology)
+- [x] [敏感性试验与反馈分析](./sensitivity-experiments-feedback-analysis)
+- [x] [CMIP 框架与情景试验](./cmip-framework-scenario-experiments)
+- [x] [降尺度（动力/统计）](./downscaling-dynamical-statistical)
+- [x] [模式评估与不确定度](./model-evaluation-uncertainty)
+- [x] [地球系统模式的机器学习组件](./machine-learning-components-in-esms)

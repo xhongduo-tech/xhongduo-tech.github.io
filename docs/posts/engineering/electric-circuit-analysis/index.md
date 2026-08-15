@@ -18,19 +18,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 电路模型与基本变量（电压/电流/功率）
-- [ ] 基尔霍夫定律与电阻等效变换
-- [ ] 线性电阻电路分析：节点法与网孔法
-- [ ] 电路定理：叠加/戴维宁/诺顿/最大功率传输
-- [ ] 运算放大器与含受控源电路
-- [ ] 一阶电路（RC/RL）时域分析
-- [ ] 二阶电路与暂态响应
-- [ ] 正弦稳态分析与相量法
+- [x] [电路模型与基本变量（电压/电流/功率）](./circuit-model-and-basic-variables)
+- [x] [基尔霍夫定律与电阻等效变换](./kirchhoff-laws-and-resistance-equivalence)
+- [x] [线性电阻电路分析：节点法与网孔法](./node-voltage-and-mesh-current)
+- [x] [电路定理：叠加/戴维宁/诺顿/最大功率传输](./circuit-theorems)
+- [x] [运算放大器与含受控源电路](./op-amp-and-controlled-sources)
+- [x] [一阶电路（RC/RL）时域分析](./first-order-circuits)
+- [x] [二阶电路与暂态响应](./second-order-circuits)
+- [x] [正弦稳态分析与相量法](./sinusoidal-steady-state-and-phasors)
 
 ### 第2篇
 
-- [ ] 正弦稳态功率与三相电路
-- [ ] 频率响应、谐振与滤波器
-- [ ] 互感与变压器电路
-- [ ] 拉普拉斯变换与网络函数
-- [ ] 二端口网络参数
+- [x] [正弦稳态功率与三相电路](./ac-power-and-three-phase)
+- [x] [频率响应、谐振与滤波器](./frequency-response-resonance-filters)
+- [x] [互感与变压器电路](./mutual-inductance-and-transformers)
+- [x] [拉普拉斯变换与网络函数](./laplace-transform-and-network-functions)
+- [x] [二端口网络参数](./two-port-networks)

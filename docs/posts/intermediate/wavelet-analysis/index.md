@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 从 Fourier 分析到时频分析：窗口 Fourier 变换
-- [ ] 连续小波变换与容许条件
-- [ ] 框架理论与离散小波
-- [ ] 多分辨分析（MRA）
-- [ ] 正交小波基的构造：Haar 小波与 Daubechies 小波
-- [ ] Mallat 快速分解与重构算法
-- [ ] 双正交小波与提升格式
-- [ ] 小波包与最优基选择
+- [x] [从 Fourier 分析到时频分析：窗口 Fourier 变换](./from-fourier-to-time-frequency-windowed-fourier-transform)
+- [x] [连续小波变换与容许条件](./continuous-wavelet-transform-admissibility-condition)
+- [x] [框架理论与离散小波](./frame-theory-and-discrete-wavelets)
+- [x] [多分辨分析（MRA）](./multiresolution-analysis-mra)
+- [x] [正交小波基的构造：Haar 小波与 Daubechies 小波](./orthogonal-wavelet-basis-haar-daubechies)
+- [x] [Mallat 快速分解与重构算法](./mallat-fast-decomposition-reconstruction)
+- [x] [双正交小波与提升格式](./biorthogonal-wavelets-and-lifting-scheme)
+- [x] [小波包与最优基选择](./wavelet-packets-and-best-basis-selection)
 
 ### 第2篇
 
-- [ ] 小波阈值去噪与统计估计
-- [ ] 应用：图像压缩（JPEG 2000）、特征提取与机器学习
+- [x] [小波阈值去噪与统计估计](./wavelet-thresholding-denoising-statistical-estimation)
+- [x] [应用：图像压缩（JPEG 2000）、特征提取与机器学习](./applications-image-compression-feature-extraction-ml)

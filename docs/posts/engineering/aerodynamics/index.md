@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 空气动力学基本原理与标准大气
-- [ ] 流体力学基础：连续/动量/能量方程
-- [ ] 无黏不可压流与位流理论
-- [ ] 翼型绕流与库塔-茹科夫斯基定理
-- [ ] 有限翼展机翼与升力线理论
-- [ ] 黏性流动与边界层
-- [ ] 可压缩流基础与激波/膨胀波
-- [ ] 高速翼型与临界马赫数
+- [x] [空气动力学基本原理与标准大气](./aerodynamics-fundamentals-and-standard-atmosphere)
+- [x] [流体力学基础：连续/动量/能量方程](./fluid-mechanics-basic-equations)
+- [x] [无黏不可压流与位流理论](./inviscid-incompressible-flow-and-potential-flow)
+- [x] [翼型绕流与库塔-茹科夫斯基定理](./airfoil-flow-and-kutta-joukowski-theorem)
+- [x] [有限翼展机翼与升力线理论](./finite-wing-and-lifting-line-theory)
+- [x] [黏性流动与边界层](./viscous-flow-and-boundary-layer)
+- [x] [可压缩流基础与激波/膨胀波](./compressible-flow-and-shock-expansion-waves)
+- [x] [高速翼型与临界马赫数](./high-speed-airfoils-and-critical-mach-number)
 
 ### 第2篇
 
-- [ ] 亚/跨/超声速机翼气动特性
-- [ ] 阻力构成与减阻技术
-- [ ] 风洞试验与气动相似准则
-- [ ] 计算流体力学（CFD）入门
+- [x] [亚/跨/超声速机翼气动特性](./subsonic-transonic-supersonic-wing-characteristics)
+- [x] [阻力构成与减阻技术](./drag-composition-and-reduction-techniques)
+- [x] [风洞试验与气动相似准则](./wind-tunnel-testing-and-similarity-parameters)
+- [x] [计算流体力学（CFD）入门](./computational-fluid-dynamics-introduction)

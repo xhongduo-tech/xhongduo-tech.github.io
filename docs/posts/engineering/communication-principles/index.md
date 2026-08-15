@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 通信系统模型与信道容量（香农公式）
-- [ ] 确知信号与随机过程基础
-- [ ] 模拟调制：AM/DSB/SSB/FM/PM
-- [ ] 模拟信号数字化：抽样/量化/PCM
-- [ ] 数字基带传输与码间串扰（Nyquist 准则）
-- [ ] 数字带通调制：ASK/FSK/PSK/QAM
-- [ ] 最佳接收与匹配滤波器
-- [ ] 信道编码：分组码/卷积码/Turbo/LDPC
+- [x] [通信系统模型与信道容量（香农公式）](./communication-system-model-and-channel-capacity)
+- [x] [确知信号与随机过程基础](./deterministic-signals-and-random-processes)
+- [x] [模拟调制：AM/DSB/SSB/FM/PM](./analog-modulation-am-dsb-ssb-fm-pm)
+- [x] [模拟信号数字化：抽样/量化/PCM](./signal-digitization-sampling-quantization-pcm)
+- [x] [数字基带传输与码间串扰（Nyquist 准则）](./digital-baseband-transmission-and-isi)
+- [x] [数字带通调制：ASK/FSK/PSK/QAM](./digital-bandpass-modulation-ask-fsk-psk-qam)
+- [x] [最佳接收与匹配滤波器](./optimal-reception-and-matched-filter)
+- [x] [信道编码：分组码/卷积码/Turbo/LDPC](./channel-coding-block-convolutional-turbo-ldpc)
 
 ### 第2篇
 
-- [ ] 同步原理（载波/位/帧同步）
-- [ ] 衰落信道与分集/均衡
-- [ ] 多路复用与多址技术（FDM/TDM/CDMA）
-- [ ] 现代通信系统案例（蜂窝/卫星）
+- [x] [同步原理（载波/位/帧同步）](./synchronization-principles)
+- [x] [衰落信道与分集/均衡](./fading-channels-diversity-equalization)
+- [x] [多路复用与多址技术（FDM/TDM/CDMA）](./multiplexing-and-multiple-access)
+- [x] [现代通信系统案例（蜂窝/卫星）](./modern-communication-systems-cellular-satellite)

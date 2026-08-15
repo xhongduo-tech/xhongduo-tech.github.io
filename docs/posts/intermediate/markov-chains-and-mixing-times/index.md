@@ -17,18 +17,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 有限马尔可夫链回顾
-- [ ] 不可约性与周期性
-- [ ] 平稳分布与细致平衡
-- [ ] 全变差距离
-- [ ] 耦合方法与混合时间上界
-- [ ] 谱隙与特征值方法
-- [ ] 对数 Sobolev 不等式引论
-- [ ] 洗牌模型
+- [x] [有限马尔可夫链回顾](./finite-markov-chain-review)
+- [x] [不可约性与周期性](./irreducibility-and-periodicity)
+- [x] [平稳分布与细致平衡](./stationary-distribution-and-detailed-balance)
+- [x] [全变差距离](./total-variation-distance)
+- [x] [耦合方法与混合时间上界](./coupling-and-mixing-time)
+- [x] [谱隙与特征值方法](./spectral-gap-and-eigenvalues)
+- [x] [对数 Sobolev 不等式引论](./log-sobolev-inequalities)
+- [x] [洗牌模型](./shuffling-models)
 
 ### 第2篇
 
-- [ ] Glauber 动力学与 Ising 模型
-- [ ] Metropolis–Hastings 算法
-- [ ] MCMC 收敛诊断
-- [ ] cutoff 现象
+- [x] [Glauber 动力学与 Ising 模型](./glauber-dynamics-and-ising-model)
+- [x] [Metropolis–Hastings 算法](./metropolis-hastings-algorithm)
+- [x] [MCMC 收敛诊断](./mcmc-convergence-diagnostics)
+- [x] [cutoff 现象](./cutoff-phenomenon)

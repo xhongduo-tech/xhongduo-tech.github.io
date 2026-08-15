@@ -115,4 +115,7 @@ $$\lambda_n = \left(n - \tfrac12\right)^2\pi^2, \qquad \varphi_n(x) = \sqrt{2}\,
 - 特征值三条性质：**实数**、**异值特征函数正交**、**仅聚于 0**。
 - **Hilbert–Schmidt 定理**：$(Kf)(x) = \sum_n \lambda_n\langle f,\varphi_n\rangle\varphi_n(x)$，是「对称矩阵对角化」的无穷维版本。
 - 核展开 $K(x,t) = \sum_n \lambda_n\varphi_n(x)\overline{\varphi_n(t)}$ 与算子展开**互为表里**。
-- 第二类方程在特征基下逐方向求解，解有显式的谱表示；$\lambda = 1/\lambda_m$
+- 第二类方程在特征基下逐方向求解，解有显式的谱表示 $y = f + \lambda\sum_n \frac{\lambda_n\langle f,\varphi_n\rangle}{1-\lambda\lambda_n}\varphi_n$；$\lambda = 1/\lambda_m$ 时第 $m$ 个方向分母爆炸，正是择一的显式形态。
+- $K(x,t) = \min(x,t)$ 的完整例证表明：积分方程的谱可以整体翻译成微分方程的特征值问题，且特征值序列 $\propto n^2$ 发散——积分、微分互为逆在谱层面的回声。
+
+在下一节，我们把这个「对角化」贯彻到底：用对称核的特征展开直接表达核与解，得到**对称核的展开定理**——谱理论的收官之作。

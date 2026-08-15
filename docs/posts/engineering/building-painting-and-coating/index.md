@@ -17,17 +17,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 涂料组成与分类（乳胶漆/木器漆/防锈漆/防火涂料）
-- [ ] 基层处理与批刮腻子
-- [ ] 打磨与砂光工艺
-- [ ] 刷涂、滚涂与喷涂工艺
-- [ ] 木器清漆与混油涂装
-- [ ] 金属表面防腐涂装
-- [ ] 墙面涂饰施工与分色
-- [ ] 裱糊与软包基础
+- [x] [涂料组成与分类（乳胶漆/木器漆/防锈漆/防火涂料）](./coating-composition-classification)
+- [x] [基层处理与批刮腻子](./surface-preparation-putty)
+- [x] [打磨与砂光工艺](./sanding-polishing-process)
+- [x] [刷涂、滚涂与喷涂工艺](./brush-roller-spray-techniques)
+- [x] [木器清漆与混油涂装](./wood-varnish-enamel-coating)
+- [x] [金属表面防腐涂装](./metal-surface-anticorrosion-coating)
+- [x] [墙面涂饰施工与分色](./wall-finishing-color-partition)
+- [x] [裱糊与软包基础](./wallpaper-fabric-panels)
 
 ### 第2篇
 
-- [ ] 色彩基础与配色
-- [ ] 质量通病防治（流坠/起泡/开裂/泛碱）
-- [ ] 涂装作业安全与职业防护（VOC/防火）
+- [x] [色彩基础与配色](./color-basics-matching)
+- [x] [质量通病防治（流坠/起泡/开裂/泛碱）](./quality-defects-prevention)
+- [x] [涂装作业安全与职业防护（VOC/防火）](./safety-voc-fire-protection)

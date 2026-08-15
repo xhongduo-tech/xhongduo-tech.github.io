@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 能源结构、能源转换与化学热力学基础
-- [ ] 化石燃料化学（煤/石油/天然气）
-- [ ] 氢能：制氢、储氢与氢化学
-- [ ] 燃料电池原理与电催化
-- [ ] 化学电源（锂离子电池与新型电池）
-- [ ] 太阳能电池与光电化学转换
-- [ ] 光催化与人工光合作用（太阳能燃料）
-- [ ] 生物质能与生物燃料
+- [x] [能源结构、能源转换与化学热力学基础](./energy-structure-thermodynamics-foundations)
+- [x] [化石燃料化学（煤/石油/天然气）](./fossil-fuel-chemistry)
+- [x] [氢能：制氢、储氢与氢化学](./hydrogen-energy)
+- [x] [燃料电池原理与电催化](./fuel-cell-principles-electrocatalysis)
+- [x] [化学电源（锂离子电池与新型电池）](./chemical-power-sources)
+- [x] [太阳能电池与光电化学转换](./solar-cells-photoelectrochemistry)
+- [x] [光催化与人工光合作用（太阳能燃料）](./photocatalysis-artificial-photosynthesis)
+- [x] [生物质能与生物燃料](./biomass-energy-biofuels)
 
 ### 第2篇
 
-- [ ] 核能化学基础
-- [ ] CO2 捕获、转化与利用化学
-- [ ] 能源材料与储能器件
+- [x] [核能化学基础](./nuclear-energy-chemistry)
+- [x] [CO2 捕获、转化与利用化学](./co2-capture-conversion-utilization)
+- [x] [能源材料与储能器件](./energy-materials-storage-devices)

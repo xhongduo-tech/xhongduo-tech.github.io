@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 悖论的概念与分类
-- [ ] 芝诺悖论与无穷
-- [ ] 说谎者悖论与语义封闭
-- [ ] 集合论悖论：罗素悖论
-- [ ] 语义悖论的解决：Tarski 与 Kripke
-- [ ] 连锁（堆垛）悖论与模糊性
-- [ ] 意外考试悖论与知识
-- [ ] 彩票悖论与序言悖论
+- [x] [悖论的概念与分类](./paradox-concept-classification)
+- [x] [芝诺悖论与无穷](./zeno-paradoxes-infinite)
+- [x] [说谎者悖论与语义封闭](./liar-paradox-semantic-closure)
+- [x] [集合论悖论：罗素悖论](./russell-paradox-set-theory)
+- [x] [语义悖论的解决：Tarski 与 Kripke](./tarski-kripke-semantic-paradoxes)
+- [x] [连锁（堆垛）悖论与模糊性](./sorites-paradox-vagueness)
+- [x] [意外考试悖论与知识](./surprise-exam-paradox)
+- [x] [彩票悖论与序言悖论](./lottery-preface-paradox)
 
 ### 第2篇
 
-- [ ] 纽康姆悖论与决策
-- [ ] 谷堆/忒修斯之船与同一性
-- [ ] 全能悖论与宗教哲学中的悖论
-- [ ] 自指、对角化方法与不定点
+- [x] [纽康姆悖论与决策](./newcomb-paradox-decision)
+- [x] [谷堆/忒修斯之船与同一性](./heap-ship-of-theseus-identity)
+- [x] [全能悖论与宗教哲学中的悖论](./omnipotence-paradox)
+- [x] [自指、对角化方法与不定点](./self-reference-diagonalization-fixed-point)
