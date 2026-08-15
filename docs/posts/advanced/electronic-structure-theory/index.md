@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] Hartree-Fock 近似
-- [ ] Hohenberg-Kohn 定理
-- [ ] Kohn-Sham 方程
-- [ ] 交换关联泛函（LDA/GGA/杂化泛函）
-- [ ] 赝势与平面波基组
-- [ ] 能带结构与态密度计算
-- [ ] 密度泛函微扰理论与声子
-- [ ] 从头算分子动力学
+- [x] [Hartree-Fock 近似](./hartree-fock-approximation)
+- [x] [Hohenberg-Kohn 定理](./hohenberg-kohn-theorems)
+- [x] [Kohn-Sham 方程](./kohn-sham-equations)
+- [x] [交换关联泛函（LDA/GGA/杂化泛函）](./exchange-correlation-functionals)
+- [x] [赝势与平面波基组](./pseudopotentials-and-plane-wave-basis)
+- [x] [能带结构与态密度计算](./band-structure-and-density-of-states)
+- [x] [密度泛函微扰理论与声子](./density-functional-perturbation-theory-phonons)
+- [x] [从头算分子动力学](./ab-initio-molecular-dynamics)
 
 ### 第2篇
 
-- [ ] GW 近似与 Bethe-Salpeter 方程
-- [ ] 强关联体系与 DFT+U/DMFT
-- [ ] 高通量计算与材料数据库
+- [x] [GW 近似与 Bethe-Salpeter 方程](./gw-approximation-and-bse)
+- [x] [强关联体系与 DFT+U/DMFT](./dftu-and-dmft-strongly-correlated)
+- [x] [高通量计算与材料数据库](./high-throughput-computing-materials-databases)

@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 天球坐标系、岁差章动与时间系统
-- [ ] 大气窗口、视宁度与天文台址
-- [ ] 光学望远镜：结构、像差与现代大型望远镜
-- [ ] 探测器：CCD/CMOS 与光子计数技术
-- [ ] 测光：测光系统、定标与大气消光
-- [ ] 天文光谱学与大规模光谱巡天
-- [ ] 射电望远镜与甚长基线干涉（VLBI）
-- [ ] 红外、毫米波与亚毫米波观测
+- [x] [天球坐标系、岁差章动与时间系统](./celestial-coordinate-systems)
+- [x] [大气窗口、视宁度与天文台址](./atmospheric-windows-seeing-sites)
+- [x] [光学望远镜：结构、像差与现代大型望远镜](./optical-telescopes-aberrations)
+- [x] [探测器：CCD/CMOS 与光子计数技术](./detectors-ccd-cmos)
+- [x] [测光：测光系统、定标与大气消光](./photometry-systems-calibration)
+- [x] [天文光谱学与大规模光谱巡天](./spectroscopy-spectral-surveys)
+- [x] [射电望远镜与甚长基线干涉（VLBI）](./radio-telescopes-vlbi)
+- [x] [红外、毫米波与亚毫米波观测](./infrared-mm-submm-observations)
 
 ### 第2篇
 
-- [ ] X 射线、γ 射线与宇宙线天文
-- [ ] 空间天文台：从哈勃到詹姆斯·韦布
-- [ ] 多信使天文学：引力波、中微子与天文数据处理
+- [x] [X 射线、γ 射线与宇宙线天文](./xray-gamma-ray-cosmic-ray)
+- [x] [空间天文台：从哈勃到詹姆斯·韦布](./space-observatories-hubble-jwst)
+- [x] [多信使天文学：引力波、中微子与天文数据处理](./multimessenger-astronomy-data)

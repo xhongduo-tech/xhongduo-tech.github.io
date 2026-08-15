@@ -1,9 +1,9 @@
 ---
-title: 共振非弹性 X 射线散射（RIXS）
+title: 共振非弹性 X 射线散射
 date: 2026-08-07
 ---
 
-# 共振非弹性 X 射线散射（RIXS）
+# 共振非弹性 X 射线散射
 
 <div class="epigraph">
 <p>世界上最不可理解的事情，正是这个世界竟然是可以理解的。</p>
@@ -113,4 +113,9 @@ RIXS 是凝聚态动力学工具箱里最年轻、也最全能的成员。与它
 ## 9 小结
 
 - RIXS 是**元素选择、动量分辨、能量分辨**三合一的光谱学：测非弹性散射的能量损失，读出元激发。
-- **能量-动量守恒** $\Delta E = \hbar\omega_{\mathrm{in}} - \hbar\omega_{\mathrm{out}}$、$\Delta\mathbf{q} = \mathbf{k}_{\mathrm{in}} - \mathbf{k}_{\mathrm{out}}$
+- **能量-动量守恒** $\Delta E = \hbar\omega_{\mathrm{in}} - \hbar\omega_{\mathrm{out}}$、$\Delta\mathbf{q} = \mathbf{k}_{\mathrm{in}} - \mathbf{k}_{\mathrm{out}}$ 锁定谱峰位置：峰位给激发能、峰随 $\mathbf{q}$ 的移动给色散。
+- **共振增强**来自实中间态：入射能量贴近吸收边时，克莱默斯-海森堡公式分母变小、截面大增，同时绑定元素——这是元素选择性的来源。
+- 谱仪工程是核心瓶颈：总分辨率 $\Delta E_{\mathrm{tot}} = \sqrt{\Delta E_{\mathrm{in}}^2 + \Delta E_{\mathrm{out}}^2}$，与通量构成「跷跷板」，声子实验需要 meV 级。
+- RIXS 已站上**高温超导磁激发、量子磁性、轨道与电荷序、超快动力学**四个前沿战场，与中子散射、光学拉曼互补。
+
+至此，从「看到原子」（衍射、SAXS、XAFS）到「听懂激发」（RIXS），X 射线物理与同步辐射专题的完整版图收束在一块：X 射线既是结构探针，也是动力学谱仪。若想深入元激发谱学的物理与数学，第四级《凝聚态物理》与《量子多体理论》是自然的下一站。

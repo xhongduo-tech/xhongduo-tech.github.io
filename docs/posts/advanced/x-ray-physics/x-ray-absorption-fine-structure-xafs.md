@@ -1,9 +1,9 @@
 ---
-title: X 射线吸收精细结构（XAFS / XANES）
+title: X 射线吸收精细结构（XAFS/XANES）
 date: 2026-08-07
 ---
 
-# X 射线吸收精细结构（XAFS / XANES）
+# X 射线吸收精细结构（XAFS/XANES）
 
 <div class="epigraph">
 <p>你的理论再美也没有用，要紧的是它与实验是否相符。</p>

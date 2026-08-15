@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] X 射线与物质相互作用（光电/康普顿/瑞利）
-- [ ] X 射线源：轫致辐射与特征谱
-- [ ] 同步辐射原理与插入件
-- [ ] X 射线光学元件（反射镜/单色器/波带片）
-- [ ] X 射线衍射运动学理论
-- [ ] 小角 X 射线散射（SAXS）
-- [ ] X 射线吸收精细结构（XAFS/XANES）
-- [ ] 相干衍射成像
+- [x] [X 射线与物质相互作用（光电/康普顿/瑞利）](./x-ray-matter-interaction)
+- [x] [X 射线源：轫致辐射与特征谱](./x-ray-sources-bremsstrahlung-characteristic)
+- [x] [同步辐射原理与插入件](./synchrotron-radiation-insertion-devices)
+- [x] [X 射线光学元件（反射镜/单色器/波带片）](./x-ray-optics-elements)
+- [x] [X 射线衍射运动学理论](./x-ray-diffraction-kinematic-theory)
+- [x] [小角 X 射线散射（SAXS）](./small-angle-x-ray-scattering-saxs)
+- [x] [X 射线吸收精细结构（XAFS/XANES）](./x-ray-absorption-fine-structure-xafs)
+- [x] [相干衍射成像](./coherent-diffractive-imaging)
 
 ### 第2篇
 
-- [ ] X 射线成像与 CT 原理
-- [ ] X 射线自由电子激光
-- [ ] 共振非弹性 X 射线散射
+- [x] [X 射线成像与 CT 原理](./x-ray-imaging-ct-principles)
+- [x] [X 射线自由电子激光](./x-ray-free-electron-laser)
+- [x] [共振非弹性 X 射线散射](./resonant-inelastic-x-ray-scattering)

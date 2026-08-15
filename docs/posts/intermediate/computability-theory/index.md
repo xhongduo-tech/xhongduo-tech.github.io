@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] Turing 机与 Church–Turing 论题
-- [ ] 原始递归函数与部分递归函数
-- [ ] 可计算枚举集
-- [ ] 停机问题与不可判定问题
-- [ ] 多一归约与 Turing 归约
-- [ ] 跳跃算子与 Turing 度
-- [ ] 优先方法（有穷损害 / 无穷损害）
-- [ ] 算术分层
+- [x] [Turing 机与 Church–Turing 论题](./turing-machine-and-church-turing-thesis)
+- [x] [原始递归函数与部分递归函数](./primitive-recursive-and-partial-recursive-functions)
+- [x] [可计算枚举集](./computably-enumerable-sets)
+- [x] [停机问题与不可判定问题](./halting-problem-and-undecidability)
+- [x] [多一归约与 Turing 归约](./many-one-and-turing-reducibility)
+- [x] [跳跃算子与 Turing 度](./jump-operator-and-turing-degrees)
+- [x] [优先方法（有穷损害 / 无穷损害）](./priority-methods-finite-infinite-injury)
+- [x] [算术分层](./arithmetical-hierarchy)
 
 ### 第2篇
 
-- [ ] 相对可计算性与 oracle 计算
-- [ ] Post 问题与度的结构
-- [ ] 算法随机性（Martin-Löf 随机性）引论
-- [ ] 可计算模型论与可计算分析简介
+- [x] [相对可计算性与 oracle 计算](./relative-computability-and-oracles)
+- [x] [Post 问题与度的结构](./posts-problem-and-degree-structure)
+- [x] [算法随机性（Martin-Löf 随机性）引论](./algorithmic-randomness-martin-lof)
+- [x] [可计算模型论与可计算分析简介](./computable-model-theory-and-analysis)

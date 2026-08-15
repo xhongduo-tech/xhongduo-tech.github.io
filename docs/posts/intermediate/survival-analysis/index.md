@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 生存函数与危险函数
-- [ ] 删失与截尾机制
-- [ ] Kaplan–Meier 估计
-- [ ] log-rank 检验
-- [ ] Cox 比例风险模型
-- [ ] 部分似然推断
-- [ ] 参数生存模型（指数 / Weibull）
-- [ ] 加速失效时间模型
+- [x] [生存函数与危险函数](./survival-function-and-hazard-function)
+- [x] [删失与截尾机制](./censoring-and-truncation)
+- [x] [Kaplan–Meier 估计](./kaplan-meier-estimator)
+- [x] [log-rank 检验](./log-rank-test)
+- [x] [Cox 比例风险模型](./cox-proportional-hazards-model)
+- [x] [部分似然推断](./partial-likelihood-inference)
+- [x] [参数生存模型（指数 / Weibull）](./parametric-survival-models-exponential-weibull)
+- [x] [加速失效时间模型](./accelerated-failure-time-model)
 
 ### 第2篇
 
-- [ ] 时依协变量
-- [ ] 竞争风险
-- [ ] 脆弱模型（frailty）
-- [ ] 计数过程与鞅方法引论
+- [x] [时依协变量](./time-dependent-covariates)
+- [x] [竞争风险](./competing-risks)
+- [x] [脆弱模型（frailty）](./frailty-models)
+- [x] [计数过程与鞅方法引论](./counting-processes-and-martingale-methods)

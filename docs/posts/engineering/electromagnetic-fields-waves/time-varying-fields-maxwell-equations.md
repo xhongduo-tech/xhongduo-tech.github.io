@@ -79,6 +79,12 @@ $$w = \frac{1}{2}\varepsilon E^2 + \frac{1}{2}\mu H^2 = w_e + w_m$$
 
 <span class="marginnote">一个反直觉的结论：直流电路的能量不是沿着导线内部"运"过去的，而是以坡印廷能流的形式在导线<strong>外的空间</strong>流动，导线把能量"引"到负载。把电池、导线、负载周围的空间电场磁场画出来，会看到能流确实贴着导线表面流向负载。</span>
 
+对时谐场，瞬态坡印廷矢量 $\mathbf{S}=\mathbf{E}\times\mathbf{H}$ 以 $2\omega$ 的频率快速振荡，工程上关心的是**时间平均能流密度**——"单位时间、单位面积真正流走的平均功率"
+
+$$\langle\mathbf{S}\rangle = \frac{1}{2}\mathrm{Re}[\dot{\mathbf{E}}\times\dot{\mathbf{H}}^*]$$
+
+它由复振幅直接算出，是天线辐射功率、无线链路预算、传输线功率的统一起点。注意有功功率只来自 $\dot{\mathbf{E}}$ 与 $\dot{\mathbf{H}}^*$ 中**同相**的分量，正交分量只做无功振荡、不带走功率——这与电路里"平均功率等于电压电流同相分量之积"是同一句话，只是换成了场的语言。下一篇算平面波功率流，用的正是这条式子。
+
 ## 6 时谐场与复数表示
 
 工程上绝大多数信号是正弦稳态（时谐），于是引入**复数表示（phasor）**：$\mathbf{E}(t) = \mathrm{Re}[\dot{\mathbf{E}}\,e^{j\omega t}]$，其中 $\dot{\mathbf{E}}$ 是复振幅，只含空间变化与相位。<span class="marginnote">复数表示把一个偏微分方程在时间上的求导变成代数乘法 $\partial/\partial t \leftrightarrow j\omega$——这是后三篇（平面波、传输线、波导）所有计算的枢纽，也是射频工程的通用语言。</span>
@@ -114,4 +120,7 @@ $$v = \frac{1}{\sqrt{\mu\varepsilon}}$$
 - **Maxwell 方程组**四条：两条散度（有源/无源）描述场形，两条旋度（时变）描述耦合；本构关系补齐介质。
 - **边界条件**：$\mathbf{E}$ 切向连续、$\mathbf{H}$ 切向差为面电流，时变下不变。
 - **坡印廷定理**：能流密度 $\mathbf{S}=\mathbf{E}\times\mathbf{H}$，电磁能量在场空间流动。
-- **时谐复数表示**：$\partial/\partial t\leftrightarrow j\omega$，把偏微分方程代数化；由此导出波动方程 $v=1/\sqrt{\mu\varepsilon}=c$
+- **时谐复数表示**：$\partial/\partial t\leftrightarrow j\omega$，把偏微分方程代数化；由此导出波动方程 $v=1/\sqrt{\mu\varepsilon}=c$；时谐场时间平均能流由 $\langle\mathbf{S}\rangle=\frac{1}{2}\mathrm{Re}[\dot{\mathbf{E}}\times\dot{\mathbf{H}}^*]$ 给出。
+- 边界条件、坡印廷定理、复数表示在时谐下仍成立，是全场论在射频工程里的通用外壳。
+
+在下一节，我们将拿到波动方程的具体解，并算清它在理想介质与导电媒质里分别怎样奔跑与衰减——那就是**平面电磁波的传播**。

@@ -78,6 +78,12 @@ $$\deg(A \oplus B) = \deg(A) \vee \deg(B), \qquad A \oplus B = \{ 2n \mid n \in 
 **$\mathcal{D}$ 的一阶理论**：Harrington–Shelah 等人证明其极其复杂，**不可判定**（甚至互递归于真二阶算术的某个片段）。
 **$\mathcal{R}$ 的一阶理论**：Lachlan 证明它不可判定；之后 Slaman 与 Woodin 进一步证明它等价于真算术（true arithmetic）——即"c.e. 度结构的可定义性"与"自然数的全部算术真理"具有相同的复杂度。<span class="marginnote">Slaman–Woodin 的结果把 $\mathcal{R}$ 抬到与"自然数结构"同等的复杂度：要完全描述 c.e. 度结构，至少要知道所有算术真理。这是结构理论对"$\mathcal{R}$ 有多复杂"的终极回答之一。</span>
 
+把"结构有多复杂"落到一条具体的句子上，一切就直观了。**Sacks 稠密性用一阶句子写成**
+
+$$\forall \mathbf{a}\, \forall \mathbf{b}\, \big(\mathbf{a} < \mathbf{b} \to \exists \mathbf{c}\, (\mathbf{a} < \mathbf{c} \land \mathbf{c} < \mathbf{b})\big)$$
+
+判定"这样的句子在 $\mathcal{R}$ 中是否为真"正是 $\mathcal{R}$ 的一阶理论；而"$\mathcal{R}$ 中有不可比较的度"写成 $\exists \mathbf{a}\, \exists \mathbf{b}\, (\mathbf{a} \not\le \mathbf{b} \land \mathbf{b} \not\le \mathbf{a})$，同样是一条一阶句子。**一阶理论就是在问：所有能用变量句子写出的结构性质，哪些为真。** Slaman–Woodin 说，回答这个问题的算法不存在，而且它的复杂度和判定"自然数的全部算术真理"完全一样。
+
 这些结果说明：**度的结构不是"一个小玩具"，而是一个能编码算术全部复杂性的对象**——递归论以"可计算"为工具，却挖出了一个"不可计算到极致"的结构。这种自指式的深度，正是递归论最迷人的地方。
 
 ## 7 里程碑一览：度的结构理论是如何长出来的
@@ -114,4 +120,7 @@ $$\deg(A \oplus B) = \deg(A) \vee \deg(B), \qquad A \oplus B = \{ 2n \mid n \in 
 - **c.e. 度结构 $\mathcal{R}$**：有最小元 $\mathbf{0}$、最大元 $\mathbf{0}'$、任意对子有 join、一般无 meet，不是格。
 - **Sacks 稠密性**：$\mathbf{a} \lt  \mathbf{b}$ 之间有 c.e. 度——c.e. 度处处稠密。
 - 各种代数结构可**嵌入** $\mathcal{R}$，其复杂度随跳跃层级递增。
-- **极小度**（非 c.e.）与 c.e. 稠密性共存，构成 $\mathcal{D}$ 的完整图景；$\mathcal{R}$
+- **极小度**（非 c.e.）与 c.e. 稠密性共存，构成 $\mathcal{D}$ 的完整图景；$\mathcal{R}$ 的一阶理论等价于真算术，结构复杂度登顶。
+- 结构理论从"证明一个存在"（Post 问题）走到"刻画整个结构"（一阶理论），方法论也从有穷损害升级到无穷损害与树论证。
+
+在下一节，我们将换一个方向继续挖掘"可计算"的边界——**算法随机性**（Martin-Löf 随机性）：问一个无限序列何时才算"随机"，答案竟是它通过了所有可计算的统计检验。

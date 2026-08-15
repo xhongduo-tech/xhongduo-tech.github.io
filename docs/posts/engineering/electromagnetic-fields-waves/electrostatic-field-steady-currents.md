@@ -95,6 +95,12 @@ $$w_e = \frac{1}{2}\varepsilon E^2 = \frac{1}{2}\mathbf{D}\cdot\mathbf{E}$$
 
 **辨析｜易错点：** 导体内部静电场为零，但恒定电场不为零——恒定电流要靠电场"推"着电荷走，导体内部 $\mathbf{E} = \mathbf{J}/\sigma \neq 0$，只是导体内表面必有法向场把电流"导向"外表面。把"静电导体"的结论套到恒定电流上，是最常见的一类误判。
 
+恒定电场也有自己的边界条件，且与静电场严格对偶：无面源时**电流密度法向连续** $\hat{\mathbf{n}}\cdot(\mathbf{J}_1-\mathbf{J}_2)=0$，电场切向连续 $\hat{\mathbf{n}}\times(\mathbf{E}_1-\mathbf{E}_2)=0$。由此推出两种导电媒质分界面上的**电流折射定律**
+
+$$\frac{\tan\theta_1}{\tan\theta_2} = \frac{\sigma_1}{\sigma_2}$$
+
+$\theta$ 是电流线与界面法线的夹角——电流线跨过界面时像光一样"折射"，电导率大的媒质里更偏向法向。工程含义很直接：电流"爱走好导体"，接地系统、避雷引下线的设计本质就是替电流铺一条低电阻的近路，电流自然沿电导率最高的路径走。<span class="marginnote">对比静电边界 $\hat{\mathbf{n}}\cdot\mathbf{D}$ 连续与恒定电流边界 $\hat{\mathbf{n}}\cdot\mathbf{J}$ 连续：两者只是把 $\varepsilon$ 换成 $\sigma$，整个折射几何完全相同——静电类比在边界条件上又兑现了一次。</span>
+
 ## 7 公式解析：用高斯定律求无限长线电荷的场
 
 把抽象公式落到一个经典算例——**无限长均匀线电荷**，线密度 $\rho_l$。求它产生的电场。按三步走：
@@ -115,4 +121,7 @@ $$E_\rho = \frac{\rho_l}{2\pi\varepsilon_0 \rho}$$
 - **边界条件**：$\mathbf{E}$ 切向连续、$\mathbf{D}$ 法向差等于面电荷；导体内静电场为零。
 - **电容** $C=Q/V$ 由几何与介质决定，静电能密度 $w_e=\frac{1}{2}\varepsilon E^2$。
 - **恒定电场** $\mathbf{J}=\sigma\mathbf{E}$、$\nabla\cdot\mathbf{J}=0$，与静电场互为静电类比。
-- 静电类比是"记忆放大器"：记住静电场的场方程、边界条件与储能公式，把 $D\leftrightarrow J$、$\varepsilon\leftrightarrow\sigma$
+- 静电类比是"记忆放大器"：记住静电场的场方程、边界条件与储能公式，把 $D\leftrightarrow J$、$\varepsilon\leftrightarrow\sigma$、$C\leftrightarrow G$ 一一对位，恒定电场的解就"免费"拿到。
+- 恒定电场边界条件：$\hat{\mathbf{n}}\cdot\mathbf{J}$ 连续、$\hat{\mathbf{n}}\times\mathbf{E}$ 连续，电流线按 $\tan\theta_1/\tan\theta_2=\sigma_1/\sigma_2$ 折射。
+
+在下一节，我们让源从"电荷"换成"电流"——进入**恒定磁场与电感**：磁场没有源也没有汇，它的源是电流，几何由比奥-萨伐尔定律决定。

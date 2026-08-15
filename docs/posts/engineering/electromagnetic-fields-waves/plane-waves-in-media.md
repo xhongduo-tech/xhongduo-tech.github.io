@@ -82,6 +82,12 @@ $$\alpha = \omega\sqrt{\frac{\mu\varepsilon}{2}}\left[\sqrt{1+\left(\frac{\sigma
 
 微波电路板材、天线罩材料都要挑 $\tan\delta$ 小的介质，功率损耗才低；而电磁兼容、屏蔽设计恰恰相反，要利用良导体的"拒绝"能力。
 
+工程上衰减习惯用分贝表达：场强按 $e^{-\alpha z}$ 衰减，功率则按 $e^{-2\alpha z}$。于是单位长度的功率衰减为
+
+$$L = 20\alpha\lg e \approx 8.686\alpha\ \ \mathrm{dB/m}$$
+
+这就是数据手册里"介质损耗常数"总以 $\mathrm{dB/m}$ 给出的原因：知道 $\alpha$，一段 $l$ 米的路径就吃掉 $8.686\alpha l$ 分贝——链路预算里"线损"那一栏，正是这条式子填的。<span class="marginnote">一个快速换算：$\alpha$ 的单位是 $\mathrm{Np/m}$（奈培/米），与 $\mathrm{dB/m}$ 的换算是 $1\ \mathrm{Np/m} = 8.686\ \mathrm{dB/m}$。看到手册写 $0.1\ \mathrm{dB/m}$ 时，反推场强衰减常数就是 $0.0115\ \mathrm{Np/m}$。</span>
+
 ## 6 趋肤效应：高频电流的"表皮生活"
 
 在良导体（$\sigma/(\omega\varepsilon)\gg1$）中，衰减常数简化为
@@ -115,4 +121,6 @@ $$\alpha \approx \sqrt{\frac{\omega\mu\sigma}{2}} = \frac{1}{\delta}$$
 - 导电媒质引入复介电常数与**衰减常数** $\alpha$，波以 $e^{-\alpha z}$ 指数衰减。
 - **趋肤深度** $\delta=\sqrt{2/(\omega\mu\sigma)}$：高频电流被挤到表面，决定高频电阻、屏蔽与选材。
 - 判断"导体还是介质"看损耗正切 $\tan\delta=\sigma/(\omega\varepsilon)$，同一材料随频率升降可以在两档间切换。
-- 平面波的能量在电场与磁场间振荡，功率流密度 $\langle\mathbf{S}\rangle$
+- 平面波的能量在电场与磁场间振荡，功率流密度 $\langle\mathbf{S}\rangle=|E_0|^2/(2\eta)$；导电媒质中衰减常数 $\alpha$ 换算成分贝就是 $8.686\alpha\ \mathrm{dB/m}$。
+
+在下一节，一列波撞上两种介质的分界面——**波的反射、折射与极化**：斯涅耳定律、布儒斯特角、全反射，全都从这里长出来。
