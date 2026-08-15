@@ -99,7 +99,26 @@ $E^{S_3} = \mathbb{Q}$。
 **对应验证**：$\mathbb{Q} \subseteq \mathbb{Q}(\sqrt[3]2) \subseteq E$ 对应 $S_3 \supseteq \langle (12)\rangle \supseteq \{e\}$（反序）。
 **正规子群**：$A_3 \trianglelefteq S_3$ 对应 $\mathbb{Q}(\omega)/\mathbb{Q}$ 正规（$x^2+x+1$ 分裂域）；$\langle (12)\rangle$ 不正规对应 $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$ 不正规（缺另两根）。$\checkmark$<span class="marginnote">$x^3-2$ 的对应图是 Galois 理论的「hello world」：$S_3$ 的四个子群 ↔ 四个中间子域，反序对应，正规子群 ↔ 正规扩张。尤其「$\langle (12)\rangle \leftrightarrow \mathbb{Q}(\sqrt[3]2)$」与「$\langle (12)\rangle$ 不正规 ↔ $\mathbb{Q}(\sqrt[3]2)$ 不正规」——正规性在两边同步失败，正是对应定理性质 2 的现场演示。</span>
 
-## 6 小结
+## 6 对照速查：两个方向的对应表
+
+把伽罗瓦对应的双向翻译排成一张总表，方向感一目了然。
+
+| 域论对象 | 对应 | 群论对象 |
+| --- | --- | --- |
+| 中间子域 $K$ | $\longleftrightarrow$ | 子群 $\operatorname{Gal}(E/K)$ |
+| 子群 $H$ | $\longleftrightarrow$ | 不动域 $E^H$ |
+| $K_1 \subseteq K_2$ | $\longleftrightarrow$ | $\operatorname{Gal}(E/K_1) \supseteq \operatorname{Gal}(E/K_2)$ |
+| $[K:F]$ | $\longleftrightarrow$ | $[G : \operatorname{Gal}(E/K)]$ |
+| $K/F$ 正规 | $\longleftrightarrow$ | $\operatorname{Gal}(E/K) \trianglelefteq G$ |
+| $\operatorname{Gal}(K/F)$ | $\longleftrightarrow$ | $G/\operatorname{Gal}(E/K)$ |
+
+**数值算例：$x^4 - 4x^2 + 2$ 的对应。** $G = \mathbb{Z}_2 \times \mathbb{Z}_2$（三个 2 阶子群）。对应子域：$\langle \sigma_1\rangle \leftrightarrow \mathbb{Q}(\sqrt{2+\sqrt2})$、$\langle \sigma_2\rangle \leftrightarrow \mathbb{Q}(\sqrt{2-\sqrt2})$、$\langle \sigma_3\rangle \leftrightarrow \mathbb{Q}(\sqrt2)$，全正规（$G$ 交换 ⟹ 一切子群正规 ⟹ 一切中间域正规）。<span class="marginnote">「$G$ 交换 ⟹ 所有中间子域正规」是对应定理的免费推论：交换群的每个子群都正规，对应到每个中间域 $K/F$ 都正规（即都是分裂域）。$x^4 - 4x^2 + 2$ 的根 $\pm\sqrt{2\pm\sqrt2}$ 来自「二次套二次」，每个中间域都是某二次式的分裂域——与 $\mathbb{Z}_2\times\mathbb{Z}_2$ 的子群结构完全对齐。</span>
+
+**易错辨析｜「反序」不是「颠倒名字」，而是「包含方向反过来」。** $K_1 \subseteq K_2$（域更大）对应 $\operatorname{Gal}(E/K_1) \supseteq \operatorname{Gal}(E/K_2)$（固定它的对称更少）。作图时把子域格「上下颠倒」就是子群格——这是反序对应的正确读法，别把「$K$ 对应 $\operatorname{Gal}(E/K)$」记成「同方向」。
+
+**一句话记法**：子域 ↔ 子群反序双射；$E^G = F$ 是「全对称 ⟹ 基域」；正规子域 ↔ 正规子群、商域 ↔ 商群——字典在手，域论问题翻译成群论求解。
+
+## 7 小结
 
 - **两个映射**：$K \mapsto \operatorname{Gal}(E/K)$（对称子群）、$H \mapsto E^H$（不动域）。
 - **伽罗瓦对应**：中间子域 ↔ 子群的双射，反序；$E^G = F$。

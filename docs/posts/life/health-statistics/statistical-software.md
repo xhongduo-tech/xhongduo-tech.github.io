@@ -1,6 +1,6 @@
 ---
 title: 统计软件应用（R/SAS/SPSS）
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 统计软件应用（R/SAS/SPSS）
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第五级 · 生命与健康科学 · 卫生统计学 ｜ 对标教材：Daniel & Cross, Biostatistics (11th) §13 ｜ 2026-08-11</p>
+<p>第五级 · 卫生统计学 ｜ Daniel & Cross, Biostatistics (11th) §13 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从统计软件开始

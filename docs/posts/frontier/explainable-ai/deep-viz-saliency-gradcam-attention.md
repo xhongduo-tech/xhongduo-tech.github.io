@@ -1,6 +1,6 @@
 ---
 title: 深度模型可视化归因：saliency、Grad-CAM 与注意力
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 深度模型可视化归因：saliency、Grad-CAM 与注意力
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第九级 · 交叉与前沿 · 可解释 AI ｜ 对标教材（Arrieta et al. 2020 §4） ｜ 2026-08-11</p>
+<p>第九级 · 可解释 AI ｜ 对标教材（Arrieta et al. 2020 §4） ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从可视化归因开始

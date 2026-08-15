@@ -90,7 +90,27 @@ $\mathbb{R}[x]$ 中素理想：$\langle 0 \rangle$、$\langle x - a \rangle$、$
 
 **非极大素理想的例子**：$\mathbb{Z}[x]$ 中 $\langle x \rangle$ 是素理想（$\mathbb{Z}[x]/\langle x\rangle \cong \mathbb{Z}$ 是整环）但非极大（$\mathbb{Z}$ 不是域）——**「素非极大」在多项式环里俯拾即是**。<span class="marginnote">$\mathbb{Z}[x]/\langle x\rangle \cong \mathbb{Z}$ 说明「素非极大」的典型来源：$\langle x\rangle$ 的商环是整环 $\mathbb{Z}$，但 $\mathbb{Z}$ 不是域，所以 $\langle x\rangle$ 不是极大。更一般地，$k[x_1,\dots,x_n]$ 中 $\langle x_1, \dots, x_m\rangle$（$m < n$）是素非极大——素理想的「几何」是代数簇的子簇，极大理想对应点，这正是代数几何的起点。</span>
 
-## 6 小结
+## 6 对照速查：两类理想的三级跳
+
+把极大理想与素理想在整个环论地图上的位置再钉一遍，防止混淆。
+
+| 性质 | 极大理想 $M$ | 素理想 $P$ |
+| --- | --- | --- |
+| 定义 | 无真中间理想 | $ab \in P \Rightarrow a \in P$ 或 $b \in P$ |
+| 商环 | 域 | 整环 |
+| 生成元（主理想情形） | 不可约元 | 素元 |
+| $\mathbb{Z}$ 中形态 | $\langle p \rangle$ | $\langle 0 \rangle$、$\langle p \rangle$ |
+| 关系 | 极大 ⟹ 素 | 素 ⇏ 极大 |
+
+**数值算例：$\mathbb{Z}/8\mathbb{Z}$ 的零因子来自哪个理想？** $\langle 8 \rangle$ 不是素理想：$2 \cdot 4 = 8 \in \langle 8 \rangle$ 但 $2 \notin \langle 8 \rangle$、$4 \notin \langle 8 \rangle$。故 $\mathbb{Z}/8\mathbb{Z} = \mathbb{Z}/\langle 8\rangle$ 是环非整环（有零因子 $2, 4, 6$）。对比 $\mathbb{Z}/7\mathbb{Z} = \mathbb{F}_7$：$\langle 7\rangle$ 是素理想也是极大理想，商环是域。<span class="marginnote">「商环有零因子 ⟺ 理想非素」是判零因子的捷径：$\mathbb{Z}/8\mathbb{Z}$ 里 $2 \cdot 4 = 0$，因为 $\langle 8\rangle$ 没抓住 $2$ 或 $4$。数论里「模合数有零因子、模素数成域」的古老事实，在理想语言里就是「$\langle n\rangle$ 素 ⟺ $n$ 素数」。</span>
+
+**易错辨析｜「极大理想必素」与「素理想必极大」是两条不同的路。** 第一条永远成立（域必是整环）；第二条只在特定环上成立（PID、有限维 $F$-代数等）。在 $\mathbb{Z}[x]$ 里 $\langle x\rangle$ 素但非极大、$\langle 2\rangle$ 素但非极大——「素非极大」不是例外而是常态。判定时先确认环的性质，别把 PID 里的重合当公理。
+
+**一句话记法**：极大管「域」、素管「整环」；极大 ⊆ 素；造域找极大、测零因子找素；PID 里两者在非零处重合。
+
+**再想一步**：极大/素理想把「商环是什么」完全编码进理想本身——问「$R/M$ 是域吗」等价于问「$M$ 极大吗」。这种「把商的性质翻译回子结构的性质」的思维，是环论最核心的翻译机制，第八篇同构定理与第九篇 UFD 理论全靠它。
+
+## 7 小结
 
 - **极大理想**：无真中间理想；⟺ 商环是域。$\mathbb{Z}$ 中极大理想 = $\langle p \rangle$。
 - **素理想**：$ab \in P \Rightarrow a \in P$ 或 $b \in P$；⟺ 商环是整环。$\mathbb{Z}$ 中素理想 = $\langle 0\rangle$、$\langle p\rangle$。

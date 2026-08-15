@@ -71,12 +71,50 @@ $$\text{反例:}\quad f_k=k\chi_{(0,1/k]},\quad \int f_k=1\not\to 0=\int 0$$
 
 **「统一可积控制」是 DCT 的唯一开关**——它把「a.e. 收敛」升级为「积分收敛」，靠的正是把振荡关进有限质量的笼子。
 
-## 5 小结
+## 6 数值演练与 DCT 速查
+
+**算例一（DCT 的典型用法）**：$f_k(x)=\tfrac{\sin(kx)}{1+x^2}$ 于 $[0,\infty)$。$|f_k|\le\tfrac1{1+x^2}\in L^1$（控制函数），且 $f_k\to0$ a.e.（$\sin(kx)$ 振荡但被 $1/x^2$ 压平——实际逐点不一定收敛到 0，更稳妥的例：$f_k=\tfrac{1}{1+x^2}\cdot\tfrac{kx}{1+kx}$，逐点 $\to\tfrac1{1+x^2}$，被 $\tfrac1{1+x^2}$ 控制），故 $\int f_k\to\int\tfrac{dx}{1+x^2}=\pi$。
+
+**算例二（参数积分的可导性）**：$F(t)=\int_0^\infty e^{-x}\cos(tx)dx$。对 $t$ 求导：$\partial_t(e^{-x}\cos(tx))=-xe^{-x}\sin(tx)$，被 $xe^{-x}\in L^1$ 控制，故 $F'(t)=-\int_0^\infty xe^{-x}\sin(tx)dx$——**积分号下求导合法**（DCT 对差商的极限）。
+
+**对照表：三大极限定理的适用场合**
+
+| 定理 | 条件 | 结论 |
+| --- | --- | --- |
+| Levi | $f_k\ge0$ 单调递增 | $\int\lim=\lim\int$ |
+| Fatou | $f_k\ge0$ | $\int\liminf\le\liminf\int$ |
+| DCT | $|f_k|\le g\in L^1$，$f_k\to f$ a.e. | $\int f_k\to\int f$ |
+
+**术语速查**
+
+| 记号 | 含义 |
+| --- | --- |
+| 控制函数 $g$ | 与 $k$ 无关的可积大伞 |
+| a.e. | almost everywhere |
+| 一致可积 | 控制可随 $k$ 变化的推广 |
+| 换序 | 交换 $\lim$ 与 $\int$ |
+
+**辨析｜易错点：DCT 的「a.e. 收敛」可放宽为「依测度收敛」，但「控制」不可放宽为「逐项控制」。** 依测度版本靠抽子列；逐项控制版本（$k\chi_{(0,1/k]}$）给出 $0=\int0\ne\lim\int f_k=1$。**「统一可积控制」是 DCT 的不可动摇的前提。**
+
+### 三步记住 DCT 证明
+
+- **双非负**：$g+f_k\ge0$、$g-f_k\ge0$。
+- **双 Fatou**：$\int f\le\liminf\int f_k$、$\int f\ge\limsup\int f_k$。
+- **夹出等式**：$\limsup\le\int f\le\liminf$，两端相等。
+
+**延伸（与概率论连接）**：DCT 的概率版「$X_n\to X$ a.s.、$|X_n|\le Y\in L^1$ ⇒ $E[X_n]\to E[X]$」是鞅收敛、遍历定理、中心极限定理证明中的标准换序工具——「几乎必然收敛 + 可积控制」在概率里同样万能。
+
+**一道收束练习**：证明 $\lim_{n\to\infty}\int_0^1\frac{nx}{1+n^2x^2}dx=0$ 且 DCT 可直接用（$|\tfrac{nx}{1+n^2x^2}|\le\tfrac12$ 于 $[0,1]$，逐点 $\to0$，控制函数 $\tfrac12\chi_{[0,1]}\in L^1$）。
+
+## 7 小结
 
 - **DCT**：$f_k\to f$ a.e. + $|f_k|\le g\in L^1$ ⇒ $\lim\int f_k=\int f$。
 - **证明**：$g\pm f_k\ge0$ 双 Fatou，夹出等式。
 - **变体**：有界收敛（有限测度 + 一致有界）、一致可积推广。
 - **纪律**：控制函数必须与 $k$ 无关且可积；$k\chi_{(0,1/k]}$ 是失效反例。
 - **地位**：三大极限定理之首，一切「换序」论证的万能钥匙。
+- **数值**：$f_k=\tfrac{1}{1+x^2}\cdot\tfrac{kx}{1+kx}$ 于 $[0,\infty)$，DCT 给出 $\int f_k\to\pi$。
+- **换序**：「$\lim\int=\int\lim$」的门槛从一致收敛降到可积控制。
+- **参数求导**：$\partial_t f$ 被可积函数控制时，积分号下求导合法。
 
 在下一节，我们研究 **DCT 的推论**：有界收敛定理与积分号下求极限、求导。

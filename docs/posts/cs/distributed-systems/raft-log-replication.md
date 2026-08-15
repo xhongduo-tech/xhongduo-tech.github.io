@@ -89,7 +89,27 @@ $$
 
 这条性质的威力：**它把「全局日志一致」分解成「逐序号任期一致」**——只要每个序号上任期相同，整条日志就相同。Raft 的一致性证明、提交规则、覆盖策略全部挂在这条性质上。<span class="marginnote">状态机复制的收尾：所有节点按同一日志应用同一命令序列，得到同一状态。Raft 的日志复制本质上是「共识的每次实例（每个序号一次）以状态机方式消费」——与 Multi-Paxos 同构，但把「一致性检查」显式成了 AppendEntries 协议的一部分。</span>
 
-## 6 小结
+## 6 数值走查：三节点集群的一次日志复制
+
+设三节点集群（S1 leader、S2、S3 follower），任期 term=2。客户端发来命令 `SET x = 3`。
+
+**leader 侧**：
+
+1. S1 追加日志条目：index=5, term=2, command=`SET x = 3`。
+2. S1 向 S2、S3 发 AppendEntries（prevLogIndex=4, prevLogTerm=2, entries=[entry5], leaderCommit=4）。
+3. S1 本地也把自己算一个 ack。
+
+**follower 侧**：S2 检查自己日志 index=4 处 term=2，与 prev 一致 → 接受并追加 entry5；S3 同理。两者回复成功。
+
+**提交判定**：S1 收到 2 个成功（+自己 = 3/3 ≥ 多数派）→ 把 index=5 标记为已提交，应用 `SET x = 3` 到状态机，向客户端返回成功。
+
+**广播提交**：S1 下一次 AppendEntries 带 leaderCommit=5；S2、S3 看到后把 entry5 应用到各自状态机。
+
+**再来一个「拒绝」场景**：假设 S3 之前分区过，日志在 index=4 处是 term=1 的条目（与 leader 不一致）。S1 发 AppendEntries（prevLogTerm=2）→ S3 检查发现 index=4 处 term≠2 → **拒绝**。S1 把 nextIndex[S3] 从 6 回退到 5（发 index=5 的条目）→ 仍不一致 → 回退到 4 → 一致 → 从 index=4 开始覆盖式对齐，S3 的分叉被删除、换成 leader 的日志。
+
+这个走查把「追加、确认、提交、覆盖」四个动作用数字走了一遍——Raft 的日志复制看似简单，这四个动作的配合就是全部机制。记住「本地追加 ≠ 提交」「提交由 leader 单方面判定」，就能读懂任何 Raft 实现。
+
+## 7 小结
 
 - 日志条目 = **序号 + 任期 + 命令**；日志是每节点的本地追加序列，允许暂时分叉。
 - **AppendEntries** 携带 `prevLogIndex`/`prevLogTerm` 做一致性检查，失败则回退重试——建立共同前缀。

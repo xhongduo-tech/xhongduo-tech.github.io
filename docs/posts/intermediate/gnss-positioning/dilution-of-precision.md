@@ -1,6 +1,6 @@
 ---
 title: 精度几何因子（DOP）与定位精度评估
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 精度几何因子（DOP）与定位精度评估
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · GNSS 定位与导航 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · GNSS 定位与导航 ｜ Misra §6 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 DOP 开始
@@ -67,7 +67,38 @@ $$\text{GDOP}^2 = \text{PDOP}^2 + \text{TDOP}^2, \qquad \text{PDOP}^2 = \text{HD
 - **加权修正**：真实解算常对低仰角卫星降权（第 4 篇），此时「有效 DOP」不是从 $\mathbf{H}$ 而是从加权 $\mathbf{H}^{\mathrm{T}}\mathbf{W}\mathbf{H}$ 计算。高度角截断既能降噪声，也可能牺牲几何——两者要权衡。
 - **skyplot**：接收机软件里的「天空图」把各卫星的仰角/方位角画在圆盘上——一眼就能看出此刻的几何好坏，是野外作业判断定位质量的标准工具。
 
-## 5 DOP 与误差预算的合流
+## 5 数值算例：从协方差矩阵读出 DOP
+
+抽象的 $(\mathbf{H}^{\mathrm{T}}\mathbf{H})^{-1}$ 需要具体数字才落得了地。设某时刻某地解算得到的归一化协方差矩阵为（已按 $\sigma_{UERE}^2$ 归一、且近似对角）：
+
+$$(\mathbf{H}^{\mathrm{T}}\mathbf{H})^{-1} \approx \begin{pmatrix} 2.0 & 0 & 0 & 0 \\ 0 & 1.5 & 0 & 0 \\ 0 & 0 & 3.0 & 0 \\ 0 & 0 & 0 & 2.5 \end{pmatrix}$$
+
+于是各 DOP 一望即得：
+
+- $\text{HDOP} = \sqrt{2.0 + 1.5} = \sqrt{3.5} \approx 1.87$；
+- $\text{VDOP} = \sqrt{3.0} \approx 1.73$；
+- $\text{PDOP} = \sqrt{3.5 + 3.0} = \sqrt{6.5} \approx 2.55$；
+- $\text{TDOP} = \sqrt{2.5} \approx 1.58$；$\text{GDOP} = \sqrt{6.5 + 2.5} = \sqrt{9.0} = 3.0$。
+
+假设该时刻的 UERE = 5 m，则三维位置误差的期望水平约为 $\text{PDOP} \times \text{UERE} \approx 2.55 \times 5 \approx 12.8\ \text{m}$，水平约 $1.87 \times 5 \approx 9.3\ \text{m}$，高程约 $1.73 \times 5 \approx 8.7\ \text{m}$。<span class="marginnote">这里的对角假设是理想化的：真实协方差矩阵一般非对角，x 与 y 方向的误差相互相关。但在「读懂 DOP」的层面，对角元已经给出对应方向方差的量级印象，足够支撑工程判断。</span>
+
+对照：同一时刻若几何更好（比如卫星分布更散），假设 PDOP 降到 1.5，则同样的 UERE 5 m 只带来约 7.5 m 的三维误差。**同样的观测质量，仅靠换一换天上的卫星分布，位置误差就可能差出接近一倍**——这正是「几何决定上限」这句话的分量。
+
+## 6 术语速查表
+
+| 术语 | 英文 | 一句话定义 |
+| --- | --- | --- |
+| 精度几何因子 | DOP | 卫星几何排布把观测误差放大为位置误差的倍数 |
+| 位置精度因子 | PDOP | 三维位置方向的几何放大倍数 |
+| 水平精度因子 | HDOP | 水平位置（x, y）的几何放大倍数 |
+| 垂直精度因子 | VDOP | 高程方向的几何放大倍数 |
+| 时间精度因子 | TDOP | 接收机钟差估计的几何放大倍数 |
+| 综合精度因子 | GDOP | 位置 + 时间的总放大倍数 |
+| 视线方向 | line-of-sight | 接收机指向卫星的单位向量，几何矩阵 H 的原料 |
+| UERE | User Equivalent Range Error | 等效距离误差，观测质量的综合度量 |
+| skyplot | 天空图 | 把卫星仰角/方位角画在圆盘上的可视化工具 |
+
+## 7 DOP 与误差预算的合流
 
 把第 5 篇的 UERE 与这一篇的 DOP 合起来，就得到定位精度的完整表达式：
 
@@ -78,7 +109,7 @@ $$\sigma_{pos} = \text{DOP} \times \sigma_{UERE}$$
 
 两条腿缺一不可：一颗星的观测再准，几何差时照样定位不可靠；几何再好，UERE 差时精度也上不去。这正是所有差分/PPP 技术（第 7、8 篇）与所有多星座方案（第 10 篇）最终都要回到的这个公式。
 
-## 6 小结
+## 8 小结
 
 - **DOP = 几何对观测误差的放大倍数**，来自 $\mathbf{Q}_{\hat{x}} = \sigma_{UERE}^2(\mathbf{H}^{\mathrm{T}}\mathbf{H})^{-1}$。
 - DOP 家族：GDOP / PDOP / HDOP / VDOP / TDOP，满足 $\text{GDOP}^2 = \text{PDOP}^2 + \text{TDOP}^2$。

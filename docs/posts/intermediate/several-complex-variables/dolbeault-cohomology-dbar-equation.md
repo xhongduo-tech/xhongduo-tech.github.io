@@ -117,4 +117,4 @@ $$
 - **Dolbeault 定理**：$H^q(D, \Omega^p) \cong H^{p,q}_{\bar\partial}(D)$——层论与分析合流。
 - **推论**：全纯凸域上 $\bar\partial$ 方程恒可解 ⟺ $H^q(D,\mathcal O) = 0$。
 
-在下一节，我们把「$\bar\partial$
+在下一节，我们把「$\bar\partial$ 可解」从抽象黑箱变成定量估计：**加权 L² 空间与 $\bar\partial$ 算子的闭性**——第 4 篇组 L² 理论的起点。在那里，「闭 ⟹ 可解」将由加权范数的先验估计一锤定音。届时你回看本节的 Dolbeault 定理，会看到它正是 L² 理论在层论一侧的倒影。

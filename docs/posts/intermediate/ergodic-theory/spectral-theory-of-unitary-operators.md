@@ -117,4 +117,8 @@ $$C_{f,g}(n) = \int_{\mathbb{T}} \lambda^n \, d\sigma_{f,g}(\lambda).$$
 - **Koopman 算子** $U_T$ 是 $L^2$ 上的酉算子，其谱结构承载动力学信息。
 - **谱等价是同构的必要条件**，但**不充分**——谱抓不住熵。
 - **谱不变量**：本征值群、离散/连续谱、谱类型、谱测度。
-- **公式解析**：谱分解 $U_T = \int \lambda\, dE(\lambda)$，相关函数 $\langle U_T^n f,g\rangle = \int \lambda^n d\sigma_{f,g}$
+- **公式解析**：谱分解 $U_T = \int \lambda\, dE(\lambda)$，相关函数 $\langle U_T^n f,g\rangle = \int \lambda^n d\sigma_{f,g}$——相关函数的长期行为由谱测度结构决定。
+- **Lebesgue 谱型**：伯努利移位的 Koopman 算子是「最平的连续谱」，把「随机性」精确化为「谱的均匀性」。
+- **应用**：相关函数的谱表示与功率谱密度完全平行；DMD 从数据估计 Koopman 谱，谱理论走向数据科学。
+
+在下一节，我们将走向谱理论最辉煌的结论：**离散谱定理与 Halmos–von Neumann 定理**证明纯离散谱系统等价于紧群上的旋转——谱理论由此把「旋转结构」从系统里完全提取出来。

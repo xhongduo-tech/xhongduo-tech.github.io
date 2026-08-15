@@ -79,7 +79,42 @@ $$
 
 力的方向与位移方向一致时，$\cos\theta=1$，做功最大；力与位移垂直时做功为零——比如手提箱子水平行走，向上的支持力并不做功。<span class="marginnote">这个物理例子点出数量积的一个深刻侧面：它度量的是「一个向量在另一个向量方向上的有效贡献」。这个概念在机器学习里被称作「相似度」：两个词向量点乘越大，语义越接近；注意力机制里的打分，本质上也是点乘。一门数学，从做功到 AI，共用同一个运算。</span> 高中阶段，数量积是解三角形、判定垂直、求长度与夹角的核心工具；到了大学与 AI 时代，它是线性代数的内积、是神经网络的前向传播里最基本的计算单元。
 
-## 6 小结
+## 6 对照表：数量积的性质与运算律
+
+把数量积的全部性质与运算律收进一张速查表，「能用 / 不能用」一目了然：
+
+| 性质 / 运算律 | 公式 | 是否成立 |
+| --- | --- | --- |
+| 交换律 | $\vec a\cdot\vec b=\vec b\cdot\vec a$ | 成立 |
+| 分配律 | $(\vec a+\vec b)\cdot\vec c=\vec a\cdot\vec c+\vec b\cdot\vec c$ | 成立 |
+| 数乘结合律 | $(\lambda\vec a)\cdot\vec b=\lambda(\vec a\cdot\vec b)$ | 成立 |
+| 模长 | $\vec a\cdot\vec a=|\vec a|^2$ | 成立 |
+| 垂直判定 | $\vec a\perp\vec b\iff\vec a\cdot\vec b=0$ | 成立 |
+| 结合律 | $(\vec a\cdot\vec b)\cdot\vec c$ | **不成立**（无定义） |
+| 消去律 | $\vec a\cdot\vec b=\vec a\cdot\vec c\Rightarrow\vec b=\vec c$ | **不成立** |
+
+最后两行的「不成立」最值得警惕：结合律是因为 $\vec a\cdot\vec b$ 已是数，数不能与向量点乘；消去律是因为点乘只保留「投影」信息，两个不同向量在同一方向上的投影可能相等。
+
+<span class="marginnote"><strong>数量积的「降维」本性，决定了它牺牲结合律与消去律</strong>——把向量压成数的那一刻，方向信息就丢了。但交换律与分配律仍在，所以多项式展开 $(a+b)\cdot c=a\cdot c+b\cdot c$ 在向量里照常好用。记住「能展开、不能消去、不能三连乘」三句话，数量积的运算就不会踩雷。</span>
+
+**辨析｜易错点：** 一是**把 $(\vec a\cdot\vec b)\vec c$ 与 $\vec a(\vec b\cdot\vec c)$ 混为一谈**——前者是数乘向量（合法，结果是向量），后者无意义；二是**误用消去律**——点乘相等推不出向量相等；三是**$\vec a\cdot\vec a=|\vec a|^2$ 与 $|\vec a|=\sqrt{\vec a\cdot\vec a}$**——求模长时别漏平方根。
+
+## 7 术语速查表
+
+| 术语 | 记号 / 公式 | 一句话释义 |
+| --- | --- | --- |
+| 向量夹角 | $\theta\in[0,\pi]$ | 共起点两向量的角 |
+| 数量积 | $\vec a\cdot\vec b=|\vec a||\vec b|\cos\theta$ | 结果是一个数 |
+| 投影 | $|\vec b|\cos\theta$ | $\vec b$ 在 $\vec a$ 方向的影子长 |
+| 垂直判定 | $\vec a\perp\vec b\iff\vec a\cdot\vec b=0$ | 点乘为零 |
+| 模长公式 | $|\vec a|=\sqrt{\vec a\cdot\vec a}$ | 数量积求长度 |
+| 夹角公式 | $\cos\theta=\frac{\vec a\cdot\vec b}{|\vec a||\vec b|}$ | 几何角 → 代数式 |
+| 做功 | $W=\vec F\cdot\vec s$ | 力的有效分量 × 位移 |
+| 零向量约定 | $\vec 0\cdot\vec a=0$ | 规定的边界情况 |
+
+**记忆线索**：数量积就一句「长度 × 投影」——定义、正负、几何意义全从它出；运算上记住「交换、分配照常，消去、结合没有」三句话，就能安全驾驶这条「降维」运算。
+
+## 8 小结
 
 - **数量积** $\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta$，结果是一个**数**；夹角范围 $[0,\pi]$。
 - 几何意义：$|\vec{a}|$ × $\vec{b}$ 在 $\vec{a}$ 方向上的投影；符号由夹角的锐钝决定。

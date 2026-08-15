@@ -115,4 +115,12 @@ $$
 ## 6 小结
 
 - **沿岸输沙**由斜波破碎线处的沿岸能量流驱动，**CERC 公式** $Q = K(EC_g)_b\sin\alpha_b\cos\alpha_b/[(\rho_s-\rho)g(1-p)]$，$K \approx 0.39$，输沙量以每年数十万 m³ 计。
-- **岸线演变方程** $\partial y/\partial t = -(1/D)\partial Q/\partial x$，代入输沙公式后化为**扩散方程** $\partial y/\partial t = \varepsilon\,\partial^2 y/\partial x^2$
+- **岸线演变方程** $\partial y/\partial t = -(1/D)\partial Q/\partial x$，代入输沙公式后化为**扩散方程** $\partial y/\partial t = \varepsilon\,\partial^2 y/\partial x^2$——沙的沿岸搬运天然「抹平」岸线弯曲。
+- **结构物是扩散方程的边界条件**：丁坝、突堤、防波堤截断输沙，上游淤、下游掏，制造出人造的岸线奇点。
+- **沙量平衡**是海岸管理的资产负债表，与 GENESIS/UNIBEST 数值模拟 + 长期监测构成数据驱动的岸线管理方法论。
+
+### 一句话记住本节
+
+**沿岸输沙是海岸的传送带：CERC 公式给出输沙率，岸线演变方程给出岸线形态，结构物是插进传送带的挡板——读出这三件，就读出了岸线的一切进退。**
+
+在下一节，我们将转个方向，垂直切开海岸看断面：从滩肩到沙坝的岸滩剖面如何形成、如何随波况冲淤——那就是岸滩剖面形态这一节。

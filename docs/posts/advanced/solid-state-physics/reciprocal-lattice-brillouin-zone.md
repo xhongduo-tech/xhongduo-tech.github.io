@@ -117,4 +117,8 @@ $$\mathbf{b}_1 = \frac{2\pi}{a}(\hat{y}+\hat{z}),\quad \mathbf{b}_2 = \frac{2\pi
 - 周期函数展开成傅里叶级数，波矢 $\mathbf{K}$ 满足 $e^{i\mathbf{K}\cdot\mathbf{R}}=1$，构成**倒格子**。
 - 倒基矢 $\mathbf{b}_i$ 满足 $\mathbf{a}_i\cdot\mathbf{b}_j = 2\pi\delta_{ij}$，由「叉积正交 + 除以体积归一 + $2\pi$ 校准」构造。
 - 倒格子对偶表：**sc↔sc，bcc↔fcc，fcc↔bcc**；实空间晶胞越大，倒格子越密。
-- **第一布里渊区 = 倒空间的 Wigner–Seitz 原胞**；一切晶体本征态用区内 $\mathbf{k}$
+- **第一布里渊区 = 倒空间的 Wigner–Seitz 原胞**；一切晶体本征态用区内 $\mathbf{k}$ 标记。
+- 布里渊区边界对应布拉格反射条件 $2\mathbf{k}\cdot\mathbf{G}+G^2=0$——能隙与衍射由此而来。
+- **实空间看「原子怎么排」，倒空间看「波怎么传」**；衍射、能带、声子、费米面都画在倒空间里。
+
+在下一节，我们将用倒格子重新解读衍射：X 射线衍射与晶体结构测定——从劳厄斑到原子坐标。

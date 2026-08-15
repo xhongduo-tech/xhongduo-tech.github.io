@@ -101,4 +101,35 @@ $\hat{\mu}_i(t)$ 是截至时刻 $t$ 对臂 $i$ 回报的估计（通常是历�
 - 三个改进：**衰减 ε、跳过已知差臂、探索分桶**。
 - 工程上从 ε-Greedy 起步是稳妥路线，要更优遗憾再换 UCB 或 Thompson Sampling。
 
+**术语速查**：
+
+| 术语 | 一句话 |
+| --- | --- |
+| 利用 | 选当前估计最优的臂 |
+| 探索 | 随机尝试以获取新信息 |
+| 遗憾 | 与最优策略的累计回报差 |
+| 衰减 ε | ε 随时间递减的 ε-Greedy |
+| 探索分桶 | 把探索流量隔离在局部桶 |
+
+**一个数值算例**：设 $K = 10$ 个臂、$\varepsilon = 0.1$、跑 $T = 10{,}000$ 步，随机探索约消耗 $0.1 \times 10^4 = 1000$ 次选择，次优臂每个约被选中 $\varepsilon T / K = 100$ 次。若次优臂与最优臂均值差 $\Delta_i = 0.2$，线性遗憾约 $\sum \Delta_i \cdot \varepsilon T / K \approx 9 \times 0.2 \times 100 = 180$——**每步都在「均匀付费」**。
+
+**一个对照**：把 ε 从 0.1 降到 0.01，探索次数从 1000 降到 100，遗憾也降到约 18；但代价是「新物品破零」变慢——**ε 是探索量的直接旋钮，要按「新物品存活率」这类业务指标反向调**。
+
+用 Python 模拟一次 ε-Greedy 的累计回报率（可直接运行）：
+
+```python
+import random
+
+def eps_greedy(K, T, eps, true_mu):
+    est, cnt, total = [0.0]*K, [0]*K, 0
+    for _ in range(T):
+        if random.random() < eps:          # 探索：随机
+            a = random.randrange(K)
+        else:                              # 利用：估最优
+            a = max(range(K), key=lambda i: est[i]/(cnt[i]+1e-9))
+        r = 1.0 if random.random() < true_mu[a] else 0.0
+        est[a] += r; cnt[a] += 1; total += r
+    return total / T
+```
+
 在下一节，我们将看到「把不确定性写进算法」的方法——**UCB：置信上界算法**。

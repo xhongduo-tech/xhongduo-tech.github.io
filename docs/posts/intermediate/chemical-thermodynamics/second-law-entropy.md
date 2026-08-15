@@ -1,6 +1,6 @@
 ---
 title: 热力学第二定律与熵
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 热力学第二定律与熵
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 化学热力学 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 化学热力学 ｜ Atkins &amp; de Paula, "Physical Chemistry" (11th ed.), Focus 3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么需要第二定律

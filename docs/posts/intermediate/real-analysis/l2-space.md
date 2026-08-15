@@ -54,6 +54,8 @@ $$f=P_Mf+(f-P_Mf),\qquad P_Mf\in M,\ f-P_Mf\in M^\perp$$
 
 **证明要点**：取极小化序列 $g_k$ 使 $\|f-g_k\|_2\to d=\inf_M\|f-g\|$；由平行四边形法则证 $g_k$ 是 Cauchy（$L^2$ 完备）；极限 $g_0\in M$（闭），由变分证 $f-g_0\perp M$。**「极小化 → Cauchy → 完备 → 正交」**是投影定理的标准链。
 
+**例（投影的数值算例）**：$L^2([0,1])$ 中取 $M=\mathrm{span}\{1,x\}$（一次多项式），$f(x)=x^2$。投影 $P_Mf$ 是 $a+bx$ 中使 $\int_0^1(x^2-a-bx)^2$ 最小者。由正交条件 $\langle f-P_Mf,1\rangle=0$、$\langle f-P_Mf,x\rangle=0$ 解出 $a=-\tfrac16,\ b=1$：$P_Mf=x-\tfrac16$，误差 $\|f-P_Mf\|_2^2=\tfrac1{180}$。**「两个正交条件、两个未知系数」**——投影定理在有限维子空间上退化成一次线性方程组的求解。
+
 ## 3 正交基与 Fourier 级数
 
 **定义（标准正交系）**：$\{\varphi_k\}\subset L^2$ 满足 $\langle\varphi_i,\varphi_j\rangle=\delta_{ij}$（正交且范数 1），称为**标准正交系（ONS）**。若其张成空间在 $L^2$ 中稠密，称为**标准正交基（ONB）**。
@@ -69,6 +71,18 @@ $$\|f\|_2^2=\sum_{k=1}^{\infty}|\langle f,\varphi_k\rangle|^2$$
 **例（三角基）**：$\{\tfrac1{\sqrt{2\pi}}e^{ikx}\}_{k\in\mathbb{Z}}$ 是 $L^2([0,2\pi])$ 的 ONB——Fourier 级数的 $L^2$ 理论。**「$L^2$ 中每个函数都有 Fourier 展开」**是 $L^2$ 理论的巅峰应用。
 
 **重点：ONB 理论把「函数」翻译成「系数序列」。** $f\leftrightarrow(\langle f,\varphi_k\rangle)_{k=1}^\infty$ 是 $L^2\to\ell^2$ 的等距同构（Parseval：范数保持）。**「函数空间 ≈ 序列空间」**——这是 Fourier 分析的实质：把函数论化为数列论。
+
+**$L^2$ 与 $\ell^2$ 对照表**（等距同构下的「词典」）：
+
+| $L^2$ 对象 | 对应 $\ell^2$ 对象 |
+| --- | --- |
+| 函数 $f$ | 系数序列 $(\langle f,\varphi_k\rangle)$ |
+| 内积 $\langle f,g\rangle$ | $\sum_k a_k\overline{b_k}$ |
+| 范数 $\|f\|_2$ | $\sqrt{\sum_k|a_k|^2}$（Parseval） |
+| 正交 $f\perp g$ | $\sum_k a_k\overline{b_k}=0$ |
+| Fourier 部分和 | 序列截断 $(a_1,\dots,a_N,0,\dots)$ |
+
+**一句话**：<strong>「函数即序列、内积即点积、能量即模长平方」</strong>——这一对应让有限维线性代数里的几何直觉全部迁移到函数空间。
 
 ## 4 公式解析：Parseval 恒等式的证明
 
@@ -90,6 +104,8 @@ $$\left\|f-\sum_{k=1}^{N}\langle f,\varphi_k\rangle\varphi_k\right\|_2^2=\|f\|_2
 
 **例三（Parseval 的数值验证）**：$f(x)=x$ 在 $[0,2\pi]$ 上（归一化后）。Fourier 系数 $\hat f(k)=\tfrac{1}{2\pi}\int_0^{2\pi}xe^{-ikx}dx=\tfrac{i}{k}$（$k\neq0$），$\hat f(0)=\pi$。Parseval：$\|f\|_2^2=\tfrac{1}{2\pi}\int_0^{2\pi}x^2dx=\tfrac{4\pi^2}{3}$，而 $\sum_k|\hat f(k)|^2=\pi^2+2\sum_{k=1}^\infty\tfrac1{k^2}$——由此反解出 **Basel 公式 $\sum_{k=1}^\infty\tfrac1{k^2}=\tfrac{\pi^2}{6}$**！**一条 Parseval 恒等式直接证明著名的 Basel 问题**——$L^2$ 几何的能量等价原理威力可见一斑。
 
+**例四（量子力学态空间）**：$L^2(\mathbb{R}^3)$ 是单粒子量子态的空间，可观测量的期望值写作 $\langle\hat A\rangle=\int\bar\psi\,\hat A\psi$；波函数的归一化 $\|\psi\|_2=1$ 正是 $L^2$ 范数约束。**「概率幅必须是 $L^2$ 可积的」**是量子力学对波函数的全部正则约束，$L^2$ 理论因此直接支撑量子力学的数学框架（见《泛函分析》与量子力学专题）。
+
 **重点：$L^2$ 的三个例子展示同一原理——「正交投影 + Parseval」把函数问题化为数列问题。** 最佳逼近（例一、二）与能量守恒（例三）是 $L^2$ 几何的两大产出，它们构成了 Fourier 分析与最小二乘的全部基础。
 
 ## 6 小结
@@ -99,5 +115,7 @@ $$\left\|f-\sum_{k=1}^{N}\langle f,\varphi_k\rangle\varphi_k\right\|_2^2=\|f\|_2
 - **ONB 与 Fourier**：$f=\sum\langle f,\varphi_k\rangle\varphi_k$，Parseval $\|f\|^2=\sum|\langle f,\varphi_k\rangle|^2$。
 - **等距同构**：$L^2\cong\ell^2$（函数 ↔ 系数序列）。
 - **应用**：最小二乘、Fourier 分析、量子力学态空间。
+- **投影算例**：$M=\mathrm{span}\{1,x\}$ 上 $P(x^2)=x-\tfrac16$——投影退化为解线性方程组。
+- **等距词典**：函数↔序列、内积↔点积、能量↔模长平方（$L^2\cong\ell^2$）。
 
 在下一节，我们完成 $L^p$ 谱系的最后一站：**$L^\infty$ 空间与本性有界函数**。

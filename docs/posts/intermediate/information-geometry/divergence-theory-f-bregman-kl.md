@@ -1,6 +1,6 @@
 ---
 title: 散度理论：f-散度、Bregman 散度与 KL 散度的几何
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 散度理论：f-散度、Bregman 散度与 KL 散度的几何
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 信息几何 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 信息几何 ｜ Amari《Information Geometry and Its Applications》Ch. 1-2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从散度理论开始
@@ -47,6 +47,20 @@ $$D_f[p : q] = \int q(x)\, f\!\left(\frac{p(x)}{q(x)}\right) dx$$
 f-散度的共同性质：**信息单调性（information monotonicity）**——任何统计处理（充分化简、粗粒化）都不会增加散度。这使 f-散度成为「信息损失的天然度量」。<span class="marginnote">Csiszár 在 1963 年独立引入 f-散度（因此也叫 Csiszár 散度），阿里·西尔维（Ali &amp; Silvey）同年也有等价定义。信息单调性后来被证明是「散度」概念最本质的公理。</span>
 
 **辨析｜易错点：** f-散度不是唯一的散度定义方式。f-散度族成员满足信息单调性，但 Bregman 散度族一般不满足。两类散度的交集恰好是 KL 散度（及其仿射变换）——**KL 是唯一同时属于两大族的散度**，这是它无处不在的原因之一。
+
+### 一张表认识 f-散度族
+
+把最常见的 f-散度成员列成一张表，并写出对应的生成函数 $f$：
+
+| 名称 | 生成函数 $f(t)$ | 散度公式 |
+| --- | --- | --- |
+| KL 散度 | $t\log t$ | $\int p \log(p/q)$ |
+| 反向 KL | $-\log t$ | $\int q \log(q/p)$ |
+| Hellinger 距离 $^2$ | $(\sqrt{t}-1)^2$ | $\int (\sqrt p - \sqrt q)^2$ |
+| $\chi^2$ 散度 | $(t-1)^2$ | $\int (p-q)^2/q$ |
+| 总变差 | $\lvert t-1 \rvert$ | $\int \lvert p-q \rvert$ |
+
+注意 Hellinger 距离本身是对称的（$D_H^2 = 2\left(1 - \int \sqrt{pq}\right)$），是 f-散度里少见的「准度量」；而 $\chi^2$ 在分布鲁棒优化（DRO）里是 KL 球之外最常用的约束半径。**同一个 $f$ 就决定了一种「差异的计价方式」——选 $f$，就是选统计问题里「多远算远」的答案。**<span class="marginnote">在假设检验里，f-散度还对应「二分类贝叶斯误差」的刻画：最优检验的功效由似然比的分布决定，而 f-散度恰好是它的单调函数。这是 f-散度家族与推断理论相连的最古老纽带。</span>
 
 ## 3 Bregman 散度族
 
@@ -86,6 +100,18 @@ $$
 - **f-散度**：变分推断、GAN 的 Jensen-Shannon 与总变差目标、分布鲁棒优化（DR）的 $\chi^2$ 与 KL 球约束、公平性约束。<span class="marginnote">GAN 的原始目标正是「判别器逼近 f-散度、生成器最小化它」；f-GAN 则把任意 f-散度写成可微目标。所以 GAN 的训练本质上是「散度空间里的博弈」。</span>
 - **Bregman 散度**：k-means 聚类（Bregman 硬聚类）、矩阵分解（Itakura-Saito）、Boosting（对指数损失的 Legendre 对应）、以及自然梯度对应的凸优化。
 - **KL 交叉点**：当你的算法既想要信息单调性又想要 Pythagoras 几何时，唯一的选择就是 KL——这解释了它在统计机器学习里无法撼动的地位。
+
+### 速查：两大散度族对照
+
+| 性质 | f-散度 | Bregman 散度 |
+| --- | --- | --- |
+| 定义 | $\int q\, f(p/q)$ | $\varphi(p)-\varphi(q)-\langle\nabla\varphi(q), p-q\rangle$ |
+| 信息单调性 | 有 | 一般没有 |
+| 广义 Pythagoras | 一般没有 | 有 |
+| 诱导的联络 | α-联络 | α-联络 |
+| 两者的交集 | KL 及其仿射变换 | |
+
+**两类散度的交集恰好是 KL**——这就是它在统计机器学习里无处不在的根本原因。
 
 ## 6 小结
 

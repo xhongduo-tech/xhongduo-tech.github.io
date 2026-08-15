@@ -28,6 +28,8 @@ Chunked Prefill 的答案非常朴素：**把长 Prefill 切成小块，每一�
 
 还有一个隐性病灶：**抢占粒度太粗**。长 Prefill 一旦中途被抢占（显存不足时调度器会踢人），因为它占用的是「一整块时间」，被踢的损失是整段 Prefill 的工作量；如果 Prefill 被切成小块，抢占只损失一小块。<span class="marginnote">这也是后续「调度器源码分析」章节里抢占逻辑能做得精细的前提——调度单元的粒度决定了一次抢占的代价上界。</span>
 
+**抢占粒度与显存的耦合**：块切得越小，单次被抢占的损失越小，但「已算 KV 的保存/换出」的簿记成本越高——调度器要在「抢占代价」与「换出代价」之间取平衡。这解释了为什么 vLLM 不把块切到最小，而是用 `max_num_batched_tokens` 设一个折中粒度。
+
 ## 2 分块 Prefill 的思想
 
 Chunked Prefill（也叫 prefill chunking）就三句话：
@@ -39,6 +41,8 @@ Chunked Prefill（也叫 prefill chunking）就三句话：
 于是没有哪条请求能「独占 GPU 一整段时间」。长请求的 Prefill 被摊进很多个迭代步，短请求的 Decode 在缝隙里照常前进。**吞吐的敌人不是长 Prefill 本身，而是长 Prefill 对 GPU 的独占时间**——分块把独占时间打碎，队头阻塞随之瓦解。
 
 值得强调：分块不省任何计算，也不省 KV 显存。已处理前缀的 KV 必须一直存在显存里（请求还活着），因此**中途被抢占的请求，其已算 KV 也要保存或换出**。Chunked Prefill 改变的是**调度粒度**，不是**计算量**。
+
+从调度器的视角，分块 Prefill 与普通 Decode 步在排队上是「完全平等」的：谁先进入迭代就优先，不存在「新请求的 Prefill 必须整段做完才能轮到 decode」。这种平等正是连续批处理（第三篇）的设计哲学在长输入上的延伸——**调度单元不再区分「大小请求」，只区分「一块与一步」**。
 
 ## 3 工程实现：一个旋钮
 
@@ -56,6 +60,8 @@ def try_schedule(seq_group):
 `num_computed_tokens` 就是这个旋钮的关键状态：**它让调度器知道一条 Prefill 走到哪了、还剩多少**。每步把预算分给 Prefill 块和 Decode 步，预算分完即止。<span class="marginnote">vLLM 论文里给出过一个直觉：`max_num_batched_tokens` 设得越大，批里能装的 Prefill 块越多、单块越大，吞吐越高；但它也推高单步延迟并占用更多 KV 显存。生产调优一般围绕这个值做扫描（第十篇《max-num-seqs 与 max-num-batched-tokens 调优》）。</span>TensorRT-LLM 的 In-flight Batching、SGLang 的调度器都有等价的机制，只是命名与默认值不同——这是推理引擎的「公共解」。
 
 在命令行里，vLLM 最常被一起调的正是 `max_num_batched_tokens` 与 `max_num_seqs`：前者决定单步 token 预算（即 Prefill 块大小的上界），后者决定批内序列上限。把前者调大意味着允许更大的 Prefill 块、更高的单步吞吐，但也要为更大的批预留更多 KV 显存——第一篇《KV Cache 显存占用估算与数值实例》里的公式在这里派上用场，预算与显存要一起算。
+
+**与 Decode 的交错有上限**：调度器并不是「严格一块 Prefill 一步 Decode」地轮换，而是把预算 `max_num_batched_tokens` 在每个迭代步内按比例分配——Prefill 块占多了，留给 Decode 的预算就少，批内 decode 的步进变慢。因此 `max_num_batched_tokens` 同时是「Prefill 块大小的上界」与「Decode 步进预算的下界」，**一个旋钮管两头**。这也是为什么把它调得过大，TPOT 会跟着涨。
 
 **分块 Prefill 与 Prefix Caching 协同时，还有一个精妙之处**：一条正在分块进行的 Prefill，其**已完成的完整块**同样可以进入前缀缓存——如果另一条请求恰好共享了这部分前缀，它不必等第一条算完，直接复用已定稿的块即可。分块把「大而整」的 Prefill 变成「逐块可共享」的增量，给了调度器更多命中机会，这正是下一节 Prefix Caching 能在长输入场景大显身手的原因之一。
 
@@ -91,6 +97,8 @@ $$
 - **第四步，对比两条式子**：长请求的 TTFT 从「一次性 $t_{\text{full}} = m \cdot t_{\text{chunk}}$」涨到「$m$ 份加上 $m$ 份利息」；Decode 请求的 TTFT 从「被 $t_{\text{full}}$ 整体堵死」降到「一块 Prefill 加一步 Decode」。**多付的是长请求的等待利息，换来的是所有短请求不再被长尾堵死。**
 
 代入数字看权衡。$L = 8192$，$C = 512$，则 $m = 16$。不分块时，一个 8192 token 的 Prefill 若占 GPU 约 2 秒，批里 16 条 Decode 请求全部等 2 秒（TTFT ≈ 2000 ms）。分块后，假设每块 $t_{\text{chunk}} \approx 125$ ms、块间平均等待 $\bar{t}_{\text{wait}} \approx 50$ ms：Decode 请求的 TTFT ≈ 175 ms——**下降了 90% 以上**；长请求自身 TTFT ≈ 2800 ms（$16 \times 175$）——**上升了 40%**。这就是「吞吐优先」的典型取舍：系统层面每单位时间处理的请求变多，代价是超长请求的单点变慢。对大多数在线服务而言，p99 延迟由短请求主导，这笔交易几乎总是划算的。<span class="marginnote">如果想让长请求也快，就只能「不加块间等待」——即独占 GPU 做完 Prefill，那就是回退到静态批处理。Chunked Prefill 的选择本质是「分时复用 vs 独占」的经典折中，与操作系统时间片轮转同构。</span>
+
+**一个常见追问：能不能对 Decode 也分块？** Decode 每步天然只有 1 个 token，已经是最小调度单元，不存在「再切」的问题；真正需要防的是「超长 Decode 独占批」——而那是靠 `max_num_seqs` 与批大小限制解决的，不是 chunk。Chunked Prefill 只对 Prefill 生效，这个命名没有歧义。
 
 ## 5 辨析｜易错点
 

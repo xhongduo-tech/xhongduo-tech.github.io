@@ -1,6 +1,6 @@
 ---
 title: DPO 直接偏好优化
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # DPO：把对齐化简成一次分类
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第四级 · 高阶专题 · 对齐技术（RLHF / DPO） ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第四级 · 对齐技术（RLHF / DPO） ｜ Rafailov et al., DPO 2023 §3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么说 RLHF 绕了远路

@@ -109,3 +109,24 @@ whether & \text{主语/表语从句、介词后、不定式前、} or\ not\ \tex
 whether\ /\ if & \text{及物动词后的宾语从句}
 \end{cases}
 $$
+
+对这条 whether/if 公式做三步拆解：
+
+- **第一步，看从句位置**：主语从句、表语从句、介词后、不定式前——一律用 `whether`，`if` 无权进入：`Whether he agrees doesn't matter.`、`It depends on whether he agrees.`、`I don't know whether to go.`
+- **第二步，看 `or not`**：`whether or not` 合用时只用 `whether`：`I don't know whether or not he agrees.`（不能说 `if or not`）。
+- **第三步，宾语从句两可**：及物动词后的宾语从句 `whether`/`if` 都可——`I don't know whether/if he agrees.`
+
+**辨析｜易错点：** `that` 作连接词的省略规则分位置：**宾语从句可省 `that`**（`I believe (that) he is honest.`），**主语从句句首不可省**（`That she refused is a surprise.`）——主语从句若省略 `that`，句子会被误读成祈使句或其他结构。
+
+**补充：** 名词性从句的「递归」是英语句法最深的力量：`I think that he knows that she said that...` 可以无限嵌套。**每一层嵌套就是一个名词性从句**——掌握四种名词性从句，就掌握了英语「句中有句」的第一级台阶，第4篇《综合教学语法》会把递归作为语言能力的核心主线。
+
+## 7 小结
+
+- 名词性从句**四种**：主语从句、宾语从句、表语从句、同位语从句——从句有主谓结构，短语没有。
+- 引导词三族：**`that`（陈述）、`whether/if`（是否）、`wh-` 词（疑问）**。
+- `whether` 与 `if` 分工：**`if` 只进宾语从句，`whether` 四处通吃**（主语/表语/介词后/不定式前/or not 前）。
+- 宾语从句**时态一致**：主句过去时从句后移；客观真理不受约束；`think` 类否定转移。
+- 主语从句常用**先行 `it` 后置**；从句作主语谓语用单数。
+- 同位语 vs 定语从句判别：**`that` 作不作成分**——作成分是定语，不作是同位语。
+
+在下一节，我们将看名词性从句的姊妹——定语从句，看关系词如何既引导从句又在从句中当成分。

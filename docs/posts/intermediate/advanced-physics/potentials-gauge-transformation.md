@@ -76,7 +76,51 @@ $$
 
 **重点：规范变换是「规范对称性」的体现——物理不依赖于势的具体选择，这个对称性在现代物理中升华为「规范原理」：相互作用由规范对称性决定。** 电磁场是 $U(1)$ 规范场，弱力（SU(2)）、强力（SU(3)）都是非阿贝尔规范场——标准模型的骨架就是规范场论。<span class="marginnote">「从规范自由度到规范场论」：经典电动力学里的「势可以随便加 $\nabla\chi$」，在量子场论中成为「规范对称性要求引入规范玻色子（光子）」的建构原理。电磁、弱、强三种相互作用都由规范对称性产生——这是 20 世纪物理最深刻的统一思想之一。分析力学（哈密顿/拉格朗日）提供的框架，在这里与对称性思想合流。</span>
 
-## 6 小结
+## 6 数值算例：规范变换的显式验证
+
+给定矢势 $\boldsymbol{A} = \frac{1}{2}\boldsymbol{B}_0\times\boldsymbol{r}$（均匀磁场 $\boldsymbol{B}_0 = B_0\hat{z}$）与标势 $\phi = 0$。作规范变换 $\chi = -B_0 x y/2$，求新矢势并验证磁场不变。
+
+$$
+
+\boldsymbol{A}' = \boldsymbol{A} + \nabla\chi = \left(-\frac{B_0 y}{2}, \frac{B_0 x}{2}, 0\right) + \left(-\frac{B_0 y}{2}, -\frac{B_0 x}{2}, 0\right) = (-B_0 y, 0, 0)
+
+$$
+
+- **第一步，写原矢势**：$\boldsymbol{A} = \frac{1}{2}\boldsymbol{B}_0\times\boldsymbol{r} = \frac{B_0}{2}(-y, x, 0)$。
+- **第二步，求 $\nabla\chi$**：$\chi = -B_0xy/2$，$\nabla\chi = (-B_0y/2, -B_0x/2, 0)$。
+- **第三步，相加**：$\boldsymbol{A}' = (-B_0y, 0, 0)$——一个更简单的矢势。
+- **第四步，验证磁场**：$\nabla\times\boldsymbol{A}' = (0, 0, B_0) = \boldsymbol{B}_0$——磁场不变！同一个均匀磁场，至少有两种矢势形式，这就是规范自由度。<span class="marginnote">这个例子说明「规范选择」像换坐标系：物理（磁场）不变，但方程变简单了。实际计算中常利用规范自由度选最省事的矢势——比如把均匀磁场的矢势写成 $\boldsymbol{A} = (-By, 0, 0)$ 而非 $\frac12\boldsymbol{B}\times\boldsymbol{r}$，后者在量子力学（朗道能级）里更常用。</span>
+
+## 7 阿哈罗诺夫-玻姆效应：势的物理实在性
+
+如果矢势只是「数学工具」，它就不该有可观测的物理效应。但 **阿哈罗诺夫-玻姆效应（Aharonov-Bohm effect）** 颠覆了这个直觉：电子束分成两路绕过一个螺线管（管内磁场不为零、管外磁场为零），两路电子的干涉图样随管内磁通量变化——即使电子完全在磁场为零的区域运动！
+
+$$
+
+\Delta\varphi = \frac{q}{\hbar}\oint\boldsymbol{A}\cdot\mathrm{d}\boldsymbol{l} = \frac{q\Phi}{\hbar}
+
+$$
+
+- **第一步，读实验**：电子从不到达磁场区域，但干涉条纹仍随磁通量 $\Phi$ 移动。
+- **第二步，写相位**：相位差 $\Delta\varphi = q\Phi/\hbar$——由矢势的环路积分决定。
+- **第三步，解读**：在量子力学中，势（矢势）具有可观测的物理效应（相位），即使磁场为零——势不仅是数学工具，还承载物理实在。<span class="marginnote">阿哈罗诺夫-玻姆效应把「规范自由度」推到哲学前沿：矢势虽然规范不唯一，但其环路积分（通量）是规范不变的物理量。量子力学里带电粒子的相位对矢势敏感（最小耦合 $\boldsymbol{p} \to \boldsymbol{p} - q\boldsymbol{A}$），这正是规范对称性在量子层面显形的方式——也是超导、拓扑物理（磁通量子化）的基础。</span>
+
+**辨析｜易错点：**阿哈罗诺夫-玻姆效应不违反「磁场决定洛伦兹力」——经典力学中粒子确实只在有磁场处受力。但这个效应证明：**量子力学中，矢势是比磁场更基本的对象**（相位由矢势决定）。「矢势只是工具」的经典直觉，在量子层面被修正——这与「波函数比坐标更基本」是同一类观念跃迁。
+
+## 8 术语速查表
+
+| 术语 | 公式 | 要点 |
+| --- | --- | --- |
+| 矢势 | $\boldsymbol{B} = \nabla\times\boldsymbol{A}$ | 磁场的势 |
+| 标势 | $\boldsymbol{E} = -\nabla\phi - \partial\boldsymbol{A}/\partial t$ | 与矢势联合 |
+| 规范变换 | $\boldsymbol{A}'=\boldsymbol{A}+\nabla\chi$ | 场不变 |
+| 库仑规范 | $\nabla\cdot\boldsymbol{A}=0$ | 近静态 |
+| 洛伦兹规范 | $\nabla\cdot\boldsymbol{A}+\frac{1}{c^2}\partial\phi/\partial t=0$ | 波动方程 |
+| AB 效应 | $\Delta\varphi = q\Phi/\hbar$ | 势有物理效应 |
+
+矢势与标势把电磁场从「两个矢量场」化成「一个标量函数 + 一个矢量函数」，规范自由度则揭示：描述方式的多余自由度不影响物理。这份「规范不变性」最终升华为现代物理的建构原理——电磁、弱、强三种相互作用都由它产生。下一节我们研究电磁场的能量与动量流动——**电磁场的能量、动量与坡印廷矢量**。
+
+## 9 小结
 
 - **矢势** $\boldsymbol{A}$：$\boldsymbol{B} = \nabla\times\boldsymbol{A}$；**标势** $\phi$：$\boldsymbol{E} = -\nabla\phi - \partial\boldsymbol{A}/\partial t$。
 - **规范变换**：$\boldsymbol{A}' = \boldsymbol{A} + \nabla\chi$、$\phi' = \phi - \partial\chi/\partial t$——电磁场不变。

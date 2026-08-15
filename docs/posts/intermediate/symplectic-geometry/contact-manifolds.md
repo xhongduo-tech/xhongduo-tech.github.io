@@ -26,7 +26,7 @@ $$
 \alpha \wedge (d\alpha)^n \neq 0 \quad \text{处处非零}
 $$
 
-这是**体积形式条件**：$\alpha \wedge (d\alpha)^n$ 是 $Y$ 上的处处非零体积形式，故 $Y$ 可定向且 $\alpha$ 在逐点意义上「最大不可积」。<span class="marginnote">与辛条件对比：辛形式要求 $\omega^n \neq 0$（$\omega$ 非退化），接触形式要求 $\alpha \wedge (d\alpha)^n \neq 0$。辛是偶维、闭、非退化；接触是奇维、不闭、最大不可积。`</span>
+这是**体积形式条件**：$\alpha \wedge (d\alpha)^n$ 是 $Y$ 上的处处非零体积形式，故 $Y$ 可定向且 $\alpha$ 在逐点意义上「最大不可积」。<span class="marginnote">与辛条件对比：辛形式要求 $\omega^n \neq 0$（$\omega$ 非退化），接触形式要求 $\alpha \wedge (d\alpha)^n \neq 0$。辛是偶维、闭、非退化；接触是奇维、不闭、最大不可积。</span>
 
 **接触结构（contact structure）**：超平面分布
 
@@ -112,4 +112,10 @@ $$
 - **接触形式** $\alpha$：$\alpha \wedge (d\alpha)^n \neq 0$ 处处非零——奇维版本的非退化条件；**接触结构** $\xi = \ker\alpha$ 是最大不可积超平面分布。
 - **Reeb 向量场**：横截 $\xi$、保持 $\alpha$ 的规范向量场；给出接触流形上的「时间」。
 - **例子**：$\mathbb{R}^3$ 标准接触结构、$S^3$、余切丛的单位余球面。
-- **辛化**：$(Y \times \mathbb{R}, d(e^t\alpha))$ 是辛流形 ⟺ $\alpha$
+- **辛化**：$(Y \times \mathbb{R}, d(e^t\alpha))$ 是辛流形 ⟺ $\alpha$ 是接触形式——**接触正是「能辛化」的精确条件**。
+- **Legendrian 子流形**：处处切 $\xi$ 的 $n$ 维子流形，接触版的 Lagrangian；辛化中提升为 Lagrangian 锥。
+- **紧致 vs 过扭转**：Eliashberg 二分——过扭转可同伦分类且不可辛填充，紧致与填充问题（第3篇）挂钩。
+- **应用**：光学（光线空间 = 接触流形，Reeb 流 = 光线传播）、热力学（状态空间的 Legendre 子流形 = 平衡态流形）。
+- **数值检验**：$\mathbb{R}^3$ 标准形式 $\alpha = dz - y\,dx$ 满足 $\alpha \wedge d\alpha = dz \wedge dx \wedge dy \neq 0$——接触条件逐点可验，是「最大不可积」最直接的落地。
+
+在下一节，我们将进入可积系统与 Liouville-Arnold 定理：当守恒量的数目多到等于自由度，相空间被纤维化成环面，哈密顿流变成环面上的直线运动。可积系统的「环面纤维化」与本文接触结构的「潜在辛分布」共享同一个思想——**把动力系统的可解性读成几何结构的规整性**。

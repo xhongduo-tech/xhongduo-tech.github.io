@@ -1,6 +1,6 @@
 ---
 title: 环境价值评估与成本—收益分析
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 环境价值评估与成本—收益分析
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第八级 · 社会科学 · 环境政策与治理 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第八级 · 环境政策与治理 ｜ Tietenberg《Environmental and Natural Resource Economics》§3-4 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从「定价难题」开始

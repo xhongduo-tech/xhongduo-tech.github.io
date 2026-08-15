@@ -1,6 +1,6 @@
 ---
 title: 基于示例的解释：原型、批评样本、锚点与对抗样本
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 基于示例的解释：原型、批评样本、锚点与对抗样本
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第九级 · 交叉与前沿 · 可解释 AI ｜ 对标教材（Molnar, Interpretable Machine Learning §6） ｜ 2026-08-11</p>
+<p>第九级 · 可解释 AI ｜ 对标教材（Molnar, Interpretable Machine Learning §6） ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从示例开始

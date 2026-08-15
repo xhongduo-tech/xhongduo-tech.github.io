@@ -115,4 +115,7 @@ $$
 - **Levi 问题**：伪凸域是否一定是全纯域？—— 答案：是（Oka–Norguet–Bremermann）。
 - **历史**：Oka（1936–1953）奠基 → Norguet、Bremermann（1953–54）用 psh 函数简化 → Grauert（1958）推广到流形。
 - **核心工具**：**强 psh 穷竭函数** $\varphi = -\log(-\rho) + C|z|^2$，把伪凸域写成强伪凸域的嵌套并。
-- **推论链**：伪凸 $\Rightarrow$ 有强 psh 穷竭函数 $\Rightarrow$ $\bar\partial$ 可解/全纯凸 $\Rightarrow$
+- **推论链**：伪凸 $\Rightarrow$ 有强 psh 穷竭函数 $\Rightarrow$ $\bar\partial$ 可解/全纯凸 $\Rightarrow$ 全纯域（Cartan–Thullen 收尾）。
+- **一句话记忆**：Levi 问题 = 「伪凸 ⟹ 全纯域」，靠强 psh 穷竭函数 + Runge 逼近证明；它是多复变分析—几何—代数三大工具首次合流的舞台。
+
+在下一节，我们把逼近与穷竭工具组合成完整的「正向证明」引擎：**Oka-Weil 定理与 Runge 逼近**。

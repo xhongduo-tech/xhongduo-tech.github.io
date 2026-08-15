@@ -105,4 +105,17 @@ $$
 
 **终篇回望**：从第1篇的「反对称双线性形式」到这里的「几何 Satake」，辛几何走完了一条从「线性代数」到「朗兰兹纲领」的弧线。贯穿始终的只有三样东西：**辛形式（面积）、moment map（守恒）、Lagrangian（自正交）**——它们在不同语境里反复变形，却始终是同一个几何。
 
-**给读者的下一步**：若这一系列点燃了你对辛几何的兴趣，标准进阶路线是 McDuff-Salamon《Introduction to Symplectic Topology》第三版（本专题的母本）配合 Cannas da Silva《Lectures on Symplectic Geometry》。再往前，Fukaya 的 $A_\infty$
+**给读者的下一步**：若这一系列点燃了你对辛几何的兴趣，标准进阶路线是 McDuff-Salamon《Introduction to Symplectic Topology》第三版（本专题的母本）配合 Cannas da Silva《Lectures on Symplectic Geometry》。再往前，Fukaya 的 $A_\infty$ 范畴、导出范畴与 Kähler 几何，以及 Audin《Torus Actions on Symplectic Manifolds》都是成熟的进阶路径——**把今天的「桥梁」走成你自己的「高速公路」**。
+
+## 6 小结
+
+- **轨道方法（Kirillov）**：共伴随轨道 $\mathcal{O}_\lambda$ 是辛流形（Kirillov 形式）；表示 = 轨道上的几何量子化。$SU(2)$ 的自旋表示 = 球面 $S^2_{\|\lambda\|}$ 上的量子化。
+- **Borel-Weil 定理**：不可约表示 $V_\lambda \cong H^0(G/B, L_\lambda)$——表示 = 旗簇上全纯线束的截面空间。
+- **Nakajima 箭图簇**：$\mathcal{M}(v,w) = \mu^{-1}(0)/G$ 是辛约化的实例；其同调给出 Kac-Moody 表示，Lagrangian 对应充当算子。
+- **moment map 三重身份**：力学（守恒量）、几何（约化 → Delzant 多胞形）、表示论（共伴随轨道 / 箭图簇）——贯穿全课程。
+- **延伸**：Springer 理论与几何 Satake 把表示论、辛几何、代数几何在朗兰兹纲领处合一。
+- **方法论**：哈密顿群作用 + moment map = 表示的几何工厂；要区分「表示本身」与「表示的实现」（Borel-Weil、Nakajima 都给出实现）。
+
+我们走到「辛几何」专题的最后一篇。回望这条弧线：第1篇的辛线性代数与 Darboux 定理立住「局部平凡、整体刚性」；第2篇的哈密顿流、可积系统与 moment map 把力学与对称性变成几何；第3篇的 Gromov 曲线把刚性变成计数；第4篇的 Floer 同调、量子上同调、镜面对称与几何表示论，把这一切织成当代数学的立交桥。
+
+如果你跟着走到了这里，接下来最自然的动作是翻开 McDuff–Salamon《Introduction to Symplectic Topology》第三版，把这一系列文章里的每个定理亲自证明一遍——**今天读懂的所有桥梁，都会成为你日后自己的高速公路**。

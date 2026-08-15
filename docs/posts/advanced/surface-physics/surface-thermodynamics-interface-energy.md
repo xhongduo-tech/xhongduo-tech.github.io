@@ -114,4 +114,8 @@ $$\Delta\gamma = \gamma_f + \gamma_i - \gamma_s \begin{cases} \lt  0 & \text{逐
 - **Shuttleworth 方程**：$g_{ij} = \gamma\delta_{ij} + \partial\gamma/\partial\varepsilon_{ij}$，液体第二项为零，固体则不同。
 - **Wulff 定理**：从 $\gamma$–图构造平衡晶体形状；$\gamma$ 图的尖点对应小面。
 - **TLK 模型**：表面由台面–台阶–扭结构成，扭结是最活跃的位点；台阶能 $\beta$ 决定阶梯面稳定性。
-- **Laplace 压强** $\Delta p = \gamma(1/R_1 + 1/R_2)$
+- **Laplace 压强** $\Delta p = \gamma(1/R_1 + 1/R_2)$：球面 $2\gamma/R$，纳米颗粒内压强可达上千大气压。
+- **外延判据** $\Delta\gamma = \gamma_f + \gamma_i - \gamma_s$：$\lt  0$ 逐层、$>0$ 成岛——一个 $\gamma$ 串起吸附、相变与外延。
+- **Gibbs 吸附方程** $\mathrm{d}\gamma = -\Gamma\,\mathrm{d}\mu$：把吸附量与表面能变化直接挂钩。
+
+在下一节，我们将从「表面为什么这样存在」转向「表面由什么组成」——看看体相成分如何与表面成分分家，那是偏析的第一课。

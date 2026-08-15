@@ -1,6 +1,6 @@
 ---
 title: Spark RDD 与 DAG
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # Spark RDD 与 DAG
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · 大数据系统 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · 大数据系统 ｜ 《Spark 权威指南》（Bill Chambers & Matei Zaharia）Ch.2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 RDD 与 DAG 开始
@@ -38,6 +38,18 @@ RDD 上的操作分两类，这也是理解 Spark 性能的起点：
 - **行动（action）**：如 `count`、`collect`、`saveAsTextFile`。它才真正触发计算，把结果带回驱动端或写入存储。
 
 <span class="marginnote">惰性求值并非 Spark 独创——Haskell 等函数式语言把它用到了极致。你可以在第一级《函数》与第二级《函数式编程》里看到同一思想：先描述"怎么算"，等到真正需要结果才执行，从而有机会把整条计算链整体优化。</span>**惰性求值让 Spark 能在触发计算前看到"整张计算图"，从而合并不必要的步骤、跳过用不到的中间结果。**
+
+`map` 与 `reduceByKey` 的组合是理解这条链路最经典的例子——把词频统计写成一段 RDD 链：
+
+```scala
+val lines = sc.textFile("hdfs://.../news.txt")   // 读取：产出一个 RDD
+val words = lines.flatMap(_.split(" "))          // 转换：拍平成一个个词
+val pairs = words.map(w => (w, 1))               // 转换：每个词记上 1
+val counts = pairs.reduceByKey(_ + _)            // 转换：按词累加（宽依赖）
+counts.collect()                                  // 行动：真正触发计算
+```
+
+前四行只是"记食谱"，`collect()` 这一下才让 Spark 回溯整张 DAG 并真正执行。把这段代码贴进 spark-shell 亲手跑一遍，观察 driver 日志里"从源头读 HDFS → 逐级变换 → 归约"的舞台切分，是理解惰性求值最快的方式。
 
 ## 3 DAG：把计算画成一张有向无环图
 
@@ -83,7 +95,25 @@ $$
 - **Spark 的 $I \cdot N$**：每轮只在 shuffle 时穿越一次；内存缓存的读写几乎不产生跨设备开销。
 - **结论**：迭代轮数 $I$ 越大，差距越显著——**这解释了为什么机器学习（几十上百轮迭代）是 Spark 诞生时的第一个杀手级场景**，也是"内存计算"这一口号的数量化含义。
 
-## 6 小结
+**数字算例**：设 $N=100\text{ GB}$、磁盘带宽 $B=100\text{ MB/s}$、迭代 $I=50$ 轮。按上式，MapReduce 总耗时 $\approx \frac{2 \times 50 \times 100\text{ GB}}{100\text{ MB/s}} = 10^5$ 秒（约 28 小时）；Spark 若把中间结果全部缓存于内存，$\approx \frac{50 \times 100\text{ GB}}{100\text{ MB/s}} + \frac{N}{B_{\text{mem}}} \approx 5\times 10^4$ 秒（约 14 小时）。**粗模型只算出 2 倍，但真实差距远大于此**——因为磁盘的机械寻道与随机 IO 才是主要成本，而粗模型把读写理想化成连续带宽。这正是"内存计算快上百倍"这句话在真实负载里的来源。
+
+## 6 术语速查表
+
+| 术语 | 英文 | 一句话解释 |
+| --- | --- | --- |
+| 分区 | partition | RDD 被切成的并行处理单元 |
+| 转换 | transformation | 惰性返回新 RDD 的操作 |
+| 行动 | action | 真正触发计算的求值操作 |
+| 惰性求值 | lazy evaluation | 先描述计算图，用到结果才执行 |
+| 宽依赖 | wide dependency | 需跨节点重组数据，触发 shuffle |
+| 窄依赖 | narrow dependency | 父分区只在节点内被消费，无需网络 |
+| shuffle | shuffle | 按 key 跨节点重新分布数据 |
+| 血缘 | lineage | 记录 RDD 由谁、如何计算而来 |
+| 检查点 | checkpoint | 切断血缘、物化到稳定存储 |
+| 持久化 | persistence | 把 RDD 缓存到内存/磁盘避免重算 |
+| 存储级别 | storage level | persist() 指定的缓存方式与位置 |
+
+## 7 小结
 
 - **RDD** 是只读、分区、可缓存的分布式集合，默认惰性、可依赖血缘重算。
 - 操作分**转换（惰性）与行动（触发）**，触发时才执行整张 DAG。

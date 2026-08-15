@@ -73,12 +73,50 @@ $$D(f)=\left\{x:\omega_f(x)>0\right\}=\bigcup_{n=1}^{\infty}\underbrace{\left\{x
 
 **这套「开区间拆闭区间」的手法贯穿全书**：它把「正测度 / 非空」这类开性条件，翻译成「$\ge\tfrac1n$」的闭性条件，从而让有限覆盖、Borel 层级这些闭集工具派上用场。
 
-## 5 小结
+## 6 数值演练与 Borel 层级速查
+
+**算例一（$\mathbb{Q}$ 的 Borel 身份）**：$\mathbb{Q}=\bigcup_{r\in\mathbb{Q}}\{r\}$——单点（闭）的可数并，$F_\sigma$ 集。$\mathbb{R}\setminus\mathbb{Q}=\bigcap_{r\in\mathbb{Q}}(\mathbb{R}\setminus\{r\})$——开集的可数交，$G_\delta$ 集。**稠密可数集与其补集正好分居 $F_\sigma$ 与 $G_\delta$ 两侧。**
+
+**算例二（连续点集是 $G_\delta$）**：$f$ 的连续点集 $C(f)=\bigcap_n\bigcup_{\delta}\{x:\sup_{|x'-x|<\delta}|f(x')-f(x)|<\tfrac1n\}$——每个 $\{\cdot\}$ 对固定 $n$ 取合适的 $\delta$ 是开集，可数交得 $G_\delta$。**「连续」这一性质在 Borel 层级上落在 $G_\delta$ 层。**
+
+**对照表：Borel 层级速查**
+
+| 层级 | 定义 | 例 |
+| --- | --- | --- |
+| $\Sigma_1^0$ | 开集 | $(0,1)$ |
+| $\Pi_1^0$ | 闭集 | $[0,1]$ |
+| $F_\sigma$ | 可数闭并 | $\mathbb{Q}$ |
+| $G_\delta$ | 可数开交 | $\mathbb{R}\setminus\mathbb{Q}$ |
+| $F_{\sigma\delta}$ | 可数 $G_\delta$ 并 | 更深层新例 |
+
+**术语速查**
+
+| 记号 | 含义 |
+| --- | --- |
+| $F_\sigma$ | 可数闭并 |
+| $G_\delta$ | 可数开交 |
+| $\mathcal{B}$ | Borel 集类 |
+| 振幅 $\omega_f$ | 局部振荡大小 |
+
+**辨析｜易错点：Borel 集不限于 $F_\sigma$ 或 $G_\delta$——层级无穷深。** $F_{\sigma\delta}$ 集未必 $F_\sigma$。**「多数子集不是 Borel 集」**：$[0,1]$ 有 $2^c$ 个子集，Borel 集仅 $c$ 个——不可测的嫌疑对象极其众多。
+
+### 三步看穿「$F_\sigma$ 论证」
+
+- **改写**：不连续 ⇔ 振幅 $>0$。
+- **分层**：$>0$ ⇔ $\bigcup_n\{\omega_f\ge\tfrac1n\}$。
+- **闭化**：每层 $\{\omega_f\ge1/n\}$ 闭，可数并得 $F_\sigma$。
+
+**延伸（与测度论连接）**：Lebesgue 可测集正是「Borel 集 ⊕ 零测修补」；正则性（开外闭内逼近）保证每个可测集都被 Borel 集夹住。**「Borel 骨架 + 零测血肉」是可测集的结构定理。**
+
+**一道收束练习**：证明连续函数 $f$ 的值域是区间（连通）但「$f$ 的不可微点集」是 $F_\sigma$ 集——用振幅手法把「可微性」也翻译成 Borel 语言。
+
+## 7 小结
 
 - **$F_\sigma$ / $G_\delta$**：可数个闭集的并 / 可数个开集的交；互补对（$E\in F_\sigma\iff E^c\in G_\delta$）。
 - **Borel 集类**：对开集施以可数并、可数交、补集三种运算反复封闭的最小族；基数 $c$。
 - **层级不坍缩**：$F_{\sigma\delta}$、$G_{\delta\sigma}$……严格递增，且「多数子集不是 Borel 集」（$2^c$ 个子集中只有 $c$ 个是）。
 - **正则性**：Borel 集可用开集外逼近、闭集内逼近，误差任意小——Lebesgue 测度逼近定理的雏形。
 - **振幅手法**：「$>0$」拆成「$\ge\tfrac1n$」的可数并，是分析论证的常备武器。
+- **数值**：$\mathbb{Q}$ 是 $F_\sigma$，$\mathbb{R}\setminus\mathbb{Q}$ 是 $G_\delta$。
 
 在下一节，我们将进入紧致性的世界：证明 **有限覆盖定理与可数覆盖定理**，这是「开区间」覆盖「闭区间」时「无穷」与「有限」第一次握手。

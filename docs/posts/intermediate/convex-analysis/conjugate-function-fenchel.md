@@ -116,4 +116,9 @@ $$f^*(y) = \sup_x \big( \langle x, y \rangle - f(x) \big)$$
 - $f^*$ **永远是闭凸函数**，共轭自动「凸化 + 闭化」任意函数。
 - **Fenchel–Young 不等式** $f(x) + f^*(y) \ge \langle x, y \rangle$，等号 ⟺ $y \in \partial f(x)$。
 - 共轭的运算：数乘、仿射复合、和的共轭 ↔ 共轭的卷积、最大的共轭 ↔ 凸包。
-- 光滑情形求共轭 = 解 $y = \nabla f(x)$
+- 光滑情形求共轭 = 解 $y = \nabla f(x)$ 再代回；不可微时用次梯度配对，$(x, y)$ 满足 $f(x) + f^*(y) = \langle x, y \rangle$。
+- **共轭的定义域 $\operatorname{dom} f^*$ 一般与 $f$ 不同**：求共轭后务必重查定义域——LP 对偶的可行域 $A^T \nu \le c$ 正是共轭函数的定义域约束。
+- 对偶词典的三组黄金对：$\frac{1}{2}x^T P x \leftrightarrow \frac{1}{2}y^T P^{-1}y$（逆矩阵）、$\delta_C \leftrightarrow \sigma_C$（指示 ↔ 支撑）、$x \log x \leftrightarrow e^{y-1}$（负熵 ↔ 指数）。
+- **Fenchel–Young 等号 ⟺ $y \in \partial f(x)$**：取等的配对正是后面所有最优性条件的原型。
+
+在下一节，我们将追问：共轭的共轭会回到原来的函数吗？——这就是**双共轭** $f^{**} = (f^*)^*$，它把「凸化 + 闭化」的过程再执行一遍，并给出闭凸函数与强对偶之间的精确联系。

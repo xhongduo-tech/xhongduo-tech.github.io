@@ -1,6 +1,6 @@
 ---
 title: 多星座与多频定位
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 多星座与多频定位
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · GNSS 定位与导航 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · GNSS 定位与导航 ｜ Hofmann-Wellenhof §11, Misra §3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从多星座开始
@@ -100,7 +100,21 @@ $$\Phi_{EWL} = \frac{\Phi_1 - \Phi_5}{\text{组合系数}} \ \Rightarrow \ N_{EW
 
 多星座多频把「整体大于部分之和」变成了工程常态：更多观测、更稳几何、更快模糊度固定、更强的完好性。
 
-## 7 小结
+## 7 术语速查表
+
+| 术语 | 英文 | 一句话定义 |
+| --- | --- | --- |
+| 多星座 | multi-constellation | 联合使用多个全球导航系统的定位方式 |
+| 多频 | multi-frequency | 使用同一系统的多个载波频率组合定位 |
+| 系统间偏差 | ISB | 不同系统时间基准之间的未知常数偏差 |
+| 频间偏差 | IFB | 同一系统不同频率之间的硬件延迟差 |
+| 电离层无关组合 | ionosphere-free combination | 两频率线性组合消去一阶电离层延迟 |
+| 宽带组合 | wide-lane | 两频率相减的观测组合，波长变长利于模糊度固定 |
+| 超宽带 | extra-wide-lane | 波长更长的组合，可达约 5.86 m |
+| FDMA | Frequency Division Multiple Access | 每星不同频率的多址体制（GLONASS 传统） |
+| CDMA | Code Division Multiple Access | 共用频率靠码分区的多址体制（GPS/Galileo/BDS） |
+
+## 8 小结
 
 - 多星座把可用卫星从约 8 颗提到 30 颗，**DOP 显著下降、遮挡鲁棒、完好性冗余**。
 - 每新系统多一个 **ISB 参数**；忽略 ISB（毫秒级时差）会造成系统性位置偏差。

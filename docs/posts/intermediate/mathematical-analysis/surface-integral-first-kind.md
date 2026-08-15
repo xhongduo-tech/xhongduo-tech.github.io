@@ -102,7 +102,23 @@ $$\bar x=\frac{\iint_Sx\rho\,dS}{\iint_S\rho\,dS},$$
 
 **核心是「面积因子」**——它把曲面微元 $dS$ 换成参数域/投影域的微元。三种表示只是面积因子的不同写法。
 
-## 6 小结
+## 6 计算示范：第一型曲面积分的实战
+
+**示范三（锥面上的积分）**：$f=x^2+y^2$ 沿锥面 $z=\sqrt{x^2+y^2}$ 在 $x^2+y^2\le1$ 的部分。$z_x=\frac{x}{\sqrt{x^2+y^2}},\ z_y=\frac{y}{\sqrt{x^2+y^2}}$，面积因子 $\sqrt{1+z_x^2+z_y^2}=\sqrt2$：
+
+$$\iint_S(x^2+y^2)dS=\iint_{x^2+y^2\le1}r^2\cdot\sqrt2\,r\,dr\,d\theta=\sqrt2\int_0^{2\pi}\int_0^1r^3dr\,d\theta=\frac{\sqrt2\pi}{2}.$$
+
+**锥面的面积因子恒为 $\sqrt2$**——与 §21.7 示范一（圆锥面积）一致，被积函数换成 $r^2$ 后极坐标顺算。
+
+**示范四（柱面的面积）**：用参数化算圆柱面 $x=\cos\theta,\ y=\sin\theta,\ z=t$（$0\le\theta\le2\pi,\ 0\le t\le1$）的面积。$\vec r_\theta=(-\sin\theta,\cos\theta,0)$、$\vec r_t=(0,0,1)$，$|\vec r_\theta\times\vec r_t|=1$，面积 $=\int_0^{2\pi}\int_0^1\,dt\,d\theta=2\pi$——**柱面面积 $=$ 底圆周长 × 高**。<span class="marginnote">柱面的面积因子恒为 1（参数网格是「保面积」的），这让柱面上的积分格外干净：$\iint_S f\,dS=\int_0^{2\pi}\int_0^1 f(\cos\theta,\sin\theta,t)\,dt\,d\theta$——「沿柱面展开成矩形」后的二重积分。§22.2 第二型曲面积分里，柱面同样是首选例（高斯公式的经典验证面）。</span>
+
+**示范五（平面的积分）**：$f=x$ 沿平面 $z=2x+3y$ 在 $D=[0,1]\times[0,1]$ 上。$z_x=2,\ z_y=3$，面积因子 $\sqrt{1+4+9}=\sqrt{14}$：
+
+$$\iint_Sx\,dS=\int_0^1\int_0^1x\sqrt{14}\,dy\,dx=\sqrt{14}\cdot\frac12.$$
+
+**平面的面积因子是常数 $\sqrt{1+a^2+b^2}$**——「倾斜平面」的伸缩因子与位置无关，这正是「平面面积 = 投影面积 / 方向余弦」的积分版。
+
+## 7 小结
 
 - **第一型曲面积分**：$\iint_S f\,dS$——标量场沿曲面累积；与方向无关。
 - **计算**：$f$ 代入 + 面积因子（$\sqrt{1+z_x^2+z_y^2}$ 或 $\|\vec r_u\times\vec r_v\|$）→ 二重积分。

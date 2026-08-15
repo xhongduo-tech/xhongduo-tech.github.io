@@ -117,4 +117,7 @@ Skolem 悖论常被哲学地讨论，但它的模型论教训非常具体：**�
 ## 9 小结
 
 - **向下 Löwenheim-Skolem**：无限结构有任意小的初等子结构（小到可数）；Skolem 闭包 + Tarski-Vaught 判据。
-- **初等子结构** $\preceq$
+- **初等子结构** $\mathcal{N} \preceq \mathcal{M}$：$\mathcal{N}$ 里看到的真理 = $\mathcal{M}$ 里看到的真理，比「子结构」强得多——$(\mathbb{Z},\lt )$ 是 $(\mathbb{R},\lt )$ 的子结构但不是初等子结构。
+- **向上 Löwenheim-Skolem**：无限结构有任意大的初等扩张——要多大，就加多少个「互异常数」，紧致性定理再次出场。
+- **初等链定理**：$\bigcup_{\alpha \lt \delta}\mathcal{M}_\alpha$ 是每个 $\mathcal{M}_\alpha$ 的初等扩张——「造大模型」的标准脚手架，饱和模型的构造正由此起步。
+- **Skolem 悖论的消解**：「不可数」是一阶语言里的相对断言——判定双射必须躺在模型内部，模型可数与「模型认为 $x$ 不可数」并不矛盾。

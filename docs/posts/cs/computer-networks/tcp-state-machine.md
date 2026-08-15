@@ -65,7 +65,7 @@ TCP 状态机共有 11 个状态，先逐一立住：<span class="marginnote">�
 | A 回 ACK | FIN_WAIT_2 → TIME_WAIT | LAST_ACK → CLOSED |
 | 2×MSL 后 | TIME_WAIT → CLOSED | — |
 
-**辨析｜易错点：** **B 的状态序列是 ESTABLISHED → CLOSE_WAIT → LAST_ACK → CLOSED**——它从不进 FIN_WAIT。而 **A 的状态序列是 FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED**。把两条「状态链」分开记，抓包时一眼就能判断「谁主动关闭」。<span class="marginnote">排障的实战价值：`<strong>`netstat`（或 `ss`）里看到大量 FIN_WAIT_2，说明主动关闭方在等对方发 FIN（对方迟迟不关）；看到大量 CLOSE_WAIT，说明被动方应用没调用 close（bug）。状态机不只是理论，它是生产排障的第一张地图。</span>
+**辨析｜易错点：** **B 的状态序列是 ESTABLISHED → CLOSE_WAIT → LAST_ACK → CLOSED**——它从不进 FIN_WAIT。而 **A 的状态序列是 FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED**。把两条「状态链」分开记，抓包时一眼就能判断「谁主动关闭」。<span class="marginnote">排障的实战价值：<strong>`netstat`（或 `ss`）</strong>里看到大量 FIN_WAIT_2，说明主动关闭方在等对方发 FIN（对方迟迟不关）；看到大量 CLOSE_WAIT，说明被动方应用没调用 close（bug）。状态机不只是理论，它是生产排障的第一张地图。</span>
 
 ## 4 状态机 = 排障地图
 
@@ -81,7 +81,34 @@ TCP 状态机共有 11 个状态，先逐一立住：<span class="marginnote">�
 
 **辨析｜易错点：** **状态机的「卡点」直接指向「故障点」**——这是它排障价值的内核。但要注意：**TIME_WAIT 大量不等于故障**——它是正常现象（短连接场景下必然出现），只有当它耗尽本地端口资源时才需要优化。**「状态本身无好坏，要看它堆积在哪」**是排障的正确姿势。
 
-## 5 小结
+## 5 为什么 TIME_WAIT 要等 2×MSL
+
+TIME_WAIT 是最容易被质疑的状态：「连接都关了，为什么还赖着 2×MSL 不走？」两个理由：
+
+- **确保最后的 ACK 送达**：主动关闭方的最后一个 ACK 可能丢失。若不等，对方会重发 FIN，此时本方已进 CLOSED，收不到也不处理——连接无法干净关闭。等 2×MSL，给了「重发 FIN → 再回 ACK」的余地。
+- **让旧报文消亡**：网络上可能还有「绕路迟到」的旧报文段。等够 2×MSL，等于保证「本连接的所有报文段都已在网络中消亡」，不会混入同四元组的新连接。
+
+**公式解析：为什么是「2 倍」MSL**
+
+$$
+\text{等待时长} = 2 \times \text{MSL} \;\Rightarrow\; \text{保证一个报文「从发送到消亡」至多 MSL + 最多往返一次 MSL}
+$$
+
+- **第一步，MSL 是什么**：报文段在网络中的**最长存活时间**（如 120 秒）。
+- **第二步，为什么 2 倍**：我方发出 ACK 后，若丢失，对方会在 ≤ MSL 内重发 FIN；我方重发 ACK 后再等 MSL 保证其消亡。一来一回各一个 MSL。
+- **第三步，代价**：2×MSL 期间四元组被占用，**短连接风暴下端口可能耗尽**——工程上才需要 `SO_REUSEADDR`、长连接池等手段。<span class="marginnote">这也是为什么「<strong>服务端主动关闭会背上 TIME_WAIT 的包袱</strong>」：谁主动关闭，谁就要等 2×MSL。所以高并发服务通常「让客户端先关」或「服务端复用连接」，尽量让自己少当「主动关闭方」。</span>
+
+**辨析｜易错点：** TIME_WAIT 属于**主动关闭方**，被动方（CLOSE_WAIT → LAST_ACK → CLOSED）**没有 TIME_WAIT**。若你在服务器上看到大量 TIME_WAIT，且连接都是「服务端主动 close」导致的，就要思考「服务端是否过早关闭连接」的设计问题了。
+
+## 6 半关闭与同时关闭：状态机的两个边角
+
+TCP 是全双工的，所以「关闭」其实可以**不对称**——这就是**半关闭（half-close）**：A 用 `shutdown(SHUT_WR)` 只关发送方向，但还能继续接收 B 的数据。此时 A 在 FIN_WAIT_2，B 在 CLOSE_WAIT，但数据还能单向流动。**在应用里，只有收到对方 FIN 才真正结束**。
+
+另一个边角是**同时关闭（simultaneous close）**：双方同时发 FIN。此时双方都进入 FIN_WAIT_1，收到对方的 FIN 后都进 CLOSING，最后都进 TIME_WAIT——这就是 CLOSING 状态存在的意义。它罕见，但状态机必须覆盖。
+
+**辨析｜易错点：** **半关闭要靠应用层 API 主动触发**，普通 `close()` 是「双向都关」，不会出现半关闭。同时关闭的识别标志是**双方都从 CLOSING 进 TIME_WAIT**。这两个边角状态（半关闭、CLOSING）在教科书里占比小，却经常是「看起来对不上状态机」考题的出处。
+
+## 7 小结
 
 - **11 个状态**：CLOSED、LISTEN、SYN_SENT、SYN_RCVD、ESTABLISHED、FIN_WAIT_1/2、CLOSE_WAIT、CLOSING、LAST_ACK、TIME_WAIT。
 - **分组记忆**：建连三兄弟 + 断连六兄弟 + 基础两个。

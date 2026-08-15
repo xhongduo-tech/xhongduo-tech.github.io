@@ -61,6 +61,15 @@ date: 2026-08-07
 
 **辨析｜易错点：** 「pid = 进程号」在**线程语境**下不准确。**内核里 `pid` 是线程号，`tgid` 才是用户看到的进程号（PID）**——一个多线程进程，用户看到 1 个 PID，内核看到 N 个 task_struct（N 个 pid、共享 tgid）。**`ps` 显示的是 tgid；`ps -T` 里每个线程是独立的 pid。**
 
+**数值算例：一个多线程进程的内核视图**。假设用户运行一个 3 线程的程序（主线程 + 2 个 `pthread`），并调用 `getpid()`：
+
+- 用户空间只看到 **1 个 PID**（如 `pid = 1234`），三次 `getpid()` 都返回 1234。
+- 内核里实际躺着 **3 个 task_struct**：pid 分别为 1234、1235、1236，`tgid` 全是 1234。
+- 这 3 个 task_struct 的 `mm`、`files`、`fs` **指向同一批结构**（共享地址空间与打开文件表），但 `state`、`registers`、`kernel_stack` 各自独立。
+- `ps -T` 会把 1234/1235/1236 三行都列出来，`ps` 默认只显示 1234 一行——这就是「进程 vs 线程」在进程表里的实际差别。
+
+**资源开销**：每个 task_struct 本身在 x86-64 上约数 KB（随内核版本约 5–8 KB），另有独立**内核栈**（默认约 16 KB）。<span class="marginnote">这就是为什么极端场景下进程数被限制：`fork()` 成千上万个进程，光是 task_struct 加内核栈就是几百 MB 的不可换出内存。线程共享 mm，比进程更省——这是「线程比进程轻量」的硬数字来源。</span>而**切换开销**同样源于结构：不同进程切到不同 mm，还要刷 TLB；同进程线程切换则保留 mm，只换内核栈与寄存器——**「线程切换更便宜」不是玄学，是 mm 指针相同带来的工程事实**。
+
 ## 3 task_struct 的管理：链表与红黑树
 
 内核高效管理大量 task_struct：
@@ -102,6 +111,19 @@ $$\text{current} = \text{内核栈底部} - \text{THREAD_INFO_OFFSET}$$
 | 内存 | 地址空间 | mm（mm_struct 指针） |
 | 文件 | 文件表 | files（files_struct 指针） |
 | 组织 | 队列 | 链表 + 红黑树 + runqueue |
+
+**术语速查表**：本节的英文缩写容易混，集中列一次：
+
+| 术语 | 全称 | 含义 |
+| --- | --- | --- |
+| PCB | Process Control Block | 进程控制块（理论概念） |
+| TCB | Thread Control Block | 线程控制块（Linux 中仍用 task_struct） |
+| PID | Process ID | 用户可见进程号 = tgid |
+| TID | Thread ID | 内核里每个线程的 pid |
+| TGID | Thread Group ID | 线程组号，线程共享 |
+| mm_struct | Memory Descriptor | 地址空间描述符（页表等） |
+| files_struct | Open File Table | 打开文件表（fd 表） |
+| runqueue | 就绪队列 | 每个 CPU 一个，CFS 红黑树 |
 
 ## 5 小结
 

@@ -80,7 +80,41 @@ $$
 
 **辨析｜易错点：** 一是**设分点后漏方向**——$F$ 在 $BE$ 上应设 $\overrightarrow{BF}=t\overrightarrow{BE}$，不是 $\overrightarrow{BF}=t\vec{b}$；二是**两条路线表示的不是同一向量**——都要化成 $\overrightarrow{AF}$（或同一基准），别一边 $\overrightarrow{BF}$ 一边 $\overrightarrow{CF}$；三是**系数对应错位**——$\vec{a}$ 的系数与 $\vec{b}$ 的系数分别对齐，别交叉配对。
 
-## 6 小结
+## 6 对照表：常见几何命题的向量证法
+
+把本节用到的几何命题与对应的向量套路汇总成一张「证明速查表」：
+
+| 几何命题 | 向量套路 | 关键动作 |
+| --- | --- | --- |
+| 三点共线 | $\overrightarrow{AB}=\lambda\overrightarrow{AC}$ | 证明两向量成比例 |
+| 平行 | $\vec a=\lambda\vec b$ | 方向向量成比例 |
+| 垂直 | $\vec a\cdot\vec b=0$ | 数量积为零 |
+| 中点 / 定比分点 | $\overrightarrow{OM}=\frac12(\overrightarrow{OA}+\overrightarrow{OB})$ | 向量平均 |
+| 对角线互相平分 | 交点同时是中点 | 设比例解方程 |
+| 菱形（对角线垂直） | $(\vec a+\vec b)\cdot(\vec b-\vec a)=0$ | 点乘展开 |
+| 三线共点 | 交点满足第三条线 | 设点、验证、比较 |
+| 求交比 | 同向量两路表示、系数对齐 | 列方程组 |
+
+<span class="marginnote">这张表把「几何命题」与「向量动作」配对，正是「换语言解题」的完整地图。<strong>先翻成向量式，再选一个套路（成比例 / 点乘 / 系数对齐），最后回译</strong>。练到看到几何命题就能说出对应套路，向量法就真正上手了。</span>
+
+**辨析｜易错点：** 一是**翻译漏项**——「$P$ 在 $AB$ 上」应翻译成 $\overrightarrow{AP}=\lambda\overrightarrow{AB}$，别漏参数 $\lambda$ 或写反起点；二是**两条路线表示不同向量**——列方程前务必让两条路线指向同一终点（如都写成 $\overrightarrow{AF}$）；三是**系数对齐错位**——基底的各分量系数要一一对应，别交叉配对。
+
+## 7 术语速查表
+
+| 术语 | 向量条件 | 一句话释义 |
+| --- | --- | --- |
+| 三点共线 | $\overrightarrow{AB}=\lambda\overrightarrow{AC}$ | 共线 ⇔ 成比例 |
+| 垂直 | $\vec a\cdot\vec b=0$ | 点乘为零 |
+| 平行 | $\vec a=\lambda\vec b$ | 方向向量成比例 |
+| 中点 | $\overrightarrow{OM}=\frac12(\overrightarrow{OA}+\overrightarrow{OB})$ | 向量平均 |
+| 定比分点 | $\overrightarrow{AP}=\frac m{m+n}\overrightarrow{AB}$ | 系数配比 |
+| 基底 | $\vec a,\vec b$ 不共线 | 表示一切向量的坐标架 |
+| 表示唯一 | 同一向量系数唯一 | 列方程的依据 |
+| 以算代证 | 设点 → 表示 → 列方程 → 回译 | 向量法的通用流程 |
+
+**记忆线索**：向量法解决平面几何的全部秘密在「翻译 + 表示」——把几何词换成向量式（对照表），把目标向量用基底表示两次，让系数对齐列方程。几何的巧思被换成了代数流程，这就是「以算代证」。
+
+## 8 小结
 
 - **翻译手册**：共线 $\Leftrightarrow$ 成比例，垂直 $\Leftrightarrow$ 点乘为零，中点 $\Leftrightarrow$ 向量平均，分点 $\Leftrightarrow$ 系数配比。
 - 证明通用流程：**选基底 → 表示 → 列方程 → 回译**。

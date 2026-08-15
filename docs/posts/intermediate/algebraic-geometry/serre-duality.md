@@ -1,6 +1,6 @@
 ---
 title: Serre 对偶定理
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # Serre 对偶定理
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 代数几何 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 代数几何 ｜ Hartshorne, Algebraic Geometry (GTM 52) Ch. III §7 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 Serre 对偶继续
@@ -94,12 +94,27 @@ $$
 
 一句话直觉：**Serre 对偶 = "代数积分 + 配对"非退化**：障碍空间 $H^i$ 的对偶空间，恰好是被典范层"调过频"的低阶障碍 $H^{n-i}$。
 
-## 6 小结
+## 6 速查表与算例：Serre 对偶的曲线实例
+
+| 除子 $D$ | $\dim H^1(C, \mathcal{O}(D))$ | 含义 |
+| --- | --- | --- |
+| $D = 0$ | $g$ | $H^1$ = 全纯微分的对偶空间 |
+| $D = K$ | $0$ | $H^1(C, \mathcal{O}(K))$ 对偶于 $H^0(C, \mathcal{O})$（1 维） |
+| $D = P$（一个点） | $g - 1$ | "通过 $P$ 的全纯微分"空间维数 |
+| $D$（$\deg D > 2g-2$） | $0$ | 高次除子无 $H^1$ |
+
+**算例：$g = 3$ 非超椭圆曲线上的 $H^1$。** 设 $\deg D = 2$。R-R 说 $\ell(D) - \ell(K-D) = 2 + 1 - 3 = 0$。若 $D$ 有效（如 $P + Q$），$\ell(D) \ge 1$，故 $\ell(K-D) = \ell(D) \ge 1$——存在"通过 $P, Q$ 的全纯微分"。直观：$g=3$ 曲线嵌入 $\mathbb{P}^2$ 为四次曲线（$\deg K = 4$），"通过两点的全纯微分"对应"四次曲线与一条直线的其余两个交点"——计数吻合。<span class="marginnote">对偶配对在这里给出一个漂亮的双射：$H^1(C, \mathcal{O}(P+Q))$ 的维数（= 障碍）等于"通过 $P, Q$ 的微分"维数（= 可解部分）。"障碍有多大，可解空间就有多大"——这就是 Serre 对偶在曲线上的全部内容，也是代数积分"求值-配对"哲学的一个具体例证。</span>
+
+**辨析｜易错点：** Serre 对偶里有两个不同的"对偶"，极易混淆：$H^{n-i}(\cdots)^\vee$ 的 $\vee$ 是 $k$-向量空间对偶（线性泛函）；而 $\mathcal{F}^\vee = \mathcal{Hom}(\mathcal{F}, \mathcal{O}_X)$ 是层论对偶（态射层）。对 $\mathcal{F} = \mathcal{O}(D)$，层论对偶给 $\mathcal{O}(-D)$，于是 $\omega_X \otimes \mathcal{O}(-D) = \mathcal{O}(K - D)$。记法上二者都用"对偶"这个词，但一个是线性代数、一个是层论——先分清用在哪一层，公式才不会写反。
+
+## 7 小结
 
 - **对偶化层** $\omega_X^\circ$ + **余差态射** $t: H^n(X, \omega_X^\circ) \to k$：用泛性质定义，光滑时 $\omega_X^\circ = \omega_X$。
 - **Serre 对偶**：$H^i(X, \mathcal{F}) \cong H^{n-i}(X, \omega_X \otimes \mathcal{F}^\vee)^\vee$；维数互补 + 换典范。
 - **曲线情形**：$\dim H^1(C, \mathcal{O}(D)) = \ell(K - D)$；亏格 $g = \ell(K)$。
 - **与 Riemann-Roch 会师**：$\chi(\mathcal{O}(D)) = \ell(D) - \ell(K - D)$，Serre 对偶提供对偶半壁。
 - **本质**：Poincaré 对偶的代数版，"基本类"换成了"余差态射"（代数积分）。
+- **延伸**：对奇异曲线，对偶化层 $\omega_X^\circ$ 取代 $\omega_X$，Riemann-Roch 仍成立（这正是奇异曲线算术里的"对偶化层版本 R-R"）。
+- **记忆锚点**：$H^i \leftrightarrow H^{n-i}$（维数互补）+ $\mathcal{F} \leftrightarrow \omega_X \otimes \mathcal{F}^\vee$（换典范取对偶）——两条同时出现，Serre 对偶就写不错。
 
 在下一节，我们把这套机器合拢成第一条大定理：**Riemann-Roch 定理**——用 $\ell(D) - \ell(K-D) = \deg D + 1 - g$ 计算曲线线丛的截面数。

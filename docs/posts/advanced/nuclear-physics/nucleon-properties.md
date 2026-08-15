@@ -1,6 +1,6 @@
 ---
 title: 核子性质
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 核子性质
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第四级 · 高阶专题 · 核物理 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第四级 · 核物理 ｜ Krane, Introductory Nuclear Physics, 第 2 章 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从核子性质开始

@@ -96,3 +96,26 @@ $$
 $$
 \text{Active}: S + V_t + O \quad\longrightarrow\quad \text{Passive}: O + be_{(原时体)} + V_t\text{-ed} + (by + S)
 $$
+
+对这条公式做三步拆解：
+
+- **第一步，宾语升主语**：原宾语 `O` 移到句首，成为新主语——`Shakespeare wrote Hamlet` → `Hamlet` 升格。
+- **第二步，动词改被动**：原动词按**原时体**变成 `be + 过去分词`——`wrote`（过去时）→ `was written`。**时体不换，只是形态改成被动**。
+- **第三步，施事降为 by 短语**：原主语 `S` 变成 `by Shakespeare` 放句末；施事不明或无需提及时整个省略——`Hamlet was written (by Shakespeare).`
+
+**辨析｜易错点：** 变换后时体「走样」是最常见的错误：`They are building a bridge.` 变被动必须是 `A bridge is being built.`（进行被动），不是 `is built`。**「主动的时体决定被动的 `be` 形态」**——特别是 `is being done`（进行被动）与 `has been done`（完成被动）这两个形态，中国学生极容易写成 `is built` 或 `has built`。
+
+**补充：** 被动语态在学术写作中的「双刃剑」效应值得注意：**它能藏施事、立客观**（`The data were collected.`），但滥用会让行文臃肿无主（`It was decided that...` 常不如 `We decided that...` 简洁）。**「该用主动用主动，该用被动用被动」**——奥威尔那句名言不是禁令，而是对「无谓被动」的劝诫。
+
+**辨析｜易错点：** `be + 过去分词` 的「动词性 vs 形容词性」在口语中的一句名言是「**The door was closed. 是状态还是动作**」——有 `by` 是动作（被动），无 `by` 是状态（系表）。但还有一种「**被动 + 情态**」的组合容易漏：`The window must be cleaned.`（必须被擦——情态后接 `be + 过去分词`），这是被动与情态的第 2 篇交汇。
+
+## 7 小结
+
+- **被动 = `be` + 过去分词（+ by + 施事）**；`be` 携带时体，过去分词标记被动。
+- 只适用于**及物动词**（及物短语动词可被动，介词悬空）；不及物、系动词、反身/同源宾语不可被动。
+- 主动变被动三步：**宾语升主语、动词改被动、主语降 by 短语**；时体保持不变。
+- 被动形态比主动**多一层 `be`**：`is building` → `is being built`、`has built` → `has been built`。
+- 语态选择：施事不明、受事强调、科技文体、行文衔接时用被动；「谁值得当主语」是选择本质。
+- 系表结构与被动语态同形，靠 `by` 短语、`very` 修饰、时态可变性判别。
+
+在下一节，我们将离开「客观事实」的陈述，进入「说话者态度」的领域——情态动词与情态意义，看可能性、义务、能力如何压进 `can`、`may`、`must` 几个小词里。

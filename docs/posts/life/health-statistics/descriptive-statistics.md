@@ -1,6 +1,6 @@
 ---
 title: 统计学基础与描述
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 统计学基础与描述
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第五级 · 生命与健康科学 · 卫生统计学 ｜ 对标教材：Rosner, Fundamentals of Biostatistics (8th) §2 ｜ 2026-08-11</p>
+<p>第五级 · 卫生统计学 ｜ Rosner, Fundamentals of Biostatistics (8th) §2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从描述统计开始

@@ -1,6 +1,6 @@
 ---
 title: 污染控制经济学：空气、水与有毒物质
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 污染控制经济学：空气、水与有毒物质
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第八级 · 社会科学 · 环境政策与治理 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第八级 · 环境政策与治理 ｜ Tietenberg《Environmental and Natural Resource Economics》§7-10 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从污染的分类学开始

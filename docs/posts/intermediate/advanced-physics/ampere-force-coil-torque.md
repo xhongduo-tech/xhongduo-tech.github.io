@@ -86,7 +86,35 @@ $$
 
 <span class="marginnote">磁力矩公式 $\boldsymbol{M} = \boldsymbol{\mu}_m\times\boldsymbol{B}$ 是微观磁性与宏观磁化的桥梁：原子磁矩在磁场中转向排列，是铁磁材料被磁化的根源（下节《磁介质的磁化与磁场强度》）。在量子力学里，电子自旋磁矩与磁场的作用（自旋-轨道耦合、塞曼效应）更是十八、二十三章的核心。</span>
 
-## 6 小结
+## 6 对照表：三种「×」运算与常见混淆
+
+磁场问题里最容易混的是三种力/力矩公式的适用对象。把它们并排：
+
+| 量 | 公式 | 适用对象 | 方向/轴线 |
+| --- | --- | --- | --- |
+| 安培力（直导线） | $F = BIl\sin\theta$ | 载流直导线 | 垂直于 $\boldsymbol{l}$ 与 $\boldsymbol{B}$ 所在平面 |
+| 安培力（电流元） | $\mathrm{d}\boldsymbol{F} = I\,\mathrm{d}\boldsymbol{l}\times\boldsymbol{B}$ | 任意电流元 | 叉积右手定则 |
+| 磁力矩（线圈） | $M = NBIS\sin\theta$ | 平面载流线圈 | 使 $\hat{\boldsymbol{n}}$ 转向 $\boldsymbol{B}$ |
+| 洛伦兹力 | $F = qvB\sin\theta$ | 运动点电荷 | 垂直于 $\boldsymbol{v}$ 与 $\boldsymbol{B}$ |
+
+**辨析｜易错点：**「安培力使导线平动、磁力矩使线圈转动」是同一物理的两面。矩形线圈竖直边所受的力虽相互抵消，但这两条边构成**力偶**——注意不要把「力偶」与「平衡力」混为一谈：力偶合力为零却产生净力矩，平衡力则既无力也无力矩。还要区分：磁力矩与线圈面积有关（$M \propto S$），安培力与导线长度有关（$F \propto l$）；对同一线圈，$N$ 匝时磁矩与力矩都放大 $N$ 倍。
+
+**数值手感：**把上节的 100 匝线圈放进 $B = 0.5\ \text{T}$ 的磁场、电流减为 $I = 0.2\ \text{A}$、法线与磁场成 $90°$，则
+
+$$M = NBIS\sin\theta = 100\times0.5\times0.2\times20\times10^{-4} = 0.02\ \text{N·m}$$
+
+与上例同量级——「增大匝数」与「增大电流」在产生磁力矩上等价，这正是电流计标度的原理：把微小电流放大成可读的机械偏转。
+
+<span class="marginnote">安培力、磁力矩、洛伦兹力同源于 $\boldsymbol{F} = q\boldsymbol{v}\times\boldsymbol{B}$：对单个电荷、对电流元积分、对线圈取力偶，只是同一叉积的三次展开。抓住源头，公式再多也不会散。</span>
+
+## 7 术语速查
+
+- **磁矩（magnetic moment）** $\boldsymbol{\mu}_m = NIS\hat{\boldsymbol{n}}$：线圈磁性「强度」的度量，方向由电流的右手定则确定。
+- **换向器（commutator）**：直流电机在平衡位置翻转电流方向、保持单向转动的装置。
+- **辐射状磁场**：电流计为使偏转与电流成正比而采用的磁场构型。
+- **力偶**：大小相等、方向相反、作用线不重合的一对力，合力为零而力矩不为零。
+
+## 7 小结
 
 - **安培力**：$\mathrm{d}\boldsymbol{F} = I\,\mathrm{d}\boldsymbol{l}\times\boldsymbol{B}$，直导线 $F = BIl\sin\theta$；与磁场、电流垂直。
 - 弯曲导线有效长度 = 两端点连线；磁场外部分不受力。

@@ -109,4 +109,24 @@ $$f(\mathbf{k},\mathbf{r},t) = -i\int d^3r'\, e^{-i\mathbf{k}\cdot\mathbf{r}'}\,
 
 **知识连线**：本篇把第 1 篇的 Green 函数（自能给出散射率）与第 2 篇的 Kubo 公式统一到输运框架；Drude 公式与第 2 篇费米液体的准粒子输运直接相连。「微观散射 → 弛豫时间 → 宏观电导」的层级压缩，是「从极限到大模型」里「尺度间有效化」的经典范例。
 
-**实践与辨析**：金属电阻率为什么 $\propto T$？提示：高温下声子数 $N_\lambda\approx k_BT/\hbar\omega$，散射率 $\propto N_\lambda\propto T$，电导 $\propto 1/T$
+## 8 数值算例：铜的输运参数
+
+把公式放进真实金属。室温铜：载流子密度 $n=8.5\times10^{28}\ \mathrm{m^{-3}}$、有效质量 $m^*\approx m_e$、电导率 $\sigma\approx6\times10^7\ \Omega^{-1}\mathrm{m^{-1}}$。由 $\sigma=ne^2\tau/m^*$ 反解弛豫时间：
+
+$$
+\tau = \frac{\sigma m^*}{ne^2} \approx \frac{(6\times10^7)(9.1\times10^{-31})}{(8.5\times10^{28})(1.6\times10^{-19})^2}\ \mathrm{s} \approx 2.5\times10^{-14}\ \mathrm{s}
+$$
+
+对应平均自由程 $\ell=v_F\tau$：取费米速度 $v_F\approx1.6\times10^6\ \mathrm{m/s}$，得 $\ell\approx40\ \mathrm{nm}$——约 150 个晶格常数。室温下电子在两次散射之间只「自由」走这么远，却足以支撑巨大的宏观电流。
+
+**重点：Drude 公式的威力在于把不可见的微观量（$\tau$、$\ell$）从可测的宏观量（$\sigma$）反推出来。** 电阻率 $\rho=\sigma^{-1}\propto T$ 的线性温度依赖对应 $\tau\propto1/T$；温度降到液氦区后声子冻结，$\tau$ 由杂质散射决定，电阻趋于有限的剩余值——这正是 Bloch-Grüneisen 曲线。
+
+| 金属 | 室温 $\sigma$（$\Omega^{-1}\mathrm{m}^{-1}$） | $\tau$（$\times10^{-14}$ s） | $\ell$（nm） |
+| --- | --- | --- | --- |
+| 银 | $6.3\times10^7$ | $4.0$ | 57 |
+| 铜 | $6.0\times10^7$ | $2.5$ | 40 |
+| 铝 | $3.8\times10^7$ | $0.8$ | 15 |
+
+**读数要领**：银的 $\tau$ 最长、$\ell$ 最大，所以电导率最高；铝最差。这张表演示了「弛豫时间近似」的实用价值——不求解积分方程，只用一个 $\tau$ 就抓住了输运的主要差别。低温下 $\ell$ 可增至微米量级，这就是为什么纯度高的金属在低温有极低的电阻。
+
+**实践与辨析**：金属电阻率为什么 $\propto T$？提示：高温下声子数 $N_\lambda\approx k_BT/\hbar\omega$，散射率 $\propto N_\lambda\propto T$，电导 $\propto1/T$；低温只剩杂质散射，电阻趋于常数。

@@ -95,7 +95,43 @@ Qwen2 起的一个关键配置变化——`head_dim` 不再由「宽度 ÷ 头�
 
 **辨析｜易错点：** Qwen 与 LLaMA 的 `intermediate_size` 都不是「4×hidden」——它们被 SwiGLU 的 2/3 补偿调整过。Qwen2-7B 的 `intermediate_size`（≈ 2.7×hidden），这是「8/3 × d」的变体。**读任何现代模型的 config，都不能假设「FFN 维度 = 4×hidden」**。
 
-## 7 小结
+## 7 术语速查表
+
+| 术语 | 英文 | 一句话定义 |
+| --- | --- | --- |
+| GQA | grouped-query attention | 分组 KV 共享注意力 |
+| QK-Norm | QK-Norm | 对 Q/K 做归一化 |
+| head_dim | head dimension | 注意力头维度 |
+| MoE | mixture of experts | 混合专家 |
+| logit capping | logit capping | logits 软裁剪 |
+| 思考模式 | thinking mode | 长思维链推理模式 |
+
+## 8 数值算例：词表与中文 token 效率
+
+同样的中文文本，两种 tokenizer 的消耗对比（估算）：
+
+| tokenizer | 词表大小 | 每字 token 数 |
+| --- | --- | --- |
+| LLaMA 系 | 32k | 约 1.5–2.0 |
+| Qwen 系 | 151k | 约 0.6–0.7 |
+
+**读这张表**：Qwen 的大词表让「每个汉字平均 token 数」降到约三分之一——**同样的中文内容，Qwen 的 token 成本约为 LLaMA 的 1/3**。在「按 token 计费 + KV 显存按 token 增长」的现实里，这个差距直接换算成钱与显存。这也是「大词表」成为中文模型标配的根本原因。
+
+**辨析｜易错点：** 大词表不是「无代价」——嵌入层参数随词表线性膨胀（$V \times d$），且稀有 token 训练样本稀疏。Qwen 的 151k 是「中文收益」与「参数成本」的权衡结果；对纯英文模型，32k 反而更优。**词表大小是「语言目标」的函数，不是越大越好**。
+
+## 9 数值算例：Qwen 五代的演进主线
+
+| 版本 | 核心改进 | 解决的核心问题 |
+| --- | --- | --- |
+| Qwen1 | 151k 大词表 | 中文 token 效率 |
+| Qwen1.5 | GQA | KV 显存与推理 |
+| Qwen2 | MoE + QK-Norm | 算力与训练稳定 |
+| Qwen2.5 | 细粒度 MoE + logit capping | 质量与长文稳定 |
+| Qwen3 | 混合推理模式 | 推理范式升级 |
+
+**读这张表**：Qwen 每一代都精准对准「上一代的已知短板」——从「中文效率」到「KV 显存」到「训练稳定」再到「推理范式」。**架构演进不是「为变而变」，而是「问题驱动的系统性修复」**——这是读任何模型系列（LLaMA、Qwen、DeepSeek）都适用的方法论。
+
+## 10 小结
 
 - Qwen 是 LLaMA 谱系之上的**中国化演化**：大词表（151k）服务中文。
 - 演进主线：**Qwen1（词表）→ 1.5（GQA）→ Qwen2（MoE + QK-Norm）→ 2.5（细粒度）→ Qwen3（混合推理）**。

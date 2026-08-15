@@ -91,6 +91,24 @@ $$
 
 **重点：SCC 的最大价值是「缩点成 DAG」**——把「带环的有向图」化简为「无环图」，然后一切 DAG 算法（拓扑、关键路径、DP）全部解锁。<span class="marginnote">「<strong>缩点 = 把环变成点</strong>」：<strong>SCC 内部互相可达，对「外部关系」来说整个 SCC 是一个整体</strong>。<strong>缩点后图无环（否则会并入同一 SCC）——环消了，DAG 来了</strong>。<strong>「先缩点、再 DAG 算法」是强连通问题的标准套路</strong>。</span>
 
+**一个 dfn/low 的算例。** 有向图边 $1 \to 2$、$2 \to 3$、$3 \to 1$、$3 \to 4$、$4 \to 4$。
+
+从 1 开始 DFS：$dfn[1]=1, dfn[2]=2, dfn[3]=3$，3 有回边 $3 \to 1$（1 在栈中），$low[3] = \min(3, 1) = 1$；3 还有树边到 4：$dfn[4]=4$，4 有自环 $4 \to 4$（回边），$low[4]=4$。回溯：$low[3] = \min(low[3], low[4]) = \min(1, 4) = 1$；$low[2] = \min(2, low[3]) = 1$；$low[1] = \min(1, low[2]) = 1$。
+
+此时 $dfn[4]=4=low[4]$：弹出 4，SCC $\{4\}$；$dfn[3]=3 \ne low[3]=1$、$dfn[2]=2 \ne low[2]=1$，不弹；$dfn[1]=1=low[1]$：弹出栈顶 3、2、1，SCC $\{1,2,3\}$。<span class="marginnote">「$dfn=low$ 才弹栈」在例子里看得很清楚：<strong>4 自成环路，$low[4]=dfn[4]$ 直接成 SCC；1、2、3 由回边 $3\to1$ 连成环，最终由根 1 统一弹出</strong>。<strong>回边是「把 low 拉低」的元凶，也是环存在的证据</strong>。</span>
+
+**术语速查表**
+
+| 术语 | 含义 |
+| --- | --- |
+| 强连通分量 SCC | 两两互相可达的极大子图 |
+| dfn | 发现时间戳 |
+| low | 子树能回溯到的最小 dfn |
+| 树边 / 回边 / 横叉边 | DFS 边分类 |
+| 缩点 | 把 SCC 缩成点，图变 DAG |
+
+**一句话**：Tarjan = 一趟 DFS + dfn/low + 栈——「low == dfn 才弹栈」，环就一网打尽。
+
 ## 6 小结
 
 - SCC：有向图中两两互相可达的极大子图。

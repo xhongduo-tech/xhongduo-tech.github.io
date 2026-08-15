@@ -115,4 +115,8 @@ WLS 的前提是知道 $\mathbf{V}$。实际中 $\mathbf{V}$ 常未知，需要�
 - 一般模型 $\mathrm{Var}(\boldsymbol{\varepsilon}) = \sigma^2\mathbf{V}$；GLS 用白化变换 $\mathbf{K}^{-1}$ 还原为 OLS。
 - GLS 估计量 $\hat{\boldsymbol{\beta}}_{\text{GLS}} = (\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}\mathbf{X}'\mathbf{V}^{-1}\mathbf{y}$，方差 $\sigma^2(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}$。
 - **WLS** 是 $\mathbf{V}$ 对角时的特例：加权残差平方和最小化，权重 $\propto 1/\sigma_i^2$。
-- 权重必须来自已知精度，不能自由调参；$\mathbf{V}$
+- 权重必须来自已知精度，不能自由调参；$\mathbf{V}$ 未知时走 FGLS 两阶段（OLS 残差 → 建模方差 → 加权重估）。
+- 与稳健标准误的分工：信方差结构、重系数本身用 WLS；只求「可信的检验」用稳健标准误。
+- 收益在效率而非无偏：$n$ 小且异方差明显时，WLS 的改进才真正可见。
+
+在下一节，模型建好后第一件事是「体检」——**残差分析与模型充分性检验**将系统检查模型形式、正态性与方差恒定。

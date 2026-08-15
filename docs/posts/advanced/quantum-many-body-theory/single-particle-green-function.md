@@ -112,4 +112,18 @@ $$\langle \hat{n}_{\mathbf{k}\sigma}\rangle = \int_{-\infty}^{\mu} d\omega\, A(\
 
 **知识连线**：Green 函数是第 1 篇二次量子化的「动力学延伸」；谱表示与第 2 篇 Kubo 公式（推迟函数）直接相连，占据数公式连接有限温度（第 2 篇 Matsubara）。它是后续所有微扰、Dyson、响应计算的共同起点。
 
-**实践与辨析**：为什么 $\int d\omega\,A(\mathbf{k},\omega)=1$ 总成立？提示：谱函数是正定概率密度，求和规则来自对易子的完整关系。相互作用为什么把 δ 峰展宽成 Lorentzian？提示：自能虚部 $\text{Im}\Sigma$ 给出寿命 $\tau=\hbar/|\Gamma|$。易错提醒：展宽后峰面积 $Z\lt 1$
+## 7 数值算例：从谱函数读出寿命与权重
+
+给谱函数一个具体形状，看如何从中读出准粒子参数。设相互作用后的谱函数取 Lorentzian 形式：
+
+$$
+A(\mathbf{k},\omega) = \frac{1}{\pi}\frac{\Gamma}{(\omega - \varepsilon_{\mathbf{k}})^2 + \Gamma^2}
+$$
+
+- **第一步，定寿命**：取自能虚部 $\Gamma = 5\ \mathrm{meV}$，则准粒子寿命 $\tau = \hbar/\Gamma \approx 0.13\ \mathrm{ps}$——电子在散射发生前可「干净地」传播约一百飞秒。
+- **第二步，算权重**：把 $A$ 在峰附近积分得谱权重 $Z \approx 1 - 2\Gamma/(\pi\Lambda)$（$\Lambda$ 是截断）。取 $\Lambda=100\ \mathrm{meV}$，$Z\approx0.97$——接近 1，说明相互作用弱，仍是好准粒子；若 $\Gamma$ 增大到与 $\Lambda$ 可比，$Z$ 明显小于 1，准粒子概念开始瓦解。
+- **第三步，读结论**：$\Gamma$ 小、$Z$ 接近 1 就是费米液体；$\Gamma$ 大、$Z\to0$ 就是准粒子湮灭（Mott 转变、强关联）。**谱函数的一对参数 $(\Gamma, Z)$ 直接判定了「体系还是不是好准粒子」。**
+
+**重点：谱函数把「多体相互作用的全部后果」压缩成峰位、峰宽、权重三个数。** 学会了读这三个数，你就有了判断任何材料「弱关联 vs 强关联」的定量标尺——这是从 Green 函数走向费米液体与 Hubbard 模型的桥。
+
+**实践与辨析**：为什么 $\int d\omega\,A(\mathbf{k},\omega)=1$ 总成立？提示：谱函数是正定概率密度，求和规则来自对易子的完整关系。相互作用为什么把 δ 峰展宽成 Lorentzian？提示：自能虚部 $\text{Im}\Sigma$ 给出寿命 $\tau=\hbar/|\Gamma|$。易错提醒：展宽后峰面积 $Z<1$，说明谱权重被转移到相干峰之外的「非准粒子背景」——读谱时不能只盯峰，还要看背景。

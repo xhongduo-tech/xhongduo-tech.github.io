@@ -1,6 +1,6 @@
 ---
 title: 集中不等式
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 集中不等式
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 高维统计分析 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 高维统计分析 ｜ Wainwright《High-Dimensional Statistics》Ch. 2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从集中不等式开始

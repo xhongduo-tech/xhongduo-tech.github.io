@@ -99,7 +99,42 @@ $$
 
 这些手段共同支撑「长上下文 + 高并发」——**KV Cache 是推理优化的主战场**（大模型部署专题会系统展开）。
 
-## 6 小结
+## 6 术语速查表
+
+| 术语 | 英文 | 一句话定义 |
+| --- | --- | --- |
+| Prefill | prefill | 预填充（一次算完提示） |
+| Decoding | decoding | 解码（逐 token 生成） |
+| KV Cache | key-value cache | 缓存的历史 K/V |
+| PagedAttention | PagedAttention | 页式 KV 显存管理 |
+| 内存带宽瓶颈 | memory-bound | 解码的瓶颈在搬数据 |
+| 前缀缓存 | prefix caching | 共享相同前缀的 KV |
+
+## 7 数值算例：Prefill 与 Decode 的时间分配
+
+设请求「输入 2048 token + 输出 512 token」，7B 模型、单卡：
+
+| 阶段 | 计算量 | 特征 |
+| --- | --- | --- |
+| Prefill | 2048 个位置并行算 | 吞吐高、占时短 |
+| Decode | 512 步、每步 1 个 token | 带宽受限、占时长 |
+
+**读这张表**：输入只有 4 倍于输出，但 Decode 的耗时常常是 Prefill 的 **数倍到数十倍**——因为 decode 每步都要「读全部历史 KV」，是串行的。**「输入快、输出慢」是自回归推理的基本盘**——这也解释了为什么「生成长文本」那么贵：输出越长，decode 步数越多。
+
+**辨析｜易错点：** Decode 的「慢」不只是「串行」，更是「每步只算一个 token 却要搬全部 KV」——**内存带宽是真正瓶颈**。优化 decode 的方向（KV 压缩、并行解码、投机采样）全部围绕「少搬 KV、多算 token」展开。
+
+## 8 Prefill vs Decode：一张对照
+
+| 维度 | Prefill | Decode |
+| --- | --- | --- |
+| 计算形态 | 大矩阵乘 | 逐 token 小步 |
+| 瓶颈 | 算力 | 内存带宽 |
+| 并行度 | 高（可分块） | 低（串行） |
+| 关键优化 | chunked prefill | KV 压缩 / 投机采样 |
+
+两者优化方向不同——**Prefill 优化「算得快」，Decode 优化「搬得少」**。理解这两阶段，是读懂 vLLM、TensorRT-LLM 等推理引擎所有优化技巧的起点。
+
+## 9 小结
 
 - 推理两阶段：**Prefill（一次算完写缓存）+ Decoding（逐 token 读缓存）**。
 - KV Cache 让复杂度从 $O(L^2)$ 降到 $O(L)$——**用显存换时间**。

@@ -1,6 +1,6 @@
 ---
 title: 差分 GPS 与 RTK 定位
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 差分 GPS 与 RTK 定位
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · GNSS 定位与导航 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · GNSS 定位与导航 ｜ Hofmann-Wellenhof §9, Misra §5 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从差分开始
@@ -31,6 +31,8 @@ $$\rho_{ref,i} = \|\mathbf{r}_i - \mathbf{r}_{ref}\| + c\,\delta t_{ref} - c\,\d
 $$PRC_i = \rho_{ref,i} - \|\mathbf{r}_i - \mathbf{r}_{ref}\|$$
 
 流动站收到 $PRC_i$ 后，把它加到自己的伪距观测上：$I_i, T_i, \delta t_{s,i}$ 这些**空间相关项**被扣除，剩下的就是自己的几何距离与接收机钟差——定位方程重新变干净。
+
+代入数字把这一步钉住：设参考站到某颗卫星的真实几何距离（由已知坐标与星历算出）为 $\|\mathbf{r}_i - \mathbf{r}_{ref}\| = 20180.000\ \text{km}$，而参考站实际测得的伪距为 $20182.150\ \text{km}$——差出约 2.15 km，这正是电离层、对流层、卫星钟差等公共误差的叠加。于是 $PRC_i = 2.15\ \text{km}$。相距几公里内的流动站把这 2.15 km 加到自己的伪距上，公共误差被扣除；两站之间残留的差异（基线造成的电离层/对流层差、各自的噪声）才是流动站真正要处理的误差——量级从 2.15 km 骤降到分米级。**差分「一句话省掉两公里」的数学本质就在这里。**
 
 **重点：差分消除的是「空间相关」的误差，消不掉「空间不相关」的误差（多路径、接收机噪声）。** 这两类误差的界限，决定了差分的极限与基线的约束。
 
@@ -95,7 +97,22 @@ $$\varepsilon_{DD} = \Delta\nabla I + \Delta\nabla T + \Delta\nabla (\text{星�
 
 差分不仅提精度，也提可靠性：当参考站给出改正数时，用户可以通过**验算参考站自身解的残差**判断当前观测条件是否健康。但差分也带来新风险——**参考站故障会把错误改正数广播给所有人**。所以现代高精度应用都要求「固定 + 完好性监控」双保险：这是第 11 篇讨论自动驾驶安全架构时的重要话题。
 
-## 8 小结
+## 8 术语速查表
+
+| 术语 | 英文 | 一句话定义 |
+| --- | --- | --- |
+| 参考站 | reference station | 坐标精确已知的固定接收机，负责测定并播发改正数 |
+| 流动站 | rover | 待定位的接收机，接收改正数后解算 |
+| 伪距改正数 | PRC | 参考站测得的伪距与其真几何距离之差 |
+| RTCM | Radio Technical Commission for Maritime Services | 差分改正数的标准电文协议 |
+| SBAS | Satellite-Based Augmentation System | 星基广域差分与完好性系统（WAAS/EGNOS/MSAS） |
+| RTK | Real-Time Kinematic | 载波相位实时差分，厘米级 |
+| OTF | on-the-fly | 动态环境下的实时模糊度固定 |
+| LAMBDA | Least-squares AMBiguity Decorrelation Adjustment | 最小二乘模糊度去相关调整，模糊度固定主流算法 |
+| VRS | Virtual Reference Station | 网络 RTK 在流动站附近合成的虚拟参考站 |
+| MAC | Master Auxiliary Concept | 主轴站，直接播发误差模型参数的网络 RTK 方式 |
+
+## 9 小结
 
 - 差分的物理基础是**误差空间相关性**：卫星端与传播路径误差对附近用户几乎相同。
 - **码差分 DGPS**：伪距改正或观测值差分，精度 0.5–2 m，受空间去相关限制。

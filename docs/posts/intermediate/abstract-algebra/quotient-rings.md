@@ -97,7 +97,25 @@ $$
 
 **角色三：造新环（从旧环出发）。** $R/I$ 常常比 $R$ 更小、更整齐、甚至成为域（$I$ 是极大理想时）。从 $\mathbb{Z}$ 造 $\mathbb{F}_p$、从 $\mathbb{R}[x]$ 造 $\mathbb{C}$、从 $\mathbb{F}_p[x]$ 造 $\mathbb{F}_{p^n}$——**商环是环论里「发明新环」的标准流水线。**
 
-## 6 小结
+## 6 对照速查：商环的经典例谱
+
+把商环的经典例子排成一张表，「按理想取模」的威力一目了然。
+
+| 商环 | 理想 | 结果 | 意义 |
+| --- | --- | --- | --- |
+| $\mathbb{Z}/n\mathbb{Z}$ | $n\mathbb{Z}$ | $\mathbb{Z}_n$ | 模 $n$ 算术 |
+| $\mathbb{R}[x]/\langle x\rangle$ | $\langle x\rangle$ | $\mathbb{R}$ | 代入 $x = 0$ |
+| $\mathbb{R}[x]/\langle x^2+1\rangle$ | $\langle x^2+1\rangle$ | $\mathbb{C}$ | 造出复数 |
+| $\mathbb{F}_2[x]/\langle x^2+x+1\rangle$ | $\langle x^2+x+1\rangle$ | $\mathbb{F}_4$ | 造出有限域 |
+| $\mathbb{Z}[x]/\langle x^2+1\rangle$ | $\langle x^2+1\rangle$ | $\mathbb{Z}[i]$ | 高斯整数 |
+
+**数值算例：在 $\mathbb{F}_2[x]/\langle x^2+x+1\rangle$ 里算乘法。** 元素 $\{0, 1, x, x+1\}$，关系 $x^2 = x + 1$（特征 2 里 $-1 = 1$）。$(x+1) \cdot (x+1) = x^2 + 2x + 1 = x^2 + 1 = (x+1) + 1 = x$（$2x = 0$）。$(x)(x+1) = x^2 + x = (x+1) + x = 1$——$x$ 与 $x+1$ 互为逆元！每个非零元都可逆，商环是域 $\mathbb{F}_4$。<span class="marginnote">「商环是否域」由理想是否极大决定（第八篇极大理想）：$\langle x^2+x+1\rangle$ 在 $\mathbb{F}_2[x]$ 里极大（$x^2+x+1$ 不可约），故商环是域。有限域 $\mathbb{F}_4$ 的「除法」就在这里——每个非零元都可逆，AES 的字节域 $\mathbb{F}_{2^8}$ 正是这套构造的放大版。</span>
+
+**易错辨析｜商环的元素「同余」与「相等」不同。** 商环里 $a + I = b + I$ 当且仅当 $a - b \in I$——同余类相等不看元素本身，看「差是否被理想吸收」。$\mathbb{Z}_6$ 里 $\bar 2 \ne \bar 8$？不，$\bar 2 = \bar 8$（$8 - 2 = 6 \in 6\mathbb{Z}$）。判定商环元素相等，永远用「差属于理想」。
+
+**一句话记法**：商环 = 按理想取模；良定义靠吸收性；$\mathbb{Z}_n$、$\mathbb{C}$、$\mathbb{F}_4$、$\mathbb{Z}[i]$ 都是商环的杰作——「商掉关系」是环论造新结构的万能流水线。
+
+## 7 小结
 
 - **商环** $R/I$：按理想取同余的陪集环；加法/乘法逐陪集定义。
 - **良定义靠吸收性**：$a'i'$ 的交叉项全部被理想吸收；子环做模会崩坏。

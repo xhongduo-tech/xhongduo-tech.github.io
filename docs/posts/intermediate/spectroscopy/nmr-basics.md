@@ -1,6 +1,6 @@
 ---
 title: 核磁共振：1H 与 13C NMR
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 核磁共振：1H 与 13C NMR
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 波谱学（NMR/IR/MS） ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 波谱学（NMR/IR/MS） ｜ Silverstein Ch. 3–5 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从核磁共振开始

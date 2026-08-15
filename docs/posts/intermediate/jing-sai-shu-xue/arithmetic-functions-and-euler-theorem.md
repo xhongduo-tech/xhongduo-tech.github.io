@@ -114,4 +114,8 @@ $$a^{\varphi(m)} \equiv 1 \pmod m \implies a^{n} \equiv a^{n \bmod \varphi(m)} \
 - **数论函数**：$d(n)$、$\sigma(n)$、$\varphi(n)$、$\mu(n)$；全是**积性函数**，按素数幂分解算值。
 - **欧拉函数**：$\varphi(n) = n\prod(1-\frac1p)$；= 简化剩余系大小。
 - **欧拉定理**：$a^{\varphi(m)}\equiv1\pmod m$（$\gcd(a,m)=1$）；**费马小定理**是 $m=p$ 特例。
-- **降幂**：$a^n \equiv a^{n\bmod\varphi(m)} \pmod m$
+- **降幂**：$a^n \equiv a^{n\bmod\varphi(m)} \pmod m$（$\gcd(a,m)=1$ 时）。
+- **RSA 的心脏**：$m^{ed} \equiv m \pmod N$；大幂模复合数走「欧拉 + CRT」流水线。
+- 一句话：**互素 ⇔ 幂有周期**；欧拉定理把「互素」变成「可降幂」。
+
+在下一节，我们将转战组合篇，从《排列组合与计数原理》开始——那是与数论完全不同的计数世界。

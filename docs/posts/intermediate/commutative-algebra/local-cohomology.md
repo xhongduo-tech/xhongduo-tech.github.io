@@ -1,6 +1,6 @@
 ---
 title: 局部上同调
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 局部上同调
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 交换代数 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 交换代数 ｜ Matsumura 补充章 / Eisenbud Ch. 18 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从局部上同调开始
@@ -36,11 +36,30 @@ $$H^i_{\mathfrak{m}}(M) = R^i \Gamma_{\mathfrak{m}}(M), \qquad H^0_{\mathfrak{m}
 
 标准例子（$R = k[x]$，$\mathfrak{m} = (x)$，$M = R$）：$H^0_{\mathfrak{m}}(R) = 0$（整环里没有非零元被 $x$ 幂杀死）；$H^1_{\mathfrak{m}}(R) = k[x, x^{-1}]/k[x]$，即「只在原点之外有极点的有理函数模掉多项式」——这是「挖掉原点」在代数里的回声，也解释了几何里的「洞」。
 
+再算一个 $\mathbb{Z}$-模的例子：$M = \mathbb{Z}/p^n\mathbb{Z}$，$\mathfrak{m} = (p)$。$\Gamma_{(p)}(M) = M$（每个元素都被 $p^n$ 杀死），故 $H^0_{(p)}(M) = \mathbb{Z}/p^n$、$H^1_{(p)}(M) = 0$；反过来对 $M = \mathbb{Z}$：$\Gamma_{(p)}(\mathbb{Z}) = 0$，而 $H^1_{(p)}(\mathbb{Z}) = \mathbb{Z}[1/p]/\mathbb{Z}$。**「有挠的部分被 $H^0$ 抓住，无挠的部分溢出到 $H^1$」——上同调在给「挠」分级**，这正是第1篇《相伴素与支集》里「病历卡」的同调化。
+
+**辨析｜易错点：** $\Gamma_{\mathfrak{m}}$ 抓的是「被 $\mathfrak{m}$ 的**某次幂**杀死」的元素，不是「被 $\mathfrak{m}$ 一步杀死」的 socle。$R = k[x,y]/(x^2, xy)$ 中 $\bar{x}$ 同时落在两者里，但「一步杀死」（$\operatorname{Hom}(k,R)$）与「幂杀死」（$\Gamma_{\mathfrak{m}}$）是两个不同的子模——深度 0 的两种判据分别对应它们（见《深度与正则序列》）。
+
+**核心对照表：局部上同调收束了什么**
+
+| 概念（先前章节） | 局部上同调身份 |
+| --- | --- |
+| 深度 | 首个非零 $H^i_{\mathfrak{m}}$ 的下标 |
+| 维数 | 最后一个非零下标（完备情形） |
+| CM 模 | 只有中间那个非零 |
+| Gorenstein | 顶部 $H^d_{\mathfrak{m}}$ 与内射包相连 |
+| 支集 | 支撑在 $\{\mathfrak{m}\}$ 的部分 |
+| 相伴素 | 决定 $H^i$ 的非零位置 |
+
+这张表是本文的路线图：前五篇各自独立的「深浅宽窄」，最后在一条 $H^i_{\mathfrak{m}}$ 序列上排好队。
+
 ## 2 深度与维数的上同调身份
 
 **重点（深度定理）**：$M \neq 0$ 有限生成时，
 
 $$\operatorname{depth} M = \min\{\, i \mid H^i_{\mathfrak{m}}(M) \neq 0\,\}.$$
+
+用 $R = k[x]_{(x)}$ 落到具体：$H^0_{(x)}(R) = 0$（整环无挠），$H^1_{(x)}(R) = k[x,x^{-1}]/k[x] \neq 0$，首个非零下标是 1——深度 1，与正则序列 $\{x\}$ 的长度一致。$R$ 是 DVR（第1篇《离散赋值环》），也是 CM 环（深度 = 维数 = 1）。**两条计算路径——数正则序列、数非零上同调——在这里给出同一个答案。**
 
 **重点（维数定理，Grothendieck 消失）**：$H^i_{\mathfrak{m}}(M) = 0$ 对 $i > \dim M$，且 $M \neq 0$ 有限生成于完备环上时 $H^{\dim M}_{\mathfrak{m}}(M) \neq 0$。于是
 
@@ -77,6 +96,20 @@ $$\operatorname{depth} M = \min\{ i \mid H^i_{\mathfrak{m}}(M) \neq 0\}, \qquad 
 - **第三步，与正则序列握手**：正则序列每延长一个元素，$\operatorname{Ext}^i(R/\mathfrak{m}^t, \cdot)$ 的消失起始下标就推后一位（长正合列 + 归纳），极限后就是「首个非零 $H^i$ 的下标 = 深度」。**「数正则序列」与「数非零上同调」在此完全统一。**
 
 **辨析｜易错点：** $\operatorname{depth} M = \min\{i : H^i \neq 0\}$ 中「$H^i = 0$」对 $i < \operatorname{depth}$ 是对**所有**有限生成 $M$ 的普适事实；但「$H^{\dim M} \neq 0$」只在完备化/有限生成前提下稳定。**记住：深度管「第一个非零」，维数管「最后一个非零」，中间空 ⇔ CM。**
+
+把「深度管第一个、维数管最后一个」用一句话串起来：深度是「上同调从哪个下标开始出现」，维数是「到哪个下标结束」。二者之间的空段恰是「CM 的空」——CM 模的上同调只有一个非零项。**局部上同调把整门交换代数的「深浅宽窄」压进了一条序列。**
+
+**术语速查表**
+
+| 术语 | 一句话含义 |
+| --- | --- |
+| $\Gamma_{\mathfrak{m}}(M)$ | 被 $\mathfrak{m}$ 幂杀死的子模 |
+| 局部上同调 $H^i_{\mathfrak{m}}$ | $\Gamma_{\mathfrak{m}}$ 的右导出函子 |
+| 深度 | 首个非零 $H^i$ 的下标 |
+| 维数 | 最后一个非零下标（完备） |
+| 顶部上同调 $H^d_{\mathfrak{m}}$ | 与内射包、Gorenstein 相连 |
+| Matlis 对偶 | $\operatorname{Hom}_R(-, E_R(k))$ |
+| 局部对偶 | $H^i_{\mathfrak{m}}(M)^\vee \cong \operatorname{Ext}^{d-i}(M,\omega)$ |
 
 ## 5 小结
 

@@ -89,7 +89,24 @@ $$
 - **Wasm 组件模型**：可组合的 Wasm 模块——「软件以 Wasm 二进制分发，跨语言互操作」。
 - **GC 提案与线程**：正在推进——让带 GC 的语言（Java、C#）也能高效编译到 Wasm。<span class="marginnote">Wasm 的野心已超越 Web：「<strong>通用字节码</strong>」——以 Wasm 作为「软件分发的通用格式」（类似容器镜像但更轻、更快、更安全）。WASI 让它跑在任意操作系统上，「一次编译、处处运行」从 Web 扩展到整个计算世界。VM 思想的终极形态：<strong>指令集成为标准，运行时无处不在</strong>。</span>
 
+## 6 一个最小集成示例：从 JavaScript 调用 Wasm
 
+光看字节码不够，把 Wasm 用起来才是闭环。以第二节的 `add` 模块为例，浏览器端只需几行 JavaScript：
+
+```javascript
+const bytes = await fetch('add.wasm').then(r => r.arrayBuffer());   // 拿字节
+const { instance } = await WebAssembly.instantiate(bytes, {});       // 验证 + 编译 + 实例化
+const result = instance.exports.add(2, 3);   // 5
+```
+
+逐项拆解：
+
+- **fetch 拿字节**：Wasm 以二进制文件分发，先用 `fetch` 取回 `ArrayBuffer`——注意是二进制而非文本，加载前不经过解析器。
+- **instantiate 实例化**：`WebAssembly.instantiate` 一步完成「验证 → 编译 → 实例化」三件事——第二节的「验证先行」在这里落地：模块不合规则（类型错误、栈错误）会直接抛异常，而不是运行到一半才崩溃。
+- **exports 调用**：`instance.exports.add` 就是模块里 `(export "add")` 声明的函数——Wasm 函数以「宿主语言可调用的函数」形式暴露，`2 + 3` 经栈机指令返回 `5`。
+- **零胶水的代价**：交换的是「指针、内存都显式」——字符串、数组等高层结构要借助 `wasm-bindgen`（Rust）或手动在共享线性内存上搬运，JS 与 Wasm 之间没有自动的 GC 语义转换。
+
+**辨析｜易错点：** 不要把 `instantiate` 和 `compile` 混为一谈。`WebAssembly.compile` 只编译不实例化（不分配内存实例）；`instantiate` 一步到位。需要复用同一份字节码时，先 `compile` 再 `WebAssembly.instantiate(module, imports)` 可避免重复编译——这正是「字节码与运行实例分离」的 VM 惯例，与 JVM 里「类文件与对象实例分离」同一思路。另一个常见误解是认为 Wasm 能直接操作 DOM——它不能，所有浏览器 API 都要经导入（imports）传入，沙箱边界始终存在。
 
 ## 术语速查
 
@@ -109,7 +126,7 @@ $$
 
 **辨析｜易错点：** 术语速查的价值不在「背定义」，而在「建立联系」——表中的每一条都对应正文的一个核心概念。复习时把表格当「目录」，顺着每条术语回忆它的定义、示例与易错点，比反复读正文更高效。「术语是知识的锚点」——记住术语，就记住了它背后的整个概念簇。
 
-## 6 小结
+## 7 小结
 
 - **WebAssembly**：面向 Web 的通用虚拟指令集——任何语言编译到 Wasm，浏览器接近原生执行。
 - 设计：面向栈字节码 + **线性内存** + **安全沙箱**——「可安全执行不可信代码」。

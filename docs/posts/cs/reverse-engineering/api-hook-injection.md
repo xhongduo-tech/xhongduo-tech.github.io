@@ -1,6 +1,6 @@
 ---
 title: API Hook 与钩子注入
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # API Hook 与钩子注入
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · 逆向工程与二进制分析 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · 逆向工程与二进制分析 ｜ Eilam《Reversing: Secrets of Reverse Engineering》Part 5 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 Hook 开始
@@ -76,7 +76,37 @@ hook 是在目标进程里执行我们的代码，所以第一步往往是把代
 
 读透这一次注入，你就同时读懂了半数恶意加载器的实现——代码注入不是魔法，是一串「在别人家借地址、借线程、借函数入口」的系统调用。
 
-## 5 辨析与小结
+## 5 注入途径速查：选型与检测对照
+
+五种注入途径各有优劣，实战选型看的是「隐蔽性 vs 通用性」的权衡。把它们的特征放进一张表，一眼就能对比：
+
+| 途径 | 关键 API | 隐蔽性 | 局限 | 检测方向 |
+| --- | --- | --- | --- | --- |
+| CreateRemoteThread + LoadLibrary | `OpenProcess`/`VirtualAllocEx`/`WriteProcessMemory`/`CreateRemoteThread` | 中 | 需要 `PROCESS_ALL_ACCESS`；新线程显眼 | 线程起始地址是否指向 `LoadLibraryA` |
+| SetWindowsHookEx | `SetWindowsHookEx`/`CallNextHookEx` | 中高 | 仅 GUI 进程；需窗口消息 | 钩子链里是否有未签名 DLL |
+| AppInit_DLLs | 注册表写入 | 高（广谱） | 只能随 `user32.dll` 加载；已被 Win10+ 默认关闭 | 检查 `AppInit_DLLs` 键值 |
+| 进程镂空 | `CreateProcess`(挂起)/`WriteProcessMemory`/`ResumeThread` | 高 | 内存镜像体积大；易被检测到 `PAGE_EXECUTE` 外链 | 对比「已加载镜像」与磁盘镜像 |
+| APC 注入 | `QueueUserAPC`/`NtQueueApcThread` | 高 | 目标线程必须处于可唤醒状态 | 观察 APC 队列与线程唤醒时序 |
+
+选型经验：**追求广谱用 AppInit_DLLs，追求隐蔽用进程镂空与 APC，常规分析用 CreateRemoteThread**——这也是《恶意代码代码分析》里判断「样本用哪种加载器」的对照依据。
+
+**辨析｜易错点：** 注入的分析者视角常有两个误判。其一，**把「能注入」当成「已注入」**——导入表或字符串里出现 `CreateRemoteThread` 只说明程序具备注入能力，是否真的注入要看运行期参数；其二，**低估注入的检测成本**——EDR（端点检测与响应）对这几条 API 序列都有行为签名，逆向样本时看到 EDR 钩子干扰了系统调用，要先把它排除出「样本自身行为」再下结论。<span class="marginnote">现代 EDR 本身就是一个庞大的 hook 集合：它在 ntdll 层挂钩拦截 `NtCreateThreadEx`、`NtWriteVirtualMemory` 等。分析恶意注入时，若发现这些 API 的行为「被改写」，多半是 EDR 而非样本——分清「谁在 hook」，是逆向环境里的一门必修课。</span>
+
+## 6 公式解析：内联 hook 的相对跳转偏移
+
+内联 hook 把函数头 5 字节改成 `E9 disp32`（无条件相对跳转），要正确跳转到钩子函数，就必须先算出这个 32 位相对偏移：
+
+$$
+\text{disp} = \text{target} - (\text{instr\_addr} + 5)
+$$
+
+分三步拆解：
+
+- **第一步，理解基准**：x86 的相对跳转以「跳转指令之后那条指令的地址」为基准（等价于 `rip` 已指向下一条指令），所以是 `instr_addr + 5`，而不是 `instr_addr` 本身——这是初学者最容易算错的地方。
+- **第二步，代入两端的值**：`target` 是钩子函数的地址，`instr_addr` 是被 hook 的函数入口地址。两者都是运行时确定的具体地址，相减就得到要写进机器码的 `disp32`（有符号，负值表示往回跳）。
+- **第三步，反向验证**：反汇编一条被 hook 过的函数时，`target = 下一条指令地址 + disp` 即可还原出钩子函数地址——这正是《反汇编与控制流恢复》里相对跳转公式在本专题的现场应用。写完后别忘了 `FlushInstructionCache`，否则指令缓存里的旧代码可能继续被执行——这一步常被新手漏掉，后果是「看起来没 hook 上」的诡异 bug。<span class="marginnote">相对偏移的单位是字节，且 x86 的 near jump 是相对 `rip` 的下一条指令——这个「基准是下一条」的约定，在《反汇编与控制流恢复》里已经用公式 $\text{target} = \text{next\_addr} + \text{disp8}$ 系统化过，两处是同一套算术。</span>
+
+## 7 辨析与小结
 
 **辨析｜易错点：** Hook 有三个技术陷阱。其一，**重入与递归**——你的钩子函数里如果调用了被 hook 的 API，会再次触发钩子，无限递归；标准解法是在钩子函数里直接调用 trampoline 或真实 API 的内部实现，绕开重入。其二，**线程安全**——内联 hook 改写指令是「正在执行的代码被改动」，多线程下必须用 `FlushInstructionCache` 同步指令缓存，否则偶发崩溃极难排查。其三，**hook 顺序**——多个钩子叠加在同一函数上（杀软、调试器、我们的工具同时 hook）时，先来后到决定谁先看到调用，调试时「你的 hook 没生效」很可能是因为被别人抢先了。
 

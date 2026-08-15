@@ -60,6 +60,15 @@ $$\text{进程 PID（用户看到）} = \text{tgid}, \qquad \text{线程 ID} = \
 
 **直觉**：「一个进程多个线程」在内核里是「**N 个共享 tgid 的 task_struct**」——**共享程度（mm/files）由 clone 标志决定，tgid 由 CLONE_THREAD 决定**。
 
+**数值算例：8 线程进程的内核形态**。用户 `pthread_create` 出 8 个线程：
+
+- 内核里 8 个 task_struct，`tgid` 全部相同（`getpid()` 一律返回同一个数），`pid` 各不相同（`gettid()` 分别返回 8 个值）。
+- 8 个 task_struct 的 `mm` 指向**同一个** mm_struct——地址空间共享，堆上的共享变量对所有线程可见。
+- 8 个独立内核栈 + 8 份线程栈（用户态 `mmap`），`errno`、TLS 各一份。
+- `ps` 只显示 1 行（按 tgid 聚合）；`top -H` 显示 8 行（按 pid 展开）。
+
+**代价随之而来**：任何一个线程崩溃（段错误），**整个进程的 8 个线程一起死**——共享地址空间的另一面就是无隔离的脆弱（对照《进程 vs 线程》的权衡）。
+
 ## 3 NPTL：现代 Linux 线程库
 
 **NPTL（Native POSIX Thread Library）**：Linux 2.6 起的标准 pthread 实现（取代旧版 LinuxThreads）。
@@ -78,6 +87,16 @@ $$\text{进程 PID（用户看到）} = \text{tgid}, \qquad \text{线程 ID} = \
 **futex 的价值**：**同步在无竞争时零系统调用**（回顾 vDSO 的「能不进内核就不进」哲学）——这就是为什么现代锁很快。<span class="marginnote">回顾《互斥锁》：Mutex 抢不到就睡眠。futex 让「抢得到」的常见情况<strong>不进内核</strong>——只有真竞争才睡。<strong>「快速路径用户态、慢速路径内核态」是高性能同步的通用设计</strong>（futex、vDSO、RCU 都是这一思路）。</span>
 
 **辨析｜易错点：** 「pthread 线程由内核调度，所以是内核线程」——**「内核线程」指 `kthread_create` 创建的、只在内核态跑的内核线程（如 `ksoftirqd`）**；用户 pthread 线程是**「用户态进程的共享执行流」**，运行用户代码，受调度器调度。**别把「pthread 线程」与「内核线程 kthread」混为一谈**——前者是用户态共享进程，后者是内核态专用执行流。
+
+**futex 的一次加锁走查**。两线程竞争同一把锁：
+
+- **无竞争**（绝大多数情况）：线程 A `lock` → 用户态 `cmpxchg` 原子改锁字，成功 → 直接进入临界区。**零系统调用、零上下文切换**。
+- **有竞争**：线程 B `lock` → 用户态原子操作发现锁被占 → 调 `futex(WAIT)` 系统调用睡眠，挂入等待队列。
+- **释放**：线程 A `unlock` → 用户态清锁字 → 调 `futex(WAKE)` 唤醒 B → B 从内核态返回，重新竞争。
+
+**关键**：`futex(WAIT/WAKE)` 只在竞争时触发，且唤醒后仍要**重新验证锁状态**（因为可能被别的线程抢先）——这套「乐观尝试、冲突才进内核」的协议，把锁的开销从「每次几十微秒」压到「无竞争时几十纳秒」。<span class="marginnote">这也是 Java 偏向锁、Go 的 `sync.Mutex` 用户态自旋都借鉴的思想：<strong>先在用户态用原子指令尝试，失败才交给内核</strong>——「能不进内核就不进」贯穿高性能同步的设计史。</span>
+
+**线程创建的开销对比**：`pthread_create` 底层是 `clone`，创建的是共享 mm 的 task_struct——比 `fork`（COW 复制页表）更轻，但比纯用户态纤程（goroutine 初始 2 KB 栈）重得多。<span class="marginnote">goroutine 创建是纯用户态操作（微秒级、可百万级）；pthread 创建要进内核建 task_struct + 分配栈（数微秒级、万级封顶）。「线程/进程/协程」三档开销，本质是「要不要进内核建执行实体」的差别。</span>
 
 ## 4 核心对比表：进程 vs pthread 线程（Linux）
 

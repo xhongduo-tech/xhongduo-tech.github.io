@@ -103,7 +103,19 @@ $$\text{源地址} = \text{容器私有 IP} \xrightarrow{\text{NAT}} \text{宿�
 
 **设计启示**：Mount 与 Network Namespace 展示了「**虚拟化视图**」的两种范式——**Mount 用「挂载点树的分叉」隔离文件，Network 用「虚拟网卡 + 网桥」隔离网络**。它们都建立在「**内核把真实资源抽象成可复制的视图**」之上——这是容器「轻量虚拟化」的本质。
 
-## 4 小结
+## 4 术语速查表
+
+| 术语 | 含义 | 一句话记忆 |
+| --- | --- | --- |
+| Mount Namespace | 隔离挂载点视图 | 自己的文件系统树 |
+| `pivot_root` | 切换进程根目录 | 从根开始是自己的 |
+| 挂载传播 | 跨 Namespace 的挂载可见性 | 共享/私有 |
+| Network Namespace | 隔离完整网络栈 | 自己的网卡与 IP |
+| `veth pair` | 虚拟以太网对 | 一根虚拟网线 |
+| 网桥（bridge） | 虚拟交换机 | docker0 |
+| NAT | 地址转换 | 容器借宿主的公网身份 |
+
+## 5 小结
 
 - **Mount Namespace**：隔离挂载点视图——pivot_root 切换根到容器 rootfs，容器挂载不影响宿主。
 - 挂载传播（共享/私有）控制跨 Namespace 的挂载可见性。

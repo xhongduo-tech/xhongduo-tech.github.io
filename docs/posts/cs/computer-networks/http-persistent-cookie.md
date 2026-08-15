@@ -65,7 +65,56 @@ Cookie 虽然方便，但也是攻击与隐私问题的焦点：<span class="mar
 
 **辨析｜易错点：** **Cookie 本身不是病毒，它是「凭证」**——危险在于「凭证被偷/被滥用」。安全 Cookie 的三件套：<strong>HttpOnly</strong>`（脚本读不到，防 XSS 窃取）、<strong>Secure</strong>`（只在 HTTPS 传）、<strong>SameSite</strong>（防跨站携带，防 CSRF）。「Cookie 要防偷、防盗用、防跨站」**是它的安全三防。**
 
-## 5 小结
+## 5 算例：非持久 vs 持久连接差多少
+
+设一个网页含 1 个 HTML + 9 张图片（共 10 个对象），每建一次 TCP 连接握手耗时 1 个 RTT，传输一个对象耗时 1 个 RTT（忽略其他时延）。
+
+- **非持久（HTTP/1.0）**：每个对象一条新连接 = 10 ×（1 RTT 握手 + 1 RTT 传输）= 20 RTT。
+- **持久（HTTP/1.1，非流水线）**：1 条连接 + 10 × 1 RTT 传输 = 1 + 10 = 11 RTT（省了 9 次握手）。
+- **持久 + 流水线 / HTTP/2 多路复用**：约 1 RTT 握手 + 1 RTT 并发传输全部 = 2 RTT 左右。
+
+**结论**：**从 20 RTT 到 2 RTT，一个量级的提升，全靠「复用连接」**——这就是 HTTP/2 多路复用（第 9 章）的价值所在。
+
+**辨析｜易错点：** 持久连接省的是「握手 RTT」，不是「传输 RTT」——对象本身还是要花时间传。**「复用连接省的是『建连』，不是『传输』」**是正确理解优化收益的前提。
+
+## 6 Cookie 的关键属性：写对才安全
+
+Cookie 不只是「一个名字 + 一个值」，它还带一堆属性，写错会出安全漏洞：
+
+- **Domain / Path**：Cookie 属于哪个域名、哪个路径——限制范围。
+- **Expires / Max-Age**：过期时间——Session Cookie（不设则浏览器关闭即失效）vs 持久 Cookie。
+- **Secure**：只在 HTTPS 传输——防明文泄露。
+- **HttpOnly**：JavaScript 读不到——防 XSS 窃取。
+- **SameSite**：是否允许跨站携带——防 CSRF。
+
+**辨析｜易错点：** **不设 Secure 的 Cookie 在 HTTP 下可能明文泄露，不设 SameSite 容易遭 CSRF，不设 HttpOnly 容易被 XSS 偷走**——三个属性分别堵三个洞。**「Cookie 的安全三分靠属性，七分靠 HTTPS」**是对其整体安全性的总结。
+
+## 7 现代会话方案：从 Session 到 Token
+
+传统「Cookie + Session」之外，现代 Web 还有更「无状态」的会话方案：
+
+- **JWT（JSON Web Token）**：服务器签发一个「签名的 JSON」给客户端，客户端存着、每次带回来——服务器不存 Session，靠「验签」识别用户。**「JWT 把状态装进凭证本身」**。
+- **与传统 Session 对比**：Session 存在服务器（可随时注销、可撤销），JWT 存在客户端（天然无状态、易扩展，但难「主动失效」）。
+- **实践**：敏感应用（银行）多用服务器端 Session，高并发 API 多用 JWT——各有取舍。
+
+**辨析｜易错点：** **JWT 不是「更安全」，而是「不同取舍」**——它无状态、好扩展，但「被盗后难以撤销」是它的软肋。**「无状态换扩展性，代价是难撤销」**是选 Session 还是 JWT 的核心权衡。
+
+## 8 术语速查
+
+| 术语 | 含义 |
+| --- | --- |
+| 非持久连接 | 每个请求新建 TCP 连接 |
+| 持久连接 | 多个请求复用同一连接 |
+| 流水线 | 一连接上连续发多个请求 |
+| Cookie | 服务器发的客户端凭证 |
+| Set-Cookie | 响应首部，发给浏览器 |
+| Session | 服务器端保存的用户状态 |
+| Session ID | 标识会话的唯一 ID |
+| HttpOnly | 脚本读不到的 Cookie 属性 |
+| SameSite | 防跨站携带 Cookie |
+| JWT | 无状态的签名令牌 |
+
+## 9 小结
 
 - **非持久 vs 持久连接**：HTTP/1.0 每请求一连接，HTTP/1.1 默认持久复用。
 - **连接演进**：HTTP/1.0 建连 → HTTP/1.1 复用 → HTTP/2 并行。
@@ -73,5 +122,8 @@ Cookie 虽然方便，但也是攻击与隐私问题的焦点：<span class="mar
 - **Session**：服务器端存用户状态；Cookie 只传 Session ID。
 - **黄金分工**：Cookie 传 ID、Session 存数据；Cookie 是钥匙、Session 是柜子。
 - **安全三防**：HttpOnly（防 XSS 偷）、Secure（防明文）、SameSite（防 CSRF）。
+- **算例结论**：10 对象网页从 20 RTT 降到 2 RTT，全靠复用连接省握手。
+- **属性细节**：Secure/HttpOnly/SameSite 三个属性分别堵三个安全洞。
+- **现代会话**：JWT 无状态好扩展但难撤销，选 Session 还是 JWT 是取舍。
 
 在下一节，我们将看 Web 的「加速器」——**Web 缓存与代理服务器**。

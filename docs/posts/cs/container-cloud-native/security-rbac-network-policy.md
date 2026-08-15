@@ -1,6 +1,6 @@
 ---
 title: 安全（RBAC/NetworkPolicy/Secrets）
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 安全（RBAC/NetworkPolicy/Secrets）
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · 容器与云原生 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · 容器与云原生 ｜ Burns Ch.14,19 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么安全是一条「纵深」而非一道墙

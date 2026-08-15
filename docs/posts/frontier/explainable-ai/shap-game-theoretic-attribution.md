@@ -1,6 +1,6 @@
 ---
 title: SHAP：把归因升级为博弈论
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # SHAP：把归因升级为博弈论
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第九级 · 交叉与前沿 · 可解释 AI ｜ 对标教材（Molnar, Interpretable Machine Learning §5） ｜ 2026-08-11</p>
+<p>第九级 · 可解释 AI ｜ 对标教材（Molnar, Interpretable Machine Learning §5） ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从博弈论开始

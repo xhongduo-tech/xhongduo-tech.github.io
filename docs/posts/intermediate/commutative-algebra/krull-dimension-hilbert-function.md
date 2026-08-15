@@ -1,6 +1,6 @@
 ---
 title: 维数理论：Krull 维数与 Hilbert 函数
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 维数理论：Krull 维数与 Hilbert 函数
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 交换代数 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 交换代数 ｜ Atiyah–Macdonald Ch. 11 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从维数开始
@@ -36,6 +36,19 @@ $$\operatorname{ht} \mathfrak{p} = \dim A_{\mathfrak{p}} = \sup\{\, n \mid \math
 - $\dim k[x_1, \dots, x_n] = n$（最长的链 $(0) \subset (x_1) \subset \cdots \subset (x_1,\dots,x_n)$）。
 - $\dim \mathbb{Z} = 1$：链 $(0) \subset (p)$。
 - $\dim A = 0$ 当且仅当 $A$ 是 Artin 环（第1篇《链条件》已经见过）——素理想全是极大的。
+
+**常见环的 Krull 维数一览：**
+
+| 环 | 维数 | 说明 |
+| --- | --- | --- |
+| $k$（域） | 0 | 唯一素理想 $(0)$ |
+| $k[x]$、$\mathbb{Z}$ | 1 | 主理想整环而非域 |
+| $k[x,y]$ | 2 | 平面 |
+| $k[x_1,\dots,x_n]$ | $n$ | $n$ 维仿射空间 |
+| $k[x,y]/(xy)$ | 1 | 节点曲线 |
+| $\mathbb{Z}[\sqrt{-5}]$ | 1 | Dedekind 整环（第1篇） |
+
+竖着读这张表：维数从 0 到 $n$，靠的是「多加一个自由变量」；而「取商掉一个非零因子」往往降一维（超曲面 $k[x,y]/(xy)$ 就是 2→1）——这条「降维」直觉正是下一节高度定理与《正则局部环》参数系理论的前奏。
 
 **重点：维数由「素理想链」定义，而素理想链在局部化、整扩张下有确定的行踪。** 例如 $\dim S^{-1}A \leq \dim A$；再如第1篇讲过 $A_{\mathfrak{p}}$ 的素理想恰是包含于 $\mathfrak{p}$ 的那些，故 $\operatorname{ht}\mathfrak{p}$ 就是 $\dim A_{\mathfrak{p}}$。<span class="marginnote">几何直觉：链 $V(\mathfrak{p}_0) \supsetneq V(\mathfrak{p}_1) \supsetneq \cdots$ 是「降维」的闭集序列，每条不可约闭集压进更小闭集一次就少一维——链越长，画布越大。</span>
 

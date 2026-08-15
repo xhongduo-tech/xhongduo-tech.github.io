@@ -1,6 +1,6 @@
 ---
 title: 有限差分法基础
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 有限差分法基础
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 偏微分方程数值解 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 偏微分方程数值解 ｜ LeVeque《Finite Difference Methods》Ch. 1-3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从有限差分开始

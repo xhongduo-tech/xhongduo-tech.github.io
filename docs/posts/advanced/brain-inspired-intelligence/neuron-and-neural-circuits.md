@@ -1,6 +1,6 @@
 ---
 title: 神经元与神经回路
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 神经元与神经回路
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第四级 · 高阶专题 · 脑科学类脑智能 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第四级 · 脑科学类脑智能 ｜ Kandel et al., Principles of Neural Science (6th, 2021) §2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从神经元开始

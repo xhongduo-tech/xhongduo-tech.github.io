@@ -86,6 +86,31 @@ $$\text{FIRST}(X) \supseteq \bigcup_{j=1}^{t} (\text{FIRST}(Y_j) \setminus \{\va
 
 **辨析｜易错点：** FOLLOW 集合**不含 ε**，但它对**每个**非终结符都定义——包括那些从不出现在句子末尾的。ε 属于 FIRST 的可能，属于 FOLLOW 的永远不可能；把 ε 误放进 FOLLOW 是初学者的高频错误。
 
+## 6 一个 FIRST/FOLLOW 的完整手算
+
+把 FIRST 与 FOLLOW 在同一台文法上完整算一遍，验证不动点算法。文法：
+
+$$S \to A\,B, \quad A \to a \mid \varepsilon, \quad B \to b \mid S\,c$$
+
+**FIRST**（从空集起步）：
+
+- FIRST(a) = {a}，FIRST(b) = {b}。
+- A 的两条候选：`a` 给 {a}；`ε` 给 ε——所以 FIRST(A) = {a, ε}。
+- B 的两条候选：`b` 给 {b}；`S c` 需要 FIRST(S)——先看 S：S → AB，A 能导出 ε，所以 FIRST(S) 先含 FIRST(A)\{ε} = {a}，再看 B——B 还未定。迭代：假设 FIRST(B) 先含 {b}，则 FIRST(S) 加入 {b}；S 又影响 B（B → S c 的开头是 FIRST(S)）…… 迭代到饱和：FIRST(S) = {a, b}，FIRST(B) = {a, b}。
+- 注意 `S c` 的 c 贡献不了 FIRST(B)——因为 S 不能导出 ε，只看 S 的开头，c 是 S 的「后续」。
+
+**FOLLOW**（从 `$` 起步）：
+
+- `$` ∈ FOLLOW(S)。
+- S → AB：FOLLOW(S) ⊆ FOLLOW(B)（B 在末尾），且 FIRST(B)\{ε} = {a, b} ⊆ FOLLOW(A)。
+- B → S c：`c` ∈ FOLLOW(S)；且因为 c 是终结符不能消失，FOLLOW(B) 不传导到 S。
+- A → ε、A → a 无直接 FOLLOW 规则。
+- 收敛：FOLLOW(S) = {$, c}，FOLLOW(A) = {a, b}，FOLLOW(B) = {$, c}。<span class="marginnote">这台文法的 FIRST 与 FOLLOW 是<strong>互相依赖</strong>的（B 的 FIRST 靠 S，S 的 FIRST 又靠 B）——这正是「不动点」而非「单遍扫描」的原因：必须循环到一轮无任何新增才停。练一次这种互喂的例子，「为什么叫不动点」就刻进直觉了。</span>
+
+**要点**：整个计算就是「从起点灌入、沿产生式传播、遇 ε 继续、直到饱和」——没有任何一步需要「聪明」，纯机械。
+
+**辨析｜易错点：** 注意 FIRST 与 FOLLOW 的迭代会**互相喂**（B 的 FIRST 依赖 S，S 的 FIRST 又依赖 B）——这是需要不动点而非单遍扫描的原因。写算法时务必循环到「一轮无任何新增」才停。
+
 ## 7 思考与练习
 
 **练习 1 手算 FIRST**：对文法 $E \to T E'$、$E' \to +T E' \mid \varepsilon$、$T \to F T'$、$T' \to \times F T' \mid \varepsilon$、$F \to (E) \mid \textbf{id}$，手算每个非终结符的 FIRST 集，再算 $\text{FIRST}(T E')$ 与 $\text{FIRST}(+ T E')$——体会「串的 FIRST 由打头符号决定」。

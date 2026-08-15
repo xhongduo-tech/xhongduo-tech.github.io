@@ -1,6 +1,6 @@
 ---
 title: 分批补料与连续发酵操作策略
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 分批补料与连续发酵操作策略
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第六级 · 工程技术 · 发酵工程 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第六级 · 发酵工程 ｜ Shuler & Kargi《Bioprocess Engineering》§8 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从操作策略开始

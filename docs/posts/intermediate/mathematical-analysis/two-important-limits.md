@@ -94,7 +94,23 @@ $$\frac{a^h-1}{h}=\frac{t}{\log_a(1+t)}=\frac1{\frac1t\log_a(1+t)}=\frac1{\log_a
 
 于是 $(a^x)'=a^x\ln a$；特别地 $(e^x)'=e^x$。**$e^x$ 自导数的「神圣性质」正是由第二重要极限奠基的。**
 
-## 5 小结
+## 5 计算示范：两个重要极限的综合运用
+
+**示范一（三角族极限）**：$\displaystyle\lim_{x\to0}\frac{\tan x}{x}=\lim_{x\to0}\frac{\sin x}{x}\cdot\frac1{\cos x}=1\cdot1=1$；$\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^2}=\lim_{x\to0}\frac{2\sin^2\frac x2}{x^2}=\frac12$；$\displaystyle\lim_{x\to0}\frac{\arcsin x}{x}=1$（令 $t=\arcsin x$，$x=\sin t\to0$，原式 $=\frac{t}{\sin t}\to1$）。**「凑出 $\frac{\sin\square}{\square}$ 形」是第一重要极限的全部用法**——恒等变形（乘除、倍角、代换）把一切三角极限化归到它。
+
+**示范二（指数族极限）**：$\displaystyle\lim_{x\to\infty}\left(1+\frac2x\right)^x=\lim_{x\to\infty}\left[\left(1+\frac2x\right)^{x/2}\right]^2=e^2$；$\displaystyle\lim_{x\to0}(1+x^2)^{1/x^2}=e$（令 $t=x^2$）；$\displaystyle\lim_{x\to0}(1+\tan x)^{\cot x}=\lim_{x\to0}\left[(1+\tan x)^{1/\tan x}\right]^{\tan x\cdot\cot x}=e^1=e$。**核心套路：把 $(1+\text{小量})^{1/\text{小量}}$ 完整凑出，剩下的因子用已知极限吸收**。
+
+**示范三（幂指函数的完整三步）**：求 $\displaystyle\lim_{x\to0}(\cos x)^{1/x^2}$。
+
+- **第一步，写成 $e^{\text{幂}\cdot\ln}$**：$(\cos x)^{1/x^2}=e^{\frac1{x^2}\ln\cos x}$；
+- **第二步，处理指数**：$\frac1{x^2}\ln\cos x=\frac1{x^2}\ln(1+(\cos x-1))\sim\frac{\cos x-1}{x^2}\to-\frac12$（用 $\ln(1+u)\sim u$ 与示范一的 $\frac{1-\cos x}{x^2}\to\frac12$）；
+- **第三步，还原**：原极限 $=e^{-1/2}=\frac1{\sqrt e}$。
+
+**「取对数 + 等价替换 + 还原」** 是幂指函数极限的通用流水线，$\ln(1+u)\sim u$（§3.5 等价无穷小）与两个重要极限在这里协同作战。<span class="marginnote">示范三把「等价无穷小」也用上了：$\ln(1+u)\sim u$ 正是 $(1+u)^{1/u}\to e$ 的对数形态（$\ln(1+u)\to u$）。两个重要极限、等价无穷小、泰勒展开——这三件套在极限计算里互为表里，§6.4 之后有了泰勒公式，这类极限可以直接「写展开、比阶」更机械化地完成。</span>
+
+**示范四（连续复利的数值）**：本金 $A_0=1000$，年利率 $6\%$，连续复利 3 年：$A=1000e^{0.06\times3}=1000e^{0.18}\approx1000\times1.1972=1197.2$。按季度复利：$1000(1+\frac{0.06}{4})^{12}\approx1195.6$；按年复利 $1000(1.06)^3=1191.0$——**复利次数越多越接近 $e^{0.18}$**，这就是「$n\to\infty$ 逼近 $e$」的现实意义。
+
+## 6 小结
 
 - **第一重要极限**：$\lim_{x\to0}\frac{\sin x}{x}=1$；由单位圆面积比较 $\sin x<x<\tan x$ 加夹逼证明，前提是弧度制。
 - **渐近关系**：$\sin x\sim x\sim\tan x$（$x\to0$），差异在 $x^3$ 阶；支撑三角导数与等价无穷小。

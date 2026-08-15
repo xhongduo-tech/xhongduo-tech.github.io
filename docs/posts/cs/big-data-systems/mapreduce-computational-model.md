@@ -1,6 +1,6 @@
 ---
 title: MapReduce 计算模型
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # MapReduce 计算模型
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · 大数据系统 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · 大数据系统 ｜ 《Hadoop 权威指南》（Tom White）Ch.2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 MapReduce 开始

@@ -1,6 +1,6 @@
 ---
 title: 命题逻辑与谓词逻辑
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 命题逻辑与谓词逻辑
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · 形式化方法 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · 形式化方法 ｜ Huth &amp; Ryan《Logic in Computer Science》§1–2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从逻辑开始
@@ -72,6 +72,16 @@ p \to q &\equiv \neg p \lor q \qquad \text{（蕴含定义）}\\
 p \lor (q \land r) &\equiv (p \lor q) \land (p \lor r) \qquad \text{（分配律）}
 \end{aligned}
 $$
+
+这些等价式可以当作代数恒等式随手改写公式，其中几条值得单独记住：
+
+| 等价式 | 名称 |
+| --- | --- |
+| $p \lor \neg p$ | 排中律（law of excluded middle） |
+| $p \land \neg p$ | 矛盾律（law of contradiction） |
+| $\neg\neg p \equiv p$ | 双重否定消去 |
+| $p \to q \equiv \neg q \to \neg p$ | 逆否命题（contraposition） |
+| $p \leftrightarrow q \equiv (p \to q) \land (q \to p)$ | 等价的分解 |
 
 语义告诉我们「什么为真」，但**人类和机器要能一步步地『写』出推理**。Huth §1.2 给出**自然演绎（natural deduction）**系统：由引入规则（introduction rules）与消去规则（elimination rules）组成，每条规则对应一个联结词的「如何得到它」与「如何使用它」。例如合取引入 $\dfrac{\phi \quad \psi}{\phi \land \psi}$、蕴含消去（即**分离规则 modus ponens**）$\dfrac{\phi \quad \phi \to \psi}{\psi}$。当存在一棵从前提 $\Phi$ 到结论 $\phi$ 的推导树时，记作 $\Phi \vdash \phi$。
 

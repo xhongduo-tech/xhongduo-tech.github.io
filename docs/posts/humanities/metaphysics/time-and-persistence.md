@@ -1,6 +1,6 @@
 ---
 title: 时间与持存的同一性
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 时间与持存的同一性
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第七级 · 人文与艺术 · 形而上学 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第七级 · 形而上学 ｜ Loux &amp; Crisp, Metaphysics: A Contemporary Introduction §4 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从「一条河」开始

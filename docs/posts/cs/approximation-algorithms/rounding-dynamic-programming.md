@@ -117,4 +117,9 @@ $$
 - **伪多项式 DP**：关于数字大小多项式、关于位数指数；是数据舍入的原料。
 - **背包 FPTAS**：价值按 $K=\varepsilon V_{\max}/n$ 缩放取整，时间 $O(n^3/\varepsilon)$，价值 $\ge (1-\varepsilon)\mathrm{OPT}$。
 - **PTAS vs FPTAS**：PTAS 时间对 $1/\varepsilon$ 可任意增长；FPTAS 要求关于 $1/\varepsilon$ 也多项式。
-- **完工时间调度**只有 PTAS：因为舍入坐标里有 $(1/\varepsilon)^{1/\varepsilon}$
+- **完工时间调度**只有 PTAS：因为舍入坐标里有 $(1/\varepsilon)^{1/\varepsilon}$，$1/\varepsilon$ 进了指数。
+- **方法论三件套**：先找伪多项式精确算法 → 把卡时间的数字舍到合适精度 → 用误差累计锁近似比；前两步是工程，第三步是数学。
+- **舍入红线**：向下取整保可行性，向上取整可能破坏可行解身份——输出必须对原问题可行。
+- **一条包含链**：$\mathrm{FPTAS} \subseteq \mathrm{PTAS}$；PTAS 的时间对 $1/\varepsilon$ 可任意增长，FPTAS 则要求多项式——两者的分界由「舍入后坐标轴的长度」决定。
+
+在下一节，我们把「舍入数据」换成一个更强大的原料——**线性规划的确定性舍入**：把整数规划松弛成 LP、解出分数解、再按阈值弹回整数，并用比值链 $\mathrm{OPT} \ge \mathrm{LP}$ 完成桥接。

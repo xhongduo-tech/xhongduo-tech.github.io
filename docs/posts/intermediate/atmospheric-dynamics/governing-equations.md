@@ -1,6 +1,6 @@
 ---
 title: 大气运动方程组
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 大气运动方程组
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 大气动力学 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 大气动力学 ｜ Holton &amp; Hakim《An Introduction to Dynamic Meteorology》§1–2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从方程组开始

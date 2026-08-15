@@ -94,7 +94,27 @@ $$\bar x=\frac{\int_Cx\rho\,ds}{\int_C\rho\,ds},\qquad\bar y=\frac{\int_Cy\rho\,
 
 **全部公式 = 「$f$ 代入 + $ds$ 代入」**——弧长微元 $ds$ 是核心，三种表示只是 $ds$ 的换装。
 
-## 6 小结
+## 6 进阶示范：三维、极坐标与对称性
+
+**示范三（三维空间曲线）**：$f(x,y,z)=x^2+y^2$ 沿螺旋线 $x=\cos t,\ y=\sin t,\ z=t$（$0\le t\le2\pi$）。空间弧长微元 $ds=\sqrt{x'^2+y'^2+z'^2}\,dt=\sqrt{\sin^2t+\cos^2t+1}\,dt=\sqrt2\,dt$：
+
+$$\int_C(x^2+y^2)ds=\int_0^{2\pi}(\cos^2t+\sin^2t)\sqrt2\,dt=2\sqrt2\pi.$$
+
+**三维的公式与二维完全平行**——只多一个坐标的平方项，$ds$ 变成三维弧微元。
+
+**示范四（极坐标）**：$f(x,y)=x^2+y^2$ 沿半径 $2$ 的圆（$0\le\theta\le\pi$，上半圆）。极坐标 $ds=\sqrt{r^2+r'^2}\,d\theta=\sqrt{4+0}=2$（圆 $r'=0$），$f=r^2=4$：
+
+$$\int_C(x^2+y^2)ds=\int_0^\pi4\cdot2\,d\theta=8\pi.$$
+
+**极坐标下圆的 $ds=rd\theta$**（$r$ 常数），积分退化为「函数值 × 弧长」的直乘。
+
+**示范五（对称性）**：求 $\int_C x^2\,ds$，$C$ 为单位圆。由对称性 $\int_Cx^2ds=\int_Cy^2ds$，且 $\int_C(x^2+y^2)ds=\int_C1\cdot ds=2\pi$（$x^2+y^2\equiv1$，弧长 $=2\pi$）。故 $\int_Cx^2ds=\pi$。
+
+**对称性让「不好算」变「不用算」**——与定积分里「偶函数对称区间积分减半」完全同构。<span class="marginnote">对称性在曲线积分里的应用是「$\int_C f\,ds$ 里 $f$ 与曲线的对称性匹配」：$x^2$ 与 $y^2$ 在圆周上地位对等，积分必相等。类似地，$f$ 关于轴反对称时（如 $f=x$ 在对称曲线 $C$ 上），$\int_Cx\,ds=0$。<strong>「先想对称性，再动手参数化」</strong>能省去大量积分计算——这条经验在第二型曲线积分（§20.2）与重积分（§21）里同样关键。</span>
+
+**示范六（质量与质心数值）**：线密度 $\rho(x,y)=x$ 的线段 $C$（从 $(0,0)$ 到 $(1,1)$）。总质量 $M=\int_Cx\,ds=\int_0^1t\sqrt2\,dt=\frac{\sqrt2}{2}$；$\int_Cx^2\rho ds=\int_0^1t^3\sqrt2\,dt=\frac{\sqrt2}{4}$，故质心 $\bar x=\frac{\sqrt2/4}{\sqrt2/2}=\frac12$。**「$\frac{\int x\rho ds}{\int\rho ds}$」给出质心横坐标 $\frac12$**——与「质量均匀集中在 $x=\frac12$」直觉一致（线段上 $\rho=x$ 加权）。
+
+## 7 小结
 
 - **第一型曲线积分**：$\int_C f\,ds$——沿曲线按弧长累积；与方向无关。
 - **定义**：$\lim\sum f(\xi_i,\eta_i)\Delta s_i$——「密度 × 弧长」的极限和。

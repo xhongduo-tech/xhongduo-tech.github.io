@@ -90,7 +90,35 @@ $$\text{攻击者可访问比例} = \frac{|O_P|}{|O_{all}|}$$
 
 **辨析｜易错点：** 「SELinux 太麻烦，禁掉算了」是运维常见的短视。**SELinux 的「麻烦」是它的「强制」本质**——配置复杂是代价，换来的是进程被攻破时的隔离。**许多真实攻击（Apache 被入侵后写 WebShell）正是因 SELinux 被禁而成功**。**「安全 vs 便利」的选择要基于资产价值**——高安全环境必须保留强制访问控制。
 
-## 5 小结
+## 5 数值算例：一条策略规则如何拦截越权
+
+设想攻击者攻破了 Web 服务器进程（域 `httpd_t`），想读 `/etc/shadow`（标签类型 `shadow_t`）。按 DAC 看：若进程恰好以 root 跑（运维误配置）或 shadow 文件权限放得松，DAC 这一关就放行了。但 SELinux 的判定是：
+
+```
+# 策略中查找：
+allow httpd_t shadow_t : file { read open };   ← 不存在！
+
+# 判定结果：默认拒绝，记录到 audit.log
+denied  { read }  scontext=httpd_t  tcontext=shadow_t
+```
+
+**没有这条 allow 规则，访问就被强制拒绝**——哪怕进程是 root、哪怕文件权限允许。反观 DAC 下同样的场景，很可能已经放行。这就是两道门的差别：<span class="marginnote">实战里 SELinux 最常见的操作是 `ausearch`/`audit2why` 查被拒记录，再用 `audit2allow` 生成规则放行——但「放行」前要确认是不是真的需要，否则就是给攻击者开了一扇门。<strong>策略的每次加宽，都等于给第二道门装了个插销</strong>。</span>
+
+**更极端的场景**：Web 服务器被攻破后写 WebShell 到 `/var/www/html`（类型 `httpd_sys_content_t`）——策略允许 httpd 读它，所以 WebShell 能读；但 WebShell 想连数据库（`mysqld_db_t`）、想执行系统命令（`bin_t`）、想读用户主目录（`user_home_t`）时，全部被默认拒绝。攻击者困在 `httpd_sys_content_t` 一个类型里——**这正是「被攻破后的扩散」被切断的样子**。
+
+## 6 术语速查表
+
+| 术语 | 含义 | 一句话记忆 |
+| --- | --- | --- |
+| SELinux | Linux 的 MAC 实现 | 系统立法 |
+| 标签 | 主体/对象的 security label | user:role:type:level |
+| 域（domain） | 进程标签中的 type | 我是谁 |
+| 类型（type） | 对象标签中的 type | 它是什么 |
+| 策略规则 | allow 域对类型做什么 | 立法条文 |
+| enforcing | 强制模式，拒绝违规 | 真刀真枪 |
+| 默认拒绝 | 没写的访问一律拒绝 | 最小授权 |
+
+## 7 小结
 
 - **SELinux** 是 Linux 的 **MAC（强制访问控制）** 实现，在 DAC 之上叠加强制策略。
 - 核心机制：**标签（域/类型）+ 策略规则（allow 谁对谁做什么）**。

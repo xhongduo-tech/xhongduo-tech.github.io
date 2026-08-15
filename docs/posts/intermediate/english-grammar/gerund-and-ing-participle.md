@@ -100,3 +100,24 @@ date: 2026-08-07
 $$
 \text{V-ing} \in \{\text{doing},\ \text{being done},\ \text{having done},\ \text{having been done}\}
 $$
+
+对这条形态公式做三步拆解：
+
+- **第一步，看主被动**：`doing`/`having done` 是主动（逻辑主语发出动作），`being done`/`having been done` 是被动（逻辑主语承受动作）——`a boring film`（主动，film 使人生厌）与 `a bored audience`（被动，观众被 film 弄无聊）。
+- **第二步，看时间**：`doing`/`being done` 表「与谓语同时或之后」，`having done`/`having been done` 表「在谓语之前」——`Having finished his homework, he went out.`（`finished` 先于 `went out`）。
+- **第三步，叠加选择**：需要「先于谓语」就取完成式，需要被动就取 `being/having been + done`——**主被动 × 时间，四选一**。
+
+**辨析｜易错点：** `-ing` 的完成式 `having done` 只能作**状语**（`Having seen the film, I...`），不能作定语或宾语——作定语用普通分词（`a man standing there`），作宾语用动名词（`enjoy reading`）。**「`having done` 专属状语岗位」**是形态与岗位的对应约束。
+
+**补充：** 悬垂分词的「逻辑主语一致」检查值得再强化：把分词短语还原成 `when/while + 主句主语 + be + 分词`——`Walking along the street, I met a friend.` → `When I was walking...`（主谓对上，√）；`Walking along the street, a friend met me.` → *`When a friend was walking...`（主谓对不上，×）。**还原测试是悬垂分词的最后防线。**
+
+## 7 小结
+
+- 同一个 `-ing` 有**两个身份**：动名词（作名词）与现在分词（作修饰语）；判据是**句法功能**。
+- 动名词作**主语、宾语、介词宾语、表语**；介词后必须接动名词（`good at swimming`）。
+- 现在分词作**定语、表语、状语**（时间/原因/条件/伴随/结果）；作定语强调「主动、进行」。
+- 宾语选动名词还是不定式：**`enjoy` 家族走 `-ing`，`want` 家族走 `to do`**；五词两义需成组记忆。
+- `-ing` 四形态（doing/being done/having done/having been done）由**主被动 × 时间**叠加决定。
+- 分词作状语必须**逻辑主语一致**，否则构成悬垂。
+
+在下一节，我们将看完非谓语动词的最后一种形态——过去分词，看 `-ed` 的「被动 + 完成」双重语义。

@@ -114,4 +114,8 @@ $$
 - 单因素 ANOVA 检验 $H_0: \tau_1 = \cdots = \tau_a = 0$，模型 $y_{ij} = \mu + \tau_i + \varepsilon_{ij}$。
 - 平方和分解 $\mathrm{SS}_T = \mathrm{SS}_{\text{Treatments}} + \mathrm{SS}_E$，自由度分别为 $N-1, a-1, N-a$。
 - $F_0 = \mathrm{MS}_{\text{Treatments}}/\mathrm{MS}_E \sim F_{a-1,N-a}$：组间信号与组内噪声之比。
-- $F$
+- $F$ 显著后必须做**多重比较**（Tukey / Dunnett / Bonferroni）才能回答「哪几组不同」，并报告校正方法。
+- ANOVA 是回归的特例：指示变量回归的 $F$ 检验与 ANOVA 的 $F_0$ 是同一个数。
+- 前提检查不可跳过：方差齐性、误差正态、观测独立；不满足时用 Welch 校正或数据变换。
+
+在下一节，当研究里有**两个**分类因素时，单因素框架升级为**双因素方差分析**——并首次遇到「交互效应」这个线性模型的新主角。

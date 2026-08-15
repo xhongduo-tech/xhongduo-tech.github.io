@@ -69,6 +69,18 @@ Compute Shader 的威力：**与渲染管线共享同一块 GPU，但不受「�
 
 **「计算 + 渲染」的混合**是现代 GPU 编程的标准：计算着色器算物理/粒子/后处理，把结果写进纹理，顶点/片元着色器读它渲染。<span class="marginnote">「Compute Shader 是渲染与计算的『桥梁』」：<strong>计算着色器算出的结果直接写成纹理/缓冲，喂给渲染管线——物理模拟的粒子位置 → 渲染成点精灵，后处理的滤波结果 → 显示成画面</strong>。这让「GPU 上算物理、算光照、算 AI，再一起渲染」成为可能——现代引擎（物理、粒子、GI 的 Lumen、TAA）全是计算着色器的应用。</span>
 
+**CUDA 与 Compute Shader 的对照**：
+
+| 维度 | CUDA | Compute Shader |
+| --- | --- | --- |
+| 语言形态 | 类 C 的核函数（`__global__`） | 着色器语言（HLSL/GLSL）的入口函数 |
+| 线程组织 | grid / block / thread 三级 | `numthreads` + 分发 ID（`SV_DispatchThreadID`） |
+| 宿主 | NVIDIA 独立运行时 | 图形 API（DirectX / Vulkan / OpenGL）内部 |
+| 与渲染管线 | 靠显存缓冲与纹理间接交换 | 直接读写管线资源，结果即喂回渲染 |
+| 可移植性 | 仅限 NVIDIA 生态 | 跨厂商统一支持 |
+
+**选哪个？** 在纯 NVIDIA 的渲染器里两者能力等价；一旦想「在渲染流程中顺手算点东西」（后处理、粒子、GI 探针更新），Compute Shader 因为与管线同源、资源直接共享而更顺。CUDA 的独立运行时则更适合大规模离线计算——离线烘焙、训练数据生成这类不依赖帧循环的重活。
+
 ## 4 公式解析：GPU 加速的经典范式
 
 以「图像模糊」为例，看 GPU 如何把「O(N²) 的卷积」变成「O(1) 的并行」：

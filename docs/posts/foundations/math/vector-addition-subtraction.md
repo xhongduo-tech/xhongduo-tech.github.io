@@ -103,6 +103,21 @@ $$
 <span class="marginnote">「同向量两种表示 + 系数唯一」是向量法证明的引擎：<strong>$\overrightarrow{AO}$ 从 $AC$ 走与从 $AB+BO$ 走，得到两个表达式，基本定理保证系数相同，于是列方程解出比例</strong>。本题 $t=\frac12$ 说明交点平分对角线。这类「设比例、列方程、得定比」的流程，是向量法证明几何命题的通用套路。</span>
 
 **辨析｜易错点（补充）：** 一是**减法方向**——$\overrightarrow{BD}=\overrightarrow{AD}-\overrightarrow{AB}=\vec b-\vec a$，箭头指向被减向量 $\vec b$，别写反；二是**设分点漏系数**——$\overrightarrow{BO}=s\overrightarrow{BD}=s(\vec b-\vec a)$，$s$ 是未知比例，别漏乘；三是**系数对应错位**——$\vec a$ 与 $\vec b$ 的系数分别对齐，别交叉配。
+### 向量加减的常见结论速查
+
+向量加减在平面几何里沉淀出一批常用结论，放一张速查表：
+
+| 几何事实 | 向量表示 |
+| --- | --- |
+| 中位线定理 | $\overrightarrow{DE}=\frac12\overrightarrow{BC}$（$D,E$ 为两边中点） |
+| 三角形中线 | $\overrightarrow{AD}=\frac12(\overrightarrow{AB}+\overrightarrow{AC})$（$D$ 为 $BC$ 中点） |
+| 重心 | $\overrightarrow{GA}+\overrightarrow{GB}+\overrightarrow{GC}=\vec{0}$ |
+| 线段中点 $M$ | $\overrightarrow{OM}=\frac12(\overrightarrow{OA}+\overrightarrow{OB})$ |
+| 反向向量 | $\overrightarrow{AB}=-\overrightarrow{BA}$ |
+
+这些结论都是「共起点、连终点、箭头指向被减向量」这条减法口诀的直接产物。记住「重心」一条：三条中线交于一点 $G$，向量和为零——它是后续「用向量证明三线共点」的标准起点。
+
+**辨析｜易错点：** 向量式里「箭头方向」决定符号：$\overrightarrow{AB}=-\overrightarrow{BA}$，写错方向就整体反号。凡是把线段向量表示写反的，多半是把「起点、终点」与「被减数、减数」对应错了。
 
 ## 6 小结
 

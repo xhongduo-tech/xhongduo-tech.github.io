@@ -78,7 +78,52 @@ $$\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{q}_j} - \frac{\pa
 
 **辨析｜易错点：**拉格朗日方程的标准形式只适用于「主动力有势」的系统。含摩擦、阻尼（非保守力）时，右边要加非保守广义力 $Q_j$——不能直接省略。判断「能否直接用标准拉格朗日方程」先看有没有非保守力做功。
 
-## 6 小结
+## 6 数值算例：弹簧振子的拉格朗日方程
+
+用拉格朗日方法求水平弹簧振子（质量 $m$、劲度系数 $k$）的运动方程，并与牛顿法对比。
+
+$$
+
+L = \frac{1}{2}m\dot{x}^2 - \frac{1}{2}kx^2, \qquad \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{x}} - \frac{\partial L}{\partial x} = m\ddot{x} + kx = 0
+
+$$
+
+- **第一步，写能量**：$T = \frac12 m\dot{x}^2$，$V = \frac12 kx^2$。
+- **第二步，构造 $L$**：$L = T - V = \frac12 m\dot{x}^2 - \frac12 kx^2$。
+- **第三步，代入拉格朗日方程**：$\frac{\partial L}{\partial\dot{x}} = m\dot{x}$、$\frac{\partial L}{\partial x} = -kx$，得 $m\ddot{x} + kx = 0$。
+- **第四步，对比牛顿法**：$F = -kx = ma$，同样得 $m\ddot{x} + kx = 0$——两种方法殊途同归，但拉格朗日法只写了能量、没有画受力图。<span class="marginnote">「拉格朗日法的省力之处」：对弹簧振子，两种方法几乎一样省力；但对复杂系统（多质点、约束、转动的耦合），拉格朗日法只写能量的优势就显现了——受力分析往往要列多个方向的方程，而 $L = T - V$ 一写到底。这正是分析力学在机器人逆动力学、航天器姿态控制中成为标准方法的原因。</span>
+
+## 7 循环坐标与广义动量守恒
+
+若拉格朗日量不含某广义坐标 $q_j$（$\frac{\partial L}{\partial q_j} = 0$），该坐标叫**循环坐标（cyclic coordinate）**，其共轭广义动量守恒：
+
+$$
+
+p_j = \frac{\partial L}{\partial\dot{q}_j} = \text{常量}, \qquad \frac{\mathrm{d}p_j}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{q}_j} = \frac{\partial L}{\partial q_j} = 0
+
+$$
+
+- **第一步，读循环坐标定义**：$L$ 不含 $q_j$ ⟹ $\partial L/\partial q_j = 0$。
+- **第二步，写守恒**：拉格朗日方程给 $\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{q}_j} = 0$，即 $p_j = \partial L/\partial\dot{q}_j$ 守恒。
+- **第三步，举例**：自由粒子 $L = \frac12 m\dot{x}^2$ 不含 $x$ ⟹ $p_x = m\dot{x}$ 守恒（动量守恒）；有心力场 $L$ 不含 $\phi$ ⟹ $p_\phi = mr^2\dot{\phi}$ 守恒（角动量守恒）。
+- **第四步，体会**：循环坐标 ⟹ 守恒量——这是诺特定理在拉格朗日框架里的直接表现。找守恒量不必解方程，只看 $L$ 缺哪个坐标即可。<span class="marginnote">「对称性 → 缺坐标 → 守恒」：$L$ 不含 $q_j$ 说明系统在 $q_j$ 方向上对称（平移对称 → 动量守恒、旋转对称 → 角动量守恒）。分析力学把「守恒律」从「解方程后验证」变成「看 $L$ 就知」——这是它比牛顿法深刻的又一例证。这个「循环坐标 → 守恒」的判别法，是理论力学与量子力学（守恒量子数）共同的语言。</span>
+
+**辨析｜易错点：**广义动量 $p_j = \partial L/\partial\dot{q}_j$ 不一定是「质量 × 速度」——若坐标是角度，$p_\phi = mr^2\dot\phi$ 是角动量；若坐标是电荷（电磁场中），$p_j$ 含矢势项。写 $p_j$ 时直接用定义求导，别默认「动量 = mv」。循环坐标的判断标准是「$L$ 不含 $q_j$」，不是「$L$ 不含 $\dot{q}_j$」。
+
+## 8 术语速查表
+
+| 术语 | 公式 | 要点 |
+| --- | --- | --- |
+| 拉格朗日量 | $L = T - V$ | 动能减势能 |
+| 拉格朗日方程 | $\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot q_j} - \frac{\partial L}{\partial q_j} = 0$ | 每个坐标一条 |
+| 广义坐标 | $q_j$（$s$ 个） | 自由度 |
+| 广义动量 | $p_j = \partial L/\partial\dot{q}_j$ | 不一定是 mv |
+| 循环坐标 | $\partial L/\partial q_j = 0$ | ⟹ 动量守恒 |
+| 广义力 | $Q_j$ | 非保守力修正 |
+
+拉格朗日方程把力学标准化为「写能量 + 代方程」：$L = T - V$、每个广义坐标一条方程、不含约束力。循环坐标还让守恒量「一看便知」——对称性与守恒律在拉格朗日框架里直接对话。这一节的方法，是分析力学（哈密顿、最小作用量）与量子场论的共同起点。下一节我们转向哈密顿的表述——**哈密顿正则方程**。
+
+## 9 小结
 
 - **拉格朗日量**：$L = T - V$（动能减势能）。
 - **拉格朗日方程**：$\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{q}_j} - \frac{\partial L}{\partial q_j} = 0$，每个广义坐标一条。

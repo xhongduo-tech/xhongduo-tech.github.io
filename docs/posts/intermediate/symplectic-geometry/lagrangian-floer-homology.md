@@ -114,4 +114,8 @@ $$
 - **Arnold-Givental 猜想**：交点下界 = 贝蒂数和；由 $HF \cong H^*(L)$（良定义时）证明。
 - **障碍类 $m_0$**：$L$ 上的全纯圆盘使 $\partial^2 \neq 0$；$S^1 \subset \mathbb{C}$ 是最简单反例。
 - **Bounding cochain**：扭曲微分 $\partial_b$ 修补障碍；可修补的 $L$ 仍可定义 $HF$。
-- **Fukaya 范畴**：对象 = Lagrangian，态射 = 交点，$m_k$ 运算来自带边全纯圆盘，满足 $A_\infty$
+- **Fukaya 范畴**：对象 = Lagrangian，态射 = 交点，$m_k$ 运算来自带边全纯圆盘，满足 $A_\infty$ 关系——$m_1 = \partial$ 是微分。
+- **用途**：Split-generation 给位移能量下界、嵌入障碍；范畴等价是辛几何的「同伦等价」。
+- **$S^1 \subset \mathbb{C}$**：单位圆盘计数给出 $m_0 = 1$——障碍理论最简单、最完整的示范。
+
+在下一节，我们将把「带边全纯圆盘」从 Lagrangian 配对提升为闭曲线的计数：**Gromov-Witten 不变量与量子上同调**——数闭曲线、定义量子积。Fukaya 范畴（开弦）与 GW/量子上同调（闭弦）互为镜像，二者在镜面对称篇汇合。

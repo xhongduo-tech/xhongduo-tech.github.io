@@ -48,7 +48,28 @@ Regev（2005）展示如何用 LWE 加密（Kyber 的原理原型）：
 
 **核心**：**噪声足够小（不破坏信号）但足够大（掩盖秘密）**——噪声是加密的灵魂。<span class="marginnote">Regev 加密的直觉：<strong>公钥是「带噪声的方程」，密文是「把消息藏在噪声之上」</strong>——解密者用自己的秘密 $s$「消掉」$A$ 项，只剩「小噪声 + 大信号」，能读出消息；攻击者没有 $s$，面对的是「带噪声的方程」，解不出任何东西。</span>
 
-## 3 Kyber：NIST 标准化的 ML-KEM
+## 3 数值算例：在玩具环上走一遍 Regev 加密
+
+用 $\mathbb{Z}_{17}$ 当玩具环（$q = 17$，$\lfloor q/2 \rfloor = 8$），把「噪声如何工作」变成具体数字。
+
+**密钥生成**：$A = \begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix}$，秘密 $s = (2, 1)$，噪声 $e = (1, -1) \equiv (1, 16)$。则 $b = A s + e$：
+
+- $b_1 = 3 \times 2 + 1 \times 1 + 1 = 8$。
+- $b_2 = 5 \times 2 + 2 \times 1 + 16 = 28 \equiv 11$。
+
+**公钥 $(A, b) = \left(\begin{smallmatrix}3&1\\5&2\end{smallmatrix}, (8, 11)\right)$**，私钥 $s = (2, 1)$。
+
+**加密 $m = 1$**：随机选 $r = (3, 2)$。
+
+- $u = A^T r = (3 \times 3 + 5 \times 2,\; 1 \times 3 + 2 \times 2) = (19, 7) \equiv (2, 7)$。
+- $v = b \cdot r + m \times 8 = (8 \times 3 + 11 \times 2) + 8 = 46 + 8 = 54 \equiv 3$。
+- **密文 = $(u, v) = ((2, 7), 3)$**。
+
+**解密**：$v - s \cdot u = 3 - (2 \times 2 + 1 \times 7) = 3 - 11 = -8 \equiv 9$。$9$ 接近 $\lfloor q/2 \rfloor = 8$（而非 0），所以 $m = 1$。还原成功！
+
+**噪声的角色**：$v - s \cdot u = e \cdot r + m \times 8 = (1 \times 3 + 16 \times 2) \bmod 17 + 8 = 1 + 8 = 9$——**噪声只有 1，信号是 8，判定不混淆**。若噪声大到接近 4，判定就会出错——这就是 Kyber 要精调噪声分布的原因。<span class="marginnote">这个 17 元的例子把「噪声是加密的灵魂」落到算术上：<strong>解密者用 $s$ 消掉 $A$ 项，剩下的「噪声 $e\cdot r$ + 信号 $m\cdot 8$」清晰可分；攻击者没有 $s$，看到的是「带噪声的方程组」——$s$ 有无穷多个候选</strong>。玩具环可被穷举，但 $q$ 为 3329、维度为 256 时，穷举就是不可能的。</span>
+
+## 4 Kyber：NIST 标准化的 ML-KEM
 
 **Kyber**（现为 **ML-KEM**）把 Regev 加密工程化、模块化：
 
@@ -74,7 +95,7 @@ Regev（2005）展示如何用 LWE 加密（Kyber 的原理原型）：
 
 密钥/密文比 ECC 大 10-20 倍，但仍在协议可接受的量级——这就是格密码的「效率代价」。<span class="marginnote">Fujisaki-Okamoto 变换的意义：<strong>把「CPA 安全的加密」升级成「CCA 安全的 KEM」</strong>——它让「随机性」由「重新加密验证」约束（解封装后重算密文比对，不符即拒绝）。这相当于「加密后验签」——防选择密文攻击，是格密码能安全进 TLS 的关键。</span>
 
-## 4 公式解析：Kyber 的解密判定
+## 5 公式解析：Kyber 的解密判定
 
 $$
 v - s^T u \approx m \cdot \lfloor q/2 \rfloor + (\text{小噪声}), \qquad m = \begin{cases} 0 & \text{接近 } 0 \\ 1 & \text{接近 } \lfloor q/2 \rfloor \end{cases}
@@ -86,7 +107,20 @@ $$
 - **第二步，噪声 vs 信号**：$e^T r$ 是「小噪声」（随机小项乘积），$m\lfloor q/2 \rfloor$ 是「大信号」（约 $q/2$ 的一半）。
 - **第三步，判定**：结果接近 0 → 噪声域 → $m=0$；接近 $\lfloor q/2 \rfloor$ → 信号域 → $m=1$。噪声只要「远小于 $q/4$」，判定就正确。
 
-## 5 格密码的挑战与趋势
+## 6 NIST 后量子标准一览
+
+Kyber 只是后量子拼图的一块。NIST 2024 年选定的全套标准：
+
+| 标准 | 类型 | 安全基础 | 角色 |
+| --- | --- | --- | --- |
+| ML-KEM（Kyber） | 密钥封装 | Module-LWE | 后量子密钥交换默认 |
+| ML-DSA（Dilithium） | 数字签名 | Module-LWE | 后量子签名默认 |
+| FN-DSA（Falcon） | 数字签名 | NTRU | 小签名、高安全场景 |
+| SLH-DSA（SPHINCS+） | 数字签名 | 仅哈希 | 最保守、无结构假设 |
+
+**分工清晰**：加密/密钥交换看 ML-KEM；签名日常看 ML-DSA、体积敏感看 FN-DSA、极度保守看 SLH-DSA。这四件套构成了「后量子公钥密码」的完整工具箱。
+
+## 7 格密码的挑战与趋势
 
 格密码不是完美无缺：
 
@@ -97,12 +131,14 @@ $$
 
 **趋势**：ML-KEM/ML-DSA 进入 TLS 1.3、SSH、VPN 的标准化流程；格密码从「实验室」走向「生产」。后量子时代的第一批基础设施正在落地。<span class="marginnote">一个面向未来的判断：<strong>格密码是「后量子时代的 ECC」</strong>——它将成为 2030 年代的默认公钥密码，就像 ECC 在 2010 年代取代 RSA。密钥变大的代价，换来「量子也破解不了」的安心——这笔账，业界已经用脚投票。</span>
 
-## 6 小结
+## 8 小结
 
 - **LWE**：$b = A s + e$——带噪声的线性方程，解 $s$ 极难；有「最坏情形归约」理论底气。
 - **Regev 加密**：噪声「掩盖秘密」又「不破坏信号」——噪声是加密的灵魂。
+- **算例**：$\mathbb{Z}_{17}$ 上公钥 $((3,1;5,2), (8,11))$，$m=1$ 的密文 $((2,7),3)$，解密得 $9$ ≈ 8 → $m=1$。
 - **Kyber（ML-KEM）**：Module-LWE + FO 变换——NIST 标准化的后量子 KEM。
 - **效率代价**：密钥/密文比 ECC 大 10-20 倍，但协议可接受。
+- **NIST 四件套**：ML-KEM / ML-DSA / FN-DSA / SLH-DSA——加密、签名、保守各司其职。
 - **趋势**：X25519Kyber 混合过渡 → ML-KEM 全面落地——格是后量子主力。
 
 在下一节，我们看最保守的后量子路线——**基于哈希的签名：Lamport 签名与 SPHINCS+**。

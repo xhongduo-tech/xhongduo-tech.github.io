@@ -37,6 +37,8 @@ date: 2026-08-07
 
 **System V 的缺点**：**接口古老**——key 是整数、权限与文件系统不统一、对象生命周期难管理（遗留下「孤儿 IPC 对象」）。
 
+**孤儿 IPC 对象的实战影响**：进程崩溃后，它创建的共享内存段/信号量/队列不会自动消失，会一直占用系统资源。排查工具是 `ipcs`（列出当前所有 IPC 对象及其属主/大小），清理用 `ipcrm -m <id>`、`ipcrm -s <id>`、`ipcrm -q <id>`。<span class="marginnote">`ipcs -m` 看共享内存时，被多个进程 attach 的段会显示 `nattch > 1`——这是判断「还有谁在用这段内存」的直接证据。写 daemon 时应在退出路径上 `shmctl(id, IPC_RMID, ...)`，否则重启后旧段泄漏。</span>相比之下，POSIX 对象「名字即文件」、可 `unlink`，孤儿问题在概念上被「文件即所有权」化解——`/dev/shm` 下的残留一看便知。
+
 ## 2 POSIX IPC：现代替代
 
 **POSIX IPC** 用**名字**（路径字符串）管理对象，更接近文件接口：
@@ -107,7 +109,19 @@ void *p = mmap(NULL, 4096, PROT_READ | PROT_WRITE,
 | 新代码 | POSIX IPC | 接口现代、与文件统一 |
 | 维护老代码 | System V IPC | 兼容既有系统 |
 
-## 6 小结
+## 6 术语速查表
+
+| 术语 | 含义 | 一句话记忆 |
+| --- | --- | --- |
+| `key` | System V 外部标识 | ftok 约定 |
+| `id` | 内核返回的句柄 | 类似 fd |
+| `ftok` | 路径→key | 路径当暗号 |
+| `shm_open` | 命名共享内存 | 名字即文件 |
+| `mq_open` / `sem_open` | 命名队列/信号量 | 文件风格 |
+| 孤儿 IPC 对象 | 进程退出后残留 | 需 ipcrm 清理 |
+| `ipcs` / `ipcrm` | 查看 / 删除 IPC | 系统管家 |
+
+## 7 小结
 
 - **System V IPC**：key + id 管理共享内存/消息队列/信号量，生命周期独立、接口古老。
 - **POSIX IPC**：名字 + mmap 集成，文件风格、生命周期似文件、接口现代。

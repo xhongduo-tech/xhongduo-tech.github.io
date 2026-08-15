@@ -1,6 +1,6 @@
 ---
 title: 单子与代数
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 单子与代数
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 范畴论 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 范畴论 ｜ Mac Lane Ch. VI ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从单子开始
@@ -32,6 +32,10 @@ $$\mu \circ T\mu = \mu \circ \mu T, \qquad \mu \circ T\eta = 1_T = \mu \circ \et
 
 典型例子：**幂集单子**（$T = \mathcal{P}$，$\eta$ 是单点嵌入，$\mu$ 是并集）、**Maybe 单子**（$T X = X \sqcup \{\bot\}$）、**State 单子**（$T X = (S \Rightarrow S \times X)$）。
 
+**幂集单子算一遍。** $T = \mathcal{P}$，$\eta_X: X \to \mathcal{P}(X)$ 是单点嵌入 $x \mapsto \{x\}$，$\mu_X: \mathcal{P}^2(X) \to \mathcal{P}(X)$ 是并集 $\mu_X(\mathcal{S}) = \bigcup_{S \in \mathcal{S}} S$。取 $X = \{1, 2\}$，$\mu(\{\{1\}, \{2\}\}) = \{1, 2\}$、$\mu(\emptyset) = \emptyset$——两条律直接可验。幂集单子的代数恰是「并闭族」，即完备格，这是集合论与序理论汇合的教科书例子。
+
+**结合律的直觉：字约化。** 自由群的约化把字 $aba^{-1}$ 归一到标准形，单子的 $\mu$ 干的是同一件事——「两层结构压平」。$T^3 \to T$ 的两条路线（先压内层还是先压外层）结果一致，保证「压平」是良定的：无论你先合并哪两段，最后的标准形都一样。
+
 **辨析｜易错点：** 单子 ≠ 自函子。自函子只有「一个 $T$」，单子额外携带 $\eta$ 与 $\mu$ 以及两条律。没有律，$\eta$、$\mu$ 只是一堆随机箭头；有了律，「嵌套—压平—再嵌套」才有良定的代数意义。
 
 ## 2 从伴随到单子
@@ -42,12 +46,16 @@ $$\eta = \text{单元}, \qquad \mu = G \varepsilon F \quad (\varepsilon \text{ �
 
 构成一个单子。<span class="marginnote">「遗忘之后又自由生成」会留下一个无法消除的膨胀层：$T X$ 里的「多余信息」恰是 $\mu$ 要压平的。自由群的约化、字符串的正规化，都是 $\mu$ 的实例。</span>反过来，**每一个单子都来源于某个伴随**（Eilenberg–Moore 与 Kleisli 两种构造），这是单子理论的核心定理之一。
 
+**辨析｜易错点：** Eilenberg–Moore 范畴与 Kleisli 范畴给出同一个单子的两种「实现」，二者不等价但关系深刻：Kleisli 范畴是「最自由的代数范畴」（代数是 $T X$ 本身），Eilenberg–Moore 范畴是「最全面的」（包含一切 $T$ 代数）。夹在中间的诸多「单子间范畴」，正是代数理论之间的态射——这是「代数理论」的范畴论图景。
+
 给定单子 $T$，可以造两类范畴：
 
 - **Eilenberg–Moore 范畴 $\mathbf{C}^T$**：对象是**（单子）代数**——对 $A$ 有结构映射 $h: T A \to A$ 满足 $h \circ \eta_A = 1_A$ 与 $h \circ \mu_A = h \circ T h$。这精确刻画了「$T$ 所描述的代数结构」。
 - **Kleisli 范畴 $\mathbf{C}_T$**：对象与 $\mathbf{C}$ 相同，态射 $a \to b$ 是 $\mathbf{C}$ 中的 $a \to T b$（程序语言里的「带效果函数」正是这种态射）。
 
 **单子 = 代数理论的「签名与公理」**：幂集单子的代数是完备格，Maybe 单子的代数是「有底集」，State 单子的代数是「状态转移系统」。
+
+**数值算例：Maybe 单子的代数。** $T X = X \sqcup \{\bot\}$（$\bot$ 记「无值」），$\eta_X(x) = x$，$\mu_X$ 压平嵌套：$\mu_X(\mathrm{Just}(\mathrm{Just}\ x)) = x$、$\mu_X(\mathrm{Just}\ \bot) = \bot$、$\mu_X(\bot) = \bot$。一个 $T$ 代数 $h: T X \to X$ 须满足 $h \circ \eta = 1$，故必须把 $\bot$ 送到某个「默认值」——这就是「有底集」的精确含义：$X$ 加一个由 $h$ 指定的底元素。
 
 ## 3 程序语言与 AI 中的单子
 
@@ -58,6 +66,8 @@ $$m \gg\!= f = (\mu \circ T f)(m)$$
 - **Maybe**：失败传播——中间任何一步失败，整条链失败。
 - **IO**：把「对外界的副作用」包进值里，让纯函数保持纯度。
 - **State / Reader / Writer**：共享状态、只读环境、日志累积的三种基本上下文。<span class="marginnote">强化学习里的 MDP 转移、概率编程里的采样序列，都可以用「状态—概率」单子形式化：把「下一步」看作带上下文的计算，$\mu$ 就是「嵌套决策的展开」。</span>
+
+**把 `bind` 算一次。** 取 Maybe 单子：$m = \mathrm{Just}\ 3$，$f: x \mapsto \mathrm{Just}\ (x + 1)$。则 $m \gg\!= f = \mu(T f(m)) = \mu(\mathrm{Just}\ (\mathrm{Just}\ 4)) = \mathrm{Just}\ 4$。若 $m = \bot$，则 $T f(\bot) = \bot$、$\mu(\bot) = \bot$——失败在第一步就传播到底，这正是 Maybe 组合的语义。
 
 **辨析｜易错点：** 单子只保证「组合律」，**不**保证「交换律」。`Maybe`、`State` 的组合顺序相关；`IO` 的顺序更是语义核心。「单子可交换」是一种额外性质，别默认成立。
 
@@ -76,7 +86,30 @@ $$
 
 结合律 $\mu \circ T\mu = \mu \circ \mu T$ 同理：**三层嵌套的压平与压平顺序无关**。这两条律共同说明 $T$ 是一个严格的「层叠结构」。
 
-## 5 小结
+**单子的三条公理，一张速查表：**
+
+| 公理 | 方程 | 一句话 |
+| --- | --- | --- |
+| 单位律（左） | $\mu \circ T\eta = 1_T$ | 先内嵌再压平 = 不变 |
+| 单位律（右） | $\mu \circ \eta T = 1_T$ | 先外裹再压平 = 不变 |
+| 结合律 | $\mu \circ T\mu = \mu \circ \mu T$ | 三层嵌套的压平与顺序无关 |
+
+## 5 术语速查表
+
+| 术语 | 英文 | 一句解释 |
+| --- | --- | --- |
+| 单子 | monad | 自函子 $T$ + $\eta$ + $\mu$，满足单位律与结合律 |
+| 单位 | unit $\eta$ | $1 \Rightarrow T$，把值放进一层 $T$ |
+| 乘法 | multiplication $\mu$ | $T^2 \Rightarrow T$，把两层压平 |
+| 单子代数 | algebra for a monad | 结构映射 $h: TA \to A$ 满足两条律 |
+| Eilenberg–Moore 范畴 | EM category | $T$ 的全体代数构成的范畴 |
+| Kleisli 范畴 | Kleisli category | 态射是 $a \to T b$ 的范畴 |
+| bind | `>>=` | $m \gg\!= f = \mu(T f)(m)$ |
+| 伴随单子 | monad from adjunction | $T = GF$，$\mu = G\varepsilon F$ |
+| 完备格 | complete lattice | 幂集单子的代数 |
+| 效果单子 | effect monad | 用单子封装副作用（Maybe / IO / State） |
+
+## 6 小结
 
 - **单子** = 自函子 $T$ + 单位 $\eta$ + 乘法 $\mu$，满足结合律与单位律。
 - 每个伴随 $F \dashv G$ 给出单子 $GF$；反之每个单子来自伴随（Eilenberg–Moore / Kleisli）。

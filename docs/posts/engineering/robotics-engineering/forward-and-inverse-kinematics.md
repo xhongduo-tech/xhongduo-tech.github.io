@@ -1,6 +1,6 @@
 ---
 title: 正向与逆向运动学
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 正向与逆向运动学
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第六级 · 工程技术 · 机器人工程 ｜ 对标教材 Spong §3–4 ｜ 2026-08-11</p>
+<p>第六级 · 机器人工程 ｜ Spong, Hutchinson &amp; Vidyasagar《Robot Modeling and Control》§3–4 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从运动学开始

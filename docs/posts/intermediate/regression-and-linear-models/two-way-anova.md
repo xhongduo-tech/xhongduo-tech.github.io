@@ -115,4 +115,8 @@ $\mathrm{SS}_A = 30$，$\mathrm{SS}_B = 12$，$\mathrm{SS}_{AB} = 48$，$\mathrm
 
 - 双因素 ANOVA 有主效应（$\alpha_i, \beta_j$）与**交互效应** $(\alpha\beta)_{ij}$ 三层结构。
 - 平方和分解 $\mathrm{SS}_T = \mathrm{SS}_A + \mathrm{SS}_B + \mathrm{SS}_{AB} + \mathrm{SS}_E$，自由度逐块加总。
-- 交互检验 $F_0 = \mathrm{MS}_{AB}/\mathrm{MS}_E$
+- 交互检验 $F_0 = \mathrm{MS}_{AB}/\mathrm{MS}_E$；交互显著时改报**简单效应**，不要孤立解释主效应。
+- 交互作用图：平行线 → 可加；交叉/发散线 → 交互显著。
+- 平衡设计三型平方和相同；不平衡时默认用 **III 型**并说明类型。
+
+在下一节，当类别因素之外还要同时控制一个连续变量时，我们进入**协方差分析**——把回归与方差分析缝合进同一个线性模型。

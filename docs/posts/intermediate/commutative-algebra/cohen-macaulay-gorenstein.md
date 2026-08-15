@@ -1,6 +1,6 @@
 ---
 title: Cohen-Macaulay 模与 Gorenstein 环
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # Cohen–Macaulay 模与 Gorenstein 环
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 交换代数 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 交换代数 ｜ Matsumura Ch. 6 / Eisenbud Ch. 18 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 CM 开始
@@ -37,6 +37,21 @@ date: 2026-08-11
 
 **辨析｜易错点：** CM 是**逐点**性质：$R$ CM ⇔ 所有 $R_{\mathfrak{p}}$ 都 CM。整环未必 CM（存在非 CM 的整环——高度 2 的正规环还好，但一般的整环可能失败）。**「整环」与「CM」是两个独立的好性质**，别混为一谈。
 
+**核心对照表：谁是 CM？**
+
+| 环 | $\dim$ | $\operatorname{depth}$ | CM? | 备注 |
+| --- | --- | --- | --- | --- |
+| 正则局部环 | $d$ | $d$ | 是 | 最光滑的一族 |
+| $k[x_1,\dots,x_n]$ | $n$ | $n$ | 是 | 多项式环 |
+| $k[x,y]/(xy)$ | 1 | 1 | 是 | 节点曲线 |
+| $k[x,y]/(x^2, xy)$ | 1 | 0 | 否 | 嵌入分支 |
+| $k[x,y,z]/(xy, xz)$ | 2 | 1 | 否 | 平面与线相交，深度不足 |
+| 完整交 | $n-r$ | $n-r$ | 是 | 方程数 = 余维 |
+
+末两行是「差一步」的典型：$k[x,y,z]/(xy,xz)$ 是平面 $x=0$ 与直线 $y=z=0$ 的并，维数 2 但深度只有 1——**CM 性在「分支相交」处最容易失效**，这正是几何学家偏爱 CM 簇的原因。
+
+**辨析｜CM 与平坦：** CM 性是「忠实平坦不变」的：$R$ CM ⇔ 所有 $R_{\mathfrak{p}}$ CM ⇔ $R[x]$ CM。但它不随「任意子环」传递。几何上，CM 簇的平坦纤维仍 CM，这让「CM 是能放心做代数几何的性质」。
+
 ## 2 CM 的判据：正则序列与 unmixedness
 
 CM 的另一个重要刻画是**无混合性（unmixedness）**：
@@ -44,6 +59,8 @@ CM 的另一个重要刻画是**无混合性（unmixedness）**：
 **重点：CM 环中，正则序列生成的理想 $\mathfrak{a}$ 满足「$\operatorname{Ass}(R/\mathfrak{a})$ 全部是极小素理想」——没有嵌入素理想。** 反过来，一个环若对每个由正则序列生成的理想都无嵌入素理想，则它是 CM。
 
 这条连接了《准素分解》与《深度》：CM ⇔ **「准素分解干净」**——没有嵌入素理想。这解释了为什么几何学家偏爱 CM 簇：分解唯一、无多余分支、维数处处正确。<span class="marginnote">「深度 = 维数」与「无嵌入素理想」在这条线互为表里：嵌入素理想恰是让 $\operatorname{depth}$ 跌落的元凶。CM 性把两边的直觉一次性理顺。</span>
+
+**辨析｜易错点：** 「无嵌入素理想」只对「由正则序列生成的理想」成立，是 CM 的强性质。$k[x,y]/(x^2,xy)$ 不 CM，它的理想 $(\bar{x})$ 由单个元素生成，但 $\bar{x}$ 本身是零因子、不是正则序列——**无混合性根本没被触发**。判断「某理想是否由正则序列生成」，先确认生成元确实是正则序列，别只看个数。
 
 ## 3 Gorenstein 环：自对偶的 CM 环
 
@@ -61,6 +78,18 @@ $$\text{正则} \;\subsetneq\; \text{完整交} \;\subsetneq\; \text{Gorenstein}
 
 **重点：维数 0 时，Gorenstein ⇔ socle 恰一维。** 这一条把 0 维 Gorenstein 环完全分类：$R$ Artin 局部，$\operatorname{socle}(R) = \{m \mid \mathfrak{m}m = 0\}$ 作为 $k$-向量空间维数恰为 1。这是判断小例子的最实用判据。
 
+**0 维 Gorenstein 判据的算例：**
+
+| 环 | socle | Gorenstein? |
+| --- | --- | --- |
+| $k$ | $k$（一维） | 是 |
+| $k[x]/(x^2)$ | $k\cdot\bar{x}$（一维） | 是 |
+| $k[x]/(x^3)$ | $k\cdot\bar{x}^2$（一维） | 是 |
+| $k[x,y]/(x^2,xy,y^2)$ | $k\cdot\bar{x} \oplus k\cdot\bar{y}$（二维） | 否 |
+| $k[x,y]/(x^2,y^2)$ | $k\cdot\bar{x}\bar{y}$（一维） | 是 |
+
+socle 一维与否，是 0 维 Gorenstein 的**完全判据**——这几行全部可以手算，是检查理解的最快题组。
+
 ## 4 公式解析：规范模与 Gorenstein 的判定
 
 对 CM 局部环 $(R, \mathfrak{m}, k)$、$\dim R = d$，Gorenstein 判据可以写成：
@@ -72,6 +101,19 @@ $$\omega_R \cong R \iff \operatorname{Ext}^i_R(k, R) = 0\ (i < d)\ \text{且}\ \
 - **第三步，记住结论**：**Gorenstein ⇔「顶部 Ext 恰好是 $k$」**。0 维时 $\operatorname{Ext}^0(k, R) = \operatorname{Hom}(k, R) = \operatorname{socle} R$，就回到「socle 一维」。<span class="marginnote">最后一篇《局部上同调》会看到 $\operatorname{Ext}^d_R(k, R)$ 与顶部局部上同调 $H^d_{\mathfrak{m}}(R)$ 的关系——Gorenstein 判据在那里还会再以「$H^d_{\mathfrak{m}}(R)$ 是 $k$ 的内射包」的面目登场。</span>
 
 **辨析｜易错点：** 完整交 ⊂ Gorenstein 但反过来不成立。$k[x_1,x_2,x_3]/(x_1^2, x_2^2, x_3^2, x_1 x_2 x_3)$ 之类的例子说明「方程数超过余维」也能 Gorenstein。判断层级别只记「Gorenstein = 完整交」——**谱系是严格嵌套的**。
+
+对 0 维情形把判据落到 $\operatorname{Ext}$：$R = k[x]/(x^2)$，$d = 0$，$\operatorname{Ext}^0(k, R) = \operatorname{Hom}(k, R) = \operatorname{socle} R = k \cdot \bar{x} \cong k$——「$\operatorname{Ext}^0 \cong k$」正是「socle 一维」的 $\operatorname{Ext}$ 写法。$R$ 是 0 维 Gorenstein，同时也是正则序列 $(x^2)$ 的商（完整交），两个层次在此重合。
+
+**术语速查表**
+
+| 术语 | 一句话含义 |
+| --- | --- |
+| CM 模 | $\operatorname{depth} M = \dim M$ |
+| 系统参数 | 张出 $\mathfrak{m}$-准素理想的 $d$ 个元素 |
+| 无混合性 | 正则序列的商无嵌入素理想 |
+| 规范模 $\omega_R$ | CM 环的「对偶化模」 |
+| Gorenstein | $\omega_R \cong R$（或内射维数有限） |
+| 完整交 | 正则序列生成理想的商 |
 
 ## 5 小结
 

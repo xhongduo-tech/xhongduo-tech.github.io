@@ -116,4 +116,8 @@ $$
 - **守恒律写法**：左边是沿特征线 $t-a=\text{常数}$ 的总导数，右边是死亡损失。
 - **分离变量**得 $n = e^{rt}v(a)$，$v(a) \propto e^{-ra}\ell(a)$，存活函数 $\ell(a) = e^{-\int_0^a \mu}$。
 - **Euler–Lotka 方程** $\int \beta(a)\ell(a)e^{-ra}\,da = 1$ 决定长期增长率 $r$，$r>0$ 增长、$\lt 0$ 衰退。
-- 连续模型与 Leslie 矩阵同构：$r \leftrightarrow \ln\lambda_1$，$e^{-ra}\ell(a) \leftrightarrow \mathbf{v}_1$
+- 连续模型与 Leslie 矩阵同构：$r \leftrightarrow \ln\lambda_1$，$e^{-ra}\ell(a) \leftrightarrow \mathbf{v}_1$，离散是连续的数值近似、连续是离散的极限。
+- 特例验证：纯老化（$\mu = \beta = 0$）给出平移解 $n_0(a - t)$；恒定繁殖给出 $r = \beta_0 - \mu_0$，退化为经典指数增长模型。
+- 数值实践：取 $\Delta t \le \Delta a$（CFL 条件）保证稳定，用总人数守恒 $\int_0^\infty n(a,t)\,da = N(t)$ 作数值质检。
+
+在下一节，我们把视野从单个种群的年龄结构拉到整个群落——生态系统的多样性与稳定性，看看物种之间的相互作用网如何决定群落命运。

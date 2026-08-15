@@ -1,6 +1,6 @@
 ---
 title: 工业发酵案例：抗生素、氨基酸与疫苗
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 工业发酵案例：抗生素、氨基酸与疫苗
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第六级 · 工程技术 · 发酵工程 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第六级 · 发酵工程 ｜ Stanbury《Principles of Fermentation Technology》§14 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从工业案例开始

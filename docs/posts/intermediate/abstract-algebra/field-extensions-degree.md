@@ -102,7 +102,24 @@ $$
 
 **例 2（有限域）**：$[\mathbb{F}_4 : \mathbb{F}_2] = 2$（$\mathbb{F}_4 = \mathbb{F}_2[x]/\langle x^2 + x + 1\rangle$，最小多项式次数 2）；$[\mathbb{F}_8 : \mathbb{F}_2] = 3$。<span class="marginnote">有限域 $\mathbb{F}_{p^n}$ 的次数 $n$ 完全决定它的「大小」：$|\mathbb{F}_{p^n}| = p^n$（$n$ 维 $\mathbb{F}_p$-空间有 $p^n$ 个元素）。下一篇《有限域》会证明：对每个 $n$ 恰好存在一个 $p^n$ 阶有限域，且 $\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^n} \iff d \mid n$。次数 $n$ 是有限域的「身份证」。</span>
 
-## 6 小结
+## 6 对照速查：扩张次数的速算表
+
+把经典扩张的次数收进一张表，乘法塔的运用立刻熟练。
+
+| 扩张 | 次数 | 基 | 依据 |
+| --- | --- | --- | --- |
+| $\mathbb{C}/\mathbb{R}$ | 2 | $\{1, i\}$ | $i^2 + 1 = 0$ |
+| $\mathbb{Q}(\sqrt2)/\mathbb{Q}$ | 2 | $\{1, \sqrt2\}$ | $x^2 - 2$ |
+| $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$ | 3 | $\{1, \sqrt[3]2, \sqrt[3]4\}$ | $x^3 - 2$（艾森斯坦） |
+| $\mathbb{Q}(\sqrt2,\sqrt3)/\mathbb{Q}$ | 4 | $\{1, \sqrt2, \sqrt3, \sqrt6\}$ | 乘法塔 $2 \times 2$ |
+| $\mathbb{F}_{p^n}/\mathbb{F}_p$ | $n$ | $p^n$ 个元素 | $|\mathbb{F}_{p^n}| = p^n$ |
+| $\mathbb{R}/\mathbb{Q}$ | $\infty$ | 无 | 超越元存在 |
+
+**数值算例：$[\mathbb{Q}(\sqrt[4]2)/\mathbb{Q}]$。** $\sqrt[4]2$ 的最小多项式是 $x^4 - 2$（艾森斯坦，$p = 2$），故次数 $4$，基 $\{1, \sqrt[4]2, \sqrt2, \sqrt[4]8\}$。若再问 $[\mathbb{Q}(\sqrt[4]2, i) : \mathbb{Q}]$：$i$ 在 $\mathbb{Q}(\sqrt[4]2)$ 上的最小多项式是 $x^2 + 1$（$i \notin \mathbb{Q}(\sqrt[4]2)$，它是实域），乘法塔给 $4 \times 2 = 8$——<span class="marginnote">这正是分裂域 $x^4 - 2$ 的次数（先加 $\sqrt[4]2$ 次数 4、再加 $i$ 次数 2），与下一篇分裂域一节的结论吻合。乘法塔把「逐步加根」的次数累积成最终扩张次数，是有限域与 Galois 理论里一切次数计算的发动机。</span>
+
+**一句话记法**：扩张次数 = 向量空间维数；乘法塔 $[E:F] = [E:K][K:F]$；单代数扩张次数 = 最小多项式次数——「算次数」是域论一切计算的钥匙。
+
+## 7 小结
 
 - **域扩张** $E/F$：$F \subseteq E$；$E$ 是 $F$-向量空间，次数 $[E:F] = \dim_F E$。
 - **生成扩张**：$F(S)$、单扩张 $F(a)$；$F(a)$ 是含 $a$ 的最小域。

@@ -16,7 +16,9 @@ date: 2026-08-07
 
 ## 为什么从布洛赫球的 Qiskit 实现开始
 
-理论篇（第二篇）里我们认识了布洛赫球——单比特态的全部几何。Qiskit 能把它**画出来**：每个单比特门对应球面上的一次旋转，你可以亲眼看到 $H$ 把 $\lvert0\rangle$ 从北极转到赤道、$X$ 把 $\lvert0\rangle$ 翻到南极。本节把「门 = 旋转」这条直觉用代码钉死——这是理解一切单比特操作、以及后面受控门的前提。<span class="marginnote">Qiskit 里画布洛赫球有两种方式：`plot_bloch_multivector(state)`（给出态的布洛赫矢量）与 `plot_bloch_sphere`（画球）。`Statevector` 能提取线路的终态——模拟器内部「知道」态是什么（真机上只能靠层析，后面会讲）。</span>学完本节，你就能「看见」每一个单比特门。
+理论篇（第二篇）里我们认识了布洛赫球——单比特态的全部几何。Qiskit 能把它**画出来**：每个单比特门对应球面上的一次旋转，你可以亲眼看到 $H$ 把 $\lvert0\rangle$ 从北极转到赤道、$X$ 把 $\lvert0\rangle$ 翻到南极。本节把「门 = 旋转」这条直觉用代码钉死——这是理解一切单比特操作、以及后面受控门的前提。
+
+本节是第十二篇《量子编程实践（Qiskit）》的第二课，也是第二篇《布洛赫球》、第三篇《单比特门》的代码落地。建议对照理论篇读：理论篇给「门 = 旋转」的代数，本节给「旋转 = 看得见的球面运动」的几何。读懂这一课，后面受控门、贝尔态、量子算法的线路实现都顺理成章。<span class="marginnote">Qiskit 里画布洛赫球有两种方式：`plot_bloch_multivector(state)`（给出态的布洛赫矢量）与 `plot_bloch_sphere`（画球）。`Statevector` 能提取线路的终态——模拟器内部「知道」态是什么（真机上只能靠层析，后面会讲）。</span>学完本节，你就能「看见」每一个单比特门。
 
 ## 1 态矢量的提取与布洛赫球绘制
 
@@ -34,6 +36,18 @@ plot_bloch_multivector(state)    # 画出布洛赫球：北极的 |0> 被 H 转�
 
 `Statevector(qc)` 从空线路算起，给出 $\lvert+\rangle = \frac{1}{\sqrt2}(\lvert0\rangle+\lvert1\rangle)$ 的态矢量。
 `plot_bloch_multivector` 把态画成球面上一个点——$\lvert+\rangle$ 落在 $+X$ 轴。<span class="marginnote">态矢量（Statevector）是「上帝视角」：模拟器直接给出完整复振幅（真机上测不到）。它用于教学与验证非常方便——比如检查「这个门序列到底把态转到哪了」。真实硬件上验证态需要「量子态层析」（多次测量 + 重建），开销大得多。</span>
+
+把「门 = 旋转」的对照表钉进记忆：
+
+| 门 | 旋转轴 | 角度 | 布洛赫球效果 |
+| --- | --- | --- | --- |
+| $X$ | $X$ 轴 | $\pi$ | $\lvert0\rangle \leftrightarrow \lvert1\rangle$ |
+| $Y$ | $Y$ 轴 | $\pi$ | $\lvert0\rangle \to i\lvert1\rangle$ |
+| $Z$ | $Z$ 轴 | $\pi$ | 本征态不动 |
+| $H$ | $(X+Z)/\sqrt2$ 轴 | $\pi$ | $Z$ 轴 ↔ $X$ 轴 |
+| $S$ | $Z$ 轴 | $\pi/2$ | 四分之一圈 |
+| $T$ | $Z$ 轴 | $\pi/4$ | 八分之一圈 |
+| $R_y(\theta)$ | $Y$ 轴 | $\theta$ | 连续旋转 |
 
 ## 2 Pauli 门：X、Y、Z 的几何
 
@@ -64,7 +78,9 @@ qc_rz = QuantumCircuit(1); qc_rz.rz(2.0, 0)   # 绕 Z 轴转 2 弧度
 
 **$H$**：把 $Z$ 轴转成 $X$ 轴（$\lvert0\rangle \to \lvert+\rangle$、$\lvert1\rangle \to \lvert-\rangle$）。
 **$S = R_z(\pi/2)$、$T = R_z(\pi/4)$**：绕 $Z$ 轴的四分之一、八分之一圈。
-**$R_x, R_y, R_z(\theta)$**：连续旋转门，参数是弧度——变分算法的「旋钮」。<span class="marginnote">把这些门依次作用、每次 `plot_bloch_multivector` 画一下，你会看到态在球面上「爬行」。这是建立「门 = 旋转」直觉的最好练习：试着从 $\lvert0\rangle$ 出发，用 $R_y$、$R_z$ 的组合到达球面任意一点——这正是「任意单比特门分解」（第三篇）的几何验证。</span>
+**$R_x, R_y, R_z(\theta)$**：连续旋转门，参数是弧度——变分算法的「旋钮」。<span class="marginnote">把这些门依次作用、每次 `plot_bloch_multivector` 画一下，你会看到态在球面上「爬行」。这是建立「门 = 旋转」直觉的最好练习：试着从 $\lvert0\rangle$ 出发，用 $R_y$、$R_z$ 的组合到达球面任意一点——这正是「任意单比特门分解」（第三篇）的几何验证。
+
+把组合算一个具体例子：$\lvert0\rangle$ 先 $R_y(\pi/2)$（转到 $+X$ 轴）再 $R_z(\pi/2)$（绕 $Z$ 轴转 90°，转到 $+Y$ 轴），得到的态是 $\lvert+\rangle$ 再被 $S$ 作用 = $\frac{1}{\sqrt2}(\lvert0\rangle + i\lvert1\rangle)$。你可以用 `Statevector` 验证：$(0.707, 0.707i)$——这正是「先定纬度、再转经度」的球面导航。</span>
 
 ## 4 公式解析：验证「门 = 旋转」
 

@@ -97,7 +97,43 @@ $$
 
 **辨析｜易错点（补充）：** 一是**方向向量写反**——$\overrightarrow{A'B}=B-A'$，终点减起点，写成 $A'-B$ 得相反向量（点乘取绝对值后不变，但垂直判定会错）；二是**忘取绝对值**——异面角取 $[0,\frac\pi2]$，$\cos$ 必须取绝对值；三是**模长算错**——$(1,0,-1)$ 的模是 $\sqrt2$，别漏平方项或漏根号。
 
-## 6 小结
+## 7 对照表：空间数量积速查
+
+把空间数量积的定义、性质、运算律汇总成表：
+
+| 项 | 公式 / 内容 | 备注 |
+| --- | --- | --- |
+| 定义 | $\vec a\cdot\vec b=|\vec a||\vec b|\cos\theta$ | 结果是数 |
+| 垂直 | $\vec a\perp\vec b\iff\vec a\cdot\vec b=0$ | 点乘为零 |
+| 模长 | $|\vec a|=\sqrt{\vec a\cdot\vec a}$ | 自点乘开方 |
+| 夹角 | $\cos\theta=\frac{\vec a\cdot\vec b}{|\vec a||\vec b|}$ | 平面空间通用 |
+| 交换律 | $\vec a\cdot\vec b=\vec b\cdot\vec a$ | 成立 |
+| 分配律 | $(\vec a+\vec b)\cdot\vec c=\vec a\cdot\vec c+\vec b\cdot\vec c$ | 成立 |
+| 消去律 | 点乘相等推不出向量相等 | 不成立 |
+| 结合律 | $(\vec a\cdot\vec b)\cdot\vec c$ | 不成立（无定义） |
+
+**重点：空间数量积与平面完全一致——「升维不加新运算」，只把向量推广到任意方向。**
+
+<span class="marginnote"><strong>「取绝对值」是空间数量积求角的最大区别</strong>：求异面直线角要 $\cos$ 取绝对值（角在 $[0,\frac\pi2]$），求二面角不取绝对值（角可在 $[0,\pi]$）。同一个点乘公式，加不加绝对值取决于所求角的范围。点乘还把「距离」「垂直」全部统一——距离是自点乘开方，垂直全是点乘为零。</span>
+
+**辨析｜易错点：** 一是**求异面角忘取绝对值**——可能得钝角；二是**方向向量写反**——$\overrightarrow{AB}=B-A$ 终点减起点；三是**「线面垂直」要用两条不共线向量的点乘都为零**——一条不够。
+
+## 8 术语速查表
+
+| 术语 | 记号 / 公式 | 一句话释义 |
+| --- | --- | --- |
+| 空间数量积 | $\vec a\cdot\vec b=|\vec a||\vec b|\cos\theta$ | 结果是实数 |
+| 夹角范围 | $\theta\in[0,\pi]$ | 方向向量夹角 |
+| 异面角 | $\cos\theta=\frac{|\vec u\cdot\vec v|}{|\vec u||\vec v|}$ | 取绝对值 |
+| 投影 | $|\vec b|\cos\theta$ | $\vec b$ 在 $\vec a$ 方向 |
+| 垂直判定 | 点乘为零 | 线线 / 线面 / 面面 |
+| 距离 | $|AB|=\sqrt{\overrightarrow{AB}\cdot\overrightarrow{AB}}$ | 自点乘开方 |
+| 运算律 | 交换、分配、数乘 | 无消去、无结合 |
+| 平方展开 | $|\vec a+\vec b|^2=|\vec a|^2+2\vec a\cdot\vec b+|\vec b|^2$ | 求长度工具 |
+
+**记忆线索**：空间数量积一句话「与平面完全一致，只多一个维度」；性质四条（垂直、模、夹角、符号）；运算「交换分配照常、消去结合没有」；求角「异面取绝对值、二面不取」。点乘统一了距离与垂直——立体几何度量问题的第一把钥匙。
+
+## 9 小结
 
 - **空间数量积**：$\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta$，定义与平面一致。
 - 性质：垂直 $\iff$ 点乘为零；$|\vec{a}|=\sqrt{\vec{a}\cdot\vec{a}}$；$\cos\theta=\dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$。

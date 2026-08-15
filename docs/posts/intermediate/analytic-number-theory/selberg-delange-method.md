@@ -1,6 +1,6 @@
 ---
 title: 均值定理深化：Selberg-Delange 方法与算术函数均值
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 均值定理深化：Selberg-Delange 方法与算术函数均值
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 解析数论 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 解析数论 ｜ Montgomery &amp; Vaughan《Multiplicative Number Theory I》Ch. 13-14; Tenenbaum Ch. II ｜ 2026-08-07</p>
 </div>
 
 ## 为什么 Wirsing–Halász 还不够
@@ -80,6 +80,19 @@ $$
 
 **重点：Poisson 分布（第九篇 Erdős–Kac 的极限是正态）在这里以更精确的形态现身**——固定 $k$ 时计数是 Poisson 型，$k$ 随 $x$ 变大后再取极限，Poisson 又滑向正态。数论与概率的这条暗线，从均值定理一路贯穿到 Selberg–Delange。
 
+### 数值验证：$N_k(x)$ 的峰值在哪
+
+用 $x = 10^6$ 感受主项的形状。此时 $\log\log x = \log 13.8 \approx 2.63$，$x/\log x \approx 72382$，于是 $N_k(x)$ 的渐近主项随 $k$ 变化为：
+
+| $k$ | $(\log\log x)^{k-1}/(k-1)!$ | 主项 $\frac{x}{\log x}\cdot(\cdot)$ |
+| --- | --- | --- |
+| 1 | 1.00 | $\approx 72382$ |
+| 2 | 2.63 | $\approx 190000$ |
+| 3 | 3.46 | $\approx 250000$ |
+| 4 | 3.02 | $\approx 218000$ |
+
+「恰有 $k$ 个素因子」的整数在 $k=3$ 附近达到峰值——正符合「平均 $\log\log x \approx 2.6$ 个素因子」的直觉：计数集中在均值附近，尾部像 Poisson 密度一样快速衰减。<span class="marginnote">数值只演示量级，精确公式（本章定理）才是依据。把 $k\ge4$ 的部分加起来远小于 $N_1+N_2+N_3$——Poisson 尾巴的衰减由此可见一斑。这也再次印证：均值 $2.6$ 不等于「大多数数恰好有 $2.6$ 个素因子」。</span>
+
 ## 5 与 Erdős–Kac 的对表：为什么 $(\log\log x)$ 到处出现
 
 把两套结果放一起看：Erdős–Kac 说 $\omega(n)$ 的分布以 $\log\log x$ 为均值、方差；Selberg–Delange 说「恰有 $k$ 个」的计数是 Poisson($\log\log x$) 型。它们不是两个孤立结果，而是同一现象的两种精度：
@@ -89,7 +102,19 @@ $$
 
 **辨析｜易错点：** Poisson 的「平均」$\log\log x$ 增长极慢，但它是**真正的期望**而非近似——$N_k(x)$ 的渐近确实以 $(\log\log x)^{k-1}/(k-1)!$ 为主项。把「平均 $\log\log x$ 个素因子」误读成「素数密度」，是初学均值理论最常踩的坑（第九篇也警告过）。<span class="marginnote">从「从极限到大模型」的主线看，这个「$\log\log$ 尺度下的普适计数分布」与词频长尾、激活对数正态同属一类「大而无序的计数趋于普适」现象——素数因子个数、单词出现次数、矩阵特征值，在不同标尺上重演同一套统计剧情。</span>
 
-## 6 小结
+## 6 术语速查：Selberg–Delange 家族
+
+| 对象 | 含义 | 角色 |
+| --- | --- | --- |
+| $\zeta(s)^z$ | $z$ 阶极点的原型 | Selberg–Delange 的奇点模型 |
+| $G(s)$ | 解析非零的「修正因子」 | 贡献常数 $G(1)$ |
+| Hankel 围道 | 绕割线积分的钥匙孔围道 | 给出 $1/\Gamma(z)$ |
+| $N_k(x)$ | $\Omega(n)=k$ 的整数计数 | Poisson($\log\log x$) 型 |
+| 相对误差 $O(1/\log x)$ | 主项的百分比误差 | 支持除法/求导等二次操作 |
+
+**辨析｜易错点：** $G(1)$ 不是「1」，而是 $F(s)\zeta(s)^{-z}$ 在 $s=1$ 处的值。对 $d(n)$ 这类函数，$G(1)$ 通常含一个欧拉乘积常数；把 $G(1)$ 漏掉、只写 $x(\log x)^{z-1}/\Gamma(z)$，是套用本定理最常见的错误——主项的形状对了，常数却错了。
+
+## 7 小结
 
 - **Selberg–Delange 方法**：当 $F(s) = \zeta(s)^z G(s)$（$G$ 解析非零）时，$\sum_{n\le x}a(n) = x(\log x)^{z-1}\frac{G(1)}{\Gamma(z)}(1+O(1/\log x))$。
 - **主项来源**：$s=1$ 处 $\zeta(s)^z \approx (s-1)^{-z}$，Mellin 反演 + **Hankel 围道**给出 $(\log x)^{z-1}/\Gamma(z)$——$\Gamma$ 不是装饰，是绕割线的积分常数。

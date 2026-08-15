@@ -1,6 +1,6 @@
 ---
 title: 除子、线性系与微分形式
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 除子、线性系与微分形式
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 代数几何 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 代数几何 ｜ Hartshorne, Algebraic Geometry (GTM 52) Ch. II §6-8 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从除子继续
@@ -94,7 +94,22 @@ $$
 
 一句话直觉：**典范类 = "簇自身的微分几何性质"的代数封装**；$\deg K_C = 2g - 2$ 说"洞越多，典范越肥"。
 
-## 6 小结
+## 6 对照表：除子理论全家福
+
+| 概念 | 定义 | 一句话直觉 | 关键公式 |
+| --- | --- | --- | --- |
+| Weil 除子 | 素除子的整数线性组合 | 记重数 | $D = \sum_Y n_Y Y$ |
+| Cartier 除子 | 局部 $(U_i, f_i)$ 粘合 | 记方程 | $\operatorname{Pic} X \cong$ Cartier 类群 |
+| 主除子 | $\operatorname{div}(f)$ | 有理函数的零点/极点 | $D \sim D' \iff D - D' = \operatorname{div}(f)$ |
+| 线性系 | $|D|$ 的子射影空间 | 把簇推进射影空间 | $\varphi_{|D|}: X \dashrightarrow \mathbb{P}^n$ |
+| 典范类 | $K_X$（$\omega_X$ 的类） | 簇自身的内在不变量 | $\deg K_C = 2g - 2$ |
+| 微分形式 | $\Omega^1_{X/k}$ 的楔积 | 形式微分的代数化 | $\omega_X = \wedge^n \Omega^1_{X/k}$ |
+
+**数值算例：$\mathbb{P}^2$ 上次数 $d$ 光滑曲线的亏格。** 由伴随公式 $\deg K_C = d(d-3)$，结合 $\deg K_C = 2g - 2$，解出 $g = (d-1)(d-2)/2$。逐次代入：$d=1$（直线）给 $g=0$；$d=2$（二次曲线）给 $g=0$；$d=3$（三次曲线）给 $g=1$——这正是椭圆曲线；$d=4$ 给 $g=3$；$d=5$ 给 $g=6$。亏格随次数二次增长，"次数越高、洞越多"被写成一条精确的代数公式。<span class="marginnote">用除子语言复述同一件事：$D = dH$ 的线性系 $|dH|$ 给出 $d$-重 Veronese 嵌入，$\dim |dH| = \binom{d+2}{2} - 1$；而这条曲线在平面里的相交数 $C^2 = d^2$ 由 $H^2 = 1$ 决定——除子理论让"画一条曲线"变成"算一个类"。</span>
+
+**辨析｜易错点：** Weil 除子与 Cartier 除子在光滑概形上一致，但符号别混用："$\operatorname{Div} X$"是 Weil 除子群、"$\operatorname{Cl} X$"是 Weil 类群、"$\operatorname{Pic} X$"是 Cartier/线丛类群。在奇异概形上 $\operatorname{Cl} X$ 与 $\operatorname{Pic} X$ 可以不同（相差余维 ≥ 2 的缺陷），判断用哪个版本，先问"$X$ 是否正规/光滑"。
+
+## 7 小结
 
 - **Weil 除子**：余维 1 子簇的整数线性组合；**Cartier 除子**：局部方程系统；光滑时两者一致。
 - **线性等价 / 除子类群**：$\operatorname{Cl} X = \operatorname{Div}/\!\sim$；**Picard 群** $\cong$ Cartier 除子类群（光滑时还 $\cong \operatorname{Cl} X$）。

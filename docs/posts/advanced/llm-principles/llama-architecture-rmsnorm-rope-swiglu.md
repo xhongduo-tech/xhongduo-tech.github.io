@@ -89,7 +89,42 @@ $$
 - **上下文长度**：LLaMA-1 是 2048，LLaMA-2 是 4096，LLaMA-3 是 8192——逐步扩展。
 - **tokenizer**：SentencePiece + BPE（byte-level），词表 32000。
 
-## 6 小结
+## 6 术语速查表
+
+| 术语 | 英文 | 一句话定义 |
+| --- | --- | --- |
+| RMSNorm | RMSNorm | 去掉均值平移的归一化 |
+| RoPE | rotary position embedding | 旋转位置编码 |
+| SwiGLU | SwiGLU | 门控激活函数 |
+| head_dim | head dimension | 注意力头维度 |
+| intermediate_size | intermediate size | FFN 中间维度 |
+| 无偏置 | bias-free | QKV 与 FFN 不设 bias |
+
+## 7 数值算例：SwiGLU 的维度补偿账
+
+设 $d_{\text{model}}=4096$，对比两种 FFN 的参数：
+
+- **标准 GELU**：中间维度 $4d = 16384$，两个矩阵 → $2 \times 4096 \times 16384 \approx 134$M 参数。
+- **LLaMA SwiGLU**：中间维度 $\frac{8}{3}d \approx 10923$（实际取 11008），三个矩阵 → $3 \times 4096 \times 11008 \approx 135$M 参数。
+
+**读这笔账**：134M 对 135M——参数几乎持平，但 SwiGLU 多了一个「门」分支，表达能力更强。**「维度压缩 + 结构升级」让模型在不加参数的前提下变得更强**，这是 LLaMA 三件套最精妙的工程细节，也是 `config.json` 里 `intermediate_size=11008` 的由来。
+
+**辨析｜易错点：** 别把 `intermediate_size` 当「隐藏层的真实语义宽度」。它是「补偿后的工程值」——真正与 GELU 4d 公平对比时要用「等效宽度 $4d$」。读不同模型的 FFN 维度时，要先折算到「等效 4d」再比较，否则会误判「谁更大」。
+
+## 8 LLaMA vs GPT-2：两个时代的骨架
+
+| 维度 | GPT-2 | LLaMA |
+| --- | --- | --- |
+| 嵌入共享 | 是 | 否（untied） |
+| 归一化 | LayerNorm（Pre-LN） | RMSNorm（Pre-LN） |
+| 位置编码 | 可学习嵌入 | RoPE |
+| 激活 | GELU | SwiGLU |
+| 偏置 | 有 | 无 |
+| KV 压缩 | 无 | GQA（70B 起） |
+
+这张表浓缩了「2019 年」与「2023 年」的架构代差：归一化更轻、位置编码更可外推、激活更强、缓存更省。**GPT-2 定义了「解码器长什么样」，LLaMA 定义了「今天的长什么样」**——理解两者差异，就理解了五年来 Transformer 工程的演进主线。
+
+## 9 小结
 
 - LLaMA 的「三件套」：**RMSNorm（归一化）+ RoPE（位置）+ SwiGLU（激活）**——都不是 LLaMA 发明，但被它「用对」。
 - **SwiGLU 的 $\frac{2}{3}$ 补偿**：中间维度从「标准 4d」压缩为「$\frac{2}{3} \cdot 4d = \frac{8}{3}d$」，让「门控」不吃参数预算。

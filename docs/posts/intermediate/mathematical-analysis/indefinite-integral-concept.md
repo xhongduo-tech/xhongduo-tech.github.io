@@ -99,7 +99,23 @@ $$\int\frac{x^2}{1+x^2}\,dx=\int\left(1-\frac1{1+x^2}\right)dx=x-\arctan x+C.$$
 
 同时，不定积分的「存在性」问题是分析学的一个深刻课题：**连续 ⇒ 有原函数**（第九章证），**有原函数 ⇏ 可积**（有的函数有原函数却不可积，如某些病态例子）。这些微妙区别在实变函数论里会彻底展开。
 
-## 6 小结
+## 6 计算示范：直接积分与求导核对
+
+**示范四（组合积分）**：$\displaystyle\int\left(2x+3\sin x+\frac2x\right)dx=x^2-3\cos x+2\ln|x|+C$。逐项套公式——线性性把「一个积分」拆成「几个基本积分」。
+
+**示范五（配方 + 公式）**：$\displaystyle\int\frac{dx}{x^2+4}$。配方 $\frac1{x^2+4}=\frac14\cdot\frac1{1+(x/2)^2}$，故
+
+$$\int\frac{dx}{x^2+4}=\frac14\int\frac{dx}{1+(x/2)^2}=\frac14\cdot2\arctan\frac{x}{2}+C=\frac12\arctan\frac{x}{2}+C.$$
+
+**「配方 → 凑 $\arctan$ / $\arcsin$ 型」是二次分母积分的标准动作**。<span class="marginnote">求导核对永远是检验积分的最后防线：$\left(\frac12\arctan\frac x2\right)'=\frac12\cdot\frac{1}{1+(x/2)^2}\cdot\frac12=\frac1{4+x^2}$——与 $x^2+4$ 的分母一致。<strong>「对结果求导看是否还原被积函数」</strong>是每个积分题的天然检查：若还原成功，结果必对（差常数），这是逆运算最可靠的验证，比任何「背公式」都实在。</span>
+
+**示范六（含绝对值的被积函数）**：$\displaystyle\int|x|\,dx$。分段：$x\ge0$ 时 $\int x\,dx=\frac{x^2}{2}+C$；$x<0$ 时 $\int(-x)\,dx=-\frac{x^2}{2}+C$。合并写 $\int|x|\,dx=\frac{x|x|}{2}+C$——**求导核对**：$\left(\frac{x|x|}{2}\right)'=\frac{|x|}{2}+\frac{x\cdot\operatorname{sgn}x}{2}=|x|$。**「分段积分 + 合并写法」是含绝对值积分的模板**。
+
+**示范七（用导数公式倒推）**：$\displaystyle\int\frac{dx}{\sqrt{4-x^2}}$。$\frac1{\sqrt{4-x^2}}=\frac12\cdot\frac1{\sqrt{1-(x/2)^2}}$，故原式 $=\arcsin\frac{x}{2}+C$。**识别「哪个函数的导数长这样」是第一反应**——$(\arcsin\frac{x}{2})'=\frac12\frac1{\sqrt{1-(x/2)^2}}=\frac1{\sqrt{4-x^2}}$ ✓。
+
+> **辨析｜易错点：**直接积分的两大陷阱：**丢了 $C$**（不定积分是函数族）与**忘了求导核对**（$\frac1{x^2+4}$ 与 $\frac1{x^2-4}$ 的原函数完全不同，前者 $\arctan$ 型、后者分式型）。凡是「换元、变形」后的结果，一律求导回验——**求导核对是积分正确性的免费保险**，应成为每次积分的肌肉记忆。
+
+## 7 小结
 
 - **原函数**：$F'=f$；**不定积分**：$\int f=F+C$，是一个函数族。
 - **唯一性结构**：任意两个原函数差一个常数；证明靠「导数恒零 ⇒ 常值」。

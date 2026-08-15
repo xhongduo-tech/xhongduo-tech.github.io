@@ -16,7 +16,9 @@ date: 2026-08-07
 
 ## 为什么从模拟器与真机的对比开始
 
-前面所有实验都在本地模拟器上跑——理想、无噪、可复现。但量子计算的价值在真机。本节讲两条线：**模拟器**（AerSimulator 的各种模式）与**真实后端**（IBM Quantum 云上的超导处理器），以及连接两者的关键步骤——**认证、运行、对比理想与噪声**。<span class="marginnote">模拟器分三类：statevector（精确态矢量）、matrix_product_state（张量网络，省内存）、qasm（采样）。真机通过 Qiskit Runtime 连接，IBM Quantum 提供免费公开后端（如 ibm_brisbane）。「模拟器验证逻辑 → 真机验证物理」是标准研发流程。</span>学完本节，你就能把「纸面算法」真正跑在「云端量子硬件」上。
+前面所有实验都在本地模拟器上跑——理想、无噪、可复现。但量子计算的价值在真机。本节讲两条线：**模拟器**（AerSimulator 的各种模式）与**真实后端**（IBM Quantum 云上的超导处理器），以及连接两者的关键步骤——**认证、运行、对比理想与噪声**。
+
+本节是第十二篇的「从模拟到真机」一课，也是第九篇《超导量子比特》的工程侧对应：理论篇讲「Transmon 的 $T_1$、$T_2$、门保真度」，本节把这些物理量变成「真机 counts 里的噪声」。建议对照《Qiskit 环境搭建》的「先模拟后真机」哲学读——本节是它的完整展开。<span class="marginnote">模拟器分三类：statevector（精确态矢量）、matrix_product_state（张量网络，省内存）、qasm（采样）。真机通过 Qiskit Runtime 连接，IBM Quantum 提供免费公开后端（如 ibm_brisbane）。「模拟器验证逻辑 → 真机验证物理」是标准研发流程。</span>学完本节，你就能把「纸面算法」真正跑在「云端量子硬件」上。
 
 ## 1 模拟器的三种模式
 
@@ -94,7 +96,23 @@ real = sampler.run([qc], shots=1024).result()[0].data.meas.get_counts()   # 真�
 **用校准数据**：跑之前看 backend.properties() 与 backend.coupling_map，了解比特质量与拓扑。
 **误差缓解**：对期望值类任务，用「读出校正」（readout error mitigation）压测量误差。<span class="marginnote">真机实验是「量子工程的试炼场」：你会亲身体会为什么 NISQ 时代（第十篇）说「浅线路是唯一活路」——在真机上跑深线路，counts 会迅速「糊」成均匀噪声。这种「理论 vs 现实的落差感」，只有跑过真机才真正建立。</span>
 
-## 6 小结
+用一个具体数字体会「shots 要够」。上面 1024 shots 的贝尔态，理想情况 $P(00)=P(11)=0.5$，期望各约 512 次；shot 噪声的标准差是 $\sqrt{512} \approx 23$，所以即使完全理想，`00` 落在 $512 \pm 23$ 之外也属正常。若想分辨「门错误导致的 1% 偏差」（约 10 次）与「shot 噪声」，1024 shots 远远不够——往往要上万 shots 才能让统计误差小于待测信号。**这就是「噪声信号 vs 统计噪声」的赛跑：被测效应越小，需要的 shots 越多。**
+
+## 6 术语速查表
+
+| 术语 | 含义 | 用途 |
+| --- | --- | --- |
+| statevector | 精确终态矢量模拟 | 小线路精确验证 |
+| MPS | 矩阵乘积态近似 | 低纠缠大线路省内存 |
+| qasm 采样 | 测量采样（可加噪声） | 模拟真机统计 |
+| NoiseModel | 从校准数据构建的噪声模型 | 真机预演 |
+| QiskitRuntimeService | 认证并列出后端的服务入口 | 连真机第一步 |
+| SamplerV2 | Qiskit 1.0 采样接口 | 提交线路、取 counts |
+| least_busy | 选择排队最短的后端 | 省时间 |
+| layout | 逻辑比特到物理比特的映射 | 查看转译结果 |
+| 读出校正 | 修正测量误判的误差缓解手段 | 压测量误差 |
+
+## 7 小结
 
 - **模拟器三模式**：statevector（精确）、MPS（省内存）、qasm（采样）+ 噪声模型（真机预演）。
 - **连真机**：QiskitRuntimeService 认证 → least_busy 选后端 → SamplerV2 运行。

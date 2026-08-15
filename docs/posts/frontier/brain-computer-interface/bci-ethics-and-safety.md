@@ -1,6 +1,6 @@
 ---
 title: BCI 伦理与安全
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # BCI 伦理与安全
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第九级 · 交叉与前沿 · 脑机接口 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第九级 · 脑机接口 ｜ Brain-Computer Interfaces: Principles and Practice (Wolpaw) §12 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从伦理与安全开始

@@ -98,7 +98,21 @@ Text-to-SQL 至今未完全解决，两大顽疾：
 - **生成 SQL 必须过约束解码**：裸 Seq2Seq 生成「语法正确但 schema 不存在」的 SQL 是常见失败模式。语法 + schema 双重约束不能省。
 - **跨库评测≠同库评测**：Spider 的训练/测试数据库不同，模型必须学「通用语义→SQL 映射」而非「背这个库的表名」。用同库数据自测会高估真实能力。
 
-## 8 小结
+## 8 实例：一句问题的完整 SQL 生成
+
+用「去年卖得最好的手机型号是什么？」走一遍 Text-to-SQL 的完整链路（数据库有表 `products(id, name, category, sales, year)`）：
+
+- **Schema linking**：问题词 → 列——「手机」→ `category='手机'`、「卖得最好」→ `sales`（隐含排序）、「去年」→ `year=2025`（需换算具体年份）；
+- **生成骨架**：先预测 `SELECT name FROM products WHERE ... ORDER BY ... LIMIT 1`——sketch 或约束解码的第一步；
+- **填充条件**：`WHERE category='手机' AND year=2025 ORDER BY sales DESC LIMIT 1`；
+- **执行**：数据库跑出「iPhone 15 Pro」——与参考 SQL 执行结果一致，执行准确率 +1。
+
+**两个易错环节**：
+
+- **「卖得最好」是隐含的排序意图**：句中没有「排序」字样，模型要从语义推出 `ORDER BY sales DESC`——这是 schema linking 里最难的「隐含条件」；
+- **「去年」要换算成具体年份**：问题里的相对时间要变成 SQL 里的字面值——值匹配（value linking）出错，整条查询结果就错。
+
+## 9 小结
 
 - **语义解析** = 自然语言 → 可执行的逻辑形式；Text-to-SQL 是最成熟、最工业化的形态。
 - 逻辑形式三类：**SQL**（可执行）、**λ 演算**（可推理）、**AMR**（可对齐）。

@@ -1,6 +1,6 @@
 ---
 title: 能源政策
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 能源政策
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第八级 · 社会科学 · 环境政策与治理 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第八级 · 环境政策与治理 ｜ Kraft《Environmental Policy and Politics》§5-7 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从能源政策开始

@@ -109,8 +109,13 @@ Ag 在 633 nm 处 $\varepsilon_m \approx -18 + 0.5i$，空气 $\varepsilon_d = 1
 
 ## 6 小结
 
-## 6 小结
-
 - 表面光学以**三层模型**为框架：环境—表面层—衬底，表面层厚度 $d$ 使 $\Delta R/R \propto d$，单层可测。
 - **表面态跃迁**给出带隙内的吸收指纹；**RDS** 用偏振差分把表面信号从体相背景中「捞」出来。
-- **SPP** 是光与电子集体振荡的耦合模，色散 $k_{SPP} = \frac{\omega}{c}\sqrt{\frac{\varepsilon_m\varepsilon_d}{\varepsilon_m+\varepsilon_d}}$
+- **SPP** 是光与电子集体振荡的耦合模，色散 $k_{SPP} = \frac{\omega}{c}\sqrt{\frac{\varepsilon_m\varepsilon_d}{\varepsilon_m+\varepsilon_d}}$：静电极限定 $\omega_{sp}$，损耗定传播长度。
+- SPP 激发需要**动量匹配**（Kretschmann 棱镜或光栅）；介电环境越强、波长压缩越厉害——SPR 传感的机理。
+- **SHG** 在中心对称体相为零、只在表面不为零，是天然表面敏感的非线性探针。
+- 椭偏术测膜厚与介电函数、SPR 实时跟踪吸附、SERS 增强到单分子——光是不破坏样品的探针。
+- 表面光学不要求真空：SPR、椭偏术在大气与液体中同样工作，是生物传感与电化学原位研究的主力。
+- Ag 在 633 nm 空气下 SPP 波长约 615 nm，换玻璃衬底压到约 395 nm——介电环境越强、波长压缩越厉害。
+
+在下一节，我们将把「看」的手段收尾——用散射与衍射探针系统建立表面分析的标准工具箱。

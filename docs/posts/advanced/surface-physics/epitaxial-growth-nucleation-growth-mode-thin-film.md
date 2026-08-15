@@ -117,4 +117,9 @@ $$\Delta G(r) = -\frac{\pi r^2 \Delta\mu}{\Omega} + 2\pi r\,\gamma_e$$
 
 - **外延**在衬底上生长取向确定的晶体薄膜，分同质与异质两类。
 - 生长模式由 $\Delta\gamma = \gamma_f + \gamma_i - \gamma_s$ 决定：**逐层（F–vdM）、岛状（V–W）、层岛（S–K）**，应变能驱动 S–K 转变。
-- **成核**由自由能竞争控制：$\Delta G(r) = -\pi r^2\Delta\mu/\Omega + 2\pi r\gamma_e$，临界半径 $r^* = \gamma_e\Omega/\Delta\mu$
+- **成核**由自由能竞争控制：$\Delta G(r) = -\pi r^2\Delta\mu/\Omega + 2\pi r\gamma_e$，临界半径 $r^* = \gamma_e\Omega/\Delta\mu$。
+- **台阶流 vs 二维岛**由扩散长度与台阶间距的竞争决定：RHEED 振荡只在二维岛生长时清晰。
+- 异质外延的**应变**靠失配位错与 S–K 成岛释放；组分渐变缓冲层是抑制位错的工程手段。
+- 过饱和度是控制成核密度的第一旋钮：$\Delta\mu$ 翻倍、$r^*$ 减半。
+
+在下一节，我们将从「一块薄膜怎么长出来」转向界面上的「集体现象」——看看二维的超导与磁性如何被降维改写规则。

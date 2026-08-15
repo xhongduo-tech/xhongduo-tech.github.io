@@ -84,12 +84,49 @@ $$0\le m(G\setminus E)\le m(G_k\setminus E)<\frac1k\ \Longrightarrow\ m(G\setmin
 
 **重点：逼近定理的实用性在于「用开/闭集替换可测集」。** 证明「可测集有性质 $P$」时，先证「开集有 $P$」「闭集有 $P$」（它们有紧致性、连通性等强工具），再通过逼近把 $P$ 传到可测集（误差任意小 ⇒ 极限成立）。**「好集逼近坏集」是测度论证明的标准句式**——Luzin、Egorov、L^p 稠密性全部这样工作。
 
-## 6 小结
+## 7 数值演练与逼近速查
+
+**算例一（有理数集的零误差外逼近）**：$E=\mathbb{Q}\cap[0,1]$，$m(E)=0$。$G_\delta$ 外逼近：$G_k=\bigcup_r(r-\tfrac1{2^k},r+\tfrac1{2^k})$，$G=\bigcap_kG_k$，$m(G)\le\sum_k\tfrac{2}{2^k}\to$ 任意小，$m(G\setminus E)=0$——**零测集被 $G_\delta$ 罩到测度零**。
+
+**算例二（无理数集的逼近）**：$E=[0,1]\setminus\mathbb{Q}$，$m(E)=1$。外逼近：$G=(0,1)$，$m(G\setminus E)=0$（补集 $\mathbb{Q}$ 零测）。内逼近：挖去有理点薄邻域得闭集 $F$，$m(E\setminus F)<\varepsilon$。**「补集挖空」构造内逼近闭集是标准动作。**
+
+**对照表：逼近的四种强度**
+
+| 逼近 | 结论 | 条件 |
+| --- | --- | --- |
+| 开集外 | $m(G\setminus E)<\varepsilon$ | 无 |
+| 闭集内 | $m(E\setminus F)<\varepsilon$ | 无 |
+| 紧集内 | $m(E\setminus K)<\varepsilon$ | $m(E)<\infty$ |
+| $G_\delta$/$F_\sigma$ | 测度差为零 | 无 |
+
+**术语速查**
+
+| 记号 | 含义 |
+| --- | --- |
+| 正则性 | 开外闭内逼近 |
+| 外正则 | 开集逼近 |
+| 内正则 | 紧集逼近 |
+| $G_\delta$ | 可数开交 |
+
+**辨析｜易错点：内逼近的紧集版需要 $m(E)<\infty$，外逼近不需要。** 「从外罩」不怕罩出无穷，「从内撑」撑不出无穷——**内逼近的「有界性」条件是正则性不对称的本质**。
+
+### 三步记住「$\tfrac1k$ 归零」
+
+- **逐层逼近**：$\varepsilon_k=\tfrac1k$ 给开集 $G_k$。
+- **取交归零**：$G=\bigcap_kG_k$，$m(G\setminus E)<\tfrac1k$ 对一切 $k$。
+- **夹逼**：非负实数小于所有 $\tfrac1k$ ⇒ 为 $0$。
+
+**延伸（与抽象测度论连接）**：逼近定理即 Lebesgue 测度的内外正则性——抽象测度论里需 Radon 条件才成立。**Lebesgue 测度是「正则性典范」**，这让实变函数论享有许多抽象理论没有的便利（Egorov、Luzin、L^p 稠密全依赖它）。
+
+**一道收束练习**：证明「$E$ 可测 ⇔ 存在 $G_\delta\supset E$ 与 $F_\sigma\subset E$ 使 $m(G\setminus F)=0$」——它是「可测集 = Borel 集 ± 零测集」的完整表述，也是 $\mathcal{M}=\mathcal{B}$ 完备化的证明路径。
+
+## 8 小结
 
 - **外逼近**：任意可测集可用开集外罩，误差 $m(G\setminus E)<\varepsilon$。
 - **内逼近**：任意可测集可用闭集内撑，误差 $m(E\setminus F)<\varepsilon$；紧集版需 $m(E)<\infty$。
 - **$G_\delta$/ $F_\sigma$ 零误差逼近**：存在 $G_\delta\supset E$、$F_\sigma\subset E$ 使测度差为零。
 - **核心结论**：可测集 = Borel 集 ± 零测集；$\mathcal{M}$ 是 $\mathcal{B}$ 的完备化。
 - **方法模板**：「先 $\tfrac1k$ 近似，再取极限归零」，测度论极限论证的标准动作。
+- **数值**：$\mathbb{Q}\cap[0,1]$ 被 $G_\delta$ 罩到零；$[0,1]\setminus\mathbb{Q}$ 被挖空闭集内逼近。
 
 在下一节，我们面对不可测的深渊：构造 **Vitali 集**，证明「不可测集确实存在」，并考察选择公理在其中的角色。

@@ -77,12 +77,49 @@ $$\varphi\le f\ \Rightarrow\ E_k\uparrow E,\qquad \int_{E_k}\varphi\le c\int f_k
 
 **重点：Levi 的四个应用共享同一结构——「单调性让极限与积分交换」。** 遇到「$\int$ 与 $\lim/\sum$ 换序」，先问「函数列是否单调（非负）？」是，则 Levi 直接放行；否，才需要 Fatou（≤）或 DCT（控制）。**「单调优先」是极限交换的第一反应**。
 
-## 6 小结
+## 7 数值演练与 Levi 速查
+
+**算例一（Levi 的数值验证）**：$f_k(x)=\min(x,k)$ 于 $[0,1]$。$f_k\uparrow x$（单调），$\int_0^1f_k\to\int_0^1x=\tfrac12$——两边都收敛到 $\tfrac12$。改取 $f_k=k\chi_{(0,1/k]}$：$\int f_k=1$ 恒成立、$\lim f_k=0$，$\int\lim f_k=0\neq\lim\int f_k=1$——**不单调时 Levi 失效**。
+
+**算例二（级数积分的数值）**：$\sum_{k=1}^\infty\tfrac1{k^2}\chi_{[0,1]}$。Levi（非负部分和单调）给出 $\int\sum=\sum\tfrac1{k^2}=\tfrac{\pi^2}6$——**非负级数逐项积分免费**。若项变号（$\tfrac{(-1)^k}k\chi_{[0,1]}$），单调性失去，需 DCT 或条件分析。
+
+**对照表：Levi 与「非单调」的对比**
+
+| 函数列 | 单调? | $\lim\int=\int\lim$? |
+| --- | --- | --- |
+| $x^k\chi_{[0,1]}$ | 是（$k\uparrow$） | 是 |
+| $\min(x,k)$ | 是 | 是 |
+| $k\chi_{(0,1/k]}$ | 否（峰移动） | 否（$0\ne1$） |
+| $(-1)^k\chi_{[0,1]}$ | 否 | 需其他工具 |
+
+**术语速查**
+
+| 记号 | 含义 |
+| --- | --- |
+| $f_k\uparrow f$ | 单调递增逐点收敛 |
+| $E_k=\{x:\varphi\le cf_k\}$ | 证明机关集合 |
+| 逐项积分 | $\int\sum f_k=\sum\int f_k$ |
+| MCT | 概率版单调收敛 |
+
+**辨析｜易错点：Levi 的「$\uparrow$」是逐点单调，不是积分单调。** $\int f_k$ 单调（由 $f_k$ 逐点单调与积分单调性自动），但定理的前提是「函数列逐点递增」——积分值递增只是推论。**「逐点单调」是本质条件，「积分单调」是免费副产品。**
+
+### 三步记住 Levi 证明
+
+- **$\le$**：$f_k\le f$ ⇒ $\int f_k\le\int f$。
+- **$\ge$**：$E_k=\{x:\varphi\le cf_k\}$，$E_k\uparrow E$，$\int_{E_k}\varphi\le c\int f_k$。
+- **收尾**：$c\to1$ + $\sup_\varphi$，与 $\le$ 合拢。
+
+**延伸（与概率论连接）**：MCT「$0\le X_n\uparrow X$ ⇒ $E[X_n]\uparrow E[X]$」是期望单调收敛的免费工具；「$E[\sum X_n]=\sum E[X_n]$（$X_n\ge0$）」正是 Tonelli 概率版的核心。**大数定律、停时理论的期望计算都靠 MCT 放行。**
+
+**一道收束练习**：用 Levi 证明 $\int_0^\infty e^{-x}dx=1$（对 $f_k=e^{-x}\chi_{[0,k]}$ 用 Levi，$f_k\uparrow e^{-x}$）——单调逼近使无穷区间积分合法化。
+
+## 8 小结
 
 - **Levi 定理**：$0\le f_k\uparrow f$ ⇒ $\int\lim f_k=\lim\int f_k$（允许无穷）。
 - **证明骨架**：$\le$ 由单调性；$\ge$ 由 $E_k$ 集合 + $c<1$ 放缩 + 上确界。
 - **推论**：递减可积（加 $\int f_1<\infty$）、非负级数逐项积分。
 - **不可省条件**：单调性——振荡反例 $k\chi_{(0,1/k]}$ 说明问题。
 - **地位**：三大极限定理之首，Fatou 与控制收敛的总源头。
+- **数值**：$x^k\chi_{[0,1]}$ 用 Levi 得 $\int x^k=\tfrac1{k+1}$；$k\chi_{(0,1/k]}$ 非单调失效。
 
 在下一节，我们把 Levi 用到级数上，专门研究**逐项积分与级数的积分**。

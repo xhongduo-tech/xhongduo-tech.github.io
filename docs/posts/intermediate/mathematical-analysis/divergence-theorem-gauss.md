@@ -56,9 +56,15 @@ $$\text{div}\,\vec F=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}
 
 **示范**：$\vec F=(x,y,z)$，$\text{div}\,\vec F=3$——处处源强度 3。$\vec F=(-y,x,0)$（旋转场），$\text{div}=0$——旋转不产生源。
 
+**示范（散度的数值感）**：$\vec F=(x^2,y^2,0)$，$\text{div}=2x+2y$——在 $x,y>0$ 的象限是「源」，在 $x,y<0$ 的象限是「汇」。$\vec F=(\sin x,0,0)$ 的散度 $\cos x$ 随 $x$ 正负交替——**散度是逐点定义的「源强度」，不是全局常数**。
+
+**散度与梯度的对照**：梯度 $\nabla f$ 是向量（把标量场变向量场），散度 $\text{div}\,\vec F$ 是标量（把向量场变标量场）——一升一降。到 §22.5 场论初步，你会看到 $\nabla\times$（旋度）把向量场变向量场，三者构成 nabla 算子的三副面孔。
+
 **高斯公式的应用价值**：**把难算的曲面积分化成体积分**（或反过来）——由 $\vec F$ 的散度选择计算路径。
 
 > **辨析｜易错点：**高斯公式的**条件**：$\Omega$ 是闭区域（含边界）、$\partial\Omega$ 是封闭曲面（不封闭不能直接用）、取外侧定向、$\vec F$ 有连续偏导数（内部有奇点时需「挖洞」）。**方向**：外侧通量为正，内侧则反号。另一个易错点：**「$\oiint$」是沿封闭曲面的积分记号**——不封闭的曲面（如半球面）需要「补个盖」凑成封闭区域再用高斯公式。
+
+> **辨析｜易错点：**判断「能否直接用高斯公式」三问：**区域闭吗？边界封闭吗？场光滑吗？** 三问全过才可套公式。**「补盖」**的操作在计算半球面通量时最常用——补上底圆盘再减它的贡献，把「不封闭」变「封闭」。这条「补盖」技巧与 §4 的「挖洞」一正一反，是处理非标准区域的两大套路。
 
 ## 3 高斯公式的应用
 
@@ -72,11 +78,17 @@ $$\oiint_S=\iiint_\Omega3(x^2+y^2+z^2)dV=3\int_0^{2\pi}\int_0^\pi\int_0^1\rho^2\
 
 **应用三：用面积分算体积分**。若 $\text{div}\,\vec F$ 简单而 $\vec F$ 复杂，反向用高斯公式（面积分替代体积分）——**「两条路选好算的」**。
 
+**应用四：数值核对**。$\vec F=(x,2y,3z)$ 在单位球内，$\text{div}=1+2+3=6$ 常数。高斯公式直接给出通量 $=\iiint 6\,dV=6\cdot\frac{4\pi}{3}=8\pi$。**散度恒常时，通量 = 散度 × 体积**——这是高斯公式最省事的形态，也反向说明「散度是单位体积的通量密度」：$\text{div}\,\vec F=\lim_{V\to0}\frac{\oiint_{\partial V}\vec F\cdot d\vec S}{|V|}$（$V$ 收缩到该点）。
+
+> **辨析｜易错点：**高斯公式里的「外侧定向」不能省——若取内侧，整个积分反号。判断外侧的方法：法向量 $\vec n$ 指向区域外部（球面外侧 $\vec n=\frac{\vec r}{r}$ 背离球心）。**「外侧」两字决定符号，写公式时先标定向再写等式。**
+
 ## 4 奇点与挖洞
 
 若 $\vec F$ 在 $\Omega$ 内部有奇点（如 $\vec F=\frac{\vec r}{r^3}$ 在原点无定义），高斯公式不能直接用于含原点的区域。**挖洞法**：挖掉以奇点为心的小球 $B_\varepsilon$，在 $\Omega\setminus B_\varepsilon$ 上用高斯公式，再令 $\varepsilon\to0$。
 
-**示范**：$\displaystyle\oiint_S\frac{\vec r}{r^3}\cdot d\vec S$ 沿包围原点的曲面 $S$。在 $\mathbb R^3\setminus\{0\}$ 上 $\text{div}\,\frac{\vec r}{r^3}=0$，故挖洞后体积分为 0，只剩小球边界：$\oiint_S=\oiint_{B_\varepsilon}=\frac1{\varepsilon^3}\cdot4\pi\varepsilon^2=\frac{4\pi}{\varepsilon}$？不——$\frac{\vec r}{r^3}$ 在 $r=\varepsilon$ 处，$\vec F\cdot\vec n=\frac{\varepsilon}{\varepsilon^3}\cdot1=\frac1{\varepsilon^2}$，通量 $=\frac1{\varepsilon^2}\cdot4\pi\varepsilon^2=4\pi$。**$\oiint_S=4\pi$ 与曲面形状无关**——「绕源的通量恒定」，这是「立体角」概念的雏形。<span class="marginnote">「$\oiint\frac{\vec r}{r^3}\cdot d\vec S=4\pi$（对包围原点的任意曲面）」是「源的通量不依赖曲面形状」的经典结果——它对应「点电荷的电场穿出任意包围它的曲面的电通量恒定」$\frac Q{\varepsilon_0}$。这个「绕源通量恒定」在第二级《电动力学》与《复变函数》里分别对应「高斯定律」与「留数定理」——「奇点贡献不依赖路径/曲面」是分析学与物理学的共同主题。</span>
+**示范**：$\displaystyle\oiint_S\frac{\vec r}{r^3}\cdot d\vec S$ 沿包围原点的曲面 $S$。在 $\mathbb R^3\setminus\{0\}$ 上 $\text{div}\,\frac{\vec r}{r^3}=0$，故挖洞后体积分为 0，只剩小球边界：$\oiint_S=\oiint_{B_\varepsilon}=\frac1{\varepsilon^3}\cdot4\pi\varepsilon^2=\frac{4\pi}{\varepsilon}$？不——$\frac{\vec r}{r^3}$ 在 $r=\varepsilon$ 处，$\vec F\cdot\vec n=\frac{\varepsilon}{\varepsilon^3}\cdot1=\frac1{\varepsilon^2}$，通量 $=\frac1{\varepsilon^2}\cdot4\pi\varepsilon^2=4\pi$。**$\oiint_S=4\pi$ 与曲面形状无关**——「绕源的通量恒定」，这是「立体角」概念的雏形。
+
+**挖洞的一般形态**：在奇点附近挖去含奇点的邻域 $V_\varepsilon$（小球/小立方体），则 $\oiint_{\partial(\Omega\setminus V_\varepsilon)}=\oiint_{\partial\Omega}-\oiint_{\partial V_\varepsilon}$。高斯公式在 $\Omega\setminus V_\varepsilon$ 上成立，令 $\varepsilon\to0$ 时 $V_\varepsilon$ 的边界贡献往往给出奇点的「强度」（如 $4\pi$）。**「挖洞 + 令 $\varepsilon\to0$」是处理场论奇点的标准三步**，到《复变函数》的留数定理、《电动力学》的点电荷理论里都会重演。<span class="marginnote">「$\oiint\frac{\vec r}{r^3}\cdot d\vec S=4\pi$（对包围原点的任意曲面）」是「源的通量不依赖曲面形状」的经典结果——它对应「点电荷的电场穿出任意包围它的曲面的电通量恒定」$\frac Q{\varepsilon_0}$。这个「绕源通量恒定」在第二级《电动力学》与《复变函数》里分别对应「高斯定律」与「留数定理」——「奇点贡献不依赖路径/曲面」是分析学与物理学的共同主题。</span>
 
 ## 5 高斯公式的地位
 
@@ -90,6 +102,8 @@ $$\oiint_S=\iiint_\Omega3(x^2+y^2+z^2)dV=3\int_0^{2\pi}\int_0^\pi\int_0^1\rho^2\
 
 **三兄弟统一在「边界积分 = 内部导数积分」**——格林是平面版，高斯是「散度版」，斯托克斯是「旋度版」（§22.4）。
 
+**与斯托克斯公式的互补**：高斯公式管「通量 = 散度积分」（把闭合曲面变成内部区域），斯托克斯公式管「环量 = 旋度积分」（把闭合曲线变成其张的曲面）。一个「向外看」（通量），一个「沿边看」（环量）——**通量与环量构成向量场的两大基本积分量**，第二级《电动力学》里 $\nabla\cdot\vec E$ 与 $\nabla\times\vec E$ 正是这两者的局部版本。
+
 ## 6 小结
 
 - **高斯公式**：$\oiint_{\partial\Omega}\vec F\cdot d\vec S=\iiint_\Omega\text{div}\,\vec F\,dV$——封闭曲面通量 = 内部散度积分。
@@ -97,5 +111,10 @@ $$\oiint_S=\iiint_\Omega3(x^2+y^2+z^2)dV=3\int_0^{2\pi}\int_0^\pi\int_0^1\rho^2\
 - **证明**：拆分量 + 化归 $z$ 型区域 + 累次积分 + 边界曲面通量。
 - **应用**：通量 ↔ 体积分互化、高斯定律（$\oiint\vec E\cdot d\vec S=\frac Q{\varepsilon_0}$）、对称性算场。
 - **奇点处理**：挖洞法；绕源通量恒定（立体角雏形）。
+- **散度恒常**：通量 = 散度 × 体积；散度 = 单位体积的通量密度（局部定义）。
+- **反用**：把被积函数反推成某场的散度，面积分/体积分互化选好算的。
+- **挖洞三步**：挖去奇点邻域 → 在 $\Omega\setminus V_\varepsilon$ 用高斯 → $\varepsilon\to0$ 读奇点强度。
+- **与斯托克斯互补**：通量（高斯）vs 环量（斯托克斯）——向量场的两大基本积分量。
+- **补盖技巧**：不封闭曲面补个盖凑封闭，再减盖的贡献——与挖洞一正一反。
 
 在下一节，我们完成场论三定理的最后一位：**斯托克斯公式——曲面积分与曲线积分的联系**。旋度在曲面上的积分 = 边界曲线的环量。

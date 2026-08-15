@@ -1,6 +1,6 @@
 ---
 title: ARIMA 模型
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # ARIMA 模型
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第四级 · 高阶专题 · 时间序列分析 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第四级 · 时间序列分析 ｜ Box et al. §3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 ARIMA 开始

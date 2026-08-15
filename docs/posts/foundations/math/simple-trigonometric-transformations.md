@@ -103,6 +103,21 @@ $$
 <span class="marginnote">辅助角公式求最值的套路：<strong>$a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\varphi)$，最大值就是 $\sqrt{a^2+b^2}$</strong>。$3\sin x+4\cos x$ 的最大值 5、最小值 $-5$——「直角三角形的斜边」。这类题不用展开，直接提 $\sqrt{a^2+b^2}$ 一步到位。$\varphi$ 的具体值通常不必求出，只需知道「存在这样一个相位」。</span>
 
 **辨析｜易错点（补充）：** 一是**半角公式开方忘定符号**——$\sqrt{\frac{1+\cos\theta}{2}}$ 的正负由 $\frac\theta2$ 的象限定，不是永远取正；二是**辅助角提出来的系数**——$\sqrt{a^2+b^2}$ 是「斜边」，$3\sin x+4\cos x$ 提 5 不是提 3 或 4；三是**$\sin^2\frac\theta2$ 与 $\cos^2\frac\theta2$ 记混**——一个 $\frac{1-\cos\theta}{2}$、一个 $\frac{1+\cos\theta}{2}$，符号相反。
+### 恒等变换工具箱速查
+
+本节用到的公式虽然多，但都从两角和差与二倍角「逆用 / 换元」而来。放一张速查表按「功能」分类：
+
+| 功能 | 工具 | 关键式 |
+| --- | --- | --- |
+| 降幂 | 二倍角逆用 | $\cos^2\theta=\frac{1+\cos2\theta}{2}$ |
+| 半角 | 降幂公式换元 | $\sin\frac\theta2=\pm\sqrt{\frac{1-\cos\theta}{2}}$ |
+| 合成 | 辅助角 | $a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\varphi)$ |
+| 积化积 | 积化和差 | $\sin\alpha\cos\beta=\frac12[\sin(\alpha+\beta)+\sin(\alpha-\beta)]$ |
+| 和化和 | 和差化积 | $\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}$ |
+
+**核心思想：一切变换都是「把同一个量换一种写法」——降幂、半角、合成、积化和差，无非在「平方与一次」「单角与半角」「两项与一项」「积与和」之间来回切换。** 遇到化简题，先问「目标形态是什么」，再选对应的工具，比死记硬背公式高效得多。
+
+**辨析｜易错点：** 辅助角公式的 $\varphi$ 由点 $(a,b)$ 定象限；若式子出现「$\cos x$ 在前」，先整理成「$a\sin x+b\cos x$」的标准形再提振幅，否则相位会错。
 
 ## 6 小结
 

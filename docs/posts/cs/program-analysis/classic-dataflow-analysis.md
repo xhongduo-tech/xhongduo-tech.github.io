@@ -113,4 +113,9 @@ $\mathrm{gen}(S) = \{y + z\}$（该语句自己计算的表达式），$\mathrm{
 
 ## 5 小结
 
-- **活跃变量**：逆向 + 并，支撑寄存器分配；$\mathrm{IN}[B] = \mathrm{use}(B) \cup (\mathrm{OUT}[B] \setminus \mathrm{def}(B))$
+- **活跃变量**：逆向 + 并，支撑寄存器分配；$\mathrm{IN}[B] = \mathrm{use}(B) \cup (\mathrm{OUT}[B] \setminus \mathrm{def}(B))$。
+- **到达定值**：正向 + 并，支撑常量传播与死代码检测；$\mathrm{OUT}[S] = (\mathrm{IN}[S] \setminus \mathrm{kill}(S)) \cup \mathrm{gen}(S)$，kill 按「变量」全局计算。
+- **可用表达式**：正向 + 交，支撑公共子表达式消除；「每条路径都要」所以用交，kill 按「含被赋值变量的表达式」计算。
+- **一张表记住框架**：方向看「未来/过去」，汇合看「存在/全称」，Gen/Kill 看「分析目标」——三种分析共用同一套迭代求解器，只换参数。
+
+在下一节，我们将钻进「求解」这一层，看迭代算法与位向量如何把这些方程真正解出来、跑在大程序上。

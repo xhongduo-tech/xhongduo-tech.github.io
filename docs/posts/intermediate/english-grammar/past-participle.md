@@ -103,3 +103,24 @@ $$
 \text{被动语态} & \text{描述事件（可有}\ by\ \text{短语，时态可自由变）}
 \end{cases}
 $$
+
+对这条判别公式做三步拆解：
+
+- **第一步，问「状态还是事件」**：`The window is broken.`（状态：窗现在是破的）与 `The window was broken by the boy.`（事件：窗被男孩打破了）。**「现在怎么样」是状态，「什么时候被怎样」是事件。**
+- **第二步，查 `by` 短语**：有 `by + 施事` 就是被动语态（`by the boy`）；无 `by` 多为系表结构。
+- **第三步，试时态可变性**：被动语态可随时态变（`has been broken`、`will be broken`），系表结构一般用 `is/was` 表当前状态。
+
+**辨析｜易错点：** 系表结构的 `-ed` 已「形容词化」，能被 `very/quite` 修饰：`I am very interested.`、`He was quite surprised.`——这是准形容词（`interested`、`surprised`、`tired`、`excited`），与被动语态的行为动词 `-ed` 是两类。**「能不能加 `very`」是系表 vs 被动的快速测试。**
+
+**补充：** `have sth done` 的「使役 vs 遭遇」双义值得记牢：`I had my hair cut.`（使役——我主动安排理发）与 `I had my wallet stolen.`（遭遇——钱包被偷，非自愿）。**判断靠主语有没有控制权**——「主动安排」是使役，「被动受损」是遭遇。
+
+## 6 小结
+
+- 过去分词 = 规则 `-ed` / 不规则三态表；语义 = **被动 + 完成**双重叠加。
+- 不及物动词的过去分词**只有完成义、没有被动义**（`fallen leaves`、`retired teacher`）。
+- 作定语：前置（`a broken window`）与后置（`the book written by Lu Xun`）；**`-ing` 主动进行、`-ed` 被动完成**。
+- 作表语构成系表结构，与被动语态同形，靠 `by` 短语、`very` 修饰、时态可变性判别。
+- 作状语表时间/原因/条件/伴随；`have/get sth done` 表使役或遭遇。
+- 判别核心：**状态 vs 事件**；「现在怎么样」是状态，「什么时候被怎样」是事件。
+
+在下一节，我们将从非谓语动词回到词法篇的最后一站——介词与介词短语，看「胶水」词如何把名词与句子粘在一起。

@@ -104,3 +104,24 @@ $$
 $$
 A = N \times B \quad\Rightarrow\quad A \text{ is } \underbrace{N \times}_{three\ times} \text{ as } \underbrace{\text{adj.}}_{big} \text{ as } B
 $$
+
+对这条倍数公式做三步拆解：
+
+- **第一步，定位倍数词**：`three times`（三倍）放在 `as...as` 之间，`A is three times as big as B`——**「倍数 + as + 形容词 + as」是考试最青睐的无歧义结构**。
+- **第二步，检查比较基准**：`as` 后的 B 是基准——`three times as much money as` 明确以「as 后的量」为基数，不会产生歧义。
+- **第三步，注意易混结构**：`twice larger than`（大两倍）在口语中有「大两倍」与「大三倍」的歧义，正式写作宜改用 `twice as large as`。
+
+**辨析｜易错点：** 分数作主语的数一致：`Two thirds of the water is gone.`（`water` 不可数，单数）与 `Two thirds of the students are here.`（`students` 复数）——**「`of` 后名词决定谓语数」**，这条规则与主谓一致（第4篇）的分数家族完全闭环。
+
+**补充：** 年代与世纪的读数在口语与书面语里的差异：`in the 1990s`（口语 `in the nineteen nineties`）与 `in the 1990's`（旧式）——**现代规范已倾向省略撇号**。而 `the 21st century` 的「世纪比年份前两位大 1」规则，是跨年关常被问到的考点。
+
+## 6 小结
+
+- 基数词分层构成：**1–12 独立、13–19 加 -teen、整十加 -ty、非整十加连字符、三位以上加 and**。
+- 大数读法：英语没有「万」「亿」，`10,000` 读 `ten thousand`、`100,000,000` 读 `one hundred million`。
+- 序数词七个不规则（`first/second/third/fifth/eighth/ninth/twelfth`）；分数公式**分子基数词、分母序数词、分子>1 分母加 s**。
+- 时刻、日期、年代各有读法：`a quarter to eight`、`July the fourth`、`in the 1990s`。
+- 量的表达三族：**量词词组**（a piece of）、**约数**（dozens of）、**倍数**（times as...as）。
+- `twice/hundreds of` 与 `two/hundred` 的「约数 vs 精确」靠 `s` 与 `of` 区分。
+
+在下一节，我们将进入词法篇的倒数第二站——介词与介词短语，看「胶水」词如何把名词与句子粘在一起。

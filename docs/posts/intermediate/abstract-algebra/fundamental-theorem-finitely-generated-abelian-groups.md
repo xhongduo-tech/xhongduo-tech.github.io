@@ -102,7 +102,22 @@ $$
 
 **有限部分与自由部分的分离**：基本定理说 $G \cong \mathbb{Z}^r \times G_{\mathrm{tor}}$，其中 $G_{\mathrm{tor}} = \{ g \mid o(g) < \infty \}$ 是**挠子群（torsion subgroup）**。有限生成阿贝尔群 = 自由部分（$\mathbb{Z}^r$，秩 $r$）+ 挠部分（有限阿贝尔群）。这个「自由 ⊕ 挠」的分解是基本定理最简洁的概括。
 
-## 6 小结
+## 6 对照速查：两套规范形的转换
+
+把不变因子形与初等因子形的关系排成一张表，互化规则一眼看清。
+
+| 群 | 初等因子形 | 不变因子形 |
+| --- | --- | --- |
+| $\mathbb{Z}_4 \times \mathbb{Z}_4$ | $4, 4$ | $4 \mid 4$ |
+| $\mathbb{Z}_2 \times \mathbb{Z}_8$ | $2, 8$ | $2 \mid 8$ |
+| $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3$ | $2, 2, 3$ | $2 \mid 6$ |
+| $\mathbb{Z}_{12} \times \mathbb{Z}_{18}$ | $4, 9, 2, 3$ | $2 \mid 36$ |
+
+**数值算例：$G = \mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3$ 的不变因子。** 初等因子 $\{2, 2, 3\}$。按素数分组：2 的块 $\{2, 2\}$、3 的块 $\{3\}$。逐列相乘（不足补 1）：$2 \times 3 = 6$、$2 \times 1 = 2$，得不变因子 $2 \mid 6$，故 $G \cong \mathbb{Z}_2 \times \mathbb{Z}_6$。核对：$\mathbb{Z}_2 \times \mathbb{Z}_6$ 与 $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3$ 同构（$\mathbb{Z}_6 \cong \mathbb{Z}_2 \times \mathbb{Z}_3$），阶都是 12。<span class="marginnote">互化口诀：<strong>初等因子 → 不变因子</strong>是「按素数分块、块内从大到小排、逐列相乘、缺的补 1」；<strong>不变因子 → 初等因子</strong>是「把每个 $d_i$ 拆成素数幂、收集所有素因子」。两套规范形记录同一结构：初等因子看「组成」，不变因子看「整除链」——同构判定时比对哪套都行。</span>
+
+**一句话记法**：有限生成阿贝尔群 = 自由部分 $\mathbb{Z}^r$ ⊕ 挠部分；不变因子形与初等因子形两套账本、互化自如；Smith 标准形是分解的算法引擎——「彻底分类」的完整样板。
+
+## 7 小结
 
 - **有限生成阿贝尔群** = $\mathbb{Z}^k / K$（自由阿贝尔群的商），生成元与关系语言。
 - **基本定理**：$G \cong \mathbb{Z}^r \times \mathbb{Z}_{d_1} \times \cdots \times \mathbb{Z}_{d_k}$（不变因子形，$d_1 \mid \cdots \mid d_k$）或 $\mathbb{Z}^r \times \prod \mathbb{Z}_{p^e}$（初等因子形），均唯一。

@@ -1,6 +1,6 @@
 ---
 title: 相伴素与支集
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 相伴素与支集
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 交换代数 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 交换代数 ｜ Atiyah–Macdonald Ch. 4 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从相伴素开始
@@ -33,9 +33,23 @@ $M$ 的相伴素全体记为 $\operatorname{Ass}_A M$（或 $\operatorname{Ass} 
 - $A$-模 $A/\mathfrak{a}$ 的相伴素 = 准素分解的根集 $\{\sqrt{\mathfrak{q}_i}\}$（第1篇《准素分解》）。
 - $k[x,y]/(x^2, xy)$ 的相伴素：$\{(x), (x, y)\}$——其中 $(x,y)$ 是嵌入素理想。
 
+**核心对照表：相伴素与支集**
+
+| 模 $M$ | $\operatorname{Ass} M$ | $\operatorname{Supp} M$ |
+| --- | --- | --- |
+| $\mathbb{Z}$（$\mathbb{Z}$-模） | $\{(0)\}$ | $\operatorname{Spec} \mathbb{Z}$ |
+| $\mathbb{Z}/6\mathbb{Z}$ | $\{(2), (3)\}$ | $\{(2), (3)\}$ |
+| $\mathbb{Z}/p^\infty\mathbb{Z}$ | $\{(p)\}$ | $\{(p)\}$ |
+| $k[x,y]/(x^2, xy)$ | $\{(x), (x,y)\}$ | $V((x)) = \{x=0\}$ |
+| $A/\mathfrak{a}$ | 准素分解的根集 | $V(\mathfrak{a})$ |
+
+最后一行是一切的母版：**$A/\mathfrak{a}$ 的相伴素就是第1篇准素分解的根集，支集就是零点集**——《准素分解》与《零点定理》在这里用同一个表格握手。
+
 **重点：$\operatorname{Ass} M$ 的极小元素恰是 $\operatorname{Supp} M$ 的极小元素，也恰是「$\operatorname{ann} M$ 的极小素因子」。** 嵌入素理想（非极小的相伴素）是「多余的分支」，它们不贡献支集的边界，却贡献「深度杀手」（见《深度》）。<span class="marginnote">一句话直觉：$\operatorname{Ass} M$ =「$M$ 的元素被哪些素理想零化」；极小相伴素是「真正构成 $M$ 支撑的分支」，嵌入相伴素是「被吞进别的分支里的退化点」。</span>
 
 **重点（Noether 模的关键性质）：$M \neq 0$ 时 $\operatorname{Ass} M \neq \emptyset$，且 Noether 模的 $\operatorname{Ass} M$ 是有限集。** 非空的证明用 Zorn：取零化子极大的元素，其零化子必为素理想。<span class="marginnote">有限性来自「降链 + 反链性质」：相伴素构成的反链在 Noether 环上有限（由升链条件保证）。「有限张病历卡」让 Noether 模可以逐个素理想地审问。</span>
+
+这条「有限」是后续一切论证的发动机：深度、维数、局部上同调（第2篇）的「逐个 $\mathfrak{p}$ 检查」都靠它收束成有限步的验证——非有限生成的模没有这份便利，这也是为什么本专题几乎总默认有限生成。
 
 ## 2 支集：模的领土
 
@@ -54,6 +68,8 @@ $$\operatorname{Supp} M = \bigcup_{\mathfrak{p} \in \operatorname{Ass} M} V(\mat
 
 支集被有限个相伴素的闭包「盖住」——Noether 模的支集是有限个不可约闭集的并。<span class="marginnote">几何翻译：$M$ 的支集在 $\operatorname{Spec} A$ 上像「闭子簇的有限并」，每块 $V(\mathfrak{p})$ 对应一个极小相伴素；嵌入相伴素只影响 $\operatorname{Ass}$ 不影响支集边界——与《准素分解》的「嵌入分支不贡献几何」完全一致。</span>
 
+对有限生成模，支集完全由生成元决定：$M = (m_1, \dots, m_r)$ 时 $\operatorname{ann} M = \bigcap_i \operatorname{ann}(m_i)$，故 $\operatorname{Supp} M = V(\operatorname{ann} M)$。算例：$M = k[x]/(x) \oplus k[x]/(x-1)$ 有 $\operatorname{ann} M = (x)\cap(x-1) = (x^2-x)$，支集是 $\{(x), (x-1)\}$ 两个点——与逐点算 $M_{\mathfrak{p}}$ 结果一致。**「$M$ 的支集」与「$\operatorname{ann} M$ 的零点集」在这里是同一句话。**
+
 ## 3 局部化下的行为
 
 **重点：局部化把相伴素「滤掉」那些与 $S$ 相交的：**
@@ -68,6 +84,8 @@ $$M = 0 \iff \operatorname{Supp} M = \emptyset \iff \operatorname{Ass} M = \empt
 
 **辨析｜易错点：** $\operatorname{Ass} M \neq \emptyset$ 只对 $M \neq 0$ 且（有限生成时）才稳定成立；但对**任意** $A$-模，$M \neq 0$ ⇒ $\operatorname{Ass} M \neq \emptyset$ 在 Noether 环上成立。初学者常默认「支集非空 ⇔ 模非零」——对有限生成模正确，对一般模（如某些大模）$\operatorname{Supp} M$ 可能非空而 $\operatorname{Ass} M$ 空。**先确认有限生成。**
 
+用 $\mathbb{Z}/6\mathbb{Z}$ 把局部化公式走一遍：$\operatorname{Ass} = \{(2), (3)\}$。在点 $(2)$ 处局部化，$S = \mathbb{Z}\setminus(2)$，$3 \in S$ 与 $(3)$ 相交，故 $(3)$ 被滤掉，剩下 $\operatorname{Ass}_{\mathbb{Z}_{(2)}}(\mathbb{Z}/6)_{(2)} = \{(2)\}$——点 $(2)$ 附近只看见「$2$ 的功劳」。这正对应 $(\mathbb{Z}/6)_{(2)} \cong \mathbb{Z}/2$。**局部化把不相干的素理想「按点过滤」**，这条公式是「审问模」的标准手续。
+
 ## 4 公式解析：支集 = 零化子的簇
 
 对有限生成 $A$-模 $M$：
@@ -77,8 +95,20 @@ $$\operatorname{Supp} M = V(\operatorname{ann} M), \qquad \operatorname{Supp} M 
 - **第一步，第一式**：$M_{\mathfrak{p}} \neq 0 \iff \mathfrak{p} \supseteq \operatorname{ann} M$。方向「$\supseteq$ 使非零」：$\operatorname{ann} M \subseteq \mathfrak{p}$ 时，$M$ 中「不被 $\mathfrak{p}$ 之外的元素零化」的非零元素在局部化中存活；反方向：若 $\mathfrak{p} \not\supseteq \operatorname{ann} M$，取 $a \in \operatorname{ann} M \setminus \mathfrak{p}$，则 $a$ 在 $A_{\mathfrak{p}}$ 中可逆、$aM = 0$ 推得 $M_{\mathfrak{p}} = 0$。<span class="marginnote">第二式是关键的「盖住」：有限生成时 $\operatorname{Supp} M$ 由极小相伴素的闭包并出；嵌入相伴素不改变并。两式合一：<strong>领土 = 极小重镇的闭包并 = 零化子的簇</strong>。</span>
 - **第二步，第二式**：$\operatorname{Ass} M \subseteq \operatorname{Supp} M$ 显然（$\mathfrak{p} \in \operatorname{Ass}$ 时 $M_{\mathfrak{p}}$ 含 $\mathfrak{p}$-零化的非零元）；反向用「极小元相同」——$\operatorname{Supp}$ 的极小元必为相伴素（局部化 + 零化子论证），而 $\operatorname{Supp}$ 由极小元的闭包并覆盖。
 - **第三步，用途**：$M$ 的维数 $\dim M = \dim \operatorname{Supp} M = \max_{\mathfrak{p} \in \operatorname{Ass} M} \dim A/\mathfrak{p}$——**模的维数被其相伴素的维数支配**。这正是《维数理论》与《深度》里反复使用的「维数 = 支撑闭集维数」的精确版本。
+- **第四步，特例**：若 $M$ 是 $A/\mathfrak{p}$ 的有限扩张，则 $\dim M = \dim A/\mathfrak{p}$ 且 $\operatorname{Ass} M = \{\mathfrak{p}\}$ 是单点集。于是「$\operatorname{Ass}$ 是单点」⇔「支集是不可约闭集」——几何里的「子簇」在模论里就是「相伴素单点」的模。
 
 **辨析｜易错点：** $\operatorname{Ass} M$ 与「$A/\mathfrak{p}$ 是 $M$ 的子商」的关系：$\mathfrak{p} \in \operatorname{Ass} M$ ⇔ $A/\mathfrak{p}$ 嵌入 $M$。这不是「商」，是「嵌入」——初学者把方向弄反就全盘皆错。判据永远回到 $\mathfrak{p} = \operatorname{ann}(m)$ 这个原始定义。
+
+**术语速查表**
+
+| 术语 | 一句话含义 |
+| --- | --- |
+| 相伴素 $\operatorname{Ass} M$ | 元素零化子为素者 |
+| 支集 $\operatorname{Supp} M$ | 局部化非零的点 |
+| 极小相伴素 | 支集的极小元，决定边界 |
+| 嵌入素理想 | 非极小的相伴素，深度杀手 |
+| $\operatorname{ann}(m)$ | 零化单个元素的理想 |
+| $\operatorname{ann} M$ | 零化整个模的元素之集 |
 
 ## 5 小结
 

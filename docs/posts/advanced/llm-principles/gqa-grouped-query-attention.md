@@ -86,7 +86,40 @@ $$
 - **与量化叠加**：GQA + KV 量化可再压几倍，是长上下文服务的「组合拳」。
 - **与 MHA 的兼容**：推理引擎（vLLM、TensorRT-LLM）对 GQA 均有通用实现，改配置即用。
 
-## 6 小结
+## 6 术语速查表
+
+| 术语 | 英文 | 一句话定义 |
+| --- | --- | --- |
+| GQA | grouped-query attention | 分组共享 K/V 的注意力 |
+| MQA | multi-query attention | 单一 K/V 头的极端压缩 |
+| MHA | multi-head attention | 每头独立 K/V 的原始形式 |
+| KV Cache | key-value cache | 推理时缓存的 K/V 张量 |
+| UP-training | upcycling | 从 MHA 均值池化转成 GQA |
+| 广播 | broadcast | 同组 query 共享一份 K/V |
+
+## 7 数值算例：一份 KV 显存账
+
+设 $H=64$、$d_k=128$、$g=8$、上下文 $L=8192$、FP16：
+
+- **MHA**：每 token 每层缓存 $2 \times 64 \times 128 \times 2$ 字节 ≈ 32 KB；8192 token ≈ 256 MB/层；32 层 ≈ **8 GB**。
+- **GQA-8**：每 token 每层缓存 $2 \times 8 \times 128 \times 2$ 字节 ≈ 4 KB；8192 token ≈ 32 MB/层；32 层 ≈ **1 GB**。
+
+同一个模型、同一段上下文，KV 从 8 GB 降到 1 GB——**多出的 7 GB 可以直接换成「更大的 batch、更长的上下文、或更高的并发」**。这就是 GQA 让「8k+ 上下文、大并发服务」从奢侈品变成日常用品的物理基础。
+
+**辨析｜易错点：** GQA 压缩的是**每 token 的 KV 大小**，不改变「注意力计算量」——query 侧仍是 $H$ 个头、仍是 $O(L^2)$ 的分数计算。GQA 管「存储与带宽」，FlashAttention 管「计算与访存」，两者是正交的优化维度，常叠加使用。
+
+## 8 MHA / GQA / MQA 一张表
+
+| 维度 | MHA | GQA | MQA |
+| --- | --- | --- | --- |
+| KV 头数 | $H$ | $g$（$1<g<H$） | 1 |
+| 每 token KV 显存 | $2H d_k$ | $2g d_k$ | $2d_k$ |
+| 质量 | 基线 | 近基线 | 略降 |
+| 代表模型 | 早期 GPT | LLaMA-2/3、Mistral、Qwen | PaLM、部分蒸馏模型 |
+
+三者的关系是「同一旋钮的连续取值」：$g$ 从 $H$ 拧到 1，压缩收益与质量损失同步上升。GQA 的工程智慧在于「**停在 $g \approx 8$ 的甜点**」——拿到大头收益，把质量损失控制在可忽略范围。
+
+## 9 小结
 
 - GQA 把 $H$ 个 query 头分成 $g$ 组，**每组共享一份 K/V**。
 - $g=1$ 即 MQA，$g=H$ 即 MHA——GQA 是整个 KV 压缩光谱的旋钮。

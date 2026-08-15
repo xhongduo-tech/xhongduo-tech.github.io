@@ -111,4 +111,18 @@ Kubo 公式里的一切最终都落到推迟 Green 函数 $G^R$。用单粒子�
 - 从推迟 Green 函数的定义出发，说明为什么它比时序函数更适合线性响应。
 - 把 Kubo 电导公式拆成三步：电流-电流关联 → 推迟函数 → 谱函数表达，说出每步的物理。
 - 用涨落-耗散定理的一句话版本解释「为什么越灵敏的系统噪声越大」。
-- 推导 Drude 公式从 Kubo 公式涌现的条件：谱函数须为 Lorentzian，$\tau = \hbar/\Gamma$
+- 推导 Drude 公式从 Kubo 公式涌现的条件：谱函数须为 Lorentzian，$\tau = \hbar/\Gamma$。
+
+## 7 数值算例：从谱函数读出 Drude 电导
+
+把 Kubo 公式用在最简单的模型上，看它如何自动给出 Drude 电导。设谱函数取 Lorentzian 形式：
+
+$$
+A(\mathbf{k},\omega) = \frac{1}{\pi}\frac{\Gamma}{(\omega - \varepsilon_{\mathbf{k}} + \mu)^2 + \Gamma^2}
+$$
+
+- **第一步，代进电导的谱表达**：$\sigma(\omega)\propto\int A(\mathbf{k},\omega')A(\mathbf{k},\omega'+\omega)\,[n_F(\omega')-n_F(\omega'+\omega)]/\omega$。取 $T=0$，$n_F(\omega')-n_F(\omega'+\omega)$ 只在宽度为 $\omega$ 的带内有贡献。
+- **第二步，取长波与窄展宽极限**：$q\to0$、$\Gamma\to0$ 但 $\tau=\hbar/2\Gamma$ 保持有限。积分给出 Drude 电导 $\sigma(\omega)=ne^2\tau/m(1-i\omega\tau)$——零频极限 $\sigma=ne^2\tau/m$，正是 Drude。
+- **第三步，读出物理**：Kubo 公式不需要「假设」Drude——只要谱函数有 Lorentzian 展宽，电导自动是 Drude 型。展宽来源（电子-声子、杂质、电子-电子）只进入 $\Gamma$ 的大小，不改变公式结构。
+
+**重点：Kubo 公式是「脚手架」而非「假设」——它把电导率的全部复杂性压缩进谱函数，而谱函数正是 Green 函数理论要算的对象。** 谱函数越宽（散射越强），$\Gamma$ 越大、$\tau$ 越小、电导越低——「散射压低电导」这句话在 Kubo 语言里就是「展宽压低谱函数峰值」。

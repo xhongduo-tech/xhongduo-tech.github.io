@@ -1,6 +1,6 @@
 ---
 title: 风险与风险管理
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 风险与风险管理
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第八级 · 社会科学 · 保险学 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第八级 · 保险学 ｜ Rejda &amp; McNamara《Principles of Risk Management and Insurance》§1, §3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从风险开始

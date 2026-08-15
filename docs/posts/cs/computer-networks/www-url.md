@@ -68,7 +68,50 @@ $$
 
 **辨析｜易错点：** 超链接是 Web 的「图结构」：网页是「结点」，超链接是「边」。**搜索引擎（Google）正是利用这张「链接图」来评估网页重要性的**（PageRank 算法）——一个网页被越多的权威页面链接，它就越重要。**「Web 的链接结构 + 搜索算法」**是信息检索与 Web 技术交汇的经典议题（见高级《信息检索》）。
 
-## 5 小结
+## 5 公式解析：URL 编码——把「非法字符」翻译成能上网的写法
+
+URL 只能出现在 ASCII 码表里的**一小部分安全字符**（字母、数字与若干保留符号）。中文、空格、`&`、`#`、`/` 等在 URL 里都不能裸写，必须**编码（percent-encoding）**：
+
+$$
+\text{编码字符} = \text{百分号} + \text{该字节的两位十六进制}
+$$
+
+- **第一步，看 UTF-8 字节**：以「中文」为例，UTF-8 编码为 6 个字节，如「中」的字节是 `E4 B8 AD`。
+- **第二步，逐字节转十六进制**：每个字节前加 `%`，得到 `%E4%B8%AD`。<span class="marginnote"><strong>URL 编码的作用域不止中文</strong>：空格编码为 <code>%20</code>（或 <code>+</code>）、<code>&</code> 编码为 <code>%26</code>、<code>#</code> 编码为 <code>%23</code>。解码时浏览器会把 <code>%E4%B8%AD</code> 还原成「中」。<strong>「查询字符串里想传什么，先问它安不安全」</strong>——凡是保留字与中文，一律编码。</span>
+- **第三步，为什么必须编码**：因为 `?`、`&`、`#` 在 URL 里有「语法职责」——`?` 后接查询、`&` 分隔参数、`#` 指向片段。若参数值里出现这些字符而不编码，URL 会被「切错段」，服务端拿到的参数就错了。
+
+**辨析｜易错点：** URL 编码与 **HTML 实体编码（`&amp;`）** 是两回事：前者在 URL 里转义字符，后者在 HTML 文档里转义字符。**「URL 编码在地址栏里生效，HTML 实体在网页源码里生效」**——两者不可混用。
+
+## 6 HTML：Web 内容的「骨架」
+
+**HTML（HyperText Markup Language）**：描述网页结构与内容的**标记语言**，由**标签（tag）** 组成：<span class="marginnote">一段最小 HTML 的灵魂：<strong><code>&lt;!DOCTYPE html&gt;</code></strong>`（声明 HTML5）、<strong><code>&lt;html&gt;</code></strong>`（根元素）、<strong><code>&lt;head&gt;</code></strong>`（元数据）、<strong><code>&lt;body&gt;</code></strong>`（可见内容）、<strong><code>&lt;a href="…"&gt;</code></strong>`（超链接）。<strong>「HTML 决定『有什么』，CSS 决定『长什么样』，JavaScript 决定『会做什么』」</strong>是前端三件套的分工。</span>
+
+| 标签 | 作用 | 例子 |
+| --- | --- | --- |
+| `&lt;h1&gt;` ~ `&lt;h6&gt;` | 标题分级 | `&lt;h1&gt;标题&lt;/h1&gt;` |
+| `&lt;p&gt;` | 段落 | `&lt;p&gt;正文&lt;/p&gt;` |
+| `&lt;a href="url"&gt;` | 超链接 | `&lt;a href="…"&gt;点我&lt;/a&gt;` |
+| `&lt;img src="…"&gt;` | 图片 | `&lt;img src="cat.jpg"&gt;` |
+
+HTML 文档由 W3C/WHATWG 制定标准，浏览器负责把 HTML「渲染」成可视页面。**HTML 是静态的**（只描述内容），要动态交互还得靠 JavaScript——这是 Web 从「文档」走向「应用」的关键一步。
+
+**辨析｜易错点：** **HTML 不是编程语言**（没有变量、循环、分支），它是**标记语言**；JavaScript 才是 Web 编程语言。**「HTML 是骨架、CSS 是皮肤、JS 是肌肉」**是记住三者职责的口诀。
+
+## 7 从 Web 到全栈：一次请求背后的「全家桶」
+
+一次看似简单的网页访问，其实调用了前面所有层的协议。把「五层模型」与「一次浏览」对应起来：<span class="marginnote"><strong>应用层</strong>`（HTTP/DNS）→ <strong>运输层</strong>`（TCP）→ <strong>网络层</strong>`（IP/路由器）→ <strong>数据链路层</strong>`（以太网帧/交换机）→ <strong>物理层</strong>`（光/电信号）。<strong>「你在浏览器里的每一次回车，都是五层协议的合奏」</strong>——这就是为什么学完 TCP/IP 你会更懂 Web。</span>
+
+| 层 | 协议/机制 | 在这一步里干什么 |
+| --- | --- | --- |
+| 应用层 | HTTP、DNS | 解析域名、取回网页 |
+| 运输层 | TCP | 可靠地分段传输（三次握手） |
+| 网络层 | IP | 逐跳路由转发 |
+| 数据链路层 | 以太网 | 在每段链路上封装成帧 |
+| 物理层 | 双绞线/光纤 | 传比特 |
+
+**辨析｜易错点：** 很多人学完五层模型却「用不上」。这里给你一个锚点：**每一次浏览器请求，都是从上到下一次「封装修建」、从下到上一次「剥壳还原」**——五层协议不是抽象说教，而是每次上网都在发生的真实流程。**「学完网络不看 Web，等于学完语法不写作文」**——Web 是 TCP/IP 的终极应用舞台。
+
+## 8 小结
 
 - **WWW 三要素**：URL（定位）、HTTP（传输）、HTML（呈现）。
 - **WWW ≠ 互联网**：Web 是跑在互联网上最成功的应用。

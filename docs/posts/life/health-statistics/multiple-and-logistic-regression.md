@@ -1,6 +1,6 @@
 ---
 title: 多元线性回归与Logistic回归
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 多元线性回归与Logistic回归
@@ -13,7 +13,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第五级 · 生命与健康科学 · 卫生统计学 ｜ 对标教材：Daniel & Cross, Biostatistics (11th) §11 ｜ 2026-08-11</p>
+<p>第五级 · 卫生统计学 ｜ Daniel & Cross, Biostatistics (11th) §11 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从多元回归开始

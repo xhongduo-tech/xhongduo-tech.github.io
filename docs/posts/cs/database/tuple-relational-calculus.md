@@ -97,7 +97,36 @@ $$
 
 **辨析｜易错点：** TRC 与 SQL 的对应不是机械的。SQL 的 DISTINCT 去重对应 TRC 的**集合**语义（无重复元组）；若不写 DISTINCT，SQL 默认是多重集。逻辑语言天然是集合，SQL 为了工程效率引入了多重集——这个差异在查询等价性讨论中反复出现。
 
-## 6 小结
+## 6 元组关系演算的数值算例与术语速查
+
+**把几个典型查询用 TRC 写一遍，把量词用熟。** 设 instructor(id, name, dept_name, salary)、teaches(id, course_id)。
+
+- **「找出薪资最高的教师名字」**：$\{ \langle t[{\text{name}}] \rangle \mid t \in instructor \land \forall\, u \in instructor \; ( u[{\text{salary}}] \le t[{\text{salary}}] ) \}$——全称量词断言「没人比自己高」。
+- **「找出选修了 2026 年课程的学生」**：$\{ t \mid t \in student \land \exists\, v \in takes \; ( v[{\text{ID}}] = t[{\text{ID}}] \land v[{\text{year}}] = 2026 ) \}$——存在量词断言「至少有一门」。
+- **「找出所有系都开课的教师」（系内开课）**：需双重量词，$\forall$ 套 $\exists$。
+
+**数值算例：$\forall$ 与 $\neg \exists$ 的等价改写** 设「选了全部课程的学生」$P(t)$。
+
+- 写法 A（$\forall$）：$\forall u \in course \; ( \text{选过} )$。
+- 写法 B（$\neg \exists$）：$\neg \exists u \in course \; ( \neg \text{选过} )$——「不存在一门没选的课」。
+- **两者等价**（逻辑上 $\forall x P \equiv \neg \exists x \neg P$），SQL 用 NOT EXISTS 实现——**理解这个等价，就看懂了 SQL 的 NOT EXISTS 嵌套**。
+
+**辨析｜易错点：** TRC 的「安全」要求——**$\forall$ 与 $\neg$ 必须限定在关系范围内**。`{ t | t ∈ instructor ∧ t[salary] > 80000 }` 安全（t 限定在 instructor）；但 `{ t | ¬(t ∈ instructor) }` 危险（t 可以是任何元组，结果无穷）。**「变量范围从哪来」是判断 TRC 安全性的第一问**。
+
+<span class="marginnote">把 TRC 与第一级《数理逻辑》的「谓词逻辑」对接：<strong>TRC 就是「一阶谓词逻辑」在数据库上的投影</strong>——原子公式、量词、辖域、自由/约束变量，全部是逻辑学的标准概念。学过数理逻辑，TRC 几乎是「白送的」；反过来，TRC 也让你第一次见识「逻辑公式真的能算查询」。</span>
+
+### 术语速查
+
+| 术语 | 含义 |
+| --- | --- |
+| 元组变量 | 遍历关系的整行变量 |
+| 原子公式 | 属于 / 属性比较 |
+| 自由/约束变量 | 未量化 / 被量词约束 |
+| 全称量词 ∀ | 对所有元组成立 |
+| 存在量词 ∃ | 至少一个元组成立 |
+| 安全性 | 结果有限、变量有范围 |
+
+## 7 小结
 
 - 元组关系演算用 $\{t \mid P(t)\}$ 声明式地描述结果，是 SQL WHERE 子句的**逻辑根基**。
 - 谓词由原子公式经 $\land, \lor, \neg, \exists, \forall$ 组合而成。

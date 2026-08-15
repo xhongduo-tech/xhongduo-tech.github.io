@@ -1,6 +1,6 @@
 ---
 title: 宪法 AI 与 RLAIF
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 宪法 AI 与 RLAIF：让 AI 评价 AI
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第四级 · 高阶专题 · 对齐技术（RLHF / DPO） ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第四级 · 对齐技术（RLHF / DPO） ｜ Bai et al., Constitutional AI 2022 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么还要 AI 反馈

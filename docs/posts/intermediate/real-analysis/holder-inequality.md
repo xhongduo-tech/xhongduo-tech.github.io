@@ -32,6 +32,18 @@ $$ab\le\frac{a^p}{p}+\frac{b^q}{q}$$
 
 **重点：Young 不等式把「乘积」分解为「幂」**——$ab$ 被两个「各论各的」项控制，权重 $1/p,1/q$ 之和为 1。这是 Hölder 证明的第一块砖。
 
+**共轭指数速查表**：常用配对 $(p,q)$ 直接查，省去每次现算：
+
+| $p$ | $q=\tfrac{p}{p-1}$ | 备注 |
+| --- | --- | --- |
+| $2$ | $2$ | 自共轭，即 Cauchy–Schwarz |
+| $3$ | $\tfrac32$ | 处理 $x^{-1/4}$ 型奇异函数 |
+| $4$ | $\tfrac43$ | 幂指数越小越「安全」 |
+| $\tfrac32$ | $3$ | 与 $p=3$ 对称 |
+| $p\to\infty$ | $q\to1^+$ | 退化到 $L^\infty$-$L^1$ 配对 |
+
+**记忆法**：$p$ 增大则 $q$ 减小，$p=2$ 是唯一自共轭点——正因为自共轭，$L^2$ 才独占内积结构（见《$L^2$ 空间》）。
+
 ## 2 Hölder 不等式的陈述与证明
 
 **定理（Hölder 不等式）**：设 $1\le p,q\le\infty$ 共轭（$\tfrac1p+\tfrac1q=1$），$f\in L^p$，$g\in L^q$。则 $fg\in L^1$，且
@@ -50,6 +62,10 @@ $$\int|\tilde f\tilde g|\le\frac1p\int|\tilde f|^p+\frac1q\int|\tilde g|^q=\frac
 
 **等号条件**：$\int|fg|=\|f\|_p\|g\|_q$ 当且仅当 $|f|^p$ 与 $|g|^q$ 几乎处处成比例（Young 等号条件 + 积分等号）。
 
+**边界情形（$p=1,q=\infty$）**：$\int|fg|\le\|f\|_1\|g\|_\infty$——由 $|f(x)g(x)|\le|f(x)|\,\|g\|_\infty$ 逐点成立再积分即得。<strong>Hölder 在最极端的共轭对上也成立</strong>，这正是 $L^\infty$ 与 $L^1$ 的对偶配对的依据（见《$L^\infty$ 空间与本性有界函数》）。
+
+**备注（为何只看 $\int|fg|$）**：Hölder 的结论先给 $\int|fg|$，再推出 $\left|\int fg\right|\le\int|fg|$（三角不等式）。<strong>「先绝对值、后符号」的顺序保证取绝对值的时刻不丢失信息</strong>——这是 Lebesgue 积分「绝对可积」纪律在不等式层面的回声。
+
 ## 3 推论与应用
 
 **推论一（Cauchy–Schwarz）**：$p=q=2$ 时，$\int|fg|\le\|f\|_2\|g\|_2$。
@@ -58,7 +74,13 @@ $$\int|\tilde f\tilde g|\le\frac1p\int|\tilde f|^p+\frac1q\int|\tilde g|^q=\frac
 
 **推论三（$L^p$ 内积配对）**：$f\in L^p,g\in L^q$ ⇒ $fg\in L^1$，映射 $(f,g)\mapsto\int fg$ 是 $L^p\times L^q\to\mathbb{R}$ 的连续双线性配对。**$L^p$ 与 $L^q$ 互为对偶（$p\ne\infty$ 时）**——这是泛函分析对偶理论的入口。
 
+**推论四（多因子版本）**：若 $f\in L^p,g\in L^q,h\in L^r$ 且 $\tfrac1p+\tfrac1q+\tfrac1r=1$，则 $fgh\in L^1$——把 $fg$ 视作整体、指数 $\tfrac{pr}{p+r}$，或直接对推广版 Hölder 使用均可。<strong>Hölder 可以逐次套用</strong>，三线性估计在调和分析里因此成立。
+
 **应用（卷积不等式）**：$\|f*g\|_r\le\|f\|_p\|g\|_q$（Young 卷积不等式），其中 $\tfrac1r=\tfrac1p+\tfrac1q-1$——调和分析的核心工具，靠 Hölder 证明。
+
+**例（数值验证）**：$f(x)=x$，$g(x)=1$ 在 $[0,1]$ 上，$p=q=2$。$\|f\|_2=(\int_0^1x^2)^{1/2}=\tfrac1{\sqrt3}$，$\|g\|_2=1$，$\int fg=\int_0^1x=\tfrac12$。验证 $\tfrac12\le\tfrac1{\sqrt3}\approx0.577$——成立且严格。
+
+**例（等号取到）**：取 $f=g=x$：$\int x^2=\tfrac13=\|f\|_2\|g\|_2$——等号成立，因为 $f$ 与 $g$ 支撑相同且强度成比例（等号条件生效）。两个例子对照：<strong>「$f=g$ 时 Hölder 取等」是直觉起点，而「不相干的 $f,g$ 只会严格小于」</strong>。
 
 **辨析｜易错点：Hölder 需要「$p,q$ 共轭」，不是「任意 $p,q$」。** 若 $\tfrac1p+\tfrac1q\ne1$，不等式形式要调整（Young 卷积不等式那种更一般的版本）。**「共轭」是 Hölder 成立的前提**——$1/p+1/q=1$ 让「幂平均的权重和为 1」。
 
@@ -84,6 +106,8 @@ $$\int|\tilde f\tilde g|\ \overset{\text{Young}}{\le}\ \frac1p\int|\tilde f|^p+\
 
 **重点：Hölder 的实用性在于「把乘积的积分拆成两个范数」。** 遇到「$\int fg$ 或 $\int f^ag^b$ 型」的量，第一反应就是 Hölder：先看 $p,q$ 怎么配（让指数共轭），再分别估计范数。**「乘积积分 → 范数乘积」是分析不等式的基本动作**，Hölder 是它的总闸门。
 
+**例四（与概率论对接）**：若 $X,Y$ 是随机变量，$E|XY|\le(E|X|^p)^{1/p}(E|Y|^q)^{1/q}$。取 $p=q=2$：$|\mathrm{Cov}(X,Y)|\le\sqrt{E[X^2]E[Y^2]}$——相关系数有界的全部依据。<strong>Hölder 在概率论里就叫「矩不等式」</strong>，大数定律与中心极限定理的估计处处用到它。
+
 ## 6 小结
 
 - **Hölder 不等式**：$\int|fg|\le\|f\|_p\|g\|_q$（$1/p+1/q=1$）。
@@ -91,5 +115,8 @@ $$\int|\tilde f\tilde g|\ \overset{\text{Young}}{\le}\ \frac1p\int|\tilde f|^p+\
 - **$p=q=2$**：Cauchy–Schwarz——Hölder 是 CS 的推广。
 - **推论**：有限测度 $L^q\subset L^p$；$L^p$-$L^q$ 对偶配对；Young 卷积不等式。
 - **地位**：$L^p$ 空间与泛函分析对偶理论的第一块基石。
+- **边界**：$p=1,q=\infty$ 也成立；等号条件 = 支撑相同且强度成比例。
+- **速查**：共轭对 $(2,2),(3,\tfrac32),(4,\tfrac43)$；$p$ 增 $q$ 减。
+- **配对**：$L^p$ 与 $L^q$ 互为对偶；卷积不等式 $\|f*g\|_r\le\|f\|_p\|g\|_q$。
 
 在下一节，我们用 Hölder 证明 **Minkowski 不等式**，完成 $L^p$ 的范数结构。

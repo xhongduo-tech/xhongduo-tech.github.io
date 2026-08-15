@@ -102,3 +102,24 @@ a\ \text{number of} + \text{复数} & \Rightarrow\ \text{复数}（许多）\\
 the\ \text{number of} + \text{复数} & \Rightarrow\ \text{单数}（……的数目）
 \end{cases}
 $$
+
+对这条判别公式做三步拆解：
+
+- **第一步，看冠词**：`a number of`（许多）→ 中心词是 `students`（复数），谓语复数；`the number of`（……的数目）→ 中心词是 `number`（单数），谓语单数。**「中心名词决定谓语」是处理一切数量短语的万能钥匙。**
+- **第二步，扩展同族**：`a lot of / most of / half of / 分数 + of + 名词` 一律看 `of` 后名词——不可数用单数，复数可数用复数：`Half of the work is done.` 与 `Half of the students are here.`
+- **第三步，注意量词家族**：`a pair of`、`a kind of`、`a piece of` 后跟谓语**单数**（量词是中心）——`A pair of shoes is on the floor.`
+
+**辨析｜易错点：** `either/neither + of + 复数` 的「规范单数 vs 口语复数」之争：规范语法用单数（`Neither of the answers is correct.`），现代口语复数已普及（`Neither of them are ready.`）。**正式书面语守单数，口语双可**——这条「规范 vs 用法」的张力是主谓一致最生动的案例。
+
+**补充：** 主谓一致在**倒装句**（第4篇第22节）里最容易「眼花」：`On the wall hangs a picture.`——主语是 `a picture`（单数），谓语 `hangs` 跟它一致，虽然地点状语 `on the wall` 在句首。**倒装不改变「谓语跟主语一致」的规则，只是语序变了。**
+
+## 7 小结
+
+- 一致的三条原则：**语法一致**（默认）、**意义一致**（集体名词/形复意单）、**就近原则**（either...or 等选择结构）。
+- 主语被 `with/as well as` 附加时，**谓语只跟核心主语一致**；`with` 附加 vs `and` 并列决定单复数。
+- 集体名词**可单可复**（整体/成员）；`news` 等形复意单用单数，`police` 等形单意复用复数。
+- 不定代词（`everyone`、`each`、`either`、`neither`）**恒用单数**。
+- 数量短语看 **`of` 后名词 / 量词中心**：`a number of` 复数、`the number of` 单数、`a pair of` 单数。
+- 从句/不定式/动名词作主语**一律单数**；`the writer and poet`（同人）单数 vs `the writer and the poet`（两人）复数。
+
+在下一节，我们将看语序的「反常装置」——倒装与强调结构，理解「位置即意义」的高级模式。

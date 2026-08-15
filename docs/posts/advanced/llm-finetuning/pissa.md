@@ -55,6 +55,14 @@ $$
 
 这一行「初始 $\Delta W$」的差别，就是收敛速度与最终效果差异的全部来源——其余训练配置几乎可以原样沿用。
 
+一个 $2\times 2$ 的完整算例，可以把「搬主分量」落到可手算的数字上。设 $W_0 = \begin{pmatrix}3 & 0 \\ 0 & 1\end{pmatrix}$，其 SVD 可直接读出：$U = I$、$\Sigma = \mathrm{diag}(3, 1)$、$V = I$。取 $r = 1$：
+
+- $W_0^{\text{principal}} = U_1\Sigma_1 V_1^\top = \begin{pmatrix}3 & 0 \\ 0 & 0\end{pmatrix}$——最大奇异值 3 对应的主方向；
+- 残差 $W_0 - W_0^{\text{principal}} = \begin{pmatrix}0 & 0 \\ 0 & 1\end{pmatrix}$——次奇异值 1 的部分，训练中冻结；
+- 可训练分支：$B = \begin{pmatrix}\sqrt3\\0\end{pmatrix}$、$A = \begin{pmatrix}\sqrt3 & 0\end{pmatrix}$，二者相乘 $BA = \begin{pmatrix}3 & 0 \\ 0 & 0\end{pmatrix}$，正好等于主分量。
+
+每一步都能手算验证，PiSSA「把最重要的部分搬进可训练分支」就不再是黑箱。换成 LoRA：$B = 0$、$A$ 随机，$\Delta W$ 从零出发、要花步数慢慢逼近主方向——同样的矩阵，起点天差地别。
+
 ## 3 公式解析：从 SVD 到 PiSSA 的参数重排
 
 把 PiSSA 与 LoRA 放在同一张公式表里，差异一目了然。设 $W_0 \in \mathbb{R}^{d \times k}$ 的 SVD 为 $W_0 = U \Sigma V^\top$：

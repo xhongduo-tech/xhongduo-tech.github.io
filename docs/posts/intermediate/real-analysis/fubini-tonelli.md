@@ -73,12 +73,48 @@ $$\int_p\int_q\lim_k\varphi_k=\int_p\lim_k\int_q\varphi_k=\lim_k\int_p\int_q\var
 
 **「先内层后外层」的 Levi 接力**，是 Tonelli 证明的标准结构，也是「非负性」在积分交换中的全部作用。
 
-## 5 小结
+## 6 数值演练与 Fubini 速查
+
+**算例一（重积分 = 累次积分的数值验证）**：$\int_{[0,1]^2}xy\,dm_2$。累次：$\int_0^1(\int_0^1xy\,dy)dx=\int_0^1x\cdot\tfrac12dx=\tfrac14$；重积分 $\int_0^1\int_0^1xy\,dxdy=\tfrac12\cdot\tfrac12=\tfrac14$。**换序后答案不变**——$xy\ge0$ 可积，Tonelli/Fubini 都适用。
+
+**算例二（条件收敛的换序陷阱）**：$f(x,y)=\tfrac{x^2-y^2}{(x^2+y^2)^2}$ 于 $[0,1]^2$。$\int_0^1\int_0^1f\,dxdy=\tfrac\pi4$ 而 $\int_0^1\int_0^1f\,dy dx=-\tfrac\pi4$——**两个累次积分符号相反**。根因：$\int|f|=\infty$（重积分绝对发散），Fubini 前提不满足。
+
+**对照表：Tonelli vs Fubini**
+
+| 定理 | 条件 | 结论 |
+| --- | --- | --- |
+| Tonelli | $f\ge0$ 可测 | 重积分 = 任一累次积分（含 $+\infty$） |
+| Fubini | $f\in L^1$ | 重积分 = 累次积分，截面 a.e. 可积 |
+| 反例 | $\int|f|=\infty$ | 换序可能失败 |
+
+**术语速查**
+
+| 记号 | 含义 |
+| --- | --- |
+| 截面 $f(x,\cdot)$ | 固定 $x$ 沿 $y$ 的函数 |
+| $m_{p+q}$ | 乘积空间测度 |
+| 边缘化 | 联合 → 边际（概率） |
+| $L^1$ | 绝对可积 |
+
+**辨析｜易错点：Tonelli 允许 $+\infty$，Fubini 要求有限。** 非负函数重积分可为 $+\infty$（Tonelli 仍成立）；但 Fubini 的结论（两个累次积分都有限）依赖 $\int|f|<\infty$。**「非负」给免费换序，「可积」给有限结论。**
+
+### 三步记住「先 Tonelli 后 Fubini」
+
+- **非负**：$f\ge0$ → 用 Tonelli，换序自由。
+- **可积**：$\int|f|<\infty$ → 拆正负部，用 Tonelli。
+- **线性**：相减得 Fubini 结论。
+
+**延伸（与概率论连接）**：$E[g(X,Y)]=\int\int g\,dF_{XY}$ 的「联合→边际」正是 Fubini——先对 $y$ 积分得到条件期望的再积分。**边缘化、重期望法则 $E[X]=E[E[X\mid Y]]$ 都是 Fubini 的概率措辞。**
+
+**一道收束练习**：用 Tonelli 证明 $\int_0^\infty\tfrac{e^{-x}-e^{-ax}}{x}dx=\ln a$（把 $\tfrac1x=\int_0^\infty e^{-tx}dt$ 代入，交换积分次序）——它展示 Tonelli 在「换序 + 参数积分」中的威力。
+
+## 7 小结
 
 - **Tonelli**：非负可测函数，重积分 = 任一累次积分，换序自由，允许 $+\infty$。
 - **Fubini**：$f\in L^1$，重积分 = 累次积分；先 Tonelli 后拆正负。
 - **前提本质**：$\int|f|<\infty$ 是换序安全的充分条件；条件收敛的累次积分可各说各话。
 - **反例**：$\tfrac{x^2-y^2}{(x^2+y^2)^2}$ 两个累次积分不等（$\pm\pi/4$）。
 - **应用**：概率论边缘化、统计中的联合→边际、多变量计算的宪法。
+- **数值**：$\int_{[0,1]^2}xy=\tfrac14$ 换序不变；条件收敛反例 $\pm\pi/4$。
 
 在下一节，我们回到几何直觉：**积分的几何意义**——可测函数的下方图形与积分的关系。

@@ -108,3 +108,24 @@ $$
 \text{范围} \to in
 \end{cases}\right)
 $$
+
+对这条粒度公式做三步拆解：
+
+- **第一步，判断对象粒度**：`at 5 o'clock`（时间点）、`at the door`（地点点）；`on Monday`（某一天）、`on the wall`（表面）；`in 2026`（时间段）、`in the room`（空间范围）。
+- **第二步，套用粒度法则**：**`at` 管点、`on` 管线/面、`in` 管范围**——时间与地点共用同一套逻辑，是最优雅的对称。
+- **第三步，注意粒度切换**：`in the morning`（泛指）但 `on Monday morning`（具体某天）；`arrive at`（小地点）但 `arrive in`（大地点）——**「粒度细化会拉回 `on`/`at`」**。
+
+**辨析｜易错点：** 固定搭配无法从规则推出，只能成组记忆：`depend on`、`look forward to`、`insist on`、`succeed in`、`apologize for`——其中 **`to` 组（`look forward to`、`object to`、`be used to`、`pay attention to`）的 `to` 后接动名词**是第3篇动名词的经典考点。
+
+**补充：** 介词短语的「身份随位置变」值得再强化：`The man in black is my teacher.`（`in black` 作定语）与 `The man is in black.`（`in black` 作表语）——**同一个介词短语，位置变了身份就变**，这正是第1篇「位置语言」思想的直接延续。
+
+## 7 小结
+
+- 介词短语 = **介词 + 宾语**（名词/代词宾格/动名词/wh- 从句）；介词按构造分简单、复合、短语介词。
+- 介词短语可作**状语、定语、表语、宾语补语**——身份由位置决定。
+- 时间/地点粒度法则：**`at` 管点、`on` 管线面、`in` 管范围**；粒度细化会拉回 `on`。
+- `since` + 时间点 / `for` + 时间段是完成体黄金搭档；`last/next/this` 前不用介词。
+- 地点介词对立：`above/over` vs `below/under`、`in front of` vs `in the front of`、`between` vs `among`、`besides` vs `except`。
+- 固定搭配只能**成组记忆**；`to` 组后接动名词是高频陷阱。
+
+在下一节，我们将结束词法篇、进入句法篇——名词性从句，看一个完整句子如何「降格」为主语、宾语、表语与同位语。

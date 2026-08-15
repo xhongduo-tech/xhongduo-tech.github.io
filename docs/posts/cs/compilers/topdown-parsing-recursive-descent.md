@@ -90,6 +90,24 @@ $$\text{且若 } \beta_i \Rightarrow^* \varepsilon \text{，则 } \text{FIRST}(\
 
 **重点是**：递归下降的「慢」在工程上并不成立——它线性时间、内存少、可读可调，所以成了现代编译器前端的主流。<span class="marginnote">值得留意：递归下降是「人写」的，Yacc/Bison 是「生成」的。人写的好处是自由与错误信息质量，坏处是文法正确性全凭自觉；生成的好处是文法即规范，坏处是错误信息又臭又硬。两种路线至今并存。</span>
 
+## 6 一个「递归下降走完输入」的完整轨迹
+
+把递归下降的执行落在一个具体例子上。文法 $E \to T E'$、$E' \to +T E' \mid \varepsilon$、$T \to \textbf{id}$，输入 `id + id $`。
+
+**调用轨迹（含 match）**：
+
+1. `E()` 调 `T()`。
+2. `T()`：lookahead 是 id → `match(id)`（输入指针前进到 `+`），返回。
+3. `E()` 调 `E_prime()`。
+4. `E_prime()`：lookahead 是 `+` → `match('+')`（指针前进到 id），调 `T()`。
+5. `T()`：lookahead 是 id → `match(id)`（指针前进到 `$`），返回。
+6. `E_prime()` 递归：lookahead 是 `$`，不是 `+` → **ε 分支，直接返回**。
+7. 回到 `E()`，整个调用结束，输入已耗尽——分析成功。<span class="marginnote">「ε 分支直接返回」是这个轨迹里最容易被忽视的一步：<strong>它不 match 任何输入，只是「放 E' 过去」</strong>——把决定权交给下一层。若在 ε 分支错误地 match，输入就被多消费，后续匹配全乱。手写递归下降的 bug 常藏在这里。</span>
+
+**要点**：每一步「match 前进输入、递归展开树」构成了完整的最左推导 $E \Rightarrow T E' \Rightarrow \textbf{id}\ E' \Rightarrow \textbf{id} + T E' \Rightarrow \textbf{id} + \textbf{id}\ E' \Rightarrow \textbf{id}+\textbf{id}$。**递归下降的调用栈，就是最左推导的执行记录**。
+
+**辨析｜易错点：** ε 分支（第 6 步）最容易写错——它「什么都不 match 就直接返回」。若在这里错误地 match 了什么，输入就被多消费、后续匹配全乱。ε 的正确实现是「看到不属于任何候选的记号时，什么都不做、返回，把决定权交给下一层」。
+
 ## 7 思考与练习
 
 **练习 1 手写递归下降**：为文法 $E \to T E'$、$E' \to +T E' \mid \varepsilon$、$T \to \textbf{id}$ 手写递归下降分析器的伪代码（三个函数），并用手工走完 `id + id` 的调用过程，标出每次 `match` 与递归调用。

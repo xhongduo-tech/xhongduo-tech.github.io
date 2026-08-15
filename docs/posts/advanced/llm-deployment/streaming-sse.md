@@ -36,6 +36,8 @@ data: [DONE]
 
 SSE 的关键特性：**同一个连接上可以推无数条消息**。HTTP 响应头 `Content-Type: text/event-stream` 告诉客户端「这不是普通响应，是流」，之后服务器就持续写数据。
 
+SSE 消息体还有几个可选字段：`event:` 声明事件名（客户端用 `addEventListener('事件名')` 监听）、`id:` 提供消息 ID（配合断线重连的 `Last-Event-ID`）、`retry:` 建议重连间隔（毫秒）。LLM 流式通常只用 `data:`，但**心跳依赖注释行 `: ping`**——以冒号开头的行是注释，被协议忽略，却能让连接持续有数据、不被代理判为 idle 而杀掉。
+
 ## 2 OpenAI 流式的增量格式
 
 OpenAI 兼容的流式响应，每条 SSE 消息是一个「增量 JSON」——包含**新生成的那一段**，而不是全量：
@@ -56,7 +58,49 @@ data: [DONE]
 
 **`delta` 是增量**：第一条通常是 `delta.role`（角色声明），中间是 `delta.content`（每段的文本增量），最后 `delta` 变成 `{}`（空对象，仅带 `finish_reason`）。<span class="marginnote">客户端解析流式的核心逻辑：<strong>把每条消息的 <code>delta.content</code> 追加到缓冲区</strong>。增量而非全量，是流式协议的灵魂——全量会让「打字机效果」失效。finish_reason 在最后一条：非流式时它在响应里；流式时它作为「收尾消息」的字段出现，客户端要等它确认「生成结束」。`[DONE]` 是流的终止：客户端遇到 `[DONE]` 就关闭连接、结束渲染。</span>
 
-## 3 流式背后的引擎机制
+把「解析增量流」落成一段浏览器代码，就是四步：
+
+```javascript
+// 浏览器端解析 SSE：fetch + ReadableStream
+const res = await fetch("/v1/chat/completions", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ model, messages, stream: true }),
+});
+const reader = res.body.getReader();
+const decoder = new TextDecoder();
+let buf = "";
+for (;;) {
+  const { value, done } = await reader.read();
+  if (done) break;
+  buf += decoder.decode(value, { stream: true });
+  for (const line of buf.split("\n")) {        // 按行切分
+    if (!line.startsWith("data:")) continue;    // 只要 data 行
+    const data = line.slice(5).trim();
+    if (data === "[DONE]") return;              // 结束标记
+    const delta = JSON.parse(data).choices?.[0]?.delta?.content;
+    if (delta) appendText(delta);               // 追加增量
+  }
+}
+```
+
+这段代码的要点：SSE 以行为单位切分（`data:` 前缀）、增量 JSON 里取 `delta.content`、遇到 `[DONE]` 收尾。真实客户端还要处理「一条消息跨多个网络块」的缓冲问题，即**尾行不完整时要留到下一块再拼**——上面的 `buf` 就承担了这个职责。
+
+## 3 流式的选型：SSE vs WebSocket vs 轮询
+
+LLM 流式不是只有 SSE 一种实现，选型要看「谁在推、多频繁、多复杂」：
+
+| 方案 | 方向 | 复杂度 | 适用 |
+| --- | --- | --- | --- |
+| 轮询（polling） | 客户端反复拉 | 最低 | 频率低、无实时要求的兜底 |
+| SSE | 服务器单向推 | 低（纯 HTTP） | LLM 逐 token 推送，主流默认 |
+| WebSocket | 双向全双工 | 中（握手、心跳、帧协议） | 客户端需同时发控制指令的场景 |
+
+**SSE 赢在「够用且简单」**：LLM 只需服务器单向推 token，SSE 走普通 HTTP、被各种代理与 CDN 天然支持，没有 WebSocket 的升级握手与帧解析。只有当客户端需要「边生成边发新指令」（随时打断、切换参数）时才值得上 WebSocket——那已经是双向交互了。
+
+**辨析｜易错点：不是所有「流式」都是 SSE。** 有些引擎内部用换行 JSON（NDJSON）或自定义分帧，OpenAI 兼容层通常把它们翻译成 SSE。**客户端按 SSE 解析，服务端内部可能是另一套**——协议是「接口契约」，实现可以不同。
+
+## 4 流式背后的引擎机制
 
 流式不是「API 层做做样子」，它要穿透整个推理栈：
 
@@ -66,7 +110,7 @@ data: [DONE]
 
 **辨析｜易错点：`max_tokens` 与流式。** 流式时客户端照样要传 `max_tokens`——引擎按它约束生成长度，但**长度到了不会「突然断开」，而是发一条带 `finish_reason: "length"` 的收尾消息**。客户端如果只处理 `delta.content` 而忽略 `finish_reason`，会误以为「模型说完但内容被截断是 bug」，实际是超长截断的**正常信号**。
 
-## 4 工程三坑：背压、超时与中断
+## 5 工程三坑：背压、超时与中断
 
 流式把「网络」和「生成」耦合在一起，带来三个工程坑：
 
@@ -74,7 +118,7 @@ data: [DONE]
 - **超时**：流式长连接会被中间代理（Nginx、负载均衡器）的 idle 超时杀掉——如果一段时间没有数据（如模型在想），连接被断开，客户端收到「连接重置」。解法：**周期性发心跳（注释行 `: ping`）**，或者调大代理的 `read_timeout`。
 - **中断恢复**：网络断了，流怎么续？SSE 是「断了一了百了」——客户端只能重新发起请求。**幂等性设计**（请求带 `request_id`，服务端缓存已完成部分）是高级玩法，多数服务选择「重发整个请求」的朴素策略。
 
-## 5 公式解析：TTFT 与流式的体验收益
+## 6 公式解析：TTFT 与流式的体验收益
 
 流式对体验的收益用「可感知延迟」度量。设生成 $N$ 个 token，每 token 生成时间 $t_{\text{per-token}}$，首 token 延迟 $T_{\text{TTFT}}$。
 
@@ -82,7 +126,7 @@ data: [DONE]
 - **第二步，写流式体验**：用户在第 $T_{\text{TTFT}}$ 秒看到第一字，之后每个 $t_{\text{per-token}}$ 看到新字。**感知延迟从「全部生成完」变为「第一个 token 生成完」**。
 - **第三步，比体感**：非流式 25 秒的等待 vs 流式 0.5 秒出第一个字 + 25 秒「打字」——**同样的总时长，体感从「卡死」变成「对话中」**。这就是流式协议的全部价值：它不改变总生成时间，但彻底改变用户的等待体验。
 
-## 6 小结
+## 7 小结
 
 - **SSE 是单向 HTTP 推送**：`data:` 前缀 + 空行分隔 + `[DONE]` 结束，走普通 HTTP 兼容性好。
 - **增量而非全量**：每条消息的 `delta.content` 是新增段，`finish_reason` 在收尾消息出现。

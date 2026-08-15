@@ -84,12 +84,39 @@ $$T(n, t, \varepsilon) = O\left(n \cdot \frac{\log t}{\delta}\right) = O\left(\f
 
 **边界**：并非所有 NPC 问题都有 FPTAS。**TSP（一般情形）没有**——若 TSP 有 FPTAS，用 $\varepsilon$ 足够小就能精确解它（多项式），与 NPC 矛盾。**「有 FPTAS ⟺ 问题有伪多项式算法且非强 NPC」**是近似的经典刻画。<span class="marginnote">强 NPC 与 FPTAS 的关系：强 NP 完全问题（TSP 的判定版在「一元编码」下仍 NPC）<strong>没有 FPTAS</strong>（除非 P=NP）。子集和不是强 NPC（数值可以缩放），所以有 FPTAS。这个「可缩放性」区分了「能任意近似」与「只能常数近似」——近似比课已埋下伏笔，这里闭合。</span>
 
-## 6 小结
+## 6 数值算例：把 FPTAS 完整跑一遍
+
+实例：$S = \{100, 50, 25\}$、$t = 130$、$\varepsilon = 0.2$。最优：$100 + 25 = 125 \le 130$，$\text{OPT} = 125$。
+
+**第一步，缩放**：$K = \lfloor \varepsilon t / n \rfloor = \lfloor 0.2 \times 130 / 3 \rfloor = \lfloor 8.67 \rfloor = 8$。缩放后 $S' = \{\lfloor 100/8\rfloor, \lfloor 50/8\rfloor, \lfloor 25/8\rfloor\} = \{12, 6, 3\}$，$t' = \lfloor 130/8 \rfloor = 16$。
+
+**第二步，小范围 DP**：在 $\{12,6,3\}$ 里找不超过 16 的最大和——$12+3 = 15$，$12+6 = 18 > 16$，$6+3 = 9$，$12+6+3 = 21$。最大是 **15**。<span class="marginnote">注意缩放后的数值范围只有 $[0, 16]$——DP 的容量从 130 缩到 16，<strong>数组小了 8 倍</strong>。若 $n$、$t$ 更大，这个「缩放」的节省是数量级的。$K$ 取 $\lfloor \varepsilon t / n \rfloor$ 的意义：把「总误差预算 $\varepsilon t$」按 $n$ 个元素均摊，每个元素缩放后最多损失 1 个单位。</span>
+
+**第三步，还原**：输出 $= 15 \times K = 15 \times 8 = 120$。近似比 $120 / 125 = 0.96 \ge 1 - \varepsilon = 0.8$——**满足 $(1-\varepsilon)$ 保证，且远超底线**。
+
+**误差从哪来**：缩放丢掉的精度——$100 \to 12$（原值 96–104 都映射到 12），最优解 $100+25=125$ 在缩放后是 $12+3=15$，还原得 120，比 125 少 5，恰在 $K \times \text{项数} = 8 \times 2 = 16$ 的误差上限内。**每步损失被 $K$ 钉住，总损失 $O(nK) \approx \varepsilon t$**——这正是「精度换速度」的量化。
+
+## 7 小结
 
 - **精确算法**：列表合并 + 修剪（$\delta$ 相对误差内合并），$O(n\log t/\delta)$ 时间。
 - **FPTAS**：$\delta = \varepsilon/n$ 把误差按步均摊，累积 ≤ $\varepsilon$。
 - **复杂度** $O(n^2\log t/\varepsilon)$——对 $n$ 与 $1/\varepsilon$ 多项式，$t$ 只以 $\log t$ 出现。
 - **近似比**：输出 ≥ $(1-\varepsilon)$ 最优——任意精度可达。
+- 数值算例：$\{100,50,25\}, t=130, \varepsilon=0.2$ 输出 120 ≥ 0.8×125，误差被 $K=8$ 钉住。
 - 子集和有 FPTAS（非强 NPC）；TSP 没有（强 NPC）——「可缩放性」决定近似能力。
+
+
+**速查表**：
+
+| 概念 | 含义 |
+| --- | --- |
+| 伪多项式 DP | $O(nt)$，依赖数值 $t$ 而非输入规模 |
+| 缩放因子 $K = \lfloor \varepsilon t/n \rfloor$ | 把数值按预算缩小 |
+| 修剪 $\delta$ | 相对误差 ≤ $\delta$ 的项合并，控制列表大小 |
+| FPTAS vs PTAS | $1/\varepsilon$ 进多项式才算 FPTAS |
+
+**辨析｜易错点：** FPTAS 的近似比是乘法（$1-\varepsilon$ 相对误差）不是加法；且要求时间对 $1/\varepsilon$ 多项式——PTAS 的 $n^{O(1/\varepsilon)}$ 不算 FPTAS（$\varepsilon$ 在指数里）。
+
+**数值快照**：$\{100,50,25\}, t=130, \varepsilon=0.2$：$K=8$ 把容量从 130 缩到 16，输出 120 ≥ $0.8\times125$，误差被 $K$ 钉在「每项至多 1 个单位 × 项数」内。
 
 在下一课，我们进入专题的最后一个前沿——**字符串匹配进阶**的第一课：朴素匹配的缺陷分析，为 Rabin-Karp、KMP、Boyer-Moore 立靶子。

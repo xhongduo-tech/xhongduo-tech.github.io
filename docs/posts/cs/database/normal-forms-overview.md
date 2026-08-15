@@ -90,7 +90,37 @@ $$
 
 **辨析｜易错点：** 判定范式先**求候选码**，再分类**主/非主属性**，最后检查「部分/传递依赖」——三步缺一不可。最隐蔽的坑是「存在多个候选码」：漏算候选码会错判主属性，从而误判 3NF/BCNF。
 
-## 6 小结
+## 6 范式判定的数值算例与术语速查
+
+**把四个范式对同一个模式逐级判定一遍。** 设 `takes(student_id, course_id, student_name, dept_name)`，候选码 `(student_id, course_id)`。
+
+- **1NF**：所有属性原子 ✅。
+- **2NF**：`student_name` 只依赖 `student_id`（候选码真子集）——**部分依赖**，违反 2NF ❌。需拆出 `student(student_id, student_name, dept_name)`。
+- **3NF**：拆后 `student_name` 依赖 `student_id`、`dept_name` 依赖 `student_name`？若 `student_name` 唯一则 `dept_name` 对 `student_id` 传递依赖——**违反 3NF** ❌，再拆 `student(student_id, student_name)` 与 `dept_student(student_name, dept_name)`。
+- **BCNF**：逐检查每个非平凡依赖的左侧闭包是否覆盖全属性——全部满足则 BCNF ✅。
+
+**数值算例：多候选码的判定陷阱** 设 `dept_advisor(s_id, i_id, dept_id)`，候选码 `(s_id, dept_id)` 与 `(s_id, i_id)`。
+
+- 若只看一个候选码 `(s_id, dept_id)`，会漏判 `i_id` 是主属性。
+- 正确判定：主属性 = 所有候选码属性的并集 = {s_id, i_id, dept_id}——全是主属性，于是 3NF 的「非主属性传递依赖」检查全部放行——**模式满足 3NF 但违反 BCNF**（`i_id → dept_id` 左侧非超码）。
+- 教训：**先求全部候选码，再判主属性**——漏候选码 = 误判范式。
+
+**辨析｜易错点：** 范式的包含关系 BCNF ⊂ 3NF 意味着「满足 BCNF 一定满足 3NF」，但反过来不成立。**判定时从 1NF 逐级向上检查**，每级都要找候选码、分类主/非主属性、检查对应依赖——这是规范化笔试的标准流程。
+
+<span class="marginnote">范式的现实意义不在「追求最高级」，而在「<strong>用范式诊断设计问题的类型</strong>」：1NF 问题 = 原子性坏了，2NF 问题 = 组合码拆得不干净，3NF 问题 = 传递依赖藏了冗余，BCNF 问题 = 主属性之间还有依赖。每种问题对应一种「拆表」的修法。</span>
+
+### 术语速查
+
+| 术语 | 含义 |
+| --- | --- |
+| 1NF | 属性原子、无集合值 |
+| 2NF | 无非主属性部分依赖 |
+| 3NF | 无非主属性传递依赖 |
+| BCNF | 每个非平凡依赖左侧是超码 |
+| 主属性 | 属于某个候选码的属性 |
+| 候选码 | 极小的超码 |
+
+## 7 小结
 
 - 范式阶梯：**1NF（原子）→ 2NF（无部分依赖）→ 3NF（无传递依赖）→ BCNF（左侧皆超码）**。
 - 2NF 只针对**组合候选码**；单属性码自动满足 2NF。

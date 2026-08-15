@@ -1,6 +1,6 @@
 ---
 title: 加性范畴与 Abel 范畴
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 加性范畴与 Abel 范畴
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 范畴论 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 范畴论 ｜ Mac Lane Ch. VIII ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从加性范畴开始
@@ -26,6 +26,10 @@ $$h \circ (f + g) = h \circ f + h \circ g, \qquad (f + g) \circ k = f \circ k + 
 
 **零对象（zero object）**：既是始对象又是终对象的对象，记作 $\mathbf{0}$。在 $\mathbf{Vect}$ 中是零空间。**加性范畴（additive category）**：预加性 + 有零对象 + 每对对象有**双积（biproduct）**。
 
+在预加性范畴里，$\mathrm{Hom}$ 集的群结构一律写成**加法记号**：$0$ 表示零态射，$f + g$ 表示逐点相加。这让「矩阵」成为可能——态射之间的加、减、零在逻辑上先行于一切具体对象，这正是后面同调代数里复形条件 $d \circ d = 0$ 能成立的前提。<span class="marginnote">对比 $\mathbf{Set}$：那里两个函数之间没有自然的「和」，所以「$f + g$」无从谈起；预加性把「可以相加」变成范畴的一种结构性质，而不是某个对象的偶然能力。</span>
+
+一旦有双积，态射就可以「排成矩阵」：$\mathrm{Hom}(a_1 \oplus a_2,\ b_1 \oplus b_2)$ 的元素一一对应到 $2 \times 2$ 分块 $\begin{pmatrix} f_{11} & f_{12} \\ f_{21} & f_{22} \end{pmatrix}$，其中 $f_{ij}: a_j \to b_i$，而复合就是矩阵乘法。这是「线性代数语言在任意加性范畴里都能用」的最直观证据——也是后面谱序列、导出函子的记号基础。
+
 **双积（biproduct）** $a \oplus b$ 同时是乘积与余积，由四态射 $i_1, i_2, p_1, p_2$ 及其关系唯一刻画（见公式解析）。<span class="marginnote">在 $\mathbf{Ab}$、$\mathbf{Vect}$、$\mathbf{Mod}_R$ 里直和 = 直积，双积的存在说明「乘积与余积在这个范畴里长一个样」——这是线性代数「直和/直积不区分」的范畴论根源。</span>
 
 ## 2 核、余核与正合列
@@ -39,6 +43,25 @@ $$h \circ (f + g) = h \circ f + h \circ g, \qquad (f + g) \circ k = f \circ k + 
 **正合列（exact sequence）**：$A \xrightarrow{f} B \xrightarrow{g} C$ 满足 $\ker g = \mathrm{im}\, f$。短正合列 $0 \to A \to B \to C \to 0$ 把「$B$ 由 $A$ 与 $C$ 拼成」这件事精确化。<span class="marginnote">同调代数的全部动力来自正合列：长正合列、蛇形引理、五引理——都是「在 Abel 范畴里做线性代数」的推论。层上同调、导出函子、谱序列都建立其上。</span>
 
 **辨析｜易错点：** 在一般范畴里「单态射」不等于「内射」，「满态射」不等于「满射」。Abel 范畴之所以重要，正是因为它提供**核、余核、像**这套线性结构，让「像 = 核」这类等式有意义；而在普通范畴里这些概念根本无从谈起。
+
+**数值算例：在 $\mathbf{Vect}_{\mathbb{R}}$ 里算核与余核。** 取 $f: \mathbb{R}^2 \to \mathbb{R}^2$，$f(x, y) = (x, 0)$（向 $x$ 轴的投影）。$\ker f = \{(0, y)\}$ 是 $y$ 轴这条一维子空间，$\mathrm{im}\, f = \{(x, 0)\}$ 是 $x$ 轴；余核 $\mathrm{coker}\, f = \mathbb{R}^2 / \mathrm{im}\, f$ 商掉 $x$ 轴后同构于 $\mathbb{R}$。
+
+$$0 \to \ker f \to \mathbb{R}^2 \xrightarrow{q} \mathrm{coker}\, f \to 0$$
+
+短正合列「$\mathbb{R}^2$ 由两条一维线拼成」由此被精确写下来：每个向量 $(x, y)$ 唯一分解为 $(x, 0) + (0, y)$，且这条正合列是**分裂的**——存在回缩 $s: \mathbb{R} \to \mathbb{R}^2$，$s(t) = (0, t)$ 使 $q \circ s = 1$。<span class="marginnote">一般结论：$0 \to A \to B \to C \to 0$ 分裂当且仅当 $B \cong A \oplus C$。机器学习里残差块 $y = x + f(x)$ 正是这种分裂结构——恒等回线保证信息不丢失。</span>
+
+**实例对照：哪些范畴是 Abel 的？** 「能做线性代数」不是一句空话，下表把它落实成「预加性 / 加性 / Abel」三张检查表：
+
+| 范畴 | 预加性 | 加性 | Abel |
+| --- | --- | --- | --- |
+| $\mathbf{Set}$ | ✗ | ✗ | ✗ |
+| $\mathbf{Grp}$（非交换群） | ✗ | ✗ | ✗ |
+| $\mathbf{Ab}$ | ✓ | ✓ | ✓ |
+| $\mathbf{Vect}_k$ | ✓ | ✓ | ✓ |
+| $\mathbf{Mod}_R$ | ✓ | ✓ | ✓ |
+| $\mathbf{Sh}(\mathcal{T})$ 层范畴 | ✓ | ✓ | ✓ |
+
+关键的否定是前两行：$\mathbf{Set}$ 里根本没有「态射相加」，$\mathbf{Grp}$ 里两个群同态的「逐点积」不再是同态（除非目标群交换）。这两条失败恰好说明**加法与 Abel 结构是一份稀缺财产**，而不是所有范畴的标配。
 
 ## 3 Abel 范畴
 
@@ -69,7 +92,25 @@ $$
 
 **辨析｜易错点：** 不要误以为「Abel 范畴 = 交换群范畴的推广所以必然关于函子良态」。函子把正合列映成正合列（左/右/正合）是**额外性质**，不是免费午餐；这是同调代数花费一整章讨论的问题。
 
-## 6 小结
+**一个小实验：在 $\mathbf{Vect}$ 里算 $\mathrm{Ext}^1$。** 短正合列 $0 \to A \to B \to C \to 0$ 的「非分裂程度」由 $\mathrm{Ext}^1(C, A)$ 度量：当 $C = A = \mathbb{R}$ 时 $\mathrm{Ext}^1(\mathbb{R}, \mathbb{R}) = 0$，说明所有以 $\mathbb{R}$ 为核、以 $\mathbb{R}$ 为余核的扩张都分裂——维数可加性保证中间层必同构于 $\mathbb{R}^2$。而在 $\mathbf{Ab}$ 中 $\mathrm{Ext}^1_{\mathbb{Z}}(\mathbb{Z}/2, \mathbb{Z}) \cong \mathbb{Z}/2$ 非零：$\mathbb{Z}/2$ 的扩张确有真分歧。这个对比正是 Abel 范畴让「同调代数可计算」的原因。
+
+**正合函子的数值检验。** 右正合与左正合是两种不同性质：$-\otimes_{\mathbb{Z}} \mathbb{Z}/2$ 是右正合而非左正合——对短正合列 $0 \to \mathbb{Z} \xrightarrow{2} \mathbb{Z} \to \mathbb{Z}/2 \to 0$ 张量 $\mathbb{Z}/2$，中间的「乘以 2」变成零映射，正合性在左端断掉，而 $\mathrm{Tor}^{\mathbb{Z}}_1(\mathbb{Z}/2, \mathbb{Z}/2) \cong \mathbb{Z}/2$ 恰好度量了这个「断」。
+
+## 6 术语速查表
+
+| 术语 | 英文 | 一句解释 |
+| --- | --- | --- |
+| 预加性范畴 | preadditive category | $\mathrm{Hom}$ 集是交换群且复合双线性 |
+| 零对象 | zero object | 既是始对象又是终对象；$\mathbf{Vect}$ 中是零空间 |
+| 双积 | biproduct | 同时是乘积与余积，由五条方程刻画 |
+| 核 | kernel | 被 $f$ 杀死的最大的对象 |
+| 余核 | cokernel | 把像压掉得到的商对象 |
+| 像 | image | $\mathrm{im}\, f = \ker(\mathrm{coker}\, f)$ |
+| 正合列 | exact sequence | $\ker g = \mathrm{im}\, f$ 的态射链 |
+| 分裂正合列 | split exact | $B \cong A \oplus C$ 的特殊情形 |
+| Abel 范畴 | abelian category | 加性 + 核/余核存在 + 正则性 |
+
+## 7 小结
 
 - **预加性范畴**：$\mathrm{Hom}$ 集是交换群，复合双线性；**加性范畴** = 预加性 + 零对象 + 双积。
 - **双积**由五条方程刻画，同时是乘积与余积——直和 = 直积。

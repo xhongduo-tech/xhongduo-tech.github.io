@@ -80,7 +80,43 @@ BLAST 是一族工具，区别在于「谁比谁、怎么比」：
 
 <span class="marginnote">一个经典易错点：<strong>blastp 用蛋白比蛋白</strong>，可蛋白比 DNA 是 tblastn；<strong>不要</strong>用 blastn 去比蛋白序列——四个字母对二十个字母，符号表都不一致。选择工具的本质是确定「查询与目标各处在中心法则的哪一步」。</span>
 
-## 6 小结
+## 6 实战：读懂一条 BLAST 结果
+
+BLAST 结果的解读，是把「统计语言」翻译成「生物学结论」的过程。一条典型的高分命中长这样：
+
+| 字段 | 示例值 | 解读 |
+| --- | --- | --- |
+| Query | lcl\|query1 | 你的查询序列 |
+| Subject | XP_024840372.1 | 数据库命中条目 |
+| % identity | 87.6% | 命中区残基一致的百分比 |
+| alignment length | 124 aa | 对齐长度（可能只占全长一部分） |
+| mismatches | 9 | 错配数 |
+| gap opens | 1 | 引入的空位数量 |
+| E-value | 3e-45 | 随机出现该得分的期望个数 |
+| bit score | 128 | 标准化得分，可跨搜索比较 |
+
+三个读法要点：
+
+- **先看 E-value，再看 identity**：E-value 决定「这是不是真同源」，identity 决定「同源到多近」。E 值很小（<1e-5）而 identity 只有 40%，说明「确定同源但分化较远」——这可能是跨物种的直系同源；
+- **对齐长度 vs 全长**：一条 500 aa 的蛋白只对齐了 124 aa，可能是「共享一个结构域」的旁系同源，功能未必相同；
+- **看 Subject 的物种与注释**：命中「hypothetical protein」与命中「zinc finger protein，Homo sapiens」的生物学价值天差地别——数据库注释质量要纳入判断。
+
+<span class="marginnote">行业惯例：报告 BLAST 结果必须写<strong>E-value 与 bit score</strong>，而不是只写 percent identity——identity 与搜索库大小无关、没有统计意义。方法学部分引用「BLAST 2.0」以上版本即可，不必写具体小版本。</span>
+
+**BLAST 的十个使用习惯**，是避免低级错误的关键：
+
+- 先定「查询/目标在中心法则的位置」再选工具（blastn/blastp/blastx/tblastn）；
+- 蛋白质搜索默认用 BLOSUM62，核苷酸用 `blastn` 自带打分，不要混用矩阵；
+- 报告显著命中时写 E-value 与 bit score，不要只写 identity；
+- 对结果设 `-evalue 1e-5` 默认阈值，避免垃圾命中淹没真信号；
+- 新序列先跑 `blastx` 对着蛋白库找功能，再回基因组验证；
+- 短序列（<50 bp）BLAST 几乎不显著，用 `-task blastn-short` 小词长模式；
+- 多序列批量搜索用 `-outfmt 6`（tab 格式）便于脚本处理；
+- 低频词（重复区、低复杂度）用 `-dust`/`-seg` 屏蔽，防止假命中；
+- 大库搜索考虑 `diamond`（比 BLAST 快数百倍的同源加速工具）；
+- 记录工具版本——BLAST 结果会随版本变化，可复现性是第一纪律。
+
+## 7 小结
 
 - BLAST 用**启发式三步**（建词表种子 → 扫库 → 延伸拼接）把 $O(mn)$ 的精确比对变成近线性扫描，速度提升数十到上百倍。
 - **E-value** $= K \cdot m \cdot n \cdot e^{-\lambda S}$ 是「随机库中碰巧出现的期望个数」，内置多重检验思想；$E<10^{-5}$ 视为显著。

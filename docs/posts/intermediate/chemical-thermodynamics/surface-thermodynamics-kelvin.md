@@ -1,6 +1,6 @@
 ---
 title: 表面热力学与 Kelvin 方程
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 表面热力学与 Kelvin 方程
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 化学热力学 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 化学热力学 ｜ Atkins &amp; de Paula, "Physical Chemistry" (11th ed.), Focus 19 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从表面讲起

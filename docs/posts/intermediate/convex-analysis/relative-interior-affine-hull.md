@@ -111,4 +111,12 @@ $$\operatorname{ri} C = \{ x \in C \mid \exists\, \varepsilon > 0,\ B(x, \vareps
 
 - **仿射包**：包含集合的最小仿射子空间，由一切仿射组合张成；**维数** = 仿射包的维数，是内蕴的。
 - **相对内部**：$\operatorname{ri} C = \{x \in C \mid \exists\, \varepsilon > 0,\ B(x, \varepsilon) \cap \operatorname{aff} C \subseteq C\}$，对非空凸集必非空。
-- **三条核心性质**：$\overline{\operatorname{ri} C} = \overline{C}$、$\operatorname{ri} C$
+- **三条核心性质**：$\overline{\operatorname{ri} C} = \overline{C}$、$\operatorname{ri} C$ 是凸集、线段进入性（从相对内部点走向闭包点，除端点外全在相对内部）。
+- **实用口诀**：在仿射包内把不等式约束变严格，就得相对内部。
+- **非空凸集的相对内部必非空**——退化情形也能谈「内部」，这是凸集的特权。
+- **普通内部与相对内部**：低维凸集躺平在 $\mathbb{R}^3$ 里时普通内部为空、相对内部非空。
+- **相对边界**：$\operatorname{rbd} C = \overline{C} \setminus \operatorname{ri} C$；线段去掉两端点即相对边界。
+- **维数是内蕴的**：$\dim C = \dim(\operatorname{aff} C)$，不依赖集合躺在哪个空间。
+- **Slater 条件**（第4篇）本质上就是要求 $\operatorname{ri}(\operatorname{dom} f)$ 非空。
+
+在下一节，我们把「相对内部」当作舞台，上演本专题最锋利的几何定理：**分离定理**——两个不相交凸集之间存在超平面把它们分开，其严格版本（正值分离）恰恰要求相对内部的条件，这正是相对内部「非退化」意义的集中体现。

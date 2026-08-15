@@ -1,6 +1,6 @@
 ---
 title: 纳米尺度物理效应
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 纳米尺度物理效应
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第六级 · 工程技术 · 纳米工程 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第六级 · 纳米工程 ｜ Rogers, Adams, Pennathur, Nanotechnology: Understanding Small Systems §1-2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从纳米尺度物理效应开始

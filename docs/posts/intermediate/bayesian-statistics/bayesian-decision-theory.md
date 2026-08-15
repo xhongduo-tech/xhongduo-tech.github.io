@@ -1,6 +1,6 @@
 ---
 title: 贝叶斯决策理论
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 贝叶斯决策理论
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 贝叶斯统计 ｜ Berger《Statistical Decision Theory and Bayesian Analysis》Ch. 2-4 ｜ 2026-08-11</p>
+<p>第二级 · 贝叶斯统计 ｜ Berger《Statistical Decision Theory and Bayesian Analysis》Ch. 2-4 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从「推断到决策」开始

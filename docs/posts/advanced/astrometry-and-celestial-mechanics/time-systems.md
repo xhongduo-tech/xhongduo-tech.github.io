@@ -114,4 +114,9 @@ $$\mathrm{UTC} \xrightarrow{+(\mathrm{UT1}-\mathrm{UTC})} \mathrm{UT1} \xrightar
 - **恒星时 = 春分点的时角**，周期为一个恒星日（23h56m04s），是望远镜指向的天然钟。
 - **世界时 UT1** 直接反映地球自转，但不均匀：潮汐摩擦使日长每世纪增长约 1.7 毫秒。
 - **原子时 TAI** 秒长恒定；**UTC** 用闰秒把原子秒长与地球自转读数缝在一起。
-- **力学时 TT** 是太阳系历表的自变量，$\Delta T = \mathrm{TT} - \mathrm{UT1} \approx 69\,\mathrm{s}$
+- **力学时 TT** 是太阳系历表的自变量，$\Delta T = \mathrm{TT} - \mathrm{UT1} \approx 69\,\mathrm{s}$（2026 年，缓慢增长）。
+- 换算链条：$\mathrm{UTC} \xrightarrow{+(\mathrm{UT1}-\mathrm{UTC})} \mathrm{UT1} \xrightarrow{+\Delta T} \mathrm{TT}$，$\mathrm{TAI} = \mathrm{TT} - 32.184\,\mathrm{s}$。
+- 写天文程序先声明「输入 UTC、内部用 TT/TAI、输出转回 UTC」，并在文档里写明 ΔT 取自哪一版 IERS 数据。
+- 时间尺度选择看用途：望远镜指向用恒星时、地球定向用 UT1、历表与轨道计算用 TT、授时导航用 UTC/TAI。
+
+**时间尺度是测量篇的隐形骨架**：一切坐标换算的第一步都是「对时」——把观测时刻统一到计算所需的时间尺度上。在下一节，我们将看到这套时间骨架如何与坐标骨架耦合，处理地球自转轴本身的缓慢漂移——岁差与章动。

@@ -97,3 +97,26 @@ date: 2026-08-07
 $$
 \text{情态动词} + have + \text{过去分词} \quad\Rightarrow\quad \text{对过去的推断或评价}
 $$
+
+对这条公式做三步拆解：
+
+- **第一步，判断「推断」还是「评价」**：`must have done`、`can't have done`、`may have done` 表**推断**（描述过去发生了什么）；`should have done`、`could have done` 表**评价**（描述过去该发生什么却未发生）。
+- **第二步，选情态词**：推断走 `must/can't/may/might`，评价走 `should/shouldn't/could`——**「遗憾」用评价族，「确信」用推断族**。
+- **第三步，调整否定与语势**：否定推断用 `can't have done`（不可能），否定评价用 `shouldn't have done`（不该做却做了）。
+
+**辨析｜易错点：** `should have done` 与 `must have done` 都含 `have done`，但语义方向相反：`You should have told me.`（本应该告诉——含「遗憾」，没告诉）与 `He must have left.`（想必已经走了——含「推断」，确信）。**先问「这句话在遗憾还是推断」，再选词**——这是情态 + 完成体的核心判据。
+
+**补充：** 情态动词的「礼貌升级」是语用学的经典现象：`Can you help me?`（能力提问）→ `Could you help me?`（委婉）→ `Would you mind helping me?`（更委婉）。**情态词的过去式常表「距离」而非「过去」**——时间距离被借来表达「社交距离」，这正是情态动词「小词表大意」的又一面。
+
+**辨析｜易错点：** `may` 与 `might` 的把握程度递减：`It may rain.`（可能下雨）与 `It might rain.`（也许下雨——更不确定）。**`may` 比 `might` 更可能**——这一组是「可能性光谱」上的两个刻度，中国学生常误以为可以互换，其实它们在「把握度」上有精确分工。
+
+## 7 小结
+
+- 情态动词是**封闭类**，六条语法签名（无 `-s`、接原形、无词形变化、直接否定、直接倒装、无不定式/分词）。
+- 两类情态意义：**认知情态**（推测真实性）与**义务/根情态**（约束行动），同一情态词靠语境分义。
+- 十个核心成员：`can/could`、`may/might`、`must`、`shall/should/ought to`、`will/would`。
+- **情态 + have done** 表对过去的推断或评价；`mustn't`（禁止）≠ `needn't`（不必）。
+- 半情态动词 `have to`、`be able to`、`need to`、`used to`、`had better` 补位情态空缺。
+- 过去式情态常表**委婉/距离**而非过去时间。
+
+在下一节，我们将完成动词体系，进入虚拟语气——看英语如何用「时态错位」打开一个与事实相反的世界。

@@ -67,12 +67,55 @@ $$\text{cost} = p \cdot \text{prompt\_tokens} + c \cdot \text{completion\_tokens
 - **第二步，读隐含的坑**：`prompt_tokens` 的统计口径（含不含聊天模板自动拼的 `<|im_start|>` 等特殊 token）直接影响账单。**同一请求在不同引擎的 token 计数可能有 ±10% 差异**——做计费系统时不能假设各引擎口径一致。
 - **第三步，读上限约束**：`max_model_len` 是引擎的硬约束。超出时返回 400 错误（`error` 结构体）。**API 层要把这个约束翻译成清晰的错误**，而不是让引擎内部崩掉。
 
-## 5 小结
+## 5 一个完整的请求-响应示例
+
+把协议落到一个可对照的例子。一个流式工具调用请求：
+
+**请求**（POST `/v1/chat/completions`）：
+```json
+{
+  "model": "qwen2.5-72b",
+  "messages": [{"role": "user", "content": "北京天气如何？"}],
+  "tools": [{"type": "function", "function": {"name": "get_weather", "parameters": {...}}}],
+  "stream": true,
+  "max_tokens": 256
+}
+```
+
+**流式响应**（SSE）：
+```
+data: {"choices":[{"delta":{"role":"assistant","content":""}}]}
+data: {"choices":[{"delta":{"content":"我"}}]}
+data: {"choices":[{"delta":{"tool_calls":[{"index":0,"function":{"name":"get_weather","arguments":"{\"city\":\"北京\"}"}}]}}]}
+data: {"choices":[{"delta":{},"finish_reason":"tool_calls"}]}
+data: [DONE]
+```
+
+**读这个示例**：流式下每条 `delta` 只含「新增部分」；工具调用的 `arguments` 是逐步拼接的 JSON 字符串；`finish_reason` 在最后一条带上——**客户端靠「增量 + finish_reason」组合驱动 Agent 逻辑**。实现层必须保证「增量正确拼接 = 完整输出」，这是流式兼容的核心。<span class="marginnote">工具调用的 `arguments` 是<strong>增量 JSON 字符串</strong>：多条 SSE 各带一段，客户端要「累积拼接后 parse」。实现时要保证「分段合法」（不在字符中间断开），否则客户端 JSON.parse 失败。</span>
+
+## 6 实现兼容层的工程要点
+
+把「三层」落到工程实践，几个要点：
+
+**请求校验**：进 API 层先校验字段类型与约束（model 存在、messages 非空、max_tokens 合理）。**校验前置，避免错误语义进入引擎**——引擎的报错格式与 API 的 `error` 结构不同，要在 API 层翻译。
+
+**参数映射表**：把 OpenAI 参数与引擎参数的关系写成「映射表」（代码里的配置），而不是散落各处——`temperature/top_p/stop/max_tokens` 各映射到什么，一目了然，也方便版本化。
+
+**测试矩阵**：兼容层的测试要覆盖「非流式 / 流式 / 工具调用 / 错误响应 / usage 统计」五类，每类配自动化用例。**「兼容性」没有「差不多」，只有「对齐或不对齐」**——测试矩阵是兼容质量的保障。
+
+**辨析｜易错点：别自己发明「私有扩展字段」。** 在标准响应里加 `x-` 私有字段没问题（客户端忽略），但**别改变标准字段的语义**（如把 `finish_reason` 改成别的值）。**扩展可以加，语义不能改**——否则「兼容」名存实亡。
+
+**兼容层收尾一句**：它是推理服务的「对外的脸」——**协议对齐是及格线，行为对齐才是真兼容**。
+
+把流式增量、工具调用、错误结构做对，客户端生态才能开箱即用，部署的价值才算真正交付给用户——**「部署完成」的标志不是「引擎能跑」，而是「客户端零改动就能用」**。
+
+## 7 小结
 
 - **OpenAI 兼容 API 是事实标准**：vLLM、SGLang、llama.cpp 等全部提供，客户端生态开箱即用。
 - **核心是 Chat Completions**：`model`、`messages`、`max_tokens`、`stream` 等字段构成请求协议；`id`、`choices`、`usage` 构成响应协议。
 - **实现分三层**：协议层（字段对齐）、参数映射层（语义映射）、行为层（流式/工具调用的行为语义）。
 - **兼容 ≠ 假装支持**：不支持的参数要显式报错，静默错误最危险。
 - **usage 是计费基础**：token 统计口径与引擎强相关，跨引擎不能假设一致。
+- **行为对齐是真兼容**：增量 SSE + finish_reason 驱动 Agent；工具 arguments 增量拼接；扩展可加、语义不能改。
 
 在下一节，我们把流式输出挖到底——**流式输出：SSE 与 Token 流协议**。

@@ -40,6 +40,8 @@ void *p = mmap(NULL, length,                 // 地址（NULL 让内核选）、
 **标志 flags**：`MAP_SHARED`（共享，写回文件）vs `MAP_PRIVATE`（私有，写时复制）。
 **保护 PROT**：`PROT_READ`/`PROT_WRITE`/`PROT_EXEC`（只读/写/执行权限）。
 
+**结束映射与强制写回**：映射关系用 `munmap(p, length)` 解除；`msync(p, length, MS_SYNC)` 把脏页同步写回文件（对 `MAP_SHARED` 才有效）。<span class="marginnote">`mmap` 失败返回 `MAP_FAILED`（即 `(void *) -1`），不是 `NULL`——用 `if (p == MAP_FAILED)` 判断错误。这个细节常被写坏，也是不少面试题的陷阱。</span>注意 `munmap` 与 `close(fd)` 的顺序：映射一旦建立，`fd` 可以立刻关闭，映射仍然有效——文件对象已被页缓存接管。
+
 ## 2 MAP_SHARED vs MAP_PRIVATE：两种语义
 
 **MAP_SHARED（共享映射）**：
@@ -92,7 +94,37 @@ mmap 文件 I/O：
 | 共享 | 不支持（除非额外 IPC） | MAP_SHARED 天然共享 |
 | 适用 | 小文件、流式 | 大文件、随机访问、共享 |
 
-## 5 小结
+## 5 数值算例：映射 10 KB 文件要占多少地址空间
+
+页表以页为单位管理虚拟地址，因此 **mmap 的长度与偏移都必须按页取整**。设页面大小 $P = 4096$ 字节，要映射一个 $S = 10000$ 字节的文件，内核为该映射保留的虚拟地址空间是
+
+$$N \cdot P = \left\lceil \frac{S}{P} \right\rceil \cdot P = \left\lceil \frac{10000}{4096} \right\rceil \cdot 4096 = 3 \times 4096 = 12288\ \text{字节}$$
+
+第 3 页真正用到的只有 $12288 - 10000 = 2288$ 字节，剩下 $1808$ 字节被「浪费」。反过来，若文件只有 100 字节，映射仍要占满一页 4096 字节，浪费率高达 $1 - 100/4096 \approx 97.6\%$——这就是「小文件用 mmap 不划算」的数量级直觉：固定开销吃掉了全部收益。<span class="marginnote">同理，`offset` 参数必须是页的整数倍，否则 `mmap` 直接返回 `EINVAL`。想映射「文件第 100 字节起的区域」，只能先页对齐映射，再用 `p + 100` 访问——多出的对齐偏移靠指针补偿。</span>
+
+**偏移对齐的完整手法**：设目标偏移为 $\text{off}$，取 `aligned = off & ~(P-1)`（向下取整到页边界），`extra = off - aligned`，然后
+
+```c
+size_t P = sysconf(_SC_PAGESIZE);            // 4096
+char *p = mmap(NULL, extra + length, PROT_READ, MAP_PRIVATE, fd, aligned);
+char *data = p + extra;                       // data 才是真正要用的起点
+```
+
+这套「页对齐 + 指针补偿」在每个文件型数据库、每个序列化加载器里都会出现。
+
+## 6 术语速查表
+
+| 术语 | 含义 | 一句话记忆 |
+| --- | --- | --- |
+| `mmap` | 把文件段映射进地址空间 | 文件变内存 |
+| `MAP_SHARED` | 共享映射，写回文件 | 我改你见、落盘 |
+| `MAP_PRIVATE` | 私有映射，写时复制 | 我改你看不见、不落盘 |
+| `COW` | 写时复制 | 写的那一刻才复制 |
+| `msync` | 强制脏页写回 | 手动落盘 |
+| `munmap` | 解除映射 | 内存里拆除文件 |
+| `MAP_FAILED` | 映射失败返回值 | 是 `-1` 不是 `NULL` |
+
+## 7 小结
 
 - **mmap**：把文件映射进地址空间，读写内存 = 读写文件。
 - 访问映射页触发**缺页从文件调入**；写脏页由内核**写回文件**。

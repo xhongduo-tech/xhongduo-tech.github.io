@@ -117,4 +117,6 @@ $$
 - **Čech 上同调**：$H^q(\mathcal U, \mathcal F) = \ker d / \mathrm{im}\, d$；$H^0 = \mathcal F(X)$ 是整体截面。
 - **长正合列**：局部精确性传达给整体的精确工具；指数层序列 $0 \to \mathbb Z \to \mathcal O \to \mathcal O^* \to 0$ 连接除子与上同调。
 - **Leray 定理**：好覆盖（有限交上同调为零）的上同调 = 全局上同调，把不可算变为可算。
-- 多圆柱的 $\mathcal O$
+- 多圆柱的 $\mathcal O$-上同调为零（$q \geq 1$），故全纯凸域可被多圆柱 Leray 覆盖，$H^q(D,\mathcal O)$ 化为有限线性代数。
+
+在下一节，我们把「$H^1(D,\mathcal O)=0$」兑现为具体构造：**Cousin I 问题与加法问题**——给定局部主部，构造整体亚纯函数。

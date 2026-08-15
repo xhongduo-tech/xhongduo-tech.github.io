@@ -100,7 +100,23 @@ $$
 
 **观察**：Galois 群从 $\mathbb{Z}_2$（两根互换）到 $S_3$（三根全置换）到 $\mathbb{Z}_2\times\mathbb{Z}_2$（受限的双重互换），刻画了「根的自由程度」。$x^4 - 4x^2 + 2$ 的根虽是四个，但置换只有 4 种而非 $4! = 24$ 种——**根的代数关系约束了对称**，这正是「方程可解性」的度量。<span class="marginnote">「根的代数关系约束对称」是 Galois 理论的最深直觉：根之间若有额外关系（如 $\alpha_1\alpha_2 = \alpha_3$），置换必须保持它，Galois 群就变小。$x^4 - 4x^2 + 2$ 的根成对 $\pm$ 且满足二次套二次的关系，Galois 群被压成 $\mathbb{Z}_2 \times \mathbb{Z}_2$——这也是它可根式求解的原因（每个 $\mathbb{Z}_2$ 对应一次开平方）。</span>
 
-## 6 小结
+## 6 对照速查：自同构的个数与扩张次数
+
+把「自同构个数 vs 扩张次数」的三种情形排成一张表，Galois 扩张的边界一目了然。
+
+| 扩张 | 自同构个数 $|\operatorname{Gal}|$ | $[E:F]$ | 相等？ |
+| --- | --- | --- | --- |
+| $\mathbb{Q}(\sqrt2)/\mathbb{Q}$（Galois） | 2 | 2 | ✓ |
+| $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$（非正规） | 1 | 3 | ✗ |
+| $\mathbb{F}_p(t^{1/p})/\mathbb{F}_p(t)$（不可分） | 1 | $p$ | ✗ |
+
+**数值算例：为什么 $\mathbb{Q}(\sqrt[3]2)/\mathbb{Q}$ 的自同构只有恒等。** 保持 $\mathbb{Q}$ 的自同构 $\sigma$ 必须把 $\sqrt[3]2$ 送到 $x^3 - 2$ 的根，即 $\sqrt[3]2, \omega\sqrt[3]2, \omega^2\sqrt[3]2$。但后两个不在 $\mathbb{Q}(\sqrt[3]2)$ 里（含 $\omega$），所以 $\sigma(\sqrt[3]2)$ 只能是 $\sqrt[3]2$，$\sigma = \mathrm{id}$。$|\operatorname{Gal}| = 1 \ne 3 = [E:F]$——<strong>非正规 ⟹ 自同构少于维度</strong>。<span class="marginnote">「自同构把根送到根」在非正规扩张里立刻失效：$x^3 - 2$ 的另外两个根不回家，$\sigma$ 没有可送的对象。<strong>正规性（根全回来）是「自同构够多」的前提</strong>，可分性（根互异）是「每个根都有独立像」的前提——两者合起来才让 $|\operatorname{Gal}| = [E:F]$。Galois 扩张正是「对称刚好装满维度」的扩张。</span>
+
+**易错辨析｜$\operatorname{Gal}(E/F)$ 是子群不是集合。** $\operatorname{Gal}(E/F) \le \operatorname{Aut}(E)$ 是自同构群下的子群（复合封闭、含恒等、闭逆），不是随便一批自同构。判定「$\sigma$ 是否属于 Galois 群」要看「是否固定 $F$ 逐点」与「是否自同构」两条，缺一不可。
+
+**一句话记法**：Galois 群 = 固定基域的自同构群；自同构把根送到根；$|\operatorname{Gal}(E/F)| = [E:F]$ 只在 Galois 扩张成立——对称刚好等于维度的扩张。
+
+## 7 小结
 
 - **域自同构**：保加乘的双射；自动固定素域；把根送到根。
 - **Galois 群** $\operatorname{Gal}(E/F)$：保持 $F$ 的自同构群；$E$ 是 $f$ 的分裂域时嵌入 $S_n$。

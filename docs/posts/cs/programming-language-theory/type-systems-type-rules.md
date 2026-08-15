@@ -1,6 +1,6 @@
 ---
 title: 类型系统与类型规则
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 类型系统与类型规则
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · 程序设计语言理论 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · 程序设计语言理论 ｜ Pierce《类型与程序设计语言》Ch.9 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从类型系统开始
@@ -31,7 +31,7 @@ date: 2026-08-11
 $$t ::= x \;\big|\; \lambda x: T.\, t \;\big|\; t\;t \;\big|\; \texttt{true} \;\big|\; \texttt{false}$$
 $$T ::= \texttt{Bool} \;\big|\; \texttt{Nat} \;\big|\; T \to T$$
 
-函数类型 $T_1 \to T_2$ 中的箭头**右结合**，所以 $\texttt{Nat}\to\texttt{Nat}\to\texttt{Bool}$ 是 $\texttt{Nat}\to(\texttt{Nat}\to\texttt{Bool})$——一个吃一个自然数、返回一个函数的函数，对应柯里化后的二参数函数。
+函数类型 $T_1 \to T_2$ 中的箭头**右结合**，所以 $\texttt{Nat}\to\texttt{Nat}\to\texttt{Bool}$ 是 $\texttt{Nat}\to(\texttt{Nat}\to\texttt{Bool})$——一个吃一个自然数、返回一个函数的函数，对应柯里化后的二参数函数。**读箭头类型的技巧是「看箭头右边」**：一串右结合的箭头里，真正的「结果」是最后一个类型，中间每个箭头吃掉一个参数——这正是柯里化（currying）在类型记号里的投影，也是为什么「二参数函数」在类型层面只是一串右结合的箭头。
 
 ## 2 判定关系 Γ ⊢ t : T
 
@@ -51,7 +51,9 @@ $$
 \frac{\Gamma \vdash t_1 : T_1 \to T_2 \quad \Gamma \vdash t_2 : T_1}{\Gamma \vdash t_1\;t_2 : T_2}
 $$
 
-**重点：** 抽象规则说「要证明 $\lambda x:T_1.\,t_2$ 的类型，就把 $x$ 以类型 $T_1$ 加入环境，去证明函数体 $t_2$」；应用规则说「把类型 $T_1 \to T_2$ 的函数应用于类型 $T_1$ 的实参，得到 $T_2$」——**类型检查因此是对语法结构的递归走查**，每个子表达式各得其所，这套规则集合被称为**类型推导系统（typing derivation system）**。<span class="marginnote">规则底下的「若 $x:T \in \Gamma$」是前提的另一种写法。这类规则与数理逻辑里的自然演绎同构——类型就是命题，项就是证明（Curry–Howard 对应），在第三级《数理逻辑》中会正面相遇。</span>
+**重点：** 抽象规则说「要证明 $\lambda x:T_1.\,t_2$ 的类型，就把 $x$ 以类型 $T_1$ 加入环境，去证明函数体 $t_2$」；应用规则说「把类型 $T_1 \to T_2$ 的函数应用于类型 $T_1$ 的实参，得到 $T_2$」——**类型检查因此是对语法结构的递归走查**，每个子表达式各得其所，这套规则集合被称为**类型推导系统（typing derivation system）**。
+
+看两条规则如何协作：要判断 $\lambda f:\texttt{Bool}\to\texttt{Bool}.\,\lambda b:\texttt{Bool}.\, f\;b$ 的类型，检查器先把 $f:\texttt{Bool}\to\texttt{Bool}$ 加进环境，再推内层 $\lambda b$ 时把 $b:\texttt{Bool}$ 叠上一层，环境变成 $f:\texttt{Bool}\to\texttt{Bool},\, b:\texttt{Bool}$；此时 $f\;b$ 按应用规则需要「$f$ 是箭头类型、$b$ 匹配其输入」——$b:\texttt{Bool}$ 恰好吻合 $f$ 的输入 $\texttt{Bool}$，于是整体得类型 $\texttt{Bool}$。**环境像一层层打开的括号**：进入一层抽象就多加一个名字，退出时再还掉——这正是后续《参数传递与作用域》里「作用域」概念的雏形。<span class="marginnote">规则底下的「若 $x:T \in \Gamma$」是前提的另一种写法。这类规则与数理逻辑里的自然演绎同构——类型就是命题，项就是证明（Curry–Howard 对应），在第三级《数理逻辑》中会正面相遇。</span>
 
 ## 3 类型安全：进展 + 保持
 
@@ -93,9 +95,24 @@ $$
 \quad \text{，其中 } \Gamma' \vdash (\lambda x: \texttt{Bool}.\, x)\;\texttt{true} : \texttt{Bool}
 $$
 
-把恒等函数作用于 $\texttt{true}$，结论是 $\texttt{Bool}$；而 $( \lambda x: \texttt{Bool}.\, x)\;\overline{1}$ 因 $\overline{1}:\texttt{Nat} \neq \texttt{Bool}$ 而无从推导——这正是「拒绝坏程序」发生的精确位置。
+把恒等函数作用于 $\texttt{true}$，结论是 $\texttt{Bool}$；而 $( \lambda x: \texttt{Bool}.\, x)\;\overline{1}$ 因 $\overline{1}:\texttt{Nat} \neq \texttt{Bool}$ 而无从推导——这正是「拒绝坏程序」发生的精确位置。一个更贴近现实的例子：`if (a < b) then a else b` 之所以能通过类型检查，是因为条件 `a < b` 被判定为 $\texttt{Bool}$、两个分支 `a`、`b` 被判定为同一个 $\texttt{Nat}$；只要某一分支类型不同，整棵推导树就拼不起来。<span class="marginnote">条件语句的类型规则是「两个分支同型 + 条件是 Bool」：这正是把《对象与封装》里「接口一致」的直觉写进类型层的样板——类型检查本质上就是「把每个子表达式对齐到同一个契约」。</span>
 
-## 6 小结
+## 6 术语速查
+
+| 术语 | 含义 | 一句话直觉 |
+| --- | --- | --- |
+| 类型（type） | 值所属集合的静态记录 | 给每个值贴分类标签 |
+| 环境 $\Gamma$ | 变量→类型的登记表 | 作用域内的名册 |
+| 判定 $\Gamma \vdash t : T$ | 在环境 Γ 下项 t 有类型 T | 类型系统的断言 |
+| 类型安全 | 进展 + 保持两条引理 | 良类型程序不出类型错误 |
+| 卡住（stuck） | 走不动却又不是值的项 | 类型错误的运行时形态 |
+| 类型检查 | 验证已写好的标注 | 核对账本 |
+| 类型推导 | 从项结构反推类型 | 替账本补全 |
+| 语法导向 | 由结论形状决定用哪条规则 | 确定性、无歧义 |
+
+本课每个概念都可以用一张表锚定：**类型是静态的分类，判定是断言，规则是断言如何被证明，而类型安全是这一切的终极回报**。把这张表记牢，后续《类型推导》《System F》里的每个新概念都能挂到它上面。
+
+## 7 小结
 
 - **类型系统**在运行前按「值的种类」对项分类，核心判定是 $\Gamma \vdash t : T$，其中 Γ 是变量类型环境。
 - 类型规则对应语法结构：**变量、抽象、应用**三条规则构成 $\lambda_\to$ 的类型系统，规则是语法导向、确定性的。

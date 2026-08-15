@@ -1,6 +1,6 @@
 ---
 title: ELF 与 PE 文件格式解析
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # ELF 与 PE 文件格式解析
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · 逆向工程与二进制分析 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · 逆向工程与二进制分析 ｜ Dang et al.《Practical Binary Analysis》Ch.1 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从文件格式开始
@@ -84,7 +84,46 @@ ELF 的对应物是「虚拟地址 = 段装载地址 + 段内偏移」，同样�
 
 另一个血泪教训是**不要信任文件头**。恶意样本可以伪造节区名、篡改魔数、把代码塞进「数据节」里骗过分析工具；反过来，分析工具信任文件头给出的节区边界，攻击者就能通过「节区头指向文件之外」这类技巧制造解析差异（这就是著名的「文件与内存解析不一致」攻击手法，被无数恶意样本利用）。
 
-## 6 小结
+## 6 一张 ELF 与 PE 对照表
+
+两大格式的骨架惊人相似，细节处处不同。把它们逐行对照，一眼看清差异：
+
+| 概念 | ELF（Linux） | PE（Windows） |
+| --- | --- | --- |
+| 文件头魔数 | `\x7FELF` | `MZ`（DOS 头）→ `PE\0\0` |
+| 代码节 | `.text` | `.text` |
+| 只读数据 | `.rodata` | `.rdata` |
+| 可写数据 | `.data` / `.bss` | `.data` / `.bss` |
+| 节表 | 节头表（section headers） | 节头表（IMAGE_SECTION_HEADER） |
+| 装载视图 | 程序头表（program headers） | 节头表 + 数据目录 |
+| 导入描述 | `.dynsym` + `.rela.plt` | 导入表（Import Table） |
+| 导出描述 | 动态符号表 | 导出表（Export Table） |
+| 重定位 | `.rela.*` 节 + 动态链接器 | `.reloc` 节 |
+| 符号表 | `.symtab` / `.strtab` | 调试信息 / COFF 符号 |
+| 入口点 | ELF 头 `e_entry` | PE 头 `AddressOfEntryPoint` |
+| 查看工具 | `readelf` / `objdump` | `dumpbin` / `CFF Explorer` / `pefile` |
+
+这张表是「文件格式双语的互译词典」：在 Linux 上分析一个概念，到 Windows 上先查它对应什么，分析思路就能无缝迁移。<span class="marginnote">`.bss` 在两边都「文件里 0 字节、内存里占位」；而两边最大的习惯差异是「ELF 用两种表分开讲装载与链接，PE 用一个节头表统管」——理解了这一条，两套格式的骨架就同一了。</span>
+
+## 7 readelf / dumpbin 命令速查
+
+同样的分析动作，Linux 与 Windows 各有一条命令。把高频操作列成对照表，跨平台分析不用查手册：
+
+| 想做什么 | Linux | Windows |
+| --- | --- | --- |
+| 看文件头 | `readelf -h` | `dumpbin /headers` |
+| 看节 | `readelf -S` | `dumpbin /headers` |
+| 看程序头（段） | `readelf -l` | —（节头表兼） |
+| 反汇编 | `objdump -d` | `dumpbin /disasm` |
+| 看导入 | `readelf -d`（动态段） | `dumpbin /imports` |
+| 看导出 | `readelf --dyn-syms` | `dumpbin /exports` |
+| 看重定位 | `readelf -r` | `dumpbin /relocations` |
+| 看资源 | — | `dumpbin /resources` |
+| 通用十六进制 | `xxd` / `hexdump` | `pefile`（Python） |
+
+「每条命令对应一个表」是这个环节的通用心法：`readelf -S` 对应节头表、`readelf -l` 对应程序头表、`dumpbin /imports` 对应导入表——命令是表的入口，表是格式的骨架。
+
+## 8 小结
 
 - 两大格式共享骨架：**头 + 表 + 块**，回答「是什么、有哪些块、怎么装载、怎么握手」四问。
 - **ELF 双视角**：节（链接/调试视角，`.text/.data/.symtab`）与段（装载视角，R/X/W 权限）；入口点在 `e_entry`。

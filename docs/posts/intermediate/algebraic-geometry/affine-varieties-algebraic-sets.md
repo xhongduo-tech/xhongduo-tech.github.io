@@ -1,6 +1,6 @@
 ---
 title: 仿射簇与代数集
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 仿射簇与代数集
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 代数几何 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 代数几何 ｜ Hartshorne, Algebraic Geometry (GTM 52) Ch. I §1-2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从仿射簇开始

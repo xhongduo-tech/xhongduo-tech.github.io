@@ -113,4 +113,10 @@ $$
 
 - **Calabi-Yau 流形与镜像对**：Hodge 数翻转 $h^{p,q}(X) = h^{n-p,q}(X^\vee)$；五次超曲面的 $h^{1,1} \leftrightarrow h^{2,1}$。
 - **物理起源**：IIA/IIB 弦论对偶；镜像映射 = 辛参数 ↔ 复参数。
-- **HMS（Kontsevich）**：$D^b\mathrm{Coh}(X^\vee) \cong D^b\mathrm{Fuk}(X)$——**层 = Lagrangian**，$A_\infty$
+- **HMS（Kontsevich）**：$D^b\mathrm{Coh}(X^\vee) \cong D^b\mathrm{Fuk}(X)$——**层 = Lagrangian**，需要 Fukaya 范畴的 $A_\infty$ 结构。
+- **SYZ 猜想**：镜像对共享同一基 $B$ 上的对偶特殊 Lagrangian 环面纤维化；T-对偶 $R \to 1/R$ 是其物理来源。
+- **五次曲线奇迹**：$N_1 = 2875, N_2 = 609250, N_3 = 317206375$，镜像方法预言 $N_4 = 242467530000$ 并被严格证明。
+
+在下一节，我们将看到镜面对称在表示论中的投影：**辛几何与几何表示论的桥梁**——moment map 的三重身份（守恒量、约化、表示）把辛几何与 Kirillov 轨道方法、Borel-Weil 定理、Nakajima 箭图簇连成一片。
+
+镜面对称是这条桥梁的终点，也是全课程的收官：从「反对称双线性形式」到「层与 Lagrangian 的等价」，辛几何走完了一条连接代数几何、表示论与数学物理的弧线。

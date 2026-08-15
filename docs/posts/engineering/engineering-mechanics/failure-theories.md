@@ -86,6 +86,15 @@ $$\frac{\sigma_1}{\sigma_{ut}} - \frac{\sigma_3}{\sigma_{uc}} = 1$$
 
 **解析｜易错点：** 选判据不看材料属性、或把脆性判据用在延性材料上，是最常见的「原则性」错误。**口诀：延性材料选剪应力类（von Mises 或 Tresca），脆性材料选正应力类（最大正应力或 Coulomb-Mohr）**。此外，**静水压力（$\sigma_1 = \sigma_2 = \sigma_3 = -p$）不会使延性材料屈服**——它只改变体积不改变形状，不产生畸变能，所以 von Mises 判据里静水压部分被抵消。<span class="marginnote">「静水压不屈服」是 von Mises 理论的隐含结论：深海的潜艇壳承受巨大均匀压力却不屈服，靠的正是这一点。相反，脆性材料在静水压力下也常因三向受压而难以拉断——深部岩石、金刚石压砧都是实例。</span>
 
+四种理论放一张表，选判据时按行查：
+
+| 理论 | 判据 | 安全边界形状 | 适用材料 | 特点 |
+| --- | --- | --- | --- | --- |
+| Tresca | $\sigma_1 - \sigma_3 \le \sigma_Y$ | 六边形 | 延性 | 保守、简单，规范常用 |
+| von Mises | $\sigma_e \le \sigma_Y$ | 椭圆 | 延性 | 与试验最吻合，默认选择 |
+| 最大正应力 | $\sigma_1 \le \sigma_{ut}$ | 正方形 | 脆性（拉伸主导） | 只在 $\sigma_1$ 为正时可靠 |
+| Coulomb-Mohr | $\sigma_1/\sigma_{ut} - \sigma_3/\sigma_{uc} = 1$ | 不对称四边形 | 脆性 | 刻画抗压≠抗拉 |
+
 ## 5 公式解析：von Mises 等效应力
 
 用最简的平面状态公式把 von Mises 判据拆到底：
@@ -96,6 +105,10 @@ $$\sigma_e = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}$$
 - **第二步，算「距离」**：$\sigma_e$ 是这三个坐标的**欧氏范数**（平方和的平方根）。于是「等效应力」这个词有了精确的几何意义：**应力状态到「零应力点」的距离**——距离越大越危险。<span class="marginnote">把这个「范数」视角带回《组合载荷》篇的 $\sqrt{\sigma^2 + 3\tau^2}$：那里是弯曲正应力 + 扭转剪应力的特例（$\sigma_y = 0$）。对照一下两处公式，会得到一个很有用的记忆钩：$\sigma_e$ 永远是「平方和的根」。</span>
 - **第三步，与屈服强度比较**：$\sigma_e \le \sigma_Y$。安全时等效应力不超过单轴屈服强度——这正是「等效」的含义：多轴应力状态被翻译成「相当于多大的单轴拉应力」。
 - **第四步，回看极限情形**：纯剪切（$\sigma_x = \sigma_y = 0$）时 $\sigma_e = \sqrt{3}\,\tau$，故按 von Mises，纯剪切屈服应力 $\tau_Y = \sigma_Y/\sqrt{3} \approx 0.577\,\sigma_Y$；而 Tresca 给出 $\tau_Y = \sigma_Y/2$。两个理论在纯剪时的分歧（0.5 vs 0.577）是它们安全度差异的最直观体现——试验更靠近后者，这是 von Mises 胜出的证据之一。
+
+用同一组数看两个判据如何给出相反结论：平面应力状态 $\sigma_1 = 200\ \mathrm{MPa}$、$\sigma_2 = -100\ \mathrm{MPa}$、$\sigma_3 = 0$，材料 $\sigma_Y = 250\ \mathrm{MPa}$。Tresca 判据 $\sigma_1 - \sigma_3 = 200 \le 250$，判为安全；von Mises 判据 $\sigma_e = \sqrt{200^2 - 200 \times (-100) + (-100)^2} = \sqrt{70000} \approx 265\ \mathrm{MPa} > 250$，判为不安全。
+
+差异正来自中间主应力 $\sigma_2$：Tresca 完全忽略它，von Mises 把它与 $\sigma_1$、$\sigma_3$ 的相互作用算得更充分。所以在 $\sigma_2$ 显著的场合（平面应变、厚壁构件），用错判据可能导致数倍的裕量偏差——规范会明确指定用哪一个，正是这个原因。
 
 ## 6 小结
 

@@ -116,4 +116,7 @@ $$2\Phi_* \geq \gamma \geq \frac{\Phi_*^2}{2}$$
 
 - **全变差距离**度量分布差距；**混合时间** $t_{\mathrm{mix}}$ 是压到 $\varepsilon$ 的最坏初态所需步数。
 - **谱隙** $\gamma = 1 - \lambda_2$ 决定收敛速率：$t_{\mathrm{mix}} \approx \frac{1}{\gamma}\ln(1/\varepsilon)$。
-- 环上 $\Theta(n^2)$ 慢混，完全图 $\Theta(\log n)$
+- 环上 $\Theta(n^2)$ 慢混，完全图 $\Theta(\log n)$，扩张图 $O(\log n)$——谱隙是决定混合快慢的主开关。
+- 混合时间决定 MCMC 预烧长度；工程上先估 $t_{\mathrm{mix}}$ 再决定丢弃量。
+
+在下一节，我们把「分布收敛」的链条接上随机游走：图上随机游走的稳态与度数成正比、击中与覆盖时间由电网络给出直觉——它是马尔可夫链理论在图算法里的直接投影。

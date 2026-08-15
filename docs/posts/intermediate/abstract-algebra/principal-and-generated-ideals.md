@@ -105,7 +105,22 @@ $k[x, y]$（二元多项式环）**不是 PID**：$\langle x, y \rangle$（常�
 
 **有限生成理想（finitely generated ideal）**：由有限个元素生成的理想，即 $\langle a_1, \dots, a_k \rangle = \{ \sum r_i a_i \}$。PID 是「每个理想都有限生成（且只需一个生成元）」的环；**Noether 环**是「每个理想都有限生成」的环（比 PID 宽）。理想生成论从这里通向交换代数的 Noether 理论——那是更深一层的地图。
 
-## 6 小结
+## 6 对照速查：理想运算的算术表
+
+把理想的三种运算在整数环上的化身排成一张表，gcd/lcm 与理想的对应一目了然。
+
+| 理想运算 | 定义 | $\mathbb{Z}$ 中的化身 |
+| --- | --- | --- |
+| 和 $I + J$ | $\{a + b\}$ | $\langle m\rangle + \langle n\rangle = \langle \gcd\rangle$ |
+| 积 $IJ$ | $\langle ab \rangle$ | $\langle m\rangle\langle n\rangle = \langle mn\rangle$ |
+| 交 $I \cap J$ | 共同元素 | $\langle m\rangle\cap\langle n\rangle = \langle \mathrm{lcm}\rangle$ |
+| 互素 | $I + J = R$ | $\gcd(m,n) = 1$ |
+
+**数值算例：在 $\mathbb{Z}$ 里算 $\langle 12 \rangle + \langle 18 \rangle$。** $\gcd(12, 18) = 6$，故 $\langle 12\rangle + \langle 18\rangle = \langle 6\rangle = 6\mathbb{Z}$。核对：$12$ 与 $18$ 的整数线性组合全体正是 6 的倍数（$6 = 18 - 12$ 可表出，反之 12、18 都是 6 的倍数）。$\langle 12\rangle \cap \langle 18\rangle = \langle \mathrm{lcm}(12,18)\rangle = \langle 36\rangle$。$\checkmark$<span class="marginnote">「和 = gcd、交 = lcm、积 = 乘积」是整数环里理想运算的三句口诀，它把数论里的整除性语言完全翻译成理想语言。中国剩余定理（第八篇）要求「互素理想的和 = 全环」——在 $\mathbb{Z}$ 里就是 $\gcd(m,n) = 1$ 时 $\langle m\rangle + \langle n\rangle = \mathbb{Z}$。这套翻译在多项式环 $F[x]$ 里同样成立（gcd ↔ 理想和）。</span>
+
+**一句话记法**：$\langle a\rangle = \{ra\}$ 是主理想；$\langle X\rangle$ = 线性组合 = 最小理想；和是 gcd、交是 lcm、互素是和为全环——理想生成论是整除性理论的代数别名。
+
+## 7 小结
 
 - **主理想** $\langle a \rangle = \{ ra \}$（交换含幺环）：由单个元素生成；$\langle n\rangle = n\mathbb{Z}$、$\langle x\rangle$ 常数项为 0。
 - **生成理想** $\langle X \rangle$ = $X$ 元素的线性组合全体 = 含 $X$ 的最小理想。

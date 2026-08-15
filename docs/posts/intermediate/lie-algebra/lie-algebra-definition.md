@@ -1,6 +1,6 @@
 ---
 title: 李代数的定义与基本性质
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 李代数的定义与基本性质
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 李代数与李群 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 李代数与李群 ｜ Humphreys §1-2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从李代数开始
@@ -55,6 +55,8 @@ $$[A, [B, C]] + [B, [C, A]] + [C, [A, B]] = 0$$
 
 **同态（homomorphism）**：$\phi: L \to L'$ 是线性映射且保持括号 $\phi([x, y]) = [\phi(x), \phi(y)]$，则称 $\phi$ 是李代数同态；双射同态叫**同构（isomorphism）**。<span class="marginnote">这条框架与第一级《抽象代数》中的群同态一一对应：同态像、同态核、第一同构定理 $L/\ker\phi \cong \operatorname{im}\phi$ 在李代数中都成立。学过抽象代数的读者可以把本章当成「同态套路的重演」。</span>
 
+这套「子对象 + 商 + 同态」的三角框架，在第一级《抽象代数》学群时已经完整见过一次，本节的每个概念都只是把其中的二元运算换成李括号。若读者觉得框架顺手，说明抽象代数的「公理化基因」已经内化——后面几篇可以把精力从结构对象转向计算；反之，建议回到第一级把同态、商、核这三个词彻底过一遍，它们在本专题的每次登场都默认读者已熟悉。
+
 ## 4 核心例子
 
 有了定义，我们先认识五个反复出场的基本李代数。
@@ -69,11 +71,25 @@ $$[A, [B, C]] + [B, [C, A]] + [C, [A, B]] = 0$$
 
 **求导算子：$\operatorname{Der}(A)$**。对一个结合代数 $A$，其**导子（derivation）**是满足莱布尼茨法则 $\delta(ab) = \delta(a)b + a\delta(b)$ 的线性映射，全体导子配上交换子构成李代数。这是「李代数从代数本身长出来」的最自然途径。
 
+把五个例子放进一张速查表，纵轴就是本专题的路线图：
+
+| 李代数 | 定义 | 括号下封闭的原因 | 结构类型 |
+| --- | --- | --- | --- |
+| $\mathfrak{gl}(n,\mathbb{F})$ | 全体 $n\times n$ 矩阵 | $[A,B] = AB - BA$ | 母体 |
+| $\mathfrak{sl}(n,\mathbb{F})$ | $\operatorname{tr}A = 0$ | $\operatorname{tr}[A,B] = 0$ | 半单（$n \ge 2$） |
+| $\mathfrak{t}(n,\mathbb{F})$ | 上三角矩阵 | 上三角之积仍上三角 | 可解 |
+| $\mathfrak{n}(n,\mathbb{F})$ | 严格上三角 | 严格上三角之交换子更「瘦」 | 幂零 |
+| $\mathfrak{so}(n,\mathbb{F})$ | $A^T = -A$ | $[A,B]^T = -[A,B]$ | 半单（$n \ge 3$） |
+
+这张表的第三列给出判定的「操作要点」：判定一个矩阵子空间是不是李代数，只需验证它在交换子下封闭——上三角与反称两种情形各由一条迹/转置恒等式保证。结构类型一列则预告了后续章节：$\mathfrak{t}, \mathfrak{n}$ 是第 2、3 篇可解/幂零理论的原型，$\mathfrak{sl}, \mathfrak{so}$ 是第 4 篇起半单理论的舞台，$\mathfrak{gl}$ 始终是承载一切的母体。<span class="marginnote">注意结构类型一列的「半单」「可解」在定义顺序上超前了——第 2 篇才正式定义它们。此处只需有个印象：矩阵子空间越「受约束」，括号退化得越快，结构就越良性。</span>
+
 ## 5 直和与理想结构
 
 当 $I, J$ 都是 $L$ 的理想且 $L = I \oplus J$（向量空间直和）时，称 $L$ 是 $I$ 与 $J$ 的**理想直和（direct sum of ideals）**。此时 $[I, J] = 0$：因为 $[i, j] \in I \cap J = 0$。<span class="marginnote">这里「理想直和」比向量空间直和更强：它还要求两块的括号交互为零。后半专题「半单 = 不可分解理想的直和」正是以这个概念为底。</span>
 
 交换性（$\mathbb{F}$ 上的平凡结构 $[x, y] = 0$）加上直和，给了我们最便宜的构造工具：**阿贝尔李代数**是最简单的块，任意线性空间配上零括号即得。
+
+一个立刻可用的例子：$\mathfrak{sl}(2,\mathbb{C}) \oplus \mathfrak{sl}(2,\mathbb{C})$ 作为 $6$ 维李代数，是两个单理想的理想直和——它自然出现在 $\mathfrak{so}(4,\mathbb{C})$ 的同构中（第 9 篇的 Dynkin 图语言会给出 $\mathfrak{so}(4) \cong \mathfrak{sl}(2) \oplus \mathfrak{sl}(2)$ 的精确表述）。这种「拼积木」的视角，正是半单结构定理（第 4 篇）与 Weyl 完全可约性（第 5 篇）反复使用的底层直觉。
 
 ## 6 公式解析：伴随映射与 Jacobi 恒等式的真义
 
@@ -100,5 +116,7 @@ $$\operatorname{ad}([x, y]) = [\operatorname{ad}x, \operatorname{ad}y] = \operat
 - 五个基本例子：$\mathfrak{gl}(n,\mathbb{F})$、$\mathfrak{sl}(n,\mathbb{F})$、$\mathfrak{t}(n,\mathbb{F})$、$\mathfrak{n}(n,\mathbb{F})$、$\mathfrak{so}(n,\mathbb{F})$，各自是后续可解、幂零、半单、紧理论的原型。
 - **伴随映射 $\operatorname{ad}$** 把 Jacobi 恒等式翻译成「$\operatorname{ad}$ 是导子代数间的同态」，是全书最常用的换算器。
 - 理想直和 $\oplus$ 把大李代数拆成互不干扰的块，是半单结构定理的出发点。
+- 特征零是全书默认的基座：反对称 $[x,x]=0$ 在特征 $2$ 的域上需单独声明，本专题恒在 $\operatorname{char}\mathbb{F} = 0$ 下讨论。
+- 五个例子中 $\mathfrak{sl}(n,\mathbb{F})$（$n \ge 2$）与 $\mathfrak{so}(n,\mathbb{F})$（$n \ge 3$）实际都是**单**李代数，是半单理论（第 4 篇）的入口。
 
 在下一节，我们将用括号的嵌套长度定义两个「良性」类——**可解与幂零李代数**，并见识它们如何充当一切结构分解的「噪声层」。

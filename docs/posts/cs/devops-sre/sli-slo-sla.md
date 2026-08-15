@@ -1,6 +1,6 @@
 ---
 title: SLI/SLO/SLA 指标体系
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # SLI/SLO/SLA 指标体系
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第三级 · 计算机基础 · DevOps 与 SRE ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第三级 · DevOps 与 SRE ｜ SRE Book Ch.2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从 SLI/SLO/SLA 开始

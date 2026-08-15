@@ -117,4 +117,8 @@ $$R_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
 - **等距变换**：平移、旋转、反射，保持长度与角度；问「什么没变」是通用入口。
 - **平移**：把分散线段接到一起、构造平行四边形。
 - **反射**：对称轴是连线的垂直平分线；**将军饮马**靠反射化直解决最值。
-- **旋转**：等边/正多边形优先旋转 $60°$；旋转矩阵 $\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$ 与复数 $e^{i\theta}$
+- **旋转**：等边/正多边形优先旋转 $60°$；旋转矩阵 $\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$ 与复数 $e^{i\theta}$ 完全同构。
+- 旋转角怎么选：看哪两条边相等——相等的边就是旋转的「配对锚点」。
+- 变换题三步走：识别结构、选变换、用不变量列等式。
+
+在下一节，我们将学反演变换——从「刚体变换」走向「形状毁灭者」，把圆变成直线、把相切变成平行。

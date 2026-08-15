@@ -83,11 +83,50 @@ $$\mathrm{div}\,\mathbf{F} = \lim_{V\to 0}\frac{\oint\kern{-5pt}\iint_{\partial 
 
 <span class="marginnote">它们都是「<strong>边界的积分 = 内部的微分积分</strong>」（广义斯托克斯定理 $\int_{\partial\Omega}\omega = \int_\Omega d\omega$）。高斯公式管「散度」（源），斯托克斯公式管「旋度」（涡）——两个算子 $\mathrm{div}$ 与 $\mathrm{rot}$（curl）是向量微积分的两大主角，贯穿电磁学与流体力学。下一节斯托克斯公式将完成这幅图景。</span>
 
-## 6 小结
+## 7 数值算例：用高斯公式算通量
+
+**例 1**：$\mathbf{F} = (x^2, yz, z^2)$ 穿过立方体 $0\le x,y,z\le1$ 外侧的通量。$\mathrm{div}\,\mathbf{F} = 2x + z + 2z = 2x + 3z$，通量 $= \int_0^1\int_0^1\int_0^1 (2x+3z)\,dx\,dy\,dz = \int_0^1\int_0^1 (1 + 3z)\,dy\,dz = \int_0^1(1+3z)dz = \frac52$。
+
+**例 2**：$\mathbf{F} = (x, 2y, 3z)$ 穿过单位球外侧。$\mathrm{div}\,\mathbf{F} = 1+2+3 = 6$，通量 $= 6\cdot\frac{4\pi}{3} = 8\pi$。
+
+**要点**：两例的共同套路——「算散度 → 化为三重积分 → 计算」。散度是常数时通量 = 常数 × 体积，一步到位。<span class="marginnote">「先算散度再积分」比直接做曲面积分快得多，这正是高斯公式的核心价值：<strong>把曲面上的二重积分换成体积内的三重积分</strong>。当 $\mathrm{div}\,\mathbf{F}$ 简单（甚至常数）时，通量几乎免费。</span>
+
+## 8 对照表：散度与旋度
+
+| 散度 $\mathrm{div}\,\mathbf{F}$ | 旋度 $\mathrm{rot}\,\mathbf{F}$ |
+| --- | --- |
+| 标量 | 向量 |
+| $\nabla\cdot\mathbf{F}$ | $\nabla\times\mathbf{F}$ |
+| 度量「源」（发散/汇聚） | 度量「涡」（旋转） |
+| 高斯公式的主角 | 斯托克斯公式的主角 |
+| 电场的源是电荷 | 磁场的涡是电流 |
+
+## 9 常见错误自查清单
+
+| 错误 | 正确做法 |
+| --- | --- |
+| 曲面取错侧 | $\Sigma$ 必须取外侧 |
+| 散度算错偏导 | 逐项核对 $\frac{\partial P}{\partial x}$ 等 |
+| 忘化为三重积分 | 高斯公式右边是体积分 |
+| 混淆散度与旋度 | $\mathrm{div}$ 是标量（源），$\mathrm{rot}$ 是向量（涡） |
+
+## 10 高斯公式与现代科学
+
+高斯公式是「守恒律」的数学基石：
+
+- **电磁学**：高斯定律 $\oint \mathbf{E}\cdot d\mathbf{S} = Q/\varepsilon_0$——电通量 = 内部电荷；
+- **流体**：连续性方程 $\frac{\partial\rho}{\partial t} + \mathrm{div}(\rho\mathbf{v}) = 0$——质量守恒；
+- **热传导**：热量平衡方程含散度项；
+- **数值方法**：有限体积法把守恒律写成「通量 = 源」的形式，正是高斯公式的离散版。
+
+「内部源强 = 表面通量」这条守恒律，从电磁学到流体到热传导到数值计算，是物理世界最普遍的结构之一。
+
+## 11 小结
 
 - **高斯公式**：$\oint\kern{-5pt}\iint_\Sigma \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_\Omega \mathrm{div}\,\mathbf{F}\,dV$（$\Sigma$ 取外侧）。
 - **散度**：$\mathrm{div}\,\mathbf{F} = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}$，是「每一点的源强度」。
 - 散度 > 0 源、< 0 汇、= 0 无源；散度是局部量，高斯公式是整体守恒。
+- 通量计算：算散度 → 化三重积分 → 计算。
 - 应用：高斯定律、连续性方程、热传导、用表面积分算体积。
 - 三大公式 = 微积分基本定理家族：格林（2D 旋度）、高斯（3D 散度）、斯托克斯（3D 旋度）。
 

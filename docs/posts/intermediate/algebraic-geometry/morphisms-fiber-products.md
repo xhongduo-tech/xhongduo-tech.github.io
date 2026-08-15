@@ -1,6 +1,6 @@
 ---
 title: 概形的态射与纤维积
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 概形的态射与纤维积
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 代数几何 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 代数几何 ｜ Hartshorne, Algebraic Geometry (GTM 52) Ch. II §3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从态射继续
@@ -98,7 +98,21 @@ $$
 
 一句话直觉：**纤维积 = "在基上求交"；仿射情形 = "环的张量积"**。基变换则让"换基"成为一条可随时执行的命令，把一族对象的所有"切片"统一在一个对象里。
 
-## 6 小结
+## 6 术语速查与算例：态射与纤维积
+
+| 概念 | 一句话定义 | 关键例子 |
+| --- | --- | --- |
+| 态射 | 连续映射 + 结构层拉回 + 局部同态 | $\operatorname{Spec} A \to \operatorname{Spec} B$ ⟺ $B \to A$ |
+| 纤维积 | 在 $S$ 上兼容的最大对象 | $X \times_k Y$（$S = \operatorname{Spec} k$ 时是乘积） |
+| 纤维 | 在点上的拉回 | $X_s = X \times_S \operatorname{Spec} \kappa(s)$ |
+| 基变换 | 沿 $S' \to S$ 的拉回 | $\mathbb{Q}$ 换 $\mathbb{Z}$ 再换 $\mathbb{F}_p$ |
+| 张量积 | 联立约束下的自由乘积 | $k[x] \otimes_k k[y] = k[x,y]$ |
+
+**算例：算术几何里的基变换。** 椭圆曲线 $E: y^2 = x^3 + x + 1$ 定义在 $\mathbb{Q}$ 上，看作态射 $E \to \operatorname{Spec} \mathbb{Q}$。沿 $\operatorname{Spec} \mathbb{Z} \to \operatorname{Spec} \mathbb{Q}$ 基变换，得到 $\mathbb{Z}$ 上的"模型"（需决定系数在哪里取整、哪里出现坏约化）；再沿 $\operatorname{Spec} \mathbb{F}_p \to \operatorname{Spec} \mathbb{Z}$ 基变换，得到 $E_p: y^2 = x^3 + x + 1 \bmod p$——"模 $p$ 化简"。$E_p$ 的点的个数 $N_p$ 由 Hasse 界 $|N_p - (p+1)| \le 2\sqrt{p}$ 控制，而 $L$-函数 $\prod_p (1 - a_p p^{-s} + p^{1-2s})^{-1}$ 正是把"每个纤维上的计数"打包。基变换让一族对象的每个切片都能被单独考察，这是算术几何的第一动词。<span class="marginnote">Qing Liu 的教材几乎整本都在这张图上展开：<strong>把 $\mathbb{Q}$ 上的几何"模 $p$ 化简"成 $\mathbb{F}_p$ 上的几何</strong>，再反过来用所有 $p$ 的信息重建原来的几何——"纤维积 + 基变换"是这套现代算术几何的句法。</span>
+
+**辨析｜易错点：** 基变换与"取纤维"不是一回事：纤维是"变到一个点 $\operatorname{Spec} \kappa(s)$ 上"的基变换特例；一般基变换可以把整个基都换掉。初学者常把"模 $p$ 化简"（基换成 $\operatorname{Spec} \mathbb{F}_p$）与"在闭点取纤维"（基换成 $\operatorname{Spec} \overline{\mathbb{F}}_p$ 的代数闭包）混淆——前者 $\kappa(s) = \mathbb{F}_p$，后者对应几何点，两者维数与点集可以不同。
+
+## 7 小结
 
 - **态射**：连续映射 + 结构层拉回 + 局部同态保持；仿射情形 ⟺ 环同态（反变等价）。
 - **纤维积** $X \times_S Y$：在 $S$ 上兼容的最大对象，由拉回方块与泛性质唯一确定，**总是存在**。

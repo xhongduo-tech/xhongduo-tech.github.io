@@ -46,6 +46,8 @@ $$\text{FLOPs}_{\text{decode}} \approx 2 \cdot N \cdot 1$$
 
 同样是 14 GFLOPs 数量级的计算，与 Prefill 相比，**输入宽度从 P 掉到了 1**，但「读一遍全部权重」的运输成本一分不少。每字节权重只被使用约 1 次，算术强度骤降到约 1 FLOP/byte——这是典型的**访存受限**：性能被 HBM 带宽卡死，而不是被算力卡死。
 
+以 LLaMA-2 7B、FP16 为例：Decode 每步约 14 GFLOPs 的计算在 A100 上 0.05 毫秒级就能完成，但读 14 GB 权重需要约 7 毫秒（带宽约 2 TB/s）——**计算只占延迟的约 1%，运输占了约 99%**。这个「1% vs 99%」的比例，是理解 Decode 优化一切手段（KV Cache、批处理、量化降字节、投机解码少走步）的总钥匙。
+
 **Prefill 与 Decode 的分界，不是时间先后，而是计算形态：Prefill 把 P 个 token 一起算，Decode 每步只算 1 个 token、却要完整读一遍权重。**
 
 ## 3 两张面孔的量化对比
@@ -81,6 +83,8 @@ def schedule(new_requests, running):
 ```
 
 这段骨架暴露了两阶段在引擎里的两种待遇：Prefill 一步把 $P$ 个 token 全算完、顺势建好初始 KV Cache，属于「一次投入、一次性产出」；Decode 则把多条序列拼成批，共享读一遍权重，每步只让每条序列长出一个 token。后续 vLLM 的调度器、Continuous Batching、Chunked Prefill，全是在这两条分支上做文章。
+
+这段骨架还暴露了「为什么批处理是 Decode 的关键」：Decode 分支把多条序列拼成一个 batch，共享读一遍 14 GB 权重——**N 条序列的 Decode 成本摊到一份权重读取上**，批越大、单条序列摊到的访存越少，这就是《推理吞吐、延迟与批大小的基本关系》要展开的内容。
 
 ## 4 公式解析：为什么算术强度随序列长度线性增长
 

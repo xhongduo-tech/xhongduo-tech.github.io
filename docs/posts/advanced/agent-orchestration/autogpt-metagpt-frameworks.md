@@ -1,6 +1,6 @@
 ---
 title: 从 AutoGPT 到 MetaGPT：智能体框架
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 从 AutoGPT 到 MetaGPT：智能体框架
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第四级 · 高阶专题 · AI 智能体编排 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第四级 · AI 智能体编排 ｜ Xi et al., Survey 2024 §7 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么聊框架

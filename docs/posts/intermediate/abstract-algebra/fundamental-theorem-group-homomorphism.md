@@ -105,7 +105,22 @@ $$
 
 **例：** 证明 $(\mathbb{R}, +) / \mathbb{Z} \cong S^1$（圆周群）。取 $f : \mathbb{R} \to S^1$，$f(x) = e^{2\pi i x}$。$\ker f = \mathbb{Z}$，$\operatorname{Im} f = S^1$。由基本定理 $\mathbb{R}/\mathbb{Z} \cong S^1$——「实数压掉整数，得到圆周」。这条同构在傅里叶分析与拓扑群理论中地位崇高，也是《复变函数与积分变换》里周期函数的代数解释。<span class="marginnote">$\mathbb{R}/\mathbb{Z} \cong S^1$ 是「周期性的代数编码」：实数轴上差一个整数就视为相同，剩下的正是 $[0,1)$ 模 1 的圆周。傅里叶级数里的 $e^{2\pi i n x}$ 一族，本质上是 $S^1$ 上的「对偶群」。这条桥把抽象代数与《数学分析》《复变函数》连了起来。</span>
 
-## 6 小结
+## 6 对照速查：基本定理的经典同构
+
+把同态基本定理的标准应用排成一张表，流程感一目了然。
+
+| 同态 $f$ | 核 $\ker f$ | 像 $\operatorname{Im} f$ | 结论 |
+| --- | --- | --- | --- |
+| $\mathbb{Z} \to \mathbb{Z}_n$（模） | $n\mathbb{Z}$ | $\mathbb{Z}_n$ | $\mathbb{Z}/n\mathbb{Z} \cong \mathbb{Z}_n$ |
+| $\det : GL_n \to \mathbb{R}^\ast$ | $SL_n$ | $\mathbb{R}^\ast$ | $GL_n/SL_n \cong \mathbb{R}^\ast$ |
+| $\mathrm{sgn} : S_n \to \{\pm 1\}$ | $A_n$ | $\{\pm 1\}$ | $S_n/A_n \cong \mathbb{Z}_2$ |
+| $f(x) = e^{2\pi ix}$ | $\mathbb{Z}$ | $S^1$ | $\mathbb{R}/\mathbb{Z} \cong S^1$ |
+
+**数值算例：用基本定理证 $\mathbb{C}^\times / \mathbb{R}^\times \cong S^1$。** 取 $f : \mathbb{C}^\times \to S^1$，$f(z) = z/|z|$（把复数压到单位圆上）。$\ker f = \{ z \mid z/|z| = 1 \} = \mathbb{R}^\times$（正实数，$|z| = z$），像 $= S^1$。由基本定理 $\mathbb{C}^\times / \mathbb{R}^\times \cong S^1$——<span class="marginnote">「把模长压平，剩下的就是相位」：$\mathbb{C}^\times = \mathbb{R}^\times \times S^1$（极坐标分解），商掉 $\mathbb{R}^\times$ 恰好剩 $S^1$。这条同构把「复数乘法群的结构」拆成「长度 × 角度」，是极坐标在群论语言下的精确形态——与《复变函数》里的辐角概念无缝衔接。</span>
+
+**一句话记法**：$G/\ker f \cong \operatorname{Im} f$；同态 = 满射 × 同构 × 单射；核大像小、核小像大——「构造同态、算核算像、套定理」三步走遍所有同构证明。
+
+## 7 小结
 
 - **群同态基本定理**：$G / \ker f \cong \operatorname{Im} f$，诱导同构 $\bar{f}(a\ker f) = f(a)$。
 - **证明三步**：良定义（同陪集共享同像）→ 同态（翻译 $f$ 的性质）→ 双射（满射显然、单射与良定义互为镜像）。

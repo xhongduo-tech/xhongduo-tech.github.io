@@ -1,6 +1,6 @@
 ---
 title: 线性引力波与 TT 规范
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 线性引力波与 TT 规范
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第四级 · 高阶专题 · 引力波天文学 ｜ 对标教材 Maggiore, Gravitational Waves Vol.1, Ch.1 ｜ 2026-08-11</p>
+<p>第四级 · 高阶专题 · 引力波天文学 ｜ 对标教材 Maggiore, Gravitational Waves Vol.1, Ch.1 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从线性引力波开始
@@ -91,7 +91,32 @@ $$\frac{d^2 \xi^i}{dt^2} = \tfrac12 \ddot{h}_{ij}^{\mathrm{TT}} \xi^j$$
 
 第二，**线性化理论与辐射公式（四极矩公式）构成了探测实验的全部理论输入**：知道了 $h_+(t), h_\times(t)$，干涉仪的响应曲线就是确定性的，剩下就是信号处理与噪声统计的问题。
 
-## 6 小结
+## 6 数值算例：把 $10^{-21}$ 翻译成日常尺度
+
+设双星旋近在 100 Hz 处发出振幅 $h \sim 10^{-21}$ 的波，几个可感的换算：
+
+- **臂长变化**：对 4 km 干涉臂，$\Delta L = hL \sim 4\times10^{-18}$ m，约是质子半径（$8\times10^{-16}$ m）的二百分之一；
+- **相位变化**：光往返相位 $\Delta \Phi = 4\pi L h/\lambda \sim 10^{-9}$ 弧度，远小于一个干涉条纹；
+- **能流通量**：引力波能流通量约 $10^{-3}\ \mathrm{W/m^2}$，比手电筒照到 1 米外的光还弱。
+
+**易错点｜辨析**：「振幅小」不等于「无法探测」。数字越小，越是工程放大技巧（谐振腔、功率循环、匹配滤波）的用武之地；把 $h \sim 10^{-21}$ 与「臂长 × 放大因子」相乘，才是探测器真正读到的信号。同一套数值放到 1 m 桌面干涉仪上，$\Delta L$ 只有 $10^{-21}$ m，约为质子半径的百万分之一——这是「为什么臂要公里级」最直观的答案，细节见本专题《LIGO 与干涉仪原理》。
+
+## 7 术语速查：线性引力波词汇表
+
+| 记号 / 术语 | 含义 | 英文 |
+| --- | --- | --- |
+| $g_{\mu\nu}$ | 度规 | metric |
+| $\eta_{\mu\nu}$ | 闵可夫斯基度规 | Minkowski metric |
+| $h_{\mu\nu}$ | 度规扰动 | metric perturbation |
+| $\bar{h}_{\mu\nu}$ | 逆迹扰动 | trace-reversed perturbation |
+| $\Box$ | 达朗贝尔算符 | d'Alembertian |
+| TT 规范 | 横向无迹规范 | transverse-traceless gauge |
+| $h_+$ | 加号偏振 | plus polarization |
+| $h_\times$ | 叉号偏振 | cross polarization |
+
+**重点**：术语对应不只是「翻译」。文献中 $h_{\mu\nu}$ 与 $\bar{h}_{\mu\nu}$ 常混用，换算 $\bar{h} = h - \tfrac12\eta\,h$ 必须记牢；「TT」下标表示量已在横向无迹规范下约化，不是独立的场量。
+
+## 8 小结
 
 - 线性引力波把度规写成 $\eta_{\mu\nu} + h_{\mu\nu}$，场方程退化为**源驱动波动方程** $\Box \bar{h}_{\mu\nu} = -16\pi G T_{\mu\nu}$。
 - 逆迹扰动 $\bar{h}_{\mu\nu} = h_{\mu\nu} - \tfrac12\eta_{\mu\nu} h$ 让方程变得干净，与电磁学达朗贝尔方程同构。

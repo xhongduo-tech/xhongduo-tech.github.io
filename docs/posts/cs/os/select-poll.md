@@ -85,6 +85,8 @@ $$\text{每次调用拷贝量} = 3 \times \frac{FD\_SETSIZE}{8} = 3 \times 128 =
 
 **直觉**：select/poll 的问题是「**每次调用都从头再来**」——没有「记住上次的状态」。epoll 的核心创新就是「**先注册（记住）、再等待（只回报变化）**」——把 O(n) 的重复劳动变成 O(1) 的增量更新。
 
+**数值算例：10 万连接下的 select 灾难**。设服务器维护 10 万连接，每轮事件循环调一次 select：内核要**扫 10 万 fd 的位图**；即使只有 5 个 fd 就绪，这一轮也要完整扫一遍。若每秒有 1 万次事件循环，就是每秒 **10 亿次 fd 检查**——CPU 全耗在「检查没就绪的 fd」上。<span class="marginnote">这就是「select 撑不了大并发」的真正原因：不是 1024 的 fd 上限（那是可调的），而是 O(n) 扫描让 CPU 在 fd 上万时先耗尽。<strong>select 的瓶颈不是位图大小，而是扫描复杂度</strong>——所以 epoll 才把它换成「只回报就绪 fd」。</span>同样的负载，epoll 每轮只处理就绪的 5 个 fd——成本与 5 成正比，与 10 万无关。
+
 ## 4 核心对比表：select vs poll
 
 | 维度 | select | poll |
@@ -106,5 +108,17 @@ $$\text{每次调用拷贝量} = 3 \times \frac{FD\_SETSIZE}{8} = 3 \times 128 =
 - 共同痛点：**每次调用「全量传入 + 全量扫描 + 返回全查」**——fd 多时成本 O(n)。
 - 高并发下 select/poll 的成本随连接数线性恶化。
 - epoll 的核心创新：**先注册、只回报变化**——把 O(n) 变成 O(事件数)。
+
+**术语速查表**：
+
+| 术语 | 含义 |
+| --- | --- |
+| `fd_set` | select 的 fd 位图 |
+| `FD_SETSIZE` | 位图上限（默认 1024） |
+| `FD_SET` / `FD_ISSET` | 位图操作宏 |
+| `pollfd` | poll 的 fd 结构（events/revents） |
+| `POLLIN` / `POLLOUT` | 读/写就绪事件 |
+| O(n) 扫描 | 每次调用遍历全部 fd |
+| 就绪回报 | epoll 只返回有事件的 fd |
 
 在下一节，我们看 epoll 的三剑客——**epoll 三剑客：epoll_create/epoll_ctl/epoll_wait**。

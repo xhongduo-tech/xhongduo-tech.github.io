@@ -113,4 +113,18 @@ BEC 是「从极限到大模型」里「**量变到质变**」的最纯物理版
 **延伸思考**：为什么 $d\le2$ 的理想玻色气体没有有限温凝聚？提示：临界温度公式里 $n^{2/3}$ 的低维对应发散。Bogoliubov 变换 $u^2-v^2=1$ 与玻色对易关系如何自洽？提示：$[\alpha,\alpha^\dagger]=[b,b^\dagger]=1$ 的保持要求。
 
 
-**实践与辨析**：一道综合题：从 Bogoliubov 谱推导超流声速 $c=\sqrt{gn_0/m}$，并说明为何 $g\to0$ 时声速消失、理想玻色气体不超流。提示：长波极限 $\varepsilon_{\mathbf{k}}\approx\hbar k\sqrt{gn_0/m}$，$c=\lim\varepsilon_k/\hbar k$；$g=0$ 时谱是纯抛物线 $\hbar^2k^2/2m$，$\varepsilon_k/k\to0$
+## 7 数值算例：冷原子 BEC 的参数
+
+把公式放进 1995 年铷-87 原子气的实验：$n\approx10^{13}\ \mathrm{cm^{-3}}=10^{19}\ \mathrm{m^{-3}}$，质量 $m=87\ \mathrm{u}\approx1.44\times10^{-25}\ \mathrm{kg}$。代入临界温度：
+
+$$
+T_c = \frac{2\pi\hbar^2}{mk_B}\Big(\frac{n}{\zeta(3/2)}\Big)^{2/3} \approx 70\ \mathrm{nK}
+$$
+
+- **第一步，验证量级**：实验实测铷 BEC 的转变温度约 100–200 nK（含 trap 修正），与公式同量级——理想气体公式是理解冷原子实验的第一把尺子。
+- **第二步，算声速**：取散射长度 $a_s\approx5.8\ \mathrm{nm}$，$g=4\pi\hbar^2a_s/m$，$n_0\approx n$，声速 $c=\sqrt{gn_0/m}\approx\sqrt{4\pi\hbar^2a_s n/m^2}\approx0.5\ \mathrm{mm/s}$——声子在凝聚体里「走」得极慢。
+- **第三步，读结论**：$T_c$ 与声速都来自同一套公式链（$T_c\propto n^{2/3}/m$，$c\propto\sqrt{a_s n}/m$），而实验用 Feshbach 共振连续调节 $a_s$ 来检验——参数化的 BEC 是「理论-实验闭环」的典范。
+
+**重点：冷原子 BEC 是「干净版超流」——没有液氦的强关联，参数 $n, a_s$ 全部可调。** 这也使它成为模拟凝聚体物理、甚至模拟量子相变的「量子模拟器」。
+
+**实践与辨析**：一道综合题：从 Bogoliubov 谱推导超流声速 $c=\sqrt{gn_0/m}$，并说明为何 $g\to0$ 时声速消失、理想玻色气体不超流。提示：长波极限 $\varepsilon_{\mathbf{k}}\approx\hbar k\sqrt{gn_0/m}$，$c=\lim\varepsilon_k/\hbar k$；$g=0$ 时谱是纯抛物线 $\hbar^2k^2/2m$，$\varepsilon_k/k\to0$，超流判据失效——这就是「凝聚不等于超流」的由来。

@@ -1,6 +1,6 @@
 ---
 title: 全球气候治理与碳中和政策
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 全球气候治理与碳中和政策
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第八级 · 社会科学 · 环境政策与治理 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第八级 · 环境政策与治理 ｜ Tietenberg《Environmental and Natural Resource Economics》§14 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从「碳的社会成本」开始

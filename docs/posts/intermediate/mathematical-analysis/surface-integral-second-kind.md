@@ -100,7 +100,21 @@ $$\iint_S\vec F\cdot d\vec S=\iint_S1\,dS=4\pi.$$
 
 **第一型管「总量」，第二型管「通量」**——通过「法向投影」相连，正如曲线积分通过「切向投影」相连。
 
-## 6 小结
+## 6 计算示范：第二型曲面积分的完整演练
+
+**示范一（平面上的通量）**：$\vec F=(x,y,z)$ 沿平面 $x+y+z=1$ 在第一卦限部分的上侧。平面 $z=1-x-y$，$z_x=z_y=-1$，由公式 $\iint(-Pz_x-Qz_y+R)dx\,dy=\iint(x+y+z)dx\,dy$（$P=x,Q=y,R=z$），在投影域 $x\ge0,y\ge0,x+y\le1$ 上 $z=1-x-y$，故被积函数 $=x+y+1-x-y=1$，积分 $=$ 三角形面积 $=\frac12$。**「$\vec F\cdot\vec n$ 恰为常数」时，通量 $=$ 常数 × 投影面积**。
+
+**示范二（球面的通量）**：$\vec F=(0,0,z)$ 沿单位球面**外侧**。外侧法向 $\vec n=(x,y,z)$（径向），$\vec F\cdot\vec n=z^2$，故通量 $=\iint_S z^2\,dS$。用球坐标参数化 $\vec r(\theta,\varphi)=(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta)$，$dS=\sin\theta\,d\theta\,d\varphi$：
+
+$$\iint_Sz^2dS=\int_0^{2\pi}\int_0^\pi\cos^2\theta\sin\theta\,d\theta\,d\varphi=2\pi\cdot\frac23=\frac{4\pi}{3}.$$
+
+**「$\vec F=(0,0,z)$ 穿球面通量 $=\frac{4\pi}{3}$」**——用参数曲面的 $d\vec S=\vec r_\theta\times\vec r_\varphi\,d\theta\,d\varphi$ 计算，是球面第二型积分的标准套路。
+
+**示范三（定向符号的核对）**：示范一若取下侧，积分 $=-\frac12$。**「反向定向整体反号」**用一正一负两个示范核对，确认 $d\vec S=\vec n\,dS$ 中的法向选对。<span class="marginnote">「上侧取 $+$、下侧取 $-$」的符号规则在 $z=z(x,y)$ 情形最直观；换成「前侧/后侧」「左侧/右侧」（法向沿 $x$ 或 $y$ 轴）时，公式里的 $(-Pz_x-Qz_y+R)$ 会换成不同的组合（$P$ 项主导）。工程里选「外法向」为正向是约定俗成——闭曲面的外侧总是标准定向。<strong>「先定法向、再定符号、最后积分」</strong>是三步铁律。</span>
+
+**示范四（通量的物理核对）**：速度场 $\vec v=(0,0,1)$ 穿过单位圆盘 $x^2+y^2\le1$（上侧，$z=0$ 平面）。$\vec F\cdot\vec n=1$，通量 $=$ 圆盘面积 $=\pi$。**「单位速度场穿单位面积 = 面积」**——通量就是「流量」，单位场下退化为面积，这是定义自洽性的直观检验。
+
+## 7 小结
 
 - **曲面的侧**：法向分两侧；双侧可定向、莫比乌斯带单侧不可定向。
 - **第二型曲面积分**：$\iint_S\vec F\cdot d\vec S=\iint_S\vec F\cdot\vec n\,dS=\iint P\,dy\,dz+Q\,dz\,dx+R\,dx\,dy$。

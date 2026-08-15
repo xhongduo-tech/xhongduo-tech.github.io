@@ -76,12 +76,45 @@ $$
 
 直觉一句话：**oracle 把目标「涂黑」，扩散把「涂黑的那一点」放大**。每次迭代重复「标记 → 放大」，目标振幅像跷跷板一样被逐步抬升。<span class="marginnote">与振幅放大一节对照：Grover 迭代 $G = D\cdot O$ 正是「初始态反射 × 好反射」，完全落入通用振幅放大框架。Grover 只是选 $\lvert s\rangle$ 为均匀叠加、好子空间为单目标的特例。</span>
 
-## 6 小结
+## 6 常见误区与自查练习
+
+| 误区 | 事实 |
+| --- | --- |
+| 「多迭代几次更保险」 | 过头会让目标振幅回落，必须精确停在最优次数 |
+| 「oracle 要能读出答案」 | oracle 只翻转目标相位，不改振幅；答案靠干涉放大 |
+| 「扩散是某种空间扩散」 | 是「关于均值的反射」$a_x\to2\mu-a_x$，不是物理扩散 |
+| 「Grover 与振幅放大无关」 | 正是振幅放大的特例：均匀叠加 + 单目标 |
+
+**自查问题**：
+
+1. oracle 如何实现？——翻转查询 + $\lvert-\rangle$ 辅助比特，等价于相位翻转。
+2. 扩散算子为什么放大目标？——目标振幅为负、均值微负，$2\mu-a_x$ 把负值抬成正的大值。
+3. 一次迭代把角度变多少？——$\theta\to\theta+2\theta=3\theta$。
+4. 最优迭代次数为什么是 $\frac{\pi}{4}\sqrt N$？——$\theta\approx1/\sqrt N$，转到 $\pi/2$ 需 $\pi/(4\theta)$ 步。
+
+## 7 术语速查表
+
+| 术语 | 含义 |
+| --- | --- |
+| Grover oracle | 相位翻转门，$O\lvert x\rangle=(-1)^{f(x)}\lvert x\rangle$ |
+| 扩散算子 $D$ | $2\lvert s\rangle\langle s\rvert-I$，关于均匀叠加态反射 |
+| 关于均值翻转 | $a_x\to2\mu-a_x$，扩散算子的振幅更新规则 |
+| Grover 迭代 $G$ | $D\cdot O$，净效果是角度 $+2\theta$ |
+| $\lvert s\rangle$ | 均匀叠加态 $H^{\otimes n}\lvert0\rangle$ |
+
+## 8 小结
 
 - **oracle** $O = I - 2\lvert x^*\rangle\langle x^*\rvert$：翻转目标相位，用翻转查询 + $\lvert-\rangle$ 实现。
 - **扩散算子** $D = 2\lvert s\rangle\langle s\rvert - I$：关于均匀叠加态反射 = 关于均值翻转 $a_x \to 2\mu - a_x$。
 - **Grover 迭代** $G = D\cdot O$：净效果是角度 $\theta \to \theta + 2\theta$，目标振幅 $\sin\theta \to \sin3\theta$。
 - 单解时 $\sin\theta = 1/\sqrt N$，最优迭代次数 $k \approx \frac{\pi}{4}\sqrt N$。
 - **易错点**：迭代次数要精确，过犹不及。
+
+**练习**：
+
+1. 用 $N=4$ 手算一次迭代——$\theta=\arcsin(1/2)=\pi/6$，一次迭代后 $3\theta=\pi/2$，恰好成功。
+2. 写出扩散算子的振幅更新——$a_x\to2\mu-a_x$，目标从负值被抬成正值。
+3. 说明 oracle 为什么「不读答案」——只翻转相位，放大靠干涉。
+4. 记忆三个量——$\theta=\arcsin(1/\sqrt N)$、迭代角 $2\theta$、最优 $k=\frac{\pi}{4}\sqrt N$。
 
 在下一节，我们把迭代放进二维平面看——**Grover 算法的几何解释：旋转与振幅放大**。

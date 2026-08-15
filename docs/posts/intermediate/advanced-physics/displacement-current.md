@@ -77,7 +77,51 @@ $$
 
 <span class="marginnote">麦克斯韦从位移电流推出电磁波，并预言其速度为 $c = 1/\sqrt{\mu_0\varepsilon_0} \approx 3\times10^8$ m/s——与光速一致！他写道「光是一种电磁波」。这个统一，与牛顿统一天上地下、爱因斯坦统一时空并称物理学最伟大的统一之一。位移电流是这一切的枢纽。</span>
 
-## 6 小结
+## 6 数值算例：电磁波中的位移电流密度
+
+频率 $f = 100\ \mathrm{MHz}$ 的平面电磁波，电场振幅 $E_0 = 100\ \mathrm{V/m}$，真空中传播。求位移电流密度振幅。
+
+$$
+
+J_d = \varepsilon_0\frac{\partial E}{\partial t} = \varepsilon_0\omega E_0 = 8.85\times10^{-12}\times2\pi\times10^8\times100
+
+$$
+
+- **第一步，写位移电流密度**：$J_d = \varepsilon_0\,\partial E/\partial t$。
+- **第二步，代时间导数**：$E = E_0\cos(\omega t - kx)$，$\partial E/\partial t = -\omega E_0\sin(\omega t - kx)$，振幅 $\omega E_0$。
+- **第三步，代入**：$J_{d,0} = 8.85\times10^{-12}\times6.28\times10^8\times100 \approx 0.56\ \mathrm{A/m^2}$。
+- **第四步，解读**：这个位移电流密度虽然不大，但正是它（与传导电流一起）激发磁场，维持电磁波自持传播。真空中没有电荷流动，全靠「变化电场 → 位移电流 → 磁场 → 变化磁场 → 电场」的循环。<span class="marginnote">「位移电流的磁效应可以计算」：用安培环路定理（全电流版），由位移电流分布可以求它激发的磁场——这正是电磁波里 $\boldsymbol{E}$ 与 $\boldsymbol{B}$ 互相感生的定量基础。频率越高，$\omega E_0$ 越大，位移电流越显著。</span>
+
+## 7 位移电流与电流连续性
+
+位移电流的引入让「电流连续性」在电容器处得到满足：
+
+$$
+
+\oint_S \boldsymbol{J}_{\text{全}}\cdot\mathrm{d}\boldsymbol{S} = 0, \qquad \boldsymbol{J}_{\text{全}} = \boldsymbol{J}_c + \frac{\partial\boldsymbol{D}}{\partial t}
+
+$$
+
+- **第一步，读方程**：闭合曲面内全电流（传导 + 位移）的通量为零——电流不再中断。
+- **第二步，看电荷守恒**：$\nabla\cdot\boldsymbol{J}_c + \frac{\partial\rho}{\partial t} = 0$（电荷守恒）与高斯定理联立，恰好保证位移电流项补齐连续性。
+- **第三步，体会统一**：位移电流不是「发明」来凑数的——它由高斯定理与电荷守恒必然推出，麦克斯韦只是把数学上必要的项补进了安培环路定理。<span class="marginnote">这个推导是理论物理「由对称性/守恒律推出新物理」的范例：电荷守恒（电荷连续性方程）要求磁场方程必须含位移电流项。麦克斯韦方程组四条的「一致性」（散度方程与旋度方程相容）本身就是一个约束——这正是第二十一章微分形式要展现的数学美。</span>
+
+**辨析｜易错点：**位移电流的方向与电场变化率同向（$\partial\boldsymbol{D}/\partial t$），充电时极板间位移电流方向与传导电流一致（都流向极板）、放电时相反。画方向时先定电场变化方向，再定位移电流方向——别和「电流方向 = 正电荷流动方向」的直觉混淆。
+
+## 8 术语速查表
+
+| 术语 | 公式 | 要点 |
+| --- | --- | --- |
+| 位移电流 | $I_d = \varepsilon_0\,\mathrm{d}\Phi_E/\mathrm{d}t$ | 变化电场的等效电流 |
+| 位移电流密度 | $\boldsymbol{J}_d = \partial\boldsymbol{D}/\partial t$ | 微分形式 |
+| 全电流 | $I_c + I_d$ | 处处连续 |
+| 麦克斯韦-安培定律 | $\oint\boldsymbol{B}\cdot\mathrm{d}\boldsymbol{l} = \mu_0(I_c + I_d)$ | 变化电场产生磁场 |
+| 电荷守恒 | $\nabla\cdot\boldsymbol{J}_c + \partial\rho/\partial t = 0$ | 与位移电流相容 |
+| 电磁波 | $c = 1/\sqrt{\mu_0\varepsilon_0}$ | 位移电流的产物 |
+
+位移电流是麦克斯韦方程组的点睛之笔：它让「变化电场 → 磁场」与「变化磁场 → 电场」对称，让电流在电容器处延续，也让电磁波得以存在。麦克斯韦由此预言「光即电磁波」——电磁学的统一在此完成。下一节我们把所有规律合并成**麦克斯韦方程组的积分形式**。
+
+## 9 小结
 
 - **安培环路定理的矛盾**：电容器极板间无传导电流，环流随曲面选择不同而矛盾。
 - **位移电流**：$I_d = \varepsilon_0\frac{\mathrm{d}\Phi_E}{\mathrm{d}t} = S\varepsilon_0\frac{\mathrm{d}E}{\mathrm{d}t}$——变化的电场等效电流。

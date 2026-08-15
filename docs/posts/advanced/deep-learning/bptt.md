@@ -99,9 +99,19 @@ RNN 的梯度爆炸在时间维特别严重（同一 $\boldsymbol{W}_{hh}$ 反�
 
 **易错点：** 裁剪是**兜底**，不能替代「治本」。治本是 LSTM/GRU 的门控结构（用加法/门控替代连乘）——**「门控治消失、裁剪治爆炸」**，两者互补。
 
-## 6 小结
+## 6 数值算例：展开图的梯度回流
 
-- **BPTT** = 沿展开图的链式法则反向传播；总损失 = 各时间步损失之和。
+用一个三段展开把 BPTT 的「时间维链式法则」追一遍。设 $T=3$，隐藏更新 $h_t = \tanh(W_h h_{t-1} + W_x x_t)$，总损失 $J = J_1 + J_2 + J_3$（各时间步损失之和）。
+
+**对 $W_h$ 的梯度**：因为 $W_h$ 在 $t=1,2,3$ 都出现，链式法则要求「对所有出现位置求和」：
+$$
+\frac{\partial J}{\partial W_h} = \sum_{t=1}^{3} \frac{\partial J_t}{\partial W_h}
+$$
+其中每一项又要沿时间维递归：$\frac{\partial J_3}{\partial W_h}$ 依赖 $\frac{\partial h_3}{\partial h_2}\frac{\partial h_2}{\partial h_1}\frac{\partial h_1}{\partial W_h}$——**梯度要「跨过中间时刻」连乘回去**。<span class="marginnote">「连乘」正是梯度消失/爆炸的来源：$\frac{\partial h_t}{\partial h_{t-1}} = \text{diag}(1-\tanh^2(\cdot))\,W_h$，每个时间步都乘一次 $W_h$。若 $W_h$ 的最大奇异值 $>1$，梯度随步数<strong>指数放大</strong>（爆炸）；$<1$ 则<strong>指数衰减</strong>（消失）。这就是为什么 RNN 训练要配梯度裁剪（治爆炸）与 LSTM/GRU 门控（治消失）——<strong>BPTT 只是「如实传播」，问题的根源在「跨时间连乘」本身</strong>。</span>
+
+**两个易错点。**
+- 易错点一：**BPTT 的「反向」是「沿展开的时间图」**，不是「把时间倒着跑一遍」——它是把 RNN 展开成一个深度为 $T$ 的前馈网络，用标准反向传播处理。
+- 易错点二：**长序列要截断（TBPTT）**——直接把整个序列展开会让计算图深达 $T$、显存与步数爆炸。截断反向（每 $K$ 步截一次）是现代 RNN 训练的标准做法（见《序列的截断与梯度计算策略》）。
 - **梯度累加**：共享权重的梯度 = 所有时间步贡献之和——BPTT 的第一原则。
 - 反向递推：$\boldsymbol{\delta}_{t-1} = \boldsymbol{W}_{hh}^{\top}\text{diag}(\tanh')\boldsymbol{\delta}_t + \text{自身损失}$——「逆流」逐时间步回传。
 - 连乘结构：$\prod \boldsymbol{W}_{hh}^{\top}\tanh'$——谱半径决定消失/爆炸，**RNN 梯度问题 = 超深网络 + 权重共享**。

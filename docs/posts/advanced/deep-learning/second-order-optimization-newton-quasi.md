@@ -94,9 +94,26 @@ $$
 
 **实践结论**：深度学习**大规模**训练用一阶（AdamW）；**中小规模、全批量、光滑**问题用 L-BFGS；**理论或小凸问题**用牛顿法。**「用不起二阶」是常态，「何时用得起」是工程判断**。<span class="marginnote">一个例外值得注意：<strong>微调小模型、超参数搜索的内部优化、以及「精确求解逻辑回归」等强凸子问题，L-BFGS 仍是利器</strong>。很多成熟的 scikit-learn 模型（逻辑回归、SVM）默认优化器就是 L-BFGS——「深度学习之外，二阶方法从未退场」。</span>
 
-## 7 小结
+## 6 数值算例：牛顿步的「一步收敛」
 
-- **牛顿法** $\boldsymbol{\theta}\leftarrow\boldsymbol{\theta}-\boldsymbol{H}^{-1}\boldsymbol{g}$：用曲率校正方向与步长，凸二次**一步收敛**、免疫条件数。
+把「牛顿法对凸二次一步收敛」算出来。设目标 $J(\boldsymbol{\theta}) = \frac{1}{2}(\boldsymbol{\theta}-\boldsymbol{\theta}^*)^\top\boldsymbol{H}(\boldsymbol{\theta}-\boldsymbol{\theta}^*)$，黑塞 $\boldsymbol{H}$ 为常数矩阵，梯度 $\boldsymbol{g} = \boldsymbol{H}(\boldsymbol{\theta}-\boldsymbol{\theta}^*)$。牛顿步：
+
+$$
+\boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \boldsymbol{H}^{-1}\boldsymbol{g}
+    = \boldsymbol{\theta} - \boldsymbol{H}^{-1}\boldsymbol{H}(\boldsymbol{\theta}-\boldsymbol{\theta}^*)
+    = \boldsymbol{\theta}^*
+$$
+
+**一步直接跳到最优点**——这与条件数无关，无论 $\boldsymbol{H}$ 的特征值多么悬殊。<span class="marginnote">对比《优化问题》里梯度下降需要约 $\frac{\kappa}{2}\ln(1/\varepsilon)$ 步（$\kappa=10^6$ 时要上百万步），牛顿法对二次问题一步到位——这就是「二阶信息」的价值：<strong>梯度只告诉方向，黑塞告诉你「每个方向该走多远」</strong>。但代价是每步要解 $\boldsymbol{H}^{-1}$：直接求逆是 $O(d^3)$，对百万维参数完全不可行——这正是拟牛顿法（用 $O(d^2)$ 的梯度差近似黑塞）与 Hessian-free（用共轭梯度解 $\boldsymbol{H}\boldsymbol{v}=\boldsymbol{g}$ 而不显式求逆）存在的意义。</span>
+
+**为什么牛顿法在深度学习里很少直接用——三笔账。**
+- 显存账：黑塞矩阵 $d\times d$，$d=10^8$ 时是 $10^{16}$ 元素，存不下。
+- 计算账：求逆 $O(d^3)$，一步比梯度下降整个训练还贵。
+- 稳定性账：深度损失非凸，黑塞可能不正定（有负特征值），牛顿步「朝山上走」。
+
+**记忆锚点：一阶 vs 二阶的取舍。**
+- 一阶（SGD/Adam）：便宜、鲁棒、靠噪声与动量；深度学习默认。
+- 二阶（牛顿/拟牛顿）：每步质量高、收敛快；适合凸问题、小参数或病态严重的优化。
 - 三个障碍让它在大模型不可行：**存储 $O(n^2)$、求逆 $O(n^3)$、非凸黑塞不定**。
 - **拟牛顿法**（BFGS/L-BFGS）用梯度差逼近黑塞；**L-BFGS** 只存近 $m$ 步，内存 $O(nm)$。
 - **共轭梯度**不构造矩阵，对稀疏大规模二阶问题高效；**K-FAC** 用 Kronecker 分解压 Fisher。

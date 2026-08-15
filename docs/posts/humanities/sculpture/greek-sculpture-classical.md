@@ -1,6 +1,6 @@
 ---
 title: 古希腊雕塑：古典时期
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 古希腊雕塑：古典时期
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第七级 · 人文与艺术 · 雕塑 ｜ 对标教材（Boardman, <em>Greek Sculpture: The Classical Period</em>）｜ 2026-08-11</p>
+<p>第七级 · 雕塑 ｜ Boardman, Greek Sculpture: The Classical Period §2 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从希腊古典雕塑开始

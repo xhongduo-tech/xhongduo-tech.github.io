@@ -95,3 +95,28 @@ $$
 $$
 \text{so} + \underbrace{\text{adj./adv.}}_{\text{性质}} + \text{that} \quad\Longleftrightarrow\quad \text{such} + \underbrace{(a/an) + \text{名词}}_{\text{事物}} + \text{that}
 $$
+
+对这两条公式做三步拆解：
+
+- **第一步，看 that 前是「性质」还是「事物」**：`so` 后接形容词/副词（`so hot`、`so fast`），`such` 后接名词短语（`such a hot day`、`such books`）。**「性质用 so、事物用 such」是第一条判别**。
+- **第二步，注意单数名词的 `a/an`**：`such` 后是单数可数名词时，`such a/an + 名词`（冠词在 `such` 之后）——`such an interesting film`，不能说 `a such`。
+- **第三步，互换验证**：`so hot a day`（文学体，等价于 `such a hot day`）——能完成 `so ... that ↔ such ... that` 互换，语义不变，公式就掌握了。
+
+**辨析｜易错点：** `such that` 单独连用（无 `so/such` 修饰词）表「如此以至于」，结构是「名词 + such that + 从句」：`His behavior was such that everyone avoided him.`（他的行为使所有人避而远之）。**「`such that` 整体当连词」与「`such + 名词 + that`」要分清**——前者 `such` 作表语，后者 `such` 作限定词。
+
+**补充：** 状语从句的「位置自由度」值得利用：原因/条件/让步从句可放句首也可放主句后，但**句首的从句要用逗号隔开**（`Because it rained, we stayed home.`），主句后的从句一般不加逗号（`We stayed home because it rained.`）。**「从句在句首要逗号」**是英文标点的硬规则，也是「状语从句 vs 其他成分」的视觉信号。
+
+**辨析｜易错点：** `while` 有「当……时」与「然而/而」两个语义：`While I was cooking, he read.`（当……时）与 `He likes tea, while she prefers coffee.`（然而，对比）——**第二个 `while` 表对比，连接的是两个并列的事实**，此时它更接近并列连词。考试中常靠这个「对比义 while」设题。
+
+**辨析｜易错点：** 条件从句里的「真实 vs 非真实」在 `if only` 与 `unless` 中也有微妙分工：`if only`（要是……就好了）表强烈愿望、走虚拟语气（`If only I had more time!`）；`unless`（除非）表「唯一例外」，语义上等于 `if ... not`（`You will fail unless you study.`）。**「愿望用 if only，例外用 unless」**——两个以 `if` 开头的词，语义分道扬镳。
+
+## 6 小结
+
+- 状语从句**九大类别**：时间、地点、原因、目的、结果、条件、让步、方式、比较。
+- **主将从现**：时间与条件从句中将来用一般现在时，主句保留 `will`；`if` 中表「意愿」时才用 `will`。
+- 原因三连 `because/since/as` 语气递减，回答 `why` 只用 `because`；`because`（连词）≠ `because of`（介词）。
+- 目的从句含 `can/could/may`，结果从句不含——**「有没有情态动词」判别 so that 的目的/结果**。
+- `although` 不与 `but` 连用；让步从句同样受主将从现约束。
+- 比较状语从句常省略谓语（`than I (am)`），`than`/`as` 后主格 vs 宾格取决于语域。
+
+在下一节，我们将从「从句如何嵌套」转向「句子如何精简」——省略与替代，看英语如何用「少即是多」的经济原则把重复成分省掉或接替。

@@ -49,6 +49,8 @@ Linux 提供多种 Namespace，容器主要用六个：
 
 **User Namespace**：容器内 root（UID 0）映射到宿主机的**非特权用户**——**容器内「我是 root」不代表宿主 root**（安全关键，见《容器安全》）。
 
+**User Namespace 的数值映射**：典型配置是把容器内 UID 0–999 映射到宿主的某个非特权范围，如宿主 UID 100000–100999。<span class="marginnote">这解释了为什么 Docker 的 `--userns-remap` 能让容器 root 在宿主上是一个普通用户：容器内创建的文件在宿主上 `ls -l` 看到的是 100000 等大 UID，而不是 0。</span>容器里的 `root` 一旦突破视图隔离，在宿主内核看来也只是个普通账号——**「容器内特权」与「宿主特权」通过 UID 映射被彻底切开**，这正是容器比「直接以 root 跑进程」安全的关键一环。
+
 **公式解析：PID Namespace 的编号映射**
 
 设宿主某进程 PID = 1000，它在嵌套 PID Namespace 内的编号：
@@ -60,6 +62,8 @@ $$\text{ns 内 PID} = \text{该 Namespace 内看到的编号} \neq \text{宿主 
 - **容器内第一个进程（PID 1）在该 namespace 内编号为 1**——它承担「回收孤儿进程」的 init 职责。
 
 **直觉**：Namespace 是「**给每个容器发一副滤镜**」——同一条进程/资源，不同容器看到不同的「编号与视图」。**「看到什么」是隔离，「是否存在」不是。**<span class="marginnote">PID Namespace 嵌套还带来「<strong>init 进程职责</strong>」：容器 PID 1 要像 init 一样<strong>回收孤儿进程、处理信号</strong>——否则容器里会出现僵尸堆积（回顾《孤儿进程》）。这也是容器 PID 1 进程（如 `tini`）被反复强调的原因。</span>
+
+**数值算例：两层容器的 PID 嵌套**。宿主有个进程，宿主 PID = 3000；它运行在容器 A（一层 PID Namespace）里，编号是 25。用 `docker exec` 进容器后执行 `ps`，你会看到 PID 1 是容器主进程，而 `ps aux`（宿主）里它是 3000 号。<span class="marginnote">内核里同一进程同时存两个值：`pid`（全局唯一，不变）与 `nr`（当前 namespace 内的显示编号，随视图变）。宿主层的 `nr` 就是全局 pid；每进一层 Namespace，`nr` 换一套，`pid` 始终是那个 3000。</span>**PID 的「真实编号」只有宿主那一层知道；每进入一层 Namespace，看到的编号就换一套**——这就是容器「仿佛独占一台机器」在进程表上的来源。
 
 ## 3 Namespace 的创建与管理
 
@@ -93,6 +97,19 @@ $ sudo nsenter --target 1234 --net /bin/bash
 | 启动速度 | 秒级 | **毫秒级** |
 | 资源开销 | 大（完整 OS） | **小（共享内核）** |
 | 安全边界 | 硬件 | 需组合（ns+cgroup+seccomp） |
+
+**术语速查表**：
+
+| 术语 | 含义 |
+| --- | --- |
+| Namespace | 资源视图隔离机制 |
+| PID Namespace | 进程号视图隔离 |
+| Mount Namespace | 挂载点视图隔离（rootfs） |
+| Network Namespace | 网络栈隔离（网卡/IP/路由） |
+| UTS Namespace | 主机名隔离 |
+| User Namespace | UID/GID 映射隔离 |
+| cgroup | 资源限制（CPU/内存），配合 Namespace |
+| veth | 虚拟以太网设备对，容器网络互连 |
 
 ## 5 小结
 

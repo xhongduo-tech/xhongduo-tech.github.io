@@ -99,7 +99,17 @@ $$F=2\pi Gm\rho\left(1-\frac a{\sqrt{R^2+a^2}}\right).$$
 
 **四个应用共享「密度/场 × 微元」模板**——曲面面积是「$\sqrt{}$ 因子 × 面积」，质心是「坐标 × 质量」，转动惯量是「距离平方 × 质量」，引力是「平方反比 × 质量」。
 
-## 6 小结
+## 6 计算示范：四类应用的数值演练
+
+**示范一（圆锥面的面积）**：求锥面 $z=\sqrt{x^2+y^2}$ 在 $x^2+y^2\le R^2$ 上的面积。$f_x=\frac{x}{\sqrt{x^2+y^2}},\ f_y=\frac{y}{\sqrt{x^2+y^2}}$，$\sqrt{1+f_x^2+f_y^2}=\sqrt2$（常数！），故 $S=\sqrt2\cdot\pi R^2$——**锥面的面积 = 投影面积 × $\sqrt2$**（侧面的「倾斜因子」恒为 $\sqrt2$）。这个「常数倾斜因子」是锥面的特征，也是「圆锥侧面展开成扇形」的微积分版本。
+
+**示范二（不均匀板的质心）**：面密度 $\rho(x,y)=x$ 的三角形域 $0\le x\le1,\ 0\le y\le1-x$。$M=\iint x\,dy\,dx=\int_0^1\int_0^{1-x}x\,dy\,dx=\int_0^1x(1-x)dx=\frac16$；$\bar x=\frac{\iint x^2\rho}{\iint\rho}$：分子 $\int_0^1x^2(1-x)dx=\frac1{12}$，故 $\bar x=\frac{1/12}{1/6}=\frac12$——**质量偏向 $x$ 大的区域，质心 $\bar x=\frac12$ 比均匀三角（$\frac13$）更靠右**。<span class="marginnote">$\rho=x$ 让质心右移——这直观展示了「$\bar x=\frac{\iint x\rho}{\iint\rho}$ 是加权平均」的含义：密度大的地方把质心「拉过去」。工程里「重心随质量分布移动」的直觉，正是这个公式在说话。<strong>先画区域、再定积分限、最后代公式</strong>是这类题的标准三步，其中「积分限写对」最易错（三角域的 $y$ 上限是 $1-x$ 而非常数）。</span>
+
+**示范三（矩形的转动惯量）**：均匀矩形 $0\le x\le a,\ 0\le y\le b$ 对 $y$ 轴的转动惯量 $I_y=\iint x^2\rho\,dx\,dy=\rho\int_0^a x^2dx\int_0^b dy=\frac{\rho a^3b}{3}=\frac{Ma^2}{3}$（$M=\rho ab$）。**「对 $y$ 轴转动惯量只与 $x$ 方向跨度有关」**——这与「距离平方 × 质量」的定义吻合：绕 $y$ 轴，$x$ 才是距离。
+
+**示范四（引力的远场渐近）**：回到 §4 的圆盘引力 $F=2\pi Gm\rho\left(1-\frac a{\sqrt{R^2+a^2}}\right)$。当 $a\gg R$（质点远离圆盘）：$\frac a{\sqrt{R^2+a^2}}=\frac1{\sqrt{1+(R/a)^2}}\approx1-\frac{R^2}{2a^2}$，故 $F\approx2\pi Gm\rho\cdot\frac{R^2}{2a^2}=\frac{GmM}{a^2}$——**远场退化为「质点对质点」的平方反比**（$M=\pi R^2\rho$ 是圆盘总质量）。**「远看像质点」是引力积分的普适结论**，它保证了宏观天体远距离可近似成质点。
+
+## 7 小结
 
 - **曲面面积**：$S=\iint_D\sqrt{1+f_x^2+f_y^2}dx\,dy$——投影面积 ÷ 方向余弦；球面 $4\pi R^2$ 重证。
 - **质心**：$\bar x=\iint x\rho\,d\sigma/\iint\rho\,d\sigma$——矩 ÷ 质量；半圆盘 $\bar y=\frac{4R}{3\pi}$。

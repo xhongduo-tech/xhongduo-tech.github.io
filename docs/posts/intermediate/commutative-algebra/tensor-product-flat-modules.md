@@ -1,6 +1,6 @@
 ---
 title: 张量积与平坦模
-date: 2026-08-11
+date: 2026-08-07
 ---
 
 # 张量积与平坦模
@@ -11,7 +11,7 @@ date: 2026-08-11
 </div>
 
 <div class="article-byline">
-<p>第二级 · 进阶数理 · 交换代数 ｜ 对标教材 ｜ 2026-08-11</p>
+<p>第二级 · 交换代数 ｜ Atiyah–Macdonald Ch. 2-3 ｜ 2026-08-07</p>
 </div>
 
 ## 为什么从张量积开始
@@ -33,6 +33,19 @@ $$M \times N \xrightarrow{\otimes} M \otimes_A N \xrightarrow{\bar{f}} P, \qquad
 - $A/I \otimes_A M = M/IM$（**基变换**：取商就「模掉 $I$」）；
 - $S^{-1}A \otimes_A M = S^{-1}M$（**局部化 = 张量积**，见第1篇）。
 
+**核心对照表：张量积的算术**
+
+| 对象 | 结果 | 直觉 |
+| --- | --- | --- |
+| $\mathbb{Z}/m \otimes_{\mathbb{Z}} \mathbb{Z}/n$ | $\mathbb{Z}/\gcd(m,n)$ | 两个周期的公共部分 |
+| $A/I \otimes_A M$ | $M/IM$ | 取商 = 模掉 $I$ |
+| $S^{-1}A \otimes_A M$ | $S^{-1}M$ | 局部化 = 张量积 |
+| $k[x] \otimes_k k[y]$ | $k[x,y]$ | 多项式环的张量 = 多变量 |
+| $k \otimes_k k$ | $k$ | 域的张量还是域 |
+| $M \otimes_A N$（$N$ 平坦） | 保持正合 | 平坦 = 不撕断 |
+
+这串算例的共同点是：**张量积把「结构」组合起来，但组合的代价是放弃「分解信息」**——$\gcd$ 就是两个周期「取公共部分」的结果。
+
 ## 2 张量积的正合性：只保一半
 
 对短正合列 $0 \to M' \to M \to M'' \to 0$，张量积后一般**不**再正合。准确说：
@@ -43,7 +56,9 @@ $$M' \otimes N \to M \otimes N \to M'' \otimes N \to 0$$
 
 正合；但「$0 \to M'$」这一段可能被拉断。经典例子：$0 \to \mathbb{Z} \xrightarrow{\cdot 2} \mathbb{Z}$ 正合，张量 $\mathbb{Z}/2$ 后变成 $\mathbb{Z}/2 \xrightarrow{\cdot 2} \mathbb{Z}/2$，$\cdot 2 = 0$ 非单射——左正合丢失。<span class="marginnote">丢失的信息由 $\operatorname{Tor}_1^A(N, \cdot)$ 记录：张量积的正合性「缺掉一段」，正是一段高阶同调在计数。$\operatorname{Tor}$ 与张量积形影不离，就像 $\operatorname{Ext}$ 与 $\operatorname{Hom}$。</span>
 
-**辨析｜易错点：** 张量积对两个变量都右正合、都未必左正合，**对称**。不要以为「$N$ 在右边所以更安全」——$\cdot 2$ 的例子里 $N = \mathbb{Z}/2$ 在右边，照样撕断。
+把「撕断」的例算到底：$0 \to \mathbb{Z} \xrightarrow{\cdot 2} \mathbb{Z} \to \mathbb{Z}/2 \to 0$ 正合，张量 $\mathbb{Z}/2$ 后中间映射变零映射，单射段丢成核 $\mathbb{Z}/2$——丢失的那段由 $\operatorname{Tor}_1^{\mathbb{Z}}(\mathbb{Z}/2, \mathbb{Z}/2) = \mathbb{Z}/2$ 精确补齐。**$\operatorname{Tor}$ 的使命，就是把「张量积丢掉的正合段」原样记账**；平坦模正是「账目恒为零」的模。
+
+**辨析｜易错点：** 张量积对两个变量都右正合、都未必左正合，**对称**。不要以为「$N$ 在右边所以更安全」——$\cdot 2$ 的例子里 $N = \mathbb{Z}/2$ 在右边，照样撕断。判断张量积是否丢正合，只看「$N$ 是否平坦」这一个属性。
 
 ## 3 平坦模：正合性的守护者
 
@@ -58,9 +73,11 @@ $$M' \otimes N \to M \otimes N \to M'' \otimes N \to 0$$
 标准例子：
 - **自由模、投射模都平坦**（自由模显然，投射是自由的和）。
 - **局部化是平坦的**：$S^{-1}A$ 是平坦 $A$-模（第1篇《局部化》已见正合性保持）。
-- $k[x]$ 在 $k[x^2]$ 上**不**平坦（$k[x] = k[x^2] \oplus x \cdot k[x^2]$ 是自由模——其实这个例子是平坦的；换 $k[x,y]$ 与 $k[x]$ 上……最经典不坦的例子：$R = k[x]$，$M = k[x]/(x)$，$0 \to (x) \to k[x]$ 正合，张量后 $(x) \otimes k[x]/(x) \to k[x]/(x)$ 变成 $0 \to k[x]/(x)$ 的一部分，$(x) \otimes k/(x) $……精确算：$k[x]/(x) \otimes_{k[x]} (x)$，$(x) \cong k[x]$ 自由，故 $(x) \otimes k[x]/(x) = k[x]/(x)$，映射 $k[x]/(x) \to k[x]/(x)$ 是零映射，非单射——$k[x]/(x)$ 不坦）。
+- $M = k[x]/(x)$ 在 $k[x]$ 上**不**平坦：$0 \to (x) \to k[x] \to M \to 0$ 正合，张量 $M$ 得 $(x)\otimes M \to M \to M\otimes M \to 0$；因 $(x) \cong k[x]$ 自由，$(x)\otimes M \cong M$，而映射 $M \to M$ 是零映射，故 $\operatorname{Tor}_1(M,M) = M \neq 0$——$x$ 这个零因子把「平坦」杀死。
 
 **重点：平坦 = 张量积「不撕断」；忠实平坦 = 张量积「可逆」。** 局部化、自由模是每天都要用的平坦模；几何上「平坦族」保证纤维维数连续，而「忠实平坦下降」是「从基变换回推性质」的总开关。<span class="marginnote">例：$A \to B$ 忠实平坦且 $B$ Noether ⇒ $A$ Noether；「下降」问题（descent）——在 $B$ 上成立的命题什么时候能在 $A$ 上成立——完全由忠实平坦性统治。Grothendieck 把它发展为一大套下降理论。</span>
+
+忠实平坦的「可逆性」有一个极具威力的用法：**忠实平坦下降（descent）**。若 $A \to B$ 忠实平坦且「$B$ 上某性质成立」，很多情形下能回推「$A$ 上也成立」——例如 $B$ Noether 且忠实平坦 ⇒ $A$ Noether。Grothendieck 把「下降」发展成整套语言：先到更大的环上去验证，再「降」回原环，成为现代代数几何的底层设施。
 
 ## 4 平坦性与代数几何：纤维的观点
 
@@ -79,6 +96,19 @@ $$S^{-1}M \;\cong\; M \otimes_A S^{-1}A.$$
 - **第三步，统一的钥匙**：局部化、商模（基变换）、纤维都是「张量积某个模」——**张量积是环论里唯一的「换基」操作**。
 
 **辨析｜易错点：** 平坦 ≠ 自由。$S^{-1}A$（如 $\mathbb{Z}_{(p)}$）一般不是自由 $\mathbb{Z}$-模，却平坦；反过来自由模必平坦。用「Tor₁ = 0」或 Bourbaki 判别法判断，别用「有没有基」。
+
+把三个「换基」操作并排看：局部化 $S^{-1}M = M \otimes S^{-1}A$、商模 $M/IM = M \otimes A/I$、纤维 $B \otimes_A \kappa(\mathfrak{p})$——全部是「张量积某个模」。**张量积是环论里唯一的「换基」运算**：换环、取商、看纤维，共用一把钥匙，这也正是它在本专题出场率最高的原因。
+
+**术语速查表**
+
+| 术语 | 一句话含义 |
+| --- | --- |
+| 张量积 $M \otimes_A N$ | 双线性万有的线性化 |
+| 右正合 | $-\otimes N$ 保持右端正合 |
+| 平坦模 | 张量积正合，$\operatorname{Tor}_1 = 0$ |
+| 忠实平坦 | 张量积不杀非零模，可回推性质 |
+| Bourbaki 判别法 | 检查 $I \otimes M \to M$ 单射 |
+| 纤维环 | $B \otimes_A \kappa(\mathfrak{p})$ |
 
 ## 5 小结
 

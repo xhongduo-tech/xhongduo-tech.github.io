@@ -75,12 +75,49 @@ $$(\mathbf{a}\times\mathbf{b})\cdot\mathbf{c} = \begin{vmatrix}a_x & a_y & a_z\\
 - **共面与体积判定**：混合积为 0 判定共面，绝对值是平行六面体体积。
 - **叉积与机器学习**：三维几何计算（法向量、旋转）在计算机图形学与机器人学里大量使用叉积。
 
-## 6 小结
+## 7 数值算例：用混合积判定共面
+
+判定四点 $A(1,0,0)$、$B(0,1,0)$、$C(0,0,1)$、$D(1,1,1)$ 是否共面。
+
+**第一步，作三向量**：$\overrightarrow{AB} = (-1,1,0)$，$\overrightarrow{AC} = (-1,0,1)$，$\overrightarrow{AD} = (0,1,1)$。
+**第二步，算混合积**：$(\overrightarrow{AB}\times\overrightarrow{AC})\cdot\overrightarrow{AD}$，先算 $\overrightarrow{AB}\times\overrightarrow{AC} = (1,1,1)$，再点积 $\overrightarrow{AD}$：$0\cdot1 + 1\cdot1 + 1\cdot1 = 2 \neq 0$。
+**第三步，判定**：混合积非零 ⇒ 三向量不共面 ⇒ 四点不共面（$D$ 在 $\triangle ABC$ 平面外）。
+
+**配套观察**：混合积 $\frac{1}{6}$ 的绝对值是四面体 $ABCD$ 的体积——当 $D$ 与 $A,B,C$ 共面时体积为零，混合积为零。**「混合积 = 0」既是共面判据，也是体积为零的翻译**。
+
+## 8 对照表：三种向量的积
+
+| 运算 | 结果 | 度量 | 物理例 |
+| --- | --- | --- | --- |
+| 数量积 $\mathbf{a}\cdot\mathbf{b}$ | 数 | 同向程度（投影） | 功 $W = \mathbf{F}\cdot\mathbf{s}$ |
+| 向量积 $\mathbf{a}\times\mathbf{b}$ | 向量 | 垂直 + 面积 | 力矩 $\mathbf{M} = \mathbf{r}\times\mathbf{F}$ |
+| 混合积 $(\mathbf{a}\times\mathbf{b})\cdot\mathbf{c}$ | 数 | 体积 | 四面体体积 |
+
+## 9 常见错误自查清单
+
+| 错误 | 正确做法 |
+| --- | --- |
+| 叉积交换顺序 | $\mathbf{a}\times\mathbf{b} = -\mathbf{b}\times\mathbf{a}$，顺序不可换 |
+| 点积忘 $\cos\theta$ 或忘坐标公式 | 两种形式等价，任选其一 |
+| 混合积顺序打乱 | 先叉后点，括号位置决定结果符号 |
+| 共面判定只算一个叉积 | 用混合积完整判定，单看叉积不够 |
+
+## 10 三种积与机器学习/计算机图形
+
+三种向量积是三维计算的原子操作：
+
+- **法向量计算**：平面 $\mathbf{a}\times\mathbf{b}$ 给出法向，是图形学光照、表面朝向的基础；
+- **余弦相似度**：$\frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}$ 是文本嵌入、推荐系统的核心相似度；
+- **几何变换**：旋转、反射在三维图形引擎里用叉积与点积实现。
+
+你在本节学的「点积量同向、叉积量面积、混合积量体积」，是理解三维几何计算与向量检索系统的钥匙。
+
+## 11 小结
 
 - **数量积**：$\mathbf{a}\cdot\mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta$，结果是数，$\perp \iff$ 点积为 0。
 - **向量积**：$\mathbf{a}\times\mathbf{b}$ 垂直两向量、右手定则定向，模 = 平行四边形面积，$\parallel \iff$ 叉积为 0。
 - **混合积**：$(\mathbf{a}\times\mathbf{b})\cdot\mathbf{c}$ 是平行六面体体积，为 0 ⟺ 三向量共面。
 - 点积量同向、叉积量垂直与面积、混合积量体积。
-- 应用：功、力矩、面积、共面判定、余弦相似度。
+- 应用：功、力矩、面积、共面判定、余弦相似度、图形学法向量。
 
 在下一节，我们将用向量工具研究空间中最基本的几何对象——**平面及其方程**。
