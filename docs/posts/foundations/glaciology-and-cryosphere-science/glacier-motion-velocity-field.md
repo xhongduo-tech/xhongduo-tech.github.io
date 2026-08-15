@@ -113,4 +113,12 @@ $$
 
 - **延伸流**（$\partial u/\partial x > 0$，拉开、裂缝）与**压缩流**（$\partial u/\partial x \lt  0$，挤堆、褶皱）构成流动的两副面孔。
 
-- **冰通量** $q = \bar{u}H$ 与**连续性方程** $\partial H/\partial t = b_n - \partial q/\partial x$
+- **冰通量** $q = \bar{u}H$ 与**连续性方程** $\partial H/\partial t = b_n - \partial q/\partial x$：收支与通量两张账单耦合，共同决定冰川进退。
+
+- **观测手段**：遥感干涉测量（Sentinel-1、Landsat）一次覆盖数万点，速度场是预测冰川进退的基础数据。
+
+- **数量级**：山谷冰川表面速度数十 m/yr，格陵兰快速冰舌可达数 km/yr，极地冷冰川仅数 m/yr。
+
+- **稳态推论**：稳态冰川 $b_n = \partial q/\partial x$，平衡线处通量最大，是冰芯选址与流量计算的基础。
+
+在下一节，我们将钻进冰与岩石的界面，回答「冰为什么能整体滑行」——这就是**冰川底滑与基底过程**。

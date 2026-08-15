@@ -108,9 +108,9 @@ cut -c1-10 file.txt            # 按字符位置取前 10 个字符
 **`tr`** 做单字符的替换与删除，常常用来清洗文本：
 
 ```bash
-tr 'a-z' 'A-Z' \lt  file.txt       # 全部转大写
-tr -d '\r' \lt  win.txt            # 删除 Windows 行尾的 ^M
-tr -s ' ' \lt  file.txt            # 把连续多个空格压成 1 个
+tr 'a-z' 'A-Z' <file.txt       # 全部转大写
+tr -d '\r' <win.txt            # 删除 Windows 行尾的 ^M
+tr -s ' ' <file.txt            # 把连续多个空格压成 1 个
 ```
 
 **核心对比表：格式化工具速查**
@@ -124,9 +124,13 @@ tr -s ' ' \lt  file.txt            # 把连续多个空格压成 1 个
 | `sort` | 排序 | `sort -t: -k3 -n` 按第三列数值排 |
 | `uniq` | 相邻去重 | `uniq -c` 计数 |
 
-**`diff`** 是排障利器：`diff old.conf new.conf` 逐行对比两份配置，`-u` 给出带上下文的统一格式，是代码 review 与配置回滚时「到底改了什么」的标准答案。<span class="marginnote">`diff -u` 输出的 `+` 行是新增、`-` 行是删除。把 `diff` 与「补丁」联系起来的是 `patch` 命令：`diff -u old new > p.diff` 之后 `patch \lt  p.diff` 就能把改动应用到另一份拷贝上。</span>
+**`diff`** 是排障利器：`diff old.conf new.conf` 逐行对比两份配置，`-u` 给出带上下文的统一格式，是代码 review 与配置回滚时「到底改了什么」的标准答案。<span class="marginnote">`diff -u` 输出的 `+` 行是新增、`-` 行是删除。把 `diff` 与「补丁」联系起来的是 `patch` 命令：`diff -u old new > p.diff` 之后 `patch <p.diff` 就能把改动应用到另一份拷贝上。</span>
 
 ## 5 小结
 
 - **正则 = 字符类 + 量词**：`[0-9]` 决定「匹配什么」，`* + ? {}` 决定「匹配几次」。
-- **锚点钉位置**：`^` 行首、`$
+- **锚点钉位置**：`^` 行首、`$` 行尾、`\b` 词边界，把「含匹配」升级成「精确匹配」。
+- **扩展正则 -E**：`+ ? | ()` 等语法比 BRE 更顺手，实际使用几乎总是配 `grep -E`。
+- **格式化六工具**：cut 按列、tr 换字符、wc 计数、diff 对比、sort/uniq 排序去重——各管一摊、组合即流水线。
+
+在下一节，我们把视线从「文本内容」转向「存储载体」：磁盘分区、文件系统、挂载与 df/du——这就是第2篇开篇的**磁盘与文件系统管理**。

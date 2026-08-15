@@ -74,7 +74,7 @@ $$
 
 ```bash
 today=$(date +%Y-%m-%d)        # 新式：$(...)
-users=$(wc -l \lt  /etc/passwd)   # 命令的输出作为值
+users=$(wc -l </etc/passwd)   # 命令的输出作为值
 count=`grep -c error app.log`  # 旧式：反引号
 ```
 
@@ -122,7 +122,7 @@ c=$(( a ** 2 ))         # 49，乘方（部分 bash 版本）
 # 统计 access.log 中 503 的次数并输出报告
 
 log="/var/log/nginx/access.log"
-total=$(wc -l \lt  "$log")
+total=$(wc -l <"$log")
 errors=$(grep -c " 503 " "$log")
 ratio=$(( errors * 100 / total ))
 

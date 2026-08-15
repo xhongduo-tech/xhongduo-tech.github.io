@@ -53,14 +53,14 @@ BenchmarkReverse-8   3562251   316.3 ns/op   48 B/op   2 allocs/op
 ```go
 func BenchmarkConcatPlus(b *testing.B) {
 	s := "go"
-	for i := 0; i \lt  b.N; i++ {
+	for i := 0; i < b.N; i++ {
 		result = s + s + s + s
 	}
 }
 
 func BenchmarkConcatBuilder(b *testing.B) {
 	s := "go"
-	for i := 0; i \lt  b.N; i++ {
+	for i := 0; i < b.N; i++ {
 		var sb strings.Builder
 		sb.WriteString(s)
 		sb.WriteString(s)
@@ -103,4 +103,59 @@ $ go tool pprof http://localhost:6060/debug/pprof/heap       # 内存剖析
 
 ```bash
 $ go test -cpuprofile cpu.out -memprofile mem.out .
-$
+$ go tool pprof cpu.out          # 进入交互式剖析
+(pprof) top                      # 查看 CPU 热点
+(pprof) list hotFunc             # 查看某函数每行耗时
+(pprof) web                      # 生成调用图（需 graphviz）
+```
+
+`go tool pprof` 的交互命令里，`top` 列出耗时最高的函数，`list` 展开到行级（哪一行占了多少 CPU 时间），`web` 渲染出火焰图/调用图。这几条命令覆盖了「谁在烧 CPU」的绝大多数回答。
+
+**`pprof` 的三种剖析：**
+
+| 类型 | 端点/标志 | 回答的问题 |
+| --- | --- | --- |
+| CPU | `/debug/pprof/profile`、`-cpuprofile` | 时间花在哪 |
+| 内存堆 | `/debug/pprof/heap`、`-memprofile` | 内存耗在哪、谁在分配 |
+| goroutine | `/debug/pprof/goroutine` | 哪些 goroutine 卡住、泄漏 |
+
+**辨析｜易错点：** CPU 剖析是**采样**而非逐行计时——默认每秒采样 100 次，热点统计有统计误差。单个小函数占比太低可能被采样噪声淹没；判断「真热点」要看多次采样的一致结论。内存剖析用的是**抽样分配**，`go test -memprofile` 需要 `-memprofilerate` 配合才精确。
+
+## 4 公式解析：benchmark 的耗时与加速比
+
+**基准测试的每次操作耗时（ns/op）是核心指标**，而它由 CPU 时间与分配开销共同决定：
+
+$$
+\text{ns/op} \approx \frac{\text{CPU 周期数}}{\text{主频}} + \text{分配开销}
+$$
+
+以字符串拼接的两种实现为例，验证「规模决定选型」：
+
+- **第一步，测两个版本**：`BenchmarkConcatPlus` 与 `BenchmarkConcatBuilder` 各跑出 `ns/op`。
+- **第二步，小规模对照**：拼接 3 次时，`+` 与 `Builder` 差距很小——因为编译器优化、且 `+` 无额外对象。
+- **第三步，大规模对照**：循环拼接 10000 次时，`+` 每次创建新字符串（$O(n^2)$ 总拷贝），`Builder` 预分配缓冲（$O(n)$）——差距呈数量级放大。
+- **第四步，结论**：**基准测试量化了「何时该换实现」**——直觉说「Builder 一定快」是错的，只有数据能给出「在哪个规模转折」。
+
+对优化目标，用**加速比**衡量收益：$\text{speedup} = T_{\text{old}} / T_{\text{new}}$。若一个热点函数只占程序 5% 时间，把它优化到 0 也最多加速 $1/(1-0.05) \approx 1.05$ 倍——这就是 Amdahl 定律（第一级《基础数学》、第五级《体系结构》讲过）对「先剖析再优化」的强制性要求。
+
+## 5 实践：优化闭环
+
+一个完整的「用数据优化」流程：
+
+1. **先有基准**：`go test -bench=.` 记录当前基线。
+2. **再剖析**：`go test -cpuprofile` / `go tool pprof` 定位真正的热点——通常集中在少数几个函数。
+3. **针对性优化**：只改热点，不做「看着不顺眼」的盲改。
+4. **复测对比**：`go test -bench=.` 对比前后 `ns/op`，确认收益、检查是否引入新分配（`-benchmem`）。
+
+**易错点：** 优化的最大陷阱是「优化错了地方」。90% 的性能问题集中在 10% 的代码里，不剖析就动手优化，大概率是在给不热的地方「加速」。对照《go 工具链》篇：`go test -race` + `go vet` 保证**正确性**，benchmark + pprof 保证**性能**——先正确、后快，这条纪律贯穿 Go 工程实践。
+
+## 6 小结
+
+- **基准测试** `Benchmark*` 函数 + `go test -bench=.` 测 `ns/op`；`-benchmem` 看分配。
+- 结果赋值给包级变量，防止「死代码消除」污染计时。
+- 基准测试用于**对比实现**：规模决定选型，只有数据能给出「何时该换」。
+- **pprof** 回答「时间/内存花在哪」：`top` 看热点、`list` 看行级、`web` 看调用图。
+- CPU 剖析是采样，结论要多次一致；内存剖析是抽样分配。
+- **优化闭环**：先基准、再剖析、针对性改、复测对比；先正确、后快（Amdahl 定律）。
+
+在下一节，我们进入运行时动态能力的领域：**反射——reflect 包与动态类型操作**。

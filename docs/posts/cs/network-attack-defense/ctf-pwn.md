@@ -93,3 +93,45 @@ NX 开启后，栈上的 shellcode 无法执行——攻击者改用**代码重�
 $$
 \underbrace{\text{填充}}_{\text{到达返回地址}} \quad \underbrace{\text{pop\_rdi; ret}}_{\text{gadget}} \quad \underbrace{\text{"/bin/sh"地址}}_{\text{参数}} \quad \underbrace{\text{system 地址}}_{\text{目标函数}}
 $$
+
+拆开看这条链的每一环：
+
+- **填充段**：覆盖到返回地址，让函数返回时 `ret` 弹出第一个 gadget 的地址。
+- **`pop rdi; ret`（gadget）**：x64 调用约定里，`system` 的第一个参数放在 `rdi` 寄存器——gadget 把栈顶的值弹进 `rdi`，再 `ret` 到下一个地址。
+- **`"/bin/sh"` 地址（参数）**：被 `pop rdi` 弹出的值——`system("/bin/sh")` 的参数。
+- **`system` 地址（目标函数）**：程序里 `system@plt` 的地址（NX 下可执行的是程序自身代码，`system` 来自 libc 但通过 PLT 可达）。
+
+**为什么 ROP 能绕过 NX？** 因为 ROP **不注入新代码**，而是复用程序已有的代码——可执行栈不存在了，但「执行 `ret` 链」完全合法。**每一条 gadget 都是现成的、可执行的代码**，攻击者只是把它们的地址按序摆好。找到足够多的 gadget（`ROPgadget` 工具自动搜）、按调用约定排好参数，就能拼出任意逻辑——这就是「代码重用攻击」的本质。<span class="marginnote">ROP 的进阶变体：<strong>SROP</strong>（Sigreturn-Oriented Programming，用 `sigreturn` 系统调用伪造信号帧）、<strong>JOP</strong>（Jump-Oriented Programming）、<strong>BROP</strong>（Blind ROP，无源码无二进制时盲打）。CTF 里 90% 的 ROP 题只需要 `pop rdi; ret` + 一个函数地址，但理解「gadget = 复用已有指令」这一思想，是应对一切变体的钥匙。</span>
+
+## 4 堆利用：攻击动态内存的分配器
+
+**堆（heap）**是程序**动态申请内存**的区域——`malloc`/`free`（C）、`new`/`delete`（C++）。**堆利用（heap exploitation）**攻击**堆分配器（allocator）**的元数据结构，把「动态内存」变成「任意读写」。堆利用比栈溢出复杂，因为堆不像栈那样有固定的返回地址可覆盖——它靠**元数据篡改 + 释放后引用**达成攻击。
+
+**三大经典堆攻击**：
+
+**UAF（Use-After-Free，释放后使用）**。程序**释放内存后仍保留指针**并继续使用——攻击者抢先在该位置分配受控数据，程序「使用」时读到的就是攻击者构造的内容。UAF 是堆题最常见的前置漏洞。
+
+**Double Free（双重释放）**。同一块内存被 `free` 两次——分配器把同一块空闲块放进链表两次，后续两次 `malloc` 可能返回同一地址，造成重叠。
+
+**tcache poisoning / fastbin attack**。现代 glibc 的 tcache（线程缓存）用单向链表管理空闲块，链表头存着「下一个空闲块的地址」——攻击者**篡改链表指针**，让下一次 `malloc` 返回**任意目标地址**，从而对任意地址读写（写 GOT 改函数地址、写 `__free_hook` 劫持执行流）。
+
+**核心要点｜堆攻击的思维框架：**
+
+| 思路 | 原理 | 落点 |
+| --- | --- | --- |
+| UAF | 释放后使用悬垂指针 | 构造受控数据 |
+| Double Free | 同一块入链两次 | 分配重叠块 |
+| 链指针篡改 | 伪造空闲链表 | 任意地址分配 |
+
+**辨析｜易错点：** 栈溢出与堆利用的分工要分清——**栈溢出的目标常是「改返回地址」**（直接控制执行流），**堆利用的目标常是「获得任意读/写」**（再借写入去改 GOT、改函数指针，间接控制执行流）。堆题比栈题多一层「先控制分配器，再控制程序」的间接性，所以上手顺序一定是**先栈后堆**。<span class="marginnote">Pwn 的配套工具链：<strong>pwntools</strong>（Python 库，`p64()` 打包地址、`sendline()` 发包、`ELF()` 解析、`ROP()` 自动找 gadget——Pwn 题几乎必用）、<strong>gdb 插件 pwndbg/gef</strong>（调试）、`checksec`（看保护）、`one_gadget`（找通用 ROP 链）。CTF 入门 Pwn 的标准流程：`checksec` 看保护 → `file` 看架构 → 逆向/分析漏洞 → `pwntools` 写 exploit → 调试排错。</span>
+
+## 5 小结
+
+- **Pwn** 攻击程序的内存，与 Metasploit（第15篇）同源但更「微观」：理解栈、堆、寄存器、保护机制。
+- **保护机制**（NX/ASLR/PIE/Canary/RELRO）决定攻击路线，`checksec` 是 Pwn 的第一条命令。
+- **栈溢出**覆盖返回地址控制执行流；payload = 填充 + EBP + 跳转地址；`gets`/`strcpy` 等是漏洞源头。
+- **ROP** 在 NX 下复用程序自身 gadget 拼出攻击逻辑——不注入新代码，靠 `ret` 链执行已有指令。
+- **堆利用**攻击分配器：UAF、Double Free、tcache poisoning，目标是先获任意读写再劫持执行流。
+- 工具链：**pwntools + pwndbg + checksec** 是 Pwn 标配；先栈后堆，由简到繁。
+
+在下一节，我们从「利用」转到「理解」——**CTF Reverse：逆向工程与算法还原**，把程序翻个底朝天，读懂它藏起来的逻辑。

@@ -97,3 +97,32 @@ date: 2026-08-07
 $$
 \text{resolved} = \text{base\_dir} \; \oslash \; \text{relative\_path}
 $$
+
+把它拆成三条规则，就掌握了相对 URL 的全部语义：
+
+- **规则一：`./` 与无前缀**。`href="about.html"` 与 `href="./about.html"` 等价——从**当前文件所在目录**出发。当前页面在 `https://site.com/pages/a.html`，则解析为 `https://site.com/pages/about.html`。
+- **规则二：`../` 上一层**。每出现一次 `../` 就退回一级目录。`href="../css/style.css"` 从 `pages/` 退回根，得到 `https://site.com/css/style.css`——这就是「回到上一级找资源」的写法。
+- **规则三：`/` 开头的根相对路径**。`href="/api/users"` 以斜杠开头，指**站点的根目录**（域名之后），与当前页面在哪个目录无关——适合放全局资源，如 `/images/logo.svg`。
+
+对照一个真实目录树：
+
+```
+site.com/
+├── index.html        ← 当前页面
+├── css/style.css     → href="css/style.css"（同级进目录）
+└── assets/
+    └── logo.svg      → href="assets/logo.svg"；从 assets 返回 → href="../index.html"
+```
+
+**辨析｜易错点：** 相对路径是「以文档为参照」的地址，换目录时全部要跟着改；根相对路径是「以域名为参照」的地址，最稳，但要注意 `href="/x"` 在 GitHub Pages 等子路径部署下会指错根——这也是框架普遍把资源写根相对、而链接用路由约定的原因。
+
+## 5 小结
+
+- 文本三层结构：**段落 `<p>`、标题 `<h1>`–`<h6>`、强调 `<em>`/`<strong>`**；`<b>`/`<i>` 只装饰无语义。
+- 链接用 `<a href>`，四种地址（绝对、相对、锚点、协议相对）；`target="_blank"` 必配 `rel="noopener"` 防 reverse tabnabbing。
+- **`href` 是「跳转去」，`src` 是「嵌进来」**——二者是整章最容易混淆的一对属性。
+- 图像 `<img>` 是空元素：`src` 必填、`alt` 不可省（装饰图写 `alt=""`）；`<figure>`/`<figcaption>` 钉死「图 + 题注」语义。
+- 相对 URL 的解析三条规则：`./` 同级、`../` 上溯、`/` 根相对——`text{resolved} = text{base\_dir} / text{relative\_path}`。
+- `loading="lazy"`、`srcset`/`sizes` 是图像的性能接口，第28篇《Web 性能优化》会系统展开。
+
+在下一节，我们把内容组织起来：**列表、表格与表单控件**——从「一行行内容」走向「结构化、可提交的数据」。

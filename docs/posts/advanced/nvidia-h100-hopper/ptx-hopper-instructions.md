@@ -64,4 +64,58 @@ Hopper 论文 §5 专门讲了新架构的指令支持。核心洞察是：**新
 
 **组合拳之一：异步数据搬运。** `cp.async.bulk` 系列指令承载 TMA：一条指令完成「全局 → 共享」「共享 → 共享（DSMEM）」的多维张量搬运，由单线程触发，硬件异步执行。相比 Ampere 的 `cp.async`（每线程 16 字节、需整 warp 协作），它是「一键搬一块」。
 
-**组合拳之二：warpgroup 矩阵乘。** `wgmma` 指令承载第四代 Tensor Core：由 128 线程协作执行 $64 \times 8 \times 16$
+**组合拳之二：warpgroup 矩阵乘。** `wgmma` 指令承载第四代 Tensor Core：由 128 线程协作执行 $64 \times 8 \times 16$ 以上的大矩阵块，支持异步执行，是第四代 Tensor Core 性能的「软件接口」。它把「矩阵乘」从「一条同步的小指令」升级为「一条异步的大指令」——配合 mbarrier，整个 GEMM 可以流水化。
+
+**组合拳之三：异步同步。** `mbarrier.arrive` / `mbarrier.try_wait` 提供细粒度的完成信号。搬运完成、矩阵乘提交，都用 mbarrier 通知消费者——这是「异步化」能否成立的同步基石。
+
+**组合拳之四：分布式共享内存。** `mapa` / `mapc` 把簇内其他块的共享内存映射进本地地址空间，让跨块通信不再绕道全局内存——这是《线程块簇与分布式共享内存》一节的指令层实现。
+
+四套组合拳合在一起，就是 Hopper 异步执行模型的完整指令图景：**TMA 搬（cp.async.bulk）→ mbarrier 等（arrive/try_wait）→ wgmma 算 → mapa/mapc 跨块协作**。
+
+## 4 实战：怎么写与怎么读 PTX
+
+用 `nvcc -ptx` 可以把 CUDA C 编译成 PTX 文件，用 `cuobjdump --dump-sass` 可以得到 SASS 汇编。对普通开发者，至少掌握两个技能：
+
+**写 inline PTX**：当 CUDA C 表达不了某个硬件能力时，用 `asm()` 内嵌。例如 TMA 搬运在早期 CUDA 版本没有 C++ 封装，需要手写 `cp.async.bulk`。写法：
+
+```cuda
+asm volatile(
+    "cp.async.bulk.shared::cluster.global.mbarrier::complete_tx::bytes "
+    "[%0], [%1], %2, [%3];"
+    :: "r"(smem_addr), "l"(gmem_addr), "r"(bytes), "r"(bar_addr)
+    : "memory");
+```
+
+**读 SASS 定位性能**：性能分析时，打开 SASS 看每个 kernel 的指令组成——有没有 `wgmma`（用上了 Tensor Core）、有没有 `cp.async.bulk`（用上了 TMA）、`fma` 比例高不高。**一条 SASS 指令的类型，就是「硬件执行路径」的指纹**。
+
+**辨析｜易错点：** 不是所有 PTX 指令都能在所有 GPU 上跑。PTX 有**版本与架构要求**（`-arch` 指定），且某些新指令（如 `wgmma`）需要对应算力（sm_90a）。**「PTX 前向兼容」不等于「每代都能用最新指令」**——旧 GPU 上驱动会把新指令「翻译」成旧实现或报错。写 inline PTX 时，务必确认目标算力。
+
+## 5 公式解析：一层编译如何换来前向兼容
+
+把「两层编译」的收益量化。设 GPU 硬件每 $G$ 代一换，每代新增 $K$ 条指令，应用开发者有 $A$ 个应用。若只做一层编译（应用绑定机器码），每代要重编译：
+
+$$
+N_{\text{recompile}} = A \times \frac{T}{G}
+$$
+
+- $A$：应用数量（成千上万）。
+- $T$：应用的生命周期（年）。
+- $G$：硬件换代周期（约 1–2 年）。
+
+两步拆解：
+
+- **第一步，看重编译成本**：每代 GPU 换代，全部应用都要重写/重编译——对大生态（CUDA 有百万级开发者）是灾难。
+- **第二步，看 PTX 的缓冲**：应用只编译到 PTX（虚拟 ISA），驱动运行时翻译到新硬件——**应用永远不用重编译，新增指令由新驱动暴露**。
+
+这条式子解释了 PTX 的战略地位：**它是 CUDA 生态「一次编写、多代运行」承诺的技术载体**。Hopper 的新指令之所以能迅速被 PyTorch/cuBLAS 用上，正是因为它们在 PTX 层就绪，驱动一升级就全部生效。
+
+## 6 小结
+
+- 编译链是**两层**：CUDA C → PTX（虚拟 ISA）→ SASS（硬件机器码），前向兼容由驱动保证。
+- PTX 指令形态「操作码.类型 目标, 源…」，**类型修饰符决定走哪条执行流水线**。
+- Hopper 新指令是「组合拳」：**cp.async.bulk（搬）+ mbarrier（等）+ wgmma（算）+ mapa/mapc（跨块）**。
+- 实战技能：**写 inline PTX** 表达硬件能力、**读 SASS** 判断执行路径（有没有 wgmma/cp.async.bulk）。
+- **辨析**：PTX 前向兼容 ≠ 每代都能用最新指令；新指令有算力要求（如 wgmma 需 sm_90a）。
+- 两层编译把「每代重编译」变成「驱动运行时翻译」，是 CUDA 生态「一次编写、多代运行」的技术基石。
+
+在下一节，我们从「指令层」升到「执行层」——**CUDA Graphs 与程序化依赖**，看怎么把一串 kernel 启动组织成一张一次启动的图。

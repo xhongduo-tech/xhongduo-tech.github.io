@@ -88,3 +88,72 @@ $$
 \text{reduce}(\text{identity},\; (a, b) \to \text{combiner})
 
 $$
+
+对这条公式做三步拆解：
+
+- **第一步，读签名**：`reduce` 接收两个参数——**`identity`**（起始值/恒等元，如 `0`、`""`）和 **`combiner`**（把两个元素并成一个的二元函数，如 `Integer::sum`）。
+- **第二步，折叠过程**：从 identity 出发，逐个与流里的元素做 combiner：`((0 + 1) + 2) + 3`。combiner 满足结合律时，并行流可以分块折叠再合并——这就是并行归约的数学基础。
+- **第三步，看结果**：整条流被「折」成一个值——求和、求积、取最大、拼字符串都是它的特例。`Optional` 版 `reduce((a,b) -> ...)`（无 identity）流为空时返回 `Optional.empty()`。
+
+```java
+int total = orders.stream()
+        .map(Order::getAmount)
+        .reduce(0, Integer::sum);         // 求订单总金额
+
+Optional<String> longest = words.stream()
+        .reduce((a, b) -> a.length() >= b.length() ? a : b);   // 找最长词
+```
+
+**reduce 与 collect 的分工**：`reduce` 把流折成一个**不可变值**（sum、max、拼接），`collect` 把流收进**可变容器**（`List`、`Map`、`StringBuilder`）——**「归约成值」用 reduce，「收集进容器」用 collect**。多数需求 `collect` 更常用，`reduce` 是更底层的折叠原语。
+
+## 4 公式解析：Stream 与循环的等价变换
+
+命令式循环与流式管道是**同一件事的两种写法**，理解等价性才能自如切换：
+
+$$
+\text{循环：} \quad \text{中间变量} \xrightarrow{\text{逐元素修改}} \text{结果} \qquad \text{Stream：} \quad \text{数据源} \xrightarrow{\text{算子管道}} \text{终止收集}
+$$
+
+```java
+// 循环版：计算「工资超过 8000 的员工姓名，按工资降序取前 3」
+List<String> names = new ArrayList<>();
+List<Employee> rich = new ArrayList<>();
+for (Employee e : staff) if (e.getSalary() > 8000) rich.add(e);
+rich.sort((a, b) -> Double.compare(b.getSalary(), a.getSalary()));
+for (int i = 0; i < Math.min(3, rich.size()); i++) names.add(rich.get(i).getName());
+
+// Stream 版：同样的逻辑，一行管道
+List<String> names = staff.stream()
+        .filter(e -> e.getSalary() > 8000)          // 过滤
+        .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())  // 降序
+        .limit(3)                                    // 取前 3
+        .map(Employee::getName)                      // 取姓名
+        .collect(Collectors.toList());               // 收成 List
+```
+
+**重点结论：Stream 的每一步都是「声明要什么」，循环的每一步是「命令怎么做」。** 流式版没有中间变量、没有下标、没有「先收集再排序再截断」的三段样板——它更贴近「筛选 → 排序 → 截断 → 取名」的思考顺序。这也是 Effective Java 第 45 条「流要优先于循环」的理由：**流更不易出错、更可读**。
+
+## 5 何时用流、何时该克制
+
+Effective Java 第 45–48 条给出流的使用边界——**不是所有循环都要改写成流**：
+
+**该用流**：过滤 + 映射 + 收集的管道、分组聚合（`groupingBy`）、需要惰性短路（`limit`、`findFirst`）、并行归约（`.parallel()`）。
+
+**该克制（用循环）**：
+
+- 需要**修改外部状态**（流式写法易写成「副作用」）。
+- 需要**多个集合同步下标遍历**（流没有下标）。
+- 逻辑是**分支密集**的嵌套控制流（`break`/`continue`/`return` 在流里没有直译）。
+- 代码在**性能关键路径**且测出流式是瓶颈（流有对象分配、无法内联时）。
+
+**辨析｜易错点：别为「花哨」而流。** 一条流管道里塞进 `forEach` 里再改外部变量、或一个 `map` 里做三重嵌套分支——那比循环还难读。**判断标准是「可读性」：管道若在一行内说不清「在做什么」，就拆回循环。** Effective Java 第 48 条的总纲：**「谨慎使用流并行」**——`.parallel()` 不是免费提速，它要求元素操作无状态、可重复、combiner 结合，否则结果错误或更慢。
+
+## 6 小结
+
+- Stream 三阶段：**数据源 → 惰性中间操作 → 终止操作**；流只能用一次。
+- 常用算子：`filter`/`map`/`flatMap`/`sorted`/`limit` + `collect`/`reduce`/`forEach`。
+- `reduce` 折叠成值（identity + combiner），`collect` 收进容器（`toList`/`groupingBy`/`joining`）。
+- **优先流**（声明式、少错）；但改外部状态、多集合对齐、分支密集时**用循环**。
+- `.parallel()` 慎用：要求无状态、可结合，否则结果错误。
+
+在下一节，我们把「方法怎么设计」的规范提上日程——**方法设计：参数校验、重载与返回值**。

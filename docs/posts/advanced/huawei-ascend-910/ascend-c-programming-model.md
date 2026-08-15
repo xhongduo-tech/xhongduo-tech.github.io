@@ -104,4 +104,18 @@ $$T_{\text{total}} \approx N_{\text{tile}} \times \max(t_{\text{in}}, t_{\text{c
 - 三大关键抽象：**GlobalTensor/LocalTensor（数据位置）、指令即函数（映射硬件单元）、同步原语（显式依赖）**。
 - 从 CUDA 迁移的三转变：**线程→数据块、同步线程→管理 buffer、kernel→多单元算子**。
 - **换性能心智模型比学语法更难**：优化对象从「线程占用率」变成「数据流节奏」。
-- tiling 公式 $T_{\text{total}}\approx N_{\text{tile}}\times\max(t_{\text{in}},t_{\text{calc}})$
+- tiling 公式 $T_{\text{total}}\approx N_{\text{tile}}\times\max(t_{\text{in}},t_{\text{calc}})$：调优第一件事是找对 tile 大小。
+- **让每个 tile 的计算时间 ≈ 搬入时间**：双缓冲利用率最高、流水最满；偏离平衡要么 Cube 空等、要么 DMA 空等。
+- **「搬进来 → 算 → 搬出去」的三步骨架**：Ascend C 的「啰嗦」是刻意的，把每个可优化点暴露给你。
+- **「类型即约束」**：GlobalTensor/LocalTensor 把数据位置编码进类型，编译期就能发现错误。
+- **「决定权越大，责任越大」**：写 Ascend C 算子，要对 tiling、流水、同步全权负责。
+
+- **CUDA 是「招一万个工人」，Ascend C 是「招几个高手」**：工人数量有限，但每个都「一专多能」且节奏被精心编排。
+- **一个 `Add` 里藏着的三条优化环节**：搬入可双缓冲、计算可流水、搬出可异步——Ascend C 的「啰嗦」是刻意的。
+- **「在正确的地方插入恰到好处的同步」是分水岭**：同步过多流水被切碎，同步缺失产生数据竞争。
+- **同步的对象从「线程」变成「数据依赖」**：DMA 与 Cube/Vector 之间的生产者-消费者关系。
+- **Ascend C 的粒度从「单指令流」放大到「多单元协作」**：一个算子可以横跨 Cube 与 Vector，把「矩阵乘 + 激活」写进同一描述。
+- **Ascend C 调优的第一件事是找对 tile 大小**：tile 太大 UB 放不下，太小循环与同步开销吃掉性能。
+- **「让每个 tile 的计算时间 ≈ 搬入时间」是经验法则**：偏离平衡，要么 Cube 空等数据，要么 DMA 空等计算。
+
+在下一节，我们将把 Ascend C 的模型落到最典型的算子上——亲手走一遍 **Cube 矩阵乘算子开发实战**。

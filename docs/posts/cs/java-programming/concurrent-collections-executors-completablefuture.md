@@ -58,7 +58,7 @@ int result = f.get();                            // 阻塞等待结果
 
 **重点结论：线程池的核心理念是「池化复用 + 有界资源」**——固定大小线程池把并发度钉死在预设值，防止无节制的线程创建。**务必记得关闭**：`pool.shutdown()` 优雅关闭（等已提交任务完成）；不关，非守护线程会让 JVM 无法退出。
 
-**线程池的三种饱和策略**（队列满时怎么办）：`AbortPolicy`（默认，抛异常）、`CallerRunsPolicy`（让提交方自己跑）、`DiscardPolicy`（静默丢弃）。选哪种取决于「丢任务 vs 降速」的取舍。
+**线程池的三种饱和策略**（队列满时怎么办）：`AbortPolicy`（默认，抛异常）、`CallerRunsPolicy`（让提交方自己跑）、`DiscardPolicy`（静默丢弃）。选哪种取决于「丢任务 vs 降速」的取舍。<span class="marginnote">`CallerRunsPolicy` 是「背压」的妙用：队列满时让提交线程自己执行任务，提交方被「拖住」，自然放慢生产速度——任务不丢、系统不被冲垮。Java 并发工具里这类「以退为进」的设计非常多。</span>
 
 **生产级线程池最好直接 `new ThreadPoolExecutor`**：`Executors` 工厂的便捷实现默认使用无界队列（`newFixedThreadPool` 用无界 `LinkedBlockingQueue`），任务积压时队列无限膨胀、内存告急。显式指定**有界队列 + 饱和策略 + 自定义线程工厂**（给线程起有含义的名字，排障时能从线程转储认出它）才是可运维的配置：
 
@@ -82,3 +82,45 @@ $$
 \text{task} \to \text{thenApply(变换)} \to \text{thenCompose(连接)} \to \text{exceptionally(兜底)}
 
 $$
+
+对这条流水线做三步拆解：
+
+- **第一步，启动异步**：用 `CompletableFuture.supplyAsync(() -> 计算, pool)` 把任务丢进线程池异步执行，返回一个「未来的结果」。
+- **第二步，串联变换**：`thenApply(结果 -> 新结果)` 在前一个任务**完成后**自动把结果喂给变换函数，产出新的 `CompletableFuture`——多个 `thenApply` 串成「先算 A、再算 B、再算 C」的流水线，全程不用阻塞等待。
+- **第三步，兜底异常**：`exceptionally(e -> 默认值)` 捕获链上任何一步的异常并给出回退结果，让流水线「即使出错也有出口」。
+
+```java
+CompletableFuture<String> cf =
+    CompletableFuture.supplyAsync(() -> fetchUser(id), pool)
+        .thenApply(user -> user.getDept())          // 拿到用户后取部门
+        .thenApply(dept -> dept.getManager())       // 再取部门经理
+        .exceptionally(e -> Manager.DEFAULT);       // 任一步出错就兜底
+```
+
+**`thenApply` 与 `thenCompose` 的区别**：`thenApply` 的变换函数返回**普通值**（拆开），`thenCompose` 的变换函数返回**另一个 `CompletableFuture`**（不拆开、直接衔接）——需要「异步后再异步」时用 `thenCompose`，否则回调里嵌套 `CompletableFuture` 会越套越深。
+
+**并行汇聚**：`allOf(...)` 等所有任务完成、`anyOf(...)` 任意一个先完成即可——这是「扇出/扇入（fork-join）」的声明式写法，对应后面大模型推理里的「多个候选打分后再聚合」场景。
+
+**关键收获**：`CompletableFuture` 把「等待结果」从**阻塞**（`Future.get()`）变成了**回调编排**（`thenApply` 等）——代码不卡线程，线程池的线程得以服务更多请求。这正是「异步非阻塞」编程的范式：从命令式「我要等」，到声明式「完成时做什么」。
+
+## 4 核心对比表：三件套的分工
+
+纯概念主题用**核心对比表**替代公式解析的展开，把 JUC 三件套的职责钉死：
+
+| 组件 | 解决的问题 | 心智模型 | 何时用 |
+| --- | --- | --- | --- |
+| 并发集合 | 共享容器的线程安全 | 「线程安全的 HashMap/List」 | 多线程共享容器 |
+| 执行器 | 线程的创建与复用 | 「线程池：任务队列 + 工作线程」 | 异步执行任务 |
+| CompletableFuture | 异步结果的编排 | 「回调流水线」 | 多步异步、依赖组合 |
+
+**重点结论：三件套是「自动挡」，但不是「免检」。** 并发集合管住了容器，执行器管住了线程，CompletableFuture 管住了编排——但**共享可变状态的正确性**仍需你理解（见《并发基础》与《并发编程最佳实践》）。JUC 消灭的是「重复造轮子」，不是「并发正确性思考」。
+
+## 5 小结
+
+- **`ConcurrentHashMap`** 按桶并发，替代 `Hashtable`/`synchronizedMap`；`CopyOnWriteArrayList` 适合读多写少。
+- **`BlockingQueue`** 的 `put`/`take` 阻塞语义天然实现生产者-消费者与背压。
+- **线程池**用 `ThreadPoolExecutor` 显式配置：有界队列 + 饱和策略 + 可命名线程工厂。
+- **`CompletableFuture`** 用 `thenApply`/`thenCompose`/`exceptionally` 编排异步流水线，非阻塞。
+- `execute` 无返回值，`submit` 返回 `Future`；记得 `shutdown()` 关线程池。
+
+在下一节，我们把并发的「武器与纪律」合二为一——**并发编程最佳实践**。

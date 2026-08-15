@@ -96,3 +96,40 @@ $$
 \text{boolean equals(String)} \xrightarrow{\text{擦除}} \text{boolean equals(Object)} \;\Longrightarrow\; \text{与 Object.equals 冲突}
 
 $$
+
+对这条公式做三步拆解：
+
+- **第一步，你写了重载**：一个泛型类里写了 `boolean equals(String)`（想重载 `Object.equals`）。
+- **第二步，擦除发生**：编译后类型参数消失，`String` 参数被擦成 `Object`——方法签名变成 `boolean equals(Object)`。
+- **第三步，冲突**：这与 `Object.equals(Object)` **签名完全相同**，而你的返回类型、语义都对不上——轻则意外覆盖，重则编译报错。
+
+**擦除带来的四条限制，背住它们：**
+
+- **`instanceof T` 非法**：运行期没有 `T` 这个类型，没法判断。`if (obj instanceof T)` 编译错误。
+- **`new T()`、`new T[10]` 非法**：创建对象需要具体类型，`T` 被擦除了。要「按类型建对象」就传入 `Class<T>`（类型令牌）或反射。
+- **静态字段不能是类型参数**：`private static T instance;` 非法——静态字段属于类，而类只有一份，无法为每个 `T` 各存一份。
+- **泛型类不能直接用于 `instanceof`**：`obj instanceof Pair<String>` 编译错误——擦除后只有一个 `Pair`，无法区分 `Pair<String>` 与 `Pair<Integer>`。要区分就取 `pair.getClass()` 或检查元素。
+
+**桥方法（bridge method）**：擦除还会让编译器**自动生成桥方法**保证多态正确。比如 `Comparable<T>` 的 `compareTo(T)` 被擦成 `compareTo(Object)`，编译器会插入一个 `compareTo(Object)` 转发到你的 `compareTo(Employee)`——所以你重写 `compareTo(Employee)` 也能通过 `Collections.sort` 的多态调用。看到 `.class` 里多出「没见过的方法」，多半就是桥方法。
+
+## 5 泛型的最佳实践小结
+
+泛型的内容到此收束，把「用得对」的要点汇总：
+
+- **类型参数用约定命名**：`T`（Type）、`E`（Element）、`K`/`V`（Key/Value）、`R`（Return）。
+- **泛型优先于 `Object` + 强转**：类型安全从运行期提前到编译期。
+- **有界类型参数 `T extends B` 表达「T 是 B 的子类型」**——`B` 既可以是类也可以是接口。
+- **理解擦除**：运行期只有一份 `Pair`，类型信息只存在于编译期。
+- **不能 `new T()`、不能 `instanceof T`、静态字段不能是类型参数**——都是擦除的直接后果。
+
+**重点结论：泛型是「编译期的类型安全」+「运行期的 Object」双层结构。** 源码里干净的类型、字节码里被擦掉的参数、调用点自动插入的强转——这三件事合起来，就是「泛型在 JVM 里的真相」。理解擦除，你不会再被「为什么不能 new T」「为什么 instanceof 报错」卡住；也自然理解下一章为什么「泛型与集合」要绑定使用——`List<T>` 是集合框架类型安全的根基。
+
+## 6 小结
+
+- **泛型类/方法**用类型参数占位，编译期保证类型正确、自动强转。
+- **有界类型参数** `T extends Comparable<T>` 保证类型有指定能力。
+- **类型擦除**：JVM 里只有一份类，`T` 被替换为上界；调用点自动插入强转。
+- 擦除限制：**不能 `new T()`、不能 `instanceof T`、静态字段不能是类型参数**。
+- 泛型把「类型错误」从运行期提前到编译期，是集合框架类型安全的根基。
+
+在下一节，我们把泛型应用到一整套数据结构库——**Java 集合框架**。

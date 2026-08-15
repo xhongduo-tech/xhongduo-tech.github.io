@@ -60,3 +60,71 @@ public static void printAll(List<?> list) {
 上界与下界通配符的选用规则，就是著名的 **PECS（Producer Extends, Consumer Super）**：方法从参数里**读**东西，参数是**生产者**，用 `extends`；方法向参数里**写**东西，参数是**消费者**，用 `super`。
 
 $$ 读（产出 T）\Rightarrow \text{? extends T} \qquad \text{写（消费 T）} \Rightarrow \text{? super T} $$
+
+对这条公式做三步拆解：
+
+- **第一步，判断方向**：方法是对参数「读」（取出元素用）还是「写」（往里面放元素）？
+- **第二步，读 → 生产者 → `? extends T`**：方法要从集合里**读**出 `T`（集合是 `T` 的**生产者**），用上界通配符——这样 `List<Integer>` 也能传给「读 `List<? extends Number>`」的方法。
+- **第三步，写 → 消费者 → `? super T`**：方法要向集合里**放** `T`（集合是 `T` 的**消费者**），用下界通配符——这样 `List<Object>` 也能接受「写 `List<? super Integer>`」的元素。
+
+看两个应用，PECS 才有血肉：
+
+```java
+// 生产者：从 src 里读（复制出来）
+public static <T> void copy(List<? extends T> src, List<? super T> dst) {
+    for (T item : src) dst.add(item);   // 从 extends 读，往 super 写
+}
+```
+
+`copy(List<Integer>, List<Number>)` 能编译——`List<Integer>` 是 `List<? extends Number>`（生产者），`List<Number>` 是 `List<? super Integer>`（消费者）。**没有通配符，这段通用代码根本写不出来**——这正是 `Collections.copy` 等 JDK 方法背后的签名设计。
+
+**重点结论：PECS 不是口号，而是「读写安全」的推导。** `? extends T` 只保证「能读成 T」——往里写不安全（你不知具体类型）；`? super T` 只保证「能放进 T」——往里读只能读成 `Object`。**用 PECS 判断，比死记规则可靠**：每次写泛型签名，先问「我读它还是写它」。<span class="marginnote">PECS 的直觉：`extends` 让「子类都能放进集合，于是里面可能是任意子类，只能按父类读」；`super` 让「父类都能容纳 T，于是往里写 T 一定安全」。读方向朝上、写方向朝下——两个方向各锁一边，安全就成立了。</span>
+
+## 4 泛型方法与通配符：优先泛型方法
+
+Effective Java 第 30 条与第 31 条给出两条选型原则：
+
+**第一，泛型方法优先于「无界通配符 + 强转」**。裸 `Object` 参数的方法（内部强转）会「静默吞掉类型信息」，应在编译期就由泛型方法守住：
+
+```java
+public static <E> Set<E> union(Set<? extends E> s1, Set<? extends E> s2);
+```
+
+**第二，若类型参数在方法体内出现多次，考虑用泛型方法而非通配符**。通配符适合「类型只在签名出现一次」；类型参数需要「同名约束」时，泛型方法更清晰。
+
+**辨析｜易错点：`List<?>` 与 `List<Object>` 不是一回事。** `List<Object>` 是「能装任何类型的列表」（往里面 add 什么都行）；`List<?>` 是「类型未知的列表」（不能 add 非 null）。`List<String>` 可以传给 `List<?>`，**但不能**传给 `List<Object>`（那会允许往里面塞 `Integer` 污染）。这个区别，是理解「不变性（invariance）」的关键——`List<String>` 与 `List<Object>` 无父子关系，是泛型安全的第一道闸门。
+
+## 5 核心对比表：三种通配符
+
+纯概念主题用**核心对比表**替代公式解析的展开，把三种通配符一次分清：
+
+| 维度 | `? extends T`（上界） | `?`（无界） | `? super T`（下界） |
+| --- | --- | --- | --- |
+| 含义 | T 或 T 的任意子类 | 某种未知类型 | T 或 T 的任意父类 |
+| 能读 | 能读成 T | 只能读成 Object | 只能读成 Object |
+| 能写 | **不能** | **不能**（除 null） | **能写 T** |
+| 角色 | 生产者（读） | 只读视图 | 消费者（写） |
+| 典型 | `copy(src)` 的源 | `printAll` 的参数 | `copy(dst)` 的目标 |
+
+**再补一个高级细节——通配符捕获（wildcard capture）**。当你想把 `List<?>` 里的元素「拿到一个泛型方法里去处理」时，编译器不允许直接传 `List<?>` 给 `List<E>` 形参——这时可以用一个辅助泛型方法来「捕获」未知类型：
+
+```java
+void printReverse(List<?> list) {
+    revHelper(list);          // 编译器把 ? 捕获成某个具体类型 W
+}
+private static <W> void revHelper(List<W> list) {   // 通配符捕获
+    // 现在 W 是「已知的未知」，可以在方法体内安全使用
+}
+```
+
+**重点结论：通配符读多写少，写多要靠 `super`，完全未知则只读。** 记住「读 extends、写 super、纯读无界」的三角——写代码时先判断方法对参数的读写方向，再选通配符。这套规则在 `Collections` 的每个泛型方法签名里都能看到，是 JDK 自身也在遵守的纪律。
+
+## 6 小结
+
+- **别用裸类型**：`List` 放弃全部类型安全；新代码一律参数化。
+- **`List<?>`** 是「类型未知」的只读视图，能读不能写（除 null）。
+- **PECS**：读用 `? extends T`（生产者），写用 `? super T`（消费者）。
+- **`List<?>` ≠ `List<Object>`**；泛型容器是不变的。
+- 优先**泛型方法**；通配符用于「类型只在签名出现一次」的场合。
+
+在下一节，我们把泛型与 lambda 结合成更强大的数据处理——**Lambda 与 Stream 流式编程**。

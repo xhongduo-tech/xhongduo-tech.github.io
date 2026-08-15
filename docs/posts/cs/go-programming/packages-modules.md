@@ -108,4 +108,49 @@ $ go mod verify
 
 | 维度 | GOPATH（旧） | 模块（现代） |
 | --- | --- | --- |
-| 依赖位置 | `$
+| 依赖位置 | `$GOPATH/src`（全部平铺） | 模块化缓存（`$GOPATH/pkg/mod`） |
+| 版本管理 | 无（依赖代码即最新） | `go.mod` 精确版本 |
+| 依赖粒度 | 无依赖图 | 显式 `require` 图 |
+| 可复现 | 否（同一代码随时间漂移） | 是（同一 `go.mod` 同一结果） |
+| 导入路径 | `github.com/user/repo` | 同前（加 `/vN` 表示主版本） |
+
+这张表是 Go 依赖管理的「断代史」：GOPATH 时代没有版本、没有依赖图，全靠「最新代码」——两个项目依赖同一库的不同版本就打架。模块时代用 `go.mod` 精确记录、用 MVS 解决冲突，彻底终结了「依赖地狱」。
+
+## 7 模块的日常工作流
+
+把模块命令串成日常操作，覆盖「从零建项目到发布」的完整周期：
+
+**初始化一个新项目：**
+
+```bash
+$ go mod init github.com/me/myapp   # 1. 建模块
+$ go get github.com/gin-gonic/gin@v1.9.1   # 2. 加依赖（可指定版本）
+$ go mod tidy                       # 3. 清理：补全缺失、移除无用
+$ go build ./...                    # 4. 构建验证
+$ go mod verify                     # 5. 校验依赖哈希
+```
+
+**日常维护命令一览：**
+
+| 命令 | 作用 | 场景 |
+| --- | --- | --- |
+| `go mod init` | 创建 `go.mod` | 新建项目 |
+| `go get pkg@ver` | 增/改依赖版本 | 升级依赖 |
+| `go mod tidy` | 清理依赖到与源码一致 | 每次改 import 后 |
+| `go mod vendor` | 依赖拷入 `vendor/` | 离线/受控构建 |
+| `go mod verify` | 校验缓存完整性 | 安全检查 |
+| `go mod download` | 预下载依赖到缓存 | CI 提速 |
+
+**易错点：** `go mod tidy` 是「对账」命令——它把 `go.mod` 里记录的依赖与源码实际 `import` 的依赖对齐：删掉不用的、补上缺的。**每次改了 import 就应跑一次 tidy**，否则 `go.mod` 会与源码脱节，构建报「missing or wrong sum」或引入多余的依赖。
+
+## 8 小结
+
+- **模块**是发布/版本/依赖管理的单元：`go.mod` 记录路径、Go 版本与 `require`。
+- **SemVer** `主.次.修订`；主版本 ≥2 时模块路径必须带 `/vN`，让 v1/v2 可共存。
+- **MVS** 选「所有被依赖版本中最大者」，可复现、单调、无需中央锁文件。
+- `GOPROXY`/`GOPRIVATE`/`GONOSUMDB` 控制代理、私有仓库与校验。
+- `go.sum` 记录依赖哈希、防篡改；`go mod verify` 校验完整性。
+- 日常流程：`go mod init` → `go get` → `go mod tidy` → `go build`；tidy 常跑。
+- Go 用「路径即版本」与 MVS 终结了依赖地狱，是工程化程度最高的依赖方案之一。
+
+在下一节，我们总览开发日常：**go 工具链——build、test、vet、fmt 与 gofmt**。

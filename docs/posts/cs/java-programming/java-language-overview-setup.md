@@ -77,4 +77,49 @@ public class Hello {
 
 ```bash
 $ javac Hello.java     # 产出 Hello.class
-$
+$ java Hello           # 用 JVM 运行主类，输出「你好，Java」
+你好，Java
+```
+
+`javac` 产出的 `.class` 文件与你写代码的机器无关——把它拷到任何装有 JVM 的机器上，`java Hello` 都能跑。这就是「一次编写、处处运行」的完整闭环。<span class="marginnote">IDE（IntelliJ IDEA 是最主流的 Java IDE）把上面四步封装成了「一键运行」，但你仍要理解背后发生了什么：IDE 只是替你调用 `javac` 与 `java`。排障时（编译错、类找不到）回到底层命令行，往往一眼看穿。</span>
+
+## 4 公式解析：从源码到执行的流水线
+
+把「Java 程序怎么跑起来」用一个流水线公式钉死：
+
+$$
+\text{源码 .java} \xrightarrow{\text{javac 编译}} \text{字节码 .class} \xrightarrow{\text{类加载器}} \text{JVM} \xrightarrow{\text{解释 + JIT}} \text{机器码} \to \text{执行}
+$$
+
+对这条流水线做三步拆解：
+
+- **第一步，编译**：`javac` 把 `.java` 编译成**平台无关**的字节码 `.class`。字节码不是任何 CPU 的机器码，而是一套 JVM 自己的「中间指令集」。
+- **第二步，加载**：`java` 启动 JVM，由**类加载器（ClassLoader）**把 `.class` 按需读进内存——这是「懒加载」，用到哪个类才加载哪个。
+- **第三步，执行**：JVM 先**解释执行**字节码；对反复执行的热点代码，**JIT（Just-In-Time）编译器**在运行期把它编译成**当前机器的原生机器码**——所以同一份字节码在 x86 上变成 x86 指令、在 ARM 上变成 ARM 指令，性能逼近 C++。
+
+**重点结论：平台的差异被「编译 + 解释/JIT」两步消化掉了。** 你只编译一次，JVM 针对每台机器再「适配」一次。这正是「一次编写、处处运行」的技术本质——与 Python 的「解释器直译」、C 的「每平台编译一次」构成三种不同的跨平台策略，而 Java 选了「编译到中间层 + 运行时适配」的折中。
+
+## 5 常用工具与开发流程
+
+JDK 附带一整套命令行工具，是日常排障的武器库：
+
+| 工具 | 用途 | 典型场景 |
+| --- | --- | --- |
+| `javac` | 编译源码 | 把 `.java` 编成 `.class` |
+| `java` | 运行程序 | `java Hello` 启动主类 |
+| `jar` | 打包/解包 | 把一堆 `.class` 打成可执行 jar |
+| `javap` | 反汇编字节码 | 查看 `.class` 的方法签名（排错用） |
+| `jps` | 列出 JVM 进程 | 看后台 Java 进程 |
+| `jstack` | 打印线程转储 | 排查死锁、卡死 |
+
+**面向对象工程的构建工具**：真实项目不用命令行逐个 `javac`，而是用 **Maven / Gradle** 管理依赖、编译、打包、测试——它们把「下载依赖 jar、编译、打包、跑测试」编排成一条命令（`mvn package`）。这属于第三级《软件工程与构建》的内容，但你现在就该知道：**JDK 是地基，构建工具是脚手架。**
+
+## 6 小结
+
+- Java 靠**字节码 + JVM** 实现平台无关；JDK ⊃ JRE ⊃ JVM，开发装 JDK。
+- 流程四步：**写源码 → `javac` 编译 → `java` 加载运行 → JVM 解释 + JIT 执行**。
+- 安装 JDK 21（LTS），配置 `JAVA_HOME` 与 `PATH`，能敲出 `java -version` 即环境就绪。
+- 文件名主名必须与公共类名一致；`main` 是程序入口。
+- 排障武器库：`javac`/`java`/`jar`/`javap`/`jstack`；大型项目用 Maven/Gradle。
+
+在下一节，我们进入 Java 语法的第一个正式章节——**基本程序设计结构：变量、数据类型与运算符**。

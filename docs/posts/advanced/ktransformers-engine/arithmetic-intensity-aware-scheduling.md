@@ -112,4 +112,10 @@ $$
 
 - 放置决策 = **三问**：算术强度、访问频率、存储体量，对照 Roofline 转折点与显存预算。
 - 调度器四件事：**路由驱动专家激活、GPU 内核 CUDA Graph 化、CPU 任务队列、层边界同步**。
-- 放置判据：$I_o \ge I_{\text{thr}} \wedge f_o \ge f_{\text{thr}} \wedge s_o \le V_{\text{left}}$
+- 放置判据：$I_o \ge I_{\text{thr}} \wedge f_o \ge f_{\text{thr}} \wedge s_o \le V_{\text{left}}$——三条件取「与」，任一不满足就放 CPU。
+- 放置 vs 调度：**放置是「计划」（启动时定），调度是「执行」（每 token 做）**——「重决策、轻执行」的效率密码。
+- 运行时按上下文调整：同一算子随 batch/量化位宽而变，prefill 与 decode 各有偏好——放置是「运行感知」的。
+
+再补一句「从判据到参数」的收尾：判据里的三个量，恰好对应 ktransformers 的三个可配置项——**$I_{\text{thr}}$ 对应内核路径选择、$f_{\text{thr}}$ 对应放置策略、$V_{\text{left}}$ 对应 `--kt-num-gpu-experts`**。看懂判据，你就看懂了参数：**参数不是「随便调调」，而是「判据的旋钮」**。下一次调 `--kt-gpu-experts-ratio` 时，你实际上是在拧「$V_{\text{left}}$ 预算」这个旋钮——知道自己在拧什么，比瞎调快得多。
+
+在下一节，我们把「放置」往前推一步：**频率感知的专家放置策略与 GPU Expert Mask**——如果说本篇的三问是「每个算子该在哪」，下一篇就是「哪些专家值得上 GPU、用什么数据结构表达这个决定」。

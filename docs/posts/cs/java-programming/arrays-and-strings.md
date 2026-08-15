@@ -132,3 +132,21 @@ $$
 \text{result} = s[\text{beginIndex} \;\ldots\; \text{endIndex} - 1]
 
 $$
+
+对这条公式做三步拆解：
+
+- **第一步，读两个参数**：`s.substring(0, 5)` 从 `s` 里截取**下标 0 开始、到下标 5 之前**的部分。
+- **第二步，左闭右开**：`beginIndex` **包含**，`endIndex` **不包含**。所以 `substring(0, 5)` 取出的是 `s[0]`、`s[1]`、`s[2]`、`s[3]`、`s[4]` 五个字符，**结果长度为 `endIndex - beginIndex`**。
+- **第三步，记死规则**：`substring(a, b)` 的长度是 $b - a$。这条规则贯穿整个 JDK 的区间约定——`Arrays.copyOfRange`、`List.subList`、Stream 的范围都用**左闭右开**。把它当成「半开区间」的默认约定，就再也不会数错字符。
+
+**辨析｜易错点：`substring` 两个参数的顺序与语义。** 参数是「起始下标、结束下标（不含）」，不是「起始、长度」。`substring(2, 5)` 是「从下标 2 到下标 5 之前」，不是「从 2 起取 5 个」。写错一个数字，截出来的字符串就悄悄变了——编译器不会帮你查。
+
+## 6 小结
+
+- **数组**是定长、同质、连续内存的容器；下标从 0 起，越界抛 `ArrayIndexOutOfBoundsException`。
+- 数组拷贝用 `Arrays.copyOf`/`System.arraycopy`；**直接赋值是别名**，改一个两个都变。
+- `String` **不可变**、共享字符串池；比较用 `equals` 不用 `==`。
+- 大量拼接用 **`StringBuilder`**（`+` 会创建大量中间对象）。
+- `substring` 是**左闭右开**区间，结果长度 = `endIndex - beginIndex`；这是 JDK 的通用区间约定。
+
+在下一节，我们把「数据容器」升级为「对象容器」——**对象与类**，从使用类型走向定义类型。

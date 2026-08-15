@@ -115,4 +115,11 @@ $$
 - **Continuous Batching** 让请求动态进出 batch，消灭空等，最大化每轮计算利用率。
 - 异构引擎在并发下收益更大：**同专家多 token 让 CPU GEMM 更高效**，batch 稀释固定开销。
 - 分层集成：SGLang 管调度、`sglang-kt` 管意图翻译（`num_gpu_experts` → `gpu_experts_mask`）、ktransformers 管内核。
-- 并发约束公式：$C \times L \times b_{kv} \le V_{\text{gpu,kv}}$
+- 并发约束公式：$C \times L \times b_{kv} \le V_{\text{gpu,kv}}$——并发上限 = 显存 KV 预算 ÷（平均上下文 × 每 token KV）。
+- 软性降载：超载时「排队让位」优于「整批拒绝」——面向服务的系统「宁可排队、不可失败」。
+- 三角预算：并发、上下文、GPU 专家共享显存——调 `--max-total-tokens`、`--kt-num-gpu-experts` 是在解这道三角不等式。
+- 异构在并发下收益更大：同专家多 token 让 CPU GEMM 更高效，batch 稀释固定开销。
+
+再补一句「从集成到平台」的收尾：SGLang 集成把 ktransformers 从「单机引擎」拉到「服务后端」，再升到「可被构建的平台」——**这是开源项目影响力的关键跃迁**。而支撑这个跃迁的，是「分层集成」的清晰接口：调度归 SGLang、翻译归 `sglang-kt`、内核归 ktransformers，**每层只做自己最擅长的事**。这个「组合优于单干」的模式，是当代 AI 基础设施的主流形态——**理解了你手里的引擎「在哪一层、与谁协作」，你就掌握了它在生态里的位置**。
+
+在下一节，我们深入 ktransformers 为多并发提供的专门机制——**balance-serve 多并发推理服务机制**，看「资源均衡」的智慧。

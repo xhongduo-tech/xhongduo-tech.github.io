@@ -162,4 +162,6 @@ check_disk               # 直接调用库里的函数
 - **return 报状态、echo 传数据**：`result=$(func)` 拿 echo，`$?` 拿 return，整数 0–255。
 - **`local` 私有变量**：函数中间变量一律 `local`，避免污染全局、避免互相踩。
 - **递归与数组可行**：递归要收敛 + local，数组用 `readarray` 接收逐行 echo。
-- **`source` 复用函数库**：`source lib.sh` 在当前 shell 加载；路径用 `$(dirname "$
+- **`source` 复用函数库**：`source lib.sh` 在当前 shell 加载；路径用 `$(dirname "$0")/lib.sh` 保证从任何目录调用都不跑偏。
+
+在下一节，我们离开函数，回到「脚本运行的环境」本身：环境变量如何定义、导出与继承，Bash 启动文件何时被读取、怎么写——这就是**使用 Linux 环境变量与 Bash 启动文件**。

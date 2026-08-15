@@ -104,3 +104,50 @@ $$
 \text{UTF-8：} \quad \text{字符数} \times (1 \sim 4 \text{ 字节}) \qquad \text{GBK：} \quad \text{汉字} = 2 \text{ 字节，ASCII} = 1 \text{ 字节}
 
 $$
+
+对这条公式做三步拆解：
+
+- **第一步，字符 → 字节的换算率由字符集决定**：UTF-8 里 ASCII 字符（拉丁字母、数字）占 1 字节、常用汉字 3 字节、生僻字可达 4 字节；GBK 里汉字固定 2 字节、ASCII 1 字节。
+- **第二步，「读文件」其实是「读字节 + 解码」**：磁盘上存的永远是**字节**；字符流把字节按指定字符集**解码**成 `char`/字符串。字符集选错，同一串字节会解码成乱码——**读文件必须与写入时的编码一致**。
+- **第三步，统一 UTF-8 消灭问题**：现代实践是「全链路 UTF-8」——写时显式指定 `StandardCharsets.UTF_8`，读时同样指定，两边对齐，乱码从根上消失。遗留系统里 GBK 文件才需要按它解码。
+
+**辨析｜易错点：`FileReader` 用「平台默认编码」，不可靠。** `new FileReader("a.txt")` 用的默认编码随系统变化（Windows 上是 GBK、macOS/Linux 是 UTF-8）——同一段代码在不同机器上行为不同。**用 `Files.newBufferedReader(path, StandardCharsets.UTF_8)` 显式指定编码**，比依赖默认值稳得多。
+
+## 4 目录与文件管理：Files 的完整能力
+
+`Files` 类不只读写文件，它还覆盖了「文件与目录管理」的全部日常操作：
+
+```java
+// 目录遍历：列出目录内容（Java 8 起）
+try (Stream<Path> entries = Files.list(Path.of("."))) {
+    entries.forEach(System.out::println);
+}
+
+// 递归遍历整棵目录树（含子目录）
+try (Stream<Path> walk = Files.walk(Path.of("src"))) {
+    walk.filter(Files::isRegularFile).forEach(System.out::println);
+}
+
+// 判断与属性
+Files.exists(path);
+Files.isDirectory(path);
+Files.isRegularFile(path);
+Files.size(path);                    // 字节数
+
+// 创建目录（含父目录）
+Files.createDirectories(Path.of("a/b/c"));
+```
+
+**重点结论：目录遍历用 `Files.list` / `Files.walk` + Stream**——这正是《Lambda 与 Stream 流式编程》的用武之地：过滤、映射、统计一行流式搞定。`Files.walk` 返回的 `Stream` 要放进 try-with-resources（它持有打开的目录句柄）。
+
+**大文件的最优策略**：几个数量级的内存账——`Files.readAllBytes` 一次性装载（适合小文件）、`Files.readAllLines` 按行装进 `List`（中等）、`BufferedReader.readLine` 流式逐行（大文件）。**选型依据是文件大小与内存预算**：处理 2 GB 日志还用 `readAllLines`，内存直接爆。
+
+## 5 小结
+
+- IO 两族：**字节流**（`InputStream`/`OutputStream`）管二进制，**字符流**（`Reader`/`Writer`）管文本并负责编码解码。
+- 流的**装饰器**：`BufferedReader(FileReader(...))` 层层包裹、功能叠加。
+- 现代文件操作用 **`Files`**：`readString`/`writeString`/`readAllLines`/`walk`/`createDirectories` 一行式。
+- 读大文件用 **`BufferedReader` 逐行流式**；**读文件显式指定 `StandardCharsets.UTF_8`**，别依赖平台默认编码。
+- 所有文件 IO 都抛受检 `IOException`；try-with-resources 自动关闭。
+
+在下一节，我们把对象「送到文件里、再从文件里取回」——**序列化的最佳实践**。

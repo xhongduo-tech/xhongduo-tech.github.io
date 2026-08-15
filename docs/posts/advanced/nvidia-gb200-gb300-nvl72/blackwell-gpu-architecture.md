@@ -113,4 +113,10 @@ Blackwell 相对上一代 Hopper（H100）的架构变化，浓缩成一张表�
 - **双 Die 封装**：两颗约 1040 亿晶体管的 Die 经 NV-HBI（10 TB/s）拼成 2080 亿晶体管的 Blackwell，绕过光刻掩膜的面积墙。
 - **层次结构**：GPC → TPC → SM 的管理树，B200 启用 74 TPC = 148 SM，余 6 个 TPC 做良率冗余。
 - **第 5 代 Tensor Core** 原生支持 FP4/FP6，配合 MXFP4 微缩放格式，在低精度下获得高吞吐且不掉动态范围。
-- **峰值算力公式** $P = n_{\mathrm{SM}} \times n_{\mathrm{TC/SM}} \times F_{\mathrm{TC}} \times f \times S$
+- **峰值算力公式** $P = n_{\mathrm{SM}} \times n_{\mathrm{TC/SM}} \times F_{\mathrm{TC}} \times f \times S$——读算力表时能反推出 SM 数、Tensor Core 宽与频率的量级。
+- **通用算力逼近天花板、专用算力持续翻倍**：大模型的 99% 计算量是矩阵乘，把面积花在 Tensor Core 上，单位面积算力最高——这是「AI 硬件」最值得抓住的趋势线。
+- **软件栈同步升级**：架构不产生算力，产生算力的是「架构 × 编译器 × 驱动」——Blackwell 的每项硬件新特性都要 CUDA 编译器与 Transformer Engine 同步升级才能兑现。
+
+把这一篇与《Grace Blackwell 超级芯片》连起来看，一颗 B200 的全貌就完整了：**外有双 Die 与 8 个 HBM3e 堆栈（制造与封装的极限突破），内有 148 个 SM 与第 5 代 Tensor Core（微架构的算力组织）**。后面三篇（精度、CPU、显存）都是把「单卡」的某个侧面单独放大。
+
+在下一节，我们将从「硬件能做什么」转向「数字怎么变少」——**第二代 Transformer Engine 与 FP4/FP6 精度**，看精度革命如何把算力上限真正兑现。

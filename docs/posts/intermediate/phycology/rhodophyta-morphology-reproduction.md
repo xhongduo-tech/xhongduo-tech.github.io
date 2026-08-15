@@ -51,7 +51,7 @@ agar）</strong>与<strong>卡拉胶（carrageenan）</strong>——这两者是
 <span class="marginnote">琼胶在细菌培养基里已是「日用而不知」：你倒过的每个平板、跑过
 的每次电泳凝胶，主料都来自红藻。说红藻「撑起了半个微生物学实验室」并不夸张。</span>
 
-<strong>贮存红藻淀粉</strong>。光合产物是<strong>红藻淀粉（floridean 
+<strong>贮存红藻淀粉</strong>。光合产物是<strong>红藻淀粉（floridean
 starch）</strong>，属 α-1,4-葡聚糖，但沉积在<strong>胞质</strong>而非叶
 绿体内——这与其叶绿体来源（红藻系）相印证。
 
@@ -75,3 +75,48 @@ Polysiphonia</em>）是这样演的：
 受精后，果胞不直接发育成孢子体，而是演化出红藻特有的结构：
 
 $$n(\text{配子体}) \xrightarrow{\text{受精}} 2n(\text{果孢子体}) \xrightarrow{\text{释放果孢子}} 2n(\text{四分孢子体}) \xrightarrow{\text{减数分裂}} n(\text{四分孢子}) \to n(\text{配子体})$$
+
+这条链里出现了三个「体」，是理解红藻的关键：
+
+- <strong>果孢子体（carposporophyte，2n）</strong>：受精后的果胞发育成寄生在配子体上的
+二倍体小结构，它不独立生活，靠配子体供养，释放<strong>果孢子</strong>；
+- <strong>四分孢子体（tetrasporophyte，2n）</strong>：果孢子萌发成的独立二倍体藻体；
+- <strong>四分孢子（tetraspore，n）</strong>：四分孢子体经<strong>减数分裂</strong>
+产生四个单倍体孢子，萌发回配子体。
+
+<strong>核心要点：减数分裂发生在「四分孢子」这一步</strong>——所以红藻是典型的
+<strong>孢子减数分裂（单双倍体生活史）</strong>，只是二倍体世代被拆成「果孢子体 + 四分孢子体」
+两段，形成了红藻特有的<strong>三相生活史</strong>。
+
+<strong>辨析｜易错点：</strong> 果孢子体与四分孢子体<strong>都是 2n</strong>，但前者寄生、
+后者独立。考试常见陷阱是把果孢子体误当成单倍体——记住「减数分裂只在四分孢子阶段」，整条链的倍数就都顺了。
+
+## 4 无性生殖与营养生殖
+
+有性生殖之外，红藻还靠两条无性路线扩大种群：
+
+<strong>单孢子（monospore）</strong>。一些红藻（如紫菜早期丝状体）直接由有丝分裂产生单孢
+子，萌发成新藻体——不经过减数分裂，后代与母体基因型一致，是快速扩增的捷径。
+
+<strong>营养繁殖</strong>。丝状红藻可<strong>断裂</strong>再生；匍匐的种类靠长出新的固着点与
+直立枝扩展。江蓠、麒麟菜养殖里的「切段撒播」，就是利用营养繁殖的产业实践。<span class="marginnote
+">红藻的养殖（紫菜、江蓠、石花菜）几乎全靠营养繁殖与单孢子扩繁：不依赖有性生殖，育苗快、品系稳定——这也是红藻产
+业能工业化的重要原因。</span>
+
+<strong>生态与分布意义</strong>。红藻能深入低光深水——因为它们有<strong>藻红蛋白与藻蓝蛋白构成的
+捕光天线</strong>，能利用穿透力强的蓝绿光；红藻也因此常是<strong>潮下带与深水区</strong>的优势藻，
+在礁石上形成成片的「红藻带」。这条「靠色素吃蓝绿光」的适应，让红藻在光照梯度上开辟了绿藻、褐藻挤不进来的生态位
+——<strong>光质生态位分化</strong>，是红藻分布最深层的逻辑。
+
+## 5 小结
+
+- 红藻门约<strong>七千种</strong>，绝大多数海产，属于 Archaeplastida，是初级内共生的后裔。
+- 四大细胞特征：<strong>全生活史无鞭毛</strong>、壁含<strong>琼胶与卡拉胶</strong>、
+贮存<strong>红藻淀粉</strong>（在胞质）、叶绿体<strong>单条类囊体 + 藻胆体</strong>。
+- 有性生殖靠<strong>受精丝被动接精</strong>，形成<strong>三相生活史</strong>：配子体（n）→
+果孢子体（2n，寄生）→ 四分孢子体（2n，独立）→ 四分孢子（n）。
+- 减数分裂只在<strong>四分孢子</strong>阶段——这是判定红藻倍性的钥匙。
+- 无性路线：<strong>单孢子</strong>与<strong>营养繁殖</strong>，是红藻养殖扩繁的主力。
+
+在下一节，我们将走进红藻的经济版图——紫菜、石花菜、江蓠这些「海产经济红藻」如何从潮间带走上餐桌与工厂，以及它
+们在养殖业里的地位。

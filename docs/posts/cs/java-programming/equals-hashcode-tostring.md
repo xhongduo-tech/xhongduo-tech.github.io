@@ -70,3 +70,57 @@ $$
 \text{result} = 31 \times \text{result} + c \quad (\text{逐个字段累积})
 
 $$
+
+对这条公式做三步拆解：
+
+- **第一步，初始化**：`int result = 1;` 作为累积起点。
+- **第二步，逐个字段累乘加和**：对每个参与 `equals` 的字段 `f`，先算它的散列码 `c`（基本类型用 `Integer.hashCode(f)` 等，对象用 `f.hashCode()`，null 用 0），再 `result = 31 * result + c`。
+- **第三步，返回**：`return result;`。
+
+**为什么是 31？** 它是个奇素数，且 `31 * i == (i << 5) - i`——JVM 能把乘法优化成一次移位加一次减法，又快又能把不同字段的取值「搅匀」，减少碰撞。**要点不是「非 31 不可」，而是「`equals` 相等的字段必须全部参与散列」**——漏掉任何字段，`equals` 相等而 `hashCode` 不等的违约就会出现。
+
+**一个常用捷径**：`Objects.hash(f1, f2, f3)` 内部按同样的配方累积，一行搞定（代价是多一次装箱分配，非性能热点时可用）：<span class="marginnote">`Objects.hash` 内部用的是 `Arrays.hashCode(Object[])`——它把每个参数装箱后按 31 因子累积。简洁的代价是分配一个 `Object[]`，非热点路径上完全可接受；性能敏感时回到手写配方。</span>
+
+```java
+@Override
+public int hashCode() { return Objects.hash(id, name); }
+```
+
+## 3 toString：每个类都该有的自述
+
+**`toString`** 的默认实现是 `类名@十六进制哈希`（如 `Employee@1b6d3586`）——对调试毫无帮助。Effective Java 第 12 条：**始终重写 `toString`**，让它返回「对象的可读自述」。
+
+```java
+@Override
+public String toString() {
+    return "Employee{id=" + id + ", name='" + name + "'}";
+}
+```
+
+**为什么要重写**：`System.out.println(obj)`、日志、调试器、字符串拼接（`"员工是：" + e`）都会调用 `toString`——不重写，你看到的就是一堆地址。**好的 `toString` 应包含对象的全部关键信息**，让看日志的人「不用再翻代码」就明白对象状态。
+
+**解析器友好格式**：`toString` 的格式最好能**反过来构造对象**——`Employee{id=1, name='Alice'}` 这种自描述格式，既人眼可读，也方便日后写工具解析。Effective Java 还建议在 javadoc 里**文档化你承诺的格式**（或明确说「格式可能变化」），避免调用方把 `toString` 输出当协议来解析。<span class="marginnote">现代 IDE（IntelliJ IDEA）能一键生成 `equals`/`hashCode`/`toString`，生成的模板已符合 Effective Java 的配方。自己写仍值得掌握——遇到「生成模板与领域语义冲突」时，你知道要改哪里、为什么改。</span>
+
+**辨析｜易错点：`toString` 不要抛异常、不要有副作用。** 它可能在任何地方被调用（日志框架、调试器、异常消息），抛异常会掩盖真正的错误。也别在 `toString` 里做重计算——它可能被频繁调用。
+
+## 4 核心对比表：Object 三方法契约
+
+纯概念主题用**核心对比表**替代公式解析的展开：
+
+| 方法 | 契约 | 不重写的后果 |
+| --- | --- | --- |
+| `equals` | 等价关系（5 性质） | `HashSet` 漏判重复、`contains` 失败 |
+| `hashCode` | `equals` 相等 ⟹ hash 相等 | 相等对象进不同桶，集合出现「重复元素」 |
+| `toString` | 可读的自描述 | 日志全是 `类名@地址`，排障困难 |
+
+**重点结论：三条契约是一套「数据驱动」的地基。** `equals` 定义「何为相同」，`hashCode` 让散列集合能快速定位，`toString` 让对象可观察。**重写 `equals` 必重写 `hashCode`**（否则散列集合崩），`toString` 则独立存在、值得每个类都写。这三件小事做好了，你的对象才真正「可比较、可散列、可观测」——这也是进入集合框架前最后一层地基。
+
+## 5 小结
+
+- `equals` 五性质：**自反、对称、传递、一致、非空**；经典配方四步，用 `getClass()` 保对称。
+- `hashCode` 与 `equals` 锁死：`equals` 相等 ⟹ `hashCode` 相等；31 因子配方逐个字段累积。
+- **重写 `equals` 必重写 `hashCode`**，否则 `HashSet`/`HashMap` 行为错乱。
+- `toString` 每个类都重写，返回「可读 + 含全部关键信息 + 可解析」的自述。
+- 别在 `toString` 里抛异常、别依赖默认 `类名@地址`。
+
+在下一节，我们把「单个对象」的纪律升级到「整个类」——**类和接口的设计规范**。
