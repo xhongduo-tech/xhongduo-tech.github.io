@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 孟德尔定律与超越孟德尔
-- [ ] 数量性状与多基因遗传
-- [ ] 遗传度概念与误用
-- [ ] 双生子研究设计
-- [ ] 收养研究与家庭研究
-- [ ] 动物模型（果蝇/小鼠）
-- [ ] 连锁与关联分析
-- [ ] GWAS 与多基因评分
+- [x] [孟德尔定律与超越孟德尔](./mendel-laws-and-beyond)
+- [x] [数量性状与多基因遗传](./quantitative-traits-polygenic-inheritance)
+- [x] [遗传度概念与误用](./heritability-concept-and-misuse)
+- [x] [双生子研究设计](./twin-study-designs)
+- [x] [收养研究与家庭研究](./adoption-family-studies)
+- [x] [动物模型（果蝇/小鼠）](./animal-models-drosophila-mouse)
+- [x] [连锁与关联分析](./linkage-association-analysis)
+- [x] [GWAS 与多基因评分](./gwas-polygenic-scores)
 
 ### 第2篇
 
-- [ ] 基因-环境交互（G×E）
-- [ ] 基因-环境相关（rGE）
-- [ ] 智力与认知的遗传研究
-- [ ] 精神疾病的遗传学
-- [ ] 人格与行为的遗传基础
-- [ ] 分子遗传学方法（敲除/光遗传筛选）
+- [x] [基因-环境交互（G×E）](./gene-environment-interaction)
+- [x] [基因-环境相关（rGE）](./gene-environment-correlation)
+- [x] [智力与认知的遗传研究](./genetics-of-intelligence-cognition)
+- [x] [精神疾病的遗传学](./genetics-of-psychiatric-disorders)
+- [x] [人格与行为的遗传基础](./genetics-of-personality-behavior)
+- [x] [分子遗传学方法（敲除/光遗传筛选）](./molecular-genetics-methods-knockout-optogenetics)

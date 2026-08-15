@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] Monge 问题：起源、表述与困难
-- [ ] Kantorovich 松弛与传输耦合
-- [ ] 对偶理论与最优性条件
-- [ ] Wasserstein 距离及其诱导的拓扑
-- [ ] Brenier 定理与凸函数梯度映射
-- [ ] Wasserstein 梯度流与 JKO 格式
-- [ ] 熵正则化与 Sinkhorn 算法
-- [ ] 计算最优传输的其他方法：切片 Wasserstein 与网络算法
+- [x] [Monge 问题：起源、表述与困难](./monge-problem)
+- [x] [Kantorovich 松弛与传输耦合](./kantorovich-relaxation)
+- [x] [对偶理论与最优性条件](./duality-and-optimality)
+- [x] [Wasserstein 距离及其诱导的拓扑](./wasserstein-distance)
+- [x] [Brenier 定理与凸函数梯度映射](./brenier-theorem)
+- [x] [Wasserstein 梯度流与 JKO 格式](./wasserstein-gradient-flow-jko)
+- [x] [熵正则化与 Sinkhorn 算法](./sinkhorn-algorithm)
+- [x] [计算最优传输的其他方法：切片 Wasserstein 与网络算法](./computational-ot-methods)
 
 ### 第2篇
 
-- [ ] 应用：图像配准、色彩迁移与 Wasserstein GAN
-- [ ] Gromov–Wasserstein 距离与非配对比较问题
+- [x] [应用：图像配准、色彩迁移与 Wasserstein GAN](./applications-ot)
+- [x] [Gromov–Wasserstein 距离与非配对比较问题](./gromov-wasserstein)

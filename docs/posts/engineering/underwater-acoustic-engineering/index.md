@@ -18,17 +18,17 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 海洋声学环境（声速剖面/声道）
-- [ ] 声波在海洋中的传播：射线与简正波理论
-- [ ] 声呐方程与声呐参数
-- [ ] 海洋混响与环境噪声
-- [ ] 声传播起伏与目标强度
-- [ ] 水声换能器与基阵（指向性/波束形成）
-- [ ] 主动声呐与目标检测
-- [ ] 被动声呐与目标参数估计
+- [x] [海洋声学环境（声速剖面/声道）](./ocean-acoustic-environment)
+- [x] [声波在海洋中的传播：射线与简正波理论](./sound-propagation-ray-normal-mode)
+- [x] [声呐方程与声呐参数](./sonar-equation-and-parameters)
+- [x] [海洋混响与环境噪声](./ocean-reverberation-and-ambient-noise)
+- [x] [声传播起伏与目标强度](./propagation-fluctuation-and-target-strength)
+- [x] [水声换能器与基阵（指向性/波束形成）](./transducers-and-arrays)
+- [x] [主动声呐与目标检测](./active-sonar-and-target-detection)
+- [x] [被动声呐与目标参数估计](./passive-sonar-parameter-estimation)
 
 ### 第2篇
 
-- [ ] 水声通信与组网
-- [ ] 水声定位与导航（USBL/LBL）
-- [ ] 匹配场处理与水下目标识别
+- [x] [水声通信与组网](./underwater-acoustic-communication-networking)
+- [x] [水声定位与导航（USBL/LBL）](./underwater-acoustic-positioning-navigation)
+- [x] [匹配场处理与水下目标识别](./matched-field-processing-target-identification)

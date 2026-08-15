@@ -18,20 +18,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 试验设计基本原理（重复、随机、局部控制）
-- [ ] 完全随机设计与随机区组设计
-- [ ] 拉丁方设计与裂区设计
-- [ ] 正交试验设计
-- [ ] 田间试验的实施、管理与误差控制
-- [ ] 统计资料整理与特征数
-- [ ] 概率分布与抽样分布
-- [ ] 参数估计与假设检验
+- [x] [试验设计基本原理（重复、随机、局部控制）](./experimental-design-principles)
+- [x] [完全随机设计与随机区组设计](./completely-randomized-randomized-block)
+- [x] [拉丁方设计与裂区设计](./latin-square-split-plot)
+- [x] [正交试验设计](./orthogonal-design)
+- [x] [田间试验的实施、管理与误差控制](./field-trial-implementation-error-control)
+- [x] [统计资料整理与特征数](./data-organization-characteristics)
+- [x] [概率分布与抽样分布](./probability-sampling-distributions)
+- [x] [参数估计与假设检验](./parameter-estimation-hypothesis-testing)
 
 ### 第2篇
 
-- [ ] 方差分析（单因素与多因素）
-- [ ] 卡方检验与适合性检验
-- [ ] 相关与回归分析
-- [ ] 多元回归与通径分析
-- [ ] 抽样调查与样本量确定
-- [ ] 统计软件实现（R/SAS）
+- [x] [方差分析（单因素与多因素）](./analysis-of-variance)
+- [x] [卡方检验与适合性检验](./chi-square-test)
+- [x] [相关与回归分析](./correlation-regression)
+- [x] [多元回归与通径分析](./multiple-regression-path-analysis)
+- [x] [抽样调查与样本量确定](./sampling-survey-sample-size)
+- [x] [统计软件实现（R/SAS）](./statistical-software-r-sas)

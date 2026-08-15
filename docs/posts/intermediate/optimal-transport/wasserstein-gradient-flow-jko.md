@@ -114,4 +114,8 @@ $$
 - **Wasserstein 梯度流**：在 $(\mathcal{P}_2, W_2)$ 上沿泛函 $\mathcal{F}$ 的最速下降，服从方程 $\partial_t\mu = \nabla\cdot(\mu\nabla \delta\mathcal{F}/\delta\mu)$。
 - **JKO 格式**：$\mu_{n+1} = \arg\min \frac{1}{2\tau}W_2^2(\mu_n,\mu) + \mathcal{F}(\mu)$，用"反复做最优传输"逼近梯度流。
 - **热方程与 Fokker–Planck 都是熵的梯度流**，这给出采样、扩散模型的变分基础。
-- **Otto 微积分**把 $\mathcal{P}_2$
+- **Otto 微积分**把 $\mathcal{P}_2$ 看作无穷维黎曼流形，形式化定义梯度与 Hessian，与信息几何的 Fisher 度量形成鲜明对照。
+- **三视角一体**：PDE / 变分（JKO）/ 粒子三种描述互为因果——粒子是表示，JKO 是求解器，PDE 是连续极限。
+- **扩散模型接口**：采样与扩散模型的去噪过程，本质上是 JKO / 梯度流思想的离散化。
+
+在下一节，我们将暂时放下"连续演化"，回到"大规模计算"：熵正则化加上 Sinkhorn 的交替缩放，将给出一个能在 GPU 上处理百万级直方图的实用算法。

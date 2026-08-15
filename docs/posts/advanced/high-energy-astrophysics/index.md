@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 同步辐射与曲率辐射
-- [ ] 逆康普顿散射
-- [ ] 轫致辐射与热辐射
-- [ ] 吸积盘物理
-- [ ] 相对论性喷流
-- [ ] 费米加速与激波加速
-- [ ] 宇宙线成分、能谱与各向异性
-- [ ] 广延大气簇射
+- [x] [同步辐射与曲率辐射](./synchrotron-and-curvature-radiation)
+- [x] [逆康普顿散射](./inverse-compton-scattering)
+- [x] [轫致辐射与热辐射](./bremsstrahlung-and-thermal-radiation)
+- [x] [吸积盘物理](./accretion-disk-physics)
+- [x] [相对论性喷流](./relativistic-jets)
+- [x] [费米加速与激波加速](./fermi-acceleration-and-shock-acceleration)
+- [x] [宇宙线成分、能谱与各向异性](./cosmic-ray-composition-spectrum-anisotropy)
+- [x] [广延大气簇射](./extensive-air-showers)
 
 ### 第2篇
 
-- [ ] 伽马射线天文（地面切伦科夫/卫星）
-- [ ] 高能中微子天体物理
-- [ ] 超高能宇宙线与 GZK 截断
-- [ ] 暗物质间接探测
+- [x] [伽马射线天文（地面切伦科夫/卫星）](./gamma-ray-astronomy)
+- [x] [高能中微子天体物理](./high-energy-neutrino-astrophysics)
+- [x] [超高能宇宙线与 GZK 截断](./ultra-high-energy-cosmic-rays-gzk-cutoff)
+- [x] [暗物质间接探测](./dark-matter-indirect-detection)
