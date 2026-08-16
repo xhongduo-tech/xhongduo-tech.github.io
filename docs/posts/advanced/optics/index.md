@@ -62,17 +62,17 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 几何光学基础（费马原理、近轴成像、薄透镜）
-- [ ] 光学仪器（显微镜、望远镜、照相机、像差理论）
-- [ ] 光的电磁理论（麦克斯韦方程、坡印廷矢量、菲涅尔公式）
-- [ ] 光的偏振（偏振态描述、琼斯矩阵、波片、旋光）
-- [ ] 干涉基础（双光束干涉、杨氏实验、薄膜干涉）
-- [ ] 多光束干涉与干涉仪（法布里-珀罗、迈克尔逊、光学薄膜）
-- [ ] 标量衍射理论（惠更斯-菲涅尔原理、基尔霍夫衍射）
-- [ ] 夫琅禾费衍射（单缝、圆孔、衍射光栅、分辨本领）
-- [ ] 菲涅尔衍射（半波带法、波带片、近场衍射）
-- [ ] 傅里叶光学（空间频率、阿贝成像理论、光学信息处理）
-- [ ] 部分相干光（空间与时间相干性、Van Cittert-Zernike 定理）
-- [ ] 晶体光学（双折射、偏振光干涉、电光与声光效应）
-- [ ] 光的吸收、色散与散射（洛伦兹模型、瑞利散射、拉曼散射）
-- [ ] 现代光学应用（激光、全息、光纤光学、自适应光学）
+- [x] [几何光学基础（费马原理、近轴成像、薄透镜）](./geometrical-optics-foundations)（赵凯华 第2章；Hecht 第3章）
+- [x] [光学仪器（显微镜、望远镜、照相机、像差理论）](./optical-instruments-overview)（赵凯华 第3章；Hecht 第5、6章）
+- [x] [光的电磁理论（麦克斯韦方程、坡印廷矢量、菲涅尔公式）](./electromagnetic-theory-of-light)（赵凯华 第1章；Hecht 第3章；Born & Wolf 第1章）
+- [x] [光的偏振（偏振态描述、琼斯矩阵、波片、旋光）](./polarization-jones-matrix)（赵凯华 第6章；Hecht 第14章）
+- [x] [干涉基础（双光束干涉、杨氏实验、薄膜干涉）](./interference-basics)（赵凯华 第4章；Hecht 第7章）
+- [x] [多光束干涉与干涉仪（法布里-珀罗、迈克尔逊、光学薄膜）](./multiple-beam-interference)（Hecht 第8章；Born & Wolf 第7章）
+- [x] [标量衍射理论（惠更斯-菲涅尔原理、基尔霍夫衍射）](./scalar-diffraction-theory)（赵凯华 第5章；Hecht 第10章；Born & Wolf 第8章）
+- [x] [夫琅禾费衍射（单缝、圆孔、衍射光栅、分辨本领）](./fraunhofer-diffraction-overview)（赵凯华 第5章；Hecht 第10、11章）
+- [x] [菲涅尔衍射（半波带法、波带片、近场衍射）](./fresnel-diffraction-overview)（赵凯华 第5章；Born & Wolf 第8章）
+- [x] [傅里叶光学（空间频率、阿贝成像理论、光学信息处理）](./fourier-optics)（赵凯华 第10章；Hecht 第20章）
+- [x] [部分相干光（空间与时间相干性、Van Cittert-Zernike 定理）](./partial-coherence)（Hecht 第9章；Born & Wolf 第10章）
+- [x] [晶体光学（双折射、偏振光干涉、电光与声光效应）](./crystal-optics)（赵凯华 第6章；Born & Wolf 第15章）
+- [x] [光的吸收、色散与散射（洛伦兹模型、瑞利散射、拉曼散射）](./absorption-dispersion-scattering-overview)（赵凯华 第7章；Born & Wolf 第13章）
+- [x] [现代光学应用（激光、全息、光纤光学、自适应光学）](./modern-optical-applications)（Hecht 第18、20章）

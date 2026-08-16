@@ -61,15 +61,15 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 振动与声波基础（简谐振动、波动方程、声压与声强）
-- [ ] 声波的传播（平面波、球面波、声阻抗、反射与透射）
-- [ ] 声学测量（传声器、声级计、声学单位与分贝）
-- [ ] 声辐射（点声源、活塞辐射、指向性、阵列）
-- [ ] 管道与波导声学（管内驻波、消声器、导波管）
-- [ ] 吸声与隔声（吸声材料、隔声量、质量定律）
-- [ ] 室内声学（混响时间、赛宾公式、厅堂音质设计）
-- [ ] 噪声控制（噪声评价、主动噪声控制、振动控制）
-- [ ] 超声学（超声换能器、医学超声、无损检测、声空化）
-- [ ] 水声学（海洋声道、声呐方程、水下目标探测）
-- [ ] 电声与音频工程（扬声器、耳机、数字音频、心理声学）
-- [ ] 前沿专题（声学超材料、声子晶体、非线性声学、声学拓扑绝缘体）
+- [x] [振动与声波基础（简谐振动、波动方程、声压与声强）](./vibration-and-wave-fundamentals)
+- [x] [声波的传播（平面波、球面波、声阻抗、反射与透射）](./sound-wave-propagation)
+- [x] [声学测量（传声器、声级计、声学单位与分贝）](./acoustic-measurements-and-decibels)
+- [x] [声辐射（点声源、活塞辐射、指向性、阵列）](./sound-radiation-and-sources)
+- [x] [管道与波导声学（管内驻波、消声器、导波管）](./pipes-and-waveguides)
+- [x] [吸声与隔声（吸声材料、隔声量、质量定律）](./absorption-and-transmission-loss)
+- [x] [室内声学（混响时间、赛宾公式、厅堂音质设计）](./sabin-formula-and-hall-design)
+- [x] [噪声控制（噪声评价、主动噪声控制、振动控制）](./noise-control)
+- [x] [超声学（超声换能器、医学超声、无损检测、声空化）](./ultrasound-acoustics-overview)
+- [x] [水声学（海洋声道、声呐方程、水下目标探测）](./underwater-acoustics-overview)
+- [x] [电声与音频工程（扬声器、耳机、数字音频、心理声学）](./electroacoustics-and-audio-engineering)
+- [x] [前沿专题（声学超材料、声子晶体、非线性声学、声学拓扑绝缘体）](./acoustic-metamaterials-and-frontiers)

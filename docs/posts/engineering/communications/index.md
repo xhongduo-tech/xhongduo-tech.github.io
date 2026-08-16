@@ -70,16 +70,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 通信系统模型与信息论基础（香农熵、信道容量）
-- [ ] 信号与噪声分析（确知信号、随机过程与功率谱）
-- [ ] 模拟调制系统（AM/FM/PM 性能与抗噪分析）
-- [ ] 数字基带传输（码型、码间串扰与奈奎斯特准则）
-- [ ] 数字带通调制（ASK/FSK/PSK/QAM 与误码率分析）
-- [ ] 信源编码（抽样量化、PCM 与压缩编码）
-- [ ] 信道编码（线性分组码、卷积码、Turbo/LDPC 码）
-- [ ] 同步原理（载波同步、位同步与帧同步）
-- [ ] 衰落信道与分集技术（多径、瑞利衰落与均衡）
-- [ ] 多址与复用（FDMA/TDMA/CDMA/OFDMA）
-- [ ] 移动通信系统（蜂窝组网、4G/5G 空中接口）
-- [ ] 光通信与卫星通信（光纤传输、链路预算）
-- [ ] 通信前沿（MIMO、毫米波、语义通信与 6G 愿景）
+- [x] [通信系统模型与信息论基础（香农熵、信道容量）](./communication-system-model-and-information-theory)
+- [x] [信号与噪声分析（确知信号、随机过程与功率谱）](./signals-and-noise-analysis)
+- [x] [模拟调制系统（AM/FM/PM 性能与抗噪分析）](./analog-modulation-systems-noise)
+- [x] [数字基带传输（码型、码间串扰与奈奎斯特准则）](./digital-baseband-nyquist-criterion)
+- [x] [数字带通调制（ASK/FSK/PSK/QAM 与误码率分析）](./digital-bandpass-modulation-ber)
+- [x] [信源编码（抽样量化、PCM 与压缩编码）](./source-coding-and-pcm)
+- [x] [信道编码（线性分组码、卷积码、Turbo/LDPC 码）](./channel-coding-linear-convolutional-turbo-ldpc)
+- [x] [同步原理（载波同步、位同步与帧同步）](./synchronization-principles-carrier-bit-frame)
+- [x] [衰落信道与分集技术（多径、瑞利衰落与均衡）](./fading-channels-and-diversity)
+- [x] [多址与复用（FDMA/TDMA/CDMA/OFDMA）](./multiple-access-fdma-tdma-cdma-ofdma)
+- [x] [移动通信系统（蜂窝组网、4G/5G 空中接口）](./mobile-communication-systems-cellular-4g-5g)
+- [x] [光通信与卫星通信（光纤传输、链路预算）](./optical-and-satellite-communications)
+- [x] [通信前沿（MIMO、毫米波、语义通信与 6G 愿景）](./communications-frontiers-6g)

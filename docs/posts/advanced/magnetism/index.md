@@ -62,15 +62,15 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 磁性的原子起源（轨道与自旋磁矩、洪德规则、抗磁与顺磁）
-- [ ] 交换相互作用（海森堡模型、直接/间接交换、超交换）
-- [ ] 磁有序态（铁磁、反铁磁、亚铁磁、磁结构中子衍射）
-- [ ] 平均场理论与临界行为（居里-外斯定律、磁相变、临界指数）
-- [ ] 磁各向异性与磁畴（磁晶各向异性、畴壁、布洛赫壁与奈尔壁）
-- [ ] 磁化过程与磁滞（矫顽力、技术磁化、软磁与硬磁材料）
-- [ ] 自旋波与磁振子（铁磁共振、自旋波色散、磁振子学）
-- [ ] 自旋电子学基础（巨磁电阻、自旋注入、磁隧道结）
-- [ ] 自旋轨道效应（自旋霍尔效应、Rashba 效应、自旋轨道力矩）
-- [ ] 磁性纳米结构（超顺磁性、斯格明子、磁记录介质）
-- [ ] 磁性测量技术（VSM、SQUID 磁强计、MFM、中子散射）
-- [ ] 前沿专题（二维磁性、反铁磁自旋电子学、量子自旋液体）
+- [x] [磁性的原子起源](./atomic-origin-of-magnetism)（轨道与自旋磁矩、洪德规则、抗磁与顺磁）
+- [x] [交换相互作用](./exchange-interactions)（海森堡模型、直接/间接交换、超交换）
+- [x] [磁有序态](./magnetic-order-neutron-diffraction)（铁磁、反铁磁、亚铁磁、磁结构中子衍射）
+- [x] [平均场理论与临界行为](./mean-field-theory-critical-behavior)（居里-外斯定律、磁相变、临界指数）
+- [x] [磁各向异性与磁畴](./magnetic-anisotropy-and-domains)（磁晶各向异性、畴壁、布洛赫壁与奈尔壁）
+- [x] [磁化过程与磁滞](./magnetization-and-hysteresis)（矫顽力、技术磁化、软磁与硬磁材料）
+- [x] [自旋波与磁振子](./spin-waves-magnonics)（铁磁共振、自旋波色散、磁振子学）
+- [x] [自旋电子学基础](./spintronics-basics)（巨磁电阻、自旋注入、磁隧道结）
+- [x] [自旋轨道效应](./spin-orbit-effects)（自旋霍尔效应、Rashba 效应、自旋轨道力矩）
+- [x] [磁性纳米结构](./magnetic-nanostructures)（超顺磁性、斯格明子、磁记录介质）
+- [x] [磁性测量技术](./magnetic-measurement-techniques)（VSM、SQUID 磁强计、MFM、中子散射）
+- [x] [前沿专题](./frontiers-2d-magnetism-spin-liquids)（二维磁性、反铁磁自旋电子学、量子自旋液体）

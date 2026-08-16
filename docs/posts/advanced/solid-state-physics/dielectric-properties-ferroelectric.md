@@ -126,4 +126,6 @@ $$\omega_s^2(T) \propto T - T_C$$
 - **洛伦兹局域场** $\mathbf{E}_{\text{local}} = \mathbf{E}+\mathbf{P}/3\varepsilon_0$ 与**克劳修斯-莫索提方程** $(\varepsilon_r-1)/(\varepsilon_r+2) = N\alpha/3\varepsilon_0$ 连接宏观与微观。
 - **铁电体**：居里温度以下自发极化可翻转，相变处介电常数发散；BaTiO₃ 是原型。
 - 对称性嵌套：**无中心对称 ⊃ 压电 ⊃ 热释电 ⊃ 铁电**；铁电用于存储、传感、超声。
-- 折射率 $n = \sqrt{\varepsilon_r}$
+- 折射率 $n = \sqrt{\varepsilon_r}$：光学常数与介电常数直接相连，让极化测量通向光谱学。
+
+在下一节，我们将走向固体物理最富戏剧性的现象：超导电性——电阻的消失、迈斯纳效应与 BCS 理论。

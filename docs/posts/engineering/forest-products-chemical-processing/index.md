@@ -57,12 +57,12 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 林产化学加工概论（林业生物质资源、产业链）
-- [ ] 植物纤维原料化学（纤维素、半纤维素、木素结构）
-- [ ] 制浆化学（化学法制浆、机械法制浆、漂白工艺）
-- [ ] 木材热解与活性炭（干馏、炭化、活性炭制备）
-- [ ] 松香松节油加工（采脂、分离、深加工产品）
-- [ ] 栲胶与植物单宁化学（单宁结构、栲胶生产与应用）
-- [ ] 林产提取物加工（精油、色素、天然产物提取）
-- [ ] 生物质能源转化（热化学转化、生物乙醇、生物柴油）
-- [ ] 生物质新材料（纳米纤维素、木基复合材料、绿色化工）
+- [x] [林产化学加工概论（林业生物质资源、产业链）](./forest-products-chemical-processing-overview)
+- [x] [植物纤维原料化学（纤维素、半纤维素、木素结构）](./plant-fiber-raw-material-chemistry)
+- [x] [制浆化学（化学法制浆、机械法制浆、漂白工艺）](./pulping-chemistry-overview)
+- [x] [木材热解与活性炭（干馏、炭化、活性炭制备）](./wood-pyrolysis-activated-carbon-overview)
+- [x] [松香松节油加工（采脂、分离、深加工产品）](./rosin-turpentine-overview)
+- [x] [栲胶与植物单宁化学（单宁结构、栲胶生产与应用）](./vegetable-tannin-chemistry-overview)
+- [x] [林产提取物加工（精油、色素、天然产物提取）](./forest-extractives-overview)
+- [x] [生物质能源转化（热化学转化、生物乙醇、生物柴油）](./biomass-energy-conversion)
+- [x] [生物质新材料（纳米纤维素、木基复合材料、绿色化工）](./biomass-advanced-materials)

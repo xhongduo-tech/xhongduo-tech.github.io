@@ -44,15 +44,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 膨胀宇宙观测基础（哈勃定律、宇宙学原理、FLRW 度规）
-- [ ] 弗里德曼方程与宇宙学参数（曲率、密度参数、宇宙年龄）
-- [ ] 宇宙热历史（热平衡、粒子退耦、辐射与物质主导）
-- [ ] 原初核合成（轻元素丰度、BBN 约束）
-- [ ] 宇宙微波背景辐射（黑体谱、复合、最后散射面）
-- [ ] CMB 各向异性（温度功率谱、声峰、偏振、Planck 结果）
-- [ ] 暴胀理论（视界与平坦性问题、慢滚暴胀、原初扰动）
-- [ ] 大尺度结构形成（线性扰动理论、物质功率谱、增长因子）
-- [ ] 暗物质（观测证据、候选粒子、直接间接探测）
-- [ ] 暗能量与加速膨胀（超新星、BAO、状态方程、ΛCDM 模型）
-- [ ] 非线性结构与数值模拟（晕模型、N 体模拟、星系形成）
-- [ ] 前沿专题（哈勃常数危机、原初引力波、21cm 宇宙学、暗能量巡天）
+- [x] [膨胀宇宙观测基础（哈勃定律、宇宙学原理、FLRW 度规）](./expanding-universe-observations-flrw)
+- [x] [弗里德曼方程与宇宙学参数（曲率、密度参数、宇宙年龄）](./friedmann-equations-cosmological-parameters)
+- [x] [宇宙热历史（热平衡、粒子退耦、辐射与物质主导）](./cosmic-thermal-history-thermal-equilibrium)
+- [x] [原初核合成（轻元素丰度、BBN 约束）](./primordial-nucleosynthesis-bbn)
+- [x] [宇宙微波背景辐射（黑体谱、复合、最后散射面）](./cmb-blackbody-recombination-last-scattering)
+- [x] [CMB 各向异性（温度功率谱、声峰、偏振、Planck 结果）](./cmb-temperature-power-spectrum-planck)
+- [x] [暴胀理论（视界与平坦性问题、慢滚暴胀、原初扰动）](./inflation-slow-roll-perturbations)
+- [x] [大尺度结构形成（线性扰动理论、物质功率谱、增长因子）](./large-scale-structure-linear-perturbations)
+- [x] [暗物质（观测证据、候选粒子、直接间接探测）](./dark-matter-search-and-detection)
+- [x] [暗能量与加速膨胀（超新星、BAO、状态方程、ΛCDM 模型）](./dark-energy-supernovae-bao)
+- [x] [非线性结构与数值模拟（晕模型、N 体模拟、星系形成）](./nonlinear-structure-nbody-simulations)
+- [x] [前沿专题（哈勃常数危机、原初引力波、21cm 宇宙学、暗能量巡天）](./cosmology-frontiers)

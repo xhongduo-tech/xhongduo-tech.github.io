@@ -63,14 +63,14 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 天球坐标系（赤道坐标、黄道坐标、参考架 ICRS）
-- [ ] 时间系统（恒星时、世界时、历书时、原子时）
-- [ ] 天体位置测量原理（视星位置、自行、视差、岁差章动）
-- [ ] 大气折射与光行差改正（观测归算、射电与光学干涉测量）
-- [ ] 空间天体测量（依巴谷与 Gaia 卫星、微角秒精度）
-- [ ] 二体问题（开普勒定律、轨道根数、轨道确定）
-- [ ] 三体问题与摄动理论（拉格朗日点、限制性三体问题、长期摄动）
-- [ ] 共振与混沌动力学（柯克伍德空隙、KAM 定理、长期稳定性）
-- [ ] 卫星动力学（地球引力场、潮汐摄动、精密定轨）
-- [ ] 航天器轨道设计（霍曼转移、引力弹弓、轨道机动）
-- [ ] 前沿应用（脉冲星计时、系外行星天体测量、深空导航）
+- [x] [天球坐标系（赤道坐标、黄道坐标、参考架 ICRS）](./celestial-coordinate-systems-review)
+- [x] [时间系统（恒星时、世界时、历书时、原子时）](./time-systems-review)
+- [x] [天体位置测量原理（视星位置、自行、视差、岁差章动）](./position-measurement-principles)
+- [x] [大气折射与光行差改正（观测归算、射电与光学干涉测量）](./refraction-aberration-corrections)
+- [x] [空间天体测量（依巴谷与 Gaia 卫星、微角秒精度）](./space-astrometry-hipparcos-gaia)
+- [x] [二体问题（开普勒定律、轨道根数、轨道确定）](./two-body-kepler-orbits)
+- [x] [三体问题与摄动理论（拉格朗日点、限制性三体问题、长期摄动）](./three-body-perturbation-theory)
+- [x] [共振与混沌动力学（柯克伍德空隙、KAM 定理、长期稳定性）](./resonance-chaos-dynamics)
+- [x] [卫星动力学（地球引力场、潮汐摄动、精密定轨）](./satellite-dynamics-precision-orbits)
+- [x] [航天器轨道设计（霍曼转移、引力弹弓、轨道机动）](./spacecraft-orbit-design)
+- [x] [前沿应用（脉冲星计时、系外行星天体测量、深空导航）](./astrometry-frontiers)

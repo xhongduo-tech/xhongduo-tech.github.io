@@ -52,15 +52,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 农业工程概览（机械化、水利化与信息化体系）
-- [ ] 农业土壤与物料力学（土壤-机器系统、农产品物性）
-- [ ] 耕作机械（犁、旋耕机与保护性耕作装备）
-- [ ] 种植机械（精密播种、栽植与施肥机械）
-- [ ] 植保机械（喷雾技术、变量施药与航空植保）
-- [ ] 收获机械（谷物联合收割机、脱粒清选原理）
-- [ ] 农田水利工程（灌溉制度、渠道与管道灌溉）
-- [ ] 节水灌溉技术（喷灌、滴灌与水肥一体化）
-- [ ] 农业建筑与环境工程（温室、畜禽舍环境调控）
-- [ ] 农产品加工与贮藏（干燥、冷链与产后处理）
-- [ ] 农业生物环境能源（沼气工程、生物质利用）
-- [ ] 智慧农业前沿（农业机器人、遥感监测与无人农场）
+- [x] [农业工程概览（机械化、水利化与信息化体系）](./agricultural-engineering-overview)
+- [x] [农业土壤与物料力学（土壤-机器系统、农产品物性）](./agricultural-soil-material-mechanics)
+- [x] [耕作机械（犁、旋耕机与保护性耕作装备）](./tillage-implements)
+- [x] [种植机械（精密播种、栽植与施肥机械）](./planting-implements)
+- [x] [植保机械（喷雾技术、变量施药与航空植保）](./crop-protection-machinery)
+- [x] [收获机械（谷物联合收割机、脱粒清选原理）](./grain-combine-harvester)
+- [x] [农田水利工程（灌溉制度、渠道与管道灌溉）](./irrigation-engineering)
+- [x] [节水灌溉技术（喷灌、滴灌与水肥一体化）](./water-saving-irrigation)
+- [x] [农业建筑与环境工程（温室、畜禽舍环境调控）](./agricultural-building-environment)
+- [x] [农产品加工与贮藏（干燥、冷链与产后处理）](./postharvest-processing-storage)
+- [x] [农业生物环境能源（沼气工程、生物质利用）](./agri-bioenergy-biogas)
+- [x] [智慧农业前沿（农业机器人、遥感监测与无人农场）](./smart-agriculture-frontier)

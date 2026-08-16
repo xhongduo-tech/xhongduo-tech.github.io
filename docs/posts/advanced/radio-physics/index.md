@@ -63,15 +63,15 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 电磁波传播基础（平面波、极化、传播常数）
-- [ ] 传输线理论（特性阻抗、史密斯圆图、阻抗匹配）
-- [ ] 微波网络（S 参数、网络分析、微波无源器件）
-- [ ] 波导与谐振结构（矩形/圆波导、介质波导、腔体）
-- [ ] 天线基础（辐射方向图、增益、孔径天线、微带天线）
-- [ ] 天线阵列与相控阵（阵列因子、波束成形、MIMO 天线）
-- [ ] 射频电路与器件（放大器、混频器、振荡器、低噪声设计）
-- [ ] 无线电波传播（地面波、电离层传播、对流层散射、多径衰落）
-- [ ] 雷达原理（雷达方程、脉冲压缩、多普勒雷达、SAR）
-- [ ] 无线电测量与频谱分析（矢量网络分析仪、频谱仪、场强测量）
-- [ ] 无线通信物理层（调制解调、信道编码概览、链路预算）
-- [ ] 前沿专题（毫米波与太赫兹技术、5G/6G 射频、超材料天线）
+- [x] [电磁波传播基础（平面波、极化、传播常数）](./electromagnetic-wave-propagation-basics)
+- [x] [传输线理论（特性阻抗、史密斯圆图、阻抗匹配）](./transmission-line-theory-smith-chart)
+- [x] [微波网络（S 参数、网络分析、微波无源器件）](./microwave-networks-s-parameters)
+- [x] [波导与谐振结构（矩形/圆波导、介质波导、腔体）](./waveguides-resonant-structures)
+- [x] [天线基础（辐射方向图、增益、孔径天线、微带天线）](./antenna-basics-radiation-patterns)
+- [x] [天线阵列与相控阵（阵列因子、波束成形、MIMO 天线）](./antenna-arrays-phased-arrays)
+- [x] [射频电路与器件（放大器、混频器、振荡器、低噪声设计）](./rf-circuits-amplifiers-mixers-oscillators)
+- [x] [无线电波传播（地面波、电离层传播、对流层散射、多径衰落）](./radio-wave-propagation-mechanisms)
+- [x] [雷达原理（雷达方程、脉冲压缩、多普勒雷达、SAR）](./radar-principles-radar-equation)
+- [x] [无线电测量与频谱分析（矢量网络分析仪、频谱仪、场强测量）](./radio-measurements-spectrum-analysis)
+- [x] [无线通信物理层（调制解调、信道编码概览、链路预算）](./wireless-physical-layer-link-budget)
+- [x] [前沿专题（毫米波与太赫兹技术、5G/6G 射频、超材料天线）](./frontiers-mmwave-thz-metamaterial)

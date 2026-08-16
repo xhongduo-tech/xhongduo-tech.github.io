@@ -19,18 +19,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 沉浸式计算概论（VR/AR/MR/XR 谱系、存在感 presence 概念）
-- [ ] 人类感知系统（视觉、前庭觉、本体感觉与感知心理学）
-- [ ] 三维几何与图形学基础（坐标变换、投影、实时渲染管线）
-- [ ] 头显硬件与光学（FOV、菲涅尔透镜、Pancake 光学、显示时延）
-- [ ] 跟踪与位姿估计（inside-out/outside-in、SLAM、IMU 融合）
-- [ ] 交互范式与 3D UI（手/眼/语音交互、射线与直接操纵、Fitts 定律扩展）
-- [ ] 移动与导航技术（瞬移、重定向行走 redirected walking、晕动症 cybersickness 成因与缓解）
-- [ ] 空间音频与触觉反馈（HRTF、力反馈、超声/可穿戴触觉）
+- [x] [沉浸式计算概论（VR/AR/MR/XR 谱系、存在感 presence 概念）](./immersive-computing-overview)
+- [x] [人类感知系统（视觉、前庭觉、本体感觉与感知心理学）](./human-perception-systems)
+- [x] [三维几何与图形学基础（坐标变换、投影、实时渲染管线）](./3d-geometry-graphics-fundamentals)
+- [x] [头显硬件与光学（FOV、菲涅尔透镜、Pancake 光学、显示时延）](./headset-hardware-and-optics)
+- [x] [跟踪与位姿估计（inside-out/outside-in、SLAM、IMU 融合）](./tracking-pose-estimation)
+- [x] [交互范式与 3D UI（手/眼/语音交互、射线与直接操纵、Fitts 定律扩展）](./interaction-paradigms-3d-ui)
+- [x] [移动与导航技术（瞬移、重定向行走 redirected walking、晕动症 cybersickness 成因与缓解）](./locomotion-navigation-techniques)
+- [x] [空间音频与触觉反馈（HRTF、力反馈、超声/可穿戴触觉）](./spatial-audio-haptic-feedback)
 
 ### 第2篇
 
-- [ ] 增强现实核心算法（平面检测、锚点、光照估计、遮挡处理）
-- [ ] 开发引擎与工具链（Unity/Unreal XR 插件、OpenXR、WebXR 实战）
-- [ ] 化身与社交 VR（avatar 具身感、多用户同步、网络时延补偿）
-- [ ] 前沿应用与伦理（数字孪生、医疗康复、培训仿真、隐私与虚拟空间治理）
+- [x] [增强现实核心算法（平面检测、锚点、光照估计、遮挡处理）](./ar-core-algorithms)
+- [x] [开发引擎与工具链（Unity/Unreal XR 插件、OpenXR、WebXR 实战）](./development-engines-toolchains)
+- [x] [化身与社交 VR（avatar 具身感、多用户同步、网络时延补偿）](./avatar-social-vr)
+- [x] [前沿应用与伦理（数字孪生、医疗康复、培训仿真、隐私与虚拟空间治理）](./frontier-applications-ethics)

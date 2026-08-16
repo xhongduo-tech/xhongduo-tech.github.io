@@ -51,14 +51,14 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 离散时间信号与系统（序列、线性时不变系统与卷积）
-- [ ] z 变换与系统分析（收敛域、传递函数与稳定性）
-- [ ] 信号的采样与重构（奈奎斯特采样定理与混叠）
-- [ ] 离散傅里叶变换（DFT/DFS 性质与频域采样）
-- [ ] 快速傅里叶变换（基-2 FFT 算法与运算量优化）
-- [ ] 数字滤波器结构（直接型、级联型与格型网络）
-- [ ] IIR 滤波器设计（双线性变换、冲激不变法）
-- [ ] FIR 滤波器设计（窗函数法、等波纹逼近）
-- [ ] 有限字长效应（量化噪声与系数量化敏感度）
-- [ ] 多速率信号处理（抽取、内插与滤波器组）
-- [ ] 谱估计与应用（功率谱估计、自适应滤波与小波变换）
+- [x] [离散时间信号与系统（序列、线性时不变系统与卷积）](./dt-signal-sequences-lti-convolution)
+- [x] [z 变换与系统分析（收敛域、传递函数与稳定性）](./z-transform-roc-stability)
+- [x] [信号的采样与重构（奈奎斯特采样定理与混叠）](./sampling-reconstruction-aliasing)
+- [x] [离散傅里叶变换（DFT/DFS 性质与频域采样）](./dft-dfs-properties-frequency-sampling)
+- [x] [快速傅里叶变换（基-2 FFT 算法与运算量优化）](./fft-radix-2-computational)
+- [x] [数字滤波器结构（直接型、级联型与格型网络）](./digital-filter-structures)
+- [x] [IIR 滤波器设计（双线性变换、冲激不变法）](./iir-bilinear-impulse-invariance)
+- [x] [FIR 滤波器设计（窗函数法、等波纹逼近）](./fir-window-equiripple-design)
+- [x] [有限字长效应（量化噪声与系数量化敏感度）](./finite-wordlength-quantization)
+- [x] [多速率信号处理（抽取、内插与滤波器组）](./multirate-signal-processing)
+- [x] [谱估计与应用（功率谱估计、自适应滤波与小波变换）](./spectral-estimation-applications)

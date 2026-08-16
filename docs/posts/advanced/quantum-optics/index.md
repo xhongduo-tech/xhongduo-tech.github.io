@@ -59,15 +59,15 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 光场的经典描述与相干理论（相干函数、干涉仪）
-- [ ] 电磁场量子化（光子数态、零点能、正则量子化）
-- [ ] 光场量子态（相干态、压缩态、薛定谔猫态）
-- [ ] 光场统计与探测（HBT 实验、光子反聚束、亚泊松统计）
-- [ ] 原子-光相互作用半经典理论（拉比振荡、光学布洛赫方程）
-- [ ] JC 模型与腔量子电动力学（真空拉比劈裂、强耦合区、Purcell 效应）
-- [ ] 耗散与退相干（主方程、量子轨迹、自发辐射）
-- [ ] 激光的量子理论（激光阈值、线宽、相位扩散）
-- [ ] 量子纠缠光源（参量下转换、Bell 态测量、HOM 干涉）
-- [ ] 量子信息光学实现（量子密钥分发、量子隐形传态、光量子计算）
-- [ ] 冷原子与量子模拟（激光冷却、光晶格、量子气体）
-- [ ] 前沿专题（单光子探测器、量子计量、光机械系统）
+- [x] [光场的经典描述与相干理论（相干函数、干涉仪）](./classical-coherence-theory-of-light-fields)
+- [x] [电磁场量子化（光子数态、零点能、正则量子化）](./canonical-quantization-of-the-electromagnetic-field)
+- [x] [光场量子态（相干态、压缩态、薛定谔猫态）](./quantum-states-of-light-fields)
+- [x] [光场统计与探测（HBT 实验、光子反聚束、亚泊松统计）](./field-statistics-and-photon-detection)
+- [x] [原子-光相互作用半经典理论（拉比振荡、光学布洛赫方程）](./semiclassical-atom-light-interaction)
+- [x] [JC 模型与腔量子电动力学（真空拉比劈裂、强耦合区、Purcell 效应）](./jaynes-cummings-model-and-cavity-qed)
+- [x] [耗散与退相干（主方程、量子轨迹、自发辐射）](./dissipation-and-decoherence)
+- [x] [激光的量子理论（激光阈值、线宽、相位扩散）](./quantum-theory-of-the-laser)
+- [x] [量子纠缠光源（参量下转换、Bell 态测量、HOM 干涉）](./entangled-photon-sources)
+- [x] [量子信息光学实现（量子密钥分发、量子隐形传态、光量子计算）](./quantum-information-optical-implementation)
+- [x] [冷原子与量子模拟（激光冷却、光晶格、量子气体）](./cold-atoms-and-quantum-simulation)
+- [x] [前沿专题（单光子探测器、量子计量、光机械系统）](./frontiers-single-photon-detectors-quantum-metrology-optomechanics)

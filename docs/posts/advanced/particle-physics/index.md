@@ -64,16 +64,16 @@ Griffiths《Introduction to Elementary Particles》。按照「学完一个学�
 
 ### 第1篇
 
-- [ ] 粒子物理概览与单位制（标准模型粒子谱、自然单位、不变质量）
-- [ ] 对称性与守恒律（诺特定理、宇称、电荷共轭、同位旋）
-- [ ] 相对论运动学与探测器（截面与衰变率、四维动量、径迹探测）
-- [ ] 强子与夸克模型（八重态、夸克、色自由度）
-- [ ] 量子电动力学（QED 费曼规则、散射截面计算、反常磁矩）
-- [ ] 量子色动力学（渐近自由、喷注、强子化、深度非弹散射）
-- [ ] 弱相互作用（V-A 理论、弱衰变、中性流）
-- [ ] 电弱统一理论（规范对称性、希格斯机制、W/Z 玻色子）
-- [ ] 希格斯物理（发现历程、耦合测量、性质检验）
-- [ ] 中微子物理与味混合（振荡、CKM 矩阵、CP 破坏）
-- [ ] 对撞机物理与实验方法（LHC 物理、触发与重建、统计分析）
-- [ ] 超出标准模型的新物理（超对称、暗物质候选、大统一）
-- [ ] 粒子天体物理与宇宙学（早期宇宙、重子生成、暗物质探测）
+- [x] [粒子物理概览与单位制](./particle-physics-overview-and-units)
+- [x] [对称性与守恒律](./symmetries-and-conservation-laws)
+- [x] [相对论运动学与探测器](./relativistic-kinematics-and-detectors)
+- [x] [强子与夸克模型](./hadrons-and-quark-model)
+- [x] [量子电动力学](./quantum-electrodynamics)
+- [x] [量子色动力学](./quantum-chromodynamics)
+- [x] [弱相互作用](./weak-interactions)
+- [x] [电弱统一理论](./electroweak-theory)
+- [x] [希格斯物理](./higgs-physics)
+- [x] [中微子物理与味混合](./neutrino-physics-and-flavor-mixing)
+- [x] [对撞机物理与实验方法](./collider-physics-and-experiments)
+- [x] [超出标准模型的新物理](./beyond-the-standard-model)
+- [x] [粒子天体物理与宇宙学](./particle-astrophysics-and-cosmology)

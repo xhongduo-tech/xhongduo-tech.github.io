@@ -59,14 +59,14 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 推进原理总论（推力方程、比冲与推进效率）
-- [ ] 气动热力学基础（喷管流动、激波与膨胀波）
-- [ ] 涡轮发动机热力循环（布雷顿循环、部件匹配）
-- [ ] 压气机与涡轮气动（基元级、负荷系数与失速）
-- [ ] 燃烧室（组织燃烧、火焰稳定与排放）
-- [ ] 进气道与尾喷管（亚/超声速进气道、矢量喷管）
-- [ ] 火箭发动机总体（液体/固体发动机系统组成）
-- [ ] 液体火箭发动机（推力室、涡轮泵与供应系统）
-- [ ] 固体火箭发动机（装药设计、内弹道与喷管烧蚀）
-- [ ] 电推进与先进推进（离子/霍尔推进、组合循环动力）
-- [ ] 推进系统试验与前沿（试车测试、旋转爆震发动机）
+- [x] [推进原理总论（推力方程、比冲与推进效率）](./propulsion-principles-overview)
+- [x] [气动热力学基础（喷管流动、激波与膨胀波）](./aerothermodynamics-fundamentals)
+- [x] [涡轮发动机热力循环（布雷顿循环、部件匹配）](./turboengine-thermodynamic-cycle)
+- [x] [压气机与涡轮气动（基元级、负荷系数与失速）](./compressor-turbine-aerodynamics)
+- [x] [燃烧室（组织燃烧、火焰稳定与排放）](./combustion-chamber-flame-stability)
+- [x] [进气道与尾喷管（亚/超声速进气道、矢量喷管）](./inlet-and-nozzle-systems)
+- [x] [火箭发动机总体（液体/固体发动机系统组成）](./rocket-engine-systems-overview)
+- [x] [液体火箭发动机（推力室、涡轮泵与供应系统）](./liquid-rocket-thrust-chamber-turbopump)
+- [x] [固体火箭发动机（装药设计、内弹道与喷管烧蚀）](./solid-rocket-grain-ballistics)
+- [x] [电推进与先进推进（离子/霍尔推进、组合循环动力）](./electric-and-hybrid-propulsion)
+- [x] [推进系统试验与前沿（试车测试、旋转爆震发动机）](./propulsion-testing-and-frontiers)

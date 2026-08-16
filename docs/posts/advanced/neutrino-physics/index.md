@@ -54,14 +54,14 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 中微子发现史与基本性质（泡利假设、质量与味本征态）
-- [ ] 标准模型中的中微子（弱相互作用、V-A 理论、手征性）
-- [ ] 中微子振荡理论（真空振荡、三味混合矩阵 PMNS）
-- [ ] 物质中振荡（MSW 效应、太阳中微子问题）
-- [ ] 大气与加速器中微子实验（Super-K、T2K、NOvA、DUNE）
-- [ ] 反应堆中微子实验（KamLAND、大亚湾、JUNO）
-- [ ] 无中微子双β衰变（马约拉纳质量、轻子数破坏、实验现状）
-- [ ] 中微子质量产生机制（跷跷板机制、Dirac 与 Majorana）
-- [ ] 天体中微子（超新星中微子、宇宙射线中微子、IceCube）
-- [ ] 宇宙学中的中微子（热遗迹、有效中微子数、结构形成）
-- [ ] 前沿专题（惰性中微子、CP 破坏测量、质量顺序问题）
+- [x] [中微子发现史与基本性质（泡利假设、质量与味本征态）](./pauli-hypothesis-mass-flavor-eigenstates)
+- [x] [标准模型中的中微子（弱相互作用、V-A 理论、手征性）](./neutrino-standard-model-va-chirality)
+- [x] [中微子振荡理论（真空振荡、三味混合矩阵 PMNS）](./neutrino-oscillation-theory-pmns)
+- [x] [物质中振荡（MSW 效应、太阳中微子问题）](./matter-oscillations-solar-neutrino-problem)
+- [x] [大气与加速器中微子实验（Super-K、T2K、NOvA、DUNE）](./atmospheric-accelerator-experiments-sk)
+- [x] [反应堆中微子实验（KamLAND、大亚湾、JUNO）](./reactor-experiments-kamland-juno)
+- [x] [无中微子双β衰变（马约拉纳质量、轻子数破坏、实验现状）](./neutrinoless-double-beta-status-majorana)
+- [x] [中微子质量产生机制（跷跷板机制、Dirac 与 Majorana）](./neutrino-mass-mechanism-seesaw)
+- [x] [天体中微子（超新星中微子、宇宙射线中微子、IceCube）](./astrophysical-neutrinos-icecube)
+- [x] [宇宙学中的中微子（热遗迹、有效中微子数、结构形成）](./cosmological-neutrinos-hot-relics)
+- [x] [前沿专题（惰性中微子、CP 破坏测量、质量顺序问题）](./neutrino-frontier-topics)

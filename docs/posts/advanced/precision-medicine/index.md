@@ -44,12 +44,12 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 精准医学概论（概念源流、与传统医学的区别）
-- [ ] 基因组学与测序技术（NGS、全基因组/外显子测序）
-- [ ] 多组学整合（转录组、蛋白组、代谢组、表观组）
-- [ ] 生物标志物（诊断/预后/预测标志物、液体活检 ctDNA）
-- [ ] 肿瘤精准诊疗（驱动基因、靶向治疗、免疫治疗标志物）
-- [ ] 药物基因组学（CYP450 多态性、个体化用药）
-- [ ] 罕见病与遗传病精准诊断（基因 panel、变异解读）
-- [ ] 大数据与人工智能（队列建设、多模态数据融合、AI 辅助）
-- [ ] 伦理法规与产业化（知情同意、数据共享、伴随诊断监管）
+- [x] [精准医学概论（概念源流、与传统医学的区别）](./precision-medicine-history)
+- [x] [基因组学与测序技术（NGS、全基因组/外显子测序）](./omics-technologies)
+- [x] [多组学整合（转录组、蛋白组、代谢组、表观组）](./multi-omics-ai-future)
+- [x] [生物标志物（诊断/预后/预测标志物、液体活检 ctDNA）](./biomarkers-molecular-subtyping)
+- [x] [肿瘤精准诊疗（驱动基因、靶向治疗、免疫治疗标志物）](./cancer-precision-medicine)
+- [x] [药物基因组学（CYP450 多态性、个体化用药）](./pharmacogenomics-clinical)
+- [x] [罕见病与遗传病精准诊断（基因 panel、变异解读）](./rare-diseases-birth-defects)
+- [x] [大数据与人工智能（队列建设、多模态数据融合、AI 辅助）](./precision-medicine-data-platforms)
+- [x] [伦理法规与产业化（知情同意、数据共享、伴随诊断监管）](./precision-medicine-ethics-consent)

@@ -62,14 +62,14 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 非线性极化率基础（χ⁽²⁾、χ⁽³⁾、对称性、微观起源）
-- [ ] 非线性波方程与耦合波理论（慢变包络近似、Manley-Rowe 关系）
-- [ ] 二次谐波产生（SHG、相位匹配、准相位匹配）
-- [ ] 参量过程（参量放大、参量振荡器 OPO、频率转换）
-- [ ] 三阶非线性效应（克尔效应、四波混频、自相位调制）
-- [ ] 受激散射（受激拉曼散射、受激布里渊散射）
-- [ ] 光孤子（光纤孤子、色散管理、孤子通信）
-- [ ] 超快非线性光学（自聚焦、超连续谱产生、高次谐波与阿秒脉冲）
-- [ ] 光折变与自洽非线性（光折变效应、空间孤子）
-- [ ] 非线性光学材料与器件（晶体、光纤、超构表面非线性）
-- [ ] 量子非线性光学前沿（单光子非线性、非线性光学量子频率转换）
+- [x] [非线性极化率基础（χ⁽²⁾、χ⁽³⁾、对称性、微观起源）](./nonlinear-susceptibility-basics)
+- [x] [非线性波方程与耦合波理论（慢变包络近似、Manley-Rowe 关系）](./nonlinear-wave-equation-and-coupled-wave-theory)
+- [x] [二次谐波产生（SHG、相位匹配、准相位匹配）](./second-harmonic-generation-and-quasi-phase-matching)
+- [x] [参量过程（参量放大、参量振荡器 OPO、频率转换）](./parametric-processes-and-frequency-conversion)
+- [x] [三阶非线性效应（克尔效应、四波混频、自相位调制）](./third-order-nonlinear-effects)
+- [x] [受激散射（受激拉曼散射、受激布里渊散射）](./stimulated-scattering-srs-sbs)
+- [x] [光孤子（光纤孤子、色散管理、孤子通信）](./optical-solitons-and-dispersion-management)
+- [x] [超快非线性光学（自聚焦、超连续谱产生、高次谐波与阿秒脉冲）](./ultrafast-nonlinear-optics-and-attosecond)
+- [x] [光折变与自洽非线性（光折变效应、空间孤子）](./photorefractive-effect-and-spatial-solitons)
+- [x] [非线性光学材料与器件（晶体、光纤、超构表面非线性）](./nonlinear-materials-and-devices)
+- [x] [量子非线性光学前沿（单光子非线性、非线性光学量子频率转换）](./quantum-nonlinear-optics)

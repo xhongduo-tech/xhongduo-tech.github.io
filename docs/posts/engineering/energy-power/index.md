@@ -69,16 +69,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 学科概览（动力工程体系与能源转换原理）
-- [ ] 高等工程热力学（不可逆热力学、㶲经济学）
-- [ ] 高等传热学（导热反问题、强化传热机理）
-- [ ] 流体机械原理（叶轮机基元级、相似定律与汽蚀）
-- [ ] 汽轮机（级的工作原理、调节与强度振动）
-- [ ] 燃气轮机（循环分析、透平冷却与联合循环）
-- [ ] 内燃机（工作循环、燃烧与排放控制）
-- [ ] 燃烧科学与技术（层流/湍流火焰、污染物生成机理）
-- [ ] 锅炉与热力系统（电站锅炉、蒸汽动力系统）
-- [ ] 制冷与低温工程（蒸气压缩制冷、气体液化）
-- [ ] 新能源动力（燃料电池、氢能与太阳能热利用）
-- [ ] 储能技术（储热、压缩空气与电化学储能）
-- [ ] 能源系统前沿（综合能源系统、碳捕集与能源数字化）
+- [x] [学科概览（动力工程体系与能源转换原理）](./power-engineering-overview)
+- [x] [高等工程热力学（不可逆热力学、㶲经济学）](./advanced-engineering-thermodynamics)
+- [x] [高等传热学（导热反问题、强化传热机理）](./advanced-heat-transfer)
+- [x] [流体机械原理（叶轮机基元级、相似定律与汽蚀）](./fluid-machinery-principles)
+- [x] [汽轮机（级的工作原理、调节与强度振动）](./steam-turbine-systems)
+- [x] [燃气轮机（循环分析、透平冷却与联合循环）](./gas-turbine-systems)
+- [x] [内燃机（工作循环、燃烧与排放控制）](./internal-combustion-engine-systems)
+- [x] [燃烧科学与技术（层流/湍流火焰、污染物生成机理）](./combustion-science-and-technology)
+- [x] [锅炉与热力系统（电站锅炉、蒸汽动力系统）](./boilers-and-thermal-systems)
+- [x] [制冷与低温工程（蒸气压缩制冷、气体液化）](./refrigeration-and-cryogenics)
+- [x] [新能源动力（燃料电池、氢能与太阳能热利用）](./new-energy-power-systems)
+- [x] [储能技术（储热、压缩空气与电化学储能）](./energy-storage-technologies)
+- [x] [能源系统前沿（综合能源系统、碳捕集与能源数字化）](./energy-systems-frontier)

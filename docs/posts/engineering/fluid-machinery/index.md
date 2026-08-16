@@ -19,20 +19,20 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 流体机械概论（分类、应用、性能参数体系）
-- [ ] 叶片式流体机械基本理论（欧拉方程、速度三角形、相似定律）
-- [ ] 离心泵水力设计（叶轮设计、压水室、轴向力平衡）
-- [ ] 轴流泵与混流泵（轴流式叶轮理论、导叶设计）
-- [ ] 泵的空化与运行特性（空化余量、空化破坏、运行调节）
-- [ ] 通风机与压缩机（风机设计、容积式压缩机、螺杆压缩机）
-- [ ] 水轮机与液力传动（水轮机基础、液力偶合器与变矩器）
-- [ ] 流体机械试验与测试（性能试验、空化试验、效率测量）
+- [x] [流体机械概论（分类、应用、性能参数体系）](./fluid-machinery-introduction)
+- [x] [叶片式流体机械基本理论（欧拉方程、速度三角形、相似定律）](./blade-type-fluid-machinery-theory)
+- [x] [离心泵水力设计（叶轮设计、压水室、轴向力平衡）](./centrifugal-pump-hydraulic-design)
+- [x] [轴流泵与混流泵（轴流式叶轮理论、导叶设计）](./axial-and-mixed-flow-pumps)
+- [x] [泵的空化与运行特性（空化余量、空化破坏、运行调节）](./pump-cavitation-and-operation)
+- [x] [通风机与压缩机（风机设计、容积式压缩机、螺杆压缩机）](./fan-and-compressor)
+- [x] [水轮机与液力传动（水轮机基础、液力偶合器与变矩器）](./hydraulic-turbine-and-fluid-coupling)
+- [x] [流体机械试验与测试（性能试验、空化试验、效率测量）](./fluid-machinery-testing)
 
 ### 第2篇
 
-- [ ] 液压传动基础（液压油、流体力学基础、液压系统组成）
-- [ ] 液压泵与液压马达（齿轮泵、叶片泵、柱塞泵结构与特性）
-- [ ] 液压阀与液压缸（方向/压力/流量控制阀、液压缸设计）
-- [ ] 液压基本回路与系统设计（调速回路、负载敏感系统、设计流程）
-- [ ] 电液比例与伺服控制（比例阀、伺服系统、闭环控制）
-- [ ] 前沿技术（高速泵、智能泵组、数字液压与节能技术）
+- [x] [液压传动基础（液压油、流体力学基础、液压系统组成）](./hydraulic-transmission-basics)
+- [x] [液压泵与液压马达（齿轮泵、叶片泵、柱塞泵结构与特性）](./hydraulic-pumps-and-motors)
+- [x] [液压阀与液压缸（方向/压力/流量控制阀、液压缸设计）](./hydraulic-valves-and-cylinders)
+- [x] [液压基本回路与系统设计（调速回路、负载敏感系统、设计流程）](./hydraulic-circuits-and-system-design)
+- [x] [电液比例与伺服控制（比例阀、伺服系统、闭环控制）](./electrohydraulic-proportional-servo-control)
+- [x] [前沿技术（高速泵、智能泵组、数字液压与节能技术）](./fluid-machinery-frontier-technologies)

@@ -62,15 +62,15 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 超导基本现象（零电阻、迈斯纳效应、临界参数）
-- [ ] 伦敦方程与宏观电磁性质（穿透深度、界面能）
-- [ ] 金兹堡-朗道理论（序参量、GL 方程、相干长度）
-- [ ] 二类超导体与磁通涡旋（混合态、磁通量子化、钉扎）
-- [ ] BCS 微观理论（库珀对、能隙方程、凝聚能）
-- [ ] 隧穿效应（约瑟夫森效应、SQUID、准粒子隧穿）
-- [ ] 强耦合理论与 Eliashberg 方程（电声相互作用、同位素效应）
-- [ ] 高温超导（铜氧化物结构、d 波配对、赝能隙）
-- [ ] 非传统超导（铁基超导、重费米子、拓扑超导）
-- [ ] 超导电子学应用（超导量子比特、数字电路、探测器）
-- [ ] 强磁体与电力应用（MRI 磁体、加速器磁体、超导电缆）
-- [ ] 前沿专题（高压氢化物室温超导探索、马约拉纳零能模）
+- [x] [超导基本现象（零电阻、迈斯纳效应、临界参数）](./superconducting-basics-and-critical-parameters)
+- [x] [伦敦方程与宏观电磁性质（穿透深度、界面能）](./london-theory-and-electromagnetic-properties)
+- [x] [金兹堡-朗道理论（序参量、GL 方程、相干长度）](./gl-theory-overview)
+- [x] [二类超导体与磁通涡旋（混合态、磁通量子化、钉扎）](./type-ii-superconductors-and-flux-vortices)
+- [x] [BCS 微观理论（库珀对、能隙方程、凝聚能）](./bcs-microscopic-theory-overview)
+- [x] [隧穿效应（约瑟夫森效应、SQUID、准粒子隧穿）](./tunneling-effects-overview)
+- [x] [强耦合理论与 Eliashberg 方程（电声相互作用、同位素效应）](./strong-coupling-theory-and-eliashberg)
+- [x] [高温超导（铜氧化物结构、d 波配对、赝能隙）](./high-temperature-superconductivity-overview)
+- [x] [非传统超导（铁基超导、重费米子、拓扑超导）](./unconventional-superconductivity-overview)
+- [x] [超导电子学应用（超导量子比特、数字电路、探测器）](./superconducting-electronics-overview)
+- [x] [强磁体与电力应用（MRI 磁体、加速器磁体、超导电缆）](./superconducting-magnets-and-power-applications)
+- [x] [前沿专题（高压氢化物室温超导探索、马约拉纳零能模）](./frontiers-hydrides-majorana)

@@ -19,16 +19,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 高压科学导论（压力单位、静水压与偏应力、相图 P-T 表示）
-- [ ] 高压产生技术（金刚石压砧 DAC、大腔体压机、冲击压缩与动态高压）
-- [ ] 压力标定与测量（红宝石荧光法、状态方程标定、同步辐射原位测量）
-- [ ] 状态方程（Murnaghan、Birch–Murnaghan、Vinet 方程与体模量）
-- [ ] 高压下的相变与结构（结构相变、配位数变化、结构预测与 CALYPSO/USPEX 方法）
-- [ ] 电子结构演化（压力诱导金属化、Mott 转变、s-d 转移）
-- [ ] 高压超导（常规与非常规超导体的压力效应、金属氢、氢化物高温超导）
-- [ ] 地球深部物理（地幔矿物相变、下地幔与地核状态、地震波速对比）
+- [x] [高压科学导论](./high-pressure-science-introduction)
+- [x] [高压产生技术](./high-pressure-generation-techniques)
+- [x] [压力标定与测量](./pressure-calibration-measurement)
+- [x] [状态方程](./equation-of-state)
+- [x] [高压下的相变与结构](./high-pressure-phase-transitions-structure)
+- [x] [电子结构演化](./electronic-structure-evolution)
+- [x] [高压超导](./high-pressure-superconductivity)
+- [x] [地球深部物理](./deep-earth-physics)
 
 ### 第2篇
 
-- [ ] 高压实验诊断技术（同步辐射 XRD、高压拉曼/红外、电阻与磁性测量、激光加热）
-- [ ] 前沿应用（高压合成新材料、行星内部建模、动态压缩与惯性约束聚变）
+- [x] [高压实验诊断技术](./high-pressure-diagnostic-techniques)
+- [x] [前沿应用](./high-pressure-applications)
