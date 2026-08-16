@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 软体机器人哲学（顺应性即智能、连续体 vs 刚体）
-- [ ] 软材料基础（硅胶/水凝胶/介电弹性体的力学）
-- [ ] 气动驱动（PneuNet 弯曲致动器、纤维增强结构）
-- [ ] 智能材料驱动（形状记忆合金/聚合物、离子凝胶）
-- [ ] 流体驱动（DEA 介电弹性体、HASEL 自愈合驱动器）
-- [ ] 可变刚度（层阻塞/颗粒阻塞、低熔点合金）
-- [ ] 软体传感（液态金属应变计、柔性电容/压阻）
-- [ ] 软体抓手（自适应抓取、缠绕与吸附）
+- [x] [软体机器人哲学（顺应性即智能、连续体 vs 刚体）](./soft-robotics-philosophy)
+- [x] [软材料基础（硅胶/水凝胶/介电弹性体的力学）](./soft-material-mechanics)
+- [x] [气动驱动（PneuNet 弯曲致动器、纤维增强结构）](./pneumatic-actuation-pneunet)
+- [x] [智能材料驱动（形状记忆合金/聚合物、离子凝胶）](./smart-material-actuation)
+- [x] [流体驱动（DEA 介电弹性体、HASEL 自愈合驱动器）](./fluidic-actuation-dea-hasel)
+- [x] [可变刚度（层阻塞/颗粒阻塞、低熔点合金）](./variable-stiffness)
+- [x] [软体传感（液态金属应变计、柔性电容/压阻）](./soft-sensing)
+- [x] [软体抓手（自适应抓取、缠绕与吸附）](./soft-grippers)
 
 ### 第2篇
 
-- [ ] 仿生运动（象鼻/章鱼臂/蠕虫爬行的生物启示）
-- [ ] 建模与控制（Cosserat 杆理论、数据驱动控制）
-- [ ] 制造方法（3D 打印/软光刻、多材料一体化成型）
-- [ ] 应用前沿（可穿戴助力、医疗介入、深海探测软体机器鱼）
+- [x] [仿生运动（象鼻/章鱼臂/蠕虫爬行的生物启示）](./biomimetic-locomotion)
+- [x] [建模与控制（Cosserat 杆理论、数据驱动控制）](./modeling-control)
+- [x] [制造方法（3D 打印/软光刻、多材料一体化成型）](./fabrication-methods)
+- [x] [应用前沿（可穿戴助力、医疗介入、深海探测软体机器鱼）](./application-frontiers)

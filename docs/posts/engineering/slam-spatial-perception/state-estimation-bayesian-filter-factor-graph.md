@@ -27,7 +27,7 @@ SLAM（Simultaneous Localization and Mapping，同时定位与建图）要回答
 - **运动方程**：$\mathbf{x}_{k} = f(\mathbf{x}_{k-1}, \mathbf{u}_{k}) + \mathbf{w}_{k}$，上一时刻位姿与输入 $\mathbf{u}_k$（如轮速、IMU 读数）如何推出当前位姿，$\mathbf{w}_k$ 是过程噪声。
 - **观测方程**：$\mathbf{z}_{k} = h(\mathbf{x}_{k}, \mathbf{m}) + \mathbf{v}_{k}$，位姿与地图如何产生观测（如相机像素、激光测距），$\mathbf{v}_k$ 是观测噪声。
 
-**状态估计的任务**：给出一串观测 $\mathbf{z}_{1:K}$，反推最可能的轨迹 $\mathbf{x}_{1:K}$ 与地图 $\mathbf{m}$。注意方向——方程是「从状态推观测」，估计是「从观测推状态」，这是一次典型的**逆问题**。Barfoot 在书第 1 章就强调，正问题好解、逆问题难，难在噪声里没有一个观测能确定唯一的状态。<span class="marginnote">一个直观例子：单目相机看到「一个亮点」，你既不知道它有多远，也不知道自己移动了多少——点与相机沿光轴方向存在尺度的共轭模糊。几何上这叫**不可观测方向**，它决定了单目 SLAM 天然有尺度漂移。</span>
+**状态估计的任务**：给出一串观测 $\mathbf{z}_{1:K}$，反推最可能的轨迹 $\mathbf{x}_{1:K}$ 与地图 $\mathbf{m}$。注意方向——方程是「从状态推观测」，估计是「从观测推状态」，这是一次典型的**逆问题**。Barfoot 在书第 1 章就强调，正问题好解、逆问题难，难在噪声里没有一个观测能确定唯一的状态。<span class="marginnote">一个直观例子：单目相机看到「一个亮点」，你既不知道它有多远，也不知道自己移动了多少——点与相机沿光轴方向存在尺度的共轭模糊。几何上这叫<strong>不可观测方向</strong>，它决定了单目 SLAM 天然有尺度漂移。</span>
 
 在继续之前，值得用一个具体场景把抽象变量钉住：设想一台扫地机器人，轮式里程计给出运动方程 $f$（但轮子会打滑），激光雷达给出观测方程 $h$（但镜面会反光）。机器人想知道自己在客厅的哪一平米、以及墙在哪。这个朴素场景里的每一步，都是 SLAM 全部公式的实例。
 
@@ -57,7 +57,7 @@ $$p(\mathbf{x}_k \mid \mathbf{z}_{1:k}) = \frac{p(\mathbf{z}_k \mid \mathbf{x}_k
 
 $$-\log p(\boldsymbol{\theta} \mid \mathbf{z}_{1:K}) = \sum_k \big\| \mathbf{e}_{\text{motion},k} \big\|^2_{\mathbf{Q}_k} + \sum_k \big\| \mathbf{e}_{\text{obs},k} \big\|^2_{\mathbf{R}_k} + \text{const}$$
 
-其中 $\mathbf{e}$ 是残差，$\|\mathbf{e}\|^2_{\mathbf{\Sigma}} = \mathbf{e}^T \mathbf{\Sigma}^{-1} \mathbf{e}$ 是马氏距离。这个求和结构正是**因子图（factor graph）**：未知量是节点，每个运动方程与观测方程贡献一个因子，把概率与图论接上了头。<span class="marginnote">因子图是 Frank Dellaert 引入机器人学的（Factor Graphs and GTSAM, 2012）。它最重要的好处是**稀疏**：每个残差只牵涉极少数节点，对应的雅可比矩阵是稀疏的，这决定了后端优化能实时运行。</span>
+其中 $\mathbf{e}$ 是残差，$\|\mathbf{e}\|^2_{\mathbf{\Sigma}} = \mathbf{e}^T \mathbf{\Sigma}^{-1} \mathbf{e}$ 是马氏距离。这个求和结构正是**因子图（factor graph）**：未知量是节点，每个运动方程与观测方程贡献一个因子，把概率与图论接上了头。<span class="marginnote">因子图是 Frank Dellaert 引入机器人学的（Factor Graphs and GTSAM, 2012）。它最重要的好处是<strong>稀疏</strong>：每个残差只牵涉极少数节点，对应的雅可比矩阵是稀疏的，这决定了后端优化能实时运行。</span>
 
 为什么稀疏是关键？在高斯牛顿法里，每步迭代要解线性方程 $\mathbf{H}\Delta\boldsymbol{\theta} = \mathbf{b}$，其中 $\mathbf{H} = \mathbf{J}^T\mathbf{J}$。若 $\mathbf{H}$ 稠密，几十万维的位姿与路标系统根本解不动；而因子图的稀疏结构让 $\mathbf{H}$ 变成带状的稀疏矩阵，可用 Cholesky 分解或 GTSAM/iSAM2 的增量式更新（只在新增因子时局部重算）高效求解。**稀疏性，是把「理论上能解」变成「实时能解」的那一步。**<span class="marginnote">iSAM2 用的是 Bayes 树（Bayes tree）结构，把图优化改造成只在新增测量时更新受影响的子树，让批量优化也能在线跑——这是 Kaess、Johannsson 与 Dellaert 在 2012 年（iSAM2, IJRR）的标志性贡献。</span>
 

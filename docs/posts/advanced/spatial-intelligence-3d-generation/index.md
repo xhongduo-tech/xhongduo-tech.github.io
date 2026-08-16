@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 从 2D 理解到空间智能（具身认知的必然、李飞飞路线）
-- [ ] 多视图几何基础（相机模型、对极几何、SfM）
-- [ ] 神经表示（NeRF 体渲染、隐式场的表达能力）
-- [ ] 显式化革命（3D 高斯泼溅、实时渲染的突破）
-- [ ] 3D 生成模型（扩散模型生成网格/点云/高斯、DreamFusion 谱系）
-- [ ] 视频生成即世界模型（Sora 的物理一致性争论）
-- [ ] 4D 动态场景（动态高斯、时序一致的场景重建）
-- [ ] 空间计算平台（Vision Pro/光场显示、人眼感知约束）
+- [x] [从 2D 理解到空间智能（具身认知的必然、李飞飞路线）](./from-2d-to-spatial-intelligence)
+- [x] [多视图几何基础（相机模型、对极几何、SfM）](./multi-view-geometry-basics)
+- [x] [神经表示（NeRF 体渲染、隐式场的表达能力）](./neural-representations-nerf)
+- [x] [显式化革命（3D 高斯泼溅、实时渲染的突破）](./gaussian-splatting-revolution)
+- [x] [3D 生成模型（扩散模型生成网格/点云/高斯、DreamFusion 谱系）](./3d-generation-diffusion-models)
+- [x] [视频生成即世界模型（Sora 的物理一致性争论）](./video-generation-world-models)
+- [x] [4D 动态场景（动态高斯、时序一致的场景重建）](./4d-dynamic-scenes)
+- [x] [空间计算平台（Vision Pro/光场显示、人眼感知约束）](./spatial-computing-platforms)
 
 ### 第2篇
 
-- [ ] 大规模场景（城市级重建、SLAM 与神经表示的融合）
-- [ ] 具身数据引擎（仿真到真实、3D 资产生成管线）
-- [ ] 空间智能评测（物理推理基准、空间问答）
-- [ ] 产业应用（数字孪生/影视虚拟制作/机器人训练场）
+- [x] [大规模场景（城市级重建、SLAM 与神经表示的融合）](./large-scale-scene-reconstruction)
+- [x] [具身数据引擎（仿真到真实、3D 资产生成管线）](./embodied-data-engine)
+- [x] [空间智能评测（物理推理基准、空间问答）](./spatial-intelligence-evaluation)
+- [x] [产业应用（数字孪生/影视虚拟制作/机器人训练场）](./industrial-applications-spatial-intelligence)

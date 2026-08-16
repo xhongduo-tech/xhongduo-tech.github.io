@@ -61,7 +61,7 @@ $$\mathbf{e}_i = \mathbf{p}_i - \frac{1}{s}\, \mathbf{K} \exp(\boldsymbol{\xi}^{
 
 其中 $\boldsymbol{\xi}$ 是 $\mathfrak{se}(3)$ 上的位姿扰动，$\exp(\boldsymbol{\xi}^{\wedge})$ 把李代数映射回 $\mathrm{SE}(3)$。BA（Bundle Adjustment）里这条路反复出场。
 
-**情形三：3D–3D（已知两组三维点，如 RGB-D 或双目）。** 直接用 **ICP（迭代最近点）** 求旋转平移，使 $\|\mathbf{R}\mathbf{P}_i + \mathbf{t} - \mathbf{P}_i'\|$ 最小，可用 SVD 闭式解或非线性优化。**前端里程计的完整管线，就是把这三种情形按传感器类型组合起来。**<span class="marginnote">单目系统最麻烦：只有情形一可用，且平移带尺度。所以现代单目系统（ORB-SLAM、VINS）都内置一个**初始化**步骤——通过几帧的三角化先恢复出尺度与三维点，之后才能进入情形二（PnP）的稳定跟踪。初始化失败是单目 SLAM 最常被新手撞上的第一道坎。</span>
+**情形三：3D–3D（已知两组三维点，如 RGB-D 或双目）。** 直接用 **ICP（迭代最近点）** 求旋转平移，使 $\|\mathbf{R}\mathbf{P}_i + \mathbf{t} - \mathbf{P}_i'\|$ 最小，可用 SVD 闭式解或非线性优化。**前端里程计的完整管线，就是把这三种情形按传感器类型组合起来。**<span class="marginnote">单目系统最麻烦：只有情形一可用，且平移带尺度。所以现代单目系统（ORB-SLAM、VINS）都内置一个<strong>初始化</strong>步骤——通过几帧的三角化先恢复出尺度与三维点，之后才能进入情形二（PnP）的稳定跟踪。初始化失败是单目 SLAM 最常被新手撞上的第一道坎。</span>
 
 ## 4 光流法：LK 光流
 
@@ -69,7 +69,7 @@ $$\mathbf{e}_i = \mathbf{p}_i - \frac{1}{s}\, \mathbf{K} \exp(\boldsymbol{\xi}^{
 
 $$I(x+dx, y+dy, t+dt) = I(x, y, t)$$
 
-对时间求导并做一阶泰勒展开，得到**光流方程** $\mathbf{I}_x u + \mathbf{I}_y v + \mathbf{I}_t = 0$，其中 $(u, v) = (dx/dt, dy/dt)$ 是光流。一个方程两个未知数，LK 的解法是假设邻域 $w \times w$ 内所有像素共享同一 $(u,v)$，得到超定线性方程组，用最小二乘求解。<span class="marginnote">「亮度不变」在真实世界近乎总是被违背——光照变化、镜面反光、运动模糊都会破坏它。因此 LK 通常配合**图像金字塔**：先在低分辨率层估一个粗光流，再逐层细化，把大位移化小，这是 OpenCV 里 `cv2.calcOpticalFlowPyrLK` 的默认行为。</span>
+对时间求导并做一阶泰勒展开，得到**光流方程** $\mathbf{I}_x u + \mathbf{I}_y v + \mathbf{I}_t = 0$，其中 $(u, v) = (dx/dt, dy/dt)$ 是光流。一个方程两个未知数，LK 的解法是假设邻域 $w \times w$ 内所有像素共享同一 $(u,v)$，得到超定线性方程组，用最小二乘求解。<span class="marginnote">「亮度不变」在真实世界近乎总是被违背——光照变化、镜面反光、运动模糊都会破坏它。因此 LK 通常配合<strong>图像金字塔</strong>：先在低分辨率层估一个粗光流，再逐层细化，把大位移化小，这是 OpenCV 里 `cv2.calcOpticalFlowPyrLK` 的默认行为。</span>
 
 光流与直接法的关系：光流把「像素移动到哪」当作目标（先求匹配再解运动），直接法把「解运动」本身当作目标（不显式求光流）。直接法在**特征法**之外另起一摊，我们下一节展开。
 

@@ -113,6 +113,7 @@ GC 还催生了一个语言级技巧：**弱引用（WeakRef）与 `Finalization
 - 引擎的分层、优化与回收都不是玄学，而是可观测的：DevTools Performance、`--trace-gc`、`--trace-ic` 都是照进 V8 内部的手电筒。
 - 同一套 JIT/GC 思维适用于所有现代引擎（SpiderMonkey 的 Baseline/Warp、JavaScriptCore 的 FTL），V8 只是最常用的样板。
 - 引擎既是性能瓶颈，也是性能杠杆：能读懂 V8 的人，写出的代码天然更「快」。
+- 记住一句话：引擎不是魔法，而是「解释、观察、编译、回收」四件事的工程化。
 
 在下一节，我们把镜头拉出渲染进程，看向页面资源真正走过的**网络管线**——HTTP 从 1.1 到 2 到 3 的演进，以及 QUIC 如何终结队头阻塞。
 

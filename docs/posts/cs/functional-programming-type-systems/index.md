@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] λ 演算（丘奇编码、归约策略、不动点组合子）
-- [ ] 简单类型 λ 演算（类型安全=进展+保持的证明范式）
-- [ ] 多态类型系统（System F、参数多态、ML 类型推断）
-- [ ] Hindley-Milner 类型推断（合一算法、Algorithm W）
-- [ ] 代数数据类型与模式匹配（和类型/积类型、穷尽性检查）
-- [ ] 高阶抽象（函子/应用函子/单子、范畴论的最小核心）
-- [ ] 惰性求值（按需计算、无限数据结构、严格性分析）
-- [ ] 效应系统（纯函数与副作用的隔离、IO Monad）
+- [x] [λ 演算（丘奇编码、归约策略、不动点组合子）](./lambda-calculus)
+- [x] [简单类型 λ 演算（类型安全=进展+保持的证明范式）](./simply-typed-lambda-calculus)
+- [x] [多态类型系统（System F、参数多态、ML 类型推断）](./polymorphic-type-systems)
+- [x] [Hindley-Milner 类型推断（合一算法、Algorithm W）](./hindley-milner-type-inference)
+- [x] [代数数据类型与模式匹配（和类型/积类型、穷尽性检查）](./algebraic-data-types-pattern-matching)
+- [x] [高阶抽象（函子/应用函子/单子、范畴论的最小核心）](./higher-order-abstraction-functors-monads)
+- [x] [惰性求值（按需计算、无限数据结构、严格性分析）](./lazy-evaluation)
+- [x] [效应系统（纯函数与副作用的隔离、IO Monad）](./effect-systems-io-monad)
 
 ### 第2篇
 
-- [ ] 依赖类型（类型即命题、Agda/Idris 的定理证明）
-- [ ] 线性类型与子结构类型（Rust 所有权/借用检查的理论根源）
-- [ ] 类型系统与编译器（类型引导的优化、擦除与保类型编译）
-- [ ] 现代语言实践（Haskell/OCaml/Scala/Rust/Swift 的类型特性对比）
+- [x] [依赖类型（类型即命题、Agda/Idris 的定理证明）](./dependent-types)
+- [x] [线性类型与子结构类型（Rust 所有权/借用检查的理论根源）](./linear-types-substructural)
+- [x] [类型系统与编译器（类型引导的优化、擦除与保类型编译）](./types-and-compilation)
+- [x] [现代语言实践（Haskell/OCaml/Scala/Rust/Swift 的类型特性对比）](./modern-language-practice)

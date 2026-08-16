@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] SAT 问题与 NP 完全性（Cook-Levin 定理的工程意义）
-- [ ] DPLL 算法（回溯搜索、单元传播、纯文字消除）
-- [ ] CDCL 革命（冲突驱动子句学习、VSIDS 启发式）
-- [ ] 现代 SAT 求解器（MiniSat/CaDiCaL/Kissat 的架构）
-- [ ] 从 SAT 到 SMT（背景理论：算术/数组/位向量/未解释函数）
-- [ ] DPLL(T) 框架（布尔骨架与理论求解器的协同）
-- [ ] Z3 实战（符号执行的引擎、程序验证的条件生成）
-- [ ] 约束规划 CP（全局约束、传播器、与 SAT 的融合）
+- [x] [SAT 问题与 NP 完全性（Cook-Levin 定理的工程意义）](./sat-np-completeness)
+- [x] [DPLL 算法（回溯搜索、单元传播、纯文字消除）](./dpll-algorithm)
+- [x] [CDCL 革命（冲突驱动子句学习、VSIDS 启发式）](./cdcl-revolution)
+- [x] [现代 SAT 求解器（MiniSat/CaDiCaL/Kissat 的架构）](./modern-sat-solvers)
+- [x] [从 SAT 到 SMT（背景理论：算术/数组/位向量/未解释函数）](./from-sat-to-smt)
+- [x] [DPLL(T) 框架（布尔骨架与理论求解器的协同）](./dpll-t-framework)
+- [x] [Z3 实战（符号执行的引擎、程序验证的条件生成）](./z3-in-practice)
+- [x] [约束规划 CP（全局约束、传播器、与 SAT 的融合）](./constraint-programming-cp)
 
 ### 第2篇
 
-- [ ] MaxSAT 与优化（软约束、 UNSAT 核的利用）
-- [ ] 自动定理证明（一阶逻辑的 Superposition、Lean/Isabelle 交互证明）
-- [ ] 应用场景（EDA 验证、配置求解、调度规划、密码分析）
-- [ ] 前沿（神经引导的启发式、证明生成与验证）
+- [x] [MaxSAT 与优化（软约束、 UNSAT 核的利用）](./maxsat-optimization)
+- [x] [自动定理证明（一阶逻辑的 Superposition、Lean/Isabelle 交互证明）](./automated-theorem-proving)
+- [x] [应用场景（EDA 验证、配置求解、调度规划、密码分析）](./applications)
+- [x] [前沿（神经引导的启发式、证明生成与验证）](./frontiers)
