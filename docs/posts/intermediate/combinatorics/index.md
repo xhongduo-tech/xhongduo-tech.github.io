@@ -48,13 +48,6 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 基本计数原理（加法乘法原理、排列组合）
-- [ ] 二项式系数与组合恒等式（格路计数）
-- [ ] 生成函数（普通与指数生成函数）
-- [ ] 递推关系（线性递推、Catalan 数）
-- [ ] 容斥原理（错位排列、限位排列）
-- [ ] 鸽巢原理与 Ramsey 理论（Ramsey 数）
-- [ ] 偏序集与 Möbius 反演（关联代数初步）
-- [ ] 组合设计（区组设计、Steiner 系统、拉丁方）
-- [ ] 概率方法（存在性证明、期望法）
-- [ ] 组合算法与应用（组合搜索、编码与设计应用）
+- [x] [偏序集与 Möbius 反演](./posets-mobius-inversion)
+- [x] [概率方法](./probabilistic-method)
+- [x] [组合算法与应用](./combinatorial-algorithms-applications)

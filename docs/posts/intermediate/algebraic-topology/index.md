@@ -59,15 +59,15 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 同伦与形变收缩（同伦等价、CW 复形）
-- [ ] 基本群（定义、计算、圆周与曲面）
-- [ ] Van Kampen 定理（基本群的拼接计算）
-- [ ] 覆叠空间（分类定理、群作用）
-- [ ] 单纯同调（单纯复形、链群）
-- [ ] 奇异同调（函子性、同伦不变性）
-- [ ] 正合列与切除定理（Mayer-Vietoris 序列）
-- [ ] 胞腔同调与应用（Brouwer 不动点、映射度）
-- [ ] 上同调（上链、杯积、万有系数定理）
-- [ ] 庞加莱对偶（流形上的对偶定理）
-- [ ] 高阶同伦群与纤维化（长正合列、Hurewicz 定理）
-- [ ] 谱序列与示性类初步（Serre 谱序列、Stiefel-Whitney 类）
+- [x] [同伦与形变收缩（同伦等价、CW 复形）](./homotopy-deformation-retraction-cw)
+- [x] [基本群（定义、计算、圆周与曲面）](./fundamental-group-computations)
+- [x] [Van Kampen 定理（基本群的拼接计算）](./van-kampen-pasting-computations)
+- [x] [覆叠空间（分类定理、群作用）](./covering-spaces-classification-actions)
+- [x] [单纯同调（单纯复形、链群）](./simplicial-homology-complexes-chains)
+- [x] [奇异同调（函子性、同伦不变性）](./singular-homology-functoriality-invariance)
+- [x] [正合列与切除定理（Mayer-Vietoris 序列）](./exact-sequences-excision-mv-review)
+- [x] [胞腔同调与应用（Brouwer 不动点、映射度）](./cellular-homology-applications-degree)
+- [x] [上同调（上链、杯积、万有系数定理）](./cohomology-chains-cup-uct)
+- [x] [庞加莱对偶（流形上的对偶定理）](./poincare-duality-manifolds-review)
+- [x] [高阶同伦群与纤维化（长正合列、Hurewicz 定理）](./higher-homotopy-fibrations-hurewicz)
+- [x] [谱序列与示性类初步（Serre 谱序列、Stiefel-Whitney 类）](./spectral-sequences-stiefel-whitney)

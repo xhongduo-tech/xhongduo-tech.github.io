@@ -54,13 +54,13 @@ Sipser《计算理论导引》、Arora & Barak《计算复杂性》。按照「�
 
 ### 第1篇
 
-- [ ] 计算模型（图灵机、可计算性回顾）
-- [ ] 时间复杂性与 P 类（多项式时间）
-- [ ] NP 与 NP 完全性（Cook-Levin 定理、归约技术）
-- [ ] 经典 NP 完全问题（SAT、团、哈密顿回路）
-- [ ] 空间复杂性（PSPACE、Savitch 定理）
-- [ ] 对角化与相对化（时间层次定理、障碍结果）
-- [ ] 随机化计算（BPP、RP、去随机化）
-- [ ] 电路复杂性与非一致性（P/poly、下界方法）
-- [ ] 交互证明与 PCP 定理（IP=PSPACE、不可近似性）
-- [ ] 前沿专题（密码学基础、量子复杂性 BQP）
+- [x] [计算模型（图灵机、可计算性回顾）](./turing-machine)
+- [x] [时间复杂性与 P 类（多项式时间）](./p-class-polynomial-time)
+- [x] [NP 与 NP 完全性（Cook-Levin 定理、归约技术）](./np-completeness)
+- [x] [经典 NP 完全问题（SAT、团、哈密顿回路）](./classic-np-complete-problems)
+- [x] [空间复杂性（PSPACE、Savitch 定理）](./space-complexity-pspace)
+- [x] [对角化与相对化（时间层次定理、障碍结果）](./time-hierarchy-theorem)
+- [x] [随机化计算（BPP、RP、去随机化）](./randomized-complexity-classes)
+- [x] [电路复杂性与非一致性（P/poly、下界方法）](./circuit-complexity)
+- [x] [交互证明与 PCP 定理（IP=PSPACE、不可近似性）](./interactive-proof-systems)
+- [x] [前沿专题（密码学基础、量子复杂性 BQP）](./quantum-computational-complexity)

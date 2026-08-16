@@ -133,15 +133,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 函数与极限（极限定义、运算法则、两个重要极限）
-- [ ] 导数与微分（求导法则、隐函数与参数方程求导）
-- [ ] 微分中值定理与导数应用（洛必达、泰勒公式、极值）
-- [ ] 不定积分（换元与分部积分）
-- [ ] 定积分及其应用（微积分基本定理、面积体积弧长）
-- [ ] 常微分方程初步（一阶方程、二阶线性方程）
-- [ ] 向量代数与空间解析几何（向量运算、曲面与曲线）
-- [ ] 多元函数微分学（偏导数、全微分、极值与拉格朗日乘数）
-- [ ] 重积分（二重三重积分、换元法）
-- [ ] 曲线积分与曲面积分（格林/高斯/斯托克斯公式）
-- [ ] 无穷级数（数项级数、幂级数、傅里叶级数）
-- [ ] 工程应用选讲（数值逼近、物理与工程建模案例）
+- [x] [函数与极限（极限定义、运算法则、两个重要极限）](./functions-and-limits)
+- [x] [导数与微分（求导法则、隐函数与参数方程求导）](./derivatives-and-differentials)
+- [x] [微分中值定理与导数应用（洛必达、泰勒公式、极值）](./mean-value-theorem-and-derivative-applications)
+- [x] [不定积分（换元与分部积分）](./indefinite-integrals)
+- [x] [定积分及其应用（微积分基本定理、面积体积弧长）](./definite-integrals-and-applications)
+- [x] [常微分方程初步（一阶方程、二阶线性方程）](./ordinary-differential-equations-intro)
+- [x] [向量代数与空间解析几何（向量运算、曲面与曲线）](./vector-algebra-and-analytic-geometry)
+- [x] [多元函数微分学（偏导数、全微分、极值与拉格朗日乘数）](./multivariable-differential-calculus)
+- [x] [重积分（二重三重积分、换元法）](./multiple-integrals)
+- [x] [曲线积分与曲面积分（格林/高斯/斯托克斯公式）](./line-and-surface-integrals)
+- [x] [无穷级数（数项级数、幂级数、傅里叶级数）](./infinite-series)
+- [x] [工程应用选讲（数值逼近、物理与工程建模案例）](./engineering-applications)

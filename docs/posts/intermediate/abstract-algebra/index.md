@@ -127,15 +127,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 群论基础（群、子群、循环群）
-- [ ] 陪集与商群（拉格朗日定理、正规子群）
-- [ ] 群同态与同构定理
-- [ ] 群作用（轨道-稳定子定理、西罗定理）
-- [ ] 环论基础（环、理想、商环）
-- [ ] 整环与因子分解（PID、UFD、欧氏环）
-- [ ] 域扩张（代数扩张、分裂域）
-- [ ] 伽罗瓦理论（基本定理、方程可解性）
-- [ ] 模论初步（模、自由模、主理想整环上的模）
-- [ ] 交换代数初步（诺特环、素谱）
-- [ ] 群表示论初步（特征标理论）
-- [ ] 同调代数初步（链复形、正合列）
+- [x] [群论基础（群、子群、循环群）](./group-theory-basics)
+- [x] [陪集与商群（拉格朗日定理、正规子群）](./cosets-and-quotient-groups)
+- [x] [群同态与同构定理](./group-homomorphism-isomorphism-theorems)
+- [x] [群作用（轨道-稳定子定理、西罗定理）](./group-actions-and-sylow-theorems)
+- [x] [环论基础（环、理想、商环）](./ring-theory-basics)
+- [x] [整环与因子分解（PID、UFD、欧氏环）](./integral-domains-and-factorization)
+- [x] [域扩张（代数扩张、分裂域）](./field-extensions-overview)
+- [x] [伽罗瓦理论（基本定理、方程可解性）](./galois-theory-overview)
+- [x] [模论初步（模、自由模、主理想整环上的模）](./module-theory-introduction)
+- [x] [交换代数初步（诺特环、素谱）](./commutative-algebra-introduction)
+- [x] [群表示论初步（特征标理论）](./group-representation-theory-introduction)
+- [x] [同调代数初步（链复形、正合列）](./homological-algebra-introduction)
