@@ -62,3 +62,14 @@ pageClass: plain-doc
 - [x] [线性规划及其对偶理论](./linear-programming-duality)
 - [x] [二次规划与锥规划（SOCP / SDP）](./qp-conic-programming)
 - [x] [凸优化的典型应用：最小二乘、回归与支持向量机](./convex-optimization-applications)
+
+### 第6篇
+
+- [ ] 凸集（凸组合、凸包、凸锥）
+- [ ] 凸函数（定义、Jensen 不等式、下半连续）
+- [ ] 分离定理（超平面分离、支撑超平面）
+- [ ] 共轭函数与对偶（Fenchel 共轭）
+- [ ] 次微分（次梯度、Moreau-Rockafellar 理论）
+- [ ] 最优性条件（KKT 条件的凸分析形式）
+- [ ] 极值表示与凸几何（极点、Minkowski 定理）
+- [ ] 应用（对偶算法、机器学习中的凸方法）

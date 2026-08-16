@@ -56,3 +56,18 @@ pageClass: plain-doc
 - [x] [相对同伦群与 Whitehead 定理（Hatcher 第4.1章）](./relative-homotopy-and-whitehead-theorem)
 - [x] [纤维化与纤维化长正合序列（Hatcher 第4.2章；Spanier 第2章）](./fibrations-and-long-exact-sequence)
 - [x] [谱序列初步：Leray–Serre 谱序列（Hatcher 附录第5章；Spanier 第3章）](./spectral-sequences-leray-serre)
+
+### 第6篇
+
+- [ ] 同伦与形变收缩（同伦等价、CW 复形）
+- [ ] 基本群（定义、计算、圆周与曲面）
+- [ ] Van Kampen 定理（基本群的拼接计算）
+- [ ] 覆叠空间（分类定理、群作用）
+- [ ] 单纯同调（单纯复形、链群）
+- [ ] 奇异同调（函子性、同伦不变性）
+- [ ] 正合列与切除定理（Mayer-Vietoris 序列）
+- [ ] 胞腔同调与应用（Brouwer 不动点、映射度）
+- [ ] 上同调（上链、杯积、万有系数定理）
+- [ ] 庞加莱对偶（流形上的对偶定理）
+- [ ] 高阶同伦群与纤维化（长正合列、Hurewicz 定理）
+- [ ] 谱序列与示性类初步（Serre 谱序列、Stiefel-Whitney 类）

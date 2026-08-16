@@ -54,3 +54,18 @@ pageClass: plain-doc
 - [x] [记忆函数与模式耦合](./memory-functions-and-mode-coupling)（Zwanzig 第8-9章）
 - [x] [反应速率理论：Kramers 逃逸问题](./kramers-escape-problem)（Zwanzig 第4章）
 - [x] [量子耗散与开放系统动力学](./quantum-dissipation-and-open-systems)（Zwanzig 第6章）
+
+### 第5篇
+
+- [ ] 非平衡现象与输运系数概览（扩散、热导、粘性）
+- [ ] 玻尔兹曼方程（碰撞项、H 定理、弛豫时间近似）
+- [ ] 经典输运理论（Chapman-Enskog 展开、气体输运系数）
+- [ ] 布朗运动与朗之万方程（随机力、爱因斯坦关系）
+- [ ] 福克尔-普朗克方程与主方程（Kramers 逃逸问题、随机过程）
+- [ ] 线性响应理论（久保公式、Green-Kubo 关系）
+- [ ] 涨落-耗散定理（关联函数、Nyquist 定理）
+- [ ] 昂萨格不可逆热力学（倒易关系、最小熵产生）
+- [ ] 远离平衡系统（非线性响应、耗散结构、自组织）
+- [ ] 涨落定理（Jarzynski 等式、Crooks 定理、热力学不确定性关系）
+- [ ] 随机热力学（单分子功分布、信息热力学、麦克斯韦妖）
+- [ ] 前沿专题（活性物质统计物理、湍流统计理论、量子输运）

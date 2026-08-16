@@ -53,3 +53,14 @@ pageClass: plain-doc
 - [x] [Seifert 纤维空间](./seifert-fibered-spaces)（Adams 第11章）
 - [x] [结补的几何分解与几何化展望](./geometrization-and-knot-complements)（Adams 第11-12章）
 - [x] [结与 DNA 及生物物理应用](./knots-and-dna)（Adams 第9章）
+
+### 第5篇
+
+- [ ] 纽结与链环基础（Reidemeister 变换、纽结图）
+- [ ] 纽结群（Wirtinger 表示、基本群方法）
+- [ ] Seifert 曲面与亏格（Seifert 矩阵）
+- [ ] 亚历山大多项式（经典不变量）
+- [ ] 琼斯多项式与量子不变量（Kauffman 括号）
+- [ ] 三维流形初步（Dehn 手术、Heegaard 分解）
+- [ ] 双曲纽结（Mostow 刚性、体积不变量）
+- [ ] 应用与前沿（DNA 拓扑、统计力学、纽结同调）

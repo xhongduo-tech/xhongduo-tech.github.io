@@ -52,3 +52,16 @@ pageClass: plain-doc
 - [x] [传染病空间传播与流行病行波（Murray 第13章；Brauer & Castillo-Chavez 第9章）](./epidemic-spatial-spread)
 - [x] [Turing 不稳定性与形态发生斑图（Murray Vol. II 第1章）](./turing-instability-patterns)
 - [x] [趋化运动与自组织空间结构（Murray Vol. II 第4章）](./chemotaxis-self-organization)
+
+### 第5篇
+
+- [ ] 单种群模型（Malthus、Logistic 增长）
+- [ ] 离散模型与年龄结构（Leslie 矩阵、混沌现象）
+- [ ] 相互作用种群（Lotka-Volterra、竞争与共生）
+- [ ] 传染病模型（SIR、基本再生数 R0）
+- [ ] 生化动力学（Michaelis-Menten、酶反应）
+- [ ] 反应扩散方程（图灵斑图、行波解）
+- [ ] 神经与生理模型（Hodgkin-Huxley 方程）
+- [ ] 随机模型（生灭过程、分支过程）
+- [ ] 进化动力学（ESS、复制子方程）
+- [ ] 参数估计与应用案例（流行病学数据建模）

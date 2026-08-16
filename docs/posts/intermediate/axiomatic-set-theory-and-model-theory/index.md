@@ -55,3 +55,16 @@ pageClass: plain-doc
 - [x] [省略型定理与原子模型](./omitting-types-atomic-models)（Marker 第2章）
 - [x] [量词消去、模型完备性与完备理论](./quantifier-elimination-model-completeness)（Marker 第3章）
 - [x] [Morley 范畴性定理与稳定性理论](./morley-categoricity-stability)（Marker 第7章）
+
+### 第5篇
+
+- [ ] ZFC 公理体系（外延、配对、并集、幂集等）
+- [ ] 序数（超限归纳与递归）
+- [ ] 基数（基数运算、连续统假设）
+- [ ] 良序定理与选择公理（等价命题、Zorn 引理）
+- [ ] 相对一致性（内模型、构造宇宙 L）
+- [ ] 力迫法（偏序集、兼纳扩充、CH 独立性）
+- [ ] 大基数初步（不可达基数、可测基数）
+- [ ] 模型论基础（结构、初等等价、初等嵌入）
+- [ ] 紧致性定理的应用（非标准模型、超积）
+- [ ] 型与稳定性理论初步（饱和模型、量词消去）

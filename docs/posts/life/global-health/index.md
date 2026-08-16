@@ -55,3 +55,14 @@ pageClass: plain-doc
 - [x] [健康与发展：可持续发展目标 SDG3](./sdg3-health-and-development)（Merson 第9章 / Skolnik 第5章）
 - [x] [全球健康中的伦理与人权](./ethics-human-rights)（Merson 第14章 / Skolnik 第16章）
 - [x] [全球健康合作、援助与未来挑战](./cooperation-aid-future-challenges)（Merson 第15章 / Skolnik 第17章）
+
+### 第5篇
+
+- [ ] 全球健康概论（概念演变、与健康公平的关系）
+- [ ] 全球疾病负担（DALY、GBD 研究方法、疾病谱变迁）
+- [ ] 全球卫生治理（WHO、国际组织、卫生外交）
+- [ ] 重大传染病全球防控（艾滋病、结核、疟疾、新发传染病）
+- [ ] 慢病与伤害的全球负担（城市化、生活方式相关疾病）
+- [ ] 母婴健康与营养不良（千年发展目标与 SDG3）
+- [ ] 气候变化与健康（环境健康、同一健康 One Health）
+- [ ] 全球卫生安全与国际合作（IHR、卫生援助、中国援外医疗）

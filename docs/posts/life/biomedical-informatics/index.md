@@ -55,3 +55,16 @@ pageClass: plain-doc
 - [x] [医疗数据分析与机器学习](./healthcare-data-analytics-ml)（Hoyt 第5章）
 - [x] [转化生物信息学与精准医学](./translational-bioinformatics-precision-medicine)（Shortliffe 第21章）
 - [x] [临床研究信息学与医学大数据](./clinical-research-informatics)（Shortliffe 第22章）
+
+### 第5篇
+
+- [ ] 生物医学信息学概论（学科范畴、数据-信息-知识-智慧）
+- [ ] 生物医学数据基础（数据类型、临床术语标准 SNOMED/ICD）
+- [ ] 电子病历与医院信息系统（EMR、HIS、CDSS）
+- [ ] 医学信息交换与互操作（HL7、FHIR、DICOM）
+- [ ] 医学数据挖掘与机器学习（特征工程、预测建模）
+- [ ] 自然语言处理与知识图谱（医学 NLP、临床实体识别）
+- [ ] 生物信息学基础（序列比对、基因组数据库、组学分析）
+- [ ] 临床决策支持与人工智能（辅助诊断、深度学习应用）
+- [ ] 远程医疗与数字健康（可穿戴设备、移动医疗、数字疗法）
+- [ ] 数据安全与伦理（隐私保护、数据脱敏、算法伦理）

@@ -55,3 +55,14 @@ pageClass: plain-doc
 - [x] [序结构、拓扑与 Stone 对偶](./topology-and-stone-duality)（Davey & Priestley 第11章）
 - [x] [量子逻辑与正交补](./quantum-logic-orthocomplementation)（Birkhoff 第8章）
 - [x] [Domain 理论与序在计算机科学中的应用](./domain-theory-in-cs)（Davey & Priestley 第7章）
+
+### 第5篇
+
+- [ ] 偏序集基础（链、反链、Hasse 图）
+- [ ] 格的定义与基本性质（两种定义等价性）
+- [ ] 完全格与不动点定理（Knaster-Tarski）
+- [ ] 分配格与模格（Dedekind/Birkhoff 判据）
+- [ ] 布尔代数（表示定理、斯通定理）
+- [ ] 理想、同余与同态（格的结构定理）
+- [ ] 伽罗瓦联络（形式概念分析初步）
+- [ ] 应用选讲（程序语义学、逻辑代数化、组合中的格）

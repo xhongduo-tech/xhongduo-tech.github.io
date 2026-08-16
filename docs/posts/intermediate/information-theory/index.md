@@ -123,3 +123,16 @@ pageClass: plain-doc
 - [x] [熵幂不等式（Entropy Power Inequality）初步](./entropy-power-inequality)
 - [x] [交叉熵（Cross-Entropy）与 KL 散度的联系](./cross-entropy-kl-divergence)
 - [x] [交叉熵损失函数：从信息论看分类任务](./cross-entropy-loss-classification)
+
+### 第1篇
+
+- [ ] 熵与信息度量（熵、联合熵、条件熵）
+- [ ] 互信息与相对熵（KL 散度、数据处理不等式）
+- [ ] 渐近等分割性（典型序列、信源编码定理）
+- [ ] 数据压缩（Kraft 不等式、Huffman 编码、算术编码）
+- [ ] 信道容量（定义、对称信道计算）
+- [ ] 信道编码定理（随机编码、联合典型译码）
+- [ ] 高斯信道（功率约束、注水法）
+- [ ] 率失真理论（有损压缩的理论极限）
+- [ ] 网络信息论初步（多址信道、广播信道）
+- [ ] 信息论与统计学习（Fisher 信息、最大熵原理、MDL）

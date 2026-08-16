@@ -51,3 +51,17 @@ pageClass: plain-doc
 - [x] [中微子作为暗物质候选](./neutrino-dark-matter-candidate)（Giunti-Kim 第12章 / Zuber 第13章）
 - [x] [高能天体物理中微子](./high-energy-astrophysical-neutrinos)（Giunti-Kim 第13章）
 - [x] [中微子与宇宙结构形成](./neutrino-large-scale-structure)（Giunti-Kim 第12章）
+
+### 第1篇
+
+- [ ] 中微子发现史与基本性质（泡利假设、质量与味本征态）
+- [ ] 标准模型中的中微子（弱相互作用、V-A 理论、手征性）
+- [ ] 中微子振荡理论（真空振荡、三味混合矩阵 PMNS）
+- [ ] 物质中振荡（MSW 效应、太阳中微子问题）
+- [ ] 大气与加速器中微子实验（Super-K、T2K、NOvA、DUNE）
+- [ ] 反应堆中微子实验（KamLAND、大亚湾、JUNO）
+- [ ] 无中微子双β衰变（马约拉纳质量、轻子数破坏、实验现状）
+- [ ] 中微子质量产生机制（跷跷板机制、Dirac 与 Majorana）
+- [ ] 天体中微子（超新星中微子、宇宙射线中微子、IceCube）
+- [ ] 宇宙学中的中微子（热遗迹、有效中微子数、结构形成）
+- [ ] 前沿专题（惰性中微子、CP 破坏测量、质量顺序问题）

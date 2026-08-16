@@ -53,3 +53,16 @@ pageClass: plain-doc
 - [x] [交换子与约化（Kadison-Ringrose 第8章）](./commutants-and-reduction)
 - [x] [C*-代数 K 理论初步（Murphy 第5章）](./cstar-k-theory)
 - [x] [单 C*-代数的分类（Davidson 第12章）](./classification-of-simple-cstar-algebras)
+
+### 第5篇
+
+- [ ] 巴拿赫代数与谱（谱半径、Gelfand 理论）
+- [ ] C*-代数基础（定义、例子、正元）
+- [ ] 交换 C*-代数（Gelfand-Naimark 定理）
+- [ ] 函数演算（连续与可测函数演算）
+- [ ] 态与 GNS 构造（表示理论）
+- [ ] 冯·诺依曼代数（双交换子定理）
+- [ ] 投影理论与因子分类（I/II/III 型）
+- [ ] 张量积与核性（核 C*-代数）
+- [ ] K-理论初步（K0/K1 群、指标）
+- [ ] 应用选讲（量子统计力学、非交换几何）

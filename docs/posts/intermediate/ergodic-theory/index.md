@@ -55,3 +55,14 @@ pageClass: plain-doc
 - [x] [群作用与紧群上的旋转系统](./group-actions-compact-group-rotations)
 - [x] [Furstenberg 多重回复定理与 Szemerédi 定理](./furstenberg-multiple-recurrence-and-szemeredi)
 - [x] [等分布、Diophantine 逼近与遍历方法](./equidistribution-diophantine-approximation)
+
+### 第6篇
+
+- [ ] 保测变换（例子：旋转、Bernoulli 移位）
+- [ ] 遍历性与不变测度（Poincaré 回归）
+- [ ] 遍历定理（Birkhoff 与 von Neumann 遍历定理）
+- [ ] 混合性与谱方法（弱混合、强混合）
+- [ ] 测度熵（Kolmogorov-Sinai 熵、变分原理）
+- [ ] 符号动力系统（拓扑熵、移位系统）
+- [ ] 唯一遍历性与等分布（Weyl 定理、连分数）
+- [ ] 前沿应用（齐次动力系统、数论中的遍历方法）

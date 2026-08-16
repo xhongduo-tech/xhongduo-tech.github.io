@@ -50,3 +50,18 @@ pageClass: plain-doc
 - [x] [线性二次型调节器（LQR）与 Riccati 方程](./lqr-riccati)
 - [x] [动态规划与 Bellman 方程](./dynamic-programming-bellman)
 - [x] [时间最优与最省燃料控制](./time-optimal-fuel-optimal)
+
+### 第5篇
+
+- [ ] 控制系统建模（微分方程、传递函数）
+- [ ] 时域分析（阶跃响应、性能指标）
+- [ ] 稳定性分析（Routh 判据、Nyquist 判据）
+- [ ] 根轨迹与频域设计（Bode 图、校正）
+- [ ] 状态空间方法（状态方程、实现）
+- [ ] 能控性与能观性（Kalman 判据）
+- [ ] 状态反馈与观测器（极点配置、Luenberger 观测器）
+- [ ] 李雅普诺夫稳定性（直接法、拉萨尔原理）
+- [ ] 变分法与最优控制（Euler-Lagrange 方程）
+- [ ] 庞特里亚金极大值原理（最小时间/燃料问题）
+- [ ] 动态规划与 LQR/LQG（HJB 方程、卡尔曼滤波）
+- [ ] 现代控制前沿（鲁棒控制 H∞、模型预测控制）

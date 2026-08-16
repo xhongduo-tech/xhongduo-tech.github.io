@@ -50,3 +50,14 @@ pageClass: plain-doc
 - [x] [哈密顿流与谱不变量](./spectral-invariants)
 - [x] [镜面对称与 SYZ 猜想](./mirror-symmetry)
 - [x] [辛几何与几何表示论的桥梁](./symplectic-representation-theory)
+
+### 第5篇
+
+- [ ] 辛线性代数（辛向量空间、辛群）
+- [ ] 辛流形（Darboux 定理、Moser 技巧）
+- [ ] 哈密顿系统（哈密顿向量场、泊松括号）
+- [ ] 辛作用与矩映射（Hamiltonian 群作用）
+- [ ] 辛约化（Marsden-Weinstein 约化）
+- [ ] 拉格朗日子流形（生成函数、Maslov 指标简介）
+- [ ] 辛拓扑（非挤压定理、伪全纯曲线初步）
+- [ ] 前沿与物理应用（Floer 同调、镜像对称概念）

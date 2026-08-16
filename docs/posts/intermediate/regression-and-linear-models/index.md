@@ -52,3 +52,16 @@ pageClass: plain-doc
 - [x] [回归模型的验证与交叉验证](./model-validation-cross-validation)（Montgomery 第11章）
 - [x] [非线性回归简介](./nonlinear-regression)（Montgomery 第12章）
 - [x] [广义线性模型与逻辑回归](./glm-logistic-regression)（Montgomery 第13章）
+
+### 第5篇
+
+- [ ] 简单线性回归（最小二乘估计、显著性检验）
+- [ ] 多元线性回归（矩阵形式、估计性质）
+- [ ] 回归诊断（残差分析、影响点、异方差）
+- [ ] 变量选择与模型评估（逐步回归、AIC/BIC）
+- [ ] 共线性处理（岭回归、LASSO）
+- [ ] 方差分析模型（单/双因素、协方差分析）
+- [ ] 广义线性模型（logistic 回归、泊松回归）
+- [ ] 混合效应模型（随机效应、纵向数据）
+- [ ] 非参数回归初步（核估计、样条）
+- [ ] 计算实践与案例分析（R/Python 实现）

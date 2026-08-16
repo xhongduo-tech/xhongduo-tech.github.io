@@ -59,3 +59,14 @@ pageClass: plain-doc
 - [x] [CR 函数的局部性质与可延拓性](./cr-functions-local-properties)（Hörmander 第5章；史济怀 第7章）
 - [x] [CR 流形的嵌入与 Lewy 反例](./cr-manifold-embedding-lewy-example)（Krantz 第7章）
 - [x] [强伪凸域边界的解析延拓与连续性原理](./analytic-continuation-continuity-principle)（Hörmander 第6章；史济怀 第7章）
+
+### 第6篇
+
+- [ ] 多复变全纯函数基础（多圆柱、柯西公式）
+- [ ] 与单复变的本质差异（Hartogs 现象）
+- [ ] 解析延拓与全纯域（全纯凸性）
+- [ ] 拟凸域与 Levi 问题（Levi 形式）
+- [ ] ∂̄ 方程与 L² 估计方法（Hörmander 方法）
+- [ ] 积分表示公式（Bochner-Martinelli、边界行为）
+- [ ] Stein 流形与凝聚层初步（Cartan 定理 A/B 简介）
+- [ ] 复几何与全纯映射初步（双全纯等价问题）

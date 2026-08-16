@@ -52,3 +52,16 @@ pageClass: plain-doc
 - [x] [图码：扩展图码、Ramanujan 图与迭代解码](./graph-codes-expander-ramanujan)
 - [x] [LDPC 码与消息传递解码](./ldpc-message-passing)
 - [x] [纠错编码的应用：深空通信、数字存储与无线系统](./applications-deep-space-storage-wireless)
+
+### 第5篇
+
+- [ ] 通信信道与编码基本概念（码率、最小距离）
+- [ ] 线性分组码（生成矩阵、校验矩阵、伴随式译码）
+- [ ] 码的界（汉明界、Singleton 界、完美码）
+- [ ] 循环码（多项式表示、生成多项式）
+- [ ] BCH 码与 Reed-Solomon 码（代数译码）
+- [ ] 卷积码（状态图、维特比译码）
+- [ ] 编码的代数方法（有限域、代数几何码简介）
+- [ ] 现代迭代译码（LDPC 码、Turbo 码、极化码）
+- [ ] 编码与密码学（McEliece 体制）
+- [ ] 应用前沿（存储系统、深空通信、网络编码）
