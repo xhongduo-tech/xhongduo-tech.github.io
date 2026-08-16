@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 连接组学的定位（结构连接→功能连接→因果推断）
-- [ ] 尺度问题（突触/神经元/脑区三级图谱的技术分野）
-- [ ] 电镜连接组（串行块面电镜、果蝇/小鼠全脑图谱里程碑）
-- [ ] 光学显微镜革命（LICONN/膨胀显微镜、成本骤降的路径）
-- [ ] 分子条形码（CONNECTseq、RNA 条形码标记神经元连接）
-- [ ] 图像分割与 AI（Flood-Filling Network、自动突触识别）
-- [ ] 功能与结构的联合（钙成像+连接组的多模态配准）
-- [ ] 网络科学分析（图论指标、模块化、Rich-Club 结构）
+- [x] [连接组学的定位（结构连接→功能连接→因果推断）](./connectome-definition)
+- [x] [尺度问题（突触/神经元/脑区三级图谱的技术分野）](./connectome-scales)
+- [x] [电镜连接组（串行块面电镜、果蝇/小鼠全脑图谱里程碑）](./electron-microscopy-connectomics)
+- [x] [光学显微镜革命（LICONN/膨胀显微镜、成本骤降的路径）](./optical-microscopy-revolution)
+- [x] [分子条形码（CONNECTseq、RNA 条形码标记神经元连接）](./molecular-barcoding)
+- [x] [图像分割与 AI（Flood-Filling Network、自动突触识别）](./image-segmentation-ai)
+- [x] [功能与结构的联合（钙成像+连接组的多模态配准）](./structure-function-integration)
+- [x] [网络科学分析（图论指标、模块化、Rich-Club 结构）](./network-science-analysis)
 
 ### 第2篇
 
-- [ ] 疾病连接组（自闭症/精神分裂症的连接异常）
-- [ ] 发育与进化连接组（连接图谱的发育规则与物种比较）
-- [ ] 类脑计算的启示（连接组约束的神经形态架构）
-- [ ] 数据基础设施（PB 级数据、开放图谱联盟）
+- [x] [疾病连接组（自闭症/精神分裂症的连接异常）](./disease-connectome)
+- [x] [发育与进化连接组（连接图谱的发育规则与物种比较）](./development-evolution-connectome)
+- [x] [类脑计算的启示（连接组约束的神经形态架构）](./neuromorphic-computing)
+- [x] [数据基础设施（PB 级数据、开放图谱联盟）](./data-infrastructure)

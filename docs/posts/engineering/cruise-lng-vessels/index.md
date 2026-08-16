@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 造船业三大明珠（航母/LNG 船/大型邮轮的技术制高点）
-- [ ] 大型邮轮总布置（16 层甲板、上建重量重心控制、冗余分区）
-- [ ] 邮轮薄板建造（8mm 以下薄板焊接变形控制、激光复合焊）
-- [ ] 邮轮内装工程（模块化舱室、防火分隔 A-60、数百家供应商协同）
-- [ ] 邮轮安全返港（SRtP 规范、双机舱冗余、撤离系统）
-- [ ] LNG 货物围护系统（薄膜型 Mark III/NO96、殷瓦钢焊接）
-- [ ] LNG 蒸发气管理（BOG 再液化、双燃料低速机 X-DF/ME-GI）
-- [ ] 极地邮轮与破冰（极地规则 Polar Code、冰区加强船级）
+- [x] [造船业三大明珠（航母/LNG 船/大型邮轮的技术制高点）](./three-jewels-of-shipbuilding)
+- [x] [大型邮轮总布置（16 层甲板、上建重量重心控制、冗余分区）](./cruise-ship-general-arrangement)
+- [x] [邮轮薄板建造（8mm 以下薄板焊接变形控制、激光复合焊）](./cruise-ship-thin-plate-construction)
+- [x] [邮轮内装工程（模块化舱室、防火分隔 A-60、数百家供应商协同）](./cruise-ship-interior-fitout)
+- [x] [邮轮安全返港（SRtP 规范、双机舱冗余、撤离系统）](./cruise-ship-safe-return-to-port)
+- [x] [LNG 货物围护系统（薄膜型 Mark III/NO96、殷瓦钢焊接）](./lng-cargo-containment)
+- [x] [LNG 蒸发气管理（BOG 再液化、双燃料低速机 X-DF/ME-GI）](./lng-boil-off-gas-management)
+- [x] [极地邮轮与破冰（极地规则 Polar Code、冰区加强船级）](./polar-cruise-ships-and-icebreaking)
 
 ### 第2篇
 
-- [ ] 绿色船舶动力（甲醇/氨燃料预留、风帆助推、碳强度指标 CII）
-- [ ] 豪华邮轮运营工程（酒店系统、水电空调的巨大能耗链）
-- [ ] 国产大邮轮工程（爱达·魔都号的供应链国产化路径）
-- [ ] 邮轮母港与产业链（港口设施、维修补给、人员培训）
+- [x] [绿色船舶动力（甲醇/氨燃料预留、风帆助推、碳强度指标 CII）](./green-ship-propulsion)
+- [x] [豪华邮轮运营工程（酒店系统、水电空调的巨大能耗链）](./luxury-cruise-ship-operations)
+- [x] [国产大邮轮工程（爱达·魔都号的供应链国产化路径）](./china-domestic-large-cruise-ship)
+- [x] [邮轮母港与产业链（港口设施、维修补给、人员培训）](./cruise-home-port-and-industry-chain)
