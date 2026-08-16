@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 640 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20 个），约 7650 个章节级子主题
+// 共 664 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3 个），约 7938 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -13798,6 +13798,536 @@ export const treeDetails = {
       "核设施退役（去污、拆除、场址释放）",
       "核安全文化（纵深防御、三哩岛/切尔诺贝利/福岛事故工程教训）",
       "核保障监督与不扩散（IAEA 保障、材料衡算、两用技术管控）"
+    ],
+  },
+  'engineering/semiconductor-materials': {
+    title: "半导体材料（硅/化合物衬底与外延）",
+    books: [
+          "Shimura, \"Semiconductor Silicon Crystal Technology\" (1989)",
+          "Stringfellow, \"Organometallic Vapor-Phase Epitaxy: Theory and Practice\" (2nd ed., 1999)",
+          "Holloway, McGuire (eds.), \"Handbook of Compound Semiconductors\" (1995)"
+    ],
+    chapters: [
+      "半导体材料的地位：材料纯度如何决定器件上限（9N-11N 的故事）",
+      "多晶硅提纯（西门子法、流化床法、电子级 vs 太阳能级）",
+      "单晶硅生长（直拉 CZ 的温场控制、区熔 FZ、大直径化的工程极限）",
+      "晶圆加工（切片/研磨/抛光/CMP、平整度与表面缺陷指标）",
+      "晶体缺陷工程（位错/点缺陷/氧沉淀、内吸杂）",
+      "外延生长（气相外延 VPE、分子束外延 MBE、原子层级控制）",
+      "MOCVD 与 III-V 族外延（GaAs/InP/GaN 的晶格匹配问题）",
+      "SiC 与 GaN 衬底（PVT 生长、微管缺陷、良率为何难）",
+      "SOI 与工程衬底（Smart Cut 键合剥离、应变硅衬底）",
+      "锗与 2D 材料衬底化（新型沟道材料的材料学瓶颈）",
+      "靶材与湿化学品（溅射靶材纯度、电子级化学品供应链）",
+      "材料表征与质量认证（XRD 摇摆曲线、少子寿命、颗粒度检测）"
+    ],
+  },
+  'engineering/superalloys-high-temperature': {
+    title: "高温合金与耐热材料（单晶叶片）",
+    books: [
+          "Reed, \"The Superalloys: Fundamentals and Applications\" (Cambridge, 2006)",
+          "Donachie, Donachie, \"Superalloys: A Technical Guide\" (2nd ed., 2002)",
+          "Sims, Stoloff, Hagel (eds.), \"Superalloys II\" (1987)（领域经典）"
+    ],
+    chapters: [
+      "高温服役环境的挑战（蠕变/疲劳/氧化/热腐蚀四位一体）",
+      "镍基高温合金的相结构（γ 基体 + γ' 强化相的设计哲学）",
+      "合金化设计（Al/Ti/Ta 定 γ'、Re/Ru 的代际演进）",
+      "铸造工艺演进（等轴晶→定向凝固→单晶，晶界为何是敌人）",
+      "单晶叶片制造（选晶器/螺旋选晶、杂晶与雀斑缺陷控制）",
+      "粉末冶金高温合金（涡轮盘的制粉/热等静压/锻造路线）",
+      "钛合金（Ti-6Al-4V、高温钛合金在压气机上的应用）",
+      "热障涂层 TBC（YSZ 陶瓷层 + 粘结层、EB-PVD vs 等离子喷涂）",
+      "金属间化合物与难熔合金（TiAl 叶片、Nb-Si 系探索）",
+      "蠕变与疲劳寿命预测（Larson-Miller 参数、寿命管理）",
+      "氧化与热腐蚀机制（保护性氧化膜、热盐腐蚀）",
+      "航空发动机材料图谱（从涡喷到高涵道比的材料代际）"
+    ],
+  },
+  'engineering/advanced-composites': {
+    title: "先进复合材料（碳纤维/陶瓷基/树脂基）",
+    books: [
+          "Chawla, \"Composite Materials: Science and Engineering\" (4th ed., 2019)",
+          "Hull, Clyne, \"An Introduction to Composite Materials\" (2nd ed., 1996)",
+          "Daniel, Ishai, \"Engineering Mechanics of Composite Materials\" (2nd ed., 2006)"
+    ],
+    chapters: [
+      "复合材料设计哲学（增强体+基体+界面、混合律）",
+      "碳纤维制造（PAN 原丝→预氧化→碳化/石墨化、T300 到 T1100 的密码）",
+      "树脂基复合材料成型（预浸料/热压罐、RTM、自动铺丝 AFP）",
+      "层合板力学（经典层合板理论、铺层设计准则）",
+      "界面与损伤（界面结合、分层、冲击后压缩 CAI）",
+      "陶瓷基复合材料 CMC（SiC/SiC、航空发动机热端应用）",
+      "碳/碳复合材料（刹车盘、火箭喷管喉衬）",
+      "金属基复合材料（SiC 增强铝、原位自生）",
+      "结构健康监测与无损检测（超声 C 扫、声发射）",
+      "航空应用案例（B787/A350 复材机体、风扇叶片）",
+      "回收与可持续（碳纤维回收、热塑性复材的兴起）",
+      "成本与量产（汽车级碳纤维的成本瓶颈与快速成型）"
+    ],
+  },
+  'engineering/optoelectronic-materials': {
+    title: "光电与激光材料",
+    books: [
+          "Kasap, \"Optoelectronics and Photonics: Principles and Practices\" (2nd ed., 2013)",
+          "Koechner, \"Solid-State Laser Engineering\" (6th ed., 2006)",
+          "Weber, \"Handbook of Optical Materials\" (2002)"
+    ],
+    chapters: [
+      "光学材料基础（折射率/色散/透过窗口、光学玻璃牌号）",
+      "激光增益介质（Nd:YAG/Yb:YAG/钛宝石/光纤增益介质）",
+      "非线性光学晶体（KDP/BBO/LBO，频率转换的工程参数）",
+      "电光与声光材料（调制器、Q 开关材料）",
+      "光纤材料（石英预制棒 MCVD、氟化物光纤）",
+      "半导体光电子材料（III-V 发光、InGaN/GaN LED 材料体系）",
+      "红外光学材料（锗/硅/硫化锌/硫系玻璃）",
+      "光学薄膜（增透/高反/滤光膜系设计、镀膜工艺）",
+      "闪烁体与辐射探测材料（NaI/BGO/LYSO）",
+      "量子点与钙钛矿光电材料（发光/探测的新兴体系）",
+      "光学加工与镀膜装备（超精密抛光、离子束修形）",
+      "极端环境光学元件（EUV 多层膜、高功率激光损伤阈值）"
+    ],
+  },
+  'engineering/electronic-ceramics': {
+    title: "电子陶瓷与功能陶瓷（MLCC/压电/铁电）",
+    books: [
+          "Moulson, Herbert, \"Electroceramics: Materials, Properties, Applications\" (2nd ed., 2003)",
+          "Jaffe, Cook, Jaffe, \"Piezoelectric Ceramics\" (1971)（压电领域经典）",
+          "Buchanan (ed.), \"Ceramic Materials for Electronics\" (3rd ed., 2004)"
+    ],
+    chapters: [
+      "功能陶瓷的物理基础（介电/铁电/压电/热释电的关系网）",
+      "介电陶瓷与 MLCC（BaTiO3 体系、贱金属内电极 BME、薄层化极限）",
+      "MLCC 制造工艺（流延/叠层/共烧、端电极与可靠性）",
+      "压电陶瓷（PZT 相图、掺杂改性、超声换能器应用）",
+      "无铅压电陶瓷（KNN/BNT 体系的追赶现状）",
+      "铁电存储与铁电薄膜（PZT/HfO2 铁电性的意外发现）",
+      "微波介质陶瓷（介电常数/品质因数/温度系数三要素、5G 滤波器）",
+      "敏感陶瓷（NTC/PTC 热敏、压敏 ZnO、气敏）",
+      "透明陶瓷与激光陶瓷（YAG 透明陶瓷的多晶路线）",
+      "结构-功能一体化（陶瓷基板、氮化铝/氮化硅散热基板）",
+      "陶瓷成型与烧结科学（干压/注浆/流延、放电等离子烧结 SPS）",
+      "可靠性工程（绝缘电阻退化、寿命加速试验）"
+    ],
+  },
+  'engineering/magnetic-materials': {
+    title: "磁性材料（永磁/软磁/自旋电子学）",
+    books: [
+          "Cullity, Graham, \"Introduction to Magnetic Materials\" (2nd ed., 2009)",
+          "Coey, \"Magnetism and Magnetic Materials\" (Cambridge, 2010)",
+          "Skomski, Coey, \"Permanent Magnetism\" (1999)"
+    ],
+    chapters: [
+      "磁性物理基础（磁矩起源、交换作用、磁畴与技术磁化）",
+      "永磁材料性能坐标系（剩磁/矫顽力/最大磁能积）",
+      "NdFeB 永磁（速凝片工艺、氢破碎、烧结与晶界扩散）",
+      "稀土战略与减镝/无镝化（重稀土晶界渗透的工程权衡）",
+      "钐钴与铁氧体（高温与低成本两条路线）",
+      "软磁材料（硅钢/铁氧体/非晶纳米晶、铁损的来源）",
+      "电工钢制造（取向硅钢的二次再结晶、薄规格趋势）",
+      "磁记录材料（垂直记录、HAMR 热辅助的介质挑战）",
+      "自旋电子学材料（GMR/TMR、磁性隧道结 MRAM）",
+      "磁致伸缩与磁致冷材料（TbDyFe、室温磁制冷探索）",
+      "高频磁性元件（功率电感/变压器磁芯的选型逻辑）",
+      "磁体应用工程（电机磁钢、MRI 超导磁体对照）"
+    ],
+  },
+  'engineering/energy-storage-materials': {
+    title: "电池与储能材料（锂离子/固态/钠电）",
+    books: [
+          "Julien, Mauger, Vijh, Zaghib (eds.), \"Lithium Batteries: Science and Technology\" (Springer, 2016)",
+          "Huggins, \"Energy Storage: Fundamentals, Materials and Applications\" (2nd ed., 2015)",
+          "Warner, \"The Handbook of Lithium-Ion Battery Pack Design\" (2nd ed., 2024)"
+    ],
+    chapters: [
+      "电化学储能基础（电压/容量/倍率/循环的物理来源）",
+      "正极材料（钴酸锂→三元 NCM/NCA→磷酸铁锂的结构化学）",
+      "高镍正极工程（容量-稳定性的矛盾、单晶化与包覆）",
+      "负极材料（石墨层间化合物、硅基负极的体积膨胀难题）",
+      "电解液与界面膜（SEI 的形成化学、新型锂盐与添加剂）",
+      "隔膜与安全（聚烯烃微孔膜、热关闭、涂覆改性）",
+      "固态电池（硫化物/氧化物/聚合物电解质、界面阻抗症结）",
+      "钠离子电池（层状氧化物/聚阴离子/普鲁士蓝路线）",
+      "锂金属负极与锂硫/锂空气（终极体系的现实距离）",
+      "电芯制造工艺（匀浆/涂布/辊压/卷绕叠片/注液化成）",
+      "电池系统（模组/PACK、BMS 算法、热失控防护）",
+      "测评与回收（容量衰减机理诊断、梯次利用、湿法回收）"
+    ],
+  },
+  'engineering/nano-2d-materials': {
+    title: "纳米与二维材料（石墨烯/TMD/量子点）",
+    books: [
+          "Cao, \"Nanostructures & Nanomaterials: Synthesis, Properties, and Applications\" (2nd ed., 2011)",
+          "Warner, Schäffel, Bachmatiuk, Rümmeli, \"Graphene: Fundamentals and Emergent Applications\" (2013)",
+          "Roduner, \"Nanoscopic Materials: Size-Dependent Phenomena\" (2006)"
+    ],
+    chapters: [
+      "纳米效应的物理（尺寸限制、表面原子比例、量子限域）",
+      "纳米材料制备（自下而上 vs 自上而下、气相/液相法）",
+      "碳纳米管（结构决定金属/半导体性、阵列生长）",
+      "石墨烯（机械剥离→CVD 量产、转移工艺的痛点）",
+      "二维过渡金属硫族化合物（MoS2/WS2、直接带隙的机会）",
+      "二维材料器件（场效应管、柔性电子、异质结堆叠）",
+      "量子点（尺寸可调发光、显示与生物标记应用）",
+      "纳米线与纳米棒（VLS 生长、传感器与能源器件）",
+      "纳米复合材料（分散难题、增强机制）",
+      "纳米材料表征（TEM/AFM/Raman 的专用方法）",
+      "安全性与标准化（纳米毒理、表征标准）",
+      "从实验室到产业（石墨烯产业的十年复盘）"
+    ],
+  },
+  'engineering/biomaterials': {
+    title: "生物医用材料",
+    books: [
+          "Ratner, Hoffman, Schoen, Lemons (eds.), \"Biomaterials Science: An Introduction to Materials in Medicine\" (4th ed., 2020)",
+          "Park, Lakes, \"Biomaterials: An Introduction\" (3rd ed., 2007)",
+          "Hench (ed.), \"An Introduction to Bioceramics\" (2nd ed., 2013)"
+    ],
+    chapters: [
+      "生物材料的设计约束（生物相容性、灭菌、法规路径）",
+      "金属植入材料（钛合金/钴铬/不锈钢、表面改性）",
+      "生物陶瓷（羟基磷灰石、生物玻璃、骨水泥）",
+      "医用高分子（PEEK/PLA/硅胶、可吸收聚合物的降解动力学）",
+      "组织工程支架（多孔结构、细胞外基质仿生）",
+      "药物递送系统（控释载体、脂质体、微球）",
+      "血液接触材料（抗凝血表面、人工血管与瓣膜）",
+      "牙科与骨科材料（种植体骨结合、关节摩擦副）",
+      "水凝胶与软组织修复（隐形眼镜、创面敷料）",
+      "可降解金属（镁合金/锌合金血管支架）",
+      "生物材料的评价（体外/体内试验、ISO 10993 体系）",
+      "3D 打印与再生医学（生物墨水、器官芯片交叉）"
+    ],
+  },
+  'engineering/superconducting-materials': {
+    title: "超导材料与应用（NbTi/REBCO/磁体）",
+    books: [
+          "Seeber (ed.), \"Handbook of Applied Superconductivity\" (1998)",
+          "Iwasa, \"Case Studies in Superconducting Magnets\" (2nd ed., 2009)",
+          "Rogalla, Kes (eds.), \"100 Years of Superconductivity\" (2012)"
+    ],
+    chapters: [
+      "超导材料坐标系（Tc/Hc/Jc 三临界、实用化的判据）",
+      "低温超导 NbTi（合金熔炼-拉丝-绞缆工艺、MRI 的主力）",
+      "Nb3Sn 金属间化合物（脆性材料的先绕后反应工艺）",
+      "高温超导 REBCO 带材（涂层导体、二代带材的产业化）",
+      "Bi-2223/2212 线带材（一代高温超导的存量应用）",
+      "MgB2 与铁基超导（中间温度区的新选项）",
+      "超导磁体工程（绕制/环氧浸渍/失超保护/低温系统）",
+      "MRI 与科研磁体（磁场均匀度、匀场技术）",
+      "超导电力（限流器/电缆/储能 SMES 的示范工程）",
+      "超导在聚变中的应用（ITER 磁体的超导规模纪录）",
+      "悬浮与推进（磁悬浮列车、超导电机）",
+      "量子计算用超导器件（约瑟夫森结、SQUID 制备）"
+    ],
+  },
+  'engineering/high-performance-polymers': {
+    title: "高性能高分子与特种纤维",
+    books: [
+          "Fried, \"Polymer Science and Technology\" (3rd ed., 2014)",
+          "Fink, \"High Performance Polymers\" (2nd ed., William Andrew, 2014)",
+          "Ebewele, \"Polymer Science and Technology\" (2000)"
+    ],
+    chapters: [
+      "高分子的性能阶梯（通用塑料→工程塑料→特种工程塑料）",
+      "耐热高分子（PI 聚酰亚胺/PEEK/PPS 的结构-耐热关系）",
+      "高强度纤维（芳纶 Kevlar 的液晶纺丝、UHMWPE 冻胶纺丝）",
+      "碳纤维前驱体之外的路线（沥青基/粘胶基）",
+      "含氟聚合物（PTFE/PVDF 的耐腐蚀与低摩擦）",
+      "液晶高分子 LCP（5G 天线基材的介电优势）",
+      "分离膜材料（反渗透/气体分离/燃料电池质子膜）",
+      "导电与光电高分子（PEDOT/OLED 发光聚合物）",
+      "生物基与可降解塑料（PLA/PHA 的性能现实）",
+      "高分子加工（注塑/挤出/双向拉伸的结构控制）",
+      "老化与寿命（热氧/光氧/水解老化、寿命预测）",
+      "回收与循环（机械/化学回收的技术经济性）"
+    ],
+  },
+  'engineering/materials-characterization': {
+    title: "材料表征与分析（电镜/XRD/谱学）",
+    books: [
+          "Brandon, Kaplan, \"Microstructural Characterization of Materials\" (2nd ed., 2008)",
+          "Egerton, \"Physical Principles of Electron Microscopy\" (2nd ed., 2016)",
+          "Cullity, Stock, \"Elements of X-Ray Diffraction\" (3rd ed., 2001)"
+    ],
+    chapters: [
+      "表征方法论（成分/结构/形貌/性能四维、尺度阶梯）",
+      "光学显微与图像分析（金相制样、定量金相学）",
+      "扫描电镜 SEM（二次电子/背散射、EDS 能谱）",
+      "透射电镜 TEM（衍射/高分辨/STEM、球差校正）",
+      "电子显微分析（EELS、原位电镜、冷冻电镜交叉）",
+      "X 射线衍射（物相分析、织构、应力测量、Rietveld 精修）",
+      "表面分析（XPS/AES/TOF-SIMS 的信息深度差异）",
+      "谱学方法（拉曼/红外/紫外可见、核磁在材料中的应用）",
+      "热分析（DSC/TG/DMA、相变温度测定）",
+      "力学测试（拉伸/硬度/疲劳/断裂韧性的标准方法）",
+      "三维表征（FIB 逐层、X 射线 CT、原子探针 APT）",
+      "数据与溯源（测量不确定度、实验室间比对）"
+    ],
+  },
+  'engineering/computational-materials': {
+    title: "计算材料学与材料基因组（DFT/CALPHAD/ML）",
+    books: [
+          "Sholl, Steckel, \"Density Functional Theory: A Practical Introduction\" (2009)",
+          "Lukas, Fries, Sundman, \"Computational Thermodynamics: The CALPHAD Method\" (2007)",
+          "Materials Project / OQMD 开放数据库文档与材料机器学习综述（npj Comput. Mater.）"
+    ],
+    chapters: [
+      "多尺度材料模拟全景（电子→原子→介观→宏观）",
+      "密度泛函理论 DFT（交换关联泛函、赝势、能带与相稳定性计算）",
+      "分子动力学（势函数、EAM/机器学习势 MLP）",
+      "相图计算 CALPHAD（热力学数据库、相平衡预测）",
+      "相场模拟（凝固/析出的微结构演化）",
+      "晶体塑性有限元（织构与变形的耦合）",
+      "材料信息学（描述符设计、性质预测模型）",
+      "材料基因组方法（高通量计算+高通量实验的闭环）",
+      "机器学习势函数（GAP/NEP、第一性原理精度的分子动力学）",
+      "逆向设计（给定性能反推成分与工艺）",
+      "开放数据库与工作流（Materials Project、AFLOW、OQMD）",
+      "案例复盘（催化材料筛选、高熵合金设计、固态电解质发现）"
+    ],
+  },
+  'engineering/pcb-design-fabrication': {
+    title: "PCB 设计与制造（印制电路板）",
+    books: [
+          "Coombs, Holden (eds.), \"Printed Circuits Handbook\" (8th ed., 2023)",
+          "Khandpur, \"Printed Circuit Boards: Design, Fabrication, Assembly and Testing\" (2005)",
+          "Bogatin, \"Signal and Power Integrity—Simplified\" (3rd ed., 2018)"
+    ],
+    chapters: [
+      "PCB 的层级世界（单/双/多层/HDI/刚挠结合的类型谱）",
+      "基材与铜箔（FR-4 树脂体系、低介电高频板材、铜箔粗糙度）",
+      "制造工艺（内层图形转移/压合/钻孔/电镀/外层/阻焊/表面处理）",
+      "微孔与 HDI（激光钻孔、任意层互连、类载板 SLP）",
+      "原理图与布局布线（约束驱动设计、叠层规划）",
+      "信号完整性入门（特性阻抗、回流路径、串扰控制）",
+      "电源完整性（去耦电容网络、平面谐振、PDN 阻抗目标）",
+      "热设计与机械可靠性（导热路径、CTE 失配、挠曲控制）",
+      "可制造性设计 DFM（线宽线距、拼板、工艺边规范）",
+      "表面处理的抉择（喷锡/沉金/OSP/沉银的可靠性差异）",
+      "检测与认证（飞针/ICT、AOI、阻抗测试、IPC 标准族）",
+      "先进封装基板（ABF 载板、与《先进封装与 Chiplet》衔接）"
+    ],
+  },
+  'engineering/smt-electronics-assembly': {
+    title: "电子装联与整机制造（SMT/测试/可靠性）",
+    books: [
+          "Prasad, \"Surface Mount Technology: Principles and Practice\" (1997)",
+          "Harper (ed.), \"Electronic Packaging and Interconnection Handbook\" (4th ed., 2004)",
+          "IPC 标准族（IPC-A-610 可接受性、J-STD-001 焊接要求等公开标准体系）"
+    ],
+    chapters: [
+      "电子装联全景（芯片封装→PCB 组装→整机的三级互连）",
+      "SMT 工艺链（锡膏印刷→贴片→回流焊的温度曲线科学）",
+      "锡膏与焊接冶金（SAC 无铅焊料、金属间化合物、空洞控制）",
+      "贴装精度与视觉（0201/01005 微元件、BGA 对准）",
+      "通孔与混合装联（波峰焊、选择性焊接、压接）",
+      "清洗与三防（残留物可靠性、敷形涂覆）",
+      "检测体系（SPI/AOI/X-Ray/ICT/FCT 的分工）",
+      "返修工艺（BGA 返修台、底部填充 underfill）",
+      "可靠性物理（热循环焊点疲劳、跌落、振动寿命模型）",
+      "整机集成（结构件/散热/屏蔽/线缆的系统装配）",
+      "静电防护与洁净（ESD 体系、MSD 湿敏元件管理）",
+      "智能制造在电子厂的落地（MES、追溯、良率大数据）"
+    ],
+  },
+  'engineering/display-technology': {
+    title: "显示技术（LCD/OLED/MicroLED）",
+    books: [
+          "Chen, Cranton, Fihn (eds.), \"Handbook of Visual Display Technology\" (2nd ed., 2016)",
+          "Tsujimura, \"OLED Display: Fundamentals and Applications\" (2nd ed., 2017)",
+          "den Boer, \"Active Matrix Liquid Crystal Displays\" (2005)"
+    ],
+    chapters: [
+      "显示的评价坐标（分辨率/亮度/色域/对比度/响应/功耗）",
+      "液晶物理与显示模式（TN/IPS/VA 的取向控制）",
+      "TFT 背板（非晶硅→LTPS→IGZO/氧化物、LTPO 的由来）",
+      "LCD 光学系统（背光、导光板、增亮膜、量子点膜 QDEF）",
+      "OLED 器件（有机发光堆栈、蒸镀工艺、像素电路补偿）",
+      "OLED 蒸镀装备（FMM 精密掩膜、大尺寸化的工艺壁垒）",
+      "柔性显示（CPI/UTG 盖板、铰链区的材料疲劳）",
+      "MiniLED 背光与 MicroLED（巨量转移的技术路线竞争）",
+      "触控集成（in-cell/on-cell、笔迹采样）",
+      "投影与近眼显示（LCoS/DLP、光波导、Pancake 光学）",
+      "显示驱动 IC 与接口（DDIC、eDP/MIPI 协议）",
+      "制造良率经济学（世代线、切割效率、检测修复）"
+    ],
+  },
+  'engineering/power-supply-technology': {
+    title: "电源技术（开关电源/VRM/供电网络）",
+    books: [
+          "Pressman, Billings, Morey, \"Switching Power Supply Design\" (3rd ed., 2009)",
+          "Erickson, Maksimović, \"Fundamentals of Power Electronics\" (3rd ed., 2020)",
+          "Maniktala, \"Switching Power Supplies A to Z\" (2nd ed., 2012)"
+    ],
+    chapters: [
+      "电源架构总览（AC-DC 整流→PFC→DC-DC 的能量链）",
+      "开关变换拓扑（Buck/Boost/Buck-Boost 的工作模态）",
+      "隔离拓扑（反激/正激/半桥全桥/LLC 谐振）",
+      "磁性元件设计（变压器/电感、磁芯损耗与绕组损耗）",
+      "控制环路（电压/电流模式、补偿网络设计）",
+      "功率器件选型（MOSFET/GaN 在电源中的权衡，与功率半导体专题互链）",
+      "同步整流与多相 VRM（CPU/GPU 供电的瞬态响应挑战）",
+      "功率因数校正 PFC（升压 PFC、图腾柱无桥）",
+      "EMI 与安规（传导/辐射抑制、绝缘耐压认证）",
+      "热设计与效率优化（损耗分解、80 PLUS 体系）",
+      "电池充电管理（CC/CV、快充协议、电量计）",
+      "数字电源与智能供电（PMBus、服务器 48V 架构）"
+    ],
+  },
+  'engineering/thermal-management-electronics': {
+    title: "电子设备热管理（热管/均热板/液冷）",
+    books: [
+          "Shabany, \"Heat Transfer: Thermal Management of Electronics\" (CRC, 2010)",
+          "Azar (ed.), \"Thermal Management of Microelectronic Equipment\" (ASME Press)",
+          "JEDEC JESD51 系列热测试与建模标准（公开标准族）"
+    ],
+    chapters: [
+      "热管理的目标函数（结温约束、热阻网络 θjc/θca）",
+      "导热界面材料（硅脂/相变片/液态金属、接触热阻）",
+      "散热器设计（翅片优化、自然/强迫对流）",
+      "热管（毛细芯结构、工作流体、传热极限）",
+      "均热板 VC（二维扩展、超薄化的工艺）",
+      "风冷系统（风扇 P-Q 曲线、风道设计、噪声权衡）",
+      "液冷（冷板/微通道、单相/两相、数据中心的直接液冷）",
+      "浸没式冷却（单相/相变浸没、服务器案例）",
+      "芯片级热问题（热点、热密度 100W/cm² 时代的应对）",
+      "热电制冷与热敏元件（TEC、NTC 温控回路）",
+      "热仿真与测量（CFD、红外热像、JEDEC 标准测试）",
+      "系统级热设计案例（手机 SoC、GPU 显卡、AI 服务器整机柜）"
+    ],
+  },
+  'engineering/high-speed-interconnect': {
+    title: "高速互连与信号完整性（SerDes/PCIe/DDR）",
+    books: [
+          "Bogatin, \"Signal and Power Integrity—Simplified\" (3rd ed., 2018)",
+          "Johnson, Graham, \"High-Speed Digital Design: A Handbook of Black Magic\" (1993)",
+          "Hall, Heck, \"Advanced Signal Integrity for High-Speed Digital Designs\" (2009)"
+    ],
+    chapters: [
+      "从并行到串行的历史转折（时钟偏移为何逼出 SerDes）",
+      "传输线理论（特性阻抗、反射、端接策略）",
+      "S 参数与信道表征（插损/回损/串扰、TDR 测量）",
+      "编码与均衡（8b/10b→PAM4、CTLE/DFE/FFE 均衡链）",
+      "时钟与抖动（PLL/CDR、抖动分解 RJ/DJ）",
+      "PCIe 协议栈（物理层→数据链路→事务层、代际翻倍史）",
+      "DDR 存储接口（拓扑/端接/读写训练、信号时序余量）",
+      "封装与板级协同（Die-封装-PCB 三级互连的信号接力）",
+      "光互连（AOC/光模块、共封装光学趋势）",
+      "电源完整性（SSN 同步开关噪声、PDN 设计）",
+      "仿真工作流（IBIS-AMI、信道仿真、眼图合规）",
+      "标准生态（PCI-SIG/JEDEC/OIF 的规范工程）"
+    ],
+  },
+  'cs/firmware-uefi-boot': {
+    title: "固件与启动链（BIOS/UEFI/嵌入式引导）",
+    books: [
+          "UEFI Forum, \"UEFI Specification\" 与 \"Platform Initialization (PI) Specification\"（公开规范）",
+          "Zimmer, Rothman, Marisetty, \"Embedded Firmware Solutions\" (Apress, 2015)",
+          "Intel 开源固件文档（coreboot/EDK II 官方文档）"
+    ],
+    chapters: [
+      "固件的位置（硬件与 OS 之间的隐形层、从上电复位开始）",
+      "x86 启动链（RESET→SEC→PEI→DXE→BDS→OS 的接力）",
+      "UEFI 体系（驱动模型、Protocol、UEFI Shell 与变量服务）",
+      "传统 BIOS 与 legacy 兼容（CSM、实模式遗产）",
+      "安全启动（Secure Boot 信任链、TPM 度量启动）",
+      "内存初始化（MRC 内存参考代码、SPD 读取与训练）",
+      "外设枚举（PCIe 枚举、ACPI 表的生成）",
+      "嵌入式引导（ARM 的 BootROM→TF-A→U-Boot→内核链）",
+      "开源固件（coreboot/LinuxBoot、固件供应链透明化）",
+      "固件更新机制（ capsules 更新、防回滚、A/B 分区）",
+      "固件安全（BIOS rootkit、Intel ME/PSP 的争议与边界）",
+      "调试手段（串口日志、POST code、JTAG/SWD）"
+    ],
+  },
+  'engineering/vacuum-cryogenic-engineering': {
+    title: "真空与低温工程（半导体/超导支撑技术）",
+    books: [
+          "O'Hanlon, \"A User's Guide to Vacuum Technology\" (3rd ed., 2003)",
+          "Jousten (ed.), \"Handbook of Vacuum Technology\" (2nd ed., 2016)",
+          "Flynn, \"Cryogenic Engineering\" (2nd ed., 2005)"
+    ],
+    chapters: [
+      "真空的分级（粗真空→高真空→超高真空的物理差异）",
+      "抽气机组（机械泵/分子泵/离子泵/低温泵的组合逻辑）",
+      "真空测量（皮拉尼/电离规、残余气体分析 RGA）",
+      "密封与材料（金属密封、出气率、真空烘烤）",
+      "超高真空系统（EUV 光刻/同步辐射的 UHV 工程）",
+      "真空工艺应用（镀膜/刻蚀/注入的真空环境设计）",
+      "低温温区与制冷循环（焦汤/斯特林/GM/稀释制冷机）",
+      "液氮/液氦系统（杜瓦、传输线、零挥发磁体）",
+      "超导磁体的低温集成（与《超导材料与应用》互链）",
+      "量子计算的毫开尔文工程（稀释制冷机、布线热锚定）",
+      "低温材料学（低温强度/韧性、绝热设计）",
+      "空间低温与红外探测（空间制冷机、低温光学）"
+    ],
+  },
+  'engineering/electromagnetic-aircraft-launch': {
+    title: "电磁弹射与拦阻装置（EMALS/AAG/综合电力）",
+    books: [
+          "Boldea, \"Linear Electric Machines, Drives, and MAGLEVs Handbook\" (2013)",
+          "Gieras, Piech & Tomczuk, \"Linear Synchronous Motors\" (2nd ed., 2012)",
+          "Doyle et al., \"Electromagnetic Aircraft Launch System — EMALS\" (IEEE Trans. Magnetics, 1995)",
+          "Patel, \"Shipboard Electrical Power Systems\" (2012)"
+    ],
+    chapters: [
+      "航母舰载机起降的工程约束（起飞重量/甲板长度/出动架次率）",
+      "蒸汽弹射的物理极限（效率、淡水消耗、末速度不可调）",
+      "直线电机原理（直线感应/直线同步的推力与法向力）",
+      "分段供电与位置反馈（长定子分段切换、无槽设计）",
+      "飞轮储能与盘式发电机（动能缓冲、充电/放电循环）",
+      "脉冲功率变换（IGCT/IGBT 变流器、四象限运行）",
+      "中压直流综合电力系统（MVDC 电网、推进与弹射共用能量池）",
+      "电磁兼容与甲板环境（盐雾/冲击/EMI 抑制）",
+      "先进拦阻装置 AAG（水涡轮+感应电机、能量回收）",
+      "福特级工程实践（EMALS/AAG 的研制教训与可靠性爬坡）",
+      "电磁弹射的战术收益（无人机轻载弹射、能量精确匹配）",
+      "电磁发射的延伸（电磁炮/轨道发射/航天电磁助推）"
+    ],
+  },
+  'engineering/marine-nuclear-propulsion': {
+    title: "舰船核动力装置（压水堆舰船化/A1B/潜艇堆）",
+    books: [
+          "LaMarsh & Baratta, \"Introduction to Nuclear Engineering\" (4th ed., 2017)",
+          "Todreas & Kazimi, \"Nuclear Systems I: Thermal Hydraulic Fundamentals\" (2nd ed., 2012)",
+          "Ragheb, \"Nuclear Naval Propulsion\" (InTechOpen, 2013)"
+    ],
+    chapters: [
+      "舰船核动力的战术价值（无限续航/高功率/静音的取舍）",
+      "压水堆舰船化改造（紧凑化、抗摇摆/抗冲击设计）",
+      "一回路系统（反应堆冷却剂泵、稳压器、自然循环能力）",
+      "蒸汽发生器与二回路（蒸汽动力循环、凝给水系统）",
+      "全寿期堆芯（A4W/A1B 的 40-50 年不换料设计）",
+      "潜艇反应堆（S6W/S9G 的自然循环静音运行）",
+      "辐射屏蔽与舱室布置（一次/二次屏蔽、重量代价）",
+      "反应堆安全（纵深防御、失水事故、弹棒事故的舰船场景）",
+      "核动力与综合电力（堆—汽轮机—电网的能量链）",
+      "换料与大修（ROH 换料大修、反应堆舱切割工艺）",
+      "退役与处置（反应堆舱封存、放射性废物管理）",
+      "民用核动力船舶（破冰船/浮动核电站的经验与教训）"
+    ],
+  },
+  'engineering/ai-server-rack-engineering': {
+    title: "AI 服务器整机柜工程（NVL72/NVLink/液冷/供电母排）",
+    books: [
+          "NVIDIA, \"GB200 NVL72 System Architecture\" 官方技术文档 (2024)",
+          "Barroso, Hölzle & Ranganathan, \"The Datacenter as a Computer\" (3rd ed., 2018)",
+          "ASHRAE, \"Liquid Cooling Guidelines for Datacom Equipment Centers\" (2nd ed., 2021)",
+          "OCP, \"Open Rack V3 (ORV3) 供电与机柜规范\" 官方规范"
+    ],
+    chapters: [
+      "从单机到整机柜（Scale-Up 与 Scale-Out 的架构分界）",
+      "NVLink 域设计（72 GPU 全互连、NVLink Switch 托盘拓扑）",
+      "铜互连背板（ACC/AEC 有源电缆、背板布线的信号完整性）",
+      "计算托盘结构（Bianca 板：Grace CPU + Blackwell GPU 的 1U 形态）",
+      "供电母排（Busbar 大电流传输、48V/±400V 高压直流演进）",
+      "机柜级液冷（冷板/manifold 分液器/CDU 冷量分配单元）",
+      "120kW+ 机柜的热设计（热密度、进出水温、漏液检测）",
+      "机柜管理（RMC 机柜管理控制器、遥测与固件带外管理）",
+      "可靠性工程（RAS 特性、故障域隔离、GPU 热插拔与降频降级）",
+      "OCP 开放计算（ORV3/DC-MHS 规范、供应链开放生态）",
+      "交付形态（L10→L11→L12 集成级别、数据中心部署约束）",
+      "演进路线（GB200→GB300→Rubin Ultra、600kW 机柜与 Kyber 架构）"
     ],
   },
 }
