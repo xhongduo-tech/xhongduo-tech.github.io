@@ -53,15 +53,15 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 控制系统建模（微分方程、传递函数）
-- [ ] 时域分析（阶跃响应、性能指标）
-- [ ] 稳定性分析（Routh 判据、Nyquist 判据）
-- [ ] 根轨迹与频域设计（Bode 图、校正）
-- [ ] 状态空间方法（状态方程、实现）
-- [ ] 能控性与能观性（Kalman 判据）
-- [ ] 状态反馈与观测器（极点配置、Luenberger 观测器）
-- [ ] 李雅普诺夫稳定性（直接法、拉萨尔原理）
-- [ ] 变分法与最优控制（Euler-Lagrange 方程）
-- [ ] 庞特里亚金极大值原理（最小时间/燃料问题）
-- [ ] 动态规划与 LQR/LQG（HJB 方程、卡尔曼滤波）
-- [ ] 现代控制前沿（鲁棒控制 H∞、模型预测控制）
+- [x] [控制系统建模（微分方程、传递函数）](./control-system-modeling-transfer-function)
+- [x] [时域分析（阶跃响应、性能指标）](./time-domain-analysis-step-response)
+- [x] [稳定性分析（Routh 判据、Nyquist 判据）](./stability-analysis-routh-nyquist)
+- [x] [根轨迹与频域设计（Bode 图、校正）](./root-locus-frequency-design)
+- [x] [状态空间方法（状态方程、实现）](./state-space-methods-realization)
+- [x] [能控性与能观性（Kalman 判据）](./controllability-observability-kalman-criterion)
+- [x] [状态反馈与观测器（极点配置、Luenberger 观测器）](./state-feedback-observer-luenberger)
+- [x] [李雅普诺夫稳定性（直接法、拉萨尔原理）](./lyapunov-stability-lasalle)
+- [x] [变分法与最优控制（Euler-Lagrange 方程）](./variational-methods-euler-lagrange)
+- [x] [庞特里亚金极大值原理（最小时间/燃料问题）](./pontryagin-minimum-time-fuel)
+- [x] [动态规划与 LQR/LQG（HJB 方程、卡尔曼滤波）](./dynamic-programming-lqr-lqg)
+- [x] [现代控制前沿（鲁棒控制 H∞、模型预测控制）](./robust-control-hinf-mpc)

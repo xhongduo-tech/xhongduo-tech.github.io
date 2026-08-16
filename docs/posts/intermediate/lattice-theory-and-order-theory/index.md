@@ -58,11 +58,11 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 偏序集基础（链、反链、Hasse 图）
-- [ ] 格的定义与基本性质（两种定义等价性）
-- [ ] 完全格与不动点定理（Knaster-Tarski）
-- [ ] 分配格与模格（Dedekind/Birkhoff 判据）
-- [ ] 布尔代数（表示定理、斯通定理）
-- [ ] 理想、同余与同态（格的结构定理）
-- [ ] 伽罗瓦联络（形式概念分析初步）
-- [ ] 应用选讲（程序语义学、逻辑代数化、组合中的格）
+- [x] [偏序集基础（链、反链、Hasse 图）](./poset-basics-chains-antichains-hasse)（Davey &amp; Priestley 第1章）
+- [x] [格的定义与基本性质（两种定义等价性）](./lattice-definitions-two-characterizations)（Birkhoff 第1章；Davey &amp; Priestley 第2章）
+- [x] [完全格与不动点定理（Knaster-Tarski）](./complete-lattices-and-knaster-tarski)（Davey &amp; Priestley 第2章）
+- [x] [分配格与模格（Dedekind/Birkhoff 判据）](./distributive-modular-lattices-dedekind-birkhoff)（Birkhoff 第3章；Davey &amp; Priestley 第4章）
+- [x] [布尔代数（表示定理、斯通定理）](./boolean-algebras-representation-stone)（Birkhoff 第6章；Davey &amp; Priestley 第11章）
+- [x] [理想、同余与同态（格的结构定理）](./ideals-congruences-homomorphisms-structure)（Birkhoff 第4章；Davey &amp; Priestley 第2章）
+- [x] [伽罗瓦联络（形式概念分析初步）](./galois-connections-formal-concept-analysis)（Davey &amp; Priestley 第7章）
+- [x] [应用选讲（程序语义学、逻辑代数化、组合中的格）](./applications-program-semantics-logic-combinatorics)（Davey &amp; Priestley 第7章；Birkhoff 第1、8章）
