@@ -47,7 +47,7 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 天体观测基础（天球坐标、星等系统、测距阶梯）
-- [ ] 辐射转移（辐射强度、发射与吸收系数、谱线形成）
-- [ ] 系外行星（探测方法、行星系统形成、宜居带）
-- [ ] 前沿观测设施（JWST、SKA、下一代地基望远镜）
+- [x] [天体观测基础（天球坐标、星等系统、测距阶梯）](./celestial-observation-basics)
+- [x] [辐射转移（辐射强度、发射与吸收系数、谱线形成）](./radiative-transfer)
+- [x] [系外行星（探测方法、行星系统形成、宜居带）](./exoplanets)
+- [x] [前沿观测设施（JWST、SKA、下一代地基望远镜）](./frontier-observatories)

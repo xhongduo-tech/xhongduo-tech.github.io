@@ -58,14 +58,14 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 港口海岸工程概览（港口功能布局与海岸动力学问题）
-- [ ] 波浪理论（线性波理论、斯托克斯波与近岸变形）
-- [ ] 潮汐与海流（调和分析、潮流与风暴潮）
-- [ ] 泥沙运动与海岸演变（沿岸输沙、岸滩冲淤）
-- [ ] 港口规划与总平面布置（吞吐量预测、泊位与航道尺度）
-- [ ] 码头结构设计（重力式、高桩与板桩码头）
-- [ ] 防波堤与护岸工程（波浪爬高、块体稳定与越浪）
-- [ ] 航道疏浚与回淤（疏浚工程、悬沙回淤估算）
-- [ ] 近海平台工程（固定式/浮式平台、锚泊与立管）
-- [ ] 海岸工程数值模拟（波浪数学模型、水动力-泥沙耦合）
-- [ ] 海洋工程前沿（深远海养殖、海上风电基础与海洋能利用）
+- [x] [港口海岸工程概览（港口功能布局与海岸动力学问题）](./harbor-coastal-engineering-overview)
+- [x] [波浪理论（线性波理论、斯托克斯波与近岸变形）](./wave-theory-linear-stokes-shoaling)
+- [x] [潮汐与海流（调和分析、潮流与风暴潮）](./tides-and-currents-harmonic-analysis)
+- [x] [泥沙运动与海岸演变（沿岸输沙、岸滩冲淤）](./sediment-transport-and-coastal-evolution)
+- [x] [港口规划与总平面布置（吞吐量预测、泊位与航道尺度）](./port-planning-and-layout)
+- [x] [码头结构设计（重力式、高桩与板桩码头）](./wharf-structure-design)
+- [x] [防波堤与护岸工程（波浪爬高、块体稳定与越浪）](./breakwater-revetment-overtopping)
+- [x] [航道疏浚与回淤（疏浚工程、悬沙回淤估算）](./channel-dredging-and-siltation)
+- [x] [近海平台工程（固定式/浮式平台、锚泊与立管）](./offshore-platform-engineering)
+- [x] [海岸工程数值模拟（波浪数学模型、水动力-泥沙耦合）](./coastal-numerical-modeling)
+- [x] [海洋工程前沿（深远海养殖、海上风电基础与海洋能利用）](./ocean-engineering-frontiers)

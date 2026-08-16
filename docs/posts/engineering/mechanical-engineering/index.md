@@ -99,15 +99,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 机械工程总论（学科范畴、设计流程与工程伦理）
-- [ ] 机械制图与几何精度（投影、公差配合与表面粗糙度）
-- [ ] 工程材料力学性能基础（强度、刚度、疲劳与失效准则）
-- [ ] 机构学基础（自由度、连杆机构与凸轮机构）
-- [ ] 齿轮与传动设计（渐开线齿廓、传动比与强度校核）
-- [ ] 联接与支承零件（螺纹联接、键、轴与轴承选型）
-- [ ] 机械零件疲劳设计（S-N 曲线、Miner 累积损伤理论）
-- [ ] 摩擦、磨损与润滑（摩擦学三要素、流体动压润滑）
-- [ ] 机械制造工艺基础（切削加工、成形工艺与工艺规程）
-- [ ] 机械系统动力学与振动（转子动力学、模态分析）
-- [ ] 机电一体化与机器人（伺服驱动、传感与运动控制）
-- [ ] 智能制造与增材制造前沿（CAD/CAE/CAM 集成、数字孪生）
+- [x] [机械工程总论（学科范畴、设计流程与工程伦理）](./mechanical-engineering-introduction)
+- [x] [机械制图与几何精度（投影、公差配合与表面粗糙度）](./mechanical-drawing-geometric-precision)
+- [x] [工程材料力学性能基础（强度、刚度、疲劳与失效准则）](./engineering-materials-mechanical-properties)
+- [x] [机构学基础（自由度、连杆机构与凸轮机构）](./mechanisms-basics)
+- [x] [齿轮与传动设计（渐开线齿廓、传动比与强度校核）](./gear-and-transmission-design)
+- [x] [联接与支承零件（螺纹联接、键、轴与轴承选型）](./connections-and-supporting-parts)
+- [x] [机械零件疲劳设计（S-N 曲线、Miner 累积损伤理论）](./fatigue-design-of-machine-parts)
+- [x] [摩擦、磨损与润滑（摩擦学三要素、流体动压润滑）](./tribology-friction-wear-lubrication)
+- [x] [机械制造工艺基础（切削加工、成形工艺与工艺规程）](./mechanical-manufacturing-process-basics)
+- [x] [机械系统动力学与振动（转子动力学、模态分析）](./mechanical-system-dynamics-and-vibration)
+- [x] [机电一体化与机器人（伺服驱动、传感与运动控制）](./mechatronics-and-robotics)
+- [x] [智能制造与增材制造前沿（CAD/CAE/CAM 集成、数字孪生）](./smart-manufacturing-and-additive-frontier)

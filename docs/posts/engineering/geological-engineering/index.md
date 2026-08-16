@@ -46,15 +46,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 学科概览（资源勘查与地质工程的任务体系）
-- [ ] 普通地质学与构造地质（地层、褶皱断裂与地质图）
-- [ ] 矿产地质学（矿床成因类型、成矿规律与成矿预测）
-- [ ] 矿产勘查理论与方法（勘查阶段、勘查工程布置）
-- [ ] 固体矿产储量估算（块段法、地质统计学方法）
-- [ ] 油气地质与勘探（生储盖圈、油气藏形成与评价）
-- [ ] 地球物理勘探（重力、磁法、电法与地震勘探原理）
-- [ ] 地球化学勘查（化探异常、水系沉积物测量）
-- [ ] 遥感地质（遥感图像解译与找矿信息提取）
-- [ ] 钻探工程（岩心钻探、钻进工艺与钻孔质量）
-- [ ] 工程地质与地质灾害（岩土体稳定性、滑坡泥石流勘察）
-- [ ] 资源勘查前沿（深部找矿、三维地质建模与智能勘探）
+- [x] [学科概览（资源勘查与地质工程的任务体系）](./discipline-overview)
+- [x] [普通地质学与构造地质（地层、褶皱断裂与地质图）](./general-geology-structural-geology)
+- [x] [矿产地质学（矿床成因类型、成矿规律与成矿预测）](./mineral-deposit-geology)
+- [x] [矿产勘查理论与方法（勘查阶段、勘查工程布置）](./mineral-exploration-theory-methods)
+- [x] [固体矿产储量估算（块段法、地质统计学方法）](./mineral-reserve-estimation)
+- [x] [油气地质与勘探（生储盖圈、油气藏形成与评价）](./petroleum-geology-exploration)
+- [x] [地球物理勘探（重力、磁法、电法与地震勘探原理）](./geophysical-exploration-principles)
+- [x] [地球化学勘查（化探异常、水系沉积物测量）](./geochemical-survey-methods)
+- [x] [遥感地质（遥感图像解译与找矿信息提取）](./remote-sensing-geological-interpretation)
+- [x] [钻探工程（岩心钻探、钻进工艺与钻孔质量）](./core-drilling-engineering)
+- [x] [工程地质与地质灾害（岩土体稳定性、滑坡泥石流勘察）](./engineering-geology-hazards)
+- [x] [资源勘查前沿（深部找矿、三维地质建模与智能勘探）](./frontier-of-resource-exploration)

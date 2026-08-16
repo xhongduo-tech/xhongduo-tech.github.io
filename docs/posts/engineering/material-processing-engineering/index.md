@@ -60,15 +60,15 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 材料加工概览（铸造、锻压、焊接三大工艺体系）
-- [ ] 液态金属成形原理（凝固传热、形核与偏析）
-- [ ] 铸造工艺与合金（砂型/特种铸造、铸造缺陷控制）
-- [ ] 金属塑性变形理论（屈服准则、应力应变关系）
-- [ ] 锻造与冲压工艺（自由锻/模锻、板料成形极限）
-- [ ] 轧制与挤压（轧制力能参数、孔型设计基础）
-- [ ] 焊接冶金基础（熔池凝固、热影响区组织演变）
-- [ ] 焊接方法与工艺（电弧焊、激光焊与搅拌摩擦焊）
-- [ ] 焊接结构质量控制（焊接应力变形、无损检测）
-- [ ] 模具设计与制造（注塑模、冲模与模具材料）
-- [ ] 增材制造（SLM/EBM 工艺、缺陷与组织调控）
-- [ ] 加工过程模拟与智能化（数值模拟、在线监测与闭环控制）
+- [x] [材料加工概览（铸造、锻压、焊接三大工艺体系）](./material-processing-overview)
+- [x] [液态金属成形原理（凝固传热、形核与偏析）](./liquid-metal-forming-principles)
+- [x] [铸造工艺与合金（砂型/特种铸造、铸造缺陷控制）](./casting-processes-and-alloys)
+- [x] [金属塑性变形理论（屈服准则、应力应变关系）](./metal-plastic-deformation-theory)
+- [x] [锻造与冲压工艺（自由锻/模锻、板料成形极限）](./forging-and-stamping-processes)
+- [x] [轧制与挤压（轧制力能参数、孔型设计基础）](./rolling-and-extrusion)
+- [x] [焊接冶金基础（熔池凝固、热影响区组织演变）](./welding-metallurgy-fundamentals)
+- [x] [焊接方法与工艺（电弧焊、激光焊与搅拌摩擦焊）](./welding-processes-and-methods)
+- [x] [焊接结构质量控制（焊接应力变形、无损检测）](./welding-structure-quality-control)
+- [x] [模具设计与制造（注塑模、冲模与模具材料）](./mold-design-and-manufacturing)
+- [x] [增材制造（SLM/EBM 工艺、缺陷与组织调控）](./additive-manufacturing)
+- [x] [加工过程模拟与智能化（数值模拟、在线监测与闭环控制）](./process-simulation-and-intelligence)
