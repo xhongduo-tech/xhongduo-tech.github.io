@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 舰船核动力的战术价值（无限续航/高功率/静音的取舍）
-- [ ] 压水堆舰船化改造（紧凑化、抗摇摆/抗冲击设计）
-- [ ] 一回路系统（反应堆冷却剂泵、稳压器、自然循环能力）
-- [ ] 蒸汽发生器与二回路（蒸汽动力循环、凝给水系统）
-- [ ] 全寿期堆芯（A4W/A1B 的 40-50 年不换料设计）
-- [ ] 潜艇反应堆（S6W/S9G 的自然循环静音运行）
-- [ ] 辐射屏蔽与舱室布置（一次/二次屏蔽、重量代价）
-- [ ] 反应堆安全（纵深防御、失水事故、弹棒事故的舰船场景）
+- [x] [舰船核动力的战术价值（无限续航/高功率/静音的取舍）](./tactical-value-of-naval-nuclear-power)
+- [x] [压水堆舰船化改造（紧凑化、抗摇摆/抗冲击设计）](./pwr-navalization)
+- [x] [一回路系统（反应堆冷却剂泵、稳压器、自然循环能力）](./primary-loop-system)
+- [x] [蒸汽发生器与二回路（蒸汽动力循环、凝给水系统）](./steam-generator-and-secondary-loop)
+- [x] [全寿期堆芯（A4W/A1B 的 40-50 年不换料设计）](./full-life-core)
+- [x] [潜艇反应堆（S6W/S9G 的自然循环静音运行）](./submarine-reactor-natural-circulation)
+- [x] [辐射屏蔽与舱室布置（一次/二次屏蔽、重量代价）](./radiation-shielding-compartment-layout)
+- [x] [反应堆安全（纵深防御、失水事故、弹棒事故的舰船场景）](./reactor-safety-defense-in-depth)
 
 ### 第2篇
 
-- [ ] 核动力与综合电力（堆—汽轮机—电网的能量链）
-- [ ] 换料与大修（ROH 换料大修、反应堆舱切割工艺）
-- [ ] 退役与处置（反应堆舱封存、放射性废物管理）
-- [ ] 民用核动力船舶（破冰船/浮动核电站的经验与教训）
+- [x] [核动力与综合电力（堆—汽轮机—电网的能量链）](./nuclear-power-and-integrated-electric)
+- [x] [换料与大修（ROH 换料大修、反应堆舱切割工艺）](./refueling-and-overhaul)
+- [x] [退役与处置（反应堆舱封存、放射性废物管理）](./decommissioning-and-disposal)
+- [x] [民用核动力船舶（破冰船/浮动核电站的经验与教训）](./civil-nuclear-ships)

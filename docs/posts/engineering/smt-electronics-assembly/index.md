@@ -18,18 +18,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 电子装联全景（芯片封装→PCB 组装→整机的三级互连）
-- [ ] SMT 工艺链（锡膏印刷→贴片→回流焊的温度曲线科学）
-- [ ] 锡膏与焊接冶金（SAC 无铅焊料、金属间化合物、空洞控制）
-- [ ] 贴装精度与视觉（0201/01005 微元件、BGA 对准）
-- [ ] 通孔与混合装联（波峰焊、选择性焊接、压接）
-- [ ] 清洗与三防（残留物可靠性、敷形涂覆）
-- [ ] 检测体系（SPI/AOI/X-Ray/ICT/FCT 的分工）
-- [ ] 返修工艺（BGA 返修台、底部填充 underfill）
+- [x] [电子装联全景（芯片封装→PCB 组装→整机的三级互连）](./smt-assembly-overview)
+- [x] [SMT 工艺链（锡膏印刷→贴片→回流焊的温度曲线科学）](./smt-process-chain)
+- [x] [锡膏与焊接冶金（SAC 无铅焊料、金属间化合物、空洞控制）](./solder-paste-and-soldering-metallurgy)
+- [x] [贴装精度与视觉（0201/01005 微元件、BGA 对准）](./placement-accuracy-and-vision)
+- [x] [通孔与混合装联（波峰焊、选择性焊接、压接）](./through-hole-and-mixed-assembly)
+- [x] [清洗与三防（残留物可靠性、敷形涂覆）](./cleaning-and-conformal-coating)
+- [x] [检测体系（SPI/AOI/X-Ray/ICT/FCT 的分工）](./inspection-system)
+- [x] [返修工艺（BGA 返修台、底部填充 underfill）](./rework-process)
 
 ### 第2篇
 
-- [ ] 可靠性物理（热循环焊点疲劳、跌落、振动寿命模型）
-- [ ] 整机集成（结构件/散热/屏蔽/线缆的系统装配）
-- [ ] 静电防护与洁净（ESD 体系、MSD 湿敏元件管理）
-- [ ] 智能制造在电子厂的落地（MES、追溯、良率大数据）
+- [x] [可靠性物理（热循环焊点疲劳、跌落、振动寿命模型）](./reliability-physics)
+- [x] [整机集成（结构件/散热/屏蔽/线缆的系统装配）](./system-level-integration)
+- [x] [静电防护与洁净（ESD 体系、MSD 湿敏元件管理）](./esd-and-moisture-control)
+- [x] [智能制造在电子厂的落地（MES、追溯、良率大数据）](./smart-manufacturing-in-electronics)
