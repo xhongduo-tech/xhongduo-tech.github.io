@@ -22,14 +22,20 @@ jobs:
 
       - run: npm ci
 
-      # 站点已达 ~2.8 万页，渲染峰值内存超过 runner 物理内存；
+      # 站点已达 ~3.2 万页，渲染峰值内存超过 runner 物理内存；
       # 默认 4G swap 不够会导致 runner 被 OOM 杀死（日志表现为 "The operation was canceled"）。
-      # 扩容 swap 到 10G 并把堆上限调到 12G，用时间换内存。
-      - name: Expand swap to 10G
+      # 先清理预装 SDK 腾出 ~25G 磁盘，再扩容 swap 到 20G、堆上限 12G，用时间换内存。
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL /usr/local/share/powershell || true
+          sudo docker image prune -af || true
+          df -h /
+
+      - name: Expand swap to 20G
         run: |
           sudo swapoff -a
           sudo rm -f /mnt/swapfile
-          sudo fallocate -l 10G /mnt/swapfile
+          sudo fallocate -l 20G /mnt/swapfile
           sudo chmod 600 /mnt/swapfile
           sudo mkswap /mnt/swapfile
           sudo swapon /mnt/swapfile
