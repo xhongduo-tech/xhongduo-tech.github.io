@@ -47,15 +47,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 冶金工程概览（火法、湿法、电冶金工艺路线）
-- [ ] 冶金热力学（活度、氧势图与反应平衡）
-- [ ] 冶金动力学（多相反应、界面反应与传质控制）
-- [ ] 冶金熔体（炉渣结构、熔渣性质与脱硫脱磷）
-- [ ] 选矿—烧结—球团（造块工艺与原料准备）
-- [ ] 高炉炼铁（还原反应、炉料运动与煤气流分布）
-- [ ] 转炉与电弧炉炼钢（吹炼控制、脱碳与合金化）
-- [ ] 炉外精炼（LF、RH、VD 与夹杂物控制）
-- [ ] 连续铸造（凝固传热、结晶器振动与铸坯缺陷）
-- [ ] 有色金属冶金（铜、铝、锌的提取与精炼）
-- [ ] 湿法冶金与二次资源回收（浸出、萃取、电解）
-- [ ] 绿色冶金前沿（氢冶金、短流程与碳减排）
+- [x] [冶金工程概览（火法、湿法、电冶金工艺路线）](./metallurgy-overview)
+- [x] [冶金热力学（活度、氧势图与反应平衡）](./activity-oxygen-potential-and-reaction-equilibrium)
+- [x] [冶金动力学（多相反应、界面反应与传质控制）](./metallurgical-kinetics-multiphase-interfacial-reactions)
+- [x] [冶金熔体（炉渣结构、熔渣性质与脱硫脱磷）](./metallurgical-melts-slag-desulfurization-dephosphorization)
+- [x] [选矿—烧结—球团（造块工艺与原料准备）](./beneficiation-sintering-pelletizing-agglomeration)
+- [x] [高炉炼铁（还原反应、炉料运动与煤气流分布）](./blast-furnace-reduction-burden-gas-flow)
+- [x] [转炉与电弧炉炼钢（吹炼控制、脱碳与合金化）](./converter-eaf-steelmaking-blowing-alloying)
+- [x] [炉外精炼（LF、RH、VD 与夹杂物控制）](./secondary-refining-lf-rh-vd-inclusion-control)
+- [x] [连续铸造（凝固传热、结晶器振动与铸坯缺陷）](./continuous-casting-solidification-mold-vibration)
+- [x] [有色金属冶金（铜、铝、锌的提取与精炼）](./nonferrous-extraction-copper-aluminium-zinc)
+- [x] [湿法冶金与二次资源回收（浸出、萃取、电解）](./hydrometallurgy-secondary-resource-recycling)
+- [x] [绿色冶金前沿（氢冶金、短流程与碳减排）](./green-metallurgy-hydrogen-reduction-low-carbon)

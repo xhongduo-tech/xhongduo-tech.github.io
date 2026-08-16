@@ -19,19 +19,19 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 油气储运工程概论（储运系统组成、油气性质基础）
-- [ ] 流体力学与传热基础（管流方程、非牛顿流、埋地管道传热）
-- [ ] 输油管道水力计算（等温输油、摩阻计算、泵站布置）
-- [ ] 热油管道输送工艺（加热输送、含蜡原油流变性、启动停输）
-- [ ] 顺序输送与减阻技术（成品油顺序输送、混油处理、减阻剂）
-- [ ] 输气管道工程（气体状态方程、输气水力热力计算、压缩机站）
-- [ ] 管道强度与结构设计（壁厚设计、应力分析、B31 规范要求）
-- [ ] 管道腐蚀与防护（电化学腐蚀、阴极保护、防腐涂层）
+- [x] [油气储运工程概论（储运系统组成、油气性质基础）](./oil-gas-storage-introduction)
+- [x] [流体力学与传热基础（管流方程、非牛顿流、埋地管道传热）](./fluid-mechanics-heat-transfer-basics)
+- [x] [输油管道水力计算（等温输油、摩阻计算、泵站布置）](./oil-pipeline-hydraulic-design)
+- [x] [热油管道输送工艺（加热输送、含蜡原油流变性、启动停输）](./hot-oil-pipeline-transport)
+- [x] [顺序输送与减阻技术（成品油顺序输送、混油处理、减阻剂）](./batch-transport-drag-reduction)
+- [x] [输气管道工程（气体状态方程、输气水力热力计算、压缩机站）](./gas-pipeline-engineering)
+- [x] [管道强度与结构设计（壁厚设计、应力分析、B31 规范要求）](./pipeline-strength-structural-design)
+- [x] [管道腐蚀与防护（电化学腐蚀、阴极保护、防腐涂层）](./pipeline-corrosion-protection)
 
 ### 第2篇
 
-- [ ] 油气集输工艺（油气分离、原油稳定、天然气处理）
-- [ ] 油库与储罐设计（储罐类型、油库工艺、装卸与消防）
-- [ ] LNG 与非常规储运（LNG 液化储存、低温储罐、船运装卸）
-- [ ] 管道运行管理（SCADA 系统、泄漏检测、完整性管理）
-- [ ] 前沿技术（智慧管道、氢能与 CO2 输送管道、数字化运维）
+- [x] [油气集输工艺（油气分离、原油稳定、天然气处理）](./oil-gas-gathering-process)
+- [x] [油库与储罐设计（储罐类型、油库工艺、装卸与消防）](./oil-depot-tank-design)
+- [x] [LNG 与非常规储运（LNG 液化储存、低温储罐、船运装卸）](./lng-cryogenic-transport)
+- [x] [管道运行管理（SCADA 系统、泄漏检测、完整性管理）](./pipeline-operation-management)
+- [x] [前沿技术（智慧管道、氢能与 CO2 输送、数字化运维）](./smart-pipeline-frontier-tech)

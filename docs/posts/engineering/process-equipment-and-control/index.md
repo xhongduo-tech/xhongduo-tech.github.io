@@ -58,13 +58,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 过程装备概论（流程工业装备体系与法规标准）
-- [ ] 压力容器设计基础（内压薄壁容器、强度理论与开孔补强）
-- [ ] 外压容器与零部件（屈曲校核、封头与法兰设计）
-- [ ] 压力容器规范设计（ASME VIII 与 GB/T 150 设计准则）
-- [ ] 储存设备与塔设备（储罐结构、板式塔/填料塔设计）
-- [ ] 换热设备（管壳式换热器热力计算与结构设计）
-- [ ] 反应设备（搅拌釜、固定床反应器机械设计）
-- [ ] 流体机械（泵、压缩机选型与管路系统设计）
-- [ ] 过程控制工程（检测仪表、DCS 与安全联锁系统）
-- [ ] 装备完整性与安全（失效分析、RBI 检验与在役监测）
+- [x] [过程装备概论（流程工业装备体系与法规标准）](./process-equipment-overview)
+- [x] [压力容器设计基础（内压薄壁容器、强度理论与开孔补强）](./pressure-vessel-design-basics)
+- [x] [外压容器与零部件（屈曲校核、封头与法兰设计）](./external-pressure-vessels-and-components)
+- [x] [压力容器规范设计（ASME VIII 与 GB/T 150 设计准则）](./pressure-vessel-code-design)
+- [x] [储存设备与塔设备（储罐结构、板式塔/填料塔设计）](./storage-and-tower-equipment)
+- [x] [换热设备（管壳式换热器热力计算与结构设计）](./heat-exchange-equipment)
+- [x] [反应设备（搅拌釜、固定床反应器机械设计）](./reactor-equipment)
+- [x] [流体机械（泵、压缩机选型与管路系统设计）](./fluid-machinery)
+- [x] [过程控制工程（检测仪表、DCS 与安全联锁系统）](./process-control-engineering)
+- [x] [装备完整性与安全（失效分析、RBI 检验与在役监测）](./equipment-integrity-and-safety)

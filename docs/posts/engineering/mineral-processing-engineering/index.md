@@ -63,14 +63,14 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 矿物加工概论（选矿目的、流程与选矿指标）
-- [ ] 矿石性质与工艺矿物学（嵌布特征、解离度分析）
-- [ ] 破碎与筛分（破碎理论、破碎设备与筛分效率）
-- [ ] 磨矿与分级（磨机功指数、水力旋流器分级）
-- [ ] 重选原理与设备（跳汰、重介质与溜槽选矿）
-- [ ] 磁选与电选（磁系设计、高梯度磁选）
-- [ ] 浮选基础（润湿性、界面化学与浮选药剂）
-- [ ] 浮选工艺与设备（浮选流程、浮选机与柱浮选）
-- [ ] 化学选矿与生物冶金（浸出、沉淀与生物堆浸）
-- [ ] 产品脱水与尾矿处置（浓缩、过滤与尾矿库安全）
-- [ ] 选矿前沿（智能选矿、复杂共伴生矿与固废资源化）
+- [x] [矿物加工概论（选矿目的、流程与选矿指标）](./mineral-processing-introduction)
+- [x] [矿石性质与工艺矿物学（嵌布特征、解离度分析）](./ore-properties-and-process-mineralogy)
+- [x] [破碎与筛分（破碎理论、破碎设备与筛分效率）](./crushing-and-screening)
+- [x] [磨矿与分级（磨机功指数、水力旋流器分级）](./grinding-and-classification)
+- [x] [重选原理与设备（跳汰、重介质与溜槽选矿）](./gravity-separation-principles-and-equipment)
+- [x] [磁选与电选（磁系设计、高梯度磁选）](./magnetic-and-electrostatic-separation)
+- [x] [浮选基础（润湿性、界面化学与浮选药剂）](./flotation-fundamentals)
+- [x] [浮选工艺与设备（浮选流程、浮选机与柱浮选）](./flotation-process-and-equipment)
+- [x] [化学选矿与生物冶金（浸出、沉淀与生物堆浸）](./chemical-beneficiation-and-biohydrometallurgy)
+- [x] [产品脱水与尾矿处置（浓缩、过滤与尾矿库安全）](./dewatering-and-tailings-disposal)
+- [x] [选矿前沿（智能选矿、复杂共伴生矿与固废资源化）](./mineral-processing-frontiers)

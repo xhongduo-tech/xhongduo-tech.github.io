@@ -53,13 +53,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 声学基础（声波方程、声压级与频谱分析）
-- [ ] 振动基础（单/多自由度振动、随机振动）
-- [ ] 噪声测量与评价（计权声级、噪声评价标准）
-- [ ] 振动测量与分析（传感器、模态测试与频响函数）
-- [ ] 吸声技术（多孔材料、共振吸声结构）
-- [ ] 隔声与隔振（质量定律、双层墙与隔振器设计）
-- [ ] 消声器设计（阻性/抗性消声器、气流再生噪声）
-- [ ] 结构声辐射与阻尼（声辐射效率、阻尼减振技术）
-- [ ] 有源噪声与振动控制（前馈/反馈 ANC、自适应算法）
-- [ ] 工程应用前沿（低噪声设计、声品质与 NVH 工程）
+- [x] [声学基础（声波方程、声压级与频谱分析）](./acoustics-fundamentals-and-spectral-analysis)
+- [x] [振动基础（单/多自由度振动、随机振动）](./vibration-fundamentals-multi-dof-random)
+- [x] [噪声测量与评价（计权声级、噪声评价标准）](./noise-measurement-evaluation-weighted-sound-levels)
+- [x] [振动测量与分析（传感器、模态测试与频响函数）](./vibration-measurement-modal-analysis-frf)
+- [x] [吸声技术（多孔材料、共振吸声结构）](./sound-absorption-technology-porous-resonant)
+- [x] [隔声与隔振（质量定律、双层墙与隔振器设计）](./sound-insulation-vibration-isolation-mass-law)
+- [x] [消声器设计（阻性/抗性消声器、气流再生噪声）](./muffler-design-dissipative-reactive-flow-noise)
+- [x] [结构声辐射与阻尼（声辐射效率、阻尼减振技术）](./structural-sound-radiation-and-damping)
+- [x] [有源噪声与振动控制（前馈/反馈 ANC、自适应算法）](./active-control-feedforward-feedback-anc)
+- [x] [工程应用前沿（低噪声设计、声品质与 NVH 工程）](./low-noise-design-sound-quality-nvh)
