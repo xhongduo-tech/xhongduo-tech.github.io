@@ -66,13 +66,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 基本概念与公理体系（点线面、欧氏公理）
-- [ ] 三角形（全等与相似判定）
-- [ ] 四边形与多边形（平行四边形、正多边形）
-- [ ] 圆（圆幂定理、切线、弦切角）
-- [ ] 面积与体积（面积法、立体几何初步）
-- [ ] 几何变换（平移旋转对称、位似）
-- [ ] 三角比与解三角形（正弦定理、余弦定理）
-- [ ] 三角恒等变换（和差倍半公式、积化和差）
-- [ ] 三角函数图像与性质（周期性、反三角函数、三角方程）
-- [ ] 几何证明方法与名题选讲（综合法、竞赛几何）
+- [x] [基本概念与公理体系（点线面、欧氏公理）](./basic-concepts-axioms)
+- [x] [三角形（全等与相似判定）](./triangles-judgment-theorems)
+- [x] [四边形与多边形（平行四边形、正多边形）](./quadrilaterals-polygons)
+- [x] [圆（圆幂定理、切线、弦切角）](./circle-power-theorem)
+- [x] [面积与体积（面积法、立体几何初步）](./area-volume-methods)
+- [x] [几何变换（平移旋转对称、位似）](./geometric-transformations)
+- [x] [三角比与解三角形（正弦定理、余弦定理）](./trig-ratios-solving-triangles)
+- [x] [三角恒等变换（和差倍半公式、积化和差）](./trig-identity-transformations-sum-product)
+- [x] [三角函数图像与性质（周期性、反三角函数、三角方程）](./trig-graphs-inverse-equations)
+- [x] [几何证明方法与名题选讲（综合法、竞赛几何）](./geometry-problem-solving-techniques)

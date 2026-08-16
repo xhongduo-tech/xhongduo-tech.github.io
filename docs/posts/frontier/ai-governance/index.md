@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] AI 治理导论（治理对象、风险分级思路、全球治理格局）
-- [ ] AI 风险类型学（偏见歧视、安全漏洞、滥用风险、系统性风险）
-- [ ] 主要法域监管框架比较（欧盟 AI 法、美国行政令、中国生成式 AI 管理办法）
-- [ ] 算法透明与问责（算法备案、可解释性要求、审计制度）
-- [ ] 数据治理与隐私保护（训练数据合法性、个人信息保护、数据跨境）
-- [ ] 生成式 AI 内容治理（深度合成标识、虚假信息、版权与知识产权）
-- [ ] AI 安全治理（前沿模型评估、红队测试、能力门槛监管）
-- [ ] 行业应用监管（医疗 AI、自动驾驶、金融风控、招聘算法的专项规则）
+- [x] [AI 治理导论（治理对象、风险分级思路、全球治理格局）](./ai-governance-introduction)
+- [x] [AI 风险类型学（偏见歧视、安全漏洞、滥用风险、系统性风险）](./ai-risk-taxonomy)
+- [x] [主要法域监管框架比较（欧盟 AI 法、美国行政令、中国生成式 AI 管理办法）](./jurisdiction-comparison)
+- [x] [算法透明与问责（算法备案、可解释性要求、审计制度）](./algorithm-transparency-accountability)
+- [x] [数据治理与隐私保护（训练数据合法性、个人信息保护、数据跨境）](./data-governance-privacy)
+- [x] [生成式 AI 内容治理（深度合成标识、虚假信息、版权与知识产权）](./generative-ai-content-governance)
+- [x] [AI 安全治理（前沿模型评估、红队测试、能力门槛监管）](./ai-safety-governance)
+- [x] [行业应用监管（医疗 AI、自动驾驶、金融风控、招聘算法的专项规则）](./sectoral-regulation)
 
 ### 第2篇
 
-- [ ] 国际协调与标准（联合国/经合组织 AI 原则、ISO/IEC 42001、算力与出口管制）
-- [ ] 前沿议题（AGI 与存在性风险治理、开源模型监管之争、监管科技 RegTech）
+- [x] [国际协调与标准（联合国/经合组织 AI 原则、ISO/IEC 42001、算力与出口管制）](./international-coordination-standards)
+- [x] [前沿议题（AGI 与存在性风险治理、开源模型监管之争、监管科技 RegTech）](./frontier-topics-governance)
