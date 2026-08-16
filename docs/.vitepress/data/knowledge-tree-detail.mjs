@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 664 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3 个），约 7938 个章节级子主题
+// 共 669 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3+5 个），约 7998 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -14328,6 +14328,116 @@ export const treeDetails = {
       "OCP 开放计算（ORV3/DC-MHS 规范、供应链开放生态）",
       "交付形态（L10→L11→L12 集成级别、数据中心部署约束）",
       "演进路线（GB200→GB300→Rubin Ultra、600kW 机柜与 Kyber 架构）"
+    ],
+  },
+  'cs/post-quantum-cryptography': {
+    title: "后量子密码（格密码/Kyber/Dilithium/PQC 迁移）",
+    books: [
+          "Bernstein, Buchmann & Dahmen (eds.), \"Post-Quantum Cryptography\" (2009)",
+          "NIST, \"FIPS 203/204/205 — ML-KEM/ML-DSA/SLH-DSA 标准\" (2024)",
+          "Hoffstein, Pipher & Silverman, \"An Introduction to Mathematical Cryptography\" (2nd ed., 2014)"
+    ],
+    chapters: [
+      "量子威胁（Shor 算法对 RSA/ECC 的毁灭性打击、先存后解攻击）",
+      "格密码基础（LWE/RLWE/Module-LWE 困难问题、格基约化）",
+      "密钥封装 ML-KEM（CRYSTALS-Kyber 的构造与实现）",
+      "数字签名 ML-DSA（CRYSTALS-Dilithium 的 Fiat-Shamir 变换）",
+      "哈希签名 SLH-DSA（SPHINCS+ 的无状态设计）",
+      "其他路线（编码密码 McEliece、多变量、同源密码 SIKE 的兴衰）",
+      "侧信道与实现安全（NTT 实现的时序攻击、掩码防护）",
+      "标准化进程（NIST PQC 竞赛五轮评审、CNSA 2.0 时间表）",
+      "迁移工程（混合模式、证书双签、密码敏捷性 crypto-agility）",
+      "性能与部署（嵌入式/TLS/固件签名中的 PQC 开销）",
+      "量子密码的边界（QKD 与 PQC 的互补与争论）",
+      "全同态加密的格基础（与《隐私计算》互链）"
+    ],
+  },
+  'engineering/mobile-communication-5g-6g': {
+    title: "移动通信与 5G/6G（NR 空口/Massive MIMO/网络切片）",
+    books: [
+          "Dahlman, Parkvall & Sköld, \"5G NR: The Next Generation Wireless Access Technology\" (2nd ed., 2020)",
+          "Tse & Viswanath, \"Fundamentals of Wireless Communication\" (2005)",
+          "Marzetta et al., \"Fundamentals of Massive MIMO\" (2016)"
+    ],
+    chapters: [
+      "蜂窝演进史（1G→6G 的代际逻辑、ITU IMT-2030 愿景）",
+      "5G NR 空口（OFDM 参数集、帧结构、参考信号）",
+      "Massive MIMO（波束赋形、信道互易性、导频污染）",
+      "毫米波与 Sub-6G（传播特性、波束管理、覆盖补偿）",
+      "网络架构（SA/NSA、核心网 SBA 服务化、UPF 下沉）",
+      "网络切片与边缘计算（eMBB/URLLC/mMTC 场景、MEC）",
+      "RedCap 与物联网（轻量 5G、NB-IoT/LTE-M 演进）",
+      "6G 候选技术（太赫兹通信、通感一体 ISAC、智能超表面 RIS）",
+      "星地融合（NTN 非地面网络、手机直连卫星）",
+      "AI 原生空口（信道估计/波束预测的神经网络化）",
+      "安全与隐私（5G 鉴权 AKA、SUPI 加密、伪基站防护）",
+      "产业与标准（3GPP Release 15-19、频谱政策、Open RAN）"
+    ],
+  },
+  'engineering/quantum-communication-networking': {
+    title: "量子通信与量子网络（QKD/量子中继/量子互联网）",
+    books: [
+          "Bouwmeester, Ekert & Zeilinger (eds.), \"The Physics of Quantum Information\" (2000)",
+          "Nielsen & Chuang, \"Quantum Computation and Quantum Information\" (10th anniv. ed., 2010)",
+          "Van Meter, \"Quantum Networking\" (2014)"
+    ],
+    chapters: [
+      "量子通信的物理基础（叠加/纠缠/不可克隆定理）",
+      "QKD 协议（BB84/E91/诱骗态、测量设备无关 MDI-QKD）",
+      "成码率与距离极限（PLOB 界、信道损耗的指数诅咒）",
+      "单光子源与探测（SPDC 纠缠源、SNSPD 超导探测器）",
+      "量子中继（纠缠交换/纠缠纯化、量子存储器）",
+      "卫星量子通信（墨子号工程、星地链路的对准与损耗）",
+      "城域与骨干网（京沪干线、可信中继的工程妥协）",
+      "量子互联网（端节点纠缠、量子协议栈的层次化设计）",
+      "与 PQC 的关系（物理层安全 vs 数学层安全的争论与互补）",
+      "量子隐形传态网络实验（城域纠缠分发的最新进展）",
+      "工程化挑战（与光纤网络共纤传输、经典-量子串扰）",
+      "标准化与产业（ETSI/ITU-T QKD 标准、商用 QKD 设备）"
+    ],
+  },
+  'engineering/nuclear-power-plant': {
+    title: "核电站工程（三代堆/华龙一号/常规岛/安全壳）",
+    books: [
+          "Todreas & Kazimi, \"Nuclear Systems II: Elements of Thermal Hydraulic Design\" (2001)",
+          "IAEA, \"Design of the Reactor Coolant System and Associated Systems for Nuclear Power Plants\" (SSG-34, 2014)",
+          "Cacuci (ed.), \"Handbook of Nuclear Engineering\" (2010)"
+    ],
+    chapters: [
+      "核电站总貌（核岛/常规岛/BOP 辅助设施的划分）",
+      "二代到三代堆型（AP1000/EPR/VVER 的非能动安全理念）",
+      "华龙一号（自主三代：177 堆芯、双层安全壳、能动+非能动）",
+      "四代堆候选（高温气冷堆/钠冷快堆/熔盐堆的技术路线）",
+      "一回路与反应堆冷却剂系统（主泵/稳压器/蒸汽发生器）",
+      "常规岛（饱和蒸汽汽轮机、汽水分离再热器、发电机）",
+      "安全壳工程（预应力混凝土、钢衬里、氢复合器）",
+      "仪控与保护系统（反应堆保护系统 RPS、数字化 DCS）",
+      "事故序列与应对（失水 LOCA、全厂断电 SBO、严重事故管理）",
+      "乏燃料与放射性废物（水池贮存、干式贮存、后处理）",
+      "建造与运维（模块化建造、在役检查、换料大修）",
+      "核能经济性与政策（造价/电价、监管体系、小型模块化堆 SMR）"
+    ],
+  },
+  'engineering/datacenter-cluster-engineering': {
+    title: "算力集群与数据中心工程（SuperPOD/InfiniBand/万卡组网）",
+    books: [
+          "Barroso, Hölzle & Ranganathan, \"The Datacenter as a Computer\" (3rd ed., 2018)",
+          "NVIDIA, \"DGX SuperPOD Reference Architecture\" 官方文档 (2024)",
+          "Faisal et al., \"The Datacenter as a Networked Computer: RDMA 与 RoCE 实践\" (IEEE HotI, 2015)"
+    ],
+    chapters: [
+      "集群架构层次（整机柜→SuperPOD→多园区算力中心）",
+      "GPU 互联网络（NVLink 域内 + InfiniBand/RoCE 域外的两层设计）",
+      "无损以太网（RoCEv2、PFC/ECN 拥塞控制、DCQCN）",
+      "网络拓扑（Fat-Tree/Dragonfly+/轨式优化 Rail-Optimized）",
+      "万卡集群的集合通信（NCCL/拓扑感知 AllReduce、网络拥塞实测）",
+      "作业调度（Slurm/Kubernetes 拓扑感知调度、Gang Scheduling）",
+      "训练容错（Checkpoint 策略、故障预测、弹性训练）",
+      "存储系统（并行文件系统 Lustre/GPFS、检查点带宽墙）",
+      "供电基础设施（市电→UPS→母线→机柜的配电链、柴发与储能）",
+      "制冷基础设施（风冷/液冷混合、冷却塔、PUE/WUE 指标）",
+      "数据中心等级与可靠性（Tier I-IV、2N 冗余、可用性数学）",
+      "绿色算力（余热回收、碳足迹、东数西算与算力网络）"
     ],
   },
 }
