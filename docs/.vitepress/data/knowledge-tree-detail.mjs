@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 671 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3+5+2 个），约 8022 个章节级子主题
+// 共 679 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3+5+2+5+3 个），约 8118 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -14482,6 +14482,182 @@ export const treeDetails = {
       "One Health 视角（农业抗生素使用、环境耐药组）",
       "抗菌药物管理（AMS 处方管控、诊断驱动的精准用药）",
       "AMR 经济负担与全球治理（世卫组织全球行动计划）"
+    ],
+  },
+  'life/xenotransplantation': {
+    title: "异种移植（基因编辑猪器官/免疫排斥/FDA 试验）",
+    books: [
+          "Cooper, \"Xenotransplantation: The Transplantation of Organs and Tissues Between Species\" (Springer, 经典专著体系)",
+          "Sykes & Sachs, \"Transplantation Immunology\" 相关章节 (移植免疫学标准体系)",
+          "Nature, \"Seven Technologies to Watch 2026\" — Xenotransplantation (2026)"
+    ],
+    chapters: [
+      "移植供需危机（器官等待名单、异种移植的历史动机）",
+      "跨物种免疫屏障（超急性排斥、α-Gal 表位与天然抗体）",
+      "基因编辑供体猪（GTKO 到 10 基因编辑、CRISPR 多重编辑）",
+      "猪内源性逆转录病毒（PERV 失活、跨物种感染风险评估）",
+      "补体与凝血调节（人源补体调节蛋白转基因、血栓性微血管病）",
+      "临床里程碑（猪心/猪肾人体移植病例的存活记录与死因分析）",
+      "免疫抑制方案（CD40/CD154 共刺激阻断、异种移植专用方案）",
+      "生理兼容性（器官大小、激素/代谢的跨物种匹配）",
+      "伦理与监管（FDA 同情使用路径、动物福利、知情同意）",
+      "异种胰岛与细胞移植（糖尿病治疗、包囊化技术）",
+      "与类器官/3D 生物打印的竞争（替代器官来源的路线比较）",
+      "产业化前景（供体猪 SPF 培育设施、成本与规模化）"
+    ],
+  },
+  'life/connectomics': {
+    title: "脑连接组学（光学显微镜连接图谱/分子条形码）",
+    books: [
+          "Sporns, \"Networks of the Brain\" (2010)",
+          "Nature, \"Seven Technologies to Watch 2026\" — Optical-microscopy connectomics (2026)",
+          "Kasthuri & Lichtman, \"The Connectome\" 综述体系 (Annu. Rev. Neurosci.)"
+    ],
+    chapters: [
+      "连接组学的定位（结构连接→功能连接→因果推断）",
+      "尺度问题（突触/神经元/脑区三级图谱的技术分野）",
+      "电镜连接组（串行块面电镜、果蝇/小鼠全脑图谱里程碑）",
+      "光学显微镜革命（LICONN/膨胀显微镜、成本骤降的路径）",
+      "分子条形码（CONNECTseq、RNA 条形码标记神经元连接）",
+      "图像分割与 AI（Flood-Filling Network、自动突触识别）",
+      "功能与结构的联合（钙成像+连接组的多模态配准）",
+      "网络科学分析（图论指标、模块化、Rich-Club 结构）",
+      "疾病连接组（自闭症/精神分裂症的连接异常）",
+      "发育与进化连接组（连接图谱的发育规则与物种比较）",
+      "类脑计算的启示（连接组约束的神经形态架构）",
+      "数据基础设施（PB 级数据、开放图谱联盟）"
+    ],
+  },
+  'life/organoids-on-chip': {
+    title: "类器官与器官芯片（干细胞自组织/微流控模型）",
+    books: [
+          "Lancaster & Knoblich, \"Organoids\" 开创性论文体系 (Nature/Nature Protocols)",
+          "Ingber, \"Organs-on-Chips\" 综述体系 (Nature Reviews Bioengineering)",
+          "Clevers, \"Modeling Development and Disease with Organoids\" (Cell, 2016)"
+    ],
+    chapters: [
+      "类器官原理（干细胞的自组织、LGR5 与 Wnt 信号生态位）",
+      "主要类器官类型（肠/脑/肝/肾/肿瘤类器官的建立）",
+      "脑类器官（区域化、血管化、组装体 assembloid）",
+      "肿瘤类器官（患者来源模型、药敏筛选的临床验证）",
+      "器官芯片（微流控、气液界面、机械力的重建）",
+      "多器官芯片（体芯片 body-on-chip、器官间串扰）",
+      "血管化与免疫化（类器官的功能成熟瓶颈）",
+      "药物研发应用（替代动物实验、FDA 现代化法案 2.0）",
+      "毒理与安全性评价（肝毒性/心脏毒性芯片模型）",
+      "个性化医疗（囊性纤维化类器官指导用药的先例）",
+      "与异种移植/生物打印的互补（器官来源的三条路线）",
+      "标准化与规模化（批次差异、自动化培养、类器官库）"
+    ],
+  },
+  'engineering/photonic-computing': {
+    title: "光子计算与硅光互连（光神经网络/片上光互连/CPO）",
+    books: [
+          "Shastri, \"Neuromorphic Photonics\" 综述体系 (Nature Photonics)",
+          "Chrostowski & Hochberg, \"Silicon Photonics Design\" (2015)",
+          "Nature, \"Seven Technologies to Watch 2025\" — Photonic computing (2025)"
+    ],
+    chapters: [
+      "光子计算的动机（电子互连的功耗墙、光的带宽与并行性）",
+      "硅光基础（波导/调制器/探测器、CMOS 兼容工艺）",
+      "光矩阵乘法（MZI 网格、微环谐振器权重库）",
+      "光神经网络（衍射网络、片上训练的光反向传播）",
+      "光电混合架构（电子存算+光子乘加的工程折中）",
+      "片上光互连（芯片间光 I/O、光波分复用 WDM）",
+      "共封装光学 CPO（交换机光引擎、功耗减半的路径）",
+      "光计算代表系统（太极芯片、Lightmatter/Lightelligence 路线）",
+      "非冯诺依曼光子学（储备池计算、光子伊辛机）",
+      "激光器与光源集成（III-V/硅异质集成、片上激光）",
+      "封装与制造（光栅耦合/边缘耦合、晶圆级测试）",
+      "与电子计算的边界（光子擅长的算子、数字精度的局限）"
+    ],
+  },
+  'engineering/humanoid-robotics': {
+    title: "人形机器人工程（执行器/灵巧手/整机控制）",
+    books: [
+          "Kajita et al., \"Biped Walking Pattern Generation\" 双足步行控制体系 (Springer)",
+          "Siciliano & Khatib (eds.), \"Springer Handbook of Robotics\" (2nd ed., 2016)",
+          "MIT Technology Review, \"10 Breakthrough Technologies 2025\" — Fast-learning robots (2025)"
+    ],
+    chapters: [
+      "人形形态的价值争论（通用环境适配 vs 专用形态的效率）",
+      "执行器技术（准直驱 QDD、行星减速 vs 谐波减速、扭矩密度）",
+      "灵巧手（腱传动/连杆/触觉皮肤、自由度与抓取分类学）",
+      "双足行走控制（ZMP/LIPM 经典方法、MPC 全身控制）",
+      "动态运动（跑跳与抗扰、MIT Cheetah→Atlas 的技术谱系）",
+      "感知系统（多目视觉/激光雷达/IMU 融合、本体感知）",
+      "学习控制（强化学习 Sim2Real、模仿学习与遥操作数据）",
+      "大模型驱动的具身智能（VLA 模型、与《具身智能》互链）",
+      "能源与热管理（电池续航、执行器散热）",
+      "安全与标准（人机协作 ISO/TS 15066、跌倒保护）",
+      "代表整机（Optimus/Figure/Unitree/Atlas 的架构对比）",
+      "量产经济学（BOM 成本曲线、供应链与场景落地）"
+    ],
+  },
+  'engineering/cruise-lng-vessels': {
+    title: "大型邮轮与 LNG 船（造船业明珠/薄板变形/液货围护）",
+    books: [
+          "Eyres & Bruce, \"Ship Construction\" (7th ed., 2012)",
+          "SIGTTO, \"Liquefied Gas Carriers: Principles of Design and Operation\" 液货船操作规范体系",
+          "Tupper, \"Introduction to Naval Architecture\" (5th ed., 2013)"
+    ],
+    chapters: [
+      "造船业三大明珠（航母/LNG 船/大型邮轮的技术制高点）",
+      "大型邮轮总布置（16 层甲板、上建重量重心控制、冗余分区）",
+      "邮轮薄板建造（8mm 以下薄板焊接变形控制、激光复合焊）",
+      "邮轮内装工程（模块化舱室、防火分隔 A-60、数百家供应商协同）",
+      "邮轮安全返港（SRtP 规范、双机舱冗余、撤离系统）",
+      "LNG 货物围护系统（薄膜型 Mark III/NO96、殷瓦钢焊接）",
+      "LNG 蒸发气管理（BOG 再液化、双燃料低速机 X-DF/ME-GI）",
+      "极地邮轮与破冰（极地规则 Polar Code、冰区加强船级）",
+      "绿色船舶动力（甲醇/氨燃料预留、风帆助推、碳强度指标 CII）",
+      "豪华邮轮运营工程（酒店系统、水电空调的巨大能耗链）",
+      "国产大邮轮工程（爱达·魔都号的供应链国产化路径）",
+      "邮轮母港与产业链（港口设施、维修补给、人员培训）"
+    ],
+  },
+  'engineering/naval-architecture': {
+    title: "船舶与海洋工程（船舶总体/结构/轮机/海洋平台）",
+    books: [
+          "Tupper, \"Introduction to Naval Architecture\" (5th ed., 2013)",
+          "Eyres & Bruce, \"Ship Construction\" (7th ed., 2012)",
+          "Faltinsen, \"Sea Loads on Ships and Offshore Structures\" (1990)"
+    ],
+    chapters: [
+      "船型与主尺度（排水量/方形系数、型线图的设计语言）",
+      "浮性与稳性（初稳性/大倾角稳性、破舱稳性衡准）",
+      "船舶阻力与推进（摩擦/兴波阻力、螺旋桨敞水特性）",
+      "船舶操纵性与耐波性（摇荡运动、波浪载荷）",
+      "船体结构（总纵强度、板架屈曲、疲劳与断裂）",
+      "船舶建造工艺（分段建造、总组搭载、精度管理）",
+      "船舶动力装置（低速柴油机、轴系与电力推进）",
+      "船舶电气与自动化（电站、机舱监测报警）",
+      "海洋平台（自升式/半潜式/TLP、深海油气开发装备）",
+      "海洋工程环境载荷（风浪流联合、锚泊与立管系统）",
+      "船舶规范与船级社（CCS/DNV/ABS 入级、IMO 公约）",
+      "智能船舶与绿色航运（自主航行、EEXI/CII 碳规则）"
+    ],
+  },
+  'engineering/petroleum-gas': {
+    title: "石油与天然气工程（钻井/采油/油藏/深海开发）",
+    books: [
+          "Bourgoyne et al., \"Applied Drilling Engineering\" (SPE 教科书, 1986)",
+          "Dake, \"Fundamentals of Reservoir Engineering\" (1978)",
+          "Economides, Hill & Ehlig-Economides, \"Petroleum Production Systems\" (2nd ed., 2013)"
+    ],
+    chapters: [
+      "油气藏形成与勘探（生储盖圈、地震勘探解释）",
+      "钻井工程（旋转钻井、井身结构、泥浆体系）",
+      "定向井与水平井（随钻测量 MWD/LWD、旋转导向）",
+      "井控与井筒完整性（防喷器 BOP、固井质量）",
+      "完井与试油（射孔、防砂、DST 测试）",
+      "采油采气工程（自喷/人工举升：抽油机/电潜泵/气举）",
+      "油藏工程（物质平衡、水驱特征曲线、数值模拟）",
+      "提高采收率 EOR（聚合物驱/热力采油/CO2 驱）",
+      "压裂与非常规（页岩油气水平井分段压裂、致密油）",
+      "深海油气开发（水下生产系统、FPSO、深水钻井船）",
+      "油气集输与处理（三相分离、管道输送、LNG 液化链）",
+      "CCUS 与能源转型（枯竭油藏封存、氢能地下储库）"
     ],
   },
 }
