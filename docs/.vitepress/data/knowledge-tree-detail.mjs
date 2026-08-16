@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 682 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3+5+2+5+3+3 个），约 8154 个章节级子主题
+// 共 695 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3+5+2+5+3+3、终轮全面更新 13 个），约 8310 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -14724,6 +14724,292 @@ export const treeDetails = {
       "生物多样性维持（中性理论 vs 生态位理论之争）",
       "全球变化生态（气候变化的物种迁移、物候错配）",
       "保护生态学（最小可存活种群、生态廊道设计）"
+    ],
+  },
+  'cs/functional-programming-type-systems': {
+    title: "函数式编程与类型系统（TAPL/范畴论基础）",
+    books: [
+          "Pierce, \"Types and Programming Languages\" (2002)",
+          "Bird, \"Thinking Functionally with Haskell\" (2015)",
+          "Harper, \"Practical Foundations for Programming Languages\" (2nd ed., 2016)"
+    ],
+    chapters: [
+      "λ 演算（丘奇编码、归约策略、不动点组合子）",
+      "简单类型 λ 演算（类型安全=进展+保持的证明范式）",
+      "多态类型系统（System F、参数多态、ML 类型推断）",
+      "Hindley-Milner 类型推断（合一算法、Algorithm W）",
+      "代数数据类型与模式匹配（和类型/积类型、穷尽性检查）",
+      "高阶抽象（函子/应用函子/单子、范畴论的最小核心）",
+      "惰性求值（按需计算、无限数据结构、严格性分析）",
+      "效应系统（纯函数与副作用的隔离、IO Monad）",
+      "依赖类型（类型即命题、Agda/Idris 的定理证明）",
+      "线性类型与子结构类型（Rust 所有权/借用检查的理论根源）",
+      "类型系统与编译器（类型引导的优化、擦除与保类型编译）",
+      "现代语言实践（Haskell/OCaml/Scala/Rust/Swift 的类型特性对比）"
+    ],
+  },
+  'cs/constraint-solving-sat-smt': {
+    title: "约束求解与自动定理证明（SAT/SMT）",
+    books: [
+          "Biere, Heule, van Maaren & Walsh (eds.), \"Handbook of Satisfiability\" (2nd ed., 2021)",
+          "Kroening & Strichman, \"Decision Procedures\" (2nd ed., 2016)",
+          "de Moura & Bjørner, \"Z3: An Efficient SMT Solver\" (TACAS 2008) 及 Z3 官方文档"
+    ],
+    chapters: [
+      "SAT 问题与 NP 完全性（Cook-Levin 定理的工程意义）",
+      "DPLL 算法（回溯搜索、单元传播、纯文字消除）",
+      "CDCL 革命（冲突驱动子句学习、VSIDS 启发式）",
+      "现代 SAT 求解器（MiniSat/CaDiCaL/Kissat 的架构）",
+      "从 SAT 到 SMT（背景理论：算术/数组/位向量/未解释函数）",
+      "DPLL(T) 框架（布尔骨架与理论求解器的协同）",
+      "Z3 实战（符号执行的引擎、程序验证的条件生成）",
+      "约束规划 CP（全局约束、传播器、与 SAT 的融合）",
+      "MaxSAT 与优化（软约束、 UNSAT 核的利用）",
+      "自动定理证明（一阶逻辑的 Superposition、Lean/Isabelle 交互证明）",
+      "应用场景（EDA 验证、配置求解、调度规划、密码分析）",
+      "前沿（神经引导的启发式、证明生成与验证）"
+    ],
+  },
+  'cs/web-frontend-engineering': {
+    title: "Web 前端与全栈工程（浏览器渲染/框架/工程化）",
+    books: [
+          "Flanagan, \"JavaScript: The Definitive Guide\" (7th ed., 2020)",
+          "Khorikov, \"HTTP/2 in Action\" (2019) 及 web.dev 官方文档体系",
+          "Osmani, \"Learning JavaScript Design Patterns\" (2nd ed., 2023)"
+    ],
+    chapters: [
+      "浏览器架构（多进程模型、渲染管线、合成与光栅化）",
+      "JavaScript 引擎（V8 隐藏类、JIT 分层编译、GC）",
+      "HTTP 演进（HTTP/1.1→2→3、QUIC 与队头阻塞）",
+      "DOM 与事件（事件循环、微任务宏任务、渲染时机）",
+      "现代框架（React 并发模型/Vue 响应式/编译时框架 Svelte）",
+      "状态管理（单向数据流、服务端状态与客户端状态的分离）",
+      "构建工程化（打包器原理、Tree Shaking、模块联邦）",
+      "性能优化（Core Web Vitals、加载瀑布、渲染预算）",
+      "SSR/SSG/ISR（渲染策略谱系、流式 SSR、岛屿架构）",
+      "Web 安全（XSS/CSRF/CSP、供应链攻击）",
+      "跨端技术（PWA/WebAssembly/小程序容器）",
+      "前端智能化（AI 辅助开发、低代码、Server-Driven UI）"
+    ],
+  },
+  'cs/audio-video-engineering': {
+    title: "音视频编解码与流媒体工程（H.266/AV1/RTC）",
+    books: [
+          "Richardson, \"The H.264 Advanced Video Compression Standard\" (2010)",
+          "Sze, Budagavi & Sullivan (eds.), \"High Efficiency Video Coding (HEVC)\" (2014)",
+          "Wiegand & Sullivan, \"The Picture Tel. Codec 到 AV1 的技术谱系\" 综述体系"
+    ],
+    chapters: [
+      "感知编码基础（人眼/人耳特性、冗余类型）",
+      "变换与量化（DCT/整数变换、率失真理论）",
+      "帧内/帧间预测（运动估计、块划分演进）",
+      "视频编码标准史（MPEG-2→H.264→HEVC→H.266/VVC）",
+      "开源编码器（x264/x265/SVT-AV1 的实现取舍）",
+      "AV1 与开放生态（专利池规避、硬件解码普及）",
+      "音频编码（AAC/Opus、心理声学模型）",
+      "封装与传输协议（MP4/fMP4、HLS/DASH 自适应码率）",
+      "实时通信 RTC（WebRTC 架构、拥塞控制 GCC、弱网对抗）",
+      "直播系统（CDN 分发、秒开/低延迟 LL-HLS）",
+      "画质增强（超分/插帧、AI 编码端到端方案）",
+      "沉浸媒体（VR 视频/空间音频、点云压缩 V-PCC）"
+    ],
+  },
+  'cs/lakehouse-realtime-data': {
+    title: "数据湖仓与实时流处理（Iceberg/Flink/Kafka）",
+    books: [
+          "Kleppmann, \"Designing Data-Intensive Applications\" (2017)",
+          "Karim et al., \"Flink 实战与流处理\" 及 Apache Flink 官方文档体系",
+          "Narkhede, Shapira & Palino, \"Kafka: The Definitive Guide\" (2nd ed., 2021)"
+    ],
+    chapters: [
+      "数据架构演进（数仓→数据湖→湖仓一体的必然性）",
+      "存储引擎基础（LSM-Tree vs B+Tree、列存 Parquet/ORC）",
+      "表格式（Iceberg/Hudi/Delta 的 ACID 与时间旅行）",
+      "消息系统（Kafka 日志抽象、副本协议 ISR、精确一次语义）",
+      "流处理模型（事件时间/水位线、窗口语义、Exactly-Once）",
+      "Flink 内核（状态后端、Checkpoint 算法、异步屏障）",
+      "流批一体（统一 SQL、Kappa 架构的复兴）",
+      "OLAP 引擎（ClickHouse/Doris/StarRocks 的向量化执行）",
+      "数据编排与治理（调度系统、血缘追踪、数据质量）",
+      "实时数仓实践（CDC 入湖、维表关联、双流 Join）",
+      "AI 时代的数据底座（特征平台、向量索引与湖仓融合）",
+      "成本与性能工程（存算分离、冷热分层、查询下推）"
+    ],
+  },
+  'cs/search-ad-engineering': {
+    title: "搜索引擎与计算广告工程（索引/排序/竞价）",
+    books: [
+          "Manning, Raghavan & Schütze, \"Introduction to Information Retrieval\" (2008)",
+          "Liu, \"Learning to Rank for Information Retrieval\" (2011)",
+          "Google Ads / 计算广告 (刘鹏《计算广告》体系, 2019)"
+    ],
+    chapters: [
+      "搜索引擎总览（爬取→索引→检索→排序的链路）",
+      "倒排索引（词典压缩、跳表、索引构建与更新）",
+      "检索模型（布尔/向量空间/BM25 的概率框架）",
+      "查询理解与改写（分词/纠错/意图识别）",
+      "学习排序 LTR（Pointwise/Pairwise/Listwise、LambdaMART）",
+      "语义检索（稠密向量召回、ANN 索引 HNSW/IVF）",
+      "搜索评测（NDCG/MAP、AB 测试与 Interleaving）",
+      "计算广告模式（合约广告/竞价广告/程序化交易）",
+      "广告拍卖机制（GSP/VCG、广义二价的经济学）",
+      "CTR 预估（LR→FM→深度模型的特征工程演进）",
+      "广告系统工程（流量分配、预算平滑、反作弊）",
+      "生成式搜索（RAG 重塑搜索、答案引擎的商业化挑战）"
+    ],
+  },
+  'advanced/spatial-intelligence-3d-generation': {
+    title: "空间智能与 3D 内容生成（世界模型→3D 生成/空间计算）",
+    books: [
+          "Mildenhall et al., \"NeRF\" 及 3D Gaussian Splatting 论文体系 (2020-2024)",
+          "Fei-Fei Li, \"Spatial Intelligence\" 演讲与 World Labs 技术体系 (2024)",
+          "Hartley & Zisserman, \"Multiple View Geometry in Computer Vision\" (2nd ed., 2004)"
+    ],
+    chapters: [
+      "从 2D 理解到空间智能（具身认知的必然、李飞飞路线）",
+      "多视图几何基础（相机模型、对极几何、SfM）",
+      "神经表示（NeRF 体渲染、隐式场的表达能力）",
+      "显式化革命（3D 高斯泼溅、实时渲染的突破）",
+      "3D 生成模型（扩散模型生成网格/点云/高斯、DreamFusion 谱系）",
+      "视频生成即世界模型（Sora 的物理一致性争论）",
+      "4D 动态场景（动态高斯、时序一致的场景重建）",
+      "空间计算平台（Vision Pro/光场显示、人眼感知约束）",
+      "大规模场景（城市级重建、SLAM 与神经表示的融合）",
+      "具身数据引擎（仿真到真实、3D 资产生成管线）",
+      "空间智能评测（物理推理基准、空间问答）",
+      "产业应用（数字孪生/影视虚拟制作/机器人训练场）"
+    ],
+  },
+  'advanced/medical-ai': {
+    title: "医疗人工智能（影像诊断/药物发现/临床决策）",
+    books: [
+          "Esteva et al., \"A Guide to Deep Learning in Healthcare\" (Nature Medicine, 2019)",
+          "Topol, \"Deep Medicine\" (2019)",
+          "Jumper et al., \"Highly Accurate Protein Structure Prediction with AlphaFold\" (Nature, 2021)"
+    ],
+    chapters: [
+      "医疗 AI 版图（影像/病理/基因组/电子病历四大数据源）",
+      "医学影像诊断（放射/眼底/皮肤、与放射科医生的对照研究）",
+      "计算病理（全切片图像 WSI、肿瘤微环境量化）",
+      "AlphaFold 革命（结构预测的终结、AlphaFold3 的复合物建模）",
+      "AI 药物发现（虚拟筛选/分子生成/ADMET 预测）",
+      "临床 NLP（病历结构化、医学知识图谱）",
+      "医疗大模型（Med-PaLM/GPT-4 医学评测、幻觉风险）",
+      "多模态医疗（影像+文本+基因组的联合建模）",
+      "手术机器人 AI（术野理解、自主缝合的探索）",
+      "监管与验证（FDA AI/ML 审批路径、预设变更控制计划）",
+      "临床落地（工作流嵌入、医生接受度、责任归属）",
+      "公平性与隐私（数据偏差、联邦学习在医疗的应用）"
+    ],
+  },
+  'advanced/on-device-ai': {
+    title: "端侧 AI 与小模型（量化蒸馏/NPU 部署/SLM）",
+    books: [
+          "MIT Technology Review, \"10 Breakthrough Technologies 2025\" — Small Language Models (2025)",
+          "Han, Mao & Dally, \"Deep Compression\" 论文体系 (ICLR 2016)",
+          "Apple, \"Apple Intelligence 端侧架构\" 及 Qualcomm AI 白皮书 (2024)"
+    ],
+    chapters: [
+      "端侧 AI 的驱动力（隐私/延迟/成本、云端协同的边界）",
+      "小语言模型 SLM（Phi/Gemma Mini 的数据质量优先路线）",
+      "知识蒸馏（Logits/特征/注意力蒸馏、从大模型到小模型）",
+      "量化技术（PTQ/QAT、INT8→INT4→二值化的精度保卫战）",
+      "剪枝与稀疏化（结构化剪枝、N:M 稀疏的硬件亲和性）",
+      "高效架构（MobileNet/Mamba 变体、混合精度设计）",
+      "NPU/DSP 硬件（移动 SoC 的 AI 算力、算子支持矩阵）",
+      "推理框架（ONNX/CoreML/MLC-LLM、端侧推理引擎）",
+      "端侧大模型部署（手机跑 7B 的内存/功耗工程）",
+      "端云协同（投机采样的云端版、隐私计算卸载）",
+      "个人化（端侧微调 LoRA、设备端 RAG）",
+      "应用场景（AI 手机/AI PC/可穿戴、离线翻译与影像）"
+    ],
+  },
+  'engineering/slam-spatial-perception': {
+    title: "SLAM 与空间感知（定位建图/多传感器融合）",
+    books: [
+          "Barfoot, \"State Estimation for Robotics\" (2017)",
+          "Cadena et al., \"Past, Present, and Future of SLAM\" (IEEE T-RO, 2016)",
+          "高翔等, 《视觉 SLAM 十四讲》(2019)"
+    ],
+    chapters: [
+      "状态估计问题（贝叶斯滤波→因子图的统一视角）",
+      "前端里程计（特征法 ORB/直接法 LK、光流与匹配）",
+      "视觉惯性融合 VIO（IMU 预积分、紧耦合优化）",
+      "后端优化（Bundle Adjustment、位姿图优化、g2o/Ceres）",
+      "回环检测（词袋模型、深度学习描述子）",
+      "激光 SLAM（LOAM 谱系、点云配准 ICP/NDT）",
+      "地图表示（占据栅格/八叉树/符号距离场 TSDF）",
+      "语义 SLAM（动态物体剔除、场景理解辅助定位）",
+      "神经 SLAM（NeRF/GS 建图、可微渲染的回环）",
+      "多机协同（分布式 SLAM、地图融合）",
+      "鲁棒性与退化（隧道/走廊退化、多模态冗余设计）",
+      "工程落地（自动驾驶 HD Map、机器人导航栈、AR 锚定）"
+    ],
+  },
+  'engineering/medical-robotics': {
+    title: "医疗机器人（手术/康复/微纳机器人）",
+    books: [
+          "Troccaz, \"Medical Robotics\" (2013)",
+          "Rosen, Hannaford & Satava (eds.), \"Surgical Robotics\" (2011)",
+          "Nelson et al., \"Microrobots for Minimally Invasive Medicine\" (Annu. Rev. Biomed. Eng., 2010)"
+    ],
+    chapters: [
+      "手术机器人总览（达芬奇架构、遥操作主从控制）",
+      "骨科手术机器人（术前规划→术中导航、磨锉边界控制）",
+      "腔镜机器人（器械腕 EndoWrist、力反馈的缺失与补偿）",
+      "介入机器人（血管介入导丝机器人、磁导航）",
+      "影像引导（CT/MRI 兼容机器人、实时配准）",
+      "软镜与柔性机器人（连续体机构、经自然腔道手术 NOTES）",
+      "康复机器人（外骨骼、神经可塑性的机器人诱导）",
+      "微纳机器人（磁驱微游动器、靶向给药的体内导航）",
+      "自主化分级（从遥操作到监督自主的分级框架）",
+      "安全与认证（IEC 60601、失效模式分析）",
+      "人机界面（力反馈/触觉再现、手眼协调训练）",
+      "产业格局（直觉外科/美敦力/国产腔镜机器人的竞争）"
+    ],
+  },
+  'engineering/soft-robotics': {
+    title: "软体机器人（柔性驱动/可变刚度/仿生）",
+    books: [
+          "Laschi, Rossiter & Iida (eds.), \"Soft Robotics\" 综述体系 (Trends in Biotechnology)",
+          "Rus & Tolley, \"Design, Fabrication and Control of Soft Robots\" (Nature, 2015)",
+          "Whitesides 组软体机器人论文体系 (PNAS/Soft Robotics 期刊)"
+    ],
+    chapters: [
+      "软体机器人哲学（顺应性即智能、连续体 vs 刚体）",
+      "软材料基础（硅胶/水凝胶/介电弹性体的力学）",
+      "气动驱动（PneuNet 弯曲致动器、纤维增强结构）",
+      "智能材料驱动（形状记忆合金/聚合物、离子凝胶）",
+      "流体驱动（DEA 介电弹性体、HASEL 自愈合驱动器）",
+      "可变刚度（层阻塞/颗粒阻塞、低熔点合金）",
+      "软体传感（液态金属应变计、柔性电容/压阻）",
+      "软体抓手（自适应抓取、缠绕与吸附）",
+      "仿生运动（象鼻/章鱼臂/蠕虫爬行的生物启示）",
+      "建模与控制（Cosserat 杆理论、数据驱动控制）",
+      "制造方法（3D 打印/软光刻、多材料一体化成型）",
+      "应用前沿（可穿戴助力、医疗介入、深海探测软体机器鱼）"
+    ],
+  },
+  'engineering/uav-systems-engineering': {
+    title: "无人机系统工程（飞控/集群/适航）",
+    books: [
+          "Beard & McLain, \"Small Unmanned Aircraft: Theory and Practice\" (2012)",
+          "Fahlstrom & Gleason, \"Introduction to UAV Systems\" (4th ed., 2012)",
+          "Valavanis & Vachtsevanos (eds.), \"Handbook of Unmanned Aerial Vehicles\" (2015)"
+    ],
+    chapters: [
+      "无人机分类与总体设计（固定翼/多旋翼/复合翼的选型）",
+      "飞行动力学（多旋翼的欠驱动特性、气动布局）",
+      "飞控系统（姿态解算 EKF、串级 PID 与自抗扰）",
+      "导航定位（GNSS/RTK/视觉里程计的冗余设计）",
+      "动力系统（电推进效率、油动长航时、氢燃料电池）",
+      "通信链路（数传图传、跳频抗干扰、卫通中继）",
+      "任务载荷（光电吊舱/SAR/多光谱的集成）",
+      "集群协同（蜂群编队、任务分配、群体智能）",
+      "自主决策（路径规划、避障、拒止环境导航）",
+      "地面站与人机交互（一站多机、自动化机场）",
+      "适航与监管（CAAC/FAA 适航审定、UTM 空域管理）",
+      "反制与安全（无人机探测反制、黑飞治理）"
     ],
   },
 }
