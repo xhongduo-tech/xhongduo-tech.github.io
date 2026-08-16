@@ -1344,6 +1344,8 @@ export const trees = [
         level: '药学与口腔',
         nodes: [
           { name: '药学', path: 'life/pharmacy' },
+          { name: '生物制药工程（mRNA 平台/单抗/GMP/生物反应器）', path: 'life/biopharmaceutical-engineering' },
+          { name: '抗微生物药物与耐药性（抗生素发现/耐药机制/AMR 管控）', path: 'life/antimicrobial-resistance' },
           { name: '口腔医学', path: 'life/stomatology' },
           { name: '护理学', path: 'life/nursing' },
           { name: '临床药理学', path: 'life/clinical-pharmacology' },

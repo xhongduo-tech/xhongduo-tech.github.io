@@ -1,5 +1,5 @@
 // 待建专题详细主题 · 依据权威书籍章节
-// 共 669 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3+5 个），约 7998 个章节级子主题
+// 共 671 个待建专题（2026-08 第一轮 42 个、第二轮 233 个、定向增补 5+11+20+21+3+5+2 个），约 8022 个章节级子主题
 // 每个专题包含: title(中文标题) + books(权威书籍) + chapters(章节级子主题)
 
 export const treeDetails = {
@@ -14438,6 +14438,50 @@ export const treeDetails = {
       "制冷基础设施（风冷/液冷混合、冷却塔、PUE/WUE 指标）",
       "数据中心等级与可靠性（Tier I-IV、2N 冗余、可用性数学）",
       "绿色算力（余热回收、碳足迹、东数西算与算力网络）"
+    ],
+  },
+  'life/biopharmaceutical-engineering': {
+    title: "生物制药工程（mRNA 平台/单抗/GMP/生物反应器）",
+    books: [
+          "Walsh, \"Biopharmaceutical Benchmarks\" (Nature Biotechnology 系列综述)",
+          "Shukla & Thömmes, \"Recent Advances in Large-Scale Production of Monoclonal Antibodies\" (Trends Biotechnol., 2010)",
+          "Crommelin, Sindelar & Meibohm (eds.), \"Pharmaceutical Biotechnology\" (5th ed., 2019)"
+    ],
+    chapters: [
+      "生物制药总览（重组蛋白/单抗/疫苗/核酸药物的产业版图）",
+      "表达系统（CHO 细胞株开发、大肠杆菌/酵母/昆虫细胞）",
+      "上游工艺（补料分批/灌流培养、生物反应器放大）",
+      "下游纯化（Protein A 层析、病毒去除/灭活验证）",
+      "单克隆抗体（杂交瘤→噬菌体展示→双特异性抗体的演进）",
+      "mRNA 疫苗平台（修饰核苷、LNP 脂质纳米颗粒递送）",
+      "细胞与基因治疗制造（CAR-T 个体化生产、病毒载体产能瓶颈）",
+      "制剂与稳定性（冻干工艺、聚集体控制、冷链）",
+      "GMP 与质量体系（cGMP、工艺验证、数据完整性）",
+      "生物类似药（可比性研究、监管路径）",
+      "连续制造与数字化（PAT 过程分析技术、一次性系统）",
+      "监管科学（FDA/EMA/NMPA 申报、ICH 指南）"
+    ],
+  },
+  'life/antimicrobial-resistance': {
+    title: "抗微生物药物与耐药性（抗生素发现/耐药机制/AMR 管控）",
+    books: [
+          "Walsh & Wencewicz, \"Antibiotics: Challenges, Mechanisms, Opportunities\" (2nd ed., 2016)",
+          "Bennett & Plum, \"Antimicrobial Resistance and Therapy\" 相关章节 (Mandell 感染病学体系)",
+          "O'Neill Review, \"Tackling Drug-Resistant Infections Globally\" (2016, 英国政府 AMR 报告)"
+    ],
+    chapters: [
+      "抗生素发现史（青霉素→头孢→碳青霉烯的黄金时代与枯竭）",
+      "抗菌药物分类（β-内酰胺/喹诺酮/大环内酯/糖肽/噁唑烷酮）",
+      "耐药机制（酶水解/靶位修饰/外排泵/生物膜）",
+      "耐药基因传播（质粒接合、整合子、水平基因转移）",
+      "重要耐药菌（MRSA/CRE/CRAB/结核耐药的临床威胁）",
+      "药敏试验与折点（MIC 测定、CLSI/EUCAST 标准）",
+      "抗生素研发新策略（新型β-内酰胺酶抑制剂、噬菌体疗法）",
+      "非传统抗菌（抗菌肽、单克隆抗体、CRISPR 精准杀菌）",
+      "抗真菌与抗病毒耐药（棘白菌素耐药、HIV 耐药屏障）",
+      "One Health 视角（农业抗生素使用、环境耐药组）",
+      "抗菌药物管理（AMS 处方管控、诊断驱动的精准用药）",
+      "AMR 经济负担与全球治理（世卫组织全球行动计划）"
     ],
   },
 }

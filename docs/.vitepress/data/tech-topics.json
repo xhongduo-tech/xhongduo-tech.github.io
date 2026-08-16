@@ -822,6 +822,7 @@
     "life/animal-husbandry",
     "life/animal-nutrition-feed",
     "life/animal-products-processing",
+    "life/antimicrobial-resistance",
     "life/aquaculture",
     "life/aquaculture-fisheries",
     "life/aquatic-animal-medicine",
@@ -829,6 +830,7 @@
     "life/basic-medicine",
     "life/bioinformatics",
     "life/biomedical-informatics",
+    "life/biopharmaceutical-engineering",
     "life/biotechnology",
     "life/cardiology",
     "life/child-adolescent-and-maternal-health",
@@ -1695,8 +1697,8 @@
   },
   "stats": {
     "tech": 450,
-    "nontech": 777,
-    "total": 1227,
+    "nontech": 779,
+    "total": 1229,
     "byDomain": {
       "math-physics": 160,
       "cs": 54,
