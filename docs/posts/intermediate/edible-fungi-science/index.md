@@ -51,13 +51,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 食用菌学概论（菌物分类地位、产业与营养价值）
-- [ ] 食用菌形态与生活史（菌丝体、子实体、有性生殖循环）
-- [ ] 食用菌生理生态（营养类型、温湿光气需求）
-- [ ] 菌种生产技术（母种、原种、栽培种制备与保藏）
-- [ ] 培养料与栽培设施（配方设计、灭菌发酵、菇房建设）
-- [ ] 木腐菌栽培（香菇、木耳、平菇、灵芝段木与代料栽培）
-- [ ] 草腐菌栽培（双孢蘑菇、草菇堆料发酵工艺）
-- [ ] 珍稀与药用菌栽培（羊肚菌、杏鲍菇、蛹虫草、桑黄）
-- [ ] 病虫害与杂菌防控（竞争性杂菌、菇蚊、绿色防控）
+- [x] [食用菌学概论（菌物分类地位、产业与营养价值）](./edible-fungi-science-overview)
+- [x] [食用菌形态与生活史（菌丝体、子实体、有性生殖循环）](./morphology-life-cycle-structures)
+- [x] [食用菌生理生态（营养类型、温湿光气需求）](./physiology-ecology-nutrition-factors)
+- [x] [菌种生产技术（母种、原种、栽培种制备与保藏）](./spawn-production-technology)
+- [x] [培养料与栽培设施（配方设计、灭菌发酵、菇房建设）](./substrate-and-cultivation-facilities)
+- [x] [木腐菌栽培（香菇、木耳、平菇、灵芝段木与代料栽培）](./wood-rot-fungi-cultivation)
+- [x] [草腐菌栽培（双孢蘑菇、草菇堆料发酵工艺）](./straw-rot-fungi-cultivation)
+- [x] [珍稀与药用菌栽培（羊肚菌、杏鲍菇、蛹虫草、桑黄）](./rare-and-medicinal-fungi-cultivation)
+- [x] [病虫害与杂菌防控（竞争性杂菌、菇蚊、绿色防控）](./pest-disease-green-control)
 - [ ] 采收加工与产品开发（保鲜、干制、多糖提取、深加工）

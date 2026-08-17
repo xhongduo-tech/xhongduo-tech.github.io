@@ -126,13 +126,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 熵与信息度量（熵、联合熵、条件熵）
-- [ ] 互信息与相对熵（KL 散度、数据处理不等式）
-- [ ] 渐近等分割性（典型序列、信源编码定理）
-- [ ] 数据压缩（Kraft 不等式、Huffman 编码、算术编码）
-- [ ] 信道容量（定义、对称信道计算）
-- [ ] 信道编码定理（随机编码、联合典型译码）
-- [ ] 高斯信道（功率约束、注水法）
-- [ ] 率失真理论（有损压缩的理论极限）
+- [x] [熵与信息度量（熵、联合熵、条件熵）](./entropy-and-information-measures)
+- [x] [互信息与相对熵（KL 散度、数据处理不等式）](./mutual-information-and-relative-entropy)
+- [x] [渐近等分割性（典型序列、信源编码定理）](./asymptotic-equipartition-property-and-source-coding)
+- [x] [数据压缩（Kraft 不等式、Huffman 编码、算术编码）](./data-compression-kraft-huffman-arithmetic)
+- [x] [信道容量（定义、对称信道计算）](./channel-capacity-definition-symmetric-channels)
+- [x] [信道编码定理（随机编码、联合典型译码）](./channel-coding-theorem-random-coding-typical-decoding)
+- [x] [高斯信道（功率约束、注水法）](./gaussian-channel-power-constraint-water-filling)
+- [x] [率失真理论（有损压缩的理论极限）](./rate-distortion-theory-lossy-compression)
 - [ ] 网络信息论初步（多址信道、广播信道）
 - [ ] 信息论与统计学习（Fisher 信息、最大熵原理、MDL）

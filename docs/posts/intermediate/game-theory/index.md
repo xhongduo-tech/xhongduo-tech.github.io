@@ -47,14 +47,14 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 博弈的表述（策略式与展开式）
-- [ ] 占优策略与重复剔除（可理性化）
-- [ ] 纳什均衡（存在性定理）
-- [ ] 混合策略均衡（计算与解释）
-- [ ] 完全信息动态博弈（逆向归纳、子博弈精炼）
-- [ ] 重复博弈（无名氏定理、合作维持）
-- [ ] 不完全信息静态博弈（贝叶斯均衡、拍卖初步）
-- [ ] 不完全信息动态博弈（精炼贝叶斯均衡、信号传递）
+- [x] [博弈的表述（策略式与展开式）](./strategy-and-extensive-form)
+- [x] [占优策略与重复剔除（可理性化）](./iterated-dominance-rationalizability)
+- [x] [纳什均衡（存在性定理）](./nash-existence-theorem)
+- [x] [混合策略均衡（计算与解释）](./mixed-strategy-equilibrium)
+- [x] [完全信息动态博弈（逆向归纳、子博弈精炼）](./perfect-information-dynamic-games)
+- [x] [重复博弈（无名氏定理、合作维持）](./repeated-games-and-cooperation)
+- [x] [不完全信息静态博弈（贝叶斯均衡、拍卖初步）](./static-bayesian-games-auctions)
+- [x] [不完全信息动态博弈（精炼贝叶斯均衡、信号传递）](./dynamic-bayesian-games-signaling)
 - [ ] 机制设计（显示原理、VCG 机制）
 - [ ] 合作博弈（核、Shapley 值、议价）
 - [ ] 演化博弈论（ESS、复制动态）

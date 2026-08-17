@@ -58,11 +58,11 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 保测变换（例子：旋转、Bernoulli 移位）
-- [ ] 遍历性与不变测度（Poincaré 回归）
-- [ ] 遍历定理（Birkhoff 与 von Neumann 遍历定理）
-- [ ] 混合性与谱方法（弱混合、强混合）
+- [x] [保测变换（例子：旋转、Bernoulli 移位）](./measure-preserving-examples-rotations-bernoulli)
+- [x] [遍历性与不变测度（Poincaré 回归）](./ergodicity-invariant-measures-poincare)
+- [x] [遍历定理（Birkhoff 与 von Neumann 遍历定理）](./ergodic-theorems-birkhoff-von-neumann)
+- [x] [混合性与谱方法（弱混合、强混合）](./mixing-spectral-methods-weak-strong)
 - [ ] 测度熵（Kolmogorov-Sinai 熵、变分原理）
-- [ ] 符号动力系统（拓扑熵、移位系统）
+- [x] [符号动力系统（拓扑熵、移位系统）](./symbolic-dynamics-topological-entropy-shifts)
 - [ ] 唯一遍历性与等分布（Weyl 定理、连分数）
 - [ ] 前沿应用（齐次动力系统、数论中的遍历方法）

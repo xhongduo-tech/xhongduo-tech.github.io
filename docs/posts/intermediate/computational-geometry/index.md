@@ -56,10 +56,10 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 几何基础与凸包（凸包算法、Graham 扫描）
-- [ ] 线段求交（平面扫描技术）
-- [ ] 多边形三角剖分（可见性、艺术画廊定理）
-- [ ] 低维线性规划（随机增量算法）
+- [x] [几何基础与凸包（凸包算法、Graham 扫描）](./convex-hull-overview)
+- [x] [线段求交（平面扫描技术）](./segment-intersection-overview)
+- [x] [多边形三角剖分（可见性、艺术画廊定理）](./polygon-triangulation-art-gallery)
+- [x] [低维线性规划（随机增量算法）](./low-dimensional-linear-programming)
 - [ ] Voronoi 图与 Delaunay 三角剖分（对偶性、应用）
 - [ ] 点定位（梯形图、持久结构）
 - [ ] 排列与对偶性（线排列、半空间交）

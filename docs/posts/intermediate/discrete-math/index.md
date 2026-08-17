@@ -171,13 +171,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 逻辑与证明（命题逻辑、谓词逻辑、证明方法）
-- [ ] 集合与关系（等价关系、偏序关系）
-- [ ] 函数与基数（可数集、鸽巢原理）
-- [ ] 组合计数（排列组合、容斥原理）
-- [ ] 递推关系与生成函数（线性递推、母函数方法）
-- [ ] 数论初步与密码应用（同余、RSA）
-- [ ] 图论基础（路径、连通性、欧拉回路与哈密顿回路）
-- [ ] 树（生成树、二叉树、遍历）
-- [ ] 代数结构（群、环、格与布尔代数）
-- [ ] 形式语言与自动机初步（正则语言、有限自动机）
+- [x] [逻辑与证明（命题逻辑、谓词逻辑、证明方法）](./logic-and-proof)
+- [x] [集合与关系（等价关系、偏序关系）](./sets-and-relations)
+- [x] [函数与基数（可数集、鸽巢原理）](./functions-and-cardinality)
+- [x] [组合计数（排列组合、容斥原理）](./combinatorics-counting)
+- [x] [递推关系与生成函数（线性递推、母函数方法）](./recurrence-relations-generating-functions)
+- [x] [数论初步与密码应用（同余、RSA）](./number-theory-cryptography)
+- [x] [图论基础（路径、连通性、欧拉回路与哈密顿回路）](./graph-theory-basics)
+- [x] [树（生成树、二叉树、遍历）](./trees)
+- [x] [代数结构（群、环、格与布尔代数）](./algebraic-structures)
+- [x] [形式语言与自动机初步（正则语言、有限自动机）](./formal-languages-automata)

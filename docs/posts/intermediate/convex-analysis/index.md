@@ -65,11 +65,11 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 凸集（凸组合、凸包、凸锥）
-- [ ] 凸函数（定义、Jensen 不等式、下半连续）
-- [ ] 分离定理（超平面分离、支撑超平面）
-- [ ] 共轭函数与对偶（Fenchel 共轭）
-- [ ] 次微分（次梯度、Moreau-Rockafellar 理论）
-- [ ] 最优性条件（KKT 条件的凸分析形式）
-- [ ] 极值表示与凸几何（极点、Minkowski 定理）
-- [ ] 应用（对偶算法、机器学习中的凸方法）
+- [x] [凸集（凸组合、凸包、凸锥）](./convex-sets-hull-cones)
+- [x] [凸函数（定义、Jensen 不等式、下半连续）](./convex-functions-jensen-lsc)
+- [x] [分离定理（超平面分离、支撑超平面）](./separation-supporting-hyperplanes)
+- [x] [共轭函数与对偶（Fenchel 共轭）](./fenchel-conjugate-duality)
+- [x] [次微分（次梯度、Moreau-Rockafellar 理论）](./subdifferential-moreau-rockafellar)
+- [x] [最优性条件（KKT 条件的凸分析形式）](./optimality-conditions-kkt-convex)
+- [x] [极值表示与凸几何（极点、Minkowski 定理）](./extreme-points-minkowski)
+- [x] [应用（对偶算法、机器学习中的凸方法）](./duality-algorithms-machine-learning)
