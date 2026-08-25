@@ -137,13 +137,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 预备知识（条件期望、矩母函数）
-- [ ] 泊松过程（定义、复合与非齐次推广）
-- [ ] 更新理论（更新方程、极限定理）
-- [ ] 离散时间马尔可夫链（转移矩阵、状态分类）
-- [ ] 马尔可夫链极限理论（平稳分布、遍历性）
-- [ ] 连续时间马尔可夫链（生灭过程、Kolmogorov 方程）
-- [ ] 鞅（停时定理、鞅收敛）
-- [ ] 布朗运动（性质、首达时）
-- [ ] 随机积分与扩散初步（伊藤公式简介）
-- [ ] 应用选讲（排队论、金融模型、MCMC）
+- [x] [预备知识（条件期望、矩母函数）](./draft-e33253f356)
+- [x] [泊松过程（定义、复合与非齐次推广）](./draft-97491d3adac0.md)
+- [x] [更新理论（更新方程、极限定理）](./intermediate-stochastic-processes-c5e73412.md)
+- [x] [离散时间马尔可夫链（转移矩阵、状态分类）](./intermediate-stochastic-processes-d3751044.md)
+- [x] [马尔可夫链极限理论（平稳分布、遍历性）](./intermediate-stochastic-processes-056b4275.md)
+- [x] [连续时间马尔可夫链（生灭过程、Kolmogorov 方程）](./intermediate-stochastic-processes-kolmogorov-b6d459d2.md)
+- [x] [鞅（停时定理、鞅收敛）](./intermediate-stochastic-processes-ae6e4046.md)
+- [x] [布朗运动（性质、首达时）](./intermediate-stochastic-processes-dbc16255.md)
+- [x] [随机积分与扩散初步（伊藤公式简介）](./intermediate-stochastic-processes-656cfaec.md)
+- [x] [应用选讲（排队论、金融模型、MCMC）](./intermediate-stochastic-processes-mcmc-7093afcf.md)

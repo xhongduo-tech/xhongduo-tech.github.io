@@ -55,13 +55,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 水土保持概论（水土流失现状、学科任务）
-- [ ] 土壤侵蚀原理（水力、风力、重力侵蚀机理）
-- [ ] 土壤侵蚀预报模型（USLE/RUSLE、CSLE、侵蚀模数）
-- [ ] 水土保持农业技术措施（等高耕作、覆盖保墒、保护性耕作）
-- [ ] 水土保持工程措施（梯田、淤地坝、谷坊、坡面水系工程）
-- [ ] 水土保持林草措施（水保林配置、植被恢复、封禁治理）
-- [ ] 小流域综合治理（治理模式、规划设计、效益评价）
-- [ ] 荒漠化防治（风沙物理学、固沙造林、草方格沙障）
-- [ ] 石漠化与矿区生态修复（岩溶区治理、废弃地复垦）
-- [ ] 水土保持监测与信息化（遥感监测、智慧水保、法规执法）
+- [x] [水土保持概论（水土流失现状、学科任务）](./draft-6009c3b56f11.md)
+- [x] [土壤侵蚀原理（水力、风力、重力侵蚀机理）](./draft-7f76701fb62c.md)
+- [x] [土壤侵蚀预报模型（USLE/RUSLE、CSLE、侵蚀模数）](./draft-cf6b7ffb4c06.md)
+- [x] [水土保持农业技术措施（等高耕作、覆盖保墒、保护性耕作）](./life-soil-water-conservation-and-desertification-b4cf445b.md)
+- [x] [水土保持工程措施（梯田、淤地坝、谷坊、坡面水系工程）](./life-soil-water-conservation-and-desertification-20f4b36a.md)
+- [x] [水土保持林草措施（水保林配置、植被恢复、封禁治理）](./life-soil-water-conservation-and-desertification-9b429bd4.md)
+- [x] [小流域综合治理（治理模式、规划设计、效益评价）](./life-soil-water-conservation-and-desertification-7be22fbc.md)
+- [x] [荒漠化防治（风沙物理学、固沙造林、草方格沙障）](./life-soil-water-conservation-and-desertification-fcd42295.md)
+- [x] [石漠化与矿区生态修复（岩溶区治理、废弃地复垦）](./life-soil-water-conservation-and-desertification-6db809ef.md)
+- [x] [水土保持监测与信息化（遥感监测、智慧水保、法规执法）](./life-soil-water-conservation-and-desertification-24f88146.md)

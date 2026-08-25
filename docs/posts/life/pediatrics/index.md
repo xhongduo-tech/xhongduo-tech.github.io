@@ -57,16 +57,16 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 儿科学概论（年龄分期、生长发育规律与评价）
-- [ ] 儿童保健与营养（喂养、计划免疫、营养不良与肥胖）
-- [ ] 新生儿疾病（新生儿窒息、黄疸、早产儿管理）
-- [ ] 遗传代谢与内分泌疾病（先天甲减、苯丙酮尿症、矮小症）
-- [ ] 呼吸系统疾病（肺炎、哮喘、毛细支气管炎）
-- [ ] 消化系统疾病（腹泻病、液体疗法、婴儿肝炎综合征）
-- [ ] 心血管系统疾病（先心病、川崎病、病毒性心肌炎）
-- [ ] 泌尿系统疾病（急性肾炎、肾病综合征、泌尿系感染）
-- [ ] 血液系统疾病（营养性贫血、白血病、ITP）
-- [ ] 神经肌肉系统疾病（热性惊厥、癫痫、脑性瘫痪）
-- [ ] 感染性疾病（麻疹、手足口、结核、传染性单核细胞增多症）
-- [ ] 免疫与风湿性疾病（过敏性紫癜、幼年特发性关节炎）
-- [ ] 儿科急危重症（惊厥持续状态、脓毒性休克、液体复苏）
+- [x] [儿科学概论（年龄分期、生长发育规律与评价）](./pediatrics-introduction-and-growth)
+- [x] [儿童保健与营养（喂养、计划免疫、营养不良与肥胖）](./child-health-and-nutrition)
+- [x] [新生儿疾病（新生儿窒息、黄疸、早产儿管理）](./neonatal-diseases)
+- [x] [遗传代谢与内分泌疾病（先天甲减、苯丙酮尿症、矮小症）](./genetic-metabolic-endocrine-diseases)
+- [x] [呼吸系统疾病（肺炎、哮喘、毛细支气管炎）](./pediatric-respiratory-diseases)
+- [x] [消化系统疾病（腹泻病、液体疗法、婴儿肝炎综合征）](./pediatric-digestive-diseases)
+- [x] [心血管系统疾病（先心病、川崎病、病毒性心肌炎）](./pediatric-cardiovascular-diseases)
+- [x] [泌尿系统疾病（急性肾炎、肾病综合征、泌尿系感染）](./pediatric-urinary-diseases)
+- [x] [血液系统疾病（营养性贫血、白血病、ITP）](./pediatric-hematologic-diseases)
+- [x] [神经肌肉系统疾病（热性惊厥、癫痫、脑性瘫痪）](./pediatric-neuromuscular-diseases)
+- [x] [感染性疾病（麻疹、手足口、结核、传染性单核细胞增多症）](./pediatric-infectious-diseases)
+- [x] [免疫与风湿性疾病（过敏性紫癜、幼年特发性关节炎）](./pediatric-immunologic-rheumatic-diseases)
+- [x] [儿科急危重症（惊厥持续状态、脓毒性休克、液体复苏）](./pediatric-critical-care)

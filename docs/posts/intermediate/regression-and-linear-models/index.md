@@ -55,13 +55,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 简单线性回归（最小二乘估计、显著性检验）
-- [ ] 多元线性回归（矩阵形式、估计性质）
-- [ ] 回归诊断（残差分析、影响点、异方差）
-- [ ] 变量选择与模型评估（逐步回归、AIC/BIC）
-- [ ] 共线性处理（岭回归、LASSO）
-- [ ] 方差分析模型（单/双因素、协方差分析）
-- [ ] 广义线性模型（logistic 回归、泊松回归）
-- [ ] 混合效应模型（随机效应、纵向数据）
-- [ ] 非参数回归初步（核估计、样条）
-- [ ] 计算实践与案例分析（R/Python 实现）
+- [x] [简单线性回归（最小二乘估计、显著性检验）](./draft-895fbf30ed)
+- [x] [多元线性回归（矩阵形式、估计性质）](./draft-01b7d5d2138c.md)
+- [x] [回归诊断（残差分析、影响点、异方差）](./intermediate-regression-and-linear-models-b9708d3b.md)
+- [x] [变量选择与模型评估（逐步回归、AIC/BIC）](./intermediate-regression-and-linear-models-aic-bic-ba94e08d.md)
+- [x] [共线性处理（岭回归、LASSO）](./intermediate-regression-and-linear-models-lasso-680f82d5.md)
+- [x] [方差分析模型（单/双因素、协方差分析）](./intermediate-regression-and-linear-models-f32d24e8.md)
+- [x] [广义线性模型（logistic 回归、泊松回归）](./intermediate-regression-and-linear-models-logistic-40183dca.md)
+- [x] [混合效应模型（随机效应、纵向数据）](./intermediate-regression-and-linear-models-0103b018.md)
+- [x] [非参数回归初步（核估计、样条）](./intermediate-regression-and-linear-models-16ffd6e6.md)
+- [x] [计算实践与案例分析（R/Python 实现）](./intermediate-regression-and-linear-models-r-python-a1858467.md)

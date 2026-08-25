@@ -118,13 +118,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 行列式（定义、性质、克拉默法则）
-- [ ] 矩阵及其运算（秩、逆矩阵、分块矩阵）
-- [ ] 线性方程组（高斯消元、解的结构）
-- [ ] 向量空间与线性相关性（基、维数、坐标）
-- [ ] 线性映射与矩阵表示（核与像、相似）
-- [ ] 特征值与特征向量（对角化、Cayley-Hamilton）
-- [ ] 二次型（标准形、正定性）
-- [ ] 内积空间与正交性（Gram-Schmidt、正交投影）
-- [ ] 标准形理论（若尔当标准形、谱定理）
-- [ ] 应用与计算（SVD、最小二乘、数值线性代数初步）
+- [x] [行列式（定义、性质、克拉默法则）](./draft-cbbb0604a7)
+- [x] [矩阵及其运算（秩、逆矩阵、分块矩阵）](./draft-b20b37c9ad62.md)
+- [x] [线性方程组（高斯消元、解的结构）](./intermediate-linear-algebra-c09dd1b4.md)
+- [x] [向量空间与线性相关性（基、维数、坐标）](./intermediate-linear-algebra-9bf892eb.md)
+- [x] [线性映射与矩阵表示（核与像、相似）](./intermediate-linear-algebra-a339f5a5.md)
+- [x] [特征值与特征向量（对角化、Cayley-Hamilton）](./intermediate-linear-algebra-cayley-hamilton-13e6fd88.md)
+- [x] [二次型（标准形、正定性）](./intermediate-linear-algebra-74c5e086.md)
+- [x] [内积空间与正交性（Gram-Schmidt、正交投影）](./intermediate-linear-algebra-gram-schmidt-bcb857b5.md)
+- [x] [标准形理论（若尔当标准形、谱定理）](./intermediate-linear-algebra-a2ffb923.md)
+- [x] [应用与计算（SVD、最小二乘、数值线性代数初步）](./intermediate-linear-algebra-svd-2d4006aa.md)

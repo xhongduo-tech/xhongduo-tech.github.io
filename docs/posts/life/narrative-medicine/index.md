@@ -19,15 +19,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 叙事医学缘起与理论基础（文学与医学交叉、细读 close reading）
-- [ ] 疾病叙事类型学（Frank 复原/混乱/探索叙事、brody 意义建构）
-- [ ] 叙事能力训练方法（反思性写作、平行病历、叙事三要素关注-再现-归属）
-- [ ] 医患沟通核心技能（共情表达、积极倾听、NURSE 命名情绪技巧）
-- [ ] 结构化问诊框架（Calgary-Cambridge 指南、SPIKES 坏消息告知六步法）
-- [ ] 共同决策与知情同意（SDM 模型、决策辅助工具、风险沟通数字素养）
-- [ ] 特殊情境沟通（癌症告知、儿科、临终关怀、跨文化沟通）
-- [ ] 医患冲突与医疗纠纷预防（信任修复、道歉沟通、投诉处理）
+- [x] [叙事医学缘起与理论基础（文学与医学交叉、细读 close reading）](./narrative-medicine-origins)
+- [x] [疾病叙事类型学（Frank 复原/混乱/探索叙事、brody 意义建构）](./illness-narrative-typology)
+- [x] [叙事能力训练方法（反思性写作、平行病历、叙事三要素关注-再现-归属）](./narrative-competence-training)
+- [x] [医患沟通核心技能（共情表达、积极倾听、NURSE 命名情绪技巧）](./core-communication-skills)
+- [x] [结构化问诊框架（Calgary-Cambridge 指南、SPIKES 坏消息告知六步法）](./structured-interview-framework)
+- [x] [共同决策与知情同意（SDM 模型、决策辅助工具、风险沟通数字素养）](./shared-decision-making)
+- [x] [特殊情境沟通（癌症告知、儿科、临终关怀、跨文化沟通）](./special-situations-communication)
+- [x] [医患冲突与医疗纠纷预防（信任修复、道歉沟通、投诉处理）](./conflict-and-malpractice-prevention)
 
 ### 第2篇
 
-- [ ] 临床教学与职业发展（叙事医学课程设计、职业倦怠预防、巴林特小组）
+- [x] [临床教学与职业发展（叙事医学课程设计、职业倦怠预防、巴林特小组）](./clinical-education-and-career-development)

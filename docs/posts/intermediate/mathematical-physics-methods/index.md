@@ -53,15 +53,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 复变函数基础（解析函数、复积分）
-- [ ] 留数理论及其应用（定积分计算）
-- [ ] 积分变换（傅里叶变换、拉普拉斯变换）
-- [ ] 数学物理方程的导出（弦振动、热传导、势方程）
-- [ ] 定解问题与行波法（d'Alembert 解）
-- [ ] 分离变量法（直角坐标系、本征值问题）
-- [ ] 球坐标分离与勒让德函数（球函数）
-- [ ] 柱坐标分离与贝塞尔函数（柱函数）
-- [ ] 格林函数法（δ 函数、边值问题求解）
-- [ ] 积分方程初步（Fredholm 理论简介）
-- [ ] 变分法（泛函极值、欧拉方程、物理应用）
-- [ ] 现代方法简介（渐近分析、群论初步）
+- [x] [复变函数基础（解析函数、复积分）](./draft-4a3fb8f643)
+- [x] [留数理论及其应用（定积分计算）](./draft-001a0cfe8c)
+- [x] [积分变换（傅里叶变换、拉普拉斯变换）](./draft-995077a5f431.md)
+- [x] [数学物理方程的导出（弦振动、热传导、势方程）](./draft-add700dfb345.md)
+- [x] [定解问题与行波法（d'Alembert 解）](./intermediate-mathematical-physics-me-4d36123a.md)
+- [x] [分离变量法（直角坐标系、本征值问题）](./intermediate-mathematical-physics-methods-6f9746d8.md)
+- [x] [球坐标分离与勒让德函数（球函数）](./intermediate-mathematical-physics-methods-cfd468e2.md)
+- [x] [柱坐标分离与贝塞尔函数（柱函数）](./intermediate-mathematical-physics-methods-2541bec5.md)
+- [x] [格林函数法（δ 函数、边值问题求解）](./intermediate-mathematical-physics-methods-70e3b3b9.md)
+- [x] [积分方程初步（Fredholm 理论简介）](./intermediate-mathematical-physics-methods-fredholm-25cf6309.md)
+- [x] [变分法（泛函极值、欧拉方程、物理应用）](./intermediate-mathematical-physics-methods-4df81f9a.md)
+- [x] [现代方法简介（渐近分析、群论初步）](./intermediate-mathematical-physics-methods-96ac6ef5.md)

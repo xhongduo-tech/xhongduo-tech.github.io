@@ -58,14 +58,14 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 胸心血管外科基础（解剖生理、心肺功能评估）
-- [ ] 胸部创伤（血气胸、连枷胸、创伤急救）
-- [ ] 肺部疾病外科（肺癌分期、肺切除、VATS）
-- [ ] 食管外科（食管癌、贲门失弛缓、食管重建）
-- [ ] 纵隔与胸壁疾病（胸腺瘤、重症肌无力外科）
-- [ ] 先天性心脏病（房缺、室缺、法洛四联症）
-- [ ] 心脏瓣膜病（瓣膜成形与置换、经导管介入 TAVI）
-- [ ] 冠心病外科（冠脉旁路移植、杂交手术）
-- [ ] 大血管疾病（主动脉夹层、动脉瘤外科）
-- [ ] 体外循环与心肌保护（CPB 原理、微创灌注）
-- [ ] 心肺移植与辅助装置（移植适应证、VAD、免疫抑制）
+- [x] [胸心血管外科基础（解剖生理、心肺功能评估）](./draft-08334db348)
+- [x] [胸部创伤（血气胸、连枷胸、创伤急救）](./draft-10d4359d5dcc.md)
+- [x] [肺部疾病外科（肺癌分期、肺切除、VATS）](./draft-53b3461bda2c.md)
+- [x] [食管外科（食管癌、贲门失弛缓、食管重建）](./life-thoracic-and-cardiovascular-surgery-084dca90.md)
+- [x] [纵隔与胸壁疾病（胸腺瘤、重症肌无力外科）](./life-thoracic-and-cardiovascular-surgery-6cb3b7e5.md)
+- [x] [先天性心脏病（房缺、室缺、法洛四联症）](./life-thoracic-and-cardiovascular-surgery-04167522.md)
+- [x] [心脏瓣膜病（瓣膜成形与置换、经导管介入 TAVI）](./life-thoracic-and-cardiovascular-surgery-tavi-0dba318e.md)
+- [x] [冠心病外科（冠脉旁路移植、杂交手术）](./life-thoracic-and-cardiovascular-surgery-cca7ab99.md)
+- [x] [大血管疾病（主动脉夹层、动脉瘤外科）](./life-thoracic-and-cardiovascular-surgery-51f863c7.md)
+- [x] [体外循环与心肌保护（CPB 原理、微创灌注）](./life-thoracic-and-cardiovascular-surgery-cpb-625e0569.md)
+- [x] [心肺移植与辅助装置（移植适应证、VAD、免疫抑制）](./life-thoracic-and-cardiovascular-surgery-vad-7721f0ed.md)

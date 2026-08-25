@@ -134,5 +134,5 @@ pageClass: plain-doc
 - [x] [信道编码定理（随机编码、联合典型译码）](./channel-coding-theorem-random-coding-typical-decoding)
 - [x] [高斯信道（功率约束、注水法）](./gaussian-channel-power-constraint-water-filling)
 - [x] [率失真理论（有损压缩的理论极限）](./rate-distortion-theory-lossy-compression)
-- [ ] 网络信息论初步（多址信道、广播信道）
-- [ ] 信息论与统计学习（Fisher 信息、最大熵原理、MDL）
+- [x] [网络信息论初步（多址信道、广播信道）](./intermediate-information-theory-7c426862.md)
+- [x] [信息论与统计学习（Fisher 信息、最大熵原理、MDL）](./intermediate-information-theory-fisher-mdl-f81389a2.md)

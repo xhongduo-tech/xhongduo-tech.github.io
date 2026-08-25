@@ -58,13 +58,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 生物医学信息学概论（学科范畴、数据-信息-知识-智慧）
-- [ ] 生物医学数据基础（数据类型、临床术语标准 SNOMED/ICD）
-- [ ] 电子病历与医院信息系统（EMR、HIS、CDSS）
-- [ ] 医学信息交换与互操作（HL7、FHIR、DICOM）
-- [ ] 医学数据挖掘与机器学习（特征工程、预测建模）
-- [ ] 自然语言处理与知识图谱（医学 NLP、临床实体识别）
-- [ ] 生物信息学基础（序列比对、基因组数据库、组学分析）
-- [ ] 临床决策支持与人工智能（辅助诊断、深度学习应用）
-- [ ] 远程医疗与数字健康（可穿戴设备、移动医疗、数字疗法）
-- [ ] 数据安全与伦理（隐私保护、数据脱敏、算法伦理）
+- [x] [生物医学信息学概论（学科范畴、数据-信息-知识-智慧）](./draft-4e1cd3616d)
+- [x] [生物医学数据基础（数据类型、临床术语标准 SNOMED/ICD）](./draft-ca2d28c2cb41.md)
+- [x] [电子病历与医院信息系统（EMR、HIS、CDSS）](./life-biomedical-informatics-emrhiscdss-68e68586.md)
+- [x] [医学信息交换与互操作（HL7、FHIR、DICOM）](./life-biomedical-informatics-hl7fhirdicom-6edfbc38.md)
+- [x] [医学数据挖掘与机器学习（特征工程、预测建模）](./life-biomedical-informatics-43fc740a.md)
+- [x] [自然语言处理与知识图谱（医学 NLP、临床实体识别）](./life-biomedical-informatics-nlp-8433537b.md)
+- [x] [生物信息学基础（序列比对、基因组数据库、组学分析）](./life-biomedical-informatics-bfddb1b3.md)
+- [x] [临床决策支持与人工智能（辅助诊断、深度学习应用）](./life-biomedical-informatics-a8a9651a.md)
+- [x] [远程医疗与数字健康（可穿戴设备、移动医疗、数字疗法）](./life-biomedical-informatics-065114b4.md)
+- [x] [数据安全与伦理（隐私保护、数据脱敏、算法伦理）](./life-biomedical-informatics-1afceaf1.md)

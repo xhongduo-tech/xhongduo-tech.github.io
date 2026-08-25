@@ -132,13 +132,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 拓扑空间与连续映射（开集、闭包、邻域）
-- [ ] 拓扑的构造（子空间、积空间、商空间）
-- [ ] 连通性（连通、道路连通、连通分支）
-- [ ] 紧致性（紧空间、Tychonoff 定理）
-- [ ] 可数性与分离公理（Hausdorff、正则、正规）
-- [ ] 度量化定理（Urysohn 引理、度量化）
-- [ ] 完备度量空间与函数空间（Baire 定理、Ascoli 定理）
-- [ ] 基本群（同伦、圆周基本群）
-- [ ] 覆叠空间（提升性质、万有覆叠）
-- [ ] 同调论初步（单纯同调、Euler 示性数）
+- [x] [拓扑空间与连续映射（开集、闭包、邻域）](./draft-7615ce27c2)
+- [x] [拓扑的构造（子空间、积空间、商空间）](./draft-83ca58cd1675.md)
+- [x] [连通性（连通、道路连通、连通分支）](./intermediate-topology-d9d8ce4f.md)
+- [x] [紧致性（紧空间、Tychonoff 定理）](./intermediate-topology-tychonoff-52af767b.md)
+- [x] [可数性与分离公理（Hausdorff、正则、正规）](./intermediate-topology-hausdorff-66a750d1.md)
+- [x] [度量化定理（Urysohn 引理、度量化）](./intermediate-topology-urysohn-5bd03859.md)
+- [x] [完备度量空间与函数空间（Baire 定理、Ascoli 定理）](./intermediate-topology-baire-ascoli-2f8ba242.md)
+- [x] [基本群（同伦、圆周基本群）](./intermediate-topology-da3b965b.md)
+- [x] [覆叠空间（提升性质、万有覆叠）](./intermediate-topology-8ec3f3e2.md)
+- [x] [同调论初步（单纯同调、Euler 示性数）](./intermediate-topology-euler-f4e32d87.md)

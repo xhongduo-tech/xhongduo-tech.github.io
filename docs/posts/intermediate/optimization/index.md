@@ -136,13 +136,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 优化问题与最优性条件（无约束一阶二阶条件）
-- [ ] 线搜索方法（最速下降、步长策略）
-- [ ] 牛顿法与拟牛顿法（BFGS、收敛性）
-- [ ] 信赖域方法（模型函数、狗腿法）
-- [ ] 最小二乘问题（线性/非线性、GN/LM 算法）
-- [ ] 线性规划（单纯形法、对偶理论）
-- [ ] 凸优化问题类（QP、SOCP、SDP）
-- [ ] 约束优化（KKT 条件、罚函数、增广拉格朗日）
-- [ ] 内点法（原始对偶内点法）
-- [ ] 大规模优化与应用（一阶方法、ADMM、机器学习应用）
+- [x] [优化问题与最优性条件（无约束一阶二阶条件）](./draft-e57c0a0467)
+- [x] [线搜索方法（最速下降、步长策略）](./draft-a8cfffed1704.md)
+- [x] [牛顿法与拟牛顿法（BFGS、收敛性）](./intermediate-optimization-bfgs-dab08086.md)
+- [x] [信赖域方法（模型函数、狗腿法）](./intermediate-optimization-fcef5879.md)
+- [x] [最小二乘问题（线性/非线性、GN/LM 算法）](./intermediate-optimization-gn-lm-f9959401.md)
+- [x] [线性规划（单纯形法、对偶理论）](./intermediate-optimization-ed9fb5e0.md)
+- [x] [凸优化问题类（QP、SOCP、SDP）](./intermediate-optimization-qpsocpsdp-215bb3f9.md)
+- [x] [约束优化（KKT 条件、罚函数、增广拉格朗日）](./intermediate-optimization-kkt-d43562e2.md)
+- [x] [内点法（原始对偶内点法）](./intermediate-optimization-a428a520.md)
+- [x] [大规模优化与应用（一阶方法、ADMM、机器学习应用）](./intermediate-optimization-admm-76e458f2.md)

@@ -62,13 +62,13 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 职业卫生与职业医学概论（职业有害因素、职业病目录）
-- [ ] 生产性毒物与职业中毒（铅、苯、农药中毒诊治）
-- [ ] 生产性粉尘与尘肺（矽肺、煤工尘肺、防尘八字方针）
-- [ ] 物理因素危害（噪声聋、高温中暑、振动病、放射损伤）
-- [ ] 职业性肿瘤与生物因素（石棉、联苯胺、职业性传染病）
-- [ ] 职业工效学与心理紧张（肌肉骨骼疾患、职业紧张）
-- [ ] 职业卫生监测与评价（职业病危害预评价、控制效果评价）
-- [ ] 环境卫生学基础（环境介质与健康、环境流行病学方法）
-- [ ] 大气、水与土壤卫生（空气污染健康效应、饮用水安全）
-- [ ] 环境健康风险评估与突发环境事件（暴露评估、应急处理）
+- [x] [职业卫生与职业医学概论（职业有害因素、职业病目录）](./draft-c4e9e0a09e2e.md)
+- [x] [生产性毒物与职业中毒（铅、苯、农药中毒诊治）](./draft-7e7659578638.md)
+- [x] [生产性粉尘与尘肺（矽肺、煤工尘肺、防尘八字方针）](./life-occupational-and-environmental-health-7c2e089c.md)
+- [x] [物理因素危害（噪声聋、高温中暑、振动病、放射损伤）](./life-occupational-and-environmental-health-038cf785.md)
+- [x] [职业性肿瘤与生物因素（石棉、联苯胺、职业性传染病）](./life-occupational-and-environmental-health-a18acbcf.md)
+- [x] [职业工效学与心理紧张（肌肉骨骼疾患、职业紧张）](./life-occupational-and-environmental-health-1d92ac38.md)
+- [x] [职业卫生监测与评价（职业病危害预评价、控制效果评价）](./life-occupational-and-environmental-health-a27b2a0b.md)
+- [x] [环境卫生学基础（环境介质与健康、环境流行病学方法）](./life-occupational-and-environmental-health-38289857.md)
+- [x] [大气、水与土壤卫生（空气污染健康效应、饮用水安全）](./life-occupational-and-environmental-health-011b4509.md)
+- [x] [环境健康风险评估与突发环境事件（暴露评估、应急处理）](./life-occupational-and-environmental-health-26985723.md)

@@ -132,15 +132,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 误差分析与浮点运算（舍入误差、条件数、稳定性）
-- [ ] 非线性方程求根（二分法、牛顿法、收敛阶）
-- [ ] 线性方程组直接法（LU 分解、选主元）
-- [ ] 迭代法（Jacobi、Gauss-Seidel、收敛性）
-- [ ] 矩阵特征值计算（幂法、QR 算法）
-- [ ] 插值（拉格朗日、牛顿、样条插值）
-- [ ] 函数逼近（最佳一致逼近、最小二乘）
-- [ ] 数值积分与微分（Newton-Cotes、高斯求积）
-- [ ] 常微分方程数值解（Euler、Runge-Kutta、刚性问题）
-- [ ] 偏微分方程数值方法（有限差分、有限元初步）
-- [ ] 快速算法（FFT、多 grid 方法简介）
-- [ ] 数值优化与软件实践（MATLAB/Python 实现）
+- [x] [误差分析与浮点运算（舍入误差、条件数、稳定性）](./draft-f0b36a39d1)
+- [x] [非线性方程求根（二分法、牛顿法、收敛阶）](./draft-5d33874f1b)
+- [x] [线性方程组直接法（LU 分解、选主元）](./draft-4148adf73baa.md)
+- [x] [迭代法（Jacobi、Gauss-Seidel、收敛性）](./draft-ab10ee242007.md)
+- [x] [矩阵特征值计算（幂法、QR 算法）](./intermediate-numerical-analysis-qr-c39a66df.md)
+- [x] [插值（拉格朗日、牛顿、样条插值）](./intermediate-numerical-analysis-38088d94.md)
+- [x] [函数逼近（最佳一致逼近、最小二乘）](./intermediate-numerical-analysis-7db25b98.md)
+- [x] [数值积分与微分（Newton-Cotes、高斯求积）](./intermediate-numerical-analysis-newton-cotes-0f3b1ce0.md)
+- [x] [常微分方程数值解（Euler、Runge-Kutta、刚性问题）](./intermediate-numerical-analysis-eulerrunge-kutta-9466842b.md)
+- [x] [偏微分方程数值方法（有限差分、有限元初步）](./intermediate-numerical-analysis-2b581f28.md)
+- [x] [快速算法（FFT、多 grid 方法简介）](./intermediate-numerical-analysis-fft-grid-353903ad.md)
+- [x] [数值优化与软件实践（MATLAB/Python 实现）](./intermediate-numerical-analysis-matlab-python-40ecb13e.md)

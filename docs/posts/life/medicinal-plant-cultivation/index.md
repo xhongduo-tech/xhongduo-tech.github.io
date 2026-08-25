@@ -56,13 +56,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 药用植物栽培学概论（道地药材、GAP 与产业现状）
-- [ ] 药用植物生长发育与环境（光温水土需求、生态适应性）
-- [ ] 药用植物繁殖技术（种子、扦插、组织培养、种苗标准）
-- [ ] 田间管理技术（整地施肥、灌溉排水、整形修剪）
-- [ ] 药用植物病虫害防治（绿色防控、农药残留控制）
-- [ ] 根及根茎类药材栽培（人参、三七、黄芪、地黄）
-- [ ] 全草、花叶及果实种子类药材栽培（金银花、枸杞、板蓝根）
-- [ ] 木本及菌类药材栽培（杜仲、厚朴、灵芝、天麻共生栽培）
-- [ ] 采收与产地加工（采收期确定、干燥炮制、贮藏防霉）
-- [ ] 质量评价与可追溯（有效成分检测、指纹图谱、溯源体系）
+- [x] [药用植物栽培学概论（道地药材、GAP 与产业现状）](./draft-ddc6cfa8cb48.md)
+- [x] [药用植物生长发育与环境（光温水土需求、生态适应性）](./draft-40cfac2f6fdb.md)
+- [x] [药用植物繁殖技术（种子、扦插、组织培养、种苗标准）](./life-medicinal-plant-cultivation-ea4791a8.md)
+- [x] [田间管理技术（整地施肥、灌溉排水、整形修剪）](./life-medicinal-plant-cultivation-be3e1192.md)
+- [x] [药用植物病虫害防治（绿色防控、农药残留控制）](./life-medicinal-plant-cultivation-4ba60388.md)
+- [x] [根及根茎类药材栽培（人参、三七、黄芪、地黄）](./life-medicinal-plant-cultivation-42798333.md)
+- [x] [全草、花叶及果实种子类药材栽培（金银花、枸杞、板蓝根）](./life-medicinal-plant-cultivation-61d372c5.md)
+- [x] [木本及菌类药材栽培（杜仲、厚朴、灵芝、天麻共生栽培）](./life-medicinal-plant-cultivation-6ca69521.md)
+- [x] [采收与产地加工（采收期确定、干燥炮制、贮藏防霉）](./life-medicinal-plant-cultivation-91ef175e.md)
+- [x] [质量评价与可追溯（有效成分检测、指纹图谱、溯源体系）](./life-medicinal-plant-cultivation-266ef809.md)

@@ -62,11 +62,11 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 多复变全纯函数基础（多圆柱、柯西公式）
-- [ ] 与单复变的本质差异（Hartogs 现象）
-- [ ] 解析延拓与全纯域（全纯凸性）
-- [ ] 拟凸域与 Levi 问题（Levi 形式）
-- [ ] ∂̄ 方程与 L² 估计方法（Hörmander 方法）
-- [ ] 积分表示公式（Bochner-Martinelli、边界行为）
-- [ ] Stein 流形与凝聚层初步（Cartan 定理 A/B 简介）
-- [ ] 复几何与全纯映射初步（双全纯等价问题）
+- [x] [多复变全纯函数基础（多圆柱、柯西公式）](./intermediate-several-complex-variables-7df14770.md)
+- [x] [与单复变的本质差异（Hartogs 现象）](./intermediate-several-complex-variables-hartogs-a1a26e24.md)
+- [x] [解析延拓与全纯域（全纯凸性）](./intermediate-several-complex-variables-dd286f53.md)
+- [x] [拟凸域与 Levi 问题（Levi 形式）](./intermediate-several-complex-variables-levi-levi-3c6e173e.md)
+- [x] [∂̄ 方程与 L² 估计方法（Hörmander 方法）](./intermediate-several-complex-variables-l-hrmander-67b867a9.md)
+- [x] [积分表示公式（Bochner-Martinelli、边界行为）](./intermediate-several-complex-variabl-fe5e4c1c.md)
+- [x] [Stein 流形与凝聚层初步（Cartan 定理 A/B 简介）](./intermediate-several-complex-variabl-a2c68ba5.md)
+- [x] [复几何与全纯映射初步（双全纯等价问题）](./intermediate-several-complex-variables-81b67293.md)

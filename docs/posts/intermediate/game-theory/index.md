@@ -55,7 +55,7 @@ pageClass: plain-doc
 - [x] [重复博弈（无名氏定理、合作维持）](./repeated-games-and-cooperation)
 - [x] [不完全信息静态博弈（贝叶斯均衡、拍卖初步）](./static-bayesian-games-auctions)
 - [x] [不完全信息动态博弈（精炼贝叶斯均衡、信号传递）](./dynamic-bayesian-games-signaling)
-- [ ] 机制设计（显示原理、VCG 机制）
-- [ ] 合作博弈（核、Shapley 值、议价）
-- [ ] 演化博弈论（ESS、复制动态）
-- [ ] 算法博弈论与应用（均衡计算复杂性、互联网经济学）
+- [x] [机制设计（显示原理、VCG 机制）](./intermediate-game-theory-vcg-f4d1bb79.md)
+- [x] [合作博弈（核、Shapley 值、议价）](./intermediate-game-theory-shapley-14becb74.md)
+- [x] [演化博弈论（ESS、复制动态）](./intermediate-game-theory-ess-68dbe39d.md)
+- [x] [算法博弈论与应用（均衡计算复杂性、互联网经济学）](./intermediate-game-theory-fedcfd46.md)

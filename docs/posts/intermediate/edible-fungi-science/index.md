@@ -60,4 +60,4 @@ pageClass: plain-doc
 - [x] [草腐菌栽培（双孢蘑菇、草菇堆料发酵工艺）](./straw-rot-fungi-cultivation)
 - [x] [珍稀与药用菌栽培（羊肚菌、杏鲍菇、蛹虫草、桑黄）](./rare-and-medicinal-fungi-cultivation)
 - [x] [病虫害与杂菌防控（竞争性杂菌、菇蚊、绿色防控）](./pest-disease-green-control)
-- [ ] 采收加工与产品开发（保鲜、干制、多糖提取、深加工）
+- [x] [采收加工与产品开发（保鲜、干制、多糖提取、深加工）](./intermediate-edible-fungi-science-8fca1d93.md)

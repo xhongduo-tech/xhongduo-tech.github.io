@@ -58,8 +58,8 @@ pageClass: plain-doc
 - [x] [磁介质与电磁感应（磁化、法拉第定律、电感）](./magnetic-matter-induction)
 - [x] [麦克斯韦方程组与守恒律（位移电流、坡印廷定理、电磁张量）](./maxwell-equations-conservation-laws)
 - [x] [平面电磁波（波动方程、偏振、色散介质）](./plane-electromagnetic-waves)
-- [ ] 电磁波在界面的行为（反射折射、菲涅尔公式、全反射、表面等离激元）
-- [ ] 波导与谐振腔（TE/TM 模、截止频率、品质因数）
-- [ ] 辐射理论（推迟势、李纳-维谢尔势、电偶极与磁偶极辐射）
-- [ ] 狭义相对论与电动力学协变形式（四维张量、场强张量、变换性质）
-- [ ] 带电粒子动力学与辐射阻尼（同步辐射、轫致辐射、辐射反作用）
+- [x] [电磁波在界面的行为（反射折射、菲涅尔公式、全反射、表面等离激元）](./intermediate-electrodynamics-05542638.md)
+- [x] [波导与谐振腔（TE/TM 模、截止频率、品质因数）](./intermediate-electrodynamics-te-tm-52d34029.md)
+- [x] [辐射理论（推迟势、李纳-维谢尔势、电偶极与磁偶极辐射）](./intermediate-electrodynamics-de84c340.md)
+- [x] [狭义相对论与电动力学协变形式（四维张量、场强张量、变换性质）](./intermediate-electrodynamics-5186eed7.md)
+- [x] [带电粒子动力学与辐射阻尼（同步辐射、轫致辐射、辐射反作用）](./intermediate-electrodynamics-cbefe2f7.md)

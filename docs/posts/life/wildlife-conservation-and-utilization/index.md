@@ -60,12 +60,12 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 野生动植物保护概论（生物多样性价值、保护法规体系）
-- [ ] 保护生物学基础（小种群问题、遗传多样性、灭绝机制）
-- [ ] 野生动物生态学（种群动态、栖息地利用、行为生态）
-- [ ] 野生动物调查监测（样线法、红外相机、标志重捕、DNA 技术）
-- [ ] 濒危物种保护（就地保护、迁地保护、旗舰种案例）
-- [ ] 自然保护区与栖息地管理（保护地体系、廊道设计）
-- [ ] 野生植物保护（珍稀植物、极小种群拯救、种质资源库）
-- [ ] 野生动物资源利用与管理（狩猎管理、人工繁育、贸易管制）
-- [ ] 人兽冲突与国际合作（社区共管、CITES、跨境保护）
+- [x] [野生动植物保护概论（生物多样性价值、保护法规体系）](./draft-2621c4e1979a.md)
+- [x] [保护生物学基础（小种群问题、遗传多样性、灭绝机制）](./life-wildlife-conservation-and-utilization-3a4b4755.md)
+- [x] [野生动物生态学（种群动态、栖息地利用、行为生态）](./life-wildlife-conservation-and-utilization-eb8fc846.md)
+- [x] [野生动物调查监测（样线法、红外相机、标志重捕、DNA 技术）](./life-wildlife-conservation-and-utilization-dna-5d5f1c29.md)
+- [x] [濒危物种保护（就地保护、迁地保护、旗舰种案例）](./life-wildlife-conservation-and-utilization-5058dcfa.md)
+- [x] [自然保护区与栖息地管理（保护地体系、廊道设计）](./life-wildlife-conservation-and-utilization-4dfe8526.md)
+- [x] [野生植物保护（珍稀植物、极小种群拯救、种质资源库）](./life-wildlife-conservation-and-utilization-ccdd5dec.md)
+- [x] [野生动物资源利用与管理（狩猎管理、人工繁育、贸易管制）](./life-wildlife-conservation-and-utilization-83f48f03.md)
+- [x] [人兽冲突与国际合作（社区共管、CITES、跨境保护）](./life-wildlife-conservation-and-utilization-cites-d3f2ded2.md)

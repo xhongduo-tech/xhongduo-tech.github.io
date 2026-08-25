@@ -56,13 +56,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 巴拿赫代数与谱（谱半径、Gelfand 理论）
-- [ ] C*-代数基础（定义、例子、正元）
-- [ ] 交换 C*-代数（Gelfand-Naimark 定理）
-- [ ] 函数演算（连续与可测函数演算）
-- [ ] 态与 GNS 构造（表示理论）
-- [ ] 冯·诺依曼代数（双交换子定理）
-- [ ] 投影理论与因子分类（I/II/III 型）
-- [ ] 张量积与核性（核 C*-代数）
-- [ ] K-理论初步（K0/K1 群、指标）
-- [ ] 应用选讲（量子统计力学、非交换几何）
+- [x] [巴拿赫代数与谱（谱半径、Gelfand 理论）](./draft-d5dbd2788d)
+- [x] [C*-代数基础（定义、例子、正元）](./draft-d1a7e89d024f.md)
+- [x] [交换 C*-代数（Gelfand-Naimark 定理）](./intermediate-operator-algebras-c-gelfand-naimark-a4de6db1.md)
+- [x] [函数演算（连续与可测函数演算）](./intermediate-operator-algebras-7d079653.md)
+- [x] [态与 GNS 构造（表示理论）](./intermediate-operator-algebras-gns-3d207027.md)
+- [x] [冯·诺依曼代数（双交换子定理）](./intermediate-operator-algebras-209b23d6.md)
+- [x] [投影理论与因子分类（I/II/III 型）](./intermediate-operator-algebras-i-ii-iii-d227b027.md)
+- [x] [张量积与核性（核 C*-代数）](./intermediate-operator-algebras-c-67ef932c.md)
+- [x] [K-理论初步（K0/K1 群、指标）](./intermediate-operator-algebras-k-k0-k1-0eaa6438.md)
+- [x] [应用选讲（量子统计力学、非交换几何）](./intermediate-operator-algebras-8a571c2f.md)

@@ -48,14 +48,14 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 中药学总论（四气五味、升降浮沉、归经、毒性）
-- [ ] 解表药与清热药（麻黄桂枝、石膏黄连等代表药）
-- [ ] 泻下药、祛风湿药与化湿药（大黄、独活、藿香）
-- [ ] 利水渗湿、温里与理气药（茯苓、附子、陈皮）
-- [ ] 消导驱虫、止血与活血化瘀药（三七、丹参、川芎）
-- [ ] 化痰止咳平喘与安神药（半夏、川贝、酸枣仁）
-- [ ] 平肝息风、开窍与补虚药（天麻、麝香、人参黄芪）
-- [ ] 收涩药与外用药（五味子、雄黄、安全用药）
-- [ ] 中药鉴定（性状、显微、理化与 DNA 条形码鉴定）
-- [ ] 中药炮制（炮制目的、净制切制、炒炙煅蒸）
-- [ ] 中药药剂与质量控制（中药制剂、指纹图谱、GAP）
+- [x] [中药学总论（四气五味、升降浮沉、归经、毒性）](./draft-1b7a7dcf53)
+- [x] [解表药与清热药（麻黄桂枝、石膏黄连等代表药）](./draft-a41cb856aa48.md)
+- [x] [泻下药、祛风湿药与化湿药（大黄、独活、藿香）](./draft-98cc5fb17b5b.md)
+- [x] [利水渗湿、温里与理气药（茯苓、附子、陈皮）](./life-traditional-chinese-pharmacy-6e64999b.md)
+- [x] [消导驱虫、止血与活血化瘀药（三七、丹参、川芎）](./life-traditional-chinese-pharmacy-1b804169.md)
+- [x] [化痰止咳平喘与安神药（半夏、川贝、酸枣仁）](./life-traditional-chinese-pharmacy-c58764dd.md)
+- [x] [平肝息风、开窍与补虚药（天麻、麝香、人参黄芪）](./life-traditional-chinese-pharmacy-7d8de3a4.md)
+- [x] [收涩药与外用药（五味子、雄黄、安全用药）](./life-traditional-chinese-pharmacy-d1d4e749.md)
+- [x] [中药鉴定（性状、显微、理化与 DNA 条形码鉴定）](./life-traditional-chinese-pharmacy-dna-01f9c2fc.md)
+- [x] [中药炮制（炮制目的、净制切制、炒炙煅蒸）](./life-traditional-chinese-pharmacy-a2148872.md)
+- [x] [中药药剂与质量控制（中药制剂、指纹图谱、GAP）](./life-traditional-chinese-pharmacy-gap-5d589b01.md)

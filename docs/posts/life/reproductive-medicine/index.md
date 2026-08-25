@@ -63,13 +63,13 @@ pageClass: plain-doc
 
 ### 第6篇
 
-- [ ] 生殖内分泌基础（下丘脑-垂体-性腺轴、月经周期调控）
-- [ ] 配子发生与受精（精子发生、卵泡发育、受精机制）
-- [ ] 女性不孕（排卵障碍、输卵管因素、子宫内膜异位症）
-- [ ] 男性不育（精液分析、少弱畸精症、无精症）
-- [ ] 辅助生殖技术总论（人工授精、IVF-ET 流程）
-- [ ] 控制性超促排卵与取卵（促排方案、OHSS 防治）
-- [ ] 胚胎实验室技术（ICSI、胚胎培养、囊胚评分）
-- [ ] 植入前遗传学检测（PGT-A/PGT-M、活检与筛查）
-- [ ] 生育力保存（卵子/卵巢组织冷冻、肿瘤患者生育力保护）
-- [ ] 生殖伦理与法规（ART 伦理原则、配子捐赠、我国法规）
+- [x] [生殖内分泌基础（下丘脑-垂体-性腺轴、月经周期调控）](./draft-54662c6f2e22.md)
+- [x] [配子发生与受精（精子发生、卵泡发育、受精机制）](./draft-bddc5a14449e.md)
+- [x] [女性不孕（排卵障碍、输卵管因素、子宫内膜异位症）](./life-reproductive-medicine-8df6fe62.md)
+- [x] [男性不育（精液分析、少弱畸精症、无精症）](./life-reproductive-medicine-1bf30ca0.md)
+- [x] [辅助生殖技术总论（人工授精、IVF-ET 流程）](./life-reproductive-medicine-ivf-et-d00281c6.md)
+- [x] [控制性超促排卵与取卵（促排方案、OHSS 防治）](./life-reproductive-medicine-ohss-f08e487a.md)
+- [x] [胚胎实验室技术（ICSI、胚胎培养、囊胚评分）](./life-reproductive-medicine-icsi-ccba38a3.md)
+- [x] [植入前遗传学检测（PGT-A/PGT-M、活检与筛查）](./life-reproductive-medicine-pgt-a-pgt-m-b84560c8.md)
+- [x] [生育力保存（卵子/卵巢组织冷冻、肿瘤患者生育力保护）](./life-reproductive-medicine-1101e40f.md)
+- [x] [生殖伦理与法规（ART 伦理原则、配子捐赠、我国法规）](./life-reproductive-medicine-art-74de71c6.md)

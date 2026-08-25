@@ -57,16 +57,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 药理学总论（药效学、药动学、影响药物作用因素）
-- [ ] 传出神经系统药物（胆碱能与肾上腺素能药物）
-- [ ] 中枢神经系统药物（镇静催眠、抗癫痫、镇痛药）
-- [ ] 心血管系统药物（抗高血压、抗心绞痛、抗心律失常）
-- [ ] 内脏与内分泌系统药物（降糖药、激素类药物）
-- [ ] 化学治疗药物（抗生素、抗病毒、抗肿瘤药、耐药性）
-- [ ] 药物化学（构效关系、官能团、代谢活化）
-- [ ] 药剂学（剂型设计、固体制剂、无菌制剂、缓控释）
-- [ ] 生物药剂学与药动学（吸收分布、生物利用度、BE 试验）
-- [ ] 药物分析（药典标准、含量测定、杂质检查）
-- [ ] 天然药物化学（有效成分提取分离、结构鉴定）
-- [ ] 临床药学与合理用药（TDM、药物相互作用、处方点评）
-- [ ] 药事管理与新药研发（GMP/GSP/GCP、药品注册、临床试验）
+- [x] [药理学总论（药效学、药动学、影响药物作用因素）](./pharmacology-principles)
+- [x] [传出神经系统药物（胆碱能与肾上腺素能药物）](./autonomic-nervous-system-drugs)
+- [x] [中枢神经系统药物（镇静催眠、抗癫痫、镇痛药）](./sedative-hypnotic-antiepileptic-analgesic)
+- [x] [心血管系统药物（抗高血压、抗心绞痛、抗心律失常）](./antihypertensive-antianginal-antiarrhythmic)
+- [x] [内脏与内分泌系统药物（降糖药、激素类药物）](./endocrine-antidiabetic-hormone-drugs)
+- [x] [化学治疗药物（抗生素、抗病毒、抗肿瘤药、耐药性）](./chemotherapeutic-drugs-resistance)
+- [x] [药物化学（构效关系、官能团、代谢活化）](./medchem-sar-metabolic-activation)
+- [x] [药剂学（剂型设计、固体制剂、无菌制剂、缓控释）](./pharmaceutics-formulation-design)
+- [x] [生物药剂学与药动学（吸收分布、生物利用度、BE 试验）](./bioavailability-bioequivalence)
+- [x] [药物分析（药典标准、含量测定、杂质检查）](./pharmaceutical-analysis-overview)
+- [x] [天然药物化学（有效成分提取分离、结构鉴定）](./natural-product-chemistry)
+- [x] [临床药学与合理用药（TDM、药物相互作用、处方点评）](./therapeutic-drug-monitoring-interactions)
+- [x] [药事管理与新药研发（GMP/GSP/GCP、药品注册、临床试验）](./new-drug-development-clinical-trials)

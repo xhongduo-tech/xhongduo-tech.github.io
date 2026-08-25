@@ -47,15 +47,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 整除性与素数（算术基本定理、Eratosthenes 筛）
-- [ ] 同余（剩余系、欧拉定理、费马小定理）
-- [ ] 中国剩余定理（同余方程组、原根与指数）
-- [ ] 二次剩余（勒让德符号、二次互反律）
-- [ ] 连分数（丢番图逼近、Pell 方程）
-- [ ] 丢番图方程（线性方程、费马大定理简介）
-- [ ] 算术函数（欧拉函数、Möbius 反演）
-- [ ] 素数分布（切比雪夫估计、素数定理）
-- [ ] Dirichlet 级数与 ζ 函数（解析方法初步）
-- [ ] 代数数论初步（代数整数、理想分解）
-- [ ] 椭圆曲线（群结构、Mordell-Weil 定理简介）
-- [ ] 计算数论与密码学（RSA、素性检测、椭圆曲线密码）
+- [x] [整除性与素数（算术基本定理、Eratosthenes 筛）](./draft-3155655f04)
+- [x] [同余（剩余系、欧拉定理、费马小定理）](./draft-ead5e62d9f)
+- [x] [中国剩余定理（同余方程组、原根与指数）](./draft-29cf5e9e6d63.md)
+- [x] [二次剩余（勒让德符号、二次互反律）](./draft-d11cd94941bf.md)
+- [x] [连分数（丢番图逼近、Pell 方程）](./intermediate-number-theory-pell-c1ebd10e.md)
+- [x] [丢番图方程（线性方程、费马大定理简介）](./intermediate-number-theory-c0a82472.md)
+- [x] [算术函数（欧拉函数、Möbius 反演）](./intermediate-number-theory-mbius-c83bb34c.md)
+- [x] [素数分布（切比雪夫估计、素数定理）](./intermediate-number-theory-630fea4c.md)
+- [x] [Dirichlet 级数与 ζ 函数（解析方法初步）](./intermediate-number-theory-dirichlet-fad06cc3.md)
+- [x] [代数数论初步（代数整数、理想分解）](./intermediate-number-theory-2affab76.md)
+- [x] [椭圆曲线（群结构、Mordell-Weil 定理简介）](./intermediate-number-theory-mordell-weil-62cb1a2e.md)
+- [x] [计算数论与密码学（RSA、素性检测、椭圆曲线密码）](./intermediate-number-theory-rsa-56698fb3.md)

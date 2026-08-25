@@ -62,7 +62,7 @@ pageClass: plain-doc
 - [x] [遍历性与不变测度（Poincaré 回归）](./ergodicity-invariant-measures-poincare)
 - [x] [遍历定理（Birkhoff 与 von Neumann 遍历定理）](./ergodic-theorems-birkhoff-von-neumann)
 - [x] [混合性与谱方法（弱混合、强混合）](./mixing-spectral-methods-weak-strong)
-- [ ] 测度熵（Kolmogorov-Sinai 熵、变分原理）
+- [x] [测度熵（Kolmogorov-Sinai 熵、变分原理）](./intermediate-ergodic-theory-kolmogorov-sinai-f52761fe.md)
 - [x] [符号动力系统（拓扑熵、移位系统）](./symbolic-dynamics-topological-entropy-shifts)
-- [ ] 唯一遍历性与等分布（Weyl 定理、连分数）
-- [ ] 前沿应用（齐次动力系统、数论中的遍历方法）
+- [x] [唯一遍历性与等分布（Weyl 定理、连分数）](./intermediate-ergodic-theory-weyl-ad61f156.md)
+- [x] [前沿应用（齐次动力系统、数论中的遍历方法）](./intermediate-ergodic-theory-3f0c53a9.md)

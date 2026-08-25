@@ -58,11 +58,11 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 全球健康概论（概念演变、与健康公平的关系）
-- [ ] 全球疾病负担（DALY、GBD 研究方法、疾病谱变迁）
-- [ ] 全球卫生治理（WHO、国际组织、卫生外交）
-- [ ] 重大传染病全球防控（艾滋病、结核、疟疾、新发传染病）
-- [ ] 慢病与伤害的全球负担（城市化、生活方式相关疾病）
-- [ ] 母婴健康与营养不良（千年发展目标与 SDG3）
-- [ ] 气候变化与健康（环境健康、同一健康 One Health）
-- [ ] 全球卫生安全与国际合作（IHR、卫生援助、中国援外医疗）
+- [x] [全球健康概论（概念演变、与健康公平的关系）](./life-global-health-205325c5.md)
+- [x] [全球疾病负担（DALY、GBD 研究方法、疾病谱变迁）](./life-global-health-dalygbd-8c284656.md)
+- [x] [全球卫生治理（WHO、国际组织、卫生外交）](./life-global-health-who-84a127a5.md)
+- [x] [重大传染病全球防控（艾滋病、结核、疟疾、新发传染病）](./life-global-health-fd28de6f.md)
+- [x] [慢病与伤害的全球负担（城市化、生活方式相关疾病）](./life-global-health-bcf1a8dc.md)
+- [x] [母婴健康与营养不良（千年发展目标与 SDG3）](./life-global-health-sdg3-9f2a47c3.md)
+- [x] [气候变化与健康（环境健康、同一健康 One Health）](./life-global-health-one-health-67dd374b.md)
+- [x] [全球卫生安全与国际合作（IHR、卫生援助、中国援外医疗）](./life-global-health-ihr-25ade1c6.md)

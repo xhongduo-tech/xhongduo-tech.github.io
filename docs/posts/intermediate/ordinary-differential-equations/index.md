@@ -46,13 +46,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 初等解法（变量分离、恰当方程、一阶线性）
-- [ ] 存在唯一性定理（Picard 迭代、Peano 定理）
-- [ ] 解的延拓与对初值参数的依赖性（Gronwall 不等式）
-- [ ] 高阶线性方程（通解结构、常数变易法）
-- [ ] 线性方程组与矩阵指数（常系数系统）
-- [ ] 边值问题（Sturm-Liouville 理论、格林函数）
-- [ ] 定性理论基础（相平面、平衡点分类）
-- [ ] 极限环（Poincaré-Bendixson 定理）
-- [ ] 稳定性理论（李雅普诺夫方法）
-- [ ] 分支与混沌初步（分支类型、摄动方法）
+- [x] [初等解法（变量分离、恰当方程、一阶线性）](./draft-723488ced2)
+- [x] [存在唯一性定理（Picard 迭代、Peano 定理）](./draft-fcd2725f27ba.md)
+- [x] [解的延拓与对初值参数的依赖性（Gronwall 不等式）](./intermediate-ordinary-differential-e-3515e9b0.md)
+- [x] [高阶线性方程（通解结构、常数变易法）](./intermediate-ordinary-differential-equations-8cf187f4.md)
+- [x] [线性方程组与矩阵指数（常系数系统）](./intermediate-ordinary-differential-equations-57f8ed31.md)
+- [x] [边值问题（Sturm-Liouville 理论、格林函数）](./intermediate-ordinary-differential-e-2fab0bb7.md)
+- [x] [定性理论基础（相平面、平衡点分类）](./intermediate-ordinary-differential-equations-3285c1a9.md)
+- [x] [极限环（Poincaré-Bendixson 定理）](./intermediate-ordinary-differential-e-d746d4b9.md)
+- [x] [稳定性理论（李雅普诺夫方法）](./intermediate-ordinary-differential-equations-b24dc951.md)
+- [x] [分支与混沌初步（分支类型、摄动方法）](./intermediate-ordinary-differential-equations-ef7c6381.md)

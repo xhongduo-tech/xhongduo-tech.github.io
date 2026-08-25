@@ -60,9 +60,9 @@ pageClass: plain-doc
 - [x] [线段求交（平面扫描技术）](./segment-intersection-overview)
 - [x] [多边形三角剖分（可见性、艺术画廊定理）](./polygon-triangulation-art-gallery)
 - [x] [低维线性规划（随机增量算法）](./low-dimensional-linear-programming)
-- [ ] Voronoi 图与 Delaunay 三角剖分（对偶性、应用）
-- [ ] 点定位（梯形图、持久结构）
-- [ ] 排列与对偶性（线排列、半空间交）
-- [ ] 几何数据结构（区间树、线段树、范围树）
-- [ ] 运动规划（构形空间、Minkowski 和）
-- [ ] 鲁棒性与应用（精确计算、GIS 与图形学应用）
+- [x] [Voronoi 图与 Delaunay 三角剖分（对偶性、应用）](./intermediate-computational-geometry--4c831fd1.md)
+- [x] [点定位（梯形图、持久结构）](./intermediate-computational-geometry-05fb85f2.md)
+- [x] [排列与对偶性（线排列、半空间交）](./intermediate-computational-geometry-5176487d.md)
+- [x] [几何数据结构（区间树、线段树、范围树）](./intermediate-computational-geometry-e35e32f1.md)
+- [x] [运动规划（构形空间、Minkowski 和）](./intermediate-computational-geometry-minkowski-e7592e40.md)
+- [x] [鲁棒性与应用（精确计算、GIS 与图形学应用）](./intermediate-computational-geometry-gis-3ba5162d.md)

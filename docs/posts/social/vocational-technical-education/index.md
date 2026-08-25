@@ -18,16 +18,16 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 职业技术教育导论（概念界定、职业教育类型定位、发展历程）
-- [ ] 职业教育的理论基础（人力资本理论、能力本位、情境学习理论）
-- [ ] 职业教育体系与制度（现代职业教育体系、职普融通、产教融合制度设计）
-- [ ] 职业教育课程理论（工作过程系统化课程、项目课程、学习领域课程）
-- [ ] 职业教育教学论（行动导向教学、工学结合、实训教学设计）
-- [ ] 职业教育专业建设与人才培养模式（专业目录、1+X 证书、学徒制）
-- [ ] 校企合作与产教融合（产业学院、市域产教联合体、企业办学）
-- [ ] 职业教育教师教育（"双师型"教师标准、企业实践制度）
+- [x] [职业技术教育导论（概念界定、职业教育类型定位、发展历程）](./introduction-to-vocational-and-technical-education)
+- [x] [职业教育的理论基础（人力资本理论、能力本位、情境学习理论）](./theoretical-foundations-of-vocational-education)
+- [x] [职业教育体系与制度（现代职业教育体系、职普融通、产教融合制度设计）](./vocational-education-system-and-institutions)
+- [x] [职业教育课程理论（工作过程系统化课程、项目课程、学习领域课程）](./curriculum-theory-of-vocational-education)
+- [x] [职业教育教学论（行动导向教学、工学结合、实训教学设计）](./teaching-theory-of-vocational-education)
+- [x] [职业教育专业建设与人才培养模式（专业目录、1+X 证书、学徒制）](./professional-construction-and-talent-training-models)
+- [x] [校企合作与产教融合（产业学院、市域产教联合体、企业办学）](./school-enterprise-cooperation-and-industry-education-integration)
+- [x] [职业教育教师教育（"双师型"教师标准、企业实践制度）](./vocational-education-teacher-education)
 
 ### 第2篇
 
-- [ ] 职业教育评价与质量保障（教学诊断与改进、技能竞赛、第三方评价）
-- [ ] 国际比较与前沿（德国双元制、澳大利亚 TAFE、数字化转型与职业教育）
+- [x] [职业教育评价与质量保障（教学诊断与改进、技能竞赛、第三方评价）](./vocational-education-evaluation-and-quality-assurance)
+- [x] [国际比较与前沿（德国双元制、澳大利亚 TAFE、数字化转型与职业教育）](./international-comparison-and-frontiers)

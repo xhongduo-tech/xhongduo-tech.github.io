@@ -59,12 +59,12 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 社会医学概论（研究对象、医学模式转变）
-- [ ] 健康的社会决定因素（社会经济地位、教育、社会环境）
-- [ ] 社会因素与健康（行为生活方式、心理压力、社会支持）
-- [ ] 社会医学研究方法（问卷设计、定性研究、生命质量评价）
-- [ ] 社区卫生服务（基层卫生、家庭医生签约、分级诊疗）
-- [ ] 卫生服务体系与政策（卫生筹资、医疗保障制度、医改）
-- [ ] 健康危险因素评价（HRA、慢性病防治策略）
-- [ ] 弱势人群社会医学（老年、妇女儿童、流动人口健康）
-- [ ] 健康促进与健康教育（健康城市、健康素养、行为干预）
+- [x] [社会医学概论（研究对象、医学模式转变）](./draft-dc789c9b4d4f.md)
+- [x] [健康的社会决定因素（社会经济地位、教育、社会环境）](./life-social-medicine-and-health-management-ecd7367c.md)
+- [x] [社会因素与健康（行为生活方式、心理压力、社会支持）](./life-social-medicine-and-health-management-002ce8c2.md)
+- [x] [社会医学研究方法（问卷设计、定性研究、生命质量评价）](./life-social-medicine-and-health-management-249a1956.md)
+- [x] [社区卫生服务（基层卫生、家庭医生签约、分级诊疗）](./life-social-medicine-and-health-management-6a38f2f9.md)
+- [x] [卫生服务体系与政策（卫生筹资、医疗保障制度、医改）](./life-social-medicine-and-health-management-aeb918b6.md)
+- [x] [健康危险因素评价（HRA、慢性病防治策略）](./life-social-medicine-and-health-management-hra-3f498149.md)
+- [x] [弱势人群社会医学（老年、妇女儿童、流动人口健康）](./life-social-medicine-and-health-management-07933913.md)
+- [x] [健康促进与健康教育（健康城市、健康素养、行为干预）](./life-social-medicine-and-health-management-199b9be3.md)

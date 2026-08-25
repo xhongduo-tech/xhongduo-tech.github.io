@@ -55,13 +55,13 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 单种群模型（Malthus、Logistic 增长）
-- [ ] 离散模型与年龄结构（Leslie 矩阵、混沌现象）
-- [ ] 相互作用种群（Lotka-Volterra、竞争与共生）
-- [ ] 传染病模型（SIR、基本再生数 R0）
-- [ ] 生化动力学（Michaelis-Menten、酶反应）
-- [ ] 反应扩散方程（图灵斑图、行波解）
-- [ ] 神经与生理模型（Hodgkin-Huxley 方程）
-- [ ] 随机模型（生灭过程、分支过程）
-- [ ] 进化动力学（ESS、复制子方程）
-- [ ] 参数估计与应用案例（流行病学数据建模）
+- [x] [单种群模型（Malthus、Logistic 增长）](./draft-24b74caebf)
+- [x] [离散模型与年龄结构（Leslie 矩阵、混沌现象）](./draft-fe6cb0e2f505.md)
+- [x] [相互作用种群（Lotka-Volterra、竞争与共生）](./intermediate-mathematical-biology-lotka-volterra-16c9dce6.md)
+- [x] [传染病模型（SIR、基本再生数 R0）](./intermediate-mathematical-biology-sir-r0-611cd6ab.md)
+- [x] [生化动力学（Michaelis-Menten、酶反应）](./intermediate-mathematical-biology-michaelis-menten-048e5b26.md)
+- [x] [反应扩散方程（图灵斑图、行波解）](./intermediate-mathematical-biology-9a0522f9.md)
+- [x] [神经与生理模型（Hodgkin-Huxley 方程）](./intermediate-mathematical-biology-hodgkin-huxley-e2f2fe4c.md)
+- [x] [随机模型（生灭过程、分支过程）](./intermediate-mathematical-biology-31069974.md)
+- [x] [进化动力学（ESS、复制子方程）](./intermediate-mathematical-biology-ess-9af4aaf2.md)
+- [x] [参数估计与应用案例（流行病学数据建模）](./intermediate-mathematical-biology-516d6d05.md)

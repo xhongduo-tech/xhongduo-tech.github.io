@@ -56,12 +56,12 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 姑息医学概论（定义、发展史、全人照护理念）
-- [ ] 症状评估工具（ESAS、ECOG、姑息预后评估）
-- [ ] 疼痛管理（WHO 三阶梯、阿片类药物滴定与轮换）
-- [ ] 非疼痛症状控制（呼吸困难、恶心呕吐、恶液质、谵妄）
-- [ ] 心理社会与精神照护（抑郁焦虑、灵性痛苦、尊严疗法）
-- [ ] 沟通与共同决策（病情告知、预立医疗照护计划 ACP）
-- [ ] 安宁疗护与临终照护（濒死期征象、哀伤辅导）
-- [ ] 特殊人群姑息照护（儿童、老年、非肿瘤疾病）
-- [ ] 伦理法律与团队建设（放弃治疗、安宁疗护政策、多学科团队）
+- [x] [姑息医学概论（定义、发展史、全人照护理念）](./draft-8ba01c240551.md)
+- [x] [症状评估工具（ESAS、ECOG、姑息预后评估）](./draft-2fab19a160ea.md)
+- [x] [疼痛管理（WHO 三阶梯、阿片类药物滴定与轮换）](./life-palliative-and-end-of-life-care-who-a340736f.md)
+- [x] [非疼痛症状控制（呼吸困难、恶心呕吐、恶液质、谵妄）](./life-palliative-and-end-of-life-care-e5542484.md)
+- [x] [心理社会与精神照护（抑郁焦虑、灵性痛苦、尊严疗法）](./life-palliative-and-end-of-life-care-77f391d9.md)
+- [x] [沟通与共同决策（病情告知、预立医疗照护计划 ACP）](./life-palliative-and-end-of-life-care-acp-2650499d.md)
+- [x] [安宁疗护与临终照护（濒死期征象、哀伤辅导）](./life-palliative-and-end-of-life-care-3a204b99.md)
+- [x] [特殊人群姑息照护（儿童、老年、非肿瘤疾病）](./life-palliative-and-end-of-life-care-fd95e910.md)
+- [x] [伦理法律与团队建设（放弃治疗、安宁疗护政策、多学科团队）](./life-palliative-and-end-of-life-care-3c00fe24.md)

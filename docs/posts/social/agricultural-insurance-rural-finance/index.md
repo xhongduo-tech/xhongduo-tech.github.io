@@ -19,18 +19,18 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 农业风险类型与管理框架（自然/市场/政策风险、风险分层管理）
-- [ ] 农业保险基本原理（可保性困境、逆选择与道德风险、共保与再保险）
-- [ ] 政策性农业保险制度（保费补贴、大灾风险准备金、中国农业保险条例）
-- [ ] 种植险产品设计（物化成本保险、完全成本保险、收入保险三大品种）
-- [ ] 养殖险与森林险（能繁母猪/生猪保险、渔业互助保险）
-- [ ] 指数保险创新（气象指数、区域产量指数、卫星遥感定损、基差风险）
-- [ ] 农业再保险与巨灾风险分散（中农再、大灾风险分散机制、保险+期货）
-- [ ] 农村金融体系（农信社改革、农商行、村镇银行、合作金融）
+- [x] [农业风险类型与管理框架](./agricultural-risk-types-and-management)（自然/市场/政策风险、风险分层管理）
+- [x] [农业保险基本原理](./basic-principles-of-agricultural-insurance)（可保性困境、逆选择与道德风险、共保与再保险）
+- [x] [政策性农业保险制度](./policy-agricultural-insurance-system)（保费补贴、大灾风险准备金、中国农业保险条例）
+- [x] [种植险产品设计](./crop-insurance-product-design)（物化成本保险、完全成本保险、收入保险三大品种）
+- [x] [养殖险与森林险](./livestock-and-forestry-insurance)（能繁母猪/生猪保险、渔业互助保险）
+- [x] [指数保险创新](./index-insurance-innovation)（气象指数、区域产量指数、卫星遥感定损、基差风险）
+- [x] [农业再保险与巨灾风险分散](./agricultural-reinsurance-and-catastrophe-risk)（中农再、大灾风险分散机制、保险+期货）
+- [x] [农村金融体系](./rural-financial-system)（农信社改革、农商行、村镇银行、合作金融）
 
 ### 第2篇
 
-- [ ] 农户与新型经营主体信贷（小额信贷、土地经营权抵押、供应链金融）
-- [ ] 农村普惠金融与数字金融（移动支付下乡、数字信贷风控、助农取款点）
-- [ ] 保险+信贷联动模式（保单质押、保险增信、银保互动案例）
-- [ ] 国际经验与前沿（美国 FCIC、日本共济、印度 PMFBY、气候风险保险）
+- [x] [农户与新型经营主体信贷](./farmer-credit-and-new-agricultural-operators)（小额信贷、土地经营权抵押、供应链金融）
+- [x] [农村普惠金融与数字金融](./rural-inclusive-and-digital-finance)（移动支付下乡、数字信贷风控、助农取款点）
+- [x] [保险+信贷联动模式](./insurance-credit-linkage)（保单质押、保险增信、银保互动案例）
+- [x] [国际经验与前沿](./international-experience-and-frontier)（美国 FCIC、日本共济、印度 PMFBY、气候风险保险）

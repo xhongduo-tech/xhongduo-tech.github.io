@@ -58,13 +58,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 命题逻辑（语法、语义、完备性）
-- [ ] 一阶谓词逻辑（项、公式、结构）
-- [ ] 形式推演系统（自然演绎、Hilbert 系统）
-- [ ] 完备性定理（哥德尔完备性定理）
-- [ ] 紧致性与 Löwenheim-Skolem 定理（初等模型论）
-- [ ] 可计算性理论（图灵机、递归函数、Church 论题）
-- [ ] 哥德尔不完全性定理（第一与第二定理）
-- [ ] 可判定与不可判定问题（停机问题、判定问题）
-- [ ] 公理集合论初步（ZFC、序数基数概念）
-- [ ] 非经典逻辑简介（直觉主义逻辑、模态逻辑）
+- [x] [命题逻辑（语法、语义、完备性）](./draft-5309c64960)
+- [x] [一阶谓词逻辑（项、公式、结构）](./draft-0a07944d0e7c.md)
+- [x] [形式推演系统（自然演绎、Hilbert 系统）](./intermediate-mathematical-logic-hilbert-fc86fd71.md)
+- [x] [完备性定理（哥德尔完备性定理）](./intermediate-mathematical-logic-aa6246f6.md)
+- [x] [紧致性与 Löwenheim-Skolem 定理（初等模型论）](./intermediate-mathematical-logic-lwenheim-skolem-f8d213f9.md)
+- [x] [可计算性理论（图灵机、递归函数、Church 论题）](./intermediate-mathematical-logic-church-247e4c70.md)
+- [x] [哥德尔不完全性定理（第一与第二定理）](./intermediate-mathematical-logic-56964dfd.md)
+- [x] [可判定与不可判定问题（停机问题、判定问题）](./intermediate-mathematical-logic-38cf178f.md)
+- [x] [公理集合论初步（ZFC、序数基数概念）](./intermediate-mathematical-logic-zfc-00776b3b.md)
+- [x] [非经典逻辑简介（直觉主义逻辑、模态逻辑）](./intermediate-mathematical-logic-56fbc7d5.md)

@@ -133,15 +133,15 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 方程分类与一阶方程（特征线法）
-- [ ] 波动方程（d'Alembert 公式、能量方法）
-- [ ] 热传导方程（基本解、极值原理）
-- [ ] 拉普拉斯方程（调和函数、平均值性质）
-- [ ] 格林函数（Poisson 公式、镜像法）
-- [ ] 分离变量法与傅里叶级数（混合问题求解）
-- [ ] 傅里叶变换方法（广义函数初步）
-- [ ] Sobolev 空间（弱导数、嵌入定理）
-- [ ] 二阶椭圆方程弱解理论（Lax-Milgram、变分方法）
-- [ ] 正则性理论初步（椭圆正则性、Schauder 估计简介）
-- [ ] 抛物与双曲方程的弱解（Galerkin 方法）
-- [ ] 非线性方程初步（守恒律、激波、半线性方程）
+- [x] [方程分类与一阶方程（特征线法）](./draft-d9a0a0a648)
+- [x] [波动方程（d'Alembert 公式、能量方法）](./draft-4ac3954d9e)
+- [x] [热传导方程（基本解、极值原理）](./draft-bbd26a19ea9a.md)
+- [x] [拉普拉斯方程（调和函数、平均值性质）](./draft-87688415c5d7.md)
+- [x] [格林函数（Poisson 公式、镜像法）](./intermediate-pde-poisson-41b571b5.md)
+- [x] [分离变量法与傅里叶级数（混合问题求解）](./intermediate-pde-ebf46dee.md)
+- [x] [傅里叶变换方法（广义函数初步）](./intermediate-pde-40cec0f7.md)
+- [x] [Sobolev 空间（弱导数、嵌入定理）](./intermediate-pde-sobolev-c65bebfe.md)
+- [x] [二阶椭圆方程弱解理论（Lax-Milgram、变分方法）](./intermediate-pde-lax-milgram-0f4b4a86.md)
+- [x] [正则性理论初步（椭圆正则性、Schauder 估计简介）](./intermediate-pde-schauder-68676332.md)
+- [x] [抛物与双曲方程的弱解（Galerkin 方法）](./intermediate-pde-galerkin-8658b4d7.md)
+- [x] [非线性方程初步（守恒律、激波、半线性方程）](./intermediate-pde-32653094.md)

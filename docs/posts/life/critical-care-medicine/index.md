@@ -59,14 +59,14 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 重症医学概论（ICU 建制、病情评分 APACHE II/SOFA）
-- [ ] 休克与血流动力学监测（容量反应性、血管活性药物）
-- [ ] 呼吸衰竭与机械通气（ARDS、通气模式、撤机）
-- [ ] 脓毒症与脓毒性休克（Sepsis-3 定义、集束化治疗）
-- [ ] 急性肾损伤与 CRRT（KDIGO 分级、血液净化模式）
-- [ ] 多器官功能障碍综合征（MODS 机制与防治）
-- [ ] 重症营养与代谢（肠内肠外营养、应激性高血糖）
-- [ ] 重症凝血与输血（DIC、大出血方案、ECMO 概论）
-- [ ] 神经重症（颅压管理、镇静镇痛、脑死亡判定）
-- [ ] 重症感染与抗菌药物管理（耐药菌、经验性治疗）
-- [ ] ICU 伦理与人文（限制/撤除生命支持、重症康复）
+- [x] [重症医学概论（ICU 建制、病情评分 APACHE II/SOFA）](./draft-91a6c846a0)
+- [x] [休克与血流动力学监测（容量反应性、血管活性药物）](./draft-8c6df6b7e7)
+- [x] [呼吸衰竭与机械通气（ARDS、通气模式、撤机）](./draft-1b068fd2ca79.md)
+- [x] [脓毒症与脓毒性休克（Sepsis-3 定义、集束化治疗）](./life-critical-care-medicine-sepsis-3-77991b09.md)
+- [x] [急性肾损伤与 CRRT（KDIGO 分级、血液净化模式）](./life-critical-care-medicine-crrt-kdigo-0e3cf4ef.md)
+- [x] [多器官功能障碍综合征（MODS 机制与防治）](./life-critical-care-medicine-mods-b9cd06b0.md)
+- [x] [重症营养与代谢（肠内肠外营养、应激性高血糖）](./life-critical-care-medicine-b903c3b0.md)
+- [x] [重症凝血与输血（DIC、大出血方案、ECMO 概论）](./life-critical-care-medicine-dicecmo-08b64860.md)
+- [x] [神经重症（颅压管理、镇静镇痛、脑死亡判定）](./life-critical-care-medicine-97272f03.md)
+- [x] [重症感染与抗菌药物管理（耐药菌、经验性治疗）](./life-critical-care-medicine-6738d637.md)
+- [x] [ICU 伦理与人文（限制/撤除生命支持、重症康复）](./life-critical-care-medicine-icu-d0cdac23.md)

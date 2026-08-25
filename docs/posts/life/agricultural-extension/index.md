@@ -56,12 +56,12 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 农业推广概论（推广内涵、发展历史、推广体系）
-- [ ] 农民行为改变原理（行为理论、动机与需求分析）
-- [ ] 农业创新扩散理论（S 型曲线、采用者分类、意见领袖）
-- [ ] 农业推广沟通（传播学原理、沟通障碍与技巧）
-- [ ] 农业推广方法与方式（大众传播、群体指导、个别指导）
-- [ ] 农业推广项目计划与实施（参与式方法、项目管理）
-- [ ] 农业推广评价（过程评价、效果评价指标体系）
-- [ ] 农业推广组织与人员（推广机构、推广员素质、农民组织）
-- [ ] 现代农业推广模式（科技特派员、互联网+农技推广、国际比较）
+- [x] [农业推广概论（推广内涵、发展历史、推广体系）](./draft-dc29e97a5bea.md)
+- [x] [农民行为改变原理（行为理论、动机与需求分析）](./life-agricultural-extension-7fffa7ae.md)
+- [x] [农业创新扩散理论（S 型曲线、采用者分类、意见领袖）](./life-agricultural-extension-s-511a5819.md)
+- [x] [农业推广沟通（传播学原理、沟通障碍与技巧）](./life-agricultural-extension-074f2474.md)
+- [x] [农业推广方法与方式（大众传播、群体指导、个别指导）](./life-agricultural-extension-d1aee6af.md)
+- [x] [农业推广项目计划与实施（参与式方法、项目管理）](./life-agricultural-extension-25569db6.md)
+- [x] [农业推广评价（过程评价、效果评价指标体系）](./life-agricultural-extension-8fb98db2.md)
+- [x] [农业推广组织与人员（推广机构、推广员素质、农民组织）](./life-agricultural-extension-d9d60c05.md)
+- [x] [现代农业推广模式（科技特派员、互联网+农技推广、国际比较）](./life-agricultural-extension-095575ce.md)

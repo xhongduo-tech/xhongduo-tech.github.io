@@ -53,11 +53,11 @@ pageClass: plain-doc
 
 ### 第5篇
 
-- [ ] 特种经济动物概论（分类、产业价值与法规框架）
-- [ ] 毛皮动物养殖（水貂、狐、貉的繁育与饲养管理）
-- [ ] 鹿类养殖（梅花鹿、马鹿驯养与鹿茸生产）
-- [ ] 药用动物养殖（麝、蟾蜍、蝎、蜈蚣养殖与产品采集）
-- [ ] 珍禽养殖（雉鸡、鹌鹑、鸵鸟饲养管理）
-- [ ] 蜂与蚕（蜜蜂生物学、养蜂技术；家蚕饲养与制种）
-- [ ] 繁育与营养管理（发情鉴定、人工授精、饲料配制）
-- [ ] 疫病防控与福利（常见病防治、养殖福利与生物安全）
+- [x] [特种经济动物概论（分类、产业价值与法规框架）](./draft-d3b4d7ae55d4.md)
+- [x] [毛皮动物养殖（水貂、狐、貉的繁育与饲养管理）](./life-special-economic-animal-breeding-eac71ffb.md)
+- [x] [鹿类养殖（梅花鹿、马鹿驯养与鹿茸生产）](./life-special-economic-animal-breeding-a1c8eb42.md)
+- [x] [药用动物养殖（麝、蟾蜍、蝎、蜈蚣养殖与产品采集）](./life-special-economic-animal-breeding-957c8798.md)
+- [x] [珍禽养殖（雉鸡、鹌鹑、鸵鸟饲养管理）](./life-special-economic-animal-breeding-ebf86282.md)
+- [x] [蜂与蚕（蜜蜂生物学、养蜂技术；家蚕饲养与制种）](./life-special-economic-animal-breeding-9dec54ac.md)
+- [x] [繁育与营养管理（发情鉴定、人工授精、饲料配制）](./life-special-economic-animal-breeding-c8ca128b.md)
+- [x] [疫病防控与福利（常见病防治、养殖福利与生物安全）](./life-special-economic-animal-breeding-5c1c0cc5.md)

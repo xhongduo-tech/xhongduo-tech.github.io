@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="sans-serif">
+<title>生物等效性试验的药时曲线</title>
+<desc>口服单剂量后的血药浓度-时间曲线。淡色横带为治疗窗（介于最低有效浓度与最低中毒浓度之间）。蓝色实线为参比制剂（原研），红色虚线为受试制剂（仿制），两条曲线几乎重合，表示吸收程度与速度相当。竖虚线标示 Tmax，横虚线标示 Cmax，曲线下淡蓝色区域为 AUC。</desc>
+<rect x="0" y="0" width="720" height="420" fill="#faf9f5"/>
+<rect x="60" y="80" width="620" height="130" fill="#eef4f2"/>
+<g stroke="#999" stroke-width="1" stroke-dasharray="5 4">
+  <line x1="60" y1="80" x2="680" y2="80"/>
+  <line x1="60" y1="210" x2="680" y2="210"/>
+</g>
+<path d="M 60 330 C 140 330 200 160 295 115 C 400 195 520 285 660 322 L 660 330 L 60 330 Z" fill="#1f6f8b" opacity="0.15" stroke="none"/>
+<path d="M 60 330 C 140 330 200 160 295 115 C 400 195 520 285 660 322" fill="none" stroke="#1f6f8b" stroke-width="3"/>
+<path d="M 60 330 C 145 330 210 175 305 128 C 410 205 525 290 660 324" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8 5"/>
+<g stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 4">
+  <line x1="295" y1="115" x2="295" y2="330"/>
+  <line x1="60" y1="115" x2="295" y2="115"/>
+</g>
+<g fill="none" stroke="#333" stroke-width="2">
+  <line x1="60" y1="330" x2="680" y2="330"/>
+  <line x1="60" y1="330" x2="60" y2="60"/>
+</g>
+<g fill="#333" font-size="15">
+  <text x="45" y="336" text-anchor="end">0</text>
+  <text x="66" y="75">最低中毒浓度</text>
+  <text x="66" y="235">最低有效浓度</text>
+  <text x="303" y="108">Cmax</text>
+  <text x="303" y="348">Tmax</text>
+  <text x="410" y="245" fill="#1f6f8b">AUC</text>
+  <text transform="rotate(-90 28 190)" x="28" y="190" text-anchor="middle">血药浓度（C）</text>
+  <text x="370" y="410" text-anchor="middle">时间（t）</text>
+</g>
+<g font-size="15">
+  <line x1="410" y1="58" x2="470" y2="58" stroke="#1f6f8b" stroke-width="3"/>
+  <text x="478" y="63" fill="#333">参比制剂（原研）</text>
+  <line x1="410" y1="84" x2="470" y2="84" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="8 5"/>
+  <text x="478" y="89" fill="#333">受试制剂（仿制）</text>
+</g>
+</svg>

@@ -49,13 +49,13 @@ pageClass: plain-doc
 
 ### 第1篇
 
-- [ ] 质点运动学与牛顿力学回顾（矢量力学、守恒律）
-- [ ] 拉格朗日力学（虚功原理、达朗贝尔原理、欧拉-拉格朗日方程）
-- [ ] 小振动理论（简正坐标、简正模、耦合振子）
-- [ ] 中心力场与二体问题（开普勒问题、散射截面、卢瑟福散射）
-- [ ] 刚体动力学（欧拉角、惯性张量、欧拉方程、陀螺）
-- [ ] 哈密顿力学（正则方程、勒让德变换、相空间刘维尔定理）
-- [ ] 正则变换与哈密顿-雅可比方程（生成函数、作用量-角变量）
-- [ ] 连续介质力学与场论初步（弹性体、流体拉格朗日描述、诺特定理）
-- [ ] 非线性动力学与混沌（相图、分岔、Lyapunov 指数、KAM 定理）
-- [ ] 相对论性力学（四维形式、协变拉格朗日量）
+- [x] [质点运动学与牛顿力学回顾（矢量力学、守恒律）](./draft-0980a924a8)
+- [x] [拉格朗日力学（虚功原理、达朗贝尔原理、欧拉-拉格朗日方程）](./draft-d4a00120cb72.md)
+- [x] [小振动理论（简正坐标、简正模、耦合振子）](./intermediate-theoretical-mechanics-d2997be1.md)
+- [x] [中心力场与二体问题（开普勒问题、散射截面、卢瑟福散射）](./intermediate-theoretical-mechanics-e70f5eba.md)
+- [x] [刚体动力学（欧拉角、惯性张量、欧拉方程、陀螺）](./intermediate-theoretical-mechanics-224b60a0.md)
+- [x] [哈密顿力学（正则方程、勒让德变换、相空间刘维尔定理）](./intermediate-theoretical-mechanics-04ac9dfd.md)
+- [x] [正则变换与哈密顿-雅可比方程（生成函数、作用量-角变量）](./intermediate-theoretical-mechanics-a7e7bc7c.md)
+- [x] [连续介质力学与场论初步（弹性体、流体拉格朗日描述、诺特定理）](./intermediate-theoretical-mechanics-be07e5f7.md)
+- [x] [非线性动力学与混沌（相图、分岔、Lyapunov 指数、KAM 定理）](./intermediate-theoretical-mechanics-lyapunov-kam-3774513e.md)
+- [x] [相对论性力学（四维形式、协变拉格朗日量）](./intermediate-theoretical-mechanics-525702cd.md)
